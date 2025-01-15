@@ -109,9 +109,9 @@ instance Prelude.Hashable NodeProperties where
 
 instance Prelude.NFData NodeProperties where
   rnf NodeProperties' {..} =
-    Prelude.rnf numNodes
-      `Prelude.seq` Prelude.rnf mainNode
-      `Prelude.seq` Prelude.rnf nodeRangeProperties
+    Prelude.rnf numNodes `Prelude.seq`
+      Prelude.rnf mainNode `Prelude.seq`
+        Prelude.rnf nodeRangeProperties
 
 instance Data.ToJSON NodeProperties where
   toJSON NodeProperties' {..} =

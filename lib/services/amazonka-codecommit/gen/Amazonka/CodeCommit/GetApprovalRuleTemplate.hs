@@ -184,5 +184,5 @@ instance
     GetApprovalRuleTemplateResponse
   where
   rnf GetApprovalRuleTemplateResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf approvalRuleTemplate
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf approvalRuleTemplate

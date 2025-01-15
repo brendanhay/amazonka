@@ -98,9 +98,9 @@ instance Prelude.Hashable UnaggregatedField where
 
 instance Prelude.NFData UnaggregatedField where
   rnf UnaggregatedField' {..} =
-    Prelude.rnf formatConfiguration
-      `Prelude.seq` Prelude.rnf fieldId
-      `Prelude.seq` Prelude.rnf column
+    Prelude.rnf formatConfiguration `Prelude.seq`
+      Prelude.rnf fieldId `Prelude.seq`
+        Prelude.rnf column
 
 instance Data.ToJSON UnaggregatedField where
   toJSON UnaggregatedField' {..} =

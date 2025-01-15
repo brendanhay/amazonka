@@ -322,12 +322,12 @@ instance
 
 instance Prelude.NFData GetCostAndUsageWithResources where
   rnf GetCostAndUsageWithResources' {..} =
-    Prelude.rnf groupBy
-      `Prelude.seq` Prelude.rnf metrics
-      `Prelude.seq` Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf timePeriod
-      `Prelude.seq` Prelude.rnf granularity
-      `Prelude.seq` Prelude.rnf filter'
+    Prelude.rnf groupBy `Prelude.seq`
+      Prelude.rnf metrics `Prelude.seq`
+        Prelude.rnf nextPageToken `Prelude.seq`
+          Prelude.rnf timePeriod `Prelude.seq`
+            Prelude.rnf granularity `Prelude.seq`
+              Prelude.rnf filter'
 
 instance Data.ToHeaders GetCostAndUsageWithResources where
   toHeaders =
@@ -446,8 +446,8 @@ instance
     GetCostAndUsageWithResourcesResponse
   where
   rnf GetCostAndUsageWithResourcesResponse' {..} =
-    Prelude.rnf dimensionValueAttributes
-      `Prelude.seq` Prelude.rnf groupDefinitions
-      `Prelude.seq` Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf resultsByTime
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dimensionValueAttributes `Prelude.seq`
+      Prelude.rnf groupDefinitions `Prelude.seq`
+        Prelude.rnf nextPageToken `Prelude.seq`
+          Prelude.rnf resultsByTime `Prelude.seq`
+            Prelude.rnf httpStatus

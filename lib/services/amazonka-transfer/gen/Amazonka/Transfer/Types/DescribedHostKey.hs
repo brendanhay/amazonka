@@ -174,10 +174,10 @@ instance Prelude.Hashable DescribedHostKey where
 
 instance Prelude.NFData DescribedHostKey where
   rnf DescribedHostKey' {..} =
-    Prelude.rnf dateImported
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf hostKeyFingerprint
-      `Prelude.seq` Prelude.rnf hostKeyId
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf dateImported `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf hostKeyFingerprint `Prelude.seq`
+          Prelude.rnf hostKeyId `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf type' `Prelude.seq`
+                Prelude.rnf arn

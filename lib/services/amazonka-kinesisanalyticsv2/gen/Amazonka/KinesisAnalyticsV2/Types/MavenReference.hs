@@ -98,9 +98,9 @@ instance Prelude.Hashable MavenReference where
 
 instance Prelude.NFData MavenReference where
   rnf MavenReference' {..} =
-    Prelude.rnf groupId
-      `Prelude.seq` Prelude.rnf artifactId
-      `Prelude.seq` Prelude.rnf version
+    Prelude.rnf groupId `Prelude.seq`
+      Prelude.rnf artifactId `Prelude.seq`
+        Prelude.rnf version
 
 instance Data.ToJSON MavenReference where
   toJSON MavenReference' {..} =

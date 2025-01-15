@@ -242,16 +242,16 @@ instance
     CreateVerifiedAccessTrustProvider
   where
   rnf CreateVerifiedAccessTrustProvider' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf deviceOptions
-      `Prelude.seq` Prelude.rnf deviceTrustProviderType
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf oidcOptions
-      `Prelude.seq` Prelude.rnf tagSpecifications
-      `Prelude.seq` Prelude.rnf userTrustProviderType
-      `Prelude.seq` Prelude.rnf trustProviderType
-      `Prelude.seq` Prelude.rnf policyReferenceName
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf deviceOptions `Prelude.seq`
+          Prelude.rnf deviceTrustProviderType `Prelude.seq`
+            Prelude.rnf dryRun `Prelude.seq`
+              Prelude.rnf oidcOptions `Prelude.seq`
+                Prelude.rnf tagSpecifications `Prelude.seq`
+                  Prelude.rnf userTrustProviderType `Prelude.seq`
+                    Prelude.rnf trustProviderType `Prelude.seq`
+                      Prelude.rnf policyReferenceName
 
 instance
   Data.ToHeaders
@@ -339,5 +339,5 @@ instance
     CreateVerifiedAccessTrustProviderResponse
   where
   rnf CreateVerifiedAccessTrustProviderResponse' {..} =
-    Prelude.rnf verifiedAccessTrustProvider
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf verifiedAccessTrustProvider `Prelude.seq`
+      Prelude.rnf httpStatus

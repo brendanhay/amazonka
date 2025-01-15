@@ -195,11 +195,11 @@ instance Prelude.Hashable TypeVersionSummary where
 
 instance Prelude.NFData TypeVersionSummary where
   rnf TypeVersionSummary' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf isDefaultVersion
-      `Prelude.seq` Prelude.rnf publicVersionNumber
-      `Prelude.seq` Prelude.rnf timeCreated
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf typeName
-      `Prelude.seq` Prelude.rnf versionId
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf isDefaultVersion `Prelude.seq`
+          Prelude.rnf publicVersionNumber `Prelude.seq`
+            Prelude.rnf timeCreated `Prelude.seq`
+              Prelude.rnf type' `Prelude.seq`
+                Prelude.rnf typeName `Prelude.seq`
+                  Prelude.rnf versionId

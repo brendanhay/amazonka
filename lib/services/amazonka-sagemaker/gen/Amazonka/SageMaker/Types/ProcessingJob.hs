@@ -326,25 +326,25 @@ instance Prelude.Hashable ProcessingJob where
 
 instance Prelude.NFData ProcessingJob where
   rnf ProcessingJob' {..} =
-    Prelude.rnf appSpecification
-      `Prelude.seq` Prelude.rnf autoMLJobArn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf environment
-      `Prelude.seq` Prelude.rnf exitMessage
-      `Prelude.seq` Prelude.rnf experimentConfig
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf monitoringScheduleArn
-      `Prelude.seq` Prelude.rnf networkConfig
-      `Prelude.seq` Prelude.rnf processingEndTime
-      `Prelude.seq` Prelude.rnf processingInputs
-      `Prelude.seq` Prelude.rnf processingJobArn
-      `Prelude.seq` Prelude.rnf processingJobName
-      `Prelude.seq` Prelude.rnf processingJobStatus
-      `Prelude.seq` Prelude.rnf processingOutputConfig
-      `Prelude.seq` Prelude.rnf processingResources
-      `Prelude.seq` Prelude.rnf processingStartTime
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf stoppingCondition
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf trainingJobArn
+    Prelude.rnf appSpecification `Prelude.seq`
+      Prelude.rnf autoMLJobArn `Prelude.seq`
+        Prelude.rnf creationTime `Prelude.seq`
+          Prelude.rnf environment `Prelude.seq`
+            Prelude.rnf exitMessage `Prelude.seq`
+              Prelude.rnf experimentConfig `Prelude.seq`
+                Prelude.rnf failureReason `Prelude.seq`
+                  Prelude.rnf lastModifiedTime `Prelude.seq`
+                    Prelude.rnf monitoringScheduleArn `Prelude.seq`
+                      Prelude.rnf networkConfig `Prelude.seq`
+                        Prelude.rnf processingEndTime `Prelude.seq`
+                          Prelude.rnf processingInputs `Prelude.seq`
+                            Prelude.rnf processingJobArn `Prelude.seq`
+                              Prelude.rnf processingJobName `Prelude.seq`
+                                Prelude.rnf processingJobStatus `Prelude.seq`
+                                  Prelude.rnf processingOutputConfig `Prelude.seq`
+                                    Prelude.rnf processingResources `Prelude.seq`
+                                      Prelude.rnf processingStartTime `Prelude.seq`
+                                        Prelude.rnf roleArn `Prelude.seq`
+                                          Prelude.rnf stoppingCondition `Prelude.seq`
+                                            Prelude.rnf tags `Prelude.seq`
+                                              Prelude.rnf trainingJobArn

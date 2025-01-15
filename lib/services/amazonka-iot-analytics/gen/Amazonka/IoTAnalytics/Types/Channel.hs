@@ -177,11 +177,11 @@ instance Prelude.Hashable Channel where
 
 instance Prelude.NFData Channel where
   rnf Channel' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf lastMessageArrivalTime
-      `Prelude.seq` Prelude.rnf lastUpdateTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf retentionPeriod
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf storage
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf lastMessageArrivalTime `Prelude.seq`
+          Prelude.rnf lastUpdateTime `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf retentionPeriod `Prelude.seq`
+                Prelude.rnf status `Prelude.seq`
+                  Prelude.rnf storage

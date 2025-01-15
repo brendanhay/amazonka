@@ -240,11 +240,11 @@ instance
     ModifyCapacityReservationFleet
   where
   rnf ModifyCapacityReservationFleet' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf endDate
-      `Prelude.seq` Prelude.rnf removeEndDate
-      `Prelude.seq` Prelude.rnf totalTargetCapacity
-      `Prelude.seq` Prelude.rnf capacityReservationFleetId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf endDate `Prelude.seq`
+        Prelude.rnf removeEndDate `Prelude.seq`
+          Prelude.rnf totalTargetCapacity `Prelude.seq`
+            Prelude.rnf capacityReservationFleetId
 
 instance
   Data.ToHeaders
@@ -317,5 +317,5 @@ instance
     ModifyCapacityReservationFleetResponse
   where
   rnf ModifyCapacityReservationFleetResponse' {..} =
-    Prelude.rnf return'
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf return' `Prelude.seq`
+      Prelude.rnf httpStatus

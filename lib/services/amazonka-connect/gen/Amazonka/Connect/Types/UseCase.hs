@@ -95,6 +95,6 @@ instance Prelude.Hashable UseCase where
 
 instance Prelude.NFData UseCase where
   rnf UseCase' {..} =
-    Prelude.rnf useCaseArn
-      `Prelude.seq` Prelude.rnf useCaseId
-      `Prelude.seq` Prelude.rnf useCaseType
+    Prelude.rnf useCaseArn `Prelude.seq`
+      Prelude.rnf useCaseId `Prelude.seq`
+        Prelude.rnf useCaseType

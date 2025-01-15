@@ -120,9 +120,9 @@ instance Prelude.Hashable CreateConfig where
 
 instance Prelude.NFData CreateConfig where
   rnf CreateConfig' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf configData
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf configData `Prelude.seq`
+        Prelude.rnf name
 
 instance Data.ToHeaders CreateConfig where
   toHeaders =

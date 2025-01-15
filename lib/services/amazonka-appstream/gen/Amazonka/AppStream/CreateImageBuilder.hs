@@ -521,19 +521,19 @@ instance Prelude.Hashable CreateImageBuilder where
 
 instance Prelude.NFData CreateImageBuilder where
   rnf CreateImageBuilder' {..} =
-    Prelude.rnf accessEndpoints
-      `Prelude.seq` Prelude.rnf appstreamAgentVersion
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf domainJoinInfo
-      `Prelude.seq` Prelude.rnf enableDefaultInternetAccess
-      `Prelude.seq` Prelude.rnf iamRoleArn
-      `Prelude.seq` Prelude.rnf imageArn
-      `Prelude.seq` Prelude.rnf imageName
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf vpcConfig
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf instanceType
+    Prelude.rnf accessEndpoints `Prelude.seq`
+      Prelude.rnf appstreamAgentVersion `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf displayName `Prelude.seq`
+            Prelude.rnf domainJoinInfo `Prelude.seq`
+              Prelude.rnf enableDefaultInternetAccess `Prelude.seq`
+                Prelude.rnf iamRoleArn `Prelude.seq`
+                  Prelude.rnf imageArn `Prelude.seq`
+                    Prelude.rnf imageName `Prelude.seq`
+                      Prelude.rnf tags `Prelude.seq`
+                        Prelude.rnf vpcConfig `Prelude.seq`
+                          Prelude.rnf name `Prelude.seq`
+                            Prelude.rnf instanceType
 
 instance Data.ToHeaders CreateImageBuilder where
   toHeaders =
@@ -621,5 +621,5 @@ createImageBuilderResponse_httpStatus = Lens.lens (\CreateImageBuilderResponse' 
 
 instance Prelude.NFData CreateImageBuilderResponse where
   rnf CreateImageBuilderResponse' {..} =
-    Prelude.rnf imageBuilder
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf imageBuilder `Prelude.seq`
+      Prelude.rnf httpStatus

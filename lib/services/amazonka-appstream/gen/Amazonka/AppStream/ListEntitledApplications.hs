@@ -143,10 +143,10 @@ instance Prelude.Hashable ListEntitledApplications where
 
 instance Prelude.NFData ListEntitledApplications where
   rnf ListEntitledApplications' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf stackName
-      `Prelude.seq` Prelude.rnf entitlementName
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf stackName `Prelude.seq`
+          Prelude.rnf entitlementName
 
 instance Data.ToHeaders ListEntitledApplications where
   toHeaders =
@@ -237,6 +237,6 @@ instance
     ListEntitledApplicationsResponse
   where
   rnf ListEntitledApplicationsResponse' {..} =
-    Prelude.rnf entitledApplications
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf entitledApplications `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

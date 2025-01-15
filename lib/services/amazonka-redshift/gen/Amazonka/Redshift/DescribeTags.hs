@@ -305,12 +305,12 @@ instance Core.AWSPager DescribeTags where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeTags_marker
-          Lens..~ rs
-          Lens.^? describeTagsResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeTags_marker
+              Lens..~ rs
+              Lens.^? describeTagsResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeTags where
   type AWSResponse DescribeTags = DescribeTagsResponse
@@ -322,9 +322,7 @@ instance Core.AWSRequest DescribeTags where
       ( \s h x ->
           DescribeTagsResponse'
             Prelude.<$> (x Data..@? "Marker")
-            Prelude.<*> ( x
-                            Data..@? "TaggedResources"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "TaggedResources" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "TaggedResource")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -342,12 +340,12 @@ instance Prelude.Hashable DescribeTags where
 
 instance Prelude.NFData DescribeTags where
   rnf DescribeTags' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf resourceName
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf tagKeys
-      `Prelude.seq` Prelude.rnf tagValues
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf maxRecords `Prelude.seq`
+        Prelude.rnf resourceName `Prelude.seq`
+          Prelude.rnf resourceType `Prelude.seq`
+            Prelude.rnf tagKeys `Prelude.seq`
+              Prelude.rnf tagValues
 
 instance Data.ToHeaders DescribeTags where
   toHeaders = Prelude.const Prelude.mempty
@@ -440,6 +438,6 @@ describeTagsResponse_httpStatus = Lens.lens (\DescribeTagsResponse' {httpStatus}
 
 instance Prelude.NFData DescribeTagsResponse where
   rnf DescribeTagsResponse' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf taggedResources
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf taggedResources `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -468,11 +468,11 @@ instance Prelude.Hashable ScheduleRunTest where
 
 instance Prelude.NFData ScheduleRunTest where
   rnf ScheduleRunTest' {..} =
-    Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf testPackageArn
-      `Prelude.seq` Prelude.rnf testSpecArn
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf filter' `Prelude.seq`
+      Prelude.rnf parameters `Prelude.seq`
+        Prelude.rnf testPackageArn `Prelude.seq`
+          Prelude.rnf testSpecArn `Prelude.seq`
+            Prelude.rnf type'
 
 instance Data.ToJSON ScheduleRunTest where
   toJSON ScheduleRunTest' {..} =

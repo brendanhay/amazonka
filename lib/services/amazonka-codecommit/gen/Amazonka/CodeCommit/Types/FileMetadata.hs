@@ -98,6 +98,6 @@ instance Prelude.Hashable FileMetadata where
 
 instance Prelude.NFData FileMetadata where
   rnf FileMetadata' {..} =
-    Prelude.rnf absolutePath
-      `Prelude.seq` Prelude.rnf blobId
-      `Prelude.seq` Prelude.rnf fileMode
+    Prelude.rnf absolutePath `Prelude.seq`
+      Prelude.rnf blobId `Prelude.seq`
+        Prelude.rnf fileMode

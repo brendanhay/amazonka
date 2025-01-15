@@ -143,9 +143,9 @@ instance
     UpdateInstanceCustomHealthStatus
   where
   rnf UpdateInstanceCustomHealthStatus' {..} =
-    Prelude.rnf serviceId
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf serviceId `Prelude.seq`
+      Prelude.rnf instanceId `Prelude.seq`
+        Prelude.rnf status
 
 instance
   Data.ToHeaders

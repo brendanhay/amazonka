@@ -88,5 +88,5 @@ instance Prelude.Hashable ResourceErrorsDetails where
 
 instance Prelude.NFData ResourceErrorsDetails where
   rnf ResourceErrorsDetails' {..} =
-    Prelude.rnf hasMoreErrors
-      `Prelude.seq` Prelude.rnf resourceErrors
+    Prelude.rnf hasMoreErrors `Prelude.seq`
+      Prelude.rnf resourceErrors

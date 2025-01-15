@@ -352,24 +352,24 @@ instance Prelude.Hashable Device where
 
 instance Prelude.NFData Device where
   rnf Device' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf availability
-      `Prelude.seq` Prelude.rnf carrier
-      `Prelude.seq` Prelude.rnf cpu
-      `Prelude.seq` Prelude.rnf fleetName
-      `Prelude.seq` Prelude.rnf fleetType
-      `Prelude.seq` Prelude.rnf formFactor
-      `Prelude.seq` Prelude.rnf heapSize
-      `Prelude.seq` Prelude.rnf image
-      `Prelude.seq` Prelude.rnf instances
-      `Prelude.seq` Prelude.rnf manufacturer
-      `Prelude.seq` Prelude.rnf memory
-      `Prelude.seq` Prelude.rnf model
-      `Prelude.seq` Prelude.rnf modelId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf os
-      `Prelude.seq` Prelude.rnf platform
-      `Prelude.seq` Prelude.rnf radio
-      `Prelude.seq` Prelude.rnf remoteAccessEnabled
-      `Prelude.seq` Prelude.rnf remoteDebugEnabled
-      `Prelude.seq` Prelude.rnf resolution
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf availability `Prelude.seq`
+        Prelude.rnf carrier `Prelude.seq`
+          Prelude.rnf cpu `Prelude.seq`
+            Prelude.rnf fleetName `Prelude.seq`
+              Prelude.rnf fleetType `Prelude.seq`
+                Prelude.rnf formFactor `Prelude.seq`
+                  Prelude.rnf heapSize `Prelude.seq`
+                    Prelude.rnf image `Prelude.seq`
+                      Prelude.rnf instances `Prelude.seq`
+                        Prelude.rnf manufacturer `Prelude.seq`
+                          Prelude.rnf memory `Prelude.seq`
+                            Prelude.rnf model `Prelude.seq`
+                              Prelude.rnf modelId `Prelude.seq`
+                                Prelude.rnf name `Prelude.seq`
+                                  Prelude.rnf os `Prelude.seq`
+                                    Prelude.rnf platform `Prelude.seq`
+                                      Prelude.rnf radio `Prelude.seq`
+                                        Prelude.rnf remoteAccessEnabled `Prelude.seq`
+                                          Prelude.rnf remoteDebugEnabled `Prelude.seq`
+                                            Prelude.rnf resolution

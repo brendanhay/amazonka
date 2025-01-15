@@ -103,9 +103,9 @@ instance Prelude.Hashable DnsServiceDiscovery where
 
 instance Prelude.NFData DnsServiceDiscovery where
   rnf DnsServiceDiscovery' {..} =
-    Prelude.rnf ipPreference
-      `Prelude.seq` Prelude.rnf responseType
-      `Prelude.seq` Prelude.rnf hostname
+    Prelude.rnf ipPreference `Prelude.seq`
+      Prelude.rnf responseType `Prelude.seq`
+        Prelude.rnf hostname
 
 instance Data.ToJSON DnsServiceDiscovery where
   toJSON DnsServiceDiscovery' {..} =

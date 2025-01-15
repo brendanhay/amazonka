@@ -139,9 +139,7 @@ instance Core.AWSRequest DescribeChangeSetHooks where
           DescribeChangeSetHooksResponse'
             Prelude.<$> (x Data..@? "ChangeSetId")
             Prelude.<*> (x Data..@? "ChangeSetName")
-            Prelude.<*> ( x
-                            Data..@? "Hooks"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "Hooks" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (x Data..@? "NextToken")
@@ -161,10 +159,10 @@ instance Prelude.Hashable DescribeChangeSetHooks where
 
 instance Prelude.NFData DescribeChangeSetHooks where
   rnf DescribeChangeSetHooks' {..} =
-    Prelude.rnf logicalResourceId
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf stackName
-      `Prelude.seq` Prelude.rnf changeSetName
+    Prelude.rnf logicalResourceId `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf stackName `Prelude.seq`
+          Prelude.rnf changeSetName
 
 instance Data.ToHeaders DescribeChangeSetHooks where
   toHeaders = Prelude.const Prelude.mempty
@@ -283,11 +281,11 @@ instance
     DescribeChangeSetHooksResponse
   where
   rnf DescribeChangeSetHooksResponse' {..} =
-    Prelude.rnf changeSetId
-      `Prelude.seq` Prelude.rnf changeSetName
-      `Prelude.seq` Prelude.rnf hooks
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf stackId
-      `Prelude.seq` Prelude.rnf stackName
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf changeSetId `Prelude.seq`
+      Prelude.rnf changeSetName `Prelude.seq`
+        Prelude.rnf hooks `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf stackId `Prelude.seq`
+              Prelude.rnf stackName `Prelude.seq`
+                Prelude.rnf status `Prelude.seq`
+                  Prelude.rnf httpStatus

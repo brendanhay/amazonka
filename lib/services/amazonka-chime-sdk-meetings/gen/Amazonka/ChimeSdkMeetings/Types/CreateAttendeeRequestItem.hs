@@ -79,8 +79,8 @@ instance Prelude.Hashable CreateAttendeeRequestItem where
 
 instance Prelude.NFData CreateAttendeeRequestItem where
   rnf CreateAttendeeRequestItem' {..} =
-    Prelude.rnf capabilities
-      `Prelude.seq` Prelude.rnf externalUserId
+    Prelude.rnf capabilities `Prelude.seq`
+      Prelude.rnf externalUserId
 
 instance Data.ToJSON CreateAttendeeRequestItem where
   toJSON CreateAttendeeRequestItem' {..} =

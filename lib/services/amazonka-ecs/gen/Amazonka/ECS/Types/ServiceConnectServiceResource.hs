@@ -134,5 +134,5 @@ instance
 
 instance Prelude.NFData ServiceConnectServiceResource where
   rnf ServiceConnectServiceResource' {..} =
-    Prelude.rnf discoveryArn
-      `Prelude.seq` Prelude.rnf discoveryName
+    Prelude.rnf discoveryArn `Prelude.seq`
+      Prelude.rnf discoveryName

@@ -131,9 +131,9 @@ instance Prelude.Hashable DismissUserContact where
 
 instance Prelude.NFData DismissUserContact where
   rnf DismissUserContact' {..} =
-    Prelude.rnf userId
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf contactId
+    Prelude.rnf userId `Prelude.seq`
+      Prelude.rnf instanceId `Prelude.seq`
+        Prelude.rnf contactId
 
 instance Data.ToHeaders DismissUserContact where
   toHeaders =

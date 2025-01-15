@@ -83,8 +83,8 @@ instance Prelude.Hashable TreeMapSortConfiguration where
 
 instance Prelude.NFData TreeMapSortConfiguration where
   rnf TreeMapSortConfiguration' {..} =
-    Prelude.rnf treeMapGroupItemsLimitConfiguration
-      `Prelude.seq` Prelude.rnf treeMapSort
+    Prelude.rnf treeMapGroupItemsLimitConfiguration `Prelude.seq`
+      Prelude.rnf treeMapSort
 
 instance Data.ToJSON TreeMapSortConfiguration where
   toJSON TreeMapSortConfiguration' {..} =

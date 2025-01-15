@@ -116,8 +116,8 @@ instance Prelude.Hashable ListLoggingConfigurations where
 
 instance Prelude.NFData ListLoggingConfigurations where
   rnf ListLoggingConfigurations' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListLoggingConfigurations where
   toHeaders =
@@ -207,6 +207,6 @@ instance
     ListLoggingConfigurationsResponse
   where
   rnf ListLoggingConfigurationsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf loggingConfigurations
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf loggingConfigurations

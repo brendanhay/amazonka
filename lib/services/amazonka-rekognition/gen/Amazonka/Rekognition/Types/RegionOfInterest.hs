@@ -92,8 +92,8 @@ instance Prelude.Hashable RegionOfInterest where
 
 instance Prelude.NFData RegionOfInterest where
   rnf RegionOfInterest' {..} =
-    Prelude.rnf boundingBox
-      `Prelude.seq` Prelude.rnf polygon
+    Prelude.rnf boundingBox `Prelude.seq`
+      Prelude.rnf polygon
 
 instance Data.ToJSON RegionOfInterest where
   toJSON RegionOfInterest' {..} =

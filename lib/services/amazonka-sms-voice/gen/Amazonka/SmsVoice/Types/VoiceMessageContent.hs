@@ -82,9 +82,9 @@ instance Prelude.Hashable VoiceMessageContent where
 
 instance Prelude.NFData VoiceMessageContent where
   rnf VoiceMessageContent' {..} =
-    Prelude.rnf callInstructionsMessage
-      `Prelude.seq` Prelude.rnf plainTextMessage
-      `Prelude.seq` Prelude.rnf sSMLMessage
+    Prelude.rnf callInstructionsMessage `Prelude.seq`
+      Prelude.rnf plainTextMessage `Prelude.seq`
+        Prelude.rnf sSMLMessage
 
 instance Data.ToJSON VoiceMessageContent where
   toJSON VoiceMessageContent' {..} =

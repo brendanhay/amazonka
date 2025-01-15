@@ -159,5 +159,5 @@ getTargetResourceTypeResponse_httpStatus = Lens.lens (\GetTargetResourceTypeResp
 
 instance Prelude.NFData GetTargetResourceTypeResponse where
   rnf GetTargetResourceTypeResponse' {..} =
-    Prelude.rnf targetResourceType
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf targetResourceType `Prelude.seq`
+      Prelude.rnf httpStatus

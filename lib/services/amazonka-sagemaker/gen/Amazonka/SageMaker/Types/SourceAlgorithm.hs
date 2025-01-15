@@ -109,8 +109,8 @@ instance Prelude.Hashable SourceAlgorithm where
 
 instance Prelude.NFData SourceAlgorithm where
   rnf SourceAlgorithm' {..} =
-    Prelude.rnf modelDataUrl
-      `Prelude.seq` Prelude.rnf algorithmName
+    Prelude.rnf modelDataUrl `Prelude.seq`
+      Prelude.rnf algorithmName
 
 instance Data.ToJSON SourceAlgorithm where
   toJSON SourceAlgorithm' {..} =

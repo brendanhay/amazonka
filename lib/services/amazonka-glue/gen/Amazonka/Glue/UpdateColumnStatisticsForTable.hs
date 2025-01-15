@@ -152,10 +152,10 @@ instance
     UpdateColumnStatisticsForTable
   where
   rnf UpdateColumnStatisticsForTable' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf tableName
-      `Prelude.seq` Prelude.rnf columnStatisticsList
+    Prelude.rnf catalogId `Prelude.seq`
+      Prelude.rnf databaseName `Prelude.seq`
+        Prelude.rnf tableName `Prelude.seq`
+          Prelude.rnf columnStatisticsList
 
 instance
   Data.ToHeaders
@@ -240,5 +240,5 @@ instance
     UpdateColumnStatisticsForTableResponse
   where
   rnf UpdateColumnStatisticsForTableResponse' {..} =
-    Prelude.rnf errors
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf errors `Prelude.seq`
+      Prelude.rnf httpStatus

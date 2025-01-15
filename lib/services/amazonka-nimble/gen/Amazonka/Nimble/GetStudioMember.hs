@@ -110,8 +110,8 @@ instance Prelude.Hashable GetStudioMember where
 
 instance Prelude.NFData GetStudioMember where
   rnf GetStudioMember' {..} =
-    Prelude.rnf principalId
-      `Prelude.seq` Prelude.rnf studioId
+    Prelude.rnf principalId `Prelude.seq`
+      Prelude.rnf studioId
 
 instance Data.ToHeaders GetStudioMember where
   toHeaders =
@@ -176,5 +176,5 @@ getStudioMemberResponse_httpStatus = Lens.lens (\GetStudioMemberResponse' {httpS
 
 instance Prelude.NFData GetStudioMemberResponse where
   rnf GetStudioMemberResponse' {..} =
-    Prelude.rnf member
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf member `Prelude.seq`
+      Prelude.rnf httpStatus

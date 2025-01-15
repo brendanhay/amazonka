@@ -99,8 +99,8 @@ instance Prelude.Hashable TimeSeriesTransformation where
 
 instance Prelude.NFData TimeSeriesTransformation where
   rnf TimeSeriesTransformation' {..} =
-    Prelude.rnf action
-      `Prelude.seq` Prelude.rnf timeSeriesConditions
+    Prelude.rnf action `Prelude.seq`
+      Prelude.rnf timeSeriesConditions
 
 instance Data.ToJSON TimeSeriesTransformation where
   toJSON TimeSeriesTransformation' {..} =

@@ -181,14 +181,14 @@ instance Prelude.Hashable Connection where
 
 instance Prelude.NFData Connection where
   rnf Connection' {..} =
-    Prelude.rnf connectedDeviceId
-      `Prelude.seq` Prelude.rnf connectedLinkId
-      `Prelude.seq` Prelude.rnf connectionArn
-      `Prelude.seq` Prelude.rnf connectionId
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf deviceId
-      `Prelude.seq` Prelude.rnf globalNetworkId
-      `Prelude.seq` Prelude.rnf linkId
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf connectedDeviceId `Prelude.seq`
+      Prelude.rnf connectedLinkId `Prelude.seq`
+        Prelude.rnf connectionArn `Prelude.seq`
+          Prelude.rnf connectionId `Prelude.seq`
+            Prelude.rnf createdAt `Prelude.seq`
+              Prelude.rnf description `Prelude.seq`
+                Prelude.rnf deviceId `Prelude.seq`
+                  Prelude.rnf globalNetworkId `Prelude.seq`
+                    Prelude.rnf linkId `Prelude.seq`
+                      Prelude.rnf state `Prelude.seq`
+                        Prelude.rnf tags

@@ -103,6 +103,6 @@ instance
     TransitGatewayVpcAttachmentOptions
   where
   rnf TransitGatewayVpcAttachmentOptions' {..} =
-    Prelude.rnf applianceModeSupport
-      `Prelude.seq` Prelude.rnf dnsSupport
-      `Prelude.seq` Prelude.rnf ipv6Support
+    Prelude.rnf applianceModeSupport `Prelude.seq`
+      Prelude.rnf dnsSupport `Prelude.seq`
+        Prelude.rnf ipv6Support

@@ -208,12 +208,12 @@ instance Core.AWSPager ListTaskDefinitionFamilies where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listTaskDefinitionFamilies_nextToken
-          Lens..~ rs
-          Lens.^? listTaskDefinitionFamiliesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listTaskDefinitionFamilies_nextToken
+              Lens..~ rs
+              Lens.^? listTaskDefinitionFamiliesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListTaskDefinitionFamilies where
   type
@@ -240,10 +240,10 @@ instance Prelude.Hashable ListTaskDefinitionFamilies where
 
 instance Prelude.NFData ListTaskDefinitionFamilies where
   rnf ListTaskDefinitionFamilies' {..} =
-    Prelude.rnf familyPrefix
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf familyPrefix `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf status
 
 instance Data.ToHeaders ListTaskDefinitionFamilies where
   toHeaders =
@@ -345,6 +345,6 @@ instance
     ListTaskDefinitionFamiliesResponse
   where
   rnf ListTaskDefinitionFamiliesResponse' {..} =
-    Prelude.rnf families
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf families `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

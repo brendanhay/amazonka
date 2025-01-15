@@ -106,10 +106,10 @@ instance Prelude.Hashable RenameField where
 
 instance Prelude.NFData RenameField where
   rnf RenameField' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf inputs
-      `Prelude.seq` Prelude.rnf sourcePath
-      `Prelude.seq` Prelude.rnf targetPath
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf inputs `Prelude.seq`
+        Prelude.rnf sourcePath `Prelude.seq`
+          Prelude.rnf targetPath
 
 instance Data.ToJSON RenameField where
   toJSON RenameField' {..} =

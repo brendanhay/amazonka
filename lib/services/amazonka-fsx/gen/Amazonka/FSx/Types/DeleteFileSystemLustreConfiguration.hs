@@ -114,8 +114,8 @@ instance
     DeleteFileSystemLustreConfiguration
   where
   rnf DeleteFileSystemLustreConfiguration' {..} =
-    Prelude.rnf finalBackupTags
-      `Prelude.seq` Prelude.rnf skipFinalBackup
+    Prelude.rnf finalBackupTags `Prelude.seq`
+      Prelude.rnf skipFinalBackup
 
 instance
   Data.ToJSON

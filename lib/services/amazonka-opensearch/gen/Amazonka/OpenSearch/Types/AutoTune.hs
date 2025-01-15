@@ -83,5 +83,5 @@ instance Prelude.Hashable AutoTune where
 
 instance Prelude.NFData AutoTune where
   rnf AutoTune' {..} =
-    Prelude.rnf autoTuneDetails
-      `Prelude.seq` Prelude.rnf autoTuneType
+    Prelude.rnf autoTuneDetails `Prelude.seq`
+      Prelude.rnf autoTuneType

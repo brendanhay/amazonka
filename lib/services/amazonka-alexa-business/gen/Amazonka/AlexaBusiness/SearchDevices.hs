@@ -159,12 +159,12 @@ instance Core.AWSPager SearchDevices where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& searchDevices_nextToken
-          Lens..~ rs
-          Lens.^? searchDevicesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& searchDevices_nextToken
+              Lens..~ rs
+              Lens.^? searchDevicesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest SearchDevices where
   type
@@ -192,10 +192,10 @@ instance Prelude.Hashable SearchDevices where
 
 instance Prelude.NFData SearchDevices where
   rnf SearchDevices' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortCriteria
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf sortCriteria
 
 instance Data.ToHeaders SearchDevices where
   toHeaders =
@@ -290,7 +290,7 @@ searchDevicesResponse_httpStatus = Lens.lens (\SearchDevicesResponse' {httpStatu
 
 instance Prelude.NFData SearchDevicesResponse where
   rnf SearchDevicesResponse' {..} =
-    Prelude.rnf devices
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf totalCount
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf devices `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf totalCount `Prelude.seq`
+          Prelude.rnf httpStatus

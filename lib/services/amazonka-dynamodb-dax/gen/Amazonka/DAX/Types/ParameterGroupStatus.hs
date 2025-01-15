@@ -95,6 +95,6 @@ instance Prelude.Hashable ParameterGroupStatus where
 
 instance Prelude.NFData ParameterGroupStatus where
   rnf ParameterGroupStatus' {..} =
-    Prelude.rnf nodeIdsToReboot
-      `Prelude.seq` Prelude.rnf parameterApplyStatus
-      `Prelude.seq` Prelude.rnf parameterGroupName
+    Prelude.rnf nodeIdsToReboot `Prelude.seq`
+      Prelude.rnf parameterApplyStatus `Prelude.seq`
+        Prelude.rnf parameterGroupName

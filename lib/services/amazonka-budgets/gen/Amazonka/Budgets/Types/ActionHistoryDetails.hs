@@ -84,5 +84,5 @@ instance Prelude.Hashable ActionHistoryDetails where
 
 instance Prelude.NFData ActionHistoryDetails where
   rnf ActionHistoryDetails' {..} =
-    Prelude.rnf message
-      `Prelude.seq` Prelude.rnf action
+    Prelude.rnf message `Prelude.seq`
+      Prelude.rnf action

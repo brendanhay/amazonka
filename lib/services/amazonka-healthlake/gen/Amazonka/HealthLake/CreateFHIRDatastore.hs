@@ -167,12 +167,12 @@ instance Prelude.Hashable CreateFHIRDatastore where
 
 instance Prelude.NFData CreateFHIRDatastore where
   rnf CreateFHIRDatastore' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf datastoreName
-      `Prelude.seq` Prelude.rnf preloadDataConfig
-      `Prelude.seq` Prelude.rnf sseConfiguration
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf datastoreTypeVersion
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf datastoreName `Prelude.seq`
+        Prelude.rnf preloadDataConfig `Prelude.seq`
+          Prelude.rnf sseConfiguration `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf datastoreTypeVersion
 
 instance Data.ToHeaders CreateFHIRDatastore where
   toHeaders =
@@ -306,8 +306,8 @@ createFHIRDatastoreResponse_datastoreEndpoint = Lens.lens (\CreateFHIRDatastoreR
 
 instance Prelude.NFData CreateFHIRDatastoreResponse where
   rnf CreateFHIRDatastoreResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf datastoreId
-      `Prelude.seq` Prelude.rnf datastoreArn
-      `Prelude.seq` Prelude.rnf datastoreStatus
-      `Prelude.seq` Prelude.rnf datastoreEndpoint
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf datastoreId `Prelude.seq`
+        Prelude.rnf datastoreArn `Prelude.seq`
+          Prelude.rnf datastoreStatus `Prelude.seq`
+            Prelude.rnf datastoreEndpoint

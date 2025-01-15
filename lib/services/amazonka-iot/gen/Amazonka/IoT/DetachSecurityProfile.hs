@@ -117,8 +117,8 @@ instance Prelude.Hashable DetachSecurityProfile where
 
 instance Prelude.NFData DetachSecurityProfile where
   rnf DetachSecurityProfile' {..} =
-    Prelude.rnf securityProfileName
-      `Prelude.seq` Prelude.rnf securityProfileTargetArn
+    Prelude.rnf securityProfileName `Prelude.seq`
+      Prelude.rnf securityProfileTargetArn
 
 instance Data.ToHeaders DetachSecurityProfile where
   toHeaders = Prelude.const Prelude.mempty

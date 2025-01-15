@@ -128,8 +128,8 @@ instance Prelude.Hashable StartRemediationExecution where
 
 instance Prelude.NFData StartRemediationExecution where
   rnf StartRemediationExecution' {..} =
-    Prelude.rnf configRuleName
-      `Prelude.seq` Prelude.rnf resourceKeys
+    Prelude.rnf configRuleName `Prelude.seq`
+      Prelude.rnf resourceKeys
 
 instance Data.ToHeaders StartRemediationExecution where
   toHeaders =
@@ -221,6 +221,6 @@ instance
     StartRemediationExecutionResponse
   where
   rnf StartRemediationExecutionResponse' {..} =
-    Prelude.rnf failedItems
-      `Prelude.seq` Prelude.rnf failureMessage
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf failedItems `Prelude.seq`
+      Prelude.rnf failureMessage `Prelude.seq`
+        Prelude.rnf httpStatus

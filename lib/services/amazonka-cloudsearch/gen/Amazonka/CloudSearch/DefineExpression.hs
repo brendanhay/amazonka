@@ -117,8 +117,8 @@ instance Prelude.Hashable DefineExpression where
 
 instance Prelude.NFData DefineExpression where
   rnf DefineExpression' {..} =
-    Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf expression
+    Prelude.rnf domainName `Prelude.seq`
+      Prelude.rnf expression
 
 instance Data.ToHeaders DefineExpression where
   toHeaders = Prelude.const Prelude.mempty
@@ -182,5 +182,5 @@ defineExpressionResponse_expression = Lens.lens (\DefineExpressionResponse' {exp
 
 instance Prelude.NFData DefineExpressionResponse where
   rnf DefineExpressionResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf expression
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf expression

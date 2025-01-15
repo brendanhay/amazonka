@@ -171,12 +171,12 @@ instance Prelude.Hashable UpdateModelPackage where
 
 instance Prelude.NFData UpdateModelPackage where
   rnf UpdateModelPackage' {..} =
-    Prelude.rnf additionalInferenceSpecificationsToAdd
-      `Prelude.seq` Prelude.rnf approvalDescription
-      `Prelude.seq` Prelude.rnf customerMetadataProperties
-      `Prelude.seq` Prelude.rnf customerMetadataPropertiesToRemove
-      `Prelude.seq` Prelude.rnf modelApprovalStatus
-      `Prelude.seq` Prelude.rnf modelPackageArn
+    Prelude.rnf additionalInferenceSpecificationsToAdd `Prelude.seq`
+      Prelude.rnf approvalDescription `Prelude.seq`
+        Prelude.rnf customerMetadataProperties `Prelude.seq`
+          Prelude.rnf customerMetadataPropertiesToRemove `Prelude.seq`
+            Prelude.rnf modelApprovalStatus `Prelude.seq`
+              Prelude.rnf modelPackageArn
 
 instance Data.ToHeaders UpdateModelPackage where
   toHeaders =
@@ -263,5 +263,5 @@ updateModelPackageResponse_modelPackageArn = Lens.lens (\UpdateModelPackageRespo
 
 instance Prelude.NFData UpdateModelPackageResponse where
   rnf UpdateModelPackageResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf modelPackageArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf modelPackageArn

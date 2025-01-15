@@ -94,5 +94,5 @@ instance
 
 instance Prelude.NFData CloudWatchMetricsDataSummary where
   rnf CloudWatchMetricsDataSummary' {..} =
-    Prelude.rnf statusCode
-      `Prelude.seq` Prelude.rnf timestampMetricValuePairList
+    Prelude.rnf statusCode `Prelude.seq`
+      Prelude.rnf timestampMetricValuePairList

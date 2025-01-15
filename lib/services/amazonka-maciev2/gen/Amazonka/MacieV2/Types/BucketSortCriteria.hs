@@ -88,8 +88,8 @@ instance Prelude.Hashable BucketSortCriteria where
 
 instance Prelude.NFData BucketSortCriteria where
   rnf BucketSortCriteria' {..} =
-    Prelude.rnf attributeName
-      `Prelude.seq` Prelude.rnf orderBy
+    Prelude.rnf attributeName `Prelude.seq`
+      Prelude.rnf orderBy
 
 instance Data.ToJSON BucketSortCriteria where
   toJSON BucketSortCriteria' {..} =

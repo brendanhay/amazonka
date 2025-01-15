@@ -153,10 +153,10 @@ instance
     DisassociateTransitGatewayMulticastDomain
   where
   rnf DisassociateTransitGatewayMulticastDomain' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf subnetIds
-      `Prelude.seq` Prelude.rnf transitGatewayAttachmentId
-      `Prelude.seq` Prelude.rnf transitGatewayMulticastDomainId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf subnetIds `Prelude.seq`
+        Prelude.rnf transitGatewayAttachmentId `Prelude.seq`
+          Prelude.rnf transitGatewayMulticastDomainId
 
 instance
   Data.ToHeaders
@@ -239,5 +239,5 @@ instance
   where
   rnf
     DisassociateTransitGatewayMulticastDomainResponse' {..} =
-      Prelude.rnf associations
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf associations `Prelude.seq`
+        Prelude.rnf httpStatus

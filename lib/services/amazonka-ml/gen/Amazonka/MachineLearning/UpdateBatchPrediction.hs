@@ -116,8 +116,8 @@ instance Prelude.Hashable UpdateBatchPrediction where
 
 instance Prelude.NFData UpdateBatchPrediction where
   rnf UpdateBatchPrediction' {..} =
-    Prelude.rnf batchPredictionId
-      `Prelude.seq` Prelude.rnf batchPredictionName
+    Prelude.rnf batchPredictionId `Prelude.seq`
+      Prelude.rnf batchPredictionName
 
 instance Data.ToHeaders UpdateBatchPrediction where
   toHeaders =
@@ -203,5 +203,5 @@ updateBatchPredictionResponse_httpStatus = Lens.lens (\UpdateBatchPredictionResp
 
 instance Prelude.NFData UpdateBatchPredictionResponse where
   rnf UpdateBatchPredictionResponse' {..} =
-    Prelude.rnf batchPredictionId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf batchPredictionId `Prelude.seq`
+      Prelude.rnf httpStatus

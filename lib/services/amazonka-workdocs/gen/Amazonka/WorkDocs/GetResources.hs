@@ -152,11 +152,11 @@ instance Prelude.Hashable GetResources where
 
 instance Prelude.NFData GetResources where
   rnf GetResources' {..} =
-    Prelude.rnf authenticationToken
-      `Prelude.seq` Prelude.rnf collectionType
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf userId
+    Prelude.rnf authenticationToken `Prelude.seq`
+      Prelude.rnf collectionType `Prelude.seq`
+        Prelude.rnf limit `Prelude.seq`
+          Prelude.rnf marker `Prelude.seq`
+            Prelude.rnf userId
 
 instance Data.ToHeaders GetResources where
   toHeaders GetResources' {..} =
@@ -239,7 +239,7 @@ getResourcesResponse_httpStatus = Lens.lens (\GetResourcesResponse' {httpStatus}
 
 instance Prelude.NFData GetResourcesResponse where
   rnf GetResourcesResponse' {..} =
-    Prelude.rnf documents
-      `Prelude.seq` Prelude.rnf folders
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf documents `Prelude.seq`
+      Prelude.rnf folders `Prelude.seq`
+        Prelude.rnf marker `Prelude.seq`
+          Prelude.rnf httpStatus

@@ -95,8 +95,8 @@ instance Prelude.Hashable InstanceConfiguration where
 
 instance Prelude.NFData InstanceConfiguration where
   rnf InstanceConfiguration' {..} =
-    Prelude.rnf blockDeviceMappings
-      `Prelude.seq` Prelude.rnf image
+    Prelude.rnf blockDeviceMappings `Prelude.seq`
+      Prelude.rnf image
 
 instance Data.ToJSON InstanceConfiguration where
   toJSON InstanceConfiguration' {..} =

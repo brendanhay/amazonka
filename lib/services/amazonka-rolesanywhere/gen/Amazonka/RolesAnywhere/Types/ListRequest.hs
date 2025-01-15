@@ -74,8 +74,8 @@ instance Prelude.Hashable ListRequest where
 
 instance Prelude.NFData ListRequest where
   rnf ListRequest' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf pageSize
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf pageSize
 
 instance Data.ToJSON ListRequest where
   toJSON ListRequest' {..} =

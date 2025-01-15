@@ -84,5 +84,5 @@ instance
 
 instance Prelude.NFData SecurityConfigurationSummary where
   rnf SecurityConfigurationSummary' {..} =
-    Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf creationDateTime `Prelude.seq`
+      Prelude.rnf name

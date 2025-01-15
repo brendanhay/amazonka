@@ -135,8 +135,8 @@ instance Prelude.Hashable AdminGetUser where
 
 instance Prelude.NFData AdminGetUser where
   rnf AdminGetUser' {..} =
-    Prelude.rnf userPoolId
-      `Prelude.seq` Prelude.rnf username
+    Prelude.rnf userPoolId `Prelude.seq`
+      Prelude.rnf username
 
 instance Data.ToHeaders AdminGetUser where
   toHeaders =
@@ -345,13 +345,13 @@ adminGetUserResponse_username = Lens.lens (\AdminGetUserResponse' {username} -> 
 
 instance Prelude.NFData AdminGetUserResponse where
   rnf AdminGetUserResponse' {..} =
-    Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf mfaOptions
-      `Prelude.seq` Prelude.rnf preferredMfaSetting
-      `Prelude.seq` Prelude.rnf userAttributes
-      `Prelude.seq` Prelude.rnf userCreateDate
-      `Prelude.seq` Prelude.rnf userLastModifiedDate
-      `Prelude.seq` Prelude.rnf userMFASettingList
-      `Prelude.seq` Prelude.rnf userStatus
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf username
+    Prelude.rnf enabled `Prelude.seq`
+      Prelude.rnf mfaOptions `Prelude.seq`
+        Prelude.rnf preferredMfaSetting `Prelude.seq`
+          Prelude.rnf userAttributes `Prelude.seq`
+            Prelude.rnf userCreateDate `Prelude.seq`
+              Prelude.rnf userLastModifiedDate `Prelude.seq`
+                Prelude.rnf userMFASettingList `Prelude.seq`
+                  Prelude.rnf userStatus `Prelude.seq`
+                    Prelude.rnf httpStatus `Prelude.seq`
+                      Prelude.rnf username

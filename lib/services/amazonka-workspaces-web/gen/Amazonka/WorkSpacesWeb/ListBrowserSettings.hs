@@ -114,8 +114,8 @@ instance Prelude.Hashable ListBrowserSettings where
 
 instance Prelude.NFData ListBrowserSettings where
   rnf ListBrowserSettings' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListBrowserSettings where
   toHeaders =
@@ -191,6 +191,6 @@ listBrowserSettingsResponse_httpStatus = Lens.lens (\ListBrowserSettingsResponse
 
 instance Prelude.NFData ListBrowserSettingsResponse where
   rnf ListBrowserSettingsResponse' {..} =
-    Prelude.rnf browserSettings
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf browserSettings `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

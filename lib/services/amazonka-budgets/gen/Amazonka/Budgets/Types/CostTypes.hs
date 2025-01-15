@@ -252,17 +252,17 @@ instance Prelude.Hashable CostTypes where
 
 instance Prelude.NFData CostTypes where
   rnf CostTypes' {..} =
-    Prelude.rnf includeCredit
-      `Prelude.seq` Prelude.rnf includeDiscount
-      `Prelude.seq` Prelude.rnf includeOtherSubscription
-      `Prelude.seq` Prelude.rnf includeRecurring
-      `Prelude.seq` Prelude.rnf includeRefund
-      `Prelude.seq` Prelude.rnf includeSubscription
-      `Prelude.seq` Prelude.rnf includeSupport
-      `Prelude.seq` Prelude.rnf includeTax
-      `Prelude.seq` Prelude.rnf includeUpfront
-      `Prelude.seq` Prelude.rnf useAmortized
-      `Prelude.seq` Prelude.rnf useBlended
+    Prelude.rnf includeCredit `Prelude.seq`
+      Prelude.rnf includeDiscount `Prelude.seq`
+        Prelude.rnf includeOtherSubscription `Prelude.seq`
+          Prelude.rnf includeRecurring `Prelude.seq`
+            Prelude.rnf includeRefund `Prelude.seq`
+              Prelude.rnf includeSubscription `Prelude.seq`
+                Prelude.rnf includeSupport `Prelude.seq`
+                  Prelude.rnf includeTax `Prelude.seq`
+                    Prelude.rnf includeUpfront `Prelude.seq`
+                      Prelude.rnf useAmortized `Prelude.seq`
+                        Prelude.rnf useBlended
 
 instance Data.ToJSON CostTypes where
   toJSON CostTypes' {..} =

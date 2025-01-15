@@ -93,6 +93,6 @@ instance Prelude.Hashable MitigationActionIdentifier where
 
 instance Prelude.NFData MitigationActionIdentifier where
   rnf MitigationActionIdentifier' {..} =
-    Prelude.rnf actionArn
-      `Prelude.seq` Prelude.rnf actionName
-      `Prelude.seq` Prelude.rnf creationDate
+    Prelude.rnf actionArn `Prelude.seq`
+      Prelude.rnf actionName `Prelude.seq`
+        Prelude.rnf creationDate

@@ -107,6 +107,6 @@ instance
     DnsRuleGroupLimitExceededViolation
   where
   rnf DnsRuleGroupLimitExceededViolation' {..} =
-    Prelude.rnf numberOfRuleGroupsAlreadyAssociated
-      `Prelude.seq` Prelude.rnf violationTarget
-      `Prelude.seq` Prelude.rnf violationTargetDescription
+    Prelude.rnf numberOfRuleGroupsAlreadyAssociated `Prelude.seq`
+      Prelude.rnf violationTarget `Prelude.seq`
+        Prelude.rnf violationTargetDescription

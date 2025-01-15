@@ -207,13 +207,13 @@ instance Prelude.Hashable UpdateUser where
 
 instance Prelude.NFData UpdateUser where
   rnf UpdateUser' {..} =
-    Prelude.rnf apiAccess
-      `Prelude.seq` Prelude.rnf apiAccessPrincipalArn
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf firstName
-      `Prelude.seq` Prelude.rnf lastName
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf userId
+    Prelude.rnf apiAccess `Prelude.seq`
+      Prelude.rnf apiAccessPrincipalArn `Prelude.seq`
+        Prelude.rnf clientToken `Prelude.seq`
+          Prelude.rnf firstName `Prelude.seq`
+            Prelude.rnf lastName `Prelude.seq`
+              Prelude.rnf type' `Prelude.seq`
+                Prelude.rnf userId
 
 instance Data.ToHeaders UpdateUser where
   toHeaders =
@@ -287,5 +287,5 @@ updateUserResponse_httpStatus = Lens.lens (\UpdateUserResponse' {httpStatus} -> 
 
 instance Prelude.NFData UpdateUserResponse where
   rnf UpdateUserResponse' {..} =
-    Prelude.rnf userId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf userId `Prelude.seq`
+      Prelude.rnf httpStatus

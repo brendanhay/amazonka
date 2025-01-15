@@ -135,8 +135,8 @@ instance
     UpdateRelationalDatabaseParameters
   where
   rnf UpdateRelationalDatabaseParameters' {..} =
-    Prelude.rnf relationalDatabaseName
-      `Prelude.seq` Prelude.rnf parameters
+    Prelude.rnf relationalDatabaseName `Prelude.seq`
+      Prelude.rnf parameters
 
 instance
   Data.ToHeaders
@@ -234,5 +234,5 @@ instance
     UpdateRelationalDatabaseParametersResponse
   where
   rnf UpdateRelationalDatabaseParametersResponse' {..} =
-    Prelude.rnf operations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operations `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -88,8 +88,8 @@ instance Prelude.Hashable Locale where
 
 instance Prelude.NFData Locale where
   rnf Locale' {..} =
-    Prelude.rnf subdivision
-      `Prelude.seq` Prelude.rnf country
+    Prelude.rnf subdivision `Prelude.seq`
+      Prelude.rnf country
 
 instance Data.ToJSON Locale where
   toJSON Locale' {..} =

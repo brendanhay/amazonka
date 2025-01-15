@@ -122,10 +122,10 @@ instance Prelude.Hashable RtmpOutputSettings where
 
 instance Prelude.NFData RtmpOutputSettings where
   rnf RtmpOutputSettings' {..} =
-    Prelude.rnf certificateMode
-      `Prelude.seq` Prelude.rnf connectionRetryInterval
-      `Prelude.seq` Prelude.rnf numRetries
-      `Prelude.seq` Prelude.rnf destination
+    Prelude.rnf certificateMode `Prelude.seq`
+      Prelude.rnf connectionRetryInterval `Prelude.seq`
+        Prelude.rnf numRetries `Prelude.seq`
+          Prelude.rnf destination
 
 instance Data.ToJSON RtmpOutputSettings where
   toJSON RtmpOutputSettings' {..} =

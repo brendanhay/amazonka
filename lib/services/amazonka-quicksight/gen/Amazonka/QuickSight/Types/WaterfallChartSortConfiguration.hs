@@ -94,8 +94,8 @@ instance
     WaterfallChartSortConfiguration
   where
   rnf WaterfallChartSortConfiguration' {..} =
-    Prelude.rnf breakdownItemsLimit
-      `Prelude.seq` Prelude.rnf categorySort
+    Prelude.rnf breakdownItemsLimit `Prelude.seq`
+      Prelude.rnf categorySort
 
 instance Data.ToJSON WaterfallChartSortConfiguration where
   toJSON WaterfallChartSortConfiguration' {..} =

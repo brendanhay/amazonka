@@ -117,8 +117,8 @@ instance Prelude.Hashable DeleteExpression where
 
 instance Prelude.NFData DeleteExpression where
   rnf DeleteExpression' {..} =
-    Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf expressionName
+    Prelude.rnf domainName `Prelude.seq`
+      Prelude.rnf expressionName
 
 instance Data.ToHeaders DeleteExpression where
   toHeaders = Prelude.const Prelude.mempty
@@ -183,5 +183,5 @@ deleteExpressionResponse_expression = Lens.lens (\DeleteExpressionResponse' {exp
 
 instance Prelude.NFData DeleteExpressionResponse where
   rnf DeleteExpressionResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf expression
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf expression

@@ -178,6 +178,6 @@ instance Prelude.Hashable RouteAnalysisCompletion where
 
 instance Prelude.NFData RouteAnalysisCompletion where
   rnf RouteAnalysisCompletion' {..} =
-    Prelude.rnf reasonCode
-      `Prelude.seq` Prelude.rnf reasonContext
-      `Prelude.seq` Prelude.rnf resultCode
+    Prelude.rnf reasonCode `Prelude.seq`
+      Prelude.rnf reasonContext `Prelude.seq`
+        Prelude.rnf resultCode

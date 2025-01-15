@@ -114,8 +114,8 @@ instance Prelude.Hashable ListNetworkSettings where
 
 instance Prelude.NFData ListNetworkSettings where
   rnf ListNetworkSettings' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListNetworkSettings where
   toHeaders =
@@ -191,6 +191,6 @@ listNetworkSettingsResponse_httpStatus = Lens.lens (\ListNetworkSettingsResponse
 
 instance Prelude.NFData ListNetworkSettingsResponse where
   rnf ListNetworkSettingsResponse' {..} =
-    Prelude.rnf networkSettings
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf networkSettings `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

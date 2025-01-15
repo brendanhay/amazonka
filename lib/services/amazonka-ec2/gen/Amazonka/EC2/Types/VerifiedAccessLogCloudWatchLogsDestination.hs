@@ -101,6 +101,6 @@ instance
     VerifiedAccessLogCloudWatchLogsDestination
   where
   rnf VerifiedAccessLogCloudWatchLogsDestination' {..} =
-    Prelude.rnf deliveryStatus
-      `Prelude.seq` Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf logGroup
+    Prelude.rnf deliveryStatus `Prelude.seq`
+      Prelude.rnf enabled `Prelude.seq`
+        Prelude.rnf logGroup

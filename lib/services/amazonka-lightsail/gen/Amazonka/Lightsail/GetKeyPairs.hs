@@ -118,12 +118,12 @@ instance Core.AWSPager GetKeyPairs where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getKeyPairs_pageToken
-          Lens..~ rs
-          Lens.^? getKeyPairsResponse_nextPageToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getKeyPairs_pageToken
+              Lens..~ rs
+              Lens.^? getKeyPairsResponse_nextPageToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetKeyPairs where
   type AWSResponse GetKeyPairs = GetKeyPairsResponse
@@ -146,8 +146,8 @@ instance Prelude.Hashable GetKeyPairs where
 
 instance Prelude.NFData GetKeyPairs where
   rnf GetKeyPairs' {..} =
-    Prelude.rnf includeDefaultKeyPair
-      `Prelude.seq` Prelude.rnf pageToken
+    Prelude.rnf includeDefaultKeyPair `Prelude.seq`
+      Prelude.rnf pageToken
 
 instance Data.ToHeaders GetKeyPairs where
   toHeaders =
@@ -247,6 +247,6 @@ getKeyPairsResponse_httpStatus = Lens.lens (\GetKeyPairsResponse' {httpStatus} -
 
 instance Prelude.NFData GetKeyPairsResponse where
   rnf GetKeyPairsResponse' {..} =
-    Prelude.rnf keyPairs
-      `Prelude.seq` Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf keyPairs `Prelude.seq`
+      Prelude.rnf nextPageToken `Prelude.seq`
+        Prelude.rnf httpStatus

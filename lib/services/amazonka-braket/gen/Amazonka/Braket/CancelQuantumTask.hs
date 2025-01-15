@@ -112,8 +112,8 @@ instance Prelude.Hashable CancelQuantumTask where
 
 instance Prelude.NFData CancelQuantumTask where
   rnf CancelQuantumTask' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf quantumTaskArn
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf quantumTaskArn
 
 instance Data.ToHeaders CancelQuantumTask where
   toHeaders =
@@ -201,6 +201,6 @@ cancelQuantumTaskResponse_quantumTaskArn = Lens.lens (\CancelQuantumTaskResponse
 
 instance Prelude.NFData CancelQuantumTaskResponse where
   rnf CancelQuantumTaskResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf cancellationStatus
-      `Prelude.seq` Prelude.rnf quantumTaskArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf cancellationStatus `Prelude.seq`
+        Prelude.rnf quantumTaskArn

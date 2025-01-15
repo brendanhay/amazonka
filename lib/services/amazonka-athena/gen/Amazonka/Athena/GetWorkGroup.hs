@@ -159,5 +159,5 @@ getWorkGroupResponse_httpStatus = Lens.lens (\GetWorkGroupResponse' {httpStatus}
 
 instance Prelude.NFData GetWorkGroupResponse where
   rnf GetWorkGroupResponse' {..} =
-    Prelude.rnf workGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf workGroup `Prelude.seq`
+      Prelude.rnf httpStatus

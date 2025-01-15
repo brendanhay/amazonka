@@ -173,10 +173,10 @@ instance Prelude.Hashable EvaluateFeature where
 
 instance Prelude.NFData EvaluateFeature where
   rnf EvaluateFeature' {..} =
-    Prelude.rnf evaluationContext
-      `Prelude.seq` Prelude.rnf entityId
-      `Prelude.seq` Prelude.rnf feature
-      `Prelude.seq` Prelude.rnf project
+    Prelude.rnf evaluationContext `Prelude.seq`
+      Prelude.rnf entityId `Prelude.seq`
+        Prelude.rnf feature `Prelude.seq`
+          Prelude.rnf project
 
 instance Data.ToHeaders EvaluateFeature where
   toHeaders =
@@ -299,8 +299,8 @@ evaluateFeatureResponse_httpStatus = Lens.lens (\EvaluateFeatureResponse' {httpS
 
 instance Prelude.NFData EvaluateFeatureResponse where
   rnf EvaluateFeatureResponse' {..} =
-    Prelude.rnf details
-      `Prelude.seq` Prelude.rnf reason
-      `Prelude.seq` Prelude.rnf value
-      `Prelude.seq` Prelude.rnf variation
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf details `Prelude.seq`
+      Prelude.rnf reason `Prelude.seq`
+        Prelude.rnf value `Prelude.seq`
+          Prelude.rnf variation `Prelude.seq`
+            Prelude.rnf httpStatus

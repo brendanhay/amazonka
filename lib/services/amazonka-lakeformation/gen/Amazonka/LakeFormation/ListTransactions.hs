@@ -144,10 +144,10 @@ instance Prelude.Hashable ListTransactions where
 
 instance Prelude.NFData ListTransactions where
   rnf ListTransactions' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf statusFilter
+    Prelude.rnf catalogId `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf statusFilter
 
 instance Data.ToHeaders ListTransactions where
   toHeaders =
@@ -230,6 +230,6 @@ listTransactionsResponse_httpStatus = Lens.lens (\ListTransactionsResponse' {htt
 
 instance Prelude.NFData ListTransactionsResponse where
   rnf ListTransactionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf transactions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf transactions `Prelude.seq`
+        Prelude.rnf httpStatus

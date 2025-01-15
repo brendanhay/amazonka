@@ -121,8 +121,8 @@ instance Prelude.Hashable InputDeviceNetworkSettings where
 
 instance Prelude.NFData InputDeviceNetworkSettings where
   rnf InputDeviceNetworkSettings' {..} =
-    Prelude.rnf dnsAddresses
-      `Prelude.seq` Prelude.rnf gateway
-      `Prelude.seq` Prelude.rnf ipAddress
-      `Prelude.seq` Prelude.rnf ipScheme
-      `Prelude.seq` Prelude.rnf subnetMask
+    Prelude.rnf dnsAddresses `Prelude.seq`
+      Prelude.rnf gateway `Prelude.seq`
+        Prelude.rnf ipAddress `Prelude.seq`
+          Prelude.rnf ipScheme `Prelude.seq`
+            Prelude.rnf subnetMask

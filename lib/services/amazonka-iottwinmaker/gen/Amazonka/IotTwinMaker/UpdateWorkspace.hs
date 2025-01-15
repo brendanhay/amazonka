@@ -119,9 +119,9 @@ instance Prelude.Hashable UpdateWorkspace where
 
 instance Prelude.NFData UpdateWorkspace where
   rnf UpdateWorkspace' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf role'
-      `Prelude.seq` Prelude.rnf workspaceId
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf role' `Prelude.seq`
+        Prelude.rnf workspaceId
 
 instance Data.ToHeaders UpdateWorkspace where
   toHeaders =
@@ -196,5 +196,5 @@ updateWorkspaceResponse_updateDateTime = Lens.lens (\UpdateWorkspaceResponse' {u
 
 instance Prelude.NFData UpdateWorkspaceResponse where
   rnf UpdateWorkspaceResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf updateDateTime
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf updateDateTime

@@ -111,5 +111,5 @@ instance Prelude.Hashable BatchPutMetricsError where
 
 instance Prelude.NFData BatchPutMetricsError where
   rnf BatchPutMetricsError' {..} =
-    Prelude.rnf code
-      `Prelude.seq` Prelude.rnf metricIndex
+    Prelude.rnf code `Prelude.seq`
+      Prelude.rnf metricIndex

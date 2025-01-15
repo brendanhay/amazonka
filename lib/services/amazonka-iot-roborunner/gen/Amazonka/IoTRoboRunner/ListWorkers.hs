@@ -120,12 +120,12 @@ instance Core.AWSPager ListWorkers where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listWorkers_nextToken
-          Lens..~ rs
-          Lens.^? listWorkersResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listWorkers_nextToken
+              Lens..~ rs
+              Lens.^? listWorkersResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListWorkers where
   type AWSResponse ListWorkers = ListWorkersResponse
@@ -150,10 +150,10 @@ instance Prelude.Hashable ListWorkers where
 
 instance Prelude.NFData ListWorkers where
   rnf ListWorkers' {..} =
-    Prelude.rnf fleet
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf site
+    Prelude.rnf fleet `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf site
 
 instance Data.ToHeaders ListWorkers where
   toHeaders =
@@ -225,6 +225,6 @@ listWorkersResponse_httpStatus = Lens.lens (\ListWorkersResponse' {httpStatus} -
 
 instance Prelude.NFData ListWorkersResponse where
   rnf ListWorkersResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf workers
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf workers `Prelude.seq`
+        Prelude.rnf httpStatus

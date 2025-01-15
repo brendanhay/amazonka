@@ -91,6 +91,6 @@ instance Prelude.Hashable CodeErrorLocation where
 
 instance Prelude.NFData CodeErrorLocation where
   rnf CodeErrorLocation' {..} =
-    Prelude.rnf column
-      `Prelude.seq` Prelude.rnf line
-      `Prelude.seq` Prelude.rnf span
+    Prelude.rnf column `Prelude.seq`
+      Prelude.rnf line `Prelude.seq`
+        Prelude.rnf span

@@ -146,8 +146,8 @@ instance Prelude.Hashable DeleteResourceShare where
 
 instance Prelude.NFData DeleteResourceShare where
   rnf DeleteResourceShare' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf resourceShareArn
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf resourceShareArn
 
 instance Data.ToHeaders DeleteResourceShare where
   toHeaders =
@@ -235,6 +235,6 @@ deleteResourceShareResponse_httpStatus = Lens.lens (\DeleteResourceShareResponse
 
 instance Prelude.NFData DeleteResourceShareResponse where
   rnf DeleteResourceShareResponse' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf returnValue
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf returnValue `Prelude.seq`
+        Prelude.rnf httpStatus

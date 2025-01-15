@@ -128,9 +128,9 @@ instance Prelude.Hashable ListSyncJobs where
 
 instance Prelude.NFData ListSyncJobs where
   rnf ListSyncJobs' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf workspaceId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf workspaceId
 
 instance Data.ToHeaders ListSyncJobs where
   toHeaders =
@@ -212,6 +212,6 @@ listSyncJobsResponse_httpStatus = Lens.lens (\ListSyncJobsResponse' {httpStatus}
 
 instance Prelude.NFData ListSyncJobsResponse where
   rnf ListSyncJobsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf syncJobSummaries
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf syncJobSummaries `Prelude.seq`
+        Prelude.rnf httpStatus

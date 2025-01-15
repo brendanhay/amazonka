@@ -92,6 +92,6 @@ instance Prelude.Hashable ControlComment where
 
 instance Prelude.NFData ControlComment where
   rnf ControlComment' {..} =
-    Prelude.rnf authorName
-      `Prelude.seq` Prelude.rnf commentBody
-      `Prelude.seq` Prelude.rnf postedDate
+    Prelude.rnf authorName `Prelude.seq`
+      Prelude.rnf commentBody `Prelude.seq`
+        Prelude.rnf postedDate

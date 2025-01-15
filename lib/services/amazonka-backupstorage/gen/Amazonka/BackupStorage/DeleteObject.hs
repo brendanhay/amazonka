@@ -98,8 +98,8 @@ instance Prelude.Hashable DeleteObject where
 
 instance Prelude.NFData DeleteObject where
   rnf DeleteObject' {..} =
-    Prelude.rnf backupJobId
-      `Prelude.seq` Prelude.rnf objectName
+    Prelude.rnf backupJobId `Prelude.seq`
+      Prelude.rnf objectName
 
 instance Data.ToHeaders DeleteObject where
   toHeaders =

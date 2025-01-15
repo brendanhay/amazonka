@@ -112,10 +112,10 @@ instance Prelude.Hashable HlsBasicPutSettings where
 
 instance Prelude.NFData HlsBasicPutSettings where
   rnf HlsBasicPutSettings' {..} =
-    Prelude.rnf connectionRetryInterval
-      `Prelude.seq` Prelude.rnf filecacheDuration
-      `Prelude.seq` Prelude.rnf numRetries
-      `Prelude.seq` Prelude.rnf restartDelay
+    Prelude.rnf connectionRetryInterval `Prelude.seq`
+      Prelude.rnf filecacheDuration `Prelude.seq`
+        Prelude.rnf numRetries `Prelude.seq`
+          Prelude.rnf restartDelay
 
 instance Data.ToJSON HlsBasicPutSettings where
   toJSON HlsBasicPutSettings' {..} =

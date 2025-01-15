@@ -157,11 +157,11 @@ instance Prelude.Hashable UpdateSubscriber where
 
 instance Prelude.NFData UpdateSubscriber where
   rnf UpdateSubscriber' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf budgetName
-      `Prelude.seq` Prelude.rnf notification
-      `Prelude.seq` Prelude.rnf oldSubscriber
-      `Prelude.seq` Prelude.rnf newSubscriber'
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf budgetName `Prelude.seq`
+        Prelude.rnf notification `Prelude.seq`
+          Prelude.rnf oldSubscriber `Prelude.seq`
+            Prelude.rnf newSubscriber'
 
 instance Data.ToHeaders UpdateSubscriber where
   toHeaders =

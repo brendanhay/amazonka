@@ -78,8 +78,8 @@ instance Prelude.Hashable CpuOptionsRequest where
 
 instance Prelude.NFData CpuOptionsRequest where
   rnf CpuOptionsRequest' {..} =
-    Prelude.rnf coreCount
-      `Prelude.seq` Prelude.rnf threadsPerCore
+    Prelude.rnf coreCount `Prelude.seq`
+      Prelude.rnf threadsPerCore
 
 instance Data.ToQuery CpuOptionsRequest where
   toQuery CpuOptionsRequest' {..} =

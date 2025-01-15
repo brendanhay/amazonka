@@ -76,8 +76,8 @@ instance Prelude.Hashable DashboardSourceTemplate where
 
 instance Prelude.NFData DashboardSourceTemplate where
   rnf DashboardSourceTemplate' {..} =
-    Prelude.rnf dataSetReferences
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf dataSetReferences `Prelude.seq`
+      Prelude.rnf arn
 
 instance Data.ToJSON DashboardSourceTemplate where
   toJSON DashboardSourceTemplate' {..} =

@@ -77,8 +77,8 @@ instance Prelude.Hashable TdscdmaLocalId where
 
 instance Prelude.NFData TdscdmaLocalId where
   rnf TdscdmaLocalId' {..} =
-    Prelude.rnf uarfcn
-      `Prelude.seq` Prelude.rnf cellParams
+    Prelude.rnf uarfcn `Prelude.seq`
+      Prelude.rnf cellParams
 
 instance Data.ToJSON TdscdmaLocalId where
   toJSON TdscdmaLocalId' {..} =

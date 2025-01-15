@@ -86,5 +86,5 @@ instance Prelude.Hashable CandidateProperties where
 
 instance Prelude.NFData CandidateProperties where
   rnf CandidateProperties' {..} =
-    Prelude.rnf candidateArtifactLocations
-      `Prelude.seq` Prelude.rnf candidateMetrics
+    Prelude.rnf candidateArtifactLocations `Prelude.seq`
+      Prelude.rnf candidateMetrics

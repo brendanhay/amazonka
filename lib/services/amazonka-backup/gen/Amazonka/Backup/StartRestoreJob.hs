@@ -339,11 +339,11 @@ instance Prelude.Hashable StartRestoreJob where
 
 instance Prelude.NFData StartRestoreJob where
   rnf StartRestoreJob' {..} =
-    Prelude.rnf iamRoleArn
-      `Prelude.seq` Prelude.rnf idempotencyToken
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf recoveryPointArn
-      `Prelude.seq` Prelude.rnf metadata
+    Prelude.rnf iamRoleArn `Prelude.seq`
+      Prelude.rnf idempotencyToken `Prelude.seq`
+        Prelude.rnf resourceType `Prelude.seq`
+          Prelude.rnf recoveryPointArn `Prelude.seq`
+            Prelude.rnf metadata
 
 instance Data.ToHeaders StartRestoreJob where
   toHeaders =
@@ -417,5 +417,5 @@ startRestoreJobResponse_httpStatus = Lens.lens (\StartRestoreJobResponse' {httpS
 
 instance Prelude.NFData StartRestoreJobResponse where
   rnf StartRestoreJobResponse' {..} =
-    Prelude.rnf restoreJobId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf restoreJobId `Prelude.seq`
+      Prelude.rnf httpStatus

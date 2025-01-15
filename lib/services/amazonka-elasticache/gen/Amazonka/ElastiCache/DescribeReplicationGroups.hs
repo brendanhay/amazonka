@@ -158,12 +158,12 @@ instance Core.AWSPager DescribeReplicationGroups where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeReplicationGroups_marker
-          Lens..~ rs
-          Lens.^? describeReplicationGroupsResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeReplicationGroups_marker
+              Lens..~ rs
+              Lens.^? describeReplicationGroupsResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeReplicationGroups where
   type
@@ -194,9 +194,9 @@ instance Prelude.Hashable DescribeReplicationGroups where
 
 instance Prelude.NFData DescribeReplicationGroups where
   rnf DescribeReplicationGroups' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf replicationGroupId
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf maxRecords `Prelude.seq`
+        Prelude.rnf replicationGroupId
 
 instance Data.ToHeaders DescribeReplicationGroups where
   toHeaders = Prelude.const Prelude.mempty
@@ -274,6 +274,6 @@ instance
     DescribeReplicationGroupsResponse
   where
   rnf DescribeReplicationGroupsResponse' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf replicationGroups
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf replicationGroups `Prelude.seq`
+        Prelude.rnf httpStatus

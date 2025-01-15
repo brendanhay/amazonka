@@ -181,12 +181,12 @@ instance Prelude.Hashable AttachNetworkInterface where
 
 instance Prelude.NFData AttachNetworkInterface where
   rnf AttachNetworkInterface' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf enaSrdSpecification
-      `Prelude.seq` Prelude.rnf networkCardIndex
-      `Prelude.seq` Prelude.rnf deviceIndex
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf networkInterfaceId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf enaSrdSpecification `Prelude.seq`
+        Prelude.rnf networkCardIndex `Prelude.seq`
+          Prelude.rnf deviceIndex `Prelude.seq`
+            Prelude.rnf instanceId `Prelude.seq`
+              Prelude.rnf networkInterfaceId
 
 instance Data.ToHeaders AttachNetworkInterface where
   toHeaders = Prelude.const Prelude.mempty
@@ -264,6 +264,6 @@ instance
     AttachNetworkInterfaceResponse
   where
   rnf AttachNetworkInterfaceResponse' {..} =
-    Prelude.rnf attachmentId
-      `Prelude.seq` Prelude.rnf networkCardIndex
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf attachmentId `Prelude.seq`
+      Prelude.rnf networkCardIndex `Prelude.seq`
+        Prelude.rnf httpStatus

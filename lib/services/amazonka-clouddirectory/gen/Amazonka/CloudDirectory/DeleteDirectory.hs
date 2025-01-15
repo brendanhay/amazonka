@@ -157,5 +157,5 @@ deleteDirectoryResponse_directoryArn = Lens.lens (\DeleteDirectoryResponse' {dir
 
 instance Prelude.NFData DeleteDirectoryResponse where
   rnf DeleteDirectoryResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf directoryArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf directoryArn

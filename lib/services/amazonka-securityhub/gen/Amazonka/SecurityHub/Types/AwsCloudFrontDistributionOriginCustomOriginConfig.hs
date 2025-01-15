@@ -158,12 +158,12 @@ instance
   where
   rnf
     AwsCloudFrontDistributionOriginCustomOriginConfig' {..} =
-      Prelude.rnf httpPort
-        `Prelude.seq` Prelude.rnf httpsPort
-        `Prelude.seq` Prelude.rnf originKeepaliveTimeout
-        `Prelude.seq` Prelude.rnf originProtocolPolicy
-        `Prelude.seq` Prelude.rnf originReadTimeout
-        `Prelude.seq` Prelude.rnf originSslProtocols
+      Prelude.rnf httpPort `Prelude.seq`
+        Prelude.rnf httpsPort `Prelude.seq`
+          Prelude.rnf originKeepaliveTimeout `Prelude.seq`
+            Prelude.rnf originProtocolPolicy `Prelude.seq`
+              Prelude.rnf originReadTimeout `Prelude.seq`
+                Prelude.rnf originSslProtocols
 
 instance
   Data.ToJSON

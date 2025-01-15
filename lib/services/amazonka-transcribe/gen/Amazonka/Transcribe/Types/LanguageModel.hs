@@ -276,12 +276,12 @@ instance Prelude.Hashable LanguageModel where
 
 instance Prelude.NFData LanguageModel where
   rnf LanguageModel' {..} =
-    Prelude.rnf baseModelName
-      `Prelude.seq` Prelude.rnf createTime
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf inputDataConfig
-      `Prelude.seq` Prelude.rnf languageCode
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf modelName
-      `Prelude.seq` Prelude.rnf modelStatus
-      `Prelude.seq` Prelude.rnf upgradeAvailability
+    Prelude.rnf baseModelName `Prelude.seq`
+      Prelude.rnf createTime `Prelude.seq`
+        Prelude.rnf failureReason `Prelude.seq`
+          Prelude.rnf inputDataConfig `Prelude.seq`
+            Prelude.rnf languageCode `Prelude.seq`
+              Prelude.rnf lastModifiedTime `Prelude.seq`
+                Prelude.rnf modelName `Prelude.seq`
+                  Prelude.rnf modelStatus `Prelude.seq`
+                    Prelude.rnf upgradeAvailability

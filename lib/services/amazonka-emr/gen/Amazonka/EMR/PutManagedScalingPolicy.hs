@@ -117,8 +117,8 @@ instance Prelude.Hashable PutManagedScalingPolicy where
 
 instance Prelude.NFData PutManagedScalingPolicy where
   rnf PutManagedScalingPolicy' {..} =
-    Prelude.rnf clusterId
-      `Prelude.seq` Prelude.rnf managedScalingPolicy
+    Prelude.rnf clusterId `Prelude.seq`
+      Prelude.rnf managedScalingPolicy
 
 instance Data.ToHeaders PutManagedScalingPolicy where
   toHeaders =

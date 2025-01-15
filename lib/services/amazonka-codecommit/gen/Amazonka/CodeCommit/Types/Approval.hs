@@ -84,5 +84,5 @@ instance Prelude.Hashable Approval where
 
 instance Prelude.NFData Approval where
   rnf Approval' {..} =
-    Prelude.rnf approvalState
-      `Prelude.seq` Prelude.rnf userArn
+    Prelude.rnf approvalState `Prelude.seq`
+      Prelude.rnf userArn

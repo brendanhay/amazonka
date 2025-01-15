@@ -111,12 +111,12 @@ instance Prelude.Hashable FieldFilter where
 
 instance Prelude.NFData FieldFilter where
   rnf FieldFilter' {..} =
-    Prelude.rnf contains
-      `Prelude.seq` Prelude.rnf equalTo
-      `Prelude.seq` Prelude.rnf greaterThan
-      `Prelude.seq` Prelude.rnf greaterThanOrEqualTo
-      `Prelude.seq` Prelude.rnf lessThan
-      `Prelude.seq` Prelude.rnf lessThanOrEqualTo
+    Prelude.rnf contains `Prelude.seq`
+      Prelude.rnf equalTo `Prelude.seq`
+        Prelude.rnf greaterThan `Prelude.seq`
+          Prelude.rnf greaterThanOrEqualTo `Prelude.seq`
+            Prelude.rnf lessThan `Prelude.seq`
+              Prelude.rnf lessThanOrEqualTo
 
 instance Data.ToJSON FieldFilter where
   toJSON FieldFilter' {..} =

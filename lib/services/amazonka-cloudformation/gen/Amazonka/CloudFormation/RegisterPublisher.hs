@@ -152,8 +152,8 @@ instance Prelude.Hashable RegisterPublisher where
 
 instance Prelude.NFData RegisterPublisher where
   rnf RegisterPublisher' {..} =
-    Prelude.rnf acceptTermsAndConditions
-      `Prelude.seq` Prelude.rnf connectionArn
+    Prelude.rnf acceptTermsAndConditions `Prelude.seq`
+      Prelude.rnf connectionArn
 
 instance Data.ToHeaders RegisterPublisher where
   toHeaders = Prelude.const Prelude.mempty
@@ -217,5 +217,5 @@ registerPublisherResponse_httpStatus = Lens.lens (\RegisterPublisherResponse' {h
 
 instance Prelude.NFData RegisterPublisherResponse where
   rnf RegisterPublisherResponse' {..} =
-    Prelude.rnf publisherId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf publisherId `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -106,12 +106,12 @@ instance Core.AWSPager ListScheduledAudits where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listScheduledAudits_nextToken
-          Lens..~ rs
-          Lens.^? listScheduledAuditsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listScheduledAudits_nextToken
+              Lens..~ rs
+              Lens.^? listScheduledAuditsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListScheduledAudits where
   type
@@ -139,8 +139,8 @@ instance Prelude.Hashable ListScheduledAudits where
 
 instance Prelude.NFData ListScheduledAudits where
   rnf ListScheduledAudits' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListScheduledAudits where
   toHeaders = Prelude.const Prelude.mempty
@@ -208,6 +208,6 @@ listScheduledAuditsResponse_httpStatus = Lens.lens (\ListScheduledAuditsResponse
 
 instance Prelude.NFData ListScheduledAuditsResponse where
   rnf ListScheduledAuditsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf scheduledAudits
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf scheduledAudits `Prelude.seq`
+        Prelude.rnf httpStatus

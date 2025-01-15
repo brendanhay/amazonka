@@ -321,17 +321,17 @@ instance
     NielsenNonLinearWatermarkSettings
   where
   rnf NielsenNonLinearWatermarkSettings' {..} =
-    Prelude.rnf activeWatermarkProcess
-      `Prelude.seq` Prelude.rnf adiFilename
-      `Prelude.seq` Prelude.rnf assetId
-      `Prelude.seq` Prelude.rnf assetName
-      `Prelude.seq` Prelude.rnf cbetSourceId
-      `Prelude.seq` Prelude.rnf episodeId
-      `Prelude.seq` Prelude.rnf metadataDestination
-      `Prelude.seq` Prelude.rnf sourceId
-      `Prelude.seq` Prelude.rnf sourceWatermarkStatus
-      `Prelude.seq` Prelude.rnf ticServerUrl
-      `Prelude.seq` Prelude.rnf uniqueTicPerAudioTrack
+    Prelude.rnf activeWatermarkProcess `Prelude.seq`
+      Prelude.rnf adiFilename `Prelude.seq`
+        Prelude.rnf assetId `Prelude.seq`
+          Prelude.rnf assetName `Prelude.seq`
+            Prelude.rnf cbetSourceId `Prelude.seq`
+              Prelude.rnf episodeId `Prelude.seq`
+                Prelude.rnf metadataDestination `Prelude.seq`
+                  Prelude.rnf sourceId `Prelude.seq`
+                    Prelude.rnf sourceWatermarkStatus `Prelude.seq`
+                      Prelude.rnf ticServerUrl `Prelude.seq`
+                        Prelude.rnf uniqueTicPerAudioTrack
 
 instance
   Data.ToJSON

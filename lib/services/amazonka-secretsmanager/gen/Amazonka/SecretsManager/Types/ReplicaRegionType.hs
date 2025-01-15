@@ -77,8 +77,8 @@ instance Prelude.Hashable ReplicaRegionType where
 
 instance Prelude.NFData ReplicaRegionType where
   rnf ReplicaRegionType' {..} =
-    Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf region
+    Prelude.rnf kmsKeyId `Prelude.seq`
+      Prelude.rnf region
 
 instance Data.ToJSON ReplicaRegionType where
   toJSON ReplicaRegionType' {..} =

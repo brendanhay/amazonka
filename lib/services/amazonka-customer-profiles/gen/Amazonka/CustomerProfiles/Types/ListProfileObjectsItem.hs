@@ -94,6 +94,6 @@ instance Prelude.Hashable ListProfileObjectsItem where
 
 instance Prelude.NFData ListProfileObjectsItem where
   rnf ListProfileObjectsItem' {..} =
-    Prelude.rnf object'
-      `Prelude.seq` Prelude.rnf objectTypeName
-      `Prelude.seq` Prelude.rnf profileObjectUniqueKey
+    Prelude.rnf object' `Prelude.seq`
+      Prelude.rnf objectTypeName `Prelude.seq`
+        Prelude.rnf profileObjectUniqueKey

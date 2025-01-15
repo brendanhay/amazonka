@@ -207,15 +207,15 @@ instance Prelude.Hashable Activity where
 
 instance Prelude.NFData Activity where
   rnf Activity' {..} =
-    Prelude.rnf autoScalingGroupARN
-      `Prelude.seq` Prelude.rnf autoScalingGroupState
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf details
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf progress
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf activityId
-      `Prelude.seq` Prelude.rnf autoScalingGroupName
-      `Prelude.seq` Prelude.rnf cause
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf statusCode
+    Prelude.rnf autoScalingGroupARN `Prelude.seq`
+      Prelude.rnf autoScalingGroupState `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf details `Prelude.seq`
+            Prelude.rnf endTime `Prelude.seq`
+              Prelude.rnf progress `Prelude.seq`
+                Prelude.rnf statusMessage `Prelude.seq`
+                  Prelude.rnf activityId `Prelude.seq`
+                    Prelude.rnf autoScalingGroupName `Prelude.seq`
+                      Prelude.rnf cause `Prelude.seq`
+                        Prelude.rnf startTime `Prelude.seq`
+                          Prelude.rnf statusCode

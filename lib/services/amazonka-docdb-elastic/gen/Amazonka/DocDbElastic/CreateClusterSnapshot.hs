@@ -124,9 +124,9 @@ instance Prelude.Hashable CreateClusterSnapshot where
 
 instance Prelude.NFData CreateClusterSnapshot where
   rnf CreateClusterSnapshot' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clusterArn
-      `Prelude.seq` Prelude.rnf snapshotName
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf clusterArn `Prelude.seq`
+        Prelude.rnf snapshotName
 
 instance Data.ToHeaders CreateClusterSnapshot where
   toHeaders =
@@ -200,5 +200,5 @@ createClusterSnapshotResponse_snapshot = Lens.lens (\CreateClusterSnapshotRespon
 
 instance Prelude.NFData CreateClusterSnapshotResponse where
   rnf CreateClusterSnapshotResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf snapshot
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf snapshot

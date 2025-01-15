@@ -169,5 +169,5 @@ deleteCollectionResponse_httpStatus = Lens.lens (\DeleteCollectionResponse' {htt
 
 instance Prelude.NFData DeleteCollectionResponse where
   rnf DeleteCollectionResponse' {..} =
-    Prelude.rnf statusCode
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf statusCode `Prelude.seq`
+      Prelude.rnf httpStatus

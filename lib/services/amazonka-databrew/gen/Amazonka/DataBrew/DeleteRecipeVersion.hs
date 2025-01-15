@@ -118,8 +118,8 @@ instance Prelude.Hashable DeleteRecipeVersion where
 
 instance Prelude.NFData DeleteRecipeVersion where
   rnf DeleteRecipeVersion' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf recipeVersion
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf recipeVersion
 
 instance Data.ToHeaders DeleteRecipeVersion where
   toHeaders =
@@ -201,6 +201,6 @@ deleteRecipeVersionResponse_recipeVersion = Lens.lens (\DeleteRecipeVersionRespo
 
 instance Prelude.NFData DeleteRecipeVersionResponse where
   rnf DeleteRecipeVersionResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf recipeVersion
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf recipeVersion

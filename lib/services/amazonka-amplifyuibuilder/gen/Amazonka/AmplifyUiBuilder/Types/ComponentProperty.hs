@@ -246,21 +246,21 @@ instance Prelude.Hashable ComponentProperty where
 
 instance Prelude.NFData ComponentProperty where
   rnf ComponentProperty' {..} =
-    Prelude.rnf bindingProperties
-      `Prelude.seq` Prelude.rnf bindings
-      `Prelude.seq` Prelude.rnf collectionBindingProperties
-      `Prelude.seq` Prelude.rnf componentName
-      `Prelude.seq` Prelude.rnf concat
-      `Prelude.seq` Prelude.rnf condition
-      `Prelude.seq` Prelude.rnf configured
-      `Prelude.seq` Prelude.rnf defaultValue
-      `Prelude.seq` Prelude.rnf event
-      `Prelude.seq` Prelude.rnf importedValue
-      `Prelude.seq` Prelude.rnf model
-      `Prelude.seq` Prelude.rnf property
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf userAttribute
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf bindingProperties `Prelude.seq`
+      Prelude.rnf bindings `Prelude.seq`
+        Prelude.rnf collectionBindingProperties `Prelude.seq`
+          Prelude.rnf componentName `Prelude.seq`
+            Prelude.rnf concat `Prelude.seq`
+              Prelude.rnf condition `Prelude.seq`
+                Prelude.rnf configured `Prelude.seq`
+                  Prelude.rnf defaultValue `Prelude.seq`
+                    Prelude.rnf event `Prelude.seq`
+                      Prelude.rnf importedValue `Prelude.seq`
+                        Prelude.rnf model `Prelude.seq`
+                          Prelude.rnf property `Prelude.seq`
+                            Prelude.rnf type' `Prelude.seq`
+                              Prelude.rnf userAttribute `Prelude.seq`
+                                Prelude.rnf value
 
 instance Data.ToJSON ComponentProperty where
   toJSON ComponentProperty' {..} =

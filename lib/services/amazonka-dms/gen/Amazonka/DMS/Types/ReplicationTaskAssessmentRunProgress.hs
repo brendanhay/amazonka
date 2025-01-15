@@ -97,5 +97,5 @@ instance
     ReplicationTaskAssessmentRunProgress
   where
   rnf ReplicationTaskAssessmentRunProgress' {..} =
-    Prelude.rnf individualAssessmentCompletedCount
-      `Prelude.seq` Prelude.rnf individualAssessmentCount
+    Prelude.rnf individualAssessmentCompletedCount `Prelude.seq`
+      Prelude.rnf individualAssessmentCount

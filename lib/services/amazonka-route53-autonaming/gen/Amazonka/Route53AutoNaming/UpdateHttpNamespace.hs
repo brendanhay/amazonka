@@ -131,9 +131,9 @@ instance Prelude.Hashable UpdateHttpNamespace where
 
 instance Prelude.NFData UpdateHttpNamespace where
   rnf UpdateHttpNamespace' {..} =
-    Prelude.rnf updaterRequestId
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf namespace
+    Prelude.rnf updaterRequestId `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf namespace
 
 instance Data.ToHeaders UpdateHttpNamespace where
   toHeaders =
@@ -214,5 +214,5 @@ updateHttpNamespaceResponse_httpStatus = Lens.lens (\UpdateHttpNamespaceResponse
 
 instance Prelude.NFData UpdateHttpNamespaceResponse where
   rnf UpdateHttpNamespaceResponse' {..} =
-    Prelude.rnf operationId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operationId `Prelude.seq`
+      Prelude.rnf httpStatus

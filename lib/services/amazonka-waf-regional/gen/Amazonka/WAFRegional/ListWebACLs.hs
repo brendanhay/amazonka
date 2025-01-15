@@ -139,8 +139,8 @@ instance Prelude.Hashable ListWebACLs where
 
 instance Prelude.NFData ListWebACLs where
   rnf ListWebACLs' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nextMarker
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf nextMarker
 
 instance Data.ToHeaders ListWebACLs where
   toHeaders =
@@ -233,6 +233,6 @@ listWebACLsResponse_httpStatus = Lens.lens (\ListWebACLsResponse' {httpStatus} -
 
 instance Prelude.NFData ListWebACLsResponse where
   rnf ListWebACLsResponse' {..} =
-    Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf webACLs
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextMarker `Prelude.seq`
+      Prelude.rnf webACLs `Prelude.seq`
+        Prelude.rnf httpStatus

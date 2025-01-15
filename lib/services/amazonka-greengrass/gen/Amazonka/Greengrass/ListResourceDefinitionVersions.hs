@@ -120,12 +120,12 @@ instance Core.AWSPager ListResourceDefinitionVersions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listResourceDefinitionVersions_nextToken
-          Lens..~ rs
-          Lens.^? listResourceDefinitionVersionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listResourceDefinitionVersions_nextToken
+              Lens..~ rs
+              Lens.^? listResourceDefinitionVersionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -162,9 +162,9 @@ instance
     ListResourceDefinitionVersions
   where
   rnf ListResourceDefinitionVersions' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf resourceDefinitionId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf resourceDefinitionId
 
 instance
   Data.ToHeaders
@@ -252,6 +252,6 @@ instance
     ListResourceDefinitionVersionsResponse
   where
   rnf ListResourceDefinitionVersionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf versions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf versions `Prelude.seq`
+        Prelude.rnf httpStatus

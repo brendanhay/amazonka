@@ -96,5 +96,5 @@ instance
 
 instance Prelude.NFData PendingCloudwatchLogsExports where
   rnf PendingCloudwatchLogsExports' {..} =
-    Prelude.rnf logTypesToDisable
-      `Prelude.seq` Prelude.rnf logTypesToEnable
+    Prelude.rnf logTypesToDisable `Prelude.seq`
+      Prelude.rnf logTypesToEnable

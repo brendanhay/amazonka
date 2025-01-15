@@ -193,9 +193,7 @@ instance Data.FromXML EventSubscription where
                   )
       Prelude.<*> (x Data..@? "EventSubscriptionArn")
       Prelude.<*> (x Data..@? "SnsTopicArn")
-      Prelude.<*> ( x
-                      Data..@? "SourceIdsList"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "SourceIdsList" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "SourceId")
                   )
       Prelude.<*> (x Data..@? "SourceType")
@@ -218,13 +216,13 @@ instance Prelude.Hashable EventSubscription where
 
 instance Prelude.NFData EventSubscription where
   rnf EventSubscription' {..} =
-    Prelude.rnf custSubscriptionId
-      `Prelude.seq` Prelude.rnf customerAwsId
-      `Prelude.seq` Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf eventCategoriesList
-      `Prelude.seq` Prelude.rnf eventSubscriptionArn
-      `Prelude.seq` Prelude.rnf snsTopicArn
-      `Prelude.seq` Prelude.rnf sourceIdsList
-      `Prelude.seq` Prelude.rnf sourceType
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf subscriptionCreationTime
+    Prelude.rnf custSubscriptionId `Prelude.seq`
+      Prelude.rnf customerAwsId `Prelude.seq`
+        Prelude.rnf enabled `Prelude.seq`
+          Prelude.rnf eventCategoriesList `Prelude.seq`
+            Prelude.rnf eventSubscriptionArn `Prelude.seq`
+              Prelude.rnf snsTopicArn `Prelude.seq`
+                Prelude.rnf sourceIdsList `Prelude.seq`
+                  Prelude.rnf sourceType `Prelude.seq`
+                    Prelude.rnf status `Prelude.seq`
+                      Prelude.rnf subscriptionCreationTime

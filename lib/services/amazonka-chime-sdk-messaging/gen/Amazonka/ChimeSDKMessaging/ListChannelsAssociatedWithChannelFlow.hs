@@ -140,9 +140,9 @@ instance
     ListChannelsAssociatedWithChannelFlow
   where
   rnf ListChannelsAssociatedWithChannelFlow' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf channelFlowArn
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf channelFlowArn
 
 instance
   Data.ToHeaders
@@ -226,6 +226,6 @@ instance
   where
   rnf
     ListChannelsAssociatedWithChannelFlowResponse' {..} =
-      Prelude.rnf channels
-        `Prelude.seq` Prelude.rnf nextToken
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf channels `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf httpStatus

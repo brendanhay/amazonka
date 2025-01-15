@@ -121,8 +121,8 @@ instance
     StartRecommendationReportGeneration
   where
   rnf StartRecommendationReportGeneration' {..} =
-    Prelude.rnf groupIdFilter
-      `Prelude.seq` Prelude.rnf outputFormat
+    Prelude.rnf groupIdFilter `Prelude.seq`
+      Prelude.rnf outputFormat
 
 instance
   Data.ToHeaders

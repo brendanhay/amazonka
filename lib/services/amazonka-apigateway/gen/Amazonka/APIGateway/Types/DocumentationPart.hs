@@ -125,6 +125,6 @@ instance Prelude.Hashable DocumentationPart where
 
 instance Prelude.NFData DocumentationPart where
   rnf DocumentationPart' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf properties
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf location `Prelude.seq`
+        Prelude.rnf properties

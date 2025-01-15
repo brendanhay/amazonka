@@ -89,5 +89,5 @@ instance
     MinimumEngineVersionPerAllowedValue
   where
   rnf MinimumEngineVersionPerAllowedValue' {..} =
-    Prelude.rnf allowedValue
-      `Prelude.seq` Prelude.rnf minimumEngineVersion
+    Prelude.rnf allowedValue `Prelude.seq`
+      Prelude.rnf minimumEngineVersion

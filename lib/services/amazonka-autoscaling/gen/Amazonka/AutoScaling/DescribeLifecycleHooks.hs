@@ -102,9 +102,7 @@ instance Core.AWSRequest DescribeLifecycleHooks where
       "DescribeLifecycleHooksResult"
       ( \s h x ->
           DescribeLifecycleHooksResponse'
-            Prelude.<$> ( x
-                            Data..@? "LifecycleHooks"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "LifecycleHooks" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -118,8 +116,8 @@ instance Prelude.Hashable DescribeLifecycleHooks where
 
 instance Prelude.NFData DescribeLifecycleHooks where
   rnf DescribeLifecycleHooks' {..} =
-    Prelude.rnf lifecycleHookNames
-      `Prelude.seq` Prelude.rnf autoScalingGroupName
+    Prelude.rnf lifecycleHookNames `Prelude.seq`
+      Prelude.rnf autoScalingGroupName
 
 instance Data.ToHeaders DescribeLifecycleHooks where
   toHeaders = Prelude.const Prelude.mempty
@@ -186,5 +184,5 @@ instance
     DescribeLifecycleHooksResponse
   where
   rnf DescribeLifecycleHooksResponse' {..} =
-    Prelude.rnf lifecycleHooks
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf lifecycleHooks `Prelude.seq`
+      Prelude.rnf httpStatus

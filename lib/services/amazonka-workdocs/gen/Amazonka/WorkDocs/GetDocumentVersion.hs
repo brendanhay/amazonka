@@ -152,11 +152,11 @@ instance Prelude.Hashable GetDocumentVersion where
 
 instance Prelude.NFData GetDocumentVersion where
   rnf GetDocumentVersion' {..} =
-    Prelude.rnf authenticationToken
-      `Prelude.seq` Prelude.rnf fields
-      `Prelude.seq` Prelude.rnf includeCustomMetadata
-      `Prelude.seq` Prelude.rnf documentId
-      `Prelude.seq` Prelude.rnf versionId
+    Prelude.rnf authenticationToken `Prelude.seq`
+      Prelude.rnf fields `Prelude.seq`
+        Prelude.rnf includeCustomMetadata `Prelude.seq`
+          Prelude.rnf documentId `Prelude.seq`
+            Prelude.rnf versionId
 
 instance Data.ToHeaders GetDocumentVersion where
   toHeaders GetDocumentVersion' {..} =
@@ -233,6 +233,6 @@ getDocumentVersionResponse_httpStatus = Lens.lens (\GetDocumentVersionResponse' 
 
 instance Prelude.NFData GetDocumentVersionResponse where
   rnf GetDocumentVersionResponse' {..} =
-    Prelude.rnf customMetadata
-      `Prelude.seq` Prelude.rnf metadata
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf customMetadata `Prelude.seq`
+      Prelude.rnf metadata `Prelude.seq`
+        Prelude.rnf httpStatus

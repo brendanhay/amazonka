@@ -125,8 +125,8 @@ instance
     ModifyWorkspaceAccessProperties
   where
   rnf ModifyWorkspaceAccessProperties' {..} =
-    Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf workspaceAccessProperties
+    Prelude.rnf resourceId `Prelude.seq`
+      Prelude.rnf workspaceAccessProperties
 
 instance
   Data.ToHeaders

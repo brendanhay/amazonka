@@ -241,12 +241,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeNodeConfigurationOptions_marker
-          Lens..~ rs
-          Lens.^? describeNodeConfigurationOptionsResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeNodeConfigurationOptions_marker
+              Lens..~ rs
+              Lens.^? describeNodeConfigurationOptionsResponse_marker
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -294,14 +294,14 @@ instance
     DescribeNodeConfigurationOptions
   where
   rnf DescribeNodeConfigurationOptions' {..} =
-    Prelude.rnf clusterIdentifier
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf ownerAccount
-      `Prelude.seq` Prelude.rnf snapshotArn
-      `Prelude.seq` Prelude.rnf snapshotIdentifier
-      `Prelude.seq` Prelude.rnf actionType
+    Prelude.rnf clusterIdentifier `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf marker `Prelude.seq`
+          Prelude.rnf maxRecords `Prelude.seq`
+            Prelude.rnf ownerAccount `Prelude.seq`
+              Prelude.rnf snapshotArn `Prelude.seq`
+                Prelude.rnf snapshotIdentifier `Prelude.seq`
+                  Prelude.rnf actionType
 
 instance
   Data.ToHeaders
@@ -408,6 +408,6 @@ instance
     DescribeNodeConfigurationOptionsResponse
   where
   rnf DescribeNodeConfigurationOptionsResponse' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf nodeConfigurationOptionList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf nodeConfigurationOptionList `Prelude.seq`
+        Prelude.rnf httpStatus

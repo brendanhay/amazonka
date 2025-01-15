@@ -109,10 +109,10 @@ instance Prelude.Hashable PeriodOverPeriodComputation where
 
 instance Prelude.NFData PeriodOverPeriodComputation where
   rnf PeriodOverPeriodComputation' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf value
-      `Prelude.seq` Prelude.rnf computationId
-      `Prelude.seq` Prelude.rnf time
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf value `Prelude.seq`
+        Prelude.rnf computationId `Prelude.seq`
+          Prelude.rnf time
 
 instance Data.ToJSON PeriodOverPeriodComputation where
   toJSON PeriodOverPeriodComputation' {..} =

@@ -148,10 +148,10 @@ instance
     DisassociateTimeSeriesFromAssetProperty
   where
   rnf DisassociateTimeSeriesFromAssetProperty' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf alias
-      `Prelude.seq` Prelude.rnf assetId
-      `Prelude.seq` Prelude.rnf propertyId
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf alias `Prelude.seq`
+        Prelude.rnf assetId `Prelude.seq`
+          Prelude.rnf propertyId
 
 instance
   Data.ToHeaders

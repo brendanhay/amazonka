@@ -98,9 +98,9 @@ instance Prelude.Hashable TriggerConfig where
 
 instance Prelude.NFData TriggerConfig where
   rnf TriggerConfig' {..} =
-    Prelude.rnf triggerEvents
-      `Prelude.seq` Prelude.rnf triggerName
-      `Prelude.seq` Prelude.rnf triggerTargetArn
+    Prelude.rnf triggerEvents `Prelude.seq`
+      Prelude.rnf triggerName `Prelude.seq`
+        Prelude.rnf triggerTargetArn
 
 instance Data.ToJSON TriggerConfig where
   toJSON TriggerConfig' {..} =

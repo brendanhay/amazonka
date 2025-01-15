@@ -259,9 +259,9 @@ instance Prelude.Hashable UpdateLedger where
 
 instance Prelude.NFData UpdateLedger where
   rnf UpdateLedger' {..} =
-    Prelude.rnf deletionProtection
-      `Prelude.seq` Prelude.rnf kmsKey
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf deletionProtection `Prelude.seq`
+      Prelude.rnf kmsKey `Prelude.seq`
+        Prelude.rnf name
 
 instance Data.ToHeaders UpdateLedger where
   toHeaders =
@@ -406,10 +406,10 @@ updateLedgerResponse_httpStatus = Lens.lens (\UpdateLedgerResponse' {httpStatus}
 
 instance Prelude.NFData UpdateLedgerResponse where
   rnf UpdateLedgerResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf deletionProtection
-      `Prelude.seq` Prelude.rnf encryptionDescription
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf creationDateTime `Prelude.seq`
+        Prelude.rnf deletionProtection `Prelude.seq`
+          Prelude.rnf encryptionDescription `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf state `Prelude.seq`
+                Prelude.rnf httpStatus

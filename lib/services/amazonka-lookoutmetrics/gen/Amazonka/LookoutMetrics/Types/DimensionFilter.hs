@@ -83,8 +83,8 @@ instance Prelude.Hashable DimensionFilter where
 
 instance Prelude.NFData DimensionFilter where
   rnf DimensionFilter' {..} =
-    Prelude.rnf dimensionName
-      `Prelude.seq` Prelude.rnf dimensionValueList
+    Prelude.rnf dimensionName `Prelude.seq`
+      Prelude.rnf dimensionValueList
 
 instance Data.ToJSON DimensionFilter where
   toJSON DimensionFilter' {..} =

@@ -229,9 +229,9 @@ instance Prelude.Hashable UpdateLoadBalancerAttribute where
 
 instance Prelude.NFData UpdateLoadBalancerAttribute where
   rnf UpdateLoadBalancerAttribute' {..} =
-    Prelude.rnf loadBalancerName
-      `Prelude.seq` Prelude.rnf attributeName
-      `Prelude.seq` Prelude.rnf attributeValue
+    Prelude.rnf loadBalancerName `Prelude.seq`
+      Prelude.rnf attributeName `Prelude.seq`
+        Prelude.rnf attributeValue
 
 instance Data.ToHeaders UpdateLoadBalancerAttribute where
   toHeaders =
@@ -316,5 +316,5 @@ instance
     UpdateLoadBalancerAttributeResponse
   where
   rnf UpdateLoadBalancerAttributeResponse' {..} =
-    Prelude.rnf operations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operations `Prelude.seq`
+      Prelude.rnf httpStatus

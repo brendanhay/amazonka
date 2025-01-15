@@ -113,11 +113,11 @@ instance
     DataQualityResultFilterCriteria
   where
   rnf DataQualityResultFilterCriteria' {..} =
-    Prelude.rnf dataSource
-      `Prelude.seq` Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf jobRunId
-      `Prelude.seq` Prelude.rnf startedAfter
-      `Prelude.seq` Prelude.rnf startedBefore
+    Prelude.rnf dataSource `Prelude.seq`
+      Prelude.rnf jobName `Prelude.seq`
+        Prelude.rnf jobRunId `Prelude.seq`
+          Prelude.rnf startedAfter `Prelude.seq`
+            Prelude.rnf startedBefore
 
 instance Data.ToJSON DataQualityResultFilterCriteria where
   toJSON DataQualityResultFilterCriteria' {..} =

@@ -250,15 +250,15 @@ instance Prelude.Hashable CreateService where
 
 instance Prelude.NFData CreateService where
   rnf CreateService' {..} =
-    Prelude.rnf autoScalingConfigurationArn
-      `Prelude.seq` Prelude.rnf encryptionConfiguration
-      `Prelude.seq` Prelude.rnf healthCheckConfiguration
-      `Prelude.seq` Prelude.rnf instanceConfiguration
-      `Prelude.seq` Prelude.rnf networkConfiguration
-      `Prelude.seq` Prelude.rnf observabilityConfiguration
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf serviceName
-      `Prelude.seq` Prelude.rnf sourceConfiguration
+    Prelude.rnf autoScalingConfigurationArn `Prelude.seq`
+      Prelude.rnf encryptionConfiguration `Prelude.seq`
+        Prelude.rnf healthCheckConfiguration `Prelude.seq`
+          Prelude.rnf instanceConfiguration `Prelude.seq`
+            Prelude.rnf networkConfiguration `Prelude.seq`
+              Prelude.rnf observabilityConfiguration `Prelude.seq`
+                Prelude.rnf tags `Prelude.seq`
+                  Prelude.rnf serviceName `Prelude.seq`
+                    Prelude.rnf sourceConfiguration
 
 instance Data.ToHeaders CreateService where
   toHeaders =
@@ -367,6 +367,6 @@ createServiceResponse_operationId = Lens.lens (\CreateServiceResponse' {operatio
 
 instance Prelude.NFData CreateServiceResponse where
   rnf CreateServiceResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf service
-      `Prelude.seq` Prelude.rnf operationId
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf service `Prelude.seq`
+        Prelude.rnf operationId

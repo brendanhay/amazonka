@@ -219,10 +219,10 @@ instance Prelude.Hashable RateBasedStatement where
 
 instance Prelude.NFData RateBasedStatement where
   rnf RateBasedStatement' {..} =
-    Prelude.rnf forwardedIPConfig
-      `Prelude.seq` Prelude.rnf scopeDownStatement
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf aggregateKeyType
+    Prelude.rnf forwardedIPConfig `Prelude.seq`
+      Prelude.rnf scopeDownStatement `Prelude.seq`
+        Prelude.rnf limit `Prelude.seq`
+          Prelude.rnf aggregateKeyType
 
 instance Data.ToJSON RateBasedStatement where
   toJSON RateBasedStatement' {..} =

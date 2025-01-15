@@ -141,12 +141,12 @@ instance Prelude.Hashable SegmentDimensions where
 
 instance Prelude.NFData SegmentDimensions where
   rnf SegmentDimensions' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf behavior
-      `Prelude.seq` Prelude.rnf demographic
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf metrics
-      `Prelude.seq` Prelude.rnf userAttributes
+    Prelude.rnf attributes `Prelude.seq`
+      Prelude.rnf behavior `Prelude.seq`
+        Prelude.rnf demographic `Prelude.seq`
+          Prelude.rnf location `Prelude.seq`
+            Prelude.rnf metrics `Prelude.seq`
+              Prelude.rnf userAttributes
 
 instance Data.ToJSON SegmentDimensions where
   toJSON SegmentDimensions' {..} =

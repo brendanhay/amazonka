@@ -813,21 +813,21 @@ instance Prelude.Hashable Options where
 
 instance Prelude.NFData Options where
   rnf Options' {..} =
-    Prelude.rnf atime
-      `Prelude.seq` Prelude.rnf bytesPerSecond
-      `Prelude.seq` Prelude.rnf gid
-      `Prelude.seq` Prelude.rnf logLevel
-      `Prelude.seq` Prelude.rnf mtime
-      `Prelude.seq` Prelude.rnf objectTags
-      `Prelude.seq` Prelude.rnf overwriteMode
-      `Prelude.seq` Prelude.rnf posixPermissions
-      `Prelude.seq` Prelude.rnf preserveDeletedFiles
-      `Prelude.seq` Prelude.rnf preserveDevices
-      `Prelude.seq` Prelude.rnf securityDescriptorCopyFlags
-      `Prelude.seq` Prelude.rnf taskQueueing
-      `Prelude.seq` Prelude.rnf transferMode
-      `Prelude.seq` Prelude.rnf uid
-      `Prelude.seq` Prelude.rnf verifyMode
+    Prelude.rnf atime `Prelude.seq`
+      Prelude.rnf bytesPerSecond `Prelude.seq`
+        Prelude.rnf gid `Prelude.seq`
+          Prelude.rnf logLevel `Prelude.seq`
+            Prelude.rnf mtime `Prelude.seq`
+              Prelude.rnf objectTags `Prelude.seq`
+                Prelude.rnf overwriteMode `Prelude.seq`
+                  Prelude.rnf posixPermissions `Prelude.seq`
+                    Prelude.rnf preserveDeletedFiles `Prelude.seq`
+                      Prelude.rnf preserveDevices `Prelude.seq`
+                        Prelude.rnf securityDescriptorCopyFlags `Prelude.seq`
+                          Prelude.rnf taskQueueing `Prelude.seq`
+                            Prelude.rnf transferMode `Prelude.seq`
+                              Prelude.rnf uid `Prelude.seq`
+                                Prelude.rnf verifyMode
 
 instance Data.ToJSON Options where
   toJSON Options' {..} =

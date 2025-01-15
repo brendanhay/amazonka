@@ -102,8 +102,8 @@ instance Prelude.Hashable SsmControls where
 
 instance Prelude.NFData SsmControls where
   rnf SsmControls' {..} =
-    Prelude.rnf concurrentExecutionRatePercentage
-      `Prelude.seq` Prelude.rnf errorPercentage
+    Prelude.rnf concurrentExecutionRatePercentage `Prelude.seq`
+      Prelude.rnf errorPercentage
 
 instance Data.ToJSON SsmControls where
   toJSON SsmControls' {..} =

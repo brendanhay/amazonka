@@ -135,9 +135,9 @@ instance Prelude.Hashable PutLifecyclePolicy where
 
 instance Prelude.NFData PutLifecyclePolicy where
   rnf PutLifecyclePolicy' {..} =
-    Prelude.rnf registryId
-      `Prelude.seq` Prelude.rnf repositoryName
-      `Prelude.seq` Prelude.rnf lifecyclePolicyText
+    Prelude.rnf registryId `Prelude.seq`
+      Prelude.rnf repositoryName `Prelude.seq`
+        Prelude.rnf lifecyclePolicyText
 
 instance Data.ToHeaders PutLifecyclePolicy where
   toHeaders =
@@ -231,7 +231,7 @@ putLifecyclePolicyResponse_httpStatus = Lens.lens (\PutLifecyclePolicyResponse' 
 
 instance Prelude.NFData PutLifecyclePolicyResponse where
   rnf PutLifecyclePolicyResponse' {..} =
-    Prelude.rnf lifecyclePolicyText
-      `Prelude.seq` Prelude.rnf registryId
-      `Prelude.seq` Prelude.rnf repositoryName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf lifecyclePolicyText `Prelude.seq`
+      Prelude.rnf registryId `Prelude.seq`
+        Prelude.rnf repositoryName `Prelude.seq`
+          Prelude.rnf httpStatus

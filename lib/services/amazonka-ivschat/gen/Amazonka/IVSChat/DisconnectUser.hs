@@ -125,9 +125,9 @@ instance Prelude.Hashable DisconnectUser where
 
 instance Prelude.NFData DisconnectUser where
   rnf DisconnectUser' {..} =
-    Prelude.rnf reason
-      `Prelude.seq` Prelude.rnf roomIdentifier
-      `Prelude.seq` Prelude.rnf userId
+    Prelude.rnf reason `Prelude.seq`
+      Prelude.rnf roomIdentifier `Prelude.seq`
+        Prelude.rnf userId
 
 instance Data.ToHeaders DisconnectUser where
   toHeaders =

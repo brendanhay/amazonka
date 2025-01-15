@@ -153,11 +153,11 @@ instance Prelude.Hashable CreateCampaign where
 
 instance Prelude.NFData CreateCampaign where
   rnf CreateCampaign' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf connectInstanceId
-      `Prelude.seq` Prelude.rnf dialerConfig
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf outboundCallConfig
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf connectInstanceId `Prelude.seq`
+        Prelude.rnf dialerConfig `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf outboundCallConfig
 
 instance Data.ToHeaders CreateCampaign where
   toHeaders =
@@ -247,7 +247,7 @@ createCampaignResponse_httpStatus = Lens.lens (\CreateCampaignResponse' {httpSta
 
 instance Prelude.NFData CreateCampaignResponse where
   rnf CreateCampaignResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf httpStatus

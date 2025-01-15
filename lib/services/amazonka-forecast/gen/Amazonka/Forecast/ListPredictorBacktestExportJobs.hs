@@ -177,12 +177,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listPredictorBacktestExportJobs_nextToken
-          Lens..~ rs
-          Lens.^? listPredictorBacktestExportJobsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listPredictorBacktestExportJobs_nextToken
+              Lens..~ rs
+              Lens.^? listPredictorBacktestExportJobsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -222,9 +222,9 @@ instance
     ListPredictorBacktestExportJobs
   where
   rnf ListPredictorBacktestExportJobs' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance
   Data.ToHeaders
@@ -321,6 +321,6 @@ instance
     ListPredictorBacktestExportJobsResponse
   where
   rnf ListPredictorBacktestExportJobsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf predictorBacktestExportJobs
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf predictorBacktestExportJobs `Prelude.seq`
+        Prelude.rnf httpStatus

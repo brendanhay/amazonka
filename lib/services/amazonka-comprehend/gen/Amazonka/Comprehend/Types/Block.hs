@@ -155,9 +155,9 @@ instance Prelude.Hashable Block where
 
 instance Prelude.NFData Block where
   rnf Block' {..} =
-    Prelude.rnf blockType
-      `Prelude.seq` Prelude.rnf geometry
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf page
-      `Prelude.seq` Prelude.rnf relationships
-      `Prelude.seq` Prelude.rnf text
+    Prelude.rnf blockType `Prelude.seq`
+      Prelude.rnf geometry `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf page `Prelude.seq`
+            Prelude.rnf relationships `Prelude.seq`
+              Prelude.rnf text

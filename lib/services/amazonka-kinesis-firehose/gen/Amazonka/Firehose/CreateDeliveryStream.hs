@@ -504,5 +504,5 @@ createDeliveryStreamResponse_httpStatus = Lens.lens (\CreateDeliveryStreamRespon
 
 instance Prelude.NFData CreateDeliveryStreamResponse where
   rnf CreateDeliveryStreamResponse' {..} =
-    Prelude.rnf deliveryStreamARN
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf deliveryStreamARN `Prelude.seq`
+      Prelude.rnf httpStatus

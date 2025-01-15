@@ -212,15 +212,15 @@ instance Prelude.Hashable Encryption where
 
 instance Prelude.NFData Encryption where
   rnf Encryption' {..} =
-    Prelude.rnf algorithm
-      `Prelude.seq` Prelude.rnf constantInitializationVector
-      `Prelude.seq` Prelude.rnf deviceId
-      `Prelude.seq` Prelude.rnf keyType
-      `Prelude.seq` Prelude.rnf region
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf secretArn
-      `Prelude.seq` Prelude.rnf url
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf algorithm `Prelude.seq`
+      Prelude.rnf constantInitializationVector `Prelude.seq`
+        Prelude.rnf deviceId `Prelude.seq`
+          Prelude.rnf keyType `Prelude.seq`
+            Prelude.rnf region `Prelude.seq`
+              Prelude.rnf resourceId `Prelude.seq`
+                Prelude.rnf secretArn `Prelude.seq`
+                  Prelude.rnf url `Prelude.seq`
+                    Prelude.rnf roleArn
 
 instance Data.ToJSON Encryption where
   toJSON Encryption' {..} =

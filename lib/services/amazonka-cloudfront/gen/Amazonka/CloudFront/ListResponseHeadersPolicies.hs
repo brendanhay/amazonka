@@ -165,9 +165,9 @@ instance Prelude.Hashable ListResponseHeadersPolicies where
 
 instance Prelude.NFData ListResponseHeadersPolicies where
   rnf ListResponseHeadersPolicies' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxItems
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf maxItems `Prelude.seq`
+        Prelude.rnf type'
 
 instance Data.ToHeaders ListResponseHeadersPolicies where
   toHeaders = Prelude.const Prelude.mempty
@@ -228,5 +228,5 @@ instance
     ListResponseHeadersPoliciesResponse
   where
   rnf ListResponseHeadersPoliciesResponse' {..} =
-    Prelude.rnf responseHeadersPolicyList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf responseHeadersPolicyList `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -141,8 +141,8 @@ instance
     DisassociateResolverQueryLogConfig
   where
   rnf DisassociateResolverQueryLogConfig' {..} =
-    Prelude.rnf resolverQueryLogConfigId
-      `Prelude.seq` Prelude.rnf resourceId
+    Prelude.rnf resolverQueryLogConfigId `Prelude.seq`
+      Prelude.rnf resourceId
 
 instance
   Data.ToHeaders
@@ -237,5 +237,5 @@ instance
     DisassociateResolverQueryLogConfigResponse
   where
   rnf DisassociateResolverQueryLogConfigResponse' {..} =
-    Prelude.rnf resolverQueryLogConfigAssociation
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf resolverQueryLogConfigAssociation `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -174,9 +174,9 @@ instance Prelude.Hashable ModelCardVersionSummary where
 
 instance Prelude.NFData ModelCardVersionSummary where
   rnf ModelCardVersionSummary' {..} =
-    Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf modelCardName
-      `Prelude.seq` Prelude.rnf modelCardArn
-      `Prelude.seq` Prelude.rnf modelCardStatus
-      `Prelude.seq` Prelude.rnf modelCardVersion
-      `Prelude.seq` Prelude.rnf creationTime
+    Prelude.rnf lastModifiedTime `Prelude.seq`
+      Prelude.rnf modelCardName `Prelude.seq`
+        Prelude.rnf modelCardArn `Prelude.seq`
+          Prelude.rnf modelCardStatus `Prelude.seq`
+            Prelude.rnf modelCardVersion `Prelude.seq`
+              Prelude.rnf creationTime

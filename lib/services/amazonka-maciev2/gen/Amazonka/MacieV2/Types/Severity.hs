@@ -88,5 +88,5 @@ instance Prelude.Hashable Severity where
 
 instance Prelude.NFData Severity where
   rnf Severity' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf score
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf score

@@ -230,11 +230,11 @@ getWorkerFleetResponse_updatedAt = Lens.lens (\GetWorkerFleetResponse' {updatedA
 
 instance Prelude.NFData GetWorkerFleetResponse where
   rnf GetWorkerFleetResponse' {..} =
-    Prelude.rnf additionalFixedProperties
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf site
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf updatedAt
+    Prelude.rnf additionalFixedProperties `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf arn `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf site `Prelude.seq`
+                Prelude.rnf createdAt `Prelude.seq`
+                  Prelude.rnf updatedAt

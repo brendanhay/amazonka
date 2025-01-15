@@ -103,8 +103,8 @@ instance Prelude.Hashable ApiGatewayProxyInput where
 
 instance Prelude.NFData ApiGatewayProxyInput where
   rnf ApiGatewayProxyInput' {..} =
-    Prelude.rnf endpointType
-      `Prelude.seq` Prelude.rnf stageName
+    Prelude.rnf endpointType `Prelude.seq`
+      Prelude.rnf stageName
 
 instance Data.ToJSON ApiGatewayProxyInput where
   toJSON ApiGatewayProxyInput' {..} =

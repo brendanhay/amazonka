@@ -133,11 +133,11 @@ instance Prelude.Hashable Component where
 
 instance Prelude.NFData Component where
   rnf Component' {..} =
-    Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf componentId
-      `Prelude.seq` Prelude.rnf componentType
-      `Prelude.seq` Prelude.rnf databases
-      `Prelude.seq` Prelude.rnf hosts
-      `Prelude.seq` Prelude.rnf lastUpdated
-      `Prelude.seq` Prelude.rnf primaryHost
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf applicationId `Prelude.seq`
+      Prelude.rnf componentId `Prelude.seq`
+        Prelude.rnf componentType `Prelude.seq`
+          Prelude.rnf databases `Prelude.seq`
+            Prelude.rnf hosts `Prelude.seq`
+              Prelude.rnf lastUpdated `Prelude.seq`
+                Prelude.rnf primaryHost `Prelude.seq`
+                  Prelude.rnf status

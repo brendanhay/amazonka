@@ -94,8 +94,8 @@ instance Prelude.Hashable AppSyncRuntime where
 
 instance Prelude.NFData AppSyncRuntime where
   rnf AppSyncRuntime' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf runtimeVersion
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf runtimeVersion
 
 instance Data.ToJSON AppSyncRuntime where
   toJSON AppSyncRuntime' {..} =

@@ -246,12 +246,12 @@ instance Prelude.Hashable CreateWorkteam where
 
 instance Prelude.NFData CreateWorkteam where
   rnf CreateWorkteam' {..} =
-    Prelude.rnf notificationConfiguration
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf workforceName
-      `Prelude.seq` Prelude.rnf workteamName
-      `Prelude.seq` Prelude.rnf memberDefinitions
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf notificationConfiguration `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf workforceName `Prelude.seq`
+          Prelude.rnf workteamName `Prelude.seq`
+            Prelude.rnf memberDefinitions `Prelude.seq`
+              Prelude.rnf description
 
 instance Data.ToHeaders CreateWorkteam where
   toHeaders =
@@ -331,5 +331,5 @@ createWorkteamResponse_httpStatus = Lens.lens (\CreateWorkteamResponse' {httpSta
 
 instance Prelude.NFData CreateWorkteamResponse where
   rnf CreateWorkteamResponse' {..} =
-    Prelude.rnf workteamArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf workteamArn `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -105,9 +105,9 @@ instance Prelude.Hashable RevisionDestinationEntry where
 
 instance Prelude.NFData RevisionDestinationEntry where
   rnf RevisionDestinationEntry' {..} =
-    Prelude.rnf keyPattern
-      `Prelude.seq` Prelude.rnf bucket
-      `Prelude.seq` Prelude.rnf revisionId
+    Prelude.rnf keyPattern `Prelude.seq`
+      Prelude.rnf bucket `Prelude.seq`
+        Prelude.rnf revisionId
 
 instance Data.ToJSON RevisionDestinationEntry where
   toJSON RevisionDestinationEntry' {..} =

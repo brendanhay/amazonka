@@ -175,12 +175,12 @@ instance Prelude.Hashable GetAnomalies where
 
 instance Prelude.NFData GetAnomalies where
   rnf GetAnomalies' {..} =
-    Prelude.rnf feedback
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf monitorArn
-      `Prelude.seq` Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf totalImpact
-      `Prelude.seq` Prelude.rnf dateInterval
+    Prelude.rnf feedback `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf monitorArn `Prelude.seq`
+          Prelude.rnf nextPageToken `Prelude.seq`
+            Prelude.rnf totalImpact `Prelude.seq`
+              Prelude.rnf dateInterval
 
 instance Data.ToHeaders GetAnomalies where
   toHeaders =
@@ -272,6 +272,6 @@ getAnomaliesResponse_anomalies = Lens.lens (\GetAnomaliesResponse' {anomalies} -
 
 instance Prelude.NFData GetAnomaliesResponse where
   rnf GetAnomaliesResponse' {..} =
-    Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf anomalies
+    Prelude.rnf nextPageToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf anomalies

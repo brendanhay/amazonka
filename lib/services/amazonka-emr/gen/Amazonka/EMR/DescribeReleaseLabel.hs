@@ -129,9 +129,9 @@ instance Prelude.Hashable DescribeReleaseLabel where
 
 instance Prelude.NFData DescribeReleaseLabel where
   rnf DescribeReleaseLabel' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf releaseLabel
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf releaseLabel
 
 instance Data.ToHeaders DescribeReleaseLabel where
   toHeaders =
@@ -250,8 +250,8 @@ describeReleaseLabelResponse_httpStatus = Lens.lens (\DescribeReleaseLabelRespon
 
 instance Prelude.NFData DescribeReleaseLabelResponse where
   rnf DescribeReleaseLabelResponse' {..} =
-    Prelude.rnf applications
-      `Prelude.seq` Prelude.rnf availableOSReleases
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf releaseLabel
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf applications `Prelude.seq`
+      Prelude.rnf availableOSReleases `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf releaseLabel `Prelude.seq`
+            Prelude.rnf httpStatus

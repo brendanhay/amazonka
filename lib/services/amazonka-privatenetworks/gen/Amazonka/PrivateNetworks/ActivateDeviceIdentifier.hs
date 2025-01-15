@@ -117,8 +117,8 @@ instance Prelude.Hashable ActivateDeviceIdentifier where
 
 instance Prelude.NFData ActivateDeviceIdentifier where
   rnf ActivateDeviceIdentifier' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf deviceIdentifierArn
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf deviceIdentifierArn
 
 instance Data.ToHeaders ActivateDeviceIdentifier where
   toHeaders =
@@ -205,6 +205,6 @@ instance
     ActivateDeviceIdentifierResponse
   where
   rnf ActivateDeviceIdentifierResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf deviceIdentifier
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf deviceIdentifier

@@ -184,13 +184,13 @@ instance
     CreateNetworkAnalyzerConfiguration
   where
   rnf CreateNetworkAnalyzerConfiguration' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf traceContent
-      `Prelude.seq` Prelude.rnf wirelessDevices
-      `Prelude.seq` Prelude.rnf wirelessGateways
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf traceContent `Prelude.seq`
+            Prelude.rnf wirelessDevices `Prelude.seq`
+              Prelude.rnf wirelessGateways `Prelude.seq`
+                Prelude.rnf name
 
 instance
   Data.ToHeaders
@@ -284,6 +284,6 @@ instance
     CreateNetworkAnalyzerConfigurationResponse
   where
   rnf CreateNetworkAnalyzerConfigurationResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf httpStatus

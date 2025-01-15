@@ -160,12 +160,12 @@ instance Prelude.Hashable ReserveContact where
 
 instance Prelude.NFData ReserveContact where
   rnf ReserveContact' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf groundStation
-      `Prelude.seq` Prelude.rnf missionProfileArn
-      `Prelude.seq` Prelude.rnf satelliteArn
-      `Prelude.seq` Prelude.rnf startTime
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf endTime `Prelude.seq`
+        Prelude.rnf groundStation `Prelude.seq`
+          Prelude.rnf missionProfileArn `Prelude.seq`
+            Prelude.rnf satelliteArn `Prelude.seq`
+              Prelude.rnf startTime
 
 instance Data.ToHeaders ReserveContact where
   toHeaders =

@@ -157,10 +157,10 @@ instance Prelude.Hashable VodSource where
 
 instance Prelude.NFData VodSource where
   rnf VodSource' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf httpPackageConfigurations
-      `Prelude.seq` Prelude.rnf sourceLocationName
-      `Prelude.seq` Prelude.rnf vodSourceName
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf lastModifiedTime `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf arn `Prelude.seq`
+            Prelude.rnf httpPackageConfigurations `Prelude.seq`
+              Prelude.rnf sourceLocationName `Prelude.seq`
+                Prelude.rnf vodSourceName

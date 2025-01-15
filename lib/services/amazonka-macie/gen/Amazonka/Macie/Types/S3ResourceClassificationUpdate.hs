@@ -108,9 +108,9 @@ instance
     S3ResourceClassificationUpdate
   where
   rnf S3ResourceClassificationUpdate' {..} =
-    Prelude.rnf prefix
-      `Prelude.seq` Prelude.rnf bucketName
-      `Prelude.seq` Prelude.rnf classificationTypeUpdate
+    Prelude.rnf prefix `Prelude.seq`
+      Prelude.rnf bucketName `Prelude.seq`
+        Prelude.rnf classificationTypeUpdate
 
 instance Data.ToJSON S3ResourceClassificationUpdate where
   toJSON S3ResourceClassificationUpdate' {..} =

@@ -176,12 +176,12 @@ instance Core.AWSPager ListMonitors where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listMonitors_nextToken
-          Lens..~ rs
-          Lens.^? listMonitorsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listMonitors_nextToken
+              Lens..~ rs
+              Lens.^? listMonitorsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListMonitors where
   type AWSResponse ListMonitors = ListMonitorsResponse
@@ -205,9 +205,9 @@ instance Prelude.Hashable ListMonitors where
 
 instance Prelude.NFData ListMonitors where
   rnf ListMonitors' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListMonitors where
   toHeaders =
@@ -292,6 +292,6 @@ listMonitorsResponse_httpStatus = Lens.lens (\ListMonitorsResponse' {httpStatus}
 
 instance Prelude.NFData ListMonitorsResponse where
   rnf ListMonitorsResponse' {..} =
-    Prelude.rnf monitors
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf monitors `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

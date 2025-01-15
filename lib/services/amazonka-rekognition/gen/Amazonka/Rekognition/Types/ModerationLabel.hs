@@ -113,6 +113,6 @@ instance Prelude.Hashable ModerationLabel where
 
 instance Prelude.NFData ModerationLabel where
   rnf ModerationLabel' {..} =
-    Prelude.rnf confidence
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf parentName
+    Prelude.rnf confidence `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf parentName

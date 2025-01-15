@@ -139,12 +139,12 @@ instance Core.AWSPager ListPoolOriginationIdentities where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listPoolOriginationIdentities_nextToken
-          Lens..~ rs
-          Lens.^? listPoolOriginationIdentitiesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listPoolOriginationIdentities_nextToken
+              Lens..~ rs
+              Lens.^? listPoolOriginationIdentitiesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -182,10 +182,10 @@ instance
 
 instance Prelude.NFData ListPoolOriginationIdentities where
   rnf ListPoolOriginationIdentities' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf poolId
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf poolId
 
 instance Data.ToHeaders ListPoolOriginationIdentities where
   toHeaders =
@@ -294,8 +294,8 @@ instance
     ListPoolOriginationIdentitiesResponse
   where
   rnf ListPoolOriginationIdentitiesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf originationIdentities
-      `Prelude.seq` Prelude.rnf poolArn
-      `Prelude.seq` Prelude.rnf poolId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf originationIdentities `Prelude.seq`
+        Prelude.rnf poolArn `Prelude.seq`
+          Prelude.rnf poolId `Prelude.seq`
+            Prelude.rnf httpStatus

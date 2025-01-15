@@ -80,5 +80,5 @@ instance Prelude.Hashable ProjectSummary where
 
 instance Prelude.NFData ProjectSummary where
   rnf ProjectSummary' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf projectId
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf projectId

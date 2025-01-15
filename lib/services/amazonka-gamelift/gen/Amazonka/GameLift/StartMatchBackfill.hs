@@ -250,10 +250,10 @@ instance Prelude.Hashable StartMatchBackfill where
 
 instance Prelude.NFData StartMatchBackfill where
   rnf StartMatchBackfill' {..} =
-    Prelude.rnf gameSessionArn
-      `Prelude.seq` Prelude.rnf ticketId
-      `Prelude.seq` Prelude.rnf configurationName
-      `Prelude.seq` Prelude.rnf players
+    Prelude.rnf gameSessionArn `Prelude.seq`
+      Prelude.rnf ticketId `Prelude.seq`
+        Prelude.rnf configurationName `Prelude.seq`
+          Prelude.rnf players
 
 instance Data.ToHeaders StartMatchBackfill where
   toHeaders =
@@ -336,5 +336,5 @@ startMatchBackfillResponse_httpStatus = Lens.lens (\StartMatchBackfillResponse' 
 
 instance Prelude.NFData StartMatchBackfillResponse where
   rnf StartMatchBackfillResponse' {..} =
-    Prelude.rnf matchmakingTicket
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf matchmakingTicket `Prelude.seq`
+      Prelude.rnf httpStatus

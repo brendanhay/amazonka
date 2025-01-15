@@ -106,7 +106,7 @@ instance Prelude.Hashable ScheduleAdBreak where
 
 instance Prelude.NFData ScheduleAdBreak where
   rnf ScheduleAdBreak' {..} =
-    Prelude.rnf approximateDurationSeconds
-      `Prelude.seq` Prelude.rnf approximateStartTime
-      `Prelude.seq` Prelude.rnf sourceLocationName
-      `Prelude.seq` Prelude.rnf vodSourceName
+    Prelude.rnf approximateDurationSeconds `Prelude.seq`
+      Prelude.rnf approximateStartTime `Prelude.seq`
+        Prelude.rnf sourceLocationName `Prelude.seq`
+          Prelude.rnf vodSourceName

@@ -187,13 +187,13 @@ instance Prelude.Hashable PutSigningProfile where
 
 instance Prelude.NFData PutSigningProfile where
   rnf PutSigningProfile' {..} =
-    Prelude.rnf overrides
-      `Prelude.seq` Prelude.rnf signatureValidityPeriod
-      `Prelude.seq` Prelude.rnf signingMaterial
-      `Prelude.seq` Prelude.rnf signingParameters
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf profileName
-      `Prelude.seq` Prelude.rnf platformId
+    Prelude.rnf overrides `Prelude.seq`
+      Prelude.rnf signatureValidityPeriod `Prelude.seq`
+        Prelude.rnf signingMaterial `Prelude.seq`
+          Prelude.rnf signingParameters `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf profileName `Prelude.seq`
+                Prelude.rnf platformId
 
 instance Data.ToHeaders PutSigningProfile where
   toHeaders =
@@ -288,7 +288,7 @@ putSigningProfileResponse_httpStatus = Lens.lens (\PutSigningProfileResponse' {h
 
 instance Prelude.NFData PutSigningProfileResponse where
   rnf PutSigningProfileResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf profileVersion
-      `Prelude.seq` Prelude.rnf profileVersionArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf profileVersion `Prelude.seq`
+        Prelude.rnf profileVersionArn `Prelude.seq`
+          Prelude.rnf httpStatus

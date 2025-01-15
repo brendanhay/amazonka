@@ -113,8 +113,8 @@ instance Prelude.Hashable Capacity where
 
 instance Prelude.NFData Capacity where
   rnf Capacity' {..} =
-    Prelude.rnf available
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf total
-      `Prelude.seq` Prelude.rnf unit
-      `Prelude.seq` Prelude.rnf used
+    Prelude.rnf available `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf total `Prelude.seq`
+          Prelude.rnf unit `Prelude.seq`
+            Prelude.rnf used

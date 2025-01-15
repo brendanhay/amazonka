@@ -111,8 +111,8 @@ instance Prelude.Hashable UntagResource where
 
 instance Prelude.NFData UntagResource where
   rnf UntagResource' {..} =
-    Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf tagKeys
+    Prelude.rnf resourceArn `Prelude.seq`
+      Prelude.rnf tagKeys
 
 instance Data.ToHeaders UntagResource where
   toHeaders =
@@ -184,5 +184,5 @@ untagResourceResponse_httpStatus = Lens.lens (\UntagResourceResponse' {httpStatu
 
 instance Prelude.NFData UntagResourceResponse where
   rnf UntagResourceResponse' {..} =
-    Prelude.rnf tagList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf tagList `Prelude.seq`
+      Prelude.rnf httpStatus

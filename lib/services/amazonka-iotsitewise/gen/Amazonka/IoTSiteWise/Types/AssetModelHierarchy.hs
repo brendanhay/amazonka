@@ -112,9 +112,9 @@ instance Prelude.Hashable AssetModelHierarchy where
 
 instance Prelude.NFData AssetModelHierarchy where
   rnf AssetModelHierarchy' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf childAssetModelId
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf childAssetModelId
 
 instance Data.ToJSON AssetModelHierarchy where
   toJSON AssetModelHierarchy' {..} =

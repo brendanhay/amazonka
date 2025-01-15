@@ -93,6 +93,6 @@ instance Prelude.Hashable IdentityProviderSummary where
 
 instance Prelude.NFData IdentityProviderSummary where
   rnf IdentityProviderSummary' {..} =
-    Prelude.rnf identityProviderArn
-      `Prelude.seq` Prelude.rnf identityProviderName
-      `Prelude.seq` Prelude.rnf identityProviderType
+    Prelude.rnf identityProviderArn `Prelude.seq`
+      Prelude.rnf identityProviderName `Prelude.seq`
+        Prelude.rnf identityProviderType

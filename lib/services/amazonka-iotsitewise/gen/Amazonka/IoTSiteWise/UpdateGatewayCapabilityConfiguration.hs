@@ -170,9 +170,9 @@ instance
     UpdateGatewayCapabilityConfiguration
   where
   rnf UpdateGatewayCapabilityConfiguration' {..} =
-    Prelude.rnf gatewayId
-      `Prelude.seq` Prelude.rnf capabilityNamespace
-      `Prelude.seq` Prelude.rnf capabilityConfiguration
+    Prelude.rnf gatewayId `Prelude.seq`
+      Prelude.rnf capabilityNamespace `Prelude.seq`
+        Prelude.rnf capabilityConfiguration
 
 instance
   Data.ToHeaders
@@ -319,6 +319,6 @@ instance
     UpdateGatewayCapabilityConfigurationResponse
   where
   rnf UpdateGatewayCapabilityConfigurationResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf capabilityNamespace
-      `Prelude.seq` Prelude.rnf capabilitySyncStatus
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf capabilityNamespace `Prelude.seq`
+        Prelude.rnf capabilitySyncStatus

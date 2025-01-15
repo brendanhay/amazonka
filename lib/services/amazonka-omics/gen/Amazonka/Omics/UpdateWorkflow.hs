@@ -110,9 +110,9 @@ instance Prelude.Hashable UpdateWorkflow where
 
 instance Prelude.NFData UpdateWorkflow where
   rnf UpdateWorkflow' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf id
 
 instance Data.ToHeaders UpdateWorkflow where
   toHeaders =

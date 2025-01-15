@@ -129,12 +129,12 @@ instance Prelude.Hashable SSMValidationParameters where
 
 instance Prelude.NFData SSMValidationParameters where
   rnf SSMValidationParameters' {..} =
-    Prelude.rnf command
-      `Prelude.seq` Prelude.rnf executionTimeoutSeconds
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf outputS3BucketName
-      `Prelude.seq` Prelude.rnf scriptType
-      `Prelude.seq` Prelude.rnf source
+    Prelude.rnf command `Prelude.seq`
+      Prelude.rnf executionTimeoutSeconds `Prelude.seq`
+        Prelude.rnf instanceId `Prelude.seq`
+          Prelude.rnf outputS3BucketName `Prelude.seq`
+            Prelude.rnf scriptType `Prelude.seq`
+              Prelude.rnf source
 
 instance Data.ToJSON SSMValidationParameters where
   toJSON SSMValidationParameters' {..} =

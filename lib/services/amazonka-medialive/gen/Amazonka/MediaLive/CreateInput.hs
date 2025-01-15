@@ -227,17 +227,17 @@ instance Prelude.Hashable CreateInput' where
 
 instance Prelude.NFData CreateInput' where
   rnf CreateInput'' {..} =
-    Prelude.rnf destinations
-      `Prelude.seq` Prelude.rnf inputDevices
-      `Prelude.seq` Prelude.rnf inputSecurityGroups
-      `Prelude.seq` Prelude.rnf mediaConnectFlows
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf sources
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf vpc
+    Prelude.rnf destinations `Prelude.seq`
+      Prelude.rnf inputDevices `Prelude.seq`
+        Prelude.rnf inputSecurityGroups `Prelude.seq`
+          Prelude.rnf mediaConnectFlows `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf requestId `Prelude.seq`
+                Prelude.rnf roleArn `Prelude.seq`
+                  Prelude.rnf sources `Prelude.seq`
+                    Prelude.rnf tags `Prelude.seq`
+                      Prelude.rnf type' `Prelude.seq`
+                        Prelude.rnf vpc
 
 instance Data.ToHeaders CreateInput' where
   toHeaders =
@@ -317,5 +317,5 @@ createInputResponse_httpStatus = Lens.lens (\CreateInputResponse' {httpStatus} -
 
 instance Prelude.NFData CreateInputResponse where
   rnf CreateInputResponse' {..} =
-    Prelude.rnf input
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf input `Prelude.seq`
+      Prelude.rnf httpStatus

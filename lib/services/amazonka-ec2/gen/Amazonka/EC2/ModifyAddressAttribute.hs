@@ -131,9 +131,9 @@ instance Prelude.Hashable ModifyAddressAttribute where
 
 instance Prelude.NFData ModifyAddressAttribute where
   rnf ModifyAddressAttribute' {..} =
-    Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf allocationId
+    Prelude.rnf domainName `Prelude.seq`
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf allocationId
 
 instance Data.ToHeaders ModifyAddressAttribute where
   toHeaders = Prelude.const Prelude.mempty
@@ -197,5 +197,5 @@ instance
     ModifyAddressAttributeResponse
   where
   rnf ModifyAddressAttributeResponse' {..} =
-    Prelude.rnf address
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf address `Prelude.seq`
+      Prelude.rnf httpStatus

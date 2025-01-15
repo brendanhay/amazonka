@@ -176,5 +176,5 @@ instance
     DeleteFirewallRuleGroupResponse
   where
   rnf DeleteFirewallRuleGroupResponse' {..} =
-    Prelude.rnf firewallRuleGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf firewallRuleGroup `Prelude.seq`
+      Prelude.rnf httpStatus

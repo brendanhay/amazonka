@@ -204,11 +204,11 @@ instance Prelude.Hashable MapRunItemCounts where
 
 instance Prelude.NFData MapRunItemCounts where
   rnf MapRunItemCounts' {..} =
-    Prelude.rnf pending
-      `Prelude.seq` Prelude.rnf running
-      `Prelude.seq` Prelude.rnf succeeded
-      `Prelude.seq` Prelude.rnf failed
-      `Prelude.seq` Prelude.rnf timedOut
-      `Prelude.seq` Prelude.rnf aborted
-      `Prelude.seq` Prelude.rnf total
-      `Prelude.seq` Prelude.rnf resultsWritten
+    Prelude.rnf pending `Prelude.seq`
+      Prelude.rnf running `Prelude.seq`
+        Prelude.rnf succeeded `Prelude.seq`
+          Prelude.rnf failed `Prelude.seq`
+            Prelude.rnf timedOut `Prelude.seq`
+              Prelude.rnf aborted `Prelude.seq`
+                Prelude.rnf total `Prelude.seq`
+                  Prelude.rnf resultsWritten

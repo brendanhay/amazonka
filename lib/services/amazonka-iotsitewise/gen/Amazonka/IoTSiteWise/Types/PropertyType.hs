@@ -137,10 +137,10 @@ instance Prelude.Hashable PropertyType where
 
 instance Prelude.NFData PropertyType where
   rnf PropertyType' {..} =
-    Prelude.rnf attribute
-      `Prelude.seq` Prelude.rnf measurement
-      `Prelude.seq` Prelude.rnf metric
-      `Prelude.seq` Prelude.rnf transform
+    Prelude.rnf attribute `Prelude.seq`
+      Prelude.rnf measurement `Prelude.seq`
+        Prelude.rnf metric `Prelude.seq`
+          Prelude.rnf transform
 
 instance Data.ToJSON PropertyType where
   toJSON PropertyType' {..} =

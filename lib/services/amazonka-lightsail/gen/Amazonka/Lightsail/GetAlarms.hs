@@ -153,9 +153,9 @@ instance Prelude.Hashable GetAlarms where
 
 instance Prelude.NFData GetAlarms where
   rnf GetAlarms' {..} =
-    Prelude.rnf alarmName
-      `Prelude.seq` Prelude.rnf monitoredResourceName
-      `Prelude.seq` Prelude.rnf pageToken
+    Prelude.rnf alarmName `Prelude.seq`
+      Prelude.rnf monitoredResourceName `Prelude.seq`
+        Prelude.rnf pageToken
 
 instance Data.ToHeaders GetAlarms where
   toHeaders =
@@ -256,6 +256,6 @@ getAlarmsResponse_httpStatus = Lens.lens (\GetAlarmsResponse' {httpStatus} -> ht
 
 instance Prelude.NFData GetAlarmsResponse where
   rnf GetAlarmsResponse' {..} =
-    Prelude.rnf alarms
-      `Prelude.seq` Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf alarms `Prelude.seq`
+      Prelude.rnf nextPageToken `Prelude.seq`
+        Prelude.rnf httpStatus

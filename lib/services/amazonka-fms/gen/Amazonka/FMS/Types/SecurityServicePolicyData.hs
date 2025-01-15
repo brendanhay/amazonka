@@ -553,9 +553,9 @@ instance Prelude.Hashable SecurityServicePolicyData where
 
 instance Prelude.NFData SecurityServicePolicyData where
   rnf SecurityServicePolicyData' {..} =
-    Prelude.rnf managedServiceData
-      `Prelude.seq` Prelude.rnf policyOption
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf managedServiceData `Prelude.seq`
+      Prelude.rnf policyOption `Prelude.seq`
+        Prelude.rnf type'
 
 instance Data.ToJSON SecurityServicePolicyData where
   toJSON SecurityServicePolicyData' {..} =

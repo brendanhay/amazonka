@@ -238,14 +238,14 @@ instance Prelude.Hashable CreateProvisioningTemplate where
 
 instance Prelude.NFData CreateProvisioningTemplate where
   rnf CreateProvisioningTemplate' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf preProvisioningHook
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf templateName
-      `Prelude.seq` Prelude.rnf templateBody
-      `Prelude.seq` Prelude.rnf provisioningRoleArn
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf enabled `Prelude.seq`
+        Prelude.rnf preProvisioningHook `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf type' `Prelude.seq`
+              Prelude.rnf templateName `Prelude.seq`
+                Prelude.rnf templateBody `Prelude.seq`
+                  Prelude.rnf provisioningRoleArn
 
 instance Data.ToHeaders CreateProvisioningTemplate where
   toHeaders = Prelude.const Prelude.mempty
@@ -335,7 +335,7 @@ instance
     CreateProvisioningTemplateResponse
   where
   rnf CreateProvisioningTemplateResponse' {..} =
-    Prelude.rnf defaultVersionId
-      `Prelude.seq` Prelude.rnf templateArn
-      `Prelude.seq` Prelude.rnf templateName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf defaultVersionId `Prelude.seq`
+      Prelude.rnf templateArn `Prelude.seq`
+        Prelude.rnf templateName `Prelude.seq`
+          Prelude.rnf httpStatus

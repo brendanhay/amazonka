@@ -109,10 +109,10 @@ instance Prelude.Hashable LaunchPermission where
 
 instance Prelude.NFData LaunchPermission where
   rnf LaunchPermission' {..} =
-    Prelude.rnf group'
-      `Prelude.seq` Prelude.rnf organizationArn
-      `Prelude.seq` Prelude.rnf organizationalUnitArn
-      `Prelude.seq` Prelude.rnf userId
+    Prelude.rnf group' `Prelude.seq`
+      Prelude.rnf organizationArn `Prelude.seq`
+        Prelude.rnf organizationalUnitArn `Prelude.seq`
+          Prelude.rnf userId
 
 instance Data.ToQuery LaunchPermission where
   toQuery LaunchPermission' {..} =

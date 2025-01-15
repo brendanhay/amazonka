@@ -562,8 +562,8 @@ instance Prelude.Hashable SetQueueAttributes where
 
 instance Prelude.NFData SetQueueAttributes where
   rnf SetQueueAttributes' {..} =
-    Prelude.rnf queueUrl
-      `Prelude.seq` Prelude.rnf attributes
+    Prelude.rnf queueUrl `Prelude.seq`
+      Prelude.rnf attributes
 
 instance Data.ToHeaders SetQueueAttributes where
   toHeaders = Prelude.const Prelude.mempty

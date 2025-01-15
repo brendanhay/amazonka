@@ -104,5 +104,5 @@ instance Prelude.Hashable PiiOutputDataConfig where
 
 instance Prelude.NFData PiiOutputDataConfig where
   rnf PiiOutputDataConfig' {..} =
-    Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf s3Uri
+    Prelude.rnf kmsKeyId `Prelude.seq`
+      Prelude.rnf s3Uri

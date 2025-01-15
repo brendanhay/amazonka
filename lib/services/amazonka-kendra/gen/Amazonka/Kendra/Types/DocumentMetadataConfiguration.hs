@@ -117,10 +117,10 @@ instance
 
 instance Prelude.NFData DocumentMetadataConfiguration where
   rnf DocumentMetadataConfiguration' {..} =
-    Prelude.rnf relevance
-      `Prelude.seq` Prelude.rnf search
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf relevance `Prelude.seq`
+      Prelude.rnf search `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf type'
 
 instance Data.ToJSON DocumentMetadataConfiguration where
   toJSON DocumentMetadataConfiguration' {..} =

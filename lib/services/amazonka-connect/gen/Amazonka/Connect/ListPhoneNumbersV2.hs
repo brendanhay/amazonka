@@ -170,12 +170,12 @@ instance Core.AWSPager ListPhoneNumbersV2 where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listPhoneNumbersV2_nextToken
-          Lens..~ rs
-          Lens.^? listPhoneNumbersV2Response_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listPhoneNumbersV2_nextToken
+              Lens..~ rs
+              Lens.^? listPhoneNumbersV2Response_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPhoneNumbersV2 where
   type
@@ -207,12 +207,12 @@ instance Prelude.Hashable ListPhoneNumbersV2 where
 
 instance Prelude.NFData ListPhoneNumbersV2 where
   rnf ListPhoneNumbersV2' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf phoneNumberCountryCodes
-      `Prelude.seq` Prelude.rnf phoneNumberPrefix
-      `Prelude.seq` Prelude.rnf phoneNumberTypes
-      `Prelude.seq` Prelude.rnf targetArn
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf phoneNumberCountryCodes `Prelude.seq`
+          Prelude.rnf phoneNumberPrefix `Prelude.seq`
+            Prelude.rnf phoneNumberTypes `Prelude.seq`
+              Prelude.rnf targetArn
 
 instance Data.ToHeaders ListPhoneNumbersV2 where
   toHeaders =
@@ -303,6 +303,6 @@ listPhoneNumbersV2Response_httpStatus = Lens.lens (\ListPhoneNumbersV2Response' 
 
 instance Prelude.NFData ListPhoneNumbersV2Response where
   rnf ListPhoneNumbersV2Response' {..} =
-    Prelude.rnf listPhoneNumbersSummaryList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf listPhoneNumbersSummaryList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

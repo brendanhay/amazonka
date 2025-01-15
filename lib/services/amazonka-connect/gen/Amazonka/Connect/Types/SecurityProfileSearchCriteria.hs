@@ -94,9 +94,9 @@ instance
 
 instance Prelude.NFData SecurityProfileSearchCriteria where
   rnf SecurityProfileSearchCriteria' {..} =
-    Prelude.rnf andConditions
-      `Prelude.seq` Prelude.rnf orConditions
-      `Prelude.seq` Prelude.rnf stringCondition
+    Prelude.rnf andConditions `Prelude.seq`
+      Prelude.rnf orConditions `Prelude.seq`
+        Prelude.rnf stringCondition
 
 instance Data.ToJSON SecurityProfileSearchCriteria where
   toJSON SecurityProfileSearchCriteria' {..} =

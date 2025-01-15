@@ -188,6 +188,6 @@ instance
     DescribeResourceGroupsResponse
   where
   rnf DescribeResourceGroupsResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf resourceGroups
-      `Prelude.seq` Prelude.rnf failedItems
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf resourceGroups `Prelude.seq`
+        Prelude.rnf failedItems

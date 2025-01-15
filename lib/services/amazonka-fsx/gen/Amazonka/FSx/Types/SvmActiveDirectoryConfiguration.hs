@@ -101,5 +101,5 @@ instance
     SvmActiveDirectoryConfiguration
   where
   rnf SvmActiveDirectoryConfiguration' {..} =
-    Prelude.rnf netBiosName
-      `Prelude.seq` Prelude.rnf selfManagedActiveDirectoryConfiguration
+    Prelude.rnf netBiosName `Prelude.seq`
+      Prelude.rnf selfManagedActiveDirectoryConfiguration

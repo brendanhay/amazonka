@@ -173,6 +173,6 @@ listTagsForResourceResponse_status = Lens.lens (\ListTagsForResourceResponse' {s
 
 instance Prelude.NFData ListTagsForResourceResponse where
   rnf ListTagsForResourceResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf requestId `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf status

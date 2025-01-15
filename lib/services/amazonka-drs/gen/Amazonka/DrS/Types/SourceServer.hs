@@ -201,15 +201,15 @@ instance Prelude.Hashable SourceServer where
 
 instance Prelude.NFData SourceServer where
   rnf SourceServer' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf dataReplicationInfo
-      `Prelude.seq` Prelude.rnf lastLaunchResult
-      `Prelude.seq` Prelude.rnf lifeCycle
-      `Prelude.seq` Prelude.rnf recoveryInstanceId
-      `Prelude.seq` Prelude.rnf replicationDirection
-      `Prelude.seq` Prelude.rnf reversedDirectionSourceServerArn
-      `Prelude.seq` Prelude.rnf sourceCloudProperties
-      `Prelude.seq` Prelude.rnf sourceProperties
-      `Prelude.seq` Prelude.rnf sourceServerID
-      `Prelude.seq` Prelude.rnf stagingArea
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf dataReplicationInfo `Prelude.seq`
+        Prelude.rnf lastLaunchResult `Prelude.seq`
+          Prelude.rnf lifeCycle `Prelude.seq`
+            Prelude.rnf recoveryInstanceId `Prelude.seq`
+              Prelude.rnf replicationDirection `Prelude.seq`
+                Prelude.rnf reversedDirectionSourceServerArn `Prelude.seq`
+                  Prelude.rnf sourceCloudProperties `Prelude.seq`
+                    Prelude.rnf sourceProperties `Prelude.seq`
+                      Prelude.rnf sourceServerID `Prelude.seq`
+                        Prelude.rnf stagingArea `Prelude.seq`
+                          Prelude.rnf tags

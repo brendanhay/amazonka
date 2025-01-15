@@ -147,11 +147,11 @@ instance Prelude.Hashable ListReplays where
 
 instance Prelude.NFData ListReplays where
   rnf ListReplays' {..} =
-    Prelude.rnf eventSourceArn
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf namePrefix
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf eventSourceArn `Prelude.seq`
+      Prelude.rnf limit `Prelude.seq`
+        Prelude.rnf namePrefix `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf state
 
 instance Data.ToHeaders ListReplays where
   toHeaders =
@@ -237,6 +237,6 @@ listReplaysResponse_httpStatus = Lens.lens (\ListReplaysResponse' {httpStatus} -
 
 instance Prelude.NFData ListReplaysResponse where
   rnf ListReplaysResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf replays
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf replays `Prelude.seq`
+        Prelude.rnf httpStatus

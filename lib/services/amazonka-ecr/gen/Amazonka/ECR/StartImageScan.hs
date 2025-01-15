@@ -136,9 +136,9 @@ instance Prelude.Hashable StartImageScan where
 
 instance Prelude.NFData StartImageScan where
   rnf StartImageScan' {..} =
-    Prelude.rnf registryId
-      `Prelude.seq` Prelude.rnf repositoryName
-      `Prelude.seq` Prelude.rnf imageId
+    Prelude.rnf registryId `Prelude.seq`
+      Prelude.rnf repositoryName `Prelude.seq`
+        Prelude.rnf imageId
 
 instance Data.ToHeaders StartImageScan where
   toHeaders =
@@ -238,8 +238,8 @@ startImageScanResponse_httpStatus = Lens.lens (\StartImageScanResponse' {httpSta
 
 instance Prelude.NFData StartImageScanResponse where
   rnf StartImageScanResponse' {..} =
-    Prelude.rnf imageId
-      `Prelude.seq` Prelude.rnf imageScanStatus
-      `Prelude.seq` Prelude.rnf registryId
-      `Prelude.seq` Prelude.rnf repositoryName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf imageId `Prelude.seq`
+      Prelude.rnf imageScanStatus `Prelude.seq`
+        Prelude.rnf registryId `Prelude.seq`
+          Prelude.rnf repositoryName `Prelude.seq`
+            Prelude.rnf httpStatus

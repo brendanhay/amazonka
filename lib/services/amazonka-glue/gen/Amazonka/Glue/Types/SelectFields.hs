@@ -96,9 +96,9 @@ instance Prelude.Hashable SelectFields where
 
 instance Prelude.NFData SelectFields where
   rnf SelectFields' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf inputs
-      `Prelude.seq` Prelude.rnf paths
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf inputs `Prelude.seq`
+        Prelude.rnf paths
 
 instance Data.ToJSON SelectFields where
   toJSON SelectFields' {..} =

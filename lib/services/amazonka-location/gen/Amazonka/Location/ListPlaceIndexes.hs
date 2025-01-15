@@ -117,12 +117,12 @@ instance Core.AWSPager ListPlaceIndexes where
         (rs Lens.^. listPlaceIndexesResponse_entries) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listPlaceIndexes_nextToken
-          Lens..~ rs
-          Lens.^? listPlaceIndexesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listPlaceIndexes_nextToken
+              Lens..~ rs
+              Lens.^? listPlaceIndexesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPlaceIndexes where
   type
@@ -147,8 +147,8 @@ instance Prelude.Hashable ListPlaceIndexes where
 
 instance Prelude.NFData ListPlaceIndexes where
   rnf ListPlaceIndexes' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListPlaceIndexes where
   toHeaders =
@@ -232,6 +232,6 @@ listPlaceIndexesResponse_entries = Lens.lens (\ListPlaceIndexesResponse' {entrie
 
 instance Prelude.NFData ListPlaceIndexesResponse where
   rnf ListPlaceIndexesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf entries
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf entries

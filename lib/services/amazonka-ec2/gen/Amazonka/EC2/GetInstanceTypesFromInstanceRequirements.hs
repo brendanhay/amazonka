@@ -187,12 +187,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getInstanceTypesFromInstanceRequirements_nextToken
-          Lens..~ rs
-          Lens.^? getInstanceTypesFromInstanceRequirementsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getInstanceTypesFromInstanceRequirements_nextToken
+              Lens..~ rs
+              Lens.^? getInstanceTypesFromInstanceRequirementsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -208,9 +208,7 @@ instance
     Response.receiveXML
       ( \s h x ->
           GetInstanceTypesFromInstanceRequirementsResponse'
-            Prelude.<$> ( x
-                            Data..@? "instanceTypeSet"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "instanceTypeSet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (x Data..@? "nextToken")
@@ -237,12 +235,12 @@ instance
     GetInstanceTypesFromInstanceRequirements
   where
   rnf GetInstanceTypesFromInstanceRequirements' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf architectureTypes
-      `Prelude.seq` Prelude.rnf virtualizationTypes
-      `Prelude.seq` Prelude.rnf instanceRequirements
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf architectureTypes `Prelude.seq`
+            Prelude.rnf virtualizationTypes `Prelude.seq`
+              Prelude.rnf instanceRequirements
 
 instance
   Data.ToHeaders
@@ -336,6 +334,6 @@ instance
   where
   rnf
     GetInstanceTypesFromInstanceRequirementsResponse' {..} =
-      Prelude.rnf instanceTypes
-        `Prelude.seq` Prelude.rnf nextToken
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf instanceTypes `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf httpStatus

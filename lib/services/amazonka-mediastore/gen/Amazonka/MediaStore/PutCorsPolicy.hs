@@ -123,8 +123,8 @@ instance Prelude.Hashable PutCorsPolicy where
 
 instance Prelude.NFData PutCorsPolicy where
   rnf PutCorsPolicy' {..} =
-    Prelude.rnf containerName
-      `Prelude.seq` Prelude.rnf corsPolicy
+    Prelude.rnf containerName `Prelude.seq`
+      Prelude.rnf corsPolicy
 
 instance Data.ToHeaders PutCorsPolicy where
   toHeaders =

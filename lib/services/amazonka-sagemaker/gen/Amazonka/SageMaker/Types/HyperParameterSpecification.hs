@@ -151,13 +151,13 @@ instance Prelude.Hashable HyperParameterSpecification where
 
 instance Prelude.NFData HyperParameterSpecification where
   rnf HyperParameterSpecification' {..} =
-    Prelude.rnf defaultValue
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf isRequired
-      `Prelude.seq` Prelude.rnf isTunable
-      `Prelude.seq` Prelude.rnf range
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf defaultValue `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf isRequired `Prelude.seq`
+          Prelude.rnf isTunable `Prelude.seq`
+            Prelude.rnf range `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf type'
 
 instance Data.ToJSON HyperParameterSpecification where
   toJSON HyperParameterSpecification' {..} =

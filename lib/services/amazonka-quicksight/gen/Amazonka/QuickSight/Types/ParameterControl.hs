@@ -143,12 +143,12 @@ instance Prelude.Hashable ParameterControl where
 
 instance Prelude.NFData ParameterControl where
   rnf ParameterControl' {..} =
-    Prelude.rnf dateTimePicker
-      `Prelude.seq` Prelude.rnf dropdown
-      `Prelude.seq` Prelude.rnf list
-      `Prelude.seq` Prelude.rnf slider
-      `Prelude.seq` Prelude.rnf textArea
-      `Prelude.seq` Prelude.rnf textField
+    Prelude.rnf dateTimePicker `Prelude.seq`
+      Prelude.rnf dropdown `Prelude.seq`
+        Prelude.rnf list `Prelude.seq`
+          Prelude.rnf slider `Prelude.seq`
+            Prelude.rnf textArea `Prelude.seq`
+              Prelude.rnf textField
 
 instance Data.ToJSON ParameterControl where
   toJSON ParameterControl' {..} =

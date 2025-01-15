@@ -93,6 +93,6 @@ instance Prelude.Hashable ParticipatingServer where
 
 instance Prelude.NFData ParticipatingServer where
   rnf ParticipatingServer' {..} =
-    Prelude.rnf launchStatus
-      `Prelude.seq` Prelude.rnf recoveryInstanceID
-      `Prelude.seq` Prelude.rnf sourceServerID
+    Prelude.rnf launchStatus `Prelude.seq`
+      Prelude.rnf recoveryInstanceID `Prelude.seq`
+        Prelude.rnf sourceServerID

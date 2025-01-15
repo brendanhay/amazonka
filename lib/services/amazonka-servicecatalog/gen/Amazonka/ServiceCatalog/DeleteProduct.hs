@@ -129,8 +129,8 @@ instance Prelude.Hashable DeleteProduct where
 
 instance Prelude.NFData DeleteProduct where
   rnf DeleteProduct' {..} =
-    Prelude.rnf acceptLanguage
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf acceptLanguage `Prelude.seq`
+      Prelude.rnf id
 
 instance Data.ToHeaders DeleteProduct where
   toHeaders =

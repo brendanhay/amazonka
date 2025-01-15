@@ -157,5 +157,5 @@ restorePhoneNumberResponse_httpStatus = Lens.lens (\RestorePhoneNumberResponse' 
 
 instance Prelude.NFData RestorePhoneNumberResponse where
   rnf RestorePhoneNumberResponse' {..} =
-    Prelude.rnf phoneNumber
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf phoneNumber `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -85,5 +85,5 @@ instance Prelude.Hashable VpcIngressConnectionSummary where
 
 instance Prelude.NFData VpcIngressConnectionSummary where
   rnf VpcIngressConnectionSummary' {..} =
-    Prelude.rnf serviceArn
-      `Prelude.seq` Prelude.rnf vpcIngressConnectionArn
+    Prelude.rnf serviceArn `Prelude.seq`
+      Prelude.rnf vpcIngressConnectionArn

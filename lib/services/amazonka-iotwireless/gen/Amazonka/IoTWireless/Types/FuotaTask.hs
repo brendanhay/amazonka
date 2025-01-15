@@ -88,6 +88,6 @@ instance Prelude.Hashable FuotaTask where
 
 instance Prelude.NFData FuotaTask where
   rnf FuotaTask' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf name

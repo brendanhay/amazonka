@@ -121,12 +121,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getBehaviorModelTrainingSummaries_nextToken
-          Lens..~ rs
-          Lens.^? getBehaviorModelTrainingSummariesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getBehaviorModelTrainingSummaries_nextToken
+              Lens..~ rs
+              Lens.^? getBehaviorModelTrainingSummariesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -163,9 +163,9 @@ instance
     GetBehaviorModelTrainingSummaries
   where
   rnf GetBehaviorModelTrainingSummaries' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf securityProfileName
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf securityProfileName
 
 instance
   Data.ToHeaders
@@ -251,6 +251,6 @@ instance
     GetBehaviorModelTrainingSummariesResponse
   where
   rnf GetBehaviorModelTrainingSummariesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf summaries
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf summaries `Prelude.seq`
+        Prelude.rnf httpStatus

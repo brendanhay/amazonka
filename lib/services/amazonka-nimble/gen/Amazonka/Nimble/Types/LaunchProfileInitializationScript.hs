@@ -139,8 +139,8 @@ instance
     LaunchProfileInitializationScript
   where
   rnf LaunchProfileInitializationScript' {..} =
-    Prelude.rnf runtimeRoleArn
-      `Prelude.seq` Prelude.rnf script
-      `Prelude.seq` Prelude.rnf secureInitializationRoleArn
-      `Prelude.seq` Prelude.rnf studioComponentId
-      `Prelude.seq` Prelude.rnf studioComponentName
+    Prelude.rnf runtimeRoleArn `Prelude.seq`
+      Prelude.rnf script `Prelude.seq`
+        Prelude.rnf secureInitializationRoleArn `Prelude.seq`
+          Prelude.rnf studioComponentId `Prelude.seq`
+            Prelude.rnf studioComponentName

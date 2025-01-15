@@ -195,13 +195,13 @@ instance Prelude.Hashable Comment where
 
 instance Prelude.NFData Comment where
   rnf Comment' {..} =
-    Prelude.rnf authorArn
-      `Prelude.seq` Prelude.rnf callerReactions
-      `Prelude.seq` Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf commentId
-      `Prelude.seq` Prelude.rnf content
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf deleted
-      `Prelude.seq` Prelude.rnf inReplyTo
-      `Prelude.seq` Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf reactionCounts
+    Prelude.rnf authorArn `Prelude.seq`
+      Prelude.rnf callerReactions `Prelude.seq`
+        Prelude.rnf clientRequestToken `Prelude.seq`
+          Prelude.rnf commentId `Prelude.seq`
+            Prelude.rnf content `Prelude.seq`
+              Prelude.rnf creationDate `Prelude.seq`
+                Prelude.rnf deleted `Prelude.seq`
+                  Prelude.rnf inReplyTo `Prelude.seq`
+                    Prelude.rnf lastModifiedDate `Prelude.seq`
+                      Prelude.rnf reactionCounts

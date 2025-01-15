@@ -106,7 +106,7 @@ instance Prelude.Hashable PipelineSummary where
 
 instance Prelude.NFData PipelineSummary where
   rnf PipelineSummary' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf lastUpdateTime
-      `Prelude.seq` Prelude.rnf pipelineName
-      `Prelude.seq` Prelude.rnf reprocessingSummaries
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf lastUpdateTime `Prelude.seq`
+        Prelude.rnf pipelineName `Prelude.seq`
+          Prelude.rnf reprocessingSummaries

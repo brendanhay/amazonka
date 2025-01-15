@@ -175,12 +175,12 @@ instance
     UpdateFileSystemWindowsConfiguration
   where
   rnf UpdateFileSystemWindowsConfiguration' {..} =
-    Prelude.rnf auditLogConfiguration
-      `Prelude.seq` Prelude.rnf automaticBackupRetentionDays
-      `Prelude.seq` Prelude.rnf dailyAutomaticBackupStartTime
-      `Prelude.seq` Prelude.rnf selfManagedActiveDirectoryConfiguration
-      `Prelude.seq` Prelude.rnf throughputCapacity
-      `Prelude.seq` Prelude.rnf weeklyMaintenanceStartTime
+    Prelude.rnf auditLogConfiguration `Prelude.seq`
+      Prelude.rnf automaticBackupRetentionDays `Prelude.seq`
+        Prelude.rnf dailyAutomaticBackupStartTime `Prelude.seq`
+          Prelude.rnf selfManagedActiveDirectoryConfiguration `Prelude.seq`
+            Prelude.rnf throughputCapacity `Prelude.seq`
+              Prelude.rnf weeklyMaintenanceStartTime
 
 instance
   Data.ToJSON

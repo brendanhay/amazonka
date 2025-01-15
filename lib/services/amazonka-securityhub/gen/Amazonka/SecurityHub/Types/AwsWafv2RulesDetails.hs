@@ -139,11 +139,11 @@ instance Prelude.Hashable AwsWafv2RulesDetails where
 
 instance Prelude.NFData AwsWafv2RulesDetails where
   rnf AwsWafv2RulesDetails' {..} =
-    Prelude.rnf action
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf overrideAction
-      `Prelude.seq` Prelude.rnf priority
-      `Prelude.seq` Prelude.rnf visibilityConfig
+    Prelude.rnf action `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf overrideAction `Prelude.seq`
+          Prelude.rnf priority `Prelude.seq`
+            Prelude.rnf visibilityConfig
 
 instance Data.ToJSON AwsWafv2RulesDetails where
   toJSON AwsWafv2RulesDetails' {..} =

@@ -173,12 +173,12 @@ instance Prelude.Hashable AwsApiCallAction where
 
 instance Prelude.NFData AwsApiCallAction where
   rnf AwsApiCallAction' {..} =
-    Prelude.rnf affectedResources
-      `Prelude.seq` Prelude.rnf api
-      `Prelude.seq` Prelude.rnf callerType
-      `Prelude.seq` Prelude.rnf domainDetails
-      `Prelude.seq` Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf remoteAccountDetails
-      `Prelude.seq` Prelude.rnf remoteIpDetails
-      `Prelude.seq` Prelude.rnf serviceName
-      `Prelude.seq` Prelude.rnf userAgent
+    Prelude.rnf affectedResources `Prelude.seq`
+      Prelude.rnf api `Prelude.seq`
+        Prelude.rnf callerType `Prelude.seq`
+          Prelude.rnf domainDetails `Prelude.seq`
+            Prelude.rnf errorCode `Prelude.seq`
+              Prelude.rnf remoteAccountDetails `Prelude.seq`
+                Prelude.rnf remoteIpDetails `Prelude.seq`
+                  Prelude.rnf serviceName `Prelude.seq`
+                    Prelude.rnf userAgent

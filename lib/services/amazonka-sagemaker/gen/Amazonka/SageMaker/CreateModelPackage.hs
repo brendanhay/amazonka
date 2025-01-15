@@ -449,25 +449,25 @@ instance Prelude.Hashable CreateModelPackage where
 
 instance Prelude.NFData CreateModelPackage where
   rnf CreateModelPackage' {..} =
-    Prelude.rnf additionalInferenceSpecifications
-      `Prelude.seq` Prelude.rnf certifyForMarketplace
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf customerMetadataProperties
-      `Prelude.seq` Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf driftCheckBaselines
-      `Prelude.seq` Prelude.rnf inferenceSpecification
-      `Prelude.seq` Prelude.rnf metadataProperties
-      `Prelude.seq` Prelude.rnf modelApprovalStatus
-      `Prelude.seq` Prelude.rnf modelMetrics
-      `Prelude.seq` Prelude.rnf modelPackageDescription
-      `Prelude.seq` Prelude.rnf modelPackageGroupName
-      `Prelude.seq` Prelude.rnf modelPackageName
-      `Prelude.seq` Prelude.rnf samplePayloadUrl
-      `Prelude.seq` Prelude.rnf sourceAlgorithmSpecification
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf task
-      `Prelude.seq` Prelude.rnf
-        validationSpecification
+    Prelude.rnf additionalInferenceSpecifications `Prelude.seq`
+      Prelude.rnf certifyForMarketplace `Prelude.seq`
+        Prelude.rnf clientToken `Prelude.seq`
+          Prelude.rnf customerMetadataProperties `Prelude.seq`
+            Prelude.rnf domain `Prelude.seq`
+              Prelude.rnf driftCheckBaselines `Prelude.seq`
+                Prelude.rnf inferenceSpecification `Prelude.seq`
+                  Prelude.rnf metadataProperties `Prelude.seq`
+                    Prelude.rnf modelApprovalStatus `Prelude.seq`
+                      Prelude.rnf modelMetrics `Prelude.seq`
+                        Prelude.rnf modelPackageDescription `Prelude.seq`
+                          Prelude.rnf modelPackageGroupName `Prelude.seq`
+                            Prelude.rnf modelPackageName `Prelude.seq`
+                              Prelude.rnf samplePayloadUrl `Prelude.seq`
+                                Prelude.rnf sourceAlgorithmSpecification `Prelude.seq`
+                                  Prelude.rnf tags `Prelude.seq`
+                                    Prelude.rnf task `Prelude.seq`
+                                      Prelude.rnf
+                                        validationSpecification
 
 instance Data.ToHeaders CreateModelPackage where
   toHeaders =
@@ -573,5 +573,5 @@ createModelPackageResponse_modelPackageArn = Lens.lens (\CreateModelPackageRespo
 
 instance Prelude.NFData CreateModelPackageResponse where
   rnf CreateModelPackageResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf modelPackageArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf modelPackageArn

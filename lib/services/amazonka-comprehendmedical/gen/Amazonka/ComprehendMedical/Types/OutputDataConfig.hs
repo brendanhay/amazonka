@@ -100,8 +100,8 @@ instance Prelude.Hashable OutputDataConfig where
 
 instance Prelude.NFData OutputDataConfig where
   rnf OutputDataConfig' {..} =
-    Prelude.rnf s3Key
-      `Prelude.seq` Prelude.rnf s3Bucket
+    Prelude.rnf s3Key `Prelude.seq`
+      Prelude.rnf s3Bucket
 
 instance Data.ToJSON OutputDataConfig where
   toJSON OutputDataConfig' {..} =

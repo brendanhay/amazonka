@@ -79,8 +79,8 @@ instance
     DescribeRecoverySnapshotsRequestFilters
   where
   rnf DescribeRecoverySnapshotsRequestFilters' {..} =
-    Prelude.rnf fromDateTime
-      `Prelude.seq` Prelude.rnf toDateTime
+    Prelude.rnf fromDateTime `Prelude.seq`
+      Prelude.rnf toDateTime
 
 instance
   Data.ToJSON

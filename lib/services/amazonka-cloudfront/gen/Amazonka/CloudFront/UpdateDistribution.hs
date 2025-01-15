@@ -154,9 +154,9 @@ instance Prelude.Hashable UpdateDistribution where
 
 instance Prelude.NFData UpdateDistribution where
   rnf UpdateDistribution' {..} =
-    Prelude.rnf ifMatch
-      `Prelude.seq` Prelude.rnf distributionConfig
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf ifMatch `Prelude.seq`
+      Prelude.rnf distributionConfig `Prelude.seq`
+        Prelude.rnf id
 
 instance Data.ToElement UpdateDistribution where
   toElement UpdateDistribution' {..} =
@@ -231,6 +231,6 @@ updateDistributionResponse_httpStatus = Lens.lens (\UpdateDistributionResponse' 
 
 instance Prelude.NFData UpdateDistributionResponse where
   rnf UpdateDistributionResponse' {..} =
-    Prelude.rnf distribution
-      `Prelude.seq` Prelude.rnf eTag
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf distribution `Prelude.seq`
+      Prelude.rnf eTag `Prelude.seq`
+        Prelude.rnf httpStatus

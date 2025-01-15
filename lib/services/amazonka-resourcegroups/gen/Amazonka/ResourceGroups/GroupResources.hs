@@ -120,8 +120,8 @@ instance Prelude.Hashable GroupResources where
 
 instance Prelude.NFData GroupResources where
   rnf GroupResources' {..} =
-    Prelude.rnf group'
-      `Prelude.seq` Prelude.rnf resourceArns
+    Prelude.rnf group' `Prelude.seq`
+      Prelude.rnf resourceArns
 
 instance Data.ToHeaders GroupResources where
   toHeaders = Prelude.const Prelude.mempty
@@ -220,7 +220,7 @@ groupResourcesResponse_httpStatus = Lens.lens (\GroupResourcesResponse' {httpSta
 
 instance Prelude.NFData GroupResourcesResponse where
   rnf GroupResourcesResponse' {..} =
-    Prelude.rnf failed
-      `Prelude.seq` Prelude.rnf pending
-      `Prelude.seq` Prelude.rnf succeeded
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf failed `Prelude.seq`
+      Prelude.rnf pending `Prelude.seq`
+        Prelude.rnf succeeded `Prelude.seq`
+          Prelude.rnf httpStatus

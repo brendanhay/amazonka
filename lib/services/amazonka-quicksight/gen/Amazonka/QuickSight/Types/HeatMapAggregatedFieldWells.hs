@@ -94,9 +94,9 @@ instance Prelude.Hashable HeatMapAggregatedFieldWells where
 
 instance Prelude.NFData HeatMapAggregatedFieldWells where
   rnf HeatMapAggregatedFieldWells' {..} =
-    Prelude.rnf columns
-      `Prelude.seq` Prelude.rnf rows
-      `Prelude.seq` Prelude.rnf values
+    Prelude.rnf columns `Prelude.seq`
+      Prelude.rnf rows `Prelude.seq`
+        Prelude.rnf values
 
 instance Data.ToJSON HeatMapAggregatedFieldWells where
   toJSON HeatMapAggregatedFieldWells' {..} =

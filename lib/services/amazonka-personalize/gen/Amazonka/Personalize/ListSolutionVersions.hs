@@ -118,12 +118,12 @@ instance Core.AWSPager ListSolutionVersions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listSolutionVersions_nextToken
-          Lens..~ rs
-          Lens.^? listSolutionVersionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listSolutionVersions_nextToken
+              Lens..~ rs
+              Lens.^? listSolutionVersionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSolutionVersions where
   type
@@ -152,9 +152,9 @@ instance Prelude.Hashable ListSolutionVersions where
 
 instance Prelude.NFData ListSolutionVersions where
   rnf ListSolutionVersions' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf solutionArn
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf solutionArn
 
 instance Data.ToHeaders ListSolutionVersions where
   toHeaders =
@@ -237,6 +237,6 @@ listSolutionVersionsResponse_httpStatus = Lens.lens (\ListSolutionVersionsRespon
 
 instance Prelude.NFData ListSolutionVersionsResponse where
   rnf ListSolutionVersionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf solutionVersions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf solutionVersions `Prelude.seq`
+        Prelude.rnf httpStatus

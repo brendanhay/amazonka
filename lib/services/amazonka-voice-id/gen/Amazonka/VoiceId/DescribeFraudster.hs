@@ -110,8 +110,8 @@ instance Prelude.Hashable DescribeFraudster where
 
 instance Prelude.NFData DescribeFraudster where
   rnf DescribeFraudster' {..} =
-    Prelude.rnf domainId
-      `Prelude.seq` Prelude.rnf fraudsterId
+    Prelude.rnf domainId `Prelude.seq`
+      Prelude.rnf fraudsterId
 
 instance Data.ToHeaders DescribeFraudster where
   toHeaders =
@@ -182,5 +182,5 @@ describeFraudsterResponse_httpStatus = Lens.lens (\DescribeFraudsterResponse' {h
 
 instance Prelude.NFData DescribeFraudsterResponse where
   rnf DescribeFraudsterResponse' {..} =
-    Prelude.rnf fraudster
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf fraudster `Prelude.seq`
+      Prelude.rnf httpStatus

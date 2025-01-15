@@ -121,8 +121,8 @@ instance Prelude.Hashable GetDatasetContent where
 
 instance Prelude.NFData GetDatasetContent where
   rnf GetDatasetContent' {..} =
-    Prelude.rnf versionId
-      `Prelude.seq` Prelude.rnf datasetName
+    Prelude.rnf versionId `Prelude.seq`
+      Prelude.rnf datasetName
 
 instance Data.ToHeaders GetDatasetContent where
   toHeaders = Prelude.const Prelude.mempty
@@ -195,7 +195,7 @@ getDatasetContentResponse_httpStatus = Lens.lens (\GetDatasetContentResponse' {h
 
 instance Prelude.NFData GetDatasetContentResponse where
   rnf GetDatasetContentResponse' {..} =
-    Prelude.rnf entries
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf timestamp
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf entries `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf timestamp `Prelude.seq`
+          Prelude.rnf httpStatus

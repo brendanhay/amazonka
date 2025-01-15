@@ -136,8 +136,8 @@ instance Prelude.Hashable RegisterStreamConsumer where
 
 instance Prelude.NFData RegisterStreamConsumer where
   rnf RegisterStreamConsumer' {..} =
-    Prelude.rnf streamARN
-      `Prelude.seq` Prelude.rnf consumerName
+    Prelude.rnf streamARN `Prelude.seq`
+      Prelude.rnf consumerName
 
 instance Data.ToHeaders RegisterStreamConsumer where
   toHeaders =
@@ -223,5 +223,5 @@ instance
     RegisterStreamConsumerResponse
   where
   rnf RegisterStreamConsumerResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf consumer
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf consumer

@@ -121,9 +121,9 @@ instance Prelude.Hashable GetBlueprintRuns where
 
 instance Prelude.NFData GetBlueprintRuns where
   rnf GetBlueprintRuns' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf blueprintName
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf blueprintName
 
 instance Data.ToHeaders GetBlueprintRuns where
   toHeaders =
@@ -205,6 +205,6 @@ getBlueprintRunsResponse_httpStatus = Lens.lens (\GetBlueprintRunsResponse' {htt
 
 instance Prelude.NFData GetBlueprintRunsResponse where
   rnf GetBlueprintRunsResponse' {..} =
-    Prelude.rnf blueprintRuns
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf blueprintRuns `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

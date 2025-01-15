@@ -106,7 +106,7 @@ instance Prelude.Hashable Hits where
 
 instance Prelude.NFData Hits where
   rnf Hits' {..} =
-    Prelude.rnf cursor
-      `Prelude.seq` Prelude.rnf found
-      `Prelude.seq` Prelude.rnf hit
-      `Prelude.seq` Prelude.rnf start
+    Prelude.rnf cursor `Prelude.seq`
+      Prelude.rnf found `Prelude.seq`
+        Prelude.rnf hit `Prelude.seq`
+          Prelude.rnf start

@@ -112,7 +112,7 @@ instance Prelude.Hashable TagDescription where
 
 instance Prelude.NFData TagDescription where
   rnf TagDescription' {..} =
-    Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf key
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf resourceId `Prelude.seq`
+      Prelude.rnf resourceType `Prelude.seq`
+        Prelude.rnf key `Prelude.seq`
+          Prelude.rnf value

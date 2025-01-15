@@ -204,16 +204,16 @@ instance Prelude.Hashable DynamoDBAction where
 
 instance Prelude.NFData DynamoDBAction where
   rnf DynamoDBAction' {..} =
-    Prelude.rnf hashKeyType
-      `Prelude.seq` Prelude.rnf operation
-      `Prelude.seq` Prelude.rnf payloadField
-      `Prelude.seq` Prelude.rnf rangeKeyField
-      `Prelude.seq` Prelude.rnf rangeKeyType
-      `Prelude.seq` Prelude.rnf rangeKeyValue
-      `Prelude.seq` Prelude.rnf tableName
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf hashKeyField
-      `Prelude.seq` Prelude.rnf hashKeyValue
+    Prelude.rnf hashKeyType `Prelude.seq`
+      Prelude.rnf operation `Prelude.seq`
+        Prelude.rnf payloadField `Prelude.seq`
+          Prelude.rnf rangeKeyField `Prelude.seq`
+            Prelude.rnf rangeKeyType `Prelude.seq`
+              Prelude.rnf rangeKeyValue `Prelude.seq`
+                Prelude.rnf tableName `Prelude.seq`
+                  Prelude.rnf roleArn `Prelude.seq`
+                    Prelude.rnf hashKeyField `Prelude.seq`
+                      Prelude.rnf hashKeyValue
 
 instance Data.ToJSON DynamoDBAction where
   toJSON DynamoDBAction' {..} =

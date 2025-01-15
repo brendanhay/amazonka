@@ -132,9 +132,9 @@ instance Prelude.Hashable DeleteOrganization where
 
 instance Prelude.NFData DeleteOrganization where
   rnf DeleteOrganization' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf organizationId
-      `Prelude.seq` Prelude.rnf deleteDirectory
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf organizationId `Prelude.seq`
+        Prelude.rnf deleteDirectory
 
 instance Data.ToHeaders DeleteOrganization where
   toHeaders =
@@ -219,6 +219,6 @@ deleteOrganizationResponse_httpStatus = Lens.lens (\DeleteOrganizationResponse' 
 
 instance Prelude.NFData DeleteOrganizationResponse where
   rnf DeleteOrganizationResponse' {..} =
-    Prelude.rnf organizationId
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf organizationId `Prelude.seq`
+      Prelude.rnf state `Prelude.seq`
+        Prelude.rnf httpStatus

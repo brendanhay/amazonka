@@ -200,11 +200,11 @@ instance Prelude.Hashable UpdateSnapshotSchedule where
 
 instance Prelude.NFData UpdateSnapshotSchedule where
   rnf UpdateSnapshotSchedule' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf volumeARN
-      `Prelude.seq` Prelude.rnf startAt
-      `Prelude.seq` Prelude.rnf recurrenceInHours
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf volumeARN `Prelude.seq`
+          Prelude.rnf startAt `Prelude.seq`
+            Prelude.rnf recurrenceInHours
 
 instance Data.ToHeaders UpdateSnapshotSchedule where
   toHeaders =
@@ -290,5 +290,5 @@ instance
     UpdateSnapshotScheduleResponse
   where
   rnf UpdateSnapshotScheduleResponse' {..} =
-    Prelude.rnf volumeARN
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf volumeARN `Prelude.seq`
+      Prelude.rnf httpStatus

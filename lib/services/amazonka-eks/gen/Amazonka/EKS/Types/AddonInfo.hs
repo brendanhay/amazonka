@@ -129,9 +129,9 @@ instance Prelude.Hashable AddonInfo where
 
 instance Prelude.NFData AddonInfo where
   rnf AddonInfo' {..} =
-    Prelude.rnf addonName
-      `Prelude.seq` Prelude.rnf addonVersions
-      `Prelude.seq` Prelude.rnf marketplaceInformation
-      `Prelude.seq` Prelude.rnf owner
-      `Prelude.seq` Prelude.rnf publisher
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf addonName `Prelude.seq`
+      Prelude.rnf addonVersions `Prelude.seq`
+        Prelude.rnf marketplaceInformation `Prelude.seq`
+          Prelude.rnf owner `Prelude.seq`
+            Prelude.rnf publisher `Prelude.seq`
+              Prelude.rnf type'

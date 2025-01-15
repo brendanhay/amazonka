@@ -128,10 +128,10 @@ instance
     ServiceCatalogProvisioningDetails
   where
   rnf ServiceCatalogProvisioningDetails' {..} =
-    Prelude.rnf pathId
-      `Prelude.seq` Prelude.rnf provisioningArtifactId
-      `Prelude.seq` Prelude.rnf provisioningParameters
-      `Prelude.seq` Prelude.rnf productId
+    Prelude.rnf pathId `Prelude.seq`
+      Prelude.rnf provisioningArtifactId `Prelude.seq`
+        Prelude.rnf provisioningParameters `Prelude.seq`
+          Prelude.rnf productId
 
 instance
   Data.ToJSON

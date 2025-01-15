@@ -196,18 +196,18 @@ instance Prelude.Hashable UpdateComponentData where
 
 instance Prelude.NFData UpdateComponentData where
   rnf UpdateComponentData' {..} =
-    Prelude.rnf bindingProperties
-      `Prelude.seq` Prelude.rnf children
-      `Prelude.seq` Prelude.rnf collectionProperties
-      `Prelude.seq` Prelude.rnf componentType
-      `Prelude.seq` Prelude.rnf events
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf overrides
-      `Prelude.seq` Prelude.rnf properties
-      `Prelude.seq` Prelude.rnf schemaVersion
-      `Prelude.seq` Prelude.rnf sourceId
-      `Prelude.seq` Prelude.rnf variants
+    Prelude.rnf bindingProperties `Prelude.seq`
+      Prelude.rnf children `Prelude.seq`
+        Prelude.rnf collectionProperties `Prelude.seq`
+          Prelude.rnf componentType `Prelude.seq`
+            Prelude.rnf events `Prelude.seq`
+              Prelude.rnf id `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf overrides `Prelude.seq`
+                    Prelude.rnf properties `Prelude.seq`
+                      Prelude.rnf schemaVersion `Prelude.seq`
+                        Prelude.rnf sourceId `Prelude.seq`
+                          Prelude.rnf variants
 
 instance Data.ToJSON UpdateComponentData where
   toJSON UpdateComponentData' {..} =

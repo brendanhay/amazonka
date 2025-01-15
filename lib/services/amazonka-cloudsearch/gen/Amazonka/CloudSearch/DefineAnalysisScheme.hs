@@ -117,8 +117,8 @@ instance Prelude.Hashable DefineAnalysisScheme where
 
 instance Prelude.NFData DefineAnalysisScheme where
   rnf DefineAnalysisScheme' {..} =
-    Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf analysisScheme
+    Prelude.rnf domainName `Prelude.seq`
+      Prelude.rnf analysisScheme
 
 instance Data.ToHeaders DefineAnalysisScheme where
   toHeaders = Prelude.const Prelude.mempty
@@ -184,5 +184,5 @@ defineAnalysisSchemeResponse_analysisScheme = Lens.lens (\DefineAnalysisSchemeRe
 
 instance Prelude.NFData DefineAnalysisSchemeResponse where
   rnf DefineAnalysisSchemeResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf analysisScheme
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf analysisScheme

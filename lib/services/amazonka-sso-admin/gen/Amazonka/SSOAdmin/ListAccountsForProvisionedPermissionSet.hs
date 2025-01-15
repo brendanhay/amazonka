@@ -160,12 +160,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listAccountsForProvisionedPermissionSet_nextToken
-          Lens..~ rs
-          Lens.^? listAccountsForProvisionedPermissionSetResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listAccountsForProvisionedPermissionSet_nextToken
+              Lens..~ rs
+              Lens.^? listAccountsForProvisionedPermissionSetResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -205,11 +205,11 @@ instance
     ListAccountsForProvisionedPermissionSet
   where
   rnf ListAccountsForProvisionedPermissionSet' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf provisioningStatus
-      `Prelude.seq` Prelude.rnf instanceArn
-      `Prelude.seq` Prelude.rnf permissionSetArn
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf provisioningStatus `Prelude.seq`
+          Prelude.rnf instanceArn `Prelude.seq`
+            Prelude.rnf permissionSetArn
 
 instance
   Data.ToHeaders
@@ -317,6 +317,6 @@ instance
   where
   rnf
     ListAccountsForProvisionedPermissionSetResponse' {..} =
-      Prelude.rnf accountIds
-        `Prelude.seq` Prelude.rnf nextToken
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf accountIds `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf httpStatus

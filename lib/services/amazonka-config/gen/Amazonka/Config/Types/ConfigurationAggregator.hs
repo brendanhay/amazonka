@@ -142,10 +142,10 @@ instance Prelude.Hashable ConfigurationAggregator where
 
 instance Prelude.NFData ConfigurationAggregator where
   rnf ConfigurationAggregator' {..} =
-    Prelude.rnf accountAggregationSources
-      `Prelude.seq` Prelude.rnf configurationAggregatorArn
-      `Prelude.seq` Prelude.rnf configurationAggregatorName
-      `Prelude.seq` Prelude.rnf createdBy
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf organizationAggregationSource
+    Prelude.rnf accountAggregationSources `Prelude.seq`
+      Prelude.rnf configurationAggregatorArn `Prelude.seq`
+        Prelude.rnf configurationAggregatorName `Prelude.seq`
+          Prelude.rnf createdBy `Prelude.seq`
+            Prelude.rnf creationTime `Prelude.seq`
+              Prelude.rnf lastUpdatedTime `Prelude.seq`
+                Prelude.rnf organizationAggregationSource

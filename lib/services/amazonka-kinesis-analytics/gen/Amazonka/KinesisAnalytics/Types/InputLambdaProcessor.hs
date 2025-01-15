@@ -95,8 +95,8 @@ instance Prelude.Hashable InputLambdaProcessor where
 
 instance Prelude.NFData InputLambdaProcessor where
   rnf InputLambdaProcessor' {..} =
-    Prelude.rnf resourceARN
-      `Prelude.seq` Prelude.rnf roleARN
+    Prelude.rnf resourceARN `Prelude.seq`
+      Prelude.rnf roleARN
 
 instance Data.ToJSON InputLambdaProcessor where
   toJSON InputLambdaProcessor' {..} =

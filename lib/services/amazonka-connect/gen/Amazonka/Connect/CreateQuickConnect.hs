@@ -156,11 +156,11 @@ instance Prelude.Hashable CreateQuickConnect where
 
 instance Prelude.NFData CreateQuickConnect where
   rnf CreateQuickConnect' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf quickConnectConfig
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf instanceId `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf quickConnectConfig
 
 instance Data.ToHeaders CreateQuickConnect where
   toHeaders =
@@ -243,6 +243,6 @@ createQuickConnectResponse_httpStatus = Lens.lens (\CreateQuickConnectResponse' 
 
 instance Prelude.NFData CreateQuickConnectResponse where
   rnf CreateQuickConnectResponse' {..} =
-    Prelude.rnf quickConnectARN
-      `Prelude.seq` Prelude.rnf quickConnectId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf quickConnectARN `Prelude.seq`
+      Prelude.rnf quickConnectId `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -117,7 +117,7 @@ instance Prelude.Hashable MetricDataPoint where
 
 instance Prelude.NFData MetricDataPoint where
   rnf MetricDataPoint' {..} =
-    Prelude.rnf fpr
-      `Prelude.seq` Prelude.rnf precision
-      `Prelude.seq` Prelude.rnf threshold
-      `Prelude.seq` Prelude.rnf tpr
+    Prelude.rnf fpr `Prelude.seq`
+      Prelude.rnf precision `Prelude.seq`
+        Prelude.rnf threshold `Prelude.seq`
+          Prelude.rnf tpr

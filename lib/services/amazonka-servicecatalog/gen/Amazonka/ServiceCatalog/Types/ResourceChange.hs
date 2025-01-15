@@ -143,10 +143,10 @@ instance Prelude.Hashable ResourceChange where
 
 instance Prelude.NFData ResourceChange where
   rnf ResourceChange' {..} =
-    Prelude.rnf action
-      `Prelude.seq` Prelude.rnf details
-      `Prelude.seq` Prelude.rnf logicalResourceId
-      `Prelude.seq` Prelude.rnf physicalResourceId
-      `Prelude.seq` Prelude.rnf replacement
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf scope
+    Prelude.rnf action `Prelude.seq`
+      Prelude.rnf details `Prelude.seq`
+        Prelude.rnf logicalResourceId `Prelude.seq`
+          Prelude.rnf physicalResourceId `Prelude.seq`
+            Prelude.rnf replacement `Prelude.seq`
+              Prelude.rnf resourceType `Prelude.seq`
+                Prelude.rnf scope

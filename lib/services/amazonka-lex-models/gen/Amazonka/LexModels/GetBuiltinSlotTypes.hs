@@ -147,12 +147,12 @@ instance Core.AWSPager GetBuiltinSlotTypes where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getBuiltinSlotTypes_nextToken
-          Lens..~ rs
-          Lens.^? getBuiltinSlotTypesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getBuiltinSlotTypes_nextToken
+              Lens..~ rs
+              Lens.^? getBuiltinSlotTypesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetBuiltinSlotTypes where
   type
@@ -179,10 +179,10 @@ instance Prelude.Hashable GetBuiltinSlotTypes where
 
 instance Prelude.NFData GetBuiltinSlotTypes where
   rnf GetBuiltinSlotTypes' {..} =
-    Prelude.rnf locale
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf signatureContains
+    Prelude.rnf locale `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf signatureContains
 
 instance Data.ToHeaders GetBuiltinSlotTypes where
   toHeaders =
@@ -266,6 +266,6 @@ getBuiltinSlotTypesResponse_httpStatus = Lens.lens (\GetBuiltinSlotTypesResponse
 
 instance Prelude.NFData GetBuiltinSlotTypesResponse where
   rnf GetBuiltinSlotTypesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf slotTypes
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf slotTypes `Prelude.seq`
+        Prelude.rnf httpStatus

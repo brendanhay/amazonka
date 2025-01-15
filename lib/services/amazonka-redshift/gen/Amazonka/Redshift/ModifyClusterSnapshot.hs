@@ -144,9 +144,9 @@ instance Prelude.Hashable ModifyClusterSnapshot where
 
 instance Prelude.NFData ModifyClusterSnapshot where
   rnf ModifyClusterSnapshot' {..} =
-    Prelude.rnf force
-      `Prelude.seq` Prelude.rnf manualSnapshotRetentionPeriod
-      `Prelude.seq` Prelude.rnf snapshotIdentifier
+    Prelude.rnf force `Prelude.seq`
+      Prelude.rnf manualSnapshotRetentionPeriod `Prelude.seq`
+        Prelude.rnf snapshotIdentifier
 
 instance Data.ToHeaders ModifyClusterSnapshot where
   toHeaders = Prelude.const Prelude.mempty
@@ -207,5 +207,5 @@ modifyClusterSnapshotResponse_httpStatus = Lens.lens (\ModifyClusterSnapshotResp
 
 instance Prelude.NFData ModifyClusterSnapshotResponse where
   rnf ModifyClusterSnapshotResponse' {..} =
-    Prelude.rnf snapshot
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf snapshot `Prelude.seq`
+      Prelude.rnf httpStatus

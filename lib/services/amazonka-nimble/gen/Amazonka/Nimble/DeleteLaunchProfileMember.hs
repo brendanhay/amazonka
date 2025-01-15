@@ -148,10 +148,10 @@ instance Prelude.Hashable DeleteLaunchProfileMember where
 
 instance Prelude.NFData DeleteLaunchProfileMember where
   rnf DeleteLaunchProfileMember' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf launchProfileId
-      `Prelude.seq` Prelude.rnf principalId
-      `Prelude.seq` Prelude.rnf studioId
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf launchProfileId `Prelude.seq`
+        Prelude.rnf principalId `Prelude.seq`
+          Prelude.rnf studioId
 
 instance Data.ToHeaders DeleteLaunchProfileMember where
   toHeaders DeleteLaunchProfileMember' {..} =

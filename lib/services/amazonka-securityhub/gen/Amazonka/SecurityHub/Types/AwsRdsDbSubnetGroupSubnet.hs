@@ -96,9 +96,9 @@ instance Prelude.Hashable AwsRdsDbSubnetGroupSubnet where
 
 instance Prelude.NFData AwsRdsDbSubnetGroupSubnet where
   rnf AwsRdsDbSubnetGroupSubnet' {..} =
-    Prelude.rnf subnetAvailabilityZone
-      `Prelude.seq` Prelude.rnf subnetIdentifier
-      `Prelude.seq` Prelude.rnf subnetStatus
+    Prelude.rnf subnetAvailabilityZone `Prelude.seq`
+      Prelude.rnf subnetIdentifier `Prelude.seq`
+        Prelude.rnf subnetStatus
 
 instance Data.ToJSON AwsRdsDbSubnetGroupSubnet where
   toJSON AwsRdsDbSubnetGroupSubnet' {..} =

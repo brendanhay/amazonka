@@ -85,5 +85,5 @@ instance Prelude.Hashable RequireCheckIn where
 
 instance Prelude.NFData RequireCheckIn where
   rnf RequireCheckIn' {..} =
-    Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf releaseAfterMinutes
+    Prelude.rnf enabled `Prelude.seq`
+      Prelude.rnf releaseAfterMinutes

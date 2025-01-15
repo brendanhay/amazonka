@@ -278,12 +278,12 @@ instance
     ExportECSServiceRecommendations
   where
   rnf ExportECSServiceRecommendations' {..} =
-    Prelude.rnf accountIds
-      `Prelude.seq` Prelude.rnf fieldsToExport
-      `Prelude.seq` Prelude.rnf fileFormat
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf includeMemberAccounts
-      `Prelude.seq` Prelude.rnf s3DestinationConfig
+    Prelude.rnf accountIds `Prelude.seq`
+      Prelude.rnf fieldsToExport `Prelude.seq`
+        Prelude.rnf fileFormat `Prelude.seq`
+          Prelude.rnf filters `Prelude.seq`
+            Prelude.rnf includeMemberAccounts `Prelude.seq`
+              Prelude.rnf s3DestinationConfig
 
 instance
   Data.ToHeaders
@@ -387,6 +387,6 @@ instance
     ExportECSServiceRecommendationsResponse
   where
   rnf ExportECSServiceRecommendationsResponse' {..} =
-    Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf s3Destination
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf jobId `Prelude.seq`
+      Prelude.rnf s3Destination `Prelude.seq`
+        Prelude.rnf httpStatus

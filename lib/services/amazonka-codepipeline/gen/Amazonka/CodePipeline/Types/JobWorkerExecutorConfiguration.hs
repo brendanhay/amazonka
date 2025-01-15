@@ -96,8 +96,8 @@ instance
     JobWorkerExecutorConfiguration
   where
   rnf JobWorkerExecutorConfiguration' {..} =
-    Prelude.rnf pollingAccounts
-      `Prelude.seq` Prelude.rnf pollingServicePrincipals
+    Prelude.rnf pollingAccounts `Prelude.seq`
+      Prelude.rnf pollingServicePrincipals
 
 instance Data.ToJSON JobWorkerExecutorConfiguration where
   toJSON JobWorkerExecutorConfiguration' {..} =

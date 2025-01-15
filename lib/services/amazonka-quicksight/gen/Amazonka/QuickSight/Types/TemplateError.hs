@@ -94,6 +94,6 @@ instance Prelude.Hashable TemplateError where
 
 instance Prelude.NFData TemplateError where
   rnf TemplateError' {..} =
-    Prelude.rnf message
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf violatedEntities
+    Prelude.rnf message `Prelude.seq`
+      Prelude.rnf type' `Prelude.seq`
+        Prelude.rnf violatedEntities

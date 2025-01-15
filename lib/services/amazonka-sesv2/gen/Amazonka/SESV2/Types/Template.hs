@@ -99,9 +99,9 @@ instance Prelude.Hashable Template where
 
 instance Prelude.NFData Template where
   rnf Template' {..} =
-    Prelude.rnf templateArn
-      `Prelude.seq` Prelude.rnf templateData
-      `Prelude.seq` Prelude.rnf templateName
+    Prelude.rnf templateArn `Prelude.seq`
+      Prelude.rnf templateData `Prelude.seq`
+        Prelude.rnf templateName
 
 instance Data.ToJSON Template where
   toJSON Template' {..} =

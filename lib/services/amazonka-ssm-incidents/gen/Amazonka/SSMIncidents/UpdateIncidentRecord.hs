@@ -242,14 +242,14 @@ instance Prelude.Hashable UpdateIncidentRecord where
 
 instance Prelude.NFData UpdateIncidentRecord where
   rnf UpdateIncidentRecord' {..} =
-    Prelude.rnf chatChannel
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf impact
-      `Prelude.seq` Prelude.rnf notificationTargets
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf summary
-      `Prelude.seq` Prelude.rnf title
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf chatChannel `Prelude.seq`
+      Prelude.rnf clientToken `Prelude.seq`
+        Prelude.rnf impact `Prelude.seq`
+          Prelude.rnf notificationTargets `Prelude.seq`
+            Prelude.rnf status `Prelude.seq`
+              Prelude.rnf summary `Prelude.seq`
+                Prelude.rnf title `Prelude.seq`
+                  Prelude.rnf arn
 
 instance Data.ToHeaders UpdateIncidentRecord where
   toHeaders =

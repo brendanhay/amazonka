@@ -204,16 +204,16 @@ instance Prelude.Hashable UpdateChannel' where
 
 instance Prelude.NFData UpdateChannel' where
   rnf UpdateChannel'' {..} =
-    Prelude.rnf cdiInputSpecification
-      `Prelude.seq` Prelude.rnf destinations
-      `Prelude.seq` Prelude.rnf encoderSettings
-      `Prelude.seq` Prelude.rnf inputAttachments
-      `Prelude.seq` Prelude.rnf inputSpecification
-      `Prelude.seq` Prelude.rnf logLevel
-      `Prelude.seq` Prelude.rnf maintenance
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf channelId
+    Prelude.rnf cdiInputSpecification `Prelude.seq`
+      Prelude.rnf destinations `Prelude.seq`
+        Prelude.rnf encoderSettings `Prelude.seq`
+          Prelude.rnf inputAttachments `Prelude.seq`
+            Prelude.rnf inputSpecification `Prelude.seq`
+              Prelude.rnf logLevel `Prelude.seq`
+                Prelude.rnf maintenance `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf roleArn `Prelude.seq`
+                      Prelude.rnf channelId
 
 instance Data.ToHeaders UpdateChannel' where
   toHeaders =
@@ -295,5 +295,5 @@ updateChannelResponse_httpStatus = Lens.lens (\UpdateChannelResponse' {httpStatu
 
 instance Prelude.NFData UpdateChannelResponse where
   rnf UpdateChannelResponse' {..} =
-    Prelude.rnf channel
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf channel `Prelude.seq`
+      Prelude.rnf httpStatus

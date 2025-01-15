@@ -643,14 +643,14 @@ instance Prelude.Hashable GetDASHStreamingSessionURL where
 
 instance Prelude.NFData GetDASHStreamingSessionURL where
   rnf GetDASHStreamingSessionURL' {..} =
-    Prelude.rnf dASHFragmentSelector
-      `Prelude.seq` Prelude.rnf displayFragmentNumber
-      `Prelude.seq` Prelude.rnf displayFragmentTimestamp
-      `Prelude.seq` Prelude.rnf expires
-      `Prelude.seq` Prelude.rnf maxManifestFragmentResults
-      `Prelude.seq` Prelude.rnf playbackMode
-      `Prelude.seq` Prelude.rnf streamARN
-      `Prelude.seq` Prelude.rnf streamName
+    Prelude.rnf dASHFragmentSelector `Prelude.seq`
+      Prelude.rnf displayFragmentNumber `Prelude.seq`
+        Prelude.rnf displayFragmentTimestamp `Prelude.seq`
+          Prelude.rnf expires `Prelude.seq`
+            Prelude.rnf maxManifestFragmentResults `Prelude.seq`
+              Prelude.rnf playbackMode `Prelude.seq`
+                Prelude.rnf streamARN `Prelude.seq`
+                  Prelude.rnf streamName
 
 instance Data.ToHeaders GetDASHStreamingSessionURL where
   toHeaders = Prelude.const Prelude.mempty
@@ -727,5 +727,5 @@ instance
     GetDASHStreamingSessionURLResponse
   where
   rnf GetDASHStreamingSessionURLResponse' {..} =
-    Prelude.rnf dASHStreamingSessionURL
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dASHStreamingSessionURL `Prelude.seq`
+      Prelude.rnf httpStatus

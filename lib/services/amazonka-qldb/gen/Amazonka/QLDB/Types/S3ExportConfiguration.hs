@@ -165,9 +165,9 @@ instance Prelude.Hashable S3ExportConfiguration where
 
 instance Prelude.NFData S3ExportConfiguration where
   rnf S3ExportConfiguration' {..} =
-    Prelude.rnf bucket
-      `Prelude.seq` Prelude.rnf prefix
-      `Prelude.seq` Prelude.rnf encryptionConfiguration
+    Prelude.rnf bucket `Prelude.seq`
+      Prelude.rnf prefix `Prelude.seq`
+        Prelude.rnf encryptionConfiguration
 
 instance Data.ToJSON S3ExportConfiguration where
   toJSON S3ExportConfiguration' {..} =

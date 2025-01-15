@@ -185,10 +185,10 @@ instance
     AddApplicationInputProcessingConfiguration
   where
   rnf AddApplicationInputProcessingConfiguration' {..} =
-    Prelude.rnf applicationName
-      `Prelude.seq` Prelude.rnf currentApplicationVersionId
-      `Prelude.seq` Prelude.rnf inputId
-      `Prelude.seq` Prelude.rnf inputProcessingConfiguration
+    Prelude.rnf applicationName `Prelude.seq`
+      Prelude.rnf currentApplicationVersionId `Prelude.seq`
+        Prelude.rnf inputId `Prelude.seq`
+          Prelude.rnf inputProcessingConfiguration
 
 instance
   Data.ToHeaders
@@ -328,8 +328,8 @@ instance
   where
   rnf
     AddApplicationInputProcessingConfigurationResponse' {..} =
-      Prelude.rnf applicationARN
-        `Prelude.seq` Prelude.rnf applicationVersionId
-        `Prelude.seq` Prelude.rnf inputId
-        `Prelude.seq` Prelude.rnf inputProcessingConfigurationDescription
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf applicationARN `Prelude.seq`
+        Prelude.rnf applicationVersionId `Prelude.seq`
+          Prelude.rnf inputId `Prelude.seq`
+            Prelude.rnf inputProcessingConfigurationDescription `Prelude.seq`
+              Prelude.rnf httpStatus

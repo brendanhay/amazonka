@@ -105,9 +105,9 @@ instance Prelude.Hashable NielsenCBET where
 
 instance Prelude.NFData NielsenCBET where
   rnf NielsenCBET' {..} =
-    Prelude.rnf cbetCheckDigitString
-      `Prelude.seq` Prelude.rnf cbetStepaside
-      `Prelude.seq` Prelude.rnf csid
+    Prelude.rnf cbetCheckDigitString `Prelude.seq`
+      Prelude.rnf cbetStepaside `Prelude.seq`
+        Prelude.rnf csid
 
 instance Data.ToJSON NielsenCBET where
   toJSON NielsenCBET' {..} =

@@ -150,8 +150,8 @@ instance
   where
   rnf
     BatchDisassociateServiceActionFromProvisioningArtifact' {..} =
-      Prelude.rnf acceptLanguage
-        `Prelude.seq` Prelude.rnf serviceActionAssociations
+      Prelude.rnf acceptLanguage `Prelude.seq`
+        Prelude.rnf serviceActionAssociations
 
 instance
   Data.ToHeaders
@@ -250,5 +250,5 @@ instance
   where
   rnf
     BatchDisassociateServiceActionFromProvisioningArtifactResponse' {..} =
-      Prelude.rnf failedServiceActionAssociations
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf failedServiceActionAssociations `Prelude.seq`
+        Prelude.rnf httpStatus

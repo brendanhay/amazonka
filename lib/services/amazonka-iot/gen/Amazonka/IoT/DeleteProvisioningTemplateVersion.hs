@@ -126,8 +126,8 @@ instance
     DeleteProvisioningTemplateVersion
   where
   rnf DeleteProvisioningTemplateVersion' {..} =
-    Prelude.rnf templateName
-      `Prelude.seq` Prelude.rnf versionId
+    Prelude.rnf templateName `Prelude.seq`
+      Prelude.rnf versionId
 
 instance
   Data.ToHeaders

@@ -193,12 +193,12 @@ instance Prelude.Hashable ServiceNowConfiguration where
 
 instance Prelude.NFData ServiceNowConfiguration where
   rnf ServiceNowConfiguration' {..} =
-    Prelude.rnf authenticationType
-      `Prelude.seq` Prelude.rnf knowledgeArticleConfiguration
-      `Prelude.seq` Prelude.rnf serviceCatalogConfiguration
-      `Prelude.seq` Prelude.rnf hostUrl
-      `Prelude.seq` Prelude.rnf secretArn
-      `Prelude.seq` Prelude.rnf serviceNowBuildVersion
+    Prelude.rnf authenticationType `Prelude.seq`
+      Prelude.rnf knowledgeArticleConfiguration `Prelude.seq`
+        Prelude.rnf serviceCatalogConfiguration `Prelude.seq`
+          Prelude.rnf hostUrl `Prelude.seq`
+            Prelude.rnf secretArn `Prelude.seq`
+              Prelude.rnf serviceNowBuildVersion
 
 instance Data.ToJSON ServiceNowConfiguration where
   toJSON ServiceNowConfiguration' {..} =

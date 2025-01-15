@@ -200,9 +200,9 @@ instance Prelude.Hashable ListProtectionGroups where
 
 instance Prelude.NFData ListProtectionGroups where
   rnf ListProtectionGroups' {..} =
-    Prelude.rnf inclusionFilters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf inclusionFilters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListProtectionGroups where
   toHeaders =
@@ -320,6 +320,6 @@ listProtectionGroupsResponse_protectionGroups = Lens.lens (\ListProtectionGroups
 
 instance Prelude.NFData ListProtectionGroupsResponse where
   rnf ListProtectionGroupsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf protectionGroups
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf protectionGroups

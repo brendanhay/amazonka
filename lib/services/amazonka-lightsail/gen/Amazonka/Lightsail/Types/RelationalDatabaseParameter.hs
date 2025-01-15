@@ -153,14 +153,14 @@ instance Prelude.Hashable RelationalDatabaseParameter where
 
 instance Prelude.NFData RelationalDatabaseParameter where
   rnf RelationalDatabaseParameter' {..} =
-    Prelude.rnf allowedValues
-      `Prelude.seq` Prelude.rnf applyMethod
-      `Prelude.seq` Prelude.rnf applyType
-      `Prelude.seq` Prelude.rnf dataType
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf isModifiable
-      `Prelude.seq` Prelude.rnf parameterName
-      `Prelude.seq` Prelude.rnf parameterValue
+    Prelude.rnf allowedValues `Prelude.seq`
+      Prelude.rnf applyMethod `Prelude.seq`
+        Prelude.rnf applyType `Prelude.seq`
+          Prelude.rnf dataType `Prelude.seq`
+            Prelude.rnf description `Prelude.seq`
+              Prelude.rnf isModifiable `Prelude.seq`
+                Prelude.rnf parameterName `Prelude.seq`
+                  Prelude.rnf parameterValue
 
 instance Data.ToJSON RelationalDatabaseParameter where
   toJSON RelationalDatabaseParameter' {..} =

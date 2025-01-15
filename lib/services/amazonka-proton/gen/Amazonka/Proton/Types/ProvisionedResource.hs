@@ -110,6 +110,6 @@ instance Prelude.Hashable ProvisionedResource where
 
 instance Prelude.NFData ProvisionedResource where
   rnf ProvisionedResource' {..} =
-    Prelude.rnf identifier
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf provisioningEngine
+    Prelude.rnf identifier `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf provisioningEngine

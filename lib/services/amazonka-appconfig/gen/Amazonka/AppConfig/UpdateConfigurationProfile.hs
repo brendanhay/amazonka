@@ -163,12 +163,12 @@ instance Prelude.Hashable UpdateConfigurationProfile where
 
 instance Prelude.NFData UpdateConfigurationProfile where
   rnf UpdateConfigurationProfile' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf retrievalRoleArn
-      `Prelude.seq` Prelude.rnf validators
-      `Prelude.seq` Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf configurationProfileId
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf retrievalRoleArn `Prelude.seq`
+          Prelude.rnf validators `Prelude.seq`
+            Prelude.rnf applicationId `Prelude.seq`
+              Prelude.rnf configurationProfileId
 
 instance Data.ToHeaders UpdateConfigurationProfile where
   toHeaders =

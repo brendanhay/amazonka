@@ -144,12 +144,12 @@ instance Prelude.Hashable WordCloudVisual where
 
 instance Prelude.NFData WordCloudVisual where
   rnf WordCloudVisual' {..} =
-    Prelude.rnf actions
-      `Prelude.seq` Prelude.rnf chartConfiguration
-      `Prelude.seq` Prelude.rnf columnHierarchies
-      `Prelude.seq` Prelude.rnf subtitle
-      `Prelude.seq` Prelude.rnf title
-      `Prelude.seq` Prelude.rnf visualId
+    Prelude.rnf actions `Prelude.seq`
+      Prelude.rnf chartConfiguration `Prelude.seq`
+        Prelude.rnf columnHierarchies `Prelude.seq`
+          Prelude.rnf subtitle `Prelude.seq`
+            Prelude.rnf title `Prelude.seq`
+              Prelude.rnf visualId
 
 instance Data.ToJSON WordCloudVisual where
   toJSON WordCloudVisual' {..} =

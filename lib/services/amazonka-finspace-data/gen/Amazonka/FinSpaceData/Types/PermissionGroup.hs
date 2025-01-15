@@ -252,10 +252,10 @@ instance Prelude.Hashable PermissionGroup where
 
 instance Prelude.NFData PermissionGroup where
   rnf PermissionGroup' {..} =
-    Prelude.rnf applicationPermissions
-      `Prelude.seq` Prelude.rnf createTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf membershipStatus
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf permissionGroupId
+    Prelude.rnf applicationPermissions `Prelude.seq`
+      Prelude.rnf createTime `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf lastModifiedTime `Prelude.seq`
+            Prelude.rnf membershipStatus `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf permissionGroupId

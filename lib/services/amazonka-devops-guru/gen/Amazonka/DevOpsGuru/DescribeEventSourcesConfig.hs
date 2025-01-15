@@ -148,5 +148,5 @@ instance
     DescribeEventSourcesConfigResponse
   where
   rnf DescribeEventSourcesConfigResponse' {..} =
-    Prelude.rnf eventSources
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf eventSources `Prelude.seq`
+      Prelude.rnf httpStatus

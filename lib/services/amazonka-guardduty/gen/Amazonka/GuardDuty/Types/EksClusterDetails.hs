@@ -125,9 +125,9 @@ instance Prelude.Hashable EksClusterDetails where
 
 instance Prelude.NFData EksClusterDetails where
   rnf EksClusterDetails' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf createdAt `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf vpcId

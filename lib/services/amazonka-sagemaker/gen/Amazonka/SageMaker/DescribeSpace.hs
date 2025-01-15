@@ -126,8 +126,8 @@ instance Prelude.Hashable DescribeSpace where
 
 instance Prelude.NFData DescribeSpace where
   rnf DescribeSpace' {..} =
-    Prelude.rnf domainId
-      `Prelude.seq` Prelude.rnf spaceName
+    Prelude.rnf domainId `Prelude.seq`
+      Prelude.rnf spaceName
 
 instance Data.ToHeaders DescribeSpace where
   toHeaders =
@@ -270,13 +270,13 @@ describeSpaceResponse_httpStatus = Lens.lens (\DescribeSpaceResponse' {httpStatu
 
 instance Prelude.NFData DescribeSpaceResponse where
   rnf DescribeSpaceResponse' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf domainId
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf homeEfsFileSystemUid
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf spaceArn
-      `Prelude.seq` Prelude.rnf spaceName
-      `Prelude.seq` Prelude.rnf spaceSettings
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf domainId `Prelude.seq`
+        Prelude.rnf failureReason `Prelude.seq`
+          Prelude.rnf homeEfsFileSystemUid `Prelude.seq`
+            Prelude.rnf lastModifiedTime `Prelude.seq`
+              Prelude.rnf spaceArn `Prelude.seq`
+                Prelude.rnf spaceName `Prelude.seq`
+                  Prelude.rnf spaceSettings `Prelude.seq`
+                    Prelude.rnf status `Prelude.seq`
+                      Prelude.rnf httpStatus

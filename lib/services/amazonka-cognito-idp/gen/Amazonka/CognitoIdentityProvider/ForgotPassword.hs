@@ -293,12 +293,12 @@ instance Prelude.Hashable ForgotPassword where
 
 instance Prelude.NFData ForgotPassword where
   rnf ForgotPassword' {..} =
-    Prelude.rnf analyticsMetadata
-      `Prelude.seq` Prelude.rnf clientMetadata
-      `Prelude.seq` Prelude.rnf secretHash
-      `Prelude.seq` Prelude.rnf userContextData
-      `Prelude.seq` Prelude.rnf clientId
-      `Prelude.seq` Prelude.rnf username
+    Prelude.rnf analyticsMetadata `Prelude.seq`
+      Prelude.rnf clientMetadata `Prelude.seq`
+        Prelude.rnf secretHash `Prelude.seq`
+          Prelude.rnf userContextData `Prelude.seq`
+            Prelude.rnf clientId `Prelude.seq`
+              Prelude.rnf username
 
 instance Data.ToHeaders ForgotPassword where
   toHeaders =
@@ -383,5 +383,5 @@ forgotPasswordResponse_httpStatus = Lens.lens (\ForgotPasswordResponse' {httpSta
 
 instance Prelude.NFData ForgotPasswordResponse where
   rnf ForgotPasswordResponse' {..} =
-    Prelude.rnf codeDeliveryDetails
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf codeDeliveryDetails `Prelude.seq`
+      Prelude.rnf httpStatus

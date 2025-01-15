@@ -141,10 +141,10 @@ instance
 
 instance Prelude.NFData LineChartMarkerStyleSettings where
   rnf LineChartMarkerStyleSettings' {..} =
-    Prelude.rnf markerColor
-      `Prelude.seq` Prelude.rnf markerShape
-      `Prelude.seq` Prelude.rnf markerSize
-      `Prelude.seq` Prelude.rnf markerVisibility
+    Prelude.rnf markerColor `Prelude.seq`
+      Prelude.rnf markerShape `Prelude.seq`
+        Prelude.rnf markerSize `Prelude.seq`
+          Prelude.rnf markerVisibility
 
 instance Data.ToJSON LineChartMarkerStyleSettings where
   toJSON LineChartMarkerStyleSettings' {..} =

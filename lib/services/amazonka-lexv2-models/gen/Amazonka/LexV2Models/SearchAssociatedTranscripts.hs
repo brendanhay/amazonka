@@ -239,14 +239,14 @@ instance Prelude.Hashable SearchAssociatedTranscripts where
 
 instance Prelude.NFData SearchAssociatedTranscripts where
   rnf SearchAssociatedTranscripts' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextIndex
-      `Prelude.seq` Prelude.rnf searchOrder
-      `Prelude.seq` Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf botVersion
-      `Prelude.seq` Prelude.rnf localeId
-      `Prelude.seq` Prelude.rnf botRecommendationId
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextIndex `Prelude.seq`
+        Prelude.rnf searchOrder `Prelude.seq`
+          Prelude.rnf botId `Prelude.seq`
+            Prelude.rnf botVersion `Prelude.seq`
+              Prelude.rnf localeId `Prelude.seq`
+                Prelude.rnf botRecommendationId `Prelude.seq`
+                  Prelude.rnf filters
 
 instance Data.ToHeaders SearchAssociatedTranscripts where
   toHeaders =
@@ -418,11 +418,11 @@ instance
     SearchAssociatedTranscriptsResponse
   where
   rnf SearchAssociatedTranscriptsResponse' {..} =
-    Prelude.rnf associatedTranscripts
-      `Prelude.seq` Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf botRecommendationId
-      `Prelude.seq` Prelude.rnf botVersion
-      `Prelude.seq` Prelude.rnf localeId
-      `Prelude.seq` Prelude.rnf nextIndex
-      `Prelude.seq` Prelude.rnf totalResults
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf associatedTranscripts `Prelude.seq`
+      Prelude.rnf botId `Prelude.seq`
+        Prelude.rnf botRecommendationId `Prelude.seq`
+          Prelude.rnf botVersion `Prelude.seq`
+            Prelude.rnf localeId `Prelude.seq`
+              Prelude.rnf nextIndex `Prelude.seq`
+                Prelude.rnf totalResults `Prelude.seq`
+                  Prelude.rnf httpStatus

@@ -245,21 +245,21 @@ instance Prelude.Hashable AwsCloudTrailTrailDetails where
 
 instance Prelude.NFData AwsCloudTrailTrailDetails where
   rnf AwsCloudTrailTrailDetails' {..} =
-    Prelude.rnf cloudWatchLogsLogGroupArn
-      `Prelude.seq` Prelude.rnf cloudWatchLogsRoleArn
-      `Prelude.seq` Prelude.rnf hasCustomEventSelectors
-      `Prelude.seq` Prelude.rnf homeRegion
-      `Prelude.seq` Prelude.rnf includeGlobalServiceEvents
-      `Prelude.seq` Prelude.rnf isMultiRegionTrail
-      `Prelude.seq` Prelude.rnf isOrganizationTrail
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf logFileValidationEnabled
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf s3BucketName
-      `Prelude.seq` Prelude.rnf s3KeyPrefix
-      `Prelude.seq` Prelude.rnf snsTopicArn
-      `Prelude.seq` Prelude.rnf snsTopicName
-      `Prelude.seq` Prelude.rnf trailArn
+    Prelude.rnf cloudWatchLogsLogGroupArn `Prelude.seq`
+      Prelude.rnf cloudWatchLogsRoleArn `Prelude.seq`
+        Prelude.rnf hasCustomEventSelectors `Prelude.seq`
+          Prelude.rnf homeRegion `Prelude.seq`
+            Prelude.rnf includeGlobalServiceEvents `Prelude.seq`
+              Prelude.rnf isMultiRegionTrail `Prelude.seq`
+                Prelude.rnf isOrganizationTrail `Prelude.seq`
+                  Prelude.rnf kmsKeyId `Prelude.seq`
+                    Prelude.rnf logFileValidationEnabled `Prelude.seq`
+                      Prelude.rnf name `Prelude.seq`
+                        Prelude.rnf s3BucketName `Prelude.seq`
+                          Prelude.rnf s3KeyPrefix `Prelude.seq`
+                            Prelude.rnf snsTopicArn `Prelude.seq`
+                              Prelude.rnf snsTopicName `Prelude.seq`
+                                Prelude.rnf trailArn
 
 instance Data.ToJSON AwsCloudTrailTrailDetails where
   toJSON AwsCloudTrailTrailDetails' {..} =

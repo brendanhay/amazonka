@@ -145,6 +145,6 @@ instance Prelude.Hashable FailoverState where
 
 instance Prelude.NFData FailoverState where
   rnf FailoverState' {..} =
-    Prelude.rnf fromDbClusterArn
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf toDbClusterArn
+    Prelude.rnf fromDbClusterArn `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf toDbClusterArn

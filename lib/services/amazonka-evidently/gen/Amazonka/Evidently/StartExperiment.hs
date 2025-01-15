@@ -131,9 +131,9 @@ instance Prelude.Hashable StartExperiment where
 
 instance Prelude.NFData StartExperiment where
   rnf StartExperiment' {..} =
-    Prelude.rnf analysisCompleteTime
-      `Prelude.seq` Prelude.rnf experiment
-      `Prelude.seq` Prelude.rnf project
+    Prelude.rnf analysisCompleteTime `Prelude.seq`
+      Prelude.rnf experiment `Prelude.seq`
+        Prelude.rnf project
 
 instance Data.ToHeaders StartExperiment where
   toHeaders =
@@ -211,5 +211,5 @@ startExperimentResponse_httpStatus = Lens.lens (\StartExperimentResponse' {httpS
 
 instance Prelude.NFData StartExperimentResponse where
   rnf StartExperimentResponse' {..} =
-    Prelude.rnf startedTime
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf startedTime `Prelude.seq`
+      Prelude.rnf httpStatus

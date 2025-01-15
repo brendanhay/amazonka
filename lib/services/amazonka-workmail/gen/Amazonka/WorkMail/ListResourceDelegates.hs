@@ -136,12 +136,12 @@ instance Core.AWSPager ListResourceDelegates where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listResourceDelegates_nextToken
-          Lens..~ rs
-          Lens.^? listResourceDelegatesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listResourceDelegates_nextToken
+              Lens..~ rs
+              Lens.^? listResourceDelegatesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListResourceDelegates where
   type
@@ -168,10 +168,10 @@ instance Prelude.Hashable ListResourceDelegates where
 
 instance Prelude.NFData ListResourceDelegates where
   rnf ListResourceDelegates' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf organizationId
-      `Prelude.seq` Prelude.rnf resourceId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf organizationId `Prelude.seq`
+          Prelude.rnf resourceId
 
 instance Data.ToHeaders ListResourceDelegates where
   toHeaders =
@@ -262,6 +262,6 @@ listResourceDelegatesResponse_httpStatus = Lens.lens (\ListResourceDelegatesResp
 
 instance Prelude.NFData ListResourceDelegatesResponse where
   rnf ListResourceDelegatesResponse' {..} =
-    Prelude.rnf delegates
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf delegates `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

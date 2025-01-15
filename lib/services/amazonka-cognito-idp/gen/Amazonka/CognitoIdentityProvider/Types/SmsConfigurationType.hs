@@ -164,9 +164,9 @@ instance Prelude.Hashable SmsConfigurationType where
 
 instance Prelude.NFData SmsConfigurationType where
   rnf SmsConfigurationType' {..} =
-    Prelude.rnf externalId
-      `Prelude.seq` Prelude.rnf snsRegion
-      `Prelude.seq` Prelude.rnf snsCallerArn
+    Prelude.rnf externalId `Prelude.seq`
+      Prelude.rnf snsRegion `Prelude.seq`
+        Prelude.rnf snsCallerArn
 
 instance Data.ToJSON SmsConfigurationType where
   toJSON SmsConfigurationType' {..} =

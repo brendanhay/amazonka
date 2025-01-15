@@ -216,12 +216,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getTransitGatewayPrefixListReferences_nextToken
-          Lens..~ rs
-          Lens.^? getTransitGatewayPrefixListReferencesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getTransitGatewayPrefixListReferences_nextToken
+              Lens..~ rs
+              Lens.^? getTransitGatewayPrefixListReferencesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -265,11 +265,11 @@ instance
     GetTransitGatewayPrefixListReferences
   where
   rnf GetTransitGatewayPrefixListReferences' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf transitGatewayRouteTableId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf transitGatewayRouteTableId
 
 instance
   Data.ToHeaders
@@ -363,6 +363,6 @@ instance
   where
   rnf
     GetTransitGatewayPrefixListReferencesResponse' {..} =
-      Prelude.rnf nextToken
-        `Prelude.seq` Prelude.rnf transitGatewayPrefixListReferences
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf transitGatewayPrefixListReferences `Prelude.seq`
+          Prelude.rnf httpStatus

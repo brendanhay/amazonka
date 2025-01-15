@@ -112,8 +112,8 @@ instance Prelude.Hashable DeregisterCompute where
 
 instance Prelude.NFData DeregisterCompute where
   rnf DeregisterCompute' {..} =
-    Prelude.rnf fleetId
-      `Prelude.seq` Prelude.rnf computeName
+    Prelude.rnf fleetId `Prelude.seq`
+      Prelude.rnf computeName
 
 instance Data.ToHeaders DeregisterCompute where
   toHeaders =

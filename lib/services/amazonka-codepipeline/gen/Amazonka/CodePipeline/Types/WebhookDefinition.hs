@@ -200,12 +200,12 @@ instance Prelude.Hashable WebhookDefinition where
 
 instance Prelude.NFData WebhookDefinition where
   rnf WebhookDefinition' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf targetPipeline
-      `Prelude.seq` Prelude.rnf targetAction
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf authentication
-      `Prelude.seq` Prelude.rnf authenticationConfiguration
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf targetPipeline `Prelude.seq`
+        Prelude.rnf targetAction `Prelude.seq`
+          Prelude.rnf filters `Prelude.seq`
+            Prelude.rnf authentication `Prelude.seq`
+              Prelude.rnf authenticationConfiguration
 
 instance Data.ToJSON WebhookDefinition where
   toJSON WebhookDefinition' {..} =

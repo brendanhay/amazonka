@@ -118,8 +118,8 @@ instance Prelude.Hashable InstanceAccess where
 
 instance Prelude.NFData InstanceAccess where
   rnf InstanceAccess' {..} =
-    Prelude.rnf credentials
-      `Prelude.seq` Prelude.rnf fleetId
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf ipAddress
-      `Prelude.seq` Prelude.rnf operatingSystem
+    Prelude.rnf credentials `Prelude.seq`
+      Prelude.rnf fleetId `Prelude.seq`
+        Prelude.rnf instanceId `Prelude.seq`
+          Prelude.rnf ipAddress `Prelude.seq`
+            Prelude.rnf operatingSystem

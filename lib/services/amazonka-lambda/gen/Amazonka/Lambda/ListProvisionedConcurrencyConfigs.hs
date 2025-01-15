@@ -158,12 +158,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listProvisionedConcurrencyConfigs_marker
-          Lens..~ rs
-          Lens.^? listProvisionedConcurrencyConfigsResponse_nextMarker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listProvisionedConcurrencyConfigs_marker
+              Lens..~ rs
+              Lens.^? listProvisionedConcurrencyConfigsResponse_nextMarker
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -203,9 +203,9 @@ instance
     ListProvisionedConcurrencyConfigs
   where
   rnf ListProvisionedConcurrencyConfigs' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxItems
-      `Prelude.seq` Prelude.rnf functionName
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf maxItems `Prelude.seq`
+        Prelude.rnf functionName
 
 instance
   Data.ToHeaders
@@ -290,6 +290,6 @@ instance
     ListProvisionedConcurrencyConfigsResponse
   where
   rnf ListProvisionedConcurrencyConfigsResponse' {..} =
-    Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf provisionedConcurrencyConfigs
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextMarker `Prelude.seq`
+      Prelude.rnf provisionedConcurrencyConfigs `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -134,9 +134,9 @@ instance Prelude.Hashable AnalysisSecurityGroupRule where
 
 instance Prelude.NFData AnalysisSecurityGroupRule where
   rnf AnalysisSecurityGroupRule' {..} =
-    Prelude.rnf cidr
-      `Prelude.seq` Prelude.rnf direction
-      `Prelude.seq` Prelude.rnf portRange
-      `Prelude.seq` Prelude.rnf prefixListId
-      `Prelude.seq` Prelude.rnf protocol
-      `Prelude.seq` Prelude.rnf securityGroupId
+    Prelude.rnf cidr `Prelude.seq`
+      Prelude.rnf direction `Prelude.seq`
+        Prelude.rnf portRange `Prelude.seq`
+          Prelude.rnf prefixListId `Prelude.seq`
+            Prelude.rnf protocol `Prelude.seq`
+              Prelude.rnf securityGroupId

@@ -105,7 +105,7 @@ instance Prelude.Hashable ResultByTime where
 
 instance Prelude.NFData ResultByTime where
   rnf ResultByTime' {..} =
-    Prelude.rnf estimated
-      `Prelude.seq` Prelude.rnf groups
-      `Prelude.seq` Prelude.rnf timePeriod
-      `Prelude.seq` Prelude.rnf total
+    Prelude.rnf estimated `Prelude.seq`
+      Prelude.rnf groups `Prelude.seq`
+        Prelude.rnf timePeriod `Prelude.seq`
+          Prelude.rnf total

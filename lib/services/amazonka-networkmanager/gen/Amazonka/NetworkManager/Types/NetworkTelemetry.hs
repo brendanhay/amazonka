@@ -158,12 +158,12 @@ instance Prelude.Hashable NetworkTelemetry where
 
 instance Prelude.NFData NetworkTelemetry where
   rnf NetworkTelemetry' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf address
-      `Prelude.seq` Prelude.rnf awsRegion
-      `Prelude.seq` Prelude.rnf coreNetworkId
-      `Prelude.seq` Prelude.rnf health
-      `Prelude.seq` Prelude.rnf registeredGatewayArn
-      `Prelude.seq` Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf resourceType
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf address `Prelude.seq`
+        Prelude.rnf awsRegion `Prelude.seq`
+          Prelude.rnf coreNetworkId `Prelude.seq`
+            Prelude.rnf health `Prelude.seq`
+              Prelude.rnf registeredGatewayArn `Prelude.seq`
+                Prelude.rnf resourceArn `Prelude.seq`
+                  Prelude.rnf resourceId `Prelude.seq`
+                    Prelude.rnf resourceType

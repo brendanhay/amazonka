@@ -83,8 +83,8 @@ instance Prelude.Hashable SchemaChangePolicy where
 
 instance Prelude.NFData SchemaChangePolicy where
   rnf SchemaChangePolicy' {..} =
-    Prelude.rnf deleteBehavior
-      `Prelude.seq` Prelude.rnf updateBehavior
+    Prelude.rnf deleteBehavior `Prelude.seq`
+      Prelude.rnf updateBehavior
 
 instance Data.ToJSON SchemaChangePolicy where
   toJSON SchemaChangePolicy' {..} =

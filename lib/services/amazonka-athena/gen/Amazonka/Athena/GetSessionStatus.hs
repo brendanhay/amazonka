@@ -175,6 +175,6 @@ getSessionStatusResponse_httpStatus = Lens.lens (\GetSessionStatusResponse' {htt
 
 instance Prelude.NFData GetSessionStatusResponse where
   rnf GetSessionStatusResponse' {..} =
-    Prelude.rnf sessionId
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf sessionId `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf httpStatus

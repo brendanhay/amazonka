@@ -109,8 +109,8 @@ instance Prelude.Hashable UpdateTrust where
 
 instance Prelude.NFData UpdateTrust where
   rnf UpdateTrust' {..} =
-    Prelude.rnf selectiveAuth
-      `Prelude.seq` Prelude.rnf trustId
+    Prelude.rnf selectiveAuth `Prelude.seq`
+      Prelude.rnf trustId
 
 instance Data.ToHeaders UpdateTrust where
   toHeaders =
@@ -190,6 +190,6 @@ updateTrustResponse_httpStatus = Lens.lens (\UpdateTrustResponse' {httpStatus} -
 
 instance Prelude.NFData UpdateTrustResponse where
   rnf UpdateTrustResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf trustId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf requestId `Prelude.seq`
+      Prelude.rnf trustId `Prelude.seq`
+        Prelude.rnf httpStatus

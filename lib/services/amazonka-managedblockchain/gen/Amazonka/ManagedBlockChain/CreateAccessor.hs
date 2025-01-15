@@ -138,8 +138,8 @@ instance Prelude.Hashable CreateAccessor where
 
 instance Prelude.NFData CreateAccessor where
   rnf CreateAccessor' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf accessorType
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf accessorType
 
 instance Data.ToHeaders CreateAccessor where
   toHeaders =
@@ -227,6 +227,6 @@ createAccessorResponse_httpStatus = Lens.lens (\CreateAccessorResponse' {httpSta
 
 instance Prelude.NFData CreateAccessorResponse where
   rnf CreateAccessorResponse' {..} =
-    Prelude.rnf accessorId
-      `Prelude.seq` Prelude.rnf billingToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf accessorId `Prelude.seq`
+      Prelude.rnf billingToken `Prelude.seq`
+        Prelude.rnf httpStatus

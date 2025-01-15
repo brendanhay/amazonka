@@ -132,12 +132,12 @@ instance Core.AWSPager DescribeAutoScalingInstances where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeAutoScalingInstances_nextToken
-          Lens..~ rs
-          Lens.^? describeAutoScalingInstancesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeAutoScalingInstances_nextToken
+              Lens..~ rs
+              Lens.^? describeAutoScalingInstancesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeAutoScalingInstances where
   type
@@ -171,9 +171,9 @@ instance
 
 instance Prelude.NFData DescribeAutoScalingInstances where
   rnf DescribeAutoScalingInstances' {..} =
-    Prelude.rnf instanceIds
-      `Prelude.seq` Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf instanceIds `Prelude.seq`
+      Prelude.rnf maxRecords `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeAutoScalingInstances where
   toHeaders = Prelude.const Prelude.mempty
@@ -259,6 +259,6 @@ instance
     DescribeAutoScalingInstancesResponse
   where
   rnf DescribeAutoScalingInstancesResponse' {..} =
-    Prelude.rnf autoScalingInstances
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf autoScalingInstances `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

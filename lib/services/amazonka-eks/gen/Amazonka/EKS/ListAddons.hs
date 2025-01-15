@@ -156,12 +156,12 @@ instance Core.AWSPager ListAddons where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listAddons_nextToken
-          Lens..~ rs
-          Lens.^? listAddonsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listAddons_nextToken
+              Lens..~ rs
+              Lens.^? listAddonsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAddons where
   type AWSResponse ListAddons = ListAddonsResponse
@@ -185,9 +185,9 @@ instance Prelude.Hashable ListAddons where
 
 instance Prelude.NFData ListAddons where
   rnf ListAddons' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf clusterName
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf clusterName
 
 instance Data.ToHeaders ListAddons where
   toHeaders =
@@ -282,6 +282,6 @@ listAddonsResponse_httpStatus = Lens.lens (\ListAddonsResponse' {httpStatus} -> 
 
 instance Prelude.NFData ListAddonsResponse where
   rnf ListAddonsResponse' {..} =
-    Prelude.rnf addons
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf addons `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

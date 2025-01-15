@@ -81,8 +81,8 @@ instance Prelude.Hashable StreamFile where
 
 instance Prelude.NFData StreamFile where
   rnf StreamFile' {..} =
-    Prelude.rnf fileId
-      `Prelude.seq` Prelude.rnf s3Location
+    Prelude.rnf fileId `Prelude.seq`
+      Prelude.rnf s3Location
 
 instance Data.ToJSON StreamFile where
   toJSON StreamFile' {..} =

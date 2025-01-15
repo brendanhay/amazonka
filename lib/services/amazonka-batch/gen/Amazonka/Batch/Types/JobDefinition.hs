@@ -356,19 +356,19 @@ instance Prelude.Hashable JobDefinition where
 
 instance Prelude.NFData JobDefinition where
   rnf JobDefinition' {..} =
-    Prelude.rnf containerOrchestrationType
-      `Prelude.seq` Prelude.rnf containerProperties
-      `Prelude.seq` Prelude.rnf eksProperties
-      `Prelude.seq` Prelude.rnf nodeProperties
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf platformCapabilities
-      `Prelude.seq` Prelude.rnf propagateTags
-      `Prelude.seq` Prelude.rnf retryStrategy
-      `Prelude.seq` Prelude.rnf schedulingPriority
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf timeout
-      `Prelude.seq` Prelude.rnf jobDefinitionName
-      `Prelude.seq` Prelude.rnf jobDefinitionArn
-      `Prelude.seq` Prelude.rnf revision
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf containerOrchestrationType `Prelude.seq`
+      Prelude.rnf containerProperties `Prelude.seq`
+        Prelude.rnf eksProperties `Prelude.seq`
+          Prelude.rnf nodeProperties `Prelude.seq`
+            Prelude.rnf parameters `Prelude.seq`
+              Prelude.rnf platformCapabilities `Prelude.seq`
+                Prelude.rnf propagateTags `Prelude.seq`
+                  Prelude.rnf retryStrategy `Prelude.seq`
+                    Prelude.rnf schedulingPriority `Prelude.seq`
+                      Prelude.rnf status `Prelude.seq`
+                        Prelude.rnf tags `Prelude.seq`
+                          Prelude.rnf timeout `Prelude.seq`
+                            Prelude.rnf jobDefinitionName `Prelude.seq`
+                              Prelude.rnf jobDefinitionArn `Prelude.seq`
+                                Prelude.rnf revision `Prelude.seq`
+                                  Prelude.rnf type'

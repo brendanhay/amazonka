@@ -204,16 +204,16 @@ instance Prelude.Hashable RaidArray where
 
 instance Prelude.NFData RaidArray where
   rnf RaidArray' {..} =
-    Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf device
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf iops
-      `Prelude.seq` Prelude.rnf mountPoint
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf numberOfDisks
-      `Prelude.seq` Prelude.rnf raidArrayId
-      `Prelude.seq` Prelude.rnf raidLevel
-      `Prelude.seq` Prelude.rnf size
-      `Prelude.seq` Prelude.rnf stackId
-      `Prelude.seq` Prelude.rnf volumeType
+    Prelude.rnf availabilityZone `Prelude.seq`
+      Prelude.rnf createdAt `Prelude.seq`
+        Prelude.rnf device `Prelude.seq`
+          Prelude.rnf instanceId `Prelude.seq`
+            Prelude.rnf iops `Prelude.seq`
+              Prelude.rnf mountPoint `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf numberOfDisks `Prelude.seq`
+                    Prelude.rnf raidArrayId `Prelude.seq`
+                      Prelude.rnf raidLevel `Prelude.seq`
+                        Prelude.rnf size `Prelude.seq`
+                          Prelude.rnf stackId `Prelude.seq`
+                            Prelude.rnf volumeType

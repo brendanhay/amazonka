@@ -161,8 +161,8 @@ instance Prelude.Hashable GeoMatchStatement where
 
 instance Prelude.NFData GeoMatchStatement where
   rnf GeoMatchStatement' {..} =
-    Prelude.rnf countryCodes
-      `Prelude.seq` Prelude.rnf forwardedIPConfig
+    Prelude.rnf countryCodes `Prelude.seq`
+      Prelude.rnf forwardedIPConfig
 
 instance Data.ToJSON GeoMatchStatement where
   toJSON GeoMatchStatement' {..} =

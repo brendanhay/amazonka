@@ -182,8 +182,8 @@ instance Prelude.Hashable CheckDomainAvailability where
 
 instance Prelude.NFData CheckDomainAvailability where
   rnf CheckDomainAvailability' {..} =
-    Prelude.rnf idnLangCode
-      `Prelude.seq` Prelude.rnf domainName
+    Prelude.rnf idnLangCode `Prelude.seq`
+      Prelude.rnf domainName
 
 instance Data.ToHeaders CheckDomainAvailability where
   toHeaders =
@@ -372,5 +372,5 @@ instance
     CheckDomainAvailabilityResponse
   where
   rnf CheckDomainAvailabilityResponse' {..} =
-    Prelude.rnf availability
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf availability `Prelude.seq`
+      Prelude.rnf httpStatus

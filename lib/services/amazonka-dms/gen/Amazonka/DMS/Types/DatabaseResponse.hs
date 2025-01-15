@@ -141,10 +141,10 @@ instance Prelude.Hashable DatabaseResponse where
 
 instance Prelude.NFData DatabaseResponse where
   rnf DatabaseResponse' {..} =
-    Prelude.rnf collectors
-      `Prelude.seq` Prelude.rnf databaseId
-      `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf ipAddress
-      `Prelude.seq` Prelude.rnf numberOfSchemas
-      `Prelude.seq` Prelude.rnf server
-      `Prelude.seq` Prelude.rnf softwareDetails
+    Prelude.rnf collectors `Prelude.seq`
+      Prelude.rnf databaseId `Prelude.seq`
+        Prelude.rnf databaseName `Prelude.seq`
+          Prelude.rnf ipAddress `Prelude.seq`
+            Prelude.rnf numberOfSchemas `Prelude.seq`
+              Prelude.rnf server `Prelude.seq`
+                Prelude.rnf softwareDetails

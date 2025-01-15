@@ -147,10 +147,10 @@ instance Prelude.Hashable CreateUserHierarchyGroup where
 
 instance Prelude.NFData CreateUserHierarchyGroup where
   rnf CreateUserHierarchyGroup' {..} =
-    Prelude.rnf parentGroupId
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf instanceId
+    Prelude.rnf parentGroupId `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf instanceId
 
 instance Data.ToHeaders CreateUserHierarchyGroup where
   toHeaders =
@@ -234,6 +234,6 @@ instance
     CreateUserHierarchyGroupResponse
   where
   rnf CreateUserHierarchyGroupResponse' {..} =
-    Prelude.rnf hierarchyGroupArn
-      `Prelude.seq` Prelude.rnf hierarchyGroupId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf hierarchyGroupArn `Prelude.seq`
+      Prelude.rnf hierarchyGroupId `Prelude.seq`
+        Prelude.rnf httpStatus

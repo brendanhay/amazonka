@@ -100,9 +100,9 @@ instance Prelude.Hashable ReplicationGroupUpdate where
 
 instance Prelude.NFData ReplicationGroupUpdate where
   rnf ReplicationGroupUpdate' {..} =
-    Prelude.rnf create
-      `Prelude.seq` Prelude.rnf delete'
-      `Prelude.seq` Prelude.rnf update
+    Prelude.rnf create `Prelude.seq`
+      Prelude.rnf delete' `Prelude.seq`
+        Prelude.rnf update
 
 instance Data.ToJSON ReplicationGroupUpdate where
   toJSON ReplicationGroupUpdate' {..} =

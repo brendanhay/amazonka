@@ -118,9 +118,9 @@ instance Prelude.Hashable CloudWatchLogsConfig where
 
 instance Prelude.NFData CloudWatchLogsConfig where
   rnf CloudWatchLogsConfig' {..} =
-    Prelude.rnf groupName
-      `Prelude.seq` Prelude.rnf streamName
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf groupName `Prelude.seq`
+      Prelude.rnf streamName `Prelude.seq`
+        Prelude.rnf status
 
 instance Data.ToJSON CloudWatchLogsConfig where
   toJSON CloudWatchLogsConfig' {..} =

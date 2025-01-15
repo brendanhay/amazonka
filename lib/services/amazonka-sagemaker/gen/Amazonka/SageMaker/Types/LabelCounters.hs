@@ -114,8 +114,8 @@ instance Prelude.Hashable LabelCounters where
 
 instance Prelude.NFData LabelCounters where
   rnf LabelCounters' {..} =
-    Prelude.rnf failedNonRetryableError
-      `Prelude.seq` Prelude.rnf humanLabeled
-      `Prelude.seq` Prelude.rnf machineLabeled
-      `Prelude.seq` Prelude.rnf totalLabeled
-      `Prelude.seq` Prelude.rnf unlabeled
+    Prelude.rnf failedNonRetryableError `Prelude.seq`
+      Prelude.rnf humanLabeled `Prelude.seq`
+        Prelude.rnf machineLabeled `Prelude.seq`
+          Prelude.rnf totalLabeled `Prelude.seq`
+            Prelude.rnf unlabeled

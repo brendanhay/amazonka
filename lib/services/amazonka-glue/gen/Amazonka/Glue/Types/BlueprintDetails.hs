@@ -80,5 +80,5 @@ instance Prelude.Hashable BlueprintDetails where
 
 instance Prelude.NFData BlueprintDetails where
   rnf BlueprintDetails' {..} =
-    Prelude.rnf blueprintName
-      `Prelude.seq` Prelude.rnf runId
+    Prelude.rnf blueprintName `Prelude.seq`
+      Prelude.rnf runId

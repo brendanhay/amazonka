@@ -108,8 +108,8 @@ instance Prelude.Hashable DeleteToken where
 
 instance Prelude.NFData DeleteToken where
   rnf DeleteToken' {..} =
-    Prelude.rnf sessionId
-      `Prelude.seq` Prelude.rnf appId
+    Prelude.rnf sessionId `Prelude.seq`
+      Prelude.rnf appId
 
 instance Data.ToHeaders DeleteToken where
   toHeaders =
@@ -178,5 +178,5 @@ deleteTokenResponse_httpStatus = Lens.lens (\DeleteTokenResponse' {httpStatus} -
 
 instance Prelude.NFData DeleteTokenResponse where
   rnf DeleteTokenResponse' {..} =
-    Prelude.rnf isSuccess
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf isSuccess `Prelude.seq`
+      Prelude.rnf httpStatus

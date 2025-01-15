@@ -219,5 +219,5 @@ instance
     DeleteAutoScalingConfigurationResponse
   where
   rnf DeleteAutoScalingConfigurationResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf autoScalingConfiguration
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf autoScalingConfiguration

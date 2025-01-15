@@ -81,5 +81,5 @@ instance Prelude.Hashable AuthenticationProfile where
 
 instance Prelude.NFData AuthenticationProfile where
   rnf AuthenticationProfile' {..} =
-    Prelude.rnf authenticationProfileContent
-      `Prelude.seq` Prelude.rnf authenticationProfileName
+    Prelude.rnf authenticationProfileContent `Prelude.seq`
+      Prelude.rnf authenticationProfileName

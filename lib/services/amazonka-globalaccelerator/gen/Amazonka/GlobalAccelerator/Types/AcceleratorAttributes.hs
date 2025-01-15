@@ -137,6 +137,6 @@ instance Prelude.Hashable AcceleratorAttributes where
 
 instance Prelude.NFData AcceleratorAttributes where
   rnf AcceleratorAttributes' {..} =
-    Prelude.rnf flowLogsEnabled
-      `Prelude.seq` Prelude.rnf flowLogsS3Bucket
-      `Prelude.seq` Prelude.rnf flowLogsS3Prefix
+    Prelude.rnf flowLogsEnabled `Prelude.seq`
+      Prelude.rnf flowLogsS3Bucket `Prelude.seq`
+        Prelude.rnf flowLogsS3Prefix

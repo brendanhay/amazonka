@@ -87,8 +87,8 @@ instance Prelude.Hashable AwsJobRateIncreaseCriteria where
 
 instance Prelude.NFData AwsJobRateIncreaseCriteria where
   rnf AwsJobRateIncreaseCriteria' {..} =
-    Prelude.rnf numberOfNotifiedThings
-      `Prelude.seq` Prelude.rnf numberOfSucceededThings
+    Prelude.rnf numberOfNotifiedThings `Prelude.seq`
+      Prelude.rnf numberOfSucceededThings
 
 instance Data.ToJSON AwsJobRateIncreaseCriteria where
   toJSON AwsJobRateIncreaseCriteria' {..} =

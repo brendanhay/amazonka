@@ -116,8 +116,8 @@ instance Prelude.Hashable UpdateRepositoryDescription where
 
 instance Prelude.NFData UpdateRepositoryDescription where
   rnf UpdateRepositoryDescription' {..} =
-    Prelude.rnf repositoryDescription
-      `Prelude.seq` Prelude.rnf repositoryName
+    Prelude.rnf repositoryDescription `Prelude.seq`
+      Prelude.rnf repositoryName
 
 instance Data.ToHeaders UpdateRepositoryDescription where
   toHeaders =

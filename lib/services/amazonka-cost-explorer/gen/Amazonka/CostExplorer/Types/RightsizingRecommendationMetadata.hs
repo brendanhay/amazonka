@@ -118,7 +118,7 @@ instance
     RightsizingRecommendationMetadata
   where
   rnf RightsizingRecommendationMetadata' {..} =
-    Prelude.rnf additionalMetadata
-      `Prelude.seq` Prelude.rnf generationTimestamp
-      `Prelude.seq` Prelude.rnf lookbackPeriodInDays
-      `Prelude.seq` Prelude.rnf recommendationId
+    Prelude.rnf additionalMetadata `Prelude.seq`
+      Prelude.rnf generationTimestamp `Prelude.seq`
+        Prelude.rnf lookbackPeriodInDays `Prelude.seq`
+          Prelude.rnf recommendationId

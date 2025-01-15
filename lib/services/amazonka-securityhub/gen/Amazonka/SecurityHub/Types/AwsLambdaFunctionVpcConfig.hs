@@ -96,9 +96,9 @@ instance Prelude.Hashable AwsLambdaFunctionVpcConfig where
 
 instance Prelude.NFData AwsLambdaFunctionVpcConfig where
   rnf AwsLambdaFunctionVpcConfig' {..} =
-    Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf subnetIds
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf securityGroupIds `Prelude.seq`
+      Prelude.rnf subnetIds `Prelude.seq`
+        Prelude.rnf vpcId
 
 instance Data.ToJSON AwsLambdaFunctionVpcConfig where
   toJSON AwsLambdaFunctionVpcConfig' {..} =

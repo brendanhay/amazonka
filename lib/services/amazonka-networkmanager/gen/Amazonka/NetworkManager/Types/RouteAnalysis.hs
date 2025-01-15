@@ -188,14 +188,14 @@ instance Prelude.Hashable RouteAnalysis where
 
 instance Prelude.NFData RouteAnalysis where
   rnf RouteAnalysis' {..} =
-    Prelude.rnf destination
-      `Prelude.seq` Prelude.rnf forwardPath
-      `Prelude.seq` Prelude.rnf globalNetworkId
-      `Prelude.seq` Prelude.rnf includeReturnPath
-      `Prelude.seq` Prelude.rnf ownerAccountId
-      `Prelude.seq` Prelude.rnf returnPath
-      `Prelude.seq` Prelude.rnf routeAnalysisId
-      `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf startTimestamp
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf useMiddleboxes
+    Prelude.rnf destination `Prelude.seq`
+      Prelude.rnf forwardPath `Prelude.seq`
+        Prelude.rnf globalNetworkId `Prelude.seq`
+          Prelude.rnf includeReturnPath `Prelude.seq`
+            Prelude.rnf ownerAccountId `Prelude.seq`
+              Prelude.rnf returnPath `Prelude.seq`
+                Prelude.rnf routeAnalysisId `Prelude.seq`
+                  Prelude.rnf source `Prelude.seq`
+                    Prelude.rnf startTimestamp `Prelude.seq`
+                      Prelude.rnf status `Prelude.seq`
+                        Prelude.rnf useMiddleboxes

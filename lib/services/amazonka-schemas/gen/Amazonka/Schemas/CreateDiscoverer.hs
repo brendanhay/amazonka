@@ -147,10 +147,10 @@ instance Prelude.Hashable CreateDiscoverer where
 
 instance Prelude.NFData CreateDiscoverer where
   rnf CreateDiscoverer' {..} =
-    Prelude.rnf crossAccount
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf sourceArn
+    Prelude.rnf crossAccount `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf sourceArn
 
 instance Data.ToHeaders CreateDiscoverer where
   toHeaders =
@@ -278,11 +278,11 @@ createDiscovererResponse_httpStatus = Lens.lens (\CreateDiscovererResponse' {htt
 
 instance Prelude.NFData CreateDiscovererResponse where
   rnf CreateDiscovererResponse' {..} =
-    Prelude.rnf crossAccount
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf discovererArn
-      `Prelude.seq` Prelude.rnf discovererId
-      `Prelude.seq` Prelude.rnf sourceArn
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf crossAccount `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf discovererArn `Prelude.seq`
+          Prelude.rnf discovererId `Prelude.seq`
+            Prelude.rnf sourceArn `Prelude.seq`
+              Prelude.rnf state `Prelude.seq`
+                Prelude.rnf tags `Prelude.seq`
+                  Prelude.rnf httpStatus

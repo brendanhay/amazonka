@@ -96,6 +96,6 @@ instance Prelude.Hashable ConfigurationRevision where
 
 instance Prelude.NFData ConfigurationRevision where
   rnf ConfigurationRevision' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf revision
-      `Prelude.seq` Prelude.rnf created
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf revision `Prelude.seq`
+        Prelude.rnf created

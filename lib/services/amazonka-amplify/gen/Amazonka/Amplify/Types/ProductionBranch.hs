@@ -102,7 +102,7 @@ instance Prelude.Hashable ProductionBranch where
 
 instance Prelude.NFData ProductionBranch where
   rnf ProductionBranch' {..} =
-    Prelude.rnf branchName
-      `Prelude.seq` Prelude.rnf lastDeployTime
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf thumbnailUrl
+    Prelude.rnf branchName `Prelude.seq`
+      Prelude.rnf lastDeployTime `Prelude.seq`
+        Prelude.rnf status `Prelude.seq`
+          Prelude.rnf thumbnailUrl

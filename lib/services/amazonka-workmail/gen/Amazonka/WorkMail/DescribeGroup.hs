@@ -120,8 +120,8 @@ instance Prelude.Hashable DescribeGroup where
 
 instance Prelude.NFData DescribeGroup where
   rnf DescribeGroup' {..} =
-    Prelude.rnf organizationId
-      `Prelude.seq` Prelude.rnf groupId
+    Prelude.rnf organizationId `Prelude.seq`
+      Prelude.rnf groupId
 
 instance Data.ToHeaders DescribeGroup where
   toHeaders =
@@ -249,10 +249,10 @@ describeGroupResponse_httpStatus = Lens.lens (\DescribeGroupResponse' {httpStatu
 
 instance Prelude.NFData DescribeGroupResponse where
   rnf DescribeGroupResponse' {..} =
-    Prelude.rnf disabledDate
-      `Prelude.seq` Prelude.rnf email
-      `Prelude.seq` Prelude.rnf enabledDate
-      `Prelude.seq` Prelude.rnf groupId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf disabledDate `Prelude.seq`
+      Prelude.rnf email `Prelude.seq`
+        Prelude.rnf enabledDate `Prelude.seq`
+          Prelude.rnf groupId `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf state `Prelude.seq`
+                Prelude.rnf httpStatus

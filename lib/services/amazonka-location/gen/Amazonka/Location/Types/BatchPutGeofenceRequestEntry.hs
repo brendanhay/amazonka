@@ -99,8 +99,8 @@ instance
 
 instance Prelude.NFData BatchPutGeofenceRequestEntry where
   rnf BatchPutGeofenceRequestEntry' {..} =
-    Prelude.rnf geofenceId
-      `Prelude.seq` Prelude.rnf geometry
+    Prelude.rnf geofenceId `Prelude.seq`
+      Prelude.rnf geometry
 
 instance Data.ToJSON BatchPutGeofenceRequestEntry where
   toJSON BatchPutGeofenceRequestEntry' {..} =

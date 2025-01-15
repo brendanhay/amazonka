@@ -167,11 +167,11 @@ instance Prelude.Hashable MonitoringScheduleSummary where
 
 instance Prelude.NFData MonitoringScheduleSummary where
   rnf MonitoringScheduleSummary' {..} =
-    Prelude.rnf endpointName
-      `Prelude.seq` Prelude.rnf monitoringJobDefinitionName
-      `Prelude.seq` Prelude.rnf monitoringType
-      `Prelude.seq` Prelude.rnf monitoringScheduleName
-      `Prelude.seq` Prelude.rnf monitoringScheduleArn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf monitoringScheduleStatus
+    Prelude.rnf endpointName `Prelude.seq`
+      Prelude.rnf monitoringJobDefinitionName `Prelude.seq`
+        Prelude.rnf monitoringType `Prelude.seq`
+          Prelude.rnf monitoringScheduleName `Prelude.seq`
+            Prelude.rnf monitoringScheduleArn `Prelude.seq`
+              Prelude.rnf creationTime `Prelude.seq`
+                Prelude.rnf lastModifiedTime `Prelude.seq`
+                  Prelude.rnf monitoringScheduleStatus

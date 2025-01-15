@@ -110,8 +110,8 @@ instance Prelude.Hashable DescribeAgentVersions where
 
 instance Prelude.NFData DescribeAgentVersions where
   rnf DescribeAgentVersions' {..} =
-    Prelude.rnf configurationManager
-      `Prelude.seq` Prelude.rnf stackId
+    Prelude.rnf configurationManager `Prelude.seq`
+      Prelude.rnf stackId
 
 instance Data.ToHeaders DescribeAgentVersions where
   toHeaders =
@@ -193,5 +193,5 @@ describeAgentVersionsResponse_httpStatus = Lens.lens (\DescribeAgentVersionsResp
 
 instance Prelude.NFData DescribeAgentVersionsResponse where
   rnf DescribeAgentVersionsResponse' {..} =
-    Prelude.rnf agentVersions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf agentVersions `Prelude.seq`
+      Prelude.rnf httpStatus

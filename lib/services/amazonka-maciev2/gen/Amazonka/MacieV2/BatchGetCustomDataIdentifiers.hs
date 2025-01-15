@@ -199,6 +199,6 @@ instance
     BatchGetCustomDataIdentifiersResponse
   where
   rnf BatchGetCustomDataIdentifiersResponse' {..} =
-    Prelude.rnf customDataIdentifiers
-      `Prelude.seq` Prelude.rnf notFoundIdentifierIds
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf customDataIdentifiers `Prelude.seq`
+      Prelude.rnf notFoundIdentifierIds `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -107,9 +107,9 @@ instance Prelude.Hashable FirehoseAction where
 
 instance Prelude.NFData FirehoseAction where
   rnf FirehoseAction' {..} =
-    Prelude.rnf payload
-      `Prelude.seq` Prelude.rnf separator
-      `Prelude.seq` Prelude.rnf deliveryStreamName
+    Prelude.rnf payload `Prelude.seq`
+      Prelude.rnf separator `Prelude.seq`
+        Prelude.rnf deliveryStreamName
 
 instance Data.ToJSON FirehoseAction where
   toJSON FirehoseAction' {..} =

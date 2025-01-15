@@ -112,8 +112,8 @@ instance Prelude.Hashable UpdateJob where
 
 instance Prelude.NFData UpdateJob where
   rnf UpdateJob' {..} =
-    Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf jobUpdate
+    Prelude.rnf jobName `Prelude.seq`
+      Prelude.rnf jobUpdate
 
 instance Data.ToHeaders UpdateJob where
   toHeaders =
@@ -183,5 +183,5 @@ updateJobResponse_httpStatus = Lens.lens (\UpdateJobResponse' {httpStatus} -> ht
 
 instance Prelude.NFData UpdateJobResponse where
   rnf UpdateJobResponse' {..} =
-    Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf jobName `Prelude.seq`
+      Prelude.rnf httpStatus

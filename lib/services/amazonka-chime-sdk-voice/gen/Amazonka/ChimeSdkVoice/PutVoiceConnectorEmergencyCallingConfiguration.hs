@@ -125,8 +125,8 @@ instance
   where
   rnf
     PutVoiceConnectorEmergencyCallingConfiguration' {..} =
-      Prelude.rnf voiceConnectorId
-        `Prelude.seq` Prelude.rnf emergencyCallingConfiguration
+      Prelude.rnf voiceConnectorId `Prelude.seq`
+        Prelude.rnf emergencyCallingConfiguration
 
 instance
   Data.ToHeaders
@@ -213,5 +213,5 @@ instance
   where
   rnf
     PutVoiceConnectorEmergencyCallingConfigurationResponse' {..} =
-      Prelude.rnf emergencyCallingConfiguration
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf emergencyCallingConfiguration `Prelude.seq`
+        Prelude.rnf httpStatus

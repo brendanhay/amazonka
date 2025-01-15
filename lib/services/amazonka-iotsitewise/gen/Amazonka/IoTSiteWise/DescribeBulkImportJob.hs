@@ -344,13 +344,13 @@ describeBulkImportJobResponse_jobLastUpdateDate = Lens.lens (\DescribeBulkImport
 
 instance Prelude.NFData DescribeBulkImportJobResponse where
   rnf DescribeBulkImportJobResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf jobStatus
-      `Prelude.seq` Prelude.rnf jobRoleArn
-      `Prelude.seq` Prelude.rnf files
-      `Prelude.seq` Prelude.rnf errorReportLocation
-      `Prelude.seq` Prelude.rnf jobConfiguration
-      `Prelude.seq` Prelude.rnf jobCreationDate
-      `Prelude.seq` Prelude.rnf jobLastUpdateDate
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf jobId `Prelude.seq`
+        Prelude.rnf jobName `Prelude.seq`
+          Prelude.rnf jobStatus `Prelude.seq`
+            Prelude.rnf jobRoleArn `Prelude.seq`
+              Prelude.rnf files `Prelude.seq`
+                Prelude.rnf errorReportLocation `Prelude.seq`
+                  Prelude.rnf jobConfiguration `Prelude.seq`
+                    Prelude.rnf jobCreationDate `Prelude.seq`
+                      Prelude.rnf jobLastUpdateDate

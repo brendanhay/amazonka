@@ -158,9 +158,9 @@ instance Prelude.Hashable DisableFastLaunch where
 
 instance Prelude.NFData DisableFastLaunch where
   rnf DisableFastLaunch' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf force
-      `Prelude.seq` Prelude.rnf imageId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf force `Prelude.seq`
+        Prelude.rnf imageId
 
 instance Data.ToHeaders DisableFastLaunch where
   toHeaders = Prelude.const Prelude.mempty
@@ -317,13 +317,13 @@ disableFastLaunchResponse_httpStatus = Lens.lens (\DisableFastLaunchResponse' {h
 
 instance Prelude.NFData DisableFastLaunchResponse where
   rnf DisableFastLaunchResponse' {..} =
-    Prelude.rnf imageId
-      `Prelude.seq` Prelude.rnf launchTemplate
-      `Prelude.seq` Prelude.rnf maxParallelLaunches
-      `Prelude.seq` Prelude.rnf ownerId
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf snapshotConfiguration
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf stateTransitionReason
-      `Prelude.seq` Prelude.rnf stateTransitionTime
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf imageId `Prelude.seq`
+      Prelude.rnf launchTemplate `Prelude.seq`
+        Prelude.rnf maxParallelLaunches `Prelude.seq`
+          Prelude.rnf ownerId `Prelude.seq`
+            Prelude.rnf resourceType `Prelude.seq`
+              Prelude.rnf snapshotConfiguration `Prelude.seq`
+                Prelude.rnf state `Prelude.seq`
+                  Prelude.rnf stateTransitionReason `Prelude.seq`
+                    Prelude.rnf stateTransitionTime `Prelude.seq`
+                      Prelude.rnf httpStatus

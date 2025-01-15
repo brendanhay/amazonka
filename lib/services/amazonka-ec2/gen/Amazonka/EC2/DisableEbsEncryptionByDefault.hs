@@ -185,5 +185,5 @@ instance
     DisableEbsEncryptionByDefaultResponse
   where
   rnf DisableEbsEncryptionByDefaultResponse' {..} =
-    Prelude.rnf ebsEncryptionByDefault
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf ebsEncryptionByDefault `Prelude.seq`
+      Prelude.rnf httpStatus

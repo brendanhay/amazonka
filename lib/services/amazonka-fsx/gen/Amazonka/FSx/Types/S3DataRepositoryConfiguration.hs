@@ -103,8 +103,8 @@ instance
 
 instance Prelude.NFData S3DataRepositoryConfiguration where
   rnf S3DataRepositoryConfiguration' {..} =
-    Prelude.rnf autoExportPolicy
-      `Prelude.seq` Prelude.rnf autoImportPolicy
+    Prelude.rnf autoExportPolicy `Prelude.seq`
+      Prelude.rnf autoImportPolicy
 
 instance Data.ToJSON S3DataRepositoryConfiguration where
   toJSON S3DataRepositoryConfiguration' {..} =

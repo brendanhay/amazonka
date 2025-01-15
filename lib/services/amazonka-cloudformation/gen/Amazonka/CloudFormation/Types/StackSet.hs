@@ -319,9 +319,7 @@ instance Data.FromXML StackSet where
     StackSet'
       Prelude.<$> (x Data..@? "AdministrationRoleARN")
       Prelude.<*> (x Data..@? "AutoDeployment")
-      Prelude.<*> ( x
-                      Data..@? "Capabilities"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "Capabilities" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "Description")
@@ -332,9 +330,7 @@ instance Data.FromXML StackSet where
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x
-                      Data..@? "Parameters"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "Parameters" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "PermissionModel")
@@ -343,9 +339,7 @@ instance Data.FromXML StackSet where
       Prelude.<*> (x Data..@? "StackSetId")
       Prelude.<*> (x Data..@? "StackSetName")
       Prelude.<*> (x Data..@? "Status")
-      Prelude.<*> ( x
-                      Data..@? "Tags"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "TemplateBody")
@@ -372,19 +366,19 @@ instance Prelude.Hashable StackSet where
 
 instance Prelude.NFData StackSet where
   rnf StackSet' {..} =
-    Prelude.rnf administrationRoleARN
-      `Prelude.seq` Prelude.rnf autoDeployment
-      `Prelude.seq` Prelude.rnf capabilities
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf executionRoleName
-      `Prelude.seq` Prelude.rnf managedExecution
-      `Prelude.seq` Prelude.rnf organizationalUnitIds
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf permissionModel
-      `Prelude.seq` Prelude.rnf stackSetARN
-      `Prelude.seq` Prelude.rnf stackSetDriftDetectionDetails
-      `Prelude.seq` Prelude.rnf stackSetId
-      `Prelude.seq` Prelude.rnf stackSetName
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf templateBody
+    Prelude.rnf administrationRoleARN `Prelude.seq`
+      Prelude.rnf autoDeployment `Prelude.seq`
+        Prelude.rnf capabilities `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf executionRoleName `Prelude.seq`
+              Prelude.rnf managedExecution `Prelude.seq`
+                Prelude.rnf organizationalUnitIds `Prelude.seq`
+                  Prelude.rnf parameters `Prelude.seq`
+                    Prelude.rnf permissionModel `Prelude.seq`
+                      Prelude.rnf stackSetARN `Prelude.seq`
+                        Prelude.rnf stackSetDriftDetectionDetails `Prelude.seq`
+                          Prelude.rnf stackSetId `Prelude.seq`
+                            Prelude.rnf stackSetName `Prelude.seq`
+                              Prelude.rnf status `Prelude.seq`
+                                Prelude.rnf tags `Prelude.seq`
+                                  Prelude.rnf templateBody

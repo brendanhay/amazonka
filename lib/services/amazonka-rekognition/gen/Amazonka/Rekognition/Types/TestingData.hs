@@ -92,8 +92,8 @@ instance Prelude.Hashable TestingData where
 
 instance Prelude.NFData TestingData where
   rnf TestingData' {..} =
-    Prelude.rnf assets
-      `Prelude.seq` Prelude.rnf autoCreate
+    Prelude.rnf assets `Prelude.seq`
+      Prelude.rnf autoCreate
 
 instance Data.ToJSON TestingData where
   toJSON TestingData' {..} =

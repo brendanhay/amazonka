@@ -156,13 +156,13 @@ instance Prelude.Hashable ParameterSliderControl where
 
 instance Prelude.NFData ParameterSliderControl where
   rnf ParameterSliderControl' {..} =
-    Prelude.rnf displayOptions
-      `Prelude.seq` Prelude.rnf parameterControlId
-      `Prelude.seq` Prelude.rnf title
-      `Prelude.seq` Prelude.rnf sourceParameterName
-      `Prelude.seq` Prelude.rnf maximumValue
-      `Prelude.seq` Prelude.rnf minimumValue
-      `Prelude.seq` Prelude.rnf stepSize
+    Prelude.rnf displayOptions `Prelude.seq`
+      Prelude.rnf parameterControlId `Prelude.seq`
+        Prelude.rnf title `Prelude.seq`
+          Prelude.rnf sourceParameterName `Prelude.seq`
+            Prelude.rnf maximumValue `Prelude.seq`
+              Prelude.rnf minimumValue `Prelude.seq`
+                Prelude.rnf stepSize
 
 instance Data.ToJSON ParameterSliderControl where
   toJSON ParameterSliderControl' {..} =

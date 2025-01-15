@@ -199,5 +199,5 @@ instance
     DescribeDocumentClassificationJobResponse
   where
   rnf DescribeDocumentClassificationJobResponse' {..} =
-    Prelude.rnf documentClassificationJobProperties
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf documentClassificationJobProperties `Prelude.seq`
+      Prelude.rnf httpStatus

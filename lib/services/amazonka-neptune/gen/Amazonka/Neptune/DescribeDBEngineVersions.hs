@@ -233,12 +233,12 @@ instance Core.AWSPager DescribeDBEngineVersions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeDBEngineVersions_marker
-          Lens..~ rs
-          Lens.^? describeDBEngineVersionsResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeDBEngineVersions_marker
+              Lens..~ rs
+              Lens.^? describeDBEngineVersionsResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeDBEngineVersions where
   type
@@ -275,15 +275,15 @@ instance Prelude.Hashable DescribeDBEngineVersions where
 
 instance Prelude.NFData DescribeDBEngineVersions where
   rnf DescribeDBEngineVersions' {..} =
-    Prelude.rnf dbParameterGroupFamily
-      `Prelude.seq` Prelude.rnf defaultOnly
-      `Prelude.seq` Prelude.rnf engine
-      `Prelude.seq` Prelude.rnf engineVersion
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf listSupportedCharacterSets
-      `Prelude.seq` Prelude.rnf listSupportedTimezones
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
+    Prelude.rnf dbParameterGroupFamily `Prelude.seq`
+      Prelude.rnf defaultOnly `Prelude.seq`
+        Prelude.rnf engine `Prelude.seq`
+          Prelude.rnf engineVersion `Prelude.seq`
+            Prelude.rnf filters `Prelude.seq`
+              Prelude.rnf listSupportedCharacterSets `Prelude.seq`
+                Prelude.rnf listSupportedTimezones `Prelude.seq`
+                  Prelude.rnf marker `Prelude.seq`
+                    Prelude.rnf maxRecords
 
 instance Data.ToHeaders DescribeDBEngineVersions where
   toHeaders = Prelude.const Prelude.mempty
@@ -373,6 +373,6 @@ instance
     DescribeDBEngineVersionsResponse
   where
   rnf DescribeDBEngineVersionsResponse' {..} =
-    Prelude.rnf dbEngineVersions
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dbEngineVersions `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf httpStatus

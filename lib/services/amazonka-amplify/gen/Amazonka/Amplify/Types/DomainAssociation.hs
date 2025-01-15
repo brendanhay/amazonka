@@ -182,12 +182,12 @@ instance Prelude.Hashable DomainAssociation where
 
 instance Prelude.NFData DomainAssociation where
   rnf DomainAssociation' {..} =
-    Prelude.rnf autoSubDomainCreationPatterns
-      `Prelude.seq` Prelude.rnf autoSubDomainIAMRole
-      `Prelude.seq` Prelude.rnf certificateVerificationDNSRecord
-      `Prelude.seq` Prelude.rnf domainAssociationArn
-      `Prelude.seq` Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf enableAutoSubDomain
-      `Prelude.seq` Prelude.rnf domainStatus
-      `Prelude.seq` Prelude.rnf statusReason
-      `Prelude.seq` Prelude.rnf subDomains
+    Prelude.rnf autoSubDomainCreationPatterns `Prelude.seq`
+      Prelude.rnf autoSubDomainIAMRole `Prelude.seq`
+        Prelude.rnf certificateVerificationDNSRecord `Prelude.seq`
+          Prelude.rnf domainAssociationArn `Prelude.seq`
+            Prelude.rnf domainName `Prelude.seq`
+              Prelude.rnf enableAutoSubDomain `Prelude.seq`
+                Prelude.rnf domainStatus `Prelude.seq`
+                  Prelude.rnf statusReason `Prelude.seq`
+                    Prelude.rnf subDomains

@@ -203,16 +203,16 @@ instance Prelude.Hashable UpdateFleetMetric where
 
 instance Prelude.NFData UpdateFleetMetric where
   rnf UpdateFleetMetric' {..} =
-    Prelude.rnf aggregationField
-      `Prelude.seq` Prelude.rnf aggregationType
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf expectedVersion
-      `Prelude.seq` Prelude.rnf period
-      `Prelude.seq` Prelude.rnf queryString
-      `Prelude.seq` Prelude.rnf queryVersion
-      `Prelude.seq` Prelude.rnf unit
-      `Prelude.seq` Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf indexName
+    Prelude.rnf aggregationField `Prelude.seq`
+      Prelude.rnf aggregationType `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf expectedVersion `Prelude.seq`
+            Prelude.rnf period `Prelude.seq`
+              Prelude.rnf queryString `Prelude.seq`
+                Prelude.rnf queryVersion `Prelude.seq`
+                  Prelude.rnf unit `Prelude.seq`
+                    Prelude.rnf metricName `Prelude.seq`
+                      Prelude.rnf indexName
 
 instance Data.ToHeaders UpdateFleetMetric where
   toHeaders = Prelude.const Prelude.mempty

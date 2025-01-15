@@ -110,10 +110,10 @@ instance Prelude.Hashable Template where
 
 instance Prelude.NFData Template where
   rnf Template' {..} =
-    Prelude.rnf htmlPart
-      `Prelude.seq` Prelude.rnf subjectPart
-      `Prelude.seq` Prelude.rnf textPart
-      `Prelude.seq` Prelude.rnf templateName
+    Prelude.rnf htmlPart `Prelude.seq`
+      Prelude.rnf subjectPart `Prelude.seq`
+        Prelude.rnf textPart `Prelude.seq`
+          Prelude.rnf templateName
 
 instance Data.ToQuery Template where
   toQuery Template' {..} =

@@ -82,8 +82,8 @@ instance Prelude.Hashable AwsIamPermissionsBoundary where
 
 instance Prelude.NFData AwsIamPermissionsBoundary where
   rnf AwsIamPermissionsBoundary' {..} =
-    Prelude.rnf permissionsBoundaryArn
-      `Prelude.seq` Prelude.rnf permissionsBoundaryType
+    Prelude.rnf permissionsBoundaryArn `Prelude.seq`
+      Prelude.rnf permissionsBoundaryType
 
 instance Data.ToJSON AwsIamPermissionsBoundary where
   toJSON AwsIamPermissionsBoundary' {..} =

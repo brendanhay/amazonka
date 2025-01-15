@@ -148,10 +148,10 @@ instance Prelude.Hashable CreateChannel where
 
 instance Prelude.NFData CreateChannel where
   rnf CreateChannel' {..} =
-    Prelude.rnf channelStorage
-      `Prelude.seq` Prelude.rnf retentionPeriod
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf channelName
+    Prelude.rnf channelStorage `Prelude.seq`
+      Prelude.rnf retentionPeriod `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf channelName
 
 instance Data.ToHeaders CreateChannel where
   toHeaders = Prelude.const Prelude.mempty
@@ -234,7 +234,7 @@ createChannelResponse_httpStatus = Lens.lens (\CreateChannelResponse' {httpStatu
 
 instance Prelude.NFData CreateChannelResponse where
   rnf CreateChannelResponse' {..} =
-    Prelude.rnf channelArn
-      `Prelude.seq` Prelude.rnf channelName
-      `Prelude.seq` Prelude.rnf retentionPeriod
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf channelArn `Prelude.seq`
+      Prelude.rnf channelName `Prelude.seq`
+        Prelude.rnf retentionPeriod `Prelude.seq`
+          Prelude.rnf httpStatus

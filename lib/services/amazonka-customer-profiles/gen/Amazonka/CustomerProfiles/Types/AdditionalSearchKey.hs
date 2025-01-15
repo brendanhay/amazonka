@@ -79,8 +79,8 @@ instance Prelude.Hashable AdditionalSearchKey where
 
 instance Prelude.NFData AdditionalSearchKey where
   rnf AdditionalSearchKey' {..} =
-    Prelude.rnf keyName
-      `Prelude.seq` Prelude.rnf values
+    Prelude.rnf keyName `Prelude.seq`
+      Prelude.rnf values
 
 instance Data.ToJSON AdditionalSearchKey where
   toJSON AdditionalSearchKey' {..} =

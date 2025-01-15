@@ -90,5 +90,5 @@ instance Prelude.Hashable RecommendationRelatedEvent where
 
 instance Prelude.NFData RecommendationRelatedEvent where
   rnf RecommendationRelatedEvent' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf resources
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf resources

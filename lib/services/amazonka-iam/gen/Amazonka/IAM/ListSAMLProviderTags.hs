@@ -170,9 +170,7 @@ instance Core.AWSRequest ListSAMLProviderTags where
             Prelude.<$> (x Data..@? "IsTruncated")
             Prelude.<*> (x Data..@? "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x
-                            Data..@? "Tags"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLList "member"
                         )
       )
@@ -186,9 +184,9 @@ instance Prelude.Hashable ListSAMLProviderTags where
 
 instance Prelude.NFData ListSAMLProviderTags where
   rnf ListSAMLProviderTags' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxItems
-      `Prelude.seq` Prelude.rnf sAMLProviderArn
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf maxItems `Prelude.seq`
+        Prelude.rnf sAMLProviderArn
 
 instance Data.ToHeaders ListSAMLProviderTags where
   toHeaders = Prelude.const Prelude.mempty
@@ -300,7 +298,7 @@ listSAMLProviderTagsResponse_tags = Lens.lens (\ListSAMLProviderTagsResponse' {t
 
 instance Prelude.NFData ListSAMLProviderTagsResponse where
   rnf ListSAMLProviderTagsResponse' {..} =
-    Prelude.rnf isTruncated
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf isTruncated `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf httpStatus `Prelude.seq`
+          Prelude.rnf tags

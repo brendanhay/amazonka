@@ -167,9 +167,9 @@ instance Prelude.Hashable DetachNetworkInterface where
 
 instance Prelude.NFData DetachNetworkInterface where
   rnf DetachNetworkInterface' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf force
-      `Prelude.seq` Prelude.rnf attachmentId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf force `Prelude.seq`
+        Prelude.rnf attachmentId
 
 instance Data.ToHeaders DetachNetworkInterface where
   toHeaders = Prelude.const Prelude.mempty

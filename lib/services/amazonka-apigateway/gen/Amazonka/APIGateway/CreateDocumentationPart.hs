@@ -134,9 +134,9 @@ instance Prelude.Hashable CreateDocumentationPart where
 
 instance Prelude.NFData CreateDocumentationPart where
   rnf CreateDocumentationPart' {..} =
-    Prelude.rnf restApiId
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf properties
+    Prelude.rnf restApiId `Prelude.seq`
+      Prelude.rnf location `Prelude.seq`
+        Prelude.rnf properties
 
 instance Data.ToHeaders CreateDocumentationPart where
   toHeaders =

@@ -271,14 +271,14 @@ getLegalHoldResponse_httpStatus = Lens.lens (\GetLegalHoldResponse' {httpStatus}
 
 instance Prelude.NFData GetLegalHoldResponse where
   rnf GetLegalHoldResponse' {..} =
-    Prelude.rnf cancelDescription
-      `Prelude.seq` Prelude.rnf cancellationDate
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf legalHoldArn
-      `Prelude.seq` Prelude.rnf legalHoldId
-      `Prelude.seq` Prelude.rnf recoveryPointSelection
-      `Prelude.seq` Prelude.rnf retainRecordUntil
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf title
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf cancelDescription `Prelude.seq`
+      Prelude.rnf cancellationDate `Prelude.seq`
+        Prelude.rnf creationDate `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf legalHoldArn `Prelude.seq`
+              Prelude.rnf legalHoldId `Prelude.seq`
+                Prelude.rnf recoveryPointSelection `Prelude.seq`
+                  Prelude.rnf retainRecordUntil `Prelude.seq`
+                    Prelude.rnf status `Prelude.seq`
+                      Prelude.rnf title `Prelude.seq`
+                        Prelude.rnf httpStatus

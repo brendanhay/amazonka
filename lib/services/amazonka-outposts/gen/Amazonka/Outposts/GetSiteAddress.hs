@@ -114,8 +114,8 @@ instance Prelude.Hashable GetSiteAddress where
 
 instance Prelude.NFData GetSiteAddress where
   rnf GetSiteAddress' {..} =
-    Prelude.rnf siteId
-      `Prelude.seq` Prelude.rnf addressType
+    Prelude.rnf siteId `Prelude.seq`
+      Prelude.rnf addressType
 
 instance Data.ToHeaders GetSiteAddress where
   toHeaders =
@@ -194,7 +194,7 @@ getSiteAddressResponse_httpStatus = Lens.lens (\GetSiteAddressResponse' {httpSta
 
 instance Prelude.NFData GetSiteAddressResponse where
   rnf GetSiteAddressResponse' {..} =
-    Prelude.rnf address
-      `Prelude.seq` Prelude.rnf addressType
-      `Prelude.seq` Prelude.rnf siteId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf address `Prelude.seq`
+      Prelude.rnf addressType `Prelude.seq`
+        Prelude.rnf siteId `Prelude.seq`
+          Prelude.rnf httpStatus

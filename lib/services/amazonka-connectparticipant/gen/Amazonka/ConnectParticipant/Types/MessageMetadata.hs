@@ -81,5 +81,5 @@ instance Prelude.Hashable MessageMetadata where
 
 instance Prelude.NFData MessageMetadata where
   rnf MessageMetadata' {..} =
-    Prelude.rnf messageId
-      `Prelude.seq` Prelude.rnf receipts
+    Prelude.rnf messageId `Prelude.seq`
+      Prelude.rnf receipts

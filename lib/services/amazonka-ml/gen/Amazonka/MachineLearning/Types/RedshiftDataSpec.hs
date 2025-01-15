@@ -498,13 +498,13 @@ instance Prelude.Hashable RedshiftDataSpec where
 
 instance Prelude.NFData RedshiftDataSpec where
   rnf RedshiftDataSpec' {..} =
-    Prelude.rnf dataRearrangement
-      `Prelude.seq` Prelude.rnf dataSchema
-      `Prelude.seq` Prelude.rnf dataSchemaUri
-      `Prelude.seq` Prelude.rnf databaseInformation
-      `Prelude.seq` Prelude.rnf selectSqlQuery
-      `Prelude.seq` Prelude.rnf databaseCredentials
-      `Prelude.seq` Prelude.rnf s3StagingLocation
+    Prelude.rnf dataRearrangement `Prelude.seq`
+      Prelude.rnf dataSchema `Prelude.seq`
+        Prelude.rnf dataSchemaUri `Prelude.seq`
+          Prelude.rnf databaseInformation `Prelude.seq`
+            Prelude.rnf selectSqlQuery `Prelude.seq`
+              Prelude.rnf databaseCredentials `Prelude.seq`
+                Prelude.rnf s3StagingLocation
 
 instance Data.ToJSON RedshiftDataSpec where
   toJSON RedshiftDataSpec' {..} =

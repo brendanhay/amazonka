@@ -76,8 +76,8 @@ instance Prelude.Hashable TopicFilter where
 
 instance Prelude.NFData TopicFilter where
   rnf TopicFilter' {..} =
-    Prelude.rnf topicName
-      `Prelude.seq` Prelude.rnf useDefaultIfPreferenceUnavailable
+    Prelude.rnf topicName `Prelude.seq`
+      Prelude.rnf useDefaultIfPreferenceUnavailable
 
 instance Data.ToJSON TopicFilter where
   toJSON TopicFilter' {..} =

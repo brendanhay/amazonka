@@ -156,10 +156,10 @@ instance Prelude.Hashable DescribeDocumentPermission where
 
 instance Prelude.NFData DescribeDocumentPermission where
   rnf DescribeDocumentPermission' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf permissionType
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf permissionType
 
 instance Data.ToHeaders DescribeDocumentPermission where
   toHeaders =
@@ -266,7 +266,7 @@ instance
     DescribeDocumentPermissionResponse
   where
   rnf DescribeDocumentPermissionResponse' {..} =
-    Prelude.rnf accountIds
-      `Prelude.seq` Prelude.rnf accountSharingInfoList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf accountIds `Prelude.seq`
+      Prelude.rnf accountSharingInfoList `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf httpStatus

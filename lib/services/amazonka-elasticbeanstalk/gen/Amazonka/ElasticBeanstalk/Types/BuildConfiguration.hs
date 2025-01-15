@@ -150,11 +150,11 @@ instance Prelude.Hashable BuildConfiguration where
 
 instance Prelude.NFData BuildConfiguration where
   rnf BuildConfiguration' {..} =
-    Prelude.rnf artifactName
-      `Prelude.seq` Prelude.rnf computeType
-      `Prelude.seq` Prelude.rnf timeoutInMinutes
-      `Prelude.seq` Prelude.rnf codeBuildServiceRole
-      `Prelude.seq` Prelude.rnf image
+    Prelude.rnf artifactName `Prelude.seq`
+      Prelude.rnf computeType `Prelude.seq`
+        Prelude.rnf timeoutInMinutes `Prelude.seq`
+          Prelude.rnf codeBuildServiceRole `Prelude.seq`
+            Prelude.rnf image
 
 instance Data.ToQuery BuildConfiguration where
   toQuery BuildConfiguration' {..} =

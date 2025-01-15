@@ -115,8 +115,8 @@ instance Prelude.Hashable DeleteApplication where
 
 instance Prelude.NFData DeleteApplication where
   rnf DeleteApplication' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf applicationId
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf applicationId
 
 instance Data.ToHeaders DeleteApplication where
   toHeaders =

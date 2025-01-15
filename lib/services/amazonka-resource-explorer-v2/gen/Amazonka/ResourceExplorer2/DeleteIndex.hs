@@ -211,7 +211,7 @@ deleteIndexResponse_httpStatus = Lens.lens (\DeleteIndexResponse' {httpStatus} -
 
 instance Prelude.NFData DeleteIndexResponse where
   rnf DeleteIndexResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf lastUpdatedAt `Prelude.seq`
+        Prelude.rnf state `Prelude.seq`
+          Prelude.rnf httpStatus

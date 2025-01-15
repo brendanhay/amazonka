@@ -118,8 +118,8 @@ instance Prelude.Hashable ListNodeFromTemplateJobs where
 
 instance Prelude.NFData ListNodeFromTemplateJobs where
   rnf ListNodeFromTemplateJobs' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListNodeFromTemplateJobs where
   toHeaders =
@@ -195,6 +195,6 @@ instance
     ListNodeFromTemplateJobsResponse
   where
   rnf ListNodeFromTemplateJobsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf nodeFromTemplateJobs
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf nodeFromTemplateJobs

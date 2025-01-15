@@ -93,8 +93,8 @@ instance
     DateTimePickerControlDisplayOptions
   where
   rnf DateTimePickerControlDisplayOptions' {..} =
-    Prelude.rnf dateTimeFormat
-      `Prelude.seq` Prelude.rnf titleOptions
+    Prelude.rnf dateTimeFormat `Prelude.seq`
+      Prelude.rnf titleOptions
 
 instance
   Data.ToJSON

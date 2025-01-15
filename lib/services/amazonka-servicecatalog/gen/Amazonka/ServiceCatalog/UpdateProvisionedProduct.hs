@@ -286,19 +286,19 @@ instance Prelude.Hashable UpdateProvisionedProduct where
 
 instance Prelude.NFData UpdateProvisionedProduct where
   rnf UpdateProvisionedProduct' {..} =
-    Prelude.rnf acceptLanguage
-      `Prelude.seq` Prelude.rnf pathId
-      `Prelude.seq` Prelude.rnf pathName
-      `Prelude.seq` Prelude.rnf productId
-      `Prelude.seq` Prelude.rnf productName
-      `Prelude.seq` Prelude.rnf provisionedProductId
-      `Prelude.seq` Prelude.rnf provisionedProductName
-      `Prelude.seq` Prelude.rnf provisioningArtifactId
-      `Prelude.seq` Prelude.rnf provisioningArtifactName
-      `Prelude.seq` Prelude.rnf provisioningParameters
-      `Prelude.seq` Prelude.rnf provisioningPreferences
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf updateToken
+    Prelude.rnf acceptLanguage `Prelude.seq`
+      Prelude.rnf pathId `Prelude.seq`
+        Prelude.rnf pathName `Prelude.seq`
+          Prelude.rnf productId `Prelude.seq`
+            Prelude.rnf productName `Prelude.seq`
+              Prelude.rnf provisionedProductId `Prelude.seq`
+                Prelude.rnf provisionedProductName `Prelude.seq`
+                  Prelude.rnf provisioningArtifactId `Prelude.seq`
+                    Prelude.rnf provisioningArtifactName `Prelude.seq`
+                      Prelude.rnf provisioningParameters `Prelude.seq`
+                        Prelude.rnf provisioningPreferences `Prelude.seq`
+                          Prelude.rnf tags `Prelude.seq`
+                            Prelude.rnf updateToken
 
 instance Data.ToHeaders UpdateProvisionedProduct where
   toHeaders =
@@ -392,5 +392,5 @@ instance
     UpdateProvisionedProductResponse
   where
   rnf UpdateProvisionedProductResponse' {..} =
-    Prelude.rnf recordDetail
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf recordDetail `Prelude.seq`
+      Prelude.rnf httpStatus

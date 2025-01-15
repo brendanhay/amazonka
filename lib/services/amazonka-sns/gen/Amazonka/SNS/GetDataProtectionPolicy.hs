@@ -173,5 +173,5 @@ instance
     GetDataProtectionPolicyResponse
   where
   rnf GetDataProtectionPolicyResponse' {..} =
-    Prelude.rnf dataProtectionPolicy
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dataProtectionPolicy `Prelude.seq`
+      Prelude.rnf httpStatus

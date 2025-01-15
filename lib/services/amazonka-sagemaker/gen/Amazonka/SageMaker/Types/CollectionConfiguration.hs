@@ -94,8 +94,8 @@ instance Prelude.Hashable CollectionConfiguration where
 
 instance Prelude.NFData CollectionConfiguration where
   rnf CollectionConfiguration' {..} =
-    Prelude.rnf collectionName
-      `Prelude.seq` Prelude.rnf collectionParameters
+    Prelude.rnf collectionName `Prelude.seq`
+      Prelude.rnf collectionParameters
 
 instance Data.ToJSON CollectionConfiguration where
   toJSON CollectionConfiguration' {..} =

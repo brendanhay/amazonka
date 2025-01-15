@@ -107,8 +107,8 @@ instance Prelude.Hashable GetWorldTemplateBody where
 
 instance Prelude.NFData GetWorldTemplateBody where
   rnf GetWorldTemplateBody' {..} =
-    Prelude.rnf generationJob
-      `Prelude.seq` Prelude.rnf template
+    Prelude.rnf generationJob `Prelude.seq`
+      Prelude.rnf template
 
 instance Data.ToHeaders GetWorldTemplateBody where
   toHeaders =
@@ -177,5 +177,5 @@ getWorldTemplateBodyResponse_httpStatus = Lens.lens (\GetWorldTemplateBodyRespon
 
 instance Prelude.NFData GetWorldTemplateBodyResponse where
   rnf GetWorldTemplateBodyResponse' {..} =
-    Prelude.rnf templateBody
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf templateBody `Prelude.seq`
+      Prelude.rnf httpStatus

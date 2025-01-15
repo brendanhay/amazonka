@@ -159,12 +159,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listInferenceRecommendationsJobSteps_nextToken
-          Lens..~ rs
-          Lens.^? listInferenceRecommendationsJobStepsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listInferenceRecommendationsJobSteps_nextToken
+              Lens..~ rs
+              Lens.^? listInferenceRecommendationsJobStepsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -203,11 +203,11 @@ instance
     ListInferenceRecommendationsJobSteps
   where
   rnf ListInferenceRecommendationsJobSteps' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf stepType
-      `Prelude.seq` Prelude.rnf jobName
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf status `Prelude.seq`
+          Prelude.rnf stepType `Prelude.seq`
+            Prelude.rnf jobName
 
 instance
   Data.ToHeaders
@@ -311,6 +311,6 @@ instance
     ListInferenceRecommendationsJobStepsResponse
   where
   rnf ListInferenceRecommendationsJobStepsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf steps
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf steps `Prelude.seq`
+        Prelude.rnf httpStatus

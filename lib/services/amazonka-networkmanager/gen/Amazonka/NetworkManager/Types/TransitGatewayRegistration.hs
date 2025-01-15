@@ -93,6 +93,6 @@ instance Prelude.Hashable TransitGatewayRegistration where
 
 instance Prelude.NFData TransitGatewayRegistration where
   rnf TransitGatewayRegistration' {..} =
-    Prelude.rnf globalNetworkId
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf transitGatewayArn
+    Prelude.rnf globalNetworkId `Prelude.seq`
+      Prelude.rnf state `Prelude.seq`
+        Prelude.rnf transitGatewayArn

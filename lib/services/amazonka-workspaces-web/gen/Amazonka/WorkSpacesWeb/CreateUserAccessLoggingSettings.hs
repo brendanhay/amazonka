@@ -156,9 +156,9 @@ instance
     CreateUserAccessLoggingSettings
   where
   rnf CreateUserAccessLoggingSettings' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf kinesisStreamArn
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf kinesisStreamArn
 
 instance
   Data.ToHeaders
@@ -240,5 +240,5 @@ instance
     CreateUserAccessLoggingSettingsResponse
   where
   rnf CreateUserAccessLoggingSettingsResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf userAccessLoggingSettingsArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf userAccessLoggingSettingsArn

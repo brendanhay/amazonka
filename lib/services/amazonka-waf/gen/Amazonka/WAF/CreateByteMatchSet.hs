@@ -147,8 +147,8 @@ instance Prelude.Hashable CreateByteMatchSet where
 
 instance Prelude.NFData CreateByteMatchSet where
   rnf CreateByteMatchSet' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf changeToken
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf changeToken
 
 instance Data.ToHeaders CreateByteMatchSet where
   toHeaders =
@@ -236,6 +236,6 @@ createByteMatchSetResponse_httpStatus = Lens.lens (\CreateByteMatchSetResponse' 
 
 instance Prelude.NFData CreateByteMatchSetResponse where
   rnf CreateByteMatchSetResponse' {..} =
-    Prelude.rnf byteMatchSet
-      `Prelude.seq` Prelude.rnf changeToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf byteMatchSet `Prelude.seq`
+      Prelude.rnf changeToken `Prelude.seq`
+        Prelude.rnf httpStatus

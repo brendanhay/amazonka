@@ -117,8 +117,8 @@ instance Prelude.Hashable NodeCounts where
 
 instance Prelude.NFData NodeCounts where
   rnf NodeCounts' {..} =
-    Prelude.rnf totalActuators
-      `Prelude.seq` Prelude.rnf totalAttributes
-      `Prelude.seq` Prelude.rnf totalBranches
-      `Prelude.seq` Prelude.rnf totalNodes
-      `Prelude.seq` Prelude.rnf totalSensors
+    Prelude.rnf totalActuators `Prelude.seq`
+      Prelude.rnf totalAttributes `Prelude.seq`
+        Prelude.rnf totalBranches `Prelude.seq`
+          Prelude.rnf totalNodes `Prelude.seq`
+            Prelude.rnf totalSensors

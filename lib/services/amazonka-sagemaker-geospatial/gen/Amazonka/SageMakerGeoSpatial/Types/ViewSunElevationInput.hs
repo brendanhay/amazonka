@@ -84,8 +84,8 @@ instance Prelude.Hashable ViewSunElevationInput where
 
 instance Prelude.NFData ViewSunElevationInput where
   rnf ViewSunElevationInput' {..} =
-    Prelude.rnf lowerBound
-      `Prelude.seq` Prelude.rnf upperBound
+    Prelude.rnf lowerBound `Prelude.seq`
+      Prelude.rnf upperBound
 
 instance Data.ToJSON ViewSunElevationInput where
   toJSON ViewSunElevationInput' {..} =

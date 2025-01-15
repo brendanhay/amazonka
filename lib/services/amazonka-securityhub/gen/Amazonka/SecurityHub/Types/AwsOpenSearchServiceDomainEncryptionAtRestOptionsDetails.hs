@@ -95,8 +95,8 @@ instance
   where
   rnf
     AwsOpenSearchServiceDomainEncryptionAtRestOptionsDetails' {..} =
-      Prelude.rnf enabled
-        `Prelude.seq` Prelude.rnf kmsKeyId
+      Prelude.rnf enabled `Prelude.seq`
+        Prelude.rnf kmsKeyId
 
 instance
   Data.ToJSON

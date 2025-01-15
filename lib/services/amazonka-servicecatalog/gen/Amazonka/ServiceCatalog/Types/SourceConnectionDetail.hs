@@ -128,6 +128,6 @@ instance Prelude.Hashable SourceConnectionDetail where
 
 instance Prelude.NFData SourceConnectionDetail where
   rnf SourceConnectionDetail' {..} =
-    Prelude.rnf connectionParameters
-      `Prelude.seq` Prelude.rnf lastSync
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf connectionParameters `Prelude.seq`
+      Prelude.rnf lastSync `Prelude.seq`
+        Prelude.rnf type'

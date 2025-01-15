@@ -124,10 +124,10 @@ instance Prelude.Hashable Scte35DeliveryRestrictions where
 
 instance Prelude.NFData Scte35DeliveryRestrictions where
   rnf Scte35DeliveryRestrictions' {..} =
-    Prelude.rnf deviceRestrictions
-      `Prelude.seq` Prelude.rnf archiveAllowedFlag
-      `Prelude.seq` Prelude.rnf webDeliveryAllowedFlag
-      `Prelude.seq` Prelude.rnf noRegionalBlackoutFlag
+    Prelude.rnf deviceRestrictions `Prelude.seq`
+      Prelude.rnf archiveAllowedFlag `Prelude.seq`
+        Prelude.rnf webDeliveryAllowedFlag `Prelude.seq`
+          Prelude.rnf noRegionalBlackoutFlag
 
 instance Data.ToJSON Scte35DeliveryRestrictions where
   toJSON Scte35DeliveryRestrictions' {..} =

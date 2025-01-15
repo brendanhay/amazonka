@@ -233,12 +233,12 @@ instance Core.AWSPager DescribeLogGroups where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeLogGroups_nextToken
-          Lens..~ rs
-          Lens.^? describeLogGroupsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeLogGroups_nextToken
+              Lens..~ rs
+              Lens.^? describeLogGroupsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeLogGroups where
   type
@@ -267,12 +267,12 @@ instance Prelude.Hashable DescribeLogGroups where
 
 instance Prelude.NFData DescribeLogGroups where
   rnf DescribeLogGroups' {..} =
-    Prelude.rnf accountIdentifiers
-      `Prelude.seq` Prelude.rnf includeLinkedAccounts
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf logGroupNamePattern
-      `Prelude.seq` Prelude.rnf logGroupNamePrefix
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf accountIdentifiers `Prelude.seq`
+      Prelude.rnf includeLinkedAccounts `Prelude.seq`
+        Prelude.rnf limit `Prelude.seq`
+          Prelude.rnf logGroupNamePattern `Prelude.seq`
+            Prelude.rnf logGroupNamePrefix `Prelude.seq`
+              Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeLogGroups where
   toHeaders =
@@ -370,6 +370,6 @@ describeLogGroupsResponse_httpStatus = Lens.lens (\DescribeLogGroupsResponse' {h
 
 instance Prelude.NFData DescribeLogGroupsResponse where
   rnf DescribeLogGroupsResponse' {..} =
-    Prelude.rnf logGroups
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf logGroups `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

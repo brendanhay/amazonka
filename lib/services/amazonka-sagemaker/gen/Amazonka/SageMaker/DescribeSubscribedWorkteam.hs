@@ -178,5 +178,5 @@ instance
     DescribeSubscribedWorkteamResponse
   where
   rnf DescribeSubscribedWorkteamResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf subscribedWorkteam
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf subscribedWorkteam

@@ -242,13 +242,13 @@ describeDeviceJobResponse_httpStatus = Lens.lens (\DescribeDeviceJobResponse' {h
 
 instance Prelude.NFData DescribeDeviceJobResponse where
   rnf DescribeDeviceJobResponse' {..} =
-    Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf deviceArn
-      `Prelude.seq` Prelude.rnf deviceId
-      `Prelude.seq` Prelude.rnf deviceName
-      `Prelude.seq` Prelude.rnf deviceType
-      `Prelude.seq` Prelude.rnf imageVersion
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf jobType
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf createdTime `Prelude.seq`
+      Prelude.rnf deviceArn `Prelude.seq`
+        Prelude.rnf deviceId `Prelude.seq`
+          Prelude.rnf deviceName `Prelude.seq`
+            Prelude.rnf deviceType `Prelude.seq`
+              Prelude.rnf imageVersion `Prelude.seq`
+                Prelude.rnf jobId `Prelude.seq`
+                  Prelude.rnf jobType `Prelude.seq`
+                    Prelude.rnf status `Prelude.seq`
+                      Prelude.rnf httpStatus

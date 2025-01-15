@@ -107,9 +107,9 @@ instance Prelude.Hashable OriginGroup where
 
 instance Prelude.NFData OriginGroup where
   rnf OriginGroup' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf failoverCriteria
-      `Prelude.seq` Prelude.rnf members
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf failoverCriteria `Prelude.seq`
+        Prelude.rnf members
 
 instance Data.ToXML OriginGroup where
   toXML OriginGroup' {..} =

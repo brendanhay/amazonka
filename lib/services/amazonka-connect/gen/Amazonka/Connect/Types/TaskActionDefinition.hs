@@ -123,10 +123,10 @@ instance Prelude.Hashable TaskActionDefinition where
 
 instance Prelude.NFData TaskActionDefinition where
   rnf TaskActionDefinition' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf references
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf contactFlowId
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf references `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf contactFlowId
 
 instance Data.ToJSON TaskActionDefinition where
   toJSON TaskActionDefinition' {..} =

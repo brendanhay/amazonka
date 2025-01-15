@@ -350,14 +350,14 @@ instance Prelude.Hashable Settings where
 
 instance Prelude.NFData Settings where
   rnf Settings' {..} =
-    Prelude.rnf channelIdentification
-      `Prelude.seq` Prelude.rnf maxAlternatives
-      `Prelude.seq` Prelude.rnf maxSpeakerLabels
-      `Prelude.seq` Prelude.rnf showAlternatives
-      `Prelude.seq` Prelude.rnf showSpeakerLabels
-      `Prelude.seq` Prelude.rnf vocabularyFilterMethod
-      `Prelude.seq` Prelude.rnf vocabularyFilterName
-      `Prelude.seq` Prelude.rnf vocabularyName
+    Prelude.rnf channelIdentification `Prelude.seq`
+      Prelude.rnf maxAlternatives `Prelude.seq`
+        Prelude.rnf maxSpeakerLabels `Prelude.seq`
+          Prelude.rnf showAlternatives `Prelude.seq`
+            Prelude.rnf showSpeakerLabels `Prelude.seq`
+              Prelude.rnf vocabularyFilterMethod `Prelude.seq`
+                Prelude.rnf vocabularyFilterName `Prelude.seq`
+                  Prelude.rnf vocabularyName
 
 instance Data.ToJSON Settings where
   toJSON Settings' {..} =

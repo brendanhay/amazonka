@@ -181,5 +181,5 @@ instance
     GetSerialConsoleAccessStatusResponse
   where
   rnf GetSerialConsoleAccessStatusResponse' {..} =
-    Prelude.rnf serialConsoleAccessEnabled
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf serialConsoleAccessEnabled `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -108,12 +108,12 @@ instance Core.AWSPager GetConnectors where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getConnectors_nextToken
-          Lens..~ rs
-          Lens.^? getConnectorsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getConnectors_nextToken
+              Lens..~ rs
+              Lens.^? getConnectorsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetConnectors where
   type
@@ -138,8 +138,8 @@ instance Prelude.Hashable GetConnectors where
 
 instance Prelude.NFData GetConnectors where
   rnf GetConnectors' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders GetConnectors where
   toHeaders =
@@ -224,6 +224,6 @@ getConnectorsResponse_httpStatus = Lens.lens (\GetConnectorsResponse' {httpStatu
 
 instance Prelude.NFData GetConnectorsResponse where
   rnf GetConnectorsResponse' {..} =
-    Prelude.rnf connectorList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf connectorList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

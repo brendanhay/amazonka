@@ -133,8 +133,8 @@ instance
     GetVerifiedAccessEndpointPolicy
   where
   rnf GetVerifiedAccessEndpointPolicy' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf verifiedAccessEndpointId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf verifiedAccessEndpointId
 
 instance
   Data.ToHeaders
@@ -213,6 +213,6 @@ instance
     GetVerifiedAccessEndpointPolicyResponse
   where
   rnf GetVerifiedAccessEndpointPolicyResponse' {..} =
-    Prelude.rnf policyDocument
-      `Prelude.seq` Prelude.rnf policyEnabled
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf policyDocument `Prelude.seq`
+      Prelude.rnf policyEnabled `Prelude.seq`
+        Prelude.rnf httpStatus

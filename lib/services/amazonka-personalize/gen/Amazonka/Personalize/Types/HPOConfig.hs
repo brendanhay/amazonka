@@ -104,9 +104,9 @@ instance Prelude.Hashable HPOConfig where
 
 instance Prelude.NFData HPOConfig where
   rnf HPOConfig' {..} =
-    Prelude.rnf algorithmHyperParameterRanges
-      `Prelude.seq` Prelude.rnf hpoObjective
-      `Prelude.seq` Prelude.rnf hpoResourceConfig
+    Prelude.rnf algorithmHyperParameterRanges `Prelude.seq`
+      Prelude.rnf hpoObjective `Prelude.seq`
+        Prelude.rnf hpoResourceConfig
 
 instance Data.ToJSON HPOConfig where
   toJSON HPOConfig' {..} =

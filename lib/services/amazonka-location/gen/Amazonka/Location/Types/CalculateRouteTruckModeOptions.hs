@@ -138,10 +138,10 @@ instance
     CalculateRouteTruckModeOptions
   where
   rnf CalculateRouteTruckModeOptions' {..} =
-    Prelude.rnf avoidFerries
-      `Prelude.seq` Prelude.rnf avoidTolls
-      `Prelude.seq` Prelude.rnf dimensions
-      `Prelude.seq` Prelude.rnf weight
+    Prelude.rnf avoidFerries `Prelude.seq`
+      Prelude.rnf avoidTolls `Prelude.seq`
+        Prelude.rnf dimensions `Prelude.seq`
+          Prelude.rnf weight
 
 instance Data.ToJSON CalculateRouteTruckModeOptions where
   toJSON CalculateRouteTruckModeOptions' {..} =

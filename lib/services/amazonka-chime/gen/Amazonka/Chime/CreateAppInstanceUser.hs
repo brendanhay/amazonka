@@ -165,12 +165,12 @@ instance Prelude.Hashable CreateAppInstanceUser where
 
 instance Prelude.NFData CreateAppInstanceUser where
   rnf CreateAppInstanceUser' {..} =
-    Prelude.rnf metadata
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf appInstanceArn
-      `Prelude.seq` Prelude.rnf appInstanceUserId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf clientRequestToken
+    Prelude.rnf metadata `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf appInstanceArn `Prelude.seq`
+          Prelude.rnf appInstanceUserId `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf clientRequestToken
 
 instance Data.ToHeaders CreateAppInstanceUser where
   toHeaders = Prelude.const Prelude.mempty
@@ -238,5 +238,5 @@ createAppInstanceUserResponse_httpStatus = Lens.lens (\CreateAppInstanceUserResp
 
 instance Prelude.NFData CreateAppInstanceUserResponse where
   rnf CreateAppInstanceUserResponse' {..} =
-    Prelude.rnf appInstanceUserArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf appInstanceUserArn `Prelude.seq`
+      Prelude.rnf httpStatus

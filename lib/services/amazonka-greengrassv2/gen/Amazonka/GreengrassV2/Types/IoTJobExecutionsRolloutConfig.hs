@@ -90,8 +90,8 @@ instance
 
 instance Prelude.NFData IoTJobExecutionsRolloutConfig where
   rnf IoTJobExecutionsRolloutConfig' {..} =
-    Prelude.rnf exponentialRate
-      `Prelude.seq` Prelude.rnf maximumPerMinute
+    Prelude.rnf exponentialRate `Prelude.seq`
+      Prelude.rnf maximumPerMinute
 
 instance Data.ToJSON IoTJobExecutionsRolloutConfig where
   toJSON IoTJobExecutionsRolloutConfig' {..} =

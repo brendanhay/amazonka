@@ -128,8 +128,8 @@ instance Prelude.Hashable DataSetImportSummary where
 
 instance Prelude.NFData DataSetImportSummary where
   rnf DataSetImportSummary' {..} =
-    Prelude.rnf failed
-      `Prelude.seq` Prelude.rnf inProgress
-      `Prelude.seq` Prelude.rnf pending
-      `Prelude.seq` Prelude.rnf succeeded
-      `Prelude.seq` Prelude.rnf total
+    Prelude.rnf failed `Prelude.seq`
+      Prelude.rnf inProgress `Prelude.seq`
+        Prelude.rnf pending `Prelude.seq`
+          Prelude.rnf succeeded `Prelude.seq`
+            Prelude.rnf total

@@ -124,12 +124,12 @@ instance Core.AWSPager ListMonitoredResources where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listMonitoredResources_nextToken
-          Lens..~ rs
-          Lens.^? listMonitoredResourcesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listMonitoredResources_nextToken
+              Lens..~ rs
+              Lens.^? listMonitoredResourcesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListMonitoredResources where
   type
@@ -158,9 +158,9 @@ instance Prelude.Hashable ListMonitoredResources where
 
 instance Prelude.NFData ListMonitoredResources where
   rnf ListMonitoredResources' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListMonitoredResources where
   toHeaders =
@@ -252,6 +252,6 @@ instance
     ListMonitoredResourcesResponse
   where
   rnf ListMonitoredResourcesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf monitoredResourceIdentifiers
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf monitoredResourceIdentifiers

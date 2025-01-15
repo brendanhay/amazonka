@@ -112,8 +112,8 @@ instance Prelude.Hashable StartImageBuilder where
 
 instance Prelude.NFData StartImageBuilder where
   rnf StartImageBuilder' {..} =
-    Prelude.rnf appstreamAgentVersion
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf appstreamAgentVersion `Prelude.seq`
+      Prelude.rnf name
 
 instance Data.ToHeaders StartImageBuilder where
   toHeaders =
@@ -187,5 +187,5 @@ startImageBuilderResponse_httpStatus = Lens.lens (\StartImageBuilderResponse' {h
 
 instance Prelude.NFData StartImageBuilderResponse where
   rnf StartImageBuilderResponse' {..} =
-    Prelude.rnf imageBuilder
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf imageBuilder `Prelude.seq`
+      Prelude.rnf httpStatus

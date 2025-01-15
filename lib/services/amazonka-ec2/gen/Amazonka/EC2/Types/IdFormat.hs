@@ -97,6 +97,6 @@ instance Prelude.Hashable IdFormat where
 
 instance Prelude.NFData IdFormat where
   rnf IdFormat' {..} =
-    Prelude.rnf deadline
-      `Prelude.seq` Prelude.rnf resource
-      `Prelude.seq` Prelude.rnf useLongIds
+    Prelude.rnf deadline `Prelude.seq`
+      Prelude.rnf resource `Prelude.seq`
+        Prelude.rnf useLongIds

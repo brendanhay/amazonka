@@ -84,5 +84,5 @@ instance Prelude.Hashable ResourceSpecification where
 
 instance Prelude.NFData ResourceSpecification where
   rnf ResourceSpecification' {..} =
-    Prelude.rnf reservedBitrate
-      `Prelude.seq` Prelude.rnf resourceType
+    Prelude.rnf reservedBitrate `Prelude.seq`
+      Prelude.rnf resourceType

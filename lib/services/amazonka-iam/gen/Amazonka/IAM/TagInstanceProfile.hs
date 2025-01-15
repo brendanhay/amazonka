@@ -148,8 +148,8 @@ instance Prelude.Hashable TagInstanceProfile where
 
 instance Prelude.NFData TagInstanceProfile where
   rnf TagInstanceProfile' {..} =
-    Prelude.rnf instanceProfileName
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf instanceProfileName `Prelude.seq`
+      Prelude.rnf tags
 
 instance Data.ToHeaders TagInstanceProfile where
   toHeaders = Prelude.const Prelude.mempty

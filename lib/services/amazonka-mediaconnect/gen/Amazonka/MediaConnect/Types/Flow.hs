@@ -247,17 +247,17 @@ instance Prelude.Hashable Flow where
 
 instance Prelude.NFData Flow where
   rnf Flow' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf egressIp
-      `Prelude.seq` Prelude.rnf maintenance
-      `Prelude.seq` Prelude.rnf mediaStreams
-      `Prelude.seq` Prelude.rnf sourceFailoverConfig
-      `Prelude.seq` Prelude.rnf sources
-      `Prelude.seq` Prelude.rnf vpcInterfaces
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf entitlements
-      `Prelude.seq` Prelude.rnf outputs
-      `Prelude.seq` Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf flowArn
-      `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf egressIp `Prelude.seq`
+        Prelude.rnf maintenance `Prelude.seq`
+          Prelude.rnf mediaStreams `Prelude.seq`
+            Prelude.rnf sourceFailoverConfig `Prelude.seq`
+              Prelude.rnf sources `Prelude.seq`
+                Prelude.rnf vpcInterfaces `Prelude.seq`
+                  Prelude.rnf status `Prelude.seq`
+                    Prelude.rnf entitlements `Prelude.seq`
+                      Prelude.rnf outputs `Prelude.seq`
+                        Prelude.rnf availabilityZone `Prelude.seq`
+                          Prelude.rnf flowArn `Prelude.seq`
+                            Prelude.rnf source `Prelude.seq`
+                              Prelude.rnf name

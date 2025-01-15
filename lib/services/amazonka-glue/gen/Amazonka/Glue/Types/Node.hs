@@ -129,9 +129,9 @@ instance Prelude.Hashable Node where
 
 instance Prelude.NFData Node where
   rnf Node' {..} =
-    Prelude.rnf crawlerDetails
-      `Prelude.seq` Prelude.rnf jobDetails
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf triggerDetails
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf uniqueId
+    Prelude.rnf crawlerDetails `Prelude.seq`
+      Prelude.rnf jobDetails `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf triggerDetails `Prelude.seq`
+            Prelude.rnf type' `Prelude.seq`
+              Prelude.rnf uniqueId

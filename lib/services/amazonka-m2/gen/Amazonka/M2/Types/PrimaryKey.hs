@@ -101,9 +101,9 @@ instance Prelude.Hashable PrimaryKey where
 
 instance Prelude.NFData PrimaryKey where
   rnf PrimaryKey' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf length
-      `Prelude.seq` Prelude.rnf offset
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf length `Prelude.seq`
+        Prelude.rnf offset
 
 instance Data.ToJSON PrimaryKey where
   toJSON PrimaryKey' {..} =

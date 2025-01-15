@@ -86,9 +86,7 @@ instance Data.FromXML MaintenanceTrack where
     MaintenanceTrack'
       Prelude.<$> (x Data..@? "DatabaseVersion")
       Prelude.<*> (x Data..@? "MaintenanceTrackName")
-      Prelude.<*> ( x
-                      Data..@? "UpdateTargets"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "UpdateTargets" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "UpdateTarget")
                   )
 
@@ -101,6 +99,6 @@ instance Prelude.Hashable MaintenanceTrack where
 
 instance Prelude.NFData MaintenanceTrack where
   rnf MaintenanceTrack' {..} =
-    Prelude.rnf databaseVersion
-      `Prelude.seq` Prelude.rnf maintenanceTrackName
-      `Prelude.seq` Prelude.rnf updateTargets
+    Prelude.rnf databaseVersion `Prelude.seq`
+      Prelude.rnf maintenanceTrackName `Prelude.seq`
+        Prelude.rnf updateTargets

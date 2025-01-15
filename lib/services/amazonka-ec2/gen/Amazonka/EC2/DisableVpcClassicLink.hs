@@ -183,5 +183,5 @@ disableVpcClassicLinkResponse_httpStatus = Lens.lens (\DisableVpcClassicLinkResp
 
 instance Prelude.NFData DisableVpcClassicLinkResponse where
   rnf DisableVpcClassicLinkResponse' {..} =
-    Prelude.rnf return'
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf return' `Prelude.seq`
+      Prelude.rnf httpStatus

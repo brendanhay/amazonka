@@ -73,8 +73,8 @@ instance Prelude.Hashable AnomalyGroupTimeSeries where
 
 instance Prelude.NFData AnomalyGroupTimeSeries where
   rnf AnomalyGroupTimeSeries' {..} =
-    Prelude.rnf timeSeriesId
-      `Prelude.seq` Prelude.rnf anomalyGroupId
+    Prelude.rnf timeSeriesId `Prelude.seq`
+      Prelude.rnf anomalyGroupId
 
 instance Data.ToJSON AnomalyGroupTimeSeries where
   toJSON AnomalyGroupTimeSeries' {..} =

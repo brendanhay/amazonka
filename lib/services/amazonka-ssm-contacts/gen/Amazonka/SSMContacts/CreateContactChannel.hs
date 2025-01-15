@@ -218,12 +218,12 @@ instance Prelude.Hashable CreateContactChannel where
 
 instance Prelude.NFData CreateContactChannel where
   rnf CreateContactChannel' {..} =
-    Prelude.rnf deferActivation
-      `Prelude.seq` Prelude.rnf idempotencyToken
-      `Prelude.seq` Prelude.rnf contactId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf deliveryAddress
+    Prelude.rnf deferActivation `Prelude.seq`
+      Prelude.rnf idempotencyToken `Prelude.seq`
+        Prelude.rnf contactId `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf type' `Prelude.seq`
+              Prelude.rnf deliveryAddress
 
 instance Data.ToHeaders CreateContactChannel where
   toHeaders =
@@ -307,5 +307,5 @@ createContactChannelResponse_contactChannelArn = Lens.lens (\CreateContactChanne
 
 instance Prelude.NFData CreateContactChannelResponse where
   rnf CreateContactChannelResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf contactChannelArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf contactChannelArn

@@ -136,8 +136,8 @@ instance
   where
   rnf
     ExportClientVpnClientCertificateRevocationList' {..} =
-      Prelude.rnf dryRun
-        `Prelude.seq` Prelude.rnf clientVpnEndpointId
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf clientVpnEndpointId
 
 instance
   Data.ToHeaders
@@ -225,6 +225,6 @@ instance
   where
   rnf
     ExportClientVpnClientCertificateRevocationListResponse' {..} =
-      Prelude.rnf certificateRevocationList
-        `Prelude.seq` Prelude.rnf status
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf certificateRevocationList `Prelude.seq`
+        Prelude.rnf status `Prelude.seq`
+          Prelude.rnf httpStatus

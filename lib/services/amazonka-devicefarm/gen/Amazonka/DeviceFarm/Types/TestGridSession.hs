@@ -129,9 +129,9 @@ instance Prelude.Hashable TestGridSession where
 
 instance Prelude.NFData TestGridSession where
   rnf TestGridSession' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf billingMinutes
-      `Prelude.seq` Prelude.rnf created
-      `Prelude.seq` Prelude.rnf ended
-      `Prelude.seq` Prelude.rnf seleniumProperties
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf billingMinutes `Prelude.seq`
+        Prelude.rnf created `Prelude.seq`
+          Prelude.rnf ended `Prelude.seq`
+            Prelude.rnf seleniumProperties `Prelude.seq`
+              Prelude.rnf status

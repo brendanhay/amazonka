@@ -180,9 +180,9 @@ instance Prelude.Hashable DescribeCanariesLastRun where
 
 instance Prelude.NFData DescribeCanariesLastRun where
   rnf DescribeCanariesLastRun' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf names
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf names `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeCanariesLastRun where
   toHeaders =
@@ -273,6 +273,6 @@ instance
     DescribeCanariesLastRunResponse
   where
   rnf DescribeCanariesLastRunResponse' {..} =
-    Prelude.rnf canariesLastRun
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf canariesLastRun `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

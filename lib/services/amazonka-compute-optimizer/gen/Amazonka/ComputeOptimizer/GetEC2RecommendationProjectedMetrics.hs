@@ -194,12 +194,12 @@ instance
     GetEC2RecommendationProjectedMetrics
   where
   rnf GetEC2RecommendationProjectedMetrics' {..} =
-    Prelude.rnf recommendationPreferences
-      `Prelude.seq` Prelude.rnf instanceArn
-      `Prelude.seq` Prelude.rnf stat
-      `Prelude.seq` Prelude.rnf period
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf endTime
+    Prelude.rnf recommendationPreferences `Prelude.seq`
+      Prelude.rnf instanceArn `Prelude.seq`
+        Prelude.rnf stat `Prelude.seq`
+          Prelude.rnf period `Prelude.seq`
+            Prelude.rnf startTime `Prelude.seq`
+              Prelude.rnf endTime
 
 instance
   Data.ToHeaders
@@ -293,5 +293,5 @@ instance
     GetEC2RecommendationProjectedMetricsResponse
   where
   rnf GetEC2RecommendationProjectedMetricsResponse' {..} =
-    Prelude.rnf recommendedOptionProjectedMetrics
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf recommendedOptionProjectedMetrics `Prelude.seq`
+      Prelude.rnf httpStatus

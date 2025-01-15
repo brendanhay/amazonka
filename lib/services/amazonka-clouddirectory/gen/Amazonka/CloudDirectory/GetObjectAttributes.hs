@@ -155,11 +155,11 @@ instance Prelude.Hashable GetObjectAttributes where
 
 instance Prelude.NFData GetObjectAttributes where
   rnf GetObjectAttributes' {..} =
-    Prelude.rnf consistencyLevel
-      `Prelude.seq` Prelude.rnf directoryArn
-      `Prelude.seq` Prelude.rnf objectReference
-      `Prelude.seq` Prelude.rnf schemaFacet
-      `Prelude.seq` Prelude.rnf attributeNames
+    Prelude.rnf consistencyLevel `Prelude.seq`
+      Prelude.rnf directoryArn `Prelude.seq`
+        Prelude.rnf objectReference `Prelude.seq`
+          Prelude.rnf schemaFacet `Prelude.seq`
+            Prelude.rnf attributeNames
 
 instance Data.ToHeaders GetObjectAttributes where
   toHeaders GetObjectAttributes' {..} =
@@ -229,5 +229,5 @@ getObjectAttributesResponse_httpStatus = Lens.lens (\GetObjectAttributesResponse
 
 instance Prelude.NFData GetObjectAttributesResponse where
   rnf GetObjectAttributesResponse' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf attributes `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -187,9 +187,9 @@ instance Prelude.Hashable DeregisterContainerInstance where
 
 instance Prelude.NFData DeregisterContainerInstance where
   rnf DeregisterContainerInstance' {..} =
-    Prelude.rnf cluster
-      `Prelude.seq` Prelude.rnf force
-      `Prelude.seq` Prelude.rnf containerInstance
+    Prelude.rnf cluster `Prelude.seq`
+      Prelude.rnf force `Prelude.seq`
+        Prelude.rnf containerInstance
 
 instance Data.ToHeaders DeregisterContainerInstance where
   toHeaders =
@@ -267,5 +267,5 @@ instance
     DeregisterContainerInstanceResponse
   where
   rnf DeregisterContainerInstanceResponse' {..} =
-    Prelude.rnf containerInstance
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf containerInstance `Prelude.seq`
+      Prelude.rnf httpStatus

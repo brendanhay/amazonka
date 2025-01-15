@@ -145,10 +145,10 @@ instance Prelude.Hashable StartSuiteRun where
 
 instance Prelude.NFData StartSuiteRun where
   rnf StartSuiteRun' {..} =
-    Prelude.rnf suiteDefinitionVersion
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf suiteDefinitionId
-      `Prelude.seq` Prelude.rnf suiteRunConfiguration
+    Prelude.rnf suiteDefinitionVersion `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf suiteDefinitionId `Prelude.seq`
+          Prelude.rnf suiteRunConfiguration
 
 instance Data.ToHeaders StartSuiteRun where
   toHeaders =
@@ -253,8 +253,8 @@ startSuiteRunResponse_httpStatus = Lens.lens (\StartSuiteRunResponse' {httpStatu
 
 instance Prelude.NFData StartSuiteRunResponse where
   rnf StartSuiteRunResponse' {..} =
-    Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf endpoint
-      `Prelude.seq` Prelude.rnf suiteRunArn
-      `Prelude.seq` Prelude.rnf suiteRunId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf createdAt `Prelude.seq`
+      Prelude.rnf endpoint `Prelude.seq`
+        Prelude.rnf suiteRunArn `Prelude.seq`
+          Prelude.rnf suiteRunId `Prelude.seq`
+            Prelude.rnf httpStatus

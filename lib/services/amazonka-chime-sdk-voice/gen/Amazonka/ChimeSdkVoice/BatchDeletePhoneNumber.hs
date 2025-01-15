@@ -164,5 +164,5 @@ instance
     BatchDeletePhoneNumberResponse
   where
   rnf BatchDeletePhoneNumberResponse' {..} =
-    Prelude.rnf phoneNumberErrors
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf phoneNumberErrors `Prelude.seq`
+      Prelude.rnf httpStatus

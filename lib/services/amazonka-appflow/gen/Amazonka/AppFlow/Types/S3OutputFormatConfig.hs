@@ -145,10 +145,10 @@ instance Prelude.Hashable S3OutputFormatConfig where
 
 instance Prelude.NFData S3OutputFormatConfig where
   rnf S3OutputFormatConfig' {..} =
-    Prelude.rnf aggregationConfig
-      `Prelude.seq` Prelude.rnf fileType
-      `Prelude.seq` Prelude.rnf prefixConfig
-      `Prelude.seq` Prelude.rnf preserveSourceDataTyping
+    Prelude.rnf aggregationConfig `Prelude.seq`
+      Prelude.rnf fileType `Prelude.seq`
+        Prelude.rnf prefixConfig `Prelude.seq`
+          Prelude.rnf preserveSourceDataTyping
 
 instance Data.ToJSON S3OutputFormatConfig where
   toJSON S3OutputFormatConfig' {..} =

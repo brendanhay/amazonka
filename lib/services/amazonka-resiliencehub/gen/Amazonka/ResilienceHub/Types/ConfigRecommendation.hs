@@ -196,13 +196,13 @@ instance Prelude.Hashable ConfigRecommendation where
 
 instance Prelude.NFData ConfigRecommendation where
   rnf ConfigRecommendation' {..} =
-    Prelude.rnf appComponentName
-      `Prelude.seq` Prelude.rnf compliance
-      `Prelude.seq` Prelude.rnf cost
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf haArchitecture
-      `Prelude.seq` Prelude.rnf recommendationCompliance
-      `Prelude.seq` Prelude.rnf suggestedChanges
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf optimizationType
-      `Prelude.seq` Prelude.rnf referenceId
+    Prelude.rnf appComponentName `Prelude.seq`
+      Prelude.rnf compliance `Prelude.seq`
+        Prelude.rnf cost `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf haArchitecture `Prelude.seq`
+              Prelude.rnf recommendationCompliance `Prelude.seq`
+                Prelude.rnf suggestedChanges `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf optimizationType `Prelude.seq`
+                      Prelude.rnf referenceId

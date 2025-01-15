@@ -157,11 +157,11 @@ instance Prelude.Hashable GetTable where
 
 instance Prelude.NFData GetTable where
   rnf GetTable' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf queryAsOfTime
-      `Prelude.seq` Prelude.rnf transactionId
-      `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf catalogId `Prelude.seq`
+      Prelude.rnf queryAsOfTime `Prelude.seq`
+        Prelude.rnf transactionId `Prelude.seq`
+          Prelude.rnf databaseName `Prelude.seq`
+            Prelude.rnf name
 
 instance Data.ToHeaders GetTable where
   toHeaders =
@@ -234,5 +234,5 @@ getTableResponse_httpStatus = Lens.lens (\GetTableResponse' {httpStatus} -> http
 
 instance Prelude.NFData GetTableResponse where
   rnf GetTableResponse' {..} =
-    Prelude.rnf table
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf table `Prelude.seq`
+      Prelude.rnf httpStatus

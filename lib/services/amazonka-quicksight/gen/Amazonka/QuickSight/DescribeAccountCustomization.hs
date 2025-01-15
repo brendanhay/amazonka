@@ -207,9 +207,9 @@ instance
 
 instance Prelude.NFData DescribeAccountCustomization where
   rnf DescribeAccountCustomization' {..} =
-    Prelude.rnf namespace
-      `Prelude.seq` Prelude.rnf resolved
-      `Prelude.seq` Prelude.rnf awsAccountId
+    Prelude.rnf namespace `Prelude.seq`
+      Prelude.rnf resolved `Prelude.seq`
+        Prelude.rnf awsAccountId
 
 instance Data.ToHeaders DescribeAccountCustomization where
   toHeaders =
@@ -323,9 +323,9 @@ instance
     DescribeAccountCustomizationResponse
   where
   rnf DescribeAccountCustomizationResponse' {..} =
-    Prelude.rnf accountCustomization
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf namespace
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf accountCustomization `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf awsAccountId `Prelude.seq`
+          Prelude.rnf namespace `Prelude.seq`
+            Prelude.rnf requestId `Prelude.seq`
+              Prelude.rnf status

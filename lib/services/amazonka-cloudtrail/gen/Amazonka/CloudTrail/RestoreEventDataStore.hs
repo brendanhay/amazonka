@@ -321,15 +321,15 @@ restoreEventDataStoreResponse_httpStatus = Lens.lens (\RestoreEventDataStoreResp
 
 instance Prelude.NFData RestoreEventDataStoreResponse where
   rnf RestoreEventDataStoreResponse' {..} =
-    Prelude.rnf advancedEventSelectors
-      `Prelude.seq` Prelude.rnf createdTimestamp
-      `Prelude.seq` Prelude.rnf eventDataStoreArn
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf multiRegionEnabled
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf organizationEnabled
-      `Prelude.seq` Prelude.rnf retentionPeriod
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf terminationProtectionEnabled
-      `Prelude.seq` Prelude.rnf updatedTimestamp
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf advancedEventSelectors `Prelude.seq`
+      Prelude.rnf createdTimestamp `Prelude.seq`
+        Prelude.rnf eventDataStoreArn `Prelude.seq`
+          Prelude.rnf kmsKeyId `Prelude.seq`
+            Prelude.rnf multiRegionEnabled `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf organizationEnabled `Prelude.seq`
+                  Prelude.rnf retentionPeriod `Prelude.seq`
+                    Prelude.rnf status `Prelude.seq`
+                      Prelude.rnf terminationProtectionEnabled `Prelude.seq`
+                        Prelude.rnf updatedTimestamp `Prelude.seq`
+                          Prelude.rnf httpStatus

@@ -159,10 +159,10 @@ instance
     DescribeConformancePackCompliance
   where
   rnf DescribeConformancePackCompliance' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf conformancePackName
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf limit `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf conformancePackName
 
 instance
   Data.ToHeaders
@@ -280,7 +280,7 @@ instance
     DescribeConformancePackComplianceResponse
   where
   rnf DescribeConformancePackComplianceResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf conformancePackName
-      `Prelude.seq` Prelude.rnf conformancePackRuleComplianceList
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf conformancePackName `Prelude.seq`
+          Prelude.rnf conformancePackRuleComplianceList

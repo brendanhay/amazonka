@@ -70,8 +70,8 @@ instance Prelude.Hashable ReleaseLabelFilter where
 
 instance Prelude.NFData ReleaseLabelFilter where
   rnf ReleaseLabelFilter' {..} =
-    Prelude.rnf application
-      `Prelude.seq` Prelude.rnf prefix
+    Prelude.rnf application `Prelude.seq`
+      Prelude.rnf prefix
 
 instance Data.ToJSON ReleaseLabelFilter where
   toJSON ReleaseLabelFilter' {..} =

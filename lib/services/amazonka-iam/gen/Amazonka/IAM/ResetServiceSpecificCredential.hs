@@ -159,8 +159,8 @@ instance
     ResetServiceSpecificCredential
   where
   rnf ResetServiceSpecificCredential' {..} =
-    Prelude.rnf userName
-      `Prelude.seq` Prelude.rnf serviceSpecificCredentialId
+    Prelude.rnf userName `Prelude.seq`
+      Prelude.rnf serviceSpecificCredentialId
 
 instance
   Data.ToHeaders
@@ -242,5 +242,5 @@ instance
     ResetServiceSpecificCredentialResponse
   where
   rnf ResetServiceSpecificCredentialResponse' {..} =
-    Prelude.rnf serviceSpecificCredential
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf serviceSpecificCredential `Prelude.seq`
+      Prelude.rnf httpStatus

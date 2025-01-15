@@ -178,6 +178,6 @@ exportNotebookResponse_httpStatus = Lens.lens (\ExportNotebookResponse' {httpSta
 
 instance Prelude.NFData ExportNotebookResponse where
   rnf ExportNotebookResponse' {..} =
-    Prelude.rnf notebookMetadata
-      `Prelude.seq` Prelude.rnf payload
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf notebookMetadata `Prelude.seq`
+      Prelude.rnf payload `Prelude.seq`
+        Prelude.rnf httpStatus

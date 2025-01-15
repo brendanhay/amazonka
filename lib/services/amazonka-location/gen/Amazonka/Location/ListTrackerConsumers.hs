@@ -132,12 +132,12 @@ instance Core.AWSPager ListTrackerConsumers where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listTrackerConsumers_nextToken
-          Lens..~ rs
-          Lens.^? listTrackerConsumersResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listTrackerConsumers_nextToken
+              Lens..~ rs
+              Lens.^? listTrackerConsumersResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListTrackerConsumers where
   type
@@ -163,9 +163,9 @@ instance Prelude.Hashable ListTrackerConsumers where
 
 instance Prelude.NFData ListTrackerConsumers where
   rnf ListTrackerConsumers' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf trackerName
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf trackerName
 
 instance Data.ToHeaders ListTrackerConsumers where
   toHeaders =
@@ -257,6 +257,6 @@ listTrackerConsumersResponse_consumerArns = Lens.lens (\ListTrackerConsumersResp
 
 instance Prelude.NFData ListTrackerConsumersResponse where
   rnf ListTrackerConsumersResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf consumerArns
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf consumerArns

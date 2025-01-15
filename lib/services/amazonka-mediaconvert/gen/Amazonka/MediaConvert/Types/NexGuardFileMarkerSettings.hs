@@ -160,10 +160,10 @@ instance Prelude.Hashable NexGuardFileMarkerSettings where
 
 instance Prelude.NFData NexGuardFileMarkerSettings where
   rnf NexGuardFileMarkerSettings' {..} =
-    Prelude.rnf license
-      `Prelude.seq` Prelude.rnf payload
-      `Prelude.seq` Prelude.rnf preset
-      `Prelude.seq` Prelude.rnf strength
+    Prelude.rnf license `Prelude.seq`
+      Prelude.rnf payload `Prelude.seq`
+        Prelude.rnf preset `Prelude.seq`
+          Prelude.rnf strength
 
 instance Data.ToJSON NexGuardFileMarkerSettings where
   toJSON NexGuardFileMarkerSettings' {..} =

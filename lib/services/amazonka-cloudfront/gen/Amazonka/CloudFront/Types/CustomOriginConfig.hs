@@ -225,12 +225,12 @@ instance Prelude.Hashable CustomOriginConfig where
 
 instance Prelude.NFData CustomOriginConfig where
   rnf CustomOriginConfig' {..} =
-    Prelude.rnf originKeepaliveTimeout
-      `Prelude.seq` Prelude.rnf originReadTimeout
-      `Prelude.seq` Prelude.rnf originSslProtocols
-      `Prelude.seq` Prelude.rnf hTTPPort
-      `Prelude.seq` Prelude.rnf hTTPSPort
-      `Prelude.seq` Prelude.rnf originProtocolPolicy
+    Prelude.rnf originKeepaliveTimeout `Prelude.seq`
+      Prelude.rnf originReadTimeout `Prelude.seq`
+        Prelude.rnf originSslProtocols `Prelude.seq`
+          Prelude.rnf hTTPPort `Prelude.seq`
+            Prelude.rnf hTTPSPort `Prelude.seq`
+              Prelude.rnf originProtocolPolicy
 
 instance Data.ToXML CustomOriginConfig where
   toXML CustomOriginConfig' {..} =

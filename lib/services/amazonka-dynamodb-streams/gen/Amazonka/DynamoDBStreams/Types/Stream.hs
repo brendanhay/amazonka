@@ -125,6 +125,6 @@ instance Prelude.Hashable Stream where
 
 instance Prelude.NFData Stream where
   rnf Stream' {..} =
-    Prelude.rnf streamArn
-      `Prelude.seq` Prelude.rnf streamLabel
-      `Prelude.seq` Prelude.rnf tableName
+    Prelude.rnf streamArn `Prelude.seq`
+      Prelude.rnf streamLabel `Prelude.seq`
+        Prelude.rnf tableName

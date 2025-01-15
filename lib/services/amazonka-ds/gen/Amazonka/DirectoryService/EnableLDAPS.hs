@@ -110,8 +110,8 @@ instance Prelude.Hashable EnableLDAPS where
 
 instance Prelude.NFData EnableLDAPS where
   rnf EnableLDAPS' {..} =
-    Prelude.rnf directoryId
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf directoryId `Prelude.seq`
+      Prelude.rnf type'
 
 instance Data.ToHeaders EnableLDAPS where
   toHeaders =

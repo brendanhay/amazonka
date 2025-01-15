@@ -327,17 +327,17 @@ getSchemaResponse_httpStatus = Lens.lens (\GetSchemaResponse' {httpStatus} -> ht
 
 instance Prelude.NFData GetSchemaResponse where
   rnf GetSchemaResponse' {..} =
-    Prelude.rnf compatibility
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf dataFormat
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf latestSchemaVersion
-      `Prelude.seq` Prelude.rnf nextSchemaVersion
-      `Prelude.seq` Prelude.rnf registryArn
-      `Prelude.seq` Prelude.rnf registryName
-      `Prelude.seq` Prelude.rnf schemaArn
-      `Prelude.seq` Prelude.rnf schemaCheckpoint
-      `Prelude.seq` Prelude.rnf schemaName
-      `Prelude.seq` Prelude.rnf schemaStatus
-      `Prelude.seq` Prelude.rnf updatedTime
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf compatibility `Prelude.seq`
+      Prelude.rnf createdTime `Prelude.seq`
+        Prelude.rnf dataFormat `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf latestSchemaVersion `Prelude.seq`
+              Prelude.rnf nextSchemaVersion `Prelude.seq`
+                Prelude.rnf registryArn `Prelude.seq`
+                  Prelude.rnf registryName `Prelude.seq`
+                    Prelude.rnf schemaArn `Prelude.seq`
+                      Prelude.rnf schemaCheckpoint `Prelude.seq`
+                        Prelude.rnf schemaName `Prelude.seq`
+                          Prelude.rnf schemaStatus `Prelude.seq`
+                            Prelude.rnf updatedTime `Prelude.seq`
+                              Prelude.rnf httpStatus

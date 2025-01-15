@@ -254,14 +254,14 @@ instance Prelude.Hashable CreateDeployment where
 
 instance Prelude.NFData CreateDeployment where
   rnf CreateDeployment' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf components
-      `Prelude.seq` Prelude.rnf deploymentName
-      `Prelude.seq` Prelude.rnf deploymentPolicies
-      `Prelude.seq` Prelude.rnf iotJobConfiguration
-      `Prelude.seq` Prelude.rnf parentTargetArn
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf targetArn
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf components `Prelude.seq`
+        Prelude.rnf deploymentName `Prelude.seq`
+          Prelude.rnf deploymentPolicies `Prelude.seq`
+            Prelude.rnf iotJobConfiguration `Prelude.seq`
+              Prelude.rnf parentTargetArn `Prelude.seq`
+                Prelude.rnf tags `Prelude.seq`
+                  Prelude.rnf targetArn
 
 instance Data.ToHeaders CreateDeployment where
   toHeaders = Prelude.const Prelude.mempty
@@ -356,7 +356,7 @@ createDeploymentResponse_httpStatus = Lens.lens (\CreateDeploymentResponse' {htt
 
 instance Prelude.NFData CreateDeploymentResponse where
   rnf CreateDeploymentResponse' {..} =
-    Prelude.rnf deploymentId
-      `Prelude.seq` Prelude.rnf iotJobArn
-      `Prelude.seq` Prelude.rnf iotJobId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf deploymentId `Prelude.seq`
+      Prelude.rnf iotJobArn `Prelude.seq`
+        Prelude.rnf iotJobId `Prelude.seq`
+          Prelude.rnf httpStatus

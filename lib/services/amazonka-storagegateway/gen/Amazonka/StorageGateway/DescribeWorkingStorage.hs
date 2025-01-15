@@ -229,8 +229,8 @@ instance
     DescribeWorkingStorageResponse
   where
   rnf DescribeWorkingStorageResponse' {..} =
-    Prelude.rnf diskIds
-      `Prelude.seq` Prelude.rnf gatewayARN
-      `Prelude.seq` Prelude.rnf workingStorageAllocatedInBytes
-      `Prelude.seq` Prelude.rnf workingStorageUsedInBytes
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf diskIds `Prelude.seq`
+      Prelude.rnf gatewayARN `Prelude.seq`
+        Prelude.rnf workingStorageAllocatedInBytes `Prelude.seq`
+          Prelude.rnf workingStorageUsedInBytes `Prelude.seq`
+            Prelude.rnf httpStatus

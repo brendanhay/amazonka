@@ -148,9 +148,9 @@ instance Prelude.Hashable DimensionValues where
 
 instance Prelude.NFData DimensionValues where
   rnf DimensionValues' {..} =
-    Prelude.rnf key
-      `Prelude.seq` Prelude.rnf matchOptions
-      `Prelude.seq` Prelude.rnf values
+    Prelude.rnf key `Prelude.seq`
+      Prelude.rnf matchOptions `Prelude.seq`
+        Prelude.rnf values
 
 instance Data.ToJSON DimensionValues where
   toJSON DimensionValues' {..} =

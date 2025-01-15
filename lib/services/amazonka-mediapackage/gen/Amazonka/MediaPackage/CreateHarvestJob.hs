@@ -177,11 +177,11 @@ instance Prelude.Hashable CreateHarvestJob where
 
 instance Prelude.NFData CreateHarvestJob where
   rnf CreateHarvestJob' {..} =
-    Prelude.rnf s3Destination
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf originEndpointId
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf s3Destination `Prelude.seq`
+      Prelude.rnf endTime `Prelude.seq`
+        Prelude.rnf originEndpointId `Prelude.seq`
+          Prelude.rnf startTime `Prelude.seq`
+            Prelude.rnf id
 
 instance Data.ToHeaders CreateHarvestJob where
   toHeaders =
@@ -340,13 +340,13 @@ createHarvestJobResponse_httpStatus = Lens.lens (\CreateHarvestJobResponse' {htt
 
 instance Prelude.NFData CreateHarvestJobResponse where
   rnf CreateHarvestJobResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf channelId
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf originEndpointId
-      `Prelude.seq` Prelude.rnf s3Destination
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf channelId `Prelude.seq`
+        Prelude.rnf createdAt `Prelude.seq`
+          Prelude.rnf endTime `Prelude.seq`
+            Prelude.rnf id `Prelude.seq`
+              Prelude.rnf originEndpointId `Prelude.seq`
+                Prelude.rnf s3Destination `Prelude.seq`
+                  Prelude.rnf startTime `Prelude.seq`
+                    Prelude.rnf status `Prelude.seq`
+                      Prelude.rnf httpStatus

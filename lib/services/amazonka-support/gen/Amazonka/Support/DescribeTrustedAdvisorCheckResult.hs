@@ -236,8 +236,8 @@ instance
     DescribeTrustedAdvisorCheckResult
   where
   rnf DescribeTrustedAdvisorCheckResult' {..} =
-    Prelude.rnf language
-      `Prelude.seq` Prelude.rnf checkId
+    Prelude.rnf language `Prelude.seq`
+      Prelude.rnf checkId
 
 instance
   Data.ToHeaders
@@ -329,5 +329,5 @@ instance
     DescribeTrustedAdvisorCheckResultResponse
   where
   rnf DescribeTrustedAdvisorCheckResultResponse' {..} =
-    Prelude.rnf result
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf result `Prelude.seq`
+      Prelude.rnf httpStatus

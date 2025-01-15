@@ -157,10 +157,10 @@ instance Prelude.Hashable CustomRule where
 
 instance Prelude.NFData CustomRule where
   rnf CustomRule' {..} =
-    Prelude.rnf condition
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf target
+    Prelude.rnf condition `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf source `Prelude.seq`
+          Prelude.rnf target
 
 instance Data.ToJSON CustomRule where
   toJSON CustomRule' {..} =

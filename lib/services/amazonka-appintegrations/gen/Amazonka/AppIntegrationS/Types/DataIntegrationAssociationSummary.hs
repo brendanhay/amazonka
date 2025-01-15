@@ -107,6 +107,6 @@ instance
     DataIntegrationAssociationSummary
   where
   rnf DataIntegrationAssociationSummary' {..} =
-    Prelude.rnf clientId
-      `Prelude.seq` Prelude.rnf dataIntegrationArn
-      `Prelude.seq` Prelude.rnf dataIntegrationAssociationArn
+    Prelude.rnf clientId `Prelude.seq`
+      Prelude.rnf dataIntegrationArn `Prelude.seq`
+        Prelude.rnf dataIntegrationAssociationArn

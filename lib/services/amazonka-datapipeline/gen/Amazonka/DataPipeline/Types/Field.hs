@@ -95,9 +95,9 @@ instance Prelude.Hashable Field where
 
 instance Prelude.NFData Field where
   rnf Field' {..} =
-    Prelude.rnf refValue
-      `Prelude.seq` Prelude.rnf stringValue
-      `Prelude.seq` Prelude.rnf key
+    Prelude.rnf refValue `Prelude.seq`
+      Prelude.rnf stringValue `Prelude.seq`
+        Prelude.rnf key
 
 instance Data.ToJSON Field where
   toJSON Field' {..} =

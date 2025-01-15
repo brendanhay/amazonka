@@ -172,5 +172,5 @@ describeBuildResponse_httpStatus = Lens.lens (\DescribeBuildResponse' {httpStatu
 
 instance Prelude.NFData DescribeBuildResponse where
   rnf DescribeBuildResponse' {..} =
-    Prelude.rnf build
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf build `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -99,6 +99,6 @@ instance Prelude.Hashable PredictedItem where
 
 instance Prelude.NFData PredictedItem where
   rnf PredictedItem' {..} =
-    Prelude.rnf itemId
-      `Prelude.seq` Prelude.rnf promotionName
-      `Prelude.seq` Prelude.rnf score
+    Prelude.rnf itemId `Prelude.seq`
+      Prelude.rnf promotionName `Prelude.seq`
+        Prelude.rnf score

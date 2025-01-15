@@ -83,5 +83,5 @@ instance Prelude.Hashable PossibleRemediationActions where
 
 instance Prelude.NFData PossibleRemediationActions where
   rnf PossibleRemediationActions' {..} =
-    Prelude.rnf actions
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf actions `Prelude.seq`
+      Prelude.rnf description

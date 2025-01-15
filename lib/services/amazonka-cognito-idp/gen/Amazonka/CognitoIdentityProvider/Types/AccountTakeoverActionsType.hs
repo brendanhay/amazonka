@@ -93,9 +93,9 @@ instance Prelude.Hashable AccountTakeoverActionsType where
 
 instance Prelude.NFData AccountTakeoverActionsType where
   rnf AccountTakeoverActionsType' {..} =
-    Prelude.rnf highAction
-      `Prelude.seq` Prelude.rnf lowAction
-      `Prelude.seq` Prelude.rnf mediumAction
+    Prelude.rnf highAction `Prelude.seq`
+      Prelude.rnf lowAction `Prelude.seq`
+        Prelude.rnf mediumAction
 
 instance Data.ToJSON AccountTakeoverActionsType where
   toJSON AccountTakeoverActionsType' {..} =

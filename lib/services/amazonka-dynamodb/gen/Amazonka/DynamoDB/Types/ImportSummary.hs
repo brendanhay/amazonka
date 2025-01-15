@@ -167,11 +167,11 @@ instance Prelude.Hashable ImportSummary where
 
 instance Prelude.NFData ImportSummary where
   rnf ImportSummary' {..} =
-    Prelude.rnf cloudWatchLogGroupArn
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf importArn
-      `Prelude.seq` Prelude.rnf importStatus
-      `Prelude.seq` Prelude.rnf inputFormat
-      `Prelude.seq` Prelude.rnf s3BucketSource
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf tableArn
+    Prelude.rnf cloudWatchLogGroupArn `Prelude.seq`
+      Prelude.rnf endTime `Prelude.seq`
+        Prelude.rnf importArn `Prelude.seq`
+          Prelude.rnf importStatus `Prelude.seq`
+            Prelude.rnf inputFormat `Prelude.seq`
+              Prelude.rnf s3BucketSource `Prelude.seq`
+                Prelude.rnf startTime `Prelude.seq`
+                  Prelude.rnf tableArn

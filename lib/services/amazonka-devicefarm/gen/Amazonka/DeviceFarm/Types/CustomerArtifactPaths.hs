@@ -111,9 +111,9 @@ instance Prelude.Hashable CustomerArtifactPaths where
 
 instance Prelude.NFData CustomerArtifactPaths where
   rnf CustomerArtifactPaths' {..} =
-    Prelude.rnf androidPaths
-      `Prelude.seq` Prelude.rnf deviceHostPaths
-      `Prelude.seq` Prelude.rnf iosPaths
+    Prelude.rnf androidPaths `Prelude.seq`
+      Prelude.rnf deviceHostPaths `Prelude.seq`
+        Prelude.rnf iosPaths
 
 instance Data.ToJSON CustomerArtifactPaths where
   toJSON CustomerArtifactPaths' {..} =

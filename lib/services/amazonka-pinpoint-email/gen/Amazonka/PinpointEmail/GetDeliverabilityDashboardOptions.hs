@@ -281,9 +281,9 @@ instance
     GetDeliverabilityDashboardOptionsResponse
   where
   rnf GetDeliverabilityDashboardOptionsResponse' {..} =
-    Prelude.rnf accountStatus
-      `Prelude.seq` Prelude.rnf activeSubscribedDomains
-      `Prelude.seq` Prelude.rnf pendingExpirationSubscribedDomains
-      `Prelude.seq` Prelude.rnf subscriptionExpiryDate
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf dashboardEnabled
+    Prelude.rnf accountStatus `Prelude.seq`
+      Prelude.rnf activeSubscribedDomains `Prelude.seq`
+        Prelude.rnf pendingExpirationSubscribedDomains `Prelude.seq`
+          Prelude.rnf subscriptionExpiryDate `Prelude.seq`
+            Prelude.rnf httpStatus `Prelude.seq`
+              Prelude.rnf dashboardEnabled

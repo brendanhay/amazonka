@@ -239,9 +239,9 @@ instance
     WorkflowExecutionConfiguration
   where
   rnf WorkflowExecutionConfiguration' {..} =
-    Prelude.rnf lambdaRole
-      `Prelude.seq` Prelude.rnf taskPriority
-      `Prelude.seq` Prelude.rnf taskStartToCloseTimeout
-      `Prelude.seq` Prelude.rnf executionStartToCloseTimeout
-      `Prelude.seq` Prelude.rnf taskList
-      `Prelude.seq` Prelude.rnf childPolicy
+    Prelude.rnf lambdaRole `Prelude.seq`
+      Prelude.rnf taskPriority `Prelude.seq`
+        Prelude.rnf taskStartToCloseTimeout `Prelude.seq`
+          Prelude.rnf executionStartToCloseTimeout `Prelude.seq`
+            Prelude.rnf taskList `Prelude.seq`
+              Prelude.rnf childPolicy

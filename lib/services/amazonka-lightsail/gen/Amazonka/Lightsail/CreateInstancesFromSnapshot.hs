@@ -439,19 +439,19 @@ instance Prelude.Hashable CreateInstancesFromSnapshot where
 
 instance Prelude.NFData CreateInstancesFromSnapshot where
   rnf CreateInstancesFromSnapshot' {..} =
-    Prelude.rnf addOns
-      `Prelude.seq` Prelude.rnf attachedDiskMapping
-      `Prelude.seq` Prelude.rnf instanceSnapshotName
-      `Prelude.seq` Prelude.rnf ipAddressType
-      `Prelude.seq` Prelude.rnf keyPairName
-      `Prelude.seq` Prelude.rnf restoreDate
-      `Prelude.seq` Prelude.rnf sourceInstanceName
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf useLatestRestorableAutoSnapshot
-      `Prelude.seq` Prelude.rnf userData
-      `Prelude.seq` Prelude.rnf instanceNames
-      `Prelude.seq` Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf bundleId
+    Prelude.rnf addOns `Prelude.seq`
+      Prelude.rnf attachedDiskMapping `Prelude.seq`
+        Prelude.rnf instanceSnapshotName `Prelude.seq`
+          Prelude.rnf ipAddressType `Prelude.seq`
+            Prelude.rnf keyPairName `Prelude.seq`
+              Prelude.rnf restoreDate `Prelude.seq`
+                Prelude.rnf sourceInstanceName `Prelude.seq`
+                  Prelude.rnf tags `Prelude.seq`
+                    Prelude.rnf useLatestRestorableAutoSnapshot `Prelude.seq`
+                      Prelude.rnf userData `Prelude.seq`
+                        Prelude.rnf instanceNames `Prelude.seq`
+                          Prelude.rnf availabilityZone `Prelude.seq`
+                            Prelude.rnf bundleId
 
 instance Data.ToHeaders CreateInstancesFromSnapshot where
   toHeaders =
@@ -549,5 +549,5 @@ instance
     CreateInstancesFromSnapshotResponse
   where
   rnf CreateInstancesFromSnapshotResponse' {..} =
-    Prelude.rnf operations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operations `Prelude.seq`
+      Prelude.rnf httpStatus

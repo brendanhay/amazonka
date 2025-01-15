@@ -101,6 +101,6 @@ instance Prelude.Hashable UserStackAssociationError where
 
 instance Prelude.NFData UserStackAssociationError where
   rnf UserStackAssociationError' {..} =
-    Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf userStackAssociation
+    Prelude.rnf errorCode `Prelude.seq`
+      Prelude.rnf errorMessage `Prelude.seq`
+        Prelude.rnf userStackAssociation

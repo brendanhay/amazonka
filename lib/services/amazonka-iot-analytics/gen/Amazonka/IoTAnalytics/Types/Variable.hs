@@ -126,11 +126,11 @@ instance Prelude.Hashable Variable where
 
 instance Prelude.NFData Variable where
   rnf Variable' {..} =
-    Prelude.rnf datasetContentVersionValue
-      `Prelude.seq` Prelude.rnf doubleValue
-      `Prelude.seq` Prelude.rnf outputFileUriValue
-      `Prelude.seq` Prelude.rnf stringValue
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf datasetContentVersionValue `Prelude.seq`
+      Prelude.rnf doubleValue `Prelude.seq`
+        Prelude.rnf outputFileUriValue `Prelude.seq`
+          Prelude.rnf stringValue `Prelude.seq`
+            Prelude.rnf name
 
 instance Data.ToJSON Variable where
   toJSON Variable' {..} =

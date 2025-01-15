@@ -508,5 +508,5 @@ updateProfileResponse_profileId = Lens.lens (\UpdateProfileResponse' {profileId}
 
 instance Prelude.NFData UpdateProfileResponse where
   rnf UpdateProfileResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf profileId
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf profileId

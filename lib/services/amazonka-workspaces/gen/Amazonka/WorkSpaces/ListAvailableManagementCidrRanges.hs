@@ -140,12 +140,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listAvailableManagementCidrRanges_nextToken
-          Lens..~ rs
-          Lens.^? listAvailableManagementCidrRangesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listAvailableManagementCidrRanges_nextToken
+              Lens..~ rs
+              Lens.^? listAvailableManagementCidrRangesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -185,9 +185,9 @@ instance
     ListAvailableManagementCidrRanges
   where
   rnf ListAvailableManagementCidrRanges' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf managementCidrRangeConstraint
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf managementCidrRangeConstraint
 
 instance
   Data.ToHeaders
@@ -292,6 +292,6 @@ instance
     ListAvailableManagementCidrRangesResponse
   where
   rnf ListAvailableManagementCidrRangesResponse' {..} =
-    Prelude.rnf managementCidrRanges
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf managementCidrRanges `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -108,8 +108,8 @@ instance Prelude.Hashable NotifyAppValidationOutput where
 
 instance Prelude.NFData NotifyAppValidationOutput where
   rnf NotifyAppValidationOutput' {..} =
-    Prelude.rnf notificationContext
-      `Prelude.seq` Prelude.rnf appId
+    Prelude.rnf notificationContext `Prelude.seq`
+      Prelude.rnf appId
 
 instance Data.ToHeaders NotifyAppValidationOutput where
   toHeaders =

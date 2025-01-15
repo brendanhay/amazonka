@@ -131,9 +131,9 @@ instance Prelude.Hashable Ipv6CidrBlockAssociation where
 
 instance Prelude.NFData Ipv6CidrBlockAssociation where
   rnf Ipv6CidrBlockAssociation' {..} =
-    Prelude.rnf associationId
-      `Prelude.seq` Prelude.rnf cidrBlockState
-      `Prelude.seq` Prelude.rnf ipv6CidrBlock
+    Prelude.rnf associationId `Prelude.seq`
+      Prelude.rnf cidrBlockState `Prelude.seq`
+        Prelude.rnf ipv6CidrBlock
 
 instance Data.ToJSON Ipv6CidrBlockAssociation where
   toJSON Ipv6CidrBlockAssociation' {..} =

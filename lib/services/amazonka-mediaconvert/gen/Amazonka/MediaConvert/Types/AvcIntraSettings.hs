@@ -415,16 +415,16 @@ instance Prelude.Hashable AvcIntraSettings where
 
 instance Prelude.NFData AvcIntraSettings where
   rnf AvcIntraSettings' {..} =
-    Prelude.rnf avcIntraClass
-      `Prelude.seq` Prelude.rnf avcIntraUhdSettings
-      `Prelude.seq` Prelude.rnf framerateControl
-      `Prelude.seq` Prelude.rnf framerateConversionAlgorithm
-      `Prelude.seq` Prelude.rnf framerateDenominator
-      `Prelude.seq` Prelude.rnf framerateNumerator
-      `Prelude.seq` Prelude.rnf interlaceMode
-      `Prelude.seq` Prelude.rnf scanTypeConversionMode
-      `Prelude.seq` Prelude.rnf slowPal
-      `Prelude.seq` Prelude.rnf telecine
+    Prelude.rnf avcIntraClass `Prelude.seq`
+      Prelude.rnf avcIntraUhdSettings `Prelude.seq`
+        Prelude.rnf framerateControl `Prelude.seq`
+          Prelude.rnf framerateConversionAlgorithm `Prelude.seq`
+            Prelude.rnf framerateDenominator `Prelude.seq`
+              Prelude.rnf framerateNumerator `Prelude.seq`
+                Prelude.rnf interlaceMode `Prelude.seq`
+                  Prelude.rnf scanTypeConversionMode `Prelude.seq`
+                    Prelude.rnf slowPal `Prelude.seq`
+                      Prelude.rnf telecine
 
 instance Data.ToJSON AvcIntraSettings where
   toJSON AvcIntraSettings' {..} =

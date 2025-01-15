@@ -80,5 +80,5 @@ instance Prelude.Hashable KeyPair where
 
 instance Prelude.NFData KeyPair where
   rnf KeyPair' {..} =
-    Prelude.rnf privateKey
-      `Prelude.seq` Prelude.rnf publicKey
+    Prelude.rnf privateKey `Prelude.seq`
+      Prelude.rnf publicKey

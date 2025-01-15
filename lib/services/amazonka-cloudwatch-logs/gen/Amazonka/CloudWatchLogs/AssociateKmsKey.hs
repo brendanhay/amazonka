@@ -131,8 +131,8 @@ instance Prelude.Hashable AssociateKmsKey where
 
 instance Prelude.NFData AssociateKmsKey where
   rnf AssociateKmsKey' {..} =
-    Prelude.rnf logGroupName
-      `Prelude.seq` Prelude.rnf kmsKeyId
+    Prelude.rnf logGroupName `Prelude.seq`
+      Prelude.rnf kmsKeyId
 
 instance Data.ToHeaders AssociateKmsKey where
   toHeaders =

@@ -83,8 +83,8 @@ instance Prelude.Hashable InsightConfiguration where
 
 instance Prelude.NFData InsightConfiguration where
   rnf InsightConfiguration' {..} =
-    Prelude.rnf computations
-      `Prelude.seq` Prelude.rnf customNarrative
+    Prelude.rnf computations `Prelude.seq`
+      Prelude.rnf customNarrative
 
 instance Data.ToJSON InsightConfiguration where
   toJSON InsightConfiguration' {..} =

@@ -91,5 +91,5 @@ instance Prelude.Hashable CampaignsResponse where
 
 instance Prelude.NFData CampaignsResponse where
   rnf CampaignsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf item
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf item

@@ -106,8 +106,8 @@ instance Prelude.Hashable DeleteLoggingConfiguration where
 
 instance Prelude.NFData DeleteLoggingConfiguration where
   rnf DeleteLoggingConfiguration' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf workspaceId
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf workspaceId
 
 instance Data.ToHeaders DeleteLoggingConfiguration where
   toHeaders =

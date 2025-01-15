@@ -422,19 +422,19 @@ instance Prelude.Hashable CreateClassificationJob where
 
 instance Prelude.NFData CreateClassificationJob where
   rnf CreateClassificationJob' {..} =
-    Prelude.rnf allowListIds
-      `Prelude.seq` Prelude.rnf customDataIdentifierIds
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf initialRun
-      `Prelude.seq` Prelude.rnf managedDataIdentifierIds
-      `Prelude.seq` Prelude.rnf managedDataIdentifierSelector
-      `Prelude.seq` Prelude.rnf samplingPercentage
-      `Prelude.seq` Prelude.rnf scheduleFrequency
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf s3JobDefinition
-      `Prelude.seq` Prelude.rnf jobType
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf allowListIds `Prelude.seq`
+      Prelude.rnf customDataIdentifierIds `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf initialRun `Prelude.seq`
+            Prelude.rnf managedDataIdentifierIds `Prelude.seq`
+              Prelude.rnf managedDataIdentifierSelector `Prelude.seq`
+                Prelude.rnf samplingPercentage `Prelude.seq`
+                  Prelude.rnf scheduleFrequency `Prelude.seq`
+                    Prelude.rnf tags `Prelude.seq`
+                      Prelude.rnf s3JobDefinition `Prelude.seq`
+                        Prelude.rnf jobType `Prelude.seq`
+                          Prelude.rnf clientToken `Prelude.seq`
+                            Prelude.rnf name
 
 instance Data.ToHeaders CreateClassificationJob where
   toHeaders =
@@ -532,6 +532,6 @@ instance
     CreateClassificationJobResponse
   where
   rnf CreateClassificationJobResponse' {..} =
-    Prelude.rnf jobArn
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf jobArn `Prelude.seq`
+      Prelude.rnf jobId `Prelude.seq`
+        Prelude.rnf httpStatus

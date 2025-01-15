@@ -112,7 +112,7 @@ instance Prelude.Hashable ScheduledAutoTuneDetails where
 
 instance Prelude.NFData ScheduledAutoTuneDetails where
   rnf ScheduledAutoTuneDetails' {..} =
-    Prelude.rnf action
-      `Prelude.seq` Prelude.rnf actionType
-      `Prelude.seq` Prelude.rnf date
-      `Prelude.seq` Prelude.rnf severity
+    Prelude.rnf action `Prelude.seq`
+      Prelude.rnf actionType `Prelude.seq`
+        Prelude.rnf date `Prelude.seq`
+          Prelude.rnf severity

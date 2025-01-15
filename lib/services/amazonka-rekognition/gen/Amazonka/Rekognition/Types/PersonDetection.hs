@@ -96,5 +96,5 @@ instance Prelude.Hashable PersonDetection where
 
 instance Prelude.NFData PersonDetection where
   rnf PersonDetection' {..} =
-    Prelude.rnf person
-      `Prelude.seq` Prelude.rnf timestamp
+    Prelude.rnf person `Prelude.seq`
+      Prelude.rnf timestamp

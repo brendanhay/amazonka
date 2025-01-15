@@ -138,5 +138,5 @@ getInvitationsCountResponse_httpStatus = Lens.lens (\GetInvitationsCountResponse
 
 instance Prelude.NFData GetInvitationsCountResponse where
   rnf GetInvitationsCountResponse' {..} =
-    Prelude.rnf invitationsCount
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf invitationsCount `Prelude.seq`
+      Prelude.rnf httpStatus

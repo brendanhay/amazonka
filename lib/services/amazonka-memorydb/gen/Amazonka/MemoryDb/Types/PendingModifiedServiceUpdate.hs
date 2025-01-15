@@ -86,5 +86,5 @@ instance
 
 instance Prelude.NFData PendingModifiedServiceUpdate where
   rnf PendingModifiedServiceUpdate' {..} =
-    Prelude.rnf serviceUpdateName
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf serviceUpdateName `Prelude.seq`
+      Prelude.rnf status

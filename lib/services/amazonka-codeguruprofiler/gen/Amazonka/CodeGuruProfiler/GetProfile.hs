@@ -223,12 +223,12 @@ instance Prelude.Hashable GetProfile where
 
 instance Prelude.NFData GetProfile where
   rnf GetProfile' {..} =
-    Prelude.rnf accept
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf maxDepth
-      `Prelude.seq` Prelude.rnf period
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf profilingGroupName
+    Prelude.rnf accept `Prelude.seq`
+      Prelude.rnf endTime `Prelude.seq`
+        Prelude.rnf maxDepth `Prelude.seq`
+          Prelude.rnf period `Prelude.seq`
+            Prelude.rnf startTime `Prelude.seq`
+              Prelude.rnf profilingGroupName
 
 instance Data.ToHeaders GetProfile where
   toHeaders GetProfile' {..} =
@@ -326,7 +326,7 @@ getProfileResponse_profile = Lens.lens (\GetProfileResponse' {profile} -> profil
 
 instance Prelude.NFData GetProfileResponse where
   rnf GetProfileResponse' {..} =
-    Prelude.rnf contentEncoding
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf contentType
-      `Prelude.seq` Prelude.rnf profile
+    Prelude.rnf contentEncoding `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf contentType `Prelude.seq`
+          Prelude.rnf profile

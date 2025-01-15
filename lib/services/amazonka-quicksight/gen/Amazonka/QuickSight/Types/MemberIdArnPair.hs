@@ -81,5 +81,5 @@ instance Prelude.Hashable MemberIdArnPair where
 
 instance Prelude.NFData MemberIdArnPair where
   rnf MemberIdArnPair' {..} =
-    Prelude.rnf memberArn
-      `Prelude.seq` Prelude.rnf memberId
+    Prelude.rnf memberArn `Prelude.seq`
+      Prelude.rnf memberId

@@ -132,9 +132,9 @@ instance Prelude.Hashable UpdateSiteAddress where
 
 instance Prelude.NFData UpdateSiteAddress where
   rnf UpdateSiteAddress' {..} =
-    Prelude.rnf siteId
-      `Prelude.seq` Prelude.rnf addressType
-      `Prelude.seq` Prelude.rnf address
+    Prelude.rnf siteId `Prelude.seq`
+      Prelude.rnf addressType `Prelude.seq`
+        Prelude.rnf address
 
 instance Data.ToHeaders UpdateSiteAddress where
   toHeaders =
@@ -214,6 +214,6 @@ updateSiteAddressResponse_httpStatus = Lens.lens (\UpdateSiteAddressResponse' {h
 
 instance Prelude.NFData UpdateSiteAddressResponse where
   rnf UpdateSiteAddressResponse' {..} =
-    Prelude.rnf address
-      `Prelude.seq` Prelude.rnf addressType
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf address `Prelude.seq`
+      Prelude.rnf addressType `Prelude.seq`
+        Prelude.rnf httpStatus

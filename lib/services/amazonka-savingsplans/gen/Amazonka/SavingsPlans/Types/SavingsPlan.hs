@@ -261,21 +261,21 @@ instance Prelude.Hashable SavingsPlan where
 
 instance Prelude.NFData SavingsPlan where
   rnf SavingsPlan' {..} =
-    Prelude.rnf commitment
-      `Prelude.seq` Prelude.rnf currency
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf ec2InstanceFamily
-      `Prelude.seq` Prelude.rnf end
-      `Prelude.seq` Prelude.rnf offeringId
-      `Prelude.seq` Prelude.rnf paymentOption
-      `Prelude.seq` Prelude.rnf productTypes
-      `Prelude.seq` Prelude.rnf recurringPaymentAmount
-      `Prelude.seq` Prelude.rnf region
-      `Prelude.seq` Prelude.rnf savingsPlanArn
-      `Prelude.seq` Prelude.rnf savingsPlanId
-      `Prelude.seq` Prelude.rnf savingsPlanType
-      `Prelude.seq` Prelude.rnf start
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf termDurationInSeconds
-      `Prelude.seq` Prelude.rnf upfrontPaymentAmount
+    Prelude.rnf commitment `Prelude.seq`
+      Prelude.rnf currency `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf ec2InstanceFamily `Prelude.seq`
+            Prelude.rnf end `Prelude.seq`
+              Prelude.rnf offeringId `Prelude.seq`
+                Prelude.rnf paymentOption `Prelude.seq`
+                  Prelude.rnf productTypes `Prelude.seq`
+                    Prelude.rnf recurringPaymentAmount `Prelude.seq`
+                      Prelude.rnf region `Prelude.seq`
+                        Prelude.rnf savingsPlanArn `Prelude.seq`
+                          Prelude.rnf savingsPlanId `Prelude.seq`
+                            Prelude.rnf savingsPlanType `Prelude.seq`
+                              Prelude.rnf start `Prelude.seq`
+                                Prelude.rnf state `Prelude.seq`
+                                  Prelude.rnf tags `Prelude.seq`
+                                    Prelude.rnf termDurationInSeconds `Prelude.seq`
+                                      Prelude.rnf upfrontPaymentAmount

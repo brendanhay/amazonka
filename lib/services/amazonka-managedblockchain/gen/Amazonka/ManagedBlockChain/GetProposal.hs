@@ -110,8 +110,8 @@ instance Prelude.Hashable GetProposal where
 
 instance Prelude.NFData GetProposal where
   rnf GetProposal' {..} =
-    Prelude.rnf networkId
-      `Prelude.seq` Prelude.rnf proposalId
+    Prelude.rnf networkId `Prelude.seq`
+      Prelude.rnf proposalId
 
 instance Data.ToHeaders GetProposal where
   toHeaders =
@@ -176,5 +176,5 @@ getProposalResponse_httpStatus = Lens.lens (\GetProposalResponse' {httpStatus} -
 
 instance Prelude.NFData GetProposalResponse where
   rnf GetProposalResponse' {..} =
-    Prelude.rnf proposal
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf proposal `Prelude.seq`
+      Prelude.rnf httpStatus

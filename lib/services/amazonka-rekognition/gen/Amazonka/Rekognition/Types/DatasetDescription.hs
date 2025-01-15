@@ -140,9 +140,9 @@ instance Prelude.Hashable DatasetDescription where
 
 instance Prelude.NFData DatasetDescription where
   rnf DatasetDescription' {..} =
-    Prelude.rnf creationTimestamp
-      `Prelude.seq` Prelude.rnf datasetStats
-      `Prelude.seq` Prelude.rnf lastUpdatedTimestamp
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf statusMessageCode
+    Prelude.rnf creationTimestamp `Prelude.seq`
+      Prelude.rnf datasetStats `Prelude.seq`
+        Prelude.rnf lastUpdatedTimestamp `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf statusMessage `Prelude.seq`
+              Prelude.rnf statusMessageCode

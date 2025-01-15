@@ -97,9 +97,9 @@ instance Prelude.Hashable DataQualityBaselineConfig where
 
 instance Prelude.NFData DataQualityBaselineConfig where
   rnf DataQualityBaselineConfig' {..} =
-    Prelude.rnf baseliningJobName
-      `Prelude.seq` Prelude.rnf constraintsResource
-      `Prelude.seq` Prelude.rnf statisticsResource
+    Prelude.rnf baseliningJobName `Prelude.seq`
+      Prelude.rnf constraintsResource `Prelude.seq`
+        Prelude.rnf statisticsResource
 
 instance Data.ToJSON DataQualityBaselineConfig where
   toJSON DataQualityBaselineConfig' {..} =

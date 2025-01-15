@@ -125,9 +125,9 @@ instance Prelude.Hashable GetEntityTypes where
 
 instance Prelude.NFData GetEntityTypes where
   rnf GetEntityTypes' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders GetEntityTypes where
   toHeaders =
@@ -210,6 +210,6 @@ getEntityTypesResponse_httpStatus = Lens.lens (\GetEntityTypesResponse' {httpSta
 
 instance Prelude.NFData GetEntityTypesResponse where
   rnf GetEntityTypesResponse' {..} =
-    Prelude.rnf entityTypes
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf entityTypes `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

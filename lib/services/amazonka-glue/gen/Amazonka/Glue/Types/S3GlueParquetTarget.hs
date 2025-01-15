@@ -139,12 +139,12 @@ instance Prelude.Hashable S3GlueParquetTarget where
 
 instance Prelude.NFData S3GlueParquetTarget where
   rnf S3GlueParquetTarget' {..} =
-    Prelude.rnf compression
-      `Prelude.seq` Prelude.rnf partitionKeys
-      `Prelude.seq` Prelude.rnf schemaChangePolicy
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf inputs
-      `Prelude.seq` Prelude.rnf path
+    Prelude.rnf compression `Prelude.seq`
+      Prelude.rnf partitionKeys `Prelude.seq`
+        Prelude.rnf schemaChangePolicy `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf inputs `Prelude.seq`
+              Prelude.rnf path
 
 instance Data.ToJSON S3GlueParquetTarget where
   toJSON S3GlueParquetTarget' {..} =

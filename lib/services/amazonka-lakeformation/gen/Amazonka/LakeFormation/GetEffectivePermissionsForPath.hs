@@ -162,10 +162,10 @@ instance
     GetEffectivePermissionsForPath
   where
   rnf GetEffectivePermissionsForPath' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf resourceArn
+    Prelude.rnf catalogId `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf resourceArn
 
 instance
   Data.ToHeaders
@@ -259,6 +259,6 @@ instance
     GetEffectivePermissionsForPathResponse
   where
   rnf GetEffectivePermissionsForPathResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf permissions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf permissions `Prelude.seq`
+        Prelude.rnf httpStatus

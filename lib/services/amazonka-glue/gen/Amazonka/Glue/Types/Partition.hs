@@ -164,12 +164,12 @@ instance Prelude.Hashable Partition where
 
 instance Prelude.NFData Partition where
   rnf Partition' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf lastAccessTime
-      `Prelude.seq` Prelude.rnf lastAnalyzedTime
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf storageDescriptor
-      `Prelude.seq` Prelude.rnf tableName
-      `Prelude.seq` Prelude.rnf values
+    Prelude.rnf catalogId `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf databaseName `Prelude.seq`
+          Prelude.rnf lastAccessTime `Prelude.seq`
+            Prelude.rnf lastAnalyzedTime `Prelude.seq`
+              Prelude.rnf parameters `Prelude.seq`
+                Prelude.rnf storageDescriptor `Prelude.seq`
+                  Prelude.rnf tableName `Prelude.seq`
+                    Prelude.rnf values

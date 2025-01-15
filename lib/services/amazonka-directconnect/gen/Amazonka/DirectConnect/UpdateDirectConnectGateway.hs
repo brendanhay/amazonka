@@ -114,8 +114,8 @@ instance Prelude.Hashable UpdateDirectConnectGateway where
 
 instance Prelude.NFData UpdateDirectConnectGateway where
   rnf UpdateDirectConnectGateway' {..} =
-    Prelude.rnf directConnectGatewayId
-      `Prelude.seq` Prelude.rnf newDirectConnectGatewayName'
+    Prelude.rnf directConnectGatewayId `Prelude.seq`
+      Prelude.rnf newDirectConnectGatewayName'
 
 instance Data.ToHeaders UpdateDirectConnectGateway where
   toHeaders =
@@ -196,5 +196,5 @@ instance
     UpdateDirectConnectGatewayResponse
   where
   rnf UpdateDirectConnectGatewayResponse' {..} =
-    Prelude.rnf directConnectGateway
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf directConnectGateway `Prelude.seq`
+      Prelude.rnf httpStatus

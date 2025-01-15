@@ -133,9 +133,9 @@ instance Prelude.Hashable KernelGatewayAppSettings where
 
 instance Prelude.NFData KernelGatewayAppSettings where
   rnf KernelGatewayAppSettings' {..} =
-    Prelude.rnf customImages
-      `Prelude.seq` Prelude.rnf defaultResourceSpec
-      `Prelude.seq` Prelude.rnf lifecycleConfigArns
+    Prelude.rnf customImages `Prelude.seq`
+      Prelude.rnf defaultResourceSpec `Prelude.seq`
+        Prelude.rnf lifecycleConfigArns
 
 instance Data.ToJSON KernelGatewayAppSettings where
   toJSON KernelGatewayAppSettings' {..} =

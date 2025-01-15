@@ -213,13 +213,13 @@ instance Prelude.Hashable AddLayerVersionPermission where
 
 instance Prelude.NFData AddLayerVersionPermission where
   rnf AddLayerVersionPermission' {..} =
-    Prelude.rnf organizationId
-      `Prelude.seq` Prelude.rnf revisionId
-      `Prelude.seq` Prelude.rnf layerName
-      `Prelude.seq` Prelude.rnf versionNumber
-      `Prelude.seq` Prelude.rnf statementId
-      `Prelude.seq` Prelude.rnf action
-      `Prelude.seq` Prelude.rnf principal
+    Prelude.rnf organizationId `Prelude.seq`
+      Prelude.rnf revisionId `Prelude.seq`
+        Prelude.rnf layerName `Prelude.seq`
+          Prelude.rnf versionNumber `Prelude.seq`
+            Prelude.rnf statementId `Prelude.seq`
+              Prelude.rnf action `Prelude.seq`
+                Prelude.rnf principal
 
 instance Data.ToHeaders AddLayerVersionPermission where
   toHeaders = Prelude.const Prelude.mempty
@@ -303,6 +303,6 @@ instance
     AddLayerVersionPermissionResponse
   where
   rnf AddLayerVersionPermissionResponse' {..} =
-    Prelude.rnf revisionId
-      `Prelude.seq` Prelude.rnf statement
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf revisionId `Prelude.seq`
+      Prelude.rnf statement `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -81,5 +81,5 @@ instance Prelude.Hashable LexBotConfig where
 
 instance Prelude.NFData LexBotConfig where
   rnf LexBotConfig' {..} =
-    Prelude.rnf lexBot
-      `Prelude.seq` Prelude.rnf lexV2Bot
+    Prelude.rnf lexBot `Prelude.seq`
+      Prelude.rnf lexV2Bot

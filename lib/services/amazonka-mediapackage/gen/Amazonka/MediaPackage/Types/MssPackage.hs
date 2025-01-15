@@ -102,10 +102,10 @@ instance Prelude.Hashable MssPackage where
 
 instance Prelude.NFData MssPackage where
   rnf MssPackage' {..} =
-    Prelude.rnf encryption
-      `Prelude.seq` Prelude.rnf manifestWindowSeconds
-      `Prelude.seq` Prelude.rnf segmentDurationSeconds
-      `Prelude.seq` Prelude.rnf streamSelection
+    Prelude.rnf encryption `Prelude.seq`
+      Prelude.rnf manifestWindowSeconds `Prelude.seq`
+        Prelude.rnf segmentDurationSeconds `Prelude.seq`
+          Prelude.rnf streamSelection
 
 instance Data.ToJSON MssPackage where
   toJSON MssPackage' {..} =

@@ -197,6 +197,6 @@ instance
     ListAllowedNodeTypeUpdatesResponse
   where
   rnf ListAllowedNodeTypeUpdatesResponse' {..} =
-    Prelude.rnf scaleDownNodeTypes
-      `Prelude.seq` Prelude.rnf scaleUpNodeTypes
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf scaleDownNodeTypes `Prelude.seq`
+      Prelude.rnf scaleUpNodeTypes `Prelude.seq`
+        Prelude.rnf httpStatus

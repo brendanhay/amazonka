@@ -233,5 +233,5 @@ instance
     PutAccountSettingDefaultResponse
   where
   rnf PutAccountSettingDefaultResponse' {..} =
-    Prelude.rnf setting
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf setting `Prelude.seq`
+      Prelude.rnf httpStatus

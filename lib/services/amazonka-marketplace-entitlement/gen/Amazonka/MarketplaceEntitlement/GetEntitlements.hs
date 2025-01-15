@@ -153,12 +153,12 @@ instance Core.AWSPager GetEntitlements where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getEntitlements_nextToken
-          Lens..~ rs
-          Lens.^? getEntitlementsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getEntitlements_nextToken
+              Lens..~ rs
+              Lens.^? getEntitlementsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetEntitlements where
   type
@@ -185,10 +185,10 @@ instance Prelude.Hashable GetEntitlements where
 
 instance Prelude.NFData GetEntitlements where
   rnf GetEntitlements' {..} =
-    Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf productCode
+    Prelude.rnf filter' `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf productCode
 
 instance Data.ToHeaders GetEntitlements where
   toHeaders =
@@ -287,6 +287,6 @@ getEntitlementsResponse_httpStatus = Lens.lens (\GetEntitlementsResponse' {httpS
 
 instance Prelude.NFData GetEntitlementsResponse where
   rnf GetEntitlementsResponse' {..} =
-    Prelude.rnf entitlements
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf entitlements `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

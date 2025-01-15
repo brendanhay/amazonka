@@ -325,21 +325,21 @@ instance Prelude.Hashable FileCacheCreating where
 
 instance Prelude.NFData FileCacheCreating where
   rnf FileCacheCreating' {..} =
-    Prelude.rnf copyTagsToDataRepositoryAssociations
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf dNSName
-      `Prelude.seq` Prelude.rnf dataRepositoryAssociationIds
-      `Prelude.seq` Prelude.rnf failureDetails
-      `Prelude.seq` Prelude.rnf fileCacheId
-      `Prelude.seq` Prelude.rnf fileCacheType
-      `Prelude.seq` Prelude.rnf fileCacheTypeVersion
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf lifecycle
-      `Prelude.seq` Prelude.rnf lustreConfiguration
-      `Prelude.seq` Prelude.rnf networkInterfaceIds
-      `Prelude.seq` Prelude.rnf ownerId
-      `Prelude.seq` Prelude.rnf resourceARN
-      `Prelude.seq` Prelude.rnf storageCapacity
-      `Prelude.seq` Prelude.rnf subnetIds
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf copyTagsToDataRepositoryAssociations `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf dNSName `Prelude.seq`
+          Prelude.rnf dataRepositoryAssociationIds `Prelude.seq`
+            Prelude.rnf failureDetails `Prelude.seq`
+              Prelude.rnf fileCacheId `Prelude.seq`
+                Prelude.rnf fileCacheType `Prelude.seq`
+                  Prelude.rnf fileCacheTypeVersion `Prelude.seq`
+                    Prelude.rnf kmsKeyId `Prelude.seq`
+                      Prelude.rnf lifecycle `Prelude.seq`
+                        Prelude.rnf lustreConfiguration `Prelude.seq`
+                          Prelude.rnf networkInterfaceIds `Prelude.seq`
+                            Prelude.rnf ownerId `Prelude.seq`
+                              Prelude.rnf resourceARN `Prelude.seq`
+                                Prelude.rnf storageCapacity `Prelude.seq`
+                                  Prelude.rnf subnetIds `Prelude.seq`
+                                    Prelude.rnf tags `Prelude.seq`
+                                      Prelude.rnf vpcId

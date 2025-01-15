@@ -182,10 +182,10 @@ instance Prelude.Hashable CreateClusterSubnetGroup where
 
 instance Prelude.NFData CreateClusterSubnetGroup where
   rnf CreateClusterSubnetGroup' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clusterSubnetGroupName
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf subnetIds
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf clusterSubnetGroupName `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf subnetIds
 
 instance Data.ToHeaders CreateClusterSubnetGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -253,5 +253,5 @@ instance
     CreateClusterSubnetGroupResponse
   where
   rnf CreateClusterSubnetGroupResponse' {..} =
-    Prelude.rnf clusterSubnetGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf clusterSubnetGroup `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -112,9 +112,9 @@ instance Prelude.Hashable TokenValidityUnitsType where
 
 instance Prelude.NFData TokenValidityUnitsType where
   rnf TokenValidityUnitsType' {..} =
-    Prelude.rnf accessToken
-      `Prelude.seq` Prelude.rnf idToken
-      `Prelude.seq` Prelude.rnf refreshToken
+    Prelude.rnf accessToken `Prelude.seq`
+      Prelude.rnf idToken `Prelude.seq`
+        Prelude.rnf refreshToken
 
 instance Data.ToJSON TokenValidityUnitsType where
   toJSON TokenValidityUnitsType' {..} =

@@ -106,10 +106,10 @@ instance Prelude.Hashable OutboundCallConfig where
 
 instance Prelude.NFData OutboundCallConfig where
   rnf OutboundCallConfig' {..} =
-    Prelude.rnf answerMachineDetectionConfig
-      `Prelude.seq` Prelude.rnf connectSourcePhoneNumber
-      `Prelude.seq` Prelude.rnf connectContactFlowId
-      `Prelude.seq` Prelude.rnf connectQueueId
+    Prelude.rnf answerMachineDetectionConfig `Prelude.seq`
+      Prelude.rnf connectSourcePhoneNumber `Prelude.seq`
+        Prelude.rnf connectContactFlowId `Prelude.seq`
+          Prelude.rnf connectQueueId
 
 instance Data.ToJSON OutboundCallConfig where
   toJSON OutboundCallConfig' {..} =

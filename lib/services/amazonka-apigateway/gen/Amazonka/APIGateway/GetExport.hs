@@ -182,11 +182,11 @@ instance Prelude.Hashable GetExport where
 
 instance Prelude.NFData GetExport where
   rnf GetExport' {..} =
-    Prelude.rnf accepts
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf restApiId
-      `Prelude.seq` Prelude.rnf stageName
-      `Prelude.seq` Prelude.rnf exportType
+    Prelude.rnf accepts `Prelude.seq`
+      Prelude.rnf parameters `Prelude.seq`
+        Prelude.rnf restApiId `Prelude.seq`
+          Prelude.rnf stageName `Prelude.seq`
+            Prelude.rnf exportType
 
 instance Data.ToHeaders GetExport where
   toHeaders GetExport' {..} =
@@ -280,7 +280,7 @@ getExportResponse_httpStatus = Lens.lens (\GetExportResponse' {httpStatus} -> ht
 
 instance Prelude.NFData GetExportResponse where
   rnf GetExportResponse' {..} =
-    Prelude.rnf body
-      `Prelude.seq` Prelude.rnf contentDisposition
-      `Prelude.seq` Prelude.rnf contentType
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf body `Prelude.seq`
+      Prelude.rnf contentDisposition `Prelude.seq`
+        Prelude.rnf contentType `Prelude.seq`
+          Prelude.rnf httpStatus

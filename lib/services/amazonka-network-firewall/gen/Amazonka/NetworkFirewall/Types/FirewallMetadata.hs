@@ -85,5 +85,5 @@ instance Prelude.Hashable FirewallMetadata where
 
 instance Prelude.NFData FirewallMetadata where
   rnf FirewallMetadata' {..} =
-    Prelude.rnf firewallArn
-      `Prelude.seq` Prelude.rnf firewallName
+    Prelude.rnf firewallArn `Prelude.seq`
+      Prelude.rnf firewallName

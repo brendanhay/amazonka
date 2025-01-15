@@ -162,14 +162,14 @@ instance
     EbsInstanceBlockDeviceSpecification
   where
   rnf EbsInstanceBlockDeviceSpecification' {..} =
-    Prelude.rnf deleteOnTermination
-      `Prelude.seq` Prelude.rnf encrypted
-      `Prelude.seq` Prelude.rnf iops
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf snapshotId
-      `Prelude.seq` Prelude.rnf throughput
-      `Prelude.seq` Prelude.rnf volumeSize
-      `Prelude.seq` Prelude.rnf volumeType
+    Prelude.rnf deleteOnTermination `Prelude.seq`
+      Prelude.rnf encrypted `Prelude.seq`
+        Prelude.rnf iops `Prelude.seq`
+          Prelude.rnf kmsKeyId `Prelude.seq`
+            Prelude.rnf snapshotId `Prelude.seq`
+              Prelude.rnf throughput `Prelude.seq`
+                Prelude.rnf volumeSize `Prelude.seq`
+                  Prelude.rnf volumeType
 
 instance
   Data.ToJSON

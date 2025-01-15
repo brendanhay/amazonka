@@ -95,6 +95,6 @@ instance Prelude.Hashable SoftwareInformation where
 
 instance Prelude.NFData SoftwareInformation where
   rnf SoftwareInformation' {..} =
-    Prelude.rnf installState
-      `Prelude.seq` Prelude.rnf installedVersion
-      `Prelude.seq` Prelude.rnf installingVersion
+    Prelude.rnf installState `Prelude.seq`
+      Prelude.rnf installedVersion `Prelude.seq`
+        Prelude.rnf installingVersion

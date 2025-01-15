@@ -389,28 +389,28 @@ instance Prelude.Hashable AwsCloudWatchAlarmDetails where
 
 instance Prelude.NFData AwsCloudWatchAlarmDetails where
   rnf AwsCloudWatchAlarmDetails' {..} =
-    Prelude.rnf actionsEnabled
-      `Prelude.seq` Prelude.rnf alarmActions
-      `Prelude.seq` Prelude.rnf alarmArn
-      `Prelude.seq` Prelude.rnf alarmConfigurationUpdatedTimestamp
-      `Prelude.seq` Prelude.rnf alarmDescription
-      `Prelude.seq` Prelude.rnf alarmName
-      `Prelude.seq` Prelude.rnf comparisonOperator
-      `Prelude.seq` Prelude.rnf datapointsToAlarm
-      `Prelude.seq` Prelude.rnf dimensions
-      `Prelude.seq` Prelude.rnf evaluateLowSampleCountPercentile
-      `Prelude.seq` Prelude.rnf evaluationPeriods
-      `Prelude.seq` Prelude.rnf extendedStatistic
-      `Prelude.seq` Prelude.rnf insufficientDataActions
-      `Prelude.seq` Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf namespace
-      `Prelude.seq` Prelude.rnf okActions
-      `Prelude.seq` Prelude.rnf period
-      `Prelude.seq` Prelude.rnf statistic
-      `Prelude.seq` Prelude.rnf threshold
-      `Prelude.seq` Prelude.rnf thresholdMetricId
-      `Prelude.seq` Prelude.rnf treatMissingData
-      `Prelude.seq` Prelude.rnf unit
+    Prelude.rnf actionsEnabled `Prelude.seq`
+      Prelude.rnf alarmActions `Prelude.seq`
+        Prelude.rnf alarmArn `Prelude.seq`
+          Prelude.rnf alarmConfigurationUpdatedTimestamp `Prelude.seq`
+            Prelude.rnf alarmDescription `Prelude.seq`
+              Prelude.rnf alarmName `Prelude.seq`
+                Prelude.rnf comparisonOperator `Prelude.seq`
+                  Prelude.rnf datapointsToAlarm `Prelude.seq`
+                    Prelude.rnf dimensions `Prelude.seq`
+                      Prelude.rnf evaluateLowSampleCountPercentile `Prelude.seq`
+                        Prelude.rnf evaluationPeriods `Prelude.seq`
+                          Prelude.rnf extendedStatistic `Prelude.seq`
+                            Prelude.rnf insufficientDataActions `Prelude.seq`
+                              Prelude.rnf metricName `Prelude.seq`
+                                Prelude.rnf namespace `Prelude.seq`
+                                  Prelude.rnf okActions `Prelude.seq`
+                                    Prelude.rnf period `Prelude.seq`
+                                      Prelude.rnf statistic `Prelude.seq`
+                                        Prelude.rnf threshold `Prelude.seq`
+                                          Prelude.rnf thresholdMetricId `Prelude.seq`
+                                            Prelude.rnf treatMissingData `Prelude.seq`
+                                              Prelude.rnf unit
 
 instance Data.ToJSON AwsCloudWatchAlarmDetails where
   toJSON AwsCloudWatchAlarmDetails' {..} =

@@ -102,10 +102,10 @@ instance Prelude.Hashable Variant where
 
 instance Prelude.NFData Variant where
   rnf Variant' {..} =
-    Prelude.rnf booleanValue
-      `Prelude.seq` Prelude.rnf doubleValue
-      `Prelude.seq` Prelude.rnf integerValue
-      `Prelude.seq` Prelude.rnf stringValue
+    Prelude.rnf booleanValue `Prelude.seq`
+      Prelude.rnf doubleValue `Prelude.seq`
+        Prelude.rnf integerValue `Prelude.seq`
+          Prelude.rnf stringValue
 
 instance Data.ToJSON Variant where
   toJSON Variant' {..} =

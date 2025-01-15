@@ -161,5 +161,5 @@ getIdentityProviderResponse_httpStatus = Lens.lens (\GetIdentityProviderResponse
 
 instance Prelude.NFData GetIdentityProviderResponse where
   rnf GetIdentityProviderResponse' {..} =
-    Prelude.rnf identityProvider
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf identityProvider `Prelude.seq`
+      Prelude.rnf httpStatus

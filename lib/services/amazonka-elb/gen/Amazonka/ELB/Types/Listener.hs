@@ -172,11 +172,11 @@ instance Prelude.Hashable Listener where
 
 instance Prelude.NFData Listener where
   rnf Listener' {..} =
-    Prelude.rnf instanceProtocol
-      `Prelude.seq` Prelude.rnf sSLCertificateId
-      `Prelude.seq` Prelude.rnf protocol
-      `Prelude.seq` Prelude.rnf loadBalancerPort
-      `Prelude.seq` Prelude.rnf instancePort
+    Prelude.rnf instanceProtocol `Prelude.seq`
+      Prelude.rnf sSLCertificateId `Prelude.seq`
+        Prelude.rnf protocol `Prelude.seq`
+          Prelude.rnf loadBalancerPort `Prelude.seq`
+            Prelude.rnf instancePort
 
 instance Data.ToQuery Listener where
   toQuery Listener' {..} =

@@ -171,10 +171,10 @@ instance Prelude.Hashable PutRumMetricsDestination where
 
 instance Prelude.NFData PutRumMetricsDestination where
   rnf PutRumMetricsDestination' {..} =
-    Prelude.rnf destinationArn
-      `Prelude.seq` Prelude.rnf iamRoleArn
-      `Prelude.seq` Prelude.rnf appMonitorName
-      `Prelude.seq` Prelude.rnf destination
+    Prelude.rnf destinationArn `Prelude.seq`
+      Prelude.rnf iamRoleArn `Prelude.seq`
+        Prelude.rnf appMonitorName `Prelude.seq`
+          Prelude.rnf destination
 
 instance Data.ToHeaders PutRumMetricsDestination where
   toHeaders =

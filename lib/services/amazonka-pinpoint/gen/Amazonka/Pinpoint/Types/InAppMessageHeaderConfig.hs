@@ -101,9 +101,9 @@ instance Prelude.Hashable InAppMessageHeaderConfig where
 
 instance Prelude.NFData InAppMessageHeaderConfig where
   rnf InAppMessageHeaderConfig' {..} =
-    Prelude.rnf alignment
-      `Prelude.seq` Prelude.rnf header
-      `Prelude.seq` Prelude.rnf textColor
+    Prelude.rnf alignment `Prelude.seq`
+      Prelude.rnf header `Prelude.seq`
+        Prelude.rnf textColor
 
 instance Data.ToJSON InAppMessageHeaderConfig where
   toJSON InAppMessageHeaderConfig' {..} =

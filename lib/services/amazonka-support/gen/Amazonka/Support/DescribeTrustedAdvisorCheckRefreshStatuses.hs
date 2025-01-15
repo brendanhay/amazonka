@@ -233,5 +233,5 @@ instance
   where
   rnf
     DescribeTrustedAdvisorCheckRefreshStatusesResponse' {..} =
-      Prelude.rnf httpStatus
-        `Prelude.seq` Prelude.rnf statuses
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf statuses

@@ -197,12 +197,12 @@ instance Prelude.Hashable CustomMessageActivity where
 
 instance Prelude.NFData CustomMessageActivity where
   rnf CustomMessageActivity' {..} =
-    Prelude.rnf deliveryUri
-      `Prelude.seq` Prelude.rnf endpointTypes
-      `Prelude.seq` Prelude.rnf messageConfig
-      `Prelude.seq` Prelude.rnf nextActivity
-      `Prelude.seq` Prelude.rnf templateName
-      `Prelude.seq` Prelude.rnf templateVersion
+    Prelude.rnf deliveryUri `Prelude.seq`
+      Prelude.rnf endpointTypes `Prelude.seq`
+        Prelude.rnf messageConfig `Prelude.seq`
+          Prelude.rnf nextActivity `Prelude.seq`
+            Prelude.rnf templateName `Prelude.seq`
+              Prelude.rnf templateVersion
 
 instance Data.ToJSON CustomMessageActivity where
   toJSON CustomMessageActivity' {..} =

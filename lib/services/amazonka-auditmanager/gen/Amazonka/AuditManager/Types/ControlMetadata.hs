@@ -128,9 +128,9 @@ instance Prelude.Hashable ControlMetadata where
 
 instance Prelude.NFData ControlMetadata where
   rnf ControlMetadata' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf controlSources
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf controlSources `Prelude.seq`
+        Prelude.rnf createdAt `Prelude.seq`
+          Prelude.rnf id `Prelude.seq`
+            Prelude.rnf lastUpdatedAt `Prelude.seq`
+              Prelude.rnf name

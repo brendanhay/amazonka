@@ -139,9 +139,9 @@ instance Prelude.Hashable DeleteRumMetricsDestination where
 
 instance Prelude.NFData DeleteRumMetricsDestination where
   rnf DeleteRumMetricsDestination' {..} =
-    Prelude.rnf destinationArn
-      `Prelude.seq` Prelude.rnf appMonitorName
-      `Prelude.seq` Prelude.rnf destination
+    Prelude.rnf destinationArn `Prelude.seq`
+      Prelude.rnf appMonitorName `Prelude.seq`
+        Prelude.rnf destination
 
 instance Data.ToHeaders DeleteRumMetricsDestination where
   toHeaders =

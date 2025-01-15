@@ -136,8 +136,8 @@ instance Prelude.Hashable TrainingJobStatusCounters where
 
 instance Prelude.NFData TrainingJobStatusCounters where
   rnf TrainingJobStatusCounters' {..} =
-    Prelude.rnf completed
-      `Prelude.seq` Prelude.rnf inProgress
-      `Prelude.seq` Prelude.rnf nonRetryableError
-      `Prelude.seq` Prelude.rnf retryableError
-      `Prelude.seq` Prelude.rnf stopped
+    Prelude.rnf completed `Prelude.seq`
+      Prelude.rnf inProgress `Prelude.seq`
+        Prelude.rnf nonRetryableError `Prelude.seq`
+          Prelude.rnf retryableError `Prelude.seq`
+            Prelude.rnf stopped

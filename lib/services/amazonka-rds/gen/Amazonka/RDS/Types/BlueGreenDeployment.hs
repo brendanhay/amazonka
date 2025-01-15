@@ -257,15 +257,11 @@ instance Data.FromXML BlueGreenDeployment where
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x
-                      Data..@? "TagList"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "TagList" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "Tag")
                   )
       Prelude.<*> (x Data..@? "Target")
-      Prelude.<*> ( x
-                      Data..@? "Tasks"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "Tasks" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 
@@ -286,14 +282,14 @@ instance Prelude.Hashable BlueGreenDeployment where
 
 instance Prelude.NFData BlueGreenDeployment where
   rnf BlueGreenDeployment' {..} =
-    Prelude.rnf blueGreenDeploymentIdentifier
-      `Prelude.seq` Prelude.rnf blueGreenDeploymentName
-      `Prelude.seq` Prelude.rnf createTime
-      `Prelude.seq` Prelude.rnf deleteTime
-      `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusDetails
-      `Prelude.seq` Prelude.rnf switchoverDetails
-      `Prelude.seq` Prelude.rnf tagList
-      `Prelude.seq` Prelude.rnf target
-      `Prelude.seq` Prelude.rnf tasks
+    Prelude.rnf blueGreenDeploymentIdentifier `Prelude.seq`
+      Prelude.rnf blueGreenDeploymentName `Prelude.seq`
+        Prelude.rnf createTime `Prelude.seq`
+          Prelude.rnf deleteTime `Prelude.seq`
+            Prelude.rnf source `Prelude.seq`
+              Prelude.rnf status `Prelude.seq`
+                Prelude.rnf statusDetails `Prelude.seq`
+                  Prelude.rnf switchoverDetails `Prelude.seq`
+                    Prelude.rnf tagList `Prelude.seq`
+                      Prelude.rnf target `Prelude.seq`
+                        Prelude.rnf tasks

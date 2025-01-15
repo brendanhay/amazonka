@@ -163,12 +163,12 @@ instance Core.AWSPager ListHumanLoops where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listHumanLoops_nextToken
-          Lens..~ rs
-          Lens.^? listHumanLoopsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listHumanLoops_nextToken
+              Lens..~ rs
+              Lens.^? listHumanLoopsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListHumanLoops where
   type
@@ -200,12 +200,12 @@ instance Prelude.Hashable ListHumanLoops where
 
 instance Prelude.NFData ListHumanLoops where
   rnf ListHumanLoops' {..} =
-    Prelude.rnf creationTimeAfter
-      `Prelude.seq` Prelude.rnf creationTimeBefore
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortOrder
-      `Prelude.seq` Prelude.rnf flowDefinitionArn
+    Prelude.rnf creationTimeAfter `Prelude.seq`
+      Prelude.rnf creationTimeBefore `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf sortOrder `Prelude.seq`
+              Prelude.rnf flowDefinitionArn
 
 instance Data.ToHeaders ListHumanLoops where
   toHeaders = Prelude.const Prelude.mempty
@@ -274,6 +274,6 @@ listHumanLoopsResponse_humanLoopSummaries = Lens.lens (\ListHumanLoopsResponse' 
 
 instance Prelude.NFData ListHumanLoopsResponse where
   rnf ListHumanLoopsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf humanLoopSummaries
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf humanLoopSummaries

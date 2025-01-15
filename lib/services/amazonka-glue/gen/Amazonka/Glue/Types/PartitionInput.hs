@@ -125,11 +125,11 @@ instance Prelude.Hashable PartitionInput where
 
 instance Prelude.NFData PartitionInput where
   rnf PartitionInput' {..} =
-    Prelude.rnf lastAccessTime
-      `Prelude.seq` Prelude.rnf lastAnalyzedTime
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf storageDescriptor
-      `Prelude.seq` Prelude.rnf values
+    Prelude.rnf lastAccessTime `Prelude.seq`
+      Prelude.rnf lastAnalyzedTime `Prelude.seq`
+        Prelude.rnf parameters `Prelude.seq`
+          Prelude.rnf storageDescriptor `Prelude.seq`
+            Prelude.rnf values
 
 instance Data.ToJSON PartitionInput where
   toJSON PartitionInput' {..} =

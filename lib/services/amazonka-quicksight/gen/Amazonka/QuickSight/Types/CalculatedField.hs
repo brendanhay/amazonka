@@ -101,9 +101,9 @@ instance Prelude.Hashable CalculatedField where
 
 instance Prelude.NFData CalculatedField where
   rnf CalculatedField' {..} =
-    Prelude.rnf dataSetIdentifier
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf expression
+    Prelude.rnf dataSetIdentifier `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf expression
 
 instance Data.ToJSON CalculatedField where
   toJSON CalculatedField' {..} =

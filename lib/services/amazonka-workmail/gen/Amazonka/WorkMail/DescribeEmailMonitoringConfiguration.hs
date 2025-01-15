@@ -219,6 +219,6 @@ instance
     DescribeEmailMonitoringConfigurationResponse
   where
   rnf DescribeEmailMonitoringConfigurationResponse' {..} =
-    Prelude.rnf logGroupArn
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf logGroupArn `Prelude.seq`
+      Prelude.rnf roleArn `Prelude.seq`
+        Prelude.rnf httpStatus

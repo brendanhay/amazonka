@@ -168,8 +168,8 @@ instance Prelude.Hashable StandardsSubscription where
 
 instance Prelude.NFData StandardsSubscription where
   rnf StandardsSubscription' {..} =
-    Prelude.rnf standardsStatusReason
-      `Prelude.seq` Prelude.rnf standardsSubscriptionArn
-      `Prelude.seq` Prelude.rnf standardsArn
-      `Prelude.seq` Prelude.rnf standardsInput
-      `Prelude.seq` Prelude.rnf standardsStatus
+    Prelude.rnf standardsStatusReason `Prelude.seq`
+      Prelude.rnf standardsSubscriptionArn `Prelude.seq`
+        Prelude.rnf standardsArn `Prelude.seq`
+          Prelude.rnf standardsInput `Prelude.seq`
+            Prelude.rnf standardsStatus

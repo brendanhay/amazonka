@@ -118,9 +118,9 @@ instance Prelude.Hashable UpdateUserSettings where
 
 instance Prelude.NFData UpdateUserSettings where
   rnf UpdateUserSettings' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf userId
-      `Prelude.seq` Prelude.rnf userSettings
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf userId `Prelude.seq`
+        Prelude.rnf userSettings
 
 instance Data.ToHeaders UpdateUserSettings where
   toHeaders = Prelude.const Prelude.mempty

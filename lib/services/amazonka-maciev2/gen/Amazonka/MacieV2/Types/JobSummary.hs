@@ -296,12 +296,12 @@ instance Prelude.Hashable JobSummary where
 
 instance Prelude.NFData JobSummary where
   rnf JobSummary' {..} =
-    Prelude.rnf bucketCriteria
-      `Prelude.seq` Prelude.rnf bucketDefinitions
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf jobStatus
-      `Prelude.seq` Prelude.rnf jobType
-      `Prelude.seq` Prelude.rnf lastRunErrorStatus
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf userPausedDetails
+    Prelude.rnf bucketCriteria `Prelude.seq`
+      Prelude.rnf bucketDefinitions `Prelude.seq`
+        Prelude.rnf createdAt `Prelude.seq`
+          Prelude.rnf jobId `Prelude.seq`
+            Prelude.rnf jobStatus `Prelude.seq`
+              Prelude.rnf jobType `Prelude.seq`
+                Prelude.rnf lastRunErrorStatus `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf userPausedDetails

@@ -93,6 +93,6 @@ instance Prelude.Hashable ConnectAttachment where
 
 instance Prelude.NFData ConnectAttachment where
   rnf ConnectAttachment' {..} =
-    Prelude.rnf attachment
-      `Prelude.seq` Prelude.rnf options
-      `Prelude.seq` Prelude.rnf transportAttachmentId
+    Prelude.rnf attachment `Prelude.seq`
+      Prelude.rnf options `Prelude.seq`
+        Prelude.rnf transportAttachmentId

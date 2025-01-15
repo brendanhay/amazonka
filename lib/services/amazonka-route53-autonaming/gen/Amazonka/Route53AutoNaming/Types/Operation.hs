@@ -284,11 +284,11 @@ instance Prelude.Hashable Operation where
 
 instance Prelude.NFData Operation where
   rnf Operation' {..} =
-    Prelude.rnf createDate
-      `Prelude.seq` Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf targets
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf updateDate
+    Prelude.rnf createDate `Prelude.seq`
+      Prelude.rnf errorCode `Prelude.seq`
+        Prelude.rnf errorMessage `Prelude.seq`
+          Prelude.rnf id `Prelude.seq`
+            Prelude.rnf status `Prelude.seq`
+              Prelude.rnf targets `Prelude.seq`
+                Prelude.rnf type' `Prelude.seq`
+                  Prelude.rnf updateDate

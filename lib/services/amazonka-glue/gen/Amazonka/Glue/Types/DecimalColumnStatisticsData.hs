@@ -111,10 +111,10 @@ instance Prelude.Hashable DecimalColumnStatisticsData where
 
 instance Prelude.NFData DecimalColumnStatisticsData where
   rnf DecimalColumnStatisticsData' {..} =
-    Prelude.rnf maximumValue
-      `Prelude.seq` Prelude.rnf minimumValue
-      `Prelude.seq` Prelude.rnf numberOfNulls
-      `Prelude.seq` Prelude.rnf numberOfDistinctValues
+    Prelude.rnf maximumValue `Prelude.seq`
+      Prelude.rnf minimumValue `Prelude.seq`
+        Prelude.rnf numberOfNulls `Prelude.seq`
+          Prelude.rnf numberOfDistinctValues
 
 instance Data.ToJSON DecimalColumnStatisticsData where
   toJSON DecimalColumnStatisticsData' {..} =

@@ -91,6 +91,6 @@ instance Prelude.Hashable PipelineMetadata where
 
 instance Prelude.NFData PipelineMetadata where
   rnf PipelineMetadata' {..} =
-    Prelude.rnf created
-      `Prelude.seq` Prelude.rnf pipelineArn
-      `Prelude.seq` Prelude.rnf updated
+    Prelude.rnf created `Prelude.seq`
+      Prelude.rnf pipelineArn `Prelude.seq`
+        Prelude.rnf updated

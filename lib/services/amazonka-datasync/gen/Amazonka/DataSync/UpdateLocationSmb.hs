@@ -238,13 +238,13 @@ instance Prelude.Hashable UpdateLocationSmb where
 
 instance Prelude.NFData UpdateLocationSmb where
   rnf UpdateLocationSmb' {..} =
-    Prelude.rnf agentArns
-      `Prelude.seq` Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf mountOptions
-      `Prelude.seq` Prelude.rnf password
-      `Prelude.seq` Prelude.rnf subdirectory
-      `Prelude.seq` Prelude.rnf user
-      `Prelude.seq` Prelude.rnf locationArn
+    Prelude.rnf agentArns `Prelude.seq`
+      Prelude.rnf domain `Prelude.seq`
+        Prelude.rnf mountOptions `Prelude.seq`
+          Prelude.rnf password `Prelude.seq`
+            Prelude.rnf subdirectory `Prelude.seq`
+              Prelude.rnf user `Prelude.seq`
+                Prelude.rnf locationArn
 
 instance Data.ToHeaders UpdateLocationSmb where
   toHeaders =

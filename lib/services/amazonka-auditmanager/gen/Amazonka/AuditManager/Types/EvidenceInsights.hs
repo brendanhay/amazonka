@@ -135,6 +135,6 @@ instance Prelude.Hashable EvidenceInsights where
 
 instance Prelude.NFData EvidenceInsights where
   rnf EvidenceInsights' {..} =
-    Prelude.rnf compliantEvidenceCount
-      `Prelude.seq` Prelude.rnf inconclusiveEvidenceCount
-      `Prelude.seq` Prelude.rnf noncompliantEvidenceCount
+    Prelude.rnf compliantEvidenceCount `Prelude.seq`
+      Prelude.rnf inconclusiveEvidenceCount `Prelude.seq`
+        Prelude.rnf noncompliantEvidenceCount

@@ -275,13 +275,13 @@ instance
 
 instance Prelude.NFData CountClosedWorkflowExecutions where
   rnf CountClosedWorkflowExecutions' {..} =
-    Prelude.rnf closeStatusFilter
-      `Prelude.seq` Prelude.rnf closeTimeFilter
-      `Prelude.seq` Prelude.rnf executionFilter
-      `Prelude.seq` Prelude.rnf startTimeFilter
-      `Prelude.seq` Prelude.rnf tagFilter
-      `Prelude.seq` Prelude.rnf typeFilter
-      `Prelude.seq` Prelude.rnf domain
+    Prelude.rnf closeStatusFilter `Prelude.seq`
+      Prelude.rnf closeTimeFilter `Prelude.seq`
+        Prelude.rnf executionFilter `Prelude.seq`
+          Prelude.rnf startTimeFilter `Prelude.seq`
+            Prelude.rnf tagFilter `Prelude.seq`
+              Prelude.rnf typeFilter `Prelude.seq`
+                Prelude.rnf domain
 
 instance Data.ToHeaders CountClosedWorkflowExecutions where
   toHeaders =

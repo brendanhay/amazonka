@@ -119,5 +119,5 @@ instance Prelude.Hashable ItemCollectionMetrics where
 
 instance Prelude.NFData ItemCollectionMetrics where
   rnf ItemCollectionMetrics' {..} =
-    Prelude.rnf itemCollectionKey
-      `Prelude.seq` Prelude.rnf sizeEstimateRangeGB
+    Prelude.rnf itemCollectionKey `Prelude.seq`
+      Prelude.rnf sizeEstimateRangeGB

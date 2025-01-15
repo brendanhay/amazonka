@@ -114,11 +114,11 @@ instance Prelude.Hashable DateArrayOptions where
 
 instance Prelude.NFData DateArrayOptions where
   rnf DateArrayOptions' {..} =
-    Prelude.rnf defaultValue
-      `Prelude.seq` Prelude.rnf facetEnabled
-      `Prelude.seq` Prelude.rnf returnEnabled
-      `Prelude.seq` Prelude.rnf searchEnabled
-      `Prelude.seq` Prelude.rnf sourceFields
+    Prelude.rnf defaultValue `Prelude.seq`
+      Prelude.rnf facetEnabled `Prelude.seq`
+        Prelude.rnf returnEnabled `Prelude.seq`
+          Prelude.rnf searchEnabled `Prelude.seq`
+            Prelude.rnf sourceFields
 
 instance Data.ToQuery DateArrayOptions where
   toQuery DateArrayOptions' {..} =

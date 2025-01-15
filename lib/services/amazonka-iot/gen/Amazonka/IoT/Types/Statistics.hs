@@ -151,11 +151,11 @@ instance Prelude.Hashable Statistics where
 
 instance Prelude.NFData Statistics where
   rnf Statistics' {..} =
-    Prelude.rnf average
-      `Prelude.seq` Prelude.rnf count
-      `Prelude.seq` Prelude.rnf maximum
-      `Prelude.seq` Prelude.rnf minimum
-      `Prelude.seq` Prelude.rnf stdDeviation
-      `Prelude.seq` Prelude.rnf sum
-      `Prelude.seq` Prelude.rnf sumOfSquares
-      `Prelude.seq` Prelude.rnf variance
+    Prelude.rnf average `Prelude.seq`
+      Prelude.rnf count `Prelude.seq`
+        Prelude.rnf maximum `Prelude.seq`
+          Prelude.rnf minimum `Prelude.seq`
+            Prelude.rnf stdDeviation `Prelude.seq`
+              Prelude.rnf sum `Prelude.seq`
+                Prelude.rnf sumOfSquares `Prelude.seq`
+                  Prelude.rnf variance

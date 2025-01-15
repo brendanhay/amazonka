@@ -162,12 +162,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listAggregateDiscoveredResources_nextToken
-          Lens..~ rs
-          Lens.^? listAggregateDiscoveredResourcesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listAggregateDiscoveredResources_nextToken
+              Lens..~ rs
+              Lens.^? listAggregateDiscoveredResourcesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -209,11 +209,11 @@ instance
     ListAggregateDiscoveredResources
   where
   rnf ListAggregateDiscoveredResources' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf configurationAggregatorName
-      `Prelude.seq` Prelude.rnf resourceType
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf limit `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf configurationAggregatorName `Prelude.seq`
+            Prelude.rnf resourceType
 
 instance
   Data.ToHeaders
@@ -315,6 +315,6 @@ instance
     ListAggregateDiscoveredResourcesResponse
   where
   rnf ListAggregateDiscoveredResourcesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf resourceIdentifiers
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf resourceIdentifiers `Prelude.seq`
+        Prelude.rnf httpStatus

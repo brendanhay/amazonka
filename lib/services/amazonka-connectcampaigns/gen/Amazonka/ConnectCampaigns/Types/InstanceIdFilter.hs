@@ -73,8 +73,8 @@ instance Prelude.Hashable InstanceIdFilter where
 
 instance Prelude.NFData InstanceIdFilter where
   rnf InstanceIdFilter' {..} =
-    Prelude.rnf operator
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf operator `Prelude.seq`
+      Prelude.rnf value
 
 instance Data.ToJSON InstanceIdFilter where
   toJSON InstanceIdFilter' {..} =

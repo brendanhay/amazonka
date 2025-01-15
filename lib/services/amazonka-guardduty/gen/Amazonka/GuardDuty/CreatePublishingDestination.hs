@@ -149,10 +149,10 @@ instance Prelude.Hashable CreatePublishingDestination where
 
 instance Prelude.NFData CreatePublishingDestination where
   rnf CreatePublishingDestination' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf detectorId
-      `Prelude.seq` Prelude.rnf destinationType
-      `Prelude.seq` Prelude.rnf destinationProperties
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf detectorId `Prelude.seq`
+        Prelude.rnf destinationType `Prelude.seq`
+          Prelude.rnf destinationProperties
 
 instance Data.ToHeaders CreatePublishingDestination where
   toHeaders =
@@ -238,5 +238,5 @@ instance
     CreatePublishingDestinationResponse
   where
   rnf CreatePublishingDestinationResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf destinationId
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf destinationId

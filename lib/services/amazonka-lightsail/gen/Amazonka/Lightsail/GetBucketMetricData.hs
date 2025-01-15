@@ -345,13 +345,13 @@ instance Prelude.Hashable GetBucketMetricData where
 
 instance Prelude.NFData GetBucketMetricData where
   rnf GetBucketMetricData' {..} =
-    Prelude.rnf bucketName
-      `Prelude.seq` Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf period
-      `Prelude.seq` Prelude.rnf statistics
-      `Prelude.seq` Prelude.rnf unit
+    Prelude.rnf bucketName `Prelude.seq`
+      Prelude.rnf metricName `Prelude.seq`
+        Prelude.rnf startTime `Prelude.seq`
+          Prelude.rnf endTime `Prelude.seq`
+            Prelude.rnf period `Prelude.seq`
+              Prelude.rnf statistics `Prelude.seq`
+                Prelude.rnf unit
 
 instance Data.ToHeaders GetBucketMetricData where
   toHeaders =
@@ -438,6 +438,6 @@ getBucketMetricDataResponse_httpStatus = Lens.lens (\GetBucketMetricDataResponse
 
 instance Prelude.NFData GetBucketMetricDataResponse where
   rnf GetBucketMetricDataResponse' {..} =
-    Prelude.rnf metricData
-      `Prelude.seq` Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf metricData `Prelude.seq`
+      Prelude.rnf metricName `Prelude.seq`
+        Prelude.rnf httpStatus

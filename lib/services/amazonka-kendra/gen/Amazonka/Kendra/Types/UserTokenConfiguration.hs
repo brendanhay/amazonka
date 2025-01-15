@@ -83,8 +83,8 @@ instance Prelude.Hashable UserTokenConfiguration where
 
 instance Prelude.NFData UserTokenConfiguration where
   rnf UserTokenConfiguration' {..} =
-    Prelude.rnf jsonTokenTypeConfiguration
-      `Prelude.seq` Prelude.rnf jwtTokenTypeConfiguration
+    Prelude.rnf jsonTokenTypeConfiguration `Prelude.seq`
+      Prelude.rnf jwtTokenTypeConfiguration
 
 instance Data.ToJSON UserTokenConfiguration where
   toJSON UserTokenConfiguration' {..} =

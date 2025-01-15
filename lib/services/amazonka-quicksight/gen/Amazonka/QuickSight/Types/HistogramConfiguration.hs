@@ -154,14 +154,14 @@ instance Prelude.Hashable HistogramConfiguration where
 
 instance Prelude.NFData HistogramConfiguration where
   rnf HistogramConfiguration' {..} =
-    Prelude.rnf binOptions
-      `Prelude.seq` Prelude.rnf dataLabels
-      `Prelude.seq` Prelude.rnf fieldWells
-      `Prelude.seq` Prelude.rnf tooltip
-      `Prelude.seq` Prelude.rnf visualPalette
-      `Prelude.seq` Prelude.rnf xAxisDisplayOptions
-      `Prelude.seq` Prelude.rnf xAxisLabelOptions
-      `Prelude.seq` Prelude.rnf yAxisDisplayOptions
+    Prelude.rnf binOptions `Prelude.seq`
+      Prelude.rnf dataLabels `Prelude.seq`
+        Prelude.rnf fieldWells `Prelude.seq`
+          Prelude.rnf tooltip `Prelude.seq`
+            Prelude.rnf visualPalette `Prelude.seq`
+              Prelude.rnf xAxisDisplayOptions `Prelude.seq`
+                Prelude.rnf xAxisLabelOptions `Prelude.seq`
+                  Prelude.rnf yAxisDisplayOptions
 
 instance Data.ToJSON HistogramConfiguration where
   toJSON HistogramConfiguration' {..} =

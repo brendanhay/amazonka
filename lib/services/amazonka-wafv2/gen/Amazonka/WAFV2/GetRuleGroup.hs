@@ -170,10 +170,10 @@ instance Prelude.Hashable GetRuleGroup where
 
 instance Prelude.NFData GetRuleGroup where
   rnf GetRuleGroup' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf scope
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf scope
 
 instance Data.ToHeaders GetRuleGroup where
   toHeaders =
@@ -275,6 +275,6 @@ getRuleGroupResponse_httpStatus = Lens.lens (\GetRuleGroupResponse' {httpStatus}
 
 instance Prelude.NFData GetRuleGroupResponse where
   rnf GetRuleGroupResponse' {..} =
-    Prelude.rnf lockToken
-      `Prelude.seq` Prelude.rnf ruleGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf lockToken `Prelude.seq`
+      Prelude.rnf ruleGroup `Prelude.seq`
+        Prelude.rnf httpStatus

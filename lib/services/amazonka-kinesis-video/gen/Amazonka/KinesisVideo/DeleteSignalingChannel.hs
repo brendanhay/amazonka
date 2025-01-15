@@ -118,8 +118,8 @@ instance Prelude.Hashable DeleteSignalingChannel where
 
 instance Prelude.NFData DeleteSignalingChannel where
   rnf DeleteSignalingChannel' {..} =
-    Prelude.rnf currentVersion
-      `Prelude.seq` Prelude.rnf channelARN
+    Prelude.rnf currentVersion `Prelude.seq`
+      Prelude.rnf channelARN
 
 instance Data.ToHeaders DeleteSignalingChannel where
   toHeaders = Prelude.const Prelude.mempty

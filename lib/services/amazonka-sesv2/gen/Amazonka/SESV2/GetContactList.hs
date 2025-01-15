@@ -219,10 +219,10 @@ getContactListResponse_httpStatus = Lens.lens (\GetContactListResponse' {httpSta
 
 instance Prelude.NFData GetContactListResponse where
   rnf GetContactListResponse' {..} =
-    Prelude.rnf contactListName
-      `Prelude.seq` Prelude.rnf createdTimestamp
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf lastUpdatedTimestamp
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf topics
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf contactListName `Prelude.seq`
+      Prelude.rnf createdTimestamp `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf lastUpdatedTimestamp `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf topics `Prelude.seq`
+                Prelude.rnf httpStatus

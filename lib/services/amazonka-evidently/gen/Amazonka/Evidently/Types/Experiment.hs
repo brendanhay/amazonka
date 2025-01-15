@@ -339,21 +339,21 @@ instance Prelude.Hashable Experiment where
 
 instance Prelude.NFData Experiment where
   rnf Experiment' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf execution
-      `Prelude.seq` Prelude.rnf metricGoals
-      `Prelude.seq` Prelude.rnf onlineAbDefinition
-      `Prelude.seq` Prelude.rnf project
-      `Prelude.seq` Prelude.rnf randomizationSalt
-      `Prelude.seq` Prelude.rnf samplingRate
-      `Prelude.seq` Prelude.rnf schedule
-      `Prelude.seq` Prelude.rnf segment
-      `Prelude.seq` Prelude.rnf statusReason
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf treatments
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf execution `Prelude.seq`
+        Prelude.rnf metricGoals `Prelude.seq`
+          Prelude.rnf onlineAbDefinition `Prelude.seq`
+            Prelude.rnf project `Prelude.seq`
+              Prelude.rnf randomizationSalt `Prelude.seq`
+                Prelude.rnf samplingRate `Prelude.seq`
+                  Prelude.rnf schedule `Prelude.seq`
+                    Prelude.rnf segment `Prelude.seq`
+                      Prelude.rnf statusReason `Prelude.seq`
+                        Prelude.rnf tags `Prelude.seq`
+                          Prelude.rnf treatments `Prelude.seq`
+                            Prelude.rnf arn `Prelude.seq`
+                              Prelude.rnf createdTime `Prelude.seq`
+                                Prelude.rnf lastUpdatedTime `Prelude.seq`
+                                  Prelude.rnf name `Prelude.seq`
+                                    Prelude.rnf status `Prelude.seq`
+                                      Prelude.rnf type'

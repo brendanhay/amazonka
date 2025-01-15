@@ -354,23 +354,23 @@ instance Prelude.Hashable Cluster where
 
 instance Prelude.NFData Cluster where
   rnf Cluster' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf certificateAuthority
-      `Prelude.seq` Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf connectorConfig
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf encryptionConfig
-      `Prelude.seq` Prelude.rnf endpoint
-      `Prelude.seq` Prelude.rnf health
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf identity
-      `Prelude.seq` Prelude.rnf kubernetesNetworkConfig
-      `Prelude.seq` Prelude.rnf logging
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf outpostConfig
-      `Prelude.seq` Prelude.rnf platformVersion
-      `Prelude.seq` Prelude.rnf resourcesVpcConfig
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf version
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf certificateAuthority `Prelude.seq`
+        Prelude.rnf clientRequestToken `Prelude.seq`
+          Prelude.rnf connectorConfig `Prelude.seq`
+            Prelude.rnf createdAt `Prelude.seq`
+              Prelude.rnf encryptionConfig `Prelude.seq`
+                Prelude.rnf endpoint `Prelude.seq`
+                  Prelude.rnf health `Prelude.seq`
+                    Prelude.rnf id `Prelude.seq`
+                      Prelude.rnf identity `Prelude.seq`
+                        Prelude.rnf kubernetesNetworkConfig `Prelude.seq`
+                          Prelude.rnf logging `Prelude.seq`
+                            Prelude.rnf name `Prelude.seq`
+                              Prelude.rnf outpostConfig `Prelude.seq`
+                                Prelude.rnf platformVersion `Prelude.seq`
+                                  Prelude.rnf resourcesVpcConfig `Prelude.seq`
+                                    Prelude.rnf roleArn `Prelude.seq`
+                                      Prelude.rnf status `Prelude.seq`
+                                        Prelude.rnf tags `Prelude.seq`
+                                          Prelude.rnf version

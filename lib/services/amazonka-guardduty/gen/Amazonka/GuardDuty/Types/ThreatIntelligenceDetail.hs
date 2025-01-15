@@ -85,5 +85,5 @@ instance Prelude.Hashable ThreatIntelligenceDetail where
 
 instance Prelude.NFData ThreatIntelligenceDetail where
   rnf ThreatIntelligenceDetail' {..} =
-    Prelude.rnf threatListName
-      `Prelude.seq` Prelude.rnf threatNames
+    Prelude.rnf threatListName `Prelude.seq`
+      Prelude.rnf threatNames

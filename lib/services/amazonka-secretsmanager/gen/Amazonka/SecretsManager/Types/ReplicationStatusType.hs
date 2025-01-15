@@ -121,8 +121,8 @@ instance Prelude.Hashable ReplicationStatusType where
 
 instance Prelude.NFData ReplicationStatusType where
   rnf ReplicationStatusType' {..} =
-    Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf lastAccessedDate
-      `Prelude.seq` Prelude.rnf region
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusMessage
+    Prelude.rnf kmsKeyId `Prelude.seq`
+      Prelude.rnf lastAccessedDate `Prelude.seq`
+        Prelude.rnf region `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf statusMessage

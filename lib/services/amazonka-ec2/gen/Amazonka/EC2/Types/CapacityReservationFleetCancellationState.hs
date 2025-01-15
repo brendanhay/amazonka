@@ -106,6 +106,6 @@ instance
     CapacityReservationFleetCancellationState
   where
   rnf CapacityReservationFleetCancellationState' {..} =
-    Prelude.rnf capacityReservationFleetId
-      `Prelude.seq` Prelude.rnf currentFleetState
-      `Prelude.seq` Prelude.rnf previousFleetState
+    Prelude.rnf capacityReservationFleetId `Prelude.seq`
+      Prelude.rnf currentFleetState `Prelude.seq`
+        Prelude.rnf previousFleetState

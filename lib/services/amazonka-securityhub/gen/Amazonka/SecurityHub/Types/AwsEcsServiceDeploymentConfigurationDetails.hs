@@ -184,9 +184,9 @@ instance
     AwsEcsServiceDeploymentConfigurationDetails
   where
   rnf AwsEcsServiceDeploymentConfigurationDetails' {..} =
-    Prelude.rnf deploymentCircuitBreaker
-      `Prelude.seq` Prelude.rnf maximumPercent
-      `Prelude.seq` Prelude.rnf minimumHealthyPercent
+    Prelude.rnf deploymentCircuitBreaker `Prelude.seq`
+      Prelude.rnf maximumPercent `Prelude.seq`
+        Prelude.rnf minimumHealthyPercent
 
 instance
   Data.ToJSON

@@ -149,11 +149,11 @@ instance Prelude.Hashable CreateEdgeDeploymentPlan where
 
 instance Prelude.NFData CreateEdgeDeploymentPlan where
   rnf CreateEdgeDeploymentPlan' {..} =
-    Prelude.rnf stages
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf edgeDeploymentPlanName
-      `Prelude.seq` Prelude.rnf modelConfigs
-      `Prelude.seq` Prelude.rnf deviceFleetName
+    Prelude.rnf stages `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf edgeDeploymentPlanName `Prelude.seq`
+          Prelude.rnf modelConfigs `Prelude.seq`
+            Prelude.rnf deviceFleetName
 
 instance Data.ToHeaders CreateEdgeDeploymentPlan where
   toHeaders =
@@ -241,5 +241,5 @@ instance
     CreateEdgeDeploymentPlanResponse
   where
   rnf CreateEdgeDeploymentPlanResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf edgeDeploymentPlanArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf edgeDeploymentPlanArn

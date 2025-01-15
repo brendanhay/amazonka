@@ -170,5 +170,5 @@ verifyTrustResponse_httpStatus = Lens.lens (\VerifyTrustResponse' {httpStatus} -
 
 instance Prelude.NFData VerifyTrustResponse where
   rnf VerifyTrustResponse' {..} =
-    Prelude.rnf trustId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf trustId `Prelude.seq`
+      Prelude.rnf httpStatus

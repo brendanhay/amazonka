@@ -179,11 +179,11 @@ instance Prelude.Hashable StartTaskExecution where
 
 instance Prelude.NFData StartTaskExecution where
   rnf StartTaskExecution' {..} =
-    Prelude.rnf excludes
-      `Prelude.seq` Prelude.rnf includes
-      `Prelude.seq` Prelude.rnf overrideOptions
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf taskArn
+    Prelude.rnf excludes `Prelude.seq`
+      Prelude.rnf includes `Prelude.seq`
+        Prelude.rnf overrideOptions `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf taskArn
 
 instance Data.ToHeaders StartTaskExecution where
   toHeaders =
@@ -262,5 +262,5 @@ startTaskExecutionResponse_httpStatus = Lens.lens (\StartTaskExecutionResponse' 
 
 instance Prelude.NFData StartTaskExecutionResponse where
   rnf StartTaskExecutionResponse' {..} =
-    Prelude.rnf taskExecutionArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf taskExecutionArn `Prelude.seq`
+      Prelude.rnf httpStatus

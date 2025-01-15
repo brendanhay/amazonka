@@ -98,9 +98,9 @@ instance Prelude.Hashable EncryptionConfiguration where
 
 instance Prelude.NFData EncryptionConfiguration where
   rnf EncryptionConfiguration' {..} =
-    Prelude.rnf cloudWatchEncryption
-      `Prelude.seq` Prelude.rnf jobBookmarksEncryption
-      `Prelude.seq` Prelude.rnf s3Encryption
+    Prelude.rnf cloudWatchEncryption `Prelude.seq`
+      Prelude.rnf jobBookmarksEncryption `Prelude.seq`
+        Prelude.rnf s3Encryption
 
 instance Data.ToJSON EncryptionConfiguration where
   toJSON EncryptionConfiguration' {..} =

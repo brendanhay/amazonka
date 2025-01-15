@@ -80,5 +80,5 @@ instance Prelude.Hashable Certificate where
 
 instance Prelude.NFData Certificate where
   rnf Certificate' {..} =
-    Prelude.rnf certificateArn
-      `Prelude.seq` Prelude.rnf certificateData
+    Prelude.rnf certificateArn `Prelude.seq`
+      Prelude.rnf certificateData

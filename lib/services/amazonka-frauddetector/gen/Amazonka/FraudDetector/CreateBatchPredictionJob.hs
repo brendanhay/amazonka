@@ -207,14 +207,14 @@ instance Prelude.Hashable CreateBatchPredictionJob where
 
 instance Prelude.NFData CreateBatchPredictionJob where
   rnf CreateBatchPredictionJob' {..} =
-    Prelude.rnf detectorVersion
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf inputPath
-      `Prelude.seq` Prelude.rnf outputPath
-      `Prelude.seq` Prelude.rnf eventTypeName
-      `Prelude.seq` Prelude.rnf detectorName
-      `Prelude.seq` Prelude.rnf iamRoleArn
+    Prelude.rnf detectorVersion `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf jobId `Prelude.seq`
+          Prelude.rnf inputPath `Prelude.seq`
+            Prelude.rnf outputPath `Prelude.seq`
+              Prelude.rnf eventTypeName `Prelude.seq`
+                Prelude.rnf detectorName `Prelude.seq`
+                  Prelude.rnf iamRoleArn
 
 instance Data.ToHeaders CreateBatchPredictionJob where
   toHeaders =

@@ -88,5 +88,5 @@ instance Prelude.Hashable SourceConfig where
 
 instance Prelude.NFData SourceConfig where
   rnf SourceConfig' {..} =
-    Prelude.rnf advancedEventSelectors
-      `Prelude.seq` Prelude.rnf applyToAllRegions
+    Prelude.rnf advancedEventSelectors `Prelude.seq`
+      Prelude.rnf applyToAllRegions

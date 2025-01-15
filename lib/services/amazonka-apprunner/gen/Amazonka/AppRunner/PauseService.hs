@@ -188,6 +188,6 @@ pauseServiceResponse_service = Lens.lens (\PauseServiceResponse' {service} -> se
 
 instance Prelude.NFData PauseServiceResponse where
   rnf PauseServiceResponse' {..} =
-    Prelude.rnf operationId
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf service
+    Prelude.rnf operationId `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf service

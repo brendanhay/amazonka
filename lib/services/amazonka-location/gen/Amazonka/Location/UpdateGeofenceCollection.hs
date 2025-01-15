@@ -138,10 +138,10 @@ instance Prelude.Hashable UpdateGeofenceCollection where
 
 instance Prelude.NFData UpdateGeofenceCollection where
   rnf UpdateGeofenceCollection' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf pricingPlan
-      `Prelude.seq` Prelude.rnf pricingPlanDataSource
-      `Prelude.seq` Prelude.rnf collectionName
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf pricingPlan `Prelude.seq`
+        Prelude.rnf pricingPlanDataSource `Prelude.seq`
+          Prelude.rnf collectionName
 
 instance Data.ToHeaders UpdateGeofenceCollection where
   toHeaders =
@@ -266,7 +266,7 @@ instance
     UpdateGeofenceCollectionResponse
   where
   rnf UpdateGeofenceCollectionResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf collectionArn
-      `Prelude.seq` Prelude.rnf collectionName
-      `Prelude.seq` Prelude.rnf updateTime
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf collectionArn `Prelude.seq`
+        Prelude.rnf collectionName `Prelude.seq`
+          Prelude.rnf updateTime

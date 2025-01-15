@@ -115,7 +115,7 @@ instance Prelude.Hashable TemplateSummary where
 
 instance Prelude.NFData TemplateSummary where
   rnf TemplateSummary' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf templateArn
-      `Prelude.seq` Prelude.rnf templateId
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf templateArn `Prelude.seq`
+          Prelude.rnf templateId

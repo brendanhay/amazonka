@@ -130,12 +130,12 @@ instance Core.AWSPager DescribeProducts where
         (rs Lens.^. describeProductsResponse_products) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeProducts_nextToken
-          Lens..~ rs
-          Lens.^? describeProductsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeProducts_nextToken
+              Lens..~ rs
+              Lens.^? describeProductsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeProducts where
   type
@@ -161,9 +161,9 @@ instance Prelude.Hashable DescribeProducts where
 
 instance Prelude.NFData DescribeProducts where
   rnf DescribeProducts' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf productArn
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf productArn
 
 instance Data.ToHeaders DescribeProducts where
   toHeaders =
@@ -237,6 +237,6 @@ describeProductsResponse_products = Lens.lens (\DescribeProductsResponse' {produ
 
 instance Prelude.NFData DescribeProductsResponse where
   rnf DescribeProductsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf products
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf products

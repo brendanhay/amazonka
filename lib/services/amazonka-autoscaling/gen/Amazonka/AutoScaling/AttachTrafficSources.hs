@@ -141,8 +141,8 @@ instance Prelude.Hashable AttachTrafficSources where
 
 instance Prelude.NFData AttachTrafficSources where
   rnf AttachTrafficSources' {..} =
-    Prelude.rnf autoScalingGroupName
-      `Prelude.seq` Prelude.rnf trafficSources
+    Prelude.rnf autoScalingGroupName `Prelude.seq`
+      Prelude.rnf trafficSources
 
 instance Data.ToHeaders AttachTrafficSources where
   toHeaders = Prelude.const Prelude.mempty

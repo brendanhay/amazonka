@@ -164,11 +164,11 @@ instance
     DeleteColumnStatisticsForPartition
   where
   rnf DeleteColumnStatisticsForPartition' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf tableName
-      `Prelude.seq` Prelude.rnf partitionValues
-      `Prelude.seq` Prelude.rnf columnName
+    Prelude.rnf catalogId `Prelude.seq`
+      Prelude.rnf databaseName `Prelude.seq`
+        Prelude.rnf tableName `Prelude.seq`
+          Prelude.rnf partitionValues `Prelude.seq`
+            Prelude.rnf columnName
 
 instance
   Data.ToHeaders

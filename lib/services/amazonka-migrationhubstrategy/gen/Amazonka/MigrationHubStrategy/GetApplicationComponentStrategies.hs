@@ -193,5 +193,5 @@ instance
     GetApplicationComponentStrategiesResponse
   where
   rnf GetApplicationComponentStrategiesResponse' {..} =
-    Prelude.rnf applicationComponentStrategies
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf applicationComponentStrategies `Prelude.seq`
+      Prelude.rnf httpStatus

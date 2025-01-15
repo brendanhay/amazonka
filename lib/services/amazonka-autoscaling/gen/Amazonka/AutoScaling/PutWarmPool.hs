@@ -228,11 +228,11 @@ instance Prelude.Hashable PutWarmPool where
 
 instance Prelude.NFData PutWarmPool where
   rnf PutWarmPool' {..} =
-    Prelude.rnf instanceReusePolicy
-      `Prelude.seq` Prelude.rnf maxGroupPreparedCapacity
-      `Prelude.seq` Prelude.rnf minSize
-      `Prelude.seq` Prelude.rnf poolState
-      `Prelude.seq` Prelude.rnf autoScalingGroupName
+    Prelude.rnf instanceReusePolicy `Prelude.seq`
+      Prelude.rnf maxGroupPreparedCapacity `Prelude.seq`
+        Prelude.rnf minSize `Prelude.seq`
+          Prelude.rnf poolState `Prelude.seq`
+            Prelude.rnf autoScalingGroupName
 
 instance Data.ToHeaders PutWarmPool where
   toHeaders = Prelude.const Prelude.mempty

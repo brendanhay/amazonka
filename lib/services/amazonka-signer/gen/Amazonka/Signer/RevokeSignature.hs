@@ -113,9 +113,9 @@ instance Prelude.Hashable RevokeSignature where
 
 instance Prelude.NFData RevokeSignature where
   rnf RevokeSignature' {..} =
-    Prelude.rnf jobOwner
-      `Prelude.seq` Prelude.rnf reason
-      `Prelude.seq` Prelude.rnf jobId
+    Prelude.rnf jobOwner `Prelude.seq`
+      Prelude.rnf reason `Prelude.seq`
+        Prelude.rnf jobId
 
 instance Data.ToHeaders RevokeSignature where
   toHeaders =

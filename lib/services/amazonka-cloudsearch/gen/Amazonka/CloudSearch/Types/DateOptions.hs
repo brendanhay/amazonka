@@ -125,12 +125,12 @@ instance Prelude.Hashable DateOptions where
 
 instance Prelude.NFData DateOptions where
   rnf DateOptions' {..} =
-    Prelude.rnf defaultValue
-      `Prelude.seq` Prelude.rnf facetEnabled
-      `Prelude.seq` Prelude.rnf returnEnabled
-      `Prelude.seq` Prelude.rnf searchEnabled
-      `Prelude.seq` Prelude.rnf sortEnabled
-      `Prelude.seq` Prelude.rnf sourceField
+    Prelude.rnf defaultValue `Prelude.seq`
+      Prelude.rnf facetEnabled `Prelude.seq`
+        Prelude.rnf returnEnabled `Prelude.seq`
+          Prelude.rnf searchEnabled `Prelude.seq`
+            Prelude.rnf sortEnabled `Prelude.seq`
+              Prelude.rnf sourceField
 
 instance Data.ToQuery DateOptions where
   toQuery DateOptions' {..} =

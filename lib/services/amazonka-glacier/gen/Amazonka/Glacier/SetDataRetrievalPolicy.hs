@@ -126,8 +126,8 @@ instance Prelude.Hashable SetDataRetrievalPolicy where
 
 instance Prelude.NFData SetDataRetrievalPolicy where
   rnf SetDataRetrievalPolicy' {..} =
-    Prelude.rnf policy
-      `Prelude.seq` Prelude.rnf accountId
+    Prelude.rnf policy `Prelude.seq`
+      Prelude.rnf accountId
 
 instance Data.ToHeaders SetDataRetrievalPolicy where
   toHeaders = Prelude.const Prelude.mempty

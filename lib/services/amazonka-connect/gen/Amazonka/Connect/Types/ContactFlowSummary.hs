@@ -118,8 +118,8 @@ instance Prelude.Hashable ContactFlowSummary where
 
 instance Prelude.NFData ContactFlowSummary where
   rnf ContactFlowSummary' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf contactFlowState
-      `Prelude.seq` Prelude.rnf contactFlowType
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf contactFlowState `Prelude.seq`
+        Prelude.rnf contactFlowType `Prelude.seq`
+          Prelude.rnf id `Prelude.seq`
+            Prelude.rnf name

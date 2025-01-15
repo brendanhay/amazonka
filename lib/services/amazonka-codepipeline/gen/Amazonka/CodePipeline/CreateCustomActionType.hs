@@ -217,14 +217,14 @@ instance Prelude.Hashable CreateCustomActionType where
 
 instance Prelude.NFData CreateCustomActionType where
   rnf CreateCustomActionType' {..} =
-    Prelude.rnf configurationProperties
-      `Prelude.seq` Prelude.rnf settings
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf category
-      `Prelude.seq` Prelude.rnf provider
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf inputArtifactDetails
-      `Prelude.seq` Prelude.rnf outputArtifactDetails
+    Prelude.rnf configurationProperties `Prelude.seq`
+      Prelude.rnf settings `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf category `Prelude.seq`
+            Prelude.rnf provider `Prelude.seq`
+              Prelude.rnf version `Prelude.seq`
+                Prelude.rnf inputArtifactDetails `Prelude.seq`
+                  Prelude.rnf outputArtifactDetails
 
 instance Data.ToHeaders CreateCustomActionType where
   toHeaders =
@@ -328,6 +328,6 @@ instance
     CreateCustomActionTypeResponse
   where
   rnf CreateCustomActionTypeResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf actionType
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf actionType

@@ -95,8 +95,8 @@ instance Prelude.Hashable LambdaOutputUpdate where
 
 instance Prelude.NFData LambdaOutputUpdate where
   rnf LambdaOutputUpdate' {..} =
-    Prelude.rnf resourceARNUpdate
-      `Prelude.seq` Prelude.rnf roleARNUpdate
+    Prelude.rnf resourceARNUpdate `Prelude.seq`
+      Prelude.rnf roleARNUpdate
 
 instance Data.ToJSON LambdaOutputUpdate where
   toJSON LambdaOutputUpdate' {..} =

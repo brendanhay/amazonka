@@ -101,6 +101,6 @@ instance Prelude.Hashable SpotPlacementScore where
 
 instance Prelude.NFData SpotPlacementScore where
   rnf SpotPlacementScore' {..} =
-    Prelude.rnf availabilityZoneId
-      `Prelude.seq` Prelude.rnf region
-      `Prelude.seq` Prelude.rnf score
+    Prelude.rnf availabilityZoneId `Prelude.seq`
+      Prelude.rnf region `Prelude.seq`
+        Prelude.rnf score

@@ -130,12 +130,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getReservedNodeExchangeOfferings_marker
-          Lens..~ rs
-          Lens.^? getReservedNodeExchangeOfferingsResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getReservedNodeExchangeOfferings_marker
+              Lens..~ rs
+              Lens.^? getReservedNodeExchangeOfferingsResponse_marker
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -177,9 +177,9 @@ instance
     GetReservedNodeExchangeOfferings
   where
   rnf GetReservedNodeExchangeOfferings' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf reservedNodeId
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf maxRecords `Prelude.seq`
+        Prelude.rnf reservedNodeId
 
 instance
   Data.ToHeaders
@@ -280,6 +280,6 @@ instance
     GetReservedNodeExchangeOfferingsResponse
   where
   rnf GetReservedNodeExchangeOfferingsResponse' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf reservedNodeOfferings
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf reservedNodeOfferings `Prelude.seq`
+        Prelude.rnf httpStatus

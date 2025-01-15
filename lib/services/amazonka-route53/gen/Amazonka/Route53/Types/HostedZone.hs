@@ -165,9 +165,9 @@ instance Prelude.Hashable HostedZone where
 
 instance Prelude.NFData HostedZone where
   rnf HostedZone' {..} =
-    Prelude.rnf config
-      `Prelude.seq` Prelude.rnf linkedService
-      `Prelude.seq` Prelude.rnf resourceRecordSetCount
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf callerReference
+    Prelude.rnf config `Prelude.seq`
+      Prelude.rnf linkedService `Prelude.seq`
+        Prelude.rnf resourceRecordSetCount `Prelude.seq`
+          Prelude.rnf id `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf callerReference

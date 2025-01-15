@@ -476,22 +476,22 @@ instance Prelude.Hashable CreateCapacityReservation where
 
 instance Prelude.NFData CreateCapacityReservation where
   rnf CreateCapacityReservation' {..} =
-    Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf availabilityZoneId
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf ebsOptimized
-      `Prelude.seq` Prelude.rnf endDate
-      `Prelude.seq` Prelude.rnf endDateType
-      `Prelude.seq` Prelude.rnf ephemeralStorage
-      `Prelude.seq` Prelude.rnf instanceMatchCriteria
-      `Prelude.seq` Prelude.rnf outpostArn
-      `Prelude.seq` Prelude.rnf placementGroupArn
-      `Prelude.seq` Prelude.rnf tagSpecifications
-      `Prelude.seq` Prelude.rnf tenancy
-      `Prelude.seq` Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf instancePlatform
-      `Prelude.seq` Prelude.rnf instanceCount
+    Prelude.rnf availabilityZone `Prelude.seq`
+      Prelude.rnf availabilityZoneId `Prelude.seq`
+        Prelude.rnf clientToken `Prelude.seq`
+          Prelude.rnf dryRun `Prelude.seq`
+            Prelude.rnf ebsOptimized `Prelude.seq`
+              Prelude.rnf endDate `Prelude.seq`
+                Prelude.rnf endDateType `Prelude.seq`
+                  Prelude.rnf ephemeralStorage `Prelude.seq`
+                    Prelude.rnf instanceMatchCriteria `Prelude.seq`
+                      Prelude.rnf outpostArn `Prelude.seq`
+                        Prelude.rnf placementGroupArn `Prelude.seq`
+                          Prelude.rnf tagSpecifications `Prelude.seq`
+                            Prelude.rnf tenancy `Prelude.seq`
+                              Prelude.rnf instanceType `Prelude.seq`
+                                Prelude.rnf instancePlatform `Prelude.seq`
+                                  Prelude.rnf instanceCount
 
 instance Data.ToHeaders CreateCapacityReservation where
   toHeaders = Prelude.const Prelude.mempty
@@ -572,5 +572,5 @@ instance
     CreateCapacityReservationResponse
   where
   rnf CreateCapacityReservationResponse' {..} =
-    Prelude.rnf capacityReservation
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf capacityReservation `Prelude.seq`
+      Prelude.rnf httpStatus

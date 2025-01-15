@@ -142,10 +142,10 @@ instance Prelude.Hashable Speaker where
 
 instance Prelude.NFData Speaker where
   rnf Speaker' {..} =
-    Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf customerSpeakerId
-      `Prelude.seq` Prelude.rnf domainId
-      `Prelude.seq` Prelude.rnf generatedSpeakerId
-      `Prelude.seq` Prelude.rnf lastAccessedAt
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf updatedAt
+    Prelude.rnf createdAt `Prelude.seq`
+      Prelude.rnf customerSpeakerId `Prelude.seq`
+        Prelude.rnf domainId `Prelude.seq`
+          Prelude.rnf generatedSpeakerId `Prelude.seq`
+            Prelude.rnf lastAccessedAt `Prelude.seq`
+              Prelude.rnf status `Prelude.seq`
+                Prelude.rnf updatedAt

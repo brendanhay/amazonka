@@ -114,7 +114,7 @@ instance Prelude.Hashable IceServer where
 
 instance Prelude.NFData IceServer where
   rnf IceServer' {..} =
-    Prelude.rnf password
-      `Prelude.seq` Prelude.rnf ttl
-      `Prelude.seq` Prelude.rnf uris
-      `Prelude.seq` Prelude.rnf username
+    Prelude.rnf password `Prelude.seq`
+      Prelude.rnf ttl `Prelude.seq`
+        Prelude.rnf uris `Prelude.seq`
+          Prelude.rnf username

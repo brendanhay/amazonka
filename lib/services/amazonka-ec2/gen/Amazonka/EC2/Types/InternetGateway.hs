@@ -91,15 +91,11 @@ internetGateway_internetGatewayId = Lens.lens (\InternetGateway' {internetGatewa
 instance Data.FromXML InternetGateway where
   parseXML x =
     InternetGateway'
-      Prelude.<$> ( x
-                      Data..@? "attachmentSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "attachmentSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "ownerId")
-      Prelude.<*> ( x
-                      Data..@? "tagSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@ "internetGatewayId")
@@ -114,7 +110,7 @@ instance Prelude.Hashable InternetGateway where
 
 instance Prelude.NFData InternetGateway where
   rnf InternetGateway' {..} =
-    Prelude.rnf attachments
-      `Prelude.seq` Prelude.rnf ownerId
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf internetGatewayId
+    Prelude.rnf attachments `Prelude.seq`
+      Prelude.rnf ownerId `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf internetGatewayId

@@ -98,9 +98,9 @@ instance Prelude.Hashable Destination where
 
 instance Prelude.NFData Destination where
   rnf Destination' {..} =
-    Prelude.rnf bccAddresses
-      `Prelude.seq` Prelude.rnf ccAddresses
-      `Prelude.seq` Prelude.rnf toAddresses
+    Prelude.rnf bccAddresses `Prelude.seq`
+      Prelude.rnf ccAddresses `Prelude.seq`
+        Prelude.rnf toAddresses
 
 instance Data.ToJSON Destination where
   toJSON Destination' {..} =

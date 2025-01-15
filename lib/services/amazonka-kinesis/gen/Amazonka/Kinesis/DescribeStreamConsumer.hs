@@ -136,9 +136,9 @@ instance Prelude.Hashable DescribeStreamConsumer where
 
 instance Prelude.NFData DescribeStreamConsumer where
   rnf DescribeStreamConsumer' {..} =
-    Prelude.rnf consumerARN
-      `Prelude.seq` Prelude.rnf consumerName
-      `Prelude.seq` Prelude.rnf streamARN
+    Prelude.rnf consumerARN `Prelude.seq`
+      Prelude.rnf consumerName `Prelude.seq`
+        Prelude.rnf streamARN
 
 instance Data.ToHeaders DescribeStreamConsumer where
   toHeaders =
@@ -219,5 +219,5 @@ instance
     DescribeStreamConsumerResponse
   where
   rnf DescribeStreamConsumerResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf consumerDescription
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf consumerDescription

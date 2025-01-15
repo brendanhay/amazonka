@@ -112,8 +112,8 @@ instance
   where
   rnf
     AwsCodeBuildProjectEnvironmentRegistryCredential' {..} =
-      Prelude.rnf credential
-        `Prelude.seq` Prelude.rnf credentialProvider
+      Prelude.rnf credential `Prelude.seq`
+        Prelude.rnf credentialProvider
 
 instance
   Data.ToJSON

@@ -77,9 +77,7 @@ instance Core.AWSRequest ListAvailableSolutionStacks where
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> ( x
-                            Data..@? "SolutionStacks"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "SolutionStacks" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -166,6 +164,6 @@ instance
     ListAvailableSolutionStacksResponse
   where
   rnf ListAvailableSolutionStacksResponse' {..} =
-    Prelude.rnf solutionStackDetails
-      `Prelude.seq` Prelude.rnf solutionStacks
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf solutionStackDetails `Prelude.seq`
+      Prelude.rnf solutionStacks `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -176,12 +176,12 @@ instance Prelude.Hashable ReferenceListItem where
 
 instance Prelude.NFData ReferenceListItem where
   rnf ReferenceListItem' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf md5
-      `Prelude.seq` Prelude.rnf referenceStoreId
-      `Prelude.seq` Prelude.rnf updateTime
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf status `Prelude.seq`
+          Prelude.rnf arn `Prelude.seq`
+            Prelude.rnf creationTime `Prelude.seq`
+              Prelude.rnf id `Prelude.seq`
+                Prelude.rnf md5 `Prelude.seq`
+                  Prelude.rnf referenceStoreId `Prelude.seq`
+                    Prelude.rnf updateTime

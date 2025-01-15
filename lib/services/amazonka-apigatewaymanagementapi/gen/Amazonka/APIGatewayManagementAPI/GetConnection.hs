@@ -175,7 +175,7 @@ getConnectionResponse_httpStatus = Lens.lens (\GetConnectionResponse' {httpStatu
 
 instance Prelude.NFData GetConnectionResponse where
   rnf GetConnectionResponse' {..} =
-    Prelude.rnf connectedAt
-      `Prelude.seq` Prelude.rnf identity
-      `Prelude.seq` Prelude.rnf lastActiveAt
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf connectedAt `Prelude.seq`
+      Prelude.rnf identity `Prelude.seq`
+        Prelude.rnf lastActiveAt `Prelude.seq`
+          Prelude.rnf httpStatus

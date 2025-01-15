@@ -85,8 +85,8 @@ instance
 
 instance Prelude.NFData PipeSourceSqsQueueParameters where
   rnf PipeSourceSqsQueueParameters' {..} =
-    Prelude.rnf batchSize
-      `Prelude.seq` Prelude.rnf maximumBatchingWindowInSeconds
+    Prelude.rnf batchSize `Prelude.seq`
+      Prelude.rnf maximumBatchingWindowInSeconds
 
 instance Data.ToJSON PipeSourceSqsQueueParameters where
   toJSON PipeSourceSqsQueueParameters' {..} =

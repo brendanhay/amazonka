@@ -96,8 +96,8 @@ instance Prelude.Hashable DeliveryOptions where
 
 instance Prelude.NFData DeliveryOptions where
   rnf DeliveryOptions' {..} =
-    Prelude.rnf sendingPoolName
-      `Prelude.seq` Prelude.rnf tlsPolicy
+    Prelude.rnf sendingPoolName `Prelude.seq`
+      Prelude.rnf tlsPolicy
 
 instance Data.ToJSON DeliveryOptions where
   toJSON DeliveryOptions' {..} =

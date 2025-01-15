@@ -92,6 +92,6 @@ instance Prelude.Hashable ContainerImage where
 
 instance Prelude.NFData ContainerImage where
   rnf ContainerImage' {..} =
-    Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf digest
-      `Prelude.seq` Prelude.rnf image
+    Prelude.rnf createdAt `Prelude.seq`
+      Prelude.rnf digest `Prelude.seq`
+        Prelude.rnf image

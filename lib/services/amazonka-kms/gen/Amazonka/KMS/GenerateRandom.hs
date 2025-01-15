@@ -148,8 +148,8 @@ instance Prelude.Hashable GenerateRandom where
 
 instance Prelude.NFData GenerateRandom where
   rnf GenerateRandom' {..} =
-    Prelude.rnf customKeyStoreId
-      `Prelude.seq` Prelude.rnf numberOfBytes
+    Prelude.rnf customKeyStoreId `Prelude.seq`
+      Prelude.rnf numberOfBytes
 
 instance Data.ToHeaders GenerateRandom where
   toHeaders =
@@ -237,5 +237,5 @@ generateRandomResponse_httpStatus = Lens.lens (\GenerateRandomResponse' {httpSta
 
 instance Prelude.NFData GenerateRandomResponse where
   rnf GenerateRandomResponse' {..} =
-    Prelude.rnf plaintext
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf plaintext `Prelude.seq`
+      Prelude.rnf httpStatus

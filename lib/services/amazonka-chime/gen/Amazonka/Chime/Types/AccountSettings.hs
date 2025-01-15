@@ -95,8 +95,8 @@ instance Prelude.Hashable AccountSettings where
 
 instance Prelude.NFData AccountSettings where
   rnf AccountSettings' {..} =
-    Prelude.rnf disableRemoteControl
-      `Prelude.seq` Prelude.rnf enableDialOut
+    Prelude.rnf disableRemoteControl `Prelude.seq`
+      Prelude.rnf enableDialOut
 
 instance Data.ToJSON AccountSettings where
   toJSON AccountSettings' {..} =

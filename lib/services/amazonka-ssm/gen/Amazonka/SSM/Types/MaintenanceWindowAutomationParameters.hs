@@ -152,8 +152,8 @@ instance
     MaintenanceWindowAutomationParameters
   where
   rnf MaintenanceWindowAutomationParameters' {..} =
-    Prelude.rnf documentVersion
-      `Prelude.seq` Prelude.rnf parameters
+    Prelude.rnf documentVersion `Prelude.seq`
+      Prelude.rnf parameters
 
 instance
   Data.ToJSON

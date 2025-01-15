@@ -79,8 +79,8 @@ instance Prelude.Hashable BatchRemoveFacetFromObject where
 
 instance Prelude.NFData BatchRemoveFacetFromObject where
   rnf BatchRemoveFacetFromObject' {..} =
-    Prelude.rnf schemaFacet
-      `Prelude.seq` Prelude.rnf objectReference
+    Prelude.rnf schemaFacet `Prelude.seq`
+      Prelude.rnf objectReference
 
 instance Data.ToJSON BatchRemoveFacetFromObject where
   toJSON BatchRemoveFacetFromObject' {..} =

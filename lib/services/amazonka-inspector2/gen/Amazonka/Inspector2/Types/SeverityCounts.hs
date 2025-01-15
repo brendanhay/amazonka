@@ -102,7 +102,7 @@ instance Prelude.Hashable SeverityCounts where
 
 instance Prelude.NFData SeverityCounts where
   rnf SeverityCounts' {..} =
-    Prelude.rnf all
-      `Prelude.seq` Prelude.rnf critical
-      `Prelude.seq` Prelude.rnf high
-      `Prelude.seq` Prelude.rnf medium
+    Prelude.rnf all `Prelude.seq`
+      Prelude.rnf critical `Prelude.seq`
+        Prelude.rnf high `Prelude.seq`
+          Prelude.rnf medium

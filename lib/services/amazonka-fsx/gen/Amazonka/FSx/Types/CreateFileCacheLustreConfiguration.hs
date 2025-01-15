@@ -117,10 +117,10 @@ instance
     CreateFileCacheLustreConfiguration
   where
   rnf CreateFileCacheLustreConfiguration' {..} =
-    Prelude.rnf weeklyMaintenanceStartTime
-      `Prelude.seq` Prelude.rnf perUnitStorageThroughput
-      `Prelude.seq` Prelude.rnf deploymentType
-      `Prelude.seq` Prelude.rnf metadataConfiguration
+    Prelude.rnf weeklyMaintenanceStartTime `Prelude.seq`
+      Prelude.rnf perUnitStorageThroughput `Prelude.seq`
+        Prelude.rnf deploymentType `Prelude.seq`
+          Prelude.rnf metadataConfiguration
 
 instance
   Data.ToJSON

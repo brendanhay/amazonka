@@ -137,10 +137,10 @@ instance Prelude.Hashable CreateAddressBook where
 
 instance Prelude.NFData CreateAddressBook where
   rnf CreateAddressBook' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf name
 
 instance Data.ToHeaders CreateAddressBook where
   toHeaders =
@@ -216,5 +216,5 @@ createAddressBookResponse_httpStatus = Lens.lens (\CreateAddressBookResponse' {h
 
 instance Prelude.NFData CreateAddressBookResponse where
   rnf CreateAddressBookResponse' {..} =
-    Prelude.rnf addressBookArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf addressBookArn `Prelude.seq`
+      Prelude.rnf httpStatus

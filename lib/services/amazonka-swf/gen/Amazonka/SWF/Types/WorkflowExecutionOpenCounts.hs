@@ -134,8 +134,8 @@ instance Prelude.Hashable WorkflowExecutionOpenCounts where
 
 instance Prelude.NFData WorkflowExecutionOpenCounts where
   rnf WorkflowExecutionOpenCounts' {..} =
-    Prelude.rnf openLambdaFunctions
-      `Prelude.seq` Prelude.rnf openActivityTasks
-      `Prelude.seq` Prelude.rnf openDecisionTasks
-      `Prelude.seq` Prelude.rnf openTimers
-      `Prelude.seq` Prelude.rnf openChildWorkflowExecutions
+    Prelude.rnf openLambdaFunctions `Prelude.seq`
+      Prelude.rnf openActivityTasks `Prelude.seq`
+        Prelude.rnf openDecisionTasks `Prelude.seq`
+          Prelude.rnf openTimers `Prelude.seq`
+            Prelude.rnf openChildWorkflowExecutions

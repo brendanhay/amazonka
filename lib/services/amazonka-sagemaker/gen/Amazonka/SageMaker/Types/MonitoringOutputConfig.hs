@@ -93,8 +93,8 @@ instance Prelude.Hashable MonitoringOutputConfig where
 
 instance Prelude.NFData MonitoringOutputConfig where
   rnf MonitoringOutputConfig' {..} =
-    Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf monitoringOutputs
+    Prelude.rnf kmsKeyId `Prelude.seq`
+      Prelude.rnf monitoringOutputs
 
 instance Data.ToJSON MonitoringOutputConfig where
   toJSON MonitoringOutputConfig' {..} =

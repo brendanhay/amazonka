@@ -93,5 +93,5 @@ instance
     TimeBasedAutoScalingConfiguration
   where
   rnf TimeBasedAutoScalingConfiguration' {..} =
-    Prelude.rnf autoScalingSchedule
-      `Prelude.seq` Prelude.rnf instanceId
+    Prelude.rnf autoScalingSchedule `Prelude.seq`
+      Prelude.rnf instanceId

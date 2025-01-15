@@ -139,11 +139,11 @@ instance Prelude.Hashable UpdateDestination where
 
 instance Prelude.NFData UpdateDestination where
   rnf UpdateDestination' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf expression
-      `Prelude.seq` Prelude.rnf expressionType
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf expression `Prelude.seq`
+        Prelude.rnf expressionType `Prelude.seq`
+          Prelude.rnf roleArn `Prelude.seq`
+            Prelude.rnf name
 
 instance Data.ToHeaders UpdateDestination where
   toHeaders = Prelude.const Prelude.mempty

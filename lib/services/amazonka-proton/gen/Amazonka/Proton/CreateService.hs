@@ -267,16 +267,16 @@ instance Prelude.Hashable CreateService where
 
 instance Prelude.NFData CreateService where
   rnf CreateService' {..} =
-    Prelude.rnf branchName
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf repositoryConnectionArn
-      `Prelude.seq` Prelude.rnf repositoryId
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf templateMinorVersion
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf spec
-      `Prelude.seq` Prelude.rnf templateMajorVersion
-      `Prelude.seq` Prelude.rnf templateName
+    Prelude.rnf branchName `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf repositoryConnectionArn `Prelude.seq`
+          Prelude.rnf repositoryId `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf templateMinorVersion `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf spec `Prelude.seq`
+                    Prelude.rnf templateMajorVersion `Prelude.seq`
+                      Prelude.rnf templateName
 
 instance Data.ToHeaders CreateService where
   toHeaders =
@@ -363,5 +363,5 @@ createServiceResponse_service = Lens.lens (\CreateServiceResponse' {service} -> 
 
 instance Prelude.NFData CreateServiceResponse where
   rnf CreateServiceResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf service
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf service

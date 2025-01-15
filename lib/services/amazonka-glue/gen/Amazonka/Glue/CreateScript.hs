@@ -117,9 +117,9 @@ instance Prelude.Hashable CreateScript where
 
 instance Prelude.NFData CreateScript where
   rnf CreateScript' {..} =
-    Prelude.rnf dagEdges
-      `Prelude.seq` Prelude.rnf dagNodes
-      `Prelude.seq` Prelude.rnf language
+    Prelude.rnf dagEdges `Prelude.seq`
+      Prelude.rnf dagNodes `Prelude.seq`
+        Prelude.rnf language
 
 instance Data.ToHeaders CreateScript where
   toHeaders =
@@ -200,6 +200,6 @@ createScriptResponse_httpStatus = Lens.lens (\CreateScriptResponse' {httpStatus}
 
 instance Prelude.NFData CreateScriptResponse where
   rnf CreateScriptResponse' {..} =
-    Prelude.rnf pythonScript
-      `Prelude.seq` Prelude.rnf scalaCode
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf pythonScript `Prelude.seq`
+      Prelude.rnf scalaCode `Prelude.seq`
+        Prelude.rnf httpStatus

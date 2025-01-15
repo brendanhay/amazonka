@@ -113,8 +113,8 @@ instance Prelude.Hashable SchemaSummary where
 
 instance Prelude.NFData SchemaSummary where
   rnf SchemaSummary' {..} =
-    Prelude.rnf lastModified
-      `Prelude.seq` Prelude.rnf schemaArn
-      `Prelude.seq` Prelude.rnf schemaName
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf versionCount
+    Prelude.rnf lastModified `Prelude.seq`
+      Prelude.rnf schemaArn `Prelude.seq`
+        Prelude.rnf schemaName `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf versionCount

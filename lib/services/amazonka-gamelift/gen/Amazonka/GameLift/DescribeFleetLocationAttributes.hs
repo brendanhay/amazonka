@@ -192,10 +192,10 @@ instance
     DescribeFleetLocationAttributes
   where
   rnf DescribeFleetLocationAttributes' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf locations
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf fleetId
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf locations `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf fleetId
 
 instance
   Data.ToHeaders
@@ -329,8 +329,8 @@ instance
     DescribeFleetLocationAttributesResponse
   where
   rnf DescribeFleetLocationAttributesResponse' {..} =
-    Prelude.rnf fleetArn
-      `Prelude.seq` Prelude.rnf fleetId
-      `Prelude.seq` Prelude.rnf locationAttributes
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf fleetArn `Prelude.seq`
+      Prelude.rnf fleetId `Prelude.seq`
+        Prelude.rnf locationAttributes `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf httpStatus

@@ -160,9 +160,9 @@ instance Prelude.Hashable UpdateAccessKey where
 
 instance Prelude.NFData UpdateAccessKey where
   rnf UpdateAccessKey' {..} =
-    Prelude.rnf userName
-      `Prelude.seq` Prelude.rnf accessKeyId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf userName `Prelude.seq`
+      Prelude.rnf accessKeyId `Prelude.seq`
+        Prelude.rnf status
 
 instance Data.ToHeaders UpdateAccessKey where
   toHeaders = Prelude.const Prelude.mempty

@@ -277,16 +277,16 @@ instance Prelude.Hashable ModifyIpamPool where
 
 instance Prelude.NFData ModifyIpamPool where
   rnf ModifyIpamPool' {..} =
-    Prelude.rnf addAllocationResourceTags
-      `Prelude.seq` Prelude.rnf allocationDefaultNetmaskLength
-      `Prelude.seq` Prelude.rnf allocationMaxNetmaskLength
-      `Prelude.seq` Prelude.rnf allocationMinNetmaskLength
-      `Prelude.seq` Prelude.rnf autoImport
-      `Prelude.seq` Prelude.rnf clearAllocationDefaultNetmaskLength
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf removeAllocationResourceTags
-      `Prelude.seq` Prelude.rnf ipamPoolId
+    Prelude.rnf addAllocationResourceTags `Prelude.seq`
+      Prelude.rnf allocationDefaultNetmaskLength `Prelude.seq`
+        Prelude.rnf allocationMaxNetmaskLength `Prelude.seq`
+          Prelude.rnf allocationMinNetmaskLength `Prelude.seq`
+            Prelude.rnf autoImport `Prelude.seq`
+              Prelude.rnf clearAllocationDefaultNetmaskLength `Prelude.seq`
+                Prelude.rnf description `Prelude.seq`
+                  Prelude.rnf dryRun `Prelude.seq`
+                    Prelude.rnf removeAllocationResourceTags `Prelude.seq`
+                      Prelude.rnf ipamPoolId
 
 instance Data.ToHeaders ModifyIpamPool where
   toHeaders = Prelude.const Prelude.mempty
@@ -363,5 +363,5 @@ modifyIpamPoolResponse_httpStatus = Lens.lens (\ModifyIpamPoolResponse' {httpSta
 
 instance Prelude.NFData ModifyIpamPoolResponse where
   rnf ModifyIpamPoolResponse' {..} =
-    Prelude.rnf ipamPool
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf ipamPool `Prelude.seq`
+      Prelude.rnf httpStatus

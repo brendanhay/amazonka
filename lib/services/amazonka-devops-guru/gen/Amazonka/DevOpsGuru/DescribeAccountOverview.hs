@@ -130,8 +130,8 @@ instance Prelude.Hashable DescribeAccountOverview where
 
 instance Prelude.NFData DescribeAccountOverview where
   rnf DescribeAccountOverview' {..} =
-    Prelude.rnf toTime
-      `Prelude.seq` Prelude.rnf fromTime
+    Prelude.rnf toTime `Prelude.seq`
+      Prelude.rnf fromTime
 
 instance Data.ToHeaders DescribeAccountOverview where
   toHeaders =
@@ -247,7 +247,7 @@ instance
     DescribeAccountOverviewResponse
   where
   rnf DescribeAccountOverviewResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf reactiveInsights
-      `Prelude.seq` Prelude.rnf proactiveInsights
-      `Prelude.seq` Prelude.rnf meanTimeToRecoverInMilliseconds
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf reactiveInsights `Prelude.seq`
+        Prelude.rnf proactiveInsights `Prelude.seq`
+          Prelude.rnf meanTimeToRecoverInMilliseconds

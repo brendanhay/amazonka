@@ -99,8 +99,8 @@ instance Prelude.Hashable ExtendedDataServices where
 
 instance Prelude.NFData ExtendedDataServices where
   rnf ExtendedDataServices' {..} =
-    Prelude.rnf copyProtectionAction
-      `Prelude.seq` Prelude.rnf vchipAction
+    Prelude.rnf copyProtectionAction `Prelude.seq`
+      Prelude.rnf vchipAction
 
 instance Data.ToJSON ExtendedDataServices where
   toJSON ExtendedDataServices' {..} =

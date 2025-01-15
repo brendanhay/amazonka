@@ -152,9 +152,9 @@ instance
     AssociateInstanceStorageConfig
   where
   rnf AssociateInstanceStorageConfig' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf storageConfig
+    Prelude.rnf instanceId `Prelude.seq`
+      Prelude.rnf resourceType `Prelude.seq`
+        Prelude.rnf storageConfig
 
 instance
   Data.ToHeaders
@@ -239,5 +239,5 @@ instance
     AssociateInstanceStorageConfigResponse
   where
   rnf AssociateInstanceStorageConfigResponse' {..} =
-    Prelude.rnf associationId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf associationId `Prelude.seq`
+      Prelude.rnf httpStatus

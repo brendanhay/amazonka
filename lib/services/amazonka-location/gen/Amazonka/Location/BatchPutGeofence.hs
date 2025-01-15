@@ -115,8 +115,8 @@ instance Prelude.Hashable BatchPutGeofence where
 
 instance Prelude.NFData BatchPutGeofence where
   rnf BatchPutGeofence' {..} =
-    Prelude.rnf collectionName
-      `Prelude.seq` Prelude.rnf entries
+    Prelude.rnf collectionName `Prelude.seq`
+      Prelude.rnf entries
 
 instance Data.ToHeaders BatchPutGeofence where
   toHeaders =
@@ -203,6 +203,6 @@ batchPutGeofenceResponse_successes = Lens.lens (\BatchPutGeofenceResponse' {succ
 
 instance Prelude.NFData BatchPutGeofenceResponse where
   rnf BatchPutGeofenceResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf errors
-      `Prelude.seq` Prelude.rnf successes
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf errors `Prelude.seq`
+        Prelude.rnf successes

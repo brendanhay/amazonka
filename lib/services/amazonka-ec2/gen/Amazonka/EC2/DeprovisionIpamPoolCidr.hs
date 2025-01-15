@@ -132,9 +132,9 @@ instance Prelude.Hashable DeprovisionIpamPoolCidr where
 
 instance Prelude.NFData DeprovisionIpamPoolCidr where
   rnf DeprovisionIpamPoolCidr' {..} =
-    Prelude.rnf cidr
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf ipamPoolId
+    Prelude.rnf cidr `Prelude.seq`
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf ipamPoolId
 
 instance Data.ToHeaders DeprovisionIpamPoolCidr where
   toHeaders = Prelude.const Prelude.mempty
@@ -198,5 +198,5 @@ instance
     DeprovisionIpamPoolCidrResponse
   where
   rnf DeprovisionIpamPoolCidrResponse' {..} =
-    Prelude.rnf ipamPoolCidr
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf ipamPoolCidr `Prelude.seq`
+      Prelude.rnf httpStatus

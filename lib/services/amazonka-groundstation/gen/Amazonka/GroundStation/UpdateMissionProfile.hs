@@ -180,13 +180,13 @@ instance Prelude.Hashable UpdateMissionProfile where
 
 instance Prelude.NFData UpdateMissionProfile where
   rnf UpdateMissionProfile' {..} =
-    Prelude.rnf contactPostPassDurationSeconds
-      `Prelude.seq` Prelude.rnf contactPrePassDurationSeconds
-      `Prelude.seq` Prelude.rnf dataflowEdges
-      `Prelude.seq` Prelude.rnf minimumViableContactDurationSeconds
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf trackingConfigArn
-      `Prelude.seq` Prelude.rnf missionProfileId
+    Prelude.rnf contactPostPassDurationSeconds `Prelude.seq`
+      Prelude.rnf contactPrePassDurationSeconds `Prelude.seq`
+        Prelude.rnf dataflowEdges `Prelude.seq`
+          Prelude.rnf minimumViableContactDurationSeconds `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf trackingConfigArn `Prelude.seq`
+                Prelude.rnf missionProfileId
 
 instance Data.ToHeaders UpdateMissionProfile where
   toHeaders =

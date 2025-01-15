@@ -121,11 +121,11 @@ instance Prelude.Hashable DataLabelType where
 
 instance Prelude.NFData DataLabelType where
   rnf DataLabelType' {..} =
-    Prelude.rnf dataPathLabelType
-      `Prelude.seq` Prelude.rnf fieldLabelType
-      `Prelude.seq` Prelude.rnf maximumLabelType
-      `Prelude.seq` Prelude.rnf minimumLabelType
-      `Prelude.seq` Prelude.rnf rangeEndsLabelType
+    Prelude.rnf dataPathLabelType `Prelude.seq`
+      Prelude.rnf fieldLabelType `Prelude.seq`
+        Prelude.rnf maximumLabelType `Prelude.seq`
+          Prelude.rnf minimumLabelType `Prelude.seq`
+            Prelude.rnf rangeEndsLabelType
 
 instance Data.ToJSON DataLabelType where
   toJSON DataLabelType' {..} =

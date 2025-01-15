@@ -175,8 +175,8 @@ instance Prelude.Hashable AttachPolicy where
 
 instance Prelude.NFData AttachPolicy where
   rnf AttachPolicy' {..} =
-    Prelude.rnf policyId
-      `Prelude.seq` Prelude.rnf targetId
+    Prelude.rnf policyId `Prelude.seq`
+      Prelude.rnf targetId
 
 instance Data.ToHeaders AttachPolicy where
   toHeaders =

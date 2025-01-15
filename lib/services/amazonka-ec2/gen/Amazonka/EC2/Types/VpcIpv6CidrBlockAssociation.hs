@@ -121,8 +121,8 @@ instance Prelude.Hashable VpcIpv6CidrBlockAssociation where
 
 instance Prelude.NFData VpcIpv6CidrBlockAssociation where
   rnf VpcIpv6CidrBlockAssociation' {..} =
-    Prelude.rnf associationId
-      `Prelude.seq` Prelude.rnf ipv6CidrBlock
-      `Prelude.seq` Prelude.rnf ipv6CidrBlockState
-      `Prelude.seq` Prelude.rnf ipv6Pool
-      `Prelude.seq` Prelude.rnf networkBorderGroup
+    Prelude.rnf associationId `Prelude.seq`
+      Prelude.rnf ipv6CidrBlock `Prelude.seq`
+        Prelude.rnf ipv6CidrBlockState `Prelude.seq`
+          Prelude.rnf ipv6Pool `Prelude.seq`
+            Prelude.rnf networkBorderGroup

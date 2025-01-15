@@ -91,5 +91,5 @@ instance Prelude.Hashable PathToObjectIdentifiers where
 
 instance Prelude.NFData PathToObjectIdentifiers where
   rnf PathToObjectIdentifiers' {..} =
-    Prelude.rnf objectIdentifiers
-      `Prelude.seq` Prelude.rnf path
+    Prelude.rnf objectIdentifiers `Prelude.seq`
+      Prelude.rnf path

@@ -186,5 +186,5 @@ instance
     GetCompatibleElasticsearchVersionsResponse
   where
   rnf GetCompatibleElasticsearchVersionsResponse' {..} =
-    Prelude.rnf compatibleElasticsearchVersions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf compatibleElasticsearchVersions `Prelude.seq`
+      Prelude.rnf httpStatus

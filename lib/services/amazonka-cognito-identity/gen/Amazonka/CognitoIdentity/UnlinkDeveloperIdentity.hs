@@ -144,10 +144,10 @@ instance Prelude.Hashable UnlinkDeveloperIdentity where
 
 instance Prelude.NFData UnlinkDeveloperIdentity where
   rnf UnlinkDeveloperIdentity' {..} =
-    Prelude.rnf identityId
-      `Prelude.seq` Prelude.rnf identityPoolId
-      `Prelude.seq` Prelude.rnf developerProviderName
-      `Prelude.seq` Prelude.rnf developerUserIdentifier
+    Prelude.rnf identityId `Prelude.seq`
+      Prelude.rnf identityPoolId `Prelude.seq`
+        Prelude.rnf developerProviderName `Prelude.seq`
+          Prelude.rnf developerUserIdentifier
 
 instance Data.ToHeaders UnlinkDeveloperIdentity where
   toHeaders =

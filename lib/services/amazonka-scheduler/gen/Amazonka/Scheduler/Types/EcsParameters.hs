@@ -310,20 +310,20 @@ instance Prelude.Hashable EcsParameters where
 
 instance Prelude.NFData EcsParameters where
   rnf EcsParameters' {..} =
-    Prelude.rnf capacityProviderStrategy
-      `Prelude.seq` Prelude.rnf enableECSManagedTags
-      `Prelude.seq` Prelude.rnf enableExecuteCommand
-      `Prelude.seq` Prelude.rnf group'
-      `Prelude.seq` Prelude.rnf launchType
-      `Prelude.seq` Prelude.rnf networkConfiguration
-      `Prelude.seq` Prelude.rnf placementConstraints
-      `Prelude.seq` Prelude.rnf placementStrategy
-      `Prelude.seq` Prelude.rnf platformVersion
-      `Prelude.seq` Prelude.rnf propagateTags
-      `Prelude.seq` Prelude.rnf referenceId
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf taskCount
-      `Prelude.seq` Prelude.rnf taskDefinitionArn
+    Prelude.rnf capacityProviderStrategy `Prelude.seq`
+      Prelude.rnf enableECSManagedTags `Prelude.seq`
+        Prelude.rnf enableExecuteCommand `Prelude.seq`
+          Prelude.rnf group' `Prelude.seq`
+            Prelude.rnf launchType `Prelude.seq`
+              Prelude.rnf networkConfiguration `Prelude.seq`
+                Prelude.rnf placementConstraints `Prelude.seq`
+                  Prelude.rnf placementStrategy `Prelude.seq`
+                    Prelude.rnf platformVersion `Prelude.seq`
+                      Prelude.rnf propagateTags `Prelude.seq`
+                        Prelude.rnf referenceId `Prelude.seq`
+                          Prelude.rnf tags `Prelude.seq`
+                            Prelude.rnf taskCount `Prelude.seq`
+                              Prelude.rnf taskDefinitionArn
 
 instance Data.ToJSON EcsParameters where
   toJSON EcsParameters' {..} =

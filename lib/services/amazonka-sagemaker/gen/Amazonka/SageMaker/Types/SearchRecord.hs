@@ -234,18 +234,18 @@ instance Prelude.Hashable SearchRecord where
 
 instance Prelude.NFData SearchRecord where
   rnf SearchRecord' {..} =
-    Prelude.rnf endpoint
-      `Prelude.seq` Prelude.rnf experiment
-      `Prelude.seq` Prelude.rnf featureGroup
-      `Prelude.seq` Prelude.rnf featureMetadata
-      `Prelude.seq` Prelude.rnf hyperParameterTuningJob
-      `Prelude.seq` Prelude.rnf model
-      `Prelude.seq` Prelude.rnf modelCard
-      `Prelude.seq` Prelude.rnf modelPackage
-      `Prelude.seq` Prelude.rnf modelPackageGroup
-      `Prelude.seq` Prelude.rnf pipeline
-      `Prelude.seq` Prelude.rnf pipelineExecution
-      `Prelude.seq` Prelude.rnf project
-      `Prelude.seq` Prelude.rnf trainingJob
-      `Prelude.seq` Prelude.rnf trial
-      `Prelude.seq` Prelude.rnf trialComponent
+    Prelude.rnf endpoint `Prelude.seq`
+      Prelude.rnf experiment `Prelude.seq`
+        Prelude.rnf featureGroup `Prelude.seq`
+          Prelude.rnf featureMetadata `Prelude.seq`
+            Prelude.rnf hyperParameterTuningJob `Prelude.seq`
+              Prelude.rnf model `Prelude.seq`
+                Prelude.rnf modelCard `Prelude.seq`
+                  Prelude.rnf modelPackage `Prelude.seq`
+                    Prelude.rnf modelPackageGroup `Prelude.seq`
+                      Prelude.rnf pipeline `Prelude.seq`
+                        Prelude.rnf pipelineExecution `Prelude.seq`
+                          Prelude.rnf project `Prelude.seq`
+                            Prelude.rnf trainingJob `Prelude.seq`
+                              Prelude.rnf trial `Prelude.seq`
+                                Prelude.rnf trialComponent

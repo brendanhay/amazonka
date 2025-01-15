@@ -91,6 +91,6 @@ instance Prelude.Hashable ResourceError where
 
 instance Prelude.NFData ResourceError where
   rnf ResourceError' {..} =
-    Prelude.rnf logicalResourceId
-      `Prelude.seq` Prelude.rnf physicalResourceId
-      `Prelude.seq` Prelude.rnf reason
+    Prelude.rnf logicalResourceId `Prelude.seq`
+      Prelude.rnf physicalResourceId `Prelude.seq`
+        Prelude.rnf reason

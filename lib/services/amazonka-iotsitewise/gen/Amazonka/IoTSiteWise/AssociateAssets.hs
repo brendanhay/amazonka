@@ -149,10 +149,10 @@ instance Prelude.Hashable AssociateAssets where
 
 instance Prelude.NFData AssociateAssets where
   rnf AssociateAssets' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf assetId
-      `Prelude.seq` Prelude.rnf hierarchyId
-      `Prelude.seq` Prelude.rnf childAssetId
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf assetId `Prelude.seq`
+        Prelude.rnf hierarchyId `Prelude.seq`
+          Prelude.rnf childAssetId
 
 instance Data.ToHeaders AssociateAssets where
   toHeaders =

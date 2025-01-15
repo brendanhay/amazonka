@@ -155,8 +155,8 @@ instance
     UpdateApplicationMaintenanceConfiguration
   where
   rnf UpdateApplicationMaintenanceConfiguration' {..} =
-    Prelude.rnf applicationName
-      `Prelude.seq` Prelude.rnf applicationMaintenanceConfigurationUpdate
+    Prelude.rnf applicationName `Prelude.seq`
+      Prelude.rnf applicationMaintenanceConfigurationUpdate
 
 instance
   Data.ToHeaders

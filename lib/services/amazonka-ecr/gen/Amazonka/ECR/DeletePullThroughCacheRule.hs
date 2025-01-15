@@ -124,8 +124,8 @@ instance Prelude.Hashable DeletePullThroughCacheRule where
 
 instance Prelude.NFData DeletePullThroughCacheRule where
   rnf DeletePullThroughCacheRule' {..} =
-    Prelude.rnf registryId
-      `Prelude.seq` Prelude.rnf ecrRepositoryPrefix
+    Prelude.rnf registryId `Prelude.seq`
+      Prelude.rnf ecrRepositoryPrefix
 
 instance Data.ToHeaders DeletePullThroughCacheRule where
   toHeaders =
@@ -229,8 +229,8 @@ instance
     DeletePullThroughCacheRuleResponse
   where
   rnf DeletePullThroughCacheRuleResponse' {..} =
-    Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf ecrRepositoryPrefix
-      `Prelude.seq` Prelude.rnf registryId
-      `Prelude.seq` Prelude.rnf upstreamRegistryUrl
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf createdAt `Prelude.seq`
+      Prelude.rnf ecrRepositoryPrefix `Prelude.seq`
+        Prelude.rnf registryId `Prelude.seq`
+          Prelude.rnf upstreamRegistryUrl `Prelude.seq`
+            Prelude.rnf httpStatus

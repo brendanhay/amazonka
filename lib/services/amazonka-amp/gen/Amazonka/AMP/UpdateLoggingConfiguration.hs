@@ -132,9 +132,9 @@ instance Prelude.Hashable UpdateLoggingConfiguration where
 
 instance Prelude.NFData UpdateLoggingConfiguration where
   rnf UpdateLoggingConfiguration' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf logGroupArn
-      `Prelude.seq` Prelude.rnf workspaceId
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf logGroupArn `Prelude.seq`
+        Prelude.rnf workspaceId
 
 instance Data.ToHeaders UpdateLoggingConfiguration where
   toHeaders =
@@ -214,5 +214,5 @@ instance
     UpdateLoggingConfigurationResponse
   where
   rnf UpdateLoggingConfigurationResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf status

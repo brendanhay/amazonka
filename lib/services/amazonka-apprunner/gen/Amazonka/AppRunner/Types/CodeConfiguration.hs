@@ -122,8 +122,8 @@ instance Prelude.Hashable CodeConfiguration where
 
 instance Prelude.NFData CodeConfiguration where
   rnf CodeConfiguration' {..} =
-    Prelude.rnf codeConfigurationValues
-      `Prelude.seq` Prelude.rnf configurationSource
+    Prelude.rnf codeConfigurationValues `Prelude.seq`
+      Prelude.rnf configurationSource
 
 instance Data.ToJSON CodeConfiguration where
   toJSON CodeConfiguration' {..} =

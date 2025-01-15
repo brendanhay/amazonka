@@ -131,9 +131,9 @@ instance Prelude.Hashable AcceptInvitation where
 
 instance Prelude.NFData AcceptInvitation where
   rnf AcceptInvitation' {..} =
-    Prelude.rnf administratorAccountId
-      `Prelude.seq` Prelude.rnf masterAccount
-      `Prelude.seq` Prelude.rnf invitationId
+    Prelude.rnf administratorAccountId `Prelude.seq`
+      Prelude.rnf masterAccount `Prelude.seq`
+        Prelude.rnf invitationId
 
 instance Data.ToHeaders AcceptInvitation where
   toHeaders =

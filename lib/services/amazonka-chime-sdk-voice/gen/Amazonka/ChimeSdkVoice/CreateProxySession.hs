@@ -172,14 +172,14 @@ instance Prelude.Hashable CreateProxySession where
 
 instance Prelude.NFData CreateProxySession where
   rnf CreateProxySession' {..} =
-    Prelude.rnf expiryMinutes
-      `Prelude.seq` Prelude.rnf geoMatchLevel
-      `Prelude.seq` Prelude.rnf geoMatchParams
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf numberSelectionBehavior
-      `Prelude.seq` Prelude.rnf participantPhoneNumbers
-      `Prelude.seq` Prelude.rnf capabilities
-      `Prelude.seq` Prelude.rnf voiceConnectorId
+    Prelude.rnf expiryMinutes `Prelude.seq`
+      Prelude.rnf geoMatchLevel `Prelude.seq`
+        Prelude.rnf geoMatchParams `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf numberSelectionBehavior `Prelude.seq`
+              Prelude.rnf participantPhoneNumbers `Prelude.seq`
+                Prelude.rnf capabilities `Prelude.seq`
+                  Prelude.rnf voiceConnectorId
 
 instance Data.ToHeaders CreateProxySession where
   toHeaders = Prelude.const Prelude.mempty
@@ -254,5 +254,5 @@ createProxySessionResponse_httpStatus = Lens.lens (\CreateProxySessionResponse' 
 
 instance Prelude.NFData CreateProxySessionResponse where
   rnf CreateProxySessionResponse' {..} =
-    Prelude.rnf proxySession
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf proxySession `Prelude.seq`
+      Prelude.rnf httpStatus

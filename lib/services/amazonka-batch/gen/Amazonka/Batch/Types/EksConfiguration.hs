@@ -109,8 +109,8 @@ instance Prelude.Hashable EksConfiguration where
 
 instance Prelude.NFData EksConfiguration where
   rnf EksConfiguration' {..} =
-    Prelude.rnf eksClusterArn
-      `Prelude.seq` Prelude.rnf kubernetesNamespace
+    Prelude.rnf eksClusterArn `Prelude.seq`
+      Prelude.rnf kubernetesNamespace
 
 instance Data.ToJSON EksConfiguration where
   toJSON EksConfiguration' {..} =

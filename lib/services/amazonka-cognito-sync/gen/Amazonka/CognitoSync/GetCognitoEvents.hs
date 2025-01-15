@@ -170,5 +170,5 @@ getCognitoEventsResponse_httpStatus = Lens.lens (\GetCognitoEventsResponse' {htt
 
 instance Prelude.NFData GetCognitoEventsResponse where
   rnf GetCognitoEventsResponse' {..} =
-    Prelude.rnf events
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf events `Prelude.seq`
+      Prelude.rnf httpStatus

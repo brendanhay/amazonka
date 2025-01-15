@@ -93,6 +93,6 @@ instance Prelude.Hashable ModelVersionEvaluation where
 
 instance Prelude.NFData ModelVersionEvaluation where
   rnf ModelVersionEvaluation' {..} =
-    Prelude.rnf evaluationScore
-      `Prelude.seq` Prelude.rnf outputVariableName
-      `Prelude.seq` Prelude.rnf predictionExplanations
+    Prelude.rnf evaluationScore `Prelude.seq`
+      Prelude.rnf outputVariableName `Prelude.seq`
+        Prelude.rnf predictionExplanations

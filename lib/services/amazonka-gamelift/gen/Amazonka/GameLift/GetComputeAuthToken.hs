@@ -127,8 +127,8 @@ instance Prelude.Hashable GetComputeAuthToken where
 
 instance Prelude.NFData GetComputeAuthToken where
   rnf GetComputeAuthToken' {..} =
-    Prelude.rnf fleetId
-      `Prelude.seq` Prelude.rnf computeName
+    Prelude.rnf fleetId `Prelude.seq`
+      Prelude.rnf computeName
 
 instance Data.ToHeaders GetComputeAuthToken where
   toHeaders =
@@ -282,10 +282,10 @@ getComputeAuthTokenResponse_httpStatus = Lens.lens (\GetComputeAuthTokenResponse
 
 instance Prelude.NFData GetComputeAuthTokenResponse where
   rnf GetComputeAuthTokenResponse' {..} =
-    Prelude.rnf authToken
-      `Prelude.seq` Prelude.rnf computeArn
-      `Prelude.seq` Prelude.rnf computeName
-      `Prelude.seq` Prelude.rnf expirationTimestamp
-      `Prelude.seq` Prelude.rnf fleetArn
-      `Prelude.seq` Prelude.rnf fleetId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf authToken `Prelude.seq`
+      Prelude.rnf computeArn `Prelude.seq`
+        Prelude.rnf computeName `Prelude.seq`
+          Prelude.rnf expirationTimestamp `Prelude.seq`
+            Prelude.rnf fleetArn `Prelude.seq`
+              Prelude.rnf fleetId `Prelude.seq`
+                Prelude.rnf httpStatus

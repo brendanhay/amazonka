@@ -112,7 +112,7 @@ instance Prelude.Hashable OrganizationEventDetails where
 
 instance Prelude.NFData OrganizationEventDetails where
   rnf OrganizationEventDetails' {..} =
-    Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf event
-      `Prelude.seq` Prelude.rnf eventDescription
-      `Prelude.seq` Prelude.rnf eventMetadata
+    Prelude.rnf awsAccountId `Prelude.seq`
+      Prelude.rnf event `Prelude.seq`
+        Prelude.rnf eventDescription `Prelude.seq`
+          Prelude.rnf eventMetadata

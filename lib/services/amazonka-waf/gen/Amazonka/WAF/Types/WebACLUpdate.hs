@@ -98,8 +98,8 @@ instance Prelude.Hashable WebACLUpdate where
 
 instance Prelude.NFData WebACLUpdate where
   rnf WebACLUpdate' {..} =
-    Prelude.rnf action
-      `Prelude.seq` Prelude.rnf activatedRule
+    Prelude.rnf action `Prelude.seq`
+      Prelude.rnf activatedRule
 
 instance Data.ToJSON WebACLUpdate where
   toJSON WebACLUpdate' {..} =

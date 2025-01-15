@@ -118,9 +118,9 @@ instance Prelude.Hashable ExecuteScheduledQuery where
 
 instance Prelude.NFData ExecuteScheduledQuery where
   rnf ExecuteScheduledQuery' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf scheduledQueryArn
-      `Prelude.seq` Prelude.rnf invocationTime
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf scheduledQueryArn `Prelude.seq`
+        Prelude.rnf invocationTime
 
 instance Data.ToHeaders ExecuteScheduledQuery where
   toHeaders =

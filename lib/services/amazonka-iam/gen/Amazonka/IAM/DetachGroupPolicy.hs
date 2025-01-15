@@ -137,8 +137,8 @@ instance Prelude.Hashable DetachGroupPolicy where
 
 instance Prelude.NFData DetachGroupPolicy where
   rnf DetachGroupPolicy' {..} =
-    Prelude.rnf groupName
-      `Prelude.seq` Prelude.rnf policyArn
+    Prelude.rnf groupName `Prelude.seq`
+      Prelude.rnf policyArn
 
 instance Data.ToHeaders DetachGroupPolicy where
   toHeaders = Prelude.const Prelude.mempty

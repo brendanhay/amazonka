@@ -221,11 +221,11 @@ instance Prelude.Hashable CreateProject where
 
 instance Prelude.NFData CreateProject where
   rnf CreateProject' {..} =
-    Prelude.rnf appConfigResource
-      `Prelude.seq` Prelude.rnf dataDelivery
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf appConfigResource `Prelude.seq`
+      Prelude.rnf dataDelivery `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf name
 
 instance Data.ToHeaders CreateProject where
   toHeaders =
@@ -299,5 +299,5 @@ createProjectResponse_project = Lens.lens (\CreateProjectResponse' {project} -> 
 
 instance Prelude.NFData CreateProjectResponse where
   rnf CreateProjectResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf project
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf project

@@ -132,10 +132,10 @@ instance Prelude.Hashable UpdateQuickConnectName where
 
 instance Prelude.NFData UpdateQuickConnectName where
   rnf UpdateQuickConnectName' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf quickConnectId
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf instanceId `Prelude.seq`
+          Prelude.rnf quickConnectId
 
 instance Data.ToHeaders UpdateQuickConnectName where
   toHeaders =

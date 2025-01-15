@@ -112,8 +112,8 @@ instance Prelude.Hashable CreateTypedLinkFacet where
 
 instance Prelude.NFData CreateTypedLinkFacet where
   rnf CreateTypedLinkFacet' {..} =
-    Prelude.rnf schemaArn
-      `Prelude.seq` Prelude.rnf facet
+    Prelude.rnf schemaArn `Prelude.seq`
+      Prelude.rnf facet
 
 instance Data.ToHeaders CreateTypedLinkFacet where
   toHeaders CreateTypedLinkFacet' {..} =

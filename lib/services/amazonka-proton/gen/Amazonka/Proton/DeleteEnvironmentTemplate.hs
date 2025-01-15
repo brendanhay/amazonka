@@ -168,5 +168,5 @@ instance
     DeleteEnvironmentTemplateResponse
   where
   rnf DeleteEnvironmentTemplateResponse' {..} =
-    Prelude.rnf environmentTemplate
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf environmentTemplate `Prelude.seq`
+      Prelude.rnf httpStatus

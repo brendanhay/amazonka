@@ -87,5 +87,5 @@ instance Prelude.Hashable DomainEntryPoint where
 
 instance Prelude.NFData DomainEntryPoint where
   rnf DomainEntryPoint' {..} =
-    Prelude.rnf externalConnectionName
-      `Prelude.seq` Prelude.rnf repositoryName
+    Prelude.rnf externalConnectionName `Prelude.seq`
+      Prelude.rnf repositoryName

@@ -130,9 +130,9 @@ instance Prelude.Hashable ListAppInstanceAdmins where
 
 instance Prelude.NFData ListAppInstanceAdmins where
   rnf ListAppInstanceAdmins' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf appInstanceArn
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf appInstanceArn
 
 instance Data.ToHeaders ListAppInstanceAdmins where
   toHeaders = Prelude.const Prelude.mempty
@@ -214,7 +214,7 @@ listAppInstanceAdminsResponse_httpStatus = Lens.lens (\ListAppInstanceAdminsResp
 
 instance Prelude.NFData ListAppInstanceAdminsResponse where
   rnf ListAppInstanceAdminsResponse' {..} =
-    Prelude.rnf appInstanceAdmins
-      `Prelude.seq` Prelude.rnf appInstanceArn
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf appInstanceAdmins `Prelude.seq`
+      Prelude.rnf appInstanceArn `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf httpStatus

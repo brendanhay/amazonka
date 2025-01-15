@@ -365,19 +365,19 @@ instance Prelude.Hashable StartAutomationExecution where
 
 instance Prelude.NFData StartAutomationExecution where
   rnf StartAutomationExecution' {..} =
-    Prelude.rnf alarmConfiguration
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf documentVersion
-      `Prelude.seq` Prelude.rnf maxConcurrency
-      `Prelude.seq` Prelude.rnf maxErrors
-      `Prelude.seq` Prelude.rnf mode
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf targetLocations
-      `Prelude.seq` Prelude.rnf targetMaps
-      `Prelude.seq` Prelude.rnf targetParameterName
-      `Prelude.seq` Prelude.rnf targets
-      `Prelude.seq` Prelude.rnf documentName
+    Prelude.rnf alarmConfiguration `Prelude.seq`
+      Prelude.rnf clientToken `Prelude.seq`
+        Prelude.rnf documentVersion `Prelude.seq`
+          Prelude.rnf maxConcurrency `Prelude.seq`
+            Prelude.rnf maxErrors `Prelude.seq`
+              Prelude.rnf mode `Prelude.seq`
+                Prelude.rnf parameters `Prelude.seq`
+                  Prelude.rnf tags `Prelude.seq`
+                    Prelude.rnf targetLocations `Prelude.seq`
+                      Prelude.rnf targetMaps `Prelude.seq`
+                        Prelude.rnf targetParameterName `Prelude.seq`
+                          Prelude.rnf targets `Prelude.seq`
+                            Prelude.rnf documentName
 
 instance Data.ToHeaders StartAutomationExecution where
   toHeaders =
@@ -469,5 +469,5 @@ instance
     StartAutomationExecutionResponse
   where
   rnf StartAutomationExecutionResponse' {..} =
-    Prelude.rnf automationExecutionId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf automationExecutionId `Prelude.seq`
+      Prelude.rnf httpStatus

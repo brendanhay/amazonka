@@ -152,12 +152,12 @@ instance Core.AWSPager ListTags where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listTags_nextToken
-          Lens..~ rs
-          Lens.^? listTagsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listTags_nextToken
+              Lens..~ rs
+              Lens.^? listTagsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListTags where
   type AWSResponse ListTags = ListTagsResponse
@@ -181,9 +181,9 @@ instance Prelude.Hashable ListTags where
 
 instance Prelude.NFData ListTags where
   rnf ListTags' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf certificateAuthorityArn
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf certificateAuthorityArn
 
 instance Data.ToHeaders ListTags where
   toHeaders =
@@ -269,6 +269,6 @@ listTagsResponse_httpStatus = Lens.lens (\ListTagsResponse' {httpStatus} -> http
 
 instance Prelude.NFData ListTagsResponse where
   rnf ListTagsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf httpStatus

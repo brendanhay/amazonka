@@ -105,6 +105,6 @@ instance Prelude.Hashable InsightResults where
 
 instance Prelude.NFData InsightResults where
   rnf InsightResults' {..} =
-    Prelude.rnf insightArn
-      `Prelude.seq` Prelude.rnf groupByAttribute
-      `Prelude.seq` Prelude.rnf resultValues
+    Prelude.rnf insightArn `Prelude.seq`
+      Prelude.rnf groupByAttribute `Prelude.seq`
+        Prelude.rnf resultValues

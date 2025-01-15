@@ -78,8 +78,8 @@ instance Prelude.Hashable ConnectorProfileConfig where
 
 instance Prelude.NFData ConnectorProfileConfig where
   rnf ConnectorProfileConfig' {..} =
-    Prelude.rnf connectorProfileCredentials
-      `Prelude.seq` Prelude.rnf connectorProfileProperties
+    Prelude.rnf connectorProfileCredentials `Prelude.seq`
+      Prelude.rnf connectorProfileProperties
 
 instance Data.ToJSON ConnectorProfileConfig where
   toJSON ConnectorProfileConfig' {..} =

@@ -251,16 +251,16 @@ instance Prelude.Hashable StorageVirtualMachine where
 
 instance Prelude.NFData StorageVirtualMachine where
   rnf StorageVirtualMachine' {..} =
-    Prelude.rnf activeDirectoryConfiguration
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf endpoints
-      `Prelude.seq` Prelude.rnf fileSystemId
-      `Prelude.seq` Prelude.rnf lifecycle
-      `Prelude.seq` Prelude.rnf lifecycleTransitionReason
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf resourceARN
-      `Prelude.seq` Prelude.rnf rootVolumeSecurityStyle
-      `Prelude.seq` Prelude.rnf storageVirtualMachineId
-      `Prelude.seq` Prelude.rnf subtype
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf uuid
+    Prelude.rnf activeDirectoryConfiguration `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf endpoints `Prelude.seq`
+          Prelude.rnf fileSystemId `Prelude.seq`
+            Prelude.rnf lifecycle `Prelude.seq`
+              Prelude.rnf lifecycleTransitionReason `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf resourceARN `Prelude.seq`
+                    Prelude.rnf rootVolumeSecurityStyle `Prelude.seq`
+                      Prelude.rnf storageVirtualMachineId `Prelude.seq`
+                        Prelude.rnf subtype `Prelude.seq`
+                          Prelude.rnf tags `Prelude.seq`
+                            Prelude.rnf uuid

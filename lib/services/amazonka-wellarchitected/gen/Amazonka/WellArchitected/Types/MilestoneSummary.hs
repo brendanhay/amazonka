@@ -99,7 +99,7 @@ instance Prelude.Hashable MilestoneSummary where
 
 instance Prelude.NFData MilestoneSummary where
   rnf MilestoneSummary' {..} =
-    Prelude.rnf milestoneName
-      `Prelude.seq` Prelude.rnf milestoneNumber
-      `Prelude.seq` Prelude.rnf recordedAt
-      `Prelude.seq` Prelude.rnf workloadSummary
+    Prelude.rnf milestoneName `Prelude.seq`
+      Prelude.rnf milestoneNumber `Prelude.seq`
+        Prelude.rnf recordedAt `Prelude.seq`
+          Prelude.rnf workloadSummary

@@ -200,11 +200,11 @@ instance Prelude.Hashable Subscription where
 
 instance Prelude.NFData Subscription where
   rnf Subscription' {..} =
-    Prelude.rnf autoRenew
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf limits
-      `Prelude.seq` Prelude.rnf proactiveEngagementStatus
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf subscriptionArn
-      `Prelude.seq` Prelude.rnf timeCommitmentInSeconds
-      `Prelude.seq` Prelude.rnf subscriptionLimits
+    Prelude.rnf autoRenew `Prelude.seq`
+      Prelude.rnf endTime `Prelude.seq`
+        Prelude.rnf limits `Prelude.seq`
+          Prelude.rnf proactiveEngagementStatus `Prelude.seq`
+            Prelude.rnf startTime `Prelude.seq`
+              Prelude.rnf subscriptionArn `Prelude.seq`
+                Prelude.rnf timeCommitmentInSeconds `Prelude.seq`
+                  Prelude.rnf subscriptionLimits

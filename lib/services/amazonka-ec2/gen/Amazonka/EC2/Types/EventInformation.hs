@@ -350,6 +350,6 @@ instance Prelude.Hashable EventInformation where
 
 instance Prelude.NFData EventInformation where
   rnf EventInformation' {..} =
-    Prelude.rnf eventDescription
-      `Prelude.seq` Prelude.rnf eventSubType
-      `Prelude.seq` Prelude.rnf instanceId
+    Prelude.rnf eventDescription `Prelude.seq`
+      Prelude.rnf eventSubType `Prelude.seq`
+        Prelude.rnf instanceId

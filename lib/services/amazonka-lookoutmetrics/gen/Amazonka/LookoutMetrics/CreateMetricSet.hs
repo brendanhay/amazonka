@@ -244,18 +244,18 @@ instance Prelude.Hashable CreateMetricSet where
 
 instance Prelude.NFData CreateMetricSet where
   rnf CreateMetricSet' {..} =
-    Prelude.rnf dimensionFilterList
-      `Prelude.seq` Prelude.rnf dimensionList
-      `Prelude.seq` Prelude.rnf metricSetDescription
-      `Prelude.seq` Prelude.rnf metricSetFrequency
-      `Prelude.seq` Prelude.rnf offset
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf timestampColumn
-      `Prelude.seq` Prelude.rnf timezone
-      `Prelude.seq` Prelude.rnf anomalyDetectorArn
-      `Prelude.seq` Prelude.rnf metricSetName
-      `Prelude.seq` Prelude.rnf metricList
-      `Prelude.seq` Prelude.rnf metricSource
+    Prelude.rnf dimensionFilterList `Prelude.seq`
+      Prelude.rnf dimensionList `Prelude.seq`
+        Prelude.rnf metricSetDescription `Prelude.seq`
+          Prelude.rnf metricSetFrequency `Prelude.seq`
+            Prelude.rnf offset `Prelude.seq`
+              Prelude.rnf tags `Prelude.seq`
+                Prelude.rnf timestampColumn `Prelude.seq`
+                  Prelude.rnf timezone `Prelude.seq`
+                    Prelude.rnf anomalyDetectorArn `Prelude.seq`
+                      Prelude.rnf metricSetName `Prelude.seq`
+                        Prelude.rnf metricList `Prelude.seq`
+                          Prelude.rnf metricSource
 
 instance Data.ToHeaders CreateMetricSet where
   toHeaders =
@@ -339,5 +339,5 @@ createMetricSetResponse_httpStatus = Lens.lens (\CreateMetricSetResponse' {httpS
 
 instance Prelude.NFData CreateMetricSetResponse where
   rnf CreateMetricSetResponse' {..} =
-    Prelude.rnf metricSetArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf metricSetArn `Prelude.seq`
+      Prelude.rnf httpStatus

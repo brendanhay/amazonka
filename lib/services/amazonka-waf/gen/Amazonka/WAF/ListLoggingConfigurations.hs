@@ -141,12 +141,12 @@ instance Core.AWSPager ListLoggingConfigurations where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listLoggingConfigurations_nextMarker
-          Lens..~ rs
-          Lens.^? listLoggingConfigurationsResponse_nextMarker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listLoggingConfigurations_nextMarker
+              Lens..~ rs
+              Lens.^? listLoggingConfigurationsResponse_nextMarker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListLoggingConfigurations where
   type
@@ -174,8 +174,8 @@ instance Prelude.Hashable ListLoggingConfigurations where
 
 instance Prelude.NFData ListLoggingConfigurations where
   rnf ListLoggingConfigurations' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nextMarker
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf nextMarker
 
 instance Data.ToHeaders ListLoggingConfigurations where
   toHeaders =
@@ -272,6 +272,6 @@ instance
     ListLoggingConfigurationsResponse
   where
   rnf ListLoggingConfigurationsResponse' {..} =
-    Prelude.rnf loggingConfigurations
-      `Prelude.seq` Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf loggingConfigurations `Prelude.seq`
+      Prelude.rnf nextMarker `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -146,10 +146,10 @@ instance Prelude.Hashable VirtualMachineDetails where
 
 instance Prelude.NFData VirtualMachineDetails where
   rnf VirtualMachineDetails' {..} =
-    Prelude.rnf hostName
-      `Prelude.seq` Prelude.rnf hypervisorId
-      `Prelude.seq` Prelude.rnf lastBackupDate
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf path
-      `Prelude.seq` Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf vmwareTags
+    Prelude.rnf hostName `Prelude.seq`
+      Prelude.rnf hypervisorId `Prelude.seq`
+        Prelude.rnf lastBackupDate `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf path `Prelude.seq`
+              Prelude.rnf resourceArn `Prelude.seq`
+                Prelude.rnf vmwareTags

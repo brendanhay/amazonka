@@ -99,6 +99,6 @@ instance Prelude.Hashable UserIdentityRoot where
 
 instance Prelude.NFData UserIdentityRoot where
   rnf UserIdentityRoot' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf principalId
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf principalId

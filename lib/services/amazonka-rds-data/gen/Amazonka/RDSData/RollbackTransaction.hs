@@ -130,9 +130,9 @@ instance Prelude.Hashable RollbackTransaction where
 
 instance Prelude.NFData RollbackTransaction where
   rnf RollbackTransaction' {..} =
-    Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf secretArn
-      `Prelude.seq` Prelude.rnf transactionId
+    Prelude.rnf resourceArn `Prelude.seq`
+      Prelude.rnf secretArn `Prelude.seq`
+        Prelude.rnf transactionId
 
 instance Data.ToHeaders RollbackTransaction where
   toHeaders =
@@ -206,5 +206,5 @@ rollbackTransactionResponse_httpStatus = Lens.lens (\RollbackTransactionResponse
 
 instance Prelude.NFData RollbackTransactionResponse where
   rnf RollbackTransactionResponse' {..} =
-    Prelude.rnf transactionStatus
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf transactionStatus `Prelude.seq`
+      Prelude.rnf httpStatus

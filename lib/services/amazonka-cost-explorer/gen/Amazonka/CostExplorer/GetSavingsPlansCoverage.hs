@@ -336,14 +336,14 @@ instance Prelude.Hashable GetSavingsPlansCoverage where
 
 instance Prelude.NFData GetSavingsPlansCoverage where
   rnf GetSavingsPlansCoverage' {..} =
-    Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf granularity
-      `Prelude.seq` Prelude.rnf groupBy
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf metrics
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf timePeriod
+    Prelude.rnf filter' `Prelude.seq`
+      Prelude.rnf granularity `Prelude.seq`
+        Prelude.rnf groupBy `Prelude.seq`
+          Prelude.rnf maxResults `Prelude.seq`
+            Prelude.rnf metrics `Prelude.seq`
+              Prelude.rnf nextToken `Prelude.seq`
+                Prelude.rnf sortBy `Prelude.seq`
+                  Prelude.rnf timePeriod
 
 instance Data.ToHeaders GetSavingsPlansCoverage where
   toHeaders =
@@ -440,6 +440,6 @@ instance
     GetSavingsPlansCoverageResponse
   where
   rnf GetSavingsPlansCoverageResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf savingsPlansCoverages
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf savingsPlansCoverages

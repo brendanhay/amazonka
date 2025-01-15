@@ -269,10 +269,10 @@ instance Prelude.Hashable ServiceLastAccessed where
 
 instance Prelude.NFData ServiceLastAccessed where
   rnf ServiceLastAccessed' {..} =
-    Prelude.rnf lastAuthenticated
-      `Prelude.seq` Prelude.rnf lastAuthenticatedEntity
-      `Prelude.seq` Prelude.rnf lastAuthenticatedRegion
-      `Prelude.seq` Prelude.rnf totalAuthenticatedEntities
-      `Prelude.seq` Prelude.rnf trackedActionsLastAccessed
-      `Prelude.seq` Prelude.rnf serviceName
-      `Prelude.seq` Prelude.rnf serviceNamespace
+    Prelude.rnf lastAuthenticated `Prelude.seq`
+      Prelude.rnf lastAuthenticatedEntity `Prelude.seq`
+        Prelude.rnf lastAuthenticatedRegion `Prelude.seq`
+          Prelude.rnf totalAuthenticatedEntities `Prelude.seq`
+            Prelude.rnf trackedActionsLastAccessed `Prelude.seq`
+              Prelude.rnf serviceName `Prelude.seq`
+                Prelude.rnf serviceNamespace

@@ -127,7 +127,7 @@ instance Prelude.Hashable NetworkInfo where
 
 instance Prelude.NFData NetworkInfo where
   rnf NetworkInfo' {..} =
-    Prelude.rnf interfaceName
-      `Prelude.seq` Prelude.rnf ipAddress
-      `Prelude.seq` Prelude.rnf macAddress
-      `Prelude.seq` Prelude.rnf netMask
+    Prelude.rnf interfaceName `Prelude.seq`
+      Prelude.rnf ipAddress `Prelude.seq`
+        Prelude.rnf macAddress `Prelude.seq`
+          Prelude.rnf netMask

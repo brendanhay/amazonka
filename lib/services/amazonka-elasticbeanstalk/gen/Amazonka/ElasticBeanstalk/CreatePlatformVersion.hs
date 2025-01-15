@@ -178,12 +178,12 @@ instance Prelude.Hashable CreatePlatformVersion where
 
 instance Prelude.NFData CreatePlatformVersion where
   rnf CreatePlatformVersion' {..} =
-    Prelude.rnf environmentName
-      `Prelude.seq` Prelude.rnf optionSettings
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf platformName
-      `Prelude.seq` Prelude.rnf platformVersion
-      `Prelude.seq` Prelude.rnf platformDefinitionBundle
+    Prelude.rnf environmentName `Prelude.seq`
+      Prelude.rnf optionSettings `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf platformName `Prelude.seq`
+            Prelude.rnf platformVersion `Prelude.seq`
+              Prelude.rnf platformDefinitionBundle
 
 instance Data.ToHeaders CreatePlatformVersion where
   toHeaders = Prelude.const Prelude.mempty
@@ -263,6 +263,6 @@ createPlatformVersionResponse_httpStatus = Lens.lens (\CreatePlatformVersionResp
 
 instance Prelude.NFData CreatePlatformVersionResponse where
   rnf CreatePlatformVersionResponse' {..} =
-    Prelude.rnf builder
-      `Prelude.seq` Prelude.rnf platformSummary
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf builder `Prelude.seq`
+      Prelude.rnf platformSummary `Prelude.seq`
+        Prelude.rnf httpStatus

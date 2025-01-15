@@ -162,14 +162,14 @@ instance
     ComponentBindingPropertiesValueProperties
   where
   rnf ComponentBindingPropertiesValueProperties' {..} =
-    Prelude.rnf bucket
-      `Prelude.seq` Prelude.rnf defaultValue
-      `Prelude.seq` Prelude.rnf field
-      `Prelude.seq` Prelude.rnf key
-      `Prelude.seq` Prelude.rnf model
-      `Prelude.seq` Prelude.rnf predicates
-      `Prelude.seq` Prelude.rnf slotName
-      `Prelude.seq` Prelude.rnf userAttribute
+    Prelude.rnf bucket `Prelude.seq`
+      Prelude.rnf defaultValue `Prelude.seq`
+        Prelude.rnf field `Prelude.seq`
+          Prelude.rnf key `Prelude.seq`
+            Prelude.rnf model `Prelude.seq`
+              Prelude.rnf predicates `Prelude.seq`
+                Prelude.rnf slotName `Prelude.seq`
+                  Prelude.rnf userAttribute
 
 instance
   Data.ToJSON

@@ -158,11 +158,11 @@ instance
     ServiceQuotaIncreaseRequestInTemplate
   where
   rnf ServiceQuotaIncreaseRequestInTemplate' {..} =
-    Prelude.rnf awsRegion
-      `Prelude.seq` Prelude.rnf desiredValue
-      `Prelude.seq` Prelude.rnf globalQuota
-      `Prelude.seq` Prelude.rnf quotaCode
-      `Prelude.seq` Prelude.rnf quotaName
-      `Prelude.seq` Prelude.rnf serviceCode
-      `Prelude.seq` Prelude.rnf serviceName
-      `Prelude.seq` Prelude.rnf unit
+    Prelude.rnf awsRegion `Prelude.seq`
+      Prelude.rnf desiredValue `Prelude.seq`
+        Prelude.rnf globalQuota `Prelude.seq`
+          Prelude.rnf quotaCode `Prelude.seq`
+            Prelude.rnf quotaName `Prelude.seq`
+              Prelude.rnf serviceCode `Prelude.seq`
+                Prelude.rnf serviceName `Prelude.seq`
+                  Prelude.rnf unit

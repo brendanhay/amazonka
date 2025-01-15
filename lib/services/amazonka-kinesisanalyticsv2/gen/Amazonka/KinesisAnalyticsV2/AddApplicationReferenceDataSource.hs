@@ -173,9 +173,9 @@ instance
     AddApplicationReferenceDataSource
   where
   rnf AddApplicationReferenceDataSource' {..} =
-    Prelude.rnf applicationName
-      `Prelude.seq` Prelude.rnf currentApplicationVersionId
-      `Prelude.seq` Prelude.rnf referenceDataSource
+    Prelude.rnf applicationName `Prelude.seq`
+      Prelude.rnf currentApplicationVersionId `Prelude.seq`
+        Prelude.rnf referenceDataSource
 
 instance
   Data.ToHeaders
@@ -293,7 +293,7 @@ instance
     AddApplicationReferenceDataSourceResponse
   where
   rnf AddApplicationReferenceDataSourceResponse' {..} =
-    Prelude.rnf applicationARN
-      `Prelude.seq` Prelude.rnf applicationVersionId
-      `Prelude.seq` Prelude.rnf referenceDataSourceDescriptions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf applicationARN `Prelude.seq`
+      Prelude.rnf applicationVersionId `Prelude.seq`
+        Prelude.rnf referenceDataSourceDescriptions `Prelude.seq`
+          Prelude.rnf httpStatus

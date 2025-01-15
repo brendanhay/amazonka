@@ -246,12 +246,12 @@ instance Core.AWSPager GetResourceShares where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getResourceShares_nextToken
-          Lens..~ rs
-          Lens.^? getResourceSharesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getResourceShares_nextToken
+              Lens..~ rs
+              Lens.^? getResourceSharesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetResourceShares where
   type
@@ -282,14 +282,14 @@ instance Prelude.Hashable GetResourceShares where
 
 instance Prelude.NFData GetResourceShares where
   rnf GetResourceShares' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf permissionArn
-      `Prelude.seq` Prelude.rnf resourceShareArns
-      `Prelude.seq` Prelude.rnf resourceShareStatus
-      `Prelude.seq` Prelude.rnf tagFilters
-      `Prelude.seq` Prelude.rnf resourceOwner
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf permissionArn `Prelude.seq`
+            Prelude.rnf resourceShareArns `Prelude.seq`
+              Prelude.rnf resourceShareStatus `Prelude.seq`
+                Prelude.rnf tagFilters `Prelude.seq`
+                  Prelude.rnf resourceOwner
 
 instance Data.ToHeaders GetResourceShares where
   toHeaders =
@@ -394,6 +394,6 @@ getResourceSharesResponse_httpStatus = Lens.lens (\GetResourceSharesResponse' {h
 
 instance Prelude.NFData GetResourceSharesResponse where
   rnf GetResourceSharesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf resourceShares
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf resourceShares `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -263,9 +263,7 @@ instance Core.AWSRequest GetTemplateSummary where
       "GetTemplateSummaryResult"
       ( \s h x ->
           GetTemplateSummaryResponse'
-            Prelude.<$> ( x
-                            Data..@? "Capabilities"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "Capabilities" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (x Data..@? "CapabilitiesReason")
@@ -276,9 +274,7 @@ instance Core.AWSRequest GetTemplateSummary where
                         )
             Prelude.<*> (x Data..@? "Description")
             Prelude.<*> (x Data..@? "Metadata")
-            Prelude.<*> ( x
-                            Data..@? "Parameters"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "Parameters" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> ( x
@@ -286,9 +282,7 @@ instance Core.AWSRequest GetTemplateSummary where
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> ( x
-                            Data..@? "ResourceTypes"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "ResourceTypes" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (x Data..@? "Version")
@@ -306,11 +300,11 @@ instance Prelude.Hashable GetTemplateSummary where
 
 instance Prelude.NFData GetTemplateSummary where
   rnf GetTemplateSummary' {..} =
-    Prelude.rnf callAs
-      `Prelude.seq` Prelude.rnf stackName
-      `Prelude.seq` Prelude.rnf stackSetName
-      `Prelude.seq` Prelude.rnf templateBody
-      `Prelude.seq` Prelude.rnf templateURL
+    Prelude.rnf callAs `Prelude.seq`
+      Prelude.rnf stackName `Prelude.seq`
+        Prelude.rnf stackSetName `Prelude.seq`
+          Prelude.rnf templateBody `Prelude.seq`
+            Prelude.rnf templateURL
 
 instance Data.ToHeaders GetTemplateSummary where
   toHeaders = Prelude.const Prelude.mempty
@@ -495,13 +489,13 @@ getTemplateSummaryResponse_httpStatus = Lens.lens (\GetTemplateSummaryResponse' 
 
 instance Prelude.NFData GetTemplateSummaryResponse where
   rnf GetTemplateSummaryResponse' {..} =
-    Prelude.rnf capabilities
-      `Prelude.seq` Prelude.rnf capabilitiesReason
-      `Prelude.seq` Prelude.rnf declaredTransforms
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf metadata
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf resourceIdentifierSummaries
-      `Prelude.seq` Prelude.rnf resourceTypes
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf capabilities `Prelude.seq`
+      Prelude.rnf capabilitiesReason `Prelude.seq`
+        Prelude.rnf declaredTransforms `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf metadata `Prelude.seq`
+              Prelude.rnf parameters `Prelude.seq`
+                Prelude.rnf resourceIdentifierSummaries `Prelude.seq`
+                  Prelude.rnf resourceTypes `Prelude.seq`
+                    Prelude.rnf version `Prelude.seq`
+                      Prelude.rnf httpStatus

@@ -158,6 +158,6 @@ instance Prelude.Hashable UsageRecordResult where
 
 instance Prelude.NFData UsageRecordResult where
   rnf UsageRecordResult' {..} =
-    Prelude.rnf meteringRecordId
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf usageRecord
+    Prelude.rnf meteringRecordId `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf usageRecord

@@ -125,9 +125,9 @@ instance Prelude.Hashable RemoveFacetFromObject where
 
 instance Prelude.NFData RemoveFacetFromObject where
   rnf RemoveFacetFromObject' {..} =
-    Prelude.rnf directoryArn
-      `Prelude.seq` Prelude.rnf schemaFacet
-      `Prelude.seq` Prelude.rnf objectReference
+    Prelude.rnf directoryArn `Prelude.seq`
+      Prelude.rnf schemaFacet `Prelude.seq`
+        Prelude.rnf objectReference
 
 instance Data.ToHeaders RemoveFacetFromObject where
   toHeaders RemoveFacetFromObject' {..} =

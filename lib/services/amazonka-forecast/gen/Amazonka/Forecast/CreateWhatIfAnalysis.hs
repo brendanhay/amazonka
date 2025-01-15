@@ -195,10 +195,10 @@ instance Prelude.Hashable CreateWhatIfAnalysis where
 
 instance Prelude.NFData CreateWhatIfAnalysis where
   rnf CreateWhatIfAnalysis' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf timeSeriesSelector
-      `Prelude.seq` Prelude.rnf whatIfAnalysisName
-      `Prelude.seq` Prelude.rnf forecastArn
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf timeSeriesSelector `Prelude.seq`
+        Prelude.rnf whatIfAnalysisName `Prelude.seq`
+          Prelude.rnf forecastArn
 
 instance Data.ToHeaders CreateWhatIfAnalysis where
   toHeaders =
@@ -275,5 +275,5 @@ createWhatIfAnalysisResponse_httpStatus = Lens.lens (\CreateWhatIfAnalysisRespon
 
 instance Prelude.NFData CreateWhatIfAnalysisResponse where
   rnf CreateWhatIfAnalysisResponse' {..} =
-    Prelude.rnf whatIfAnalysisArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf whatIfAnalysisArn `Prelude.seq`
+      Prelude.rnf httpStatus

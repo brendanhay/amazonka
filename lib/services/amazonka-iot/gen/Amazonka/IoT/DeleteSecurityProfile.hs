@@ -120,8 +120,8 @@ instance Prelude.Hashable DeleteSecurityProfile where
 
 instance Prelude.NFData DeleteSecurityProfile where
   rnf DeleteSecurityProfile' {..} =
-    Prelude.rnf expectedVersion
-      `Prelude.seq` Prelude.rnf securityProfileName
+    Prelude.rnf expectedVersion `Prelude.seq`
+      Prelude.rnf securityProfileName
 
 instance Data.ToHeaders DeleteSecurityProfile where
   toHeaders = Prelude.const Prelude.mempty

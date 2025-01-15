@@ -132,12 +132,12 @@ instance Core.AWSPager ListResolvers where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listResolvers_nextToken
-          Lens..~ rs
-          Lens.^? listResolversResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listResolvers_nextToken
+              Lens..~ rs
+              Lens.^? listResolversResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListResolvers where
   type
@@ -164,10 +164,10 @@ instance Prelude.Hashable ListResolvers where
 
 instance Prelude.NFData ListResolvers where
   rnf ListResolvers' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf apiId
-      `Prelude.seq` Prelude.rnf typeName
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf apiId `Prelude.seq`
+          Prelude.rnf typeName
 
 instance Data.ToHeaders ListResolvers where
   toHeaders =
@@ -249,6 +249,6 @@ listResolversResponse_httpStatus = Lens.lens (\ListResolversResponse' {httpStatu
 
 instance Prelude.NFData ListResolversResponse where
   rnf ListResolversResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf resolvers
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf resolvers `Prelude.seq`
+        Prelude.rnf httpStatus

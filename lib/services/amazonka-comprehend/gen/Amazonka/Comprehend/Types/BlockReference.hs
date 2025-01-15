@@ -103,7 +103,7 @@ instance Prelude.Hashable BlockReference where
 
 instance Prelude.NFData BlockReference where
   rnf BlockReference' {..} =
-    Prelude.rnf beginOffset
-      `Prelude.seq` Prelude.rnf blockId
-      `Prelude.seq` Prelude.rnf childBlocks
-      `Prelude.seq` Prelude.rnf endOffset
+    Prelude.rnf beginOffset `Prelude.seq`
+      Prelude.rnf blockId `Prelude.seq`
+        Prelude.rnf childBlocks `Prelude.seq`
+          Prelude.rnf endOffset

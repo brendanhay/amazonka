@@ -101,6 +101,6 @@ instance Prelude.Hashable EnvironmentParameter where
 
 instance Prelude.NFData EnvironmentParameter where
   rnf EnvironmentParameter' {..} =
-    Prelude.rnf key
-      `Prelude.seq` Prelude.rnf valueType
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf key `Prelude.seq`
+      Prelude.rnf valueType `Prelude.seq`
+        Prelude.rnf value

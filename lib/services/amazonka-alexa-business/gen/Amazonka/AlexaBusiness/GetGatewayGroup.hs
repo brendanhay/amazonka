@@ -169,5 +169,5 @@ getGatewayGroupResponse_httpStatus = Lens.lens (\GetGatewayGroupResponse' {httpS
 
 instance Prelude.NFData GetGatewayGroupResponse where
   rnf GetGatewayGroupResponse' {..} =
-    Prelude.rnf gatewayGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf gatewayGroup `Prelude.seq`
+      Prelude.rnf httpStatus

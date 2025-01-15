@@ -352,11 +352,11 @@ describeSMBSettingsResponse_httpStatus = Lens.lens (\DescribeSMBSettingsResponse
 
 instance Prelude.NFData DescribeSMBSettingsResponse where
   rnf DescribeSMBSettingsResponse' {..} =
-    Prelude.rnf activeDirectoryStatus
-      `Prelude.seq` Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf fileSharesVisible
-      `Prelude.seq` Prelude.rnf gatewayARN
-      `Prelude.seq` Prelude.rnf sMBGuestPasswordSet
-      `Prelude.seq` Prelude.rnf sMBLocalGroups
-      `Prelude.seq` Prelude.rnf sMBSecurityStrategy
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf activeDirectoryStatus `Prelude.seq`
+      Prelude.rnf domainName `Prelude.seq`
+        Prelude.rnf fileSharesVisible `Prelude.seq`
+          Prelude.rnf gatewayARN `Prelude.seq`
+            Prelude.rnf sMBGuestPasswordSet `Prelude.seq`
+              Prelude.rnf sMBLocalGroups `Prelude.seq`
+                Prelude.rnf sMBSecurityStrategy `Prelude.seq`
+                  Prelude.rnf httpStatus

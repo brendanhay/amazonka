@@ -118,12 +118,12 @@ instance Core.AWSPager ListAgents where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listAgents_nextToken
-          Lens..~ rs
-          Lens.^? listAgentsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listAgents_nextToken
+              Lens..~ rs
+              Lens.^? listAgentsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAgents where
   type AWSResponse ListAgents = ListAgentsResponse
@@ -146,8 +146,8 @@ instance Prelude.Hashable ListAgents where
 
 instance Prelude.NFData ListAgents where
   rnf ListAgents' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListAgents where
   toHeaders =
@@ -231,6 +231,6 @@ listAgentsResponse_httpStatus = Lens.lens (\ListAgentsResponse' {httpStatus} -> 
 
 instance Prelude.NFData ListAgentsResponse where
   rnf ListAgentsResponse' {..} =
-    Prelude.rnf agents
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf agents `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

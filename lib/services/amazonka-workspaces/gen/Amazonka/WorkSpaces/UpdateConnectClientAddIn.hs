@@ -131,10 +131,10 @@ instance Prelude.Hashable UpdateConnectClientAddIn where
 
 instance Prelude.NFData UpdateConnectClientAddIn where
   rnf UpdateConnectClientAddIn' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf url
-      `Prelude.seq` Prelude.rnf addInId
-      `Prelude.seq` Prelude.rnf resourceId
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf url `Prelude.seq`
+        Prelude.rnf addInId `Prelude.seq`
+          Prelude.rnf resourceId
 
 instance Data.ToHeaders UpdateConnectClientAddIn where
   toHeaders =

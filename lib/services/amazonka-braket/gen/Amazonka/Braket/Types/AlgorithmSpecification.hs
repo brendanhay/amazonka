@@ -85,8 +85,8 @@ instance Prelude.Hashable AlgorithmSpecification where
 
 instance Prelude.NFData AlgorithmSpecification where
   rnf AlgorithmSpecification' {..} =
-    Prelude.rnf containerImage
-      `Prelude.seq` Prelude.rnf scriptModeConfig
+    Prelude.rnf containerImage `Prelude.seq`
+      Prelude.rnf scriptModeConfig
 
 instance Data.ToJSON AlgorithmSpecification where
   toJSON AlgorithmSpecification' {..} =

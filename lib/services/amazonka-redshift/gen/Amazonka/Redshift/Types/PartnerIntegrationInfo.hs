@@ -126,9 +126,9 @@ instance Prelude.Hashable PartnerIntegrationInfo where
 
 instance Prelude.NFData PartnerIntegrationInfo where
   rnf PartnerIntegrationInfo' {..} =
-    Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf partnerName
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf updatedAt
+    Prelude.rnf createdAt `Prelude.seq`
+      Prelude.rnf databaseName `Prelude.seq`
+        Prelude.rnf partnerName `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf statusMessage `Prelude.seq`
+              Prelude.rnf updatedAt

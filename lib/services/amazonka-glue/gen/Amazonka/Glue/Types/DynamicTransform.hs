@@ -154,13 +154,13 @@ instance Prelude.Hashable DynamicTransform where
 
 instance Prelude.NFData DynamicTransform where
   rnf DynamicTransform' {..} =
-    Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf transformName
-      `Prelude.seq` Prelude.rnf inputs
-      `Prelude.seq` Prelude.rnf functionName
-      `Prelude.seq` Prelude.rnf path
+    Prelude.rnf parameters `Prelude.seq`
+      Prelude.rnf version `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf transformName `Prelude.seq`
+            Prelude.rnf inputs `Prelude.seq`
+              Prelude.rnf functionName `Prelude.seq`
+                Prelude.rnf path
 
 instance Data.ToJSON DynamicTransform where
   toJSON DynamicTransform' {..} =

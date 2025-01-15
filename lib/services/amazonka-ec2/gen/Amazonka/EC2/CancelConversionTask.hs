@@ -126,9 +126,9 @@ instance Prelude.Hashable CancelConversionTask where
 
 instance Prelude.NFData CancelConversionTask where
   rnf CancelConversionTask' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf reasonMessage
-      `Prelude.seq` Prelude.rnf conversionTaskId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf reasonMessage `Prelude.seq`
+        Prelude.rnf conversionTaskId
 
 instance Data.ToHeaders CancelConversionTask where
   toHeaders = Prelude.const Prelude.mempty

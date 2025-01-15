@@ -185,13 +185,13 @@ instance Prelude.Hashable UserIdGroupPair where
 
 instance Prelude.NFData UserIdGroupPair where
   rnf UserIdGroupPair' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf groupId
-      `Prelude.seq` Prelude.rnf groupName
-      `Prelude.seq` Prelude.rnf peeringStatus
-      `Prelude.seq` Prelude.rnf userId
-      `Prelude.seq` Prelude.rnf vpcId
-      `Prelude.seq` Prelude.rnf vpcPeeringConnectionId
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf groupId `Prelude.seq`
+        Prelude.rnf groupName `Prelude.seq`
+          Prelude.rnf peeringStatus `Prelude.seq`
+            Prelude.rnf userId `Prelude.seq`
+              Prelude.rnf vpcId `Prelude.seq`
+                Prelude.rnf vpcPeeringConnectionId
 
 instance Data.ToQuery UserIdGroupPair where
   toQuery UserIdGroupPair' {..} =

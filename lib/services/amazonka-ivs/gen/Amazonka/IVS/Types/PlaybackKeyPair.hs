@@ -114,7 +114,7 @@ instance Prelude.Hashable PlaybackKeyPair where
 
 instance Prelude.NFData PlaybackKeyPair where
   rnf PlaybackKeyPair' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf fingerprint
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf fingerprint `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf tags

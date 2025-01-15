@@ -96,8 +96,8 @@ instance Prelude.Hashable StopAction where
 
 instance Prelude.NFData StopAction where
   rnf StopAction' {..} =
-    Prelude.rnf topicArn
-      `Prelude.seq` Prelude.rnf scope
+    Prelude.rnf topicArn `Prelude.seq`
+      Prelude.rnf scope
 
 instance Data.ToQuery StopAction where
   toQuery StopAction' {..} =

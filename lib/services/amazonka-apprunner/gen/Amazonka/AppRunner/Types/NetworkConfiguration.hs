@@ -85,8 +85,8 @@ instance Prelude.Hashable NetworkConfiguration where
 
 instance Prelude.NFData NetworkConfiguration where
   rnf NetworkConfiguration' {..} =
-    Prelude.rnf egressConfiguration
-      `Prelude.seq` Prelude.rnf ingressConfiguration
+    Prelude.rnf egressConfiguration `Prelude.seq`
+      Prelude.rnf ingressConfiguration
 
 instance Data.ToJSON NetworkConfiguration where
   toJSON NetworkConfiguration' {..} =

@@ -99,8 +99,8 @@ instance
 
 instance Prelude.NFData CalculateRouteCarModeOptions where
   rnf CalculateRouteCarModeOptions' {..} =
-    Prelude.rnf avoidFerries
-      `Prelude.seq` Prelude.rnf avoidTolls
+    Prelude.rnf avoidFerries `Prelude.seq`
+      Prelude.rnf avoidTolls
 
 instance Data.ToJSON CalculateRouteCarModeOptions where
   toJSON CalculateRouteCarModeOptions' {..} =

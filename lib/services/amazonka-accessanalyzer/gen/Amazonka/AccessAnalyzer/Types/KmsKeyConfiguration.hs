@@ -106,8 +106,8 @@ instance Prelude.Hashable KmsKeyConfiguration where
 
 instance Prelude.NFData KmsKeyConfiguration where
   rnf KmsKeyConfiguration' {..} =
-    Prelude.rnf grants
-      `Prelude.seq` Prelude.rnf keyPolicies
+    Prelude.rnf grants `Prelude.seq`
+      Prelude.rnf keyPolicies
 
 instance Data.ToJSON KmsKeyConfiguration where
   toJSON KmsKeyConfiguration' {..} =

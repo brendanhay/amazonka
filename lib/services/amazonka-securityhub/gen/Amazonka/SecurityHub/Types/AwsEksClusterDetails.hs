@@ -201,15 +201,15 @@ instance Prelude.Hashable AwsEksClusterDetails where
 
 instance Prelude.NFData AwsEksClusterDetails where
   rnf AwsEksClusterDetails' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf certificateAuthorityData
-      `Prelude.seq` Prelude.rnf clusterStatus
-      `Prelude.seq` Prelude.rnf endpoint
-      `Prelude.seq` Prelude.rnf logging
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf resourcesVpcConfig
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf version
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf certificateAuthorityData `Prelude.seq`
+        Prelude.rnf clusterStatus `Prelude.seq`
+          Prelude.rnf endpoint `Prelude.seq`
+            Prelude.rnf logging `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf resourcesVpcConfig `Prelude.seq`
+                  Prelude.rnf roleArn `Prelude.seq`
+                    Prelude.rnf version
 
 instance Data.ToJSON AwsEksClusterDetails where
   toJSON AwsEksClusterDetails' {..} =

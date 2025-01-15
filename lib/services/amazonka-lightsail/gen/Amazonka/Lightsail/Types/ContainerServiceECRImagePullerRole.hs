@@ -103,5 +103,5 @@ instance
     ContainerServiceECRImagePullerRole
   where
   rnf ContainerServiceECRImagePullerRole' {..} =
-    Prelude.rnf isActive
-      `Prelude.seq` Prelude.rnf principalArn
+    Prelude.rnf isActive `Prelude.seq`
+      Prelude.rnf principalArn

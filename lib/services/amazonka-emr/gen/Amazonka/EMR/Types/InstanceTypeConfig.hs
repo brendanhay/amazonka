@@ -175,13 +175,13 @@ instance Prelude.Hashable InstanceTypeConfig where
 
 instance Prelude.NFData InstanceTypeConfig where
   rnf InstanceTypeConfig' {..} =
-    Prelude.rnf bidPrice
-      `Prelude.seq` Prelude.rnf bidPriceAsPercentageOfOnDemandPrice
-      `Prelude.seq` Prelude.rnf configurations
-      `Prelude.seq` Prelude.rnf customAmiId
-      `Prelude.seq` Prelude.rnf ebsConfiguration
-      `Prelude.seq` Prelude.rnf weightedCapacity
-      `Prelude.seq` Prelude.rnf instanceType
+    Prelude.rnf bidPrice `Prelude.seq`
+      Prelude.rnf bidPriceAsPercentageOfOnDemandPrice `Prelude.seq`
+        Prelude.rnf configurations `Prelude.seq`
+          Prelude.rnf customAmiId `Prelude.seq`
+            Prelude.rnf ebsConfiguration `Prelude.seq`
+              Prelude.rnf weightedCapacity `Prelude.seq`
+                Prelude.rnf instanceType
 
 instance Data.ToJSON InstanceTypeConfig where
   toJSON InstanceTypeConfig' {..} =

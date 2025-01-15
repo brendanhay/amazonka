@@ -193,6 +193,6 @@ instance
     CreateRealtimeEndpointResponse
   where
   rnf CreateRealtimeEndpointResponse' {..} =
-    Prelude.rnf mLModelId
-      `Prelude.seq` Prelude.rnf realtimeEndpointInfo
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf mLModelId `Prelude.seq`
+      Prelude.rnf realtimeEndpointInfo `Prelude.seq`
+        Prelude.rnf httpStatus

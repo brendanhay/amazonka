@@ -82,8 +82,8 @@ instance Prelude.Hashable StatisticOverride where
 
 instance Prelude.NFData StatisticOverride where
   rnf StatisticOverride' {..} =
-    Prelude.rnf statistic
-      `Prelude.seq` Prelude.rnf parameters
+    Prelude.rnf statistic `Prelude.seq`
+      Prelude.rnf parameters
 
 instance Data.ToJSON StatisticOverride where
   toJSON StatisticOverride' {..} =

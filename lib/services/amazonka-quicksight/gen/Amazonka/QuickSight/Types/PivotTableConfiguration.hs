@@ -131,12 +131,12 @@ instance Prelude.Hashable PivotTableConfiguration where
 
 instance Prelude.NFData PivotTableConfiguration where
   rnf PivotTableConfiguration' {..} =
-    Prelude.rnf fieldOptions
-      `Prelude.seq` Prelude.rnf fieldWells
-      `Prelude.seq` Prelude.rnf paginatedReportOptions
-      `Prelude.seq` Prelude.rnf sortConfiguration
-      `Prelude.seq` Prelude.rnf tableOptions
-      `Prelude.seq` Prelude.rnf totalOptions
+    Prelude.rnf fieldOptions `Prelude.seq`
+      Prelude.rnf fieldWells `Prelude.seq`
+        Prelude.rnf paginatedReportOptions `Prelude.seq`
+          Prelude.rnf sortConfiguration `Prelude.seq`
+            Prelude.rnf tableOptions `Prelude.seq`
+              Prelude.rnf totalOptions
 
 instance Data.ToJSON PivotTableConfiguration where
   toJSON PivotTableConfiguration' {..} =

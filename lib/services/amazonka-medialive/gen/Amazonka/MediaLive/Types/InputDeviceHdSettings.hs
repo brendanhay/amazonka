@@ -175,12 +175,12 @@ instance Prelude.Hashable InputDeviceHdSettings where
 
 instance Prelude.NFData InputDeviceHdSettings where
   rnf InputDeviceHdSettings' {..} =
-    Prelude.rnf activeInput
-      `Prelude.seq` Prelude.rnf configuredInput
-      `Prelude.seq` Prelude.rnf deviceState
-      `Prelude.seq` Prelude.rnf framerate
-      `Prelude.seq` Prelude.rnf height
-      `Prelude.seq` Prelude.rnf latencyMs
-      `Prelude.seq` Prelude.rnf maxBitrate
-      `Prelude.seq` Prelude.rnf scanType
-      `Prelude.seq` Prelude.rnf width
+    Prelude.rnf activeInput `Prelude.seq`
+      Prelude.rnf configuredInput `Prelude.seq`
+        Prelude.rnf deviceState `Prelude.seq`
+          Prelude.rnf framerate `Prelude.seq`
+            Prelude.rnf height `Prelude.seq`
+              Prelude.rnf latencyMs `Prelude.seq`
+                Prelude.rnf maxBitrate `Prelude.seq`
+                  Prelude.rnf scanType `Prelude.seq`
+                    Prelude.rnf width

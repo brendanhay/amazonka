@@ -246,13 +246,13 @@ instance Prelude.Hashable CreateDatasetImportJob where
 
 instance Prelude.NFData CreateDatasetImportJob where
   rnf CreateDatasetImportJob' {..} =
-    Prelude.rnf importMode
-      `Prelude.seq` Prelude.rnf publishAttributionMetricsToS3
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf datasetArn
-      `Prelude.seq` Prelude.rnf dataSource
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf importMode `Prelude.seq`
+      Prelude.rnf publishAttributionMetricsToS3 `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf jobName `Prelude.seq`
+            Prelude.rnf datasetArn `Prelude.seq`
+              Prelude.rnf dataSource `Prelude.seq`
+                Prelude.rnf roleArn
 
 instance Data.ToHeaders CreateDatasetImportJob where
   toHeaders =
@@ -334,5 +334,5 @@ instance
     CreateDatasetImportJobResponse
   where
   rnf CreateDatasetImportJobResponse' {..} =
-    Prelude.rnf datasetImportJobArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf datasetImportJobArn `Prelude.seq`
+      Prelude.rnf httpStatus

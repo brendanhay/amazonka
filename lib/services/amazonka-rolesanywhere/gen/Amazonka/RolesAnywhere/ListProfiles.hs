@@ -111,12 +111,12 @@ instance Core.AWSPager ListProfiles where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listProfiles_nextToken
-          Lens..~ rs
-          Lens.^? listProfilesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listProfiles_nextToken
+              Lens..~ rs
+              Lens.^? listProfilesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListProfiles where
   type AWSResponse ListProfiles = ListProfilesResponse
@@ -139,8 +139,8 @@ instance Prelude.Hashable ListProfiles where
 
 instance Prelude.NFData ListProfiles where
   rnf ListProfiles' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf pageSize
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf pageSize
 
 instance Data.ToHeaders ListProfiles where
   toHeaders =
@@ -218,6 +218,6 @@ listProfilesResponse_httpStatus = Lens.lens (\ListProfilesResponse' {httpStatus}
 
 instance Prelude.NFData ListProfilesResponse where
   rnf ListProfilesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf profiles
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf profiles `Prelude.seq`
+        Prelude.rnf httpStatus

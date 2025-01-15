@@ -160,11 +160,11 @@ instance Prelude.Hashable ReplaceTransitGatewayRoute where
 
 instance Prelude.NFData ReplaceTransitGatewayRoute where
   rnf ReplaceTransitGatewayRoute' {..} =
-    Prelude.rnf blackhole
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf transitGatewayAttachmentId
-      `Prelude.seq` Prelude.rnf destinationCidrBlock
-      `Prelude.seq` Prelude.rnf transitGatewayRouteTableId
+    Prelude.rnf blackhole `Prelude.seq`
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf transitGatewayAttachmentId `Prelude.seq`
+          Prelude.rnf destinationCidrBlock `Prelude.seq`
+            Prelude.rnf transitGatewayRouteTableId
 
 instance Data.ToHeaders ReplaceTransitGatewayRoute where
   toHeaders = Prelude.const Prelude.mempty
@@ -232,5 +232,5 @@ instance
     ReplaceTransitGatewayRouteResponse
   where
   rnf ReplaceTransitGatewayRouteResponse' {..} =
-    Prelude.rnf route
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf route `Prelude.seq`
+      Prelude.rnf httpStatus

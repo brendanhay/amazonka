@@ -269,5 +269,5 @@ instance
   where
   rnf
     CreateDirectConnectGatewayAssociationResponse' {..} =
-      Prelude.rnf directConnectGatewayAssociation
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf directConnectGatewayAssociation `Prelude.seq`
+        Prelude.rnf httpStatus

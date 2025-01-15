@@ -103,8 +103,8 @@ instance Prelude.Hashable UpdateCampaignDialerConfig where
 
 instance Prelude.NFData UpdateCampaignDialerConfig where
   rnf UpdateCampaignDialerConfig' {..} =
-    Prelude.rnf dialerConfig
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf dialerConfig `Prelude.seq`
+      Prelude.rnf id
 
 instance Data.ToHeaders UpdateCampaignDialerConfig where
   toHeaders =

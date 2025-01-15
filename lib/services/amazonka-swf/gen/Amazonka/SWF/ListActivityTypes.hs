@@ -202,12 +202,12 @@ instance Core.AWSPager ListActivityTypes where
         (rs Lens.^. listActivityTypesResponse_typeInfos) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listActivityTypes_nextPageToken
-          Lens..~ rs
-          Lens.^? listActivityTypesResponse_nextPageToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listActivityTypes_nextPageToken
+              Lens..~ rs
+              Lens.^? listActivityTypesResponse_nextPageToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListActivityTypes where
   type
@@ -236,12 +236,12 @@ instance Prelude.Hashable ListActivityTypes where
 
 instance Prelude.NFData ListActivityTypes where
   rnf ListActivityTypes' {..} =
-    Prelude.rnf maximumPageSize
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf reverseOrder
-      `Prelude.seq` Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf registrationStatus
+    Prelude.rnf maximumPageSize `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf nextPageToken `Prelude.seq`
+          Prelude.rnf reverseOrder `Prelude.seq`
+            Prelude.rnf domain `Prelude.seq`
+              Prelude.rnf registrationStatus
 
 instance Data.ToHeaders ListActivityTypes where
   toHeaders =
@@ -349,6 +349,6 @@ listActivityTypesResponse_typeInfos = Lens.lens (\ListActivityTypesResponse' {ty
 
 instance Prelude.NFData ListActivityTypesResponse where
   rnf ListActivityTypesResponse' {..} =
-    Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf typeInfos
+    Prelude.rnf nextPageToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf typeInfos

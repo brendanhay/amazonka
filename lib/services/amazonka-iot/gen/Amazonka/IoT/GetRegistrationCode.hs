@@ -137,5 +137,5 @@ getRegistrationCodeResponse_httpStatus = Lens.lens (\GetRegistrationCodeResponse
 
 instance Prelude.NFData GetRegistrationCodeResponse where
   rnf GetRegistrationCodeResponse' {..} =
-    Prelude.rnf registrationCode
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf registrationCode `Prelude.seq`
+      Prelude.rnf httpStatus

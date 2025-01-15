@@ -226,15 +226,15 @@ instance Prelude.Hashable TestInvokeMethod where
 
 instance Prelude.NFData TestInvokeMethod where
   rnf TestInvokeMethod' {..} =
-    Prelude.rnf body
-      `Prelude.seq` Prelude.rnf clientCertificateId
-      `Prelude.seq` Prelude.rnf headers
-      `Prelude.seq` Prelude.rnf multiValueHeaders
-      `Prelude.seq` Prelude.rnf pathWithQueryString
-      `Prelude.seq` Prelude.rnf stageVariables
-      `Prelude.seq` Prelude.rnf restApiId
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf httpMethod
+    Prelude.rnf body `Prelude.seq`
+      Prelude.rnf clientCertificateId `Prelude.seq`
+        Prelude.rnf headers `Prelude.seq`
+          Prelude.rnf multiValueHeaders `Prelude.seq`
+            Prelude.rnf pathWithQueryString `Prelude.seq`
+              Prelude.rnf stageVariables `Prelude.seq`
+                Prelude.rnf restApiId `Prelude.seq`
+                  Prelude.rnf resourceId `Prelude.seq`
+                    Prelude.rnf httpMethod
 
 instance Data.ToHeaders TestInvokeMethod where
   toHeaders =
@@ -363,10 +363,10 @@ testInvokeMethodResponse_httpStatus = Lens.lens (\TestInvokeMethodResponse' {htt
 
 instance Prelude.NFData TestInvokeMethodResponse where
   rnf TestInvokeMethodResponse' {..} =
-    Prelude.rnf body
-      `Prelude.seq` Prelude.rnf headers
-      `Prelude.seq` Prelude.rnf latency
-      `Prelude.seq` Prelude.rnf log
-      `Prelude.seq` Prelude.rnf multiValueHeaders
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf body `Prelude.seq`
+      Prelude.rnf headers `Prelude.seq`
+        Prelude.rnf latency `Prelude.seq`
+          Prelude.rnf log `Prelude.seq`
+            Prelude.rnf multiValueHeaders `Prelude.seq`
+              Prelude.rnf status `Prelude.seq`
+                Prelude.rnf httpStatus

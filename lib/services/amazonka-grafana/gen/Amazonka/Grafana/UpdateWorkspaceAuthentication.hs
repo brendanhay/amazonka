@@ -148,9 +148,9 @@ instance
 
 instance Prelude.NFData UpdateWorkspaceAuthentication where
   rnf UpdateWorkspaceAuthentication' {..} =
-    Prelude.rnf samlConfiguration
-      `Prelude.seq` Prelude.rnf authenticationProviders
-      `Prelude.seq` Prelude.rnf workspaceId
+    Prelude.rnf samlConfiguration `Prelude.seq`
+      Prelude.rnf authenticationProviders `Prelude.seq`
+        Prelude.rnf workspaceId
 
 instance Data.ToHeaders UpdateWorkspaceAuthentication where
   toHeaders =
@@ -238,5 +238,5 @@ instance
     UpdateWorkspaceAuthenticationResponse
   where
   rnf UpdateWorkspaceAuthenticationResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf authentication
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf authentication

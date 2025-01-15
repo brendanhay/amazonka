@@ -122,9 +122,9 @@ instance Prelude.Hashable ListTestGridSessionActions where
 
 instance Prelude.NFData ListTestGridSessionActions where
   rnf ListTestGridSessionActions' {..} =
-    Prelude.rnf maxResult
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sessionArn
+    Prelude.rnf maxResult `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf sessionArn
 
 instance Data.ToHeaders ListTestGridSessionActions where
   toHeaders =
@@ -210,6 +210,6 @@ instance
     ListTestGridSessionActionsResponse
   where
   rnf ListTestGridSessionActionsResponse' {..} =
-    Prelude.rnf actions
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf actions `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

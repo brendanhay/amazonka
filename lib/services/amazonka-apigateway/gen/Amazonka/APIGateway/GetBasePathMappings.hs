@@ -120,12 +120,12 @@ instance Core.AWSPager GetBasePathMappings where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getBasePathMappings_position
-          Lens..~ rs
-          Lens.^? getBasePathMappingsResponse_position
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getBasePathMappings_position
+              Lens..~ rs
+              Lens.^? getBasePathMappingsResponse_position
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetBasePathMappings where
   type
@@ -151,9 +151,9 @@ instance Prelude.Hashable GetBasePathMappings where
 
 instance Prelude.NFData GetBasePathMappings where
   rnf GetBasePathMappings' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf position
-      `Prelude.seq` Prelude.rnf domainName
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf position `Prelude.seq`
+        Prelude.rnf domainName
 
 instance Data.ToHeaders GetBasePathMappings where
   toHeaders =
@@ -228,6 +228,6 @@ getBasePathMappingsResponse_httpStatus = Lens.lens (\GetBasePathMappingsResponse
 
 instance Prelude.NFData GetBasePathMappingsResponse where
   rnf GetBasePathMappingsResponse' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf position
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf items `Prelude.seq`
+      Prelude.rnf position `Prelude.seq`
+        Prelude.rnf httpStatus

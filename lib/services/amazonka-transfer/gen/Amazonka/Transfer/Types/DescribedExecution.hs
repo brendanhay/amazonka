@@ -169,11 +169,11 @@ instance Prelude.Hashable DescribedExecution where
 
 instance Prelude.NFData DescribedExecution where
   rnf DescribedExecution' {..} =
-    Prelude.rnf executionId
-      `Prelude.seq` Prelude.rnf executionRole
-      `Prelude.seq` Prelude.rnf initialFileLocation
-      `Prelude.seq` Prelude.rnf loggingConfiguration
-      `Prelude.seq` Prelude.rnf posixProfile
-      `Prelude.seq` Prelude.rnf results
-      `Prelude.seq` Prelude.rnf serviceMetadata
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf executionId `Prelude.seq`
+      Prelude.rnf executionRole `Prelude.seq`
+        Prelude.rnf initialFileLocation `Prelude.seq`
+          Prelude.rnf loggingConfiguration `Prelude.seq`
+            Prelude.rnf posixProfile `Prelude.seq`
+              Prelude.rnf results `Prelude.seq`
+                Prelude.rnf serviceMetadata `Prelude.seq`
+                  Prelude.rnf status

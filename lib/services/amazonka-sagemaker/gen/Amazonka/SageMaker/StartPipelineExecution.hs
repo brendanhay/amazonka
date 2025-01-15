@@ -166,12 +166,12 @@ instance Prelude.Hashable StartPipelineExecution where
 
 instance Prelude.NFData StartPipelineExecution where
   rnf StartPipelineExecution' {..} =
-    Prelude.rnf parallelismConfiguration
-      `Prelude.seq` Prelude.rnf pipelineExecutionDescription
-      `Prelude.seq` Prelude.rnf pipelineExecutionDisplayName
-      `Prelude.seq` Prelude.rnf pipelineParameters
-      `Prelude.seq` Prelude.rnf pipelineName
-      `Prelude.seq` Prelude.rnf clientRequestToken
+    Prelude.rnf parallelismConfiguration `Prelude.seq`
+      Prelude.rnf pipelineExecutionDescription `Prelude.seq`
+        Prelude.rnf pipelineExecutionDisplayName `Prelude.seq`
+          Prelude.rnf pipelineParameters `Prelude.seq`
+            Prelude.rnf pipelineName `Prelude.seq`
+              Prelude.rnf clientRequestToken
 
 instance Data.ToHeaders StartPipelineExecution where
   toHeaders =
@@ -256,5 +256,5 @@ instance
     StartPipelineExecutionResponse
   where
   rnf StartPipelineExecutionResponse' {..} =
-    Prelude.rnf pipelineExecutionArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf pipelineExecutionArn `Prelude.seq`
+      Prelude.rnf httpStatus

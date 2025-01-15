@@ -142,10 +142,10 @@ instance Prelude.Hashable Alarm where
 
 instance Prelude.NFData Alarm where
   rnf Alarm' {..} =
-    Prelude.rnf alarmModelName
-      `Prelude.seq` Prelude.rnf alarmModelVersion
-      `Prelude.seq` Prelude.rnf alarmState
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf keyValue
-      `Prelude.seq` Prelude.rnf lastUpdateTime
-      `Prelude.seq` Prelude.rnf severity
+    Prelude.rnf alarmModelName `Prelude.seq`
+      Prelude.rnf alarmModelVersion `Prelude.seq`
+        Prelude.rnf alarmState `Prelude.seq`
+          Prelude.rnf creationTime `Prelude.seq`
+            Prelude.rnf keyValue `Prelude.seq`
+              Prelude.rnf lastUpdateTime `Prelude.seq`
+                Prelude.rnf severity

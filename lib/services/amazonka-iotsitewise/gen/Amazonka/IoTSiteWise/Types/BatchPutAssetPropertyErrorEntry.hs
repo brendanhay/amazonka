@@ -98,5 +98,5 @@ instance
     BatchPutAssetPropertyErrorEntry
   where
   rnf BatchPutAssetPropertyErrorEntry' {..} =
-    Prelude.rnf entryId
-      `Prelude.seq` Prelude.rnf errors
+    Prelude.rnf entryId `Prelude.seq`
+      Prelude.rnf errors

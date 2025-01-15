@@ -268,12 +268,12 @@ instance Prelude.Hashable UpdateContainerService where
 
 instance Prelude.NFData UpdateContainerService where
   rnf UpdateContainerService' {..} =
-    Prelude.rnf isDisabled
-      `Prelude.seq` Prelude.rnf power
-      `Prelude.seq` Prelude.rnf privateRegistryAccess
-      `Prelude.seq` Prelude.rnf publicDomainNames
-      `Prelude.seq` Prelude.rnf scale
-      `Prelude.seq` Prelude.rnf serviceName
+    Prelude.rnf isDisabled `Prelude.seq`
+      Prelude.rnf power `Prelude.seq`
+        Prelude.rnf privateRegistryAccess `Prelude.seq`
+          Prelude.rnf publicDomainNames `Prelude.seq`
+            Prelude.rnf scale `Prelude.seq`
+              Prelude.rnf serviceName
 
 instance Data.ToHeaders UpdateContainerService where
   toHeaders =
@@ -355,5 +355,5 @@ instance
     UpdateContainerServiceResponse
   where
   rnf UpdateContainerServiceResponse' {..} =
-    Prelude.rnf containerService
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf containerService `Prelude.seq`
+      Prelude.rnf httpStatus

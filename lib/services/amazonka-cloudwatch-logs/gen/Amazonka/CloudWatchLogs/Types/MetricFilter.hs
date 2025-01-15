@@ -118,8 +118,8 @@ instance Prelude.Hashable MetricFilter where
 
 instance Prelude.NFData MetricFilter where
   rnf MetricFilter' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf filterName
-      `Prelude.seq` Prelude.rnf filterPattern
-      `Prelude.seq` Prelude.rnf logGroupName
-      `Prelude.seq` Prelude.rnf metricTransformations
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf filterName `Prelude.seq`
+        Prelude.rnf filterPattern `Prelude.seq`
+          Prelude.rnf logGroupName `Prelude.seq`
+            Prelude.rnf metricTransformations

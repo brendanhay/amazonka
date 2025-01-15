@@ -141,12 +141,12 @@ instance Core.AWSPager DescribePools where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describePools_nextToken
-          Lens..~ rs
-          Lens.^? describePoolsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describePools_nextToken
+              Lens..~ rs
+              Lens.^? describePoolsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribePools where
   type
@@ -173,10 +173,10 @@ instance Prelude.Hashable DescribePools where
 
 instance Prelude.NFData DescribePools where
   rnf DescribePools' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf poolIds
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf poolIds
 
 instance Data.ToHeaders DescribePools where
   toHeaders =
@@ -265,6 +265,6 @@ describePoolsResponse_httpStatus = Lens.lens (\DescribePoolsResponse' {httpStatu
 
 instance Prelude.NFData DescribePoolsResponse where
   rnf DescribePoolsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf pools
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf pools `Prelude.seq`
+        Prelude.rnf httpStatus

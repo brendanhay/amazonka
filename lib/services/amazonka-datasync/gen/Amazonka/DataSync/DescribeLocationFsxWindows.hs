@@ -242,10 +242,10 @@ instance
     DescribeLocationFsxWindowsResponse
   where
   rnf DescribeLocationFsxWindowsResponse' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf locationArn
-      `Prelude.seq` Prelude.rnf locationUri
-      `Prelude.seq` Prelude.rnf securityGroupArns
-      `Prelude.seq` Prelude.rnf user
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf domain `Prelude.seq`
+        Prelude.rnf locationArn `Prelude.seq`
+          Prelude.rnf locationUri `Prelude.seq`
+            Prelude.rnf securityGroupArns `Prelude.seq`
+              Prelude.rnf user `Prelude.seq`
+                Prelude.rnf httpStatus

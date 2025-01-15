@@ -95,6 +95,6 @@ instance
 
 instance Prelude.NFData FindMatchesTaskRunProperties where
   rnf FindMatchesTaskRunProperties' {..} =
-    Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf jobRunId
+    Prelude.rnf jobId `Prelude.seq`
+      Prelude.rnf jobName `Prelude.seq`
+        Prelude.rnf jobRunId

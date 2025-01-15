@@ -93,9 +93,9 @@ instance Prelude.Hashable ZonalStatisticsConfigInput where
 
 instance Prelude.NFData ZonalStatisticsConfigInput where
   rnf ZonalStatisticsConfigInput' {..} =
-    Prelude.rnf targetBands
-      `Prelude.seq` Prelude.rnf statistics
-      `Prelude.seq` Prelude.rnf zoneS3Path
+    Prelude.rnf targetBands `Prelude.seq`
+      Prelude.rnf statistics `Prelude.seq`
+        Prelude.rnf zoneS3Path
 
 instance Data.ToJSON ZonalStatisticsConfigInput where
   toJSON ZonalStatisticsConfigInput' {..} =

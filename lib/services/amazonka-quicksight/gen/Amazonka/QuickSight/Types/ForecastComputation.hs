@@ -202,17 +202,17 @@ instance Prelude.Hashable ForecastComputation where
 
 instance Prelude.NFData ForecastComputation where
   rnf ForecastComputation' {..} =
-    Prelude.rnf customSeasonalityValue
-      `Prelude.seq` Prelude.rnf lowerBoundary
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf periodsBackward
-      `Prelude.seq` Prelude.rnf periodsForward
-      `Prelude.seq` Prelude.rnf predictionInterval
-      `Prelude.seq` Prelude.rnf seasonality
-      `Prelude.seq` Prelude.rnf upperBoundary
-      `Prelude.seq` Prelude.rnf value
-      `Prelude.seq` Prelude.rnf computationId
-      `Prelude.seq` Prelude.rnf time
+    Prelude.rnf customSeasonalityValue `Prelude.seq`
+      Prelude.rnf lowerBoundary `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf periodsBackward `Prelude.seq`
+            Prelude.rnf periodsForward `Prelude.seq`
+              Prelude.rnf predictionInterval `Prelude.seq`
+                Prelude.rnf seasonality `Prelude.seq`
+                  Prelude.rnf upperBoundary `Prelude.seq`
+                    Prelude.rnf value `Prelude.seq`
+                      Prelude.rnf computationId `Prelude.seq`
+                        Prelude.rnf time
 
 instance Data.ToJSON ForecastComputation where
   toJSON ForecastComputation' {..} =

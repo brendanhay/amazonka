@@ -129,9 +129,9 @@ instance Prelude.Hashable ListTunnels where
 
 instance Prelude.NFData ListTunnels where
   rnf ListTunnels' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf thingName
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf thingName
 
 instance Data.ToHeaders ListTunnels where
   toHeaders =
@@ -216,6 +216,6 @@ listTunnelsResponse_httpStatus = Lens.lens (\ListTunnelsResponse' {httpStatus} -
 
 instance Prelude.NFData ListTunnelsResponse where
   rnf ListTunnelsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf tunnelSummaries
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf tunnelSummaries `Prelude.seq`
+        Prelude.rnf httpStatus

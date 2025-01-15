@@ -124,8 +124,8 @@ instance Prelude.Hashable PutRetentionSettings where
 
 instance Prelude.NFData PutRetentionSettings where
   rnf PutRetentionSettings' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf retentionSettings
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf retentionSettings
 
 instance Data.ToHeaders PutRetentionSettings where
   toHeaders = Prelude.const Prelude.mempty
@@ -203,6 +203,6 @@ putRetentionSettingsResponse_httpStatus = Lens.lens (\PutRetentionSettingsRespon
 
 instance Prelude.NFData PutRetentionSettingsResponse where
   rnf PutRetentionSettingsResponse' {..} =
-    Prelude.rnf initiateDeletionTimestamp
-      `Prelude.seq` Prelude.rnf retentionSettings
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf initiateDeletionTimestamp `Prelude.seq`
+      Prelude.rnf retentionSettings `Prelude.seq`
+        Prelude.rnf httpStatus

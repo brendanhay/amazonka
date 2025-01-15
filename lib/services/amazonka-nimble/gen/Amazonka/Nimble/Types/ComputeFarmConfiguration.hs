@@ -88,8 +88,8 @@ instance Prelude.Hashable ComputeFarmConfiguration where
 
 instance Prelude.NFData ComputeFarmConfiguration where
   rnf ComputeFarmConfiguration' {..} =
-    Prelude.rnf activeDirectoryUser
-      `Prelude.seq` Prelude.rnf endpoint
+    Prelude.rnf activeDirectoryUser `Prelude.seq`
+      Prelude.rnf endpoint
 
 instance Data.ToJSON ComputeFarmConfiguration where
   toJSON ComputeFarmConfiguration' {..} =

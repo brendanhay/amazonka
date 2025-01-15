@@ -115,10 +115,10 @@ instance Prelude.Hashable LambdaVolumeMount where
 
 instance Prelude.NFData LambdaVolumeMount where
   rnf LambdaVolumeMount' {..} =
-    Prelude.rnf addGroupOwner
-      `Prelude.seq` Prelude.rnf permission
-      `Prelude.seq` Prelude.rnf sourcePath
-      `Prelude.seq` Prelude.rnf destinationPath
+    Prelude.rnf addGroupOwner `Prelude.seq`
+      Prelude.rnf permission `Prelude.seq`
+        Prelude.rnf sourcePath `Prelude.seq`
+          Prelude.rnf destinationPath
 
 instance Data.ToJSON LambdaVolumeMount where
   toJSON LambdaVolumeMount' {..} =

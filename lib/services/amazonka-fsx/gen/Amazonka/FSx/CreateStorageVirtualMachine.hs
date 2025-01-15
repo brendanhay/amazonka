@@ -215,13 +215,13 @@ instance Prelude.Hashable CreateStorageVirtualMachine where
 
 instance Prelude.NFData CreateStorageVirtualMachine where
   rnf CreateStorageVirtualMachine' {..} =
-    Prelude.rnf activeDirectoryConfiguration
-      `Prelude.seq` Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf rootVolumeSecurityStyle
-      `Prelude.seq` Prelude.rnf svmAdminPassword
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf fileSystemId
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf activeDirectoryConfiguration `Prelude.seq`
+      Prelude.rnf clientRequestToken `Prelude.seq`
+        Prelude.rnf rootVolumeSecurityStyle `Prelude.seq`
+          Prelude.rnf svmAdminPassword `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf fileSystemId `Prelude.seq`
+                Prelude.rnf name
 
 instance Data.ToHeaders CreateStorageVirtualMachine where
   toHeaders =
@@ -309,5 +309,5 @@ instance
     CreateStorageVirtualMachineResponse
   where
   rnf CreateStorageVirtualMachineResponse' {..} =
-    Prelude.rnf storageVirtualMachine
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf storageVirtualMachine `Prelude.seq`
+      Prelude.rnf httpStatus

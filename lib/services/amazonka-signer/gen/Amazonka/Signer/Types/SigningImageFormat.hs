@@ -87,5 +87,5 @@ instance Prelude.Hashable SigningImageFormat where
 
 instance Prelude.NFData SigningImageFormat where
   rnf SigningImageFormat' {..} =
-    Prelude.rnf supportedFormats
-      `Prelude.seq` Prelude.rnf defaultFormat
+    Prelude.rnf supportedFormats `Prelude.seq`
+      Prelude.rnf defaultFormat

@@ -132,9 +132,9 @@ instance Prelude.Hashable DescribeVirtualNode where
 
 instance Prelude.NFData DescribeVirtualNode where
   rnf DescribeVirtualNode' {..} =
-    Prelude.rnf meshOwner
-      `Prelude.seq` Prelude.rnf meshName
-      `Prelude.seq` Prelude.rnf virtualNodeName
+    Prelude.rnf meshOwner `Prelude.seq`
+      Prelude.rnf meshName `Prelude.seq`
+        Prelude.rnf virtualNodeName
 
 instance Data.ToHeaders DescribeVirtualNode where
   toHeaders =
@@ -207,5 +207,5 @@ describeVirtualNodeResponse_virtualNode = Lens.lens (\DescribeVirtualNodeRespons
 
 instance Prelude.NFData DescribeVirtualNodeResponse where
   rnf DescribeVirtualNodeResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf virtualNode
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf virtualNode

@@ -346,17 +346,17 @@ instance Prelude.Hashable ConfigRule where
 
 instance Prelude.NFData ConfigRule where
   rnf ConfigRule' {..} =
-    Prelude.rnf configRuleArn
-      `Prelude.seq` Prelude.rnf configRuleId
-      `Prelude.seq` Prelude.rnf configRuleName
-      `Prelude.seq` Prelude.rnf configRuleState
-      `Prelude.seq` Prelude.rnf createdBy
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf evaluationModes
-      `Prelude.seq` Prelude.rnf inputParameters
-      `Prelude.seq` Prelude.rnf maximumExecutionFrequency
-      `Prelude.seq` Prelude.rnf scope
-      `Prelude.seq` Prelude.rnf source
+    Prelude.rnf configRuleArn `Prelude.seq`
+      Prelude.rnf configRuleId `Prelude.seq`
+        Prelude.rnf configRuleName `Prelude.seq`
+          Prelude.rnf configRuleState `Prelude.seq`
+            Prelude.rnf createdBy `Prelude.seq`
+              Prelude.rnf description `Prelude.seq`
+                Prelude.rnf evaluationModes `Prelude.seq`
+                  Prelude.rnf inputParameters `Prelude.seq`
+                    Prelude.rnf maximumExecutionFrequency `Prelude.seq`
+                      Prelude.rnf scope `Prelude.seq`
+                        Prelude.rnf source
 
 instance Data.ToJSON ConfigRule where
   toJSON ConfigRule' {..} =

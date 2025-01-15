@@ -109,8 +109,8 @@ instance Prelude.Hashable BatchCreateVariable where
 
 instance Prelude.NFData BatchCreateVariable where
   rnf BatchCreateVariable' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf variableEntries
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf variableEntries
 
 instance Data.ToHeaders BatchCreateVariable where
   toHeaders =
@@ -184,5 +184,5 @@ batchCreateVariableResponse_httpStatus = Lens.lens (\BatchCreateVariableResponse
 
 instance Prelude.NFData BatchCreateVariableResponse where
   rnf BatchCreateVariableResponse' {..} =
-    Prelude.rnf errors
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf errors `Prelude.seq`
+      Prelude.rnf httpStatus

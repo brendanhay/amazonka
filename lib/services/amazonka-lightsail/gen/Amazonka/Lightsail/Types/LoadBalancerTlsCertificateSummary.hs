@@ -95,5 +95,5 @@ instance
     LoadBalancerTlsCertificateSummary
   where
   rnf LoadBalancerTlsCertificateSummary' {..} =
-    Prelude.rnf isAttached
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf isAttached `Prelude.seq`
+      Prelude.rnf name

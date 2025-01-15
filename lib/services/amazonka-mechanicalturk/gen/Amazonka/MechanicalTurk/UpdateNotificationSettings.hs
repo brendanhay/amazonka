@@ -140,9 +140,9 @@ instance Prelude.Hashable UpdateNotificationSettings where
 
 instance Prelude.NFData UpdateNotificationSettings where
   rnf UpdateNotificationSettings' {..} =
-    Prelude.rnf active
-      `Prelude.seq` Prelude.rnf notification
-      `Prelude.seq` Prelude.rnf hITTypeId
+    Prelude.rnf active `Prelude.seq`
+      Prelude.rnf notification `Prelude.seq`
+        Prelude.rnf hITTypeId
 
 instance Data.ToHeaders UpdateNotificationSettings where
   toHeaders =

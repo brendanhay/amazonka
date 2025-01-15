@@ -118,9 +118,9 @@ instance
     ConfluenceBlogToIndexFieldMapping
   where
   rnf ConfluenceBlogToIndexFieldMapping' {..} =
-    Prelude.rnf dataSourceFieldName
-      `Prelude.seq` Prelude.rnf dateFieldFormat
-      `Prelude.seq` Prelude.rnf indexFieldName
+    Prelude.rnf dataSourceFieldName `Prelude.seq`
+      Prelude.rnf dateFieldFormat `Prelude.seq`
+        Prelude.rnf indexFieldName
 
 instance
   Data.ToJSON

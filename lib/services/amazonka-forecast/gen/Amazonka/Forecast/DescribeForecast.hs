@@ -360,15 +360,15 @@ describeForecastResponse_httpStatus = Lens.lens (\DescribeForecastResponse' {htt
 
 instance Prelude.NFData DescribeForecastResponse where
   rnf DescribeForecastResponse' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf datasetGroupArn
-      `Prelude.seq` Prelude.rnf estimatedTimeRemainingInMinutes
-      `Prelude.seq` Prelude.rnf forecastArn
-      `Prelude.seq` Prelude.rnf forecastName
-      `Prelude.seq` Prelude.rnf forecastTypes
-      `Prelude.seq` Prelude.rnf lastModificationTime
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf predictorArn
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf timeSeriesSelector
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf datasetGroupArn `Prelude.seq`
+        Prelude.rnf estimatedTimeRemainingInMinutes `Prelude.seq`
+          Prelude.rnf forecastArn `Prelude.seq`
+            Prelude.rnf forecastName `Prelude.seq`
+              Prelude.rnf forecastTypes `Prelude.seq`
+                Prelude.rnf lastModificationTime `Prelude.seq`
+                  Prelude.rnf message `Prelude.seq`
+                    Prelude.rnf predictorArn `Prelude.seq`
+                      Prelude.rnf status `Prelude.seq`
+                        Prelude.rnf timeSeriesSelector `Prelude.seq`
+                          Prelude.rnf httpStatus

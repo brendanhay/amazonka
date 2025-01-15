@@ -130,9 +130,9 @@ instance Prelude.Hashable GetPlayerConnectionStatus where
 
 instance Prelude.NFData GetPlayerConnectionStatus where
   rnf GetPlayerConnectionStatus' {..} =
-    Prelude.rnf gameName
-      `Prelude.seq` Prelude.rnf playerId
-      `Prelude.seq` Prelude.rnf stageName
+    Prelude.rnf gameName `Prelude.seq`
+      Prelude.rnf playerId `Prelude.seq`
+        Prelude.rnf stageName
 
 instance Data.ToHeaders GetPlayerConnectionStatus where
   toHeaders =
@@ -207,5 +207,5 @@ instance
     GetPlayerConnectionStatusResponse
   where
   rnf GetPlayerConnectionStatusResponse' {..} =
-    Prelude.rnf connections
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf connections `Prelude.seq`
+      Prelude.rnf httpStatus

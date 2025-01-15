@@ -219,10 +219,10 @@ instance Prelude.Hashable TerminateEnvironment where
 
 instance Prelude.NFData TerminateEnvironment where
   rnf TerminateEnvironment' {..} =
-    Prelude.rnf environmentId
-      `Prelude.seq` Prelude.rnf environmentName
-      `Prelude.seq` Prelude.rnf forceTerminate
-      `Prelude.seq` Prelude.rnf terminateResources
+    Prelude.rnf environmentId `Prelude.seq`
+      Prelude.rnf environmentName `Prelude.seq`
+        Prelude.rnf forceTerminate `Prelude.seq`
+          Prelude.rnf terminateResources
 
 instance Data.ToHeaders TerminateEnvironment where
   toHeaders = Prelude.const Prelude.mempty

@@ -136,9 +136,9 @@ instance Prelude.Hashable AssociateDhcpOptions where
 
 instance Prelude.NFData AssociateDhcpOptions where
   rnf AssociateDhcpOptions' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf dhcpOptionsId
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf dhcpOptionsId `Prelude.seq`
+        Prelude.rnf vpcId
 
 instance Data.ToHeaders AssociateDhcpOptions where
   toHeaders = Prelude.const Prelude.mempty

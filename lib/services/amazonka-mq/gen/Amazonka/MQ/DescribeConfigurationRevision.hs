@@ -126,8 +126,8 @@ instance
 
 instance Prelude.NFData DescribeConfigurationRevision where
   rnf DescribeConfigurationRevision' {..} =
-    Prelude.rnf configurationRevision
-      `Prelude.seq` Prelude.rnf configurationId
+    Prelude.rnf configurationRevision `Prelude.seq`
+      Prelude.rnf configurationId
 
 instance Data.ToHeaders DescribeConfigurationRevision where
   toHeaders =
@@ -223,8 +223,8 @@ instance
     DescribeConfigurationRevisionResponse
   where
   rnf DescribeConfigurationRevisionResponse' {..} =
-    Prelude.rnf configurationId
-      `Prelude.seq` Prelude.rnf created
-      `Prelude.seq` Prelude.rnf data'
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf configurationId `Prelude.seq`
+      Prelude.rnf created `Prelude.seq`
+        Prelude.rnf data' `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf httpStatus

@@ -360,9 +360,7 @@ stack_stackStatus = Lens.lens (\Stack' {stackStatus} -> stackStatus) (\s@Stack' 
 instance Data.FromXML Stack where
   parseXML x =
     Stack'
-      Prelude.<$> ( x
-                      Data..@? "Capabilities"
-                      Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "Capabilities" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "ChangeSetId")
@@ -377,14 +375,10 @@ instance Data.FromXML Stack where
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x
-                      Data..@? "Outputs"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "Outputs" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x
-                      Data..@? "Parameters"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "Parameters" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "ParentId")
@@ -393,9 +387,7 @@ instance Data.FromXML Stack where
       Prelude.<*> (x Data..@? "RootId")
       Prelude.<*> (x Data..@? "StackId")
       Prelude.<*> (x Data..@? "StackStatusReason")
-      Prelude.<*> ( x
-                      Data..@? "Tags"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "TimeoutInMinutes")
@@ -431,25 +423,25 @@ instance Prelude.Hashable Stack where
 
 instance Prelude.NFData Stack where
   rnf Stack' {..} =
-    Prelude.rnf capabilities
-      `Prelude.seq` Prelude.rnf changeSetId
-      `Prelude.seq` Prelude.rnf deletionTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf disableRollback
-      `Prelude.seq` Prelude.rnf driftInformation
-      `Prelude.seq` Prelude.rnf enableTerminationProtection
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf notificationARNs
-      `Prelude.seq` Prelude.rnf outputs
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf parentId
-      `Prelude.seq` Prelude.rnf roleARN
-      `Prelude.seq` Prelude.rnf rollbackConfiguration
-      `Prelude.seq` Prelude.rnf rootId
-      `Prelude.seq` Prelude.rnf stackId
-      `Prelude.seq` Prelude.rnf stackStatusReason
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf timeoutInMinutes
-      `Prelude.seq` Prelude.rnf stackName
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf stackStatus
+    Prelude.rnf capabilities `Prelude.seq`
+      Prelude.rnf changeSetId `Prelude.seq`
+        Prelude.rnf deletionTime `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf disableRollback `Prelude.seq`
+              Prelude.rnf driftInformation `Prelude.seq`
+                Prelude.rnf enableTerminationProtection `Prelude.seq`
+                  Prelude.rnf lastUpdatedTime `Prelude.seq`
+                    Prelude.rnf notificationARNs `Prelude.seq`
+                      Prelude.rnf outputs `Prelude.seq`
+                        Prelude.rnf parameters `Prelude.seq`
+                          Prelude.rnf parentId `Prelude.seq`
+                            Prelude.rnf roleARN `Prelude.seq`
+                              Prelude.rnf rollbackConfiguration `Prelude.seq`
+                                Prelude.rnf rootId `Prelude.seq`
+                                  Prelude.rnf stackId `Prelude.seq`
+                                    Prelude.rnf stackStatusReason `Prelude.seq`
+                                      Prelude.rnf tags `Prelude.seq`
+                                        Prelude.rnf timeoutInMinutes `Prelude.seq`
+                                          Prelude.rnf stackName `Prelude.seq`
+                                            Prelude.rnf creationTime `Prelude.seq`
+                                              Prelude.rnf stackStatus

@@ -121,8 +121,8 @@ instance
 
 instance Prelude.NFData ListUserAccessLoggingSettings where
   rnf ListUserAccessLoggingSettings' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListUserAccessLoggingSettings where
   toHeaders =
@@ -202,6 +202,6 @@ instance
     ListUserAccessLoggingSettingsResponse
   where
   rnf ListUserAccessLoggingSettingsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf userAccessLoggingSettings
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf userAccessLoggingSettings `Prelude.seq`
+        Prelude.rnf httpStatus

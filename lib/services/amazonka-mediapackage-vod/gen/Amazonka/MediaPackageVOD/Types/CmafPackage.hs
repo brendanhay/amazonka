@@ -119,10 +119,10 @@ instance Prelude.Hashable CmafPackage where
 
 instance Prelude.NFData CmafPackage where
   rnf CmafPackage' {..} =
-    Prelude.rnf encryption
-      `Prelude.seq` Prelude.rnf includeEncoderConfigurationInSegments
-      `Prelude.seq` Prelude.rnf segmentDurationSeconds
-      `Prelude.seq` Prelude.rnf hlsManifests
+    Prelude.rnf encryption `Prelude.seq`
+      Prelude.rnf includeEncoderConfigurationInSegments `Prelude.seq`
+        Prelude.rnf segmentDurationSeconds `Prelude.seq`
+          Prelude.rnf hlsManifests
 
 instance Data.ToJSON CmafPackage where
   toJSON CmafPackage' {..} =

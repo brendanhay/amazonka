@@ -85,8 +85,8 @@ instance Prelude.Hashable EdiPartyName where
 
 instance Prelude.NFData EdiPartyName where
   rnf EdiPartyName' {..} =
-    Prelude.rnf nameAssigner
-      `Prelude.seq` Prelude.rnf partyName
+    Prelude.rnf nameAssigner `Prelude.seq`
+      Prelude.rnf partyName
 
 instance Data.ToJSON EdiPartyName where
   toJSON EdiPartyName' {..} =

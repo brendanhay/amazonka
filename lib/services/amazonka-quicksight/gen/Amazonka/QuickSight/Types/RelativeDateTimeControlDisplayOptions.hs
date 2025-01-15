@@ -93,8 +93,8 @@ instance
     RelativeDateTimeControlDisplayOptions
   where
   rnf RelativeDateTimeControlDisplayOptions' {..} =
-    Prelude.rnf dateTimeFormat
-      `Prelude.seq` Prelude.rnf titleOptions
+    Prelude.rnf dateTimeFormat `Prelude.seq`
+      Prelude.rnf titleOptions
 
 instance
   Data.ToJSON

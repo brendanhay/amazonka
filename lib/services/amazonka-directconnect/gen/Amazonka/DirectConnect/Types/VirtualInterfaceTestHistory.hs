@@ -150,11 +150,11 @@ instance Prelude.Hashable VirtualInterfaceTestHistory where
 
 instance Prelude.NFData VirtualInterfaceTestHistory where
   rnf VirtualInterfaceTestHistory' {..} =
-    Prelude.rnf bgpPeers
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf ownerAccount
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf testDurationInMinutes
-      `Prelude.seq` Prelude.rnf testId
-      `Prelude.seq` Prelude.rnf virtualInterfaceId
+    Prelude.rnf bgpPeers `Prelude.seq`
+      Prelude.rnf endTime `Prelude.seq`
+        Prelude.rnf ownerAccount `Prelude.seq`
+          Prelude.rnf startTime `Prelude.seq`
+            Prelude.rnf status `Prelude.seq`
+              Prelude.rnf testDurationInMinutes `Prelude.seq`
+                Prelude.rnf testId `Prelude.seq`
+                  Prelude.rnf virtualInterfaceId

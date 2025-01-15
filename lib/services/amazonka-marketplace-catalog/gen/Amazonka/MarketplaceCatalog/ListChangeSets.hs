@@ -161,11 +161,11 @@ instance Prelude.Hashable ListChangeSets where
 
 instance Prelude.NFData ListChangeSets where
   rnf ListChangeSets' {..} =
-    Prelude.rnf filterList
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sort
-      `Prelude.seq` Prelude.rnf catalog
+    Prelude.rnf filterList `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf sort `Prelude.seq`
+            Prelude.rnf catalog
 
 instance Data.ToHeaders ListChangeSets where
   toHeaders =
@@ -249,6 +249,6 @@ listChangeSetsResponse_httpStatus = Lens.lens (\ListChangeSetsResponse' {httpSta
 
 instance Prelude.NFData ListChangeSetsResponse where
   rnf ListChangeSetsResponse' {..} =
-    Prelude.rnf changeSetSummaryList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf changeSetSummaryList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

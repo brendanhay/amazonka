@@ -242,12 +242,12 @@ instance Prelude.Hashable CreateBlueGreenDeployment where
 
 instance Prelude.NFData CreateBlueGreenDeployment where
   rnf CreateBlueGreenDeployment' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf targetDBClusterParameterGroupName
-      `Prelude.seq` Prelude.rnf targetDBParameterGroupName
-      `Prelude.seq` Prelude.rnf targetEngineVersion
-      `Prelude.seq` Prelude.rnf blueGreenDeploymentName
-      `Prelude.seq` Prelude.rnf source
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf targetDBClusterParameterGroupName `Prelude.seq`
+        Prelude.rnf targetDBParameterGroupName `Prelude.seq`
+          Prelude.rnf targetEngineVersion `Prelude.seq`
+            Prelude.rnf blueGreenDeploymentName `Prelude.seq`
+              Prelude.rnf source
 
 instance Data.ToHeaders CreateBlueGreenDeployment where
   toHeaders = Prelude.const Prelude.mempty
@@ -318,5 +318,5 @@ instance
     CreateBlueGreenDeploymentResponse
   where
   rnf CreateBlueGreenDeploymentResponse' {..} =
-    Prelude.rnf blueGreenDeployment
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf blueGreenDeployment `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -72,8 +72,8 @@ instance Prelude.Hashable PrivateDnsNamespaceChange where
 
 instance Prelude.NFData PrivateDnsNamespaceChange where
   rnf PrivateDnsNamespaceChange' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf properties
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf properties
 
 instance Data.ToJSON PrivateDnsNamespaceChange where
   toJSON PrivateDnsNamespaceChange' {..} =

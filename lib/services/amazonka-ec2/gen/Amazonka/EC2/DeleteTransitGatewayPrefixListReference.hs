@@ -147,9 +147,9 @@ instance
     DeleteTransitGatewayPrefixListReference
   where
   rnf DeleteTransitGatewayPrefixListReference' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf transitGatewayRouteTableId
-      `Prelude.seq` Prelude.rnf prefixListId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf transitGatewayRouteTableId `Prelude.seq`
+        Prelude.rnf prefixListId
 
 instance
   Data.ToHeaders
@@ -227,5 +227,5 @@ instance
   where
   rnf
     DeleteTransitGatewayPrefixListReferenceResponse' {..} =
-      Prelude.rnf transitGatewayPrefixListReference
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf transitGatewayPrefixListReference `Prelude.seq`
+        Prelude.rnf httpStatus

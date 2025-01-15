@@ -108,10 +108,10 @@ instance
     SalesforceConnectorProfileCredentials
   where
   rnf SalesforceConnectorProfileCredentials' {..} =
-    Prelude.rnf accessToken
-      `Prelude.seq` Prelude.rnf clientCredentialsArn
-      `Prelude.seq` Prelude.rnf oAuthRequest
-      `Prelude.seq` Prelude.rnf refreshToken
+    Prelude.rnf accessToken `Prelude.seq`
+      Prelude.rnf clientCredentialsArn `Prelude.seq`
+        Prelude.rnf oAuthRequest `Prelude.seq`
+          Prelude.rnf refreshToken
 
 instance
   Data.ToJSON

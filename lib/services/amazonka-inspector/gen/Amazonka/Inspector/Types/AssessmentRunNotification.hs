@@ -136,9 +136,9 @@ instance Prelude.Hashable AssessmentRunNotification where
 
 instance Prelude.NFData AssessmentRunNotification where
   rnf AssessmentRunNotification' {..} =
-    Prelude.rnf message
-      `Prelude.seq` Prelude.rnf snsPublishStatusCode
-      `Prelude.seq` Prelude.rnf snsTopicArn
-      `Prelude.seq` Prelude.rnf date
-      `Prelude.seq` Prelude.rnf event
-      `Prelude.seq` Prelude.rnf error
+    Prelude.rnf message `Prelude.seq`
+      Prelude.rnf snsPublishStatusCode `Prelude.seq`
+        Prelude.rnf snsTopicArn `Prelude.seq`
+          Prelude.rnf date `Prelude.seq`
+            Prelude.rnf event `Prelude.seq`
+              Prelude.rnf error

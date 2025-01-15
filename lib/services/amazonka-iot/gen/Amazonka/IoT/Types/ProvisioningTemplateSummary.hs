@@ -149,10 +149,10 @@ instance Prelude.Hashable ProvisioningTemplateSummary where
 
 instance Prelude.NFData ProvisioningTemplateSummary where
   rnf ProvisioningTemplateSummary' {..} =
-    Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf templateArn
-      `Prelude.seq` Prelude.rnf templateName
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf creationDate `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf enabled `Prelude.seq`
+          Prelude.rnf lastModifiedDate `Prelude.seq`
+            Prelude.rnf templateArn `Prelude.seq`
+              Prelude.rnf templateName `Prelude.seq`
+                Prelude.rnf type'

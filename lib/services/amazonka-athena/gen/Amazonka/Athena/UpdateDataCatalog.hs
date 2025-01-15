@@ -214,10 +214,10 @@ instance Prelude.Hashable UpdateDataCatalog where
 
 instance Prelude.NFData UpdateDataCatalog where
   rnf UpdateDataCatalog' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf parameters `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf type'
 
 instance Data.ToHeaders UpdateDataCatalog where
   toHeaders =

@@ -121,8 +121,8 @@ instance Prelude.Hashable ModifyAccount where
 
 instance Prelude.NFData ModifyAccount where
   rnf ModifyAccount' {..} =
-    Prelude.rnf dedicatedTenancyManagementCidrRange
-      `Prelude.seq` Prelude.rnf dedicatedTenancySupport
+    Prelude.rnf dedicatedTenancyManagementCidrRange `Prelude.seq`
+      Prelude.rnf dedicatedTenancySupport
 
 instance Data.ToHeaders ModifyAccount where
   toHeaders =

@@ -113,10 +113,10 @@ instance Prelude.Hashable DocumentRequires where
 
 instance Prelude.NFData DocumentRequires where
   rnf DocumentRequires' {..} =
-    Prelude.rnf requireType
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf versionName
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf requireType `Prelude.seq`
+      Prelude.rnf version `Prelude.seq`
+        Prelude.rnf versionName `Prelude.seq`
+          Prelude.rnf name
 
 instance Data.ToJSON DocumentRequires where
   toJSON DocumentRequires' {..} =

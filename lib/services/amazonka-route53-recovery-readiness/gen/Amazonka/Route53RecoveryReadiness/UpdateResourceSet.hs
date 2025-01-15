@@ -167,9 +167,9 @@ instance Prelude.Hashable UpdateResourceSet where
 
 instance Prelude.NFData UpdateResourceSet where
   rnf UpdateResourceSet' {..} =
-    Prelude.rnf resourceSetName
-      `Prelude.seq` Prelude.rnf resourceSetType
-      `Prelude.seq` Prelude.rnf resources
+    Prelude.rnf resourceSetName `Prelude.seq`
+      Prelude.rnf resourceSetType `Prelude.seq`
+        Prelude.rnf resources
 
 instance Data.ToHeaders UpdateResourceSet where
   toHeaders =
@@ -309,9 +309,9 @@ updateResourceSetResponse_httpStatus = Lens.lens (\UpdateResourceSetResponse' {h
 
 instance Prelude.NFData UpdateResourceSetResponse where
   rnf UpdateResourceSetResponse' {..} =
-    Prelude.rnf resourceSetArn
-      `Prelude.seq` Prelude.rnf resourceSetName
-      `Prelude.seq` Prelude.rnf resourceSetType
-      `Prelude.seq` Prelude.rnf resources
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf resourceSetArn `Prelude.seq`
+      Prelude.rnf resourceSetName `Prelude.seq`
+        Prelude.rnf resourceSetType `Prelude.seq`
+          Prelude.rnf resources `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf httpStatus

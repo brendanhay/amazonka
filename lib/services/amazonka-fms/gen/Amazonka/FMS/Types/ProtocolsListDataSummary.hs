@@ -103,7 +103,7 @@ instance Prelude.Hashable ProtocolsListDataSummary where
 
 instance Prelude.NFData ProtocolsListDataSummary where
   rnf ProtocolsListDataSummary' {..} =
-    Prelude.rnf listArn
-      `Prelude.seq` Prelude.rnf listId
-      `Prelude.seq` Prelude.rnf listName
-      `Prelude.seq` Prelude.rnf protocolsList
+    Prelude.rnf listArn `Prelude.seq`
+      Prelude.rnf listId `Prelude.seq`
+        Prelude.rnf listName `Prelude.seq`
+          Prelude.rnf protocolsList

@@ -95,8 +95,8 @@ instance Prelude.Hashable Ipv6Range where
 
 instance Prelude.NFData Ipv6Range where
   rnf Ipv6Range' {..} =
-    Prelude.rnf cidrIpv6
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf cidrIpv6 `Prelude.seq`
+      Prelude.rnf description
 
 instance Data.ToQuery Ipv6Range where
   toQuery Ipv6Range' {..} =

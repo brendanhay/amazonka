@@ -129,9 +129,9 @@ instance Prelude.Hashable AcceptEulas where
 
 instance Prelude.NFData AcceptEulas where
   rnf AcceptEulas' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf eulaIds
-      `Prelude.seq` Prelude.rnf studioId
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf eulaIds `Prelude.seq`
+        Prelude.rnf studioId
 
 instance Data.ToHeaders AcceptEulas where
   toHeaders AcceptEulas' {..} =
@@ -200,5 +200,5 @@ acceptEulasResponse_httpStatus = Lens.lens (\AcceptEulasResponse' {httpStatus} -
 
 instance Prelude.NFData AcceptEulasResponse where
   rnf AcceptEulasResponse' {..} =
-    Prelude.rnf eulaAcceptances
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf eulaAcceptances `Prelude.seq`
+      Prelude.rnf httpStatus

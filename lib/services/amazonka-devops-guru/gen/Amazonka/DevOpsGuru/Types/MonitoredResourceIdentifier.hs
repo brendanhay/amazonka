@@ -117,8 +117,8 @@ instance Prelude.Hashable MonitoredResourceIdentifier where
 
 instance Prelude.NFData MonitoredResourceIdentifier where
   rnf MonitoredResourceIdentifier' {..} =
-    Prelude.rnf lastUpdated
-      `Prelude.seq` Prelude.rnf monitoredResourceName
-      `Prelude.seq` Prelude.rnf resourceCollection
-      `Prelude.seq` Prelude.rnf resourcePermission
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf lastUpdated `Prelude.seq`
+      Prelude.rnf monitoredResourceName `Prelude.seq`
+        Prelude.rnf resourceCollection `Prelude.seq`
+          Prelude.rnf resourcePermission `Prelude.seq`
+            Prelude.rnf type'

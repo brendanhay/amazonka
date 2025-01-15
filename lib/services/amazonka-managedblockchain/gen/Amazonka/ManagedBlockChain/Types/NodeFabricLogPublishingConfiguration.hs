@@ -115,8 +115,8 @@ instance
     NodeFabricLogPublishingConfiguration
   where
   rnf NodeFabricLogPublishingConfiguration' {..} =
-    Prelude.rnf chaincodeLogs
-      `Prelude.seq` Prelude.rnf peerLogs
+    Prelude.rnf chaincodeLogs `Prelude.seq`
+      Prelude.rnf peerLogs
 
 instance
   Data.ToJSON

@@ -244,6 +244,6 @@ detectTextResponse_httpStatus = Lens.lens (\DetectTextResponse' {httpStatus} -> 
 
 instance Prelude.NFData DetectTextResponse where
   rnf DetectTextResponse' {..} =
-    Prelude.rnf textDetections
-      `Prelude.seq` Prelude.rnf textModelVersion
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf textDetections `Prelude.seq`
+      Prelude.rnf textModelVersion `Prelude.seq`
+        Prelude.rnf httpStatus

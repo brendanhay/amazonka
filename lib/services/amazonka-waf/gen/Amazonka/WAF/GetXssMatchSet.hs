@@ -215,5 +215,5 @@ getXssMatchSetResponse_httpStatus = Lens.lens (\GetXssMatchSetResponse' {httpSta
 
 instance Prelude.NFData GetXssMatchSetResponse where
   rnf GetXssMatchSetResponse' {..} =
-    Prelude.rnf xssMatchSet
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf xssMatchSet `Prelude.seq`
+      Prelude.rnf httpStatus

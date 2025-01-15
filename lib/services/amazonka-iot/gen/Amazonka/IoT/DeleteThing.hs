@@ -120,8 +120,8 @@ instance Prelude.Hashable DeleteThing where
 
 instance Prelude.NFData DeleteThing where
   rnf DeleteThing' {..} =
-    Prelude.rnf expectedVersion
-      `Prelude.seq` Prelude.rnf thingName
+    Prelude.rnf expectedVersion `Prelude.seq`
+      Prelude.rnf thingName
 
 instance Data.ToHeaders DeleteThing where
   toHeaders = Prelude.const Prelude.mempty

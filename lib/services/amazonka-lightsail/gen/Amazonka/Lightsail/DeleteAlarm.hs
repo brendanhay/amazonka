@@ -173,5 +173,5 @@ deleteAlarmResponse_httpStatus = Lens.lens (\DeleteAlarmResponse' {httpStatus} -
 
 instance Prelude.NFData DeleteAlarmResponse where
   rnf DeleteAlarmResponse' {..} =
-    Prelude.rnf operations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operations `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -168,11 +168,11 @@ instance Prelude.Hashable GetPositionEstimate where
 
 instance Prelude.NFData GetPositionEstimate where
   rnf GetPositionEstimate' {..} =
-    Prelude.rnf cellTowers
-      `Prelude.seq` Prelude.rnf gnss
-      `Prelude.seq` Prelude.rnf ip
-      `Prelude.seq` Prelude.rnf timestamp
-      `Prelude.seq` Prelude.rnf wiFiAccessPoints
+    Prelude.rnf cellTowers `Prelude.seq`
+      Prelude.rnf gnss `Prelude.seq`
+        Prelude.rnf ip `Prelude.seq`
+          Prelude.rnf timestamp `Prelude.seq`
+            Prelude.rnf wiFiAccessPoints
 
 instance Data.ToHeaders GetPositionEstimate where
   toHeaders = Prelude.const Prelude.mempty
@@ -246,5 +246,5 @@ getPositionEstimateResponse_httpStatus = Lens.lens (\GetPositionEstimateResponse
 
 instance Prelude.NFData GetPositionEstimateResponse where
   rnf GetPositionEstimateResponse' {..} =
-    Prelude.rnf geoJsonPayload
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf geoJsonPayload `Prelude.seq`
+      Prelude.rnf httpStatus

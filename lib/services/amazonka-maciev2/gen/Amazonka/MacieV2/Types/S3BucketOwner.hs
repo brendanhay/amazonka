@@ -81,5 +81,5 @@ instance Prelude.Hashable S3BucketOwner where
 
 instance Prelude.NFData S3BucketOwner where
   rnf S3BucketOwner' {..} =
-    Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf displayName `Prelude.seq`
+      Prelude.rnf id

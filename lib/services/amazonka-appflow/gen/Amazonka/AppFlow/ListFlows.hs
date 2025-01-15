@@ -109,8 +109,8 @@ instance Prelude.Hashable ListFlows where
 
 instance Prelude.NFData ListFlows where
   rnf ListFlows' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListFlows where
   toHeaders =
@@ -187,6 +187,6 @@ listFlowsResponse_httpStatus = Lens.lens (\ListFlowsResponse' {httpStatus} -> ht
 
 instance Prelude.NFData ListFlowsResponse where
   rnf ListFlowsResponse' {..} =
-    Prelude.rnf flows
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf flows `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

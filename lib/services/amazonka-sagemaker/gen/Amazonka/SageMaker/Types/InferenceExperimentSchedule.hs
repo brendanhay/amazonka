@@ -84,8 +84,8 @@ instance Prelude.Hashable InferenceExperimentSchedule where
 
 instance Prelude.NFData InferenceExperimentSchedule where
   rnf InferenceExperimentSchedule' {..} =
-    Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf startTime
+    Prelude.rnf endTime `Prelude.seq`
+      Prelude.rnf startTime
 
 instance Data.ToJSON InferenceExperimentSchedule where
   toJSON InferenceExperimentSchedule' {..} =

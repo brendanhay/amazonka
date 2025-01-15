@@ -116,8 +116,8 @@ instance Prelude.Hashable CustomResponseBody where
 
 instance Prelude.NFData CustomResponseBody where
   rnf CustomResponseBody' {..} =
-    Prelude.rnf contentType
-      `Prelude.seq` Prelude.rnf content
+    Prelude.rnf contentType `Prelude.seq`
+      Prelude.rnf content
 
 instance Data.ToJSON CustomResponseBody where
   toJSON CustomResponseBody' {..} =

@@ -162,11 +162,11 @@ instance Prelude.Hashable Disk where
 
 instance Prelude.NFData Disk where
   rnf Disk' {..} =
-    Prelude.rnf diskAllocationResource
-      `Prelude.seq` Prelude.rnf diskAllocationType
-      `Prelude.seq` Prelude.rnf diskAttributeList
-      `Prelude.seq` Prelude.rnf diskId
-      `Prelude.seq` Prelude.rnf diskNode
-      `Prelude.seq` Prelude.rnf diskPath
-      `Prelude.seq` Prelude.rnf diskSizeInBytes
-      `Prelude.seq` Prelude.rnf diskStatus
+    Prelude.rnf diskAllocationResource `Prelude.seq`
+      Prelude.rnf diskAllocationType `Prelude.seq`
+        Prelude.rnf diskAttributeList `Prelude.seq`
+          Prelude.rnf diskId `Prelude.seq`
+            Prelude.rnf diskNode `Prelude.seq`
+              Prelude.rnf diskPath `Prelude.seq`
+                Prelude.rnf diskSizeInBytes `Prelude.seq`
+                  Prelude.rnf diskStatus

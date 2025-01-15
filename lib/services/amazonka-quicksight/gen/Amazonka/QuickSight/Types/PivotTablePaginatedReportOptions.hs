@@ -94,8 +94,8 @@ instance
     PivotTablePaginatedReportOptions
   where
   rnf PivotTablePaginatedReportOptions' {..} =
-    Prelude.rnf overflowColumnHeaderVisibility
-      `Prelude.seq` Prelude.rnf verticalOverflowVisibility
+    Prelude.rnf overflowColumnHeaderVisibility `Prelude.seq`
+      Prelude.rnf verticalOverflowVisibility
 
 instance Data.ToJSON PivotTablePaginatedReportOptions where
   toJSON PivotTablePaginatedReportOptions' {..} =

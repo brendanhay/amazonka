@@ -264,20 +264,20 @@ instance Prelude.Hashable EngineTranscribeSettings where
 
 instance Prelude.NFData EngineTranscribeSettings where
   rnf EngineTranscribeSettings' {..} =
-    Prelude.rnf contentIdentificationType
-      `Prelude.seq` Prelude.rnf contentRedactionType
-      `Prelude.seq` Prelude.rnf enablePartialResultsStabilization
-      `Prelude.seq` Prelude.rnf identifyLanguage
-      `Prelude.seq` Prelude.rnf languageCode
-      `Prelude.seq` Prelude.rnf languageModelName
-      `Prelude.seq` Prelude.rnf languageOptions
-      `Prelude.seq` Prelude.rnf partialResultsStability
-      `Prelude.seq` Prelude.rnf piiEntityTypes
-      `Prelude.seq` Prelude.rnf preferredLanguage
-      `Prelude.seq` Prelude.rnf region
-      `Prelude.seq` Prelude.rnf vocabularyFilterMethod
-      `Prelude.seq` Prelude.rnf vocabularyFilterName
-      `Prelude.seq` Prelude.rnf vocabularyName
+    Prelude.rnf contentIdentificationType `Prelude.seq`
+      Prelude.rnf contentRedactionType `Prelude.seq`
+        Prelude.rnf enablePartialResultsStabilization `Prelude.seq`
+          Prelude.rnf identifyLanguage `Prelude.seq`
+            Prelude.rnf languageCode `Prelude.seq`
+              Prelude.rnf languageModelName `Prelude.seq`
+                Prelude.rnf languageOptions `Prelude.seq`
+                  Prelude.rnf partialResultsStability `Prelude.seq`
+                    Prelude.rnf piiEntityTypes `Prelude.seq`
+                      Prelude.rnf preferredLanguage `Prelude.seq`
+                        Prelude.rnf region `Prelude.seq`
+                          Prelude.rnf vocabularyFilterMethod `Prelude.seq`
+                            Prelude.rnf vocabularyFilterName `Prelude.seq`
+                              Prelude.rnf vocabularyName
 
 instance Data.ToJSON EngineTranscribeSettings where
   toJSON EngineTranscribeSettings' {..} =

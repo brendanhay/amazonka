@@ -125,8 +125,8 @@ instance Prelude.Hashable DeleteApplication where
 
 instance Prelude.NFData DeleteApplication where
   rnf DeleteApplication' {..} =
-    Prelude.rnf applicationIdentifier
-      `Prelude.seq` Prelude.rnf environmentIdentifier
+    Prelude.rnf applicationIdentifier `Prelude.seq`
+      Prelude.rnf environmentIdentifier
 
 instance Data.ToHeaders DeleteApplication where
   toHeaders =
@@ -237,10 +237,10 @@ deleteApplicationResponse_httpStatus = Lens.lens (\DeleteApplicationResponse' {h
 
 instance Prelude.NFData DeleteApplicationResponse where
   rnf DeleteApplicationResponse' {..} =
-    Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf environmentId
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf applicationId `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf environmentId `Prelude.seq`
+          Prelude.rnf lastUpdatedTime `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf state `Prelude.seq`
+                Prelude.rnf httpStatus

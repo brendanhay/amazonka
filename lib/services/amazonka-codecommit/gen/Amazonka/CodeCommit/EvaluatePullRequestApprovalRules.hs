@@ -128,8 +128,8 @@ instance
     EvaluatePullRequestApprovalRules
   where
   rnf EvaluatePullRequestApprovalRules' {..} =
-    Prelude.rnf pullRequestId
-      `Prelude.seq` Prelude.rnf revisionId
+    Prelude.rnf pullRequestId `Prelude.seq`
+      Prelude.rnf revisionId
 
 instance
   Data.ToHeaders
@@ -228,5 +228,5 @@ instance
     EvaluatePullRequestApprovalRulesResponse
   where
   rnf EvaluatePullRequestApprovalRulesResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf evaluation
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf evaluation

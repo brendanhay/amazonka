@@ -118,8 +118,8 @@ instance Prelude.Hashable GetThingShadow where
 
 instance Prelude.NFData GetThingShadow where
   rnf GetThingShadow' {..} =
-    Prelude.rnf shadowName
-      `Prelude.seq` Prelude.rnf thingName
+    Prelude.rnf shadowName `Prelude.seq`
+      Prelude.rnf thingName
 
 instance Data.ToHeaders GetThingShadow where
   toHeaders = Prelude.const Prelude.mempty
@@ -175,5 +175,5 @@ getThingShadowResponse_httpStatus = Lens.lens (\GetThingShadowResponse' {httpSta
 
 instance Prelude.NFData GetThingShadowResponse where
   rnf GetThingShadowResponse' {..} =
-    Prelude.rnf payload
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf payload `Prelude.seq`
+      Prelude.rnf httpStatus

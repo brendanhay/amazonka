@@ -280,12 +280,12 @@ instance Core.AWSPager ListPolicies where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listPolicies_marker
-          Lens..~ rs
-          Lens.^? listPoliciesResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listPolicies_marker
+              Lens..~ rs
+              Lens.^? listPoliciesResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPolicies where
   type AWSResponse ListPolicies = ListPoliciesResponse
@@ -298,9 +298,7 @@ instance Core.AWSRequest ListPolicies where
           ListPoliciesResponse'
             Prelude.<$> (x Data..@? "IsTruncated")
             Prelude.<*> (x Data..@? "Marker")
-            Prelude.<*> ( x
-                            Data..@? "Policies"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "Policies" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -318,12 +316,12 @@ instance Prelude.Hashable ListPolicies where
 
 instance Prelude.NFData ListPolicies where
   rnf ListPolicies' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxItems
-      `Prelude.seq` Prelude.rnf onlyAttached
-      `Prelude.seq` Prelude.rnf pathPrefix
-      `Prelude.seq` Prelude.rnf policyUsageFilter
-      `Prelude.seq` Prelude.rnf scope
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf maxItems `Prelude.seq`
+        Prelude.rnf onlyAttached `Prelude.seq`
+          Prelude.rnf pathPrefix `Prelude.seq`
+            Prelude.rnf policyUsageFilter `Prelude.seq`
+              Prelude.rnf scope
 
 instance Data.ToHeaders ListPolicies where
   toHeaders = Prelude.const Prelude.mempty
@@ -431,7 +429,7 @@ listPoliciesResponse_httpStatus = Lens.lens (\ListPoliciesResponse' {httpStatus}
 
 instance Prelude.NFData ListPoliciesResponse where
   rnf ListPoliciesResponse' {..} =
-    Prelude.rnf isTruncated
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf policies
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf isTruncated `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf policies `Prelude.seq`
+          Prelude.rnf httpStatus

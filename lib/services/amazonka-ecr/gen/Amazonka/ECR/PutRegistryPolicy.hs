@@ -190,6 +190,6 @@ putRegistryPolicyResponse_httpStatus = Lens.lens (\PutRegistryPolicyResponse' {h
 
 instance Prelude.NFData PutRegistryPolicyResponse where
   rnf PutRegistryPolicyResponse' {..} =
-    Prelude.rnf policyText
-      `Prelude.seq` Prelude.rnf registryId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf policyText `Prelude.seq`
+      Prelude.rnf registryId `Prelude.seq`
+        Prelude.rnf httpStatus

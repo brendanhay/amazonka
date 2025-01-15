@@ -136,9 +136,9 @@ instance Prelude.Hashable CapacitySpecification where
 
 instance Prelude.NFData CapacitySpecification where
   rnf CapacitySpecification' {..} =
-    Prelude.rnf readCapacityUnits
-      `Prelude.seq` Prelude.rnf writeCapacityUnits
-      `Prelude.seq` Prelude.rnf throughputMode
+    Prelude.rnf readCapacityUnits `Prelude.seq`
+      Prelude.rnf writeCapacityUnits `Prelude.seq`
+        Prelude.rnf throughputMode
 
 instance Data.ToJSON CapacitySpecification where
   toJSON CapacitySpecification' {..} =

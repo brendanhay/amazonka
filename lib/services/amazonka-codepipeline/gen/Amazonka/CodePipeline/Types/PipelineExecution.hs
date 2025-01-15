@@ -205,9 +205,9 @@ instance Prelude.Hashable PipelineExecution where
 
 instance Prelude.NFData PipelineExecution where
   rnf PipelineExecution' {..} =
-    Prelude.rnf artifactRevisions
-      `Prelude.seq` Prelude.rnf pipelineExecutionId
-      `Prelude.seq` Prelude.rnf pipelineName
-      `Prelude.seq` Prelude.rnf pipelineVersion
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusSummary
+    Prelude.rnf artifactRevisions `Prelude.seq`
+      Prelude.rnf pipelineExecutionId `Prelude.seq`
+        Prelude.rnf pipelineName `Prelude.seq`
+          Prelude.rnf pipelineVersion `Prelude.seq`
+            Prelude.rnf status `Prelude.seq`
+              Prelude.rnf statusSummary

@@ -182,15 +182,15 @@ instance Prelude.Hashable Outpost where
 
 instance Prelude.NFData Outpost where
   rnf Outpost' {..} =
-    Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf availabilityZoneId
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf lifeCycleStatus
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf outpostArn
-      `Prelude.seq` Prelude.rnf outpostId
-      `Prelude.seq` Prelude.rnf ownerId
-      `Prelude.seq` Prelude.rnf siteArn
-      `Prelude.seq` Prelude.rnf siteId
-      `Prelude.seq` Prelude.rnf supportedHardwareType
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf availabilityZone `Prelude.seq`
+      Prelude.rnf availabilityZoneId `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf lifeCycleStatus `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf outpostArn `Prelude.seq`
+                Prelude.rnf outpostId `Prelude.seq`
+                  Prelude.rnf ownerId `Prelude.seq`
+                    Prelude.rnf siteArn `Prelude.seq`
+                      Prelude.rnf siteId `Prelude.seq`
+                        Prelude.rnf supportedHardwareType `Prelude.seq`
+                          Prelude.rnf tags

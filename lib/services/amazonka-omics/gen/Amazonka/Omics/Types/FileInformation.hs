@@ -91,6 +91,6 @@ instance Prelude.Hashable FileInformation where
 
 instance Prelude.NFData FileInformation where
   rnf FileInformation' {..} =
-    Prelude.rnf contentLength
-      `Prelude.seq` Prelude.rnf partSize
-      `Prelude.seq` Prelude.rnf totalParts
+    Prelude.rnf contentLength `Prelude.seq`
+      Prelude.rnf partSize `Prelude.seq`
+        Prelude.rnf totalParts

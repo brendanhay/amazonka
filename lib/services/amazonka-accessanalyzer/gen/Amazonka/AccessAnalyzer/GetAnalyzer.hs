@@ -161,5 +161,5 @@ getAnalyzerResponse_analyzer = Lens.lens (\GetAnalyzerResponse' {analyzer} -> an
 
 instance Prelude.NFData GetAnalyzerResponse where
   rnf GetAnalyzerResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf analyzer
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf analyzer

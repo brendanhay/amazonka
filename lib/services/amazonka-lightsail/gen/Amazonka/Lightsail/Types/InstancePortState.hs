@@ -391,10 +391,10 @@ instance Prelude.Hashable InstancePortState where
 
 instance Prelude.NFData InstancePortState where
   rnf InstancePortState' {..} =
-    Prelude.rnf cidrListAliases
-      `Prelude.seq` Prelude.rnf cidrs
-      `Prelude.seq` Prelude.rnf fromPort
-      `Prelude.seq` Prelude.rnf ipv6Cidrs
-      `Prelude.seq` Prelude.rnf protocol
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf toPort
+    Prelude.rnf cidrListAliases `Prelude.seq`
+      Prelude.rnf cidrs `Prelude.seq`
+        Prelude.rnf fromPort `Prelude.seq`
+          Prelude.rnf ipv6Cidrs `Prelude.seq`
+            Prelude.rnf protocol `Prelude.seq`
+              Prelude.rnf state `Prelude.seq`
+                Prelude.rnf toPort

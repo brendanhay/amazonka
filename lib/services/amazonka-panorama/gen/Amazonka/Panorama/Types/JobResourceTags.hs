@@ -83,8 +83,8 @@ instance Prelude.Hashable JobResourceTags where
 
 instance Prelude.NFData JobResourceTags where
   rnf JobResourceTags' {..} =
-    Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf resourceType `Prelude.seq`
+      Prelude.rnf tags
 
 instance Data.ToJSON JobResourceTags where
   toJSON JobResourceTags' {..} =

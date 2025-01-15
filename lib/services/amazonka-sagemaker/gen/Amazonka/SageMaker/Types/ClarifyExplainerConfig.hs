@@ -105,9 +105,9 @@ instance Prelude.Hashable ClarifyExplainerConfig where
 
 instance Prelude.NFData ClarifyExplainerConfig where
   rnf ClarifyExplainerConfig' {..} =
-    Prelude.rnf enableExplanations
-      `Prelude.seq` Prelude.rnf inferenceConfig
-      `Prelude.seq` Prelude.rnf shapConfig
+    Prelude.rnf enableExplanations `Prelude.seq`
+      Prelude.rnf inferenceConfig `Prelude.seq`
+        Prelude.rnf shapConfig
 
 instance Data.ToJSON ClarifyExplainerConfig where
   toJSON ClarifyExplainerConfig' {..} =

@@ -103,7 +103,7 @@ instance Prelude.Hashable ExperimentReport where
 
 instance Prelude.NFData ExperimentReport where
   rnf ExperimentReport' {..} =
-    Prelude.rnf content
-      `Prelude.seq` Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf reportName
-      `Prelude.seq` Prelude.rnf treatmentName
+    Prelude.rnf content `Prelude.seq`
+      Prelude.rnf metricName `Prelude.seq`
+        Prelude.rnf reportName `Prelude.seq`
+          Prelude.rnf treatmentName

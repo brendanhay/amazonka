@@ -316,18 +316,18 @@ instance
     PushNotificationTemplateResponse
   where
   rnf PushNotificationTemplateResponse' {..} =
-    Prelude.rnf adm
-      `Prelude.seq` Prelude.rnf apns
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf baidu
-      `Prelude.seq` Prelude.rnf default'
-      `Prelude.seq` Prelude.rnf defaultSubstitutions
-      `Prelude.seq` Prelude.rnf gcm
-      `Prelude.seq` Prelude.rnf recommenderId
-      `Prelude.seq` Prelude.rnf templateDescription
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf templateType
-      `Prelude.seq` Prelude.rnf templateName
+    Prelude.rnf adm `Prelude.seq`
+      Prelude.rnf apns `Prelude.seq`
+        Prelude.rnf arn `Prelude.seq`
+          Prelude.rnf baidu `Prelude.seq`
+            Prelude.rnf default' `Prelude.seq`
+              Prelude.rnf defaultSubstitutions `Prelude.seq`
+                Prelude.rnf gcm `Prelude.seq`
+                  Prelude.rnf recommenderId `Prelude.seq`
+                    Prelude.rnf templateDescription `Prelude.seq`
+                      Prelude.rnf version `Prelude.seq`
+                        Prelude.rnf tags `Prelude.seq`
+                          Prelude.rnf lastModifiedDate `Prelude.seq`
+                            Prelude.rnf creationDate `Prelude.seq`
+                              Prelude.rnf templateType `Prelude.seq`
+                                Prelude.rnf templateName

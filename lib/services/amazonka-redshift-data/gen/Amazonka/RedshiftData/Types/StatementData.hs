@@ -184,13 +184,13 @@ instance Prelude.Hashable StatementData where
 
 instance Prelude.NFData StatementData where
   rnf StatementData' {..} =
-    Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf isBatchStatement
-      `Prelude.seq` Prelude.rnf queryParameters
-      `Prelude.seq` Prelude.rnf queryString
-      `Prelude.seq` Prelude.rnf queryStrings
-      `Prelude.seq` Prelude.rnf secretArn
-      `Prelude.seq` Prelude.rnf statementName
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf updatedAt
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf createdAt `Prelude.seq`
+      Prelude.rnf isBatchStatement `Prelude.seq`
+        Prelude.rnf queryParameters `Prelude.seq`
+          Prelude.rnf queryString `Prelude.seq`
+            Prelude.rnf queryStrings `Prelude.seq`
+              Prelude.rnf secretArn `Prelude.seq`
+                Prelude.rnf statementName `Prelude.seq`
+                  Prelude.rnf status `Prelude.seq`
+                    Prelude.rnf updatedAt `Prelude.seq`
+                      Prelude.rnf id

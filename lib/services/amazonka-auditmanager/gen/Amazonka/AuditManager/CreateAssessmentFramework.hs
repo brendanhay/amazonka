@@ -147,11 +147,11 @@ instance Prelude.Hashable CreateAssessmentFramework where
 
 instance Prelude.NFData CreateAssessmentFramework where
   rnf CreateAssessmentFramework' {..} =
-    Prelude.rnf complianceType
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf controlSets
+    Prelude.rnf complianceType `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf controlSets
 
 instance Data.ToHeaders CreateAssessmentFramework where
   toHeaders =
@@ -230,5 +230,5 @@ instance
     CreateAssessmentFrameworkResponse
   where
   rnf CreateAssessmentFrameworkResponse' {..} =
-    Prelude.rnf framework
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf framework `Prelude.seq`
+      Prelude.rnf httpStatus

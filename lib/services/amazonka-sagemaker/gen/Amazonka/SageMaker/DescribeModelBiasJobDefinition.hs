@@ -337,15 +337,15 @@ instance
     DescribeModelBiasJobDefinitionResponse
   where
   rnf DescribeModelBiasJobDefinitionResponse' {..} =
-    Prelude.rnf modelBiasBaselineConfig
-      `Prelude.seq` Prelude.rnf networkConfig
-      `Prelude.seq` Prelude.rnf stoppingCondition
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf jobDefinitionArn
-      `Prelude.seq` Prelude.rnf jobDefinitionName
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf modelBiasAppSpecification
-      `Prelude.seq` Prelude.rnf modelBiasJobInput
-      `Prelude.seq` Prelude.rnf modelBiasJobOutputConfig
-      `Prelude.seq` Prelude.rnf jobResources
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf modelBiasBaselineConfig `Prelude.seq`
+      Prelude.rnf networkConfig `Prelude.seq`
+        Prelude.rnf stoppingCondition `Prelude.seq`
+          Prelude.rnf httpStatus `Prelude.seq`
+            Prelude.rnf jobDefinitionArn `Prelude.seq`
+              Prelude.rnf jobDefinitionName `Prelude.seq`
+                Prelude.rnf creationTime `Prelude.seq`
+                  Prelude.rnf modelBiasAppSpecification `Prelude.seq`
+                    Prelude.rnf modelBiasJobInput `Prelude.seq`
+                      Prelude.rnf modelBiasJobOutputConfig `Prelude.seq`
+                        Prelude.rnf jobResources `Prelude.seq`
+                          Prelude.rnf roleArn

@@ -158,11 +158,11 @@ instance Prelude.Hashable CreateWorkflowStepGroup where
 
 instance Prelude.NFData CreateWorkflowStepGroup where
   rnf CreateWorkflowStepGroup' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf next
-      `Prelude.seq` Prelude.rnf previous
-      `Prelude.seq` Prelude.rnf workflowId
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf next `Prelude.seq`
+        Prelude.rnf previous `Prelude.seq`
+          Prelude.rnf workflowId `Prelude.seq`
+            Prelude.rnf name
 
 instance Data.ToHeaders CreateWorkflowStepGroup where
   toHeaders =
@@ -300,12 +300,12 @@ instance
     CreateWorkflowStepGroupResponse
   where
   rnf CreateWorkflowStepGroupResponse' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf next
-      `Prelude.seq` Prelude.rnf previous
-      `Prelude.seq` Prelude.rnf tools
-      `Prelude.seq` Prelude.rnf workflowId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf next `Prelude.seq`
+              Prelude.rnf previous `Prelude.seq`
+                Prelude.rnf tools `Prelude.seq`
+                  Prelude.rnf workflowId `Prelude.seq`
+                    Prelude.rnf httpStatus

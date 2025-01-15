@@ -155,10 +155,10 @@ instance
     CertificateAuthorityConfiguration
   where
   rnf CertificateAuthorityConfiguration' {..} =
-    Prelude.rnf csrExtensions
-      `Prelude.seq` Prelude.rnf keyAlgorithm
-      `Prelude.seq` Prelude.rnf signingAlgorithm
-      `Prelude.seq` Prelude.rnf subject
+    Prelude.rnf csrExtensions `Prelude.seq`
+      Prelude.rnf keyAlgorithm `Prelude.seq`
+        Prelude.rnf signingAlgorithm `Prelude.seq`
+          Prelude.rnf subject
 
 instance
   Data.ToJSON

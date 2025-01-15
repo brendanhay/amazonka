@@ -147,12 +147,12 @@ instance Core.AWSPager ListResourceRequests where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listResourceRequests_nextToken
-          Lens..~ rs
-          Lens.^? listResourceRequestsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listResourceRequests_nextToken
+              Lens..~ rs
+              Lens.^? listResourceRequestsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListResourceRequests where
   type
@@ -181,9 +181,9 @@ instance Prelude.Hashable ListResourceRequests where
 
 instance Prelude.NFData ListResourceRequests where
   rnf ListResourceRequests' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf resourceRequestStatusFilter
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf resourceRequestStatusFilter
 
 instance Data.ToHeaders ListResourceRequests where
   toHeaders =
@@ -280,6 +280,6 @@ listResourceRequestsResponse_httpStatus = Lens.lens (\ListResourceRequestsRespon
 
 instance Prelude.NFData ListResourceRequestsResponse where
   rnf ListResourceRequestsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf resourceRequestStatusSummaries
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf resourceRequestStatusSummaries `Prelude.seq`
+        Prelude.rnf httpStatus

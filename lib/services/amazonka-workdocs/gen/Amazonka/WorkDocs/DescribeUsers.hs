@@ -249,12 +249,12 @@ instance Core.AWSPager DescribeUsers where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeUsers_marker
-          Lens..~ rs
-          Lens.^? describeUsersResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeUsers_marker
+              Lens..~ rs
+              Lens.^? describeUsersResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeUsers where
   type
@@ -288,16 +288,16 @@ instance Prelude.Hashable DescribeUsers where
 
 instance Prelude.NFData DescribeUsers where
   rnf DescribeUsers' {..} =
-    Prelude.rnf authenticationToken
-      `Prelude.seq` Prelude.rnf fields
-      `Prelude.seq` Prelude.rnf include
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf order
-      `Prelude.seq` Prelude.rnf organizationId
-      `Prelude.seq` Prelude.rnf query
-      `Prelude.seq` Prelude.rnf sort
-      `Prelude.seq` Prelude.rnf userIds
+    Prelude.rnf authenticationToken `Prelude.seq`
+      Prelude.rnf fields `Prelude.seq`
+        Prelude.rnf include `Prelude.seq`
+          Prelude.rnf limit `Prelude.seq`
+            Prelude.rnf marker `Prelude.seq`
+              Prelude.rnf order `Prelude.seq`
+                Prelude.rnf organizationId `Prelude.seq`
+                  Prelude.rnf query `Prelude.seq`
+                    Prelude.rnf sort `Prelude.seq`
+                      Prelude.rnf userIds
 
 instance Data.ToHeaders DescribeUsers where
   toHeaders DescribeUsers' {..} =
@@ -385,7 +385,7 @@ describeUsersResponse_httpStatus = Lens.lens (\DescribeUsersResponse' {httpStatu
 
 instance Prelude.NFData DescribeUsersResponse where
   rnf DescribeUsersResponse' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf totalNumberOfUsers
-      `Prelude.seq` Prelude.rnf users
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf totalNumberOfUsers `Prelude.seq`
+        Prelude.rnf users `Prelude.seq`
+          Prelude.rnf httpStatus

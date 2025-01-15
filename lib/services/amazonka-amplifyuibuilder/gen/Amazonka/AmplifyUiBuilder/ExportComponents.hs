@@ -114,12 +114,12 @@ instance Core.AWSPager ExportComponents where
         (rs Lens.^. exportComponentsResponse_entities) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& exportComponents_nextToken
-          Lens..~ rs
-          Lens.^? exportComponentsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& exportComponents_nextToken
+              Lens..~ rs
+              Lens.^? exportComponentsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ExportComponents where
   type
@@ -145,9 +145,9 @@ instance Prelude.Hashable ExportComponents where
 
 instance Prelude.NFData ExportComponents where
   rnf ExportComponents' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf environmentName
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf appId `Prelude.seq`
+        Prelude.rnf environmentName
 
 instance Data.ToHeaders ExportComponents where
   toHeaders =
@@ -224,6 +224,6 @@ exportComponentsResponse_entities = Lens.lens (\ExportComponentsResponse' {entit
 
 instance Prelude.NFData ExportComponentsResponse where
   rnf ExportComponentsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf entities
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf entities

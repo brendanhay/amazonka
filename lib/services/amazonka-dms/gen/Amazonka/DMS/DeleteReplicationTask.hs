@@ -174,5 +174,5 @@ deleteReplicationTaskResponse_httpStatus = Lens.lens (\DeleteReplicationTaskResp
 
 instance Prelude.NFData DeleteReplicationTaskResponse where
   rnf DeleteReplicationTaskResponse' {..} =
-    Prelude.rnf replicationTask
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf replicationTask `Prelude.seq`
+      Prelude.rnf httpStatus

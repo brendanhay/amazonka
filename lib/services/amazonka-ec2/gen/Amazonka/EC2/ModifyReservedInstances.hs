@@ -138,9 +138,9 @@ instance Prelude.Hashable ModifyReservedInstances where
 
 instance Prelude.NFData ModifyReservedInstances where
   rnf ModifyReservedInstances' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf reservedInstancesIds
-      `Prelude.seq` Prelude.rnf targetConfigurations
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf reservedInstancesIds `Prelude.seq`
+        Prelude.rnf targetConfigurations
 
 instance Data.ToHeaders ModifyReservedInstances where
   toHeaders = Prelude.const Prelude.mempty
@@ -210,5 +210,5 @@ instance
     ModifyReservedInstancesResponse
   where
   rnf ModifyReservedInstancesResponse' {..} =
-    Prelude.rnf reservedInstancesModificationId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf reservedInstancesModificationId `Prelude.seq`
+      Prelude.rnf httpStatus

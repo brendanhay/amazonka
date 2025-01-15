@@ -107,8 +107,8 @@ instance Prelude.Hashable LogoutUser where
 
 instance Prelude.NFData LogoutUser where
   rnf LogoutUser' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf userId
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf userId
 
 instance Data.ToHeaders LogoutUser where
   toHeaders = Prelude.const Prelude.mempty

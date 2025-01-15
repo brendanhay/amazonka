@@ -144,10 +144,10 @@ instance Prelude.Hashable SMSMessageActivity where
 
 instance Prelude.NFData SMSMessageActivity where
   rnf SMSMessageActivity' {..} =
-    Prelude.rnf messageConfig
-      `Prelude.seq` Prelude.rnf nextActivity
-      `Prelude.seq` Prelude.rnf templateName
-      `Prelude.seq` Prelude.rnf templateVersion
+    Prelude.rnf messageConfig `Prelude.seq`
+      Prelude.rnf nextActivity `Prelude.seq`
+        Prelude.rnf templateName `Prelude.seq`
+          Prelude.rnf templateVersion
 
 instance Data.ToJSON SMSMessageActivity where
   toJSON SMSMessageActivity' {..} =

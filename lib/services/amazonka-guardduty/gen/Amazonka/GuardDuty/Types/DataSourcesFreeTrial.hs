@@ -131,9 +131,9 @@ instance Prelude.Hashable DataSourcesFreeTrial where
 
 instance Prelude.NFData DataSourcesFreeTrial where
   rnf DataSourcesFreeTrial' {..} =
-    Prelude.rnf cloudTrail
-      `Prelude.seq` Prelude.rnf dnsLogs
-      `Prelude.seq` Prelude.rnf flowLogs
-      `Prelude.seq` Prelude.rnf kubernetes
-      `Prelude.seq` Prelude.rnf malwareProtection
-      `Prelude.seq` Prelude.rnf s3Logs
+    Prelude.rnf cloudTrail `Prelude.seq`
+      Prelude.rnf dnsLogs `Prelude.seq`
+        Prelude.rnf flowLogs `Prelude.seq`
+          Prelude.rnf kubernetes `Prelude.seq`
+            Prelude.rnf malwareProtection `Prelude.seq`
+              Prelude.rnf s3Logs

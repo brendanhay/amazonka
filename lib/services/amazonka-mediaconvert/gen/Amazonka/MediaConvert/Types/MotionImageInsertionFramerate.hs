@@ -93,8 +93,8 @@ instance
 
 instance Prelude.NFData MotionImageInsertionFramerate where
   rnf MotionImageInsertionFramerate' {..} =
-    Prelude.rnf framerateDenominator
-      `Prelude.seq` Prelude.rnf framerateNumerator
+    Prelude.rnf framerateDenominator `Prelude.seq`
+      Prelude.rnf framerateNumerator
 
 instance Data.ToJSON MotionImageInsertionFramerate where
   toJSON MotionImageInsertionFramerate' {..} =

@@ -159,8 +159,8 @@ instance Prelude.Hashable DetectProtectiveEquipment where
 
 instance Prelude.NFData DetectProtectiveEquipment where
   rnf DetectProtectiveEquipment' {..} =
-    Prelude.rnf summarizationAttributes
-      `Prelude.seq` Prelude.rnf image
+    Prelude.rnf summarizationAttributes `Prelude.seq`
+      Prelude.rnf image
 
 instance Data.ToHeaders DetectProtectiveEquipment where
   toHeaders =
@@ -265,7 +265,7 @@ instance
     DetectProtectiveEquipmentResponse
   where
   rnf DetectProtectiveEquipmentResponse' {..} =
-    Prelude.rnf persons
-      `Prelude.seq` Prelude.rnf protectiveEquipmentModelVersion
-      `Prelude.seq` Prelude.rnf summary
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf persons `Prelude.seq`
+      Prelude.rnf protectiveEquipmentModelVersion `Prelude.seq`
+        Prelude.rnf summary `Prelude.seq`
+          Prelude.rnf httpStatus

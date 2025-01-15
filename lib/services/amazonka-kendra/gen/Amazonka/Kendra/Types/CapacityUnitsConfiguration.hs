@@ -137,8 +137,8 @@ instance Prelude.Hashable CapacityUnitsConfiguration where
 
 instance Prelude.NFData CapacityUnitsConfiguration where
   rnf CapacityUnitsConfiguration' {..} =
-    Prelude.rnf storageCapacityUnits
-      `Prelude.seq` Prelude.rnf queryCapacityUnits
+    Prelude.rnf storageCapacityUnits `Prelude.seq`
+      Prelude.rnf queryCapacityUnits
 
 instance Data.ToJSON CapacityUnitsConfiguration where
   toJSON CapacityUnitsConfiguration' {..} =

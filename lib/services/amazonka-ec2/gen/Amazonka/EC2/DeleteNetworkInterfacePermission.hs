@@ -150,9 +150,9 @@ instance
     DeleteNetworkInterfacePermission
   where
   rnf DeleteNetworkInterfacePermission' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf force
-      `Prelude.seq` Prelude.rnf networkInterfacePermissionId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf force `Prelude.seq`
+        Prelude.rnf networkInterfacePermissionId
 
 instance
   Data.ToHeaders
@@ -228,5 +228,5 @@ instance
     DeleteNetworkInterfacePermissionResponse
   where
   rnf DeleteNetworkInterfacePermissionResponse' {..} =
-    Prelude.rnf return'
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf return' `Prelude.seq`
+      Prelude.rnf httpStatus

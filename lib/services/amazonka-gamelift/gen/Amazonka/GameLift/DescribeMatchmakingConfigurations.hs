@@ -164,12 +164,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeMatchmakingConfigurations_nextToken
-          Lens..~ rs
-          Lens.^? describeMatchmakingConfigurationsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeMatchmakingConfigurations_nextToken
+              Lens..~ rs
+              Lens.^? describeMatchmakingConfigurationsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -207,10 +207,10 @@ instance
     DescribeMatchmakingConfigurations
   where
   rnf DescribeMatchmakingConfigurations' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf names
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf ruleSetName
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf names `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf ruleSetName
 
 instance
   Data.ToHeaders
@@ -316,6 +316,6 @@ instance
     DescribeMatchmakingConfigurationsResponse
   where
   rnf DescribeMatchmakingConfigurationsResponse' {..} =
-    Prelude.rnf configurations
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf configurations `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

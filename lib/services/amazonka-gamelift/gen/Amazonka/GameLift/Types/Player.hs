@@ -150,10 +150,10 @@ instance Prelude.Hashable Player where
 
 instance Prelude.NFData Player where
   rnf Player' {..} =
-    Prelude.rnf latencyInMs
-      `Prelude.seq` Prelude.rnf playerAttributes
-      `Prelude.seq` Prelude.rnf playerId
-      `Prelude.seq` Prelude.rnf team
+    Prelude.rnf latencyInMs `Prelude.seq`
+      Prelude.rnf playerAttributes `Prelude.seq`
+        Prelude.rnf playerId `Prelude.seq`
+          Prelude.rnf team
 
 instance Data.ToJSON Player where
   toJSON Player' {..} =

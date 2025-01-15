@@ -84,5 +84,5 @@ instance Prelude.Hashable UnprocessedAccount where
 
 instance Prelude.NFData UnprocessedAccount where
   rnf UnprocessedAccount' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf reason
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf reason

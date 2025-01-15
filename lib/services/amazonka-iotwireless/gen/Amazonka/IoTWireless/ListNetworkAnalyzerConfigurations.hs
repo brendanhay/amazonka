@@ -128,8 +128,8 @@ instance
     ListNetworkAnalyzerConfigurations
   where
   rnf ListNetworkAnalyzerConfigurations' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance
   Data.ToHeaders
@@ -211,6 +211,6 @@ instance
     ListNetworkAnalyzerConfigurationsResponse
   where
   rnf ListNetworkAnalyzerConfigurationsResponse' {..} =
-    Prelude.rnf networkAnalyzerConfigurationList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf networkAnalyzerConfigurationList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -87,8 +87,8 @@ instance Prelude.Hashable StatisticsConfiguration where
 
 instance Prelude.NFData StatisticsConfiguration where
   rnf StatisticsConfiguration' {..} =
-    Prelude.rnf includedStatistics
-      `Prelude.seq` Prelude.rnf overrides
+    Prelude.rnf includedStatistics `Prelude.seq`
+      Prelude.rnf overrides
 
 instance Data.ToJSON StatisticsConfiguration where
   toJSON StatisticsConfiguration' {..} =

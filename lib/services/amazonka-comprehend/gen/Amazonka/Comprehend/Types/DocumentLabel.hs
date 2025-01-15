@@ -98,6 +98,6 @@ instance Prelude.Hashable DocumentLabel where
 
 instance Prelude.NFData DocumentLabel where
   rnf DocumentLabel' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf page
-      `Prelude.seq` Prelude.rnf score
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf page `Prelude.seq`
+        Prelude.rnf score

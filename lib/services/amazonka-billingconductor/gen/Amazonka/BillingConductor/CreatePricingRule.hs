@@ -219,16 +219,16 @@ instance Prelude.Hashable CreatePricingRule where
 
 instance Prelude.NFData CreatePricingRule where
   rnf CreatePricingRule' {..} =
-    Prelude.rnf billingEntity
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf modifierPercentage
-      `Prelude.seq` Prelude.rnf service
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf tiering
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf scope
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf billingEntity `Prelude.seq`
+      Prelude.rnf clientToken `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf modifierPercentage `Prelude.seq`
+            Prelude.rnf service `Prelude.seq`
+              Prelude.rnf tags `Prelude.seq`
+                Prelude.rnf tiering `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf scope `Prelude.seq`
+                      Prelude.rnf type'
 
 instance Data.ToHeaders CreatePricingRule where
   toHeaders CreatePricingRule' {..} =
@@ -301,5 +301,5 @@ createPricingRuleResponse_httpStatus = Lens.lens (\CreatePricingRuleResponse' {h
 
 instance Prelude.NFData CreatePricingRuleResponse where
   rnf CreatePricingRuleResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf httpStatus

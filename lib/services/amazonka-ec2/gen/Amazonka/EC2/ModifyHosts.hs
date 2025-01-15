@@ -184,14 +184,10 @@ instance Core.AWSRequest ModifyHosts where
     Response.receiveXML
       ( \s h x ->
           ModifyHostsResponse'
-            Prelude.<$> ( x
-                            Data..@? "successful"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "successful" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-            Prelude.<*> ( x
-                            Data..@? "unsuccessful"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "unsuccessful" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -208,11 +204,11 @@ instance Prelude.Hashable ModifyHosts where
 
 instance Prelude.NFData ModifyHosts where
   rnf ModifyHosts' {..} =
-    Prelude.rnf autoPlacement
-      `Prelude.seq` Prelude.rnf hostRecovery
-      `Prelude.seq` Prelude.rnf instanceFamily
-      `Prelude.seq` Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf hostIds
+    Prelude.rnf autoPlacement `Prelude.seq`
+      Prelude.rnf hostRecovery `Prelude.seq`
+        Prelude.rnf instanceFamily `Prelude.seq`
+          Prelude.rnf instanceType `Prelude.seq`
+            Prelude.rnf hostIds
 
 instance Data.ToHeaders ModifyHosts where
   toHeaders = Prelude.const Prelude.mempty
@@ -286,6 +282,6 @@ modifyHostsResponse_httpStatus = Lens.lens (\ModifyHostsResponse' {httpStatus} -
 
 instance Prelude.NFData ModifyHostsResponse where
   rnf ModifyHostsResponse' {..} =
-    Prelude.rnf successful
-      `Prelude.seq` Prelude.rnf unsuccessful
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf successful `Prelude.seq`
+      Prelude.rnf unsuccessful `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -125,9 +125,9 @@ instance Prelude.Hashable UpdateDeviceStatus where
 
 instance Prelude.NFData UpdateDeviceStatus where
   rnf UpdateDeviceStatus' {..} =
-    Prelude.rnf deviceRememberedStatus
-      `Prelude.seq` Prelude.rnf accessToken
-      `Prelude.seq` Prelude.rnf deviceKey
+    Prelude.rnf deviceRememberedStatus `Prelude.seq`
+      Prelude.rnf accessToken `Prelude.seq`
+        Prelude.rnf deviceKey
 
 instance Data.ToHeaders UpdateDeviceStatus where
   toHeaders =

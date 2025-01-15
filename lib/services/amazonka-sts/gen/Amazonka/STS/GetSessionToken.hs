@@ -262,9 +262,9 @@ instance Prelude.Hashable GetSessionToken where
 
 instance Prelude.NFData GetSessionToken where
   rnf GetSessionToken' {..} =
-    Prelude.rnf durationSeconds
-      `Prelude.seq` Prelude.rnf serialNumber
-      `Prelude.seq` Prelude.rnf tokenCode
+    Prelude.rnf durationSeconds `Prelude.seq`
+      Prelude.rnf serialNumber `Prelude.seq`
+        Prelude.rnf tokenCode
 
 instance Data.ToHeaders GetSessionToken where
   toHeaders = Prelude.const Prelude.mempty
@@ -344,5 +344,5 @@ getSessionTokenResponse_httpStatus = Lens.lens (\GetSessionTokenResponse' {httpS
 
 instance Prelude.NFData GetSessionTokenResponse where
   rnf GetSessionTokenResponse' {..} =
-    Prelude.rnf credentials
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf credentials `Prelude.seq`
+      Prelude.rnf httpStatus

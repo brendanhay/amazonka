@@ -107,7 +107,7 @@ instance Prelude.Hashable VpcEndpointSummary where
 
 instance Prelude.NFData VpcEndpointSummary where
   rnf VpcEndpointSummary' {..} =
-    Prelude.rnf domainArn
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf vpcEndpointId
-      `Prelude.seq` Prelude.rnf vpcEndpointOwner
+    Prelude.rnf domainArn `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf vpcEndpointId `Prelude.seq`
+          Prelude.rnf vpcEndpointOwner

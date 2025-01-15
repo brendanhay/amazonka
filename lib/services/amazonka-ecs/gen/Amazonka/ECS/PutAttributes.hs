@@ -123,8 +123,8 @@ instance Prelude.Hashable PutAttributes where
 
 instance Prelude.NFData PutAttributes where
   rnf PutAttributes' {..} =
-    Prelude.rnf cluster
-      `Prelude.seq` Prelude.rnf attributes
+    Prelude.rnf cluster `Prelude.seq`
+      Prelude.rnf attributes
 
 instance Data.ToHeaders PutAttributes where
   toHeaders =
@@ -197,5 +197,5 @@ putAttributesResponse_httpStatus = Lens.lens (\PutAttributesResponse' {httpStatu
 
 instance Prelude.NFData PutAttributesResponse where
   rnf PutAttributesResponse' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf attributes `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -150,10 +150,10 @@ instance Prelude.Hashable OperationSummary where
 
 instance Prelude.NFData OperationSummary where
   rnf OperationSummary' {..} =
-    Prelude.rnf endedAt
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf startedAt
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf targetArn
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf updatedAt
+    Prelude.rnf endedAt `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf startedAt `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf targetArn `Prelude.seq`
+              Prelude.rnf type' `Prelude.seq`
+                Prelude.rnf updatedAt

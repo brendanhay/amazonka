@@ -103,5 +103,5 @@ instance Prelude.Hashable DedicatedIpPool where
 
 instance Prelude.NFData DedicatedIpPool where
   rnf DedicatedIpPool' {..} =
-    Prelude.rnf poolName
-      `Prelude.seq` Prelude.rnf scalingMode
+    Prelude.rnf poolName `Prelude.seq`
+      Prelude.rnf scalingMode

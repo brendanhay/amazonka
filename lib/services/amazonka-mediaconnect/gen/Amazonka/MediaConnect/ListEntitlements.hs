@@ -136,12 +136,12 @@ instance Core.AWSPager ListEntitlements where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listEntitlements_nextToken
-          Lens..~ rs
-          Lens.^? listEntitlementsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listEntitlements_nextToken
+              Lens..~ rs
+              Lens.^? listEntitlementsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListEntitlements where
   type
@@ -166,8 +166,8 @@ instance Prelude.Hashable ListEntitlements where
 
 instance Prelude.NFData ListEntitlements where
   rnf ListEntitlements' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListEntitlements where
   toHeaders =
@@ -255,6 +255,6 @@ listEntitlementsResponse_httpStatus = Lens.lens (\ListEntitlementsResponse' {htt
 
 instance Prelude.NFData ListEntitlementsResponse where
   rnf ListEntitlementsResponse' {..} =
-    Prelude.rnf entitlements
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf entitlements `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

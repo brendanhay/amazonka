@@ -108,6 +108,6 @@ instance
     ConformancePackComplianceScore
   where
   rnf ConformancePackComplianceScore' {..} =
-    Prelude.rnf conformancePackName
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf score
+    Prelude.rnf conformancePackName `Prelude.seq`
+      Prelude.rnf lastUpdatedTime `Prelude.seq`
+        Prelude.rnf score

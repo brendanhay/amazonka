@@ -141,11 +141,11 @@ instance Prelude.Hashable ResourceDataSyncSource where
 
 instance Prelude.NFData ResourceDataSyncSource where
   rnf ResourceDataSyncSource' {..} =
-    Prelude.rnf awsOrganizationsSource
-      `Prelude.seq` Prelude.rnf enableAllOpsDataSources
-      `Prelude.seq` Prelude.rnf includeFutureRegions
-      `Prelude.seq` Prelude.rnf sourceType
-      `Prelude.seq` Prelude.rnf sourceRegions
+    Prelude.rnf awsOrganizationsSource `Prelude.seq`
+      Prelude.rnf enableAllOpsDataSources `Prelude.seq`
+        Prelude.rnf includeFutureRegions `Prelude.seq`
+          Prelude.rnf sourceType `Prelude.seq`
+            Prelude.rnf sourceRegions
 
 instance Data.ToJSON ResourceDataSyncSource where
   toJSON ResourceDataSyncSource' {..} =

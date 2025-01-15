@@ -93,9 +93,9 @@ instance
     ExportRevisionsToS3RequestDetails
   where
   rnf ExportRevisionsToS3RequestDetails' {..} =
-    Prelude.rnf encryption
-      `Prelude.seq` Prelude.rnf dataSetId
-      `Prelude.seq` Prelude.rnf revisionDestinations
+    Prelude.rnf encryption `Prelude.seq`
+      Prelude.rnf dataSetId `Prelude.seq`
+        Prelude.rnf revisionDestinations
 
 instance
   Data.ToJSON

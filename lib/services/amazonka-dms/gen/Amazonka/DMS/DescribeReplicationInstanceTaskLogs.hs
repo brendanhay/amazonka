@@ -167,9 +167,9 @@ instance
     DescribeReplicationInstanceTaskLogs
   where
   rnf DescribeReplicationInstanceTaskLogs' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf replicationInstanceArn
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf maxRecords `Prelude.seq`
+        Prelude.rnf replicationInstanceArn
 
 instance
   Data.ToHeaders
@@ -291,7 +291,7 @@ instance
     DescribeReplicationInstanceTaskLogsResponse
   where
   rnf DescribeReplicationInstanceTaskLogsResponse' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf replicationInstanceArn
-      `Prelude.seq` Prelude.rnf replicationInstanceTaskLogs
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf replicationInstanceArn `Prelude.seq`
+        Prelude.rnf replicationInstanceTaskLogs `Prelude.seq`
+          Prelude.rnf httpStatus

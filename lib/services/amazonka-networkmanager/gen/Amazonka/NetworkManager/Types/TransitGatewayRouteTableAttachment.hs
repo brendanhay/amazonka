@@ -104,6 +104,6 @@ instance
     TransitGatewayRouteTableAttachment
   where
   rnf TransitGatewayRouteTableAttachment' {..} =
-    Prelude.rnf attachment
-      `Prelude.seq` Prelude.rnf peeringId
-      `Prelude.seq` Prelude.rnf transitGatewayRouteTableArn
+    Prelude.rnf attachment `Prelude.seq`
+      Prelude.rnf peeringId `Prelude.seq`
+        Prelude.rnf transitGatewayRouteTableArn

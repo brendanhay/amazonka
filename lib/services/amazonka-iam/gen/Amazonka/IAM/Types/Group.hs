@@ -163,8 +163,8 @@ instance Prelude.Hashable Group where
 
 instance Prelude.NFData Group where
   rnf Group' {..} =
-    Prelude.rnf path
-      `Prelude.seq` Prelude.rnf groupName
-      `Prelude.seq` Prelude.rnf groupId
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createDate
+    Prelude.rnf path `Prelude.seq`
+      Prelude.rnf groupName `Prelude.seq`
+        Prelude.rnf groupId `Prelude.seq`
+          Prelude.rnf arn `Prelude.seq`
+            Prelude.rnf createDate

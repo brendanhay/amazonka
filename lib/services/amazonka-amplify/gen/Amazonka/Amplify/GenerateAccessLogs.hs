@@ -141,10 +141,10 @@ instance Prelude.Hashable GenerateAccessLogs where
 
 instance Prelude.NFData GenerateAccessLogs where
   rnf GenerateAccessLogs' {..} =
-    Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf appId
+    Prelude.rnf endTime `Prelude.seq`
+      Prelude.rnf startTime `Prelude.seq`
+        Prelude.rnf domainName `Prelude.seq`
+          Prelude.rnf appId
 
 instance Data.ToHeaders GenerateAccessLogs where
   toHeaders =
@@ -218,5 +218,5 @@ generateAccessLogsResponse_httpStatus = Lens.lens (\GenerateAccessLogsResponse' 
 
 instance Prelude.NFData GenerateAccessLogsResponse where
   rnf GenerateAccessLogsResponse' {..} =
-    Prelude.rnf logUrl
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf logUrl `Prelude.seq`
+      Prelude.rnf httpStatus

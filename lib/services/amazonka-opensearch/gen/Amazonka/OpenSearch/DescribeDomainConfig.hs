@@ -162,5 +162,5 @@ describeDomainConfigResponse_domainConfig = Lens.lens (\DescribeDomainConfigResp
 
 instance Prelude.NFData DescribeDomainConfigResponse where
   rnf DescribeDomainConfigResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf domainConfig
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf domainConfig

@@ -122,8 +122,8 @@ instance Prelude.Hashable ModifyCluster where
 
 instance Prelude.NFData ModifyCluster where
   rnf ModifyCluster' {..} =
-    Prelude.rnf stepConcurrencyLevel
-      `Prelude.seq` Prelude.rnf clusterId
+    Prelude.rnf stepConcurrencyLevel `Prelude.seq`
+      Prelude.rnf clusterId
 
 instance Data.ToHeaders ModifyCluster where
   toHeaders =
@@ -197,5 +197,5 @@ modifyClusterResponse_httpStatus = Lens.lens (\ModifyClusterResponse' {httpStatu
 
 instance Prelude.NFData ModifyClusterResponse where
   rnf ModifyClusterResponse' {..} =
-    Prelude.rnf stepConcurrencyLevel
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf stepConcurrencyLevel `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -189,12 +189,12 @@ instance Prelude.Hashable DatastoreProperties where
 
 instance Prelude.NFData DatastoreProperties where
   rnf DatastoreProperties' {..} =
-    Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf datastoreName
-      `Prelude.seq` Prelude.rnf preloadDataConfig
-      `Prelude.seq` Prelude.rnf sseConfiguration
-      `Prelude.seq` Prelude.rnf datastoreId
-      `Prelude.seq` Prelude.rnf datastoreArn
-      `Prelude.seq` Prelude.rnf datastoreStatus
-      `Prelude.seq` Prelude.rnf datastoreTypeVersion
-      `Prelude.seq` Prelude.rnf datastoreEndpoint
+    Prelude.rnf createdAt `Prelude.seq`
+      Prelude.rnf datastoreName `Prelude.seq`
+        Prelude.rnf preloadDataConfig `Prelude.seq`
+          Prelude.rnf sseConfiguration `Prelude.seq`
+            Prelude.rnf datastoreId `Prelude.seq`
+              Prelude.rnf datastoreArn `Prelude.seq`
+                Prelude.rnf datastoreStatus `Prelude.seq`
+                  Prelude.rnf datastoreTypeVersion `Prelude.seq`
+                    Prelude.rnf datastoreEndpoint

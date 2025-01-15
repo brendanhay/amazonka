@@ -119,9 +119,9 @@ instance Prelude.Hashable CreateBranch where
 
 instance Prelude.NFData CreateBranch where
   rnf CreateBranch' {..} =
-    Prelude.rnf repositoryName
-      `Prelude.seq` Prelude.rnf branchName
-      `Prelude.seq` Prelude.rnf commitId
+    Prelude.rnf repositoryName `Prelude.seq`
+      Prelude.rnf branchName `Prelude.seq`
+        Prelude.rnf commitId
 
 instance Data.ToHeaders CreateBranch where
   toHeaders =

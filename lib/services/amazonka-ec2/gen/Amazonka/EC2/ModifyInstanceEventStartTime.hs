@@ -150,10 +150,10 @@ instance
 
 instance Prelude.NFData ModifyInstanceEventStartTime where
   rnf ModifyInstanceEventStartTime' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf instanceEventId
-      `Prelude.seq` Prelude.rnf notBefore
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf instanceId `Prelude.seq`
+        Prelude.rnf instanceEventId `Prelude.seq`
+          Prelude.rnf notBefore
 
 instance Data.ToHeaders ModifyInstanceEventStartTime where
   toHeaders = Prelude.const Prelude.mempty
@@ -220,5 +220,5 @@ instance
     ModifyInstanceEventStartTimeResponse
   where
   rnf ModifyInstanceEventStartTimeResponse' {..} =
-    Prelude.rnf event
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf event `Prelude.seq`
+      Prelude.rnf httpStatus

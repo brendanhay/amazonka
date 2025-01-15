@@ -115,10 +115,10 @@ instance Prelude.Hashable AwsLambdaFunctionCode where
 
 instance Prelude.NFData AwsLambdaFunctionCode where
   rnf AwsLambdaFunctionCode' {..} =
-    Prelude.rnf s3Bucket
-      `Prelude.seq` Prelude.rnf s3Key
-      `Prelude.seq` Prelude.rnf s3ObjectVersion
-      `Prelude.seq` Prelude.rnf zipFile
+    Prelude.rnf s3Bucket `Prelude.seq`
+      Prelude.rnf s3Key `Prelude.seq`
+        Prelude.rnf s3ObjectVersion `Prelude.seq`
+          Prelude.rnf zipFile
 
 instance Data.ToJSON AwsLambdaFunctionCode where
   toJSON AwsLambdaFunctionCode' {..} =

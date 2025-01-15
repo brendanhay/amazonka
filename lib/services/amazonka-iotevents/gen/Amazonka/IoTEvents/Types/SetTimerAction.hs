@@ -112,9 +112,9 @@ instance Prelude.Hashable SetTimerAction where
 
 instance Prelude.NFData SetTimerAction where
   rnf SetTimerAction' {..} =
-    Prelude.rnf durationExpression
-      `Prelude.seq` Prelude.rnf seconds
-      `Prelude.seq` Prelude.rnf timerName
+    Prelude.rnf durationExpression `Prelude.seq`
+      Prelude.rnf seconds `Prelude.seq`
+        Prelude.rnf timerName
 
 instance Data.ToJSON SetTimerAction where
   toJSON SetTimerAction' {..} =

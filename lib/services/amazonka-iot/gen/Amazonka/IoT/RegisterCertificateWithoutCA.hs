@@ -116,8 +116,8 @@ instance
 
 instance Prelude.NFData RegisterCertificateWithoutCA where
   rnf RegisterCertificateWithoutCA' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf certificatePem
+    Prelude.rnf status `Prelude.seq`
+      Prelude.rnf certificatePem
 
 instance Data.ToHeaders RegisterCertificateWithoutCA where
   toHeaders = Prelude.const Prelude.mempty
@@ -194,6 +194,6 @@ instance
     RegisterCertificateWithoutCAResponse
   where
   rnf RegisterCertificateWithoutCAResponse' {..} =
-    Prelude.rnf certificateArn
-      `Prelude.seq` Prelude.rnf certificateId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf certificateArn `Prelude.seq`
+      Prelude.rnf certificateId `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -228,9 +228,7 @@ instance Data.FromXML ServiceDetail where
                   )
       Prelude.<*> (x Data..@? "serviceId")
       Prelude.<*> (x Data..@? "serviceName")
-      Prelude.<*> ( x
-                      Data..@? "serviceType"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "serviceType" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> ( x
@@ -238,9 +236,7 @@ instance Data.FromXML ServiceDetail where
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x
-                      Data..@? "tagSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "vpcEndpointPolicySupported")
@@ -266,18 +262,18 @@ instance Prelude.Hashable ServiceDetail where
 
 instance Prelude.NFData ServiceDetail where
   rnf ServiceDetail' {..} =
-    Prelude.rnf acceptanceRequired
-      `Prelude.seq` Prelude.rnf availabilityZones
-      `Prelude.seq` Prelude.rnf baseEndpointDnsNames
-      `Prelude.seq` Prelude.rnf managesVpcEndpoints
-      `Prelude.seq` Prelude.rnf owner
-      `Prelude.seq` Prelude.rnf payerResponsibility
-      `Prelude.seq` Prelude.rnf privateDnsName
-      `Prelude.seq` Prelude.rnf privateDnsNameVerificationState
-      `Prelude.seq` Prelude.rnf privateDnsNames
-      `Prelude.seq` Prelude.rnf serviceId
-      `Prelude.seq` Prelude.rnf serviceName
-      `Prelude.seq` Prelude.rnf serviceType
-      `Prelude.seq` Prelude.rnf supportedIpAddressTypes
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf vpcEndpointPolicySupported
+    Prelude.rnf acceptanceRequired `Prelude.seq`
+      Prelude.rnf availabilityZones `Prelude.seq`
+        Prelude.rnf baseEndpointDnsNames `Prelude.seq`
+          Prelude.rnf managesVpcEndpoints `Prelude.seq`
+            Prelude.rnf owner `Prelude.seq`
+              Prelude.rnf payerResponsibility `Prelude.seq`
+                Prelude.rnf privateDnsName `Prelude.seq`
+                  Prelude.rnf privateDnsNameVerificationState `Prelude.seq`
+                    Prelude.rnf privateDnsNames `Prelude.seq`
+                      Prelude.rnf serviceId `Prelude.seq`
+                        Prelude.rnf serviceName `Prelude.seq`
+                          Prelude.rnf serviceType `Prelude.seq`
+                            Prelude.rnf supportedIpAddressTypes `Prelude.seq`
+                              Prelude.rnf tags `Prelude.seq`
+                                Prelude.rnf vpcEndpointPolicySupported

@@ -125,7 +125,7 @@ instance Prelude.Hashable MessageResponse where
 
 instance Prelude.NFData MessageResponse where
   rnf MessageResponse' {..} =
-    Prelude.rnf endpointResult
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf result
-      `Prelude.seq` Prelude.rnf applicationId
+    Prelude.rnf endpointResult `Prelude.seq`
+      Prelude.rnf requestId `Prelude.seq`
+        Prelude.rnf result `Prelude.seq`
+          Prelude.rnf applicationId

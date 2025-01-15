@@ -162,5 +162,5 @@ instance
     GetAssessmentFrameworkResponse
   where
   rnf GetAssessmentFrameworkResponse' {..} =
-    Prelude.rnf framework
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf framework `Prelude.seq`
+      Prelude.rnf httpStatus

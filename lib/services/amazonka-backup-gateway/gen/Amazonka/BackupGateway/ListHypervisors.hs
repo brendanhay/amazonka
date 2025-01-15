@@ -111,12 +111,12 @@ instance Core.AWSPager ListHypervisors where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listHypervisors_nextToken
-          Lens..~ rs
-          Lens.^? listHypervisorsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listHypervisors_nextToken
+              Lens..~ rs
+              Lens.^? listHypervisorsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListHypervisors where
   type
@@ -141,8 +141,8 @@ instance Prelude.Hashable ListHypervisors where
 
 instance Prelude.NFData ListHypervisors where
   rnf ListHypervisors' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListHypervisors where
   toHeaders =
@@ -236,6 +236,6 @@ listHypervisorsResponse_httpStatus = Lens.lens (\ListHypervisorsResponse' {httpS
 
 instance Prelude.NFData ListHypervisorsResponse where
   rnf ListHypervisorsResponse' {..} =
-    Prelude.rnf hypervisors
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf hypervisors `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

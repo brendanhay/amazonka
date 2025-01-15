@@ -113,8 +113,8 @@ instance Prelude.Hashable RebootBroker where
 
 instance Prelude.NFData RebootBroker where
   rnf RebootBroker' {..} =
-    Prelude.rnf clusterArn
-      `Prelude.seq` Prelude.rnf brokerIds
+    Prelude.rnf clusterArn `Prelude.seq`
+      Prelude.rnf brokerIds
 
 instance Data.ToHeaders RebootBroker where
   toHeaders =
@@ -194,6 +194,6 @@ rebootBrokerResponse_httpStatus = Lens.lens (\RebootBrokerResponse' {httpStatus}
 
 instance Prelude.NFData RebootBrokerResponse where
   rnf RebootBrokerResponse' {..} =
-    Prelude.rnf clusterArn
-      `Prelude.seq` Prelude.rnf clusterOperationArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf clusterArn `Prelude.seq`
+      Prelude.rnf clusterOperationArn `Prelude.seq`
+        Prelude.rnf httpStatus

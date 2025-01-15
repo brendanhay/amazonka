@@ -110,12 +110,12 @@ instance Core.AWSPager ListBundles where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listBundles_nextToken
-          Lens..~ rs
-          Lens.^? listBundlesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listBundles_nextToken
+              Lens..~ rs
+              Lens.^? listBundlesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListBundles where
   type AWSResponse ListBundles = ListBundlesResponse
@@ -138,8 +138,8 @@ instance Prelude.Hashable ListBundles where
 
 instance Prelude.NFData ListBundles where
   rnf ListBundles' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListBundles where
   toHeaders =
@@ -216,6 +216,6 @@ listBundlesResponse_httpStatus = Lens.lens (\ListBundlesResponse' {httpStatus} -
 
 instance Prelude.NFData ListBundlesResponse where
   rnf ListBundlesResponse' {..} =
-    Prelude.rnf bundleList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf bundleList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

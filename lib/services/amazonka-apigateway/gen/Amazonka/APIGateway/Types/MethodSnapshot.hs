@@ -90,5 +90,5 @@ instance Prelude.Hashable MethodSnapshot where
 
 instance Prelude.NFData MethodSnapshot where
   rnf MethodSnapshot' {..} =
-    Prelude.rnf apiKeyRequired
-      `Prelude.seq` Prelude.rnf authorizationType
+    Prelude.rnf apiKeyRequired `Prelude.seq`
+      Prelude.rnf authorizationType

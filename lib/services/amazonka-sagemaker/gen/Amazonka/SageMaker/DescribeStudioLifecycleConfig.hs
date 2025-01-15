@@ -245,10 +245,10 @@ instance
     DescribeStudioLifecycleConfigResponse
   where
   rnf DescribeStudioLifecycleConfigResponse' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf studioLifecycleConfigAppType
-      `Prelude.seq` Prelude.rnf studioLifecycleConfigArn
-      `Prelude.seq` Prelude.rnf studioLifecycleConfigContent
-      `Prelude.seq` Prelude.rnf studioLifecycleConfigName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf lastModifiedTime `Prelude.seq`
+        Prelude.rnf studioLifecycleConfigAppType `Prelude.seq`
+          Prelude.rnf studioLifecycleConfigArn `Prelude.seq`
+            Prelude.rnf studioLifecycleConfigContent `Prelude.seq`
+              Prelude.rnf studioLifecycleConfigName `Prelude.seq`
+                Prelude.rnf httpStatus

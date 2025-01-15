@@ -112,9 +112,9 @@ instance Prelude.Hashable AudioNormalizationSettings where
 
 instance Prelude.NFData AudioNormalizationSettings where
   rnf AudioNormalizationSettings' {..} =
-    Prelude.rnf algorithm
-      `Prelude.seq` Prelude.rnf algorithmControl
-      `Prelude.seq` Prelude.rnf targetLkfs
+    Prelude.rnf algorithm `Prelude.seq`
+      Prelude.rnf algorithmControl `Prelude.seq`
+        Prelude.rnf targetLkfs
 
 instance Data.ToJSON AudioNormalizationSettings where
   toJSON AudioNormalizationSettings' {..} =

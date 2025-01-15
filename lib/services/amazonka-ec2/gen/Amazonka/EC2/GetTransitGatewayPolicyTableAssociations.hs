@@ -155,12 +155,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getTransitGatewayPolicyTableAssociations_nextToken
-          Lens..~ rs
-          Lens.^? getTransitGatewayPolicyTableAssociationsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getTransitGatewayPolicyTableAssociations_nextToken
+              Lens..~ rs
+              Lens.^? getTransitGatewayPolicyTableAssociationsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -176,9 +176,7 @@ instance
     Response.receiveXML
       ( \s h x ->
           GetTransitGatewayPolicyTableAssociationsResponse'
-            Prelude.<$> ( x
-                            Data..@? "associations"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "associations" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (x Data..@? "nextToken")
@@ -204,11 +202,11 @@ instance
     GetTransitGatewayPolicyTableAssociations
   where
   rnf GetTransitGatewayPolicyTableAssociations' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf transitGatewayPolicyTableId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf transitGatewayPolicyTableId
 
 instance
   Data.ToHeaders
@@ -299,6 +297,6 @@ instance
   where
   rnf
     GetTransitGatewayPolicyTableAssociationsResponse' {..} =
-      Prelude.rnf associations
-        `Prelude.seq` Prelude.rnf nextToken
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf associations `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf httpStatus

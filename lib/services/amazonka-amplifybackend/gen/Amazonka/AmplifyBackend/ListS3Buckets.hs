@@ -170,6 +170,6 @@ listS3BucketsResponse_httpStatus = Lens.lens (\ListS3BucketsResponse' {httpStatu
 
 instance Prelude.NFData ListS3BucketsResponse where
   rnf ListS3BucketsResponse' {..} =
-    Prelude.rnf buckets
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf buckets `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

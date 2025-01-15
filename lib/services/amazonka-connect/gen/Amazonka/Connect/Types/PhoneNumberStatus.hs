@@ -108,5 +108,5 @@ instance Prelude.Hashable PhoneNumberStatus where
 
 instance Prelude.NFData PhoneNumberStatus where
   rnf PhoneNumberStatus' {..} =
-    Prelude.rnf message
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf message `Prelude.seq`
+      Prelude.rnf status

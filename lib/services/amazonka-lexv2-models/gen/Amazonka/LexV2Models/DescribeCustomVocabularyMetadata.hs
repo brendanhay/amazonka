@@ -150,9 +150,9 @@ instance
     DescribeCustomVocabularyMetadata
   where
   rnf DescribeCustomVocabularyMetadata' {..} =
-    Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf botVersion
-      `Prelude.seq` Prelude.rnf localeId
+    Prelude.rnf botId `Prelude.seq`
+      Prelude.rnf botVersion `Prelude.seq`
+        Prelude.rnf localeId
 
 instance
   Data.ToHeaders
@@ -282,10 +282,10 @@ instance
     DescribeCustomVocabularyMetadataResponse
   where
   rnf DescribeCustomVocabularyMetadataResponse' {..} =
-    Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf botVersion
-      `Prelude.seq` Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf customVocabularyStatus
-      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
-      `Prelude.seq` Prelude.rnf localeId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf botId `Prelude.seq`
+      Prelude.rnf botVersion `Prelude.seq`
+        Prelude.rnf creationDateTime `Prelude.seq`
+          Prelude.rnf customVocabularyStatus `Prelude.seq`
+            Prelude.rnf lastUpdatedDateTime `Prelude.seq`
+              Prelude.rnf localeId `Prelude.seq`
+                Prelude.rnf httpStatus

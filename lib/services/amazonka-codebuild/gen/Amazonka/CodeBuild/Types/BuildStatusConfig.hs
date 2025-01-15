@@ -162,8 +162,8 @@ instance Prelude.Hashable BuildStatusConfig where
 
 instance Prelude.NFData BuildStatusConfig where
   rnf BuildStatusConfig' {..} =
-    Prelude.rnf context
-      `Prelude.seq` Prelude.rnf targetUrl
+    Prelude.rnf context `Prelude.seq`
+      Prelude.rnf targetUrl
 
 instance Data.ToJSON BuildStatusConfig where
   toJSON BuildStatusConfig' {..} =

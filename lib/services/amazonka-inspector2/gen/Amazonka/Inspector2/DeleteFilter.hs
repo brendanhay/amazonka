@@ -158,5 +158,5 @@ deleteFilterResponse_arn = Lens.lens (\DeleteFilterResponse' {arn} -> arn) (\s@D
 
 instance Prelude.NFData DeleteFilterResponse where
   rnf DeleteFilterResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf arn

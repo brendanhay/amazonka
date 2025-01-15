@@ -134,9 +134,9 @@ instance
 
 instance Prelude.NFData DecreaseStreamRetentionPeriod where
   rnf DecreaseStreamRetentionPeriod' {..} =
-    Prelude.rnf streamARN
-      `Prelude.seq` Prelude.rnf streamName
-      `Prelude.seq` Prelude.rnf retentionPeriodHours
+    Prelude.rnf streamARN `Prelude.seq`
+      Prelude.rnf streamName `Prelude.seq`
+        Prelude.rnf retentionPeriodHours
 
 instance Data.ToHeaders DecreaseStreamRetentionPeriod where
   toHeaders =

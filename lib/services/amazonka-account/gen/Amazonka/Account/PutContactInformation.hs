@@ -173,8 +173,8 @@ instance Prelude.Hashable PutContactInformation where
 
 instance Prelude.NFData PutContactInformation where
   rnf PutContactInformation' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf contactInformation
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf contactInformation
 
 instance Data.ToHeaders PutContactInformation where
   toHeaders =

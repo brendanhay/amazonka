@@ -97,9 +97,9 @@ instance Prelude.Hashable VirtualGatewaySpec where
 
 instance Prelude.NFData VirtualGatewaySpec where
   rnf VirtualGatewaySpec' {..} =
-    Prelude.rnf backendDefaults
-      `Prelude.seq` Prelude.rnf logging
-      `Prelude.seq` Prelude.rnf listeners
+    Prelude.rnf backendDefaults `Prelude.seq`
+      Prelude.rnf logging `Prelude.seq`
+        Prelude.rnf listeners
 
 instance Data.ToJSON VirtualGatewaySpec where
   toJSON VirtualGatewaySpec' {..} =

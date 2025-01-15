@@ -125,9 +125,9 @@ instance Prelude.Hashable ListControls where
 
 instance Prelude.NFData ListControls where
   rnf ListControls' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf controlType
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf controlType
 
 instance Data.ToHeaders ListControls where
   toHeaders =
@@ -204,6 +204,6 @@ listControlsResponse_httpStatus = Lens.lens (\ListControlsResponse' {httpStatus}
 
 instance Prelude.NFData ListControlsResponse where
   rnf ListControlsResponse' {..} =
-    Prelude.rnf controlMetadataList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf controlMetadataList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

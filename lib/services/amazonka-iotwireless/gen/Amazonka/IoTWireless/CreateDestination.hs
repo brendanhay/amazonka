@@ -188,13 +188,13 @@ instance Prelude.Hashable CreateDestination where
 
 instance Prelude.NFData CreateDestination where
   rnf CreateDestination' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf expressionType
-      `Prelude.seq` Prelude.rnf expression
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf expressionType `Prelude.seq`
+              Prelude.rnf expression `Prelude.seq`
+                Prelude.rnf roleArn
 
 instance Data.ToHeaders CreateDestination where
   toHeaders = Prelude.const Prelude.mempty
@@ -270,6 +270,6 @@ createDestinationResponse_httpStatus = Lens.lens (\CreateDestinationResponse' {h
 
 instance Prelude.NFData CreateDestinationResponse where
   rnf CreateDestinationResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf httpStatus

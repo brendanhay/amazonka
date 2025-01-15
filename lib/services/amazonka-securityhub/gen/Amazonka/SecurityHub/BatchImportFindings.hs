@@ -249,7 +249,7 @@ batchImportFindingsResponse_successCount = Lens.lens (\BatchImportFindingsRespon
 
 instance Prelude.NFData BatchImportFindingsResponse where
   rnf BatchImportFindingsResponse' {..} =
-    Prelude.rnf failedFindings
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf failedCount
-      `Prelude.seq` Prelude.rnf successCount
+    Prelude.rnf failedFindings `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf failedCount `Prelude.seq`
+          Prelude.rnf successCount

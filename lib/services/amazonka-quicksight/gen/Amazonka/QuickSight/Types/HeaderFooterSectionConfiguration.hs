@@ -111,9 +111,9 @@ instance
     HeaderFooterSectionConfiguration
   where
   rnf HeaderFooterSectionConfiguration' {..} =
-    Prelude.rnf style
-      `Prelude.seq` Prelude.rnf sectionId
-      `Prelude.seq` Prelude.rnf layout
+    Prelude.rnf style `Prelude.seq`
+      Prelude.rnf sectionId `Prelude.seq`
+        Prelude.rnf layout
 
 instance Data.ToJSON HeaderFooterSectionConfiguration where
   toJSON HeaderFooterSectionConfiguration' {..} =

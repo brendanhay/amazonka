@@ -114,7 +114,7 @@ instance Prelude.Hashable RepositorySyncDefinition where
 
 instance Prelude.NFData RepositorySyncDefinition where
   rnf RepositorySyncDefinition' {..} =
-    Prelude.rnf branch
-      `Prelude.seq` Prelude.rnf directory
-      `Prelude.seq` Prelude.rnf parent
-      `Prelude.seq` Prelude.rnf target
+    Prelude.rnf branch `Prelude.seq`
+      Prelude.rnf directory `Prelude.seq`
+        Prelude.rnf parent `Prelude.seq`
+          Prelude.rnf target

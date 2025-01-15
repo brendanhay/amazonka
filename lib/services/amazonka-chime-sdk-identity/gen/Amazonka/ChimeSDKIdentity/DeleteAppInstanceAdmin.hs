@@ -106,8 +106,8 @@ instance Prelude.Hashable DeleteAppInstanceAdmin where
 
 instance Prelude.NFData DeleteAppInstanceAdmin where
   rnf DeleteAppInstanceAdmin' {..} =
-    Prelude.rnf appInstanceAdminArn
-      `Prelude.seq` Prelude.rnf appInstanceArn
+    Prelude.rnf appInstanceAdminArn `Prelude.seq`
+      Prelude.rnf appInstanceArn
 
 instance Data.ToHeaders DeleteAppInstanceAdmin where
   toHeaders = Prelude.const Prelude.mempty

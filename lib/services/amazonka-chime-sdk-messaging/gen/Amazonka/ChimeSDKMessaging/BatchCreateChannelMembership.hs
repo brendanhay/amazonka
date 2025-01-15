@@ -175,11 +175,11 @@ instance
 
 instance Prelude.NFData BatchCreateChannelMembership where
   rnf BatchCreateChannelMembership' {..} =
-    Prelude.rnf subChannelId
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf channelArn
-      `Prelude.seq` Prelude.rnf memberArns
-      `Prelude.seq` Prelude.rnf chimeBearer
+    Prelude.rnf subChannelId `Prelude.seq`
+      Prelude.rnf type' `Prelude.seq`
+        Prelude.rnf channelArn `Prelude.seq`
+          Prelude.rnf memberArns `Prelude.seq`
+            Prelude.rnf chimeBearer
 
 instance Data.ToHeaders BatchCreateChannelMembership where
   toHeaders BatchCreateChannelMembership' {..} =
@@ -265,6 +265,6 @@ instance
     BatchCreateChannelMembershipResponse
   where
   rnf BatchCreateChannelMembershipResponse' {..} =
-    Prelude.rnf batchChannelMemberships
-      `Prelude.seq` Prelude.rnf errors
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf batchChannelMemberships `Prelude.seq`
+      Prelude.rnf errors `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -152,8 +152,8 @@ instance Prelude.Hashable AttributeDimension where
 
 instance Prelude.NFData AttributeDimension where
   rnf AttributeDimension' {..} =
-    Prelude.rnf attributeType
-      `Prelude.seq` Prelude.rnf values
+    Prelude.rnf attributeType `Prelude.seq`
+      Prelude.rnf values
 
 instance Data.ToJSON AttributeDimension where
   toJSON AttributeDimension' {..} =

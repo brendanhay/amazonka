@@ -87,5 +87,5 @@ instance Prelude.Hashable ApplicationsResponse where
 
 instance Prelude.NFData ApplicationsResponse where
   rnf ApplicationsResponse' {..} =
-    Prelude.rnf item
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf item `Prelude.seq`
+      Prelude.rnf nextToken

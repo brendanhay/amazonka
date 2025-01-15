@@ -187,5 +187,5 @@ deleteVpcConnectorResponse_vpcConnector = Lens.lens (\DeleteVpcConnectorResponse
 
 instance Prelude.NFData DeleteVpcConnectorResponse where
   rnf DeleteVpcConnectorResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf vpcConnector
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf vpcConnector

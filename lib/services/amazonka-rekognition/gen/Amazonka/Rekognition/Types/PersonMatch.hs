@@ -103,6 +103,6 @@ instance Prelude.Hashable PersonMatch where
 
 instance Prelude.NFData PersonMatch where
   rnf PersonMatch' {..} =
-    Prelude.rnf faceMatches
-      `Prelude.seq` Prelude.rnf person
-      `Prelude.seq` Prelude.rnf timestamp
+    Prelude.rnf faceMatches `Prelude.seq`
+      Prelude.rnf person `Prelude.seq`
+        Prelude.rnf timestamp

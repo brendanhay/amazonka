@@ -125,8 +125,8 @@ instance Prelude.Hashable ListKeyGroups where
 
 instance Prelude.NFData ListKeyGroups where
   rnf ListKeyGroups' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxItems
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf maxItems
 
 instance Data.ToHeaders ListKeyGroups where
   toHeaders = Prelude.const Prelude.mempty
@@ -182,5 +182,5 @@ listKeyGroupsResponse_httpStatus = Lens.lens (\ListKeyGroupsResponse' {httpStatu
 
 instance Prelude.NFData ListKeyGroupsResponse where
   rnf ListKeyGroupsResponse' {..} =
-    Prelude.rnf keyGroupList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf keyGroupList `Prelude.seq`
+      Prelude.rnf httpStatus

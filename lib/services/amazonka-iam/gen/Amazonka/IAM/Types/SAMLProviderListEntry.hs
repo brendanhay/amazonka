@@ -87,6 +87,6 @@ instance Prelude.Hashable SAMLProviderListEntry where
 
 instance Prelude.NFData SAMLProviderListEntry where
   rnf SAMLProviderListEntry' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createDate
-      `Prelude.seq` Prelude.rnf validUntil
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf createDate `Prelude.seq`
+        Prelude.rnf validUntil

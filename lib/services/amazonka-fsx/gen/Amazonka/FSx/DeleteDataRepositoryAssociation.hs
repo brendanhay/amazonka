@@ -143,9 +143,9 @@ instance
     DeleteDataRepositoryAssociation
   where
   rnf DeleteDataRepositoryAssociation' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf deleteDataInFileSystem
-      `Prelude.seq` Prelude.rnf associationId
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf deleteDataInFileSystem `Prelude.seq`
+        Prelude.rnf associationId
 
 instance
   Data.ToHeaders
@@ -254,7 +254,7 @@ instance
     DeleteDataRepositoryAssociationResponse
   where
   rnf DeleteDataRepositoryAssociationResponse' {..} =
-    Prelude.rnf associationId
-      `Prelude.seq` Prelude.rnf deleteDataInFileSystem
-      `Prelude.seq` Prelude.rnf lifecycle
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf associationId `Prelude.seq`
+      Prelude.rnf deleteDataInFileSystem `Prelude.seq`
+        Prelude.rnf lifecycle `Prelude.seq`
+          Prelude.rnf httpStatus

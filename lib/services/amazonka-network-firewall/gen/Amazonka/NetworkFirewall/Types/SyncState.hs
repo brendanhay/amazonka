@@ -120,5 +120,5 @@ instance Prelude.Hashable SyncState where
 
 instance Prelude.NFData SyncState where
   rnf SyncState' {..} =
-    Prelude.rnf attachment
-      `Prelude.seq` Prelude.rnf config
+    Prelude.rnf attachment `Prelude.seq`
+      Prelude.rnf config

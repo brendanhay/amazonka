@@ -126,9 +126,9 @@ instance Prelude.Hashable ErrorRootCauseService where
 
 instance Prelude.NFData ErrorRootCauseService where
   rnf ErrorRootCauseService' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf entityPath
-      `Prelude.seq` Prelude.rnf inferred
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf names
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf entityPath `Prelude.seq`
+        Prelude.rnf inferred `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf names `Prelude.seq`
+              Prelude.rnf type'

@@ -88,9 +88,9 @@ instance Prelude.Hashable MqttContext where
 
 instance Prelude.NFData MqttContext where
   rnf MqttContext' {..} =
-    Prelude.rnf clientId
-      `Prelude.seq` Prelude.rnf password
-      `Prelude.seq` Prelude.rnf username
+    Prelude.rnf clientId `Prelude.seq`
+      Prelude.rnf password `Prelude.seq`
+        Prelude.rnf username
 
 instance Data.ToJSON MqttContext where
   toJSON MqttContext' {..} =

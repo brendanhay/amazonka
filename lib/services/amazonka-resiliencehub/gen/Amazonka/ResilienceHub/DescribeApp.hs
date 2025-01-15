@@ -177,5 +177,5 @@ describeAppResponse_app = Lens.lens (\DescribeAppResponse' {app} -> app) (\s@Des
 
 instance Prelude.NFData DescribeAppResponse where
   rnf DescribeAppResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf app
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf app

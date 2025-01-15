@@ -272,19 +272,19 @@ instance Prelude.Hashable OTAUpdateInfo where
 
 instance Prelude.NFData OTAUpdateInfo where
   rnf OTAUpdateInfo' {..} =
-    Prelude.rnf additionalParameters
-      `Prelude.seq` Prelude.rnf awsIotJobArn
-      `Prelude.seq` Prelude.rnf awsIotJobId
-      `Prelude.seq` Prelude.rnf awsJobExecutionsRolloutConfig
-      `Prelude.seq` Prelude.rnf awsJobPresignedUrlConfig
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf errorInfo
-      `Prelude.seq` Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf otaUpdateArn
-      `Prelude.seq` Prelude.rnf otaUpdateFiles
-      `Prelude.seq` Prelude.rnf otaUpdateId
-      `Prelude.seq` Prelude.rnf otaUpdateStatus
-      `Prelude.seq` Prelude.rnf protocols
-      `Prelude.seq` Prelude.rnf targetSelection
-      `Prelude.seq` Prelude.rnf targets
+    Prelude.rnf additionalParameters `Prelude.seq`
+      Prelude.rnf awsIotJobArn `Prelude.seq`
+        Prelude.rnf awsIotJobId `Prelude.seq`
+          Prelude.rnf awsJobExecutionsRolloutConfig `Prelude.seq`
+            Prelude.rnf awsJobPresignedUrlConfig `Prelude.seq`
+              Prelude.rnf creationDate `Prelude.seq`
+                Prelude.rnf description `Prelude.seq`
+                  Prelude.rnf errorInfo `Prelude.seq`
+                    Prelude.rnf lastModifiedDate `Prelude.seq`
+                      Prelude.rnf otaUpdateArn `Prelude.seq`
+                        Prelude.rnf otaUpdateFiles `Prelude.seq`
+                          Prelude.rnf otaUpdateId `Prelude.seq`
+                            Prelude.rnf otaUpdateStatus `Prelude.seq`
+                              Prelude.rnf protocols `Prelude.seq`
+                                Prelude.rnf targetSelection `Prelude.seq`
+                                  Prelude.rnf targets

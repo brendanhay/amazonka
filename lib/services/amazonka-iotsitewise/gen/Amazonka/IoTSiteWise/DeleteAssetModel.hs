@@ -120,8 +120,8 @@ instance Prelude.Hashable DeleteAssetModel where
 
 instance Prelude.NFData DeleteAssetModel where
   rnf DeleteAssetModel' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf assetModelId
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf assetModelId
 
 instance Data.ToHeaders DeleteAssetModel where
   toHeaders =
@@ -191,5 +191,5 @@ deleteAssetModelResponse_assetModelStatus = Lens.lens (\DeleteAssetModelResponse
 
 instance Prelude.NFData DeleteAssetModelResponse where
   rnf DeleteAssetModelResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf assetModelStatus
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf assetModelStatus

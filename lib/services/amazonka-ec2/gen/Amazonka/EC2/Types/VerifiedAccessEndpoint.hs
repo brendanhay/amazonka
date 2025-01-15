@@ -254,9 +254,7 @@ instance Data.FromXML VerifiedAccessEndpoint where
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "status")
-      Prelude.<*> ( x
-                      Data..@? "tagSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "verifiedAccessEndpointId")
@@ -287,22 +285,22 @@ instance Prelude.Hashable VerifiedAccessEndpoint where
 
 instance Prelude.NFData VerifiedAccessEndpoint where
   rnf VerifiedAccessEndpoint' {..} =
-    Prelude.rnf applicationDomain
-      `Prelude.seq` Prelude.rnf attachmentType
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf deletionTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf deviceValidationDomain
-      `Prelude.seq` Prelude.rnf domainCertificateArn
-      `Prelude.seq` Prelude.rnf endpointDomain
-      `Prelude.seq` Prelude.rnf endpointType
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf loadBalancerOptions
-      `Prelude.seq` Prelude.rnf networkInterfaceOptions
-      `Prelude.seq` Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf verifiedAccessEndpointId
-      `Prelude.seq` Prelude.rnf verifiedAccessGroupId
-      `Prelude.seq` Prelude.rnf
-        verifiedAccessInstanceId
+    Prelude.rnf applicationDomain `Prelude.seq`
+      Prelude.rnf attachmentType `Prelude.seq`
+        Prelude.rnf creationTime `Prelude.seq`
+          Prelude.rnf deletionTime `Prelude.seq`
+            Prelude.rnf description `Prelude.seq`
+              Prelude.rnf deviceValidationDomain `Prelude.seq`
+                Prelude.rnf domainCertificateArn `Prelude.seq`
+                  Prelude.rnf endpointDomain `Prelude.seq`
+                    Prelude.rnf endpointType `Prelude.seq`
+                      Prelude.rnf lastUpdatedTime `Prelude.seq`
+                        Prelude.rnf loadBalancerOptions `Prelude.seq`
+                          Prelude.rnf networkInterfaceOptions `Prelude.seq`
+                            Prelude.rnf securityGroupIds `Prelude.seq`
+                              Prelude.rnf status `Prelude.seq`
+                                Prelude.rnf tags `Prelude.seq`
+                                  Prelude.rnf verifiedAccessEndpointId `Prelude.seq`
+                                    Prelude.rnf verifiedAccessGroupId `Prelude.seq`
+                                      Prelude.rnf
+                                        verifiedAccessInstanceId

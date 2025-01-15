@@ -244,16 +244,16 @@ instance
     CreateModelExplainabilityJobDefinition
   where
   rnf CreateModelExplainabilityJobDefinition' {..} =
-    Prelude.rnf modelExplainabilityBaselineConfig
-      `Prelude.seq` Prelude.rnf networkConfig
-      `Prelude.seq` Prelude.rnf stoppingCondition
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf jobDefinitionName
-      `Prelude.seq` Prelude.rnf modelExplainabilityAppSpecification
-      `Prelude.seq` Prelude.rnf modelExplainabilityJobInput
-      `Prelude.seq` Prelude.rnf modelExplainabilityJobOutputConfig
-      `Prelude.seq` Prelude.rnf jobResources
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf modelExplainabilityBaselineConfig `Prelude.seq`
+      Prelude.rnf networkConfig `Prelude.seq`
+        Prelude.rnf stoppingCondition `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf jobDefinitionName `Prelude.seq`
+              Prelude.rnf modelExplainabilityAppSpecification `Prelude.seq`
+                Prelude.rnf modelExplainabilityJobInput `Prelude.seq`
+                  Prelude.rnf modelExplainabilityJobOutputConfig `Prelude.seq`
+                    Prelude.rnf jobResources `Prelude.seq`
+                      Prelude.rnf roleArn
 
 instance
   Data.ToHeaders
@@ -367,5 +367,5 @@ instance
   where
   rnf
     CreateModelExplainabilityJobDefinitionResponse' {..} =
-      Prelude.rnf httpStatus
-        `Prelude.seq` Prelude.rnf jobDefinitionArn
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf jobDefinitionArn

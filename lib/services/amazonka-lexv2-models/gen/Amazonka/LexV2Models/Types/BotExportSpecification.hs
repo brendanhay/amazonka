@@ -87,8 +87,8 @@ instance Prelude.Hashable BotExportSpecification where
 
 instance Prelude.NFData BotExportSpecification where
   rnf BotExportSpecification' {..} =
-    Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf botVersion
+    Prelude.rnf botId `Prelude.seq`
+      Prelude.rnf botVersion
 
 instance Data.ToJSON BotExportSpecification where
   toJSON BotExportSpecification' {..} =

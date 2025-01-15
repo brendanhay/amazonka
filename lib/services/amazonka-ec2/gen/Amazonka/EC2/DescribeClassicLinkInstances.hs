@@ -225,12 +225,12 @@ instance Core.AWSPager DescribeClassicLinkInstances where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeClassicLinkInstances_nextToken
-          Lens..~ rs
-          Lens.^? describeClassicLinkInstancesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeClassicLinkInstances_nextToken
+              Lens..~ rs
+              Lens.^? describeClassicLinkInstancesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeClassicLinkInstances where
   type
@@ -242,9 +242,7 @@ instance Core.AWSRequest DescribeClassicLinkInstances where
     Response.receiveXML
       ( \s h x ->
           DescribeClassicLinkInstancesResponse'
-            Prelude.<$> ( x
-                            Data..@? "instancesSet"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "instancesSet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (x Data..@? "nextToken")
@@ -265,11 +263,11 @@ instance
 
 instance Prelude.NFData DescribeClassicLinkInstances where
   rnf DescribeClassicLinkInstances' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf instanceIds
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf instanceIds `Prelude.seq`
+          Prelude.rnf maxResults `Prelude.seq`
+            Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeClassicLinkInstances where
   toHeaders = Prelude.const Prelude.mempty
@@ -353,6 +351,6 @@ instance
     DescribeClassicLinkInstancesResponse
   where
   rnf DescribeClassicLinkInstancesResponse' {..} =
-    Prelude.rnf instances
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf instances `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -1486,9 +1486,7 @@ instance Data.FromXML ResourceRecordSet where
       Prelude.<*> (x Data..@? "HealthCheckId")
       Prelude.<*> (x Data..@? "MultiValueAnswer")
       Prelude.<*> (x Data..@? "Region")
-      Prelude.<*> ( x
-                      Data..@? "ResourceRecords"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "ResourceRecords" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList1 "ResourceRecord")
                   )
       Prelude.<*> (x Data..@? "SetIdentifier")
@@ -1518,20 +1516,20 @@ instance Prelude.Hashable ResourceRecordSet where
 
 instance Prelude.NFData ResourceRecordSet where
   rnf ResourceRecordSet' {..} =
-    Prelude.rnf aliasTarget
-      `Prelude.seq` Prelude.rnf cidrRoutingConfig
-      `Prelude.seq` Prelude.rnf failover
-      `Prelude.seq` Prelude.rnf geoLocation
-      `Prelude.seq` Prelude.rnf healthCheckId
-      `Prelude.seq` Prelude.rnf multiValueAnswer
-      `Prelude.seq` Prelude.rnf region
-      `Prelude.seq` Prelude.rnf resourceRecords
-      `Prelude.seq` Prelude.rnf setIdentifier
-      `Prelude.seq` Prelude.rnf ttl
-      `Prelude.seq` Prelude.rnf trafficPolicyInstanceId
-      `Prelude.seq` Prelude.rnf weight
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf aliasTarget `Prelude.seq`
+      Prelude.rnf cidrRoutingConfig `Prelude.seq`
+        Prelude.rnf failover `Prelude.seq`
+          Prelude.rnf geoLocation `Prelude.seq`
+            Prelude.rnf healthCheckId `Prelude.seq`
+              Prelude.rnf multiValueAnswer `Prelude.seq`
+                Prelude.rnf region `Prelude.seq`
+                  Prelude.rnf resourceRecords `Prelude.seq`
+                    Prelude.rnf setIdentifier `Prelude.seq`
+                      Prelude.rnf ttl `Prelude.seq`
+                        Prelude.rnf trafficPolicyInstanceId `Prelude.seq`
+                          Prelude.rnf weight `Prelude.seq`
+                            Prelude.rnf name `Prelude.seq`
+                              Prelude.rnf type'
 
 instance Data.ToXML ResourceRecordSet where
   toXML ResourceRecordSet' {..} =

@@ -345,10 +345,10 @@ instance Prelude.Hashable DeploymentConfiguration where
 
 instance Prelude.NFData DeploymentConfiguration where
   rnf DeploymentConfiguration' {..} =
-    Prelude.rnf alarms
-      `Prelude.seq` Prelude.rnf deploymentCircuitBreaker
-      `Prelude.seq` Prelude.rnf maximumPercent
-      `Prelude.seq` Prelude.rnf minimumHealthyPercent
+    Prelude.rnf alarms `Prelude.seq`
+      Prelude.rnf deploymentCircuitBreaker `Prelude.seq`
+        Prelude.rnf maximumPercent `Prelude.seq`
+          Prelude.rnf minimumHealthyPercent
 
 instance Data.ToJSON DeploymentConfiguration where
   toJSON DeploymentConfiguration' {..} =

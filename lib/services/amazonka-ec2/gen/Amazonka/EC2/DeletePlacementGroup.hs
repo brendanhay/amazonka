@@ -112,8 +112,8 @@ instance Prelude.Hashable DeletePlacementGroup where
 
 instance Prelude.NFData DeletePlacementGroup where
   rnf DeletePlacementGroup' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf groupName
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf groupName
 
 instance Data.ToHeaders DeletePlacementGroup where
   toHeaders = Prelude.const Prelude.mempty

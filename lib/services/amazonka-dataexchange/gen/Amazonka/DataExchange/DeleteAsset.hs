@@ -111,9 +111,9 @@ instance Prelude.Hashable DeleteAsset where
 
 instance Prelude.NFData DeleteAsset where
   rnf DeleteAsset' {..} =
-    Prelude.rnf assetId
-      `Prelude.seq` Prelude.rnf dataSetId
-      `Prelude.seq` Prelude.rnf revisionId
+    Prelude.rnf assetId `Prelude.seq`
+      Prelude.rnf dataSetId `Prelude.seq`
+        Prelude.rnf revisionId
 
 instance Data.ToHeaders DeleteAsset where
   toHeaders =

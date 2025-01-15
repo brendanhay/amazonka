@@ -87,8 +87,8 @@ instance
     SnowflakeConnectorProfileCredentials
   where
   rnf SnowflakeConnectorProfileCredentials' {..} =
-    Prelude.rnf username
-      `Prelude.seq` Prelude.rnf password
+    Prelude.rnf username `Prelude.seq`
+      Prelude.rnf password
 
 instance
   Data.ToJSON

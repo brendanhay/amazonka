@@ -194,12 +194,12 @@ instance Core.AWSPager ListKeyPolicies where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listKeyPolicies_marker
-          Lens..~ rs
-          Lens.^? listKeyPoliciesResponse_nextMarker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listKeyPolicies_marker
+              Lens..~ rs
+              Lens.^? listKeyPoliciesResponse_nextMarker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListKeyPolicies where
   type
@@ -226,9 +226,9 @@ instance Prelude.Hashable ListKeyPolicies where
 
 instance Prelude.NFData ListKeyPolicies where
   rnf ListKeyPolicies' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf keyId
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf keyId
 
 instance Data.ToHeaders ListKeyPolicies where
   toHeaders =
@@ -332,7 +332,7 @@ listKeyPoliciesResponse_httpStatus = Lens.lens (\ListKeyPoliciesResponse' {httpS
 
 instance Prelude.NFData ListKeyPoliciesResponse where
   rnf ListKeyPoliciesResponse' {..} =
-    Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf policyNames
-      `Prelude.seq` Prelude.rnf truncated
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextMarker `Prelude.seq`
+      Prelude.rnf policyNames `Prelude.seq`
+        Prelude.rnf truncated `Prelude.seq`
+          Prelude.rnf httpStatus

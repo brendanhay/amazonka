@@ -92,9 +92,9 @@ instance Prelude.Hashable FormStyle where
 
 instance Prelude.NFData FormStyle where
   rnf FormStyle' {..} =
-    Prelude.rnf horizontalGap
-      `Prelude.seq` Prelude.rnf outerPadding
-      `Prelude.seq` Prelude.rnf verticalGap
+    Prelude.rnf horizontalGap `Prelude.seq`
+      Prelude.rnf outerPadding `Prelude.seq`
+        Prelude.rnf verticalGap
 
 instance Data.ToJSON FormStyle where
   toJSON FormStyle' {..} =

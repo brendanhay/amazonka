@@ -100,9 +100,9 @@ instance Prelude.Hashable HttpRouteHeader where
 
 instance Prelude.NFData HttpRouteHeader where
   rnf HttpRouteHeader' {..} =
-    Prelude.rnf invert
-      `Prelude.seq` Prelude.rnf match
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf invert `Prelude.seq`
+      Prelude.rnf match `Prelude.seq`
+        Prelude.rnf name
 
 instance Data.ToJSON HttpRouteHeader where
   toJSON HttpRouteHeader' {..} =

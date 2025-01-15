@@ -112,8 +112,8 @@ instance Prelude.Hashable DeleteLicense where
 
 instance Prelude.NFData DeleteLicense where
   rnf DeleteLicense' {..} =
-    Prelude.rnf licenseArn
-      `Prelude.seq` Prelude.rnf sourceVersion
+    Prelude.rnf licenseArn `Prelude.seq`
+      Prelude.rnf sourceVersion
 
 instance Data.ToHeaders DeleteLicense where
   toHeaders =
@@ -196,6 +196,6 @@ deleteLicenseResponse_httpStatus = Lens.lens (\DeleteLicenseResponse' {httpStatu
 
 instance Prelude.NFData DeleteLicenseResponse where
   rnf DeleteLicenseResponse' {..} =
-    Prelude.rnf deletionDate
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf deletionDate `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf httpStatus

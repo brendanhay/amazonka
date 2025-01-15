@@ -128,9 +128,9 @@ instance Prelude.Hashable CreateHumanTaskUi where
 
 instance Prelude.NFData CreateHumanTaskUi where
   rnf CreateHumanTaskUi' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf humanTaskUiName
-      `Prelude.seq` Prelude.rnf uiTemplate
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf humanTaskUiName `Prelude.seq`
+        Prelude.rnf uiTemplate
 
 instance Data.ToHeaders CreateHumanTaskUi where
   toHeaders =
@@ -212,5 +212,5 @@ createHumanTaskUiResponse_humanTaskUiArn = Lens.lens (\CreateHumanTaskUiResponse
 
 instance Prelude.NFData CreateHumanTaskUiResponse where
   rnf CreateHumanTaskUiResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf humanTaskUiArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf humanTaskUiArn

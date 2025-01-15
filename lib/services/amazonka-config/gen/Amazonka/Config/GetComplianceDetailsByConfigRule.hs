@@ -151,12 +151,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getComplianceDetailsByConfigRule_nextToken
-          Lens..~ rs
-          Lens.^? getComplianceDetailsByConfigRuleResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getComplianceDetailsByConfigRule_nextToken
+              Lens..~ rs
+              Lens.^? getComplianceDetailsByConfigRuleResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -197,10 +197,10 @@ instance
     GetComplianceDetailsByConfigRule
   where
   rnf GetComplianceDetailsByConfigRule' {..} =
-    Prelude.rnf complianceTypes
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf configRuleName
+    Prelude.rnf complianceTypes `Prelude.seq`
+      Prelude.rnf limit `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf configRuleName
 
 instance
   Data.ToHeaders
@@ -304,6 +304,6 @@ instance
     GetComplianceDetailsByConfigRuleResponse
   where
   rnf GetComplianceDetailsByConfigRuleResponse' {..} =
-    Prelude.rnf evaluationResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf evaluationResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

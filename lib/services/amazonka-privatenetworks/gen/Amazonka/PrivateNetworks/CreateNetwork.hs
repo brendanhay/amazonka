@@ -141,10 +141,10 @@ instance Prelude.Hashable CreateNetwork where
 
 instance Prelude.NFData CreateNetwork where
   rnf CreateNetwork' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf networkName
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf networkName
 
 instance Data.ToHeaders CreateNetwork where
   toHeaders =
@@ -225,6 +225,6 @@ createNetworkResponse_network = Lens.lens (\CreateNetworkResponse' {network} -> 
 
 instance Prelude.NFData CreateNetworkResponse where
   rnf CreateNetworkResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf network
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf network

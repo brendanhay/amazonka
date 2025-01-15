@@ -107,9 +107,9 @@ instance Prelude.Hashable DatabaseMigrationPreference where
 
 instance Prelude.NFData DatabaseMigrationPreference where
   rnf DatabaseMigrationPreference' {..} =
-    Prelude.rnf heterogeneous
-      `Prelude.seq` Prelude.rnf homogeneous
-      `Prelude.seq` Prelude.rnf noPreference
+    Prelude.rnf heterogeneous `Prelude.seq`
+      Prelude.rnf homogeneous `Prelude.seq`
+        Prelude.rnf noPreference
 
 instance Data.ToJSON DatabaseMigrationPreference where
   toJSON DatabaseMigrationPreference' {..} =

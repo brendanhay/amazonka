@@ -145,10 +145,10 @@ instance
 
 instance Prelude.NFData CreateSiteToSiteVpnAttachment where
   rnf CreateSiteToSiteVpnAttachment' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf coreNetworkId
-      `Prelude.seq` Prelude.rnf vpnConnectionArn
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf coreNetworkId `Prelude.seq`
+          Prelude.rnf vpnConnectionArn
 
 instance Data.ToHeaders CreateSiteToSiteVpnAttachment where
   toHeaders =
@@ -224,5 +224,5 @@ instance
     CreateSiteToSiteVpnAttachmentResponse
   where
   rnf CreateSiteToSiteVpnAttachmentResponse' {..} =
-    Prelude.rnf siteToSiteVpnAttachment
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf siteToSiteVpnAttachment `Prelude.seq`
+      Prelude.rnf httpStatus

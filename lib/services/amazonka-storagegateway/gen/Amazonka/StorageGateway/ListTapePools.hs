@@ -133,12 +133,12 @@ instance Core.AWSPager ListTapePools where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listTapePools_marker
-          Lens..~ rs
-          Lens.^? listTapePoolsResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listTapePools_marker
+              Lens..~ rs
+              Lens.^? listTapePoolsResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListTapePools where
   type
@@ -164,9 +164,9 @@ instance Prelude.Hashable ListTapePools where
 
 instance Prelude.NFData ListTapePools where
   rnf ListTapePools' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf poolARNs
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf poolARNs
 
 instance Data.ToHeaders ListTapePools where
   toHeaders =
@@ -263,6 +263,6 @@ listTapePoolsResponse_httpStatus = Lens.lens (\ListTapePoolsResponse' {httpStatu
 
 instance Prelude.NFData ListTapePoolsResponse where
   rnf ListTapePoolsResponse' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf poolInfos
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf poolInfos `Prelude.seq`
+        Prelude.rnf httpStatus

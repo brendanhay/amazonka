@@ -80,8 +80,8 @@ instance Prelude.Hashable VectorEnrichmentJobConfig where
 
 instance Prelude.NFData VectorEnrichmentJobConfig where
   rnf VectorEnrichmentJobConfig' {..} =
-    Prelude.rnf mapMatchingConfig
-      `Prelude.seq` Prelude.rnf reverseGeocodingConfig
+    Prelude.rnf mapMatchingConfig `Prelude.seq`
+      Prelude.rnf reverseGeocodingConfig
 
 instance Data.ToJSON VectorEnrichmentJobConfig where
   toJSON VectorEnrichmentJobConfig' {..} =

@@ -371,10 +371,10 @@ instance Prelude.Hashable CreateTopic where
 
 instance Prelude.NFData CreateTopic where
   rnf CreateTopic' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf dataProtectionPolicy
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf attributes `Prelude.seq`
+      Prelude.rnf dataProtectionPolicy `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf name
 
 instance Data.ToHeaders CreateTopic where
   toHeaders = Prelude.const Prelude.mempty
@@ -443,5 +443,5 @@ createTopicResponse_httpStatus = Lens.lens (\CreateTopicResponse' {httpStatus} -
 
 instance Prelude.NFData CreateTopicResponse where
   rnf CreateTopicResponse' {..} =
-    Prelude.rnf topicArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf topicArn `Prelude.seq`
+      Prelude.rnf httpStatus

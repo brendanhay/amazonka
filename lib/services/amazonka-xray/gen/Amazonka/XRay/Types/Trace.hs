@@ -121,7 +121,7 @@ instance Prelude.Hashable Trace where
 
 instance Prelude.NFData Trace where
   rnf Trace' {..} =
-    Prelude.rnf duration
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf limitExceeded
-      `Prelude.seq` Prelude.rnf segments
+    Prelude.rnf duration `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf limitExceeded `Prelude.seq`
+          Prelude.rnf segments

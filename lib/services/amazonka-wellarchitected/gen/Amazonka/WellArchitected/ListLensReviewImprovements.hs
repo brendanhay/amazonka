@@ -167,12 +167,12 @@ instance Prelude.Hashable ListLensReviewImprovements where
 
 instance Prelude.NFData ListLensReviewImprovements where
   rnf ListLensReviewImprovements' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf milestoneNumber
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf pillarId
-      `Prelude.seq` Prelude.rnf workloadId
-      `Prelude.seq` Prelude.rnf lensAlias
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf milestoneNumber `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf pillarId `Prelude.seq`
+            Prelude.rnf workloadId `Prelude.seq`
+              Prelude.rnf lensAlias
 
 instance Data.ToHeaders ListLensReviewImprovements where
   toHeaders =
@@ -290,10 +290,10 @@ instance
     ListLensReviewImprovementsResponse
   where
   rnf ListLensReviewImprovementsResponse' {..} =
-    Prelude.rnf improvementSummaries
-      `Prelude.seq` Prelude.rnf lensAlias
-      `Prelude.seq` Prelude.rnf lensArn
-      `Prelude.seq` Prelude.rnf milestoneNumber
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf workloadId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf improvementSummaries `Prelude.seq`
+      Prelude.rnf lensAlias `Prelude.seq`
+        Prelude.rnf lensArn `Prelude.seq`
+          Prelude.rnf milestoneNumber `Prelude.seq`
+            Prelude.rnf nextToken `Prelude.seq`
+              Prelude.rnf workloadId `Prelude.seq`
+                Prelude.rnf httpStatus

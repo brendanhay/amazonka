@@ -123,12 +123,12 @@ instance Core.AWSPager DescribeDestinations where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeDestinations_nextToken
-          Lens..~ rs
-          Lens.^? describeDestinationsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeDestinations_nextToken
+              Lens..~ rs
+              Lens.^? describeDestinationsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeDestinations where
   type
@@ -154,9 +154,9 @@ instance Prelude.Hashable DescribeDestinations where
 
 instance Prelude.NFData DescribeDestinations where
   rnf DescribeDestinations' {..} =
-    Prelude.rnf destinationNamePrefix
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf destinationNamePrefix `Prelude.seq`
+      Prelude.rnf limit `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeDestinations where
   toHeaders =
@@ -239,6 +239,6 @@ describeDestinationsResponse_httpStatus = Lens.lens (\DescribeDestinationsRespon
 
 instance Prelude.NFData DescribeDestinationsResponse where
   rnf DescribeDestinationsResponse' {..} =
-    Prelude.rnf destinations
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf destinations `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

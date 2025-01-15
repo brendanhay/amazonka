@@ -120,8 +120,8 @@ instance Prelude.Hashable DescribeModelPackagingJob where
 
 instance Prelude.NFData DescribeModelPackagingJob where
   rnf DescribeModelPackagingJob' {..} =
-    Prelude.rnf projectName
-      `Prelude.seq` Prelude.rnf jobName
+    Prelude.rnf projectName `Prelude.seq`
+      Prelude.rnf jobName
 
 instance Data.ToHeaders DescribeModelPackagingJob where
   toHeaders =
@@ -190,5 +190,5 @@ instance
     DescribeModelPackagingJobResponse
   where
   rnf DescribeModelPackagingJobResponse' {..} =
-    Prelude.rnf modelPackagingDescription
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf modelPackagingDescription `Prelude.seq`
+      Prelude.rnf httpStatus

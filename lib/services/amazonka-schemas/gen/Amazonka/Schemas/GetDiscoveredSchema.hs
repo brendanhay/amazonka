@@ -185,5 +185,5 @@ getDiscoveredSchemaResponse_httpStatus = Lens.lens (\GetDiscoveredSchemaResponse
 
 instance Prelude.NFData GetDiscoveredSchemaResponse where
   rnf GetDiscoveredSchemaResponse' {..} =
-    Prelude.rnf content
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf content `Prelude.seq`
+      Prelude.rnf httpStatus

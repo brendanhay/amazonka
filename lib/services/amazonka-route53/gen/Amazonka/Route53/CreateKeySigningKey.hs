@@ -268,11 +268,11 @@ instance Prelude.Hashable CreateKeySigningKey where
 
 instance Prelude.NFData CreateKeySigningKey where
   rnf CreateKeySigningKey' {..} =
-    Prelude.rnf callerReference
-      `Prelude.seq` Prelude.rnf hostedZoneId
-      `Prelude.seq` Prelude.rnf keyManagementServiceArn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf callerReference `Prelude.seq`
+      Prelude.rnf hostedZoneId `Prelude.seq`
+        Prelude.rnf keyManagementServiceArn `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf status
 
 instance Data.ToElement CreateKeySigningKey where
   toElement =
@@ -367,7 +367,7 @@ createKeySigningKeyResponse_location = Lens.lens (\CreateKeySigningKeyResponse' 
 
 instance Prelude.NFData CreateKeySigningKeyResponse where
   rnf CreateKeySigningKeyResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf changeInfo
-      `Prelude.seq` Prelude.rnf keySigningKey
-      `Prelude.seq` Prelude.rnf location
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf changeInfo `Prelude.seq`
+        Prelude.rnf keySigningKey `Prelude.seq`
+          Prelude.rnf location

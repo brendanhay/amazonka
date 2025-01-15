@@ -147,10 +147,10 @@ instance Prelude.Hashable ECSTarget where
 
 instance Prelude.NFData ECSTarget where
   rnf ECSTarget' {..} =
-    Prelude.rnf deploymentId
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf lifecycleEvents
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf targetArn
-      `Prelude.seq` Prelude.rnf targetId
-      `Prelude.seq` Prelude.rnf taskSetsInfo
+    Prelude.rnf deploymentId `Prelude.seq`
+      Prelude.rnf lastUpdatedAt `Prelude.seq`
+        Prelude.rnf lifecycleEvents `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf targetArn `Prelude.seq`
+              Prelude.rnf targetId `Prelude.seq`
+                Prelude.rnf taskSetsInfo

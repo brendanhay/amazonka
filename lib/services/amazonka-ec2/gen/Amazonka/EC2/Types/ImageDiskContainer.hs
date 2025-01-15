@@ -121,12 +121,12 @@ instance Prelude.Hashable ImageDiskContainer where
 
 instance Prelude.NFData ImageDiskContainer where
   rnf ImageDiskContainer' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf deviceName
-      `Prelude.seq` Prelude.rnf format
-      `Prelude.seq` Prelude.rnf snapshotId
-      `Prelude.seq` Prelude.rnf url
-      `Prelude.seq` Prelude.rnf userBucket
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf deviceName `Prelude.seq`
+        Prelude.rnf format `Prelude.seq`
+          Prelude.rnf snapshotId `Prelude.seq`
+            Prelude.rnf url `Prelude.seq`
+              Prelude.rnf userBucket
 
 instance Data.ToQuery ImageDiskContainer where
   toQuery ImageDiskContainer' {..} =

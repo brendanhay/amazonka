@@ -125,10 +125,10 @@ instance
     ClientVpnAuthenticationRequest
   where
   rnf ClientVpnAuthenticationRequest' {..} =
-    Prelude.rnf activeDirectory
-      `Prelude.seq` Prelude.rnf federatedAuthentication
-      `Prelude.seq` Prelude.rnf mutualAuthentication
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf activeDirectory `Prelude.seq`
+      Prelude.rnf federatedAuthentication `Prelude.seq`
+        Prelude.rnf mutualAuthentication `Prelude.seq`
+          Prelude.rnf type'
 
 instance Data.ToQuery ClientVpnAuthenticationRequest where
   toQuery ClientVpnAuthenticationRequest' {..} =

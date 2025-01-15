@@ -269,15 +269,15 @@ describeArtifactResponse_httpStatus = Lens.lens (\DescribeArtifactResponse' {htt
 
 instance Prelude.NFData DescribeArtifactResponse where
   rnf DescribeArtifactResponse' {..} =
-    Prelude.rnf artifactArn
-      `Prelude.seq` Prelude.rnf artifactName
-      `Prelude.seq` Prelude.rnf artifactType
-      `Prelude.seq` Prelude.rnf createdBy
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf lastModifiedBy
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf lineageGroupArn
-      `Prelude.seq` Prelude.rnf metadataProperties
-      `Prelude.seq` Prelude.rnf properties
-      `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf artifactArn `Prelude.seq`
+      Prelude.rnf artifactName `Prelude.seq`
+        Prelude.rnf artifactType `Prelude.seq`
+          Prelude.rnf createdBy `Prelude.seq`
+            Prelude.rnf creationTime `Prelude.seq`
+              Prelude.rnf lastModifiedBy `Prelude.seq`
+                Prelude.rnf lastModifiedTime `Prelude.seq`
+                  Prelude.rnf lineageGroupArn `Prelude.seq`
+                    Prelude.rnf metadataProperties `Prelude.seq`
+                      Prelude.rnf properties `Prelude.seq`
+                        Prelude.rnf source `Prelude.seq`
+                          Prelude.rnf httpStatus

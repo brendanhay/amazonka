@@ -120,8 +120,8 @@ instance
 
 instance Prelude.NFData UpdateWorkspaceConfiguration where
   rnf UpdateWorkspaceConfiguration' {..} =
-    Prelude.rnf configuration
-      `Prelude.seq` Prelude.rnf workspaceId
+    Prelude.rnf configuration `Prelude.seq`
+      Prelude.rnf workspaceId
 
 instance Data.ToHeaders UpdateWorkspaceConfiguration where
   toHeaders =

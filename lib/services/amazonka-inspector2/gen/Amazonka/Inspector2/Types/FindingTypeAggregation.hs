@@ -95,10 +95,10 @@ instance Prelude.Hashable FindingTypeAggregation where
 
 instance Prelude.NFData FindingTypeAggregation where
   rnf FindingTypeAggregation' {..} =
-    Prelude.rnf findingType
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf sortOrder
+    Prelude.rnf findingType `Prelude.seq`
+      Prelude.rnf resourceType `Prelude.seq`
+        Prelude.rnf sortBy `Prelude.seq`
+          Prelude.rnf sortOrder
 
 instance Data.ToJSON FindingTypeAggregation where
   toJSON FindingTypeAggregation' {..} =

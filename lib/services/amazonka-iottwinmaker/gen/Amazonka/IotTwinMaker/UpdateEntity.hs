@@ -157,12 +157,12 @@ instance Prelude.Hashable UpdateEntity where
 
 instance Prelude.NFData UpdateEntity where
   rnf UpdateEntity' {..} =
-    Prelude.rnf componentUpdates
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf entityName
-      `Prelude.seq` Prelude.rnf parentEntityUpdate
-      `Prelude.seq` Prelude.rnf workspaceId
-      `Prelude.seq` Prelude.rnf entityId
+    Prelude.rnf componentUpdates `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf entityName `Prelude.seq`
+          Prelude.rnf parentEntityUpdate `Prelude.seq`
+            Prelude.rnf workspaceId `Prelude.seq`
+              Prelude.rnf entityId
 
 instance Data.ToHeaders UpdateEntity where
   toHeaders =
@@ -256,6 +256,6 @@ updateEntityResponse_state = Lens.lens (\UpdateEntityResponse' {state} -> state)
 
 instance Prelude.NFData UpdateEntityResponse where
   rnf UpdateEntityResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf updateDateTime
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf updateDateTime `Prelude.seq`
+        Prelude.rnf state

@@ -150,11 +150,11 @@ instance Prelude.Hashable CreateMulticastGroup where
 
 instance Prelude.NFData CreateMulticastGroup where
   rnf CreateMulticastGroup' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf loRaWAN
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf loRaWAN
 
 instance Data.ToHeaders CreateMulticastGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -226,6 +226,6 @@ createMulticastGroupResponse_httpStatus = Lens.lens (\CreateMulticastGroupRespon
 
 instance Prelude.NFData CreateMulticastGroupResponse where
   rnf CreateMulticastGroupResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -106,7 +106,7 @@ instance Prelude.Hashable DiscoveredResource where
 
 instance Prelude.NFData DiscoveredResource where
   rnf DiscoveredResource' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf uri
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf type' `Prelude.seq`
+          Prelude.rnf uri

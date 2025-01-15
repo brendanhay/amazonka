@@ -103,12 +103,12 @@ instance Core.AWSPager ListInputSecurityGroups where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listInputSecurityGroups_nextToken
-          Lens..~ rs
-          Lens.^? listInputSecurityGroupsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listInputSecurityGroups_nextToken
+              Lens..~ rs
+              Lens.^? listInputSecurityGroupsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListInputSecurityGroups where
   type
@@ -136,8 +136,8 @@ instance Prelude.Hashable ListInputSecurityGroups where
 
 instance Prelude.NFData ListInputSecurityGroups where
   rnf ListInputSecurityGroups' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListInputSecurityGroups where
   toHeaders =
@@ -214,6 +214,6 @@ instance
     ListInputSecurityGroupsResponse
   where
   rnf ListInputSecurityGroupsResponse' {..} =
-    Prelude.rnf inputSecurityGroups
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf inputSecurityGroups `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

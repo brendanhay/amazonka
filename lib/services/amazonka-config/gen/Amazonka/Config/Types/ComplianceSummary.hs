@@ -100,6 +100,6 @@ instance Prelude.Hashable ComplianceSummary where
 
 instance Prelude.NFData ComplianceSummary where
   rnf ComplianceSummary' {..} =
-    Prelude.rnf complianceSummaryTimestamp
-      `Prelude.seq` Prelude.rnf compliantResourceCount
-      `Prelude.seq` Prelude.rnf nonCompliantResourceCount
+    Prelude.rnf complianceSummaryTimestamp `Prelude.seq`
+      Prelude.rnf compliantResourceCount `Prelude.seq`
+        Prelude.rnf nonCompliantResourceCount

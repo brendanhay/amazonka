@@ -209,9 +209,9 @@ instance Prelude.Hashable UpdateByteMatchSet where
 
 instance Prelude.NFData UpdateByteMatchSet where
   rnf UpdateByteMatchSet' {..} =
-    Prelude.rnf byteMatchSetId
-      `Prelude.seq` Prelude.rnf changeToken
-      `Prelude.seq` Prelude.rnf updates
+    Prelude.rnf byteMatchSetId `Prelude.seq`
+      Prelude.rnf changeToken `Prelude.seq`
+        Prelude.rnf updates
 
 instance Data.ToHeaders UpdateByteMatchSet where
   toHeaders =
@@ -292,5 +292,5 @@ updateByteMatchSetResponse_httpStatus = Lens.lens (\UpdateByteMatchSetResponse' 
 
 instance Prelude.NFData UpdateByteMatchSetResponse where
   rnf UpdateByteMatchSetResponse' {..} =
-    Prelude.rnf changeToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf changeToken `Prelude.seq`
+      Prelude.rnf httpStatus

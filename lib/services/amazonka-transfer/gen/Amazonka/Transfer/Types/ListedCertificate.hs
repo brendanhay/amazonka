@@ -164,11 +164,11 @@ instance Prelude.Hashable ListedCertificate where
 
 instance Prelude.NFData ListedCertificate where
   rnf ListedCertificate' {..} =
-    Prelude.rnf activeDate
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf certificateId
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf inactiveDate
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf usage
+    Prelude.rnf activeDate `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf certificateId `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf inactiveDate `Prelude.seq`
+              Prelude.rnf status `Prelude.seq`
+                Prelude.rnf type' `Prelude.seq`
+                  Prelude.rnf usage

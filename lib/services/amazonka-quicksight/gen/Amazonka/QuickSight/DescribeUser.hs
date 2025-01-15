@@ -129,9 +129,9 @@ instance Prelude.Hashable DescribeUser where
 
 instance Prelude.NFData DescribeUser where
   rnf DescribeUser' {..} =
-    Prelude.rnf userName
-      `Prelude.seq` Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf namespace
+    Prelude.rnf userName `Prelude.seq`
+      Prelude.rnf awsAccountId `Prelude.seq`
+        Prelude.rnf namespace
 
 instance Data.ToHeaders DescribeUser where
   toHeaders =
@@ -207,6 +207,6 @@ describeUserResponse_status = Lens.lens (\DescribeUserResponse' {status} -> stat
 
 instance Prelude.NFData DescribeUserResponse where
   rnf DescribeUserResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf user
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf requestId `Prelude.seq`
+      Prelude.rnf user `Prelude.seq`
+        Prelude.rnf status

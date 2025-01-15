@@ -115,9 +115,9 @@ instance Prelude.Hashable UdpGroupSettings where
 
 instance Prelude.NFData UdpGroupSettings where
   rnf UdpGroupSettings' {..} =
-    Prelude.rnf inputLossAction
-      `Prelude.seq` Prelude.rnf timedMetadataId3Frame
-      `Prelude.seq` Prelude.rnf timedMetadataId3Period
+    Prelude.rnf inputLossAction `Prelude.seq`
+      Prelude.rnf timedMetadataId3Frame `Prelude.seq`
+        Prelude.rnf timedMetadataId3Period
 
 instance Data.ToJSON UdpGroupSettings where
   toJSON UdpGroupSettings' {..} =

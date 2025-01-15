@@ -128,9 +128,7 @@ distributionIdList_quantity = Lens.lens (\DistributionIdList' {quantity} -> quan
 instance Data.FromXML DistributionIdList where
   parseXML x =
     DistributionIdList'
-      Prelude.<$> ( x
-                      Data..@? "Items"
-                      Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "Items" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "DistributionId")
                   )
       Prelude.<*> (x Data..@? "NextMarker")
@@ -151,9 +149,9 @@ instance Prelude.Hashable DistributionIdList where
 
 instance Prelude.NFData DistributionIdList where
   rnf DistributionIdList' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxItems
-      `Prelude.seq` Prelude.rnf isTruncated
-      `Prelude.seq` Prelude.rnf quantity
+    Prelude.rnf items `Prelude.seq`
+      Prelude.rnf nextMarker `Prelude.seq`
+        Prelude.rnf marker `Prelude.seq`
+          Prelude.rnf maxItems `Prelude.seq`
+            Prelude.rnf isTruncated `Prelude.seq`
+              Prelude.rnf quantity

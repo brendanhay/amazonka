@@ -123,11 +123,11 @@ instance Prelude.Hashable LineChartSortConfiguration where
 
 instance Prelude.NFData LineChartSortConfiguration where
   rnf LineChartSortConfiguration' {..} =
-    Prelude.rnf categoryItemsLimitConfiguration
-      `Prelude.seq` Prelude.rnf categorySort
-      `Prelude.seq` Prelude.rnf colorItemsLimitConfiguration
-      `Prelude.seq` Prelude.rnf smallMultiplesLimitConfiguration
-      `Prelude.seq` Prelude.rnf smallMultiplesSort
+    Prelude.rnf categoryItemsLimitConfiguration `Prelude.seq`
+      Prelude.rnf categorySort `Prelude.seq`
+        Prelude.rnf colorItemsLimitConfiguration `Prelude.seq`
+          Prelude.rnf smallMultiplesLimitConfiguration `Prelude.seq`
+            Prelude.rnf smallMultiplesSort
 
 instance Data.ToJSON LineChartSortConfiguration where
   toJSON LineChartSortConfiguration' {..} =

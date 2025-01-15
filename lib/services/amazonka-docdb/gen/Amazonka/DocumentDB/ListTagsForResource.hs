@@ -102,9 +102,7 @@ instance Core.AWSRequest ListTagsForResource where
       "ListTagsForResourceResult"
       ( \s h x ->
           ListTagsForResourceResponse'
-            Prelude.<$> ( x
-                            Data..@? "TagList"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "TagList" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "Tag")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -118,8 +116,8 @@ instance Prelude.Hashable ListTagsForResource where
 
 instance Prelude.NFData ListTagsForResource where
   rnf ListTagsForResource' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf resourceName
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf resourceName
 
 instance Data.ToHeaders ListTagsForResource where
   toHeaders = Prelude.const Prelude.mempty
@@ -183,5 +181,5 @@ listTagsForResourceResponse_httpStatus = Lens.lens (\ListTagsForResourceResponse
 
 instance Prelude.NFData ListTagsForResourceResponse where
   rnf ListTagsForResourceResponse' {..} =
-    Prelude.rnf tagList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf tagList `Prelude.seq`
+      Prelude.rnf httpStatus

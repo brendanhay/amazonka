@@ -172,10 +172,10 @@ instance
     DescribePendingMaintenanceActions
   where
   rnf DescribePendingMaintenanceActions' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf replicationInstanceArn
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf maxRecords `Prelude.seq`
+          Prelude.rnf replicationInstanceArn
 
 instance
   Data.ToHeaders
@@ -285,6 +285,6 @@ instance
     DescribePendingMaintenanceActionsResponse
   where
   rnf DescribePendingMaintenanceActionsResponse' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf pendingMaintenanceActions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf pendingMaintenanceActions `Prelude.seq`
+        Prelude.rnf httpStatus

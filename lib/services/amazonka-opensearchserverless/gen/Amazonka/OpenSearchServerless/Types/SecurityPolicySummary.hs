@@ -126,9 +126,9 @@ instance Prelude.Hashable SecurityPolicySummary where
 
 instance Prelude.NFData SecurityPolicySummary where
   rnf SecurityPolicySummary' {..} =
-    Prelude.rnf createdDate
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf policyVersion
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf createdDate `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf lastModifiedDate `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf policyVersion `Prelude.seq`
+              Prelude.rnf type'

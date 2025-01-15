@@ -195,6 +195,6 @@ instance Prelude.Hashable AccessKeyLastUsed where
 
 instance Prelude.NFData AccessKeyLastUsed where
   rnf AccessKeyLastUsed' {..} =
-    Prelude.rnf lastUsedDate
-      `Prelude.seq` Prelude.rnf serviceName
-      `Prelude.seq` Prelude.rnf region
+    Prelude.rnf lastUsedDate `Prelude.seq`
+      Prelude.rnf serviceName `Prelude.seq`
+        Prelude.rnf region

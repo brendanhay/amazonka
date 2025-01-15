@@ -126,8 +126,8 @@ instance Prelude.Hashable PutInsightSelectors where
 
 instance Prelude.NFData PutInsightSelectors where
   rnf PutInsightSelectors' {..} =
-    Prelude.rnf trailName
-      `Prelude.seq` Prelude.rnf insightSelectors
+    Prelude.rnf trailName `Prelude.seq`
+      Prelude.rnf insightSelectors
 
 instance Data.ToHeaders PutInsightSelectors where
   toHeaders =
@@ -219,6 +219,6 @@ putInsightSelectorsResponse_httpStatus = Lens.lens (\PutInsightSelectorsResponse
 
 instance Prelude.NFData PutInsightSelectorsResponse where
   rnf PutInsightSelectorsResponse' {..} =
-    Prelude.rnf insightSelectors
-      `Prelude.seq` Prelude.rnf trailARN
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf insightSelectors `Prelude.seq`
+      Prelude.rnf trailARN `Prelude.seq`
+        Prelude.rnf httpStatus

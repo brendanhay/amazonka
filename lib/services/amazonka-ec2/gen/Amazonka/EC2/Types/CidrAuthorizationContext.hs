@@ -79,8 +79,8 @@ instance Prelude.Hashable CidrAuthorizationContext where
 
 instance Prelude.NFData CidrAuthorizationContext where
   rnf CidrAuthorizationContext' {..} =
-    Prelude.rnf message
-      `Prelude.seq` Prelude.rnf signature
+    Prelude.rnf message `Prelude.seq`
+      Prelude.rnf signature
 
 instance Data.ToQuery CidrAuthorizationContext where
   toQuery CidrAuthorizationContext' {..} =

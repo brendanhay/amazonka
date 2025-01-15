@@ -114,8 +114,8 @@ instance Prelude.Hashable SchemaShortInfoResponse where
 
 instance Prelude.NFData SchemaShortInfoResponse where
   rnf SchemaShortInfoResponse' {..} =
-    Prelude.rnf databaseId
-      `Prelude.seq` Prelude.rnf databaseIpAddress
-      `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf schemaId
-      `Prelude.seq` Prelude.rnf schemaName
+    Prelude.rnf databaseId `Prelude.seq`
+      Prelude.rnf databaseIpAddress `Prelude.seq`
+        Prelude.rnf databaseName `Prelude.seq`
+          Prelude.rnf schemaId `Prelude.seq`
+            Prelude.rnf schemaName

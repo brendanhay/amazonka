@@ -143,7 +143,7 @@ instance Prelude.Hashable ResolverDnssecConfig where
 
 instance Prelude.NFData ResolverDnssecConfig where
   rnf ResolverDnssecConfig' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf ownerId
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf validationStatus
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf ownerId `Prelude.seq`
+        Prelude.rnf resourceId `Prelude.seq`
+          Prelude.rnf validationStatus

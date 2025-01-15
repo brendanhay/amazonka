@@ -120,9 +120,9 @@ instance Prelude.Hashable UpdateBot where
 
 instance Prelude.NFData UpdateBot where
   rnf UpdateBot' {..} =
-    Prelude.rnf disabled
-      `Prelude.seq` Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf botId
+    Prelude.rnf disabled `Prelude.seq`
+      Prelude.rnf accountId `Prelude.seq`
+        Prelude.rnf botId
 
 instance Data.ToHeaders UpdateBot where
   toHeaders = Prelude.const Prelude.mempty
@@ -186,5 +186,5 @@ updateBotResponse_httpStatus = Lens.lens (\UpdateBotResponse' {httpStatus} -> ht
 
 instance Prelude.NFData UpdateBotResponse where
   rnf UpdateBotResponse' {..} =
-    Prelude.rnf bot
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf bot `Prelude.seq`
+      Prelude.rnf httpStatus

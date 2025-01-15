@@ -143,12 +143,12 @@ instance Prelude.Hashable AddressConfiguration where
 
 instance Prelude.NFData AddressConfiguration where
   rnf AddressConfiguration' {..} =
-    Prelude.rnf bodyOverride
-      `Prelude.seq` Prelude.rnf channelType
-      `Prelude.seq` Prelude.rnf context
-      `Prelude.seq` Prelude.rnf rawContent
-      `Prelude.seq` Prelude.rnf substitutions
-      `Prelude.seq` Prelude.rnf titleOverride
+    Prelude.rnf bodyOverride `Prelude.seq`
+      Prelude.rnf channelType `Prelude.seq`
+        Prelude.rnf context `Prelude.seq`
+          Prelude.rnf rawContent `Prelude.seq`
+            Prelude.rnf substitutions `Prelude.seq`
+              Prelude.rnf titleOverride
 
 instance Data.ToJSON AddressConfiguration where
   toJSON AddressConfiguration' {..} =

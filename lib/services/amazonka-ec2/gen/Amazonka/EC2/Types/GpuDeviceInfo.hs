@@ -100,7 +100,7 @@ instance Prelude.Hashable GpuDeviceInfo where
 
 instance Prelude.NFData GpuDeviceInfo where
   rnf GpuDeviceInfo' {..} =
-    Prelude.rnf count
-      `Prelude.seq` Prelude.rnf manufacturer
-      `Prelude.seq` Prelude.rnf memoryInfo
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf count `Prelude.seq`
+      Prelude.rnf manufacturer `Prelude.seq`
+        Prelude.rnf memoryInfo `Prelude.seq`
+          Prelude.rnf name

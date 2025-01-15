@@ -220,10 +220,10 @@ instance Prelude.Hashable TrafficDistributionGroup where
 
 instance Prelude.NFData TrafficDistributionGroup where
   rnf TrafficDistributionGroup' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf instanceArn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf instanceArn `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf status `Prelude.seq`
+                Prelude.rnf tags

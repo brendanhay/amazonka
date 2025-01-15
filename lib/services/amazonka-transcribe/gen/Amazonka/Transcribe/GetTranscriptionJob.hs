@@ -189,5 +189,5 @@ getTranscriptionJobResponse_httpStatus = Lens.lens (\GetTranscriptionJobResponse
 
 instance Prelude.NFData GetTranscriptionJobResponse where
   rnf GetTranscriptionJobResponse' {..} =
-    Prelude.rnf transcriptionJob
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf transcriptionJob `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -314,13 +314,13 @@ describePlaceIndexResponse_updateTime = Lens.lens (\DescribePlaceIndexResponse' 
 
 instance Prelude.NFData DescribePlaceIndexResponse where
   rnf DescribePlaceIndexResponse' {..} =
-    Prelude.rnf pricingPlan
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf createTime
-      `Prelude.seq` Prelude.rnf dataSource
-      `Prelude.seq` Prelude.rnf dataSourceConfiguration
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf indexArn
-      `Prelude.seq` Prelude.rnf indexName
-      `Prelude.seq` Prelude.rnf updateTime
+    Prelude.rnf pricingPlan `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf httpStatus `Prelude.seq`
+          Prelude.rnf createTime `Prelude.seq`
+            Prelude.rnf dataSource `Prelude.seq`
+              Prelude.rnf dataSourceConfiguration `Prelude.seq`
+                Prelude.rnf description `Prelude.seq`
+                  Prelude.rnf indexArn `Prelude.seq`
+                    Prelude.rnf indexName `Prelude.seq`
+                      Prelude.rnf updateTime

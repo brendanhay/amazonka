@@ -223,9 +223,7 @@ instance Core.AWSRequest SearchTransitGatewayRoutes where
       ( \s h x ->
           SearchTransitGatewayRoutesResponse'
             Prelude.<$> (x Data..@? "additionalRoutesAvailable")
-            Prelude.<*> ( x
-                            Data..@? "routeSet"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "routeSet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -241,10 +239,10 @@ instance Prelude.Hashable SearchTransitGatewayRoutes where
 
 instance Prelude.NFData SearchTransitGatewayRoutes where
   rnf SearchTransitGatewayRoutes' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf transitGatewayRouteTableId
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf transitGatewayRouteTableId `Prelude.seq`
+          Prelude.rnf filters
 
 instance Data.ToHeaders SearchTransitGatewayRoutes where
   toHeaders = Prelude.const Prelude.mempty
@@ -319,6 +317,6 @@ instance
     SearchTransitGatewayRoutesResponse
   where
   rnf SearchTransitGatewayRoutesResponse' {..} =
-    Prelude.rnf additionalRoutesAvailable
-      `Prelude.seq` Prelude.rnf routes
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf additionalRoutesAvailable `Prelude.seq`
+      Prelude.rnf routes `Prelude.seq`
+        Prelude.rnf httpStatus

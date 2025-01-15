@@ -83,8 +83,8 @@ instance
     ReplicaGlobalSecondaryIndexAutoScalingUpdate
   where
   rnf ReplicaGlobalSecondaryIndexAutoScalingUpdate' {..} =
-    Prelude.rnf indexName
-      `Prelude.seq` Prelude.rnf provisionedReadCapacityAutoScalingUpdate
+    Prelude.rnf indexName `Prelude.seq`
+      Prelude.rnf provisionedReadCapacityAutoScalingUpdate
 
 instance
   Data.ToJSON

@@ -113,8 +113,8 @@ instance Prelude.Hashable StartMigration where
 
 instance Prelude.NFData StartMigration where
   rnf StartMigration' {..} =
-    Prelude.rnf replicationGroupId
-      `Prelude.seq` Prelude.rnf customerNodeEndpointList
+    Prelude.rnf replicationGroupId `Prelude.seq`
+      Prelude.rnf customerNodeEndpointList
 
 instance Data.ToHeaders StartMigration where
   toHeaders = Prelude.const Prelude.mempty
@@ -174,5 +174,5 @@ startMigrationResponse_httpStatus = Lens.lens (\StartMigrationResponse' {httpSta
 
 instance Prelude.NFData StartMigrationResponse where
   rnf StartMigrationResponse' {..} =
-    Prelude.rnf replicationGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf replicationGroup `Prelude.seq`
+      Prelude.rnf httpStatus

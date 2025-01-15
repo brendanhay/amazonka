@@ -87,9 +87,9 @@ instance Prelude.Hashable SipRuleTargetApplication where
 
 instance Prelude.NFData SipRuleTargetApplication where
   rnf SipRuleTargetApplication' {..} =
-    Prelude.rnf awsRegion
-      `Prelude.seq` Prelude.rnf priority
-      `Prelude.seq` Prelude.rnf sipMediaApplicationId
+    Prelude.rnf awsRegion `Prelude.seq`
+      Prelude.rnf priority `Prelude.seq`
+        Prelude.rnf sipMediaApplicationId
 
 instance Data.ToJSON SipRuleTargetApplication where
   toJSON SipRuleTargetApplication' {..} =

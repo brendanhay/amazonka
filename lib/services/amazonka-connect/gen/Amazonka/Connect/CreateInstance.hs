@@ -173,12 +173,12 @@ instance Prelude.Hashable CreateInstance where
 
 instance Prelude.NFData CreateInstance where
   rnf CreateInstance' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf directoryId
-      `Prelude.seq` Prelude.rnf instanceAlias
-      `Prelude.seq` Prelude.rnf identityManagementType
-      `Prelude.seq` Prelude.rnf inboundCallsEnabled
-      `Prelude.seq` Prelude.rnf outboundCallsEnabled
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf directoryId `Prelude.seq`
+        Prelude.rnf instanceAlias `Prelude.seq`
+          Prelude.rnf identityManagementType `Prelude.seq`
+            Prelude.rnf inboundCallsEnabled `Prelude.seq`
+              Prelude.rnf outboundCallsEnabled
 
 instance Data.ToHeaders CreateInstance where
   toHeaders =
@@ -266,6 +266,6 @@ createInstanceResponse_httpStatus = Lens.lens (\CreateInstanceResponse' {httpSta
 
 instance Prelude.NFData CreateInstanceResponse where
   rnf CreateInstanceResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf httpStatus

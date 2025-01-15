@@ -104,9 +104,9 @@ instance Prelude.Hashable Threshold where
 
 instance Prelude.NFData Threshold where
   rnf Threshold' {..} =
-    Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf unit
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf type' `Prelude.seq`
+      Prelude.rnf unit `Prelude.seq`
+        Prelude.rnf value
 
 instance Data.ToJSON Threshold where
   toJSON Threshold' {..} =

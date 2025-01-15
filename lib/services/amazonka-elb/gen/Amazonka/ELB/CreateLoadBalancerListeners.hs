@@ -117,8 +117,8 @@ instance Prelude.Hashable CreateLoadBalancerListeners where
 
 instance Prelude.NFData CreateLoadBalancerListeners where
   rnf CreateLoadBalancerListeners' {..} =
-    Prelude.rnf loadBalancerName
-      `Prelude.seq` Prelude.rnf listeners
+    Prelude.rnf loadBalancerName `Prelude.seq`
+      Prelude.rnf listeners
 
 instance Data.ToHeaders CreateLoadBalancerListeners where
   toHeaders = Prelude.const Prelude.mempty

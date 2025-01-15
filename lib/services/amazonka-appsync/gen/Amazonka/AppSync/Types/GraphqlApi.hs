@@ -214,16 +214,16 @@ instance Prelude.Hashable GraphqlApi where
 
 instance Prelude.NFData GraphqlApi where
   rnf GraphqlApi' {..} =
-    Prelude.rnf additionalAuthenticationProviders
-      `Prelude.seq` Prelude.rnf apiId
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf authenticationType
-      `Prelude.seq` Prelude.rnf lambdaAuthorizerConfig
-      `Prelude.seq` Prelude.rnf logConfig
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf openIDConnectConfig
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf uris
-      `Prelude.seq` Prelude.rnf userPoolConfig
-      `Prelude.seq` Prelude.rnf wafWebAclArn
-      `Prelude.seq` Prelude.rnf xrayEnabled
+    Prelude.rnf additionalAuthenticationProviders `Prelude.seq`
+      Prelude.rnf apiId `Prelude.seq`
+        Prelude.rnf arn `Prelude.seq`
+          Prelude.rnf authenticationType `Prelude.seq`
+            Prelude.rnf lambdaAuthorizerConfig `Prelude.seq`
+              Prelude.rnf logConfig `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf openIDConnectConfig `Prelude.seq`
+                    Prelude.rnf tags `Prelude.seq`
+                      Prelude.rnf uris `Prelude.seq`
+                        Prelude.rnf userPoolConfig `Prelude.seq`
+                          Prelude.rnf wafWebAclArn `Prelude.seq`
+                            Prelude.rnf xrayEnabled

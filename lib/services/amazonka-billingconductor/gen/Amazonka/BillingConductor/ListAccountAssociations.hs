@@ -147,12 +147,12 @@ instance Core.AWSPager ListAccountAssociations where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listAccountAssociations_nextToken
-          Lens..~ rs
-          Lens.^? listAccountAssociationsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listAccountAssociations_nextToken
+              Lens..~ rs
+              Lens.^? listAccountAssociationsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAccountAssociations where
   type
@@ -178,9 +178,9 @@ instance Prelude.Hashable ListAccountAssociations where
 
 instance Prelude.NFData ListAccountAssociations where
   rnf ListAccountAssociations' {..} =
-    Prelude.rnf billingPeriod
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf billingPeriod `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListAccountAssociations where
   toHeaders =
@@ -262,6 +262,6 @@ instance
     ListAccountAssociationsResponse
   where
   rnf ListAccountAssociationsResponse' {..} =
-    Prelude.rnf linkedAccounts
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf linkedAccounts `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

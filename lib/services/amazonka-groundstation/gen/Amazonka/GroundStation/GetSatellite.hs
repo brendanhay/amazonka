@@ -204,9 +204,9 @@ getSatelliteResponse_httpStatus = Lens.lens (\GetSatelliteResponse' {httpStatus}
 
 instance Prelude.NFData GetSatelliteResponse where
   rnf GetSatelliteResponse' {..} =
-    Prelude.rnf currentEphemeris
-      `Prelude.seq` Prelude.rnf groundStations
-      `Prelude.seq` Prelude.rnf noradSatelliteID
-      `Prelude.seq` Prelude.rnf satelliteArn
-      `Prelude.seq` Prelude.rnf satelliteId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf currentEphemeris `Prelude.seq`
+      Prelude.rnf groundStations `Prelude.seq`
+        Prelude.rnf noradSatelliteID `Prelude.seq`
+          Prelude.rnf satelliteArn `Prelude.seq`
+            Prelude.rnf satelliteId `Prelude.seq`
+              Prelude.rnf httpStatus

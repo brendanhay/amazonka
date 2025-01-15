@@ -148,9 +148,7 @@ instance Core.AWSRequest DescribeIdentityIdFormat where
     Response.receiveXML
       ( \s h x ->
           DescribeIdentityIdFormatResponse'
-            Prelude.<$> ( x
-                            Data..@? "statusSet"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "statusSet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -164,8 +162,8 @@ instance Prelude.Hashable DescribeIdentityIdFormat where
 
 instance Prelude.NFData DescribeIdentityIdFormat where
   rnf DescribeIdentityIdFormat' {..} =
-    Prelude.rnf resource
-      `Prelude.seq` Prelude.rnf principalArn
+    Prelude.rnf resource `Prelude.seq`
+      Prelude.rnf principalArn
 
 instance Data.ToHeaders DescribeIdentityIdFormat where
   toHeaders = Prelude.const Prelude.mempty
@@ -228,5 +226,5 @@ instance
     DescribeIdentityIdFormatResponse
   where
   rnf DescribeIdentityIdFormatResponse' {..} =
-    Prelude.rnf statuses
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf statuses `Prelude.seq`
+      Prelude.rnf httpStatus

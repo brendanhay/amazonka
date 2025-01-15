@@ -111,8 +111,8 @@ instance Prelude.Hashable EvaluationParameters where
 
 instance Prelude.NFData EvaluationParameters where
   rnf EvaluationParameters' {..} =
-    Prelude.rnf backTestWindowOffset
-      `Prelude.seq` Prelude.rnf numberOfBacktestWindows
+    Prelude.rnf backTestWindowOffset `Prelude.seq`
+      Prelude.rnf numberOfBacktestWindows
 
 instance Data.ToJSON EvaluationParameters where
   toJSON EvaluationParameters' {..} =

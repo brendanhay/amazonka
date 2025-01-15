@@ -102,7 +102,7 @@ instance Prelude.Hashable TemplateStepGroupSummary where
 
 instance Prelude.NFData TemplateStepGroupSummary where
   rnf TemplateStepGroupSummary' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf next
-      `Prelude.seq` Prelude.rnf previous
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf next `Prelude.seq`
+          Prelude.rnf previous

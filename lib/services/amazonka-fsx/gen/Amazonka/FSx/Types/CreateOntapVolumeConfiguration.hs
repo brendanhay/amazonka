@@ -335,15 +335,15 @@ instance
     CreateOntapVolumeConfiguration
   where
   rnf CreateOntapVolumeConfiguration' {..} =
-    Prelude.rnf copyTagsToBackups
-      `Prelude.seq` Prelude.rnf junctionPath
-      `Prelude.seq` Prelude.rnf ontapVolumeType
-      `Prelude.seq` Prelude.rnf securityStyle
-      `Prelude.seq` Prelude.rnf snapshotPolicy
-      `Prelude.seq` Prelude.rnf storageEfficiencyEnabled
-      `Prelude.seq` Prelude.rnf tieringPolicy
-      `Prelude.seq` Prelude.rnf sizeInMegabytes
-      `Prelude.seq` Prelude.rnf storageVirtualMachineId
+    Prelude.rnf copyTagsToBackups `Prelude.seq`
+      Prelude.rnf junctionPath `Prelude.seq`
+        Prelude.rnf ontapVolumeType `Prelude.seq`
+          Prelude.rnf securityStyle `Prelude.seq`
+            Prelude.rnf snapshotPolicy `Prelude.seq`
+              Prelude.rnf storageEfficiencyEnabled `Prelude.seq`
+                Prelude.rnf tieringPolicy `Prelude.seq`
+                  Prelude.rnf sizeInMegabytes `Prelude.seq`
+                    Prelude.rnf storageVirtualMachineId
 
 instance Data.ToJSON CreateOntapVolumeConfiguration where
   toJSON CreateOntapVolumeConfiguration' {..} =

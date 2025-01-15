@@ -97,9 +97,9 @@ instance Prelude.Hashable BotFilter where
 
 instance Prelude.NFData BotFilter where
   rnf BotFilter' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf values
-      `Prelude.seq` Prelude.rnf operator
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf values `Prelude.seq`
+        Prelude.rnf operator
 
 instance Data.ToJSON BotFilter where
   toJSON BotFilter' {..} =

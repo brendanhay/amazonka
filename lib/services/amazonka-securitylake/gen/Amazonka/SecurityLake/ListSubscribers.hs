@@ -104,12 +104,12 @@ instance Core.AWSPager ListSubscribers where
         (rs Lens.^. listSubscribersResponse_subscribers) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listSubscribers_nextToken
-          Lens..~ rs
-          Lens.^? listSubscribersResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listSubscribers_nextToken
+              Lens..~ rs
+              Lens.^? listSubscribersResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSubscribers where
   type
@@ -134,8 +134,8 @@ instance Prelude.Hashable ListSubscribers where
 
 instance Prelude.NFData ListSubscribers where
   rnf ListSubscribers' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListSubscribers where
   toHeaders =
@@ -211,6 +211,6 @@ listSubscribersResponse_subscribers = Lens.lens (\ListSubscribersResponse' {subs
 
 instance Prelude.NFData ListSubscribersResponse where
   rnf ListSubscribersResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf subscribers
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf subscribers

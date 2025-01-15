@@ -89,8 +89,8 @@ instance Prelude.Hashable Scoping where
 
 instance Prelude.NFData Scoping where
   rnf Scoping' {..} =
-    Prelude.rnf excludes
-      `Prelude.seq` Prelude.rnf includes
+    Prelude.rnf excludes `Prelude.seq`
+      Prelude.rnf includes
 
 instance Data.ToJSON Scoping where
   toJSON Scoping' {..} =

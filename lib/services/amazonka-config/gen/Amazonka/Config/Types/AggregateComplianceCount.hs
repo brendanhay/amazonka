@@ -83,5 +83,5 @@ instance Prelude.Hashable AggregateComplianceCount where
 
 instance Prelude.NFData AggregateComplianceCount where
   rnf AggregateComplianceCount' {..} =
-    Prelude.rnf complianceSummary
-      `Prelude.seq` Prelude.rnf groupName
+    Prelude.rnf complianceSummary `Prelude.seq`
+      Prelude.rnf groupName

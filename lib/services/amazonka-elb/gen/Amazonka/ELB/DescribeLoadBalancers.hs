@@ -122,12 +122,12 @@ instance Core.AWSPager DescribeLoadBalancers where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeLoadBalancers_marker
-          Lens..~ rs
-          Lens.^? describeLoadBalancersResponse_nextMarker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeLoadBalancers_marker
+              Lens..~ rs
+              Lens.^? describeLoadBalancersResponse_nextMarker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeLoadBalancers where
   type
@@ -158,9 +158,9 @@ instance Prelude.Hashable DescribeLoadBalancers where
 
 instance Prelude.NFData DescribeLoadBalancers where
   rnf DescribeLoadBalancers' {..} =
-    Prelude.rnf loadBalancerNames
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf pageSize
+    Prelude.rnf loadBalancerNames `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf pageSize
 
 instance Data.ToHeaders DescribeLoadBalancers where
   toHeaders = Prelude.const Prelude.mempty
@@ -239,6 +239,6 @@ describeLoadBalancersResponse_httpStatus = Lens.lens (\DescribeLoadBalancersResp
 
 instance Prelude.NFData DescribeLoadBalancersResponse where
   rnf DescribeLoadBalancersResponse' {..} =
-    Prelude.rnf loadBalancerDescriptions
-      `Prelude.seq` Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf loadBalancerDescriptions `Prelude.seq`
+      Prelude.rnf nextMarker `Prelude.seq`
+        Prelude.rnf httpStatus

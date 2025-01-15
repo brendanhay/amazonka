@@ -150,14 +150,14 @@ instance Prelude.Hashable LoRaWANDevice where
 
 instance Prelude.NFData LoRaWANDevice where
   rnf LoRaWANDevice' {..} =
-    Prelude.rnf abpV1_0_x
-      `Prelude.seq` Prelude.rnf abpV1_1
-      `Prelude.seq` Prelude.rnf devEui
-      `Prelude.seq` Prelude.rnf deviceProfileId
-      `Prelude.seq` Prelude.rnf fPorts
-      `Prelude.seq` Prelude.rnf otaaV1_0_x
-      `Prelude.seq` Prelude.rnf otaaV1_1
-      `Prelude.seq` Prelude.rnf serviceProfileId
+    Prelude.rnf abpV1_0_x `Prelude.seq`
+      Prelude.rnf abpV1_1 `Prelude.seq`
+        Prelude.rnf devEui `Prelude.seq`
+          Prelude.rnf deviceProfileId `Prelude.seq`
+            Prelude.rnf fPorts `Prelude.seq`
+              Prelude.rnf otaaV1_0_x `Prelude.seq`
+                Prelude.rnf otaaV1_1 `Prelude.seq`
+                  Prelude.rnf serviceProfileId
 
 instance Data.ToJSON LoRaWANDevice where
   toJSON LoRaWANDevice' {..} =

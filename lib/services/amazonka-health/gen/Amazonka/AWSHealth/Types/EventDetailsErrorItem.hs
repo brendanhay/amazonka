@@ -112,6 +112,6 @@ instance Prelude.Hashable EventDetailsErrorItem where
 
 instance Prelude.NFData EventDetailsErrorItem where
   rnf EventDetailsErrorItem' {..} =
-    Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf errorName
-      `Prelude.seq` Prelude.rnf eventArn
+    Prelude.rnf errorMessage `Prelude.seq`
+      Prelude.rnf errorName `Prelude.seq`
+        Prelude.rnf eventArn

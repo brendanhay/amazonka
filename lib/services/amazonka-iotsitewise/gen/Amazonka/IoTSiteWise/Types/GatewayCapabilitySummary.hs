@@ -124,5 +124,5 @@ instance Prelude.Hashable GatewayCapabilitySummary where
 
 instance Prelude.NFData GatewayCapabilitySummary where
   rnf GatewayCapabilitySummary' {..} =
-    Prelude.rnf capabilityNamespace
-      `Prelude.seq` Prelude.rnf capabilitySyncStatus
+    Prelude.rnf capabilityNamespace `Prelude.seq`
+      Prelude.rnf capabilitySyncStatus

@@ -123,12 +123,12 @@ instance Prelude.Hashable VariableEntry where
 
 instance Prelude.NFData VariableEntry where
   rnf VariableEntry' {..} =
-    Prelude.rnf dataSource
-      `Prelude.seq` Prelude.rnf dataType
-      `Prelude.seq` Prelude.rnf defaultValue
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf variableType
+    Prelude.rnf dataSource `Prelude.seq`
+      Prelude.rnf dataType `Prelude.seq`
+        Prelude.rnf defaultValue `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf variableType
 
 instance Data.ToJSON VariableEntry where
   toJSON VariableEntry' {..} =

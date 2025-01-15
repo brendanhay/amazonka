@@ -193,5 +193,5 @@ instance
     CreateCloudFormationStackResponse
   where
   rnf CreateCloudFormationStackResponse' {..} =
-    Prelude.rnf operations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operations `Prelude.seq`
+      Prelude.rnf httpStatus

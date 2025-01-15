@@ -125,12 +125,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeConfigurationAggregators_nextToken
-          Lens..~ rs
-          Lens.^? describeConfigurationAggregatorsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeConfigurationAggregators_nextToken
+              Lens..~ rs
+              Lens.^? describeConfigurationAggregatorsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -170,9 +170,9 @@ instance
     DescribeConfigurationAggregators
   where
   rnf DescribeConfigurationAggregators' {..} =
-    Prelude.rnf configurationAggregatorNames
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf configurationAggregatorNames `Prelude.seq`
+      Prelude.rnf limit `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance
   Data.ToHeaders
@@ -269,6 +269,6 @@ instance
     DescribeConfigurationAggregatorsResponse
   where
   rnf DescribeConfigurationAggregatorsResponse' {..} =
-    Prelude.rnf configurationAggregators
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf configurationAggregators `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

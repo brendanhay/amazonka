@@ -334,11 +334,11 @@ instance Prelude.Hashable Sign where
 
 instance Prelude.NFData Sign where
   rnf Sign' {..} =
-    Prelude.rnf grantTokens
-      `Prelude.seq` Prelude.rnf messageType
-      `Prelude.seq` Prelude.rnf keyId
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf signingAlgorithm
+    Prelude.rnf grantTokens `Prelude.seq`
+      Prelude.rnf messageType `Prelude.seq`
+        Prelude.rnf keyId `Prelude.seq`
+          Prelude.rnf message `Prelude.seq`
+            Prelude.rnf signingAlgorithm
 
 instance Data.ToHeaders Sign where
   toHeaders =
@@ -486,7 +486,7 @@ signResponse_httpStatus = Lens.lens (\SignResponse' {httpStatus} -> httpStatus) 
 
 instance Prelude.NFData SignResponse where
   rnf SignResponse' {..} =
-    Prelude.rnf keyId
-      `Prelude.seq` Prelude.rnf signature
-      `Prelude.seq` Prelude.rnf signingAlgorithm
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf keyId `Prelude.seq`
+      Prelude.rnf signature `Prelude.seq`
+        Prelude.rnf signingAlgorithm `Prelude.seq`
+          Prelude.rnf httpStatus

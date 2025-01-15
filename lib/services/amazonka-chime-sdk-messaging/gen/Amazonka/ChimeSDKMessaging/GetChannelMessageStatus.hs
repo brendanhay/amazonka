@@ -174,10 +174,10 @@ instance Prelude.Hashable GetChannelMessageStatus where
 
 instance Prelude.NFData GetChannelMessageStatus where
   rnf GetChannelMessageStatus' {..} =
-    Prelude.rnf subChannelId
-      `Prelude.seq` Prelude.rnf channelArn
-      `Prelude.seq` Prelude.rnf messageId
-      `Prelude.seq` Prelude.rnf chimeBearer
+    Prelude.rnf subChannelId `Prelude.seq`
+      Prelude.rnf channelArn `Prelude.seq`
+        Prelude.rnf messageId `Prelude.seq`
+          Prelude.rnf chimeBearer
 
 instance Data.ToHeaders GetChannelMessageStatus where
   toHeaders GetChannelMessageStatus' {..} =
@@ -244,5 +244,5 @@ instance
     GetChannelMessageStatusResponse
   where
   rnf GetChannelMessageStatusResponse' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf status `Prelude.seq`
+      Prelude.rnf httpStatus

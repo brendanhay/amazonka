@@ -112,9 +112,9 @@ instance
     NoiseReducerSpatialFilterSettings
   where
   rnf NoiseReducerSpatialFilterSettings' {..} =
-    Prelude.rnf postFilterSharpenStrength
-      `Prelude.seq` Prelude.rnf speed
-      `Prelude.seq` Prelude.rnf strength
+    Prelude.rnf postFilterSharpenStrength `Prelude.seq`
+      Prelude.rnf speed `Prelude.seq`
+        Prelude.rnf strength
 
 instance
   Data.ToJSON

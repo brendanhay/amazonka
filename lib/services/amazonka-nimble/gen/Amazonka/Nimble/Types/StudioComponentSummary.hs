@@ -160,12 +160,12 @@ instance Prelude.Hashable StudioComponentSummary where
 
 instance Prelude.NFData StudioComponentSummary where
   rnf StudioComponentSummary' {..} =
-    Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf createdBy
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf studioComponentId
-      `Prelude.seq` Prelude.rnf subtype
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf updatedAt
-      `Prelude.seq` Prelude.rnf updatedBy
+    Prelude.rnf createdAt `Prelude.seq`
+      Prelude.rnf createdBy `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf studioComponentId `Prelude.seq`
+              Prelude.rnf subtype `Prelude.seq`
+                Prelude.rnf type' `Prelude.seq`
+                  Prelude.rnf updatedAt `Prelude.seq`
+                    Prelude.rnf updatedBy

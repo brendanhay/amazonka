@@ -207,12 +207,12 @@ instance Core.AWSPager ListLinuxSubscriptionInstances where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listLinuxSubscriptionInstances_nextToken
-          Lens..~ rs
-          Lens.^? listLinuxSubscriptionInstancesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listLinuxSubscriptionInstances_nextToken
+              Lens..~ rs
+              Lens.^? listLinuxSubscriptionInstancesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -249,9 +249,9 @@ instance
     ListLinuxSubscriptionInstances
   where
   rnf ListLinuxSubscriptionInstances' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance
   Data.ToHeaders
@@ -339,6 +339,6 @@ instance
     ListLinuxSubscriptionInstancesResponse
   where
   rnf ListLinuxSubscriptionInstancesResponse' {..} =
-    Prelude.rnf instances
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf instances `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -197,8 +197,8 @@ instance Prelude.Hashable MessageResult where
 
 instance Prelude.NFData MessageResult where
   rnf MessageResult' {..} =
-    Prelude.rnf messageId
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf updatedToken
-      `Prelude.seq` Prelude.rnf deliveryStatus
-      `Prelude.seq` Prelude.rnf statusCode
+    Prelude.rnf messageId `Prelude.seq`
+      Prelude.rnf statusMessage `Prelude.seq`
+        Prelude.rnf updatedToken `Prelude.seq`
+          Prelude.rnf deliveryStatus `Prelude.seq`
+            Prelude.rnf statusCode

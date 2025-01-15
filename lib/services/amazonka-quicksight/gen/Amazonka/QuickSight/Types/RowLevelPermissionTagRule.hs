@@ -119,10 +119,10 @@ instance Prelude.Hashable RowLevelPermissionTagRule where
 
 instance Prelude.NFData RowLevelPermissionTagRule where
   rnf RowLevelPermissionTagRule' {..} =
-    Prelude.rnf matchAllValue
-      `Prelude.seq` Prelude.rnf tagMultiValueDelimiter
-      `Prelude.seq` Prelude.rnf tagKey
-      `Prelude.seq` Prelude.rnf columnName
+    Prelude.rnf matchAllValue `Prelude.seq`
+      Prelude.rnf tagMultiValueDelimiter `Prelude.seq`
+        Prelude.rnf tagKey `Prelude.seq`
+          Prelude.rnf columnName
 
 instance Data.ToJSON RowLevelPermissionTagRule where
   toJSON RowLevelPermissionTagRule' {..} =

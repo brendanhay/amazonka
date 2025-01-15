@@ -93,5 +93,5 @@ instance
     BatchGetObjectInformationResponse
   where
   rnf BatchGetObjectInformationResponse' {..} =
-    Prelude.rnf objectIdentifier
-      `Prelude.seq` Prelude.rnf schemaFacets
+    Prelude.rnf objectIdentifier `Prelude.seq`
+      Prelude.rnf schemaFacets

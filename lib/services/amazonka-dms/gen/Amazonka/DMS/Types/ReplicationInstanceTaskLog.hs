@@ -92,6 +92,6 @@ instance Prelude.Hashable ReplicationInstanceTaskLog where
 
 instance Prelude.NFData ReplicationInstanceTaskLog where
   rnf ReplicationInstanceTaskLog' {..} =
-    Prelude.rnf replicationInstanceTaskLogSize
-      `Prelude.seq` Prelude.rnf replicationTaskArn
-      `Prelude.seq` Prelude.rnf replicationTaskName
+    Prelude.rnf replicationInstanceTaskLogSize `Prelude.seq`
+      Prelude.rnf replicationTaskArn `Prelude.seq`
+        Prelude.rnf replicationTaskName

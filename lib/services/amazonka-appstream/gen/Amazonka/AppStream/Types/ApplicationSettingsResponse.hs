@@ -107,6 +107,6 @@ instance Prelude.Hashable ApplicationSettingsResponse where
 
 instance Prelude.NFData ApplicationSettingsResponse where
   rnf ApplicationSettingsResponse' {..} =
-    Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf s3BucketName
-      `Prelude.seq` Prelude.rnf settingsGroup
+    Prelude.rnf enabled `Prelude.seq`
+      Prelude.rnf s3BucketName `Prelude.seq`
+        Prelude.rnf settingsGroup

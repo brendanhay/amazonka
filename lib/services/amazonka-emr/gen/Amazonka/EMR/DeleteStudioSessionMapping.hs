@@ -166,10 +166,10 @@ instance Prelude.Hashable DeleteStudioSessionMapping where
 
 instance Prelude.NFData DeleteStudioSessionMapping where
   rnf DeleteStudioSessionMapping' {..} =
-    Prelude.rnf identityId
-      `Prelude.seq` Prelude.rnf identityName
-      `Prelude.seq` Prelude.rnf studioId
-      `Prelude.seq` Prelude.rnf identityType
+    Prelude.rnf identityId `Prelude.seq`
+      Prelude.rnf identityName `Prelude.seq`
+        Prelude.rnf studioId `Prelude.seq`
+          Prelude.rnf identityType
 
 instance Data.ToHeaders DeleteStudioSessionMapping where
   toHeaders =

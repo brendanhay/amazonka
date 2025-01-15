@@ -139,12 +139,12 @@ instance
     EngineTranscribeMedicalSettings
   where
   rnf EngineTranscribeMedicalSettings' {..} =
-    Prelude.rnf contentIdentificationType
-      `Prelude.seq` Prelude.rnf region
-      `Prelude.seq` Prelude.rnf vocabularyName
-      `Prelude.seq` Prelude.rnf languageCode
-      `Prelude.seq` Prelude.rnf specialty
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf contentIdentificationType `Prelude.seq`
+      Prelude.rnf region `Prelude.seq`
+        Prelude.rnf vocabularyName `Prelude.seq`
+          Prelude.rnf languageCode `Prelude.seq`
+            Prelude.rnf specialty `Prelude.seq`
+              Prelude.rnf type'
 
 instance Data.ToJSON EngineTranscribeMedicalSettings where
   toJSON EngineTranscribeMedicalSettings' {..} =

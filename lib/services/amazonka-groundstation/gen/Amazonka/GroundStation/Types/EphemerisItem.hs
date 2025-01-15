@@ -158,10 +158,10 @@ instance Prelude.Hashable EphemerisItem where
 
 instance Prelude.NFData EphemerisItem where
   rnf EphemerisItem' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf ephemerisId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf priority
-      `Prelude.seq` Prelude.rnf sourceS3Object
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf enabled `Prelude.seq`
+        Prelude.rnf ephemerisId `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf priority `Prelude.seq`
+              Prelude.rnf sourceS3Object `Prelude.seq`
+                Prelude.rnf status

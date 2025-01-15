@@ -86,5 +86,5 @@ instance Prelude.Hashable MetricKeyDataPoints where
 
 instance Prelude.NFData MetricKeyDataPoints where
   rnf MetricKeyDataPoints' {..} =
-    Prelude.rnf dataPoints
-      `Prelude.seq` Prelude.rnf key
+    Prelude.rnf dataPoints `Prelude.seq`
+      Prelude.rnf key

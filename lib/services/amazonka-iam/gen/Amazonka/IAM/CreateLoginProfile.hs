@@ -185,9 +185,9 @@ instance Prelude.Hashable CreateLoginProfile where
 
 instance Prelude.NFData CreateLoginProfile where
   rnf CreateLoginProfile' {..} =
-    Prelude.rnf passwordResetRequired
-      `Prelude.seq` Prelude.rnf userName
-      `Prelude.seq` Prelude.rnf password
+    Prelude.rnf passwordResetRequired `Prelude.seq`
+      Prelude.rnf userName `Prelude.seq`
+        Prelude.rnf password
 
 instance Data.ToHeaders CreateLoginProfile where
   toHeaders = Prelude.const Prelude.mempty
@@ -255,5 +255,5 @@ createLoginProfileResponse_loginProfile = Lens.lens (\CreateLoginProfileResponse
 
 instance Prelude.NFData CreateLoginProfileResponse where
   rnf CreateLoginProfileResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf loginProfile
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf loginProfile

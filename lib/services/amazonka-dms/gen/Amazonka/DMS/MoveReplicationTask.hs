@@ -119,8 +119,8 @@ instance Prelude.Hashable MoveReplicationTask where
 
 instance Prelude.NFData MoveReplicationTask where
   rnf MoveReplicationTask' {..} =
-    Prelude.rnf replicationTaskArn
-      `Prelude.seq` Prelude.rnf targetReplicationInstanceArn
+    Prelude.rnf replicationTaskArn `Prelude.seq`
+      Prelude.rnf targetReplicationInstanceArn
 
 instance Data.ToHeaders MoveReplicationTask where
   toHeaders =
@@ -199,5 +199,5 @@ moveReplicationTaskResponse_httpStatus = Lens.lens (\MoveReplicationTaskResponse
 
 instance Prelude.NFData MoveReplicationTaskResponse where
   rnf MoveReplicationTaskResponse' {..} =
-    Prelude.rnf replicationTask
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf replicationTask `Prelude.seq`
+      Prelude.rnf httpStatus

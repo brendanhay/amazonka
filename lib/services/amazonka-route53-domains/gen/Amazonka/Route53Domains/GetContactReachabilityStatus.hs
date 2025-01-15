@@ -222,6 +222,6 @@ instance
     GetContactReachabilityStatusResponse
   where
   rnf GetContactReachabilityStatusResponse' {..} =
-    Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf domainName `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf httpStatus

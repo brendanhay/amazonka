@@ -343,14 +343,14 @@ instance Prelude.Hashable ECSServiceRecommendation where
 
 instance Prelude.NFData ECSServiceRecommendation where
   rnf ECSServiceRecommendation' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf currentPerformanceRisk
-      `Prelude.seq` Prelude.rnf currentServiceConfiguration
-      `Prelude.seq` Prelude.rnf finding
-      `Prelude.seq` Prelude.rnf findingReasonCodes
-      `Prelude.seq` Prelude.rnf lastRefreshTimestamp
-      `Prelude.seq` Prelude.rnf launchType
-      `Prelude.seq` Prelude.rnf lookbackPeriodInDays
-      `Prelude.seq` Prelude.rnf serviceArn
-      `Prelude.seq` Prelude.rnf serviceRecommendationOptions
-      `Prelude.seq` Prelude.rnf utilizationMetrics
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf currentPerformanceRisk `Prelude.seq`
+        Prelude.rnf currentServiceConfiguration `Prelude.seq`
+          Prelude.rnf finding `Prelude.seq`
+            Prelude.rnf findingReasonCodes `Prelude.seq`
+              Prelude.rnf lastRefreshTimestamp `Prelude.seq`
+                Prelude.rnf launchType `Prelude.seq`
+                  Prelude.rnf lookbackPeriodInDays `Prelude.seq`
+                    Prelude.rnf serviceArn `Prelude.seq`
+                      Prelude.rnf serviceRecommendationOptions `Prelude.seq`
+                        Prelude.rnf utilizationMetrics

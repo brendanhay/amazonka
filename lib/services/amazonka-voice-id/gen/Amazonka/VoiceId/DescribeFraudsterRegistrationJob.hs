@@ -124,8 +124,8 @@ instance
     DescribeFraudsterRegistrationJob
   where
   rnf DescribeFraudsterRegistrationJob' {..} =
-    Prelude.rnf domainId
-      `Prelude.seq` Prelude.rnf jobId
+    Prelude.rnf domainId `Prelude.seq`
+      Prelude.rnf jobId
 
 instance
   Data.ToHeaders
@@ -208,5 +208,5 @@ instance
     DescribeFraudsterRegistrationJobResponse
   where
   rnf DescribeFraudsterRegistrationJobResponse' {..} =
-    Prelude.rnf job
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf job `Prelude.seq`
+      Prelude.rnf httpStatus

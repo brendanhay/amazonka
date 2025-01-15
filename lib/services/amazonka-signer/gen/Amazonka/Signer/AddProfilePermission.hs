@@ -166,12 +166,12 @@ instance Prelude.Hashable AddProfilePermission where
 
 instance Prelude.NFData AddProfilePermission where
   rnf AddProfilePermission' {..} =
-    Prelude.rnf profileVersion
-      `Prelude.seq` Prelude.rnf revisionId
-      `Prelude.seq` Prelude.rnf action
-      `Prelude.seq` Prelude.rnf principal
-      `Prelude.seq` Prelude.rnf statementId
-      `Prelude.seq` Prelude.rnf profileName
+    Prelude.rnf profileVersion `Prelude.seq`
+      Prelude.rnf revisionId `Prelude.seq`
+        Prelude.rnf action `Prelude.seq`
+          Prelude.rnf principal `Prelude.seq`
+            Prelude.rnf statementId `Prelude.seq`
+              Prelude.rnf profileName
 
 instance Data.ToHeaders AddProfilePermission where
   toHeaders =
@@ -249,5 +249,5 @@ addProfilePermissionResponse_httpStatus = Lens.lens (\AddProfilePermissionRespon
 
 instance Prelude.NFData AddProfilePermissionResponse where
   rnf AddProfilePermissionResponse' {..} =
-    Prelude.rnf revisionId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf revisionId `Prelude.seq`
+      Prelude.rnf httpStatus

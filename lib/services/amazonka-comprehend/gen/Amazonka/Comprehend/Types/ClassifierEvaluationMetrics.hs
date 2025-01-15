@@ -223,11 +223,11 @@ instance Prelude.Hashable ClassifierEvaluationMetrics where
 
 instance Prelude.NFData ClassifierEvaluationMetrics where
   rnf ClassifierEvaluationMetrics' {..} =
-    Prelude.rnf accuracy
-      `Prelude.seq` Prelude.rnf f1Score
-      `Prelude.seq` Prelude.rnf hammingLoss
-      `Prelude.seq` Prelude.rnf microF1Score
-      `Prelude.seq` Prelude.rnf microPrecision
-      `Prelude.seq` Prelude.rnf microRecall
-      `Prelude.seq` Prelude.rnf precision
-      `Prelude.seq` Prelude.rnf recall
+    Prelude.rnf accuracy `Prelude.seq`
+      Prelude.rnf f1Score `Prelude.seq`
+        Prelude.rnf hammingLoss `Prelude.seq`
+          Prelude.rnf microF1Score `Prelude.seq`
+            Prelude.rnf microPrecision `Prelude.seq`
+              Prelude.rnf microRecall `Prelude.seq`
+                Prelude.rnf precision `Prelude.seq`
+                  Prelude.rnf recall

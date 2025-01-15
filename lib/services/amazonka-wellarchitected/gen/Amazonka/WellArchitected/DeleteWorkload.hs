@@ -101,8 +101,8 @@ instance Prelude.Hashable DeleteWorkload where
 
 instance Prelude.NFData DeleteWorkload where
   rnf DeleteWorkload' {..} =
-    Prelude.rnf workloadId
-      `Prelude.seq` Prelude.rnf clientRequestToken
+    Prelude.rnf workloadId `Prelude.seq`
+      Prelude.rnf clientRequestToken
 
 instance Data.ToHeaders DeleteWorkload where
   toHeaders =

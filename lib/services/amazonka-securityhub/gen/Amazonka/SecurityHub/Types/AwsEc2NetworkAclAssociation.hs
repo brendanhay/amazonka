@@ -95,9 +95,9 @@ instance Prelude.Hashable AwsEc2NetworkAclAssociation where
 
 instance Prelude.NFData AwsEc2NetworkAclAssociation where
   rnf AwsEc2NetworkAclAssociation' {..} =
-    Prelude.rnf networkAclAssociationId
-      `Prelude.seq` Prelude.rnf networkAclId
-      `Prelude.seq` Prelude.rnf subnetId
+    Prelude.rnf networkAclAssociationId `Prelude.seq`
+      Prelude.rnf networkAclId `Prelude.seq`
+        Prelude.rnf subnetId
 
 instance Data.ToJSON AwsEc2NetworkAclAssociation where
   toJSON AwsEc2NetworkAclAssociation' {..} =

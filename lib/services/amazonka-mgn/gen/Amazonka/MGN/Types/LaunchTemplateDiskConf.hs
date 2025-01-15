@@ -92,9 +92,9 @@ instance Prelude.Hashable LaunchTemplateDiskConf where
 
 instance Prelude.NFData LaunchTemplateDiskConf where
   rnf LaunchTemplateDiskConf' {..} =
-    Prelude.rnf iops
-      `Prelude.seq` Prelude.rnf throughput
-      `Prelude.seq` Prelude.rnf volumeType
+    Prelude.rnf iops `Prelude.seq`
+      Prelude.rnf throughput `Prelude.seq`
+        Prelude.rnf volumeType
 
 instance Data.ToJSON LaunchTemplateDiskConf where
   toJSON LaunchTemplateDiskConf' {..} =

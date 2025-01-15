@@ -119,8 +119,8 @@ instance Prelude.Hashable Offering where
 
 instance Prelude.NFData Offering where
   rnf Offering' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf platform
-      `Prelude.seq` Prelude.rnf recurringCharges
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf platform `Prelude.seq`
+          Prelude.rnf recurringCharges `Prelude.seq`
+            Prelude.rnf type'

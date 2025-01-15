@@ -113,8 +113,8 @@ instance Prelude.Hashable UpdateUsagePlan where
 
 instance Prelude.NFData UpdateUsagePlan where
   rnf UpdateUsagePlan' {..} =
-    Prelude.rnf patchOperations
-      `Prelude.seq` Prelude.rnf usagePlanId
+    Prelude.rnf patchOperations `Prelude.seq`
+      Prelude.rnf usagePlanId
 
 instance Data.ToHeaders UpdateUsagePlan where
   toHeaders =

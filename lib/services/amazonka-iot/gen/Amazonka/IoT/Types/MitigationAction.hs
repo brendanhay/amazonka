@@ -107,7 +107,7 @@ instance Prelude.Hashable MitigationAction where
 
 instance Prelude.NFData MitigationAction where
   rnf MitigationAction' {..} =
-    Prelude.rnf actionParams
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf actionParams `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf roleArn

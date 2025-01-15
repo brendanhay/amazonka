@@ -167,11 +167,11 @@ instance Prelude.Hashable CrlDetail where
 
 instance Prelude.NFData CrlDetail where
   rnf CrlDetail' {..} =
-    Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf crlArn
-      `Prelude.seq` Prelude.rnf crlData
-      `Prelude.seq` Prelude.rnf crlId
-      `Prelude.seq` Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf trustAnchorArn
-      `Prelude.seq` Prelude.rnf updatedAt
+    Prelude.rnf createdAt `Prelude.seq`
+      Prelude.rnf crlArn `Prelude.seq`
+        Prelude.rnf crlData `Prelude.seq`
+          Prelude.rnf crlId `Prelude.seq`
+            Prelude.rnf enabled `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf trustAnchorArn `Prelude.seq`
+                  Prelude.rnf updatedAt

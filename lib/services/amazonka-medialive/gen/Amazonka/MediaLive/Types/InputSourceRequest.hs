@@ -81,9 +81,9 @@ instance Prelude.Hashable InputSourceRequest where
 
 instance Prelude.NFData InputSourceRequest where
   rnf InputSourceRequest' {..} =
-    Prelude.rnf passwordParam
-      `Prelude.seq` Prelude.rnf url
-      `Prelude.seq` Prelude.rnf username
+    Prelude.rnf passwordParam `Prelude.seq`
+      Prelude.rnf url `Prelude.seq`
+        Prelude.rnf username
 
 instance Data.ToJSON InputSourceRequest where
   toJSON InputSourceRequest' {..} =

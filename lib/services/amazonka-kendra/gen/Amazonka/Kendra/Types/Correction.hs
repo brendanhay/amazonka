@@ -108,7 +108,7 @@ instance Prelude.Hashable Correction where
 
 instance Prelude.NFData Correction where
   rnf Correction' {..} =
-    Prelude.rnf beginOffset
-      `Prelude.seq` Prelude.rnf correctedTerm
-      `Prelude.seq` Prelude.rnf endOffset
-      `Prelude.seq` Prelude.rnf term
+    Prelude.rnf beginOffset `Prelude.seq`
+      Prelude.rnf correctedTerm `Prelude.seq`
+        Prelude.rnf endOffset `Prelude.seq`
+          Prelude.rnf term

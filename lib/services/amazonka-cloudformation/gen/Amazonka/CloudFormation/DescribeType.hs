@@ -255,12 +255,12 @@ instance Prelude.Hashable DescribeType where
 
 instance Prelude.NFData DescribeType where
   rnf DescribeType' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf publicVersionNumber
-      `Prelude.seq` Prelude.rnf publisherId
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf typeName
-      `Prelude.seq` Prelude.rnf versionId
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf publicVersionNumber `Prelude.seq`
+        Prelude.rnf publisherId `Prelude.seq`
+          Prelude.rnf type' `Prelude.seq`
+            Prelude.rnf typeName `Prelude.seq`
+              Prelude.rnf versionId
 
 instance Data.ToHeaders DescribeType where
   toHeaders = Prelude.const Prelude.mempty

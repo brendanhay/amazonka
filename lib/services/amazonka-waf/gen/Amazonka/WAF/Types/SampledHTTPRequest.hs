@@ -155,8 +155,8 @@ instance Prelude.Hashable SampledHTTPRequest where
 
 instance Prelude.NFData SampledHTTPRequest where
   rnf SampledHTTPRequest' {..} =
-    Prelude.rnf action
-      `Prelude.seq` Prelude.rnf ruleWithinRuleGroup
-      `Prelude.seq` Prelude.rnf timestamp
-      `Prelude.seq` Prelude.rnf request
-      `Prelude.seq` Prelude.rnf weight
+    Prelude.rnf action `Prelude.seq`
+      Prelude.rnf ruleWithinRuleGroup `Prelude.seq`
+        Prelude.rnf timestamp `Prelude.seq`
+          Prelude.rnf request `Prelude.seq`
+            Prelude.rnf weight

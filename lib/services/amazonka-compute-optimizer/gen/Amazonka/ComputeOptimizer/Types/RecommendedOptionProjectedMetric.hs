@@ -132,6 +132,6 @@ instance
     RecommendedOptionProjectedMetric
   where
   rnf RecommendedOptionProjectedMetric' {..} =
-    Prelude.rnf projectedMetrics
-      `Prelude.seq` Prelude.rnf rank
-      `Prelude.seq` Prelude.rnf recommendedInstanceType
+    Prelude.rnf projectedMetrics `Prelude.seq`
+      Prelude.rnf rank `Prelude.seq`
+        Prelude.rnf recommendedInstanceType

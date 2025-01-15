@@ -102,12 +102,12 @@ instance Core.AWSPager ListCoreNetworks where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listCoreNetworks_nextToken
-          Lens..~ rs
-          Lens.^? listCoreNetworksResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listCoreNetworks_nextToken
+              Lens..~ rs
+              Lens.^? listCoreNetworksResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListCoreNetworks where
   type
@@ -132,8 +132,8 @@ instance Prelude.Hashable ListCoreNetworks where
 
 instance Prelude.NFData ListCoreNetworks where
   rnf ListCoreNetworks' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListCoreNetworks where
   toHeaders =
@@ -206,6 +206,6 @@ listCoreNetworksResponse_httpStatus = Lens.lens (\ListCoreNetworksResponse' {htt
 
 instance Prelude.NFData ListCoreNetworksResponse where
   rnf ListCoreNetworksResponse' {..} =
-    Prelude.rnf coreNetworks
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf coreNetworks `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

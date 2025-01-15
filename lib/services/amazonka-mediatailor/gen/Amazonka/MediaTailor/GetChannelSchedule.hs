@@ -167,12 +167,12 @@ instance Core.AWSPager GetChannelSchedule where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getChannelSchedule_nextToken
-          Lens..~ rs
-          Lens.^? getChannelScheduleResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getChannelSchedule_nextToken
+              Lens..~ rs
+              Lens.^? getChannelScheduleResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetChannelSchedule where
   type
@@ -199,10 +199,10 @@ instance Prelude.Hashable GetChannelSchedule where
 
 instance Prelude.NFData GetChannelSchedule where
   rnf GetChannelSchedule' {..} =
-    Prelude.rnf durationMinutes
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf channelName
+    Prelude.rnf durationMinutes `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf channelName
 
 instance Data.ToHeaders GetChannelSchedule where
   toHeaders =
@@ -281,6 +281,6 @@ getChannelScheduleResponse_httpStatus = Lens.lens (\GetChannelScheduleResponse' 
 
 instance Prelude.NFData GetChannelScheduleResponse where
   rnf GetChannelScheduleResponse' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf items `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

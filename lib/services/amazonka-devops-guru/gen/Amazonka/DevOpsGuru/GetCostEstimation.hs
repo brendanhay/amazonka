@@ -101,12 +101,12 @@ instance Core.AWSPager GetCostEstimation where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getCostEstimation_nextToken
-          Lens..~ rs
-          Lens.^? getCostEstimationResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getCostEstimation_nextToken
+              Lens..~ rs
+              Lens.^? getCostEstimationResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetCostEstimation where
   type
@@ -261,10 +261,10 @@ getCostEstimationResponse_httpStatus = Lens.lens (\GetCostEstimationResponse' {h
 
 instance Prelude.NFData GetCostEstimationResponse where
   rnf GetCostEstimationResponse' {..} =
-    Prelude.rnf costs
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf resourceCollection
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf timeRange
-      `Prelude.seq` Prelude.rnf totalCost
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf costs `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf resourceCollection `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf timeRange `Prelude.seq`
+              Prelude.rnf totalCost `Prelude.seq`
+                Prelude.rnf httpStatus

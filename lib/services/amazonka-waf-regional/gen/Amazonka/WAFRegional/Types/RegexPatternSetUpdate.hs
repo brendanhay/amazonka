@@ -91,8 +91,8 @@ instance Prelude.Hashable RegexPatternSetUpdate where
 
 instance Prelude.NFData RegexPatternSetUpdate where
   rnf RegexPatternSetUpdate' {..} =
-    Prelude.rnf action
-      `Prelude.seq` Prelude.rnf regexPatternString
+    Prelude.rnf action `Prelude.seq`
+      Prelude.rnf regexPatternString
 
 instance Data.ToJSON RegexPatternSetUpdate where
   toJSON RegexPatternSetUpdate' {..} =

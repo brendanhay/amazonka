@@ -107,7 +107,7 @@ instance Prelude.Hashable TitleAggregationResponse where
 
 instance Prelude.NFData TitleAggregationResponse where
   rnf TitleAggregationResponse' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf severityCounts
-      `Prelude.seq` Prelude.rnf vulnerabilityId
-      `Prelude.seq` Prelude.rnf title
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf severityCounts `Prelude.seq`
+        Prelude.rnf vulnerabilityId `Prelude.seq`
+          Prelude.rnf title

@@ -92,9 +92,9 @@ instance Prelude.Hashable DnsRequestAction where
 
 instance Prelude.NFData DnsRequestAction where
   rnf DnsRequestAction' {..} =
-    Prelude.rnf blocked
-      `Prelude.seq` Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf protocol
+    Prelude.rnf blocked `Prelude.seq`
+      Prelude.rnf domain `Prelude.seq`
+        Prelude.rnf protocol
 
 instance Data.ToJSON DnsRequestAction where
   toJSON DnsRequestAction' {..} =

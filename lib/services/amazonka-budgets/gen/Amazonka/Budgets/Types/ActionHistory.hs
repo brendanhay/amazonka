@@ -120,7 +120,7 @@ instance Prelude.Hashable ActionHistory where
 
 instance Prelude.NFData ActionHistory where
   rnf ActionHistory' {..} =
-    Prelude.rnf timestamp
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf eventType
-      `Prelude.seq` Prelude.rnf actionHistoryDetails
+    Prelude.rnf timestamp `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf eventType `Prelude.seq`
+          Prelude.rnf actionHistoryDetails

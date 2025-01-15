@@ -108,10 +108,10 @@ instance Prelude.Hashable S3SourceConfig where
 
 instance Prelude.NFData S3SourceConfig where
   rnf S3SourceConfig' {..} =
-    Prelude.rnf fileFormatDescriptor
-      `Prelude.seq` Prelude.rnf historicalDataPathList
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf templatedPathList
+    Prelude.rnf fileFormatDescriptor `Prelude.seq`
+      Prelude.rnf historicalDataPathList `Prelude.seq`
+        Prelude.rnf roleArn `Prelude.seq`
+          Prelude.rnf templatedPathList
 
 instance Data.ToJSON S3SourceConfig where
   toJSON S3SourceConfig' {..} =

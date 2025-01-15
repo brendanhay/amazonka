@@ -248,12 +248,12 @@ instance Prelude.Hashable Build where
 
 instance Prelude.NFData Build where
   rnf Build' {..} =
-    Prelude.rnf buildArn
-      `Prelude.seq` Prelude.rnf buildId
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf operatingSystem
-      `Prelude.seq` Prelude.rnf serverSdkVersion
-      `Prelude.seq` Prelude.rnf sizeOnDisk
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf version
+    Prelude.rnf buildArn `Prelude.seq`
+      Prelude.rnf buildId `Prelude.seq`
+        Prelude.rnf creationTime `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf operatingSystem `Prelude.seq`
+              Prelude.rnf serverSdkVersion `Prelude.seq`
+                Prelude.rnf sizeOnDisk `Prelude.seq`
+                  Prelude.rnf status `Prelude.seq`
+                    Prelude.rnf version

@@ -146,8 +146,8 @@ instance Prelude.Hashable StatefulEngineOptions where
 
 instance Prelude.NFData StatefulEngineOptions where
   rnf StatefulEngineOptions' {..} =
-    Prelude.rnf ruleOrder
-      `Prelude.seq` Prelude.rnf streamExceptionPolicy
+    Prelude.rnf ruleOrder `Prelude.seq`
+      Prelude.rnf streamExceptionPolicy
 
 instance Data.ToJSON StatefulEngineOptions where
   toJSON StatefulEngineOptions' {..} =

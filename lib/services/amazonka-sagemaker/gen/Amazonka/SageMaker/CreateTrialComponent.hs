@@ -245,16 +245,16 @@ instance Prelude.Hashable CreateTrialComponent where
 
 instance Prelude.NFData CreateTrialComponent where
   rnf CreateTrialComponent' {..} =
-    Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf inputArtifacts
-      `Prelude.seq` Prelude.rnf metadataProperties
-      `Prelude.seq` Prelude.rnf outputArtifacts
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf trialComponentName
+    Prelude.rnf displayName `Prelude.seq`
+      Prelude.rnf endTime `Prelude.seq`
+        Prelude.rnf inputArtifacts `Prelude.seq`
+          Prelude.rnf metadataProperties `Prelude.seq`
+            Prelude.rnf outputArtifacts `Prelude.seq`
+              Prelude.rnf parameters `Prelude.seq`
+                Prelude.rnf startTime `Prelude.seq`
+                  Prelude.rnf status `Prelude.seq`
+                    Prelude.rnf tags `Prelude.seq`
+                      Prelude.rnf trialComponentName
 
 instance Data.ToHeaders CreateTrialComponent where
   toHeaders =
@@ -339,5 +339,5 @@ createTrialComponentResponse_httpStatus = Lens.lens (\CreateTrialComponentRespon
 
 instance Prelude.NFData CreateTrialComponentResponse where
   rnf CreateTrialComponentResponse' {..} =
-    Prelude.rnf trialComponentArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf trialComponentArn `Prelude.seq`
+      Prelude.rnf httpStatus

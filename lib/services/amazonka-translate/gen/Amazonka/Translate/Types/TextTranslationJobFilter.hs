@@ -105,10 +105,10 @@ instance Prelude.Hashable TextTranslationJobFilter where
 
 instance Prelude.NFData TextTranslationJobFilter where
   rnf TextTranslationJobFilter' {..} =
-    Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf jobStatus
-      `Prelude.seq` Prelude.rnf submittedAfterTime
-      `Prelude.seq` Prelude.rnf submittedBeforeTime
+    Prelude.rnf jobName `Prelude.seq`
+      Prelude.rnf jobStatus `Prelude.seq`
+        Prelude.rnf submittedAfterTime `Prelude.seq`
+          Prelude.rnf submittedBeforeTime
 
 instance Data.ToJSON TextTranslationJobFilter where
   toJSON TextTranslationJobFilter' {..} =

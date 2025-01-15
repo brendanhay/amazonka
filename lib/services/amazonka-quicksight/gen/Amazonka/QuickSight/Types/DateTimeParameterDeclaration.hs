@@ -117,10 +117,10 @@ instance
 
 instance Prelude.NFData DateTimeParameterDeclaration where
   rnf DateTimeParameterDeclaration' {..} =
-    Prelude.rnf defaultValues
-      `Prelude.seq` Prelude.rnf timeGranularity
-      `Prelude.seq` Prelude.rnf valueWhenUnset
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf defaultValues `Prelude.seq`
+      Prelude.rnf timeGranularity `Prelude.seq`
+        Prelude.rnf valueWhenUnset `Prelude.seq`
+          Prelude.rnf name
 
 instance Data.ToJSON DateTimeParameterDeclaration where
   toJSON DateTimeParameterDeclaration' {..} =

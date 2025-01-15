@@ -96,8 +96,8 @@ instance Prelude.Hashable XssMatchSetUpdate where
 
 instance Prelude.NFData XssMatchSetUpdate where
   rnf XssMatchSetUpdate' {..} =
-    Prelude.rnf action
-      `Prelude.seq` Prelude.rnf xssMatchTuple
+    Prelude.rnf action `Prelude.seq`
+      Prelude.rnf xssMatchTuple
 
 instance Data.ToJSON XssMatchSetUpdate where
   toJSON XssMatchSetUpdate' {..} =

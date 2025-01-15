@@ -126,8 +126,8 @@ instance Prelude.Hashable ListDedicatedIpPools where
 
 instance Prelude.NFData ListDedicatedIpPools where
   rnf ListDedicatedIpPools' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf pageSize
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf pageSize
 
 instance Data.ToHeaders ListDedicatedIpPools where
   toHeaders =
@@ -211,6 +211,6 @@ listDedicatedIpPoolsResponse_httpStatus = Lens.lens (\ListDedicatedIpPoolsRespon
 
 instance Prelude.NFData ListDedicatedIpPoolsResponse where
   rnf ListDedicatedIpPoolsResponse' {..} =
-    Prelude.rnf dedicatedIpPools
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dedicatedIpPools `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

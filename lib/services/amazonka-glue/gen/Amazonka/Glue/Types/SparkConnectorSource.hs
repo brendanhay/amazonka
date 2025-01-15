@@ -147,12 +147,12 @@ instance Prelude.Hashable SparkConnectorSource where
 
 instance Prelude.NFData SparkConnectorSource where
   rnf SparkConnectorSource' {..} =
-    Prelude.rnf additionalOptions
-      `Prelude.seq` Prelude.rnf outputSchemas
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf connectionName
-      `Prelude.seq` Prelude.rnf connectorName
-      `Prelude.seq` Prelude.rnf connectionType
+    Prelude.rnf additionalOptions `Prelude.seq`
+      Prelude.rnf outputSchemas `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf connectionName `Prelude.seq`
+            Prelude.rnf connectorName `Prelude.seq`
+              Prelude.rnf connectionType
 
 instance Data.ToJSON SparkConnectorSource where
   toJSON SparkConnectorSource' {..} =

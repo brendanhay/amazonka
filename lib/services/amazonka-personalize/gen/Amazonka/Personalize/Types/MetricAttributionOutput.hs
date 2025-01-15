@@ -92,8 +92,8 @@ instance Prelude.Hashable MetricAttributionOutput where
 
 instance Prelude.NFData MetricAttributionOutput where
   rnf MetricAttributionOutput' {..} =
-    Prelude.rnf s3DataDestination
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf s3DataDestination `Prelude.seq`
+      Prelude.rnf roleArn
 
 instance Data.ToJSON MetricAttributionOutput where
   toJSON MetricAttributionOutput' {..} =

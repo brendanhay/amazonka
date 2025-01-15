@@ -75,8 +75,8 @@ instance Prelude.Hashable ParameterizedStatement where
 
 instance Prelude.NFData ParameterizedStatement where
   rnf ParameterizedStatement' {..} =
-    Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf statement
+    Prelude.rnf parameters `Prelude.seq`
+      Prelude.rnf statement
 
 instance Data.ToJSON ParameterizedStatement where
   toJSON ParameterizedStatement' {..} =

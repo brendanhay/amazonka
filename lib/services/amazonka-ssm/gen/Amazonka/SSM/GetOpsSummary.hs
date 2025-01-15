@@ -159,12 +159,12 @@ instance Core.AWSPager GetOpsSummary where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getOpsSummary_nextToken
-          Lens..~ rs
-          Lens.^? getOpsSummaryResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getOpsSummary_nextToken
+              Lens..~ rs
+              Lens.^? getOpsSummaryResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetOpsSummary where
   type
@@ -193,12 +193,12 @@ instance Prelude.Hashable GetOpsSummary where
 
 instance Prelude.NFData GetOpsSummary where
   rnf GetOpsSummary' {..} =
-    Prelude.rnf aggregators
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf resultAttributes
-      `Prelude.seq` Prelude.rnf syncName
+    Prelude.rnf aggregators `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf resultAttributes `Prelude.seq`
+              Prelude.rnf syncName
 
 instance Data.ToHeaders GetOpsSummary where
   toHeaders =
@@ -285,6 +285,6 @@ getOpsSummaryResponse_httpStatus = Lens.lens (\GetOpsSummaryResponse' {httpStatu
 
 instance Prelude.NFData GetOpsSummaryResponse where
   rnf GetOpsSummaryResponse' {..} =
-    Prelude.rnf entities
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf entities `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

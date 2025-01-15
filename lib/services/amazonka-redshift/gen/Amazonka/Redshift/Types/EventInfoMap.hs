@@ -90,9 +90,7 @@ eventInfoMap_severity = Lens.lens (\EventInfoMap' {severity} -> severity) (\s@Ev
 instance Data.FromXML EventInfoMap where
   parseXML x =
     EventInfoMap'
-      Prelude.<$> ( x
-                      Data..@? "EventCategories"
-                      Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "EventCategories" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "EventCategory")
                   )
       Prelude.<*> (x Data..@? "EventDescription")
@@ -109,7 +107,7 @@ instance Prelude.Hashable EventInfoMap where
 
 instance Prelude.NFData EventInfoMap where
   rnf EventInfoMap' {..} =
-    Prelude.rnf eventCategories
-      `Prelude.seq` Prelude.rnf eventDescription
-      `Prelude.seq` Prelude.rnf eventId
-      `Prelude.seq` Prelude.rnf severity
+    Prelude.rnf eventCategories `Prelude.seq`
+      Prelude.rnf eventDescription `Prelude.seq`
+        Prelude.rnf eventId `Prelude.seq`
+          Prelude.rnf severity

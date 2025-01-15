@@ -185,6 +185,6 @@ getCSVHeaderResponse_httpStatus = Lens.lens (\GetCSVHeaderResponse' {httpStatus}
 
 instance Prelude.NFData GetCSVHeaderResponse where
   rnf GetCSVHeaderResponse' {..} =
-    Prelude.rnf cSVHeader
-      `Prelude.seq` Prelude.rnf userPoolId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf cSVHeader `Prelude.seq`
+      Prelude.rnf userPoolId `Prelude.seq`
+        Prelude.rnf httpStatus

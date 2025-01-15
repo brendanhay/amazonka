@@ -155,9 +155,9 @@ instance Prelude.Hashable LambdaAction where
 
 instance Prelude.NFData LambdaAction where
   rnf LambdaAction' {..} =
-    Prelude.rnf invocationType
-      `Prelude.seq` Prelude.rnf topicArn
-      `Prelude.seq` Prelude.rnf functionArn
+    Prelude.rnf invocationType `Prelude.seq`
+      Prelude.rnf topicArn `Prelude.seq`
+        Prelude.rnf functionArn
 
 instance Data.ToQuery LambdaAction where
   toQuery LambdaAction' {..} =

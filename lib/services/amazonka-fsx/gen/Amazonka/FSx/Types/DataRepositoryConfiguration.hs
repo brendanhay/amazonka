@@ -293,9 +293,9 @@ instance Prelude.Hashable DataRepositoryConfiguration where
 
 instance Prelude.NFData DataRepositoryConfiguration where
   rnf DataRepositoryConfiguration' {..} =
-    Prelude.rnf autoImportPolicy
-      `Prelude.seq` Prelude.rnf exportPath
-      `Prelude.seq` Prelude.rnf failureDetails
-      `Prelude.seq` Prelude.rnf importPath
-      `Prelude.seq` Prelude.rnf importedFileChunkSize
-      `Prelude.seq` Prelude.rnf lifecycle
+    Prelude.rnf autoImportPolicy `Prelude.seq`
+      Prelude.rnf exportPath `Prelude.seq`
+        Prelude.rnf failureDetails `Prelude.seq`
+          Prelude.rnf importPath `Prelude.seq`
+            Prelude.rnf importedFileChunkSize `Prelude.seq`
+              Prelude.rnf lifecycle

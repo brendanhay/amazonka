@@ -96,5 +96,5 @@ instance Prelude.Hashable FraudRiskDetails where
 
 instance Prelude.NFData FraudRiskDetails where
   rnf FraudRiskDetails' {..} =
-    Prelude.rnf knownFraudsterRisk
-      `Prelude.seq` Prelude.rnf voiceSpoofingRisk
+    Prelude.rnf knownFraudsterRisk `Prelude.seq`
+      Prelude.rnf voiceSpoofingRisk

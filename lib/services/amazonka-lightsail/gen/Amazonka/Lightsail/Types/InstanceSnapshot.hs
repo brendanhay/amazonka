@@ -287,19 +287,19 @@ instance Prelude.Hashable InstanceSnapshot where
 
 instance Prelude.NFData InstanceSnapshot where
   rnf InstanceSnapshot' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf fromAttachedDisks
-      `Prelude.seq` Prelude.rnf fromBlueprintId
-      `Prelude.seq` Prelude.rnf fromBundleId
-      `Prelude.seq` Prelude.rnf fromInstanceArn
-      `Prelude.seq` Prelude.rnf fromInstanceName
-      `Prelude.seq` Prelude.rnf isFromAutoSnapshot
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf progress
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf sizeInGb
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf supportCode
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf createdAt `Prelude.seq`
+        Prelude.rnf fromAttachedDisks `Prelude.seq`
+          Prelude.rnf fromBlueprintId `Prelude.seq`
+            Prelude.rnf fromBundleId `Prelude.seq`
+              Prelude.rnf fromInstanceArn `Prelude.seq`
+                Prelude.rnf fromInstanceName `Prelude.seq`
+                  Prelude.rnf isFromAutoSnapshot `Prelude.seq`
+                    Prelude.rnf location `Prelude.seq`
+                      Prelude.rnf name `Prelude.seq`
+                        Prelude.rnf progress `Prelude.seq`
+                          Prelude.rnf resourceType `Prelude.seq`
+                            Prelude.rnf sizeInGb `Prelude.seq`
+                              Prelude.rnf state `Prelude.seq`
+                                Prelude.rnf supportCode `Prelude.seq`
+                                  Prelude.rnf tags

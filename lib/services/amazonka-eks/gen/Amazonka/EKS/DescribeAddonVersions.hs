@@ -190,12 +190,12 @@ instance Core.AWSPager DescribeAddonVersions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeAddonVersions_nextToken
-          Lens..~ rs
-          Lens.^? describeAddonVersionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeAddonVersions_nextToken
+              Lens..~ rs
+              Lens.^? describeAddonVersionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeAddonVersions where
   type
@@ -225,13 +225,13 @@ instance Prelude.Hashable DescribeAddonVersions where
 
 instance Prelude.NFData DescribeAddonVersions where
   rnf DescribeAddonVersions' {..} =
-    Prelude.rnf addonName
-      `Prelude.seq` Prelude.rnf kubernetesVersion
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf owners
-      `Prelude.seq` Prelude.rnf publishers
-      `Prelude.seq` Prelude.rnf types
+    Prelude.rnf addonName `Prelude.seq`
+      Prelude.rnf kubernetesVersion `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf owners `Prelude.seq`
+              Prelude.rnf publishers `Prelude.seq`
+                Prelude.rnf types
 
 instance Data.ToHeaders DescribeAddonVersions where
   toHeaders =
@@ -339,6 +339,6 @@ describeAddonVersionsResponse_httpStatus = Lens.lens (\DescribeAddonVersionsResp
 
 instance Prelude.NFData DescribeAddonVersionsResponse where
   rnf DescribeAddonVersionsResponse' {..} =
-    Prelude.rnf addons
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf addons `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

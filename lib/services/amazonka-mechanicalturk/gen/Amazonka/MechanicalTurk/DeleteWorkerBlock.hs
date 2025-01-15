@@ -114,8 +114,8 @@ instance Prelude.Hashable DeleteWorkerBlock where
 
 instance Prelude.NFData DeleteWorkerBlock where
   rnf DeleteWorkerBlock' {..} =
-    Prelude.rnf reason
-      `Prelude.seq` Prelude.rnf workerId
+    Prelude.rnf reason `Prelude.seq`
+      Prelude.rnf workerId
 
 instance Data.ToHeaders DeleteWorkerBlock where
   toHeaders =

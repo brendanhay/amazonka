@@ -337,10 +337,10 @@ instance Prelude.Hashable PutKeyPolicy where
 
 instance Prelude.NFData PutKeyPolicy where
   rnf PutKeyPolicy' {..} =
-    Prelude.rnf bypassPolicyLockoutSafetyCheck
-      `Prelude.seq` Prelude.rnf keyId
-      `Prelude.seq` Prelude.rnf policyName
-      `Prelude.seq` Prelude.rnf policy
+    Prelude.rnf bypassPolicyLockoutSafetyCheck `Prelude.seq`
+      Prelude.rnf keyId `Prelude.seq`
+        Prelude.rnf policyName `Prelude.seq`
+          Prelude.rnf policy
 
 instance Data.ToHeaders PutKeyPolicy where
   toHeaders =

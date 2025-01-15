@@ -124,9 +124,7 @@ instance Data.FromXML TransitGatewayRouteTable where
       Prelude.<*> (x Data..@? "defaultAssociationRouteTable")
       Prelude.<*> (x Data..@? "defaultPropagationRouteTable")
       Prelude.<*> (x Data..@? "state")
-      Prelude.<*> ( x
-                      Data..@? "tagSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "transitGatewayId")
@@ -145,10 +143,10 @@ instance Prelude.Hashable TransitGatewayRouteTable where
 
 instance Prelude.NFData TransitGatewayRouteTable where
   rnf TransitGatewayRouteTable' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf defaultAssociationRouteTable
-      `Prelude.seq` Prelude.rnf defaultPropagationRouteTable
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf transitGatewayId
-      `Prelude.seq` Prelude.rnf transitGatewayRouteTableId
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf defaultAssociationRouteTable `Prelude.seq`
+        Prelude.rnf defaultPropagationRouteTable `Prelude.seq`
+          Prelude.rnf state `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf transitGatewayId `Prelude.seq`
+                Prelude.rnf transitGatewayRouteTableId

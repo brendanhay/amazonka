@@ -138,9 +138,9 @@ instance Prelude.Hashable RegisterToWorkMail where
 
 instance Prelude.NFData RegisterToWorkMail where
   rnf RegisterToWorkMail' {..} =
-    Prelude.rnf organizationId
-      `Prelude.seq` Prelude.rnf entityId
-      `Prelude.seq` Prelude.rnf email
+    Prelude.rnf organizationId `Prelude.seq`
+      Prelude.rnf entityId `Prelude.seq`
+        Prelude.rnf email
 
 instance Data.ToHeaders RegisterToWorkMail where
   toHeaders =

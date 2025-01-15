@@ -159,9 +159,9 @@ instance Prelude.Hashable SeverityUpdate where
 
 instance Prelude.NFData SeverityUpdate where
   rnf SeverityUpdate' {..} =
-    Prelude.rnf label
-      `Prelude.seq` Prelude.rnf normalized
-      `Prelude.seq` Prelude.rnf product
+    Prelude.rnf label `Prelude.seq`
+      Prelude.rnf normalized `Prelude.seq`
+        Prelude.rnf product
 
 instance Data.ToJSON SeverityUpdate where
   toJSON SeverityUpdate' {..} =

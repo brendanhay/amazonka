@@ -154,8 +154,8 @@ instance
     GetRelationalDatabaseMasterUserPassword
   where
   rnf GetRelationalDatabaseMasterUserPassword' {..} =
-    Prelude.rnf passwordVersion
-      `Prelude.seq` Prelude.rnf relationalDatabaseName
+    Prelude.rnf passwordVersion `Prelude.seq`
+      Prelude.rnf relationalDatabaseName
 
 instance
   Data.ToHeaders
@@ -262,6 +262,6 @@ instance
   where
   rnf
     GetRelationalDatabaseMasterUserPasswordResponse' {..} =
-      Prelude.rnf createdAt
-        `Prelude.seq` Prelude.rnf masterUserPassword
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf createdAt `Prelude.seq`
+        Prelude.rnf masterUserPassword `Prelude.seq`
+          Prelude.rnf httpStatus

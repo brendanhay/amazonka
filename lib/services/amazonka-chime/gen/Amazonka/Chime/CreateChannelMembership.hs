@@ -174,10 +174,10 @@ instance Prelude.Hashable CreateChannelMembership where
 
 instance Prelude.NFData CreateChannelMembership where
   rnf CreateChannelMembership' {..} =
-    Prelude.rnf chimeBearer
-      `Prelude.seq` Prelude.rnf channelArn
-      `Prelude.seq` Prelude.rnf memberArn
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf chimeBearer `Prelude.seq`
+      Prelude.rnf channelArn `Prelude.seq`
+        Prelude.rnf memberArn `Prelude.seq`
+          Prelude.rnf type'
 
 instance Data.ToHeaders CreateChannelMembership where
   toHeaders CreateChannelMembership' {..} =
@@ -254,6 +254,6 @@ instance
     CreateChannelMembershipResponse
   where
   rnf CreateChannelMembershipResponse' {..} =
-    Prelude.rnf channelArn
-      `Prelude.seq` Prelude.rnf member
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf channelArn `Prelude.seq`
+      Prelude.rnf member `Prelude.seq`
+        Prelude.rnf httpStatus

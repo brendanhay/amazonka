@@ -85,5 +85,5 @@ instance Prelude.Hashable GdgDetailAttributes where
 
 instance Prelude.NFData GdgDetailAttributes where
   rnf GdgDetailAttributes' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf rollDisposition
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf rollDisposition

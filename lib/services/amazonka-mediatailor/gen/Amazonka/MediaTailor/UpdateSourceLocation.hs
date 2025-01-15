@@ -175,11 +175,11 @@ instance Prelude.Hashable UpdateSourceLocation where
 
 instance Prelude.NFData UpdateSourceLocation where
   rnf UpdateSourceLocation' {..} =
-    Prelude.rnf accessConfiguration
-      `Prelude.seq` Prelude.rnf defaultSegmentDeliveryConfiguration
-      `Prelude.seq` Prelude.rnf segmentDeliveryConfigurations
-      `Prelude.seq` Prelude.rnf httpConfiguration
-      `Prelude.seq` Prelude.rnf sourceLocationName
+    Prelude.rnf accessConfiguration `Prelude.seq`
+      Prelude.rnf defaultSegmentDeliveryConfiguration `Prelude.seq`
+        Prelude.rnf segmentDeliveryConfigurations `Prelude.seq`
+          Prelude.rnf httpConfiguration `Prelude.seq`
+            Prelude.rnf sourceLocationName
 
 instance Data.ToHeaders UpdateSourceLocation where
   toHeaders =
@@ -348,13 +348,13 @@ updateSourceLocationResponse_httpStatus = Lens.lens (\UpdateSourceLocationRespon
 
 instance Prelude.NFData UpdateSourceLocationResponse where
   rnf UpdateSourceLocationResponse' {..} =
-    Prelude.rnf accessConfiguration
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf defaultSegmentDeliveryConfiguration
-      `Prelude.seq` Prelude.rnf httpConfiguration
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf segmentDeliveryConfigurations
-      `Prelude.seq` Prelude.rnf sourceLocationName
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf accessConfiguration `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf creationTime `Prelude.seq`
+          Prelude.rnf defaultSegmentDeliveryConfiguration `Prelude.seq`
+            Prelude.rnf httpConfiguration `Prelude.seq`
+              Prelude.rnf lastModifiedTime `Prelude.seq`
+                Prelude.rnf segmentDeliveryConfigurations `Prelude.seq`
+                  Prelude.rnf sourceLocationName `Prelude.seq`
+                    Prelude.rnf tags `Prelude.seq`
+                      Prelude.rnf httpStatus

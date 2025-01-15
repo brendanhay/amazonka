@@ -80,9 +80,9 @@ instance Prelude.Hashable OptionSpecification where
 
 instance Prelude.NFData OptionSpecification where
   rnf OptionSpecification' {..} =
-    Prelude.rnf namespace
-      `Prelude.seq` Prelude.rnf optionName
-      `Prelude.seq` Prelude.rnf resourceName
+    Prelude.rnf namespace `Prelude.seq`
+      Prelude.rnf optionName `Prelude.seq`
+        Prelude.rnf resourceName
 
 instance Data.ToQuery OptionSpecification where
   toQuery OptionSpecification' {..} =

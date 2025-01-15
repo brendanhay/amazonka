@@ -141,12 +141,12 @@ instance Core.AWSPager ListBonusPayments where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listBonusPayments_nextToken
-          Lens..~ rs
-          Lens.^? listBonusPaymentsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listBonusPayments_nextToken
+              Lens..~ rs
+              Lens.^? listBonusPaymentsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListBonusPayments where
   type
@@ -174,10 +174,10 @@ instance Prelude.Hashable ListBonusPayments where
 
 instance Prelude.NFData ListBonusPayments where
   rnf ListBonusPayments' {..} =
-    Prelude.rnf assignmentId
-      `Prelude.seq` Prelude.rnf hITId
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf assignmentId `Prelude.seq`
+      Prelude.rnf hITId `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken
 
 instance Data.ToHeaders ListBonusPayments where
   toHeaders =
@@ -275,7 +275,7 @@ listBonusPaymentsResponse_httpStatus = Lens.lens (\ListBonusPaymentsResponse' {h
 
 instance Prelude.NFData ListBonusPaymentsResponse where
   rnf ListBonusPaymentsResponse' {..} =
-    Prelude.rnf bonusPayments
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf numResults
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf bonusPayments `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf numResults `Prelude.seq`
+          Prelude.rnf httpStatus

@@ -141,12 +141,12 @@ instance Core.AWSPager DescribePhoneNumbers where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describePhoneNumbers_nextToken
-          Lens..~ rs
-          Lens.^? describePhoneNumbersResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describePhoneNumbers_nextToken
+              Lens..~ rs
+              Lens.^? describePhoneNumbersResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribePhoneNumbers where
   type
@@ -173,10 +173,10 @@ instance Prelude.Hashable DescribePhoneNumbers where
 
 instance Prelude.NFData DescribePhoneNumbers where
   rnf DescribePhoneNumbers' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf phoneNumberIds
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf phoneNumberIds
 
 instance Data.ToHeaders DescribePhoneNumbers where
   toHeaders =
@@ -267,6 +267,6 @@ describePhoneNumbersResponse_httpStatus = Lens.lens (\DescribePhoneNumbersRespon
 
 instance Prelude.NFData DescribePhoneNumbersResponse where
   rnf DescribePhoneNumbersResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf phoneNumbers
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf phoneNumbers `Prelude.seq`
+        Prelude.rnf httpStatus

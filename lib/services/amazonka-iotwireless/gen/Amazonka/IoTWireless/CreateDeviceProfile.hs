@@ -143,10 +143,10 @@ instance Prelude.Hashable CreateDeviceProfile where
 
 instance Prelude.NFData CreateDeviceProfile where
   rnf CreateDeviceProfile' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf loRaWAN
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf loRaWAN `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf tags
 
 instance Data.ToHeaders CreateDeviceProfile where
   toHeaders = Prelude.const Prelude.mempty
@@ -218,6 +218,6 @@ createDeviceProfileResponse_httpStatus = Lens.lens (\CreateDeviceProfileResponse
 
 instance Prelude.NFData CreateDeviceProfileResponse where
   rnf CreateDeviceProfileResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf httpStatus

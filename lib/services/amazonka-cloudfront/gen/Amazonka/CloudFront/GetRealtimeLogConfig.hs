@@ -178,5 +178,5 @@ getRealtimeLogConfigResponse_httpStatus = Lens.lens (\GetRealtimeLogConfigRespon
 
 instance Prelude.NFData GetRealtimeLogConfigResponse where
   rnf GetRealtimeLogConfigResponse' {..} =
-    Prelude.rnf realtimeLogConfig
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf realtimeLogConfig `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -92,6 +92,6 @@ instance Prelude.Hashable GroundStationData where
 
 instance Prelude.NFData GroundStationData where
   rnf GroundStationData' {..} =
-    Prelude.rnf groundStationId
-      `Prelude.seq` Prelude.rnf groundStationName
-      `Prelude.seq` Prelude.rnf region
+    Prelude.rnf groundStationId `Prelude.seq`
+      Prelude.rnf groundStationName `Prelude.seq`
+        Prelude.rnf region

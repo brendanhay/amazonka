@@ -130,10 +130,10 @@ instance Prelude.Hashable DeleteLabels where
 
 instance Prelude.NFData DeleteLabels where
   rnf DeleteLabels' {..} =
-    Prelude.rnf authenticationToken
-      `Prelude.seq` Prelude.rnf deleteAll
-      `Prelude.seq` Prelude.rnf labels
-      `Prelude.seq` Prelude.rnf resourceId
+    Prelude.rnf authenticationToken `Prelude.seq`
+      Prelude.rnf deleteAll `Prelude.seq`
+        Prelude.rnf labels `Prelude.seq`
+          Prelude.rnf resourceId
 
 instance Data.ToHeaders DeleteLabels where
   toHeaders DeleteLabels' {..} =

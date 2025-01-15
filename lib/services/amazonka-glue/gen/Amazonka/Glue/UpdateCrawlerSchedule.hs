@@ -115,8 +115,8 @@ instance Prelude.Hashable UpdateCrawlerSchedule where
 
 instance Prelude.NFData UpdateCrawlerSchedule where
   rnf UpdateCrawlerSchedule' {..} =
-    Prelude.rnf schedule
-      `Prelude.seq` Prelude.rnf crawlerName
+    Prelude.rnf schedule `Prelude.seq`
+      Prelude.rnf crawlerName
 
 instance Data.ToHeaders UpdateCrawlerSchedule where
   toHeaders =

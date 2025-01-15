@@ -136,8 +136,8 @@ instance
 
 instance Prelude.NFData DeleteQueuedReservedInstances where
   rnf DeleteQueuedReservedInstances' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf reservedInstancesIds
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf reservedInstancesIds
 
 instance Data.ToHeaders DeleteQueuedReservedInstances where
   toHeaders = Prelude.const Prelude.mempty
@@ -214,6 +214,6 @@ instance
     DeleteQueuedReservedInstancesResponse
   where
   rnf DeleteQueuedReservedInstancesResponse' {..} =
-    Prelude.rnf failedQueuedPurchaseDeletions
-      `Prelude.seq` Prelude.rnf successfulQueuedPurchaseDeletions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf failedQueuedPurchaseDeletions `Prelude.seq`
+      Prelude.rnf successfulQueuedPurchaseDeletions `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -142,12 +142,12 @@ instance Core.AWSPager ListInstanceStorageConfigs where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listInstanceStorageConfigs_nextToken
-          Lens..~ rs
-          Lens.^? listInstanceStorageConfigsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listInstanceStorageConfigs_nextToken
+              Lens..~ rs
+              Lens.^? listInstanceStorageConfigsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListInstanceStorageConfigs where
   type
@@ -174,10 +174,10 @@ instance Prelude.Hashable ListInstanceStorageConfigs where
 
 instance Prelude.NFData ListInstanceStorageConfigs where
   rnf ListInstanceStorageConfigs' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf resourceType
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf instanceId `Prelude.seq`
+          Prelude.rnf resourceType
 
 instance Data.ToHeaders ListInstanceStorageConfigs where
   toHeaders =
@@ -262,6 +262,6 @@ instance
     ListInstanceStorageConfigsResponse
   where
   rnf ListInstanceStorageConfigsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf storageConfigs
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf storageConfigs `Prelude.seq`
+        Prelude.rnf httpStatus

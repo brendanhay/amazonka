@@ -174,13 +174,13 @@ instance Prelude.Hashable Instance where
 
 instance Prelude.NFData Instance where
   rnf Instance' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf identityManagementType
-      `Prelude.seq` Prelude.rnf inboundCallsEnabled
-      `Prelude.seq` Prelude.rnf instanceAlias
-      `Prelude.seq` Prelude.rnf instanceStatus
-      `Prelude.seq` Prelude.rnf outboundCallsEnabled
-      `Prelude.seq` Prelude.rnf serviceRole
-      `Prelude.seq` Prelude.rnf statusReason
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf createdTime `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf identityManagementType `Prelude.seq`
+            Prelude.rnf inboundCallsEnabled `Prelude.seq`
+              Prelude.rnf instanceAlias `Prelude.seq`
+                Prelude.rnf instanceStatus `Prelude.seq`
+                  Prelude.rnf outboundCallsEnabled `Prelude.seq`
+                    Prelude.rnf serviceRole `Prelude.seq`
+                      Prelude.rnf statusReason

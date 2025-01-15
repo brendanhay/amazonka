@@ -182,14 +182,14 @@ instance Prelude.Hashable SourceServer where
 
 instance Prelude.NFData SourceServer where
   rnf SourceServer' {..} =
-    Prelude.rnf applicationID
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf dataReplicationInfo
-      `Prelude.seq` Prelude.rnf isArchived
-      `Prelude.seq` Prelude.rnf launchedInstance
-      `Prelude.seq` Prelude.rnf lifeCycle
-      `Prelude.seq` Prelude.rnf replicationType
-      `Prelude.seq` Prelude.rnf sourceProperties
-      `Prelude.seq` Prelude.rnf sourceServerID
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf vcenterClientID
+    Prelude.rnf applicationID `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf dataReplicationInfo `Prelude.seq`
+          Prelude.rnf isArchived `Prelude.seq`
+            Prelude.rnf launchedInstance `Prelude.seq`
+              Prelude.rnf lifeCycle `Prelude.seq`
+                Prelude.rnf replicationType `Prelude.seq`
+                  Prelude.rnf sourceProperties `Prelude.seq`
+                    Prelude.rnf sourceServerID `Prelude.seq`
+                      Prelude.rnf tags `Prelude.seq`
+                        Prelude.rnf vcenterClientID

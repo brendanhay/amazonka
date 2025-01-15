@@ -84,5 +84,5 @@ instance Prelude.Hashable GroupCount where
 
 instance Prelude.NFData GroupCount where
   rnf GroupCount' {..} =
-    Prelude.rnf count
-      `Prelude.seq` Prelude.rnf groupKey
+    Prelude.rnf count `Prelude.seq`
+      Prelude.rnf groupKey

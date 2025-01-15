@@ -102,12 +102,12 @@ instance Core.AWSPager ListTrails where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listTrails_nextToken
-          Lens..~ rs
-          Lens.^? listTrailsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listTrails_nextToken
+              Lens..~ rs
+              Lens.^? listTrailsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListTrails where
   type AWSResponse ListTrails = ListTrailsResponse
@@ -221,6 +221,6 @@ listTrailsResponse_httpStatus = Lens.lens (\ListTrailsResponse' {httpStatus} -> 
 
 instance Prelude.NFData ListTrailsResponse where
   rnf ListTrailsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf trails
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf trails `Prelude.seq`
+        Prelude.rnf httpStatus

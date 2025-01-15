@@ -142,11 +142,11 @@ instance Prelude.Hashable CreateCoreNetwork where
 
 instance Prelude.NFData CreateCoreNetwork where
   rnf CreateCoreNetwork' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf policyDocument
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf globalNetworkId
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf policyDocument `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf globalNetworkId
 
 instance Data.ToHeaders CreateCoreNetwork where
   toHeaders =
@@ -220,5 +220,5 @@ createCoreNetworkResponse_httpStatus = Lens.lens (\CreateCoreNetworkResponse' {h
 
 instance Prelude.NFData CreateCoreNetworkResponse where
   rnf CreateCoreNetworkResponse' {..} =
-    Prelude.rnf coreNetwork
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf coreNetwork `Prelude.seq`
+      Prelude.rnf httpStatus

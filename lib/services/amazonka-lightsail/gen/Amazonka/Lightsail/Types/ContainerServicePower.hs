@@ -131,9 +131,9 @@ instance Prelude.Hashable ContainerServicePower where
 
 instance Prelude.NFData ContainerServicePower where
   rnf ContainerServicePower' {..} =
-    Prelude.rnf cpuCount
-      `Prelude.seq` Prelude.rnf isActive
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf powerId
-      `Prelude.seq` Prelude.rnf price
-      `Prelude.seq` Prelude.rnf ramSizeInGb
+    Prelude.rnf cpuCount `Prelude.seq`
+      Prelude.rnf isActive `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf powerId `Prelude.seq`
+            Prelude.rnf price `Prelude.seq`
+              Prelude.rnf ramSizeInGb

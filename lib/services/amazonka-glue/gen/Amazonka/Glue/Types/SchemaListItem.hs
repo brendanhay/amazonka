@@ -136,10 +136,10 @@ instance Prelude.Hashable SchemaListItem where
 
 instance Prelude.NFData SchemaListItem where
   rnf SchemaListItem' {..} =
-    Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf registryName
-      `Prelude.seq` Prelude.rnf schemaArn
-      `Prelude.seq` Prelude.rnf schemaName
-      `Prelude.seq` Prelude.rnf schemaStatus
-      `Prelude.seq` Prelude.rnf updatedTime
+    Prelude.rnf createdTime `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf registryName `Prelude.seq`
+          Prelude.rnf schemaArn `Prelude.seq`
+            Prelude.rnf schemaName `Prelude.seq`
+              Prelude.rnf schemaStatus `Prelude.seq`
+                Prelude.rnf updatedTime

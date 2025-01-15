@@ -100,9 +100,9 @@ instance Prelude.Hashable AutoTuneMaintenanceSchedule where
 
 instance Prelude.NFData AutoTuneMaintenanceSchedule where
   rnf AutoTuneMaintenanceSchedule' {..} =
-    Prelude.rnf cronExpressionForRecurrence
-      `Prelude.seq` Prelude.rnf duration
-      `Prelude.seq` Prelude.rnf startAt
+    Prelude.rnf cronExpressionForRecurrence `Prelude.seq`
+      Prelude.rnf duration `Prelude.seq`
+        Prelude.rnf startAt
 
 instance Data.ToJSON AutoTuneMaintenanceSchedule where
   toJSON AutoTuneMaintenanceSchedule' {..} =

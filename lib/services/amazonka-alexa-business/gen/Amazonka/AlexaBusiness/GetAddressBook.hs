@@ -166,5 +166,5 @@ getAddressBookResponse_httpStatus = Lens.lens (\GetAddressBookResponse' {httpSta
 
 instance Prelude.NFData GetAddressBookResponse where
   rnf GetAddressBookResponse' {..} =
-    Prelude.rnf addressBook
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf addressBook `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -157,8 +157,8 @@ instance
 
 instance Prelude.NFData GetFunctionEventInvokeConfig where
   rnf GetFunctionEventInvokeConfig' {..} =
-    Prelude.rnf qualifier
-      `Prelude.seq` Prelude.rnf functionName
+    Prelude.rnf qualifier `Prelude.seq`
+      Prelude.rnf functionName
 
 instance Data.ToHeaders GetFunctionEventInvokeConfig where
   toHeaders = Prelude.const Prelude.mempty

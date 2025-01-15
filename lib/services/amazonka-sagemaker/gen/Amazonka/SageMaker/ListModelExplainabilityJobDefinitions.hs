@@ -186,12 +186,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listModelExplainabilityJobDefinitions_nextToken
-          Lens..~ rs
-          Lens.^? listModelExplainabilityJobDefinitionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listModelExplainabilityJobDefinitions_nextToken
+              Lens..~ rs
+              Lens.^? listModelExplainabilityJobDefinitionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -237,14 +237,14 @@ instance
     ListModelExplainabilityJobDefinitions
   where
   rnf ListModelExplainabilityJobDefinitions' {..} =
-    Prelude.rnf creationTimeAfter
-      `Prelude.seq` Prelude.rnf creationTimeBefore
-      `Prelude.seq` Prelude.rnf endpointName
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nameContains
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf sortOrder
+    Prelude.rnf creationTimeAfter `Prelude.seq`
+      Prelude.rnf creationTimeBefore `Prelude.seq`
+        Prelude.rnf endpointName `Prelude.seq`
+          Prelude.rnf maxResults `Prelude.seq`
+            Prelude.rnf nameContains `Prelude.seq`
+              Prelude.rnf nextToken `Prelude.seq`
+                Prelude.rnf sortBy `Prelude.seq`
+                  Prelude.rnf sortOrder
 
 instance
   Data.ToHeaders
@@ -358,6 +358,6 @@ instance
   where
   rnf
     ListModelExplainabilityJobDefinitionsResponse' {..} =
-      Prelude.rnf nextToken
-        `Prelude.seq` Prelude.rnf httpStatus
-        `Prelude.seq` Prelude.rnf jobDefinitionSummaries
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus `Prelude.seq`
+          Prelude.rnf jobDefinitionSummaries

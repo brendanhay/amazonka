@@ -116,8 +116,8 @@ instance Prelude.Hashable HostProperties where
 
 instance Prelude.NFData HostProperties where
   rnf HostProperties' {..} =
-    Prelude.rnf cores
-      `Prelude.seq` Prelude.rnf instanceFamily
-      `Prelude.seq` Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf sockets
-      `Prelude.seq` Prelude.rnf totalVCpus
+    Prelude.rnf cores `Prelude.seq`
+      Prelude.rnf instanceFamily `Prelude.seq`
+        Prelude.rnf instanceType `Prelude.seq`
+          Prelude.rnf sockets `Prelude.seq`
+            Prelude.rnf totalVCpus

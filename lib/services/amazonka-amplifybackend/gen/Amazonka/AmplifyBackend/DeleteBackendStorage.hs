@@ -148,10 +148,10 @@ instance Prelude.Hashable DeleteBackendStorage where
 
 instance Prelude.NFData DeleteBackendStorage where
   rnf DeleteBackendStorage' {..} =
-    Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf backendEnvironmentName
-      `Prelude.seq` Prelude.rnf serviceName
-      `Prelude.seq` Prelude.rnf resourceName
+    Prelude.rnf appId `Prelude.seq`
+      Prelude.rnf backendEnvironmentName `Prelude.seq`
+        Prelude.rnf serviceName `Prelude.seq`
+          Prelude.rnf resourceName
 
 instance Data.ToHeaders DeleteBackendStorage where
   toHeaders =
@@ -254,8 +254,8 @@ deleteBackendStorageResponse_httpStatus = Lens.lens (\DeleteBackendStorageRespon
 
 instance Prelude.NFData DeleteBackendStorageResponse where
   rnf DeleteBackendStorageResponse' {..} =
-    Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf backendEnvironmentName
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf appId `Prelude.seq`
+      Prelude.rnf backendEnvironmentName `Prelude.seq`
+        Prelude.rnf jobId `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf httpStatus

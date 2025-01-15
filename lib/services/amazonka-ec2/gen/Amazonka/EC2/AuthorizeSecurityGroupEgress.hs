@@ -245,16 +245,16 @@ instance
 
 instance Prelude.NFData AuthorizeSecurityGroupEgress where
   rnf AuthorizeSecurityGroupEgress' {..} =
-    Prelude.rnf cidrIp
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf fromPort
-      `Prelude.seq` Prelude.rnf ipPermissions
-      `Prelude.seq` Prelude.rnf ipProtocol
-      `Prelude.seq` Prelude.rnf sourceSecurityGroupName
-      `Prelude.seq` Prelude.rnf sourceSecurityGroupOwnerId
-      `Prelude.seq` Prelude.rnf tagSpecifications
-      `Prelude.seq` Prelude.rnf toPort
-      `Prelude.seq` Prelude.rnf groupId
+    Prelude.rnf cidrIp `Prelude.seq`
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf fromPort `Prelude.seq`
+          Prelude.rnf ipPermissions `Prelude.seq`
+            Prelude.rnf ipProtocol `Prelude.seq`
+              Prelude.rnf sourceSecurityGroupName `Prelude.seq`
+                Prelude.rnf sourceSecurityGroupOwnerId `Prelude.seq`
+                  Prelude.rnf tagSpecifications `Prelude.seq`
+                    Prelude.rnf toPort `Prelude.seq`
+                      Prelude.rnf groupId
 
 instance Data.ToHeaders AuthorizeSecurityGroupEgress where
   toHeaders = Prelude.const Prelude.mempty
@@ -347,6 +347,6 @@ instance
     AuthorizeSecurityGroupEgressResponse
   where
   rnf AuthorizeSecurityGroupEgressResponse' {..} =
-    Prelude.rnf return'
-      `Prelude.seq` Prelude.rnf securityGroupRules
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf return' `Prelude.seq`
+      Prelude.rnf securityGroupRules `Prelude.seq`
+        Prelude.rnf httpStatus

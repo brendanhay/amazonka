@@ -71,8 +71,8 @@ instance Prelude.Hashable PolicyAttribute where
 
 instance Prelude.NFData PolicyAttribute where
   rnf PolicyAttribute' {..} =
-    Prelude.rnf attributeName
-      `Prelude.seq` Prelude.rnf attributeValue
+    Prelude.rnf attributeName `Prelude.seq`
+      Prelude.rnf attributeValue
 
 instance Data.ToQuery PolicyAttribute where
   toQuery PolicyAttribute' {..} =

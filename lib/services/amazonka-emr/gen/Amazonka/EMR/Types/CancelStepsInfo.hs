@@ -96,6 +96,6 @@ instance Prelude.Hashable CancelStepsInfo where
 
 instance Prelude.NFData CancelStepsInfo where
   rnf CancelStepsInfo' {..} =
-    Prelude.rnf reason
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf stepId
+    Prelude.rnf reason `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf stepId

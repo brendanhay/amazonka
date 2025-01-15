@@ -248,12 +248,12 @@ describeLineageGroupResponse_httpStatus = Lens.lens (\DescribeLineageGroupRespon
 
 instance Prelude.NFData DescribeLineageGroupResponse where
   rnf DescribeLineageGroupResponse' {..} =
-    Prelude.rnf createdBy
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf lastModifiedBy
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf lineageGroupArn
-      `Prelude.seq` Prelude.rnf lineageGroupName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf createdBy `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf displayName `Prelude.seq`
+            Prelude.rnf lastModifiedBy `Prelude.seq`
+              Prelude.rnf lastModifiedTime `Prelude.seq`
+                Prelude.rnf lineageGroupArn `Prelude.seq`
+                  Prelude.rnf lineageGroupName `Prelude.seq`
+                    Prelude.rnf httpStatus

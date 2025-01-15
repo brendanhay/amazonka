@@ -128,8 +128,8 @@ instance Prelude.Hashable LogsSummary where
 
 instance Prelude.NFData LogsSummary where
   rnf LogsSummary' {..} =
-    Prelude.rnf audit
-      `Prelude.seq` Prelude.rnf auditLogGroup
-      `Prelude.seq` Prelude.rnf pending
-      `Prelude.seq` Prelude.rnf generalLogGroup
-      `Prelude.seq` Prelude.rnf general
+    Prelude.rnf audit `Prelude.seq`
+      Prelude.rnf auditLogGroup `Prelude.seq`
+        Prelude.rnf pending `Prelude.seq`
+          Prelude.rnf generalLogGroup `Prelude.seq`
+            Prelude.rnf general

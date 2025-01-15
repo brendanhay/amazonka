@@ -151,9 +151,9 @@ instance
     UpdateQueueOutboundCallerConfig
   where
   rnf UpdateQueueOutboundCallerConfig' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf queueId
-      `Prelude.seq` Prelude.rnf outboundCallerConfig
+    Prelude.rnf instanceId `Prelude.seq`
+      Prelude.rnf queueId `Prelude.seq`
+        Prelude.rnf outboundCallerConfig
 
 instance
   Data.ToHeaders

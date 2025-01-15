@@ -189,9 +189,9 @@ instance Prelude.Hashable AddApplicationOutput where
 
 instance Prelude.NFData AddApplicationOutput where
   rnf AddApplicationOutput' {..} =
-    Prelude.rnf applicationName
-      `Prelude.seq` Prelude.rnf currentApplicationVersionId
-      `Prelude.seq` Prelude.rnf output
+    Prelude.rnf applicationName `Prelude.seq`
+      Prelude.rnf currentApplicationVersionId `Prelude.seq`
+        Prelude.rnf output
 
 instance Data.ToHeaders AddApplicationOutput where
   toHeaders =

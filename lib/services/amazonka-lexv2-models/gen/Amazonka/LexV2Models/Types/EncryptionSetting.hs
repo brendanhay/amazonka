@@ -97,9 +97,9 @@ instance Prelude.Hashable EncryptionSetting where
 
 instance Prelude.NFData EncryptionSetting where
   rnf EncryptionSetting' {..} =
-    Prelude.rnf associatedTranscriptsPassword
-      `Prelude.seq` Prelude.rnf botLocaleExportPassword
-      `Prelude.seq` Prelude.rnf kmsKeyArn
+    Prelude.rnf associatedTranscriptsPassword `Prelude.seq`
+      Prelude.rnf botLocaleExportPassword `Prelude.seq`
+        Prelude.rnf kmsKeyArn
 
 instance Data.ToJSON EncryptionSetting where
   toJSON EncryptionSetting' {..} =

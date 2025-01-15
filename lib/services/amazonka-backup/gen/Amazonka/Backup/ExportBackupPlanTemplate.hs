@@ -175,5 +175,5 @@ instance
     ExportBackupPlanTemplateResponse
   where
   rnf ExportBackupPlanTemplateResponse' {..} =
-    Prelude.rnf backupPlanTemplateJson
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf backupPlanTemplateJson `Prelude.seq`
+      Prelude.rnf httpStatus

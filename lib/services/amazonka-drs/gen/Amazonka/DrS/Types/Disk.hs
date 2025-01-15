@@ -80,5 +80,5 @@ instance Prelude.Hashable Disk where
 
 instance Prelude.NFData Disk where
   rnf Disk' {..} =
-    Prelude.rnf bytes
-      `Prelude.seq` Prelude.rnf deviceName
+    Prelude.rnf bytes `Prelude.seq`
+      Prelude.rnf deviceName

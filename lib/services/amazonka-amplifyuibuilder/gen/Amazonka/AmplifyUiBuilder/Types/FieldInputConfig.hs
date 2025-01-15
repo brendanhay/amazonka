@@ -233,21 +233,21 @@ instance Prelude.Hashable FieldInputConfig where
 
 instance Prelude.NFData FieldInputConfig where
   rnf FieldInputConfig' {..} =
-    Prelude.rnf defaultChecked
-      `Prelude.seq` Prelude.rnf defaultCountryCode
-      `Prelude.seq` Prelude.rnf defaultValue
-      `Prelude.seq` Prelude.rnf descriptiveText
-      `Prelude.seq` Prelude.rnf isArray
-      `Prelude.seq` Prelude.rnf maxValue
-      `Prelude.seq` Prelude.rnf minValue
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf placeholder
-      `Prelude.seq` Prelude.rnf readOnly
-      `Prelude.seq` Prelude.rnf required
-      `Prelude.seq` Prelude.rnf step
-      `Prelude.seq` Prelude.rnf value
-      `Prelude.seq` Prelude.rnf valueMappings
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf defaultChecked `Prelude.seq`
+      Prelude.rnf defaultCountryCode `Prelude.seq`
+        Prelude.rnf defaultValue `Prelude.seq`
+          Prelude.rnf descriptiveText `Prelude.seq`
+            Prelude.rnf isArray `Prelude.seq`
+              Prelude.rnf maxValue `Prelude.seq`
+                Prelude.rnf minValue `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf placeholder `Prelude.seq`
+                      Prelude.rnf readOnly `Prelude.seq`
+                        Prelude.rnf required `Prelude.seq`
+                          Prelude.rnf step `Prelude.seq`
+                            Prelude.rnf value `Prelude.seq`
+                              Prelude.rnf valueMappings `Prelude.seq`
+                                Prelude.rnf type'
 
 instance Data.ToJSON FieldInputConfig where
   toJSON FieldInputConfig' {..} =

@@ -193,8 +193,8 @@ instance
     CreateReplicationConfiguration
   where
   rnf CreateReplicationConfiguration' {..} =
-    Prelude.rnf sourceFileSystemId
-      `Prelude.seq` Prelude.rnf destinations
+    Prelude.rnf sourceFileSystemId `Prelude.seq`
+      Prelude.rnf destinations
 
 instance
   Data.ToHeaders

@@ -151,9 +151,9 @@ instance Prelude.Hashable DeleteReplicationGroup where
 
 instance Prelude.NFData DeleteReplicationGroup where
   rnf DeleteReplicationGroup' {..} =
-    Prelude.rnf finalSnapshotIdentifier
-      `Prelude.seq` Prelude.rnf retainPrimaryCluster
-      `Prelude.seq` Prelude.rnf replicationGroupId
+    Prelude.rnf finalSnapshotIdentifier `Prelude.seq`
+      Prelude.rnf retainPrimaryCluster `Prelude.seq`
+        Prelude.rnf replicationGroupId
 
 instance Data.ToHeaders DeleteReplicationGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -217,5 +217,5 @@ instance
     DeleteReplicationGroupResponse
   where
   rnf DeleteReplicationGroupResponse' {..} =
-    Prelude.rnf replicationGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf replicationGroup `Prelude.seq`
+      Prelude.rnf httpStatus

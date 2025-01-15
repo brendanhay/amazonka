@@ -118,12 +118,12 @@ instance Core.AWSPager GetTriggers where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getTriggers_nextToken
-          Lens..~ rs
-          Lens.^? getTriggersResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getTriggers_nextToken
+              Lens..~ rs
+              Lens.^? getTriggersResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetTriggers where
   type AWSResponse GetTriggers = GetTriggersResponse
@@ -147,9 +147,9 @@ instance Prelude.Hashable GetTriggers where
 
 instance Prelude.NFData GetTriggers where
   rnf GetTriggers' {..} =
-    Prelude.rnf dependentJobName
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf dependentJobName `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders GetTriggers where
   toHeaders =
@@ -233,6 +233,6 @@ getTriggersResponse_httpStatus = Lens.lens (\GetTriggersResponse' {httpStatus} -
 
 instance Prelude.NFData GetTriggersResponse where
   rnf GetTriggersResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf triggers
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf triggers `Prelude.seq`
+        Prelude.rnf httpStatus

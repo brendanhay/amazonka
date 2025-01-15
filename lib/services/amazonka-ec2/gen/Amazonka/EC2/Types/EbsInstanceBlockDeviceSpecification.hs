@@ -81,8 +81,8 @@ instance
     EbsInstanceBlockDeviceSpecification
   where
   rnf EbsInstanceBlockDeviceSpecification' {..} =
-    Prelude.rnf deleteOnTermination
-      `Prelude.seq` Prelude.rnf volumeId
+    Prelude.rnf deleteOnTermination `Prelude.seq`
+      Prelude.rnf volumeId
 
 instance
   Data.ToQuery

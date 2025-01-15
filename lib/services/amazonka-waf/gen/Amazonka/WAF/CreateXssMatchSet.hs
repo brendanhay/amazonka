@@ -147,8 +147,8 @@ instance Prelude.Hashable CreateXssMatchSet where
 
 instance Prelude.NFData CreateXssMatchSet where
   rnf CreateXssMatchSet' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf changeToken
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf changeToken
 
 instance Data.ToHeaders CreateXssMatchSet where
   toHeaders =
@@ -238,6 +238,6 @@ createXssMatchSetResponse_httpStatus = Lens.lens (\CreateXssMatchSetResponse' {h
 
 instance Prelude.NFData CreateXssMatchSetResponse where
   rnf CreateXssMatchSetResponse' {..} =
-    Prelude.rnf changeToken
-      `Prelude.seq` Prelude.rnf xssMatchSet
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf changeToken `Prelude.seq`
+      Prelude.rnf xssMatchSet `Prelude.seq`
+        Prelude.rnf httpStatus

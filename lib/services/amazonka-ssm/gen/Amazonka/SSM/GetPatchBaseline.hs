@@ -368,19 +368,19 @@ getPatchBaselineResponse_httpStatus = Lens.lens (\GetPatchBaselineResponse' {htt
 
 instance Prelude.NFData GetPatchBaselineResponse where
   rnf GetPatchBaselineResponse' {..} =
-    Prelude.rnf approvalRules
-      `Prelude.seq` Prelude.rnf approvedPatches
-      `Prelude.seq` Prelude.rnf approvedPatchesComplianceLevel
-      `Prelude.seq` Prelude.rnf approvedPatchesEnableNonSecurity
-      `Prelude.seq` Prelude.rnf baselineId
-      `Prelude.seq` Prelude.rnf createdDate
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf globalFilters
-      `Prelude.seq` Prelude.rnf modifiedDate
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf operatingSystem
-      `Prelude.seq` Prelude.rnf patchGroups
-      `Prelude.seq` Prelude.rnf rejectedPatches
-      `Prelude.seq` Prelude.rnf rejectedPatchesAction
-      `Prelude.seq` Prelude.rnf sources
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf approvalRules `Prelude.seq`
+      Prelude.rnf approvedPatches `Prelude.seq`
+        Prelude.rnf approvedPatchesComplianceLevel `Prelude.seq`
+          Prelude.rnf approvedPatchesEnableNonSecurity `Prelude.seq`
+            Prelude.rnf baselineId `Prelude.seq`
+              Prelude.rnf createdDate `Prelude.seq`
+                Prelude.rnf description `Prelude.seq`
+                  Prelude.rnf globalFilters `Prelude.seq`
+                    Prelude.rnf modifiedDate `Prelude.seq`
+                      Prelude.rnf name `Prelude.seq`
+                        Prelude.rnf operatingSystem `Prelude.seq`
+                          Prelude.rnf patchGroups `Prelude.seq`
+                            Prelude.rnf rejectedPatches `Prelude.seq`
+                              Prelude.rnf rejectedPatchesAction `Prelude.seq`
+                                Prelude.rnf sources `Prelude.seq`
+                                  Prelude.rnf httpStatus

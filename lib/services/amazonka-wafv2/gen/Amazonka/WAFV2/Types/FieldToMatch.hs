@@ -332,16 +332,16 @@ instance Prelude.Hashable FieldToMatch where
 
 instance Prelude.NFData FieldToMatch where
   rnf FieldToMatch' {..} =
-    Prelude.rnf allQueryArguments
-      `Prelude.seq` Prelude.rnf body
-      `Prelude.seq` Prelude.rnf cookies
-      `Prelude.seq` Prelude.rnf headers
-      `Prelude.seq` Prelude.rnf jsonBody
-      `Prelude.seq` Prelude.rnf method
-      `Prelude.seq` Prelude.rnf queryString
-      `Prelude.seq` Prelude.rnf singleHeader
-      `Prelude.seq` Prelude.rnf singleQueryArgument
-      `Prelude.seq` Prelude.rnf uriPath
+    Prelude.rnf allQueryArguments `Prelude.seq`
+      Prelude.rnf body `Prelude.seq`
+        Prelude.rnf cookies `Prelude.seq`
+          Prelude.rnf headers `Prelude.seq`
+            Prelude.rnf jsonBody `Prelude.seq`
+              Prelude.rnf method `Prelude.seq`
+                Prelude.rnf queryString `Prelude.seq`
+                  Prelude.rnf singleHeader `Prelude.seq`
+                    Prelude.rnf singleQueryArgument `Prelude.seq`
+                      Prelude.rnf uriPath
 
 instance Data.ToJSON FieldToMatch where
   toJSON FieldToMatch' {..} =

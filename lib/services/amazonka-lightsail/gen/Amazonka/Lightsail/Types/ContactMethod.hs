@@ -210,12 +210,12 @@ instance Prelude.Hashable ContactMethod where
 
 instance Prelude.NFData ContactMethod where
   rnf ContactMethod' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf contactEndpoint
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf protocol
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf supportCode
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf contactEndpoint `Prelude.seq`
+        Prelude.rnf createdAt `Prelude.seq`
+          Prelude.rnf location `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf protocol `Prelude.seq`
+                Prelude.rnf resourceType `Prelude.seq`
+                  Prelude.rnf status `Prelude.seq`
+                    Prelude.rnf supportCode

@@ -180,12 +180,12 @@ instance Core.AWSPager ListThings where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listThings_nextToken
-          Lens..~ rs
-          Lens.^? listThingsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listThings_nextToken
+              Lens..~ rs
+              Lens.^? listThingsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListThings where
   type AWSResponse ListThings = ListThingsResponse
@@ -212,12 +212,12 @@ instance Prelude.Hashable ListThings where
 
 instance Prelude.NFData ListThings where
   rnf ListThings' {..} =
-    Prelude.rnf attributeName
-      `Prelude.seq` Prelude.rnf attributeValue
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf thingTypeName
-      `Prelude.seq` Prelude.rnf usePrefixAttributeValue
+    Prelude.rnf attributeName `Prelude.seq`
+      Prelude.rnf attributeValue `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf thingTypeName `Prelude.seq`
+              Prelude.rnf usePrefixAttributeValue
 
 instance Data.ToHeaders ListThings where
   toHeaders = Prelude.const Prelude.mempty
@@ -291,6 +291,6 @@ listThingsResponse_httpStatus = Lens.lens (\ListThingsResponse' {httpStatus} -> 
 
 instance Prelude.NFData ListThingsResponse where
   rnf ListThingsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf things
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf things `Prelude.seq`
+        Prelude.rnf httpStatus

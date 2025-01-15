@@ -94,5 +94,5 @@ instance Prelude.Hashable SegmentsResponse where
 
 instance Prelude.NFData SegmentsResponse where
   rnf SegmentsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf item
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf item

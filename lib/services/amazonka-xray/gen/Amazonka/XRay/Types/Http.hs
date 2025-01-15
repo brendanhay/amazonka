@@ -113,8 +113,8 @@ instance Prelude.Hashable Http where
 
 instance Prelude.NFData Http where
   rnf Http' {..} =
-    Prelude.rnf clientIp
-      `Prelude.seq` Prelude.rnf httpMethod
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf httpURL
-      `Prelude.seq` Prelude.rnf userAgent
+    Prelude.rnf clientIp `Prelude.seq`
+      Prelude.rnf httpMethod `Prelude.seq`
+        Prelude.rnf httpStatus `Prelude.seq`
+          Prelude.rnf httpURL `Prelude.seq`
+            Prelude.rnf userAgent

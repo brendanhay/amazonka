@@ -101,6 +101,6 @@ instance Prelude.Hashable ChangedBlock where
 
 instance Prelude.NFData ChangedBlock where
   rnf ChangedBlock' {..} =
-    Prelude.rnf blockIndex
-      `Prelude.seq` Prelude.rnf firstBlockToken
-      `Prelude.seq` Prelude.rnf secondBlockToken
+    Prelude.rnf blockIndex `Prelude.seq`
+      Prelude.rnf firstBlockToken `Prelude.seq`
+        Prelude.rnf secondBlockToken

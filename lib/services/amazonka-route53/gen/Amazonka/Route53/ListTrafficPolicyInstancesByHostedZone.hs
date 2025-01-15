@@ -247,10 +247,10 @@ instance
     ListTrafficPolicyInstancesByHostedZone
   where
   rnf ListTrafficPolicyInstancesByHostedZone' {..} =
-    Prelude.rnf maxItems
-      `Prelude.seq` Prelude.rnf trafficPolicyInstanceNameMarker
-      `Prelude.seq` Prelude.rnf trafficPolicyInstanceTypeMarker
-      `Prelude.seq` Prelude.rnf hostedZoneId
+    Prelude.rnf maxItems `Prelude.seq`
+      Prelude.rnf trafficPolicyInstanceNameMarker `Prelude.seq`
+        Prelude.rnf trafficPolicyInstanceTypeMarker `Prelude.seq`
+          Prelude.rnf hostedZoneId
 
 instance
   Data.ToHeaders
@@ -411,9 +411,9 @@ instance
   where
   rnf
     ListTrafficPolicyInstancesByHostedZoneResponse' {..} =
-      Prelude.rnf trafficPolicyInstanceNameMarker
-        `Prelude.seq` Prelude.rnf trafficPolicyInstanceTypeMarker
-        `Prelude.seq` Prelude.rnf httpStatus
-        `Prelude.seq` Prelude.rnf trafficPolicyInstances
-        `Prelude.seq` Prelude.rnf isTruncated
-        `Prelude.seq` Prelude.rnf maxItems
+      Prelude.rnf trafficPolicyInstanceNameMarker `Prelude.seq`
+        Prelude.rnf trafficPolicyInstanceTypeMarker `Prelude.seq`
+          Prelude.rnf httpStatus `Prelude.seq`
+            Prelude.rnf trafficPolicyInstances `Prelude.seq`
+              Prelude.rnf isTruncated `Prelude.seq`
+                Prelude.rnf maxItems

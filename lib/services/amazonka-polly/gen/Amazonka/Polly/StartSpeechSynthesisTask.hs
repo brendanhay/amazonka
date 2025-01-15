@@ -311,18 +311,18 @@ instance Prelude.Hashable StartSpeechSynthesisTask where
 
 instance Prelude.NFData StartSpeechSynthesisTask where
   rnf StartSpeechSynthesisTask' {..} =
-    Prelude.rnf engine
-      `Prelude.seq` Prelude.rnf languageCode
-      `Prelude.seq` Prelude.rnf lexiconNames
-      `Prelude.seq` Prelude.rnf outputS3KeyPrefix
-      `Prelude.seq` Prelude.rnf sampleRate
-      `Prelude.seq` Prelude.rnf snsTopicArn
-      `Prelude.seq` Prelude.rnf speechMarkTypes
-      `Prelude.seq` Prelude.rnf textType
-      `Prelude.seq` Prelude.rnf outputFormat
-      `Prelude.seq` Prelude.rnf outputS3BucketName
-      `Prelude.seq` Prelude.rnf text
-      `Prelude.seq` Prelude.rnf voiceId
+    Prelude.rnf engine `Prelude.seq`
+      Prelude.rnf languageCode `Prelude.seq`
+        Prelude.rnf lexiconNames `Prelude.seq`
+          Prelude.rnf outputS3KeyPrefix `Prelude.seq`
+            Prelude.rnf sampleRate `Prelude.seq`
+              Prelude.rnf snsTopicArn `Prelude.seq`
+                Prelude.rnf speechMarkTypes `Prelude.seq`
+                  Prelude.rnf textType `Prelude.seq`
+                    Prelude.rnf outputFormat `Prelude.seq`
+                      Prelude.rnf outputS3BucketName `Prelude.seq`
+                        Prelude.rnf text `Prelude.seq`
+                          Prelude.rnf voiceId
 
 instance Data.ToHeaders StartSpeechSynthesisTask where
   toHeaders = Prelude.const Prelude.mempty
@@ -402,5 +402,5 @@ instance
     StartSpeechSynthesisTaskResponse
   where
   rnf StartSpeechSynthesisTaskResponse' {..} =
-    Prelude.rnf synthesisTask
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf synthesisTask `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -186,9 +186,9 @@ instance Prelude.Hashable MonitorSummary where
 
 instance Prelude.NFData MonitorSummary where
   rnf MonitorSummary' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf lastModificationTime
-      `Prelude.seq` Prelude.rnf monitorArn
-      `Prelude.seq` Prelude.rnf monitorName
-      `Prelude.seq` Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf lastModificationTime `Prelude.seq`
+        Prelude.rnf monitorArn `Prelude.seq`
+          Prelude.rnf monitorName `Prelude.seq`
+            Prelude.rnf resourceArn `Prelude.seq`
+              Prelude.rnf status

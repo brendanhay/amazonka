@@ -81,8 +81,8 @@ instance Prelude.Hashable LoadBalancersConfig where
 
 instance Prelude.NFData LoadBalancersConfig where
   rnf LoadBalancersConfig' {..} =
-    Prelude.rnf classicLoadBalancersConfig
-      `Prelude.seq` Prelude.rnf targetGroupsConfig
+    Prelude.rnf classicLoadBalancersConfig `Prelude.seq`
+      Prelude.rnf targetGroupsConfig
 
 instance Data.ToQuery LoadBalancersConfig where
   toQuery LoadBalancersConfig' {..} =

@@ -146,12 +146,12 @@ instance Core.AWSPager ListPortfoliosForProduct where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listPortfoliosForProduct_pageToken
-          Lens..~ rs
-          Lens.^? listPortfoliosForProductResponse_nextPageToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listPortfoliosForProduct_pageToken
+              Lens..~ rs
+              Lens.^? listPortfoliosForProductResponse_nextPageToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPortfoliosForProduct where
   type
@@ -181,10 +181,10 @@ instance Prelude.Hashable ListPortfoliosForProduct where
 
 instance Prelude.NFData ListPortfoliosForProduct where
   rnf ListPortfoliosForProduct' {..} =
-    Prelude.rnf acceptLanguage
-      `Prelude.seq` Prelude.rnf pageSize
-      `Prelude.seq` Prelude.rnf pageToken
-      `Prelude.seq` Prelude.rnf productId
+    Prelude.rnf acceptLanguage `Prelude.seq`
+      Prelude.rnf pageSize `Prelude.seq`
+        Prelude.rnf pageToken `Prelude.seq`
+          Prelude.rnf productId
 
 instance Data.ToHeaders ListPortfoliosForProduct where
   toHeaders =
@@ -275,6 +275,6 @@ instance
     ListPortfoliosForProductResponse
   where
   rnf ListPortfoliosForProductResponse' {..} =
-    Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf portfolioDetails
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextPageToken `Prelude.seq`
+      Prelude.rnf portfolioDetails `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -170,11 +170,11 @@ instance
     GetLaunchProfileInitialization
   where
   rnf GetLaunchProfileInitialization' {..} =
-    Prelude.rnf launchProfileId
-      `Prelude.seq` Prelude.rnf launchProfileProtocolVersions
-      `Prelude.seq` Prelude.rnf launchPurpose
-      `Prelude.seq` Prelude.rnf platform
-      `Prelude.seq` Prelude.rnf studioId
+    Prelude.rnf launchProfileId `Prelude.seq`
+      Prelude.rnf launchProfileProtocolVersions `Prelude.seq`
+        Prelude.rnf launchPurpose `Prelude.seq`
+          Prelude.rnf platform `Prelude.seq`
+            Prelude.rnf studioId
 
 instance
   Data.ToHeaders
@@ -256,5 +256,5 @@ instance
     GetLaunchProfileInitializationResponse
   where
   rnf GetLaunchProfileInitializationResponse' {..} =
-    Prelude.rnf launchProfileInitialization
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf launchProfileInitialization `Prelude.seq`
+      Prelude.rnf httpStatus

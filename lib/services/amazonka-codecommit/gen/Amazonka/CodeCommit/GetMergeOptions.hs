@@ -188,11 +188,11 @@ instance Prelude.Hashable GetMergeOptions where
 
 instance Prelude.NFData GetMergeOptions where
   rnf GetMergeOptions' {..} =
-    Prelude.rnf conflictDetailLevel
-      `Prelude.seq` Prelude.rnf conflictResolutionStrategy
-      `Prelude.seq` Prelude.rnf repositoryName
-      `Prelude.seq` Prelude.rnf sourceCommitSpecifier
-      `Prelude.seq` Prelude.rnf destinationCommitSpecifier
+    Prelude.rnf conflictDetailLevel `Prelude.seq`
+      Prelude.rnf conflictResolutionStrategy `Prelude.seq`
+        Prelude.rnf repositoryName `Prelude.seq`
+          Prelude.rnf sourceCommitSpecifier `Prelude.seq`
+            Prelude.rnf destinationCommitSpecifier
 
 instance Data.ToHeaders GetMergeOptions where
   toHeaders =
@@ -319,8 +319,8 @@ getMergeOptionsResponse_baseCommitId = Lens.lens (\GetMergeOptionsResponse' {bas
 
 instance Prelude.NFData GetMergeOptionsResponse where
   rnf GetMergeOptionsResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf mergeOptions
-      `Prelude.seq` Prelude.rnf sourceCommitId
-      `Prelude.seq` Prelude.rnf destinationCommitId
-      `Prelude.seq` Prelude.rnf baseCommitId
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf mergeOptions `Prelude.seq`
+        Prelude.rnf sourceCommitId `Prelude.seq`
+          Prelude.rnf destinationCommitId `Prelude.seq`
+            Prelude.rnf baseCommitId

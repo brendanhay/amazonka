@@ -106,7 +106,7 @@ instance Prelude.Hashable SidewalkDeviceMetadata where
 
 instance Prelude.NFData SidewalkDeviceMetadata where
   rnf SidewalkDeviceMetadata' {..} =
-    Prelude.rnf batteryLevel
-      `Prelude.seq` Prelude.rnf deviceState
-      `Prelude.seq` Prelude.rnf event
-      `Prelude.seq` Prelude.rnf rssi
+    Prelude.rnf batteryLevel `Prelude.seq`
+      Prelude.rnf deviceState `Prelude.seq`
+        Prelude.rnf event `Prelude.seq`
+          Prelude.rnf rssi

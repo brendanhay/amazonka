@@ -156,10 +156,10 @@ instance Prelude.Hashable UpdateAnalysisPermissions where
 
 instance Prelude.NFData UpdateAnalysisPermissions where
   rnf UpdateAnalysisPermissions' {..} =
-    Prelude.rnf grantPermissions
-      `Prelude.seq` Prelude.rnf revokePermissions
-      `Prelude.seq` Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf analysisId
+    Prelude.rnf grantPermissions `Prelude.seq`
+      Prelude.rnf revokePermissions `Prelude.seq`
+        Prelude.rnf awsAccountId `Prelude.seq`
+          Prelude.rnf analysisId
 
 instance Data.ToHeaders UpdateAnalysisPermissions where
   toHeaders =
@@ -270,8 +270,8 @@ instance
     UpdateAnalysisPermissionsResponse
   where
   rnf UpdateAnalysisPermissionsResponse' {..} =
-    Prelude.rnf analysisArn
-      `Prelude.seq` Prelude.rnf analysisId
-      `Prelude.seq` Prelude.rnf permissions
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf analysisArn `Prelude.seq`
+      Prelude.rnf analysisId `Prelude.seq`
+        Prelude.rnf permissions `Prelude.seq`
+          Prelude.rnf requestId `Prelude.seq`
+            Prelude.rnf status

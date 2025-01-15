@@ -112,8 +112,8 @@ instance Prelude.Hashable PutBackupVaultAccessPolicy where
 
 instance Prelude.NFData PutBackupVaultAccessPolicy where
   rnf PutBackupVaultAccessPolicy' {..} =
-    Prelude.rnf policy
-      `Prelude.seq` Prelude.rnf backupVaultName
+    Prelude.rnf policy `Prelude.seq`
+      Prelude.rnf backupVaultName
 
 instance Data.ToHeaders PutBackupVaultAccessPolicy where
   toHeaders =

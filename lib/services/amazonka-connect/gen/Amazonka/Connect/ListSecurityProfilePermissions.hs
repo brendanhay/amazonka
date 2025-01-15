@@ -141,12 +141,12 @@ instance Core.AWSPager ListSecurityProfilePermissions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listSecurityProfilePermissions_nextToken
-          Lens..~ rs
-          Lens.^? listSecurityProfilePermissionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listSecurityProfilePermissions_nextToken
+              Lens..~ rs
+              Lens.^? listSecurityProfilePermissionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -184,10 +184,10 @@ instance
     ListSecurityProfilePermissions
   where
   rnf ListSecurityProfilePermissions' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf securityProfileId
-      `Prelude.seq` Prelude.rnf instanceId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf securityProfileId `Prelude.seq`
+          Prelude.rnf instanceId
 
 instance
   Data.ToHeaders
@@ -282,6 +282,6 @@ instance
     ListSecurityProfilePermissionsResponse
   where
   rnf ListSecurityProfilePermissionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf permissions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf permissions `Prelude.seq`
+        Prelude.rnf httpStatus

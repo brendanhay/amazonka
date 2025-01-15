@@ -97,9 +97,9 @@ instance Prelude.Hashable Metric where
 
 instance Prelude.NFData Metric where
   rnf Metric' {..} =
-    Prelude.rnf namespace
-      `Prelude.seq` Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf aggregationFunction
+    Prelude.rnf namespace `Prelude.seq`
+      Prelude.rnf metricName `Prelude.seq`
+        Prelude.rnf aggregationFunction
 
 instance Data.ToJSON Metric where
   toJSON Metric' {..} =

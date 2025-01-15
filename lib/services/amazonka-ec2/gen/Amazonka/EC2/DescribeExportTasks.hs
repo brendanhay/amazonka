@@ -96,9 +96,7 @@ instance Core.AWSRequest DescribeExportTasks where
     Response.receiveXML
       ( \s h x ->
           DescribeExportTasksResponse'
-            Prelude.<$> ( x
-                            Data..@? "exportTaskSet"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "exportTaskSet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -112,8 +110,8 @@ instance Prelude.Hashable DescribeExportTasks where
 
 instance Prelude.NFData DescribeExportTasks where
   rnf DescribeExportTasks' {..} =
-    Prelude.rnf exportTaskIds
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf exportTaskIds `Prelude.seq`
+      Prelude.rnf filters
 
 instance Data.ToHeaders DescribeExportTasks where
   toHeaders = Prelude.const Prelude.mempty
@@ -177,5 +175,5 @@ describeExportTasksResponse_httpStatus = Lens.lens (\DescribeExportTasksResponse
 
 instance Prelude.NFData DescribeExportTasksResponse where
   rnf DescribeExportTasksResponse' {..} =
-    Prelude.rnf exportTasks
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf exportTasks `Prelude.seq`
+      Prelude.rnf httpStatus

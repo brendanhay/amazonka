@@ -85,8 +85,8 @@ instance Prelude.Hashable Predicate where
 
 instance Prelude.NFData Predicate where
   rnf Predicate' {..} =
-    Prelude.rnf conditions
-      `Prelude.seq` Prelude.rnf logical
+    Prelude.rnf conditions `Prelude.seq`
+      Prelude.rnf logical
 
 instance Data.ToJSON Predicate where
   toJSON Predicate' {..} =

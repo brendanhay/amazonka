@@ -134,8 +134,8 @@ instance Prelude.Hashable SetIdentityDkimEnabled where
 
 instance Prelude.NFData SetIdentityDkimEnabled where
   rnf SetIdentityDkimEnabled' {..} =
-    Prelude.rnf identity
-      `Prelude.seq` Prelude.rnf dkimEnabled
+    Prelude.rnf identity `Prelude.seq`
+      Prelude.rnf dkimEnabled
 
 instance Data.ToHeaders SetIdentityDkimEnabled where
   toHeaders = Prelude.const Prelude.mempty

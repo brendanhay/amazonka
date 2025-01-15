@@ -97,5 +97,5 @@ instance
     FailedDeleteRemediationExceptionsBatch
   where
   rnf FailedDeleteRemediationExceptionsBatch' {..} =
-    Prelude.rnf failedItems
-      `Prelude.seq` Prelude.rnf failureMessage
+    Prelude.rnf failedItems `Prelude.seq`
+      Prelude.rnf failureMessage

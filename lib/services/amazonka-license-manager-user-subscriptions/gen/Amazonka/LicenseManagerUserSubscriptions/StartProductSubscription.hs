@@ -145,10 +145,10 @@ instance Prelude.Hashable StartProductSubscription where
 
 instance Prelude.NFData StartProductSubscription where
   rnf StartProductSubscription' {..} =
-    Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf identityProvider
-      `Prelude.seq` Prelude.rnf product
-      `Prelude.seq` Prelude.rnf username
+    Prelude.rnf domain `Prelude.seq`
+      Prelude.rnf identityProvider `Prelude.seq`
+        Prelude.rnf product `Prelude.seq`
+          Prelude.rnf username
 
 instance Data.ToHeaders StartProductSubscription where
   toHeaders =
@@ -228,5 +228,5 @@ instance
     StartProductSubscriptionResponse
   where
   rnf StartProductSubscriptionResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf productUserSummary
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf productUserSummary

@@ -108,9 +108,9 @@ instance Prelude.Hashable MeasureValue where
 
 instance Prelude.NFData MeasureValue where
   rnf MeasureValue' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf value
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf value `Prelude.seq`
+        Prelude.rnf type'
 
 instance Data.ToJSON MeasureValue where
   toJSON MeasureValue' {..} =

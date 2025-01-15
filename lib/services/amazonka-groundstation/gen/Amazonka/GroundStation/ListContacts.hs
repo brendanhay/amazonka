@@ -174,12 +174,12 @@ instance Core.AWSPager ListContacts where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listContacts_nextToken
-          Lens..~ rs
-          Lens.^? listContactsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listContacts_nextToken
+              Lens..~ rs
+              Lens.^? listContactsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListContacts where
   type AWSResponse ListContacts = ListContactsResponse
@@ -208,14 +208,14 @@ instance Prelude.Hashable ListContacts where
 
 instance Prelude.NFData ListContacts where
   rnf ListContacts' {..} =
-    Prelude.rnf groundStation
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf missionProfileArn
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf satelliteArn
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf statusList
+    Prelude.rnf groundStation `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf missionProfileArn `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf satelliteArn `Prelude.seq`
+              Prelude.rnf endTime `Prelude.seq`
+                Prelude.rnf startTime `Prelude.seq`
+                  Prelude.rnf statusList
 
 instance Data.ToHeaders ListContacts where
   toHeaders =
@@ -305,6 +305,6 @@ listContactsResponse_httpStatus = Lens.lens (\ListContactsResponse' {httpStatus}
 
 instance Prelude.NFData ListContactsResponse where
   rnf ListContactsResponse' {..} =
-    Prelude.rnf contactList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf contactList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

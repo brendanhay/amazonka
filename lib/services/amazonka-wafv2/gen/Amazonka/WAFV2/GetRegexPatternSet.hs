@@ -167,9 +167,9 @@ instance Prelude.Hashable GetRegexPatternSet where
 
 instance Prelude.NFData GetRegexPatternSet where
   rnf GetRegexPatternSet' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf scope
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf scope `Prelude.seq`
+        Prelude.rnf id
 
 instance Data.ToHeaders GetRegexPatternSet where
   toHeaders =
@@ -271,6 +271,6 @@ getRegexPatternSetResponse_httpStatus = Lens.lens (\GetRegexPatternSetResponse' 
 
 instance Prelude.NFData GetRegexPatternSetResponse where
   rnf GetRegexPatternSetResponse' {..} =
-    Prelude.rnf lockToken
-      `Prelude.seq` Prelude.rnf regexPatternSet
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf lockToken `Prelude.seq`
+      Prelude.rnf regexPatternSet `Prelude.seq`
+        Prelude.rnf httpStatus

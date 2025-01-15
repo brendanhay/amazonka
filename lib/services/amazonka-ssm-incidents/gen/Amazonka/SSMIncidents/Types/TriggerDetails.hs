@@ -110,10 +110,10 @@ instance Prelude.Hashable TriggerDetails where
 
 instance Prelude.NFData TriggerDetails where
   rnf TriggerDetails' {..} =
-    Prelude.rnf rawData
-      `Prelude.seq` Prelude.rnf triggerArn
-      `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf timestamp
+    Prelude.rnf rawData `Prelude.seq`
+      Prelude.rnf triggerArn `Prelude.seq`
+        Prelude.rnf source `Prelude.seq`
+          Prelude.rnf timestamp
 
 instance Data.ToJSON TriggerDetails where
   toJSON TriggerDetails' {..} =

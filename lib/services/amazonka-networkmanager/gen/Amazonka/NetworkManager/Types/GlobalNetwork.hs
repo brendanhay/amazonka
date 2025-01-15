@@ -128,9 +128,9 @@ instance Prelude.Hashable GlobalNetwork where
 
 instance Prelude.NFData GlobalNetwork where
   rnf GlobalNetwork' {..} =
-    Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf globalNetworkArn
-      `Prelude.seq` Prelude.rnf globalNetworkId
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf createdAt `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf globalNetworkArn `Prelude.seq`
+          Prelude.rnf globalNetworkId `Prelude.seq`
+            Prelude.rnf state `Prelude.seq`
+              Prelude.rnf tags

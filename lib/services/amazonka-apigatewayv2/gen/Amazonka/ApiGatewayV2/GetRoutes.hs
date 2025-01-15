@@ -117,12 +117,12 @@ instance Core.AWSPager GetRoutes where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getRoutes_nextToken
-          Lens..~ rs
-          Lens.^? getRoutesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getRoutes_nextToken
+              Lens..~ rs
+              Lens.^? getRoutesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetRoutes where
   type AWSResponse GetRoutes = GetRoutesResponse
@@ -146,9 +146,9 @@ instance Prelude.Hashable GetRoutes where
 
 instance Prelude.NFData GetRoutes where
   rnf GetRoutes' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf apiId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf apiId
 
 instance Data.ToHeaders GetRoutes where
   toHeaders =
@@ -225,6 +225,6 @@ getRoutesResponse_httpStatus = Lens.lens (\GetRoutesResponse' {httpStatus} -> ht
 
 instance Prelude.NFData GetRoutesResponse where
   rnf GetRoutesResponse' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf items `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

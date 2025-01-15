@@ -115,7 +115,7 @@ instance Prelude.Hashable Meeting where
 
 instance Prelude.NFData Meeting where
   rnf Meeting' {..} =
-    Prelude.rnf externalMeetingId
-      `Prelude.seq` Prelude.rnf mediaPlacement
-      `Prelude.seq` Prelude.rnf mediaRegion
-      `Prelude.seq` Prelude.rnf meetingId
+    Prelude.rnf externalMeetingId `Prelude.seq`
+      Prelude.rnf mediaPlacement `Prelude.seq`
+        Prelude.rnf mediaRegion `Prelude.seq`
+          Prelude.rnf meetingId

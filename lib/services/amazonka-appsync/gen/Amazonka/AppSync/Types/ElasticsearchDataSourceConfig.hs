@@ -94,8 +94,8 @@ instance
 
 instance Prelude.NFData ElasticsearchDataSourceConfig where
   rnf ElasticsearchDataSourceConfig' {..} =
-    Prelude.rnf endpoint
-      `Prelude.seq` Prelude.rnf awsRegion
+    Prelude.rnf endpoint `Prelude.seq`
+      Prelude.rnf awsRegion
 
 instance Data.ToJSON ElasticsearchDataSourceConfig where
   toJSON ElasticsearchDataSourceConfig' {..} =

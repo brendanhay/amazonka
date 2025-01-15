@@ -122,8 +122,8 @@ instance Prelude.Hashable EnableControl where
 
 instance Prelude.NFData EnableControl where
   rnf EnableControl' {..} =
-    Prelude.rnf controlIdentifier
-      `Prelude.seq` Prelude.rnf targetIdentifier
+    Prelude.rnf controlIdentifier `Prelude.seq`
+      Prelude.rnf targetIdentifier
 
 instance Data.ToHeaders EnableControl where
   toHeaders =
@@ -200,5 +200,5 @@ enableControlResponse_operationIdentifier = Lens.lens (\EnableControlResponse' {
 
 instance Prelude.NFData EnableControlResponse where
   rnf EnableControlResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf operationIdentifier
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf operationIdentifier

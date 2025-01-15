@@ -134,12 +134,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeVpcClassicLinkDnsSupport_nextToken
-          Lens..~ rs
-          Lens.^? describeVpcClassicLinkDnsSupportResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeVpcClassicLinkDnsSupport_nextToken
+              Lens..~ rs
+              Lens.^? describeVpcClassicLinkDnsSupportResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -155,9 +155,7 @@ instance
       ( \s h x ->
           DescribeVpcClassicLinkDnsSupportResponse'
             Prelude.<$> (x Data..@? "nextToken")
-            Prelude.<*> ( x
-                            Data..@? "vpcs"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "vpcs" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -180,9 +178,9 @@ instance
     DescribeVpcClassicLinkDnsSupport
   where
   rnf DescribeVpcClassicLinkDnsSupport' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf vpcIds
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf vpcIds
 
 instance
   Data.ToHeaders
@@ -268,6 +266,6 @@ instance
     DescribeVpcClassicLinkDnsSupportResponse
   where
   rnf DescribeVpcClassicLinkDnsSupportResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf vpcs
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf vpcs `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -225,11 +225,11 @@ instance Prelude.Hashable ExecutionListItem where
 
 instance Prelude.NFData ExecutionListItem where
   rnf ExecutionListItem' {..} =
-    Prelude.rnf itemCount
-      `Prelude.seq` Prelude.rnf mapRunArn
-      `Prelude.seq` Prelude.rnf stopDate
-      `Prelude.seq` Prelude.rnf executionArn
-      `Prelude.seq` Prelude.rnf stateMachineArn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf startDate
+    Prelude.rnf itemCount `Prelude.seq`
+      Prelude.rnf mapRunArn `Prelude.seq`
+        Prelude.rnf stopDate `Prelude.seq`
+          Prelude.rnf executionArn `Prelude.seq`
+            Prelude.rnf stateMachineArn `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf status `Prelude.seq`
+                  Prelude.rnf startDate

@@ -222,7 +222,7 @@ describeIndexResponse_httpStatus = Lens.lens (\DescribeIndexResponse' {httpStatu
 
 instance Prelude.NFData DescribeIndexResponse where
   rnf DescribeIndexResponse' {..} =
-    Prelude.rnf indexName
-      `Prelude.seq` Prelude.rnf indexStatus
-      `Prelude.seq` Prelude.rnf schema
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf indexName `Prelude.seq`
+      Prelude.rnf indexStatus `Prelude.seq`
+        Prelude.rnf schema `Prelude.seq`
+          Prelude.rnf httpStatus

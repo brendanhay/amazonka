@@ -134,8 +134,8 @@ instance Prelude.Hashable IdentityProviderSummary where
 
 instance Prelude.NFData IdentityProviderSummary where
   rnf IdentityProviderSummary' {..} =
-    Prelude.rnf failureMessage
-      `Prelude.seq` Prelude.rnf identityProvider
-      `Prelude.seq` Prelude.rnf product
-      `Prelude.seq` Prelude.rnf settings
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf failureMessage `Prelude.seq`
+      Prelude.rnf identityProvider `Prelude.seq`
+        Prelude.rnf product `Prelude.seq`
+          Prelude.rnf settings `Prelude.seq`
+            Prelude.rnf status

@@ -97,8 +97,8 @@ instance Prelude.Hashable FieldSort where
 
 instance Prelude.NFData FieldSort where
   rnf FieldSort' {..} =
-    Prelude.rnf fieldId
-      `Prelude.seq` Prelude.rnf direction
+    Prelude.rnf fieldId `Prelude.seq`
+      Prelude.rnf direction
 
 instance Data.ToJSON FieldSort where
   toJSON FieldSort' {..} =

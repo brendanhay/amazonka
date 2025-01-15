@@ -157,12 +157,12 @@ instance Core.AWSPager ListManagedEndpoints where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listManagedEndpoints_nextToken
-          Lens..~ rs
-          Lens.^? listManagedEndpointsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listManagedEndpoints_nextToken
+              Lens..~ rs
+              Lens.^? listManagedEndpointsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListManagedEndpoints where
   type
@@ -192,13 +192,13 @@ instance Prelude.Hashable ListManagedEndpoints where
 
 instance Prelude.NFData ListManagedEndpoints where
   rnf ListManagedEndpoints' {..} =
-    Prelude.rnf createdAfter
-      `Prelude.seq` Prelude.rnf createdBefore
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf states
-      `Prelude.seq` Prelude.rnf types
-      `Prelude.seq` Prelude.rnf virtualClusterId
+    Prelude.rnf createdAfter `Prelude.seq`
+      Prelude.rnf createdBefore `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf states `Prelude.seq`
+              Prelude.rnf types `Prelude.seq`
+                Prelude.rnf virtualClusterId
 
 instance Data.ToHeaders ListManagedEndpoints where
   toHeaders =
@@ -284,6 +284,6 @@ listManagedEndpointsResponse_httpStatus = Lens.lens (\ListManagedEndpointsRespon
 
 instance Prelude.NFData ListManagedEndpointsResponse where
   rnf ListManagedEndpointsResponse' {..} =
-    Prelude.rnf endpoints
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf endpoints `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -152,10 +152,10 @@ instance Prelude.Hashable TargetedSentimentMention where
 
 instance Prelude.NFData TargetedSentimentMention where
   rnf TargetedSentimentMention' {..} =
-    Prelude.rnf beginOffset
-      `Prelude.seq` Prelude.rnf endOffset
-      `Prelude.seq` Prelude.rnf groupScore
-      `Prelude.seq` Prelude.rnf mentionSentiment
-      `Prelude.seq` Prelude.rnf score
-      `Prelude.seq` Prelude.rnf text
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf beginOffset `Prelude.seq`
+      Prelude.rnf endOffset `Prelude.seq`
+        Prelude.rnf groupScore `Prelude.seq`
+          Prelude.rnf mentionSentiment `Prelude.seq`
+            Prelude.rnf score `Prelude.seq`
+              Prelude.rnf text `Prelude.seq`
+                Prelude.rnf type'

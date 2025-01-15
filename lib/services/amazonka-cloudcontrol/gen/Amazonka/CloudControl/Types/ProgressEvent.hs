@@ -255,13 +255,13 @@ instance Prelude.Hashable ProgressEvent where
 
 instance Prelude.NFData ProgressEvent where
   rnf ProgressEvent' {..} =
-    Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf eventTime
-      `Prelude.seq` Prelude.rnf identifier
-      `Prelude.seq` Prelude.rnf operation
-      `Prelude.seq` Prelude.rnf operationStatus
-      `Prelude.seq` Prelude.rnf requestToken
-      `Prelude.seq` Prelude.rnf resourceModel
-      `Prelude.seq` Prelude.rnf retryAfter
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf typeName
+    Prelude.rnf errorCode `Prelude.seq`
+      Prelude.rnf eventTime `Prelude.seq`
+        Prelude.rnf identifier `Prelude.seq`
+          Prelude.rnf operation `Prelude.seq`
+            Prelude.rnf operationStatus `Prelude.seq`
+              Prelude.rnf requestToken `Prelude.seq`
+                Prelude.rnf resourceModel `Prelude.seq`
+                  Prelude.rnf retryAfter `Prelude.seq`
+                    Prelude.rnf statusMessage `Prelude.seq`
+                      Prelude.rnf typeName

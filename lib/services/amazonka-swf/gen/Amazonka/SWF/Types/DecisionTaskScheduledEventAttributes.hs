@@ -139,6 +139,6 @@ instance
     DecisionTaskScheduledEventAttributes
   where
   rnf DecisionTaskScheduledEventAttributes' {..} =
-    Prelude.rnf startToCloseTimeout
-      `Prelude.seq` Prelude.rnf taskPriority
-      `Prelude.seq` Prelude.rnf taskList
+    Prelude.rnf startToCloseTimeout `Prelude.seq`
+      Prelude.rnf taskPriority `Prelude.seq`
+        Prelude.rnf taskList

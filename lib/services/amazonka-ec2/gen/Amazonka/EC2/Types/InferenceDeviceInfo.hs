@@ -88,6 +88,6 @@ instance Prelude.Hashable InferenceDeviceInfo where
 
 instance Prelude.NFData InferenceDeviceInfo where
   rnf InferenceDeviceInfo' {..} =
-    Prelude.rnf count
-      `Prelude.seq` Prelude.rnf manufacturer
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf count `Prelude.seq`
+      Prelude.rnf manufacturer `Prelude.seq`
+        Prelude.rnf name

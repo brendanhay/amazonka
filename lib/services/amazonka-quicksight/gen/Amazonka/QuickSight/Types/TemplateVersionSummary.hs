@@ -114,8 +114,8 @@ instance Prelude.Hashable TemplateVersionSummary where
 
 instance Prelude.NFData TemplateVersionSummary where
   rnf TemplateVersionSummary' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf versionNumber
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf createdTime `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf versionNumber

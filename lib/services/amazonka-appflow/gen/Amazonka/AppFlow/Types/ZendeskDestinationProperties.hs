@@ -107,10 +107,10 @@ instance
 
 instance Prelude.NFData ZendeskDestinationProperties where
   rnf ZendeskDestinationProperties' {..} =
-    Prelude.rnf errorHandlingConfig
-      `Prelude.seq` Prelude.rnf idFieldNames
-      `Prelude.seq` Prelude.rnf writeOperationType
-      `Prelude.seq` Prelude.rnf object'
+    Prelude.rnf errorHandlingConfig `Prelude.seq`
+      Prelude.rnf idFieldNames `Prelude.seq`
+        Prelude.rnf writeOperationType `Prelude.seq`
+          Prelude.rnf object'
 
 instance Data.ToJSON ZendeskDestinationProperties where
   toJSON ZendeskDestinationProperties' {..} =

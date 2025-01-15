@@ -87,5 +87,5 @@ instance Prelude.Hashable OfflineStoreStatus where
 
 instance Prelude.NFData OfflineStoreStatus where
   rnf OfflineStoreStatus' {..} =
-    Prelude.rnf blockedReason
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf blockedReason `Prelude.seq`
+      Prelude.rnf status

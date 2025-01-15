@@ -86,8 +86,8 @@ instance Prelude.Hashable LoggingConfig where
 
 instance Prelude.NFData LoggingConfig where
   rnf LoggingConfig' {..} =
-    Prelude.rnf logRoleArn
-      `Prelude.seq` Prelude.rnf logGroupName
+    Prelude.rnf logRoleArn `Prelude.seq`
+      Prelude.rnf logGroupName
 
 instance Data.ToQuery LoggingConfig where
   toQuery LoggingConfig' {..} =

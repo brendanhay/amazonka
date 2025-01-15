@@ -131,9 +131,9 @@ instance Prelude.Hashable SendTaskFailure where
 
 instance Prelude.NFData SendTaskFailure where
   rnf SendTaskFailure' {..} =
-    Prelude.rnf cause
-      `Prelude.seq` Prelude.rnf error
-      `Prelude.seq` Prelude.rnf taskToken
+    Prelude.rnf cause `Prelude.seq`
+      Prelude.rnf error `Prelude.seq`
+        Prelude.rnf taskToken
 
 instance Data.ToHeaders SendTaskFailure where
   toHeaders =

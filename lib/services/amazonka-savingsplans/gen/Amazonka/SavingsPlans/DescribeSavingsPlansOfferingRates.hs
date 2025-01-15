@@ -212,16 +212,16 @@ instance
     DescribeSavingsPlansOfferingRates
   where
   rnf DescribeSavingsPlansOfferingRates' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf operations
-      `Prelude.seq` Prelude.rnf products
-      `Prelude.seq` Prelude.rnf savingsPlanOfferingIds
-      `Prelude.seq` Prelude.rnf savingsPlanPaymentOptions
-      `Prelude.seq` Prelude.rnf savingsPlanTypes
-      `Prelude.seq` Prelude.rnf serviceCodes
-      `Prelude.seq` Prelude.rnf usageTypes
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf operations `Prelude.seq`
+            Prelude.rnf products `Prelude.seq`
+              Prelude.rnf savingsPlanOfferingIds `Prelude.seq`
+                Prelude.rnf savingsPlanPaymentOptions `Prelude.seq`
+                  Prelude.rnf savingsPlanTypes `Prelude.seq`
+                    Prelude.rnf serviceCodes `Prelude.seq`
+                      Prelude.rnf usageTypes
 
 instance
   Data.ToHeaders
@@ -330,6 +330,6 @@ instance
     DescribeSavingsPlansOfferingRatesResponse
   where
   rnf DescribeSavingsPlansOfferingRatesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf searchResults
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf searchResults `Prelude.seq`
+        Prelude.rnf httpStatus

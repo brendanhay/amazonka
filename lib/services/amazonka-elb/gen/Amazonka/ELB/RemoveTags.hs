@@ -110,8 +110,8 @@ instance Prelude.Hashable RemoveTags where
 
 instance Prelude.NFData RemoveTags where
   rnf RemoveTags' {..} =
-    Prelude.rnf loadBalancerNames
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf loadBalancerNames `Prelude.seq`
+      Prelude.rnf tags
 
 instance Data.ToHeaders RemoveTags where
   toHeaders = Prelude.const Prelude.mempty

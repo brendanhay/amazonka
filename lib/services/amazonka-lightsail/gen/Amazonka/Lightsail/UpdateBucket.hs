@@ -184,11 +184,11 @@ instance Prelude.Hashable UpdateBucket where
 
 instance Prelude.NFData UpdateBucket where
   rnf UpdateBucket' {..} =
-    Prelude.rnf accessLogConfig
-      `Prelude.seq` Prelude.rnf accessRules
-      `Prelude.seq` Prelude.rnf readonlyAccessAccounts
-      `Prelude.seq` Prelude.rnf versioning
-      `Prelude.seq` Prelude.rnf bucketName
+    Prelude.rnf accessLogConfig `Prelude.seq`
+      Prelude.rnf accessRules `Prelude.seq`
+        Prelude.rnf readonlyAccessAccounts `Prelude.seq`
+          Prelude.rnf versioning `Prelude.seq`
+            Prelude.rnf bucketName
 
 instance Data.ToHeaders UpdateBucket where
   toHeaders =
@@ -280,6 +280,6 @@ updateBucketResponse_httpStatus = Lens.lens (\UpdateBucketResponse' {httpStatus}
 
 instance Prelude.NFData UpdateBucketResponse where
   rnf UpdateBucketResponse' {..} =
-    Prelude.rnf bucket
-      `Prelude.seq` Prelude.rnf operations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf bucket `Prelude.seq`
+      Prelude.rnf operations `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -85,8 +85,8 @@ instance
     KinesisStreamingDestinationInput
   where
   rnf KinesisStreamingDestinationInput' {..} =
-    Prelude.rnf tableName
-      `Prelude.seq` Prelude.rnf streamArn
+    Prelude.rnf tableName `Prelude.seq`
+      Prelude.rnf streamArn
 
 instance Data.ToJSON KinesisStreamingDestinationInput where
   toJSON KinesisStreamingDestinationInput' {..} =

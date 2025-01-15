@@ -388,16 +388,16 @@ instance Prelude.Hashable CopyImage where
 
 instance Prelude.NFData CopyImage where
   rnf CopyImage' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf copyImageTags
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf destinationOutpostArn
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf encrypted
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf sourceImageId
-      `Prelude.seq` Prelude.rnf sourceRegion
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf copyImageTags `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf destinationOutpostArn `Prelude.seq`
+            Prelude.rnf dryRun `Prelude.seq`
+              Prelude.rnf encrypted `Prelude.seq`
+                Prelude.rnf kmsKeyId `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf sourceImageId `Prelude.seq`
+                      Prelude.rnf sourceRegion
 
 instance Data.ToHeaders CopyImage where
   toHeaders = Prelude.const Prelude.mempty
@@ -467,5 +467,5 @@ copyImageResponse_httpStatus = Lens.lens (\CopyImageResponse' {httpStatus} -> ht
 
 instance Prelude.NFData CopyImageResponse where
   rnf CopyImageResponse' {..} =
-    Prelude.rnf imageId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf imageId `Prelude.seq`
+      Prelude.rnf httpStatus

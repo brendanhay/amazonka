@@ -87,5 +87,5 @@ instance Prelude.Hashable ShardConfiguration where
 
 instance Prelude.NFData ShardConfiguration where
   rnf ShardConfiguration' {..} =
-    Prelude.rnf replicaCount
-      `Prelude.seq` Prelude.rnf slots
+    Prelude.rnf replicaCount `Prelude.seq`
+      Prelude.rnf slots

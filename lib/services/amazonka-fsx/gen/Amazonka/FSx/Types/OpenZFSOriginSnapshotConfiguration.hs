@@ -117,5 +117,5 @@ instance
     OpenZFSOriginSnapshotConfiguration
   where
   rnf OpenZFSOriginSnapshotConfiguration' {..} =
-    Prelude.rnf copyStrategy
-      `Prelude.seq` Prelude.rnf snapshotARN
+    Prelude.rnf copyStrategy `Prelude.seq`
+      Prelude.rnf snapshotARN

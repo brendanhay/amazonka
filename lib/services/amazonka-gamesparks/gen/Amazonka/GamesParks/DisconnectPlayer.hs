@@ -134,9 +134,9 @@ instance Prelude.Hashable DisconnectPlayer where
 
 instance Prelude.NFData DisconnectPlayer where
   rnf DisconnectPlayer' {..} =
-    Prelude.rnf gameName
-      `Prelude.seq` Prelude.rnf playerId
-      `Prelude.seq` Prelude.rnf stageName
+    Prelude.rnf gameName `Prelude.seq`
+      Prelude.rnf playerId `Prelude.seq`
+        Prelude.rnf stageName
 
 instance Data.ToHeaders DisconnectPlayer where
   toHeaders =
@@ -217,6 +217,6 @@ disconnectPlayerResponse_httpStatus = Lens.lens (\DisconnectPlayerResponse' {htt
 
 instance Prelude.NFData DisconnectPlayerResponse where
   rnf DisconnectPlayerResponse' {..} =
-    Prelude.rnf disconnectFailures
-      `Prelude.seq` Prelude.rnf disconnectSuccesses
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf disconnectFailures `Prelude.seq`
+      Prelude.rnf disconnectSuccesses `Prelude.seq`
+        Prelude.rnf httpStatus

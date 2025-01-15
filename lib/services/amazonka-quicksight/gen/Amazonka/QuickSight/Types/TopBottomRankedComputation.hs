@@ -148,12 +148,12 @@ instance Prelude.Hashable TopBottomRankedComputation where
 
 instance Prelude.NFData TopBottomRankedComputation where
   rnf TopBottomRankedComputation' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf resultSize
-      `Prelude.seq` Prelude.rnf value
-      `Prelude.seq` Prelude.rnf computationId
-      `Prelude.seq` Prelude.rnf category
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf resultSize `Prelude.seq`
+        Prelude.rnf value `Prelude.seq`
+          Prelude.rnf computationId `Prelude.seq`
+            Prelude.rnf category `Prelude.seq`
+              Prelude.rnf type'
 
 instance Data.ToJSON TopBottomRankedComputation where
   toJSON TopBottomRankedComputation' {..} =

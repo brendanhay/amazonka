@@ -81,5 +81,5 @@ instance Prelude.Hashable VpcSecurityGroupMembership where
 
 instance Prelude.NFData VpcSecurityGroupMembership where
   rnf VpcSecurityGroupMembership' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf vpcSecurityGroupId
+    Prelude.rnf status `Prelude.seq`
+      Prelude.rnf vpcSecurityGroupId

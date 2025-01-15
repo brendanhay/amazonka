@@ -170,11 +170,11 @@ instance Prelude.Hashable CreateChannelFlow where
 
 instance Prelude.NFData CreateChannelFlow where
   rnf CreateChannelFlow' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf appInstanceArn
-      `Prelude.seq` Prelude.rnf processors
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf clientRequestToken
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf appInstanceArn `Prelude.seq`
+        Prelude.rnf processors `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf clientRequestToken
 
 instance Data.ToHeaders CreateChannelFlow where
   toHeaders = Prelude.const Prelude.mempty
@@ -240,5 +240,5 @@ createChannelFlowResponse_httpStatus = Lens.lens (\CreateChannelFlowResponse' {h
 
 instance Prelude.NFData CreateChannelFlowResponse where
   rnf CreateChannelFlowResponse' {..} =
-    Prelude.rnf channelFlowArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf channelFlowArn `Prelude.seq`
+      Prelude.rnf httpStatus

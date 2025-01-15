@@ -119,7 +119,7 @@ instance Prelude.Hashable DatasetGroupSummary where
 
 instance Prelude.NFData DatasetGroupSummary where
   rnf DatasetGroupSummary' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf datasetGroupArn
-      `Prelude.seq` Prelude.rnf datasetGroupName
-      `Prelude.seq` Prelude.rnf lastModificationTime
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf datasetGroupArn `Prelude.seq`
+        Prelude.rnf datasetGroupName `Prelude.seq`
+          Prelude.rnf lastModificationTime

@@ -176,13 +176,13 @@ instance Prelude.Hashable ActiveViolation where
 
 instance Prelude.NFData ActiveViolation where
   rnf ActiveViolation' {..} =
-    Prelude.rnf behavior
-      `Prelude.seq` Prelude.rnf lastViolationTime
-      `Prelude.seq` Prelude.rnf lastViolationValue
-      `Prelude.seq` Prelude.rnf securityProfileName
-      `Prelude.seq` Prelude.rnf thingName
-      `Prelude.seq` Prelude.rnf verificationState
-      `Prelude.seq` Prelude.rnf verificationStateDescription
-      `Prelude.seq` Prelude.rnf violationEventAdditionalInfo
-      `Prelude.seq` Prelude.rnf violationId
-      `Prelude.seq` Prelude.rnf violationStartTime
+    Prelude.rnf behavior `Prelude.seq`
+      Prelude.rnf lastViolationTime `Prelude.seq`
+        Prelude.rnf lastViolationValue `Prelude.seq`
+          Prelude.rnf securityProfileName `Prelude.seq`
+            Prelude.rnf thingName `Prelude.seq`
+              Prelude.rnf verificationState `Prelude.seq`
+                Prelude.rnf verificationStateDescription `Prelude.seq`
+                  Prelude.rnf violationEventAdditionalInfo `Prelude.seq`
+                    Prelude.rnf violationId `Prelude.seq`
+                      Prelude.rnf violationStartTime

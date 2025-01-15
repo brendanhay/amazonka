@@ -173,11 +173,11 @@ instance Prelude.Hashable DBProxyTargetGroup where
 
 instance Prelude.NFData DBProxyTargetGroup where
   rnf DBProxyTargetGroup' {..} =
-    Prelude.rnf connectionPoolConfig
-      `Prelude.seq` Prelude.rnf createdDate
-      `Prelude.seq` Prelude.rnf dbProxyName
-      `Prelude.seq` Prelude.rnf isDefault
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf targetGroupArn
-      `Prelude.seq` Prelude.rnf targetGroupName
-      `Prelude.seq` Prelude.rnf updatedDate
+    Prelude.rnf connectionPoolConfig `Prelude.seq`
+      Prelude.rnf createdDate `Prelude.seq`
+        Prelude.rnf dbProxyName `Prelude.seq`
+          Prelude.rnf isDefault `Prelude.seq`
+            Prelude.rnf status `Prelude.seq`
+              Prelude.rnf targetGroupArn `Prelude.seq`
+                Prelude.rnf targetGroupName `Prelude.seq`
+                  Prelude.rnf updatedDate

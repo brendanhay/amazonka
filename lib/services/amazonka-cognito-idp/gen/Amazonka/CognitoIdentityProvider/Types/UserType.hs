@@ -189,10 +189,10 @@ instance Prelude.Hashable UserType where
 
 instance Prelude.NFData UserType where
   rnf UserType' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf mfaOptions
-      `Prelude.seq` Prelude.rnf userCreateDate
-      `Prelude.seq` Prelude.rnf userLastModifiedDate
-      `Prelude.seq` Prelude.rnf userStatus
-      `Prelude.seq` Prelude.rnf username
+    Prelude.rnf attributes `Prelude.seq`
+      Prelude.rnf enabled `Prelude.seq`
+        Prelude.rnf mfaOptions `Prelude.seq`
+          Prelude.rnf userCreateDate `Prelude.seq`
+            Prelude.rnf userLastModifiedDate `Prelude.seq`
+              Prelude.rnf userStatus `Prelude.seq`
+                Prelude.rnf username

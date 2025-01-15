@@ -175,12 +175,12 @@ instance Core.AWSPager ListServiceInstances where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listServiceInstances_nextToken
-          Lens..~ rs
-          Lens.^? listServiceInstancesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listServiceInstances_nextToken
+              Lens..~ rs
+              Lens.^? listServiceInstancesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListServiceInstances where
   type
@@ -212,12 +212,12 @@ instance Prelude.Hashable ListServiceInstances where
 
 instance Prelude.NFData ListServiceInstances where
   rnf ListServiceInstances' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf serviceName
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf sortOrder
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf serviceName `Prelude.seq`
+            Prelude.rnf sortBy `Prelude.seq`
+              Prelude.rnf sortOrder
 
 instance Data.ToHeaders ListServiceInstances where
   toHeaders =
@@ -309,6 +309,6 @@ listServiceInstancesResponse_serviceInstances = Lens.lens (\ListServiceInstances
 
 instance Prelude.NFData ListServiceInstancesResponse where
   rnf ListServiceInstancesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf serviceInstances
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf serviceInstances

@@ -100,9 +100,9 @@ instance Prelude.Hashable DetectionFilter where
 
 instance Prelude.NFData DetectionFilter where
   rnf DetectionFilter' {..} =
-    Prelude.rnf minBoundingBoxHeight
-      `Prelude.seq` Prelude.rnf minBoundingBoxWidth
-      `Prelude.seq` Prelude.rnf minConfidence
+    Prelude.rnf minBoundingBoxHeight `Prelude.seq`
+      Prelude.rnf minBoundingBoxWidth `Prelude.seq`
+        Prelude.rnf minConfidence
 
 instance Data.ToJSON DetectionFilter where
   toJSON DetectionFilter' {..} =

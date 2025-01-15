@@ -102,9 +102,9 @@ instance Prelude.Hashable MonitoringBaselineConfig where
 
 instance Prelude.NFData MonitoringBaselineConfig where
   rnf MonitoringBaselineConfig' {..} =
-    Prelude.rnf baseliningJobName
-      `Prelude.seq` Prelude.rnf constraintsResource
-      `Prelude.seq` Prelude.rnf statisticsResource
+    Prelude.rnf baseliningJobName `Prelude.seq`
+      Prelude.rnf constraintsResource `Prelude.seq`
+        Prelude.rnf statisticsResource
 
 instance Data.ToJSON MonitoringBaselineConfig where
   toJSON MonitoringBaselineConfig' {..} =

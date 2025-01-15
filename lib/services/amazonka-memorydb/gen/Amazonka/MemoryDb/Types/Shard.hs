@@ -119,8 +119,8 @@ instance Prelude.Hashable Shard where
 
 instance Prelude.NFData Shard where
   rnf Shard' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf nodes
-      `Prelude.seq` Prelude.rnf numberOfNodes
-      `Prelude.seq` Prelude.rnf slots
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf nodes `Prelude.seq`
+        Prelude.rnf numberOfNodes `Prelude.seq`
+          Prelude.rnf slots `Prelude.seq`
+            Prelude.rnf status

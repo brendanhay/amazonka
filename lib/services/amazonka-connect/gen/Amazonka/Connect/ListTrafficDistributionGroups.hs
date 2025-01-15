@@ -122,12 +122,12 @@ instance Core.AWSPager ListTrafficDistributionGroups where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listTrafficDistributionGroups_nextToken
-          Lens..~ rs
-          Lens.^? listTrafficDistributionGroupsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listTrafficDistributionGroups_nextToken
+              Lens..~ rs
+              Lens.^? listTrafficDistributionGroupsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -162,9 +162,9 @@ instance
 
 instance Prelude.NFData ListTrafficDistributionGroups where
   rnf ListTrafficDistributionGroups' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf instanceId `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListTrafficDistributionGroups where
   toHeaders =
@@ -245,6 +245,6 @@ instance
     ListTrafficDistributionGroupsResponse
   where
   rnf ListTrafficDistributionGroupsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf trafficDistributionGroupSummaryList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf trafficDistributionGroupSummaryList `Prelude.seq`
+        Prelude.rnf httpStatus

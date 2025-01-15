@@ -184,9 +184,9 @@ instance Prelude.Hashable CreateStream where
 
 instance Prelude.NFData CreateStream where
   rnf CreateStream' {..} =
-    Prelude.rnf shardCount
-      `Prelude.seq` Prelude.rnf streamModeDetails
-      `Prelude.seq` Prelude.rnf streamName
+    Prelude.rnf shardCount `Prelude.seq`
+      Prelude.rnf streamModeDetails `Prelude.seq`
+        Prelude.rnf streamName
 
 instance Data.ToHeaders CreateStream where
   toHeaders =

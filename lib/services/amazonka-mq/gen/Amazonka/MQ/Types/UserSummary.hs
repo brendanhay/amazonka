@@ -89,5 +89,5 @@ instance Prelude.Hashable UserSummary where
 
 instance Prelude.NFData UserSummary where
   rnf UserSummary' {..} =
-    Prelude.rnf pendingChange
-      `Prelude.seq` Prelude.rnf username
+    Prelude.rnf pendingChange `Prelude.seq`
+      Prelude.rnf username

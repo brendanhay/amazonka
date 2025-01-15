@@ -111,8 +111,8 @@ instance Prelude.Hashable DescribeFHIRImportJob where
 
 instance Prelude.NFData DescribeFHIRImportJob where
   rnf DescribeFHIRImportJob' {..} =
-    Prelude.rnf datastoreId
-      `Prelude.seq` Prelude.rnf jobId
+    Prelude.rnf datastoreId `Prelude.seq`
+      Prelude.rnf jobId
 
 instance Data.ToHeaders DescribeFHIRImportJob where
   toHeaders =
@@ -192,5 +192,5 @@ describeFHIRImportJobResponse_importJobProperties = Lens.lens (\DescribeFHIRImpo
 
 instance Prelude.NFData DescribeFHIRImportJobResponse where
   rnf DescribeFHIRImportJobResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf importJobProperties
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf importJobProperties

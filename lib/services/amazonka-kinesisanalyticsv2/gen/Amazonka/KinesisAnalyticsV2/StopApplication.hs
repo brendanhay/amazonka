@@ -156,8 +156,8 @@ instance Prelude.Hashable StopApplication where
 
 instance Prelude.NFData StopApplication where
   rnf StopApplication' {..} =
-    Prelude.rnf force
-      `Prelude.seq` Prelude.rnf applicationName
+    Prelude.rnf force `Prelude.seq`
+      Prelude.rnf applicationName
 
 instance Data.ToHeaders StopApplication where
   toHeaders =

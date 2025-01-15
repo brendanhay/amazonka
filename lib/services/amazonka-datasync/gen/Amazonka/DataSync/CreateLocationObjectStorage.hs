@@ -270,16 +270,16 @@ instance Prelude.Hashable CreateLocationObjectStorage where
 
 instance Prelude.NFData CreateLocationObjectStorage where
   rnf CreateLocationObjectStorage' {..} =
-    Prelude.rnf accessKey
-      `Prelude.seq` Prelude.rnf secretKey
-      `Prelude.seq` Prelude.rnf serverCertificate
-      `Prelude.seq` Prelude.rnf serverPort
-      `Prelude.seq` Prelude.rnf serverProtocol
-      `Prelude.seq` Prelude.rnf subdirectory
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf serverHostname
-      `Prelude.seq` Prelude.rnf bucketName
-      `Prelude.seq` Prelude.rnf agentArns
+    Prelude.rnf accessKey `Prelude.seq`
+      Prelude.rnf secretKey `Prelude.seq`
+        Prelude.rnf serverCertificate `Prelude.seq`
+          Prelude.rnf serverPort `Prelude.seq`
+            Prelude.rnf serverProtocol `Prelude.seq`
+              Prelude.rnf subdirectory `Prelude.seq`
+                Prelude.rnf tags `Prelude.seq`
+                  Prelude.rnf serverHostname `Prelude.seq`
+                    Prelude.rnf bucketName `Prelude.seq`
+                      Prelude.rnf agentArns
 
 instance Data.ToHeaders CreateLocationObjectStorage where
   toHeaders =
@@ -368,5 +368,5 @@ instance
     CreateLocationObjectStorageResponse
   where
   rnf CreateLocationObjectStorageResponse' {..} =
-    Prelude.rnf locationArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf locationArn `Prelude.seq`
+      Prelude.rnf httpStatus

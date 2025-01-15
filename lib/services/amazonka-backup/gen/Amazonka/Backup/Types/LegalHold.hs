@@ -152,10 +152,10 @@ instance Prelude.Hashable LegalHold where
 
 instance Prelude.NFData LegalHold where
   rnf LegalHold' {..} =
-    Prelude.rnf cancellationDate
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf legalHoldArn
-      `Prelude.seq` Prelude.rnf legalHoldId
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf title
+    Prelude.rnf cancellationDate `Prelude.seq`
+      Prelude.rnf creationDate `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf legalHoldArn `Prelude.seq`
+            Prelude.rnf legalHoldId `Prelude.seq`
+              Prelude.rnf status `Prelude.seq`
+                Prelude.rnf title

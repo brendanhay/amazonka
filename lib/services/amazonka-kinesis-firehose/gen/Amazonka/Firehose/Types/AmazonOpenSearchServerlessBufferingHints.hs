@@ -117,8 +117,8 @@ instance
     AmazonOpenSearchServerlessBufferingHints
   where
   rnf AmazonOpenSearchServerlessBufferingHints' {..} =
-    Prelude.rnf intervalInSeconds
-      `Prelude.seq` Prelude.rnf sizeInMBs
+    Prelude.rnf intervalInSeconds `Prelude.seq`
+      Prelude.rnf sizeInMBs
 
 instance
   Data.ToJSON

@@ -180,6 +180,6 @@ getConnectionStatusResponse_httpStatus = Lens.lens (\GetConnectionStatusResponse
 
 instance Prelude.NFData GetConnectionStatusResponse where
   rnf GetConnectionStatusResponse' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf target
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf status `Prelude.seq`
+      Prelude.rnf target `Prelude.seq`
+        Prelude.rnf httpStatus

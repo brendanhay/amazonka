@@ -109,10 +109,10 @@ instance Prelude.Hashable RedshiftParameters where
 
 instance Prelude.NFData RedshiftParameters where
   rnf RedshiftParameters' {..} =
-    Prelude.rnf clusterId
-      `Prelude.seq` Prelude.rnf host
-      `Prelude.seq` Prelude.rnf port
-      `Prelude.seq` Prelude.rnf database
+    Prelude.rnf clusterId `Prelude.seq`
+      Prelude.rnf host `Prelude.seq`
+        Prelude.rnf port `Prelude.seq`
+          Prelude.rnf database
 
 instance Data.ToJSON RedshiftParameters where
   toJSON RedshiftParameters' {..} =

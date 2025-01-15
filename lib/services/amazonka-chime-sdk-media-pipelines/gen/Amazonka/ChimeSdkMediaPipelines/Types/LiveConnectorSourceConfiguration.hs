@@ -103,8 +103,8 @@ instance
     LiveConnectorSourceConfiguration
   where
   rnf LiveConnectorSourceConfiguration' {..} =
-    Prelude.rnf sourceType
-      `Prelude.seq` Prelude.rnf chimeSdkMeetingLiveConnectorConfiguration
+    Prelude.rnf sourceType `Prelude.seq`
+      Prelude.rnf chimeSdkMeetingLiveConnectorConfiguration
 
 instance Data.ToJSON LiveConnectorSourceConfiguration where
   toJSON LiveConnectorSourceConfiguration' {..} =

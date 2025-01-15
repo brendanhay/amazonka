@@ -201,12 +201,12 @@ instance Prelude.Hashable ModifySpotFleetRequest where
 
 instance Prelude.NFData ModifySpotFleetRequest where
   rnf ModifySpotFleetRequest' {..} =
-    Prelude.rnf context
-      `Prelude.seq` Prelude.rnf excessCapacityTerminationPolicy
-      `Prelude.seq` Prelude.rnf launchTemplateConfigs
-      `Prelude.seq` Prelude.rnf onDemandTargetCapacity
-      `Prelude.seq` Prelude.rnf targetCapacity
-      `Prelude.seq` Prelude.rnf spotFleetRequestId
+    Prelude.rnf context `Prelude.seq`
+      Prelude.rnf excessCapacityTerminationPolicy `Prelude.seq`
+        Prelude.rnf launchTemplateConfigs `Prelude.seq`
+          Prelude.rnf onDemandTargetCapacity `Prelude.seq`
+            Prelude.rnf targetCapacity `Prelude.seq`
+              Prelude.rnf spotFleetRequestId
 
 instance Data.ToHeaders ModifySpotFleetRequest where
   toHeaders = Prelude.const Prelude.mempty
@@ -286,5 +286,5 @@ instance
     ModifySpotFleetRequestResponse
   where
   rnf ModifySpotFleetRequestResponse' {..} =
-    Prelude.rnf return'
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf return' `Prelude.seq`
+      Prelude.rnf httpStatus

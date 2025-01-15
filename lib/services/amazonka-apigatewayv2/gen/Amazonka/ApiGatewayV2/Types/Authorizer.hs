@@ -331,14 +331,14 @@ instance Prelude.Hashable Authorizer where
 
 instance Prelude.NFData Authorizer where
   rnf Authorizer' {..} =
-    Prelude.rnf authorizerCredentialsArn
-      `Prelude.seq` Prelude.rnf authorizerId
-      `Prelude.seq` Prelude.rnf authorizerPayloadFormatVersion
-      `Prelude.seq` Prelude.rnf authorizerResultTtlInSeconds
-      `Prelude.seq` Prelude.rnf authorizerType
-      `Prelude.seq` Prelude.rnf authorizerUri
-      `Prelude.seq` Prelude.rnf enableSimpleResponses
-      `Prelude.seq` Prelude.rnf identitySource
-      `Prelude.seq` Prelude.rnf identityValidationExpression
-      `Prelude.seq` Prelude.rnf jwtConfiguration
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf authorizerCredentialsArn `Prelude.seq`
+      Prelude.rnf authorizerId `Prelude.seq`
+        Prelude.rnf authorizerPayloadFormatVersion `Prelude.seq`
+          Prelude.rnf authorizerResultTtlInSeconds `Prelude.seq`
+            Prelude.rnf authorizerType `Prelude.seq`
+              Prelude.rnf authorizerUri `Prelude.seq`
+                Prelude.rnf enableSimpleResponses `Prelude.seq`
+                  Prelude.rnf identitySource `Prelude.seq`
+                    Prelude.rnf identityValidationExpression `Prelude.seq`
+                      Prelude.rnf jwtConfiguration `Prelude.seq`
+                        Prelude.rnf name

@@ -210,15 +210,15 @@ instance Prelude.Hashable GetPropertyValue where
 
 instance Prelude.NFData GetPropertyValue where
   rnf GetPropertyValue' {..} =
-    Prelude.rnf componentName
-      `Prelude.seq` Prelude.rnf componentTypeId
-      `Prelude.seq` Prelude.rnf entityId
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf propertyGroupName
-      `Prelude.seq` Prelude.rnf tabularConditions
-      `Prelude.seq` Prelude.rnf selectedProperties
-      `Prelude.seq` Prelude.rnf workspaceId
+    Prelude.rnf componentName `Prelude.seq`
+      Prelude.rnf componentTypeId `Prelude.seq`
+        Prelude.rnf entityId `Prelude.seq`
+          Prelude.rnf maxResults `Prelude.seq`
+            Prelude.rnf nextToken `Prelude.seq`
+              Prelude.rnf propertyGroupName `Prelude.seq`
+                Prelude.rnf tabularConditions `Prelude.seq`
+                  Prelude.rnf selectedProperties `Prelude.seq`
+                    Prelude.rnf workspaceId
 
 instance Data.ToHeaders GetPropertyValue where
   toHeaders =
@@ -326,7 +326,7 @@ getPropertyValueResponse_httpStatus = Lens.lens (\GetPropertyValueResponse' {htt
 
 instance Prelude.NFData GetPropertyValueResponse where
   rnf GetPropertyValueResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf propertyValues
-      `Prelude.seq` Prelude.rnf tabularPropertyValues
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf propertyValues `Prelude.seq`
+        Prelude.rnf tabularPropertyValues `Prelude.seq`
+          Prelude.rnf httpStatus

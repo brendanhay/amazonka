@@ -118,7 +118,7 @@ instance Prelude.Hashable RuleResult where
 
 instance Prelude.NFData RuleResult where
   rnf RuleResult' {..} =
-    Prelude.rnf messages
-      `Prelude.seq` Prelude.rnf readiness
-      `Prelude.seq` Prelude.rnf ruleId
-      `Prelude.seq` Prelude.rnf lastCheckedTimestamp
+    Prelude.rnf messages `Prelude.seq`
+      Prelude.rnf readiness `Prelude.seq`
+        Prelude.rnf ruleId `Prelude.seq`
+          Prelude.rnf lastCheckedTimestamp

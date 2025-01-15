@@ -143,10 +143,10 @@ instance Prelude.Hashable UpdateClusterKafkaVersion where
 
 instance Prelude.NFData UpdateClusterKafkaVersion where
   rnf UpdateClusterKafkaVersion' {..} =
-    Prelude.rnf configurationInfo
-      `Prelude.seq` Prelude.rnf clusterArn
-      `Prelude.seq` Prelude.rnf targetKafkaVersion
-      `Prelude.seq` Prelude.rnf currentVersion
+    Prelude.rnf configurationInfo `Prelude.seq`
+      Prelude.rnf clusterArn `Prelude.seq`
+        Prelude.rnf targetKafkaVersion `Prelude.seq`
+          Prelude.rnf currentVersion
 
 instance Data.ToHeaders UpdateClusterKafkaVersion where
   toHeaders =
@@ -233,6 +233,6 @@ instance
     UpdateClusterKafkaVersionResponse
   where
   rnf UpdateClusterKafkaVersionResponse' {..} =
-    Prelude.rnf clusterArn
-      `Prelude.seq` Prelude.rnf clusterOperationArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf clusterArn `Prelude.seq`
+      Prelude.rnf clusterOperationArn `Prelude.seq`
+        Prelude.rnf httpStatus

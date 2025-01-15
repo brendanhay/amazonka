@@ -127,8 +127,8 @@ instance Prelude.Hashable UntagSAMLProvider where
 
 instance Prelude.NFData UntagSAMLProvider where
   rnf UntagSAMLProvider' {..} =
-    Prelude.rnf sAMLProviderArn
-      `Prelude.seq` Prelude.rnf tagKeys
+    Prelude.rnf sAMLProviderArn `Prelude.seq`
+      Prelude.rnf tagKeys
 
 instance Data.ToHeaders UntagSAMLProvider where
   toHeaders = Prelude.const Prelude.mempty

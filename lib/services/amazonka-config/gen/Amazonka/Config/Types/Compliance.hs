@@ -136,5 +136,5 @@ instance Prelude.Hashable Compliance where
 
 instance Prelude.NFData Compliance where
   rnf Compliance' {..} =
-    Prelude.rnf complianceContributorCount
-      `Prelude.seq` Prelude.rnf complianceType
+    Prelude.rnf complianceContributorCount `Prelude.seq`
+      Prelude.rnf complianceType

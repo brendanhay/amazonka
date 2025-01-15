@@ -189,12 +189,12 @@ instance Prelude.Hashable CreateVehicle where
 
 instance Prelude.NFData CreateVehicle where
   rnf CreateVehicle' {..} =
-    Prelude.rnf associationBehavior
-      `Prelude.seq` Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf vehicleName
-      `Prelude.seq` Prelude.rnf modelManifestArn
-      `Prelude.seq` Prelude.rnf decoderManifestArn
+    Prelude.rnf associationBehavior `Prelude.seq`
+      Prelude.rnf attributes `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf vehicleName `Prelude.seq`
+            Prelude.rnf modelManifestArn `Prelude.seq`
+              Prelude.rnf decoderManifestArn
 
 instance Data.ToHeaders CreateVehicle where
   toHeaders =
@@ -291,7 +291,7 @@ createVehicleResponse_httpStatus = Lens.lens (\CreateVehicleResponse' {httpStatu
 
 instance Prelude.NFData CreateVehicleResponse where
   rnf CreateVehicleResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf thingArn
-      `Prelude.seq` Prelude.rnf vehicleName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf thingArn `Prelude.seq`
+        Prelude.rnf vehicleName `Prelude.seq`
+          Prelude.rnf httpStatus

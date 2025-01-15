@@ -198,11 +198,11 @@ instance Prelude.Hashable VirtualServiceRef where
 
 instance Prelude.NFData VirtualServiceRef where
   rnf VirtualServiceRef' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf meshName
-      `Prelude.seq` Prelude.rnf meshOwner
-      `Prelude.seq` Prelude.rnf resourceOwner
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf virtualServiceName
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf createdAt `Prelude.seq`
+        Prelude.rnf lastUpdatedAt `Prelude.seq`
+          Prelude.rnf meshName `Prelude.seq`
+            Prelude.rnf meshOwner `Prelude.seq`
+              Prelude.rnf resourceOwner `Prelude.seq`
+                Prelude.rnf version `Prelude.seq`
+                  Prelude.rnf virtualServiceName

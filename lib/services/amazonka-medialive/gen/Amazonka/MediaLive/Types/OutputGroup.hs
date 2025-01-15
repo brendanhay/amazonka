@@ -95,9 +95,9 @@ instance Prelude.Hashable OutputGroup where
 
 instance Prelude.NFData OutputGroup where
   rnf OutputGroup' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf outputs
-      `Prelude.seq` Prelude.rnf outputGroupSettings
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf outputs `Prelude.seq`
+        Prelude.rnf outputGroupSettings
 
 instance Data.ToJSON OutputGroup where
   toJSON OutputGroup' {..} =

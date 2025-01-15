@@ -137,9 +137,9 @@ instance Prelude.Hashable CreateLensShare where
 
 instance Prelude.NFData CreateLensShare where
   rnf CreateLensShare' {..} =
-    Prelude.rnf lensAlias
-      `Prelude.seq` Prelude.rnf sharedWith
-      `Prelude.seq` Prelude.rnf clientRequestToken
+    Prelude.rnf lensAlias `Prelude.seq`
+      Prelude.rnf sharedWith `Prelude.seq`
+        Prelude.rnf clientRequestToken
 
 instance Data.ToHeaders CreateLensShare where
   toHeaders =
@@ -209,5 +209,5 @@ createLensShareResponse_httpStatus = Lens.lens (\CreateLensShareResponse' {httpS
 
 instance Prelude.NFData CreateLensShareResponse where
   rnf CreateLensShareResponse' {..} =
-    Prelude.rnf shareId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf shareId `Prelude.seq`
+      Prelude.rnf httpStatus

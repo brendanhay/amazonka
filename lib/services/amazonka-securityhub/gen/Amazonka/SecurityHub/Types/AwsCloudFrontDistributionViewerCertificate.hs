@@ -183,13 +183,13 @@ instance
     AwsCloudFrontDistributionViewerCertificate
   where
   rnf AwsCloudFrontDistributionViewerCertificate' {..} =
-    Prelude.rnf acmCertificateArn
-      `Prelude.seq` Prelude.rnf certificate
-      `Prelude.seq` Prelude.rnf certificateSource
-      `Prelude.seq` Prelude.rnf cloudFrontDefaultCertificate
-      `Prelude.seq` Prelude.rnf iamCertificateId
-      `Prelude.seq` Prelude.rnf minimumProtocolVersion
-      `Prelude.seq` Prelude.rnf sslSupportMethod
+    Prelude.rnf acmCertificateArn `Prelude.seq`
+      Prelude.rnf certificate `Prelude.seq`
+        Prelude.rnf certificateSource `Prelude.seq`
+          Prelude.rnf cloudFrontDefaultCertificate `Prelude.seq`
+            Prelude.rnf iamCertificateId `Prelude.seq`
+              Prelude.rnf minimumProtocolVersion `Prelude.seq`
+                Prelude.rnf sslSupportMethod
 
 instance
   Data.ToJSON

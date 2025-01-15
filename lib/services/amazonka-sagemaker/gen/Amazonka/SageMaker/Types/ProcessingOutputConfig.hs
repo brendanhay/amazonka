@@ -93,8 +93,8 @@ instance Prelude.Hashable ProcessingOutputConfig where
 
 instance Prelude.NFData ProcessingOutputConfig where
   rnf ProcessingOutputConfig' {..} =
-    Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf outputs
+    Prelude.rnf kmsKeyId `Prelude.seq`
+      Prelude.rnf outputs
 
 instance Data.ToJSON ProcessingOutputConfig where
   toJSON ProcessingOutputConfig' {..} =

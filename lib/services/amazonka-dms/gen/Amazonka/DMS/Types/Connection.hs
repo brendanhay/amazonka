@@ -162,9 +162,9 @@ instance Prelude.Hashable Connection where
 
 instance Prelude.NFData Connection where
   rnf Connection' {..} =
-    Prelude.rnf endpointArn
-      `Prelude.seq` Prelude.rnf endpointIdentifier
-      `Prelude.seq` Prelude.rnf lastFailureMessage
-      `Prelude.seq` Prelude.rnf replicationInstanceArn
-      `Prelude.seq` Prelude.rnf replicationInstanceIdentifier
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf endpointArn `Prelude.seq`
+      Prelude.rnf endpointIdentifier `Prelude.seq`
+        Prelude.rnf lastFailureMessage `Prelude.seq`
+          Prelude.rnf replicationInstanceArn `Prelude.seq`
+            Prelude.rnf replicationInstanceIdentifier `Prelude.seq`
+              Prelude.rnf status

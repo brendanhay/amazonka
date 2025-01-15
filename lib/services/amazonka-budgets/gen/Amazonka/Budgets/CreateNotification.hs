@@ -153,10 +153,10 @@ instance Prelude.Hashable CreateNotification where
 
 instance Prelude.NFData CreateNotification where
   rnf CreateNotification' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf budgetName
-      `Prelude.seq` Prelude.rnf notification
-      `Prelude.seq` Prelude.rnf subscribers
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf budgetName `Prelude.seq`
+        Prelude.rnf notification `Prelude.seq`
+          Prelude.rnf subscribers
 
 instance Data.ToHeaders CreateNotification where
   toHeaders =

@@ -142,10 +142,10 @@ instance Prelude.Hashable UpdateInstanceStorageConfig where
 
 instance Prelude.NFData UpdateInstanceStorageConfig where
   rnf UpdateInstanceStorageConfig' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf associationId
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf storageConfig
+    Prelude.rnf instanceId `Prelude.seq`
+      Prelude.rnf associationId `Prelude.seq`
+        Prelude.rnf resourceType `Prelude.seq`
+          Prelude.rnf storageConfig
 
 instance Data.ToHeaders UpdateInstanceStorageConfig where
   toHeaders =

@@ -93,6 +93,6 @@ instance Prelude.Hashable SourceCloudProperties where
 
 instance Prelude.NFData SourceCloudProperties where
   rnf SourceCloudProperties' {..} =
-    Prelude.rnf originAccountID
-      `Prelude.seq` Prelude.rnf originAvailabilityZone
-      `Prelude.seq` Prelude.rnf originRegion
+    Prelude.rnf originAccountID `Prelude.seq`
+      Prelude.rnf originAvailabilityZone `Prelude.seq`
+        Prelude.rnf originRegion

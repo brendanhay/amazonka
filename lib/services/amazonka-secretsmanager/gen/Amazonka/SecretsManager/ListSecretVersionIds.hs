@@ -178,12 +178,12 @@ instance Core.AWSPager ListSecretVersionIds where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listSecretVersionIds_nextToken
-          Lens..~ rs
-          Lens.^? listSecretVersionIdsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listSecretVersionIds_nextToken
+              Lens..~ rs
+              Lens.^? listSecretVersionIdsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSecretVersionIds where
   type
@@ -212,10 +212,10 @@ instance Prelude.Hashable ListSecretVersionIds where
 
 instance Prelude.NFData ListSecretVersionIds where
   rnf ListSecretVersionIds' {..} =
-    Prelude.rnf includeDeprecated
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf secretId
+    Prelude.rnf includeDeprecated `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf secretId
 
 instance Data.ToHeaders ListSecretVersionIds where
   toHeaders =
@@ -330,8 +330,8 @@ listSecretVersionIdsResponse_httpStatus = Lens.lens (\ListSecretVersionIdsRespon
 
 instance Prelude.NFData ListSecretVersionIdsResponse where
   rnf ListSecretVersionIdsResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf versions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf versions `Prelude.seq`
+            Prelude.rnf httpStatus

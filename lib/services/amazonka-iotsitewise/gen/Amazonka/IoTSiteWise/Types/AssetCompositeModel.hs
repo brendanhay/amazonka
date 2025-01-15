@@ -122,8 +122,8 @@ instance Prelude.Hashable AssetCompositeModel where
 
 instance Prelude.NFData AssetCompositeModel where
   rnf AssetCompositeModel' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf properties
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf type' `Prelude.seq`
+            Prelude.rnf properties

@@ -105,9 +105,9 @@ instance Prelude.Hashable S3ReferenceDataSource where
 
 instance Prelude.NFData S3ReferenceDataSource where
   rnf S3ReferenceDataSource' {..} =
-    Prelude.rnf bucketARN
-      `Prelude.seq` Prelude.rnf fileKey
-      `Prelude.seq` Prelude.rnf referenceRoleARN
+    Prelude.rnf bucketARN `Prelude.seq`
+      Prelude.rnf fileKey `Prelude.seq`
+        Prelude.rnf referenceRoleARN
 
 instance Data.ToJSON S3ReferenceDataSource where
   toJSON S3ReferenceDataSource' {..} =

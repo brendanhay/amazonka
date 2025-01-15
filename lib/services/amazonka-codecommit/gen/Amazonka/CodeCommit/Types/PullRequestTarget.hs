@@ -164,10 +164,10 @@ instance Prelude.Hashable PullRequestTarget where
 
 instance Prelude.NFData PullRequestTarget where
   rnf PullRequestTarget' {..} =
-    Prelude.rnf destinationCommit
-      `Prelude.seq` Prelude.rnf destinationReference
-      `Prelude.seq` Prelude.rnf mergeBase
-      `Prelude.seq` Prelude.rnf mergeMetadata
-      `Prelude.seq` Prelude.rnf repositoryName
-      `Prelude.seq` Prelude.rnf sourceCommit
-      `Prelude.seq` Prelude.rnf sourceReference
+    Prelude.rnf destinationCommit `Prelude.seq`
+      Prelude.rnf destinationReference `Prelude.seq`
+        Prelude.rnf mergeBase `Prelude.seq`
+          Prelude.rnf mergeMetadata `Prelude.seq`
+            Prelude.rnf repositoryName `Prelude.seq`
+              Prelude.rnf sourceCommit `Prelude.seq`
+                Prelude.rnf sourceReference

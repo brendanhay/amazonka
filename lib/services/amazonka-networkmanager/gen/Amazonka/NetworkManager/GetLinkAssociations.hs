@@ -135,12 +135,12 @@ instance Core.AWSPager GetLinkAssociations where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getLinkAssociations_nextToken
-          Lens..~ rs
-          Lens.^? getLinkAssociationsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getLinkAssociations_nextToken
+              Lens..~ rs
+              Lens.^? getLinkAssociationsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetLinkAssociations where
   type
@@ -171,11 +171,11 @@ instance Prelude.Hashable GetLinkAssociations where
 
 instance Prelude.NFData GetLinkAssociations where
   rnf GetLinkAssociations' {..} =
-    Prelude.rnf deviceId
-      `Prelude.seq` Prelude.rnf linkId
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf globalNetworkId
+    Prelude.rnf deviceId `Prelude.seq`
+      Prelude.rnf linkId `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf globalNetworkId
 
 instance Data.ToHeaders GetLinkAssociations where
   toHeaders =
@@ -255,6 +255,6 @@ getLinkAssociationsResponse_httpStatus = Lens.lens (\GetLinkAssociationsResponse
 
 instance Prelude.NFData GetLinkAssociationsResponse where
   rnf GetLinkAssociationsResponse' {..} =
-    Prelude.rnf linkAssociations
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf linkAssociations `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

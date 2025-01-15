@@ -89,5 +89,5 @@ instance
 
 instance Prelude.NFData DatasourcePackageIngestDetail where
   rnf DatasourcePackageIngestDetail' {..} =
-    Prelude.rnf datasourcePackageIngestState
-      `Prelude.seq` Prelude.rnf lastIngestStateChange
+    Prelude.rnf datasourcePackageIngestState `Prelude.seq`
+      Prelude.rnf lastIngestStateChange

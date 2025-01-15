@@ -179,5 +179,5 @@ getDeploymentConfigResponse_httpStatus = Lens.lens (\GetDeploymentConfigResponse
 
 instance Prelude.NFData GetDeploymentConfigResponse where
   rnf GetDeploymentConfigResponse' {..} =
-    Prelude.rnf deploymentConfigInfo
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf deploymentConfigInfo `Prelude.seq`
+      Prelude.rnf httpStatus

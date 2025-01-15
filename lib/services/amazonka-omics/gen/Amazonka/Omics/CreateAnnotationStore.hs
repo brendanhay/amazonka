@@ -176,13 +176,13 @@ instance Prelude.Hashable CreateAnnotationStore where
 
 instance Prelude.NFData CreateAnnotationStore where
   rnf CreateAnnotationStore' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf reference
-      `Prelude.seq` Prelude.rnf sseConfig
-      `Prelude.seq` Prelude.rnf storeOptions
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf storeFormat
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf reference `Prelude.seq`
+          Prelude.rnf sseConfig `Prelude.seq`
+            Prelude.rnf storeOptions `Prelude.seq`
+              Prelude.rnf tags `Prelude.seq`
+                Prelude.rnf storeFormat
 
 instance Data.ToHeaders CreateAnnotationStore where
   toHeaders =
@@ -324,11 +324,11 @@ createAnnotationStoreResponse_status = Lens.lens (\CreateAnnotationStoreResponse
 
 instance Prelude.NFData CreateAnnotationStoreResponse where
   rnf CreateAnnotationStoreResponse' {..} =
-    Prelude.rnf reference
-      `Prelude.seq` Prelude.rnf storeFormat
-      `Prelude.seq` Prelude.rnf storeOptions
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf reference `Prelude.seq`
+      Prelude.rnf storeFormat `Prelude.seq`
+        Prelude.rnf storeOptions `Prelude.seq`
+          Prelude.rnf httpStatus `Prelude.seq`
+            Prelude.rnf creationTime `Prelude.seq`
+              Prelude.rnf id `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf status

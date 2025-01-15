@@ -106,8 +106,8 @@ instance Prelude.Hashable StopSession where
 
 instance Prelude.NFData StopSession where
   rnf StopSession' {..} =
-    Prelude.rnf requestOrigin
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf requestOrigin `Prelude.seq`
+      Prelude.rnf id
 
 instance Data.ToHeaders StopSession where
   toHeaders =

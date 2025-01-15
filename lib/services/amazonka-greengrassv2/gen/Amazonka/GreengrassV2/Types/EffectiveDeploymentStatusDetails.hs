@@ -112,5 +112,5 @@ instance
     EffectiveDeploymentStatusDetails
   where
   rnf EffectiveDeploymentStatusDetails' {..} =
-    Prelude.rnf errorStack
-      `Prelude.seq` Prelude.rnf errorTypes
+    Prelude.rnf errorStack `Prelude.seq`
+      Prelude.rnf errorTypes

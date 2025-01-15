@@ -172,5 +172,5 @@ createProjectResponse_httpStatus = Lens.lens (\CreateProjectResponse' {httpStatu
 
 instance Prelude.NFData CreateProjectResponse where
   rnf CreateProjectResponse' {..} =
-    Prelude.rnf projectArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf projectArn `Prelude.seq`
+      Prelude.rnf httpStatus

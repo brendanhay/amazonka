@@ -201,9 +201,9 @@ instance Prelude.Hashable EbsSnapshotConfiguration where
 
 instance Prelude.NFData EbsSnapshotConfiguration where
   rnf EbsSnapshotConfiguration' {..} =
-    Prelude.rnf groups
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf userIds
+    Prelude.rnf groups `Prelude.seq`
+      Prelude.rnf kmsKeyId `Prelude.seq`
+        Prelude.rnf userIds
 
 instance Data.ToJSON EbsSnapshotConfiguration where
   toJSON EbsSnapshotConfiguration' {..} =

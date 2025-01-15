@@ -134,10 +134,10 @@ instance Prelude.Hashable DeleteIntegrationResponse where
 
 instance Prelude.NFData DeleteIntegrationResponse where
   rnf DeleteIntegrationResponse' {..} =
-    Prelude.rnf restApiId
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf httpMethod
-      `Prelude.seq` Prelude.rnf statusCode
+    Prelude.rnf restApiId `Prelude.seq`
+      Prelude.rnf resourceId `Prelude.seq`
+        Prelude.rnf httpMethod `Prelude.seq`
+          Prelude.rnf statusCode
 
 instance Data.ToHeaders DeleteIntegrationResponse where
   toHeaders =

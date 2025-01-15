@@ -139,10 +139,10 @@ instance
     SalesforceChatterFeedConfiguration
   where
   rnf SalesforceChatterFeedConfiguration' {..} =
-    Prelude.rnf documentTitleFieldName
-      `Prelude.seq` Prelude.rnf fieldMappings
-      `Prelude.seq` Prelude.rnf includeFilterTypes
-      `Prelude.seq` Prelude.rnf documentDataFieldName
+    Prelude.rnf documentTitleFieldName `Prelude.seq`
+      Prelude.rnf fieldMappings `Prelude.seq`
+        Prelude.rnf includeFilterTypes `Prelude.seq`
+          Prelude.rnf documentDataFieldName
 
 instance
   Data.ToJSON

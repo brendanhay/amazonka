@@ -169,6 +169,6 @@ instance
     GetStreamingDistributionResponse
   where
   rnf GetStreamingDistributionResponse' {..} =
-    Prelude.rnf eTag
-      `Prelude.seq` Prelude.rnf streamingDistribution
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf eTag `Prelude.seq`
+      Prelude.rnf streamingDistribution `Prelude.seq`
+        Prelude.rnf httpStatus

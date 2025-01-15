@@ -149,10 +149,10 @@ instance Prelude.Hashable CreateWorkloadShare where
 
 instance Prelude.NFData CreateWorkloadShare where
   rnf CreateWorkloadShare' {..} =
-    Prelude.rnf workloadId
-      `Prelude.seq` Prelude.rnf sharedWith
-      `Prelude.seq` Prelude.rnf permissionType
-      `Prelude.seq` Prelude.rnf clientRequestToken
+    Prelude.rnf workloadId `Prelude.seq`
+      Prelude.rnf sharedWith `Prelude.seq`
+        Prelude.rnf permissionType `Prelude.seq`
+          Prelude.rnf clientRequestToken
 
 instance Data.ToHeaders CreateWorkloadShare where
   toHeaders =
@@ -235,6 +235,6 @@ createWorkloadShareResponse_httpStatus = Lens.lens (\CreateWorkloadShareResponse
 
 instance Prelude.NFData CreateWorkloadShareResponse where
   rnf CreateWorkloadShareResponse' {..} =
-    Prelude.rnf shareId
-      `Prelude.seq` Prelude.rnf workloadId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf shareId `Prelude.seq`
+      Prelude.rnf workloadId `Prelude.seq`
+        Prelude.rnf httpStatus

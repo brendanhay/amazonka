@@ -285,14 +285,14 @@ instance
     DescribeApiDestinationResponse
   where
   rnf DescribeApiDestinationResponse' {..} =
-    Prelude.rnf apiDestinationArn
-      `Prelude.seq` Prelude.rnf apiDestinationState
-      `Prelude.seq` Prelude.rnf connectionArn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf httpMethod
-      `Prelude.seq` Prelude.rnf invocationEndpoint
-      `Prelude.seq` Prelude.rnf invocationRateLimitPerSecond
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf apiDestinationArn `Prelude.seq`
+      Prelude.rnf apiDestinationState `Prelude.seq`
+        Prelude.rnf connectionArn `Prelude.seq`
+          Prelude.rnf creationTime `Prelude.seq`
+            Prelude.rnf description `Prelude.seq`
+              Prelude.rnf httpMethod `Prelude.seq`
+                Prelude.rnf invocationEndpoint `Prelude.seq`
+                  Prelude.rnf invocationRateLimitPerSecond `Prelude.seq`
+                    Prelude.rnf lastModifiedTime `Prelude.seq`
+                      Prelude.rnf name `Prelude.seq`
+                        Prelude.rnf httpStatus

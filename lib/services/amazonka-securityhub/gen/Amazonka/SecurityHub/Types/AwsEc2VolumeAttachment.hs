@@ -133,10 +133,10 @@ instance Prelude.Hashable AwsEc2VolumeAttachment where
 
 instance Prelude.NFData AwsEc2VolumeAttachment where
   rnf AwsEc2VolumeAttachment' {..} =
-    Prelude.rnf attachTime
-      `Prelude.seq` Prelude.rnf deleteOnTermination
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf attachTime `Prelude.seq`
+      Prelude.rnf deleteOnTermination `Prelude.seq`
+        Prelude.rnf instanceId `Prelude.seq`
+          Prelude.rnf status
 
 instance Data.ToJSON AwsEc2VolumeAttachment where
   toJSON AwsEc2VolumeAttachment' {..} =

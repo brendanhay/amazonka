@@ -125,12 +125,12 @@ instance Core.AWSPager ListAnnotationStores where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listAnnotationStores_nextToken
-          Lens..~ rs
-          Lens.^? listAnnotationStoresResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listAnnotationStores_nextToken
+              Lens..~ rs
+              Lens.^? listAnnotationStoresResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAnnotationStores where
   type
@@ -160,10 +160,10 @@ instance Prelude.Hashable ListAnnotationStores where
 
 instance Prelude.NFData ListAnnotationStores where
   rnf ListAnnotationStores' {..} =
-    Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf ids
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filter' `Prelude.seq`
+      Prelude.rnf ids `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken
 
 instance Data.ToHeaders ListAnnotationStores where
   toHeaders =
@@ -245,6 +245,6 @@ listAnnotationStoresResponse_httpStatus = Lens.lens (\ListAnnotationStoresRespon
 
 instance Prelude.NFData ListAnnotationStoresResponse where
   rnf ListAnnotationStoresResponse' {..} =
-    Prelude.rnf annotationStores
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf annotationStores `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

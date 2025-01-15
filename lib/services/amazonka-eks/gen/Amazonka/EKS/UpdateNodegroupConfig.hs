@@ -190,13 +190,13 @@ instance Prelude.Hashable UpdateNodegroupConfig where
 
 instance Prelude.NFData UpdateNodegroupConfig where
   rnf UpdateNodegroupConfig' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf labels
-      `Prelude.seq` Prelude.rnf scalingConfig
-      `Prelude.seq` Prelude.rnf taints
-      `Prelude.seq` Prelude.rnf updateConfig
-      `Prelude.seq` Prelude.rnf clusterName
-      `Prelude.seq` Prelude.rnf nodegroupName
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf labels `Prelude.seq`
+        Prelude.rnf scalingConfig `Prelude.seq`
+          Prelude.rnf taints `Prelude.seq`
+            Prelude.rnf updateConfig `Prelude.seq`
+              Prelude.rnf clusterName `Prelude.seq`
+                Prelude.rnf nodegroupName
 
 instance Data.ToHeaders UpdateNodegroupConfig where
   toHeaders =
@@ -275,5 +275,5 @@ updateNodegroupConfigResponse_httpStatus = Lens.lens (\UpdateNodegroupConfigResp
 
 instance Prelude.NFData UpdateNodegroupConfigResponse where
   rnf UpdateNodegroupConfigResponse' {..} =
-    Prelude.rnf update
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf update `Prelude.seq`
+      Prelude.rnf httpStatus

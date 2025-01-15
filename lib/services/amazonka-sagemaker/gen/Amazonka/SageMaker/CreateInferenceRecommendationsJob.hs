@@ -233,14 +233,14 @@ instance
     CreateInferenceRecommendationsJob
   where
   rnf CreateInferenceRecommendationsJob' {..} =
-    Prelude.rnf jobDescription
-      `Prelude.seq` Prelude.rnf outputConfig
-      `Prelude.seq` Prelude.rnf stoppingConditions
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf jobType
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf inputConfig
+    Prelude.rnf jobDescription `Prelude.seq`
+      Prelude.rnf outputConfig `Prelude.seq`
+        Prelude.rnf stoppingConditions `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf jobName `Prelude.seq`
+              Prelude.rnf jobType `Prelude.seq`
+                Prelude.rnf roleArn `Prelude.seq`
+                  Prelude.rnf inputConfig
 
 instance
   Data.ToHeaders
@@ -340,5 +340,5 @@ instance
     CreateInferenceRecommendationsJobResponse
   where
   rnf CreateInferenceRecommendationsJobResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf jobArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf jobArn

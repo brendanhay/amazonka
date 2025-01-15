@@ -125,8 +125,8 @@ instance
 
 instance Prelude.NFData InstallToRemoteAccessSession where
   rnf InstallToRemoteAccessSession' {..} =
-    Prelude.rnf remoteAccessSessionArn
-      `Prelude.seq` Prelude.rnf appArn
+    Prelude.rnf remoteAccessSessionArn `Prelude.seq`
+      Prelude.rnf appArn
 
 instance Data.ToHeaders InstallToRemoteAccessSession where
   toHeaders =
@@ -208,5 +208,5 @@ instance
     InstallToRemoteAccessSessionResponse
   where
   rnf InstallToRemoteAccessSessionResponse' {..} =
-    Prelude.rnf appUpload
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf appUpload `Prelude.seq`
+      Prelude.rnf httpStatus

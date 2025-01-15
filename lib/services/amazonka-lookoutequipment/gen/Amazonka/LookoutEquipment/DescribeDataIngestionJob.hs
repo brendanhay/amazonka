@@ -327,17 +327,17 @@ instance
     DescribeDataIngestionJobResponse
   where
   rnf DescribeDataIngestionJobResponse' {..} =
-    Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf dataEndTime
-      `Prelude.seq` Prelude.rnf dataQualitySummary
-      `Prelude.seq` Prelude.rnf dataStartTime
-      `Prelude.seq` Prelude.rnf datasetArn
-      `Prelude.seq` Prelude.rnf failedReason
-      `Prelude.seq` Prelude.rnf ingestedDataSize
-      `Prelude.seq` Prelude.rnf ingestedFilesSummary
-      `Prelude.seq` Prelude.rnf ingestionInputConfiguration
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusDetail
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf createdAt `Prelude.seq`
+      Prelude.rnf dataEndTime `Prelude.seq`
+        Prelude.rnf dataQualitySummary `Prelude.seq`
+          Prelude.rnf dataStartTime `Prelude.seq`
+            Prelude.rnf datasetArn `Prelude.seq`
+              Prelude.rnf failedReason `Prelude.seq`
+                Prelude.rnf ingestedDataSize `Prelude.seq`
+                  Prelude.rnf ingestedFilesSummary `Prelude.seq`
+                    Prelude.rnf ingestionInputConfiguration `Prelude.seq`
+                      Prelude.rnf jobId `Prelude.seq`
+                        Prelude.rnf roleArn `Prelude.seq`
+                          Prelude.rnf status `Prelude.seq`
+                            Prelude.rnf statusDetail `Prelude.seq`
+                              Prelude.rnf httpStatus

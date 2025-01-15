@@ -149,12 +149,12 @@ instance Prelude.Hashable CloudwatchMetricAction where
 
 instance Prelude.NFData CloudwatchMetricAction where
   rnf CloudwatchMetricAction' {..} =
-    Prelude.rnf metricTimestamp
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf metricNamespace
-      `Prelude.seq` Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf metricValue
-      `Prelude.seq` Prelude.rnf metricUnit
+    Prelude.rnf metricTimestamp `Prelude.seq`
+      Prelude.rnf roleArn `Prelude.seq`
+        Prelude.rnf metricNamespace `Prelude.seq`
+          Prelude.rnf metricName `Prelude.seq`
+            Prelude.rnf metricValue `Prelude.seq`
+              Prelude.rnf metricUnit
 
 instance Data.ToJSON CloudwatchMetricAction where
   toJSON CloudwatchMetricAction' {..} =

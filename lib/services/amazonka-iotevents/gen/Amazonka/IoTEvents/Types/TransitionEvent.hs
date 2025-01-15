@@ -116,10 +116,10 @@ instance Prelude.Hashable TransitionEvent where
 
 instance Prelude.NFData TransitionEvent where
   rnf TransitionEvent' {..} =
-    Prelude.rnf actions
-      `Prelude.seq` Prelude.rnf eventName
-      `Prelude.seq` Prelude.rnf condition
-      `Prelude.seq` Prelude.rnf nextState
+    Prelude.rnf actions `Prelude.seq`
+      Prelude.rnf eventName `Prelude.seq`
+        Prelude.rnf condition `Prelude.seq`
+          Prelude.rnf nextState
 
 instance Data.ToJSON TransitionEvent where
   toJSON TransitionEvent' {..} =

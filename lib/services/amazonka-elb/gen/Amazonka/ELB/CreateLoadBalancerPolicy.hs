@@ -150,10 +150,10 @@ instance Prelude.Hashable CreateLoadBalancerPolicy where
 
 instance Prelude.NFData CreateLoadBalancerPolicy where
   rnf CreateLoadBalancerPolicy' {..} =
-    Prelude.rnf policyAttributes
-      `Prelude.seq` Prelude.rnf loadBalancerName
-      `Prelude.seq` Prelude.rnf policyName
-      `Prelude.seq` Prelude.rnf policyTypeName
+    Prelude.rnf policyAttributes `Prelude.seq`
+      Prelude.rnf loadBalancerName `Prelude.seq`
+        Prelude.rnf policyName `Prelude.seq`
+          Prelude.rnf policyTypeName
 
 instance Data.ToHeaders CreateLoadBalancerPolicy where
   toHeaders = Prelude.const Prelude.mempty

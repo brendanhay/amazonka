@@ -114,9 +114,9 @@ instance Prelude.Hashable TimeSeriesCondition where
 
 instance Prelude.NFData TimeSeriesCondition where
   rnf TimeSeriesCondition' {..} =
-    Prelude.rnf attributeName
-      `Prelude.seq` Prelude.rnf attributeValue
-      `Prelude.seq` Prelude.rnf condition
+    Prelude.rnf attributeName `Prelude.seq`
+      Prelude.rnf attributeValue `Prelude.seq`
+        Prelude.rnf condition
 
 instance Data.ToJSON TimeSeriesCondition where
   toJSON TimeSeriesCondition' {..} =

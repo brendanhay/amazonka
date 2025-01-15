@@ -129,11 +129,11 @@ instance Prelude.Hashable SankeyDiagramVisual where
 
 instance Prelude.NFData SankeyDiagramVisual where
   rnf SankeyDiagramVisual' {..} =
-    Prelude.rnf actions
-      `Prelude.seq` Prelude.rnf chartConfiguration
-      `Prelude.seq` Prelude.rnf subtitle
-      `Prelude.seq` Prelude.rnf title
-      `Prelude.seq` Prelude.rnf visualId
+    Prelude.rnf actions `Prelude.seq`
+      Prelude.rnf chartConfiguration `Prelude.seq`
+        Prelude.rnf subtitle `Prelude.seq`
+          Prelude.rnf title `Prelude.seq`
+            Prelude.rnf visualId
 
 instance Data.ToJSON SankeyDiagramVisual where
   toJSON SankeyDiagramVisual' {..} =

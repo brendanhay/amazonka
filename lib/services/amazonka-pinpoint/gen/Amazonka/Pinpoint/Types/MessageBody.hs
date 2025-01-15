@@ -80,5 +80,5 @@ instance Prelude.Hashable MessageBody where
 
 instance Prelude.NFData MessageBody where
   rnf MessageBody' {..} =
-    Prelude.rnf message
-      `Prelude.seq` Prelude.rnf requestID
+    Prelude.rnf message `Prelude.seq`
+      Prelude.rnf requestID

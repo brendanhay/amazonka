@@ -205,12 +205,12 @@ instance Prelude.Hashable CreateSubnetCidrReservation where
 
 instance Prelude.NFData CreateSubnetCidrReservation where
   rnf CreateSubnetCidrReservation' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf tagSpecifications
-      `Prelude.seq` Prelude.rnf subnetId
-      `Prelude.seq` Prelude.rnf cidr
-      `Prelude.seq` Prelude.rnf reservationType
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf tagSpecifications `Prelude.seq`
+          Prelude.rnf subnetId `Prelude.seq`
+            Prelude.rnf cidr `Prelude.seq`
+              Prelude.rnf reservationType
 
 instance Data.ToHeaders CreateSubnetCidrReservation where
   toHeaders = Prelude.const Prelude.mempty
@@ -282,5 +282,5 @@ instance
     CreateSubnetCidrReservationResponse
   where
   rnf CreateSubnetCidrReservationResponse' {..} =
-    Prelude.rnf subnetCidrReservation
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf subnetCidrReservation `Prelude.seq`
+      Prelude.rnf httpStatus

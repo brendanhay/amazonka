@@ -138,10 +138,10 @@ instance Prelude.Hashable CoreNetworkSummary where
 
 instance Prelude.NFData CoreNetworkSummary where
   rnf CoreNetworkSummary' {..} =
-    Prelude.rnf coreNetworkArn
-      `Prelude.seq` Prelude.rnf coreNetworkId
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf globalNetworkId
-      `Prelude.seq` Prelude.rnf ownerAccountId
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf coreNetworkArn `Prelude.seq`
+      Prelude.rnf coreNetworkId `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf globalNetworkId `Prelude.seq`
+            Prelude.rnf ownerAccountId `Prelude.seq`
+              Prelude.rnf state `Prelude.seq`
+                Prelude.rnf tags

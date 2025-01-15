@@ -135,12 +135,12 @@ instance Core.AWSPager ListRegexMatchSets where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listRegexMatchSets_nextMarker
-          Lens..~ rs
-          Lens.^? listRegexMatchSetsResponse_nextMarker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listRegexMatchSets_nextMarker
+              Lens..~ rs
+              Lens.^? listRegexMatchSetsResponse_nextMarker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListRegexMatchSets where
   type
@@ -165,8 +165,8 @@ instance Prelude.Hashable ListRegexMatchSets where
 
 instance Prelude.NFData ListRegexMatchSets where
   rnf ListRegexMatchSets' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nextMarker
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf nextMarker
 
 instance Data.ToHeaders ListRegexMatchSets where
   toHeaders =
@@ -260,6 +260,6 @@ listRegexMatchSetsResponse_httpStatus = Lens.lens (\ListRegexMatchSetsResponse' 
 
 instance Prelude.NFData ListRegexMatchSetsResponse where
   rnf ListRegexMatchSetsResponse' {..} =
-    Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf regexMatchSets
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextMarker `Prelude.seq`
+      Prelude.rnf regexMatchSets `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -106,6 +106,6 @@ instance
     ProvisioningTemplateVersionSummary
   where
   rnf ProvisioningTemplateVersionSummary' {..} =
-    Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf isDefaultVersion
-      `Prelude.seq` Prelude.rnf versionId
+    Prelude.rnf creationDate `Prelude.seq`
+      Prelude.rnf isDefaultVersion `Prelude.seq`
+        Prelude.rnf versionId

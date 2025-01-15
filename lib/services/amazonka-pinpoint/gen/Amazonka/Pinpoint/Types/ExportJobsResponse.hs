@@ -95,5 +95,5 @@ instance Prelude.Hashable ExportJobsResponse where
 
 instance Prelude.NFData ExportJobsResponse where
   rnf ExportJobsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf item
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf item

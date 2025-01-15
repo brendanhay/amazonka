@@ -153,11 +153,11 @@ instance Prelude.Hashable UpdateStorage where
 
 instance Prelude.NFData UpdateStorage where
   rnf UpdateStorage' {..} =
-    Prelude.rnf provisionedThroughput
-      `Prelude.seq` Prelude.rnf storageMode
-      `Prelude.seq` Prelude.rnf volumeSizeGB
-      `Prelude.seq` Prelude.rnf clusterArn
-      `Prelude.seq` Prelude.rnf currentVersion
+    Prelude.rnf provisionedThroughput `Prelude.seq`
+      Prelude.rnf storageMode `Prelude.seq`
+        Prelude.rnf volumeSizeGB `Prelude.seq`
+          Prelude.rnf clusterArn `Prelude.seq`
+            Prelude.rnf currentVersion
 
 instance Data.ToHeaders UpdateStorage where
   toHeaders =
@@ -241,6 +241,6 @@ updateStorageResponse_httpStatus = Lens.lens (\UpdateStorageResponse' {httpStatu
 
 instance Prelude.NFData UpdateStorageResponse where
   rnf UpdateStorageResponse' {..} =
-    Prelude.rnf clusterArn
-      `Prelude.seq` Prelude.rnf clusterOperationArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf clusterArn `Prelude.seq`
+      Prelude.rnf clusterOperationArn `Prelude.seq`
+        Prelude.rnf httpStatus

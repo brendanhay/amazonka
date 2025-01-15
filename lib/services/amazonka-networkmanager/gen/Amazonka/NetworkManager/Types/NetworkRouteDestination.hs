@@ -125,9 +125,9 @@ instance Prelude.Hashable NetworkRouteDestination where
 
 instance Prelude.NFData NetworkRouteDestination where
   rnf NetworkRouteDestination' {..} =
-    Prelude.rnf coreNetworkAttachmentId
-      `Prelude.seq` Prelude.rnf edgeLocation
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf segmentName
-      `Prelude.seq` Prelude.rnf transitGatewayAttachmentId
+    Prelude.rnf coreNetworkAttachmentId `Prelude.seq`
+      Prelude.rnf edgeLocation `Prelude.seq`
+        Prelude.rnf resourceId `Prelude.seq`
+          Prelude.rnf resourceType `Prelude.seq`
+            Prelude.rnf segmentName `Prelude.seq`
+              Prelude.rnf transitGatewayAttachmentId

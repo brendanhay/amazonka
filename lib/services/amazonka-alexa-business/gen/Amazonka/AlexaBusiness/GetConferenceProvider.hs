@@ -172,5 +172,5 @@ getConferenceProviderResponse_httpStatus = Lens.lens (\GetConferenceProviderResp
 
 instance Prelude.NFData GetConferenceProviderResponse where
   rnf GetConferenceProviderResponse' {..} =
-    Prelude.rnf conferenceProvider
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf conferenceProvider `Prelude.seq`
+      Prelude.rnf httpStatus

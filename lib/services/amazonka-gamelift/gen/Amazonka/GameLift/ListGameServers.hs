@@ -158,12 +158,12 @@ instance Core.AWSPager ListGameServers where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listGameServers_nextToken
-          Lens..~ rs
-          Lens.^? listGameServersResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listGameServers_nextToken
+              Lens..~ rs
+              Lens.^? listGameServersResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListGameServers where
   type
@@ -190,10 +190,10 @@ instance Prelude.Hashable ListGameServers where
 
 instance Prelude.NFData ListGameServers where
   rnf ListGameServers' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortOrder
-      `Prelude.seq` Prelude.rnf gameServerGroupName
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf sortOrder `Prelude.seq`
+          Prelude.rnf gameServerGroupName
 
 instance Data.ToHeaders ListGameServers where
   toHeaders =
@@ -282,6 +282,6 @@ listGameServersResponse_httpStatus = Lens.lens (\ListGameServersResponse' {httpS
 
 instance Prelude.NFData ListGameServersResponse where
   rnf ListGameServersResponse' {..} =
-    Prelude.rnf gameServers
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf gameServers `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

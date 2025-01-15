@@ -116,8 +116,8 @@ instance Prelude.Hashable PollForThirdPartyJobs where
 
 instance Prelude.NFData PollForThirdPartyJobs where
   rnf PollForThirdPartyJobs' {..} =
-    Prelude.rnf maxBatchSize
-      `Prelude.seq` Prelude.rnf actionTypeId
+    Prelude.rnf maxBatchSize `Prelude.seq`
+      Prelude.rnf actionTypeId
 
 instance Data.ToHeaders PollForThirdPartyJobs where
   toHeaders =
@@ -192,5 +192,5 @@ pollForThirdPartyJobsResponse_httpStatus = Lens.lens (\PollForThirdPartyJobsResp
 
 instance Prelude.NFData PollForThirdPartyJobsResponse where
   rnf PollForThirdPartyJobsResponse' {..} =
-    Prelude.rnf jobs
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf jobs `Prelude.seq`
+      Prelude.rnf httpStatus

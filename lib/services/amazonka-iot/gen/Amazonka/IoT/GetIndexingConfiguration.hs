@@ -149,6 +149,6 @@ instance
     GetIndexingConfigurationResponse
   where
   rnf GetIndexingConfigurationResponse' {..} =
-    Prelude.rnf thingGroupIndexingConfiguration
-      `Prelude.seq` Prelude.rnf thingIndexingConfiguration
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf thingGroupIndexingConfiguration `Prelude.seq`
+      Prelude.rnf thingIndexingConfiguration `Prelude.seq`
+        Prelude.rnf httpStatus

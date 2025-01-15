@@ -156,10 +156,10 @@ instance Prelude.Hashable UsageLimit where
 
 instance Prelude.NFData UsageLimit where
   rnf UsageLimit' {..} =
-    Prelude.rnf amount
-      `Prelude.seq` Prelude.rnf breachAction
-      `Prelude.seq` Prelude.rnf period
-      `Prelude.seq` Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf usageLimitArn
-      `Prelude.seq` Prelude.rnf usageLimitId
-      `Prelude.seq` Prelude.rnf usageType
+    Prelude.rnf amount `Prelude.seq`
+      Prelude.rnf breachAction `Prelude.seq`
+        Prelude.rnf period `Prelude.seq`
+          Prelude.rnf resourceArn `Prelude.seq`
+            Prelude.rnf usageLimitArn `Prelude.seq`
+              Prelude.rnf usageLimitId `Prelude.seq`
+                Prelude.rnf usageType

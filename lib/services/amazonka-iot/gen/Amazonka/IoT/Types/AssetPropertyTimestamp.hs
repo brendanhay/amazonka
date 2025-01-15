@@ -89,8 +89,8 @@ instance Prelude.Hashable AssetPropertyTimestamp where
 
 instance Prelude.NFData AssetPropertyTimestamp where
   rnf AssetPropertyTimestamp' {..} =
-    Prelude.rnf offsetInNanos
-      `Prelude.seq` Prelude.rnf timeInSeconds
+    Prelude.rnf offsetInNanos `Prelude.seq`
+      Prelude.rnf timeInSeconds
 
 instance Data.ToJSON AssetPropertyTimestamp where
   toJSON AssetPropertyTimestamp' {..} =

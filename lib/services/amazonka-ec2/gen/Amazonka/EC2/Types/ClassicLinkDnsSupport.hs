@@ -78,5 +78,5 @@ instance Prelude.Hashable ClassicLinkDnsSupport where
 
 instance Prelude.NFData ClassicLinkDnsSupport where
   rnf ClassicLinkDnsSupport' {..} =
-    Prelude.rnf classicLinkDnsSupported
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf classicLinkDnsSupported `Prelude.seq`
+      Prelude.rnf vpcId

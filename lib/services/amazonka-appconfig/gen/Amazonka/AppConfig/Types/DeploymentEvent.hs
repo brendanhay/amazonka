@@ -141,8 +141,8 @@ instance Prelude.Hashable DeploymentEvent where
 
 instance Prelude.NFData DeploymentEvent where
   rnf DeploymentEvent' {..} =
-    Prelude.rnf actionInvocations
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf eventType
-      `Prelude.seq` Prelude.rnf occurredAt
-      `Prelude.seq` Prelude.rnf triggeredBy
+    Prelude.rnf actionInvocations `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf eventType `Prelude.seq`
+          Prelude.rnf occurredAt `Prelude.seq`
+            Prelude.rnf triggeredBy

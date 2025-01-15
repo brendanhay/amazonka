@@ -97,8 +97,8 @@ instance
     LiveConnectorSinkConfiguration
   where
   rnf LiveConnectorSinkConfiguration' {..} =
-    Prelude.rnf sinkType
-      `Prelude.seq` Prelude.rnf rTMPConfiguration
+    Prelude.rnf sinkType `Prelude.seq`
+      Prelude.rnf rTMPConfiguration
 
 instance Data.ToJSON LiveConnectorSinkConfiguration where
   toJSON LiveConnectorSinkConfiguration' {..} =

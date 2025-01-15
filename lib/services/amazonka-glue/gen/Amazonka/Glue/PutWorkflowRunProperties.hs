@@ -124,9 +124,9 @@ instance Prelude.Hashable PutWorkflowRunProperties where
 
 instance Prelude.NFData PutWorkflowRunProperties where
   rnf PutWorkflowRunProperties' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf runId
-      `Prelude.seq` Prelude.rnf runProperties
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf runId `Prelude.seq`
+        Prelude.rnf runProperties
 
 instance Data.ToHeaders PutWorkflowRunProperties where
   toHeaders =

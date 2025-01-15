@@ -190,5 +190,5 @@ deleteContactMethodResponse_httpStatus = Lens.lens (\DeleteContactMethodResponse
 
 instance Prelude.NFData DeleteContactMethodResponse where
   rnf DeleteContactMethodResponse' {..} =
-    Prelude.rnf operations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operations `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -222,10 +222,10 @@ instance Prelude.Hashable AssociateMacSecKey where
 
 instance Prelude.NFData AssociateMacSecKey where
   rnf AssociateMacSecKey' {..} =
-    Prelude.rnf cak
-      `Prelude.seq` Prelude.rnf ckn
-      `Prelude.seq` Prelude.rnf secretARN
-      `Prelude.seq` Prelude.rnf connectionId
+    Prelude.rnf cak `Prelude.seq`
+      Prelude.rnf ckn `Prelude.seq`
+        Prelude.rnf secretARN `Prelude.seq`
+          Prelude.rnf connectionId
 
 instance Data.ToHeaders AssociateMacSecKey where
   toHeaders =
@@ -315,6 +315,6 @@ associateMacSecKeyResponse_httpStatus = Lens.lens (\AssociateMacSecKeyResponse' 
 
 instance Prelude.NFData AssociateMacSecKeyResponse where
   rnf AssociateMacSecKeyResponse' {..} =
-    Prelude.rnf connectionId
-      `Prelude.seq` Prelude.rnf macSecKeys
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf connectionId `Prelude.seq`
+      Prelude.rnf macSecKeys `Prelude.seq`
+        Prelude.rnf httpStatus

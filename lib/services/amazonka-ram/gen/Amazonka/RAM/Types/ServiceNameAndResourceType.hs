@@ -118,6 +118,6 @@ instance Prelude.Hashable ServiceNameAndResourceType where
 
 instance Prelude.NFData ServiceNameAndResourceType where
   rnf ServiceNameAndResourceType' {..} =
-    Prelude.rnf resourceRegionScope
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf serviceName
+    Prelude.rnf resourceRegionScope `Prelude.seq`
+      Prelude.rnf resourceType `Prelude.seq`
+        Prelude.rnf serviceName

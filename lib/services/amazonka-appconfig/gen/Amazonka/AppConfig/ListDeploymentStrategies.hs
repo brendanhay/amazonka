@@ -118,8 +118,8 @@ instance Prelude.Hashable ListDeploymentStrategies where
 
 instance Prelude.NFData ListDeploymentStrategies where
   rnf ListDeploymentStrategies' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListDeploymentStrategies where
   toHeaders =
@@ -198,6 +198,6 @@ instance
     ListDeploymentStrategiesResponse
   where
   rnf ListDeploymentStrategiesResponse' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf items `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -88,5 +88,5 @@ instance Prelude.Hashable NodeFabricAttributes where
 
 instance Prelude.NFData NodeFabricAttributes where
   rnf NodeFabricAttributes' {..} =
-    Prelude.rnf peerEndpoint
-      `Prelude.seq` Prelude.rnf peerEventEndpoint
+    Prelude.rnf peerEndpoint `Prelude.seq`
+      Prelude.rnf peerEventEndpoint

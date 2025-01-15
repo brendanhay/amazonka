@@ -139,10 +139,10 @@ instance Prelude.Hashable CreateFleet where
 
 instance Prelude.NFData CreateFleet where
   rnf CreateFleet' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf fleetId
-      `Prelude.seq` Prelude.rnf signalCatalogArn
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf fleetId `Prelude.seq`
+          Prelude.rnf signalCatalogArn
 
 instance Data.ToHeaders CreateFleet where
   toHeaders =
@@ -230,6 +230,6 @@ createFleetResponse_arn = Lens.lens (\CreateFleetResponse' {arn} -> arn) (\s@Cre
 
 instance Prelude.NFData CreateFleetResponse where
   rnf CreateFleetResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf arn

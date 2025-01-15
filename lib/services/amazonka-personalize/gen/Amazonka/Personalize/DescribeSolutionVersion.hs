@@ -175,5 +175,5 @@ instance
     DescribeSolutionVersionResponse
   where
   rnf DescribeSolutionVersionResponse' {..} =
-    Prelude.rnf solutionVersion
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf solutionVersion `Prelude.seq`
+      Prelude.rnf httpStatus

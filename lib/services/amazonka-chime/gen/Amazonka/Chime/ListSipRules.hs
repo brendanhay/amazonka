@@ -120,9 +120,9 @@ instance Prelude.Hashable ListSipRules where
 
 instance Prelude.NFData ListSipRules where
   rnf ListSipRules' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sipMediaApplicationId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf sipMediaApplicationId
 
 instance Data.ToHeaders ListSipRules where
   toHeaders = Prelude.const Prelude.mempty
@@ -188,6 +188,6 @@ listSipRulesResponse_httpStatus = Lens.lens (\ListSipRulesResponse' {httpStatus}
 
 instance Prelude.NFData ListSipRulesResponse where
   rnf ListSipRulesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sipRules
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf sipRules `Prelude.seq`
+        Prelude.rnf httpStatus

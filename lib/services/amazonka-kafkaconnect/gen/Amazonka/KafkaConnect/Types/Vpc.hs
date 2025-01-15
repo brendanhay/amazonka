@@ -70,8 +70,8 @@ instance Prelude.Hashable Vpc where
 
 instance Prelude.NFData Vpc where
   rnf Vpc' {..} =
-    Prelude.rnf securityGroups
-      `Prelude.seq` Prelude.rnf subnets
+    Prelude.rnf securityGroups `Prelude.seq`
+      Prelude.rnf subnets
 
 instance Data.ToJSON Vpc where
   toJSON Vpc' {..} =

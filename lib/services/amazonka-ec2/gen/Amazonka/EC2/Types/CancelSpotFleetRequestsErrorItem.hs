@@ -90,5 +90,5 @@ instance
     CancelSpotFleetRequestsErrorItem
   where
   rnf CancelSpotFleetRequestsErrorItem' {..} =
-    Prelude.rnf error
-      `Prelude.seq` Prelude.rnf spotFleetRequestId
+    Prelude.rnf error `Prelude.seq`
+      Prelude.rnf spotFleetRequestId

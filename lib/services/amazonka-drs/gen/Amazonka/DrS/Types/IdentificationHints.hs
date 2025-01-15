@@ -103,7 +103,7 @@ instance Prelude.Hashable IdentificationHints where
 
 instance Prelude.NFData IdentificationHints where
   rnf IdentificationHints' {..} =
-    Prelude.rnf awsInstanceID
-      `Prelude.seq` Prelude.rnf fqdn
-      `Prelude.seq` Prelude.rnf hostname
-      `Prelude.seq` Prelude.rnf vmWareUuid
+    Prelude.rnf awsInstanceID `Prelude.seq`
+      Prelude.rnf fqdn `Prelude.seq`
+        Prelude.rnf hostname `Prelude.seq`
+          Prelude.rnf vmWareUuid

@@ -252,12 +252,12 @@ instance Prelude.Hashable BackupSelection where
 
 instance Prelude.NFData BackupSelection where
   rnf BackupSelection' {..} =
-    Prelude.rnf conditions
-      `Prelude.seq` Prelude.rnf listOfTags
-      `Prelude.seq` Prelude.rnf notResources
-      `Prelude.seq` Prelude.rnf resources
-      `Prelude.seq` Prelude.rnf selectionName
-      `Prelude.seq` Prelude.rnf iamRoleArn
+    Prelude.rnf conditions `Prelude.seq`
+      Prelude.rnf listOfTags `Prelude.seq`
+        Prelude.rnf notResources `Prelude.seq`
+          Prelude.rnf resources `Prelude.seq`
+            Prelude.rnf selectionName `Prelude.seq`
+              Prelude.rnf iamRoleArn
 
 instance Data.ToJSON BackupSelection where
   toJSON BackupSelection' {..} =

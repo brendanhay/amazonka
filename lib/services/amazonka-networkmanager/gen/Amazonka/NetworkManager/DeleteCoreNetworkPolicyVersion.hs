@@ -125,8 +125,8 @@ instance
     DeleteCoreNetworkPolicyVersion
   where
   rnf DeleteCoreNetworkPolicyVersion' {..} =
-    Prelude.rnf coreNetworkId
-      `Prelude.seq` Prelude.rnf policyVersionId
+    Prelude.rnf coreNetworkId `Prelude.seq`
+      Prelude.rnf policyVersionId
 
 instance
   Data.ToHeaders
@@ -199,5 +199,5 @@ instance
     DeleteCoreNetworkPolicyVersionResponse
   where
   rnf DeleteCoreNetworkPolicyVersionResponse' {..} =
-    Prelude.rnf coreNetworkPolicy
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf coreNetworkPolicy `Prelude.seq`
+      Prelude.rnf httpStatus

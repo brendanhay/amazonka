@@ -218,10 +218,10 @@ instance Prelude.Hashable PipelineExecutionSummary where
 
 instance Prelude.NFData PipelineExecutionSummary where
   rnf PipelineExecutionSummary' {..} =
-    Prelude.rnf lastUpdateTime
-      `Prelude.seq` Prelude.rnf pipelineExecutionId
-      `Prelude.seq` Prelude.rnf sourceRevisions
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf stopTrigger
-      `Prelude.seq` Prelude.rnf trigger
+    Prelude.rnf lastUpdateTime `Prelude.seq`
+      Prelude.rnf pipelineExecutionId `Prelude.seq`
+        Prelude.rnf sourceRevisions `Prelude.seq`
+          Prelude.rnf startTime `Prelude.seq`
+            Prelude.rnf status `Prelude.seq`
+              Prelude.rnf stopTrigger `Prelude.seq`
+                Prelude.rnf trigger

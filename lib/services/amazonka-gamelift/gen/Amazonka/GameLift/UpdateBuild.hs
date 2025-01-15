@@ -135,9 +135,9 @@ instance Prelude.Hashable UpdateBuild where
 
 instance Prelude.NFData UpdateBuild where
   rnf UpdateBuild' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf buildId
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf version `Prelude.seq`
+        Prelude.rnf buildId
 
 instance Data.ToHeaders UpdateBuild where
   toHeaders =
@@ -208,5 +208,5 @@ updateBuildResponse_httpStatus = Lens.lens (\UpdateBuildResponse' {httpStatus} -
 
 instance Prelude.NFData UpdateBuildResponse where
   rnf UpdateBuildResponse' {..} =
-    Prelude.rnf build
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf build `Prelude.seq`
+      Prelude.rnf httpStatus

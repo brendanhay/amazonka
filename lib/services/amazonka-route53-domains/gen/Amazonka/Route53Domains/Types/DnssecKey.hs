@@ -218,10 +218,10 @@ instance Prelude.Hashable DnssecKey where
 
 instance Prelude.NFData DnssecKey where
   rnf DnssecKey' {..} =
-    Prelude.rnf algorithm
-      `Prelude.seq` Prelude.rnf digest
-      `Prelude.seq` Prelude.rnf digestType
-      `Prelude.seq` Prelude.rnf flags
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf keyTag
-      `Prelude.seq` Prelude.rnf publicKey
+    Prelude.rnf algorithm `Prelude.seq`
+      Prelude.rnf digest `Prelude.seq`
+        Prelude.rnf digestType `Prelude.seq`
+          Prelude.rnf flags `Prelude.seq`
+            Prelude.rnf id `Prelude.seq`
+              Prelude.rnf keyTag `Prelude.seq`
+                Prelude.rnf publicKey

@@ -122,8 +122,8 @@ instance Prelude.Hashable BatchGetAssetPropertyValue where
 
 instance Prelude.NFData BatchGetAssetPropertyValue where
   rnf BatchGetAssetPropertyValue' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf entries
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf entries
 
 instance Data.ToHeaders BatchGetAssetPropertyValue where
   toHeaders =
@@ -243,8 +243,8 @@ instance
     BatchGetAssetPropertyValueResponse
   where
   rnf BatchGetAssetPropertyValueResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf errorEntries
-      `Prelude.seq` Prelude.rnf successEntries
-      `Prelude.seq` Prelude.rnf skippedEntries
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf errorEntries `Prelude.seq`
+          Prelude.rnf successEntries `Prelude.seq`
+            Prelude.rnf skippedEntries

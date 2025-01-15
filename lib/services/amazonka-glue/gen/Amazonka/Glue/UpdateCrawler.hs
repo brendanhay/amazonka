@@ -278,20 +278,20 @@ instance Prelude.Hashable UpdateCrawler where
 
 instance Prelude.NFData UpdateCrawler where
   rnf UpdateCrawler' {..} =
-    Prelude.rnf classifiers
-      `Prelude.seq` Prelude.rnf configuration
-      `Prelude.seq` Prelude.rnf crawlerSecurityConfiguration
-      `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf lakeFormationConfiguration
-      `Prelude.seq` Prelude.rnf lineageConfiguration
-      `Prelude.seq` Prelude.rnf recrawlPolicy
-      `Prelude.seq` Prelude.rnf role'
-      `Prelude.seq` Prelude.rnf schedule
-      `Prelude.seq` Prelude.rnf schemaChangePolicy
-      `Prelude.seq` Prelude.rnf tablePrefix
-      `Prelude.seq` Prelude.rnf targets
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf classifiers `Prelude.seq`
+      Prelude.rnf configuration `Prelude.seq`
+        Prelude.rnf crawlerSecurityConfiguration `Prelude.seq`
+          Prelude.rnf databaseName `Prelude.seq`
+            Prelude.rnf description `Prelude.seq`
+              Prelude.rnf lakeFormationConfiguration `Prelude.seq`
+                Prelude.rnf lineageConfiguration `Prelude.seq`
+                  Prelude.rnf recrawlPolicy `Prelude.seq`
+                    Prelude.rnf role' `Prelude.seq`
+                      Prelude.rnf schedule `Prelude.seq`
+                        Prelude.rnf schemaChangePolicy `Prelude.seq`
+                          Prelude.rnf tablePrefix `Prelude.seq`
+                            Prelude.rnf targets `Prelude.seq`
+                              Prelude.rnf name
 
 instance Data.ToHeaders UpdateCrawler where
   toHeaders =

@@ -114,8 +114,8 @@ instance Prelude.Hashable AssociateUserSettings where
 
 instance Prelude.NFData AssociateUserSettings where
   rnf AssociateUserSettings' {..} =
-    Prelude.rnf portalArn
-      `Prelude.seq` Prelude.rnf userSettingsArn
+    Prelude.rnf portalArn `Prelude.seq`
+      Prelude.rnf userSettingsArn
 
 instance Data.ToHeaders AssociateUserSettings where
   toHeaders =
@@ -198,6 +198,6 @@ associateUserSettingsResponse_userSettingsArn = Lens.lens (\AssociateUserSetting
 
 instance Prelude.NFData AssociateUserSettingsResponse where
   rnf AssociateUserSettingsResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf portalArn
-      `Prelude.seq` Prelude.rnf userSettingsArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf portalArn `Prelude.seq`
+        Prelude.rnf userSettingsArn

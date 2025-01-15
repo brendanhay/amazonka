@@ -100,8 +100,8 @@ instance Prelude.Hashable MLUserDataEncryption where
 
 instance Prelude.NFData MLUserDataEncryption where
   rnf MLUserDataEncryption' {..} =
-    Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf mlUserDataEncryptionMode
+    Prelude.rnf kmsKeyId `Prelude.seq`
+      Prelude.rnf mlUserDataEncryptionMode
 
 instance Data.ToJSON MLUserDataEncryption where
   toJSON MLUserDataEncryption' {..} =

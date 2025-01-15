@@ -116,8 +116,8 @@ instance Prelude.Hashable GetTimelineEvent where
 
 instance Prelude.NFData GetTimelineEvent where
   rnf GetTimelineEvent' {..} =
-    Prelude.rnf eventId
-      `Prelude.seq` Prelude.rnf incidentRecordArn
+    Prelude.rnf eventId `Prelude.seq`
+      Prelude.rnf incidentRecordArn
 
 instance Data.ToHeaders GetTimelineEvent where
   toHeaders =
@@ -183,5 +183,5 @@ getTimelineEventResponse_event = Lens.lens (\GetTimelineEventResponse' {event} -
 
 instance Prelude.NFData GetTimelineEventResponse where
   rnf GetTimelineEventResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf event
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf event

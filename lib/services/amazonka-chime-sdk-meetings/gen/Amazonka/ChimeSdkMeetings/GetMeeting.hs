@@ -146,5 +146,5 @@ getMeetingResponse_httpStatus = Lens.lens (\GetMeetingResponse' {httpStatus} -> 
 
 instance Prelude.NFData GetMeetingResponse where
   rnf GetMeetingResponse' {..} =
-    Prelude.rnf meeting
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf meeting `Prelude.seq`
+      Prelude.rnf httpStatus

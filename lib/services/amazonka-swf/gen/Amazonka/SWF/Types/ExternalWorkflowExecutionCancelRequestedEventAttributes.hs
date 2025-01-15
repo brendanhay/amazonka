@@ -117,5 +117,5 @@ instance
   where
   rnf
     ExternalWorkflowExecutionCancelRequestedEventAttributes' {..} =
-      Prelude.rnf workflowExecution
-        `Prelude.seq` Prelude.rnf initiatedEventId
+      Prelude.rnf workflowExecution `Prelude.seq`
+        Prelude.rnf initiatedEventId

@@ -158,12 +158,12 @@ instance Prelude.Hashable EventDescription where
 
 instance Prelude.NFData EventDescription where
   rnf EventDescription' {..} =
-    Prelude.rnf applicationName
-      `Prelude.seq` Prelude.rnf environmentName
-      `Prelude.seq` Prelude.rnf eventDate
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf platformArn
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf severity
-      `Prelude.seq` Prelude.rnf templateName
-      `Prelude.seq` Prelude.rnf versionLabel
+    Prelude.rnf applicationName `Prelude.seq`
+      Prelude.rnf environmentName `Prelude.seq`
+        Prelude.rnf eventDate `Prelude.seq`
+          Prelude.rnf message `Prelude.seq`
+            Prelude.rnf platformArn `Prelude.seq`
+              Prelude.rnf requestId `Prelude.seq`
+                Prelude.rnf severity `Prelude.seq`
+                  Prelude.rnf templateName `Prelude.seq`
+                    Prelude.rnf versionLabel

@@ -86,8 +86,8 @@ instance Prelude.Hashable SNSTopicPublishAction where
 
 instance Prelude.NFData SNSTopicPublishAction where
   rnf SNSTopicPublishAction' {..} =
-    Prelude.rnf payload
-      `Prelude.seq` Prelude.rnf targetArn
+    Prelude.rnf payload `Prelude.seq`
+      Prelude.rnf targetArn
 
 instance Data.ToJSON SNSTopicPublishAction where
   toJSON SNSTopicPublishAction' {..} =

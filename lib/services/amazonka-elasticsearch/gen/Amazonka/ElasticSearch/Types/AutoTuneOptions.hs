@@ -111,9 +111,9 @@ instance Prelude.Hashable AutoTuneOptions where
 
 instance Prelude.NFData AutoTuneOptions where
   rnf AutoTuneOptions' {..} =
-    Prelude.rnf desiredState
-      `Prelude.seq` Prelude.rnf maintenanceSchedules
-      `Prelude.seq` Prelude.rnf rollbackOnDisable
+    Prelude.rnf desiredState `Prelude.seq`
+      Prelude.rnf maintenanceSchedules `Prelude.seq`
+        Prelude.rnf rollbackOnDisable
 
 instance Data.ToJSON AutoTuneOptions where
   toJSON AutoTuneOptions' {..} =

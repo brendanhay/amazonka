@@ -185,11 +185,11 @@ instance Prelude.Hashable CreateFacet where
 
 instance Prelude.NFData CreateFacet where
   rnf CreateFacet' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf facetStyle
-      `Prelude.seq` Prelude.rnf objectType
-      `Prelude.seq` Prelude.rnf schemaArn
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf attributes `Prelude.seq`
+      Prelude.rnf facetStyle `Prelude.seq`
+        Prelude.rnf objectType `Prelude.seq`
+          Prelude.rnf schemaArn `Prelude.seq`
+            Prelude.rnf name
 
 instance Data.ToHeaders CreateFacet where
   toHeaders CreateFacet' {..} =

@@ -180,11 +180,11 @@ instance Prelude.Hashable CreateEndpoint where
 
 instance Prelude.NFData CreateEndpoint where
   rnf CreateEndpoint' {..} =
-    Prelude.rnf accessType
-      `Prelude.seq` Prelude.rnf customerOwnedIpv4Pool
-      `Prelude.seq` Prelude.rnf outpostId
-      `Prelude.seq` Prelude.rnf subnetId
-      `Prelude.seq` Prelude.rnf securityGroupId
+    Prelude.rnf accessType `Prelude.seq`
+      Prelude.rnf customerOwnedIpv4Pool `Prelude.seq`
+        Prelude.rnf outpostId `Prelude.seq`
+          Prelude.rnf subnetId `Prelude.seq`
+            Prelude.rnf securityGroupId
 
 instance Data.ToHeaders CreateEndpoint where
   toHeaders =
@@ -258,5 +258,5 @@ createEndpointResponse_httpStatus = Lens.lens (\CreateEndpointResponse' {httpSta
 
 instance Prelude.NFData CreateEndpointResponse where
   rnf CreateEndpointResponse' {..} =
-    Prelude.rnf endpointArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf endpointArn `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -148,10 +148,10 @@ instance Prelude.Hashable Fmtp where
 
 instance Prelude.NFData Fmtp where
   rnf Fmtp' {..} =
-    Prelude.rnf channelOrder
-      `Prelude.seq` Prelude.rnf colorimetry
-      `Prelude.seq` Prelude.rnf exactFramerate
-      `Prelude.seq` Prelude.rnf par
-      `Prelude.seq` Prelude.rnf range
-      `Prelude.seq` Prelude.rnf scanMode
-      `Prelude.seq` Prelude.rnf tcs
+    Prelude.rnf channelOrder `Prelude.seq`
+      Prelude.rnf colorimetry `Prelude.seq`
+        Prelude.rnf exactFramerate `Prelude.seq`
+          Prelude.rnf par `Prelude.seq`
+            Prelude.rnf range `Prelude.seq`
+              Prelude.rnf scanMode `Prelude.seq`
+                Prelude.rnf tcs

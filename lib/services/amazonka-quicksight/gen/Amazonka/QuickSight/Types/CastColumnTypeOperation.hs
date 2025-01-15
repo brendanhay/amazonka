@@ -104,9 +104,9 @@ instance Prelude.Hashable CastColumnTypeOperation where
 
 instance Prelude.NFData CastColumnTypeOperation where
   rnf CastColumnTypeOperation' {..} =
-    Prelude.rnf format
-      `Prelude.seq` Prelude.rnf columnName
-      `Prelude.seq` Prelude.rnf newColumnType'
+    Prelude.rnf format `Prelude.seq`
+      Prelude.rnf columnName `Prelude.seq`
+        Prelude.rnf newColumnType'
 
 instance Data.ToJSON CastColumnTypeOperation where
   toJSON CastColumnTypeOperation' {..} =

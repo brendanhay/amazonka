@@ -116,8 +116,8 @@ instance Prelude.Hashable UpdateControlPanel where
 
 instance Prelude.NFData UpdateControlPanel where
   rnf UpdateControlPanel' {..} =
-    Prelude.rnf controlPanelArn
-      `Prelude.seq` Prelude.rnf controlPanelName
+    Prelude.rnf controlPanelArn `Prelude.seq`
+      Prelude.rnf controlPanelName
 
 instance Data.ToHeaders UpdateControlPanel where
   toHeaders =
@@ -188,5 +188,5 @@ updateControlPanelResponse_httpStatus = Lens.lens (\UpdateControlPanelResponse' 
 
 instance Prelude.NFData UpdateControlPanelResponse where
   rnf UpdateControlPanelResponse' {..} =
-    Prelude.rnf controlPanel
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf controlPanel `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -241,13 +241,13 @@ instance Prelude.Hashable CreateLocationFsxWindows where
 
 instance Prelude.NFData CreateLocationFsxWindows where
   rnf CreateLocationFsxWindows' {..} =
-    Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf subdirectory
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf fsxFilesystemArn
-      `Prelude.seq` Prelude.rnf securityGroupArns
-      `Prelude.seq` Prelude.rnf user
-      `Prelude.seq` Prelude.rnf password
+    Prelude.rnf domain `Prelude.seq`
+      Prelude.rnf subdirectory `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf fsxFilesystemArn `Prelude.seq`
+            Prelude.rnf securityGroupArns `Prelude.seq`
+              Prelude.rnf user `Prelude.seq`
+                Prelude.rnf password
 
 instance Data.ToHeaders CreateLocationFsxWindows where
   toHeaders =
@@ -333,5 +333,5 @@ instance
     CreateLocationFsxWindowsResponse
   where
   rnf CreateLocationFsxWindowsResponse' {..} =
-    Prelude.rnf locationArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf locationArn `Prelude.seq`
+      Prelude.rnf httpStatus

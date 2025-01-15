@@ -182,5 +182,5 @@ instance
   where
   rnf
     ListVoiceConnectorTerminationCredentialsResponse' {..} =
-      Prelude.rnf usernames
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf usernames `Prelude.seq`
+        Prelude.rnf httpStatus

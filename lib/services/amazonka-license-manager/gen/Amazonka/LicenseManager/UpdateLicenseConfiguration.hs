@@ -189,15 +189,15 @@ instance Prelude.Hashable UpdateLicenseConfiguration where
 
 instance Prelude.NFData UpdateLicenseConfiguration where
   rnf UpdateLicenseConfiguration' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf disassociateWhenNotFound
-      `Prelude.seq` Prelude.rnf licenseConfigurationStatus
-      `Prelude.seq` Prelude.rnf licenseCount
-      `Prelude.seq` Prelude.rnf licenseCountHardLimit
-      `Prelude.seq` Prelude.rnf licenseRules
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf productInformationList
-      `Prelude.seq` Prelude.rnf licenseConfigurationArn
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf disassociateWhenNotFound `Prelude.seq`
+        Prelude.rnf licenseConfigurationStatus `Prelude.seq`
+          Prelude.rnf licenseCount `Prelude.seq`
+            Prelude.rnf licenseCountHardLimit `Prelude.seq`
+              Prelude.rnf licenseRules `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf productInformationList `Prelude.seq`
+                    Prelude.rnf licenseConfigurationArn
 
 instance Data.ToHeaders UpdateLicenseConfiguration where
   toHeaders =

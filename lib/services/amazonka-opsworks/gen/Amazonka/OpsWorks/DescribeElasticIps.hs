@@ -147,9 +147,9 @@ instance Prelude.Hashable DescribeElasticIps where
 
 instance Prelude.NFData DescribeElasticIps where
   rnf DescribeElasticIps' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf ips
-      `Prelude.seq` Prelude.rnf stackId
+    Prelude.rnf instanceId `Prelude.seq`
+      Prelude.rnf ips `Prelude.seq`
+        Prelude.rnf stackId
 
 instance Data.ToHeaders DescribeElasticIps where
   toHeaders =
@@ -228,5 +228,5 @@ describeElasticIpsResponse_httpStatus = Lens.lens (\DescribeElasticIpsResponse' 
 
 instance Prelude.NFData DescribeElasticIpsResponse where
   rnf DescribeElasticIpsResponse' {..} =
-    Prelude.rnf elasticIps
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf elasticIps `Prelude.seq`
+      Prelude.rnf httpStatus

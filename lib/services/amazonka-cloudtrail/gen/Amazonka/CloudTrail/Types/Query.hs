@@ -96,6 +96,6 @@ instance Prelude.Hashable Query where
 
 instance Prelude.NFData Query where
   rnf Query' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf queryId
-      `Prelude.seq` Prelude.rnf queryStatus
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf queryId `Prelude.seq`
+        Prelude.rnf queryStatus

@@ -127,8 +127,8 @@ instance Prelude.Hashable OpenZFSClientConfiguration where
 
 instance Prelude.NFData OpenZFSClientConfiguration where
   rnf OpenZFSClientConfiguration' {..} =
-    Prelude.rnf clients
-      `Prelude.seq` Prelude.rnf options
+    Prelude.rnf clients `Prelude.seq`
+      Prelude.rnf options
 
 instance Data.ToJSON OpenZFSClientConfiguration where
   toJSON OpenZFSClientConfiguration' {..} =

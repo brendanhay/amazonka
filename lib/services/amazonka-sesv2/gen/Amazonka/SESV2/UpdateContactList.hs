@@ -121,9 +121,9 @@ instance Prelude.Hashable UpdateContactList where
 
 instance Prelude.NFData UpdateContactList where
   rnf UpdateContactList' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf topics
-      `Prelude.seq` Prelude.rnf contactListName
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf topics `Prelude.seq`
+        Prelude.rnf contactListName
 
 instance Data.ToHeaders UpdateContactList where
   toHeaders =

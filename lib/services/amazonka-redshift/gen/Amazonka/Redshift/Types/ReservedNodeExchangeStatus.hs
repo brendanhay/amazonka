@@ -164,12 +164,12 @@ instance Prelude.Hashable ReservedNodeExchangeStatus where
 
 instance Prelude.NFData ReservedNodeExchangeStatus where
   rnf ReservedNodeExchangeStatus' {..} =
-    Prelude.rnf requestTime
-      `Prelude.seq` Prelude.rnf reservedNodeExchangeRequestId
-      `Prelude.seq` Prelude.rnf sourceReservedNodeCount
-      `Prelude.seq` Prelude.rnf sourceReservedNodeId
-      `Prelude.seq` Prelude.rnf sourceReservedNodeType
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf targetReservedNodeCount
-      `Prelude.seq` Prelude.rnf targetReservedNodeOfferingId
-      `Prelude.seq` Prelude.rnf targetReservedNodeType
+    Prelude.rnf requestTime `Prelude.seq`
+      Prelude.rnf reservedNodeExchangeRequestId `Prelude.seq`
+        Prelude.rnf sourceReservedNodeCount `Prelude.seq`
+          Prelude.rnf sourceReservedNodeId `Prelude.seq`
+            Prelude.rnf sourceReservedNodeType `Prelude.seq`
+              Prelude.rnf status `Prelude.seq`
+                Prelude.rnf targetReservedNodeCount `Prelude.seq`
+                  Prelude.rnf targetReservedNodeOfferingId `Prelude.seq`
+                    Prelude.rnf targetReservedNodeType

@@ -677,29 +677,29 @@ instance Prelude.Hashable CreateTrainingJob where
 
 instance Prelude.NFData CreateTrainingJob where
   rnf CreateTrainingJob' {..} =
-    Prelude.rnf checkpointConfig
-      `Prelude.seq` Prelude.rnf debugHookConfig
-      `Prelude.seq` Prelude.rnf debugRuleConfigurations
-      `Prelude.seq` Prelude.rnf enableInterContainerTrafficEncryption
-      `Prelude.seq` Prelude.rnf enableManagedSpotTraining
-      `Prelude.seq` Prelude.rnf enableNetworkIsolation
-      `Prelude.seq` Prelude.rnf environment
-      `Prelude.seq` Prelude.rnf experimentConfig
-      `Prelude.seq` Prelude.rnf hyperParameters
-      `Prelude.seq` Prelude.rnf inputDataConfig
-      `Prelude.seq` Prelude.rnf profilerConfig
-      `Prelude.seq` Prelude.rnf profilerRuleConfigurations
-      `Prelude.seq` Prelude.rnf retryStrategy
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf tensorBoardOutputConfig
-      `Prelude.seq` Prelude.rnf vpcConfig
-      `Prelude.seq` Prelude.rnf trainingJobName
-      `Prelude.seq` Prelude.rnf algorithmSpecification
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf outputDataConfig
-      `Prelude.seq` Prelude.rnf resourceConfig
-      `Prelude.seq` Prelude.rnf
-        stoppingCondition
+    Prelude.rnf checkpointConfig `Prelude.seq`
+      Prelude.rnf debugHookConfig `Prelude.seq`
+        Prelude.rnf debugRuleConfigurations `Prelude.seq`
+          Prelude.rnf enableInterContainerTrafficEncryption `Prelude.seq`
+            Prelude.rnf enableManagedSpotTraining `Prelude.seq`
+              Prelude.rnf enableNetworkIsolation `Prelude.seq`
+                Prelude.rnf environment `Prelude.seq`
+                  Prelude.rnf experimentConfig `Prelude.seq`
+                    Prelude.rnf hyperParameters `Prelude.seq`
+                      Prelude.rnf inputDataConfig `Prelude.seq`
+                        Prelude.rnf profilerConfig `Prelude.seq`
+                          Prelude.rnf profilerRuleConfigurations `Prelude.seq`
+                            Prelude.rnf retryStrategy `Prelude.seq`
+                              Prelude.rnf tags `Prelude.seq`
+                                Prelude.rnf tensorBoardOutputConfig `Prelude.seq`
+                                  Prelude.rnf vpcConfig `Prelude.seq`
+                                    Prelude.rnf trainingJobName `Prelude.seq`
+                                      Prelude.rnf algorithmSpecification `Prelude.seq`
+                                        Prelude.rnf roleArn `Prelude.seq`
+                                          Prelude.rnf outputDataConfig `Prelude.seq`
+                                            Prelude.rnf resourceConfig `Prelude.seq`
+                                              Prelude.rnf
+                                                stoppingCondition
 
 instance Data.ToHeaders CreateTrainingJob where
   toHeaders =
@@ -815,5 +815,5 @@ createTrainingJobResponse_trainingJobArn = Lens.lens (\CreateTrainingJobResponse
 
 instance Prelude.NFData CreateTrainingJobResponse where
   rnf CreateTrainingJobResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf trainingJobArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf trainingJobArn

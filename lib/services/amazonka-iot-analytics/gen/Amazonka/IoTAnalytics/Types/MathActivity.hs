@@ -115,10 +115,10 @@ instance Prelude.Hashable MathActivity where
 
 instance Prelude.NFData MathActivity where
   rnf MathActivity' {..} =
-    Prelude.rnf next
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf attribute
-      `Prelude.seq` Prelude.rnf math
+    Prelude.rnf next `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf attribute `Prelude.seq`
+          Prelude.rnf math
 
 instance Data.ToJSON MathActivity where
   toJSON MathActivity' {..} =

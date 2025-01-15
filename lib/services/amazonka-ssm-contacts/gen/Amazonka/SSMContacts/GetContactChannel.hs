@@ -250,10 +250,10 @@ getContactChannelResponse_deliveryAddress = Lens.lens (\GetContactChannelRespons
 
 instance Prelude.NFData GetContactChannelResponse where
   rnf GetContactChannelResponse' {..} =
-    Prelude.rnf activationStatus
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf contactArn
-      `Prelude.seq` Prelude.rnf contactChannelArn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf deliveryAddress
+    Prelude.rnf activationStatus `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf contactArn `Prelude.seq`
+          Prelude.rnf contactChannelArn `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf type' `Prelude.seq`
+                Prelude.rnf deliveryAddress

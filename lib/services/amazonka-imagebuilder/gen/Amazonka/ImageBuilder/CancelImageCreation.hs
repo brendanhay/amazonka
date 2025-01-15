@@ -130,8 +130,8 @@ instance Prelude.Hashable CancelImageCreation where
 
 instance Prelude.NFData CancelImageCreation where
   rnf CancelImageCreation' {..} =
-    Prelude.rnf imageBuildVersionArn
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf imageBuildVersionArn `Prelude.seq`
+      Prelude.rnf clientToken
 
 instance Data.ToHeaders CancelImageCreation where
   toHeaders =
@@ -224,7 +224,7 @@ cancelImageCreationResponse_httpStatus = Lens.lens (\CancelImageCreationResponse
 
 instance Prelude.NFData CancelImageCreationResponse where
   rnf CancelImageCreationResponse' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf imageBuildVersionArn
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf imageBuildVersionArn `Prelude.seq`
+        Prelude.rnf requestId `Prelude.seq`
+          Prelude.rnf httpStatus

@@ -266,8 +266,8 @@ instance Prelude.Hashable GetPublicKey where
 
 instance Prelude.NFData GetPublicKey where
   rnf GetPublicKey' {..} =
-    Prelude.rnf grantTokens
-      `Prelude.seq` Prelude.rnf keyId
+    Prelude.rnf grantTokens `Prelude.seq`
+      Prelude.rnf keyId
 
 instance Data.ToHeaders GetPublicKey where
   toHeaders =
@@ -478,11 +478,11 @@ getPublicKeyResponse_httpStatus = Lens.lens (\GetPublicKeyResponse' {httpStatus}
 
 instance Prelude.NFData GetPublicKeyResponse where
   rnf GetPublicKeyResponse' {..} =
-    Prelude.rnf customerMasterKeySpec
-      `Prelude.seq` Prelude.rnf encryptionAlgorithms
-      `Prelude.seq` Prelude.rnf keyId
-      `Prelude.seq` Prelude.rnf keySpec
-      `Prelude.seq` Prelude.rnf keyUsage
-      `Prelude.seq` Prelude.rnf publicKey
-      `Prelude.seq` Prelude.rnf signingAlgorithms
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf customerMasterKeySpec `Prelude.seq`
+      Prelude.rnf encryptionAlgorithms `Prelude.seq`
+        Prelude.rnf keyId `Prelude.seq`
+          Prelude.rnf keySpec `Prelude.seq`
+            Prelude.rnf keyUsage `Prelude.seq`
+              Prelude.rnf publicKey `Prelude.seq`
+                Prelude.rnf signingAlgorithms `Prelude.seq`
+                  Prelude.rnf httpStatus

@@ -200,16 +200,16 @@ instance
     MultiplexProgramPacketIdentifiersMap
   where
   rnf MultiplexProgramPacketIdentifiersMap' {..} =
-    Prelude.rnf audioPids
-      `Prelude.seq` Prelude.rnf dvbSubPids
-      `Prelude.seq` Prelude.rnf dvbTeletextPid
-      `Prelude.seq` Prelude.rnf etvPlatformPid
-      `Prelude.seq` Prelude.rnf etvSignalPid
-      `Prelude.seq` Prelude.rnf klvDataPids
-      `Prelude.seq` Prelude.rnf pcrPid
-      `Prelude.seq` Prelude.rnf pmtPid
-      `Prelude.seq` Prelude.rnf privateMetadataPid
-      `Prelude.seq` Prelude.rnf scte27Pids
-      `Prelude.seq` Prelude.rnf scte35Pid
-      `Prelude.seq` Prelude.rnf timedMetadataPid
-      `Prelude.seq` Prelude.rnf videoPid
+    Prelude.rnf audioPids `Prelude.seq`
+      Prelude.rnf dvbSubPids `Prelude.seq`
+        Prelude.rnf dvbTeletextPid `Prelude.seq`
+          Prelude.rnf etvPlatformPid `Prelude.seq`
+            Prelude.rnf etvSignalPid `Prelude.seq`
+              Prelude.rnf klvDataPids `Prelude.seq`
+                Prelude.rnf pcrPid `Prelude.seq`
+                  Prelude.rnf pmtPid `Prelude.seq`
+                    Prelude.rnf privateMetadataPid `Prelude.seq`
+                      Prelude.rnf scte27Pids `Prelude.seq`
+                        Prelude.rnf scte35Pid `Prelude.seq`
+                          Prelude.rnf timedMetadataPid `Prelude.seq`
+                            Prelude.rnf videoPid

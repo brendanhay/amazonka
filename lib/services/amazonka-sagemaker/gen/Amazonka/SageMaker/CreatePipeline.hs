@@ -211,15 +211,15 @@ instance Prelude.Hashable CreatePipeline where
 
 instance Prelude.NFData CreatePipeline where
   rnf CreatePipeline' {..} =
-    Prelude.rnf parallelismConfiguration
-      `Prelude.seq` Prelude.rnf pipelineDefinition
-      `Prelude.seq` Prelude.rnf pipelineDefinitionS3Location
-      `Prelude.seq` Prelude.rnf pipelineDescription
-      `Prelude.seq` Prelude.rnf pipelineDisplayName
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf pipelineName
-      `Prelude.seq` Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf parallelismConfiguration `Prelude.seq`
+      Prelude.rnf pipelineDefinition `Prelude.seq`
+        Prelude.rnf pipelineDefinitionS3Location `Prelude.seq`
+          Prelude.rnf pipelineDescription `Prelude.seq`
+            Prelude.rnf pipelineDisplayName `Prelude.seq`
+              Prelude.rnf tags `Prelude.seq`
+                Prelude.rnf pipelineName `Prelude.seq`
+                  Prelude.rnf clientRequestToken `Prelude.seq`
+                    Prelude.rnf roleArn
 
 instance Data.ToHeaders CreatePipeline where
   toHeaders =
@@ -303,5 +303,5 @@ createPipelineResponse_httpStatus = Lens.lens (\CreatePipelineResponse' {httpSta
 
 instance Prelude.NFData CreatePipelineResponse where
   rnf CreatePipelineResponse' {..} =
-    Prelude.rnf pipelineArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf pipelineArn `Prelude.seq`
+      Prelude.rnf httpStatus

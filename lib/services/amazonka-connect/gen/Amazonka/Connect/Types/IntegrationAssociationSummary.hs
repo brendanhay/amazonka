@@ -155,11 +155,11 @@ instance
 
 instance Prelude.NFData IntegrationAssociationSummary where
   rnf IntegrationAssociationSummary' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf integrationArn
-      `Prelude.seq` Prelude.rnf integrationAssociationArn
-      `Prelude.seq` Prelude.rnf integrationAssociationId
-      `Prelude.seq` Prelude.rnf integrationType
-      `Prelude.seq` Prelude.rnf sourceApplicationName
-      `Prelude.seq` Prelude.rnf sourceApplicationUrl
-      `Prelude.seq` Prelude.rnf sourceType
+    Prelude.rnf instanceId `Prelude.seq`
+      Prelude.rnf integrationArn `Prelude.seq`
+        Prelude.rnf integrationAssociationArn `Prelude.seq`
+          Prelude.rnf integrationAssociationId `Prelude.seq`
+            Prelude.rnf integrationType `Prelude.seq`
+              Prelude.rnf sourceApplicationName `Prelude.seq`
+                Prelude.rnf sourceApplicationUrl `Prelude.seq`
+                  Prelude.rnf sourceType

@@ -111,8 +111,8 @@ instance Prelude.Hashable GetDelegations where
 
 instance Prelude.NFData GetDelegations where
   rnf GetDelegations' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders GetDelegations where
   toHeaders =
@@ -185,6 +185,6 @@ getDelegationsResponse_httpStatus = Lens.lens (\GetDelegationsResponse' {httpSta
 
 instance Prelude.NFData GetDelegationsResponse where
   rnf GetDelegationsResponse' {..} =
-    Prelude.rnf delegations
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf delegations `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

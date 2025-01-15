@@ -80,5 +80,5 @@ instance Prelude.Hashable UiTemplateInfo where
 
 instance Prelude.NFData UiTemplateInfo where
   rnf UiTemplateInfo' {..} =
-    Prelude.rnf contentSha256
-      `Prelude.seq` Prelude.rnf url
+    Prelude.rnf contentSha256 `Prelude.seq`
+      Prelude.rnf url

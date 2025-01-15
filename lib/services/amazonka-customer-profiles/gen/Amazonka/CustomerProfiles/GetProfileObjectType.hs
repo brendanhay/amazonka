@@ -132,8 +132,8 @@ instance Prelude.Hashable GetProfileObjectType where
 
 instance Prelude.NFData GetProfileObjectType where
   rnf GetProfileObjectType' {..} =
-    Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf objectTypeName
+    Prelude.rnf domainName `Prelude.seq`
+      Prelude.rnf objectTypeName
 
 instance Data.ToHeaders GetProfileObjectType where
   toHeaders =
@@ -327,16 +327,16 @@ getProfileObjectTypeResponse_description = Lens.lens (\GetProfileObjectTypeRespo
 
 instance Prelude.NFData GetProfileObjectTypeResponse where
   rnf GetProfileObjectTypeResponse' {..} =
-    Prelude.rnf allowProfileCreation
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf encryptionKey
-      `Prelude.seq` Prelude.rnf expirationDays
-      `Prelude.seq` Prelude.rnf fields
-      `Prelude.seq` Prelude.rnf keys
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf sourceLastUpdatedTimestampFormat
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf templateId
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf objectTypeName
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf allowProfileCreation `Prelude.seq`
+      Prelude.rnf createdAt `Prelude.seq`
+        Prelude.rnf encryptionKey `Prelude.seq`
+          Prelude.rnf expirationDays `Prelude.seq`
+            Prelude.rnf fields `Prelude.seq`
+              Prelude.rnf keys `Prelude.seq`
+                Prelude.rnf lastUpdatedAt `Prelude.seq`
+                  Prelude.rnf sourceLastUpdatedTimestampFormat `Prelude.seq`
+                    Prelude.rnf tags `Prelude.seq`
+                      Prelude.rnf templateId `Prelude.seq`
+                        Prelude.rnf httpStatus `Prelude.seq`
+                          Prelude.rnf objectTypeName `Prelude.seq`
+                            Prelude.rnf description

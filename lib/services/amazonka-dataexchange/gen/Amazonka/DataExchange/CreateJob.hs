@@ -250,12 +250,12 @@ createJobResponse_httpStatus = Lens.lens (\CreateJobResponse' {httpStatus} -> ht
 
 instance Prelude.NFData CreateJobResponse where
   rnf CreateJobResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf details
-      `Prelude.seq` Prelude.rnf errors
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf updatedAt
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf createdAt `Prelude.seq`
+        Prelude.rnf details `Prelude.seq`
+          Prelude.rnf errors `Prelude.seq`
+            Prelude.rnf id `Prelude.seq`
+              Prelude.rnf state `Prelude.seq`
+                Prelude.rnf type' `Prelude.seq`
+                  Prelude.rnf updatedAt `Prelude.seq`
+                    Prelude.rnf httpStatus

@@ -82,5 +82,5 @@ instance Prelude.Hashable AntipatternSeveritySummary where
 
 instance Prelude.NFData AntipatternSeveritySummary where
   rnf AntipatternSeveritySummary' {..} =
-    Prelude.rnf count
-      `Prelude.seq` Prelude.rnf severity
+    Prelude.rnf count `Prelude.seq`
+      Prelude.rnf severity

@@ -128,7 +128,7 @@ instance Prelude.Hashable ManagedRuleGroupSummary where
 
 instance Prelude.NFData ManagedRuleGroupSummary where
   rnf ManagedRuleGroupSummary' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf vendorName
-      `Prelude.seq` Prelude.rnf versioningSupported
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf vendorName `Prelude.seq`
+          Prelude.rnf versioningSupported

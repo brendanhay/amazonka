@@ -80,5 +80,5 @@ instance Prelude.Hashable OptionVersion where
 
 instance Prelude.NFData OptionVersion where
   rnf OptionVersion' {..} =
-    Prelude.rnf isDefault
-      `Prelude.seq` Prelude.rnf version
+    Prelude.rnf isDefault `Prelude.seq`
+      Prelude.rnf version

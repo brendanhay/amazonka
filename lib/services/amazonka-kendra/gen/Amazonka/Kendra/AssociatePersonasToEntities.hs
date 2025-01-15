@@ -142,9 +142,9 @@ instance Prelude.Hashable AssociatePersonasToEntities where
 
 instance Prelude.NFData AssociatePersonasToEntities where
   rnf AssociatePersonasToEntities' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf indexId
-      `Prelude.seq` Prelude.rnf personas
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf indexId `Prelude.seq`
+        Prelude.rnf personas
 
 instance Data.ToHeaders AssociatePersonasToEntities where
   toHeaders =
@@ -224,5 +224,5 @@ instance
     AssociatePersonasToEntitiesResponse
   where
   rnf AssociatePersonasToEntitiesResponse' {..} =
-    Prelude.rnf failedEntityList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf failedEntityList `Prelude.seq`
+      Prelude.rnf httpStatus

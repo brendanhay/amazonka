@@ -231,8 +231,8 @@ instance
     GetBackupVaultNotificationsResponse
   where
   rnf GetBackupVaultNotificationsResponse' {..} =
-    Prelude.rnf backupVaultArn
-      `Prelude.seq` Prelude.rnf backupVaultEvents
-      `Prelude.seq` Prelude.rnf backupVaultName
-      `Prelude.seq` Prelude.rnf sNSTopicArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf backupVaultArn `Prelude.seq`
+      Prelude.rnf backupVaultEvents `Prelude.seq`
+        Prelude.rnf backupVaultName `Prelude.seq`
+          Prelude.rnf sNSTopicArn `Prelude.seq`
+            Prelude.rnf httpStatus

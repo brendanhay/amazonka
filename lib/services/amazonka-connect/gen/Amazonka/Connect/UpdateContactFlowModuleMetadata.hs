@@ -159,11 +159,11 @@ instance
     UpdateContactFlowModuleMetadata
   where
   rnf UpdateContactFlowModuleMetadata' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf contactFlowModuleId
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf state `Prelude.seq`
+          Prelude.rnf instanceId `Prelude.seq`
+            Prelude.rnf contactFlowModuleId
 
 instance
   Data.ToHeaders

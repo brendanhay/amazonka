@@ -138,12 +138,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listPricingRulesAssociatedToPricingPlan_nextToken
-          Lens..~ rs
-          Lens.^? listPricingRulesAssociatedToPricingPlanResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listPricingRulesAssociatedToPricingPlan_nextToken
+              Lens..~ rs
+              Lens.^? listPricingRulesAssociatedToPricingPlanResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -184,10 +184,10 @@ instance
     ListPricingRulesAssociatedToPricingPlan
   where
   rnf ListPricingRulesAssociatedToPricingPlan' {..} =
-    Prelude.rnf billingPeriod
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf pricingPlanArn
+    Prelude.rnf billingPeriod `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf pricingPlanArn
 
 instance
   Data.ToHeaders
@@ -314,8 +314,8 @@ instance
   where
   rnf
     ListPricingRulesAssociatedToPricingPlanResponse' {..} =
-      Prelude.rnf billingPeriod
-        `Prelude.seq` Prelude.rnf nextToken
-        `Prelude.seq` Prelude.rnf pricingPlanArn
-        `Prelude.seq` Prelude.rnf pricingRuleArns
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf billingPeriod `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf pricingPlanArn `Prelude.seq`
+            Prelude.rnf pricingRuleArns `Prelude.seq`
+              Prelude.rnf httpStatus

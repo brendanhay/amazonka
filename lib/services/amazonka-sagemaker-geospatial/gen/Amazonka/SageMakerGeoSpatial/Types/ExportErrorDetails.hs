@@ -79,5 +79,5 @@ instance Prelude.Hashable ExportErrorDetails where
 
 instance Prelude.NFData ExportErrorDetails where
   rnf ExportErrorDetails' {..} =
-    Prelude.rnf exportResults
-      `Prelude.seq` Prelude.rnf exportSourceImages
+    Prelude.rnf exportResults `Prelude.seq`
+      Prelude.rnf exportSourceImages

@@ -173,11 +173,11 @@ instance Prelude.Hashable CreateLocationFsxOpenZfs where
 
 instance Prelude.NFData CreateLocationFsxOpenZfs where
   rnf CreateLocationFsxOpenZfs' {..} =
-    Prelude.rnf subdirectory
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf fsxFilesystemArn
-      `Prelude.seq` Prelude.rnf protocol
-      `Prelude.seq` Prelude.rnf securityGroupArns
+    Prelude.rnf subdirectory `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf fsxFilesystemArn `Prelude.seq`
+          Prelude.rnf protocol `Prelude.seq`
+            Prelude.rnf securityGroupArns
 
 instance Data.ToHeaders CreateLocationFsxOpenZfs where
   toHeaders =
@@ -258,5 +258,5 @@ instance
     CreateLocationFsxOpenZfsResponse
   where
   rnf CreateLocationFsxOpenZfsResponse' {..} =
-    Prelude.rnf locationArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf locationArn `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -83,8 +83,8 @@ instance Prelude.Hashable StringFormatConfiguration where
 
 instance Prelude.NFData StringFormatConfiguration where
   rnf StringFormatConfiguration' {..} =
-    Prelude.rnf nullValueFormatConfiguration
-      `Prelude.seq` Prelude.rnf numericFormatConfiguration
+    Prelude.rnf nullValueFormatConfiguration `Prelude.seq`
+      Prelude.rnf numericFormatConfiguration
 
 instance Data.ToJSON StringFormatConfiguration where
   toJSON StringFormatConfiguration' {..} =

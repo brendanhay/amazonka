@@ -100,9 +100,9 @@ instance Prelude.Hashable AttributeKey where
 
 instance Prelude.NFData AttributeKey where
   rnf AttributeKey' {..} =
-    Prelude.rnf schemaArn
-      `Prelude.seq` Prelude.rnf facetName
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf schemaArn `Prelude.seq`
+      Prelude.rnf facetName `Prelude.seq`
+        Prelude.rnf name
 
 instance Data.ToJSON AttributeKey where
   toJSON AttributeKey' {..} =

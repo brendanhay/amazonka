@@ -193,15 +193,15 @@ instance Prelude.Hashable SplunkDestinationUpdate where
 
 instance Prelude.NFData SplunkDestinationUpdate where
   rnf SplunkDestinationUpdate' {..} =
-    Prelude.rnf cloudWatchLoggingOptions
-      `Prelude.seq` Prelude.rnf hECAcknowledgmentTimeoutInSeconds
-      `Prelude.seq` Prelude.rnf hECEndpoint
-      `Prelude.seq` Prelude.rnf hECEndpointType
-      `Prelude.seq` Prelude.rnf hECToken
-      `Prelude.seq` Prelude.rnf processingConfiguration
-      `Prelude.seq` Prelude.rnf retryOptions
-      `Prelude.seq` Prelude.rnf s3BackupMode
-      `Prelude.seq` Prelude.rnf s3Update
+    Prelude.rnf cloudWatchLoggingOptions `Prelude.seq`
+      Prelude.rnf hECAcknowledgmentTimeoutInSeconds `Prelude.seq`
+        Prelude.rnf hECEndpoint `Prelude.seq`
+          Prelude.rnf hECEndpointType `Prelude.seq`
+            Prelude.rnf hECToken `Prelude.seq`
+              Prelude.rnf processingConfiguration `Prelude.seq`
+                Prelude.rnf retryOptions `Prelude.seq`
+                  Prelude.rnf s3BackupMode `Prelude.seq`
+                    Prelude.rnf s3Update
 
 instance Data.ToJSON SplunkDestinationUpdate where
   toJSON SplunkDestinationUpdate' {..} =

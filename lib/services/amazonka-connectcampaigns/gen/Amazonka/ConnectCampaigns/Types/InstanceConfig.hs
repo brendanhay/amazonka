@@ -99,6 +99,6 @@ instance Prelude.Hashable InstanceConfig where
 
 instance Prelude.NFData InstanceConfig where
   rnf InstanceConfig' {..} =
-    Prelude.rnf connectInstanceId
-      `Prelude.seq` Prelude.rnf encryptionConfig
-      `Prelude.seq` Prelude.rnf serviceLinkedRoleArn
+    Prelude.rnf connectInstanceId `Prelude.seq`
+      Prelude.rnf encryptionConfig `Prelude.seq`
+        Prelude.rnf serviceLinkedRoleArn

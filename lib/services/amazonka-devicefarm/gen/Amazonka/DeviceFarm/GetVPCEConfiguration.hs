@@ -171,5 +171,5 @@ getVPCEConfigurationResponse_httpStatus = Lens.lens (\GetVPCEConfigurationRespon
 
 instance Prelude.NFData GetVPCEConfigurationResponse where
   rnf GetVPCEConfigurationResponse' {..} =
-    Prelude.rnf vpceConfiguration
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf vpceConfiguration `Prelude.seq`
+      Prelude.rnf httpStatus

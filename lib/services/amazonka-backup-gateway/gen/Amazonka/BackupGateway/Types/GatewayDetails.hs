@@ -166,11 +166,11 @@ instance Prelude.Hashable GatewayDetails where
 
 instance Prelude.NFData GatewayDetails where
   rnf GatewayDetails' {..} =
-    Prelude.rnf gatewayArn
-      `Prelude.seq` Prelude.rnf gatewayDisplayName
-      `Prelude.seq` Prelude.rnf gatewayType
-      `Prelude.seq` Prelude.rnf hypervisorId
-      `Prelude.seq` Prelude.rnf lastSeenTime
-      `Prelude.seq` Prelude.rnf maintenanceStartTime
-      `Prelude.seq` Prelude.rnf nextUpdateAvailabilityTime
-      `Prelude.seq` Prelude.rnf vpcEndpoint
+    Prelude.rnf gatewayArn `Prelude.seq`
+      Prelude.rnf gatewayDisplayName `Prelude.seq`
+        Prelude.rnf gatewayType `Prelude.seq`
+          Prelude.rnf hypervisorId `Prelude.seq`
+            Prelude.rnf lastSeenTime `Prelude.seq`
+              Prelude.rnf maintenanceStartTime `Prelude.seq`
+                Prelude.rnf nextUpdateAvailabilityTime `Prelude.seq`
+                  Prelude.rnf vpcEndpoint

@@ -93,5 +93,5 @@ instance Prelude.Hashable ItemResponse where
 
 instance Prelude.NFData ItemResponse where
   rnf ItemResponse' {..} =
-    Prelude.rnf endpointItemResponse
-      `Prelude.seq` Prelude.rnf eventsItemResponse
+    Prelude.rnf endpointItemResponse `Prelude.seq`
+      Prelude.rnf eventsItemResponse

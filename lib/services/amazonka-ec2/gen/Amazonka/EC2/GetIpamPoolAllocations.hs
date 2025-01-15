@@ -159,12 +159,12 @@ instance Core.AWSPager GetIpamPoolAllocations where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getIpamPoolAllocations_nextToken
-          Lens..~ rs
-          Lens.^? getIpamPoolAllocationsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getIpamPoolAllocations_nextToken
+              Lens..~ rs
+              Lens.^? getIpamPoolAllocationsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetIpamPoolAllocations where
   type
@@ -197,12 +197,12 @@ instance Prelude.Hashable GetIpamPoolAllocations where
 
 instance Prelude.NFData GetIpamPoolAllocations where
   rnf GetIpamPoolAllocations' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf ipamPoolAllocationId
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf ipamPoolId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf ipamPoolAllocationId `Prelude.seq`
+          Prelude.rnf maxResults `Prelude.seq`
+            Prelude.rnf nextToken `Prelude.seq`
+              Prelude.rnf ipamPoolId
 
 instance Data.ToHeaders GetIpamPoolAllocations where
   toHeaders = Prelude.const Prelude.mempty
@@ -282,6 +282,6 @@ instance
     GetIpamPoolAllocationsResponse
   where
   rnf GetIpamPoolAllocationsResponse' {..} =
-    Prelude.rnf ipamPoolAllocations
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf ipamPoolAllocations `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

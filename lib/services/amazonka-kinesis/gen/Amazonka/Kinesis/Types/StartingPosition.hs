@@ -155,9 +155,9 @@ instance Prelude.Hashable StartingPosition where
 
 instance Prelude.NFData StartingPosition where
   rnf StartingPosition' {..} =
-    Prelude.rnf sequenceNumber
-      `Prelude.seq` Prelude.rnf timestamp
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf sequenceNumber `Prelude.seq`
+      Prelude.rnf timestamp `Prelude.seq`
+        Prelude.rnf type'
 
 instance Data.ToJSON StartingPosition where
   toJSON StartingPosition' {..} =

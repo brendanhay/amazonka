@@ -227,12 +227,12 @@ instance Prelude.Hashable AugmentedManifestsListItem where
 
 instance Prelude.NFData AugmentedManifestsListItem where
   rnf AugmentedManifestsListItem' {..} =
-    Prelude.rnf annotationDataS3Uri
-      `Prelude.seq` Prelude.rnf documentType
-      `Prelude.seq` Prelude.rnf sourceDocumentsS3Uri
-      `Prelude.seq` Prelude.rnf split
-      `Prelude.seq` Prelude.rnf s3Uri
-      `Prelude.seq` Prelude.rnf attributeNames
+    Prelude.rnf annotationDataS3Uri `Prelude.seq`
+      Prelude.rnf documentType `Prelude.seq`
+        Prelude.rnf sourceDocumentsS3Uri `Prelude.seq`
+          Prelude.rnf split `Prelude.seq`
+            Prelude.rnf s3Uri `Prelude.seq`
+              Prelude.rnf attributeNames
 
 instance Data.ToJSON AugmentedManifestsListItem where
   toJSON AugmentedManifestsListItem' {..} =

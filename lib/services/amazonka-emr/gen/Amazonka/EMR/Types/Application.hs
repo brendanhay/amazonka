@@ -119,10 +119,10 @@ instance Prelude.Hashable Application where
 
 instance Prelude.NFData Application where
   rnf Application' {..} =
-    Prelude.rnf additionalInfo
-      `Prelude.seq` Prelude.rnf args
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf version
+    Prelude.rnf additionalInfo `Prelude.seq`
+      Prelude.rnf args `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf version
 
 instance Data.ToJSON Application where
   toJSON Application' {..} =

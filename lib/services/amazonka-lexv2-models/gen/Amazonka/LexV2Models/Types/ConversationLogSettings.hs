@@ -84,8 +84,8 @@ instance Prelude.Hashable ConversationLogSettings where
 
 instance Prelude.NFData ConversationLogSettings where
   rnf ConversationLogSettings' {..} =
-    Prelude.rnf audioLogSettings
-      `Prelude.seq` Prelude.rnf textLogSettings
+    Prelude.rnf audioLogSettings `Prelude.seq`
+      Prelude.rnf textLogSettings
 
 instance Data.ToJSON ConversationLogSettings where
   toJSON ConversationLogSettings' {..} =

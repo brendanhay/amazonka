@@ -98,8 +98,8 @@ instance
     AwsEc2LaunchTemplateDataCpuOptionsDetails
   where
   rnf AwsEc2LaunchTemplateDataCpuOptionsDetails' {..} =
-    Prelude.rnf coreCount
-      `Prelude.seq` Prelude.rnf threadsPerCore
+    Prelude.rnf coreCount `Prelude.seq`
+      Prelude.rnf threadsPerCore
 
 instance
   Data.ToJSON

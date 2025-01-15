@@ -106,7 +106,7 @@ instance Prelude.Hashable BlockPublicAccess where
 
 instance Prelude.NFData BlockPublicAccess where
   rnf BlockPublicAccess' {..} =
-    Prelude.rnf blockPublicAcls
-      `Prelude.seq` Prelude.rnf blockPublicPolicy
-      `Prelude.seq` Prelude.rnf ignorePublicAcls
-      `Prelude.seq` Prelude.rnf restrictPublicBuckets
+    Prelude.rnf blockPublicAcls `Prelude.seq`
+      Prelude.rnf blockPublicPolicy `Prelude.seq`
+        Prelude.rnf ignorePublicAcls `Prelude.seq`
+          Prelude.rnf restrictPublicBuckets

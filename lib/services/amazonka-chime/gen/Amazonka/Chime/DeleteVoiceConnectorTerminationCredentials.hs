@@ -119,8 +119,8 @@ instance
     DeleteVoiceConnectorTerminationCredentials
   where
   rnf DeleteVoiceConnectorTerminationCredentials' {..} =
-    Prelude.rnf usernames
-      `Prelude.seq` Prelude.rnf voiceConnectorId
+    Prelude.rnf usernames `Prelude.seq`
+      Prelude.rnf voiceConnectorId
 
 instance
   Data.ToHeaders

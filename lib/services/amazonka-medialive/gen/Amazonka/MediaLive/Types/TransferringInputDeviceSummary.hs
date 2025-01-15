@@ -112,7 +112,7 @@ instance
     TransferringInputDeviceSummary
   where
   rnf TransferringInputDeviceSummary' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf targetCustomerId
-      `Prelude.seq` Prelude.rnf transferType
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf message `Prelude.seq`
+        Prelude.rnf targetCustomerId `Prelude.seq`
+          Prelude.rnf transferType

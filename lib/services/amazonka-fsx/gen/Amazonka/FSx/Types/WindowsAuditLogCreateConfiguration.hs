@@ -243,9 +243,9 @@ instance
     WindowsAuditLogCreateConfiguration
   where
   rnf WindowsAuditLogCreateConfiguration' {..} =
-    Prelude.rnf auditLogDestination
-      `Prelude.seq` Prelude.rnf fileAccessAuditLogLevel
-      `Prelude.seq` Prelude.rnf fileShareAccessAuditLogLevel
+    Prelude.rnf auditLogDestination `Prelude.seq`
+      Prelude.rnf fileAccessAuditLogLevel `Prelude.seq`
+        Prelude.rnf fileShareAccessAuditLogLevel
 
 instance
   Data.ToJSON

@@ -104,6 +104,6 @@ instance Prelude.Hashable AgentConfigurationStatus where
 
 instance Prelude.NFData AgentConfigurationStatus where
   rnf AgentConfigurationStatus' {..} =
-    Prelude.rnf agentId
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf operationSucceeded
+    Prelude.rnf agentId `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf operationSucceeded

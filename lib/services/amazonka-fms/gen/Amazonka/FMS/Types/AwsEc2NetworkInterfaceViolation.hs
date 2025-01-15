@@ -98,5 +98,5 @@ instance
     AwsEc2NetworkInterfaceViolation
   where
   rnf AwsEc2NetworkInterfaceViolation' {..} =
-    Prelude.rnf violatingSecurityGroups
-      `Prelude.seq` Prelude.rnf violationTarget
+    Prelude.rnf violatingSecurityGroups `Prelude.seq`
+      Prelude.rnf violationTarget

@@ -135,12 +135,12 @@ instance Core.AWSPager ListLaunchProfileMembers where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listLaunchProfileMembers_nextToken
-          Lens..~ rs
-          Lens.^? listLaunchProfileMembersResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listLaunchProfileMembers_nextToken
+              Lens..~ rs
+              Lens.^? listLaunchProfileMembersResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListLaunchProfileMembers where
   type
@@ -167,10 +167,10 @@ instance Prelude.Hashable ListLaunchProfileMembers where
 
 instance Prelude.NFData ListLaunchProfileMembers where
   rnf ListLaunchProfileMembers' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf launchProfileId
-      `Prelude.seq` Prelude.rnf studioId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf launchProfileId `Prelude.seq`
+          Prelude.rnf studioId
 
 instance Data.ToHeaders ListLaunchProfileMembers where
   toHeaders =
@@ -256,6 +256,6 @@ instance
     ListLaunchProfileMembersResponse
   where
   rnf ListLaunchProfileMembersResponse' {..} =
-    Prelude.rnf members
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf members `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

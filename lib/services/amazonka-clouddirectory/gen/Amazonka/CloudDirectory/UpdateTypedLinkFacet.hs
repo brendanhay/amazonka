@@ -161,10 +161,10 @@ instance Prelude.Hashable UpdateTypedLinkFacet where
 
 instance Prelude.NFData UpdateTypedLinkFacet where
   rnf UpdateTypedLinkFacet' {..} =
-    Prelude.rnf schemaArn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf attributeUpdates
-      `Prelude.seq` Prelude.rnf identityAttributeOrder
+    Prelude.rnf schemaArn `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf attributeUpdates `Prelude.seq`
+          Prelude.rnf identityAttributeOrder
 
 instance Data.ToHeaders UpdateTypedLinkFacet where
   toHeaders UpdateTypedLinkFacet' {..} =

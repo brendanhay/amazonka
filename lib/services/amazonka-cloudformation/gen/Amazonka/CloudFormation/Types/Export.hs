@@ -102,6 +102,6 @@ instance Prelude.Hashable Export where
 
 instance Prelude.NFData Export where
   rnf Export' {..} =
-    Prelude.rnf exportingStackId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf exportingStackId `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf value

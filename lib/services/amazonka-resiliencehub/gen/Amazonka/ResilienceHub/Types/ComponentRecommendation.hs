@@ -105,6 +105,6 @@ instance Prelude.Hashable ComponentRecommendation where
 
 instance Prelude.NFData ComponentRecommendation where
   rnf ComponentRecommendation' {..} =
-    Prelude.rnf appComponentName
-      `Prelude.seq` Prelude.rnf configRecommendations
-      `Prelude.seq` Prelude.rnf recommendationStatus
+    Prelude.rnf appComponentName `Prelude.seq`
+      Prelude.rnf configRecommendations `Prelude.seq`
+        Prelude.rnf recommendationStatus

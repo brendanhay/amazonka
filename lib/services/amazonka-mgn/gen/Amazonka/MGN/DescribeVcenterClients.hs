@@ -103,12 +103,12 @@ instance Core.AWSPager DescribeVcenterClients where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeVcenterClients_nextToken
-          Lens..~ rs
-          Lens.^? describeVcenterClientsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeVcenterClients_nextToken
+              Lens..~ rs
+              Lens.^? describeVcenterClientsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeVcenterClients where
   type
@@ -133,8 +133,8 @@ instance Prelude.Hashable DescribeVcenterClients where
 
 instance Prelude.NFData DescribeVcenterClients where
   rnf DescribeVcenterClients' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeVcenterClients where
   toHeaders =
@@ -210,6 +210,6 @@ instance
     DescribeVcenterClientsResponse
   where
   rnf DescribeVcenterClientsResponse' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf items `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

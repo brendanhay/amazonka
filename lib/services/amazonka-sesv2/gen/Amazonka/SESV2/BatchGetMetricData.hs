@@ -185,6 +185,6 @@ batchGetMetricDataResponse_httpStatus = Lens.lens (\BatchGetMetricDataResponse' 
 
 instance Prelude.NFData BatchGetMetricDataResponse where
   rnf BatchGetMetricDataResponse' {..} =
-    Prelude.rnf errors
-      `Prelude.seq` Prelude.rnf results
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf errors `Prelude.seq`
+      Prelude.rnf results `Prelude.seq`
+        Prelude.rnf httpStatus

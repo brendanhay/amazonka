@@ -255,19 +255,19 @@ instance Prelude.Hashable LicenseConfiguration where
 
 instance Prelude.NFData LicenseConfiguration where
   rnf LicenseConfiguration' {..} =
-    Prelude.rnf automatedDiscoveryInformation
-      `Prelude.seq` Prelude.rnf consumedLicenseSummaryList
-      `Prelude.seq` Prelude.rnf consumedLicenses
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf disassociateWhenNotFound
-      `Prelude.seq` Prelude.rnf licenseConfigurationArn
-      `Prelude.seq` Prelude.rnf licenseConfigurationId
-      `Prelude.seq` Prelude.rnf licenseCount
-      `Prelude.seq` Prelude.rnf licenseCountHardLimit
-      `Prelude.seq` Prelude.rnf licenseCountingType
-      `Prelude.seq` Prelude.rnf licenseRules
-      `Prelude.seq` Prelude.rnf managedResourceSummaryList
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf ownerAccountId
-      `Prelude.seq` Prelude.rnf productInformationList
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf automatedDiscoveryInformation `Prelude.seq`
+      Prelude.rnf consumedLicenseSummaryList `Prelude.seq`
+        Prelude.rnf consumedLicenses `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf disassociateWhenNotFound `Prelude.seq`
+              Prelude.rnf licenseConfigurationArn `Prelude.seq`
+                Prelude.rnf licenseConfigurationId `Prelude.seq`
+                  Prelude.rnf licenseCount `Prelude.seq`
+                    Prelude.rnf licenseCountHardLimit `Prelude.seq`
+                      Prelude.rnf licenseCountingType `Prelude.seq`
+                        Prelude.rnf licenseRules `Prelude.seq`
+                          Prelude.rnf managedResourceSummaryList `Prelude.seq`
+                            Prelude.rnf name `Prelude.seq`
+                              Prelude.rnf ownerAccountId `Prelude.seq`
+                                Prelude.rnf productInformationList `Prelude.seq`
+                                  Prelude.rnf status

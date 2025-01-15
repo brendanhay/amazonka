@@ -81,5 +81,5 @@ instance Prelude.Hashable ResourceReceivingAccess where
 
 instance Prelude.NFData ResourceReceivingAccess where
   rnf ResourceReceivingAccess' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf resourceType
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf resourceType

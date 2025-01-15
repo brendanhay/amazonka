@@ -125,8 +125,8 @@ instance Prelude.Hashable GetDevicePosition where
 
 instance Prelude.NFData GetDevicePosition where
   rnf GetDevicePosition' {..} =
-    Prelude.rnf deviceId
-      `Prelude.seq` Prelude.rnf trackerName
+    Prelude.rnf deviceId `Prelude.seq`
+      Prelude.rnf trackerName
 
 instance Data.ToHeaders GetDevicePosition where
   toHeaders =
@@ -263,10 +263,10 @@ getDevicePositionResponse_sampleTime = Lens.lens (\GetDevicePositionResponse' {s
 
 instance Prelude.NFData GetDevicePositionResponse where
   rnf GetDevicePositionResponse' {..} =
-    Prelude.rnf accuracy
-      `Prelude.seq` Prelude.rnf deviceId
-      `Prelude.seq` Prelude.rnf positionProperties
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf position
-      `Prelude.seq` Prelude.rnf receivedTime
-      `Prelude.seq` Prelude.rnf sampleTime
+    Prelude.rnf accuracy `Prelude.seq`
+      Prelude.rnf deviceId `Prelude.seq`
+        Prelude.rnf positionProperties `Prelude.seq`
+          Prelude.rnf httpStatus `Prelude.seq`
+            Prelude.rnf position `Prelude.seq`
+              Prelude.rnf receivedTime `Prelude.seq`
+                Prelude.rnf sampleTime

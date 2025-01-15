@@ -86,5 +86,5 @@ instance Prelude.Hashable ModelConfiguration where
 
 instance Prelude.NFData ModelConfiguration where
   rnf ModelConfiguration' {..} =
-    Prelude.rnf environmentParameters
-      `Prelude.seq` Prelude.rnf inferenceSpecificationName
+    Prelude.rnf environmentParameters `Prelude.seq`
+      Prelude.rnf inferenceSpecificationName

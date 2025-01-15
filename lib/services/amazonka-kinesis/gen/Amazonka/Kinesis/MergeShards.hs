@@ -170,10 +170,10 @@ instance Prelude.Hashable MergeShards where
 
 instance Prelude.NFData MergeShards where
   rnf MergeShards' {..} =
-    Prelude.rnf streamARN
-      `Prelude.seq` Prelude.rnf streamName
-      `Prelude.seq` Prelude.rnf shardToMerge
-      `Prelude.seq` Prelude.rnf adjacentShardToMerge
+    Prelude.rnf streamARN `Prelude.seq`
+      Prelude.rnf streamName `Prelude.seq`
+        Prelude.rnf shardToMerge `Prelude.seq`
+          Prelude.rnf adjacentShardToMerge
 
 instance Data.ToHeaders MergeShards where
   toHeaders =

@@ -166,12 +166,12 @@ instance Prelude.Hashable ModifyClusterMaintenance where
 
 instance Prelude.NFData ModifyClusterMaintenance where
   rnf ModifyClusterMaintenance' {..} =
-    Prelude.rnf deferMaintenance
-      `Prelude.seq` Prelude.rnf deferMaintenanceDuration
-      `Prelude.seq` Prelude.rnf deferMaintenanceEndTime
-      `Prelude.seq` Prelude.rnf deferMaintenanceIdentifier
-      `Prelude.seq` Prelude.rnf deferMaintenanceStartTime
-      `Prelude.seq` Prelude.rnf clusterIdentifier
+    Prelude.rnf deferMaintenance `Prelude.seq`
+      Prelude.rnf deferMaintenanceDuration `Prelude.seq`
+        Prelude.rnf deferMaintenanceEndTime `Prelude.seq`
+          Prelude.rnf deferMaintenanceIdentifier `Prelude.seq`
+            Prelude.rnf deferMaintenanceStartTime `Prelude.seq`
+              Prelude.rnf clusterIdentifier
 
 instance Data.ToHeaders ModifyClusterMaintenance where
   toHeaders = Prelude.const Prelude.mempty
@@ -241,5 +241,5 @@ instance
     ModifyClusterMaintenanceResponse
   where
   rnf ModifyClusterMaintenanceResponse' {..} =
-    Prelude.rnf cluster
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf cluster `Prelude.seq`
+      Prelude.rnf httpStatus

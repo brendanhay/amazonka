@@ -188,13 +188,13 @@ instance Prelude.Hashable TransitGatewayOptions where
 
 instance Prelude.NFData TransitGatewayOptions where
   rnf TransitGatewayOptions' {..} =
-    Prelude.rnf amazonSideAsn
-      `Prelude.seq` Prelude.rnf associationDefaultRouteTableId
-      `Prelude.seq` Prelude.rnf autoAcceptSharedAttachments
-      `Prelude.seq` Prelude.rnf defaultRouteTableAssociation
-      `Prelude.seq` Prelude.rnf defaultRouteTablePropagation
-      `Prelude.seq` Prelude.rnf dnsSupport
-      `Prelude.seq` Prelude.rnf multicastSupport
-      `Prelude.seq` Prelude.rnf propagationDefaultRouteTableId
-      `Prelude.seq` Prelude.rnf transitGatewayCidrBlocks
-      `Prelude.seq` Prelude.rnf vpnEcmpSupport
+    Prelude.rnf amazonSideAsn `Prelude.seq`
+      Prelude.rnf associationDefaultRouteTableId `Prelude.seq`
+        Prelude.rnf autoAcceptSharedAttachments `Prelude.seq`
+          Prelude.rnf defaultRouteTableAssociation `Prelude.seq`
+            Prelude.rnf defaultRouteTablePropagation `Prelude.seq`
+              Prelude.rnf dnsSupport `Prelude.seq`
+                Prelude.rnf multicastSupport `Prelude.seq`
+                  Prelude.rnf propagationDefaultRouteTableId `Prelude.seq`
+                    Prelude.rnf transitGatewayCidrBlocks `Prelude.seq`
+                      Prelude.rnf vpnEcmpSupport

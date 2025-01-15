@@ -129,8 +129,8 @@ instance Prelude.Hashable PlacementStatistics where
 
 instance Prelude.NFData PlacementStatistics where
   rnf PlacementStatistics' {..} =
-    Prelude.rnf dkimPercentage
-      `Prelude.seq` Prelude.rnf inboxPercentage
-      `Prelude.seq` Prelude.rnf missingPercentage
-      `Prelude.seq` Prelude.rnf spamPercentage
-      `Prelude.seq` Prelude.rnf spfPercentage
+    Prelude.rnf dkimPercentage `Prelude.seq`
+      Prelude.rnf inboxPercentage `Prelude.seq`
+        Prelude.rnf missingPercentage `Prelude.seq`
+          Prelude.rnf spamPercentage `Prelude.seq`
+            Prelude.rnf spfPercentage

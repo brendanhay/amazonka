@@ -81,5 +81,5 @@ instance Prelude.Hashable AccountStatus where
 
 instance Prelude.NFData AccountStatus where
   rnf AccountStatus' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf sLRDeploymentStatus
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf sLRDeploymentStatus

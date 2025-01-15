@@ -153,9 +153,9 @@ instance
     PermissionSetProvisioningStatus
   where
   rnf PermissionSetProvisioningStatus' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf createdDate
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf permissionSetArn
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf createdDate `Prelude.seq`
+        Prelude.rnf failureReason `Prelude.seq`
+          Prelude.rnf permissionSetArn `Prelude.seq`
+            Prelude.rnf requestId `Prelude.seq`
+              Prelude.rnf status

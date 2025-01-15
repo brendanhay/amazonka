@@ -170,9 +170,7 @@ instance
       Prelude.<*> (x Data..@? "peerTransitGatewayId")
       Prelude.<*> (x Data..@? "peeringAttachmentId")
       Prelude.<*> (x Data..@? "state")
-      Prelude.<*> ( x
-                      Data..@? "tagSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "transitGatewayId")
@@ -204,14 +202,14 @@ instance
     TransitGatewayRouteTableAnnouncement
   where
   rnf TransitGatewayRouteTableAnnouncement' {..} =
-    Prelude.rnf announcementDirection
-      `Prelude.seq` Prelude.rnf coreNetworkId
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf peerCoreNetworkId
-      `Prelude.seq` Prelude.rnf peerTransitGatewayId
-      `Prelude.seq` Prelude.rnf peeringAttachmentId
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf transitGatewayId
-      `Prelude.seq` Prelude.rnf transitGatewayRouteTableAnnouncementId
-      `Prelude.seq` Prelude.rnf transitGatewayRouteTableId
+    Prelude.rnf announcementDirection `Prelude.seq`
+      Prelude.rnf coreNetworkId `Prelude.seq`
+        Prelude.rnf creationTime `Prelude.seq`
+          Prelude.rnf peerCoreNetworkId `Prelude.seq`
+            Prelude.rnf peerTransitGatewayId `Prelude.seq`
+              Prelude.rnf peeringAttachmentId `Prelude.seq`
+                Prelude.rnf state `Prelude.seq`
+                  Prelude.rnf tags `Prelude.seq`
+                    Prelude.rnf transitGatewayId `Prelude.seq`
+                      Prelude.rnf transitGatewayRouteTableAnnouncementId `Prelude.seq`
+                        Prelude.rnf transitGatewayRouteTableId

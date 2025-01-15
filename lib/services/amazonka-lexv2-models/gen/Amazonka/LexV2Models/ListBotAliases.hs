@@ -141,9 +141,9 @@ instance Prelude.Hashable ListBotAliases where
 
 instance Prelude.NFData ListBotAliases where
   rnf ListBotAliases' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf botId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf botId
 
 instance Data.ToHeaders ListBotAliases where
   toHeaders =
@@ -253,7 +253,7 @@ listBotAliasesResponse_httpStatus = Lens.lens (\ListBotAliasesResponse' {httpSta
 
 instance Prelude.NFData ListBotAliasesResponse where
   rnf ListBotAliasesResponse' {..} =
-    Prelude.rnf botAliasSummaries
-      `Prelude.seq` Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf botAliasSummaries `Prelude.seq`
+      Prelude.rnf botId `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf httpStatus

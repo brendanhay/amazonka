@@ -438,17 +438,17 @@ instance Prelude.Hashable Budget where
 
 instance Prelude.NFData Budget where
   rnf Budget' {..} =
-    Prelude.rnf autoAdjustData
-      `Prelude.seq` Prelude.rnf budgetLimit
-      `Prelude.seq` Prelude.rnf calculatedSpend
-      `Prelude.seq` Prelude.rnf costFilters
-      `Prelude.seq` Prelude.rnf costTypes
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf plannedBudgetLimits
-      `Prelude.seq` Prelude.rnf timePeriod
-      `Prelude.seq` Prelude.rnf budgetName
-      `Prelude.seq` Prelude.rnf timeUnit
-      `Prelude.seq` Prelude.rnf budgetType
+    Prelude.rnf autoAdjustData `Prelude.seq`
+      Prelude.rnf budgetLimit `Prelude.seq`
+        Prelude.rnf calculatedSpend `Prelude.seq`
+          Prelude.rnf costFilters `Prelude.seq`
+            Prelude.rnf costTypes `Prelude.seq`
+              Prelude.rnf lastUpdatedTime `Prelude.seq`
+                Prelude.rnf plannedBudgetLimits `Prelude.seq`
+                  Prelude.rnf timePeriod `Prelude.seq`
+                    Prelude.rnf budgetName `Prelude.seq`
+                      Prelude.rnf timeUnit `Prelude.seq`
+                        Prelude.rnf budgetType
 
 instance Data.ToJSON Budget where
   toJSON Budget' {..} =

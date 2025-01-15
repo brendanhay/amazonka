@@ -144,11 +144,11 @@ instance Prelude.Hashable ListOutposts where
 
 instance Prelude.NFData ListOutposts where
   rnf ListOutposts' {..} =
-    Prelude.rnf availabilityZoneFilter
-      `Prelude.seq` Prelude.rnf availabilityZoneIdFilter
-      `Prelude.seq` Prelude.rnf lifeCycleStatusFilter
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf availabilityZoneFilter `Prelude.seq`
+      Prelude.rnf availabilityZoneIdFilter `Prelude.seq`
+        Prelude.rnf lifeCycleStatusFilter `Prelude.seq`
+          Prelude.rnf maxResults `Prelude.seq`
+            Prelude.rnf nextToken
 
 instance Data.ToHeaders ListOutposts where
   toHeaders =
@@ -233,6 +233,6 @@ listOutpostsResponse_httpStatus = Lens.lens (\ListOutpostsResponse' {httpStatus}
 
 instance Prelude.NFData ListOutpostsResponse where
   rnf ListOutpostsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf outposts
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf outposts `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -154,12 +154,12 @@ instance Core.AWSPager GetInventory where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getInventory_nextToken
-          Lens..~ rs
-          Lens.^? getInventoryResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getInventory_nextToken
+              Lens..~ rs
+              Lens.^? getInventoryResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetInventory where
   type AWSResponse GetInventory = GetInventoryResponse
@@ -185,11 +185,11 @@ instance Prelude.Hashable GetInventory where
 
 instance Prelude.NFData GetInventory where
   rnf GetInventory' {..} =
-    Prelude.rnf aggregators
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf resultAttributes
+    Prelude.rnf aggregators `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf resultAttributes
 
 instance Data.ToHeaders GetInventory where
   toHeaders =
@@ -278,6 +278,6 @@ getInventoryResponse_httpStatus = Lens.lens (\GetInventoryResponse' {httpStatus}
 
 instance Prelude.NFData GetInventoryResponse where
   rnf GetInventoryResponse' {..} =
-    Prelude.rnf entities
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf entities `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

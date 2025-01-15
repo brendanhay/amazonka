@@ -91,5 +91,5 @@ instance Prelude.Hashable DataCatalogSummary where
 
 instance Prelude.NFData DataCatalogSummary where
   rnf DataCatalogSummary' {..} =
-    Prelude.rnf catalogName
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf catalogName `Prelude.seq`
+      Prelude.rnf type'

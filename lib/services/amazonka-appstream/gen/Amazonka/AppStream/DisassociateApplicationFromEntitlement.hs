@@ -138,9 +138,9 @@ instance
     DisassociateApplicationFromEntitlement
   where
   rnf DisassociateApplicationFromEntitlement' {..} =
-    Prelude.rnf stackName
-      `Prelude.seq` Prelude.rnf entitlementName
-      `Prelude.seq` Prelude.rnf applicationIdentifier
+    Prelude.rnf stackName `Prelude.seq`
+      Prelude.rnf entitlementName `Prelude.seq`
+        Prelude.rnf applicationIdentifier
 
 instance
   Data.ToHeaders

@@ -237,12 +237,12 @@ instance Prelude.Hashable BatchGetFrameMetricData where
 
 instance Prelude.NFData BatchGetFrameMetricData where
   rnf BatchGetFrameMetricData' {..} =
-    Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf frameMetrics
-      `Prelude.seq` Prelude.rnf period
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf targetResolution
-      `Prelude.seq` Prelude.rnf profilingGroupName
+    Prelude.rnf endTime `Prelude.seq`
+      Prelude.rnf frameMetrics `Prelude.seq`
+        Prelude.rnf period `Prelude.seq`
+          Prelude.rnf startTime `Prelude.seq`
+            Prelude.rnf targetResolution `Prelude.seq`
+              Prelude.rnf profilingGroupName
 
 instance Data.ToHeaders BatchGetFrameMetricData where
   toHeaders =
@@ -443,10 +443,10 @@ instance
     BatchGetFrameMetricDataResponse
   where
   rnf BatchGetFrameMetricDataResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf endTimes
-      `Prelude.seq` Prelude.rnf frameMetricData
-      `Prelude.seq` Prelude.rnf resolution
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf unprocessedEndTimes
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf endTime `Prelude.seq`
+        Prelude.rnf endTimes `Prelude.seq`
+          Prelude.rnf frameMetricData `Prelude.seq`
+            Prelude.rnf resolution `Prelude.seq`
+              Prelude.rnf startTime `Prelude.seq`
+                Prelude.rnf unprocessedEndTimes

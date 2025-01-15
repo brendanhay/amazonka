@@ -122,12 +122,12 @@ instance Core.AWSPager DescribeConformancePacks where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeConformancePacks_nextToken
-          Lens..~ rs
-          Lens.^? describeConformancePacksResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeConformancePacks_nextToken
+              Lens..~ rs
+              Lens.^? describeConformancePacksResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeConformancePacks where
   type
@@ -156,9 +156,9 @@ instance Prelude.Hashable DescribeConformancePacks where
 
 instance Prelude.NFData DescribeConformancePacks where
   rnf DescribeConformancePacks' {..} =
-    Prelude.rnf conformancePackNames
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf conformancePackNames `Prelude.seq`
+      Prelude.rnf limit `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeConformancePacks where
   toHeaders =
@@ -248,6 +248,6 @@ instance
     DescribeConformancePacksResponse
   where
   rnf DescribeConformancePacksResponse' {..} =
-    Prelude.rnf conformancePackDetails
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf conformancePackDetails `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -129,9 +129,9 @@ instance Prelude.Hashable GetTableMetadata where
 
 instance Prelude.NFData GetTableMetadata where
   rnf GetTableMetadata' {..} =
-    Prelude.rnf catalogName
-      `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf tableName
+    Prelude.rnf catalogName `Prelude.seq`
+      Prelude.rnf databaseName `Prelude.seq`
+        Prelude.rnf tableName
 
 instance Data.ToHeaders GetTableMetadata where
   toHeaders =
@@ -205,5 +205,5 @@ getTableMetadataResponse_httpStatus = Lens.lens (\GetTableMetadataResponse' {htt
 
 instance Prelude.NFData GetTableMetadataResponse where
   rnf GetTableMetadataResponse' {..} =
-    Prelude.rnf tableMetadata
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf tableMetadata `Prelude.seq`
+      Prelude.rnf httpStatus

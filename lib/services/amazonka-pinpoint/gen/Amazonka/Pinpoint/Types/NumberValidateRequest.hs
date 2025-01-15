@@ -80,8 +80,8 @@ instance Prelude.Hashable NumberValidateRequest where
 
 instance Prelude.NFData NumberValidateRequest where
   rnf NumberValidateRequest' {..} =
-    Prelude.rnf isoCountryCode
-      `Prelude.seq` Prelude.rnf phoneNumber
+    Prelude.rnf isoCountryCode `Prelude.seq`
+      Prelude.rnf phoneNumber
 
 instance Data.ToJSON NumberValidateRequest where
   toJSON NumberValidateRequest' {..} =

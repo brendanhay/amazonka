@@ -150,10 +150,10 @@ instance Prelude.Hashable RenderUiTemplate where
 
 instance Prelude.NFData RenderUiTemplate where
   rnf RenderUiTemplate' {..} =
-    Prelude.rnf humanTaskUiArn
-      `Prelude.seq` Prelude.rnf uiTemplate
-      `Prelude.seq` Prelude.rnf task
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf humanTaskUiArn `Prelude.seq`
+      Prelude.rnf uiTemplate `Prelude.seq`
+        Prelude.rnf task `Prelude.seq`
+          Prelude.rnf roleArn
 
 instance Data.ToHeaders RenderUiTemplate where
   toHeaders =
@@ -246,6 +246,6 @@ renderUiTemplateResponse_errors = Lens.lens (\RenderUiTemplateResponse' {errors}
 
 instance Prelude.NFData RenderUiTemplateResponse where
   rnf RenderUiTemplateResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf renderedContent
-      `Prelude.seq` Prelude.rnf errors
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf renderedContent `Prelude.seq`
+        Prelude.rnf errors

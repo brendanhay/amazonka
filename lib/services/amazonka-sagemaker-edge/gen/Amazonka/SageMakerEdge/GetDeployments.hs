@@ -113,8 +113,8 @@ instance Prelude.Hashable GetDeployments where
 
 instance Prelude.NFData GetDeployments where
   rnf GetDeployments' {..} =
-    Prelude.rnf deviceName
-      `Prelude.seq` Prelude.rnf deviceFleetName
+    Prelude.rnf deviceName `Prelude.seq`
+      Prelude.rnf deviceFleetName
 
 instance Data.ToHeaders GetDeployments where
   toHeaders =
@@ -187,5 +187,5 @@ getDeploymentsResponse_httpStatus = Lens.lens (\GetDeploymentsResponse' {httpSta
 
 instance Prelude.NFData GetDeploymentsResponse where
   rnf GetDeploymentsResponse' {..} =
-    Prelude.rnf deployments
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf deployments `Prelude.seq`
+      Prelude.rnf httpStatus

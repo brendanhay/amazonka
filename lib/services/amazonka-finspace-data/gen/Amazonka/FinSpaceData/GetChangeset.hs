@@ -137,8 +137,8 @@ instance Prelude.Hashable GetChangeset where
 
 instance Prelude.NFData GetChangeset where
   rnf GetChangeset' {..} =
-    Prelude.rnf datasetId
-      `Prelude.seq` Prelude.rnf changesetId
+    Prelude.rnf datasetId `Prelude.seq`
+      Prelude.rnf changesetId
 
 instance Data.ToHeaders GetChangeset where
   toHeaders =
@@ -362,17 +362,17 @@ getChangesetResponse_httpStatus = Lens.lens (\GetChangesetResponse' {httpStatus}
 
 instance Prelude.NFData GetChangesetResponse where
   rnf GetChangesetResponse' {..} =
-    Prelude.rnf activeFromTimestamp
-      `Prelude.seq` Prelude.rnf activeUntilTimestamp
-      `Prelude.seq` Prelude.rnf changeType
-      `Prelude.seq` Prelude.rnf changesetArn
-      `Prelude.seq` Prelude.rnf changesetId
-      `Prelude.seq` Prelude.rnf createTime
-      `Prelude.seq` Prelude.rnf datasetId
-      `Prelude.seq` Prelude.rnf errorInfo
-      `Prelude.seq` Prelude.rnf formatParams
-      `Prelude.seq` Prelude.rnf sourceParams
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf updatedByChangesetId
-      `Prelude.seq` Prelude.rnf updatesChangesetId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf activeFromTimestamp `Prelude.seq`
+      Prelude.rnf activeUntilTimestamp `Prelude.seq`
+        Prelude.rnf changeType `Prelude.seq`
+          Prelude.rnf changesetArn `Prelude.seq`
+            Prelude.rnf changesetId `Prelude.seq`
+              Prelude.rnf createTime `Prelude.seq`
+                Prelude.rnf datasetId `Prelude.seq`
+                  Prelude.rnf errorInfo `Prelude.seq`
+                    Prelude.rnf formatParams `Prelude.seq`
+                      Prelude.rnf sourceParams `Prelude.seq`
+                        Prelude.rnf status `Prelude.seq`
+                          Prelude.rnf updatedByChangesetId `Prelude.seq`
+                            Prelude.rnf updatesChangesetId `Prelude.seq`
+                              Prelude.rnf httpStatus

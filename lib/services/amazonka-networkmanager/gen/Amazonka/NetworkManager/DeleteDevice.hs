@@ -109,8 +109,8 @@ instance Prelude.Hashable DeleteDevice where
 
 instance Prelude.NFData DeleteDevice where
   rnf DeleteDevice' {..} =
-    Prelude.rnf globalNetworkId
-      `Prelude.seq` Prelude.rnf deviceId
+    Prelude.rnf globalNetworkId `Prelude.seq`
+      Prelude.rnf deviceId
 
 instance Data.ToHeaders DeleteDevice where
   toHeaders =
@@ -175,5 +175,5 @@ deleteDeviceResponse_httpStatus = Lens.lens (\DeleteDeviceResponse' {httpStatus}
 
 instance Prelude.NFData DeleteDeviceResponse where
   rnf DeleteDeviceResponse' {..} =
-    Prelude.rnf device
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf device `Prelude.seq`
+      Prelude.rnf httpStatus

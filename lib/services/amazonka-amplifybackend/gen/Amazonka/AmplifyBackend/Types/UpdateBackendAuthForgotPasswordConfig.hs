@@ -102,9 +102,9 @@ instance
     UpdateBackendAuthForgotPasswordConfig
   where
   rnf UpdateBackendAuthForgotPasswordConfig' {..} =
-    Prelude.rnf deliveryMethod
-      `Prelude.seq` Prelude.rnf emailSettings
-      `Prelude.seq` Prelude.rnf smsSettings
+    Prelude.rnf deliveryMethod `Prelude.seq`
+      Prelude.rnf emailSettings `Prelude.seq`
+        Prelude.rnf smsSettings
 
 instance
   Data.ToJSON

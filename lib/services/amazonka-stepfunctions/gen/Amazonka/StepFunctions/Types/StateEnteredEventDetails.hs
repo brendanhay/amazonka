@@ -100,6 +100,6 @@ instance Prelude.Hashable StateEnteredEventDetails where
 
 instance Prelude.NFData StateEnteredEventDetails where
   rnf StateEnteredEventDetails' {..} =
-    Prelude.rnf input
-      `Prelude.seq` Prelude.rnf inputDetails
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf input `Prelude.seq`
+      Prelude.rnf inputDetails `Prelude.seq`
+        Prelude.rnf name

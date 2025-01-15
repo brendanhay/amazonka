@@ -175,12 +175,12 @@ instance Prelude.Hashable BotImportSpecification where
 
 instance Prelude.NFData BotImportSpecification where
   rnf BotImportSpecification' {..} =
-    Prelude.rnf botTags
-      `Prelude.seq` Prelude.rnf idleSessionTTLInSeconds
-      `Prelude.seq` Prelude.rnf testBotAliasTags
-      `Prelude.seq` Prelude.rnf botName
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf dataPrivacy
+    Prelude.rnf botTags `Prelude.seq`
+      Prelude.rnf idleSessionTTLInSeconds `Prelude.seq`
+        Prelude.rnf testBotAliasTags `Prelude.seq`
+          Prelude.rnf botName `Prelude.seq`
+            Prelude.rnf roleArn `Prelude.seq`
+              Prelude.rnf dataPrivacy
 
 instance Data.ToJSON BotImportSpecification where
   toJSON BotImportSpecification' {..} =

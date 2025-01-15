@@ -164,6 +164,6 @@ getOrderResponse_order = Lens.lens (\GetOrderResponse' {order} -> order) (\s@Get
 
 instance Prelude.NFData GetOrderResponse where
   rnf GetOrderResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf order
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf order

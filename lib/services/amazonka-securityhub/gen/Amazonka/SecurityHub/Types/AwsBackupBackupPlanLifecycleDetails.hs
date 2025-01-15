@@ -100,8 +100,8 @@ instance
     AwsBackupBackupPlanLifecycleDetails
   where
   rnf AwsBackupBackupPlanLifecycleDetails' {..} =
-    Prelude.rnf deleteAfterDays
-      `Prelude.seq` Prelude.rnf moveToColdStorageAfterDays
+    Prelude.rnf deleteAfterDays `Prelude.seq`
+      Prelude.rnf moveToColdStorageAfterDays
 
 instance
   Data.ToJSON

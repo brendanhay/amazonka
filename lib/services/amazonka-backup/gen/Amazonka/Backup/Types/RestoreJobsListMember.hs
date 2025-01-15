@@ -250,16 +250,16 @@ instance Prelude.Hashable RestoreJobsListMember where
 
 instance Prelude.NFData RestoreJobsListMember where
   rnf RestoreJobsListMember' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf backupSizeInBytes
-      `Prelude.seq` Prelude.rnf completionDate
-      `Prelude.seq` Prelude.rnf createdResourceArn
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf expectedCompletionTimeMinutes
-      `Prelude.seq` Prelude.rnf iamRoleArn
-      `Prelude.seq` Prelude.rnf percentDone
-      `Prelude.seq` Prelude.rnf recoveryPointArn
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf restoreJobId
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusMessage
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf backupSizeInBytes `Prelude.seq`
+        Prelude.rnf completionDate `Prelude.seq`
+          Prelude.rnf createdResourceArn `Prelude.seq`
+            Prelude.rnf creationDate `Prelude.seq`
+              Prelude.rnf expectedCompletionTimeMinutes `Prelude.seq`
+                Prelude.rnf iamRoleArn `Prelude.seq`
+                  Prelude.rnf percentDone `Prelude.seq`
+                    Prelude.rnf recoveryPointArn `Prelude.seq`
+                      Prelude.rnf resourceType `Prelude.seq`
+                        Prelude.rnf restoreJobId `Prelude.seq`
+                          Prelude.rnf status `Prelude.seq`
+                            Prelude.rnf statusMessage

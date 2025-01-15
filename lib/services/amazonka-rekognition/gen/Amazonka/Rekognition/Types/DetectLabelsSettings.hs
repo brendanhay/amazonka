@@ -77,8 +77,8 @@ instance Prelude.Hashable DetectLabelsSettings where
 
 instance Prelude.NFData DetectLabelsSettings where
   rnf DetectLabelsSettings' {..} =
-    Prelude.rnf generalLabels
-      `Prelude.seq` Prelude.rnf imageProperties
+    Prelude.rnf generalLabels `Prelude.seq`
+      Prelude.rnf imageProperties
 
 instance Data.ToJSON DetectLabelsSettings where
   toJSON DetectLabelsSettings' {..} =

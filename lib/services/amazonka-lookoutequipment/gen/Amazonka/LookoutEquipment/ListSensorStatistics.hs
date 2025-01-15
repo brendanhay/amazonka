@@ -150,10 +150,10 @@ instance Prelude.Hashable ListSensorStatistics where
 
 instance Prelude.NFData ListSensorStatistics where
   rnf ListSensorStatistics' {..} =
-    Prelude.rnf ingestionJobId
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf datasetName
+    Prelude.rnf ingestionJobId `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf datasetName
 
 instance Data.ToHeaders ListSensorStatistics where
   toHeaders =
@@ -250,6 +250,6 @@ listSensorStatisticsResponse_httpStatus = Lens.lens (\ListSensorStatisticsRespon
 
 instance Prelude.NFData ListSensorStatisticsResponse where
   rnf ListSensorStatisticsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sensorStatisticsSummaries
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf sensorStatisticsSummaries `Prelude.seq`
+        Prelude.rnf httpStatus

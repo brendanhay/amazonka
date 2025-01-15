@@ -145,9 +145,9 @@ instance Prelude.Hashable VsamDetailAttributes where
 
 instance Prelude.NFData VsamDetailAttributes where
   rnf VsamDetailAttributes' {..} =
-    Prelude.rnf alternateKeys
-      `Prelude.seq` Prelude.rnf cacheAtStartup
-      `Prelude.seq` Prelude.rnf compressed
-      `Prelude.seq` Prelude.rnf encoding
-      `Prelude.seq` Prelude.rnf primaryKey
-      `Prelude.seq` Prelude.rnf recordFormat
+    Prelude.rnf alternateKeys `Prelude.seq`
+      Prelude.rnf cacheAtStartup `Prelude.seq`
+        Prelude.rnf compressed `Prelude.seq`
+          Prelude.rnf encoding `Prelude.seq`
+            Prelude.rnf primaryKey `Prelude.seq`
+              Prelude.rnf recordFormat

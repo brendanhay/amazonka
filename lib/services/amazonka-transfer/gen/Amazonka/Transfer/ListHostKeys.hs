@@ -131,9 +131,9 @@ instance Prelude.Hashable ListHostKeys where
 
 instance Prelude.NFData ListHostKeys where
   rnf ListHostKeys' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf serverId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf serverId
 
 instance Data.ToHeaders ListHostKeys where
   toHeaders =
@@ -229,7 +229,7 @@ listHostKeysResponse_hostKeys = Lens.lens (\ListHostKeysResponse' {hostKeys} -> 
 
 instance Prelude.NFData ListHostKeysResponse where
   rnf ListHostKeysResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf serverId
-      `Prelude.seq` Prelude.rnf hostKeys
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf serverId `Prelude.seq`
+          Prelude.rnf hostKeys

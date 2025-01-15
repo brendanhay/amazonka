@@ -91,8 +91,8 @@ instance
 
 instance Prelude.NFData TableRowConditionalFormatting where
   rnf TableRowConditionalFormatting' {..} =
-    Prelude.rnf backgroundColor
-      `Prelude.seq` Prelude.rnf textColor
+    Prelude.rnf backgroundColor `Prelude.seq`
+      Prelude.rnf textColor
 
 instance Data.ToJSON TableRowConditionalFormatting where
   toJSON TableRowConditionalFormatting' {..} =

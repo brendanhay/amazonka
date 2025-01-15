@@ -154,9 +154,9 @@ instance
     ListDistributionsByCachePolicyId
   where
   rnf ListDistributionsByCachePolicyId' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxItems
-      `Prelude.seq` Prelude.rnf cachePolicyId
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf maxItems `Prelude.seq`
+        Prelude.rnf cachePolicyId
 
 instance
   Data.ToHeaders
@@ -226,5 +226,5 @@ instance
     ListDistributionsByCachePolicyIdResponse
   where
   rnf ListDistributionsByCachePolicyIdResponse' {..} =
-    Prelude.rnf distributionIdList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf distributionIdList `Prelude.seq`
+      Prelude.rnf httpStatus

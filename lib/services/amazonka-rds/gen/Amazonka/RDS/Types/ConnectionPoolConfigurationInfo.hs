@@ -187,8 +187,8 @@ instance
     ConnectionPoolConfigurationInfo
   where
   rnf ConnectionPoolConfigurationInfo' {..} =
-    Prelude.rnf connectionBorrowTimeout
-      `Prelude.seq` Prelude.rnf initQuery
-      `Prelude.seq` Prelude.rnf maxConnectionsPercent
-      `Prelude.seq` Prelude.rnf maxIdleConnectionsPercent
-      `Prelude.seq` Prelude.rnf sessionPinningFilters
+    Prelude.rnf connectionBorrowTimeout `Prelude.seq`
+      Prelude.rnf initQuery `Prelude.seq`
+        Prelude.rnf maxConnectionsPercent `Prelude.seq`
+          Prelude.rnf maxIdleConnectionsPercent `Prelude.seq`
+            Prelude.rnf sessionPinningFilters

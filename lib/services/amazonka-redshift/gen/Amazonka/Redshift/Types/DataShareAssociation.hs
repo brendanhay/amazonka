@@ -119,8 +119,8 @@ instance Prelude.Hashable DataShareAssociation where
 
 instance Prelude.NFData DataShareAssociation where
   rnf DataShareAssociation' {..} =
-    Prelude.rnf consumerIdentifier
-      `Prelude.seq` Prelude.rnf consumerRegion
-      `Prelude.seq` Prelude.rnf createdDate
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusChangeDate
+    Prelude.rnf consumerIdentifier `Prelude.seq`
+      Prelude.rnf consumerRegion `Prelude.seq`
+        Prelude.rnf createdDate `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf statusChangeDate

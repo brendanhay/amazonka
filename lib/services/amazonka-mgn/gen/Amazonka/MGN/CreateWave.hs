@@ -120,9 +120,9 @@ instance Prelude.Hashable CreateWave where
 
 instance Prelude.NFData CreateWave where
   rnf CreateWave' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf name
 
 instance Data.ToHeaders CreateWave where
   toHeaders =

@@ -125,8 +125,8 @@ instance Prelude.Hashable UntagCertificateAuthority where
 
 instance Prelude.NFData UntagCertificateAuthority where
   rnf UntagCertificateAuthority' {..} =
-    Prelude.rnf certificateAuthorityArn
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf certificateAuthorityArn `Prelude.seq`
+      Prelude.rnf tags
 
 instance Data.ToHeaders UntagCertificateAuthority where
   toHeaders =

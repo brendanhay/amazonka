@@ -135,12 +135,12 @@ instance Core.AWSPager ListVehiclesInFleet where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listVehiclesInFleet_nextToken
-          Lens..~ rs
-          Lens.^? listVehiclesInFleetResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listVehiclesInFleet_nextToken
+              Lens..~ rs
+              Lens.^? listVehiclesInFleetResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListVehiclesInFleet where
   type
@@ -166,9 +166,9 @@ instance Prelude.Hashable ListVehiclesInFleet where
 
 instance Prelude.NFData ListVehiclesInFleet where
   rnf ListVehiclesInFleet' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf fleetId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf fleetId
 
 instance Data.ToHeaders ListVehiclesInFleet where
   toHeaders =
@@ -254,6 +254,6 @@ listVehiclesInFleetResponse_httpStatus = Lens.lens (\ListVehiclesInFleetResponse
 
 instance Prelude.NFData ListVehiclesInFleetResponse where
   rnf ListVehiclesInFleetResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf vehicles
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf vehicles `Prelude.seq`
+        Prelude.rnf httpStatus

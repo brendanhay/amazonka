@@ -112,12 +112,12 @@ instance Core.AWSPager ListPlatformApplications where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listPlatformApplications_nextToken
-          Lens..~ rs
-          Lens.^? listPlatformApplicationsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listPlatformApplications_nextToken
+              Lens..~ rs
+              Lens.^? listPlatformApplicationsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPlatformApplications where
   type
@@ -224,6 +224,6 @@ instance
     ListPlatformApplicationsResponse
   where
   rnf ListPlatformApplicationsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf platformApplications
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf platformApplications `Prelude.seq`
+        Prelude.rnf httpStatus

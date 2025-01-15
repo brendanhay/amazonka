@@ -93,8 +93,8 @@ instance Prelude.Hashable MetricDimension where
 
 instance Prelude.NFData MetricDimension where
   rnf MetricDimension' {..} =
-    Prelude.rnf comparisonOperator
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf comparisonOperator `Prelude.seq`
+      Prelude.rnf value
 
 instance Data.ToJSON MetricDimension where
   toJSON MetricDimension' {..} =

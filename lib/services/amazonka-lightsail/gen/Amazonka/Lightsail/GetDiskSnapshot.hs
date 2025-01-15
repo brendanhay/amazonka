@@ -170,5 +170,5 @@ getDiskSnapshotResponse_httpStatus = Lens.lens (\GetDiskSnapshotResponse' {httpS
 
 instance Prelude.NFData GetDiskSnapshotResponse where
   rnf GetDiskSnapshotResponse' {..} =
-    Prelude.rnf diskSnapshot
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf diskSnapshot `Prelude.seq`
+      Prelude.rnf httpStatus

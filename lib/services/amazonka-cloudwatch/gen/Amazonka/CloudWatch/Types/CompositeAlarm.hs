@@ -313,9 +313,7 @@ instance Data.FromXML CompositeAlarm where
       Prelude.<*> (x Data..@? "ActionsSuppressor")
       Prelude.<*> (x Data..@? "ActionsSuppressorExtensionPeriod")
       Prelude.<*> (x Data..@? "ActionsSuppressorWaitPeriod")
-      Prelude.<*> ( x
-                      Data..@? "AlarmActions"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "AlarmActions" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "AlarmArn")
@@ -328,9 +326,7 @@ instance Data.FromXML CompositeAlarm where
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x
-                      Data..@? "OKActions"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "OKActions" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "StateReason")

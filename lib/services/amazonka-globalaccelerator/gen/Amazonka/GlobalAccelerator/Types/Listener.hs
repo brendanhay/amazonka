@@ -168,7 +168,7 @@ instance Prelude.Hashable Listener where
 
 instance Prelude.NFData Listener where
   rnf Listener' {..} =
-    Prelude.rnf clientAffinity
-      `Prelude.seq` Prelude.rnf listenerArn
-      `Prelude.seq` Prelude.rnf portRanges
-      `Prelude.seq` Prelude.rnf protocol
+    Prelude.rnf clientAffinity `Prelude.seq`
+      Prelude.rnf listenerArn `Prelude.seq`
+        Prelude.rnf portRanges `Prelude.seq`
+          Prelude.rnf protocol

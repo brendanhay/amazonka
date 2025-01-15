@@ -287,12 +287,12 @@ instance Prelude.Hashable CreateRateBasedRule where
 
 instance Prelude.NFData CreateRateBasedRule where
   rnf CreateRateBasedRule' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf rateKey
-      `Prelude.seq` Prelude.rnf rateLimit
-      `Prelude.seq` Prelude.rnf changeToken
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf metricName `Prelude.seq`
+          Prelude.rnf rateKey `Prelude.seq`
+            Prelude.rnf rateLimit `Prelude.seq`
+              Prelude.rnf changeToken
 
 instance Data.ToHeaders CreateRateBasedRule where
   toHeaders =
@@ -387,6 +387,6 @@ createRateBasedRuleResponse_httpStatus = Lens.lens (\CreateRateBasedRuleResponse
 
 instance Prelude.NFData CreateRateBasedRuleResponse where
   rnf CreateRateBasedRuleResponse' {..} =
-    Prelude.rnf changeToken
-      `Prelude.seq` Prelude.rnf rule
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf changeToken `Prelude.seq`
+      Prelude.rnf rule `Prelude.seq`
+        Prelude.rnf httpStatus

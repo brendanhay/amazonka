@@ -84,5 +84,5 @@ instance Prelude.Hashable CompatibleVersionsMap where
 
 instance Prelude.NFData CompatibleVersionsMap where
   rnf CompatibleVersionsMap' {..} =
-    Prelude.rnf sourceVersion
-      `Prelude.seq` Prelude.rnf targetVersions
+    Prelude.rnf sourceVersion `Prelude.seq`
+      Prelude.rnf targetVersions

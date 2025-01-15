@@ -172,5 +172,5 @@ resetCacheResponse_httpStatus = Lens.lens (\ResetCacheResponse' {httpStatus} -> 
 
 instance Prelude.NFData ResetCacheResponse where
   rnf ResetCacheResponse' {..} =
-    Prelude.rnf gatewayARN
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf gatewayARN `Prelude.seq`
+      Prelude.rnf httpStatus

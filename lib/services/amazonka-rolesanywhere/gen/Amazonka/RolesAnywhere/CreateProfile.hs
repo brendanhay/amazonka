@@ -192,14 +192,14 @@ instance Prelude.Hashable CreateProfile where
 
 instance Prelude.NFData CreateProfile where
   rnf CreateProfile' {..} =
-    Prelude.rnf durationSeconds
-      `Prelude.seq` Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf managedPolicyArns
-      `Prelude.seq` Prelude.rnf requireInstanceProperties
-      `Prelude.seq` Prelude.rnf sessionPolicy
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf roleArns
+    Prelude.rnf durationSeconds `Prelude.seq`
+      Prelude.rnf enabled `Prelude.seq`
+        Prelude.rnf managedPolicyArns `Prelude.seq`
+          Prelude.rnf requireInstanceProperties `Prelude.seq`
+            Prelude.rnf sessionPolicy `Prelude.seq`
+              Prelude.rnf tags `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf roleArns
 
 instance Data.ToHeaders CreateProfile where
   toHeaders =

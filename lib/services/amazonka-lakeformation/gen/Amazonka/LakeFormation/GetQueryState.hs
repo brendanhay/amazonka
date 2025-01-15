@@ -210,6 +210,6 @@ getQueryStateResponse_state = Lens.lens (\GetQueryStateResponse' {state} -> stat
 
 instance Prelude.NFData GetQueryStateResponse where
   rnf GetQueryStateResponse' {..} =
-    Prelude.rnf error
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf error `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf state

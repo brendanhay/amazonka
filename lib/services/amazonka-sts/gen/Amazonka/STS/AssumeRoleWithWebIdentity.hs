@@ -622,13 +622,13 @@ instance Prelude.Hashable AssumeRoleWithWebIdentity where
 
 instance Prelude.NFData AssumeRoleWithWebIdentity where
   rnf AssumeRoleWithWebIdentity' {..} =
-    Prelude.rnf durationSeconds
-      `Prelude.seq` Prelude.rnf policy
-      `Prelude.seq` Prelude.rnf policyArns
-      `Prelude.seq` Prelude.rnf providerId
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf roleSessionName
-      `Prelude.seq` Prelude.rnf webIdentityToken
+    Prelude.rnf durationSeconds `Prelude.seq`
+      Prelude.rnf policy `Prelude.seq`
+        Prelude.rnf policyArns `Prelude.seq`
+          Prelude.rnf providerId `Prelude.seq`
+            Prelude.rnf roleArn `Prelude.seq`
+              Prelude.rnf roleSessionName `Prelude.seq`
+                Prelude.rnf webIdentityToken
 
 instance Data.ToHeaders AssumeRoleWithWebIdentity where
   toHeaders = Prelude.const Prelude.mempty
@@ -905,11 +905,11 @@ instance
     AssumeRoleWithWebIdentityResponse
   where
   rnf AssumeRoleWithWebIdentityResponse' {..} =
-    Prelude.rnf assumedRoleUser
-      `Prelude.seq` Prelude.rnf audience
-      `Prelude.seq` Prelude.rnf packedPolicySize
-      `Prelude.seq` Prelude.rnf provider
-      `Prelude.seq` Prelude.rnf sourceIdentity
-      `Prelude.seq` Prelude.rnf subjectFromWebIdentityToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf credentials
+    Prelude.rnf assumedRoleUser `Prelude.seq`
+      Prelude.rnf audience `Prelude.seq`
+        Prelude.rnf packedPolicySize `Prelude.seq`
+          Prelude.rnf provider `Prelude.seq`
+            Prelude.rnf sourceIdentity `Prelude.seq`
+              Prelude.rnf subjectFromWebIdentityToken `Prelude.seq`
+                Prelude.rnf httpStatus `Prelude.seq`
+                  Prelude.rnf credentials

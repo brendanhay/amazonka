@@ -188,9 +188,7 @@ instance Core.AWSRequest DescribeElasticGpus where
     Response.receiveXML
       ( \s h x ->
           DescribeElasticGpusResponse'
-            Prelude.<$> ( x
-                            Data..@? "elasticGpuSet"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "elasticGpuSet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (x Data..@? "maxResults")
@@ -209,11 +207,11 @@ instance Prelude.Hashable DescribeElasticGpus where
 
 instance Prelude.NFData DescribeElasticGpus where
   rnf DescribeElasticGpus' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf elasticGpuIds
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf elasticGpuIds `Prelude.seq`
+        Prelude.rnf filters `Prelude.seq`
+          Prelude.rnf maxResults `Prelude.seq`
+            Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeElasticGpus where
   toHeaders = Prelude.const Prelude.mempty
@@ -310,7 +308,7 @@ describeElasticGpusResponse_httpStatus = Lens.lens (\DescribeElasticGpusResponse
 
 instance Prelude.NFData DescribeElasticGpusResponse where
   rnf DescribeElasticGpusResponse' {..} =
-    Prelude.rnf elasticGpuSet
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf elasticGpuSet `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf httpStatus

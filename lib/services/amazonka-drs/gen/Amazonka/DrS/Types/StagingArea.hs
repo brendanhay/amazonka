@@ -133,7 +133,7 @@ instance Prelude.Hashable StagingArea where
 
 instance Prelude.NFData StagingArea where
   rnf StagingArea' {..} =
-    Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf stagingAccountID
-      `Prelude.seq` Prelude.rnf stagingSourceServerArn
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf errorMessage `Prelude.seq`
+      Prelude.rnf stagingAccountID `Prelude.seq`
+        Prelude.rnf stagingSourceServerArn `Prelude.seq`
+          Prelude.rnf status

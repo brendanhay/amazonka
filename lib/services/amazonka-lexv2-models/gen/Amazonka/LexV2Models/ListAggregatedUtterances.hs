@@ -279,15 +279,15 @@ instance Prelude.Hashable ListAggregatedUtterances where
 
 instance Prelude.NFData ListAggregatedUtterances where
   rnf ListAggregatedUtterances' {..} =
-    Prelude.rnf botAliasId
-      `Prelude.seq` Prelude.rnf botVersion
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf localeId
-      `Prelude.seq` Prelude.rnf aggregationDuration
+    Prelude.rnf botAliasId `Prelude.seq`
+      Prelude.rnf botVersion `Prelude.seq`
+        Prelude.rnf filters `Prelude.seq`
+          Prelude.rnf maxResults `Prelude.seq`
+            Prelude.rnf nextToken `Prelude.seq`
+              Prelude.rnf sortBy `Prelude.seq`
+                Prelude.rnf botId `Prelude.seq`
+                  Prelude.rnf localeId `Prelude.seq`
+                    Prelude.rnf aggregationDuration
 
 instance Data.ToHeaders ListAggregatedUtterances where
   toHeaders =
@@ -512,14 +512,14 @@ instance
     ListAggregatedUtterancesResponse
   where
   rnf ListAggregatedUtterancesResponse' {..} =
-    Prelude.rnf aggregatedUtterancesSummaries
-      `Prelude.seq` Prelude.rnf aggregationDuration
-      `Prelude.seq` Prelude.rnf aggregationLastRefreshedDateTime
-      `Prelude.seq` Prelude.rnf aggregationWindowEndTime
-      `Prelude.seq` Prelude.rnf aggregationWindowStartTime
-      `Prelude.seq` Prelude.rnf botAliasId
-      `Prelude.seq` Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf botVersion
-      `Prelude.seq` Prelude.rnf localeId
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf aggregatedUtterancesSummaries `Prelude.seq`
+      Prelude.rnf aggregationDuration `Prelude.seq`
+        Prelude.rnf aggregationLastRefreshedDateTime `Prelude.seq`
+          Prelude.rnf aggregationWindowEndTime `Prelude.seq`
+            Prelude.rnf aggregationWindowStartTime `Prelude.seq`
+              Prelude.rnf botAliasId `Prelude.seq`
+                Prelude.rnf botId `Prelude.seq`
+                  Prelude.rnf botVersion `Prelude.seq`
+                    Prelude.rnf localeId `Prelude.seq`
+                      Prelude.rnf nextToken `Prelude.seq`
+                        Prelude.rnf httpStatus

@@ -248,8 +248,8 @@ instance Prelude.Hashable InputTransformer where
 
 instance Prelude.NFData InputTransformer where
   rnf InputTransformer' {..} =
-    Prelude.rnf inputPathsMap
-      `Prelude.seq` Prelude.rnf inputTemplate
+    Prelude.rnf inputPathsMap `Prelude.seq`
+      Prelude.rnf inputTemplate
 
 instance Data.ToJSON InputTransformer where
   toJSON InputTransformer' {..} =

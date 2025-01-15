@@ -135,9 +135,9 @@ instance Prelude.Hashable DescribeGroup where
 
 instance Prelude.NFData DescribeGroup where
   rnf DescribeGroup' {..} =
-    Prelude.rnf groupName
-      `Prelude.seq` Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf namespace
+    Prelude.rnf groupName `Prelude.seq`
+      Prelude.rnf awsAccountId `Prelude.seq`
+        Prelude.rnf namespace
 
 instance Data.ToHeaders DescribeGroup where
   toHeaders =
@@ -213,6 +213,6 @@ describeGroupResponse_status = Lens.lens (\DescribeGroupResponse' {status} -> st
 
 instance Prelude.NFData DescribeGroupResponse where
   rnf DescribeGroupResponse' {..} =
-    Prelude.rnf group'
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf group' `Prelude.seq`
+      Prelude.rnf requestId `Prelude.seq`
+        Prelude.rnf status

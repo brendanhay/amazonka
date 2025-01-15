@@ -110,9 +110,9 @@ instance
     AwsRedshiftClusterClusterParameterGroup
   where
   rnf AwsRedshiftClusterClusterParameterGroup' {..} =
-    Prelude.rnf clusterParameterStatusList
-      `Prelude.seq` Prelude.rnf parameterApplyStatus
-      `Prelude.seq` Prelude.rnf parameterGroupName
+    Prelude.rnf clusterParameterStatusList `Prelude.seq`
+      Prelude.rnf parameterApplyStatus `Prelude.seq`
+        Prelude.rnf parameterGroupName
 
 instance
   Data.ToJSON

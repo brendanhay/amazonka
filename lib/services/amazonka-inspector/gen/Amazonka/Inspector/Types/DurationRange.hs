@@ -73,8 +73,8 @@ instance Prelude.Hashable DurationRange where
 
 instance Prelude.NFData DurationRange where
   rnf DurationRange' {..} =
-    Prelude.rnf maxSeconds
-      `Prelude.seq` Prelude.rnf minSeconds
+    Prelude.rnf maxSeconds `Prelude.seq`
+      Prelude.rnf minSeconds
 
 instance Data.ToJSON DurationRange where
   toJSON DurationRange' {..} =

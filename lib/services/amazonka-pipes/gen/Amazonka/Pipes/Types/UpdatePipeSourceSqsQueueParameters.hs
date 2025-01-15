@@ -80,8 +80,8 @@ instance
     UpdatePipeSourceSqsQueueParameters
   where
   rnf UpdatePipeSourceSqsQueueParameters' {..} =
-    Prelude.rnf batchSize
-      `Prelude.seq` Prelude.rnf maximumBatchingWindowInSeconds
+    Prelude.rnf batchSize `Prelude.seq`
+      Prelude.rnf maximumBatchingWindowInSeconds
 
 instance
   Data.ToJSON

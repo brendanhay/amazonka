@@ -193,6 +193,6 @@ instance
     GetRecommendationReportDetailsResponse
   where
   rnf GetRecommendationReportDetailsResponse' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf recommendationReportDetails
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf recommendationReportDetails `Prelude.seq`
+        Prelude.rnf httpStatus

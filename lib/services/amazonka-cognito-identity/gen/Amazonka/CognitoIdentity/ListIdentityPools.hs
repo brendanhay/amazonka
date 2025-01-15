@@ -108,12 +108,12 @@ instance Core.AWSPager ListIdentityPools where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listIdentityPools_nextToken
-          Lens..~ rs
-          Lens.^? listIdentityPoolsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listIdentityPools_nextToken
+              Lens..~ rs
+              Lens.^? listIdentityPoolsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListIdentityPools where
   type
@@ -138,8 +138,8 @@ instance Prelude.Hashable ListIdentityPools where
 
 instance Prelude.NFData ListIdentityPools where
   rnf ListIdentityPools' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf maxResults
 
 instance Data.ToHeaders ListIdentityPools where
   toHeaders =
@@ -223,6 +223,6 @@ listIdentityPoolsResponse_httpStatus = Lens.lens (\ListIdentityPoolsResponse' {h
 
 instance Prelude.NFData ListIdentityPoolsResponse where
   rnf ListIdentityPoolsResponse' {..} =
-    Prelude.rnf identityPools
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf identityPools `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

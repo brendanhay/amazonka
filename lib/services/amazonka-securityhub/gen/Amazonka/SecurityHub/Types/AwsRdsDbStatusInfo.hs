@@ -108,10 +108,10 @@ instance Prelude.Hashable AwsRdsDbStatusInfo where
 
 instance Prelude.NFData AwsRdsDbStatusInfo where
   rnf AwsRdsDbStatusInfo' {..} =
-    Prelude.rnf message
-      `Prelude.seq` Prelude.rnf normal
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusType
+    Prelude.rnf message `Prelude.seq`
+      Prelude.rnf normal `Prelude.seq`
+        Prelude.rnf status `Prelude.seq`
+          Prelude.rnf statusType
 
 instance Data.ToJSON AwsRdsDbStatusInfo where
   toJSON AwsRdsDbStatusInfo' {..} =

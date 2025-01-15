@@ -140,8 +140,8 @@ instance Prelude.Hashable GetTerminology where
 
 instance Prelude.NFData GetTerminology where
   rnf GetTerminology' {..} =
-    Prelude.rnf terminologyDataFormat
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf terminologyDataFormat `Prelude.seq`
+      Prelude.rnf name
 
 instance Data.ToHeaders GetTerminology where
   toHeaders =
@@ -284,7 +284,7 @@ getTerminologyResponse_httpStatus = Lens.lens (\GetTerminologyResponse' {httpSta
 
 instance Prelude.NFData GetTerminologyResponse where
   rnf GetTerminologyResponse' {..} =
-    Prelude.rnf auxiliaryDataLocation
-      `Prelude.seq` Prelude.rnf terminologyDataLocation
-      `Prelude.seq` Prelude.rnf terminologyProperties
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf auxiliaryDataLocation `Prelude.seq`
+      Prelude.rnf terminologyDataLocation `Prelude.seq`
+        Prelude.rnf terminologyProperties `Prelude.seq`
+          Prelude.rnf httpStatus

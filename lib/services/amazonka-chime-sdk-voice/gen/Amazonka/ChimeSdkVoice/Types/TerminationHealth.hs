@@ -76,5 +76,5 @@ instance Prelude.Hashable TerminationHealth where
 
 instance Prelude.NFData TerminationHealth where
   rnf TerminationHealth' {..} =
-    Prelude.rnf source
-      `Prelude.seq` Prelude.rnf timestamp
+    Prelude.rnf source `Prelude.seq`
+      Prelude.rnf timestamp

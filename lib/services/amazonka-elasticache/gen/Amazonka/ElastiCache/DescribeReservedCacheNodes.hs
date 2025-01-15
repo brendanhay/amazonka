@@ -529,12 +529,12 @@ instance Core.AWSPager DescribeReservedCacheNodes where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeReservedCacheNodes_marker
-          Lens..~ rs
-          Lens.^? describeReservedCacheNodesResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeReservedCacheNodes_marker
+              Lens..~ rs
+              Lens.^? describeReservedCacheNodesResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeReservedCacheNodes where
   type
@@ -570,14 +570,14 @@ instance Prelude.Hashable DescribeReservedCacheNodes where
 
 instance Prelude.NFData DescribeReservedCacheNodes where
   rnf DescribeReservedCacheNodes' {..} =
-    Prelude.rnf cacheNodeType
-      `Prelude.seq` Prelude.rnf duration
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf offeringType
-      `Prelude.seq` Prelude.rnf productDescription
-      `Prelude.seq` Prelude.rnf reservedCacheNodeId
-      `Prelude.seq` Prelude.rnf reservedCacheNodesOfferingId
+    Prelude.rnf cacheNodeType `Prelude.seq`
+      Prelude.rnf duration `Prelude.seq`
+        Prelude.rnf marker `Prelude.seq`
+          Prelude.rnf maxRecords `Prelude.seq`
+            Prelude.rnf offeringType `Prelude.seq`
+              Prelude.rnf productDescription `Prelude.seq`
+                Prelude.rnf reservedCacheNodeId `Prelude.seq`
+                  Prelude.rnf reservedCacheNodesOfferingId
 
 instance Data.ToHeaders DescribeReservedCacheNodes where
   toHeaders = Prelude.const Prelude.mempty
@@ -661,6 +661,6 @@ instance
     DescribeReservedCacheNodesResponse
   where
   rnf DescribeReservedCacheNodesResponse' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf reservedCacheNodes
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf reservedCacheNodes `Prelude.seq`
+        Prelude.rnf httpStatus

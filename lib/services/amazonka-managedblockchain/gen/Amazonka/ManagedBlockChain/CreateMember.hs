@@ -156,10 +156,10 @@ instance Prelude.Hashable CreateMember where
 
 instance Prelude.NFData CreateMember where
   rnf CreateMember' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf invitationId
-      `Prelude.seq` Prelude.rnf networkId
-      `Prelude.seq` Prelude.rnf memberConfiguration
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf invitationId `Prelude.seq`
+        Prelude.rnf networkId `Prelude.seq`
+          Prelude.rnf memberConfiguration
 
 instance Data.ToHeaders CreateMember where
   toHeaders =
@@ -232,5 +232,5 @@ createMemberResponse_httpStatus = Lens.lens (\CreateMemberResponse' {httpStatus}
 
 instance Prelude.NFData CreateMemberResponse where
   rnf CreateMemberResponse' {..} =
-    Prelude.rnf memberId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf memberId `Prelude.seq`
+      Prelude.rnf httpStatus

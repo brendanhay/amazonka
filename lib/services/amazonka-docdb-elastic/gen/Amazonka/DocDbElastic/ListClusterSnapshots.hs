@@ -113,12 +113,12 @@ instance Core.AWSPager ListClusterSnapshots where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listClusterSnapshots_nextToken
-          Lens..~ rs
-          Lens.^? listClusterSnapshotsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listClusterSnapshots_nextToken
+              Lens..~ rs
+              Lens.^? listClusterSnapshotsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListClusterSnapshots where
   type
@@ -144,9 +144,9 @@ instance Prelude.Hashable ListClusterSnapshots where
 
 instance Prelude.NFData ListClusterSnapshots where
   rnf ListClusterSnapshots' {..} =
-    Prelude.rnf clusterArn
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf clusterArn `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListClusterSnapshots where
   toHeaders =
@@ -232,6 +232,6 @@ listClusterSnapshotsResponse_httpStatus = Lens.lens (\ListClusterSnapshotsRespon
 
 instance Prelude.NFData ListClusterSnapshotsResponse where
   rnf ListClusterSnapshotsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf snapshots
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf snapshots `Prelude.seq`
+        Prelude.rnf httpStatus

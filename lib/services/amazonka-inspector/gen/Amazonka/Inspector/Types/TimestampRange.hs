@@ -70,8 +70,8 @@ instance Prelude.Hashable TimestampRange where
 
 instance Prelude.NFData TimestampRange where
   rnf TimestampRange' {..} =
-    Prelude.rnf beginDate
-      `Prelude.seq` Prelude.rnf endDate
+    Prelude.rnf beginDate `Prelude.seq`
+      Prelude.rnf endDate
 
 instance Data.ToJSON TimestampRange where
   toJSON TimestampRange' {..} =

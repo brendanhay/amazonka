@@ -127,11 +127,11 @@ instance
     GoogleAnalyticsConnectorProfileCredentials
   where
   rnf GoogleAnalyticsConnectorProfileCredentials' {..} =
-    Prelude.rnf accessToken
-      `Prelude.seq` Prelude.rnf oAuthRequest
-      `Prelude.seq` Prelude.rnf refreshToken
-      `Prelude.seq` Prelude.rnf clientId
-      `Prelude.seq` Prelude.rnf clientSecret
+    Prelude.rnf accessToken `Prelude.seq`
+      Prelude.rnf oAuthRequest `Prelude.seq`
+        Prelude.rnf refreshToken `Prelude.seq`
+          Prelude.rnf clientId `Prelude.seq`
+            Prelude.rnf clientSecret
 
 instance
   Data.ToJSON

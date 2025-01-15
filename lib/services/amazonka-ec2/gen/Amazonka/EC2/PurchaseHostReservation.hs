@@ -179,9 +179,7 @@ instance Core.AWSRequest PurchaseHostReservation where
           PurchaseHostReservationResponse'
             Prelude.<$> (x Data..@? "clientToken")
             Prelude.<*> (x Data..@? "currencyCode")
-            Prelude.<*> ( x
-                            Data..@? "purchase"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "purchase" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (x Data..@? "totalHourlyPrice")
@@ -201,12 +199,12 @@ instance Prelude.Hashable PurchaseHostReservation where
 
 instance Prelude.NFData PurchaseHostReservation where
   rnf PurchaseHostReservation' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf currencyCode
-      `Prelude.seq` Prelude.rnf limitPrice
-      `Prelude.seq` Prelude.rnf tagSpecifications
-      `Prelude.seq` Prelude.rnf hostIdSet
-      `Prelude.seq` Prelude.rnf offeringId
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf currencyCode `Prelude.seq`
+        Prelude.rnf limitPrice `Prelude.seq`
+          Prelude.rnf tagSpecifications `Prelude.seq`
+            Prelude.rnf hostIdSet `Prelude.seq`
+              Prelude.rnf offeringId
 
 instance Data.ToHeaders PurchaseHostReservation where
   toHeaders = Prelude.const Prelude.mempty
@@ -327,9 +325,9 @@ instance
     PurchaseHostReservationResponse
   where
   rnf PurchaseHostReservationResponse' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf currencyCode
-      `Prelude.seq` Prelude.rnf purchase
-      `Prelude.seq` Prelude.rnf totalHourlyPrice
-      `Prelude.seq` Prelude.rnf totalUpfrontPrice
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf currencyCode `Prelude.seq`
+        Prelude.rnf purchase `Prelude.seq`
+          Prelude.rnf totalHourlyPrice `Prelude.seq`
+            Prelude.rnf totalUpfrontPrice `Prelude.seq`
+              Prelude.rnf httpStatus

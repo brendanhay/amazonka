@@ -110,9 +110,7 @@ describeFleetsInstances_platform = Lens.lens (\DescribeFleetsInstances' {platfor
 instance Data.FromXML DescribeFleetsInstances where
   parseXML x =
     DescribeFleetsInstances'
-      Prelude.<$> ( x
-                      Data..@? "instanceIds"
-                      Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "instanceIds" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "instanceType")
@@ -131,8 +129,8 @@ instance Prelude.Hashable DescribeFleetsInstances where
 
 instance Prelude.NFData DescribeFleetsInstances where
   rnf DescribeFleetsInstances' {..} =
-    Prelude.rnf instanceIds
-      `Prelude.seq` Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf launchTemplateAndOverrides
-      `Prelude.seq` Prelude.rnf lifecycle
-      `Prelude.seq` Prelude.rnf platform
+    Prelude.rnf instanceIds `Prelude.seq`
+      Prelude.rnf instanceType `Prelude.seq`
+        Prelude.rnf launchTemplateAndOverrides `Prelude.seq`
+          Prelude.rnf lifecycle `Prelude.seq`
+            Prelude.rnf platform

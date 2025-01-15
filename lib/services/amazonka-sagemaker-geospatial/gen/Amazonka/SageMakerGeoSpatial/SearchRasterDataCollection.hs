@@ -131,9 +131,9 @@ instance Prelude.Hashable SearchRasterDataCollection where
 
 instance Prelude.NFData SearchRasterDataCollection where
   rnf SearchRasterDataCollection' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf rasterDataCollectionQuery
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf rasterDataCollectionQuery
 
 instance Data.ToHeaders SearchRasterDataCollection where
   toHeaders =
@@ -232,7 +232,7 @@ instance
     SearchRasterDataCollectionResponse
   where
   rnf SearchRasterDataCollectionResponse' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf approximateResultCount
+    Prelude.rnf items `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus `Prelude.seq`
+          Prelude.rnf approximateResultCount

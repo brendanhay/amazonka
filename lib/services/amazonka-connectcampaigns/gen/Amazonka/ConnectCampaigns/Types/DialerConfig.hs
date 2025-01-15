@@ -81,8 +81,8 @@ instance Prelude.Hashable DialerConfig where
 
 instance Prelude.NFData DialerConfig where
   rnf DialerConfig' {..} =
-    Prelude.rnf predictiveDialerConfig
-      `Prelude.seq` Prelude.rnf progressiveDialerConfig
+    Prelude.rnf predictiveDialerConfig `Prelude.seq`
+      Prelude.rnf progressiveDialerConfig
 
 instance Data.ToJSON DialerConfig where
   toJSON DialerConfig' {..} =

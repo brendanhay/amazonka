@@ -146,9 +146,9 @@ instance
     PutEmailMonitoringConfiguration
   where
   rnf PutEmailMonitoringConfiguration' {..} =
-    Prelude.rnf organizationId
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf logGroupArn
+    Prelude.rnf organizationId `Prelude.seq`
+      Prelude.rnf roleArn `Prelude.seq`
+        Prelude.rnf logGroupArn
 
 instance
   Data.ToHeaders

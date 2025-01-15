@@ -215,13 +215,13 @@ instance
     UpdateOpenZFSVolumeConfiguration
   where
   rnf UpdateOpenZFSVolumeConfiguration' {..} =
-    Prelude.rnf dataCompressionType
-      `Prelude.seq` Prelude.rnf nfsExports
-      `Prelude.seq` Prelude.rnf readOnly
-      `Prelude.seq` Prelude.rnf recordSizeKiB
-      `Prelude.seq` Prelude.rnf storageCapacityQuotaGiB
-      `Prelude.seq` Prelude.rnf storageCapacityReservationGiB
-      `Prelude.seq` Prelude.rnf userAndGroupQuotas
+    Prelude.rnf dataCompressionType `Prelude.seq`
+      Prelude.rnf nfsExports `Prelude.seq`
+        Prelude.rnf readOnly `Prelude.seq`
+          Prelude.rnf recordSizeKiB `Prelude.seq`
+            Prelude.rnf storageCapacityQuotaGiB `Prelude.seq`
+              Prelude.rnf storageCapacityReservationGiB `Prelude.seq`
+                Prelude.rnf userAndGroupQuotas
 
 instance Data.ToJSON UpdateOpenZFSVolumeConfiguration where
   toJSON UpdateOpenZFSVolumeConfiguration' {..} =

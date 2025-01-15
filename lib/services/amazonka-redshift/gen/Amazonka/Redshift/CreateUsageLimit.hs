@@ -203,13 +203,13 @@ instance Prelude.Hashable CreateUsageLimit where
 
 instance Prelude.NFData CreateUsageLimit where
   rnf CreateUsageLimit' {..} =
-    Prelude.rnf breachAction
-      `Prelude.seq` Prelude.rnf period
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clusterIdentifier
-      `Prelude.seq` Prelude.rnf featureType
-      `Prelude.seq` Prelude.rnf limitType
-      `Prelude.seq` Prelude.rnf amount
+    Prelude.rnf breachAction `Prelude.seq`
+      Prelude.rnf period `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf clusterIdentifier `Prelude.seq`
+            Prelude.rnf featureType `Prelude.seq`
+              Prelude.rnf limitType `Prelude.seq`
+                Prelude.rnf amount
 
 instance Data.ToHeaders CreateUsageLimit where
   toHeaders = Prelude.const Prelude.mempty

@@ -145,12 +145,12 @@ instance
 
 instance Prelude.NFData CreateBackendAuthOAuthConfig where
   rnf CreateBackendAuthOAuthConfig' {..} =
-    Prelude.rnf domainPrefix
-      `Prelude.seq` Prelude.rnf socialProviderSettings
-      `Prelude.seq` Prelude.rnf redirectSignOutURIs
-      `Prelude.seq` Prelude.rnf redirectSignInURIs
-      `Prelude.seq` Prelude.rnf oAuthGrantType
-      `Prelude.seq` Prelude.rnf oAuthScopes
+    Prelude.rnf domainPrefix `Prelude.seq`
+      Prelude.rnf socialProviderSettings `Prelude.seq`
+        Prelude.rnf redirectSignOutURIs `Prelude.seq`
+          Prelude.rnf redirectSignInURIs `Prelude.seq`
+            Prelude.rnf oAuthGrantType `Prelude.seq`
+              Prelude.rnf oAuthScopes
 
 instance Data.ToJSON CreateBackendAuthOAuthConfig where
   toJSON CreateBackendAuthOAuthConfig' {..} =

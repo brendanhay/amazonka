@@ -168,5 +168,5 @@ deleteEndpointAccessResponse_httpStatus = Lens.lens (\DeleteEndpointAccessRespon
 
 instance Prelude.NFData DeleteEndpointAccessResponse where
   rnf DeleteEndpointAccessResponse' {..} =
-    Prelude.rnf endpoint
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf endpoint `Prelude.seq`
+      Prelude.rnf httpStatus

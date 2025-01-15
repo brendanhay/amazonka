@@ -442,15 +442,15 @@ instance Prelude.Hashable CalculateRouteMatrix where
 
 instance Prelude.NFData CalculateRouteMatrix where
   rnf CalculateRouteMatrix' {..} =
-    Prelude.rnf carModeOptions
-      `Prelude.seq` Prelude.rnf departNow
-      `Prelude.seq` Prelude.rnf departureTime
-      `Prelude.seq` Prelude.rnf distanceUnit
-      `Prelude.seq` Prelude.rnf travelMode
-      `Prelude.seq` Prelude.rnf truckModeOptions
-      `Prelude.seq` Prelude.rnf calculatorName
-      `Prelude.seq` Prelude.rnf departurePositions
-      `Prelude.seq` Prelude.rnf destinationPositions
+    Prelude.rnf carModeOptions `Prelude.seq`
+      Prelude.rnf departNow `Prelude.seq`
+        Prelude.rnf departureTime `Prelude.seq`
+          Prelude.rnf distanceUnit `Prelude.seq`
+            Prelude.rnf travelMode `Prelude.seq`
+              Prelude.rnf truckModeOptions `Prelude.seq`
+                Prelude.rnf calculatorName `Prelude.seq`
+                  Prelude.rnf departurePositions `Prelude.seq`
+                    Prelude.rnf destinationPositions
 
 instance Data.ToHeaders CalculateRouteMatrix where
   toHeaders =
@@ -596,8 +596,8 @@ calculateRouteMatrixResponse_summary = Lens.lens (\CalculateRouteMatrixResponse'
 
 instance Prelude.NFData CalculateRouteMatrixResponse where
   rnf CalculateRouteMatrixResponse' {..} =
-    Prelude.rnf snappedDeparturePositions
-      `Prelude.seq` Prelude.rnf snappedDestinationPositions
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf routeMatrix
-      `Prelude.seq` Prelude.rnf summary
+    Prelude.rnf snappedDeparturePositions `Prelude.seq`
+      Prelude.rnf snappedDestinationPositions `Prelude.seq`
+        Prelude.rnf httpStatus `Prelude.seq`
+          Prelude.rnf routeMatrix `Prelude.seq`
+            Prelude.rnf summary

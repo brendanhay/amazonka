@@ -235,19 +235,19 @@ instance Prelude.Hashable StartRun where
 
 instance Prelude.NFData StartRun where
   rnf StartRun' {..} =
-    Prelude.rnf logLevel
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf outputUri
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf priority
-      `Prelude.seq` Prelude.rnf runGroupId
-      `Prelude.seq` Prelude.rnf runId
-      `Prelude.seq` Prelude.rnf storageCapacity
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf workflowId
-      `Prelude.seq` Prelude.rnf workflowType
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf logLevel `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf outputUri `Prelude.seq`
+          Prelude.rnf parameters `Prelude.seq`
+            Prelude.rnf priority `Prelude.seq`
+              Prelude.rnf runGroupId `Prelude.seq`
+                Prelude.rnf runId `Prelude.seq`
+                  Prelude.rnf storageCapacity `Prelude.seq`
+                    Prelude.rnf tags `Prelude.seq`
+                      Prelude.rnf workflowId `Prelude.seq`
+                        Prelude.rnf workflowType `Prelude.seq`
+                          Prelude.rnf requestId `Prelude.seq`
+                            Prelude.rnf roleArn
 
 instance Data.ToHeaders StartRun where
   toHeaders =
@@ -354,8 +354,8 @@ startRunResponse_httpStatus = Lens.lens (\StartRunResponse' {httpStatus} -> http
 
 instance Prelude.NFData StartRunResponse where
   rnf StartRunResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf status `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf httpStatus

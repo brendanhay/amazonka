@@ -92,6 +92,6 @@ instance Prelude.Hashable ImageTagDetail where
 
 instance Prelude.NFData ImageTagDetail where
   rnf ImageTagDetail' {..} =
-    Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf imageDetail
-      `Prelude.seq` Prelude.rnf imageTag
+    Prelude.rnf createdAt `Prelude.seq`
+      Prelude.rnf imageDetail `Prelude.seq`
+        Prelude.rnf imageTag

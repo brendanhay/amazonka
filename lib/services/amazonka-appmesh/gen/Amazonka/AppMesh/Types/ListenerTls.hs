@@ -126,9 +126,9 @@ instance Prelude.Hashable ListenerTls where
 
 instance Prelude.NFData ListenerTls where
   rnf ListenerTls' {..} =
-    Prelude.rnf validation
-      `Prelude.seq` Prelude.rnf certificate
-      `Prelude.seq` Prelude.rnf mode
+    Prelude.rnf validation `Prelude.seq`
+      Prelude.rnf certificate `Prelude.seq`
+        Prelude.rnf mode
 
 instance Data.ToJSON ListenerTls where
   toJSON ListenerTls' {..} =

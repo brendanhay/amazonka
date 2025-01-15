@@ -151,5 +151,5 @@ instance
     DescribeResourcePolicyResponse
   where
   rnf DescribeResourcePolicyResponse' {..} =
-    Prelude.rnf resourcePolicy
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf resourcePolicy `Prelude.seq`
+      Prelude.rnf httpStatus

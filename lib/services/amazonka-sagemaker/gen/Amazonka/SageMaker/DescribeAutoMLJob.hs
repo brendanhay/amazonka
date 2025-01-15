@@ -452,26 +452,26 @@ describeAutoMLJobResponse_autoMLJobSecondaryStatus = Lens.lens (\DescribeAutoMLJ
 
 instance Prelude.NFData DescribeAutoMLJobResponse where
   rnf DescribeAutoMLJobResponse' {..} =
-    Prelude.rnf autoMLJobArtifacts
-      `Prelude.seq` Prelude.rnf autoMLJobConfig
-      `Prelude.seq` Prelude.rnf autoMLJobObjective
-      `Prelude.seq` Prelude.rnf bestCandidate
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf generateCandidateDefinitionsOnly
-      `Prelude.seq` Prelude.rnf modelDeployConfig
-      `Prelude.seq` Prelude.rnf modelDeployResult
-      `Prelude.seq` Prelude.rnf partialFailureReasons
-      `Prelude.seq` Prelude.rnf problemType
-      `Prelude.seq` Prelude.rnf resolvedAttributes
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf autoMLJobName
-      `Prelude.seq` Prelude.rnf autoMLJobArn
-      `Prelude.seq` Prelude.rnf inputDataConfig
-      `Prelude.seq` Prelude.rnf outputDataConfig
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf autoMLJobStatus
-      `Prelude.seq` Prelude.rnf
-        autoMLJobSecondaryStatus
+    Prelude.rnf autoMLJobArtifacts `Prelude.seq`
+      Prelude.rnf autoMLJobConfig `Prelude.seq`
+        Prelude.rnf autoMLJobObjective `Prelude.seq`
+          Prelude.rnf bestCandidate `Prelude.seq`
+            Prelude.rnf endTime `Prelude.seq`
+              Prelude.rnf failureReason `Prelude.seq`
+                Prelude.rnf generateCandidateDefinitionsOnly `Prelude.seq`
+                  Prelude.rnf modelDeployConfig `Prelude.seq`
+                    Prelude.rnf modelDeployResult `Prelude.seq`
+                      Prelude.rnf partialFailureReasons `Prelude.seq`
+                        Prelude.rnf problemType `Prelude.seq`
+                          Prelude.rnf resolvedAttributes `Prelude.seq`
+                            Prelude.rnf httpStatus `Prelude.seq`
+                              Prelude.rnf autoMLJobName `Prelude.seq`
+                                Prelude.rnf autoMLJobArn `Prelude.seq`
+                                  Prelude.rnf inputDataConfig `Prelude.seq`
+                                    Prelude.rnf outputDataConfig `Prelude.seq`
+                                      Prelude.rnf roleArn `Prelude.seq`
+                                        Prelude.rnf creationTime `Prelude.seq`
+                                          Prelude.rnf lastModifiedTime `Prelude.seq`
+                                            Prelude.rnf autoMLJobStatus `Prelude.seq`
+                                              Prelude.rnf
+                                                autoMLJobSecondaryStatus

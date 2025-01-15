@@ -127,14 +127,10 @@ instance Core.AWSRequest PublishBatch where
       "PublishBatchResult"
       ( \s h x ->
           PublishBatchResponse'
-            Prelude.<$> ( x
-                            Data..@? "Failed"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "Failed" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> ( x
-                            Data..@? "Successful"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "Successful" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -148,8 +144,8 @@ instance Prelude.Hashable PublishBatch where
 
 instance Prelude.NFData PublishBatch where
   rnf PublishBatch' {..} =
-    Prelude.rnf topicArn
-      `Prelude.seq` Prelude.rnf publishBatchRequestEntries
+    Prelude.rnf topicArn `Prelude.seq`
+      Prelude.rnf publishBatchRequestEntries
 
 instance Data.ToHeaders PublishBatch where
   toHeaders = Prelude.const Prelude.mempty
@@ -218,6 +214,6 @@ publishBatchResponse_httpStatus = Lens.lens (\PublishBatchResponse' {httpStatus}
 
 instance Prelude.NFData PublishBatchResponse where
   rnf PublishBatchResponse' {..} =
-    Prelude.rnf failed
-      `Prelude.seq` Prelude.rnf successful
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf failed `Prelude.seq`
+      Prelude.rnf successful `Prelude.seq`
+        Prelude.rnf httpStatus

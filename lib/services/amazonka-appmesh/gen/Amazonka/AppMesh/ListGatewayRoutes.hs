@@ -173,12 +173,12 @@ instance Core.AWSPager ListGatewayRoutes where
         (rs Lens.^. listGatewayRoutesResponse_gatewayRoutes) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listGatewayRoutes_nextToken
-          Lens..~ rs
-          Lens.^? listGatewayRoutesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listGatewayRoutes_nextToken
+              Lens..~ rs
+              Lens.^? listGatewayRoutesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListGatewayRoutes where
   type
@@ -206,11 +206,11 @@ instance Prelude.Hashable ListGatewayRoutes where
 
 instance Prelude.NFData ListGatewayRoutes where
   rnf ListGatewayRoutes' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf meshOwner
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf meshName
-      `Prelude.seq` Prelude.rnf virtualGatewayName
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf meshOwner `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf meshName `Prelude.seq`
+            Prelude.rnf virtualGatewayName
 
 instance Data.ToHeaders ListGatewayRoutes where
   toHeaders =
@@ -303,6 +303,6 @@ listGatewayRoutesResponse_gatewayRoutes = Lens.lens (\ListGatewayRoutesResponse'
 
 instance Prelude.NFData ListGatewayRoutesResponse where
   rnf ListGatewayRoutesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf gatewayRoutes
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf gatewayRoutes

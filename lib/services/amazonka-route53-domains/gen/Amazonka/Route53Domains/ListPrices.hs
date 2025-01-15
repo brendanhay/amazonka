@@ -165,12 +165,12 @@ instance Core.AWSPager ListPrices where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listPrices_marker
-          Lens..~ rs
-          Lens.^? listPricesResponse_nextPageMarker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listPrices_marker
+              Lens..~ rs
+              Lens.^? listPricesResponse_nextPageMarker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPrices where
   type AWSResponse ListPrices = ListPricesResponse
@@ -194,9 +194,9 @@ instance Prelude.Hashable ListPrices where
 
 instance Prelude.NFData ListPrices where
   rnf ListPrices' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxItems
-      `Prelude.seq` Prelude.rnf tld
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf maxItems `Prelude.seq`
+        Prelude.rnf tld
 
 instance Data.ToHeaders ListPrices where
   toHeaders =
@@ -297,6 +297,6 @@ listPricesResponse_httpStatus = Lens.lens (\ListPricesResponse' {httpStatus} -> 
 
 instance Prelude.NFData ListPricesResponse where
   rnf ListPricesResponse' {..} =
-    Prelude.rnf nextPageMarker
-      `Prelude.seq` Prelude.rnf prices
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextPageMarker `Prelude.seq`
+      Prelude.rnf prices `Prelude.seq`
+        Prelude.rnf httpStatus

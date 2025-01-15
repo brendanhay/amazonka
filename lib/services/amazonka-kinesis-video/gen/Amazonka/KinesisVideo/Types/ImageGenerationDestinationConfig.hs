@@ -104,8 +104,8 @@ instance
     ImageGenerationDestinationConfig
   where
   rnf ImageGenerationDestinationConfig' {..} =
-    Prelude.rnf uri
-      `Prelude.seq` Prelude.rnf destinationRegion
+    Prelude.rnf uri `Prelude.seq`
+      Prelude.rnf destinationRegion
 
 instance Data.ToJSON ImageGenerationDestinationConfig where
   toJSON ImageGenerationDestinationConfig' {..} =

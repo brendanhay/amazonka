@@ -136,12 +136,12 @@ instance Prelude.Hashable EvaluateDataQuality where
 
 instance Prelude.NFData EvaluateDataQuality where
   rnf EvaluateDataQuality' {..} =
-    Prelude.rnf output
-      `Prelude.seq` Prelude.rnf publishingOptions
-      `Prelude.seq` Prelude.rnf stopJobOnFailureOptions
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf inputs
-      `Prelude.seq` Prelude.rnf ruleset
+    Prelude.rnf output `Prelude.seq`
+      Prelude.rnf publishingOptions `Prelude.seq`
+        Prelude.rnf stopJobOnFailureOptions `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf inputs `Prelude.seq`
+              Prelude.rnf ruleset
 
 instance Data.ToJSON EvaluateDataQuality where
   toJSON EvaluateDataQuality' {..} =

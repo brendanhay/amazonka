@@ -97,8 +97,8 @@ instance
     SalesforceConnectorProfileProperties
   where
   rnf SalesforceConnectorProfileProperties' {..} =
-    Prelude.rnf instanceUrl
-      `Prelude.seq` Prelude.rnf isSandboxEnvironment
+    Prelude.rnf instanceUrl `Prelude.seq`
+      Prelude.rnf isSandboxEnvironment
 
 instance
   Data.ToJSON

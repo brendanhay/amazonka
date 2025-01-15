@@ -79,5 +79,5 @@ instance Prelude.Hashable NotificationConfiguration where
 
 instance Prelude.NFData NotificationConfiguration where
   rnf NotificationConfiguration' {..} =
-    Prelude.rnf topicArn
-      `Prelude.seq` Prelude.rnf topicStatus
+    Prelude.rnf topicArn `Prelude.seq`
+      Prelude.rnf topicStatus

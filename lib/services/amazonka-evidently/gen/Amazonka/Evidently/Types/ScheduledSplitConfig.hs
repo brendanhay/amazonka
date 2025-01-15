@@ -125,9 +125,9 @@ instance Prelude.Hashable ScheduledSplitConfig where
 
 instance Prelude.NFData ScheduledSplitConfig where
   rnf ScheduledSplitConfig' {..} =
-    Prelude.rnf segmentOverrides
-      `Prelude.seq` Prelude.rnf groupWeights
-      `Prelude.seq` Prelude.rnf startTime
+    Prelude.rnf segmentOverrides `Prelude.seq`
+      Prelude.rnf groupWeights `Prelude.seq`
+        Prelude.rnf startTime
 
 instance Data.ToJSON ScheduledSplitConfig where
   toJSON ScheduledSplitConfig' {..} =

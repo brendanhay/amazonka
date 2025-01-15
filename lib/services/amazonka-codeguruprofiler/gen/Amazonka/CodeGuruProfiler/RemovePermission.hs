@@ -151,9 +151,9 @@ instance Prelude.Hashable RemovePermission where
 
 instance Prelude.NFData RemovePermission where
   rnf RemovePermission' {..} =
-    Prelude.rnf actionGroup
-      `Prelude.seq` Prelude.rnf profilingGroupName
-      `Prelude.seq` Prelude.rnf revisionId
+    Prelude.rnf actionGroup `Prelude.seq`
+      Prelude.rnf profilingGroupName `Prelude.seq`
+        Prelude.rnf revisionId
 
 instance Data.ToHeaders RemovePermission where
   toHeaders =
@@ -250,6 +250,6 @@ removePermissionResponse_revisionId = Lens.lens (\RemovePermissionResponse' {rev
 
 instance Prelude.NFData RemovePermissionResponse where
   rnf RemovePermissionResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf policy
-      `Prelude.seq` Prelude.rnf revisionId
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf policy `Prelude.seq`
+        Prelude.rnf revisionId

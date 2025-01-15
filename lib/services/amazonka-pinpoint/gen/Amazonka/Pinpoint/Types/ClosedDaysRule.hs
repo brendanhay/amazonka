@@ -91,9 +91,9 @@ instance Prelude.Hashable ClosedDaysRule where
 
 instance Prelude.NFData ClosedDaysRule where
   rnf ClosedDaysRule' {..} =
-    Prelude.rnf endDateTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf startDateTime
+    Prelude.rnf endDateTime `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf startDateTime
 
 instance Data.ToJSON ClosedDaysRule where
   toJSON ClosedDaysRule' {..} =

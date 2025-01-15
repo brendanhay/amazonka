@@ -81,8 +81,8 @@ instance Prelude.Hashable ThemeValue where
 
 instance Prelude.NFData ThemeValue where
   rnf ThemeValue' {..} =
-    Prelude.rnf children
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf children `Prelude.seq`
+      Prelude.rnf value
 
 instance Data.ToJSON ThemeValue where
   toJSON ThemeValue' {..} =

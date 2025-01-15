@@ -139,9 +139,9 @@ instance Prelude.Hashable ReplicationSubnetGroup where
 
 instance Prelude.NFData ReplicationSubnetGroup where
   rnf ReplicationSubnetGroup' {..} =
-    Prelude.rnf replicationSubnetGroupDescription
-      `Prelude.seq` Prelude.rnf replicationSubnetGroupIdentifier
-      `Prelude.seq` Prelude.rnf subnetGroupStatus
-      `Prelude.seq` Prelude.rnf subnets
-      `Prelude.seq` Prelude.rnf supportedNetworkTypes
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf replicationSubnetGroupDescription `Prelude.seq`
+      Prelude.rnf replicationSubnetGroupIdentifier `Prelude.seq`
+        Prelude.rnf subnetGroupStatus `Prelude.seq`
+          Prelude.rnf subnets `Prelude.seq`
+            Prelude.rnf supportedNetworkTypes `Prelude.seq`
+              Prelude.rnf vpcId

@@ -91,10 +91,10 @@ instance Prelude.Hashable ClientData where
 
 instance Prelude.NFData ClientData where
   rnf ClientData' {..} =
-    Prelude.rnf comment
-      `Prelude.seq` Prelude.rnf uploadEnd
-      `Prelude.seq` Prelude.rnf uploadSize
-      `Prelude.seq` Prelude.rnf uploadStart
+    Prelude.rnf comment `Prelude.seq`
+      Prelude.rnf uploadEnd `Prelude.seq`
+        Prelude.rnf uploadSize `Prelude.seq`
+          Prelude.rnf uploadStart
 
 instance Data.ToQuery ClientData where
   toQuery ClientData' {..} =

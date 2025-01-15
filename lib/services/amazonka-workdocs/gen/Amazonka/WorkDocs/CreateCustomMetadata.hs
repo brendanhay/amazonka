@@ -136,10 +136,10 @@ instance Prelude.Hashable CreateCustomMetadata where
 
 instance Prelude.NFData CreateCustomMetadata where
   rnf CreateCustomMetadata' {..} =
-    Prelude.rnf authenticationToken
-      `Prelude.seq` Prelude.rnf versionId
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf customMetadata
+    Prelude.rnf authenticationToken `Prelude.seq`
+      Prelude.rnf versionId `Prelude.seq`
+        Prelude.rnf resourceId `Prelude.seq`
+          Prelude.rnf customMetadata
 
 instance Data.ToHeaders CreateCustomMetadata where
   toHeaders CreateCustomMetadata' {..} =

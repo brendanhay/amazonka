@@ -114,8 +114,8 @@ instance Prelude.Hashable RemoveTemplateAction where
 
 instance Prelude.NFData RemoveTemplateAction where
   rnf RemoveTemplateAction' {..} =
-    Prelude.rnf actionID
-      `Prelude.seq` Prelude.rnf launchConfigurationTemplateID
+    Prelude.rnf actionID `Prelude.seq`
+      Prelude.rnf launchConfigurationTemplateID
 
 instance Data.ToHeaders RemoveTemplateAction where
   toHeaders =

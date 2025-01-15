@@ -123,8 +123,8 @@ instance
 
 instance Prelude.NFData DeleteRecommendationTemplate where
   rnf DeleteRecommendationTemplate' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf recommendationTemplateArn
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf recommendationTemplateArn
 
 instance Data.ToHeaders DeleteRecommendationTemplate where
   toHeaders =
@@ -217,6 +217,6 @@ instance
     DeleteRecommendationTemplateResponse
   where
   rnf DeleteRecommendationTemplateResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf recommendationTemplateArn
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf recommendationTemplateArn `Prelude.seq`
+        Prelude.rnf status

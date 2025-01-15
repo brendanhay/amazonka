@@ -153,10 +153,10 @@ instance Prelude.Hashable UpgradePublishedSchema where
 
 instance Prelude.NFData UpgradePublishedSchema where
   rnf UpgradePublishedSchema' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf developmentSchemaArn
-      `Prelude.seq` Prelude.rnf publishedSchemaArn
-      `Prelude.seq` Prelude.rnf minorVersion
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf developmentSchemaArn `Prelude.seq`
+        Prelude.rnf publishedSchemaArn `Prelude.seq`
+          Prelude.rnf minorVersion
 
 instance Data.ToHeaders UpgradePublishedSchema where
   toHeaders = Prelude.const Prelude.mempty
@@ -228,5 +228,5 @@ instance
     UpgradePublishedSchemaResponse
   where
   rnf UpgradePublishedSchemaResponse' {..} =
-    Prelude.rnf upgradedSchemaArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf upgradedSchemaArn `Prelude.seq`
+      Prelude.rnf httpStatus

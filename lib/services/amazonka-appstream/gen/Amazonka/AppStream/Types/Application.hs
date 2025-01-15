@@ -231,18 +231,18 @@ instance Prelude.Hashable Application where
 
 instance Prelude.NFData Application where
   rnf Application' {..} =
-    Prelude.rnf appBlockArn
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf iconS3Location
-      `Prelude.seq` Prelude.rnf iconURL
-      `Prelude.seq` Prelude.rnf instanceFamilies
-      `Prelude.seq` Prelude.rnf launchParameters
-      `Prelude.seq` Prelude.rnf launchPath
-      `Prelude.seq` Prelude.rnf metadata
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf platforms
-      `Prelude.seq` Prelude.rnf workingDirectory
+    Prelude.rnf appBlockArn `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf createdTime `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf displayName `Prelude.seq`
+              Prelude.rnf enabled `Prelude.seq`
+                Prelude.rnf iconS3Location `Prelude.seq`
+                  Prelude.rnf iconURL `Prelude.seq`
+                    Prelude.rnf instanceFamilies `Prelude.seq`
+                      Prelude.rnf launchParameters `Prelude.seq`
+                        Prelude.rnf launchPath `Prelude.seq`
+                          Prelude.rnf metadata `Prelude.seq`
+                            Prelude.rnf name `Prelude.seq`
+                              Prelude.rnf platforms `Prelude.seq`
+                                Prelude.rnf workingDirectory

@@ -176,10 +176,10 @@ instance Prelude.Hashable AssociateTargetsWithJob where
 
 instance Prelude.NFData AssociateTargetsWithJob where
   rnf AssociateTargetsWithJob' {..} =
-    Prelude.rnf comment
-      `Prelude.seq` Prelude.rnf namespaceId
-      `Prelude.seq` Prelude.rnf targets
-      `Prelude.seq` Prelude.rnf jobId
+    Prelude.rnf comment `Prelude.seq`
+      Prelude.rnf namespaceId `Prelude.seq`
+        Prelude.rnf targets `Prelude.seq`
+          Prelude.rnf jobId
 
 instance Data.ToHeaders AssociateTargetsWithJob where
   toHeaders = Prelude.const Prelude.mempty
@@ -264,7 +264,7 @@ instance
     AssociateTargetsWithJobResponse
   where
   rnf AssociateTargetsWithJobResponse' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf jobArn
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf jobArn `Prelude.seq`
+        Prelude.rnf jobId `Prelude.seq`
+          Prelude.rnf httpStatus

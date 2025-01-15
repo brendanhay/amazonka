@@ -565,23 +565,23 @@ instance Prelude.Hashable CreateJob where
 
 instance Prelude.NFData CreateJob where
   rnf CreateJob' {..} =
-    Prelude.rnf addressId
-      `Prelude.seq` Prelude.rnf clusterId
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf deviceConfiguration
-      `Prelude.seq` Prelude.rnf forwardingAddressId
-      `Prelude.seq` Prelude.rnf jobType
-      `Prelude.seq` Prelude.rnf kmsKeyARN
-      `Prelude.seq` Prelude.rnf longTermPricingId
-      `Prelude.seq` Prelude.rnf notification
-      `Prelude.seq` Prelude.rnf onDeviceServiceConfiguration
-      `Prelude.seq` Prelude.rnf remoteManagement
-      `Prelude.seq` Prelude.rnf resources
-      `Prelude.seq` Prelude.rnf roleARN
-      `Prelude.seq` Prelude.rnf shippingOption
-      `Prelude.seq` Prelude.rnf snowballCapacityPreference
-      `Prelude.seq` Prelude.rnf snowballType
-      `Prelude.seq` Prelude.rnf taxDocuments
+    Prelude.rnf addressId `Prelude.seq`
+      Prelude.rnf clusterId `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf deviceConfiguration `Prelude.seq`
+            Prelude.rnf forwardingAddressId `Prelude.seq`
+              Prelude.rnf jobType `Prelude.seq`
+                Prelude.rnf kmsKeyARN `Prelude.seq`
+                  Prelude.rnf longTermPricingId `Prelude.seq`
+                    Prelude.rnf notification `Prelude.seq`
+                      Prelude.rnf onDeviceServiceConfiguration `Prelude.seq`
+                        Prelude.rnf remoteManagement `Prelude.seq`
+                          Prelude.rnf resources `Prelude.seq`
+                            Prelude.rnf roleARN `Prelude.seq`
+                              Prelude.rnf shippingOption `Prelude.seq`
+                                Prelude.rnf snowballCapacityPreference `Prelude.seq`
+                                  Prelude.rnf snowballType `Prelude.seq`
+                                    Prelude.rnf taxDocuments
 
 instance Data.ToHeaders CreateJob where
   toHeaders =
@@ -678,5 +678,5 @@ createJobResponse_httpStatus = Lens.lens (\CreateJobResponse' {httpStatus} -> ht
 
 instance Prelude.NFData CreateJobResponse where
   rnf CreateJobResponse' {..} =
-    Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf jobId `Prelude.seq`
+      Prelude.rnf httpStatus

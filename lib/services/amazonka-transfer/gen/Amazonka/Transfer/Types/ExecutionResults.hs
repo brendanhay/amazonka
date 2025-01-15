@@ -86,5 +86,5 @@ instance Prelude.Hashable ExecutionResults where
 
 instance Prelude.NFData ExecutionResults where
   rnf ExecutionResults' {..} =
-    Prelude.rnf onExceptionSteps
-      `Prelude.seq` Prelude.rnf steps
+    Prelude.rnf onExceptionSteps `Prelude.seq`
+      Prelude.rnf steps

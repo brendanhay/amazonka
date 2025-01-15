@@ -138,9 +138,9 @@ instance
     ListApplicationInstanceNodeInstances
   where
   rnf ListApplicationInstanceNodeInstances' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf applicationInstanceId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf applicationInstanceId
 
 instance
   Data.ToHeaders
@@ -232,6 +232,6 @@ instance
     ListApplicationInstanceNodeInstancesResponse
   where
   rnf ListApplicationInstanceNodeInstancesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf nodeInstances
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf nodeInstances `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -161,9 +161,9 @@ instance Prelude.Hashable GetLendingAnalysis where
 
 instance Prelude.NFData GetLendingAnalysis where
   rnf GetLendingAnalysis' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf jobId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf jobId
 
 instance Data.ToHeaders GetLendingAnalysis where
   toHeaders =
@@ -302,11 +302,11 @@ getLendingAnalysisResponse_httpStatus = Lens.lens (\GetLendingAnalysisResponse' 
 
 instance Prelude.NFData GetLendingAnalysisResponse where
   rnf GetLendingAnalysisResponse' {..} =
-    Prelude.rnf analyzeLendingModelVersion
-      `Prelude.seq` Prelude.rnf documentMetadata
-      `Prelude.seq` Prelude.rnf jobStatus
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf results
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf warnings
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf analyzeLendingModelVersion `Prelude.seq`
+      Prelude.rnf documentMetadata `Prelude.seq`
+        Prelude.rnf jobStatus `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf results `Prelude.seq`
+              Prelude.rnf statusMessage `Prelude.seq`
+                Prelude.rnf warnings `Prelude.seq`
+                  Prelude.rnf httpStatus

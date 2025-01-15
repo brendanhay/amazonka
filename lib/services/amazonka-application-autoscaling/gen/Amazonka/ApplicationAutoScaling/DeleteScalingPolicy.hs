@@ -545,10 +545,10 @@ instance Prelude.Hashable DeleteScalingPolicy where
 
 instance Prelude.NFData DeleteScalingPolicy where
   rnf DeleteScalingPolicy' {..} =
-    Prelude.rnf policyName
-      `Prelude.seq` Prelude.rnf serviceNamespace
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf scalableDimension
+    Prelude.rnf policyName `Prelude.seq`
+      Prelude.rnf serviceNamespace `Prelude.seq`
+        Prelude.rnf resourceId `Prelude.seq`
+          Prelude.rnf scalableDimension
 
 instance Data.ToHeaders DeleteScalingPolicy where
   toHeaders =

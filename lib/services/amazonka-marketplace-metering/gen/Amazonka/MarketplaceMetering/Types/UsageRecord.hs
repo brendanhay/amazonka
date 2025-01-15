@@ -157,11 +157,11 @@ instance Prelude.Hashable UsageRecord where
 
 instance Prelude.NFData UsageRecord where
   rnf UsageRecord' {..} =
-    Prelude.rnf quantity
-      `Prelude.seq` Prelude.rnf usageAllocations
-      `Prelude.seq` Prelude.rnf timestamp
-      `Prelude.seq` Prelude.rnf customerIdentifier
-      `Prelude.seq` Prelude.rnf dimension
+    Prelude.rnf quantity `Prelude.seq`
+      Prelude.rnf usageAllocations `Prelude.seq`
+        Prelude.rnf timestamp `Prelude.seq`
+          Prelude.rnf customerIdentifier `Prelude.seq`
+            Prelude.rnf dimension
 
 instance Data.ToJSON UsageRecord where
   toJSON UsageRecord' {..} =

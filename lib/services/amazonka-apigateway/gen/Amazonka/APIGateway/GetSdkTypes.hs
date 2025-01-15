@@ -107,12 +107,12 @@ instance Core.AWSPager GetSdkTypes where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getSdkTypes_position
-          Lens..~ rs
-          Lens.^? getSdkTypesResponse_position
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getSdkTypes_position
+              Lens..~ rs
+              Lens.^? getSdkTypesResponse_position
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetSdkTypes where
   type AWSResponse GetSdkTypes = GetSdkTypesResponse
@@ -135,8 +135,8 @@ instance Prelude.Hashable GetSdkTypes where
 
 instance Prelude.NFData GetSdkTypes where
   rnf GetSdkTypes' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf position
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf position
 
 instance Data.ToHeaders GetSdkTypes where
   toHeaders =
@@ -205,6 +205,6 @@ getSdkTypesResponse_httpStatus = Lens.lens (\GetSdkTypesResponse' {httpStatus} -
 
 instance Prelude.NFData GetSdkTypesResponse where
   rnf GetSdkTypesResponse' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf position
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf items `Prelude.seq`
+      Prelude.rnf position `Prelude.seq`
+        Prelude.rnf httpStatus

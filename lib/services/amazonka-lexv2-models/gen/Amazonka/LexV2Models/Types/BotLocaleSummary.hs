@@ -131,9 +131,9 @@ instance Prelude.Hashable BotLocaleSummary where
 
 instance Prelude.NFData BotLocaleSummary where
   rnf BotLocaleSummary' {..} =
-    Prelude.rnf botLocaleStatus
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf lastBuildSubmittedDateTime
-      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
-      `Prelude.seq` Prelude.rnf localeId
-      `Prelude.seq` Prelude.rnf localeName
+    Prelude.rnf botLocaleStatus `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf lastBuildSubmittedDateTime `Prelude.seq`
+          Prelude.rnf lastUpdatedDateTime `Prelude.seq`
+            Prelude.rnf localeId `Prelude.seq`
+              Prelude.rnf localeName

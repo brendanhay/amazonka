@@ -93,6 +93,6 @@ instance Prelude.Hashable UnprocessedStatistics where
 
 instance Prelude.NFData UnprocessedStatistics where
   rnf UnprocessedStatistics' {..} =
-    Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf ruleName
+    Prelude.rnf errorCode `Prelude.seq`
+      Prelude.rnf message `Prelude.seq`
+        Prelude.rnf ruleName

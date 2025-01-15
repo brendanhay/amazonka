@@ -92,8 +92,8 @@ instance Prelude.Hashable InputDataConfig where
 
 instance Prelude.NFData InputDataConfig where
   rnf InputDataConfig' {..} =
-    Prelude.rnf supplementaryFeatures
-      `Prelude.seq` Prelude.rnf datasetGroupArn
+    Prelude.rnf supplementaryFeatures `Prelude.seq`
+      Prelude.rnf datasetGroupArn
 
 instance Data.ToJSON InputDataConfig where
   toJSON InputDataConfig' {..} =

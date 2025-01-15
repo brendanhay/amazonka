@@ -135,9 +135,9 @@ instance Prelude.Hashable CreateChannel where
 
 instance Prelude.NFData CreateChannel where
   rnf CreateChannel' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf id
 
 instance Data.ToHeaders CreateChannel where
   toHeaders =
@@ -256,11 +256,11 @@ createChannelResponse_httpStatus = Lens.lens (\CreateChannelResponse' {httpStatu
 
 instance Prelude.NFData CreateChannelResponse where
   rnf CreateChannelResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf egressAccessLogs
-      `Prelude.seq` Prelude.rnf hlsIngest
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf ingressAccessLogs
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf egressAccessLogs `Prelude.seq`
+          Prelude.rnf hlsIngest `Prelude.seq`
+            Prelude.rnf id `Prelude.seq`
+              Prelude.rnf ingressAccessLogs `Prelude.seq`
+                Prelude.rnf tags `Prelude.seq`
+                  Prelude.rnf httpStatus

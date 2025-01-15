@@ -298,16 +298,16 @@ instance
     DescribePipelineExecutionResponse
   where
   rnf DescribePipelineExecutionResponse' {..} =
-    Prelude.rnf createdBy
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf lastModifiedBy
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf parallelismConfiguration
-      `Prelude.seq` Prelude.rnf pipelineArn
-      `Prelude.seq` Prelude.rnf pipelineExecutionArn
-      `Prelude.seq` Prelude.rnf pipelineExecutionDescription
-      `Prelude.seq` Prelude.rnf pipelineExecutionDisplayName
-      `Prelude.seq` Prelude.rnf pipelineExecutionStatus
-      `Prelude.seq` Prelude.rnf pipelineExperimentConfig
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf createdBy `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf failureReason `Prelude.seq`
+          Prelude.rnf lastModifiedBy `Prelude.seq`
+            Prelude.rnf lastModifiedTime `Prelude.seq`
+              Prelude.rnf parallelismConfiguration `Prelude.seq`
+                Prelude.rnf pipelineArn `Prelude.seq`
+                  Prelude.rnf pipelineExecutionArn `Prelude.seq`
+                    Prelude.rnf pipelineExecutionDescription `Prelude.seq`
+                      Prelude.rnf pipelineExecutionDisplayName `Prelude.seq`
+                        Prelude.rnf pipelineExecutionStatus `Prelude.seq`
+                          Prelude.rnf pipelineExperimentConfig `Prelude.seq`
+                            Prelude.rnf httpStatus

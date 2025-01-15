@@ -257,9 +257,9 @@ instance Prelude.Hashable SetSubscriptionAttributes where
 
 instance Prelude.NFData SetSubscriptionAttributes where
   rnf SetSubscriptionAttributes' {..} =
-    Prelude.rnf attributeValue
-      `Prelude.seq` Prelude.rnf subscriptionArn
-      `Prelude.seq` Prelude.rnf attributeName
+    Prelude.rnf attributeValue `Prelude.seq`
+      Prelude.rnf subscriptionArn `Prelude.seq`
+        Prelude.rnf attributeName
 
 instance Data.ToHeaders SetSubscriptionAttributes where
   toHeaders = Prelude.const Prelude.mempty

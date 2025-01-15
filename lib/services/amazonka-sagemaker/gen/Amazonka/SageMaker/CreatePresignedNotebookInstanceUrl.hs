@@ -144,8 +144,8 @@ instance
     CreatePresignedNotebookInstanceUrl
   where
   rnf CreatePresignedNotebookInstanceUrl' {..} =
-    Prelude.rnf sessionExpirationDurationInSeconds
-      `Prelude.seq` Prelude.rnf notebookInstanceName
+    Prelude.rnf sessionExpirationDurationInSeconds `Prelude.seq`
+      Prelude.rnf notebookInstanceName
 
 instance
   Data.ToHeaders
@@ -238,5 +238,5 @@ instance
     CreatePresignedNotebookInstanceUrlResponse
   where
   rnf CreatePresignedNotebookInstanceUrlResponse' {..} =
-    Prelude.rnf authorizedUrl
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf authorizedUrl `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -91,5 +91,5 @@ instance
     TransitGatewayAttachmentPropagation
   where
   rnf TransitGatewayAttachmentPropagation' {..} =
-    Prelude.rnf state
-      `Prelude.seq` Prelude.rnf transitGatewayRouteTableId
+    Prelude.rnf state `Prelude.seq`
+      Prelude.rnf transitGatewayRouteTableId

@@ -154,11 +154,11 @@ instance Prelude.Hashable CreateEnvironment where
 
 instance Prelude.NFData CreateEnvironment where
   rnf CreateEnvironment' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf monitors
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf monitors `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf applicationId `Prelude.seq`
+            Prelude.rnf name
 
 instance Data.ToHeaders CreateEnvironment where
   toHeaders =

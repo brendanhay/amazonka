@@ -95,5 +95,5 @@ instance
     CloudWatchLogsLogDeliveryDescription
   where
   rnf CloudWatchLogsLogDeliveryDescription' {..} =
-    Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf logGroup
+    Prelude.rnf enabled `Prelude.seq`
+      Prelude.rnf logGroup

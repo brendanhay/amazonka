@@ -177,13 +177,13 @@ instance Prelude.Hashable CreateAlert where
 
 instance Prelude.NFData CreateAlert where
   rnf CreateAlert' {..} =
-    Prelude.rnf alertDescription
-      `Prelude.seq` Prelude.rnf alertFilters
-      `Prelude.seq` Prelude.rnf alertSensitivityThreshold
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf alertName
-      `Prelude.seq` Prelude.rnf anomalyDetectorArn
-      `Prelude.seq` Prelude.rnf action
+    Prelude.rnf alertDescription `Prelude.seq`
+      Prelude.rnf alertFilters `Prelude.seq`
+        Prelude.rnf alertSensitivityThreshold `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf alertName `Prelude.seq`
+              Prelude.rnf anomalyDetectorArn `Prelude.seq`
+                Prelude.rnf action
 
 instance Data.ToHeaders CreateAlert where
   toHeaders =
@@ -259,5 +259,5 @@ createAlertResponse_httpStatus = Lens.lens (\CreateAlertResponse' {httpStatus} -
 
 instance Prelude.NFData CreateAlertResponse where
   rnf CreateAlertResponse' {..} =
-    Prelude.rnf alertArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf alertArn `Prelude.seq`
+      Prelude.rnf httpStatus

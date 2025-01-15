@@ -105,8 +105,8 @@ instance Prelude.Hashable GetLens where
 
 instance Prelude.NFData GetLens where
   rnf GetLens' {..} =
-    Prelude.rnf lensVersion
-      `Prelude.seq` Prelude.rnf lensAlias
+    Prelude.rnf lensVersion `Prelude.seq`
+      Prelude.rnf lensAlias
 
 instance Data.ToHeaders GetLens where
   toHeaders =
@@ -167,5 +167,5 @@ getLensResponse_httpStatus = Lens.lens (\GetLensResponse' {httpStatus} -> httpSt
 
 instance Prelude.NFData GetLensResponse where
   rnf GetLensResponse' {..} =
-    Prelude.rnf lens
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf lens `Prelude.seq`
+      Prelude.rnf httpStatus

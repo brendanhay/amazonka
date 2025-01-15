@@ -85,8 +85,8 @@ instance Prelude.Hashable ApplicationSettings where
 
 instance Prelude.NFData ApplicationSettings where
   rnf ApplicationSettings' {..} =
-    Prelude.rnf settingsGroup
-      `Prelude.seq` Prelude.rnf enabled
+    Prelude.rnf settingsGroup `Prelude.seq`
+      Prelude.rnf enabled
 
 instance Data.ToJSON ApplicationSettings where
   toJSON ApplicationSettings' {..} =

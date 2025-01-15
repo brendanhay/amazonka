@@ -103,7 +103,7 @@ instance Prelude.Hashable ContactFlowModuleSummary where
 
 instance Prelude.NFData ContactFlowModuleSummary where
   rnf ContactFlowModuleSummary' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf state

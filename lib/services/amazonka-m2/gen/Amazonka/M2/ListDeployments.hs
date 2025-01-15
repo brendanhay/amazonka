@@ -120,12 +120,12 @@ instance Core.AWSPager ListDeployments where
         (rs Lens.^. listDeploymentsResponse_deployments) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listDeployments_nextToken
-          Lens..~ rs
-          Lens.^? listDeploymentsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listDeployments_nextToken
+              Lens..~ rs
+              Lens.^? listDeploymentsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDeployments where
   type
@@ -151,9 +151,9 @@ instance Prelude.Hashable ListDeployments where
 
 instance Prelude.NFData ListDeployments where
   rnf ListDeployments' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf applicationId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf applicationId
 
 instance Data.ToHeaders ListDeployments where
   toHeaders =
@@ -237,6 +237,6 @@ listDeploymentsResponse_deployments = Lens.lens (\ListDeploymentsResponse' {depl
 
 instance Prelude.NFData ListDeploymentsResponse where
   rnf ListDeploymentsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf deployments
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf deployments

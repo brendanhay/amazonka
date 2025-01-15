@@ -93,6 +93,6 @@ instance Prelude.Hashable RecordOutput where
 
 instance Prelude.NFData RecordOutput where
   rnf RecordOutput' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf outputKey
-      `Prelude.seq` Prelude.rnf outputValue
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf outputKey `Prelude.seq`
+        Prelude.rnf outputValue

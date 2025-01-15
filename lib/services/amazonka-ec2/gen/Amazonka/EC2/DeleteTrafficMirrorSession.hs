@@ -120,8 +120,8 @@ instance Prelude.Hashable DeleteTrafficMirrorSession where
 
 instance Prelude.NFData DeleteTrafficMirrorSession where
   rnf DeleteTrafficMirrorSession' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf trafficMirrorSessionId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf trafficMirrorSessionId
 
 instance Data.ToHeaders DeleteTrafficMirrorSession where
   toHeaders = Prelude.const Prelude.mempty
@@ -185,5 +185,5 @@ instance
     DeleteTrafficMirrorSessionResponse
   where
   rnf DeleteTrafficMirrorSessionResponse' {..} =
-    Prelude.rnf trafficMirrorSessionId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf trafficMirrorSessionId `Prelude.seq`
+      Prelude.rnf httpStatus

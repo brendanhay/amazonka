@@ -87,5 +87,5 @@ instance Prelude.Hashable LambdaStepMetadata where
 
 instance Prelude.NFData LambdaStepMetadata where
   rnf LambdaStepMetadata' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf outputParameters
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf outputParameters

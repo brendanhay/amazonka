@@ -140,8 +140,8 @@ instance
     RdsDbClusterSnapshotConfiguration
   where
   rnf RdsDbClusterSnapshotConfiguration' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf kmsKeyId
+    Prelude.rnf attributes `Prelude.seq`
+      Prelude.rnf kmsKeyId
 
 instance
   Data.ToJSON

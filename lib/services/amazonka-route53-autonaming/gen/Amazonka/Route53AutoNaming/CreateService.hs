@@ -364,15 +364,15 @@ instance Prelude.Hashable CreateService where
 
 instance Prelude.NFData CreateService where
   rnf CreateService' {..} =
-    Prelude.rnf creatorRequestId
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf dnsConfig
-      `Prelude.seq` Prelude.rnf healthCheckConfig
-      `Prelude.seq` Prelude.rnf healthCheckCustomConfig
-      `Prelude.seq` Prelude.rnf namespaceId
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf creatorRequestId `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf dnsConfig `Prelude.seq`
+          Prelude.rnf healthCheckConfig `Prelude.seq`
+            Prelude.rnf healthCheckCustomConfig `Prelude.seq`
+              Prelude.rnf namespaceId `Prelude.seq`
+                Prelude.rnf tags `Prelude.seq`
+                  Prelude.rnf type' `Prelude.seq`
+                    Prelude.rnf name
 
 instance Data.ToHeaders CreateService where
   toHeaders =
@@ -454,5 +454,5 @@ createServiceResponse_httpStatus = Lens.lens (\CreateServiceResponse' {httpStatu
 
 instance Prelude.NFData CreateServiceResponse where
   rnf CreateServiceResponse' {..} =
-    Prelude.rnf service
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf service `Prelude.seq`
+      Prelude.rnf httpStatus

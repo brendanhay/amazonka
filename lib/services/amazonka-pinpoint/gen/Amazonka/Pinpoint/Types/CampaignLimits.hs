@@ -151,11 +151,11 @@ instance Prelude.Hashable CampaignLimits where
 
 instance Prelude.NFData CampaignLimits where
   rnf CampaignLimits' {..} =
-    Prelude.rnf daily
-      `Prelude.seq` Prelude.rnf maximumDuration
-      `Prelude.seq` Prelude.rnf messagesPerSecond
-      `Prelude.seq` Prelude.rnf session
-      `Prelude.seq` Prelude.rnf total
+    Prelude.rnf daily `Prelude.seq`
+      Prelude.rnf maximumDuration `Prelude.seq`
+        Prelude.rnf messagesPerSecond `Prelude.seq`
+          Prelude.rnf session `Prelude.seq`
+            Prelude.rnf total
 
 instance Data.ToJSON CampaignLimits where
   toJSON CampaignLimits' {..} =

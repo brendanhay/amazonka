@@ -126,9 +126,9 @@ instance Prelude.Hashable UpdateExperiment where
 
 instance Prelude.NFData UpdateExperiment where
   rnf UpdateExperiment' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf experimentName
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf displayName `Prelude.seq`
+        Prelude.rnf experimentName
 
 instance Data.ToHeaders UpdateExperiment where
   toHeaders =
@@ -201,5 +201,5 @@ updateExperimentResponse_httpStatus = Lens.lens (\UpdateExperimentResponse' {htt
 
 instance Prelude.NFData UpdateExperimentResponse where
   rnf UpdateExperimentResponse' {..} =
-    Prelude.rnf experimentArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf experimentArn `Prelude.seq`
+      Prelude.rnf httpStatus

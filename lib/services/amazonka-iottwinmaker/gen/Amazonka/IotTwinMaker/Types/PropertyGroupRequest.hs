@@ -71,8 +71,8 @@ instance Prelude.Hashable PropertyGroupRequest where
 
 instance Prelude.NFData PropertyGroupRequest where
   rnf PropertyGroupRequest' {..} =
-    Prelude.rnf groupType
-      `Prelude.seq` Prelude.rnf propertyNames
+    Prelude.rnf groupType `Prelude.seq`
+      Prelude.rnf propertyNames
 
 instance Data.ToJSON PropertyGroupRequest where
   toJSON PropertyGroupRequest' {..} =

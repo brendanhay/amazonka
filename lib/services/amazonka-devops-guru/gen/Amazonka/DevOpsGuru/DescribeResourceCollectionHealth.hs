@@ -157,12 +157,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeResourceCollectionHealth_nextToken
-          Lens..~ rs
-          Lens.^? describeResourceCollectionHealthResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeResourceCollectionHealth_nextToken
+              Lens..~ rs
+              Lens.^? describeResourceCollectionHealthResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -200,8 +200,8 @@ instance
     DescribeResourceCollectionHealth
   where
   rnf DescribeResourceCollectionHealth' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf resourceCollectionType
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf resourceCollectionType
 
 instance
   Data.ToHeaders
@@ -417,8 +417,8 @@ instance
     DescribeResourceCollectionHealthResponse
   where
   rnf DescribeResourceCollectionHealthResponse' {..} =
-    Prelude.rnf cloudFormation
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf service
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf cloudFormation `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf service `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf httpStatus

@@ -120,8 +120,8 @@ instance Prelude.Hashable DeleteSubnetCidrReservation where
 
 instance Prelude.NFData DeleteSubnetCidrReservation where
   rnf DeleteSubnetCidrReservation' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf subnetCidrReservationId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf subnetCidrReservationId
 
 instance Data.ToHeaders DeleteSubnetCidrReservation where
   toHeaders = Prelude.const Prelude.mempty
@@ -187,5 +187,5 @@ instance
     DeleteSubnetCidrReservationResponse
   where
   rnf DeleteSubnetCidrReservationResponse' {..} =
-    Prelude.rnf deletedSubnetCidrReservation
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf deletedSubnetCidrReservation `Prelude.seq`
+      Prelude.rnf httpStatus

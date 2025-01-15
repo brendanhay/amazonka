@@ -137,8 +137,8 @@ instance Prelude.Hashable ListServices where
 
 instance Prelude.NFData ListServices where
   rnf ListServices' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListServices where
   toHeaders =
@@ -223,6 +223,6 @@ listServicesResponse_serviceSummaryList = Lens.lens (\ListServicesResponse' {ser
 
 instance Prelude.NFData ListServicesResponse where
   rnf ListServicesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf serviceSummaryList
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf serviceSummaryList

@@ -89,5 +89,5 @@ instance Prelude.Hashable ResolvedTargets where
 
 instance Prelude.NFData ResolvedTargets where
   rnf ResolvedTargets' {..} =
-    Prelude.rnf parameterValues
-      `Prelude.seq` Prelude.rnf truncated
+    Prelude.rnf parameterValues `Prelude.seq`
+      Prelude.rnf truncated

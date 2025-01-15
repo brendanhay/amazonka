@@ -86,9 +86,9 @@ instance Prelude.Hashable MasterUserOptions where
 
 instance Prelude.NFData MasterUserOptions where
   rnf MasterUserOptions' {..} =
-    Prelude.rnf masterUserARN
-      `Prelude.seq` Prelude.rnf masterUserName
-      `Prelude.seq` Prelude.rnf masterUserPassword
+    Prelude.rnf masterUserARN `Prelude.seq`
+      Prelude.rnf masterUserName `Prelude.seq`
+        Prelude.rnf masterUserPassword
 
 instance Data.ToJSON MasterUserOptions where
   toJSON MasterUserOptions' {..} =

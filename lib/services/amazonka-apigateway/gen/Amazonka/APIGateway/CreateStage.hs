@@ -247,17 +247,17 @@ instance Prelude.Hashable CreateStage where
 
 instance Prelude.NFData CreateStage where
   rnf CreateStage' {..} =
-    Prelude.rnf cacheClusterEnabled
-      `Prelude.seq` Prelude.rnf cacheClusterSize
-      `Prelude.seq` Prelude.rnf canarySettings
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf documentationVersion
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf tracingEnabled
-      `Prelude.seq` Prelude.rnf variables
-      `Prelude.seq` Prelude.rnf restApiId
-      `Prelude.seq` Prelude.rnf stageName
-      `Prelude.seq` Prelude.rnf deploymentId
+    Prelude.rnf cacheClusterEnabled `Prelude.seq`
+      Prelude.rnf cacheClusterSize `Prelude.seq`
+        Prelude.rnf canarySettings `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf documentationVersion `Prelude.seq`
+              Prelude.rnf tags `Prelude.seq`
+                Prelude.rnf tracingEnabled `Prelude.seq`
+                  Prelude.rnf variables `Prelude.seq`
+                    Prelude.rnf restApiId `Prelude.seq`
+                      Prelude.rnf stageName `Prelude.seq`
+                        Prelude.rnf deploymentId
 
 instance Data.ToHeaders CreateStage where
   toHeaders =

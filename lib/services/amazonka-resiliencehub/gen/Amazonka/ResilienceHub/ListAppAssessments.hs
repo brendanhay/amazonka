@@ -202,14 +202,14 @@ instance Prelude.Hashable ListAppAssessments where
 
 instance Prelude.NFData ListAppAssessments where
   rnf ListAppAssessments' {..} =
-    Prelude.rnf appArn
-      `Prelude.seq` Prelude.rnf assessmentName
-      `Prelude.seq` Prelude.rnf assessmentStatus
-      `Prelude.seq` Prelude.rnf complianceStatus
-      `Prelude.seq` Prelude.rnf invoker
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf reverseOrder
+    Prelude.rnf appArn `Prelude.seq`
+      Prelude.rnf assessmentName `Prelude.seq`
+        Prelude.rnf assessmentStatus `Prelude.seq`
+          Prelude.rnf complianceStatus `Prelude.seq`
+            Prelude.rnf invoker `Prelude.seq`
+              Prelude.rnf maxResults `Prelude.seq`
+                Prelude.rnf nextToken `Prelude.seq`
+                  Prelude.rnf reverseOrder
 
 instance Data.ToHeaders ListAppAssessments where
   toHeaders =
@@ -301,6 +301,6 @@ listAppAssessmentsResponse_assessmentSummaries = Lens.lens (\ListAppAssessmentsR
 
 instance Prelude.NFData ListAppAssessmentsResponse where
   rnf ListAppAssessmentsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf assessmentSummaries
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf assessmentSummaries

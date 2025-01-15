@@ -147,10 +147,10 @@ instance Prelude.Hashable UpdateParallelData where
 
 instance Prelude.NFData UpdateParallelData where
   rnf UpdateParallelData' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf parallelDataConfig
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf parallelDataConfig `Prelude.seq`
+          Prelude.rnf clientToken
 
 instance Data.ToHeaders UpdateParallelData where
   toHeaders =
@@ -262,8 +262,8 @@ updateParallelDataResponse_httpStatus = Lens.lens (\UpdateParallelDataResponse' 
 
 instance Prelude.NFData UpdateParallelDataResponse where
   rnf UpdateParallelDataResponse' {..} =
-    Prelude.rnf latestUpdateAttemptAt
-      `Prelude.seq` Prelude.rnf latestUpdateAttemptStatus
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf latestUpdateAttemptAt `Prelude.seq`
+      Prelude.rnf latestUpdateAttemptStatus `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf httpStatus

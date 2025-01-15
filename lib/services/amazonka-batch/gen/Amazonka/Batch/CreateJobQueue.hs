@@ -269,12 +269,12 @@ instance Prelude.Hashable CreateJobQueue where
 
 instance Prelude.NFData CreateJobQueue where
   rnf CreateJobQueue' {..} =
-    Prelude.rnf schedulingPolicyArn
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf jobQueueName
-      `Prelude.seq` Prelude.rnf priority
-      `Prelude.seq` Prelude.rnf computeEnvironmentOrder
+    Prelude.rnf schedulingPolicyArn `Prelude.seq`
+      Prelude.rnf state `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf jobQueueName `Prelude.seq`
+            Prelude.rnf priority `Prelude.seq`
+              Prelude.rnf computeEnvironmentOrder
 
 instance Data.ToHeaders CreateJobQueue where
   toHeaders =
@@ -366,6 +366,6 @@ createJobQueueResponse_jobQueueArn = Lens.lens (\CreateJobQueueResponse' {jobQue
 
 instance Prelude.NFData CreateJobQueueResponse where
   rnf CreateJobQueueResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf jobQueueName
-      `Prelude.seq` Prelude.rnf jobQueueArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf jobQueueName `Prelude.seq`
+        Prelude.rnf jobQueueArn

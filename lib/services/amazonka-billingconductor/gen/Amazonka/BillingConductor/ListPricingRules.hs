@@ -130,12 +130,12 @@ instance Core.AWSPager ListPricingRules where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listPricingRules_nextToken
-          Lens..~ rs
-          Lens.^? listPricingRulesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listPricingRules_nextToken
+              Lens..~ rs
+              Lens.^? listPricingRulesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPricingRules where
   type
@@ -163,10 +163,10 @@ instance Prelude.Hashable ListPricingRules where
 
 instance Prelude.NFData ListPricingRules where
   rnf ListPricingRules' {..} =
-    Prelude.rnf billingPeriod
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf billingPeriod `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken
 
 instance Data.ToHeaders ListPricingRules where
   toHeaders =
@@ -258,7 +258,7 @@ listPricingRulesResponse_httpStatus = Lens.lens (\ListPricingRulesResponse' {htt
 
 instance Prelude.NFData ListPricingRulesResponse where
   rnf ListPricingRulesResponse' {..} =
-    Prelude.rnf billingPeriod
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf pricingRules
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf billingPeriod `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf pricingRules `Prelude.seq`
+          Prelude.rnf httpStatus

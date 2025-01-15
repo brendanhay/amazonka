@@ -188,9 +188,9 @@ instance Prelude.Hashable GetDocumentTextDetection where
 
 instance Prelude.NFData GetDocumentTextDetection where
   rnf GetDocumentTextDetection' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf jobId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf jobId
 
 instance Data.ToHeaders GetDocumentTextDetection where
   toHeaders =
@@ -338,11 +338,11 @@ instance
     GetDocumentTextDetectionResponse
   where
   rnf GetDocumentTextDetectionResponse' {..} =
-    Prelude.rnf blocks
-      `Prelude.seq` Prelude.rnf detectDocumentTextModelVersion
-      `Prelude.seq` Prelude.rnf documentMetadata
-      `Prelude.seq` Prelude.rnf jobStatus
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf warnings
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf blocks `Prelude.seq`
+      Prelude.rnf detectDocumentTextModelVersion `Prelude.seq`
+        Prelude.rnf documentMetadata `Prelude.seq`
+          Prelude.rnf jobStatus `Prelude.seq`
+            Prelude.rnf nextToken `Prelude.seq`
+              Prelude.rnf statusMessage `Prelude.seq`
+                Prelude.rnf warnings `Prelude.seq`
+                  Prelude.rnf httpStatus

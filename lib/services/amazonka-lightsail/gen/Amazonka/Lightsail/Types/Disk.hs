@@ -289,20 +289,20 @@ instance Prelude.Hashable Disk where
 
 instance Prelude.NFData Disk where
   rnf Disk' {..} =
-    Prelude.rnf addOns
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf attachedTo
-      `Prelude.seq` Prelude.rnf attachmentState
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf gbInUse
-      `Prelude.seq` Prelude.rnf iops
-      `Prelude.seq` Prelude.rnf isAttached
-      `Prelude.seq` Prelude.rnf isSystemDisk
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf path
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf sizeInGb
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf supportCode
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf addOns `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf attachedTo `Prelude.seq`
+          Prelude.rnf attachmentState `Prelude.seq`
+            Prelude.rnf createdAt `Prelude.seq`
+              Prelude.rnf gbInUse `Prelude.seq`
+                Prelude.rnf iops `Prelude.seq`
+                  Prelude.rnf isAttached `Prelude.seq`
+                    Prelude.rnf isSystemDisk `Prelude.seq`
+                      Prelude.rnf location `Prelude.seq`
+                        Prelude.rnf name `Prelude.seq`
+                          Prelude.rnf path `Prelude.seq`
+                            Prelude.rnf resourceType `Prelude.seq`
+                              Prelude.rnf sizeInGb `Prelude.seq`
+                                Prelude.rnf state `Prelude.seq`
+                                  Prelude.rnf supportCode `Prelude.seq`
+                                    Prelude.rnf tags

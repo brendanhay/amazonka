@@ -110,8 +110,8 @@ instance Prelude.Hashable UpdateAnomalyMonitor where
 
 instance Prelude.NFData UpdateAnomalyMonitor where
   rnf UpdateAnomalyMonitor' {..} =
-    Prelude.rnf monitorName
-      `Prelude.seq` Prelude.rnf monitorArn
+    Prelude.rnf monitorName `Prelude.seq`
+      Prelude.rnf monitorArn
 
 instance Data.ToHeaders UpdateAnomalyMonitor where
   toHeaders =
@@ -188,5 +188,5 @@ updateAnomalyMonitorResponse_monitorArn = Lens.lens (\UpdateAnomalyMonitorRespon
 
 instance Prelude.NFData UpdateAnomalyMonitorResponse where
   rnf UpdateAnomalyMonitorResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf monitorArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf monitorArn

@@ -145,9 +145,9 @@ instance
     CreateProvisioningTemplateVersion
   where
   rnf CreateProvisioningTemplateVersion' {..} =
-    Prelude.rnf setAsDefault
-      `Prelude.seq` Prelude.rnf templateName
-      `Prelude.seq` Prelude.rnf templateBody
+    Prelude.rnf setAsDefault `Prelude.seq`
+      Prelude.rnf templateName `Prelude.seq`
+        Prelude.rnf templateBody
 
 instance
   Data.ToHeaders
@@ -259,8 +259,8 @@ instance
     CreateProvisioningTemplateVersionResponse
   where
   rnf CreateProvisioningTemplateVersionResponse' {..} =
-    Prelude.rnf isDefaultVersion
-      `Prelude.seq` Prelude.rnf templateArn
-      `Prelude.seq` Prelude.rnf templateName
-      `Prelude.seq` Prelude.rnf versionId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf isDefaultVersion `Prelude.seq`
+      Prelude.rnf templateArn `Prelude.seq`
+        Prelude.rnf templateName `Prelude.seq`
+          Prelude.rnf versionId `Prelude.seq`
+            Prelude.rnf httpStatus

@@ -153,13 +153,13 @@ instance
     AwsNetworkFirewallRuleGroupDetails
   where
   rnf AwsNetworkFirewallRuleGroupDetails' {..} =
-    Prelude.rnf capacity
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf ruleGroup
-      `Prelude.seq` Prelude.rnf ruleGroupArn
-      `Prelude.seq` Prelude.rnf ruleGroupId
-      `Prelude.seq` Prelude.rnf ruleGroupName
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf capacity `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf ruleGroup `Prelude.seq`
+          Prelude.rnf ruleGroupArn `Prelude.seq`
+            Prelude.rnf ruleGroupId `Prelude.seq`
+              Prelude.rnf ruleGroupName `Prelude.seq`
+                Prelude.rnf type'
 
 instance
   Data.ToJSON

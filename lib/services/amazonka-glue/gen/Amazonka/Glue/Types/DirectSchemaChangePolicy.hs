@@ -110,10 +110,10 @@ instance Prelude.Hashable DirectSchemaChangePolicy where
 
 instance Prelude.NFData DirectSchemaChangePolicy where
   rnf DirectSchemaChangePolicy' {..} =
-    Prelude.rnf database
-      `Prelude.seq` Prelude.rnf enableUpdateCatalog
-      `Prelude.seq` Prelude.rnf table
-      `Prelude.seq` Prelude.rnf updateBehavior
+    Prelude.rnf database `Prelude.seq`
+      Prelude.rnf enableUpdateCatalog `Prelude.seq`
+        Prelude.rnf table `Prelude.seq`
+          Prelude.rnf updateBehavior
 
 instance Data.ToJSON DirectSchemaChangePolicy where
   toJSON DirectSchemaChangePolicy' {..} =

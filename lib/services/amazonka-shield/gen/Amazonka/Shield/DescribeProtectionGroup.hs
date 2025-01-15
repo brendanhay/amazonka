@@ -189,5 +189,5 @@ instance
     DescribeProtectionGroupResponse
   where
   rnf DescribeProtectionGroupResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf protectionGroup
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf protectionGroup

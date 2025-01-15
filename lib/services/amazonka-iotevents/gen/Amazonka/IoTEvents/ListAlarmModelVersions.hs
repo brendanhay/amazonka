@@ -126,9 +126,9 @@ instance Prelude.Hashable ListAlarmModelVersions where
 
 instance Prelude.NFData ListAlarmModelVersions where
   rnf ListAlarmModelVersions' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf alarmModelName
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf alarmModelName
 
 instance Data.ToHeaders ListAlarmModelVersions where
   toHeaders = Prelude.const Prelude.mempty
@@ -204,6 +204,6 @@ instance
     ListAlarmModelVersionsResponse
   where
   rnf ListAlarmModelVersionsResponse' {..} =
-    Prelude.rnf alarmModelVersionSummaries
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf alarmModelVersionSummaries `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

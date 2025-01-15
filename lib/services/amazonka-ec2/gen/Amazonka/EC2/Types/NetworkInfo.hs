@@ -195,9 +195,7 @@ instance Data.FromXML NetworkInfo where
       Prelude.<*> (x Data..@? "ipv6Supported")
       Prelude.<*> (x Data..@? "maximumNetworkCards")
       Prelude.<*> (x Data..@? "maximumNetworkInterfaces")
-      Prelude.<*> ( x
-                      Data..@? "networkCards"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "networkCards" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "networkPerformance")
@@ -221,16 +219,16 @@ instance Prelude.Hashable NetworkInfo where
 
 instance Prelude.NFData NetworkInfo where
   rnf NetworkInfo' {..} =
-    Prelude.rnf defaultNetworkCardIndex
-      `Prelude.seq` Prelude.rnf efaInfo
-      `Prelude.seq` Prelude.rnf efaSupported
-      `Prelude.seq` Prelude.rnf enaSrdSupported
-      `Prelude.seq` Prelude.rnf enaSupport
-      `Prelude.seq` Prelude.rnf encryptionInTransitSupported
-      `Prelude.seq` Prelude.rnf ipv4AddressesPerInterface
-      `Prelude.seq` Prelude.rnf ipv6AddressesPerInterface
-      `Prelude.seq` Prelude.rnf ipv6Supported
-      `Prelude.seq` Prelude.rnf maximumNetworkCards
-      `Prelude.seq` Prelude.rnf maximumNetworkInterfaces
-      `Prelude.seq` Prelude.rnf networkCards
-      `Prelude.seq` Prelude.rnf networkPerformance
+    Prelude.rnf defaultNetworkCardIndex `Prelude.seq`
+      Prelude.rnf efaInfo `Prelude.seq`
+        Prelude.rnf efaSupported `Prelude.seq`
+          Prelude.rnf enaSrdSupported `Prelude.seq`
+            Prelude.rnf enaSupport `Prelude.seq`
+              Prelude.rnf encryptionInTransitSupported `Prelude.seq`
+                Prelude.rnf ipv4AddressesPerInterface `Prelude.seq`
+                  Prelude.rnf ipv6AddressesPerInterface `Prelude.seq`
+                    Prelude.rnf ipv6Supported `Prelude.seq`
+                      Prelude.rnf maximumNetworkCards `Prelude.seq`
+                        Prelude.rnf maximumNetworkInterfaces `Prelude.seq`
+                          Prelude.rnf networkCards `Prelude.seq`
+                            Prelude.rnf networkPerformance

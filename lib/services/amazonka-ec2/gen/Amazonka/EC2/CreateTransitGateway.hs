@@ -160,10 +160,10 @@ instance Prelude.Hashable CreateTransitGateway where
 
 instance Prelude.NFData CreateTransitGateway where
   rnf CreateTransitGateway' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf options
-      `Prelude.seq` Prelude.rnf tagSpecifications
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf options `Prelude.seq`
+          Prelude.rnf tagSpecifications
 
 instance Data.ToHeaders CreateTransitGateway where
   toHeaders = Prelude.const Prelude.mempty
@@ -228,5 +228,5 @@ createTransitGatewayResponse_httpStatus = Lens.lens (\CreateTransitGatewayRespon
 
 instance Prelude.NFData CreateTransitGatewayResponse where
   rnf CreateTransitGatewayResponse' {..} =
-    Prelude.rnf transitGateway
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf transitGateway `Prelude.seq`
+      Prelude.rnf httpStatus

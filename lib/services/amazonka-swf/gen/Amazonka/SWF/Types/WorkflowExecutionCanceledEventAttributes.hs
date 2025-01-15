@@ -108,5 +108,5 @@ instance
     WorkflowExecutionCanceledEventAttributes
   where
   rnf WorkflowExecutionCanceledEventAttributes' {..} =
-    Prelude.rnf details
-      `Prelude.seq` Prelude.rnf decisionTaskCompletedEventId
+    Prelude.rnf details `Prelude.seq`
+      Prelude.rnf decisionTaskCompletedEventId

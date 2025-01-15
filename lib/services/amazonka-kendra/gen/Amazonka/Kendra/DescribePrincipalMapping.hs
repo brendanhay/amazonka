@@ -148,9 +148,9 @@ instance Prelude.Hashable DescribePrincipalMapping where
 
 instance Prelude.NFData DescribePrincipalMapping where
   rnf DescribePrincipalMapping' {..} =
-    Prelude.rnf dataSourceId
-      `Prelude.seq` Prelude.rnf indexId
-      `Prelude.seq` Prelude.rnf groupId
+    Prelude.rnf dataSourceId `Prelude.seq`
+      Prelude.rnf indexId `Prelude.seq`
+        Prelude.rnf groupId
 
 instance Data.ToHeaders DescribePrincipalMapping where
   toHeaders =
@@ -306,8 +306,8 @@ instance
     DescribePrincipalMappingResponse
   where
   rnf DescribePrincipalMappingResponse' {..} =
-    Prelude.rnf dataSourceId
-      `Prelude.seq` Prelude.rnf groupId
-      `Prelude.seq` Prelude.rnf groupOrderingIdSummaries
-      `Prelude.seq` Prelude.rnf indexId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dataSourceId `Prelude.seq`
+      Prelude.rnf groupId `Prelude.seq`
+        Prelude.rnf groupOrderingIdSummaries `Prelude.seq`
+          Prelude.rnf indexId `Prelude.seq`
+            Prelude.rnf httpStatus

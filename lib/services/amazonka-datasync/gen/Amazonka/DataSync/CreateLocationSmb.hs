@@ -283,14 +283,14 @@ instance Prelude.Hashable CreateLocationSmb where
 
 instance Prelude.NFData CreateLocationSmb where
   rnf CreateLocationSmb' {..} =
-    Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf mountOptions
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf subdirectory
-      `Prelude.seq` Prelude.rnf serverHostname
-      `Prelude.seq` Prelude.rnf user
-      `Prelude.seq` Prelude.rnf password
-      `Prelude.seq` Prelude.rnf agentArns
+    Prelude.rnf domain `Prelude.seq`
+      Prelude.rnf mountOptions `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf subdirectory `Prelude.seq`
+            Prelude.rnf serverHostname `Prelude.seq`
+              Prelude.rnf user `Prelude.seq`
+                Prelude.rnf password `Prelude.seq`
+                  Prelude.rnf agentArns
 
 instance Data.ToHeaders CreateLocationSmb where
   toHeaders =
@@ -375,5 +375,5 @@ createLocationSmbResponse_httpStatus = Lens.lens (\CreateLocationSmbResponse' {h
 
 instance Prelude.NFData CreateLocationSmbResponse where
   rnf CreateLocationSmbResponse' {..} =
-    Prelude.rnf locationArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf locationArn `Prelude.seq`
+      Prelude.rnf httpStatus

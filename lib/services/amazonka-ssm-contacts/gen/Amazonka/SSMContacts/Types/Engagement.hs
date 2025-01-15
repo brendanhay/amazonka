@@ -134,9 +134,9 @@ instance Prelude.Hashable Engagement where
 
 instance Prelude.NFData Engagement where
   rnf Engagement' {..} =
-    Prelude.rnf incidentId
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf stopTime
-      `Prelude.seq` Prelude.rnf engagementArn
-      `Prelude.seq` Prelude.rnf contactArn
-      `Prelude.seq` Prelude.rnf sender
+    Prelude.rnf incidentId `Prelude.seq`
+      Prelude.rnf startTime `Prelude.seq`
+        Prelude.rnf stopTime `Prelude.seq`
+          Prelude.rnf engagementArn `Prelude.seq`
+            Prelude.rnf contactArn `Prelude.seq`
+              Prelude.rnf sender

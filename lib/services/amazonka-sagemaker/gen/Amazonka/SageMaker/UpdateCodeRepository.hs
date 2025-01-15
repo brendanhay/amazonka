@@ -126,8 +126,8 @@ instance Prelude.Hashable UpdateCodeRepository where
 
 instance Prelude.NFData UpdateCodeRepository where
   rnf UpdateCodeRepository' {..} =
-    Prelude.rnf gitConfig
-      `Prelude.seq` Prelude.rnf codeRepositoryName
+    Prelude.rnf gitConfig `Prelude.seq`
+      Prelude.rnf codeRepositoryName
 
 instance Data.ToHeaders UpdateCodeRepository where
   toHeaders =
@@ -205,5 +205,5 @@ updateCodeRepositoryResponse_codeRepositoryArn = Lens.lens (\UpdateCodeRepositor
 
 instance Prelude.NFData UpdateCodeRepositoryResponse where
   rnf UpdateCodeRepositoryResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf codeRepositoryArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf codeRepositoryArn

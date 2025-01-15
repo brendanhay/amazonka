@@ -121,8 +121,8 @@ instance Prelude.Hashable CheckSchemaVersionValidity where
 
 instance Prelude.NFData CheckSchemaVersionValidity where
   rnf CheckSchemaVersionValidity' {..} =
-    Prelude.rnf dataFormat
-      `Prelude.seq` Prelude.rnf schemaDefinition
+    Prelude.rnf dataFormat `Prelude.seq`
+      Prelude.rnf schemaDefinition
 
 instance Data.ToHeaders CheckSchemaVersionValidity where
   toHeaders =
@@ -208,6 +208,6 @@ instance
     CheckSchemaVersionValidityResponse
   where
   rnf CheckSchemaVersionValidityResponse' {..} =
-    Prelude.rnf error
-      `Prelude.seq` Prelude.rnf valid
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf error `Prelude.seq`
+      Prelude.rnf valid `Prelude.seq`
+        Prelude.rnf httpStatus

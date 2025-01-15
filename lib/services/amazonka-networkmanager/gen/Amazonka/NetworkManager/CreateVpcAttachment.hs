@@ -154,12 +154,12 @@ instance Prelude.Hashable CreateVpcAttachment where
 
 instance Prelude.NFData CreateVpcAttachment where
   rnf CreateVpcAttachment' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf options
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf coreNetworkId
-      `Prelude.seq` Prelude.rnf vpcArn
-      `Prelude.seq` Prelude.rnf subnetArns
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf options `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf coreNetworkId `Prelude.seq`
+            Prelude.rnf vpcArn `Prelude.seq`
+              Prelude.rnf subnetArns
 
 instance Data.ToHeaders CreateVpcAttachment where
   toHeaders =
@@ -232,5 +232,5 @@ createVpcAttachmentResponse_httpStatus = Lens.lens (\CreateVpcAttachmentResponse
 
 instance Prelude.NFData CreateVpcAttachmentResponse where
   rnf CreateVpcAttachmentResponse' {..} =
-    Prelude.rnf vpcAttachment
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf vpcAttachment `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -205,15 +205,15 @@ instance
     AwsAutoScalingAutoScalingGroupDetails
   where
   rnf AwsAutoScalingAutoScalingGroupDetails' {..} =
-    Prelude.rnf availabilityZones
-      `Prelude.seq` Prelude.rnf capacityRebalance
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf healthCheckGracePeriod
-      `Prelude.seq` Prelude.rnf healthCheckType
-      `Prelude.seq` Prelude.rnf launchConfigurationName
-      `Prelude.seq` Prelude.rnf launchTemplate
-      `Prelude.seq` Prelude.rnf loadBalancerNames
-      `Prelude.seq` Prelude.rnf mixedInstancesPolicy
+    Prelude.rnf availabilityZones `Prelude.seq`
+      Prelude.rnf capacityRebalance `Prelude.seq`
+        Prelude.rnf createdTime `Prelude.seq`
+          Prelude.rnf healthCheckGracePeriod `Prelude.seq`
+            Prelude.rnf healthCheckType `Prelude.seq`
+              Prelude.rnf launchConfigurationName `Prelude.seq`
+                Prelude.rnf launchTemplate `Prelude.seq`
+                  Prelude.rnf loadBalancerNames `Prelude.seq`
+                    Prelude.rnf mixedInstancesPolicy
 
 instance
   Data.ToJSON

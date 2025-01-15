@@ -80,8 +80,8 @@ instance Prelude.Hashable Stream where
 
 instance Prelude.NFData Stream where
   rnf Stream' {..} =
-    Prelude.rnf fileId
-      `Prelude.seq` Prelude.rnf streamId
+    Prelude.rnf fileId `Prelude.seq`
+      Prelude.rnf streamId
 
 instance Data.ToJSON Stream where
   toJSON Stream' {..} =

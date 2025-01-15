@@ -138,6 +138,6 @@ instance
     RepositoryExternalConnectionInfo
   where
   rnf RepositoryExternalConnectionInfo' {..} =
-    Prelude.rnf externalConnectionName
-      `Prelude.seq` Prelude.rnf packageFormat
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf externalConnectionName `Prelude.seq`
+      Prelude.rnf packageFormat `Prelude.seq`
+        Prelude.rnf status

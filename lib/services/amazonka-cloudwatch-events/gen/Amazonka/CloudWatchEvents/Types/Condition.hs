@@ -102,9 +102,9 @@ instance Prelude.Hashable Condition where
 
 instance Prelude.NFData Condition where
   rnf Condition' {..} =
-    Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf key
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf type' `Prelude.seq`
+      Prelude.rnf key `Prelude.seq`
+        Prelude.rnf value
 
 instance Data.ToJSON Condition where
   toJSON Condition' {..} =

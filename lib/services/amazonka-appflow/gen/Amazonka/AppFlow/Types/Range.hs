@@ -80,5 +80,5 @@ instance Prelude.Hashable Range where
 
 instance Prelude.NFData Range where
   rnf Range' {..} =
-    Prelude.rnf maximum
-      `Prelude.seq` Prelude.rnf minimum
+    Prelude.rnf maximum `Prelude.seq`
+      Prelude.rnf minimum

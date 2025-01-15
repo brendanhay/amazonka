@@ -127,9 +127,9 @@ instance Prelude.Hashable GetModel where
 
 instance Prelude.NFData GetModel where
   rnf GetModel' {..} =
-    Prelude.rnf flatten
-      `Prelude.seq` Prelude.rnf restApiId
-      `Prelude.seq` Prelude.rnf modelName
+    Prelude.rnf flatten `Prelude.seq`
+      Prelude.rnf restApiId `Prelude.seq`
+        Prelude.rnf modelName
 
 instance Data.ToHeaders GetModel where
   toHeaders =

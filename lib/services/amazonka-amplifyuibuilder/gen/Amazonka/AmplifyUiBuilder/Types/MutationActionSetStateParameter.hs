@@ -114,9 +114,9 @@ instance
     MutationActionSetStateParameter
   where
   rnf MutationActionSetStateParameter' {..} =
-    Prelude.rnf componentName
-      `Prelude.seq` Prelude.rnf property
-      `Prelude.seq` Prelude.rnf set
+    Prelude.rnf componentName `Prelude.seq`
+      Prelude.rnf property `Prelude.seq`
+        Prelude.rnf set
 
 instance Data.ToJSON MutationActionSetStateParameter where
   toJSON MutationActionSetStateParameter' {..} =

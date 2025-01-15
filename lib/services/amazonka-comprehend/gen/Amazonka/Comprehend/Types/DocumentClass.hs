@@ -97,6 +97,6 @@ instance Prelude.Hashable DocumentClass where
 
 instance Prelude.NFData DocumentClass where
   rnf DocumentClass' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf page
-      `Prelude.seq` Prelude.rnf score
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf page `Prelude.seq`
+        Prelude.rnf score

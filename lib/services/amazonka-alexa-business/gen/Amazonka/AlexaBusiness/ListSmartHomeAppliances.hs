@@ -115,12 +115,12 @@ instance Core.AWSPager ListSmartHomeAppliances where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listSmartHomeAppliances_nextToken
-          Lens..~ rs
-          Lens.^? listSmartHomeAppliancesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listSmartHomeAppliances_nextToken
+              Lens..~ rs
+              Lens.^? listSmartHomeAppliancesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSmartHomeAppliances where
   type
@@ -149,9 +149,9 @@ instance Prelude.Hashable ListSmartHomeAppliances where
 
 instance Prelude.NFData ListSmartHomeAppliances where
   rnf ListSmartHomeAppliances' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf roomArn
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf roomArn
 
 instance Data.ToHeaders ListSmartHomeAppliances where
   toHeaders =
@@ -237,6 +237,6 @@ instance
     ListSmartHomeAppliancesResponse
   where
   rnf ListSmartHomeAppliancesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf smartHomeAppliances
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf smartHomeAppliances `Prelude.seq`
+        Prelude.rnf httpStatus

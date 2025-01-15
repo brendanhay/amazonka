@@ -112,12 +112,12 @@ instance Core.AWSPager GetOfferingStatus where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getOfferingStatus_nextToken
-          Lens..~ rs
-          Lens.^? getOfferingStatusResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getOfferingStatus_nextToken
+              Lens..~ rs
+              Lens.^? getOfferingStatusResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetOfferingStatus where
   type
@@ -237,7 +237,7 @@ getOfferingStatusResponse_httpStatus = Lens.lens (\GetOfferingStatusResponse' {h
 
 instance Prelude.NFData GetOfferingStatusResponse where
   rnf GetOfferingStatusResponse' {..} =
-    Prelude.rnf current
-      `Prelude.seq` Prelude.rnf nextPeriod
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf current `Prelude.seq`
+      Prelude.rnf nextPeriod `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf httpStatus

@@ -366,15 +366,15 @@ instance Prelude.Hashable EbsBlockDevice where
 
 instance Prelude.NFData EbsBlockDevice where
   rnf EbsBlockDevice' {..} =
-    Prelude.rnf deleteOnTermination
-      `Prelude.seq` Prelude.rnf encrypted
-      `Prelude.seq` Prelude.rnf iops
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf outpostArn
-      `Prelude.seq` Prelude.rnf snapshotId
-      `Prelude.seq` Prelude.rnf throughput
-      `Prelude.seq` Prelude.rnf volumeSize
-      `Prelude.seq` Prelude.rnf volumeType
+    Prelude.rnf deleteOnTermination `Prelude.seq`
+      Prelude.rnf encrypted `Prelude.seq`
+        Prelude.rnf iops `Prelude.seq`
+          Prelude.rnf kmsKeyId `Prelude.seq`
+            Prelude.rnf outpostArn `Prelude.seq`
+              Prelude.rnf snapshotId `Prelude.seq`
+                Prelude.rnf throughput `Prelude.seq`
+                  Prelude.rnf volumeSize `Prelude.seq`
+                    Prelude.rnf volumeType
 
 instance Data.ToQuery EbsBlockDevice where
   toQuery EbsBlockDevice' {..} =

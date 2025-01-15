@@ -93,6 +93,6 @@ instance Prelude.Hashable InvalidationSummary where
 
 instance Prelude.NFData InvalidationSummary where
   rnf InvalidationSummary' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf createTime
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf createTime `Prelude.seq`
+        Prelude.rnf status

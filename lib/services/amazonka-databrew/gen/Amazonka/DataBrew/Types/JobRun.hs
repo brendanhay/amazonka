@@ -291,22 +291,22 @@ instance Prelude.Hashable JobRun where
 
 instance Prelude.NFData JobRun where
   rnf JobRun' {..} =
-    Prelude.rnf attempt
-      `Prelude.seq` Prelude.rnf completedOn
-      `Prelude.seq` Prelude.rnf dataCatalogOutputs
-      `Prelude.seq` Prelude.rnf databaseOutputs
-      `Prelude.seq` Prelude.rnf datasetName
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf executionTime
-      `Prelude.seq` Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf jobSample
-      `Prelude.seq` Prelude.rnf logGroupName
-      `Prelude.seq` Prelude.rnf logSubscription
-      `Prelude.seq` Prelude.rnf outputs
-      `Prelude.seq` Prelude.rnf recipeReference
-      `Prelude.seq` Prelude.rnf runId
-      `Prelude.seq` Prelude.rnf startedBy
-      `Prelude.seq` Prelude.rnf startedOn
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf
-        validationConfigurations
+    Prelude.rnf attempt `Prelude.seq`
+      Prelude.rnf completedOn `Prelude.seq`
+        Prelude.rnf dataCatalogOutputs `Prelude.seq`
+          Prelude.rnf databaseOutputs `Prelude.seq`
+            Prelude.rnf datasetName `Prelude.seq`
+              Prelude.rnf errorMessage `Prelude.seq`
+                Prelude.rnf executionTime `Prelude.seq`
+                  Prelude.rnf jobName `Prelude.seq`
+                    Prelude.rnf jobSample `Prelude.seq`
+                      Prelude.rnf logGroupName `Prelude.seq`
+                        Prelude.rnf logSubscription `Prelude.seq`
+                          Prelude.rnf outputs `Prelude.seq`
+                            Prelude.rnf recipeReference `Prelude.seq`
+                              Prelude.rnf runId `Prelude.seq`
+                                Prelude.rnf startedBy `Prelude.seq`
+                                  Prelude.rnf startedOn `Prelude.seq`
+                                    Prelude.rnf state `Prelude.seq`
+                                      Prelude.rnf
+                                        validationConfigurations

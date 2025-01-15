@@ -169,12 +169,12 @@ instance Core.AWSPager DescribeScalingActivities where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeScalingActivities_nextToken
-          Lens..~ rs
-          Lens.^? describeScalingActivitiesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeScalingActivities_nextToken
+              Lens..~ rs
+              Lens.^? describeScalingActivitiesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeScalingActivities where
   type
@@ -189,9 +189,7 @@ instance Core.AWSRequest DescribeScalingActivities where
           DescribeScalingActivitiesResponse'
             Prelude.<$> (x Data..@? "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x
-                            Data..@? "Activities"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "Activities" Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLList "member"
                         )
       )
@@ -207,11 +205,11 @@ instance Prelude.Hashable DescribeScalingActivities where
 
 instance Prelude.NFData DescribeScalingActivities where
   rnf DescribeScalingActivities' {..} =
-    Prelude.rnf activityIds
-      `Prelude.seq` Prelude.rnf autoScalingGroupName
-      `Prelude.seq` Prelude.rnf includeDeletedGroups
-      `Prelude.seq` Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf activityIds `Prelude.seq`
+      Prelude.rnf autoScalingGroupName `Prelude.seq`
+        Prelude.rnf includeDeletedGroups `Prelude.seq`
+          Prelude.rnf maxRecords `Prelude.seq`
+            Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeScalingActivities where
   toHeaders = Prelude.const Prelude.mempty
@@ -300,6 +298,6 @@ instance
     DescribeScalingActivitiesResponse
   where
   rnf DescribeScalingActivitiesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf activities
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf activities

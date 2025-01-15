@@ -88,5 +88,5 @@ instance Prelude.Hashable SentimentResponse where
 
 instance Prelude.NFData SentimentResponse where
   rnf SentimentResponse' {..} =
-    Prelude.rnf sentimentLabel
-      `Prelude.seq` Prelude.rnf sentimentScore
+    Prelude.rnf sentimentLabel `Prelude.seq`
+      Prelude.rnf sentimentScore

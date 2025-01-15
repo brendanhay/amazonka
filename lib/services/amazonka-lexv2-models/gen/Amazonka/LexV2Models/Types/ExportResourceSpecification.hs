@@ -98,9 +98,9 @@ instance Prelude.Hashable ExportResourceSpecification where
 
 instance Prelude.NFData ExportResourceSpecification where
   rnf ExportResourceSpecification' {..} =
-    Prelude.rnf botExportSpecification
-      `Prelude.seq` Prelude.rnf botLocaleExportSpecification
-      `Prelude.seq` Prelude.rnf customVocabularyExportSpecification
+    Prelude.rnf botExportSpecification `Prelude.seq`
+      Prelude.rnf botLocaleExportSpecification `Prelude.seq`
+        Prelude.rnf customVocabularyExportSpecification
 
 instance Data.ToJSON ExportResourceSpecification where
   toJSON ExportResourceSpecification' {..} =

@@ -109,9 +109,9 @@ instance
     PhysicalConnectionRequirements
   where
   rnf PhysicalConnectionRequirements' {..} =
-    Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf securityGroupIdList
-      `Prelude.seq` Prelude.rnf subnetId
+    Prelude.rnf availabilityZone `Prelude.seq`
+      Prelude.rnf securityGroupIdList `Prelude.seq`
+        Prelude.rnf subnetId
 
 instance Data.ToJSON PhysicalConnectionRequirements where
   toJSON PhysicalConnectionRequirements' {..} =

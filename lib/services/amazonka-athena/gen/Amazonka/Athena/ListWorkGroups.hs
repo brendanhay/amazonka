@@ -117,8 +117,8 @@ instance Prelude.Hashable ListWorkGroups where
 
 instance Prelude.NFData ListWorkGroups where
   rnf ListWorkGroups' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListWorkGroups where
   toHeaders =
@@ -212,6 +212,6 @@ listWorkGroupsResponse_httpStatus = Lens.lens (\ListWorkGroupsResponse' {httpSta
 
 instance Prelude.NFData ListWorkGroupsResponse where
   rnf ListWorkGroupsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf workGroups
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf workGroups `Prelude.seq`
+        Prelude.rnf httpStatus

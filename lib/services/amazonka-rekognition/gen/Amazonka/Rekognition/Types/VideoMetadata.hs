@@ -141,10 +141,10 @@ instance Prelude.Hashable VideoMetadata where
 
 instance Prelude.NFData VideoMetadata where
   rnf VideoMetadata' {..} =
-    Prelude.rnf codec
-      `Prelude.seq` Prelude.rnf colorRange
-      `Prelude.seq` Prelude.rnf durationMillis
-      `Prelude.seq` Prelude.rnf format
-      `Prelude.seq` Prelude.rnf frameHeight
-      `Prelude.seq` Prelude.rnf frameRate
-      `Prelude.seq` Prelude.rnf frameWidth
+    Prelude.rnf codec `Prelude.seq`
+      Prelude.rnf colorRange `Prelude.seq`
+        Prelude.rnf durationMillis `Prelude.seq`
+          Prelude.rnf format `Prelude.seq`
+            Prelude.rnf frameHeight `Prelude.seq`
+              Prelude.rnf frameRate `Prelude.seq`
+                Prelude.rnf frameWidth

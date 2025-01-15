@@ -175,5 +175,5 @@ instance
     DescribeMetricAttributionResponse
   where
   rnf DescribeMetricAttributionResponse' {..} =
-    Prelude.rnf metricAttribution
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf metricAttribution `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -86,8 +86,8 @@ instance Prelude.Hashable VaultNotificationConfig where
 
 instance Prelude.NFData VaultNotificationConfig where
   rnf VaultNotificationConfig' {..} =
-    Prelude.rnf events
-      `Prelude.seq` Prelude.rnf sNSTopic
+    Prelude.rnf events `Prelude.seq`
+      Prelude.rnf sNSTopic
 
 instance Data.ToJSON VaultNotificationConfig where
   toJSON VaultNotificationConfig' {..} =

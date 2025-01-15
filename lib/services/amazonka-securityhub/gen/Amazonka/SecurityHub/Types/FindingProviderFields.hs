@@ -160,11 +160,11 @@ instance Prelude.Hashable FindingProviderFields where
 
 instance Prelude.NFData FindingProviderFields where
   rnf FindingProviderFields' {..} =
-    Prelude.rnf confidence
-      `Prelude.seq` Prelude.rnf criticality
-      `Prelude.seq` Prelude.rnf relatedFindings
-      `Prelude.seq` Prelude.rnf severity
-      `Prelude.seq` Prelude.rnf types
+    Prelude.rnf confidence `Prelude.seq`
+      Prelude.rnf criticality `Prelude.seq`
+        Prelude.rnf relatedFindings `Prelude.seq`
+          Prelude.rnf severity `Prelude.seq`
+            Prelude.rnf types
 
 instance Data.ToJSON FindingProviderFields where
   toJSON FindingProviderFields' {..} =

@@ -94,10 +94,10 @@ instance Prelude.Hashable Parameters where
 
 instance Prelude.NFData Parameters where
   rnf Parameters' {..} =
-    Prelude.rnf dateTimeParameters
-      `Prelude.seq` Prelude.rnf decimalParameters
-      `Prelude.seq` Prelude.rnf integerParameters
-      `Prelude.seq` Prelude.rnf stringParameters
+    Prelude.rnf dateTimeParameters `Prelude.seq`
+      Prelude.rnf decimalParameters `Prelude.seq`
+        Prelude.rnf integerParameters `Prelude.seq`
+          Prelude.rnf stringParameters
 
 instance Data.ToJSON Parameters where
   toJSON Parameters' {..} =

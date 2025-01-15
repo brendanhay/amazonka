@@ -180,11 +180,11 @@ instance Prelude.Hashable UpdateRealtimeLogConfig where
 
 instance Prelude.NFData UpdateRealtimeLogConfig where
   rnf UpdateRealtimeLogConfig' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf endPoints
-      `Prelude.seq` Prelude.rnf fields
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf samplingRate
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf endPoints `Prelude.seq`
+        Prelude.rnf fields `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf samplingRate
 
 instance Data.ToElement UpdateRealtimeLogConfig where
   toElement =
@@ -259,5 +259,5 @@ instance
     UpdateRealtimeLogConfigResponse
   where
   rnf UpdateRealtimeLogConfigResponse' {..} =
-    Prelude.rnf realtimeLogConfig
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf realtimeLogConfig `Prelude.seq`
+      Prelude.rnf httpStatus

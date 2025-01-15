@@ -151,6 +151,6 @@ instance
   where
   rnf
     RequestCancelActivityTaskFailedEventAttributes' {..} =
-      Prelude.rnf activityId
-        `Prelude.seq` Prelude.rnf cause
-        `Prelude.seq` Prelude.rnf decisionTaskCompletedEventId
+      Prelude.rnf activityId `Prelude.seq`
+        Prelude.rnf cause `Prelude.seq`
+          Prelude.rnf decisionTaskCompletedEventId

@@ -98,9 +98,9 @@ instance Prelude.Hashable SourceS3Location where
 
 instance Prelude.NFData SourceS3Location where
   rnf SourceS3Location' {..} =
-    Prelude.rnf region
-      `Prelude.seq` Prelude.rnf bucket
-      `Prelude.seq` Prelude.rnf key
+    Prelude.rnf region `Prelude.seq`
+      Prelude.rnf bucket `Prelude.seq`
+        Prelude.rnf key
 
 instance Data.ToJSON SourceS3Location where
   toJSON SourceS3Location' {..} =

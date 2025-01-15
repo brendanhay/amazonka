@@ -165,9 +165,9 @@ instance Prelude.Hashable ListedHostKey where
 
 instance Prelude.NFData ListedHostKey where
   rnf ListedHostKey' {..} =
-    Prelude.rnf dateImported
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf fingerprint
-      `Prelude.seq` Prelude.rnf hostKeyId
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf dateImported `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf fingerprint `Prelude.seq`
+          Prelude.rnf hostKeyId `Prelude.seq`
+            Prelude.rnf type' `Prelude.seq`
+              Prelude.rnf arn

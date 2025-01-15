@@ -101,7 +101,7 @@ instance Prelude.Hashable SchemaVersionSummary where
 
 instance Prelude.NFData SchemaVersionSummary where
   rnf SchemaVersionSummary' {..} =
-    Prelude.rnf schemaArn
-      `Prelude.seq` Prelude.rnf schemaName
-      `Prelude.seq` Prelude.rnf schemaVersion
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf schemaArn `Prelude.seq`
+      Prelude.rnf schemaName `Prelude.seq`
+        Prelude.rnf schemaVersion `Prelude.seq`
+          Prelude.rnf type'

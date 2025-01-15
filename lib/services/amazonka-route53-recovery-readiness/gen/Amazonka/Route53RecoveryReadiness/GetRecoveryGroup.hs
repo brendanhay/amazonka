@@ -192,8 +192,8 @@ getRecoveryGroupResponse_httpStatus = Lens.lens (\GetRecoveryGroupResponse' {htt
 
 instance Prelude.NFData GetRecoveryGroupResponse where
   rnf GetRecoveryGroupResponse' {..} =
-    Prelude.rnf cells
-      `Prelude.seq` Prelude.rnf recoveryGroupArn
-      `Prelude.seq` Prelude.rnf recoveryGroupName
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf cells `Prelude.seq`
+      Prelude.rnf recoveryGroupArn `Prelude.seq`
+        Prelude.rnf recoveryGroupName `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf httpStatus

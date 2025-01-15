@@ -361,18 +361,18 @@ instance Prelude.Hashable DataRepositoryTask where
 
 instance Prelude.NFData DataRepositoryTask where
   rnf DataRepositoryTask' {..} =
-    Prelude.rnf capacityToRelease
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf failureDetails
-      `Prelude.seq` Prelude.rnf fileCacheId
-      `Prelude.seq` Prelude.rnf fileSystemId
-      `Prelude.seq` Prelude.rnf paths
-      `Prelude.seq` Prelude.rnf report
-      `Prelude.seq` Prelude.rnf resourceARN
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf taskId
-      `Prelude.seq` Prelude.rnf lifecycle
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf creationTime
+    Prelude.rnf capacityToRelease `Prelude.seq`
+      Prelude.rnf endTime `Prelude.seq`
+        Prelude.rnf failureDetails `Prelude.seq`
+          Prelude.rnf fileCacheId `Prelude.seq`
+            Prelude.rnf fileSystemId `Prelude.seq`
+              Prelude.rnf paths `Prelude.seq`
+                Prelude.rnf report `Prelude.seq`
+                  Prelude.rnf resourceARN `Prelude.seq`
+                    Prelude.rnf startTime `Prelude.seq`
+                      Prelude.rnf status `Prelude.seq`
+                        Prelude.rnf tags `Prelude.seq`
+                          Prelude.rnf taskId `Prelude.seq`
+                            Prelude.rnf lifecycle `Prelude.seq`
+                              Prelude.rnf type' `Prelude.seq`
+                                Prelude.rnf creationTime

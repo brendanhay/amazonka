@@ -86,5 +86,5 @@ instance Prelude.Hashable ComparedSourceImageFace where
 
 instance Prelude.NFData ComparedSourceImageFace where
   rnf ComparedSourceImageFace' {..} =
-    Prelude.rnf boundingBox
-      `Prelude.seq` Prelude.rnf confidence
+    Prelude.rnf boundingBox `Prelude.seq`
+      Prelude.rnf confidence

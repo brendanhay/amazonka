@@ -157,12 +157,12 @@ instance Core.AWSPager DescribeAgents where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeAgents_nextToken
-          Lens..~ rs
-          Lens.^? describeAgentsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeAgents_nextToken
+              Lens..~ rs
+              Lens.^? describeAgentsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeAgents where
   type
@@ -189,10 +189,10 @@ instance Prelude.Hashable DescribeAgents where
 
 instance Prelude.NFData DescribeAgents where
   rnf DescribeAgents' {..} =
-    Prelude.rnf agentIds
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf agentIds `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeAgents where
   toHeaders =
@@ -303,6 +303,6 @@ describeAgentsResponse_httpStatus = Lens.lens (\DescribeAgentsResponse' {httpSta
 
 instance Prelude.NFData DescribeAgentsResponse where
   rnf DescribeAgentsResponse' {..} =
-    Prelude.rnf agentsInfo
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf agentsInfo `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

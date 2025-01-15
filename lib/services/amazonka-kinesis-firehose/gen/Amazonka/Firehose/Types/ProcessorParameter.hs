@@ -100,8 +100,8 @@ instance Prelude.Hashable ProcessorParameter where
 
 instance Prelude.NFData ProcessorParameter where
   rnf ProcessorParameter' {..} =
-    Prelude.rnf parameterName
-      `Prelude.seq` Prelude.rnf parameterValue
+    Prelude.rnf parameterName `Prelude.seq`
+      Prelude.rnf parameterValue
 
 instance Data.ToJSON ProcessorParameter where
   toJSON ProcessorParameter' {..} =

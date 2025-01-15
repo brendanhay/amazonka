@@ -106,6 +106,6 @@ instance Prelude.Hashable UploadMetadata where
 
 instance Prelude.NFData UploadMetadata where
   rnf UploadMetadata' {..} =
-    Prelude.rnf headersToInclude
-      `Prelude.seq` Prelude.rnf url
-      `Prelude.seq` Prelude.rnf urlExpiry
+    Prelude.rnf headersToInclude `Prelude.seq`
+      Prelude.rnf url `Prelude.seq`
+        Prelude.rnf urlExpiry

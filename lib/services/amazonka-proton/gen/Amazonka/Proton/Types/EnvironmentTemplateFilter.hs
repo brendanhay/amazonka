@@ -77,8 +77,8 @@ instance Prelude.Hashable EnvironmentTemplateFilter where
 
 instance Prelude.NFData EnvironmentTemplateFilter where
   rnf EnvironmentTemplateFilter' {..} =
-    Prelude.rnf majorVersion
-      `Prelude.seq` Prelude.rnf templateName
+    Prelude.rnf majorVersion `Prelude.seq`
+      Prelude.rnf templateName
 
 instance Data.ToJSON EnvironmentTemplateFilter where
   toJSON EnvironmentTemplateFilter' {..} =

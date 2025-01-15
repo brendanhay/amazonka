@@ -215,10 +215,10 @@ instance
 
 instance Prelude.NFData UpdateSubnetChangeProtection where
   rnf UpdateSubnetChangeProtection' {..} =
-    Prelude.rnf firewallArn
-      `Prelude.seq` Prelude.rnf firewallName
-      `Prelude.seq` Prelude.rnf updateToken
-      `Prelude.seq` Prelude.rnf subnetChangeProtection
+    Prelude.rnf firewallArn `Prelude.seq`
+      Prelude.rnf firewallName `Prelude.seq`
+        Prelude.rnf updateToken `Prelude.seq`
+          Prelude.rnf subnetChangeProtection
 
 instance Data.ToHeaders UpdateSubnetChangeProtection where
   toHeaders =
@@ -390,8 +390,8 @@ instance
     UpdateSubnetChangeProtectionResponse
   where
   rnf UpdateSubnetChangeProtectionResponse' {..} =
-    Prelude.rnf firewallArn
-      `Prelude.seq` Prelude.rnf firewallName
-      `Prelude.seq` Prelude.rnf subnetChangeProtection
-      `Prelude.seq` Prelude.rnf updateToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf firewallArn `Prelude.seq`
+      Prelude.rnf firewallName `Prelude.seq`
+        Prelude.rnf subnetChangeProtection `Prelude.seq`
+          Prelude.rnf updateToken `Prelude.seq`
+            Prelude.rnf httpStatus

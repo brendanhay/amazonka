@@ -119,9 +119,9 @@ instance Prelude.Hashable CancelStatement where
 
 instance Prelude.NFData CancelStatement where
   rnf CancelStatement' {..} =
-    Prelude.rnf requestOrigin
-      `Prelude.seq` Prelude.rnf sessionId
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf requestOrigin `Prelude.seq`
+      Prelude.rnf sessionId `Prelude.seq`
+        Prelude.rnf id
 
 instance Data.ToHeaders CancelStatement where
   toHeaders =

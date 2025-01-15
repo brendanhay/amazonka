@@ -146,9 +146,9 @@ instance
     DetachManagedPolicyFromPermissionSet
   where
   rnf DetachManagedPolicyFromPermissionSet' {..} =
-    Prelude.rnf instanceArn
-      `Prelude.seq` Prelude.rnf permissionSetArn
-      `Prelude.seq` Prelude.rnf managedPolicyArn
+    Prelude.rnf instanceArn `Prelude.seq`
+      Prelude.rnf permissionSetArn `Prelude.seq`
+        Prelude.rnf managedPolicyArn
 
 instance
   Data.ToHeaders

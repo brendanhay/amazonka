@@ -85,8 +85,8 @@ instance Prelude.Hashable EventReference where
 
 instance Prelude.NFData EventReference where
   rnf EventReference' {..} =
-    Prelude.rnf relatedItemId
-      `Prelude.seq` Prelude.rnf resource
+    Prelude.rnf relatedItemId `Prelude.seq`
+      Prelude.rnf resource
 
 instance Data.ToJSON EventReference where
   toJSON EventReference' {..} =

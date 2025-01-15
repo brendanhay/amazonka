@@ -153,9 +153,7 @@ geoRestriction_quantity = Lens.lens (\GeoRestriction' {quantity} -> quantity) (\
 instance Data.FromXML GeoRestriction where
   parseXML x =
     GeoRestriction'
-      Prelude.<$> ( x
-                      Data..@? "Items"
-                      Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "Items" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "Location")
                   )
       Prelude.<*> (x Data..@ "RestrictionType")
@@ -170,9 +168,9 @@ instance Prelude.Hashable GeoRestriction where
 
 instance Prelude.NFData GeoRestriction where
   rnf GeoRestriction' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf restrictionType
-      `Prelude.seq` Prelude.rnf quantity
+    Prelude.rnf items `Prelude.seq`
+      Prelude.rnf restrictionType `Prelude.seq`
+        Prelude.rnf quantity
 
 instance Data.ToXML GeoRestriction where
   toXML GeoRestriction' {..} =

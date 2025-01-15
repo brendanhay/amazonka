@@ -274,21 +274,21 @@ instance Prelude.Hashable Finding where
 
 instance Prelude.NFData Finding where
   rnf Finding' {..} =
-    Prelude.rnf assetAttributes
-      `Prelude.seq` Prelude.rnf assetType
-      `Prelude.seq` Prelude.rnf confidence
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf indicatorOfCompromise
-      `Prelude.seq` Prelude.rnf numericSeverity
-      `Prelude.seq` Prelude.rnf recommendation
-      `Prelude.seq` Prelude.rnf schemaVersion
-      `Prelude.seq` Prelude.rnf service
-      `Prelude.seq` Prelude.rnf serviceAttributes
-      `Prelude.seq` Prelude.rnf severity
-      `Prelude.seq` Prelude.rnf title
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf userAttributes
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf updatedAt
+    Prelude.rnf assetAttributes `Prelude.seq`
+      Prelude.rnf assetType `Prelude.seq`
+        Prelude.rnf confidence `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf id `Prelude.seq`
+              Prelude.rnf indicatorOfCompromise `Prelude.seq`
+                Prelude.rnf numericSeverity `Prelude.seq`
+                  Prelude.rnf recommendation `Prelude.seq`
+                    Prelude.rnf schemaVersion `Prelude.seq`
+                      Prelude.rnf service `Prelude.seq`
+                        Prelude.rnf serviceAttributes `Prelude.seq`
+                          Prelude.rnf severity `Prelude.seq`
+                            Prelude.rnf title `Prelude.seq`
+                              Prelude.rnf arn `Prelude.seq`
+                                Prelude.rnf attributes `Prelude.seq`
+                                  Prelude.rnf userAttributes `Prelude.seq`
+                                    Prelude.rnf createdAt `Prelude.seq`
+                                      Prelude.rnf updatedAt

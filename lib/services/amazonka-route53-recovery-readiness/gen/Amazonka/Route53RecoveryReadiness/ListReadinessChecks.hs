@@ -102,12 +102,12 @@ instance Core.AWSPager ListReadinessChecks where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listReadinessChecks_nextToken
-          Lens..~ rs
-          Lens.^? listReadinessChecksResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listReadinessChecks_nextToken
+              Lens..~ rs
+              Lens.^? listReadinessChecksResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListReadinessChecks where
   type
@@ -135,8 +135,8 @@ instance Prelude.Hashable ListReadinessChecks where
 
 instance Prelude.NFData ListReadinessChecks where
   rnf ListReadinessChecks' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListReadinessChecks where
   toHeaders =
@@ -209,6 +209,6 @@ listReadinessChecksResponse_httpStatus = Lens.lens (\ListReadinessChecksResponse
 
 instance Prelude.NFData ListReadinessChecksResponse where
   rnf ListReadinessChecksResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf readinessChecks
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf readinessChecks `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -212,10 +212,10 @@ instance Prelude.Hashable PolicySummary where
 
 instance Prelude.NFData PolicySummary where
   rnf PolicySummary' {..} =
-    Prelude.rnf deleteUnusedFMManagedResources
-      `Prelude.seq` Prelude.rnf policyArn
-      `Prelude.seq` Prelude.rnf policyId
-      `Prelude.seq` Prelude.rnf policyName
-      `Prelude.seq` Prelude.rnf remediationEnabled
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf securityServiceType
+    Prelude.rnf deleteUnusedFMManagedResources `Prelude.seq`
+      Prelude.rnf policyArn `Prelude.seq`
+        Prelude.rnf policyId `Prelude.seq`
+          Prelude.rnf policyName `Prelude.seq`
+            Prelude.rnf remediationEnabled `Prelude.seq`
+              Prelude.rnf resourceType `Prelude.seq`
+                Prelude.rnf securityServiceType

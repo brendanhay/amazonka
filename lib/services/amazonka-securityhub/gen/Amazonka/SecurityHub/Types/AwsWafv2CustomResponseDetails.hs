@@ -116,9 +116,9 @@ instance
 
 instance Prelude.NFData AwsWafv2CustomResponseDetails where
   rnf AwsWafv2CustomResponseDetails' {..} =
-    Prelude.rnf customResponseBodyKey
-      `Prelude.seq` Prelude.rnf responseCode
-      `Prelude.seq` Prelude.rnf responseHeaders
+    Prelude.rnf customResponseBodyKey `Prelude.seq`
+      Prelude.rnf responseCode `Prelude.seq`
+        Prelude.rnf responseHeaders
 
 instance Data.ToJSON AwsWafv2CustomResponseDetails where
   toJSON AwsWafv2CustomResponseDetails' {..} =

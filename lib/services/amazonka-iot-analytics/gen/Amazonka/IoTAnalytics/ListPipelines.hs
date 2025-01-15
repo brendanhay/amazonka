@@ -108,12 +108,12 @@ instance Core.AWSPager ListPipelines where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listPipelines_nextToken
-          Lens..~ rs
-          Lens.^? listPipelinesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listPipelines_nextToken
+              Lens..~ rs
+              Lens.^? listPipelinesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPipelines where
   type
@@ -141,8 +141,8 @@ instance Prelude.Hashable ListPipelines where
 
 instance Prelude.NFData ListPipelines where
   rnf ListPipelines' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListPipelines where
   toHeaders = Prelude.const Prelude.mempty
@@ -209,6 +209,6 @@ listPipelinesResponse_httpStatus = Lens.lens (\ListPipelinesResponse' {httpStatu
 
 instance Prelude.NFData ListPipelinesResponse where
   rnf ListPipelinesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf pipelineSummaries
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf pipelineSummaries `Prelude.seq`
+        Prelude.rnf httpStatus

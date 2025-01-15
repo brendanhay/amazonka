@@ -195,7 +195,7 @@ getBuiltinIntentResponse_httpStatus = Lens.lens (\GetBuiltinIntentResponse' {htt
 
 instance Prelude.NFData GetBuiltinIntentResponse where
   rnf GetBuiltinIntentResponse' {..} =
-    Prelude.rnf signature
-      `Prelude.seq` Prelude.rnf slots
-      `Prelude.seq` Prelude.rnf supportedLocales
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf signature `Prelude.seq`
+      Prelude.rnf slots `Prelude.seq`
+        Prelude.rnf supportedLocales `Prelude.seq`
+          Prelude.rnf httpStatus

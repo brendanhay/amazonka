@@ -126,7 +126,7 @@ instance
 
 instance Prelude.NFData MonitoringAlertHistorySummary where
   rnf MonitoringAlertHistorySummary' {..} =
-    Prelude.rnf monitoringScheduleName
-      `Prelude.seq` Prelude.rnf monitoringAlertName
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf alertStatus
+    Prelude.rnf monitoringScheduleName `Prelude.seq`
+      Prelude.rnf monitoringAlertName `Prelude.seq`
+        Prelude.rnf creationTime `Prelude.seq`
+          Prelude.rnf alertStatus

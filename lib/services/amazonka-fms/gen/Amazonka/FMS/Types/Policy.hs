@@ -490,20 +490,20 @@ instance Prelude.Hashable Policy where
 
 instance Prelude.NFData Policy where
   rnf Policy' {..} =
-    Prelude.rnf deleteUnusedFMManagedResources
-      `Prelude.seq` Prelude.rnf excludeMap
-      `Prelude.seq` Prelude.rnf includeMap
-      `Prelude.seq` Prelude.rnf policyDescription
-      `Prelude.seq` Prelude.rnf policyId
-      `Prelude.seq` Prelude.rnf policyUpdateToken
-      `Prelude.seq` Prelude.rnf resourceSetIds
-      `Prelude.seq` Prelude.rnf resourceTags
-      `Prelude.seq` Prelude.rnf resourceTypeList
-      `Prelude.seq` Prelude.rnf policyName
-      `Prelude.seq` Prelude.rnf securityServicePolicyData
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf excludeResourceTags
-      `Prelude.seq` Prelude.rnf remediationEnabled
+    Prelude.rnf deleteUnusedFMManagedResources `Prelude.seq`
+      Prelude.rnf excludeMap `Prelude.seq`
+        Prelude.rnf includeMap `Prelude.seq`
+          Prelude.rnf policyDescription `Prelude.seq`
+            Prelude.rnf policyId `Prelude.seq`
+              Prelude.rnf policyUpdateToken `Prelude.seq`
+                Prelude.rnf resourceSetIds `Prelude.seq`
+                  Prelude.rnf resourceTags `Prelude.seq`
+                    Prelude.rnf resourceTypeList `Prelude.seq`
+                      Prelude.rnf policyName `Prelude.seq`
+                        Prelude.rnf securityServicePolicyData `Prelude.seq`
+                          Prelude.rnf resourceType `Prelude.seq`
+                            Prelude.rnf excludeResourceTags `Prelude.seq`
+                              Prelude.rnf remediationEnabled
 
 instance Data.ToJSON Policy where
   toJSON Policy' {..} =

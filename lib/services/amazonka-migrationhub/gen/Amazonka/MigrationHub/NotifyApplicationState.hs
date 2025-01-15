@@ -139,10 +139,10 @@ instance Prelude.Hashable NotifyApplicationState where
 
 instance Prelude.NFData NotifyApplicationState where
   rnf NotifyApplicationState' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf updateDateTime
-      `Prelude.seq` Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf updateDateTime `Prelude.seq`
+        Prelude.rnf applicationId `Prelude.seq`
+          Prelude.rnf status
 
 instance Data.ToHeaders NotifyApplicationState where
   toHeaders =

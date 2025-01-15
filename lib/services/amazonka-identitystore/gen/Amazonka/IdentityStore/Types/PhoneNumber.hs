@@ -100,9 +100,9 @@ instance Prelude.Hashable PhoneNumber where
 
 instance Prelude.NFData PhoneNumber where
   rnf PhoneNumber' {..} =
-    Prelude.rnf primary
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf primary `Prelude.seq`
+      Prelude.rnf type' `Prelude.seq`
+        Prelude.rnf value
 
 instance Data.ToJSON PhoneNumber where
   toJSON PhoneNumber' {..} =

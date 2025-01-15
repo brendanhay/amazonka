@@ -472,24 +472,24 @@ instance Prelude.Hashable UpdateFunctionConfiguration where
 
 instance Prelude.NFData UpdateFunctionConfiguration where
   rnf UpdateFunctionConfiguration' {..} =
-    Prelude.rnf deadLetterConfig
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf environment
-      `Prelude.seq` Prelude.rnf ephemeralStorage
-      `Prelude.seq` Prelude.rnf fileSystemConfigs
-      `Prelude.seq` Prelude.rnf handler
-      `Prelude.seq` Prelude.rnf imageConfig
-      `Prelude.seq` Prelude.rnf kmsKeyArn
-      `Prelude.seq` Prelude.rnf layers
-      `Prelude.seq` Prelude.rnf memorySize
-      `Prelude.seq` Prelude.rnf revisionId
-      `Prelude.seq` Prelude.rnf role'
-      `Prelude.seq` Prelude.rnf runtime
-      `Prelude.seq` Prelude.rnf snapStart
-      `Prelude.seq` Prelude.rnf timeout
-      `Prelude.seq` Prelude.rnf tracingConfig
-      `Prelude.seq` Prelude.rnf vpcConfig
-      `Prelude.seq` Prelude.rnf functionName
+    Prelude.rnf deadLetterConfig `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf environment `Prelude.seq`
+          Prelude.rnf ephemeralStorage `Prelude.seq`
+            Prelude.rnf fileSystemConfigs `Prelude.seq`
+              Prelude.rnf handler `Prelude.seq`
+                Prelude.rnf imageConfig `Prelude.seq`
+                  Prelude.rnf kmsKeyArn `Prelude.seq`
+                    Prelude.rnf layers `Prelude.seq`
+                      Prelude.rnf memorySize `Prelude.seq`
+                        Prelude.rnf revisionId `Prelude.seq`
+                          Prelude.rnf role' `Prelude.seq`
+                            Prelude.rnf runtime `Prelude.seq`
+                              Prelude.rnf snapStart `Prelude.seq`
+                                Prelude.rnf timeout `Prelude.seq`
+                                  Prelude.rnf tracingConfig `Prelude.seq`
+                                    Prelude.rnf vpcConfig `Prelude.seq`
+                                      Prelude.rnf functionName
 
 instance Data.ToHeaders UpdateFunctionConfiguration where
   toHeaders = Prelude.const Prelude.mempty

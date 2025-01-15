@@ -172,6 +172,6 @@ createWebLoginTokenResponse_httpStatus = Lens.lens (\CreateWebLoginTokenResponse
 
 instance Prelude.NFData CreateWebLoginTokenResponse where
   rnf CreateWebLoginTokenResponse' {..} =
-    Prelude.rnf webServerHostname
-      `Prelude.seq` Prelude.rnf webToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf webServerHostname `Prelude.seq`
+      Prelude.rnf webToken `Prelude.seq`
+        Prelude.rnf httpStatus

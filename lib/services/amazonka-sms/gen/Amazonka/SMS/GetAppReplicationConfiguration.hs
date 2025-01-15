@@ -191,5 +191,5 @@ instance
     GetAppReplicationConfigurationResponse
   where
   rnf GetAppReplicationConfigurationResponse' {..} =
-    Prelude.rnf serverGroupReplicationConfigurations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf serverGroupReplicationConfigurations `Prelude.seq`
+      Prelude.rnf httpStatus

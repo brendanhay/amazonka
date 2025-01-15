@@ -116,8 +116,8 @@ instance
     Scte35SpliceInsertScheduleActionSettings
   where
   rnf Scte35SpliceInsertScheduleActionSettings' {..} =
-    Prelude.rnf duration
-      `Prelude.seq` Prelude.rnf spliceEventId
+    Prelude.rnf duration `Prelude.seq`
+      Prelude.rnf spliceEventId
 
 instance
   Data.ToJSON

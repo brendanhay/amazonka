@@ -112,12 +112,12 @@ instance Core.AWSPager ListHsms where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listHsms_nextToken
-          Lens..~ rs
-          Lens.^? listHsmsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listHsms_nextToken
+              Lens..~ rs
+              Lens.^? listHsmsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListHsms where
   type AWSResponse ListHsms = ListHsmsResponse
@@ -221,6 +221,6 @@ listHsmsResponse_httpStatus = Lens.lens (\ListHsmsResponse' {httpStatus} -> http
 
 instance Prelude.NFData ListHsmsResponse where
   rnf ListHsmsResponse' {..} =
-    Prelude.rnf hsmList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf hsmList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

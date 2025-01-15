@@ -206,13 +206,13 @@ instance
 
 instance Prelude.NFData PipeTargetBatchJobParameters where
   rnf PipeTargetBatchJobParameters' {..} =
-    Prelude.rnf arrayProperties
-      `Prelude.seq` Prelude.rnf containerOverrides
-      `Prelude.seq` Prelude.rnf dependsOn
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf retryStrategy
-      `Prelude.seq` Prelude.rnf jobDefinition
-      `Prelude.seq` Prelude.rnf jobName
+    Prelude.rnf arrayProperties `Prelude.seq`
+      Prelude.rnf containerOverrides `Prelude.seq`
+        Prelude.rnf dependsOn `Prelude.seq`
+          Prelude.rnf parameters `Prelude.seq`
+            Prelude.rnf retryStrategy `Prelude.seq`
+              Prelude.rnf jobDefinition `Prelude.seq`
+                Prelude.rnf jobName
 
 instance Data.ToJSON PipeTargetBatchJobParameters where
   toJSON PipeTargetBatchJobParameters' {..} =

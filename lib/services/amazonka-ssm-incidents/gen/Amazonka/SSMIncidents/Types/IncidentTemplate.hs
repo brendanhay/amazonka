@@ -148,12 +148,12 @@ instance Prelude.Hashable IncidentTemplate where
 
 instance Prelude.NFData IncidentTemplate where
   rnf IncidentTemplate' {..} =
-    Prelude.rnf dedupeString
-      `Prelude.seq` Prelude.rnf incidentTags
-      `Prelude.seq` Prelude.rnf notificationTargets
-      `Prelude.seq` Prelude.rnf summary
-      `Prelude.seq` Prelude.rnf impact
-      `Prelude.seq` Prelude.rnf title
+    Prelude.rnf dedupeString `Prelude.seq`
+      Prelude.rnf incidentTags `Prelude.seq`
+        Prelude.rnf notificationTargets `Prelude.seq`
+          Prelude.rnf summary `Prelude.seq`
+            Prelude.rnf impact `Prelude.seq`
+              Prelude.rnf title
 
 instance Data.ToJSON IncidentTemplate where
   toJSON IncidentTemplate' {..} =

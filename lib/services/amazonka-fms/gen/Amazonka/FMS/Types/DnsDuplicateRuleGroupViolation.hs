@@ -91,5 +91,5 @@ instance
     DnsDuplicateRuleGroupViolation
   where
   rnf DnsDuplicateRuleGroupViolation' {..} =
-    Prelude.rnf violationTarget
-      `Prelude.seq` Prelude.rnf violationTargetDescription
+    Prelude.rnf violationTarget `Prelude.seq`
+      Prelude.rnf violationTargetDescription

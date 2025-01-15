@@ -99,6 +99,6 @@ instance Prelude.Hashable DeployedVersionSummary where
 
 instance Prelude.NFData DeployedVersionSummary where
   rnf DeployedVersionSummary' {..} =
-    Prelude.rnf statusReason
-      `Prelude.seq` Prelude.rnf applicationVersion
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf statusReason `Prelude.seq`
+      Prelude.rnf applicationVersion `Prelude.seq`
+        Prelude.rnf status

@@ -101,6 +101,6 @@ instance Prelude.Hashable ListedEntitlement where
 
 instance Prelude.NFData ListedEntitlement where
   rnf ListedEntitlement' {..} =
-    Prelude.rnf dataTransferSubscriberFeePercent
-      `Prelude.seq` Prelude.rnf entitlementArn
-      `Prelude.seq` Prelude.rnf entitlementName
+    Prelude.rnf dataTransferSubscriberFeePercent `Prelude.seq`
+      Prelude.rnf entitlementArn `Prelude.seq`
+        Prelude.rnf entitlementName

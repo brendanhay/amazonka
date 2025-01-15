@@ -110,7 +110,7 @@ instance
 
 instance Prelude.NFData RepositoryAggregationResponse where
   rnf RepositoryAggregationResponse' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf affectedImages
-      `Prelude.seq` Prelude.rnf severityCounts
-      `Prelude.seq` Prelude.rnf repository
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf affectedImages `Prelude.seq`
+        Prelude.rnf severityCounts `Prelude.seq`
+          Prelude.rnf repository

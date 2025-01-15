@@ -185,12 +185,12 @@ instance Prelude.Hashable CreateStreamingURL where
 
 instance Prelude.NFData CreateStreamingURL where
   rnf CreateStreamingURL' {..} =
-    Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf sessionContext
-      `Prelude.seq` Prelude.rnf validity
-      `Prelude.seq` Prelude.rnf stackName
-      `Prelude.seq` Prelude.rnf fleetName
-      `Prelude.seq` Prelude.rnf userId
+    Prelude.rnf applicationId `Prelude.seq`
+      Prelude.rnf sessionContext `Prelude.seq`
+        Prelude.rnf validity `Prelude.seq`
+          Prelude.rnf stackName `Prelude.seq`
+            Prelude.rnf fleetName `Prelude.seq`
+              Prelude.rnf userId
 
 instance Data.ToHeaders CreateStreamingURL where
   toHeaders =
@@ -280,6 +280,6 @@ createStreamingURLResponse_httpStatus = Lens.lens (\CreateStreamingURLResponse' 
 
 instance Prelude.NFData CreateStreamingURLResponse where
   rnf CreateStreamingURLResponse' {..} =
-    Prelude.rnf expires
-      `Prelude.seq` Prelude.rnf streamingURL
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf expires `Prelude.seq`
+      Prelude.rnf streamingURL `Prelude.seq`
+        Prelude.rnf httpStatus

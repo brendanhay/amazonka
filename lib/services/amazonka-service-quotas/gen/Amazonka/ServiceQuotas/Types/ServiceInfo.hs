@@ -80,5 +80,5 @@ instance Prelude.Hashable ServiceInfo where
 
 instance Prelude.NFData ServiceInfo where
   rnf ServiceInfo' {..} =
-    Prelude.rnf serviceCode
-      `Prelude.seq` Prelude.rnf serviceName
+    Prelude.rnf serviceCode `Prelude.seq`
+      Prelude.rnf serviceName

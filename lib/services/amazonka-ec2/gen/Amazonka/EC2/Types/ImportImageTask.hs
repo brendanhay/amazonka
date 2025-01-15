@@ -249,9 +249,7 @@ instance Data.FromXML ImportImageTask where
                   )
       Prelude.<*> (x Data..@? "status")
       Prelude.<*> (x Data..@? "statusMessage")
-      Prelude.<*> ( x
-                      Data..@? "tagSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "usageOperation")
@@ -279,20 +277,20 @@ instance Prelude.Hashable ImportImageTask where
 
 instance Prelude.NFData ImportImageTask where
   rnf ImportImageTask' {..} =
-    Prelude.rnf architecture
-      `Prelude.seq` Prelude.rnf bootMode
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf encrypted
-      `Prelude.seq` Prelude.rnf hypervisor
-      `Prelude.seq` Prelude.rnf imageId
-      `Prelude.seq` Prelude.rnf importTaskId
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf licenseSpecifications
-      `Prelude.seq` Prelude.rnf licenseType
-      `Prelude.seq` Prelude.rnf platform
-      `Prelude.seq` Prelude.rnf progress
-      `Prelude.seq` Prelude.rnf snapshotDetails
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf usageOperation
+    Prelude.rnf architecture `Prelude.seq`
+      Prelude.rnf bootMode `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf encrypted `Prelude.seq`
+            Prelude.rnf hypervisor `Prelude.seq`
+              Prelude.rnf imageId `Prelude.seq`
+                Prelude.rnf importTaskId `Prelude.seq`
+                  Prelude.rnf kmsKeyId `Prelude.seq`
+                    Prelude.rnf licenseSpecifications `Prelude.seq`
+                      Prelude.rnf licenseType `Prelude.seq`
+                        Prelude.rnf platform `Prelude.seq`
+                          Prelude.rnf progress `Prelude.seq`
+                            Prelude.rnf snapshotDetails `Prelude.seq`
+                              Prelude.rnf status `Prelude.seq`
+                                Prelude.rnf statusMessage `Prelude.seq`
+                                  Prelude.rnf tags `Prelude.seq`
+                                    Prelude.rnf usageOperation

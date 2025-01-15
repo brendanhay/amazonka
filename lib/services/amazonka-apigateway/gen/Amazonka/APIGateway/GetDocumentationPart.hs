@@ -111,8 +111,8 @@ instance Prelude.Hashable GetDocumentationPart where
 
 instance Prelude.NFData GetDocumentationPart where
   rnf GetDocumentationPart' {..} =
-    Prelude.rnf restApiId
-      `Prelude.seq` Prelude.rnf documentationPartId
+    Prelude.rnf restApiId `Prelude.seq`
+      Prelude.rnf documentationPartId
 
 instance Data.ToHeaders GetDocumentationPart where
   toHeaders =

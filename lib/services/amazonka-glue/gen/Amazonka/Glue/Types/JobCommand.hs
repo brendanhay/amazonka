@@ -103,9 +103,9 @@ instance Prelude.Hashable JobCommand where
 
 instance Prelude.NFData JobCommand where
   rnf JobCommand' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf pythonVersion
-      `Prelude.seq` Prelude.rnf scriptLocation
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf pythonVersion `Prelude.seq`
+        Prelude.rnf scriptLocation
 
 instance Data.ToJSON JobCommand where
   toJSON JobCommand' {..} =

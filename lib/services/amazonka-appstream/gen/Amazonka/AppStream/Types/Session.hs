@@ -211,13 +211,13 @@ instance Prelude.Hashable Session where
 
 instance Prelude.NFData Session where
   rnf Session' {..} =
-    Prelude.rnf authenticationType
-      `Prelude.seq` Prelude.rnf connectionState
-      `Prelude.seq` Prelude.rnf maxExpirationTime
-      `Prelude.seq` Prelude.rnf networkAccessConfiguration
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf userId
-      `Prelude.seq` Prelude.rnf stackName
-      `Prelude.seq` Prelude.rnf fleetName
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf authenticationType `Prelude.seq`
+      Prelude.rnf connectionState `Prelude.seq`
+        Prelude.rnf maxExpirationTime `Prelude.seq`
+          Prelude.rnf networkAccessConfiguration `Prelude.seq`
+            Prelude.rnf startTime `Prelude.seq`
+              Prelude.rnf id `Prelude.seq`
+                Prelude.rnf userId `Prelude.seq`
+                  Prelude.rnf stackName `Prelude.seq`
+                    Prelude.rnf fleetName `Prelude.seq`
+                      Prelude.rnf state

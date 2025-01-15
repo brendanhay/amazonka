@@ -150,8 +150,8 @@ instance Prelude.Hashable PutSinkPolicy where
 
 instance Prelude.NFData PutSinkPolicy where
   rnf PutSinkPolicy' {..} =
-    Prelude.rnf sinkIdentifier
-      `Prelude.seq` Prelude.rnf policy
+    Prelude.rnf sinkIdentifier `Prelude.seq`
+      Prelude.rnf policy
 
 instance Data.ToHeaders PutSinkPolicy where
   toHeaders =
@@ -241,7 +241,7 @@ putSinkPolicyResponse_httpStatus = Lens.lens (\PutSinkPolicyResponse' {httpStatu
 
 instance Prelude.NFData PutSinkPolicyResponse where
   rnf PutSinkPolicyResponse' {..} =
-    Prelude.rnf policy
-      `Prelude.seq` Prelude.rnf sinkArn
-      `Prelude.seq` Prelude.rnf sinkId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf policy `Prelude.seq`
+      Prelude.rnf sinkArn `Prelude.seq`
+        Prelude.rnf sinkId `Prelude.seq`
+          Prelude.rnf httpStatus

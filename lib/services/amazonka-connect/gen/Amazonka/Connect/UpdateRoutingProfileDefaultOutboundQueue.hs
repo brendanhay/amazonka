@@ -136,9 +136,9 @@ instance
     UpdateRoutingProfileDefaultOutboundQueue
   where
   rnf UpdateRoutingProfileDefaultOutboundQueue' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf routingProfileId
-      `Prelude.seq` Prelude.rnf defaultOutboundQueueId
+    Prelude.rnf instanceId `Prelude.seq`
+      Prelude.rnf routingProfileId `Prelude.seq`
+        Prelude.rnf defaultOutboundQueueId
 
 instance
   Data.ToHeaders

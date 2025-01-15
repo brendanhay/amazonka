@@ -82,8 +82,8 @@ instance Prelude.Hashable AgentFilter where
 
 instance Prelude.NFData AgentFilter where
   rnf AgentFilter' {..} =
-    Prelude.rnf agentHealths
-      `Prelude.seq` Prelude.rnf agentHealthCodes
+    Prelude.rnf agentHealths `Prelude.seq`
+      Prelude.rnf agentHealthCodes
 
 instance Data.ToJSON AgentFilter where
   toJSON AgentFilter' {..} =

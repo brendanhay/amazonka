@@ -109,8 +109,8 @@ instance Prelude.Hashable WorkmailAction where
 
 instance Prelude.NFData WorkmailAction where
   rnf WorkmailAction' {..} =
-    Prelude.rnf topicArn
-      `Prelude.seq` Prelude.rnf organizationArn
+    Prelude.rnf topicArn `Prelude.seq`
+      Prelude.rnf organizationArn
 
 instance Data.ToQuery WorkmailAction where
   toQuery WorkmailAction' {..} =

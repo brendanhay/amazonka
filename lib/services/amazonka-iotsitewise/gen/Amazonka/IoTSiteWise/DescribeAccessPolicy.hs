@@ -274,11 +274,11 @@ describeAccessPolicyResponse_accessPolicyLastUpdateDate = Lens.lens (\DescribeAc
 
 instance Prelude.NFData DescribeAccessPolicyResponse where
   rnf DescribeAccessPolicyResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf accessPolicyId
-      `Prelude.seq` Prelude.rnf accessPolicyArn
-      `Prelude.seq` Prelude.rnf accessPolicyIdentity
-      `Prelude.seq` Prelude.rnf accessPolicyResource
-      `Prelude.seq` Prelude.rnf accessPolicyPermission
-      `Prelude.seq` Prelude.rnf accessPolicyCreationDate
-      `Prelude.seq` Prelude.rnf accessPolicyLastUpdateDate
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf accessPolicyId `Prelude.seq`
+        Prelude.rnf accessPolicyArn `Prelude.seq`
+          Prelude.rnf accessPolicyIdentity `Prelude.seq`
+            Prelude.rnf accessPolicyResource `Prelude.seq`
+              Prelude.rnf accessPolicyPermission `Prelude.seq`
+                Prelude.rnf accessPolicyCreationDate `Prelude.seq`
+                  Prelude.rnf accessPolicyLastUpdateDate

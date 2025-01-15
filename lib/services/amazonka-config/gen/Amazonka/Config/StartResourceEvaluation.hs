@@ -190,11 +190,11 @@ instance Prelude.Hashable StartResourceEvaluation where
 
 instance Prelude.NFData StartResourceEvaluation where
   rnf StartResourceEvaluation' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf evaluationContext
-      `Prelude.seq` Prelude.rnf evaluationTimeout
-      `Prelude.seq` Prelude.rnf resourceDetails
-      `Prelude.seq` Prelude.rnf evaluationMode
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf evaluationContext `Prelude.seq`
+        Prelude.rnf evaluationTimeout `Prelude.seq`
+          Prelude.rnf resourceDetails `Prelude.seq`
+            Prelude.rnf evaluationMode
 
 instance Data.ToHeaders StartResourceEvaluation where
   toHeaders =
@@ -280,5 +280,5 @@ instance
     StartResourceEvaluationResponse
   where
   rnf StartResourceEvaluationResponse' {..} =
-    Prelude.rnf resourceEvaluationId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf resourceEvaluationId `Prelude.seq`
+      Prelude.rnf httpStatus

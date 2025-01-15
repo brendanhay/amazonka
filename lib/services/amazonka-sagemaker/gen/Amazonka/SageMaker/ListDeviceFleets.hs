@@ -178,12 +178,12 @@ instance Core.AWSPager ListDeviceFleets where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listDeviceFleets_nextToken
-          Lens..~ rs
-          Lens.^? listDeviceFleetsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listDeviceFleets_nextToken
+              Lens..~ rs
+              Lens.^? listDeviceFleetsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDeviceFleets where
   type
@@ -218,15 +218,15 @@ instance Prelude.Hashable ListDeviceFleets where
 
 instance Prelude.NFData ListDeviceFleets where
   rnf ListDeviceFleets' {..} =
-    Prelude.rnf creationTimeAfter
-      `Prelude.seq` Prelude.rnf creationTimeBefore
-      `Prelude.seq` Prelude.rnf lastModifiedTimeAfter
-      `Prelude.seq` Prelude.rnf lastModifiedTimeBefore
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nameContains
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf sortOrder
+    Prelude.rnf creationTimeAfter `Prelude.seq`
+      Prelude.rnf creationTimeBefore `Prelude.seq`
+        Prelude.rnf lastModifiedTimeAfter `Prelude.seq`
+          Prelude.rnf lastModifiedTimeBefore `Prelude.seq`
+            Prelude.rnf maxResults `Prelude.seq`
+              Prelude.rnf nameContains `Prelude.seq`
+                Prelude.rnf nextToken `Prelude.seq`
+                  Prelude.rnf sortBy `Prelude.seq`
+                    Prelude.rnf sortOrder
 
 instance Data.ToHeaders ListDeviceFleets where
   toHeaders =
@@ -320,6 +320,6 @@ listDeviceFleetsResponse_deviceFleetSummaries = Lens.lens (\ListDeviceFleetsResp
 
 instance Prelude.NFData ListDeviceFleetsResponse where
   rnf ListDeviceFleetsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf deviceFleetSummaries
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf deviceFleetSummaries

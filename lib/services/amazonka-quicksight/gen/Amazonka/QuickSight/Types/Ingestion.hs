@@ -189,14 +189,14 @@ instance Prelude.Hashable Ingestion where
 
 instance Prelude.NFData Ingestion where
   rnf Ingestion' {..} =
-    Prelude.rnf errorInfo
-      `Prelude.seq` Prelude.rnf ingestionId
-      `Prelude.seq` Prelude.rnf ingestionSizeInBytes
-      `Prelude.seq` Prelude.rnf ingestionTimeInSeconds
-      `Prelude.seq` Prelude.rnf queueInfo
-      `Prelude.seq` Prelude.rnf requestSource
-      `Prelude.seq` Prelude.rnf requestType
-      `Prelude.seq` Prelude.rnf rowInfo
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf ingestionStatus
-      `Prelude.seq` Prelude.rnf createdTime
+    Prelude.rnf errorInfo `Prelude.seq`
+      Prelude.rnf ingestionId `Prelude.seq`
+        Prelude.rnf ingestionSizeInBytes `Prelude.seq`
+          Prelude.rnf ingestionTimeInSeconds `Prelude.seq`
+            Prelude.rnf queueInfo `Prelude.seq`
+              Prelude.rnf requestSource `Prelude.seq`
+                Prelude.rnf requestType `Prelude.seq`
+                  Prelude.rnf rowInfo `Prelude.seq`
+                    Prelude.rnf arn `Prelude.seq`
+                      Prelude.rnf ingestionStatus `Prelude.seq`
+                        Prelude.rnf createdTime

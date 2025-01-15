@@ -110,8 +110,8 @@ instance Prelude.Hashable UpdatePermissions where
 
 instance Prelude.NFData UpdatePermissions where
   rnf UpdatePermissions' {..} =
-    Prelude.rnf updateInstructionBatch
-      `Prelude.seq` Prelude.rnf workspaceId
+    Prelude.rnf updateInstructionBatch `Prelude.seq`
+      Prelude.rnf workspaceId
 
 instance Data.ToHeaders UpdatePermissions where
   toHeaders =
@@ -190,5 +190,5 @@ updatePermissionsResponse_errors = Lens.lens (\UpdatePermissionsResponse' {error
 
 instance Prelude.NFData UpdatePermissionsResponse where
   rnf UpdatePermissionsResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf errors
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf errors

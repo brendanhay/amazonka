@@ -229,15 +229,15 @@ instance Prelude.Hashable UpdateReplicationJob where
 
 instance Prelude.NFData UpdateReplicationJob where
   rnf UpdateReplicationJob' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf encrypted
-      `Prelude.seq` Prelude.rnf frequency
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf licenseType
-      `Prelude.seq` Prelude.rnf nextReplicationRunStartTime
-      `Prelude.seq` Prelude.rnf numberOfRecentAmisToKeep
-      `Prelude.seq` Prelude.rnf roleName
-      `Prelude.seq` Prelude.rnf replicationJobId
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf encrypted `Prelude.seq`
+        Prelude.rnf frequency `Prelude.seq`
+          Prelude.rnf kmsKeyId `Prelude.seq`
+            Prelude.rnf licenseType `Prelude.seq`
+              Prelude.rnf nextReplicationRunStartTime `Prelude.seq`
+                Prelude.rnf numberOfRecentAmisToKeep `Prelude.seq`
+                  Prelude.rnf roleName `Prelude.seq`
+                    Prelude.rnf replicationJobId
 
 instance Data.ToHeaders UpdateReplicationJob where
   toHeaders =

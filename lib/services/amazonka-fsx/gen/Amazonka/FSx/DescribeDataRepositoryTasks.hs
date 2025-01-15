@@ -155,10 +155,10 @@ instance Prelude.Hashable DescribeDataRepositoryTasks where
 
 instance Prelude.NFData DescribeDataRepositoryTasks where
   rnf DescribeDataRepositoryTasks' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf taskIds
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf taskIds
 
 instance Data.ToHeaders DescribeDataRepositoryTasks where
   toHeaders =
@@ -244,6 +244,6 @@ instance
     DescribeDataRepositoryTasksResponse
   where
   rnf DescribeDataRepositoryTasksResponse' {..} =
-    Prelude.rnf dataRepositoryTasks
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dataRepositoryTasks `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

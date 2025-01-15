@@ -126,9 +126,9 @@ instance Prelude.Hashable ListLicenseConversionTasks where
 
 instance Prelude.NFData ListLicenseConversionTasks where
   rnf ListLicenseConversionTasks' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListLicenseConversionTasks where
   toHeaders =
@@ -214,6 +214,6 @@ instance
     ListLicenseConversionTasksResponse
   where
   rnf ListLicenseConversionTasksResponse' {..} =
-    Prelude.rnf licenseConversionTasks
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf licenseConversionTasks `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

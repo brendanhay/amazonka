@@ -83,5 +83,5 @@ instance Prelude.Hashable FailureException where
 
 instance Prelude.NFData FailureException where
   rnf FailureException' {..} =
-    Prelude.rnf exceptionDescription
-      `Prelude.seq` Prelude.rnf exceptionName
+    Prelude.rnf exceptionDescription `Prelude.seq`
+      Prelude.rnf exceptionName

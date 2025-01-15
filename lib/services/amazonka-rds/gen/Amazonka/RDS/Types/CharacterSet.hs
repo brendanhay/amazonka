@@ -78,5 +78,5 @@ instance Prelude.Hashable CharacterSet where
 
 instance Prelude.NFData CharacterSet where
   rnf CharacterSet' {..} =
-    Prelude.rnf characterSetDescription
-      `Prelude.seq` Prelude.rnf characterSetName
+    Prelude.rnf characterSetDescription `Prelude.seq`
+      Prelude.rnf characterSetName

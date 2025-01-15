@@ -130,8 +130,8 @@ instance Prelude.Hashable FlowDefinitionSummary where
 
 instance Prelude.NFData FlowDefinitionSummary where
   rnf FlowDefinitionSummary' {..} =
-    Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf flowDefinitionName
-      `Prelude.seq` Prelude.rnf flowDefinitionArn
-      `Prelude.seq` Prelude.rnf flowDefinitionStatus
-      `Prelude.seq` Prelude.rnf creationTime
+    Prelude.rnf failureReason `Prelude.seq`
+      Prelude.rnf flowDefinitionName `Prelude.seq`
+        Prelude.rnf flowDefinitionArn `Prelude.seq`
+          Prelude.rnf flowDefinitionStatus `Prelude.seq`
+            Prelude.rnf creationTime

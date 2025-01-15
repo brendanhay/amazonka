@@ -122,10 +122,10 @@ instance
     AwsDynamoDbTableLocalSecondaryIndex
   where
   rnf AwsDynamoDbTableLocalSecondaryIndex' {..} =
-    Prelude.rnf indexArn
-      `Prelude.seq` Prelude.rnf indexName
-      `Prelude.seq` Prelude.rnf keySchema
-      `Prelude.seq` Prelude.rnf projection
+    Prelude.rnf indexArn `Prelude.seq`
+      Prelude.rnf indexName `Prelude.seq`
+        Prelude.rnf keySchema `Prelude.seq`
+          Prelude.rnf projection
 
 instance
   Data.ToJSON

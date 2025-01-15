@@ -88,5 +88,5 @@ instance Prelude.Hashable Denied where
 
 instance Prelude.NFData Denied where
   rnf Denied' {..} =
-    Prelude.rnf explicitDeny
-      `Prelude.seq` Prelude.rnf implicitDeny
+    Prelude.rnf explicitDeny `Prelude.seq`
+      Prelude.rnf implicitDeny

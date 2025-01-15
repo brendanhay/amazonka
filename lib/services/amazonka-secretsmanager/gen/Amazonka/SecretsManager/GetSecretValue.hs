@@ -209,9 +209,9 @@ instance Prelude.Hashable GetSecretValue where
 
 instance Prelude.NFData GetSecretValue where
   rnf GetSecretValue' {..} =
-    Prelude.rnf versionId
-      `Prelude.seq` Prelude.rnf versionStage
-      `Prelude.seq` Prelude.rnf secretId
+    Prelude.rnf versionId `Prelude.seq`
+      Prelude.rnf versionStage `Prelude.seq`
+        Prelude.rnf secretId
 
 instance Data.ToHeaders GetSecretValue where
   toHeaders =
@@ -388,11 +388,11 @@ getSecretValueResponse_httpStatus = Lens.lens (\GetSecretValueResponse' {httpSta
 
 instance Prelude.NFData GetSecretValueResponse where
   rnf GetSecretValueResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdDate
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf secretBinary
-      `Prelude.seq` Prelude.rnf secretString
-      `Prelude.seq` Prelude.rnf versionId
-      `Prelude.seq` Prelude.rnf versionStages
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf createdDate `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf secretBinary `Prelude.seq`
+            Prelude.rnf secretString `Prelude.seq`
+              Prelude.rnf versionId `Prelude.seq`
+                Prelude.rnf versionStages `Prelude.seq`
+                  Prelude.rnf httpStatus

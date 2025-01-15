@@ -226,17 +226,17 @@ instance Prelude.Hashable BatchTransformInput where
 
 instance Prelude.NFData BatchTransformInput where
   rnf BatchTransformInput' {..} =
-    Prelude.rnf endTimeOffset
-      `Prelude.seq` Prelude.rnf featuresAttribute
-      `Prelude.seq` Prelude.rnf inferenceAttribute
-      `Prelude.seq` Prelude.rnf probabilityAttribute
-      `Prelude.seq` Prelude.rnf probabilityThresholdAttribute
-      `Prelude.seq` Prelude.rnf s3DataDistributionType
-      `Prelude.seq` Prelude.rnf s3InputMode
-      `Prelude.seq` Prelude.rnf startTimeOffset
-      `Prelude.seq` Prelude.rnf dataCapturedDestinationS3Uri
-      `Prelude.seq` Prelude.rnf datasetFormat
-      `Prelude.seq` Prelude.rnf localPath
+    Prelude.rnf endTimeOffset `Prelude.seq`
+      Prelude.rnf featuresAttribute `Prelude.seq`
+        Prelude.rnf inferenceAttribute `Prelude.seq`
+          Prelude.rnf probabilityAttribute `Prelude.seq`
+            Prelude.rnf probabilityThresholdAttribute `Prelude.seq`
+              Prelude.rnf s3DataDistributionType `Prelude.seq`
+                Prelude.rnf s3InputMode `Prelude.seq`
+                  Prelude.rnf startTimeOffset `Prelude.seq`
+                    Prelude.rnf dataCapturedDestinationS3Uri `Prelude.seq`
+                      Prelude.rnf datasetFormat `Prelude.seq`
+                        Prelude.rnf localPath
 
 instance Data.ToJSON BatchTransformInput where
   toJSON BatchTransformInput' {..} =

@@ -124,9 +124,9 @@ instance Prelude.Hashable AttributeValue where
 
 instance Prelude.NFData AttributeValue where
   rnf AttributeValue' {..} =
-    Prelude.rnf b
-      `Prelude.seq` Prelude.rnf bs
-      `Prelude.seq` Prelude.rnf n
-      `Prelude.seq` Prelude.rnf ns
-      `Prelude.seq` Prelude.rnf s
-      `Prelude.seq` Prelude.rnf ss
+    Prelude.rnf b `Prelude.seq`
+      Prelude.rnf bs `Prelude.seq`
+        Prelude.rnf n `Prelude.seq`
+          Prelude.rnf ns `Prelude.seq`
+            Prelude.rnf s `Prelude.seq`
+              Prelude.rnf ss

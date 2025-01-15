@@ -197,12 +197,12 @@ instance Prelude.Hashable DescribeFleetHistory where
 
 instance Prelude.NFData DescribeFleetHistory where
   rnf DescribeFleetHistory' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf eventType
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf fleetId
-      `Prelude.seq` Prelude.rnf startTime
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf eventType `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf fleetId `Prelude.seq`
+              Prelude.rnf startTime
 
 instance Data.ToHeaders DescribeFleetHistory where
   toHeaders = Prelude.const Prelude.mempty
@@ -320,9 +320,9 @@ describeFleetHistoryResponse_httpStatus = Lens.lens (\DescribeFleetHistoryRespon
 
 instance Prelude.NFData DescribeFleetHistoryResponse where
   rnf DescribeFleetHistoryResponse' {..} =
-    Prelude.rnf fleetId
-      `Prelude.seq` Prelude.rnf historyRecords
-      `Prelude.seq` Prelude.rnf lastEvaluatedTime
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf fleetId `Prelude.seq`
+      Prelude.rnf historyRecords `Prelude.seq`
+        Prelude.rnf lastEvaluatedTime `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf startTime `Prelude.seq`
+              Prelude.rnf httpStatus

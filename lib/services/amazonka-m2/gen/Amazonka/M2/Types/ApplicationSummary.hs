@@ -226,15 +226,15 @@ instance Prelude.Hashable ApplicationSummary where
 
 instance Prelude.NFData ApplicationSummary where
   rnf ApplicationSummary' {..} =
-    Prelude.rnf deploymentStatus
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf environmentId
-      `Prelude.seq` Prelude.rnf lastStartTime
-      `Prelude.seq` Prelude.rnf versionStatus
-      `Prelude.seq` Prelude.rnf applicationArn
-      `Prelude.seq` Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf applicationVersion
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf engineType
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf deploymentStatus `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf environmentId `Prelude.seq`
+          Prelude.rnf lastStartTime `Prelude.seq`
+            Prelude.rnf versionStatus `Prelude.seq`
+              Prelude.rnf applicationArn `Prelude.seq`
+                Prelude.rnf applicationId `Prelude.seq`
+                  Prelude.rnf applicationVersion `Prelude.seq`
+                    Prelude.rnf creationTime `Prelude.seq`
+                      Prelude.rnf engineType `Prelude.seq`
+                        Prelude.rnf name `Prelude.seq`
+                          Prelude.rnf status

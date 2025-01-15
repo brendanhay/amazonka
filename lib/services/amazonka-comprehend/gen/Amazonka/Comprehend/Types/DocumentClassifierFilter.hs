@@ -112,10 +112,10 @@ instance Prelude.Hashable DocumentClassifierFilter where
 
 instance Prelude.NFData DocumentClassifierFilter where
   rnf DocumentClassifierFilter' {..} =
-    Prelude.rnf documentClassifierName
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf submitTimeAfter
-      `Prelude.seq` Prelude.rnf submitTimeBefore
+    Prelude.rnf documentClassifierName `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf submitTimeAfter `Prelude.seq`
+          Prelude.rnf submitTimeBefore
 
 instance Data.ToJSON DocumentClassifierFilter where
   toJSON DocumentClassifierFilter' {..} =

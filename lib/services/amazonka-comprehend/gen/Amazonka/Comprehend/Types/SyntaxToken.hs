@@ -134,8 +134,8 @@ instance Prelude.Hashable SyntaxToken where
 
 instance Prelude.NFData SyntaxToken where
   rnf SyntaxToken' {..} =
-    Prelude.rnf beginOffset
-      `Prelude.seq` Prelude.rnf endOffset
-      `Prelude.seq` Prelude.rnf partOfSpeech
-      `Prelude.seq` Prelude.rnf text
-      `Prelude.seq` Prelude.rnf tokenId
+    Prelude.rnf beginOffset `Prelude.seq`
+      Prelude.rnf endOffset `Prelude.seq`
+        Prelude.rnf partOfSpeech `Prelude.seq`
+          Prelude.rnf text `Prelude.seq`
+            Prelude.rnf tokenId

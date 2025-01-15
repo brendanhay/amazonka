@@ -94,6 +94,6 @@ instance Prelude.Hashable IPAddressBasedRemoteInfo where
 
 instance Prelude.NFData IPAddressBasedRemoteInfo where
   rnf IPAddressBasedRemoteInfo' {..} =
-    Prelude.rnf authType
-      `Prelude.seq` Prelude.rnf ipAddressConfigurationTimeStamp
-      `Prelude.seq` Prelude.rnf osType
+    Prelude.rnf authType `Prelude.seq`
+      Prelude.rnf ipAddressConfigurationTimeStamp `Prelude.seq`
+        Prelude.rnf osType

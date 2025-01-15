@@ -86,8 +86,8 @@ instance Prelude.Hashable CreatedArtifact where
 
 instance Prelude.NFData CreatedArtifact where
   rnf CreatedArtifact' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf name
 
 instance Data.ToJSON CreatedArtifact where
   toJSON CreatedArtifact' {..} =

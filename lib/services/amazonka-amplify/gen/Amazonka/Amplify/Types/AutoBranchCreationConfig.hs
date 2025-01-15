@@ -194,16 +194,16 @@ instance Prelude.Hashable AutoBranchCreationConfig where
 
 instance Prelude.NFData AutoBranchCreationConfig where
   rnf AutoBranchCreationConfig' {..} =
-    Prelude.rnf basicAuthCredentials
-      `Prelude.seq` Prelude.rnf buildSpec
-      `Prelude.seq` Prelude.rnf enableAutoBuild
-      `Prelude.seq` Prelude.rnf enableBasicAuth
-      `Prelude.seq` Prelude.rnf enablePerformanceMode
-      `Prelude.seq` Prelude.rnf enablePullRequestPreview
-      `Prelude.seq` Prelude.rnf environmentVariables
-      `Prelude.seq` Prelude.rnf framework
-      `Prelude.seq` Prelude.rnf pullRequestEnvironmentName
-      `Prelude.seq` Prelude.rnf stage
+    Prelude.rnf basicAuthCredentials `Prelude.seq`
+      Prelude.rnf buildSpec `Prelude.seq`
+        Prelude.rnf enableAutoBuild `Prelude.seq`
+          Prelude.rnf enableBasicAuth `Prelude.seq`
+            Prelude.rnf enablePerformanceMode `Prelude.seq`
+              Prelude.rnf enablePullRequestPreview `Prelude.seq`
+                Prelude.rnf environmentVariables `Prelude.seq`
+                  Prelude.rnf framework `Prelude.seq`
+                    Prelude.rnf pullRequestEnvironmentName `Prelude.seq`
+                      Prelude.rnf stage
 
 instance Data.ToJSON AutoBranchCreationConfig where
   toJSON AutoBranchCreationConfig' {..} =

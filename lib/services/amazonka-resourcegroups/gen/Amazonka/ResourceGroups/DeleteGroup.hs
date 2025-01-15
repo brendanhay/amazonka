@@ -112,8 +112,8 @@ instance Prelude.Hashable DeleteGroup where
 
 instance Prelude.NFData DeleteGroup where
   rnf DeleteGroup' {..} =
-    Prelude.rnf group'
-      `Prelude.seq` Prelude.rnf groupName
+    Prelude.rnf group' `Prelude.seq`
+      Prelude.rnf groupName
 
 instance Data.ToHeaders DeleteGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -173,5 +173,5 @@ deleteGroupResponse_httpStatus = Lens.lens (\DeleteGroupResponse' {httpStatus} -
 
 instance Prelude.NFData DeleteGroupResponse where
   rnf DeleteGroupResponse' {..} =
-    Prelude.rnf group'
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf group' `Prelude.seq`
+      Prelude.rnf httpStatus

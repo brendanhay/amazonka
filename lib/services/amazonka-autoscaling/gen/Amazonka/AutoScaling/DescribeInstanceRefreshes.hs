@@ -174,10 +174,10 @@ instance Prelude.Hashable DescribeInstanceRefreshes where
 
 instance Prelude.NFData DescribeInstanceRefreshes where
   rnf DescribeInstanceRefreshes' {..} =
-    Prelude.rnf instanceRefreshIds
-      `Prelude.seq` Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf autoScalingGroupName
+    Prelude.rnf instanceRefreshIds `Prelude.seq`
+      Prelude.rnf maxRecords `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf autoScalingGroupName
 
 instance Data.ToHeaders DescribeInstanceRefreshes where
   toHeaders = Prelude.const Prelude.mempty
@@ -267,6 +267,6 @@ instance
     DescribeInstanceRefreshesResponse
   where
   rnf DescribeInstanceRefreshesResponse' {..} =
-    Prelude.rnf instanceRefreshes
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf instanceRefreshes `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

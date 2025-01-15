@@ -81,5 +81,5 @@ instance Prelude.Hashable EstimatedResourceSize where
 
 instance Prelude.NFData EstimatedResourceSize where
   rnf EstimatedResourceSize' {..} =
-    Prelude.rnf estimatedOn
-      `Prelude.seq` Prelude.rnf estimatedSizeInBytes
+    Prelude.rnf estimatedOn `Prelude.seq`
+      Prelude.rnf estimatedSizeInBytes

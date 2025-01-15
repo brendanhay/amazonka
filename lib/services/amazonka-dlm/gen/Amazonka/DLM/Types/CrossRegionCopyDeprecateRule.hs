@@ -101,8 +101,8 @@ instance
 
 instance Prelude.NFData CrossRegionCopyDeprecateRule where
   rnf CrossRegionCopyDeprecateRule' {..} =
-    Prelude.rnf interval
-      `Prelude.seq` Prelude.rnf intervalUnit
+    Prelude.rnf interval `Prelude.seq`
+      Prelude.rnf intervalUnit
 
 instance Data.ToJSON CrossRegionCopyDeprecateRule where
   toJSON CrossRegionCopyDeprecateRule' {..} =

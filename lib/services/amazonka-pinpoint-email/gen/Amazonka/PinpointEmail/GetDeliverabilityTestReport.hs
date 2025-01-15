@@ -238,9 +238,9 @@ instance
     GetDeliverabilityTestReportResponse
   where
   rnf GetDeliverabilityTestReportResponse' {..} =
-    Prelude.rnf message
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf deliverabilityTestReport
-      `Prelude.seq` Prelude.rnf overallPlacement
-      `Prelude.seq` Prelude.rnf ispPlacements
+    Prelude.rnf message `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf httpStatus `Prelude.seq`
+          Prelude.rnf deliverabilityTestReport `Prelude.seq`
+            Prelude.rnf overallPlacement `Prelude.seq`
+              Prelude.rnf ispPlacements

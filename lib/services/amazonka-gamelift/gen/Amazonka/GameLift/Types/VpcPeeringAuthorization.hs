@@ -155,8 +155,8 @@ instance Prelude.Hashable VpcPeeringAuthorization where
 
 instance Prelude.NFData VpcPeeringAuthorization where
   rnf VpcPeeringAuthorization' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf expirationTime
-      `Prelude.seq` Prelude.rnf gameLiftAwsAccountId
-      `Prelude.seq` Prelude.rnf peerVpcAwsAccountId
-      `Prelude.seq` Prelude.rnf peerVpcId
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf expirationTime `Prelude.seq`
+        Prelude.rnf gameLiftAwsAccountId `Prelude.seq`
+          Prelude.rnf peerVpcAwsAccountId `Prelude.seq`
+            Prelude.rnf peerVpcId

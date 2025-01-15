@@ -120,10 +120,10 @@ instance
 
 instance Prelude.NFData VirtualGatewayClientPolicyTls where
   rnf VirtualGatewayClientPolicyTls' {..} =
-    Prelude.rnf certificate
-      `Prelude.seq` Prelude.rnf enforce
-      `Prelude.seq` Prelude.rnf ports
-      `Prelude.seq` Prelude.rnf validation
+    Prelude.rnf certificate `Prelude.seq`
+      Prelude.rnf enforce `Prelude.seq`
+        Prelude.rnf ports `Prelude.seq`
+          Prelude.rnf validation
 
 instance Data.ToJSON VirtualGatewayClientPolicyTls where
   toJSON VirtualGatewayClientPolicyTls' {..} =

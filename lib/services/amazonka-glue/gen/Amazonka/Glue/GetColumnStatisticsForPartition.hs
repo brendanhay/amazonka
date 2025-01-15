@@ -168,11 +168,11 @@ instance
     GetColumnStatisticsForPartition
   where
   rnf GetColumnStatisticsForPartition' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf tableName
-      `Prelude.seq` Prelude.rnf partitionValues
-      `Prelude.seq` Prelude.rnf columnNames
+    Prelude.rnf catalogId `Prelude.seq`
+      Prelude.rnf databaseName `Prelude.seq`
+        Prelude.rnf tableName `Prelude.seq`
+          Prelude.rnf partitionValues `Prelude.seq`
+            Prelude.rnf columnNames
 
 instance
   Data.ToHeaders
@@ -265,6 +265,6 @@ instance
     GetColumnStatisticsForPartitionResponse
   where
   rnf GetColumnStatisticsForPartitionResponse' {..} =
-    Prelude.rnf columnStatisticsList
-      `Prelude.seq` Prelude.rnf errors
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf columnStatisticsList `Prelude.seq`
+      Prelude.rnf errors `Prelude.seq`
+        Prelude.rnf httpStatus

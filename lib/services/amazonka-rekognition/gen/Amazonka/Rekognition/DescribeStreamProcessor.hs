@@ -348,18 +348,18 @@ instance
     DescribeStreamProcessorResponse
   where
   rnf DescribeStreamProcessorResponse' {..} =
-    Prelude.rnf creationTimestamp
-      `Prelude.seq` Prelude.rnf dataSharingPreference
-      `Prelude.seq` Prelude.rnf input
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf lastUpdateTimestamp
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf notificationChannel
-      `Prelude.seq` Prelude.rnf output
-      `Prelude.seq` Prelude.rnf regionsOfInterest
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf settings
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf streamProcessorArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf creationTimestamp `Prelude.seq`
+      Prelude.rnf dataSharingPreference `Prelude.seq`
+        Prelude.rnf input `Prelude.seq`
+          Prelude.rnf kmsKeyId `Prelude.seq`
+            Prelude.rnf lastUpdateTimestamp `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf notificationChannel `Prelude.seq`
+                  Prelude.rnf output `Prelude.seq`
+                    Prelude.rnf regionsOfInterest `Prelude.seq`
+                      Prelude.rnf roleArn `Prelude.seq`
+                        Prelude.rnf settings `Prelude.seq`
+                          Prelude.rnf status `Prelude.seq`
+                            Prelude.rnf statusMessage `Prelude.seq`
+                              Prelude.rnf streamProcessorArn `Prelude.seq`
+                                Prelude.rnf httpStatus

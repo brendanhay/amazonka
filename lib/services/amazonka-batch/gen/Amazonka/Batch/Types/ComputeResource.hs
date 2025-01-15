@@ -881,23 +881,23 @@ instance Prelude.Hashable ComputeResource where
 
 instance Prelude.NFData ComputeResource where
   rnf ComputeResource' {..} =
-    Prelude.rnf allocationStrategy
-      `Prelude.seq` Prelude.rnf bidPercentage
-      `Prelude.seq` Prelude.rnf desiredvCpus
-      `Prelude.seq` Prelude.rnf ec2Configuration
-      `Prelude.seq` Prelude.rnf ec2KeyPair
-      `Prelude.seq` Prelude.rnf imageId
-      `Prelude.seq` Prelude.rnf instanceRole
-      `Prelude.seq` Prelude.rnf instanceTypes
-      `Prelude.seq` Prelude.rnf launchTemplate
-      `Prelude.seq` Prelude.rnf minvCpus
-      `Prelude.seq` Prelude.rnf placementGroup
-      `Prelude.seq` Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf spotIamFleetRole
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf maxvCpus
-      `Prelude.seq` Prelude.rnf subnets
+    Prelude.rnf allocationStrategy `Prelude.seq`
+      Prelude.rnf bidPercentage `Prelude.seq`
+        Prelude.rnf desiredvCpus `Prelude.seq`
+          Prelude.rnf ec2Configuration `Prelude.seq`
+            Prelude.rnf ec2KeyPair `Prelude.seq`
+              Prelude.rnf imageId `Prelude.seq`
+                Prelude.rnf instanceRole `Prelude.seq`
+                  Prelude.rnf instanceTypes `Prelude.seq`
+                    Prelude.rnf launchTemplate `Prelude.seq`
+                      Prelude.rnf minvCpus `Prelude.seq`
+                        Prelude.rnf placementGroup `Prelude.seq`
+                          Prelude.rnf securityGroupIds `Prelude.seq`
+                            Prelude.rnf spotIamFleetRole `Prelude.seq`
+                              Prelude.rnf tags `Prelude.seq`
+                                Prelude.rnf type' `Prelude.seq`
+                                  Prelude.rnf maxvCpus `Prelude.seq`
+                                    Prelude.rnf subnets
 
 instance Data.ToJSON ComputeResource where
   toJSON ComputeResource' {..} =

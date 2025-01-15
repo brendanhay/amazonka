@@ -141,10 +141,10 @@ instance Prelude.Hashable DeleteRecord where
 
 instance Prelude.NFData DeleteRecord where
   rnf DeleteRecord' {..} =
-    Prelude.rnf targetStores
-      `Prelude.seq` Prelude.rnf featureGroupName
-      `Prelude.seq` Prelude.rnf recordIdentifierValueAsString
-      `Prelude.seq` Prelude.rnf eventTime
+    Prelude.rnf targetStores `Prelude.seq`
+      Prelude.rnf featureGroupName `Prelude.seq`
+        Prelude.rnf recordIdentifierValueAsString `Prelude.seq`
+          Prelude.rnf eventTime
 
 instance Data.ToHeaders DeleteRecord where
   toHeaders =

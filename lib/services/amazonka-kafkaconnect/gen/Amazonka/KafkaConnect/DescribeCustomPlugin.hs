@@ -228,11 +228,11 @@ describeCustomPluginResponse_httpStatus = Lens.lens (\DescribeCustomPluginRespon
 
 instance Prelude.NFData DescribeCustomPluginResponse where
   rnf DescribeCustomPluginResponse' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf customPluginArn
-      `Prelude.seq` Prelude.rnf customPluginState
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf latestRevision
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf stateDescription
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf customPluginArn `Prelude.seq`
+        Prelude.rnf customPluginState `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf latestRevision `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf stateDescription `Prelude.seq`
+                  Prelude.rnf httpStatus

@@ -110,9 +110,9 @@ instance Prelude.Hashable S3ResourceClassification where
 
 instance Prelude.NFData S3ResourceClassification where
   rnf S3ResourceClassification' {..} =
-    Prelude.rnf prefix
-      `Prelude.seq` Prelude.rnf bucketName
-      `Prelude.seq` Prelude.rnf classificationType
+    Prelude.rnf prefix `Prelude.seq`
+      Prelude.rnf bucketName `Prelude.seq`
+        Prelude.rnf classificationType
 
 instance Data.ToJSON S3ResourceClassification where
   toJSON S3ResourceClassification' {..} =

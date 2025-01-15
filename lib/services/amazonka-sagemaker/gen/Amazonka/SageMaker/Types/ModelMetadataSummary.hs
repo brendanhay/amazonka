@@ -128,8 +128,8 @@ instance Prelude.Hashable ModelMetadataSummary where
 
 instance Prelude.NFData ModelMetadataSummary where
   rnf ModelMetadataSummary' {..} =
-    Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf framework
-      `Prelude.seq` Prelude.rnf task
-      `Prelude.seq` Prelude.rnf model
-      `Prelude.seq` Prelude.rnf frameworkVersion
+    Prelude.rnf domain `Prelude.seq`
+      Prelude.rnf framework `Prelude.seq`
+        Prelude.rnf task `Prelude.seq`
+          Prelude.rnf model `Prelude.seq`
+            Prelude.rnf frameworkVersion

@@ -122,8 +122,8 @@ instance Prelude.Hashable DeleteRepositoryPolicy where
 
 instance Prelude.NFData DeleteRepositoryPolicy where
   rnf DeleteRepositoryPolicy' {..} =
-    Prelude.rnf registryId
-      `Prelude.seq` Prelude.rnf repositoryName
+    Prelude.rnf registryId `Prelude.seq`
+      Prelude.rnf repositoryName
 
 instance Data.ToHeaders DeleteRepositoryPolicy where
   toHeaders =
@@ -218,7 +218,7 @@ instance
     DeleteRepositoryPolicyResponse
   where
   rnf DeleteRepositoryPolicyResponse' {..} =
-    Prelude.rnf policyText
-      `Prelude.seq` Prelude.rnf registryId
-      `Prelude.seq` Prelude.rnf repositoryName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf policyText `Prelude.seq`
+      Prelude.rnf registryId `Prelude.seq`
+        Prelude.rnf repositoryName `Prelude.seq`
+          Prelude.rnf httpStatus

@@ -99,6 +99,6 @@ instance
 
 instance Prelude.NFData WorkerLogDeliveryDescription where
   rnf WorkerLogDeliveryDescription' {..} =
-    Prelude.rnf cloudWatchLogs
-      `Prelude.seq` Prelude.rnf firehose
-      `Prelude.seq` Prelude.rnf s3
+    Prelude.rnf cloudWatchLogs `Prelude.seq`
+      Prelude.rnf firehose `Prelude.seq`
+        Prelude.rnf s3

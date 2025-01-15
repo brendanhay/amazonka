@@ -126,8 +126,8 @@ instance Prelude.Hashable UpdateBackupPlan where
 
 instance Prelude.NFData UpdateBackupPlan where
   rnf UpdateBackupPlan' {..} =
-    Prelude.rnf backupPlanId
-      `Prelude.seq` Prelude.rnf backupPlan
+    Prelude.rnf backupPlanId `Prelude.seq`
+      Prelude.rnf backupPlan
 
 instance Data.ToHeaders UpdateBackupPlan where
   toHeaders =
@@ -250,9 +250,9 @@ updateBackupPlanResponse_httpStatus = Lens.lens (\UpdateBackupPlanResponse' {htt
 
 instance Prelude.NFData UpdateBackupPlanResponse where
   rnf UpdateBackupPlanResponse' {..} =
-    Prelude.rnf advancedBackupSettings
-      `Prelude.seq` Prelude.rnf backupPlanArn
-      `Prelude.seq` Prelude.rnf backupPlanId
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf versionId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf advancedBackupSettings `Prelude.seq`
+      Prelude.rnf backupPlanArn `Prelude.seq`
+        Prelude.rnf backupPlanId `Prelude.seq`
+          Prelude.rnf creationDate `Prelude.seq`
+            Prelude.rnf versionId `Prelude.seq`
+              Prelude.rnf httpStatus

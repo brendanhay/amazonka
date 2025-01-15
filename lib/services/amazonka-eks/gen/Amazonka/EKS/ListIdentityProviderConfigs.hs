@@ -151,12 +151,12 @@ instance Core.AWSPager ListIdentityProviderConfigs where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listIdentityProviderConfigs_nextToken
-          Lens..~ rs
-          Lens.^? listIdentityProviderConfigsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listIdentityProviderConfigs_nextToken
+              Lens..~ rs
+              Lens.^? listIdentityProviderConfigsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListIdentityProviderConfigs where
   type
@@ -185,9 +185,9 @@ instance Prelude.Hashable ListIdentityProviderConfigs where
 
 instance Prelude.NFData ListIdentityProviderConfigs where
   rnf ListIdentityProviderConfigs' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf clusterName
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf clusterName
 
 instance Data.ToHeaders ListIdentityProviderConfigs where
   toHeaders =
@@ -280,6 +280,6 @@ instance
     ListIdentityProviderConfigsResponse
   where
   rnf ListIdentityProviderConfigsResponse' {..} =
-    Prelude.rnf identityProviderConfigs
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf identityProviderConfigs `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

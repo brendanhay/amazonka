@@ -221,15 +221,15 @@ instance Prelude.Hashable JobRunSummary where
 
 instance Prelude.NFData JobRunSummary where
   rnf JobRunSummary' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdBy
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf updatedAt
-      `Prelude.seq` Prelude.rnf executionRole
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf stateDetails
-      `Prelude.seq` Prelude.rnf releaseLabel
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf type' `Prelude.seq`
+        Prelude.rnf applicationId `Prelude.seq`
+          Prelude.rnf id `Prelude.seq`
+            Prelude.rnf arn `Prelude.seq`
+              Prelude.rnf createdBy `Prelude.seq`
+                Prelude.rnf createdAt `Prelude.seq`
+                  Prelude.rnf updatedAt `Prelude.seq`
+                    Prelude.rnf executionRole `Prelude.seq`
+                      Prelude.rnf state `Prelude.seq`
+                        Prelude.rnf stateDetails `Prelude.seq`
+                          Prelude.rnf releaseLabel

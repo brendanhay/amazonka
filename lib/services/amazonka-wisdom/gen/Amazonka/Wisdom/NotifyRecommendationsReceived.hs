@@ -146,9 +146,9 @@ instance
 
 instance Prelude.NFData NotifyRecommendationsReceived where
   rnf NotifyRecommendationsReceived' {..} =
-    Prelude.rnf assistantId
-      `Prelude.seq` Prelude.rnf recommendationIds
-      `Prelude.seq` Prelude.rnf sessionId
+    Prelude.rnf assistantId `Prelude.seq`
+      Prelude.rnf recommendationIds `Prelude.seq`
+        Prelude.rnf sessionId
 
 instance Data.ToHeaders NotifyRecommendationsReceived where
   toHeaders =
@@ -236,6 +236,6 @@ instance
     NotifyRecommendationsReceivedResponse
   where
   rnf NotifyRecommendationsReceivedResponse' {..} =
-    Prelude.rnf errors
-      `Prelude.seq` Prelude.rnf recommendationIds
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf errors `Prelude.seq`
+      Prelude.rnf recommendationIds `Prelude.seq`
+        Prelude.rnf httpStatus

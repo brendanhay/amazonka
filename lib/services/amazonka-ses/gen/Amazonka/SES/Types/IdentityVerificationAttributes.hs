@@ -95,5 +95,5 @@ instance
     IdentityVerificationAttributes
   where
   rnf IdentityVerificationAttributes' {..} =
-    Prelude.rnf verificationToken
-      `Prelude.seq` Prelude.rnf verificationStatus
+    Prelude.rnf verificationToken `Prelude.seq`
+      Prelude.rnf verificationStatus

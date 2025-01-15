@@ -236,16 +236,16 @@ instance Prelude.Hashable Service where
 
 instance Prelude.NFData Service where
   rnf Service' {..} =
-    Prelude.rnf branchName
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf pipeline
-      `Prelude.seq` Prelude.rnf repositoryConnectionArn
-      `Prelude.seq` Prelude.rnf repositoryId
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf lastModifiedAt
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf spec
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf templateName
+    Prelude.rnf branchName `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf pipeline `Prelude.seq`
+          Prelude.rnf repositoryConnectionArn `Prelude.seq`
+            Prelude.rnf repositoryId `Prelude.seq`
+              Prelude.rnf statusMessage `Prelude.seq`
+                Prelude.rnf arn `Prelude.seq`
+                  Prelude.rnf createdAt `Prelude.seq`
+                    Prelude.rnf lastModifiedAt `Prelude.seq`
+                      Prelude.rnf name `Prelude.seq`
+                        Prelude.rnf spec `Prelude.seq`
+                          Prelude.rnf status `Prelude.seq`
+                            Prelude.rnf templateName

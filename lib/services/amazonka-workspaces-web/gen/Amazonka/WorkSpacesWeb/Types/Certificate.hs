@@ -132,9 +132,9 @@ instance Prelude.Hashable Certificate where
 
 instance Prelude.NFData Certificate where
   rnf Certificate' {..} =
-    Prelude.rnf body
-      `Prelude.seq` Prelude.rnf issuer
-      `Prelude.seq` Prelude.rnf notValidAfter
-      `Prelude.seq` Prelude.rnf notValidBefore
-      `Prelude.seq` Prelude.rnf subject
-      `Prelude.seq` Prelude.rnf thumbprint
+    Prelude.rnf body `Prelude.seq`
+      Prelude.rnf issuer `Prelude.seq`
+        Prelude.rnf notValidAfter `Prelude.seq`
+          Prelude.rnf notValidBefore `Prelude.seq`
+            Prelude.rnf subject `Prelude.seq`
+              Prelude.rnf thumbprint

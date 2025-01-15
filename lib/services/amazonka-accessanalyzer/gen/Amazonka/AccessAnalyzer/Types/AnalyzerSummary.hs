@@ -212,12 +212,12 @@ instance Prelude.Hashable AnalyzerSummary where
 
 instance Prelude.NFData AnalyzerSummary where
   rnf AnalyzerSummary' {..} =
-    Prelude.rnf lastResourceAnalyzed
-      `Prelude.seq` Prelude.rnf lastResourceAnalyzedAt
-      `Prelude.seq` Prelude.rnf statusReason
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf lastResourceAnalyzed `Prelude.seq`
+      Prelude.rnf lastResourceAnalyzedAt `Prelude.seq`
+        Prelude.rnf statusReason `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf arn `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf type' `Prelude.seq`
+                  Prelude.rnf createdAt `Prelude.seq`
+                    Prelude.rnf status

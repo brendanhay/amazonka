@@ -150,9 +150,9 @@ instance Prelude.Hashable CreateBotVersion where
 
 instance Prelude.NFData CreateBotVersion where
   rnf CreateBotVersion' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf botVersionLocaleSpecification
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf botId `Prelude.seq`
+        Prelude.rnf botVersionLocaleSpecification
 
 instance Data.ToHeaders CreateBotVersion where
   toHeaders =
@@ -279,10 +279,10 @@ createBotVersionResponse_httpStatus = Lens.lens (\CreateBotVersionResponse' {htt
 
 instance Prelude.NFData CreateBotVersionResponse where
   rnf CreateBotVersionResponse' {..} =
-    Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf botStatus
-      `Prelude.seq` Prelude.rnf botVersion
-      `Prelude.seq` Prelude.rnf botVersionLocaleSpecification
-      `Prelude.seq` Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf botId `Prelude.seq`
+      Prelude.rnf botStatus `Prelude.seq`
+        Prelude.rnf botVersion `Prelude.seq`
+          Prelude.rnf botVersionLocaleSpecification `Prelude.seq`
+            Prelude.rnf creationDateTime `Prelude.seq`
+              Prelude.rnf description `Prelude.seq`
+                Prelude.rnf httpStatus

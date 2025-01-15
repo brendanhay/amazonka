@@ -103,8 +103,8 @@ instance
     RowLevelPermissionTagConfiguration
   where
   rnf RowLevelPermissionTagConfiguration' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf tagRules
+    Prelude.rnf status `Prelude.seq`
+      Prelude.rnf tagRules
 
 instance
   Data.ToJSON

@@ -117,8 +117,8 @@ instance Prelude.Hashable ModifyEndpointAccess where
 
 instance Prelude.NFData ModifyEndpointAccess where
   rnf ModifyEndpointAccess' {..} =
-    Prelude.rnf vpcSecurityGroupIds
-      `Prelude.seq` Prelude.rnf endpointName
+    Prelude.rnf vpcSecurityGroupIds `Prelude.seq`
+      Prelude.rnf endpointName
 
 instance Data.ToHeaders ModifyEndpointAccess where
   toHeaders = Prelude.const Prelude.mempty

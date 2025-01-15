@@ -157,12 +157,12 @@ instance Prelude.Hashable TrialComponentMetricSummary where
 
 instance Prelude.NFData TrialComponentMetricSummary where
   rnf TrialComponentMetricSummary' {..} =
-    Prelude.rnf avg
-      `Prelude.seq` Prelude.rnf count
-      `Prelude.seq` Prelude.rnf last
-      `Prelude.seq` Prelude.rnf max
-      `Prelude.seq` Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf min
-      `Prelude.seq` Prelude.rnf sourceArn
-      `Prelude.seq` Prelude.rnf stdDev
-      `Prelude.seq` Prelude.rnf timeStamp
+    Prelude.rnf avg `Prelude.seq`
+      Prelude.rnf count `Prelude.seq`
+        Prelude.rnf last `Prelude.seq`
+          Prelude.rnf max `Prelude.seq`
+            Prelude.rnf metricName `Prelude.seq`
+              Prelude.rnf min `Prelude.seq`
+                Prelude.rnf sourceArn `Prelude.seq`
+                  Prelude.rnf stdDev `Prelude.seq`
+                    Prelude.rnf timeStamp

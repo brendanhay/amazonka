@@ -162,9 +162,9 @@ instance Prelude.Hashable AssignTapePool where
 
 instance Prelude.NFData AssignTapePool where
   rnf AssignTapePool' {..} =
-    Prelude.rnf bypassGovernanceRetention
-      `Prelude.seq` Prelude.rnf tapeARN
-      `Prelude.seq` Prelude.rnf poolId
+    Prelude.rnf bypassGovernanceRetention `Prelude.seq`
+      Prelude.rnf tapeARN `Prelude.seq`
+        Prelude.rnf poolId
 
 instance Data.ToHeaders AssignTapePool where
   toHeaders =
@@ -241,5 +241,5 @@ assignTapePoolResponse_httpStatus = Lens.lens (\AssignTapePoolResponse' {httpSta
 
 instance Prelude.NFData AssignTapePoolResponse where
   rnf AssignTapePoolResponse' {..} =
-    Prelude.rnf tapeARN
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf tapeARN `Prelude.seq`
+      Prelude.rnf httpStatus

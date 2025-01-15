@@ -216,9 +216,9 @@ instance Prelude.Hashable PutGroupPolicy where
 
 instance Prelude.NFData PutGroupPolicy where
   rnf PutGroupPolicy' {..} =
-    Prelude.rnf groupName
-      `Prelude.seq` Prelude.rnf policyName
-      `Prelude.seq` Prelude.rnf policyDocument
+    Prelude.rnf groupName `Prelude.seq`
+      Prelude.rnf policyName `Prelude.seq`
+        Prelude.rnf policyDocument
 
 instance Data.ToHeaders PutGroupPolicy where
   toHeaders = Prelude.const Prelude.mempty

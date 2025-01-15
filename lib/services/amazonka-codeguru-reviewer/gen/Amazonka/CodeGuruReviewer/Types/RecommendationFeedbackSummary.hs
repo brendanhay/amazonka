@@ -117,6 +117,6 @@ instance
 
 instance Prelude.NFData RecommendationFeedbackSummary where
   rnf RecommendationFeedbackSummary' {..} =
-    Prelude.rnf reactions
-      `Prelude.seq` Prelude.rnf recommendationId
-      `Prelude.seq` Prelude.rnf userId
+    Prelude.rnf reactions `Prelude.seq`
+      Prelude.rnf recommendationId `Prelude.seq`
+        Prelude.rnf userId

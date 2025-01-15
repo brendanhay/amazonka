@@ -120,6 +120,6 @@ instance
     BatchUpdateDevicePositionError
   where
   rnf BatchUpdateDevicePositionError' {..} =
-    Prelude.rnf deviceId
-      `Prelude.seq` Prelude.rnf error
-      `Prelude.seq` Prelude.rnf sampleTime
+    Prelude.rnf deviceId `Prelude.seq`
+      Prelude.rnf error `Prelude.seq`
+        Prelude.rnf sampleTime

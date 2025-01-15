@@ -167,9 +167,9 @@ instance Prelude.Hashable GetId where
 
 instance Prelude.NFData GetId where
   rnf GetId' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf logins
-      `Prelude.seq` Prelude.rnf identityPoolId
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf logins `Prelude.seq`
+        Prelude.rnf identityPoolId
 
 instance Data.ToHeaders GetId where
   toHeaders =
@@ -245,5 +245,5 @@ getIdResponse_httpStatus = Lens.lens (\GetIdResponse' {httpStatus} -> httpStatus
 
 instance Prelude.NFData GetIdResponse where
   rnf GetIdResponse' {..} =
-    Prelude.rnf identityId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf identityId `Prelude.seq`
+      Prelude.rnf httpStatus

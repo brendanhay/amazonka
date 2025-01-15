@@ -113,8 +113,8 @@ instance Prelude.Hashable PackageListItem where
 
 instance Prelude.NFData PackageListItem where
   rnf PackageListItem' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf packageId
-      `Prelude.seq` Prelude.rnf packageName
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf createdTime `Prelude.seq`
+        Prelude.rnf packageId `Prelude.seq`
+          Prelude.rnf packageName `Prelude.seq`
+            Prelude.rnf tags

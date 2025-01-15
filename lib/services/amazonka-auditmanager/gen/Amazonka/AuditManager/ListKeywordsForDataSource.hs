@@ -126,9 +126,9 @@ instance Prelude.Hashable ListKeywordsForDataSource where
 
 instance Prelude.NFData ListKeywordsForDataSource where
   rnf ListKeywordsForDataSource' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf source
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf source
 
 instance Data.ToHeaders ListKeywordsForDataSource where
   toHeaders =
@@ -205,6 +205,6 @@ instance
     ListKeywordsForDataSourceResponse
   where
   rnf ListKeywordsForDataSourceResponse' {..} =
-    Prelude.rnf keywords
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf keywords `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

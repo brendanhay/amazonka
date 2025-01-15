@@ -79,5 +79,5 @@ instance Prelude.Hashable LoRaWANFuotaTaskGetInfo where
 
 instance Prelude.NFData LoRaWANFuotaTaskGetInfo where
   rnf LoRaWANFuotaTaskGetInfo' {..} =
-    Prelude.rnf rfRegion
-      `Prelude.seq` Prelude.rnf startTime
+    Prelude.rnf rfRegion `Prelude.seq`
+      Prelude.rnf startTime

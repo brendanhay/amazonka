@@ -75,8 +75,8 @@ instance Prelude.Hashable NodeSignal where
 
 instance Prelude.NFData NodeSignal where
   rnf NodeSignal' {..} =
-    Prelude.rnf nodeInstanceId
-      `Prelude.seq` Prelude.rnf signal
+    Prelude.rnf nodeInstanceId `Prelude.seq`
+      Prelude.rnf signal
 
 instance Data.ToJSON NodeSignal where
   toJSON NodeSignal' {..} =

@@ -120,9 +120,9 @@ instance Prelude.Hashable UpdateOpsMetadata where
 
 instance Prelude.NFData UpdateOpsMetadata where
   rnf UpdateOpsMetadata' {..} =
-    Prelude.rnf keysToDelete
-      `Prelude.seq` Prelude.rnf metadataToUpdate
-      `Prelude.seq` Prelude.rnf opsMetadataArn
+    Prelude.rnf keysToDelete `Prelude.seq`
+      Prelude.rnf metadataToUpdate `Prelude.seq`
+        Prelude.rnf opsMetadataArn
 
 instance Data.ToHeaders UpdateOpsMetadata where
   toHeaders =
@@ -201,5 +201,5 @@ updateOpsMetadataResponse_httpStatus = Lens.lens (\UpdateOpsMetadataResponse' {h
 
 instance Prelude.NFData UpdateOpsMetadataResponse where
   rnf UpdateOpsMetadataResponse' {..} =
-    Prelude.rnf opsMetadataArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf opsMetadataArn `Prelude.seq`
+      Prelude.rnf httpStatus

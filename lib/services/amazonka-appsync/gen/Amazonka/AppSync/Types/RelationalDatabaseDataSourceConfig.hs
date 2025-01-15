@@ -104,8 +104,8 @@ instance
     RelationalDatabaseDataSourceConfig
   where
   rnf RelationalDatabaseDataSourceConfig' {..} =
-    Prelude.rnf rdsHttpEndpointConfig
-      `Prelude.seq` Prelude.rnf relationalDatabaseSourceType
+    Prelude.rnf rdsHttpEndpointConfig `Prelude.seq`
+      Prelude.rnf relationalDatabaseSourceType
 
 instance
   Data.ToJSON

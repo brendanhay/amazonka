@@ -115,10 +115,10 @@ instance Prelude.Hashable VmwareToAwsTagMapping where
 
 instance Prelude.NFData VmwareToAwsTagMapping where
   rnf VmwareToAwsTagMapping' {..} =
-    Prelude.rnf awsTagKey
-      `Prelude.seq` Prelude.rnf awsTagValue
-      `Prelude.seq` Prelude.rnf vmwareCategory
-      `Prelude.seq` Prelude.rnf vmwareTagName
+    Prelude.rnf awsTagKey `Prelude.seq`
+      Prelude.rnf awsTagValue `Prelude.seq`
+        Prelude.rnf vmwareCategory `Prelude.seq`
+          Prelude.rnf vmwareTagName
 
 instance Data.ToJSON VmwareToAwsTagMapping where
   toJSON VmwareToAwsTagMapping' {..} =

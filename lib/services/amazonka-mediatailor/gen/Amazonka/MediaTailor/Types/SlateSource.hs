@@ -83,8 +83,8 @@ instance Prelude.Hashable SlateSource where
 
 instance Prelude.NFData SlateSource where
   rnf SlateSource' {..} =
-    Prelude.rnf sourceLocationName
-      `Prelude.seq` Prelude.rnf vodSourceName
+    Prelude.rnf sourceLocationName `Prelude.seq`
+      Prelude.rnf vodSourceName
 
 instance Data.ToJSON SlateSource where
   toJSON SlateSource' {..} =

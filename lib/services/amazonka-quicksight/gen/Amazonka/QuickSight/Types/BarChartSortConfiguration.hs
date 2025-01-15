@@ -131,12 +131,12 @@ instance Prelude.Hashable BarChartSortConfiguration where
 
 instance Prelude.NFData BarChartSortConfiguration where
   rnf BarChartSortConfiguration' {..} =
-    Prelude.rnf categoryItemsLimit
-      `Prelude.seq` Prelude.rnf categorySort
-      `Prelude.seq` Prelude.rnf colorItemsLimit
-      `Prelude.seq` Prelude.rnf colorSort
-      `Prelude.seq` Prelude.rnf smallMultiplesLimitConfiguration
-      `Prelude.seq` Prelude.rnf smallMultiplesSort
+    Prelude.rnf categoryItemsLimit `Prelude.seq`
+      Prelude.rnf categorySort `Prelude.seq`
+        Prelude.rnf colorItemsLimit `Prelude.seq`
+          Prelude.rnf colorSort `Prelude.seq`
+            Prelude.rnf smallMultiplesLimitConfiguration `Prelude.seq`
+              Prelude.rnf smallMultiplesSort
 
 instance Data.ToJSON BarChartSortConfiguration where
   toJSON BarChartSortConfiguration' {..} =

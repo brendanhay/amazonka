@@ -164,9 +164,9 @@ instance Prelude.Hashable SlotTypeSummary where
 
 instance Prelude.NFData SlotTypeSummary where
   rnf SlotTypeSummary' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
-      `Prelude.seq` Prelude.rnf parentSlotTypeSignature
-      `Prelude.seq` Prelude.rnf slotTypeCategory
-      `Prelude.seq` Prelude.rnf slotTypeId
-      `Prelude.seq` Prelude.rnf slotTypeName
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf lastUpdatedDateTime `Prelude.seq`
+        Prelude.rnf parentSlotTypeSignature `Prelude.seq`
+          Prelude.rnf slotTypeCategory `Prelude.seq`
+            Prelude.rnf slotTypeId `Prelude.seq`
+              Prelude.rnf slotTypeName

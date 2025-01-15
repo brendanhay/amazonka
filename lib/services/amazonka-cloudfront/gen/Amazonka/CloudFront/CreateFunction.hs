@@ -166,9 +166,9 @@ instance Prelude.Hashable CreateFunction where
 
 instance Prelude.NFData CreateFunction where
   rnf CreateFunction' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf functionConfig
-      `Prelude.seq` Prelude.rnf functionCode
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf functionConfig `Prelude.seq`
+        Prelude.rnf functionCode
 
 instance Data.ToElement CreateFunction where
   toElement =
@@ -259,7 +259,7 @@ createFunctionResponse_httpStatus = Lens.lens (\CreateFunctionResponse' {httpSta
 
 instance Prelude.NFData CreateFunctionResponse where
   rnf CreateFunctionResponse' {..} =
-    Prelude.rnf eTag
-      `Prelude.seq` Prelude.rnf functionSummary
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf eTag `Prelude.seq`
+      Prelude.rnf functionSummary `Prelude.seq`
+        Prelude.rnf location `Prelude.seq`
+          Prelude.rnf httpStatus

@@ -110,5 +110,5 @@ instance Prelude.Hashable AdvancedOptionsStatus where
 
 instance Prelude.NFData AdvancedOptionsStatus where
   rnf AdvancedOptionsStatus' {..} =
-    Prelude.rnf options
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf options `Prelude.seq`
+      Prelude.rnf status

@@ -285,23 +285,23 @@ instance Prelude.Hashable CreateWorkload where
 
 instance Prelude.NFData CreateWorkload where
   rnf CreateWorkload' {..} =
-    Prelude.rnf accountIds
-      `Prelude.seq` Prelude.rnf applications
-      `Prelude.seq` Prelude.rnf architecturalDesign
-      `Prelude.seq` Prelude.rnf awsRegions
-      `Prelude.seq` Prelude.rnf discoveryConfig
-      `Prelude.seq` Prelude.rnf industry
-      `Prelude.seq` Prelude.rnf industryType
-      `Prelude.seq` Prelude.rnf nonAwsRegions
-      `Prelude.seq` Prelude.rnf notes
-      `Prelude.seq` Prelude.rnf pillarPriorities
-      `Prelude.seq` Prelude.rnf reviewOwner
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf workloadName
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf environment
-      `Prelude.seq` Prelude.rnf lenses
-      `Prelude.seq` Prelude.rnf clientRequestToken
+    Prelude.rnf accountIds `Prelude.seq`
+      Prelude.rnf applications `Prelude.seq`
+        Prelude.rnf architecturalDesign `Prelude.seq`
+          Prelude.rnf awsRegions `Prelude.seq`
+            Prelude.rnf discoveryConfig `Prelude.seq`
+              Prelude.rnf industry `Prelude.seq`
+                Prelude.rnf industryType `Prelude.seq`
+                  Prelude.rnf nonAwsRegions `Prelude.seq`
+                    Prelude.rnf notes `Prelude.seq`
+                      Prelude.rnf pillarPriorities `Prelude.seq`
+                        Prelude.rnf reviewOwner `Prelude.seq`
+                          Prelude.rnf tags `Prelude.seq`
+                            Prelude.rnf workloadName `Prelude.seq`
+                              Prelude.rnf description `Prelude.seq`
+                                Prelude.rnf environment `Prelude.seq`
+                                  Prelude.rnf lenses `Prelude.seq`
+                                    Prelude.rnf clientRequestToken
 
 instance Data.ToHeaders CreateWorkload where
   toHeaders =
@@ -398,6 +398,6 @@ createWorkloadResponse_httpStatus = Lens.lens (\CreateWorkloadResponse' {httpSta
 
 instance Prelude.NFData CreateWorkloadResponse where
   rnf CreateWorkloadResponse' {..} =
-    Prelude.rnf workloadArn
-      `Prelude.seq` Prelude.rnf workloadId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf workloadArn `Prelude.seq`
+      Prelude.rnf workloadId `Prelude.seq`
+        Prelude.rnf httpStatus

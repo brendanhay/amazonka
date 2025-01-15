@@ -114,8 +114,8 @@ instance Prelude.Hashable ManagedJobTemplateSummary where
 
 instance Prelude.NFData ManagedJobTemplateSummary where
   rnf ManagedJobTemplateSummary' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf environments
-      `Prelude.seq` Prelude.rnf templateArn
-      `Prelude.seq` Prelude.rnf templateName
-      `Prelude.seq` Prelude.rnf templateVersion
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf environments `Prelude.seq`
+        Prelude.rnf templateArn `Prelude.seq`
+          Prelude.rnf templateName `Prelude.seq`
+            Prelude.rnf templateVersion

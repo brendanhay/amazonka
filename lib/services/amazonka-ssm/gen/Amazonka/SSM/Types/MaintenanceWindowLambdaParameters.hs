@@ -149,9 +149,9 @@ instance
     MaintenanceWindowLambdaParameters
   where
   rnf MaintenanceWindowLambdaParameters' {..} =
-    Prelude.rnf clientContext
-      `Prelude.seq` Prelude.rnf payload
-      `Prelude.seq` Prelude.rnf qualifier
+    Prelude.rnf clientContext `Prelude.seq`
+      Prelude.rnf payload `Prelude.seq`
+        Prelude.rnf qualifier
 
 instance
   Data.ToJSON

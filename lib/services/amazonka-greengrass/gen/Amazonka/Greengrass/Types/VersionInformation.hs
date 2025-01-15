@@ -102,7 +102,7 @@ instance Prelude.Hashable VersionInformation where
 
 instance Prelude.NFData VersionInformation where
   rnf VersionInformation' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationTimestamp
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf version
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf creationTimestamp `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf version

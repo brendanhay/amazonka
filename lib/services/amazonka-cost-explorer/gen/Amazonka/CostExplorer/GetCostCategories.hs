@@ -292,13 +292,13 @@ instance Prelude.Hashable GetCostCategories where
 
 instance Prelude.NFData GetCostCategories where
   rnf GetCostCategories' {..} =
-    Prelude.rnf costCategoryName
-      `Prelude.seq` Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf searchString
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf timePeriod
+    Prelude.rnf costCategoryName `Prelude.seq`
+      Prelude.rnf filter' `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextPageToken `Prelude.seq`
+            Prelude.rnf searchString `Prelude.seq`
+              Prelude.rnf sortBy `Prelude.seq`
+                Prelude.rnf timePeriod
 
 instance Data.ToHeaders GetCostCategories where
   toHeaders =
@@ -438,9 +438,9 @@ getCostCategoriesResponse_totalSize = Lens.lens (\GetCostCategoriesResponse' {to
 
 instance Prelude.NFData GetCostCategoriesResponse where
   rnf GetCostCategoriesResponse' {..} =
-    Prelude.rnf costCategoryNames
-      `Prelude.seq` Prelude.rnf costCategoryValues
-      `Prelude.seq` Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf returnSize
-      `Prelude.seq` Prelude.rnf totalSize
+    Prelude.rnf costCategoryNames `Prelude.seq`
+      Prelude.rnf costCategoryValues `Prelude.seq`
+        Prelude.rnf nextPageToken `Prelude.seq`
+          Prelude.rnf httpStatus `Prelude.seq`
+            Prelude.rnf returnSize `Prelude.seq`
+              Prelude.rnf totalSize

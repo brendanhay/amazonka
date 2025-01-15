@@ -130,8 +130,8 @@ instance
     UpdateSourceServerReplicationType
   where
   rnf UpdateSourceServerReplicationType' {..} =
-    Prelude.rnf replicationType
-      `Prelude.seq` Prelude.rnf sourceServerID
+    Prelude.rnf replicationType `Prelude.seq`
+      Prelude.rnf sourceServerID
 
 instance
   Data.ToHeaders

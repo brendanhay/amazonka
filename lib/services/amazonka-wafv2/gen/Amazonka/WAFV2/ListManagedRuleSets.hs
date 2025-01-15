@@ -184,9 +184,9 @@ instance Prelude.Hashable ListManagedRuleSets where
 
 instance Prelude.NFData ListManagedRuleSets where
   rnf ListManagedRuleSets' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf scope
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf nextMarker `Prelude.seq`
+        Prelude.rnf scope
 
 instance Data.ToHeaders ListManagedRuleSets where
   toHeaders =
@@ -278,6 +278,6 @@ listManagedRuleSetsResponse_httpStatus = Lens.lens (\ListManagedRuleSetsResponse
 
 instance Prelude.NFData ListManagedRuleSetsResponse where
   rnf ListManagedRuleSetsResponse' {..} =
-    Prelude.rnf managedRuleSets
-      `Prelude.seq` Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf managedRuleSets `Prelude.seq`
+      Prelude.rnf nextMarker `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -93,6 +93,6 @@ instance Prelude.Hashable CalculationSummary where
 
 instance Prelude.NFData CalculationSummary where
   rnf CalculationSummary' {..} =
-    Prelude.rnf calculationExecutionId
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf calculationExecutionId `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf status

@@ -114,8 +114,8 @@ instance Prelude.Hashable DeleteEnvironmentMembership where
 
 instance Prelude.NFData DeleteEnvironmentMembership where
   rnf DeleteEnvironmentMembership' {..} =
-    Prelude.rnf environmentId
-      `Prelude.seq` Prelude.rnf userArn
+    Prelude.rnf environmentId `Prelude.seq`
+      Prelude.rnf userArn
 
 instance Data.ToHeaders DeleteEnvironmentMembership where
   toHeaders =

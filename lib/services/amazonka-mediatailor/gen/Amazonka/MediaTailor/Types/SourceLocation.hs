@@ -187,12 +187,12 @@ instance Prelude.Hashable SourceLocation where
 
 instance Prelude.NFData SourceLocation where
   rnf SourceLocation' {..} =
-    Prelude.rnf accessConfiguration
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf defaultSegmentDeliveryConfiguration
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf segmentDeliveryConfigurations
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf httpConfiguration
-      `Prelude.seq` Prelude.rnf sourceLocationName
+    Prelude.rnf accessConfiguration `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf defaultSegmentDeliveryConfiguration `Prelude.seq`
+          Prelude.rnf lastModifiedTime `Prelude.seq`
+            Prelude.rnf segmentDeliveryConfigurations `Prelude.seq`
+              Prelude.rnf tags `Prelude.seq`
+                Prelude.rnf arn `Prelude.seq`
+                  Prelude.rnf httpConfiguration `Prelude.seq`
+                    Prelude.rnf sourceLocationName

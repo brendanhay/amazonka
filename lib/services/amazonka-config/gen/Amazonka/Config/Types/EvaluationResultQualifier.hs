@@ -106,7 +106,7 @@ instance Prelude.Hashable EvaluationResultQualifier where
 
 instance Prelude.NFData EvaluationResultQualifier where
   rnf EvaluationResultQualifier' {..} =
-    Prelude.rnf configRuleName
-      `Prelude.seq` Prelude.rnf evaluationMode
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf resourceType
+    Prelude.rnf configRuleName `Prelude.seq`
+      Prelude.rnf evaluationMode `Prelude.seq`
+        Prelude.rnf resourceId `Prelude.seq`
+          Prelude.rnf resourceType

@@ -72,8 +72,8 @@ instance Prelude.Hashable RelatedItemInputContent where
 
 instance Prelude.NFData RelatedItemInputContent where
   rnf RelatedItemInputContent' {..} =
-    Prelude.rnf comment
-      `Prelude.seq` Prelude.rnf contact
+    Prelude.rnf comment `Prelude.seq`
+      Prelude.rnf contact
 
 instance Data.ToJSON RelatedItemInputContent where
   toJSON RelatedItemInputContent' {..} =

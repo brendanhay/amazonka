@@ -164,9 +164,9 @@ instance Prelude.Hashable Recommendation where
 
 instance Prelude.NFData Recommendation where
   rnf Recommendation' {..} =
-    Prelude.rnf allMatchesCount
-      `Prelude.seq` Prelude.rnf allMatchesSum
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf pattern'
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf topMatches
+    Prelude.rnf allMatchesCount `Prelude.seq`
+      Prelude.rnf allMatchesSum `Prelude.seq`
+        Prelude.rnf endTime `Prelude.seq`
+          Prelude.rnf pattern' `Prelude.seq`
+            Prelude.rnf startTime `Prelude.seq`
+              Prelude.rnf topMatches

@@ -133,10 +133,10 @@ instance Prelude.Hashable DeletePartition where
 
 instance Prelude.NFData DeletePartition where
   rnf DeletePartition' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf tableName
-      `Prelude.seq` Prelude.rnf partitionValues
+    Prelude.rnf catalogId `Prelude.seq`
+      Prelude.rnf databaseName `Prelude.seq`
+        Prelude.rnf tableName `Prelude.seq`
+          Prelude.rnf partitionValues
 
 instance Data.ToHeaders DeletePartition where
   toHeaders =

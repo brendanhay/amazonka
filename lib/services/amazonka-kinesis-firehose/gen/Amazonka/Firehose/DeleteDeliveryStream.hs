@@ -150,8 +150,8 @@ instance Prelude.Hashable DeleteDeliveryStream where
 
 instance Prelude.NFData DeleteDeliveryStream where
   rnf DeleteDeliveryStream' {..} =
-    Prelude.rnf allowForceDelete
-      `Prelude.seq` Prelude.rnf deliveryStreamName
+    Prelude.rnf allowForceDelete `Prelude.seq`
+      Prelude.rnf deliveryStreamName
 
 instance Data.ToHeaders DeleteDeliveryStream where
   toHeaders =

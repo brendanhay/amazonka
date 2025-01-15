@@ -121,8 +121,8 @@ instance Prelude.Hashable StartMonitoringMembers where
 
 instance Prelude.NFData StartMonitoringMembers where
   rnf StartMonitoringMembers' {..} =
-    Prelude.rnf detectorId
-      `Prelude.seq` Prelude.rnf accountIds
+    Prelude.rnf detectorId `Prelude.seq`
+      Prelude.rnf accountIds
 
 instance Data.ToHeaders StartMonitoringMembers where
   toHeaders =
@@ -197,5 +197,5 @@ instance
     StartMonitoringMembersResponse
   where
   rnf StartMonitoringMembersResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf unprocessedAccounts
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf unprocessedAccounts

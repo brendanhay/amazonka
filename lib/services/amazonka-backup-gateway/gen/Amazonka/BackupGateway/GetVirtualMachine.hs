@@ -168,5 +168,5 @@ getVirtualMachineResponse_httpStatus = Lens.lens (\GetVirtualMachineResponse' {h
 
 instance Prelude.NFData GetVirtualMachineResponse where
   rnf GetVirtualMachineResponse' {..} =
-    Prelude.rnf virtualMachine
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf virtualMachine `Prelude.seq`
+      Prelude.rnf httpStatus

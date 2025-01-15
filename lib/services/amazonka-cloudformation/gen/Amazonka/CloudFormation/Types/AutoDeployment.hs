@@ -96,8 +96,8 @@ instance Prelude.Hashable AutoDeployment where
 
 instance Prelude.NFData AutoDeployment where
   rnf AutoDeployment' {..} =
-    Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf retainStacksOnAccountRemoval
+    Prelude.rnf enabled `Prelude.seq`
+      Prelude.rnf retainStacksOnAccountRemoval
 
 instance Data.ToQuery AutoDeployment where
   toQuery AutoDeployment' {..} =

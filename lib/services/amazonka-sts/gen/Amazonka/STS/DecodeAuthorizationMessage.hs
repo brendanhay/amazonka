@@ -200,5 +200,5 @@ instance
     DecodeAuthorizationMessageResponse
   where
   rnf DecodeAuthorizationMessageResponse' {..} =
-    Prelude.rnf decodedMessage
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf decodedMessage `Prelude.seq`
+      Prelude.rnf httpStatus

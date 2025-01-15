@@ -237,21 +237,21 @@ instance Prelude.Hashable BatchWriteOperation where
 
 instance Prelude.NFData BatchWriteOperation where
   rnf BatchWriteOperation' {..} =
-    Prelude.rnf addFacetToObject
-      `Prelude.seq` Prelude.rnf attachObject
-      `Prelude.seq` Prelude.rnf attachPolicy
-      `Prelude.seq` Prelude.rnf attachToIndex
-      `Prelude.seq` Prelude.rnf attachTypedLink
-      `Prelude.seq` Prelude.rnf createIndex
-      `Prelude.seq` Prelude.rnf createObject
-      `Prelude.seq` Prelude.rnf deleteObject
-      `Prelude.seq` Prelude.rnf detachFromIndex
-      `Prelude.seq` Prelude.rnf detachObject
-      `Prelude.seq` Prelude.rnf detachPolicy
-      `Prelude.seq` Prelude.rnf detachTypedLink
-      `Prelude.seq` Prelude.rnf removeFacetFromObject
-      `Prelude.seq` Prelude.rnf updateLinkAttributes
-      `Prelude.seq` Prelude.rnf updateObjectAttributes
+    Prelude.rnf addFacetToObject `Prelude.seq`
+      Prelude.rnf attachObject `Prelude.seq`
+        Prelude.rnf attachPolicy `Prelude.seq`
+          Prelude.rnf attachToIndex `Prelude.seq`
+            Prelude.rnf attachTypedLink `Prelude.seq`
+              Prelude.rnf createIndex `Prelude.seq`
+                Prelude.rnf createObject `Prelude.seq`
+                  Prelude.rnf deleteObject `Prelude.seq`
+                    Prelude.rnf detachFromIndex `Prelude.seq`
+                      Prelude.rnf detachObject `Prelude.seq`
+                        Prelude.rnf detachPolicy `Prelude.seq`
+                          Prelude.rnf detachTypedLink `Prelude.seq`
+                            Prelude.rnf removeFacetFromObject `Prelude.seq`
+                              Prelude.rnf updateLinkAttributes `Prelude.seq`
+                                Prelude.rnf updateObjectAttributes
 
 instance Data.ToJSON BatchWriteOperation where
   toJSON BatchWriteOperation' {..} =

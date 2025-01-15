@@ -120,8 +120,8 @@ instance Prelude.Hashable StartAssessmentRun where
 
 instance Prelude.NFData StartAssessmentRun where
   rnf StartAssessmentRun' {..} =
-    Prelude.rnf assessmentRunName
-      `Prelude.seq` Prelude.rnf assessmentTemplateArn
+    Prelude.rnf assessmentRunName `Prelude.seq`
+      Prelude.rnf assessmentTemplateArn
 
 instance Data.ToHeaders StartAssessmentRun where
   toHeaders =
@@ -202,5 +202,5 @@ startAssessmentRunResponse_assessmentRunArn = Lens.lens (\StartAssessmentRunResp
 
 instance Prelude.NFData StartAssessmentRunResponse where
   rnf StartAssessmentRunResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf assessmentRunArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf assessmentRunArn

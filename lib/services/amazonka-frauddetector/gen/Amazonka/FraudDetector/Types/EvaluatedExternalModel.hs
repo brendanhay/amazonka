@@ -107,7 +107,7 @@ instance Prelude.Hashable EvaluatedExternalModel where
 
 instance Prelude.NFData EvaluatedExternalModel where
   rnf EvaluatedExternalModel' {..} =
-    Prelude.rnf inputVariables
-      `Prelude.seq` Prelude.rnf modelEndpoint
-      `Prelude.seq` Prelude.rnf outputVariables
-      `Prelude.seq` Prelude.rnf useEventVariables
+    Prelude.rnf inputVariables `Prelude.seq`
+      Prelude.rnf modelEndpoint `Prelude.seq`
+        Prelude.rnf outputVariables `Prelude.seq`
+          Prelude.rnf useEventVariables

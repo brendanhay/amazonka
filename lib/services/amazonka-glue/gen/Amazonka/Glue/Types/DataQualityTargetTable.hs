@@ -84,8 +84,8 @@ instance Prelude.Hashable DataQualityTargetTable where
 
 instance Prelude.NFData DataQualityTargetTable where
   rnf DataQualityTargetTable' {..} =
-    Prelude.rnf tableName
-      `Prelude.seq` Prelude.rnf databaseName
+    Prelude.rnf tableName `Prelude.seq`
+      Prelude.rnf databaseName
 
 instance Data.ToJSON DataQualityTargetTable where
   toJSON DataQualityTargetTable' {..} =

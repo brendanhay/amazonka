@@ -94,9 +94,9 @@ instance
     InstanceEventWindowDisassociationRequest
   where
   rnf InstanceEventWindowDisassociationRequest' {..} =
-    Prelude.rnf dedicatedHostIds
-      `Prelude.seq` Prelude.rnf instanceIds
-      `Prelude.seq` Prelude.rnf instanceTags
+    Prelude.rnf dedicatedHostIds `Prelude.seq`
+      Prelude.rnf instanceIds `Prelude.seq`
+        Prelude.rnf instanceTags
 
 instance
   Data.ToQuery

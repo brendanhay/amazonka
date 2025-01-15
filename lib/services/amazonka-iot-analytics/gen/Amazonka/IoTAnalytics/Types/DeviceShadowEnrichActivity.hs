@@ -129,11 +129,11 @@ instance Prelude.Hashable DeviceShadowEnrichActivity where
 
 instance Prelude.NFData DeviceShadowEnrichActivity where
   rnf DeviceShadowEnrichActivity' {..} =
-    Prelude.rnf next
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf attribute
-      `Prelude.seq` Prelude.rnf thingName
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf next `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf attribute `Prelude.seq`
+          Prelude.rnf thingName `Prelude.seq`
+            Prelude.rnf roleArn
 
 instance Data.ToJSON DeviceShadowEnrichActivity where
   toJSON DeviceShadowEnrichActivity' {..} =

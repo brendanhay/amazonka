@@ -103,12 +103,12 @@ instance Core.AWSPager ListApps where
     | Core.stop (rs Lens.^. listAppsResponse_apps) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listApps_nextToken
-          Lens..~ rs
-          Lens.^? listAppsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listApps_nextToken
+              Lens..~ rs
+              Lens.^? listAppsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListApps where
   type AWSResponse ListApps = ListAppsResponse
@@ -131,8 +131,8 @@ instance Prelude.Hashable ListApps where
 
 instance Prelude.NFData ListApps where
   rnf ListApps' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListApps where
   toHeaders =
@@ -212,6 +212,6 @@ listAppsResponse_apps = Lens.lens (\ListAppsResponse' {apps} -> apps) (\s@ListAp
 
 instance Prelude.NFData ListAppsResponse where
   rnf ListAppsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf apps
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf apps

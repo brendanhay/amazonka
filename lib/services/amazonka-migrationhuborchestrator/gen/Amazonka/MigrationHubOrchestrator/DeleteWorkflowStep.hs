@@ -122,9 +122,9 @@ instance Prelude.Hashable DeleteWorkflowStep where
 
 instance Prelude.NFData DeleteWorkflowStep where
   rnf DeleteWorkflowStep' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf stepGroupId
-      `Prelude.seq` Prelude.rnf workflowId
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf stepGroupId `Prelude.seq`
+        Prelude.rnf workflowId
 
 instance Data.ToHeaders DeleteWorkflowStep where
   toHeaders =

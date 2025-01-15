@@ -139,10 +139,10 @@ instance Prelude.Hashable MetricSetSummary where
 
 instance Prelude.NFData MetricSetSummary where
   rnf MetricSetSummary' {..} =
-    Prelude.rnf anomalyDetectorArn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf lastModificationTime
-      `Prelude.seq` Prelude.rnf metricSetArn
-      `Prelude.seq` Prelude.rnf metricSetDescription
-      `Prelude.seq` Prelude.rnf metricSetName
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf anomalyDetectorArn `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf lastModificationTime `Prelude.seq`
+          Prelude.rnf metricSetArn `Prelude.seq`
+            Prelude.rnf metricSetDescription `Prelude.seq`
+              Prelude.rnf metricSetName `Prelude.seq`
+                Prelude.rnf tags

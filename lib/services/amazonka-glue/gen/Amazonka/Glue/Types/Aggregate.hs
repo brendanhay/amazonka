@@ -113,10 +113,10 @@ instance Prelude.Hashable Aggregate where
 
 instance Prelude.NFData Aggregate where
   rnf Aggregate' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf inputs
-      `Prelude.seq` Prelude.rnf groups
-      `Prelude.seq` Prelude.rnf aggs
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf inputs `Prelude.seq`
+        Prelude.rnf groups `Prelude.seq`
+          Prelude.rnf aggs
 
 instance Data.ToJSON Aggregate where
   toJSON Aggregate' {..} =

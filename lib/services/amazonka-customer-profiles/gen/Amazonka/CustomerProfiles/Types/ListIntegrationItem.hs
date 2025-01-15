@@ -197,12 +197,12 @@ instance Prelude.Hashable ListIntegrationItem where
 
 instance Prelude.NFData ListIntegrationItem where
   rnf ListIntegrationItem' {..} =
-    Prelude.rnf isUnstructured
-      `Prelude.seq` Prelude.rnf objectTypeName
-      `Prelude.seq` Prelude.rnf objectTypeNames
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf workflowId
-      `Prelude.seq` Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf uri
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
+    Prelude.rnf isUnstructured `Prelude.seq`
+      Prelude.rnf objectTypeName `Prelude.seq`
+        Prelude.rnf objectTypeNames `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf workflowId `Prelude.seq`
+              Prelude.rnf domainName `Prelude.seq`
+                Prelude.rnf uri `Prelude.seq`
+                  Prelude.rnf createdAt `Prelude.seq`
+                    Prelude.rnf lastUpdatedAt

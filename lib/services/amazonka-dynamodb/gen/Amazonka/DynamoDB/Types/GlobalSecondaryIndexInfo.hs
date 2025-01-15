@@ -163,7 +163,7 @@ instance Prelude.Hashable GlobalSecondaryIndexInfo where
 
 instance Prelude.NFData GlobalSecondaryIndexInfo where
   rnf GlobalSecondaryIndexInfo' {..} =
-    Prelude.rnf indexName
-      `Prelude.seq` Prelude.rnf keySchema
-      `Prelude.seq` Prelude.rnf projection
-      `Prelude.seq` Prelude.rnf provisionedThroughput
+    Prelude.rnf indexName `Prelude.seq`
+      Prelude.rnf keySchema `Prelude.seq`
+        Prelude.rnf projection `Prelude.seq`
+          Prelude.rnf provisionedThroughput

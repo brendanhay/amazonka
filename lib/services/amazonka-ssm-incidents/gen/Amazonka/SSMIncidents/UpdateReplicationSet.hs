@@ -123,9 +123,9 @@ instance Prelude.Hashable UpdateReplicationSet where
 
 instance Prelude.NFData UpdateReplicationSet where
   rnf UpdateReplicationSet' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf actions
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf actions `Prelude.seq`
+        Prelude.rnf arn
 
 instance Data.ToHeaders UpdateReplicationSet where
   toHeaders =

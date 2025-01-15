@@ -161,9 +161,9 @@ instance Prelude.Hashable AttachmentsSource where
 
 instance Prelude.NFData AttachmentsSource where
   rnf AttachmentsSource' {..} =
-    Prelude.rnf key
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf values
+    Prelude.rnf key `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf values
 
 instance Data.ToJSON AttachmentsSource where
   toJSON AttachmentsSource' {..} =

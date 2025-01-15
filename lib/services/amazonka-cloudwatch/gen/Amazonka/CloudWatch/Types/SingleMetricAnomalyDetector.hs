@@ -86,9 +86,7 @@ singleMetricAnomalyDetector_stat = Lens.lens (\SingleMetricAnomalyDetector' {sta
 instance Data.FromXML SingleMetricAnomalyDetector where
   parseXML x =
     SingleMetricAnomalyDetector'
-      Prelude.<$> ( x
-                      Data..@? "Dimensions"
-                      Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "Dimensions" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "MetricName")
@@ -105,10 +103,10 @@ instance Prelude.Hashable SingleMetricAnomalyDetector where
 
 instance Prelude.NFData SingleMetricAnomalyDetector where
   rnf SingleMetricAnomalyDetector' {..} =
-    Prelude.rnf dimensions
-      `Prelude.seq` Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf namespace
-      `Prelude.seq` Prelude.rnf stat
+    Prelude.rnf dimensions `Prelude.seq`
+      Prelude.rnf metricName `Prelude.seq`
+        Prelude.rnf namespace `Prelude.seq`
+          Prelude.rnf stat
 
 instance Data.ToQuery SingleMetricAnomalyDetector where
   toQuery SingleMetricAnomalyDetector' {..} =

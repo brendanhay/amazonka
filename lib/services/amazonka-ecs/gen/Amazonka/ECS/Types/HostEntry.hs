@@ -86,8 +86,8 @@ instance Prelude.Hashable HostEntry where
 
 instance Prelude.NFData HostEntry where
   rnf HostEntry' {..} =
-    Prelude.rnf hostname
-      `Prelude.seq` Prelude.rnf ipAddress
+    Prelude.rnf hostname `Prelude.seq`
+      Prelude.rnf ipAddress
 
 instance Data.ToJSON HostEntry where
   toJSON HostEntry' {..} =

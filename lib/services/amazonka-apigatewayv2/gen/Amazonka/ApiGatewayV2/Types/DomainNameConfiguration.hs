@@ -212,16 +212,16 @@ instance Prelude.Hashable DomainNameConfiguration where
 
 instance Prelude.NFData DomainNameConfiguration where
   rnf DomainNameConfiguration' {..} =
-    Prelude.rnf apiGatewayDomainName
-      `Prelude.seq` Prelude.rnf certificateArn
-      `Prelude.seq` Prelude.rnf certificateName
-      `Prelude.seq` Prelude.rnf certificateUploadDate
-      `Prelude.seq` Prelude.rnf domainNameStatus
-      `Prelude.seq` Prelude.rnf domainNameStatusMessage
-      `Prelude.seq` Prelude.rnf endpointType
-      `Prelude.seq` Prelude.rnf hostedZoneId
-      `Prelude.seq` Prelude.rnf ownershipVerificationCertificateArn
-      `Prelude.seq` Prelude.rnf securityPolicy
+    Prelude.rnf apiGatewayDomainName `Prelude.seq`
+      Prelude.rnf certificateArn `Prelude.seq`
+        Prelude.rnf certificateName `Prelude.seq`
+          Prelude.rnf certificateUploadDate `Prelude.seq`
+            Prelude.rnf domainNameStatus `Prelude.seq`
+              Prelude.rnf domainNameStatusMessage `Prelude.seq`
+                Prelude.rnf endpointType `Prelude.seq`
+                  Prelude.rnf hostedZoneId `Prelude.seq`
+                    Prelude.rnf ownershipVerificationCertificateArn `Prelude.seq`
+                      Prelude.rnf securityPolicy
 
 instance Data.ToJSON DomainNameConfiguration where
   toJSON DomainNameConfiguration' {..} =

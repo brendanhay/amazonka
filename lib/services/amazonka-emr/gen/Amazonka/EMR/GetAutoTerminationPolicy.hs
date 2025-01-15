@@ -174,5 +174,5 @@ instance
     GetAutoTerminationPolicyResponse
   where
   rnf GetAutoTerminationPolicyResponse' {..} =
-    Prelude.rnf autoTerminationPolicy
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf autoTerminationPolicy `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -139,8 +139,8 @@ instance
 
 instance Prelude.NFData DeleteGlobalReplicationGroup where
   rnf DeleteGlobalReplicationGroup' {..} =
-    Prelude.rnf globalReplicationGroupId
-      `Prelude.seq` Prelude.rnf retainPrimaryReplicationGroup
+    Prelude.rnf globalReplicationGroupId `Prelude.seq`
+      Prelude.rnf retainPrimaryReplicationGroup
 
 instance Data.ToHeaders DeleteGlobalReplicationGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -206,5 +206,5 @@ instance
     DeleteGlobalReplicationGroupResponse
   where
   rnf DeleteGlobalReplicationGroupResponse' {..} =
-    Prelude.rnf globalReplicationGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf globalReplicationGroup `Prelude.seq`
+      Prelude.rnf httpStatus

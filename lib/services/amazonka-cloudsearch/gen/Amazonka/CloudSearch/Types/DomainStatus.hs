@@ -234,16 +234,16 @@ instance Prelude.Hashable DomainStatus where
 
 instance Prelude.NFData DomainStatus where
   rnf DomainStatus' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf created
-      `Prelude.seq` Prelude.rnf deleted
-      `Prelude.seq` Prelude.rnf docService
-      `Prelude.seq` Prelude.rnf limits
-      `Prelude.seq` Prelude.rnf processing
-      `Prelude.seq` Prelude.rnf searchInstanceCount
-      `Prelude.seq` Prelude.rnf searchInstanceType
-      `Prelude.seq` Prelude.rnf searchPartitionCount
-      `Prelude.seq` Prelude.rnf searchService
-      `Prelude.seq` Prelude.rnf domainId
-      `Prelude.seq` Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf requiresIndexDocuments
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf created `Prelude.seq`
+        Prelude.rnf deleted `Prelude.seq`
+          Prelude.rnf docService `Prelude.seq`
+            Prelude.rnf limits `Prelude.seq`
+              Prelude.rnf processing `Prelude.seq`
+                Prelude.rnf searchInstanceCount `Prelude.seq`
+                  Prelude.rnf searchInstanceType `Prelude.seq`
+                    Prelude.rnf searchPartitionCount `Prelude.seq`
+                      Prelude.rnf searchService `Prelude.seq`
+                        Prelude.rnf domainId `Prelude.seq`
+                          Prelude.rnf domainName `Prelude.seq`
+                            Prelude.rnf requiresIndexDocuments

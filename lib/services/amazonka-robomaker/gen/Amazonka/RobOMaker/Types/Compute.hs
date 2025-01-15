@@ -104,9 +104,9 @@ instance Prelude.Hashable Compute where
 
 instance Prelude.NFData Compute where
   rnf Compute' {..} =
-    Prelude.rnf computeType
-      `Prelude.seq` Prelude.rnf gpuUnitLimit
-      `Prelude.seq` Prelude.rnf simulationUnitLimit
+    Prelude.rnf computeType `Prelude.seq`
+      Prelude.rnf gpuUnitLimit `Prelude.seq`
+        Prelude.rnf simulationUnitLimit
 
 instance Data.ToJSON Compute where
   toJSON Compute' {..} =

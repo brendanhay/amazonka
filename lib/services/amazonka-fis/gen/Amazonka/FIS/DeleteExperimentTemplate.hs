@@ -158,5 +158,5 @@ instance
     DeleteExperimentTemplateResponse
   where
   rnf DeleteExperimentTemplateResponse' {..} =
-    Prelude.rnf experimentTemplate
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf experimentTemplate `Prelude.seq`
+      Prelude.rnf httpStatus

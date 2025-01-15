@@ -260,16 +260,16 @@ instance Prelude.Hashable RestApi where
 
 instance Prelude.NFData RestApi where
   rnf RestApi' {..} =
-    Prelude.rnf apiKeySource
-      `Prelude.seq` Prelude.rnf binaryMediaTypes
-      `Prelude.seq` Prelude.rnf createdDate
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf disableExecuteApiEndpoint
-      `Prelude.seq` Prelude.rnf endpointConfiguration
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf minimumCompressionSize
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf policy
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf warnings
+    Prelude.rnf apiKeySource `Prelude.seq`
+      Prelude.rnf binaryMediaTypes `Prelude.seq`
+        Prelude.rnf createdDate `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf disableExecuteApiEndpoint `Prelude.seq`
+              Prelude.rnf endpointConfiguration `Prelude.seq`
+                Prelude.rnf id `Prelude.seq`
+                  Prelude.rnf minimumCompressionSize `Prelude.seq`
+                    Prelude.rnf name `Prelude.seq`
+                      Prelude.rnf policy `Prelude.seq`
+                        Prelude.rnf tags `Prelude.seq`
+                          Prelude.rnf version `Prelude.seq`
+                            Prelude.rnf warnings

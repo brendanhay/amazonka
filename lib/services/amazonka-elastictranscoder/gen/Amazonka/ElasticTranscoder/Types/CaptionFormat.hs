@@ -222,9 +222,9 @@ instance Prelude.Hashable CaptionFormat where
 
 instance Prelude.NFData CaptionFormat where
   rnf CaptionFormat' {..} =
-    Prelude.rnf encryption
-      `Prelude.seq` Prelude.rnf format
-      `Prelude.seq` Prelude.rnf pattern'
+    Prelude.rnf encryption `Prelude.seq`
+      Prelude.rnf format `Prelude.seq`
+        Prelude.rnf pattern'
 
 instance Data.ToJSON CaptionFormat where
   toJSON CaptionFormat' {..} =

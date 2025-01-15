@@ -142,7 +142,7 @@ instance Prelude.Hashable RealtimeEndpointInfo where
 
 instance Prelude.NFData RealtimeEndpointInfo where
   rnf RealtimeEndpointInfo' {..} =
-    Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf endpointStatus
-      `Prelude.seq` Prelude.rnf endpointUrl
-      `Prelude.seq` Prelude.rnf peakRequestsPerSecond
+    Prelude.rnf createdAt `Prelude.seq`
+      Prelude.rnf endpointStatus `Prelude.seq`
+        Prelude.rnf endpointUrl `Prelude.seq`
+          Prelude.rnf peakRequestsPerSecond

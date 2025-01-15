@@ -108,6 +108,6 @@ instance
     LaunchTemplatePrivateDnsNameOptions
   where
   rnf LaunchTemplatePrivateDnsNameOptions' {..} =
-    Prelude.rnf enableResourceNameDnsAAAARecord
-      `Prelude.seq` Prelude.rnf enableResourceNameDnsARecord
-      `Prelude.seq` Prelude.rnf hostnameType
+    Prelude.rnf enableResourceNameDnsAAAARecord `Prelude.seq`
+      Prelude.rnf enableResourceNameDnsARecord `Prelude.seq`
+        Prelude.rnf hostnameType

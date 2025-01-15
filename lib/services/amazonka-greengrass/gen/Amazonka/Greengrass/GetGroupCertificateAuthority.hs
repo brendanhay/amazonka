@@ -121,8 +121,8 @@ instance
 
 instance Prelude.NFData GetGroupCertificateAuthority where
   rnf GetGroupCertificateAuthority' {..} =
-    Prelude.rnf certificateAuthorityId
-      `Prelude.seq` Prelude.rnf groupId
+    Prelude.rnf certificateAuthorityId `Prelude.seq`
+      Prelude.rnf groupId
 
 instance Data.ToHeaders GetGroupCertificateAuthority where
   toHeaders =
@@ -211,7 +211,7 @@ instance
     GetGroupCertificateAuthorityResponse
   where
   rnf GetGroupCertificateAuthorityResponse' {..} =
-    Prelude.rnf groupCertificateAuthorityArn
-      `Prelude.seq` Prelude.rnf groupCertificateAuthorityId
-      `Prelude.seq` Prelude.rnf pemEncodedCertificate
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf groupCertificateAuthorityArn `Prelude.seq`
+      Prelude.rnf groupCertificateAuthorityId `Prelude.seq`
+        Prelude.rnf pemEncodedCertificate `Prelude.seq`
+          Prelude.rnf httpStatus

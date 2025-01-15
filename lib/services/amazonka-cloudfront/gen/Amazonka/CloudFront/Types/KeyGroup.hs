@@ -98,6 +98,6 @@ instance Prelude.Hashable KeyGroup where
 
 instance Prelude.NFData KeyGroup where
   rnf KeyGroup' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf keyGroupConfig
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf lastModifiedTime `Prelude.seq`
+        Prelude.rnf keyGroupConfig

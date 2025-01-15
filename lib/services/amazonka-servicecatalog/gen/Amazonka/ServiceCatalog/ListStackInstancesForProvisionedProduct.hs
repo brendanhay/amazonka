@@ -171,10 +171,10 @@ instance
     ListStackInstancesForProvisionedProduct
   where
   rnf ListStackInstancesForProvisionedProduct' {..} =
-    Prelude.rnf acceptLanguage
-      `Prelude.seq` Prelude.rnf pageSize
-      `Prelude.seq` Prelude.rnf pageToken
-      `Prelude.seq` Prelude.rnf provisionedProductId
+    Prelude.rnf acceptLanguage `Prelude.seq`
+      Prelude.rnf pageSize `Prelude.seq`
+        Prelude.rnf pageToken `Prelude.seq`
+          Prelude.rnf provisionedProductId
 
 instance
   Data.ToHeaders
@@ -283,6 +283,6 @@ instance
   where
   rnf
     ListStackInstancesForProvisionedProductResponse' {..} =
-      Prelude.rnf nextPageToken
-        `Prelude.seq` Prelude.rnf stackInstances
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf nextPageToken `Prelude.seq`
+        Prelude.rnf stackInstances `Prelude.seq`
+          Prelude.rnf httpStatus

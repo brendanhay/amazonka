@@ -130,9 +130,9 @@ instance Prelude.Hashable CopyBackupToRegion where
 
 instance Prelude.NFData CopyBackupToRegion where
   rnf CopyBackupToRegion' {..} =
-    Prelude.rnf tagList
-      `Prelude.seq` Prelude.rnf destinationRegion
-      `Prelude.seq` Prelude.rnf backupId
+    Prelude.rnf tagList `Prelude.seq`
+      Prelude.rnf destinationRegion `Prelude.seq`
+        Prelude.rnf backupId
 
 instance Data.ToHeaders CopyBackupToRegion where
   toHeaders =
@@ -228,5 +228,5 @@ copyBackupToRegionResponse_httpStatus = Lens.lens (\CopyBackupToRegionResponse' 
 
 instance Prelude.NFData CopyBackupToRegionResponse where
   rnf CopyBackupToRegionResponse' {..} =
-    Prelude.rnf destinationBackup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf destinationBackup `Prelude.seq`
+      Prelude.rnf httpStatus

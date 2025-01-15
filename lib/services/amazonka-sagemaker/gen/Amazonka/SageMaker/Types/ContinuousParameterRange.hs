@@ -197,10 +197,10 @@ instance Prelude.Hashable ContinuousParameterRange where
 
 instance Prelude.NFData ContinuousParameterRange where
   rnf ContinuousParameterRange' {..} =
-    Prelude.rnf scalingType
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf minValue
-      `Prelude.seq` Prelude.rnf maxValue
+    Prelude.rnf scalingType `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf minValue `Prelude.seq`
+          Prelude.rnf maxValue
 
 instance Data.ToJSON ContinuousParameterRange where
   toJSON ContinuousParameterRange' {..} =

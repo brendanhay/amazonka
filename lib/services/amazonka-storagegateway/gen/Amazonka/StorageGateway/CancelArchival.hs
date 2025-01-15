@@ -116,8 +116,8 @@ instance Prelude.Hashable CancelArchival where
 
 instance Prelude.NFData CancelArchival where
   rnf CancelArchival' {..} =
-    Prelude.rnf gatewayARN
-      `Prelude.seq` Prelude.rnf tapeARN
+    Prelude.rnf gatewayARN `Prelude.seq`
+      Prelude.rnf tapeARN
 
 instance Data.ToHeaders CancelArchival where
   toHeaders =
@@ -194,5 +194,5 @@ cancelArchivalResponse_httpStatus = Lens.lens (\CancelArchivalResponse' {httpSta
 
 instance Prelude.NFData CancelArchivalResponse where
   rnf CancelArchivalResponse' {..} =
-    Prelude.rnf tapeARN
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf tapeARN `Prelude.seq`
+      Prelude.rnf httpStatus

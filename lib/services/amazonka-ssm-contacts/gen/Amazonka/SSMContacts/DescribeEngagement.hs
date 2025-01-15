@@ -297,14 +297,14 @@ describeEngagementResponse_content = Lens.lens (\DescribeEngagementResponse' {co
 
 instance Prelude.NFData DescribeEngagementResponse where
   rnf DescribeEngagementResponse' {..} =
-    Prelude.rnf incidentId
-      `Prelude.seq` Prelude.rnf publicContent
-      `Prelude.seq` Prelude.rnf publicSubject
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf stopTime
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf contactArn
-      `Prelude.seq` Prelude.rnf engagementArn
-      `Prelude.seq` Prelude.rnf sender
-      `Prelude.seq` Prelude.rnf subject
-      `Prelude.seq` Prelude.rnf content
+    Prelude.rnf incidentId `Prelude.seq`
+      Prelude.rnf publicContent `Prelude.seq`
+        Prelude.rnf publicSubject `Prelude.seq`
+          Prelude.rnf startTime `Prelude.seq`
+            Prelude.rnf stopTime `Prelude.seq`
+              Prelude.rnf httpStatus `Prelude.seq`
+                Prelude.rnf contactArn `Prelude.seq`
+                  Prelude.rnf engagementArn `Prelude.seq`
+                    Prelude.rnf sender `Prelude.seq`
+                      Prelude.rnf subject `Prelude.seq`
+                        Prelude.rnf content

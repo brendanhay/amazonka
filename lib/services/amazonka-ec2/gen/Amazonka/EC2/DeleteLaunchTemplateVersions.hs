@@ -173,10 +173,10 @@ instance
 
 instance Prelude.NFData DeleteLaunchTemplateVersions where
   rnf DeleteLaunchTemplateVersions' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf launchTemplateId
-      `Prelude.seq` Prelude.rnf launchTemplateName
-      `Prelude.seq` Prelude.rnf versions
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf launchTemplateId `Prelude.seq`
+        Prelude.rnf launchTemplateName `Prelude.seq`
+          Prelude.rnf versions
 
 instance Data.ToHeaders DeleteLaunchTemplateVersions where
   toHeaders = Prelude.const Prelude.mempty

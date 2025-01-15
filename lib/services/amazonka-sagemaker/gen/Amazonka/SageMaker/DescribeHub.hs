@@ -279,14 +279,14 @@ describeHubResponse_lastModifiedTime = Lens.lens (\DescribeHubResponse' {lastMod
 
 instance Prelude.NFData DescribeHubResponse where
   rnf DescribeHubResponse' {..} =
-    Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf hubDescription
-      `Prelude.seq` Prelude.rnf hubDisplayName
-      `Prelude.seq` Prelude.rnf hubSearchKeywords
-      `Prelude.seq` Prelude.rnf s3StorageConfig
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf hubName
-      `Prelude.seq` Prelude.rnf hubArn
-      `Prelude.seq` Prelude.rnf hubStatus
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf lastModifiedTime
+    Prelude.rnf failureReason `Prelude.seq`
+      Prelude.rnf hubDescription `Prelude.seq`
+        Prelude.rnf hubDisplayName `Prelude.seq`
+          Prelude.rnf hubSearchKeywords `Prelude.seq`
+            Prelude.rnf s3StorageConfig `Prelude.seq`
+              Prelude.rnf httpStatus `Prelude.seq`
+                Prelude.rnf hubName `Prelude.seq`
+                  Prelude.rnf hubArn `Prelude.seq`
+                    Prelude.rnf hubStatus `Prelude.seq`
+                      Prelude.rnf creationTime `Prelude.seq`
+                        Prelude.rnf lastModifiedTime

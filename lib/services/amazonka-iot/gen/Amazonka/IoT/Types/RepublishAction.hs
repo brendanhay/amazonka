@@ -116,10 +116,10 @@ instance Prelude.Hashable RepublishAction where
 
 instance Prelude.NFData RepublishAction where
   rnf RepublishAction' {..} =
-    Prelude.rnf headers
-      `Prelude.seq` Prelude.rnf qos
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf topic
+    Prelude.rnf headers `Prelude.seq`
+      Prelude.rnf qos `Prelude.seq`
+        Prelude.rnf roleArn `Prelude.seq`
+          Prelude.rnf topic
 
 instance Data.ToJSON RepublishAction where
   toJSON RepublishAction' {..} =

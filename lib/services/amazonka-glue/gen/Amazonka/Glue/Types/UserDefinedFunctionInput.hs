@@ -103,11 +103,11 @@ instance Prelude.Hashable UserDefinedFunctionInput where
 
 instance Prelude.NFData UserDefinedFunctionInput where
   rnf UserDefinedFunctionInput' {..} =
-    Prelude.rnf className
-      `Prelude.seq` Prelude.rnf functionName
-      `Prelude.seq` Prelude.rnf ownerName
-      `Prelude.seq` Prelude.rnf ownerType
-      `Prelude.seq` Prelude.rnf resourceUris
+    Prelude.rnf className `Prelude.seq`
+      Prelude.rnf functionName `Prelude.seq`
+        Prelude.rnf ownerName `Prelude.seq`
+          Prelude.rnf ownerType `Prelude.seq`
+            Prelude.rnf resourceUris
 
 instance Data.ToJSON UserDefinedFunctionInput where
   toJSON UserDefinedFunctionInput' {..} =

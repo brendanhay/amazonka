@@ -145,10 +145,10 @@ instance Prelude.Hashable ListAnomalyGroupSummaries where
 
 instance Prelude.NFData ListAnomalyGroupSummaries where
   rnf ListAnomalyGroupSummaries' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf anomalyDetectorArn
-      `Prelude.seq` Prelude.rnf sensitivityThreshold
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf anomalyDetectorArn `Prelude.seq`
+          Prelude.rnf sensitivityThreshold
 
 instance Data.ToHeaders ListAnomalyGroupSummaries where
   toHeaders =
@@ -245,7 +245,7 @@ instance
     ListAnomalyGroupSummariesResponse
   where
   rnf ListAnomalyGroupSummariesResponse' {..} =
-    Prelude.rnf anomalyGroupStatistics
-      `Prelude.seq` Prelude.rnf anomalyGroupSummaryList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf anomalyGroupStatistics `Prelude.seq`
+      Prelude.rnf anomalyGroupSummaryList `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf httpStatus

@@ -145,8 +145,8 @@ instance Prelude.Hashable GetBot where
 
 instance Prelude.NFData GetBot where
   rnf GetBot' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf versionOrAlias
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf versionOrAlias
 
 instance Data.ToHeaders GetBot where
   toHeaders =
@@ -523,22 +523,22 @@ getBotResponse_httpStatus = Lens.lens (\GetBotResponse' {httpStatus} -> httpStat
 
 instance Prelude.NFData GetBotResponse where
   rnf GetBotResponse' {..} =
-    Prelude.rnf abortStatement
-      `Prelude.seq` Prelude.rnf checksum
-      `Prelude.seq` Prelude.rnf childDirected
-      `Prelude.seq` Prelude.rnf clarificationPrompt
-      `Prelude.seq` Prelude.rnf createdDate
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf detectSentiment
-      `Prelude.seq` Prelude.rnf enableModelImprovements
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf idleSessionTTLInSeconds
-      `Prelude.seq` Prelude.rnf intents
-      `Prelude.seq` Prelude.rnf lastUpdatedDate
-      `Prelude.seq` Prelude.rnf locale
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf nluIntentConfidenceThreshold
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf voiceId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf abortStatement `Prelude.seq`
+      Prelude.rnf checksum `Prelude.seq`
+        Prelude.rnf childDirected `Prelude.seq`
+          Prelude.rnf clarificationPrompt `Prelude.seq`
+            Prelude.rnf createdDate `Prelude.seq`
+              Prelude.rnf description `Prelude.seq`
+                Prelude.rnf detectSentiment `Prelude.seq`
+                  Prelude.rnf enableModelImprovements `Prelude.seq`
+                    Prelude.rnf failureReason `Prelude.seq`
+                      Prelude.rnf idleSessionTTLInSeconds `Prelude.seq`
+                        Prelude.rnf intents `Prelude.seq`
+                          Prelude.rnf lastUpdatedDate `Prelude.seq`
+                            Prelude.rnf locale `Prelude.seq`
+                              Prelude.rnf name `Prelude.seq`
+                                Prelude.rnf nluIntentConfidenceThreshold `Prelude.seq`
+                                  Prelude.rnf status `Prelude.seq`
+                                    Prelude.rnf version `Prelude.seq`
+                                      Prelude.rnf voiceId `Prelude.seq`
+                                        Prelude.rnf httpStatus

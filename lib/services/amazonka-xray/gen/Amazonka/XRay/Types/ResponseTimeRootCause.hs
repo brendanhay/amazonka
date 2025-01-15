@@ -85,5 +85,5 @@ instance Prelude.Hashable ResponseTimeRootCause where
 
 instance Prelude.NFData ResponseTimeRootCause where
   rnf ResponseTimeRootCause' {..} =
-    Prelude.rnf clientImpacting
-      `Prelude.seq` Prelude.rnf services
+    Prelude.rnf clientImpacting `Prelude.seq`
+      Prelude.rnf services

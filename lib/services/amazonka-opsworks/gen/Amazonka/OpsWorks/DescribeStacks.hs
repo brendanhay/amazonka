@@ -175,5 +175,5 @@ describeStacksResponse_httpStatus = Lens.lens (\DescribeStacksResponse' {httpSta
 
 instance Prelude.NFData DescribeStacksResponse where
   rnf DescribeStacksResponse' {..} =
-    Prelude.rnf stacks
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf stacks `Prelude.seq`
+      Prelude.rnf httpStatus

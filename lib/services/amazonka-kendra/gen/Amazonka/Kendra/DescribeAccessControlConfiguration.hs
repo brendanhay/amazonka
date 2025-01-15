@@ -290,9 +290,9 @@ instance
     DescribeAccessControlConfigurationResponse
   where
   rnf DescribeAccessControlConfigurationResponse' {..} =
-    Prelude.rnf accessControlList
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf hierarchicalAccessControlList
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf accessControlList `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf errorMessage `Prelude.seq`
+          Prelude.rnf hierarchicalAccessControlList `Prelude.seq`
+            Prelude.rnf httpStatus `Prelude.seq`
+              Prelude.rnf name

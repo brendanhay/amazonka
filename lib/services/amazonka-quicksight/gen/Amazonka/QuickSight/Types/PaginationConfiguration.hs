@@ -84,8 +84,8 @@ instance Prelude.Hashable PaginationConfiguration where
 
 instance Prelude.NFData PaginationConfiguration where
   rnf PaginationConfiguration' {..} =
-    Prelude.rnf pageSize
-      `Prelude.seq` Prelude.rnf pageNumber
+    Prelude.rnf pageSize `Prelude.seq`
+      Prelude.rnf pageNumber
 
 instance Data.ToJSON PaginationConfiguration where
   toJSON PaginationConfiguration' {..} =

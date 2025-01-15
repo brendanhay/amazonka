@@ -114,8 +114,8 @@ instance Prelude.Hashable SendUsersMessages where
 
 instance Prelude.NFData SendUsersMessages where
   rnf SendUsersMessages' {..} =
-    Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf sendUsersMessageRequest
+    Prelude.rnf applicationId `Prelude.seq`
+      Prelude.rnf sendUsersMessageRequest
 
 instance Data.ToHeaders SendUsersMessages where
   toHeaders =
@@ -188,5 +188,5 @@ sendUsersMessagesResponse_sendUsersMessageResponse = Lens.lens (\SendUsersMessag
 
 instance Prelude.NFData SendUsersMessagesResponse where
   rnf SendUsersMessagesResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf sendUsersMessageResponse
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf sendUsersMessageResponse

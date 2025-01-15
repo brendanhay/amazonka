@@ -81,5 +81,5 @@ instance Prelude.Hashable IdentityDocumentField where
 
 instance Prelude.NFData IdentityDocumentField where
   rnf IdentityDocumentField' {..} =
-    Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf valueDetection
+    Prelude.rnf type' `Prelude.seq`
+      Prelude.rnf valueDetection

@@ -220,10 +220,10 @@ instance
     GetBulkDeploymentStatusResponse
   where
   rnf GetBulkDeploymentStatusResponse' {..} =
-    Prelude.rnf bulkDeploymentMetrics
-      `Prelude.seq` Prelude.rnf bulkDeploymentStatus
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf errorDetails
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf bulkDeploymentMetrics `Prelude.seq`
+      Prelude.rnf bulkDeploymentStatus `Prelude.seq`
+        Prelude.rnf createdAt `Prelude.seq`
+          Prelude.rnf errorDetails `Prelude.seq`
+            Prelude.rnf errorMessage `Prelude.seq`
+              Prelude.rnf tags `Prelude.seq`
+                Prelude.rnf httpStatus

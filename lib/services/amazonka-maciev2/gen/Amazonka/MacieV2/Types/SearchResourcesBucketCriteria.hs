@@ -83,8 +83,8 @@ instance
 
 instance Prelude.NFData SearchResourcesBucketCriteria where
   rnf SearchResourcesBucketCriteria' {..} =
-    Prelude.rnf excludes
-      `Prelude.seq` Prelude.rnf includes
+    Prelude.rnf excludes `Prelude.seq`
+      Prelude.rnf includes
 
 instance Data.ToJSON SearchResourcesBucketCriteria where
   toJSON SearchResourcesBucketCriteria' {..} =

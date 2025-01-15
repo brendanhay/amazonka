@@ -102,10 +102,10 @@ instance Prelude.Hashable SessionKeysAbpV1_1 where
 
 instance Prelude.NFData SessionKeysAbpV1_1 where
   rnf SessionKeysAbpV1_1' {..} =
-    Prelude.rnf appSKey
-      `Prelude.seq` Prelude.rnf fNwkSIntKey
-      `Prelude.seq` Prelude.rnf nwkSEncKey
-      `Prelude.seq` Prelude.rnf sNwkSIntKey
+    Prelude.rnf appSKey `Prelude.seq`
+      Prelude.rnf fNwkSIntKey `Prelude.seq`
+        Prelude.rnf nwkSEncKey `Prelude.seq`
+          Prelude.rnf sNwkSIntKey
 
 instance Data.ToJSON SessionKeysAbpV1_1 where
   toJSON SessionKeysAbpV1_1' {..} =

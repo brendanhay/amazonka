@@ -158,10 +158,10 @@ instance Prelude.Hashable CreateMeetingDialOut where
 
 instance Prelude.NFData CreateMeetingDialOut where
   rnf CreateMeetingDialOut' {..} =
-    Prelude.rnf meetingId
-      `Prelude.seq` Prelude.rnf fromPhoneNumber
-      `Prelude.seq` Prelude.rnf toPhoneNumber
-      `Prelude.seq` Prelude.rnf joinToken
+    Prelude.rnf meetingId `Prelude.seq`
+      Prelude.rnf fromPhoneNumber `Prelude.seq`
+        Prelude.rnf toPhoneNumber `Prelude.seq`
+          Prelude.rnf joinToken
 
 instance Data.ToHeaders CreateMeetingDialOut where
   toHeaders = Prelude.const Prelude.mempty
@@ -226,5 +226,5 @@ createMeetingDialOutResponse_httpStatus = Lens.lens (\CreateMeetingDialOutRespon
 
 instance Prelude.NFData CreateMeetingDialOutResponse where
   rnf CreateMeetingDialOutResponse' {..} =
-    Prelude.rnf transactionId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf transactionId `Prelude.seq`
+      Prelude.rnf httpStatus

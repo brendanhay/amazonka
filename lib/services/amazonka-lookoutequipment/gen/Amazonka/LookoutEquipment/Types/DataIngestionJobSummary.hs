@@ -123,8 +123,8 @@ instance Prelude.Hashable DataIngestionJobSummary where
 
 instance Prelude.NFData DataIngestionJobSummary where
   rnf DataIngestionJobSummary' {..} =
-    Prelude.rnf datasetArn
-      `Prelude.seq` Prelude.rnf datasetName
-      `Prelude.seq` Prelude.rnf ingestionInputConfiguration
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf datasetArn `Prelude.seq`
+      Prelude.rnf datasetName `Prelude.seq`
+        Prelude.rnf ingestionInputConfiguration `Prelude.seq`
+          Prelude.rnf jobId `Prelude.seq`
+            Prelude.rnf status

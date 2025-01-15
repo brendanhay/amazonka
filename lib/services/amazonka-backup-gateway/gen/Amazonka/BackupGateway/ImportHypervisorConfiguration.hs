@@ -164,12 +164,12 @@ instance
 
 instance Prelude.NFData ImportHypervisorConfiguration where
   rnf ImportHypervisorConfiguration' {..} =
-    Prelude.rnf kmsKeyArn
-      `Prelude.seq` Prelude.rnf password
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf username
-      `Prelude.seq` Prelude.rnf host
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf kmsKeyArn `Prelude.seq`
+      Prelude.rnf password `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf username `Prelude.seq`
+            Prelude.rnf host `Prelude.seq`
+              Prelude.rnf name
 
 instance Data.ToHeaders ImportHypervisorConfiguration where
   toHeaders =
@@ -249,5 +249,5 @@ instance
     ImportHypervisorConfigurationResponse
   where
   rnf ImportHypervisorConfigurationResponse' {..} =
-    Prelude.rnf hypervisorArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf hypervisorArn `Prelude.seq`
+      Prelude.rnf httpStatus

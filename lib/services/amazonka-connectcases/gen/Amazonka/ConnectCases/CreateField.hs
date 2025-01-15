@@ -139,10 +139,10 @@ instance Prelude.Hashable CreateField where
 
 instance Prelude.NFData CreateField where
   rnf CreateField' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf domainId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf domainId `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf type'
 
 instance Data.ToHeaders CreateField where
   toHeaders =
@@ -229,6 +229,6 @@ createFieldResponse_fieldId = Lens.lens (\CreateFieldResponse' {fieldId} -> fiel
 
 instance Prelude.NFData CreateFieldResponse where
   rnf CreateFieldResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf fieldArn
-      `Prelude.seq` Prelude.rnf fieldId
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf fieldArn `Prelude.seq`
+        Prelude.rnf fieldId

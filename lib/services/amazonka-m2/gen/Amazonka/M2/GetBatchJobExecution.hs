@@ -130,8 +130,8 @@ instance Prelude.Hashable GetBatchJobExecution where
 
 instance Prelude.NFData GetBatchJobExecution where
   rnf GetBatchJobExecution' {..} =
-    Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf executionId
+    Prelude.rnf applicationId `Prelude.seq`
+      Prelude.rnf executionId
 
 instance Data.ToHeaders GetBatchJobExecution where
   toHeaders =
@@ -291,14 +291,14 @@ getBatchJobExecutionResponse_status = Lens.lens (\GetBatchJobExecutionResponse' 
 
 instance Prelude.NFData GetBatchJobExecutionResponse where
   rnf GetBatchJobExecutionResponse' {..} =
-    Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf jobType
-      `Prelude.seq` Prelude.rnf jobUser
-      `Prelude.seq` Prelude.rnf statusReason
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf executionId
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf endTime `Prelude.seq`
+      Prelude.rnf jobId `Prelude.seq`
+        Prelude.rnf jobName `Prelude.seq`
+          Prelude.rnf jobType `Prelude.seq`
+            Prelude.rnf jobUser `Prelude.seq`
+              Prelude.rnf statusReason `Prelude.seq`
+                Prelude.rnf httpStatus `Prelude.seq`
+                  Prelude.rnf applicationId `Prelude.seq`
+                    Prelude.rnf executionId `Prelude.seq`
+                      Prelude.rnf startTime `Prelude.seq`
+                        Prelude.rnf status

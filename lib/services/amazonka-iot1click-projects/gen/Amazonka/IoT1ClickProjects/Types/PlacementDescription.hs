@@ -134,8 +134,8 @@ instance Prelude.Hashable PlacementDescription where
 
 instance Prelude.NFData PlacementDescription where
   rnf PlacementDescription' {..} =
-    Prelude.rnf projectName
-      `Prelude.seq` Prelude.rnf placementName
-      `Prelude.seq` Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf createdDate
-      `Prelude.seq` Prelude.rnf updatedDate
+    Prelude.rnf projectName `Prelude.seq`
+      Prelude.rnf placementName `Prelude.seq`
+        Prelude.rnf attributes `Prelude.seq`
+          Prelude.rnf createdDate `Prelude.seq`
+            Prelude.rnf updatedDate

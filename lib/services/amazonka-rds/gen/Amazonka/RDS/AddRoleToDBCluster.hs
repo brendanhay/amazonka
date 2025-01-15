@@ -125,9 +125,9 @@ instance Prelude.Hashable AddRoleToDBCluster where
 
 instance Prelude.NFData AddRoleToDBCluster where
   rnf AddRoleToDBCluster' {..} =
-    Prelude.rnf featureName
-      `Prelude.seq` Prelude.rnf dbClusterIdentifier
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf featureName `Prelude.seq`
+      Prelude.rnf dbClusterIdentifier `Prelude.seq`
+        Prelude.rnf roleArn
 
 instance Data.ToHeaders AddRoleToDBCluster where
   toHeaders = Prelude.const Prelude.mempty

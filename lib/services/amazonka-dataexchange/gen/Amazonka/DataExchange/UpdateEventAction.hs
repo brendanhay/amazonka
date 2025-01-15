@@ -118,8 +118,8 @@ instance Prelude.Hashable UpdateEventAction where
 
 instance Prelude.NFData UpdateEventAction where
   rnf UpdateEventAction' {..} =
-    Prelude.rnf action
-      `Prelude.seq` Prelude.rnf eventActionId
+    Prelude.rnf action `Prelude.seq`
+      Prelude.rnf eventActionId
 
 instance Data.ToHeaders UpdateEventAction where
   toHeaders =
@@ -236,10 +236,10 @@ updateEventActionResponse_httpStatus = Lens.lens (\UpdateEventActionResponse' {h
 
 instance Prelude.NFData UpdateEventActionResponse where
   rnf UpdateEventActionResponse' {..} =
-    Prelude.rnf action
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf event
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf updatedAt
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf action `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf createdAt `Prelude.seq`
+          Prelude.rnf event `Prelude.seq`
+            Prelude.rnf id `Prelude.seq`
+              Prelude.rnf updatedAt `Prelude.seq`
+                Prelude.rnf httpStatus

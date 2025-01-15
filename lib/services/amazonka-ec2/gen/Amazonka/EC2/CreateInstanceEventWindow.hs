@@ -243,11 +243,11 @@ instance Prelude.Hashable CreateInstanceEventWindow where
 
 instance Prelude.NFData CreateInstanceEventWindow where
   rnf CreateInstanceEventWindow' {..} =
-    Prelude.rnf cronExpression
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf tagSpecifications
-      `Prelude.seq` Prelude.rnf timeRanges
+    Prelude.rnf cronExpression `Prelude.seq`
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf tagSpecifications `Prelude.seq`
+            Prelude.rnf timeRanges
 
 instance Data.ToHeaders CreateInstanceEventWindow where
   toHeaders = Prelude.const Prelude.mempty
@@ -319,5 +319,5 @@ instance
     CreateInstanceEventWindowResponse
   where
   rnf CreateInstanceEventWindowResponse' {..} =
-    Prelude.rnf instanceEventWindow
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf instanceEventWindow `Prelude.seq`
+      Prelude.rnf httpStatus

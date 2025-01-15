@@ -124,11 +124,11 @@ instance Prelude.Hashable PITPolicyRule where
 
 instance Prelude.NFData PITPolicyRule where
   rnf PITPolicyRule' {..} =
-    Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf ruleID
-      `Prelude.seq` Prelude.rnf interval
-      `Prelude.seq` Prelude.rnf retentionDuration
-      `Prelude.seq` Prelude.rnf units
+    Prelude.rnf enabled `Prelude.seq`
+      Prelude.rnf ruleID `Prelude.seq`
+        Prelude.rnf interval `Prelude.seq`
+          Prelude.rnf retentionDuration `Prelude.seq`
+            Prelude.rnf units
 
 instance Data.ToJSON PITPolicyRule where
   toJSON PITPolicyRule' {..} =

@@ -196,5 +196,5 @@ verifyDomainIdentityResponse_verificationToken = Lens.lens (\VerifyDomainIdentit
 
 instance Prelude.NFData VerifyDomainIdentityResponse where
   rnf VerifyDomainIdentityResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf verificationToken
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf verificationToken

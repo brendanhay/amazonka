@@ -508,21 +508,21 @@ instance Prelude.Hashable ImageBuilder where
 
 instance Prelude.NFData ImageBuilder where
   rnf ImageBuilder' {..} =
-    Prelude.rnf accessEndpoints
-      `Prelude.seq` Prelude.rnf appstreamAgentVersion
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf domainJoinInfo
-      `Prelude.seq` Prelude.rnf enableDefaultInternetAccess
-      `Prelude.seq` Prelude.rnf iamRoleArn
-      `Prelude.seq` Prelude.rnf imageArn
-      `Prelude.seq` Prelude.rnf imageBuilderErrors
-      `Prelude.seq` Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf networkAccessConfiguration
-      `Prelude.seq` Prelude.rnf platform
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf stateChangeReason
-      `Prelude.seq` Prelude.rnf vpcConfig
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf accessEndpoints `Prelude.seq`
+      Prelude.rnf appstreamAgentVersion `Prelude.seq`
+        Prelude.rnf arn `Prelude.seq`
+          Prelude.rnf createdTime `Prelude.seq`
+            Prelude.rnf description `Prelude.seq`
+              Prelude.rnf displayName `Prelude.seq`
+                Prelude.rnf domainJoinInfo `Prelude.seq`
+                  Prelude.rnf enableDefaultInternetAccess `Prelude.seq`
+                    Prelude.rnf iamRoleArn `Prelude.seq`
+                      Prelude.rnf imageArn `Prelude.seq`
+                        Prelude.rnf imageBuilderErrors `Prelude.seq`
+                          Prelude.rnf instanceType `Prelude.seq`
+                            Prelude.rnf networkAccessConfiguration `Prelude.seq`
+                              Prelude.rnf platform `Prelude.seq`
+                                Prelude.rnf state `Prelude.seq`
+                                  Prelude.rnf stateChangeReason `Prelude.seq`
+                                    Prelude.rnf vpcConfig `Prelude.seq`
+                                      Prelude.rnf name

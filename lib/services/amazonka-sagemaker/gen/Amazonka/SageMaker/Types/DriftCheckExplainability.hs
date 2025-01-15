@@ -84,8 +84,8 @@ instance Prelude.Hashable DriftCheckExplainability where
 
 instance Prelude.NFData DriftCheckExplainability where
   rnf DriftCheckExplainability' {..} =
-    Prelude.rnf configFile
-      `Prelude.seq` Prelude.rnf constraints
+    Prelude.rnf configFile `Prelude.seq`
+      Prelude.rnf constraints
 
 instance Data.ToJSON DriftCheckExplainability where
   toJSON DriftCheckExplainability' {..} =

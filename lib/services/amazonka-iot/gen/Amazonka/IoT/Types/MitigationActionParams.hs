@@ -157,12 +157,12 @@ instance Prelude.Hashable MitigationActionParams where
 
 instance Prelude.NFData MitigationActionParams where
   rnf MitigationActionParams' {..} =
-    Prelude.rnf addThingsToThingGroupParams
-      `Prelude.seq` Prelude.rnf enableIoTLoggingParams
-      `Prelude.seq` Prelude.rnf publishFindingToSnsParams
-      `Prelude.seq` Prelude.rnf replaceDefaultPolicyVersionParams
-      `Prelude.seq` Prelude.rnf updateCACertificateParams
-      `Prelude.seq` Prelude.rnf updateDeviceCertificateParams
+    Prelude.rnf addThingsToThingGroupParams `Prelude.seq`
+      Prelude.rnf enableIoTLoggingParams `Prelude.seq`
+        Prelude.rnf publishFindingToSnsParams `Prelude.seq`
+          Prelude.rnf replaceDefaultPolicyVersionParams `Prelude.seq`
+            Prelude.rnf updateCACertificateParams `Prelude.seq`
+              Prelude.rnf updateDeviceCertificateParams
 
 instance Data.ToJSON MitigationActionParams where
   toJSON MitigationActionParams' {..} =

@@ -203,15 +203,15 @@ instance Prelude.Hashable MonitoringJobDefinition where
 
 instance Prelude.NFData MonitoringJobDefinition where
   rnf MonitoringJobDefinition' {..} =
-    Prelude.rnf baselineConfig
-      `Prelude.seq` Prelude.rnf environment
-      `Prelude.seq` Prelude.rnf networkConfig
-      `Prelude.seq` Prelude.rnf stoppingCondition
-      `Prelude.seq` Prelude.rnf monitoringInputs
-      `Prelude.seq` Prelude.rnf monitoringOutputConfig
-      `Prelude.seq` Prelude.rnf monitoringResources
-      `Prelude.seq` Prelude.rnf monitoringAppSpecification
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf baselineConfig `Prelude.seq`
+      Prelude.rnf environment `Prelude.seq`
+        Prelude.rnf networkConfig `Prelude.seq`
+          Prelude.rnf stoppingCondition `Prelude.seq`
+            Prelude.rnf monitoringInputs `Prelude.seq`
+              Prelude.rnf monitoringOutputConfig `Prelude.seq`
+                Prelude.rnf monitoringResources `Prelude.seq`
+                  Prelude.rnf monitoringAppSpecification `Prelude.seq`
+                    Prelude.rnf roleArn
 
 instance Data.ToJSON MonitoringJobDefinition where
   toJSON MonitoringJobDefinition' {..} =

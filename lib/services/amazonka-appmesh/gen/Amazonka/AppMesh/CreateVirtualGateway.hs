@@ -200,12 +200,12 @@ instance Prelude.Hashable CreateVirtualGateway where
 
 instance Prelude.NFData CreateVirtualGateway where
   rnf CreateVirtualGateway' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf meshOwner
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf meshName
-      `Prelude.seq` Prelude.rnf spec
-      `Prelude.seq` Prelude.rnf virtualGatewayName
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf meshOwner `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf meshName `Prelude.seq`
+            Prelude.rnf spec `Prelude.seq`
+              Prelude.rnf virtualGatewayName
 
 instance Data.ToHeaders CreateVirtualGateway where
   toHeaders =
@@ -287,5 +287,5 @@ createVirtualGatewayResponse_virtualGateway = Lens.lens (\CreateVirtualGatewayRe
 
 instance Prelude.NFData CreateVirtualGatewayResponse where
   rnf CreateVirtualGatewayResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf virtualGateway
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf virtualGateway

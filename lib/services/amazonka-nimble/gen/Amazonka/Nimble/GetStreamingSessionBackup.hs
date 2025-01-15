@@ -113,8 +113,8 @@ instance Prelude.Hashable GetStreamingSessionBackup where
 
 instance Prelude.NFData GetStreamingSessionBackup where
   rnf GetStreamingSessionBackup' {..} =
-    Prelude.rnf backupId
-      `Prelude.seq` Prelude.rnf studioId
+    Prelude.rnf backupId `Prelude.seq`
+      Prelude.rnf studioId
 
 instance Data.ToHeaders GetStreamingSessionBackup where
   toHeaders =
@@ -183,5 +183,5 @@ instance
     GetStreamingSessionBackupResponse
   where
   rnf GetStreamingSessionBackupResponse' {..} =
-    Prelude.rnf streamingSessionBackup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf streamingSessionBackup `Prelude.seq`
+      Prelude.rnf httpStatus

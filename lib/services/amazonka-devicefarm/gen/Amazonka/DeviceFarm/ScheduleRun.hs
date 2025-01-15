@@ -194,14 +194,14 @@ instance Prelude.Hashable ScheduleRun where
 
 instance Prelude.NFData ScheduleRun where
   rnf ScheduleRun' {..} =
-    Prelude.rnf appArn
-      `Prelude.seq` Prelude.rnf configuration
-      `Prelude.seq` Prelude.rnf devicePoolArn
-      `Prelude.seq` Prelude.rnf deviceSelectionConfiguration
-      `Prelude.seq` Prelude.rnf executionConfiguration
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf projectArn
-      `Prelude.seq` Prelude.rnf test
+    Prelude.rnf appArn `Prelude.seq`
+      Prelude.rnf configuration `Prelude.seq`
+        Prelude.rnf devicePoolArn `Prelude.seq`
+          Prelude.rnf deviceSelectionConfiguration `Prelude.seq`
+            Prelude.rnf executionConfiguration `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf projectArn `Prelude.seq`
+                  Prelude.rnf test
 
 instance Data.ToHeaders ScheduleRun where
   toHeaders =
@@ -283,5 +283,5 @@ scheduleRunResponse_httpStatus = Lens.lens (\ScheduleRunResponse' {httpStatus} -
 
 instance Prelude.NFData ScheduleRunResponse where
   rnf ScheduleRunResponse' {..} =
-    Prelude.rnf run
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf run `Prelude.seq`
+      Prelude.rnf httpStatus

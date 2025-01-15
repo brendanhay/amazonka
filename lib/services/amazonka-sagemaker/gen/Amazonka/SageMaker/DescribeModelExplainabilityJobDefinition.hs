@@ -359,15 +359,15 @@ instance
   where
   rnf
     DescribeModelExplainabilityJobDefinitionResponse' {..} =
-      Prelude.rnf modelExplainabilityBaselineConfig
-        `Prelude.seq` Prelude.rnf networkConfig
-        `Prelude.seq` Prelude.rnf stoppingCondition
-        `Prelude.seq` Prelude.rnf httpStatus
-        `Prelude.seq` Prelude.rnf jobDefinitionArn
-        `Prelude.seq` Prelude.rnf jobDefinitionName
-        `Prelude.seq` Prelude.rnf creationTime
-        `Prelude.seq` Prelude.rnf modelExplainabilityAppSpecification
-        `Prelude.seq` Prelude.rnf modelExplainabilityJobInput
-        `Prelude.seq` Prelude.rnf modelExplainabilityJobOutputConfig
-        `Prelude.seq` Prelude.rnf jobResources
-        `Prelude.seq` Prelude.rnf roleArn
+      Prelude.rnf modelExplainabilityBaselineConfig `Prelude.seq`
+        Prelude.rnf networkConfig `Prelude.seq`
+          Prelude.rnf stoppingCondition `Prelude.seq`
+            Prelude.rnf httpStatus `Prelude.seq`
+              Prelude.rnf jobDefinitionArn `Prelude.seq`
+                Prelude.rnf jobDefinitionName `Prelude.seq`
+                  Prelude.rnf creationTime `Prelude.seq`
+                    Prelude.rnf modelExplainabilityAppSpecification `Prelude.seq`
+                      Prelude.rnf modelExplainabilityJobInput `Prelude.seq`
+                        Prelude.rnf modelExplainabilityJobOutputConfig `Prelude.seq`
+                          Prelude.rnf jobResources `Prelude.seq`
+                            Prelude.rnf roleArn

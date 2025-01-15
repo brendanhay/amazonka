@@ -182,5 +182,5 @@ getAccessPolicyResponse_httpStatus = Lens.lens (\GetAccessPolicyResponse' {httpS
 
 instance Prelude.NFData GetAccessPolicyResponse where
   rnf GetAccessPolicyResponse' {..} =
-    Prelude.rnf accessPolicyDetail
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf accessPolicyDetail `Prelude.seq`
+      Prelude.rnf httpStatus

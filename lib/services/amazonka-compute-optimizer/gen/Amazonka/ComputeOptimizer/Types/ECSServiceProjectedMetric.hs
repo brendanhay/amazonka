@@ -139,7 +139,7 @@ instance Prelude.Hashable ECSServiceProjectedMetric where
 
 instance Prelude.NFData ECSServiceProjectedMetric where
   rnf ECSServiceProjectedMetric' {..} =
-    Prelude.rnf lowerBoundValues
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf timestamps
-      `Prelude.seq` Prelude.rnf upperBoundValues
+    Prelude.rnf lowerBoundValues `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf timestamps `Prelude.seq`
+          Prelude.rnf upperBoundValues

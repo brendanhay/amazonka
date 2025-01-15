@@ -609,5 +609,5 @@ instance
     CreateReplicationInstanceResponse
   where
   rnf CreateReplicationInstanceResponse' {..} =
-    Prelude.rnf replicationInstance
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf replicationInstance `Prelude.seq`
+      Prelude.rnf httpStatus

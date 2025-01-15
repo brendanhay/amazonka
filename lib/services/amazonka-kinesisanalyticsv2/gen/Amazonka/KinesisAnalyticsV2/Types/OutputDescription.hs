@@ -142,9 +142,9 @@ instance Prelude.Hashable OutputDescription where
 
 instance Prelude.NFData OutputDescription where
   rnf OutputDescription' {..} =
-    Prelude.rnf destinationSchema
-      `Prelude.seq` Prelude.rnf kinesisFirehoseOutputDescription
-      `Prelude.seq` Prelude.rnf kinesisStreamsOutputDescription
-      `Prelude.seq` Prelude.rnf lambdaOutputDescription
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf outputId
+    Prelude.rnf destinationSchema `Prelude.seq`
+      Prelude.rnf kinesisFirehoseOutputDescription `Prelude.seq`
+        Prelude.rnf kinesisStreamsOutputDescription `Prelude.seq`
+          Prelude.rnf lambdaOutputDescription `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf outputId

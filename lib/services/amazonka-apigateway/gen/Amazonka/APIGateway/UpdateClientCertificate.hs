@@ -114,8 +114,8 @@ instance Prelude.Hashable UpdateClientCertificate where
 
 instance Prelude.NFData UpdateClientCertificate where
   rnf UpdateClientCertificate' {..} =
-    Prelude.rnf patchOperations
-      `Prelude.seq` Prelude.rnf clientCertificateId
+    Prelude.rnf patchOperations `Prelude.seq`
+      Prelude.rnf clientCertificateId
 
 instance Data.ToHeaders UpdateClientCertificate where
   toHeaders =

@@ -165,13 +165,13 @@ instance Prelude.Hashable DataSetSummary where
 
 instance Prelude.NFData DataSetSummary where
   rnf DataSetSummary' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf columnLevelPermissionRulesApplied
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf dataSetId
-      `Prelude.seq` Prelude.rnf importMode
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf rowLevelPermissionDataSet
-      `Prelude.seq` Prelude.rnf
-        rowLevelPermissionTagConfigurationApplied
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf columnLevelPermissionRulesApplied `Prelude.seq`
+        Prelude.rnf createdTime `Prelude.seq`
+          Prelude.rnf dataSetId `Prelude.seq`
+            Prelude.rnf importMode `Prelude.seq`
+              Prelude.rnf lastUpdatedTime `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf rowLevelPermissionDataSet `Prelude.seq`
+                    Prelude.rnf
+                      rowLevelPermissionTagConfigurationApplied

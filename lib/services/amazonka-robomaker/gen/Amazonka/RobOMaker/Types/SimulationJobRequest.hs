@@ -251,18 +251,18 @@ instance Prelude.Hashable SimulationJobRequest where
 
 instance Prelude.NFData SimulationJobRequest where
   rnf SimulationJobRequest' {..} =
-    Prelude.rnf compute
-      `Prelude.seq` Prelude.rnf dataSources
-      `Prelude.seq` Prelude.rnf failureBehavior
-      `Prelude.seq` Prelude.rnf iamRole
-      `Prelude.seq` Prelude.rnf loggingConfig
-      `Prelude.seq` Prelude.rnf outputLocation
-      `Prelude.seq` Prelude.rnf robotApplications
-      `Prelude.seq` Prelude.rnf simulationApplications
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf useDefaultApplications
-      `Prelude.seq` Prelude.rnf vpcConfig
-      `Prelude.seq` Prelude.rnf maxJobDurationInSeconds
+    Prelude.rnf compute `Prelude.seq`
+      Prelude.rnf dataSources `Prelude.seq`
+        Prelude.rnf failureBehavior `Prelude.seq`
+          Prelude.rnf iamRole `Prelude.seq`
+            Prelude.rnf loggingConfig `Prelude.seq`
+              Prelude.rnf outputLocation `Prelude.seq`
+                Prelude.rnf robotApplications `Prelude.seq`
+                  Prelude.rnf simulationApplications `Prelude.seq`
+                    Prelude.rnf tags `Prelude.seq`
+                      Prelude.rnf useDefaultApplications `Prelude.seq`
+                        Prelude.rnf vpcConfig `Prelude.seq`
+                          Prelude.rnf maxJobDurationInSeconds
 
 instance Data.ToJSON SimulationJobRequest where
   toJSON SimulationJobRequest' {..} =

@@ -114,12 +114,12 @@ instance Core.AWSPager ListWorkflowStepGroups where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listWorkflowStepGroups_nextToken
-          Lens..~ rs
-          Lens.^? listWorkflowStepGroupsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listWorkflowStepGroups_nextToken
+              Lens..~ rs
+              Lens.^? listWorkflowStepGroupsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListWorkflowStepGroups where
   type
@@ -148,9 +148,9 @@ instance Prelude.Hashable ListWorkflowStepGroups where
 
 instance Prelude.NFData ListWorkflowStepGroups where
   rnf ListWorkflowStepGroups' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf workflowId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf workflowId
 
 instance Data.ToHeaders ListWorkflowStepGroups where
   toHeaders =
@@ -227,6 +227,6 @@ instance
     ListWorkflowStepGroupsResponse
   where
   rnf ListWorkflowStepGroupsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf workflowStepGroupsSummary
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf workflowStepGroupsSummary

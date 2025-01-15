@@ -156,10 +156,10 @@ instance Prelude.Hashable GetIceServerConfig where
 
 instance Prelude.NFData GetIceServerConfig where
   rnf GetIceServerConfig' {..} =
-    Prelude.rnf clientId
-      `Prelude.seq` Prelude.rnf service
-      `Prelude.seq` Prelude.rnf username
-      `Prelude.seq` Prelude.rnf channelARN
+    Prelude.rnf clientId `Prelude.seq`
+      Prelude.rnf service `Prelude.seq`
+        Prelude.rnf username `Prelude.seq`
+          Prelude.rnf channelARN
 
 instance Data.ToHeaders GetIceServerConfig where
   toHeaders = Prelude.const Prelude.mempty
@@ -222,5 +222,5 @@ getIceServerConfigResponse_httpStatus = Lens.lens (\GetIceServerConfigResponse' 
 
 instance Prelude.NFData GetIceServerConfigResponse where
   rnf GetIceServerConfigResponse' {..} =
-    Prelude.rnf iceServerList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf iceServerList `Prelude.seq`
+      Prelude.rnf httpStatus

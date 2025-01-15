@@ -174,6 +174,6 @@ listVpcEndpointsResponse_nextToken = Lens.lens (\ListVpcEndpointsResponse' {next
 
 instance Prelude.NFData ListVpcEndpointsResponse where
   rnf ListVpcEndpointsResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf vpcEndpointSummaryList
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf vpcEndpointSummaryList `Prelude.seq`
+        Prelude.rnf nextToken

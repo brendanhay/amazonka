@@ -160,11 +160,11 @@ instance Prelude.Hashable ListAnomalyGroupTimeSeries where
 
 instance Prelude.NFData ListAnomalyGroupTimeSeries where
   rnf ListAnomalyGroupTimeSeries' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf anomalyDetectorArn
-      `Prelude.seq` Prelude.rnf anomalyGroupId
-      `Prelude.seq` Prelude.rnf metricName
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf anomalyDetectorArn `Prelude.seq`
+          Prelude.rnf anomalyGroupId `Prelude.seq`
+            Prelude.rnf metricName
 
 instance Data.ToHeaders ListAnomalyGroupTimeSeries where
   toHeaders =
@@ -277,9 +277,9 @@ instance
     ListAnomalyGroupTimeSeriesResponse
   where
   rnf ListAnomalyGroupTimeSeriesResponse' {..} =
-    Prelude.rnf anomalyGroupId
-      `Prelude.seq` Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf timeSeriesList
-      `Prelude.seq` Prelude.rnf timestampList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf anomalyGroupId `Prelude.seq`
+      Prelude.rnf metricName `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf timeSeriesList `Prelude.seq`
+            Prelude.rnf timestampList `Prelude.seq`
+              Prelude.rnf httpStatus

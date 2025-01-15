@@ -166,9 +166,9 @@ instance
     ListRelatedResourcesForAuditFinding
   where
   rnf ListRelatedResourcesForAuditFinding' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf findingId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf findingId
 
 instance
   Data.ToHeaders
@@ -251,6 +251,6 @@ instance
     ListRelatedResourcesForAuditFindingResponse
   where
   rnf ListRelatedResourcesForAuditFindingResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf relatedResources
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf relatedResources `Prelude.seq`
+        Prelude.rnf httpStatus

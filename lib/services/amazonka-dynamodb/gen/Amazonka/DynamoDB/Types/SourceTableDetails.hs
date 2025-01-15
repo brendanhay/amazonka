@@ -202,12 +202,12 @@ instance Prelude.Hashable SourceTableDetails where
 
 instance Prelude.NFData SourceTableDetails where
   rnf SourceTableDetails' {..} =
-    Prelude.rnf billingMode
-      `Prelude.seq` Prelude.rnf itemCount
-      `Prelude.seq` Prelude.rnf tableArn
-      `Prelude.seq` Prelude.rnf tableSizeBytes
-      `Prelude.seq` Prelude.rnf tableName
-      `Prelude.seq` Prelude.rnf tableId
-      `Prelude.seq` Prelude.rnf keySchema
-      `Prelude.seq` Prelude.rnf tableCreationDateTime
-      `Prelude.seq` Prelude.rnf provisionedThroughput
+    Prelude.rnf billingMode `Prelude.seq`
+      Prelude.rnf itemCount `Prelude.seq`
+        Prelude.rnf tableArn `Prelude.seq`
+          Prelude.rnf tableSizeBytes `Prelude.seq`
+            Prelude.rnf tableName `Prelude.seq`
+              Prelude.rnf tableId `Prelude.seq`
+                Prelude.rnf keySchema `Prelude.seq`
+                  Prelude.rnf tableCreationDateTime `Prelude.seq`
+                    Prelude.rnf provisionedThroughput

@@ -191,12 +191,12 @@ instance Core.AWSPager ListPolicies where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listPolicies_nextToken
-          Lens..~ rs
-          Lens.^? listPoliciesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listPolicies_nextToken
+              Lens..~ rs
+              Lens.^? listPoliciesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPolicies where
   type AWSResponse ListPolicies = ListPoliciesResponse
@@ -220,9 +220,9 @@ instance Prelude.Hashable ListPolicies where
 
 instance Prelude.NFData ListPolicies where
   rnf ListPolicies' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filter'
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf filter'
 
 instance Data.ToHeaders ListPolicies where
   toHeaders =
@@ -322,6 +322,6 @@ listPoliciesResponse_httpStatus = Lens.lens (\ListPoliciesResponse' {httpStatus}
 
 instance Prelude.NFData ListPoliciesResponse where
   rnf ListPoliciesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf policies
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf policies `Prelude.seq`
+        Prelude.rnf httpStatus

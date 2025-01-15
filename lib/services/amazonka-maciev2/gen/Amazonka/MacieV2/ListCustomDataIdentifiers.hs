@@ -107,12 +107,12 @@ instance Core.AWSPager ListCustomDataIdentifiers where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listCustomDataIdentifiers_nextToken
-          Lens..~ rs
-          Lens.^? listCustomDataIdentifiersResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listCustomDataIdentifiers_nextToken
+              Lens..~ rs
+              Lens.^? listCustomDataIdentifiersResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListCustomDataIdentifiers where
   type
@@ -137,8 +137,8 @@ instance Prelude.Hashable ListCustomDataIdentifiers where
 
 instance Prelude.NFData ListCustomDataIdentifiers where
   rnf ListCustomDataIdentifiers' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListCustomDataIdentifiers where
   toHeaders =
@@ -226,6 +226,6 @@ instance
     ListCustomDataIdentifiersResponse
   where
   rnf ListCustomDataIdentifiersResponse' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf items `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -232,12 +232,12 @@ instance Prelude.Hashable CachePolicyConfig where
 
 instance Prelude.NFData CachePolicyConfig where
   rnf CachePolicyConfig' {..} =
-    Prelude.rnf comment
-      `Prelude.seq` Prelude.rnf defaultTTL
-      `Prelude.seq` Prelude.rnf maxTTL
-      `Prelude.seq` Prelude.rnf parametersInCacheKeyAndForwardedToOrigin
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf minTTL
+    Prelude.rnf comment `Prelude.seq`
+      Prelude.rnf defaultTTL `Prelude.seq`
+        Prelude.rnf maxTTL `Prelude.seq`
+          Prelude.rnf parametersInCacheKeyAndForwardedToOrigin `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf minTTL
 
 instance Data.ToXML CachePolicyConfig where
   toXML CachePolicyConfig' {..} =

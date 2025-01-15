@@ -100,6 +100,6 @@ instance Prelude.Hashable ActionTarget where
 
 instance Prelude.NFData ActionTarget where
   rnf ActionTarget' {..} =
-    Prelude.rnf actionTargetArn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf actionTargetArn `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf description

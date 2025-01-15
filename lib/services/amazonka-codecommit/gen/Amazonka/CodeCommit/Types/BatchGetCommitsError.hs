@@ -97,6 +97,6 @@ instance Prelude.Hashable BatchGetCommitsError where
 
 instance Prelude.NFData BatchGetCommitsError where
   rnf BatchGetCommitsError' {..} =
-    Prelude.rnf commitId
-      `Prelude.seq` Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorMessage
+    Prelude.rnf commitId `Prelude.seq`
+      Prelude.rnf errorCode `Prelude.seq`
+        Prelude.rnf errorMessage

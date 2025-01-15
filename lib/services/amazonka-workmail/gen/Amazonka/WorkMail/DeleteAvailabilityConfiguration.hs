@@ -126,8 +126,8 @@ instance
     DeleteAvailabilityConfiguration
   where
   rnf DeleteAvailabilityConfiguration' {..} =
-    Prelude.rnf organizationId
-      `Prelude.seq` Prelude.rnf domainName
+    Prelude.rnf organizationId `Prelude.seq`
+      Prelude.rnf domainName
 
 instance
   Data.ToHeaders

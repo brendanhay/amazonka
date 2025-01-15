@@ -137,8 +137,8 @@ instance
 
 instance Prelude.NFData AppIntegrationsConfiguration where
   rnf AppIntegrationsConfiguration' {..} =
-    Prelude.rnf appIntegrationArn
-      `Prelude.seq` Prelude.rnf objectFields
+    Prelude.rnf appIntegrationArn `Prelude.seq`
+      Prelude.rnf objectFields
 
 instance Data.ToJSON AppIntegrationsConfiguration where
   toJSON AppIntegrationsConfiguration' {..} =

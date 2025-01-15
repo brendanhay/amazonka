@@ -163,12 +163,12 @@ instance Core.AWSPager ListCommandInvocations where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listCommandInvocations_nextToken
-          Lens..~ rs
-          Lens.^? listCommandInvocationsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listCommandInvocations_nextToken
+              Lens..~ rs
+              Lens.^? listCommandInvocationsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListCommandInvocations where
   type
@@ -200,12 +200,12 @@ instance Prelude.Hashable ListCommandInvocations where
 
 instance Prelude.NFData ListCommandInvocations where
   rnf ListCommandInvocations' {..} =
-    Prelude.rnf commandId
-      `Prelude.seq` Prelude.rnf details
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf commandId `Prelude.seq`
+      Prelude.rnf details `Prelude.seq`
+        Prelude.rnf filters `Prelude.seq`
+          Prelude.rnf instanceId `Prelude.seq`
+            Prelude.rnf maxResults `Prelude.seq`
+              Prelude.rnf nextToken
 
 instance Data.ToHeaders ListCommandInvocations where
   toHeaders =
@@ -297,6 +297,6 @@ instance
     ListCommandInvocationsResponse
   where
   rnf ListCommandInvocationsResponse' {..} =
-    Prelude.rnf commandInvocations
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf commandInvocations `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

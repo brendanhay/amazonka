@@ -109,8 +109,8 @@ instance Prelude.Hashable UpdateTrial where
 
 instance Prelude.NFData UpdateTrial where
   rnf UpdateTrial' {..} =
-    Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf trialName
+    Prelude.rnf displayName `Prelude.seq`
+      Prelude.rnf trialName
 
 instance Data.ToHeaders UpdateTrial where
   toHeaders =
@@ -180,5 +180,5 @@ updateTrialResponse_httpStatus = Lens.lens (\UpdateTrialResponse' {httpStatus} -
 
 instance Prelude.NFData UpdateTrialResponse where
   rnf UpdateTrialResponse' {..} =
-    Prelude.rnf trialArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf trialArn `Prelude.seq`
+      Prelude.rnf httpStatus

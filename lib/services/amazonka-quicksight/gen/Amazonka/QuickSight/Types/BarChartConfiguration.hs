@@ -293,22 +293,22 @@ instance Prelude.Hashable BarChartConfiguration where
 
 instance Prelude.NFData BarChartConfiguration where
   rnf BarChartConfiguration' {..} =
-    Prelude.rnf barsArrangement
-      `Prelude.seq` Prelude.rnf categoryAxis
-      `Prelude.seq` Prelude.rnf categoryLabelOptions
-      `Prelude.seq` Prelude.rnf colorLabelOptions
-      `Prelude.seq` Prelude.rnf contributionAnalysisDefaults
-      `Prelude.seq` Prelude.rnf dataLabels
-      `Prelude.seq` Prelude.rnf fieldWells
-      `Prelude.seq` Prelude.rnf legend
-      `Prelude.seq` Prelude.rnf orientation
-      `Prelude.seq` Prelude.rnf referenceLines
-      `Prelude.seq` Prelude.rnf smallMultiplesOptions
-      `Prelude.seq` Prelude.rnf sortConfiguration
-      `Prelude.seq` Prelude.rnf tooltip
-      `Prelude.seq` Prelude.rnf valueAxis
-      `Prelude.seq` Prelude.rnf valueLabelOptions
-      `Prelude.seq` Prelude.rnf visualPalette
+    Prelude.rnf barsArrangement `Prelude.seq`
+      Prelude.rnf categoryAxis `Prelude.seq`
+        Prelude.rnf categoryLabelOptions `Prelude.seq`
+          Prelude.rnf colorLabelOptions `Prelude.seq`
+            Prelude.rnf contributionAnalysisDefaults `Prelude.seq`
+              Prelude.rnf dataLabels `Prelude.seq`
+                Prelude.rnf fieldWells `Prelude.seq`
+                  Prelude.rnf legend `Prelude.seq`
+                    Prelude.rnf orientation `Prelude.seq`
+                      Prelude.rnf referenceLines `Prelude.seq`
+                        Prelude.rnf smallMultiplesOptions `Prelude.seq`
+                          Prelude.rnf sortConfiguration `Prelude.seq`
+                            Prelude.rnf tooltip `Prelude.seq`
+                              Prelude.rnf valueAxis `Prelude.seq`
+                                Prelude.rnf valueLabelOptions `Prelude.seq`
+                                  Prelude.rnf visualPalette
 
 instance Data.ToJSON BarChartConfiguration where
   toJSON BarChartConfiguration' {..} =

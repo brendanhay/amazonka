@@ -210,16 +210,16 @@ instance Prelude.Hashable ListHubContents where
 
 instance Prelude.NFData ListHubContents where
   rnf ListHubContents' {..} =
-    Prelude.rnf creationTimeAfter
-      `Prelude.seq` Prelude.rnf creationTimeBefore
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf maxSchemaVersion
-      `Prelude.seq` Prelude.rnf nameContains
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf sortOrder
-      `Prelude.seq` Prelude.rnf hubName
-      `Prelude.seq` Prelude.rnf hubContentType
+    Prelude.rnf creationTimeAfter `Prelude.seq`
+      Prelude.rnf creationTimeBefore `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf maxSchemaVersion `Prelude.seq`
+            Prelude.rnf nameContains `Prelude.seq`
+              Prelude.rnf nextToken `Prelude.seq`
+                Prelude.rnf sortBy `Prelude.seq`
+                  Prelude.rnf sortOrder `Prelude.seq`
+                    Prelude.rnf hubName `Prelude.seq`
+                      Prelude.rnf hubContentType
 
 instance Data.ToHeaders ListHubContents where
   toHeaders =
@@ -314,6 +314,6 @@ listHubContentsResponse_hubContentSummaries = Lens.lens (\ListHubContentsRespons
 
 instance Prelude.NFData ListHubContentsResponse where
   rnf ListHubContentsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf hubContentSummaries
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf hubContentSummaries

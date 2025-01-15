@@ -213,15 +213,15 @@ instance Prelude.Hashable UpdateIndex where
 
 instance Prelude.NFData UpdateIndex where
   rnf UpdateIndex' {..} =
-    Prelude.rnf capacityUnits
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf documentMetadataConfigurationUpdates
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf userContextPolicy
-      `Prelude.seq` Prelude.rnf userGroupResolutionConfiguration
-      `Prelude.seq` Prelude.rnf userTokenConfigurations
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf capacityUnits `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf documentMetadataConfigurationUpdates `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf roleArn `Prelude.seq`
+              Prelude.rnf userContextPolicy `Prelude.seq`
+                Prelude.rnf userGroupResolutionConfiguration `Prelude.seq`
+                  Prelude.rnf userTokenConfigurations `Prelude.seq`
+                    Prelude.rnf id
 
 instance Data.ToHeaders UpdateIndex where
   toHeaders =

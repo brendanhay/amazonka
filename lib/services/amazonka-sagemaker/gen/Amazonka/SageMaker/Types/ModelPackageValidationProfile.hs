@@ -99,8 +99,8 @@ instance
 
 instance Prelude.NFData ModelPackageValidationProfile where
   rnf ModelPackageValidationProfile' {..} =
-    Prelude.rnf profileName
-      `Prelude.seq` Prelude.rnf transformJobDefinition
+    Prelude.rnf profileName `Prelude.seq`
+      Prelude.rnf transformJobDefinition
 
 instance Data.ToJSON ModelPackageValidationProfile where
   toJSON ModelPackageValidationProfile' {..} =

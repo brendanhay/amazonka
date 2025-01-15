@@ -121,7 +121,7 @@ instance Prelude.Hashable PutRecordsResultEntry where
 
 instance Prelude.NFData PutRecordsResultEntry where
   rnf PutRecordsResultEntry' {..} =
-    Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf sequenceNumber
-      `Prelude.seq` Prelude.rnf shardId
+    Prelude.rnf errorCode `Prelude.seq`
+      Prelude.rnf errorMessage `Prelude.seq`
+        Prelude.rnf sequenceNumber `Prelude.seq`
+          Prelude.rnf shardId

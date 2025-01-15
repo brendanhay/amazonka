@@ -99,12 +99,12 @@ instance Core.AWSPager ListDeploymentConfigs where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listDeploymentConfigs_nextToken
-          Lens..~ rs
-          Lens.^? listDeploymentConfigsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listDeploymentConfigs_nextToken
+              Lens..~ rs
+              Lens.^? listDeploymentConfigsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDeploymentConfigs where
   type
@@ -221,6 +221,6 @@ listDeploymentConfigsResponse_httpStatus = Lens.lens (\ListDeploymentConfigsResp
 
 instance Prelude.NFData ListDeploymentConfigsResponse where
   rnf ListDeploymentConfigsResponse' {..} =
-    Prelude.rnf deploymentConfigsList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf deploymentConfigsList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

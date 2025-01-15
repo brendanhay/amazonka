@@ -201,10 +201,10 @@ instance Prelude.Hashable BackupDetails where
 
 instance Prelude.NFData BackupDetails where
   rnf BackupDetails' {..} =
-    Prelude.rnf backupExpiryDateTime
-      `Prelude.seq` Prelude.rnf backupSizeBytes
-      `Prelude.seq` Prelude.rnf backupArn
-      `Prelude.seq` Prelude.rnf backupName
-      `Prelude.seq` Prelude.rnf backupStatus
-      `Prelude.seq` Prelude.rnf backupType
-      `Prelude.seq` Prelude.rnf backupCreationDateTime
+    Prelude.rnf backupExpiryDateTime `Prelude.seq`
+      Prelude.rnf backupSizeBytes `Prelude.seq`
+        Prelude.rnf backupArn `Prelude.seq`
+          Prelude.rnf backupName `Prelude.seq`
+            Prelude.rnf backupStatus `Prelude.seq`
+              Prelude.rnf backupType `Prelude.seq`
+                Prelude.rnf backupCreationDateTime

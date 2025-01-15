@@ -202,5 +202,5 @@ instance
     DescribeConfigurationRecordersResponse
   where
   rnf DescribeConfigurationRecordersResponse' {..} =
-    Prelude.rnf configurationRecorders
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf configurationRecorders `Prelude.seq`
+      Prelude.rnf httpStatus

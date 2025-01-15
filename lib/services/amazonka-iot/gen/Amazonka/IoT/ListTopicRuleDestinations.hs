@@ -114,12 +114,12 @@ instance Core.AWSPager ListTopicRuleDestinations where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listTopicRuleDestinations_nextToken
-          Lens..~ rs
-          Lens.^? listTopicRuleDestinationsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listTopicRuleDestinations_nextToken
+              Lens..~ rs
+              Lens.^? listTopicRuleDestinationsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListTopicRuleDestinations where
   type
@@ -147,8 +147,8 @@ instance Prelude.Hashable ListTopicRuleDestinations where
 
 instance Prelude.NFData ListTopicRuleDestinations where
   rnf ListTopicRuleDestinations' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListTopicRuleDestinations where
   toHeaders = Prelude.const Prelude.mempty
@@ -219,6 +219,6 @@ instance
     ListTopicRuleDestinationsResponse
   where
   rnf ListTopicRuleDestinationsResponse' {..} =
-    Prelude.rnf destinationSummaries
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf destinationSummaries `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

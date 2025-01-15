@@ -164,5 +164,5 @@ getDataCatalogResponse_httpStatus = Lens.lens (\GetDataCatalogResponse' {httpSta
 
 instance Prelude.NFData GetDataCatalogResponse where
   rnf GetDataCatalogResponse' {..} =
-    Prelude.rnf dataCatalog
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dataCatalog `Prelude.seq`
+      Prelude.rnf httpStatus

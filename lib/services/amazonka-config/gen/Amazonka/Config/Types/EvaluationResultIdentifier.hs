@@ -108,6 +108,6 @@ instance Prelude.Hashable EvaluationResultIdentifier where
 
 instance Prelude.NFData EvaluationResultIdentifier where
   rnf EvaluationResultIdentifier' {..} =
-    Prelude.rnf evaluationResultQualifier
-      `Prelude.seq` Prelude.rnf orderingTimestamp
-      `Prelude.seq` Prelude.rnf resourceEvaluationId
+    Prelude.rnf evaluationResultQualifier `Prelude.seq`
+      Prelude.rnf orderingTimestamp `Prelude.seq`
+        Prelude.rnf resourceEvaluationId

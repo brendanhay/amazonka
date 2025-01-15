@@ -129,6 +129,6 @@ instance
     ServerSideEncryptionUpdateDetails
   where
   rnf ServerSideEncryptionUpdateDetails' {..} =
-    Prelude.rnf message
-      `Prelude.seq` Prelude.rnf oldKmsKeyId
-      `Prelude.seq` Prelude.rnf updateStatus
+    Prelude.rnf message `Prelude.seq`
+      Prelude.rnf oldKmsKeyId `Prelude.seq`
+        Prelude.rnf updateStatus

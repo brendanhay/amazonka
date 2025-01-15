@@ -114,6 +114,6 @@ instance Prelude.Hashable S3Destination where
 
 instance Prelude.NFData S3Destination where
   rnf S3Destination' {..} =
-    Prelude.rnf bucket
-      `Prelude.seq` Prelude.rnf key
-      `Prelude.seq` Prelude.rnf metadataKey
+    Prelude.rnf bucket `Prelude.seq`
+      Prelude.rnf key `Prelude.seq`
+        Prelude.rnf metadataKey

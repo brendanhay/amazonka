@@ -58,9 +58,7 @@ validationWarning_errors = Lens.lens (\ValidationWarning' {errors} -> errors) (\
 instance Data.FromXML ValidationWarning where
   parseXML x =
     ValidationWarning'
-      Prelude.<$> ( x
-                      Data..@? "errorSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "errorSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 

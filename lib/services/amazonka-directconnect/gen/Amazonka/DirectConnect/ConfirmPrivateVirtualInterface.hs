@@ -137,9 +137,9 @@ instance
     ConfirmPrivateVirtualInterface
   where
   rnf ConfirmPrivateVirtualInterface' {..} =
-    Prelude.rnf directConnectGatewayId
-      `Prelude.seq` Prelude.rnf virtualGatewayId
-      `Prelude.seq` Prelude.rnf virtualInterfaceId
+    Prelude.rnf directConnectGatewayId `Prelude.seq`
+      Prelude.rnf virtualGatewayId `Prelude.seq`
+        Prelude.rnf virtualInterfaceId
 
 instance
   Data.ToHeaders
@@ -319,5 +319,5 @@ instance
     ConfirmPrivateVirtualInterfaceResponse
   where
   rnf ConfirmPrivateVirtualInterfaceResponse' {..} =
-    Prelude.rnf virtualInterfaceState
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf virtualInterfaceState `Prelude.seq`
+      Prelude.rnf httpStatus

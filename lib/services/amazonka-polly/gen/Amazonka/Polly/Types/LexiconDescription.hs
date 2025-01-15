@@ -81,5 +81,5 @@ instance Prelude.Hashable LexiconDescription where
 
 instance Prelude.NFData LexiconDescription where
   rnf LexiconDescription' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf attributes `Prelude.seq`
+      Prelude.rnf name

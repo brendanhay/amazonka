@@ -140,10 +140,10 @@ instance Prelude.Hashable KubernetesApiCallAction where
 
 instance Prelude.NFData KubernetesApiCallAction where
   rnf KubernetesApiCallAction' {..} =
-    Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf remoteIpDetails
-      `Prelude.seq` Prelude.rnf requestUri
-      `Prelude.seq` Prelude.rnf sourceIps
-      `Prelude.seq` Prelude.rnf statusCode
-      `Prelude.seq` Prelude.rnf userAgent
-      `Prelude.seq` Prelude.rnf verb
+    Prelude.rnf parameters `Prelude.seq`
+      Prelude.rnf remoteIpDetails `Prelude.seq`
+        Prelude.rnf requestUri `Prelude.seq`
+          Prelude.rnf sourceIps `Prelude.seq`
+            Prelude.rnf statusCode `Prelude.seq`
+              Prelude.rnf userAgent `Prelude.seq`
+                Prelude.rnf verb

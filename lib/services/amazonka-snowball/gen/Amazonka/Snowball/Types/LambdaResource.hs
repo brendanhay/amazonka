@@ -90,8 +90,8 @@ instance Prelude.Hashable LambdaResource where
 
 instance Prelude.NFData LambdaResource where
   rnf LambdaResource' {..} =
-    Prelude.rnf eventTriggers
-      `Prelude.seq` Prelude.rnf lambdaArn
+    Prelude.rnf eventTriggers `Prelude.seq`
+      Prelude.rnf lambdaArn
 
 instance Data.ToJSON LambdaResource where
   toJSON LambdaResource' {..} =

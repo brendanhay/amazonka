@@ -124,12 +124,12 @@ instance Core.AWSPager DescribeConfigRules where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeConfigRules_nextToken
-          Lens..~ rs
-          Lens.^? describeConfigRulesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeConfigRules_nextToken
+              Lens..~ rs
+              Lens.^? describeConfigRulesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeConfigRules where
   type
@@ -155,9 +155,9 @@ instance Prelude.Hashable DescribeConfigRules where
 
 instance Prelude.NFData DescribeConfigRules where
   rnf DescribeConfigRules' {..} =
-    Prelude.rnf configRuleNames
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf configRuleNames `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeConfigRules where
   toHeaders =
@@ -246,6 +246,6 @@ describeConfigRulesResponse_httpStatus = Lens.lens (\DescribeConfigRulesResponse
 
 instance Prelude.NFData DescribeConfigRulesResponse where
   rnf DescribeConfigRulesResponse' {..} =
-    Prelude.rnf configRules
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf configRules `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

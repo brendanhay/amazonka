@@ -113,8 +113,8 @@ instance Prelude.Hashable DescribeFargateProfile where
 
 instance Prelude.NFData DescribeFargateProfile where
   rnf DescribeFargateProfile' {..} =
-    Prelude.rnf clusterName
-      `Prelude.seq` Prelude.rnf fargateProfileName
+    Prelude.rnf clusterName `Prelude.seq`
+      Prelude.rnf fargateProfileName
 
 instance Data.ToHeaders DescribeFargateProfile where
   toHeaders =
@@ -183,5 +183,5 @@ instance
     DescribeFargateProfileResponse
   where
   rnf DescribeFargateProfileResponse' {..} =
-    Prelude.rnf fargateProfile
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf fargateProfile `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -107,8 +107,8 @@ instance Prelude.Hashable S3EncryptionConfig where
 
 instance Prelude.NFData S3EncryptionConfig where
   rnf S3EncryptionConfig' {..} =
-    Prelude.rnf encryptionMode
-      `Prelude.seq` Prelude.rnf kmsKeyArn
+    Prelude.rnf encryptionMode `Prelude.seq`
+      Prelude.rnf kmsKeyArn
 
 instance Data.ToJSON S3EncryptionConfig where
   toJSON S3EncryptionConfig' {..} =

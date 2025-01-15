@@ -126,8 +126,8 @@ instance Prelude.Hashable RebuildEnvironment where
 
 instance Prelude.NFData RebuildEnvironment where
   rnf RebuildEnvironment' {..} =
-    Prelude.rnf environmentId
-      `Prelude.seq` Prelude.rnf environmentName
+    Prelude.rnf environmentId `Prelude.seq`
+      Prelude.rnf environmentName
 
 instance Data.ToHeaders RebuildEnvironment where
   toHeaders = Prelude.const Prelude.mempty

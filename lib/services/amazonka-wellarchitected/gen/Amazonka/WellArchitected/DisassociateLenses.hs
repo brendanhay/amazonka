@@ -107,8 +107,8 @@ instance Prelude.Hashable DisassociateLenses where
 
 instance Prelude.NFData DisassociateLenses where
   rnf DisassociateLenses' {..} =
-    Prelude.rnf workloadId
-      `Prelude.seq` Prelude.rnf lensAliases
+    Prelude.rnf workloadId `Prelude.seq`
+      Prelude.rnf lensAliases
 
 instance Data.ToHeaders DisassociateLenses where
   toHeaders =

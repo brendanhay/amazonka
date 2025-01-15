@@ -132,9 +132,9 @@ instance Prelude.Hashable DeleteIAMPolicyAssignment where
 
 instance Prelude.NFData DeleteIAMPolicyAssignment where
   rnf DeleteIAMPolicyAssignment' {..} =
-    Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf assignmentName
-      `Prelude.seq` Prelude.rnf namespace
+    Prelude.rnf awsAccountId `Prelude.seq`
+      Prelude.rnf assignmentName `Prelude.seq`
+        Prelude.rnf namespace
 
 instance Data.ToHeaders DeleteIAMPolicyAssignment where
   toHeaders =
@@ -214,6 +214,6 @@ instance
     DeleteIAMPolicyAssignmentResponse
   where
   rnf DeleteIAMPolicyAssignmentResponse' {..} =
-    Prelude.rnf assignmentName
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf assignmentName `Prelude.seq`
+      Prelude.rnf requestId `Prelude.seq`
+        Prelude.rnf status

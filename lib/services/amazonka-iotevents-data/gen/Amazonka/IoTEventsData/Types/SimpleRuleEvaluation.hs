@@ -96,6 +96,6 @@ instance Prelude.Hashable SimpleRuleEvaluation where
 
 instance Prelude.NFData SimpleRuleEvaluation where
   rnf SimpleRuleEvaluation' {..} =
-    Prelude.rnf inputPropertyValue
-      `Prelude.seq` Prelude.rnf operator
-      `Prelude.seq` Prelude.rnf thresholdValue
+    Prelude.rnf inputPropertyValue `Prelude.seq`
+      Prelude.rnf operator `Prelude.seq`
+        Prelude.rnf thresholdValue

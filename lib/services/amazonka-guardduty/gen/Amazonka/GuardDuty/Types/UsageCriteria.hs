@@ -84,9 +84,9 @@ instance Prelude.Hashable UsageCriteria where
 
 instance Prelude.NFData UsageCriteria where
   rnf UsageCriteria' {..} =
-    Prelude.rnf accountIds
-      `Prelude.seq` Prelude.rnf resources
-      `Prelude.seq` Prelude.rnf dataSources
+    Prelude.rnf accountIds `Prelude.seq`
+      Prelude.rnf resources `Prelude.seq`
+        Prelude.rnf dataSources
 
 instance Data.ToJSON UsageCriteria where
   toJSON UsageCriteria' {..} =

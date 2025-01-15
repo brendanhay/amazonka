@@ -120,9 +120,9 @@ instance Prelude.Hashable Enable where
 
 instance Prelude.NFData Enable where
   rnf Enable' {..} =
-    Prelude.rnf accountIds
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf resourceTypes
+    Prelude.rnf accountIds `Prelude.seq`
+      Prelude.rnf clientToken `Prelude.seq`
+        Prelude.rnf resourceTypes
 
 instance Data.ToHeaders Enable where
   toHeaders =
@@ -207,6 +207,6 @@ enableResponse_accounts = Lens.lens (\EnableResponse' {accounts} -> accounts) (\
 
 instance Prelude.NFData EnableResponse where
   rnf EnableResponse' {..} =
-    Prelude.rnf failedAccounts
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf accounts
+    Prelude.rnf failedAccounts `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf accounts

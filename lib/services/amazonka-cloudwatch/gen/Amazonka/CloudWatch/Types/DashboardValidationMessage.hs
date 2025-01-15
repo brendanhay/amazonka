@@ -77,5 +77,5 @@ instance Prelude.Hashable DashboardValidationMessage where
 
 instance Prelude.NFData DashboardValidationMessage where
   rnf DashboardValidationMessage' {..} =
-    Prelude.rnf dataPath
-      `Prelude.seq` Prelude.rnf message
+    Prelude.rnf dataPath `Prelude.seq`
+      Prelude.rnf message

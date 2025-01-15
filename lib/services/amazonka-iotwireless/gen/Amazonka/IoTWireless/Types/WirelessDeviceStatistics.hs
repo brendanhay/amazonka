@@ -181,14 +181,14 @@ instance Prelude.Hashable WirelessDeviceStatistics where
 
 instance Prelude.NFData WirelessDeviceStatistics where
   rnf WirelessDeviceStatistics' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf destinationName
-      `Prelude.seq` Prelude.rnf fuotaDeviceStatus
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf lastUplinkReceivedAt
-      `Prelude.seq` Prelude.rnf loRaWAN
-      `Prelude.seq` Prelude.rnf mcGroupId
-      `Prelude.seq` Prelude.rnf multicastDeviceStatus
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf sidewalk
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf destinationName `Prelude.seq`
+        Prelude.rnf fuotaDeviceStatus `Prelude.seq`
+          Prelude.rnf id `Prelude.seq`
+            Prelude.rnf lastUplinkReceivedAt `Prelude.seq`
+              Prelude.rnf loRaWAN `Prelude.seq`
+                Prelude.rnf mcGroupId `Prelude.seq`
+                  Prelude.rnf multicastDeviceStatus `Prelude.seq`
+                    Prelude.rnf name `Prelude.seq`
+                      Prelude.rnf sidewalk `Prelude.seq`
+                        Prelude.rnf type'

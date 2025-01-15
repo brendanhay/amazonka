@@ -134,9 +134,9 @@ instance Prelude.Hashable UpdateSignalingChannel where
 
 instance Prelude.NFData UpdateSignalingChannel where
   rnf UpdateSignalingChannel' {..} =
-    Prelude.rnf singleMasterConfiguration
-      `Prelude.seq` Prelude.rnf channelARN
-      `Prelude.seq` Prelude.rnf currentVersion
+    Prelude.rnf singleMasterConfiguration `Prelude.seq`
+      Prelude.rnf channelARN `Prelude.seq`
+        Prelude.rnf currentVersion
 
 instance Data.ToHeaders UpdateSignalingChannel where
   toHeaders = Prelude.const Prelude.mempty

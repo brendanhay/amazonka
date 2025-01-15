@@ -151,5 +151,5 @@ readJobResponse_job = Lens.lens (\ReadJobResponse' {job} -> job) (\s@ReadJobResp
 
 instance Prelude.NFData ReadJobResponse where
   rnf ReadJobResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf job
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf job

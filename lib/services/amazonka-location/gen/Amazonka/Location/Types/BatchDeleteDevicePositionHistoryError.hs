@@ -98,5 +98,5 @@ instance
     BatchDeleteDevicePositionHistoryError
   where
   rnf BatchDeleteDevicePositionHistoryError' {..} =
-    Prelude.rnf deviceId
-      `Prelude.seq` Prelude.rnf error
+    Prelude.rnf deviceId `Prelude.seq`
+      Prelude.rnf error

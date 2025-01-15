@@ -334,19 +334,19 @@ instance Prelude.Hashable ResizeProgressMessage where
 
 instance Prelude.NFData ResizeProgressMessage where
   rnf ResizeProgressMessage' {..} =
-    Prelude.rnf avgResizeRateInMegaBytesPerSecond
-      `Prelude.seq` Prelude.rnf dataTransferProgressPercent
-      `Prelude.seq` Prelude.rnf elapsedTimeInSeconds
-      `Prelude.seq` Prelude.rnf estimatedTimeToCompletionInSeconds
-      `Prelude.seq` Prelude.rnf importTablesCompleted
-      `Prelude.seq` Prelude.rnf importTablesInProgress
-      `Prelude.seq` Prelude.rnf importTablesNotStarted
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf progressInMegaBytes
-      `Prelude.seq` Prelude.rnf resizeType
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf targetClusterType
-      `Prelude.seq` Prelude.rnf targetEncryptionType
-      `Prelude.seq` Prelude.rnf targetNodeType
-      `Prelude.seq` Prelude.rnf targetNumberOfNodes
-      `Prelude.seq` Prelude.rnf totalResizeDataInMegaBytes
+    Prelude.rnf avgResizeRateInMegaBytesPerSecond `Prelude.seq`
+      Prelude.rnf dataTransferProgressPercent `Prelude.seq`
+        Prelude.rnf elapsedTimeInSeconds `Prelude.seq`
+          Prelude.rnf estimatedTimeToCompletionInSeconds `Prelude.seq`
+            Prelude.rnf importTablesCompleted `Prelude.seq`
+              Prelude.rnf importTablesInProgress `Prelude.seq`
+                Prelude.rnf importTablesNotStarted `Prelude.seq`
+                  Prelude.rnf message `Prelude.seq`
+                    Prelude.rnf progressInMegaBytes `Prelude.seq`
+                      Prelude.rnf resizeType `Prelude.seq`
+                        Prelude.rnf status `Prelude.seq`
+                          Prelude.rnf targetClusterType `Prelude.seq`
+                            Prelude.rnf targetEncryptionType `Prelude.seq`
+                              Prelude.rnf targetNodeType `Prelude.seq`
+                                Prelude.rnf targetNumberOfNodes `Prelude.seq`
+                                  Prelude.rnf totalResizeDataInMegaBytes

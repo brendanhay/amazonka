@@ -146,10 +146,10 @@ instance Prelude.Hashable GetColumnStatisticsForTable where
 
 instance Prelude.NFData GetColumnStatisticsForTable where
   rnf GetColumnStatisticsForTable' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf tableName
-      `Prelude.seq` Prelude.rnf columnNames
+    Prelude.rnf catalogId `Prelude.seq`
+      Prelude.rnf databaseName `Prelude.seq`
+        Prelude.rnf tableName `Prelude.seq`
+          Prelude.rnf columnNames
 
 instance Data.ToHeaders GetColumnStatisticsForTable where
   toHeaders =
@@ -236,6 +236,6 @@ instance
     GetColumnStatisticsForTableResponse
   where
   rnf GetColumnStatisticsForTableResponse' {..} =
-    Prelude.rnf columnStatisticsList
-      `Prelude.seq` Prelude.rnf errors
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf columnStatisticsList `Prelude.seq`
+      Prelude.rnf errors `Prelude.seq`
+        Prelude.rnf httpStatus

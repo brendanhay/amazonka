@@ -174,10 +174,10 @@ instance Prelude.Hashable RestoreSnapshotTier where
 
 instance Prelude.NFData RestoreSnapshotTier where
   rnf RestoreSnapshotTier' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf permanentRestore
-      `Prelude.seq` Prelude.rnf temporaryRestoreDays
-      `Prelude.seq` Prelude.rnf snapshotId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf permanentRestore `Prelude.seq`
+        Prelude.rnf temporaryRestoreDays `Prelude.seq`
+          Prelude.rnf snapshotId
 
 instance Data.ToHeaders RestoreSnapshotTier where
   toHeaders = Prelude.const Prelude.mempty
@@ -272,8 +272,8 @@ restoreSnapshotTierResponse_httpStatus = Lens.lens (\RestoreSnapshotTierResponse
 
 instance Prelude.NFData RestoreSnapshotTierResponse where
   rnf RestoreSnapshotTierResponse' {..} =
-    Prelude.rnf isPermanentRestore
-      `Prelude.seq` Prelude.rnf restoreDuration
-      `Prelude.seq` Prelude.rnf restoreStartTime
-      `Prelude.seq` Prelude.rnf snapshotId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf isPermanentRestore `Prelude.seq`
+      Prelude.rnf restoreDuration `Prelude.seq`
+        Prelude.rnf restoreStartTime `Prelude.seq`
+          Prelude.rnf snapshotId `Prelude.seq`
+            Prelude.rnf httpStatus

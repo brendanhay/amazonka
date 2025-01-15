@@ -118,10 +118,10 @@ instance
     CustomDataIdentifiersDetections
   where
   rnf CustomDataIdentifiersDetections' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf count
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf occurrences
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf count `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf occurrences
 
 instance Data.ToJSON CustomDataIdentifiersDetections where
   toJSON CustomDataIdentifiersDetections' {..} =

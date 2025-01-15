@@ -149,10 +149,10 @@ instance Prelude.Hashable AdminSetUserPassword where
 
 instance Prelude.NFData AdminSetUserPassword where
   rnf AdminSetUserPassword' {..} =
-    Prelude.rnf permanent
-      `Prelude.seq` Prelude.rnf userPoolId
-      `Prelude.seq` Prelude.rnf username
-      `Prelude.seq` Prelude.rnf password
+    Prelude.rnf permanent `Prelude.seq`
+      Prelude.rnf userPoolId `Prelude.seq`
+        Prelude.rnf username `Prelude.seq`
+          Prelude.rnf password
 
 instance Data.ToHeaders AdminSetUserPassword where
   toHeaders =

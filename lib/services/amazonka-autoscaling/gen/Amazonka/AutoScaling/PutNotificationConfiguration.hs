@@ -136,9 +136,9 @@ instance
 
 instance Prelude.NFData PutNotificationConfiguration where
   rnf PutNotificationConfiguration' {..} =
-    Prelude.rnf autoScalingGroupName
-      `Prelude.seq` Prelude.rnf topicARN
-      `Prelude.seq` Prelude.rnf notificationTypes
+    Prelude.rnf autoScalingGroupName `Prelude.seq`
+      Prelude.rnf topicARN `Prelude.seq`
+        Prelude.rnf notificationTypes
 
 instance Data.ToHeaders PutNotificationConfiguration where
   toHeaders = Prelude.const Prelude.mempty

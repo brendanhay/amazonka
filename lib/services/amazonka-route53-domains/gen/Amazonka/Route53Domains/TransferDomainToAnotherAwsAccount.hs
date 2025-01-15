@@ -165,8 +165,8 @@ instance
     TransferDomainToAnotherAwsAccount
   where
   rnf TransferDomainToAnotherAwsAccount' {..} =
-    Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf accountId
+    Prelude.rnf domainName `Prelude.seq`
+      Prelude.rnf accountId
 
 instance
   Data.ToHeaders
@@ -285,6 +285,6 @@ instance
     TransferDomainToAnotherAwsAccountResponse
   where
   rnf TransferDomainToAnotherAwsAccountResponse' {..} =
-    Prelude.rnf operationId
-      `Prelude.seq` Prelude.rnf password
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operationId `Prelude.seq`
+      Prelude.rnf password `Prelude.seq`
+        Prelude.rnf httpStatus

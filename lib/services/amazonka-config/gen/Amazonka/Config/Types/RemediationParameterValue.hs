@@ -84,8 +84,8 @@ instance Prelude.Hashable RemediationParameterValue where
 
 instance Prelude.NFData RemediationParameterValue where
   rnf RemediationParameterValue' {..} =
-    Prelude.rnf resourceValue
-      `Prelude.seq` Prelude.rnf staticValue
+    Prelude.rnf resourceValue `Prelude.seq`
+      Prelude.rnf staticValue
 
 instance Data.ToJSON RemediationParameterValue where
   toJSON RemediationParameterValue' {..} =

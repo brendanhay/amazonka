@@ -126,8 +126,8 @@ instance
     DescribeAppInstanceUserEndpoint
   where
   rnf DescribeAppInstanceUserEndpoint' {..} =
-    Prelude.rnf appInstanceUserArn
-      `Prelude.seq` Prelude.rnf endpointId
+    Prelude.rnf appInstanceUserArn `Prelude.seq`
+      Prelude.rnf endpointId
 
 instance
   Data.ToHeaders
@@ -201,5 +201,5 @@ instance
     DescribeAppInstanceUserEndpointResponse
   where
   rnf DescribeAppInstanceUserEndpointResponse' {..} =
-    Prelude.rnf appInstanceUserEndpoint
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf appInstanceUserEndpoint `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -228,11 +228,11 @@ instance
     SearchPlaceIndexForTextSummary
   where
   rnf SearchPlaceIndexForTextSummary' {..} =
-    Prelude.rnf biasPosition
-      `Prelude.seq` Prelude.rnf filterBBox
-      `Prelude.seq` Prelude.rnf filterCountries
-      `Prelude.seq` Prelude.rnf language
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf resultBBox
-      `Prelude.seq` Prelude.rnf dataSource
-      `Prelude.seq` Prelude.rnf text
+    Prelude.rnf biasPosition `Prelude.seq`
+      Prelude.rnf filterBBox `Prelude.seq`
+        Prelude.rnf filterCountries `Prelude.seq`
+          Prelude.rnf language `Prelude.seq`
+            Prelude.rnf maxResults `Prelude.seq`
+              Prelude.rnf resultBBox `Prelude.seq`
+                Prelude.rnf dataSource `Prelude.seq`
+                  Prelude.rnf text

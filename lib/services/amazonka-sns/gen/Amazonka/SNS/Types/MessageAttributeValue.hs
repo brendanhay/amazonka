@@ -119,9 +119,9 @@ instance Prelude.Hashable MessageAttributeValue where
 
 instance Prelude.NFData MessageAttributeValue where
   rnf MessageAttributeValue' {..} =
-    Prelude.rnf binaryValue
-      `Prelude.seq` Prelude.rnf stringValue
-      `Prelude.seq` Prelude.rnf dataType
+    Prelude.rnf binaryValue `Prelude.seq`
+      Prelude.rnf stringValue `Prelude.seq`
+        Prelude.rnf dataType
 
 instance Data.ToQuery MessageAttributeValue where
   toQuery MessageAttributeValue' {..} =

@@ -82,8 +82,8 @@ instance Prelude.Hashable StorageRuleType where
 
 instance Prelude.NFData StorageRuleType where
   rnf StorageRuleType' {..} =
-    Prelude.rnf storageAllocatedInBytes
-      `Prelude.seq` Prelude.rnf storageType
+    Prelude.rnf storageAllocatedInBytes `Prelude.seq`
+      Prelude.rnf storageType
 
 instance Data.ToJSON StorageRuleType where
   toJSON StorageRuleType' {..} =

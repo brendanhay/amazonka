@@ -145,12 +145,12 @@ instance Core.AWSPager ListAssignmentsForHIT where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listAssignmentsForHIT_nextToken
-          Lens..~ rs
-          Lens.^? listAssignmentsForHITResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listAssignmentsForHIT_nextToken
+              Lens..~ rs
+              Lens.^? listAssignmentsForHITResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAssignmentsForHIT where
   type
@@ -178,10 +178,10 @@ instance Prelude.Hashable ListAssignmentsForHIT where
 
 instance Prelude.NFData ListAssignmentsForHIT where
   rnf ListAssignmentsForHIT' {..} =
-    Prelude.rnf assignmentStatuses
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf hITId
+    Prelude.rnf assignmentStatuses `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf hITId
 
 instance Data.ToHeaders ListAssignmentsForHIT where
   toHeaders =
@@ -277,7 +277,7 @@ listAssignmentsForHITResponse_httpStatus = Lens.lens (\ListAssignmentsForHITResp
 
 instance Prelude.NFData ListAssignmentsForHITResponse where
   rnf ListAssignmentsForHITResponse' {..} =
-    Prelude.rnf assignments
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf numResults
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf assignments `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf numResults `Prelude.seq`
+          Prelude.rnf httpStatus

@@ -157,11 +157,11 @@ instance Prelude.Hashable ListSyncResources where
 
 instance Prelude.NFData ListSyncResources where
   rnf ListSyncResources' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf workspaceId
-      `Prelude.seq` Prelude.rnf syncSource
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf workspaceId `Prelude.seq`
+            Prelude.rnf syncSource
 
 instance Data.ToHeaders ListSyncResources where
   toHeaders =
@@ -247,6 +247,6 @@ listSyncResourcesResponse_httpStatus = Lens.lens (\ListSyncResourcesResponse' {h
 
 instance Prelude.NFData ListSyncResourcesResponse where
   rnf ListSyncResourcesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf syncResources
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf syncResources `Prelude.seq`
+        Prelude.rnf httpStatus

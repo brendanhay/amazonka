@@ -223,16 +223,16 @@ instance Prelude.Hashable UpdateDevice where
 
 instance Prelude.NFData UpdateDevice where
   rnf UpdateDevice' {..} =
-    Prelude.rnf aWSLocation
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf model
-      `Prelude.seq` Prelude.rnf serialNumber
-      `Prelude.seq` Prelude.rnf siteId
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf vendor
-      `Prelude.seq` Prelude.rnf globalNetworkId
-      `Prelude.seq` Prelude.rnf deviceId
+    Prelude.rnf aWSLocation `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf location `Prelude.seq`
+          Prelude.rnf model `Prelude.seq`
+            Prelude.rnf serialNumber `Prelude.seq`
+              Prelude.rnf siteId `Prelude.seq`
+                Prelude.rnf type' `Prelude.seq`
+                  Prelude.rnf vendor `Prelude.seq`
+                    Prelude.rnf globalNetworkId `Prelude.seq`
+                      Prelude.rnf deviceId
 
 instance Data.ToHeaders UpdateDevice where
   toHeaders =
@@ -312,5 +312,5 @@ updateDeviceResponse_httpStatus = Lens.lens (\UpdateDeviceResponse' {httpStatus}
 
 instance Prelude.NFData UpdateDeviceResponse where
   rnf UpdateDeviceResponse' {..} =
-    Prelude.rnf device
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf device `Prelude.seq`
+      Prelude.rnf httpStatus

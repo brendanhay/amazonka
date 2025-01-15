@@ -135,10 +135,10 @@ instance Prelude.Hashable CreateBackendEnvironment where
 
 instance Prelude.NFData CreateBackendEnvironment where
   rnf CreateBackendEnvironment' {..} =
-    Prelude.rnf deploymentArtifacts
-      `Prelude.seq` Prelude.rnf stackName
-      `Prelude.seq` Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf environmentName
+    Prelude.rnf deploymentArtifacts `Prelude.seq`
+      Prelude.rnf stackName `Prelude.seq`
+        Prelude.rnf appId `Prelude.seq`
+          Prelude.rnf environmentName
 
 instance Data.ToHeaders CreateBackendEnvironment where
   toHeaders =
@@ -221,5 +221,5 @@ instance
     CreateBackendEnvironmentResponse
   where
   rnf CreateBackendEnvironmentResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf backendEnvironment
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf backendEnvironment

@@ -204,13 +204,13 @@ instance Prelude.Hashable VolumeConfiguration where
 
 instance Prelude.NFData VolumeConfiguration where
   rnf VolumeConfiguration' {..} =
-    Prelude.rnf encrypted
-      `Prelude.seq` Prelude.rnf iops
-      `Prelude.seq` Prelude.rnf raidLevel
-      `Prelude.seq` Prelude.rnf volumeType
-      `Prelude.seq` Prelude.rnf mountPoint
-      `Prelude.seq` Prelude.rnf numberOfDisks
-      `Prelude.seq` Prelude.rnf size
+    Prelude.rnf encrypted `Prelude.seq`
+      Prelude.rnf iops `Prelude.seq`
+        Prelude.rnf raidLevel `Prelude.seq`
+          Prelude.rnf volumeType `Prelude.seq`
+            Prelude.rnf mountPoint `Prelude.seq`
+              Prelude.rnf numberOfDisks `Prelude.seq`
+                Prelude.rnf size
 
 instance Data.ToJSON VolumeConfiguration where
   toJSON VolumeConfiguration' {..} =

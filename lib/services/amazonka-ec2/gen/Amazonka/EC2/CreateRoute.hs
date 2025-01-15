@@ -320,22 +320,22 @@ instance Prelude.Hashable CreateRoute where
 
 instance Prelude.NFData CreateRoute where
   rnf CreateRoute' {..} =
-    Prelude.rnf carrierGatewayId
-      `Prelude.seq` Prelude.rnf coreNetworkArn
-      `Prelude.seq` Prelude.rnf destinationCidrBlock
-      `Prelude.seq` Prelude.rnf destinationIpv6CidrBlock
-      `Prelude.seq` Prelude.rnf destinationPrefixListId
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf egressOnlyInternetGatewayId
-      `Prelude.seq` Prelude.rnf gatewayId
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf localGatewayId
-      `Prelude.seq` Prelude.rnf natGatewayId
-      `Prelude.seq` Prelude.rnf networkInterfaceId
-      `Prelude.seq` Prelude.rnf transitGatewayId
-      `Prelude.seq` Prelude.rnf vpcEndpointId
-      `Prelude.seq` Prelude.rnf vpcPeeringConnectionId
-      `Prelude.seq` Prelude.rnf routeTableId
+    Prelude.rnf carrierGatewayId `Prelude.seq`
+      Prelude.rnf coreNetworkArn `Prelude.seq`
+        Prelude.rnf destinationCidrBlock `Prelude.seq`
+          Prelude.rnf destinationIpv6CidrBlock `Prelude.seq`
+            Prelude.rnf destinationPrefixListId `Prelude.seq`
+              Prelude.rnf dryRun `Prelude.seq`
+                Prelude.rnf egressOnlyInternetGatewayId `Prelude.seq`
+                  Prelude.rnf gatewayId `Prelude.seq`
+                    Prelude.rnf instanceId `Prelude.seq`
+                      Prelude.rnf localGatewayId `Prelude.seq`
+                        Prelude.rnf natGatewayId `Prelude.seq`
+                          Prelude.rnf networkInterfaceId `Prelude.seq`
+                            Prelude.rnf transitGatewayId `Prelude.seq`
+                              Prelude.rnf vpcEndpointId `Prelude.seq`
+                                Prelude.rnf vpcPeeringConnectionId `Prelude.seq`
+                                  Prelude.rnf routeTableId
 
 instance Data.ToHeaders CreateRoute where
   toHeaders = Prelude.const Prelude.mempty
@@ -412,5 +412,5 @@ createRouteResponse_httpStatus = Lens.lens (\CreateRouteResponse' {httpStatus} -
 
 instance Prelude.NFData CreateRouteResponse where
   rnf CreateRouteResponse' {..} =
-    Prelude.rnf return'
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf return' `Prelude.seq`
+      Prelude.rnf httpStatus

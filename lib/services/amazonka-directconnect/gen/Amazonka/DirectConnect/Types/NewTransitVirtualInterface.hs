@@ -184,17 +184,17 @@ instance Prelude.Hashable NewTransitVirtualInterface where
 
 instance Prelude.NFData NewTransitVirtualInterface where
   rnf NewTransitVirtualInterface' {..} =
-    Prelude.rnf addressFamily
-      `Prelude.seq` Prelude.rnf amazonAddress
-      `Prelude.seq` Prelude.rnf asn
-      `Prelude.seq` Prelude.rnf authKey
-      `Prelude.seq` Prelude.rnf customerAddress
-      `Prelude.seq` Prelude.rnf directConnectGatewayId
-      `Prelude.seq` Prelude.rnf enableSiteLink
-      `Prelude.seq` Prelude.rnf mtu
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf virtualInterfaceName
-      `Prelude.seq` Prelude.rnf vlan
+    Prelude.rnf addressFamily `Prelude.seq`
+      Prelude.rnf amazonAddress `Prelude.seq`
+        Prelude.rnf asn `Prelude.seq`
+          Prelude.rnf authKey `Prelude.seq`
+            Prelude.rnf customerAddress `Prelude.seq`
+              Prelude.rnf directConnectGatewayId `Prelude.seq`
+                Prelude.rnf enableSiteLink `Prelude.seq`
+                  Prelude.rnf mtu `Prelude.seq`
+                    Prelude.rnf tags `Prelude.seq`
+                      Prelude.rnf virtualInterfaceName `Prelude.seq`
+                        Prelude.rnf vlan
 
 instance Data.ToJSON NewTransitVirtualInterface where
   toJSON NewTransitVirtualInterface' {..} =

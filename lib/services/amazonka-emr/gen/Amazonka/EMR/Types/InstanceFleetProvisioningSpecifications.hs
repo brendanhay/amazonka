@@ -123,8 +123,8 @@ instance
     InstanceFleetProvisioningSpecifications
   where
   rnf InstanceFleetProvisioningSpecifications' {..} =
-    Prelude.rnf onDemandSpecification
-      `Prelude.seq` Prelude.rnf spotSpecification
+    Prelude.rnf onDemandSpecification `Prelude.seq`
+      Prelude.rnf spotSpecification
 
 instance
   Data.ToJSON

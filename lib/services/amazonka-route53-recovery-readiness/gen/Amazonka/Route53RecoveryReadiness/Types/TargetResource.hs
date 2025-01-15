@@ -82,8 +82,8 @@ instance Prelude.Hashable TargetResource where
 
 instance Prelude.NFData TargetResource where
   rnf TargetResource' {..} =
-    Prelude.rnf nLBResource
-      `Prelude.seq` Prelude.rnf r53Resource
+    Prelude.rnf nLBResource `Prelude.seq`
+      Prelude.rnf r53Resource
 
 instance Data.ToJSON TargetResource where
   toJSON TargetResource' {..} =

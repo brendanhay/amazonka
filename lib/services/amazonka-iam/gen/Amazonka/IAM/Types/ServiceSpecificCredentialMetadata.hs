@@ -165,9 +165,9 @@ instance
     ServiceSpecificCredentialMetadata
   where
   rnf ServiceSpecificCredentialMetadata' {..} =
-    Prelude.rnf userName
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf serviceUserName
-      `Prelude.seq` Prelude.rnf createDate
-      `Prelude.seq` Prelude.rnf serviceSpecificCredentialId
-      `Prelude.seq` Prelude.rnf serviceName
+    Prelude.rnf userName `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf serviceUserName `Prelude.seq`
+          Prelude.rnf createDate `Prelude.seq`
+            Prelude.rnf serviceSpecificCredentialId `Prelude.seq`
+              Prelude.rnf serviceName

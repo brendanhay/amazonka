@@ -181,14 +181,14 @@ instance Prelude.Hashable UpdateAnswer where
 
 instance Prelude.NFData UpdateAnswer where
   rnf UpdateAnswer' {..} =
-    Prelude.rnf choiceUpdates
-      `Prelude.seq` Prelude.rnf isApplicable
-      `Prelude.seq` Prelude.rnf notes
-      `Prelude.seq` Prelude.rnf reason
-      `Prelude.seq` Prelude.rnf selectedChoices
-      `Prelude.seq` Prelude.rnf workloadId
-      `Prelude.seq` Prelude.rnf lensAlias
-      `Prelude.seq` Prelude.rnf questionId
+    Prelude.rnf choiceUpdates `Prelude.seq`
+      Prelude.rnf isApplicable `Prelude.seq`
+        Prelude.rnf notes `Prelude.seq`
+          Prelude.rnf reason `Prelude.seq`
+            Prelude.rnf selectedChoices `Prelude.seq`
+              Prelude.rnf workloadId `Prelude.seq`
+                Prelude.rnf lensAlias `Prelude.seq`
+                  Prelude.rnf questionId
 
 instance Data.ToHeaders UpdateAnswer where
   toHeaders =
@@ -294,8 +294,8 @@ updateAnswerResponse_httpStatus = Lens.lens (\UpdateAnswerResponse' {httpStatus}
 
 instance Prelude.NFData UpdateAnswerResponse where
   rnf UpdateAnswerResponse' {..} =
-    Prelude.rnf answer
-      `Prelude.seq` Prelude.rnf lensAlias
-      `Prelude.seq` Prelude.rnf lensArn
-      `Prelude.seq` Prelude.rnf workloadId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf answer `Prelude.seq`
+      Prelude.rnf lensAlias `Prelude.seq`
+        Prelude.rnf lensArn `Prelude.seq`
+          Prelude.rnf workloadId `Prelude.seq`
+            Prelude.rnf httpStatus

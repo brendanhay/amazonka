@@ -83,5 +83,5 @@ instance Prelude.Hashable PartListElement where
 
 instance Prelude.NFData PartListElement where
   rnf PartListElement' {..} =
-    Prelude.rnf rangeInBytes
-      `Prelude.seq` Prelude.rnf sHA256TreeHash
+    Prelude.rnf rangeInBytes `Prelude.seq`
+      Prelude.rnf sHA256TreeHash

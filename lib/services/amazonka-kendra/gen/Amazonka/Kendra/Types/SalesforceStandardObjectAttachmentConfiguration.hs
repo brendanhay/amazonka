@@ -99,8 +99,8 @@ instance
   where
   rnf
     SalesforceStandardObjectAttachmentConfiguration' {..} =
-      Prelude.rnf documentTitleFieldName
-        `Prelude.seq` Prelude.rnf fieldMappings
+      Prelude.rnf documentTitleFieldName `Prelude.seq`
+        Prelude.rnf fieldMappings
 
 instance
   Data.ToJSON

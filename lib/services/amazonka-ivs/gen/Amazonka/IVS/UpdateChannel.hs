@@ -217,12 +217,12 @@ instance Prelude.Hashable UpdateChannel where
 
 instance Prelude.NFData UpdateChannel where
   rnf UpdateChannel' {..} =
-    Prelude.rnf authorized
-      `Prelude.seq` Prelude.rnf latencyMode
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf recordingConfigurationArn
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf authorized `Prelude.seq`
+      Prelude.rnf latencyMode `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf recordingConfigurationArn `Prelude.seq`
+            Prelude.rnf type' `Prelude.seq`
+              Prelude.rnf arn
 
 instance Data.ToHeaders UpdateChannel where
   toHeaders =
@@ -294,5 +294,5 @@ updateChannelResponse_httpStatus = Lens.lens (\UpdateChannelResponse' {httpStatu
 
 instance Prelude.NFData UpdateChannelResponse where
   rnf UpdateChannelResponse' {..} =
-    Prelude.rnf channel
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf channel `Prelude.seq`
+      Prelude.rnf httpStatus

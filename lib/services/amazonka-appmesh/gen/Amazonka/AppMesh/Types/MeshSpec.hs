@@ -81,8 +81,8 @@ instance Prelude.Hashable MeshSpec where
 
 instance Prelude.NFData MeshSpec where
   rnf MeshSpec' {..} =
-    Prelude.rnf egressFilter
-      `Prelude.seq` Prelude.rnf serviceDiscovery
+    Prelude.rnf egressFilter `Prelude.seq`
+      Prelude.rnf serviceDiscovery
 
 instance Data.ToJSON MeshSpec where
   toJSON MeshSpec' {..} =

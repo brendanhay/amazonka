@@ -120,10 +120,10 @@ instance Prelude.Hashable BouncedRecipientInfo where
 
 instance Prelude.NFData BouncedRecipientInfo where
   rnf BouncedRecipientInfo' {..} =
-    Prelude.rnf bounceType
-      `Prelude.seq` Prelude.rnf recipientArn
-      `Prelude.seq` Prelude.rnf recipientDsnFields
-      `Prelude.seq` Prelude.rnf recipient
+    Prelude.rnf bounceType `Prelude.seq`
+      Prelude.rnf recipientArn `Prelude.seq`
+        Prelude.rnf recipientDsnFields `Prelude.seq`
+          Prelude.rnf recipient
 
 instance Data.ToQuery BouncedRecipientInfo where
   toQuery BouncedRecipientInfo' {..} =

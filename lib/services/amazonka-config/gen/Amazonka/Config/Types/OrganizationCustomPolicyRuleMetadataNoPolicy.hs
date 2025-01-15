@@ -275,13 +275,13 @@ instance
     OrganizationCustomPolicyRuleMetadataNoPolicy
   where
   rnf OrganizationCustomPolicyRuleMetadataNoPolicy' {..} =
-    Prelude.rnf debugLogDeliveryAccounts
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf inputParameters
-      `Prelude.seq` Prelude.rnf maximumExecutionFrequency
-      `Prelude.seq` Prelude.rnf organizationConfigRuleTriggerTypes
-      `Prelude.seq` Prelude.rnf policyRuntime
-      `Prelude.seq` Prelude.rnf resourceIdScope
-      `Prelude.seq` Prelude.rnf resourceTypesScope
-      `Prelude.seq` Prelude.rnf tagKeyScope
-      `Prelude.seq` Prelude.rnf tagValueScope
+    Prelude.rnf debugLogDeliveryAccounts `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf inputParameters `Prelude.seq`
+          Prelude.rnf maximumExecutionFrequency `Prelude.seq`
+            Prelude.rnf organizationConfigRuleTriggerTypes `Prelude.seq`
+              Prelude.rnf policyRuntime `Prelude.seq`
+                Prelude.rnf resourceIdScope `Prelude.seq`
+                  Prelude.rnf resourceTypesScope `Prelude.seq`
+                    Prelude.rnf tagKeyScope `Prelude.seq`
+                      Prelude.rnf tagValueScope

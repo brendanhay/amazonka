@@ -97,12 +97,12 @@ instance Core.AWSPager ListManagedDataIdentifiers where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listManagedDataIdentifiers_nextToken
-          Lens..~ rs
-          Lens.^? listManagedDataIdentifiersResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listManagedDataIdentifiers_nextToken
+              Lens..~ rs
+              Lens.^? listManagedDataIdentifiersResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListManagedDataIdentifiers where
   type
@@ -211,6 +211,6 @@ instance
     ListManagedDataIdentifiersResponse
   where
   rnf ListManagedDataIdentifiersResponse' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf items `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

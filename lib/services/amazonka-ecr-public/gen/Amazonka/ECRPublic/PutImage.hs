@@ -178,12 +178,12 @@ instance Prelude.Hashable PutImage where
 
 instance Prelude.NFData PutImage where
   rnf PutImage' {..} =
-    Prelude.rnf imageDigest
-      `Prelude.seq` Prelude.rnf imageManifestMediaType
-      `Prelude.seq` Prelude.rnf imageTag
-      `Prelude.seq` Prelude.rnf registryId
-      `Prelude.seq` Prelude.rnf repositoryName
-      `Prelude.seq` Prelude.rnf imageManifest
+    Prelude.rnf imageDigest `Prelude.seq`
+      Prelude.rnf imageManifestMediaType `Prelude.seq`
+        Prelude.rnf imageTag `Prelude.seq`
+          Prelude.rnf registryId `Prelude.seq`
+            Prelude.rnf repositoryName `Prelude.seq`
+              Prelude.rnf imageManifest
 
 instance Data.ToHeaders PutImage where
   toHeaders =
@@ -262,5 +262,5 @@ putImageResponse_httpStatus = Lens.lens (\PutImageResponse' {httpStatus} -> http
 
 instance Prelude.NFData PutImageResponse where
   rnf PutImageResponse' {..} =
-    Prelude.rnf image
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf image `Prelude.seq`
+      Prelude.rnf httpStatus

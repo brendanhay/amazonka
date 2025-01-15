@@ -124,9 +124,9 @@ instance Prelude.Hashable ParameterRanges where
 
 instance Prelude.NFData ParameterRanges where
   rnf ParameterRanges' {..} =
-    Prelude.rnf categoricalParameterRanges
-      `Prelude.seq` Prelude.rnf continuousParameterRanges
-      `Prelude.seq` Prelude.rnf integerParameterRanges
+    Prelude.rnf categoricalParameterRanges `Prelude.seq`
+      Prelude.rnf continuousParameterRanges `Prelude.seq`
+        Prelude.rnf integerParameterRanges
 
 instance Data.ToJSON ParameterRanges where
   toJSON ParameterRanges' {..} =

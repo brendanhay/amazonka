@@ -159,9 +159,9 @@ instance Prelude.Hashable UpdateMedicalVocabulary where
 
 instance Prelude.NFData UpdateMedicalVocabulary where
   rnf UpdateMedicalVocabulary' {..} =
-    Prelude.rnf vocabularyName
-      `Prelude.seq` Prelude.rnf languageCode
-      `Prelude.seq` Prelude.rnf vocabularyFileUri
+    Prelude.rnf vocabularyName `Prelude.seq`
+      Prelude.rnf languageCode `Prelude.seq`
+        Prelude.rnf vocabularyFileUri
 
 instance Data.ToHeaders UpdateMedicalVocabulary where
   toHeaders =
@@ -294,8 +294,8 @@ instance
     UpdateMedicalVocabularyResponse
   where
   rnf UpdateMedicalVocabularyResponse' {..} =
-    Prelude.rnf languageCode
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf vocabularyName
-      `Prelude.seq` Prelude.rnf vocabularyState
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf languageCode `Prelude.seq`
+      Prelude.rnf lastModifiedTime `Prelude.seq`
+        Prelude.rnf vocabularyName `Prelude.seq`
+          Prelude.rnf vocabularyState `Prelude.seq`
+            Prelude.rnf httpStatus

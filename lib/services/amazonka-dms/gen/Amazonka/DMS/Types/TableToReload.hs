@@ -74,8 +74,8 @@ instance Prelude.Hashable TableToReload where
 
 instance Prelude.NFData TableToReload where
   rnf TableToReload' {..} =
-    Prelude.rnf schemaName
-      `Prelude.seq` Prelude.rnf tableName
+    Prelude.rnf schemaName `Prelude.seq`
+      Prelude.rnf tableName
 
 instance Data.ToJSON TableToReload where
   toJSON TableToReload' {..} =

@@ -103,6 +103,6 @@ instance Prelude.Hashable AutoMLCandidateStep where
 
 instance Prelude.NFData AutoMLCandidateStep where
   rnf AutoMLCandidateStep' {..} =
-    Prelude.rnf candidateStepType
-      `Prelude.seq` Prelude.rnf candidateStepArn
-      `Prelude.seq` Prelude.rnf candidateStepName
+    Prelude.rnf candidateStepType `Prelude.seq`
+      Prelude.rnf candidateStepArn `Prelude.seq`
+        Prelude.rnf candidateStepName

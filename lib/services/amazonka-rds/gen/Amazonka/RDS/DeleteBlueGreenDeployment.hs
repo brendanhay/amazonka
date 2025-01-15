@@ -136,8 +136,8 @@ instance Prelude.Hashable DeleteBlueGreenDeployment where
 
 instance Prelude.NFData DeleteBlueGreenDeployment where
   rnf DeleteBlueGreenDeployment' {..} =
-    Prelude.rnf deleteTarget
-      `Prelude.seq` Prelude.rnf blueGreenDeploymentIdentifier
+    Prelude.rnf deleteTarget `Prelude.seq`
+      Prelude.rnf blueGreenDeploymentIdentifier
 
 instance Data.ToHeaders DeleteBlueGreenDeployment where
   toHeaders = Prelude.const Prelude.mempty
@@ -200,5 +200,5 @@ instance
     DeleteBlueGreenDeploymentResponse
   where
   rnf DeleteBlueGreenDeploymentResponse' {..} =
-    Prelude.rnf blueGreenDeployment
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf blueGreenDeployment `Prelude.seq`
+      Prelude.rnf httpStatus

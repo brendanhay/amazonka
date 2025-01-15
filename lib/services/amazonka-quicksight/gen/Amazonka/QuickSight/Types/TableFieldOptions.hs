@@ -84,8 +84,8 @@ instance Prelude.Hashable TableFieldOptions where
 
 instance Prelude.NFData TableFieldOptions where
   rnf TableFieldOptions' {..} =
-    Prelude.rnf order
-      `Prelude.seq` Prelude.rnf selectedFieldOptions
+    Prelude.rnf order `Prelude.seq`
+      Prelude.rnf selectedFieldOptions
 
 instance Data.ToJSON TableFieldOptions where
   toJSON TableFieldOptions' {..} =

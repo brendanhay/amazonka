@@ -95,9 +95,9 @@ instance Prelude.Hashable EmergencyContact where
 
 instance Prelude.NFData EmergencyContact where
   rnf EmergencyContact' {..} =
-    Prelude.rnf contactNotes
-      `Prelude.seq` Prelude.rnf phoneNumber
-      `Prelude.seq` Prelude.rnf emailAddress
+    Prelude.rnf contactNotes `Prelude.seq`
+      Prelude.rnf phoneNumber `Prelude.seq`
+        Prelude.rnf emailAddress
 
 instance Data.ToJSON EmergencyContact where
   toJSON EmergencyContact' {..} =

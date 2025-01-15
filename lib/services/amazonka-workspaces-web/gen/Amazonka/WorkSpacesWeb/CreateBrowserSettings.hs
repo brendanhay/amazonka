@@ -173,11 +173,11 @@ instance Prelude.Hashable CreateBrowserSettings where
 
 instance Prelude.NFData CreateBrowserSettings where
   rnf CreateBrowserSettings' {..} =
-    Prelude.rnf additionalEncryptionContext
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf customerManagedKey
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf browserPolicy
+    Prelude.rnf additionalEncryptionContext `Prelude.seq`
+      Prelude.rnf clientToken `Prelude.seq`
+        Prelude.rnf customerManagedKey `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf browserPolicy
 
 instance Data.ToHeaders CreateBrowserSettings where
   toHeaders =
@@ -256,5 +256,5 @@ createBrowserSettingsResponse_browserSettingsArn = Lens.lens (\CreateBrowserSett
 
 instance Prelude.NFData CreateBrowserSettingsResponse where
   rnf CreateBrowserSettingsResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf browserSettingsArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf browserSettingsArn

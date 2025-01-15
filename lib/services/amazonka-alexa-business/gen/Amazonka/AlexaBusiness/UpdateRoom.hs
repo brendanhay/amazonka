@@ -135,11 +135,11 @@ instance Prelude.Hashable UpdateRoom where
 
 instance Prelude.NFData UpdateRoom where
   rnf UpdateRoom' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf profileArn
-      `Prelude.seq` Prelude.rnf providerCalendarId
-      `Prelude.seq` Prelude.rnf roomArn
-      `Prelude.seq` Prelude.rnf roomName
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf profileArn `Prelude.seq`
+        Prelude.rnf providerCalendarId `Prelude.seq`
+          Prelude.rnf roomArn `Prelude.seq`
+            Prelude.rnf roomName
 
 instance Data.ToHeaders UpdateRoom where
   toHeaders =

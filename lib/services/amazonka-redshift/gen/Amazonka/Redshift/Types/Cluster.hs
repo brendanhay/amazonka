@@ -881,9 +881,7 @@ instance Data.FromXML Cluster where
       Prelude.<*> (x Data..@? "ClusterCreateTime")
       Prelude.<*> (x Data..@? "ClusterIdentifier")
       Prelude.<*> (x Data..@? "ClusterNamespaceArn")
-      Prelude.<*> ( x
-                      Data..@? "ClusterNodes"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "ClusterNodes" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> ( x
@@ -919,9 +917,7 @@ instance Data.FromXML Cluster where
       Prelude.<*> (x Data..@? "ExpectedNextSnapshotScheduleTime")
       Prelude.<*> (x Data..@? "ExpectedNextSnapshotScheduleTimeStatus")
       Prelude.<*> (x Data..@? "HsmStatus")
-      Prelude.<*> ( x
-                      Data..@? "IamRoles"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "IamRoles" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "ClusterIamRole")
                   )
       Prelude.<*> (x Data..@? "KmsKeyId")
@@ -932,9 +928,7 @@ instance Data.FromXML Cluster where
       Prelude.<*> (x Data..@? "NextMaintenanceWindowStartTime")
       Prelude.<*> (x Data..@? "NodeType")
       Prelude.<*> (x Data..@? "NumberOfNodes")
-      Prelude.<*> ( x
-                      Data..@? "PendingActions"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "PendingActions" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "PendingModifiedValues")
@@ -945,9 +939,7 @@ instance Data.FromXML Cluster where
       Prelude.<*> (x Data..@? "RestoreStatus")
       Prelude.<*> (x Data..@? "SnapshotScheduleIdentifier")
       Prelude.<*> (x Data..@? "SnapshotScheduleState")
-      Prelude.<*> ( x
-                      Data..@? "Tags"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "Tag")
                   )
       Prelude.<*> (x Data..@? "TotalStorageCapacityInMegaBytes")

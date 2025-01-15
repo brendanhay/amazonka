@@ -424,23 +424,23 @@ describeFlowResponse_httpStatus = Lens.lens (\DescribeFlowResponse' {httpStatus}
 
 instance Prelude.NFData DescribeFlowResponse where
   rnf DescribeFlowResponse' {..} =
-    Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf createdBy
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf destinationFlowConfigList
-      `Prelude.seq` Prelude.rnf flowArn
-      `Prelude.seq` Prelude.rnf flowName
-      `Prelude.seq` Prelude.rnf flowStatus
-      `Prelude.seq` Prelude.rnf flowStatusMessage
-      `Prelude.seq` Prelude.rnf kmsArn
-      `Prelude.seq` Prelude.rnf lastRunExecutionDetails
-      `Prelude.seq` Prelude.rnf lastRunMetadataCatalogDetails
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf lastUpdatedBy
-      `Prelude.seq` Prelude.rnf metadataCatalogConfig
-      `Prelude.seq` Prelude.rnf schemaVersion
-      `Prelude.seq` Prelude.rnf sourceFlowConfig
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf tasks
-      `Prelude.seq` Prelude.rnf triggerConfig
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf createdAt `Prelude.seq`
+      Prelude.rnf createdBy `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf destinationFlowConfigList `Prelude.seq`
+            Prelude.rnf flowArn `Prelude.seq`
+              Prelude.rnf flowName `Prelude.seq`
+                Prelude.rnf flowStatus `Prelude.seq`
+                  Prelude.rnf flowStatusMessage `Prelude.seq`
+                    Prelude.rnf kmsArn `Prelude.seq`
+                      Prelude.rnf lastRunExecutionDetails `Prelude.seq`
+                        Prelude.rnf lastRunMetadataCatalogDetails `Prelude.seq`
+                          Prelude.rnf lastUpdatedAt `Prelude.seq`
+                            Prelude.rnf lastUpdatedBy `Prelude.seq`
+                              Prelude.rnf metadataCatalogConfig `Prelude.seq`
+                                Prelude.rnf schemaVersion `Prelude.seq`
+                                  Prelude.rnf sourceFlowConfig `Prelude.seq`
+                                    Prelude.rnf tags `Prelude.seq`
+                                      Prelude.rnf tasks `Prelude.seq`
+                                        Prelude.rnf triggerConfig `Prelude.seq`
+                                          Prelude.rnf httpStatus

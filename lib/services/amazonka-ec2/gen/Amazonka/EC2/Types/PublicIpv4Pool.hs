@@ -127,9 +127,7 @@ instance Data.FromXML PublicIpv4Pool where
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "poolId")
-      Prelude.<*> ( x
-                      Data..@? "tagSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "totalAddressCount")
@@ -148,10 +146,10 @@ instance Prelude.Hashable PublicIpv4Pool where
 
 instance Prelude.NFData PublicIpv4Pool where
   rnf PublicIpv4Pool' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf networkBorderGroup
-      `Prelude.seq` Prelude.rnf poolAddressRanges
-      `Prelude.seq` Prelude.rnf poolId
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf totalAddressCount
-      `Prelude.seq` Prelude.rnf totalAvailableAddressCount
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf networkBorderGroup `Prelude.seq`
+        Prelude.rnf poolAddressRanges `Prelude.seq`
+          Prelude.rnf poolId `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf totalAddressCount `Prelude.seq`
+                Prelude.rnf totalAvailableAddressCount

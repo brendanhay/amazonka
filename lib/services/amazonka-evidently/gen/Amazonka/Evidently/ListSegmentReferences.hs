@@ -137,12 +137,12 @@ instance Core.AWSPager ListSegmentReferences where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listSegmentReferences_nextToken
-          Lens..~ rs
-          Lens.^? listSegmentReferencesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listSegmentReferences_nextToken
+              Lens..~ rs
+              Lens.^? listSegmentReferencesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSegmentReferences where
   type
@@ -169,10 +169,10 @@ instance Prelude.Hashable ListSegmentReferences where
 
 instance Prelude.NFData ListSegmentReferences where
   rnf ListSegmentReferences' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf segment
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf segment `Prelude.seq`
+          Prelude.rnf type'
 
 instance Data.ToHeaders ListSegmentReferences where
   toHeaders =
@@ -254,6 +254,6 @@ listSegmentReferencesResponse_httpStatus = Lens.lens (\ListSegmentReferencesResp
 
 instance Prelude.NFData ListSegmentReferencesResponse where
   rnf ListSegmentReferencesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf referencedBy
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf referencedBy `Prelude.seq`
+        Prelude.rnf httpStatus

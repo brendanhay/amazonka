@@ -78,9 +78,7 @@ instance Data.FromXML IPRange where
     IPRange'
       Prelude.<$> (x Data..@? "CIDRIP")
       Prelude.<*> (x Data..@? "Status")
-      Prelude.<*> ( x
-                      Data..@? "Tags"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "Tag")
                   )
 
@@ -93,6 +91,6 @@ instance Prelude.Hashable IPRange where
 
 instance Prelude.NFData IPRange where
   rnf IPRange' {..} =
-    Prelude.rnf cidrip
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf cidrip `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf tags

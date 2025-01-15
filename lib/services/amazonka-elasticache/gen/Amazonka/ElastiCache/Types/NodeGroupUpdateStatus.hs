@@ -83,5 +83,5 @@ instance Prelude.Hashable NodeGroupUpdateStatus where
 
 instance Prelude.NFData NodeGroupUpdateStatus where
   rnf NodeGroupUpdateStatus' {..} =
-    Prelude.rnf nodeGroupId
-      `Prelude.seq` Prelude.rnf nodeGroupMemberUpdateStatus
+    Prelude.rnf nodeGroupId `Prelude.seq`
+      Prelude.rnf nodeGroupMemberUpdateStatus

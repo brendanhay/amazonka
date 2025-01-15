@@ -91,5 +91,5 @@ instance Prelude.Hashable Categories where
 
 instance Prelude.NFData Categories where
   rnf Categories' {..} =
-    Prelude.rnf matchedCategories
-      `Prelude.seq` Prelude.rnf matchedDetails
+    Prelude.rnf matchedCategories `Prelude.seq`
+      Prelude.rnf matchedDetails

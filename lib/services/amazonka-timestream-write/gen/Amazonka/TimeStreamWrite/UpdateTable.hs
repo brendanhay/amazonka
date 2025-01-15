@@ -145,10 +145,10 @@ instance Prelude.Hashable UpdateTable where
 
 instance Prelude.NFData UpdateTable where
   rnf UpdateTable' {..} =
-    Prelude.rnf magneticStoreWriteProperties
-      `Prelude.seq` Prelude.rnf retentionProperties
-      `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf tableName
+    Prelude.rnf magneticStoreWriteProperties `Prelude.seq`
+      Prelude.rnf retentionProperties `Prelude.seq`
+        Prelude.rnf databaseName `Prelude.seq`
+          Prelude.rnf tableName
 
 instance Data.ToHeaders UpdateTable where
   toHeaders =
@@ -224,5 +224,5 @@ updateTableResponse_httpStatus = Lens.lens (\UpdateTableResponse' {httpStatus} -
 
 instance Prelude.NFData UpdateTableResponse where
   rnf UpdateTableResponse' {..} =
-    Prelude.rnf table
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf table `Prelude.seq`
+      Prelude.rnf httpStatus

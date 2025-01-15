@@ -105,5 +105,5 @@ instance Prelude.Hashable ReceiptRuleSetMetadata where
 
 instance Prelude.NFData ReceiptRuleSetMetadata where
   rnf ReceiptRuleSetMetadata' {..} =
-    Prelude.rnf createdTimestamp
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf createdTimestamp `Prelude.seq`
+      Prelude.rnf name

@@ -197,12 +197,12 @@ instance Prelude.Hashable ModifyVpnConnectionOptions where
 
 instance Prelude.NFData ModifyVpnConnectionOptions where
   rnf ModifyVpnConnectionOptions' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf localIpv4NetworkCidr
-      `Prelude.seq` Prelude.rnf localIpv6NetworkCidr
-      `Prelude.seq` Prelude.rnf remoteIpv4NetworkCidr
-      `Prelude.seq` Prelude.rnf remoteIpv6NetworkCidr
-      `Prelude.seq` Prelude.rnf vpnConnectionId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf localIpv4NetworkCidr `Prelude.seq`
+        Prelude.rnf localIpv6NetworkCidr `Prelude.seq`
+          Prelude.rnf remoteIpv4NetworkCidr `Prelude.seq`
+            Prelude.rnf remoteIpv6NetworkCidr `Prelude.seq`
+              Prelude.rnf vpnConnectionId
 
 instance Data.ToHeaders ModifyVpnConnectionOptions where
   toHeaders = Prelude.const Prelude.mempty
@@ -271,5 +271,5 @@ instance
     ModifyVpnConnectionOptionsResponse
   where
   rnf ModifyVpnConnectionOptionsResponse' {..} =
-    Prelude.rnf vpnConnection
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf vpnConnection `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -110,8 +110,8 @@ instance Prelude.Hashable AttachStaticIp where
 
 instance Prelude.NFData AttachStaticIp where
   rnf AttachStaticIp' {..} =
-    Prelude.rnf staticIpName
-      `Prelude.seq` Prelude.rnf instanceName
+    Prelude.rnf staticIpName `Prelude.seq`
+      Prelude.rnf instanceName
 
 instance Data.ToHeaders AttachStaticIp where
   toHeaders =
@@ -190,5 +190,5 @@ attachStaticIpResponse_httpStatus = Lens.lens (\AttachStaticIpResponse' {httpSta
 
 instance Prelude.NFData AttachStaticIpResponse where
   rnf AttachStaticIpResponse' {..} =
-    Prelude.rnf operations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operations `Prelude.seq`
+      Prelude.rnf httpStatus

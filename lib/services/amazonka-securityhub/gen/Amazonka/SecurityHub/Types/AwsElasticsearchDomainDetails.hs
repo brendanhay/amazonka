@@ -258,19 +258,19 @@ instance
 
 instance Prelude.NFData AwsElasticsearchDomainDetails where
   rnf AwsElasticsearchDomainDetails' {..} =
-    Prelude.rnf accessPolicies
-      `Prelude.seq` Prelude.rnf domainEndpointOptions
-      `Prelude.seq` Prelude.rnf domainId
-      `Prelude.seq` Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf elasticsearchClusterConfig
-      `Prelude.seq` Prelude.rnf elasticsearchVersion
-      `Prelude.seq` Prelude.rnf encryptionAtRestOptions
-      `Prelude.seq` Prelude.rnf endpoint
-      `Prelude.seq` Prelude.rnf endpoints
-      `Prelude.seq` Prelude.rnf logPublishingOptions
-      `Prelude.seq` Prelude.rnf nodeToNodeEncryptionOptions
-      `Prelude.seq` Prelude.rnf serviceSoftwareOptions
-      `Prelude.seq` Prelude.rnf vPCOptions
+    Prelude.rnf accessPolicies `Prelude.seq`
+      Prelude.rnf domainEndpointOptions `Prelude.seq`
+        Prelude.rnf domainId `Prelude.seq`
+          Prelude.rnf domainName `Prelude.seq`
+            Prelude.rnf elasticsearchClusterConfig `Prelude.seq`
+              Prelude.rnf elasticsearchVersion `Prelude.seq`
+                Prelude.rnf encryptionAtRestOptions `Prelude.seq`
+                  Prelude.rnf endpoint `Prelude.seq`
+                    Prelude.rnf endpoints `Prelude.seq`
+                      Prelude.rnf logPublishingOptions `Prelude.seq`
+                        Prelude.rnf nodeToNodeEncryptionOptions `Prelude.seq`
+                          Prelude.rnf serviceSoftwareOptions `Prelude.seq`
+                            Prelude.rnf vPCOptions
 
 instance Data.ToJSON AwsElasticsearchDomainDetails where
   toJSON AwsElasticsearchDomainDetails' {..} =

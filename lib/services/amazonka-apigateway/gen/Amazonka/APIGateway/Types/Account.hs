@@ -106,7 +106,7 @@ instance Prelude.Hashable Account where
 
 instance Prelude.NFData Account where
   rnf Account' {..} =
-    Prelude.rnf apiKeyVersion
-      `Prelude.seq` Prelude.rnf cloudwatchRoleArn
-      `Prelude.seq` Prelude.rnf features
-      `Prelude.seq` Prelude.rnf throttleSettings
+    Prelude.rnf apiKeyVersion `Prelude.seq`
+      Prelude.rnf cloudwatchRoleArn `Prelude.seq`
+        Prelude.rnf features `Prelude.seq`
+          Prelude.rnf throttleSettings

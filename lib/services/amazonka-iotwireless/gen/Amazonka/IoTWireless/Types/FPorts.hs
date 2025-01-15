@@ -118,11 +118,11 @@ instance Prelude.Hashable FPorts where
 
 instance Prelude.NFData FPorts where
   rnf FPorts' {..} =
-    Prelude.rnf applications
-      `Prelude.seq` Prelude.rnf clockSync
-      `Prelude.seq` Prelude.rnf fuota
-      `Prelude.seq` Prelude.rnf multicast
-      `Prelude.seq` Prelude.rnf positioning
+    Prelude.rnf applications `Prelude.seq`
+      Prelude.rnf clockSync `Prelude.seq`
+        Prelude.rnf fuota `Prelude.seq`
+          Prelude.rnf multicast `Prelude.seq`
+            Prelude.rnf positioning
 
 instance Data.ToJSON FPorts where
   toJSON FPorts' {..} =

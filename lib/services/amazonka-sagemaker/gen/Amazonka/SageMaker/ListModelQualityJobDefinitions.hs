@@ -189,12 +189,12 @@ instance Core.AWSPager ListModelQualityJobDefinitions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listModelQualityJobDefinitions_nextToken
-          Lens..~ rs
-          Lens.^? listModelQualityJobDefinitionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listModelQualityJobDefinitions_nextToken
+              Lens..~ rs
+              Lens.^? listModelQualityJobDefinitionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -239,14 +239,14 @@ instance
     ListModelQualityJobDefinitions
   where
   rnf ListModelQualityJobDefinitions' {..} =
-    Prelude.rnf creationTimeAfter
-      `Prelude.seq` Prelude.rnf creationTimeBefore
-      `Prelude.seq` Prelude.rnf endpointName
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nameContains
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf sortOrder
+    Prelude.rnf creationTimeAfter `Prelude.seq`
+      Prelude.rnf creationTimeBefore `Prelude.seq`
+        Prelude.rnf endpointName `Prelude.seq`
+          Prelude.rnf maxResults `Prelude.seq`
+            Prelude.rnf nameContains `Prelude.seq`
+              Prelude.rnf nextToken `Prelude.seq`
+                Prelude.rnf sortBy `Prelude.seq`
+                  Prelude.rnf sortOrder
 
 instance
   Data.ToHeaders
@@ -350,6 +350,6 @@ instance
     ListModelQualityJobDefinitionsResponse
   where
   rnf ListModelQualityJobDefinitionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf jobDefinitionSummaries
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf jobDefinitionSummaries

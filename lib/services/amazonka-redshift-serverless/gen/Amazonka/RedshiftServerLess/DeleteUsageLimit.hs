@@ -164,5 +164,5 @@ deleteUsageLimitResponse_httpStatus = Lens.lens (\DeleteUsageLimitResponse' {htt
 
 instance Prelude.NFData DeleteUsageLimitResponse where
   rnf DeleteUsageLimitResponse' {..} =
-    Prelude.rnf usageLimit
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf usageLimit `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -96,9 +96,9 @@ instance Prelude.Hashable Destination where
 
 instance Prelude.NFData Destination where
   rnf Destination' {..} =
-    Prelude.rnf keyPrefix
-      `Prelude.seq` Prelude.rnf bucketName
-      `Prelude.seq` Prelude.rnf kmsKeyArn
+    Prelude.rnf keyPrefix `Prelude.seq`
+      Prelude.rnf bucketName `Prelude.seq`
+        Prelude.rnf kmsKeyArn
 
 instance Data.ToJSON Destination where
   toJSON Destination' {..} =

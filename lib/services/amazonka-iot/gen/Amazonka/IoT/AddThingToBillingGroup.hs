@@ -140,10 +140,10 @@ instance Prelude.Hashable AddThingToBillingGroup where
 
 instance Prelude.NFData AddThingToBillingGroup where
   rnf AddThingToBillingGroup' {..} =
-    Prelude.rnf billingGroupArn
-      `Prelude.seq` Prelude.rnf billingGroupName
-      `Prelude.seq` Prelude.rnf thingArn
-      `Prelude.seq` Prelude.rnf thingName
+    Prelude.rnf billingGroupArn `Prelude.seq`
+      Prelude.rnf billingGroupName `Prelude.seq`
+        Prelude.rnf thingArn `Prelude.seq`
+          Prelude.rnf thingName
 
 instance Data.ToHeaders AddThingToBillingGroup where
   toHeaders = Prelude.const Prelude.mempty

@@ -185,5 +185,5 @@ instance
     DescribeValidDBInstanceModificationsResponse
   where
   rnf DescribeValidDBInstanceModificationsResponse' {..} =
-    Prelude.rnf validDBInstanceModificationsMessage
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf validDBInstanceModificationsMessage `Prelude.seq`
+      Prelude.rnf httpStatus

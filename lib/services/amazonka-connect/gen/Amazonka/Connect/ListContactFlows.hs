@@ -145,12 +145,12 @@ instance Core.AWSPager ListContactFlows where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listContactFlows_nextToken
-          Lens..~ rs
-          Lens.^? listContactFlowsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listContactFlows_nextToken
+              Lens..~ rs
+              Lens.^? listContactFlowsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListContactFlows where
   type
@@ -180,10 +180,10 @@ instance Prelude.Hashable ListContactFlows where
 
 instance Prelude.NFData ListContactFlows where
   rnf ListContactFlows' {..} =
-    Prelude.rnf contactFlowTypes
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf instanceId
+    Prelude.rnf contactFlowTypes `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf instanceId
 
 instance Data.ToHeaders ListContactFlows where
   toHeaders =
@@ -266,6 +266,6 @@ listContactFlowsResponse_httpStatus = Lens.lens (\ListContactFlowsResponse' {htt
 
 instance Prelude.NFData ListContactFlowsResponse where
   rnf ListContactFlowsResponse' {..} =
-    Prelude.rnf contactFlowSummaryList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf contactFlowSummaryList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

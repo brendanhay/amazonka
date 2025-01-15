@@ -124,9 +124,9 @@ instance Prelude.Hashable SummarizedCounter where
 
 instance Prelude.NFData SummarizedCounter where
   rnf SummarizedCounter' {..} =
-    Prelude.rnf average
-      `Prelude.seq` Prelude.rnf max
-      `Prelude.seq` Prelude.rnf n
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf sum
-      `Prelude.seq` Prelude.rnf unit
+    Prelude.rnf average `Prelude.seq`
+      Prelude.rnf max `Prelude.seq`
+        Prelude.rnf n `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf sum `Prelude.seq`
+              Prelude.rnf unit

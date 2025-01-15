@@ -148,11 +148,11 @@ instance Prelude.Hashable ConfigurationRecorderStatus where
 
 instance Prelude.NFData ConfigurationRecorderStatus where
   rnf ConfigurationRecorderStatus' {..} =
-    Prelude.rnf lastErrorCode
-      `Prelude.seq` Prelude.rnf lastErrorMessage
-      `Prelude.seq` Prelude.rnf lastStartTime
-      `Prelude.seq` Prelude.rnf lastStatus
-      `Prelude.seq` Prelude.rnf lastStatusChangeTime
-      `Prelude.seq` Prelude.rnf lastStopTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf recording
+    Prelude.rnf lastErrorCode `Prelude.seq`
+      Prelude.rnf lastErrorMessage `Prelude.seq`
+        Prelude.rnf lastStartTime `Prelude.seq`
+          Prelude.rnf lastStatus `Prelude.seq`
+            Prelude.rnf lastStatusChangeTime `Prelude.seq`
+              Prelude.rnf lastStopTime `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf recording

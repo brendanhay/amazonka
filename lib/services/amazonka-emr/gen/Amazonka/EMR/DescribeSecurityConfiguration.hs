@@ -198,7 +198,7 @@ instance
     DescribeSecurityConfigurationResponse
   where
   rnf DescribeSecurityConfigurationResponse' {..} =
-    Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf securityConfiguration
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf creationDateTime `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf securityConfiguration `Prelude.seq`
+          Prelude.rnf httpStatus

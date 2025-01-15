@@ -123,12 +123,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listBulkDeploymentDetailedReports_nextToken
-          Lens..~ rs
-          Lens.^? listBulkDeploymentDetailedReportsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listBulkDeploymentDetailedReports_nextToken
+              Lens..~ rs
+              Lens.^? listBulkDeploymentDetailedReportsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -165,9 +165,9 @@ instance
     ListBulkDeploymentDetailedReports
   where
   rnf ListBulkDeploymentDetailedReports' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf bulkDeploymentId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf bulkDeploymentId
 
 instance
   Data.ToHeaders
@@ -264,6 +264,6 @@ instance
     ListBulkDeploymentDetailedReportsResponse
   where
   rnf ListBulkDeploymentDetailedReportsResponse' {..} =
-    Prelude.rnf deployments
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf deployments `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

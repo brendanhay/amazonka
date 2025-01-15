@@ -89,8 +89,8 @@ instance Prelude.Hashable CopyAction where
 
 instance Prelude.NFData CopyAction where
   rnf CopyAction' {..} =
-    Prelude.rnf lifecycle
-      `Prelude.seq` Prelude.rnf destinationBackupVaultArn
+    Prelude.rnf lifecycle `Prelude.seq`
+      Prelude.rnf destinationBackupVaultArn
 
 instance Data.ToJSON CopyAction where
   toJSON CopyAction' {..} =

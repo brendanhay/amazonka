@@ -97,6 +97,6 @@ instance Prelude.Hashable ConflictingAlias where
 
 instance Prelude.NFData ConflictingAlias where
   rnf ConflictingAlias' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf alias
-      `Prelude.seq` Prelude.rnf distributionId
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf alias `Prelude.seq`
+        Prelude.rnf distributionId

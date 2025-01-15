@@ -132,8 +132,8 @@ instance Prelude.Hashable Alert where
 
 instance Prelude.NFData Alert where
   rnf Alert' {..} =
-    Prelude.rnf alertCode
-      `Prelude.seq` Prelude.rnf alertMessage
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf relatedResourceArns
-      `Prelude.seq` Prelude.rnf resourceArn
+    Prelude.rnf alertCode `Prelude.seq`
+      Prelude.rnf alertMessage `Prelude.seq`
+        Prelude.rnf lastModifiedTime `Prelude.seq`
+          Prelude.rnf relatedResourceArns `Prelude.seq`
+            Prelude.rnf resourceArn

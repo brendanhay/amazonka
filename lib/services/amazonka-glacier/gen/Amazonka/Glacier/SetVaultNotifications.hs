@@ -164,9 +164,9 @@ instance Prelude.Hashable SetVaultNotifications where
 
 instance Prelude.NFData SetVaultNotifications where
   rnf SetVaultNotifications' {..} =
-    Prelude.rnf vaultNotificationConfig
-      `Prelude.seq` Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf vaultName
+    Prelude.rnf vaultNotificationConfig `Prelude.seq`
+      Prelude.rnf accountId `Prelude.seq`
+        Prelude.rnf vaultName
 
 instance Data.ToHeaders SetVaultNotifications where
   toHeaders = Prelude.const Prelude.mempty

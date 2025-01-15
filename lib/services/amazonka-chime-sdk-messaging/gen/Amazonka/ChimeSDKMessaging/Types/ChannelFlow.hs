@@ -114,8 +114,8 @@ instance Prelude.Hashable ChannelFlow where
 
 instance Prelude.NFData ChannelFlow where
   rnf ChannelFlow' {..} =
-    Prelude.rnf channelFlowArn
-      `Prelude.seq` Prelude.rnf createdTimestamp
-      `Prelude.seq` Prelude.rnf lastUpdatedTimestamp
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf processors
+    Prelude.rnf channelFlowArn `Prelude.seq`
+      Prelude.rnf createdTimestamp `Prelude.seq`
+        Prelude.rnf lastUpdatedTimestamp `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf processors

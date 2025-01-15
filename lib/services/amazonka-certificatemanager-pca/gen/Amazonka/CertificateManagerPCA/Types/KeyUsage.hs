@@ -158,15 +158,15 @@ instance Prelude.Hashable KeyUsage where
 
 instance Prelude.NFData KeyUsage where
   rnf KeyUsage' {..} =
-    Prelude.rnf cRLSign
-      `Prelude.seq` Prelude.rnf dataEncipherment
-      `Prelude.seq` Prelude.rnf decipherOnly
-      `Prelude.seq` Prelude.rnf digitalSignature
-      `Prelude.seq` Prelude.rnf encipherOnly
-      `Prelude.seq` Prelude.rnf keyAgreement
-      `Prelude.seq` Prelude.rnf keyCertSign
-      `Prelude.seq` Prelude.rnf keyEncipherment
-      `Prelude.seq` Prelude.rnf nonRepudiation
+    Prelude.rnf cRLSign `Prelude.seq`
+      Prelude.rnf dataEncipherment `Prelude.seq`
+        Prelude.rnf decipherOnly `Prelude.seq`
+          Prelude.rnf digitalSignature `Prelude.seq`
+            Prelude.rnf encipherOnly `Prelude.seq`
+              Prelude.rnf keyAgreement `Prelude.seq`
+                Prelude.rnf keyCertSign `Prelude.seq`
+                  Prelude.rnf keyEncipherment `Prelude.seq`
+                    Prelude.rnf nonRepudiation
 
 instance Data.ToJSON KeyUsage where
   toJSON KeyUsage' {..} =

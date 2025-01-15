@@ -125,9 +125,9 @@ instance Prelude.Hashable UpdateChannel where
 
 instance Prelude.NFData UpdateChannel where
   rnf UpdateChannel' {..} =
-    Prelude.rnf channelStorage
-      `Prelude.seq` Prelude.rnf retentionPeriod
-      `Prelude.seq` Prelude.rnf channelName
+    Prelude.rnf channelStorage `Prelude.seq`
+      Prelude.rnf retentionPeriod `Prelude.seq`
+        Prelude.rnf channelName
 
 instance Data.ToHeaders UpdateChannel where
   toHeaders = Prelude.const Prelude.mempty

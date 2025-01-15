@@ -177,5 +177,5 @@ detachDiskResponse_httpStatus = Lens.lens (\DetachDiskResponse' {httpStatus} -> 
 
 instance Prelude.NFData DetachDiskResponse where
   rnf DetachDiskResponse' {..} =
-    Prelude.rnf operations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operations `Prelude.seq`
+      Prelude.rnf httpStatus

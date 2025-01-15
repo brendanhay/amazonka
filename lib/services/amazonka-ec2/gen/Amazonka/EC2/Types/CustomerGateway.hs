@@ -144,9 +144,7 @@ instance Data.FromXML CustomerGateway where
     CustomerGateway'
       Prelude.<$> (x Data..@? "certificateArn")
       Prelude.<*> (x Data..@? "deviceName")
-      Prelude.<*> ( x
-                      Data..@? "tagSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@ "bgpAsn")
@@ -169,11 +167,11 @@ instance Prelude.Hashable CustomerGateway where
 
 instance Prelude.NFData CustomerGateway where
   rnf CustomerGateway' {..} =
-    Prelude.rnf certificateArn
-      `Prelude.seq` Prelude.rnf deviceName
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf bgpAsn
-      `Prelude.seq` Prelude.rnf customerGatewayId
-      `Prelude.seq` Prelude.rnf ipAddress
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf certificateArn `Prelude.seq`
+      Prelude.rnf deviceName `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf bgpAsn `Prelude.seq`
+            Prelude.rnf customerGatewayId `Prelude.seq`
+              Prelude.rnf ipAddress `Prelude.seq`
+                Prelude.rnf state `Prelude.seq`
+                  Prelude.rnf type'

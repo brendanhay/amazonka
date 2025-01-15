@@ -92,9 +92,9 @@ instance Prelude.Hashable ResolverRuleConfig where
 
 instance Prelude.NFData ResolverRuleConfig where
   rnf ResolverRuleConfig' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf resolverEndpointId
-      `Prelude.seq` Prelude.rnf targetIps
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf resolverEndpointId `Prelude.seq`
+        Prelude.rnf targetIps
 
 instance Data.ToJSON ResolverRuleConfig where
   toJSON ResolverRuleConfig' {..} =

@@ -133,9 +133,9 @@ instance Prelude.Hashable DeleteVirtualGateway where
 
 instance Prelude.NFData DeleteVirtualGateway where
   rnf DeleteVirtualGateway' {..} =
-    Prelude.rnf meshOwner
-      `Prelude.seq` Prelude.rnf meshName
-      `Prelude.seq` Prelude.rnf virtualGatewayName
+    Prelude.rnf meshOwner `Prelude.seq`
+      Prelude.rnf meshName `Prelude.seq`
+        Prelude.rnf virtualGatewayName
 
 instance Data.ToHeaders DeleteVirtualGateway where
   toHeaders =
@@ -206,5 +206,5 @@ deleteVirtualGatewayResponse_virtualGateway = Lens.lens (\DeleteVirtualGatewayRe
 
 instance Prelude.NFData DeleteVirtualGatewayResponse where
   rnf DeleteVirtualGatewayResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf virtualGateway
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf virtualGateway

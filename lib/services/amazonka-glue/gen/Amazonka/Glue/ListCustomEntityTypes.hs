@@ -112,8 +112,8 @@ instance Prelude.Hashable ListCustomEntityTypes where
 
 instance Prelude.NFData ListCustomEntityTypes where
   rnf ListCustomEntityTypes' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListCustomEntityTypes where
   toHeaders =
@@ -195,6 +195,6 @@ listCustomEntityTypesResponse_httpStatus = Lens.lens (\ListCustomEntityTypesResp
 
 instance Prelude.NFData ListCustomEntityTypesResponse where
   rnf ListCustomEntityTypesResponse' {..} =
-    Prelude.rnf customEntityTypes
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf customEntityTypes `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

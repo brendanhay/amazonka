@@ -117,9 +117,9 @@ instance Prelude.Hashable SipMediaApplication where
 
 instance Prelude.NFData SipMediaApplication where
   rnf SipMediaApplication' {..} =
-    Prelude.rnf awsRegion
-      `Prelude.seq` Prelude.rnf createdTimestamp
-      `Prelude.seq` Prelude.rnf endpoints
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf sipMediaApplicationId
-      `Prelude.seq` Prelude.rnf updatedTimestamp
+    Prelude.rnf awsRegion `Prelude.seq`
+      Prelude.rnf createdTimestamp `Prelude.seq`
+        Prelude.rnf endpoints `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf sipMediaApplicationId `Prelude.seq`
+              Prelude.rnf updatedTimestamp

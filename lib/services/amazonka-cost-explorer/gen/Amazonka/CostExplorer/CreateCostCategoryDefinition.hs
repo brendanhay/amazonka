@@ -263,13 +263,13 @@ instance
 
 instance Prelude.NFData CreateCostCategoryDefinition where
   rnf CreateCostCategoryDefinition' {..} =
-    Prelude.rnf defaultValue
-      `Prelude.seq` Prelude.rnf effectiveStart
-      `Prelude.seq` Prelude.rnf resourceTags
-      `Prelude.seq` Prelude.rnf splitChargeRules
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf ruleVersion
-      `Prelude.seq` Prelude.rnf rules
+    Prelude.rnf defaultValue `Prelude.seq`
+      Prelude.rnf effectiveStart `Prelude.seq`
+        Prelude.rnf resourceTags `Prelude.seq`
+          Prelude.rnf splitChargeRules `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf ruleVersion `Prelude.seq`
+                Prelude.rnf rules
 
 instance Data.ToHeaders CreateCostCategoryDefinition where
   toHeaders =
@@ -364,6 +364,6 @@ instance
     CreateCostCategoryDefinitionResponse
   where
   rnf CreateCostCategoryDefinitionResponse' {..} =
-    Prelude.rnf costCategoryArn
-      `Prelude.seq` Prelude.rnf effectiveStart
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf costCategoryArn `Prelude.seq`
+      Prelude.rnf effectiveStart `Prelude.seq`
+        Prelude.rnf httpStatus

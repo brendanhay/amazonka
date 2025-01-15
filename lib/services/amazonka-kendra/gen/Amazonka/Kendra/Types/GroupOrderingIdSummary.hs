@@ -134,8 +134,8 @@ instance Prelude.Hashable GroupOrderingIdSummary where
 
 instance Prelude.NFData GroupOrderingIdSummary where
   rnf GroupOrderingIdSummary' {..} =
-    Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf orderingId
-      `Prelude.seq` Prelude.rnf receivedAt
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf failureReason `Prelude.seq`
+      Prelude.rnf lastUpdatedAt `Prelude.seq`
+        Prelude.rnf orderingId `Prelude.seq`
+          Prelude.rnf receivedAt `Prelude.seq`
+            Prelude.rnf status

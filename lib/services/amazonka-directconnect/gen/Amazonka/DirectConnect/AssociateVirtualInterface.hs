@@ -146,8 +146,8 @@ instance Prelude.Hashable AssociateVirtualInterface where
 
 instance Prelude.NFData AssociateVirtualInterface where
   rnf AssociateVirtualInterface' {..} =
-    Prelude.rnf virtualInterfaceId
-      `Prelude.seq` Prelude.rnf connectionId
+    Prelude.rnf virtualInterfaceId `Prelude.seq`
+      Prelude.rnf connectionId
 
 instance Data.ToHeaders AssociateVirtualInterface where
   toHeaders =

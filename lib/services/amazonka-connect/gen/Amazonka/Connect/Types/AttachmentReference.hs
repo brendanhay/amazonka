@@ -93,6 +93,6 @@ instance Prelude.Hashable AttachmentReference where
 
 instance Prelude.NFData AttachmentReference where
   rnf AttachmentReference' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf value

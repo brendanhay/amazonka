@@ -95,6 +95,6 @@ instance Prelude.Hashable ControlSet where
 
 instance Prelude.NFData ControlSet where
   rnf ControlSet' {..} =
-    Prelude.rnf controls
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf controls `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf name

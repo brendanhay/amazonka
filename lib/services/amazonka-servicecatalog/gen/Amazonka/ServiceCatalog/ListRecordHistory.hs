@@ -154,12 +154,12 @@ instance Core.AWSPager ListRecordHistory where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listRecordHistory_pageToken
-          Lens..~ rs
-          Lens.^? listRecordHistoryResponse_nextPageToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listRecordHistory_pageToken
+              Lens..~ rs
+              Lens.^? listRecordHistoryResponse_nextPageToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListRecordHistory where
   type
@@ -187,11 +187,11 @@ instance Prelude.Hashable ListRecordHistory where
 
 instance Prelude.NFData ListRecordHistory where
   rnf ListRecordHistory' {..} =
-    Prelude.rnf acceptLanguage
-      `Prelude.seq` Prelude.rnf accessLevelFilter
-      `Prelude.seq` Prelude.rnf pageSize
-      `Prelude.seq` Prelude.rnf pageToken
-      `Prelude.seq` Prelude.rnf searchFilter
+    Prelude.rnf acceptLanguage `Prelude.seq`
+      Prelude.rnf accessLevelFilter `Prelude.seq`
+        Prelude.rnf pageSize `Prelude.seq`
+          Prelude.rnf pageToken `Prelude.seq`
+            Prelude.rnf searchFilter
 
 instance Data.ToHeaders ListRecordHistory where
   toHeaders =
@@ -281,6 +281,6 @@ listRecordHistoryResponse_httpStatus = Lens.lens (\ListRecordHistoryResponse' {h
 
 instance Prelude.NFData ListRecordHistoryResponse where
   rnf ListRecordHistoryResponse' {..} =
-    Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf recordDetails
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextPageToken `Prelude.seq`
+      Prelude.rnf recordDetails `Prelude.seq`
+        Prelude.rnf httpStatus

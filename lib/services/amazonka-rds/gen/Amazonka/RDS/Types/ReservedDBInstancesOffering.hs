@@ -172,13 +172,13 @@ instance Prelude.Hashable ReservedDBInstancesOffering where
 
 instance Prelude.NFData ReservedDBInstancesOffering where
   rnf ReservedDBInstancesOffering' {..} =
-    Prelude.rnf currencyCode
-      `Prelude.seq` Prelude.rnf dbInstanceClass
-      `Prelude.seq` Prelude.rnf duration
-      `Prelude.seq` Prelude.rnf fixedPrice
-      `Prelude.seq` Prelude.rnf multiAZ
-      `Prelude.seq` Prelude.rnf offeringType
-      `Prelude.seq` Prelude.rnf productDescription
-      `Prelude.seq` Prelude.rnf recurringCharges
-      `Prelude.seq` Prelude.rnf reservedDBInstancesOfferingId
-      `Prelude.seq` Prelude.rnf usagePrice
+    Prelude.rnf currencyCode `Prelude.seq`
+      Prelude.rnf dbInstanceClass `Prelude.seq`
+        Prelude.rnf duration `Prelude.seq`
+          Prelude.rnf fixedPrice `Prelude.seq`
+            Prelude.rnf multiAZ `Prelude.seq`
+              Prelude.rnf offeringType `Prelude.seq`
+                Prelude.rnf productDescription `Prelude.seq`
+                  Prelude.rnf recurringCharges `Prelude.seq`
+                    Prelude.rnf reservedDBInstancesOfferingId `Prelude.seq`
+                      Prelude.rnf usagePrice

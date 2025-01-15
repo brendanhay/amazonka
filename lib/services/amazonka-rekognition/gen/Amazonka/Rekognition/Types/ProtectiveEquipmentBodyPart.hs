@@ -105,6 +105,6 @@ instance Prelude.Hashable ProtectiveEquipmentBodyPart where
 
 instance Prelude.NFData ProtectiveEquipmentBodyPart where
   rnf ProtectiveEquipmentBodyPart' {..} =
-    Prelude.rnf confidence
-      `Prelude.seq` Prelude.rnf equipmentDetections
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf confidence `Prelude.seq`
+      Prelude.rnf equipmentDetections `Prelude.seq`
+        Prelude.rnf name

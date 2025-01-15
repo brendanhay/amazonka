@@ -221,18 +221,18 @@ instance Prelude.Hashable FreeFormLayoutElement where
 
 instance Prelude.NFData FreeFormLayoutElement where
   rnf FreeFormLayoutElement' {..} =
-    Prelude.rnf backgroundStyle
-      `Prelude.seq` Prelude.rnf borderStyle
-      `Prelude.seq` Prelude.rnf loadingAnimation
-      `Prelude.seq` Prelude.rnf renderingRules
-      `Prelude.seq` Prelude.rnf selectedBorderStyle
-      `Prelude.seq` Prelude.rnf visibility
-      `Prelude.seq` Prelude.rnf elementId
-      `Prelude.seq` Prelude.rnf elementType
-      `Prelude.seq` Prelude.rnf xAxisLocation
-      `Prelude.seq` Prelude.rnf yAxisLocation
-      `Prelude.seq` Prelude.rnf width
-      `Prelude.seq` Prelude.rnf height
+    Prelude.rnf backgroundStyle `Prelude.seq`
+      Prelude.rnf borderStyle `Prelude.seq`
+        Prelude.rnf loadingAnimation `Prelude.seq`
+          Prelude.rnf renderingRules `Prelude.seq`
+            Prelude.rnf selectedBorderStyle `Prelude.seq`
+              Prelude.rnf visibility `Prelude.seq`
+                Prelude.rnf elementId `Prelude.seq`
+                  Prelude.rnf elementType `Prelude.seq`
+                    Prelude.rnf xAxisLocation `Prelude.seq`
+                      Prelude.rnf yAxisLocation `Prelude.seq`
+                        Prelude.rnf width `Prelude.seq`
+                          Prelude.rnf height
 
 instance Data.ToJSON FreeFormLayoutElement where
   toJSON FreeFormLayoutElement' {..} =

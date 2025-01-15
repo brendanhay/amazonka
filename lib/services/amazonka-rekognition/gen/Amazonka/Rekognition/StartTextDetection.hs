@@ -171,11 +171,11 @@ instance Prelude.Hashable StartTextDetection where
 
 instance Prelude.NFData StartTextDetection where
   rnf StartTextDetection' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf jobTag
-      `Prelude.seq` Prelude.rnf notificationChannel
-      `Prelude.seq` Prelude.rnf video
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf jobTag `Prelude.seq`
+          Prelude.rnf notificationChannel `Prelude.seq`
+            Prelude.rnf video
 
 instance Data.ToHeaders StartTextDetection where
   toHeaders =
@@ -256,5 +256,5 @@ startTextDetectionResponse_httpStatus = Lens.lens (\StartTextDetectionResponse' 
 
 instance Prelude.NFData StartTextDetectionResponse where
   rnf StartTextDetectionResponse' {..} =
-    Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf jobId `Prelude.seq`
+      Prelude.rnf httpStatus

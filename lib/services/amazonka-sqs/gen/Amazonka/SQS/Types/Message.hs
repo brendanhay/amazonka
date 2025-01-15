@@ -229,10 +229,10 @@ instance Prelude.Hashable Message where
 
 instance Prelude.NFData Message where
   rnf Message' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf body
-      `Prelude.seq` Prelude.rnf mD5OfBody
-      `Prelude.seq` Prelude.rnf mD5OfMessageAttributes
-      `Prelude.seq` Prelude.rnf messageAttributes
-      `Prelude.seq` Prelude.rnf messageId
-      `Prelude.seq` Prelude.rnf receiptHandle
+    Prelude.rnf attributes `Prelude.seq`
+      Prelude.rnf body `Prelude.seq`
+        Prelude.rnf mD5OfBody `Prelude.seq`
+          Prelude.rnf mD5OfMessageAttributes `Prelude.seq`
+            Prelude.rnf messageAttributes `Prelude.seq`
+              Prelude.rnf messageId `Prelude.seq`
+                Prelude.rnf receiptHandle

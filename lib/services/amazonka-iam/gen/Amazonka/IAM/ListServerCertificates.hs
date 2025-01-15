@@ -195,12 +195,12 @@ instance Core.AWSPager ListServerCertificates where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listServerCertificates_marker
-          Lens..~ rs
-          Lens.^? listServerCertificatesResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listServerCertificates_marker
+              Lens..~ rs
+              Lens.^? listServerCertificatesResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListServerCertificates where
   type
@@ -232,9 +232,9 @@ instance Prelude.Hashable ListServerCertificates where
 
 instance Prelude.NFData ListServerCertificates where
   rnf ListServerCertificates' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxItems
-      `Prelude.seq` Prelude.rnf pathPrefix
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf maxItems `Prelude.seq`
+        Prelude.rnf pathPrefix
 
 instance Data.ToHeaders ListServerCertificates where
   toHeaders = Prelude.const Prelude.mempty
@@ -343,7 +343,7 @@ instance
     ListServerCertificatesResponse
   where
   rnf ListServerCertificatesResponse' {..} =
-    Prelude.rnf isTruncated
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf serverCertificateMetadataList
+    Prelude.rnf isTruncated `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf httpStatus `Prelude.seq`
+          Prelude.rnf serverCertificateMetadataList

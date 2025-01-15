@@ -180,14 +180,14 @@ instance Prelude.Hashable CreateApplicationInstance where
 
 instance Prelude.NFData CreateApplicationInstance where
   rnf CreateApplicationInstance' {..} =
-    Prelude.rnf applicationInstanceIdToReplace
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf manifestOverridesPayload
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf runtimeRoleArn
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf defaultRuntimeContextDevice
-      `Prelude.seq` Prelude.rnf manifestPayload
+    Prelude.rnf applicationInstanceIdToReplace `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf manifestOverridesPayload `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf runtimeRoleArn `Prelude.seq`
+              Prelude.rnf tags `Prelude.seq`
+                Prelude.rnf defaultRuntimeContextDevice `Prelude.seq`
+                  Prelude.rnf manifestPayload
 
 instance Data.ToHeaders CreateApplicationInstance where
   toHeaders =
@@ -277,5 +277,5 @@ instance
     CreateApplicationInstanceResponse
   where
   rnf CreateApplicationInstanceResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf applicationInstanceId
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf applicationInstanceId

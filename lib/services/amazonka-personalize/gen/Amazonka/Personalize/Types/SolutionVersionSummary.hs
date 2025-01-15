@@ -135,8 +135,8 @@ instance Prelude.Hashable SolutionVersionSummary where
 
 instance Prelude.NFData SolutionVersionSummary where
   rnf SolutionVersionSummary' {..} =
-    Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
-      `Prelude.seq` Prelude.rnf solutionVersionArn
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf creationDateTime `Prelude.seq`
+      Prelude.rnf failureReason `Prelude.seq`
+        Prelude.rnf lastUpdatedDateTime `Prelude.seq`
+          Prelude.rnf solutionVersionArn `Prelude.seq`
+            Prelude.rnf status

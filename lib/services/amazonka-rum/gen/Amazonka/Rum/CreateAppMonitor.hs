@@ -267,12 +267,12 @@ instance Prelude.Hashable CreateAppMonitor where
 
 instance Prelude.NFData CreateAppMonitor where
   rnf CreateAppMonitor' {..} =
-    Prelude.rnf appMonitorConfiguration
-      `Prelude.seq` Prelude.rnf customEvents
-      `Prelude.seq` Prelude.rnf cwLogEnabled
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf appMonitorConfiguration `Prelude.seq`
+      Prelude.rnf customEvents `Prelude.seq`
+        Prelude.rnf cwLogEnabled `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf domain `Prelude.seq`
+              Prelude.rnf name
 
 instance Data.ToHeaders CreateAppMonitor where
   toHeaders =

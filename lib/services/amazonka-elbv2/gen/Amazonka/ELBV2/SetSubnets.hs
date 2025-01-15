@@ -246,10 +246,10 @@ instance Prelude.Hashable SetSubnets where
 
 instance Prelude.NFData SetSubnets where
   rnf SetSubnets' {..} =
-    Prelude.rnf ipAddressType
-      `Prelude.seq` Prelude.rnf subnetMappings
-      `Prelude.seq` Prelude.rnf subnets
-      `Prelude.seq` Prelude.rnf loadBalancerArn
+    Prelude.rnf ipAddressType `Prelude.seq`
+      Prelude.rnf subnetMappings `Prelude.seq`
+        Prelude.rnf subnets `Prelude.seq`
+          Prelude.rnf loadBalancerArn
 
 instance Data.ToHeaders SetSubnets where
   toHeaders = Prelude.const Prelude.mempty
@@ -326,6 +326,6 @@ setSubnetsResponse_httpStatus = Lens.lens (\SetSubnetsResponse' {httpStatus} -> 
 
 instance Prelude.NFData SetSubnetsResponse where
   rnf SetSubnetsResponse' {..} =
-    Prelude.rnf availabilityZones
-      `Prelude.seq` Prelude.rnf ipAddressType
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf availabilityZones `Prelude.seq`
+      Prelude.rnf ipAddressType `Prelude.seq`
+        Prelude.rnf httpStatus

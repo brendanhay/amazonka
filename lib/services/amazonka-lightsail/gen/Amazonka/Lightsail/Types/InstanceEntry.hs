@@ -235,11 +235,11 @@ instance Prelude.Hashable InstanceEntry where
 
 instance Prelude.NFData InstanceEntry where
   rnf InstanceEntry' {..} =
-    Prelude.rnf userData
-      `Prelude.seq` Prelude.rnf sourceName
-      `Prelude.seq` Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf portInfoSource
-      `Prelude.seq` Prelude.rnf availabilityZone
+    Prelude.rnf userData `Prelude.seq`
+      Prelude.rnf sourceName `Prelude.seq`
+        Prelude.rnf instanceType `Prelude.seq`
+          Prelude.rnf portInfoSource `Prelude.seq`
+            Prelude.rnf availabilityZone
 
 instance Data.ToJSON InstanceEntry where
   toJSON InstanceEntry' {..} =

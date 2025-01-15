@@ -123,7 +123,7 @@ instance Prelude.Hashable PlacementSummary where
 
 instance Prelude.NFData PlacementSummary where
   rnf PlacementSummary' {..} =
-    Prelude.rnf projectName
-      `Prelude.seq` Prelude.rnf placementName
-      `Prelude.seq` Prelude.rnf createdDate
-      `Prelude.seq` Prelude.rnf updatedDate
+    Prelude.rnf projectName `Prelude.seq`
+      Prelude.rnf placementName `Prelude.seq`
+        Prelude.rnf createdDate `Prelude.seq`
+          Prelude.rnf updatedDate

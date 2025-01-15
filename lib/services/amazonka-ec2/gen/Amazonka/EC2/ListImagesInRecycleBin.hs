@@ -158,12 +158,12 @@ instance Core.AWSPager ListImagesInRecycleBin where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listImagesInRecycleBin_nextToken
-          Lens..~ rs
-          Lens.^? listImagesInRecycleBinResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listImagesInRecycleBin_nextToken
+              Lens..~ rs
+              Lens.^? listImagesInRecycleBinResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListImagesInRecycleBin where
   type
@@ -175,9 +175,7 @@ instance Core.AWSRequest ListImagesInRecycleBin where
     Response.receiveXML
       ( \s h x ->
           ListImagesInRecycleBinResponse'
-            Prelude.<$> ( x
-                            Data..@? "imageSet"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "imageSet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (x Data..@? "nextToken")
@@ -194,10 +192,10 @@ instance Prelude.Hashable ListImagesInRecycleBin where
 
 instance Prelude.NFData ListImagesInRecycleBin where
   rnf ListImagesInRecycleBin' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf imageIds
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf imageIds `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken
 
 instance Data.ToHeaders ListImagesInRecycleBin where
   toHeaders = Prelude.const Prelude.mempty
@@ -275,6 +273,6 @@ instance
     ListImagesInRecycleBinResponse
   where
   rnf ListImagesInRecycleBinResponse' {..} =
-    Prelude.rnf images
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf images `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

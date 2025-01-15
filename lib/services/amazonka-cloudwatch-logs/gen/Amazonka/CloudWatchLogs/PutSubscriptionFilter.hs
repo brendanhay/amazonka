@@ -265,12 +265,12 @@ instance Prelude.Hashable PutSubscriptionFilter where
 
 instance Prelude.NFData PutSubscriptionFilter where
   rnf PutSubscriptionFilter' {..} =
-    Prelude.rnf distribution
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf logGroupName
-      `Prelude.seq` Prelude.rnf filterName
-      `Prelude.seq` Prelude.rnf filterPattern
-      `Prelude.seq` Prelude.rnf destinationArn
+    Prelude.rnf distribution `Prelude.seq`
+      Prelude.rnf roleArn `Prelude.seq`
+        Prelude.rnf logGroupName `Prelude.seq`
+          Prelude.rnf filterName `Prelude.seq`
+            Prelude.rnf filterPattern `Prelude.seq`
+              Prelude.rnf destinationArn
 
 instance Data.ToHeaders PutSubscriptionFilter where
   toHeaders =

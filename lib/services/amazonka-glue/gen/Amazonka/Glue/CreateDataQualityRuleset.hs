@@ -168,12 +168,12 @@ instance Prelude.Hashable CreateDataQualityRuleset where
 
 instance Prelude.NFData CreateDataQualityRuleset where
   rnf CreateDataQualityRuleset' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf targetTable
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf ruleset
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf targetTable `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf ruleset
 
 instance Data.ToHeaders CreateDataQualityRuleset where
   toHeaders =
@@ -253,5 +253,5 @@ instance
     CreateDataQualityRulesetResponse
   where
   rnf CreateDataQualityRulesetResponse' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf httpStatus

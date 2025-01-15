@@ -198,9 +198,7 @@ instance Data.FromXML HostReservation where
       Prelude.<*> (x Data..@? "currencyCode")
       Prelude.<*> (x Data..@? "duration")
       Prelude.<*> (x Data..@? "end")
-      Prelude.<*> ( x
-                      Data..@? "hostIdSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "hostIdSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "hostReservationId")
@@ -210,9 +208,7 @@ instance Data.FromXML HostReservation where
       Prelude.<*> (x Data..@? "paymentOption")
       Prelude.<*> (x Data..@? "start")
       Prelude.<*> (x Data..@? "state")
-      Prelude.<*> ( x
-                      Data..@? "tagSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "upfrontPrice")
@@ -237,17 +233,17 @@ instance Prelude.Hashable HostReservation where
 
 instance Prelude.NFData HostReservation where
   rnf HostReservation' {..} =
-    Prelude.rnf count
-      `Prelude.seq` Prelude.rnf currencyCode
-      `Prelude.seq` Prelude.rnf duration
-      `Prelude.seq` Prelude.rnf end
-      `Prelude.seq` Prelude.rnf hostIdSet
-      `Prelude.seq` Prelude.rnf hostReservationId
-      `Prelude.seq` Prelude.rnf hourlyPrice
-      `Prelude.seq` Prelude.rnf instanceFamily
-      `Prelude.seq` Prelude.rnf offeringId
-      `Prelude.seq` Prelude.rnf paymentOption
-      `Prelude.seq` Prelude.rnf start
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf upfrontPrice
+    Prelude.rnf count `Prelude.seq`
+      Prelude.rnf currencyCode `Prelude.seq`
+        Prelude.rnf duration `Prelude.seq`
+          Prelude.rnf end `Prelude.seq`
+            Prelude.rnf hostIdSet `Prelude.seq`
+              Prelude.rnf hostReservationId `Prelude.seq`
+                Prelude.rnf hourlyPrice `Prelude.seq`
+                  Prelude.rnf instanceFamily `Prelude.seq`
+                    Prelude.rnf offeringId `Prelude.seq`
+                      Prelude.rnf paymentOption `Prelude.seq`
+                        Prelude.rnf start `Prelude.seq`
+                          Prelude.rnf state `Prelude.seq`
+                            Prelude.rnf tags `Prelude.seq`
+                              Prelude.rnf upfrontPrice

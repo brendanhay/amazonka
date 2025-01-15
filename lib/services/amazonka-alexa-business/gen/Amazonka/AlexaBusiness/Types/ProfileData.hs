@@ -163,12 +163,12 @@ instance Prelude.Hashable ProfileData where
 
 instance Prelude.NFData ProfileData where
   rnf ProfileData' {..} =
-    Prelude.rnf address
-      `Prelude.seq` Prelude.rnf distanceUnit
-      `Prelude.seq` Prelude.rnf isDefault
-      `Prelude.seq` Prelude.rnf locale
-      `Prelude.seq` Prelude.rnf profileArn
-      `Prelude.seq` Prelude.rnf profileName
-      `Prelude.seq` Prelude.rnf temperatureUnit
-      `Prelude.seq` Prelude.rnf timezone
-      `Prelude.seq` Prelude.rnf wakeWord
+    Prelude.rnf address `Prelude.seq`
+      Prelude.rnf distanceUnit `Prelude.seq`
+        Prelude.rnf isDefault `Prelude.seq`
+          Prelude.rnf locale `Prelude.seq`
+            Prelude.rnf profileArn `Prelude.seq`
+              Prelude.rnf profileName `Prelude.seq`
+                Prelude.rnf temperatureUnit `Prelude.seq`
+                  Prelude.rnf timezone `Prelude.seq`
+                    Prelude.rnf wakeWord

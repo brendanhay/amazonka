@@ -110,7 +110,7 @@ instance Prelude.Hashable EvaluatedModelVersion where
 
 instance Prelude.NFData EvaluatedModelVersion where
   rnf EvaluatedModelVersion' {..} =
-    Prelude.rnf evaluations
-      `Prelude.seq` Prelude.rnf modelId
-      `Prelude.seq` Prelude.rnf modelType
-      `Prelude.seq` Prelude.rnf modelVersion
+    Prelude.rnf evaluations `Prelude.seq`
+      Prelude.rnf modelId `Prelude.seq`
+        Prelude.rnf modelType `Prelude.seq`
+          Prelude.rnf modelVersion

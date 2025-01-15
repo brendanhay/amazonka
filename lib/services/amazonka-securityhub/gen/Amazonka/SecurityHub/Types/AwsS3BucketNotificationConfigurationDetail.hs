@@ -142,10 +142,10 @@ instance
     AwsS3BucketNotificationConfigurationDetail
   where
   rnf AwsS3BucketNotificationConfigurationDetail' {..} =
-    Prelude.rnf destination
-      `Prelude.seq` Prelude.rnf events
-      `Prelude.seq` Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf destination `Prelude.seq`
+      Prelude.rnf events `Prelude.seq`
+        Prelude.rnf filter' `Prelude.seq`
+          Prelude.rnf type'
 
 instance
   Data.ToJSON

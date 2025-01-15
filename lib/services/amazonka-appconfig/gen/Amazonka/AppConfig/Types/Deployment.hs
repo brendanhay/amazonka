@@ -290,22 +290,22 @@ instance Prelude.Hashable Deployment where
 
 instance Prelude.NFData Deployment where
   rnf Deployment' {..} =
-    Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf appliedExtensions
-      `Prelude.seq` Prelude.rnf completedAt
-      `Prelude.seq` Prelude.rnf configurationLocationUri
-      `Prelude.seq` Prelude.rnf configurationName
-      `Prelude.seq` Prelude.rnf configurationProfileId
-      `Prelude.seq` Prelude.rnf configurationVersion
-      `Prelude.seq` Prelude.rnf deploymentDurationInMinutes
-      `Prelude.seq` Prelude.rnf deploymentNumber
-      `Prelude.seq` Prelude.rnf deploymentStrategyId
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf environmentId
-      `Prelude.seq` Prelude.rnf eventLog
-      `Prelude.seq` Prelude.rnf finalBakeTimeInMinutes
-      `Prelude.seq` Prelude.rnf growthFactor
-      `Prelude.seq` Prelude.rnf growthType
-      `Prelude.seq` Prelude.rnf percentageComplete
-      `Prelude.seq` Prelude.rnf startedAt
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf applicationId `Prelude.seq`
+      Prelude.rnf appliedExtensions `Prelude.seq`
+        Prelude.rnf completedAt `Prelude.seq`
+          Prelude.rnf configurationLocationUri `Prelude.seq`
+            Prelude.rnf configurationName `Prelude.seq`
+              Prelude.rnf configurationProfileId `Prelude.seq`
+                Prelude.rnf configurationVersion `Prelude.seq`
+                  Prelude.rnf deploymentDurationInMinutes `Prelude.seq`
+                    Prelude.rnf deploymentNumber `Prelude.seq`
+                      Prelude.rnf deploymentStrategyId `Prelude.seq`
+                        Prelude.rnf description `Prelude.seq`
+                          Prelude.rnf environmentId `Prelude.seq`
+                            Prelude.rnf eventLog `Prelude.seq`
+                              Prelude.rnf finalBakeTimeInMinutes `Prelude.seq`
+                                Prelude.rnf growthFactor `Prelude.seq`
+                                  Prelude.rnf growthType `Prelude.seq`
+                                    Prelude.rnf percentageComplete `Prelude.seq`
+                                      Prelude.rnf startedAt `Prelude.seq`
+                                        Prelude.rnf state

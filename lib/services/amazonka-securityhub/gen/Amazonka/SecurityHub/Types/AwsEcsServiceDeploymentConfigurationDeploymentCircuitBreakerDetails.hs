@@ -101,8 +101,8 @@ instance
   where
   rnf
     AwsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDetails' {..} =
-      Prelude.rnf enable
-        `Prelude.seq` Prelude.rnf rollback
+      Prelude.rnf enable `Prelude.seq`
+        Prelude.rnf rollback
 
 instance
   Data.ToJSON

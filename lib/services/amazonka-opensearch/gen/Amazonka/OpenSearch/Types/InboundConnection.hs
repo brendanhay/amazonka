@@ -106,7 +106,7 @@ instance Prelude.Hashable InboundConnection where
 
 instance Prelude.NFData InboundConnection where
   rnf InboundConnection' {..} =
-    Prelude.rnf connectionId
-      `Prelude.seq` Prelude.rnf connectionStatus
-      `Prelude.seq` Prelude.rnf localDomainInfo
-      `Prelude.seq` Prelude.rnf remoteDomainInfo
+    Prelude.rnf connectionId `Prelude.seq`
+      Prelude.rnf connectionStatus `Prelude.seq`
+        Prelude.rnf localDomainInfo `Prelude.seq`
+          Prelude.rnf remoteDomainInfo

@@ -219,9 +219,7 @@ instance Data.FromXML PathComponent where
       Prelude.<*> (x Data..@? "component")
       Prelude.<*> (x Data..@? "destinationVpc")
       Prelude.<*> (x Data..@? "elasticLoadBalancerListener")
-      Prelude.<*> ( x
-                      Data..@? "explanationSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "explanationSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "inboundHeader")

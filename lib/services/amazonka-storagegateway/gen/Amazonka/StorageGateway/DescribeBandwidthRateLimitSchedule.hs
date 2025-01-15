@@ -229,6 +229,6 @@ instance
     DescribeBandwidthRateLimitScheduleResponse
   where
   rnf DescribeBandwidthRateLimitScheduleResponse' {..} =
-    Prelude.rnf bandwidthRateLimitIntervals
-      `Prelude.seq` Prelude.rnf gatewayARN
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf bandwidthRateLimitIntervals `Prelude.seq`
+      Prelude.rnf gatewayARN `Prelude.seq`
+        Prelude.rnf httpStatus

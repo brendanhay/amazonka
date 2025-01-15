@@ -156,5 +156,5 @@ deleteWorkspaceResponse_workspace = Lens.lens (\DeleteWorkspaceResponse' {worksp
 
 instance Prelude.NFData DeleteWorkspaceResponse where
   rnf DeleteWorkspaceResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf workspace
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf workspace

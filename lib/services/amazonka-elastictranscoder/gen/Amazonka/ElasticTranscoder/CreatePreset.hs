@@ -185,12 +185,12 @@ instance Prelude.Hashable CreatePreset where
 
 instance Prelude.NFData CreatePreset where
   rnf CreatePreset' {..} =
-    Prelude.rnf audio
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf thumbnails
-      `Prelude.seq` Prelude.rnf video
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf container
+    Prelude.rnf audio `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf thumbnails `Prelude.seq`
+          Prelude.rnf video `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf container
 
 instance Data.ToHeaders CreatePreset where
   toHeaders = Prelude.const Prelude.mempty
@@ -280,6 +280,6 @@ createPresetResponse_httpStatus = Lens.lens (\CreatePresetResponse' {httpStatus}
 
 instance Prelude.NFData CreatePresetResponse where
   rnf CreatePresetResponse' {..} =
-    Prelude.rnf preset
-      `Prelude.seq` Prelude.rnf warning
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf preset `Prelude.seq`
+      Prelude.rnf warning `Prelude.seq`
+        Prelude.rnf httpStatus

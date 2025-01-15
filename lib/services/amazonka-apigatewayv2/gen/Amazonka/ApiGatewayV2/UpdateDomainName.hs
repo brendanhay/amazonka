@@ -133,9 +133,9 @@ instance Prelude.Hashable UpdateDomainName where
 
 instance Prelude.NFData UpdateDomainName where
   rnf UpdateDomainName' {..} =
-    Prelude.rnf domainNameConfigurations
-      `Prelude.seq` Prelude.rnf mutualTlsAuthentication
-      `Prelude.seq` Prelude.rnf domainName
+    Prelude.rnf domainNameConfigurations `Prelude.seq`
+      Prelude.rnf mutualTlsAuthentication `Prelude.seq`
+        Prelude.rnf domainName
 
 instance Data.ToHeaders UpdateDomainName where
   toHeaders =
@@ -244,9 +244,9 @@ updateDomainNameResponse_httpStatus = Lens.lens (\UpdateDomainNameResponse' {htt
 
 instance Prelude.NFData UpdateDomainNameResponse where
   rnf UpdateDomainNameResponse' {..} =
-    Prelude.rnf apiMappingSelectionExpression
-      `Prelude.seq` Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf domainNameConfigurations
-      `Prelude.seq` Prelude.rnf mutualTlsAuthentication
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf apiMappingSelectionExpression `Prelude.seq`
+      Prelude.rnf domainName `Prelude.seq`
+        Prelude.rnf domainNameConfigurations `Prelude.seq`
+          Prelude.rnf mutualTlsAuthentication `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf httpStatus

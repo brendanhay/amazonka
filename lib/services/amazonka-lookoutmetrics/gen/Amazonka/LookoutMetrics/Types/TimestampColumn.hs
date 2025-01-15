@@ -81,8 +81,8 @@ instance Prelude.Hashable TimestampColumn where
 
 instance Prelude.NFData TimestampColumn where
   rnf TimestampColumn' {..} =
-    Prelude.rnf columnFormat
-      `Prelude.seq` Prelude.rnf columnName
+    Prelude.rnf columnFormat `Prelude.seq`
+      Prelude.rnf columnName
 
 instance Data.ToJSON TimestampColumn where
   toJSON TimestampColumn' {..} =

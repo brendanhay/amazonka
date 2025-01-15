@@ -86,8 +86,8 @@ instance
 
 instance Prelude.NFData AssessmentReportsDestination where
   rnf AssessmentReportsDestination' {..} =
-    Prelude.rnf destination
-      `Prelude.seq` Prelude.rnf destinationType
+    Prelude.rnf destination `Prelude.seq`
+      Prelude.rnf destinationType
 
 instance Data.ToJSON AssessmentReportsDestination where
   toJSON AssessmentReportsDestination' {..} =

@@ -306,16 +306,16 @@ instance Prelude.Hashable StartOutboundVoiceContact where
 
 instance Prelude.NFData StartOutboundVoiceContact where
   rnf StartOutboundVoiceContact' {..} =
-    Prelude.rnf answerMachineDetectionConfig
-      `Prelude.seq` Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf campaignId
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf queueId
-      `Prelude.seq` Prelude.rnf sourcePhoneNumber
-      `Prelude.seq` Prelude.rnf trafficType
-      `Prelude.seq` Prelude.rnf destinationPhoneNumber
-      `Prelude.seq` Prelude.rnf contactFlowId
-      `Prelude.seq` Prelude.rnf instanceId
+    Prelude.rnf answerMachineDetectionConfig `Prelude.seq`
+      Prelude.rnf attributes `Prelude.seq`
+        Prelude.rnf campaignId `Prelude.seq`
+          Prelude.rnf clientToken `Prelude.seq`
+            Prelude.rnf queueId `Prelude.seq`
+              Prelude.rnf sourcePhoneNumber `Prelude.seq`
+                Prelude.rnf trafficType `Prelude.seq`
+                  Prelude.rnf destinationPhoneNumber `Prelude.seq`
+                    Prelude.rnf contactFlowId `Prelude.seq`
+                      Prelude.rnf instanceId
 
 instance Data.ToHeaders StartOutboundVoiceContact where
   toHeaders =
@@ -400,5 +400,5 @@ instance
     StartOutboundVoiceContactResponse
   where
   rnf StartOutboundVoiceContactResponse' {..} =
-    Prelude.rnf contactId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf contactId `Prelude.seq`
+      Prelude.rnf httpStatus

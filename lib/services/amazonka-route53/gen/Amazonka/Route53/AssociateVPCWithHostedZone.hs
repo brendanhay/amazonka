@@ -167,9 +167,9 @@ instance Prelude.Hashable AssociateVPCWithHostedZone where
 
 instance Prelude.NFData AssociateVPCWithHostedZone where
   rnf AssociateVPCWithHostedZone' {..} =
-    Prelude.rnf comment
-      `Prelude.seq` Prelude.rnf hostedZoneId
-      `Prelude.seq` Prelude.rnf vpc
+    Prelude.rnf comment `Prelude.seq`
+      Prelude.rnf hostedZoneId `Prelude.seq`
+        Prelude.rnf vpc
 
 instance Data.ToElement AssociateVPCWithHostedZone where
   toElement =
@@ -246,5 +246,5 @@ instance
     AssociateVPCWithHostedZoneResponse
   where
   rnf AssociateVPCWithHostedZoneResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf changeInfo
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf changeInfo

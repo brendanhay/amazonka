@@ -82,5 +82,5 @@ instance Prelude.Hashable EventAggregate where
 
 instance Prelude.NFData EventAggregate where
   rnf EventAggregate' {..} =
-    Prelude.rnf aggregateValue
-      `Prelude.seq` Prelude.rnf count
+    Prelude.rnf aggregateValue `Prelude.seq`
+      Prelude.rnf count

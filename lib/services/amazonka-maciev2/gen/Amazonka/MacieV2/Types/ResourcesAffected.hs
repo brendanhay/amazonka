@@ -82,5 +82,5 @@ instance Prelude.Hashable ResourcesAffected where
 
 instance Prelude.NFData ResourcesAffected where
   rnf ResourcesAffected' {..} =
-    Prelude.rnf s3Bucket
-      `Prelude.seq` Prelude.rnf s3Object
+    Prelude.rnf s3Bucket `Prelude.seq`
+      Prelude.rnf s3Object

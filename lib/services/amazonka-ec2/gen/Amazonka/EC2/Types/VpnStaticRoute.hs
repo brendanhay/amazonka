@@ -94,6 +94,6 @@ instance Prelude.Hashable VpnStaticRoute where
 
 instance Prelude.NFData VpnStaticRoute where
   rnf VpnStaticRoute' {..} =
-    Prelude.rnf destinationCidrBlock
-      `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf destinationCidrBlock `Prelude.seq`
+      Prelude.rnf source `Prelude.seq`
+        Prelude.rnf state

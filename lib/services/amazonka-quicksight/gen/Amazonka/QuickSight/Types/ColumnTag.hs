@@ -85,8 +85,8 @@ instance Prelude.Hashable ColumnTag where
 
 instance Prelude.NFData ColumnTag where
   rnf ColumnTag' {..} =
-    Prelude.rnf columnDescription
-      `Prelude.seq` Prelude.rnf columnGeographicRole
+    Prelude.rnf columnDescription `Prelude.seq`
+      Prelude.rnf columnGeographicRole
 
 instance Data.ToJSON ColumnTag where
   toJSON ColumnTag' {..} =

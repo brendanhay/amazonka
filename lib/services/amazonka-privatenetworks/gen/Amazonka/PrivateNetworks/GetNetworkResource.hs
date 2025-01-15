@@ -175,6 +175,6 @@ getNetworkResourceResponse_networkResource = Lens.lens (\GetNetworkResourceRespo
 
 instance Prelude.NFData GetNetworkResourceResponse where
   rnf GetNetworkResourceResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf networkResource
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf networkResource

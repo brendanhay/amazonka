@@ -186,9 +186,9 @@ instance Prelude.Hashable RetireGrant where
 
 instance Prelude.NFData RetireGrant where
   rnf RetireGrant' {..} =
-    Prelude.rnf grantId
-      `Prelude.seq` Prelude.rnf grantToken
-      `Prelude.seq` Prelude.rnf keyId
+    Prelude.rnf grantId `Prelude.seq`
+      Prelude.rnf grantToken `Prelude.seq`
+        Prelude.rnf keyId
 
 instance Data.ToHeaders RetireGrant where
   toHeaders =

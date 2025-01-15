@@ -150,11 +150,11 @@ instance Prelude.Hashable CreateWorkspace where
 
 instance Prelude.NFData CreateWorkspace where
   rnf CreateWorkspace' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf workspaceId
-      `Prelude.seq` Prelude.rnf s3Location
-      `Prelude.seq` Prelude.rnf role'
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf workspaceId `Prelude.seq`
+          Prelude.rnf s3Location `Prelude.seq`
+            Prelude.rnf role'
 
 instance Data.ToHeaders CreateWorkspace where
   toHeaders =
@@ -243,6 +243,6 @@ createWorkspaceResponse_creationDateTime = Lens.lens (\CreateWorkspaceResponse' 
 
 instance Prelude.NFData CreateWorkspaceResponse where
   rnf CreateWorkspaceResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationDateTime
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf creationDateTime

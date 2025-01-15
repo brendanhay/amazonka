@@ -169,10 +169,10 @@ instance Prelude.Hashable UpdatePolicy where
 
 instance Prelude.NFData UpdatePolicy where
   rnf UpdatePolicy' {..} =
-    Prelude.rnf content
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf policyId
+    Prelude.rnf content `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf policyId
 
 instance Data.ToHeaders UpdatePolicy where
   toHeaders =
@@ -249,5 +249,5 @@ updatePolicyResponse_httpStatus = Lens.lens (\UpdatePolicyResponse' {httpStatus}
 
 instance Prelude.NFData UpdatePolicyResponse where
   rnf UpdatePolicyResponse' {..} =
-    Prelude.rnf policy
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf policy `Prelude.seq`
+      Prelude.rnf httpStatus

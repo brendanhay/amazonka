@@ -111,9 +111,7 @@ instance
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "ownerId")
-      Prelude.<*> ( x
-                      Data..@? "tagSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
@@ -136,8 +134,8 @@ instance
     LocalGatewayVirtualInterfaceGroup
   where
   rnf LocalGatewayVirtualInterfaceGroup' {..} =
-    Prelude.rnf localGatewayId
-      `Prelude.seq` Prelude.rnf localGatewayVirtualInterfaceGroupId
-      `Prelude.seq` Prelude.rnf localGatewayVirtualInterfaceIds
-      `Prelude.seq` Prelude.rnf ownerId
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf localGatewayId `Prelude.seq`
+      Prelude.rnf localGatewayVirtualInterfaceGroupId `Prelude.seq`
+        Prelude.rnf localGatewayVirtualInterfaceIds `Prelude.seq`
+          Prelude.rnf ownerId `Prelude.seq`
+            Prelude.rnf tags

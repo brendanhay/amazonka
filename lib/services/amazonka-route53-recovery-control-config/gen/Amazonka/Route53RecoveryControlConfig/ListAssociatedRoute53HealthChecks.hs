@@ -120,12 +120,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listAssociatedRoute53HealthChecks_nextToken
-          Lens..~ rs
-          Lens.^? listAssociatedRoute53HealthChecksResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listAssociatedRoute53HealthChecks_nextToken
+              Lens..~ rs
+              Lens.^? listAssociatedRoute53HealthChecksResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -162,9 +162,9 @@ instance
     ListAssociatedRoute53HealthChecks
   where
   rnf ListAssociatedRoute53HealthChecks' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf routingControlArn
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf routingControlArn
 
 instance
   Data.ToHeaders
@@ -255,6 +255,6 @@ instance
     ListAssociatedRoute53HealthChecksResponse
   where
   rnf ListAssociatedRoute53HealthChecksResponse' {..} =
-    Prelude.rnf healthCheckIds
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf healthCheckIds `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

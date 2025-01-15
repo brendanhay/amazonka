@@ -119,8 +119,8 @@ instance Prelude.Hashable AttachThingPrincipal where
 
 instance Prelude.NFData AttachThingPrincipal where
   rnf AttachThingPrincipal' {..} =
-    Prelude.rnf thingName
-      `Prelude.seq` Prelude.rnf principal
+    Prelude.rnf thingName `Prelude.seq`
+      Prelude.rnf principal
 
 instance Data.ToHeaders AttachThingPrincipal where
   toHeaders AttachThingPrincipal' {..} =

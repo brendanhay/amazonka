@@ -90,8 +90,8 @@ instance
     DeleteFileSystemWindowsConfiguration
   where
   rnf DeleteFileSystemWindowsConfiguration' {..} =
-    Prelude.rnf finalBackupTags
-      `Prelude.seq` Prelude.rnf skipFinalBackup
+    Prelude.rnf finalBackupTags `Prelude.seq`
+      Prelude.rnf skipFinalBackup
 
 instance
   Data.ToJSON

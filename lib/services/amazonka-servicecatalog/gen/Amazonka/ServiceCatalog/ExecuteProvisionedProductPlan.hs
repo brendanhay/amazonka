@@ -155,9 +155,9 @@ instance
 
 instance Prelude.NFData ExecuteProvisionedProductPlan where
   rnf ExecuteProvisionedProductPlan' {..} =
-    Prelude.rnf acceptLanguage
-      `Prelude.seq` Prelude.rnf planId
-      `Prelude.seq` Prelude.rnf idempotencyToken
+    Prelude.rnf acceptLanguage `Prelude.seq`
+      Prelude.rnf planId `Prelude.seq`
+        Prelude.rnf idempotencyToken
 
 instance Data.ToHeaders ExecuteProvisionedProductPlan where
   toHeaders =
@@ -236,5 +236,5 @@ instance
     ExecuteProvisionedProductPlanResponse
   where
   rnf ExecuteProvisionedProductPlanResponse' {..} =
-    Prelude.rnf recordDetail
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf recordDetail `Prelude.seq`
+      Prelude.rnf httpStatus

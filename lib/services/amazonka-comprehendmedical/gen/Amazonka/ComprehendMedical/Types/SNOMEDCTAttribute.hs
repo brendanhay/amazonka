@@ -225,14 +225,14 @@ instance Prelude.Hashable SNOMEDCTAttribute where
 
 instance Prelude.NFData SNOMEDCTAttribute where
   rnf SNOMEDCTAttribute' {..} =
-    Prelude.rnf beginOffset
-      `Prelude.seq` Prelude.rnf category
-      `Prelude.seq` Prelude.rnf endOffset
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf relationshipScore
-      `Prelude.seq` Prelude.rnf relationshipType
-      `Prelude.seq` Prelude.rnf sNOMEDCTConcepts
-      `Prelude.seq` Prelude.rnf score
-      `Prelude.seq` Prelude.rnf text
-      `Prelude.seq` Prelude.rnf traits
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf beginOffset `Prelude.seq`
+      Prelude.rnf category `Prelude.seq`
+        Prelude.rnf endOffset `Prelude.seq`
+          Prelude.rnf id `Prelude.seq`
+            Prelude.rnf relationshipScore `Prelude.seq`
+              Prelude.rnf relationshipType `Prelude.seq`
+                Prelude.rnf sNOMEDCTConcepts `Prelude.seq`
+                  Prelude.rnf score `Prelude.seq`
+                    Prelude.rnf text `Prelude.seq`
+                      Prelude.rnf traits `Prelude.seq`
+                        Prelude.rnf type'

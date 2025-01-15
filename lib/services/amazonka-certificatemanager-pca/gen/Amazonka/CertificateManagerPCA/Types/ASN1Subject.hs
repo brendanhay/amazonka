@@ -295,21 +295,21 @@ instance Prelude.Hashable ASN1Subject where
 
 instance Prelude.NFData ASN1Subject where
   rnf ASN1Subject' {..} =
-    Prelude.rnf commonName
-      `Prelude.seq` Prelude.rnf country
-      `Prelude.seq` Prelude.rnf customAttributes
-      `Prelude.seq` Prelude.rnf distinguishedNameQualifier
-      `Prelude.seq` Prelude.rnf generationQualifier
-      `Prelude.seq` Prelude.rnf givenName
-      `Prelude.seq` Prelude.rnf initials
-      `Prelude.seq` Prelude.rnf locality
-      `Prelude.seq` Prelude.rnf organization
-      `Prelude.seq` Prelude.rnf organizationalUnit
-      `Prelude.seq` Prelude.rnf pseudonym
-      `Prelude.seq` Prelude.rnf serialNumber
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf surname
-      `Prelude.seq` Prelude.rnf title
+    Prelude.rnf commonName `Prelude.seq`
+      Prelude.rnf country `Prelude.seq`
+        Prelude.rnf customAttributes `Prelude.seq`
+          Prelude.rnf distinguishedNameQualifier `Prelude.seq`
+            Prelude.rnf generationQualifier `Prelude.seq`
+              Prelude.rnf givenName `Prelude.seq`
+                Prelude.rnf initials `Prelude.seq`
+                  Prelude.rnf locality `Prelude.seq`
+                    Prelude.rnf organization `Prelude.seq`
+                      Prelude.rnf organizationalUnit `Prelude.seq`
+                        Prelude.rnf pseudonym `Prelude.seq`
+                          Prelude.rnf serialNumber `Prelude.seq`
+                            Prelude.rnf state `Prelude.seq`
+                              Prelude.rnf surname `Prelude.seq`
+                                Prelude.rnf title
 
 instance Data.ToJSON ASN1Subject where
   toJSON ASN1Subject' {..} =

@@ -115,9 +115,9 @@ instance
     AwsWafRegionalRulePredicateListDetails
   where
   rnf AwsWafRegionalRulePredicateListDetails' {..} =
-    Prelude.rnf dataId
-      `Prelude.seq` Prelude.rnf negated
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf dataId `Prelude.seq`
+      Prelude.rnf negated `Prelude.seq`
+        Prelude.rnf type'
 
 instance
   Data.ToJSON

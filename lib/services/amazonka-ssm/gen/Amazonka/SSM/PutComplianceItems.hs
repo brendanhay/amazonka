@@ -276,13 +276,13 @@ instance Prelude.Hashable PutComplianceItems where
 
 instance Prelude.NFData PutComplianceItems where
   rnf PutComplianceItems' {..} =
-    Prelude.rnf itemContentHash
-      `Prelude.seq` Prelude.rnf uploadType
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf complianceType
-      `Prelude.seq` Prelude.rnf executionSummary
-      `Prelude.seq` Prelude.rnf items
+    Prelude.rnf itemContentHash `Prelude.seq`
+      Prelude.rnf uploadType `Prelude.seq`
+        Prelude.rnf resourceId `Prelude.seq`
+          Prelude.rnf resourceType `Prelude.seq`
+            Prelude.rnf complianceType `Prelude.seq`
+              Prelude.rnf executionSummary `Prelude.seq`
+                Prelude.rnf items
 
 instance Data.ToHeaders PutComplianceItems where
   toHeaders =

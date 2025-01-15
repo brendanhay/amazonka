@@ -102,5 +102,5 @@ instance Prelude.Hashable QueryError where
 
 instance Prelude.NFData QueryError where
   rnf QueryError' {..} =
-    Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf message
+    Prelude.rnf errorCode `Prelude.seq`
+      Prelude.rnf message

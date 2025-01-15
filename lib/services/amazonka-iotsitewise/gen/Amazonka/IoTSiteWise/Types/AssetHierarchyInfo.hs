@@ -81,5 +81,5 @@ instance Prelude.Hashable AssetHierarchyInfo where
 
 instance Prelude.NFData AssetHierarchyInfo where
   rnf AssetHierarchyInfo' {..} =
-    Prelude.rnf childAssetId
-      `Prelude.seq` Prelude.rnf parentAssetId
+    Prelude.rnf childAssetId `Prelude.seq`
+      Prelude.rnf parentAssetId

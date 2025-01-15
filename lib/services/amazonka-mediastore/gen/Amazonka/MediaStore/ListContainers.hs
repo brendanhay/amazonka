@@ -121,12 +121,12 @@ instance Core.AWSPager ListContainers where
         (rs Lens.^. listContainersResponse_containers) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listContainers_nextToken
-          Lens..~ rs
-          Lens.^? listContainersResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listContainers_nextToken
+              Lens..~ rs
+              Lens.^? listContainersResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListContainers where
   type
@@ -151,8 +151,8 @@ instance Prelude.Hashable ListContainers where
 
 instance Prelude.NFData ListContainers where
   rnf ListContainers' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListContainers where
   toHeaders =
@@ -240,6 +240,6 @@ listContainersResponse_containers = Lens.lens (\ListContainersResponse' {contain
 
 instance Prelude.NFData ListContainersResponse where
   rnf ListContainersResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf containers
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf containers

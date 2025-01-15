@@ -174,10 +174,10 @@ instance Prelude.Hashable StartSession where
 
 instance Prelude.NFData StartSession where
   rnf StartSession' {..} =
-    Prelude.rnf documentName
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf reason
-      `Prelude.seq` Prelude.rnf target
+    Prelude.rnf documentName `Prelude.seq`
+      Prelude.rnf parameters `Prelude.seq`
+        Prelude.rnf reason `Prelude.seq`
+          Prelude.rnf target
 
 instance Data.ToHeaders StartSession where
   toHeaders =
@@ -312,7 +312,7 @@ startSessionResponse_httpStatus = Lens.lens (\StartSessionResponse' {httpStatus}
 
 instance Prelude.NFData StartSessionResponse where
   rnf StartSessionResponse' {..} =
-    Prelude.rnf sessionId
-      `Prelude.seq` Prelude.rnf streamUrl
-      `Prelude.seq` Prelude.rnf tokenValue
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf sessionId `Prelude.seq`
+      Prelude.rnf streamUrl `Prelude.seq`
+        Prelude.rnf tokenValue `Prelude.seq`
+          Prelude.rnf httpStatus

@@ -111,8 +111,8 @@ instance Prelude.Hashable GetStudioComponent where
 
 instance Prelude.NFData GetStudioComponent where
   rnf GetStudioComponent' {..} =
-    Prelude.rnf studioComponentId
-      `Prelude.seq` Prelude.rnf studioId
+    Prelude.rnf studioComponentId `Prelude.seq`
+      Prelude.rnf studioId
 
 instance Data.ToHeaders GetStudioComponent where
   toHeaders =
@@ -178,5 +178,5 @@ getStudioComponentResponse_httpStatus = Lens.lens (\GetStudioComponentResponse' 
 
 instance Prelude.NFData GetStudioComponentResponse where
   rnf GetStudioComponentResponse' {..} =
-    Prelude.rnf studioComponent
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf studioComponent `Prelude.seq`
+      Prelude.rnf httpStatus

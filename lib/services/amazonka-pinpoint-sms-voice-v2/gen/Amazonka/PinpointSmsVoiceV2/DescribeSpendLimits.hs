@@ -112,12 +112,12 @@ instance Core.AWSPager DescribeSpendLimits where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeSpendLimits_nextToken
-          Lens..~ rs
-          Lens.^? describeSpendLimitsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeSpendLimits_nextToken
+              Lens..~ rs
+              Lens.^? describeSpendLimitsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeSpendLimits where
   type
@@ -142,8 +142,8 @@ instance Prelude.Hashable DescribeSpendLimits where
 
 instance Prelude.NFData DescribeSpendLimits where
   rnf DescribeSpendLimits' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeSpendLimits where
   toHeaders =
@@ -231,6 +231,6 @@ describeSpendLimitsResponse_httpStatus = Lens.lens (\DescribeSpendLimitsResponse
 
 instance Prelude.NFData DescribeSpendLimitsResponse where
   rnf DescribeSpendLimitsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf spendLimits
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf spendLimits `Prelude.seq`
+        Prelude.rnf httpStatus

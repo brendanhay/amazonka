@@ -107,10 +107,10 @@ instance Prelude.Hashable MeasureField where
 
 instance Prelude.NFData MeasureField where
   rnf MeasureField' {..} =
-    Prelude.rnf calculatedMeasureField
-      `Prelude.seq` Prelude.rnf categoricalMeasureField
-      `Prelude.seq` Prelude.rnf dateMeasureField
-      `Prelude.seq` Prelude.rnf numericalMeasureField
+    Prelude.rnf calculatedMeasureField `Prelude.seq`
+      Prelude.rnf categoricalMeasureField `Prelude.seq`
+        Prelude.rnf dateMeasureField `Prelude.seq`
+          Prelude.rnf numericalMeasureField
 
 instance Data.ToJSON MeasureField where
   toJSON MeasureField' {..} =

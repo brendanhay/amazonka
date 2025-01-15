@@ -148,10 +148,10 @@ instance Prelude.Hashable ApplicationComponent where
 
 instance Prelude.NFData ApplicationComponent where
   rnf ApplicationComponent' {..} =
-    Prelude.rnf componentName
-      `Prelude.seq` Prelude.rnf componentRemarks
-      `Prelude.seq` Prelude.rnf detectedWorkload
-      `Prelude.seq` Prelude.rnf monitor
-      `Prelude.seq` Prelude.rnf osType
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf tier
+    Prelude.rnf componentName `Prelude.seq`
+      Prelude.rnf componentRemarks `Prelude.seq`
+        Prelude.rnf detectedWorkload `Prelude.seq`
+          Prelude.rnf monitor `Prelude.seq`
+            Prelude.rnf osType `Prelude.seq`
+              Prelude.rnf resourceType `Prelude.seq`
+                Prelude.rnf tier

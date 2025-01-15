@@ -147,11 +147,11 @@ instance Prelude.Hashable CreateModel where
 
 instance Prelude.NFData CreateModel where
   rnf CreateModel' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf schema
-      `Prelude.seq` Prelude.rnf restApiId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf contentType
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf schema `Prelude.seq`
+        Prelude.rnf restApiId `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf contentType
 
 instance Data.ToHeaders CreateModel where
   toHeaders =

@@ -208,5 +208,5 @@ instance
     StartReplicationTaskAssessmentResponse
   where
   rnf StartReplicationTaskAssessmentResponse' {..} =
-    Prelude.rnf replicationTask
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf replicationTask `Prelude.seq`
+      Prelude.rnf httpStatus

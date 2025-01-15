@@ -132,11 +132,11 @@ instance Prelude.Hashable EndpointSendConfiguration where
 
 instance Prelude.NFData EndpointSendConfiguration where
   rnf EndpointSendConfiguration' {..} =
-    Prelude.rnf bodyOverride
-      `Prelude.seq` Prelude.rnf context
-      `Prelude.seq` Prelude.rnf rawContent
-      `Prelude.seq` Prelude.rnf substitutions
-      `Prelude.seq` Prelude.rnf titleOverride
+    Prelude.rnf bodyOverride `Prelude.seq`
+      Prelude.rnf context `Prelude.seq`
+        Prelude.rnf rawContent `Prelude.seq`
+          Prelude.rnf substitutions `Prelude.seq`
+            Prelude.rnf titleOverride
 
 instance Data.ToJSON EndpointSendConfiguration where
   toJSON EndpointSendConfiguration' {..} =

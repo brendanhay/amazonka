@@ -245,9 +245,9 @@ instance Prelude.Hashable CreateApprovalRuleTemplate where
 
 instance Prelude.NFData CreateApprovalRuleTemplate where
   rnf CreateApprovalRuleTemplate' {..} =
-    Prelude.rnf approvalRuleTemplateDescription
-      `Prelude.seq` Prelude.rnf approvalRuleTemplateName
-      `Prelude.seq` Prelude.rnf approvalRuleTemplateContent
+    Prelude.rnf approvalRuleTemplateDescription `Prelude.seq`
+      Prelude.rnf approvalRuleTemplateName `Prelude.seq`
+        Prelude.rnf approvalRuleTemplateContent
 
 instance Data.ToHeaders CreateApprovalRuleTemplate where
   toHeaders =
@@ -336,5 +336,5 @@ instance
     CreateApprovalRuleTemplateResponse
   where
   rnf CreateApprovalRuleTemplateResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf approvalRuleTemplate
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf approvalRuleTemplate

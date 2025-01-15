@@ -141,11 +141,11 @@ instance
     ExecuteCommandLogConfiguration
   where
   rnf ExecuteCommandLogConfiguration' {..} =
-    Prelude.rnf cloudWatchEncryptionEnabled
-      `Prelude.seq` Prelude.rnf cloudWatchLogGroupName
-      `Prelude.seq` Prelude.rnf s3BucketName
-      `Prelude.seq` Prelude.rnf s3EncryptionEnabled
-      `Prelude.seq` Prelude.rnf s3KeyPrefix
+    Prelude.rnf cloudWatchEncryptionEnabled `Prelude.seq`
+      Prelude.rnf cloudWatchLogGroupName `Prelude.seq`
+        Prelude.rnf s3BucketName `Prelude.seq`
+          Prelude.rnf s3EncryptionEnabled `Prelude.seq`
+            Prelude.rnf s3KeyPrefix
 
 instance Data.ToJSON ExecuteCommandLogConfiguration where
   toJSON ExecuteCommandLogConfiguration' {..} =

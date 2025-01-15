@@ -125,9 +125,9 @@ instance Prelude.Hashable UpdateCase where
 
 instance Prelude.NFData UpdateCase where
   rnf UpdateCase' {..} =
-    Prelude.rnf caseId
-      `Prelude.seq` Prelude.rnf domainId
-      `Prelude.seq` Prelude.rnf fields
+    Prelude.rnf caseId `Prelude.seq`
+      Prelude.rnf domainId `Prelude.seq`
+        Prelude.rnf fields
 
 instance Data.ToHeaders UpdateCase where
   toHeaders =

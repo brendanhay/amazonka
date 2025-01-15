@@ -138,8 +138,8 @@ instance Prelude.Hashable AddTagsToCertificate where
 
 instance Prelude.NFData AddTagsToCertificate where
   rnf AddTagsToCertificate' {..} =
-    Prelude.rnf certificateArn
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf certificateArn `Prelude.seq`
+      Prelude.rnf tags
 
 instance Data.ToHeaders AddTagsToCertificate where
   toHeaders =

@@ -266,13 +266,13 @@ instance Prelude.Hashable CopyProjectVersion where
 
 instance Prelude.NFData CopyProjectVersion where
   rnf CopyProjectVersion' {..} =
-    Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf sourceProjectArn
-      `Prelude.seq` Prelude.rnf sourceProjectVersionArn
-      `Prelude.seq` Prelude.rnf destinationProjectArn
-      `Prelude.seq` Prelude.rnf versionName
-      `Prelude.seq` Prelude.rnf outputConfig
+    Prelude.rnf kmsKeyId `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf sourceProjectArn `Prelude.seq`
+          Prelude.rnf sourceProjectVersionArn `Prelude.seq`
+            Prelude.rnf destinationProjectArn `Prelude.seq`
+              Prelude.rnf versionName `Prelude.seq`
+                Prelude.rnf outputConfig
 
 instance Data.ToHeaders CopyProjectVersion where
   toHeaders =
@@ -357,5 +357,5 @@ copyProjectVersionResponse_httpStatus = Lens.lens (\CopyProjectVersionResponse' 
 
 instance Prelude.NFData CopyProjectVersionResponse where
   rnf CopyProjectVersionResponse' {..} =
-    Prelude.rnf projectVersionArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf projectVersionArn `Prelude.seq`
+      Prelude.rnf httpStatus

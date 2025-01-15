@@ -155,6 +155,6 @@ deleteRegistryPolicyResponse_httpStatus = Lens.lens (\DeleteRegistryPolicyRespon
 
 instance Prelude.NFData DeleteRegistryPolicyResponse where
   rnf DeleteRegistryPolicyResponse' {..} =
-    Prelude.rnf policyText
-      `Prelude.seq` Prelude.rnf registryId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf policyText `Prelude.seq`
+      Prelude.rnf registryId `Prelude.seq`
+        Prelude.rnf httpStatus

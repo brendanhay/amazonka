@@ -115,9 +115,9 @@ instance Prelude.Hashable Prompt where
 
 instance Prelude.NFData Prompt where
   rnf Prompt' {..} =
-    Prelude.rnf responseCard
-      `Prelude.seq` Prelude.rnf messages
-      `Prelude.seq` Prelude.rnf maxAttempts
+    Prelude.rnf responseCard `Prelude.seq`
+      Prelude.rnf messages `Prelude.seq`
+        Prelude.rnf maxAttempts
 
 instance Data.ToJSON Prompt where
   toJSON Prompt' {..} =

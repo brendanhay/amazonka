@@ -117,8 +117,8 @@ instance Prelude.Hashable DeregisterInstance where
 
 instance Prelude.NFData DeregisterInstance where
   rnf DeregisterInstance' {..} =
-    Prelude.rnf serviceId
-      `Prelude.seq` Prelude.rnf instanceId
+    Prelude.rnf serviceId `Prelude.seq`
+      Prelude.rnf instanceId
 
 instance Data.ToHeaders DeregisterInstance where
   toHeaders =
@@ -197,5 +197,5 @@ deregisterInstanceResponse_httpStatus = Lens.lens (\DeregisterInstanceResponse' 
 
 instance Prelude.NFData DeregisterInstanceResponse where
   rnf DeregisterInstanceResponse' {..} =
-    Prelude.rnf operationId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operationId `Prelude.seq`
+      Prelude.rnf httpStatus

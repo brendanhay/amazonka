@@ -119,8 +119,8 @@ instance Prelude.Hashable UpdateResourceCollection where
 
 instance Prelude.NFData UpdateResourceCollection where
   rnf UpdateResourceCollection' {..} =
-    Prelude.rnf action
-      `Prelude.seq` Prelude.rnf resourceCollection
+    Prelude.rnf action `Prelude.seq`
+      Prelude.rnf resourceCollection
 
 instance Data.ToHeaders UpdateResourceCollection where
   toHeaders =

@@ -96,9 +96,9 @@ instance Prelude.Hashable ApplicationCredential where
 
 instance Prelude.NFData ApplicationCredential where
   rnf ApplicationCredential' {..} =
-    Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf credentialType
-      `Prelude.seq` Prelude.rnf secretId
+    Prelude.rnf databaseName `Prelude.seq`
+      Prelude.rnf credentialType `Prelude.seq`
+        Prelude.rnf secretId
 
 instance Data.ToJSON ApplicationCredential where
   toJSON ApplicationCredential' {..} =

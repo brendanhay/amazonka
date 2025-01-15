@@ -117,8 +117,8 @@ instance Prelude.Hashable StartQueryPlanning where
 
 instance Prelude.NFData StartQueryPlanning where
   rnf StartQueryPlanning' {..} =
-    Prelude.rnf queryPlanningContext
-      `Prelude.seq` Prelude.rnf queryString
+    Prelude.rnf queryPlanningContext `Prelude.seq`
+      Prelude.rnf queryString
 
 instance Data.ToHeaders StartQueryPlanning where
   toHeaders =
@@ -203,5 +203,5 @@ startQueryPlanningResponse_queryId = Lens.lens (\StartQueryPlanningResponse' {qu
 
 instance Prelude.NFData StartQueryPlanningResponse where
   rnf StartQueryPlanningResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf queryId
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf queryId

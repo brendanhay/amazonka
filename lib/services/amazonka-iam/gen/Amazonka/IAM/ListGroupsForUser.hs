@@ -166,12 +166,12 @@ instance Core.AWSPager ListGroupsForUser where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listGroupsForUser_marker
-          Lens..~ rs
-          Lens.^? listGroupsForUserResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listGroupsForUser_marker
+              Lens..~ rs
+              Lens.^? listGroupsForUserResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListGroupsForUser where
   type
@@ -187,9 +187,7 @@ instance Core.AWSRequest ListGroupsForUser where
             Prelude.<$> (x Data..@? "IsTruncated")
             Prelude.<*> (x Data..@? "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x
-                            Data..@? "Groups"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "Groups" Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLList "member"
                         )
       )
@@ -203,9 +201,9 @@ instance Prelude.Hashable ListGroupsForUser where
 
 instance Prelude.NFData ListGroupsForUser where
   rnf ListGroupsForUser' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxItems
-      `Prelude.seq` Prelude.rnf userName
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf maxItems `Prelude.seq`
+        Prelude.rnf userName
 
 instance Data.ToHeaders ListGroupsForUser where
   toHeaders = Prelude.const Prelude.mempty
@@ -310,7 +308,7 @@ listGroupsForUserResponse_groups = Lens.lens (\ListGroupsForUserResponse' {group
 
 instance Prelude.NFData ListGroupsForUserResponse where
   rnf ListGroupsForUserResponse' {..} =
-    Prelude.rnf isTruncated
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf groups
+    Prelude.rnf isTruncated `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf httpStatus `Prelude.seq`
+          Prelude.rnf groups

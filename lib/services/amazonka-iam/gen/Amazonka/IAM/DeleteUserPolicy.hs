@@ -141,8 +141,8 @@ instance Prelude.Hashable DeleteUserPolicy where
 
 instance Prelude.NFData DeleteUserPolicy where
   rnf DeleteUserPolicy' {..} =
-    Prelude.rnf userName
-      `Prelude.seq` Prelude.rnf policyName
+    Prelude.rnf userName `Prelude.seq`
+      Prelude.rnf policyName
 
 instance Data.ToHeaders DeleteUserPolicy where
   toHeaders = Prelude.const Prelude.mempty

@@ -104,9 +104,9 @@ instance Prelude.Hashable EksContainerVolumeMount where
 
 instance Prelude.NFData EksContainerVolumeMount where
   rnf EksContainerVolumeMount' {..} =
-    Prelude.rnf mountPath
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf readOnly
+    Prelude.rnf mountPath `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf readOnly
 
 instance Data.ToJSON EksContainerVolumeMount where
   toJSON EksContainerVolumeMount' {..} =

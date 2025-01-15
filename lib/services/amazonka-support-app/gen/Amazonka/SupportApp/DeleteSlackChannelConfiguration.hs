@@ -129,8 +129,8 @@ instance
     DeleteSlackChannelConfiguration
   where
   rnf DeleteSlackChannelConfiguration' {..} =
-    Prelude.rnf channelId
-      `Prelude.seq` Prelude.rnf teamId
+    Prelude.rnf channelId `Prelude.seq`
+      Prelude.rnf teamId
 
 instance
   Data.ToHeaders

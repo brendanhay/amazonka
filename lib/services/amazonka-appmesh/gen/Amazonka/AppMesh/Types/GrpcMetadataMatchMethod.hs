@@ -116,11 +116,11 @@ instance Prelude.Hashable GrpcMetadataMatchMethod where
 
 instance Prelude.NFData GrpcMetadataMatchMethod where
   rnf GrpcMetadataMatchMethod' {..} =
-    Prelude.rnf exact
-      `Prelude.seq` Prelude.rnf prefix
-      `Prelude.seq` Prelude.rnf range
-      `Prelude.seq` Prelude.rnf regex
-      `Prelude.seq` Prelude.rnf suffix
+    Prelude.rnf exact `Prelude.seq`
+      Prelude.rnf prefix `Prelude.seq`
+        Prelude.rnf range `Prelude.seq`
+          Prelude.rnf regex `Prelude.seq`
+            Prelude.rnf suffix
 
 instance Data.ToJSON GrpcMetadataMatchMethod where
   toJSON GrpcMetadataMatchMethod' {..} =

@@ -157,25 +157,17 @@ instance Data.FromXML IpPermission where
   parseXML x =
     IpPermission'
       Prelude.<$> (x Data..@? "fromPort")
-      Prelude.<*> ( x
-                      Data..@? "ipRanges"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "ipRanges" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x
-                      Data..@? "ipv6Ranges"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "ipv6Ranges" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x
-                      Data..@? "prefixListIds"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "prefixListIds" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "toPort")
-      Prelude.<*> ( x
-                      Data..@? "groups"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "groups" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@ "ipProtocol")
@@ -193,13 +185,13 @@ instance Prelude.Hashable IpPermission where
 
 instance Prelude.NFData IpPermission where
   rnf IpPermission' {..} =
-    Prelude.rnf fromPort
-      `Prelude.seq` Prelude.rnf ipRanges
-      `Prelude.seq` Prelude.rnf ipv6Ranges
-      `Prelude.seq` Prelude.rnf prefixListIds
-      `Prelude.seq` Prelude.rnf toPort
-      `Prelude.seq` Prelude.rnf userIdGroupPairs
-      `Prelude.seq` Prelude.rnf ipProtocol
+    Prelude.rnf fromPort `Prelude.seq`
+      Prelude.rnf ipRanges `Prelude.seq`
+        Prelude.rnf ipv6Ranges `Prelude.seq`
+          Prelude.rnf prefixListIds `Prelude.seq`
+            Prelude.rnf toPort `Prelude.seq`
+              Prelude.rnf userIdGroupPairs `Prelude.seq`
+                Prelude.rnf ipProtocol
 
 instance Data.ToQuery IpPermission where
   toQuery IpPermission' {..} =

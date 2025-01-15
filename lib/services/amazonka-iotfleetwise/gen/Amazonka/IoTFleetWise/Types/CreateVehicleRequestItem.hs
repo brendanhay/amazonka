@@ -134,12 +134,12 @@ instance Prelude.Hashable CreateVehicleRequestItem where
 
 instance Prelude.NFData CreateVehicleRequestItem where
   rnf CreateVehicleRequestItem' {..} =
-    Prelude.rnf associationBehavior
-      `Prelude.seq` Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf vehicleName
-      `Prelude.seq` Prelude.rnf modelManifestArn
-      `Prelude.seq` Prelude.rnf decoderManifestArn
+    Prelude.rnf associationBehavior `Prelude.seq`
+      Prelude.rnf attributes `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf vehicleName `Prelude.seq`
+            Prelude.rnf modelManifestArn `Prelude.seq`
+              Prelude.rnf decoderManifestArn
 
 instance Data.ToJSON CreateVehicleRequestItem where
   toJSON CreateVehicleRequestItem' {..} =

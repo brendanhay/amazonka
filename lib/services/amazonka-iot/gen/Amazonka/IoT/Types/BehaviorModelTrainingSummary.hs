@@ -131,9 +131,9 @@ instance
 
 instance Prelude.NFData BehaviorModelTrainingSummary where
   rnf BehaviorModelTrainingSummary' {..} =
-    Prelude.rnf behaviorName
-      `Prelude.seq` Prelude.rnf datapointsCollectionPercentage
-      `Prelude.seq` Prelude.rnf lastModelRefreshDate
-      `Prelude.seq` Prelude.rnf modelStatus
-      `Prelude.seq` Prelude.rnf securityProfileName
-      `Prelude.seq` Prelude.rnf trainingDataCollectionStartDate
+    Prelude.rnf behaviorName `Prelude.seq`
+      Prelude.rnf datapointsCollectionPercentage `Prelude.seq`
+        Prelude.rnf lastModelRefreshDate `Prelude.seq`
+          Prelude.rnf modelStatus `Prelude.seq`
+            Prelude.rnf securityProfileName `Prelude.seq`
+              Prelude.rnf trainingDataCollectionStartDate

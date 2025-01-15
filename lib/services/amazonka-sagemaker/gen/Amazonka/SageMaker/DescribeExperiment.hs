@@ -261,13 +261,13 @@ describeExperimentResponse_httpStatus = Lens.lens (\DescribeExperimentResponse' 
 
 instance Prelude.NFData DescribeExperimentResponse where
   rnf DescribeExperimentResponse' {..} =
-    Prelude.rnf createdBy
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf experimentArn
-      `Prelude.seq` Prelude.rnf experimentName
-      `Prelude.seq` Prelude.rnf lastModifiedBy
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf createdBy `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf displayName `Prelude.seq`
+            Prelude.rnf experimentArn `Prelude.seq`
+              Prelude.rnf experimentName `Prelude.seq`
+                Prelude.rnf lastModifiedBy `Prelude.seq`
+                  Prelude.rnf lastModifiedTime `Prelude.seq`
+                    Prelude.rnf source `Prelude.seq`
+                      Prelude.rnf httpStatus

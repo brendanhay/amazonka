@@ -80,5 +80,5 @@ instance Prelude.Hashable Job where
 
 instance Prelude.NFData Job where
   rnf Job' {..} =
-    Prelude.rnf deviceId
-      `Prelude.seq` Prelude.rnf jobId
+    Prelude.rnf deviceId `Prelude.seq`
+      Prelude.rnf jobId

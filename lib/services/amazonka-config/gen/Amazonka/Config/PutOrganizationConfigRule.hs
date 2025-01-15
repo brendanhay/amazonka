@@ -252,11 +252,11 @@ instance Prelude.Hashable PutOrganizationConfigRule where
 
 instance Prelude.NFData PutOrganizationConfigRule where
   rnf PutOrganizationConfigRule' {..} =
-    Prelude.rnf excludedAccounts
-      `Prelude.seq` Prelude.rnf organizationCustomPolicyRuleMetadata
-      `Prelude.seq` Prelude.rnf organizationCustomRuleMetadata
-      `Prelude.seq` Prelude.rnf organizationManagedRuleMetadata
-      `Prelude.seq` Prelude.rnf organizationConfigRuleName
+    Prelude.rnf excludedAccounts `Prelude.seq`
+      Prelude.rnf organizationCustomPolicyRuleMetadata `Prelude.seq`
+        Prelude.rnf organizationCustomRuleMetadata `Prelude.seq`
+          Prelude.rnf organizationManagedRuleMetadata `Prelude.seq`
+            Prelude.rnf organizationConfigRuleName
 
 instance Data.ToHeaders PutOrganizationConfigRule where
   toHeaders =
@@ -342,5 +342,5 @@ instance
     PutOrganizationConfigRuleResponse
   where
   rnf PutOrganizationConfigRuleResponse' {..} =
-    Prelude.rnf organizationConfigRuleArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf organizationConfigRuleArn `Prelude.seq`
+      Prelude.rnf httpStatus

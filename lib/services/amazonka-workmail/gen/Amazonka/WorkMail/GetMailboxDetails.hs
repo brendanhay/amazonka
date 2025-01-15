@@ -117,8 +117,8 @@ instance Prelude.Hashable GetMailboxDetails where
 
 instance Prelude.NFData GetMailboxDetails where
   rnf GetMailboxDetails' {..} =
-    Prelude.rnf organizationId
-      `Prelude.seq` Prelude.rnf userId
+    Prelude.rnf organizationId `Prelude.seq`
+      Prelude.rnf userId
 
 instance Data.ToHeaders GetMailboxDetails where
   toHeaders =
@@ -201,6 +201,6 @@ getMailboxDetailsResponse_httpStatus = Lens.lens (\GetMailboxDetailsResponse' {h
 
 instance Prelude.NFData GetMailboxDetailsResponse where
   rnf GetMailboxDetailsResponse' {..} =
-    Prelude.rnf mailboxQuota
-      `Prelude.seq` Prelude.rnf mailboxSize
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf mailboxQuota `Prelude.seq`
+      Prelude.rnf mailboxSize `Prelude.seq`
+        Prelude.rnf httpStatus

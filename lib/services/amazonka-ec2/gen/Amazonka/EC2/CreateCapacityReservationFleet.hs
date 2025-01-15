@@ -323,9 +323,7 @@ instance
                         )
             Prelude.<*> (x Data..@? "instanceMatchCriteria")
             Prelude.<*> (x Data..@? "state")
-            Prelude.<*> ( x
-                            Data..@? "tagSet"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (x Data..@? "tenancy")
@@ -357,15 +355,15 @@ instance
     CreateCapacityReservationFleet
   where
   rnf CreateCapacityReservationFleet' {..} =
-    Prelude.rnf allocationStrategy
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf endDate
-      `Prelude.seq` Prelude.rnf instanceMatchCriteria
-      `Prelude.seq` Prelude.rnf tagSpecifications
-      `Prelude.seq` Prelude.rnf tenancy
-      `Prelude.seq` Prelude.rnf instanceTypeSpecifications
-      `Prelude.seq` Prelude.rnf totalTargetCapacity
+    Prelude.rnf allocationStrategy `Prelude.seq`
+      Prelude.rnf clientToken `Prelude.seq`
+        Prelude.rnf dryRun `Prelude.seq`
+          Prelude.rnf endDate `Prelude.seq`
+            Prelude.rnf instanceMatchCriteria `Prelude.seq`
+              Prelude.rnf tagSpecifications `Prelude.seq`
+                Prelude.rnf tenancy `Prelude.seq`
+                  Prelude.rnf instanceTypeSpecifications `Prelude.seq`
+                    Prelude.rnf totalTargetCapacity
 
 instance
   Data.ToHeaders
@@ -548,15 +546,15 @@ instance
     CreateCapacityReservationFleetResponse
   where
   rnf CreateCapacityReservationFleetResponse' {..} =
-    Prelude.rnf allocationStrategy
-      `Prelude.seq` Prelude.rnf capacityReservationFleetId
-      `Prelude.seq` Prelude.rnf createTime
-      `Prelude.seq` Prelude.rnf endDate
-      `Prelude.seq` Prelude.rnf fleetCapacityReservations
-      `Prelude.seq` Prelude.rnf instanceMatchCriteria
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf tenancy
-      `Prelude.seq` Prelude.rnf totalFulfilledCapacity
-      `Prelude.seq` Prelude.rnf totalTargetCapacity
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf allocationStrategy `Prelude.seq`
+      Prelude.rnf capacityReservationFleetId `Prelude.seq`
+        Prelude.rnf createTime `Prelude.seq`
+          Prelude.rnf endDate `Prelude.seq`
+            Prelude.rnf fleetCapacityReservations `Prelude.seq`
+              Prelude.rnf instanceMatchCriteria `Prelude.seq`
+                Prelude.rnf state `Prelude.seq`
+                  Prelude.rnf tags `Prelude.seq`
+                    Prelude.rnf tenancy `Prelude.seq`
+                      Prelude.rnf totalFulfilledCapacity `Prelude.seq`
+                        Prelude.rnf totalTargetCapacity `Prelude.seq`
+                          Prelude.rnf httpStatus

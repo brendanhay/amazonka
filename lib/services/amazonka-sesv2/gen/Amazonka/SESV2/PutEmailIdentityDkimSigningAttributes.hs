@@ -189,9 +189,9 @@ instance
     PutEmailIdentityDkimSigningAttributes
   where
   rnf PutEmailIdentityDkimSigningAttributes' {..} =
-    Prelude.rnf signingAttributes
-      `Prelude.seq` Prelude.rnf emailIdentity
-      `Prelude.seq` Prelude.rnf signingAttributesOrigin
+    Prelude.rnf signingAttributes `Prelude.seq`
+      Prelude.rnf emailIdentity `Prelude.seq`
+        Prelude.rnf signingAttributesOrigin
 
 instance
   Data.ToHeaders
@@ -426,6 +426,6 @@ instance
   where
   rnf
     PutEmailIdentityDkimSigningAttributesResponse' {..} =
-      Prelude.rnf dkimStatus
-        `Prelude.seq` Prelude.rnf dkimTokens
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf dkimStatus `Prelude.seq`
+        Prelude.rnf dkimTokens `Prelude.seq`
+          Prelude.rnf httpStatus

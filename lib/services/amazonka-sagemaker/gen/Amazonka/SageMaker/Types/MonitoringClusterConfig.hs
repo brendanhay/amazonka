@@ -131,10 +131,10 @@ instance Prelude.Hashable MonitoringClusterConfig where
 
 instance Prelude.NFData MonitoringClusterConfig where
   rnf MonitoringClusterConfig' {..} =
-    Prelude.rnf volumeKmsKeyId
-      `Prelude.seq` Prelude.rnf instanceCount
-      `Prelude.seq` Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf volumeSizeInGB
+    Prelude.rnf volumeKmsKeyId `Prelude.seq`
+      Prelude.rnf instanceCount `Prelude.seq`
+        Prelude.rnf instanceType `Prelude.seq`
+          Prelude.rnf volumeSizeInGB
 
 instance Data.ToJSON MonitoringClusterConfig where
   toJSON MonitoringClusterConfig' {..} =

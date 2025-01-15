@@ -113,8 +113,8 @@ instance Prelude.Hashable GetEnvironment where
 
 instance Prelude.NFData GetEnvironment where
   rnf GetEnvironment' {..} =
-    Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf environmentId
+    Prelude.rnf applicationId `Prelude.seq`
+      Prelude.rnf environmentId
 
 instance Data.ToHeaders GetEnvironment where
   toHeaders =

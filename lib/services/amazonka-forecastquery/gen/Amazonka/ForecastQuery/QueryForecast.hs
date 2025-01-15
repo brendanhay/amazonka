@@ -199,11 +199,11 @@ instance Prelude.Hashable QueryForecast where
 
 instance Prelude.NFData QueryForecast where
   rnf QueryForecast' {..} =
-    Prelude.rnf endDate
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf startDate
-      `Prelude.seq` Prelude.rnf forecastArn
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf endDate `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf startDate `Prelude.seq`
+          Prelude.rnf forecastArn `Prelude.seq`
+            Prelude.rnf filters
 
 instance Data.ToHeaders QueryForecast where
   toHeaders =
@@ -278,5 +278,5 @@ queryForecastResponse_httpStatus = Lens.lens (\QueryForecastResponse' {httpStatu
 
 instance Prelude.NFData QueryForecastResponse where
   rnf QueryForecastResponse' {..} =
-    Prelude.rnf forecast
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf forecast `Prelude.seq`
+      Prelude.rnf httpStatus

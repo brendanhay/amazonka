@@ -89,5 +89,5 @@ instance
 
 instance Prelude.NFData BatchDetectEntitiesItemResult where
   rnf BatchDetectEntitiesItemResult' {..} =
-    Prelude.rnf entities
-      `Prelude.seq` Prelude.rnf index
+    Prelude.rnf entities `Prelude.seq`
+      Prelude.rnf index

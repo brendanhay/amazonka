@@ -148,10 +148,10 @@ instance Prelude.Hashable ListConfigurationProfiles where
 
 instance Prelude.NFData ListConfigurationProfiles where
   rnf ListConfigurationProfiles' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf applicationId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf type' `Prelude.seq`
+          Prelude.rnf applicationId
 
 instance Data.ToHeaders ListConfigurationProfiles where
   toHeaders =
@@ -236,6 +236,6 @@ instance
     ListConfigurationProfilesResponse
   where
   rnf ListConfigurationProfilesResponse' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf items `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

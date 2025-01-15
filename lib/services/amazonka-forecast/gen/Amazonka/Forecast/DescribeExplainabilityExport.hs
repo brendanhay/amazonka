@@ -328,13 +328,13 @@ instance
     DescribeExplainabilityExportResponse
   where
   rnf DescribeExplainabilityExportResponse' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf destination
-      `Prelude.seq` Prelude.rnf explainabilityArn
-      `Prelude.seq` Prelude.rnf explainabilityExportArn
-      `Prelude.seq` Prelude.rnf explainabilityExportName
-      `Prelude.seq` Prelude.rnf format
-      `Prelude.seq` Prelude.rnf lastModificationTime
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf destination `Prelude.seq`
+        Prelude.rnf explainabilityArn `Prelude.seq`
+          Prelude.rnf explainabilityExportArn `Prelude.seq`
+            Prelude.rnf explainabilityExportName `Prelude.seq`
+              Prelude.rnf format `Prelude.seq`
+                Prelude.rnf lastModificationTime `Prelude.seq`
+                  Prelude.rnf message `Prelude.seq`
+                    Prelude.rnf status `Prelude.seq`
+                      Prelude.rnf httpStatus

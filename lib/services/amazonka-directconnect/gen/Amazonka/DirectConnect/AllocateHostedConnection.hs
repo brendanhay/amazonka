@@ -205,12 +205,12 @@ instance Prelude.Hashable AllocateHostedConnection where
 
 instance Prelude.NFData AllocateHostedConnection where
   rnf AllocateHostedConnection' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf connectionId
-      `Prelude.seq` Prelude.rnf ownerAccount
-      `Prelude.seq` Prelude.rnf bandwidth
-      `Prelude.seq` Prelude.rnf connectionName
-      `Prelude.seq` Prelude.rnf vlan
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf connectionId `Prelude.seq`
+        Prelude.rnf ownerAccount `Prelude.seq`
+          Prelude.rnf bandwidth `Prelude.seq`
+            Prelude.rnf connectionName `Prelude.seq`
+              Prelude.rnf vlan
 
 instance Data.ToHeaders AllocateHostedConnection where
   toHeaders =

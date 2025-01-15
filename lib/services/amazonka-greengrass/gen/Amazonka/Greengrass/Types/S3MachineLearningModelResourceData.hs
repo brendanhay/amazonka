@@ -106,9 +106,9 @@ instance
     S3MachineLearningModelResourceData
   where
   rnf S3MachineLearningModelResourceData' {..} =
-    Prelude.rnf destinationPath
-      `Prelude.seq` Prelude.rnf ownerSetting
-      `Prelude.seq` Prelude.rnf s3Uri
+    Prelude.rnf destinationPath `Prelude.seq`
+      Prelude.rnf ownerSetting `Prelude.seq`
+        Prelude.rnf s3Uri
 
 instance
   Data.ToJSON

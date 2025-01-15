@@ -105,9 +105,9 @@ instance Prelude.Hashable HeaderMatchPattern where
 
 instance Prelude.NFData HeaderMatchPattern where
   rnf HeaderMatchPattern' {..} =
-    Prelude.rnf all
-      `Prelude.seq` Prelude.rnf excludedHeaders
-      `Prelude.seq` Prelude.rnf includedHeaders
+    Prelude.rnf all `Prelude.seq`
+      Prelude.rnf excludedHeaders `Prelude.seq`
+        Prelude.rnf includedHeaders
 
 instance Data.ToJSON HeaderMatchPattern where
   toJSON HeaderMatchPattern' {..} =

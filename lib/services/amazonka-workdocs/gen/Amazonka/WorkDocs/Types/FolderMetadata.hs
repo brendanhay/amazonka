@@ -183,14 +183,14 @@ instance Prelude.Hashable FolderMetadata where
 
 instance Prelude.NFData FolderMetadata where
   rnf FolderMetadata' {..} =
-    Prelude.rnf createdTimestamp
-      `Prelude.seq` Prelude.rnf creatorId
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf labels
-      `Prelude.seq` Prelude.rnf latestVersionSize
-      `Prelude.seq` Prelude.rnf modifiedTimestamp
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf parentFolderId
-      `Prelude.seq` Prelude.rnf resourceState
-      `Prelude.seq` Prelude.rnf signature
-      `Prelude.seq` Prelude.rnf size
+    Prelude.rnf createdTimestamp `Prelude.seq`
+      Prelude.rnf creatorId `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf labels `Prelude.seq`
+            Prelude.rnf latestVersionSize `Prelude.seq`
+              Prelude.rnf modifiedTimestamp `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf parentFolderId `Prelude.seq`
+                    Prelude.rnf resourceState `Prelude.seq`
+                      Prelude.rnf signature `Prelude.seq`
+                        Prelude.rnf size

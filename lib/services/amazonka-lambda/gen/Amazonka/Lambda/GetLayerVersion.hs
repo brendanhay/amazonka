@@ -115,8 +115,8 @@ instance Prelude.Hashable GetLayerVersion where
 
 instance Prelude.NFData GetLayerVersion where
   rnf GetLayerVersion' {..} =
-    Prelude.rnf layerName
-      `Prelude.seq` Prelude.rnf versionNumber
+    Prelude.rnf layerName `Prelude.seq`
+      Prelude.rnf versionNumber
 
 instance Data.ToHeaders GetLayerVersion where
   toHeaders = Prelude.const Prelude.mempty

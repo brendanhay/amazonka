@@ -83,5 +83,5 @@ instance Prelude.Hashable Graph where
 
 instance Prelude.NFData Graph where
   rnf Graph' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdTime
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf createdTime

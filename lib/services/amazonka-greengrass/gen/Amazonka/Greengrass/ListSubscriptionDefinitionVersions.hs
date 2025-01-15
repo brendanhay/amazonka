@@ -123,12 +123,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listSubscriptionDefinitionVersions_nextToken
-          Lens..~ rs
-          Lens.^? listSubscriptionDefinitionVersionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listSubscriptionDefinitionVersions_nextToken
+              Lens..~ rs
+              Lens.^? listSubscriptionDefinitionVersionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -165,9 +165,9 @@ instance
     ListSubscriptionDefinitionVersions
   where
   rnf ListSubscriptionDefinitionVersions' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf subscriptionDefinitionId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf subscriptionDefinitionId
 
 instance
   Data.ToHeaders
@@ -261,6 +261,6 @@ instance
     ListSubscriptionDefinitionVersionsResponse
   where
   rnf ListSubscriptionDefinitionVersionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf versions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf versions `Prelude.seq`
+        Prelude.rnf httpStatus

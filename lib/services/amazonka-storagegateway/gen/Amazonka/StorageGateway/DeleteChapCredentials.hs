@@ -126,8 +126,8 @@ instance Prelude.Hashable DeleteChapCredentials where
 
 instance Prelude.NFData DeleteChapCredentials where
   rnf DeleteChapCredentials' {..} =
-    Prelude.rnf targetARN
-      `Prelude.seq` Prelude.rnf initiatorName
+    Prelude.rnf targetARN `Prelude.seq`
+      Prelude.rnf initiatorName
 
 instance Data.ToHeaders DeleteChapCredentials where
   toHeaders =
@@ -212,6 +212,6 @@ deleteChapCredentialsResponse_httpStatus = Lens.lens (\DeleteChapCredentialsResp
 
 instance Prelude.NFData DeleteChapCredentialsResponse where
   rnf DeleteChapCredentialsResponse' {..} =
-    Prelude.rnf initiatorName
-      `Prelude.seq` Prelude.rnf targetARN
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf initiatorName `Prelude.seq`
+      Prelude.rnf targetARN `Prelude.seq`
+        Prelude.rnf httpStatus

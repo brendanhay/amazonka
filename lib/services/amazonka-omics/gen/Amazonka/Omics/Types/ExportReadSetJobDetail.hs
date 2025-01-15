@@ -141,9 +141,9 @@ instance Prelude.Hashable ExportReadSetJobDetail where
 
 instance Prelude.NFData ExportReadSetJobDetail where
   rnf ExportReadSetJobDetail' {..} =
-    Prelude.rnf completionTime
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf destination
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf sequenceStoreId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf completionTime `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf destination `Prelude.seq`
+          Prelude.rnf id `Prelude.seq`
+            Prelude.rnf sequenceStoreId `Prelude.seq`
+              Prelude.rnf status

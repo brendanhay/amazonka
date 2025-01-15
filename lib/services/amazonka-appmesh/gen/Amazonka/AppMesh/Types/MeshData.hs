@@ -114,7 +114,7 @@ instance Prelude.Hashable MeshData where
 
 instance Prelude.NFData MeshData where
   rnf MeshData' {..} =
-    Prelude.rnf meshName
-      `Prelude.seq` Prelude.rnf metadata
-      `Prelude.seq` Prelude.rnf spec
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf meshName `Prelude.seq`
+      Prelude.rnf metadata `Prelude.seq`
+        Prelude.rnf spec `Prelude.seq`
+          Prelude.rnf status

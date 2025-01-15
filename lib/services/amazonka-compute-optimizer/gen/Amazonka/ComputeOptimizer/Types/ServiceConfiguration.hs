@@ -176,8 +176,8 @@ instance Prelude.Hashable ServiceConfiguration where
 
 instance Prelude.NFData ServiceConfiguration where
   rnf ServiceConfiguration' {..} =
-    Prelude.rnf autoScalingConfiguration
-      `Prelude.seq` Prelude.rnf containerConfigurations
-      `Prelude.seq` Prelude.rnf cpu
-      `Prelude.seq` Prelude.rnf memory
-      `Prelude.seq` Prelude.rnf taskDefinitionArn
+    Prelude.rnf autoScalingConfiguration `Prelude.seq`
+      Prelude.rnf containerConfigurations `Prelude.seq`
+        Prelude.rnf cpu `Prelude.seq`
+          Prelude.rnf memory `Prelude.seq`
+            Prelude.rnf taskDefinitionArn

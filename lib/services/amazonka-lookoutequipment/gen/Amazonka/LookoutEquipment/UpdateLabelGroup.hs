@@ -111,8 +111,8 @@ instance Prelude.Hashable UpdateLabelGroup where
 
 instance Prelude.NFData UpdateLabelGroup where
   rnf UpdateLabelGroup' {..} =
-    Prelude.rnf faultCodes
-      `Prelude.seq` Prelude.rnf labelGroupName
+    Prelude.rnf faultCodes `Prelude.seq`
+      Prelude.rnf labelGroupName
 
 instance Data.ToHeaders UpdateLabelGroup where
   toHeaders =

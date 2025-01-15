@@ -153,5 +153,5 @@ listSourceCredentialsResponse_httpStatus = Lens.lens (\ListSourceCredentialsResp
 
 instance Prelude.NFData ListSourceCredentialsResponse where
   rnf ListSourceCredentialsResponse' {..} =
-    Prelude.rnf sourceCredentialsInfos
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf sourceCredentialsInfos `Prelude.seq`
+      Prelude.rnf httpStatus

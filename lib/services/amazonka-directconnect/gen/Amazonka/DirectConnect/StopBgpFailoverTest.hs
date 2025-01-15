@@ -170,5 +170,5 @@ stopBgpFailoverTestResponse_httpStatus = Lens.lens (\StopBgpFailoverTestResponse
 
 instance Prelude.NFData StopBgpFailoverTestResponse where
   rnf StopBgpFailoverTestResponse' {..} =
-    Prelude.rnf virtualInterfaceTest
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf virtualInterfaceTest `Prelude.seq`
+      Prelude.rnf httpStatus

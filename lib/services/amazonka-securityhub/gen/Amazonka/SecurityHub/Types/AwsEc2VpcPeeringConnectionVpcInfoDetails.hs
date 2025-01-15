@@ -157,13 +157,13 @@ instance
     AwsEc2VpcPeeringConnectionVpcInfoDetails
   where
   rnf AwsEc2VpcPeeringConnectionVpcInfoDetails' {..} =
-    Prelude.rnf cidrBlock
-      `Prelude.seq` Prelude.rnf cidrBlockSet
-      `Prelude.seq` Prelude.rnf ipv6CidrBlockSet
-      `Prelude.seq` Prelude.rnf ownerId
-      `Prelude.seq` Prelude.rnf peeringOptions
-      `Prelude.seq` Prelude.rnf region
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf cidrBlock `Prelude.seq`
+      Prelude.rnf cidrBlockSet `Prelude.seq`
+        Prelude.rnf ipv6CidrBlockSet `Prelude.seq`
+          Prelude.rnf ownerId `Prelude.seq`
+            Prelude.rnf peeringOptions `Prelude.seq`
+              Prelude.rnf region `Prelude.seq`
+                Prelude.rnf vpcId
 
 instance
   Data.ToJSON

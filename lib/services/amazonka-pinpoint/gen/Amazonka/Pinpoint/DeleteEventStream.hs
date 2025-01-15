@@ -165,5 +165,5 @@ deleteEventStreamResponse_eventStream = Lens.lens (\DeleteEventStreamResponse' {
 
 instance Prelude.NFData DeleteEventStreamResponse where
   rnf DeleteEventStreamResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf eventStream
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf eventStream

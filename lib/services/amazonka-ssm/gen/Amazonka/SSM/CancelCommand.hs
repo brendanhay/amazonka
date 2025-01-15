@@ -116,8 +116,8 @@ instance Prelude.Hashable CancelCommand where
 
 instance Prelude.NFData CancelCommand where
   rnf CancelCommand' {..} =
-    Prelude.rnf instanceIds
-      `Prelude.seq` Prelude.rnf commandId
+    Prelude.rnf instanceIds `Prelude.seq`
+      Prelude.rnf commandId
 
 instance Data.ToHeaders CancelCommand where
   toHeaders =

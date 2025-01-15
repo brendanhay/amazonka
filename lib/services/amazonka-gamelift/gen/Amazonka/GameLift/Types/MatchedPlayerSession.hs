@@ -86,5 +86,5 @@ instance Prelude.Hashable MatchedPlayerSession where
 
 instance Prelude.NFData MatchedPlayerSession where
   rnf MatchedPlayerSession' {..} =
-    Prelude.rnf playerId
-      `Prelude.seq` Prelude.rnf playerSessionId
+    Prelude.rnf playerId `Prelude.seq`
+      Prelude.rnf playerSessionId

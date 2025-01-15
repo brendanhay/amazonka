@@ -107,8 +107,8 @@ instance Prelude.Hashable DisableUser where
 
 instance Prelude.NFData DisableUser where
   rnf DisableUser' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf userId
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf userId
 
 instance Data.ToHeaders DisableUser where
   toHeaders =
@@ -176,5 +176,5 @@ disableUserResponse_httpStatus = Lens.lens (\DisableUserResponse' {httpStatus} -
 
 instance Prelude.NFData DisableUserResponse where
   rnf DisableUserResponse' {..} =
-    Prelude.rnf userId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf userId `Prelude.seq`
+      Prelude.rnf httpStatus

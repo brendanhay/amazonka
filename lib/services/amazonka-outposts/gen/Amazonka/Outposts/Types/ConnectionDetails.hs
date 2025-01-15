@@ -124,9 +124,9 @@ instance Prelude.Hashable ConnectionDetails where
 
 instance Prelude.NFData ConnectionDetails where
   rnf ConnectionDetails' {..} =
-    Prelude.rnf allowedIps
-      `Prelude.seq` Prelude.rnf clientPublicKey
-      `Prelude.seq` Prelude.rnf clientTunnelAddress
-      `Prelude.seq` Prelude.rnf serverEndpoint
-      `Prelude.seq` Prelude.rnf serverPublicKey
-      `Prelude.seq` Prelude.rnf serverTunnelAddress
+    Prelude.rnf allowedIps `Prelude.seq`
+      Prelude.rnf clientPublicKey `Prelude.seq`
+        Prelude.rnf clientTunnelAddress `Prelude.seq`
+          Prelude.rnf serverEndpoint `Prelude.seq`
+            Prelude.rnf serverPublicKey `Prelude.seq`
+              Prelude.rnf serverTunnelAddress

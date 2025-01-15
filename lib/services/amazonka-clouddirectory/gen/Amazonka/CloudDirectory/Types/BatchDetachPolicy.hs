@@ -83,8 +83,8 @@ instance Prelude.Hashable BatchDetachPolicy where
 
 instance Prelude.NFData BatchDetachPolicy where
   rnf BatchDetachPolicy' {..} =
-    Prelude.rnf policyReference
-      `Prelude.seq` Prelude.rnf objectReference
+    Prelude.rnf policyReference `Prelude.seq`
+      Prelude.rnf objectReference
 
 instance Data.ToJSON BatchDetachPolicy where
   toJSON BatchDetachPolicy' {..} =

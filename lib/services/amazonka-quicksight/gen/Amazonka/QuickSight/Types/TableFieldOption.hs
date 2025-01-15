@@ -117,11 +117,11 @@ instance Prelude.Hashable TableFieldOption where
 
 instance Prelude.NFData TableFieldOption where
   rnf TableFieldOption' {..} =
-    Prelude.rnf customLabel
-      `Prelude.seq` Prelude.rnf uRLStyling
-      `Prelude.seq` Prelude.rnf visibility
-      `Prelude.seq` Prelude.rnf width
-      `Prelude.seq` Prelude.rnf fieldId
+    Prelude.rnf customLabel `Prelude.seq`
+      Prelude.rnf uRLStyling `Prelude.seq`
+        Prelude.rnf visibility `Prelude.seq`
+          Prelude.rnf width `Prelude.seq`
+            Prelude.rnf fieldId
 
 instance Data.ToJSON TableFieldOption where
   toJSON TableFieldOption' {..} =

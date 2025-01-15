@@ -121,12 +121,12 @@ instance Core.AWSPager ListCustomRoutingListeners where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listCustomRoutingListeners_nextToken
-          Lens..~ rs
-          Lens.^? listCustomRoutingListenersResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listCustomRoutingListeners_nextToken
+              Lens..~ rs
+              Lens.^? listCustomRoutingListenersResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListCustomRoutingListeners where
   type
@@ -152,9 +152,9 @@ instance Prelude.Hashable ListCustomRoutingListeners where
 
 instance Prelude.NFData ListCustomRoutingListeners where
   rnf ListCustomRoutingListeners' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf acceleratorArn
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf acceleratorArn
 
 instance Data.ToHeaders ListCustomRoutingListeners where
   toHeaders =
@@ -244,6 +244,6 @@ instance
     ListCustomRoutingListenersResponse
   where
   rnf ListCustomRoutingListenersResponse' {..} =
-    Prelude.rnf listeners
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf listeners `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

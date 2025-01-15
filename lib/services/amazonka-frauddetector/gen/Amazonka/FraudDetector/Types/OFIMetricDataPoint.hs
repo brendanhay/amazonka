@@ -117,7 +117,7 @@ instance Prelude.Hashable OFIMetricDataPoint where
 
 instance Prelude.NFData OFIMetricDataPoint where
   rnf OFIMetricDataPoint' {..} =
-    Prelude.rnf fpr
-      `Prelude.seq` Prelude.rnf precision
-      `Prelude.seq` Prelude.rnf threshold
-      `Prelude.seq` Prelude.rnf tpr
+    Prelude.rnf fpr `Prelude.seq`
+      Prelude.rnf precision `Prelude.seq`
+        Prelude.rnf threshold `Prelude.seq`
+          Prelude.rnf tpr

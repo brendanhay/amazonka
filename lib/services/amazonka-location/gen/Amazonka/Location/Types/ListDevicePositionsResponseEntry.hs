@@ -148,8 +148,8 @@ instance
     ListDevicePositionsResponseEntry
   where
   rnf ListDevicePositionsResponseEntry' {..} =
-    Prelude.rnf accuracy
-      `Prelude.seq` Prelude.rnf positionProperties
-      `Prelude.seq` Prelude.rnf deviceId
-      `Prelude.seq` Prelude.rnf position
-      `Prelude.seq` Prelude.rnf sampleTime
+    Prelude.rnf accuracy `Prelude.seq`
+      Prelude.rnf positionProperties `Prelude.seq`
+        Prelude.rnf deviceId `Prelude.seq`
+          Prelude.rnf position `Prelude.seq`
+            Prelude.rnf sampleTime

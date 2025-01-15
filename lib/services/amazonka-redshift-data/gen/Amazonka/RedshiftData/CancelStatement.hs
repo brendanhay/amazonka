@@ -174,5 +174,5 @@ cancelStatementResponse_httpStatus = Lens.lens (\CancelStatementResponse' {httpS
 
 instance Prelude.NFData CancelStatementResponse where
   rnf CancelStatementResponse' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf status `Prelude.seq`
+      Prelude.rnf httpStatus

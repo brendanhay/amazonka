@@ -421,13 +421,13 @@ instance Prelude.Hashable GetReservationUtilization where
 
 instance Prelude.NFData GetReservationUtilization where
   rnf GetReservationUtilization' {..} =
-    Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf granularity
-      `Prelude.seq` Prelude.rnf groupBy
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf timePeriod
+    Prelude.rnf filter' `Prelude.seq`
+      Prelude.rnf granularity `Prelude.seq`
+        Prelude.rnf groupBy `Prelude.seq`
+          Prelude.rnf maxResults `Prelude.seq`
+            Prelude.rnf nextPageToken `Prelude.seq`
+              Prelude.rnf sortBy `Prelude.seq`
+                Prelude.rnf timePeriod
 
 instance Data.ToHeaders GetReservationUtilization where
   toHeaders =
@@ -532,7 +532,7 @@ instance
     GetReservationUtilizationResponse
   where
   rnf GetReservationUtilizationResponse' {..} =
-    Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf total
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf utilizationsByTime
+    Prelude.rnf nextPageToken `Prelude.seq`
+      Prelude.rnf total `Prelude.seq`
+        Prelude.rnf httpStatus `Prelude.seq`
+          Prelude.rnf utilizationsByTime

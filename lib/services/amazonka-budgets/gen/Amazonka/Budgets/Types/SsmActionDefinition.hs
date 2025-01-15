@@ -102,9 +102,9 @@ instance Prelude.Hashable SsmActionDefinition where
 
 instance Prelude.NFData SsmActionDefinition where
   rnf SsmActionDefinition' {..} =
-    Prelude.rnf actionSubType
-      `Prelude.seq` Prelude.rnf region
-      `Prelude.seq` Prelude.rnf instanceIds
+    Prelude.rnf actionSubType `Prelude.seq`
+      Prelude.rnf region `Prelude.seq`
+        Prelude.rnf instanceIds
 
 instance Data.ToJSON SsmActionDefinition where
   toJSON SsmActionDefinition' {..} =

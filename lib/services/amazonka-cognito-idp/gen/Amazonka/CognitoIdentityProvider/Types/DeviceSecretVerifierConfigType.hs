@@ -79,8 +79,8 @@ instance
     DeviceSecretVerifierConfigType
   where
   rnf DeviceSecretVerifierConfigType' {..} =
-    Prelude.rnf passwordVerifier
-      `Prelude.seq` Prelude.rnf salt
+    Prelude.rnf passwordVerifier `Prelude.seq`
+      Prelude.rnf salt
 
 instance Data.ToJSON DeviceSecretVerifierConfigType where
   toJSON DeviceSecretVerifierConfigType' {..} =

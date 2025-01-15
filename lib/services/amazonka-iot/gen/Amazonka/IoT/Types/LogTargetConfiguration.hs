@@ -82,5 +82,5 @@ instance Prelude.Hashable LogTargetConfiguration where
 
 instance Prelude.NFData LogTargetConfiguration where
   rnf LogTargetConfiguration' {..} =
-    Prelude.rnf logLevel
-      `Prelude.seq` Prelude.rnf logTarget
+    Prelude.rnf logLevel `Prelude.seq`
+      Prelude.rnf logTarget

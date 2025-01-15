@@ -180,12 +180,12 @@ instance Core.AWSPager ListModelBiasJobDefinitions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listModelBiasJobDefinitions_nextToken
-          Lens..~ rs
-          Lens.^? listModelBiasJobDefinitionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listModelBiasJobDefinitions_nextToken
+              Lens..~ rs
+              Lens.^? listModelBiasJobDefinitionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListModelBiasJobDefinitions where
   type
@@ -219,14 +219,14 @@ instance Prelude.Hashable ListModelBiasJobDefinitions where
 
 instance Prelude.NFData ListModelBiasJobDefinitions where
   rnf ListModelBiasJobDefinitions' {..} =
-    Prelude.rnf creationTimeAfter
-      `Prelude.seq` Prelude.rnf creationTimeBefore
-      `Prelude.seq` Prelude.rnf endpointName
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nameContains
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf sortOrder
+    Prelude.rnf creationTimeAfter `Prelude.seq`
+      Prelude.rnf creationTimeBefore `Prelude.seq`
+        Prelude.rnf endpointName `Prelude.seq`
+          Prelude.rnf maxResults `Prelude.seq`
+            Prelude.rnf nameContains `Prelude.seq`
+              Prelude.rnf nextToken `Prelude.seq`
+                Prelude.rnf sortBy `Prelude.seq`
+                  Prelude.rnf sortOrder
 
 instance Data.ToHeaders ListModelBiasJobDefinitions where
   toHeaders =
@@ -323,6 +323,6 @@ instance
     ListModelBiasJobDefinitionsResponse
   where
   rnf ListModelBiasJobDefinitionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf jobDefinitionSummaries
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf jobDefinitionSummaries

@@ -232,5 +232,5 @@ instance
   where
   rnf
     CancelDomainTransferToAnotherAwsAccountResponse' {..} =
-      Prelude.rnf operationId
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf operationId `Prelude.seq`
+        Prelude.rnf httpStatus

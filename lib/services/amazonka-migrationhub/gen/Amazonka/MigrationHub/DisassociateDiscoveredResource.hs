@@ -158,10 +158,10 @@ instance
     DisassociateDiscoveredResource
   where
   rnf DisassociateDiscoveredResource' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf progressUpdateStream
-      `Prelude.seq` Prelude.rnf migrationTaskName
-      `Prelude.seq` Prelude.rnf configurationId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf progressUpdateStream `Prelude.seq`
+        Prelude.rnf migrationTaskName `Prelude.seq`
+          Prelude.rnf configurationId
 
 instance
   Data.ToHeaders

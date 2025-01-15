@@ -121,9 +121,9 @@ instance Prelude.Hashable CreateFolder where
 
 instance Prelude.NFData CreateFolder where
   rnf CreateFolder' {..} =
-    Prelude.rnf authenticationToken
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf parentFolderId
+    Prelude.rnf authenticationToken `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf parentFolderId
 
 instance Data.ToHeaders CreateFolder where
   toHeaders CreateFolder' {..} =
@@ -189,5 +189,5 @@ createFolderResponse_httpStatus = Lens.lens (\CreateFolderResponse' {httpStatus}
 
 instance Prelude.NFData CreateFolderResponse where
   rnf CreateFolderResponse' {..} =
-    Prelude.rnf metadata
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf metadata `Prelude.seq`
+      Prelude.rnf httpStatus

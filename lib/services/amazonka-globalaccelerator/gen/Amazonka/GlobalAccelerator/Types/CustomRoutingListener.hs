@@ -94,5 +94,5 @@ instance Prelude.Hashable CustomRoutingListener where
 
 instance Prelude.NFData CustomRoutingListener where
   rnf CustomRoutingListener' {..} =
-    Prelude.rnf listenerArn
-      `Prelude.seq` Prelude.rnf portRanges
+    Prelude.rnf listenerArn `Prelude.seq`
+      Prelude.rnf portRanges

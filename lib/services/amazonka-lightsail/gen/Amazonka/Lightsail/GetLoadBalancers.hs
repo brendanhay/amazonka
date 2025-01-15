@@ -102,12 +102,12 @@ instance Core.AWSPager GetLoadBalancers where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getLoadBalancers_pageToken
-          Lens..~ rs
-          Lens.^? getLoadBalancersResponse_nextPageToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getLoadBalancers_pageToken
+              Lens..~ rs
+              Lens.^? getLoadBalancersResponse_nextPageToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetLoadBalancers where
   type
@@ -227,6 +227,6 @@ getLoadBalancersResponse_httpStatus = Lens.lens (\GetLoadBalancersResponse' {htt
 
 instance Prelude.NFData GetLoadBalancersResponse where
   rnf GetLoadBalancersResponse' {..} =
-    Prelude.rnf loadBalancers
-      `Prelude.seq` Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf loadBalancers `Prelude.seq`
+      Prelude.rnf nextPageToken `Prelude.seq`
+        Prelude.rnf httpStatus

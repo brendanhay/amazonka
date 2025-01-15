@@ -348,11 +348,11 @@ instance Prelude.Hashable CreateAccountStatus where
 
 instance Prelude.NFData CreateAccountStatus where
   rnf CreateAccountStatus' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf accountName
-      `Prelude.seq` Prelude.rnf completedTimestamp
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf govCloudAccountId
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf requestedTimestamp
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf accountName `Prelude.seq`
+        Prelude.rnf completedTimestamp `Prelude.seq`
+          Prelude.rnf failureReason `Prelude.seq`
+            Prelude.rnf govCloudAccountId `Prelude.seq`
+              Prelude.rnf id `Prelude.seq`
+                Prelude.rnf requestedTimestamp `Prelude.seq`
+                  Prelude.rnf state

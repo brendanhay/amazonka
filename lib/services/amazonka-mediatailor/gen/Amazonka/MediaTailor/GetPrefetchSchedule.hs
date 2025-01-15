@@ -140,8 +140,8 @@ instance Prelude.Hashable GetPrefetchSchedule where
 
 instance Prelude.NFData GetPrefetchSchedule where
   rnf GetPrefetchSchedule' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf playbackConfigurationName
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf playbackConfigurationName
 
 instance Data.ToHeaders GetPrefetchSchedule where
   toHeaders =
@@ -278,10 +278,10 @@ getPrefetchScheduleResponse_httpStatus = Lens.lens (\GetPrefetchScheduleResponse
 
 instance Prelude.NFData GetPrefetchScheduleResponse where
   rnf GetPrefetchScheduleResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf consumption
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf playbackConfigurationName
-      `Prelude.seq` Prelude.rnf retrieval
-      `Prelude.seq` Prelude.rnf streamId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf consumption `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf playbackConfigurationName `Prelude.seq`
+            Prelude.rnf retrieval `Prelude.seq`
+              Prelude.rnf streamId `Prelude.seq`
+                Prelude.rnf httpStatus

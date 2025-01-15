@@ -457,9 +457,7 @@ instance Core.AWSRequest GetMetricStatistics where
       "GetMetricStatisticsResult"
       ( \s h x ->
           GetMetricStatisticsResponse'
-            Prelude.<$> ( x
-                            Data..@? "Datapoints"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "Datapoints" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (x Data..@? "Label")
@@ -481,15 +479,15 @@ instance Prelude.Hashable GetMetricStatistics where
 
 instance Prelude.NFData GetMetricStatistics where
   rnf GetMetricStatistics' {..} =
-    Prelude.rnf dimensions
-      `Prelude.seq` Prelude.rnf extendedStatistics
-      `Prelude.seq` Prelude.rnf statistics
-      `Prelude.seq` Prelude.rnf unit
-      `Prelude.seq` Prelude.rnf namespace
-      `Prelude.seq` Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf period
+    Prelude.rnf dimensions `Prelude.seq`
+      Prelude.rnf extendedStatistics `Prelude.seq`
+        Prelude.rnf statistics `Prelude.seq`
+          Prelude.rnf unit `Prelude.seq`
+            Prelude.rnf namespace `Prelude.seq`
+              Prelude.rnf metricName `Prelude.seq`
+                Prelude.rnf startTime `Prelude.seq`
+                  Prelude.rnf endTime `Prelude.seq`
+                    Prelude.rnf period
 
 instance Data.ToHeaders GetMetricStatistics where
   toHeaders = Prelude.const Prelude.mempty
@@ -573,6 +571,6 @@ getMetricStatisticsResponse_httpStatus = Lens.lens (\GetMetricStatisticsResponse
 
 instance Prelude.NFData GetMetricStatisticsResponse where
   rnf GetMetricStatisticsResponse' {..} =
-    Prelude.rnf datapoints
-      `Prelude.seq` Prelude.rnf label
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf datapoints `Prelude.seq`
+      Prelude.rnf label `Prelude.seq`
+        Prelude.rnf httpStatus

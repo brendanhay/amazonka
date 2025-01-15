@@ -123,9 +123,9 @@ instance Prelude.Hashable StopJob where
 
 instance Prelude.NFData StopJob where
   rnf StopJob' {..} =
-    Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf branchName
-      `Prelude.seq` Prelude.rnf jobId
+    Prelude.rnf appId `Prelude.seq`
+      Prelude.rnf branchName `Prelude.seq`
+        Prelude.rnf jobId
 
 instance Data.ToHeaders StopJob where
   toHeaders =
@@ -197,5 +197,5 @@ stopJobResponse_jobSummary = Lens.lens (\StopJobResponse' {jobSummary} -> jobSum
 
 instance Prelude.NFData StopJobResponse where
   rnf StopJobResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf jobSummary
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf jobSummary

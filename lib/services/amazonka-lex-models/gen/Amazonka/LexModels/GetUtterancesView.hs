@@ -161,9 +161,9 @@ instance Prelude.Hashable GetUtterancesView where
 
 instance Prelude.NFData GetUtterancesView where
   rnf GetUtterancesView' {..} =
-    Prelude.rnf botName
-      `Prelude.seq` Prelude.rnf botVersions
-      `Prelude.seq` Prelude.rnf statusType
+    Prelude.rnf botName `Prelude.seq`
+      Prelude.rnf botVersions `Prelude.seq`
+        Prelude.rnf statusType
 
 instance Data.ToHeaders GetUtterancesView where
   toHeaders =
@@ -252,6 +252,6 @@ getUtterancesViewResponse_httpStatus = Lens.lens (\GetUtterancesViewResponse' {h
 
 instance Prelude.NFData GetUtterancesViewResponse where
   rnf GetUtterancesViewResponse' {..} =
-    Prelude.rnf botName
-      `Prelude.seq` Prelude.rnf utterances
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf botName `Prelude.seq`
+      Prelude.rnf utterances `Prelude.seq`
+        Prelude.rnf httpStatus

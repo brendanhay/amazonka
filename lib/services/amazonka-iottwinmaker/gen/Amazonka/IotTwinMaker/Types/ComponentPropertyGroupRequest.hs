@@ -86,9 +86,9 @@ instance
 
 instance Prelude.NFData ComponentPropertyGroupRequest where
   rnf ComponentPropertyGroupRequest' {..} =
-    Prelude.rnf groupType
-      `Prelude.seq` Prelude.rnf propertyNames
-      `Prelude.seq` Prelude.rnf updateType
+    Prelude.rnf groupType `Prelude.seq`
+      Prelude.rnf propertyNames `Prelude.seq`
+        Prelude.rnf updateType
 
 instance Data.ToJSON ComponentPropertyGroupRequest where
   toJSON ComponentPropertyGroupRequest' {..} =

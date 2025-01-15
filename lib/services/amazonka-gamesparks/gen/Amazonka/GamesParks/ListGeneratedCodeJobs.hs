@@ -148,12 +148,12 @@ instance Core.AWSPager ListGeneratedCodeJobs where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listGeneratedCodeJobs_nextToken
-          Lens..~ rs
-          Lens.^? listGeneratedCodeJobsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listGeneratedCodeJobs_nextToken
+              Lens..~ rs
+              Lens.^? listGeneratedCodeJobsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListGeneratedCodeJobs where
   type
@@ -183,10 +183,10 @@ instance Prelude.Hashable ListGeneratedCodeJobs where
 
 instance Prelude.NFData ListGeneratedCodeJobs where
   rnf ListGeneratedCodeJobs' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf gameName
-      `Prelude.seq` Prelude.rnf snapshotId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf gameName `Prelude.seq`
+          Prelude.rnf snapshotId
 
 instance Data.ToHeaders ListGeneratedCodeJobs where
   toHeaders =
@@ -278,6 +278,6 @@ listGeneratedCodeJobsResponse_httpStatus = Lens.lens (\ListGeneratedCodeJobsResp
 
 instance Prelude.NFData ListGeneratedCodeJobsResponse where
   rnf ListGeneratedCodeJobsResponse' {..} =
-    Prelude.rnf generatedCodeJobs
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf generatedCodeJobs `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

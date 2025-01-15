@@ -93,9 +93,9 @@ instance Prelude.Hashable ModelVariantConfig where
 
 instance Prelude.NFData ModelVariantConfig where
   rnf ModelVariantConfig' {..} =
-    Prelude.rnf modelName
-      `Prelude.seq` Prelude.rnf variantName
-      `Prelude.seq` Prelude.rnf infrastructureConfig
+    Prelude.rnf modelName `Prelude.seq`
+      Prelude.rnf variantName `Prelude.seq`
+        Prelude.rnf infrastructureConfig
 
 instance Data.ToJSON ModelVariantConfig where
   toJSON ModelVariantConfig' {..} =

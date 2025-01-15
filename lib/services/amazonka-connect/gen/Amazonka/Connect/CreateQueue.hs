@@ -206,14 +206,14 @@ instance Prelude.Hashable CreateQueue where
 
 instance Prelude.NFData CreateQueue where
   rnf CreateQueue' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf maxContacts
-      `Prelude.seq` Prelude.rnf outboundCallerConfig
-      `Prelude.seq` Prelude.rnf quickConnectIds
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf hoursOfOperationId
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf maxContacts `Prelude.seq`
+        Prelude.rnf outboundCallerConfig `Prelude.seq`
+          Prelude.rnf quickConnectIds `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf instanceId `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf hoursOfOperationId
 
 instance Data.ToHeaders CreateQueue where
   toHeaders =
@@ -299,6 +299,6 @@ createQueueResponse_httpStatus = Lens.lens (\CreateQueueResponse' {httpStatus} -
 
 instance Prelude.NFData CreateQueueResponse where
   rnf CreateQueueResponse' {..} =
-    Prelude.rnf queueArn
-      `Prelude.seq` Prelude.rnf queueId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf queueArn `Prelude.seq`
+      Prelude.rnf queueId `Prelude.seq`
+        Prelude.rnf httpStatus

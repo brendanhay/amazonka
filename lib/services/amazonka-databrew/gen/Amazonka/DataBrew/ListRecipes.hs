@@ -123,12 +123,12 @@ instance Core.AWSPager ListRecipes where
     | Core.stop (rs Lens.^. listRecipesResponse_recipes) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listRecipes_nextToken
-          Lens..~ rs
-          Lens.^? listRecipesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listRecipes_nextToken
+              Lens..~ rs
+              Lens.^? listRecipesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListRecipes where
   type AWSResponse ListRecipes = ListRecipesResponse
@@ -152,9 +152,9 @@ instance Prelude.Hashable ListRecipes where
 
 instance Prelude.NFData ListRecipes where
   rnf ListRecipes' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf recipeVersion
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf recipeVersion
 
 instance Data.ToHeaders ListRecipes where
   toHeaders =
@@ -230,6 +230,6 @@ listRecipesResponse_recipes = Lens.lens (\ListRecipesResponse' {recipes} -> reci
 
 instance Prelude.NFData ListRecipesResponse where
   rnf ListRecipesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf recipes
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf recipes

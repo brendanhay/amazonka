@@ -528,8 +528,8 @@ instance Prelude.Hashable AdditionalDataset where
 
 instance Prelude.NFData AdditionalDataset where
   rnf AdditionalDataset' {..} =
-    Prelude.rnf configuration
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf configuration `Prelude.seq`
+      Prelude.rnf name
 
 instance Data.ToJSON AdditionalDataset where
   toJSON AdditionalDataset' {..} =

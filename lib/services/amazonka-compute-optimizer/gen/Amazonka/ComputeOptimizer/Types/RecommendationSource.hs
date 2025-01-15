@@ -83,5 +83,5 @@ instance Prelude.Hashable RecommendationSource where
 
 instance Prelude.NFData RecommendationSource where
   rnf RecommendationSource' {..} =
-    Prelude.rnf recommendationSourceArn
-      `Prelude.seq` Prelude.rnf recommendationSourceType
+    Prelude.rnf recommendationSourceArn `Prelude.seq`
+      Prelude.rnf recommendationSourceType

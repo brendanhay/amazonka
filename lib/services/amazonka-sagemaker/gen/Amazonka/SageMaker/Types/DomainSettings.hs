@@ -110,9 +110,9 @@ instance Prelude.Hashable DomainSettings where
 
 instance Prelude.NFData DomainSettings where
   rnf DomainSettings' {..} =
-    Prelude.rnf executionRoleIdentityConfig
-      `Prelude.seq` Prelude.rnf rStudioServerProDomainSettings
-      `Prelude.seq` Prelude.rnf securityGroupIds
+    Prelude.rnf executionRoleIdentityConfig `Prelude.seq`
+      Prelude.rnf rStudioServerProDomainSettings `Prelude.seq`
+        Prelude.rnf securityGroupIds
 
 instance Data.ToJSON DomainSettings where
   toJSON DomainSettings' {..} =

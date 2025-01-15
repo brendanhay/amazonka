@@ -94,6 +94,6 @@ instance Prelude.Hashable UtilizationByTime where
 
 instance Prelude.NFData UtilizationByTime where
   rnf UtilizationByTime' {..} =
-    Prelude.rnf groups
-      `Prelude.seq` Prelude.rnf timePeriod
-      `Prelude.seq` Prelude.rnf total
+    Prelude.rnf groups `Prelude.seq`
+      Prelude.rnf timePeriod `Prelude.seq`
+        Prelude.rnf total

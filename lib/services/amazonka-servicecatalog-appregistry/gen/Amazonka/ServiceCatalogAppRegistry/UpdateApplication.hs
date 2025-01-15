@@ -125,9 +125,9 @@ instance Prelude.Hashable UpdateApplication where
 
 instance Prelude.NFData UpdateApplication where
   rnf UpdateApplication' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf application
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf application
 
 instance Data.ToHeaders UpdateApplication where
   toHeaders =
@@ -198,5 +198,5 @@ updateApplicationResponse_httpStatus = Lens.lens (\UpdateApplicationResponse' {h
 
 instance Prelude.NFData UpdateApplicationResponse where
   rnf UpdateApplicationResponse' {..} =
-    Prelude.rnf application
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf application `Prelude.seq`
+      Prelude.rnf httpStatus

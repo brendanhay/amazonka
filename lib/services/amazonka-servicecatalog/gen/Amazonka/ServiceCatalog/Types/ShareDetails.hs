@@ -84,5 +84,5 @@ instance Prelude.Hashable ShareDetails where
 
 instance Prelude.NFData ShareDetails where
   rnf ShareDetails' {..} =
-    Prelude.rnf shareErrors
-      `Prelude.seq` Prelude.rnf successfulShares
+    Prelude.rnf shareErrors `Prelude.seq`
+      Prelude.rnf successfulShares

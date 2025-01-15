@@ -102,7 +102,7 @@ instance Prelude.Hashable ChangeProgressStage where
 
 instance Prelude.NFData ChangeProgressStage where
   rnf ChangeProgressStage' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf lastUpdated
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf lastUpdated `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf status

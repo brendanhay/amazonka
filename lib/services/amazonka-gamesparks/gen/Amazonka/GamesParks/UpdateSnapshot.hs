@@ -121,9 +121,9 @@ instance Prelude.Hashable UpdateSnapshot where
 
 instance Prelude.NFData UpdateSnapshot where
   rnf UpdateSnapshot' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf gameName
-      `Prelude.seq` Prelude.rnf snapshotId
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf gameName `Prelude.seq`
+        Prelude.rnf snapshotId
 
 instance Data.ToHeaders UpdateSnapshot where
   toHeaders =
@@ -195,5 +195,5 @@ updateSnapshotResponse_httpStatus = Lens.lens (\UpdateSnapshotResponse' {httpSta
 
 instance Prelude.NFData UpdateSnapshotResponse where
   rnf UpdateSnapshotResponse' {..} =
-    Prelude.rnf snapshot
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf snapshot `Prelude.seq`
+      Prelude.rnf httpStatus

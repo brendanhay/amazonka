@@ -123,12 +123,12 @@ instance Prelude.Hashable Ec2InstanceAggregation where
 
 instance Prelude.NFData Ec2InstanceAggregation where
   rnf Ec2InstanceAggregation' {..} =
-    Prelude.rnf amis
-      `Prelude.seq` Prelude.rnf instanceIds
-      `Prelude.seq` Prelude.rnf instanceTags
-      `Prelude.seq` Prelude.rnf operatingSystems
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf sortOrder
+    Prelude.rnf amis `Prelude.seq`
+      Prelude.rnf instanceIds `Prelude.seq`
+        Prelude.rnf instanceTags `Prelude.seq`
+          Prelude.rnf operatingSystems `Prelude.seq`
+            Prelude.rnf sortBy `Prelude.seq`
+              Prelude.rnf sortOrder
 
 instance Data.ToJSON Ec2InstanceAggregation where
   toJSON Ec2InstanceAggregation' {..} =

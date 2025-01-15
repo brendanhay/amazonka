@@ -108,7 +108,7 @@ instance Prelude.Hashable ExperimentResultsData where
 
 instance Prelude.NFData ExperimentResultsData where
   rnf ExperimentResultsData' {..} =
-    Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf resultStat
-      `Prelude.seq` Prelude.rnf treatmentName
-      `Prelude.seq` Prelude.rnf values
+    Prelude.rnf metricName `Prelude.seq`
+      Prelude.rnf resultStat `Prelude.seq`
+        Prelude.rnf treatmentName `Prelude.seq`
+          Prelude.rnf values

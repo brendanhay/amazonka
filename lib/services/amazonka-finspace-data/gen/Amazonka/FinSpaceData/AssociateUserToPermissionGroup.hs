@@ -134,9 +134,9 @@ instance
     AssociateUserToPermissionGroup
   where
   rnf AssociateUserToPermissionGroup' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf permissionGroupId
-      `Prelude.seq` Prelude.rnf userId
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf permissionGroupId `Prelude.seq`
+        Prelude.rnf userId
 
 instance
   Data.ToHeaders

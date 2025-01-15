@@ -121,8 +121,8 @@ instance Prelude.Hashable CreateCidrCollection where
 
 instance Prelude.NFData CreateCidrCollection where
   rnf CreateCidrCollection' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf callerReference
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf callerReference
 
 instance Data.ToElement CreateCidrCollection where
   toElement =
@@ -195,6 +195,6 @@ createCidrCollectionResponse_httpStatus = Lens.lens (\CreateCidrCollectionRespon
 
 instance Prelude.NFData CreateCidrCollectionResponse where
   rnf CreateCidrCollectionResponse' {..} =
-    Prelude.rnf collection
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf collection `Prelude.seq`
+      Prelude.rnf location `Prelude.seq`
+        Prelude.rnf httpStatus

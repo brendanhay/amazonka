@@ -131,9 +131,9 @@ instance Prelude.Hashable RepositorySummary where
 
 instance Prelude.NFData RepositorySummary where
   rnf RepositorySummary' {..} =
-    Prelude.rnf administratorAccount
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf domainOwner
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf administratorAccount `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf domainName `Prelude.seq`
+            Prelude.rnf domainOwner `Prelude.seq`
+              Prelude.rnf name

@@ -158,9 +158,9 @@ instance Prelude.Hashable ListOperations where
 
 instance Prelude.NFData ListOperations where
   rnf ListOperations' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf serviceArn
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf serviceArn
 
 instance Data.ToHeaders ListOperations where
   toHeaders =
@@ -247,6 +247,6 @@ listOperationsResponse_httpStatus = Lens.lens (\ListOperationsResponse' {httpSta
 
 instance Prelude.NFData ListOperationsResponse where
   rnf ListOperationsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf operationSummaryList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf operationSummaryList `Prelude.seq`
+        Prelude.rnf httpStatus

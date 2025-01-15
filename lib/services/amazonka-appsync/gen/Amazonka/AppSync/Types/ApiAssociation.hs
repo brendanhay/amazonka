@@ -130,7 +130,7 @@ instance Prelude.Hashable ApiAssociation where
 
 instance Prelude.NFData ApiAssociation where
   rnf ApiAssociation' {..} =
-    Prelude.rnf apiId
-      `Prelude.seq` Prelude.rnf associationStatus
-      `Prelude.seq` Prelude.rnf deploymentDetail
-      `Prelude.seq` Prelude.rnf domainName
+    Prelude.rnf apiId `Prelude.seq`
+      Prelude.rnf associationStatus `Prelude.seq`
+        Prelude.rnf deploymentDetail `Prelude.seq`
+          Prelude.rnf domainName

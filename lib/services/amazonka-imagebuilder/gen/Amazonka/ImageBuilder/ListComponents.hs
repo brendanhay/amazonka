@@ -208,11 +208,11 @@ instance Prelude.Hashable ListComponents where
 
 instance Prelude.NFData ListComponents where
   rnf ListComponents' {..} =
-    Prelude.rnf byName
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf owner
+    Prelude.rnf byName `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf owner
 
 instance Data.ToHeaders ListComponents where
   toHeaders =
@@ -323,7 +323,7 @@ listComponentsResponse_httpStatus = Lens.lens (\ListComponentsResponse' {httpSta
 
 instance Prelude.NFData ListComponentsResponse where
   rnf ListComponentsResponse' {..} =
-    Prelude.rnf componentVersionList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf componentVersionList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf requestId `Prelude.seq`
+          Prelude.rnf httpStatus

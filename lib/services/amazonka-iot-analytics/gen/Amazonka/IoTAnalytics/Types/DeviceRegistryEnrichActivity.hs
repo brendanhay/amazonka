@@ -135,11 +135,11 @@ instance
 
 instance Prelude.NFData DeviceRegistryEnrichActivity where
   rnf DeviceRegistryEnrichActivity' {..} =
-    Prelude.rnf next
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf attribute
-      `Prelude.seq` Prelude.rnf thingName
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf next `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf attribute `Prelude.seq`
+          Prelude.rnf thingName `Prelude.seq`
+            Prelude.rnf roleArn
 
 instance Data.ToJSON DeviceRegistryEnrichActivity where
   toJSON DeviceRegistryEnrichActivity' {..} =

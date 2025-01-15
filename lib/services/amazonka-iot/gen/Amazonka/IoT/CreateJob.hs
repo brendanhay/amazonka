@@ -396,22 +396,22 @@ instance Prelude.Hashable CreateJob where
 
 instance Prelude.NFData CreateJob where
   rnf CreateJob' {..} =
-    Prelude.rnf abortConfig
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf document
-      `Prelude.seq` Prelude.rnf documentParameters
-      `Prelude.seq` Prelude.rnf documentSource
-      `Prelude.seq` Prelude.rnf jobExecutionsRetryConfig
-      `Prelude.seq` Prelude.rnf jobExecutionsRolloutConfig
-      `Prelude.seq` Prelude.rnf jobTemplateArn
-      `Prelude.seq` Prelude.rnf namespaceId
-      `Prelude.seq` Prelude.rnf presignedUrlConfig
-      `Prelude.seq` Prelude.rnf schedulingConfig
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf targetSelection
-      `Prelude.seq` Prelude.rnf timeoutConfig
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf targets
+    Prelude.rnf abortConfig `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf document `Prelude.seq`
+          Prelude.rnf documentParameters `Prelude.seq`
+            Prelude.rnf documentSource `Prelude.seq`
+              Prelude.rnf jobExecutionsRetryConfig `Prelude.seq`
+                Prelude.rnf jobExecutionsRolloutConfig `Prelude.seq`
+                  Prelude.rnf jobTemplateArn `Prelude.seq`
+                    Prelude.rnf namespaceId `Prelude.seq`
+                      Prelude.rnf presignedUrlConfig `Prelude.seq`
+                        Prelude.rnf schedulingConfig `Prelude.seq`
+                          Prelude.rnf tags `Prelude.seq`
+                            Prelude.rnf targetSelection `Prelude.seq`
+                              Prelude.rnf timeoutConfig `Prelude.seq`
+                                Prelude.rnf jobId `Prelude.seq`
+                                  Prelude.rnf targets
 
 instance Data.ToHeaders CreateJob where
   toHeaders = Prelude.const Prelude.mempty
@@ -511,7 +511,7 @@ createJobResponse_httpStatus = Lens.lens (\CreateJobResponse' {httpStatus} -> ht
 
 instance Prelude.NFData CreateJobResponse where
   rnf CreateJobResponse' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf jobArn
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf jobArn `Prelude.seq`
+        Prelude.rnf jobId `Prelude.seq`
+          Prelude.rnf httpStatus

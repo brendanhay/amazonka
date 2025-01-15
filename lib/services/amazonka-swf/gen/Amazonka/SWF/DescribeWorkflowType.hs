@@ -141,8 +141,8 @@ instance Prelude.Hashable DescribeWorkflowType where
 
 instance Prelude.NFData DescribeWorkflowType where
   rnf DescribeWorkflowType' {..} =
-    Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf workflowType
+    Prelude.rnf domain `Prelude.seq`
+      Prelude.rnf workflowType
 
 instance Data.ToHeaders DescribeWorkflowType where
   toHeaders =
@@ -266,6 +266,6 @@ describeWorkflowTypeResponse_configuration = Lens.lens (\DescribeWorkflowTypeRes
 
 instance Prelude.NFData DescribeWorkflowTypeResponse where
   rnf DescribeWorkflowTypeResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf typeInfo
-      `Prelude.seq` Prelude.rnf configuration
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf typeInfo `Prelude.seq`
+        Prelude.rnf configuration

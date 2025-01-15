@@ -137,9 +137,9 @@ instance
 
 instance Prelude.NFData AssociateEntitiesToExperience where
   rnf AssociateEntitiesToExperience' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf indexId
-      `Prelude.seq` Prelude.rnf entityList
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf indexId `Prelude.seq`
+        Prelude.rnf entityList
 
 instance Data.ToHeaders AssociateEntitiesToExperience where
   toHeaders =
@@ -219,5 +219,5 @@ instance
     AssociateEntitiesToExperienceResponse
   where
   rnf AssociateEntitiesToExperienceResponse' {..} =
-    Prelude.rnf failedEntityList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf failedEntityList `Prelude.seq`
+      Prelude.rnf httpStatus

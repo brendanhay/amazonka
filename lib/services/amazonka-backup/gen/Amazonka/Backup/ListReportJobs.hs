@@ -188,12 +188,12 @@ instance Prelude.Hashable ListReportJobs where
 
 instance Prelude.NFData ListReportJobs where
   rnf ListReportJobs' {..} =
-    Prelude.rnf byCreationAfter
-      `Prelude.seq` Prelude.rnf byCreationBefore
-      `Prelude.seq` Prelude.rnf byReportPlanName
-      `Prelude.seq` Prelude.rnf byStatus
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf byCreationAfter `Prelude.seq`
+      Prelude.rnf byCreationBefore `Prelude.seq`
+        Prelude.rnf byReportPlanName `Prelude.seq`
+          Prelude.rnf byStatus `Prelude.seq`
+            Prelude.rnf maxResults `Prelude.seq`
+              Prelude.rnf nextToken
 
 instance Data.ToHeaders ListReportJobs where
   toHeaders =
@@ -276,6 +276,6 @@ listReportJobsResponse_httpStatus = Lens.lens (\ListReportJobsResponse' {httpSta
 
 instance Prelude.NFData ListReportJobsResponse where
   rnf ListReportJobsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf reportJobs
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf reportJobs `Prelude.seq`
+        Prelude.rnf httpStatus

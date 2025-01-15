@@ -166,10 +166,10 @@ instance Prelude.Hashable UpdateAllowList where
 
 instance Prelude.NFData UpdateAllowList where
   rnf UpdateAllowList' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf criteria
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf criteria `Prelude.seq`
+          Prelude.rnf name
 
 instance Data.ToHeaders UpdateAllowList where
   toHeaders =
@@ -248,6 +248,6 @@ updateAllowListResponse_httpStatus = Lens.lens (\UpdateAllowListResponse' {httpS
 
 instance Prelude.NFData UpdateAllowListResponse where
   rnf UpdateAllowListResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -196,14 +196,14 @@ instance
     CreateBackendAuthUserPoolConfig
   where
   rnf CreateBackendAuthUserPoolConfig' {..} =
-    Prelude.rnf forgotPassword
-      `Prelude.seq` Prelude.rnf mfa
-      `Prelude.seq` Prelude.rnf oAuth
-      `Prelude.seq` Prelude.rnf passwordPolicy
-      `Prelude.seq` Prelude.rnf verificationMessage
-      `Prelude.seq` Prelude.rnf requiredSignUpAttributes
-      `Prelude.seq` Prelude.rnf signInMethod
-      `Prelude.seq` Prelude.rnf userPoolName
+    Prelude.rnf forgotPassword `Prelude.seq`
+      Prelude.rnf mfa `Prelude.seq`
+        Prelude.rnf oAuth `Prelude.seq`
+          Prelude.rnf passwordPolicy `Prelude.seq`
+            Prelude.rnf verificationMessage `Prelude.seq`
+              Prelude.rnf requiredSignUpAttributes `Prelude.seq`
+                Prelude.rnf signInMethod `Prelude.seq`
+                  Prelude.rnf userPoolName
 
 instance Data.ToJSON CreateBackendAuthUserPoolConfig where
   toJSON CreateBackendAuthUserPoolConfig' {..} =

@@ -85,5 +85,5 @@ instance Prelude.Hashable Conflict where
 
 instance Prelude.NFData Conflict where
   rnf Conflict' {..} =
-    Prelude.rnf conflictMetadata
-      `Prelude.seq` Prelude.rnf mergeHunks
+    Prelude.rnf conflictMetadata `Prelude.seq`
+      Prelude.rnf mergeHunks

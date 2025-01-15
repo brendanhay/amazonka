@@ -149,8 +149,8 @@ instance Prelude.Hashable GetMaintenanceWindowTask where
 
 instance Prelude.NFData GetMaintenanceWindowTask where
   rnf GetMaintenanceWindowTask' {..} =
-    Prelude.rnf windowId
-      `Prelude.seq` Prelude.rnf windowTaskId
+    Prelude.rnf windowId `Prelude.seq`
+      Prelude.rnf windowTaskId
 
 instance Data.ToHeaders GetMaintenanceWindowTask where
   toHeaders =
@@ -485,20 +485,20 @@ instance
     GetMaintenanceWindowTaskResponse
   where
   rnf GetMaintenanceWindowTaskResponse' {..} =
-    Prelude.rnf alarmConfiguration
-      `Prelude.seq` Prelude.rnf cutoffBehavior
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf loggingInfo
-      `Prelude.seq` Prelude.rnf maxConcurrency
-      `Prelude.seq` Prelude.rnf maxErrors
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf priority
-      `Prelude.seq` Prelude.rnf serviceRoleArn
-      `Prelude.seq` Prelude.rnf targets
-      `Prelude.seq` Prelude.rnf taskArn
-      `Prelude.seq` Prelude.rnf taskInvocationParameters
-      `Prelude.seq` Prelude.rnf taskParameters
-      `Prelude.seq` Prelude.rnf taskType
-      `Prelude.seq` Prelude.rnf windowId
-      `Prelude.seq` Prelude.rnf windowTaskId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf alarmConfiguration `Prelude.seq`
+      Prelude.rnf cutoffBehavior `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf loggingInfo `Prelude.seq`
+            Prelude.rnf maxConcurrency `Prelude.seq`
+              Prelude.rnf maxErrors `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf priority `Prelude.seq`
+                    Prelude.rnf serviceRoleArn `Prelude.seq`
+                      Prelude.rnf targets `Prelude.seq`
+                        Prelude.rnf taskArn `Prelude.seq`
+                          Prelude.rnf taskInvocationParameters `Prelude.seq`
+                            Prelude.rnf taskParameters `Prelude.seq`
+                              Prelude.rnf taskType `Prelude.seq`
+                                Prelude.rnf windowId `Prelude.seq`
+                                  Prelude.rnf windowTaskId `Prelude.seq`
+                                    Prelude.rnf httpStatus

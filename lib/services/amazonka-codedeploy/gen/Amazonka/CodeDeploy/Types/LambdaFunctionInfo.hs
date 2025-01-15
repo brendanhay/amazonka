@@ -126,8 +126,8 @@ instance Prelude.Hashable LambdaFunctionInfo where
 
 instance Prelude.NFData LambdaFunctionInfo where
   rnf LambdaFunctionInfo' {..} =
-    Prelude.rnf currentVersion
-      `Prelude.seq` Prelude.rnf functionAlias
-      `Prelude.seq` Prelude.rnf functionName
-      `Prelude.seq` Prelude.rnf targetVersion
-      `Prelude.seq` Prelude.rnf targetVersionWeight
+    Prelude.rnf currentVersion `Prelude.seq`
+      Prelude.rnf functionAlias `Prelude.seq`
+        Prelude.rnf functionName `Prelude.seq`
+          Prelude.rnf targetVersion `Prelude.seq`
+            Prelude.rnf targetVersionWeight

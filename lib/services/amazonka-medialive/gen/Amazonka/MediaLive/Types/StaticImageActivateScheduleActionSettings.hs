@@ -246,16 +246,16 @@ instance
     StaticImageActivateScheduleActionSettings
   where
   rnf StaticImageActivateScheduleActionSettings' {..} =
-    Prelude.rnf duration
-      `Prelude.seq` Prelude.rnf fadeIn
-      `Prelude.seq` Prelude.rnf fadeOut
-      `Prelude.seq` Prelude.rnf height
-      `Prelude.seq` Prelude.rnf imageX
-      `Prelude.seq` Prelude.rnf imageY
-      `Prelude.seq` Prelude.rnf layer
-      `Prelude.seq` Prelude.rnf opacity
-      `Prelude.seq` Prelude.rnf width
-      `Prelude.seq` Prelude.rnf image
+    Prelude.rnf duration `Prelude.seq`
+      Prelude.rnf fadeIn `Prelude.seq`
+        Prelude.rnf fadeOut `Prelude.seq`
+          Prelude.rnf height `Prelude.seq`
+            Prelude.rnf imageX `Prelude.seq`
+              Prelude.rnf imageY `Prelude.seq`
+                Prelude.rnf layer `Prelude.seq`
+                  Prelude.rnf opacity `Prelude.seq`
+                    Prelude.rnf width `Prelude.seq`
+                      Prelude.rnf image
 
 instance
   Data.ToJSON

@@ -95,5 +95,5 @@ instance Prelude.Hashable AggregatedLogOddsMetric where
 
 instance Prelude.NFData AggregatedLogOddsMetric where
   rnf AggregatedLogOddsMetric' {..} =
-    Prelude.rnf variableNames
-      `Prelude.seq` Prelude.rnf aggregatedVariablesImportance
+    Prelude.rnf variableNames `Prelude.seq`
+      Prelude.rnf aggregatedVariablesImportance

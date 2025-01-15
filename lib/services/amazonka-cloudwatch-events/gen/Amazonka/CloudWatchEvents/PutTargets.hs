@@ -267,9 +267,9 @@ instance Prelude.Hashable PutTargets where
 
 instance Prelude.NFData PutTargets where
   rnf PutTargets' {..} =
-    Prelude.rnf eventBusName
-      `Prelude.seq` Prelude.rnf rule
-      `Prelude.seq` Prelude.rnf targets
+    Prelude.rnf eventBusName `Prelude.seq`
+      Prelude.rnf rule `Prelude.seq`
+        Prelude.rnf targets
 
 instance Data.ToHeaders PutTargets where
   toHeaders =
@@ -350,6 +350,6 @@ putTargetsResponse_httpStatus = Lens.lens (\PutTargetsResponse' {httpStatus} -> 
 
 instance Prelude.NFData PutTargetsResponse where
   rnf PutTargetsResponse' {..} =
-    Prelude.rnf failedEntries
-      `Prelude.seq` Prelude.rnf failedEntryCount
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf failedEntries `Prelude.seq`
+      Prelude.rnf failedEntryCount `Prelude.seq`
+        Prelude.rnf httpStatus

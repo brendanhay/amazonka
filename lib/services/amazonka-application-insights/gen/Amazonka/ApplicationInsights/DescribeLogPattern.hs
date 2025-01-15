@@ -129,9 +129,9 @@ instance Prelude.Hashable DescribeLogPattern where
 
 instance Prelude.NFData DescribeLogPattern where
   rnf DescribeLogPattern' {..} =
-    Prelude.rnf resourceGroupName
-      `Prelude.seq` Prelude.rnf patternSetName
-      `Prelude.seq` Prelude.rnf patternName
+    Prelude.rnf resourceGroupName `Prelude.seq`
+      Prelude.rnf patternSetName `Prelude.seq`
+        Prelude.rnf patternName
 
 instance Data.ToHeaders DescribeLogPattern where
   toHeaders =
@@ -216,6 +216,6 @@ describeLogPatternResponse_httpStatus = Lens.lens (\DescribeLogPatternResponse' 
 
 instance Prelude.NFData DescribeLogPatternResponse where
   rnf DescribeLogPatternResponse' {..} =
-    Prelude.rnf logPattern
-      `Prelude.seq` Prelude.rnf resourceGroupName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf logPattern `Prelude.seq`
+      Prelude.rnf resourceGroupName `Prelude.seq`
+        Prelude.rnf httpStatus

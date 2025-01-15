@@ -120,9 +120,9 @@ instance Prelude.Hashable TargetTrackingMetricStat where
 
 instance Prelude.NFData TargetTrackingMetricStat where
   rnf TargetTrackingMetricStat' {..} =
-    Prelude.rnf unit
-      `Prelude.seq` Prelude.rnf metric
-      `Prelude.seq` Prelude.rnf stat
+    Prelude.rnf unit `Prelude.seq`
+      Prelude.rnf metric `Prelude.seq`
+        Prelude.rnf stat
 
 instance Data.ToQuery TargetTrackingMetricStat where
   toQuery TargetTrackingMetricStat' {..} =

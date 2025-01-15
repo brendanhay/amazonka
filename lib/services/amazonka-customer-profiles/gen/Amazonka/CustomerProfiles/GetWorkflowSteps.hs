@@ -144,10 +144,10 @@ instance Prelude.Hashable GetWorkflowSteps where
 
 instance Prelude.NFData GetWorkflowSteps where
   rnf GetWorkflowSteps' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf workflowId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf domainName `Prelude.seq`
+          Prelude.rnf workflowId
 
 instance Data.ToHeaders GetWorkflowSteps where
   toHeaders =
@@ -247,8 +247,8 @@ getWorkflowStepsResponse_httpStatus = Lens.lens (\GetWorkflowStepsResponse' {htt
 
 instance Prelude.NFData GetWorkflowStepsResponse where
   rnf GetWorkflowStepsResponse' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf workflowId
-      `Prelude.seq` Prelude.rnf workflowType
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf items `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf workflowId `Prelude.seq`
+          Prelude.rnf workflowType `Prelude.seq`
+            Prelude.rnf httpStatus

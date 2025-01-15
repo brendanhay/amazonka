@@ -114,11 +114,11 @@ instance Prelude.Hashable ClosedDays where
 
 instance Prelude.NFData ClosedDays where
   rnf ClosedDays' {..} =
-    Prelude.rnf custom
-      `Prelude.seq` Prelude.rnf email
-      `Prelude.seq` Prelude.rnf push
-      `Prelude.seq` Prelude.rnf sms
-      `Prelude.seq` Prelude.rnf voice
+    Prelude.rnf custom `Prelude.seq`
+      Prelude.rnf email `Prelude.seq`
+        Prelude.rnf push `Prelude.seq`
+          Prelude.rnf sms `Prelude.seq`
+            Prelude.rnf voice
 
 instance Data.ToJSON ClosedDays where
   toJSON ClosedDays' {..} =

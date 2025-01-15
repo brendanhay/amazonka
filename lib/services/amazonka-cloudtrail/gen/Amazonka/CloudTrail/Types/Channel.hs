@@ -92,5 +92,5 @@ instance Prelude.Hashable Channel where
 
 instance Prelude.NFData Channel where
   rnf Channel' {..} =
-    Prelude.rnf channelArn
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf channelArn `Prelude.seq`
+      Prelude.rnf name

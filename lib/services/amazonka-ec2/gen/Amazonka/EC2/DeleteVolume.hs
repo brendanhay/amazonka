@@ -112,8 +112,8 @@ instance Prelude.Hashable DeleteVolume where
 
 instance Prelude.NFData DeleteVolume where
   rnf DeleteVolume' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf volumeId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf volumeId
 
 instance Data.ToHeaders DeleteVolume where
   toHeaders = Prelude.const Prelude.mempty

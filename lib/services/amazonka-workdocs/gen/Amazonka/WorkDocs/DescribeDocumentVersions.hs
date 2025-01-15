@@ -159,12 +159,12 @@ instance Core.AWSPager DescribeDocumentVersions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeDocumentVersions_marker
-          Lens..~ rs
-          Lens.^? describeDocumentVersionsResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeDocumentVersions_marker
+              Lens..~ rs
+              Lens.^? describeDocumentVersionsResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeDocumentVersions where
   type
@@ -196,12 +196,12 @@ instance Prelude.Hashable DescribeDocumentVersions where
 
 instance Prelude.NFData DescribeDocumentVersions where
   rnf DescribeDocumentVersions' {..} =
-    Prelude.rnf authenticationToken
-      `Prelude.seq` Prelude.rnf fields
-      `Prelude.seq` Prelude.rnf include
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf documentId
+    Prelude.rnf authenticationToken `Prelude.seq`
+      Prelude.rnf fields `Prelude.seq`
+        Prelude.rnf include `Prelude.seq`
+          Prelude.rnf limit `Prelude.seq`
+            Prelude.rnf marker `Prelude.seq`
+              Prelude.rnf documentId
 
 instance Data.ToHeaders DescribeDocumentVersions where
   toHeaders DescribeDocumentVersions' {..} =
@@ -284,6 +284,6 @@ instance
     DescribeDocumentVersionsResponse
   where
   rnf DescribeDocumentVersionsResponse' {..} =
-    Prelude.rnf documentVersions
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf documentVersions `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf httpStatus

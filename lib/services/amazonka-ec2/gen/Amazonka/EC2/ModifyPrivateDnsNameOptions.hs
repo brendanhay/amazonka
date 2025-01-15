@@ -168,11 +168,11 @@ instance Prelude.Hashable ModifyPrivateDnsNameOptions where
 
 instance Prelude.NFData ModifyPrivateDnsNameOptions where
   rnf ModifyPrivateDnsNameOptions' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf enableResourceNameDnsAAAARecord
-      `Prelude.seq` Prelude.rnf enableResourceNameDnsARecord
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf privateDnsHostnameType
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf enableResourceNameDnsAAAARecord `Prelude.seq`
+        Prelude.rnf enableResourceNameDnsARecord `Prelude.seq`
+          Prelude.rnf instanceId `Prelude.seq`
+            Prelude.rnf privateDnsHostnameType
 
 instance Data.ToHeaders ModifyPrivateDnsNameOptions where
   toHeaders = Prelude.const Prelude.mempty
@@ -243,5 +243,5 @@ instance
     ModifyPrivateDnsNameOptionsResponse
   where
   rnf ModifyPrivateDnsNameOptionsResponse' {..} =
-    Prelude.rnf return'
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf return' `Prelude.seq`
+      Prelude.rnf httpStatus

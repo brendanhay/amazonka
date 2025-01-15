@@ -240,12 +240,12 @@ instance Prelude.Hashable CreatePortfolioShare where
 
 instance Prelude.NFData CreatePortfolioShare where
   rnf CreatePortfolioShare' {..} =
-    Prelude.rnf acceptLanguage
-      `Prelude.seq` Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf organizationNode
-      `Prelude.seq` Prelude.rnf sharePrincipals
-      `Prelude.seq` Prelude.rnf shareTagOptions
-      `Prelude.seq` Prelude.rnf portfolioId
+    Prelude.rnf acceptLanguage `Prelude.seq`
+      Prelude.rnf accountId `Prelude.seq`
+        Prelude.rnf organizationNode `Prelude.seq`
+          Prelude.rnf sharePrincipals `Prelude.seq`
+            Prelude.rnf shareTagOptions `Prelude.seq`
+              Prelude.rnf portfolioId
 
 instance Data.ToHeaders CreatePortfolioShare where
   toHeaders =
@@ -329,5 +329,5 @@ createPortfolioShareResponse_httpStatus = Lens.lens (\CreatePortfolioShareRespon
 
 instance Prelude.NFData CreatePortfolioShareResponse where
   rnf CreatePortfolioShareResponse' {..} =
-    Prelude.rnf portfolioShareToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf portfolioShareToken `Prelude.seq`
+      Prelude.rnf httpStatus

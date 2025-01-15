@@ -208,9 +208,9 @@ getHostResponse_httpStatus = Lens.lens (\GetHostResponse' {httpStatus} -> httpSt
 
 instance Prelude.NFData GetHostResponse where
   rnf GetHostResponse' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf providerEndpoint
-      `Prelude.seq` Prelude.rnf providerType
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf vpcConfiguration
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf providerEndpoint `Prelude.seq`
+        Prelude.rnf providerType `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf vpcConfiguration `Prelude.seq`
+              Prelude.rnf httpStatus

@@ -132,9 +132,9 @@ instance Prelude.Hashable CreateFirewallRuleGroup where
 
 instance Prelude.NFData CreateFirewallRuleGroup where
   rnf CreateFirewallRuleGroup' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf creatorRequestId
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf creatorRequestId `Prelude.seq`
+        Prelude.rnf name
 
 instance Data.ToHeaders CreateFirewallRuleGroup where
   toHeaders =
@@ -212,5 +212,5 @@ instance
     CreateFirewallRuleGroupResponse
   where
   rnf CreateFirewallRuleGroupResponse' {..} =
-    Prelude.rnf firewallRuleGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf firewallRuleGroup `Prelude.seq`
+      Prelude.rnf httpStatus

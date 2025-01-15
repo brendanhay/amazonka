@@ -158,5 +158,5 @@ removeBackendConfigResponse_httpStatus = Lens.lens (\RemoveBackendConfigResponse
 
 instance Prelude.NFData RemoveBackendConfigResponse where
   rnf RemoveBackendConfigResponse' {..} =
-    Prelude.rnf error
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf error `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -190,12 +190,12 @@ instance Prelude.Hashable UpdateSettings where
 
 instance Prelude.NFData UpdateSettings where
   rnf UpdateSettings' {..} =
-    Prelude.rnf defaultAssessmentReportsDestination
-      `Prelude.seq` Prelude.rnf defaultProcessOwners
-      `Prelude.seq` Prelude.rnf deregistrationPolicy
-      `Prelude.seq` Prelude.rnf evidenceFinderEnabled
-      `Prelude.seq` Prelude.rnf kmsKey
-      `Prelude.seq` Prelude.rnf snsTopic
+    Prelude.rnf defaultAssessmentReportsDestination `Prelude.seq`
+      Prelude.rnf defaultProcessOwners `Prelude.seq`
+        Prelude.rnf deregistrationPolicy `Prelude.seq`
+          Prelude.rnf evidenceFinderEnabled `Prelude.seq`
+            Prelude.rnf kmsKey `Prelude.seq`
+              Prelude.rnf snsTopic
 
 instance Data.ToHeaders UpdateSettings where
   toHeaders =
@@ -271,5 +271,5 @@ updateSettingsResponse_httpStatus = Lens.lens (\UpdateSettingsResponse' {httpSta
 
 instance Prelude.NFData UpdateSettingsResponse where
   rnf UpdateSettingsResponse' {..} =
-    Prelude.rnf settings
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf settings `Prelude.seq`
+      Prelude.rnf httpStatus

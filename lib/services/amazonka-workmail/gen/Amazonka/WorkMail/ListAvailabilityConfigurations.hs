@@ -122,12 +122,12 @@ instance Core.AWSPager ListAvailabilityConfigurations where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listAvailabilityConfigurations_nextToken
-          Lens..~ rs
-          Lens.^? listAvailabilityConfigurationsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listAvailabilityConfigurations_nextToken
+              Lens..~ rs
+              Lens.^? listAvailabilityConfigurationsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -167,9 +167,9 @@ instance
     ListAvailabilityConfigurations
   where
   rnf ListAvailabilityConfigurations' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf organizationId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf organizationId
 
 instance
   Data.ToHeaders
@@ -266,6 +266,6 @@ instance
     ListAvailabilityConfigurationsResponse
   where
   rnf ListAvailabilityConfigurationsResponse' {..} =
-    Prelude.rnf availabilityConfigurations
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf availabilityConfigurations `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

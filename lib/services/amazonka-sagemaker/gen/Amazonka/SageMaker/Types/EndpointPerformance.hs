@@ -86,5 +86,5 @@ instance Prelude.Hashable EndpointPerformance where
 
 instance Prelude.NFData EndpointPerformance where
   rnf EndpointPerformance' {..} =
-    Prelude.rnf metrics
-      `Prelude.seq` Prelude.rnf endpointInfo
+    Prelude.rnf metrics `Prelude.seq`
+      Prelude.rnf endpointInfo

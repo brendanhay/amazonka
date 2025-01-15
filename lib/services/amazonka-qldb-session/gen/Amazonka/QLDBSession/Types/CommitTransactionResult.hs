@@ -113,7 +113,7 @@ instance Prelude.Hashable CommitTransactionResult where
 
 instance Prelude.NFData CommitTransactionResult where
   rnf CommitTransactionResult' {..} =
-    Prelude.rnf commitDigest
-      `Prelude.seq` Prelude.rnf consumedIOs
-      `Prelude.seq` Prelude.rnf timingInformation
-      `Prelude.seq` Prelude.rnf transactionId
+    Prelude.rnf commitDigest `Prelude.seq`
+      Prelude.rnf consumedIOs `Prelude.seq`
+        Prelude.rnf timingInformation `Prelude.seq`
+          Prelude.rnf transactionId

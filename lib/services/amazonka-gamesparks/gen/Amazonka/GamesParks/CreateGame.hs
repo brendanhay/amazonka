@@ -133,10 +133,10 @@ instance Prelude.Hashable CreateGame where
 
 instance Prelude.NFData CreateGame where
   rnf CreateGame' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf gameName
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf gameName
 
 instance Data.ToHeaders CreateGame where
   toHeaders =
@@ -206,5 +206,5 @@ createGameResponse_httpStatus = Lens.lens (\CreateGameResponse' {httpStatus} -> 
 
 instance Prelude.NFData CreateGameResponse where
   rnf CreateGameResponse' {..} =
-    Prelude.rnf game
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf game `Prelude.seq`
+      Prelude.rnf httpStatus

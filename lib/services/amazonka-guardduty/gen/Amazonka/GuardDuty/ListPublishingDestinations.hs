@@ -132,9 +132,9 @@ instance Prelude.Hashable ListPublishingDestinations where
 
 instance Prelude.NFData ListPublishingDestinations where
   rnf ListPublishingDestinations' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf detectorId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf detectorId
 
 instance Data.ToHeaders ListPublishingDestinations where
   toHeaders =
@@ -227,6 +227,6 @@ instance
     ListPublishingDestinationsResponse
   where
   rnf ListPublishingDestinationsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf destinations
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf destinations

@@ -253,9 +253,9 @@ instance Prelude.Hashable BuildBatchPhase where
 
 instance Prelude.NFData BuildBatchPhase where
   rnf BuildBatchPhase' {..} =
-    Prelude.rnf contexts
-      `Prelude.seq` Prelude.rnf durationInSeconds
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf phaseStatus
-      `Prelude.seq` Prelude.rnf phaseType
-      `Prelude.seq` Prelude.rnf startTime
+    Prelude.rnf contexts `Prelude.seq`
+      Prelude.rnf durationInSeconds `Prelude.seq`
+        Prelude.rnf endTime `Prelude.seq`
+          Prelude.rnf phaseStatus `Prelude.seq`
+            Prelude.rnf phaseType `Prelude.seq`
+              Prelude.rnf startTime

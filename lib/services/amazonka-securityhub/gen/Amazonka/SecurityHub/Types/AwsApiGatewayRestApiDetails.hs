@@ -211,15 +211,15 @@ instance Prelude.Hashable AwsApiGatewayRestApiDetails where
 
 instance Prelude.NFData AwsApiGatewayRestApiDetails where
   rnf AwsApiGatewayRestApiDetails' {..} =
-    Prelude.rnf apiKeySource
-      `Prelude.seq` Prelude.rnf binaryMediaTypes
-      `Prelude.seq` Prelude.rnf createdDate
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf endpointConfiguration
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf minimumCompressionSize
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf version
+    Prelude.rnf apiKeySource `Prelude.seq`
+      Prelude.rnf binaryMediaTypes `Prelude.seq`
+        Prelude.rnf createdDate `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf endpointConfiguration `Prelude.seq`
+              Prelude.rnf id `Prelude.seq`
+                Prelude.rnf minimumCompressionSize `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf version
 
 instance Data.ToJSON AwsApiGatewayRestApiDetails where
   toJSON AwsApiGatewayRestApiDetails' {..} =

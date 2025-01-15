@@ -179,6 +179,6 @@ instance
     ClaimDevicesByClaimCodeResponse
   where
   rnf ClaimDevicesByClaimCodeResponse' {..} =
-    Prelude.rnf claimCode
-      `Prelude.seq` Prelude.rnf total
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf claimCode `Prelude.seq`
+      Prelude.rnf total `Prelude.seq`
+        Prelude.rnf httpStatus

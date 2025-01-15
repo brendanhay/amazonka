@@ -275,12 +275,12 @@ instance Prelude.Hashable PutPrincipalMapping where
 
 instance Prelude.NFData PutPrincipalMapping where
   rnf PutPrincipalMapping' {..} =
-    Prelude.rnf dataSourceId
-      `Prelude.seq` Prelude.rnf orderingId
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf indexId
-      `Prelude.seq` Prelude.rnf groupId
-      `Prelude.seq` Prelude.rnf groupMembers
+    Prelude.rnf dataSourceId `Prelude.seq`
+      Prelude.rnf orderingId `Prelude.seq`
+        Prelude.rnf roleArn `Prelude.seq`
+          Prelude.rnf indexId `Prelude.seq`
+            Prelude.rnf groupId `Prelude.seq`
+              Prelude.rnf groupMembers
 
 instance Data.ToHeaders PutPrincipalMapping where
   toHeaders =

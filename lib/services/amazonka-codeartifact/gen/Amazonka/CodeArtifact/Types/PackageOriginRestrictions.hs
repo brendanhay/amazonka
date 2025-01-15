@@ -97,8 +97,8 @@ instance Prelude.Hashable PackageOriginRestrictions where
 
 instance Prelude.NFData PackageOriginRestrictions where
   rnf PackageOriginRestrictions' {..} =
-    Prelude.rnf publish
-      `Prelude.seq` Prelude.rnf upstream
+    Prelude.rnf publish `Prelude.seq`
+      Prelude.rnf upstream
 
 instance Data.ToJSON PackageOriginRestrictions where
   toJSON PackageOriginRestrictions' {..} =

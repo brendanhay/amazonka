@@ -229,12 +229,12 @@ instance Core.AWSPager DescribeFlowLogs where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeFlowLogs_nextToken
-          Lens..~ rs
-          Lens.^? describeFlowLogsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeFlowLogs_nextToken
+              Lens..~ rs
+              Lens.^? describeFlowLogsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeFlowLogs where
   type
@@ -246,9 +246,7 @@ instance Core.AWSRequest DescribeFlowLogs where
     Response.receiveXML
       ( \s h x ->
           DescribeFlowLogsResponse'
-            Prelude.<$> ( x
-                            Data..@? "flowLogSet"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "flowLogSet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (x Data..@? "nextToken")
@@ -266,11 +264,11 @@ instance Prelude.Hashable DescribeFlowLogs where
 
 instance Prelude.NFData DescribeFlowLogs where
   rnf DescribeFlowLogs' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf flowLogIds
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf filter' `Prelude.seq`
+        Prelude.rnf flowLogIds `Prelude.seq`
+          Prelude.rnf maxResults `Prelude.seq`
+            Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeFlowLogs where
   toHeaders = Prelude.const Prelude.mempty
@@ -349,6 +347,6 @@ describeFlowLogsResponse_httpStatus = Lens.lens (\DescribeFlowLogsResponse' {htt
 
 instance Prelude.NFData DescribeFlowLogsResponse where
   rnf DescribeFlowLogsResponse' {..} =
-    Prelude.rnf flowLogs
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf flowLogs `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

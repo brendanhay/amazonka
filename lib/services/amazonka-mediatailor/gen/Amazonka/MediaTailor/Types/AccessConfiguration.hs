@@ -157,8 +157,8 @@ instance Prelude.Hashable AccessConfiguration where
 
 instance Prelude.NFData AccessConfiguration where
   rnf AccessConfiguration' {..} =
-    Prelude.rnf accessType
-      `Prelude.seq` Prelude.rnf secretsManagerAccessTokenConfiguration
+    Prelude.rnf accessType `Prelude.seq`
+      Prelude.rnf secretsManagerAccessTokenConfiguration
 
 instance Data.ToJSON AccessConfiguration where
   toJSON AccessConfiguration' {..} =

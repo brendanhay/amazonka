@@ -117,6 +117,6 @@ instance Prelude.Hashable ProfilingStatus where
 
 instance Prelude.NFData ProfilingStatus where
   rnf ProfilingStatus' {..} =
-    Prelude.rnf latestAgentOrchestratedAt
-      `Prelude.seq` Prelude.rnf latestAgentProfileReportedAt
-      `Prelude.seq` Prelude.rnf latestAggregatedProfile
+    Prelude.rnf latestAgentOrchestratedAt `Prelude.seq`
+      Prelude.rnf latestAgentProfileReportedAt `Prelude.seq`
+        Prelude.rnf latestAggregatedProfile

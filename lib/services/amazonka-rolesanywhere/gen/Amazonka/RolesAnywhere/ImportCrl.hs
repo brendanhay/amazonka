@@ -154,11 +154,11 @@ instance Prelude.Hashable ImportCrl where
 
 instance Prelude.NFData ImportCrl where
   rnf ImportCrl' {..} =
-    Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf crlData
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf trustAnchorArn
+    Prelude.rnf enabled `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf crlData `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf trustAnchorArn
 
 instance Data.ToHeaders ImportCrl where
   toHeaders =

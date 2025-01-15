@@ -167,5 +167,5 @@ deleteWorkgroupResponse_workgroup = Lens.lens (\DeleteWorkgroupResponse' {workgr
 
 instance Prelude.NFData DeleteWorkgroupResponse where
   rnf DeleteWorkgroupResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf workgroup
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf workgroup

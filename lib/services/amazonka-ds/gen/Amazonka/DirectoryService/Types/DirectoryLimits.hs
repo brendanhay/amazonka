@@ -161,12 +161,12 @@ instance Prelude.Hashable DirectoryLimits where
 
 instance Prelude.NFData DirectoryLimits where
   rnf DirectoryLimits' {..} =
-    Prelude.rnf cloudOnlyDirectoriesCurrentCount
-      `Prelude.seq` Prelude.rnf cloudOnlyDirectoriesLimit
-      `Prelude.seq` Prelude.rnf cloudOnlyDirectoriesLimitReached
-      `Prelude.seq` Prelude.rnf cloudOnlyMicrosoftADCurrentCount
-      `Prelude.seq` Prelude.rnf cloudOnlyMicrosoftADLimit
-      `Prelude.seq` Prelude.rnf cloudOnlyMicrosoftADLimitReached
-      `Prelude.seq` Prelude.rnf connectedDirectoriesCurrentCount
-      `Prelude.seq` Prelude.rnf connectedDirectoriesLimit
-      `Prelude.seq` Prelude.rnf connectedDirectoriesLimitReached
+    Prelude.rnf cloudOnlyDirectoriesCurrentCount `Prelude.seq`
+      Prelude.rnf cloudOnlyDirectoriesLimit `Prelude.seq`
+        Prelude.rnf cloudOnlyDirectoriesLimitReached `Prelude.seq`
+          Prelude.rnf cloudOnlyMicrosoftADCurrentCount `Prelude.seq`
+            Prelude.rnf cloudOnlyMicrosoftADLimit `Prelude.seq`
+              Prelude.rnf cloudOnlyMicrosoftADLimitReached `Prelude.seq`
+                Prelude.rnf connectedDirectoriesCurrentCount `Prelude.seq`
+                  Prelude.rnf connectedDirectoriesLimit `Prelude.seq`
+                    Prelude.rnf connectedDirectoriesLimitReached

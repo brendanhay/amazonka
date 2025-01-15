@@ -115,8 +115,8 @@ instance Prelude.Hashable ConnectPeerAssociation where
 
 instance Prelude.NFData ConnectPeerAssociation where
   rnf ConnectPeerAssociation' {..} =
-    Prelude.rnf connectPeerId
-      `Prelude.seq` Prelude.rnf deviceId
-      `Prelude.seq` Prelude.rnf globalNetworkId
-      `Prelude.seq` Prelude.rnf linkId
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf connectPeerId `Prelude.seq`
+      Prelude.rnf deviceId `Prelude.seq`
+        Prelude.rnf globalNetworkId `Prelude.seq`
+          Prelude.rnf linkId `Prelude.seq`
+            Prelude.rnf state

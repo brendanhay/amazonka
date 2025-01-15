@@ -94,6 +94,6 @@ instance Prelude.Hashable TrainingMetricsV2 where
 
 instance Prelude.NFData TrainingMetricsV2 where
   rnf TrainingMetricsV2' {..} =
-    Prelude.rnf ati
-      `Prelude.seq` Prelude.rnf ofi
-      `Prelude.seq` Prelude.rnf tfi
+    Prelude.rnf ati `Prelude.seq`
+      Prelude.rnf ofi `Prelude.seq`
+        Prelude.rnf tfi

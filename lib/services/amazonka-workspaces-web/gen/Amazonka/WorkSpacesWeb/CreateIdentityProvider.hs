@@ -355,11 +355,11 @@ instance Prelude.Hashable CreateIdentityProvider where
 
 instance Prelude.NFData CreateIdentityProvider where
   rnf CreateIdentityProvider' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf identityProviderDetails
-      `Prelude.seq` Prelude.rnf identityProviderName
-      `Prelude.seq` Prelude.rnf identityProviderType
-      `Prelude.seq` Prelude.rnf portalArn
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf identityProviderDetails `Prelude.seq`
+        Prelude.rnf identityProviderName `Prelude.seq`
+          Prelude.rnf identityProviderType `Prelude.seq`
+            Prelude.rnf portalArn
 
 instance Data.ToHeaders CreateIdentityProvider where
   toHeaders =
@@ -447,5 +447,5 @@ instance
     CreateIdentityProviderResponse
   where
   rnf CreateIdentityProviderResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf identityProviderArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf identityProviderArn

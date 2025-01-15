@@ -193,12 +193,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listOrganizationPortfolioAccess_pageToken
-          Lens..~ rs
-          Lens.^? listOrganizationPortfolioAccessResponse_nextPageToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listOrganizationPortfolioAccess_pageToken
+              Lens..~ rs
+              Lens.^? listOrganizationPortfolioAccessResponse_nextPageToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -240,11 +240,11 @@ instance
     ListOrganizationPortfolioAccess
   where
   rnf ListOrganizationPortfolioAccess' {..} =
-    Prelude.rnf acceptLanguage
-      `Prelude.seq` Prelude.rnf pageSize
-      `Prelude.seq` Prelude.rnf pageToken
-      `Prelude.seq` Prelude.rnf portfolioId
-      `Prelude.seq` Prelude.rnf organizationNodeType
+    Prelude.rnf acceptLanguage `Prelude.seq`
+      Prelude.rnf pageSize `Prelude.seq`
+        Prelude.rnf pageToken `Prelude.seq`
+          Prelude.rnf portfolioId `Prelude.seq`
+            Prelude.rnf organizationNodeType
 
 instance
   Data.ToHeaders
@@ -344,6 +344,6 @@ instance
     ListOrganizationPortfolioAccessResponse
   where
   rnf ListOrganizationPortfolioAccessResponse' {..} =
-    Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf organizationNodes
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextPageToken `Prelude.seq`
+      Prelude.rnf organizationNodes `Prelude.seq`
+        Prelude.rnf httpStatus

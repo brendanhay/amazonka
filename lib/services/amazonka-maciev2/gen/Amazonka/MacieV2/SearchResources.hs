@@ -132,12 +132,12 @@ instance Core.AWSPager SearchResources where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& searchResources_nextToken
-          Lens..~ rs
-          Lens.^? searchResourcesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& searchResources_nextToken
+              Lens..~ rs
+              Lens.^? searchResourcesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest SearchResources where
   type
@@ -167,10 +167,10 @@ instance Prelude.Hashable SearchResources where
 
 instance Prelude.NFData SearchResources where
   rnf SearchResources' {..} =
-    Prelude.rnf bucketCriteria
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortCriteria
+    Prelude.rnf bucketCriteria `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf sortCriteria
 
 instance Data.ToHeaders SearchResources where
   toHeaders =
@@ -261,6 +261,6 @@ searchResourcesResponse_httpStatus = Lens.lens (\SearchResourcesResponse' {httpS
 
 instance Prelude.NFData SearchResourcesResponse where
   rnf SearchResourcesResponse' {..} =
-    Prelude.rnf matchingResources
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf matchingResources `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

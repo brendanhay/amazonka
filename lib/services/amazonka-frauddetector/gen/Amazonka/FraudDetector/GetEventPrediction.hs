@@ -274,14 +274,14 @@ instance Prelude.Hashable GetEventPrediction where
 
 instance Prelude.NFData GetEventPrediction where
   rnf GetEventPrediction' {..} =
-    Prelude.rnf detectorVersionId
-      `Prelude.seq` Prelude.rnf externalModelEndpointDataBlobs
-      `Prelude.seq` Prelude.rnf detectorId
-      `Prelude.seq` Prelude.rnf eventId
-      `Prelude.seq` Prelude.rnf eventTypeName
-      `Prelude.seq` Prelude.rnf entities
-      `Prelude.seq` Prelude.rnf eventTimestamp
-      `Prelude.seq` Prelude.rnf eventVariables
+    Prelude.rnf detectorVersionId `Prelude.seq`
+      Prelude.rnf externalModelEndpointDataBlobs `Prelude.seq`
+        Prelude.rnf detectorId `Prelude.seq`
+          Prelude.rnf eventId `Prelude.seq`
+            Prelude.rnf eventTypeName `Prelude.seq`
+              Prelude.rnf entities `Prelude.seq`
+                Prelude.rnf eventTimestamp `Prelude.seq`
+                  Prelude.rnf eventVariables
 
 instance Data.ToHeaders GetEventPrediction where
   toHeaders =
@@ -397,7 +397,7 @@ getEventPredictionResponse_httpStatus = Lens.lens (\GetEventPredictionResponse' 
 
 instance Prelude.NFData GetEventPredictionResponse where
   rnf GetEventPredictionResponse' {..} =
-    Prelude.rnf externalModelOutputs
-      `Prelude.seq` Prelude.rnf modelScores
-      `Prelude.seq` Prelude.rnf ruleResults
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf externalModelOutputs `Prelude.seq`
+      Prelude.rnf modelScores `Prelude.seq`
+        Prelude.rnf ruleResults `Prelude.seq`
+          Prelude.rnf httpStatus

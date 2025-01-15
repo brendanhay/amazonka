@@ -201,15 +201,15 @@ instance Prelude.Hashable BaselineOverride where
 
 instance Prelude.NFData BaselineOverride where
   rnf BaselineOverride' {..} =
-    Prelude.rnf approvalRules
-      `Prelude.seq` Prelude.rnf approvedPatches
-      `Prelude.seq` Prelude.rnf approvedPatchesComplianceLevel
-      `Prelude.seq` Prelude.rnf approvedPatchesEnableNonSecurity
-      `Prelude.seq` Prelude.rnf globalFilters
-      `Prelude.seq` Prelude.rnf operatingSystem
-      `Prelude.seq` Prelude.rnf rejectedPatches
-      `Prelude.seq` Prelude.rnf rejectedPatchesAction
-      `Prelude.seq` Prelude.rnf sources
+    Prelude.rnf approvalRules `Prelude.seq`
+      Prelude.rnf approvedPatches `Prelude.seq`
+        Prelude.rnf approvedPatchesComplianceLevel `Prelude.seq`
+          Prelude.rnf approvedPatchesEnableNonSecurity `Prelude.seq`
+            Prelude.rnf globalFilters `Prelude.seq`
+              Prelude.rnf operatingSystem `Prelude.seq`
+                Prelude.rnf rejectedPatches `Prelude.seq`
+                  Prelude.rnf rejectedPatchesAction `Prelude.seq`
+                    Prelude.rnf sources
 
 instance Data.ToJSON BaselineOverride where
   toJSON BaselineOverride' {..} =

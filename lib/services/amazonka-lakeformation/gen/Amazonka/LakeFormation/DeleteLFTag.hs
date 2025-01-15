@@ -118,8 +118,8 @@ instance Prelude.Hashable DeleteLFTag where
 
 instance Prelude.NFData DeleteLFTag where
   rnf DeleteLFTag' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf tagKey
+    Prelude.rnf catalogId `Prelude.seq`
+      Prelude.rnf tagKey
 
 instance Data.ToHeaders DeleteLFTag where
   toHeaders =

@@ -158,10 +158,10 @@ instance
     DisassociateExternalConnection
   where
   rnf DisassociateExternalConnection' {..} =
-    Prelude.rnf domainOwner
-      `Prelude.seq` Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf repository
-      `Prelude.seq` Prelude.rnf externalConnection
+    Prelude.rnf domainOwner `Prelude.seq`
+      Prelude.rnf domain `Prelude.seq`
+        Prelude.rnf repository `Prelude.seq`
+          Prelude.rnf externalConnection
 
 instance
   Data.ToHeaders
@@ -235,5 +235,5 @@ instance
     DisassociateExternalConnectionResponse
   where
   rnf DisassociateExternalConnectionResponse' {..} =
-    Prelude.rnf repository
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf repository `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -213,12 +213,12 @@ instance Prelude.Hashable VpcIngressConnection where
 
 instance Prelude.NFData VpcIngressConnection where
   rnf VpcIngressConnection' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf deletedAt
-      `Prelude.seq` Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf ingressVpcConfiguration
-      `Prelude.seq` Prelude.rnf serviceArn
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf vpcIngressConnectionArn
-      `Prelude.seq` Prelude.rnf vpcIngressConnectionName
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf createdAt `Prelude.seq`
+        Prelude.rnf deletedAt `Prelude.seq`
+          Prelude.rnf domainName `Prelude.seq`
+            Prelude.rnf ingressVpcConfiguration `Prelude.seq`
+              Prelude.rnf serviceArn `Prelude.seq`
+                Prelude.rnf status `Prelude.seq`
+                  Prelude.rnf vpcIngressConnectionArn `Prelude.seq`
+                    Prelude.rnf vpcIngressConnectionName

@@ -167,10 +167,10 @@ instance Prelude.Hashable ModifyVpcAttribute where
 
 instance Prelude.NFData ModifyVpcAttribute where
   rnf ModifyVpcAttribute' {..} =
-    Prelude.rnf enableDnsHostnames
-      `Prelude.seq` Prelude.rnf enableDnsSupport
-      `Prelude.seq` Prelude.rnf enableNetworkAddressUsageMetrics
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf enableDnsHostnames `Prelude.seq`
+      Prelude.rnf enableDnsSupport `Prelude.seq`
+        Prelude.rnf enableNetworkAddressUsageMetrics `Prelude.seq`
+          Prelude.rnf vpcId
 
 instance Data.ToHeaders ModifyVpcAttribute where
   toHeaders = Prelude.const Prelude.mempty

@@ -125,12 +125,12 @@ instance Core.AWSPager ListThingsInBillingGroup where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listThingsInBillingGroup_nextToken
-          Lens..~ rs
-          Lens.^? listThingsInBillingGroupResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listThingsInBillingGroup_nextToken
+              Lens..~ rs
+              Lens.^? listThingsInBillingGroupResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListThingsInBillingGroup where
   type
@@ -156,9 +156,9 @@ instance Prelude.Hashable ListThingsInBillingGroup where
 
 instance Prelude.NFData ListThingsInBillingGroup where
   rnf ListThingsInBillingGroup' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf billingGroupName
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf billingGroupName
 
 instance Data.ToHeaders ListThingsInBillingGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -234,6 +234,6 @@ instance
     ListThingsInBillingGroupResponse
   where
   rnf ListThingsInBillingGroupResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf things
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf things `Prelude.seq`
+        Prelude.rnf httpStatus

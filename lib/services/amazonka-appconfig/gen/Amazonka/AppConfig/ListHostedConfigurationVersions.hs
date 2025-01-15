@@ -159,10 +159,10 @@ instance
     ListHostedConfigurationVersions
   where
   rnf ListHostedConfigurationVersions' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf configurationProfileId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf applicationId `Prelude.seq`
+          Prelude.rnf configurationProfileId
 
 instance
   Data.ToHeaders
@@ -252,6 +252,6 @@ instance
     ListHostedConfigurationVersionsResponse
   where
   rnf ListHostedConfigurationVersionsResponse' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf items `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

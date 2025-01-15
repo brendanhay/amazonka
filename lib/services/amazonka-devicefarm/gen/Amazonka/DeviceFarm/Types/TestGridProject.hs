@@ -115,8 +115,8 @@ instance Prelude.Hashable TestGridProject where
 
 instance Prelude.NFData TestGridProject where
   rnf TestGridProject' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf created
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf vpcConfig
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf created `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf vpcConfig

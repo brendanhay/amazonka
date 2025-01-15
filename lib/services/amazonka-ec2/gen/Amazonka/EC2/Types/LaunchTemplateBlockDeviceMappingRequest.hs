@@ -119,10 +119,10 @@ instance
     LaunchTemplateBlockDeviceMappingRequest
   where
   rnf LaunchTemplateBlockDeviceMappingRequest' {..} =
-    Prelude.rnf deviceName
-      `Prelude.seq` Prelude.rnf ebs
-      `Prelude.seq` Prelude.rnf noDevice
-      `Prelude.seq` Prelude.rnf virtualName
+    Prelude.rnf deviceName `Prelude.seq`
+      Prelude.rnf ebs `Prelude.seq`
+        Prelude.rnf noDevice `Prelude.seq`
+          Prelude.rnf virtualName
 
 instance
   Data.ToQuery

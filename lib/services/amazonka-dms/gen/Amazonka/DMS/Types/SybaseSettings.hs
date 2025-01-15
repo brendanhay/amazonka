@@ -180,13 +180,13 @@ instance Prelude.Hashable SybaseSettings where
 
 instance Prelude.NFData SybaseSettings where
   rnf SybaseSettings' {..} =
-    Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf password
-      `Prelude.seq` Prelude.rnf port
-      `Prelude.seq` Prelude.rnf secretsManagerAccessRoleArn
-      `Prelude.seq` Prelude.rnf secretsManagerSecretId
-      `Prelude.seq` Prelude.rnf serverName
-      `Prelude.seq` Prelude.rnf username
+    Prelude.rnf databaseName `Prelude.seq`
+      Prelude.rnf password `Prelude.seq`
+        Prelude.rnf port `Prelude.seq`
+          Prelude.rnf secretsManagerAccessRoleArn `Prelude.seq`
+            Prelude.rnf secretsManagerSecretId `Prelude.seq`
+              Prelude.rnf serverName `Prelude.seq`
+                Prelude.rnf username
 
 instance Data.ToJSON SybaseSettings where
   toJSON SybaseSettings' {..} =

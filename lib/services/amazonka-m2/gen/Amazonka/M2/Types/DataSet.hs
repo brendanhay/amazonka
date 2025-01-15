@@ -117,11 +117,11 @@ instance Prelude.Hashable DataSet where
 
 instance Prelude.NFData DataSet where
   rnf DataSet' {..} =
-    Prelude.rnf relativePath
-      `Prelude.seq` Prelude.rnf storageType
-      `Prelude.seq` Prelude.rnf datasetName
-      `Prelude.seq` Prelude.rnf datasetOrg
-      `Prelude.seq` Prelude.rnf recordLength
+    Prelude.rnf relativePath `Prelude.seq`
+      Prelude.rnf storageType `Prelude.seq`
+        Prelude.rnf datasetName `Prelude.seq`
+          Prelude.rnf datasetOrg `Prelude.seq`
+            Prelude.rnf recordLength
 
 instance Data.ToJSON DataSet where
   toJSON DataSet' {..} =

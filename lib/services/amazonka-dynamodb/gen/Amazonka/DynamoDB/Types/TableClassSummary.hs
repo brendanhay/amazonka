@@ -87,5 +87,5 @@ instance Prelude.Hashable TableClassSummary where
 
 instance Prelude.NFData TableClassSummary where
   rnf TableClassSummary' {..} =
-    Prelude.rnf lastUpdateDateTime
-      `Prelude.seq` Prelude.rnf tableClass
+    Prelude.rnf lastUpdateDateTime `Prelude.seq`
+      Prelude.rnf tableClass

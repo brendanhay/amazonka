@@ -99,8 +99,8 @@ instance
     CertificateBasedAuthProperties
   where
   rnf CertificateBasedAuthProperties' {..} =
-    Prelude.rnf certificateAuthorityArn
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf certificateAuthorityArn `Prelude.seq`
+      Prelude.rnf status
 
 instance Data.ToJSON CertificateBasedAuthProperties where
   toJSON CertificateBasedAuthProperties' {..} =

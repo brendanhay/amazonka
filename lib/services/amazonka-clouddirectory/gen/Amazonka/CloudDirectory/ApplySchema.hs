@@ -119,8 +119,8 @@ instance Prelude.Hashable ApplySchema where
 
 instance Prelude.NFData ApplySchema where
   rnf ApplySchema' {..} =
-    Prelude.rnf publishedSchemaArn
-      `Prelude.seq` Prelude.rnf directoryArn
+    Prelude.rnf publishedSchemaArn `Prelude.seq`
+      Prelude.rnf directoryArn
 
 instance Data.ToHeaders ApplySchema where
   toHeaders ApplySchema' {..} =
@@ -203,6 +203,6 @@ applySchemaResponse_httpStatus = Lens.lens (\ApplySchemaResponse' {httpStatus} -
 
 instance Prelude.NFData ApplySchemaResponse where
   rnf ApplySchemaResponse' {..} =
-    Prelude.rnf appliedSchemaArn
-      `Prelude.seq` Prelude.rnf directoryArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf appliedSchemaArn `Prelude.seq`
+      Prelude.rnf directoryArn `Prelude.seq`
+        Prelude.rnf httpStatus

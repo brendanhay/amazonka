@@ -172,6 +172,6 @@ startDiscovererResponse_httpStatus = Lens.lens (\StartDiscovererResponse' {httpS
 
 instance Prelude.NFData StartDiscovererResponse where
   rnf StartDiscovererResponse' {..} =
-    Prelude.rnf discovererId
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf discovererId `Prelude.seq`
+      Prelude.rnf state `Prelude.seq`
+        Prelude.rnf httpStatus

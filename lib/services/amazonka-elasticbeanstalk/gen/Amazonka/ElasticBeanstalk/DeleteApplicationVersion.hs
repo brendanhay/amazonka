@@ -127,9 +127,9 @@ instance Prelude.Hashable DeleteApplicationVersion where
 
 instance Prelude.NFData DeleteApplicationVersion where
   rnf DeleteApplicationVersion' {..} =
-    Prelude.rnf deleteSourceBundle
-      `Prelude.seq` Prelude.rnf applicationName
-      `Prelude.seq` Prelude.rnf versionLabel
+    Prelude.rnf deleteSourceBundle `Prelude.seq`
+      Prelude.rnf applicationName `Prelude.seq`
+        Prelude.rnf versionLabel
 
 instance Data.ToHeaders DeleteApplicationVersion where
   toHeaders = Prelude.const Prelude.mempty

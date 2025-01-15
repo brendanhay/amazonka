@@ -173,8 +173,8 @@ instance Prelude.Hashable RecordActivityTaskHeartbeat where
 
 instance Prelude.NFData RecordActivityTaskHeartbeat where
   rnf RecordActivityTaskHeartbeat' {..} =
-    Prelude.rnf details
-      `Prelude.seq` Prelude.rnf taskToken
+    Prelude.rnf details `Prelude.seq`
+      Prelude.rnf taskToken
 
 instance Data.ToHeaders RecordActivityTaskHeartbeat where
   toHeaders =
@@ -256,5 +256,5 @@ instance
     RecordActivityTaskHeartbeatResponse
   where
   rnf RecordActivityTaskHeartbeatResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf cancelRequested
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf cancelRequested

@@ -80,8 +80,8 @@ instance Prelude.Hashable NumberFilter where
 
 instance Prelude.NFData NumberFilter where
   rnf NumberFilter' {..} =
-    Prelude.rnf lowerInclusive
-      `Prelude.seq` Prelude.rnf upperInclusive
+    Prelude.rnf lowerInclusive `Prelude.seq`
+      Prelude.rnf upperInclusive
 
 instance Data.ToJSON NumberFilter where
   toJSON NumberFilter' {..} =

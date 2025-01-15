@@ -188,6 +188,6 @@ batchGetDevEndpointsResponse_httpStatus = Lens.lens (\BatchGetDevEndpointsRespon
 
 instance Prelude.NFData BatchGetDevEndpointsResponse where
   rnf BatchGetDevEndpointsResponse' {..} =
-    Prelude.rnf devEndpoints
-      `Prelude.seq` Prelude.rnf devEndpointsNotFound
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf devEndpoints `Prelude.seq`
+      Prelude.rnf devEndpointsNotFound `Prelude.seq`
+        Prelude.rnf httpStatus

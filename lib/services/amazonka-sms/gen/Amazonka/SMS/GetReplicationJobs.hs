@@ -118,12 +118,12 @@ instance Core.AWSPager GetReplicationJobs where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getReplicationJobs_nextToken
-          Lens..~ rs
-          Lens.^? getReplicationJobsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getReplicationJobs_nextToken
+              Lens..~ rs
+              Lens.^? getReplicationJobsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetReplicationJobs where
   type
@@ -152,9 +152,9 @@ instance Prelude.Hashable GetReplicationJobs where
 
 instance Prelude.NFData GetReplicationJobs where
   rnf GetReplicationJobs' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf replicationJobId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf replicationJobId
 
 instance Data.ToHeaders GetReplicationJobs where
   toHeaders =
@@ -241,6 +241,6 @@ getReplicationJobsResponse_httpStatus = Lens.lens (\GetReplicationJobsResponse' 
 
 instance Prelude.NFData GetReplicationJobsResponse where
   rnf GetReplicationJobsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf replicationJobList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf replicationJobList `Prelude.seq`
+        Prelude.rnf httpStatus

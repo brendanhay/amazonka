@@ -115,8 +115,8 @@ instance Prelude.Hashable ResetResourceLogLevel where
 
 instance Prelude.NFData ResetResourceLogLevel where
   rnf ResetResourceLogLevel' {..} =
-    Prelude.rnf resourceIdentifier
-      `Prelude.seq` Prelude.rnf resourceType
+    Prelude.rnf resourceIdentifier `Prelude.seq`
+      Prelude.rnf resourceType
 
 instance Data.ToHeaders ResetResourceLogLevel where
   toHeaders = Prelude.const Prelude.mempty

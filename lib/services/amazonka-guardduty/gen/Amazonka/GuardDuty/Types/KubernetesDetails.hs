@@ -84,5 +84,5 @@ instance Prelude.Hashable KubernetesDetails where
 
 instance Prelude.NFData KubernetesDetails where
   rnf KubernetesDetails' {..} =
-    Prelude.rnf kubernetesUserDetails
-      `Prelude.seq` Prelude.rnf kubernetesWorkloadDetails
+    Prelude.rnf kubernetesUserDetails `Prelude.seq`
+      Prelude.rnf kubernetesWorkloadDetails

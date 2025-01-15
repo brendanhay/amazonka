@@ -209,9 +209,9 @@ instance Prelude.Hashable IntegrationResponse where
 
 instance Prelude.NFData IntegrationResponse where
   rnf IntegrationResponse' {..} =
-    Prelude.rnf contentHandlingStrategy
-      `Prelude.seq` Prelude.rnf integrationResponseId
-      `Prelude.seq` Prelude.rnf responseParameters
-      `Prelude.seq` Prelude.rnf responseTemplates
-      `Prelude.seq` Prelude.rnf templateSelectionExpression
-      `Prelude.seq` Prelude.rnf integrationResponseKey
+    Prelude.rnf contentHandlingStrategy `Prelude.seq`
+      Prelude.rnf integrationResponseId `Prelude.seq`
+        Prelude.rnf responseParameters `Prelude.seq`
+          Prelude.rnf responseTemplates `Prelude.seq`
+            Prelude.rnf templateSelectionExpression `Prelude.seq`
+              Prelude.rnf integrationResponseKey

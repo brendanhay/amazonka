@@ -114,8 +114,8 @@ instance Prelude.Hashable FailoverShard where
 
 instance Prelude.NFData FailoverShard where
   rnf FailoverShard' {..} =
-    Prelude.rnf clusterName
-      `Prelude.seq` Prelude.rnf shardName
+    Prelude.rnf clusterName `Prelude.seq`
+      Prelude.rnf shardName
 
 instance Data.ToHeaders FailoverShard where
   toHeaders =
@@ -187,5 +187,5 @@ failoverShardResponse_httpStatus = Lens.lens (\FailoverShardResponse' {httpStatu
 
 instance Prelude.NFData FailoverShardResponse where
   rnf FailoverShardResponse' {..} =
-    Prelude.rnf cluster
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf cluster `Prelude.seq`
+      Prelude.rnf httpStatus

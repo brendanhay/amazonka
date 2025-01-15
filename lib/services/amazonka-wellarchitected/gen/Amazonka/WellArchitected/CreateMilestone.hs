@@ -127,9 +127,9 @@ instance Prelude.Hashable CreateMilestone where
 
 instance Prelude.NFData CreateMilestone where
   rnf CreateMilestone' {..} =
-    Prelude.rnf workloadId
-      `Prelude.seq` Prelude.rnf milestoneName
-      `Prelude.seq` Prelude.rnf clientRequestToken
+    Prelude.rnf workloadId `Prelude.seq`
+      Prelude.rnf milestoneName `Prelude.seq`
+        Prelude.rnf clientRequestToken
 
 instance Data.ToHeaders CreateMilestone where
   toHeaders =
@@ -211,6 +211,6 @@ createMilestoneResponse_httpStatus = Lens.lens (\CreateMilestoneResponse' {httpS
 
 instance Prelude.NFData CreateMilestoneResponse where
   rnf CreateMilestoneResponse' {..} =
-    Prelude.rnf milestoneNumber
-      `Prelude.seq` Prelude.rnf workloadId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf milestoneNumber `Prelude.seq`
+      Prelude.rnf workloadId `Prelude.seq`
+        Prelude.rnf httpStatus

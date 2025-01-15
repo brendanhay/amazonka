@@ -133,6 +133,6 @@ instance Prelude.Hashable GeoMatchSet where
 
 instance Prelude.NFData GeoMatchSet where
   rnf GeoMatchSet' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf geoMatchSetId
-      `Prelude.seq` Prelude.rnf geoMatchConstraints
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf geoMatchSetId `Prelude.seq`
+        Prelude.rnf geoMatchConstraints

@@ -198,14 +198,14 @@ instance Prelude.Hashable NumericEqualityFilter where
 
 instance Prelude.NFData NumericEqualityFilter where
   rnf NumericEqualityFilter' {..} =
-    Prelude.rnf aggregationFunction
-      `Prelude.seq` Prelude.rnf parameterName
-      `Prelude.seq` Prelude.rnf selectAllOptions
-      `Prelude.seq` Prelude.rnf value
-      `Prelude.seq` Prelude.rnf filterId
-      `Prelude.seq` Prelude.rnf column
-      `Prelude.seq` Prelude.rnf matchOperator
-      `Prelude.seq` Prelude.rnf nullOption
+    Prelude.rnf aggregationFunction `Prelude.seq`
+      Prelude.rnf parameterName `Prelude.seq`
+        Prelude.rnf selectAllOptions `Prelude.seq`
+          Prelude.rnf value `Prelude.seq`
+            Prelude.rnf filterId `Prelude.seq`
+              Prelude.rnf column `Prelude.seq`
+                Prelude.rnf matchOperator `Prelude.seq`
+                  Prelude.rnf nullOption
 
 instance Data.ToJSON NumericEqualityFilter where
   toJSON NumericEqualityFilter' {..} =

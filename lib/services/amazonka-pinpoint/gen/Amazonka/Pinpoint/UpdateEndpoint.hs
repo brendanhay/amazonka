@@ -132,9 +132,9 @@ instance Prelude.Hashable UpdateEndpoint where
 
 instance Prelude.NFData UpdateEndpoint where
   rnf UpdateEndpoint' {..} =
-    Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf endpointId
-      `Prelude.seq` Prelude.rnf endpointRequest
+    Prelude.rnf applicationId `Prelude.seq`
+      Prelude.rnf endpointId `Prelude.seq`
+        Prelude.rnf endpointRequest
 
 instance Data.ToHeaders UpdateEndpoint where
   toHeaders =
@@ -204,5 +204,5 @@ updateEndpointResponse_messageBody = Lens.lens (\UpdateEndpointResponse' {messag
 
 instance Prelude.NFData UpdateEndpointResponse where
   rnf UpdateEndpointResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf messageBody
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf messageBody

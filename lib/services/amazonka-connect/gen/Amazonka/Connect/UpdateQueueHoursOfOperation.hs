@@ -125,9 +125,9 @@ instance Prelude.Hashable UpdateQueueHoursOfOperation where
 
 instance Prelude.NFData UpdateQueueHoursOfOperation where
   rnf UpdateQueueHoursOfOperation' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf queueId
-      `Prelude.seq` Prelude.rnf hoursOfOperationId
+    Prelude.rnf instanceId `Prelude.seq`
+      Prelude.rnf queueId `Prelude.seq`
+        Prelude.rnf hoursOfOperationId
 
 instance Data.ToHeaders UpdateQueueHoursOfOperation where
   toHeaders =

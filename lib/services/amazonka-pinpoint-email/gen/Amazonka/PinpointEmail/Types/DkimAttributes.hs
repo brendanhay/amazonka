@@ -177,6 +177,6 @@ instance Prelude.Hashable DkimAttributes where
 
 instance Prelude.NFData DkimAttributes where
   rnf DkimAttributes' {..} =
-    Prelude.rnf signingEnabled
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf tokens
+    Prelude.rnf signingEnabled `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf tokens

@@ -108,6 +108,6 @@ instance Prelude.Hashable BackupPlan where
 
 instance Prelude.NFData BackupPlan where
   rnf BackupPlan' {..} =
-    Prelude.rnf advancedBackupSettings
-      `Prelude.seq` Prelude.rnf backupPlanName
-      `Prelude.seq` Prelude.rnf rules
+    Prelude.rnf advancedBackupSettings `Prelude.seq`
+      Prelude.rnf backupPlanName `Prelude.seq`
+        Prelude.rnf rules

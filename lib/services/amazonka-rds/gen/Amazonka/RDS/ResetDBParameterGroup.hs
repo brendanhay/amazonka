@@ -212,9 +212,9 @@ instance Prelude.Hashable ResetDBParameterGroup where
 
 instance Prelude.NFData ResetDBParameterGroup where
   rnf ResetDBParameterGroup' {..} =
-    Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf resetAllParameters
-      `Prelude.seq` Prelude.rnf dbParameterGroupName
+    Prelude.rnf parameters `Prelude.seq`
+      Prelude.rnf resetAllParameters `Prelude.seq`
+        Prelude.rnf dbParameterGroupName
 
 instance Data.ToHeaders ResetDBParameterGroup where
   toHeaders = Prelude.const Prelude.mempty

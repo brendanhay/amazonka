@@ -194,15 +194,15 @@ instance Prelude.Hashable EnvironmentSummary where
 
 instance Prelude.NFData EnvironmentSummary where
   rnf EnvironmentSummary' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf environmentId
-      `Prelude.seq` Prelude.rnf error
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf networkFabricType
-      `Prelude.seq` Prelude.rnf ownerAccountId
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf transitGatewayId
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf createdTime `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf environmentId `Prelude.seq`
+            Prelude.rnf error `Prelude.seq`
+              Prelude.rnf lastUpdatedTime `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf networkFabricType `Prelude.seq`
+                    Prelude.rnf ownerAccountId `Prelude.seq`
+                      Prelude.rnf state `Prelude.seq`
+                        Prelude.rnf tags `Prelude.seq`
+                          Prelude.rnf transitGatewayId

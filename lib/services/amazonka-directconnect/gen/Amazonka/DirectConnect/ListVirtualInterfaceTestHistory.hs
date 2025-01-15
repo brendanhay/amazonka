@@ -185,12 +185,12 @@ instance
     ListVirtualInterfaceTestHistory
   where
   rnf ListVirtualInterfaceTestHistory' {..} =
-    Prelude.rnf bgpPeers
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf testId
-      `Prelude.seq` Prelude.rnf virtualInterfaceId
+    Prelude.rnf bgpPeers `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf testId `Prelude.seq`
+              Prelude.rnf virtualInterfaceId
 
 instance
   Data.ToHeaders
@@ -288,6 +288,6 @@ instance
     ListVirtualInterfaceTestHistoryResponse
   where
   rnf ListVirtualInterfaceTestHistoryResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf virtualInterfaceTestHistory
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf virtualInterfaceTestHistory `Prelude.seq`
+        Prelude.rnf httpStatus

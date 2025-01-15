@@ -117,8 +117,8 @@ instance Prelude.Hashable ThingAttribute where
 
 instance Prelude.NFData ThingAttribute where
   rnf ThingAttribute' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf thingArn
-      `Prelude.seq` Prelude.rnf thingName
-      `Prelude.seq` Prelude.rnf thingTypeName
-      `Prelude.seq` Prelude.rnf version
+    Prelude.rnf attributes `Prelude.seq`
+      Prelude.rnf thingArn `Prelude.seq`
+        Prelude.rnf thingName `Prelude.seq`
+          Prelude.rnf thingTypeName `Prelude.seq`
+            Prelude.rnf version

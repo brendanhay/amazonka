@@ -178,10 +178,10 @@ instance
     CreateDeliverabilityTestReport
   where
   rnf CreateDeliverabilityTestReport' {..} =
-    Prelude.rnf reportName
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf fromEmailAddress
-      `Prelude.seq` Prelude.rnf content
+    Prelude.rnf reportName `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf fromEmailAddress `Prelude.seq`
+          Prelude.rnf content
 
 instance
   Data.ToHeaders
@@ -295,6 +295,6 @@ instance
     CreateDeliverabilityTestReportResponse
   where
   rnf CreateDeliverabilityTestReportResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf reportId
-      `Prelude.seq` Prelude.rnf deliverabilityTestStatus
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf reportId `Prelude.seq`
+        Prelude.rnf deliverabilityTestStatus

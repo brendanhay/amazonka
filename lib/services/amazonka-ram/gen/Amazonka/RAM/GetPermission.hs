@@ -132,8 +132,8 @@ instance Prelude.Hashable GetPermission where
 
 instance Prelude.NFData GetPermission where
   rnf GetPermission' {..} =
-    Prelude.rnf permissionVersion
-      `Prelude.seq` Prelude.rnf permissionArn
+    Prelude.rnf permissionVersion `Prelude.seq`
+      Prelude.rnf permissionArn
 
 instance Data.ToHeaders GetPermission where
   toHeaders =
@@ -204,5 +204,5 @@ getPermissionResponse_httpStatus = Lens.lens (\GetPermissionResponse' {httpStatu
 
 instance Prelude.NFData GetPermissionResponse where
   rnf GetPermissionResponse' {..} =
-    Prelude.rnf permission
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf permission `Prelude.seq`
+      Prelude.rnf httpStatus

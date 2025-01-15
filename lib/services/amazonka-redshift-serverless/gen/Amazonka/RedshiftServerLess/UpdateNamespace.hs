@@ -179,13 +179,13 @@ instance Prelude.Hashable UpdateNamespace where
 
 instance Prelude.NFData UpdateNamespace where
   rnf UpdateNamespace' {..} =
-    Prelude.rnf adminUserPassword
-      `Prelude.seq` Prelude.rnf adminUsername
-      `Prelude.seq` Prelude.rnf defaultIamRoleArn
-      `Prelude.seq` Prelude.rnf iamRoles
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf logExports
-      `Prelude.seq` Prelude.rnf namespaceName
+    Prelude.rnf adminUserPassword `Prelude.seq`
+      Prelude.rnf adminUsername `Prelude.seq`
+        Prelude.rnf defaultIamRoleArn `Prelude.seq`
+          Prelude.rnf iamRoles `Prelude.seq`
+            Prelude.rnf kmsKeyId `Prelude.seq`
+              Prelude.rnf logExports `Prelude.seq`
+                Prelude.rnf namespaceName
 
 instance Data.ToHeaders UpdateNamespace where
   toHeaders =
@@ -267,5 +267,5 @@ updateNamespaceResponse_namespace = Lens.lens (\UpdateNamespaceResponse' {namesp
 
 instance Prelude.NFData UpdateNamespaceResponse where
   rnf UpdateNamespaceResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf namespace
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf namespace

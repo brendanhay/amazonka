@@ -170,8 +170,8 @@ instance Prelude.Hashable PutResolverRulePolicy where
 
 instance Prelude.NFData PutResolverRulePolicy where
   rnf PutResolverRulePolicy' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf resolverRulePolicy
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf resolverRulePolicy
 
 instance Data.ToHeaders PutResolverRulePolicy where
   toHeaders =
@@ -247,5 +247,5 @@ putResolverRulePolicyResponse_httpStatus = Lens.lens (\PutResolverRulePolicyResp
 
 instance Prelude.NFData PutResolverRulePolicyResponse where
   rnf PutResolverRulePolicyResponse' {..} =
-    Prelude.rnf returnValue
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf returnValue `Prelude.seq`
+      Prelude.rnf httpStatus

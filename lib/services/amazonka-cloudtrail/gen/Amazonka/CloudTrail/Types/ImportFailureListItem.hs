@@ -115,8 +115,8 @@ instance Prelude.Hashable ImportFailureListItem where
 
 instance Prelude.NFData ImportFailureListItem where
   rnf ImportFailureListItem' {..} =
-    Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf errorType
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf errorMessage `Prelude.seq`
+      Prelude.rnf errorType `Prelude.seq`
+        Prelude.rnf lastUpdatedTime `Prelude.seq`
+          Prelude.rnf location `Prelude.seq`
+            Prelude.rnf status

@@ -80,5 +80,5 @@ instance Prelude.Hashable ReleaseSummary where
 
 instance Prelude.NFData ReleaseSummary where
   rnf ReleaseSummary' {..} =
-    Prelude.rnf releaseVersion
-      `Prelude.seq` Prelude.rnf timestamp
+    Prelude.rnf releaseVersion `Prelude.seq`
+      Prelude.rnf timestamp

@@ -159,5 +159,5 @@ getChannelsResponse_channelsResponse = Lens.lens (\GetChannelsResponse' {channel
 
 instance Prelude.NFData GetChannelsResponse where
   rnf GetChannelsResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf channelsResponse
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf channelsResponse

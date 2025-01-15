@@ -185,5 +185,5 @@ instance
     CancelComponentDeploymentResponse
   where
   rnf CancelComponentDeploymentResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf component
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf component

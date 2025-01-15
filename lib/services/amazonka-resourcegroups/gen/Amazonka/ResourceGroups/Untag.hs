@@ -186,6 +186,6 @@ untagResponse_httpStatus = Lens.lens (\UntagResponse' {httpStatus} -> httpStatus
 
 instance Prelude.NFData UntagResponse where
   rnf UntagResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf keys
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf keys `Prelude.seq`
+        Prelude.rnf httpStatus

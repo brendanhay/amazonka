@@ -309,22 +309,22 @@ instance
     AwsElasticBeanstalkEnvironmentDetails
   where
   rnf AwsElasticBeanstalkEnvironmentDetails' {..} =
-    Prelude.rnf applicationName
-      `Prelude.seq` Prelude.rnf cname
-      `Prelude.seq` Prelude.rnf dateCreated
-      `Prelude.seq` Prelude.rnf dateUpdated
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf endpointUrl
-      `Prelude.seq` Prelude.rnf environmentArn
-      `Prelude.seq` Prelude.rnf environmentId
-      `Prelude.seq` Prelude.rnf environmentLinks
-      `Prelude.seq` Prelude.rnf environmentName
-      `Prelude.seq` Prelude.rnf optionSettings
-      `Prelude.seq` Prelude.rnf platformArn
-      `Prelude.seq` Prelude.rnf solutionStackName
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf tier
-      `Prelude.seq` Prelude.rnf versionLabel
+    Prelude.rnf applicationName `Prelude.seq`
+      Prelude.rnf cname `Prelude.seq`
+        Prelude.rnf dateCreated `Prelude.seq`
+          Prelude.rnf dateUpdated `Prelude.seq`
+            Prelude.rnf description `Prelude.seq`
+              Prelude.rnf endpointUrl `Prelude.seq`
+                Prelude.rnf environmentArn `Prelude.seq`
+                  Prelude.rnf environmentId `Prelude.seq`
+                    Prelude.rnf environmentLinks `Prelude.seq`
+                      Prelude.rnf environmentName `Prelude.seq`
+                        Prelude.rnf optionSettings `Prelude.seq`
+                          Prelude.rnf platformArn `Prelude.seq`
+                            Prelude.rnf solutionStackName `Prelude.seq`
+                              Prelude.rnf status `Prelude.seq`
+                                Prelude.rnf tier `Prelude.seq`
+                                  Prelude.rnf versionLabel
 
 instance
   Data.ToJSON

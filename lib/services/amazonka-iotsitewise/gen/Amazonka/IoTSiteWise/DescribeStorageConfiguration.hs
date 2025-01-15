@@ -279,10 +279,10 @@ instance
     DescribeStorageConfigurationResponse
   where
   rnf DescribeStorageConfigurationResponse' {..} =
-    Prelude.rnf disassociatedDataStorage
-      `Prelude.seq` Prelude.rnf lastUpdateDate
-      `Prelude.seq` Prelude.rnf multiLayerStorage
-      `Prelude.seq` Prelude.rnf retentionPeriod
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf storageType
-      `Prelude.seq` Prelude.rnf configurationStatus
+    Prelude.rnf disassociatedDataStorage `Prelude.seq`
+      Prelude.rnf lastUpdateDate `Prelude.seq`
+        Prelude.rnf multiLayerStorage `Prelude.seq`
+          Prelude.rnf retentionPeriod `Prelude.seq`
+            Prelude.rnf httpStatus `Prelude.seq`
+              Prelude.rnf storageType `Prelude.seq`
+                Prelude.rnf configurationStatus

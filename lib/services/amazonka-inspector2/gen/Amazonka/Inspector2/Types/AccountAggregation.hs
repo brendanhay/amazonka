@@ -95,10 +95,10 @@ instance Prelude.Hashable AccountAggregation where
 
 instance Prelude.NFData AccountAggregation where
   rnf AccountAggregation' {..} =
-    Prelude.rnf findingType
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf sortOrder
+    Prelude.rnf findingType `Prelude.seq`
+      Prelude.rnf resourceType `Prelude.seq`
+        Prelude.rnf sortBy `Prelude.seq`
+          Prelude.rnf sortOrder
 
 instance Data.ToJSON AccountAggregation where
   toJSON AccountAggregation' {..} =

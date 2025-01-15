@@ -134,10 +134,10 @@ instance Prelude.Hashable CreateDocumentationVersion where
 
 instance Prelude.NFData CreateDocumentationVersion where
   rnf CreateDocumentationVersion' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf stageName
-      `Prelude.seq` Prelude.rnf restApiId
-      `Prelude.seq` Prelude.rnf documentationVersion
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf stageName `Prelude.seq`
+        Prelude.rnf restApiId `Prelude.seq`
+          Prelude.rnf documentationVersion
 
 instance Data.ToHeaders CreateDocumentationVersion where
   toHeaders =

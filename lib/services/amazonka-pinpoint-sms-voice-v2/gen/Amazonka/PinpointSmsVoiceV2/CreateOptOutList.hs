@@ -145,9 +145,9 @@ instance Prelude.Hashable CreateOptOutList where
 
 instance Prelude.NFData CreateOptOutList where
   rnf CreateOptOutList' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf optOutListName
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf optOutListName
 
 instance Data.ToHeaders CreateOptOutList where
   toHeaders =
@@ -255,8 +255,8 @@ createOptOutListResponse_httpStatus = Lens.lens (\CreateOptOutListResponse' {htt
 
 instance Prelude.NFData CreateOptOutListResponse where
   rnf CreateOptOutListResponse' {..} =
-    Prelude.rnf createdTimestamp
-      `Prelude.seq` Prelude.rnf optOutListArn
-      `Prelude.seq` Prelude.rnf optOutListName
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf createdTimestamp `Prelude.seq`
+      Prelude.rnf optOutListArn `Prelude.seq`
+        Prelude.rnf optOutListName `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf httpStatus

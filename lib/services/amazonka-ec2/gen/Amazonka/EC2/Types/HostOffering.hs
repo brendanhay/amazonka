@@ -137,10 +137,10 @@ instance Prelude.Hashable HostOffering where
 
 instance Prelude.NFData HostOffering where
   rnf HostOffering' {..} =
-    Prelude.rnf currencyCode
-      `Prelude.seq` Prelude.rnf duration
-      `Prelude.seq` Prelude.rnf hourlyPrice
-      `Prelude.seq` Prelude.rnf instanceFamily
-      `Prelude.seq` Prelude.rnf offeringId
-      `Prelude.seq` Prelude.rnf paymentOption
-      `Prelude.seq` Prelude.rnf upfrontPrice
+    Prelude.rnf currencyCode `Prelude.seq`
+      Prelude.rnf duration `Prelude.seq`
+        Prelude.rnf hourlyPrice `Prelude.seq`
+          Prelude.rnf instanceFamily `Prelude.seq`
+            Prelude.rnf offeringId `Prelude.seq`
+              Prelude.rnf paymentOption `Prelude.seq`
+                Prelude.rnf upfrontPrice

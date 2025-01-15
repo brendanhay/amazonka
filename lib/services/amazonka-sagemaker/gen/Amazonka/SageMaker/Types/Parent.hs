@@ -82,5 +82,5 @@ instance Prelude.Hashable Parent where
 
 instance Prelude.NFData Parent where
   rnf Parent' {..} =
-    Prelude.rnf experimentName
-      `Prelude.seq` Prelude.rnf trialName
+    Prelude.rnf experimentName `Prelude.seq`
+      Prelude.rnf trialName

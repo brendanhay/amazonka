@@ -128,8 +128,8 @@ instance
     UpdateApplicationResourceLifecycle
   where
   rnf UpdateApplicationResourceLifecycle' {..} =
-    Prelude.rnf applicationName
-      `Prelude.seq` Prelude.rnf resourceLifecycleConfig
+    Prelude.rnf applicationName `Prelude.seq`
+      Prelude.rnf resourceLifecycleConfig
 
 instance
   Data.ToHeaders
@@ -215,6 +215,6 @@ instance
     UpdateApplicationResourceLifecycleResponse
   where
   rnf UpdateApplicationResourceLifecycleResponse' {..} =
-    Prelude.rnf applicationName
-      `Prelude.seq` Prelude.rnf resourceLifecycleConfig
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf applicationName `Prelude.seq`
+      Prelude.rnf resourceLifecycleConfig `Prelude.seq`
+        Prelude.rnf httpStatus

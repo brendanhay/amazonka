@@ -83,5 +83,5 @@ instance Prelude.Hashable ValueWithServiceIds where
 
 instance Prelude.NFData ValueWithServiceIds where
   rnf ValueWithServiceIds' {..} =
-    Prelude.rnf annotationValue
-      `Prelude.seq` Prelude.rnf serviceIds
+    Prelude.rnf annotationValue `Prelude.seq`
+      Prelude.rnf serviceIds

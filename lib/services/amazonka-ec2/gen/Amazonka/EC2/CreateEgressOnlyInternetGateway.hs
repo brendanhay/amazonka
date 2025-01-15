@@ -163,10 +163,10 @@ instance
     CreateEgressOnlyInternetGateway
   where
   rnf CreateEgressOnlyInternetGateway' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf tagSpecifications
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf tagSpecifications `Prelude.seq`
+          Prelude.rnf vpcId
 
 instance
   Data.ToHeaders
@@ -253,6 +253,6 @@ instance
     CreateEgressOnlyInternetGatewayResponse
   where
   rnf CreateEgressOnlyInternetGatewayResponse' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf egressOnlyInternetGateway
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf egressOnlyInternetGateway `Prelude.seq`
+        Prelude.rnf httpStatus

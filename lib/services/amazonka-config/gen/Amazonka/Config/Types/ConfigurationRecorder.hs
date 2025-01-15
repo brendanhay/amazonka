@@ -114,9 +114,9 @@ instance Prelude.Hashable ConfigurationRecorder where
 
 instance Prelude.NFData ConfigurationRecorder where
   rnf ConfigurationRecorder' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf recordingGroup
-      `Prelude.seq` Prelude.rnf roleARN
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf recordingGroup `Prelude.seq`
+        Prelude.rnf roleARN
 
 instance Data.ToJSON ConfigurationRecorder where
   toJSON ConfigurationRecorder' {..} =

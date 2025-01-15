@@ -124,6 +124,6 @@ instance
     ActivityTaskCompletedEventAttributes
   where
   rnf ActivityTaskCompletedEventAttributes' {..} =
-    Prelude.rnf result
-      `Prelude.seq` Prelude.rnf scheduledEventId
-      `Prelude.seq` Prelude.rnf startedEventId
+    Prelude.rnf result `Prelude.seq`
+      Prelude.rnf scheduledEventId `Prelude.seq`
+        Prelude.rnf startedEventId

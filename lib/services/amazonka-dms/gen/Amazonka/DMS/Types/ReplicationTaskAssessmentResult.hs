@@ -176,10 +176,10 @@ instance
     ReplicationTaskAssessmentResult
   where
   rnf ReplicationTaskAssessmentResult' {..} =
-    Prelude.rnf assessmentResults
-      `Prelude.seq` Prelude.rnf assessmentResultsFile
-      `Prelude.seq` Prelude.rnf assessmentStatus
-      `Prelude.seq` Prelude.rnf replicationTaskArn
-      `Prelude.seq` Prelude.rnf replicationTaskIdentifier
-      `Prelude.seq` Prelude.rnf replicationTaskLastAssessmentDate
-      `Prelude.seq` Prelude.rnf s3ObjectUrl
+    Prelude.rnf assessmentResults `Prelude.seq`
+      Prelude.rnf assessmentResultsFile `Prelude.seq`
+        Prelude.rnf assessmentStatus `Prelude.seq`
+          Prelude.rnf replicationTaskArn `Prelude.seq`
+            Prelude.rnf replicationTaskIdentifier `Prelude.seq`
+              Prelude.rnf replicationTaskLastAssessmentDate `Prelude.seq`
+                Prelude.rnf s3ObjectUrl

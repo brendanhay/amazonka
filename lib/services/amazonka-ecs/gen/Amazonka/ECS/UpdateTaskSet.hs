@@ -155,10 +155,10 @@ instance Prelude.Hashable UpdateTaskSet where
 
 instance Prelude.NFData UpdateTaskSet where
   rnf UpdateTaskSet' {..} =
-    Prelude.rnf cluster
-      `Prelude.seq` Prelude.rnf service
-      `Prelude.seq` Prelude.rnf taskSet
-      `Prelude.seq` Prelude.rnf scale
+    Prelude.rnf cluster `Prelude.seq`
+      Prelude.rnf service `Prelude.seq`
+        Prelude.rnf taskSet `Prelude.seq`
+          Prelude.rnf scale
 
 instance Data.ToHeaders UpdateTaskSet where
   toHeaders =
@@ -232,5 +232,5 @@ updateTaskSetResponse_httpStatus = Lens.lens (\UpdateTaskSetResponse' {httpStatu
 
 instance Prelude.NFData UpdateTaskSetResponse where
   rnf UpdateTaskSetResponse' {..} =
-    Prelude.rnf taskSet
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf taskSet `Prelude.seq`
+      Prelude.rnf httpStatus

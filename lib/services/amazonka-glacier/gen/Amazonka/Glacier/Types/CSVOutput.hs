@@ -127,11 +127,11 @@ instance Prelude.Hashable CSVOutput where
 
 instance Prelude.NFData CSVOutput where
   rnf CSVOutput' {..} =
-    Prelude.rnf fieldDelimiter
-      `Prelude.seq` Prelude.rnf quoteCharacter
-      `Prelude.seq` Prelude.rnf quoteEscapeCharacter
-      `Prelude.seq` Prelude.rnf quoteFields
-      `Prelude.seq` Prelude.rnf recordDelimiter
+    Prelude.rnf fieldDelimiter `Prelude.seq`
+      Prelude.rnf quoteCharacter `Prelude.seq`
+        Prelude.rnf quoteEscapeCharacter `Prelude.seq`
+          Prelude.rnf quoteFields `Prelude.seq`
+            Prelude.rnf recordDelimiter
 
 instance Data.ToJSON CSVOutput where
   toJSON CSVOutput' {..} =

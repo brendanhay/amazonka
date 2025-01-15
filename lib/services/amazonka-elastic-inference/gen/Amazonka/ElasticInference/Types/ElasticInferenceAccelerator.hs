@@ -121,8 +121,8 @@ instance Prelude.Hashable ElasticInferenceAccelerator where
 
 instance Prelude.NFData ElasticInferenceAccelerator where
   rnf ElasticInferenceAccelerator' {..} =
-    Prelude.rnf acceleratorHealth
-      `Prelude.seq` Prelude.rnf acceleratorId
-      `Prelude.seq` Prelude.rnf acceleratorType
-      `Prelude.seq` Prelude.rnf attachedResource
-      `Prelude.seq` Prelude.rnf availabilityZone
+    Prelude.rnf acceleratorHealth `Prelude.seq`
+      Prelude.rnf acceleratorId `Prelude.seq`
+        Prelude.rnf acceleratorType `Prelude.seq`
+          Prelude.rnf attachedResource `Prelude.seq`
+            Prelude.rnf availabilityZone

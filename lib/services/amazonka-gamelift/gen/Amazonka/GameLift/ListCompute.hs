@@ -140,12 +140,12 @@ instance Core.AWSPager ListCompute where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listCompute_nextToken
-          Lens..~ rs
-          Lens.^? listComputeResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listCompute_nextToken
+              Lens..~ rs
+              Lens.^? listComputeResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListCompute where
   type AWSResponse ListCompute = ListComputeResponse
@@ -170,10 +170,10 @@ instance Prelude.Hashable ListCompute where
 
 instance Prelude.NFData ListCompute where
   rnf ListCompute' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf fleetId
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf location `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf fleetId
 
 instance Data.ToHeaders ListCompute where
   toHeaders =
@@ -260,6 +260,6 @@ listComputeResponse_httpStatus = Lens.lens (\ListComputeResponse' {httpStatus} -
 
 instance Prelude.NFData ListComputeResponse where
   rnf ListComputeResponse' {..} =
-    Prelude.rnf computeList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf computeList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

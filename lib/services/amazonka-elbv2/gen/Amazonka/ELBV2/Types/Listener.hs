@@ -128,19 +128,13 @@ listener_sslPolicy = Lens.lens (\Listener' {sslPolicy} -> sslPolicy) (\s@Listene
 instance Data.FromXML Listener where
   parseXML x =
     Listener'
-      Prelude.<$> ( x
-                      Data..@? "AlpnPolicy"
-                      Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "AlpnPolicy" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x
-                      Data..@? "Certificates"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "Certificates" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x
-                      Data..@? "DefaultActions"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "DefaultActions" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "ListenerArn")
@@ -163,11 +157,11 @@ instance Prelude.Hashable Listener where
 
 instance Prelude.NFData Listener where
   rnf Listener' {..} =
-    Prelude.rnf alpnPolicy
-      `Prelude.seq` Prelude.rnf certificates
-      `Prelude.seq` Prelude.rnf defaultActions
-      `Prelude.seq` Prelude.rnf listenerArn
-      `Prelude.seq` Prelude.rnf loadBalancerArn
-      `Prelude.seq` Prelude.rnf port
-      `Prelude.seq` Prelude.rnf protocol
-      `Prelude.seq` Prelude.rnf sslPolicy
+    Prelude.rnf alpnPolicy `Prelude.seq`
+      Prelude.rnf certificates `Prelude.seq`
+        Prelude.rnf defaultActions `Prelude.seq`
+          Prelude.rnf listenerArn `Prelude.seq`
+            Prelude.rnf loadBalancerArn `Prelude.seq`
+              Prelude.rnf port `Prelude.seq`
+                Prelude.rnf protocol `Prelude.seq`
+                  Prelude.rnf sslPolicy

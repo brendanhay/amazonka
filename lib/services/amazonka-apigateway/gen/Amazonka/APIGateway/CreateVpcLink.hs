@@ -149,10 +149,10 @@ instance Prelude.Hashable CreateVpcLink where
 
 instance Prelude.NFData CreateVpcLink where
   rnf CreateVpcLink' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf targetArns
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf targetArns
 
 instance Data.ToHeaders CreateVpcLink where
   toHeaders =

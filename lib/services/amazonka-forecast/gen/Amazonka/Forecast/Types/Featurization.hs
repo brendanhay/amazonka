@@ -122,8 +122,8 @@ instance Prelude.Hashable Featurization where
 
 instance Prelude.NFData Featurization where
   rnf Featurization' {..} =
-    Prelude.rnf featurizationPipeline
-      `Prelude.seq` Prelude.rnf attributeName
+    Prelude.rnf featurizationPipeline `Prelude.seq`
+      Prelude.rnf attributeName
 
 instance Data.ToJSON Featurization where
   toJSON Featurization' {..} =

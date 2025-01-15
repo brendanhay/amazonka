@@ -81,9 +81,9 @@ instance Prelude.Hashable LoRaWANServiceProfile where
 
 instance Prelude.NFData LoRaWANServiceProfile where
   rnf LoRaWANServiceProfile' {..} =
-    Prelude.rnf addGwMetadata
-      `Prelude.seq` Prelude.rnf drMax
-      `Prelude.seq` Prelude.rnf drMin
+    Prelude.rnf addGwMetadata `Prelude.seq`
+      Prelude.rnf drMax `Prelude.seq`
+        Prelude.rnf drMin
 
 instance Data.ToJSON LoRaWANServiceProfile where
   toJSON LoRaWANServiceProfile' {..} =

@@ -313,6 +313,6 @@ instance
   where
   rnf
     GetEffectiveRecommendationPreferencesResponse' {..} =
-      Prelude.rnf enhancedInfrastructureMetrics
-        `Prelude.seq` Prelude.rnf externalMetricsPreference
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf enhancedInfrastructureMetrics `Prelude.seq`
+        Prelude.rnf externalMetricsPreference `Prelude.seq`
+          Prelude.rnf httpStatus

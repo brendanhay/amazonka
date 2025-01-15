@@ -290,13 +290,13 @@ instance
     GenerateEmbedUrlForAnonymousUser
   where
   rnf GenerateEmbedUrlForAnonymousUser' {..} =
-    Prelude.rnf allowedDomains
-      `Prelude.seq` Prelude.rnf sessionLifetimeInMinutes
-      `Prelude.seq` Prelude.rnf sessionTags
-      `Prelude.seq` Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf namespace
-      `Prelude.seq` Prelude.rnf authorizedResourceArns
-      `Prelude.seq` Prelude.rnf experienceConfiguration
+    Prelude.rnf allowedDomains `Prelude.seq`
+      Prelude.rnf sessionLifetimeInMinutes `Prelude.seq`
+        Prelude.rnf sessionTags `Prelude.seq`
+          Prelude.rnf awsAccountId `Prelude.seq`
+            Prelude.rnf namespace `Prelude.seq`
+              Prelude.rnf authorizedResourceArns `Prelude.seq`
+                Prelude.rnf experienceConfiguration
 
 instance
   Data.ToHeaders
@@ -425,7 +425,7 @@ instance
     GenerateEmbedUrlForAnonymousUserResponse
   where
   rnf GenerateEmbedUrlForAnonymousUserResponse' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf embedUrl
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf anonymousUserArn
+    Prelude.rnf status `Prelude.seq`
+      Prelude.rnf embedUrl `Prelude.seq`
+        Prelude.rnf requestId `Prelude.seq`
+          Prelude.rnf anonymousUserArn

@@ -103,9 +103,9 @@ instance
 
 instance Prelude.NFData MonitoringConfigurationUpdate where
   rnf MonitoringConfigurationUpdate' {..} =
-    Prelude.rnf configurationTypeUpdate
-      `Prelude.seq` Prelude.rnf logLevelUpdate
-      `Prelude.seq` Prelude.rnf metricsLevelUpdate
+    Prelude.rnf configurationTypeUpdate `Prelude.seq`
+      Prelude.rnf logLevelUpdate `Prelude.seq`
+        Prelude.rnf metricsLevelUpdate
 
 instance Data.ToJSON MonitoringConfigurationUpdate where
   toJSON MonitoringConfigurationUpdate' {..} =

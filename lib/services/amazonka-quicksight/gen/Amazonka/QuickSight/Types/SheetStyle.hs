@@ -82,8 +82,8 @@ instance Prelude.Hashable SheetStyle where
 
 instance Prelude.NFData SheetStyle where
   rnf SheetStyle' {..} =
-    Prelude.rnf tile
-      `Prelude.seq` Prelude.rnf tileLayout
+    Prelude.rnf tile `Prelude.seq`
+      Prelude.rnf tileLayout
 
 instance Data.ToJSON SheetStyle where
   toJSON SheetStyle' {..} =

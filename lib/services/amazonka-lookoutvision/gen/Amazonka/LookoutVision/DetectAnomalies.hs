@@ -216,5 +216,5 @@ detectAnomaliesResponse_httpStatus = Lens.lens (\DetectAnomaliesResponse' {httpS
 
 instance Prelude.NFData DetectAnomaliesResponse where
   rnf DetectAnomaliesResponse' {..} =
-    Prelude.rnf detectAnomalyResult
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf detectAnomalyResult `Prelude.seq`
+      Prelude.rnf httpStatus

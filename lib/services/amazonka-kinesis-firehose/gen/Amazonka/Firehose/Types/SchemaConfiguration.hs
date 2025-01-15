@@ -189,12 +189,12 @@ instance Prelude.Hashable SchemaConfiguration where
 
 instance Prelude.NFData SchemaConfiguration where
   rnf SchemaConfiguration' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf region
-      `Prelude.seq` Prelude.rnf roleARN
-      `Prelude.seq` Prelude.rnf tableName
-      `Prelude.seq` Prelude.rnf versionId
+    Prelude.rnf catalogId `Prelude.seq`
+      Prelude.rnf databaseName `Prelude.seq`
+        Prelude.rnf region `Prelude.seq`
+          Prelude.rnf roleARN `Prelude.seq`
+            Prelude.rnf tableName `Prelude.seq`
+              Prelude.rnf versionId
 
 instance Data.ToJSON SchemaConfiguration where
   toJSON SchemaConfiguration' {..} =

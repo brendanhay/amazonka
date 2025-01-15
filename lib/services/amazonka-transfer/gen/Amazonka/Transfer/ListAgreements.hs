@@ -125,12 +125,12 @@ instance Core.AWSPager ListAgreements where
         (rs Lens.^. listAgreementsResponse_agreements) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listAgreements_nextToken
-          Lens..~ rs
-          Lens.^? listAgreementsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listAgreements_nextToken
+              Lens..~ rs
+              Lens.^? listAgreementsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAgreements where
   type
@@ -156,9 +156,9 @@ instance Prelude.Hashable ListAgreements where
 
 instance Prelude.NFData ListAgreements where
   rnf ListAgreements' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf serverId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf serverId
 
 instance Data.ToHeaders ListAgreements where
   toHeaders =
@@ -244,6 +244,6 @@ listAgreementsResponse_agreements = Lens.lens (\ListAgreementsResponse' {agreeme
 
 instance Prelude.NFData ListAgreementsResponse where
   rnf ListAgreementsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf agreements
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf agreements

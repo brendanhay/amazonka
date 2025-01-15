@@ -121,12 +121,12 @@ instance Core.AWSPager ListDashboards where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listDashboards_nextToken
-          Lens..~ rs
-          Lens.^? listDashboardsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listDashboards_nextToken
+              Lens..~ rs
+              Lens.^? listDashboardsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDashboards where
   type
@@ -156,9 +156,9 @@ instance Prelude.Hashable ListDashboards where
 
 instance Prelude.NFData ListDashboards where
   rnf ListDashboards' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf awsAccountId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf awsAccountId
 
 instance Data.ToHeaders ListDashboards where
   toHeaders =
@@ -251,7 +251,7 @@ listDashboardsResponse_status = Lens.lens (\ListDashboardsResponse' {status} -> 
 
 instance Prelude.NFData ListDashboardsResponse where
   rnf ListDashboardsResponse' {..} =
-    Prelude.rnf dashboardSummaryList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf dashboardSummaryList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf requestId `Prelude.seq`
+          Prelude.rnf status

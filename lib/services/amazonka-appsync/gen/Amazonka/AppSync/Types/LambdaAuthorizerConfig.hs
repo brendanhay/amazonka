@@ -135,9 +135,9 @@ instance Prelude.Hashable LambdaAuthorizerConfig where
 
 instance Prelude.NFData LambdaAuthorizerConfig where
   rnf LambdaAuthorizerConfig' {..} =
-    Prelude.rnf authorizerResultTtlInSeconds
-      `Prelude.seq` Prelude.rnf identityValidationExpression
-      `Prelude.seq` Prelude.rnf authorizerUri
+    Prelude.rnf authorizerResultTtlInSeconds `Prelude.seq`
+      Prelude.rnf identityValidationExpression `Prelude.seq`
+        Prelude.rnf authorizerUri
 
 instance Data.ToJSON LambdaAuthorizerConfig where
   toJSON LambdaAuthorizerConfig' {..} =

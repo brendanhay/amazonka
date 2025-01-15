@@ -115,8 +115,8 @@ instance Prelude.Hashable TestSegmentPattern where
 
 instance Prelude.NFData TestSegmentPattern where
   rnf TestSegmentPattern' {..} =
-    Prelude.rnf pattern'
-      `Prelude.seq` Prelude.rnf payload
+    Prelude.rnf pattern' `Prelude.seq`
+      Prelude.rnf payload
 
 instance Data.ToHeaders TestSegmentPattern where
   toHeaders =
@@ -187,5 +187,5 @@ testSegmentPatternResponse_match = Lens.lens (\TestSegmentPatternResponse' {matc
 
 instance Prelude.NFData TestSegmentPatternResponse where
   rnf TestSegmentPatternResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf match
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf match

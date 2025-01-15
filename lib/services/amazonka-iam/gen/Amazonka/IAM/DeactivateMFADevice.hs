@@ -140,8 +140,8 @@ instance Prelude.Hashable DeactivateMFADevice where
 
 instance Prelude.NFData DeactivateMFADevice where
   rnf DeactivateMFADevice' {..} =
-    Prelude.rnf userName
-      `Prelude.seq` Prelude.rnf serialNumber
+    Prelude.rnf userName `Prelude.seq`
+      Prelude.rnf serialNumber
 
 instance Data.ToHeaders DeactivateMFADevice where
   toHeaders = Prelude.const Prelude.mempty

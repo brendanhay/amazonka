@@ -147,8 +147,8 @@ instance
 
 instance Prelude.NFData AttachInstancesToLoadBalancer where
   rnf AttachInstancesToLoadBalancer' {..} =
-    Prelude.rnf loadBalancerName
-      `Prelude.seq` Prelude.rnf instanceNames
+    Prelude.rnf loadBalancerName `Prelude.seq`
+      Prelude.rnf instanceNames
 
 instance Data.ToHeaders AttachInstancesToLoadBalancer where
   toHeaders =
@@ -232,5 +232,5 @@ instance
     AttachInstancesToLoadBalancerResponse
   where
   rnf AttachInstancesToLoadBalancerResponse' {..} =
-    Prelude.rnf operations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operations `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -155,12 +155,12 @@ instance Core.AWSPager DescribePullRequestEvents where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describePullRequestEvents_nextToken
-          Lens..~ rs
-          Lens.^? describePullRequestEventsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describePullRequestEvents_nextToken
+              Lens..~ rs
+              Lens.^? describePullRequestEventsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribePullRequestEvents where
   type
@@ -191,11 +191,11 @@ instance Prelude.Hashable DescribePullRequestEvents where
 
 instance Prelude.NFData DescribePullRequestEvents where
   rnf DescribePullRequestEvents' {..} =
-    Prelude.rnf actorArn
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf pullRequestEventType
-      `Prelude.seq` Prelude.rnf pullRequestId
+    Prelude.rnf actorArn `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf pullRequestEventType `Prelude.seq`
+            Prelude.rnf pullRequestId
 
 instance Data.ToHeaders DescribePullRequestEvents where
   toHeaders =
@@ -288,6 +288,6 @@ instance
     DescribePullRequestEventsResponse
   where
   rnf DescribePullRequestEventsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf pullRequestEvents
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf pullRequestEvents

@@ -164,5 +164,5 @@ getSmsChannelResponse_sMSChannelResponse = Lens.lens (\GetSmsChannelResponse' {s
 
 instance Prelude.NFData GetSmsChannelResponse where
   rnf GetSmsChannelResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf sMSChannelResponse
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf sMSChannelResponse

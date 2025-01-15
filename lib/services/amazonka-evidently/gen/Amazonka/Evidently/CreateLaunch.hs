@@ -234,14 +234,14 @@ instance Prelude.Hashable CreateLaunch where
 
 instance Prelude.NFData CreateLaunch where
   rnf CreateLaunch' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf metricMonitors
-      `Prelude.seq` Prelude.rnf randomizationSalt
-      `Prelude.seq` Prelude.rnf scheduledSplitsConfig
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf groups
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf project
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf metricMonitors `Prelude.seq`
+        Prelude.rnf randomizationSalt `Prelude.seq`
+          Prelude.rnf scheduledSplitsConfig `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf groups `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf project
 
 instance Data.ToHeaders CreateLaunch where
   toHeaders =
@@ -324,5 +324,5 @@ createLaunchResponse_launch = Lens.lens (\CreateLaunchResponse' {launch} -> laun
 
 instance Prelude.NFData CreateLaunchResponse where
   rnf CreateLaunchResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf launch
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf launch

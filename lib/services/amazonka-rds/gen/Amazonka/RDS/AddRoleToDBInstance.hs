@@ -133,9 +133,9 @@ instance Prelude.Hashable AddRoleToDBInstance where
 
 instance Prelude.NFData AddRoleToDBInstance where
   rnf AddRoleToDBInstance' {..} =
-    Prelude.rnf dbInstanceIdentifier
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf featureName
+    Prelude.rnf dbInstanceIdentifier `Prelude.seq`
+      Prelude.rnf roleArn `Prelude.seq`
+        Prelude.rnf featureName
 
 instance Data.ToHeaders AddRoleToDBInstance where
   toHeaders = Prelude.const Prelude.mempty

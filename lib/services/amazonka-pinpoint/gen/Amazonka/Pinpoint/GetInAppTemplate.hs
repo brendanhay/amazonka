@@ -181,8 +181,8 @@ instance Prelude.Hashable GetInAppTemplate where
 
 instance Prelude.NFData GetInAppTemplate where
   rnf GetInAppTemplate' {..} =
-    Prelude.rnf version
-      `Prelude.seq` Prelude.rnf templateName
+    Prelude.rnf version `Prelude.seq`
+      Prelude.rnf templateName
 
 instance Data.ToHeaders GetInAppTemplate where
   toHeaders =
@@ -248,5 +248,5 @@ getInAppTemplateResponse_inAppTemplateResponse = Lens.lens (\GetInAppTemplateRes
 
 instance Prelude.NFData GetInAppTemplateResponse where
   rnf GetInAppTemplateResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf inAppTemplateResponse
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf inAppTemplateResponse

@@ -520,25 +520,25 @@ instance Prelude.Hashable RemoteAccessSession where
 
 instance Prelude.NFData RemoteAccessSession where
   rnf RemoteAccessSession' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf billingMethod
-      `Prelude.seq` Prelude.rnf clientId
-      `Prelude.seq` Prelude.rnf created
-      `Prelude.seq` Prelude.rnf device
-      `Prelude.seq` Prelude.rnf deviceMinutes
-      `Prelude.seq` Prelude.rnf deviceUdid
-      `Prelude.seq` Prelude.rnf endpoint
-      `Prelude.seq` Prelude.rnf hostAddress
-      `Prelude.seq` Prelude.rnf instanceArn
-      `Prelude.seq` Prelude.rnf interactionMode
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf remoteDebugEnabled
-      `Prelude.seq` Prelude.rnf remoteRecordAppArn
-      `Prelude.seq` Prelude.rnf remoteRecordEnabled
-      `Prelude.seq` Prelude.rnf result
-      `Prelude.seq` Prelude.rnf skipAppResign
-      `Prelude.seq` Prelude.rnf started
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf stopped
-      `Prelude.seq` Prelude.rnf vpcConfig
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf billingMethod `Prelude.seq`
+        Prelude.rnf clientId `Prelude.seq`
+          Prelude.rnf created `Prelude.seq`
+            Prelude.rnf device `Prelude.seq`
+              Prelude.rnf deviceMinutes `Prelude.seq`
+                Prelude.rnf deviceUdid `Prelude.seq`
+                  Prelude.rnf endpoint `Prelude.seq`
+                    Prelude.rnf hostAddress `Prelude.seq`
+                      Prelude.rnf instanceArn `Prelude.seq`
+                        Prelude.rnf interactionMode `Prelude.seq`
+                          Prelude.rnf message `Prelude.seq`
+                            Prelude.rnf name `Prelude.seq`
+                              Prelude.rnf remoteDebugEnabled `Prelude.seq`
+                                Prelude.rnf remoteRecordAppArn `Prelude.seq`
+                                  Prelude.rnf remoteRecordEnabled `Prelude.seq`
+                                    Prelude.rnf result `Prelude.seq`
+                                      Prelude.rnf skipAppResign `Prelude.seq`
+                                        Prelude.rnf started `Prelude.seq`
+                                          Prelude.rnf status `Prelude.seq`
+                                            Prelude.rnf stopped `Prelude.seq`
+                                              Prelude.rnf vpcConfig

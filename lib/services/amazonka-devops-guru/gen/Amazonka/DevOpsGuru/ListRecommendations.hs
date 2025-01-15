@@ -129,12 +129,12 @@ instance Core.AWSPager ListRecommendations where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listRecommendations_nextToken
-          Lens..~ rs
-          Lens.^? listRecommendationsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listRecommendations_nextToken
+              Lens..~ rs
+              Lens.^? listRecommendationsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListRecommendations where
   type
@@ -164,10 +164,10 @@ instance Prelude.Hashable ListRecommendations where
 
 instance Prelude.NFData ListRecommendations where
   rnf ListRecommendations' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf locale
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf insightId
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf locale `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf insightId
 
 instance Data.ToHeaders ListRecommendations where
   toHeaders =
@@ -250,6 +250,6 @@ listRecommendationsResponse_httpStatus = Lens.lens (\ListRecommendationsResponse
 
 instance Prelude.NFData ListRecommendationsResponse where
   rnf ListRecommendationsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf recommendations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf recommendations `Prelude.seq`
+        Prelude.rnf httpStatus

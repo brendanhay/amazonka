@@ -101,5 +101,5 @@ instance Prelude.Hashable EffectivePatch where
 
 instance Prelude.NFData EffectivePatch where
   rnf EffectivePatch' {..} =
-    Prelude.rnf patch
-      `Prelude.seq` Prelude.rnf patchStatus
+    Prelude.rnf patch `Prelude.seq`
+      Prelude.rnf patchStatus

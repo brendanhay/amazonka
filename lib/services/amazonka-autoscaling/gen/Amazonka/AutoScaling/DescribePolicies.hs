@@ -157,12 +157,12 @@ instance Core.AWSPager DescribePolicies where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describePolicies_nextToken
-          Lens..~ rs
-          Lens.^? describePoliciesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describePolicies_nextToken
+              Lens..~ rs
+              Lens.^? describePoliciesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribePolicies where
   type
@@ -176,9 +176,7 @@ instance Core.AWSRequest DescribePolicies where
       ( \s h x ->
           DescribePoliciesResponse'
             Prelude.<$> (x Data..@? "NextToken")
-            Prelude.<*> ( x
-                            Data..@? "ScalingPolicies"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "ScalingPolicies" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -195,11 +193,11 @@ instance Prelude.Hashable DescribePolicies where
 
 instance Prelude.NFData DescribePolicies where
   rnf DescribePolicies' {..} =
-    Prelude.rnf autoScalingGroupName
-      `Prelude.seq` Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf policyNames
-      `Prelude.seq` Prelude.rnf policyTypes
+    Prelude.rnf autoScalingGroupName `Prelude.seq`
+      Prelude.rnf maxRecords `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf policyNames `Prelude.seq`
+            Prelude.rnf policyTypes
 
 instance Data.ToHeaders DescribePolicies where
   toHeaders = Prelude.const Prelude.mempty
@@ -284,6 +282,6 @@ describePoliciesResponse_httpStatus = Lens.lens (\DescribePoliciesResponse' {htt
 
 instance Prelude.NFData DescribePoliciesResponse where
   rnf DescribePoliciesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf scalingPolicies
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf scalingPolicies `Prelude.seq`
+        Prelude.rnf httpStatus

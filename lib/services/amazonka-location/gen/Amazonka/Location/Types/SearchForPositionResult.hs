@@ -121,6 +121,6 @@ instance Prelude.Hashable SearchForPositionResult where
 
 instance Prelude.NFData SearchForPositionResult where
   rnf SearchForPositionResult' {..} =
-    Prelude.rnf placeId
-      `Prelude.seq` Prelude.rnf distance
-      `Prelude.seq` Prelude.rnf place
+    Prelude.rnf placeId `Prelude.seq`
+      Prelude.rnf distance `Prelude.seq`
+        Prelude.rnf place

@@ -197,8 +197,8 @@ instance
     CreateProvisioningClaimResponse
   where
   rnf CreateProvisioningClaimResponse' {..} =
-    Prelude.rnf certificateId
-      `Prelude.seq` Prelude.rnf certificatePem
-      `Prelude.seq` Prelude.rnf expiration
-      `Prelude.seq` Prelude.rnf keyPair
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf certificateId `Prelude.seq`
+      Prelude.rnf certificatePem `Prelude.seq`
+        Prelude.rnf expiration `Prelude.seq`
+          Prelude.rnf keyPair `Prelude.seq`
+            Prelude.rnf httpStatus

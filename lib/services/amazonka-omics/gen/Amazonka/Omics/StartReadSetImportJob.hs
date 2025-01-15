@@ -149,10 +149,10 @@ instance Prelude.Hashable StartReadSetImportJob where
 
 instance Prelude.NFData StartReadSetImportJob where
   rnf StartReadSetImportJob' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf sequenceStoreId
-      `Prelude.seq` Prelude.rnf sources
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf roleArn `Prelude.seq`
+        Prelude.rnf sequenceStoreId `Prelude.seq`
+          Prelude.rnf sources
 
 instance Data.ToHeaders StartReadSetImportJob where
   toHeaders =
@@ -280,9 +280,9 @@ startReadSetImportJobResponse_status = Lens.lens (\StartReadSetImportJobResponse
 
 instance Prelude.NFData StartReadSetImportJobResponse where
   rnf StartReadSetImportJobResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf sequenceStoreId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf roleArn `Prelude.seq`
+            Prelude.rnf sequenceStoreId `Prelude.seq`
+              Prelude.rnf status

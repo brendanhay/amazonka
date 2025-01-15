@@ -133,12 +133,12 @@ instance Core.AWSPager GetVehicleStatus where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getVehicleStatus_nextToken
-          Lens..~ rs
-          Lens.^? getVehicleStatusResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getVehicleStatus_nextToken
+              Lens..~ rs
+              Lens.^? getVehicleStatusResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetVehicleStatus where
   type
@@ -164,9 +164,9 @@ instance Prelude.Hashable GetVehicleStatus where
 
 instance Prelude.NFData GetVehicleStatus where
   rnf GetVehicleStatus' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf vehicleName
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf vehicleName
 
 instance Data.ToHeaders GetVehicleStatus where
   toHeaders =
@@ -255,6 +255,6 @@ getVehicleStatusResponse_httpStatus = Lens.lens (\GetVehicleStatusResponse' {htt
 
 instance Prelude.NFData GetVehicleStatusResponse where
   rnf GetVehicleStatusResponse' {..} =
-    Prelude.rnf campaigns
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf campaigns `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

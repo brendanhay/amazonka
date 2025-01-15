@@ -87,8 +87,8 @@ instance Prelude.Hashable AutoStopConfig where
 
 instance Prelude.NFData AutoStopConfig where
   rnf AutoStopConfig' {..} =
-    Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf idleTimeoutMinutes
+    Prelude.rnf enabled `Prelude.seq`
+      Prelude.rnf idleTimeoutMinutes
 
 instance Data.ToJSON AutoStopConfig where
   toJSON AutoStopConfig' {..} =

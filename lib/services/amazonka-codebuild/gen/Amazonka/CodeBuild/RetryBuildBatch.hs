@@ -130,9 +130,9 @@ instance Prelude.Hashable RetryBuildBatch where
 
 instance Prelude.NFData RetryBuildBatch where
   rnf RetryBuildBatch' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf idempotencyToken
-      `Prelude.seq` Prelude.rnf retryType
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf idempotencyToken `Prelude.seq`
+        Prelude.rnf retryType
 
 instance Data.ToHeaders RetryBuildBatch where
   toHeaders =
@@ -206,5 +206,5 @@ retryBuildBatchResponse_httpStatus = Lens.lens (\RetryBuildBatchResponse' {httpS
 
 instance Prelude.NFData RetryBuildBatchResponse where
   rnf RetryBuildBatchResponse' {..} =
-    Prelude.rnf buildBatch
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf buildBatch `Prelude.seq`
+      Prelude.rnf httpStatus

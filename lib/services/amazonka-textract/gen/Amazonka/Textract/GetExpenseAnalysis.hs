@@ -177,9 +177,9 @@ instance Prelude.Hashable GetExpenseAnalysis where
 
 instance Prelude.NFData GetExpenseAnalysis where
   rnf GetExpenseAnalysis' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf jobId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf jobId
 
 instance Data.ToHeaders GetExpenseAnalysis where
   toHeaders =
@@ -325,11 +325,11 @@ getExpenseAnalysisResponse_httpStatus = Lens.lens (\GetExpenseAnalysisResponse' 
 
 instance Prelude.NFData GetExpenseAnalysisResponse where
   rnf GetExpenseAnalysisResponse' {..} =
-    Prelude.rnf analyzeExpenseModelVersion
-      `Prelude.seq` Prelude.rnf documentMetadata
-      `Prelude.seq` Prelude.rnf expenseDocuments
-      `Prelude.seq` Prelude.rnf jobStatus
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf warnings
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf analyzeExpenseModelVersion `Prelude.seq`
+      Prelude.rnf documentMetadata `Prelude.seq`
+        Prelude.rnf expenseDocuments `Prelude.seq`
+          Prelude.rnf jobStatus `Prelude.seq`
+            Prelude.rnf nextToken `Prelude.seq`
+              Prelude.rnf statusMessage `Prelude.seq`
+                Prelude.rnf warnings `Prelude.seq`
+                  Prelude.rnf httpStatus

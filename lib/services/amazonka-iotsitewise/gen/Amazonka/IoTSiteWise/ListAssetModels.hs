@@ -107,12 +107,12 @@ instance Core.AWSPager ListAssetModels where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listAssetModels_nextToken
-          Lens..~ rs
-          Lens.^? listAssetModelsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listAssetModels_nextToken
+              Lens..~ rs
+              Lens.^? listAssetModelsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAssetModels where
   type
@@ -140,8 +140,8 @@ instance Prelude.Hashable ListAssetModels where
 
 instance Prelude.NFData ListAssetModels where
   rnf ListAssetModels' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListAssetModels where
   toHeaders =
@@ -217,6 +217,6 @@ listAssetModelsResponse_assetModelSummaries = Lens.lens (\ListAssetModelsRespons
 
 instance Prelude.NFData ListAssetModelsResponse where
   rnf ListAssetModelsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf assetModelSummaries
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf assetModelSummaries

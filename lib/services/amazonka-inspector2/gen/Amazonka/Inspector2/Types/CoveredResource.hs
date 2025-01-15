@@ -142,9 +142,9 @@ instance Prelude.Hashable CoveredResource where
 
 instance Prelude.NFData CoveredResource where
   rnf CoveredResource' {..} =
-    Prelude.rnf resourceMetadata
-      `Prelude.seq` Prelude.rnf scanStatus
-      `Prelude.seq` Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf scanType
+    Prelude.rnf resourceMetadata `Prelude.seq`
+      Prelude.rnf scanStatus `Prelude.seq`
+        Prelude.rnf accountId `Prelude.seq`
+          Prelude.rnf resourceId `Prelude.seq`
+            Prelude.rnf resourceType `Prelude.seq`
+              Prelude.rnf scanType

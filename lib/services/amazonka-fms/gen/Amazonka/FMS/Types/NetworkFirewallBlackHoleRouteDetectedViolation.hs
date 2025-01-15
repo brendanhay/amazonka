@@ -122,7 +122,7 @@ instance
   where
   rnf
     NetworkFirewallBlackHoleRouteDetectedViolation' {..} =
-      Prelude.rnf routeTableId
-        `Prelude.seq` Prelude.rnf violatingRoutes
-        `Prelude.seq` Prelude.rnf violationTarget
-        `Prelude.seq` Prelude.rnf vpcId
+      Prelude.rnf routeTableId `Prelude.seq`
+        Prelude.rnf violatingRoutes `Prelude.seq`
+          Prelude.rnf violationTarget `Prelude.seq`
+            Prelude.rnf vpcId

@@ -170,16 +170,16 @@ instance Prelude.Hashable LteObj where
 
 instance Prelude.NFData LteObj where
   rnf LteObj' {..} =
-    Prelude.rnf lteLocalId
-      `Prelude.seq` Prelude.rnf lteNmr
-      `Prelude.seq` Prelude.rnf lteTimingAdvance
-      `Prelude.seq` Prelude.rnf nrCapable
-      `Prelude.seq` Prelude.rnf rsrp
-      `Prelude.seq` Prelude.rnf rsrq
-      `Prelude.seq` Prelude.rnf tac
-      `Prelude.seq` Prelude.rnf mcc
-      `Prelude.seq` Prelude.rnf mnc
-      `Prelude.seq` Prelude.rnf eutranCid
+    Prelude.rnf lteLocalId `Prelude.seq`
+      Prelude.rnf lteNmr `Prelude.seq`
+        Prelude.rnf lteTimingAdvance `Prelude.seq`
+          Prelude.rnf nrCapable `Prelude.seq`
+            Prelude.rnf rsrp `Prelude.seq`
+              Prelude.rnf rsrq `Prelude.seq`
+                Prelude.rnf tac `Prelude.seq`
+                  Prelude.rnf mcc `Prelude.seq`
+                    Prelude.rnf mnc `Prelude.seq`
+                      Prelude.rnf eutranCid
 
 instance Data.ToJSON LteObj where
   toJSON LteObj' {..} =

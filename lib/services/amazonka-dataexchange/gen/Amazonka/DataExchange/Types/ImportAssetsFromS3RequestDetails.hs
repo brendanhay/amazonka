@@ -99,9 +99,9 @@ instance
     ImportAssetsFromS3RequestDetails
   where
   rnf ImportAssetsFromS3RequestDetails' {..} =
-    Prelude.rnf assetSources
-      `Prelude.seq` Prelude.rnf dataSetId
-      `Prelude.seq` Prelude.rnf revisionId
+    Prelude.rnf assetSources `Prelude.seq`
+      Prelude.rnf dataSetId `Prelude.seq`
+        Prelude.rnf revisionId
 
 instance Data.ToJSON ImportAssetsFromS3RequestDetails where
   toJSON ImportAssetsFromS3RequestDetails' {..} =

@@ -122,9 +122,7 @@ instance Data.FromXML CacheSubnetGroup where
       Prelude.<$> (x Data..@? "ARN")
       Prelude.<*> (x Data..@? "CacheSubnetGroupDescription")
       Prelude.<*> (x Data..@? "CacheSubnetGroupName")
-      Prelude.<*> ( x
-                      Data..@? "Subnets"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "Subnets" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "Subnet")
                   )
       Prelude.<*> ( x
@@ -146,9 +144,9 @@ instance Prelude.Hashable CacheSubnetGroup where
 
 instance Prelude.NFData CacheSubnetGroup where
   rnf CacheSubnetGroup' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf cacheSubnetGroupDescription
-      `Prelude.seq` Prelude.rnf cacheSubnetGroupName
-      `Prelude.seq` Prelude.rnf subnets
-      `Prelude.seq` Prelude.rnf supportedNetworkTypes
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf cacheSubnetGroupDescription `Prelude.seq`
+        Prelude.rnf cacheSubnetGroupName `Prelude.seq`
+          Prelude.rnf subnets `Prelude.seq`
+            Prelude.rnf supportedNetworkTypes `Prelude.seq`
+              Prelude.rnf vpcId

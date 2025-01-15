@@ -187,5 +187,5 @@ instance
     DeleteApprovalRuleTemplateResponse
   where
   rnf DeleteApprovalRuleTemplateResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf approvalRuleTemplateId
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf approvalRuleTemplateId

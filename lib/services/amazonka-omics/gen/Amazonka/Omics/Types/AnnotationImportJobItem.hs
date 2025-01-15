@@ -166,11 +166,11 @@ instance Prelude.Hashable AnnotationImportJobItem where
 
 instance Prelude.NFData AnnotationImportJobItem where
   rnf AnnotationImportJobItem' {..} =
-    Prelude.rnf completionTime
-      `Prelude.seq` Prelude.rnf runLeftNormalization
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf destinationName
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf updateTime
+    Prelude.rnf completionTime `Prelude.seq`
+      Prelude.rnf runLeftNormalization `Prelude.seq`
+        Prelude.rnf creationTime `Prelude.seq`
+          Prelude.rnf destinationName `Prelude.seq`
+            Prelude.rnf id `Prelude.seq`
+              Prelude.rnf roleArn `Prelude.seq`
+                Prelude.rnf status `Prelude.seq`
+                  Prelude.rnf updateTime

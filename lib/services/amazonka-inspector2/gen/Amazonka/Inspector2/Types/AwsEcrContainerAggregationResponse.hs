@@ -153,10 +153,10 @@ instance
     AwsEcrContainerAggregationResponse
   where
   rnf AwsEcrContainerAggregationResponse' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf architecture
-      `Prelude.seq` Prelude.rnf imageSha
-      `Prelude.seq` Prelude.rnf imageTags
-      `Prelude.seq` Prelude.rnf repository
-      `Prelude.seq` Prelude.rnf severityCounts
-      `Prelude.seq` Prelude.rnf resourceId
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf architecture `Prelude.seq`
+        Prelude.rnf imageSha `Prelude.seq`
+          Prelude.rnf imageTags `Prelude.seq`
+            Prelude.rnf repository `Prelude.seq`
+              Prelude.rnf severityCounts `Prelude.seq`
+                Prelude.rnf resourceId

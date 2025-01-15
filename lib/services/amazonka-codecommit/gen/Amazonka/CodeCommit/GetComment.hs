@@ -169,5 +169,5 @@ getCommentResponse_httpStatus = Lens.lens (\GetCommentResponse' {httpStatus} -> 
 
 instance Prelude.NFData GetCommentResponse where
   rnf GetCommentResponse' {..} =
-    Prelude.rnf comment
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf comment `Prelude.seq`
+      Prelude.rnf httpStatus

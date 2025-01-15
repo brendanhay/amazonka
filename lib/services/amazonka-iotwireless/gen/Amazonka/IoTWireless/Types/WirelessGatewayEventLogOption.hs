@@ -91,8 +91,8 @@ instance
 
 instance Prelude.NFData WirelessGatewayEventLogOption where
   rnf WirelessGatewayEventLogOption' {..} =
-    Prelude.rnf event
-      `Prelude.seq` Prelude.rnf logLevel
+    Prelude.rnf event `Prelude.seq`
+      Prelude.rnf logLevel
 
 instance Data.ToJSON WirelessGatewayEventLogOption where
   toJSON WirelessGatewayEventLogOption' {..} =

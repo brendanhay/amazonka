@@ -97,6 +97,6 @@ instance Prelude.Hashable SpotInstanceStatus where
 
 instance Prelude.NFData SpotInstanceStatus where
   rnf SpotInstanceStatus' {..} =
-    Prelude.rnf code
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf updateTime
+    Prelude.rnf code `Prelude.seq`
+      Prelude.rnf message `Prelude.seq`
+        Prelude.rnf updateTime

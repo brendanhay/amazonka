@@ -144,10 +144,10 @@ instance
 
 instance Prelude.NFData AdminUpdateAuthEventFeedback where
   rnf AdminUpdateAuthEventFeedback' {..} =
-    Prelude.rnf userPoolId
-      `Prelude.seq` Prelude.rnf username
-      `Prelude.seq` Prelude.rnf eventId
-      `Prelude.seq` Prelude.rnf feedbackValue
+    Prelude.rnf userPoolId `Prelude.seq`
+      Prelude.rnf username `Prelude.seq`
+        Prelude.rnf eventId `Prelude.seq`
+          Prelude.rnf feedbackValue
 
 instance Data.ToHeaders AdminUpdateAuthEventFeedback where
   toHeaders =

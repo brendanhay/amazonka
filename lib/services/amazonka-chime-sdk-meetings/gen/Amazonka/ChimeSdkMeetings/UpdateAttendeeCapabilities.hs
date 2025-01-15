@@ -151,9 +151,9 @@ instance Prelude.Hashable UpdateAttendeeCapabilities where
 
 instance Prelude.NFData UpdateAttendeeCapabilities where
   rnf UpdateAttendeeCapabilities' {..} =
-    Prelude.rnf meetingId
-      `Prelude.seq` Prelude.rnf attendeeId
-      `Prelude.seq` Prelude.rnf capabilities
+    Prelude.rnf meetingId `Prelude.seq`
+      Prelude.rnf attendeeId `Prelude.seq`
+        Prelude.rnf capabilities
 
 instance Data.ToHeaders UpdateAttendeeCapabilities where
   toHeaders = Prelude.const Prelude.mempty
@@ -222,5 +222,5 @@ instance
     UpdateAttendeeCapabilitiesResponse
   where
   rnf UpdateAttendeeCapabilitiesResponse' {..} =
-    Prelude.rnf attendee
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf attendee `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -132,8 +132,8 @@ instance Prelude.Hashable InputClipping where
 
 instance Prelude.NFData InputClipping where
   rnf InputClipping' {..} =
-    Prelude.rnf endTimecode
-      `Prelude.seq` Prelude.rnf startTimecode
+    Prelude.rnf endTimecode `Prelude.seq`
+      Prelude.rnf startTimecode
 
 instance Data.ToJSON InputClipping where
   toJSON InputClipping' {..} =

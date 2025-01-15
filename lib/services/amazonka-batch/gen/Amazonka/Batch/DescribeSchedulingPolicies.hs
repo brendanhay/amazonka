@@ -171,5 +171,5 @@ instance
     DescribeSchedulingPoliciesResponse
   where
   rnf DescribeSchedulingPoliciesResponse' {..} =
-    Prelude.rnf schedulingPolicies
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf schedulingPolicies `Prelude.seq`
+      Prelude.rnf httpStatus

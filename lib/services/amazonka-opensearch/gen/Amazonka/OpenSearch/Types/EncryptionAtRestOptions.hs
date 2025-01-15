@@ -82,8 +82,8 @@ instance Prelude.Hashable EncryptionAtRestOptions where
 
 instance Prelude.NFData EncryptionAtRestOptions where
   rnf EncryptionAtRestOptions' {..} =
-    Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf kmsKeyId
+    Prelude.rnf enabled `Prelude.seq`
+      Prelude.rnf kmsKeyId
 
 instance Data.ToJSON EncryptionAtRestOptions where
   toJSON EncryptionAtRestOptions' {..} =

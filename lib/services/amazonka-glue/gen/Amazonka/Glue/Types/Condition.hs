@@ -128,11 +128,11 @@ instance Prelude.Hashable Condition where
 
 instance Prelude.NFData Condition where
   rnf Condition' {..} =
-    Prelude.rnf crawlState
-      `Prelude.seq` Prelude.rnf crawlerName
-      `Prelude.seq` Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf logicalOperator
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf crawlState `Prelude.seq`
+      Prelude.rnf crawlerName `Prelude.seq`
+        Prelude.rnf jobName `Prelude.seq`
+          Prelude.rnf logicalOperator `Prelude.seq`
+            Prelude.rnf state
 
 instance Data.ToJSON Condition where
   toJSON Condition' {..} =

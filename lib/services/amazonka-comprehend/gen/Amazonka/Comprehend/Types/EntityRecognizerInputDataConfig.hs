@@ -262,12 +262,12 @@ instance
     EntityRecognizerInputDataConfig
   where
   rnf EntityRecognizerInputDataConfig' {..} =
-    Prelude.rnf annotations
-      `Prelude.seq` Prelude.rnf augmentedManifests
-      `Prelude.seq` Prelude.rnf dataFormat
-      `Prelude.seq` Prelude.rnf documents
-      `Prelude.seq` Prelude.rnf entityList
-      `Prelude.seq` Prelude.rnf entityTypes
+    Prelude.rnf annotations `Prelude.seq`
+      Prelude.rnf augmentedManifests `Prelude.seq`
+        Prelude.rnf dataFormat `Prelude.seq`
+          Prelude.rnf documents `Prelude.seq`
+            Prelude.rnf entityList `Prelude.seq`
+              Prelude.rnf entityTypes
 
 instance Data.ToJSON EntityRecognizerInputDataConfig where
   toJSON EntityRecognizerInputDataConfig' {..} =

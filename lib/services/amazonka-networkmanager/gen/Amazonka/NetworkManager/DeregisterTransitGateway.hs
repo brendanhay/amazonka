@@ -115,8 +115,8 @@ instance Prelude.Hashable DeregisterTransitGateway where
 
 instance Prelude.NFData DeregisterTransitGateway where
   rnf DeregisterTransitGateway' {..} =
-    Prelude.rnf globalNetworkId
-      `Prelude.seq` Prelude.rnf transitGatewayArn
+    Prelude.rnf globalNetworkId `Prelude.seq`
+      Prelude.rnf transitGatewayArn
 
 instance Data.ToHeaders DeregisterTransitGateway where
   toHeaders =
@@ -185,5 +185,5 @@ instance
     DeregisterTransitGatewayResponse
   where
   rnf DeregisterTransitGatewayResponse' {..} =
-    Prelude.rnf transitGatewayRegistration
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf transitGatewayRegistration `Prelude.seq`
+      Prelude.rnf httpStatus

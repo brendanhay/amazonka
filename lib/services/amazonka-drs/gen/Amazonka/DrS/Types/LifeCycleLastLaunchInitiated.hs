@@ -97,6 +97,6 @@ instance
 
 instance Prelude.NFData LifeCycleLastLaunchInitiated where
   rnf LifeCycleLastLaunchInitiated' {..} =
-    Prelude.rnf apiCallDateTime
-      `Prelude.seq` Prelude.rnf jobID
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf apiCallDateTime `Prelude.seq`
+      Prelude.rnf jobID `Prelude.seq`
+        Prelude.rnf type'

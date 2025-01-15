@@ -128,12 +128,12 @@ instance Core.AWSPager DescribeMaintenanceWindows where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeMaintenanceWindows_nextToken
-          Lens..~ rs
-          Lens.^? describeMaintenanceWindowsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeMaintenanceWindows_nextToken
+              Lens..~ rs
+              Lens.^? describeMaintenanceWindowsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeMaintenanceWindows where
   type
@@ -162,9 +162,9 @@ instance Prelude.Hashable DescribeMaintenanceWindows where
 
 instance Prelude.NFData DescribeMaintenanceWindows where
   rnf DescribeMaintenanceWindows' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeMaintenanceWindows where
   toHeaders =
@@ -253,6 +253,6 @@ instance
     DescribeMaintenanceWindowsResponse
   where
   rnf DescribeMaintenanceWindowsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf windowIdentities
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf windowIdentities `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -139,11 +139,11 @@ instance Prelude.Hashable SendUsersMessageRequest where
 
 instance Prelude.NFData SendUsersMessageRequest where
   rnf SendUsersMessageRequest' {..} =
-    Prelude.rnf context
-      `Prelude.seq` Prelude.rnf templateConfiguration
-      `Prelude.seq` Prelude.rnf traceId
-      `Prelude.seq` Prelude.rnf messageConfiguration
-      `Prelude.seq` Prelude.rnf users
+    Prelude.rnf context `Prelude.seq`
+      Prelude.rnf templateConfiguration `Prelude.seq`
+        Prelude.rnf traceId `Prelude.seq`
+          Prelude.rnf messageConfiguration `Prelude.seq`
+            Prelude.rnf users
 
 instance Data.ToJSON SendUsersMessageRequest where
   toJSON SendUsersMessageRequest' {..} =

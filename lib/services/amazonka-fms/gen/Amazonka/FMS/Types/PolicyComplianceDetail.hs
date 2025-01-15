@@ -162,10 +162,10 @@ instance Prelude.Hashable PolicyComplianceDetail where
 
 instance Prelude.NFData PolicyComplianceDetail where
   rnf PolicyComplianceDetail' {..} =
-    Prelude.rnf evaluationLimitExceeded
-      `Prelude.seq` Prelude.rnf expiredAt
-      `Prelude.seq` Prelude.rnf issueInfoMap
-      `Prelude.seq` Prelude.rnf memberAccount
-      `Prelude.seq` Prelude.rnf policyId
-      `Prelude.seq` Prelude.rnf policyOwner
-      `Prelude.seq` Prelude.rnf violators
+    Prelude.rnf evaluationLimitExceeded `Prelude.seq`
+      Prelude.rnf expiredAt `Prelude.seq`
+        Prelude.rnf issueInfoMap `Prelude.seq`
+          Prelude.rnf memberAccount `Prelude.seq`
+            Prelude.rnf policyId `Prelude.seq`
+              Prelude.rnf policyOwner `Prelude.seq`
+                Prelude.rnf violators

@@ -127,10 +127,10 @@ instance Prelude.Hashable DebugHookConfig where
 
 instance Prelude.NFData DebugHookConfig where
   rnf DebugHookConfig' {..} =
-    Prelude.rnf collectionConfigurations
-      `Prelude.seq` Prelude.rnf hookParameters
-      `Prelude.seq` Prelude.rnf localPath
-      `Prelude.seq` Prelude.rnf s3OutputPath
+    Prelude.rnf collectionConfigurations `Prelude.seq`
+      Prelude.rnf hookParameters `Prelude.seq`
+        Prelude.rnf localPath `Prelude.seq`
+          Prelude.rnf s3OutputPath
 
 instance Data.ToJSON DebugHookConfig where
   toJSON DebugHookConfig' {..} =

@@ -141,12 +141,12 @@ instance Core.AWSPager ListSizeConstraintSets where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listSizeConstraintSets_nextMarker
-          Lens..~ rs
-          Lens.^? listSizeConstraintSetsResponse_nextMarker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listSizeConstraintSets_nextMarker
+              Lens..~ rs
+              Lens.^? listSizeConstraintSetsResponse_nextMarker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSizeConstraintSets where
   type
@@ -174,8 +174,8 @@ instance Prelude.Hashable ListSizeConstraintSets where
 
 instance Prelude.NFData ListSizeConstraintSets where
   rnf ListSizeConstraintSets' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nextMarker
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf nextMarker
 
 instance Data.ToHeaders ListSizeConstraintSets where
   toHeaders =
@@ -272,6 +272,6 @@ instance
     ListSizeConstraintSetsResponse
   where
   rnf ListSizeConstraintSetsResponse' {..} =
-    Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf sizeConstraintSets
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextMarker `Prelude.seq`
+      Prelude.rnf sizeConstraintSets `Prelude.seq`
+        Prelude.rnf httpStatus

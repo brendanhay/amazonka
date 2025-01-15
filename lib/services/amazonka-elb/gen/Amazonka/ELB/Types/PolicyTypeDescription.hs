@@ -97,6 +97,6 @@ instance Prelude.Hashable PolicyTypeDescription where
 
 instance Prelude.NFData PolicyTypeDescription where
   rnf PolicyTypeDescription' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf policyAttributeTypeDescriptions
-      `Prelude.seq` Prelude.rnf policyTypeName
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf policyAttributeTypeDescriptions `Prelude.seq`
+        Prelude.rnf policyTypeName

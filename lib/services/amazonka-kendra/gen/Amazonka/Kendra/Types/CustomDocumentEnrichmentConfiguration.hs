@@ -167,10 +167,10 @@ instance
     CustomDocumentEnrichmentConfiguration
   where
   rnf CustomDocumentEnrichmentConfiguration' {..} =
-    Prelude.rnf inlineConfigurations
-      `Prelude.seq` Prelude.rnf postExtractionHookConfiguration
-      `Prelude.seq` Prelude.rnf preExtractionHookConfiguration
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf inlineConfigurations `Prelude.seq`
+      Prelude.rnf postExtractionHookConfiguration `Prelude.seq`
+        Prelude.rnf preExtractionHookConfiguration `Prelude.seq`
+          Prelude.rnf roleArn
 
 instance
   Data.ToJSON

@@ -94,9 +94,9 @@ instance Prelude.Hashable ServiceActionAssociation where
 
 instance Prelude.NFData ServiceActionAssociation where
   rnf ServiceActionAssociation' {..} =
-    Prelude.rnf serviceActionId
-      `Prelude.seq` Prelude.rnf productId
-      `Prelude.seq` Prelude.rnf provisioningArtifactId
+    Prelude.rnf serviceActionId `Prelude.seq`
+      Prelude.rnf productId `Prelude.seq`
+        Prelude.rnf provisioningArtifactId
 
 instance Data.ToJSON ServiceActionAssociation where
   toJSON ServiceActionAssociation' {..} =

@@ -80,5 +80,5 @@ instance Prelude.Hashable InventoryData where
 
 instance Prelude.NFData InventoryData where
   rnf InventoryData' {..} =
-    Prelude.rnf numberOfDatabases
-      `Prelude.seq` Prelude.rnf numberOfSchemas
+    Prelude.rnf numberOfDatabases `Prelude.seq`
+      Prelude.rnf numberOfSchemas

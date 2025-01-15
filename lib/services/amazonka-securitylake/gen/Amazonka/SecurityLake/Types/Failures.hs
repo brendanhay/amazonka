@@ -103,6 +103,6 @@ instance Prelude.Hashable Failures where
 
 instance Prelude.NFData Failures where
   rnf Failures' {..} =
-    Prelude.rnf exceptionMessage
-      `Prelude.seq` Prelude.rnf remediation
-      `Prelude.seq` Prelude.rnf timestamp
+    Prelude.rnf exceptionMessage `Prelude.seq`
+      Prelude.rnf remediation `Prelude.seq`
+        Prelude.rnf timestamp

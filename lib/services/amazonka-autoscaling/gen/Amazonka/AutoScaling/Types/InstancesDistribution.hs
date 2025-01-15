@@ -385,12 +385,12 @@ instance Prelude.Hashable InstancesDistribution where
 
 instance Prelude.NFData InstancesDistribution where
   rnf InstancesDistribution' {..} =
-    Prelude.rnf onDemandAllocationStrategy
-      `Prelude.seq` Prelude.rnf onDemandBaseCapacity
-      `Prelude.seq` Prelude.rnf onDemandPercentageAboveBaseCapacity
-      `Prelude.seq` Prelude.rnf spotAllocationStrategy
-      `Prelude.seq` Prelude.rnf spotInstancePools
-      `Prelude.seq` Prelude.rnf spotMaxPrice
+    Prelude.rnf onDemandAllocationStrategy `Prelude.seq`
+      Prelude.rnf onDemandBaseCapacity `Prelude.seq`
+        Prelude.rnf onDemandPercentageAboveBaseCapacity `Prelude.seq`
+          Prelude.rnf spotAllocationStrategy `Prelude.seq`
+            Prelude.rnf spotInstancePools `Prelude.seq`
+              Prelude.rnf spotMaxPrice
 
 instance Data.ToQuery InstancesDistribution where
   toQuery InstancesDistribution' {..} =

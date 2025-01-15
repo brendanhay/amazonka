@@ -116,6 +116,6 @@ instance Prelude.Hashable OutpostConfigResponse where
 
 instance Prelude.NFData OutpostConfigResponse where
   rnf OutpostConfigResponse' {..} =
-    Prelude.rnf controlPlanePlacement
-      `Prelude.seq` Prelude.rnf outpostArns
-      `Prelude.seq` Prelude.rnf controlPlaneInstanceType
+    Prelude.rnf controlPlanePlacement `Prelude.seq`
+      Prelude.rnf outpostArns `Prelude.seq`
+        Prelude.rnf controlPlaneInstanceType

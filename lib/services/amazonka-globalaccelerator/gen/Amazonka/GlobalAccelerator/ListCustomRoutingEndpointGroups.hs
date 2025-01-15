@@ -143,9 +143,9 @@ instance
     ListCustomRoutingEndpointGroups
   where
   rnf ListCustomRoutingEndpointGroups' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf listenerArn
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf listenerArn
 
 instance
   Data.ToHeaders
@@ -241,6 +241,6 @@ instance
     ListCustomRoutingEndpointGroupsResponse
   where
   rnf ListCustomRoutingEndpointGroupsResponse' {..} =
-    Prelude.rnf endpointGroups
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf endpointGroups `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

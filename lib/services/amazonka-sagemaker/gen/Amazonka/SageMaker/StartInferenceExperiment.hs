@@ -172,5 +172,5 @@ instance
     StartInferenceExperimentResponse
   where
   rnf StartInferenceExperimentResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf inferenceExperimentArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf inferenceExperimentArn

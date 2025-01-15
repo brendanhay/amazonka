@@ -89,8 +89,8 @@ instance Prelude.Hashable OnlineAbConfig where
 
 instance Prelude.NFData OnlineAbConfig where
   rnf OnlineAbConfig' {..} =
-    Prelude.rnf controlTreatmentName
-      `Prelude.seq` Prelude.rnf treatmentWeights
+    Prelude.rnf controlTreatmentName `Prelude.seq`
+      Prelude.rnf treatmentWeights
 
 instance Data.ToJSON OnlineAbConfig where
   toJSON OnlineAbConfig' {..} =

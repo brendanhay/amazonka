@@ -113,8 +113,8 @@ instance Prelude.Hashable EnableRadius where
 
 instance Prelude.NFData EnableRadius where
   rnf EnableRadius' {..} =
-    Prelude.rnf directoryId
-      `Prelude.seq` Prelude.rnf radiusSettings
+    Prelude.rnf directoryId `Prelude.seq`
+      Prelude.rnf radiusSettings
 
 instance Data.ToHeaders EnableRadius where
   toHeaders =

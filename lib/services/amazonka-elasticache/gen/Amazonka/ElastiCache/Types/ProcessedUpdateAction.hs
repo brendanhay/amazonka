@@ -101,7 +101,7 @@ instance Prelude.Hashable ProcessedUpdateAction where
 
 instance Prelude.NFData ProcessedUpdateAction where
   rnf ProcessedUpdateAction' {..} =
-    Prelude.rnf cacheClusterId
-      `Prelude.seq` Prelude.rnf replicationGroupId
-      `Prelude.seq` Prelude.rnf serviceUpdateName
-      `Prelude.seq` Prelude.rnf updateActionStatus
+    Prelude.rnf cacheClusterId `Prelude.seq`
+      Prelude.rnf replicationGroupId `Prelude.seq`
+        Prelude.rnf serviceUpdateName `Prelude.seq`
+          Prelude.rnf updateActionStatus

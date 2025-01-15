@@ -119,8 +119,8 @@ instance Prelude.Hashable RemoveAllBackends where
 
 instance Prelude.NFData RemoveAllBackends where
   rnf RemoveAllBackends' {..} =
-    Prelude.rnf cleanAmplifyApp
-      `Prelude.seq` Prelude.rnf appId
+    Prelude.rnf cleanAmplifyApp `Prelude.seq`
+      Prelude.rnf appId
 
 instance Data.ToHeaders RemoveAllBackends where
   toHeaders =
@@ -226,9 +226,9 @@ removeAllBackendsResponse_httpStatus = Lens.lens (\RemoveAllBackendsResponse' {h
 
 instance Prelude.NFData RemoveAllBackendsResponse where
   rnf RemoveAllBackendsResponse' {..} =
-    Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf error
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf operation
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf appId `Prelude.seq`
+      Prelude.rnf error `Prelude.seq`
+        Prelude.rnf jobId `Prelude.seq`
+          Prelude.rnf operation `Prelude.seq`
+            Prelude.rnf status `Prelude.seq`
+              Prelude.rnf httpStatus

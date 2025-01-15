@@ -127,12 +127,12 @@ instance Core.AWSPager GetBlueprints where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getBlueprints_pageToken
-          Lens..~ rs
-          Lens.^? getBlueprintsResponse_nextPageToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getBlueprints_pageToken
+              Lens..~ rs
+              Lens.^? getBlueprintsResponse_nextPageToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetBlueprints where
   type
@@ -157,8 +157,8 @@ instance Prelude.Hashable GetBlueprints where
 
 instance Prelude.NFData GetBlueprints where
   rnf GetBlueprints' {..} =
-    Prelude.rnf includeInactive
-      `Prelude.seq` Prelude.rnf pageToken
+    Prelude.rnf includeInactive `Prelude.seq`
+      Prelude.rnf pageToken
 
 instance Data.ToHeaders GetBlueprints where
   toHeaders =
@@ -262,6 +262,6 @@ getBlueprintsResponse_httpStatus = Lens.lens (\GetBlueprintsResponse' {httpStatu
 
 instance Prelude.NFData GetBlueprintsResponse where
   rnf GetBlueprintsResponse' {..} =
-    Prelude.rnf blueprints
-      `Prelude.seq` Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf blueprints `Prelude.seq`
+      Prelude.rnf nextPageToken `Prelude.seq`
+        Prelude.rnf httpStatus

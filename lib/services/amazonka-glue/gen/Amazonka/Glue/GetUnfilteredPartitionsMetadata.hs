@@ -205,15 +205,15 @@ instance
     GetUnfilteredPartitionsMetadata
   where
   rnf GetUnfilteredPartitionsMetadata' {..} =
-    Prelude.rnf auditContext
-      `Prelude.seq` Prelude.rnf expression
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf segment
-      `Prelude.seq` Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf tableName
-      `Prelude.seq` Prelude.rnf supportedPermissionTypes
+    Prelude.rnf auditContext `Prelude.seq`
+      Prelude.rnf expression `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf segment `Prelude.seq`
+              Prelude.rnf catalogId `Prelude.seq`
+                Prelude.rnf databaseName `Prelude.seq`
+                  Prelude.rnf tableName `Prelude.seq`
+                    Prelude.rnf supportedPermissionTypes
 
 instance
   Data.ToHeaders
@@ -311,6 +311,6 @@ instance
     GetUnfilteredPartitionsMetadataResponse
   where
   rnf GetUnfilteredPartitionsMetadataResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf unfilteredPartitions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf unfilteredPartitions `Prelude.seq`
+        Prelude.rnf httpStatus

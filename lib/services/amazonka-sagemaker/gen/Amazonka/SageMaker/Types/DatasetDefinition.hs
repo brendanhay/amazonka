@@ -145,11 +145,11 @@ instance Prelude.Hashable DatasetDefinition where
 
 instance Prelude.NFData DatasetDefinition where
   rnf DatasetDefinition' {..} =
-    Prelude.rnf athenaDatasetDefinition
-      `Prelude.seq` Prelude.rnf dataDistributionType
-      `Prelude.seq` Prelude.rnf inputMode
-      `Prelude.seq` Prelude.rnf localPath
-      `Prelude.seq` Prelude.rnf redshiftDatasetDefinition
+    Prelude.rnf athenaDatasetDefinition `Prelude.seq`
+      Prelude.rnf dataDistributionType `Prelude.seq`
+        Prelude.rnf inputMode `Prelude.seq`
+          Prelude.rnf localPath `Prelude.seq`
+            Prelude.rnf redshiftDatasetDefinition
 
 instance Data.ToJSON DatasetDefinition where
   toJSON DatasetDefinition' {..} =

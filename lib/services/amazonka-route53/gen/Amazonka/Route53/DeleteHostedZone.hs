@@ -207,5 +207,5 @@ deleteHostedZoneResponse_changeInfo = Lens.lens (\DeleteHostedZoneResponse' {cha
 
 instance Prelude.NFData DeleteHostedZoneResponse where
   rnf DeleteHostedZoneResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf changeInfo
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf changeInfo

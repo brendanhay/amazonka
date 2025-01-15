@@ -180,9 +180,9 @@ instance Prelude.Hashable UpdateZonalShift where
 
 instance Prelude.NFData UpdateZonalShift where
   rnf UpdateZonalShift' {..} =
-    Prelude.rnf comment
-      `Prelude.seq` Prelude.rnf expiresIn
-      `Prelude.seq` Prelude.rnf zonalShiftId
+    Prelude.rnf comment `Prelude.seq`
+      Prelude.rnf expiresIn `Prelude.seq`
+        Prelude.rnf zonalShiftId
 
 instance Data.ToHeaders UpdateZonalShift where
   toHeaders =

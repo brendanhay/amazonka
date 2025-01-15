@@ -130,8 +130,8 @@ instance Prelude.Hashable DeleteMessage where
 
 instance Prelude.NFData DeleteMessage where
   rnf DeleteMessage' {..} =
-    Prelude.rnf queueUrl
-      `Prelude.seq` Prelude.rnf receiptHandle
+    Prelude.rnf queueUrl `Prelude.seq`
+      Prelude.rnf receiptHandle
 
 instance Data.ToHeaders DeleteMessage where
   toHeaders = Prelude.const Prelude.mempty

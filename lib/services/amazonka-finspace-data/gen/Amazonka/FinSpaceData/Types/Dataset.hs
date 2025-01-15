@@ -195,13 +195,13 @@ instance Prelude.Hashable Dataset where
 
 instance Prelude.NFData Dataset where
   rnf Dataset' {..} =
-    Prelude.rnf alias
-      `Prelude.seq` Prelude.rnf createTime
-      `Prelude.seq` Prelude.rnf datasetArn
-      `Prelude.seq` Prelude.rnf datasetDescription
-      `Prelude.seq` Prelude.rnf datasetId
-      `Prelude.seq` Prelude.rnf datasetTitle
-      `Prelude.seq` Prelude.rnf kind
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf ownerInfo
-      `Prelude.seq` Prelude.rnf schemaDefinition
+    Prelude.rnf alias `Prelude.seq`
+      Prelude.rnf createTime `Prelude.seq`
+        Prelude.rnf datasetArn `Prelude.seq`
+          Prelude.rnf datasetDescription `Prelude.seq`
+            Prelude.rnf datasetId `Prelude.seq`
+              Prelude.rnf datasetTitle `Prelude.seq`
+                Prelude.rnf kind `Prelude.seq`
+                  Prelude.rnf lastModifiedTime `Prelude.seq`
+                    Prelude.rnf ownerInfo `Prelude.seq`
+                      Prelude.rnf schemaDefinition

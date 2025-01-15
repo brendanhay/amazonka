@@ -113,8 +113,8 @@ instance Prelude.Hashable DescribeIdentityProvider where
 
 instance Prelude.NFData DescribeIdentityProvider where
   rnf DescribeIdentityProvider' {..} =
-    Prelude.rnf userPoolId
-      `Prelude.seq` Prelude.rnf providerName
+    Prelude.rnf userPoolId `Prelude.seq`
+      Prelude.rnf providerName
 
 instance Data.ToHeaders DescribeIdentityProvider where
   toHeaders =
@@ -194,5 +194,5 @@ instance
     DescribeIdentityProviderResponse
   where
   rnf DescribeIdentityProviderResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf identityProvider
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf identityProvider

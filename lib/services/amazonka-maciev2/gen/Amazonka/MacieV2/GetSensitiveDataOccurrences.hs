@@ -230,7 +230,7 @@ instance
     GetSensitiveDataOccurrencesResponse
   where
   rnf GetSensitiveDataOccurrencesResponse' {..} =
-    Prelude.rnf error
-      `Prelude.seq` Prelude.rnf sensitiveDataOccurrences
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf error `Prelude.seq`
+      Prelude.rnf sensitiveDataOccurrences `Prelude.seq`
+        Prelude.rnf status `Prelude.seq`
+          Prelude.rnf httpStatus

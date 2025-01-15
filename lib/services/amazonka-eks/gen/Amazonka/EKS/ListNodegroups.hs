@@ -149,12 +149,12 @@ instance Core.AWSPager ListNodegroups where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listNodegroups_nextToken
-          Lens..~ rs
-          Lens.^? listNodegroupsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listNodegroups_nextToken
+              Lens..~ rs
+              Lens.^? listNodegroupsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListNodegroups where
   type
@@ -180,9 +180,9 @@ instance Prelude.Hashable ListNodegroups where
 
 instance Prelude.NFData ListNodegroups where
   rnf ListNodegroups' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf clusterName
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf clusterName
 
 instance Data.ToHeaders ListNodegroups where
   toHeaders =
@@ -266,6 +266,6 @@ listNodegroupsResponse_httpStatus = Lens.lens (\ListNodegroupsResponse' {httpSta
 
 instance Prelude.NFData ListNodegroupsResponse where
   rnf ListNodegroupsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf nodegroups
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf nodegroups `Prelude.seq`
+        Prelude.rnf httpStatus

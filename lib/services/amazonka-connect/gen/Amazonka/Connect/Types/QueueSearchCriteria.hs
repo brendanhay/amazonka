@@ -102,10 +102,10 @@ instance Prelude.Hashable QueueSearchCriteria where
 
 instance Prelude.NFData QueueSearchCriteria where
   rnf QueueSearchCriteria' {..} =
-    Prelude.rnf andConditions
-      `Prelude.seq` Prelude.rnf orConditions
-      `Prelude.seq` Prelude.rnf queueTypeCondition
-      `Prelude.seq` Prelude.rnf stringCondition
+    Prelude.rnf andConditions `Prelude.seq`
+      Prelude.rnf orConditions `Prelude.seq`
+        Prelude.rnf queueTypeCondition `Prelude.seq`
+          Prelude.rnf stringCondition
 
 instance Data.ToJSON QueueSearchCriteria where
   toJSON QueueSearchCriteria' {..} =

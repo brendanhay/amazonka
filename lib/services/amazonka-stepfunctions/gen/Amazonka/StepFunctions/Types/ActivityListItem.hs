@@ -145,6 +145,6 @@ instance Prelude.Hashable ActivityListItem where
 
 instance Prelude.NFData ActivityListItem where
   rnf ActivityListItem' {..} =
-    Prelude.rnf activityArn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf creationDate
+    Prelude.rnf activityArn `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf creationDate

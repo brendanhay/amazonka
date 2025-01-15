@@ -114,8 +114,8 @@ instance Prelude.Hashable DeletePublishingDestination where
 
 instance Prelude.NFData DeletePublishingDestination where
   rnf DeletePublishingDestination' {..} =
-    Prelude.rnf detectorId
-      `Prelude.seq` Prelude.rnf destinationId
+    Prelude.rnf detectorId `Prelude.seq`
+      Prelude.rnf destinationId
 
 instance Data.ToHeaders DeletePublishingDestination where
   toHeaders =

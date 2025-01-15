@@ -119,11 +119,11 @@ instance Prelude.Hashable BatchCreateObject where
 
 instance Prelude.NFData BatchCreateObject where
   rnf BatchCreateObject' {..} =
-    Prelude.rnf batchReferenceName
-      `Prelude.seq` Prelude.rnf linkName
-      `Prelude.seq` Prelude.rnf parentReference
-      `Prelude.seq` Prelude.rnf schemaFacet
-      `Prelude.seq` Prelude.rnf objectAttributeList
+    Prelude.rnf batchReferenceName `Prelude.seq`
+      Prelude.rnf linkName `Prelude.seq`
+        Prelude.rnf parentReference `Prelude.seq`
+          Prelude.rnf schemaFacet `Prelude.seq`
+            Prelude.rnf objectAttributeList
 
 instance Data.ToJSON BatchCreateObject where
   toJSON BatchCreateObject' {..} =

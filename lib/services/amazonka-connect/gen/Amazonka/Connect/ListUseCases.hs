@@ -141,12 +141,12 @@ instance Core.AWSPager ListUseCases where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listUseCases_nextToken
-          Lens..~ rs
-          Lens.^? listUseCasesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listUseCases_nextToken
+              Lens..~ rs
+              Lens.^? listUseCasesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListUseCases where
   type AWSResponse ListUseCases = ListUseCasesResponse
@@ -174,10 +174,10 @@ instance Prelude.Hashable ListUseCases where
 
 instance Prelude.NFData ListUseCases where
   rnf ListUseCases' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf integrationAssociationId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf instanceId `Prelude.seq`
+          Prelude.rnf integrationAssociationId
 
 instance Data.ToHeaders ListUseCases where
   toHeaders =
@@ -259,6 +259,6 @@ listUseCasesResponse_httpStatus = Lens.lens (\ListUseCasesResponse' {httpStatus}
 
 instance Prelude.NFData ListUseCasesResponse where
   rnf ListUseCasesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf useCaseSummaryList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf useCaseSummaryList `Prelude.seq`
+        Prelude.rnf httpStatus

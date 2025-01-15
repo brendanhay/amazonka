@@ -132,13 +132,13 @@ instance Prelude.Hashable CreateControlMappingSource where
 
 instance Prelude.NFData CreateControlMappingSource where
   rnf CreateControlMappingSource' {..} =
-    Prelude.rnf sourceDescription
-      `Prelude.seq` Prelude.rnf sourceFrequency
-      `Prelude.seq` Prelude.rnf sourceKeyword
-      `Prelude.seq` Prelude.rnf sourceName
-      `Prelude.seq` Prelude.rnf sourceSetUpOption
-      `Prelude.seq` Prelude.rnf sourceType
-      `Prelude.seq` Prelude.rnf troubleshootingText
+    Prelude.rnf sourceDescription `Prelude.seq`
+      Prelude.rnf sourceFrequency `Prelude.seq`
+        Prelude.rnf sourceKeyword `Prelude.seq`
+          Prelude.rnf sourceName `Prelude.seq`
+            Prelude.rnf sourceSetUpOption `Prelude.seq`
+              Prelude.rnf sourceType `Prelude.seq`
+                Prelude.rnf troubleshootingText
 
 instance Data.ToJSON CreateControlMappingSource where
   toJSON CreateControlMappingSource' {..} =

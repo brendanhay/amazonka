@@ -169,5 +169,5 @@ deleteVoiceChannelResponse_voiceChannelResponse = Lens.lens (\DeleteVoiceChannel
 
 instance Prelude.NFData DeleteVoiceChannelResponse where
   rnf DeleteVoiceChannelResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf voiceChannelResponse
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf voiceChannelResponse

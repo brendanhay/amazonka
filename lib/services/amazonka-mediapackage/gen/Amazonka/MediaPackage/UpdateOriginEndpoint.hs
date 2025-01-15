@@ -273,18 +273,18 @@ instance Prelude.Hashable UpdateOriginEndpoint where
 
 instance Prelude.NFData UpdateOriginEndpoint where
   rnf UpdateOriginEndpoint' {..} =
-    Prelude.rnf authorization
-      `Prelude.seq` Prelude.rnf cmafPackage
-      `Prelude.seq` Prelude.rnf dashPackage
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf hlsPackage
-      `Prelude.seq` Prelude.rnf manifestName
-      `Prelude.seq` Prelude.rnf mssPackage
-      `Prelude.seq` Prelude.rnf origination
-      `Prelude.seq` Prelude.rnf startoverWindowSeconds
-      `Prelude.seq` Prelude.rnf timeDelaySeconds
-      `Prelude.seq` Prelude.rnf whitelist
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf authorization `Prelude.seq`
+      Prelude.rnf cmafPackage `Prelude.seq`
+        Prelude.rnf dashPackage `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf hlsPackage `Prelude.seq`
+              Prelude.rnf manifestName `Prelude.seq`
+                Prelude.rnf mssPackage `Prelude.seq`
+                  Prelude.rnf origination `Prelude.seq`
+                    Prelude.rnf startoverWindowSeconds `Prelude.seq`
+                      Prelude.rnf timeDelaySeconds `Prelude.seq`
+                        Prelude.rnf whitelist `Prelude.seq`
+                          Prelude.rnf id
 
 instance Data.ToHeaders UpdateOriginEndpoint where
   toHeaders =
@@ -522,20 +522,20 @@ updateOriginEndpointResponse_httpStatus = Lens.lens (\UpdateOriginEndpointRespon
 
 instance Prelude.NFData UpdateOriginEndpointResponse where
   rnf UpdateOriginEndpointResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf authorization
-      `Prelude.seq` Prelude.rnf channelId
-      `Prelude.seq` Prelude.rnf cmafPackage
-      `Prelude.seq` Prelude.rnf dashPackage
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf hlsPackage
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf manifestName
-      `Prelude.seq` Prelude.rnf mssPackage
-      `Prelude.seq` Prelude.rnf origination
-      `Prelude.seq` Prelude.rnf startoverWindowSeconds
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf timeDelaySeconds
-      `Prelude.seq` Prelude.rnf url
-      `Prelude.seq` Prelude.rnf whitelist
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf authorization `Prelude.seq`
+        Prelude.rnf channelId `Prelude.seq`
+          Prelude.rnf cmafPackage `Prelude.seq`
+            Prelude.rnf dashPackage `Prelude.seq`
+              Prelude.rnf description `Prelude.seq`
+                Prelude.rnf hlsPackage `Prelude.seq`
+                  Prelude.rnf id `Prelude.seq`
+                    Prelude.rnf manifestName `Prelude.seq`
+                      Prelude.rnf mssPackage `Prelude.seq`
+                        Prelude.rnf origination `Prelude.seq`
+                          Prelude.rnf startoverWindowSeconds `Prelude.seq`
+                            Prelude.rnf tags `Prelude.seq`
+                              Prelude.rnf timeDelaySeconds `Prelude.seq`
+                                Prelude.rnf url `Prelude.seq`
+                                  Prelude.rnf whitelist `Prelude.seq`
+                                    Prelude.rnf httpStatus

@@ -130,8 +130,8 @@ instance
 
 instance Prelude.NFData DescribeServiceAccessPolicies where
   rnf DescribeServiceAccessPolicies' {..} =
-    Prelude.rnf deployed
-      `Prelude.seq` Prelude.rnf domainName
+    Prelude.rnf deployed `Prelude.seq`
+      Prelude.rnf domainName
 
 instance Data.ToHeaders DescribeServiceAccessPolicies where
   toHeaders = Prelude.const Prelude.mempty
@@ -202,5 +202,5 @@ instance
     DescribeServiceAccessPoliciesResponse
   where
   rnf DescribeServiceAccessPoliciesResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf accessPolicies
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf accessPolicies

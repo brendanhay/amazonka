@@ -246,12 +246,12 @@ instance
     AwsCodeBuildProjectEnvironment
   where
   rnf AwsCodeBuildProjectEnvironment' {..} =
-    Prelude.rnf certificate
-      `Prelude.seq` Prelude.rnf environmentVariables
-      `Prelude.seq` Prelude.rnf imagePullCredentialsType
-      `Prelude.seq` Prelude.rnf privilegedMode
-      `Prelude.seq` Prelude.rnf registryCredential
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf certificate `Prelude.seq`
+      Prelude.rnf environmentVariables `Prelude.seq`
+        Prelude.rnf imagePullCredentialsType `Prelude.seq`
+          Prelude.rnf privilegedMode `Prelude.seq`
+            Prelude.rnf registryCredential `Prelude.seq`
+              Prelude.rnf type'
 
 instance Data.ToJSON AwsCodeBuildProjectEnvironment where
   toJSON AwsCodeBuildProjectEnvironment' {..} =

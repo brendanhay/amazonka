@@ -185,5 +185,5 @@ instance
     GetResolverRuleAssociationResponse
   where
   rnf GetResolverRuleAssociationResponse' {..} =
-    Prelude.rnf resolverRuleAssociation
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf resolverRuleAssociation `Prelude.seq`
+      Prelude.rnf httpStatus

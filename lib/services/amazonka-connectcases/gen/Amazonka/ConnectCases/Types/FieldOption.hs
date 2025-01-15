@@ -100,9 +100,9 @@ instance Prelude.Hashable FieldOption where
 
 instance Prelude.NFData FieldOption where
   rnf FieldOption' {..} =
-    Prelude.rnf active
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf active `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf value
 
 instance Data.ToJSON FieldOption where
   toJSON FieldOption' {..} =

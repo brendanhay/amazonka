@@ -122,8 +122,8 @@ instance
 
 instance Prelude.NFData ListOrganizationAdminAccounts where
   rnf ListOrganizationAdminAccounts' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListOrganizationAdminAccounts where
   toHeaders =
@@ -207,6 +207,6 @@ instance
     ListOrganizationAdminAccountsResponse
   where
   rnf ListOrganizationAdminAccountsResponse' {..} =
-    Prelude.rnf administrators
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf administrators `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

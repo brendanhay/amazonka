@@ -84,5 +84,5 @@ instance Prelude.Hashable CaseSummary where
 
 instance Prelude.NFData CaseSummary where
   rnf CaseSummary' {..} =
-    Prelude.rnf caseId
-      `Prelude.seq` Prelude.rnf templateId
+    Prelude.rnf caseId `Prelude.seq`
+      Prelude.rnf templateId

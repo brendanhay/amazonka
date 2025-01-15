@@ -168,12 +168,12 @@ instance Prelude.Hashable ConfigureAccessPoint where
 
 instance Prelude.NFData ConfigureAccessPoint where
   rnf ConfigureAccessPoint' {..} =
-    Prelude.rnf cpiSecretKey
-      `Prelude.seq` Prelude.rnf cpiUserId
-      `Prelude.seq` Prelude.rnf cpiUserPassword
-      `Prelude.seq` Prelude.rnf cpiUsername
-      `Prelude.seq` Prelude.rnf position
-      `Prelude.seq` Prelude.rnf accessPointArn
+    Prelude.rnf cpiSecretKey `Prelude.seq`
+      Prelude.rnf cpiUserId `Prelude.seq`
+        Prelude.rnf cpiUserPassword `Prelude.seq`
+          Prelude.rnf cpiUsername `Prelude.seq`
+            Prelude.rnf position `Prelude.seq`
+              Prelude.rnf accessPointArn
 
 instance Data.ToHeaders ConfigureAccessPoint where
   toHeaders =
@@ -253,5 +253,5 @@ configureAccessPointResponse_accessPoint = Lens.lens (\ConfigureAccessPointRespo
 
 instance Prelude.NFData ConfigureAccessPointResponse where
   rnf ConfigureAccessPointResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf accessPoint
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf accessPoint

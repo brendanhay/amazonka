@@ -95,6 +95,6 @@ instance Prelude.Hashable GetRecommendationError where
 
 instance Prelude.NFData GetRecommendationError where
   rnf GetRecommendationError' {..} =
-    Prelude.rnf code
-      `Prelude.seq` Prelude.rnf identifier
-      `Prelude.seq` Prelude.rnf message
+    Prelude.rnf code `Prelude.seq`
+      Prelude.rnf identifier `Prelude.seq`
+        Prelude.rnf message

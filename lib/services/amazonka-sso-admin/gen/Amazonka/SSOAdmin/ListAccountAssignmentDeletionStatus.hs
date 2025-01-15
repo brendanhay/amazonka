@@ -141,12 +141,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listAccountAssignmentDeletionStatus_nextToken
-          Lens..~ rs
-          Lens.^? listAccountAssignmentDeletionStatusResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listAccountAssignmentDeletionStatus_nextToken
+              Lens..~ rs
+              Lens.^? listAccountAssignmentDeletionStatusResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -187,10 +187,10 @@ instance
     ListAccountAssignmentDeletionStatus
   where
   rnf ListAccountAssignmentDeletionStatus' {..} =
-    Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf instanceArn
+    Prelude.rnf filter' `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf instanceArn
 
 instance
   Data.ToHeaders
@@ -293,6 +293,6 @@ instance
     ListAccountAssignmentDeletionStatusResponse
   where
   rnf ListAccountAssignmentDeletionStatusResponse' {..} =
-    Prelude.rnf accountAssignmentsDeletionStatus
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf accountAssignmentsDeletionStatus `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

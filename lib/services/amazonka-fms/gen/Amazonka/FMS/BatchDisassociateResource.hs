@@ -120,8 +120,8 @@ instance Prelude.Hashable BatchDisassociateResource where
 
 instance Prelude.NFData BatchDisassociateResource where
   rnf BatchDisassociateResource' {..} =
-    Prelude.rnf resourceSetIdentifier
-      `Prelude.seq` Prelude.rnf items
+    Prelude.rnf resourceSetIdentifier `Prelude.seq`
+      Prelude.rnf items
 
 instance Data.ToHeaders BatchDisassociateResource where
   toHeaders =
@@ -217,6 +217,6 @@ instance
     BatchDisassociateResourceResponse
   where
   rnf BatchDisassociateResourceResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf resourceSetIdentifier
-      `Prelude.seq` Prelude.rnf failedItems
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf resourceSetIdentifier `Prelude.seq`
+        Prelude.rnf failedItems

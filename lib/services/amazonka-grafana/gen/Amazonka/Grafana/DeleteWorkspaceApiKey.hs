@@ -112,8 +112,8 @@ instance Prelude.Hashable DeleteWorkspaceApiKey where
 
 instance Prelude.NFData DeleteWorkspaceApiKey where
   rnf DeleteWorkspaceApiKey' {..} =
-    Prelude.rnf keyName
-      `Prelude.seq` Prelude.rnf workspaceId
+    Prelude.rnf keyName `Prelude.seq`
+      Prelude.rnf workspaceId
 
 instance Data.ToHeaders DeleteWorkspaceApiKey where
   toHeaders =
@@ -195,6 +195,6 @@ deleteWorkspaceApiKeyResponse_workspaceId = Lens.lens (\DeleteWorkspaceApiKeyRes
 
 instance Prelude.NFData DeleteWorkspaceApiKeyResponse where
   rnf DeleteWorkspaceApiKeyResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf keyName
-      `Prelude.seq` Prelude.rnf workspaceId
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf keyName `Prelude.seq`
+        Prelude.rnf workspaceId

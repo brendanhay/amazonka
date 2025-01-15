@@ -119,8 +119,8 @@ instance Prelude.Hashable SetUserSettings where
 
 instance Prelude.NFData SetUserSettings where
   rnf SetUserSettings' {..} =
-    Prelude.rnf accessToken
-      `Prelude.seq` Prelude.rnf mfaOptions
+    Prelude.rnf accessToken `Prelude.seq`
+      Prelude.rnf mfaOptions
 
 instance Data.ToHeaders SetUserSettings where
   toHeaders =

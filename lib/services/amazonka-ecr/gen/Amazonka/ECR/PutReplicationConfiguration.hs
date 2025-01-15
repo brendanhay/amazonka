@@ -189,5 +189,5 @@ instance
     PutReplicationConfigurationResponse
   where
   rnf PutReplicationConfigurationResponse' {..} =
-    Prelude.rnf replicationConfiguration
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf replicationConfiguration `Prelude.seq`
+      Prelude.rnf httpStatus

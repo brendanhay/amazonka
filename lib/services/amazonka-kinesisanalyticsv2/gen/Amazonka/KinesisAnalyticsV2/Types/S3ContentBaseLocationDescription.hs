@@ -94,5 +94,5 @@ instance
     S3ContentBaseLocationDescription
   where
   rnf S3ContentBaseLocationDescription' {..} =
-    Prelude.rnf basePath
-      `Prelude.seq` Prelude.rnf bucketARN
+    Prelude.rnf basePath `Prelude.seq`
+      Prelude.rnf bucketARN

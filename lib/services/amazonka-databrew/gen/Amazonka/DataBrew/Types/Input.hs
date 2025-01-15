@@ -108,10 +108,10 @@ instance Prelude.Hashable Input where
 
 instance Prelude.NFData Input where
   rnf Input' {..} =
-    Prelude.rnf dataCatalogInputDefinition
-      `Prelude.seq` Prelude.rnf databaseInputDefinition
-      `Prelude.seq` Prelude.rnf metadata
-      `Prelude.seq` Prelude.rnf s3InputDefinition
+    Prelude.rnf dataCatalogInputDefinition `Prelude.seq`
+      Prelude.rnf databaseInputDefinition `Prelude.seq`
+        Prelude.rnf metadata `Prelude.seq`
+          Prelude.rnf s3InputDefinition
 
 instance Data.ToJSON Input where
   toJSON Input' {..} =

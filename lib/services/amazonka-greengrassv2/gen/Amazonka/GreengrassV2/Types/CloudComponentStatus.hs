@@ -177,8 +177,8 @@ instance Prelude.Hashable CloudComponentStatus where
 
 instance Prelude.NFData CloudComponentStatus where
   rnf CloudComponentStatus' {..} =
-    Prelude.rnf componentState
-      `Prelude.seq` Prelude.rnf errors
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf vendorGuidance
-      `Prelude.seq` Prelude.rnf vendorGuidanceMessage
+    Prelude.rnf componentState `Prelude.seq`
+      Prelude.rnf errors `Prelude.seq`
+        Prelude.rnf message `Prelude.seq`
+          Prelude.rnf vendorGuidance `Prelude.seq`
+            Prelude.rnf vendorGuidanceMessage

@@ -141,9 +141,9 @@ instance Prelude.Hashable UpdateConfiguration where
 
 instance Prelude.NFData UpdateConfiguration where
   rnf UpdateConfiguration' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf serverProperties
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf serverProperties
 
 instance Data.ToHeaders UpdateConfiguration where
   toHeaders =
@@ -223,6 +223,6 @@ updateConfigurationResponse_httpStatus = Lens.lens (\UpdateConfigurationResponse
 
 instance Prelude.NFData UpdateConfigurationResponse where
   rnf UpdateConfigurationResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf latestRevision
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf latestRevision `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -189,6 +189,6 @@ listLocalDisksResponse_httpStatus = Lens.lens (\ListLocalDisksResponse' {httpSta
 
 instance Prelude.NFData ListLocalDisksResponse where
   rnf ListLocalDisksResponse' {..} =
-    Prelude.rnf disks
-      `Prelude.seq` Prelude.rnf gatewayARN
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf disks `Prelude.seq`
+      Prelude.rnf gatewayARN `Prelude.seq`
+        Prelude.rnf httpStatus

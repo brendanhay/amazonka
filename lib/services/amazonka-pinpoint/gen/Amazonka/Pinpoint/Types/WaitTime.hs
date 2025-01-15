@@ -94,8 +94,8 @@ instance Prelude.Hashable WaitTime where
 
 instance Prelude.NFData WaitTime where
   rnf WaitTime' {..} =
-    Prelude.rnf waitFor
-      `Prelude.seq` Prelude.rnf waitUntil
+    Prelude.rnf waitFor `Prelude.seq`
+      Prelude.rnf waitUntil
 
 instance Data.ToJSON WaitTime where
   toJSON WaitTime' {..} =

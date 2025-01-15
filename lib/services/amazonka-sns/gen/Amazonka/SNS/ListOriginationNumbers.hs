@@ -107,12 +107,12 @@ instance Core.AWSPager ListOriginationNumbers where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listOriginationNumbers_nextToken
-          Lens..~ rs
-          Lens.^? listOriginationNumbersResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listOriginationNumbers_nextToken
+              Lens..~ rs
+              Lens.^? listOriginationNumbersResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListOriginationNumbers where
   type
@@ -126,9 +126,7 @@ instance Core.AWSRequest ListOriginationNumbers where
       ( \s h x ->
           ListOriginationNumbersResponse'
             Prelude.<$> (x Data..@? "NextToken")
-            Prelude.<*> ( x
-                            Data..@? "PhoneNumbers"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "PhoneNumbers" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -142,8 +140,8 @@ instance Prelude.Hashable ListOriginationNumbers where
 
 instance Prelude.NFData ListOriginationNumbers where
   rnf ListOriginationNumbers' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListOriginationNumbers where
   toHeaders = Prelude.const Prelude.mempty
@@ -224,6 +222,6 @@ instance
     ListOriginationNumbersResponse
   where
   rnf ListOriginationNumbersResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf phoneNumbers
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf phoneNumbers `Prelude.seq`
+        Prelude.rnf httpStatus

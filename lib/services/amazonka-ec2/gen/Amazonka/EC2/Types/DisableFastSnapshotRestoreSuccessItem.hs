@@ -214,14 +214,14 @@ instance
     DisableFastSnapshotRestoreSuccessItem
   where
   rnf DisableFastSnapshotRestoreSuccessItem' {..} =
-    Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf disabledTime
-      `Prelude.seq` Prelude.rnf disablingTime
-      `Prelude.seq` Prelude.rnf enabledTime
-      `Prelude.seq` Prelude.rnf enablingTime
-      `Prelude.seq` Prelude.rnf optimizingTime
-      `Prelude.seq` Prelude.rnf ownerAlias
-      `Prelude.seq` Prelude.rnf ownerId
-      `Prelude.seq` Prelude.rnf snapshotId
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf stateTransitionReason
+    Prelude.rnf availabilityZone `Prelude.seq`
+      Prelude.rnf disabledTime `Prelude.seq`
+        Prelude.rnf disablingTime `Prelude.seq`
+          Prelude.rnf enabledTime `Prelude.seq`
+            Prelude.rnf enablingTime `Prelude.seq`
+              Prelude.rnf optimizingTime `Prelude.seq`
+                Prelude.rnf ownerAlias `Prelude.seq`
+                  Prelude.rnf ownerId `Prelude.seq`
+                    Prelude.rnf snapshotId `Prelude.seq`
+                      Prelude.rnf state `Prelude.seq`
+                        Prelude.rnf stateTransitionReason

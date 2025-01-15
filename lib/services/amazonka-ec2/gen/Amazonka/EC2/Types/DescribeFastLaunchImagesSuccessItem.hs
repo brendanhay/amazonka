@@ -192,12 +192,12 @@ instance
     DescribeFastLaunchImagesSuccessItem
   where
   rnf DescribeFastLaunchImagesSuccessItem' {..} =
-    Prelude.rnf imageId
-      `Prelude.seq` Prelude.rnf launchTemplate
-      `Prelude.seq` Prelude.rnf maxParallelLaunches
-      `Prelude.seq` Prelude.rnf ownerId
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf snapshotConfiguration
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf stateTransitionReason
-      `Prelude.seq` Prelude.rnf stateTransitionTime
+    Prelude.rnf imageId `Prelude.seq`
+      Prelude.rnf launchTemplate `Prelude.seq`
+        Prelude.rnf maxParallelLaunches `Prelude.seq`
+          Prelude.rnf ownerId `Prelude.seq`
+            Prelude.rnf resourceType `Prelude.seq`
+              Prelude.rnf snapshotConfiguration `Prelude.seq`
+                Prelude.rnf state `Prelude.seq`
+                  Prelude.rnf stateTransitionReason `Prelude.seq`
+                    Prelude.rnf stateTransitionTime

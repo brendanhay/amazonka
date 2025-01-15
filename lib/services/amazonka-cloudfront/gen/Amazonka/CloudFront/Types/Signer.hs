@@ -91,5 +91,5 @@ instance Prelude.Hashable Signer where
 
 instance Prelude.NFData Signer where
   rnf Signer' {..} =
-    Prelude.rnf awsAccountNumber
-      `Prelude.seq` Prelude.rnf keyPairIds
+    Prelude.rnf awsAccountNumber `Prelude.seq`
+      Prelude.rnf keyPairIds

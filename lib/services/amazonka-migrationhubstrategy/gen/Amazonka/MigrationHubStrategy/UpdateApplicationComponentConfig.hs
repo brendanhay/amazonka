@@ -196,13 +196,13 @@ instance
     UpdateApplicationComponentConfig
   where
   rnf UpdateApplicationComponentConfig' {..} =
-    Prelude.rnf appType
-      `Prelude.seq` Prelude.rnf configureOnly
-      `Prelude.seq` Prelude.rnf inclusionStatus
-      `Prelude.seq` Prelude.rnf secretsManagerKey
-      `Prelude.seq` Prelude.rnf sourceCodeList
-      `Prelude.seq` Prelude.rnf strategyOption
-      `Prelude.seq` Prelude.rnf applicationComponentId
+    Prelude.rnf appType `Prelude.seq`
+      Prelude.rnf configureOnly `Prelude.seq`
+        Prelude.rnf inclusionStatus `Prelude.seq`
+          Prelude.rnf secretsManagerKey `Prelude.seq`
+            Prelude.rnf sourceCodeList `Prelude.seq`
+              Prelude.rnf strategyOption `Prelude.seq`
+                Prelude.rnf applicationComponentId
 
 instance
   Data.ToHeaders

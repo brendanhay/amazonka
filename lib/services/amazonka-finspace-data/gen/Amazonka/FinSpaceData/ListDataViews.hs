@@ -116,12 +116,12 @@ instance Core.AWSPager ListDataViews where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listDataViews_nextToken
-          Lens..~ rs
-          Lens.^? listDataViewsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listDataViews_nextToken
+              Lens..~ rs
+              Lens.^? listDataViewsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDataViews where
   type
@@ -147,9 +147,9 @@ instance Prelude.Hashable ListDataViews where
 
 instance Prelude.NFData ListDataViews where
   rnf ListDataViews' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf datasetId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf datasetId
 
 instance Data.ToHeaders ListDataViews where
   toHeaders =
@@ -223,6 +223,6 @@ listDataViewsResponse_httpStatus = Lens.lens (\ListDataViewsResponse' {httpStatu
 
 instance Prelude.NFData ListDataViewsResponse where
   rnf ListDataViewsResponse' {..} =
-    Prelude.rnf dataViews
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dataViews `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

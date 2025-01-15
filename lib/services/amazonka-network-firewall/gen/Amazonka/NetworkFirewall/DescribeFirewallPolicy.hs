@@ -126,8 +126,8 @@ instance Prelude.Hashable DescribeFirewallPolicy where
 
 instance Prelude.NFData DescribeFirewallPolicy where
   rnf DescribeFirewallPolicy' {..} =
-    Prelude.rnf firewallPolicyArn
-      `Prelude.seq` Prelude.rnf firewallPolicyName
+    Prelude.rnf firewallPolicyArn `Prelude.seq`
+      Prelude.rnf firewallPolicyName
 
 instance Data.ToHeaders DescribeFirewallPolicy where
   toHeaders =
@@ -267,7 +267,7 @@ instance
     DescribeFirewallPolicyResponse
   where
   rnf DescribeFirewallPolicyResponse' {..} =
-    Prelude.rnf firewallPolicy
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf updateToken
-      `Prelude.seq` Prelude.rnf firewallPolicyResponse
+    Prelude.rnf firewallPolicy `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf updateToken `Prelude.seq`
+          Prelude.rnf firewallPolicyResponse

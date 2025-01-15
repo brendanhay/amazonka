@@ -100,6 +100,6 @@ instance Prelude.Hashable PredictedIntent where
 
 instance Prelude.NFData PredictedIntent where
   rnf PredictedIntent' {..} =
-    Prelude.rnf intentName
-      `Prelude.seq` Prelude.rnf nluIntentConfidence
-      `Prelude.seq` Prelude.rnf slots
+    Prelude.rnf intentName `Prelude.seq`
+      Prelude.rnf nluIntentConfidence `Prelude.seq`
+        Prelude.rnf slots

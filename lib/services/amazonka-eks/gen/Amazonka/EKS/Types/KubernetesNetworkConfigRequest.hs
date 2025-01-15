@@ -179,8 +179,8 @@ instance
     KubernetesNetworkConfigRequest
   where
   rnf KubernetesNetworkConfigRequest' {..} =
-    Prelude.rnf ipFamily
-      `Prelude.seq` Prelude.rnf serviceIpv4Cidr
+    Prelude.rnf ipFamily `Prelude.seq`
+      Prelude.rnf serviceIpv4Cidr
 
 instance Data.ToJSON KubernetesNetworkConfigRequest where
   toJSON KubernetesNetworkConfigRequest' {..} =

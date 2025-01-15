@@ -98,8 +98,8 @@ instance Prelude.Hashable ChannelStorage where
 
 instance Prelude.NFData ChannelStorage where
   rnf ChannelStorage' {..} =
-    Prelude.rnf customerManagedS3
-      `Prelude.seq` Prelude.rnf serviceManagedS3
+    Prelude.rnf customerManagedS3 `Prelude.seq`
+      Prelude.rnf serviceManagedS3
 
 instance Data.ToJSON ChannelStorage where
   toJSON ChannelStorage' {..} =

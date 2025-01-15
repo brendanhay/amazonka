@@ -337,15 +337,15 @@ instance Prelude.Hashable EksContainer where
 
 instance Prelude.NFData EksContainer where
   rnf EksContainer' {..} =
-    Prelude.rnf args
-      `Prelude.seq` Prelude.rnf command
-      `Prelude.seq` Prelude.rnf env
-      `Prelude.seq` Prelude.rnf imagePullPolicy
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf resources
-      `Prelude.seq` Prelude.rnf securityContext
-      `Prelude.seq` Prelude.rnf volumeMounts
-      `Prelude.seq` Prelude.rnf image
+    Prelude.rnf args `Prelude.seq`
+      Prelude.rnf command `Prelude.seq`
+        Prelude.rnf env `Prelude.seq`
+          Prelude.rnf imagePullPolicy `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf resources `Prelude.seq`
+                Prelude.rnf securityContext `Prelude.seq`
+                  Prelude.rnf volumeMounts `Prelude.seq`
+                    Prelude.rnf image
 
 instance Data.ToJSON EksContainer where
   toJSON EksContainer' {..} =

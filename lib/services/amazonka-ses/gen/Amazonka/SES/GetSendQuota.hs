@@ -178,7 +178,7 @@ getSendQuotaResponse_httpStatus = Lens.lens (\GetSendQuotaResponse' {httpStatus}
 
 instance Prelude.NFData GetSendQuotaResponse where
   rnf GetSendQuotaResponse' {..} =
-    Prelude.rnf max24HourSend
-      `Prelude.seq` Prelude.rnf maxSendRate
-      `Prelude.seq` Prelude.rnf sentLast24Hours
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf max24HourSend `Prelude.seq`
+      Prelude.rnf maxSendRate `Prelude.seq`
+        Prelude.rnf sentLast24Hours `Prelude.seq`
+          Prelude.rnf httpStatus

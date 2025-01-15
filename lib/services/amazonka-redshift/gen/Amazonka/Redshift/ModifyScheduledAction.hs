@@ -196,14 +196,14 @@ instance Prelude.Hashable ModifyScheduledAction where
 
 instance Prelude.NFData ModifyScheduledAction where
   rnf ModifyScheduledAction' {..} =
-    Prelude.rnf enable
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf iamRole
-      `Prelude.seq` Prelude.rnf schedule
-      `Prelude.seq` Prelude.rnf scheduledActionDescription
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf targetAction
-      `Prelude.seq` Prelude.rnf scheduledActionName
+    Prelude.rnf enable `Prelude.seq`
+      Prelude.rnf endTime `Prelude.seq`
+        Prelude.rnf iamRole `Prelude.seq`
+          Prelude.rnf schedule `Prelude.seq`
+            Prelude.rnf scheduledActionDescription `Prelude.seq`
+              Prelude.rnf startTime `Prelude.seq`
+                Prelude.rnf targetAction `Prelude.seq`
+                  Prelude.rnf scheduledActionName
 
 instance Data.ToHeaders ModifyScheduledAction where
   toHeaders = Prelude.const Prelude.mempty

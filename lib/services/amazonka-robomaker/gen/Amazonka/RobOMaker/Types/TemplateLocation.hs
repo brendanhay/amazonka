@@ -74,8 +74,8 @@ instance Prelude.Hashable TemplateLocation where
 
 instance Prelude.NFData TemplateLocation where
   rnf TemplateLocation' {..} =
-    Prelude.rnf s3Bucket
-      `Prelude.seq` Prelude.rnf s3Key
+    Prelude.rnf s3Bucket `Prelude.seq`
+      Prelude.rnf s3Key
 
 instance Data.ToJSON TemplateLocation where
   toJSON TemplateLocation' {..} =

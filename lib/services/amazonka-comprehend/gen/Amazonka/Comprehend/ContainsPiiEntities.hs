@@ -115,8 +115,8 @@ instance Prelude.Hashable ContainsPiiEntities where
 
 instance Prelude.NFData ContainsPiiEntities where
   rnf ContainsPiiEntities' {..} =
-    Prelude.rnf text
-      `Prelude.seq` Prelude.rnf languageCode
+    Prelude.rnf text `Prelude.seq`
+      Prelude.rnf languageCode
 
 instance Data.ToHeaders ContainsPiiEntities where
   toHeaders =
@@ -192,5 +192,5 @@ containsPiiEntitiesResponse_httpStatus = Lens.lens (\ContainsPiiEntitiesResponse
 
 instance Prelude.NFData ContainsPiiEntitiesResponse where
   rnf ContainsPiiEntitiesResponse' {..} =
-    Prelude.rnf labels
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf labels `Prelude.seq`
+      Prelude.rnf httpStatus

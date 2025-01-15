@@ -167,7 +167,7 @@ instance Prelude.Hashable PolicyTargetSummary where
 
 instance Prelude.NFData PolicyTargetSummary where
   rnf PolicyTargetSummary' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf targetId
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf targetId `Prelude.seq`
+          Prelude.rnf type'

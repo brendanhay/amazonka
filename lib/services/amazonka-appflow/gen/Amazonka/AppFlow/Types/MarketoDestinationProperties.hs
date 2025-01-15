@@ -87,8 +87,8 @@ instance
 
 instance Prelude.NFData MarketoDestinationProperties where
   rnf MarketoDestinationProperties' {..} =
-    Prelude.rnf errorHandlingConfig
-      `Prelude.seq` Prelude.rnf object'
+    Prelude.rnf errorHandlingConfig `Prelude.seq`
+      Prelude.rnf object'
 
 instance Data.ToJSON MarketoDestinationProperties where
   toJSON MarketoDestinationProperties' {..} =

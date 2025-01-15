@@ -210,5 +210,5 @@ instance
     GetIdentityNotificationAttributesResponse
   where
   rnf GetIdentityNotificationAttributesResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf notificationAttributes
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf notificationAttributes

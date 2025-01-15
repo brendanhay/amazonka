@@ -345,17 +345,17 @@ describeSimulationResponse_httpStatus = Lens.lens (\DescribeSimulationResponse' 
 
 instance Prelude.NFData DescribeSimulationResponse where
   rnf DescribeSimulationResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf executionId
-      `Prelude.seq` Prelude.rnf liveSimulationState
-      `Prelude.seq` Prelude.rnf loggingConfiguration
-      `Prelude.seq` Prelude.rnf maximumDuration
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf schemaError
-      `Prelude.seq` Prelude.rnf schemaS3Location
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf targetStatus
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf executionId `Prelude.seq`
+            Prelude.rnf liveSimulationState `Prelude.seq`
+              Prelude.rnf loggingConfiguration `Prelude.seq`
+                Prelude.rnf maximumDuration `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf roleArn `Prelude.seq`
+                      Prelude.rnf schemaError `Prelude.seq`
+                        Prelude.rnf schemaS3Location `Prelude.seq`
+                          Prelude.rnf status `Prelude.seq`
+                            Prelude.rnf targetStatus `Prelude.seq`
+                              Prelude.rnf httpStatus

@@ -142,12 +142,12 @@ instance Prelude.Hashable Resource where
 
 instance Prelude.NFData Resource where
   rnf Resource' {..} =
-    Prelude.rnf doubleValue
-      `Prelude.seq` Prelude.rnf integerValue
-      `Prelude.seq` Prelude.rnf longValue
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf stringSetValue
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf doubleValue `Prelude.seq`
+      Prelude.rnf integerValue `Prelude.seq`
+        Prelude.rnf longValue `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf stringSetValue `Prelude.seq`
+              Prelude.rnf type'
 
 instance Data.ToJSON Resource where
   toJSON Resource' {..} =

@@ -115,8 +115,8 @@ instance Prelude.Hashable GetRemainingFreeTrialDays where
 
 instance Prelude.NFData GetRemainingFreeTrialDays where
   rnf GetRemainingFreeTrialDays' {..} =
-    Prelude.rnf accountIds
-      `Prelude.seq` Prelude.rnf detectorId
+    Prelude.rnf accountIds `Prelude.seq`
+      Prelude.rnf detectorId
 
 instance Data.ToHeaders GetRemainingFreeTrialDays where
   toHeaders =
@@ -206,6 +206,6 @@ instance
     GetRemainingFreeTrialDaysResponse
   where
   rnf GetRemainingFreeTrialDaysResponse' {..} =
-    Prelude.rnf accounts
-      `Prelude.seq` Prelude.rnf unprocessedAccounts
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf accounts `Prelude.seq`
+      Prelude.rnf unprocessedAccounts `Prelude.seq`
+        Prelude.rnf httpStatus

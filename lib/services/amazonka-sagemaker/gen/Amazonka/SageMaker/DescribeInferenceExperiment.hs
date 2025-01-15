@@ -457,20 +457,20 @@ instance
     DescribeInferenceExperimentResponse
   where
   rnf DescribeInferenceExperimentResponse' {..} =
-    Prelude.rnf completionTime
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf dataStorageConfig
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf kmsKey
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf schedule
-      `Prelude.seq` Prelude.rnf shadowModeConfig
-      `Prelude.seq` Prelude.rnf statusReason
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf endpointMetadata
-      `Prelude.seq` Prelude.rnf modelVariants
+    Prelude.rnf completionTime `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf dataStorageConfig `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf kmsKey `Prelude.seq`
+              Prelude.rnf lastModifiedTime `Prelude.seq`
+                Prelude.rnf roleArn `Prelude.seq`
+                  Prelude.rnf schedule `Prelude.seq`
+                    Prelude.rnf shadowModeConfig `Prelude.seq`
+                      Prelude.rnf statusReason `Prelude.seq`
+                        Prelude.rnf httpStatus `Prelude.seq`
+                          Prelude.rnf arn `Prelude.seq`
+                            Prelude.rnf name `Prelude.seq`
+                              Prelude.rnf type' `Prelude.seq`
+                                Prelude.rnf status `Prelude.seq`
+                                  Prelude.rnf endpointMetadata `Prelude.seq`
+                                    Prelude.rnf modelVariants

@@ -102,9 +102,9 @@ instance
 
 instance Prelude.NFData UpsolverS3OutputFormatConfig where
   rnf UpsolverS3OutputFormatConfig' {..} =
-    Prelude.rnf aggregationConfig
-      `Prelude.seq` Prelude.rnf fileType
-      `Prelude.seq` Prelude.rnf prefixConfig
+    Prelude.rnf aggregationConfig `Prelude.seq`
+      Prelude.rnf fileType `Prelude.seq`
+        Prelude.rnf prefixConfig
 
 instance Data.ToJSON UpsolverS3OutputFormatConfig where
   toJSON UpsolverS3OutputFormatConfig' {..} =

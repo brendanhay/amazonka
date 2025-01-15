@@ -86,9 +86,9 @@ instance Prelude.Hashable S3ReferenceDataSourceUpdate where
 
 instance Prelude.NFData S3ReferenceDataSourceUpdate where
   rnf S3ReferenceDataSourceUpdate' {..} =
-    Prelude.rnf bucketARNUpdate
-      `Prelude.seq` Prelude.rnf fileKeyUpdate
-      `Prelude.seq` Prelude.rnf referenceRoleARNUpdate
+    Prelude.rnf bucketARNUpdate `Prelude.seq`
+      Prelude.rnf fileKeyUpdate `Prelude.seq`
+        Prelude.rnf referenceRoleARNUpdate
 
 instance Data.ToJSON S3ReferenceDataSourceUpdate where
   toJSON S3ReferenceDataSourceUpdate' {..} =

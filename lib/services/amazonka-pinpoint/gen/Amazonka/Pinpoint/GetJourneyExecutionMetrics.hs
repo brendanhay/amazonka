@@ -151,10 +151,10 @@ instance Prelude.Hashable GetJourneyExecutionMetrics where
 
 instance Prelude.NFData GetJourneyExecutionMetrics where
   rnf GetJourneyExecutionMetrics' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf pageSize
-      `Prelude.seq` Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf journeyId
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf pageSize `Prelude.seq`
+        Prelude.rnf applicationId `Prelude.seq`
+          Prelude.rnf journeyId
 
 instance Data.ToHeaders GetJourneyExecutionMetrics where
   toHeaders =
@@ -232,5 +232,5 @@ instance
     GetJourneyExecutionMetricsResponse
   where
   rnf GetJourneyExecutionMetricsResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf journeyExecutionMetricsResponse
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf journeyExecutionMetricsResponse

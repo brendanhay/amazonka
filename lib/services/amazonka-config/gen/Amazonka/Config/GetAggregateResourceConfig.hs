@@ -114,8 +114,8 @@ instance Prelude.Hashable GetAggregateResourceConfig where
 
 instance Prelude.NFData GetAggregateResourceConfig where
   rnf GetAggregateResourceConfig' {..} =
-    Prelude.rnf configurationAggregatorName
-      `Prelude.seq` Prelude.rnf resourceIdentifier
+    Prelude.rnf configurationAggregatorName `Prelude.seq`
+      Prelude.rnf resourceIdentifier
 
 instance Data.ToHeaders GetAggregateResourceConfig where
   toHeaders =
@@ -195,5 +195,5 @@ instance
     GetAggregateResourceConfigResponse
   where
   rnf GetAggregateResourceConfigResponse' {..} =
-    Prelude.rnf configurationItem
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf configurationItem `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -80,8 +80,8 @@ instance Prelude.Hashable EventStartCondition where
 
 instance Prelude.NFData EventStartCondition where
   rnf EventStartCondition' {..} =
-    Prelude.rnf eventFilter
-      `Prelude.seq` Prelude.rnf segmentId
+    Prelude.rnf eventFilter `Prelude.seq`
+      Prelude.rnf segmentId
 
 instance Data.ToJSON EventStartCondition where
   toJSON EventStartCondition' {..} =

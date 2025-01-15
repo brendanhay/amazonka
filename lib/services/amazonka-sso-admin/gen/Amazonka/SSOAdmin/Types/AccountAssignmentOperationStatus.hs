@@ -200,12 +200,12 @@ instance
     AccountAssignmentOperationStatus
   where
   rnf AccountAssignmentOperationStatus' {..} =
-    Prelude.rnf createdDate
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf permissionSetArn
-      `Prelude.seq` Prelude.rnf principalId
-      `Prelude.seq` Prelude.rnf principalType
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf targetId
-      `Prelude.seq` Prelude.rnf targetType
+    Prelude.rnf createdDate `Prelude.seq`
+      Prelude.rnf failureReason `Prelude.seq`
+        Prelude.rnf permissionSetArn `Prelude.seq`
+          Prelude.rnf principalId `Prelude.seq`
+            Prelude.rnf principalType `Prelude.seq`
+              Prelude.rnf requestId `Prelude.seq`
+                Prelude.rnf status `Prelude.seq`
+                  Prelude.rnf targetId `Prelude.seq`
+                    Prelude.rnf targetType

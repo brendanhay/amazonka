@@ -125,12 +125,12 @@ instance Core.AWSPager DescribeDefaultParameters where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeDefaultParameters_nextToken
-          Lens..~ rs
-          Lens.^? describeDefaultParametersResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeDefaultParameters_nextToken
+              Lens..~ rs
+              Lens.^? describeDefaultParametersResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeDefaultParameters where
   type
@@ -155,8 +155,8 @@ instance Prelude.Hashable DescribeDefaultParameters where
 
 instance Prelude.NFData DescribeDefaultParameters where
   rnf DescribeDefaultParameters' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeDefaultParameters where
   toHeaders =
@@ -241,6 +241,6 @@ instance
     DescribeDefaultParametersResponse
   where
   rnf DescribeDefaultParametersResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf parameters `Prelude.seq`
+        Prelude.rnf httpStatus

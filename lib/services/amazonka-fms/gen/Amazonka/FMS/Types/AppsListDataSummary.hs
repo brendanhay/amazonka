@@ -103,7 +103,7 @@ instance Prelude.Hashable AppsListDataSummary where
 
 instance Prelude.NFData AppsListDataSummary where
   rnf AppsListDataSummary' {..} =
-    Prelude.rnf appsList
-      `Prelude.seq` Prelude.rnf listArn
-      `Prelude.seq` Prelude.rnf listId
-      `Prelude.seq` Prelude.rnf listName
+    Prelude.rnf appsList `Prelude.seq`
+      Prelude.rnf listArn `Prelude.seq`
+        Prelude.rnf listId `Prelude.seq`
+          Prelude.rnf listName

@@ -176,5 +176,5 @@ getApplicationResponse_httpStatus = Lens.lens (\GetApplicationResponse' {httpSta
 
 instance Prelude.NFData GetApplicationResponse where
   rnf GetApplicationResponse' {..} =
-    Prelude.rnf application
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf application `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -93,8 +93,8 @@ instance
     ModuleLoggingConfigurationInput
   where
   rnf ModuleLoggingConfigurationInput' {..} =
-    Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf logLevel
+    Prelude.rnf enabled `Prelude.seq`
+      Prelude.rnf logLevel
 
 instance Data.ToJSON ModuleLoggingConfigurationInput where
   toJSON ModuleLoggingConfigurationInput' {..} =

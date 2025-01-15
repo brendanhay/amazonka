@@ -120,9 +120,7 @@ realtimeLogConfigs_marker = Lens.lens (\RealtimeLogConfigs' {marker} -> marker) 
 instance Data.FromXML RealtimeLogConfigs where
   parseXML x =
     RealtimeLogConfigs'
-      Prelude.<$> ( x
-                      Data..@? "Items"
-                      Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "Items" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "NextMarker")
@@ -141,8 +139,8 @@ instance Prelude.Hashable RealtimeLogConfigs where
 
 instance Prelude.NFData RealtimeLogConfigs where
   rnf RealtimeLogConfigs' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf maxItems
-      `Prelude.seq` Prelude.rnf isTruncated
-      `Prelude.seq` Prelude.rnf marker
+    Prelude.rnf items `Prelude.seq`
+      Prelude.rnf nextMarker `Prelude.seq`
+        Prelude.rnf maxItems `Prelude.seq`
+          Prelude.rnf isTruncated `Prelude.seq`
+            Prelude.rnf marker

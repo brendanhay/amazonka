@@ -183,13 +183,13 @@ instance Prelude.Hashable MediaCapturePipeline where
 
 instance Prelude.NFData MediaCapturePipeline where
   rnf MediaCapturePipeline' {..} =
-    Prelude.rnf chimeSdkMeetingConfiguration
-      `Prelude.seq` Prelude.rnf createdTimestamp
-      `Prelude.seq` Prelude.rnf mediaPipelineArn
-      `Prelude.seq` Prelude.rnf mediaPipelineId
-      `Prelude.seq` Prelude.rnf sinkArn
-      `Prelude.seq` Prelude.rnf sinkType
-      `Prelude.seq` Prelude.rnf sourceArn
-      `Prelude.seq` Prelude.rnf sourceType
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf updatedTimestamp
+    Prelude.rnf chimeSdkMeetingConfiguration `Prelude.seq`
+      Prelude.rnf createdTimestamp `Prelude.seq`
+        Prelude.rnf mediaPipelineArn `Prelude.seq`
+          Prelude.rnf mediaPipelineId `Prelude.seq`
+            Prelude.rnf sinkArn `Prelude.seq`
+              Prelude.rnf sinkType `Prelude.seq`
+                Prelude.rnf sourceArn `Prelude.seq`
+                  Prelude.rnf sourceType `Prelude.seq`
+                    Prelude.rnf status `Prelude.seq`
+                      Prelude.rnf updatedTimestamp

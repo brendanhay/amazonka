@@ -181,5 +181,5 @@ instance
   where
   rnf
     GetAppInstanceStreamingConfigurationsResponse' {..} =
-      Prelude.rnf appInstanceStreamingConfigurations
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf appInstanceStreamingConfigurations `Prelude.seq`
+        Prelude.rnf httpStatus

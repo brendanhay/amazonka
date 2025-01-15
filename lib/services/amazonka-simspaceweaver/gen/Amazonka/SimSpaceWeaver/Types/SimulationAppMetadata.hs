@@ -121,8 +121,8 @@ instance Prelude.Hashable SimulationAppMetadata where
 
 instance Prelude.NFData SimulationAppMetadata where
   rnf SimulationAppMetadata' {..} =
-    Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf simulation
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf targetStatus
+    Prelude.rnf domain `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf simulation `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf targetStatus

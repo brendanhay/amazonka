@@ -168,5 +168,5 @@ instance
     GetThingRuntimeConfigurationResponse
   where
   rnf GetThingRuntimeConfigurationResponse' {..} =
-    Prelude.rnf runtimeConfiguration
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf runtimeConfiguration `Prelude.seq`
+      Prelude.rnf httpStatus

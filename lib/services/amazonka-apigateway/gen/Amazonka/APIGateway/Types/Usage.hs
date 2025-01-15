@@ -127,8 +127,8 @@ instance Prelude.Hashable Usage where
 
 instance Prelude.NFData Usage where
   rnf Usage' {..} =
-    Prelude.rnf endDate
-      `Prelude.seq` Prelude.rnf items
-      `Prelude.seq` Prelude.rnf position
-      `Prelude.seq` Prelude.rnf startDate
-      `Prelude.seq` Prelude.rnf usagePlanId
+    Prelude.rnf endDate `Prelude.seq`
+      Prelude.rnf items `Prelude.seq`
+        Prelude.rnf position `Prelude.seq`
+          Prelude.rnf startDate `Prelude.seq`
+            Prelude.rnf usagePlanId

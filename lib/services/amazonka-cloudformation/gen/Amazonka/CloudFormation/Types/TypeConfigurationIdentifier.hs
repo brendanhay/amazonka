@@ -142,11 +142,11 @@ instance Prelude.Hashable TypeConfigurationIdentifier where
 
 instance Prelude.NFData TypeConfigurationIdentifier where
   rnf TypeConfigurationIdentifier' {..} =
-    Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf typeArn
-      `Prelude.seq` Prelude.rnf typeConfigurationAlias
-      `Prelude.seq` Prelude.rnf typeConfigurationArn
-      `Prelude.seq` Prelude.rnf typeName
+    Prelude.rnf type' `Prelude.seq`
+      Prelude.rnf typeArn `Prelude.seq`
+        Prelude.rnf typeConfigurationAlias `Prelude.seq`
+          Prelude.rnf typeConfigurationArn `Prelude.seq`
+            Prelude.rnf typeName
 
 instance Data.ToQuery TypeConfigurationIdentifier where
   toQuery TypeConfigurationIdentifier' {..} =

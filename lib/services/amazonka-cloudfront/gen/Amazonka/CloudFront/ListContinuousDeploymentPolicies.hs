@@ -141,8 +141,8 @@ instance
     ListContinuousDeploymentPolicies
   where
   rnf ListContinuousDeploymentPolicies' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxItems
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf maxItems
 
 instance
   Data.ToHeaders
@@ -210,5 +210,5 @@ instance
     ListContinuousDeploymentPoliciesResponse
   where
   rnf ListContinuousDeploymentPoliciesResponse' {..} =
-    Prelude.rnf continuousDeploymentPolicyList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf continuousDeploymentPolicyList `Prelude.seq`
+      Prelude.rnf httpStatus

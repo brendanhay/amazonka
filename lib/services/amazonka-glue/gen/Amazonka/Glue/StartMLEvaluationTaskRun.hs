@@ -178,5 +178,5 @@ instance
     StartMLEvaluationTaskRunResponse
   where
   rnf StartMLEvaluationTaskRunResponse' {..} =
-    Prelude.rnf taskRunId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf taskRunId `Prelude.seq`
+      Prelude.rnf httpStatus

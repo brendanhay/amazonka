@@ -126,8 +126,8 @@ instance Prelude.Hashable AcceptReservedNodeExchange where
 
 instance Prelude.NFData AcceptReservedNodeExchange where
   rnf AcceptReservedNodeExchange' {..} =
-    Prelude.rnf reservedNodeId
-      `Prelude.seq` Prelude.rnf targetReservedNodeOfferingId
+    Prelude.rnf reservedNodeId `Prelude.seq`
+      Prelude.rnf targetReservedNodeOfferingId
 
 instance Data.ToHeaders AcceptReservedNodeExchange where
   toHeaders = Prelude.const Prelude.mempty
@@ -189,5 +189,5 @@ instance
     AcceptReservedNodeExchangeResponse
   where
   rnf AcceptReservedNodeExchangeResponse' {..} =
-    Prelude.rnf exchangedReservedNode
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf exchangedReservedNode `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -252,11 +252,11 @@ instance
     PredictiveScalingConfiguration
   where
   rnf PredictiveScalingConfiguration' {..} =
-    Prelude.rnf maxCapacityBreachBehavior
-      `Prelude.seq` Prelude.rnf maxCapacityBuffer
-      `Prelude.seq` Prelude.rnf mode
-      `Prelude.seq` Prelude.rnf schedulingBufferTime
-      `Prelude.seq` Prelude.rnf metricSpecifications
+    Prelude.rnf maxCapacityBreachBehavior `Prelude.seq`
+      Prelude.rnf maxCapacityBuffer `Prelude.seq`
+        Prelude.rnf mode `Prelude.seq`
+          Prelude.rnf schedulingBufferTime `Prelude.seq`
+            Prelude.rnf metricSpecifications
 
 instance Data.ToQuery PredictiveScalingConfiguration where
   toQuery PredictiveScalingConfiguration' {..} =

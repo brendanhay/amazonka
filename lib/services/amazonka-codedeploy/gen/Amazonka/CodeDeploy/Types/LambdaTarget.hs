@@ -145,10 +145,10 @@ instance Prelude.Hashable LambdaTarget where
 
 instance Prelude.NFData LambdaTarget where
   rnf LambdaTarget' {..} =
-    Prelude.rnf deploymentId
-      `Prelude.seq` Prelude.rnf lambdaFunctionInfo
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf lifecycleEvents
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf targetArn
-      `Prelude.seq` Prelude.rnf targetId
+    Prelude.rnf deploymentId `Prelude.seq`
+      Prelude.rnf lambdaFunctionInfo `Prelude.seq`
+        Prelude.rnf lastUpdatedAt `Prelude.seq`
+          Prelude.rnf lifecycleEvents `Prelude.seq`
+            Prelude.rnf status `Prelude.seq`
+              Prelude.rnf targetArn `Prelude.seq`
+                Prelude.rnf targetId

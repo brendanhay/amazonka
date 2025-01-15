@@ -82,8 +82,8 @@ instance
     MeetingNotificationConfiguration
   where
   rnf MeetingNotificationConfiguration' {..} =
-    Prelude.rnf snsTopicArn
-      `Prelude.seq` Prelude.rnf sqsQueueArn
+    Prelude.rnf snsTopicArn `Prelude.seq`
+      Prelude.rnf sqsQueueArn
 
 instance Data.ToJSON MeetingNotificationConfiguration where
   toJSON MeetingNotificationConfiguration' {..} =

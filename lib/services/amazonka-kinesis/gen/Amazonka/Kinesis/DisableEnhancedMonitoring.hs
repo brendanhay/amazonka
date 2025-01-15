@@ -193,9 +193,9 @@ instance Prelude.Hashable DisableEnhancedMonitoring where
 
 instance Prelude.NFData DisableEnhancedMonitoring where
   rnf DisableEnhancedMonitoring' {..} =
-    Prelude.rnf streamARN
-      `Prelude.seq` Prelude.rnf streamName
-      `Prelude.seq` Prelude.rnf shardLevelMetrics
+    Prelude.rnf streamARN `Prelude.seq`
+      Prelude.rnf streamName `Prelude.seq`
+        Prelude.rnf shardLevelMetrics
 
 instance Data.ToHeaders DisableEnhancedMonitoring where
   toHeaders =

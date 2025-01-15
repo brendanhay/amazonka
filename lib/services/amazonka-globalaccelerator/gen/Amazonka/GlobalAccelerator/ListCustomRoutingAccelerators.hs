@@ -109,12 +109,12 @@ instance Core.AWSPager ListCustomRoutingAccelerators where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listCustomRoutingAccelerators_nextToken
-          Lens..~ rs
-          Lens.^? listCustomRoutingAcceleratorsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listCustomRoutingAccelerators_nextToken
+              Lens..~ rs
+              Lens.^? listCustomRoutingAcceleratorsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -145,8 +145,8 @@ instance
 
 instance Prelude.NFData ListCustomRoutingAccelerators where
   rnf ListCustomRoutingAccelerators' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListCustomRoutingAccelerators where
   toHeaders =
@@ -234,6 +234,6 @@ instance
     ListCustomRoutingAcceleratorsResponse
   where
   rnf ListCustomRoutingAcceleratorsResponse' {..} =
-    Prelude.rnf accelerators
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf accelerators `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

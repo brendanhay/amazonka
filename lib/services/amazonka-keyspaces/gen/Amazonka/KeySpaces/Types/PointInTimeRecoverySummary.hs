@@ -90,5 +90,5 @@ instance Prelude.Hashable PointInTimeRecoverySummary where
 
 instance Prelude.NFData PointInTimeRecoverySummary where
   rnf PointInTimeRecoverySummary' {..} =
-    Prelude.rnf earliestRestorableTimestamp
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf earliestRestorableTimestamp `Prelude.seq`
+      Prelude.rnf status

@@ -127,8 +127,8 @@ instance Prelude.Hashable ScheduledInstanceRecurrence where
 
 instance Prelude.NFData ScheduledInstanceRecurrence where
   rnf ScheduledInstanceRecurrence' {..} =
-    Prelude.rnf frequency
-      `Prelude.seq` Prelude.rnf interval
-      `Prelude.seq` Prelude.rnf occurrenceDaySet
-      `Prelude.seq` Prelude.rnf occurrenceRelativeToEnd
-      `Prelude.seq` Prelude.rnf occurrenceUnit
+    Prelude.rnf frequency `Prelude.seq`
+      Prelude.rnf interval `Prelude.seq`
+        Prelude.rnf occurrenceDaySet `Prelude.seq`
+          Prelude.rnf occurrenceRelativeToEnd `Prelude.seq`
+            Prelude.rnf occurrenceUnit

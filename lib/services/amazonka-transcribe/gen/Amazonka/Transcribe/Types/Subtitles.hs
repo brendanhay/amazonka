@@ -101,8 +101,8 @@ instance Prelude.Hashable Subtitles where
 
 instance Prelude.NFData Subtitles where
   rnf Subtitles' {..} =
-    Prelude.rnf formats
-      `Prelude.seq` Prelude.rnf outputStartIndex
+    Prelude.rnf formats `Prelude.seq`
+      Prelude.rnf outputStartIndex
 
 instance Data.ToJSON Subtitles where
   toJSON Subtitles' {..} =

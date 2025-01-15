@@ -142,10 +142,10 @@ instance Prelude.Hashable AbsoluteTimeRange where
 
 instance Prelude.NFData AbsoluteTimeRange where
   rnf AbsoluteTimeRange' {..} =
-    Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf first
-      `Prelude.seq` Prelude.rnf last
-      `Prelude.seq` Prelude.rnf startTime
+    Prelude.rnf endTime `Prelude.seq`
+      Prelude.rnf first `Prelude.seq`
+        Prelude.rnf last `Prelude.seq`
+          Prelude.rnf startTime
 
 instance Data.ToJSON AbsoluteTimeRange where
   toJSON AbsoluteTimeRange' {..} =

@@ -127,8 +127,8 @@ instance
     PutAppInstanceStreamingConfigurations
   where
   rnf PutAppInstanceStreamingConfigurations' {..} =
-    Prelude.rnf appInstanceArn
-      `Prelude.seq` Prelude.rnf appInstanceStreamingConfigurations
+    Prelude.rnf appInstanceArn `Prelude.seq`
+      Prelude.rnf appInstanceStreamingConfigurations
 
 instance
   Data.ToHeaders
@@ -213,5 +213,5 @@ instance
   where
   rnf
     PutAppInstanceStreamingConfigurationsResponse' {..} =
-      Prelude.rnf appInstanceStreamingConfigurations
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf appInstanceStreamingConfigurations `Prelude.seq`
+        Prelude.rnf httpStatus

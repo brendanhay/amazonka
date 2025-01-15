@@ -138,12 +138,12 @@ instance Core.AWSPager ListVolumes where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listVolumes_marker
-          Lens..~ rs
-          Lens.^? listVolumesResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listVolumes_marker
+              Lens..~ rs
+              Lens.^? listVolumesResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListVolumes where
   type AWSResponse ListVolumes = ListVolumesResponse
@@ -168,9 +168,9 @@ instance Prelude.Hashable ListVolumes where
 
 instance Prelude.NFData ListVolumes where
   rnf ListVolumes' {..} =
-    Prelude.rnf gatewayARN
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf marker
+    Prelude.rnf gatewayARN `Prelude.seq`
+      Prelude.rnf limit `Prelude.seq`
+        Prelude.rnf marker
 
 instance Data.ToHeaders ListVolumes where
   toHeaders =
@@ -278,7 +278,7 @@ listVolumesResponse_httpStatus = Lens.lens (\ListVolumesResponse' {httpStatus} -
 
 instance Prelude.NFData ListVolumesResponse where
   rnf ListVolumesResponse' {..} =
-    Prelude.rnf gatewayARN
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf volumeInfos
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf gatewayARN `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf volumeInfos `Prelude.seq`
+          Prelude.rnf httpStatus

@@ -162,7 +162,7 @@ instance
     DescribeEventConfigurationsResponse
   where
   rnf DescribeEventConfigurationsResponse' {..} =
-    Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf eventConfigurations
-      `Prelude.seq` Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf creationDate `Prelude.seq`
+      Prelude.rnf eventConfigurations `Prelude.seq`
+        Prelude.rnf lastModifiedDate `Prelude.seq`
+          Prelude.rnf httpStatus

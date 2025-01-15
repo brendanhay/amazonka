@@ -117,10 +117,10 @@ instance Prelude.Hashable Merge where
 
 instance Prelude.NFData Merge where
   rnf Merge' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf inputs
-      `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf primaryKeys
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf inputs `Prelude.seq`
+        Prelude.rnf source `Prelude.seq`
+          Prelude.rnf primaryKeys
 
 instance Data.ToJSON Merge where
   toJSON Merge' {..} =

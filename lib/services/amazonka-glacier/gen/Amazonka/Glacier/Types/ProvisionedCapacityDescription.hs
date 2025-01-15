@@ -106,6 +106,6 @@ instance
     ProvisionedCapacityDescription
   where
   rnf ProvisionedCapacityDescription' {..} =
-    Prelude.rnf capacityId
-      `Prelude.seq` Prelude.rnf expirationDate
-      `Prelude.seq` Prelude.rnf startDate
+    Prelude.rnf capacityId `Prelude.seq`
+      Prelude.rnf expirationDate `Prelude.seq`
+        Prelude.rnf startDate

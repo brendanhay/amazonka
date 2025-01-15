@@ -116,8 +116,8 @@ instance Prelude.Hashable DeleteFirewallRule where
 
 instance Prelude.NFData DeleteFirewallRule where
   rnf DeleteFirewallRule' {..} =
-    Prelude.rnf firewallRuleGroupId
-      `Prelude.seq` Prelude.rnf firewallDomainListId
+    Prelude.rnf firewallRuleGroupId `Prelude.seq`
+      Prelude.rnf firewallDomainListId
 
 instance Data.ToHeaders DeleteFirewallRule where
   toHeaders =
@@ -194,5 +194,5 @@ deleteFirewallRuleResponse_httpStatus = Lens.lens (\DeleteFirewallRuleResponse' 
 
 instance Prelude.NFData DeleteFirewallRuleResponse where
   rnf DeleteFirewallRuleResponse' {..} =
-    Prelude.rnf firewallRule
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf firewallRule `Prelude.seq`
+      Prelude.rnf httpStatus

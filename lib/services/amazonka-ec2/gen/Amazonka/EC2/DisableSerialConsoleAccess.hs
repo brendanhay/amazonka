@@ -176,5 +176,5 @@ instance
     DisableSerialConsoleAccessResponse
   where
   rnf DisableSerialConsoleAccessResponse' {..} =
-    Prelude.rnf serialConsoleAccessEnabled
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf serialConsoleAccessEnabled `Prelude.seq`
+      Prelude.rnf httpStatus

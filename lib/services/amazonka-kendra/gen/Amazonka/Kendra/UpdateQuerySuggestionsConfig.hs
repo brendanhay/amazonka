@@ -282,12 +282,12 @@ instance
 
 instance Prelude.NFData UpdateQuerySuggestionsConfig where
   rnf UpdateQuerySuggestionsConfig' {..} =
-    Prelude.rnf includeQueriesWithoutUserInformation
-      `Prelude.seq` Prelude.rnf minimumNumberOfQueryingUsers
-      `Prelude.seq` Prelude.rnf minimumQueryCount
-      `Prelude.seq` Prelude.rnf mode
-      `Prelude.seq` Prelude.rnf queryLogLookBackWindowInDays
-      `Prelude.seq` Prelude.rnf indexId
+    Prelude.rnf includeQueriesWithoutUserInformation `Prelude.seq`
+      Prelude.rnf minimumNumberOfQueryingUsers `Prelude.seq`
+        Prelude.rnf minimumQueryCount `Prelude.seq`
+          Prelude.rnf mode `Prelude.seq`
+            Prelude.rnf queryLogLookBackWindowInDays `Prelude.seq`
+              Prelude.rnf indexId
 
 instance Data.ToHeaders UpdateQuerySuggestionsConfig where
   toHeaders =

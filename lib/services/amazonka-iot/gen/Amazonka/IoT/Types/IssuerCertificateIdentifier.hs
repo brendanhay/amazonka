@@ -92,9 +92,9 @@ instance Prelude.Hashable IssuerCertificateIdentifier where
 
 instance Prelude.NFData IssuerCertificateIdentifier where
   rnf IssuerCertificateIdentifier' {..} =
-    Prelude.rnf issuerCertificateSerialNumber
-      `Prelude.seq` Prelude.rnf issuerCertificateSubject
-      `Prelude.seq` Prelude.rnf issuerId
+    Prelude.rnf issuerCertificateSerialNumber `Prelude.seq`
+      Prelude.rnf issuerCertificateSubject `Prelude.seq`
+        Prelude.rnf issuerId
 
 instance Data.ToJSON IssuerCertificateIdentifier where
   toJSON IssuerCertificateIdentifier' {..} =

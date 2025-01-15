@@ -204,12 +204,12 @@ instance
 
 instance Prelude.NFData SplunkDestinationDescription where
   rnf SplunkDestinationDescription' {..} =
-    Prelude.rnf cloudWatchLoggingOptions
-      `Prelude.seq` Prelude.rnf hECAcknowledgmentTimeoutInSeconds
-      `Prelude.seq` Prelude.rnf hECEndpoint
-      `Prelude.seq` Prelude.rnf hECEndpointType
-      `Prelude.seq` Prelude.rnf hECToken
-      `Prelude.seq` Prelude.rnf processingConfiguration
-      `Prelude.seq` Prelude.rnf retryOptions
-      `Prelude.seq` Prelude.rnf s3BackupMode
-      `Prelude.seq` Prelude.rnf s3DestinationDescription
+    Prelude.rnf cloudWatchLoggingOptions `Prelude.seq`
+      Prelude.rnf hECAcknowledgmentTimeoutInSeconds `Prelude.seq`
+        Prelude.rnf hECEndpoint `Prelude.seq`
+          Prelude.rnf hECEndpointType `Prelude.seq`
+            Prelude.rnf hECToken `Prelude.seq`
+              Prelude.rnf processingConfiguration `Prelude.seq`
+                Prelude.rnf retryOptions `Prelude.seq`
+                  Prelude.rnf s3BackupMode `Prelude.seq`
+                    Prelude.rnf s3DestinationDescription

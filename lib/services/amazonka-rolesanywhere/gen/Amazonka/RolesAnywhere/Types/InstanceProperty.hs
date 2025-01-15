@@ -104,6 +104,6 @@ instance Prelude.Hashable InstanceProperty where
 
 instance Prelude.NFData InstanceProperty where
   rnf InstanceProperty' {..} =
-    Prelude.rnf failed
-      `Prelude.seq` Prelude.rnf properties
-      `Prelude.seq` Prelude.rnf seenAt
+    Prelude.rnf failed `Prelude.seq`
+      Prelude.rnf properties `Prelude.seq`
+        Prelude.rnf seenAt

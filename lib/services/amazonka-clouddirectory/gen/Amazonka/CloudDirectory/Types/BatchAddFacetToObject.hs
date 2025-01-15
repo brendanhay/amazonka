@@ -89,9 +89,9 @@ instance Prelude.Hashable BatchAddFacetToObject where
 
 instance Prelude.NFData BatchAddFacetToObject where
   rnf BatchAddFacetToObject' {..} =
-    Prelude.rnf schemaFacet
-      `Prelude.seq` Prelude.rnf objectAttributeList
-      `Prelude.seq` Prelude.rnf objectReference
+    Prelude.rnf schemaFacet `Prelude.seq`
+      Prelude.rnf objectAttributeList `Prelude.seq`
+        Prelude.rnf objectReference
 
 instance Data.ToJSON BatchAddFacetToObject where
   toJSON BatchAddFacetToObject' {..} =

@@ -121,8 +121,8 @@ instance Prelude.Hashable PutImagePolicy where
 
 instance Prelude.NFData PutImagePolicy where
   rnf PutImagePolicy' {..} =
-    Prelude.rnf imageArn
-      `Prelude.seq` Prelude.rnf policy
+    Prelude.rnf imageArn `Prelude.seq`
+      Prelude.rnf policy
 
 instance Data.ToHeaders PutImagePolicy where
   toHeaders =
@@ -202,6 +202,6 @@ putImagePolicyResponse_httpStatus = Lens.lens (\PutImagePolicyResponse' {httpSta
 
 instance Prelude.NFData PutImagePolicyResponse where
   rnf PutImagePolicyResponse' {..} =
-    Prelude.rnf imageArn
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf imageArn `Prelude.seq`
+      Prelude.rnf requestId `Prelude.seq`
+        Prelude.rnf httpStatus

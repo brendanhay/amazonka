@@ -245,11 +245,11 @@ instance Prelude.Hashable CreateMap where
 
 instance Prelude.NFData CreateMap where
   rnf CreateMap' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf pricingPlan
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf configuration
-      `Prelude.seq` Prelude.rnf mapName
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf pricingPlan `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf configuration `Prelude.seq`
+            Prelude.rnf mapName
 
 instance Data.ToHeaders CreateMap where
   toHeaders =
@@ -363,7 +363,7 @@ createMapResponse_mapName = Lens.lens (\CreateMapResponse' {mapName} -> mapName)
 
 instance Prelude.NFData CreateMapResponse where
   rnf CreateMapResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf createTime
-      `Prelude.seq` Prelude.rnf mapArn
-      `Prelude.seq` Prelude.rnf mapName
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf createTime `Prelude.seq`
+        Prelude.rnf mapArn `Prelude.seq`
+          Prelude.rnf mapName

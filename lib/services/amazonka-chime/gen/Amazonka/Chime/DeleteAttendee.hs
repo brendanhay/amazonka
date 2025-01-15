@@ -106,8 +106,8 @@ instance Prelude.Hashable DeleteAttendee where
 
 instance Prelude.NFData DeleteAttendee where
   rnf DeleteAttendee' {..} =
-    Prelude.rnf meetingId
-      `Prelude.seq` Prelude.rnf attendeeId
+    Prelude.rnf meetingId `Prelude.seq`
+      Prelude.rnf attendeeId
 
 instance Data.ToHeaders DeleteAttendee where
   toHeaders = Prelude.const Prelude.mempty

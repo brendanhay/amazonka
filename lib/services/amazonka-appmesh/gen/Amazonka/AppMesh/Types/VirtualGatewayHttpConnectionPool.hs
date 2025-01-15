@@ -100,8 +100,8 @@ instance
     VirtualGatewayHttpConnectionPool
   where
   rnf VirtualGatewayHttpConnectionPool' {..} =
-    Prelude.rnf maxPendingRequests
-      `Prelude.seq` Prelude.rnf maxConnections
+    Prelude.rnf maxPendingRequests `Prelude.seq`
+      Prelude.rnf maxConnections
 
 instance Data.ToJSON VirtualGatewayHttpConnectionPool where
   toJSON VirtualGatewayHttpConnectionPool' {..} =

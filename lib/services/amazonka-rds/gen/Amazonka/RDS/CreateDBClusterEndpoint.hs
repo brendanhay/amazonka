@@ -187,12 +187,12 @@ instance Prelude.Hashable CreateDBClusterEndpoint where
 
 instance Prelude.NFData CreateDBClusterEndpoint where
   rnf CreateDBClusterEndpoint' {..} =
-    Prelude.rnf excludedMembers
-      `Prelude.seq` Prelude.rnf staticMembers
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf dbClusterIdentifier
-      `Prelude.seq` Prelude.rnf dbClusterEndpointIdentifier
-      `Prelude.seq` Prelude.rnf endpointType
+    Prelude.rnf excludedMembers `Prelude.seq`
+      Prelude.rnf staticMembers `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf dbClusterIdentifier `Prelude.seq`
+            Prelude.rnf dbClusterEndpointIdentifier `Prelude.seq`
+              Prelude.rnf endpointType
 
 instance Data.ToHeaders CreateDBClusterEndpoint where
   toHeaders = Prelude.const Prelude.mempty

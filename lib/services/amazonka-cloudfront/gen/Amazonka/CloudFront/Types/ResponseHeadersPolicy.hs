@@ -113,6 +113,6 @@ instance Prelude.Hashable ResponseHeadersPolicy where
 
 instance Prelude.NFData ResponseHeadersPolicy where
   rnf ResponseHeadersPolicy' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf responseHeadersPolicyConfig
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf lastModifiedTime `Prelude.seq`
+        Prelude.rnf responseHeadersPolicyConfig

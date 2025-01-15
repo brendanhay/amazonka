@@ -127,8 +127,8 @@ instance Prelude.Hashable CreateLunaClient where
 
 instance Prelude.NFData CreateLunaClient where
   rnf CreateLunaClient' {..} =
-    Prelude.rnf label
-      `Prelude.seq` Prelude.rnf certificate
+    Prelude.rnf label `Prelude.seq`
+      Prelude.rnf certificate
 
 instance Data.ToHeaders CreateLunaClient where
   toHeaders =
@@ -203,5 +203,5 @@ createLunaClientResponse_httpStatus = Lens.lens (\CreateLunaClientResponse' {htt
 
 instance Prelude.NFData CreateLunaClientResponse where
   rnf CreateLunaClientResponse' {..} =
-    Prelude.rnf clientArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf clientArn `Prelude.seq`
+      Prelude.rnf httpStatus

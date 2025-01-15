@@ -358,11 +358,11 @@ instance Prelude.Hashable IdentityProviderType where
 
 instance Prelude.NFData IdentityProviderType where
   rnf IdentityProviderType' {..} =
-    Prelude.rnf attributeMapping
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf idpIdentifiers
-      `Prelude.seq` Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf providerDetails
-      `Prelude.seq` Prelude.rnf providerName
-      `Prelude.seq` Prelude.rnf providerType
-      `Prelude.seq` Prelude.rnf userPoolId
+    Prelude.rnf attributeMapping `Prelude.seq`
+      Prelude.rnf creationDate `Prelude.seq`
+        Prelude.rnf idpIdentifiers `Prelude.seq`
+          Prelude.rnf lastModifiedDate `Prelude.seq`
+            Prelude.rnf providerDetails `Prelude.seq`
+              Prelude.rnf providerName `Prelude.seq`
+                Prelude.rnf providerType `Prelude.seq`
+                  Prelude.rnf userPoolId

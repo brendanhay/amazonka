@@ -145,11 +145,11 @@ instance Prelude.Hashable DomainEndpointOptions where
 
 instance Prelude.NFData DomainEndpointOptions where
   rnf DomainEndpointOptions' {..} =
-    Prelude.rnf customEndpoint
-      `Prelude.seq` Prelude.rnf customEndpointCertificateArn
-      `Prelude.seq` Prelude.rnf customEndpointEnabled
-      `Prelude.seq` Prelude.rnf enforceHTTPS
-      `Prelude.seq` Prelude.rnf tLSSecurityPolicy
+    Prelude.rnf customEndpoint `Prelude.seq`
+      Prelude.rnf customEndpointCertificateArn `Prelude.seq`
+        Prelude.rnf customEndpointEnabled `Prelude.seq`
+          Prelude.rnf enforceHTTPS `Prelude.seq`
+            Prelude.rnf tLSSecurityPolicy
 
 instance Data.ToJSON DomainEndpointOptions where
   toJSON DomainEndpointOptions' {..} =

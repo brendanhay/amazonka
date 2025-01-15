@@ -130,9 +130,9 @@ instance Prelude.Hashable CreateMonitor where
 
 instance Prelude.NFData CreateMonitor where
   rnf CreateMonitor' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf monitorName
-      `Prelude.seq` Prelude.rnf resourceArn
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf monitorName `Prelude.seq`
+        Prelude.rnf resourceArn
 
 instance Data.ToHeaders CreateMonitor where
   toHeaders =
@@ -206,5 +206,5 @@ createMonitorResponse_httpStatus = Lens.lens (\CreateMonitorResponse' {httpStatu
 
 instance Prelude.NFData CreateMonitorResponse where
   rnf CreateMonitorResponse' {..} =
-    Prelude.rnf monitorArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf monitorArn `Prelude.seq`
+      Prelude.rnf httpStatus

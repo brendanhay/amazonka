@@ -121,8 +121,8 @@ instance Prelude.Hashable CreateVoiceTemplate where
 
 instance Prelude.NFData CreateVoiceTemplate where
   rnf CreateVoiceTemplate' {..} =
-    Prelude.rnf templateName
-      `Prelude.seq` Prelude.rnf voiceTemplateRequest
+    Prelude.rnf templateName `Prelude.seq`
+      Prelude.rnf voiceTemplateRequest
 
 instance Data.ToHeaders CreateVoiceTemplate where
   toHeaders =
@@ -192,5 +192,5 @@ createVoiceTemplateResponse_createTemplateMessageBody = Lens.lens (\CreateVoiceT
 
 instance Prelude.NFData CreateVoiceTemplateResponse where
   rnf CreateVoiceTemplateResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf createTemplateMessageBody
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf createTemplateMessageBody

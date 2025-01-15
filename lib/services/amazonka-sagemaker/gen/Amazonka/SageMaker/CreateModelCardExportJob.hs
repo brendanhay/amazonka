@@ -144,10 +144,10 @@ instance Prelude.Hashable CreateModelCardExportJob where
 
 instance Prelude.NFData CreateModelCardExportJob where
   rnf CreateModelCardExportJob' {..} =
-    Prelude.rnf modelCardVersion
-      `Prelude.seq` Prelude.rnf modelCardName
-      `Prelude.seq` Prelude.rnf modelCardExportJobName
-      `Prelude.seq` Prelude.rnf outputConfig
+    Prelude.rnf modelCardVersion `Prelude.seq`
+      Prelude.rnf modelCardName `Prelude.seq`
+        Prelude.rnf modelCardExportJobName `Prelude.seq`
+          Prelude.rnf outputConfig
 
 instance Data.ToHeaders CreateModelCardExportJob where
   toHeaders =
@@ -234,5 +234,5 @@ instance
     CreateModelCardExportJobResponse
   where
   rnf CreateModelCardExportJobResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf modelCardExportJobArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf modelCardExportJobArn

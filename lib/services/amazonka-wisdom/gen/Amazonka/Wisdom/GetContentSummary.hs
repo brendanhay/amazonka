@@ -116,8 +116,8 @@ instance Prelude.Hashable GetContentSummary where
 
 instance Prelude.NFData GetContentSummary where
   rnf GetContentSummary' {..} =
-    Prelude.rnf contentId
-      `Prelude.seq` Prelude.rnf knowledgeBaseId
+    Prelude.rnf contentId `Prelude.seq`
+      Prelude.rnf knowledgeBaseId
 
 instance Data.ToHeaders GetContentSummary where
   toHeaders =
@@ -184,5 +184,5 @@ getContentSummaryResponse_httpStatus = Lens.lens (\GetContentSummaryResponse' {h
 
 instance Prelude.NFData GetContentSummaryResponse where
   rnf GetContentSummaryResponse' {..} =
-    Prelude.rnf contentSummary
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf contentSummary `Prelude.seq`
+      Prelude.rnf httpStatus

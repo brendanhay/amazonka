@@ -269,11 +269,11 @@ instance
     CreateAutoScalingConfiguration
   where
   rnf CreateAutoScalingConfiguration' {..} =
-    Prelude.rnf maxConcurrency
-      `Prelude.seq` Prelude.rnf maxSize
-      `Prelude.seq` Prelude.rnf minSize
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf autoScalingConfigurationName
+    Prelude.rnf maxConcurrency `Prelude.seq`
+      Prelude.rnf maxSize `Prelude.seq`
+        Prelude.rnf minSize `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf autoScalingConfigurationName
 
 instance
   Data.ToHeaders
@@ -367,5 +367,5 @@ instance
     CreateAutoScalingConfigurationResponse
   where
   rnf CreateAutoScalingConfigurationResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf autoScalingConfiguration
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf autoScalingConfiguration

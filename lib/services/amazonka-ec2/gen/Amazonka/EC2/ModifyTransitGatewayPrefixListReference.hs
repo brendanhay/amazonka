@@ -170,11 +170,11 @@ instance
     ModifyTransitGatewayPrefixListReference
   where
   rnf ModifyTransitGatewayPrefixListReference' {..} =
-    Prelude.rnf blackhole
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf transitGatewayAttachmentId
-      `Prelude.seq` Prelude.rnf transitGatewayRouteTableId
-      `Prelude.seq` Prelude.rnf prefixListId
+    Prelude.rnf blackhole `Prelude.seq`
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf transitGatewayAttachmentId `Prelude.seq`
+          Prelude.rnf transitGatewayRouteTableId `Prelude.seq`
+            Prelude.rnf prefixListId
 
 instance
   Data.ToHeaders
@@ -255,5 +255,5 @@ instance
   where
   rnf
     ModifyTransitGatewayPrefixListReferenceResponse' {..} =
-      Prelude.rnf transitGatewayPrefixListReference
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf transitGatewayPrefixListReference `Prelude.seq`
+        Prelude.rnf httpStatus

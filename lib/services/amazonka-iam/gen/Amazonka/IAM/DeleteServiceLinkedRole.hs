@@ -188,5 +188,5 @@ instance
     DeleteServiceLinkedRoleResponse
   where
   rnf DeleteServiceLinkedRoleResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf deletionTaskId
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf deletionTaskId

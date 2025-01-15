@@ -118,8 +118,8 @@ instance Prelude.Hashable ListExperimentTemplates where
 
 instance Prelude.NFData ListExperimentTemplates where
   rnf ListExperimentTemplates' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListExperimentTemplates where
   toHeaders =
@@ -198,6 +198,6 @@ instance
     ListExperimentTemplatesResponse
   where
   rnf ListExperimentTemplatesResponse' {..} =
-    Prelude.rnf experimentTemplates
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf experimentTemplates `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

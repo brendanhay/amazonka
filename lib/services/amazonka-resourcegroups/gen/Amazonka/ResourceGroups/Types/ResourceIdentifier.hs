@@ -80,5 +80,5 @@ instance Prelude.Hashable ResourceIdentifier where
 
 instance Prelude.NFData ResourceIdentifier where
   rnf ResourceIdentifier' {..} =
-    Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf resourceType
+    Prelude.rnf resourceArn `Prelude.seq`
+      Prelude.rnf resourceType

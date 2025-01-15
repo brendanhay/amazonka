@@ -82,5 +82,5 @@ instance Prelude.Hashable SvmEndpoint where
 
 instance Prelude.NFData SvmEndpoint where
   rnf SvmEndpoint' {..} =
-    Prelude.rnf dNSName
-      `Prelude.seq` Prelude.rnf ipAddresses
+    Prelude.rnf dNSName `Prelude.seq`
+      Prelude.rnf ipAddresses

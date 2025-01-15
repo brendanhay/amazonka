@@ -130,9 +130,9 @@ instance Prelude.Hashable ExportSummary where
 
 instance Prelude.NFData ExportSummary where
   rnf ExportSummary' {..} =
-    Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf exportId
-      `Prelude.seq` Prelude.rnf exportStatus
-      `Prelude.seq` Prelude.rnf fileFormat
-      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
-      `Prelude.seq` Prelude.rnf resourceSpecification
+    Prelude.rnf creationDateTime `Prelude.seq`
+      Prelude.rnf exportId `Prelude.seq`
+        Prelude.rnf exportStatus `Prelude.seq`
+          Prelude.rnf fileFormat `Prelude.seq`
+            Prelude.rnf lastUpdatedDateTime `Prelude.seq`
+              Prelude.rnf resourceSpecification

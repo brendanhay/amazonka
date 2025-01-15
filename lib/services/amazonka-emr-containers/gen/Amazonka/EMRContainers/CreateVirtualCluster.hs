@@ -146,10 +146,10 @@ instance Prelude.Hashable CreateVirtualCluster where
 
 instance Prelude.NFData CreateVirtualCluster where
   rnf CreateVirtualCluster' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf containerProvider
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf containerProvider `Prelude.seq`
+          Prelude.rnf clientToken
 
 instance Data.ToHeaders CreateVirtualCluster where
   toHeaders =
@@ -239,7 +239,7 @@ createVirtualClusterResponse_httpStatus = Lens.lens (\CreateVirtualClusterRespon
 
 instance Prelude.NFData CreateVirtualClusterResponse where
   rnf CreateVirtualClusterResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf httpStatus

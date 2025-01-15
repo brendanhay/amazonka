@@ -153,9 +153,9 @@ instance
     ImportAssetFromSignedUrlResponseDetails
   where
   rnf ImportAssetFromSignedUrlResponseDetails' {..} =
-    Prelude.rnf md5Hash
-      `Prelude.seq` Prelude.rnf signedUrl
-      `Prelude.seq` Prelude.rnf signedUrlExpiresAt
-      `Prelude.seq` Prelude.rnf assetName
-      `Prelude.seq` Prelude.rnf dataSetId
-      `Prelude.seq` Prelude.rnf revisionId
+    Prelude.rnf md5Hash `Prelude.seq`
+      Prelude.rnf signedUrl `Prelude.seq`
+        Prelude.rnf signedUrlExpiresAt `Prelude.seq`
+          Prelude.rnf assetName `Prelude.seq`
+            Prelude.rnf dataSetId `Prelude.seq`
+              Prelude.rnf revisionId

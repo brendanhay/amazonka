@@ -200,9 +200,9 @@ instance
     LocalSecondaryIndexDescription
   where
   rnf LocalSecondaryIndexDescription' {..} =
-    Prelude.rnf indexArn
-      `Prelude.seq` Prelude.rnf indexName
-      `Prelude.seq` Prelude.rnf indexSizeBytes
-      `Prelude.seq` Prelude.rnf itemCount
-      `Prelude.seq` Prelude.rnf keySchema
-      `Prelude.seq` Prelude.rnf projection
+    Prelude.rnf indexArn `Prelude.seq`
+      Prelude.rnf indexName `Prelude.seq`
+        Prelude.rnf indexSizeBytes `Prelude.seq`
+          Prelude.rnf itemCount `Prelude.seq`
+            Prelude.rnf keySchema `Prelude.seq`
+              Prelude.rnf projection

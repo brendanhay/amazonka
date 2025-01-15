@@ -294,15 +294,15 @@ instance Prelude.Hashable SalesforceConfiguration where
 
 instance Prelude.NFData SalesforceConfiguration where
   rnf SalesforceConfiguration' {..} =
-    Prelude.rnf chatterFeedConfiguration
-      `Prelude.seq` Prelude.rnf crawlAttachments
-      `Prelude.seq` Prelude.rnf excludeAttachmentFilePatterns
-      `Prelude.seq` Prelude.rnf includeAttachmentFilePatterns
-      `Prelude.seq` Prelude.rnf knowledgeArticleConfiguration
-      `Prelude.seq` Prelude.rnf standardObjectAttachmentConfiguration
-      `Prelude.seq` Prelude.rnf standardObjectConfigurations
-      `Prelude.seq` Prelude.rnf serverUrl
-      `Prelude.seq` Prelude.rnf secretArn
+    Prelude.rnf chatterFeedConfiguration `Prelude.seq`
+      Prelude.rnf crawlAttachments `Prelude.seq`
+        Prelude.rnf excludeAttachmentFilePatterns `Prelude.seq`
+          Prelude.rnf includeAttachmentFilePatterns `Prelude.seq`
+            Prelude.rnf knowledgeArticleConfiguration `Prelude.seq`
+              Prelude.rnf standardObjectAttachmentConfiguration `Prelude.seq`
+                Prelude.rnf standardObjectConfigurations `Prelude.seq`
+                  Prelude.rnf serverUrl `Prelude.seq`
+                    Prelude.rnf secretArn
 
 instance Data.ToJSON SalesforceConfiguration where
   toJSON SalesforceConfiguration' {..} =

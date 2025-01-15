@@ -126,11 +126,11 @@ instance Prelude.Hashable ExecutionConfiguration where
 
 instance Prelude.NFData ExecutionConfiguration where
   rnf ExecutionConfiguration' {..} =
-    Prelude.rnf accountsCleanup
-      `Prelude.seq` Prelude.rnf appPackagesCleanup
-      `Prelude.seq` Prelude.rnf jobTimeoutMinutes
-      `Prelude.seq` Prelude.rnf skipAppResign
-      `Prelude.seq` Prelude.rnf videoCapture
+    Prelude.rnf accountsCleanup `Prelude.seq`
+      Prelude.rnf appPackagesCleanup `Prelude.seq`
+        Prelude.rnf jobTimeoutMinutes `Prelude.seq`
+          Prelude.rnf skipAppResign `Prelude.seq`
+            Prelude.rnf videoCapture
 
 instance Data.ToJSON ExecutionConfiguration where
   toJSON ExecutionConfiguration' {..} =

@@ -259,18 +259,18 @@ instance Prelude.Hashable DocumentIdentifier where
 
 instance Prelude.NFData DocumentIdentifier where
   rnf DocumentIdentifier' {..} =
-    Prelude.rnf author
-      `Prelude.seq` Prelude.rnf createdDate
-      `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf documentFormat
-      `Prelude.seq` Prelude.rnf documentType
-      `Prelude.seq` Prelude.rnf documentVersion
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf owner
-      `Prelude.seq` Prelude.rnf platformTypes
-      `Prelude.seq` Prelude.rnf requires
-      `Prelude.seq` Prelude.rnf reviewStatus
-      `Prelude.seq` Prelude.rnf schemaVersion
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf targetType
-      `Prelude.seq` Prelude.rnf versionName
+    Prelude.rnf author `Prelude.seq`
+      Prelude.rnf createdDate `Prelude.seq`
+        Prelude.rnf displayName `Prelude.seq`
+          Prelude.rnf documentFormat `Prelude.seq`
+            Prelude.rnf documentType `Prelude.seq`
+              Prelude.rnf documentVersion `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf owner `Prelude.seq`
+                    Prelude.rnf platformTypes `Prelude.seq`
+                      Prelude.rnf requires `Prelude.seq`
+                        Prelude.rnf reviewStatus `Prelude.seq`
+                          Prelude.rnf schemaVersion `Prelude.seq`
+                            Prelude.rnf tags `Prelude.seq`
+                              Prelude.rnf targetType `Prelude.seq`
+                                Prelude.rnf versionName

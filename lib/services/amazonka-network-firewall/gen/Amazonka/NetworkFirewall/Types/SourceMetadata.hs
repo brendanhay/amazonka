@@ -96,8 +96,8 @@ instance Prelude.Hashable SourceMetadata where
 
 instance Prelude.NFData SourceMetadata where
   rnf SourceMetadata' {..} =
-    Prelude.rnf sourceArn
-      `Prelude.seq` Prelude.rnf sourceUpdateToken
+    Prelude.rnf sourceArn `Prelude.seq`
+      Prelude.rnf sourceUpdateToken
 
 instance Data.ToJSON SourceMetadata where
   toJSON SourceMetadata' {..} =

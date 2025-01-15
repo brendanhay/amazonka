@@ -139,12 +139,12 @@ instance Core.AWSPager ListMeshes where
     | Core.stop (rs Lens.^. listMeshesResponse_meshes) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listMeshes_nextToken
-          Lens..~ rs
-          Lens.^? listMeshesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listMeshes_nextToken
+              Lens..~ rs
+              Lens.^? listMeshesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListMeshes where
   type AWSResponse ListMeshes = ListMeshesResponse
@@ -167,8 +167,8 @@ instance Prelude.Hashable ListMeshes where
 
 instance Prelude.NFData ListMeshes where
   rnf ListMeshes' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListMeshes where
   toHeaders =
@@ -251,6 +251,6 @@ listMeshesResponse_meshes = Lens.lens (\ListMeshesResponse' {meshes} -> meshes) 
 
 instance Prelude.NFData ListMeshesResponse where
   rnf ListMeshesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf meshes
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf meshes

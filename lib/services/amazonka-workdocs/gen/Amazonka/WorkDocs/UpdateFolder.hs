@@ -137,11 +137,11 @@ instance Prelude.Hashable UpdateFolder where
 
 instance Prelude.NFData UpdateFolder where
   rnf UpdateFolder' {..} =
-    Prelude.rnf authenticationToken
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf parentFolderId
-      `Prelude.seq` Prelude.rnf resourceState
-      `Prelude.seq` Prelude.rnf folderId
+    Prelude.rnf authenticationToken `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf parentFolderId `Prelude.seq`
+          Prelude.rnf resourceState `Prelude.seq`
+            Prelude.rnf folderId
 
 instance Data.ToHeaders UpdateFolder where
   toHeaders UpdateFolder' {..} =

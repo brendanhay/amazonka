@@ -100,8 +100,8 @@ instance Prelude.Hashable ItemsLimitConfiguration where
 
 instance Prelude.NFData ItemsLimitConfiguration where
   rnf ItemsLimitConfiguration' {..} =
-    Prelude.rnf itemsLimit
-      `Prelude.seq` Prelude.rnf otherCategories
+    Prelude.rnf itemsLimit `Prelude.seq`
+      Prelude.rnf otherCategories
 
 instance Data.ToJSON ItemsLimitConfiguration where
   toJSON ItemsLimitConfiguration' {..} =

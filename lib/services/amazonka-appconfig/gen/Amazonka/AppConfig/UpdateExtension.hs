@@ -143,11 +143,11 @@ instance Prelude.Hashable UpdateExtension where
 
 instance Prelude.NFData UpdateExtension where
   rnf UpdateExtension' {..} =
-    Prelude.rnf actions
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf versionNumber
-      `Prelude.seq` Prelude.rnf extensionIdentifier
+    Prelude.rnf actions `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf parameters `Prelude.seq`
+          Prelude.rnf versionNumber `Prelude.seq`
+            Prelude.rnf extensionIdentifier
 
 instance Data.ToHeaders UpdateExtension where
   toHeaders =

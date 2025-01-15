@@ -210,8 +210,8 @@ instance
     GetAppLaunchConfigurationResponse
   where
   rnf GetAppLaunchConfigurationResponse' {..} =
-    Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf autoLaunch
-      `Prelude.seq` Prelude.rnf roleName
-      `Prelude.seq` Prelude.rnf serverGroupLaunchConfigurations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf appId `Prelude.seq`
+      Prelude.rnf autoLaunch `Prelude.seq`
+        Prelude.rnf roleName `Prelude.seq`
+          Prelude.rnf serverGroupLaunchConfigurations `Prelude.seq`
+            Prelude.rnf httpStatus

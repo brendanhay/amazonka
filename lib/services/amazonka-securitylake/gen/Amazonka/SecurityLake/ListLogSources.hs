@@ -162,12 +162,12 @@ instance Core.AWSPager ListLogSources where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listLogSources_nextToken
-          Lens..~ rs
-          Lens.^? listLogSourcesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listLogSources_nextToken
+              Lens..~ rs
+              Lens.^? listLogSourcesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListLogSources where
   type
@@ -199,12 +199,12 @@ instance Prelude.Hashable ListLogSources where
 
 instance Prelude.NFData ListLogSources where
   rnf ListLogSources' {..} =
-    Prelude.rnf inputOrder
-      `Prelude.seq` Prelude.rnf listAllDimensions
-      `Prelude.seq` Prelude.rnf listSingleDimension
-      `Prelude.seq` Prelude.rnf listTwoDimensions
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf inputOrder `Prelude.seq`
+      Prelude.rnf listAllDimensions `Prelude.seq`
+        Prelude.rnf listSingleDimension `Prelude.seq`
+          Prelude.rnf listTwoDimensions `Prelude.seq`
+            Prelude.rnf maxResults `Prelude.seq`
+              Prelude.rnf nextToken
 
 instance Data.ToHeaders ListLogSources where
   toHeaders =
@@ -292,6 +292,6 @@ listLogSourcesResponse_regionSourceTypesAccountsList = Lens.lens (\ListLogSource
 
 instance Prelude.NFData ListLogSourcesResponse where
   rnf ListLogSourcesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf regionSourceTypesAccountsList
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf regionSourceTypesAccountsList

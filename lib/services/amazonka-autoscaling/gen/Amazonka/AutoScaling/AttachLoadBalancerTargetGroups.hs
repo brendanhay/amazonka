@@ -153,8 +153,8 @@ instance
     AttachLoadBalancerTargetGroups
   where
   rnf AttachLoadBalancerTargetGroups' {..} =
-    Prelude.rnf autoScalingGroupName
-      `Prelude.seq` Prelude.rnf targetGroupARNs
+    Prelude.rnf autoScalingGroupName `Prelude.seq`
+      Prelude.rnf targetGroupARNs
 
 instance
   Data.ToHeaders

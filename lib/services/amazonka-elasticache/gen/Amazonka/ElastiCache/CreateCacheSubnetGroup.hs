@@ -162,10 +162,10 @@ instance Prelude.Hashable CreateCacheSubnetGroup where
 
 instance Prelude.NFData CreateCacheSubnetGroup where
   rnf CreateCacheSubnetGroup' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf cacheSubnetGroupName
-      `Prelude.seq` Prelude.rnf cacheSubnetGroupDescription
-      `Prelude.seq` Prelude.rnf subnetIds
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf cacheSubnetGroupName `Prelude.seq`
+        Prelude.rnf cacheSubnetGroupDescription `Prelude.seq`
+          Prelude.rnf subnetIds
 
 instance Data.ToHeaders CreateCacheSubnetGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -233,5 +233,5 @@ instance
     CreateCacheSubnetGroupResponse
   where
   rnf CreateCacheSubnetGroupResponse' {..} =
-    Prelude.rnf cacheSubnetGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf cacheSubnetGroup `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -160,10 +160,10 @@ instance Prelude.Hashable ListReceivedGrants where
 
 instance Prelude.NFData ListReceivedGrants where
   rnf ListReceivedGrants' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf grantArns
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf grantArns `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken
 
 instance Data.ToHeaders ListReceivedGrants where
   toHeaders =
@@ -247,6 +247,6 @@ listReceivedGrantsResponse_httpStatus = Lens.lens (\ListReceivedGrantsResponse' 
 
 instance Prelude.NFData ListReceivedGrantsResponse where
   rnf ListReceivedGrantsResponse' {..} =
-    Prelude.rnf grants
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf grants `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

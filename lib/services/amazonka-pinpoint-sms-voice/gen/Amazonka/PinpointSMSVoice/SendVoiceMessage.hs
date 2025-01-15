@@ -155,11 +155,11 @@ instance Prelude.Hashable SendVoiceMessage where
 
 instance Prelude.NFData SendVoiceMessage where
   rnf SendVoiceMessage' {..} =
-    Prelude.rnf callerId
-      `Prelude.seq` Prelude.rnf configurationSetName
-      `Prelude.seq` Prelude.rnf content
-      `Prelude.seq` Prelude.rnf destinationPhoneNumber
-      `Prelude.seq` Prelude.rnf originationPhoneNumber
+    Prelude.rnf callerId `Prelude.seq`
+      Prelude.rnf configurationSetName `Prelude.seq`
+        Prelude.rnf content `Prelude.seq`
+          Prelude.rnf destinationPhoneNumber `Prelude.seq`
+            Prelude.rnf originationPhoneNumber
 
 instance Data.ToHeaders SendVoiceMessage where
   toHeaders =
@@ -237,5 +237,5 @@ sendVoiceMessageResponse_httpStatus = Lens.lens (\SendVoiceMessageResponse' {htt
 
 instance Prelude.NFData SendVoiceMessageResponse where
   rnf SendVoiceMessageResponse' {..} =
-    Prelude.rnf messageId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf messageId `Prelude.seq`
+      Prelude.rnf httpStatus

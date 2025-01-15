@@ -137,13 +137,13 @@ instance Prelude.Hashable WriteTreatmentResource where
 
 instance Prelude.NFData WriteTreatmentResource where
   rnf WriteTreatmentResource' {..} =
-    Prelude.rnf customDeliveryConfiguration
-      `Prelude.seq` Prelude.rnf messageConfiguration
-      `Prelude.seq` Prelude.rnf schedule
-      `Prelude.seq` Prelude.rnf templateConfiguration
-      `Prelude.seq` Prelude.rnf treatmentDescription
-      `Prelude.seq` Prelude.rnf treatmentName
-      `Prelude.seq` Prelude.rnf sizePercent
+    Prelude.rnf customDeliveryConfiguration `Prelude.seq`
+      Prelude.rnf messageConfiguration `Prelude.seq`
+        Prelude.rnf schedule `Prelude.seq`
+          Prelude.rnf templateConfiguration `Prelude.seq`
+            Prelude.rnf treatmentDescription `Prelude.seq`
+              Prelude.rnf treatmentName `Prelude.seq`
+                Prelude.rnf sizePercent
 
 instance Data.ToJSON WriteTreatmentResource where
   toJSON WriteTreatmentResource' {..} =

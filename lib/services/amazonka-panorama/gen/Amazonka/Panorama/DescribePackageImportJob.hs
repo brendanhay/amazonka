@@ -298,15 +298,15 @@ instance
     DescribePackageImportJobResponse
   where
   rnf DescribePackageImportJobResponse' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf jobTags
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf inputConfig
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf jobType
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf output
-      `Prelude.seq` Prelude.rnf outputConfig
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusMessage
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf jobTags `Prelude.seq`
+        Prelude.rnf httpStatus `Prelude.seq`
+          Prelude.rnf createdTime `Prelude.seq`
+            Prelude.rnf inputConfig `Prelude.seq`
+              Prelude.rnf jobId `Prelude.seq`
+                Prelude.rnf jobType `Prelude.seq`
+                  Prelude.rnf lastUpdatedTime `Prelude.seq`
+                    Prelude.rnf output `Prelude.seq`
+                      Prelude.rnf outputConfig `Prelude.seq`
+                        Prelude.rnf status `Prelude.seq`
+                          Prelude.rnf statusMessage

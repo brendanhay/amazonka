@@ -113,7 +113,7 @@ instance Prelude.Hashable ResourceScanMetadata where
 
 instance Prelude.NFData ResourceScanMetadata where
   rnf ResourceScanMetadata' {..} =
-    Prelude.rnf ec2
-      `Prelude.seq` Prelude.rnf ecrImage
-      `Prelude.seq` Prelude.rnf ecrRepository
-      `Prelude.seq` Prelude.rnf lambdaFunction
+    Prelude.rnf ec2 `Prelude.seq`
+      Prelude.rnf ecrImage `Prelude.seq`
+        Prelude.rnf ecrRepository `Prelude.seq`
+          Prelude.rnf lambdaFunction

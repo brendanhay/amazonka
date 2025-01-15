@@ -123,12 +123,12 @@ instance Core.AWSPager ListApplicationSnapshots where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listApplicationSnapshots_nextToken
-          Lens..~ rs
-          Lens.^? listApplicationSnapshotsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listApplicationSnapshots_nextToken
+              Lens..~ rs
+              Lens.^? listApplicationSnapshotsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListApplicationSnapshots where
   type
@@ -157,9 +157,9 @@ instance Prelude.Hashable ListApplicationSnapshots where
 
 instance Prelude.NFData ListApplicationSnapshots where
   rnf ListApplicationSnapshots' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf applicationName
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf applicationName
 
 instance Data.ToHeaders ListApplicationSnapshots where
   toHeaders =
@@ -252,6 +252,6 @@ instance
     ListApplicationSnapshotsResponse
   where
   rnf ListApplicationSnapshotsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf snapshotSummaries
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf snapshotSummaries `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -143,8 +143,8 @@ instance Prelude.Hashable TestResult where
 
 instance Prelude.NFData TestResult where
   rnf TestResult' {..} =
-    Prelude.rnf computeUtilization
-      `Prelude.seq` Prelude.rnf functionErrorMessage
-      `Prelude.seq` Prelude.rnf functionExecutionLogs
-      `Prelude.seq` Prelude.rnf functionOutput
-      `Prelude.seq` Prelude.rnf functionSummary
+    Prelude.rnf computeUtilization `Prelude.seq`
+      Prelude.rnf functionErrorMessage `Prelude.seq`
+        Prelude.rnf functionExecutionLogs `Prelude.seq`
+          Prelude.rnf functionOutput `Prelude.seq`
+            Prelude.rnf functionSummary

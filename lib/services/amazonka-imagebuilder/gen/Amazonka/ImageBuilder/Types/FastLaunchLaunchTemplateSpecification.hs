@@ -117,9 +117,9 @@ instance
     FastLaunchLaunchTemplateSpecification
   where
   rnf FastLaunchLaunchTemplateSpecification' {..} =
-    Prelude.rnf launchTemplateId
-      `Prelude.seq` Prelude.rnf launchTemplateName
-      `Prelude.seq` Prelude.rnf launchTemplateVersion
+    Prelude.rnf launchTemplateId `Prelude.seq`
+      Prelude.rnf launchTemplateName `Prelude.seq`
+        Prelude.rnf launchTemplateVersion
 
 instance
   Data.ToJSON

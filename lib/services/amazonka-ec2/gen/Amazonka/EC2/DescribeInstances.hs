@@ -1020,12 +1020,12 @@ instance Core.AWSPager DescribeInstances where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeInstances_nextToken
-          Lens..~ rs
-          Lens.^? describeInstancesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeInstances_nextToken
+              Lens..~ rs
+              Lens.^? describeInstancesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeInstances where
   type
@@ -1038,9 +1038,7 @@ instance Core.AWSRequest DescribeInstances where
       ( \s h x ->
           DescribeInstancesResponse'
             Prelude.<$> (x Data..@? "nextToken")
-            Prelude.<*> ( x
-                            Data..@? "reservationSet"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "reservationSet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -1057,11 +1055,11 @@ instance Prelude.Hashable DescribeInstances where
 
 instance Prelude.NFData DescribeInstances where
   rnf DescribeInstances' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf instanceIds
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf instanceIds `Prelude.seq`
+          Prelude.rnf maxResults `Prelude.seq`
+            Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeInstances where
   toHeaders = Prelude.const Prelude.mempty
@@ -1140,6 +1138,6 @@ describeInstancesResponse_httpStatus = Lens.lens (\DescribeInstancesResponse' {h
 
 instance Prelude.NFData DescribeInstancesResponse where
   rnf DescribeInstancesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf reservations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf reservations `Prelude.seq`
+        Prelude.rnf httpStatus

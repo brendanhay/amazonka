@@ -201,11 +201,11 @@ instance
     ListDomainDeliverabilityCampaigns
   where
   rnf ListDomainDeliverabilityCampaigns' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf pageSize
-      `Prelude.seq` Prelude.rnf startDate
-      `Prelude.seq` Prelude.rnf endDate
-      `Prelude.seq` Prelude.rnf subscribedDomain
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf pageSize `Prelude.seq`
+        Prelude.rnf startDate `Prelude.seq`
+          Prelude.rnf endDate `Prelude.seq`
+            Prelude.rnf subscribedDomain
 
 instance
   Data.ToHeaders
@@ -314,6 +314,6 @@ instance
     ListDomainDeliverabilityCampaignsResponse
   where
   rnf ListDomainDeliverabilityCampaignsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf domainDeliverabilityCampaigns
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf domainDeliverabilityCampaigns

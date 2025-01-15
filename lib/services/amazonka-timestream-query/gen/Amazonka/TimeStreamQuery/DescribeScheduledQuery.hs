@@ -177,5 +177,5 @@ instance
     DescribeScheduledQueryResponse
   where
   rnf DescribeScheduledQueryResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf scheduledQuery
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf scheduledQuery

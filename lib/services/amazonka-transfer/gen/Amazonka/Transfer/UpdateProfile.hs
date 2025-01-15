@@ -113,8 +113,8 @@ instance Prelude.Hashable UpdateProfile where
 
 instance Prelude.NFData UpdateProfile where
   rnf UpdateProfile' {..} =
-    Prelude.rnf certificateIds
-      `Prelude.seq` Prelude.rnf profileId
+    Prelude.rnf certificateIds `Prelude.seq`
+      Prelude.rnf profileId
 
 instance Data.ToHeaders UpdateProfile where
   toHeaders =
@@ -189,5 +189,5 @@ updateProfileResponse_profileId = Lens.lens (\UpdateProfileResponse' {profileId}
 
 instance Prelude.NFData UpdateProfileResponse where
   rnf UpdateProfileResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf profileId
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf profileId

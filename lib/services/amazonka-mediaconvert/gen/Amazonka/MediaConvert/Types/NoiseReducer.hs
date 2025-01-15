@@ -128,10 +128,10 @@ instance Prelude.Hashable NoiseReducer where
 
 instance Prelude.NFData NoiseReducer where
   rnf NoiseReducer' {..} =
-    Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf filterSettings
-      `Prelude.seq` Prelude.rnf spatialFilterSettings
-      `Prelude.seq` Prelude.rnf temporalFilterSettings
+    Prelude.rnf filter' `Prelude.seq`
+      Prelude.rnf filterSettings `Prelude.seq`
+        Prelude.rnf spatialFilterSettings `Prelude.seq`
+          Prelude.rnf temporalFilterSettings
 
 instance Data.ToJSON NoiseReducer where
   toJSON NoiseReducer' {..} =

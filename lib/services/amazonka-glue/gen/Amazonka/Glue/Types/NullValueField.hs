@@ -86,8 +86,8 @@ instance Prelude.Hashable NullValueField where
 
 instance Prelude.NFData NullValueField where
   rnf NullValueField' {..} =
-    Prelude.rnf value
-      `Prelude.seq` Prelude.rnf datatype
+    Prelude.rnf value `Prelude.seq`
+      Prelude.rnf datatype
 
 instance Data.ToJSON NullValueField where
   toJSON NullValueField' {..} =

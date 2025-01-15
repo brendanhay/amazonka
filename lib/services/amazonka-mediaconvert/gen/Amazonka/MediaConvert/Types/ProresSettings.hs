@@ -523,19 +523,19 @@ instance Prelude.Hashable ProresSettings where
 
 instance Prelude.NFData ProresSettings where
   rnf ProresSettings' {..} =
-    Prelude.rnf chromaSampling
-      `Prelude.seq` Prelude.rnf codecProfile
-      `Prelude.seq` Prelude.rnf framerateControl
-      `Prelude.seq` Prelude.rnf framerateConversionAlgorithm
-      `Prelude.seq` Prelude.rnf framerateDenominator
-      `Prelude.seq` Prelude.rnf framerateNumerator
-      `Prelude.seq` Prelude.rnf interlaceMode
-      `Prelude.seq` Prelude.rnf parControl
-      `Prelude.seq` Prelude.rnf parDenominator
-      `Prelude.seq` Prelude.rnf parNumerator
-      `Prelude.seq` Prelude.rnf scanTypeConversionMode
-      `Prelude.seq` Prelude.rnf slowPal
-      `Prelude.seq` Prelude.rnf telecine
+    Prelude.rnf chromaSampling `Prelude.seq`
+      Prelude.rnf codecProfile `Prelude.seq`
+        Prelude.rnf framerateControl `Prelude.seq`
+          Prelude.rnf framerateConversionAlgorithm `Prelude.seq`
+            Prelude.rnf framerateDenominator `Prelude.seq`
+              Prelude.rnf framerateNumerator `Prelude.seq`
+                Prelude.rnf interlaceMode `Prelude.seq`
+                  Prelude.rnf parControl `Prelude.seq`
+                    Prelude.rnf parDenominator `Prelude.seq`
+                      Prelude.rnf parNumerator `Prelude.seq`
+                        Prelude.rnf scanTypeConversionMode `Prelude.seq`
+                          Prelude.rnf slowPal `Prelude.seq`
+                            Prelude.rnf telecine
 
 instance Data.ToJSON ProresSettings where
   toJSON ProresSettings' {..} =

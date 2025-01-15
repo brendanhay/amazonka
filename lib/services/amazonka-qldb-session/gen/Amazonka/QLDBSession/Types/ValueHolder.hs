@@ -88,8 +88,8 @@ instance Prelude.Hashable ValueHolder where
 
 instance Prelude.NFData ValueHolder where
   rnf ValueHolder' {..} =
-    Prelude.rnf ionBinary
-      `Prelude.seq` Prelude.rnf ionText
+    Prelude.rnf ionBinary `Prelude.seq`
+      Prelude.rnf ionText
 
 instance Data.ToJSON ValueHolder where
   toJSON ValueHolder' {..} =

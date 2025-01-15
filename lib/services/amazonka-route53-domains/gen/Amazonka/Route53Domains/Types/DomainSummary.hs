@@ -108,7 +108,7 @@ instance Prelude.Hashable DomainSummary where
 
 instance Prelude.NFData DomainSummary where
   rnf DomainSummary' {..} =
-    Prelude.rnf autoRenew
-      `Prelude.seq` Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf expiry
-      `Prelude.seq` Prelude.rnf transferLock
+    Prelude.rnf autoRenew `Prelude.seq`
+      Prelude.rnf domainName `Prelude.seq`
+        Prelude.rnf expiry `Prelude.seq`
+          Prelude.rnf transferLock

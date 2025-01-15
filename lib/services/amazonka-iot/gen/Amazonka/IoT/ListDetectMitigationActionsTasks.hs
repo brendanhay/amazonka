@@ -145,12 +145,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listDetectMitigationActionsTasks_nextToken
-          Lens..~ rs
-          Lens.^? listDetectMitigationActionsTasksResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listDetectMitigationActionsTasks_nextToken
+              Lens..~ rs
+              Lens.^? listDetectMitigationActionsTasksResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -188,10 +188,10 @@ instance
     ListDetectMitigationActionsTasks
   where
   rnf ListDetectMitigationActionsTasks' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf endTime
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf startTime `Prelude.seq`
+          Prelude.rnf endTime
 
 instance
   Data.ToHeaders
@@ -275,6 +275,6 @@ instance
     ListDetectMitigationActionsTasksResponse
   where
   rnf ListDetectMitigationActionsTasksResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf tasks
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf tasks `Prelude.seq`
+        Prelude.rnf httpStatus

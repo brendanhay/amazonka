@@ -125,8 +125,8 @@ instance Prelude.Hashable DescribeDataSetPermissions where
 
 instance Prelude.NFData DescribeDataSetPermissions where
   rnf DescribeDataSetPermissions' {..} =
-    Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf dataSetId
+    Prelude.rnf awsAccountId `Prelude.seq`
+      Prelude.rnf dataSetId
 
 instance Data.ToHeaders DescribeDataSetPermissions where
   toHeaders =
@@ -226,8 +226,8 @@ instance
     DescribeDataSetPermissionsResponse
   where
   rnf DescribeDataSetPermissionsResponse' {..} =
-    Prelude.rnf dataSetArn
-      `Prelude.seq` Prelude.rnf dataSetId
-      `Prelude.seq` Prelude.rnf permissions
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf dataSetArn `Prelude.seq`
+      Prelude.rnf dataSetId `Prelude.seq`
+        Prelude.rnf permissions `Prelude.seq`
+          Prelude.rnf requestId `Prelude.seq`
+            Prelude.rnf status

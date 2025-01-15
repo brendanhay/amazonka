@@ -320,16 +320,16 @@ describeApplicationResponse_roleArn = Lens.lens (\DescribeApplicationResponse' {
 
 instance Prelude.NFData DescribeApplicationResponse where
   rnf DescribeApplicationResponse' {..} =
-    Prelude.rnf applicationDescription
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf ssoClientId
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf applicationArn
-      `Prelude.seq` Prelude.rnf applicationName
-      `Prelude.seq` Prelude.rnf applicationUrl
-      `Prelude.seq` Prelude.rnf applicationState
-      `Prelude.seq` Prelude.rnf applicationCreationDate
-      `Prelude.seq` Prelude.rnf applicationLastUpdateDate
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf applicationDescription `Prelude.seq`
+      Prelude.rnf errorMessage `Prelude.seq`
+        Prelude.rnf ssoClientId `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf httpStatus `Prelude.seq`
+              Prelude.rnf applicationId `Prelude.seq`
+                Prelude.rnf applicationArn `Prelude.seq`
+                  Prelude.rnf applicationName `Prelude.seq`
+                    Prelude.rnf applicationUrl `Prelude.seq`
+                      Prelude.rnf applicationState `Prelude.seq`
+                        Prelude.rnf applicationCreationDate `Prelude.seq`
+                          Prelude.rnf applicationLastUpdateDate `Prelude.seq`
+                            Prelude.rnf roleArn

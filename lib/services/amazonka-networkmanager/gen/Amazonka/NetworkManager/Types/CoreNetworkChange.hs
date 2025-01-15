@@ -133,9 +133,9 @@ instance Prelude.Hashable CoreNetworkChange where
 
 instance Prelude.NFData CoreNetworkChange where
   rnf CoreNetworkChange' {..} =
-    Prelude.rnf action
-      `Prelude.seq` Prelude.rnf identifier
-      `Prelude.seq` Prelude.rnf identifierPath
-      `Prelude.seq` Prelude.rnf newValues'
-      `Prelude.seq` Prelude.rnf previousValues
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf action `Prelude.seq`
+      Prelude.rnf identifier `Prelude.seq`
+        Prelude.rnf identifierPath `Prelude.seq`
+          Prelude.rnf newValues' `Prelude.seq`
+            Prelude.rnf previousValues `Prelude.seq`
+              Prelude.rnf type'

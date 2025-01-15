@@ -161,5 +161,5 @@ describeReservationResponse_httpStatus = Lens.lens (\DescribeReservationResponse
 
 instance Prelude.NFData DescribeReservationResponse where
   rnf DescribeReservationResponse' {..} =
-    Prelude.rnf reservation
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf reservation `Prelude.seq`
+      Prelude.rnf httpStatus

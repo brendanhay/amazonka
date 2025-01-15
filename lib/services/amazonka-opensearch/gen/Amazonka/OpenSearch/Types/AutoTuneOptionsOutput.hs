@@ -83,5 +83,5 @@ instance Prelude.Hashable AutoTuneOptionsOutput where
 
 instance Prelude.NFData AutoTuneOptionsOutput where
   rnf AutoTuneOptionsOutput' {..} =
-    Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf errorMessage `Prelude.seq`
+      Prelude.rnf state

@@ -138,9 +138,9 @@ instance Prelude.Hashable ExportVectorEnrichmentJob where
 
 instance Prelude.NFData ExportVectorEnrichmentJob where
   rnf ExportVectorEnrichmentJob' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf executionRoleArn
-      `Prelude.seq` Prelude.rnf outputConfig
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf executionRoleArn `Prelude.seq`
+        Prelude.rnf outputConfig
 
 instance Data.ToHeaders ExportVectorEnrichmentJob where
   toHeaders =
@@ -274,9 +274,9 @@ instance
     ExportVectorEnrichmentJobResponse
   where
   rnf ExportVectorEnrichmentJobResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf executionRoleArn
-      `Prelude.seq` Prelude.rnf exportStatus
-      `Prelude.seq` Prelude.rnf outputConfig
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf creationTime `Prelude.seq`
+          Prelude.rnf executionRoleArn `Prelude.seq`
+            Prelude.rnf exportStatus `Prelude.seq`
+              Prelude.rnf outputConfig

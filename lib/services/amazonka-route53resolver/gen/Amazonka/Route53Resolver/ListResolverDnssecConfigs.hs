@@ -147,12 +147,12 @@ instance Core.AWSPager ListResolverDnssecConfigs where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listResolverDnssecConfigs_nextToken
-          Lens..~ rs
-          Lens.^? listResolverDnssecConfigsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listResolverDnssecConfigs_nextToken
+              Lens..~ rs
+              Lens.^? listResolverDnssecConfigsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListResolverDnssecConfigs where
   type
@@ -181,9 +181,9 @@ instance Prelude.Hashable ListResolverDnssecConfigs where
 
 instance Prelude.NFData ListResolverDnssecConfigs where
   rnf ListResolverDnssecConfigs' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListResolverDnssecConfigs where
   toHeaders =
@@ -302,6 +302,6 @@ instance
     ListResolverDnssecConfigsResponse
   where
   rnf ListResolverDnssecConfigsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf resolverDnssecConfigs
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf resolverDnssecConfigs `Prelude.seq`
+        Prelude.rnf httpStatus

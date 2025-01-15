@@ -157,5 +157,5 @@ deleteVpcEndpointResponse_vpcEndpointSummary = Lens.lens (\DeleteVpcEndpointResp
 
 instance Prelude.NFData DeleteVpcEndpointResponse where
   rnf DeleteVpcEndpointResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf vpcEndpointSummary
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf vpcEndpointSummary

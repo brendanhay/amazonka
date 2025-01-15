@@ -138,9 +138,9 @@ instance Prelude.Hashable DeleteMessage where
 
 instance Prelude.NFData DeleteMessage where
   rnf DeleteMessage' {..} =
-    Prelude.rnf reason
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf roomIdentifier
+    Prelude.rnf reason `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf roomIdentifier
 
 instance Data.ToHeaders DeleteMessage where
   toHeaders =

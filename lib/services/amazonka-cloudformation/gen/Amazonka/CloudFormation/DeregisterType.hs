@@ -167,10 +167,10 @@ instance Prelude.Hashable DeregisterType where
 
 instance Prelude.NFData DeregisterType where
   rnf DeregisterType' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf typeName
-      `Prelude.seq` Prelude.rnf versionId
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf type' `Prelude.seq`
+        Prelude.rnf typeName `Prelude.seq`
+          Prelude.rnf versionId
 
 instance Data.ToHeaders DeregisterType where
   toHeaders = Prelude.const Prelude.mempty

@@ -183,12 +183,12 @@ instance Core.AWSPager GetTimeSeriesServiceStatistics where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getTimeSeriesServiceStatistics_nextToken
-          Lens..~ rs
-          Lens.^? getTimeSeriesServiceStatisticsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getTimeSeriesServiceStatistics_nextToken
+              Lens..~ rs
+              Lens.^? getTimeSeriesServiceStatisticsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -234,14 +234,14 @@ instance
     GetTimeSeriesServiceStatistics
   where
   rnf GetTimeSeriesServiceStatistics' {..} =
-    Prelude.rnf entitySelectorExpression
-      `Prelude.seq` Prelude.rnf forecastStatistics
-      `Prelude.seq` Prelude.rnf groupARN
-      `Prelude.seq` Prelude.rnf groupName
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf period
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf endTime
+    Prelude.rnf entitySelectorExpression `Prelude.seq`
+      Prelude.rnf forecastStatistics `Prelude.seq`
+        Prelude.rnf groupARN `Prelude.seq`
+          Prelude.rnf groupName `Prelude.seq`
+            Prelude.rnf nextToken `Prelude.seq`
+              Prelude.rnf period `Prelude.seq`
+                Prelude.rnf startTime `Prelude.seq`
+                  Prelude.rnf endTime
 
 instance
   Data.ToHeaders
@@ -342,7 +342,7 @@ instance
     GetTimeSeriesServiceStatisticsResponse
   where
   rnf GetTimeSeriesServiceStatisticsResponse' {..} =
-    Prelude.rnf containsOldGroupVersions
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf timeSeriesServiceStatistics
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf containsOldGroupVersions `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf timeSeriesServiceStatistics `Prelude.seq`
+          Prelude.rnf httpStatus

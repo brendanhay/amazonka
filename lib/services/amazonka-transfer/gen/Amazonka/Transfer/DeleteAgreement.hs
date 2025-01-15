@@ -107,8 +107,8 @@ instance Prelude.Hashable DeleteAgreement where
 
 instance Prelude.NFData DeleteAgreement where
   rnf DeleteAgreement' {..} =
-    Prelude.rnf agreementId
-      `Prelude.seq` Prelude.rnf serverId
+    Prelude.rnf agreementId `Prelude.seq`
+      Prelude.rnf serverId
 
 instance Data.ToHeaders DeleteAgreement where
   toHeaders =

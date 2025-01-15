@@ -311,8 +311,8 @@ putObjectResponse_objectChecksumAlgorithm = Lens.lens (\PutObjectResponse' {obje
 
 instance Prelude.NFData PutObjectResponse where
   rnf PutObjectResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf inlineChunkChecksum
-      `Prelude.seq` Prelude.rnf inlineChunkChecksumAlgorithm
-      `Prelude.seq` Prelude.rnf objectChecksum
-      `Prelude.seq` Prelude.rnf objectChecksumAlgorithm
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf inlineChunkChecksum `Prelude.seq`
+        Prelude.rnf inlineChunkChecksumAlgorithm `Prelude.seq`
+          Prelude.rnf objectChecksum `Prelude.seq`
+            Prelude.rnf objectChecksumAlgorithm

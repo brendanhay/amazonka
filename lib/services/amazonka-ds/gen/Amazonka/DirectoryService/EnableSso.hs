@@ -150,9 +150,9 @@ instance Prelude.Hashable EnableSso where
 
 instance Prelude.NFData EnableSso where
   rnf EnableSso' {..} =
-    Prelude.rnf password
-      `Prelude.seq` Prelude.rnf userName
-      `Prelude.seq` Prelude.rnf directoryId
+    Prelude.rnf password `Prelude.seq`
+      Prelude.rnf userName `Prelude.seq`
+        Prelude.rnf directoryId
 
 instance Data.ToHeaders EnableSso where
   toHeaders =

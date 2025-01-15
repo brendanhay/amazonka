@@ -233,9 +233,9 @@ instance
     ModifySnapshotCopyRetentionPeriod
   where
   rnf ModifySnapshotCopyRetentionPeriod' {..} =
-    Prelude.rnf manual
-      `Prelude.seq` Prelude.rnf clusterIdentifier
-      `Prelude.seq` Prelude.rnf retentionPeriod
+    Prelude.rnf manual `Prelude.seq`
+      Prelude.rnf clusterIdentifier `Prelude.seq`
+        Prelude.rnf retentionPeriod
 
 instance
   Data.ToHeaders
@@ -310,5 +310,5 @@ instance
     ModifySnapshotCopyRetentionPeriodResponse
   where
   rnf ModifySnapshotCopyRetentionPeriodResponse' {..} =
-    Prelude.rnf cluster
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf cluster `Prelude.seq`
+      Prelude.rnf httpStatus

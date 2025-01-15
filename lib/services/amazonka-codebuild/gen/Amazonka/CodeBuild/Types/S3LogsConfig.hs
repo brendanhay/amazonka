@@ -129,10 +129,10 @@ instance Prelude.Hashable S3LogsConfig where
 
 instance Prelude.NFData S3LogsConfig where
   rnf S3LogsConfig' {..} =
-    Prelude.rnf bucketOwnerAccess
-      `Prelude.seq` Prelude.rnf encryptionDisabled
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf bucketOwnerAccess `Prelude.seq`
+      Prelude.rnf encryptionDisabled `Prelude.seq`
+        Prelude.rnf location `Prelude.seq`
+          Prelude.rnf status
 
 instance Data.ToJSON S3LogsConfig where
   toJSON S3LogsConfig' {..} =

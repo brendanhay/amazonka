@@ -113,12 +113,12 @@ instance Core.AWSPager DescribeAddresses where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeAddresses_nextToken
-          Lens..~ rs
-          Lens.^? describeAddressesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeAddresses_nextToken
+              Lens..~ rs
+              Lens.^? describeAddressesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeAddresses where
   type
@@ -143,8 +143,8 @@ instance Prelude.Hashable DescribeAddresses where
 
 instance Prelude.NFData DescribeAddresses where
   rnf DescribeAddresses' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeAddresses where
   toHeaders =
@@ -232,6 +232,6 @@ describeAddressesResponse_httpStatus = Lens.lens (\DescribeAddressesResponse' {h
 
 instance Prelude.NFData DescribeAddressesResponse where
   rnf DescribeAddressesResponse' {..} =
-    Prelude.rnf addresses
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf addresses `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

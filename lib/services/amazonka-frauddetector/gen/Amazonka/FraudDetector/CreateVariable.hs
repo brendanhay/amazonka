@@ -183,13 +183,13 @@ instance Prelude.Hashable CreateVariable where
 
 instance Prelude.NFData CreateVariable where
   rnf CreateVariable' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf variableType
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf dataType
-      `Prelude.seq` Prelude.rnf dataSource
-      `Prelude.seq` Prelude.rnf defaultValue
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf variableType `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf dataType `Prelude.seq`
+              Prelude.rnf dataSource `Prelude.seq`
+                Prelude.rnf defaultValue
 
 instance Data.ToHeaders CreateVariable where
   toHeaders =

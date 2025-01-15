@@ -89,9 +89,9 @@ instance Prelude.Hashable PriceScheduleSpecification where
 
 instance Prelude.NFData PriceScheduleSpecification where
   rnf PriceScheduleSpecification' {..} =
-    Prelude.rnf currencyCode
-      `Prelude.seq` Prelude.rnf price
-      `Prelude.seq` Prelude.rnf term
+    Prelude.rnf currencyCode `Prelude.seq`
+      Prelude.rnf price `Prelude.seq`
+        Prelude.rnf term
 
 instance Data.ToQuery PriceScheduleSpecification where
   toQuery PriceScheduleSpecification' {..} =

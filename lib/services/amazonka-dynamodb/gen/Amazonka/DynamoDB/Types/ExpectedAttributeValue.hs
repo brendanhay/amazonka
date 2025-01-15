@@ -697,10 +697,10 @@ instance Prelude.Hashable ExpectedAttributeValue where
 
 instance Prelude.NFData ExpectedAttributeValue where
   rnf ExpectedAttributeValue' {..} =
-    Prelude.rnf attributeValueList
-      `Prelude.seq` Prelude.rnf comparisonOperator
-      `Prelude.seq` Prelude.rnf exists
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf attributeValueList `Prelude.seq`
+      Prelude.rnf comparisonOperator `Prelude.seq`
+        Prelude.rnf exists `Prelude.seq`
+          Prelude.rnf value
 
 instance Data.ToJSON ExpectedAttributeValue where
   toJSON ExpectedAttributeValue' {..} =

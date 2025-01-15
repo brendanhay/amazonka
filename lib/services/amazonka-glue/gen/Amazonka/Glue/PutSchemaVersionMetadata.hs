@@ -147,10 +147,10 @@ instance Prelude.Hashable PutSchemaVersionMetadata where
 
 instance Prelude.NFData PutSchemaVersionMetadata where
   rnf PutSchemaVersionMetadata' {..} =
-    Prelude.rnf schemaId
-      `Prelude.seq` Prelude.rnf schemaVersionId
-      `Prelude.seq` Prelude.rnf schemaVersionNumber
-      `Prelude.seq` Prelude.rnf metadataKeyValue
+    Prelude.rnf schemaId `Prelude.seq`
+      Prelude.rnf schemaVersionId `Prelude.seq`
+        Prelude.rnf schemaVersionNumber `Prelude.seq`
+          Prelude.rnf metadataKeyValue
 
 instance Data.ToHeaders PutSchemaVersionMetadata where
   toHeaders =
@@ -294,12 +294,12 @@ instance
     PutSchemaVersionMetadataResponse
   where
   rnf PutSchemaVersionMetadataResponse' {..} =
-    Prelude.rnf latestVersion
-      `Prelude.seq` Prelude.rnf metadataKey
-      `Prelude.seq` Prelude.rnf metadataValue
-      `Prelude.seq` Prelude.rnf registryName
-      `Prelude.seq` Prelude.rnf schemaArn
-      `Prelude.seq` Prelude.rnf schemaName
-      `Prelude.seq` Prelude.rnf schemaVersionId
-      `Prelude.seq` Prelude.rnf versionNumber
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf latestVersion `Prelude.seq`
+      Prelude.rnf metadataKey `Prelude.seq`
+        Prelude.rnf metadataValue `Prelude.seq`
+          Prelude.rnf registryName `Prelude.seq`
+            Prelude.rnf schemaArn `Prelude.seq`
+              Prelude.rnf schemaName `Prelude.seq`
+                Prelude.rnf schemaVersionId `Prelude.seq`
+                  Prelude.rnf versionNumber `Prelude.seq`
+                    Prelude.rnf httpStatus

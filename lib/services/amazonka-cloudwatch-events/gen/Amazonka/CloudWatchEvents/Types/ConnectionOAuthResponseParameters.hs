@@ -124,7 +124,7 @@ instance
     ConnectionOAuthResponseParameters
   where
   rnf ConnectionOAuthResponseParameters' {..} =
-    Prelude.rnf authorizationEndpoint
-      `Prelude.seq` Prelude.rnf clientParameters
-      `Prelude.seq` Prelude.rnf httpMethod
-      `Prelude.seq` Prelude.rnf oAuthHttpParameters
+    Prelude.rnf authorizationEndpoint `Prelude.seq`
+      Prelude.rnf clientParameters `Prelude.seq`
+        Prelude.rnf httpMethod `Prelude.seq`
+          Prelude.rnf oAuthHttpParameters

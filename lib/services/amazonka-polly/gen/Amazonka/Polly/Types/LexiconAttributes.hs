@@ -136,9 +136,9 @@ instance Prelude.Hashable LexiconAttributes where
 
 instance Prelude.NFData LexiconAttributes where
   rnf LexiconAttributes' {..} =
-    Prelude.rnf alphabet
-      `Prelude.seq` Prelude.rnf languageCode
-      `Prelude.seq` Prelude.rnf lastModified
-      `Prelude.seq` Prelude.rnf lexemesCount
-      `Prelude.seq` Prelude.rnf lexiconArn
-      `Prelude.seq` Prelude.rnf size
+    Prelude.rnf alphabet `Prelude.seq`
+      Prelude.rnf languageCode `Prelude.seq`
+        Prelude.rnf lastModified `Prelude.seq`
+          Prelude.rnf lexemesCount `Prelude.seq`
+            Prelude.rnf lexiconArn `Prelude.seq`
+              Prelude.rnf size

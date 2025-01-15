@@ -125,9 +125,9 @@ instance Prelude.Hashable Item where
 
 instance Prelude.NFData Item where
   rnf Item' {..} =
-    Prelude.rnf contentLength
-      `Prelude.seq` Prelude.rnf contentType
-      `Prelude.seq` Prelude.rnf eTag
-      `Prelude.seq` Prelude.rnf lastModified
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf contentLength `Prelude.seq`
+      Prelude.rnf contentType `Prelude.seq`
+        Prelude.rnf eTag `Prelude.seq`
+          Prelude.rnf lastModified `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf type'

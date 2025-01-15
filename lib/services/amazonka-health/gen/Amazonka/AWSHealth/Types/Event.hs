@@ -280,14 +280,14 @@ instance Prelude.Hashable Event where
 
 instance Prelude.NFData Event where
   rnf Event' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf eventScopeCode
-      `Prelude.seq` Prelude.rnf eventTypeCategory
-      `Prelude.seq` Prelude.rnf eventTypeCode
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf region
-      `Prelude.seq` Prelude.rnf service
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf statusCode
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf availabilityZone `Prelude.seq`
+        Prelude.rnf endTime `Prelude.seq`
+          Prelude.rnf eventScopeCode `Prelude.seq`
+            Prelude.rnf eventTypeCategory `Prelude.seq`
+              Prelude.rnf eventTypeCode `Prelude.seq`
+                Prelude.rnf lastUpdatedTime `Prelude.seq`
+                  Prelude.rnf region `Prelude.seq`
+                    Prelude.rnf service `Prelude.seq`
+                      Prelude.rnf startTime `Prelude.seq`
+                        Prelude.rnf statusCode

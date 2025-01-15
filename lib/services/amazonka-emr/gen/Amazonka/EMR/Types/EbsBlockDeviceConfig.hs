@@ -84,8 +84,8 @@ instance Prelude.Hashable EbsBlockDeviceConfig where
 
 instance Prelude.NFData EbsBlockDeviceConfig where
   rnf EbsBlockDeviceConfig' {..} =
-    Prelude.rnf volumesPerInstance
-      `Prelude.seq` Prelude.rnf volumeSpecification
+    Prelude.rnf volumesPerInstance `Prelude.seq`
+      Prelude.rnf volumeSpecification
 
 instance Data.ToJSON EbsBlockDeviceConfig where
   toJSON EbsBlockDeviceConfig' {..} =

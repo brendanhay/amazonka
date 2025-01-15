@@ -183,9 +183,9 @@ instance Prelude.Hashable TargetDescription where
 
 instance Prelude.NFData TargetDescription where
   rnf TargetDescription' {..} =
-    Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf port
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf availabilityZone `Prelude.seq`
+      Prelude.rnf port `Prelude.seq`
+        Prelude.rnf id
 
 instance Data.ToQuery TargetDescription where
   toQuery TargetDescription' {..} =

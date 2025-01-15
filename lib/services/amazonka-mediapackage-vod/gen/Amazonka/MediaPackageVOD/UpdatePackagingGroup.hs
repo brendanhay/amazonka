@@ -123,8 +123,8 @@ instance Prelude.Hashable UpdatePackagingGroup where
 
 instance Prelude.NFData UpdatePackagingGroup where
   rnf UpdatePackagingGroup' {..} =
-    Prelude.rnf authorization
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf authorization `Prelude.seq`
+      Prelude.rnf id
 
 instance Data.ToHeaders UpdatePackagingGroup where
   toHeaders =
@@ -246,11 +246,11 @@ updatePackagingGroupResponse_httpStatus = Lens.lens (\UpdatePackagingGroupRespon
 
 instance Prelude.NFData UpdatePackagingGroupResponse where
   rnf UpdatePackagingGroupResponse' {..} =
-    Prelude.rnf approximateAssetCount
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf authorization
-      `Prelude.seq` Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf egressAccessLogs
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf approximateAssetCount `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf authorization `Prelude.seq`
+          Prelude.rnf domainName `Prelude.seq`
+            Prelude.rnf egressAccessLogs `Prelude.seq`
+              Prelude.rnf id `Prelude.seq`
+                Prelude.rnf tags `Prelude.seq`
+                  Prelude.rnf httpStatus

@@ -139,10 +139,10 @@ instance Prelude.Hashable ContainerDatasetAction where
 
 instance Prelude.NFData ContainerDatasetAction where
   rnf ContainerDatasetAction' {..} =
-    Prelude.rnf variables
-      `Prelude.seq` Prelude.rnf image
-      `Prelude.seq` Prelude.rnf executionRoleArn
-      `Prelude.seq` Prelude.rnf resourceConfiguration
+    Prelude.rnf variables `Prelude.seq`
+      Prelude.rnf image `Prelude.seq`
+        Prelude.rnf executionRoleArn `Prelude.seq`
+          Prelude.rnf resourceConfiguration
 
 instance Data.ToJSON ContainerDatasetAction where
   toJSON ContainerDatasetAction' {..} =

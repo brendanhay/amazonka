@@ -144,12 +144,12 @@ instance Prelude.Hashable UpdateFuotaTask where
 
 instance Prelude.NFData UpdateFuotaTask where
   rnf UpdateFuotaTask' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf firmwareUpdateImage
-      `Prelude.seq` Prelude.rnf firmwareUpdateRole
-      `Prelude.seq` Prelude.rnf loRaWAN
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf firmwareUpdateImage `Prelude.seq`
+        Prelude.rnf firmwareUpdateRole `Prelude.seq`
+          Prelude.rnf loRaWAN `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf id
 
 instance Data.ToHeaders UpdateFuotaTask where
   toHeaders = Prelude.const Prelude.mempty

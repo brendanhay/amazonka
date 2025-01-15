@@ -84,15 +84,11 @@ sslPolicy_supportedLoadBalancerTypes = Lens.lens (\SslPolicy' {supportedLoadBala
 instance Data.FromXML SslPolicy where
   parseXML x =
     SslPolicy'
-      Prelude.<$> ( x
-                      Data..@? "Ciphers"
-                      Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "Ciphers" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "Name")
-      Prelude.<*> ( x
-                      Data..@? "SslProtocols"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "SslProtocols" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> ( x
@@ -111,7 +107,7 @@ instance Prelude.Hashable SslPolicy where
 
 instance Prelude.NFData SslPolicy where
   rnf SslPolicy' {..} =
-    Prelude.rnf ciphers
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf sslProtocols
-      `Prelude.seq` Prelude.rnf supportedLoadBalancerTypes
+    Prelude.rnf ciphers `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf sslProtocols `Prelude.seq`
+          Prelude.rnf supportedLoadBalancerTypes

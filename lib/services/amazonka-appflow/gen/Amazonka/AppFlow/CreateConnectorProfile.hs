@@ -196,12 +196,12 @@ instance Prelude.Hashable CreateConnectorProfile where
 
 instance Prelude.NFData CreateConnectorProfile where
   rnf CreateConnectorProfile' {..} =
-    Prelude.rnf connectorLabel
-      `Prelude.seq` Prelude.rnf kmsArn
-      `Prelude.seq` Prelude.rnf connectorProfileName
-      `Prelude.seq` Prelude.rnf connectorType
-      `Prelude.seq` Prelude.rnf connectionMode
-      `Prelude.seq` Prelude.rnf connectorProfileConfig
+    Prelude.rnf connectorLabel `Prelude.seq`
+      Prelude.rnf kmsArn `Prelude.seq`
+        Prelude.rnf connectorProfileName `Prelude.seq`
+          Prelude.rnf connectorType `Prelude.seq`
+            Prelude.rnf connectionMode `Prelude.seq`
+              Prelude.rnf connectorProfileConfig
 
 instance Data.ToHeaders CreateConnectorProfile where
   toHeaders =
@@ -285,5 +285,5 @@ instance
     CreateConnectorProfileResponse
   where
   rnf CreateConnectorProfileResponse' {..} =
-    Prelude.rnf connectorProfileArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf connectorProfileArn `Prelude.seq`
+      Prelude.rnf httpStatus

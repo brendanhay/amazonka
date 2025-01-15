@@ -259,15 +259,15 @@ instance Prelude.Hashable ExportTableToPointInTime where
 
 instance Prelude.NFData ExportTableToPointInTime where
   rnf ExportTableToPointInTime' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf exportFormat
-      `Prelude.seq` Prelude.rnf exportTime
-      `Prelude.seq` Prelude.rnf s3BucketOwner
-      `Prelude.seq` Prelude.rnf s3Prefix
-      `Prelude.seq` Prelude.rnf s3SseAlgorithm
-      `Prelude.seq` Prelude.rnf s3SseKmsKeyId
-      `Prelude.seq` Prelude.rnf tableArn
-      `Prelude.seq` Prelude.rnf s3Bucket
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf exportFormat `Prelude.seq`
+        Prelude.rnf exportTime `Prelude.seq`
+          Prelude.rnf s3BucketOwner `Prelude.seq`
+            Prelude.rnf s3Prefix `Prelude.seq`
+              Prelude.rnf s3SseAlgorithm `Prelude.seq`
+                Prelude.rnf s3SseKmsKeyId `Prelude.seq`
+                  Prelude.rnf tableArn `Prelude.seq`
+                    Prelude.rnf s3Bucket
 
 instance Data.ToHeaders ExportTableToPointInTime where
   toHeaders =
@@ -351,5 +351,5 @@ instance
     ExportTableToPointInTimeResponse
   where
   rnf ExportTableToPointInTimeResponse' {..} =
-    Prelude.rnf exportDescription
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf exportDescription `Prelude.seq`
+      Prelude.rnf httpStatus

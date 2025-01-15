@@ -87,8 +87,8 @@ instance Prelude.Hashable ChannelDefinition where
 
 instance Prelude.NFData ChannelDefinition where
   rnf ChannelDefinition' {..} =
-    Prelude.rnf channelId
-      `Prelude.seq` Prelude.rnf participantRole
+    Prelude.rnf channelId `Prelude.seq`
+      Prelude.rnf participantRole
 
 instance Data.ToJSON ChannelDefinition where
   toJSON ChannelDefinition' {..} =

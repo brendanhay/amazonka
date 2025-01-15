@@ -171,10 +171,10 @@ instance Prelude.Hashable ListCallAnalyticsJobs where
 
 instance Prelude.NFData ListCallAnalyticsJobs where
   rnf ListCallAnalyticsJobs' {..} =
-    Prelude.rnf jobNameContains
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf jobNameContains `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf status
 
 instance Data.ToHeaders ListCallAnalyticsJobs where
   toHeaders =
@@ -283,7 +283,7 @@ listCallAnalyticsJobsResponse_httpStatus = Lens.lens (\ListCallAnalyticsJobsResp
 
 instance Prelude.NFData ListCallAnalyticsJobsResponse where
   rnf ListCallAnalyticsJobsResponse' {..} =
-    Prelude.rnf callAnalyticsJobSummaries
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf callAnalyticsJobSummaries `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf status `Prelude.seq`
+          Prelude.rnf httpStatus

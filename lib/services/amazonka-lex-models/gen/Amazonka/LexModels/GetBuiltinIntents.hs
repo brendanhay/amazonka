@@ -152,12 +152,12 @@ instance Core.AWSPager GetBuiltinIntents where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getBuiltinIntents_nextToken
-          Lens..~ rs
-          Lens.^? getBuiltinIntentsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getBuiltinIntents_nextToken
+              Lens..~ rs
+              Lens.^? getBuiltinIntentsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetBuiltinIntents where
   type
@@ -184,10 +184,10 @@ instance Prelude.Hashable GetBuiltinIntents where
 
 instance Prelude.NFData GetBuiltinIntents where
   rnf GetBuiltinIntents' {..} =
-    Prelude.rnf locale
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf signatureContains
+    Prelude.rnf locale `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf signatureContains
 
 instance Data.ToHeaders GetBuiltinIntents where
   toHeaders =
@@ -274,6 +274,6 @@ getBuiltinIntentsResponse_httpStatus = Lens.lens (\GetBuiltinIntentsResponse' {h
 
 instance Prelude.NFData GetBuiltinIntentsResponse where
   rnf GetBuiltinIntentsResponse' {..} =
-    Prelude.rnf intents
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf intents `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

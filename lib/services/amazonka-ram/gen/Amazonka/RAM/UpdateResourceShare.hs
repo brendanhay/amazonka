@@ -172,10 +172,10 @@ instance Prelude.Hashable UpdateResourceShare where
 
 instance Prelude.NFData UpdateResourceShare where
   rnf UpdateResourceShare' {..} =
-    Prelude.rnf allowExternalPrincipals
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf resourceShareArn
+    Prelude.rnf allowExternalPrincipals `Prelude.seq`
+      Prelude.rnf clientToken `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf resourceShareArn
 
 instance Data.ToHeaders UpdateResourceShare where
   toHeaders =
@@ -269,6 +269,6 @@ updateResourceShareResponse_httpStatus = Lens.lens (\UpdateResourceShareResponse
 
 instance Prelude.NFData UpdateResourceShareResponse where
   rnf UpdateResourceShareResponse' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf resourceShare
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf resourceShare `Prelude.seq`
+        Prelude.rnf httpStatus

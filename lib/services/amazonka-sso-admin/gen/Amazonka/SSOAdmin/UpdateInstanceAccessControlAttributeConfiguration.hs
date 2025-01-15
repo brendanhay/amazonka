@@ -137,8 +137,8 @@ instance
   where
   rnf
     UpdateInstanceAccessControlAttributeConfiguration' {..} =
-      Prelude.rnf instanceArn
-        `Prelude.seq` Prelude.rnf
+      Prelude.rnf instanceArn `Prelude.seq`
+        Prelude.rnf
           instanceAccessControlAttributeConfiguration
 
 instance

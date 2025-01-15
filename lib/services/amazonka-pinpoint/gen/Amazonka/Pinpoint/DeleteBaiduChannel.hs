@@ -169,5 +169,5 @@ deleteBaiduChannelResponse_baiduChannelResponse = Lens.lens (\DeleteBaiduChannel
 
 instance Prelude.NFData DeleteBaiduChannelResponse where
   rnf DeleteBaiduChannelResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf baiduChannelResponse
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf baiduChannelResponse

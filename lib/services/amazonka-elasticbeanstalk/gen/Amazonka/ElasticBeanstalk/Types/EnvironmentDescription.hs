@@ -422,24 +422,24 @@ instance Prelude.Hashable EnvironmentDescription where
 
 instance Prelude.NFData EnvironmentDescription where
   rnf EnvironmentDescription' {..} =
-    Prelude.rnf abortableOperationInProgress
-      `Prelude.seq` Prelude.rnf applicationName
-      `Prelude.seq` Prelude.rnf cname
-      `Prelude.seq` Prelude.rnf dateCreated
-      `Prelude.seq` Prelude.rnf dateUpdated
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf endpointURL
-      `Prelude.seq` Prelude.rnf environmentArn
-      `Prelude.seq` Prelude.rnf environmentId
-      `Prelude.seq` Prelude.rnf environmentLinks
-      `Prelude.seq` Prelude.rnf environmentName
-      `Prelude.seq` Prelude.rnf health
-      `Prelude.seq` Prelude.rnf healthStatus
-      `Prelude.seq` Prelude.rnf operationsRole
-      `Prelude.seq` Prelude.rnf platformArn
-      `Prelude.seq` Prelude.rnf resources
-      `Prelude.seq` Prelude.rnf solutionStackName
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf templateName
-      `Prelude.seq` Prelude.rnf tier
-      `Prelude.seq` Prelude.rnf versionLabel
+    Prelude.rnf abortableOperationInProgress `Prelude.seq`
+      Prelude.rnf applicationName `Prelude.seq`
+        Prelude.rnf cname `Prelude.seq`
+          Prelude.rnf dateCreated `Prelude.seq`
+            Prelude.rnf dateUpdated `Prelude.seq`
+              Prelude.rnf description `Prelude.seq`
+                Prelude.rnf endpointURL `Prelude.seq`
+                  Prelude.rnf environmentArn `Prelude.seq`
+                    Prelude.rnf environmentId `Prelude.seq`
+                      Prelude.rnf environmentLinks `Prelude.seq`
+                        Prelude.rnf environmentName `Prelude.seq`
+                          Prelude.rnf health `Prelude.seq`
+                            Prelude.rnf healthStatus `Prelude.seq`
+                              Prelude.rnf operationsRole `Prelude.seq`
+                                Prelude.rnf platformArn `Prelude.seq`
+                                  Prelude.rnf resources `Prelude.seq`
+                                    Prelude.rnf solutionStackName `Prelude.seq`
+                                      Prelude.rnf status `Prelude.seq`
+                                        Prelude.rnf templateName `Prelude.seq`
+                                          Prelude.rnf tier `Prelude.seq`
+                                            Prelude.rnf versionLabel

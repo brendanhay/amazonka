@@ -136,9 +136,7 @@ instance Core.AWSRequest CreateJob where
       "CreateJobResult"
       ( \s h x ->
           CreateJobResponse'
-            Prelude.<$> ( x
-                            Data..@? "ArtifactList"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "ArtifactList" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (x Data..@? "JobId")
@@ -160,11 +158,11 @@ instance Prelude.Hashable CreateJob where
 
 instance Prelude.NFData CreateJob where
   rnf CreateJob' {..} =
-    Prelude.rnf aPIVersion
-      `Prelude.seq` Prelude.rnf manifestAddendum
-      `Prelude.seq` Prelude.rnf jobType
-      `Prelude.seq` Prelude.rnf manifest
-      `Prelude.seq` Prelude.rnf validateOnly
+    Prelude.rnf aPIVersion `Prelude.seq`
+      Prelude.rnf manifestAddendum `Prelude.seq`
+        Prelude.rnf jobType `Prelude.seq`
+          Prelude.rnf manifest `Prelude.seq`
+            Prelude.rnf validateOnly
 
 instance Data.ToHeaders CreateJob where
   toHeaders = Prelude.const Prelude.mempty
@@ -267,10 +265,10 @@ createJobResponse_httpStatus = Lens.lens (\CreateJobResponse' {httpStatus} -> ht
 
 instance Prelude.NFData CreateJobResponse where
   rnf CreateJobResponse' {..} =
-    Prelude.rnf artifactList
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf jobType
-      `Prelude.seq` Prelude.rnf signature
-      `Prelude.seq` Prelude.rnf signatureFileContents
-      `Prelude.seq` Prelude.rnf warningMessage
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf artifactList `Prelude.seq`
+      Prelude.rnf jobId `Prelude.seq`
+        Prelude.rnf jobType `Prelude.seq`
+          Prelude.rnf signature `Prelude.seq`
+            Prelude.rnf signatureFileContents `Prelude.seq`
+              Prelude.rnf warningMessage `Prelude.seq`
+                Prelude.rnf httpStatus

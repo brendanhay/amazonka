@@ -79,5 +79,5 @@ instance Prelude.Hashable DomainInfo where
 
 instance Prelude.NFData DomainInfo where
   rnf DomainInfo' {..} =
-    Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf engineType
+    Prelude.rnf domainName `Prelude.seq`
+      Prelude.rnf engineType

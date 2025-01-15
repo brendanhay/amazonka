@@ -95,8 +95,8 @@ instance
     ServerReplicationConfiguration
   where
   rnf ServerReplicationConfiguration' {..} =
-    Prelude.rnf server
-      `Prelude.seq` Prelude.rnf serverReplicationParameters
+    Prelude.rnf server `Prelude.seq`
+      Prelude.rnf serverReplicationParameters
 
 instance Data.ToJSON ServerReplicationConfiguration where
   toJSON ServerReplicationConfiguration' {..} =

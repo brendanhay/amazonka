@@ -78,8 +78,8 @@ instance Prelude.Hashable DomainEndpointOptions where
 
 instance Prelude.NFData DomainEndpointOptions where
   rnf DomainEndpointOptions' {..} =
-    Prelude.rnf enforceHTTPS
-      `Prelude.seq` Prelude.rnf tLSSecurityPolicy
+    Prelude.rnf enforceHTTPS `Prelude.seq`
+      Prelude.rnf tLSSecurityPolicy
 
 instance Data.ToQuery DomainEndpointOptions where
   toQuery DomainEndpointOptions' {..} =

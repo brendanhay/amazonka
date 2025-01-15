@@ -118,8 +118,8 @@ instance Prelude.Hashable CanaryRun where
 
 instance Prelude.NFData CanaryRun where
   rnf CanaryRun' {..} =
-    Prelude.rnf artifactS3Location
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf timeline
+    Prelude.rnf artifactS3Location `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf timeline

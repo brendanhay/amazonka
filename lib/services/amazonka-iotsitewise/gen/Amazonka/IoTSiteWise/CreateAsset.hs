@@ -162,11 +162,11 @@ instance Prelude.Hashable CreateAsset where
 
 instance Prelude.NFData CreateAsset where
   rnf CreateAsset' {..} =
-    Prelude.rnf assetDescription
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf assetName
-      `Prelude.seq` Prelude.rnf assetModelId
+    Prelude.rnf assetDescription `Prelude.seq`
+      Prelude.rnf clientToken `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf assetName `Prelude.seq`
+            Prelude.rnf assetModelId
 
 instance Data.ToHeaders CreateAsset where
   toHeaders =
@@ -284,7 +284,7 @@ createAssetResponse_assetStatus = Lens.lens (\CreateAssetResponse' {assetStatus}
 
 instance Prelude.NFData CreateAssetResponse where
   rnf CreateAssetResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf assetId
-      `Prelude.seq` Prelude.rnf assetArn
-      `Prelude.seq` Prelude.rnf assetStatus
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf assetId `Prelude.seq`
+        Prelude.rnf assetArn `Prelude.seq`
+          Prelude.rnf assetStatus

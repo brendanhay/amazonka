@@ -183,12 +183,12 @@ instance Prelude.Hashable UpdateNotificationRule where
 
 instance Prelude.NFData UpdateNotificationRule where
   rnf UpdateNotificationRule' {..} =
-    Prelude.rnf detailType
-      `Prelude.seq` Prelude.rnf eventTypeIds
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf targets
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf detailType `Prelude.seq`
+      Prelude.rnf eventTypeIds `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf targets `Prelude.seq`
+              Prelude.rnf arn
 
 instance Data.ToHeaders UpdateNotificationRule where
   toHeaders =

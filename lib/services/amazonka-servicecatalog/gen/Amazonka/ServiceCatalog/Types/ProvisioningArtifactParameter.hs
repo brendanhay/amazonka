@@ -135,9 +135,9 @@ instance
 
 instance Prelude.NFData ProvisioningArtifactParameter where
   rnf ProvisioningArtifactParameter' {..} =
-    Prelude.rnf defaultValue
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf isNoEcho
-      `Prelude.seq` Prelude.rnf parameterConstraints
-      `Prelude.seq` Prelude.rnf parameterKey
-      `Prelude.seq` Prelude.rnf parameterType
+    Prelude.rnf defaultValue `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf isNoEcho `Prelude.seq`
+          Prelude.rnf parameterConstraints `Prelude.seq`
+            Prelude.rnf parameterKey `Prelude.seq`
+              Prelude.rnf parameterType

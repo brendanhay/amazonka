@@ -105,6 +105,6 @@ instance
     CloudFormationStackRecordSourceInfo
   where
   rnf CloudFormationStackRecordSourceInfo' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf resourceType
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf resourceType

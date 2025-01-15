@@ -188,13 +188,13 @@ instance
 
 instance Prelude.NFData CriterionAdditionalProperties where
   rnf CriterionAdditionalProperties' {..} =
-    Prelude.rnf eq
-      `Prelude.seq` Prelude.rnf eqExactMatch
-      `Prelude.seq` Prelude.rnf gt
-      `Prelude.seq` Prelude.rnf gte
-      `Prelude.seq` Prelude.rnf lt
-      `Prelude.seq` Prelude.rnf lte
-      `Prelude.seq` Prelude.rnf neq
+    Prelude.rnf eq `Prelude.seq`
+      Prelude.rnf eqExactMatch `Prelude.seq`
+        Prelude.rnf gt `Prelude.seq`
+          Prelude.rnf gte `Prelude.seq`
+            Prelude.rnf lt `Prelude.seq`
+              Prelude.rnf lte `Prelude.seq`
+                Prelude.rnf neq
 
 instance Data.ToJSON CriterionAdditionalProperties where
   toJSON CriterionAdditionalProperties' {..} =

@@ -174,13 +174,13 @@ instance Prelude.Hashable Device where
 
 instance Prelude.NFData Device where
   rnf Device' {..} =
-    Prelude.rnf deviceArn
-      `Prelude.seq` Prelude.rnf deviceName
-      `Prelude.seq` Prelude.rnf deviceSerialNumber
-      `Prelude.seq` Prelude.rnf deviceStatus
-      `Prelude.seq` Prelude.rnf deviceStatusInfo
-      `Prelude.seq` Prelude.rnf deviceType
-      `Prelude.seq` Prelude.rnf macAddress
-      `Prelude.seq` Prelude.rnf networkProfileInfo
-      `Prelude.seq` Prelude.rnf roomArn
-      `Prelude.seq` Prelude.rnf softwareVersion
+    Prelude.rnf deviceArn `Prelude.seq`
+      Prelude.rnf deviceName `Prelude.seq`
+        Prelude.rnf deviceSerialNumber `Prelude.seq`
+          Prelude.rnf deviceStatus `Prelude.seq`
+            Prelude.rnf deviceStatusInfo `Prelude.seq`
+              Prelude.rnf deviceType `Prelude.seq`
+                Prelude.rnf macAddress `Prelude.seq`
+                  Prelude.rnf networkProfileInfo `Prelude.seq`
+                    Prelude.rnf roomArn `Prelude.seq`
+                      Prelude.rnf softwareVersion

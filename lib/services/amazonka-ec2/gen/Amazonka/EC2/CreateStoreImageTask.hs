@@ -162,10 +162,10 @@ instance Prelude.Hashable CreateStoreImageTask where
 
 instance Prelude.NFData CreateStoreImageTask where
   rnf CreateStoreImageTask' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf s3ObjectTags
-      `Prelude.seq` Prelude.rnf imageId
-      `Prelude.seq` Prelude.rnf bucket
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf s3ObjectTags `Prelude.seq`
+        Prelude.rnf imageId `Prelude.seq`
+          Prelude.rnf bucket
 
 instance Data.ToHeaders CreateStoreImageTask where
   toHeaders = Prelude.const Prelude.mempty
@@ -230,5 +230,5 @@ createStoreImageTaskResponse_httpStatus = Lens.lens (\CreateStoreImageTaskRespon
 
 instance Prelude.NFData CreateStoreImageTaskResponse where
   rnf CreateStoreImageTaskResponse' {..} =
-    Prelude.rnf objectKey
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf objectKey `Prelude.seq`
+      Prelude.rnf httpStatus

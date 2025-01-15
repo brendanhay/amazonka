@@ -176,12 +176,12 @@ instance Prelude.Hashable CreateIntegrationWorkflow where
 
 instance Prelude.NFData CreateIntegrationWorkflow where
   rnf CreateIntegrationWorkflow' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf workflowType
-      `Prelude.seq` Prelude.rnf integrationConfig
-      `Prelude.seq` Prelude.rnf objectTypeName
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf domainName `Prelude.seq`
+        Prelude.rnf workflowType `Prelude.seq`
+          Prelude.rnf integrationConfig `Prelude.seq`
+            Prelude.rnf objectTypeName `Prelude.seq`
+              Prelude.rnf roleArn
 
 instance Data.ToHeaders CreateIntegrationWorkflow where
   toHeaders =
@@ -279,6 +279,6 @@ instance
     CreateIntegrationWorkflowResponse
   where
   rnf CreateIntegrationWorkflowResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf workflowId
-      `Prelude.seq` Prelude.rnf message
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf workflowId `Prelude.seq`
+        Prelude.rnf message

@@ -157,11 +157,11 @@ instance Prelude.Hashable CreateInstanceExportTask where
 
 instance Prelude.NFData CreateInstanceExportTask where
   rnf CreateInstanceExportTask' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tagSpecifications
-      `Prelude.seq` Prelude.rnf exportToS3Task
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf targetEnvironment
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf tagSpecifications `Prelude.seq`
+        Prelude.rnf exportToS3Task `Prelude.seq`
+          Prelude.rnf instanceId `Prelude.seq`
+            Prelude.rnf targetEnvironment
 
 instance Data.ToHeaders CreateInstanceExportTask where
   toHeaders = Prelude.const Prelude.mempty
@@ -230,5 +230,5 @@ instance
     CreateInstanceExportTaskResponse
   where
   rnf CreateInstanceExportTaskResponse' {..} =
-    Prelude.rnf exportTask
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf exportTask `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -170,10 +170,10 @@ instance Prelude.Hashable OrganizationConfigRule where
 
 instance Prelude.NFData OrganizationConfigRule where
   rnf OrganizationConfigRule' {..} =
-    Prelude.rnf excludedAccounts
-      `Prelude.seq` Prelude.rnf lastUpdateTime
-      `Prelude.seq` Prelude.rnf organizationCustomPolicyRuleMetadata
-      `Prelude.seq` Prelude.rnf organizationCustomRuleMetadata
-      `Prelude.seq` Prelude.rnf organizationManagedRuleMetadata
-      `Prelude.seq` Prelude.rnf organizationConfigRuleName
-      `Prelude.seq` Prelude.rnf organizationConfigRuleArn
+    Prelude.rnf excludedAccounts `Prelude.seq`
+      Prelude.rnf lastUpdateTime `Prelude.seq`
+        Prelude.rnf organizationCustomPolicyRuleMetadata `Prelude.seq`
+          Prelude.rnf organizationCustomRuleMetadata `Prelude.seq`
+            Prelude.rnf organizationManagedRuleMetadata `Prelude.seq`
+              Prelude.rnf organizationConfigRuleName `Prelude.seq`
+                Prelude.rnf organizationConfigRuleArn

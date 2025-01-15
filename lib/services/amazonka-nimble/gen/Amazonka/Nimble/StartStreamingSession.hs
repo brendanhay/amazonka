@@ -143,10 +143,10 @@ instance Prelude.Hashable StartStreamingSession where
 
 instance Prelude.NFData StartStreamingSession where
   rnf StartStreamingSession' {..} =
-    Prelude.rnf backupId
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf sessionId
-      `Prelude.seq` Prelude.rnf studioId
+    Prelude.rnf backupId `Prelude.seq`
+      Prelude.rnf clientToken `Prelude.seq`
+        Prelude.rnf sessionId `Prelude.seq`
+          Prelude.rnf studioId
 
 instance Data.ToHeaders StartStreamingSession where
   toHeaders StartStreamingSession' {..} =
@@ -216,5 +216,5 @@ startStreamingSessionResponse_httpStatus = Lens.lens (\StartStreamingSessionResp
 
 instance Prelude.NFData StartStreamingSessionResponse where
   rnf StartStreamingSessionResponse' {..} =
-    Prelude.rnf session
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf session `Prelude.seq`
+      Prelude.rnf httpStatus

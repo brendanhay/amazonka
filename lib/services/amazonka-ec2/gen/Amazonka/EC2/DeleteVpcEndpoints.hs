@@ -126,9 +126,7 @@ instance Core.AWSRequest DeleteVpcEndpoints where
     Response.receiveXML
       ( \s h x ->
           DeleteVpcEndpointsResponse'
-            Prelude.<$> ( x
-                            Data..@? "unsuccessful"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "unsuccessful" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -142,8 +140,8 @@ instance Prelude.Hashable DeleteVpcEndpoints where
 
 instance Prelude.NFData DeleteVpcEndpoints where
   rnf DeleteVpcEndpoints' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf vpcEndpointIds
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf vpcEndpointIds
 
 instance Data.ToHeaders DeleteVpcEndpoints where
   toHeaders = Prelude.const Prelude.mempty
@@ -205,5 +203,5 @@ deleteVpcEndpointsResponse_httpStatus = Lens.lens (\DeleteVpcEndpointsResponse' 
 
 instance Prelude.NFData DeleteVpcEndpointsResponse where
   rnf DeleteVpcEndpointsResponse' {..} =
-    Prelude.rnf unsuccessful
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf unsuccessful `Prelude.seq`
+      Prelude.rnf httpStatus

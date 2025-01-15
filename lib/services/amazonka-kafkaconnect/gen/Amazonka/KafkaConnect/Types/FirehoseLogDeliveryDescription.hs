@@ -96,5 +96,5 @@ instance
     FirehoseLogDeliveryDescription
   where
   rnf FirehoseLogDeliveryDescription' {..} =
-    Prelude.rnf deliveryStream
-      `Prelude.seq` Prelude.rnf enabled
+    Prelude.rnf deliveryStream `Prelude.seq`
+      Prelude.rnf enabled

@@ -86,8 +86,8 @@ instance
     ExchangeCodeForTokenRequestBody
   where
   rnf ExchangeCodeForTokenRequestBody' {..} =
-    Prelude.rnf code
-      `Prelude.seq` Prelude.rnf redirectUri
+    Prelude.rnf code `Prelude.seq`
+      Prelude.rnf redirectUri
 
 instance Data.ToJSON ExchangeCodeForTokenRequestBody where
   toJSON ExchangeCodeForTokenRequestBody' {..} =

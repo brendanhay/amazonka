@@ -80,5 +80,5 @@ instance Prelude.Hashable UploadMetadata where
 
 instance Prelude.NFData UploadMetadata where
   rnf UploadMetadata' {..} =
-    Prelude.rnf signedHeaders
-      `Prelude.seq` Prelude.rnf uploadUrl
+    Prelude.rnf signedHeaders `Prelude.seq`
+      Prelude.rnf uploadUrl

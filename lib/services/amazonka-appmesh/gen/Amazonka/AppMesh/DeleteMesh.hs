@@ -162,5 +162,5 @@ deleteMeshResponse_mesh = Lens.lens (\DeleteMeshResponse' {mesh} -> mesh) (\s@De
 
 instance Prelude.NFData DeleteMeshResponse where
   rnf DeleteMeshResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf mesh
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf mesh

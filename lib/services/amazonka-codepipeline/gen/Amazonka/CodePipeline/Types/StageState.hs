@@ -121,8 +121,8 @@ instance Prelude.Hashable StageState where
 
 instance Prelude.NFData StageState where
   rnf StageState' {..} =
-    Prelude.rnf actionStates
-      `Prelude.seq` Prelude.rnf inboundExecution
-      `Prelude.seq` Prelude.rnf inboundTransitionState
-      `Prelude.seq` Prelude.rnf latestExecution
-      `Prelude.seq` Prelude.rnf stageName
+    Prelude.rnf actionStates `Prelude.seq`
+      Prelude.rnf inboundExecution `Prelude.seq`
+        Prelude.rnf inboundTransitionState `Prelude.seq`
+          Prelude.rnf latestExecution `Prelude.seq`
+            Prelude.rnf stageName

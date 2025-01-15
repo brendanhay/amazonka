@@ -181,10 +181,10 @@ instance Prelude.Hashable ListSnapshotBlocks where
 
 instance Prelude.NFData ListSnapshotBlocks where
   rnf ListSnapshotBlocks' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf startingBlockIndex
-      `Prelude.seq` Prelude.rnf snapshotId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf startingBlockIndex `Prelude.seq`
+          Prelude.rnf snapshotId
 
 instance Data.ToHeaders ListSnapshotBlocks where
   toHeaders =
@@ -290,9 +290,9 @@ listSnapshotBlocksResponse_httpStatus = Lens.lens (\ListSnapshotBlocksResponse' 
 
 instance Prelude.NFData ListSnapshotBlocksResponse where
   rnf ListSnapshotBlocksResponse' {..} =
-    Prelude.rnf blockSize
-      `Prelude.seq` Prelude.rnf blocks
-      `Prelude.seq` Prelude.rnf expiryTime
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf volumeSize
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf blockSize `Prelude.seq`
+      Prelude.rnf blocks `Prelude.seq`
+        Prelude.rnf expiryTime `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf volumeSize `Prelude.seq`
+              Prelude.rnf httpStatus

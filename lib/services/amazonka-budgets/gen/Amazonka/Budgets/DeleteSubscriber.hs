@@ -146,10 +146,10 @@ instance Prelude.Hashable DeleteSubscriber where
 
 instance Prelude.NFData DeleteSubscriber where
   rnf DeleteSubscriber' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf budgetName
-      `Prelude.seq` Prelude.rnf notification
-      `Prelude.seq` Prelude.rnf subscriber
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf budgetName `Prelude.seq`
+        Prelude.rnf notification `Prelude.seq`
+          Prelude.rnf subscriber
 
 instance Data.ToHeaders DeleteSubscriber where
   toHeaders =

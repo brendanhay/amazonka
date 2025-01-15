@@ -123,12 +123,12 @@ instance Core.AWSPager ListEndpoints where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listEndpoints_nextToken
-          Lens..~ rs
-          Lens.^? listEndpointsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listEndpoints_nextToken
+              Lens..~ rs
+              Lens.^? listEndpointsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListEndpoints where
   type
@@ -157,9 +157,9 @@ instance Prelude.Hashable ListEndpoints where
 
 instance Prelude.NFData ListEndpoints where
   rnf ListEndpoints' {..} =
-    Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filter' `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListEndpoints where
   toHeaders =
@@ -245,6 +245,6 @@ listEndpointsResponse_httpStatus = Lens.lens (\ListEndpointsResponse' {httpStatu
 
 instance Prelude.NFData ListEndpointsResponse where
   rnf ListEndpointsResponse' {..} =
-    Prelude.rnf endpointPropertiesList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf endpointPropertiesList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

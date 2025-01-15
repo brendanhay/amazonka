@@ -148,12 +148,12 @@ instance Core.AWSPager DescribeTestCases where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeTestCases_nextToken
-          Lens..~ rs
-          Lens.^? describeTestCasesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeTestCases_nextToken
+              Lens..~ rs
+              Lens.^? describeTestCasesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeTestCases where
   type
@@ -180,10 +180,10 @@ instance Prelude.Hashable DescribeTestCases where
 
 instance Prelude.NFData DescribeTestCases where
   rnf DescribeTestCases' {..} =
-    Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf reportArn
+    Prelude.rnf filter' `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf reportArn
 
 instance Data.ToHeaders DescribeTestCases where
   toHeaders =
@@ -285,6 +285,6 @@ describeTestCasesResponse_httpStatus = Lens.lens (\DescribeTestCasesResponse' {h
 
 instance Prelude.NFData DescribeTestCasesResponse where
   rnf DescribeTestCasesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf testCases
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf testCases `Prelude.seq`
+        Prelude.rnf httpStatus

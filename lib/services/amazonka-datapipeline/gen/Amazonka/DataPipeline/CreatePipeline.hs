@@ -183,10 +183,10 @@ instance Prelude.Hashable CreatePipeline where
 
 instance Prelude.NFData CreatePipeline where
   rnf CreatePipeline' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf uniqueId
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf uniqueId
 
 instance Data.ToHeaders CreatePipeline where
   toHeaders =
@@ -267,5 +267,5 @@ createPipelineResponse_pipelineId = Lens.lens (\CreatePipelineResponse' {pipelin
 
 instance Prelude.NFData CreatePipelineResponse where
   rnf CreatePipelineResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf pipelineId
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf pipelineId

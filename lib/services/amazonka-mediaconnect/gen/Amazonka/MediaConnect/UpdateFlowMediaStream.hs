@@ -176,13 +176,13 @@ instance Prelude.Hashable UpdateFlowMediaStream where
 
 instance Prelude.NFData UpdateFlowMediaStream where
   rnf UpdateFlowMediaStream' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf clockRate
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf mediaStreamType
-      `Prelude.seq` Prelude.rnf videoFormat
-      `Prelude.seq` Prelude.rnf flowArn
-      `Prelude.seq` Prelude.rnf mediaStreamName
+    Prelude.rnf attributes `Prelude.seq`
+      Prelude.rnf clockRate `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf mediaStreamType `Prelude.seq`
+            Prelude.rnf videoFormat `Prelude.seq`
+              Prelude.rnf flowArn `Prelude.seq`
+                Prelude.rnf mediaStreamName
 
 instance Data.ToHeaders UpdateFlowMediaStream where
   toHeaders =
@@ -273,6 +273,6 @@ updateFlowMediaStreamResponse_httpStatus = Lens.lens (\UpdateFlowMediaStreamResp
 
 instance Prelude.NFData UpdateFlowMediaStreamResponse where
   rnf UpdateFlowMediaStreamResponse' {..} =
-    Prelude.rnf flowArn
-      `Prelude.seq` Prelude.rnf mediaStream
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf flowArn `Prelude.seq`
+      Prelude.rnf mediaStream `Prelude.seq`
+        Prelude.rnf httpStatus

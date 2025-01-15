@@ -186,10 +186,10 @@ instance Prelude.Hashable Problem where
 
 instance Prelude.NFData Problem where
   rnf Problem' {..} =
-    Prelude.rnf device
-      `Prelude.seq` Prelude.rnf job
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf result
-      `Prelude.seq` Prelude.rnf run
-      `Prelude.seq` Prelude.rnf suite
-      `Prelude.seq` Prelude.rnf test
+    Prelude.rnf device `Prelude.seq`
+      Prelude.rnf job `Prelude.seq`
+        Prelude.rnf message `Prelude.seq`
+          Prelude.rnf result `Prelude.seq`
+            Prelude.rnf run `Prelude.seq`
+              Prelude.rnf suite `Prelude.seq`
+                Prelude.rnf test

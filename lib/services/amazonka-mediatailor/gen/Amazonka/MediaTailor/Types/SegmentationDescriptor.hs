@@ -232,14 +232,14 @@ instance Prelude.Hashable SegmentationDescriptor where
 
 instance Prelude.NFData SegmentationDescriptor where
   rnf SegmentationDescriptor' {..} =
-    Prelude.rnf segmentNum
-      `Prelude.seq` Prelude.rnf segmentationEventId
-      `Prelude.seq` Prelude.rnf segmentationTypeId
-      `Prelude.seq` Prelude.rnf segmentationUpid
-      `Prelude.seq` Prelude.rnf segmentationUpidType
-      `Prelude.seq` Prelude.rnf segmentsExpected
-      `Prelude.seq` Prelude.rnf subSegmentNum
-      `Prelude.seq` Prelude.rnf subSegmentsExpected
+    Prelude.rnf segmentNum `Prelude.seq`
+      Prelude.rnf segmentationEventId `Prelude.seq`
+        Prelude.rnf segmentationTypeId `Prelude.seq`
+          Prelude.rnf segmentationUpid `Prelude.seq`
+            Prelude.rnf segmentationUpidType `Prelude.seq`
+              Prelude.rnf segmentsExpected `Prelude.seq`
+                Prelude.rnf subSegmentNum `Prelude.seq`
+                  Prelude.rnf subSegmentsExpected
 
 instance Data.ToJSON SegmentationDescriptor where
   toJSON SegmentationDescriptor' {..} =

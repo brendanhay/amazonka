@@ -133,8 +133,8 @@ instance Prelude.Hashable DomainIspPlacement where
 
 instance Prelude.NFData DomainIspPlacement where
   rnf DomainIspPlacement' {..} =
-    Prelude.rnf inboxPercentage
-      `Prelude.seq` Prelude.rnf inboxRawCount
-      `Prelude.seq` Prelude.rnf ispName
-      `Prelude.seq` Prelude.rnf spamPercentage
-      `Prelude.seq` Prelude.rnf spamRawCount
+    Prelude.rnf inboxPercentage `Prelude.seq`
+      Prelude.rnf inboxRawCount `Prelude.seq`
+        Prelude.rnf ispName `Prelude.seq`
+          Prelude.rnf spamPercentage `Prelude.seq`
+            Prelude.rnf spamRawCount

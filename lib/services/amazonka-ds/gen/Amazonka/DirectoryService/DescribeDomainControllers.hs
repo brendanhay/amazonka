@@ -134,12 +134,12 @@ instance Core.AWSPager DescribeDomainControllers where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeDomainControllers_nextToken
-          Lens..~ rs
-          Lens.^? describeDomainControllersResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeDomainControllers_nextToken
+              Lens..~ rs
+              Lens.^? describeDomainControllersResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeDomainControllers where
   type
@@ -169,10 +169,10 @@ instance Prelude.Hashable DescribeDomainControllers where
 
 instance Prelude.NFData DescribeDomainControllers where
   rnf DescribeDomainControllers' {..} =
-    Prelude.rnf domainControllerIds
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf directoryId
+    Prelude.rnf domainControllerIds `Prelude.seq`
+      Prelude.rnf limit `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf directoryId
 
 instance Data.ToHeaders DescribeDomainControllers where
   toHeaders =
@@ -266,6 +266,6 @@ instance
     DescribeDomainControllersResponse
   where
   rnf DescribeDomainControllersResponse' {..} =
-    Prelude.rnf domainControllers
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf domainControllers `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

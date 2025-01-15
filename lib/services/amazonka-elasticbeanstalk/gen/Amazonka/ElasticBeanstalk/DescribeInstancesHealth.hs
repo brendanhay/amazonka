@@ -148,10 +148,10 @@ instance Prelude.Hashable DescribeInstancesHealth where
 
 instance Prelude.NFData DescribeInstancesHealth where
   rnf DescribeInstancesHealth' {..} =
-    Prelude.rnf attributeNames
-      `Prelude.seq` Prelude.rnf environmentId
-      `Prelude.seq` Prelude.rnf environmentName
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf attributeNames `Prelude.seq`
+      Prelude.rnf environmentId `Prelude.seq`
+        Prelude.rnf environmentName `Prelude.seq`
+          Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeInstancesHealth where
   toHeaders = Prelude.const Prelude.mempty
@@ -253,7 +253,7 @@ instance
     DescribeInstancesHealthResponse
   where
   rnf DescribeInstancesHealthResponse' {..} =
-    Prelude.rnf instanceHealthList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf refreshedAt
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf instanceHealthList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf refreshedAt `Prelude.seq`
+          Prelude.rnf httpStatus

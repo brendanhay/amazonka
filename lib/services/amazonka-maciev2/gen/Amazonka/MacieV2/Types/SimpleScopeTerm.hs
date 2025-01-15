@@ -190,9 +190,9 @@ instance Prelude.Hashable SimpleScopeTerm where
 
 instance Prelude.NFData SimpleScopeTerm where
   rnf SimpleScopeTerm' {..} =
-    Prelude.rnf comparator
-      `Prelude.seq` Prelude.rnf key
-      `Prelude.seq` Prelude.rnf values
+    Prelude.rnf comparator `Prelude.seq`
+      Prelude.rnf key `Prelude.seq`
+        Prelude.rnf values
 
 instance Data.ToJSON SimpleScopeTerm where
   toJSON SimpleScopeTerm' {..} =

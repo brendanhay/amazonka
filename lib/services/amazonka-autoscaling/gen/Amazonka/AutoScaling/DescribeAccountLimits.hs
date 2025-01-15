@@ -187,8 +187,8 @@ describeAccountLimitsResponse_httpStatus = Lens.lens (\DescribeAccountLimitsResp
 
 instance Prelude.NFData DescribeAccountLimitsResponse where
   rnf DescribeAccountLimitsResponse' {..} =
-    Prelude.rnf maxNumberOfAutoScalingGroups
-      `Prelude.seq` Prelude.rnf maxNumberOfLaunchConfigurations
-      `Prelude.seq` Prelude.rnf numberOfAutoScalingGroups
-      `Prelude.seq` Prelude.rnf numberOfLaunchConfigurations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf maxNumberOfAutoScalingGroups `Prelude.seq`
+      Prelude.rnf maxNumberOfLaunchConfigurations `Prelude.seq`
+        Prelude.rnf numberOfAutoScalingGroups `Prelude.seq`
+          Prelude.rnf numberOfLaunchConfigurations `Prelude.seq`
+            Prelude.rnf httpStatus

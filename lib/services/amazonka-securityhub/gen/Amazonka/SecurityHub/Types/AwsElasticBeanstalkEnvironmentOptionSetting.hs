@@ -114,10 +114,10 @@ instance
     AwsElasticBeanstalkEnvironmentOptionSetting
   where
   rnf AwsElasticBeanstalkEnvironmentOptionSetting' {..} =
-    Prelude.rnf namespace
-      `Prelude.seq` Prelude.rnf optionName
-      `Prelude.seq` Prelude.rnf resourceName
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf namespace `Prelude.seq`
+      Prelude.rnf optionName `Prelude.seq`
+        Prelude.rnf resourceName `Prelude.seq`
+          Prelude.rnf value
 
 instance
   Data.ToJSON

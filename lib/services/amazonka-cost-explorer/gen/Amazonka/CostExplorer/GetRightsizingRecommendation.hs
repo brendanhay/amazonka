@@ -186,11 +186,11 @@ instance
 
 instance Prelude.NFData GetRightsizingRecommendation where
   rnf GetRightsizingRecommendation' {..} =
-    Prelude.rnf configuration
-      `Prelude.seq` Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf pageSize
-      `Prelude.seq` Prelude.rnf service
+    Prelude.rnf configuration `Prelude.seq`
+      Prelude.rnf filter' `Prelude.seq`
+        Prelude.rnf nextPageToken `Prelude.seq`
+          Prelude.rnf pageSize `Prelude.seq`
+            Prelude.rnf service
 
 instance Data.ToHeaders GetRightsizingRecommendation where
   toHeaders =
@@ -321,9 +321,9 @@ instance
     GetRightsizingRecommendationResponse
   where
   rnf GetRightsizingRecommendationResponse' {..} =
-    Prelude.rnf configuration
-      `Prelude.seq` Prelude.rnf metadata
-      `Prelude.seq` Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf rightsizingRecommendations
-      `Prelude.seq` Prelude.rnf summary
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf configuration `Prelude.seq`
+      Prelude.rnf metadata `Prelude.seq`
+        Prelude.rnf nextPageToken `Prelude.seq`
+          Prelude.rnf rightsizingRecommendations `Prelude.seq`
+            Prelude.rnf summary `Prelude.seq`
+              Prelude.rnf httpStatus

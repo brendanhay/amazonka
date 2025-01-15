@@ -273,11 +273,11 @@ instance Prelude.Hashable HealthCheck where
 
 instance Prelude.NFData HealthCheck where
   rnf HealthCheck' {..} =
-    Prelude.rnf interval
-      `Prelude.seq` Prelude.rnf retries
-      `Prelude.seq` Prelude.rnf startPeriod
-      `Prelude.seq` Prelude.rnf timeout
-      `Prelude.seq` Prelude.rnf command
+    Prelude.rnf interval `Prelude.seq`
+      Prelude.rnf retries `Prelude.seq`
+        Prelude.rnf startPeriod `Prelude.seq`
+          Prelude.rnf timeout `Prelude.seq`
+            Prelude.rnf command
 
 instance Data.ToJSON HealthCheck where
   toJSON HealthCheck' {..} =

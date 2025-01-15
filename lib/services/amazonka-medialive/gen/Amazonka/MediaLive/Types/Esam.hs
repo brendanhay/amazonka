@@ -146,12 +146,12 @@ instance Prelude.Hashable Esam where
 
 instance Prelude.NFData Esam where
   rnf Esam' {..} =
-    Prelude.rnf adAvailOffset
-      `Prelude.seq` Prelude.rnf passwordParam
-      `Prelude.seq` Prelude.rnf username
-      `Prelude.seq` Prelude.rnf zoneIdentity
-      `Prelude.seq` Prelude.rnf acquisitionPointId
-      `Prelude.seq` Prelude.rnf poisEndpoint
+    Prelude.rnf adAvailOffset `Prelude.seq`
+      Prelude.rnf passwordParam `Prelude.seq`
+        Prelude.rnf username `Prelude.seq`
+          Prelude.rnf zoneIdentity `Prelude.seq`
+            Prelude.rnf acquisitionPointId `Prelude.seq`
+              Prelude.rnf poisEndpoint
 
 instance Data.ToJSON Esam where
   toJSON Esam' {..} =

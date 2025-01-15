@@ -107,8 +107,8 @@ instance Prelude.Hashable DeleteRobotApplication where
 
 instance Prelude.NFData DeleteRobotApplication where
   rnf DeleteRobotApplication' {..} =
-    Prelude.rnf applicationVersion
-      `Prelude.seq` Prelude.rnf application
+    Prelude.rnf applicationVersion `Prelude.seq`
+      Prelude.rnf application
 
 instance Data.ToHeaders DeleteRobotApplication where
   toHeaders =

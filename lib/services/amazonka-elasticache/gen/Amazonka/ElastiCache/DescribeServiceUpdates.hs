@@ -131,12 +131,12 @@ instance Core.AWSPager DescribeServiceUpdates where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeServiceUpdates_marker
-          Lens..~ rs
-          Lens.^? describeServiceUpdatesResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeServiceUpdates_marker
+              Lens..~ rs
+              Lens.^? describeServiceUpdatesResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeServiceUpdates where
   type
@@ -150,9 +150,7 @@ instance Core.AWSRequest DescribeServiceUpdates where
       ( \s h x ->
           DescribeServiceUpdatesResponse'
             Prelude.<$> (x Data..@? "Marker")
-            Prelude.<*> ( x
-                            Data..@? "ServiceUpdates"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "ServiceUpdates" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "ServiceUpdate")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -168,10 +166,10 @@ instance Prelude.Hashable DescribeServiceUpdates where
 
 instance Prelude.NFData DescribeServiceUpdates where
   rnf DescribeServiceUpdates' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf serviceUpdateName
-      `Prelude.seq` Prelude.rnf serviceUpdateStatus
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf maxRecords `Prelude.seq`
+        Prelude.rnf serviceUpdateName `Prelude.seq`
+          Prelude.rnf serviceUpdateStatus
 
 instance Data.ToHeaders DescribeServiceUpdates where
   toHeaders = Prelude.const Prelude.mempty
@@ -258,6 +256,6 @@ instance
     DescribeServiceUpdatesResponse
   where
   rnf DescribeServiceUpdatesResponse' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf serviceUpdates
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf serviceUpdates `Prelude.seq`
+        Prelude.rnf httpStatus

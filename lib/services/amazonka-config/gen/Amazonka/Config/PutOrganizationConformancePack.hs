@@ -244,13 +244,13 @@ instance
     PutOrganizationConformancePack
   where
   rnf PutOrganizationConformancePack' {..} =
-    Prelude.rnf conformancePackInputParameters
-      `Prelude.seq` Prelude.rnf deliveryS3Bucket
-      `Prelude.seq` Prelude.rnf deliveryS3KeyPrefix
-      `Prelude.seq` Prelude.rnf excludedAccounts
-      `Prelude.seq` Prelude.rnf templateBody
-      `Prelude.seq` Prelude.rnf templateS3Uri
-      `Prelude.seq` Prelude.rnf organizationConformancePackName
+    Prelude.rnf conformancePackInputParameters `Prelude.seq`
+      Prelude.rnf deliveryS3Bucket `Prelude.seq`
+        Prelude.rnf deliveryS3KeyPrefix `Prelude.seq`
+          Prelude.rnf excludedAccounts `Prelude.seq`
+            Prelude.rnf templateBody `Prelude.seq`
+              Prelude.rnf templateS3Uri `Prelude.seq`
+                Prelude.rnf organizationConformancePackName
 
 instance
   Data.ToHeaders
@@ -342,5 +342,5 @@ instance
     PutOrganizationConformancePackResponse
   where
   rnf PutOrganizationConformancePackResponse' {..} =
-    Prelude.rnf organizationConformancePackArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf organizationConformancePackArn `Prelude.seq`
+      Prelude.rnf httpStatus

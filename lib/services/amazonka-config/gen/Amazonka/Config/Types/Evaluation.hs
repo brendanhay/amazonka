@@ -173,11 +173,11 @@ instance Prelude.Hashable Evaluation where
 
 instance Prelude.NFData Evaluation where
   rnf Evaluation' {..} =
-    Prelude.rnf annotation
-      `Prelude.seq` Prelude.rnf complianceResourceType
-      `Prelude.seq` Prelude.rnf complianceResourceId
-      `Prelude.seq` Prelude.rnf complianceType
-      `Prelude.seq` Prelude.rnf orderingTimestamp
+    Prelude.rnf annotation `Prelude.seq`
+      Prelude.rnf complianceResourceType `Prelude.seq`
+        Prelude.rnf complianceResourceId `Prelude.seq`
+          Prelude.rnf complianceType `Prelude.seq`
+            Prelude.rnf orderingTimestamp
 
 instance Data.ToJSON Evaluation where
   toJSON Evaluation' {..} =

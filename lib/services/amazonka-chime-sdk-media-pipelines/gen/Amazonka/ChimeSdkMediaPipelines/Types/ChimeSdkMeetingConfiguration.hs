@@ -87,8 +87,8 @@ instance
 
 instance Prelude.NFData ChimeSdkMeetingConfiguration where
   rnf ChimeSdkMeetingConfiguration' {..} =
-    Prelude.rnf artifactsConfiguration
-      `Prelude.seq` Prelude.rnf sourceConfiguration
+    Prelude.rnf artifactsConfiguration `Prelude.seq`
+      Prelude.rnf sourceConfiguration
 
 instance Data.ToJSON ChimeSdkMeetingConfiguration where
   toJSON ChimeSdkMeetingConfiguration' {..} =

@@ -92,8 +92,8 @@ instance
     AwsDynamoDbTableStreamSpecification
   where
   rnf AwsDynamoDbTableStreamSpecification' {..} =
-    Prelude.rnf streamEnabled
-      `Prelude.seq` Prelude.rnf streamViewType
+    Prelude.rnf streamEnabled `Prelude.seq`
+      Prelude.rnf streamViewType
 
 instance
   Data.ToJSON

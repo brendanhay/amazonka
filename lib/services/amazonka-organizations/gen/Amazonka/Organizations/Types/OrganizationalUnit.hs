@@ -136,6 +136,6 @@ instance Prelude.Hashable OrganizationalUnit where
 
 instance Prelude.NFData OrganizationalUnit where
   rnf OrganizationalUnit' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf name

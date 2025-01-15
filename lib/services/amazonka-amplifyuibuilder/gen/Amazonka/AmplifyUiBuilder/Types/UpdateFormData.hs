@@ -142,14 +142,14 @@ instance Prelude.Hashable UpdateFormData where
 
 instance Prelude.NFData UpdateFormData where
   rnf UpdateFormData' {..} =
-    Prelude.rnf cta
-      `Prelude.seq` Prelude.rnf dataType
-      `Prelude.seq` Prelude.rnf fields
-      `Prelude.seq` Prelude.rnf formActionType
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf schemaVersion
-      `Prelude.seq` Prelude.rnf sectionalElements
-      `Prelude.seq` Prelude.rnf style
+    Prelude.rnf cta `Prelude.seq`
+      Prelude.rnf dataType `Prelude.seq`
+        Prelude.rnf fields `Prelude.seq`
+          Prelude.rnf formActionType `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf schemaVersion `Prelude.seq`
+                Prelude.rnf sectionalElements `Prelude.seq`
+                  Prelude.rnf style
 
 instance Data.ToJSON UpdateFormData where
   toJSON UpdateFormData' {..} =

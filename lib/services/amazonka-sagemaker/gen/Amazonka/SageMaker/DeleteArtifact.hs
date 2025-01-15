@@ -106,8 +106,8 @@ instance Prelude.Hashable DeleteArtifact where
 
 instance Prelude.NFData DeleteArtifact where
   rnf DeleteArtifact' {..} =
-    Prelude.rnf artifactArn
-      `Prelude.seq` Prelude.rnf source
+    Prelude.rnf artifactArn `Prelude.seq`
+      Prelude.rnf source
 
 instance Data.ToHeaders DeleteArtifact where
   toHeaders =
@@ -178,5 +178,5 @@ deleteArtifactResponse_httpStatus = Lens.lens (\DeleteArtifactResponse' {httpSta
 
 instance Prelude.NFData DeleteArtifactResponse where
   rnf DeleteArtifactResponse' {..} =
-    Prelude.rnf artifactArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf artifactArn `Prelude.seq`
+      Prelude.rnf httpStatus

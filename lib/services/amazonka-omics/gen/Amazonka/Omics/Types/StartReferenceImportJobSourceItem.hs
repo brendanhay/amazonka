@@ -105,10 +105,10 @@ instance
     StartReferenceImportJobSourceItem
   where
   rnf StartReferenceImportJobSourceItem' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf sourceFile
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf sourceFile
 
 instance
   Data.ToJSON

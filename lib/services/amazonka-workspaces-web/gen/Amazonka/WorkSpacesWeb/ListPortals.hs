@@ -109,8 +109,8 @@ instance Prelude.Hashable ListPortals where
 
 instance Prelude.NFData ListPortals where
   rnf ListPortals' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListPortals where
   toHeaders =
@@ -185,6 +185,6 @@ listPortalsResponse_httpStatus = Lens.lens (\ListPortalsResponse' {httpStatus} -
 
 instance Prelude.NFData ListPortalsResponse where
   rnf ListPortalsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf portals
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf portals `Prelude.seq`
+        Prelude.rnf httpStatus

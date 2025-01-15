@@ -115,9 +115,9 @@ instance
   where
   rnf
     AwsAutoScalingLaunchConfigurationMetadataOptions' {..} =
-      Prelude.rnf httpEndpoint
-        `Prelude.seq` Prelude.rnf httpPutResponseHopLimit
-        `Prelude.seq` Prelude.rnf httpTokens
+      Prelude.rnf httpEndpoint `Prelude.seq`
+        Prelude.rnf httpPutResponseHopLimit `Prelude.seq`
+          Prelude.rnf httpTokens
 
 instance
   Data.ToJSON

@@ -182,5 +182,5 @@ instance
     GetEmailIdentityPoliciesResponse
   where
   rnf GetEmailIdentityPoliciesResponse' {..} =
-    Prelude.rnf policies
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf policies `Prelude.seq`
+      Prelude.rnf httpStatus

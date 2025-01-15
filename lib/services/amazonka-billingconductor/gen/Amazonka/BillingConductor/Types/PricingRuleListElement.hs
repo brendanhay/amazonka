@@ -205,15 +205,15 @@ instance Prelude.Hashable PricingRuleListElement where
 
 instance Prelude.NFData PricingRuleListElement where
   rnf PricingRuleListElement' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf associatedPricingPlanCount
-      `Prelude.seq` Prelude.rnf billingEntity
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf modifierPercentage
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf scope
-      `Prelude.seq` Prelude.rnf service
-      `Prelude.seq` Prelude.rnf tiering
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf associatedPricingPlanCount `Prelude.seq`
+        Prelude.rnf billingEntity `Prelude.seq`
+          Prelude.rnf creationTime `Prelude.seq`
+            Prelude.rnf description `Prelude.seq`
+              Prelude.rnf lastModifiedTime `Prelude.seq`
+                Prelude.rnf modifierPercentage `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf scope `Prelude.seq`
+                      Prelude.rnf service `Prelude.seq`
+                        Prelude.rnf tiering `Prelude.seq`
+                          Prelude.rnf type'

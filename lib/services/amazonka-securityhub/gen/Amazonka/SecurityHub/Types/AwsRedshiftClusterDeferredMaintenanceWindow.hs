@@ -136,9 +136,9 @@ instance
     AwsRedshiftClusterDeferredMaintenanceWindow
   where
   rnf AwsRedshiftClusterDeferredMaintenanceWindow' {..} =
-    Prelude.rnf deferMaintenanceEndTime
-      `Prelude.seq` Prelude.rnf deferMaintenanceIdentifier
-      `Prelude.seq` Prelude.rnf deferMaintenanceStartTime
+    Prelude.rnf deferMaintenanceEndTime `Prelude.seq`
+      Prelude.rnf deferMaintenanceIdentifier `Prelude.seq`
+        Prelude.rnf deferMaintenanceStartTime
 
 instance
   Data.ToJSON

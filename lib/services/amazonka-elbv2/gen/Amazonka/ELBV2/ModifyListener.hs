@@ -247,9 +247,7 @@ instance Core.AWSRequest ModifyListener where
       "ModifyListenerResult"
       ( \s h x ->
           ModifyListenerResponse'
-            Prelude.<$> ( x
-                            Data..@? "Listeners"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "Listeners" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -268,13 +266,13 @@ instance Prelude.Hashable ModifyListener where
 
 instance Prelude.NFData ModifyListener where
   rnf ModifyListener' {..} =
-    Prelude.rnf alpnPolicy
-      `Prelude.seq` Prelude.rnf certificates
-      `Prelude.seq` Prelude.rnf defaultActions
-      `Prelude.seq` Prelude.rnf port
-      `Prelude.seq` Prelude.rnf protocol
-      `Prelude.seq` Prelude.rnf sslPolicy
-      `Prelude.seq` Prelude.rnf listenerArn
+    Prelude.rnf alpnPolicy `Prelude.seq`
+      Prelude.rnf certificates `Prelude.seq`
+        Prelude.rnf defaultActions `Prelude.seq`
+          Prelude.rnf port `Prelude.seq`
+            Prelude.rnf protocol `Prelude.seq`
+              Prelude.rnf sslPolicy `Prelude.seq`
+                Prelude.rnf listenerArn
 
 instance Data.ToHeaders ModifyListener where
   toHeaders = Prelude.const Prelude.mempty
@@ -347,5 +345,5 @@ modifyListenerResponse_httpStatus = Lens.lens (\ModifyListenerResponse' {httpSta
 
 instance Prelude.NFData ModifyListenerResponse where
   rnf ModifyListenerResponse' {..} =
-    Prelude.rnf listeners
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf listeners `Prelude.seq`
+      Prelude.rnf httpStatus

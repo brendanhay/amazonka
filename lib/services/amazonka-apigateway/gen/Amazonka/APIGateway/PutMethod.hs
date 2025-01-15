@@ -294,17 +294,17 @@ instance Prelude.Hashable PutMethod where
 
 instance Prelude.NFData PutMethod where
   rnf PutMethod' {..} =
-    Prelude.rnf apiKeyRequired
-      `Prelude.seq` Prelude.rnf authorizationScopes
-      `Prelude.seq` Prelude.rnf authorizerId
-      `Prelude.seq` Prelude.rnf operationName
-      `Prelude.seq` Prelude.rnf requestModels
-      `Prelude.seq` Prelude.rnf requestParameters
-      `Prelude.seq` Prelude.rnf requestValidatorId
-      `Prelude.seq` Prelude.rnf restApiId
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf httpMethod
-      `Prelude.seq` Prelude.rnf authorizationType
+    Prelude.rnf apiKeyRequired `Prelude.seq`
+      Prelude.rnf authorizationScopes `Prelude.seq`
+        Prelude.rnf authorizerId `Prelude.seq`
+          Prelude.rnf operationName `Prelude.seq`
+            Prelude.rnf requestModels `Prelude.seq`
+              Prelude.rnf requestParameters `Prelude.seq`
+                Prelude.rnf requestValidatorId `Prelude.seq`
+                  Prelude.rnf restApiId `Prelude.seq`
+                    Prelude.rnf resourceId `Prelude.seq`
+                      Prelude.rnf httpMethod `Prelude.seq`
+                        Prelude.rnf authorizationType
 
 instance Data.ToHeaders PutMethod where
   toHeaders =

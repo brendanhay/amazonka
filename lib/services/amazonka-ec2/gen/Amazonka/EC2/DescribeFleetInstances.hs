@@ -177,11 +177,11 @@ instance Prelude.Hashable DescribeFleetInstances where
 
 instance Prelude.NFData DescribeFleetInstances where
   rnf DescribeFleetInstances' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf fleetId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf fleetId
 
 instance Data.ToHeaders DescribeFleetInstances where
   toHeaders = Prelude.const Prelude.mempty
@@ -269,7 +269,7 @@ instance
     DescribeFleetInstancesResponse
   where
   rnf DescribeFleetInstancesResponse' {..} =
-    Prelude.rnf activeInstances
-      `Prelude.seq` Prelude.rnf fleetId
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf activeInstances `Prelude.seq`
+      Prelude.rnf fleetId `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf httpStatus

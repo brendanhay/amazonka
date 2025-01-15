@@ -79,5 +79,5 @@ instance Prelude.Hashable Limits where
 
 instance Prelude.NFData Limits where
   rnf Limits' {..} =
-    Prelude.rnf maximumReplicationCount
-      `Prelude.seq` Prelude.rnf maximumPartitionCount
+    Prelude.rnf maximumReplicationCount `Prelude.seq`
+      Prelude.rnf maximumPartitionCount

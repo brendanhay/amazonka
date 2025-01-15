@@ -92,6 +92,6 @@ instance Prelude.Hashable FileModes where
 
 instance Prelude.NFData FileModes where
   rnf FileModes' {..} =
-    Prelude.rnf base
-      `Prelude.seq` Prelude.rnf destination
-      `Prelude.seq` Prelude.rnf source
+    Prelude.rnf base `Prelude.seq`
+      Prelude.rnf destination `Prelude.seq`
+        Prelude.rnf source

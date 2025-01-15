@@ -118,9 +118,9 @@ instance Prelude.Hashable CreateVoiceConnector where
 
 instance Prelude.NFData CreateVoiceConnector where
   rnf CreateVoiceConnector' {..} =
-    Prelude.rnf awsRegion
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf requireEncryption
+    Prelude.rnf awsRegion `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf requireEncryption
 
 instance Data.ToHeaders CreateVoiceConnector where
   toHeaders = Prelude.const Prelude.mempty
@@ -182,5 +182,5 @@ createVoiceConnectorResponse_httpStatus = Lens.lens (\CreateVoiceConnectorRespon
 
 instance Prelude.NFData CreateVoiceConnectorResponse where
   rnf CreateVoiceConnectorResponse' {..} =
-    Prelude.rnf voiceConnector
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf voiceConnector `Prelude.seq`
+      Prelude.rnf httpStatus

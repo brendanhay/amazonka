@@ -170,13 +170,13 @@ instance
   where
   rnf
     AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails' {..} =
-      Prelude.rnf capabilities
-        `Prelude.seq` Prelude.rnf devices
-        `Prelude.seq` Prelude.rnf initProcessEnabled
-        `Prelude.seq` Prelude.rnf maxSwap
-        `Prelude.seq` Prelude.rnf sharedMemorySize
-        `Prelude.seq` Prelude.rnf swappiness
-        `Prelude.seq` Prelude.rnf tmpfs
+      Prelude.rnf capabilities `Prelude.seq`
+        Prelude.rnf devices `Prelude.seq`
+          Prelude.rnf initProcessEnabled `Prelude.seq`
+            Prelude.rnf maxSwap `Prelude.seq`
+              Prelude.rnf sharedMemorySize `Prelude.seq`
+                Prelude.rnf swappiness `Prelude.seq`
+                  Prelude.rnf tmpfs
 
 instance
   Data.ToJSON

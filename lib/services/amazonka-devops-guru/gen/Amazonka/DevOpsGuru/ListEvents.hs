@@ -131,12 +131,12 @@ instance Core.AWSPager ListEvents where
     | Core.stop (rs Lens.^. listEventsResponse_events) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listEvents_nextToken
-          Lens..~ rs
-          Lens.^? listEventsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listEvents_nextToken
+              Lens..~ rs
+              Lens.^? listEventsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListEvents where
   type AWSResponse ListEvents = ListEventsResponse
@@ -161,10 +161,10 @@ instance Prelude.Hashable ListEvents where
 
 instance Prelude.NFData ListEvents where
   rnf ListEvents' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf filters
 
 instance Data.ToHeaders ListEvents where
   toHeaders =
@@ -246,6 +246,6 @@ listEventsResponse_events = Lens.lens (\ListEventsResponse' {events} -> events) 
 
 instance Prelude.NFData ListEventsResponse where
   rnf ListEventsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf events
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf events

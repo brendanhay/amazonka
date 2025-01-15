@@ -202,12 +202,12 @@ instance Prelude.Hashable CreateVirtualService where
 
 instance Prelude.NFData CreateVirtualService where
   rnf CreateVirtualService' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf meshOwner
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf meshName
-      `Prelude.seq` Prelude.rnf spec
-      `Prelude.seq` Prelude.rnf virtualServiceName
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf meshOwner `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf meshName `Prelude.seq`
+            Prelude.rnf spec `Prelude.seq`
+              Prelude.rnf virtualServiceName
 
 instance Data.ToHeaders CreateVirtualService where
   toHeaders =
@@ -291,5 +291,5 @@ createVirtualServiceResponse_virtualService = Lens.lens (\CreateVirtualServiceRe
 
 instance Prelude.NFData CreateVirtualServiceResponse where
   rnf CreateVirtualServiceResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf virtualService
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf virtualService

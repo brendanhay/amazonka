@@ -161,8 +161,8 @@ instance
     FleetAdvisorSchemaObjectResponse
   where
   rnf FleetAdvisorSchemaObjectResponse' {..} =
-    Prelude.rnf codeLineCount
-      `Prelude.seq` Prelude.rnf codeSize
-      `Prelude.seq` Prelude.rnf numberOfObjects
-      `Prelude.seq` Prelude.rnf objectType
-      `Prelude.seq` Prelude.rnf schemaId
+    Prelude.rnf codeLineCount `Prelude.seq`
+      Prelude.rnf codeSize `Prelude.seq`
+        Prelude.rnf numberOfObjects `Prelude.seq`
+          Prelude.rnf objectType `Prelude.seq`
+            Prelude.rnf schemaId

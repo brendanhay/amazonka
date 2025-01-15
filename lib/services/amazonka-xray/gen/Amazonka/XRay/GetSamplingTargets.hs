@@ -206,7 +206,7 @@ getSamplingTargetsResponse_httpStatus = Lens.lens (\GetSamplingTargetsResponse' 
 
 instance Prelude.NFData GetSamplingTargetsResponse where
   rnf GetSamplingTargetsResponse' {..} =
-    Prelude.rnf lastRuleModification
-      `Prelude.seq` Prelude.rnf samplingTargetDocuments
-      `Prelude.seq` Prelude.rnf unprocessedStatistics
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf lastRuleModification `Prelude.seq`
+      Prelude.rnf samplingTargetDocuments `Prelude.seq`
+        Prelude.rnf unprocessedStatistics `Prelude.seq`
+          Prelude.rnf httpStatus

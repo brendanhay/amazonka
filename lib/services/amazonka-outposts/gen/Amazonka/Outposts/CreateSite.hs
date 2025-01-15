@@ -183,13 +183,13 @@ instance Prelude.Hashable CreateSite where
 
 instance Prelude.NFData CreateSite where
   rnf CreateSite' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf notes
-      `Prelude.seq` Prelude.rnf operatingAddress
-      `Prelude.seq` Prelude.rnf rackPhysicalProperties
-      `Prelude.seq` Prelude.rnf shippingAddress
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf notes `Prelude.seq`
+        Prelude.rnf operatingAddress `Prelude.seq`
+          Prelude.rnf rackPhysicalProperties `Prelude.seq`
+            Prelude.rnf shippingAddress `Prelude.seq`
+              Prelude.rnf tags `Prelude.seq`
+                Prelude.rnf name
 
 instance Data.ToHeaders CreateSite where
   toHeaders =
@@ -264,5 +264,5 @@ createSiteResponse_httpStatus = Lens.lens (\CreateSiteResponse' {httpStatus} -> 
 
 instance Prelude.NFData CreateSiteResponse where
   rnf CreateSiteResponse' {..} =
-    Prelude.rnf site
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf site `Prelude.seq`
+      Prelude.rnf httpStatus

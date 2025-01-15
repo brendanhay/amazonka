@@ -259,13 +259,13 @@ instance Prelude.Hashable UpdateAddon where
 
 instance Prelude.NFData UpdateAddon where
   rnf UpdateAddon' {..} =
-    Prelude.rnf addonVersion
-      `Prelude.seq` Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf configurationValues
-      `Prelude.seq` Prelude.rnf resolveConflicts
-      `Prelude.seq` Prelude.rnf serviceAccountRoleArn
-      `Prelude.seq` Prelude.rnf clusterName
-      `Prelude.seq` Prelude.rnf addonName
+    Prelude.rnf addonVersion `Prelude.seq`
+      Prelude.rnf clientRequestToken `Prelude.seq`
+        Prelude.rnf configurationValues `Prelude.seq`
+          Prelude.rnf resolveConflicts `Prelude.seq`
+            Prelude.rnf serviceAccountRoleArn `Prelude.seq`
+              Prelude.rnf clusterName `Prelude.seq`
+                Prelude.rnf addonName
 
 instance Data.ToHeaders UpdateAddon where
   toHeaders =
@@ -346,5 +346,5 @@ updateAddonResponse_httpStatus = Lens.lens (\UpdateAddonResponse' {httpStatus} -
 
 instance Prelude.NFData UpdateAddonResponse where
   rnf UpdateAddonResponse' {..} =
-    Prelude.rnf update
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf update `Prelude.seq`
+      Prelude.rnf httpStatus

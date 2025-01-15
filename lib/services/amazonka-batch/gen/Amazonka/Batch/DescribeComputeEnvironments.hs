@@ -167,12 +167,12 @@ instance Core.AWSPager DescribeComputeEnvironments where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeComputeEnvironments_nextToken
-          Lens..~ rs
-          Lens.^? describeComputeEnvironmentsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeComputeEnvironments_nextToken
+              Lens..~ rs
+              Lens.^? describeComputeEnvironmentsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeComputeEnvironments where
   type
@@ -201,9 +201,9 @@ instance Prelude.Hashable DescribeComputeEnvironments where
 
 instance Prelude.NFData DescribeComputeEnvironments where
   rnf DescribeComputeEnvironments' {..} =
-    Prelude.rnf computeEnvironments
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf computeEnvironments `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeComputeEnvironments where
   toHeaders =
@@ -299,6 +299,6 @@ instance
     DescribeComputeEnvironmentsResponse
   where
   rnf DescribeComputeEnvironmentsResponse' {..} =
-    Prelude.rnf computeEnvironments
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf computeEnvironments `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

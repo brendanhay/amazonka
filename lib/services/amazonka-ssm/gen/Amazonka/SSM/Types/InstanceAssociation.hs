@@ -103,7 +103,7 @@ instance Prelude.Hashable InstanceAssociation where
 
 instance Prelude.NFData InstanceAssociation where
   rnf InstanceAssociation' {..} =
-    Prelude.rnf associationId
-      `Prelude.seq` Prelude.rnf associationVersion
-      `Prelude.seq` Prelude.rnf content
-      `Prelude.seq` Prelude.rnf instanceId
+    Prelude.rnf associationId `Prelude.seq`
+      Prelude.rnf associationVersion `Prelude.seq`
+        Prelude.rnf content `Prelude.seq`
+          Prelude.rnf instanceId

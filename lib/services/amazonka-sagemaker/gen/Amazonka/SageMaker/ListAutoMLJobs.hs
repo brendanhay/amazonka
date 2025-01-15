@@ -185,12 +185,12 @@ instance Core.AWSPager ListAutoMLJobs where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listAutoMLJobs_nextToken
-          Lens..~ rs
-          Lens.^? listAutoMLJobsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listAutoMLJobs_nextToken
+              Lens..~ rs
+              Lens.^? listAutoMLJobsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAutoMLJobs where
   type
@@ -226,16 +226,16 @@ instance Prelude.Hashable ListAutoMLJobs where
 
 instance Prelude.NFData ListAutoMLJobs where
   rnf ListAutoMLJobs' {..} =
-    Prelude.rnf creationTimeAfter
-      `Prelude.seq` Prelude.rnf creationTimeBefore
-      `Prelude.seq` Prelude.rnf lastModifiedTimeAfter
-      `Prelude.seq` Prelude.rnf lastModifiedTimeBefore
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nameContains
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf sortOrder
-      `Prelude.seq` Prelude.rnf statusEquals
+    Prelude.rnf creationTimeAfter `Prelude.seq`
+      Prelude.rnf creationTimeBefore `Prelude.seq`
+        Prelude.rnf lastModifiedTimeAfter `Prelude.seq`
+          Prelude.rnf lastModifiedTimeBefore `Prelude.seq`
+            Prelude.rnf maxResults `Prelude.seq`
+              Prelude.rnf nameContains `Prelude.seq`
+                Prelude.rnf nextToken `Prelude.seq`
+                  Prelude.rnf sortBy `Prelude.seq`
+                    Prelude.rnf sortOrder `Prelude.seq`
+                      Prelude.rnf statusEquals
 
 instance Data.ToHeaders ListAutoMLJobs where
   toHeaders =
@@ -330,6 +330,6 @@ listAutoMLJobsResponse_autoMLJobSummaries = Lens.lens (\ListAutoMLJobsResponse' 
 
 instance Prelude.NFData ListAutoMLJobsResponse where
   rnf ListAutoMLJobsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf autoMLJobSummaries
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf autoMLJobSummaries

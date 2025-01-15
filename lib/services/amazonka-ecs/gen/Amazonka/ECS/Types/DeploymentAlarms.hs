@@ -120,9 +120,9 @@ instance Prelude.Hashable DeploymentAlarms where
 
 instance Prelude.NFData DeploymentAlarms where
   rnf DeploymentAlarms' {..} =
-    Prelude.rnf alarmNames
-      `Prelude.seq` Prelude.rnf enable
-      `Prelude.seq` Prelude.rnf rollback
+    Prelude.rnf alarmNames `Prelude.seq`
+      Prelude.rnf enable `Prelude.seq`
+        Prelude.rnf rollback
 
 instance Data.ToJSON DeploymentAlarms where
   toJSON DeploymentAlarms' {..} =

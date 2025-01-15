@@ -84,5 +84,5 @@ instance Prelude.Hashable CountPercent where
 
 instance Prelude.NFData CountPercent where
   rnf CountPercent' {..} =
-    Prelude.rnf count
-      `Prelude.seq` Prelude.rnf percentage
+    Prelude.rnf count `Prelude.seq`
+      Prelude.rnf percentage

@@ -252,12 +252,12 @@ instance
     ResponseHeadersPolicySecurityHeadersConfig
   where
   rnf ResponseHeadersPolicySecurityHeadersConfig' {..} =
-    Prelude.rnf contentSecurityPolicy
-      `Prelude.seq` Prelude.rnf contentTypeOptions
-      `Prelude.seq` Prelude.rnf frameOptions
-      `Prelude.seq` Prelude.rnf referrerPolicy
-      `Prelude.seq` Prelude.rnf strictTransportSecurity
-      `Prelude.seq` Prelude.rnf xSSProtection
+    Prelude.rnf contentSecurityPolicy `Prelude.seq`
+      Prelude.rnf contentTypeOptions `Prelude.seq`
+        Prelude.rnf frameOptions `Prelude.seq`
+          Prelude.rnf referrerPolicy `Prelude.seq`
+            Prelude.rnf strictTransportSecurity `Prelude.seq`
+              Prelude.rnf xSSProtection
 
 instance
   Data.ToXML

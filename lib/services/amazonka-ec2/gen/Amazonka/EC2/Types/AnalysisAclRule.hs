@@ -122,9 +122,9 @@ instance Prelude.Hashable AnalysisAclRule where
 
 instance Prelude.NFData AnalysisAclRule where
   rnf AnalysisAclRule' {..} =
-    Prelude.rnf cidr
-      `Prelude.seq` Prelude.rnf egress
-      `Prelude.seq` Prelude.rnf portRange
-      `Prelude.seq` Prelude.rnf protocol
-      `Prelude.seq` Prelude.rnf ruleAction
-      `Prelude.seq` Prelude.rnf ruleNumber
+    Prelude.rnf cidr `Prelude.seq`
+      Prelude.rnf egress `Prelude.seq`
+        Prelude.rnf portRange `Prelude.seq`
+          Prelude.rnf protocol `Prelude.seq`
+            Prelude.rnf ruleAction `Prelude.seq`
+              Prelude.rnf ruleNumber

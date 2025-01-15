@@ -200,10 +200,10 @@ instance Prelude.Hashable CreateMembers where
 
 instance Prelude.NFData CreateMembers where
   rnf CreateMembers' {..} =
-    Prelude.rnf disableEmailNotification
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf graphArn
-      `Prelude.seq` Prelude.rnf accounts
+    Prelude.rnf disableEmailNotification `Prelude.seq`
+      Prelude.rnf message `Prelude.seq`
+        Prelude.rnf graphArn `Prelude.seq`
+          Prelude.rnf accounts
 
 instance Data.ToHeaders CreateMembers where
   toHeaders =
@@ -301,6 +301,6 @@ createMembersResponse_httpStatus = Lens.lens (\CreateMembersResponse' {httpStatu
 
 instance Prelude.NFData CreateMembersResponse where
   rnf CreateMembersResponse' {..} =
-    Prelude.rnf members
-      `Prelude.seq` Prelude.rnf unprocessedAccounts
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf members `Prelude.seq`
+      Prelude.rnf unprocessedAccounts `Prelude.seq`
+        Prelude.rnf httpStatus

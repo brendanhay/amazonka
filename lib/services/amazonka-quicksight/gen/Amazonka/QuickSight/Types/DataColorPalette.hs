@@ -102,9 +102,9 @@ instance Prelude.Hashable DataColorPalette where
 
 instance Prelude.NFData DataColorPalette where
   rnf DataColorPalette' {..} =
-    Prelude.rnf colors
-      `Prelude.seq` Prelude.rnf emptyFillColor
-      `Prelude.seq` Prelude.rnf minMaxGradient
+    Prelude.rnf colors `Prelude.seq`
+      Prelude.rnf emptyFillColor `Prelude.seq`
+        Prelude.rnf minMaxGradient
 
 instance Data.ToJSON DataColorPalette where
   toJSON DataColorPalette' {..} =

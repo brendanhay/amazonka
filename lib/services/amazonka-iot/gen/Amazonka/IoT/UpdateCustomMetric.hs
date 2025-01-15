@@ -130,8 +130,8 @@ instance Prelude.Hashable UpdateCustomMetric where
 
 instance Prelude.NFData UpdateCustomMetric where
   rnf UpdateCustomMetric' {..} =
-    Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf displayName
+    Prelude.rnf metricName `Prelude.seq`
+      Prelude.rnf displayName
 
 instance Data.ToHeaders UpdateCustomMetric where
   toHeaders = Prelude.const Prelude.mempty
@@ -252,10 +252,10 @@ updateCustomMetricResponse_httpStatus = Lens.lens (\UpdateCustomMetricResponse' 
 
 instance Prelude.NFData UpdateCustomMetricResponse where
   rnf UpdateCustomMetricResponse' {..} =
-    Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf metricArn
-      `Prelude.seq` Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf metricType
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf creationDate `Prelude.seq`
+      Prelude.rnf displayName `Prelude.seq`
+        Prelude.rnf lastModifiedDate `Prelude.seq`
+          Prelude.rnf metricArn `Prelude.seq`
+            Prelude.rnf metricName `Prelude.seq`
+              Prelude.rnf metricType `Prelude.seq`
+                Prelude.rnf httpStatus

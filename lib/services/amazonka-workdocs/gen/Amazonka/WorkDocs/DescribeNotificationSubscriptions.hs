@@ -121,12 +121,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeNotificationSubscriptions_marker
-          Lens..~ rs
-          Lens.^? describeNotificationSubscriptionsResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeNotificationSubscriptions_marker
+              Lens..~ rs
+              Lens.^? describeNotificationSubscriptionsResponse_marker
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -163,9 +163,9 @@ instance
     DescribeNotificationSubscriptions
   where
   rnf DescribeNotificationSubscriptions' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf organizationId
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf organizationId
 
 instance
   Data.ToHeaders
@@ -257,6 +257,6 @@ instance
     DescribeNotificationSubscriptionsResponse
   where
   rnf DescribeNotificationSubscriptionsResponse' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf subscriptions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf subscriptions `Prelude.seq`
+        Prelude.rnf httpStatus

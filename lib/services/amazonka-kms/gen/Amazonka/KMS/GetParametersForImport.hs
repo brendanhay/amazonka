@@ -223,9 +223,9 @@ instance Prelude.Hashable GetParametersForImport where
 
 instance Prelude.NFData GetParametersForImport where
   rnf GetParametersForImport' {..} =
-    Prelude.rnf keyId
-      `Prelude.seq` Prelude.rnf wrappingAlgorithm
-      `Prelude.seq` Prelude.rnf wrappingKeySpec
+    Prelude.rnf keyId `Prelude.seq`
+      Prelude.rnf wrappingAlgorithm `Prelude.seq`
+        Prelude.rnf wrappingKeySpec
 
 instance Data.ToHeaders GetParametersForImport where
   toHeaders =
@@ -368,8 +368,8 @@ instance
     GetParametersForImportResponse
   where
   rnf GetParametersForImportResponse' {..} =
-    Prelude.rnf importToken
-      `Prelude.seq` Prelude.rnf keyId
-      `Prelude.seq` Prelude.rnf parametersValidTo
-      `Prelude.seq` Prelude.rnf publicKey
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf importToken `Prelude.seq`
+      Prelude.rnf keyId `Prelude.seq`
+        Prelude.rnf parametersValidTo `Prelude.seq`
+          Prelude.rnf publicKey `Prelude.seq`
+            Prelude.rnf httpStatus

@@ -119,8 +119,8 @@ instance Prelude.Hashable DescribeHoursOfOperation where
 
 instance Prelude.NFData DescribeHoursOfOperation where
   rnf DescribeHoursOfOperation' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf hoursOfOperationId
+    Prelude.rnf instanceId `Prelude.seq`
+      Prelude.rnf hoursOfOperationId
 
 instance Data.ToHeaders DescribeHoursOfOperation where
   toHeaders =
@@ -189,5 +189,5 @@ instance
     DescribeHoursOfOperationResponse
   where
   rnf DescribeHoursOfOperationResponse' {..} =
-    Prelude.rnf hoursOfOperation
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf hoursOfOperation `Prelude.seq`
+      Prelude.rnf httpStatus

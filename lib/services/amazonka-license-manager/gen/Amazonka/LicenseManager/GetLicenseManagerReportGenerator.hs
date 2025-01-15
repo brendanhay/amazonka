@@ -198,5 +198,5 @@ instance
     GetLicenseManagerReportGeneratorResponse
   where
   rnf GetLicenseManagerReportGeneratorResponse' {..} =
-    Prelude.rnf reportGenerator
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf reportGenerator `Prelude.seq`
+      Prelude.rnf httpStatus

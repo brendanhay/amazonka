@@ -120,12 +120,12 @@ instance Core.AWSPager ListEventTrackers where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listEventTrackers_nextToken
-          Lens..~ rs
-          Lens.^? listEventTrackersResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listEventTrackers_nextToken
+              Lens..~ rs
+              Lens.^? listEventTrackersResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListEventTrackers where
   type
@@ -151,9 +151,9 @@ instance Prelude.Hashable ListEventTrackers where
 
 instance Prelude.NFData ListEventTrackers where
   rnf ListEventTrackers' {..} =
-    Prelude.rnf datasetGroupArn
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf datasetGroupArn `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListEventTrackers where
   toHeaders =
@@ -237,6 +237,6 @@ listEventTrackersResponse_httpStatus = Lens.lens (\ListEventTrackersResponse' {h
 
 instance Prelude.NFData ListEventTrackersResponse where
   rnf ListEventTrackersResponse' {..} =
-    Prelude.rnf eventTrackers
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf eventTrackers `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

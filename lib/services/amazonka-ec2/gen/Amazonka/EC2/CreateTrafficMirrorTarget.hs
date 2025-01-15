@@ -193,13 +193,13 @@ instance Prelude.Hashable CreateTrafficMirrorTarget where
 
 instance Prelude.NFData CreateTrafficMirrorTarget where
   rnf CreateTrafficMirrorTarget' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf gatewayLoadBalancerEndpointId
-      `Prelude.seq` Prelude.rnf networkInterfaceId
-      `Prelude.seq` Prelude.rnf networkLoadBalancerArn
-      `Prelude.seq` Prelude.rnf tagSpecifications
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf dryRun `Prelude.seq`
+          Prelude.rnf gatewayLoadBalancerEndpointId `Prelude.seq`
+            Prelude.rnf networkInterfaceId `Prelude.seq`
+              Prelude.rnf networkLoadBalancerArn `Prelude.seq`
+                Prelude.rnf tagSpecifications
 
 instance Data.ToHeaders CreateTrafficMirrorTarget where
   toHeaders = Prelude.const Prelude.mempty
@@ -287,6 +287,6 @@ instance
     CreateTrafficMirrorTargetResponse
   where
   rnf CreateTrafficMirrorTargetResponse' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf trafficMirrorTarget
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf trafficMirrorTarget `Prelude.seq`
+        Prelude.rnf httpStatus

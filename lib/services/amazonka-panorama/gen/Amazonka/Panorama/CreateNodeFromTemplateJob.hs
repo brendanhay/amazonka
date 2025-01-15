@@ -174,13 +174,13 @@ instance Prelude.Hashable CreateNodeFromTemplateJob where
 
 instance Prelude.NFData CreateNodeFromTemplateJob where
   rnf CreateNodeFromTemplateJob' {..} =
-    Prelude.rnf jobTags
-      `Prelude.seq` Prelude.rnf nodeDescription
-      `Prelude.seq` Prelude.rnf nodeName
-      `Prelude.seq` Prelude.rnf outputPackageName
-      `Prelude.seq` Prelude.rnf outputPackageVersion
-      `Prelude.seq` Prelude.rnf templateParameters
-      `Prelude.seq` Prelude.rnf templateType
+    Prelude.rnf jobTags `Prelude.seq`
+      Prelude.rnf nodeDescription `Prelude.seq`
+        Prelude.rnf nodeName `Prelude.seq`
+          Prelude.rnf outputPackageName `Prelude.seq`
+            Prelude.rnf outputPackageVersion `Prelude.seq`
+              Prelude.rnf templateParameters `Prelude.seq`
+                Prelude.rnf templateType
 
 instance Data.ToHeaders CreateNodeFromTemplateJob where
   toHeaders =
@@ -267,5 +267,5 @@ instance
     CreateNodeFromTemplateJobResponse
   where
   rnf CreateNodeFromTemplateJobResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf jobId
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf jobId

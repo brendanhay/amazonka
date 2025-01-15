@@ -161,12 +161,12 @@ instance Core.AWSPager DescribeEndpointAccess where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeEndpointAccess_marker
-          Lens..~ rs
-          Lens.^? describeEndpointAccessResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeEndpointAccess_marker
+              Lens..~ rs
+              Lens.^? describeEndpointAccessResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeEndpointAccess where
   type
@@ -200,12 +200,12 @@ instance Prelude.Hashable DescribeEndpointAccess where
 
 instance Prelude.NFData DescribeEndpointAccess where
   rnf DescribeEndpointAccess' {..} =
-    Prelude.rnf clusterIdentifier
-      `Prelude.seq` Prelude.rnf endpointName
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf resourceOwner
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf clusterIdentifier `Prelude.seq`
+      Prelude.rnf endpointName `Prelude.seq`
+        Prelude.rnf marker `Prelude.seq`
+          Prelude.rnf maxRecords `Prelude.seq`
+            Prelude.rnf resourceOwner `Prelude.seq`
+              Prelude.rnf vpcId
 
 instance Data.ToHeaders DescribeEndpointAccess where
   toHeaders = Prelude.const Prelude.mempty
@@ -290,6 +290,6 @@ instance
     DescribeEndpointAccessResponse
   where
   rnf DescribeEndpointAccessResponse' {..} =
-    Prelude.rnf endpointAccessList
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf endpointAccessList `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -212,7 +212,7 @@ getUserPoolMfaConfigResponse_httpStatus = Lens.lens (\GetUserPoolMfaConfigRespon
 
 instance Prelude.NFData GetUserPoolMfaConfigResponse where
   rnf GetUserPoolMfaConfigResponse' {..} =
-    Prelude.rnf mfaConfiguration
-      `Prelude.seq` Prelude.rnf smsMfaConfiguration
-      `Prelude.seq` Prelude.rnf softwareTokenMfaConfiguration
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf mfaConfiguration `Prelude.seq`
+      Prelude.rnf smsMfaConfiguration `Prelude.seq`
+        Prelude.rnf softwareTokenMfaConfiguration `Prelude.seq`
+          Prelude.rnf httpStatus

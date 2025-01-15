@@ -119,8 +119,8 @@ instance Prelude.Hashable AddUploadBuffer where
 
 instance Prelude.NFData AddUploadBuffer where
   rnf AddUploadBuffer' {..} =
-    Prelude.rnf gatewayARN
-      `Prelude.seq` Prelude.rnf diskIds
+    Prelude.rnf gatewayARN `Prelude.seq`
+      Prelude.rnf diskIds
 
 instance Data.ToHeaders AddUploadBuffer where
   toHeaders =
@@ -192,5 +192,5 @@ addUploadBufferResponse_httpStatus = Lens.lens (\AddUploadBufferResponse' {httpS
 
 instance Prelude.NFData AddUploadBufferResponse where
   rnf AddUploadBufferResponse' {..} =
-    Prelude.rnf gatewayARN
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf gatewayARN `Prelude.seq`
+      Prelude.rnf httpStatus

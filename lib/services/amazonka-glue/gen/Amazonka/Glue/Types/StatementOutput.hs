@@ -126,9 +126,9 @@ instance Prelude.Hashable StatementOutput where
 
 instance Prelude.NFData StatementOutput where
   rnf StatementOutput' {..} =
-    Prelude.rnf data'
-      `Prelude.seq` Prelude.rnf errorName
-      `Prelude.seq` Prelude.rnf errorValue
-      `Prelude.seq` Prelude.rnf executionCount
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf traceback
+    Prelude.rnf data' `Prelude.seq`
+      Prelude.rnf errorName `Prelude.seq`
+        Prelude.rnf errorValue `Prelude.seq`
+          Prelude.rnf executionCount `Prelude.seq`
+            Prelude.rnf status `Prelude.seq`
+              Prelude.rnf traceback

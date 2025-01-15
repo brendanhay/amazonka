@@ -124,9 +124,7 @@ instance Data.FromXML SnapshotSchedule where
                       Prelude.>>= Core.may
                         (Data.parseXMLList "ClusterAssociatedToSchedule")
                   )
-      Prelude.<*> ( x
-                      Data..@? "NextInvocations"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "NextInvocations" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "SnapshotTime")
                   )
       Prelude.<*> ( x
@@ -136,9 +134,7 @@ instance Data.FromXML SnapshotSchedule where
                   )
       Prelude.<*> (x Data..@? "ScheduleDescription")
       Prelude.<*> (x Data..@? "ScheduleIdentifier")
-      Prelude.<*> ( x
-                      Data..@? "Tags"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "Tag")
                   )
 
@@ -155,10 +151,10 @@ instance Prelude.Hashable SnapshotSchedule where
 
 instance Prelude.NFData SnapshotSchedule where
   rnf SnapshotSchedule' {..} =
-    Prelude.rnf associatedClusterCount
-      `Prelude.seq` Prelude.rnf associatedClusters
-      `Prelude.seq` Prelude.rnf nextInvocations
-      `Prelude.seq` Prelude.rnf scheduleDefinitions
-      `Prelude.seq` Prelude.rnf scheduleDescription
-      `Prelude.seq` Prelude.rnf scheduleIdentifier
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf associatedClusterCount `Prelude.seq`
+      Prelude.rnf associatedClusters `Prelude.seq`
+        Prelude.rnf nextInvocations `Prelude.seq`
+          Prelude.rnf scheduleDefinitions `Prelude.seq`
+            Prelude.rnf scheduleDescription `Prelude.seq`
+              Prelude.rnf scheduleIdentifier `Prelude.seq`
+                Prelude.rnf tags

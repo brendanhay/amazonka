@@ -137,8 +137,8 @@ instance
     RemoveSourceIdentifierFromSubscription
   where
   rnf RemoveSourceIdentifierFromSubscription' {..} =
-    Prelude.rnf subscriptionName
-      `Prelude.seq` Prelude.rnf sourceIdentifier
+    Prelude.rnf subscriptionName `Prelude.seq`
+      Prelude.rnf sourceIdentifier
 
 instance
   Data.ToHeaders
@@ -213,5 +213,5 @@ instance
   where
   rnf
     RemoveSourceIdentifierFromSubscriptionResponse' {..} =
-      Prelude.rnf eventSubscription
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf eventSubscription `Prelude.seq`
+        Prelude.rnf httpStatus

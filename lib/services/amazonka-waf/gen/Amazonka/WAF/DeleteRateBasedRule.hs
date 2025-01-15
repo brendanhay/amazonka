@@ -137,8 +137,8 @@ instance Prelude.Hashable DeleteRateBasedRule where
 
 instance Prelude.NFData DeleteRateBasedRule where
   rnf DeleteRateBasedRule' {..} =
-    Prelude.rnf ruleId
-      `Prelude.seq` Prelude.rnf changeToken
+    Prelude.rnf ruleId `Prelude.seq`
+      Prelude.rnf changeToken
 
 instance Data.ToHeaders DeleteRateBasedRule where
   toHeaders =
@@ -217,5 +217,5 @@ deleteRateBasedRuleResponse_httpStatus = Lens.lens (\DeleteRateBasedRuleResponse
 
 instance Prelude.NFData DeleteRateBasedRuleResponse where
   rnf DeleteRateBasedRuleResponse' {..} =
-    Prelude.rnf changeToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf changeToken `Prelude.seq`
+      Prelude.rnf httpStatus

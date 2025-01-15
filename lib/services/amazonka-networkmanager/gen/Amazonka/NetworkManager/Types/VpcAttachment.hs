@@ -93,6 +93,6 @@ instance Prelude.Hashable VpcAttachment where
 
 instance Prelude.NFData VpcAttachment where
   rnf VpcAttachment' {..} =
-    Prelude.rnf attachment
-      `Prelude.seq` Prelude.rnf options
-      `Prelude.seq` Prelude.rnf subnetArns
+    Prelude.rnf attachment `Prelude.seq`
+      Prelude.rnf options `Prelude.seq`
+        Prelude.rnf subnetArns

@@ -94,6 +94,6 @@ instance Prelude.Hashable RecoveryInstanceDisk where
 
 instance Prelude.NFData RecoveryInstanceDisk where
   rnf RecoveryInstanceDisk' {..} =
-    Prelude.rnf bytes
-      `Prelude.seq` Prelude.rnf ebsVolumeID
-      `Prelude.seq` Prelude.rnf internalDeviceName
+    Prelude.rnf bytes `Prelude.seq`
+      Prelude.rnf ebsVolumeID `Prelude.seq`
+        Prelude.rnf internalDeviceName

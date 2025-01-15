@@ -149,8 +149,8 @@ instance Prelude.Hashable CreateRegexMatchSet where
 
 instance Prelude.NFData CreateRegexMatchSet where
   rnf CreateRegexMatchSet' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf changeToken
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf changeToken
 
 instance Data.ToHeaders CreateRegexMatchSet where
   toHeaders =
@@ -238,6 +238,6 @@ createRegexMatchSetResponse_httpStatus = Lens.lens (\CreateRegexMatchSetResponse
 
 instance Prelude.NFData CreateRegexMatchSetResponse where
   rnf CreateRegexMatchSetResponse' {..} =
-    Prelude.rnf changeToken
-      `Prelude.seq` Prelude.rnf regexMatchSet
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf changeToken `Prelude.seq`
+      Prelude.rnf regexMatchSet `Prelude.seq`
+        Prelude.rnf httpStatus

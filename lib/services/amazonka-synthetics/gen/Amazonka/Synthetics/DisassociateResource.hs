@@ -115,8 +115,8 @@ instance Prelude.Hashable DisassociateResource where
 
 instance Prelude.NFData DisassociateResource where
   rnf DisassociateResource' {..} =
-    Prelude.rnf groupIdentifier
-      `Prelude.seq` Prelude.rnf resourceArn
+    Prelude.rnf groupIdentifier `Prelude.seq`
+      Prelude.rnf resourceArn
 
 instance Data.ToHeaders DisassociateResource where
   toHeaders =

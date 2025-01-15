@@ -125,9 +125,9 @@ instance Prelude.Hashable UserData where
 
 instance Prelude.NFData UserData where
   rnf UserData' {..} =
-    Prelude.rnf email
-      `Prelude.seq` Prelude.rnf enrollmentId
-      `Prelude.seq` Prelude.rnf enrollmentStatus
-      `Prelude.seq` Prelude.rnf firstName
-      `Prelude.seq` Prelude.rnf lastName
-      `Prelude.seq` Prelude.rnf userArn
+    Prelude.rnf email `Prelude.seq`
+      Prelude.rnf enrollmentId `Prelude.seq`
+        Prelude.rnf enrollmentStatus `Prelude.seq`
+          Prelude.rnf firstName `Prelude.seq`
+            Prelude.rnf lastName `Prelude.seq`
+              Prelude.rnf userArn

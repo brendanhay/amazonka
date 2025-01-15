@@ -100,6 +100,6 @@ instance Prelude.Hashable VpcDNSTarget where
 
 instance Prelude.NFData VpcDNSTarget where
   rnf VpcDNSTarget' {..} =
-    Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf vpcId
-      `Prelude.seq` Prelude.rnf vpcIngressConnectionArn
+    Prelude.rnf domainName `Prelude.seq`
+      Prelude.rnf vpcId `Prelude.seq`
+        Prelude.rnf vpcIngressConnectionArn

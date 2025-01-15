@@ -200,7 +200,7 @@ instance
     DescribeCrossAccountAccessRoleResponse
   where
   rnf DescribeCrossAccountAccessRoleResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf valid
-      `Prelude.seq` Prelude.rnf registeredAt
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf roleArn `Prelude.seq`
+        Prelude.rnf valid `Prelude.seq`
+          Prelude.rnf registeredAt

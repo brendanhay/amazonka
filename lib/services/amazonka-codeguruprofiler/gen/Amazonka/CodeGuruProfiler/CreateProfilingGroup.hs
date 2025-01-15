@@ -169,11 +169,11 @@ instance Prelude.Hashable CreateProfilingGroup where
 
 instance Prelude.NFData CreateProfilingGroup where
   rnf CreateProfilingGroup' {..} =
-    Prelude.rnf agentOrchestrationConfig
-      `Prelude.seq` Prelude.rnf computePlatform
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf profilingGroupName
+    Prelude.rnf agentOrchestrationConfig `Prelude.seq`
+      Prelude.rnf computePlatform `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf clientToken `Prelude.seq`
+            Prelude.rnf profilingGroupName
 
 instance Data.ToHeaders CreateProfilingGroup where
   toHeaders =
@@ -260,5 +260,5 @@ createProfilingGroupResponse_profilingGroup = Lens.lens (\CreateProfilingGroupRe
 
 instance Prelude.NFData CreateProfilingGroupResponse where
   rnf CreateProfilingGroupResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf profilingGroup
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf profilingGroup

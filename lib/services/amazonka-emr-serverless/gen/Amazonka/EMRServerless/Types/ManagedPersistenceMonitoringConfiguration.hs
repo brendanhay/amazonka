@@ -96,8 +96,8 @@ instance
     ManagedPersistenceMonitoringConfiguration
   where
   rnf ManagedPersistenceMonitoringConfiguration' {..} =
-    Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf encryptionKeyArn
+    Prelude.rnf enabled `Prelude.seq`
+      Prelude.rnf encryptionKeyArn
 
 instance
   Data.ToJSON

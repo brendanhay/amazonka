@@ -188,9 +188,9 @@ instance Prelude.Hashable UpdateView where
 
 instance Prelude.NFData UpdateView where
   rnf UpdateView' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf includedProperties
-      `Prelude.seq` Prelude.rnf viewArn
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf includedProperties `Prelude.seq`
+        Prelude.rnf viewArn
 
 instance Data.ToHeaders UpdateView where
   toHeaders =
@@ -260,5 +260,5 @@ updateViewResponse_httpStatus = Lens.lens (\UpdateViewResponse' {httpStatus} -> 
 
 instance Prelude.NFData UpdateViewResponse where
   rnf UpdateViewResponse' {..} =
-    Prelude.rnf view
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf view `Prelude.seq`
+      Prelude.rnf httpStatus

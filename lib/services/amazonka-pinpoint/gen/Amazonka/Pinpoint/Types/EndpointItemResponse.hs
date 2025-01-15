@@ -87,5 +87,5 @@ instance Prelude.Hashable EndpointItemResponse where
 
 instance Prelude.NFData EndpointItemResponse where
   rnf EndpointItemResponse' {..} =
-    Prelude.rnf message
-      `Prelude.seq` Prelude.rnf statusCode
+    Prelude.rnf message `Prelude.seq`
+      Prelude.rnf statusCode

@@ -109,8 +109,8 @@ instance Prelude.Hashable GetRoom where
 
 instance Prelude.NFData GetRoom where
   rnf GetRoom' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf roomId
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf roomId
 
 instance Data.ToHeaders GetRoom where
   toHeaders = Prelude.const Prelude.mempty
@@ -167,5 +167,5 @@ getRoomResponse_httpStatus = Lens.lens (\GetRoomResponse' {httpStatus} -> httpSt
 
 instance Prelude.NFData GetRoomResponse where
   rnf GetRoomResponse' {..} =
-    Prelude.rnf room
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf room `Prelude.seq`
+      Prelude.rnf httpStatus

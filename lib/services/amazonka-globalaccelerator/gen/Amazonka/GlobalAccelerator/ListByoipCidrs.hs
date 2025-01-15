@@ -110,12 +110,12 @@ instance Core.AWSPager ListByoipCidrs where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listByoipCidrs_nextToken
-          Lens..~ rs
-          Lens.^? listByoipCidrsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listByoipCidrs_nextToken
+              Lens..~ rs
+              Lens.^? listByoipCidrsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListByoipCidrs where
   type
@@ -140,8 +140,8 @@ instance Prelude.Hashable ListByoipCidrs where
 
 instance Prelude.NFData ListByoipCidrs where
   rnf ListByoipCidrs' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListByoipCidrs where
   toHeaders =
@@ -223,6 +223,6 @@ listByoipCidrsResponse_httpStatus = Lens.lens (\ListByoipCidrsResponse' {httpSta
 
 instance Prelude.NFData ListByoipCidrsResponse where
   rnf ListByoipCidrsResponse' {..} =
-    Prelude.rnf byoipCidrs
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf byoipCidrs `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

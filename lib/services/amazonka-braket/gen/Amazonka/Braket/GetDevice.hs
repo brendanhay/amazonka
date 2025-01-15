@@ -235,10 +235,10 @@ getDeviceResponse_providerName = Lens.lens (\GetDeviceResponse' {providerName} -
 
 instance Prelude.NFData GetDeviceResponse where
   rnf GetDeviceResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf deviceArn
-      `Prelude.seq` Prelude.rnf deviceCapabilities
-      `Prelude.seq` Prelude.rnf deviceName
-      `Prelude.seq` Prelude.rnf deviceStatus
-      `Prelude.seq` Prelude.rnf deviceType
-      `Prelude.seq` Prelude.rnf providerName
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf deviceArn `Prelude.seq`
+        Prelude.rnf deviceCapabilities `Prelude.seq`
+          Prelude.rnf deviceName `Prelude.seq`
+            Prelude.rnf deviceStatus `Prelude.seq`
+              Prelude.rnf deviceType `Prelude.seq`
+                Prelude.rnf providerName

@@ -155,5 +155,5 @@ getAssistantResponse_httpStatus = Lens.lens (\GetAssistantResponse' {httpStatus}
 
 instance Prelude.NFData GetAssistantResponse where
   rnf GetAssistantResponse' {..} =
-    Prelude.rnf assistant
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf assistant `Prelude.seq`
+      Prelude.rnf httpStatus

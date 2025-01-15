@@ -298,5 +298,5 @@ uploadMultipartPartResponse_httpStatus = Lens.lens (\UploadMultipartPartResponse
 
 instance Prelude.NFData UploadMultipartPartResponse where
   rnf UploadMultipartPartResponse' {..} =
-    Prelude.rnf checksum
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf checksum `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -141,10 +141,10 @@ instance Prelude.Hashable PutEvents where
 
 instance Prelude.NFData PutEvents where
   rnf PutEvents' {..} =
-    Prelude.rnf userId
-      `Prelude.seq` Prelude.rnf trackingId
-      `Prelude.seq` Prelude.rnf sessionId
-      `Prelude.seq` Prelude.rnf eventList
+    Prelude.rnf userId `Prelude.seq`
+      Prelude.rnf trackingId `Prelude.seq`
+        Prelude.rnf sessionId `Prelude.seq`
+          Prelude.rnf eventList
 
 instance Data.ToHeaders PutEvents where
   toHeaders =

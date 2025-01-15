@@ -173,12 +173,12 @@ instance Core.AWSPager DescribeSnapshotSchedules where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeSnapshotSchedules_marker
-          Lens..~ rs
-          Lens.^? describeSnapshotSchedulesResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeSnapshotSchedules_marker
+              Lens..~ rs
+              Lens.^? describeSnapshotSchedulesResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeSnapshotSchedules where
   type
@@ -212,12 +212,12 @@ instance Prelude.Hashable DescribeSnapshotSchedules where
 
 instance Prelude.NFData DescribeSnapshotSchedules where
   rnf DescribeSnapshotSchedules' {..} =
-    Prelude.rnf clusterIdentifier
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf scheduleIdentifier
-      `Prelude.seq` Prelude.rnf tagKeys
-      `Prelude.seq` Prelude.rnf tagValues
+    Prelude.rnf clusterIdentifier `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf maxRecords `Prelude.seq`
+          Prelude.rnf scheduleIdentifier `Prelude.seq`
+            Prelude.rnf tagKeys `Prelude.seq`
+              Prelude.rnf tagValues
 
 instance Data.ToHeaders DescribeSnapshotSchedules where
   toHeaders = Prelude.const Prelude.mempty
@@ -312,6 +312,6 @@ instance
     DescribeSnapshotSchedulesResponse
   where
   rnf DescribeSnapshotSchedulesResponse' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf snapshotSchedules
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf snapshotSchedules `Prelude.seq`
+        Prelude.rnf httpStatus

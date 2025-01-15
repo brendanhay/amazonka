@@ -159,7 +159,7 @@ instance
     ScheduleLambdaFunctionFailedEventAttributes
   where
   rnf ScheduleLambdaFunctionFailedEventAttributes' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf cause
-      `Prelude.seq` Prelude.rnf decisionTaskCompletedEventId
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf cause `Prelude.seq`
+          Prelude.rnf decisionTaskCompletedEventId

@@ -111,8 +111,8 @@ instance Prelude.Hashable GetUserSettings where
 
 instance Prelude.NFData GetUserSettings where
   rnf GetUserSettings' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf userId
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf userId
 
 instance Data.ToHeaders GetUserSettings where
   toHeaders = Prelude.const Prelude.mempty
@@ -171,5 +171,5 @@ getUserSettingsResponse_httpStatus = Lens.lens (\GetUserSettingsResponse' {httpS
 
 instance Prelude.NFData GetUserSettingsResponse where
   rnf GetUserSettingsResponse' {..} =
-    Prelude.rnf userSettings
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf userSettings `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -146,9 +146,9 @@ instance Prelude.Hashable SolutionSummary where
 
 instance Prelude.NFData SolutionSummary where
   rnf SolutionSummary' {..} =
-    Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf recipeArn
-      `Prelude.seq` Prelude.rnf solutionArn
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf creationDateTime `Prelude.seq`
+      Prelude.rnf lastUpdatedDateTime `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf recipeArn `Prelude.seq`
+            Prelude.rnf solutionArn `Prelude.seq`
+              Prelude.rnf status

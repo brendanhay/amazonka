@@ -174,5 +174,5 @@ deleteDirectoryResponse_httpStatus = Lens.lens (\DeleteDirectoryResponse' {httpS
 
 instance Prelude.NFData DeleteDirectoryResponse where
   rnf DeleteDirectoryResponse' {..} =
-    Prelude.rnf directoryId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf directoryId `Prelude.seq`
+      Prelude.rnf httpStatus

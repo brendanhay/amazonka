@@ -148,8 +148,8 @@ instance Prelude.Hashable CreateFleetLocations where
 
 instance Prelude.NFData CreateFleetLocations where
   rnf CreateFleetLocations' {..} =
-    Prelude.rnf fleetId
-      `Prelude.seq` Prelude.rnf locations
+    Prelude.rnf fleetId `Prelude.seq`
+      Prelude.rnf locations
 
 instance Data.ToHeaders CreateFleetLocations where
   toHeaders =
@@ -267,7 +267,7 @@ createFleetLocationsResponse_httpStatus = Lens.lens (\CreateFleetLocationsRespon
 
 instance Prelude.NFData CreateFleetLocationsResponse where
   rnf CreateFleetLocationsResponse' {..} =
-    Prelude.rnf fleetArn
-      `Prelude.seq` Prelude.rnf fleetId
-      `Prelude.seq` Prelude.rnf locationStates
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf fleetArn `Prelude.seq`
+      Prelude.rnf fleetId `Prelude.seq`
+        Prelude.rnf locationStates `Prelude.seq`
+          Prelude.rnf httpStatus

@@ -208,5 +208,5 @@ instance
     StartDataCollectionByAgentIdsResponse
   where
   rnf StartDataCollectionByAgentIdsResponse' {..} =
-    Prelude.rnf agentsConfigurationStatus
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf agentsConfigurationStatus `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -99,9 +99,9 @@ instance Prelude.Hashable WeightedTarget where
 
 instance Prelude.NFData WeightedTarget where
   rnf WeightedTarget' {..} =
-    Prelude.rnf port
-      `Prelude.seq` Prelude.rnf virtualNode
-      `Prelude.seq` Prelude.rnf weight
+    Prelude.rnf port `Prelude.seq`
+      Prelude.rnf virtualNode `Prelude.seq`
+        Prelude.rnf weight
 
 instance Data.ToJSON WeightedTarget where
   toJSON WeightedTarget' {..} =

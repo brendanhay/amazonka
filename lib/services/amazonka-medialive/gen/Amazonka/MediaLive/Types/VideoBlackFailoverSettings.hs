@@ -111,8 +111,8 @@ instance Prelude.Hashable VideoBlackFailoverSettings where
 
 instance Prelude.NFData VideoBlackFailoverSettings where
   rnf VideoBlackFailoverSettings' {..} =
-    Prelude.rnf blackDetectThreshold
-      `Prelude.seq` Prelude.rnf videoBlackThresholdMsec
+    Prelude.rnf blackDetectThreshold `Prelude.seq`
+      Prelude.rnf videoBlackThresholdMsec
 
 instance Data.ToJSON VideoBlackFailoverSettings where
   toJSON VideoBlackFailoverSettings' {..} =

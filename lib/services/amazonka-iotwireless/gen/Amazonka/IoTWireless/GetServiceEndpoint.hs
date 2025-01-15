@@ -173,7 +173,7 @@ getServiceEndpointResponse_httpStatus = Lens.lens (\GetServiceEndpointResponse' 
 
 instance Prelude.NFData GetServiceEndpointResponse where
   rnf GetServiceEndpointResponse' {..} =
-    Prelude.rnf serverTrust
-      `Prelude.seq` Prelude.rnf serviceEndpoint
-      `Prelude.seq` Prelude.rnf serviceType
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf serverTrust `Prelude.seq`
+      Prelude.rnf serviceEndpoint `Prelude.seq`
+        Prelude.rnf serviceType `Prelude.seq`
+          Prelude.rnf httpStatus

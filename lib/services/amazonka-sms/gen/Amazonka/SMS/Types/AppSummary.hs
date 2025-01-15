@@ -276,22 +276,22 @@ instance Prelude.Hashable AppSummary where
 
 instance Prelude.NFData AppSummary where
   rnf AppSummary' {..} =
-    Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf importedAppId
-      `Prelude.seq` Prelude.rnf lastModified
-      `Prelude.seq` Prelude.rnf latestReplicationTime
-      `Prelude.seq` Prelude.rnf launchConfigurationStatus
-      `Prelude.seq` Prelude.rnf launchDetails
-      `Prelude.seq` Prelude.rnf launchStatus
-      `Prelude.seq` Prelude.rnf launchStatusMessage
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf replicationConfigurationStatus
-      `Prelude.seq` Prelude.rnf replicationStatus
-      `Prelude.seq` Prelude.rnf replicationStatusMessage
-      `Prelude.seq` Prelude.rnf roleName
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf totalServerGroups
-      `Prelude.seq` Prelude.rnf totalServers
+    Prelude.rnf appId `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf importedAppId `Prelude.seq`
+            Prelude.rnf lastModified `Prelude.seq`
+              Prelude.rnf latestReplicationTime `Prelude.seq`
+                Prelude.rnf launchConfigurationStatus `Prelude.seq`
+                  Prelude.rnf launchDetails `Prelude.seq`
+                    Prelude.rnf launchStatus `Prelude.seq`
+                      Prelude.rnf launchStatusMessage `Prelude.seq`
+                        Prelude.rnf name `Prelude.seq`
+                          Prelude.rnf replicationConfigurationStatus `Prelude.seq`
+                            Prelude.rnf replicationStatus `Prelude.seq`
+                              Prelude.rnf replicationStatusMessage `Prelude.seq`
+                                Prelude.rnf roleName `Prelude.seq`
+                                  Prelude.rnf status `Prelude.seq`
+                                    Prelude.rnf statusMessage `Prelude.seq`
+                                      Prelude.rnf totalServerGroups `Prelude.seq`
+                                        Prelude.rnf totalServers

@@ -206,13 +206,13 @@ instance Prelude.Hashable CreateSecurityProfile where
 
 instance Prelude.NFData CreateSecurityProfile where
   rnf CreateSecurityProfile' {..} =
-    Prelude.rnf additionalMetricsToRetain
-      `Prelude.seq` Prelude.rnf additionalMetricsToRetainV2
-      `Prelude.seq` Prelude.rnf alertTargets
-      `Prelude.seq` Prelude.rnf behaviors
-      `Prelude.seq` Prelude.rnf securityProfileDescription
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf securityProfileName
+    Prelude.rnf additionalMetricsToRetain `Prelude.seq`
+      Prelude.rnf additionalMetricsToRetainV2 `Prelude.seq`
+        Prelude.rnf alertTargets `Prelude.seq`
+          Prelude.rnf behaviors `Prelude.seq`
+            Prelude.rnf securityProfileDescription `Prelude.seq`
+              Prelude.rnf tags `Prelude.seq`
+                Prelude.rnf securityProfileName
 
 instance Data.ToHeaders CreateSecurityProfile where
   toHeaders = Prelude.const Prelude.mempty
@@ -293,6 +293,6 @@ createSecurityProfileResponse_httpStatus = Lens.lens (\CreateSecurityProfileResp
 
 instance Prelude.NFData CreateSecurityProfileResponse where
   rnf CreateSecurityProfileResponse' {..} =
-    Prelude.rnf securityProfileArn
-      `Prelude.seq` Prelude.rnf securityProfileName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf securityProfileArn `Prelude.seq`
+      Prelude.rnf securityProfileName `Prelude.seq`
+        Prelude.rnf httpStatus

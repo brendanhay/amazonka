@@ -121,11 +121,11 @@ instance Prelude.Hashable StoredQuery where
 
 instance Prelude.NFData StoredQuery where
   rnf StoredQuery' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf expression
-      `Prelude.seq` Prelude.rnf queryArn
-      `Prelude.seq` Prelude.rnf queryId
-      `Prelude.seq` Prelude.rnf queryName
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf expression `Prelude.seq`
+        Prelude.rnf queryArn `Prelude.seq`
+          Prelude.rnf queryId `Prelude.seq`
+            Prelude.rnf queryName
 
 instance Data.ToJSON StoredQuery where
   toJSON StoredQuery' {..} =

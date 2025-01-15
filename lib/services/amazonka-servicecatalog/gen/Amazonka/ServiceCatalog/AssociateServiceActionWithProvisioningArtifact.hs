@@ -172,10 +172,10 @@ instance
   where
   rnf
     AssociateServiceActionWithProvisioningArtifact' {..} =
-      Prelude.rnf acceptLanguage
-        `Prelude.seq` Prelude.rnf productId
-        `Prelude.seq` Prelude.rnf provisioningArtifactId
-        `Prelude.seq` Prelude.rnf serviceActionId
+      Prelude.rnf acceptLanguage `Prelude.seq`
+        Prelude.rnf productId `Prelude.seq`
+          Prelude.rnf provisioningArtifactId `Prelude.seq`
+            Prelude.rnf serviceActionId
 
 instance
   Data.ToHeaders

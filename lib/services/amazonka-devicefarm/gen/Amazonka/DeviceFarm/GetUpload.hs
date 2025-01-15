@@ -167,5 +167,5 @@ getUploadResponse_httpStatus = Lens.lens (\GetUploadResponse' {httpStatus} -> ht
 
 instance Prelude.NFData GetUploadResponse where
   rnf GetUploadResponse' {..} =
-    Prelude.rnf upload
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf upload `Prelude.seq`
+      Prelude.rnf httpStatus

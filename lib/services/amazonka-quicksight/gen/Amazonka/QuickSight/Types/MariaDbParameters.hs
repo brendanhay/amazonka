@@ -97,9 +97,9 @@ instance Prelude.Hashable MariaDbParameters where
 
 instance Prelude.NFData MariaDbParameters where
   rnf MariaDbParameters' {..} =
-    Prelude.rnf host
-      `Prelude.seq` Prelude.rnf port
-      `Prelude.seq` Prelude.rnf database
+    Prelude.rnf host `Prelude.seq`
+      Prelude.rnf port `Prelude.seq`
+        Prelude.rnf database
 
 instance Data.ToJSON MariaDbParameters where
   toJSON MariaDbParameters' {..} =

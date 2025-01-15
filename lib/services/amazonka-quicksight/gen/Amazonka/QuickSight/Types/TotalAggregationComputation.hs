@@ -99,9 +99,9 @@ instance Prelude.Hashable TotalAggregationComputation where
 
 instance Prelude.NFData TotalAggregationComputation where
   rnf TotalAggregationComputation' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf computationId
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf computationId `Prelude.seq`
+        Prelude.rnf value
 
 instance Data.ToJSON TotalAggregationComputation where
   toJSON TotalAggregationComputation' {..} =

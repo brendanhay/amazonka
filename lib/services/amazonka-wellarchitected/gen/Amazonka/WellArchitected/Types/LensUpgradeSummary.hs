@@ -122,9 +122,9 @@ instance Prelude.Hashable LensUpgradeSummary where
 
 instance Prelude.NFData LensUpgradeSummary where
   rnf LensUpgradeSummary' {..} =
-    Prelude.rnf currentLensVersion
-      `Prelude.seq` Prelude.rnf latestLensVersion
-      `Prelude.seq` Prelude.rnf lensAlias
-      `Prelude.seq` Prelude.rnf lensArn
-      `Prelude.seq` Prelude.rnf workloadId
-      `Prelude.seq` Prelude.rnf workloadName
+    Prelude.rnf currentLensVersion `Prelude.seq`
+      Prelude.rnf latestLensVersion `Prelude.seq`
+        Prelude.rnf lensAlias `Prelude.seq`
+          Prelude.rnf lensArn `Prelude.seq`
+            Prelude.rnf workloadId `Prelude.seq`
+              Prelude.rnf workloadName

@@ -138,12 +138,12 @@ instance Core.AWSPager GetIntentVersions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getIntentVersions_nextToken
-          Lens..~ rs
-          Lens.^? getIntentVersionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getIntentVersions_nextToken
+              Lens..~ rs
+              Lens.^? getIntentVersionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetIntentVersions where
   type
@@ -169,9 +169,9 @@ instance Prelude.Hashable GetIntentVersions where
 
 instance Prelude.NFData GetIntentVersions where
   rnf GetIntentVersions' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf name
 
 instance Data.ToHeaders GetIntentVersions where
   toHeaders =
@@ -258,6 +258,6 @@ getIntentVersionsResponse_httpStatus = Lens.lens (\GetIntentVersionsResponse' {h
 
 instance Prelude.NFData GetIntentVersionsResponse where
   rnf GetIntentVersionsResponse' {..} =
-    Prelude.rnf intents
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf intents `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

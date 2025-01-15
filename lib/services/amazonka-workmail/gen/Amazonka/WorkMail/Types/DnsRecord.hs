@@ -94,6 +94,6 @@ instance Prelude.Hashable DnsRecord where
 
 instance Prelude.NFData DnsRecord where
   rnf DnsRecord' {..} =
-    Prelude.rnf hostname
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf hostname `Prelude.seq`
+      Prelude.rnf type' `Prelude.seq`
+        Prelude.rnf value

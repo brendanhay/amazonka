@@ -131,10 +131,10 @@ instance Prelude.Hashable UdpOutputSettings where
 
 instance Prelude.NFData UdpOutputSettings where
   rnf UdpOutputSettings' {..} =
-    Prelude.rnf bufferMsec
-      `Prelude.seq` Prelude.rnf fecOutputSettings
-      `Prelude.seq` Prelude.rnf destination
-      `Prelude.seq` Prelude.rnf containerSettings
+    Prelude.rnf bufferMsec `Prelude.seq`
+      Prelude.rnf fecOutputSettings `Prelude.seq`
+        Prelude.rnf destination `Prelude.seq`
+          Prelude.rnf containerSettings
 
 instance Data.ToJSON UdpOutputSettings where
   toJSON UdpOutputSettings' {..} =

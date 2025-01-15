@@ -195,12 +195,12 @@ instance Prelude.Hashable FileSystemAssociationInfo where
 
 instance Prelude.NFData FileSystemAssociationInfo where
   rnf FileSystemAssociationInfo' {..} =
-    Prelude.rnf auditDestinationARN
-      `Prelude.seq` Prelude.rnf cacheAttributes
-      `Prelude.seq` Prelude.rnf endpointNetworkConfiguration
-      `Prelude.seq` Prelude.rnf fileSystemAssociationARN
-      `Prelude.seq` Prelude.rnf fileSystemAssociationStatus
-      `Prelude.seq` Prelude.rnf fileSystemAssociationStatusDetails
-      `Prelude.seq` Prelude.rnf gatewayARN
-      `Prelude.seq` Prelude.rnf locationARN
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf auditDestinationARN `Prelude.seq`
+      Prelude.rnf cacheAttributes `Prelude.seq`
+        Prelude.rnf endpointNetworkConfiguration `Prelude.seq`
+          Prelude.rnf fileSystemAssociationARN `Prelude.seq`
+            Prelude.rnf fileSystemAssociationStatus `Prelude.seq`
+              Prelude.rnf fileSystemAssociationStatusDetails `Prelude.seq`
+                Prelude.rnf gatewayARN `Prelude.seq`
+                  Prelude.rnf locationARN `Prelude.seq`
+                    Prelude.rnf tags

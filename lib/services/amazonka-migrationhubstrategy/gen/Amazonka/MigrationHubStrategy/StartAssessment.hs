@@ -124,9 +124,9 @@ instance Prelude.Hashable StartAssessment where
 
 instance Prelude.NFData StartAssessment where
   rnf StartAssessment' {..} =
-    Prelude.rnf assessmentTargets
-      `Prelude.seq` Prelude.rnf s3bucketForAnalysisData
-      `Prelude.seq` Prelude.rnf s3bucketForReportData
+    Prelude.rnf assessmentTargets `Prelude.seq`
+      Prelude.rnf s3bucketForAnalysisData `Prelude.seq`
+        Prelude.rnf s3bucketForReportData
 
 instance Data.ToHeaders StartAssessment where
   toHeaders =
@@ -199,5 +199,5 @@ startAssessmentResponse_httpStatus = Lens.lens (\StartAssessmentResponse' {httpS
 
 instance Prelude.NFData StartAssessmentResponse where
   rnf StartAssessmentResponse' {..} =
-    Prelude.rnf assessmentId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf assessmentId `Prelude.seq`
+      Prelude.rnf httpStatus

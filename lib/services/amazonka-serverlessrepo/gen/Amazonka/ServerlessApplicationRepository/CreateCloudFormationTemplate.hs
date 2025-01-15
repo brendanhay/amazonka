@@ -130,8 +130,8 @@ instance
 
 instance Prelude.NFData CreateCloudFormationTemplate where
   rnf CreateCloudFormationTemplate' {..} =
-    Prelude.rnf semanticVersion
-      `Prelude.seq` Prelude.rnf applicationId
+    Prelude.rnf semanticVersion `Prelude.seq`
+      Prelude.rnf applicationId
 
 instance Data.ToHeaders CreateCloudFormationTemplate where
   toHeaders =
@@ -289,11 +289,11 @@ instance
     CreateCloudFormationTemplateResponse
   where
   rnf CreateCloudFormationTemplateResponse' {..} =
-    Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf expirationTime
-      `Prelude.seq` Prelude.rnf semanticVersion
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf templateId
-      `Prelude.seq` Prelude.rnf templateUrl
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf applicationId `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf expirationTime `Prelude.seq`
+          Prelude.rnf semanticVersion `Prelude.seq`
+            Prelude.rnf status `Prelude.seq`
+              Prelude.rnf templateId `Prelude.seq`
+                Prelude.rnf templateUrl `Prelude.seq`
+                  Prelude.rnf httpStatus

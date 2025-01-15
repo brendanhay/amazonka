@@ -110,7 +110,7 @@ instance Prelude.Hashable EquipmentDetection where
 
 instance Prelude.NFData EquipmentDetection where
   rnf EquipmentDetection' {..} =
-    Prelude.rnf boundingBox
-      `Prelude.seq` Prelude.rnf confidence
-      `Prelude.seq` Prelude.rnf coversBodyPart
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf boundingBox `Prelude.seq`
+      Prelude.rnf confidence `Prelude.seq`
+        Prelude.rnf coversBodyPart `Prelude.seq`
+          Prelude.rnf type'

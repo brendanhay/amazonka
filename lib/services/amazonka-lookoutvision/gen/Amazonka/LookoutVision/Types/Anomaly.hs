@@ -91,5 +91,5 @@ instance Prelude.Hashable Anomaly where
 
 instance Prelude.NFData Anomaly where
   rnf Anomaly' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf pixelAnomaly
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf pixelAnomaly

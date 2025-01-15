@@ -176,5 +176,5 @@ deleteSubnetGroupResponse_httpStatus = Lens.lens (\DeleteSubnetGroupResponse' {h
 
 instance Prelude.NFData DeleteSubnetGroupResponse where
   rnf DeleteSubnetGroupResponse' {..} =
-    Prelude.rnf deletionMessage
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf deletionMessage `Prelude.seq`
+      Prelude.rnf httpStatus

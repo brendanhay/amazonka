@@ -176,12 +176,12 @@ instance Prelude.Hashable CreateRouteResponse where
 
 instance Prelude.NFData CreateRouteResponse where
   rnf CreateRouteResponse' {..} =
-    Prelude.rnf modelSelectionExpression
-      `Prelude.seq` Prelude.rnf responseModels
-      `Prelude.seq` Prelude.rnf responseParameters
-      `Prelude.seq` Prelude.rnf apiId
-      `Prelude.seq` Prelude.rnf routeId
-      `Prelude.seq` Prelude.rnf routeResponseKey
+    Prelude.rnf modelSelectionExpression `Prelude.seq`
+      Prelude.rnf responseModels `Prelude.seq`
+        Prelude.rnf responseParameters `Prelude.seq`
+          Prelude.rnf apiId `Prelude.seq`
+            Prelude.rnf routeId `Prelude.seq`
+              Prelude.rnf routeResponseKey
 
 instance Data.ToHeaders CreateRouteResponse where
   toHeaders =
@@ -302,9 +302,9 @@ createRouteResponseResponse_httpStatus = Lens.lens (\CreateRouteResponseResponse
 
 instance Prelude.NFData CreateRouteResponseResponse where
   rnf CreateRouteResponseResponse' {..} =
-    Prelude.rnf modelSelectionExpression
-      `Prelude.seq` Prelude.rnf responseModels
-      `Prelude.seq` Prelude.rnf responseParameters
-      `Prelude.seq` Prelude.rnf routeResponseId
-      `Prelude.seq` Prelude.rnf routeResponseKey
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf modelSelectionExpression `Prelude.seq`
+      Prelude.rnf responseModels `Prelude.seq`
+        Prelude.rnf responseParameters `Prelude.seq`
+          Prelude.rnf routeResponseId `Prelude.seq`
+            Prelude.rnf routeResponseKey `Prelude.seq`
+              Prelude.rnf httpStatus

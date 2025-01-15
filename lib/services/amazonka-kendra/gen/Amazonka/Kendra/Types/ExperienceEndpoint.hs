@@ -88,5 +88,5 @@ instance Prelude.Hashable ExperienceEndpoint where
 
 instance Prelude.NFData ExperienceEndpoint where
   rnf ExperienceEndpoint' {..} =
-    Prelude.rnf endpoint
-      `Prelude.seq` Prelude.rnf endpointType
+    Prelude.rnf endpoint `Prelude.seq`
+      Prelude.rnf endpointType

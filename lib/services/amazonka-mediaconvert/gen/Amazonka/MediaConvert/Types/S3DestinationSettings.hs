@@ -92,8 +92,8 @@ instance Prelude.Hashable S3DestinationSettings where
 
 instance Prelude.NFData S3DestinationSettings where
   rnf S3DestinationSettings' {..} =
-    Prelude.rnf accessControl
-      `Prelude.seq` Prelude.rnf encryption
+    Prelude.rnf accessControl `Prelude.seq`
+      Prelude.rnf encryption
 
 instance Data.ToJSON S3DestinationSettings where
   toJSON S3DestinationSettings' {..} =

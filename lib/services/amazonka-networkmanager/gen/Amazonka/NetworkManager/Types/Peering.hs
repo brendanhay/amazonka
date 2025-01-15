@@ -171,13 +171,13 @@ instance Prelude.Hashable Peering where
 
 instance Prelude.NFData Peering where
   rnf Peering' {..} =
-    Prelude.rnf coreNetworkArn
-      `Prelude.seq` Prelude.rnf coreNetworkId
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf edgeLocation
-      `Prelude.seq` Prelude.rnf ownerAccountId
-      `Prelude.seq` Prelude.rnf peeringId
-      `Prelude.seq` Prelude.rnf peeringType
-      `Prelude.seq` Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf coreNetworkArn `Prelude.seq`
+      Prelude.rnf coreNetworkId `Prelude.seq`
+        Prelude.rnf createdAt `Prelude.seq`
+          Prelude.rnf edgeLocation `Prelude.seq`
+            Prelude.rnf ownerAccountId `Prelude.seq`
+              Prelude.rnf peeringId `Prelude.seq`
+                Prelude.rnf peeringType `Prelude.seq`
+                  Prelude.rnf resourceArn `Prelude.seq`
+                    Prelude.rnf state `Prelude.seq`
+                      Prelude.rnf tags

@@ -128,9 +128,9 @@ instance Prelude.Hashable CancelMailboxExportJob where
 
 instance Prelude.NFData CancelMailboxExportJob where
   rnf CancelMailboxExportJob' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf organizationId
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf jobId `Prelude.seq`
+        Prelude.rnf organizationId
 
 instance Data.ToHeaders CancelMailboxExportJob where
   toHeaders =

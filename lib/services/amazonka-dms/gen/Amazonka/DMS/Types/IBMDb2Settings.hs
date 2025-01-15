@@ -222,16 +222,16 @@ instance Prelude.Hashable IBMDb2Settings where
 
 instance Prelude.NFData IBMDb2Settings where
   rnf IBMDb2Settings' {..} =
-    Prelude.rnf currentLsn
-      `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf maxKBytesPerRead
-      `Prelude.seq` Prelude.rnf password
-      `Prelude.seq` Prelude.rnf port
-      `Prelude.seq` Prelude.rnf secretsManagerAccessRoleArn
-      `Prelude.seq` Prelude.rnf secretsManagerSecretId
-      `Prelude.seq` Prelude.rnf serverName
-      `Prelude.seq` Prelude.rnf setDataCaptureChanges
-      `Prelude.seq` Prelude.rnf username
+    Prelude.rnf currentLsn `Prelude.seq`
+      Prelude.rnf databaseName `Prelude.seq`
+        Prelude.rnf maxKBytesPerRead `Prelude.seq`
+          Prelude.rnf password `Prelude.seq`
+            Prelude.rnf port `Prelude.seq`
+              Prelude.rnf secretsManagerAccessRoleArn `Prelude.seq`
+                Prelude.rnf secretsManagerSecretId `Prelude.seq`
+                  Prelude.rnf serverName `Prelude.seq`
+                    Prelude.rnf setDataCaptureChanges `Prelude.seq`
+                      Prelude.rnf username
 
 instance Data.ToJSON IBMDb2Settings where
   toJSON IBMDb2Settings' {..} =

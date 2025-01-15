@@ -87,9 +87,9 @@ instance Prelude.Hashable TLEData where
 
 instance Prelude.NFData TLEData where
   rnf TLEData' {..} =
-    Prelude.rnf tleLine1
-      `Prelude.seq` Prelude.rnf tleLine2
-      `Prelude.seq` Prelude.rnf validTimeRange
+    Prelude.rnf tleLine1 `Prelude.seq`
+      Prelude.rnf tleLine2 `Prelude.seq`
+        Prelude.rnf validTimeRange
 
 instance Data.ToJSON TLEData where
   toJSON TLEData' {..} =

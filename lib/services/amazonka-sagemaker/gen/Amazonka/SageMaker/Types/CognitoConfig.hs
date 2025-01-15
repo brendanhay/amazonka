@@ -101,8 +101,8 @@ instance Prelude.Hashable CognitoConfig where
 
 instance Prelude.NFData CognitoConfig where
   rnf CognitoConfig' {..} =
-    Prelude.rnf userPool
-      `Prelude.seq` Prelude.rnf clientId
+    Prelude.rnf userPool `Prelude.seq`
+      Prelude.rnf clientId
 
 instance Data.ToJSON CognitoConfig where
   toJSON CognitoConfig' {..} =

@@ -260,9 +260,7 @@ instance Core.AWSRequest AllocateHosts where
     Response.receiveXML
       ( \s h x ->
           AllocateHostsResponse'
-            Prelude.<$> ( x
-                            Data..@? "hostIdSet"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "hostIdSet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -283,15 +281,15 @@ instance Prelude.Hashable AllocateHosts where
 
 instance Prelude.NFData AllocateHosts where
   rnf AllocateHosts' {..} =
-    Prelude.rnf autoPlacement
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf hostRecovery
-      `Prelude.seq` Prelude.rnf instanceFamily
-      `Prelude.seq` Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf outpostArn
-      `Prelude.seq` Prelude.rnf tagSpecifications
-      `Prelude.seq` Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf quantity
+    Prelude.rnf autoPlacement `Prelude.seq`
+      Prelude.rnf clientToken `Prelude.seq`
+        Prelude.rnf hostRecovery `Prelude.seq`
+          Prelude.rnf instanceFamily `Prelude.seq`
+            Prelude.rnf instanceType `Prelude.seq`
+              Prelude.rnf outpostArn `Prelude.seq`
+                Prelude.rnf tagSpecifications `Prelude.seq`
+                  Prelude.rnf availabilityZone `Prelude.seq`
+                    Prelude.rnf quantity
 
 instance Data.ToHeaders AllocateHosts where
   toHeaders = Prelude.const Prelude.mempty
@@ -365,5 +363,5 @@ allocateHostsResponse_httpStatus = Lens.lens (\AllocateHostsResponse' {httpStatu
 
 instance Prelude.NFData AllocateHostsResponse where
   rnf AllocateHostsResponse' {..} =
-    Prelude.rnf hostIds
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf hostIds `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -269,12 +269,12 @@ instance Prelude.Hashable Header where
 
 instance Prelude.NFData Header where
   rnf Header' {..} =
-    Prelude.rnf protocol
-      `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf sourcePort
-      `Prelude.seq` Prelude.rnf direction
-      `Prelude.seq` Prelude.rnf destination
-      `Prelude.seq` Prelude.rnf destinationPort
+    Prelude.rnf protocol `Prelude.seq`
+      Prelude.rnf source `Prelude.seq`
+        Prelude.rnf sourcePort `Prelude.seq`
+          Prelude.rnf direction `Prelude.seq`
+            Prelude.rnf destination `Prelude.seq`
+              Prelude.rnf destinationPort
 
 instance Data.ToJSON Header where
   toJSON Header' {..} =

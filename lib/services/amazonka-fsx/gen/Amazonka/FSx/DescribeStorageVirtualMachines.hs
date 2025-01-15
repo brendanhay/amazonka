@@ -122,12 +122,12 @@ instance Core.AWSPager DescribeStorageVirtualMachines where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeStorageVirtualMachines_nextToken
-          Lens..~ rs
-          Lens.^? describeStorageVirtualMachinesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeStorageVirtualMachines_nextToken
+              Lens..~ rs
+              Lens.^? describeStorageVirtualMachinesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -168,10 +168,10 @@ instance
     DescribeStorageVirtualMachines
   where
   rnf DescribeStorageVirtualMachines' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf storageVirtualMachineIds
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf storageVirtualMachineIds
 
 instance
   Data.ToHeaders
@@ -266,6 +266,6 @@ instance
     DescribeStorageVirtualMachinesResponse
   where
   rnf DescribeStorageVirtualMachinesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf storageVirtualMachines
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf storageVirtualMachines `Prelude.seq`
+        Prelude.rnf httpStatus

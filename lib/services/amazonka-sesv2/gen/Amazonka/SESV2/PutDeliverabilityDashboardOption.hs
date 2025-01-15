@@ -148,8 +148,8 @@ instance
     PutDeliverabilityDashboardOption
   where
   rnf PutDeliverabilityDashboardOption' {..} =
-    Prelude.rnf subscribedDomains
-      `Prelude.seq` Prelude.rnf dashboardEnabled
+    Prelude.rnf subscribedDomains `Prelude.seq`
+      Prelude.rnf dashboardEnabled
 
 instance
   Data.ToHeaders

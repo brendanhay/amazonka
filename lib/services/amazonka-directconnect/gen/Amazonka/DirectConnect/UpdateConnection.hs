@@ -151,9 +151,9 @@ instance Prelude.Hashable UpdateConnection where
 
 instance Prelude.NFData UpdateConnection where
   rnf UpdateConnection' {..} =
-    Prelude.rnf connectionName
-      `Prelude.seq` Prelude.rnf encryptionMode
-      `Prelude.seq` Prelude.rnf connectionId
+    Prelude.rnf connectionName `Prelude.seq`
+      Prelude.rnf encryptionMode `Prelude.seq`
+        Prelude.rnf connectionId
 
 instance Data.ToHeaders UpdateConnection where
   toHeaders =

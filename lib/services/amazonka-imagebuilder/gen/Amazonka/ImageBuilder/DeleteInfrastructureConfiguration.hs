@@ -205,6 +205,6 @@ instance
     DeleteInfrastructureConfigurationResponse
   where
   rnf DeleteInfrastructureConfigurationResponse' {..} =
-    Prelude.rnf infrastructureConfigurationArn
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf infrastructureConfigurationArn `Prelude.seq`
+      Prelude.rnf requestId `Prelude.seq`
+        Prelude.rnf httpStatus

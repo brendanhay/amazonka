@@ -106,6 +106,6 @@ instance Prelude.Hashable ClusterParameterGroupStatus where
 
 instance Prelude.NFData ClusterParameterGroupStatus where
   rnf ClusterParameterGroupStatus' {..} =
-    Prelude.rnf clusterParameterStatusList
-      `Prelude.seq` Prelude.rnf parameterApplyStatus
-      `Prelude.seq` Prelude.rnf parameterGroupName
+    Prelude.rnf clusterParameterStatusList `Prelude.seq`
+      Prelude.rnf parameterApplyStatus `Prelude.seq`
+        Prelude.rnf parameterGroupName

@@ -171,9 +171,9 @@ instance
 
 instance Prelude.NFData GetMobileDeviceAccessOverride where
   rnf GetMobileDeviceAccessOverride' {..} =
-    Prelude.rnf organizationId
-      `Prelude.seq` Prelude.rnf userId
-      `Prelude.seq` Prelude.rnf deviceId
+    Prelude.rnf organizationId `Prelude.seq`
+      Prelude.rnf userId `Prelude.seq`
+        Prelude.rnf deviceId
 
 instance Data.ToHeaders GetMobileDeviceAccessOverride where
   toHeaders =
@@ -296,10 +296,10 @@ instance
     GetMobileDeviceAccessOverrideResponse
   where
   rnf GetMobileDeviceAccessOverrideResponse' {..} =
-    Prelude.rnf dateCreated
-      `Prelude.seq` Prelude.rnf dateModified
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf deviceId
-      `Prelude.seq` Prelude.rnf effect
-      `Prelude.seq` Prelude.rnf userId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dateCreated `Prelude.seq`
+      Prelude.rnf dateModified `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf deviceId `Prelude.seq`
+            Prelude.rnf effect `Prelude.seq`
+              Prelude.rnf userId `Prelude.seq`
+                Prelude.rnf httpStatus

@@ -112,8 +112,8 @@ instance Prelude.Hashable DisassociateSourceServers where
 
 instance Prelude.NFData DisassociateSourceServers where
   rnf DisassociateSourceServers' {..} =
-    Prelude.rnf applicationID
-      `Prelude.seq` Prelude.rnf sourceServerIDs
+    Prelude.rnf applicationID `Prelude.seq`
+      Prelude.rnf sourceServerIDs
 
 instance Data.ToHeaders DisassociateSourceServers where
   toHeaders =

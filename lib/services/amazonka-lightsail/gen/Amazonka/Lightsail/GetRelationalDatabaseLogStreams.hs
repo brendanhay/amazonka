@@ -195,5 +195,5 @@ instance
     GetRelationalDatabaseLogStreamsResponse
   where
   rnf GetRelationalDatabaseLogStreamsResponse' {..} =
-    Prelude.rnf logStreams
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf logStreams `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -255,12 +255,12 @@ getFindingsFilterResponse_httpStatus = Lens.lens (\GetFindingsFilterResponse' {h
 
 instance Prelude.NFData GetFindingsFilterResponse where
   rnf GetFindingsFilterResponse' {..} =
-    Prelude.rnf action
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf findingCriteria
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf position
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf action `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf findingCriteria `Prelude.seq`
+            Prelude.rnf id `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf position `Prelude.seq`
+                  Prelude.rnf tags `Prelude.seq`
+                    Prelude.rnf httpStatus

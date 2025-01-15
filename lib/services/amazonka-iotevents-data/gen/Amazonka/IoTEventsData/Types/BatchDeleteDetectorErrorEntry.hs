@@ -105,6 +105,6 @@ instance
 
 instance Prelude.NFData BatchDeleteDetectorErrorEntry where
   rnf BatchDeleteDetectorErrorEntry' {..} =
-    Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf messageId
+    Prelude.rnf errorCode `Prelude.seq`
+      Prelude.rnf errorMessage `Prelude.seq`
+        Prelude.rnf messageId

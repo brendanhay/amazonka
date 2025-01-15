@@ -97,6 +97,6 @@ instance Prelude.Hashable ModelSummary where
 
 instance Prelude.NFData ModelSummary where
   rnf ModelSummary' {..} =
-    Prelude.rnf modelName
-      `Prelude.seq` Prelude.rnf modelArn
-      `Prelude.seq` Prelude.rnf creationTime
+    Prelude.rnf modelName `Prelude.seq`
+      Prelude.rnf modelArn `Prelude.seq`
+        Prelude.rnf creationTime

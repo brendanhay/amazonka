@@ -128,10 +128,10 @@ instance Prelude.Hashable ActionTypeUrls where
 
 instance Prelude.NFData ActionTypeUrls where
   rnf ActionTypeUrls' {..} =
-    Prelude.rnf configurationUrl
-      `Prelude.seq` Prelude.rnf entityUrlTemplate
-      `Prelude.seq` Prelude.rnf executionUrlTemplate
-      `Prelude.seq` Prelude.rnf revisionUrlTemplate
+    Prelude.rnf configurationUrl `Prelude.seq`
+      Prelude.rnf entityUrlTemplate `Prelude.seq`
+        Prelude.rnf executionUrlTemplate `Prelude.seq`
+          Prelude.rnf revisionUrlTemplate
 
 instance Data.ToJSON ActionTypeUrls where
   toJSON ActionTypeUrls' {..} =

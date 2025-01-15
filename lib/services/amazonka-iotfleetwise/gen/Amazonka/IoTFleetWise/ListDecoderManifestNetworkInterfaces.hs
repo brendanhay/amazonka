@@ -140,12 +140,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listDecoderManifestNetworkInterfaces_nextToken
-          Lens..~ rs
-          Lens.^? listDecoderManifestNetworkInterfacesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listDecoderManifestNetworkInterfaces_nextToken
+              Lens..~ rs
+              Lens.^? listDecoderManifestNetworkInterfacesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -182,9 +182,9 @@ instance
     ListDecoderManifestNetworkInterfaces
   where
   rnf ListDecoderManifestNetworkInterfaces' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf name
 
 instance
   Data.ToHeaders
@@ -286,6 +286,6 @@ instance
     ListDecoderManifestNetworkInterfacesResponse
   where
   rnf ListDecoderManifestNetworkInterfacesResponse' {..} =
-    Prelude.rnf networkInterfaces
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf networkInterfaces `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

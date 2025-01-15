@@ -103,6 +103,6 @@ instance Prelude.Hashable LogOddsMetric where
 
 instance Prelude.NFData LogOddsMetric where
   rnf LogOddsMetric' {..} =
-    Prelude.rnf variableName
-      `Prelude.seq` Prelude.rnf variableType
-      `Prelude.seq` Prelude.rnf variableImportance
+    Prelude.rnf variableName `Prelude.seq`
+      Prelude.rnf variableType `Prelude.seq`
+        Prelude.rnf variableImportance

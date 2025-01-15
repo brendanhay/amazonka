@@ -107,6 +107,6 @@ instance Prelude.Hashable Group where
 
 instance Prelude.NFData Group where
   rnf Group' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf groupArn
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf groupArn `Prelude.seq`
+        Prelude.rnf name

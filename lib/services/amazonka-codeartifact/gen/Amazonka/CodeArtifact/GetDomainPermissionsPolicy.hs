@@ -117,8 +117,8 @@ instance Prelude.Hashable GetDomainPermissionsPolicy where
 
 instance Prelude.NFData GetDomainPermissionsPolicy where
   rnf GetDomainPermissionsPolicy' {..} =
-    Prelude.rnf domainOwner
-      `Prelude.seq` Prelude.rnf domain
+    Prelude.rnf domainOwner `Prelude.seq`
+      Prelude.rnf domain
 
 instance Data.ToHeaders GetDomainPermissionsPolicy where
   toHeaders =
@@ -186,5 +186,5 @@ instance
     GetDomainPermissionsPolicyResponse
   where
   rnf GetDomainPermissionsPolicyResponse' {..} =
-    Prelude.rnf policy
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf policy `Prelude.seq`
+      Prelude.rnf httpStatus

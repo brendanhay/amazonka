@@ -114,7 +114,7 @@ instance Prelude.Hashable SessionSummary where
 
 instance Prelude.NFData SessionSummary where
   rnf SessionSummary' {..} =
-    Prelude.rnf assistantArn
-      `Prelude.seq` Prelude.rnf assistantId
-      `Prelude.seq` Prelude.rnf sessionArn
-      `Prelude.seq` Prelude.rnf sessionId
+    Prelude.rnf assistantArn `Prelude.seq`
+      Prelude.rnf assistantId `Prelude.seq`
+        Prelude.rnf sessionArn `Prelude.seq`
+          Prelude.rnf sessionId

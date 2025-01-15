@@ -149,9 +149,9 @@ instance Prelude.Hashable TrustedAdvisorCheckSummary where
 
 instance Prelude.NFData TrustedAdvisorCheckSummary where
   rnf TrustedAdvisorCheckSummary' {..} =
-    Prelude.rnf hasFlaggedResources
-      `Prelude.seq` Prelude.rnf checkId
-      `Prelude.seq` Prelude.rnf timestamp
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf resourcesSummary
-      `Prelude.seq` Prelude.rnf categorySpecificSummary
+    Prelude.rnf hasFlaggedResources `Prelude.seq`
+      Prelude.rnf checkId `Prelude.seq`
+        Prelude.rnf timestamp `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf resourcesSummary `Prelude.seq`
+              Prelude.rnf categorySpecificSummary

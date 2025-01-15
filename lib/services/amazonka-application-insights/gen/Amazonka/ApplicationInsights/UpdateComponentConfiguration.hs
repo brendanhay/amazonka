@@ -185,12 +185,12 @@ instance
 
 instance Prelude.NFData UpdateComponentConfiguration where
   rnf UpdateComponentConfiguration' {..} =
-    Prelude.rnf autoConfigEnabled
-      `Prelude.seq` Prelude.rnf componentConfiguration
-      `Prelude.seq` Prelude.rnf monitor
-      `Prelude.seq` Prelude.rnf tier
-      `Prelude.seq` Prelude.rnf resourceGroupName
-      `Prelude.seq` Prelude.rnf componentName
+    Prelude.rnf autoConfigEnabled `Prelude.seq`
+      Prelude.rnf componentConfiguration `Prelude.seq`
+        Prelude.rnf monitor `Prelude.seq`
+          Prelude.rnf tier `Prelude.seq`
+            Prelude.rnf resourceGroupName `Prelude.seq`
+              Prelude.rnf componentName
 
 instance Data.ToHeaders UpdateComponentConfiguration where
   toHeaders =

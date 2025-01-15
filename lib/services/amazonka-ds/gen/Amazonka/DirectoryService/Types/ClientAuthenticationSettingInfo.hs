@@ -118,6 +118,6 @@ instance
     ClientAuthenticationSettingInfo
   where
   rnf ClientAuthenticationSettingInfo' {..} =
-    Prelude.rnf lastUpdatedDateTime
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf lastUpdatedDateTime `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf type'

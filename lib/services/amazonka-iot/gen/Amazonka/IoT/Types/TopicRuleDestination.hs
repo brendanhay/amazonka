@@ -216,10 +216,10 @@ instance Prelude.Hashable TopicRuleDestination where
 
 instance Prelude.NFData TopicRuleDestination where
   rnf TopicRuleDestination' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf httpUrlProperties
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusReason
-      `Prelude.seq` Prelude.rnf vpcProperties
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf createdAt `Prelude.seq`
+        Prelude.rnf httpUrlProperties `Prelude.seq`
+          Prelude.rnf lastUpdatedAt `Prelude.seq`
+            Prelude.rnf status `Prelude.seq`
+              Prelude.rnf statusReason `Prelude.seq`
+                Prelude.rnf vpcProperties

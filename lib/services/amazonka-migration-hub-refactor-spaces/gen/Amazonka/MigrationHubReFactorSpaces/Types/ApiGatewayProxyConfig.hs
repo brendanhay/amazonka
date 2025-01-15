@@ -143,10 +143,10 @@ instance Prelude.Hashable ApiGatewayProxyConfig where
 
 instance Prelude.NFData ApiGatewayProxyConfig where
   rnf ApiGatewayProxyConfig' {..} =
-    Prelude.rnf apiGatewayId
-      `Prelude.seq` Prelude.rnf endpointType
-      `Prelude.seq` Prelude.rnf nlbArn
-      `Prelude.seq` Prelude.rnf nlbName
-      `Prelude.seq` Prelude.rnf proxyUrl
-      `Prelude.seq` Prelude.rnf stageName
-      `Prelude.seq` Prelude.rnf vpcLinkId
+    Prelude.rnf apiGatewayId `Prelude.seq`
+      Prelude.rnf endpointType `Prelude.seq`
+        Prelude.rnf nlbArn `Prelude.seq`
+          Prelude.rnf nlbName `Prelude.seq`
+            Prelude.rnf proxyUrl `Prelude.seq`
+              Prelude.rnf stageName `Prelude.seq`
+                Prelude.rnf vpcLinkId

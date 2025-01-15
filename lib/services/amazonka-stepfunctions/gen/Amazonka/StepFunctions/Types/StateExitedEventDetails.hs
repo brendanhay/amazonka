@@ -142,6 +142,6 @@ instance Prelude.Hashable StateExitedEventDetails where
 
 instance Prelude.NFData StateExitedEventDetails where
   rnf StateExitedEventDetails' {..} =
-    Prelude.rnf output
-      `Prelude.seq` Prelude.rnf outputDetails
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf output `Prelude.seq`
+      Prelude.rnf outputDetails `Prelude.seq`
+        Prelude.rnf name

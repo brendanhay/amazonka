@@ -198,5 +198,5 @@ instance
     GetDomainDeliverabilityCampaignResponse
   where
   rnf GetDomainDeliverabilityCampaignResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf domainDeliverabilityCampaign
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf domainDeliverabilityCampaign

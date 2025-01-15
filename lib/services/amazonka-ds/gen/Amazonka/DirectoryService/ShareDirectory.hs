@@ -180,10 +180,10 @@ instance Prelude.Hashable ShareDirectory where
 
 instance Prelude.NFData ShareDirectory where
   rnf ShareDirectory' {..} =
-    Prelude.rnf shareNotes
-      `Prelude.seq` Prelude.rnf directoryId
-      `Prelude.seq` Prelude.rnf shareTarget
-      `Prelude.seq` Prelude.rnf shareMethod
+    Prelude.rnf shareNotes `Prelude.seq`
+      Prelude.rnf directoryId `Prelude.seq`
+        Prelude.rnf shareTarget `Prelude.seq`
+          Prelude.rnf shareMethod
 
 instance Data.ToHeaders ShareDirectory where
   toHeaders =
@@ -261,5 +261,5 @@ shareDirectoryResponse_httpStatus = Lens.lens (\ShareDirectoryResponse' {httpSta
 
 instance Prelude.NFData ShareDirectoryResponse where
   rnf ShareDirectoryResponse' {..} =
-    Prelude.rnf sharedDirectoryId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf sharedDirectoryId `Prelude.seq`
+      Prelude.rnf httpStatus

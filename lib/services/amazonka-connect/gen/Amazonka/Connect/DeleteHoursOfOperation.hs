@@ -110,8 +110,8 @@ instance Prelude.Hashable DeleteHoursOfOperation where
 
 instance Prelude.NFData DeleteHoursOfOperation where
   rnf DeleteHoursOfOperation' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf hoursOfOperationId
+    Prelude.rnf instanceId `Prelude.seq`
+      Prelude.rnf hoursOfOperationId
 
 instance Data.ToHeaders DeleteHoursOfOperation where
   toHeaders =

@@ -152,11 +152,11 @@ instance Prelude.Hashable UpdateSubscriber where
 
 instance Prelude.NFData UpdateSubscriber where
   rnf UpdateSubscriber' {..} =
-    Prelude.rnf externalId
-      `Prelude.seq` Prelude.rnf subscriberDescription
-      `Prelude.seq` Prelude.rnf subscriberName
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf sourceTypes
+    Prelude.rnf externalId `Prelude.seq`
+      Prelude.rnf subscriberDescription `Prelude.seq`
+        Prelude.rnf subscriberName `Prelude.seq`
+          Prelude.rnf id `Prelude.seq`
+            Prelude.rnf sourceTypes
 
 instance Data.ToHeaders UpdateSubscriber where
   toHeaders =
@@ -230,5 +230,5 @@ updateSubscriberResponse_httpStatus = Lens.lens (\UpdateSubscriberResponse' {htt
 
 instance Prelude.NFData UpdateSubscriberResponse where
   rnf UpdateSubscriberResponse' {..} =
-    Prelude.rnf subscriber
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf subscriber `Prelude.seq`
+      Prelude.rnf httpStatus

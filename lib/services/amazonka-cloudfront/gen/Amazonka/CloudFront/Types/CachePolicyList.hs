@@ -97,9 +97,7 @@ cachePolicyList_quantity = Lens.lens (\CachePolicyList' {quantity} -> quantity) 
 instance Data.FromXML CachePolicyList where
   parseXML x =
     CachePolicyList'
-      Prelude.<$> ( x
-                      Data..@? "Items"
-                      Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "Items" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "CachePolicySummary")
                   )
       Prelude.<*> (x Data..@? "NextMarker")
@@ -116,7 +114,7 @@ instance Prelude.Hashable CachePolicyList where
 
 instance Prelude.NFData CachePolicyList where
   rnf CachePolicyList' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf maxItems
-      `Prelude.seq` Prelude.rnf quantity
+    Prelude.rnf items `Prelude.seq`
+      Prelude.rnf nextMarker `Prelude.seq`
+        Prelude.rnf maxItems `Prelude.seq`
+          Prelude.rnf quantity

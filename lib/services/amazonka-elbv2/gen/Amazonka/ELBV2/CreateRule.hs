@@ -139,9 +139,7 @@ instance Core.AWSRequest CreateRule where
       "CreateRuleResult"
       ( \s h x ->
           CreateRuleResponse'
-            Prelude.<$> ( x
-                            Data..@? "Rules"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "Rules" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -158,11 +156,11 @@ instance Prelude.Hashable CreateRule where
 
 instance Prelude.NFData CreateRule where
   rnf CreateRule' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf listenerArn
-      `Prelude.seq` Prelude.rnf conditions
-      `Prelude.seq` Prelude.rnf priority
-      `Prelude.seq` Prelude.rnf actions
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf listenerArn `Prelude.seq`
+        Prelude.rnf conditions `Prelude.seq`
+          Prelude.rnf priority `Prelude.seq`
+            Prelude.rnf actions
 
 instance Data.ToHeaders CreateRule where
   toHeaders = Prelude.const Prelude.mempty
@@ -227,5 +225,5 @@ createRuleResponse_httpStatus = Lens.lens (\CreateRuleResponse' {httpStatus} -> 
 
 instance Prelude.NFData CreateRuleResponse where
   rnf CreateRuleResponse' {..} =
-    Prelude.rnf rules
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf rules `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -170,5 +170,5 @@ getApnsVoipChannelResponse_aPNSVoipChannelResponse = Lens.lens (\GetApnsVoipChan
 
 instance Prelude.NFData GetApnsVoipChannelResponse where
   rnf GetApnsVoipChannelResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf aPNSVoipChannelResponse
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf aPNSVoipChannelResponse

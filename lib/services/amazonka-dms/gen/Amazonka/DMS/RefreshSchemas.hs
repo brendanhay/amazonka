@@ -119,8 +119,8 @@ instance Prelude.Hashable RefreshSchemas where
 
 instance Prelude.NFData RefreshSchemas where
   rnf RefreshSchemas' {..} =
-    Prelude.rnf endpointArn
-      `Prelude.seq` Prelude.rnf replicationInstanceArn
+    Prelude.rnf endpointArn `Prelude.seq`
+      Prelude.rnf replicationInstanceArn
 
 instance Data.ToHeaders RefreshSchemas where
   toHeaders =
@@ -198,5 +198,5 @@ refreshSchemasResponse_httpStatus = Lens.lens (\RefreshSchemasResponse' {httpSta
 
 instance Prelude.NFData RefreshSchemasResponse where
   rnf RefreshSchemasResponse' {..} =
-    Prelude.rnf refreshSchemasStatus
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf refreshSchemasStatus `Prelude.seq`
+      Prelude.rnf httpStatus

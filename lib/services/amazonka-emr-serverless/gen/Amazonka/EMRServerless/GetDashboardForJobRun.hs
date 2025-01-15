@@ -111,8 +111,8 @@ instance Prelude.Hashable GetDashboardForJobRun where
 
 instance Prelude.NFData GetDashboardForJobRun where
   rnf GetDashboardForJobRun' {..} =
-    Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf jobRunId
+    Prelude.rnf applicationId `Prelude.seq`
+      Prelude.rnf jobRunId
 
 instance Data.ToHeaders GetDashboardForJobRun where
   toHeaders =
@@ -179,5 +179,5 @@ getDashboardForJobRunResponse_httpStatus = Lens.lens (\GetDashboardForJobRunResp
 
 instance Prelude.NFData GetDashboardForJobRunResponse where
   rnf GetDashboardForJobRunResponse' {..} =
-    Prelude.rnf url
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf url `Prelude.seq`
+      Prelude.rnf httpStatus

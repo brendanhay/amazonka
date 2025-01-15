@@ -121,8 +121,8 @@ instance
     DeleteRemediationConfiguration
   where
   rnf DeleteRemediationConfiguration' {..} =
-    Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf configRuleName
+    Prelude.rnf resourceType `Prelude.seq`
+      Prelude.rnf configRuleName
 
 instance
   Data.ToHeaders

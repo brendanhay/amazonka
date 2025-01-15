@@ -80,8 +80,8 @@ instance Prelude.Hashable IpRuleItem where
 
 instance Prelude.NFData IpRuleItem where
   rnf IpRuleItem' {..} =
-    Prelude.rnf ipRule
-      `Prelude.seq` Prelude.rnf ruleDesc
+    Prelude.rnf ipRule `Prelude.seq`
+      Prelude.rnf ruleDesc
 
 instance Data.ToJSON IpRuleItem where
   toJSON IpRuleItem' {..} =

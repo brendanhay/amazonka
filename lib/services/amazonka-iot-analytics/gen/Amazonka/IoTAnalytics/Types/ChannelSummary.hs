@@ -144,9 +144,9 @@ instance Prelude.Hashable ChannelSummary where
 
 instance Prelude.NFData ChannelSummary where
   rnf ChannelSummary' {..} =
-    Prelude.rnf channelName
-      `Prelude.seq` Prelude.rnf channelStorage
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf lastMessageArrivalTime
-      `Prelude.seq` Prelude.rnf lastUpdateTime
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf channelName `Prelude.seq`
+      Prelude.rnf channelStorage `Prelude.seq`
+        Prelude.rnf creationTime `Prelude.seq`
+          Prelude.rnf lastMessageArrivalTime `Prelude.seq`
+            Prelude.rnf lastUpdateTime `Prelude.seq`
+              Prelude.rnf status

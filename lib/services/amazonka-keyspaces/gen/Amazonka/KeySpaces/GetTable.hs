@@ -134,8 +134,8 @@ instance Prelude.Hashable GetTable where
 
 instance Prelude.NFData GetTable where
   rnf GetTable' {..} =
-    Prelude.rnf keyspaceName
-      `Prelude.seq` Prelude.rnf tableName
+    Prelude.rnf keyspaceName `Prelude.seq`
+      Prelude.rnf tableName
 
 instance Data.ToHeaders GetTable where
   toHeaders =
@@ -327,16 +327,16 @@ getTableResponse_resourceArn = Lens.lens (\GetTableResponse' {resourceArn} -> re
 
 instance Prelude.NFData GetTableResponse where
   rnf GetTableResponse' {..} =
-    Prelude.rnf capacitySpecification
-      `Prelude.seq` Prelude.rnf comment
-      `Prelude.seq` Prelude.rnf creationTimestamp
-      `Prelude.seq` Prelude.rnf defaultTimeToLive
-      `Prelude.seq` Prelude.rnf encryptionSpecification
-      `Prelude.seq` Prelude.rnf pointInTimeRecovery
-      `Prelude.seq` Prelude.rnf schemaDefinition
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf ttl
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf keyspaceName
-      `Prelude.seq` Prelude.rnf tableName
-      `Prelude.seq` Prelude.rnf resourceArn
+    Prelude.rnf capacitySpecification `Prelude.seq`
+      Prelude.rnf comment `Prelude.seq`
+        Prelude.rnf creationTimestamp `Prelude.seq`
+          Prelude.rnf defaultTimeToLive `Prelude.seq`
+            Prelude.rnf encryptionSpecification `Prelude.seq`
+              Prelude.rnf pointInTimeRecovery `Prelude.seq`
+                Prelude.rnf schemaDefinition `Prelude.seq`
+                  Prelude.rnf status `Prelude.seq`
+                    Prelude.rnf ttl `Prelude.seq`
+                      Prelude.rnf httpStatus `Prelude.seq`
+                        Prelude.rnf keyspaceName `Prelude.seq`
+                          Prelude.rnf tableName `Prelude.seq`
+                            Prelude.rnf resourceArn

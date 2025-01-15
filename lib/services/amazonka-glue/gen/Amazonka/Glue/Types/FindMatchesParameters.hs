@@ -202,10 +202,10 @@ instance Prelude.Hashable FindMatchesParameters where
 
 instance Prelude.NFData FindMatchesParameters where
   rnf FindMatchesParameters' {..} =
-    Prelude.rnf accuracyCostTradeoff
-      `Prelude.seq` Prelude.rnf enforceProvidedLabels
-      `Prelude.seq` Prelude.rnf precisionRecallTradeoff
-      `Prelude.seq` Prelude.rnf primaryKeyColumnName
+    Prelude.rnf accuracyCostTradeoff `Prelude.seq`
+      Prelude.rnf enforceProvidedLabels `Prelude.seq`
+        Prelude.rnf precisionRecallTradeoff `Prelude.seq`
+          Prelude.rnf primaryKeyColumnName
 
 instance Data.ToJSON FindMatchesParameters where
   toJSON FindMatchesParameters' {..} =

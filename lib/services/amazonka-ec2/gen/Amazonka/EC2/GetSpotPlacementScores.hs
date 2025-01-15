@@ -262,12 +262,12 @@ instance Core.AWSPager GetSpotPlacementScores where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getSpotPlacementScores_nextToken
-          Lens..~ rs
-          Lens.^? getSpotPlacementScoresResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getSpotPlacementScores_nextToken
+              Lens..~ rs
+              Lens.^? getSpotPlacementScoresResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetSpotPlacementScores where
   type
@@ -303,15 +303,15 @@ instance Prelude.Hashable GetSpotPlacementScores where
 
 instance Prelude.NFData GetSpotPlacementScores where
   rnf GetSpotPlacementScores' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf instanceRequirementsWithMetadata
-      `Prelude.seq` Prelude.rnf instanceTypes
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf regionNames
-      `Prelude.seq` Prelude.rnf singleAvailabilityZone
-      `Prelude.seq` Prelude.rnf targetCapacityUnitType
-      `Prelude.seq` Prelude.rnf targetCapacity
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf instanceRequirementsWithMetadata `Prelude.seq`
+        Prelude.rnf instanceTypes `Prelude.seq`
+          Prelude.rnf maxResults `Prelude.seq`
+            Prelude.rnf nextToken `Prelude.seq`
+              Prelude.rnf regionNames `Prelude.seq`
+                Prelude.rnf singleAvailabilityZone `Prelude.seq`
+                  Prelude.rnf targetCapacityUnitType `Prelude.seq`
+                    Prelude.rnf targetCapacity
 
 instance Data.ToHeaders GetSpotPlacementScores where
   toHeaders = Prelude.const Prelude.mempty
@@ -450,6 +450,6 @@ instance
     GetSpotPlacementScoresResponse
   where
   rnf GetSpotPlacementScoresResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf spotPlacementScores
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf spotPlacementScores `Prelude.seq`
+        Prelude.rnf httpStatus

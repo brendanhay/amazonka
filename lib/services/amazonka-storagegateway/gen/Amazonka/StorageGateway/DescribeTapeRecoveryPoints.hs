@@ -129,12 +129,12 @@ instance Core.AWSPager DescribeTapeRecoveryPoints where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeTapeRecoveryPoints_marker
-          Lens..~ rs
-          Lens.^? describeTapeRecoveryPointsResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeTapeRecoveryPoints_marker
+              Lens..~ rs
+              Lens.^? describeTapeRecoveryPointsResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeTapeRecoveryPoints where
   type
@@ -164,9 +164,9 @@ instance Prelude.Hashable DescribeTapeRecoveryPoints where
 
 instance Prelude.NFData DescribeTapeRecoveryPoints where
   rnf DescribeTapeRecoveryPoints' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf gatewayARN
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf gatewayARN
 
 instance Data.ToHeaders DescribeTapeRecoveryPoints where
   toHeaders =
@@ -281,7 +281,7 @@ instance
     DescribeTapeRecoveryPointsResponse
   where
   rnf DescribeTapeRecoveryPointsResponse' {..} =
-    Prelude.rnf gatewayARN
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf tapeRecoveryPointInfos
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf gatewayARN `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf tapeRecoveryPointInfos `Prelude.seq`
+          Prelude.rnf httpStatus

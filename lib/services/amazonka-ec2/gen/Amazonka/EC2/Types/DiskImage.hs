@@ -83,9 +83,9 @@ instance Prelude.Hashable DiskImage where
 
 instance Prelude.NFData DiskImage where
   rnf DiskImage' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf image
-      `Prelude.seq` Prelude.rnf volume
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf image `Prelude.seq`
+        Prelude.rnf volume
 
 instance Data.ToQuery DiskImage where
   toQuery DiskImage' {..} =

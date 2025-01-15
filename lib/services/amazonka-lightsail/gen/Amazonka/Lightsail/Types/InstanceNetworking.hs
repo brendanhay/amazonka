@@ -87,5 +87,5 @@ instance Prelude.Hashable InstanceNetworking where
 
 instance Prelude.NFData InstanceNetworking where
   rnf InstanceNetworking' {..} =
-    Prelude.rnf monthlyTransfer
-      `Prelude.seq` Prelude.rnf ports
+    Prelude.rnf monthlyTransfer `Prelude.seq`
+      Prelude.rnf ports

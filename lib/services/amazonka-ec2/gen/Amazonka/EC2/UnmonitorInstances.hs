@@ -106,9 +106,7 @@ instance Core.AWSRequest UnmonitorInstances where
     Response.receiveXML
       ( \s h x ->
           UnmonitorInstancesResponse'
-            Prelude.<$> ( x
-                            Data..@? "instancesSet"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "instancesSet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -122,8 +120,8 @@ instance Prelude.Hashable UnmonitorInstances where
 
 instance Prelude.NFData UnmonitorInstances where
   rnf UnmonitorInstances' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf instanceIds
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf instanceIds
 
 instance Data.ToHeaders UnmonitorInstances where
   toHeaders = Prelude.const Prelude.mempty
@@ -183,5 +181,5 @@ unmonitorInstancesResponse_httpStatus = Lens.lens (\UnmonitorInstancesResponse' 
 
 instance Prelude.NFData UnmonitorInstancesResponse where
   rnf UnmonitorInstancesResponse' {..} =
-    Prelude.rnf instanceMonitorings
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf instanceMonitorings `Prelude.seq`
+      Prelude.rnf httpStatus

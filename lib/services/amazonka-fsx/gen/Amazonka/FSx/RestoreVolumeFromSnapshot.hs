@@ -173,10 +173,10 @@ instance Prelude.Hashable RestoreVolumeFromSnapshot where
 
 instance Prelude.NFData RestoreVolumeFromSnapshot where
   rnf RestoreVolumeFromSnapshot' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf options
-      `Prelude.seq` Prelude.rnf volumeId
-      `Prelude.seq` Prelude.rnf snapshotId
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf options `Prelude.seq`
+        Prelude.rnf volumeId `Prelude.seq`
+          Prelude.rnf snapshotId
 
 instance Data.ToHeaders RestoreVolumeFromSnapshot where
   toHeaders =
@@ -279,7 +279,7 @@ instance
     RestoreVolumeFromSnapshotResponse
   where
   rnf RestoreVolumeFromSnapshotResponse' {..} =
-    Prelude.rnf administrativeActions
-      `Prelude.seq` Prelude.rnf lifecycle
-      `Prelude.seq` Prelude.rnf volumeId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf administrativeActions `Prelude.seq`
+      Prelude.rnf lifecycle `Prelude.seq`
+        Prelude.rnf volumeId `Prelude.seq`
+          Prelude.rnf httpStatus

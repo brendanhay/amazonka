@@ -102,7 +102,7 @@ instance Prelude.Hashable EbsInstanceBlockDevice where
 
 instance Prelude.NFData EbsInstanceBlockDevice where
   rnf EbsInstanceBlockDevice' {..} =
-    Prelude.rnf attachTime
-      `Prelude.seq` Prelude.rnf deleteOnTermination
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf volumeId
+    Prelude.rnf attachTime `Prelude.seq`
+      Prelude.rnf deleteOnTermination `Prelude.seq`
+        Prelude.rnf status `Prelude.seq`
+          Prelude.rnf volumeId

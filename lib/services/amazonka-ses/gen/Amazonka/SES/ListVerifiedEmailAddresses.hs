@@ -150,5 +150,5 @@ instance
     ListVerifiedEmailAddressesResponse
   where
   rnf ListVerifiedEmailAddressesResponse' {..} =
-    Prelude.rnf verifiedEmailAddresses
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf verifiedEmailAddresses `Prelude.seq`
+      Prelude.rnf httpStatus

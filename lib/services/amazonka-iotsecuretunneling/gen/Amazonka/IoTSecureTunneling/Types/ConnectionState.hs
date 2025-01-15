@@ -84,5 +84,5 @@ instance Prelude.Hashable ConnectionState where
 
 instance Prelude.NFData ConnectionState where
   rnf ConnectionState' {..} =
-    Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf lastUpdatedAt `Prelude.seq`
+      Prelude.rnf status

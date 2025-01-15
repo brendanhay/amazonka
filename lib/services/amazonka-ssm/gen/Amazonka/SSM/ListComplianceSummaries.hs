@@ -127,12 +127,12 @@ instance Core.AWSPager ListComplianceSummaries where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listComplianceSummaries_nextToken
-          Lens..~ rs
-          Lens.^? listComplianceSummariesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listComplianceSummaries_nextToken
+              Lens..~ rs
+              Lens.^? listComplianceSummariesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListComplianceSummaries where
   type
@@ -161,9 +161,9 @@ instance Prelude.Hashable ListComplianceSummaries where
 
 instance Prelude.NFData ListComplianceSummaries where
   rnf ListComplianceSummaries' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListComplianceSummaries where
   toHeaders =
@@ -261,6 +261,6 @@ instance
     ListComplianceSummariesResponse
   where
   rnf ListComplianceSummariesResponse' {..} =
-    Prelude.rnf complianceSummaryItems
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf complianceSummaryItems `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

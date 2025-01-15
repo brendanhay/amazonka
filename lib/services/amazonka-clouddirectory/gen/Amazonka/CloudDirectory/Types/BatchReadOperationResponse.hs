@@ -83,5 +83,5 @@ instance Prelude.Hashable BatchReadOperationResponse where
 
 instance Prelude.NFData BatchReadOperationResponse where
   rnf BatchReadOperationResponse' {..} =
-    Prelude.rnf exceptionResponse
-      `Prelude.seq` Prelude.rnf successfulResponse
+    Prelude.rnf exceptionResponse `Prelude.seq`
+      Prelude.rnf successfulResponse

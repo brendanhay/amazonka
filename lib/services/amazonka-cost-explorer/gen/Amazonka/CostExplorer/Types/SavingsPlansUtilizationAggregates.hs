@@ -123,6 +123,6 @@ instance
     SavingsPlansUtilizationAggregates
   where
   rnf SavingsPlansUtilizationAggregates' {..} =
-    Prelude.rnf amortizedCommitment
-      `Prelude.seq` Prelude.rnf savings
-      `Prelude.seq` Prelude.rnf utilization
+    Prelude.rnf amortizedCommitment `Prelude.seq`
+      Prelude.rnf savings `Prelude.seq`
+        Prelude.rnf utilization

@@ -98,5 +98,5 @@ instance Prelude.Hashable ServerSideEncryption where
 
 instance Prelude.NFData ServerSideEncryption where
   rnf ServerSideEncryption' {..} =
-    Prelude.rnf encryptionType
-      `Prelude.seq` Prelude.rnf kmsMasterKeyId
+    Prelude.rnf encryptionType `Prelude.seq`
+      Prelude.rnf kmsMasterKeyId

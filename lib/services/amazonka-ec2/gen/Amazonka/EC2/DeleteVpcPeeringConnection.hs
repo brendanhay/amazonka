@@ -124,8 +124,8 @@ instance Prelude.Hashable DeleteVpcPeeringConnection where
 
 instance Prelude.NFData DeleteVpcPeeringConnection where
   rnf DeleteVpcPeeringConnection' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf vpcPeeringConnectionId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf vpcPeeringConnectionId
 
 instance Data.ToHeaders DeleteVpcPeeringConnection where
   toHeaders = Prelude.const Prelude.mempty
@@ -189,5 +189,5 @@ instance
     DeleteVpcPeeringConnectionResponse
   where
   rnf DeleteVpcPeeringConnectionResponse' {..} =
-    Prelude.rnf return'
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf return' `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -169,10 +169,10 @@ instance
     ListEarthObservationJobOutputConfig
   where
   rnf ListEarthObservationJobOutputConfig' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf durationInSeconds
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf operationType
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf creationTime `Prelude.seq`
+          Prelude.rnf durationInSeconds `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf operationType `Prelude.seq`
+                Prelude.rnf status

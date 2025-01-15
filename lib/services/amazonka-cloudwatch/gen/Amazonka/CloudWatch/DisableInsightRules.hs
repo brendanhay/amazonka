@@ -90,9 +90,7 @@ instance Core.AWSRequest DisableInsightRules where
       "DisableInsightRulesResult"
       ( \s h x ->
           DisableInsightRulesResponse'
-            Prelude.<$> ( x
-                            Data..@? "Failures"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "Failures" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -166,5 +164,5 @@ disableInsightRulesResponse_httpStatus = Lens.lens (\DisableInsightRulesResponse
 
 instance Prelude.NFData DisableInsightRulesResponse where
   rnf DisableInsightRulesResponse' {..} =
-    Prelude.rnf failures
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf failures `Prelude.seq`
+      Prelude.rnf httpStatus

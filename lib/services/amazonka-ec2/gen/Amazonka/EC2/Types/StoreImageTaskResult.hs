@@ -136,10 +136,10 @@ instance Prelude.Hashable StoreImageTaskResult where
 
 instance Prelude.NFData StoreImageTaskResult where
   rnf StoreImageTaskResult' {..} =
-    Prelude.rnf amiId
-      `Prelude.seq` Prelude.rnf bucket
-      `Prelude.seq` Prelude.rnf progressPercentage
-      `Prelude.seq` Prelude.rnf s3objectKey
-      `Prelude.seq` Prelude.rnf storeTaskFailureReason
-      `Prelude.seq` Prelude.rnf storeTaskState
-      `Prelude.seq` Prelude.rnf taskStartTime
+    Prelude.rnf amiId `Prelude.seq`
+      Prelude.rnf bucket `Prelude.seq`
+        Prelude.rnf progressPercentage `Prelude.seq`
+          Prelude.rnf s3objectKey `Prelude.seq`
+            Prelude.rnf storeTaskFailureReason `Prelude.seq`
+              Prelude.rnf storeTaskState `Prelude.seq`
+                Prelude.rnf taskStartTime

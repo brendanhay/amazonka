@@ -115,8 +115,8 @@ instance Prelude.Hashable UpdateSmsChannel where
 
 instance Prelude.NFData UpdateSmsChannel where
   rnf UpdateSmsChannel' {..} =
-    Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf sMSChannelRequest
+    Prelude.rnf applicationId `Prelude.seq`
+      Prelude.rnf sMSChannelRequest
 
 instance Data.ToHeaders UpdateSmsChannel where
   toHeaders =
@@ -188,5 +188,5 @@ updateSmsChannelResponse_sMSChannelResponse = Lens.lens (\UpdateSmsChannelRespon
 
 instance Prelude.NFData UpdateSmsChannelResponse where
   rnf UpdateSmsChannelResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf sMSChannelResponse
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf sMSChannelResponse

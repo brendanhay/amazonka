@@ -84,5 +84,5 @@ instance
     PartnerIntegrationOutputMessage
   where
   rnf PartnerIntegrationOutputMessage' {..} =
-    Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf partnerName
+    Prelude.rnf databaseName `Prelude.seq`
+      Prelude.rnf partnerName

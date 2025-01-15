@@ -145,8 +145,8 @@ instance Prelude.Hashable AssociateConnectionWithLag where
 
 instance Prelude.NFData AssociateConnectionWithLag where
   rnf AssociateConnectionWithLag' {..} =
-    Prelude.rnf connectionId
-      `Prelude.seq` Prelude.rnf lagId
+    Prelude.rnf connectionId `Prelude.seq`
+      Prelude.rnf lagId
 
 instance Data.ToHeaders AssociateConnectionWithLag where
   toHeaders =

@@ -160,5 +160,5 @@ getInsightResultsResponse_insightResults = Lens.lens (\GetInsightResultsResponse
 
 instance Prelude.NFData GetInsightResultsResponse where
   rnf GetInsightResultsResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf insightResults
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf insightResults

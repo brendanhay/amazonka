@@ -187,10 +187,10 @@ instance Prelude.Hashable BuildArtifacts where
 
 instance Prelude.NFData BuildArtifacts where
   rnf BuildArtifacts' {..} =
-    Prelude.rnf artifactIdentifier
-      `Prelude.seq` Prelude.rnf bucketOwnerAccess
-      `Prelude.seq` Prelude.rnf encryptionDisabled
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf md5sum
-      `Prelude.seq` Prelude.rnf overrideArtifactName
-      `Prelude.seq` Prelude.rnf sha256sum
+    Prelude.rnf artifactIdentifier `Prelude.seq`
+      Prelude.rnf bucketOwnerAccess `Prelude.seq`
+        Prelude.rnf encryptionDisabled `Prelude.seq`
+          Prelude.rnf location `Prelude.seq`
+            Prelude.rnf md5sum `Prelude.seq`
+              Prelude.rnf overrideArtifactName `Prelude.seq`
+                Prelude.rnf sha256sum

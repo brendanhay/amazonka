@@ -197,6 +197,6 @@ publishAppVersionResponse_appArn = Lens.lens (\PublishAppVersionResponse' {appAr
 
 instance Prelude.NFData PublishAppVersionResponse where
   rnf PublishAppVersionResponse' {..} =
-    Prelude.rnf appVersion
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf appArn
+    Prelude.rnf appVersion `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf appArn

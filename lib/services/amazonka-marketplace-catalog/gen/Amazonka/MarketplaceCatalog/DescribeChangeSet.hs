@@ -132,8 +132,8 @@ instance Prelude.Hashable DescribeChangeSet where
 
 instance Prelude.NFData DescribeChangeSet where
   rnf DescribeChangeSet' {..} =
-    Prelude.rnf catalog
-      `Prelude.seq` Prelude.rnf changeSetId
+    Prelude.rnf catalog `Prelude.seq`
+      Prelude.rnf changeSetId
 
 instance Data.ToHeaders DescribeChangeSet where
   toHeaders =
@@ -299,13 +299,13 @@ describeChangeSetResponse_httpStatus = Lens.lens (\DescribeChangeSetResponse' {h
 
 instance Prelude.NFData DescribeChangeSetResponse where
   rnf DescribeChangeSetResponse' {..} =
-    Prelude.rnf changeSet
-      `Prelude.seq` Prelude.rnf changeSetArn
-      `Prelude.seq` Prelude.rnf changeSetId
-      `Prelude.seq` Prelude.rnf changeSetName
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf failureCode
-      `Prelude.seq` Prelude.rnf failureDescription
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf changeSet `Prelude.seq`
+      Prelude.rnf changeSetArn `Prelude.seq`
+        Prelude.rnf changeSetId `Prelude.seq`
+          Prelude.rnf changeSetName `Prelude.seq`
+            Prelude.rnf endTime `Prelude.seq`
+              Prelude.rnf failureCode `Prelude.seq`
+                Prelude.rnf failureDescription `Prelude.seq`
+                  Prelude.rnf startTime `Prelude.seq`
+                    Prelude.rnf status `Prelude.seq`
+                      Prelude.rnf httpStatus

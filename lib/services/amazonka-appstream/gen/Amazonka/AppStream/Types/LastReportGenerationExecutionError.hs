@@ -100,5 +100,5 @@ instance
     LastReportGenerationExecutionError
   where
   rnf LastReportGenerationExecutionError' {..} =
-    Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorMessage
+    Prelude.rnf errorCode `Prelude.seq`
+      Prelude.rnf errorMessage

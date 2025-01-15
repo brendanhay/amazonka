@@ -246,13 +246,13 @@ instance Prelude.Hashable ReportInstanceStatus where
 
 instance Prelude.NFData ReportInstanceStatus where
   rnf ReportInstanceStatus' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf instances
-      `Prelude.seq` Prelude.rnf reasonCodes
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf endTime `Prelude.seq`
+          Prelude.rnf startTime `Prelude.seq`
+            Prelude.rnf instances `Prelude.seq`
+              Prelude.rnf reasonCodes `Prelude.seq`
+                Prelude.rnf status
 
 instance Data.ToHeaders ReportInstanceStatus where
   toHeaders = Prelude.const Prelude.mempty

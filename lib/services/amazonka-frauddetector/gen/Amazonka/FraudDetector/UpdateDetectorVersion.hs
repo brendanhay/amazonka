@@ -198,13 +198,13 @@ instance Prelude.Hashable UpdateDetectorVersion where
 
 instance Prelude.NFData UpdateDetectorVersion where
   rnf UpdateDetectorVersion' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf modelVersions
-      `Prelude.seq` Prelude.rnf ruleExecutionMode
-      `Prelude.seq` Prelude.rnf detectorId
-      `Prelude.seq` Prelude.rnf detectorVersionId
-      `Prelude.seq` Prelude.rnf externalModelEndpoints
-      `Prelude.seq` Prelude.rnf rules
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf modelVersions `Prelude.seq`
+        Prelude.rnf ruleExecutionMode `Prelude.seq`
+          Prelude.rnf detectorId `Prelude.seq`
+            Prelude.rnf detectorVersionId `Prelude.seq`
+              Prelude.rnf externalModelEndpoints `Prelude.seq`
+                Prelude.rnf rules
 
 instance Data.ToHeaders UpdateDetectorVersion where
   toHeaders =

@@ -89,5 +89,5 @@ instance Prelude.Hashable TargetReservationValue where
 
 instance Prelude.NFData TargetReservationValue where
   rnf TargetReservationValue' {..} =
-    Prelude.rnf reservationValue
-      `Prelude.seq` Prelude.rnf targetConfiguration
+    Prelude.rnf reservationValue `Prelude.seq`
+      Prelude.rnf targetConfiguration

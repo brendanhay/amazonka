@@ -136,9 +136,9 @@ instance Prelude.Hashable DeleteCustomVocabulary where
 
 instance Prelude.NFData DeleteCustomVocabulary where
   rnf DeleteCustomVocabulary' {..} =
-    Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf botVersion
-      `Prelude.seq` Prelude.rnf localeId
+    Prelude.rnf botId `Prelude.seq`
+      Prelude.rnf botVersion `Prelude.seq`
+        Prelude.rnf localeId
 
 instance Data.ToHeaders DeleteCustomVocabulary where
   toHeaders =
@@ -240,8 +240,8 @@ instance
     DeleteCustomVocabularyResponse
   where
   rnf DeleteCustomVocabularyResponse' {..} =
-    Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf botVersion
-      `Prelude.seq` Prelude.rnf customVocabularyStatus
-      `Prelude.seq` Prelude.rnf localeId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf botId `Prelude.seq`
+      Prelude.rnf botVersion `Prelude.seq`
+        Prelude.rnf customVocabularyStatus `Prelude.seq`
+          Prelude.rnf localeId `Prelude.seq`
+            Prelude.rnf httpStatus

@@ -191,12 +191,12 @@ instance Prelude.Hashable TransferContact where
 
 instance Prelude.NFData TransferContact where
   rnf TransferContact' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf queueId
-      `Prelude.seq` Prelude.rnf userId
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf contactId
-      `Prelude.seq` Prelude.rnf contactFlowId
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf queueId `Prelude.seq`
+        Prelude.rnf userId `Prelude.seq`
+          Prelude.rnf instanceId `Prelude.seq`
+            Prelude.rnf contactId `Prelude.seq`
+              Prelude.rnf contactFlowId
 
 instance Data.ToHeaders TransferContact where
   toHeaders =
@@ -279,6 +279,6 @@ transferContactResponse_httpStatus = Lens.lens (\TransferContactResponse' {httpS
 
 instance Prelude.NFData TransferContactResponse where
   rnf TransferContactResponse' {..} =
-    Prelude.rnf contactArn
-      `Prelude.seq` Prelude.rnf contactId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf contactArn `Prelude.seq`
+      Prelude.rnf contactId `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -208,12 +208,12 @@ instance Prelude.Hashable PlayReadyDrm where
 
 instance Prelude.NFData PlayReadyDrm where
   rnf PlayReadyDrm' {..} =
-    Prelude.rnf format
-      `Prelude.seq` Prelude.rnf initializationVector
-      `Prelude.seq` Prelude.rnf key
-      `Prelude.seq` Prelude.rnf keyId
-      `Prelude.seq` Prelude.rnf keyMd5
-      `Prelude.seq` Prelude.rnf licenseAcquisitionUrl
+    Prelude.rnf format `Prelude.seq`
+      Prelude.rnf initializationVector `Prelude.seq`
+        Prelude.rnf key `Prelude.seq`
+          Prelude.rnf keyId `Prelude.seq`
+            Prelude.rnf keyMd5 `Prelude.seq`
+              Prelude.rnf licenseAcquisitionUrl
 
 instance Data.ToJSON PlayReadyDrm where
   toJSON PlayReadyDrm' {..} =

@@ -293,15 +293,15 @@ describeDeviceResponse_httpStatus = Lens.lens (\DescribeDeviceResponse' {httpSta
 
 instance Prelude.NFData DescribeDeviceResponse where
   rnf DescribeDeviceResponse' {..} =
-    Prelude.rnf associatedWithJob
-      `Prelude.seq` Prelude.rnf deviceCapacities
-      `Prelude.seq` Prelude.rnf deviceState
-      `Prelude.seq` Prelude.rnf deviceType
-      `Prelude.seq` Prelude.rnf lastReachedOutAt
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf managedDeviceArn
-      `Prelude.seq` Prelude.rnf managedDeviceId
-      `Prelude.seq` Prelude.rnf physicalNetworkInterfaces
-      `Prelude.seq` Prelude.rnf software
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf associatedWithJob `Prelude.seq`
+      Prelude.rnf deviceCapacities `Prelude.seq`
+        Prelude.rnf deviceState `Prelude.seq`
+          Prelude.rnf deviceType `Prelude.seq`
+            Prelude.rnf lastReachedOutAt `Prelude.seq`
+              Prelude.rnf lastUpdatedAt `Prelude.seq`
+                Prelude.rnf managedDeviceArn `Prelude.seq`
+                  Prelude.rnf managedDeviceId `Prelude.seq`
+                    Prelude.rnf physicalNetworkInterfaces `Prelude.seq`
+                      Prelude.rnf software `Prelude.seq`
+                        Prelude.rnf tags `Prelude.seq`
+                          Prelude.rnf httpStatus

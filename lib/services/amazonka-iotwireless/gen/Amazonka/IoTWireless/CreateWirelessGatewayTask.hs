@@ -115,8 +115,8 @@ instance Prelude.Hashable CreateWirelessGatewayTask where
 
 instance Prelude.NFData CreateWirelessGatewayTask where
   rnf CreateWirelessGatewayTask' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf wirelessGatewayTaskDefinitionId
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf wirelessGatewayTaskDefinitionId
 
 instance Data.ToHeaders CreateWirelessGatewayTask where
   toHeaders = Prelude.const Prelude.mempty
@@ -194,6 +194,6 @@ instance
     CreateWirelessGatewayTaskResponse
   where
   rnf CreateWirelessGatewayTaskResponse' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf wirelessGatewayTaskDefinitionId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf status `Prelude.seq`
+      Prelude.rnf wirelessGatewayTaskDefinitionId `Prelude.seq`
+        Prelude.rnf httpStatus

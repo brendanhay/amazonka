@@ -164,12 +164,12 @@ instance Core.AWSPager DescribeProjectVersions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeProjectVersions_nextToken
-          Lens..~ rs
-          Lens.^? describeProjectVersionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeProjectVersions_nextToken
+              Lens..~ rs
+              Lens.^? describeProjectVersionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeProjectVersions where
   type
@@ -199,10 +199,10 @@ instance Prelude.Hashable DescribeProjectVersions where
 
 instance Prelude.NFData DescribeProjectVersions where
   rnf DescribeProjectVersions' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf versionNames
-      `Prelude.seq` Prelude.rnf projectArn
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf versionNames `Prelude.seq`
+          Prelude.rnf projectArn
 
 instance Data.ToHeaders DescribeProjectVersions where
   toHeaders =
@@ -302,6 +302,6 @@ instance
     DescribeProjectVersionsResponse
   where
   rnf DescribeProjectVersionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf projectVersionDescriptions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf projectVersionDescriptions `Prelude.seq`
+        Prelude.rnf httpStatus

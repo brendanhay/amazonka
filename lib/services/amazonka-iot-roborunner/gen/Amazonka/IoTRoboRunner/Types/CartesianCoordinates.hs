@@ -95,9 +95,9 @@ instance Prelude.Hashable CartesianCoordinates where
 
 instance Prelude.NFData CartesianCoordinates where
   rnf CartesianCoordinates' {..} =
-    Prelude.rnf z
-      `Prelude.seq` Prelude.rnf x
-      `Prelude.seq` Prelude.rnf y
+    Prelude.rnf z `Prelude.seq`
+      Prelude.rnf x `Prelude.seq`
+        Prelude.rnf y
 
 instance Data.ToJSON CartesianCoordinates where
   toJSON CartesianCoordinates' {..} =

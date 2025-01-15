@@ -86,5 +86,5 @@ instance Prelude.Hashable ChangeProgressDetails where
 
 instance Prelude.NFData ChangeProgressDetails where
   rnf ChangeProgressDetails' {..} =
-    Prelude.rnf changeId
-      `Prelude.seq` Prelude.rnf message
+    Prelude.rnf changeId `Prelude.seq`
+      Prelude.rnf message

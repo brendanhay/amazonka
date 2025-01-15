@@ -108,8 +108,8 @@ instance Prelude.Hashable LabelSchema where
 
 instance Prelude.NFData LabelSchema where
   rnf LabelSchema' {..} =
-    Prelude.rnf labelMapper
-      `Prelude.seq` Prelude.rnf unlabeledEventsTreatment
+    Prelude.rnf labelMapper `Prelude.seq`
+      Prelude.rnf unlabeledEventsTreatment
 
 instance Data.ToJSON LabelSchema where
   toJSON LabelSchema' {..} =

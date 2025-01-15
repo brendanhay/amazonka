@@ -131,8 +131,8 @@ instance Prelude.Hashable GetPipelineDefinition where
 
 instance Prelude.NFData GetPipelineDefinition where
   rnf GetPipelineDefinition' {..} =
-    Prelude.rnf version
-      `Prelude.seq` Prelude.rnf pipelineId
+    Prelude.rnf version `Prelude.seq`
+      Prelude.rnf pipelineId
 
 instance Data.ToHeaders GetPipelineDefinition where
   toHeaders =
@@ -225,7 +225,7 @@ getPipelineDefinitionResponse_httpStatus = Lens.lens (\GetPipelineDefinitionResp
 
 instance Prelude.NFData GetPipelineDefinitionResponse where
   rnf GetPipelineDefinitionResponse' {..} =
-    Prelude.rnf parameterObjects
-      `Prelude.seq` Prelude.rnf parameterValues
-      `Prelude.seq` Prelude.rnf pipelineObjects
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf parameterObjects `Prelude.seq`
+      Prelude.rnf parameterValues `Prelude.seq`
+        Prelude.rnf pipelineObjects `Prelude.seq`
+          Prelude.rnf httpStatus

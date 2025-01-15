@@ -193,10 +193,10 @@ instance Prelude.Hashable DescribeStackInstance where
 
 instance Prelude.NFData DescribeStackInstance where
   rnf DescribeStackInstance' {..} =
-    Prelude.rnf callAs
-      `Prelude.seq` Prelude.rnf stackSetName
-      `Prelude.seq` Prelude.rnf stackInstanceAccount
-      `Prelude.seq` Prelude.rnf stackInstanceRegion
+    Prelude.rnf callAs `Prelude.seq`
+      Prelude.rnf stackSetName `Prelude.seq`
+        Prelude.rnf stackInstanceAccount `Prelude.seq`
+          Prelude.rnf stackInstanceRegion
 
 instance Data.ToHeaders DescribeStackInstance where
   toHeaders = Prelude.const Prelude.mempty
@@ -258,5 +258,5 @@ describeStackInstanceResponse_httpStatus = Lens.lens (\DescribeStackInstanceResp
 
 instance Prelude.NFData DescribeStackInstanceResponse where
   rnf DescribeStackInstanceResponse' {..} =
-    Prelude.rnf stackInstance
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf stackInstance `Prelude.seq`
+      Prelude.rnf httpStatus

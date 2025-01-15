@@ -201,16 +201,16 @@ instance Prelude.Hashable ColumnMetadata where
 
 instance Prelude.NFData ColumnMetadata where
   rnf ColumnMetadata' {..} =
-    Prelude.rnf columnDefault
-      `Prelude.seq` Prelude.rnf isCaseSensitive
-      `Prelude.seq` Prelude.rnf isCurrency
-      `Prelude.seq` Prelude.rnf isSigned
-      `Prelude.seq` Prelude.rnf label
-      `Prelude.seq` Prelude.rnf length
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf nullable
-      `Prelude.seq` Prelude.rnf precision
-      `Prelude.seq` Prelude.rnf scale
-      `Prelude.seq` Prelude.rnf schemaName
-      `Prelude.seq` Prelude.rnf tableName
-      `Prelude.seq` Prelude.rnf typeName
+    Prelude.rnf columnDefault `Prelude.seq`
+      Prelude.rnf isCaseSensitive `Prelude.seq`
+        Prelude.rnf isCurrency `Prelude.seq`
+          Prelude.rnf isSigned `Prelude.seq`
+            Prelude.rnf label `Prelude.seq`
+              Prelude.rnf length `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf nullable `Prelude.seq`
+                    Prelude.rnf precision `Prelude.seq`
+                      Prelude.rnf scale `Prelude.seq`
+                        Prelude.rnf schemaName `Prelude.seq`
+                          Prelude.rnf tableName `Prelude.seq`
+                            Prelude.rnf typeName

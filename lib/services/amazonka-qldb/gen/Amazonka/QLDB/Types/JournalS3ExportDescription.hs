@@ -222,12 +222,12 @@ instance Prelude.Hashable JournalS3ExportDescription where
 
 instance Prelude.NFData JournalS3ExportDescription where
   rnf JournalS3ExportDescription' {..} =
-    Prelude.rnf outputFormat
-      `Prelude.seq` Prelude.rnf ledgerName
-      `Prelude.seq` Prelude.rnf exportId
-      `Prelude.seq` Prelude.rnf exportCreationTime
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf inclusiveStartTime
-      `Prelude.seq` Prelude.rnf exclusiveEndTime
-      `Prelude.seq` Prelude.rnf s3ExportConfiguration
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf outputFormat `Prelude.seq`
+      Prelude.rnf ledgerName `Prelude.seq`
+        Prelude.rnf exportId `Prelude.seq`
+          Prelude.rnf exportCreationTime `Prelude.seq`
+            Prelude.rnf status `Prelude.seq`
+              Prelude.rnf inclusiveStartTime `Prelude.seq`
+                Prelude.rnf exclusiveEndTime `Prelude.seq`
+                  Prelude.rnf s3ExportConfiguration `Prelude.seq`
+                    Prelude.rnf roleArn

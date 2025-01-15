@@ -148,9 +148,9 @@ instance
     SetLoadBalancerListenerSSLCertificate
   where
   rnf SetLoadBalancerListenerSSLCertificate' {..} =
-    Prelude.rnf loadBalancerName
-      `Prelude.seq` Prelude.rnf loadBalancerPort
-      `Prelude.seq` Prelude.rnf sSLCertificateId
+    Prelude.rnf loadBalancerName `Prelude.seq`
+      Prelude.rnf loadBalancerPort `Prelude.seq`
+        Prelude.rnf sSLCertificateId
 
 instance
   Data.ToHeaders

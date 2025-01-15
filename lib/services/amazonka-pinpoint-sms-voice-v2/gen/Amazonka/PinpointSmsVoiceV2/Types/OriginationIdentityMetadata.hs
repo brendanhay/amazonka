@@ -123,7 +123,7 @@ instance Prelude.Hashable OriginationIdentityMetadata where
 
 instance Prelude.NFData OriginationIdentityMetadata where
   rnf OriginationIdentityMetadata' {..} =
-    Prelude.rnf originationIdentityArn
-      `Prelude.seq` Prelude.rnf originationIdentity
-      `Prelude.seq` Prelude.rnf isoCountryCode
-      `Prelude.seq` Prelude.rnf numberCapabilities
+    Prelude.rnf originationIdentityArn `Prelude.seq`
+      Prelude.rnf originationIdentity `Prelude.seq`
+        Prelude.rnf isoCountryCode `Prelude.seq`
+          Prelude.rnf numberCapabilities

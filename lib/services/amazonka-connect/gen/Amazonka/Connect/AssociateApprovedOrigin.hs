@@ -108,8 +108,8 @@ instance Prelude.Hashable AssociateApprovedOrigin where
 
 instance Prelude.NFData AssociateApprovedOrigin where
   rnf AssociateApprovedOrigin' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf origin
+    Prelude.rnf instanceId `Prelude.seq`
+      Prelude.rnf origin
 
 instance Data.ToHeaders AssociateApprovedOrigin where
   toHeaders =

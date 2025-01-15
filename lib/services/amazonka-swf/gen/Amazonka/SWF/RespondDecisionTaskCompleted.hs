@@ -156,9 +156,9 @@ instance
 
 instance Prelude.NFData RespondDecisionTaskCompleted where
   rnf RespondDecisionTaskCompleted' {..} =
-    Prelude.rnf decisions
-      `Prelude.seq` Prelude.rnf executionContext
-      `Prelude.seq` Prelude.rnf taskToken
+    Prelude.rnf decisions `Prelude.seq`
+      Prelude.rnf executionContext `Prelude.seq`
+        Prelude.rnf taskToken
 
 instance Data.ToHeaders RespondDecisionTaskCompleted where
   toHeaders =

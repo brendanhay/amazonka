@@ -190,12 +190,12 @@ instance Core.AWSPager ListUsers where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listUsers_marker
-          Lens..~ rs
-          Lens.^? listUsersResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listUsers_marker
+              Lens..~ rs
+              Lens.^? listUsersResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListUsers where
   type AWSResponse ListUsers = ListUsersResponse
@@ -209,9 +209,7 @@ instance Core.AWSRequest ListUsers where
             Prelude.<$> (x Data..@? "IsTruncated")
             Prelude.<*> (x Data..@? "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x
-                            Data..@? "Users"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "Users" Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLList "member"
                         )
       )
@@ -225,9 +223,9 @@ instance Prelude.Hashable ListUsers where
 
 instance Prelude.NFData ListUsers where
   rnf ListUsers' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxItems
-      `Prelude.seq` Prelude.rnf pathPrefix
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf maxItems `Prelude.seq`
+        Prelude.rnf pathPrefix
 
 instance Data.ToHeaders ListUsers where
   toHeaders = Prelude.const Prelude.mempty
@@ -331,7 +329,7 @@ listUsersResponse_users = Lens.lens (\ListUsersResponse' {users} -> users) (\s@L
 
 instance Prelude.NFData ListUsersResponse where
   rnf ListUsersResponse' {..} =
-    Prelude.rnf isTruncated
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf users
+    Prelude.rnf isTruncated `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf httpStatus `Prelude.seq`
+          Prelude.rnf users

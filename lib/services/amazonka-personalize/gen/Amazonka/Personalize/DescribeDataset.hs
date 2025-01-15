@@ -164,5 +164,5 @@ describeDatasetResponse_httpStatus = Lens.lens (\DescribeDatasetResponse' {httpS
 
 instance Prelude.NFData DescribeDatasetResponse where
   rnf DescribeDatasetResponse' {..} =
-    Prelude.rnf dataset
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dataset `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -128,9 +128,9 @@ instance Prelude.Hashable UpdateConnector where
 
 instance Prelude.NFData UpdateConnector where
   rnf UpdateConnector' {..} =
-    Prelude.rnf capacity
-      `Prelude.seq` Prelude.rnf connectorArn
-      `Prelude.seq` Prelude.rnf currentVersion
+    Prelude.rnf capacity `Prelude.seq`
+      Prelude.rnf connectorArn `Prelude.seq`
+        Prelude.rnf currentVersion
 
 instance Data.ToHeaders UpdateConnector where
   toHeaders =
@@ -210,6 +210,6 @@ updateConnectorResponse_httpStatus = Lens.lens (\UpdateConnectorResponse' {httpS
 
 instance Prelude.NFData UpdateConnectorResponse where
   rnf UpdateConnectorResponse' {..} =
-    Prelude.rnf connectorArn
-      `Prelude.seq` Prelude.rnf connectorState
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf connectorArn `Prelude.seq`
+      Prelude.rnf connectorState `Prelude.seq`
+        Prelude.rnf httpStatus

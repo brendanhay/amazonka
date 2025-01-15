@@ -144,12 +144,12 @@ instance Core.AWSPager DescribeStandardsControls where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeStandardsControls_nextToken
-          Lens..~ rs
-          Lens.^? describeStandardsControlsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeStandardsControls_nextToken
+              Lens..~ rs
+              Lens.^? describeStandardsControlsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeStandardsControls where
   type
@@ -175,9 +175,9 @@ instance Prelude.Hashable DescribeStandardsControls where
 
 instance Prelude.NFData DescribeStandardsControls where
   rnf DescribeStandardsControls' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf standardsSubscriptionArn
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf standardsSubscriptionArn
 
 instance Data.ToHeaders DescribeStandardsControls where
   toHeaders =
@@ -257,6 +257,6 @@ instance
     DescribeStandardsControlsResponse
   where
   rnf DescribeStandardsControlsResponse' {..} =
-    Prelude.rnf controls
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf controls `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

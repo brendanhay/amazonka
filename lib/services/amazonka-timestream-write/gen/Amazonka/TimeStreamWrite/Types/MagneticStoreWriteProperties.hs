@@ -92,8 +92,8 @@ instance
 
 instance Prelude.NFData MagneticStoreWriteProperties where
   rnf MagneticStoreWriteProperties' {..} =
-    Prelude.rnf magneticStoreRejectedDataLocation
-      `Prelude.seq` Prelude.rnf enableMagneticStoreWrites
+    Prelude.rnf magneticStoreRejectedDataLocation `Prelude.seq`
+      Prelude.rnf enableMagneticStoreWrites
 
 instance Data.ToJSON MagneticStoreWriteProperties where
   toJSON MagneticStoreWriteProperties' {..} =

@@ -283,13 +283,13 @@ instance Prelude.Hashable Artwork where
 
 instance Prelude.NFData Artwork where
   rnf Artwork' {..} =
-    Prelude.rnf albumArtFormat
-      `Prelude.seq` Prelude.rnf encryption
-      `Prelude.seq` Prelude.rnf inputKey
-      `Prelude.seq` Prelude.rnf maxHeight
-      `Prelude.seq` Prelude.rnf maxWidth
-      `Prelude.seq` Prelude.rnf paddingPolicy
-      `Prelude.seq` Prelude.rnf sizingPolicy
+    Prelude.rnf albumArtFormat `Prelude.seq`
+      Prelude.rnf encryption `Prelude.seq`
+        Prelude.rnf inputKey `Prelude.seq`
+          Prelude.rnf maxHeight `Prelude.seq`
+            Prelude.rnf maxWidth `Prelude.seq`
+              Prelude.rnf paddingPolicy `Prelude.seq`
+                Prelude.rnf sizingPolicy
 
 instance Data.ToJSON Artwork where
   toJSON Artwork' {..} =

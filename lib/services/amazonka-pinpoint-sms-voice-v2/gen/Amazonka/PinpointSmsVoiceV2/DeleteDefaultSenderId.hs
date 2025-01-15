@@ -207,7 +207,7 @@ deleteDefaultSenderIdResponse_httpStatus = Lens.lens (\DeleteDefaultSenderIdResp
 
 instance Prelude.NFData DeleteDefaultSenderIdResponse where
   rnf DeleteDefaultSenderIdResponse' {..} =
-    Prelude.rnf configurationSetArn
-      `Prelude.seq` Prelude.rnf configurationSetName
-      `Prelude.seq` Prelude.rnf senderId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf configurationSetArn `Prelude.seq`
+      Prelude.rnf configurationSetName `Prelude.seq`
+        Prelude.rnf senderId `Prelude.seq`
+          Prelude.rnf httpStatus

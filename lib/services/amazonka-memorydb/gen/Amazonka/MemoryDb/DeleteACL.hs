@@ -161,5 +161,5 @@ deleteACLResponse_httpStatus = Lens.lens (\DeleteACLResponse' {httpStatus} -> ht
 
 instance Prelude.NFData DeleteACLResponse where
   rnf DeleteACLResponse' {..} =
-    Prelude.rnf acl
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf acl `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -93,8 +93,8 @@ instance
 
 instance Prelude.NFData ResultReuseByAgeConfiguration where
   rnf ResultReuseByAgeConfiguration' {..} =
-    Prelude.rnf maxAgeInMinutes
-      `Prelude.seq` Prelude.rnf enabled
+    Prelude.rnf maxAgeInMinutes `Prelude.seq`
+      Prelude.rnf enabled
 
 instance Data.ToJSON ResultReuseByAgeConfiguration where
   toJSON ResultReuseByAgeConfiguration' {..} =

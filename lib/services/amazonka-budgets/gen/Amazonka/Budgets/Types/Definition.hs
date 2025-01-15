@@ -94,9 +94,9 @@ instance Prelude.Hashable Definition where
 
 instance Prelude.NFData Definition where
   rnf Definition' {..} =
-    Prelude.rnf iamActionDefinition
-      `Prelude.seq` Prelude.rnf scpActionDefinition
-      `Prelude.seq` Prelude.rnf ssmActionDefinition
+    Prelude.rnf iamActionDefinition `Prelude.seq`
+      Prelude.rnf scpActionDefinition `Prelude.seq`
+        Prelude.rnf ssmActionDefinition
 
 instance Data.ToJSON Definition where
   toJSON Definition' {..} =

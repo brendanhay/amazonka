@@ -169,5 +169,5 @@ instance
     DeleteDatalakeExceptionsSubscriptionResponse
   where
   rnf DeleteDatalakeExceptionsSubscriptionResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf status

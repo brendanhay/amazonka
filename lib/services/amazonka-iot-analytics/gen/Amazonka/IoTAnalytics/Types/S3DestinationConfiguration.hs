@@ -180,10 +180,10 @@ instance Prelude.Hashable S3DestinationConfiguration where
 
 instance Prelude.NFData S3DestinationConfiguration where
   rnf S3DestinationConfiguration' {..} =
-    Prelude.rnf glueConfiguration
-      `Prelude.seq` Prelude.rnf bucket
-      `Prelude.seq` Prelude.rnf key
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf glueConfiguration `Prelude.seq`
+      Prelude.rnf bucket `Prelude.seq`
+        Prelude.rnf key `Prelude.seq`
+          Prelude.rnf roleArn
 
 instance Data.ToJSON S3DestinationConfiguration where
   toJSON S3DestinationConfiguration' {..} =

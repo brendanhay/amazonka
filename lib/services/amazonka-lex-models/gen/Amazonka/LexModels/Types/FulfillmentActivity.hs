@@ -105,8 +105,8 @@ instance Prelude.Hashable FulfillmentActivity where
 
 instance Prelude.NFData FulfillmentActivity where
   rnf FulfillmentActivity' {..} =
-    Prelude.rnf codeHook
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf codeHook `Prelude.seq`
+      Prelude.rnf type'
 
 instance Data.ToJSON FulfillmentActivity where
   toJSON FulfillmentActivity' {..} =

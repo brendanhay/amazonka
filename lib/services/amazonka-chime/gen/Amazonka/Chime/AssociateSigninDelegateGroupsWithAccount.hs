@@ -122,8 +122,8 @@ instance
     AssociateSigninDelegateGroupsWithAccount
   where
   rnf AssociateSigninDelegateGroupsWithAccount' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf signinDelegateGroups
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf signinDelegateGroups
 
 instance
   Data.ToHeaders

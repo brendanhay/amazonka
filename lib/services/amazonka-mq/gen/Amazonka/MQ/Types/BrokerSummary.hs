@@ -162,11 +162,11 @@ instance Prelude.Hashable BrokerSummary where
 
 instance Prelude.NFData BrokerSummary where
   rnf BrokerSummary' {..} =
-    Prelude.rnf brokerArn
-      `Prelude.seq` Prelude.rnf brokerId
-      `Prelude.seq` Prelude.rnf brokerName
-      `Prelude.seq` Prelude.rnf brokerState
-      `Prelude.seq` Prelude.rnf created
-      `Prelude.seq` Prelude.rnf hostInstanceType
-      `Prelude.seq` Prelude.rnf deploymentMode
-      `Prelude.seq` Prelude.rnf engineType
+    Prelude.rnf brokerArn `Prelude.seq`
+      Prelude.rnf brokerId `Prelude.seq`
+        Prelude.rnf brokerName `Prelude.seq`
+          Prelude.rnf brokerState `Prelude.seq`
+            Prelude.rnf created `Prelude.seq`
+              Prelude.rnf hostInstanceType `Prelude.seq`
+                Prelude.rnf deploymentMode `Prelude.seq`
+                  Prelude.rnf engineType

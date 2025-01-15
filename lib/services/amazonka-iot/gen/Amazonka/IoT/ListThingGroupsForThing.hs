@@ -125,12 +125,12 @@ instance Core.AWSPager ListThingGroupsForThing where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listThingGroupsForThing_nextToken
-          Lens..~ rs
-          Lens.^? listThingGroupsForThingResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listThingGroupsForThing_nextToken
+              Lens..~ rs
+              Lens.^? listThingGroupsForThingResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListThingGroupsForThing where
   type
@@ -156,9 +156,9 @@ instance Prelude.Hashable ListThingGroupsForThing where
 
 instance Prelude.NFData ListThingGroupsForThing where
   rnf ListThingGroupsForThing' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf thingName
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf thingName
 
 instance Data.ToHeaders ListThingGroupsForThing where
   toHeaders = Prelude.const Prelude.mempty
@@ -231,6 +231,6 @@ instance
     ListThingGroupsForThingResponse
   where
   rnf ListThingGroupsForThingResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf thingGroups
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf thingGroups `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -242,12 +242,12 @@ instance Prelude.Hashable UserByPermissionGroup where
 
 instance Prelude.NFData UserByPermissionGroup where
   rnf UserByPermissionGroup' {..} =
-    Prelude.rnf apiAccess
-      `Prelude.seq` Prelude.rnf apiAccessPrincipalArn
-      `Prelude.seq` Prelude.rnf emailAddress
-      `Prelude.seq` Prelude.rnf firstName
-      `Prelude.seq` Prelude.rnf lastName
-      `Prelude.seq` Prelude.rnf membershipStatus
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf userId
+    Prelude.rnf apiAccess `Prelude.seq`
+      Prelude.rnf apiAccessPrincipalArn `Prelude.seq`
+        Prelude.rnf emailAddress `Prelude.seq`
+          Prelude.rnf firstName `Prelude.seq`
+            Prelude.rnf lastName `Prelude.seq`
+              Prelude.rnf membershipStatus `Prelude.seq`
+                Prelude.rnf status `Prelude.seq`
+                  Prelude.rnf type' `Prelude.seq`
+                    Prelude.rnf userId

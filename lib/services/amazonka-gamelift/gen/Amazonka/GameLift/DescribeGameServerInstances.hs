@@ -166,12 +166,12 @@ instance Core.AWSPager DescribeGameServerInstances where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeGameServerInstances_nextToken
-          Lens..~ rs
-          Lens.^? describeGameServerInstancesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeGameServerInstances_nextToken
+              Lens..~ rs
+              Lens.^? describeGameServerInstancesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeGameServerInstances where
   type
@@ -201,10 +201,10 @@ instance Prelude.Hashable DescribeGameServerInstances where
 
 instance Prelude.NFData DescribeGameServerInstances where
   rnf DescribeGameServerInstances' {..} =
-    Prelude.rnf instanceIds
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf gameServerGroupName
+    Prelude.rnf instanceIds `Prelude.seq`
+      Prelude.rnf limit `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf gameServerGroupName
 
 instance Data.ToHeaders DescribeGameServerInstances where
   toHeaders =
@@ -298,6 +298,6 @@ instance
     DescribeGameServerInstancesResponse
   where
   rnf DescribeGameServerInstancesResponse' {..} =
-    Prelude.rnf gameServerInstances
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf gameServerInstances `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

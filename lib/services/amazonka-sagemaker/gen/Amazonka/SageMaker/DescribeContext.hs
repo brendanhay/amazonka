@@ -270,15 +270,15 @@ describeContextResponse_httpStatus = Lens.lens (\DescribeContextResponse' {httpS
 
 instance Prelude.NFData DescribeContextResponse where
   rnf DescribeContextResponse' {..} =
-    Prelude.rnf contextArn
-      `Prelude.seq` Prelude.rnf contextName
-      `Prelude.seq` Prelude.rnf contextType
-      `Prelude.seq` Prelude.rnf createdBy
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf lastModifiedBy
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf lineageGroupArn
-      `Prelude.seq` Prelude.rnf properties
-      `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf contextArn `Prelude.seq`
+      Prelude.rnf contextName `Prelude.seq`
+        Prelude.rnf contextType `Prelude.seq`
+          Prelude.rnf createdBy `Prelude.seq`
+            Prelude.rnf creationTime `Prelude.seq`
+              Prelude.rnf description `Prelude.seq`
+                Prelude.rnf lastModifiedBy `Prelude.seq`
+                  Prelude.rnf lastModifiedTime `Prelude.seq`
+                    Prelude.rnf lineageGroupArn `Prelude.seq`
+                      Prelude.rnf properties `Prelude.seq`
+                        Prelude.rnf source `Prelude.seq`
+                          Prelude.rnf httpStatus

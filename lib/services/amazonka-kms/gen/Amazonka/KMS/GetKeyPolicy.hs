@@ -156,8 +156,8 @@ instance Prelude.Hashable GetKeyPolicy where
 
 instance Prelude.NFData GetKeyPolicy where
   rnf GetKeyPolicy' {..} =
-    Prelude.rnf keyId
-      `Prelude.seq` Prelude.rnf policyName
+    Prelude.rnf keyId `Prelude.seq`
+      Prelude.rnf policyName
 
 instance Data.ToHeaders GetKeyPolicy where
   toHeaders =
@@ -227,5 +227,5 @@ getKeyPolicyResponse_httpStatus = Lens.lens (\GetKeyPolicyResponse' {httpStatus}
 
 instance Prelude.NFData GetKeyPolicyResponse where
   rnf GetKeyPolicyResponse' {..} =
-    Prelude.rnf policy
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf policy `Prelude.seq`
+      Prelude.rnf httpStatus

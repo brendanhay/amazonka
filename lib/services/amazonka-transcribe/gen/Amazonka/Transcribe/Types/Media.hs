@@ -153,8 +153,8 @@ instance Prelude.Hashable Media where
 
 instance Prelude.NFData Media where
   rnf Media' {..} =
-    Prelude.rnf mediaFileUri
-      `Prelude.seq` Prelude.rnf redactedMediaFileUri
+    Prelude.rnf mediaFileUri `Prelude.seq`
+      Prelude.rnf redactedMediaFileUri
 
 instance Data.ToJSON Media where
   toJSON Media' {..} =

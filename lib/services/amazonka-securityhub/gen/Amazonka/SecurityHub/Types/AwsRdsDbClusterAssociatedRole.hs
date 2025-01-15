@@ -105,8 +105,8 @@ instance
 
 instance Prelude.NFData AwsRdsDbClusterAssociatedRole where
   rnf AwsRdsDbClusterAssociatedRole' {..} =
-    Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf roleArn `Prelude.seq`
+      Prelude.rnf status
 
 instance Data.ToJSON AwsRdsDbClusterAssociatedRole where
   toJSON AwsRdsDbClusterAssociatedRole' {..} =

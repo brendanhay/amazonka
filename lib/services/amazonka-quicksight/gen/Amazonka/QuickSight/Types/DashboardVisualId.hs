@@ -129,9 +129,9 @@ instance Prelude.Hashable DashboardVisualId where
 
 instance Prelude.NFData DashboardVisualId where
   rnf DashboardVisualId' {..} =
-    Prelude.rnf dashboardId
-      `Prelude.seq` Prelude.rnf sheetId
-      `Prelude.seq` Prelude.rnf visualId
+    Prelude.rnf dashboardId `Prelude.seq`
+      Prelude.rnf sheetId `Prelude.seq`
+        Prelude.rnf visualId
 
 instance Data.ToJSON DashboardVisualId where
   toJSON DashboardVisualId' {..} =

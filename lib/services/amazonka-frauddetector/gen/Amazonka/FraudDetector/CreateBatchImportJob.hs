@@ -187,12 +187,12 @@ instance Prelude.Hashable CreateBatchImportJob where
 
 instance Prelude.NFData CreateBatchImportJob where
   rnf CreateBatchImportJob' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf inputPath
-      `Prelude.seq` Prelude.rnf outputPath
-      `Prelude.seq` Prelude.rnf eventTypeName
-      `Prelude.seq` Prelude.rnf iamRoleArn
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf jobId `Prelude.seq`
+        Prelude.rnf inputPath `Prelude.seq`
+          Prelude.rnf outputPath `Prelude.seq`
+            Prelude.rnf eventTypeName `Prelude.seq`
+              Prelude.rnf iamRoleArn
 
 instance Data.ToHeaders CreateBatchImportJob where
   toHeaders =

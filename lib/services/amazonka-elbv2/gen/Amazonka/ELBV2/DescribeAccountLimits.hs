@@ -114,12 +114,12 @@ instance Core.AWSPager DescribeAccountLimits where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeAccountLimits_marker
-          Lens..~ rs
-          Lens.^? describeAccountLimitsResponse_nextMarker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeAccountLimits_marker
+              Lens..~ rs
+              Lens.^? describeAccountLimitsResponse_nextMarker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeAccountLimits where
   type
@@ -132,9 +132,7 @@ instance Core.AWSRequest DescribeAccountLimits where
       "DescribeAccountLimitsResult"
       ( \s h x ->
           DescribeAccountLimitsResponse'
-            Prelude.<$> ( x
-                            Data..@? "Limits"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "Limits" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (x Data..@? "NextMarker")
@@ -149,8 +147,8 @@ instance Prelude.Hashable DescribeAccountLimits where
 
 instance Prelude.NFData DescribeAccountLimits where
   rnf DescribeAccountLimits' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf pageSize
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf pageSize
 
 instance Data.ToHeaders DescribeAccountLimits where
   toHeaders = Prelude.const Prelude.mempty
@@ -222,6 +220,6 @@ describeAccountLimitsResponse_httpStatus = Lens.lens (\DescribeAccountLimitsResp
 
 instance Prelude.NFData DescribeAccountLimitsResponse where
   rnf DescribeAccountLimitsResponse' {..} =
-    Prelude.rnf limits
-      `Prelude.seq` Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf limits `Prelude.seq`
+      Prelude.rnf nextMarker `Prelude.seq`
+        Prelude.rnf httpStatus

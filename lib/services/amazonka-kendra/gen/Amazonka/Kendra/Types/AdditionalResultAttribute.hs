@@ -102,6 +102,6 @@ instance Prelude.Hashable AdditionalResultAttribute where
 
 instance Prelude.NFData AdditionalResultAttribute where
   rnf AdditionalResultAttribute' {..} =
-    Prelude.rnf key
-      `Prelude.seq` Prelude.rnf valueType
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf key `Prelude.seq`
+      Prelude.rnf valueType `Prelude.seq`
+        Prelude.rnf value

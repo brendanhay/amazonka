@@ -107,8 +107,8 @@ instance Prelude.Hashable DeleteDocumentationVersion where
 
 instance Prelude.NFData DeleteDocumentationVersion where
   rnf DeleteDocumentationVersion' {..} =
-    Prelude.rnf restApiId
-      `Prelude.seq` Prelude.rnf documentationVersion
+    Prelude.rnf restApiId `Prelude.seq`
+      Prelude.rnf documentationVersion
 
 instance Data.ToHeaders DeleteDocumentationVersion where
   toHeaders =

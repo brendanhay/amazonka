@@ -130,12 +130,12 @@ instance Core.AWSPager DescribeACLs where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeACLs_nextToken
-          Lens..~ rs
-          Lens.^? describeACLsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeACLs_nextToken
+              Lens..~ rs
+              Lens.^? describeACLsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeACLs where
   type AWSResponse DescribeACLs = DescribeACLsResponse
@@ -159,9 +159,9 @@ instance Prelude.Hashable DescribeACLs where
 
 instance Prelude.NFData DescribeACLs where
   rnf DescribeACLs' {..} =
-    Prelude.rnf aCLName
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf aCLName `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeACLs where
   toHeaders =
@@ -252,6 +252,6 @@ describeACLsResponse_httpStatus = Lens.lens (\DescribeACLsResponse' {httpStatus}
 
 instance Prelude.NFData DescribeACLsResponse where
   rnf DescribeACLsResponse' {..} =
-    Prelude.rnf aCLs
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf aCLs `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

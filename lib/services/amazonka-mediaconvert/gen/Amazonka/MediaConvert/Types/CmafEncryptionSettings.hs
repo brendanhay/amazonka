@@ -163,12 +163,12 @@ instance Prelude.Hashable CmafEncryptionSettings where
 
 instance Prelude.NFData CmafEncryptionSettings where
   rnf CmafEncryptionSettings' {..} =
-    Prelude.rnf constantInitializationVector
-      `Prelude.seq` Prelude.rnf encryptionMethod
-      `Prelude.seq` Prelude.rnf initializationVectorInManifest
-      `Prelude.seq` Prelude.rnf spekeKeyProvider
-      `Prelude.seq` Prelude.rnf staticKeyProvider
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf constantInitializationVector `Prelude.seq`
+      Prelude.rnf encryptionMethod `Prelude.seq`
+        Prelude.rnf initializationVectorInManifest `Prelude.seq`
+          Prelude.rnf spekeKeyProvider `Prelude.seq`
+            Prelude.rnf staticKeyProvider `Prelude.seq`
+              Prelude.rnf type'
 
 instance Data.ToJSON CmafEncryptionSettings where
   toJSON CmafEncryptionSettings' {..} =

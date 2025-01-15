@@ -132,9 +132,9 @@ instance Prelude.Hashable PrefetchRetrieval where
 
 instance Prelude.NFData PrefetchRetrieval where
   rnf PrefetchRetrieval' {..} =
-    Prelude.rnf dynamicVariables
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf endTime
+    Prelude.rnf dynamicVariables `Prelude.seq`
+      Prelude.rnf startTime `Prelude.seq`
+        Prelude.rnf endTime
 
 instance Data.ToJSON PrefetchRetrieval where
   toJSON PrefetchRetrieval' {..} =

@@ -135,13 +135,13 @@ instance Prelude.Hashable AudioCodecSettings where
 
 instance Prelude.NFData AudioCodecSettings where
   rnf AudioCodecSettings' {..} =
-    Prelude.rnf aacSettings
-      `Prelude.seq` Prelude.rnf ac3Settings
-      `Prelude.seq` Prelude.rnf eac3AtmosSettings
-      `Prelude.seq` Prelude.rnf eac3Settings
-      `Prelude.seq` Prelude.rnf mp2Settings
-      `Prelude.seq` Prelude.rnf passThroughSettings
-      `Prelude.seq` Prelude.rnf wavSettings
+    Prelude.rnf aacSettings `Prelude.seq`
+      Prelude.rnf ac3Settings `Prelude.seq`
+        Prelude.rnf eac3AtmosSettings `Prelude.seq`
+          Prelude.rnf eac3Settings `Prelude.seq`
+            Prelude.rnf mp2Settings `Prelude.seq`
+              Prelude.rnf passThroughSettings `Prelude.seq`
+                Prelude.rnf wavSettings
 
 instance Data.ToJSON AudioCodecSettings where
   toJSON AudioCodecSettings' {..} =

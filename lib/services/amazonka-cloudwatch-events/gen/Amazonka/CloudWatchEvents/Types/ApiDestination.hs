@@ -163,12 +163,12 @@ instance Prelude.Hashable ApiDestination where
 
 instance Prelude.NFData ApiDestination where
   rnf ApiDestination' {..} =
-    Prelude.rnf apiDestinationArn
-      `Prelude.seq` Prelude.rnf apiDestinationState
-      `Prelude.seq` Prelude.rnf connectionArn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf httpMethod
-      `Prelude.seq` Prelude.rnf invocationEndpoint
-      `Prelude.seq` Prelude.rnf invocationRateLimitPerSecond
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf apiDestinationArn `Prelude.seq`
+      Prelude.rnf apiDestinationState `Prelude.seq`
+        Prelude.rnf connectionArn `Prelude.seq`
+          Prelude.rnf creationTime `Prelude.seq`
+            Prelude.rnf httpMethod `Prelude.seq`
+              Prelude.rnf invocationEndpoint `Prelude.seq`
+                Prelude.rnf invocationRateLimitPerSecond `Prelude.seq`
+                  Prelude.rnf lastModifiedTime `Prelude.seq`
+                    Prelude.rnf name

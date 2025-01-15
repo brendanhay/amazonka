@@ -118,8 +118,8 @@ instance Prelude.Hashable ImageScanFinding where
 
 instance Prelude.NFData ImageScanFinding where
   rnf ImageScanFinding' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf severity
-      `Prelude.seq` Prelude.rnf uri
+    Prelude.rnf attributes `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf severity `Prelude.seq`
+            Prelude.rnf uri

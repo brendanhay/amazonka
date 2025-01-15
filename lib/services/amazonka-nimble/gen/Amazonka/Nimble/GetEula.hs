@@ -151,5 +151,5 @@ getEulaResponse_httpStatus = Lens.lens (\GetEulaResponse' {httpStatus} -> httpSt
 
 instance Prelude.NFData GetEulaResponse where
   rnf GetEulaResponse' {..} =
-    Prelude.rnf eula
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf eula `Prelude.seq`
+      Prelude.rnf httpStatus

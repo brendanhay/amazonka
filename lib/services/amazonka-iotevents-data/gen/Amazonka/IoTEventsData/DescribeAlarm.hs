@@ -114,8 +114,8 @@ instance Prelude.Hashable DescribeAlarm where
 
 instance Prelude.NFData DescribeAlarm where
   rnf DescribeAlarm' {..} =
-    Prelude.rnf keyValue
-      `Prelude.seq` Prelude.rnf alarmModelName
+    Prelude.rnf keyValue `Prelude.seq`
+      Prelude.rnf alarmModelName
 
 instance Data.ToHeaders DescribeAlarm where
   toHeaders = Prelude.const Prelude.mempty
@@ -169,5 +169,5 @@ describeAlarmResponse_httpStatus = Lens.lens (\DescribeAlarmResponse' {httpStatu
 
 instance Prelude.NFData DescribeAlarmResponse where
   rnf DescribeAlarmResponse' {..} =
-    Prelude.rnf alarm
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf alarm `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -96,8 +96,8 @@ instance Prelude.Hashable ShadowModeConfig where
 
 instance Prelude.NFData ShadowModeConfig where
   rnf ShadowModeConfig' {..} =
-    Prelude.rnf sourceModelVariantName
-      `Prelude.seq` Prelude.rnf shadowModelVariants
+    Prelude.rnf sourceModelVariantName `Prelude.seq`
+      Prelude.rnf shadowModelVariants
 
 instance Data.ToJSON ShadowModeConfig where
   toJSON ShadowModeConfig' {..} =

@@ -90,9 +90,9 @@ instance Prelude.Hashable CanDbcDefinition where
 
 instance Prelude.NFData CanDbcDefinition where
   rnf CanDbcDefinition' {..} =
-    Prelude.rnf signalsMap
-      `Prelude.seq` Prelude.rnf networkInterface
-      `Prelude.seq` Prelude.rnf canDbcFiles
+    Prelude.rnf signalsMap `Prelude.seq`
+      Prelude.rnf networkInterface `Prelude.seq`
+        Prelude.rnf canDbcFiles
 
 instance Data.ToJSON CanDbcDefinition where
   toJSON CanDbcDefinition' {..} =

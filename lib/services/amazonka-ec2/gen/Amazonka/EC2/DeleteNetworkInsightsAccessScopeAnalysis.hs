@@ -132,8 +132,8 @@ instance
     DeleteNetworkInsightsAccessScopeAnalysis
   where
   rnf DeleteNetworkInsightsAccessScopeAnalysis' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf networkInsightsAccessScopeAnalysisId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf networkInsightsAccessScopeAnalysisId
 
 instance
   Data.ToHeaders
@@ -210,5 +210,5 @@ instance
   where
   rnf
     DeleteNetworkInsightsAccessScopeAnalysisResponse' {..} =
-      Prelude.rnf networkInsightsAccessScopeAnalysisId
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf networkInsightsAccessScopeAnalysisId `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -435,19 +435,19 @@ instance Prelude.Hashable RequestSpotInstances where
 
 instance Prelude.NFData RequestSpotInstances where
   rnf RequestSpotInstances' {..} =
-    Prelude.rnf availabilityZoneGroup
-      `Prelude.seq` Prelude.rnf blockDurationMinutes
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf instanceCount
-      `Prelude.seq` Prelude.rnf instanceInterruptionBehavior
-      `Prelude.seq` Prelude.rnf launchGroup
-      `Prelude.seq` Prelude.rnf launchSpecification
-      `Prelude.seq` Prelude.rnf spotPrice
-      `Prelude.seq` Prelude.rnf tagSpecifications
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf validFrom
-      `Prelude.seq` Prelude.rnf validUntil
+    Prelude.rnf availabilityZoneGroup `Prelude.seq`
+      Prelude.rnf blockDurationMinutes `Prelude.seq`
+        Prelude.rnf clientToken `Prelude.seq`
+          Prelude.rnf dryRun `Prelude.seq`
+            Prelude.rnf instanceCount `Prelude.seq`
+              Prelude.rnf instanceInterruptionBehavior `Prelude.seq`
+                Prelude.rnf launchGroup `Prelude.seq`
+                  Prelude.rnf launchSpecification `Prelude.seq`
+                    Prelude.rnf spotPrice `Prelude.seq`
+                      Prelude.rnf tagSpecifications `Prelude.seq`
+                        Prelude.rnf type' `Prelude.seq`
+                          Prelude.rnf validFrom `Prelude.seq`
+                            Prelude.rnf validUntil
 
 instance Data.ToHeaders RequestSpotInstances where
   toHeaders = Prelude.const Prelude.mempty
@@ -525,5 +525,5 @@ requestSpotInstancesResponse_httpStatus = Lens.lens (\RequestSpotInstancesRespon
 
 instance Prelude.NFData RequestSpotInstancesResponse where
   rnf RequestSpotInstancesResponse' {..} =
-    Prelude.rnf spotInstanceRequests
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf spotInstanceRequests `Prelude.seq`
+      Prelude.rnf httpStatus

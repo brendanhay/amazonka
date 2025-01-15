@@ -335,29 +335,29 @@ instance Prelude.Hashable Workload where
 
 instance Prelude.NFData Workload where
   rnf Workload' {..} =
-    Prelude.rnf accountIds
-      `Prelude.seq` Prelude.rnf applications
-      `Prelude.seq` Prelude.rnf architecturalDesign
-      `Prelude.seq` Prelude.rnf awsRegions
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf discoveryConfig
-      `Prelude.seq` Prelude.rnf environment
-      `Prelude.seq` Prelude.rnf improvementStatus
-      `Prelude.seq` Prelude.rnf industry
-      `Prelude.seq` Prelude.rnf industryType
-      `Prelude.seq` Prelude.rnf isReviewOwnerUpdateAcknowledged
-      `Prelude.seq` Prelude.rnf lenses
-      `Prelude.seq` Prelude.rnf nonAwsRegions
-      `Prelude.seq` Prelude.rnf notes
-      `Prelude.seq` Prelude.rnf owner
-      `Prelude.seq` Prelude.rnf pillarPriorities
-      `Prelude.seq` Prelude.rnf reviewOwner
-      `Prelude.seq` Prelude.rnf reviewRestrictionDate
-      `Prelude.seq` Prelude.rnf riskCounts
-      `Prelude.seq` Prelude.rnf shareInvitationId
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf updatedAt
-      `Prelude.seq` Prelude.rnf workloadArn
-      `Prelude.seq` Prelude.rnf workloadId
-      `Prelude.seq` Prelude.rnf
-        workloadName
+    Prelude.rnf accountIds `Prelude.seq`
+      Prelude.rnf applications `Prelude.seq`
+        Prelude.rnf architecturalDesign `Prelude.seq`
+          Prelude.rnf awsRegions `Prelude.seq`
+            Prelude.rnf description `Prelude.seq`
+              Prelude.rnf discoveryConfig `Prelude.seq`
+                Prelude.rnf environment `Prelude.seq`
+                  Prelude.rnf improvementStatus `Prelude.seq`
+                    Prelude.rnf industry `Prelude.seq`
+                      Prelude.rnf industryType `Prelude.seq`
+                        Prelude.rnf isReviewOwnerUpdateAcknowledged `Prelude.seq`
+                          Prelude.rnf lenses `Prelude.seq`
+                            Prelude.rnf nonAwsRegions `Prelude.seq`
+                              Prelude.rnf notes `Prelude.seq`
+                                Prelude.rnf owner `Prelude.seq`
+                                  Prelude.rnf pillarPriorities `Prelude.seq`
+                                    Prelude.rnf reviewOwner `Prelude.seq`
+                                      Prelude.rnf reviewRestrictionDate `Prelude.seq`
+                                        Prelude.rnf riskCounts `Prelude.seq`
+                                          Prelude.rnf shareInvitationId `Prelude.seq`
+                                            Prelude.rnf tags `Prelude.seq`
+                                              Prelude.rnf updatedAt `Prelude.seq`
+                                                Prelude.rnf workloadArn `Prelude.seq`
+                                                  Prelude.rnf workloadId `Prelude.seq`
+                                                    Prelude.rnf
+                                                      workloadName

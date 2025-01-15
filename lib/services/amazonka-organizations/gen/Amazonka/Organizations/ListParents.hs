@@ -201,12 +201,12 @@ instance Core.AWSPager ListParents where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listParents_nextToken
-          Lens..~ rs
-          Lens.^? listParentsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listParents_nextToken
+              Lens..~ rs
+              Lens.^? listParentsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListParents where
   type AWSResponse ListParents = ListParentsResponse
@@ -230,9 +230,9 @@ instance Prelude.Hashable ListParents where
 
 instance Prelude.NFData ListParents where
   rnf ListParents' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf childId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf childId
 
 instance Data.ToHeaders ListParents where
   toHeaders =
@@ -326,6 +326,6 @@ listParentsResponse_httpStatus = Lens.lens (\ListParentsResponse' {httpStatus} -
 
 instance Prelude.NFData ListParentsResponse where
   rnf ListParentsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf parents
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf parents `Prelude.seq`
+        Prelude.rnf httpStatus

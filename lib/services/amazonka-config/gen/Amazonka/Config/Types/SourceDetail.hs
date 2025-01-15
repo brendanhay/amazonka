@@ -200,9 +200,9 @@ instance Prelude.Hashable SourceDetail where
 
 instance Prelude.NFData SourceDetail where
   rnf SourceDetail' {..} =
-    Prelude.rnf eventSource
-      `Prelude.seq` Prelude.rnf maximumExecutionFrequency
-      `Prelude.seq` Prelude.rnf messageType
+    Prelude.rnf eventSource `Prelude.seq`
+      Prelude.rnf maximumExecutionFrequency `Prelude.seq`
+        Prelude.rnf messageType
 
 instance Data.ToJSON SourceDetail where
   toJSON SourceDetail' {..} =

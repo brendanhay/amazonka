@@ -146,8 +146,8 @@ instance Prelude.Hashable CreateGeoMatchSet where
 
 instance Prelude.NFData CreateGeoMatchSet where
   rnf CreateGeoMatchSet' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf changeToken
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf changeToken
 
 instance Data.ToHeaders CreateGeoMatchSet where
   toHeaders =
@@ -238,6 +238,6 @@ createGeoMatchSetResponse_httpStatus = Lens.lens (\CreateGeoMatchSetResponse' {h
 
 instance Prelude.NFData CreateGeoMatchSetResponse where
   rnf CreateGeoMatchSetResponse' {..} =
-    Prelude.rnf changeToken
-      `Prelude.seq` Prelude.rnf geoMatchSet
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf changeToken `Prelude.seq`
+      Prelude.rnf geoMatchSet `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -170,6 +170,6 @@ describeSafetyRuleResponse_httpStatus = Lens.lens (\DescribeSafetyRuleResponse' 
 
 instance Prelude.NFData DescribeSafetyRuleResponse where
   rnf DescribeSafetyRuleResponse' {..} =
-    Prelude.rnf assertionRule
-      `Prelude.seq` Prelude.rnf gatingRule
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf assertionRule `Prelude.seq`
+      Prelude.rnf gatingRule `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -157,6 +157,6 @@ describeRegistryResponse_httpStatus = Lens.lens (\DescribeRegistryResponse' {htt
 
 instance Prelude.NFData DescribeRegistryResponse where
   rnf DescribeRegistryResponse' {..} =
-    Prelude.rnf registryId
-      `Prelude.seq` Prelude.rnf replicationConfiguration
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf registryId `Prelude.seq`
+      Prelude.rnf replicationConfiguration `Prelude.seq`
+        Prelude.rnf httpStatus

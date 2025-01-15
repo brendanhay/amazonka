@@ -126,9 +126,9 @@ instance Prelude.Hashable ChannelMembership where
 
 instance Prelude.NFData ChannelMembership where
   rnf ChannelMembership' {..} =
-    Prelude.rnf channelArn
-      `Prelude.seq` Prelude.rnf createdTimestamp
-      `Prelude.seq` Prelude.rnf invitedBy
-      `Prelude.seq` Prelude.rnf lastUpdatedTimestamp
-      `Prelude.seq` Prelude.rnf member
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf channelArn `Prelude.seq`
+      Prelude.rnf createdTimestamp `Prelude.seq`
+        Prelude.rnf invitedBy `Prelude.seq`
+          Prelude.rnf lastUpdatedTimestamp `Prelude.seq`
+            Prelude.rnf member `Prelude.seq`
+              Prelude.rnf type'

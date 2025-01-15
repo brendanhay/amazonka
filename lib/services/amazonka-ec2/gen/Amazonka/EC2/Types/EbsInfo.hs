@@ -112,7 +112,7 @@ instance Prelude.Hashable EbsInfo where
 
 instance Prelude.NFData EbsInfo where
   rnf EbsInfo' {..} =
-    Prelude.rnf ebsOptimizedInfo
-      `Prelude.seq` Prelude.rnf ebsOptimizedSupport
-      `Prelude.seq` Prelude.rnf encryptionSupport
-      `Prelude.seq` Prelude.rnf nvmeSupport
+    Prelude.rnf ebsOptimizedInfo `Prelude.seq`
+      Prelude.rnf ebsOptimizedSupport `Prelude.seq`
+        Prelude.rnf encryptionSupport `Prelude.seq`
+          Prelude.rnf nvmeSupport

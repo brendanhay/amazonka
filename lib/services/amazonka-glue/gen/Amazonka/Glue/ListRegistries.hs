@@ -108,12 +108,12 @@ instance Core.AWSPager ListRegistries where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listRegistries_nextToken
-          Lens..~ rs
-          Lens.^? listRegistriesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listRegistries_nextToken
+              Lens..~ rs
+              Lens.^? listRegistriesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListRegistries where
   type
@@ -138,8 +138,8 @@ instance Prelude.Hashable ListRegistries where
 
 instance Prelude.NFData ListRegistries where
   rnf ListRegistries' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListRegistries where
   toHeaders =
@@ -225,6 +225,6 @@ listRegistriesResponse_httpStatus = Lens.lens (\ListRegistriesResponse' {httpSta
 
 instance Prelude.NFData ListRegistriesResponse where
   rnf ListRegistriesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf registries
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf registries `Prelude.seq`
+        Prelude.rnf httpStatus

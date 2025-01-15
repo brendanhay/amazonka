@@ -140,9 +140,9 @@ instance Prelude.Hashable CredentialSummary where
 
 instance Prelude.NFData CredentialSummary where
   rnf CredentialSummary' {..} =
-    Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf failed
-      `Prelude.seq` Prelude.rnf issuer
-      `Prelude.seq` Prelude.rnf seenAt
-      `Prelude.seq` Prelude.rnf serialNumber
-      `Prelude.seq` Prelude.rnf x509CertificateData
+    Prelude.rnf enabled `Prelude.seq`
+      Prelude.rnf failed `Prelude.seq`
+        Prelude.rnf issuer `Prelude.seq`
+          Prelude.rnf seenAt `Prelude.seq`
+            Prelude.rnf serialNumber `Prelude.seq`
+              Prelude.rnf x509CertificateData

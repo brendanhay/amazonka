@@ -183,9 +183,9 @@ instance Prelude.Hashable AssociateNode where
 
 instance Prelude.NFData AssociateNode where
   rnf AssociateNode' {..} =
-    Prelude.rnf serverName
-      `Prelude.seq` Prelude.rnf nodeName
-      `Prelude.seq` Prelude.rnf engineAttributes
+    Prelude.rnf serverName `Prelude.seq`
+      Prelude.rnf nodeName `Prelude.seq`
+        Prelude.rnf engineAttributes
 
 instance Data.ToHeaders AssociateNode where
   toHeaders =
@@ -266,5 +266,5 @@ associateNodeResponse_httpStatus = Lens.lens (\AssociateNodeResponse' {httpStatu
 
 instance Prelude.NFData AssociateNodeResponse where
   rnf AssociateNodeResponse' {..} =
-    Prelude.rnf nodeAssociationStatusToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nodeAssociationStatusToken `Prelude.seq`
+      Prelude.rnf httpStatus

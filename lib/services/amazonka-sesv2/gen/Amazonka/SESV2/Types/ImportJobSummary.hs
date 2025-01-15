@@ -127,9 +127,9 @@ instance Prelude.Hashable ImportJobSummary where
 
 instance Prelude.NFData ImportJobSummary where
   rnf ImportJobSummary' {..} =
-    Prelude.rnf createdTimestamp
-      `Prelude.seq` Prelude.rnf failedRecordsCount
-      `Prelude.seq` Prelude.rnf importDestination
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf jobStatus
-      `Prelude.seq` Prelude.rnf processedRecordsCount
+    Prelude.rnf createdTimestamp `Prelude.seq`
+      Prelude.rnf failedRecordsCount `Prelude.seq`
+        Prelude.rnf importDestination `Prelude.seq`
+          Prelude.rnf jobId `Prelude.seq`
+            Prelude.rnf jobStatus `Prelude.seq`
+              Prelude.rnf processedRecordsCount

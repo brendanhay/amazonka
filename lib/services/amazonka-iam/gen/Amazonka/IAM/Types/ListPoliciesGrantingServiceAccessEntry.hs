@@ -104,9 +104,7 @@ instance
   where
   parseXML x =
     ListPoliciesGrantingServiceAccessEntry'
-      Prelude.<$> ( x
-                      Data..@? "Policies"
-                      Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "Policies" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "ServiceNamespace")
@@ -127,5 +125,5 @@ instance
     ListPoliciesGrantingServiceAccessEntry
   where
   rnf ListPoliciesGrantingServiceAccessEntry' {..} =
-    Prelude.rnf policies
-      `Prelude.seq` Prelude.rnf serviceNamespace
+    Prelude.rnf policies `Prelude.seq`
+      Prelude.rnf serviceNamespace

@@ -242,16 +242,16 @@ instance Prelude.Hashable UpdateBroker where
 
 instance Prelude.NFData UpdateBroker where
   rnf UpdateBroker' {..} =
-    Prelude.rnf authenticationStrategy
-      `Prelude.seq` Prelude.rnf autoMinorVersionUpgrade
-      `Prelude.seq` Prelude.rnf configuration
-      `Prelude.seq` Prelude.rnf engineVersion
-      `Prelude.seq` Prelude.rnf hostInstanceType
-      `Prelude.seq` Prelude.rnf ldapServerMetadata
-      `Prelude.seq` Prelude.rnf logs
-      `Prelude.seq` Prelude.rnf maintenanceWindowStartTime
-      `Prelude.seq` Prelude.rnf securityGroups
-      `Prelude.seq` Prelude.rnf brokerId
+    Prelude.rnf authenticationStrategy `Prelude.seq`
+      Prelude.rnf autoMinorVersionUpgrade `Prelude.seq`
+        Prelude.rnf configuration `Prelude.seq`
+          Prelude.rnf engineVersion `Prelude.seq`
+            Prelude.rnf hostInstanceType `Prelude.seq`
+              Prelude.rnf ldapServerMetadata `Prelude.seq`
+                Prelude.rnf logs `Prelude.seq`
+                  Prelude.rnf maintenanceWindowStartTime `Prelude.seq`
+                    Prelude.rnf securityGroups `Prelude.seq`
+                      Prelude.rnf brokerId
 
 instance Data.ToHeaders UpdateBroker where
   toHeaders =
@@ -446,14 +446,14 @@ updateBrokerResponse_httpStatus = Lens.lens (\UpdateBrokerResponse' {httpStatus}
 
 instance Prelude.NFData UpdateBrokerResponse where
   rnf UpdateBrokerResponse' {..} =
-    Prelude.rnf authenticationStrategy
-      `Prelude.seq` Prelude.rnf autoMinorVersionUpgrade
-      `Prelude.seq` Prelude.rnf brokerId
-      `Prelude.seq` Prelude.rnf configuration
-      `Prelude.seq` Prelude.rnf engineVersion
-      `Prelude.seq` Prelude.rnf hostInstanceType
-      `Prelude.seq` Prelude.rnf ldapServerMetadata
-      `Prelude.seq` Prelude.rnf logs
-      `Prelude.seq` Prelude.rnf maintenanceWindowStartTime
-      `Prelude.seq` Prelude.rnf securityGroups
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf authenticationStrategy `Prelude.seq`
+      Prelude.rnf autoMinorVersionUpgrade `Prelude.seq`
+        Prelude.rnf brokerId `Prelude.seq`
+          Prelude.rnf configuration `Prelude.seq`
+            Prelude.rnf engineVersion `Prelude.seq`
+              Prelude.rnf hostInstanceType `Prelude.seq`
+                Prelude.rnf ldapServerMetadata `Prelude.seq`
+                  Prelude.rnf logs `Prelude.seq`
+                    Prelude.rnf maintenanceWindowStartTime `Prelude.seq`
+                      Prelude.rnf securityGroups `Prelude.seq`
+                        Prelude.rnf httpStatus

@@ -859,22 +859,22 @@ instance Prelude.Hashable PutBot where
 
 instance Prelude.NFData PutBot where
   rnf PutBot' {..} =
-    Prelude.rnf abortStatement
-      `Prelude.seq` Prelude.rnf checksum
-      `Prelude.seq` Prelude.rnf clarificationPrompt
-      `Prelude.seq` Prelude.rnf createVersion
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf detectSentiment
-      `Prelude.seq` Prelude.rnf enableModelImprovements
-      `Prelude.seq` Prelude.rnf idleSessionTTLInSeconds
-      `Prelude.seq` Prelude.rnf intents
-      `Prelude.seq` Prelude.rnf nluIntentConfidenceThreshold
-      `Prelude.seq` Prelude.rnf processBehavior
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf voiceId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf locale
-      `Prelude.seq` Prelude.rnf childDirected
+    Prelude.rnf abortStatement `Prelude.seq`
+      Prelude.rnf checksum `Prelude.seq`
+        Prelude.rnf clarificationPrompt `Prelude.seq`
+          Prelude.rnf createVersion `Prelude.seq`
+            Prelude.rnf description `Prelude.seq`
+              Prelude.rnf detectSentiment `Prelude.seq`
+                Prelude.rnf enableModelImprovements `Prelude.seq`
+                  Prelude.rnf idleSessionTTLInSeconds `Prelude.seq`
+                    Prelude.rnf intents `Prelude.seq`
+                      Prelude.rnf nluIntentConfidenceThreshold `Prelude.seq`
+                        Prelude.rnf processBehavior `Prelude.seq`
+                          Prelude.rnf tags `Prelude.seq`
+                            Prelude.rnf voiceId `Prelude.seq`
+                              Prelude.rnf name `Prelude.seq`
+                                Prelude.rnf locale `Prelude.seq`
+                                  Prelude.rnf childDirected
 
 instance Data.ToHeaders PutBot where
   toHeaders =

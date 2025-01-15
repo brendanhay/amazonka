@@ -152,12 +152,12 @@ instance Core.AWSPager DescribeApplicationVersions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeApplicationVersions_nextToken
-          Lens..~ rs
-          Lens.^? describeApplicationVersionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeApplicationVersions_nextToken
+              Lens..~ rs
+              Lens.^? describeApplicationVersionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeApplicationVersions where
   type
@@ -189,10 +189,10 @@ instance Prelude.Hashable DescribeApplicationVersions where
 
 instance Prelude.NFData DescribeApplicationVersions where
   rnf DescribeApplicationVersions' {..} =
-    Prelude.rnf applicationName
-      `Prelude.seq` Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf versionLabels
+    Prelude.rnf applicationName `Prelude.seq`
+      Prelude.rnf maxRecords `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf versionLabels
 
 instance Data.ToHeaders DescribeApplicationVersions where
   toHeaders = Prelude.const Prelude.mempty
@@ -280,6 +280,6 @@ instance
     DescribeApplicationVersionsResponse
   where
   rnf DescribeApplicationVersionsResponse' {..} =
-    Prelude.rnf applicationVersions
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf applicationVersions `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

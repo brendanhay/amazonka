@@ -238,10 +238,10 @@ instance Prelude.Hashable Severity where
 
 instance Prelude.NFData Severity where
   rnf Severity' {..} =
-    Prelude.rnf label
-      `Prelude.seq` Prelude.rnf normalized
-      `Prelude.seq` Prelude.rnf original
-      `Prelude.seq` Prelude.rnf product
+    Prelude.rnf label `Prelude.seq`
+      Prelude.rnf normalized `Prelude.seq`
+        Prelude.rnf original `Prelude.seq`
+          Prelude.rnf product
 
 instance Data.ToJSON Severity where
   toJSON Severity' {..} =

@@ -216,17 +216,17 @@ instance Prelude.Hashable Device where
 
 instance Prelude.NFData Device where
   rnf Device' {..} =
-    Prelude.rnf aWSLocation
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf deviceArn
-      `Prelude.seq` Prelude.rnf deviceId
-      `Prelude.seq` Prelude.rnf globalNetworkId
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf model
-      `Prelude.seq` Prelude.rnf serialNumber
-      `Prelude.seq` Prelude.rnf siteId
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf vendor
+    Prelude.rnf aWSLocation `Prelude.seq`
+      Prelude.rnf createdAt `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf deviceArn `Prelude.seq`
+            Prelude.rnf deviceId `Prelude.seq`
+              Prelude.rnf globalNetworkId `Prelude.seq`
+                Prelude.rnf location `Prelude.seq`
+                  Prelude.rnf model `Prelude.seq`
+                    Prelude.rnf serialNumber `Prelude.seq`
+                      Prelude.rnf siteId `Prelude.seq`
+                        Prelude.rnf state `Prelude.seq`
+                          Prelude.rnf tags `Prelude.seq`
+                            Prelude.rnf type' `Prelude.seq`
+                              Prelude.rnf vendor

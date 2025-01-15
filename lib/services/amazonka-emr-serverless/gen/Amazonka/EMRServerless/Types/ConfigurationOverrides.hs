@@ -87,8 +87,8 @@ instance Prelude.Hashable ConfigurationOverrides where
 
 instance Prelude.NFData ConfigurationOverrides where
   rnf ConfigurationOverrides' {..} =
-    Prelude.rnf applicationConfiguration
-      `Prelude.seq` Prelude.rnf monitoringConfiguration
+    Prelude.rnf applicationConfiguration `Prelude.seq`
+      Prelude.rnf monitoringConfiguration
 
 instance Data.ToJSON ConfigurationOverrides where
   toJSON ConfigurationOverrides' {..} =

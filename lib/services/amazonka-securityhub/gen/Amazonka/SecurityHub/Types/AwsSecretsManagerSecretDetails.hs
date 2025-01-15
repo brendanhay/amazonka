@@ -160,14 +160,14 @@ instance
     AwsSecretsManagerSecretDetails
   where
   rnf AwsSecretsManagerSecretDetails' {..} =
-    Prelude.rnf deleted
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf rotationEnabled
-      `Prelude.seq` Prelude.rnf rotationLambdaArn
-      `Prelude.seq` Prelude.rnf rotationOccurredWithinFrequency
-      `Prelude.seq` Prelude.rnf rotationRules
+    Prelude.rnf deleted `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf kmsKeyId `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf rotationEnabled `Prelude.seq`
+              Prelude.rnf rotationLambdaArn `Prelude.seq`
+                Prelude.rnf rotationOccurredWithinFrequency `Prelude.seq`
+                  Prelude.rnf rotationRules
 
 instance Data.ToJSON AwsSecretsManagerSecretDetails where
   toJSON AwsSecretsManagerSecretDetails' {..} =

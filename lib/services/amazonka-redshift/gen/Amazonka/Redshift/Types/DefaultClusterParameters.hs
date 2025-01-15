@@ -96,9 +96,7 @@ instance Data.FromXML DefaultClusterParameters where
     DefaultClusterParameters'
       Prelude.<$> (x Data..@? "Marker")
       Prelude.<*> (x Data..@? "ParameterGroupFamily")
-      Prelude.<*> ( x
-                      Data..@? "Parameters"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "Parameters" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "Parameter")
                   )
 
@@ -111,6 +109,6 @@ instance Prelude.Hashable DefaultClusterParameters where
 
 instance Prelude.NFData DefaultClusterParameters where
   rnf DefaultClusterParameters' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf parameterGroupFamily
-      `Prelude.seq` Prelude.rnf parameters
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf parameterGroupFamily `Prelude.seq`
+        Prelude.rnf parameters

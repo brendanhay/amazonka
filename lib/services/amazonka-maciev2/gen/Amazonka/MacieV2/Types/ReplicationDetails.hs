@@ -111,6 +111,6 @@ instance Prelude.Hashable ReplicationDetails where
 
 instance Prelude.NFData ReplicationDetails where
   rnf ReplicationDetails' {..} =
-    Prelude.rnf replicated
-      `Prelude.seq` Prelude.rnf replicatedExternally
-      `Prelude.seq` Prelude.rnf replicationAccounts
+    Prelude.rnf replicated `Prelude.seq`
+      Prelude.rnf replicatedExternally `Prelude.seq`
+        Prelude.rnf replicationAccounts

@@ -128,8 +128,8 @@ instance Prelude.Hashable DescribeBotVersion where
 
 instance Prelude.NFData DescribeBotVersion where
   rnf DescribeBotVersion' {..} =
-    Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf botVersion
+    Prelude.rnf botId `Prelude.seq`
+      Prelude.rnf botVersion
 
 instance Data.ToHeaders DescribeBotVersion where
   toHeaders =
@@ -289,14 +289,14 @@ describeBotVersionResponse_httpStatus = Lens.lens (\DescribeBotVersionResponse' 
 
 instance Prelude.NFData DescribeBotVersionResponse where
   rnf DescribeBotVersionResponse' {..} =
-    Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf botName
-      `Prelude.seq` Prelude.rnf botStatus
-      `Prelude.seq` Prelude.rnf botVersion
-      `Prelude.seq` Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf dataPrivacy
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf failureReasons
-      `Prelude.seq` Prelude.rnf idleSessionTTLInSeconds
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf botId `Prelude.seq`
+      Prelude.rnf botName `Prelude.seq`
+        Prelude.rnf botStatus `Prelude.seq`
+          Prelude.rnf botVersion `Prelude.seq`
+            Prelude.rnf creationDateTime `Prelude.seq`
+              Prelude.rnf dataPrivacy `Prelude.seq`
+                Prelude.rnf description `Prelude.seq`
+                  Prelude.rnf failureReasons `Prelude.seq`
+                    Prelude.rnf idleSessionTTLInSeconds `Prelude.seq`
+                      Prelude.rnf roleArn `Prelude.seq`
+                        Prelude.rnf httpStatus

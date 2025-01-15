@@ -131,8 +131,8 @@ instance
     PutConfigurationSetReputationOptions
   where
   rnf PutConfigurationSetReputationOptions' {..} =
-    Prelude.rnf reputationMetricsEnabled
-      `Prelude.seq` Prelude.rnf configurationSetName
+    Prelude.rnf reputationMetricsEnabled `Prelude.seq`
+      Prelude.rnf configurationSetName
 
 instance
   Data.ToHeaders

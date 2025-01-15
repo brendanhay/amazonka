@@ -93,5 +93,5 @@ instance Prelude.Hashable ClusterEndpoint where
 
 instance Prelude.NFData ClusterEndpoint where
   rnf ClusterEndpoint' {..} =
-    Prelude.rnf endpoint
-      `Prelude.seq` Prelude.rnf region
+    Prelude.rnf endpoint `Prelude.seq`
+      Prelude.rnf region

@@ -136,9 +136,7 @@ instance Data.FromXML AnomalyDetector where
   parseXML x =
     AnomalyDetector'
       Prelude.<$> (x Data..@? "Configuration")
-      Prelude.<*> ( x
-                      Data..@? "Dimensions"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "Dimensions" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "MetricMathAnomalyDetector")
@@ -162,11 +160,11 @@ instance Prelude.Hashable AnomalyDetector where
 
 instance Prelude.NFData AnomalyDetector where
   rnf AnomalyDetector' {..} =
-    Prelude.rnf configuration
-      `Prelude.seq` Prelude.rnf dimensions
-      `Prelude.seq` Prelude.rnf metricMathAnomalyDetector
-      `Prelude.seq` Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf namespace
-      `Prelude.seq` Prelude.rnf singleMetricAnomalyDetector
-      `Prelude.seq` Prelude.rnf stat
-      `Prelude.seq` Prelude.rnf stateValue
+    Prelude.rnf configuration `Prelude.seq`
+      Prelude.rnf dimensions `Prelude.seq`
+        Prelude.rnf metricMathAnomalyDetector `Prelude.seq`
+          Prelude.rnf metricName `Prelude.seq`
+            Prelude.rnf namespace `Prelude.seq`
+              Prelude.rnf singleMetricAnomalyDetector `Prelude.seq`
+                Prelude.rnf stat `Prelude.seq`
+                  Prelude.rnf stateValue

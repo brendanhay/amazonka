@@ -122,9 +122,9 @@ instance Prelude.Hashable GetLabels where
 
 instance Prelude.NFData GetLabels where
   rnf GetLabels' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders GetLabels where
   toHeaders =
@@ -206,6 +206,6 @@ getLabelsResponse_httpStatus = Lens.lens (\GetLabelsResponse' {httpStatus} -> ht
 
 instance Prelude.NFData GetLabelsResponse where
   rnf GetLabelsResponse' {..} =
-    Prelude.rnf labels
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf labels `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

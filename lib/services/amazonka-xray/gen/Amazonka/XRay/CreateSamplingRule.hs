@@ -175,8 +175,8 @@ instance Prelude.Hashable CreateSamplingRule where
 
 instance Prelude.NFData CreateSamplingRule where
   rnf CreateSamplingRule' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf samplingRule
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf samplingRule
 
 instance Data.ToHeaders CreateSamplingRule where
   toHeaders = Prelude.const Prelude.mempty
@@ -237,5 +237,5 @@ createSamplingRuleResponse_httpStatus = Lens.lens (\CreateSamplingRuleResponse' 
 
 instance Prelude.NFData CreateSamplingRuleResponse where
   rnf CreateSamplingRuleResponse' {..} =
-    Prelude.rnf samplingRuleRecord
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf samplingRuleRecord `Prelude.seq`
+      Prelude.rnf httpStatus

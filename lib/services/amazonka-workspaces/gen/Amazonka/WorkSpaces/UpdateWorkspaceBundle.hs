@@ -111,8 +111,8 @@ instance Prelude.Hashable UpdateWorkspaceBundle where
 
 instance Prelude.NFData UpdateWorkspaceBundle where
   rnf UpdateWorkspaceBundle' {..} =
-    Prelude.rnf bundleId
-      `Prelude.seq` Prelude.rnf imageId
+    Prelude.rnf bundleId `Prelude.seq`
+      Prelude.rnf imageId
 
 instance Data.ToHeaders UpdateWorkspaceBundle where
   toHeaders =

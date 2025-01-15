@@ -143,10 +143,10 @@ instance
     CreateBackendAuthResourceConfig
   where
   rnf CreateBackendAuthResourceConfig' {..} =
-    Prelude.rnf identityPoolConfigs
-      `Prelude.seq` Prelude.rnf authResources
-      `Prelude.seq` Prelude.rnf userPoolConfigs
-      `Prelude.seq` Prelude.rnf service
+    Prelude.rnf identityPoolConfigs `Prelude.seq`
+      Prelude.rnf authResources `Prelude.seq`
+        Prelude.rnf userPoolConfigs `Prelude.seq`
+          Prelude.rnf service
 
 instance Data.ToJSON CreateBackendAuthResourceConfig where
   toJSON CreateBackendAuthResourceConfig' {..} =

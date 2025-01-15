@@ -212,14 +212,14 @@ instance Prelude.Hashable CurrentInstance where
 
 instance Prelude.NFData CurrentInstance where
   rnf CurrentInstance' {..} =
-    Prelude.rnf currencyCode
-      `Prelude.seq` Prelude.rnf instanceName
-      `Prelude.seq` Prelude.rnf monthlyCost
-      `Prelude.seq` Prelude.rnf onDemandHoursInLookbackPeriod
-      `Prelude.seq` Prelude.rnf reservationCoveredHoursInLookbackPeriod
-      `Prelude.seq` Prelude.rnf resourceDetails
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf resourceUtilization
-      `Prelude.seq` Prelude.rnf savingsPlansCoveredHoursInLookbackPeriod
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf totalRunningHoursInLookbackPeriod
+    Prelude.rnf currencyCode `Prelude.seq`
+      Prelude.rnf instanceName `Prelude.seq`
+        Prelude.rnf monthlyCost `Prelude.seq`
+          Prelude.rnf onDemandHoursInLookbackPeriod `Prelude.seq`
+            Prelude.rnf reservationCoveredHoursInLookbackPeriod `Prelude.seq`
+              Prelude.rnf resourceDetails `Prelude.seq`
+                Prelude.rnf resourceId `Prelude.seq`
+                  Prelude.rnf resourceUtilization `Prelude.seq`
+                    Prelude.rnf savingsPlansCoveredHoursInLookbackPeriod `Prelude.seq`
+                      Prelude.rnf tags `Prelude.seq`
+                        Prelude.rnf totalRunningHoursInLookbackPeriod

@@ -256,11 +256,11 @@ instance Prelude.Hashable CreateResource where
 
 instance Prelude.NFData CreateResource where
   rnf CreateResource' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf typeVersionId
-      `Prelude.seq` Prelude.rnf typeName
-      `Prelude.seq` Prelude.rnf desiredState
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf roleArn `Prelude.seq`
+        Prelude.rnf typeVersionId `Prelude.seq`
+          Prelude.rnf typeName `Prelude.seq`
+            Prelude.rnf desiredState
 
 instance Data.ToHeaders CreateResource where
   toHeaders =
@@ -354,5 +354,5 @@ createResourceResponse_httpStatus = Lens.lens (\CreateResourceResponse' {httpSta
 
 instance Prelude.NFData CreateResourceResponse where
   rnf CreateResourceResponse' {..} =
-    Prelude.rnf progressEvent
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf progressEvent `Prelude.seq`
+      Prelude.rnf httpStatus

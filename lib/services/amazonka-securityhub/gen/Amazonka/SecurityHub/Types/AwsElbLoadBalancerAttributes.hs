@@ -176,11 +176,11 @@ instance
 
 instance Prelude.NFData AwsElbLoadBalancerAttributes where
   rnf AwsElbLoadBalancerAttributes' {..} =
-    Prelude.rnf accessLog
-      `Prelude.seq` Prelude.rnf additionalAttributes
-      `Prelude.seq` Prelude.rnf connectionDraining
-      `Prelude.seq` Prelude.rnf connectionSettings
-      `Prelude.seq` Prelude.rnf crossZoneLoadBalancing
+    Prelude.rnf accessLog `Prelude.seq`
+      Prelude.rnf additionalAttributes `Prelude.seq`
+        Prelude.rnf connectionDraining `Prelude.seq`
+          Prelude.rnf connectionSettings `Prelude.seq`
+            Prelude.rnf crossZoneLoadBalancing
 
 instance Data.ToJSON AwsElbLoadBalancerAttributes where
   toJSON AwsElbLoadBalancerAttributes' {..} =

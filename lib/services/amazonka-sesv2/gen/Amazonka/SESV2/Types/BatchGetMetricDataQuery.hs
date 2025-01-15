@@ -264,12 +264,12 @@ instance Prelude.Hashable BatchGetMetricDataQuery where
 
 instance Prelude.NFData BatchGetMetricDataQuery where
   rnf BatchGetMetricDataQuery' {..} =
-    Prelude.rnf dimensions
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf namespace
-      `Prelude.seq` Prelude.rnf metric
-      `Prelude.seq` Prelude.rnf startDate
-      `Prelude.seq` Prelude.rnf endDate
+    Prelude.rnf dimensions `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf namespace `Prelude.seq`
+          Prelude.rnf metric `Prelude.seq`
+            Prelude.rnf startDate `Prelude.seq`
+              Prelude.rnf endDate
 
 instance Data.ToJSON BatchGetMetricDataQuery where
   toJSON BatchGetMetricDataQuery' {..} =

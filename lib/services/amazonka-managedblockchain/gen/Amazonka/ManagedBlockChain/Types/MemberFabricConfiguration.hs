@@ -94,8 +94,8 @@ instance Prelude.Hashable MemberFabricConfiguration where
 
 instance Prelude.NFData MemberFabricConfiguration where
   rnf MemberFabricConfiguration' {..} =
-    Prelude.rnf adminUsername
-      `Prelude.seq` Prelude.rnf adminPassword
+    Prelude.rnf adminUsername `Prelude.seq`
+      Prelude.rnf adminPassword
 
 instance Data.ToJSON MemberFabricConfiguration where
   toJSON MemberFabricConfiguration' {..} =

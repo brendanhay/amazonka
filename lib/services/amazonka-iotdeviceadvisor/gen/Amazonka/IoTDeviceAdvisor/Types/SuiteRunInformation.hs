@@ -173,13 +173,13 @@ instance Prelude.Hashable SuiteRunInformation where
 
 instance Prelude.NFData SuiteRunInformation where
   rnf SuiteRunInformation' {..} =
-    Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf endAt
-      `Prelude.seq` Prelude.rnf failed
-      `Prelude.seq` Prelude.rnf passed
-      `Prelude.seq` Prelude.rnf startedAt
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf suiteDefinitionId
-      `Prelude.seq` Prelude.rnf suiteDefinitionName
-      `Prelude.seq` Prelude.rnf suiteDefinitionVersion
-      `Prelude.seq` Prelude.rnf suiteRunId
+    Prelude.rnf createdAt `Prelude.seq`
+      Prelude.rnf endAt `Prelude.seq`
+        Prelude.rnf failed `Prelude.seq`
+          Prelude.rnf passed `Prelude.seq`
+            Prelude.rnf startedAt `Prelude.seq`
+              Prelude.rnf status `Prelude.seq`
+                Prelude.rnf suiteDefinitionId `Prelude.seq`
+                  Prelude.rnf suiteDefinitionName `Prelude.seq`
+                    Prelude.rnf suiteDefinitionVersion `Prelude.seq`
+                      Prelude.rnf suiteRunId

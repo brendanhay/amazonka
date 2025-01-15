@@ -147,13 +147,13 @@ instance Prelude.Hashable ResizeClusterMessage where
 
 instance Prelude.NFData ResizeClusterMessage where
   rnf ResizeClusterMessage' {..} =
-    Prelude.rnf classic
-      `Prelude.seq` Prelude.rnf clusterType
-      `Prelude.seq` Prelude.rnf nodeType
-      `Prelude.seq` Prelude.rnf numberOfNodes
-      `Prelude.seq` Prelude.rnf reservedNodeId
-      `Prelude.seq` Prelude.rnf targetReservedNodeOfferingId
-      `Prelude.seq` Prelude.rnf clusterIdentifier
+    Prelude.rnf classic `Prelude.seq`
+      Prelude.rnf clusterType `Prelude.seq`
+        Prelude.rnf nodeType `Prelude.seq`
+          Prelude.rnf numberOfNodes `Prelude.seq`
+            Prelude.rnf reservedNodeId `Prelude.seq`
+              Prelude.rnf targetReservedNodeOfferingId `Prelude.seq`
+                Prelude.rnf clusterIdentifier
 
 instance Data.ToQuery ResizeClusterMessage where
   toQuery ResizeClusterMessage' {..} =

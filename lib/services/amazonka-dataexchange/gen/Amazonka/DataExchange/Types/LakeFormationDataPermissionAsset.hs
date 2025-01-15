@@ -128,7 +128,7 @@ instance
     LakeFormationDataPermissionAsset
   where
   rnf LakeFormationDataPermissionAsset' {..} =
-    Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf lakeFormationDataPermissionDetails
-      `Prelude.seq` Prelude.rnf lakeFormationDataPermissionType
-      `Prelude.seq` Prelude.rnf permissions
+    Prelude.rnf roleArn `Prelude.seq`
+      Prelude.rnf lakeFormationDataPermissionDetails `Prelude.seq`
+        Prelude.rnf lakeFormationDataPermissionType `Prelude.seq`
+          Prelude.rnf permissions

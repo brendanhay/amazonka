@@ -154,8 +154,8 @@ instance
     DescribeCertificateAuthorityAuditReport
   where
   rnf DescribeCertificateAuthorityAuditReport' {..} =
-    Prelude.rnf certificateAuthorityArn
-      `Prelude.seq` Prelude.rnf auditReportId
+    Prelude.rnf certificateAuthorityArn `Prelude.seq`
+      Prelude.rnf auditReportId
 
 instance
   Data.ToHeaders
@@ -281,8 +281,8 @@ instance
   where
   rnf
     DescribeCertificateAuthorityAuditReportResponse' {..} =
-      Prelude.rnf auditReportStatus
-        `Prelude.seq` Prelude.rnf createdAt
-        `Prelude.seq` Prelude.rnf s3BucketName
-        `Prelude.seq` Prelude.rnf s3Key
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf auditReportStatus `Prelude.seq`
+        Prelude.rnf createdAt `Prelude.seq`
+          Prelude.rnf s3BucketName `Prelude.seq`
+            Prelude.rnf s3Key `Prelude.seq`
+              Prelude.rnf httpStatus

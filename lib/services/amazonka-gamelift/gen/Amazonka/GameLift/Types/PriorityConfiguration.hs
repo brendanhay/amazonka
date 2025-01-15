@@ -156,8 +156,8 @@ instance Prelude.Hashable PriorityConfiguration where
 
 instance Prelude.NFData PriorityConfiguration where
   rnf PriorityConfiguration' {..} =
-    Prelude.rnf locationOrder
-      `Prelude.seq` Prelude.rnf priorityOrder
+    Prelude.rnf locationOrder `Prelude.seq`
+      Prelude.rnf priorityOrder
 
 instance Data.ToJSON PriorityConfiguration where
   toJSON PriorityConfiguration' {..} =

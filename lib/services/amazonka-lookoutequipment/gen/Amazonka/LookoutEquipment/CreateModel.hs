@@ -317,20 +317,20 @@ instance Prelude.Hashable CreateModel where
 
 instance Prelude.NFData CreateModel where
   rnf CreateModel' {..} =
-    Prelude.rnf dataPreProcessingConfiguration
-      `Prelude.seq` Prelude.rnf datasetSchema
-      `Prelude.seq` Prelude.rnf evaluationDataEndTime
-      `Prelude.seq` Prelude.rnf evaluationDataStartTime
-      `Prelude.seq` Prelude.rnf labelsInputConfiguration
-      `Prelude.seq` Prelude.rnf offCondition
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf serverSideKmsKeyId
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf trainingDataEndTime
-      `Prelude.seq` Prelude.rnf trainingDataStartTime
-      `Prelude.seq` Prelude.rnf modelName
-      `Prelude.seq` Prelude.rnf datasetName
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf dataPreProcessingConfiguration `Prelude.seq`
+      Prelude.rnf datasetSchema `Prelude.seq`
+        Prelude.rnf evaluationDataEndTime `Prelude.seq`
+          Prelude.rnf evaluationDataStartTime `Prelude.seq`
+            Prelude.rnf labelsInputConfiguration `Prelude.seq`
+              Prelude.rnf offCondition `Prelude.seq`
+                Prelude.rnf roleArn `Prelude.seq`
+                  Prelude.rnf serverSideKmsKeyId `Prelude.seq`
+                    Prelude.rnf tags `Prelude.seq`
+                      Prelude.rnf trainingDataEndTime `Prelude.seq`
+                        Prelude.rnf trainingDataStartTime `Prelude.seq`
+                          Prelude.rnf modelName `Prelude.seq`
+                            Prelude.rnf datasetName `Prelude.seq`
+                              Prelude.rnf clientToken
 
 instance Data.ToHeaders CreateModel where
   toHeaders =
@@ -430,6 +430,6 @@ createModelResponse_httpStatus = Lens.lens (\CreateModelResponse' {httpStatus} -
 
 instance Prelude.NFData CreateModelResponse where
   rnf CreateModelResponse' {..} =
-    Prelude.rnf modelArn
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf modelArn `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf httpStatus

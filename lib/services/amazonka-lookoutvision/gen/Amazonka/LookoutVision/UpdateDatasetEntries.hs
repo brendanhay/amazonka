@@ -217,10 +217,10 @@ instance Prelude.Hashable UpdateDatasetEntries where
 
 instance Prelude.NFData UpdateDatasetEntries where
   rnf UpdateDatasetEntries' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf projectName
-      `Prelude.seq` Prelude.rnf datasetType
-      `Prelude.seq` Prelude.rnf changes
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf projectName `Prelude.seq`
+        Prelude.rnf datasetType `Prelude.seq`
+          Prelude.rnf changes
 
 instance Data.ToHeaders UpdateDatasetEntries where
   toHeaders UpdateDatasetEntries' {..} =
@@ -291,5 +291,5 @@ updateDatasetEntriesResponse_httpStatus = Lens.lens (\UpdateDatasetEntriesRespon
 
 instance Prelude.NFData UpdateDatasetEntriesResponse where
   rnf UpdateDatasetEntriesResponse' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf status `Prelude.seq`
+      Prelude.rnf httpStatus

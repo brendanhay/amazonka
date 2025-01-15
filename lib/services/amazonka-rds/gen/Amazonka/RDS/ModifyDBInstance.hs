@@ -2958,5 +2958,5 @@ modifyDBInstanceResponse_httpStatus = Lens.lens (\ModifyDBInstanceResponse' {htt
 
 instance Prelude.NFData ModifyDBInstanceResponse where
   rnf ModifyDBInstanceResponse' {..} =
-    Prelude.rnf dbInstance
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dbInstance `Prelude.seq`
+      Prelude.rnf httpStatus

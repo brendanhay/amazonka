@@ -305,21 +305,21 @@ instance Prelude.Hashable TargetGroup where
 
 instance Prelude.NFData TargetGroup where
   rnf TargetGroup' {..} =
-    Prelude.rnf healthCheckEnabled
-      `Prelude.seq` Prelude.rnf healthCheckIntervalSeconds
-      `Prelude.seq` Prelude.rnf healthCheckPath
-      `Prelude.seq` Prelude.rnf healthCheckPort
-      `Prelude.seq` Prelude.rnf healthCheckProtocol
-      `Prelude.seq` Prelude.rnf healthCheckTimeoutSeconds
-      `Prelude.seq` Prelude.rnf healthyThresholdCount
-      `Prelude.seq` Prelude.rnf ipAddressType
-      `Prelude.seq` Prelude.rnf loadBalancerArns
-      `Prelude.seq` Prelude.rnf matcher
-      `Prelude.seq` Prelude.rnf port
-      `Prelude.seq` Prelude.rnf protocol
-      `Prelude.seq` Prelude.rnf protocolVersion
-      `Prelude.seq` Prelude.rnf targetGroupArn
-      `Prelude.seq` Prelude.rnf targetGroupName
-      `Prelude.seq` Prelude.rnf targetType
-      `Prelude.seq` Prelude.rnf unhealthyThresholdCount
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf healthCheckEnabled `Prelude.seq`
+      Prelude.rnf healthCheckIntervalSeconds `Prelude.seq`
+        Prelude.rnf healthCheckPath `Prelude.seq`
+          Prelude.rnf healthCheckPort `Prelude.seq`
+            Prelude.rnf healthCheckProtocol `Prelude.seq`
+              Prelude.rnf healthCheckTimeoutSeconds `Prelude.seq`
+                Prelude.rnf healthyThresholdCount `Prelude.seq`
+                  Prelude.rnf ipAddressType `Prelude.seq`
+                    Prelude.rnf loadBalancerArns `Prelude.seq`
+                      Prelude.rnf matcher `Prelude.seq`
+                        Prelude.rnf port `Prelude.seq`
+                          Prelude.rnf protocol `Prelude.seq`
+                            Prelude.rnf protocolVersion `Prelude.seq`
+                              Prelude.rnf targetGroupArn `Prelude.seq`
+                                Prelude.rnf targetGroupName `Prelude.seq`
+                                  Prelude.rnf targetType `Prelude.seq`
+                                    Prelude.rnf unhealthyThresholdCount `Prelude.seq`
+                                      Prelude.rnf vpcId

@@ -139,8 +139,8 @@ instance Prelude.Hashable CreateContainer where
 
 instance Prelude.NFData CreateContainer where
   rnf CreateContainer' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf containerName
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf containerName
 
 instance Data.ToHeaders CreateContainer where
   toHeaders =
@@ -263,5 +263,5 @@ createContainerResponse_container = Lens.lens (\CreateContainerResponse' {contai
 
 instance Prelude.NFData CreateContainerResponse where
   rnf CreateContainerResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf container
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf container

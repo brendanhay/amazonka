@@ -87,5 +87,5 @@ instance
     NetworkInterfacePermissionState
   where
   rnf NetworkInterfacePermissionState' {..} =
-    Prelude.rnf state
-      `Prelude.seq` Prelude.rnf statusMessage
+    Prelude.rnf state `Prelude.seq`
+      Prelude.rnf statusMessage

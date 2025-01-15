@@ -126,9 +126,9 @@ instance Prelude.Hashable Snapshot where
 
 instance Prelude.NFData Snapshot where
   rnf Snapshot' {..} =
-    Prelude.rnf directoryId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf snapshotId
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf directoryId `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf snapshotId `Prelude.seq`
+          Prelude.rnf startTime `Prelude.seq`
+            Prelude.rnf status `Prelude.seq`
+              Prelude.rnf type'

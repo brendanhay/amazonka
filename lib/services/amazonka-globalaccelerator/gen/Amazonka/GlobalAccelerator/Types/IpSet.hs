@@ -95,6 +95,6 @@ instance Prelude.Hashable IpSet where
 
 instance Prelude.NFData IpSet where
   rnf IpSet' {..} =
-    Prelude.rnf ipAddressFamily
-      `Prelude.seq` Prelude.rnf ipAddresses
-      `Prelude.seq` Prelude.rnf ipFamily
+    Prelude.rnf ipAddressFamily `Prelude.seq`
+      Prelude.rnf ipAddresses `Prelude.seq`
+        Prelude.rnf ipFamily

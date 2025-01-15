@@ -114,6 +114,6 @@ instance
     ECSServiceRecommendedOptionProjectedMetric
   where
   rnf ECSServiceRecommendedOptionProjectedMetric' {..} =
-    Prelude.rnf projectedMetrics
-      `Prelude.seq` Prelude.rnf recommendedCpuUnits
-      `Prelude.seq` Prelude.rnf recommendedMemorySize
+    Prelude.rnf projectedMetrics `Prelude.seq`
+      Prelude.rnf recommendedCpuUnits `Prelude.seq`
+        Prelude.rnf recommendedMemorySize

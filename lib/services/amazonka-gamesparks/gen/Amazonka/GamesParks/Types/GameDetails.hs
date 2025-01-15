@@ -147,11 +147,11 @@ instance Prelude.Hashable GameDetails where
 
 instance Prelude.NFData GameDetails where
   rnf GameDetails' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf created
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf enableTerminationProtection
-      `Prelude.seq` Prelude.rnf lastUpdated
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf created `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf enableTerminationProtection `Prelude.seq`
+            Prelude.rnf lastUpdated `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf state `Prelude.seq`
+                  Prelude.rnf tags

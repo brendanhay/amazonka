@@ -186,10 +186,10 @@ instance Prelude.Hashable PutInsightRule where
 
 instance Prelude.NFData PutInsightRule where
   rnf PutInsightRule' {..} =
-    Prelude.rnf ruleState
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf ruleName
-      `Prelude.seq` Prelude.rnf ruleDefinition
+    Prelude.rnf ruleState `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf ruleName `Prelude.seq`
+          Prelude.rnf ruleDefinition
 
 instance Data.ToHeaders PutInsightRule where
   toHeaders = Prelude.const Prelude.mempty

@@ -120,7 +120,7 @@ instance Prelude.Hashable VPCDerivedInfo where
 
 instance Prelude.NFData VPCDerivedInfo where
   rnf VPCDerivedInfo' {..} =
-    Prelude.rnf availabilityZones
-      `Prelude.seq` Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf subnetIds
-      `Prelude.seq` Prelude.rnf vPCId
+    Prelude.rnf availabilityZones `Prelude.seq`
+      Prelude.rnf securityGroupIds `Prelude.seq`
+        Prelude.rnf subnetIds `Prelude.seq`
+          Prelude.rnf vPCId

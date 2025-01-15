@@ -158,12 +158,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listAWSServiceAccessForOrganization_nextToken
-          Lens..~ rs
-          Lens.^? listAWSServiceAccessForOrganizationResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listAWSServiceAccessForOrganization_nextToken
+              Lens..~ rs
+              Lens.^? listAWSServiceAccessForOrganizationResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -202,8 +202,8 @@ instance
     ListAWSServiceAccessForOrganization
   where
   rnf ListAWSServiceAccessForOrganization' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance
   Data.ToHeaders
@@ -322,6 +322,6 @@ instance
     ListAWSServiceAccessForOrganizationResponse
   where
   rnf ListAWSServiceAccessForOrganizationResponse' {..} =
-    Prelude.rnf enabledServicePrincipals
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf enabledServicePrincipals `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -104,9 +104,9 @@ instance Prelude.Hashable SpotPlacement where
 
 instance Prelude.NFData SpotPlacement where
   rnf SpotPlacement' {..} =
-    Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf groupName
-      `Prelude.seq` Prelude.rnf tenancy
+    Prelude.rnf availabilityZone `Prelude.seq`
+      Prelude.rnf groupName `Prelude.seq`
+        Prelude.rnf tenancy
 
 instance Data.ToQuery SpotPlacement where
   toQuery SpotPlacement' {..} =

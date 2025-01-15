@@ -91,8 +91,8 @@ instance Prelude.Hashable FeatureDefinition where
 
 instance Prelude.NFData FeatureDefinition where
   rnf FeatureDefinition' {..} =
-    Prelude.rnf featureName
-      `Prelude.seq` Prelude.rnf featureType
+    Prelude.rnf featureName `Prelude.seq`
+      Prelude.rnf featureType
 
 instance Data.ToJSON FeatureDefinition where
   toJSON FeatureDefinition' {..} =

@@ -141,8 +141,8 @@ instance
     EnableAvailabilityZonesForLoadBalancer
   where
   rnf EnableAvailabilityZonesForLoadBalancer' {..} =
-    Prelude.rnf loadBalancerName
-      `Prelude.seq` Prelude.rnf availabilityZones
+    Prelude.rnf loadBalancerName `Prelude.seq`
+      Prelude.rnf availabilityZones
 
 instance
   Data.ToHeaders
@@ -221,5 +221,5 @@ instance
   where
   rnf
     EnableAvailabilityZonesForLoadBalancerResponse' {..} =
-      Prelude.rnf availabilityZones
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf availabilityZones `Prelude.seq`
+        Prelude.rnf httpStatus

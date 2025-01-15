@@ -241,14 +241,14 @@ instance Prelude.Hashable CreateJob where
 
 instance Prelude.NFData CreateJob where
   rnf CreateJob' {..} =
-    Prelude.rnf input
-      `Prelude.seq` Prelude.rnf inputs
-      `Prelude.seq` Prelude.rnf output
-      `Prelude.seq` Prelude.rnf outputKeyPrefix
-      `Prelude.seq` Prelude.rnf outputs
-      `Prelude.seq` Prelude.rnf playlists
-      `Prelude.seq` Prelude.rnf userMetadata
-      `Prelude.seq` Prelude.rnf pipelineId
+    Prelude.rnf input `Prelude.seq`
+      Prelude.rnf inputs `Prelude.seq`
+        Prelude.rnf output `Prelude.seq`
+          Prelude.rnf outputKeyPrefix `Prelude.seq`
+            Prelude.rnf outputs `Prelude.seq`
+              Prelude.rnf playlists `Prelude.seq`
+                Prelude.rnf userMetadata `Prelude.seq`
+                  Prelude.rnf pipelineId
 
 instance Data.ToHeaders CreateJob where
   toHeaders = Prelude.const Prelude.mempty
@@ -320,5 +320,5 @@ createJobResponse_httpStatus = Lens.lens (\CreateJobResponse' {httpStatus} -> ht
 
 instance Prelude.NFData CreateJobResponse where
   rnf CreateJobResponse' {..} =
-    Prelude.rnf job
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf job `Prelude.seq`
+      Prelude.rnf httpStatus

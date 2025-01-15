@@ -180,12 +180,12 @@ instance Prelude.Hashable Anomaly where
 
 instance Prelude.NFData Anomaly where
   rnf Anomaly' {..} =
-    Prelude.rnf anomalyEndDate
-      `Prelude.seq` Prelude.rnf anomalyStartDate
-      `Prelude.seq` Prelude.rnf dimensionValue
-      `Prelude.seq` Prelude.rnf feedback
-      `Prelude.seq` Prelude.rnf rootCauses
-      `Prelude.seq` Prelude.rnf anomalyId
-      `Prelude.seq` Prelude.rnf anomalyScore
-      `Prelude.seq` Prelude.rnf impact
-      `Prelude.seq` Prelude.rnf monitorArn
+    Prelude.rnf anomalyEndDate `Prelude.seq`
+      Prelude.rnf anomalyStartDate `Prelude.seq`
+        Prelude.rnf dimensionValue `Prelude.seq`
+          Prelude.rnf feedback `Prelude.seq`
+            Prelude.rnf rootCauses `Prelude.seq`
+              Prelude.rnf anomalyId `Prelude.seq`
+                Prelude.rnf anomalyScore `Prelude.seq`
+                  Prelude.rnf impact `Prelude.seq`
+                    Prelude.rnf monitorArn

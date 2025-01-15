@@ -158,15 +158,15 @@ instance Prelude.Hashable AlarmAction where
 
 instance Prelude.NFData AlarmAction where
   rnf AlarmAction' {..} =
-    Prelude.rnf dynamoDB
-      `Prelude.seq` Prelude.rnf dynamoDBv2
-      `Prelude.seq` Prelude.rnf firehose
-      `Prelude.seq` Prelude.rnf iotEvents
-      `Prelude.seq` Prelude.rnf iotSiteWise
-      `Prelude.seq` Prelude.rnf iotTopicPublish
-      `Prelude.seq` Prelude.rnf lambda
-      `Prelude.seq` Prelude.rnf sns
-      `Prelude.seq` Prelude.rnf sqs
+    Prelude.rnf dynamoDB `Prelude.seq`
+      Prelude.rnf dynamoDBv2 `Prelude.seq`
+        Prelude.rnf firehose `Prelude.seq`
+          Prelude.rnf iotEvents `Prelude.seq`
+            Prelude.rnf iotSiteWise `Prelude.seq`
+              Prelude.rnf iotTopicPublish `Prelude.seq`
+                Prelude.rnf lambda `Prelude.seq`
+                  Prelude.rnf sns `Prelude.seq`
+                    Prelude.rnf sqs
 
 instance Data.ToJSON AlarmAction where
   toJSON AlarmAction' {..} =

@@ -85,8 +85,8 @@ instance Prelude.Hashable SitePlan where
 
 instance Prelude.NFData SitePlan where
   rnf SitePlan' {..} =
-    Prelude.rnf options
-      `Prelude.seq` Prelude.rnf resourceDefinitions
+    Prelude.rnf options `Prelude.seq`
+      Prelude.rnf resourceDefinitions
 
 instance Data.ToJSON SitePlan where
   toJSON SitePlan' {..} =

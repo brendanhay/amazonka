@@ -97,8 +97,8 @@ instance Prelude.Hashable Filter where
 
 instance Prelude.NFData Filter where
   rnf Filter' {..} =
-    Prelude.rnf contextRowId
-      `Prelude.seq` Prelude.rnf formula
+    Prelude.rnf contextRowId `Prelude.seq`
+      Prelude.rnf formula
 
 instance Data.ToJSON Filter where
   toJSON Filter' {..} =

@@ -126,8 +126,8 @@ instance
     AwsBackupBackupVaultNotificationsDetails
   where
   rnf AwsBackupBackupVaultNotificationsDetails' {..} =
-    Prelude.rnf backupVaultEvents
-      `Prelude.seq` Prelude.rnf snsTopicArn
+    Prelude.rnf backupVaultEvents `Prelude.seq`
+      Prelude.rnf snsTopicArn
 
 instance
   Data.ToJSON

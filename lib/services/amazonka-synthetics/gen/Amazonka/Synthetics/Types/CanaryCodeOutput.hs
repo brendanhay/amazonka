@@ -84,5 +84,5 @@ instance Prelude.Hashable CanaryCodeOutput where
 
 instance Prelude.NFData CanaryCodeOutput where
   rnf CanaryCodeOutput' {..} =
-    Prelude.rnf handler
-      `Prelude.seq` Prelude.rnf sourceLocationArn
+    Prelude.rnf handler `Prelude.seq`
+      Prelude.rnf sourceLocationArn

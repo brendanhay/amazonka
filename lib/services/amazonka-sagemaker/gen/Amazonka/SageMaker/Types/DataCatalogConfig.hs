@@ -98,9 +98,9 @@ instance Prelude.Hashable DataCatalogConfig where
 
 instance Prelude.NFData DataCatalogConfig where
   rnf DataCatalogConfig' {..} =
-    Prelude.rnf tableName
-      `Prelude.seq` Prelude.rnf catalog
-      `Prelude.seq` Prelude.rnf database
+    Prelude.rnf tableName `Prelude.seq`
+      Prelude.rnf catalog `Prelude.seq`
+        Prelude.rnf database
 
 instance Data.ToJSON DataCatalogConfig where
   toJSON DataCatalogConfig' {..} =

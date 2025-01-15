@@ -71,8 +71,8 @@ instance Prelude.Hashable TagCondition where
 
 instance Prelude.NFData TagCondition where
   rnf TagCondition' {..} =
-    Prelude.rnf tagKey
-      `Prelude.seq` Prelude.rnf tagValue
+    Prelude.rnf tagKey `Prelude.seq`
+      Prelude.rnf tagValue
 
 instance Data.ToJSON TagCondition where
   toJSON TagCondition' {..} =

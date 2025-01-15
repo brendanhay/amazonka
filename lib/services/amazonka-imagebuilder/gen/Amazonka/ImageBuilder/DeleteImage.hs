@@ -189,6 +189,6 @@ deleteImageResponse_httpStatus = Lens.lens (\DeleteImageResponse' {httpStatus} -
 
 instance Prelude.NFData DeleteImageResponse where
   rnf DeleteImageResponse' {..} =
-    Prelude.rnf imageBuildVersionArn
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf imageBuildVersionArn `Prelude.seq`
+      Prelude.rnf requestId `Prelude.seq`
+        Prelude.rnf httpStatus

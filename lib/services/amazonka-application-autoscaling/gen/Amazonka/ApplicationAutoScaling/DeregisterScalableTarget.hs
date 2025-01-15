@@ -526,9 +526,9 @@ instance Prelude.Hashable DeregisterScalableTarget where
 
 instance Prelude.NFData DeregisterScalableTarget where
   rnf DeregisterScalableTarget' {..} =
-    Prelude.rnf serviceNamespace
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf scalableDimension
+    Prelude.rnf serviceNamespace `Prelude.seq`
+      Prelude.rnf resourceId `Prelude.seq`
+        Prelude.rnf scalableDimension
 
 instance Data.ToHeaders DeregisterScalableTarget where
   toHeaders =

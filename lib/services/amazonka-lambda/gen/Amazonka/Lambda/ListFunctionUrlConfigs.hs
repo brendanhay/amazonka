@@ -158,12 +158,12 @@ instance Core.AWSPager ListFunctionUrlConfigs where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listFunctionUrlConfigs_marker
-          Lens..~ rs
-          Lens.^? listFunctionUrlConfigsResponse_nextMarker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listFunctionUrlConfigs_marker
+              Lens..~ rs
+              Lens.^? listFunctionUrlConfigsResponse_nextMarker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListFunctionUrlConfigs where
   type
@@ -192,9 +192,9 @@ instance Prelude.Hashable ListFunctionUrlConfigs where
 
 instance Prelude.NFData ListFunctionUrlConfigs where
   rnf ListFunctionUrlConfigs' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxItems
-      `Prelude.seq` Prelude.rnf functionName
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf maxItems `Prelude.seq`
+        Prelude.rnf functionName
 
 instance Data.ToHeaders ListFunctionUrlConfigs where
   toHeaders = Prelude.const Prelude.mempty
@@ -267,6 +267,6 @@ instance
     ListFunctionUrlConfigsResponse
   where
   rnf ListFunctionUrlConfigsResponse' {..} =
-    Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf functionUrlConfigs
+    Prelude.rnf nextMarker `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf functionUrlConfigs

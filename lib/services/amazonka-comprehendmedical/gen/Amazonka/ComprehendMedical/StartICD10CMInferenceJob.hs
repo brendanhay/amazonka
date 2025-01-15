@@ -194,13 +194,13 @@ instance Prelude.Hashable StartICD10CMInferenceJob where
 
 instance Prelude.NFData StartICD10CMInferenceJob where
   rnf StartICD10CMInferenceJob' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf kmsKey
-      `Prelude.seq` Prelude.rnf inputDataConfig
-      `Prelude.seq` Prelude.rnf outputDataConfig
-      `Prelude.seq` Prelude.rnf dataAccessRoleArn
-      `Prelude.seq` Prelude.rnf languageCode
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf jobName `Prelude.seq`
+        Prelude.rnf kmsKey `Prelude.seq`
+          Prelude.rnf inputDataConfig `Prelude.seq`
+            Prelude.rnf outputDataConfig `Prelude.seq`
+              Prelude.rnf dataAccessRoleArn `Prelude.seq`
+                Prelude.rnf languageCode
 
 instance Data.ToHeaders StartICD10CMInferenceJob where
   toHeaders =
@@ -288,5 +288,5 @@ instance
     StartICD10CMInferenceJobResponse
   where
   rnf StartICD10CMInferenceJobResponse' {..} =
-    Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf jobId `Prelude.seq`
+      Prelude.rnf httpStatus

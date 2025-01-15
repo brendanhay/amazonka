@@ -131,8 +131,8 @@ instance
     DeleteTransitGatewayMulticastDomain
   where
   rnf DeleteTransitGatewayMulticastDomain' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf transitGatewayMulticastDomainId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf transitGatewayMulticastDomainId
 
 instance
   Data.ToHeaders
@@ -208,5 +208,5 @@ instance
     DeleteTransitGatewayMulticastDomainResponse
   where
   rnf DeleteTransitGatewayMulticastDomainResponse' {..} =
-    Prelude.rnf transitGatewayMulticastDomain
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf transitGatewayMulticastDomain `Prelude.seq`
+      Prelude.rnf httpStatus

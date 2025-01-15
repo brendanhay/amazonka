@@ -145,11 +145,11 @@ instance Prelude.Hashable ListAssets where
 
 instance Prelude.NFData ListAssets where
   rnf ListAssets' {..} =
-    Prelude.rnf hostIdFilter
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf statusFilter
-      `Prelude.seq` Prelude.rnf outpostIdentifier
+    Prelude.rnf hostIdFilter `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf statusFilter `Prelude.seq`
+            Prelude.rnf outpostIdentifier
 
 instance Data.ToHeaders ListAssets where
   toHeaders =
@@ -231,6 +231,6 @@ listAssetsResponse_httpStatus = Lens.lens (\ListAssetsResponse' {httpStatus} -> 
 
 instance Prelude.NFData ListAssetsResponse where
   rnf ListAssetsResponse' {..} =
-    Prelude.rnf assets
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf assets `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -145,11 +145,11 @@ instance Prelude.Hashable ListSites where
 
 instance Prelude.NFData ListSites where
   rnf ListSites' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf operatingAddressCityFilter
-      `Prelude.seq` Prelude.rnf operatingAddressCountryCodeFilter
-      `Prelude.seq` Prelude.rnf operatingAddressStateOrRegionFilter
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf operatingAddressCityFilter `Prelude.seq`
+          Prelude.rnf operatingAddressCountryCodeFilter `Prelude.seq`
+            Prelude.rnf operatingAddressStateOrRegionFilter
 
 instance Data.ToHeaders ListSites where
   toHeaders =
@@ -234,6 +234,6 @@ listSitesResponse_httpStatus = Lens.lens (\ListSitesResponse' {httpStatus} -> ht
 
 instance Prelude.NFData ListSitesResponse where
   rnf ListSitesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sites
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf sites `Prelude.seq`
+        Prelude.rnf httpStatus

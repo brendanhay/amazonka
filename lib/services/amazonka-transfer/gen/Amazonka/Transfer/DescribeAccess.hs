@@ -162,8 +162,8 @@ instance Prelude.Hashable DescribeAccess where
 
 instance Prelude.NFData DescribeAccess where
   rnf DescribeAccess' {..} =
-    Prelude.rnf serverId
-      `Prelude.seq` Prelude.rnf externalId
+    Prelude.rnf serverId `Prelude.seq`
+      Prelude.rnf externalId
 
 instance Data.ToHeaders DescribeAccess where
   toHeaders =
@@ -254,6 +254,6 @@ describeAccessResponse_access = Lens.lens (\DescribeAccessResponse' {access} -> 
 
 instance Prelude.NFData DescribeAccessResponse where
   rnf DescribeAccessResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf serverId
-      `Prelude.seq` Prelude.rnf access
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf serverId `Prelude.seq`
+        Prelude.rnf access

@@ -112,8 +112,8 @@ instance Prelude.Hashable ResourceRequestStatusFilter where
 
 instance Prelude.NFData ResourceRequestStatusFilter where
   rnf ResourceRequestStatusFilter' {..} =
-    Prelude.rnf operationStatuses
-      `Prelude.seq` Prelude.rnf operations
+    Prelude.rnf operationStatuses `Prelude.seq`
+      Prelude.rnf operations
 
 instance Data.ToJSON ResourceRequestStatusFilter where
   toJSON ResourceRequestStatusFilter' {..} =

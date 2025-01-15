@@ -97,9 +97,9 @@ instance Prelude.Hashable MySQLCatalogSource where
 
 instance Prelude.NFData MySQLCatalogSource where
   rnf MySQLCatalogSource' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf database
-      `Prelude.seq` Prelude.rnf table
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf database `Prelude.seq`
+        Prelude.rnf table
 
 instance Data.ToJSON MySQLCatalogSource where
   toJSON MySQLCatalogSource' {..} =

@@ -121,8 +121,8 @@ instance Prelude.Hashable DeleteDeploymentGroup where
 
 instance Prelude.NFData DeleteDeploymentGroup where
   rnf DeleteDeploymentGroup' {..} =
-    Prelude.rnf applicationName
-      `Prelude.seq` Prelude.rnf deploymentGroupName
+    Prelude.rnf applicationName `Prelude.seq`
+      Prelude.rnf deploymentGroupName
 
 instance Data.ToHeaders DeleteDeploymentGroup where
   toHeaders =
@@ -214,5 +214,5 @@ deleteDeploymentGroupResponse_httpStatus = Lens.lens (\DeleteDeploymentGroupResp
 
 instance Prelude.NFData DeleteDeploymentGroupResponse where
   rnf DeleteDeploymentGroupResponse' {..} =
-    Prelude.rnf hooksNotCleanedUp
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf hooksNotCleanedUp `Prelude.seq`
+      Prelude.rnf httpStatus

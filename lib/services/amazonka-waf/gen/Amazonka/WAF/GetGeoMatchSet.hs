@@ -190,5 +190,5 @@ getGeoMatchSetResponse_httpStatus = Lens.lens (\GetGeoMatchSetResponse' {httpSta
 
 instance Prelude.NFData GetGeoMatchSetResponse where
   rnf GetGeoMatchSetResponse' {..} =
-    Prelude.rnf geoMatchSet
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf geoMatchSet `Prelude.seq`
+      Prelude.rnf httpStatus

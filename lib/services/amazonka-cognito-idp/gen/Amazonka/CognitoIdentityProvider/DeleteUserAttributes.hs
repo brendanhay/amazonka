@@ -124,8 +124,8 @@ instance Prelude.Hashable DeleteUserAttributes where
 
 instance Prelude.NFData DeleteUserAttributes where
   rnf DeleteUserAttributes' {..} =
-    Prelude.rnf userAttributeNames
-      `Prelude.seq` Prelude.rnf accessToken
+    Prelude.rnf userAttributeNames `Prelude.seq`
+      Prelude.rnf accessToken
 
 instance Data.ToHeaders DeleteUserAttributes where
   toHeaders =

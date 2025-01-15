@@ -354,15 +354,15 @@ instance Prelude.Hashable CreateCustomDBEngineVersion where
 
 instance Prelude.NFData CreateCustomDBEngineVersion where
   rnf CreateCustomDBEngineVersion' {..} =
-    Prelude.rnf databaseInstallationFilesS3BucketName
-      `Prelude.seq` Prelude.rnf databaseInstallationFilesS3Prefix
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf imageId
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf manifest
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf engine
-      `Prelude.seq` Prelude.rnf engineVersion
+    Prelude.rnf databaseInstallationFilesS3BucketName `Prelude.seq`
+      Prelude.rnf databaseInstallationFilesS3Prefix `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf imageId `Prelude.seq`
+            Prelude.rnf kmsKeyId `Prelude.seq`
+              Prelude.rnf manifest `Prelude.seq`
+                Prelude.rnf tags `Prelude.seq`
+                  Prelude.rnf engine `Prelude.seq`
+                    Prelude.rnf engineVersion
 
 instance Data.ToHeaders CreateCustomDBEngineVersion where
   toHeaders = Prelude.const Prelude.mempty

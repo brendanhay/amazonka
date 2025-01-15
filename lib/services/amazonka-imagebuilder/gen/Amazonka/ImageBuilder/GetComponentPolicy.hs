@@ -170,6 +170,6 @@ getComponentPolicyResponse_httpStatus = Lens.lens (\GetComponentPolicyResponse' 
 
 instance Prelude.NFData GetComponentPolicyResponse where
   rnf GetComponentPolicyResponse' {..} =
-    Prelude.rnf policy
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf policy `Prelude.seq`
+      Prelude.rnf requestId `Prelude.seq`
+        Prelude.rnf httpStatus

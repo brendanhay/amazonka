@@ -113,8 +113,8 @@ instance Prelude.Hashable ListDomains where
 
 instance Prelude.NFData ListDomains where
   rnf ListDomains' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListDomains where
   toHeaders =
@@ -192,6 +192,6 @@ listDomainsResponse_domains = Lens.lens (\ListDomainsResponse' {domains} -> doma
 
 instance Prelude.NFData ListDomainsResponse where
   rnf ListDomainsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf domains
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf domains

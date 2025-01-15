@@ -140,9 +140,9 @@ instance
     BatchAssociateAssessmentReportEvidence
   where
   rnf BatchAssociateAssessmentReportEvidence' {..} =
-    Prelude.rnf assessmentId
-      `Prelude.seq` Prelude.rnf evidenceFolderId
-      `Prelude.seq` Prelude.rnf evidenceIds
+    Prelude.rnf assessmentId `Prelude.seq`
+      Prelude.rnf evidenceFolderId `Prelude.seq`
+        Prelude.rnf evidenceIds
 
 instance
   Data.ToHeaders
@@ -247,6 +247,6 @@ instance
   where
   rnf
     BatchAssociateAssessmentReportEvidenceResponse' {..} =
-      Prelude.rnf errors
-        `Prelude.seq` Prelude.rnf evidenceIds
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf errors `Prelude.seq`
+        Prelude.rnf evidenceIds `Prelude.seq`
+          Prelude.rnf httpStatus

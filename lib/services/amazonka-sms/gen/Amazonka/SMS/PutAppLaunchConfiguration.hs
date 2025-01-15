@@ -137,10 +137,10 @@ instance Prelude.Hashable PutAppLaunchConfiguration where
 
 instance Prelude.NFData PutAppLaunchConfiguration where
   rnf PutAppLaunchConfiguration' {..} =
-    Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf autoLaunch
-      `Prelude.seq` Prelude.rnf roleName
-      `Prelude.seq` Prelude.rnf serverGroupLaunchConfigurations
+    Prelude.rnf appId `Prelude.seq`
+      Prelude.rnf autoLaunch `Prelude.seq`
+        Prelude.rnf roleName `Prelude.seq`
+          Prelude.rnf serverGroupLaunchConfigurations
 
 instance Data.ToHeaders PutAppLaunchConfiguration where
   toHeaders =

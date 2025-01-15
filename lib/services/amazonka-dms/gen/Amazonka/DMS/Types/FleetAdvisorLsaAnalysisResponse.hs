@@ -93,5 +93,5 @@ instance
     FleetAdvisorLsaAnalysisResponse
   where
   rnf FleetAdvisorLsaAnalysisResponse' {..} =
-    Prelude.rnf lsaAnalysisId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf lsaAnalysisId `Prelude.seq`
+      Prelude.rnf status

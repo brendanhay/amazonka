@@ -184,13 +184,13 @@ instance Prelude.Hashable LongTermPricingListEntry where
 
 instance Prelude.NFData LongTermPricingListEntry where
   rnf LongTermPricingListEntry' {..} =
-    Prelude.rnf currentActiveJob
-      `Prelude.seq` Prelude.rnf isLongTermPricingAutoRenew
-      `Prelude.seq` Prelude.rnf jobIds
-      `Prelude.seq` Prelude.rnf longTermPricingEndDate
-      `Prelude.seq` Prelude.rnf longTermPricingId
-      `Prelude.seq` Prelude.rnf longTermPricingStartDate
-      `Prelude.seq` Prelude.rnf longTermPricingStatus
-      `Prelude.seq` Prelude.rnf longTermPricingType
-      `Prelude.seq` Prelude.rnf replacementJob
-      `Prelude.seq` Prelude.rnf snowballType
+    Prelude.rnf currentActiveJob `Prelude.seq`
+      Prelude.rnf isLongTermPricingAutoRenew `Prelude.seq`
+        Prelude.rnf jobIds `Prelude.seq`
+          Prelude.rnf longTermPricingEndDate `Prelude.seq`
+            Prelude.rnf longTermPricingId `Prelude.seq`
+              Prelude.rnf longTermPricingStartDate `Prelude.seq`
+                Prelude.rnf longTermPricingStatus `Prelude.seq`
+                  Prelude.rnf longTermPricingType `Prelude.seq`
+                    Prelude.rnf replacementJob `Prelude.seq`
+                      Prelude.rnf snowballType

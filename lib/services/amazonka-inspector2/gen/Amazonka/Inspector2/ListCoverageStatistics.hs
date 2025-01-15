@@ -127,12 +127,12 @@ instance Core.AWSPager ListCoverageStatistics where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listCoverageStatistics_nextToken
-          Lens..~ rs
-          Lens.^? listCoverageStatisticsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listCoverageStatistics_nextToken
+              Lens..~ rs
+              Lens.^? listCoverageStatisticsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListCoverageStatistics where
   type
@@ -159,9 +159,9 @@ instance Prelude.Hashable ListCoverageStatistics where
 
 instance Prelude.NFData ListCoverageStatistics where
   rnf ListCoverageStatistics' {..} =
-    Prelude.rnf filterCriteria
-      `Prelude.seq` Prelude.rnf groupBy
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filterCriteria `Prelude.seq`
+      Prelude.rnf groupBy `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListCoverageStatistics where
   toHeaders =
@@ -266,7 +266,7 @@ instance
     ListCoverageStatisticsResponse
   where
   rnf ListCoverageStatisticsResponse' {..} =
-    Prelude.rnf countsByGroup
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf totalCounts
+    Prelude.rnf countsByGroup `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus `Prelude.seq`
+          Prelude.rnf totalCounts

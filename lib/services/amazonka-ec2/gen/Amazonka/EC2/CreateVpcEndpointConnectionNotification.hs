@@ -194,12 +194,12 @@ instance
     CreateVpcEndpointConnectionNotification
   where
   rnf CreateVpcEndpointConnectionNotification' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf serviceId
-      `Prelude.seq` Prelude.rnf vpcEndpointId
-      `Prelude.seq` Prelude.rnf connectionNotificationArn
-      `Prelude.seq` Prelude.rnf connectionEvents
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf serviceId `Prelude.seq`
+          Prelude.rnf vpcEndpointId `Prelude.seq`
+            Prelude.rnf connectionNotificationArn `Prelude.seq`
+              Prelude.rnf connectionEvents
 
 instance
   Data.ToHeaders
@@ -293,6 +293,6 @@ instance
   where
   rnf
     CreateVpcEndpointConnectionNotificationResponse' {..} =
-      Prelude.rnf clientToken
-        `Prelude.seq` Prelude.rnf connectionNotification
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf clientToken `Prelude.seq`
+        Prelude.rnf connectionNotification `Prelude.seq`
+          Prelude.rnf httpStatus

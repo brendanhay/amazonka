@@ -204,13 +204,13 @@ instance Prelude.Hashable CreateTrust where
 
 instance Prelude.NFData CreateTrust where
   rnf CreateTrust' {..} =
-    Prelude.rnf conditionalForwarderIpAddrs
-      `Prelude.seq` Prelude.rnf selectiveAuth
-      `Prelude.seq` Prelude.rnf trustType
-      `Prelude.seq` Prelude.rnf directoryId
-      `Prelude.seq` Prelude.rnf remoteDomainName
-      `Prelude.seq` Prelude.rnf trustPassword
-      `Prelude.seq` Prelude.rnf trustDirection
+    Prelude.rnf conditionalForwarderIpAddrs `Prelude.seq`
+      Prelude.rnf selectiveAuth `Prelude.seq`
+        Prelude.rnf trustType `Prelude.seq`
+          Prelude.rnf directoryId `Prelude.seq`
+            Prelude.rnf remoteDomainName `Prelude.seq`
+              Prelude.rnf trustPassword `Prelude.seq`
+                Prelude.rnf trustDirection
 
 instance Data.ToHeaders CreateTrust where
   toHeaders =
@@ -292,5 +292,5 @@ createTrustResponse_httpStatus = Lens.lens (\CreateTrustResponse' {httpStatus} -
 
 instance Prelude.NFData CreateTrustResponse where
   rnf CreateTrustResponse' {..} =
-    Prelude.rnf trustId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf trustId `Prelude.seq`
+      Prelude.rnf httpStatus

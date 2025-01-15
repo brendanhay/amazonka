@@ -178,5 +178,5 @@ instance
     GetQueryRuntimeStatisticsResponse
   where
   rnf GetQueryRuntimeStatisticsResponse' {..} =
-    Prelude.rnf queryRuntimeStatistics
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf queryRuntimeStatistics `Prelude.seq`
+      Prelude.rnf httpStatus

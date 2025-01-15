@@ -121,9 +121,9 @@ instance Prelude.Hashable AdminRemoveUserFromGroup where
 
 instance Prelude.NFData AdminRemoveUserFromGroup where
   rnf AdminRemoveUserFromGroup' {..} =
-    Prelude.rnf userPoolId
-      `Prelude.seq` Prelude.rnf username
-      `Prelude.seq` Prelude.rnf groupName
+    Prelude.rnf userPoolId `Prelude.seq`
+      Prelude.rnf username `Prelude.seq`
+        Prelude.rnf groupName
 
 instance Data.ToHeaders AdminRemoveUserFromGroup where
   toHeaders =

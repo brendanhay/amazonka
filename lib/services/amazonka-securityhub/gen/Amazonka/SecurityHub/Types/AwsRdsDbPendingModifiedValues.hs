@@ -236,21 +236,21 @@ instance
 
 instance Prelude.NFData AwsRdsDbPendingModifiedValues where
   rnf AwsRdsDbPendingModifiedValues' {..} =
-    Prelude.rnf allocatedStorage
-      `Prelude.seq` Prelude.rnf backupRetentionPeriod
-      `Prelude.seq` Prelude.rnf caCertificateIdentifier
-      `Prelude.seq` Prelude.rnf dbInstanceClass
-      `Prelude.seq` Prelude.rnf dbInstanceIdentifier
-      `Prelude.seq` Prelude.rnf dbSubnetGroupName
-      `Prelude.seq` Prelude.rnf engineVersion
-      `Prelude.seq` Prelude.rnf iops
-      `Prelude.seq` Prelude.rnf licenseModel
-      `Prelude.seq` Prelude.rnf masterUserPassword
-      `Prelude.seq` Prelude.rnf multiAZ
-      `Prelude.seq` Prelude.rnf pendingCloudWatchLogsExports
-      `Prelude.seq` Prelude.rnf port
-      `Prelude.seq` Prelude.rnf processorFeatures
-      `Prelude.seq` Prelude.rnf storageType
+    Prelude.rnf allocatedStorage `Prelude.seq`
+      Prelude.rnf backupRetentionPeriod `Prelude.seq`
+        Prelude.rnf caCertificateIdentifier `Prelude.seq`
+          Prelude.rnf dbInstanceClass `Prelude.seq`
+            Prelude.rnf dbInstanceIdentifier `Prelude.seq`
+              Prelude.rnf dbSubnetGroupName `Prelude.seq`
+                Prelude.rnf engineVersion `Prelude.seq`
+                  Prelude.rnf iops `Prelude.seq`
+                    Prelude.rnf licenseModel `Prelude.seq`
+                      Prelude.rnf masterUserPassword `Prelude.seq`
+                        Prelude.rnf multiAZ `Prelude.seq`
+                          Prelude.rnf pendingCloudWatchLogsExports `Prelude.seq`
+                            Prelude.rnf port `Prelude.seq`
+                              Prelude.rnf processorFeatures `Prelude.seq`
+                                Prelude.rnf storageType
 
 instance Data.ToJSON AwsRdsDbPendingModifiedValues where
   toJSON AwsRdsDbPendingModifiedValues' {..} =

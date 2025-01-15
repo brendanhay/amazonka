@@ -105,12 +105,12 @@ instance Core.AWSPager ListWorkflows where
         (rs Lens.^. listWorkflowsResponse_workflows) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listWorkflows_nextToken
-          Lens..~ rs
-          Lens.^? listWorkflowsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listWorkflows_nextToken
+              Lens..~ rs
+              Lens.^? listWorkflowsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListWorkflows where
   type
@@ -135,8 +135,8 @@ instance Prelude.Hashable ListWorkflows where
 
 instance Prelude.NFData ListWorkflows where
   rnf ListWorkflows' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListWorkflows where
   toHeaders =
@@ -223,6 +223,6 @@ listWorkflowsResponse_workflows = Lens.lens (\ListWorkflowsResponse' {workflows}
 
 instance Prelude.NFData ListWorkflowsResponse where
   rnf ListWorkflowsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf workflows
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf workflows

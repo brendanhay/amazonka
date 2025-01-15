@@ -225,14 +225,14 @@ instance Prelude.Hashable QueryExecution where
 
 instance Prelude.NFData QueryExecution where
   rnf QueryExecution' {..} =
-    Prelude.rnf engineVersion
-      `Prelude.seq` Prelude.rnf executionParameters
-      `Prelude.seq` Prelude.rnf query
-      `Prelude.seq` Prelude.rnf queryExecutionContext
-      `Prelude.seq` Prelude.rnf queryExecutionId
-      `Prelude.seq` Prelude.rnf resultConfiguration
-      `Prelude.seq` Prelude.rnf resultReuseConfiguration
-      `Prelude.seq` Prelude.rnf statementType
-      `Prelude.seq` Prelude.rnf statistics
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf workGroup
+    Prelude.rnf engineVersion `Prelude.seq`
+      Prelude.rnf executionParameters `Prelude.seq`
+        Prelude.rnf query `Prelude.seq`
+          Prelude.rnf queryExecutionContext `Prelude.seq`
+            Prelude.rnf queryExecutionId `Prelude.seq`
+              Prelude.rnf resultConfiguration `Prelude.seq`
+                Prelude.rnf resultReuseConfiguration `Prelude.seq`
+                  Prelude.rnf statementType `Prelude.seq`
+                    Prelude.rnf statistics `Prelude.seq`
+                      Prelude.rnf status `Prelude.seq`
+                        Prelude.rnf workGroup

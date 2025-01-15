@@ -115,8 +115,8 @@ instance Prelude.Hashable DescribeUserImportJob where
 
 instance Prelude.NFData DescribeUserImportJob where
   rnf DescribeUserImportJob' {..} =
-    Prelude.rnf userPoolId
-      `Prelude.seq` Prelude.rnf jobId
+    Prelude.rnf userPoolId `Prelude.seq`
+      Prelude.rnf jobId
 
 instance Data.ToHeaders DescribeUserImportJob where
   toHeaders =
@@ -192,5 +192,5 @@ describeUserImportJobResponse_httpStatus = Lens.lens (\DescribeUserImportJobResp
 
 instance Prelude.NFData DescribeUserImportJobResponse where
   rnf DescribeUserImportJobResponse' {..} =
-    Prelude.rnf userImportJob
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf userImportJob `Prelude.seq`
+      Prelude.rnf httpStatus

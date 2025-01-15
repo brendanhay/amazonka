@@ -198,12 +198,12 @@ instance Prelude.Hashable ResourceSet where
 
 instance Prelude.NFData ResourceSet where
   rnf ResourceSet' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf lastUpdateTime
-      `Prelude.seq` Prelude.rnf updateToken
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf resourceTypeList
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf lastUpdateTime `Prelude.seq`
+          Prelude.rnf updateToken `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf resourceTypeList
 
 instance Data.ToJSON ResourceSet where
   toJSON ResourceSet' {..} =

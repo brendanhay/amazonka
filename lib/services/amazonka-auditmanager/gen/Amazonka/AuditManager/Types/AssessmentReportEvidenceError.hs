@@ -96,6 +96,6 @@ instance
 
 instance Prelude.NFData AssessmentReportEvidenceError where
   rnf AssessmentReportEvidenceError' {..} =
-    Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf evidenceId
+    Prelude.rnf errorCode `Prelude.seq`
+      Prelude.rnf errorMessage `Prelude.seq`
+        Prelude.rnf evidenceId

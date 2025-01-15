@@ -140,12 +140,12 @@ instance Core.AWSPager ListAttachedPolicies where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listAttachedPolicies_marker
-          Lens..~ rs
-          Lens.^? listAttachedPoliciesResponse_nextMarker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listAttachedPolicies_marker
+              Lens..~ rs
+              Lens.^? listAttachedPoliciesResponse_nextMarker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAttachedPolicies where
   type
@@ -172,10 +172,10 @@ instance Prelude.Hashable ListAttachedPolicies where
 
 instance Prelude.NFData ListAttachedPolicies where
   rnf ListAttachedPolicies' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf pageSize
-      `Prelude.seq` Prelude.rnf recursive
-      `Prelude.seq` Prelude.rnf target
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf pageSize `Prelude.seq`
+        Prelude.rnf recursive `Prelude.seq`
+          Prelude.rnf target
 
 instance Data.ToHeaders ListAttachedPolicies where
   toHeaders = Prelude.const Prelude.mempty
@@ -249,6 +249,6 @@ listAttachedPoliciesResponse_httpStatus = Lens.lens (\ListAttachedPoliciesRespon
 
 instance Prelude.NFData ListAttachedPoliciesResponse where
   rnf ListAttachedPoliciesResponse' {..} =
-    Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf policies
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextMarker `Prelude.seq`
+      Prelude.rnf policies `Prelude.seq`
+        Prelude.rnf httpStatus

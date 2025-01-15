@@ -108,7 +108,7 @@ instance Prelude.Hashable LaunchPathSummary where
 
 instance Prelude.NFData LaunchPathSummary where
   rnf LaunchPathSummary' {..} =
-    Prelude.rnf constraintSummaries
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf constraintSummaries `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf tags

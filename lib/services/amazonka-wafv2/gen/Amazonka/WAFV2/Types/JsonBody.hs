@@ -270,10 +270,10 @@ instance Prelude.Hashable JsonBody where
 
 instance Prelude.NFData JsonBody where
   rnf JsonBody' {..} =
-    Prelude.rnf invalidFallbackBehavior
-      `Prelude.seq` Prelude.rnf oversizeHandling
-      `Prelude.seq` Prelude.rnf matchPattern
-      `Prelude.seq` Prelude.rnf matchScope
+    Prelude.rnf invalidFallbackBehavior `Prelude.seq`
+      Prelude.rnf oversizeHandling `Prelude.seq`
+        Prelude.rnf matchPattern `Prelude.seq`
+          Prelude.rnf matchScope
 
 instance Data.ToJSON JsonBody where
   toJSON JsonBody' {..} =

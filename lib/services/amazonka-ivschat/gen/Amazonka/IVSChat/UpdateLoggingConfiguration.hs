@@ -140,9 +140,9 @@ instance Prelude.Hashable UpdateLoggingConfiguration where
 
 instance Prelude.NFData UpdateLoggingConfiguration where
   rnf UpdateLoggingConfiguration' {..} =
-    Prelude.rnf destinationConfiguration
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf identifier
+    Prelude.rnf destinationConfiguration `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf identifier
 
 instance Data.ToHeaders UpdateLoggingConfiguration where
   toHeaders =
@@ -307,12 +307,12 @@ instance
     UpdateLoggingConfigurationResponse
   where
   rnf UpdateLoggingConfigurationResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createTime
-      `Prelude.seq` Prelude.rnf destinationConfiguration
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf updateTime
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf createTime `Prelude.seq`
+        Prelude.rnf destinationConfiguration `Prelude.seq`
+          Prelude.rnf id `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf state `Prelude.seq`
+                Prelude.rnf tags `Prelude.seq`
+                  Prelude.rnf updateTime `Prelude.seq`
+                    Prelude.rnf httpStatus

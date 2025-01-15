@@ -97,6 +97,6 @@ instance Prelude.Hashable ActivateReadSetSourceItem where
 
 instance Prelude.NFData ActivateReadSetSourceItem where
   rnf ActivateReadSetSourceItem' {..} =
-    Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf readSetId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf statusMessage `Prelude.seq`
+      Prelude.rnf readSetId `Prelude.seq`
+        Prelude.rnf status

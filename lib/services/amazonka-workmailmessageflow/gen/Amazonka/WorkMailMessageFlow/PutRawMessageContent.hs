@@ -121,8 +121,8 @@ instance Prelude.Hashable PutRawMessageContent where
 
 instance Prelude.NFData PutRawMessageContent where
   rnf PutRawMessageContent' {..} =
-    Prelude.rnf messageId
-      `Prelude.seq` Prelude.rnf content
+    Prelude.rnf messageId `Prelude.seq`
+      Prelude.rnf content
 
 instance Data.ToHeaders PutRawMessageContent where
   toHeaders =

@@ -86,5 +86,5 @@ instance Prelude.Hashable ImagePackage where
 
 instance Prelude.NFData ImagePackage where
   rnf ImagePackage' {..} =
-    Prelude.rnf packageName
-      `Prelude.seq` Prelude.rnf packageVersion
+    Prelude.rnf packageName `Prelude.seq`
+      Prelude.rnf packageVersion

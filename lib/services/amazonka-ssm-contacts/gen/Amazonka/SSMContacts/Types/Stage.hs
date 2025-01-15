@@ -90,8 +90,8 @@ instance Prelude.Hashable Stage where
 
 instance Prelude.NFData Stage where
   rnf Stage' {..} =
-    Prelude.rnf durationInMinutes
-      `Prelude.seq` Prelude.rnf targets
+    Prelude.rnf durationInMinutes `Prelude.seq`
+      Prelude.rnf targets
 
 instance Data.ToJSON Stage where
   toJSON Stage' {..} =

@@ -90,8 +90,8 @@ instance Prelude.Hashable FailoverConfig where
 
 instance Prelude.NFData FailoverConfig where
   rnf FailoverConfig' {..} =
-    Prelude.rnf primary
-      `Prelude.seq` Prelude.rnf secondary
+    Prelude.rnf primary `Prelude.seq`
+      Prelude.rnf secondary
 
 instance Data.ToJSON FailoverConfig where
   toJSON FailoverConfig' {..} =

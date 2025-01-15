@@ -146,8 +146,8 @@ instance Prelude.Hashable UpdateTimeToLive where
 
 instance Prelude.NFData UpdateTimeToLive where
   rnf UpdateTimeToLive' {..} =
-    Prelude.rnf tableName
-      `Prelude.seq` Prelude.rnf timeToLiveSpecification
+    Prelude.rnf tableName `Prelude.seq`
+      Prelude.rnf timeToLiveSpecification
 
 instance Data.ToHeaders UpdateTimeToLive where
   toHeaders =
@@ -223,5 +223,5 @@ updateTimeToLiveResponse_httpStatus = Lens.lens (\UpdateTimeToLiveResponse' {htt
 
 instance Prelude.NFData UpdateTimeToLiveResponse where
   rnf UpdateTimeToLiveResponse' {..} =
-    Prelude.rnf timeToLiveSpecification
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf timeToLiveSpecification `Prelude.seq`
+      Prelude.rnf httpStatus

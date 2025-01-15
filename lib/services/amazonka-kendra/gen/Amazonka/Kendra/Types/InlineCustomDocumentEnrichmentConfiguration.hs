@@ -122,9 +122,9 @@ instance
     InlineCustomDocumentEnrichmentConfiguration
   where
   rnf InlineCustomDocumentEnrichmentConfiguration' {..} =
-    Prelude.rnf condition
-      `Prelude.seq` Prelude.rnf documentContentDeletion
-      `Prelude.seq` Prelude.rnf target
+    Prelude.rnf condition `Prelude.seq`
+      Prelude.rnf documentContentDeletion `Prelude.seq`
+        Prelude.rnf target
 
 instance
   Data.ToJSON

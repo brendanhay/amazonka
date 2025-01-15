@@ -146,12 +146,12 @@ instance Core.AWSPager DescribeBudgetActionHistories where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeBudgetActionHistories_nextToken
-          Lens..~ rs
-          Lens.^? describeBudgetActionHistoriesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeBudgetActionHistories_nextToken
+              Lens..~ rs
+              Lens.^? describeBudgetActionHistoriesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -189,12 +189,12 @@ instance
 
 instance Prelude.NFData DescribeBudgetActionHistories where
   rnf DescribeBudgetActionHistories' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf timePeriod
-      `Prelude.seq` Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf budgetName
-      `Prelude.seq` Prelude.rnf actionId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf timePeriod `Prelude.seq`
+          Prelude.rnf accountId `Prelude.seq`
+            Prelude.rnf budgetName `Prelude.seq`
+              Prelude.rnf actionId
 
 instance Data.ToHeaders DescribeBudgetActionHistories where
   toHeaders =
@@ -282,6 +282,6 @@ instance
     DescribeBudgetActionHistoriesResponse
   where
   rnf DescribeBudgetActionHistoriesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf actionHistories
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf actionHistories

@@ -122,6 +122,6 @@ instance Prelude.Hashable Permission where
 
 instance Prelude.NFData Permission where
   rnf Permission' {..} =
-    Prelude.rnf granteeId
-      `Prelude.seq` Prelude.rnf granteeType
-      `Prelude.seq` Prelude.rnf permissionValues
+    Prelude.rnf granteeId `Prelude.seq`
+      Prelude.rnf granteeType `Prelude.seq`
+        Prelude.rnf permissionValues

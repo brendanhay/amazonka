@@ -82,5 +82,5 @@ instance Prelude.Hashable ShipmentInformation where
 
 instance Prelude.NFData ShipmentInformation where
   rnf ShipmentInformation' {..} =
-    Prelude.rnf shipmentCarrier
-      `Prelude.seq` Prelude.rnf shipmentTrackingNumber
+    Prelude.rnf shipmentCarrier `Prelude.seq`
+      Prelude.rnf shipmentTrackingNumber

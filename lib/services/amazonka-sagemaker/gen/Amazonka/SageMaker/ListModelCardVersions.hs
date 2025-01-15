@@ -176,12 +176,12 @@ instance Core.AWSPager ListModelCardVersions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listModelCardVersions_nextToken
-          Lens..~ rs
-          Lens.^? listModelCardVersionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listModelCardVersions_nextToken
+              Lens..~ rs
+              Lens.^? listModelCardVersionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListModelCardVersions where
   type
@@ -215,14 +215,14 @@ instance Prelude.Hashable ListModelCardVersions where
 
 instance Prelude.NFData ListModelCardVersions where
   rnf ListModelCardVersions' {..} =
-    Prelude.rnf creationTimeAfter
-      `Prelude.seq` Prelude.rnf creationTimeBefore
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf modelCardStatus
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf sortOrder
-      `Prelude.seq` Prelude.rnf modelCardName
+    Prelude.rnf creationTimeAfter `Prelude.seq`
+      Prelude.rnf creationTimeBefore `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf modelCardStatus `Prelude.seq`
+            Prelude.rnf nextToken `Prelude.seq`
+              Prelude.rnf sortBy `Prelude.seq`
+                Prelude.rnf sortOrder `Prelude.seq`
+                  Prelude.rnf modelCardName
 
 instance Data.ToHeaders ListModelCardVersions where
   toHeaders =
@@ -317,6 +317,6 @@ listModelCardVersionsResponse_modelCardVersionSummaryList = Lens.lens (\ListMode
 
 instance Prelude.NFData ListModelCardVersionsResponse where
   rnf ListModelCardVersionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf modelCardVersionSummaryList
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf modelCardVersionSummaryList

@@ -123,12 +123,12 @@ instance Core.AWSPager ListNodes where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listNodes_nextToken
-          Lens..~ rs
-          Lens.^? listNodesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listNodes_nextToken
+              Lens..~ rs
+              Lens.^? listNodesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListNodes where
   type AWSResponse ListNodes = ListNodesResponse
@@ -152,9 +152,9 @@ instance Prelude.Hashable ListNodes where
 
 instance Prelude.NFData ListNodes where
   rnf ListNodes' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf clusterArn
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf clusterArn
 
 instance Data.ToHeaders ListNodes where
   toHeaders =
@@ -234,6 +234,6 @@ listNodesResponse_httpStatus = Lens.lens (\ListNodesResponse' {httpStatus} -> ht
 
 instance Prelude.NFData ListNodesResponse where
   rnf ListNodesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf nodeInfoList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf nodeInfoList `Prelude.seq`
+        Prelude.rnf httpStatus

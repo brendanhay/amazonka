@@ -109,8 +109,8 @@ instance Prelude.Hashable DeleteWorkflow where
 
 instance Prelude.NFData DeleteWorkflow where
   rnf DeleteWorkflow' {..} =
-    Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf workflowId
+    Prelude.rnf domainName `Prelude.seq`
+      Prelude.rnf workflowId
 
 instance Data.ToHeaders DeleteWorkflow where
   toHeaders =

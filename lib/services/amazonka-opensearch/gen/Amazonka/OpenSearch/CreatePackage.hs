@@ -142,10 +142,10 @@ instance Prelude.Hashable CreatePackage where
 
 instance Prelude.NFData CreatePackage where
   rnf CreatePackage' {..} =
-    Prelude.rnf packageDescription
-      `Prelude.seq` Prelude.rnf packageName
-      `Prelude.seq` Prelude.rnf packageType
-      `Prelude.seq` Prelude.rnf packageSource
+    Prelude.rnf packageDescription `Prelude.seq`
+      Prelude.rnf packageName `Prelude.seq`
+        Prelude.rnf packageType `Prelude.seq`
+          Prelude.rnf packageSource
 
 instance Data.ToHeaders CreatePackage where
   toHeaders = Prelude.const Prelude.mempty
@@ -212,5 +212,5 @@ createPackageResponse_httpStatus = Lens.lens (\CreatePackageResponse' {httpStatu
 
 instance Prelude.NFData CreatePackageResponse where
   rnf CreatePackageResponse' {..} =
-    Prelude.rnf packageDetails
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf packageDetails `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -193,11 +193,11 @@ instance Prelude.Hashable UpdateStream where
 
 instance Prelude.NFData UpdateStream where
   rnf UpdateStream' {..} =
-    Prelude.rnf deviceName
-      `Prelude.seq` Prelude.rnf mediaType
-      `Prelude.seq` Prelude.rnf streamARN
-      `Prelude.seq` Prelude.rnf streamName
-      `Prelude.seq` Prelude.rnf currentVersion
+    Prelude.rnf deviceName `Prelude.seq`
+      Prelude.rnf mediaType `Prelude.seq`
+        Prelude.rnf streamARN `Prelude.seq`
+          Prelude.rnf streamName `Prelude.seq`
+            Prelude.rnf currentVersion
 
 instance Data.ToHeaders UpdateStream where
   toHeaders = Prelude.const Prelude.mempty

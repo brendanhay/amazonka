@@ -102,8 +102,8 @@ instance Prelude.Hashable RecommenderConfig where
 
 instance Prelude.NFData RecommenderConfig where
   rnf RecommenderConfig' {..} =
-    Prelude.rnf itemExplorationConfig
-      `Prelude.seq` Prelude.rnf minRecommendationRequestsPerSecond
+    Prelude.rnf itemExplorationConfig `Prelude.seq`
+      Prelude.rnf minRecommendationRequestsPerSecond
 
 instance Data.ToJSON RecommenderConfig where
   toJSON RecommenderConfig' {..} =

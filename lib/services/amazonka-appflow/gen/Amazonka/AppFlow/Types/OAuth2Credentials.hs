@@ -103,11 +103,11 @@ instance Prelude.Hashable OAuth2Credentials where
 
 instance Prelude.NFData OAuth2Credentials where
   rnf OAuth2Credentials' {..} =
-    Prelude.rnf accessToken
-      `Prelude.seq` Prelude.rnf clientId
-      `Prelude.seq` Prelude.rnf clientSecret
-      `Prelude.seq` Prelude.rnf oAuthRequest
-      `Prelude.seq` Prelude.rnf refreshToken
+    Prelude.rnf accessToken `Prelude.seq`
+      Prelude.rnf clientId `Prelude.seq`
+        Prelude.rnf clientSecret `Prelude.seq`
+          Prelude.rnf oAuthRequest `Prelude.seq`
+            Prelude.rnf refreshToken
 
 instance Data.ToJSON OAuth2Credentials where
   toJSON OAuth2Credentials' {..} =

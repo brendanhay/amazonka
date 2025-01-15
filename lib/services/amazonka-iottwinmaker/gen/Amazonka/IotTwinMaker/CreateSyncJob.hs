@@ -153,10 +153,10 @@ instance Prelude.Hashable CreateSyncJob where
 
 instance Prelude.NFData CreateSyncJob where
   rnf CreateSyncJob' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf workspaceId
-      `Prelude.seq` Prelude.rnf syncSource
-      `Prelude.seq` Prelude.rnf syncRole
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf workspaceId `Prelude.seq`
+        Prelude.rnf syncSource `Prelude.seq`
+          Prelude.rnf syncRole
 
 instance Data.ToHeaders CreateSyncJob where
   toHeaders =
@@ -259,7 +259,7 @@ createSyncJobResponse_state = Lens.lens (\CreateSyncJobResponse' {state} -> stat
 
 instance Prelude.NFData CreateSyncJobResponse where
   rnf CreateSyncJobResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf creationDateTime `Prelude.seq`
+          Prelude.rnf state

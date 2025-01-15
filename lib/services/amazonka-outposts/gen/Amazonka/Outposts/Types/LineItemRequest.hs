@@ -70,8 +70,8 @@ instance Prelude.Hashable LineItemRequest where
 
 instance Prelude.NFData LineItemRequest where
   rnf LineItemRequest' {..} =
-    Prelude.rnf catalogItemId
-      `Prelude.seq` Prelude.rnf quantity
+    Prelude.rnf catalogItemId `Prelude.seq`
+      Prelude.rnf quantity
 
 instance Data.ToJSON LineItemRequest where
   toJSON LineItemRequest' {..} =

@@ -137,15 +137,11 @@ messageAttributeValue_dataType = Lens.lens (\MessageAttributeValue' {dataType} -
 instance Data.FromXML MessageAttributeValue where
   parseXML x =
     MessageAttributeValue'
-      Prelude.<$> ( x
-                      Data..@? "BinaryListValue"
-                      Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "BinaryListValue" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "BinaryListValue")
                   )
       Prelude.<*> (x Data..@? "BinaryValue")
-      Prelude.<*> ( x
-                      Data..@? "StringListValue"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "StringListValue" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "StringListValue")
                   )
       Prelude.<*> (x Data..@? "StringValue")
@@ -162,11 +158,11 @@ instance Prelude.Hashable MessageAttributeValue where
 
 instance Prelude.NFData MessageAttributeValue where
   rnf MessageAttributeValue' {..} =
-    Prelude.rnf binaryListValues
-      `Prelude.seq` Prelude.rnf binaryValue
-      `Prelude.seq` Prelude.rnf stringListValues
-      `Prelude.seq` Prelude.rnf stringValue
-      `Prelude.seq` Prelude.rnf dataType
+    Prelude.rnf binaryListValues `Prelude.seq`
+      Prelude.rnf binaryValue `Prelude.seq`
+        Prelude.rnf stringListValues `Prelude.seq`
+          Prelude.rnf stringValue `Prelude.seq`
+            Prelude.rnf dataType
 
 instance Data.ToQuery MessageAttributeValue where
   toQuery MessageAttributeValue' {..} =

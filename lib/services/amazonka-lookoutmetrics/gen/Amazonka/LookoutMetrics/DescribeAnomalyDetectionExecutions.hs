@@ -150,10 +150,10 @@ instance
     DescribeAnomalyDetectionExecutions
   where
   rnf DescribeAnomalyDetectionExecutions' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf timestamp
-      `Prelude.seq` Prelude.rnf anomalyDetectorArn
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf timestamp `Prelude.seq`
+          Prelude.rnf anomalyDetectorArn
 
 instance
   Data.ToHeaders
@@ -251,6 +251,6 @@ instance
     DescribeAnomalyDetectionExecutionsResponse
   where
   rnf DescribeAnomalyDetectionExecutionsResponse' {..} =
-    Prelude.rnf executionList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf executionList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

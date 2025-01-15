@@ -233,17 +233,17 @@ instance Prelude.Hashable DescribedCertificate where
 
 instance Prelude.NFData DescribedCertificate where
   rnf DescribedCertificate' {..} =
-    Prelude.rnf activeDate
-      `Prelude.seq` Prelude.rnf certificate
-      `Prelude.seq` Prelude.rnf certificateChain
-      `Prelude.seq` Prelude.rnf certificateId
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf inactiveDate
-      `Prelude.seq` Prelude.rnf notAfterDate
-      `Prelude.seq` Prelude.rnf notBeforeDate
-      `Prelude.seq` Prelude.rnf serial
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf usage
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf activeDate `Prelude.seq`
+      Prelude.rnf certificate `Prelude.seq`
+        Prelude.rnf certificateChain `Prelude.seq`
+          Prelude.rnf certificateId `Prelude.seq`
+            Prelude.rnf description `Prelude.seq`
+              Prelude.rnf inactiveDate `Prelude.seq`
+                Prelude.rnf notAfterDate `Prelude.seq`
+                  Prelude.rnf notBeforeDate `Prelude.seq`
+                    Prelude.rnf serial `Prelude.seq`
+                      Prelude.rnf status `Prelude.seq`
+                        Prelude.rnf tags `Prelude.seq`
+                          Prelude.rnf type' `Prelude.seq`
+                            Prelude.rnf usage `Prelude.seq`
+                              Prelude.rnf arn

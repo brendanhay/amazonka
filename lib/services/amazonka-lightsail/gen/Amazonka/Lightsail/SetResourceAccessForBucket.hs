@@ -158,9 +158,9 @@ instance Prelude.Hashable SetResourceAccessForBucket where
 
 instance Prelude.NFData SetResourceAccessForBucket where
   rnf SetResourceAccessForBucket' {..} =
-    Prelude.rnf resourceName
-      `Prelude.seq` Prelude.rnf bucketName
-      `Prelude.seq` Prelude.rnf access
+    Prelude.rnf resourceName `Prelude.seq`
+      Prelude.rnf bucketName `Prelude.seq`
+        Prelude.rnf access
 
 instance Data.ToHeaders SetResourceAccessForBucket where
   toHeaders =
@@ -243,5 +243,5 @@ instance
     SetResourceAccessForBucketResponse
   where
   rnf SetResourceAccessForBucketResponse' {..} =
-    Prelude.rnf operations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operations `Prelude.seq`
+      Prelude.rnf httpStatus

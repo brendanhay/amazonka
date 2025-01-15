@@ -213,13 +213,13 @@ instance
 
 instance Prelude.NFData UpdateServiceTemplateVersion where
   rnf UpdateServiceTemplateVersion' {..} =
-    Prelude.rnf compatibleEnvironmentTemplates
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf supportedComponentSources
-      `Prelude.seq` Prelude.rnf majorVersion
-      `Prelude.seq` Prelude.rnf minorVersion
-      `Prelude.seq` Prelude.rnf templateName
+    Prelude.rnf compatibleEnvironmentTemplates `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf status `Prelude.seq`
+          Prelude.rnf supportedComponentSources `Prelude.seq`
+            Prelude.rnf majorVersion `Prelude.seq`
+              Prelude.rnf minorVersion `Prelude.seq`
+                Prelude.rnf templateName
 
 instance Data.ToHeaders UpdateServiceTemplateVersion where
   toHeaders =
@@ -307,5 +307,5 @@ instance
     UpdateServiceTemplateVersionResponse
   where
   rnf UpdateServiceTemplateVersionResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf serviceTemplateVersion
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf serviceTemplateVersion

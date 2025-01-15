@@ -365,14 +365,14 @@ instance Prelude.Hashable PutSession where
 
 instance Prelude.NFData PutSession where
   rnf PutSession' {..} =
-    Prelude.rnf accept
-      `Prelude.seq` Prelude.rnf activeContexts
-      `Prelude.seq` Prelude.rnf dialogAction
-      `Prelude.seq` Prelude.rnf recentIntentSummaryView
-      `Prelude.seq` Prelude.rnf sessionAttributes
-      `Prelude.seq` Prelude.rnf botName
-      `Prelude.seq` Prelude.rnf botAlias
-      `Prelude.seq` Prelude.rnf userId
+    Prelude.rnf accept `Prelude.seq`
+      Prelude.rnf activeContexts `Prelude.seq`
+        Prelude.rnf dialogAction `Prelude.seq`
+          Prelude.rnf recentIntentSummaryView `Prelude.seq`
+            Prelude.rnf sessionAttributes `Prelude.seq`
+              Prelude.rnf botName `Prelude.seq`
+                Prelude.rnf botAlias `Prelude.seq`
+                  Prelude.rnf userId
 
 instance Data.ToHeaders PutSession where
   toHeaders PutSession' {..} =

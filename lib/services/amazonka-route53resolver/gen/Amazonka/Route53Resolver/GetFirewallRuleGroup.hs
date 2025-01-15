@@ -170,5 +170,5 @@ getFirewallRuleGroupResponse_httpStatus = Lens.lens (\GetFirewallRuleGroupRespon
 
 instance Prelude.NFData GetFirewallRuleGroupResponse where
   rnf GetFirewallRuleGroupResponse' {..} =
-    Prelude.rnf firewallRuleGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf firewallRuleGroup `Prelude.seq`
+      Prelude.rnf httpStatus

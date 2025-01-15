@@ -127,10 +127,10 @@ instance Prelude.Hashable FulfillmentCodeHookSettings where
 
 instance Prelude.NFData FulfillmentCodeHookSettings where
   rnf FulfillmentCodeHookSettings' {..} =
-    Prelude.rnf active
-      `Prelude.seq` Prelude.rnf fulfillmentUpdatesSpecification
-      `Prelude.seq` Prelude.rnf postFulfillmentStatusSpecification
-      `Prelude.seq` Prelude.rnf enabled
+    Prelude.rnf active `Prelude.seq`
+      Prelude.rnf fulfillmentUpdatesSpecification `Prelude.seq`
+        Prelude.rnf postFulfillmentStatusSpecification `Prelude.seq`
+          Prelude.rnf enabled
 
 instance Data.ToJSON FulfillmentCodeHookSettings where
   toJSON FulfillmentCodeHookSettings' {..} =

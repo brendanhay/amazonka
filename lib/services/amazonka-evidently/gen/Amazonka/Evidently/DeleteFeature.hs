@@ -108,8 +108,8 @@ instance Prelude.Hashable DeleteFeature where
 
 instance Prelude.NFData DeleteFeature where
   rnf DeleteFeature' {..} =
-    Prelude.rnf feature
-      `Prelude.seq` Prelude.rnf project
+    Prelude.rnf feature `Prelude.seq`
+      Prelude.rnf project
 
 instance Data.ToHeaders DeleteFeature where
   toHeaders =

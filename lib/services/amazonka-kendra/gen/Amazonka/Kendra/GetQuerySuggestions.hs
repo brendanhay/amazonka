@@ -151,9 +151,9 @@ instance Prelude.Hashable GetQuerySuggestions where
 
 instance Prelude.NFData GetQuerySuggestions where
   rnf GetQuerySuggestions' {..} =
-    Prelude.rnf maxSuggestionsCount
-      `Prelude.seq` Prelude.rnf indexId
-      `Prelude.seq` Prelude.rnf queryText
+    Prelude.rnf maxSuggestionsCount `Prelude.seq`
+      Prelude.rnf indexId `Prelude.seq`
+        Prelude.rnf queryText
 
 instance Data.ToHeaders GetQuerySuggestions where
   toHeaders =
@@ -237,6 +237,6 @@ getQuerySuggestionsResponse_httpStatus = Lens.lens (\GetQuerySuggestionsResponse
 
 instance Prelude.NFData GetQuerySuggestionsResponse where
   rnf GetQuerySuggestionsResponse' {..} =
-    Prelude.rnf querySuggestionsId
-      `Prelude.seq` Prelude.rnf suggestions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf querySuggestionsId `Prelude.seq`
+      Prelude.rnf suggestions `Prelude.seq`
+        Prelude.rnf httpStatus

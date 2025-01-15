@@ -274,18 +274,18 @@ instance Prelude.Hashable EndpointBatchItem where
 
 instance Prelude.NFData EndpointBatchItem where
   rnf EndpointBatchItem' {..} =
-    Prelude.rnf address
-      `Prelude.seq` Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf channelType
-      `Prelude.seq` Prelude.rnf demographic
-      `Prelude.seq` Prelude.rnf effectiveDate
-      `Prelude.seq` Prelude.rnf endpointStatus
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf metrics
-      `Prelude.seq` Prelude.rnf optOut
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf user
+    Prelude.rnf address `Prelude.seq`
+      Prelude.rnf attributes `Prelude.seq`
+        Prelude.rnf channelType `Prelude.seq`
+          Prelude.rnf demographic `Prelude.seq`
+            Prelude.rnf effectiveDate `Prelude.seq`
+              Prelude.rnf endpointStatus `Prelude.seq`
+                Prelude.rnf id `Prelude.seq`
+                  Prelude.rnf location `Prelude.seq`
+                    Prelude.rnf metrics `Prelude.seq`
+                      Prelude.rnf optOut `Prelude.seq`
+                        Prelude.rnf requestId `Prelude.seq`
+                          Prelude.rnf user
 
 instance Data.ToJSON EndpointBatchItem where
   toJSON EndpointBatchItem' {..} =

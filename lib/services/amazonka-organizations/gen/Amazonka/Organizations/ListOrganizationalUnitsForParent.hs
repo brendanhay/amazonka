@@ -204,12 +204,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listOrganizationalUnitsForParent_nextToken
-          Lens..~ rs
-          Lens.^? listOrganizationalUnitsForParentResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listOrganizationalUnitsForParent_nextToken
+              Lens..~ rs
+              Lens.^? listOrganizationalUnitsForParentResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -249,9 +249,9 @@ instance
     ListOrganizationalUnitsForParent
   where
   rnf ListOrganizationalUnitsForParent' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf parentId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf parentId
 
 instance
   Data.ToHeaders
@@ -357,6 +357,6 @@ instance
     ListOrganizationalUnitsForParentResponse
   where
   rnf ListOrganizationalUnitsForParentResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf organizationalUnits
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf organizationalUnits `Prelude.seq`
+        Prelude.rnf httpStatus

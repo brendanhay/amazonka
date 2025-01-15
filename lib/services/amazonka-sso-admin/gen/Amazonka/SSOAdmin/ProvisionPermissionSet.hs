@@ -150,10 +150,10 @@ instance Prelude.Hashable ProvisionPermissionSet where
 
 instance Prelude.NFData ProvisionPermissionSet where
   rnf ProvisionPermissionSet' {..} =
-    Prelude.rnf targetId
-      `Prelude.seq` Prelude.rnf instanceArn
-      `Prelude.seq` Prelude.rnf permissionSetArn
-      `Prelude.seq` Prelude.rnf targetType
+    Prelude.rnf targetId `Prelude.seq`
+      Prelude.rnf instanceArn `Prelude.seq`
+        Prelude.rnf permissionSetArn `Prelude.seq`
+          Prelude.rnf targetType
 
 instance Data.ToHeaders ProvisionPermissionSet where
   toHeaders =
@@ -232,5 +232,5 @@ instance
     ProvisionPermissionSetResponse
   where
   rnf ProvisionPermissionSetResponse' {..} =
-    Prelude.rnf permissionSetProvisioningStatus
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf permissionSetProvisioningStatus `Prelude.seq`
+      Prelude.rnf httpStatus

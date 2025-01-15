@@ -119,8 +119,8 @@ instance Prelude.Hashable UpdateRegionSettings where
 
 instance Prelude.NFData UpdateRegionSettings where
   rnf UpdateRegionSettings' {..} =
-    Prelude.rnf resourceTypeManagementPreference
-      `Prelude.seq` Prelude.rnf resourceTypeOptInPreference
+    Prelude.rnf resourceTypeManagementPreference `Prelude.seq`
+      Prelude.rnf resourceTypeOptInPreference
 
 instance Data.ToHeaders UpdateRegionSettings where
   toHeaders =

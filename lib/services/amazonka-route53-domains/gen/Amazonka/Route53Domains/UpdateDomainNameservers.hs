@@ -138,9 +138,9 @@ instance Prelude.Hashable UpdateDomainNameservers where
 
 instance Prelude.NFData UpdateDomainNameservers where
   rnf UpdateDomainNameservers' {..} =
-    Prelude.rnf fIAuthKey
-      `Prelude.seq` Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf nameservers
+    Prelude.rnf fIAuthKey `Prelude.seq`
+      Prelude.rnf domainName `Prelude.seq`
+        Prelude.rnf nameservers
 
 instance Data.ToHeaders UpdateDomainNameservers where
   toHeaders =
@@ -225,5 +225,5 @@ instance
     UpdateDomainNameserversResponse
   where
   rnf UpdateDomainNameserversResponse' {..} =
-    Prelude.rnf operationId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operationId `Prelude.seq`
+      Prelude.rnf httpStatus

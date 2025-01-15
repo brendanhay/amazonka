@@ -264,16 +264,16 @@ instance
     GetReservationPurchaseRecommendation
   where
   rnf GetReservationPurchaseRecommendation' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf accountScope
-      `Prelude.seq` Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf lookbackPeriodInDays
-      `Prelude.seq` Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf pageSize
-      `Prelude.seq` Prelude.rnf paymentOption
-      `Prelude.seq` Prelude.rnf serviceSpecification
-      `Prelude.seq` Prelude.rnf termInYears
-      `Prelude.seq` Prelude.rnf service
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf accountScope `Prelude.seq`
+        Prelude.rnf filter' `Prelude.seq`
+          Prelude.rnf lookbackPeriodInDays `Prelude.seq`
+            Prelude.rnf nextPageToken `Prelude.seq`
+              Prelude.rnf pageSize `Prelude.seq`
+                Prelude.rnf paymentOption `Prelude.seq`
+                  Prelude.rnf serviceSpecification `Prelude.seq`
+                    Prelude.rnf termInYears `Prelude.seq`
+                      Prelude.rnf service
 
 instance
   Data.ToHeaders
@@ -395,7 +395,7 @@ instance
     GetReservationPurchaseRecommendationResponse
   where
   rnf GetReservationPurchaseRecommendationResponse' {..} =
-    Prelude.rnf metadata
-      `Prelude.seq` Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf recommendations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf metadata `Prelude.seq`
+      Prelude.rnf nextPageToken `Prelude.seq`
+        Prelude.rnf recommendations `Prelude.seq`
+          Prelude.rnf httpStatus

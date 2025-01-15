@@ -145,8 +145,8 @@ instance Prelude.Hashable GetVaultNotifications where
 
 instance Prelude.NFData GetVaultNotifications where
   rnf GetVaultNotifications' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf vaultName
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf vaultName
 
 instance Data.ToHeaders GetVaultNotifications where
   toHeaders = Prelude.const Prelude.mempty
@@ -207,5 +207,5 @@ getVaultNotificationsResponse_httpStatus = Lens.lens (\GetVaultNotificationsResp
 
 instance Prelude.NFData GetVaultNotificationsResponse where
   rnf GetVaultNotificationsResponse' {..} =
-    Prelude.rnf vaultNotificationConfig
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf vaultNotificationConfig `Prelude.seq`
+      Prelude.rnf httpStatus

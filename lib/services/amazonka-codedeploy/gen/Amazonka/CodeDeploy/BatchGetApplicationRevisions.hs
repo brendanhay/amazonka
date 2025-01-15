@@ -128,8 +128,8 @@ instance
 
 instance Prelude.NFData BatchGetApplicationRevisions where
   rnf BatchGetApplicationRevisions' {..} =
-    Prelude.rnf applicationName
-      `Prelude.seq` Prelude.rnf revisions
+    Prelude.rnf applicationName `Prelude.seq`
+      Prelude.rnf revisions
 
 instance Data.ToHeaders BatchGetApplicationRevisions where
   toHeaders =
@@ -229,7 +229,7 @@ instance
     BatchGetApplicationRevisionsResponse
   where
   rnf BatchGetApplicationRevisionsResponse' {..} =
-    Prelude.rnf applicationName
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf revisions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf applicationName `Prelude.seq`
+      Prelude.rnf errorMessage `Prelude.seq`
+        Prelude.rnf revisions `Prelude.seq`
+          Prelude.rnf httpStatus

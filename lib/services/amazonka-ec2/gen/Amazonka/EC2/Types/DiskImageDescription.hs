@@ -124,7 +124,7 @@ instance Prelude.Hashable DiskImageDescription where
 
 instance Prelude.NFData DiskImageDescription where
   rnf DiskImageDescription' {..} =
-    Prelude.rnf checksum
-      `Prelude.seq` Prelude.rnf format
-      `Prelude.seq` Prelude.rnf importManifestUrl
-      `Prelude.seq` Prelude.rnf size
+    Prelude.rnf checksum `Prelude.seq`
+      Prelude.rnf format `Prelude.seq`
+        Prelude.rnf importManifestUrl `Prelude.seq`
+          Prelude.rnf size

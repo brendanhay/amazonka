@@ -212,13 +212,13 @@ instance Prelude.Hashable BehaviorCriteria where
 
 instance Prelude.NFData BehaviorCriteria where
   rnf BehaviorCriteria' {..} =
-    Prelude.rnf comparisonOperator
-      `Prelude.seq` Prelude.rnf consecutiveDatapointsToAlarm
-      `Prelude.seq` Prelude.rnf consecutiveDatapointsToClear
-      `Prelude.seq` Prelude.rnf durationSeconds
-      `Prelude.seq` Prelude.rnf mlDetectionConfig
-      `Prelude.seq` Prelude.rnf statisticalThreshold
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf comparisonOperator `Prelude.seq`
+      Prelude.rnf consecutiveDatapointsToAlarm `Prelude.seq`
+        Prelude.rnf consecutiveDatapointsToClear `Prelude.seq`
+          Prelude.rnf durationSeconds `Prelude.seq`
+            Prelude.rnf mlDetectionConfig `Prelude.seq`
+              Prelude.rnf statisticalThreshold `Prelude.seq`
+                Prelude.rnf value
 
 instance Data.ToJSON BehaviorCriteria where
   toJSON BehaviorCriteria' {..} =

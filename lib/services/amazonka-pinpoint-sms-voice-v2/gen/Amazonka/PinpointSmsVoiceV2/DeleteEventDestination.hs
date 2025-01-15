@@ -132,8 +132,8 @@ instance Prelude.Hashable DeleteEventDestination where
 
 instance Prelude.NFData DeleteEventDestination where
   rnf DeleteEventDestination' {..} =
-    Prelude.rnf configurationSetName
-      `Prelude.seq` Prelude.rnf eventDestinationName
+    Prelude.rnf configurationSetName `Prelude.seq`
+      Prelude.rnf eventDestinationName
 
 instance Data.ToHeaders DeleteEventDestination where
   toHeaders =
@@ -236,7 +236,7 @@ instance
     DeleteEventDestinationResponse
   where
   rnf DeleteEventDestinationResponse' {..} =
-    Prelude.rnf configurationSetArn
-      `Prelude.seq` Prelude.rnf configurationSetName
-      `Prelude.seq` Prelude.rnf eventDestination
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf configurationSetArn `Prelude.seq`
+      Prelude.rnf configurationSetName `Prelude.seq`
+        Prelude.rnf eventDestination `Prelude.seq`
+          Prelude.rnf httpStatus

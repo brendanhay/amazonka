@@ -177,13 +177,13 @@ instance Prelude.Hashable ApiKey where
 
 instance Prelude.NFData ApiKey where
   rnf ApiKey' {..} =
-    Prelude.rnf createdDate
-      `Prelude.seq` Prelude.rnf customerId
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf lastUpdatedDate
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf stageKeys
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf createdDate `Prelude.seq`
+      Prelude.rnf customerId `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf enabled `Prelude.seq`
+            Prelude.rnf id `Prelude.seq`
+              Prelude.rnf lastUpdatedDate `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf stageKeys `Prelude.seq`
+                    Prelude.rnf tags `Prelude.seq`
+                      Prelude.rnf value

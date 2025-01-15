@@ -403,17 +403,17 @@ instance Prelude.Hashable StackSetOperation where
 
 instance Prelude.NFData StackSetOperation where
   rnf StackSetOperation' {..} =
-    Prelude.rnf action
-      `Prelude.seq` Prelude.rnf administrationRoleARN
-      `Prelude.seq` Prelude.rnf creationTimestamp
-      `Prelude.seq` Prelude.rnf deploymentTargets
-      `Prelude.seq` Prelude.rnf endTimestamp
-      `Prelude.seq` Prelude.rnf executionRoleName
-      `Prelude.seq` Prelude.rnf operationId
-      `Prelude.seq` Prelude.rnf operationPreferences
-      `Prelude.seq` Prelude.rnf retainStacks
-      `Prelude.seq` Prelude.rnf stackSetDriftDetectionDetails
-      `Prelude.seq` Prelude.rnf stackSetId
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusDetails
-      `Prelude.seq` Prelude.rnf statusReason
+    Prelude.rnf action `Prelude.seq`
+      Prelude.rnf administrationRoleARN `Prelude.seq`
+        Prelude.rnf creationTimestamp `Prelude.seq`
+          Prelude.rnf deploymentTargets `Prelude.seq`
+            Prelude.rnf endTimestamp `Prelude.seq`
+              Prelude.rnf executionRoleName `Prelude.seq`
+                Prelude.rnf operationId `Prelude.seq`
+                  Prelude.rnf operationPreferences `Prelude.seq`
+                    Prelude.rnf retainStacks `Prelude.seq`
+                      Prelude.rnf stackSetDriftDetectionDetails `Prelude.seq`
+                        Prelude.rnf stackSetId `Prelude.seq`
+                          Prelude.rnf status `Prelude.seq`
+                            Prelude.rnf statusDetails `Prelude.seq`
+                              Prelude.rnf statusReason

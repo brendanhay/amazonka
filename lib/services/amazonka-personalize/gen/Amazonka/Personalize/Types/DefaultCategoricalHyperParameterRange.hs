@@ -105,6 +105,6 @@ instance
     DefaultCategoricalHyperParameterRange
   where
   rnf DefaultCategoricalHyperParameterRange' {..} =
-    Prelude.rnf isTunable
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf values
+    Prelude.rnf isTunable `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf values

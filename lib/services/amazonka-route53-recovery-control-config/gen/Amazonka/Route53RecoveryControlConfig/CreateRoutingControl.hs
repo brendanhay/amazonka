@@ -157,10 +157,10 @@ instance Prelude.Hashable CreateRoutingControl where
 
 instance Prelude.NFData CreateRoutingControl where
   rnf CreateRoutingControl' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf controlPanelArn
-      `Prelude.seq` Prelude.rnf clusterArn
-      `Prelude.seq` Prelude.rnf routingControlName
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf controlPanelArn `Prelude.seq`
+        Prelude.rnf clusterArn `Prelude.seq`
+          Prelude.rnf routingControlName
 
 instance Data.ToHeaders CreateRoutingControl where
   toHeaders =
@@ -233,5 +233,5 @@ createRoutingControlResponse_httpStatus = Lens.lens (\CreateRoutingControlRespon
 
 instance Prelude.NFData CreateRoutingControlResponse where
   rnf CreateRoutingControlResponse' {..} =
-    Prelude.rnf routingControl
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf routingControl `Prelude.seq`
+      Prelude.rnf httpStatus

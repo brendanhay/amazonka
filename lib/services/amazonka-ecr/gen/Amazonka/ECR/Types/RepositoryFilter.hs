@@ -97,8 +97,8 @@ instance Prelude.Hashable RepositoryFilter where
 
 instance Prelude.NFData RepositoryFilter where
   rnf RepositoryFilter' {..} =
-    Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf filterType
+    Prelude.rnf filter' `Prelude.seq`
+      Prelude.rnf filterType
 
 instance Data.ToJSON RepositoryFilter where
   toJSON RepositoryFilter' {..} =

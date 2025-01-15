@@ -146,7 +146,7 @@ instance
     WorkflowExecutionSignaledEventAttributes
   where
   rnf WorkflowExecutionSignaledEventAttributes' {..} =
-    Prelude.rnf externalInitiatedEventId
-      `Prelude.seq` Prelude.rnf externalWorkflowExecution
-      `Prelude.seq` Prelude.rnf input
-      `Prelude.seq` Prelude.rnf signalName
+    Prelude.rnf externalInitiatedEventId `Prelude.seq`
+      Prelude.rnf externalWorkflowExecution `Prelude.seq`
+        Prelude.rnf input `Prelude.seq`
+          Prelude.rnf signalName

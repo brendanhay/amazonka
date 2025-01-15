@@ -205,11 +205,11 @@ instance Prelude.Hashable ReportJob where
 
 instance Prelude.NFData ReportJob where
   rnf ReportJob' {..} =
-    Prelude.rnf completionTime
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf reportDestination
-      `Prelude.seq` Prelude.rnf reportJobId
-      `Prelude.seq` Prelude.rnf reportPlanArn
-      `Prelude.seq` Prelude.rnf reportTemplate
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusMessage
+    Prelude.rnf completionTime `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf reportDestination `Prelude.seq`
+          Prelude.rnf reportJobId `Prelude.seq`
+            Prelude.rnf reportPlanArn `Prelude.seq`
+              Prelude.rnf reportTemplate `Prelude.seq`
+                Prelude.rnf status `Prelude.seq`
+                  Prelude.rnf statusMessage

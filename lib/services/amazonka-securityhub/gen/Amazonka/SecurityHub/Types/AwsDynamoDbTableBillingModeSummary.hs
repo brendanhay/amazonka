@@ -115,8 +115,8 @@ instance
     AwsDynamoDbTableBillingModeSummary
   where
   rnf AwsDynamoDbTableBillingModeSummary' {..} =
-    Prelude.rnf billingMode
-      `Prelude.seq` Prelude.rnf lastUpdateToPayPerRequestDateTime
+    Prelude.rnf billingMode `Prelude.seq`
+      Prelude.rnf lastUpdateToPayPerRequestDateTime
 
 instance
   Data.ToJSON

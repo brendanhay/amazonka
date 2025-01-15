@@ -390,15 +390,15 @@ instance Prelude.Hashable GameServerGroup where
 
 instance Prelude.NFData GameServerGroup where
   rnf GameServerGroup' {..} =
-    Prelude.rnf autoScalingGroupArn
-      `Prelude.seq` Prelude.rnf balancingStrategy
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf gameServerGroupArn
-      `Prelude.seq` Prelude.rnf gameServerGroupName
-      `Prelude.seq` Prelude.rnf gameServerProtectionPolicy
-      `Prelude.seq` Prelude.rnf instanceDefinitions
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusReason
-      `Prelude.seq` Prelude.rnf suspendedActions
+    Prelude.rnf autoScalingGroupArn `Prelude.seq`
+      Prelude.rnf balancingStrategy `Prelude.seq`
+        Prelude.rnf creationTime `Prelude.seq`
+          Prelude.rnf gameServerGroupArn `Prelude.seq`
+            Prelude.rnf gameServerGroupName `Prelude.seq`
+              Prelude.rnf gameServerProtectionPolicy `Prelude.seq`
+                Prelude.rnf instanceDefinitions `Prelude.seq`
+                  Prelude.rnf lastUpdatedTime `Prelude.seq`
+                    Prelude.rnf roleArn `Prelude.seq`
+                      Prelude.rnf status `Prelude.seq`
+                        Prelude.rnf statusReason `Prelude.seq`
+                          Prelude.rnf suspendedActions

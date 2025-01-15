@@ -89,8 +89,8 @@ instance
     ConformancePackComplianceFilters
   where
   rnf ConformancePackComplianceFilters' {..} =
-    Prelude.rnf complianceType
-      `Prelude.seq` Prelude.rnf configRuleNames
+    Prelude.rnf complianceType `Prelude.seq`
+      Prelude.rnf configRuleNames
 
 instance Data.ToJSON ConformancePackComplianceFilters where
   toJSON ConformancePackComplianceFilters' {..} =

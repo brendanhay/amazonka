@@ -115,8 +115,8 @@ instance Prelude.Hashable Member where
 
 instance Prelude.NFData Member where
   rnf Member' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf email
-      `Prelude.seq` Prelude.rnf fullName
-      `Prelude.seq` Prelude.rnf memberId
-      `Prelude.seq` Prelude.rnf memberType
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf email `Prelude.seq`
+        Prelude.rnf fullName `Prelude.seq`
+          Prelude.rnf memberId `Prelude.seq`
+            Prelude.rnf memberType

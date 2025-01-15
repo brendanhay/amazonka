@@ -177,8 +177,8 @@ instance
     PutEmailIdentityFeedbackAttributes
   where
   rnf PutEmailIdentityFeedbackAttributes' {..} =
-    Prelude.rnf emailForwardingEnabled
-      `Prelude.seq` Prelude.rnf emailIdentity
+    Prelude.rnf emailForwardingEnabled `Prelude.seq`
+      Prelude.rnf emailIdentity
 
 instance
   Data.ToHeaders

@@ -223,16 +223,16 @@ instance Prelude.Hashable ModelVersionDetail where
 
 instance Prelude.NFData ModelVersionDetail where
   rnf ModelVersionDetail' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf externalEventsDetail
-      `Prelude.seq` Prelude.rnf ingestedEventsDetail
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf modelId
-      `Prelude.seq` Prelude.rnf modelType
-      `Prelude.seq` Prelude.rnf modelVersionNumber
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf trainingDataSchema
-      `Prelude.seq` Prelude.rnf trainingDataSource
-      `Prelude.seq` Prelude.rnf trainingResult
-      `Prelude.seq` Prelude.rnf trainingResultV2
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf createdTime `Prelude.seq`
+        Prelude.rnf externalEventsDetail `Prelude.seq`
+          Prelude.rnf ingestedEventsDetail `Prelude.seq`
+            Prelude.rnf lastUpdatedTime `Prelude.seq`
+              Prelude.rnf modelId `Prelude.seq`
+                Prelude.rnf modelType `Prelude.seq`
+                  Prelude.rnf modelVersionNumber `Prelude.seq`
+                    Prelude.rnf status `Prelude.seq`
+                      Prelude.rnf trainingDataSchema `Prelude.seq`
+                        Prelude.rnf trainingDataSource `Prelude.seq`
+                          Prelude.rnf trainingResult `Prelude.seq`
+                            Prelude.rnf trainingResultV2

@@ -206,8 +206,8 @@ instance Prelude.Hashable CreateFindingAggregator where
 
 instance Prelude.NFData CreateFindingAggregator where
   rnf CreateFindingAggregator' {..} =
-    Prelude.rnf regions
-      `Prelude.seq` Prelude.rnf regionLinkingMode
+    Prelude.rnf regions `Prelude.seq`
+      Prelude.rnf regionLinkingMode
 
 instance Data.ToHeaders CreateFindingAggregator where
   toHeaders =
@@ -313,8 +313,8 @@ instance
     CreateFindingAggregatorResponse
   where
   rnf CreateFindingAggregatorResponse' {..} =
-    Prelude.rnf findingAggregationRegion
-      `Prelude.seq` Prelude.rnf findingAggregatorArn
-      `Prelude.seq` Prelude.rnf regionLinkingMode
-      `Prelude.seq` Prelude.rnf regions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf findingAggregationRegion `Prelude.seq`
+      Prelude.rnf findingAggregatorArn `Prelude.seq`
+        Prelude.rnf regionLinkingMode `Prelude.seq`
+          Prelude.rnf regions `Prelude.seq`
+            Prelude.rnf httpStatus

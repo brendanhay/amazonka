@@ -127,9 +127,9 @@ instance Prelude.Hashable ListFolders where
 
 instance Prelude.NFData ListFolders where
   rnf ListFolders' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf awsAccountId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf awsAccountId
 
 instance Data.ToHeaders ListFolders where
   toHeaders =
@@ -219,7 +219,7 @@ listFoldersResponse_status = Lens.lens (\ListFoldersResponse' {status} -> status
 
 instance Prelude.NFData ListFoldersResponse where
   rnf ListFoldersResponse' {..} =
-    Prelude.rnf folderSummaryList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf folderSummaryList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf requestId `Prelude.seq`
+          Prelude.rnf status

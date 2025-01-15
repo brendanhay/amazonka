@@ -164,5 +164,5 @@ getGcmChannelResponse_gCMChannelResponse = Lens.lens (\GetGcmChannelResponse' {g
 
 instance Prelude.NFData GetGcmChannelResponse where
   rnf GetGcmChannelResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf gCMChannelResponse
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf gCMChannelResponse

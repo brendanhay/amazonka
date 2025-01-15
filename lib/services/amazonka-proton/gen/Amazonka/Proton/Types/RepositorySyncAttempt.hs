@@ -98,6 +98,6 @@ instance Prelude.Hashable RepositorySyncAttempt where
 
 instance Prelude.NFData RepositorySyncAttempt where
   rnf RepositorySyncAttempt' {..} =
-    Prelude.rnf events
-      `Prelude.seq` Prelude.rnf startedAt
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf events `Prelude.seq`
+      Prelude.rnf startedAt `Prelude.seq`
+        Prelude.rnf status

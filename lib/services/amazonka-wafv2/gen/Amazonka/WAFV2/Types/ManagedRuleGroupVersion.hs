@@ -84,5 +84,5 @@ instance Prelude.Hashable ManagedRuleGroupVersion where
 
 instance Prelude.NFData ManagedRuleGroupVersion where
   rnf ManagedRuleGroupVersion' {..} =
-    Prelude.rnf lastUpdateTimestamp
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf lastUpdateTimestamp `Prelude.seq`
+      Prelude.rnf name

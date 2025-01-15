@@ -204,10 +204,10 @@ instance Prelude.Hashable UpdateRateBasedRule where
 
 instance Prelude.NFData UpdateRateBasedRule where
   rnf UpdateRateBasedRule' {..} =
-    Prelude.rnf ruleId
-      `Prelude.seq` Prelude.rnf changeToken
-      `Prelude.seq` Prelude.rnf updates
-      `Prelude.seq` Prelude.rnf rateLimit
+    Prelude.rnf ruleId `Prelude.seq`
+      Prelude.rnf changeToken `Prelude.seq`
+        Prelude.rnf updates `Prelude.seq`
+          Prelude.rnf rateLimit
 
 instance Data.ToHeaders UpdateRateBasedRule where
   toHeaders =
@@ -288,5 +288,5 @@ updateRateBasedRuleResponse_httpStatus = Lens.lens (\UpdateRateBasedRuleResponse
 
 instance Prelude.NFData UpdateRateBasedRuleResponse where
   rnf UpdateRateBasedRuleResponse' {..} =
-    Prelude.rnf changeToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf changeToken `Prelude.seq`
+      Prelude.rnf httpStatus

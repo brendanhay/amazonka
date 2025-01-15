@@ -91,5 +91,5 @@ instance
     TransitGatewayAttachmentAssociation
   where
   rnf TransitGatewayAttachmentAssociation' {..} =
-    Prelude.rnf state
-      `Prelude.seq` Prelude.rnf transitGatewayRouteTableId
+    Prelude.rnf state `Prelude.seq`
+      Prelude.rnf transitGatewayRouteTableId

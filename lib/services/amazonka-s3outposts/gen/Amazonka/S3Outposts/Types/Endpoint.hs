@@ -193,14 +193,14 @@ instance Prelude.Hashable Endpoint where
 
 instance Prelude.NFData Endpoint where
   rnf Endpoint' {..} =
-    Prelude.rnf accessType
-      `Prelude.seq` Prelude.rnf cidrBlock
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf customerOwnedIpv4Pool
-      `Prelude.seq` Prelude.rnf endpointArn
-      `Prelude.seq` Prelude.rnf networkInterfaces
-      `Prelude.seq` Prelude.rnf outpostsId
-      `Prelude.seq` Prelude.rnf securityGroupId
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf subnetId
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf accessType `Prelude.seq`
+      Prelude.rnf cidrBlock `Prelude.seq`
+        Prelude.rnf creationTime `Prelude.seq`
+          Prelude.rnf customerOwnedIpv4Pool `Prelude.seq`
+            Prelude.rnf endpointArn `Prelude.seq`
+              Prelude.rnf networkInterfaces `Prelude.seq`
+                Prelude.rnf outpostsId `Prelude.seq`
+                  Prelude.rnf securityGroupId `Prelude.seq`
+                    Prelude.rnf status `Prelude.seq`
+                      Prelude.rnf subnetId `Prelude.seq`
+                        Prelude.rnf vpcId

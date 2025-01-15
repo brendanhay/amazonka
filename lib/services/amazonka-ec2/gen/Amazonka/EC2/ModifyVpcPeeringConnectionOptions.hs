@@ -187,10 +187,10 @@ instance
     ModifyVpcPeeringConnectionOptions
   where
   rnf ModifyVpcPeeringConnectionOptions' {..} =
-    Prelude.rnf accepterPeeringConnectionOptions
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf requesterPeeringConnectionOptions
-      `Prelude.seq` Prelude.rnf vpcPeeringConnectionId
+    Prelude.rnf accepterPeeringConnectionOptions `Prelude.seq`
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf requesterPeeringConnectionOptions `Prelude.seq`
+          Prelude.rnf vpcPeeringConnectionId
 
 instance
   Data.ToHeaders
@@ -286,6 +286,6 @@ instance
     ModifyVpcPeeringConnectionOptionsResponse
   where
   rnf ModifyVpcPeeringConnectionOptionsResponse' {..} =
-    Prelude.rnf accepterPeeringConnectionOptions
-      `Prelude.seq` Prelude.rnf requesterPeeringConnectionOptions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf accepterPeeringConnectionOptions `Prelude.seq`
+      Prelude.rnf requesterPeeringConnectionOptions `Prelude.seq`
+        Prelude.rnf httpStatus

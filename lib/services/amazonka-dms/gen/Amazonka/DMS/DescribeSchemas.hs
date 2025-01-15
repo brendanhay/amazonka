@@ -146,12 +146,12 @@ instance Core.AWSPager DescribeSchemas where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeSchemas_marker
-          Lens..~ rs
-          Lens.^? describeSchemasResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeSchemas_marker
+              Lens..~ rs
+              Lens.^? describeSchemasResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeSchemas where
   type
@@ -177,9 +177,9 @@ instance Prelude.Hashable DescribeSchemas where
 
 instance Prelude.NFData DescribeSchemas where
   rnf DescribeSchemas' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf endpointArn
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf maxRecords `Prelude.seq`
+        Prelude.rnf endpointArn
 
 instance Data.ToHeaders DescribeSchemas where
   toHeaders =
@@ -269,6 +269,6 @@ describeSchemasResponse_httpStatus = Lens.lens (\DescribeSchemasResponse' {httpS
 
 instance Prelude.NFData DescribeSchemasResponse where
   rnf DescribeSchemasResponse' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf schemas
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf schemas `Prelude.seq`
+        Prelude.rnf httpStatus

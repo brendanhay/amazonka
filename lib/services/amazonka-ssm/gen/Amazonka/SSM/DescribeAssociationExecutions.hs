@@ -155,12 +155,12 @@ instance Core.AWSPager DescribeAssociationExecutions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeAssociationExecutions_nextToken
-          Lens..~ rs
-          Lens.^? describeAssociationExecutionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeAssociationExecutions_nextToken
+              Lens..~ rs
+              Lens.^? describeAssociationExecutionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -196,10 +196,10 @@ instance
 
 instance Prelude.NFData DescribeAssociationExecutions where
   rnf DescribeAssociationExecutions' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf associationId
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf associationId
 
 instance Data.ToHeaders DescribeAssociationExecutions where
   toHeaders =
@@ -290,6 +290,6 @@ instance
     DescribeAssociationExecutionsResponse
   where
   rnf DescribeAssociationExecutionsResponse' {..} =
-    Prelude.rnf associationExecutions
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf associationExecutions `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

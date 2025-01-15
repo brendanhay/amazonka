@@ -112,8 +112,8 @@ instance Prelude.Hashable AddFlowVpcInterfaces where
 
 instance Prelude.NFData AddFlowVpcInterfaces where
   rnf AddFlowVpcInterfaces' {..} =
-    Prelude.rnf flowArn
-      `Prelude.seq` Prelude.rnf vpcInterfaces
+    Prelude.rnf flowArn `Prelude.seq`
+      Prelude.rnf vpcInterfaces
 
 instance Data.ToHeaders AddFlowVpcInterfaces where
   toHeaders =
@@ -193,6 +193,6 @@ addFlowVpcInterfacesResponse_httpStatus = Lens.lens (\AddFlowVpcInterfacesRespon
 
 instance Prelude.NFData AddFlowVpcInterfacesResponse where
   rnf AddFlowVpcInterfacesResponse' {..} =
-    Prelude.rnf flowArn
-      `Prelude.seq` Prelude.rnf vpcInterfaces
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf flowArn `Prelude.seq`
+      Prelude.rnf vpcInterfaces `Prelude.seq`
+        Prelude.rnf httpStatus

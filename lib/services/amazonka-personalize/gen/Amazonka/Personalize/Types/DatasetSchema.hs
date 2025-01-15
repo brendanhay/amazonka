@@ -129,9 +129,9 @@ instance Prelude.Hashable DatasetSchema where
 
 instance Prelude.NFData DatasetSchema where
   rnf DatasetSchema' {..} =
-    Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf schema
-      `Prelude.seq` Prelude.rnf schemaArn
+    Prelude.rnf creationDateTime `Prelude.seq`
+      Prelude.rnf domain `Prelude.seq`
+        Prelude.rnf lastUpdatedDateTime `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf schema `Prelude.seq`
+              Prelude.rnf schemaArn

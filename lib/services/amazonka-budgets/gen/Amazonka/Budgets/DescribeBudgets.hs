@@ -130,12 +130,12 @@ instance Core.AWSPager DescribeBudgets where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeBudgets_nextToken
-          Lens..~ rs
-          Lens.^? describeBudgetsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeBudgets_nextToken
+              Lens..~ rs
+              Lens.^? describeBudgetsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeBudgets where
   type
@@ -161,9 +161,9 @@ instance Prelude.Hashable DescribeBudgets where
 
 instance Prelude.NFData DescribeBudgets where
   rnf DescribeBudgets' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf accountId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf accountId
 
 instance Data.ToHeaders DescribeBudgets where
   toHeaders =
@@ -250,6 +250,6 @@ describeBudgetsResponse_httpStatus = Lens.lens (\DescribeBudgetsResponse' {httpS
 
 instance Prelude.NFData DescribeBudgetsResponse where
   rnf DescribeBudgetsResponse' {..} =
-    Prelude.rnf budgets
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf budgets `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

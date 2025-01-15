@@ -182,10 +182,10 @@ instance Prelude.Hashable ModelPackageGroup where
 
 instance Prelude.NFData ModelPackageGroup where
   rnf ModelPackageGroup' {..} =
-    Prelude.rnf createdBy
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf modelPackageGroupArn
-      `Prelude.seq` Prelude.rnf modelPackageGroupDescription
-      `Prelude.seq` Prelude.rnf modelPackageGroupName
-      `Prelude.seq` Prelude.rnf modelPackageGroupStatus
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf createdBy `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf modelPackageGroupArn `Prelude.seq`
+          Prelude.rnf modelPackageGroupDescription `Prelude.seq`
+            Prelude.rnf modelPackageGroupName `Prelude.seq`
+              Prelude.rnf modelPackageGroupStatus `Prelude.seq`
+                Prelude.rnf tags

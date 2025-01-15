@@ -176,11 +176,11 @@ instance Prelude.Hashable MediaStream where
 
 instance Prelude.NFData MediaStream where
   rnf MediaStream' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf clockRate
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf videoFormat
-      `Prelude.seq` Prelude.rnf mediaStreamType
-      `Prelude.seq` Prelude.rnf mediaStreamId
-      `Prelude.seq` Prelude.rnf mediaStreamName
-      `Prelude.seq` Prelude.rnf fmt
+    Prelude.rnf attributes `Prelude.seq`
+      Prelude.rnf clockRate `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf videoFormat `Prelude.seq`
+            Prelude.rnf mediaStreamType `Prelude.seq`
+              Prelude.rnf mediaStreamId `Prelude.seq`
+                Prelude.rnf mediaStreamName `Prelude.seq`
+                  Prelude.rnf fmt

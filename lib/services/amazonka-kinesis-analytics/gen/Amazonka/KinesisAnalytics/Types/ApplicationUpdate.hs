@@ -106,11 +106,11 @@ instance Prelude.Hashable ApplicationUpdate where
 
 instance Prelude.NFData ApplicationUpdate where
   rnf ApplicationUpdate' {..} =
-    Prelude.rnf applicationCodeUpdate
-      `Prelude.seq` Prelude.rnf cloudWatchLoggingOptionUpdates
-      `Prelude.seq` Prelude.rnf inputUpdates
-      `Prelude.seq` Prelude.rnf outputUpdates
-      `Prelude.seq` Prelude.rnf referenceDataSourceUpdates
+    Prelude.rnf applicationCodeUpdate `Prelude.seq`
+      Prelude.rnf cloudWatchLoggingOptionUpdates `Prelude.seq`
+        Prelude.rnf inputUpdates `Prelude.seq`
+          Prelude.rnf outputUpdates `Prelude.seq`
+            Prelude.rnf referenceDataSourceUpdates
 
 instance Data.ToJSON ApplicationUpdate where
   toJSON ApplicationUpdate' {..} =

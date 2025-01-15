@@ -136,8 +136,8 @@ instance Prelude.Hashable DescribeRecipe where
 
 instance Prelude.NFData DescribeRecipe where
   rnf DescribeRecipe' {..} =
-    Prelude.rnf recipeVersion
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf recipeVersion `Prelude.seq`
+      Prelude.rnf name
 
 instance Data.ToHeaders DescribeRecipe where
   toHeaders =
@@ -313,17 +313,17 @@ describeRecipeResponse_name = Lens.lens (\DescribeRecipeResponse' {name} -> name
 
 instance Prelude.NFData DescribeRecipeResponse where
   rnf DescribeRecipeResponse' {..} =
-    Prelude.rnf createDate
-      `Prelude.seq` Prelude.rnf createdBy
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf lastModifiedBy
-      `Prelude.seq` Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf projectName
-      `Prelude.seq` Prelude.rnf publishedBy
-      `Prelude.seq` Prelude.rnf publishedDate
-      `Prelude.seq` Prelude.rnf recipeVersion
-      `Prelude.seq` Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf steps
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf createDate `Prelude.seq`
+      Prelude.rnf createdBy `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf lastModifiedBy `Prelude.seq`
+            Prelude.rnf lastModifiedDate `Prelude.seq`
+              Prelude.rnf projectName `Prelude.seq`
+                Prelude.rnf publishedBy `Prelude.seq`
+                  Prelude.rnf publishedDate `Prelude.seq`
+                    Prelude.rnf recipeVersion `Prelude.seq`
+                      Prelude.rnf resourceArn `Prelude.seq`
+                        Prelude.rnf steps `Prelude.seq`
+                          Prelude.rnf tags `Prelude.seq`
+                            Prelude.rnf httpStatus `Prelude.seq`
+                              Prelude.rnf name

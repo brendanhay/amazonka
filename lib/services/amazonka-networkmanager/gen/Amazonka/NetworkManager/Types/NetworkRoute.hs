@@ -117,8 +117,8 @@ instance Prelude.Hashable NetworkRoute where
 
 instance Prelude.NFData NetworkRoute where
   rnf NetworkRoute' {..} =
-    Prelude.rnf destinationCidrBlock
-      `Prelude.seq` Prelude.rnf destinations
-      `Prelude.seq` Prelude.rnf prefixListId
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf destinationCidrBlock `Prelude.seq`
+      Prelude.rnf destinations `Prelude.seq`
+        Prelude.rnf prefixListId `Prelude.seq`
+          Prelude.rnf state `Prelude.seq`
+            Prelude.rnf type'

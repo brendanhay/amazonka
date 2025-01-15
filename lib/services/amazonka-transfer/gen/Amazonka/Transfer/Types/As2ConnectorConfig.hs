@@ -189,14 +189,14 @@ instance Prelude.Hashable As2ConnectorConfig where
 
 instance Prelude.NFData As2ConnectorConfig where
   rnf As2ConnectorConfig' {..} =
-    Prelude.rnf compression
-      `Prelude.seq` Prelude.rnf encryptionAlgorithm
-      `Prelude.seq` Prelude.rnf localProfileId
-      `Prelude.seq` Prelude.rnf mdnResponse
-      `Prelude.seq` Prelude.rnf mdnSigningAlgorithm
-      `Prelude.seq` Prelude.rnf messageSubject
-      `Prelude.seq` Prelude.rnf partnerProfileId
-      `Prelude.seq` Prelude.rnf signingAlgorithm
+    Prelude.rnf compression `Prelude.seq`
+      Prelude.rnf encryptionAlgorithm `Prelude.seq`
+        Prelude.rnf localProfileId `Prelude.seq`
+          Prelude.rnf mdnResponse `Prelude.seq`
+            Prelude.rnf mdnSigningAlgorithm `Prelude.seq`
+              Prelude.rnf messageSubject `Prelude.seq`
+                Prelude.rnf partnerProfileId `Prelude.seq`
+                  Prelude.rnf signingAlgorithm
 
 instance Data.ToJSON As2ConnectorConfig where
   toJSON As2ConnectorConfig' {..} =

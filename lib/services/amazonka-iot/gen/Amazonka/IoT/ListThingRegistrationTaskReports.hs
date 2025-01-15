@@ -139,12 +139,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listThingRegistrationTaskReports_nextToken
-          Lens..~ rs
-          Lens.^? listThingRegistrationTaskReportsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listThingRegistrationTaskReports_nextToken
+              Lens..~ rs
+              Lens.^? listThingRegistrationTaskReportsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -183,10 +183,10 @@ instance
     ListThingRegistrationTaskReports
   where
   rnf ListThingRegistrationTaskReports' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf taskId
-      `Prelude.seq` Prelude.rnf reportType
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf taskId `Prelude.seq`
+          Prelude.rnf reportType
 
 instance
   Data.ToHeaders
@@ -279,7 +279,7 @@ instance
     ListThingRegistrationTaskReportsResponse
   where
   rnf ListThingRegistrationTaskReportsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf reportType
-      `Prelude.seq` Prelude.rnf resourceLinks
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf reportType `Prelude.seq`
+        Prelude.rnf resourceLinks `Prelude.seq`
+          Prelude.rnf httpStatus

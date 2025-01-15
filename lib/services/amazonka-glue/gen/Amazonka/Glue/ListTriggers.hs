@@ -142,10 +142,10 @@ instance Prelude.Hashable ListTriggers where
 
 instance Prelude.NFData ListTriggers where
   rnf ListTriggers' {..} =
-    Prelude.rnf dependentJobName
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf dependentJobName `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf tags
 
 instance Data.ToHeaders ListTriggers where
   toHeaders =
@@ -233,6 +233,6 @@ listTriggersResponse_httpStatus = Lens.lens (\ListTriggersResponse' {httpStatus}
 
 instance Prelude.NFData ListTriggersResponse where
   rnf ListTriggersResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf triggerNames
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf triggerNames `Prelude.seq`
+        Prelude.rnf httpStatus

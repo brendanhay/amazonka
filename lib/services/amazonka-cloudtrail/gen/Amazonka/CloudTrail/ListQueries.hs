@@ -172,12 +172,12 @@ instance Prelude.Hashable ListQueries where
 
 instance Prelude.NFData ListQueries where
   rnf ListQueries' {..} =
-    Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf queryStatus
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf eventDataStore
+    Prelude.rnf endTime `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf queryStatus `Prelude.seq`
+            Prelude.rnf startTime `Prelude.seq`
+              Prelude.rnf eventDataStore
 
 instance Data.ToHeaders ListQueries where
   toHeaders =
@@ -266,6 +266,6 @@ listQueriesResponse_httpStatus = Lens.lens (\ListQueriesResponse' {httpStatus} -
 
 instance Prelude.NFData ListQueriesResponse where
   rnf ListQueriesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf queries
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf queries `Prelude.seq`
+        Prelude.rnf httpStatus

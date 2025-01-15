@@ -221,18 +221,18 @@ instance Prelude.Hashable ContactInformation where
 
 instance Prelude.NFData ContactInformation where
   rnf ContactInformation' {..} =
-    Prelude.rnf addressLine2
-      `Prelude.seq` Prelude.rnf addressLine3
-      `Prelude.seq` Prelude.rnf companyName
-      `Prelude.seq` Prelude.rnf districtOrCounty
-      `Prelude.seq` Prelude.rnf stateOrRegion
-      `Prelude.seq` Prelude.rnf websiteUrl
-      `Prelude.seq` Prelude.rnf addressLine1
-      `Prelude.seq` Prelude.rnf city
-      `Prelude.seq` Prelude.rnf countryCode
-      `Prelude.seq` Prelude.rnf fullName
-      `Prelude.seq` Prelude.rnf phoneNumber
-      `Prelude.seq` Prelude.rnf postalCode
+    Prelude.rnf addressLine2 `Prelude.seq`
+      Prelude.rnf addressLine3 `Prelude.seq`
+        Prelude.rnf companyName `Prelude.seq`
+          Prelude.rnf districtOrCounty `Prelude.seq`
+            Prelude.rnf stateOrRegion `Prelude.seq`
+              Prelude.rnf websiteUrl `Prelude.seq`
+                Prelude.rnf addressLine1 `Prelude.seq`
+                  Prelude.rnf city `Prelude.seq`
+                    Prelude.rnf countryCode `Prelude.seq`
+                      Prelude.rnf fullName `Prelude.seq`
+                        Prelude.rnf phoneNumber `Prelude.seq`
+                          Prelude.rnf postalCode
 
 instance Data.ToJSON ContactInformation where
   toJSON ContactInformation' {..} =

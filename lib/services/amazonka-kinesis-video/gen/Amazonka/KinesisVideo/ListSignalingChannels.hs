@@ -127,12 +127,12 @@ instance Core.AWSPager ListSignalingChannels where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listSignalingChannels_nextToken
-          Lens..~ rs
-          Lens.^? listSignalingChannelsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listSignalingChannels_nextToken
+              Lens..~ rs
+              Lens.^? listSignalingChannelsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSignalingChannels where
   type
@@ -161,9 +161,9 @@ instance Prelude.Hashable ListSignalingChannels where
 
 instance Prelude.NFData ListSignalingChannels where
   rnf ListSignalingChannels' {..} =
-    Prelude.rnf channelNameCondition
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf channelNameCondition `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListSignalingChannels where
   toHeaders = Prelude.const Prelude.mempty
@@ -241,6 +241,6 @@ listSignalingChannelsResponse_httpStatus = Lens.lens (\ListSignalingChannelsResp
 
 instance Prelude.NFData ListSignalingChannelsResponse where
   rnf ListSignalingChannelsResponse' {..} =
-    Prelude.rnf channelInfoList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf channelInfoList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

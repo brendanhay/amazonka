@@ -87,5 +87,5 @@ instance Prelude.Hashable FaultStatistics where
 
 instance Prelude.NFData FaultStatistics where
   rnf FaultStatistics' {..} =
-    Prelude.rnf otherCount
-      `Prelude.seq` Prelude.rnf totalCount
+    Prelude.rnf otherCount `Prelude.seq`
+      Prelude.rnf totalCount

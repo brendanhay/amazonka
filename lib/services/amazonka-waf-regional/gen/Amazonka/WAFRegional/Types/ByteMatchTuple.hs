@@ -661,10 +661,10 @@ instance Prelude.Hashable ByteMatchTuple where
 
 instance Prelude.NFData ByteMatchTuple where
   rnf ByteMatchTuple' {..} =
-    Prelude.rnf fieldToMatch
-      `Prelude.seq` Prelude.rnf targetString
-      `Prelude.seq` Prelude.rnf textTransformation
-      `Prelude.seq` Prelude.rnf positionalConstraint
+    Prelude.rnf fieldToMatch `Prelude.seq`
+      Prelude.rnf targetString `Prelude.seq`
+        Prelude.rnf textTransformation `Prelude.seq`
+          Prelude.rnf positionalConstraint
 
 instance Data.ToJSON ByteMatchTuple where
   toJSON ByteMatchTuple' {..} =

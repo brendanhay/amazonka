@@ -101,8 +101,8 @@ instance Prelude.Hashable LambdaOutput where
 
 instance Prelude.NFData LambdaOutput where
   rnf LambdaOutput' {..} =
-    Prelude.rnf resourceARN
-      `Prelude.seq` Prelude.rnf roleARN
+    Prelude.rnf resourceARN `Prelude.seq`
+      Prelude.rnf roleARN
 
 instance Data.ToJSON LambdaOutput where
   toJSON LambdaOutput' {..} =

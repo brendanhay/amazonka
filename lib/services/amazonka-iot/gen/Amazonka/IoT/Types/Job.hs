@@ -428,27 +428,27 @@ instance Prelude.Hashable Job where
 
 instance Prelude.NFData Job where
   rnf Job' {..} =
-    Prelude.rnf abortConfig
-      `Prelude.seq` Prelude.rnf comment
-      `Prelude.seq` Prelude.rnf completedAt
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf documentParameters
-      `Prelude.seq` Prelude.rnf forceCanceled
-      `Prelude.seq` Prelude.rnf isConcurrent
-      `Prelude.seq` Prelude.rnf jobArn
-      `Prelude.seq` Prelude.rnf jobExecutionsRetryConfig
-      `Prelude.seq` Prelude.rnf jobExecutionsRolloutConfig
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf jobProcessDetails
-      `Prelude.seq` Prelude.rnf jobTemplateArn
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf namespaceId
-      `Prelude.seq` Prelude.rnf presignedUrlConfig
-      `Prelude.seq` Prelude.rnf reasonCode
-      `Prelude.seq` Prelude.rnf schedulingConfig
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf targetSelection
-      `Prelude.seq` Prelude.rnf targets
-      `Prelude.seq` Prelude.rnf
-        timeoutConfig
+    Prelude.rnf abortConfig `Prelude.seq`
+      Prelude.rnf comment `Prelude.seq`
+        Prelude.rnf completedAt `Prelude.seq`
+          Prelude.rnf createdAt `Prelude.seq`
+            Prelude.rnf description `Prelude.seq`
+              Prelude.rnf documentParameters `Prelude.seq`
+                Prelude.rnf forceCanceled `Prelude.seq`
+                  Prelude.rnf isConcurrent `Prelude.seq`
+                    Prelude.rnf jobArn `Prelude.seq`
+                      Prelude.rnf jobExecutionsRetryConfig `Prelude.seq`
+                        Prelude.rnf jobExecutionsRolloutConfig `Prelude.seq`
+                          Prelude.rnf jobId `Prelude.seq`
+                            Prelude.rnf jobProcessDetails `Prelude.seq`
+                              Prelude.rnf jobTemplateArn `Prelude.seq`
+                                Prelude.rnf lastUpdatedAt `Prelude.seq`
+                                  Prelude.rnf namespaceId `Prelude.seq`
+                                    Prelude.rnf presignedUrlConfig `Prelude.seq`
+                                      Prelude.rnf reasonCode `Prelude.seq`
+                                        Prelude.rnf schedulingConfig `Prelude.seq`
+                                          Prelude.rnf status `Prelude.seq`
+                                            Prelude.rnf targetSelection `Prelude.seq`
+                                              Prelude.rnf targets `Prelude.seq`
+                                                Prelude.rnf
+                                                  timeoutConfig

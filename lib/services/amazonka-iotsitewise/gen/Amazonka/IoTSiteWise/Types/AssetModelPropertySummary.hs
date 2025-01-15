@@ -146,10 +146,10 @@ instance Prelude.Hashable AssetModelPropertySummary where
 
 instance Prelude.NFData AssetModelPropertySummary where
   rnf AssetModelPropertySummary' {..} =
-    Prelude.rnf assetModelCompositeModelId
-      `Prelude.seq` Prelude.rnf dataTypeSpec
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf unit
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf dataType
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf assetModelCompositeModelId `Prelude.seq`
+      Prelude.rnf dataTypeSpec `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf unit `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf dataType `Prelude.seq`
+                Prelude.rnf type'

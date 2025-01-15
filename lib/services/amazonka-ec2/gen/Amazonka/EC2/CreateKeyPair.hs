@@ -177,9 +177,7 @@ instance Core.AWSRequest CreateKeyPair where
       ( \s h x ->
           CreateKeyPairResponse'
             Prelude.<$> (x Data..@? "keyPairId")
-            Prelude.<*> ( x
-                            Data..@? "tagSet"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -199,11 +197,11 @@ instance Prelude.Hashable CreateKeyPair where
 
 instance Prelude.NFData CreateKeyPair where
   rnf CreateKeyPair' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf keyFormat
-      `Prelude.seq` Prelude.rnf keyType
-      `Prelude.seq` Prelude.rnf tagSpecifications
-      `Prelude.seq` Prelude.rnf keyName
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf keyFormat `Prelude.seq`
+        Prelude.rnf keyType `Prelude.seq`
+          Prelude.rnf tagSpecifications `Prelude.seq`
+            Prelude.rnf keyName
 
 instance Data.ToHeaders CreateKeyPair where
   toHeaders = Prelude.const Prelude.mempty
@@ -331,9 +329,9 @@ createKeyPairResponse_keyMaterial = Lens.lens (\CreateKeyPairResponse' {keyMater
 
 instance Prelude.NFData CreateKeyPairResponse where
   rnf CreateKeyPairResponse' {..} =
-    Prelude.rnf keyPairId
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf keyName
-      `Prelude.seq` Prelude.rnf keyFingerprint
-      `Prelude.seq` Prelude.rnf keyMaterial
+    Prelude.rnf keyPairId `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf httpStatus `Prelude.seq`
+          Prelude.rnf keyName `Prelude.seq`
+            Prelude.rnf keyFingerprint `Prelude.seq`
+              Prelude.rnf keyMaterial

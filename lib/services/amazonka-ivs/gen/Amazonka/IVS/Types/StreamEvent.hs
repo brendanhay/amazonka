@@ -95,6 +95,6 @@ instance Prelude.Hashable StreamEvent where
 
 instance Prelude.NFData StreamEvent where
   rnf StreamEvent' {..} =
-    Prelude.rnf eventTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf eventTime `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf type'

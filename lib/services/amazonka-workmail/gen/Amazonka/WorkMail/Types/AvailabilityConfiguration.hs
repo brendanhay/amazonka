@@ -138,9 +138,9 @@ instance Prelude.Hashable AvailabilityConfiguration where
 
 instance Prelude.NFData AvailabilityConfiguration where
   rnf AvailabilityConfiguration' {..} =
-    Prelude.rnf dateCreated
-      `Prelude.seq` Prelude.rnf dateModified
-      `Prelude.seq` Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf ewsProvider
-      `Prelude.seq` Prelude.rnf lambdaProvider
-      `Prelude.seq` Prelude.rnf providerType
+    Prelude.rnf dateCreated `Prelude.seq`
+      Prelude.rnf dateModified `Prelude.seq`
+        Prelude.rnf domainName `Prelude.seq`
+          Prelude.rnf ewsProvider `Prelude.seq`
+            Prelude.rnf lambdaProvider `Prelude.seq`
+              Prelude.rnf providerType

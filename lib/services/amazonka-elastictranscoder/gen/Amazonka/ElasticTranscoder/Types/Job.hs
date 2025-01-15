@@ -345,15 +345,15 @@ instance Prelude.Hashable Job where
 
 instance Prelude.NFData Job where
   rnf Job' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf input
-      `Prelude.seq` Prelude.rnf inputs
-      `Prelude.seq` Prelude.rnf output
-      `Prelude.seq` Prelude.rnf outputKeyPrefix
-      `Prelude.seq` Prelude.rnf outputs
-      `Prelude.seq` Prelude.rnf pipelineId
-      `Prelude.seq` Prelude.rnf playlists
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf timing
-      `Prelude.seq` Prelude.rnf userMetadata
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf input `Prelude.seq`
+          Prelude.rnf inputs `Prelude.seq`
+            Prelude.rnf output `Prelude.seq`
+              Prelude.rnf outputKeyPrefix `Prelude.seq`
+                Prelude.rnf outputs `Prelude.seq`
+                  Prelude.rnf pipelineId `Prelude.seq`
+                    Prelude.rnf playlists `Prelude.seq`
+                      Prelude.rnf status `Prelude.seq`
+                        Prelude.rnf timing `Prelude.seq`
+                          Prelude.rnf userMetadata

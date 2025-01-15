@@ -94,5 +94,5 @@ instance Prelude.Hashable RetentionConfiguration where
 
 instance Prelude.NFData RetentionConfiguration where
   rnf RetentionConfiguration' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf retentionPeriodInDays
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf retentionPeriodInDays

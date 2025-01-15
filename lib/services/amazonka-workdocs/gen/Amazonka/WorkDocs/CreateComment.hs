@@ -194,14 +194,14 @@ instance Prelude.Hashable CreateComment where
 
 instance Prelude.NFData CreateComment where
   rnf CreateComment' {..} =
-    Prelude.rnf authenticationToken
-      `Prelude.seq` Prelude.rnf notifyCollaborators
-      `Prelude.seq` Prelude.rnf parentId
-      `Prelude.seq` Prelude.rnf threadId
-      `Prelude.seq` Prelude.rnf visibility
-      `Prelude.seq` Prelude.rnf documentId
-      `Prelude.seq` Prelude.rnf versionId
-      `Prelude.seq` Prelude.rnf text
+    Prelude.rnf authenticationToken `Prelude.seq`
+      Prelude.rnf notifyCollaborators `Prelude.seq`
+        Prelude.rnf parentId `Prelude.seq`
+          Prelude.rnf threadId `Prelude.seq`
+            Prelude.rnf visibility `Prelude.seq`
+              Prelude.rnf documentId `Prelude.seq`
+                Prelude.rnf versionId `Prelude.seq`
+                  Prelude.rnf text
 
 instance Data.ToHeaders CreateComment where
   toHeaders CreateComment' {..} =
@@ -277,5 +277,5 @@ createCommentResponse_httpStatus = Lens.lens (\CreateCommentResponse' {httpStatu
 
 instance Prelude.NFData CreateCommentResponse where
   rnf CreateCommentResponse' {..} =
-    Prelude.rnf comment
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf comment `Prelude.seq`
+      Prelude.rnf httpStatus

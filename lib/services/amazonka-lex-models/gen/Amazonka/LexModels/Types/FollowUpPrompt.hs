@@ -94,8 +94,8 @@ instance Prelude.Hashable FollowUpPrompt where
 
 instance Prelude.NFData FollowUpPrompt where
   rnf FollowUpPrompt' {..} =
-    Prelude.rnf prompt
-      `Prelude.seq` Prelude.rnf rejectionStatement
+    Prelude.rnf prompt `Prelude.seq`
+      Prelude.rnf rejectionStatement
 
 instance Data.ToJSON FollowUpPrompt where
   toJSON FollowUpPrompt' {..} =

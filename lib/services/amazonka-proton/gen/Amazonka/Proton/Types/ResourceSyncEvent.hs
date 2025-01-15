@@ -108,7 +108,7 @@ instance Prelude.Hashable ResourceSyncEvent where
 
 instance Prelude.NFData ResourceSyncEvent where
   rnf ResourceSyncEvent' {..} =
-    Prelude.rnf externalId
-      `Prelude.seq` Prelude.rnf event
-      `Prelude.seq` Prelude.rnf time
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf externalId `Prelude.seq`
+      Prelude.rnf event `Prelude.seq`
+        Prelude.rnf time `Prelude.seq`
+          Prelude.rnf type'

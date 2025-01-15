@@ -134,10 +134,10 @@ instance Prelude.Hashable UpdateComponent where
 
 instance Prelude.NFData UpdateComponent where
   rnf UpdateComponent' {..} =
-    Prelude.rnf newComponentName'
-      `Prelude.seq` Prelude.rnf resourceList
-      `Prelude.seq` Prelude.rnf resourceGroupName
-      `Prelude.seq` Prelude.rnf componentName
+    Prelude.rnf newComponentName' `Prelude.seq`
+      Prelude.rnf resourceList `Prelude.seq`
+        Prelude.rnf resourceGroupName `Prelude.seq`
+          Prelude.rnf componentName
 
 instance Data.ToHeaders UpdateComponent where
   toHeaders =

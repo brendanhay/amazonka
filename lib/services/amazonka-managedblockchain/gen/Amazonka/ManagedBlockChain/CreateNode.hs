@@ -229,11 +229,11 @@ instance Prelude.Hashable CreateNode where
 
 instance Prelude.NFData CreateNode where
   rnf CreateNode' {..} =
-    Prelude.rnf memberId
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf networkId
-      `Prelude.seq` Prelude.rnf nodeConfiguration
+    Prelude.rnf memberId `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf clientRequestToken `Prelude.seq`
+          Prelude.rnf networkId `Prelude.seq`
+            Prelude.rnf nodeConfiguration
 
 instance Data.ToHeaders CreateNode where
   toHeaders =
@@ -307,5 +307,5 @@ createNodeResponse_httpStatus = Lens.lens (\CreateNodeResponse' {httpStatus} -> 
 
 instance Prelude.NFData CreateNodeResponse where
   rnf CreateNodeResponse' {..} =
-    Prelude.rnf nodeId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nodeId `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -143,12 +143,12 @@ instance Prelude.Hashable TargetLocation where
 
 instance Prelude.NFData TargetLocation where
   rnf TargetLocation' {..} =
-    Prelude.rnf accounts
-      `Prelude.seq` Prelude.rnf executionRoleName
-      `Prelude.seq` Prelude.rnf regions
-      `Prelude.seq` Prelude.rnf targetLocationAlarmConfiguration
-      `Prelude.seq` Prelude.rnf targetLocationMaxConcurrency
-      `Prelude.seq` Prelude.rnf targetLocationMaxErrors
+    Prelude.rnf accounts `Prelude.seq`
+      Prelude.rnf executionRoleName `Prelude.seq`
+        Prelude.rnf regions `Prelude.seq`
+          Prelude.rnf targetLocationAlarmConfiguration `Prelude.seq`
+            Prelude.rnf targetLocationMaxConcurrency `Prelude.seq`
+              Prelude.rnf targetLocationMaxErrors
 
 instance Data.ToJSON TargetLocation where
   toJSON TargetLocation' {..} =

@@ -117,8 +117,8 @@ instance Prelude.Hashable CreateStandbyWorkspaces where
 
 instance Prelude.NFData CreateStandbyWorkspaces where
   rnf CreateStandbyWorkspaces' {..} =
-    Prelude.rnf primaryRegion
-      `Prelude.seq` Prelude.rnf standbyWorkspaces
+    Prelude.rnf primaryRegion `Prelude.seq`
+      Prelude.rnf standbyWorkspaces
 
 instance Data.ToHeaders CreateStandbyWorkspaces where
   toHeaders =
@@ -205,6 +205,6 @@ instance
     CreateStandbyWorkspacesResponse
   where
   rnf CreateStandbyWorkspacesResponse' {..} =
-    Prelude.rnf failedStandbyRequests
-      `Prelude.seq` Prelude.rnf pendingStandbyRequests
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf failedStandbyRequests `Prelude.seq`
+      Prelude.rnf pendingStandbyRequests `Prelude.seq`
+        Prelude.rnf httpStatus

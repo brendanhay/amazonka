@@ -150,10 +150,10 @@ instance Prelude.Hashable SendSSHPublicKey where
 
 instance Prelude.NFData SendSSHPublicKey where
   rnf SendSSHPublicKey' {..} =
-    Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf instanceOSUser
-      `Prelude.seq` Prelude.rnf sSHPublicKey
+    Prelude.rnf availabilityZone `Prelude.seq`
+      Prelude.rnf instanceId `Prelude.seq`
+        Prelude.rnf instanceOSUser `Prelude.seq`
+          Prelude.rnf sSHPublicKey
 
 instance Data.ToHeaders SendSSHPublicKey where
   toHeaders =
@@ -242,6 +242,6 @@ sendSSHPublicKeyResponse_httpStatus = Lens.lens (\SendSSHPublicKeyResponse' {htt
 
 instance Prelude.NFData SendSSHPublicKeyResponse where
   rnf SendSSHPublicKeyResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf success
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf requestId `Prelude.seq`
+      Prelude.rnf success `Prelude.seq`
+        Prelude.rnf httpStatus

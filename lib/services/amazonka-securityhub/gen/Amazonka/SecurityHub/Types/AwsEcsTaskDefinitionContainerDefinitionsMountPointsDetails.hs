@@ -109,9 +109,9 @@ instance
   where
   rnf
     AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails' {..} =
-      Prelude.rnf containerPath
-        `Prelude.seq` Prelude.rnf readOnly
-        `Prelude.seq` Prelude.rnf sourceVolume
+      Prelude.rnf containerPath `Prelude.seq`
+        Prelude.rnf readOnly `Prelude.seq`
+          Prelude.rnf sourceVolume
 
 instance
   Data.ToJSON

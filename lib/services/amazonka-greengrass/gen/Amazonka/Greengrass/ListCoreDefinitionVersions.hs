@@ -118,12 +118,12 @@ instance Core.AWSPager ListCoreDefinitionVersions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listCoreDefinitionVersions_nextToken
-          Lens..~ rs
-          Lens.^? listCoreDefinitionVersionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listCoreDefinitionVersions_nextToken
+              Lens..~ rs
+              Lens.^? listCoreDefinitionVersionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListCoreDefinitionVersions where
   type
@@ -149,9 +149,9 @@ instance Prelude.Hashable ListCoreDefinitionVersions where
 
 instance Prelude.NFData ListCoreDefinitionVersions where
   rnf ListCoreDefinitionVersions' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf coreDefinitionId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf coreDefinitionId
 
 instance Data.ToHeaders ListCoreDefinitionVersions where
   toHeaders =
@@ -235,6 +235,6 @@ instance
     ListCoreDefinitionVersionsResponse
   where
   rnf ListCoreDefinitionVersionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf versions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf versions `Prelude.seq`
+        Prelude.rnf httpStatus

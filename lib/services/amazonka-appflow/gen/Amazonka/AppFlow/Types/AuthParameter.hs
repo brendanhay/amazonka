@@ -131,9 +131,9 @@ instance Prelude.Hashable AuthParameter where
 
 instance Prelude.NFData AuthParameter where
   rnf AuthParameter' {..} =
-    Prelude.rnf connectorSuppliedValues
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf isRequired
-      `Prelude.seq` Prelude.rnf isSensitiveField
-      `Prelude.seq` Prelude.rnf key
-      `Prelude.seq` Prelude.rnf label
+    Prelude.rnf connectorSuppliedValues `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf isRequired `Prelude.seq`
+          Prelude.rnf isSensitiveField `Prelude.seq`
+            Prelude.rnf key `Prelude.seq`
+              Prelude.rnf label

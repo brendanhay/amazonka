@@ -98,8 +98,8 @@ instance
     Scte35InputScheduleActionSettings
   where
   rnf Scte35InputScheduleActionSettings' {..} =
-    Prelude.rnf inputAttachmentNameReference
-      `Prelude.seq` Prelude.rnf mode
+    Prelude.rnf inputAttachmentNameReference `Prelude.seq`
+      Prelude.rnf mode
 
 instance
   Data.ToJSON

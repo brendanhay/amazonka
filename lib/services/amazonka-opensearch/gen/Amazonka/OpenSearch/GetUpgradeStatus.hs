@@ -181,7 +181,7 @@ getUpgradeStatusResponse_httpStatus = Lens.lens (\GetUpgradeStatusResponse' {htt
 
 instance Prelude.NFData GetUpgradeStatusResponse where
   rnf GetUpgradeStatusResponse' {..} =
-    Prelude.rnf stepStatus
-      `Prelude.seq` Prelude.rnf upgradeName
-      `Prelude.seq` Prelude.rnf upgradeStep
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf stepStatus `Prelude.seq`
+      Prelude.rnf upgradeName `Prelude.seq`
+        Prelude.rnf upgradeStep `Prelude.seq`
+          Prelude.rnf httpStatus

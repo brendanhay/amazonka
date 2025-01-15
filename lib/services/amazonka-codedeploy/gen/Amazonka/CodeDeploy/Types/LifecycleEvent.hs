@@ -157,8 +157,8 @@ instance Prelude.Hashable LifecycleEvent where
 
 instance Prelude.NFData LifecycleEvent where
   rnf LifecycleEvent' {..} =
-    Prelude.rnf diagnostics
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf lifecycleEventName
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf diagnostics `Prelude.seq`
+      Prelude.rnf endTime `Prelude.seq`
+        Prelude.rnf lifecycleEventName `Prelude.seq`
+          Prelude.rnf startTime `Prelude.seq`
+            Prelude.rnf status

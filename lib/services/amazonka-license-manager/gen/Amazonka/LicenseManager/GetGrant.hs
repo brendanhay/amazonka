@@ -106,8 +106,8 @@ instance Prelude.Hashable GetGrant where
 
 instance Prelude.NFData GetGrant where
   rnf GetGrant' {..} =
-    Prelude.rnf version
-      `Prelude.seq` Prelude.rnf grantArn
+    Prelude.rnf version `Prelude.seq`
+      Prelude.rnf grantArn
 
 instance Data.ToHeaders GetGrant where
   toHeaders =
@@ -177,5 +177,5 @@ getGrantResponse_httpStatus = Lens.lens (\GetGrantResponse' {httpStatus} -> http
 
 instance Prelude.NFData GetGrantResponse where
   rnf GetGrantResponse' {..} =
-    Prelude.rnf grant
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf grant `Prelude.seq`
+      Prelude.rnf httpStatus

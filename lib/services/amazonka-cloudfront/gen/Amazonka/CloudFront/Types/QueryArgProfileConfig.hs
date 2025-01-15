@@ -92,8 +92,8 @@ instance Prelude.Hashable QueryArgProfileConfig where
 
 instance Prelude.NFData QueryArgProfileConfig where
   rnf QueryArgProfileConfig' {..} =
-    Prelude.rnf queryArgProfiles
-      `Prelude.seq` Prelude.rnf forwardWhenQueryArgProfileIsUnknown
+    Prelude.rnf queryArgProfiles `Prelude.seq`
+      Prelude.rnf forwardWhenQueryArgProfileIsUnknown
 
 instance Data.ToXML QueryArgProfileConfig where
   toXML QueryArgProfileConfig' {..} =

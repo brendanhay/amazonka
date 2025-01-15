@@ -75,8 +75,8 @@ instance Prelude.Hashable TLEEphemeris where
 
 instance Prelude.NFData TLEEphemeris where
   rnf TLEEphemeris' {..} =
-    Prelude.rnf s3Object
-      `Prelude.seq` Prelude.rnf tleData
+    Prelude.rnf s3Object `Prelude.seq`
+      Prelude.rnf tleData
 
 instance Data.ToJSON TLEEphemeris where
   toJSON TLEEphemeris' {..} =

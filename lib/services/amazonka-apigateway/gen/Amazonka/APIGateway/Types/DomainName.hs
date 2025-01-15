@@ -353,20 +353,20 @@ instance Prelude.Hashable DomainName where
 
 instance Prelude.NFData DomainName where
   rnf DomainName' {..} =
-    Prelude.rnf certificateArn
-      `Prelude.seq` Prelude.rnf certificateName
-      `Prelude.seq` Prelude.rnf certificateUploadDate
-      `Prelude.seq` Prelude.rnf distributionDomainName
-      `Prelude.seq` Prelude.rnf distributionHostedZoneId
-      `Prelude.seq` Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf domainNameStatus
-      `Prelude.seq` Prelude.rnf domainNameStatusMessage
-      `Prelude.seq` Prelude.rnf endpointConfiguration
-      `Prelude.seq` Prelude.rnf mutualTlsAuthentication
-      `Prelude.seq` Prelude.rnf ownershipVerificationCertificateArn
-      `Prelude.seq` Prelude.rnf regionalCertificateArn
-      `Prelude.seq` Prelude.rnf regionalCertificateName
-      `Prelude.seq` Prelude.rnf regionalDomainName
-      `Prelude.seq` Prelude.rnf regionalHostedZoneId
-      `Prelude.seq` Prelude.rnf securityPolicy
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf certificateArn `Prelude.seq`
+      Prelude.rnf certificateName `Prelude.seq`
+        Prelude.rnf certificateUploadDate `Prelude.seq`
+          Prelude.rnf distributionDomainName `Prelude.seq`
+            Prelude.rnf distributionHostedZoneId `Prelude.seq`
+              Prelude.rnf domainName `Prelude.seq`
+                Prelude.rnf domainNameStatus `Prelude.seq`
+                  Prelude.rnf domainNameStatusMessage `Prelude.seq`
+                    Prelude.rnf endpointConfiguration `Prelude.seq`
+                      Prelude.rnf mutualTlsAuthentication `Prelude.seq`
+                        Prelude.rnf ownershipVerificationCertificateArn `Prelude.seq`
+                          Prelude.rnf regionalCertificateArn `Prelude.seq`
+                            Prelude.rnf regionalCertificateName `Prelude.seq`
+                              Prelude.rnf regionalDomainName `Prelude.seq`
+                                Prelude.rnf regionalHostedZoneId `Prelude.seq`
+                                  Prelude.rnf securityPolicy `Prelude.seq`
+                                    Prelude.rnf tags

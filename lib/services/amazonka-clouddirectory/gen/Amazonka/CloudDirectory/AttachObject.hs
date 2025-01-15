@@ -146,10 +146,10 @@ instance Prelude.Hashable AttachObject where
 
 instance Prelude.NFData AttachObject where
   rnf AttachObject' {..} =
-    Prelude.rnf directoryArn
-      `Prelude.seq` Prelude.rnf parentReference
-      `Prelude.seq` Prelude.rnf childReference
-      `Prelude.seq` Prelude.rnf linkName
+    Prelude.rnf directoryArn `Prelude.seq`
+      Prelude.rnf parentReference `Prelude.seq`
+        Prelude.rnf childReference `Prelude.seq`
+          Prelude.rnf linkName
 
 instance Data.ToHeaders AttachObject where
   toHeaders AttachObject' {..} =
@@ -217,5 +217,5 @@ attachObjectResponse_httpStatus = Lens.lens (\AttachObjectResponse' {httpStatus}
 
 instance Prelude.NFData AttachObjectResponse where
   rnf AttachObjectResponse' {..} =
-    Prelude.rnf attachedObjectIdentifier
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf attachedObjectIdentifier `Prelude.seq`
+      Prelude.rnf httpStatus

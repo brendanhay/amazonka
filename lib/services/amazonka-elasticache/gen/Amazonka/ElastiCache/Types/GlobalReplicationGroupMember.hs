@@ -118,8 +118,8 @@ instance
 
 instance Prelude.NFData GlobalReplicationGroupMember where
   rnf GlobalReplicationGroupMember' {..} =
-    Prelude.rnf automaticFailover
-      `Prelude.seq` Prelude.rnf replicationGroupId
-      `Prelude.seq` Prelude.rnf replicationGroupRegion
-      `Prelude.seq` Prelude.rnf role'
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf automaticFailover `Prelude.seq`
+      Prelude.rnf replicationGroupId `Prelude.seq`
+        Prelude.rnf replicationGroupRegion `Prelude.seq`
+          Prelude.rnf role' `Prelude.seq`
+            Prelude.rnf status

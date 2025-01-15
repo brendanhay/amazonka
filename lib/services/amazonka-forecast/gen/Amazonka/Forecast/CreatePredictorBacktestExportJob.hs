@@ -257,11 +257,11 @@ instance
     CreatePredictorBacktestExportJob
   where
   rnf CreatePredictorBacktestExportJob' {..} =
-    Prelude.rnf format
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf predictorBacktestExportJobName
-      `Prelude.seq` Prelude.rnf predictorArn
-      `Prelude.seq` Prelude.rnf destination
+    Prelude.rnf format `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf predictorBacktestExportJobName `Prelude.seq`
+          Prelude.rnf predictorArn `Prelude.seq`
+            Prelude.rnf destination
 
 instance
   Data.ToHeaders
@@ -353,5 +353,5 @@ instance
     CreatePredictorBacktestExportJobResponse
   where
   rnf CreatePredictorBacktestExportJobResponse' {..} =
-    Prelude.rnf predictorBacktestExportJobArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf predictorBacktestExportJobArn `Prelude.seq`
+      Prelude.rnf httpStatus

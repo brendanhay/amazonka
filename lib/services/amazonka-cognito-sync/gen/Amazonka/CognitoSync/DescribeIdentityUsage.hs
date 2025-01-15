@@ -131,8 +131,8 @@ instance Prelude.Hashable DescribeIdentityUsage where
 
 instance Prelude.NFData DescribeIdentityUsage where
   rnf DescribeIdentityUsage' {..} =
-    Prelude.rnf identityPoolId
-      `Prelude.seq` Prelude.rnf identityId
+    Prelude.rnf identityPoolId `Prelude.seq`
+      Prelude.rnf identityId
 
 instance Data.ToHeaders DescribeIdentityUsage where
   toHeaders =
@@ -200,5 +200,5 @@ describeIdentityUsageResponse_httpStatus = Lens.lens (\DescribeIdentityUsageResp
 
 instance Prelude.NFData DescribeIdentityUsageResponse where
   rnf DescribeIdentityUsageResponse' {..} =
-    Prelude.rnf identityUsage
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf identityUsage `Prelude.seq`
+      Prelude.rnf httpStatus

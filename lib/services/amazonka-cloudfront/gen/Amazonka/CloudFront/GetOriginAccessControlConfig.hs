@@ -172,6 +172,6 @@ instance
     GetOriginAccessControlConfigResponse
   where
   rnf GetOriginAccessControlConfigResponse' {..} =
-    Prelude.rnf eTag
-      `Prelude.seq` Prelude.rnf originAccessControlConfig
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf eTag `Prelude.seq`
+      Prelude.rnf originAccessControlConfig `Prelude.seq`
+        Prelude.rnf httpStatus

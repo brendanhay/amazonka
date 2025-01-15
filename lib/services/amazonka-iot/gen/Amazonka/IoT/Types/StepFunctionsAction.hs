@@ -111,9 +111,9 @@ instance Prelude.Hashable StepFunctionsAction where
 
 instance Prelude.NFData StepFunctionsAction where
   rnf StepFunctionsAction' {..} =
-    Prelude.rnf executionNamePrefix
-      `Prelude.seq` Prelude.rnf stateMachineName
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf executionNamePrefix `Prelude.seq`
+      Prelude.rnf stateMachineName `Prelude.seq`
+        Prelude.rnf roleArn
 
 instance Data.ToJSON StepFunctionsAction where
   toJSON StepFunctionsAction' {..} =

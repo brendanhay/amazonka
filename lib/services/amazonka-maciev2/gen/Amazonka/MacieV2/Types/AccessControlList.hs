@@ -88,5 +88,5 @@ instance Prelude.Hashable AccessControlList where
 
 instance Prelude.NFData AccessControlList where
   rnf AccessControlList' {..} =
-    Prelude.rnf allowsPublicReadAccess
-      `Prelude.seq` Prelude.rnf allowsPublicWriteAccess
+    Prelude.rnf allowsPublicReadAccess `Prelude.seq`
+      Prelude.rnf allowsPublicWriteAccess

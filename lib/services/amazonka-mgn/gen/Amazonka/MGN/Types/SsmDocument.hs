@@ -119,11 +119,11 @@ instance Prelude.Hashable SsmDocument where
 
 instance Prelude.NFData SsmDocument where
   rnf SsmDocument' {..} =
-    Prelude.rnf mustSucceedForCutover
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf timeoutSeconds
-      `Prelude.seq` Prelude.rnf actionName
-      `Prelude.seq` Prelude.rnf ssmDocumentName
+    Prelude.rnf mustSucceedForCutover `Prelude.seq`
+      Prelude.rnf parameters `Prelude.seq`
+        Prelude.rnf timeoutSeconds `Prelude.seq`
+          Prelude.rnf actionName `Prelude.seq`
+            Prelude.rnf ssmDocumentName
 
 instance Data.ToJSON SsmDocument where
   toJSON SsmDocument' {..} =

@@ -130,9 +130,9 @@ instance Prelude.Hashable GetCampaigns where
 
 instance Prelude.NFData GetCampaigns where
   rnf GetCampaigns' {..} =
-    Prelude.rnf pageSize
-      `Prelude.seq` Prelude.rnf token
-      `Prelude.seq` Prelude.rnf applicationId
+    Prelude.rnf pageSize `Prelude.seq`
+      Prelude.rnf token `Prelude.seq`
+        Prelude.rnf applicationId
 
 instance Data.ToHeaders GetCampaigns where
   toHeaders =
@@ -198,5 +198,5 @@ getCampaignsResponse_campaignsResponse = Lens.lens (\GetCampaignsResponse' {camp
 
 instance Prelude.NFData GetCampaignsResponse where
   rnf GetCampaignsResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf campaignsResponse
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf campaignsResponse

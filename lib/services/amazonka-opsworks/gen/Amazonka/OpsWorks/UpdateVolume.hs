@@ -115,9 +115,9 @@ instance Prelude.Hashable UpdateVolume where
 
 instance Prelude.NFData UpdateVolume where
   rnf UpdateVolume' {..} =
-    Prelude.rnf mountPoint
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf volumeId
+    Prelude.rnf mountPoint `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf volumeId
 
 instance Data.ToHeaders UpdateVolume where
   toHeaders =

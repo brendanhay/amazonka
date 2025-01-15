@@ -88,5 +88,5 @@ instance Prelude.Hashable LogsStatus where
 
 instance Prelude.NFData LogsStatus where
   rnf LogsStatus' {..} =
-    Prelude.rnf healthStatus
-      `Prelude.seq` Prelude.rnf pathToLogs
+    Prelude.rnf healthStatus `Prelude.seq`
+      Prelude.rnf pathToLogs

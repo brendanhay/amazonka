@@ -111,8 +111,8 @@ instance Prelude.Hashable UpdateAssessmentStatus where
 
 instance Prelude.NFData UpdateAssessmentStatus where
   rnf UpdateAssessmentStatus' {..} =
-    Prelude.rnf assessmentId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf assessmentId `Prelude.seq`
+      Prelude.rnf status
 
 instance Data.ToHeaders UpdateAssessmentStatus where
   toHeaders =
@@ -187,5 +187,5 @@ instance
     UpdateAssessmentStatusResponse
   where
   rnf UpdateAssessmentStatusResponse' {..} =
-    Prelude.rnf assessment
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf assessment `Prelude.seq`
+      Prelude.rnf httpStatus

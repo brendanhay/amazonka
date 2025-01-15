@@ -233,14 +233,14 @@ instance Prelude.Hashable RevisionEntry where
 
 instance Prelude.NFData RevisionEntry where
   rnf RevisionEntry' {..} =
-    Prelude.rnf comment
-      `Prelude.seq` Prelude.rnf finalized
-      `Prelude.seq` Prelude.rnf revocationComment
-      `Prelude.seq` Prelude.rnf revoked
-      `Prelude.seq` Prelude.rnf revokedAt
-      `Prelude.seq` Prelude.rnf sourceId
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf dataSetId
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf updatedAt
+    Prelude.rnf comment `Prelude.seq`
+      Prelude.rnf finalized `Prelude.seq`
+        Prelude.rnf revocationComment `Prelude.seq`
+          Prelude.rnf revoked `Prelude.seq`
+            Prelude.rnf revokedAt `Prelude.seq`
+              Prelude.rnf sourceId `Prelude.seq`
+                Prelude.rnf arn `Prelude.seq`
+                  Prelude.rnf createdAt `Prelude.seq`
+                    Prelude.rnf dataSetId `Prelude.seq`
+                      Prelude.rnf id `Prelude.seq`
+                        Prelude.rnf updatedAt

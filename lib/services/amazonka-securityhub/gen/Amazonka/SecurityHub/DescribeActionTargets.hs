@@ -134,12 +134,12 @@ instance Core.AWSPager DescribeActionTargets where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeActionTargets_nextToken
-          Lens..~ rs
-          Lens.^? describeActionTargetsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeActionTargets_nextToken
+              Lens..~ rs
+              Lens.^? describeActionTargetsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeActionTargets where
   type
@@ -165,9 +165,9 @@ instance Prelude.Hashable DescribeActionTargets where
 
 instance Prelude.NFData DescribeActionTargets where
   rnf DescribeActionTargets' {..} =
-    Prelude.rnf actionTargetArns
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf actionTargetArns `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeActionTargets where
   toHeaders =
@@ -253,6 +253,6 @@ describeActionTargetsResponse_actionTargets = Lens.lens (\DescribeActionTargetsR
 
 instance Prelude.NFData DescribeActionTargetsResponse where
   rnf DescribeActionTargetsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf actionTargets
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf actionTargets

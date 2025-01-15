@@ -154,9 +154,9 @@ instance Prelude.Hashable ListVpcIngressConnections where
 
 instance Prelude.NFData ListVpcIngressConnections where
   rnf ListVpcIngressConnections' {..} =
-    Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filter' `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListVpcIngressConnections where
   toHeaders =
@@ -252,6 +252,6 @@ instance
     ListVpcIngressConnectionsResponse
   where
   rnf ListVpcIngressConnectionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf vpcIngressConnectionSummaryList
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf vpcIngressConnectionSummaryList

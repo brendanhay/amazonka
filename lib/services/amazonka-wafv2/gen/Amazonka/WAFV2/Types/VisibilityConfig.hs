@@ -124,9 +124,9 @@ instance Prelude.Hashable VisibilityConfig where
 
 instance Prelude.NFData VisibilityConfig where
   rnf VisibilityConfig' {..} =
-    Prelude.rnf sampledRequestsEnabled
-      `Prelude.seq` Prelude.rnf cloudWatchMetricsEnabled
-      `Prelude.seq` Prelude.rnf metricName
+    Prelude.rnf sampledRequestsEnabled `Prelude.seq`
+      Prelude.rnf cloudWatchMetricsEnabled `Prelude.seq`
+        Prelude.rnf metricName
 
 instance Data.ToJSON VisibilityConfig where
   toJSON VisibilityConfig' {..} =

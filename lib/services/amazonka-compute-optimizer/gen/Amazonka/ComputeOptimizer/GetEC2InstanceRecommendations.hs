@@ -212,12 +212,12 @@ instance
 
 instance Prelude.NFData GetEC2InstanceRecommendations where
   rnf GetEC2InstanceRecommendations' {..} =
-    Prelude.rnf accountIds
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf instanceArns
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf recommendationPreferences
+    Prelude.rnf accountIds `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf instanceArns `Prelude.seq`
+          Prelude.rnf maxResults `Prelude.seq`
+            Prelude.rnf nextToken `Prelude.seq`
+              Prelude.rnf recommendationPreferences
 
 instance Data.ToHeaders GetEC2InstanceRecommendations where
   toHeaders =
@@ -338,7 +338,7 @@ instance
     GetEC2InstanceRecommendationsResponse
   where
   rnf GetEC2InstanceRecommendationsResponse' {..} =
-    Prelude.rnf errors
-      `Prelude.seq` Prelude.rnf instanceRecommendations
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf errors `Prelude.seq`
+      Prelude.rnf instanceRecommendations `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf httpStatus

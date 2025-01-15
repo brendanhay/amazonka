@@ -97,8 +97,8 @@ instance Prelude.Hashable NeoVpcConfig where
 
 instance Prelude.NFData NeoVpcConfig where
   rnf NeoVpcConfig' {..} =
-    Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf subnets
+    Prelude.rnf securityGroupIds `Prelude.seq`
+      Prelude.rnf subnets
 
 instance Data.ToJSON NeoVpcConfig where
   toJSON NeoVpcConfig' {..} =

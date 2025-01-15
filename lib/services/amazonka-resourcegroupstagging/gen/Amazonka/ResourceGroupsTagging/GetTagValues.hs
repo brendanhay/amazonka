@@ -125,12 +125,12 @@ instance Core.AWSPager GetTagValues where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getTagValues_paginationToken
-          Lens..~ rs
-          Lens.^? getTagValuesResponse_paginationToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getTagValues_paginationToken
+              Lens..~ rs
+              Lens.^? getTagValuesResponse_paginationToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetTagValues where
   type AWSResponse GetTagValues = GetTagValuesResponse
@@ -153,8 +153,8 @@ instance Prelude.Hashable GetTagValues where
 
 instance Prelude.NFData GetTagValues where
   rnf GetTagValues' {..} =
-    Prelude.rnf paginationToken
-      `Prelude.seq` Prelude.rnf key
+    Prelude.rnf paginationToken `Prelude.seq`
+      Prelude.rnf key
 
 instance Data.ToHeaders GetTagValues where
   toHeaders =
@@ -249,6 +249,6 @@ getTagValuesResponse_httpStatus = Lens.lens (\GetTagValuesResponse' {httpStatus}
 
 instance Prelude.NFData GetTagValuesResponse where
   rnf GetTagValuesResponse' {..} =
-    Prelude.rnf paginationToken
-      `Prelude.seq` Prelude.rnf tagValues
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf paginationToken `Prelude.seq`
+      Prelude.rnf tagValues `Prelude.seq`
+        Prelude.rnf httpStatus

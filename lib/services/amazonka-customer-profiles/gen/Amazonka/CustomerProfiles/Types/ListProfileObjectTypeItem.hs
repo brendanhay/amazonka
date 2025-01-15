@@ -120,8 +120,8 @@ instance Prelude.Hashable ListProfileObjectTypeItem where
 
 instance Prelude.NFData ListProfileObjectTypeItem where
   rnf ListProfileObjectTypeItem' {..} =
-    Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf objectTypeName
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf createdAt `Prelude.seq`
+      Prelude.rnf lastUpdatedAt `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf objectTypeName `Prelude.seq`
+            Prelude.rnf description

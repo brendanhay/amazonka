@@ -170,10 +170,10 @@ instance
     ApplySecurityGroupsToClientVpnTargetNetwork
   where
   rnf ApplySecurityGroupsToClientVpnTargetNetwork' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf clientVpnEndpointId
-      `Prelude.seq` Prelude.rnf vpcId
-      `Prelude.seq` Prelude.rnf securityGroupIds
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf clientVpnEndpointId `Prelude.seq`
+        Prelude.rnf vpcId `Prelude.seq`
+          Prelude.rnf securityGroupIds
 
 instance
   Data.ToHeaders
@@ -253,5 +253,5 @@ instance
   where
   rnf
     ApplySecurityGroupsToClientVpnTargetNetworkResponse' {..} =
-      Prelude.rnf securityGroupIds
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf securityGroupIds `Prelude.seq`
+        Prelude.rnf httpStatus

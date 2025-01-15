@@ -123,13 +123,13 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listCloudFrontOriginAccessIdentities_marker
-          Lens..~ rs
-          Lens.^? listCloudFrontOriginAccessIdentitiesResponse_cloudFrontOriginAccessIdentityList
-          Prelude.. cloudFrontOriginAccessIdentityList_nextMarker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listCloudFrontOriginAccessIdentities_marker
+              Lens..~ rs
+              Lens.^? listCloudFrontOriginAccessIdentitiesResponse_cloudFrontOriginAccessIdentityList
+              Prelude.. cloudFrontOriginAccessIdentityList_nextMarker
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -164,8 +164,8 @@ instance
     ListCloudFrontOriginAccessIdentities
   where
   rnf ListCloudFrontOriginAccessIdentities' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxItems
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf maxItems
 
 instance
   Data.ToHeaders
@@ -242,5 +242,5 @@ instance
     ListCloudFrontOriginAccessIdentitiesResponse
   where
   rnf ListCloudFrontOriginAccessIdentitiesResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf cloudFrontOriginAccessIdentityList
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf cloudFrontOriginAccessIdentityList

@@ -82,8 +82,8 @@ instance Prelude.Hashable BasicLayout where
 
 instance Prelude.NFData BasicLayout where
   rnf BasicLayout' {..} =
-    Prelude.rnf moreInfo
-      `Prelude.seq` Prelude.rnf topPanel
+    Prelude.rnf moreInfo `Prelude.seq`
+      Prelude.rnf topPanel
 
 instance Data.ToJSON BasicLayout where
   toJSON BasicLayout' {..} =

@@ -192,12 +192,12 @@ instance Core.AWSPager GetRecommendationPreferences where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getRecommendationPreferences_nextToken
-          Lens..~ rs
-          Lens.^? getRecommendationPreferencesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getRecommendationPreferences_nextToken
+              Lens..~ rs
+              Lens.^? getRecommendationPreferencesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetRecommendationPreferences where
   type
@@ -230,10 +230,10 @@ instance
 
 instance Prelude.NFData GetRecommendationPreferences where
   rnf GetRecommendationPreferences' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf scope
-      `Prelude.seq` Prelude.rnf resourceType
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf scope `Prelude.seq`
+          Prelude.rnf resourceType
 
 instance Data.ToHeaders GetRecommendationPreferences where
   toHeaders =
@@ -333,6 +333,6 @@ instance
     GetRecommendationPreferencesResponse
   where
   rnf GetRecommendationPreferencesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf recommendationPreferencesDetails
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf recommendationPreferencesDetails `Prelude.seq`
+        Prelude.rnf httpStatus

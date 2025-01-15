@@ -82,8 +82,8 @@ instance Prelude.Hashable StreamingDataPreviewOptions where
 
 instance Prelude.NFData StreamingDataPreviewOptions where
   rnf StreamingDataPreviewOptions' {..} =
-    Prelude.rnf pollingTime
-      `Prelude.seq` Prelude.rnf recordPollingLimit
+    Prelude.rnf pollingTime `Prelude.seq`
+      Prelude.rnf recordPollingLimit
 
 instance Data.ToJSON StreamingDataPreviewOptions where
   toJSON StreamingDataPreviewOptions' {..} =

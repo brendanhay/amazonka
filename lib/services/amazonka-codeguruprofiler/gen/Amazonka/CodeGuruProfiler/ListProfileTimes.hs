@@ -228,12 +228,12 @@ instance Core.AWSPager ListProfileTimes where
         (rs Lens.^. listProfileTimesResponse_profileTimes) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listProfileTimes_nextToken
-          Lens..~ rs
-          Lens.^? listProfileTimesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listProfileTimes_nextToken
+              Lens..~ rs
+              Lens.^? listProfileTimesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListProfileTimes where
   type
@@ -263,13 +263,13 @@ instance Prelude.Hashable ListProfileTimes where
 
 instance Prelude.NFData ListProfileTimes where
   rnf ListProfileTimes' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf orderBy
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf period
-      `Prelude.seq` Prelude.rnf profilingGroupName
-      `Prelude.seq` Prelude.rnf startTime
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf orderBy `Prelude.seq`
+          Prelude.rnf endTime `Prelude.seq`
+            Prelude.rnf period `Prelude.seq`
+              Prelude.rnf profilingGroupName `Prelude.seq`
+                Prelude.rnf startTime
 
 instance Data.ToHeaders ListProfileTimes where
   toHeaders =
@@ -365,6 +365,6 @@ listProfileTimesResponse_profileTimes = Lens.lens (\ListProfileTimesResponse' {p
 
 instance Prelude.NFData ListProfileTimesResponse where
   rnf ListProfileTimesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf profileTimes
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf profileTimes

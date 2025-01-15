@@ -219,10 +219,10 @@ getReferenceStoreResponse_id = Lens.lens (\GetReferenceStoreResponse' {id} -> id
 
 instance Prelude.NFData GetReferenceStoreResponse where
   rnf GetReferenceStoreResponse' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf sseConfig
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf sseConfig `Prelude.seq`
+          Prelude.rnf httpStatus `Prelude.seq`
+            Prelude.rnf arn `Prelude.seq`
+              Prelude.rnf creationTime `Prelude.seq`
+                Prelude.rnf id

@@ -81,5 +81,5 @@ instance Prelude.Hashable InstanceCount where
 
 instance Prelude.NFData InstanceCount where
   rnf InstanceCount' {..} =
-    Prelude.rnf instanceCount
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf instanceCount `Prelude.seq`
+      Prelude.rnf state

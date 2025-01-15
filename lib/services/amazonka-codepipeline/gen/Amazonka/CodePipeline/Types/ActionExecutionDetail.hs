@@ -182,13 +182,13 @@ instance Prelude.Hashable ActionExecutionDetail where
 
 instance Prelude.NFData ActionExecutionDetail where
   rnf ActionExecutionDetail' {..} =
-    Prelude.rnf actionExecutionId
-      `Prelude.seq` Prelude.rnf actionName
-      `Prelude.seq` Prelude.rnf input
-      `Prelude.seq` Prelude.rnf lastUpdateTime
-      `Prelude.seq` Prelude.rnf output
-      `Prelude.seq` Prelude.rnf pipelineExecutionId
-      `Prelude.seq` Prelude.rnf pipelineVersion
-      `Prelude.seq` Prelude.rnf stageName
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf actionExecutionId `Prelude.seq`
+      Prelude.rnf actionName `Prelude.seq`
+        Prelude.rnf input `Prelude.seq`
+          Prelude.rnf lastUpdateTime `Prelude.seq`
+            Prelude.rnf output `Prelude.seq`
+              Prelude.rnf pipelineExecutionId `Prelude.seq`
+                Prelude.rnf pipelineVersion `Prelude.seq`
+                  Prelude.rnf stageName `Prelude.seq`
+                    Prelude.rnf startTime `Prelude.seq`
+                      Prelude.rnf status

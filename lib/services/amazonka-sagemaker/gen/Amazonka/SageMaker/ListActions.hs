@@ -174,12 +174,12 @@ instance Core.AWSPager ListActions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listActions_nextToken
-          Lens..~ rs
-          Lens.^? listActionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listActions_nextToken
+              Lens..~ rs
+              Lens.^? listActionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListActions where
   type AWSResponse ListActions = ListActionsResponse
@@ -211,14 +211,14 @@ instance Prelude.Hashable ListActions where
 
 instance Prelude.NFData ListActions where
   rnf ListActions' {..} =
-    Prelude.rnf actionType
-      `Prelude.seq` Prelude.rnf createdAfter
-      `Prelude.seq` Prelude.rnf createdBefore
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf sortOrder
-      `Prelude.seq` Prelude.rnf sourceUri
+    Prelude.rnf actionType `Prelude.seq`
+      Prelude.rnf createdAfter `Prelude.seq`
+        Prelude.rnf createdBefore `Prelude.seq`
+          Prelude.rnf maxResults `Prelude.seq`
+            Prelude.rnf nextToken `Prelude.seq`
+              Prelude.rnf sortBy `Prelude.seq`
+                Prelude.rnf sortOrder `Prelude.seq`
+                  Prelude.rnf sourceUri
 
 instance Data.ToHeaders ListActions where
   toHeaders =
@@ -304,6 +304,6 @@ listActionsResponse_httpStatus = Lens.lens (\ListActionsResponse' {httpStatus} -
 
 instance Prelude.NFData ListActionsResponse where
   rnf ListActionsResponse' {..} =
-    Prelude.rnf actionSummaries
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf actionSummaries `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

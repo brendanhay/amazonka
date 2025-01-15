@@ -114,6 +114,6 @@ instance Prelude.Hashable Metric where
 
 instance Prelude.NFData Metric where
   rnf Metric' {..} =
-    Prelude.rnf frameName
-      `Prelude.seq` Prelude.rnf threadStates
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf frameName `Prelude.seq`
+      Prelude.rnf threadStates `Prelude.seq`
+        Prelude.rnf type'

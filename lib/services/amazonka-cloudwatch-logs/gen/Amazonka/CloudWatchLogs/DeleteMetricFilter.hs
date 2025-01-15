@@ -101,8 +101,8 @@ instance Prelude.Hashable DeleteMetricFilter where
 
 instance Prelude.NFData DeleteMetricFilter where
   rnf DeleteMetricFilter' {..} =
-    Prelude.rnf logGroupName
-      `Prelude.seq` Prelude.rnf filterName
+    Prelude.rnf logGroupName `Prelude.seq`
+      Prelude.rnf filterName
 
 instance Data.ToHeaders DeleteMetricFilter where
   toHeaders =

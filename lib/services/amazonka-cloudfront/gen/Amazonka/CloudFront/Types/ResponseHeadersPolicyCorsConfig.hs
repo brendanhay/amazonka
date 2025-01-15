@@ -284,13 +284,13 @@ instance
     ResponseHeadersPolicyCorsConfig
   where
   rnf ResponseHeadersPolicyCorsConfig' {..} =
-    Prelude.rnf accessControlExposeHeaders
-      `Prelude.seq` Prelude.rnf accessControlMaxAgeSec
-      `Prelude.seq` Prelude.rnf accessControlAllowOrigins
-      `Prelude.seq` Prelude.rnf accessControlAllowHeaders
-      `Prelude.seq` Prelude.rnf accessControlAllowMethods
-      `Prelude.seq` Prelude.rnf accessControlAllowCredentials
-      `Prelude.seq` Prelude.rnf originOverride
+    Prelude.rnf accessControlExposeHeaders `Prelude.seq`
+      Prelude.rnf accessControlMaxAgeSec `Prelude.seq`
+        Prelude.rnf accessControlAllowOrigins `Prelude.seq`
+          Prelude.rnf accessControlAllowHeaders `Prelude.seq`
+            Prelude.rnf accessControlAllowMethods `Prelude.seq`
+              Prelude.rnf accessControlAllowCredentials `Prelude.seq`
+                Prelude.rnf originOverride
 
 instance Data.ToXML ResponseHeadersPolicyCorsConfig where
   toXML ResponseHeadersPolicyCorsConfig' {..} =

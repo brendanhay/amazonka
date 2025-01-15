@@ -235,15 +235,15 @@ instance Prelude.Hashable Report where
 
 instance Prelude.NFData Report where
   rnf Report' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf codeCoverageSummary
-      `Prelude.seq` Prelude.rnf created
-      `Prelude.seq` Prelude.rnf executionId
-      `Prelude.seq` Prelude.rnf expired
-      `Prelude.seq` Prelude.rnf exportConfig
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf reportGroupArn
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf testSummary
-      `Prelude.seq` Prelude.rnf truncated
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf codeCoverageSummary `Prelude.seq`
+        Prelude.rnf created `Prelude.seq`
+          Prelude.rnf executionId `Prelude.seq`
+            Prelude.rnf expired `Prelude.seq`
+              Prelude.rnf exportConfig `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf reportGroupArn `Prelude.seq`
+                    Prelude.rnf status `Prelude.seq`
+                      Prelude.rnf testSummary `Prelude.seq`
+                        Prelude.rnf truncated `Prelude.seq`
+                          Prelude.rnf type'

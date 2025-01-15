@@ -196,14 +196,14 @@ instance Prelude.Hashable DeviceDeploymentSummary where
 
 instance Prelude.NFData DeviceDeploymentSummary where
   rnf DeviceDeploymentSummary' {..} =
-    Prelude.rnf deployedStageName
-      `Prelude.seq` Prelude.rnf deploymentStartTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf deviceDeploymentStatus
-      `Prelude.seq` Prelude.rnf deviceDeploymentStatusMessage
-      `Prelude.seq` Prelude.rnf deviceFleetName
-      `Prelude.seq` Prelude.rnf edgeDeploymentPlanArn
-      `Prelude.seq` Prelude.rnf edgeDeploymentPlanName
-      `Prelude.seq` Prelude.rnf stageName
-      `Prelude.seq` Prelude.rnf deviceName
-      `Prelude.seq` Prelude.rnf deviceArn
+    Prelude.rnf deployedStageName `Prelude.seq`
+      Prelude.rnf deploymentStartTime `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf deviceDeploymentStatus `Prelude.seq`
+            Prelude.rnf deviceDeploymentStatusMessage `Prelude.seq`
+              Prelude.rnf deviceFleetName `Prelude.seq`
+                Prelude.rnf edgeDeploymentPlanArn `Prelude.seq`
+                  Prelude.rnf edgeDeploymentPlanName `Prelude.seq`
+                    Prelude.rnf stageName `Prelude.seq`
+                      Prelude.rnf deviceName `Prelude.seq`
+                        Prelude.rnf deviceArn

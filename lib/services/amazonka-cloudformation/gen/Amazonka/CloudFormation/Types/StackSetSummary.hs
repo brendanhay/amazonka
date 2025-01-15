@@ -258,12 +258,12 @@ instance Prelude.Hashable StackSetSummary where
 
 instance Prelude.NFData StackSetSummary where
   rnf StackSetSummary' {..} =
-    Prelude.rnf autoDeployment
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf driftStatus
-      `Prelude.seq` Prelude.rnf lastDriftCheckTimestamp
-      `Prelude.seq` Prelude.rnf managedExecution
-      `Prelude.seq` Prelude.rnf permissionModel
-      `Prelude.seq` Prelude.rnf stackSetId
-      `Prelude.seq` Prelude.rnf stackSetName
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf autoDeployment `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf driftStatus `Prelude.seq`
+          Prelude.rnf lastDriftCheckTimestamp `Prelude.seq`
+            Prelude.rnf managedExecution `Prelude.seq`
+              Prelude.rnf permissionModel `Prelude.seq`
+                Prelude.rnf stackSetId `Prelude.seq`
+                  Prelude.rnf stackSetName `Prelude.seq`
+                    Prelude.rnf status

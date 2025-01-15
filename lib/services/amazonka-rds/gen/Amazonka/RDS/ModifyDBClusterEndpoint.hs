@@ -152,10 +152,10 @@ instance Prelude.Hashable ModifyDBClusterEndpoint where
 
 instance Prelude.NFData ModifyDBClusterEndpoint where
   rnf ModifyDBClusterEndpoint' {..} =
-    Prelude.rnf endpointType
-      `Prelude.seq` Prelude.rnf excludedMembers
-      `Prelude.seq` Prelude.rnf staticMembers
-      `Prelude.seq` Prelude.rnf dbClusterEndpointIdentifier
+    Prelude.rnf endpointType `Prelude.seq`
+      Prelude.rnf excludedMembers `Prelude.seq`
+        Prelude.rnf staticMembers `Prelude.seq`
+          Prelude.rnf dbClusterEndpointIdentifier
 
 instance Data.ToHeaders ModifyDBClusterEndpoint where
   toHeaders = Prelude.const Prelude.mempty

@@ -184,15 +184,15 @@ instance Prelude.Hashable RedshiftDatasetDefinition where
 
 instance Prelude.NFData RedshiftDatasetDefinition where
   rnf RedshiftDatasetDefinition' {..} =
-    Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf outputCompression
-      `Prelude.seq` Prelude.rnf clusterId
-      `Prelude.seq` Prelude.rnf database
-      `Prelude.seq` Prelude.rnf dbUser
-      `Prelude.seq` Prelude.rnf queryString
-      `Prelude.seq` Prelude.rnf clusterRoleArn
-      `Prelude.seq` Prelude.rnf outputS3Uri
-      `Prelude.seq` Prelude.rnf outputFormat
+    Prelude.rnf kmsKeyId `Prelude.seq`
+      Prelude.rnf outputCompression `Prelude.seq`
+        Prelude.rnf clusterId `Prelude.seq`
+          Prelude.rnf database `Prelude.seq`
+            Prelude.rnf dbUser `Prelude.seq`
+              Prelude.rnf queryString `Prelude.seq`
+                Prelude.rnf clusterRoleArn `Prelude.seq`
+                  Prelude.rnf outputS3Uri `Prelude.seq`
+                    Prelude.rnf outputFormat
 
 instance Data.ToJSON RedshiftDatasetDefinition where
   toJSON RedshiftDatasetDefinition' {..} =

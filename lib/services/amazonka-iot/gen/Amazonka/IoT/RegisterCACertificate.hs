@@ -241,13 +241,13 @@ instance Prelude.Hashable RegisterCACertificate where
 
 instance Prelude.NFData RegisterCACertificate where
   rnf RegisterCACertificate' {..} =
-    Prelude.rnf allowAutoRegistration
-      `Prelude.seq` Prelude.rnf certificateMode
-      `Prelude.seq` Prelude.rnf registrationConfig
-      `Prelude.seq` Prelude.rnf setAsActive
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf verificationCertificate
-      `Prelude.seq` Prelude.rnf caCertificate
+    Prelude.rnf allowAutoRegistration `Prelude.seq`
+      Prelude.rnf certificateMode `Prelude.seq`
+        Prelude.rnf registrationConfig `Prelude.seq`
+          Prelude.rnf setAsActive `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf verificationCertificate `Prelude.seq`
+                Prelude.rnf caCertificate
 
 instance Data.ToHeaders RegisterCACertificate where
   toHeaders = Prelude.const Prelude.mempty
@@ -331,6 +331,6 @@ registerCACertificateResponse_httpStatus = Lens.lens (\RegisterCACertificateResp
 
 instance Prelude.NFData RegisterCACertificateResponse where
   rnf RegisterCACertificateResponse' {..} =
-    Prelude.rnf certificateArn
-      `Prelude.seq` Prelude.rnf certificateId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf certificateArn `Prelude.seq`
+      Prelude.rnf certificateId `Prelude.seq`
+        Prelude.rnf httpStatus

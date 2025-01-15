@@ -113,8 +113,8 @@ instance Prelude.Hashable SetDefaultPolicyVersion where
 
 instance Prelude.NFData SetDefaultPolicyVersion where
   rnf SetDefaultPolicyVersion' {..} =
-    Prelude.rnf policyName
-      `Prelude.seq` Prelude.rnf policyVersionId
+    Prelude.rnf policyName `Prelude.seq`
+      Prelude.rnf policyVersionId
 
 instance Data.ToHeaders SetDefaultPolicyVersion where
   toHeaders = Prelude.const Prelude.mempty

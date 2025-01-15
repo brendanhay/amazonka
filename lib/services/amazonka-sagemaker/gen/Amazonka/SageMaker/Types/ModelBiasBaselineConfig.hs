@@ -81,8 +81,8 @@ instance Prelude.Hashable ModelBiasBaselineConfig where
 
 instance Prelude.NFData ModelBiasBaselineConfig where
   rnf ModelBiasBaselineConfig' {..} =
-    Prelude.rnf baseliningJobName
-      `Prelude.seq` Prelude.rnf constraintsResource
+    Prelude.rnf baseliningJobName `Prelude.seq`
+      Prelude.rnf constraintsResource
 
 instance Data.ToJSON ModelBiasBaselineConfig where
   toJSON ModelBiasBaselineConfig' {..} =

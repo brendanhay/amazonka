@@ -122,8 +122,8 @@ instance
     ResponseHeadersPolicyFrameOptions
   where
   rnf ResponseHeadersPolicyFrameOptions' {..} =
-    Prelude.rnf override
-      `Prelude.seq` Prelude.rnf frameOption
+    Prelude.rnf override `Prelude.seq`
+      Prelude.rnf frameOption
 
 instance Data.ToXML ResponseHeadersPolicyFrameOptions where
   toXML ResponseHeadersPolicyFrameOptions' {..} =

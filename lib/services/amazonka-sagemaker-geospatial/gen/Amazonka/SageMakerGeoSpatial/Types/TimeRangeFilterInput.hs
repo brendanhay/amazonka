@@ -85,8 +85,8 @@ instance Prelude.Hashable TimeRangeFilterInput where
 
 instance Prelude.NFData TimeRangeFilterInput where
   rnf TimeRangeFilterInput' {..} =
-    Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf startTime
+    Prelude.rnf endTime `Prelude.seq`
+      Prelude.rnf startTime
 
 instance Data.ToJSON TimeRangeFilterInput where
   toJSON TimeRangeFilterInput' {..} =

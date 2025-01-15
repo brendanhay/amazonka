@@ -98,8 +98,8 @@ instance Prelude.Hashable Item where
 
 instance Prelude.NFData Item where
   rnf Item' {..} =
-    Prelude.rnf properties
-      `Prelude.seq` Prelude.rnf itemId
+    Prelude.rnf properties `Prelude.seq`
+      Prelude.rnf itemId
 
 instance Data.ToJSON Item where
   toJSON Item' {..} =

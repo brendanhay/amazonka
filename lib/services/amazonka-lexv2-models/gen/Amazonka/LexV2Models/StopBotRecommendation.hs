@@ -160,10 +160,10 @@ instance Prelude.Hashable StopBotRecommendation where
 
 instance Prelude.NFData StopBotRecommendation where
   rnf StopBotRecommendation' {..} =
-    Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf botVersion
-      `Prelude.seq` Prelude.rnf localeId
-      `Prelude.seq` Prelude.rnf botRecommendationId
+    Prelude.rnf botId `Prelude.seq`
+      Prelude.rnf botVersion `Prelude.seq`
+        Prelude.rnf localeId `Prelude.seq`
+          Prelude.rnf botRecommendationId
 
 instance Data.ToHeaders StopBotRecommendation where
   toHeaders =
@@ -291,9 +291,9 @@ stopBotRecommendationResponse_httpStatus = Lens.lens (\StopBotRecommendationResp
 
 instance Prelude.NFData StopBotRecommendationResponse where
   rnf StopBotRecommendationResponse' {..} =
-    Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf botRecommendationId
-      `Prelude.seq` Prelude.rnf botRecommendationStatus
-      `Prelude.seq` Prelude.rnf botVersion
-      `Prelude.seq` Prelude.rnf localeId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf botId `Prelude.seq`
+      Prelude.rnf botRecommendationId `Prelude.seq`
+        Prelude.rnf botRecommendationStatus `Prelude.seq`
+          Prelude.rnf botVersion `Prelude.seq`
+            Prelude.rnf localeId `Prelude.seq`
+              Prelude.rnf httpStatus

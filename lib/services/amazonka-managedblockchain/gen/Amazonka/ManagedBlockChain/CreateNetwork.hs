@@ -256,15 +256,15 @@ instance Prelude.Hashable CreateNetwork where
 
 instance Prelude.NFData CreateNetwork where
   rnf CreateNetwork' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf frameworkConfiguration
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf framework
-      `Prelude.seq` Prelude.rnf frameworkVersion
-      `Prelude.seq` Prelude.rnf votingPolicy
-      `Prelude.seq` Prelude.rnf memberConfiguration
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf frameworkConfiguration `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf clientRequestToken `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf framework `Prelude.seq`
+                Prelude.rnf frameworkVersion `Prelude.seq`
+                  Prelude.rnf votingPolicy `Prelude.seq`
+                    Prelude.rnf memberConfiguration
 
 instance Data.ToHeaders CreateNetwork where
   toHeaders =
@@ -352,6 +352,6 @@ createNetworkResponse_httpStatus = Lens.lens (\CreateNetworkResponse' {httpStatu
 
 instance Prelude.NFData CreateNetworkResponse where
   rnf CreateNetworkResponse' {..} =
-    Prelude.rnf memberId
-      `Prelude.seq` Prelude.rnf networkId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf memberId `Prelude.seq`
+      Prelude.rnf networkId `Prelude.seq`
+        Prelude.rnf httpStatus

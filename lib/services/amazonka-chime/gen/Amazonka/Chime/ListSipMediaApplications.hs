@@ -115,8 +115,8 @@ instance Prelude.Hashable ListSipMediaApplications where
 
 instance Prelude.NFData ListSipMediaApplications where
   rnf ListSipMediaApplications' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListSipMediaApplications where
   toHeaders = Prelude.const Prelude.mempty
@@ -184,6 +184,6 @@ instance
     ListSipMediaApplicationsResponse
   where
   rnf ListSipMediaApplicationsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sipMediaApplications
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf sipMediaApplications `Prelude.seq`
+        Prelude.rnf httpStatus

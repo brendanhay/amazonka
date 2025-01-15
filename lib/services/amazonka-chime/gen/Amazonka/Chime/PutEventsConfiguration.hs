@@ -135,10 +135,10 @@ instance Prelude.Hashable PutEventsConfiguration where
 
 instance Prelude.NFData PutEventsConfiguration where
   rnf PutEventsConfiguration' {..} =
-    Prelude.rnf lambdaFunctionArn
-      `Prelude.seq` Prelude.rnf outboundEventsHTTPSEndpoint
-      `Prelude.seq` Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf botId
+    Prelude.rnf lambdaFunctionArn `Prelude.seq`
+      Prelude.rnf outboundEventsHTTPSEndpoint `Prelude.seq`
+        Prelude.rnf accountId `Prelude.seq`
+          Prelude.rnf botId
 
 instance Data.ToHeaders PutEventsConfiguration where
   toHeaders = Prelude.const Prelude.mempty
@@ -210,5 +210,5 @@ instance
     PutEventsConfigurationResponse
   where
   rnf PutEventsConfigurationResponse' {..} =
-    Prelude.rnf eventsConfiguration
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf eventsConfiguration `Prelude.seq`
+      Prelude.rnf httpStatus

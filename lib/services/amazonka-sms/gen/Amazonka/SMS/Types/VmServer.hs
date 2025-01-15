@@ -115,11 +115,11 @@ instance Prelude.Hashable VmServer where
 
 instance Prelude.NFData VmServer where
   rnf VmServer' {..} =
-    Prelude.rnf vmManagerName
-      `Prelude.seq` Prelude.rnf vmManagerType
-      `Prelude.seq` Prelude.rnf vmName
-      `Prelude.seq` Prelude.rnf vmPath
-      `Prelude.seq` Prelude.rnf vmServerAddress
+    Prelude.rnf vmManagerName `Prelude.seq`
+      Prelude.rnf vmManagerType `Prelude.seq`
+        Prelude.rnf vmName `Prelude.seq`
+          Prelude.rnf vmPath `Prelude.seq`
+            Prelude.rnf vmServerAddress
 
 instance Data.ToJSON VmServer where
   toJSON VmServer' {..} =

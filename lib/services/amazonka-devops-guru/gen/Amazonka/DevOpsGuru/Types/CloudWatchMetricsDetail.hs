@@ -157,10 +157,10 @@ instance Prelude.Hashable CloudWatchMetricsDetail where
 
 instance Prelude.NFData CloudWatchMetricsDetail where
   rnf CloudWatchMetricsDetail' {..} =
-    Prelude.rnf dimensions
-      `Prelude.seq` Prelude.rnf metricDataSummary
-      `Prelude.seq` Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf namespace
-      `Prelude.seq` Prelude.rnf period
-      `Prelude.seq` Prelude.rnf stat
-      `Prelude.seq` Prelude.rnf unit
+    Prelude.rnf dimensions `Prelude.seq`
+      Prelude.rnf metricDataSummary `Prelude.seq`
+        Prelude.rnf metricName `Prelude.seq`
+          Prelude.rnf namespace `Prelude.seq`
+            Prelude.rnf period `Prelude.seq`
+              Prelude.rnf stat `Prelude.seq`
+                Prelude.rnf unit

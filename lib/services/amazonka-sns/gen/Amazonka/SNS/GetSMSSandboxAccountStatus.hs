@@ -161,5 +161,5 @@ instance
     GetSMSSandboxAccountStatusResponse
   where
   rnf GetSMSSandboxAccountStatusResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf isInSandbox
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf isInSandbox

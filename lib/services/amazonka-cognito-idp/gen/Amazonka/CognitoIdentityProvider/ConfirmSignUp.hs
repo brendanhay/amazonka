@@ -298,14 +298,14 @@ instance Prelude.Hashable ConfirmSignUp where
 
 instance Prelude.NFData ConfirmSignUp where
   rnf ConfirmSignUp' {..} =
-    Prelude.rnf analyticsMetadata
-      `Prelude.seq` Prelude.rnf clientMetadata
-      `Prelude.seq` Prelude.rnf forceAliasCreation
-      `Prelude.seq` Prelude.rnf secretHash
-      `Prelude.seq` Prelude.rnf userContextData
-      `Prelude.seq` Prelude.rnf clientId
-      `Prelude.seq` Prelude.rnf username
-      `Prelude.seq` Prelude.rnf confirmationCode
+    Prelude.rnf analyticsMetadata `Prelude.seq`
+      Prelude.rnf clientMetadata `Prelude.seq`
+        Prelude.rnf forceAliasCreation `Prelude.seq`
+          Prelude.rnf secretHash `Prelude.seq`
+            Prelude.rnf userContextData `Prelude.seq`
+              Prelude.rnf clientId `Prelude.seq`
+                Prelude.rnf username `Prelude.seq`
+                  Prelude.rnf confirmationCode
 
 instance Data.ToHeaders ConfirmSignUp where
   toHeaders =

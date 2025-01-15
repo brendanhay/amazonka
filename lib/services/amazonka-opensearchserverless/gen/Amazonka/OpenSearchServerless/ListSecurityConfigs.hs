@@ -141,9 +141,9 @@ instance Prelude.Hashable ListSecurityConfigs where
 
 instance Prelude.NFData ListSecurityConfigs where
   rnf ListSecurityConfigs' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf type'
 
 instance Data.ToHeaders ListSecurityConfigs where
   toHeaders =
@@ -232,6 +232,6 @@ listSecurityConfigsResponse_httpStatus = Lens.lens (\ListSecurityConfigsResponse
 
 instance Prelude.NFData ListSecurityConfigsResponse where
   rnf ListSecurityConfigsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf securityConfigSummaries
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf securityConfigSummaries `Prelude.seq`
+        Prelude.rnf httpStatus

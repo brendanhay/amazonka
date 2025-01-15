@@ -181,9 +181,9 @@ instance Prelude.Hashable ClaimGameServer where
 
 instance Prelude.NFData ClaimGameServer where
   rnf ClaimGameServer' {..} =
-    Prelude.rnf gameServerData
-      `Prelude.seq` Prelude.rnf gameServerId
-      `Prelude.seq` Prelude.rnf gameServerGroupName
+    Prelude.rnf gameServerData `Prelude.seq`
+      Prelude.rnf gameServerId `Prelude.seq`
+        Prelude.rnf gameServerGroupName
 
 instance Data.ToHeaders ClaimGameServer where
   toHeaders =
@@ -257,5 +257,5 @@ claimGameServerResponse_httpStatus = Lens.lens (\ClaimGameServerResponse' {httpS
 
 instance Prelude.NFData ClaimGameServerResponse where
   rnf ClaimGameServerResponse' {..} =
-    Prelude.rnf gameServer
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf gameServer `Prelude.seq`
+      Prelude.rnf httpStatus

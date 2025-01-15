@@ -157,14 +157,14 @@ instance
 
 instance Prelude.NFData AwsEc2NetworkInterfaceDetails where
   rnf AwsEc2NetworkInterfaceDetails' {..} =
-    Prelude.rnf attachment
-      `Prelude.seq` Prelude.rnf ipV6Addresses
-      `Prelude.seq` Prelude.rnf networkInterfaceId
-      `Prelude.seq` Prelude.rnf privateIpAddresses
-      `Prelude.seq` Prelude.rnf publicDnsName
-      `Prelude.seq` Prelude.rnf publicIp
-      `Prelude.seq` Prelude.rnf securityGroups
-      `Prelude.seq` Prelude.rnf sourceDestCheck
+    Prelude.rnf attachment `Prelude.seq`
+      Prelude.rnf ipV6Addresses `Prelude.seq`
+        Prelude.rnf networkInterfaceId `Prelude.seq`
+          Prelude.rnf privateIpAddresses `Prelude.seq`
+            Prelude.rnf publicDnsName `Prelude.seq`
+              Prelude.rnf publicIp `Prelude.seq`
+                Prelude.rnf securityGroups `Prelude.seq`
+                  Prelude.rnf sourceDestCheck
 
 instance Data.ToJSON AwsEc2NetworkInterfaceDetails where
   toJSON AwsEc2NetworkInterfaceDetails' {..} =

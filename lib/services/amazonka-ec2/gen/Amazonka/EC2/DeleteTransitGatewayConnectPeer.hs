@@ -131,8 +131,8 @@ instance
     DeleteTransitGatewayConnectPeer
   where
   rnf DeleteTransitGatewayConnectPeer' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf transitGatewayConnectPeerId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf transitGatewayConnectPeerId
 
 instance
   Data.ToHeaders
@@ -202,5 +202,5 @@ instance
     DeleteTransitGatewayConnectPeerResponse
   where
   rnf DeleteTransitGatewayConnectPeerResponse' {..} =
-    Prelude.rnf transitGatewayConnectPeer
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf transitGatewayConnectPeer `Prelude.seq`
+      Prelude.rnf httpStatus

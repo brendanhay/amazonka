@@ -100,6 +100,6 @@ instance Prelude.Hashable EncryptionConfig where
 
 instance Prelude.NFData EncryptionConfig where
   rnf EncryptionConfig' {..} =
-    Prelude.rnf keyId
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf keyId `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf type'

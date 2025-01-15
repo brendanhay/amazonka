@@ -109,8 +109,8 @@ instance Prelude.Hashable RemoveIpRoutes where
 
 instance Prelude.NFData RemoveIpRoutes where
   rnf RemoveIpRoutes' {..} =
-    Prelude.rnf directoryId
-      `Prelude.seq` Prelude.rnf cidrIps
+    Prelude.rnf directoryId `Prelude.seq`
+      Prelude.rnf cidrIps
 
 instance Data.ToHeaders RemoveIpRoutes where
   toHeaders =

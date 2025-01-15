@@ -113,8 +113,8 @@ instance Prelude.Hashable DescribeExclusions where
 
 instance Prelude.NFData DescribeExclusions where
   rnf DescribeExclusions' {..} =
-    Prelude.rnf locale
-      `Prelude.seq` Prelude.rnf exclusionArns
+    Prelude.rnf locale `Prelude.seq`
+      Prelude.rnf exclusionArns
 
 instance Data.ToHeaders DescribeExclusions where
   toHeaders =
@@ -200,6 +200,6 @@ describeExclusionsResponse_failedItems = Lens.lens (\DescribeExclusionsResponse'
 
 instance Prelude.NFData DescribeExclusionsResponse where
   rnf DescribeExclusionsResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf exclusions
-      `Prelude.seq` Prelude.rnf failedItems
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf exclusions `Prelude.seq`
+        Prelude.rnf failedItems

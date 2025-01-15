@@ -108,8 +108,8 @@ instance Prelude.Hashable BatchStart' where
 
 instance Prelude.NFData BatchStart' where
   rnf BatchStart'' {..} =
-    Prelude.rnf channelIds
-      `Prelude.seq` Prelude.rnf multiplexIds
+    Prelude.rnf channelIds `Prelude.seq`
+      Prelude.rnf multiplexIds
 
 instance Data.ToHeaders BatchStart' where
   toHeaders =
@@ -188,6 +188,6 @@ batchStartResponse_httpStatus = Lens.lens (\BatchStartResponse' {httpStatus} -> 
 
 instance Prelude.NFData BatchStartResponse where
   rnf BatchStartResponse' {..} =
-    Prelude.rnf failed
-      `Prelude.seq` Prelude.rnf successful
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf failed `Prelude.seq`
+      Prelude.rnf successful `Prelude.seq`
+        Prelude.rnf httpStatus

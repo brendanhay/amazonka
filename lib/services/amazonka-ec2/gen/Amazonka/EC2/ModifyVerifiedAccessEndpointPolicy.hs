@@ -175,11 +175,11 @@ instance
     ModifyVerifiedAccessEndpointPolicy
   where
   rnf ModifyVerifiedAccessEndpointPolicy' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf policyDocument
-      `Prelude.seq` Prelude.rnf verifiedAccessEndpointId
-      `Prelude.seq` Prelude.rnf policyEnabled
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf policyDocument `Prelude.seq`
+          Prelude.rnf verifiedAccessEndpointId `Prelude.seq`
+            Prelude.rnf policyEnabled
 
 instance
   Data.ToHeaders
@@ -267,6 +267,6 @@ instance
     ModifyVerifiedAccessEndpointPolicyResponse
   where
   rnf ModifyVerifiedAccessEndpointPolicyResponse' {..} =
-    Prelude.rnf policyDocument
-      `Prelude.seq` Prelude.rnf policyEnabled
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf policyDocument `Prelude.seq`
+      Prelude.rnf policyEnabled `Prelude.seq`
+        Prelude.rnf httpStatus

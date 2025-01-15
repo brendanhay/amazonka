@@ -112,8 +112,8 @@ instance Prelude.Hashable CreateImportJob where
 
 instance Prelude.NFData CreateImportJob where
   rnf CreateImportJob' {..} =
-    Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf importJobRequest
+    Prelude.rnf applicationId `Prelude.seq`
+      Prelude.rnf importJobRequest
 
 instance Data.ToHeaders CreateImportJob where
   toHeaders =
@@ -184,5 +184,5 @@ createImportJobResponse_importJobResponse = Lens.lens (\CreateImportJobResponse'
 
 instance Prelude.NFData CreateImportJobResponse where
   rnf CreateImportJobResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf importJobResponse
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf importJobResponse

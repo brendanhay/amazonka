@@ -173,10 +173,10 @@ instance Prelude.Hashable DeleteAnalysis where
 
 instance Prelude.NFData DeleteAnalysis where
   rnf DeleteAnalysis' {..} =
-    Prelude.rnf forceDeleteWithoutRecovery
-      `Prelude.seq` Prelude.rnf recoveryWindowInDays
-      `Prelude.seq` Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf analysisId
+    Prelude.rnf forceDeleteWithoutRecovery `Prelude.seq`
+      Prelude.rnf recoveryWindowInDays `Prelude.seq`
+        Prelude.rnf awsAccountId `Prelude.seq`
+          Prelude.rnf analysisId
 
 instance Data.ToHeaders DeleteAnalysis where
   toHeaders =
@@ -275,8 +275,8 @@ deleteAnalysisResponse_status = Lens.lens (\DeleteAnalysisResponse' {status} -> 
 
 instance Prelude.NFData DeleteAnalysisResponse where
   rnf DeleteAnalysisResponse' {..} =
-    Prelude.rnf analysisId
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf deletionTime
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf analysisId `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf deletionTime `Prelude.seq`
+          Prelude.rnf requestId `Prelude.seq`
+            Prelude.rnf status

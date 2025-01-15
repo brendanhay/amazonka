@@ -83,8 +83,8 @@ instance Prelude.Hashable CustomDataIdentifiersResult where
 
 instance Prelude.NFData CustomDataIdentifiersResult where
   rnf CustomDataIdentifiersResult' {..} =
-    Prelude.rnf detections
-      `Prelude.seq` Prelude.rnf totalCount
+    Prelude.rnf detections `Prelude.seq`
+      Prelude.rnf totalCount
 
 instance Data.ToJSON CustomDataIdentifiersResult where
   toJSON CustomDataIdentifiersResult' {..} =

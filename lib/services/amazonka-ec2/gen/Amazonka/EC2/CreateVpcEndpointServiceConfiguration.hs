@@ -237,14 +237,14 @@ instance
     CreateVpcEndpointServiceConfiguration
   where
   rnf CreateVpcEndpointServiceConfiguration' {..} =
-    Prelude.rnf acceptanceRequired
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf gatewayLoadBalancerArns
-      `Prelude.seq` Prelude.rnf networkLoadBalancerArns
-      `Prelude.seq` Prelude.rnf privateDnsName
-      `Prelude.seq` Prelude.rnf supportedIpAddressTypes
-      `Prelude.seq` Prelude.rnf tagSpecifications
+    Prelude.rnf acceptanceRequired `Prelude.seq`
+      Prelude.rnf clientToken `Prelude.seq`
+        Prelude.rnf dryRun `Prelude.seq`
+          Prelude.rnf gatewayLoadBalancerArns `Prelude.seq`
+            Prelude.rnf networkLoadBalancerArns `Prelude.seq`
+              Prelude.rnf privateDnsName `Prelude.seq`
+                Prelude.rnf supportedIpAddressTypes `Prelude.seq`
+                  Prelude.rnf tagSpecifications
 
 instance
   Data.ToHeaders
@@ -351,6 +351,6 @@ instance
   where
   rnf
     CreateVpcEndpointServiceConfigurationResponse' {..} =
-      Prelude.rnf clientToken
-        `Prelude.seq` Prelude.rnf serviceConfiguration
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf clientToken `Prelude.seq`
+        Prelude.rnf serviceConfiguration `Prelude.seq`
+          Prelude.rnf httpStatus

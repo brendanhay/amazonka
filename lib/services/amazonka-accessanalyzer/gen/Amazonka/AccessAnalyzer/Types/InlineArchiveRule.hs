@@ -74,8 +74,8 @@ instance Prelude.Hashable InlineArchiveRule where
 
 instance Prelude.NFData InlineArchiveRule where
   rnf InlineArchiveRule' {..} =
-    Prelude.rnf ruleName
-      `Prelude.seq` Prelude.rnf filter'
+    Prelude.rnf ruleName `Prelude.seq`
+      Prelude.rnf filter'
 
 instance Data.ToJSON InlineArchiveRule where
   toJSON InlineArchiveRule' {..} =

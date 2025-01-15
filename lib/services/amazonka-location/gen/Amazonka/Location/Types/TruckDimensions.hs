@@ -145,10 +145,10 @@ instance Prelude.Hashable TruckDimensions where
 
 instance Prelude.NFData TruckDimensions where
   rnf TruckDimensions' {..} =
-    Prelude.rnf height
-      `Prelude.seq` Prelude.rnf length
-      `Prelude.seq` Prelude.rnf unit
-      `Prelude.seq` Prelude.rnf width
+    Prelude.rnf height `Prelude.seq`
+      Prelude.rnf length `Prelude.seq`
+        Prelude.rnf unit `Prelude.seq`
+          Prelude.rnf width
 
 instance Data.ToJSON TruckDimensions where
   toJSON TruckDimensions' {..} =

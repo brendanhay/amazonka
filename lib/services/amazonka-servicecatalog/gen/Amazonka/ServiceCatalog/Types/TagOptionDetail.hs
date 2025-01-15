@@ -116,8 +116,8 @@ instance Prelude.Hashable TagOptionDetail where
 
 instance Prelude.NFData TagOptionDetail where
   rnf TagOptionDetail' {..} =
-    Prelude.rnf active
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf key
-      `Prelude.seq` Prelude.rnf owner
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf active `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf key `Prelude.seq`
+          Prelude.rnf owner `Prelude.seq`
+            Prelude.rnf value

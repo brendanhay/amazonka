@@ -188,14 +188,14 @@ instance Prelude.Hashable TestRecommendation where
 
 instance Prelude.NFData TestRecommendation where
   rnf TestRecommendation' {..} =
-    Prelude.rnf appComponentName
-      `Prelude.seq` Prelude.rnf dependsOnAlarms
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf intent
-      `Prelude.seq` Prelude.rnf items
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf prerequisite
-      `Prelude.seq` Prelude.rnf recommendationId
-      `Prelude.seq` Prelude.rnf risk
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf referenceId
+    Prelude.rnf appComponentName `Prelude.seq`
+      Prelude.rnf dependsOnAlarms `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf intent `Prelude.seq`
+            Prelude.rnf items `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf prerequisite `Prelude.seq`
+                  Prelude.rnf recommendationId `Prelude.seq`
+                    Prelude.rnf risk `Prelude.seq`
+                      Prelude.rnf type' `Prelude.seq`
+                        Prelude.rnf referenceId

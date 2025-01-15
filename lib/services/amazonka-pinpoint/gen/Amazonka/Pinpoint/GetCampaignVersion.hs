@@ -130,9 +130,9 @@ instance Prelude.Hashable GetCampaignVersion where
 
 instance Prelude.NFData GetCampaignVersion where
   rnf GetCampaignVersion' {..} =
-    Prelude.rnf version
-      `Prelude.seq` Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf campaignId
+    Prelude.rnf version `Prelude.seq`
+      Prelude.rnf applicationId `Prelude.seq`
+        Prelude.rnf campaignId
 
 instance Data.ToHeaders GetCampaignVersion where
   toHeaders =
@@ -203,5 +203,5 @@ getCampaignVersionResponse_campaignResponse = Lens.lens (\GetCampaignVersionResp
 
 instance Prelude.NFData GetCampaignVersionResponse where
   rnf GetCampaignVersionResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf campaignResponse
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf campaignResponse

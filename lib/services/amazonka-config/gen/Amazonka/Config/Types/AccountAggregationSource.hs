@@ -94,9 +94,9 @@ instance Prelude.Hashable AccountAggregationSource where
 
 instance Prelude.NFData AccountAggregationSource where
   rnf AccountAggregationSource' {..} =
-    Prelude.rnf allAwsRegions
-      `Prelude.seq` Prelude.rnf awsRegions
-      `Prelude.seq` Prelude.rnf accountIds
+    Prelude.rnf allAwsRegions `Prelude.seq`
+      Prelude.rnf awsRegions `Prelude.seq`
+        Prelude.rnf accountIds
 
 instance Data.ToJSON AccountAggregationSource where
   toJSON AccountAggregationSource' {..} =

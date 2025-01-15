@@ -100,9 +100,9 @@ instance Prelude.Hashable CreateXMLClassifierRequest where
 
 instance Prelude.NFData CreateXMLClassifierRequest where
   rnf CreateXMLClassifierRequest' {..} =
-    Prelude.rnf rowTag
-      `Prelude.seq` Prelude.rnf classification
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf rowTag `Prelude.seq`
+      Prelude.rnf classification `Prelude.seq`
+        Prelude.rnf name
 
 instance Data.ToJSON CreateXMLClassifierRequest where
   toJSON CreateXMLClassifierRequest' {..} =

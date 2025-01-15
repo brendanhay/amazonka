@@ -225,11 +225,11 @@ getDetectorResponse_status = Lens.lens (\GetDetectorResponse' {status} -> status
 
 instance Prelude.NFData GetDetectorResponse where
   rnf GetDetectorResponse' {..} =
-    Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf dataSources
-      `Prelude.seq` Prelude.rnf findingPublishingFrequency
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf updatedAt
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf serviceRole
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf createdAt `Prelude.seq`
+      Prelude.rnf dataSources `Prelude.seq`
+        Prelude.rnf findingPublishingFrequency `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf updatedAt `Prelude.seq`
+              Prelude.rnf httpStatus `Prelude.seq`
+                Prelude.rnf serviceRole `Prelude.seq`
+                  Prelude.rnf status

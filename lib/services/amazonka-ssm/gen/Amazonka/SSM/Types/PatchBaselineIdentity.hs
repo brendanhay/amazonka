@@ -124,8 +124,8 @@ instance Prelude.Hashable PatchBaselineIdentity where
 
 instance Prelude.NFData PatchBaselineIdentity where
   rnf PatchBaselineIdentity' {..} =
-    Prelude.rnf baselineDescription
-      `Prelude.seq` Prelude.rnf baselineId
-      `Prelude.seq` Prelude.rnf baselineName
-      `Prelude.seq` Prelude.rnf defaultBaseline
-      `Prelude.seq` Prelude.rnf operatingSystem
+    Prelude.rnf baselineDescription `Prelude.seq`
+      Prelude.rnf baselineId `Prelude.seq`
+        Prelude.rnf baselineName `Prelude.seq`
+          Prelude.rnf defaultBaseline `Prelude.seq`
+            Prelude.rnf operatingSystem

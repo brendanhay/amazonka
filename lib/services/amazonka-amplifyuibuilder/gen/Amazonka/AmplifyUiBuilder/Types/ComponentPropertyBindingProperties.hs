@@ -96,8 +96,8 @@ instance
     ComponentPropertyBindingProperties
   where
   rnf ComponentPropertyBindingProperties' {..} =
-    Prelude.rnf field
-      `Prelude.seq` Prelude.rnf property
+    Prelude.rnf field `Prelude.seq`
+      Prelude.rnf property
 
 instance
   Data.ToJSON

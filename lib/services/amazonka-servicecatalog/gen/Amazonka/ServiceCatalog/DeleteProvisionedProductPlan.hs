@@ -142,9 +142,9 @@ instance
 
 instance Prelude.NFData DeleteProvisionedProductPlan where
   rnf DeleteProvisionedProductPlan' {..} =
-    Prelude.rnf acceptLanguage
-      `Prelude.seq` Prelude.rnf ignoreErrors
-      `Prelude.seq` Prelude.rnf planId
+    Prelude.rnf acceptLanguage `Prelude.seq`
+      Prelude.rnf ignoreErrors `Prelude.seq`
+        Prelude.rnf planId
 
 instance Data.ToHeaders DeleteProvisionedProductPlan where
   toHeaders =

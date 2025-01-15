@@ -162,12 +162,12 @@ instance Core.AWSPager DescribeDBProxyTargets where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeDBProxyTargets_marker
-          Lens..~ rs
-          Lens.^? describeDBProxyTargetsResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeDBProxyTargets_marker
+              Lens..~ rs
+              Lens.^? describeDBProxyTargetsResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeDBProxyTargets where
   type
@@ -181,9 +181,7 @@ instance Core.AWSRequest DescribeDBProxyTargets where
       ( \s h x ->
           DescribeDBProxyTargetsResponse'
             Prelude.<$> (x Data..@? "Marker")
-            Prelude.<*> ( x
-                            Data..@? "Targets"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "Targets" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -200,11 +198,11 @@ instance Prelude.Hashable DescribeDBProxyTargets where
 
 instance Prelude.NFData DescribeDBProxyTargets where
   rnf DescribeDBProxyTargets' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf targetGroupName
-      `Prelude.seq` Prelude.rnf dbProxyName
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf maxRecords `Prelude.seq`
+          Prelude.rnf targetGroupName `Prelude.seq`
+            Prelude.rnf dbProxyName
 
 instance Data.ToHeaders DescribeDBProxyTargets where
   toHeaders = Prelude.const Prelude.mempty
@@ -290,6 +288,6 @@ instance
     DescribeDBProxyTargetsResponse
   where
   rnf DescribeDBProxyTargetsResponse' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf targets
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf targets `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -81,9 +81,9 @@ instance Prelude.Hashable NotificationContext where
 
 instance Prelude.NFData NotificationContext where
   rnf NotificationContext' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf validationId
+    Prelude.rnf status `Prelude.seq`
+      Prelude.rnf statusMessage `Prelude.seq`
+        Prelude.rnf validationId
 
 instance Data.ToJSON NotificationContext where
   toJSON NotificationContext' {..} =

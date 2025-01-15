@@ -145,12 +145,12 @@ instance Core.AWSPager DescribeCacheSubnetGroups where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeCacheSubnetGroups_marker
-          Lens..~ rs
-          Lens.^? describeCacheSubnetGroupsResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeCacheSubnetGroups_marker
+              Lens..~ rs
+              Lens.^? describeCacheSubnetGroupsResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeCacheSubnetGroups where
   type
@@ -181,9 +181,9 @@ instance Prelude.Hashable DescribeCacheSubnetGroups where
 
 instance Prelude.NFData DescribeCacheSubnetGroups where
   rnf DescribeCacheSubnetGroups' {..} =
-    Prelude.rnf cacheSubnetGroupName
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
+    Prelude.rnf cacheSubnetGroupName `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf maxRecords
 
 instance Data.ToHeaders DescribeCacheSubnetGroups where
   toHeaders = Prelude.const Prelude.mempty
@@ -261,6 +261,6 @@ instance
     DescribeCacheSubnetGroupsResponse
   where
   rnf DescribeCacheSubnetGroupsResponse' {..} =
-    Prelude.rnf cacheSubnetGroups
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf cacheSubnetGroups `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf httpStatus

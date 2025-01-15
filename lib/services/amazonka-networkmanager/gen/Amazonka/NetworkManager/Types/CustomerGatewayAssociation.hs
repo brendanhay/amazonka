@@ -116,8 +116,8 @@ instance Prelude.Hashable CustomerGatewayAssociation where
 
 instance Prelude.NFData CustomerGatewayAssociation where
   rnf CustomerGatewayAssociation' {..} =
-    Prelude.rnf customerGatewayArn
-      `Prelude.seq` Prelude.rnf deviceId
-      `Prelude.seq` Prelude.rnf globalNetworkId
-      `Prelude.seq` Prelude.rnf linkId
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf customerGatewayArn `Prelude.seq`
+      Prelude.rnf deviceId `Prelude.seq`
+        Prelude.rnf globalNetworkId `Prelude.seq`
+          Prelude.rnf linkId `Prelude.seq`
+            Prelude.rnf state

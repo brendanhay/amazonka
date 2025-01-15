@@ -184,13 +184,13 @@ instance Prelude.Hashable Model where
 
 instance Prelude.NFData Model where
   rnf Model' {..} =
-    Prelude.rnf containers
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf enableNetworkIsolation
-      `Prelude.seq` Prelude.rnf executionRoleArn
-      `Prelude.seq` Prelude.rnf inferenceExecutionConfig
-      `Prelude.seq` Prelude.rnf modelArn
-      `Prelude.seq` Prelude.rnf modelName
-      `Prelude.seq` Prelude.rnf primaryContainer
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf vpcConfig
+    Prelude.rnf containers `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf enableNetworkIsolation `Prelude.seq`
+          Prelude.rnf executionRoleArn `Prelude.seq`
+            Prelude.rnf inferenceExecutionConfig `Prelude.seq`
+              Prelude.rnf modelArn `Prelude.seq`
+                Prelude.rnf modelName `Prelude.seq`
+                  Prelude.rnf primaryContainer `Prelude.seq`
+                    Prelude.rnf tags `Prelude.seq`
+                      Prelude.rnf vpcConfig

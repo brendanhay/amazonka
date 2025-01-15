@@ -482,25 +482,25 @@ instance Prelude.Hashable CreateBroker where
 
 instance Prelude.NFData CreateBroker where
   rnf CreateBroker' {..} =
-    Prelude.rnf authenticationStrategy
-      `Prelude.seq` Prelude.rnf configuration
-      `Prelude.seq` Prelude.rnf creatorRequestId
-      `Prelude.seq` Prelude.rnf encryptionOptions
-      `Prelude.seq` Prelude.rnf ldapServerMetadata
-      `Prelude.seq` Prelude.rnf logs
-      `Prelude.seq` Prelude.rnf maintenanceWindowStartTime
-      `Prelude.seq` Prelude.rnf securityGroups
-      `Prelude.seq` Prelude.rnf storageType
-      `Prelude.seq` Prelude.rnf subnetIds
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf engineVersion
-      `Prelude.seq` Prelude.rnf hostInstanceType
-      `Prelude.seq` Prelude.rnf autoMinorVersionUpgrade
-      `Prelude.seq` Prelude.rnf users
-      `Prelude.seq` Prelude.rnf brokerName
-      `Prelude.seq` Prelude.rnf deploymentMode
-      `Prelude.seq` Prelude.rnf engineType
-      `Prelude.seq` Prelude.rnf publiclyAccessible
+    Prelude.rnf authenticationStrategy `Prelude.seq`
+      Prelude.rnf configuration `Prelude.seq`
+        Prelude.rnf creatorRequestId `Prelude.seq`
+          Prelude.rnf encryptionOptions `Prelude.seq`
+            Prelude.rnf ldapServerMetadata `Prelude.seq`
+              Prelude.rnf logs `Prelude.seq`
+                Prelude.rnf maintenanceWindowStartTime `Prelude.seq`
+                  Prelude.rnf securityGroups `Prelude.seq`
+                    Prelude.rnf storageType `Prelude.seq`
+                      Prelude.rnf subnetIds `Prelude.seq`
+                        Prelude.rnf tags `Prelude.seq`
+                          Prelude.rnf engineVersion `Prelude.seq`
+                            Prelude.rnf hostInstanceType `Prelude.seq`
+                              Prelude.rnf autoMinorVersionUpgrade `Prelude.seq`
+                                Prelude.rnf users `Prelude.seq`
+                                  Prelude.rnf brokerName `Prelude.seq`
+                                    Prelude.rnf deploymentMode `Prelude.seq`
+                                      Prelude.rnf engineType `Prelude.seq`
+                                        Prelude.rnf publiclyAccessible
 
 instance Data.ToHeaders CreateBroker where
   toHeaders =
@@ -606,6 +606,6 @@ createBrokerResponse_httpStatus = Lens.lens (\CreateBrokerResponse' {httpStatus}
 
 instance Prelude.NFData CreateBrokerResponse where
   rnf CreateBrokerResponse' {..} =
-    Prelude.rnf brokerArn
-      `Prelude.seq` Prelude.rnf brokerId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf brokerArn `Prelude.seq`
+      Prelude.rnf brokerId `Prelude.seq`
+        Prelude.rnf httpStatus

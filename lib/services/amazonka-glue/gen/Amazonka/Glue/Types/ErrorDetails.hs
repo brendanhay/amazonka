@@ -80,5 +80,5 @@ instance Prelude.Hashable ErrorDetails where
 
 instance Prelude.NFData ErrorDetails where
   rnf ErrorDetails' {..} =
-    Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorMessage
+    Prelude.rnf errorCode `Prelude.seq`
+      Prelude.rnf errorMessage

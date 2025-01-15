@@ -233,16 +233,16 @@ instance Prelude.Hashable DBEngineVersion where
 
 instance Prelude.NFData DBEngineVersion where
   rnf DBEngineVersion' {..} =
-    Prelude.rnf dbEngineDescription
-      `Prelude.seq` Prelude.rnf dbEngineVersionDescription
-      `Prelude.seq` Prelude.rnf dbParameterGroupFamily
-      `Prelude.seq` Prelude.rnf defaultCharacterSet
-      `Prelude.seq` Prelude.rnf engine
-      `Prelude.seq` Prelude.rnf engineVersion
-      `Prelude.seq` Prelude.rnf exportableLogTypes
-      `Prelude.seq` Prelude.rnf supportedCharacterSets
-      `Prelude.seq` Prelude.rnf supportedTimezones
-      `Prelude.seq` Prelude.rnf supportsGlobalDatabases
-      `Prelude.seq` Prelude.rnf supportsLogExportsToCloudwatchLogs
-      `Prelude.seq` Prelude.rnf supportsReadReplica
-      `Prelude.seq` Prelude.rnf validUpgradeTarget
+    Prelude.rnf dbEngineDescription `Prelude.seq`
+      Prelude.rnf dbEngineVersionDescription `Prelude.seq`
+        Prelude.rnf dbParameterGroupFamily `Prelude.seq`
+          Prelude.rnf defaultCharacterSet `Prelude.seq`
+            Prelude.rnf engine `Prelude.seq`
+              Prelude.rnf engineVersion `Prelude.seq`
+                Prelude.rnf exportableLogTypes `Prelude.seq`
+                  Prelude.rnf supportedCharacterSets `Prelude.seq`
+                    Prelude.rnf supportedTimezones `Prelude.seq`
+                      Prelude.rnf supportsGlobalDatabases `Prelude.seq`
+                        Prelude.rnf supportsLogExportsToCloudwatchLogs `Prelude.seq`
+                          Prelude.rnf supportsReadReplica `Prelude.seq`
+                            Prelude.rnf validUpgradeTarget

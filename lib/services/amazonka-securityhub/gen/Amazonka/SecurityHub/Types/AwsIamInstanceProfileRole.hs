@@ -139,12 +139,12 @@ instance Prelude.Hashable AwsIamInstanceProfileRole where
 
 instance Prelude.NFData AwsIamInstanceProfileRole where
   rnf AwsIamInstanceProfileRole' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf assumeRolePolicyDocument
-      `Prelude.seq` Prelude.rnf createDate
-      `Prelude.seq` Prelude.rnf path
-      `Prelude.seq` Prelude.rnf roleId
-      `Prelude.seq` Prelude.rnf roleName
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf assumeRolePolicyDocument `Prelude.seq`
+        Prelude.rnf createDate `Prelude.seq`
+          Prelude.rnf path `Prelude.seq`
+            Prelude.rnf roleId `Prelude.seq`
+              Prelude.rnf roleName
 
 instance Data.ToJSON AwsIamInstanceProfileRole where
   toJSON AwsIamInstanceProfileRole' {..} =

@@ -115,9 +115,9 @@ instance
     AwsBackupBackupPlanBackupPlanDetails
   where
   rnf AwsBackupBackupPlanBackupPlanDetails' {..} =
-    Prelude.rnf advancedBackupSettings
-      `Prelude.seq` Prelude.rnf backupPlanName
-      `Prelude.seq` Prelude.rnf backupPlanRule
+    Prelude.rnf advancedBackupSettings `Prelude.seq`
+      Prelude.rnf backupPlanName `Prelude.seq`
+        Prelude.rnf backupPlanRule
 
 instance
   Data.ToJSON

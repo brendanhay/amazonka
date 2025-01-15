@@ -222,10 +222,10 @@ instance Prelude.Hashable ZonalShiftInResource where
 
 instance Prelude.NFData ZonalShiftInResource where
   rnf ZonalShiftInResource' {..} =
-    Prelude.rnf appliedStatus
-      `Prelude.seq` Prelude.rnf awayFrom
-      `Prelude.seq` Prelude.rnf comment
-      `Prelude.seq` Prelude.rnf expiryTime
-      `Prelude.seq` Prelude.rnf resourceIdentifier
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf zonalShiftId
+    Prelude.rnf appliedStatus `Prelude.seq`
+      Prelude.rnf awayFrom `Prelude.seq`
+        Prelude.rnf comment `Prelude.seq`
+          Prelude.rnf expiryTime `Prelude.seq`
+            Prelude.rnf resourceIdentifier `Prelude.seq`
+              Prelude.rnf startTime `Prelude.seq`
+                Prelude.rnf zonalShiftId

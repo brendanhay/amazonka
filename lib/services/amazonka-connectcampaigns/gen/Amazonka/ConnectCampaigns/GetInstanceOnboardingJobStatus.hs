@@ -182,5 +182,5 @@ instance
     GetInstanceOnboardingJobStatusResponse
   where
   rnf GetInstanceOnboardingJobStatusResponse' {..} =
-    Prelude.rnf connectInstanceOnboardingJobStatus
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf connectInstanceOnboardingJobStatus `Prelude.seq`
+      Prelude.rnf httpStatus

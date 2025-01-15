@@ -116,8 +116,8 @@ instance Prelude.Hashable UpdateVoiceChannel where
 
 instance Prelude.NFData UpdateVoiceChannel where
   rnf UpdateVoiceChannel' {..} =
-    Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf voiceChannelRequest
+    Prelude.rnf applicationId `Prelude.seq`
+      Prelude.rnf voiceChannelRequest
 
 instance Data.ToHeaders UpdateVoiceChannel where
   toHeaders =
@@ -189,5 +189,5 @@ updateVoiceChannelResponse_voiceChannelResponse = Lens.lens (\UpdateVoiceChannel
 
 instance Prelude.NFData UpdateVoiceChannelResponse where
   rnf UpdateVoiceChannelResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf voiceChannelResponse
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf voiceChannelResponse

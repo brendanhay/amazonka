@@ -86,8 +86,8 @@ instance
 
 instance Prelude.NFData UserDataValidationParameters where
   rnf UserDataValidationParameters' {..} =
-    Prelude.rnf scriptType
-      `Prelude.seq` Prelude.rnf source
+    Prelude.rnf scriptType `Prelude.seq`
+      Prelude.rnf source
 
 instance Data.ToJSON UserDataValidationParameters where
   toJSON UserDataValidationParameters' {..} =

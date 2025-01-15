@@ -109,8 +109,8 @@ instance Prelude.Hashable GetEvent where
 
 instance Prelude.NFData GetEvent where
   rnf GetEvent' {..} =
-    Prelude.rnf eventId
-      `Prelude.seq` Prelude.rnf eventTypeName
+    Prelude.rnf eventId `Prelude.seq`
+      Prelude.rnf eventTypeName
 
 instance Data.ToHeaders GetEvent where
   toHeaders =
@@ -183,5 +183,5 @@ getEventResponse_httpStatus = Lens.lens (\GetEventResponse' {httpStatus} -> http
 
 instance Prelude.NFData GetEventResponse where
   rnf GetEventResponse' {..} =
-    Prelude.rnf event
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf event `Prelude.seq`
+      Prelude.rnf httpStatus

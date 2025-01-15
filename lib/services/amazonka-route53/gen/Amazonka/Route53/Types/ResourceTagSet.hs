@@ -91,9 +91,7 @@ instance Data.FromXML ResourceTagSet where
     ResourceTagSet'
       Prelude.<$> (x Data..@? "ResourceId")
       Prelude.<*> (x Data..@? "ResourceType")
-      Prelude.<*> ( x
-                      Data..@? "Tags"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList1 "Tag")
                   )
 
@@ -106,6 +104,6 @@ instance Prelude.Hashable ResourceTagSet where
 
 instance Prelude.NFData ResourceTagSet where
   rnf ResourceTagSet' {..} =
-    Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf resourceId `Prelude.seq`
+      Prelude.rnf resourceType `Prelude.seq`
+        Prelude.rnf tags

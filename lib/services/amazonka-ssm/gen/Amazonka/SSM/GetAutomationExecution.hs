@@ -181,5 +181,5 @@ instance
     GetAutomationExecutionResponse
   where
   rnf GetAutomationExecutionResponse' {..} =
-    Prelude.rnf automationExecution
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf automationExecution `Prelude.seq`
+      Prelude.rnf httpStatus

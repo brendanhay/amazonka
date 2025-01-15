@@ -105,9 +105,7 @@ instance Data.FromXML Event where
   parseXML x =
     Event'
       Prelude.<$> (x Data..@? "Date")
-      Prelude.<*> ( x
-                      Data..@? "EventCategories"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "EventCategories" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "EventCategory")
                   )
       Prelude.<*> (x Data..@? "Message")
@@ -127,9 +125,9 @@ instance Prelude.Hashable Event where
 
 instance Prelude.NFData Event where
   rnf Event' {..} =
-    Prelude.rnf date
-      `Prelude.seq` Prelude.rnf eventCategories
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf sourceArn
-      `Prelude.seq` Prelude.rnf sourceIdentifier
-      `Prelude.seq` Prelude.rnf sourceType
+    Prelude.rnf date `Prelude.seq`
+      Prelude.rnf eventCategories `Prelude.seq`
+        Prelude.rnf message `Prelude.seq`
+          Prelude.rnf sourceArn `Prelude.seq`
+            Prelude.rnf sourceIdentifier `Prelude.seq`
+              Prelude.rnf sourceType

@@ -126,8 +126,8 @@ instance Prelude.Hashable CreateSMSSandboxPhoneNumber where
 
 instance Prelude.NFData CreateSMSSandboxPhoneNumber where
   rnf CreateSMSSandboxPhoneNumber' {..} =
-    Prelude.rnf languageCode
-      `Prelude.seq` Prelude.rnf phoneNumber
+    Prelude.rnf languageCode `Prelude.seq`
+      Prelude.rnf phoneNumber
 
 instance Data.ToHeaders CreateSMSSandboxPhoneNumber where
   toHeaders = Prelude.const Prelude.mempty

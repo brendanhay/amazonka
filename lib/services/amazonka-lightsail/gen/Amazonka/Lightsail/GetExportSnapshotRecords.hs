@@ -114,12 +114,12 @@ instance Core.AWSPager GetExportSnapshotRecords where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getExportSnapshotRecords_pageToken
-          Lens..~ rs
-          Lens.^? getExportSnapshotRecordsResponse_nextPageToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getExportSnapshotRecords_pageToken
+              Lens..~ rs
+              Lens.^? getExportSnapshotRecordsResponse_nextPageToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetExportSnapshotRecords where
   type
@@ -249,6 +249,6 @@ instance
     GetExportSnapshotRecordsResponse
   where
   rnf GetExportSnapshotRecordsResponse' {..} =
-    Prelude.rnf exportSnapshotRecords
-      `Prelude.seq` Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf exportSnapshotRecords `Prelude.seq`
+      Prelude.rnf nextPageToken `Prelude.seq`
+        Prelude.rnf httpStatus

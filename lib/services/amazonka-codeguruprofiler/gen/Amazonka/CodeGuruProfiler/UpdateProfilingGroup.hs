@@ -118,8 +118,8 @@ instance Prelude.Hashable UpdateProfilingGroup where
 
 instance Prelude.NFData UpdateProfilingGroup where
   rnf UpdateProfilingGroup' {..} =
-    Prelude.rnf agentOrchestrationConfig
-      `Prelude.seq` Prelude.rnf profilingGroupName
+    Prelude.rnf agentOrchestrationConfig `Prelude.seq`
+      Prelude.rnf profilingGroupName
 
 instance Data.ToHeaders UpdateProfilingGroup where
   toHeaders =
@@ -204,5 +204,5 @@ updateProfilingGroupResponse_profilingGroup = Lens.lens (\UpdateProfilingGroupRe
 
 instance Prelude.NFData UpdateProfilingGroupResponse where
   rnf UpdateProfilingGroupResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf profilingGroup
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf profilingGroup

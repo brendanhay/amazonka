@@ -186,13 +186,13 @@ instance Prelude.Hashable ScheduleEntry where
 
 instance Prelude.NFData ScheduleEntry where
   rnf ScheduleEntry' {..} =
-    Prelude.rnf approximateDurationSeconds
-      `Prelude.seq` Prelude.rnf approximateStartTime
-      `Prelude.seq` Prelude.rnf liveSourceName
-      `Prelude.seq` Prelude.rnf scheduleAdBreaks
-      `Prelude.seq` Prelude.rnf scheduleEntryType
-      `Prelude.seq` Prelude.rnf vodSourceName
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf channelName
-      `Prelude.seq` Prelude.rnf programName
-      `Prelude.seq` Prelude.rnf sourceLocationName
+    Prelude.rnf approximateDurationSeconds `Prelude.seq`
+      Prelude.rnf approximateStartTime `Prelude.seq`
+        Prelude.rnf liveSourceName `Prelude.seq`
+          Prelude.rnf scheduleAdBreaks `Prelude.seq`
+            Prelude.rnf scheduleEntryType `Prelude.seq`
+              Prelude.rnf vodSourceName `Prelude.seq`
+                Prelude.rnf arn `Prelude.seq`
+                  Prelude.rnf channelName `Prelude.seq`
+                    Prelude.rnf programName `Prelude.seq`
+                      Prelude.rnf sourceLocationName

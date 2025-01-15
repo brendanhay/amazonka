@@ -84,8 +84,8 @@ instance Prelude.Hashable CalculatedMeasureField where
 
 instance Prelude.NFData CalculatedMeasureField where
   rnf CalculatedMeasureField' {..} =
-    Prelude.rnf fieldId
-      `Prelude.seq` Prelude.rnf expression
+    Prelude.rnf fieldId `Prelude.seq`
+      Prelude.rnf expression
 
 instance Data.ToJSON CalculatedMeasureField where
   toJSON CalculatedMeasureField' {..} =

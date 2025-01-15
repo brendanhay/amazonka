@@ -117,9 +117,9 @@ instance Prelude.Hashable GetMapping where
 
 instance Prelude.NFData GetMapping where
   rnf GetMapping' {..} =
-    Prelude.rnf location
-      `Prelude.seq` Prelude.rnf sinks
-      `Prelude.seq` Prelude.rnf source
+    Prelude.rnf location `Prelude.seq`
+      Prelude.rnf sinks `Prelude.seq`
+        Prelude.rnf source
 
 instance Data.ToHeaders GetMapping where
   toHeaders =
@@ -190,5 +190,5 @@ getMappingResponse_mapping = Lens.lens (\GetMappingResponse' {mapping} -> mappin
 
 instance Prelude.NFData GetMappingResponse where
   rnf GetMappingResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf mapping
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf mapping

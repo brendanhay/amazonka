@@ -141,12 +141,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeOrganizationConfigRuleStatuses_nextToken
-          Lens..~ rs
-          Lens.^? describeOrganizationConfigRuleStatusesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeOrganizationConfigRuleStatuses_nextToken
+              Lens..~ rs
+              Lens.^? describeOrganizationConfigRuleStatusesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -187,9 +187,9 @@ instance
     DescribeOrganizationConfigRuleStatuses
   where
   rnf DescribeOrganizationConfigRuleStatuses' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf organizationConfigRuleNames
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf organizationConfigRuleNames
 
 instance
   Data.ToHeaders
@@ -294,6 +294,6 @@ instance
   where
   rnf
     DescribeOrganizationConfigRuleStatusesResponse' {..} =
-      Prelude.rnf nextToken
-        `Prelude.seq` Prelude.rnf organizationConfigRuleStatuses
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf organizationConfigRuleStatuses `Prelude.seq`
+          Prelude.rnf httpStatus

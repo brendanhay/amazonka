@@ -167,5 +167,5 @@ instance
     GetSecurityConfigurationResponse
   where
   rnf GetSecurityConfigurationResponse' {..} =
-    Prelude.rnf securityConfiguration
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf securityConfiguration `Prelude.seq`
+      Prelude.rnf httpStatus

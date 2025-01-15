@@ -92,8 +92,8 @@ instance Prelude.Hashable TargetOnDeviceService where
 
 instance Prelude.NFData TargetOnDeviceService where
   rnf TargetOnDeviceService' {..} =
-    Prelude.rnf serviceName
-      `Prelude.seq` Prelude.rnf transferOption
+    Prelude.rnf serviceName `Prelude.seq`
+      Prelude.rnf transferOption
 
 instance Data.ToJSON TargetOnDeviceService where
   toJSON TargetOnDeviceService' {..} =

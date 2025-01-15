@@ -269,12 +269,12 @@ instance Core.AWSPager DescribeSpotPriceHistory where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeSpotPriceHistory_nextToken
-          Lens..~ rs
-          Lens.^? describeSpotPriceHistoryResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeSpotPriceHistory_nextToken
+              Lens..~ rs
+              Lens.^? describeSpotPriceHistoryResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeSpotPriceHistory where
   type
@@ -310,15 +310,15 @@ instance Prelude.Hashable DescribeSpotPriceHistory where
 
 instance Prelude.NFData DescribeSpotPriceHistory where
   rnf DescribeSpotPriceHistory' {..} =
-    Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf instanceTypes
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf productDescriptions
-      `Prelude.seq` Prelude.rnf startTime
+    Prelude.rnf availabilityZone `Prelude.seq`
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf endTime `Prelude.seq`
+          Prelude.rnf filters `Prelude.seq`
+            Prelude.rnf instanceTypes `Prelude.seq`
+              Prelude.rnf maxResults `Prelude.seq`
+                Prelude.rnf nextToken `Prelude.seq`
+                  Prelude.rnf productDescriptions `Prelude.seq`
+                    Prelude.rnf startTime
 
 instance Data.ToHeaders DescribeSpotPriceHistory where
   toHeaders = Prelude.const Prelude.mempty
@@ -409,6 +409,6 @@ instance
     DescribeSpotPriceHistoryResponse
   where
   rnf DescribeSpotPriceHistoryResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf spotPriceHistory
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf spotPriceHistory `Prelude.seq`
+        Prelude.rnf httpStatus

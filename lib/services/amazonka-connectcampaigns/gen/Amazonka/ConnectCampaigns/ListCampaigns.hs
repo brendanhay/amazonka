@@ -112,12 +112,12 @@ instance Core.AWSPager ListCampaigns where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listCampaigns_nextToken
-          Lens..~ rs
-          Lens.^? listCampaignsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listCampaigns_nextToken
+              Lens..~ rs
+              Lens.^? listCampaignsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListCampaigns where
   type
@@ -146,9 +146,9 @@ instance Prelude.Hashable ListCampaigns where
 
 instance Prelude.NFData ListCampaigns where
   rnf ListCampaigns' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListCampaigns where
   toHeaders =
@@ -227,6 +227,6 @@ listCampaignsResponse_httpStatus = Lens.lens (\ListCampaignsResponse' {httpStatu
 
 instance Prelude.NFData ListCampaignsResponse where
   rnf ListCampaignsResponse' {..} =
-    Prelude.rnf campaignSummaryList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf campaignSummaryList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

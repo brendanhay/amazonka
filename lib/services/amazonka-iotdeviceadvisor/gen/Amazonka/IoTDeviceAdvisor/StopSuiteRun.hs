@@ -111,8 +111,8 @@ instance Prelude.Hashable StopSuiteRun where
 
 instance Prelude.NFData StopSuiteRun where
   rnf StopSuiteRun' {..} =
-    Prelude.rnf suiteDefinitionId
-      `Prelude.seq` Prelude.rnf suiteRunId
+    Prelude.rnf suiteDefinitionId `Prelude.seq`
+      Prelude.rnf suiteRunId
 
 instance Data.ToHeaders StopSuiteRun where
   toHeaders =

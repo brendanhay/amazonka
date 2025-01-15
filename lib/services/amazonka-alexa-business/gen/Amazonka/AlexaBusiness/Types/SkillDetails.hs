@@ -184,13 +184,13 @@ instance Prelude.Hashable SkillDetails where
 
 instance Prelude.NFData SkillDetails where
   rnf SkillDetails' {..} =
-    Prelude.rnf bulletPoints
-      `Prelude.seq` Prelude.rnf developerInfo
-      `Prelude.seq` Prelude.rnf endUserLicenseAgreement
-      `Prelude.seq` Prelude.rnf genericKeywords
-      `Prelude.seq` Prelude.rnf invocationPhrase
-      `Prelude.seq` Prelude.rnf newInThisVersionBulletPoints'
-      `Prelude.seq` Prelude.rnf productDescription
-      `Prelude.seq` Prelude.rnf releaseDate
-      `Prelude.seq` Prelude.rnf reviews
-      `Prelude.seq` Prelude.rnf skillTypes
+    Prelude.rnf bulletPoints `Prelude.seq`
+      Prelude.rnf developerInfo `Prelude.seq`
+        Prelude.rnf endUserLicenseAgreement `Prelude.seq`
+          Prelude.rnf genericKeywords `Prelude.seq`
+            Prelude.rnf invocationPhrase `Prelude.seq`
+              Prelude.rnf newInThisVersionBulletPoints' `Prelude.seq`
+                Prelude.rnf productDescription `Prelude.seq`
+                  Prelude.rnf releaseDate `Prelude.seq`
+                    Prelude.rnf reviews `Prelude.seq`
+                      Prelude.rnf skillTypes

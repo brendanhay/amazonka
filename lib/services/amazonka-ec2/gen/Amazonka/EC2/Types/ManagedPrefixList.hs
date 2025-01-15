@@ -148,9 +148,7 @@ instance Data.FromXML ManagedPrefixList where
       Prelude.<*> (x Data..@? "prefixListName")
       Prelude.<*> (x Data..@? "state")
       Prelude.<*> (x Data..@? "stateMessage")
-      Prelude.<*> ( x
-                      Data..@? "tagSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "version")
@@ -171,13 +169,13 @@ instance Prelude.Hashable ManagedPrefixList where
 
 instance Prelude.NFData ManagedPrefixList where
   rnf ManagedPrefixList' {..} =
-    Prelude.rnf addressFamily
-      `Prelude.seq` Prelude.rnf maxEntries
-      `Prelude.seq` Prelude.rnf ownerId
-      `Prelude.seq` Prelude.rnf prefixListArn
-      `Prelude.seq` Prelude.rnf prefixListId
-      `Prelude.seq` Prelude.rnf prefixListName
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf stateMessage
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf version
+    Prelude.rnf addressFamily `Prelude.seq`
+      Prelude.rnf maxEntries `Prelude.seq`
+        Prelude.rnf ownerId `Prelude.seq`
+          Prelude.rnf prefixListArn `Prelude.seq`
+            Prelude.rnf prefixListId `Prelude.seq`
+              Prelude.rnf prefixListName `Prelude.seq`
+                Prelude.rnf state `Prelude.seq`
+                  Prelude.rnf stateMessage `Prelude.seq`
+                    Prelude.rnf tags `Prelude.seq`
+                      Prelude.rnf version

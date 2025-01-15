@@ -121,9 +121,9 @@ instance Prelude.Hashable ListLicenseVersions where
 
 instance Prelude.NFData ListLicenseVersions where
   rnf ListLicenseVersions' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf licenseArn
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf licenseArn
 
 instance Data.ToHeaders ListLicenseVersions where
   toHeaders =
@@ -206,6 +206,6 @@ listLicenseVersionsResponse_httpStatus = Lens.lens (\ListLicenseVersionsResponse
 
 instance Prelude.NFData ListLicenseVersionsResponse where
   rnf ListLicenseVersionsResponse' {..} =
-    Prelude.rnf licenses
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf licenses `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -129,8 +129,8 @@ instance
     TransitGatewayMulticastDomainAssociation
   where
   rnf TransitGatewayMulticastDomainAssociation' {..} =
-    Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf resourceOwnerId
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf subnet
-      `Prelude.seq` Prelude.rnf transitGatewayAttachmentId
+    Prelude.rnf resourceId `Prelude.seq`
+      Prelude.rnf resourceOwnerId `Prelude.seq`
+        Prelude.rnf resourceType `Prelude.seq`
+          Prelude.rnf subnet `Prelude.seq`
+            Prelude.rnf transitGatewayAttachmentId

@@ -160,5 +160,5 @@ deleteClusterSnapshotResponse_snapshot = Lens.lens (\DeleteClusterSnapshotRespon
 
 instance Prelude.NFData DeleteClusterSnapshotResponse where
   rnf DeleteClusterSnapshotResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf snapshot
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf snapshot

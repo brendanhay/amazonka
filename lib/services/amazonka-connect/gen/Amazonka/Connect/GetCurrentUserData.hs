@@ -200,10 +200,10 @@ instance Prelude.Hashable GetCurrentUserData where
 
 instance Prelude.NFData GetCurrentUserData where
   rnf GetCurrentUserData' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf instanceId `Prelude.seq`
+          Prelude.rnf filters
 
 instance Data.ToHeaders GetCurrentUserData where
   toHeaders =
@@ -296,7 +296,7 @@ getCurrentUserDataResponse_httpStatus = Lens.lens (\GetCurrentUserDataResponse' 
 
 instance Prelude.NFData GetCurrentUserDataResponse where
   rnf GetCurrentUserDataResponse' {..} =
-    Prelude.rnf approximateTotalCount
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf userDataList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf approximateTotalCount `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf userDataList `Prelude.seq`
+          Prelude.rnf httpStatus

@@ -101,8 +101,8 @@ instance Prelude.Hashable TrialComponentArtifact where
 
 instance Prelude.NFData TrialComponentArtifact where
   rnf TrialComponentArtifact' {..} =
-    Prelude.rnf mediaType
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf mediaType `Prelude.seq`
+      Prelude.rnf value
 
 instance Data.ToJSON TrialComponentArtifact where
   toJSON TrialComponentArtifact' {..} =

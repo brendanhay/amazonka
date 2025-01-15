@@ -153,9 +153,9 @@ instance Prelude.Hashable DisassociateNode where
 
 instance Prelude.NFData DisassociateNode where
   rnf DisassociateNode' {..} =
-    Prelude.rnf engineAttributes
-      `Prelude.seq` Prelude.rnf serverName
-      `Prelude.seq` Prelude.rnf nodeName
+    Prelude.rnf engineAttributes `Prelude.seq`
+      Prelude.rnf serverName `Prelude.seq`
+        Prelude.rnf nodeName
 
 instance Data.ToHeaders DisassociateNode where
   toHeaders =
@@ -236,5 +236,5 @@ disassociateNodeResponse_httpStatus = Lens.lens (\DisassociateNodeResponse' {htt
 
 instance Prelude.NFData DisassociateNodeResponse where
   rnf DisassociateNodeResponse' {..} =
-    Prelude.rnf nodeAssociationStatusToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nodeAssociationStatusToken `Prelude.seq`
+      Prelude.rnf httpStatus

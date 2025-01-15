@@ -86,8 +86,8 @@ instance Prelude.Hashable AudioLogSetting where
 
 instance Prelude.NFData AudioLogSetting where
   rnf AudioLogSetting' {..} =
-    Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf destination
+    Prelude.rnf enabled `Prelude.seq`
+      Prelude.rnf destination
 
 instance Data.ToJSON AudioLogSetting where
   toJSON AudioLogSetting' {..} =

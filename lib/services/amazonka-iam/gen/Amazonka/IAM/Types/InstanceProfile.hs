@@ -171,9 +171,7 @@ instanceProfile_roles = Lens.lens (\InstanceProfile' {roles} -> roles) (\s@Insta
 instance Data.FromXML InstanceProfile where
   parseXML x =
     InstanceProfile'
-      Prelude.<$> ( x
-                      Data..@? "Tags"
-                      Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "Tags" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@ "Path")
@@ -181,9 +179,7 @@ instance Data.FromXML InstanceProfile where
       Prelude.<*> (x Data..@ "InstanceProfileId")
       Prelude.<*> (x Data..@ "Arn")
       Prelude.<*> (x Data..@ "CreateDate")
-      Prelude.<*> ( x
-                      Data..@? "Roles"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "Roles" Core..!@ Prelude.mempty
                       Prelude.>>= Data.parseXMLList "member"
                   )
 
@@ -200,10 +196,10 @@ instance Prelude.Hashable InstanceProfile where
 
 instance Prelude.NFData InstanceProfile where
   rnf InstanceProfile' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf path
-      `Prelude.seq` Prelude.rnf instanceProfileName
-      `Prelude.seq` Prelude.rnf instanceProfileId
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createDate
-      `Prelude.seq` Prelude.rnf roles
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf path `Prelude.seq`
+        Prelude.rnf instanceProfileName `Prelude.seq`
+          Prelude.rnf instanceProfileId `Prelude.seq`
+            Prelude.rnf arn `Prelude.seq`
+              Prelude.rnf createDate `Prelude.seq`
+                Prelude.rnf roles

@@ -132,6 +132,6 @@ instance Prelude.Hashable VehicleStatus where
 
 instance Prelude.NFData VehicleStatus where
   rnf VehicleStatus' {..} =
-    Prelude.rnf campaignName
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf vehicleName
+    Prelude.rnf campaignName `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf vehicleName

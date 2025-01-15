@@ -109,9 +109,9 @@ instance
 
 instance Prelude.NFData FlinkApplicationConfiguration where
   rnf FlinkApplicationConfiguration' {..} =
-    Prelude.rnf checkpointConfiguration
-      `Prelude.seq` Prelude.rnf monitoringConfiguration
-      `Prelude.seq` Prelude.rnf parallelismConfiguration
+    Prelude.rnf checkpointConfiguration `Prelude.seq`
+      Prelude.rnf monitoringConfiguration `Prelude.seq`
+        Prelude.rnf parallelismConfiguration
 
 instance Data.ToJSON FlinkApplicationConfiguration where
   toJSON FlinkApplicationConfiguration' {..} =

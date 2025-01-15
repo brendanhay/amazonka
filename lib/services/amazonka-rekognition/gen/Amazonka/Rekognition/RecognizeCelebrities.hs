@@ -300,7 +300,7 @@ recognizeCelebritiesResponse_httpStatus = Lens.lens (\RecognizeCelebritiesRespon
 
 instance Prelude.NFData RecognizeCelebritiesResponse where
   rnf RecognizeCelebritiesResponse' {..} =
-    Prelude.rnf celebrityFaces
-      `Prelude.seq` Prelude.rnf orientationCorrection
-      `Prelude.seq` Prelude.rnf unrecognizedFaces
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf celebrityFaces `Prelude.seq`
+      Prelude.rnf orientationCorrection `Prelude.seq`
+        Prelude.rnf unrecognizedFaces `Prelude.seq`
+          Prelude.rnf httpStatus

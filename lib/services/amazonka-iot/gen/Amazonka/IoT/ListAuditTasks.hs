@@ -166,12 +166,12 @@ instance Core.AWSPager ListAuditTasks where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listAuditTasks_nextToken
-          Lens..~ rs
-          Lens.^? listAuditTasksResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listAuditTasks_nextToken
+              Lens..~ rs
+              Lens.^? listAuditTasksResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAuditTasks where
   type
@@ -200,12 +200,12 @@ instance Prelude.Hashable ListAuditTasks where
 
 instance Prelude.NFData ListAuditTasks where
   rnf ListAuditTasks' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf taskStatus
-      `Prelude.seq` Prelude.rnf taskType
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf endTime
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf taskStatus `Prelude.seq`
+          Prelude.rnf taskType `Prelude.seq`
+            Prelude.rnf startTime `Prelude.seq`
+              Prelude.rnf endTime
 
 instance Data.ToHeaders ListAuditTasks where
   toHeaders = Prelude.const Prelude.mempty
@@ -277,6 +277,6 @@ listAuditTasksResponse_httpStatus = Lens.lens (\ListAuditTasksResponse' {httpSta
 
 instance Prelude.NFData ListAuditTasksResponse where
   rnf ListAuditTasksResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf tasks
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf tasks `Prelude.seq`
+        Prelude.rnf httpStatus

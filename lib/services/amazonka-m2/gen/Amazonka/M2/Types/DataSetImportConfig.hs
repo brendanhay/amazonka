@@ -72,8 +72,8 @@ instance Prelude.Hashable DataSetImportConfig where
 
 instance Prelude.NFData DataSetImportConfig where
   rnf DataSetImportConfig' {..} =
-    Prelude.rnf dataSets
-      `Prelude.seq` Prelude.rnf s3Location
+    Prelude.rnf dataSets `Prelude.seq`
+      Prelude.rnf s3Location
 
 instance Data.ToJSON DataSetImportConfig where
   toJSON DataSetImportConfig' {..} =

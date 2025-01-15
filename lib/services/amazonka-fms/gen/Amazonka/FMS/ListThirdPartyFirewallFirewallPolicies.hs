@@ -163,12 +163,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listThirdPartyFirewallFirewallPolicies_nextToken
-          Lens..~ rs
-          Lens.^? listThirdPartyFirewallFirewallPoliciesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listThirdPartyFirewallFirewallPolicies_nextToken
+              Lens..~ rs
+              Lens.^? listThirdPartyFirewallFirewallPoliciesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -209,9 +209,9 @@ instance
     ListThirdPartyFirewallFirewallPolicies
   where
   rnf ListThirdPartyFirewallFirewallPolicies' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf thirdPartyFirewall
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf thirdPartyFirewall `Prelude.seq`
+        Prelude.rnf maxResults
 
 instance
   Data.ToHeaders
@@ -328,6 +328,6 @@ instance
   where
   rnf
     ListThirdPartyFirewallFirewallPoliciesResponse' {..} =
-      Prelude.rnf nextToken
-        `Prelude.seq` Prelude.rnf thirdPartyFirewallFirewallPolicies
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf thirdPartyFirewallFirewallPolicies `Prelude.seq`
+          Prelude.rnf httpStatus

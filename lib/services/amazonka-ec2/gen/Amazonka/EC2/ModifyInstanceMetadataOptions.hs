@@ -273,13 +273,13 @@ instance
 
 instance Prelude.NFData ModifyInstanceMetadataOptions where
   rnf ModifyInstanceMetadataOptions' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf httpEndpoint
-      `Prelude.seq` Prelude.rnf httpProtocolIpv6
-      `Prelude.seq` Prelude.rnf httpPutResponseHopLimit
-      `Prelude.seq` Prelude.rnf httpTokens
-      `Prelude.seq` Prelude.rnf instanceMetadataTags
-      `Prelude.seq` Prelude.rnf instanceId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf httpEndpoint `Prelude.seq`
+        Prelude.rnf httpProtocolIpv6 `Prelude.seq`
+          Prelude.rnf httpPutResponseHopLimit `Prelude.seq`
+            Prelude.rnf httpTokens `Prelude.seq`
+              Prelude.rnf instanceMetadataTags `Prelude.seq`
+                Prelude.rnf instanceId
 
 instance Data.ToHeaders ModifyInstanceMetadataOptions where
   toHeaders = Prelude.const Prelude.mempty
@@ -360,6 +360,6 @@ instance
     ModifyInstanceMetadataOptionsResponse
   where
   rnf ModifyInstanceMetadataOptionsResponse' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf instanceMetadataOptions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf instanceId `Prelude.seq`
+      Prelude.rnf instanceMetadataOptions `Prelude.seq`
+        Prelude.rnf httpStatus

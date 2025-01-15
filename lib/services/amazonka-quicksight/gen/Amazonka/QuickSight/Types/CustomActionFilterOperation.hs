@@ -91,8 +91,8 @@ instance Prelude.Hashable CustomActionFilterOperation where
 
 instance Prelude.NFData CustomActionFilterOperation where
   rnf CustomActionFilterOperation' {..} =
-    Prelude.rnf selectedFieldsConfiguration
-      `Prelude.seq` Prelude.rnf targetVisualsConfiguration
+    Prelude.rnf selectedFieldsConfiguration `Prelude.seq`
+      Prelude.rnf targetVisualsConfiguration
 
 instance Data.ToJSON CustomActionFilterOperation where
   toJSON CustomActionFilterOperation' {..} =

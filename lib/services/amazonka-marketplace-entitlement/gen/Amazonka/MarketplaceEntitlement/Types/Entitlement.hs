@@ -150,8 +150,8 @@ instance Prelude.Hashable Entitlement where
 
 instance Prelude.NFData Entitlement where
   rnf Entitlement' {..} =
-    Prelude.rnf customerIdentifier
-      `Prelude.seq` Prelude.rnf dimension
-      `Prelude.seq` Prelude.rnf expirationDate
-      `Prelude.seq` Prelude.rnf productCode
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf customerIdentifier `Prelude.seq`
+      Prelude.rnf dimension `Prelude.seq`
+        Prelude.rnf expirationDate `Prelude.seq`
+          Prelude.rnf productCode `Prelude.seq`
+            Prelude.rnf value

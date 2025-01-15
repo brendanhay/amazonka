@@ -161,9 +161,9 @@ instance Prelude.Hashable UpdateRole where
 
 instance Prelude.NFData UpdateRole where
   rnf UpdateRole' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf maxSessionDuration
-      `Prelude.seq` Prelude.rnf roleName
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf maxSessionDuration `Prelude.seq`
+        Prelude.rnf roleName
 
 instance Data.ToHeaders UpdateRole where
   toHeaders = Prelude.const Prelude.mempty

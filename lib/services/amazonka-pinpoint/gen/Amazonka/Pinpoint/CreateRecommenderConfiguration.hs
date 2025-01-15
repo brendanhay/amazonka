@@ -183,5 +183,5 @@ instance
     CreateRecommenderConfigurationResponse
   where
   rnf CreateRecommenderConfigurationResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf recommenderConfigurationResponse
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf recommenderConfigurationResponse

@@ -116,10 +116,10 @@ instance Prelude.Hashable DelimitedTextImportOptions where
 
 instance Prelude.NFData DelimitedTextImportOptions where
   rnf DelimitedTextImportOptions' {..} =
-    Prelude.rnf dataCharacterEncoding
-      `Prelude.seq` Prelude.rnf hasHeaderRow
-      `Prelude.seq` Prelude.rnf ignoreEmptyRows
-      `Prelude.seq` Prelude.rnf delimiter
+    Prelude.rnf dataCharacterEncoding `Prelude.seq`
+      Prelude.rnf hasHeaderRow `Prelude.seq`
+        Prelude.rnf ignoreEmptyRows `Prelude.seq`
+          Prelude.rnf delimiter
 
 instance Data.ToJSON DelimitedTextImportOptions where
   toJSON DelimitedTextImportOptions' {..} =

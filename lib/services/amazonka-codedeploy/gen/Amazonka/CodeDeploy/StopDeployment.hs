@@ -119,8 +119,8 @@ instance Prelude.Hashable StopDeployment where
 
 instance Prelude.NFData StopDeployment where
   rnf StopDeployment' {..} =
-    Prelude.rnf autoRollbackEnabled
-      `Prelude.seq` Prelude.rnf deploymentId
+    Prelude.rnf autoRollbackEnabled `Prelude.seq`
+      Prelude.rnf deploymentId
 
 instance Data.ToHeaders StopDeployment where
   toHeaders =
@@ -216,6 +216,6 @@ stopDeploymentResponse_httpStatus = Lens.lens (\StopDeploymentResponse' {httpSta
 
 instance Prelude.NFData StopDeploymentResponse where
   rnf StopDeploymentResponse' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf status `Prelude.seq`
+      Prelude.rnf statusMessage `Prelude.seq`
+        Prelude.rnf httpStatus

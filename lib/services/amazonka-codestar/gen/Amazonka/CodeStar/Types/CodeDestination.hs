@@ -87,8 +87,8 @@ instance Prelude.Hashable CodeDestination where
 
 instance Prelude.NFData CodeDestination where
   rnf CodeDestination' {..} =
-    Prelude.rnf codeCommit
-      `Prelude.seq` Prelude.rnf gitHub
+    Prelude.rnf codeCommit `Prelude.seq`
+      Prelude.rnf gitHub
 
 instance Data.ToJSON CodeDestination where
   toJSON CodeDestination' {..} =

@@ -626,9 +626,9 @@ instance Prelude.Hashable Event where
 
 instance Prelude.NFData Event where
   rnf Event' {..} =
-    Prelude.rnf eventCode
-      `Prelude.seq` Prelude.rnf eventId
-      `Prelude.seq` Prelude.rnf eventTime
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf preSignedLogUrl
-      `Prelude.seq` Prelude.rnf resourceId
+    Prelude.rnf eventCode `Prelude.seq`
+      Prelude.rnf eventId `Prelude.seq`
+        Prelude.rnf eventTime `Prelude.seq`
+          Prelude.rnf message `Prelude.seq`
+            Prelude.rnf preSignedLogUrl `Prelude.seq`
+              Prelude.rnf resourceId

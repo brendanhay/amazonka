@@ -432,17 +432,17 @@ instance Prelude.Hashable UpdateEnvironment where
 
 instance Prelude.NFData UpdateEnvironment where
   rnf UpdateEnvironment' {..} =
-    Prelude.rnf codebuildRoleArn
-      `Prelude.seq` Prelude.rnf componentRoleArn
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf environmentAccountConnectionId
-      `Prelude.seq` Prelude.rnf protonServiceRoleArn
-      `Prelude.seq` Prelude.rnf provisioningRepository
-      `Prelude.seq` Prelude.rnf spec
-      `Prelude.seq` Prelude.rnf templateMajorVersion
-      `Prelude.seq` Prelude.rnf templateMinorVersion
-      `Prelude.seq` Prelude.rnf deploymentType
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf codebuildRoleArn `Prelude.seq`
+      Prelude.rnf componentRoleArn `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf environmentAccountConnectionId `Prelude.seq`
+            Prelude.rnf protonServiceRoleArn `Prelude.seq`
+              Prelude.rnf provisioningRepository `Prelude.seq`
+                Prelude.rnf spec `Prelude.seq`
+                  Prelude.rnf templateMajorVersion `Prelude.seq`
+                    Prelude.rnf templateMinorVersion `Prelude.seq`
+                      Prelude.rnf deploymentType `Prelude.seq`
+                        Prelude.rnf name
 
 instance Data.ToHeaders UpdateEnvironment where
   toHeaders =
@@ -536,5 +536,5 @@ updateEnvironmentResponse_environment = Lens.lens (\UpdateEnvironmentResponse' {
 
 instance Prelude.NFData UpdateEnvironmentResponse where
   rnf UpdateEnvironmentResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf environment
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf environment

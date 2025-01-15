@@ -136,10 +136,10 @@ instance Prelude.Hashable UpdateWorldTemplate where
 
 instance Prelude.NFData UpdateWorldTemplate where
   rnf UpdateWorldTemplate' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf templateBody
-      `Prelude.seq` Prelude.rnf templateLocation
-      `Prelude.seq` Prelude.rnf template
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf templateBody `Prelude.seq`
+        Prelude.rnf templateLocation `Prelude.seq`
+          Prelude.rnf template
 
 instance Data.ToHeaders UpdateWorldTemplate where
   toHeaders =
@@ -243,8 +243,8 @@ updateWorldTemplateResponse_httpStatus = Lens.lens (\UpdateWorldTemplateResponse
 
 instance Prelude.NFData UpdateWorldTemplateResponse where
   rnf UpdateWorldTemplateResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf createdAt `Prelude.seq`
+        Prelude.rnf lastUpdatedAt `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf httpStatus

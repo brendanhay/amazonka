@@ -148,11 +148,11 @@ instance
     CustomConnectorDestinationProperties
   where
   rnf CustomConnectorDestinationProperties' {..} =
-    Prelude.rnf customProperties
-      `Prelude.seq` Prelude.rnf errorHandlingConfig
-      `Prelude.seq` Prelude.rnf idFieldNames
-      `Prelude.seq` Prelude.rnf writeOperationType
-      `Prelude.seq` Prelude.rnf entityName
+    Prelude.rnf customProperties `Prelude.seq`
+      Prelude.rnf errorHandlingConfig `Prelude.seq`
+        Prelude.rnf idFieldNames `Prelude.seq`
+          Prelude.rnf writeOperationType `Prelude.seq`
+            Prelude.rnf entityName
 
 instance
   Data.ToJSON

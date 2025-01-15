@@ -186,12 +186,12 @@ instance Prelude.Hashable ResiliencyPolicy where
 
 instance Prelude.NFData ResiliencyPolicy where
   rnf ResiliencyPolicy' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf dataLocationConstraint
-      `Prelude.seq` Prelude.rnf estimatedCostTier
-      `Prelude.seq` Prelude.rnf policy
-      `Prelude.seq` Prelude.rnf policyArn
-      `Prelude.seq` Prelude.rnf policyDescription
-      `Prelude.seq` Prelude.rnf policyName
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf tier
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf dataLocationConstraint `Prelude.seq`
+        Prelude.rnf estimatedCostTier `Prelude.seq`
+          Prelude.rnf policy `Prelude.seq`
+            Prelude.rnf policyArn `Prelude.seq`
+              Prelude.rnf policyDescription `Prelude.seq`
+                Prelude.rnf policyName `Prelude.seq`
+                  Prelude.rnf tags `Prelude.seq`
+                    Prelude.rnf tier

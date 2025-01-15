@@ -121,12 +121,12 @@ instance Core.AWSPager ListMonitoringAlerts where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listMonitoringAlerts_nextToken
-          Lens..~ rs
-          Lens.^? listMonitoringAlertsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listMonitoringAlerts_nextToken
+              Lens..~ rs
+              Lens.^? listMonitoringAlertsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListMonitoringAlerts where
   type
@@ -152,9 +152,9 @@ instance Prelude.Hashable ListMonitoringAlerts where
 
 instance Prelude.NFData ListMonitoringAlerts where
   rnf ListMonitoringAlerts' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf monitoringScheduleName
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf monitoringScheduleName
 
 instance Data.ToHeaders ListMonitoringAlerts where
   toHeaders =
@@ -243,6 +243,6 @@ listMonitoringAlertsResponse_httpStatus = Lens.lens (\ListMonitoringAlertsRespon
 
 instance Prelude.NFData ListMonitoringAlertsResponse where
   rnf ListMonitoringAlertsResponse' {..} =
-    Prelude.rnf monitoringAlertSummaries
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf monitoringAlertSummaries `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -92,6 +92,6 @@ instance Prelude.Hashable DeferredMaintenanceWindow where
 
 instance Prelude.NFData DeferredMaintenanceWindow where
   rnf DeferredMaintenanceWindow' {..} =
-    Prelude.rnf deferMaintenanceEndTime
-      `Prelude.seq` Prelude.rnf deferMaintenanceIdentifier
-      `Prelude.seq` Prelude.rnf deferMaintenanceStartTime
+    Prelude.rnf deferMaintenanceEndTime `Prelude.seq`
+      Prelude.rnf deferMaintenanceIdentifier `Prelude.seq`
+        Prelude.rnf deferMaintenanceStartTime

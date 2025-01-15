@@ -93,9 +93,9 @@ instance Prelude.Hashable FileSource where
 
 instance Prelude.NFData FileSource where
   rnf FileSource' {..} =
-    Prelude.rnf contentDigest
-      `Prelude.seq` Prelude.rnf contentType
-      `Prelude.seq` Prelude.rnf s3Uri
+    Prelude.rnf contentDigest `Prelude.seq`
+      Prelude.rnf contentType `Prelude.seq`
+        Prelude.rnf s3Uri
 
 instance Data.ToJSON FileSource where
   toJSON FileSource' {..} =

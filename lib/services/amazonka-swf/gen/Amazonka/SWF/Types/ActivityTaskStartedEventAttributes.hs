@@ -110,5 +110,5 @@ instance
     ActivityTaskStartedEventAttributes
   where
   rnf ActivityTaskStartedEventAttributes' {..} =
-    Prelude.rnf identity
-      `Prelude.seq` Prelude.rnf scheduledEventId
+    Prelude.rnf identity `Prelude.seq`
+      Prelude.rnf scheduledEventId

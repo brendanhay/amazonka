@@ -151,11 +151,11 @@ instance Prelude.Hashable Datapoint where
 
 instance Prelude.NFData Datapoint where
   rnf Datapoint' {..} =
-    Prelude.rnf average
-      `Prelude.seq` Prelude.rnf extendedStatistics
-      `Prelude.seq` Prelude.rnf maximum
-      `Prelude.seq` Prelude.rnf minimum
-      `Prelude.seq` Prelude.rnf sampleCount
-      `Prelude.seq` Prelude.rnf sum
-      `Prelude.seq` Prelude.rnf timestamp
-      `Prelude.seq` Prelude.rnf unit
+    Prelude.rnf average `Prelude.seq`
+      Prelude.rnf extendedStatistics `Prelude.seq`
+        Prelude.rnf maximum `Prelude.seq`
+          Prelude.rnf minimum `Prelude.seq`
+            Prelude.rnf sampleCount `Prelude.seq`
+              Prelude.rnf sum `Prelude.seq`
+                Prelude.rnf timestamp `Prelude.seq`
+                  Prelude.rnf unit

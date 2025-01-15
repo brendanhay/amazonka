@@ -109,10 +109,10 @@ instance Prelude.Hashable CategoricalDimensionField where
 
 instance Prelude.NFData CategoricalDimensionField where
   rnf CategoricalDimensionField' {..} =
-    Prelude.rnf formatConfiguration
-      `Prelude.seq` Prelude.rnf hierarchyId
-      `Prelude.seq` Prelude.rnf fieldId
-      `Prelude.seq` Prelude.rnf column
+    Prelude.rnf formatConfiguration `Prelude.seq`
+      Prelude.rnf hierarchyId `Prelude.seq`
+        Prelude.rnf fieldId `Prelude.seq`
+          Prelude.rnf column
 
 instance Data.ToJSON CategoricalDimensionField where
   toJSON CategoricalDimensionField' {..} =

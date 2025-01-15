@@ -90,8 +90,8 @@ instance Prelude.Hashable InsightsConfiguration where
 
 instance Prelude.NFData InsightsConfiguration where
   rnf InsightsConfiguration' {..} =
-    Prelude.rnf insightsEnabled
-      `Prelude.seq` Prelude.rnf notificationsEnabled
+    Prelude.rnf insightsEnabled `Prelude.seq`
+      Prelude.rnf notificationsEnabled
 
 instance Data.ToJSON InsightsConfiguration where
   toJSON InsightsConfiguration' {..} =

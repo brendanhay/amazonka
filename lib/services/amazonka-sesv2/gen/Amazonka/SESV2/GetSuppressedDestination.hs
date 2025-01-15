@@ -175,5 +175,5 @@ instance
     GetSuppressedDestinationResponse
   where
   rnf GetSuppressedDestinationResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf suppressedDestination
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf suppressedDestination

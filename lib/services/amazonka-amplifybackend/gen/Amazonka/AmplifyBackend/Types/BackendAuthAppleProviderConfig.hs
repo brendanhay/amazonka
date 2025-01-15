@@ -112,10 +112,10 @@ instance
     BackendAuthAppleProviderConfig
   where
   rnf BackendAuthAppleProviderConfig' {..} =
-    Prelude.rnf clientId
-      `Prelude.seq` Prelude.rnf keyId
-      `Prelude.seq` Prelude.rnf privateKey
-      `Prelude.seq` Prelude.rnf teamId
+    Prelude.rnf clientId `Prelude.seq`
+      Prelude.rnf keyId `Prelude.seq`
+        Prelude.rnf privateKey `Prelude.seq`
+          Prelude.rnf teamId
 
 instance Data.ToJSON BackendAuthAppleProviderConfig where
   toJSON BackendAuthAppleProviderConfig' {..} =

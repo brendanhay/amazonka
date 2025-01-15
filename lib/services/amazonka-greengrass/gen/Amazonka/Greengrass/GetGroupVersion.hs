@@ -133,8 +133,8 @@ instance Prelude.Hashable GetGroupVersion where
 
 instance Prelude.NFData GetGroupVersion where
   rnf GetGroupVersion' {..} =
-    Prelude.rnf groupVersionId
-      `Prelude.seq` Prelude.rnf groupId
+    Prelude.rnf groupVersionId `Prelude.seq`
+      Prelude.rnf groupId
 
 instance Data.ToHeaders GetGroupVersion where
   toHeaders =
@@ -238,9 +238,9 @@ getGroupVersionResponse_httpStatus = Lens.lens (\GetGroupVersionResponse' {httpS
 
 instance Prelude.NFData GetGroupVersionResponse where
   rnf GetGroupVersionResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationTimestamp
-      `Prelude.seq` Prelude.rnf definition
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf creationTimestamp `Prelude.seq`
+        Prelude.rnf definition `Prelude.seq`
+          Prelude.rnf id `Prelude.seq`
+            Prelude.rnf version `Prelude.seq`
+              Prelude.rnf httpStatus

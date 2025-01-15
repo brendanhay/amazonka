@@ -164,15 +164,15 @@ instance Prelude.Hashable DataLabelOptions where
 
 instance Prelude.NFData DataLabelOptions where
   rnf DataLabelOptions' {..} =
-    Prelude.rnf categoryLabelVisibility
-      `Prelude.seq` Prelude.rnf dataLabelTypes
-      `Prelude.seq` Prelude.rnf labelColor
-      `Prelude.seq` Prelude.rnf labelContent
-      `Prelude.seq` Prelude.rnf labelFontConfiguration
-      `Prelude.seq` Prelude.rnf measureLabelVisibility
-      `Prelude.seq` Prelude.rnf overlap
-      `Prelude.seq` Prelude.rnf position
-      `Prelude.seq` Prelude.rnf visibility
+    Prelude.rnf categoryLabelVisibility `Prelude.seq`
+      Prelude.rnf dataLabelTypes `Prelude.seq`
+        Prelude.rnf labelColor `Prelude.seq`
+          Prelude.rnf labelContent `Prelude.seq`
+            Prelude.rnf labelFontConfiguration `Prelude.seq`
+              Prelude.rnf measureLabelVisibility `Prelude.seq`
+                Prelude.rnf overlap `Prelude.seq`
+                  Prelude.rnf position `Prelude.seq`
+                    Prelude.rnf visibility
 
 instance Data.ToJSON DataLabelOptions where
   toJSON DataLabelOptions' {..} =

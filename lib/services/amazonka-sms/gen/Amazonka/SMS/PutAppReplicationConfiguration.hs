@@ -121,8 +121,8 @@ instance
     PutAppReplicationConfiguration
   where
   rnf PutAppReplicationConfiguration' {..} =
-    Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf serverGroupReplicationConfigurations
+    Prelude.rnf appId `Prelude.seq`
+      Prelude.rnf serverGroupReplicationConfigurations
 
 instance
   Data.ToHeaders

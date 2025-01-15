@@ -424,15 +424,15 @@ instance Prelude.Hashable CreateFeatureGroup where
 
 instance Prelude.NFData CreateFeatureGroup where
   rnf CreateFeatureGroup' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf offlineStoreConfig
-      `Prelude.seq` Prelude.rnf onlineStoreConfig
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf featureGroupName
-      `Prelude.seq` Prelude.rnf recordIdentifierFeatureName
-      `Prelude.seq` Prelude.rnf eventTimeFeatureName
-      `Prelude.seq` Prelude.rnf featureDefinitions
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf offlineStoreConfig `Prelude.seq`
+        Prelude.rnf onlineStoreConfig `Prelude.seq`
+          Prelude.rnf roleArn `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf featureGroupName `Prelude.seq`
+                Prelude.rnf recordIdentifierFeatureName `Prelude.seq`
+                  Prelude.rnf eventTimeFeatureName `Prelude.seq`
+                    Prelude.rnf featureDefinitions
 
 instance Data.ToHeaders CreateFeatureGroup where
   toHeaders =
@@ -529,5 +529,5 @@ createFeatureGroupResponse_featureGroupArn = Lens.lens (\CreateFeatureGroupRespo
 
 instance Prelude.NFData CreateFeatureGroupResponse where
   rnf CreateFeatureGroupResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf featureGroupArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf featureGroupArn

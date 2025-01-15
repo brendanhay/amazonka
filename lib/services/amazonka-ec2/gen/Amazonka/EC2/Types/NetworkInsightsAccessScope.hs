@@ -98,9 +98,7 @@ instance Data.FromXML NetworkInsightsAccessScope where
       Prelude.<$> (x Data..@? "createdDate")
       Prelude.<*> (x Data..@? "networkInsightsAccessScopeArn")
       Prelude.<*> (x Data..@? "networkInsightsAccessScopeId")
-      Prelude.<*> ( x
-                      Data..@? "tagSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "updatedDate")
@@ -116,8 +114,8 @@ instance Prelude.Hashable NetworkInsightsAccessScope where
 
 instance Prelude.NFData NetworkInsightsAccessScope where
   rnf NetworkInsightsAccessScope' {..} =
-    Prelude.rnf createdDate
-      `Prelude.seq` Prelude.rnf networkInsightsAccessScopeArn
-      `Prelude.seq` Prelude.rnf networkInsightsAccessScopeId
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf updatedDate
+    Prelude.rnf createdDate `Prelude.seq`
+      Prelude.rnf networkInsightsAccessScopeArn `Prelude.seq`
+        Prelude.rnf networkInsightsAccessScopeId `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf updatedDate

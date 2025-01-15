@@ -171,5 +171,5 @@ instance
     GetResolverDnssecConfigResponse
   where
   rnf GetResolverDnssecConfigResponse' {..} =
-    Prelude.rnf resolverDNSSECConfig
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf resolverDNSSECConfig `Prelude.seq`
+      Prelude.rnf httpStatus

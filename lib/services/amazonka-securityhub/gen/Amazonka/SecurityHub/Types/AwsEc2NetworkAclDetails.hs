@@ -130,12 +130,12 @@ instance Prelude.Hashable AwsEc2NetworkAclDetails where
 
 instance Prelude.NFData AwsEc2NetworkAclDetails where
   rnf AwsEc2NetworkAclDetails' {..} =
-    Prelude.rnf associations
-      `Prelude.seq` Prelude.rnf entries
-      `Prelude.seq` Prelude.rnf isDefault
-      `Prelude.seq` Prelude.rnf networkAclId
-      `Prelude.seq` Prelude.rnf ownerId
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf associations `Prelude.seq`
+      Prelude.rnf entries `Prelude.seq`
+        Prelude.rnf isDefault `Prelude.seq`
+          Prelude.rnf networkAclId `Prelude.seq`
+            Prelude.rnf ownerId `Prelude.seq`
+              Prelude.rnf vpcId
 
 instance Data.ToJSON AwsEc2NetworkAclDetails where
   toJSON AwsEc2NetworkAclDetails' {..} =

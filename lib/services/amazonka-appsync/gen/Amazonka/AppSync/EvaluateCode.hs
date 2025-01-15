@@ -154,10 +154,10 @@ instance Prelude.Hashable EvaluateCode where
 
 instance Prelude.NFData EvaluateCode where
   rnf EvaluateCode' {..} =
-    Prelude.rnf function
-      `Prelude.seq` Prelude.rnf runtime
-      `Prelude.seq` Prelude.rnf code
-      `Prelude.seq` Prelude.rnf context
+    Prelude.rnf function `Prelude.seq`
+      Prelude.rnf runtime `Prelude.seq`
+        Prelude.rnf code `Prelude.seq`
+          Prelude.rnf context
 
 instance Data.ToHeaders EvaluateCode where
   toHeaders =
@@ -248,7 +248,7 @@ evaluateCodeResponse_httpStatus = Lens.lens (\EvaluateCodeResponse' {httpStatus}
 
 instance Prelude.NFData EvaluateCodeResponse where
   rnf EvaluateCodeResponse' {..} =
-    Prelude.rnf error
-      `Prelude.seq` Prelude.rnf evaluationResult
-      `Prelude.seq` Prelude.rnf logs
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf error `Prelude.seq`
+      Prelude.rnf evaluationResult `Prelude.seq`
+        Prelude.rnf logs `Prelude.seq`
+          Prelude.rnf httpStatus

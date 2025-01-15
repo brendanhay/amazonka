@@ -161,11 +161,11 @@ instance Prelude.Hashable CreateComputer where
 
 instance Prelude.NFData CreateComputer where
   rnf CreateComputer' {..} =
-    Prelude.rnf computerAttributes
-      `Prelude.seq` Prelude.rnf organizationalUnitDistinguishedName
-      `Prelude.seq` Prelude.rnf directoryId
-      `Prelude.seq` Prelude.rnf computerName
-      `Prelude.seq` Prelude.rnf password
+    Prelude.rnf computerAttributes `Prelude.seq`
+      Prelude.rnf organizationalUnitDistinguishedName `Prelude.seq`
+        Prelude.rnf directoryId `Prelude.seq`
+          Prelude.rnf computerName `Prelude.seq`
+            Prelude.rnf password
 
 instance Data.ToHeaders CreateComputer where
   toHeaders =
@@ -244,5 +244,5 @@ createComputerResponse_httpStatus = Lens.lens (\CreateComputerResponse' {httpSta
 
 instance Prelude.NFData CreateComputerResponse where
   rnf CreateComputerResponse' {..} =
-    Prelude.rnf computer
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf computer `Prelude.seq`
+      Prelude.rnf httpStatus

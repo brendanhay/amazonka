@@ -114,7 +114,7 @@ instance Prelude.Hashable Highlight where
 
 instance Prelude.NFData Highlight where
   rnf Highlight' {..} =
-    Prelude.rnf topAnswer
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf beginOffset
-      `Prelude.seq` Prelude.rnf endOffset
+    Prelude.rnf topAnswer `Prelude.seq`
+      Prelude.rnf type' `Prelude.seq`
+        Prelude.rnf beginOffset `Prelude.seq`
+          Prelude.rnf endOffset

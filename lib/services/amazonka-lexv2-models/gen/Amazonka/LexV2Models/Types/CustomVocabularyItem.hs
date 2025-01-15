@@ -118,10 +118,10 @@ instance Prelude.Hashable CustomVocabularyItem where
 
 instance Prelude.NFData CustomVocabularyItem where
   rnf CustomVocabularyItem' {..} =
-    Prelude.rnf displayAs
-      `Prelude.seq` Prelude.rnf weight
-      `Prelude.seq` Prelude.rnf itemId
-      `Prelude.seq` Prelude.rnf phrase
+    Prelude.rnf displayAs `Prelude.seq`
+      Prelude.rnf weight `Prelude.seq`
+        Prelude.rnf itemId `Prelude.seq`
+          Prelude.rnf phrase
 
 instance Data.ToJSON CustomVocabularyItem where
   toJSON CustomVocabularyItem' {..} =

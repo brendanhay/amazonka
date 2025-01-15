@@ -190,16 +190,16 @@ instance Prelude.Hashable ModifyTransitGatewayOptions where
 
 instance Prelude.NFData ModifyTransitGatewayOptions where
   rnf ModifyTransitGatewayOptions' {..} =
-    Prelude.rnf addTransitGatewayCidrBlocks
-      `Prelude.seq` Prelude.rnf amazonSideAsn
-      `Prelude.seq` Prelude.rnf associationDefaultRouteTableId
-      `Prelude.seq` Prelude.rnf autoAcceptSharedAttachments
-      `Prelude.seq` Prelude.rnf defaultRouteTableAssociation
-      `Prelude.seq` Prelude.rnf defaultRouteTablePropagation
-      `Prelude.seq` Prelude.rnf dnsSupport
-      `Prelude.seq` Prelude.rnf propagationDefaultRouteTableId
-      `Prelude.seq` Prelude.rnf removeTransitGatewayCidrBlocks
-      `Prelude.seq` Prelude.rnf vpnEcmpSupport
+    Prelude.rnf addTransitGatewayCidrBlocks `Prelude.seq`
+      Prelude.rnf amazonSideAsn `Prelude.seq`
+        Prelude.rnf associationDefaultRouteTableId `Prelude.seq`
+          Prelude.rnf autoAcceptSharedAttachments `Prelude.seq`
+            Prelude.rnf defaultRouteTableAssociation `Prelude.seq`
+              Prelude.rnf defaultRouteTablePropagation `Prelude.seq`
+                Prelude.rnf dnsSupport `Prelude.seq`
+                  Prelude.rnf propagationDefaultRouteTableId `Prelude.seq`
+                    Prelude.rnf removeTransitGatewayCidrBlocks `Prelude.seq`
+                      Prelude.rnf vpnEcmpSupport
 
 instance Data.ToQuery ModifyTransitGatewayOptions where
   toQuery ModifyTransitGatewayOptions' {..} =

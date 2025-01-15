@@ -147,10 +147,10 @@ instance Prelude.Hashable CreateResourceServer where
 
 instance Prelude.NFData CreateResourceServer where
   rnf CreateResourceServer' {..} =
-    Prelude.rnf scopes
-      `Prelude.seq` Prelude.rnf userPoolId
-      `Prelude.seq` Prelude.rnf identifier
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf scopes `Prelude.seq`
+      Prelude.rnf userPoolId `Prelude.seq`
+        Prelude.rnf identifier `Prelude.seq`
+          Prelude.rnf name
 
 instance Data.ToHeaders CreateResourceServer where
   toHeaders =
@@ -229,5 +229,5 @@ createResourceServerResponse_resourceServer = Lens.lens (\CreateResourceServerRe
 
 instance Prelude.NFData CreateResourceServerResponse where
   rnf CreateResourceServerResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf resourceServer
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf resourceServer

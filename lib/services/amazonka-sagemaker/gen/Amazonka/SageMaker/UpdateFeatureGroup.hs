@@ -118,8 +118,8 @@ instance Prelude.Hashable UpdateFeatureGroup where
 
 instance Prelude.NFData UpdateFeatureGroup where
   rnf UpdateFeatureGroup' {..} =
-    Prelude.rnf featureAdditions
-      `Prelude.seq` Prelude.rnf featureGroupName
+    Prelude.rnf featureAdditions `Prelude.seq`
+      Prelude.rnf featureGroupName
 
 instance Data.ToHeaders UpdateFeatureGroup where
   toHeaders =
@@ -201,5 +201,5 @@ updateFeatureGroupResponse_featureGroupArn = Lens.lens (\UpdateFeatureGroupRespo
 
 instance Prelude.NFData UpdateFeatureGroupResponse where
   rnf UpdateFeatureGroupResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf featureGroupArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf featureGroupArn

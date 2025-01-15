@@ -110,8 +110,8 @@ instance Prelude.Hashable SendDataPoint where
 
 instance Prelude.NFData SendDataPoint where
   rnf SendDataPoint' {..} =
-    Prelude.rnf bounces
-      `Prelude.seq` Prelude.rnf complaints
-      `Prelude.seq` Prelude.rnf deliveryAttempts
-      `Prelude.seq` Prelude.rnf rejects
-      `Prelude.seq` Prelude.rnf timestamp
+    Prelude.rnf bounces `Prelude.seq`
+      Prelude.rnf complaints `Prelude.seq`
+        Prelude.rnf deliveryAttempts `Prelude.seq`
+          Prelude.rnf rejects `Prelude.seq`
+            Prelude.rnf timestamp

@@ -102,8 +102,8 @@ instance
     HyperParameterTuningJobObjective
   where
   rnf HyperParameterTuningJobObjective' {..} =
-    Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf metricName
+    Prelude.rnf type' `Prelude.seq`
+      Prelude.rnf metricName
 
 instance Data.ToJSON HyperParameterTuningJobObjective where
   toJSON HyperParameterTuningJobObjective' {..} =

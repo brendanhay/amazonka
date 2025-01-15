@@ -85,5 +85,5 @@ instance Prelude.Hashable CompatibleKafkaVersion where
 
 instance Prelude.NFData CompatibleKafkaVersion where
   rnf CompatibleKafkaVersion' {..} =
-    Prelude.rnf sourceVersion
-      `Prelude.seq` Prelude.rnf targetVersions
+    Prelude.rnf sourceVersion `Prelude.seq`
+      Prelude.rnf targetVersions

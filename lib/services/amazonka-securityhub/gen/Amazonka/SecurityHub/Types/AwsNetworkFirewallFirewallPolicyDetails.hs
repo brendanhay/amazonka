@@ -129,11 +129,11 @@ instance
     AwsNetworkFirewallFirewallPolicyDetails
   where
   rnf AwsNetworkFirewallFirewallPolicyDetails' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf firewallPolicy
-      `Prelude.seq` Prelude.rnf firewallPolicyArn
-      `Prelude.seq` Prelude.rnf firewallPolicyId
-      `Prelude.seq` Prelude.rnf firewallPolicyName
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf firewallPolicy `Prelude.seq`
+        Prelude.rnf firewallPolicyArn `Prelude.seq`
+          Prelude.rnf firewallPolicyId `Prelude.seq`
+            Prelude.rnf firewallPolicyName
 
 instance
   Data.ToJSON

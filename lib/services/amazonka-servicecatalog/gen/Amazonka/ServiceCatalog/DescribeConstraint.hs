@@ -131,8 +131,8 @@ instance Prelude.Hashable DescribeConstraint where
 
 instance Prelude.NFData DescribeConstraint where
   rnf DescribeConstraint' {..} =
-    Prelude.rnf acceptLanguage
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf acceptLanguage `Prelude.seq`
+      Prelude.rnf id
 
 instance Data.ToHeaders DescribeConstraint where
   toHeaders =
@@ -224,7 +224,7 @@ describeConstraintResponse_httpStatus = Lens.lens (\DescribeConstraintResponse' 
 
 instance Prelude.NFData DescribeConstraintResponse where
   rnf DescribeConstraintResponse' {..} =
-    Prelude.rnf constraintDetail
-      `Prelude.seq` Prelude.rnf constraintParameters
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf constraintDetail `Prelude.seq`
+      Prelude.rnf constraintParameters `Prelude.seq`
+        Prelude.rnf status `Prelude.seq`
+          Prelude.rnf httpStatus

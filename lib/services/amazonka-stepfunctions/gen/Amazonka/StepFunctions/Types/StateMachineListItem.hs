@@ -159,7 +159,7 @@ instance Prelude.Hashable StateMachineListItem where
 
 instance Prelude.NFData StateMachineListItem where
   rnf StateMachineListItem' {..} =
-    Prelude.rnf stateMachineArn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf creationDate
+    Prelude.rnf stateMachineArn `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf type' `Prelude.seq`
+          Prelude.rnf creationDate

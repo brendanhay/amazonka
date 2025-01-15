@@ -105,9 +105,9 @@ instance
   where
   rnf
     AwsCertificateManagerCertificateResourceRecord' {..} =
-      Prelude.rnf name
-        `Prelude.seq` Prelude.rnf type'
-        `Prelude.seq` Prelude.rnf value
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf type' `Prelude.seq`
+          Prelude.rnf value
 
 instance
   Data.ToJSON

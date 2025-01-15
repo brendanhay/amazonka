@@ -192,5 +192,5 @@ instance
     CancelReservedInstancesListingResponse
   where
   rnf CancelReservedInstancesListingResponse' {..} =
-    Prelude.rnf reservedInstancesListings
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf reservedInstancesListings `Prelude.seq`
+      Prelude.rnf httpStatus

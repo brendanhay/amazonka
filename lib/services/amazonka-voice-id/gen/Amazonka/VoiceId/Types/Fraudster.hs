@@ -91,6 +91,6 @@ instance Prelude.Hashable Fraudster where
 
 instance Prelude.NFData Fraudster where
   rnf Fraudster' {..} =
-    Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf domainId
-      `Prelude.seq` Prelude.rnf generatedFraudsterId
+    Prelude.rnf createdAt `Prelude.seq`
+      Prelude.rnf domainId `Prelude.seq`
+        Prelude.rnf generatedFraudsterId

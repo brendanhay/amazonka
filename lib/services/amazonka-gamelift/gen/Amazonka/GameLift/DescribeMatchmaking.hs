@@ -186,5 +186,5 @@ describeMatchmakingResponse_httpStatus = Lens.lens (\DescribeMatchmakingResponse
 
 instance Prelude.NFData DescribeMatchmakingResponse where
   rnf DescribeMatchmakingResponse' {..} =
-    Prelude.rnf ticketList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf ticketList `Prelude.seq`
+      Prelude.rnf httpStatus

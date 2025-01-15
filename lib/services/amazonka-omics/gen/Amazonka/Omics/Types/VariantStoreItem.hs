@@ -216,14 +216,14 @@ instance Prelude.Hashable VariantStoreItem where
 
 instance Prelude.NFData VariantStoreItem where
   rnf VariantStoreItem' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf reference
-      `Prelude.seq` Prelude.rnf sseConfig
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf storeArn
-      `Prelude.seq` Prelude.rnf storeSizeBytes
-      `Prelude.seq` Prelude.rnf updateTime
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf reference `Prelude.seq`
+              Prelude.rnf sseConfig `Prelude.seq`
+                Prelude.rnf status `Prelude.seq`
+                  Prelude.rnf statusMessage `Prelude.seq`
+                    Prelude.rnf storeArn `Prelude.seq`
+                      Prelude.rnf storeSizeBytes `Prelude.seq`
+                        Prelude.rnf updateTime

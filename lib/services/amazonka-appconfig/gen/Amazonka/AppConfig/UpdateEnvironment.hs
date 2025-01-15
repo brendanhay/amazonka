@@ -141,11 +141,11 @@ instance Prelude.Hashable UpdateEnvironment where
 
 instance Prelude.NFData UpdateEnvironment where
   rnf UpdateEnvironment' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf monitors
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf environmentId
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf monitors `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf applicationId `Prelude.seq`
+            Prelude.rnf environmentId
 
 instance Data.ToHeaders UpdateEnvironment where
   toHeaders =

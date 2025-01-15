@@ -141,10 +141,10 @@ instance
 
 instance Prelude.NFData RemoveLayerVersionPermission where
   rnf RemoveLayerVersionPermission' {..} =
-    Prelude.rnf revisionId
-      `Prelude.seq` Prelude.rnf layerName
-      `Prelude.seq` Prelude.rnf versionNumber
-      `Prelude.seq` Prelude.rnf statementId
+    Prelude.rnf revisionId `Prelude.seq`
+      Prelude.rnf layerName `Prelude.seq`
+        Prelude.rnf versionNumber `Prelude.seq`
+          Prelude.rnf statementId
 
 instance Data.ToHeaders RemoveLayerVersionPermission where
   toHeaders = Prelude.const Prelude.mempty

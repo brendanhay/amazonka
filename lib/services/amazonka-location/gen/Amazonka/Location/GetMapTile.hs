@@ -143,10 +143,10 @@ instance Prelude.Hashable GetMapTile where
 
 instance Prelude.NFData GetMapTile where
   rnf GetMapTile' {..} =
-    Prelude.rnf mapName
-      `Prelude.seq` Prelude.rnf x
-      `Prelude.seq` Prelude.rnf y
-      `Prelude.seq` Prelude.rnf z
+    Prelude.rnf mapName `Prelude.seq`
+      Prelude.rnf x `Prelude.seq`
+        Prelude.rnf y `Prelude.seq`
+          Prelude.rnf z
 
 instance Data.ToHeaders GetMapTile where
   toHeaders =
@@ -227,6 +227,6 @@ getMapTileResponse_httpStatus = Lens.lens (\GetMapTileResponse' {httpStatus} -> 
 
 instance Prelude.NFData GetMapTileResponse where
   rnf GetMapTileResponse' {..} =
-    Prelude.rnf blob
-      `Prelude.seq` Prelude.rnf contentType
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf blob `Prelude.seq`
+      Prelude.rnf contentType `Prelude.seq`
+        Prelude.rnf httpStatus

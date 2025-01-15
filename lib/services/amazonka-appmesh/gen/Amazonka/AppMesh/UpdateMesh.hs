@@ -125,9 +125,9 @@ instance Prelude.Hashable UpdateMesh where
 
 instance Prelude.NFData UpdateMesh where
   rnf UpdateMesh' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf spec
-      `Prelude.seq` Prelude.rnf meshName
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf spec `Prelude.seq`
+        Prelude.rnf meshName
 
 instance Data.ToHeaders UpdateMesh where
   toHeaders =
@@ -200,5 +200,5 @@ updateMeshResponse_mesh = Lens.lens (\UpdateMeshResponse' {mesh} -> mesh) (\s@Up
 
 instance Prelude.NFData UpdateMeshResponse where
   rnf UpdateMeshResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf mesh
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf mesh

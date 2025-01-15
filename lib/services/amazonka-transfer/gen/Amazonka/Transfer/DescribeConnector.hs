@@ -166,5 +166,5 @@ describeConnectorResponse_connector = Lens.lens (\DescribeConnectorResponse' {co
 
 instance Prelude.NFData DescribeConnectorResponse where
   rnf DescribeConnectorResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf connector
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf connector

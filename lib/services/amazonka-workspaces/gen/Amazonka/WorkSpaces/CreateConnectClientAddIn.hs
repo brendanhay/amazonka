@@ -128,9 +128,9 @@ instance Prelude.Hashable CreateConnectClientAddIn where
 
 instance Prelude.NFData CreateConnectClientAddIn where
   rnf CreateConnectClientAddIn' {..} =
-    Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf url
+    Prelude.rnf resourceId `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf url
 
 instance Data.ToHeaders CreateConnectClientAddIn where
   toHeaders =
@@ -207,5 +207,5 @@ instance
     CreateConnectClientAddInResponse
   where
   rnf CreateConnectClientAddInResponse' {..} =
-    Prelude.rnf addInId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf addInId `Prelude.seq`
+      Prelude.rnf httpStatus

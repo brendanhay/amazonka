@@ -431,12 +431,12 @@ instance Core.AWSPager DescribeDBSnapshots where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeDBSnapshots_marker
-          Lens..~ rs
-          Lens.^? describeDBSnapshotsResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeDBSnapshots_marker
+              Lens..~ rs
+              Lens.^? describeDBSnapshotsResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeDBSnapshots where
   type
@@ -449,9 +449,7 @@ instance Core.AWSRequest DescribeDBSnapshots where
       "DescribeDBSnapshotsResult"
       ( \s h x ->
           DescribeDBSnapshotsResponse'
-            Prelude.<$> ( x
-                            Data..@? "DBSnapshots"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "DBSnapshots" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "DBSnapshot")
                         )
             Prelude.<*> (x Data..@? "Marker")
@@ -473,15 +471,15 @@ instance Prelude.Hashable DescribeDBSnapshots where
 
 instance Prelude.NFData DescribeDBSnapshots where
   rnf DescribeDBSnapshots' {..} =
-    Prelude.rnf dbInstanceIdentifier
-      `Prelude.seq` Prelude.rnf dbSnapshotIdentifier
-      `Prelude.seq` Prelude.rnf dbiResourceId
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf includePublic
-      `Prelude.seq` Prelude.rnf includeShared
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf snapshotType
+    Prelude.rnf dbInstanceIdentifier `Prelude.seq`
+      Prelude.rnf dbSnapshotIdentifier `Prelude.seq`
+        Prelude.rnf dbiResourceId `Prelude.seq`
+          Prelude.rnf filters `Prelude.seq`
+            Prelude.rnf includePublic `Prelude.seq`
+              Prelude.rnf includeShared `Prelude.seq`
+                Prelude.rnf marker `Prelude.seq`
+                  Prelude.rnf maxRecords `Prelude.seq`
+                    Prelude.rnf snapshotType
 
 instance Data.ToHeaders DescribeDBSnapshots where
   toHeaders = Prelude.const Prelude.mempty
@@ -568,6 +566,6 @@ describeDBSnapshotsResponse_httpStatus = Lens.lens (\DescribeDBSnapshotsResponse
 
 instance Prelude.NFData DescribeDBSnapshotsResponse where
   rnf DescribeDBSnapshotsResponse' {..} =
-    Prelude.rnf dbSnapshots
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dbSnapshots `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -266,18 +266,18 @@ instance Prelude.Hashable UpdateProfileJob where
 
 instance Prelude.NFData UpdateProfileJob where
   rnf UpdateProfileJob' {..} =
-    Prelude.rnf configuration
-      `Prelude.seq` Prelude.rnf encryptionKeyArn
-      `Prelude.seq` Prelude.rnf encryptionMode
-      `Prelude.seq` Prelude.rnf jobSample
-      `Prelude.seq` Prelude.rnf logSubscription
-      `Prelude.seq` Prelude.rnf maxCapacity
-      `Prelude.seq` Prelude.rnf maxRetries
-      `Prelude.seq` Prelude.rnf timeout
-      `Prelude.seq` Prelude.rnf validationConfigurations
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf outputLocation
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf configuration `Prelude.seq`
+      Prelude.rnf encryptionKeyArn `Prelude.seq`
+        Prelude.rnf encryptionMode `Prelude.seq`
+          Prelude.rnf jobSample `Prelude.seq`
+            Prelude.rnf logSubscription `Prelude.seq`
+              Prelude.rnf maxCapacity `Prelude.seq`
+                Prelude.rnf maxRetries `Prelude.seq`
+                  Prelude.rnf timeout `Prelude.seq`
+                    Prelude.rnf validationConfigurations `Prelude.seq`
+                      Prelude.rnf name `Prelude.seq`
+                        Prelude.rnf outputLocation `Prelude.seq`
+                          Prelude.rnf roleArn
 
 instance Data.ToHeaders UpdateProfileJob where
   toHeaders =
@@ -363,5 +363,5 @@ updateProfileJobResponse_name = Lens.lens (\UpdateProfileJobResponse' {name} -> 
 
 instance Prelude.NFData UpdateProfileJobResponse where
   rnf UpdateProfileJobResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf name

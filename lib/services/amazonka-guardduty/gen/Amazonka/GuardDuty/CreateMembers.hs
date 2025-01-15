@@ -133,8 +133,8 @@ instance Prelude.Hashable CreateMembers where
 
 instance Prelude.NFData CreateMembers where
   rnf CreateMembers' {..} =
-    Prelude.rnf detectorId
-      `Prelude.seq` Prelude.rnf accountDetails
+    Prelude.rnf detectorId `Prelude.seq`
+      Prelude.rnf accountDetails
 
 instance Data.ToHeaders CreateMembers where
   toHeaders =
@@ -207,5 +207,5 @@ createMembersResponse_unprocessedAccounts = Lens.lens (\CreateMembersResponse' {
 
 instance Prelude.NFData CreateMembersResponse where
   rnf CreateMembersResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf unprocessedAccounts
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf unprocessedAccounts

@@ -155,5 +155,5 @@ deleteScheduleResponse_name = Lens.lens (\DeleteScheduleResponse' {name} -> name
 
 instance Prelude.NFData DeleteScheduleResponse where
   rnf DeleteScheduleResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf name

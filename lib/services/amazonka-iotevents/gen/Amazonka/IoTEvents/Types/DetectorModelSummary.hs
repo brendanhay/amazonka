@@ -92,6 +92,6 @@ instance Prelude.Hashable DetectorModelSummary where
 
 instance Prelude.NFData DetectorModelSummary where
   rnf DetectorModelSummary' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf detectorModelDescription
-      `Prelude.seq` Prelude.rnf detectorModelName
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf detectorModelDescription `Prelude.seq`
+        Prelude.rnf detectorModelName

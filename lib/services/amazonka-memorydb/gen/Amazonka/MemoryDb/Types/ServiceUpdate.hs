@@ -149,11 +149,11 @@ instance Prelude.Hashable ServiceUpdate where
 
 instance Prelude.NFData ServiceUpdate where
   rnf ServiceUpdate' {..} =
-    Prelude.rnf autoUpdateStartDate
-      `Prelude.seq` Prelude.rnf clusterName
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf nodesUpdated
-      `Prelude.seq` Prelude.rnf releaseDate
-      `Prelude.seq` Prelude.rnf serviceUpdateName
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf autoUpdateStartDate `Prelude.seq`
+      Prelude.rnf clusterName `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf nodesUpdated `Prelude.seq`
+            Prelude.rnf releaseDate `Prelude.seq`
+              Prelude.rnf serviceUpdateName `Prelude.seq`
+                Prelude.rnf status `Prelude.seq`
+                  Prelude.rnf type'

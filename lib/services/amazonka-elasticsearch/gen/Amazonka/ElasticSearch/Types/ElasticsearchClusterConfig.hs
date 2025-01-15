@@ -209,17 +209,17 @@ instance Prelude.Hashable ElasticsearchClusterConfig where
 
 instance Prelude.NFData ElasticsearchClusterConfig where
   rnf ElasticsearchClusterConfig' {..} =
-    Prelude.rnf coldStorageOptions
-      `Prelude.seq` Prelude.rnf dedicatedMasterCount
-      `Prelude.seq` Prelude.rnf dedicatedMasterEnabled
-      `Prelude.seq` Prelude.rnf dedicatedMasterType
-      `Prelude.seq` Prelude.rnf instanceCount
-      `Prelude.seq` Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf warmCount
-      `Prelude.seq` Prelude.rnf warmEnabled
-      `Prelude.seq` Prelude.rnf warmType
-      `Prelude.seq` Prelude.rnf zoneAwarenessConfig
-      `Prelude.seq` Prelude.rnf zoneAwarenessEnabled
+    Prelude.rnf coldStorageOptions `Prelude.seq`
+      Prelude.rnf dedicatedMasterCount `Prelude.seq`
+        Prelude.rnf dedicatedMasterEnabled `Prelude.seq`
+          Prelude.rnf dedicatedMasterType `Prelude.seq`
+            Prelude.rnf instanceCount `Prelude.seq`
+              Prelude.rnf instanceType `Prelude.seq`
+                Prelude.rnf warmCount `Prelude.seq`
+                  Prelude.rnf warmEnabled `Prelude.seq`
+                    Prelude.rnf warmType `Prelude.seq`
+                      Prelude.rnf zoneAwarenessConfig `Prelude.seq`
+                        Prelude.rnf zoneAwarenessEnabled
 
 instance Data.ToJSON ElasticsearchClusterConfig where
   toJSON ElasticsearchClusterConfig' {..} =

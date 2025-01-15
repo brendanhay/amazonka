@@ -147,12 +147,12 @@ instance Core.AWSPager ListWorldExportJobs where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listWorldExportJobs_nextToken
-          Lens..~ rs
-          Lens.^? listWorldExportJobsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listWorldExportJobs_nextToken
+              Lens..~ rs
+              Lens.^? listWorldExportJobsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListWorldExportJobs where
   type
@@ -181,9 +181,9 @@ instance Prelude.Hashable ListWorldExportJobs where
 
 instance Prelude.NFData ListWorldExportJobs where
   rnf ListWorldExportJobs' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListWorldExportJobs where
   toHeaders =
@@ -277,6 +277,6 @@ listWorldExportJobsResponse_worldExportJobSummaries = Lens.lens (\ListWorldExpor
 
 instance Prelude.NFData ListWorldExportJobsResponse where
   rnf ListWorldExportJobsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf worldExportJobSummaries
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf worldExportJobSummaries

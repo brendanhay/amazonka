@@ -179,5 +179,5 @@ instance
     GetCallAnalyticsCategoryResponse
   where
   rnf GetCallAnalyticsCategoryResponse' {..} =
-    Prelude.rnf categoryProperties
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf categoryProperties `Prelude.seq`
+      Prelude.rnf httpStatus

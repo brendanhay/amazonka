@@ -110,8 +110,8 @@ instance Prelude.Hashable DeleteBranch where
 
 instance Prelude.NFData DeleteBranch where
   rnf DeleteBranch' {..} =
-    Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf branchName
+    Prelude.rnf appId `Prelude.seq`
+      Prelude.rnf branchName
 
 instance Data.ToHeaders DeleteBranch where
   toHeaders =
@@ -183,5 +183,5 @@ deleteBranchResponse_branch = Lens.lens (\DeleteBranchResponse' {branch} -> bran
 
 instance Prelude.NFData DeleteBranchResponse where
   rnf DeleteBranchResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf branch
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf branch

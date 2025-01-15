@@ -225,13 +225,13 @@ instance Prelude.Hashable GetCampaignDateRangeKpi where
 
 instance Prelude.NFData GetCampaignDateRangeKpi where
   rnf GetCampaignDateRangeKpi' {..} =
-    Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf pageSize
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf kpiName
-      `Prelude.seq` Prelude.rnf campaignId
+    Prelude.rnf endTime `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf pageSize `Prelude.seq`
+          Prelude.rnf startTime `Prelude.seq`
+            Prelude.rnf applicationId `Prelude.seq`
+              Prelude.rnf kpiName `Prelude.seq`
+                Prelude.rnf campaignId
 
 instance Data.ToHeaders GetCampaignDateRangeKpi where
   toHeaders =
@@ -312,5 +312,5 @@ instance
     GetCampaignDateRangeKpiResponse
   where
   rnf GetCampaignDateRangeKpiResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf campaignDateRangeKpiResponse
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf campaignDateRangeKpiResponse

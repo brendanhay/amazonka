@@ -221,5 +221,5 @@ instance
     DescribeAutoScalingConfigurationResponse
   where
   rnf DescribeAutoScalingConfigurationResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf autoScalingConfiguration
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf autoScalingConfiguration

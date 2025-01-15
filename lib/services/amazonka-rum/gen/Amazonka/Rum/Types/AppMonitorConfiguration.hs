@@ -283,15 +283,15 @@ instance Prelude.Hashable AppMonitorConfiguration where
 
 instance Prelude.NFData AppMonitorConfiguration where
   rnf AppMonitorConfiguration' {..} =
-    Prelude.rnf allowCookies
-      `Prelude.seq` Prelude.rnf enableXRay
-      `Prelude.seq` Prelude.rnf excludedPages
-      `Prelude.seq` Prelude.rnf favoritePages
-      `Prelude.seq` Prelude.rnf guestRoleArn
-      `Prelude.seq` Prelude.rnf identityPoolId
-      `Prelude.seq` Prelude.rnf includedPages
-      `Prelude.seq` Prelude.rnf sessionSampleRate
-      `Prelude.seq` Prelude.rnf telemetries
+    Prelude.rnf allowCookies `Prelude.seq`
+      Prelude.rnf enableXRay `Prelude.seq`
+        Prelude.rnf excludedPages `Prelude.seq`
+          Prelude.rnf favoritePages `Prelude.seq`
+            Prelude.rnf guestRoleArn `Prelude.seq`
+              Prelude.rnf identityPoolId `Prelude.seq`
+                Prelude.rnf includedPages `Prelude.seq`
+                  Prelude.rnf sessionSampleRate `Prelude.seq`
+                    Prelude.rnf telemetries
 
 instance Data.ToJSON AppMonitorConfiguration where
   toJSON AppMonitorConfiguration' {..} =

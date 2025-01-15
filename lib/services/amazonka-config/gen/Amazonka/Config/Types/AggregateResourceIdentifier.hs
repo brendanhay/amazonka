@@ -129,11 +129,11 @@ instance Prelude.Hashable AggregateResourceIdentifier where
 
 instance Prelude.NFData AggregateResourceIdentifier where
   rnf AggregateResourceIdentifier' {..} =
-    Prelude.rnf resourceName
-      `Prelude.seq` Prelude.rnf sourceAccountId
-      `Prelude.seq` Prelude.rnf sourceRegion
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf resourceType
+    Prelude.rnf resourceName `Prelude.seq`
+      Prelude.rnf sourceAccountId `Prelude.seq`
+        Prelude.rnf sourceRegion `Prelude.seq`
+          Prelude.rnf resourceId `Prelude.seq`
+            Prelude.rnf resourceType
 
 instance Data.ToJSON AggregateResourceIdentifier where
   toJSON AggregateResourceIdentifier' {..} =

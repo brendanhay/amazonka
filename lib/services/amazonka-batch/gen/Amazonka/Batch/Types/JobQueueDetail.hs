@@ -230,12 +230,12 @@ instance Prelude.Hashable JobQueueDetail where
 
 instance Prelude.NFData JobQueueDetail where
   rnf JobQueueDetail' {..} =
-    Prelude.rnf schedulingPolicyArn
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusReason
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf jobQueueName
-      `Prelude.seq` Prelude.rnf jobQueueArn
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf priority
-      `Prelude.seq` Prelude.rnf computeEnvironmentOrder
+    Prelude.rnf schedulingPolicyArn `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf statusReason `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf jobQueueName `Prelude.seq`
+              Prelude.rnf jobQueueArn `Prelude.seq`
+                Prelude.rnf state `Prelude.seq`
+                  Prelude.rnf priority `Prelude.seq`
+                    Prelude.rnf computeEnvironmentOrder

@@ -70,9 +70,7 @@ environmentDescriptionsMessage_nextToken = Lens.lens (\EnvironmentDescriptionsMe
 instance Data.FromXML EnvironmentDescriptionsMessage where
   parseXML x =
     EnvironmentDescriptionsMessage'
-      Prelude.<$> ( x
-                      Data..@? "Environments"
-                      Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "Environments" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "NextToken")
@@ -93,5 +91,5 @@ instance
     EnvironmentDescriptionsMessage
   where
   rnf EnvironmentDescriptionsMessage' {..} =
-    Prelude.rnf environments
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf environments `Prelude.seq`
+      Prelude.rnf nextToken

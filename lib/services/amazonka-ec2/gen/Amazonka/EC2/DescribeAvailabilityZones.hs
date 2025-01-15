@@ -283,11 +283,11 @@ instance Prelude.Hashable DescribeAvailabilityZones where
 
 instance Prelude.NFData DescribeAvailabilityZones where
   rnf DescribeAvailabilityZones' {..} =
-    Prelude.rnf allAvailabilityZones
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf zoneIds
-      `Prelude.seq` Prelude.rnf zoneNames
+    Prelude.rnf allAvailabilityZones `Prelude.seq`
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf filters `Prelude.seq`
+          Prelude.rnf zoneIds `Prelude.seq`
+            Prelude.rnf zoneNames
 
 instance Data.ToHeaders DescribeAvailabilityZones where
   toHeaders = Prelude.const Prelude.mempty
@@ -359,5 +359,5 @@ instance
     DescribeAvailabilityZonesResponse
   where
   rnf DescribeAvailabilityZonesResponse' {..} =
-    Prelude.rnf availabilityZones
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf availabilityZones `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -117,11 +117,11 @@ instance Prelude.Hashable RdsHttpEndpointConfig where
 
 instance Prelude.NFData RdsHttpEndpointConfig where
   rnf RdsHttpEndpointConfig' {..} =
-    Prelude.rnf awsRegion
-      `Prelude.seq` Prelude.rnf awsSecretStoreArn
-      `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf dbClusterIdentifier
-      `Prelude.seq` Prelude.rnf schema
+    Prelude.rnf awsRegion `Prelude.seq`
+      Prelude.rnf awsSecretStoreArn `Prelude.seq`
+        Prelude.rnf databaseName `Prelude.seq`
+          Prelude.rnf dbClusterIdentifier `Prelude.seq`
+            Prelude.rnf schema
 
 instance Data.ToJSON RdsHttpEndpointConfig where
   toJSON RdsHttpEndpointConfig' {..} =

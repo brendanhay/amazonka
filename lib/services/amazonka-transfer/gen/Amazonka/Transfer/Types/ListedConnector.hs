@@ -91,6 +91,6 @@ instance Prelude.Hashable ListedConnector where
 
 instance Prelude.NFData ListedConnector where
   rnf ListedConnector' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf connectorId
-      `Prelude.seq` Prelude.rnf url
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf connectorId `Prelude.seq`
+        Prelude.rnf url

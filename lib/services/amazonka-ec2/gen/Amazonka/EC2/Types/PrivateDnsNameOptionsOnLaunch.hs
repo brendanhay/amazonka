@@ -112,6 +112,6 @@ instance
 
 instance Prelude.NFData PrivateDnsNameOptionsOnLaunch where
   rnf PrivateDnsNameOptionsOnLaunch' {..} =
-    Prelude.rnf enableResourceNameDnsAAAARecord
-      `Prelude.seq` Prelude.rnf enableResourceNameDnsARecord
-      `Prelude.seq` Prelude.rnf hostnameType
+    Prelude.rnf enableResourceNameDnsAAAARecord `Prelude.seq`
+      Prelude.rnf enableResourceNameDnsARecord `Prelude.seq`
+        Prelude.rnf hostnameType

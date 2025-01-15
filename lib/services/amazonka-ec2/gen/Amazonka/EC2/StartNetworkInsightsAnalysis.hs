@@ -180,12 +180,12 @@ instance
 
 instance Prelude.NFData StartNetworkInsightsAnalysis where
   rnf StartNetworkInsightsAnalysis' {..} =
-    Prelude.rnf additionalAccounts
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filterInArns
-      `Prelude.seq` Prelude.rnf tagSpecifications
-      `Prelude.seq` Prelude.rnf networkInsightsPathId
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf additionalAccounts `Prelude.seq`
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf filterInArns `Prelude.seq`
+          Prelude.rnf tagSpecifications `Prelude.seq`
+            Prelude.rnf networkInsightsPathId `Prelude.seq`
+              Prelude.rnf clientToken
 
 instance Data.ToHeaders StartNetworkInsightsAnalysis where
   toHeaders = Prelude.const Prelude.mempty
@@ -264,5 +264,5 @@ instance
     StartNetworkInsightsAnalysisResponse
   where
   rnf StartNetworkInsightsAnalysisResponse' {..} =
-    Prelude.rnf networkInsightsAnalysis
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf networkInsightsAnalysis `Prelude.seq`
+      Prelude.rnf httpStatus

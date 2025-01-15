@@ -212,14 +212,14 @@ instance Prelude.Hashable UpdateContent where
 
 instance Prelude.NFData UpdateContent where
   rnf UpdateContent' {..} =
-    Prelude.rnf metadata
-      `Prelude.seq` Prelude.rnf overrideLinkOutUri
-      `Prelude.seq` Prelude.rnf removeOverrideLinkOutUri
-      `Prelude.seq` Prelude.rnf revisionId
-      `Prelude.seq` Prelude.rnf title
-      `Prelude.seq` Prelude.rnf uploadId
-      `Prelude.seq` Prelude.rnf contentId
-      `Prelude.seq` Prelude.rnf knowledgeBaseId
+    Prelude.rnf metadata `Prelude.seq`
+      Prelude.rnf overrideLinkOutUri `Prelude.seq`
+        Prelude.rnf removeOverrideLinkOutUri `Prelude.seq`
+          Prelude.rnf revisionId `Prelude.seq`
+            Prelude.rnf title `Prelude.seq`
+              Prelude.rnf uploadId `Prelude.seq`
+                Prelude.rnf contentId `Prelude.seq`
+                  Prelude.rnf knowledgeBaseId
 
 instance Data.ToHeaders UpdateContent where
   toHeaders =
@@ -299,5 +299,5 @@ updateContentResponse_httpStatus = Lens.lens (\UpdateContentResponse' {httpStatu
 
 instance Prelude.NFData UpdateContentResponse where
   rnf UpdateContentResponse' {..} =
-    Prelude.rnf content
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf content `Prelude.seq`
+      Prelude.rnf httpStatus

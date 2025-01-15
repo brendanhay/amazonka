@@ -212,15 +212,15 @@ instance Prelude.Hashable ProjectSummary where
 
 instance Prelude.NFData ProjectSummary where
   rnf ProjectSummary' {..} =
-    Prelude.rnf activeExperimentCount
-      `Prelude.seq` Prelude.rnf activeLaunchCount
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf experimentCount
-      `Prelude.seq` Prelude.rnf featureCount
-      `Prelude.seq` Prelude.rnf launchCount
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf activeExperimentCount `Prelude.seq`
+      Prelude.rnf activeLaunchCount `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf experimentCount `Prelude.seq`
+            Prelude.rnf featureCount `Prelude.seq`
+              Prelude.rnf launchCount `Prelude.seq`
+                Prelude.rnf tags `Prelude.seq`
+                  Prelude.rnf arn `Prelude.seq`
+                    Prelude.rnf createdTime `Prelude.seq`
+                      Prelude.rnf lastUpdatedTime `Prelude.seq`
+                        Prelude.rnf name `Prelude.seq`
+                          Prelude.rnf status

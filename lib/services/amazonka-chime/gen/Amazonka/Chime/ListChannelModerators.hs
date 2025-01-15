@@ -145,10 +145,10 @@ instance Prelude.Hashable ListChannelModerators where
 
 instance Prelude.NFData ListChannelModerators where
   rnf ListChannelModerators' {..} =
-    Prelude.rnf chimeBearer
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf channelArn
+    Prelude.rnf chimeBearer `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf channelArn
 
 instance Data.ToHeaders ListChannelModerators where
   toHeaders ListChannelModerators' {..} =
@@ -229,7 +229,7 @@ listChannelModeratorsResponse_httpStatus = Lens.lens (\ListChannelModeratorsResp
 
 instance Prelude.NFData ListChannelModeratorsResponse where
   rnf ListChannelModeratorsResponse' {..} =
-    Prelude.rnf channelArn
-      `Prelude.seq` Prelude.rnf channelModerators
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf channelArn `Prelude.seq`
+      Prelude.rnf channelModerators `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf httpStatus

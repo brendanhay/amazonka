@@ -245,18 +245,18 @@ instance
     AssessmentFrameworkShareRequest
   where
   rnf AssessmentFrameworkShareRequest' {..} =
-    Prelude.rnf comment
-      `Prelude.seq` Prelude.rnf complianceType
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf customControlsCount
-      `Prelude.seq` Prelude.rnf destinationAccount
-      `Prelude.seq` Prelude.rnf destinationRegion
-      `Prelude.seq` Prelude.rnf expirationTime
-      `Prelude.seq` Prelude.rnf frameworkDescription
-      `Prelude.seq` Prelude.rnf frameworkId
-      `Prelude.seq` Prelude.rnf frameworkName
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf lastUpdated
-      `Prelude.seq` Prelude.rnf sourceAccount
-      `Prelude.seq` Prelude.rnf standardControlsCount
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf comment `Prelude.seq`
+      Prelude.rnf complianceType `Prelude.seq`
+        Prelude.rnf creationTime `Prelude.seq`
+          Prelude.rnf customControlsCount `Prelude.seq`
+            Prelude.rnf destinationAccount `Prelude.seq`
+              Prelude.rnf destinationRegion `Prelude.seq`
+                Prelude.rnf expirationTime `Prelude.seq`
+                  Prelude.rnf frameworkDescription `Prelude.seq`
+                    Prelude.rnf frameworkId `Prelude.seq`
+                      Prelude.rnf frameworkName `Prelude.seq`
+                        Prelude.rnf id `Prelude.seq`
+                          Prelude.rnf lastUpdated `Prelude.seq`
+                            Prelude.rnf sourceAccount `Prelude.seq`
+                              Prelude.rnf standardControlsCount `Prelude.seq`
+                                Prelude.rnf status

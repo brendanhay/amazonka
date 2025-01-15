@@ -138,10 +138,10 @@ instance Prelude.Hashable DecreaseReplicationFactor where
 
 instance Prelude.NFData DecreaseReplicationFactor where
   rnf DecreaseReplicationFactor' {..} =
-    Prelude.rnf availabilityZones
-      `Prelude.seq` Prelude.rnf nodeIdsToRemove
-      `Prelude.seq` Prelude.rnf clusterName
-      `Prelude.seq` Prelude.rnf newReplicationFactor'
+    Prelude.rnf availabilityZones `Prelude.seq`
+      Prelude.rnf nodeIdsToRemove `Prelude.seq`
+        Prelude.rnf clusterName `Prelude.seq`
+          Prelude.rnf newReplicationFactor'
 
 instance Data.ToHeaders DecreaseReplicationFactor where
   toHeaders =
@@ -227,5 +227,5 @@ instance
     DecreaseReplicationFactorResponse
   where
   rnf DecreaseReplicationFactorResponse' {..} =
-    Prelude.rnf cluster
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf cluster `Prelude.seq`
+      Prelude.rnf httpStatus

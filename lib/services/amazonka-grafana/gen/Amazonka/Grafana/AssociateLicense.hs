@@ -112,8 +112,8 @@ instance Prelude.Hashable AssociateLicense where
 
 instance Prelude.NFData AssociateLicense where
   rnf AssociateLicense' {..} =
-    Prelude.rnf licenseType
-      `Prelude.seq` Prelude.rnf workspaceId
+    Prelude.rnf licenseType `Prelude.seq`
+      Prelude.rnf workspaceId
 
 instance Data.ToHeaders AssociateLicense where
   toHeaders =
@@ -184,5 +184,5 @@ associateLicenseResponse_workspace = Lens.lens (\AssociateLicenseResponse' {work
 
 instance Prelude.NFData AssociateLicenseResponse where
   rnf AssociateLicenseResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf workspace
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf workspace

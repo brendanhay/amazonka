@@ -234,10 +234,10 @@ instance Prelude.Hashable ModifyCustomDBEngineVersion where
 
 instance Prelude.NFData ModifyCustomDBEngineVersion where
   rnf ModifyCustomDBEngineVersion' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf engine
-      `Prelude.seq` Prelude.rnf engineVersion
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf engine `Prelude.seq`
+          Prelude.rnf engineVersion
 
 instance Data.ToHeaders ModifyCustomDBEngineVersion where
   toHeaders = Prelude.const Prelude.mempty

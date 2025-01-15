@@ -207,12 +207,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeHostReservationOfferings_nextToken
-          Lens..~ rs
-          Lens.^? describeHostReservationOfferingsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeHostReservationOfferings_nextToken
+              Lens..~ rs
+              Lens.^? describeHostReservationOfferingsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -228,9 +228,7 @@ instance
       ( \s h x ->
           DescribeHostReservationOfferingsResponse'
             Prelude.<$> (x Data..@? "nextToken")
-            Prelude.<*> ( x
-                            Data..@? "offeringSet"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "offeringSet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -256,12 +254,12 @@ instance
     DescribeHostReservationOfferings
   where
   rnf DescribeHostReservationOfferings' {..} =
-    Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf maxDuration
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf minDuration
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf offeringId
+    Prelude.rnf filter' `Prelude.seq`
+      Prelude.rnf maxDuration `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf minDuration `Prelude.seq`
+            Prelude.rnf nextToken `Prelude.seq`
+              Prelude.rnf offeringId
 
 instance
   Data.ToHeaders
@@ -350,6 +348,6 @@ instance
     DescribeHostReservationOfferingsResponse
   where
   rnf DescribeHostReservationOfferingsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf offeringSet
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf offeringSet `Prelude.seq`
+        Prelude.rnf httpStatus

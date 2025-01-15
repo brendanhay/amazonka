@@ -181,8 +181,8 @@ instance Prelude.Hashable DeletePushTemplate where
 
 instance Prelude.NFData DeletePushTemplate where
   rnf DeletePushTemplate' {..} =
-    Prelude.rnf version
-      `Prelude.seq` Prelude.rnf templateName
+    Prelude.rnf version `Prelude.seq`
+      Prelude.rnf templateName
 
 instance Data.ToHeaders DeletePushTemplate where
   toHeaders =
@@ -248,5 +248,5 @@ deletePushTemplateResponse_messageBody = Lens.lens (\DeletePushTemplateResponse'
 
 instance Prelude.NFData DeletePushTemplateResponse where
   rnf DeletePushTemplateResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf messageBody
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf messageBody

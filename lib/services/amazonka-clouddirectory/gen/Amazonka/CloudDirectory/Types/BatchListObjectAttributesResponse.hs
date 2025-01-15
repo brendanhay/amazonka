@@ -96,5 +96,5 @@ instance
     BatchListObjectAttributesResponse
   where
   rnf BatchListObjectAttributesResponse' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf attributes `Prelude.seq`
+      Prelude.rnf nextToken

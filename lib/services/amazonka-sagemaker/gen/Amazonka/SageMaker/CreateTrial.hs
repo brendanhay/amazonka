@@ -163,11 +163,11 @@ instance Prelude.Hashable CreateTrial where
 
 instance Prelude.NFData CreateTrial where
   rnf CreateTrial' {..} =
-    Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf metadataProperties
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf trialName
-      `Prelude.seq` Prelude.rnf experimentName
+    Prelude.rnf displayName `Prelude.seq`
+      Prelude.rnf metadataProperties `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf trialName `Prelude.seq`
+            Prelude.rnf experimentName
 
 instance Data.ToHeaders CreateTrial where
   toHeaders =
@@ -242,5 +242,5 @@ createTrialResponse_httpStatus = Lens.lens (\CreateTrialResponse' {httpStatus} -
 
 instance Prelude.NFData CreateTrialResponse where
   rnf CreateTrialResponse' {..} =
-    Prelude.rnf trialArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf trialArn `Prelude.seq`
+      Prelude.rnf httpStatus

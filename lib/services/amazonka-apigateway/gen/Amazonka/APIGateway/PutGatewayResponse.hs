@@ -151,11 +151,11 @@ instance Prelude.Hashable PutGatewayResponse where
 
 instance Prelude.NFData PutGatewayResponse where
   rnf PutGatewayResponse' {..} =
-    Prelude.rnf responseParameters
-      `Prelude.seq` Prelude.rnf responseTemplates
-      `Prelude.seq` Prelude.rnf statusCode
-      `Prelude.seq` Prelude.rnf restApiId
-      `Prelude.seq` Prelude.rnf responseType
+    Prelude.rnf responseParameters `Prelude.seq`
+      Prelude.rnf responseTemplates `Prelude.seq`
+        Prelude.rnf statusCode `Prelude.seq`
+          Prelude.rnf restApiId `Prelude.seq`
+            Prelude.rnf responseType
 
 instance Data.ToHeaders PutGatewayResponse where
   toHeaders =

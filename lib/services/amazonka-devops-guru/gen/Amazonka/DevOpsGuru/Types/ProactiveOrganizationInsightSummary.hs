@@ -192,13 +192,13 @@ instance
     ProactiveOrganizationInsightSummary
   where
   rnf ProactiveOrganizationInsightSummary' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf insightTimeRange
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf organizationalUnitId
-      `Prelude.seq` Prelude.rnf predictionTimeRange
-      `Prelude.seq` Prelude.rnf resourceCollection
-      `Prelude.seq` Prelude.rnf serviceCollection
-      `Prelude.seq` Prelude.rnf severity
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf insightTimeRange `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf organizationalUnitId `Prelude.seq`
+              Prelude.rnf predictionTimeRange `Prelude.seq`
+                Prelude.rnf resourceCollection `Prelude.seq`
+                  Prelude.rnf serviceCollection `Prelude.seq`
+                    Prelude.rnf severity `Prelude.seq`
+                      Prelude.rnf status

@@ -102,9 +102,9 @@ instance Prelude.Hashable Filters where
 
 instance Prelude.NFData Filters where
   rnf Filters' {..} =
-    Prelude.rnf extendedKeyUsage
-      `Prelude.seq` Prelude.rnf keyTypes
-      `Prelude.seq` Prelude.rnf keyUsage
+    Prelude.rnf extendedKeyUsage `Prelude.seq`
+      Prelude.rnf keyTypes `Prelude.seq`
+        Prelude.rnf keyUsage
 
 instance Data.ToJSON Filters where
   toJSON Filters' {..} =

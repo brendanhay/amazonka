@@ -184,10 +184,10 @@ instance Prelude.Hashable DeleteInventory where
 
 instance Prelude.NFData DeleteInventory where
   rnf DeleteInventory' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf schemaDeleteOption
-      `Prelude.seq` Prelude.rnf typeName
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf schemaDeleteOption `Prelude.seq`
+          Prelude.rnf typeName
 
 instance Data.ToHeaders DeleteInventory where
   toHeaders =
@@ -297,7 +297,7 @@ deleteInventoryResponse_httpStatus = Lens.lens (\DeleteInventoryResponse' {httpS
 
 instance Prelude.NFData DeleteInventoryResponse where
   rnf DeleteInventoryResponse' {..} =
-    Prelude.rnf deletionId
-      `Prelude.seq` Prelude.rnf deletionSummary
-      `Prelude.seq` Prelude.rnf typeName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf deletionId `Prelude.seq`
+      Prelude.rnf deletionSummary `Prelude.seq`
+        Prelude.rnf typeName `Prelude.seq`
+          Prelude.rnf httpStatus

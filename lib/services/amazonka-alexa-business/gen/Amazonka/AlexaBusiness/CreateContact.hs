@@ -196,14 +196,14 @@ instance Prelude.Hashable CreateContact where
 
 instance Prelude.NFData CreateContact where
   rnf CreateContact' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf lastName
-      `Prelude.seq` Prelude.rnf phoneNumber
-      `Prelude.seq` Prelude.rnf phoneNumbers
-      `Prelude.seq` Prelude.rnf sipAddresses
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf firstName
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf displayName `Prelude.seq`
+        Prelude.rnf lastName `Prelude.seq`
+          Prelude.rnf phoneNumber `Prelude.seq`
+            Prelude.rnf phoneNumbers `Prelude.seq`
+              Prelude.rnf sipAddresses `Prelude.seq`
+                Prelude.rnf tags `Prelude.seq`
+                  Prelude.rnf firstName
 
 instance Data.ToHeaders CreateContact where
   toHeaders =
@@ -283,5 +283,5 @@ createContactResponse_httpStatus = Lens.lens (\CreateContactResponse' {httpStatu
 
 instance Prelude.NFData CreateContactResponse where
   rnf CreateContactResponse' {..} =
-    Prelude.rnf contactArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf contactArn `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -147,10 +147,10 @@ instance Prelude.Hashable CreateCase where
 
 instance Prelude.NFData CreateCase where
   rnf CreateCase' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf domainId
-      `Prelude.seq` Prelude.rnf fields
-      `Prelude.seq` Prelude.rnf templateId
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf domainId `Prelude.seq`
+        Prelude.rnf fields `Prelude.seq`
+          Prelude.rnf templateId
 
 instance Data.ToHeaders CreateCase where
   toHeaders =
@@ -234,6 +234,6 @@ createCaseResponse_caseId = Lens.lens (\CreateCaseResponse' {caseId} -> caseId) 
 
 instance Prelude.NFData CreateCaseResponse where
   rnf CreateCaseResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf caseArn
-      `Prelude.seq` Prelude.rnf caseId
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf caseArn `Prelude.seq`
+        Prelude.rnf caseId

@@ -137,9 +137,9 @@ instance Prelude.Hashable GetDataEndpoint where
 
 instance Prelude.NFData GetDataEndpoint where
   rnf GetDataEndpoint' {..} =
-    Prelude.rnf streamARN
-      `Prelude.seq` Prelude.rnf streamName
-      `Prelude.seq` Prelude.rnf aPIName
+    Prelude.rnf streamARN `Prelude.seq`
+      Prelude.rnf streamName `Prelude.seq`
+        Prelude.rnf aPIName
 
 instance Data.ToHeaders GetDataEndpoint where
   toHeaders = Prelude.const Prelude.mempty
@@ -204,5 +204,5 @@ getDataEndpointResponse_httpStatus = Lens.lens (\GetDataEndpointResponse' {httpS
 
 instance Prelude.NFData GetDataEndpointResponse where
   rnf GetDataEndpointResponse' {..} =
-    Prelude.rnf dataEndpoint
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dataEndpoint `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -129,11 +129,11 @@ instance Prelude.Hashable OpenSearchAction where
 
 instance Prelude.NFData OpenSearchAction where
   rnf OpenSearchAction' {..} =
-    Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf endpoint
-      `Prelude.seq` Prelude.rnf index
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf roleArn `Prelude.seq`
+      Prelude.rnf endpoint `Prelude.seq`
+        Prelude.rnf index `Prelude.seq`
+          Prelude.rnf type' `Prelude.seq`
+            Prelude.rnf id
 
 instance Data.ToJSON OpenSearchAction where
   toJSON OpenSearchAction' {..} =

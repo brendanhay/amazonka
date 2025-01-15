@@ -167,12 +167,12 @@ instance Core.AWSPager ListObjectAttributes where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listObjectAttributes_nextToken
-          Lens..~ rs
-          Lens.^? listObjectAttributesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listObjectAttributes_nextToken
+              Lens..~ rs
+              Lens.^? listObjectAttributesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListObjectAttributes where
   type
@@ -201,12 +201,12 @@ instance Prelude.Hashable ListObjectAttributes where
 
 instance Prelude.NFData ListObjectAttributes where
   rnf ListObjectAttributes' {..} =
-    Prelude.rnf consistencyLevel
-      `Prelude.seq` Prelude.rnf facetFilter
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf directoryArn
-      `Prelude.seq` Prelude.rnf objectReference
+    Prelude.rnf consistencyLevel `Prelude.seq`
+      Prelude.rnf facetFilter `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf directoryArn `Prelude.seq`
+              Prelude.rnf objectReference
 
 instance Data.ToHeaders ListObjectAttributes where
   toHeaders ListObjectAttributes' {..} =
@@ -288,6 +288,6 @@ listObjectAttributesResponse_httpStatus = Lens.lens (\ListObjectAttributesRespon
 
 instance Prelude.NFData ListObjectAttributesResponse where
   rnf ListObjectAttributesResponse' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf attributes `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

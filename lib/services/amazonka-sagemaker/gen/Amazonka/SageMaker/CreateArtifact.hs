@@ -160,12 +160,12 @@ instance Prelude.Hashable CreateArtifact where
 
 instance Prelude.NFData CreateArtifact where
   rnf CreateArtifact' {..} =
-    Prelude.rnf artifactName
-      `Prelude.seq` Prelude.rnf metadataProperties
-      `Prelude.seq` Prelude.rnf properties
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf artifactType
+    Prelude.rnf artifactName `Prelude.seq`
+      Prelude.rnf metadataProperties `Prelude.seq`
+        Prelude.rnf properties `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf source `Prelude.seq`
+              Prelude.rnf artifactType
 
 instance Data.ToHeaders CreateArtifact where
   toHeaders =
@@ -241,5 +241,5 @@ createArtifactResponse_httpStatus = Lens.lens (\CreateArtifactResponse' {httpSta
 
 instance Prelude.NFData CreateArtifactResponse where
   rnf CreateArtifactResponse' {..} =
-    Prelude.rnf artifactArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf artifactArn `Prelude.seq`
+      Prelude.rnf httpStatus

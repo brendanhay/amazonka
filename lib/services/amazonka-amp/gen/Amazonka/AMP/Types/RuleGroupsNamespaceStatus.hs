@@ -84,5 +84,5 @@ instance Prelude.Hashable RuleGroupsNamespaceStatus where
 
 instance Prelude.NFData RuleGroupsNamespaceStatus where
   rnf RuleGroupsNamespaceStatus' {..} =
-    Prelude.rnf statusReason
-      `Prelude.seq` Prelude.rnf statusCode
+    Prelude.rnf statusReason `Prelude.seq`
+      Prelude.rnf statusCode

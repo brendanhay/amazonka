@@ -190,5 +190,5 @@ instance
     DetectDominantLanguageResponse
   where
   rnf DetectDominantLanguageResponse' {..} =
-    Prelude.rnf languages
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf languages `Prelude.seq`
+      Prelude.rnf httpStatus

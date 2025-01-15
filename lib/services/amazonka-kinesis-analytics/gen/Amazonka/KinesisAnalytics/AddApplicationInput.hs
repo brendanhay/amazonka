@@ -166,9 +166,9 @@ instance Prelude.Hashable AddApplicationInput where
 
 instance Prelude.NFData AddApplicationInput where
   rnf AddApplicationInput' {..} =
-    Prelude.rnf applicationName
-      `Prelude.seq` Prelude.rnf currentApplicationVersionId
-      `Prelude.seq` Prelude.rnf input
+    Prelude.rnf applicationName `Prelude.seq`
+      Prelude.rnf currentApplicationVersionId `Prelude.seq`
+        Prelude.rnf input
 
 instance Data.ToHeaders AddApplicationInput where
   toHeaders =

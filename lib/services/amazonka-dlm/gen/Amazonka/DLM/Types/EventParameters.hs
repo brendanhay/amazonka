@@ -133,9 +133,9 @@ instance Prelude.Hashable EventParameters where
 
 instance Prelude.NFData EventParameters where
   rnf EventParameters' {..} =
-    Prelude.rnf eventType
-      `Prelude.seq` Prelude.rnf snapshotOwner
-      `Prelude.seq` Prelude.rnf descriptionRegex
+    Prelude.rnf eventType `Prelude.seq`
+      Prelude.rnf snapshotOwner `Prelude.seq`
+        Prelude.rnf descriptionRegex
 
 instance Data.ToJSON EventParameters where
   toJSON EventParameters' {..} =

@@ -115,5 +115,5 @@ instance Prelude.Hashable RuleGroupSummary where
 
 instance Prelude.NFData RuleGroupSummary where
   rnf RuleGroupSummary' {..} =
-    Prelude.rnf ruleGroupId
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf ruleGroupId `Prelude.seq`
+      Prelude.rnf name

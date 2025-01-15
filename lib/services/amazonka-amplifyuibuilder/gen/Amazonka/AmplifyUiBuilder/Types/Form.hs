@@ -229,15 +229,15 @@ instance Prelude.Hashable Form where
 
 instance Prelude.NFData Form where
   rnf Form' {..} =
-    Prelude.rnf cta
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf dataType
-      `Prelude.seq` Prelude.rnf environmentName
-      `Prelude.seq` Prelude.rnf fields
-      `Prelude.seq` Prelude.rnf formActionType
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf schemaVersion
-      `Prelude.seq` Prelude.rnf sectionalElements
-      `Prelude.seq` Prelude.rnf style
+    Prelude.rnf cta `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf appId `Prelude.seq`
+          Prelude.rnf dataType `Prelude.seq`
+            Prelude.rnf environmentName `Prelude.seq`
+              Prelude.rnf fields `Prelude.seq`
+                Prelude.rnf formActionType `Prelude.seq`
+                  Prelude.rnf id `Prelude.seq`
+                    Prelude.rnf name `Prelude.seq`
+                      Prelude.rnf schemaVersion `Prelude.seq`
+                        Prelude.rnf sectionalElements `Prelude.seq`
+                          Prelude.rnf style

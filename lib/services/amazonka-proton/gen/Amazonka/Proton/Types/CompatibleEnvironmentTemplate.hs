@@ -90,5 +90,5 @@ instance
 
 instance Prelude.NFData CompatibleEnvironmentTemplate where
   rnf CompatibleEnvironmentTemplate' {..} =
-    Prelude.rnf majorVersion
-      `Prelude.seq` Prelude.rnf templateName
+    Prelude.rnf majorVersion `Prelude.seq`
+      Prelude.rnf templateName

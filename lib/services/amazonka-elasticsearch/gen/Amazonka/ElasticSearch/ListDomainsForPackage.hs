@@ -134,9 +134,9 @@ instance Prelude.Hashable ListDomainsForPackage where
 
 instance Prelude.NFData ListDomainsForPackage where
   rnf ListDomainsForPackage' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf packageID
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf packageID
 
 instance Data.ToHeaders ListDomainsForPackage where
   toHeaders = Prelude.const Prelude.mempty
@@ -208,6 +208,6 @@ listDomainsForPackageResponse_httpStatus = Lens.lens (\ListDomainsForPackageResp
 
 instance Prelude.NFData ListDomainsForPackageResponse where
   rnf ListDomainsForPackageResponse' {..} =
-    Prelude.rnf domainPackageDetailsList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf domainPackageDetailsList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

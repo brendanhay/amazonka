@@ -82,5 +82,5 @@ instance Prelude.Hashable AppCookieStickinessPolicy where
 
 instance Prelude.NFData AppCookieStickinessPolicy where
   rnf AppCookieStickinessPolicy' {..} =
-    Prelude.rnf cookieName
-      `Prelude.seq` Prelude.rnf policyName
+    Prelude.rnf cookieName `Prelude.seq`
+      Prelude.rnf policyName

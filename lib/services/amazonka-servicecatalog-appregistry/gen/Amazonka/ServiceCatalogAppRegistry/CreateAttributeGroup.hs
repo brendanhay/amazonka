@@ -167,11 +167,11 @@ instance Prelude.Hashable CreateAttributeGroup where
 
 instance Prelude.NFData CreateAttributeGroup where
   rnf CreateAttributeGroup' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf attributes `Prelude.seq`
+            Prelude.rnf clientToken
 
 instance Data.ToHeaders CreateAttributeGroup where
   toHeaders =
@@ -243,5 +243,5 @@ createAttributeGroupResponse_httpStatus = Lens.lens (\CreateAttributeGroupRespon
 
 instance Prelude.NFData CreateAttributeGroupResponse where
   rnf CreateAttributeGroupResponse' {..} =
-    Prelude.rnf attributeGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf attributeGroup `Prelude.seq`
+      Prelude.rnf httpStatus

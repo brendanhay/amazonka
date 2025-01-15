@@ -114,8 +114,8 @@ instance Prelude.Hashable CancelSchemaExtension where
 
 instance Prelude.NFData CancelSchemaExtension where
   rnf CancelSchemaExtension' {..} =
-    Prelude.rnf directoryId
-      `Prelude.seq` Prelude.rnf schemaExtensionId
+    Prelude.rnf directoryId `Prelude.seq`
+      Prelude.rnf schemaExtensionId
 
 instance Data.ToHeaders CancelSchemaExtension where
   toHeaders =

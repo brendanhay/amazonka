@@ -160,5 +160,5 @@ getServiceResponse_httpStatus = Lens.lens (\GetServiceResponse' {httpStatus} -> 
 
 instance Prelude.NFData GetServiceResponse where
   rnf GetServiceResponse' {..} =
-    Prelude.rnf service
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf service `Prelude.seq`
+      Prelude.rnf httpStatus

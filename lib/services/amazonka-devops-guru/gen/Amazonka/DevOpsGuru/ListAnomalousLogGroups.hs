@@ -124,12 +124,12 @@ instance Core.AWSPager ListAnomalousLogGroups where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listAnomalousLogGroups_nextToken
-          Lens..~ rs
-          Lens.^? listAnomalousLogGroupsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listAnomalousLogGroups_nextToken
+              Lens..~ rs
+              Lens.^? listAnomalousLogGroupsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAnomalousLogGroups where
   type
@@ -159,9 +159,9 @@ instance Prelude.Hashable ListAnomalousLogGroups where
 
 instance Prelude.NFData ListAnomalousLogGroups where
   rnf ListAnomalousLogGroups' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf insightId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf insightId
 
 instance Data.ToHeaders ListAnomalousLogGroups where
   toHeaders =
@@ -259,7 +259,7 @@ instance
     ListAnomalousLogGroupsResponse
   where
   rnf ListAnomalousLogGroupsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf insightId
-      `Prelude.seq` Prelude.rnf anomalousLogGroups
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf insightId `Prelude.seq`
+          Prelude.rnf anomalousLogGroups

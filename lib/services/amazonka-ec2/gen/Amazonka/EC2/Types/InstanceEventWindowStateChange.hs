@@ -87,5 +87,5 @@ instance
     InstanceEventWindowStateChange
   where
   rnf InstanceEventWindowStateChange' {..} =
-    Prelude.rnf instanceEventWindowId
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf instanceEventWindowId `Prelude.seq`
+      Prelude.rnf state

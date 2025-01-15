@@ -136,9 +136,9 @@ instance Prelude.Hashable GetRoleCredentials where
 
 instance Prelude.NFData GetRoleCredentials where
   rnf GetRoleCredentials' {..} =
-    Prelude.rnf roleName
-      `Prelude.seq` Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf accessToken
+    Prelude.rnf roleName `Prelude.seq`
+      Prelude.rnf accountId `Prelude.seq`
+        Prelude.rnf accessToken
 
 instance Data.ToHeaders GetRoleCredentials where
   toHeaders GetRoleCredentials' {..} =
@@ -203,5 +203,5 @@ getRoleCredentialsResponse_roleCredentials = Lens.lens (\GetRoleCredentialsRespo
 
 instance Prelude.NFData GetRoleCredentialsResponse where
   rnf GetRoleCredentialsResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf roleCredentials
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf roleCredentials

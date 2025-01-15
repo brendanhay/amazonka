@@ -104,6 +104,6 @@ instance
     FailedScheduledUpdateGroupActionRequest
   where
   rnf FailedScheduledUpdateGroupActionRequest' {..} =
-    Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf scheduledActionName
+    Prelude.rnf errorCode `Prelude.seq`
+      Prelude.rnf errorMessage `Prelude.seq`
+        Prelude.rnf scheduledActionName

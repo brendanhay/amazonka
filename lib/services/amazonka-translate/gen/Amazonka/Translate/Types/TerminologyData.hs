@@ -160,9 +160,9 @@ instance Prelude.Hashable TerminologyData where
 
 instance Prelude.NFData TerminologyData where
   rnf TerminologyData' {..} =
-    Prelude.rnf directionality
-      `Prelude.seq` Prelude.rnf file
-      `Prelude.seq` Prelude.rnf format
+    Prelude.rnf directionality `Prelude.seq`
+      Prelude.rnf file `Prelude.seq`
+        Prelude.rnf format
 
 instance Data.ToJSON TerminologyData where
   toJSON TerminologyData' {..} =

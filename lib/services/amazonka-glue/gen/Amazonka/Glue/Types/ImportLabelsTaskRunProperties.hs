@@ -87,5 +87,5 @@ instance
 
 instance Prelude.NFData ImportLabelsTaskRunProperties where
   rnf ImportLabelsTaskRunProperties' {..} =
-    Prelude.rnf inputS3Path
-      `Prelude.seq` Prelude.rnf replace
+    Prelude.rnf inputS3Path `Prelude.seq`
+      Prelude.rnf replace

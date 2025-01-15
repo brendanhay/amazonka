@@ -264,13 +264,13 @@ describeImportResponse_httpStatus = Lens.lens (\DescribeImportResponse' {httpSta
 
 instance Prelude.NFData DescribeImportResponse where
   rnf DescribeImportResponse' {..} =
-    Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf failureReasons
-      `Prelude.seq` Prelude.rnf importId
-      `Prelude.seq` Prelude.rnf importStatus
-      `Prelude.seq` Prelude.rnf importedResourceId
-      `Prelude.seq` Prelude.rnf importedResourceName
-      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
-      `Prelude.seq` Prelude.rnf mergeStrategy
-      `Prelude.seq` Prelude.rnf resourceSpecification
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf creationDateTime `Prelude.seq`
+      Prelude.rnf failureReasons `Prelude.seq`
+        Prelude.rnf importId `Prelude.seq`
+          Prelude.rnf importStatus `Prelude.seq`
+            Prelude.rnf importedResourceId `Prelude.seq`
+              Prelude.rnf importedResourceName `Prelude.seq`
+                Prelude.rnf lastUpdatedDateTime `Prelude.seq`
+                  Prelude.rnf mergeStrategy `Prelude.seq`
+                    Prelude.rnf resourceSpecification `Prelude.seq`
+                      Prelude.rnf httpStatus

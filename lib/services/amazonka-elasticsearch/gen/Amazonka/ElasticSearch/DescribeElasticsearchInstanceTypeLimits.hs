@@ -151,9 +151,9 @@ instance
     DescribeElasticsearchInstanceTypeLimits
   where
   rnf DescribeElasticsearchInstanceTypeLimits' {..} =
-    Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf elasticsearchVersion
+    Prelude.rnf domainName `Prelude.seq`
+      Prelude.rnf instanceType `Prelude.seq`
+        Prelude.rnf elasticsearchVersion
 
 instance
   Data.ToHeaders
@@ -228,5 +228,5 @@ instance
   where
   rnf
     DescribeElasticsearchInstanceTypeLimitsResponse' {..} =
-      Prelude.rnf limitsByRole
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf limitsByRole `Prelude.seq`
+        Prelude.rnf httpStatus

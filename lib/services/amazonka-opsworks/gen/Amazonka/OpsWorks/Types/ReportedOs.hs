@@ -91,6 +91,6 @@ instance Prelude.Hashable ReportedOs where
 
 instance Prelude.NFData ReportedOs where
   rnf ReportedOs' {..} =
-    Prelude.rnf family
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf version
+    Prelude.rnf family `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf version

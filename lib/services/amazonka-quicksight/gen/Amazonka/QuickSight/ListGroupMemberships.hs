@@ -161,11 +161,11 @@ instance Prelude.Hashable ListGroupMemberships where
 
 instance Prelude.NFData ListGroupMemberships where
   rnf ListGroupMemberships' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf groupName
-      `Prelude.seq` Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf namespace
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf groupName `Prelude.seq`
+          Prelude.rnf awsAccountId `Prelude.seq`
+            Prelude.rnf namespace
 
 instance Data.ToHeaders ListGroupMemberships where
   toHeaders =
@@ -256,7 +256,7 @@ listGroupMembershipsResponse_status = Lens.lens (\ListGroupMembershipsResponse' 
 
 instance Prelude.NFData ListGroupMembershipsResponse where
   rnf ListGroupMembershipsResponse' {..} =
-    Prelude.rnf groupMemberList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf groupMemberList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf requestId `Prelude.seq`
+          Prelude.rnf status

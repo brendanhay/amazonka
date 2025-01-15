@@ -212,10 +212,10 @@ getEventActionResponse_httpStatus = Lens.lens (\GetEventActionResponse' {httpSta
 
 instance Prelude.NFData GetEventActionResponse where
   rnf GetEventActionResponse' {..} =
-    Prelude.rnf action
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf event
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf updatedAt
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf action `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf createdAt `Prelude.seq`
+          Prelude.rnf event `Prelude.seq`
+            Prelude.rnf id `Prelude.seq`
+              Prelude.rnf updatedAt `Prelude.seq`
+                Prelude.rnf httpStatus

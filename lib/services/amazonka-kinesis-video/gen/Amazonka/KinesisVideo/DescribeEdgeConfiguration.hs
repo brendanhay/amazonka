@@ -127,8 +127,8 @@ instance Prelude.Hashable DescribeEdgeConfiguration where
 
 instance Prelude.NFData DescribeEdgeConfiguration where
   rnf DescribeEdgeConfiguration' {..} =
-    Prelude.rnf streamARN
-      `Prelude.seq` Prelude.rnf streamName
+    Prelude.rnf streamARN `Prelude.seq`
+      Prelude.rnf streamName
 
 instance Data.ToHeaders DescribeEdgeConfiguration where
   toHeaders = Prelude.const Prelude.mempty
@@ -252,11 +252,11 @@ instance
     DescribeEdgeConfigurationResponse
   where
   rnf DescribeEdgeConfigurationResponse' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf edgeConfig
-      `Prelude.seq` Prelude.rnf failedStatusDetails
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf streamARN
-      `Prelude.seq` Prelude.rnf streamName
-      `Prelude.seq` Prelude.rnf syncStatus
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf edgeConfig `Prelude.seq`
+        Prelude.rnf failedStatusDetails `Prelude.seq`
+          Prelude.rnf lastUpdatedTime `Prelude.seq`
+            Prelude.rnf streamARN `Prelude.seq`
+              Prelude.rnf streamName `Prelude.seq`
+                Prelude.rnf syncStatus `Prelude.seq`
+                  Prelude.rnf httpStatus

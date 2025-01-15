@@ -190,10 +190,10 @@ instance
     BatchDeleteRumMetricDefinitions
   where
   rnf BatchDeleteRumMetricDefinitions' {..} =
-    Prelude.rnf destinationArn
-      `Prelude.seq` Prelude.rnf appMonitorName
-      `Prelude.seq` Prelude.rnf destination
-      `Prelude.seq` Prelude.rnf metricDefinitionIds
+    Prelude.rnf destinationArn `Prelude.seq`
+      Prelude.rnf appMonitorName `Prelude.seq`
+        Prelude.rnf destination `Prelude.seq`
+          Prelude.rnf metricDefinitionIds
 
 instance
   Data.ToHeaders
@@ -280,6 +280,6 @@ instance
     BatchDeleteRumMetricDefinitionsResponse
   where
   rnf BatchDeleteRumMetricDefinitionsResponse' {..} =
-    Prelude.rnf metricDefinitionIds
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf errors
+    Prelude.rnf metricDefinitionIds `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf errors

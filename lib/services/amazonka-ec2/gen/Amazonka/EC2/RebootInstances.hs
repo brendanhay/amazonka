@@ -116,8 +116,8 @@ instance Prelude.Hashable RebootInstances where
 
 instance Prelude.NFData RebootInstances where
   rnf RebootInstances' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf instanceIds
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf instanceIds
 
 instance Data.ToHeaders RebootInstances where
   toHeaders = Prelude.const Prelude.mempty

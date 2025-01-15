@@ -171,9 +171,9 @@ instance Prelude.Hashable ComponentRunWith where
 
 instance Prelude.NFData ComponentRunWith where
   rnf ComponentRunWith' {..} =
-    Prelude.rnf posixUser
-      `Prelude.seq` Prelude.rnf systemResourceLimits
-      `Prelude.seq` Prelude.rnf windowsUser
+    Prelude.rnf posixUser `Prelude.seq`
+      Prelude.rnf systemResourceLimits `Prelude.seq`
+        Prelude.rnf windowsUser
 
 instance Data.ToJSON ComponentRunWith where
   toJSON ComponentRunWith' {..} =

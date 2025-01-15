@@ -95,6 +95,6 @@ instance Prelude.Hashable SuggestionMatch where
 
 instance Prelude.NFData SuggestionMatch where
   rnf SuggestionMatch' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf score
-      `Prelude.seq` Prelude.rnf suggestion
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf score `Prelude.seq`
+        Prelude.rnf suggestion

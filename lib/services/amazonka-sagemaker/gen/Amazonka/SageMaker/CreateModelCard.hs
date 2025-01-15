@@ -196,11 +196,11 @@ instance Prelude.Hashable CreateModelCard where
 
 instance Prelude.NFData CreateModelCard where
   rnf CreateModelCard' {..} =
-    Prelude.rnf securityConfig
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf modelCardName
-      `Prelude.seq` Prelude.rnf content
-      `Prelude.seq` Prelude.rnf modelCardStatus
+    Prelude.rnf securityConfig `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf modelCardName `Prelude.seq`
+          Prelude.rnf content `Prelude.seq`
+            Prelude.rnf modelCardStatus
 
 instance Data.ToHeaders CreateModelCard where
   toHeaders =
@@ -279,5 +279,5 @@ createModelCardResponse_modelCardArn = Lens.lens (\CreateModelCardResponse' {mod
 
 instance Prelude.NFData CreateModelCardResponse where
   rnf CreateModelCardResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf modelCardArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf modelCardArn

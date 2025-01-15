@@ -178,13 +178,13 @@ instance Prelude.Hashable PipelineExecutionStep where
 
 instance Prelude.NFData PipelineExecutionStep where
   rnf PipelineExecutionStep' {..} =
-    Prelude.rnf attemptCount
-      `Prelude.seq` Prelude.rnf cacheHitResult
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf metadata
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf stepDescription
-      `Prelude.seq` Prelude.rnf stepDisplayName
-      `Prelude.seq` Prelude.rnf stepName
-      `Prelude.seq` Prelude.rnf stepStatus
+    Prelude.rnf attemptCount `Prelude.seq`
+      Prelude.rnf cacheHitResult `Prelude.seq`
+        Prelude.rnf endTime `Prelude.seq`
+          Prelude.rnf failureReason `Prelude.seq`
+            Prelude.rnf metadata `Prelude.seq`
+              Prelude.rnf startTime `Prelude.seq`
+                Prelude.rnf stepDescription `Prelude.seq`
+                  Prelude.rnf stepDisplayName `Prelude.seq`
+                    Prelude.rnf stepName `Prelude.seq`
+                      Prelude.rnf stepStatus

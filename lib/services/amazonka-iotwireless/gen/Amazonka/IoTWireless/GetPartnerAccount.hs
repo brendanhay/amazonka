@@ -114,8 +114,8 @@ instance Prelude.Hashable GetPartnerAccount where
 
 instance Prelude.NFData GetPartnerAccount where
   rnf GetPartnerAccount' {..} =
-    Prelude.rnf partnerAccountId
-      `Prelude.seq` Prelude.rnf partnerType
+    Prelude.rnf partnerAccountId `Prelude.seq`
+      Prelude.rnf partnerType
 
 instance Data.ToHeaders GetPartnerAccount where
   toHeaders = Prelude.const Prelude.mempty
@@ -179,6 +179,6 @@ getPartnerAccountResponse_httpStatus = Lens.lens (\GetPartnerAccountResponse' {h
 
 instance Prelude.NFData GetPartnerAccountResponse where
   rnf GetPartnerAccountResponse' {..} =
-    Prelude.rnf accountLinked
-      `Prelude.seq` Prelude.rnf sidewalk
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf accountLinked `Prelude.seq`
+      Prelude.rnf sidewalk `Prelude.seq`
+        Prelude.rnf httpStatus

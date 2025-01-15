@@ -126,13 +126,13 @@ instance
 
 instance Prelude.NFData PacketHeaderStatementRequest where
   rnf PacketHeaderStatementRequest' {..} =
-    Prelude.rnf destinationAddresses
-      `Prelude.seq` Prelude.rnf destinationPorts
-      `Prelude.seq` Prelude.rnf destinationPrefixLists
-      `Prelude.seq` Prelude.rnf protocols
-      `Prelude.seq` Prelude.rnf sourceAddresses
-      `Prelude.seq` Prelude.rnf sourcePorts
-      `Prelude.seq` Prelude.rnf sourcePrefixLists
+    Prelude.rnf destinationAddresses `Prelude.seq`
+      Prelude.rnf destinationPorts `Prelude.seq`
+        Prelude.rnf destinationPrefixLists `Prelude.seq`
+          Prelude.rnf protocols `Prelude.seq`
+            Prelude.rnf sourceAddresses `Prelude.seq`
+              Prelude.rnf sourcePorts `Prelude.seq`
+                Prelude.rnf sourcePrefixLists
 
 instance Data.ToQuery PacketHeaderStatementRequest where
   toQuery PacketHeaderStatementRequest' {..} =

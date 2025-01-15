@@ -101,12 +101,12 @@ instance Core.AWSPager ListReplicationSets where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listReplicationSets_nextToken
-          Lens..~ rs
-          Lens.^? listReplicationSetsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listReplicationSets_nextToken
+              Lens..~ rs
+              Lens.^? listReplicationSetsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListReplicationSets where
   type
@@ -134,8 +134,8 @@ instance Prelude.Hashable ListReplicationSets where
 
 instance Prelude.NFData ListReplicationSets where
   rnf ListReplicationSets' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListReplicationSets where
   toHeaders =
@@ -213,6 +213,6 @@ listReplicationSetsResponse_replicationSetArns = Lens.lens (\ListReplicationSets
 
 instance Prelude.NFData ListReplicationSetsResponse where
   rnf ListReplicationSetsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf replicationSetArns
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf replicationSetArns

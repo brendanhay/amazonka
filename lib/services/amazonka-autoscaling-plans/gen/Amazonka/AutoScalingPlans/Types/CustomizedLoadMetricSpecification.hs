@@ -181,11 +181,11 @@ instance
     CustomizedLoadMetricSpecification
   where
   rnf CustomizedLoadMetricSpecification' {..} =
-    Prelude.rnf dimensions
-      `Prelude.seq` Prelude.rnf unit
-      `Prelude.seq` Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf namespace
-      `Prelude.seq` Prelude.rnf statistic
+    Prelude.rnf dimensions `Prelude.seq`
+      Prelude.rnf unit `Prelude.seq`
+        Prelude.rnf metricName `Prelude.seq`
+          Prelude.rnf namespace `Prelude.seq`
+            Prelude.rnf statistic
 
 instance
   Data.ToJSON

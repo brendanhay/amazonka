@@ -162,12 +162,12 @@ instance Prelude.Hashable AssociationExecutionTarget where
 
 instance Prelude.NFData AssociationExecutionTarget where
   rnf AssociationExecutionTarget' {..} =
-    Prelude.rnf associationId
-      `Prelude.seq` Prelude.rnf associationVersion
-      `Prelude.seq` Prelude.rnf detailedStatus
-      `Prelude.seq` Prelude.rnf executionId
-      `Prelude.seq` Prelude.rnf lastExecutionDate
-      `Prelude.seq` Prelude.rnf outputSource
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf associationId `Prelude.seq`
+      Prelude.rnf associationVersion `Prelude.seq`
+        Prelude.rnf detailedStatus `Prelude.seq`
+          Prelude.rnf executionId `Prelude.seq`
+            Prelude.rnf lastExecutionDate `Prelude.seq`
+              Prelude.rnf outputSource `Prelude.seq`
+                Prelude.rnf resourceId `Prelude.seq`
+                  Prelude.rnf resourceType `Prelude.seq`
+                    Prelude.rnf status

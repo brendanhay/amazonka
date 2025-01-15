@@ -383,12 +383,12 @@ instance Core.AWSPager DescribeAvailablePatches where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeAvailablePatches_nextToken
-          Lens..~ rs
-          Lens.^? describeAvailablePatchesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeAvailablePatches_nextToken
+              Lens..~ rs
+              Lens.^? describeAvailablePatchesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeAvailablePatches where
   type
@@ -414,9 +414,9 @@ instance Prelude.Hashable DescribeAvailablePatches where
 
 instance Prelude.NFData DescribeAvailablePatches where
   rnf DescribeAvailablePatches' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeAvailablePatches where
   toHeaders =
@@ -505,6 +505,6 @@ instance
     DescribeAvailablePatchesResponse
   where
   rnf DescribeAvailablePatchesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf patches
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf patches `Prelude.seq`
+        Prelude.rnf httpStatus

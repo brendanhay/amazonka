@@ -196,15 +196,15 @@ instance Prelude.Hashable Instance where
 
 instance Prelude.NFData Instance where
   rnf Instance' {..} =
-    Prelude.rnf ebsVolumes
-      `Prelude.seq` Prelude.rnf ec2InstanceId
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf instanceFleetId
-      `Prelude.seq` Prelude.rnf instanceGroupId
-      `Prelude.seq` Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf market
-      `Prelude.seq` Prelude.rnf privateDnsName
-      `Prelude.seq` Prelude.rnf privateIpAddress
-      `Prelude.seq` Prelude.rnf publicDnsName
-      `Prelude.seq` Prelude.rnf publicIpAddress
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf ebsVolumes `Prelude.seq`
+      Prelude.rnf ec2InstanceId `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf instanceFleetId `Prelude.seq`
+            Prelude.rnf instanceGroupId `Prelude.seq`
+              Prelude.rnf instanceType `Prelude.seq`
+                Prelude.rnf market `Prelude.seq`
+                  Prelude.rnf privateDnsName `Prelude.seq`
+                    Prelude.rnf privateIpAddress `Prelude.seq`
+                      Prelude.rnf publicDnsName `Prelude.seq`
+                        Prelude.rnf publicIpAddress `Prelude.seq`
+                          Prelude.rnf status

@@ -265,9 +265,9 @@ getBulkPublishDetailsResponse_httpStatus = Lens.lens (\GetBulkPublishDetailsResp
 
 instance Prelude.NFData GetBulkPublishDetailsResponse where
   rnf GetBulkPublishDetailsResponse' {..} =
-    Prelude.rnf bulkPublishCompleteTime
-      `Prelude.seq` Prelude.rnf bulkPublishStartTime
-      `Prelude.seq` Prelude.rnf bulkPublishStatus
-      `Prelude.seq` Prelude.rnf failureMessage
-      `Prelude.seq` Prelude.rnf identityPoolId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf bulkPublishCompleteTime `Prelude.seq`
+      Prelude.rnf bulkPublishStartTime `Prelude.seq`
+        Prelude.rnf bulkPublishStatus `Prelude.seq`
+          Prelude.rnf failureMessage `Prelude.seq`
+            Prelude.rnf identityPoolId `Prelude.seq`
+              Prelude.rnf httpStatus

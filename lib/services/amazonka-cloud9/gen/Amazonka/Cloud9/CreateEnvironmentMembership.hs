@@ -148,9 +148,9 @@ instance Prelude.Hashable CreateEnvironmentMembership where
 
 instance Prelude.NFData CreateEnvironmentMembership where
   rnf CreateEnvironmentMembership' {..} =
-    Prelude.rnf environmentId
-      `Prelude.seq` Prelude.rnf userArn
-      `Prelude.seq` Prelude.rnf permissions
+    Prelude.rnf environmentId `Prelude.seq`
+      Prelude.rnf userArn `Prelude.seq`
+        Prelude.rnf permissions
 
 instance Data.ToHeaders CreateEnvironmentMembership where
   toHeaders =
@@ -232,5 +232,5 @@ instance
     CreateEnvironmentMembershipResponse
   where
   rnf CreateEnvironmentMembershipResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf membership
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf membership

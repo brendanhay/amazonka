@@ -2266,18 +2266,18 @@ instance Prelude.Hashable HumanTaskConfig where
 
 instance Prelude.NFData HumanTaskConfig where
   rnf HumanTaskConfig' {..} =
-    Prelude.rnf maxConcurrentTaskCount
-      `Prelude.seq` Prelude.rnf publicWorkforceTaskPrice
-      `Prelude.seq` Prelude.rnf taskAvailabilityLifetimeInSeconds
-      `Prelude.seq` Prelude.rnf taskKeywords
-      `Prelude.seq` Prelude.rnf workteamArn
-      `Prelude.seq` Prelude.rnf uiConfig
-      `Prelude.seq` Prelude.rnf preHumanTaskLambdaArn
-      `Prelude.seq` Prelude.rnf taskTitle
-      `Prelude.seq` Prelude.rnf taskDescription
-      `Prelude.seq` Prelude.rnf numberOfHumanWorkersPerDataObject
-      `Prelude.seq` Prelude.rnf taskTimeLimitInSeconds
-      `Prelude.seq` Prelude.rnf annotationConsolidationConfig
+    Prelude.rnf maxConcurrentTaskCount `Prelude.seq`
+      Prelude.rnf publicWorkforceTaskPrice `Prelude.seq`
+        Prelude.rnf taskAvailabilityLifetimeInSeconds `Prelude.seq`
+          Prelude.rnf taskKeywords `Prelude.seq`
+            Prelude.rnf workteamArn `Prelude.seq`
+              Prelude.rnf uiConfig `Prelude.seq`
+                Prelude.rnf preHumanTaskLambdaArn `Prelude.seq`
+                  Prelude.rnf taskTitle `Prelude.seq`
+                    Prelude.rnf taskDescription `Prelude.seq`
+                      Prelude.rnf numberOfHumanWorkersPerDataObject `Prelude.seq`
+                        Prelude.rnf taskTimeLimitInSeconds `Prelude.seq`
+                          Prelude.rnf annotationConsolidationConfig
 
 instance Data.ToJSON HumanTaskConfig where
   toJSON HumanTaskConfig' {..} =

@@ -128,9 +128,9 @@ instance Prelude.Hashable DeleteStudioMember where
 
 instance Prelude.NFData DeleteStudioMember where
   rnf DeleteStudioMember' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf principalId
-      `Prelude.seq` Prelude.rnf studioId
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf principalId `Prelude.seq`
+        Prelude.rnf studioId
 
 instance Data.ToHeaders DeleteStudioMember where
   toHeaders DeleteStudioMember' {..} =

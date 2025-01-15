@@ -354,23 +354,23 @@ instance Prelude.Hashable UpdateIntent where
 
 instance Prelude.NFData UpdateIntent where
   rnf UpdateIntent' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf dialogCodeHook
-      `Prelude.seq` Prelude.rnf fulfillmentCodeHook
-      `Prelude.seq` Prelude.rnf initialResponseSetting
-      `Prelude.seq` Prelude.rnf inputContexts
-      `Prelude.seq` Prelude.rnf intentClosingSetting
-      `Prelude.seq` Prelude.rnf intentConfirmationSetting
-      `Prelude.seq` Prelude.rnf kendraConfiguration
-      `Prelude.seq` Prelude.rnf outputContexts
-      `Prelude.seq` Prelude.rnf parentIntentSignature
-      `Prelude.seq` Prelude.rnf sampleUtterances
-      `Prelude.seq` Prelude.rnf slotPriorities
-      `Prelude.seq` Prelude.rnf intentId
-      `Prelude.seq` Prelude.rnf intentName
-      `Prelude.seq` Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf botVersion
-      `Prelude.seq` Prelude.rnf localeId
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf dialogCodeHook `Prelude.seq`
+        Prelude.rnf fulfillmentCodeHook `Prelude.seq`
+          Prelude.rnf initialResponseSetting `Prelude.seq`
+            Prelude.rnf inputContexts `Prelude.seq`
+              Prelude.rnf intentClosingSetting `Prelude.seq`
+                Prelude.rnf intentConfirmationSetting `Prelude.seq`
+                  Prelude.rnf kendraConfiguration `Prelude.seq`
+                    Prelude.rnf outputContexts `Prelude.seq`
+                      Prelude.rnf parentIntentSignature `Prelude.seq`
+                        Prelude.rnf sampleUtterances `Prelude.seq`
+                          Prelude.rnf slotPriorities `Prelude.seq`
+                            Prelude.rnf intentId `Prelude.seq`
+                              Prelude.rnf intentName `Prelude.seq`
+                                Prelude.rnf botId `Prelude.seq`
+                                  Prelude.rnf botVersion `Prelude.seq`
+                                    Prelude.rnf localeId
 
 instance Data.ToHeaders UpdateIntent where
   toHeaders =
@@ -654,23 +654,23 @@ updateIntentResponse_httpStatus = Lens.lens (\UpdateIntentResponse' {httpStatus}
 
 instance Prelude.NFData UpdateIntentResponse where
   rnf UpdateIntentResponse' {..} =
-    Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf botVersion
-      `Prelude.seq` Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf dialogCodeHook
-      `Prelude.seq` Prelude.rnf fulfillmentCodeHook
-      `Prelude.seq` Prelude.rnf initialResponseSetting
-      `Prelude.seq` Prelude.rnf inputContexts
-      `Prelude.seq` Prelude.rnf intentClosingSetting
-      `Prelude.seq` Prelude.rnf intentConfirmationSetting
-      `Prelude.seq` Prelude.rnf intentId
-      `Prelude.seq` Prelude.rnf intentName
-      `Prelude.seq` Prelude.rnf kendraConfiguration
-      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
-      `Prelude.seq` Prelude.rnf localeId
-      `Prelude.seq` Prelude.rnf outputContexts
-      `Prelude.seq` Prelude.rnf parentIntentSignature
-      `Prelude.seq` Prelude.rnf sampleUtterances
-      `Prelude.seq` Prelude.rnf slotPriorities
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf botId `Prelude.seq`
+      Prelude.rnf botVersion `Prelude.seq`
+        Prelude.rnf creationDateTime `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf dialogCodeHook `Prelude.seq`
+              Prelude.rnf fulfillmentCodeHook `Prelude.seq`
+                Prelude.rnf initialResponseSetting `Prelude.seq`
+                  Prelude.rnf inputContexts `Prelude.seq`
+                    Prelude.rnf intentClosingSetting `Prelude.seq`
+                      Prelude.rnf intentConfirmationSetting `Prelude.seq`
+                        Prelude.rnf intentId `Prelude.seq`
+                          Prelude.rnf intentName `Prelude.seq`
+                            Prelude.rnf kendraConfiguration `Prelude.seq`
+                              Prelude.rnf lastUpdatedDateTime `Prelude.seq`
+                                Prelude.rnf localeId `Prelude.seq`
+                                  Prelude.rnf outputContexts `Prelude.seq`
+                                    Prelude.rnf parentIntentSignature `Prelude.seq`
+                                      Prelude.rnf sampleUtterances `Prelude.seq`
+                                        Prelude.rnf slotPriorities `Prelude.seq`
+                                          Prelude.rnf httpStatus

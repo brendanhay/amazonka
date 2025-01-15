@@ -216,12 +216,12 @@ instance Prelude.Hashable HlsContentProtection where
 
 instance Prelude.NFData HlsContentProtection where
   rnf HlsContentProtection' {..} =
-    Prelude.rnf initializationVector
-      `Prelude.seq` Prelude.rnf key
-      `Prelude.seq` Prelude.rnf keyMd5
-      `Prelude.seq` Prelude.rnf keyStoragePolicy
-      `Prelude.seq` Prelude.rnf licenseAcquisitionUrl
-      `Prelude.seq` Prelude.rnf method
+    Prelude.rnf initializationVector `Prelude.seq`
+      Prelude.rnf key `Prelude.seq`
+        Prelude.rnf keyMd5 `Prelude.seq`
+          Prelude.rnf keyStoragePolicy `Prelude.seq`
+            Prelude.rnf licenseAcquisitionUrl `Prelude.seq`
+              Prelude.rnf method
 
 instance Data.ToJSON HlsContentProtection where
   toJSON HlsContentProtection' {..} =

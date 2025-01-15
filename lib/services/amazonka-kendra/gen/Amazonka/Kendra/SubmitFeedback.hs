@@ -137,10 +137,10 @@ instance Prelude.Hashable SubmitFeedback where
 
 instance Prelude.NFData SubmitFeedback where
   rnf SubmitFeedback' {..} =
-    Prelude.rnf clickFeedbackItems
-      `Prelude.seq` Prelude.rnf relevanceFeedbackItems
-      `Prelude.seq` Prelude.rnf indexId
-      `Prelude.seq` Prelude.rnf queryId
+    Prelude.rnf clickFeedbackItems `Prelude.seq`
+      Prelude.rnf relevanceFeedbackItems `Prelude.seq`
+        Prelude.rnf indexId `Prelude.seq`
+          Prelude.rnf queryId
 
 instance Data.ToHeaders SubmitFeedback where
   toHeaders =

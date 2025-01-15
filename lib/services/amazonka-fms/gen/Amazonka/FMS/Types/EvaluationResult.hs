@@ -116,6 +116,6 @@ instance Prelude.Hashable EvaluationResult where
 
 instance Prelude.NFData EvaluationResult where
   rnf EvaluationResult' {..} =
-    Prelude.rnf complianceStatus
-      `Prelude.seq` Prelude.rnf evaluationLimitExceeded
-      `Prelude.seq` Prelude.rnf violatorCount
+    Prelude.rnf complianceStatus `Prelude.seq`
+      Prelude.rnf evaluationLimitExceeded `Prelude.seq`
+        Prelude.rnf violatorCount

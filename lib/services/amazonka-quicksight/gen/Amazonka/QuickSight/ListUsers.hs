@@ -141,10 +141,10 @@ instance Prelude.Hashable ListUsers where
 
 instance Prelude.NFData ListUsers where
   rnf ListUsers' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf namespace
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf awsAccountId `Prelude.seq`
+          Prelude.rnf namespace
 
 instance Data.ToHeaders ListUsers where
   toHeaders =
@@ -232,7 +232,7 @@ listUsersResponse_status = Lens.lens (\ListUsersResponse' {status} -> status) (\
 
 instance Prelude.NFData ListUsersResponse where
   rnf ListUsersResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf userList
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf requestId `Prelude.seq`
+        Prelude.rnf userList `Prelude.seq`
+          Prelude.rnf status

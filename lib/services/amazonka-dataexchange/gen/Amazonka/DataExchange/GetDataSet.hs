@@ -277,15 +277,15 @@ getDataSetResponse_httpStatus = Lens.lens (\GetDataSetResponse' {httpStatus} -> 
 
 instance Prelude.NFData GetDataSetResponse where
   rnf GetDataSetResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf assetType
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf origin
-      `Prelude.seq` Prelude.rnf originDetails
-      `Prelude.seq` Prelude.rnf sourceId
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf updatedAt
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf assetType `Prelude.seq`
+        Prelude.rnf createdAt `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf id `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf origin `Prelude.seq`
+                  Prelude.rnf originDetails `Prelude.seq`
+                    Prelude.rnf sourceId `Prelude.seq`
+                      Prelude.rnf tags `Prelude.seq`
+                        Prelude.rnf updatedAt `Prelude.seq`
+                          Prelude.rnf httpStatus

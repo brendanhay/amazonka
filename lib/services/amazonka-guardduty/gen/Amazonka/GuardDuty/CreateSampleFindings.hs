@@ -109,8 +109,8 @@ instance Prelude.Hashable CreateSampleFindings where
 
 instance Prelude.NFData CreateSampleFindings where
   rnf CreateSampleFindings' {..} =
-    Prelude.rnf findingTypes
-      `Prelude.seq` Prelude.rnf detectorId
+    Prelude.rnf findingTypes `Prelude.seq`
+      Prelude.rnf detectorId
 
 instance Data.ToHeaders CreateSampleFindings where
   toHeaders =

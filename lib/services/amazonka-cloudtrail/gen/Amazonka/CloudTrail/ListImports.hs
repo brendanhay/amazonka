@@ -123,12 +123,12 @@ instance Core.AWSPager ListImports where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listImports_nextToken
-          Lens..~ rs
-          Lens.^? listImportsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listImports_nextToken
+              Lens..~ rs
+              Lens.^? listImportsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListImports where
   type AWSResponse ListImports = ListImportsResponse
@@ -153,10 +153,10 @@ instance Prelude.Hashable ListImports where
 
 instance Prelude.NFData ListImports where
   rnf ListImports' {..} =
-    Prelude.rnf destination
-      `Prelude.seq` Prelude.rnf importStatus
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf destination `Prelude.seq`
+      Prelude.rnf importStatus `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken
 
 instance Data.ToHeaders ListImports where
   toHeaders =
@@ -239,6 +239,6 @@ listImportsResponse_httpStatus = Lens.lens (\ListImportsResponse' {httpStatus} -
 
 instance Prelude.NFData ListImportsResponse where
   rnf ListImportsResponse' {..} =
-    Prelude.rnf imports
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf imports `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

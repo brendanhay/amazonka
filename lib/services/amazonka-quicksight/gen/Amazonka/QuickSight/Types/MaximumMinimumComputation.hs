@@ -137,11 +137,11 @@ instance Prelude.Hashable MaximumMinimumComputation where
 
 instance Prelude.NFData MaximumMinimumComputation where
   rnf MaximumMinimumComputation' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf value
-      `Prelude.seq` Prelude.rnf computationId
-      `Prelude.seq` Prelude.rnf time
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf value `Prelude.seq`
+        Prelude.rnf computationId `Prelude.seq`
+          Prelude.rnf time `Prelude.seq`
+            Prelude.rnf type'
 
 instance Data.ToJSON MaximumMinimumComputation where
   toJSON MaximumMinimumComputation' {..} =

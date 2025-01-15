@@ -136,9 +136,9 @@ instance Prelude.Hashable GetEffectivePolicies where
 
 instance Prelude.NFData GetEffectivePolicies where
   rnf GetEffectivePolicies' {..} =
-    Prelude.rnf cognitoIdentityPoolId
-      `Prelude.seq` Prelude.rnf principal
-      `Prelude.seq` Prelude.rnf thingName
+    Prelude.rnf cognitoIdentityPoolId `Prelude.seq`
+      Prelude.rnf principal `Prelude.seq`
+        Prelude.rnf thingName
 
 instance Data.ToHeaders GetEffectivePolicies where
   toHeaders = Prelude.const Prelude.mempty
@@ -201,5 +201,5 @@ getEffectivePoliciesResponse_httpStatus = Lens.lens (\GetEffectivePoliciesRespon
 
 instance Prelude.NFData GetEffectivePoliciesResponse where
   rnf GetEffectivePoliciesResponse' {..} =
-    Prelude.rnf effectivePolicies
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf effectivePolicies `Prelude.seq`
+      Prelude.rnf httpStatus

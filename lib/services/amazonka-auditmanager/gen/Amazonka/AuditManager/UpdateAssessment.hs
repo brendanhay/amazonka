@@ -158,12 +158,12 @@ instance Prelude.Hashable UpdateAssessment where
 
 instance Prelude.NFData UpdateAssessment where
   rnf UpdateAssessment' {..} =
-    Prelude.rnf assessmentDescription
-      `Prelude.seq` Prelude.rnf assessmentName
-      `Prelude.seq` Prelude.rnf assessmentReportsDestination
-      `Prelude.seq` Prelude.rnf roles
-      `Prelude.seq` Prelude.rnf assessmentId
-      `Prelude.seq` Prelude.rnf scope
+    Prelude.rnf assessmentDescription `Prelude.seq`
+      Prelude.rnf assessmentName `Prelude.seq`
+        Prelude.rnf assessmentReportsDestination `Prelude.seq`
+          Prelude.rnf roles `Prelude.seq`
+            Prelude.rnf assessmentId `Prelude.seq`
+              Prelude.rnf scope
 
 instance Data.ToHeaders UpdateAssessment where
   toHeaders =
@@ -243,5 +243,5 @@ updateAssessmentResponse_httpStatus = Lens.lens (\UpdateAssessmentResponse' {htt
 
 instance Prelude.NFData UpdateAssessmentResponse where
   rnf UpdateAssessmentResponse' {..} =
-    Prelude.rnf assessment
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf assessment `Prelude.seq`
+      Prelude.rnf httpStatus

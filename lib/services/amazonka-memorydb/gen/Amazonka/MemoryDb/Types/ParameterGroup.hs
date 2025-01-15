@@ -107,7 +107,7 @@ instance Prelude.Hashable ParameterGroup where
 
 instance Prelude.NFData ParameterGroup where
   rnf ParameterGroup' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf family
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf family `Prelude.seq`
+          Prelude.rnf name

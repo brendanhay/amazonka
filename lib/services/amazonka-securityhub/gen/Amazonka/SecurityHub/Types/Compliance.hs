@@ -160,9 +160,9 @@ instance Prelude.Hashable Compliance where
 
 instance Prelude.NFData Compliance where
   rnf Compliance' {..} =
-    Prelude.rnf relatedRequirements
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusReasons
+    Prelude.rnf relatedRequirements `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf statusReasons
 
 instance Data.ToJSON Compliance where
   toJSON Compliance' {..} =

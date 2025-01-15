@@ -131,12 +131,12 @@ instance Core.AWSPager ListLaunches where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listLaunches_nextToken
-          Lens..~ rs
-          Lens.^? listLaunchesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listLaunches_nextToken
+              Lens..~ rs
+              Lens.^? listLaunchesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListLaunches where
   type AWSResponse ListLaunches = ListLaunchesResponse
@@ -161,10 +161,10 @@ instance Prelude.Hashable ListLaunches where
 
 instance Prelude.NFData ListLaunches where
   rnf ListLaunches' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf project
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf status `Prelude.seq`
+          Prelude.rnf project
 
 instance Data.ToHeaders ListLaunches where
   toHeaders =
@@ -245,6 +245,6 @@ listLaunchesResponse_httpStatus = Lens.lens (\ListLaunchesResponse' {httpStatus}
 
 instance Prelude.NFData ListLaunchesResponse where
   rnf ListLaunchesResponse' {..} =
-    Prelude.rnf launches
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf launches `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -88,5 +88,5 @@ instance Prelude.Hashable FileLocation where
 
 instance Prelude.NFData FileLocation where
   rnf FileLocation' {..} =
-    Prelude.rnf efsFileLocation
-      `Prelude.seq` Prelude.rnf s3FileLocation
+    Prelude.rnf efsFileLocation `Prelude.seq`
+      Prelude.rnf s3FileLocation

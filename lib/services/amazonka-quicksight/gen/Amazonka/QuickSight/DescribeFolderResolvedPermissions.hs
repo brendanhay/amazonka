@@ -132,8 +132,8 @@ instance
     DescribeFolderResolvedPermissions
   where
   rnf DescribeFolderResolvedPermissions' {..} =
-    Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf folderId
+    Prelude.rnf awsAccountId `Prelude.seq`
+      Prelude.rnf folderId
 
 instance
   Data.ToHeaders
@@ -239,8 +239,8 @@ instance
     DescribeFolderResolvedPermissionsResponse
   where
   rnf DescribeFolderResolvedPermissionsResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf folderId
-      `Prelude.seq` Prelude.rnf permissions
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf folderId `Prelude.seq`
+        Prelude.rnf permissions `Prelude.seq`
+          Prelude.rnf requestId `Prelude.seq`
+            Prelude.rnf status

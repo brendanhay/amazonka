@@ -129,12 +129,12 @@ instance Core.AWSPager DescribeBuckets where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeBuckets_nextToken
-          Lens..~ rs
-          Lens.^? describeBucketsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeBuckets_nextToken
+              Lens..~ rs
+              Lens.^? describeBucketsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeBuckets where
   type
@@ -161,10 +161,10 @@ instance Prelude.Hashable DescribeBuckets where
 
 instance Prelude.NFData DescribeBuckets where
   rnf DescribeBuckets' {..} =
-    Prelude.rnf criteria
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortCriteria
+    Prelude.rnf criteria `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf sortCriteria
 
 instance Data.ToHeaders DescribeBuckets where
   toHeaders =
@@ -252,6 +252,6 @@ describeBucketsResponse_httpStatus = Lens.lens (\DescribeBucketsResponse' {httpS
 
 instance Prelude.NFData DescribeBucketsResponse where
   rnf DescribeBucketsResponse' {..} =
-    Prelude.rnf buckets
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf buckets `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

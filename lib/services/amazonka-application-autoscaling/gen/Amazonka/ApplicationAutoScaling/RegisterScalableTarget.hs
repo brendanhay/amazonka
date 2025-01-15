@@ -821,13 +821,13 @@ instance Prelude.Hashable RegisterScalableTarget where
 
 instance Prelude.NFData RegisterScalableTarget where
   rnf RegisterScalableTarget' {..} =
-    Prelude.rnf maxCapacity
-      `Prelude.seq` Prelude.rnf minCapacity
-      `Prelude.seq` Prelude.rnf roleARN
-      `Prelude.seq` Prelude.rnf suspendedState
-      `Prelude.seq` Prelude.rnf serviceNamespace
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf scalableDimension
+    Prelude.rnf maxCapacity `Prelude.seq`
+      Prelude.rnf minCapacity `Prelude.seq`
+        Prelude.rnf roleARN `Prelude.seq`
+          Prelude.rnf suspendedState `Prelude.seq`
+            Prelude.rnf serviceNamespace `Prelude.seq`
+              Prelude.rnf resourceId `Prelude.seq`
+                Prelude.rnf scalableDimension
 
 instance Data.ToHeaders RegisterScalableTarget where
   toHeaders =

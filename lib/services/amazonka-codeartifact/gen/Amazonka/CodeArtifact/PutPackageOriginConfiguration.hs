@@ -257,13 +257,13 @@ instance
 
 instance Prelude.NFData PutPackageOriginConfiguration where
   rnf PutPackageOriginConfiguration' {..} =
-    Prelude.rnf domainOwner
-      `Prelude.seq` Prelude.rnf namespace
-      `Prelude.seq` Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf repository
-      `Prelude.seq` Prelude.rnf format
-      `Prelude.seq` Prelude.rnf package
-      `Prelude.seq` Prelude.rnf restrictions
+    Prelude.rnf domainOwner `Prelude.seq`
+      Prelude.rnf namespace `Prelude.seq`
+        Prelude.rnf domain `Prelude.seq`
+          Prelude.rnf repository `Prelude.seq`
+            Prelude.rnf format `Prelude.seq`
+              Prelude.rnf package `Prelude.seq`
+                Prelude.rnf restrictions
 
 instance Data.ToHeaders PutPackageOriginConfiguration where
   toHeaders =
@@ -359,5 +359,5 @@ instance
     PutPackageOriginConfigurationResponse
   where
   rnf PutPackageOriginConfigurationResponse' {..} =
-    Prelude.rnf originConfiguration
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf originConfiguration `Prelude.seq`
+      Prelude.rnf httpStatus

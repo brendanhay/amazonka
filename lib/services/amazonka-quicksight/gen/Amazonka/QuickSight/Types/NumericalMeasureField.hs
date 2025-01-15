@@ -110,10 +110,10 @@ instance Prelude.Hashable NumericalMeasureField where
 
 instance Prelude.NFData NumericalMeasureField where
   rnf NumericalMeasureField' {..} =
-    Prelude.rnf aggregationFunction
-      `Prelude.seq` Prelude.rnf formatConfiguration
-      `Prelude.seq` Prelude.rnf fieldId
-      `Prelude.seq` Prelude.rnf column
+    Prelude.rnf aggregationFunction `Prelude.seq`
+      Prelude.rnf formatConfiguration `Prelude.seq`
+        Prelude.rnf fieldId `Prelude.seq`
+          Prelude.rnf column
 
 instance Data.ToJSON NumericalMeasureField where
   toJSON NumericalMeasureField' {..} =

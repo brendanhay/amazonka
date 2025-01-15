@@ -410,14 +410,14 @@ instance Prelude.Hashable StartSnapshot where
 
 instance Prelude.NFData StartSnapshot where
   rnf StartSnapshot' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf encrypted
-      `Prelude.seq` Prelude.rnf kmsKeyArn
-      `Prelude.seq` Prelude.rnf parentSnapshotId
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf timeout
-      `Prelude.seq` Prelude.rnf volumeSize
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf encrypted `Prelude.seq`
+          Prelude.rnf kmsKeyArn `Prelude.seq`
+            Prelude.rnf parentSnapshotId `Prelude.seq`
+              Prelude.rnf tags `Prelude.seq`
+                Prelude.rnf timeout `Prelude.seq`
+                  Prelude.rnf volumeSize
 
 instance Data.ToHeaders StartSnapshot where
   toHeaders =
@@ -585,14 +585,14 @@ startSnapshotResponse_httpStatus = Lens.lens (\StartSnapshotResponse' {httpStatu
 
 instance Prelude.NFData StartSnapshotResponse where
   rnf StartSnapshotResponse' {..} =
-    Prelude.rnf blockSize
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf kmsKeyArn
-      `Prelude.seq` Prelude.rnf ownerId
-      `Prelude.seq` Prelude.rnf parentSnapshotId
-      `Prelude.seq` Prelude.rnf snapshotId
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf volumeSize
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf blockSize `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf kmsKeyArn `Prelude.seq`
+          Prelude.rnf ownerId `Prelude.seq`
+            Prelude.rnf parentSnapshotId `Prelude.seq`
+              Prelude.rnf snapshotId `Prelude.seq`
+                Prelude.rnf startTime `Prelude.seq`
+                  Prelude.rnf status `Prelude.seq`
+                    Prelude.rnf tags `Prelude.seq`
+                      Prelude.rnf volumeSize `Prelude.seq`
+                        Prelude.rnf httpStatus

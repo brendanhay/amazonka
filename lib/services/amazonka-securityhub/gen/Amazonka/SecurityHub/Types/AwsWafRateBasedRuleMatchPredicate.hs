@@ -158,9 +158,9 @@ instance
     AwsWafRateBasedRuleMatchPredicate
   where
   rnf AwsWafRateBasedRuleMatchPredicate' {..} =
-    Prelude.rnf dataId
-      `Prelude.seq` Prelude.rnf negated
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf dataId `Prelude.seq`
+      Prelude.rnf negated `Prelude.seq`
+        Prelude.rnf type'
 
 instance
   Data.ToJSON

@@ -205,8 +205,8 @@ instance
     GetDataflowEndpointGroupResponse
   where
   rnf GetDataflowEndpointGroupResponse' {..} =
-    Prelude.rnf dataflowEndpointGroupArn
-      `Prelude.seq` Prelude.rnf dataflowEndpointGroupId
-      `Prelude.seq` Prelude.rnf endpointsDetails
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dataflowEndpointGroupArn `Prelude.seq`
+      Prelude.rnf dataflowEndpointGroupId `Prelude.seq`
+        Prelude.rnf endpointsDetails `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf httpStatus

@@ -100,8 +100,8 @@ instance
   where
   rnf
     AwsEcsTaskDefinitionContainerDefinitionsSecretsDetails' {..} =
-      Prelude.rnf name
-        `Prelude.seq` Prelude.rnf valueFrom
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf valueFrom
 
 instance
   Data.ToJSON

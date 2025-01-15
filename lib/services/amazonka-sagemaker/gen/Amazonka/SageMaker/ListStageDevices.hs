@@ -142,12 +142,12 @@ instance Core.AWSPager ListStageDevices where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listStageDevices_nextToken
-          Lens..~ rs
-          Lens.^? listStageDevicesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listStageDevices_nextToken
+              Lens..~ rs
+              Lens.^? listStageDevicesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListStageDevices where
   type
@@ -178,11 +178,11 @@ instance Prelude.Hashable ListStageDevices where
 
 instance Prelude.NFData ListStageDevices where
   rnf ListStageDevices' {..} =
-    Prelude.rnf excludeDevicesDeployedInOtherStage
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf edgeDeploymentPlanName
-      `Prelude.seq` Prelude.rnf stageName
+    Prelude.rnf excludeDevicesDeployedInOtherStage `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf edgeDeploymentPlanName `Prelude.seq`
+            Prelude.rnf stageName
 
 instance Data.ToHeaders ListStageDevices where
   toHeaders =
@@ -269,6 +269,6 @@ listStageDevicesResponse_deviceDeploymentSummaries = Lens.lens (\ListStageDevice
 
 instance Prelude.NFData ListStageDevicesResponse where
   rnf ListStageDevicesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf deviceDeploymentSummaries
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf deviceDeploymentSummaries

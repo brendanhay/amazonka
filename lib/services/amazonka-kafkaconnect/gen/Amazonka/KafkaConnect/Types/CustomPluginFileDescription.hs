@@ -87,5 +87,5 @@ instance Prelude.Hashable CustomPluginFileDescription where
 
 instance Prelude.NFData CustomPluginFileDescription where
   rnf CustomPluginFileDescription' {..} =
-    Prelude.rnf fileMd5
-      `Prelude.seq` Prelude.rnf fileSize
+    Prelude.rnf fileMd5 `Prelude.seq`
+      Prelude.rnf fileSize

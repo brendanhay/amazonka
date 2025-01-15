@@ -128,8 +128,8 @@ instance Prelude.Hashable DescribeAnalysisPermissions where
 
 instance Prelude.NFData DescribeAnalysisPermissions where
   rnf DescribeAnalysisPermissions' {..} =
-    Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf analysisId
+    Prelude.rnf awsAccountId `Prelude.seq`
+      Prelude.rnf analysisId
 
 instance Data.ToHeaders DescribeAnalysisPermissions where
   toHeaders =
@@ -232,8 +232,8 @@ instance
     DescribeAnalysisPermissionsResponse
   where
   rnf DescribeAnalysisPermissionsResponse' {..} =
-    Prelude.rnf analysisArn
-      `Prelude.seq` Prelude.rnf analysisId
-      `Prelude.seq` Prelude.rnf permissions
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf analysisArn `Prelude.seq`
+      Prelude.rnf analysisId `Prelude.seq`
+        Prelude.rnf permissions `Prelude.seq`
+          Prelude.rnf requestId `Prelude.seq`
+            Prelude.rnf status

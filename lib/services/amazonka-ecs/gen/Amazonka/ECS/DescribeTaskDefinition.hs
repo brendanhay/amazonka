@@ -127,8 +127,8 @@ instance Prelude.Hashable DescribeTaskDefinition where
 
 instance Prelude.NFData DescribeTaskDefinition where
   rnf DescribeTaskDefinition' {..} =
-    Prelude.rnf include
-      `Prelude.seq` Prelude.rnf taskDefinition
+    Prelude.rnf include `Prelude.seq`
+      Prelude.rnf taskDefinition
 
 instance Data.ToHeaders DescribeTaskDefinition where
   toHeaders =
@@ -295,6 +295,6 @@ instance
     DescribeTaskDefinitionResponse
   where
   rnf DescribeTaskDefinitionResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf taskDefinition
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf taskDefinition `Prelude.seq`
+        Prelude.rnf httpStatus

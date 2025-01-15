@@ -125,10 +125,10 @@ instance Prelude.Hashable UpdateMulticastGroup where
 
 instance Prelude.NFData UpdateMulticastGroup where
   rnf UpdateMulticastGroup' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf loRaWAN
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf loRaWAN `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf id
 
 instance Data.ToHeaders UpdateMulticastGroup where
   toHeaders = Prelude.const Prelude.mempty

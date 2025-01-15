@@ -135,12 +135,12 @@ instance Prelude.Hashable InstanceStorageConfig where
 
 instance Prelude.NFData InstanceStorageConfig where
   rnf InstanceStorageConfig' {..} =
-    Prelude.rnf associationId
-      `Prelude.seq` Prelude.rnf kinesisFirehoseConfig
-      `Prelude.seq` Prelude.rnf kinesisStreamConfig
-      `Prelude.seq` Prelude.rnf kinesisVideoStreamConfig
-      `Prelude.seq` Prelude.rnf s3Config
-      `Prelude.seq` Prelude.rnf storageType
+    Prelude.rnf associationId `Prelude.seq`
+      Prelude.rnf kinesisFirehoseConfig `Prelude.seq`
+        Prelude.rnf kinesisStreamConfig `Prelude.seq`
+          Prelude.rnf kinesisVideoStreamConfig `Prelude.seq`
+            Prelude.rnf s3Config `Prelude.seq`
+              Prelude.rnf storageType
 
 instance Data.ToJSON InstanceStorageConfig where
   toJSON InstanceStorageConfig' {..} =

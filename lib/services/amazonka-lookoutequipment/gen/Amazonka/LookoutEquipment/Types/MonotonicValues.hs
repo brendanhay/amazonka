@@ -90,5 +90,5 @@ instance Prelude.Hashable MonotonicValues where
 
 instance Prelude.NFData MonotonicValues where
   rnf MonotonicValues' {..} =
-    Prelude.rnf monotonicity
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf monotonicity `Prelude.seq`
+      Prelude.rnf status

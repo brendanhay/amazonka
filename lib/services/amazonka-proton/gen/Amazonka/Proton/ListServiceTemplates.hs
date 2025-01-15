@@ -105,12 +105,12 @@ instance Core.AWSPager ListServiceTemplates where
         (rs Lens.^. listServiceTemplatesResponse_templates) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listServiceTemplates_nextToken
-          Lens..~ rs
-          Lens.^? listServiceTemplatesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listServiceTemplates_nextToken
+              Lens..~ rs
+              Lens.^? listServiceTemplatesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListServiceTemplates where
   type
@@ -135,8 +135,8 @@ instance Prelude.Hashable ListServiceTemplates where
 
 instance Prelude.NFData ListServiceTemplates where
   rnf ListServiceTemplates' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListServiceTemplates where
   toHeaders =
@@ -224,6 +224,6 @@ listServiceTemplatesResponse_templates = Lens.lens (\ListServiceTemplatesRespons
 
 instance Prelude.NFData ListServiceTemplatesResponse where
   rnf ListServiceTemplatesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf templates
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf templates

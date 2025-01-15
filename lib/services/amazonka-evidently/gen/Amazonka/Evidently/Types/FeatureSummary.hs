@@ -206,13 +206,13 @@ instance Prelude.Hashable FeatureSummary where
 
 instance Prelude.NFData FeatureSummary where
   rnf FeatureSummary' {..} =
-    Prelude.rnf defaultVariation
-      `Prelude.seq` Prelude.rnf evaluationRules
-      `Prelude.seq` Prelude.rnf project
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf evaluationStrategy
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf defaultVariation `Prelude.seq`
+      Prelude.rnf evaluationRules `Prelude.seq`
+        Prelude.rnf project `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf arn `Prelude.seq`
+              Prelude.rnf createdTime `Prelude.seq`
+                Prelude.rnf evaluationStrategy `Prelude.seq`
+                  Prelude.rnf lastUpdatedTime `Prelude.seq`
+                    Prelude.rnf name `Prelude.seq`
+                      Prelude.rnf status

@@ -150,10 +150,10 @@ instance Prelude.Hashable ApplicationSummary where
 
 instance Prelude.NFData ApplicationSummary where
   rnf ApplicationSummary' {..} =
-    Prelude.rnf applicationCreationDate
-      `Prelude.seq` Prelude.rnf applicationDescription
-      `Prelude.seq` Prelude.rnf applicationLastUpdateDate
-      `Prelude.seq` Prelude.rnf applicationState
-      `Prelude.seq` Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf applicationName
-      `Prelude.seq` Prelude.rnf applicationUrl
+    Prelude.rnf applicationCreationDate `Prelude.seq`
+      Prelude.rnf applicationDescription `Prelude.seq`
+        Prelude.rnf applicationLastUpdateDate `Prelude.seq`
+          Prelude.rnf applicationState `Prelude.seq`
+            Prelude.rnf applicationId `Prelude.seq`
+              Prelude.rnf applicationName `Prelude.seq`
+                Prelude.rnf applicationUrl

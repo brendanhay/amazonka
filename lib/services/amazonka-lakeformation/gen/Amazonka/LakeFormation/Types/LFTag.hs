@@ -86,8 +86,8 @@ instance Prelude.Hashable LFTag where
 
 instance Prelude.NFData LFTag where
   rnf LFTag' {..} =
-    Prelude.rnf tagKey
-      `Prelude.seq` Prelude.rnf tagValues
+    Prelude.rnf tagKey `Prelude.seq`
+      Prelude.rnf tagValues
 
 instance Data.ToJSON LFTag where
   toJSON LFTag' {..} =

@@ -352,18 +352,18 @@ instance Prelude.Hashable CreateDomain where
 
 instance Prelude.NFData CreateDomain where
   rnf CreateDomain' {..} =
-    Prelude.rnf appNetworkAccessType
-      `Prelude.seq` Prelude.rnf appSecurityGroupManagement
-      `Prelude.seq` Prelude.rnf defaultSpaceSettings
-      `Prelude.seq` Prelude.rnf domainSettings
-      `Prelude.seq` Prelude.rnf homeEfsFileSystemKmsKeyId
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf authMode
-      `Prelude.seq` Prelude.rnf defaultUserSettings
-      `Prelude.seq` Prelude.rnf subnetIds
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf appNetworkAccessType `Prelude.seq`
+      Prelude.rnf appSecurityGroupManagement `Prelude.seq`
+        Prelude.rnf defaultSpaceSettings `Prelude.seq`
+          Prelude.rnf domainSettings `Prelude.seq`
+            Prelude.rnf homeEfsFileSystemKmsKeyId `Prelude.seq`
+              Prelude.rnf kmsKeyId `Prelude.seq`
+                Prelude.rnf tags `Prelude.seq`
+                  Prelude.rnf domainName `Prelude.seq`
+                    Prelude.rnf authMode `Prelude.seq`
+                      Prelude.rnf defaultUserSettings `Prelude.seq`
+                        Prelude.rnf subnetIds `Prelude.seq`
+                          Prelude.rnf vpcId
 
 instance Data.ToHeaders CreateDomain where
   toHeaders =
@@ -458,6 +458,6 @@ createDomainResponse_httpStatus = Lens.lens (\CreateDomainResponse' {httpStatus}
 
 instance Prelude.NFData CreateDomainResponse where
   rnf CreateDomainResponse' {..} =
-    Prelude.rnf domainArn
-      `Prelude.seq` Prelude.rnf url
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf domainArn `Prelude.seq`
+      Prelude.rnf url `Prelude.seq`
+        Prelude.rnf httpStatus

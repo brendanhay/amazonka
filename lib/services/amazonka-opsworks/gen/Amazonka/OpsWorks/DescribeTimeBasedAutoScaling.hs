@@ -189,5 +189,5 @@ instance
     DescribeTimeBasedAutoScalingResponse
   where
   rnf DescribeTimeBasedAutoScalingResponse' {..} =
-    Prelude.rnf timeBasedAutoScalingConfigurations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf timeBasedAutoScalingConfigurations `Prelude.seq`
+      Prelude.rnf httpStatus

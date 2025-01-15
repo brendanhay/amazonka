@@ -159,10 +159,10 @@ instance Prelude.Hashable CreateVpcIngressConnection where
 
 instance Prelude.NFData CreateVpcIngressConnection where
   rnf CreateVpcIngressConnection' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf serviceArn
-      `Prelude.seq` Prelude.rnf vpcIngressConnectionName
-      `Prelude.seq` Prelude.rnf ingressVpcConfiguration
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf serviceArn `Prelude.seq`
+        Prelude.rnf vpcIngressConnectionName `Prelude.seq`
+          Prelude.rnf ingressVpcConfiguration
 
 instance Data.ToHeaders CreateVpcIngressConnection where
   toHeaders =
@@ -254,5 +254,5 @@ instance
     CreateVpcIngressConnectionResponse
   where
   rnf CreateVpcIngressConnectionResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf vpcIngressConnection
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf vpcIngressConnection

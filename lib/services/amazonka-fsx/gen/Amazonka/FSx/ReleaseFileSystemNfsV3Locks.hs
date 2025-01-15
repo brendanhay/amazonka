@@ -108,8 +108,8 @@ instance Prelude.Hashable ReleaseFileSystemNfsV3Locks where
 
 instance Prelude.NFData ReleaseFileSystemNfsV3Locks where
   rnf ReleaseFileSystemNfsV3Locks' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf fileSystemId
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf fileSystemId
 
 instance Data.ToHeaders ReleaseFileSystemNfsV3Locks where
   toHeaders =
@@ -185,5 +185,5 @@ instance
     ReleaseFileSystemNfsV3LocksResponse
   where
   rnf ReleaseFileSystemNfsV3LocksResponse' {..} =
-    Prelude.rnf fileSystem
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf fileSystem `Prelude.seq`
+      Prelude.rnf httpStatus

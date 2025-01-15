@@ -150,8 +150,8 @@ instance
     DeleteServiceSpecificCredential
   where
   rnf DeleteServiceSpecificCredential' {..} =
-    Prelude.rnf userName
-      `Prelude.seq` Prelude.rnf serviceSpecificCredentialId
+    Prelude.rnf userName `Prelude.seq`
+      Prelude.rnf serviceSpecificCredentialId
 
 instance
   Data.ToHeaders

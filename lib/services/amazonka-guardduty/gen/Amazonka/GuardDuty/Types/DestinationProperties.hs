@@ -92,8 +92,8 @@ instance Prelude.Hashable DestinationProperties where
 
 instance Prelude.NFData DestinationProperties where
   rnf DestinationProperties' {..} =
-    Prelude.rnf destinationArn
-      `Prelude.seq` Prelude.rnf kmsKeyArn
+    Prelude.rnf destinationArn `Prelude.seq`
+      Prelude.rnf kmsKeyArn
 
 instance Data.ToJSON DestinationProperties where
   toJSON DestinationProperties' {..} =

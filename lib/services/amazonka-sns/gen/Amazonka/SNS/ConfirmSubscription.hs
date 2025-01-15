@@ -141,9 +141,9 @@ instance Prelude.Hashable ConfirmSubscription where
 
 instance Prelude.NFData ConfirmSubscription where
   rnf ConfirmSubscription' {..} =
-    Prelude.rnf authenticateOnUnsubscribe
-      `Prelude.seq` Prelude.rnf topicArn
-      `Prelude.seq` Prelude.rnf token
+    Prelude.rnf authenticateOnUnsubscribe `Prelude.seq`
+      Prelude.rnf topicArn `Prelude.seq`
+        Prelude.rnf token
 
 instance Data.ToHeaders ConfirmSubscription where
   toHeaders = Prelude.const Prelude.mempty
@@ -207,5 +207,5 @@ confirmSubscriptionResponse_httpStatus = Lens.lens (\ConfirmSubscriptionResponse
 
 instance Prelude.NFData ConfirmSubscriptionResponse where
   rnf ConfirmSubscriptionResponse' {..} =
-    Prelude.rnf subscriptionArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf subscriptionArn `Prelude.seq`
+      Prelude.rnf httpStatus

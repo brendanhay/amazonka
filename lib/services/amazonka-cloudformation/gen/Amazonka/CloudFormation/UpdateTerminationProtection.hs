@@ -127,8 +127,8 @@ instance Prelude.Hashable UpdateTerminationProtection where
 
 instance Prelude.NFData UpdateTerminationProtection where
   rnf UpdateTerminationProtection' {..} =
-    Prelude.rnf enableTerminationProtection
-      `Prelude.seq` Prelude.rnf stackName
+    Prelude.rnf enableTerminationProtection `Prelude.seq`
+      Prelude.rnf stackName
 
 instance Data.ToHeaders UpdateTerminationProtection where
   toHeaders = Prelude.const Prelude.mempty
@@ -194,5 +194,5 @@ instance
     UpdateTerminationProtectionResponse
   where
   rnf UpdateTerminationProtectionResponse' {..} =
-    Prelude.rnf stackId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf stackId `Prelude.seq`
+      Prelude.rnf httpStatus

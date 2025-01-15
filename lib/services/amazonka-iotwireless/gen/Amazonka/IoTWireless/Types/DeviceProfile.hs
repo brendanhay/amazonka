@@ -91,6 +91,6 @@ instance Prelude.Hashable DeviceProfile where
 
 instance Prelude.NFData DeviceProfile where
   rnf DeviceProfile' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf name

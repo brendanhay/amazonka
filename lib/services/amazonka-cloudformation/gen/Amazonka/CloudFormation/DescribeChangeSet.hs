@@ -146,12 +146,12 @@ instance Core.AWSPager DescribeChangeSet where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeChangeSet_nextToken
-          Lens..~ rs
-          Lens.^? describeChangeSetResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeChangeSet_nextToken
+              Lens..~ rs
+              Lens.^? describeChangeSetResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeChangeSet where
   type
@@ -164,16 +164,12 @@ instance Core.AWSRequest DescribeChangeSet where
       "DescribeChangeSetResult"
       ( \s h x ->
           DescribeChangeSetResponse'
-            Prelude.<$> ( x
-                            Data..@? "Capabilities"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "Capabilities" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (x Data..@? "ChangeSetId")
             Prelude.<*> (x Data..@? "ChangeSetName")
-            Prelude.<*> ( x
-                            Data..@? "Changes"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "Changes" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (x Data..@? "CreationTime")
@@ -186,9 +182,7 @@ instance Core.AWSRequest DescribeChangeSet where
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> ( x
-                            Data..@? "Parameters"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "Parameters" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (x Data..@? "ParentChangeSetId")
@@ -197,9 +191,7 @@ instance Core.AWSRequest DescribeChangeSet where
             Prelude.<*> (x Data..@? "StackId")
             Prelude.<*> (x Data..@? "StackName")
             Prelude.<*> (x Data..@? "StatusReason")
-            Prelude.<*> ( x
-                            Data..@? "Tags"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -215,9 +207,9 @@ instance Prelude.Hashable DescribeChangeSet where
 
 instance Prelude.NFData DescribeChangeSet where
   rnf DescribeChangeSet' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf stackName
-      `Prelude.seq` Prelude.rnf changeSetName
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf stackName `Prelude.seq`
+        Prelude.rnf changeSetName
 
 instance Data.ToHeaders DescribeChangeSet where
   toHeaders = Prelude.const Prelude.mempty
@@ -504,23 +496,23 @@ describeChangeSetResponse_status = Lens.lens (\DescribeChangeSetResponse' {statu
 
 instance Prelude.NFData DescribeChangeSetResponse where
   rnf DescribeChangeSetResponse' {..} =
-    Prelude.rnf capabilities
-      `Prelude.seq` Prelude.rnf changeSetId
-      `Prelude.seq` Prelude.rnf changeSetName
-      `Prelude.seq` Prelude.rnf changes
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf executionStatus
-      `Prelude.seq` Prelude.rnf includeNestedStacks
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf notificationARNs
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf parentChangeSetId
-      `Prelude.seq` Prelude.rnf rollbackConfiguration
-      `Prelude.seq` Prelude.rnf rootChangeSetId
-      `Prelude.seq` Prelude.rnf stackId
-      `Prelude.seq` Prelude.rnf stackName
-      `Prelude.seq` Prelude.rnf statusReason
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf capabilities `Prelude.seq`
+      Prelude.rnf changeSetId `Prelude.seq`
+        Prelude.rnf changeSetName `Prelude.seq`
+          Prelude.rnf changes `Prelude.seq`
+            Prelude.rnf creationTime `Prelude.seq`
+              Prelude.rnf description `Prelude.seq`
+                Prelude.rnf executionStatus `Prelude.seq`
+                  Prelude.rnf includeNestedStacks `Prelude.seq`
+                    Prelude.rnf nextToken `Prelude.seq`
+                      Prelude.rnf notificationARNs `Prelude.seq`
+                        Prelude.rnf parameters `Prelude.seq`
+                          Prelude.rnf parentChangeSetId `Prelude.seq`
+                            Prelude.rnf rollbackConfiguration `Prelude.seq`
+                              Prelude.rnf rootChangeSetId `Prelude.seq`
+                                Prelude.rnf stackId `Prelude.seq`
+                                  Prelude.rnf stackName `Prelude.seq`
+                                    Prelude.rnf statusReason `Prelude.seq`
+                                      Prelude.rnf tags `Prelude.seq`
+                                        Prelude.rnf httpStatus `Prelude.seq`
+                                          Prelude.rnf status

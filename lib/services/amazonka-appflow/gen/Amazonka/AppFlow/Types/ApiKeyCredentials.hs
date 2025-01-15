@@ -72,8 +72,8 @@ instance Prelude.Hashable ApiKeyCredentials where
 
 instance Prelude.NFData ApiKeyCredentials where
   rnf ApiKeyCredentials' {..} =
-    Prelude.rnf apiSecretKey
-      `Prelude.seq` Prelude.rnf apiKey
+    Prelude.rnf apiSecretKey `Prelude.seq`
+      Prelude.rnf apiKey
 
 instance Data.ToJSON ApiKeyCredentials where
   toJSON ApiKeyCredentials' {..} =

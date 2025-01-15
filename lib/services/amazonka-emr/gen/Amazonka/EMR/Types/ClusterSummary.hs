@@ -143,9 +143,9 @@ instance Prelude.Hashable ClusterSummary where
 
 instance Prelude.NFData ClusterSummary where
   rnf ClusterSummary' {..} =
-    Prelude.rnf clusterArn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf normalizedInstanceHours
-      `Prelude.seq` Prelude.rnf outpostArn
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf clusterArn `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf normalizedInstanceHours `Prelude.seq`
+            Prelude.rnf outpostArn `Prelude.seq`
+              Prelude.rnf status

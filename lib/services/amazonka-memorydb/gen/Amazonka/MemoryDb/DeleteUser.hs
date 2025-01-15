@@ -160,5 +160,5 @@ deleteUserResponse_httpStatus = Lens.lens (\DeleteUserResponse' {httpStatus} -> 
 
 instance Prelude.NFData DeleteUserResponse where
   rnf DeleteUserResponse' {..} =
-    Prelude.rnf user
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf user `Prelude.seq`
+      Prelude.rnf httpStatus

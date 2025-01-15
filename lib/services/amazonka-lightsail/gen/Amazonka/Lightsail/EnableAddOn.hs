@@ -113,8 +113,8 @@ instance Prelude.Hashable EnableAddOn where
 
 instance Prelude.NFData EnableAddOn where
   rnf EnableAddOn' {..} =
-    Prelude.rnf resourceName
-      `Prelude.seq` Prelude.rnf addOnRequest
+    Prelude.rnf resourceName `Prelude.seq`
+      Prelude.rnf addOnRequest
 
 instance Data.ToHeaders EnableAddOn where
   toHeaders =
@@ -192,5 +192,5 @@ enableAddOnResponse_httpStatus = Lens.lens (\EnableAddOnResponse' {httpStatus} -
 
 instance Prelude.NFData EnableAddOnResponse where
   rnf EnableAddOnResponse' {..} =
-    Prelude.rnf operations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operations `Prelude.seq`
+      Prelude.rnf httpStatus

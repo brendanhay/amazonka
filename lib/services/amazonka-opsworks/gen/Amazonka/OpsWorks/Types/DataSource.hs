@@ -94,9 +94,9 @@ instance Prelude.Hashable DataSource where
 
 instance Prelude.NFData DataSource where
   rnf DataSource' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf databaseName `Prelude.seq`
+        Prelude.rnf type'
 
 instance Data.ToJSON DataSource where
   toJSON DataSource' {..} =

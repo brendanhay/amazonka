@@ -155,12 +155,12 @@ instance Core.AWSPager ListAnomaliesForInsight where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listAnomaliesForInsight_nextToken
-          Lens..~ rs
-          Lens.^? listAnomaliesForInsightResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listAnomaliesForInsight_nextToken
+              Lens..~ rs
+              Lens.^? listAnomaliesForInsightResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAnomaliesForInsight where
   type
@@ -195,11 +195,11 @@ instance Prelude.Hashable ListAnomaliesForInsight where
 
 instance Prelude.NFData ListAnomaliesForInsight where
   rnf ListAnomaliesForInsight' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf startTimeRange
-      `Prelude.seq` Prelude.rnf insightId
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf startTimeRange `Prelude.seq`
+            Prelude.rnf insightId
 
 instance Data.ToHeaders ListAnomaliesForInsight where
   toHeaders =
@@ -303,7 +303,7 @@ instance
     ListAnomaliesForInsightResponse
   where
   rnf ListAnomaliesForInsightResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf proactiveAnomalies
-      `Prelude.seq` Prelude.rnf reactiveAnomalies
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf proactiveAnomalies `Prelude.seq`
+        Prelude.rnf reactiveAnomalies `Prelude.seq`
+          Prelude.rnf httpStatus

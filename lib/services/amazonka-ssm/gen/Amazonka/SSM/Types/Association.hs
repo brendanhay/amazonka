@@ -244,15 +244,15 @@ instance Prelude.Hashable Association where
 
 instance Prelude.NFData Association where
   rnf Association' {..} =
-    Prelude.rnf associationId
-      `Prelude.seq` Prelude.rnf associationName
-      `Prelude.seq` Prelude.rnf associationVersion
-      `Prelude.seq` Prelude.rnf documentVersion
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf lastExecutionDate
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf overview
-      `Prelude.seq` Prelude.rnf scheduleExpression
-      `Prelude.seq` Prelude.rnf scheduleOffset
-      `Prelude.seq` Prelude.rnf targetMaps
-      `Prelude.seq` Prelude.rnf targets
+    Prelude.rnf associationId `Prelude.seq`
+      Prelude.rnf associationName `Prelude.seq`
+        Prelude.rnf associationVersion `Prelude.seq`
+          Prelude.rnf documentVersion `Prelude.seq`
+            Prelude.rnf instanceId `Prelude.seq`
+              Prelude.rnf lastExecutionDate `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf overview `Prelude.seq`
+                    Prelude.rnf scheduleExpression `Prelude.seq`
+                      Prelude.rnf scheduleOffset `Prelude.seq`
+                        Prelude.rnf targetMaps `Prelude.seq`
+                          Prelude.rnf targets

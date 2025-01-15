@@ -89,5 +89,5 @@ instance
     WorkerConfigurationDescription
   where
   rnf WorkerConfigurationDescription' {..} =
-    Prelude.rnf revision
-      `Prelude.seq` Prelude.rnf workerConfigurationArn
+    Prelude.rnf revision `Prelude.seq`
+      Prelude.rnf workerConfigurationArn

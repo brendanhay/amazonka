@@ -114,12 +114,12 @@ instance Prelude.Hashable OptionConfiguration where
 
 instance Prelude.NFData OptionConfiguration where
   rnf OptionConfiguration' {..} =
-    Prelude.rnf dbSecurityGroupMemberships
-      `Prelude.seq` Prelude.rnf optionSettings
-      `Prelude.seq` Prelude.rnf optionVersion
-      `Prelude.seq` Prelude.rnf port
-      `Prelude.seq` Prelude.rnf vpcSecurityGroupMemberships
-      `Prelude.seq` Prelude.rnf optionName
+    Prelude.rnf dbSecurityGroupMemberships `Prelude.seq`
+      Prelude.rnf optionSettings `Prelude.seq`
+        Prelude.rnf optionVersion `Prelude.seq`
+          Prelude.rnf port `Prelude.seq`
+            Prelude.rnf vpcSecurityGroupMemberships `Prelude.seq`
+              Prelude.rnf optionName
 
 instance Data.ToQuery OptionConfiguration where
   toQuery OptionConfiguration' {..} =

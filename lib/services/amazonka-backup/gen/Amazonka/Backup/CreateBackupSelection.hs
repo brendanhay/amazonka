@@ -151,9 +151,9 @@ instance Prelude.Hashable CreateBackupSelection where
 
 instance Prelude.NFData CreateBackupSelection where
   rnf CreateBackupSelection' {..} =
-    Prelude.rnf creatorRequestId
-      `Prelude.seq` Prelude.rnf backupPlanId
-      `Prelude.seq` Prelude.rnf backupSelection
+    Prelude.rnf creatorRequestId `Prelude.seq`
+      Prelude.rnf backupPlanId `Prelude.seq`
+        Prelude.rnf backupSelection
 
 instance Data.ToHeaders CreateBackupSelection where
   toHeaders =
@@ -259,7 +259,7 @@ createBackupSelectionResponse_httpStatus = Lens.lens (\CreateBackupSelectionResp
 
 instance Prelude.NFData CreateBackupSelectionResponse where
   rnf CreateBackupSelectionResponse' {..} =
-    Prelude.rnf backupPlanId
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf selectionId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf backupPlanId `Prelude.seq`
+      Prelude.rnf creationDate `Prelude.seq`
+        Prelude.rnf selectionId `Prelude.seq`
+          Prelude.rnf httpStatus

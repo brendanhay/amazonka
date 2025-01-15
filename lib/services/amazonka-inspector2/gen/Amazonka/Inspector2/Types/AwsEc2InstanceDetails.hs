@@ -169,13 +169,13 @@ instance Prelude.Hashable AwsEc2InstanceDetails where
 
 instance Prelude.NFData AwsEc2InstanceDetails where
   rnf AwsEc2InstanceDetails' {..} =
-    Prelude.rnf iamInstanceProfileArn
-      `Prelude.seq` Prelude.rnf imageId
-      `Prelude.seq` Prelude.rnf ipV4Addresses
-      `Prelude.seq` Prelude.rnf ipV6Addresses
-      `Prelude.seq` Prelude.rnf keyName
-      `Prelude.seq` Prelude.rnf launchedAt
-      `Prelude.seq` Prelude.rnf platform
-      `Prelude.seq` Prelude.rnf subnetId
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf iamInstanceProfileArn `Prelude.seq`
+      Prelude.rnf imageId `Prelude.seq`
+        Prelude.rnf ipV4Addresses `Prelude.seq`
+          Prelude.rnf ipV6Addresses `Prelude.seq`
+            Prelude.rnf keyName `Prelude.seq`
+              Prelude.rnf launchedAt `Prelude.seq`
+                Prelude.rnf platform `Prelude.seq`
+                  Prelude.rnf subnetId `Prelude.seq`
+                    Prelude.rnf type' `Prelude.seq`
+                      Prelude.rnf vpcId

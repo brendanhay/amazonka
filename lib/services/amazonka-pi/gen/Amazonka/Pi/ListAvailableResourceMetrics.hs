@@ -212,11 +212,11 @@ instance
 
 instance Prelude.NFData ListAvailableResourceMetrics where
   rnf ListAvailableResourceMetrics' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf serviceType
-      `Prelude.seq` Prelude.rnf identifier
-      `Prelude.seq` Prelude.rnf metricTypes
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf serviceType `Prelude.seq`
+          Prelude.rnf identifier `Prelude.seq`
+            Prelude.rnf metricTypes
 
 instance Data.ToHeaders ListAvailableResourceMetrics where
   toHeaders =
@@ -316,6 +316,6 @@ instance
     ListAvailableResourceMetricsResponse
   where
   rnf ListAvailableResourceMetricsResponse' {..} =
-    Prelude.rnf metrics
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf metrics `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

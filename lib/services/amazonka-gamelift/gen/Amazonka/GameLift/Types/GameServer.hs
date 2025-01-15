@@ -282,14 +282,14 @@ instance Prelude.Hashable GameServer where
 
 instance Prelude.NFData GameServer where
   rnf GameServer' {..} =
-    Prelude.rnf claimStatus
-      `Prelude.seq` Prelude.rnf connectionInfo
-      `Prelude.seq` Prelude.rnf gameServerData
-      `Prelude.seq` Prelude.rnf gameServerGroupArn
-      `Prelude.seq` Prelude.rnf gameServerGroupName
-      `Prelude.seq` Prelude.rnf gameServerId
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf lastClaimTime
-      `Prelude.seq` Prelude.rnf lastHealthCheckTime
-      `Prelude.seq` Prelude.rnf registrationTime
-      `Prelude.seq` Prelude.rnf utilizationStatus
+    Prelude.rnf claimStatus `Prelude.seq`
+      Prelude.rnf connectionInfo `Prelude.seq`
+        Prelude.rnf gameServerData `Prelude.seq`
+          Prelude.rnf gameServerGroupArn `Prelude.seq`
+            Prelude.rnf gameServerGroupName `Prelude.seq`
+              Prelude.rnf gameServerId `Prelude.seq`
+                Prelude.rnf instanceId `Prelude.seq`
+                  Prelude.rnf lastClaimTime `Prelude.seq`
+                    Prelude.rnf lastHealthCheckTime `Prelude.seq`
+                      Prelude.rnf registrationTime `Prelude.seq`
+                        Prelude.rnf utilizationStatus

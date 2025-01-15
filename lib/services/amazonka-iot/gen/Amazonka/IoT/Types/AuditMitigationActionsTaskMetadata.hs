@@ -105,6 +105,6 @@ instance
     AuditMitigationActionsTaskMetadata
   where
   rnf AuditMitigationActionsTaskMetadata' {..} =
-    Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf taskId
-      `Prelude.seq` Prelude.rnf taskStatus
+    Prelude.rnf startTime `Prelude.seq`
+      Prelude.rnf taskId `Prelude.seq`
+        Prelude.rnf taskStatus

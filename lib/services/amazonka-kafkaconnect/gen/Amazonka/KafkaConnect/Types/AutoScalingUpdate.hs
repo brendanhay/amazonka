@@ -121,11 +121,11 @@ instance Prelude.Hashable AutoScalingUpdate where
 
 instance Prelude.NFData AutoScalingUpdate where
   rnf AutoScalingUpdate' {..} =
-    Prelude.rnf maxWorkerCount
-      `Prelude.seq` Prelude.rnf mcuCount
-      `Prelude.seq` Prelude.rnf minWorkerCount
-      `Prelude.seq` Prelude.rnf scaleInPolicy
-      `Prelude.seq` Prelude.rnf scaleOutPolicy
+    Prelude.rnf maxWorkerCount `Prelude.seq`
+      Prelude.rnf mcuCount `Prelude.seq`
+        Prelude.rnf minWorkerCount `Prelude.seq`
+          Prelude.rnf scaleInPolicy `Prelude.seq`
+            Prelude.rnf scaleOutPolicy
 
 instance Data.ToJSON AutoScalingUpdate where
   toJSON AutoScalingUpdate' {..} =

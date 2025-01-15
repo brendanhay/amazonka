@@ -171,9 +171,9 @@ instance Prelude.Hashable DevicePool where
 
 instance Prelude.NFData DevicePool where
   rnf DevicePool' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf maxDevices
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf rules
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf maxDevices `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf rules `Prelude.seq`
+              Prelude.rnf type'

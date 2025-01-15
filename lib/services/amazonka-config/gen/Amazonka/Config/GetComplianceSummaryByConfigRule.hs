@@ -170,5 +170,5 @@ instance
     GetComplianceSummaryByConfigRuleResponse
   where
   rnf GetComplianceSummaryByConfigRuleResponse' {..} =
-    Prelude.rnf complianceSummary
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf complianceSummary `Prelude.seq`
+      Prelude.rnf httpStatus

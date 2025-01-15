@@ -196,12 +196,12 @@ instance Prelude.Hashable MetricTransformation where
 
 instance Prelude.NFData MetricTransformation where
   rnf MetricTransformation' {..} =
-    Prelude.rnf defaultValue
-      `Prelude.seq` Prelude.rnf dimensions
-      `Prelude.seq` Prelude.rnf unit
-      `Prelude.seq` Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf metricNamespace
-      `Prelude.seq` Prelude.rnf metricValue
+    Prelude.rnf defaultValue `Prelude.seq`
+      Prelude.rnf dimensions `Prelude.seq`
+        Prelude.rnf unit `Prelude.seq`
+          Prelude.rnf metricName `Prelude.seq`
+            Prelude.rnf metricNamespace `Prelude.seq`
+              Prelude.rnf metricValue
 
 instance Data.ToJSON MetricTransformation where
   toJSON MetricTransformation' {..} =

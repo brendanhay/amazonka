@@ -121,9 +121,9 @@ instance Prelude.Hashable GetType where
 
 instance Prelude.NFData GetType where
   rnf GetType' {..} =
-    Prelude.rnf apiId
-      `Prelude.seq` Prelude.rnf typeName
-      `Prelude.seq` Prelude.rnf format
+    Prelude.rnf apiId `Prelude.seq`
+      Prelude.rnf typeName `Prelude.seq`
+        Prelude.rnf format
 
 instance Data.ToHeaders GetType where
   toHeaders =
@@ -189,5 +189,5 @@ getTypeResponse_httpStatus = Lens.lens (\GetTypeResponse' {httpStatus} -> httpSt
 
 instance Prelude.NFData GetTypeResponse where
   rnf GetTypeResponse' {..} =
-    Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf type' `Prelude.seq`
+      Prelude.rnf httpStatus

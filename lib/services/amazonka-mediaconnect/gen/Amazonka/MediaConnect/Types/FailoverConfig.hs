@@ -113,10 +113,10 @@ instance Prelude.Hashable FailoverConfig where
 
 instance Prelude.NFData FailoverConfig where
   rnf FailoverConfig' {..} =
-    Prelude.rnf failoverMode
-      `Prelude.seq` Prelude.rnf recoveryWindow
-      `Prelude.seq` Prelude.rnf sourcePriority
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf failoverMode `Prelude.seq`
+      Prelude.rnf recoveryWindow `Prelude.seq`
+        Prelude.rnf sourcePriority `Prelude.seq`
+          Prelude.rnf state
 
 instance Data.ToJSON FailoverConfig where
   toJSON FailoverConfig' {..} =

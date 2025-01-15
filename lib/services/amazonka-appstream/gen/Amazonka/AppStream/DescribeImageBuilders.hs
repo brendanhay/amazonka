@@ -118,12 +118,12 @@ instance Core.AWSPager DescribeImageBuilders where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeImageBuilders_nextToken
-          Lens..~ rs
-          Lens.^? describeImageBuildersResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeImageBuilders_nextToken
+              Lens..~ rs
+              Lens.^? describeImageBuildersResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeImageBuilders where
   type
@@ -149,9 +149,9 @@ instance Prelude.Hashable DescribeImageBuilders where
 
 instance Prelude.NFData DescribeImageBuilders where
   rnf DescribeImageBuilders' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf names
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf names `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeImageBuilders where
   toHeaders =
@@ -237,6 +237,6 @@ describeImageBuildersResponse_httpStatus = Lens.lens (\DescribeImageBuildersResp
 
 instance Prelude.NFData DescribeImageBuildersResponse where
   rnf DescribeImageBuildersResponse' {..} =
-    Prelude.rnf imageBuilders
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf imageBuilders `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -257,13 +257,13 @@ instance Prelude.Hashable AssociateAddress where
 
 instance Prelude.NFData AssociateAddress where
   rnf AssociateAddress' {..} =
-    Prelude.rnf allocationId
-      `Prelude.seq` Prelude.rnf allowReassociation
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf networkInterfaceId
-      `Prelude.seq` Prelude.rnf privateIpAddress
-      `Prelude.seq` Prelude.rnf publicIp
+    Prelude.rnf allocationId `Prelude.seq`
+      Prelude.rnf allowReassociation `Prelude.seq`
+        Prelude.rnf dryRun `Prelude.seq`
+          Prelude.rnf instanceId `Prelude.seq`
+            Prelude.rnf networkInterfaceId `Prelude.seq`
+              Prelude.rnf privateIpAddress `Prelude.seq`
+                Prelude.rnf publicIp
 
 instance Data.ToHeaders AssociateAddress where
   toHeaders = Prelude.const Prelude.mempty
@@ -331,5 +331,5 @@ associateAddressResponse_httpStatus = Lens.lens (\AssociateAddressResponse' {htt
 
 instance Prelude.NFData AssociateAddressResponse where
   rnf AssociateAddressResponse' {..} =
-    Prelude.rnf associationId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf associationId `Prelude.seq`
+      Prelude.rnf httpStatus

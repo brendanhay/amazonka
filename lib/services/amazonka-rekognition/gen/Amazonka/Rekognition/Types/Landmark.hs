@@ -110,6 +110,6 @@ instance Prelude.Hashable Landmark where
 
 instance Prelude.NFData Landmark where
   rnf Landmark' {..} =
-    Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf x
-      `Prelude.seq` Prelude.rnf y
+    Prelude.rnf type' `Prelude.seq`
+      Prelude.rnf x `Prelude.seq`
+        Prelude.rnf y

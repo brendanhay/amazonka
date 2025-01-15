@@ -205,12 +205,12 @@ instance Prelude.Hashable GetProtectionStatus where
 
 instance Prelude.NFData GetProtectionStatus where
   rnf GetProtectionStatus' {..} =
-    Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf memberAccountId
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf policyId
+    Prelude.rnf endTime `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf memberAccountId `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf startTime `Prelude.seq`
+              Prelude.rnf policyId
 
 instance Data.ToHeaders GetProtectionStatus where
   toHeaders =
@@ -384,8 +384,8 @@ getProtectionStatusResponse_httpStatus = Lens.lens (\GetProtectionStatusResponse
 
 instance Prelude.NFData GetProtectionStatusResponse where
   rnf GetProtectionStatusResponse' {..} =
-    Prelude.rnf adminAccountId
-      `Prelude.seq` Prelude.rnf data'
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf serviceType
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf adminAccountId `Prelude.seq`
+      Prelude.rnf data' `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf serviceType `Prelude.seq`
+            Prelude.rnf httpStatus

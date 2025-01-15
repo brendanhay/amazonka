@@ -129,12 +129,12 @@ instance Prelude.Hashable AwsEc2SecurityGroupDetails where
 
 instance Prelude.NFData AwsEc2SecurityGroupDetails where
   rnf AwsEc2SecurityGroupDetails' {..} =
-    Prelude.rnf groupId
-      `Prelude.seq` Prelude.rnf groupName
-      `Prelude.seq` Prelude.rnf ipPermissions
-      `Prelude.seq` Prelude.rnf ipPermissionsEgress
-      `Prelude.seq` Prelude.rnf ownerId
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf groupId `Prelude.seq`
+      Prelude.rnf groupName `Prelude.seq`
+        Prelude.rnf ipPermissions `Prelude.seq`
+          Prelude.rnf ipPermissionsEgress `Prelude.seq`
+            Prelude.rnf ownerId `Prelude.seq`
+              Prelude.rnf vpcId
 
 instance Data.ToJSON AwsEc2SecurityGroupDetails where
   toJSON AwsEc2SecurityGroupDetails' {..} =

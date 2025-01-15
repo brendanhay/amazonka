@@ -155,11 +155,11 @@ instance Prelude.Hashable CreateObject where
 
 instance Prelude.NFData CreateObject where
   rnf CreateObject' {..} =
-    Prelude.rnf linkName
-      `Prelude.seq` Prelude.rnf objectAttributeList
-      `Prelude.seq` Prelude.rnf parentReference
-      `Prelude.seq` Prelude.rnf directoryArn
-      `Prelude.seq` Prelude.rnf schemaFacets
+    Prelude.rnf linkName `Prelude.seq`
+      Prelude.rnf objectAttributeList `Prelude.seq`
+        Prelude.rnf parentReference `Prelude.seq`
+          Prelude.rnf directoryArn `Prelude.seq`
+            Prelude.rnf schemaFacets
 
 instance Data.ToHeaders CreateObject where
   toHeaders CreateObject' {..} =
@@ -228,5 +228,5 @@ createObjectResponse_httpStatus = Lens.lens (\CreateObjectResponse' {httpStatus}
 
 instance Prelude.NFData CreateObjectResponse where
   rnf CreateObjectResponse' {..} =
-    Prelude.rnf objectIdentifier
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf objectIdentifier `Prelude.seq`
+      Prelude.rnf httpStatus

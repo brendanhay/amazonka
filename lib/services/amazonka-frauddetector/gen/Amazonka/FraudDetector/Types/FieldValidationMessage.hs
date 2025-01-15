@@ -113,8 +113,8 @@ instance Prelude.Hashable FieldValidationMessage where
 
 instance Prelude.NFData FieldValidationMessage where
   rnf FieldValidationMessage' {..} =
-    Prelude.rnf content
-      `Prelude.seq` Prelude.rnf fieldName
-      `Prelude.seq` Prelude.rnf identifier
-      `Prelude.seq` Prelude.rnf title
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf content `Prelude.seq`
+      Prelude.rnf fieldName `Prelude.seq`
+        Prelude.rnf identifier `Prelude.seq`
+          Prelude.rnf title `Prelude.seq`
+            Prelude.rnf type'

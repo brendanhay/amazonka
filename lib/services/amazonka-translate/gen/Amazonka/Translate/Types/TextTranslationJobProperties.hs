@@ -271,18 +271,18 @@ instance
 
 instance Prelude.NFData TextTranslationJobProperties where
   rnf TextTranslationJobProperties' {..} =
-    Prelude.rnf dataAccessRoleArn
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf inputDataConfig
-      `Prelude.seq` Prelude.rnf jobDetails
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf jobStatus
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf outputDataConfig
-      `Prelude.seq` Prelude.rnf parallelDataNames
-      `Prelude.seq` Prelude.rnf settings
-      `Prelude.seq` Prelude.rnf sourceLanguageCode
-      `Prelude.seq` Prelude.rnf submittedTime
-      `Prelude.seq` Prelude.rnf targetLanguageCodes
-      `Prelude.seq` Prelude.rnf terminologyNames
+    Prelude.rnf dataAccessRoleArn `Prelude.seq`
+      Prelude.rnf endTime `Prelude.seq`
+        Prelude.rnf inputDataConfig `Prelude.seq`
+          Prelude.rnf jobDetails `Prelude.seq`
+            Prelude.rnf jobId `Prelude.seq`
+              Prelude.rnf jobName `Prelude.seq`
+                Prelude.rnf jobStatus `Prelude.seq`
+                  Prelude.rnf message `Prelude.seq`
+                    Prelude.rnf outputDataConfig `Prelude.seq`
+                      Prelude.rnf parallelDataNames `Prelude.seq`
+                        Prelude.rnf settings `Prelude.seq`
+                          Prelude.rnf sourceLanguageCode `Prelude.seq`
+                            Prelude.rnf submittedTime `Prelude.seq`
+                              Prelude.rnf targetLanguageCodes `Prelude.seq`
+                                Prelude.rnf terminologyNames

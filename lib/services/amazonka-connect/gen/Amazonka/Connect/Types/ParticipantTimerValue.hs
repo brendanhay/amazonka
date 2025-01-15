@@ -80,8 +80,8 @@ instance Prelude.Hashable ParticipantTimerValue where
 
 instance Prelude.NFData ParticipantTimerValue where
   rnf ParticipantTimerValue' {..} =
-    Prelude.rnf participantTimerAction
-      `Prelude.seq` Prelude.rnf participantTimerDurationInMinutes
+    Prelude.rnf participantTimerAction `Prelude.seq`
+      Prelude.rnf participantTimerDurationInMinutes
 
 instance Data.ToJSON ParticipantTimerValue where
   toJSON ParticipantTimerValue' {..} =

@@ -168,12 +168,12 @@ instance Prelude.Hashable ListInferenceExecutions where
 
 instance Prelude.NFData ListInferenceExecutions where
   rnf ListInferenceExecutions' {..} =
-    Prelude.rnf dataEndTimeBefore
-      `Prelude.seq` Prelude.rnf dataStartTimeAfter
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf inferenceSchedulerName
+    Prelude.rnf dataEndTimeBefore `Prelude.seq`
+      Prelude.rnf dataStartTimeAfter `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf status `Prelude.seq`
+              Prelude.rnf inferenceSchedulerName
 
 instance Data.ToHeaders ListInferenceExecutions where
   toHeaders =
@@ -279,6 +279,6 @@ instance
     ListInferenceExecutionsResponse
   where
   rnf ListInferenceExecutionsResponse' {..} =
-    Prelude.rnf inferenceExecutionSummaries
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf inferenceExecutionSummaries `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

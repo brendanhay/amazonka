@@ -112,8 +112,8 @@ instance Prelude.Hashable ListEventDataStores where
 
 instance Prelude.NFData ListEventDataStores where
   rnf ListEventDataStores' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListEventDataStores where
   toHeaders =
@@ -198,6 +198,6 @@ listEventDataStoresResponse_httpStatus = Lens.lens (\ListEventDataStoresResponse
 
 instance Prelude.NFData ListEventDataStoresResponse where
   rnf ListEventDataStoresResponse' {..} =
-    Prelude.rnf eventDataStores
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf eventDataStores `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

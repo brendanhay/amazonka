@@ -152,9 +152,9 @@ instance Prelude.Hashable StartDeviceAuthorization where
 
 instance Prelude.NFData StartDeviceAuthorization where
   rnf StartDeviceAuthorization' {..} =
-    Prelude.rnf clientId
-      `Prelude.seq` Prelude.rnf clientSecret
-      `Prelude.seq` Prelude.rnf startUrl
+    Prelude.rnf clientId `Prelude.seq`
+      Prelude.rnf clientSecret `Prelude.seq`
+        Prelude.rnf startUrl
 
 instance Data.ToHeaders StartDeviceAuthorization where
   toHeaders =
@@ -293,10 +293,10 @@ instance
     StartDeviceAuthorizationResponse
   where
   rnf StartDeviceAuthorizationResponse' {..} =
-    Prelude.rnf deviceCode
-      `Prelude.seq` Prelude.rnf expiresIn
-      `Prelude.seq` Prelude.rnf interval
-      `Prelude.seq` Prelude.rnf userCode
-      `Prelude.seq` Prelude.rnf verificationUri
-      `Prelude.seq` Prelude.rnf verificationUriComplete
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf deviceCode `Prelude.seq`
+      Prelude.rnf expiresIn `Prelude.seq`
+        Prelude.rnf interval `Prelude.seq`
+          Prelude.rnf userCode `Prelude.seq`
+            Prelude.rnf verificationUri `Prelude.seq`
+              Prelude.rnf verificationUriComplete `Prelude.seq`
+                Prelude.rnf httpStatus

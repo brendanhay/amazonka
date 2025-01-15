@@ -140,5 +140,5 @@ getDatalakeResponse_configurations = Lens.lens (\GetDatalakeResponse' {configura
 
 instance Prelude.NFData GetDatalakeResponse where
   rnf GetDatalakeResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf configurations
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf configurations

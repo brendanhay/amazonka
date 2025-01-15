@@ -192,13 +192,13 @@ instance
     UpdateFileSystemOpenZFSConfiguration
   where
   rnf UpdateFileSystemOpenZFSConfiguration' {..} =
-    Prelude.rnf automaticBackupRetentionDays
-      `Prelude.seq` Prelude.rnf copyTagsToBackups
-      `Prelude.seq` Prelude.rnf copyTagsToVolumes
-      `Prelude.seq` Prelude.rnf dailyAutomaticBackupStartTime
-      `Prelude.seq` Prelude.rnf diskIopsConfiguration
-      `Prelude.seq` Prelude.rnf throughputCapacity
-      `Prelude.seq` Prelude.rnf weeklyMaintenanceStartTime
+    Prelude.rnf automaticBackupRetentionDays `Prelude.seq`
+      Prelude.rnf copyTagsToBackups `Prelude.seq`
+        Prelude.rnf copyTagsToVolumes `Prelude.seq`
+          Prelude.rnf dailyAutomaticBackupStartTime `Prelude.seq`
+            Prelude.rnf diskIopsConfiguration `Prelude.seq`
+              Prelude.rnf throughputCapacity `Prelude.seq`
+                Prelude.rnf weeklyMaintenanceStartTime
 
 instance
   Data.ToJSON

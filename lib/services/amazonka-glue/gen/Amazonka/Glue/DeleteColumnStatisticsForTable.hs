@@ -153,10 +153,10 @@ instance
     DeleteColumnStatisticsForTable
   where
   rnf DeleteColumnStatisticsForTable' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf tableName
-      `Prelude.seq` Prelude.rnf columnName
+    Prelude.rnf catalogId `Prelude.seq`
+      Prelude.rnf databaseName `Prelude.seq`
+        Prelude.rnf tableName `Prelude.seq`
+          Prelude.rnf columnName
 
 instance
   Data.ToHeaders

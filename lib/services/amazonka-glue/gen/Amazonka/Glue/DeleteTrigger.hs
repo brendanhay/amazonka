@@ -162,5 +162,5 @@ deleteTriggerResponse_httpStatus = Lens.lens (\DeleteTriggerResponse' {httpStatu
 
 instance Prelude.NFData DeleteTriggerResponse where
   rnf DeleteTriggerResponse' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf httpStatus

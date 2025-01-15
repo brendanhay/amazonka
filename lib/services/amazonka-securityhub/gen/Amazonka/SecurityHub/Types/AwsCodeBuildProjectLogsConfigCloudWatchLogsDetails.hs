@@ -106,9 +106,9 @@ instance
   where
   rnf
     AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails' {..} =
-      Prelude.rnf groupName
-        `Prelude.seq` Prelude.rnf status
-        `Prelude.seq` Prelude.rnf streamName
+      Prelude.rnf groupName `Prelude.seq`
+        Prelude.rnf status `Prelude.seq`
+          Prelude.rnf streamName
 
 instance
   Data.ToJSON

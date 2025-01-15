@@ -95,8 +95,8 @@ instance Prelude.Hashable CookieObject where
 
 instance Prelude.NFData CookieObject where
   rnf CookieObject' {..} =
-    Prelude.rnf cookiesAllowList
-      `Prelude.seq` Prelude.rnf option
+    Prelude.rnf cookiesAllowList `Prelude.seq`
+      Prelude.rnf option
 
 instance Data.ToJSON CookieObject where
   toJSON CookieObject' {..} =

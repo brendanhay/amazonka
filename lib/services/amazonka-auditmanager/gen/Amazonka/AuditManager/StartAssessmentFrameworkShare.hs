@@ -185,10 +185,10 @@ instance
 
 instance Prelude.NFData StartAssessmentFrameworkShare where
   rnf StartAssessmentFrameworkShare' {..} =
-    Prelude.rnf comment
-      `Prelude.seq` Prelude.rnf frameworkId
-      `Prelude.seq` Prelude.rnf destinationAccount
-      `Prelude.seq` Prelude.rnf destinationRegion
+    Prelude.rnf comment `Prelude.seq`
+      Prelude.rnf frameworkId `Prelude.seq`
+        Prelude.rnf destinationAccount `Prelude.seq`
+          Prelude.rnf destinationRegion
 
 instance Data.ToHeaders StartAssessmentFrameworkShare where
   toHeaders =
@@ -271,5 +271,5 @@ instance
     StartAssessmentFrameworkShareResponse
   where
   rnf StartAssessmentFrameworkShareResponse' {..} =
-    Prelude.rnf assessmentFrameworkShareRequest
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf assessmentFrameworkShareRequest `Prelude.seq`
+      Prelude.rnf httpStatus

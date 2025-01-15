@@ -134,9 +134,9 @@ instance Prelude.Hashable CreateNetworkAcl where
 
 instance Prelude.NFData CreateNetworkAcl where
   rnf CreateNetworkAcl' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf tagSpecifications
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf tagSpecifications `Prelude.seq`
+        Prelude.rnf vpcId
 
 instance Data.ToHeaders CreateNetworkAcl where
   toHeaders = Prelude.const Prelude.mempty
@@ -200,5 +200,5 @@ createNetworkAclResponse_httpStatus = Lens.lens (\CreateNetworkAclResponse' {htt
 
 instance Prelude.NFData CreateNetworkAclResponse where
   rnf CreateNetworkAclResponse' {..} =
-    Prelude.rnf networkAcl
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf networkAcl `Prelude.seq`
+      Prelude.rnf httpStatus

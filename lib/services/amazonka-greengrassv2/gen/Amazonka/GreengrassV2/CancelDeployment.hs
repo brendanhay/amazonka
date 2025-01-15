@@ -155,5 +155,5 @@ cancelDeploymentResponse_httpStatus = Lens.lens (\CancelDeploymentResponse' {htt
 
 instance Prelude.NFData CancelDeploymentResponse where
   rnf CancelDeploymentResponse' {..} =
-    Prelude.rnf message
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf message `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -135,12 +135,12 @@ instance Core.AWSPager ListSnapshots where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listSnapshots_nextToken
-          Lens..~ rs
-          Lens.^? listSnapshotsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listSnapshots_nextToken
+              Lens..~ rs
+              Lens.^? listSnapshotsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSnapshots where
   type
@@ -166,9 +166,9 @@ instance Prelude.Hashable ListSnapshots where
 
 instance Prelude.NFData ListSnapshots where
   rnf ListSnapshots' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf gameName
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf gameName
 
 instance Data.ToHeaders ListSnapshots where
   toHeaders =
@@ -257,6 +257,6 @@ listSnapshotsResponse_httpStatus = Lens.lens (\ListSnapshotsResponse' {httpStatu
 
 instance Prelude.NFData ListSnapshotsResponse where
   rnf ListSnapshotsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf snapshots
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf snapshots `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -86,8 +86,8 @@ instance Prelude.Hashable ActionThreshold where
 
 instance Prelude.NFData ActionThreshold where
   rnf ActionThreshold' {..} =
-    Prelude.rnf actionThresholdValue
-      `Prelude.seq` Prelude.rnf actionThresholdType
+    Prelude.rnf actionThresholdValue `Prelude.seq`
+      Prelude.rnf actionThresholdType
 
 instance Data.ToJSON ActionThreshold where
   toJSON ActionThreshold' {..} =

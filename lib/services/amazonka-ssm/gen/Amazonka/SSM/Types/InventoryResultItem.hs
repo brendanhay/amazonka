@@ -129,8 +129,8 @@ instance Prelude.Hashable InventoryResultItem where
 
 instance Prelude.NFData InventoryResultItem where
   rnf InventoryResultItem' {..} =
-    Prelude.rnf captureTime
-      `Prelude.seq` Prelude.rnf contentHash
-      `Prelude.seq` Prelude.rnf typeName
-      `Prelude.seq` Prelude.rnf schemaVersion
-      `Prelude.seq` Prelude.rnf content
+    Prelude.rnf captureTime `Prelude.seq`
+      Prelude.rnf contentHash `Prelude.seq`
+        Prelude.rnf typeName `Prelude.seq`
+          Prelude.rnf schemaVersion `Prelude.seq`
+            Prelude.rnf content

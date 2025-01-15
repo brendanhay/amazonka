@@ -148,9 +148,9 @@ instance Prelude.Hashable CodeSigningConfig where
 
 instance Prelude.NFData CodeSigningConfig where
   rnf CodeSigningConfig' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf codeSigningConfigId
-      `Prelude.seq` Prelude.rnf codeSigningConfigArn
-      `Prelude.seq` Prelude.rnf allowedPublishers
-      `Prelude.seq` Prelude.rnf codeSigningPolicies
-      `Prelude.seq` Prelude.rnf lastModified
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf codeSigningConfigId `Prelude.seq`
+        Prelude.rnf codeSigningConfigArn `Prelude.seq`
+          Prelude.rnf allowedPublishers `Prelude.seq`
+            Prelude.rnf codeSigningPolicies `Prelude.seq`
+              Prelude.rnf lastModified

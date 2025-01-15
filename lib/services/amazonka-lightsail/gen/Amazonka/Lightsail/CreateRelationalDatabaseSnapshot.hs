@@ -167,9 +167,9 @@ instance
     CreateRelationalDatabaseSnapshot
   where
   rnf CreateRelationalDatabaseSnapshot' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf relationalDatabaseName
-      `Prelude.seq` Prelude.rnf relationalDatabaseSnapshotName
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf relationalDatabaseName `Prelude.seq`
+        Prelude.rnf relationalDatabaseSnapshotName
 
 instance
   Data.ToHeaders
@@ -265,5 +265,5 @@ instance
     CreateRelationalDatabaseSnapshotResponse
   where
   rnf CreateRelationalDatabaseSnapshotResponse' {..} =
-    Prelude.rnf operations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operations `Prelude.seq`
+      Prelude.rnf httpStatus

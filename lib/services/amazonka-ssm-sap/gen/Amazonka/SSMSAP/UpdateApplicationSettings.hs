@@ -114,9 +114,9 @@ instance Prelude.Hashable UpdateApplicationSettings where
 
 instance Prelude.NFData UpdateApplicationSettings where
   rnf UpdateApplicationSettings' {..} =
-    Prelude.rnf credentialsToAddOrUpdate
-      `Prelude.seq` Prelude.rnf credentialsToRemove
-      `Prelude.seq` Prelude.rnf applicationId
+    Prelude.rnf credentialsToAddOrUpdate `Prelude.seq`
+      Prelude.rnf credentialsToRemove `Prelude.seq`
+        Prelude.rnf applicationId
 
 instance Data.ToHeaders UpdateApplicationSettings where
   toHeaders =
@@ -197,6 +197,6 @@ instance
     UpdateApplicationSettingsResponse
   where
   rnf UpdateApplicationSettingsResponse' {..} =
-    Prelude.rnf message
-      `Prelude.seq` Prelude.rnf operationIds
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf message `Prelude.seq`
+      Prelude.rnf operationIds `Prelude.seq`
+        Prelude.rnf httpStatus

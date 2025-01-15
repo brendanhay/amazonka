@@ -82,8 +82,8 @@ instance Prelude.Hashable Rule where
 
 instance Prelude.NFData Rule where
   rnf Rule' {..} =
-    Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf parameters `Prelude.seq`
+      Prelude.rnf type'
 
 instance Data.ToJSON Rule where
   toJSON Rule' {..} =

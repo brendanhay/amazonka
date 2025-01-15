@@ -101,14 +101,10 @@ instance Data.FromXML ValidStorageOptions where
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "DoubleRange")
                   )
-      Prelude.<*> ( x
-                      Data..@? "ProvisionedIops"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "ProvisionedIops" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "Range")
                   )
-      Prelude.<*> ( x
-                      Data..@? "StorageSize"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "StorageSize" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "Range")
                   )
       Prelude.<*> (x Data..@? "StorageType")
@@ -123,7 +119,7 @@ instance Prelude.Hashable ValidStorageOptions where
 
 instance Prelude.NFData ValidStorageOptions where
   rnf ValidStorageOptions' {..} =
-    Prelude.rnf iopsToStorageRatio
-      `Prelude.seq` Prelude.rnf provisionedIops
-      `Prelude.seq` Prelude.rnf storageSize
-      `Prelude.seq` Prelude.rnf storageType
+    Prelude.rnf iopsToStorageRatio `Prelude.seq`
+      Prelude.rnf provisionedIops `Prelude.seq`
+        Prelude.rnf storageSize `Prelude.seq`
+          Prelude.rnf storageType

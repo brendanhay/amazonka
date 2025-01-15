@@ -84,9 +84,9 @@ instance Prelude.Hashable ConflictResolution where
 
 instance Prelude.NFData ConflictResolution where
   rnf ConflictResolution' {..} =
-    Prelude.rnf deleteFiles
-      `Prelude.seq` Prelude.rnf replaceContents
-      `Prelude.seq` Prelude.rnf setFileModes
+    Prelude.rnf deleteFiles `Prelude.seq`
+      Prelude.rnf replaceContents `Prelude.seq`
+        Prelude.rnf setFileModes
 
 instance Data.ToJSON ConflictResolution where
   toJSON ConflictResolution' {..} =

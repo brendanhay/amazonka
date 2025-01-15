@@ -182,5 +182,5 @@ startInstanceResponse_httpStatus = Lens.lens (\StartInstanceResponse' {httpStatu
 
 instance Prelude.NFData StartInstanceResponse where
   rnf StartInstanceResponse' {..} =
-    Prelude.rnf operations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operations `Prelude.seq`
+      Prelude.rnf httpStatus

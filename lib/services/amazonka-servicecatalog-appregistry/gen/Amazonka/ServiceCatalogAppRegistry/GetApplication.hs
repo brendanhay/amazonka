@@ -266,13 +266,13 @@ getApplicationResponse_httpStatus = Lens.lens (\GetApplicationResponse' {httpSta
 
 instance Prelude.NFData GetApplicationResponse where
   rnf GetApplicationResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf associatedResourceCount
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf integrations
-      `Prelude.seq` Prelude.rnf lastUpdateTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf associatedResourceCount `Prelude.seq`
+        Prelude.rnf creationTime `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf id `Prelude.seq`
+              Prelude.rnf integrations `Prelude.seq`
+                Prelude.rnf lastUpdateTime `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf tags `Prelude.seq`
+                      Prelude.rnf httpStatus

@@ -97,5 +97,5 @@ instance Prelude.Hashable InsufficientSensorData where
 
 instance Prelude.NFData InsufficientSensorData where
   rnf InsufficientSensorData' {..} =
-    Prelude.rnf missingCompleteSensorData
-      `Prelude.seq` Prelude.rnf sensorsWithShortDateRange
+    Prelude.rnf missingCompleteSensorData `Prelude.seq`
+      Prelude.rnf sensorsWithShortDateRange

@@ -537,17 +537,17 @@ instance Prelude.Hashable CreateJobOutput where
 
 instance Prelude.NFData CreateJobOutput where
   rnf CreateJobOutput' {..} =
-    Prelude.rnf albumArt
-      `Prelude.seq` Prelude.rnf captions
-      `Prelude.seq` Prelude.rnf composition
-      `Prelude.seq` Prelude.rnf encryption
-      `Prelude.seq` Prelude.rnf key
-      `Prelude.seq` Prelude.rnf presetId
-      `Prelude.seq` Prelude.rnf rotate
-      `Prelude.seq` Prelude.rnf segmentDuration
-      `Prelude.seq` Prelude.rnf thumbnailEncryption
-      `Prelude.seq` Prelude.rnf thumbnailPattern
-      `Prelude.seq` Prelude.rnf watermarks
+    Prelude.rnf albumArt `Prelude.seq`
+      Prelude.rnf captions `Prelude.seq`
+        Prelude.rnf composition `Prelude.seq`
+          Prelude.rnf encryption `Prelude.seq`
+            Prelude.rnf key `Prelude.seq`
+              Prelude.rnf presetId `Prelude.seq`
+                Prelude.rnf rotate `Prelude.seq`
+                  Prelude.rnf segmentDuration `Prelude.seq`
+                    Prelude.rnf thumbnailEncryption `Prelude.seq`
+                      Prelude.rnf thumbnailPattern `Prelude.seq`
+                        Prelude.rnf watermarks
 
 instance Data.ToJSON CreateJobOutput where
   toJSON CreateJobOutput' {..} =

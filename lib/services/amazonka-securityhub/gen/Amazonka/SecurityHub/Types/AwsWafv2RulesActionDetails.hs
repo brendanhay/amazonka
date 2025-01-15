@@ -112,10 +112,10 @@ instance Prelude.Hashable AwsWafv2RulesActionDetails where
 
 instance Prelude.NFData AwsWafv2RulesActionDetails where
   rnf AwsWafv2RulesActionDetails' {..} =
-    Prelude.rnf allow
-      `Prelude.seq` Prelude.rnf block
-      `Prelude.seq` Prelude.rnf captcha
-      `Prelude.seq` Prelude.rnf count
+    Prelude.rnf allow `Prelude.seq`
+      Prelude.rnf block `Prelude.seq`
+        Prelude.rnf captcha `Prelude.seq`
+          Prelude.rnf count
 
 instance Data.ToJSON AwsWafv2RulesActionDetails where
   toJSON AwsWafv2RulesActionDetails' {..} =

@@ -133,8 +133,8 @@ instance Prelude.Hashable ProvisionByoipCidr where
 
 instance Prelude.NFData ProvisionByoipCidr where
   rnf ProvisionByoipCidr' {..} =
-    Prelude.rnf cidr
-      `Prelude.seq` Prelude.rnf cidrAuthorizationContext
+    Prelude.rnf cidr `Prelude.seq`
+      Prelude.rnf cidrAuthorizationContext
 
 instance Data.ToHeaders ProvisionByoipCidr where
   toHeaders =
@@ -210,5 +210,5 @@ provisionByoipCidrResponse_httpStatus = Lens.lens (\ProvisionByoipCidrResponse' 
 
 instance Prelude.NFData ProvisionByoipCidrResponse where
   rnf ProvisionByoipCidrResponse' {..} =
-    Prelude.rnf byoipCidr
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf byoipCidr `Prelude.seq`
+      Prelude.rnf httpStatus

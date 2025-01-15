@@ -176,9 +176,9 @@ instance Prelude.Hashable AddApplicationOutput where
 
 instance Prelude.NFData AddApplicationOutput where
   rnf AddApplicationOutput' {..} =
-    Prelude.rnf applicationName
-      `Prelude.seq` Prelude.rnf currentApplicationVersionId
-      `Prelude.seq` Prelude.rnf output
+    Prelude.rnf applicationName `Prelude.seq`
+      Prelude.rnf currentApplicationVersionId `Prelude.seq`
+        Prelude.rnf output
 
 instance Data.ToHeaders AddApplicationOutput where
   toHeaders =
@@ -283,7 +283,7 @@ addApplicationOutputResponse_httpStatus = Lens.lens (\AddApplicationOutputRespon
 
 instance Prelude.NFData AddApplicationOutputResponse where
   rnf AddApplicationOutputResponse' {..} =
-    Prelude.rnf applicationARN
-      `Prelude.seq` Prelude.rnf applicationVersionId
-      `Prelude.seq` Prelude.rnf outputDescriptions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf applicationARN `Prelude.seq`
+      Prelude.rnf applicationVersionId `Prelude.seq`
+        Prelude.rnf outputDescriptions `Prelude.seq`
+          Prelude.rnf httpStatus

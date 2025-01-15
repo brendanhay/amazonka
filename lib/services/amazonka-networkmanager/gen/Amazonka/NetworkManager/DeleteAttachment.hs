@@ -155,5 +155,5 @@ deleteAttachmentResponse_httpStatus = Lens.lens (\DeleteAttachmentResponse' {htt
 
 instance Prelude.NFData DeleteAttachmentResponse where
   rnf DeleteAttachmentResponse' {..} =
-    Prelude.rnf attachment
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf attachment `Prelude.seq`
+      Prelude.rnf httpStatus

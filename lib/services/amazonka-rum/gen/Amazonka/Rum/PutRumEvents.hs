@@ -160,11 +160,11 @@ instance Prelude.Hashable PutRumEvents where
 
 instance Prelude.NFData PutRumEvents where
   rnf PutRumEvents' {..} =
-    Prelude.rnf appMonitorDetails
-      `Prelude.seq` Prelude.rnf batchId
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf rumEvents
-      `Prelude.seq` Prelude.rnf userDetails
+    Prelude.rnf appMonitorDetails `Prelude.seq`
+      Prelude.rnf batchId `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf rumEvents `Prelude.seq`
+            Prelude.rnf userDetails
 
 instance Data.ToHeaders PutRumEvents where
   toHeaders =

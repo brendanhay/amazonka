@@ -250,9 +250,9 @@ instance
     DescribeConfigurationRevisionResponse
   where
   rnf DescribeConfigurationRevisionResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf revision
-      `Prelude.seq` Prelude.rnf serverProperties
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf revision `Prelude.seq`
+            Prelude.rnf serverProperties `Prelude.seq`
+              Prelude.rnf httpStatus

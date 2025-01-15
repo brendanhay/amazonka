@@ -208,12 +208,12 @@ instance Core.AWSPager ListInferenceExperiments where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listInferenceExperiments_nextToken
-          Lens..~ rs
-          Lens.^? listInferenceExperimentsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listInferenceExperiments_nextToken
+              Lens..~ rs
+              Lens.^? listInferenceExperimentsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListInferenceExperiments where
   type
@@ -250,17 +250,17 @@ instance Prelude.Hashable ListInferenceExperiments where
 
 instance Prelude.NFData ListInferenceExperiments where
   rnf ListInferenceExperiments' {..} =
-    Prelude.rnf creationTimeAfter
-      `Prelude.seq` Prelude.rnf creationTimeBefore
-      `Prelude.seq` Prelude.rnf lastModifiedTimeAfter
-      `Prelude.seq` Prelude.rnf lastModifiedTimeBefore
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nameContains
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf sortOrder
-      `Prelude.seq` Prelude.rnf statusEquals
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf creationTimeAfter `Prelude.seq`
+      Prelude.rnf creationTimeBefore `Prelude.seq`
+        Prelude.rnf lastModifiedTimeAfter `Prelude.seq`
+          Prelude.rnf lastModifiedTimeBefore `Prelude.seq`
+            Prelude.rnf maxResults `Prelude.seq`
+              Prelude.rnf nameContains `Prelude.seq`
+                Prelude.rnf nextToken `Prelude.seq`
+                  Prelude.rnf sortBy `Prelude.seq`
+                    Prelude.rnf sortOrder `Prelude.seq`
+                      Prelude.rnf statusEquals `Prelude.seq`
+                        Prelude.rnf type'
 
 instance Data.ToHeaders ListInferenceExperiments where
   toHeaders =
@@ -358,6 +358,6 @@ instance
     ListInferenceExperimentsResponse
   where
   rnf ListInferenceExperimentsResponse' {..} =
-    Prelude.rnf inferenceExperiments
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf inferenceExperiments `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

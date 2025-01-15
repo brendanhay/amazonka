@@ -102,6 +102,6 @@ instance Prelude.Hashable AnalyzedResourceSummary where
 
 instance Prelude.NFData AnalyzedResourceSummary where
   rnf AnalyzedResourceSummary' {..} =
-    Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf resourceOwnerAccount
-      `Prelude.seq` Prelude.rnf resourceType
+    Prelude.rnf resourceArn `Prelude.seq`
+      Prelude.rnf resourceOwnerAccount `Prelude.seq`
+        Prelude.rnf resourceType

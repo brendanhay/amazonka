@@ -111,6 +111,6 @@ instance Prelude.Hashable QueryStatus where
 
 instance Prelude.NFData QueryStatus where
   rnf QueryStatus' {..} =
-    Prelude.rnf cumulativeBytesMetered
-      `Prelude.seq` Prelude.rnf cumulativeBytesScanned
-      `Prelude.seq` Prelude.rnf progressPercentage
+    Prelude.rnf cumulativeBytesMetered `Prelude.seq`
+      Prelude.rnf cumulativeBytesScanned `Prelude.seq`
+        Prelude.rnf progressPercentage

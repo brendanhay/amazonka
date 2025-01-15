@@ -128,10 +128,10 @@ instance
     ChimeSdkMeetingLiveConnectorConfiguration
   where
   rnf ChimeSdkMeetingLiveConnectorConfiguration' {..} =
-    Prelude.rnf compositedVideo
-      `Prelude.seq` Prelude.rnf sourceConfiguration
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf muxType
+    Prelude.rnf compositedVideo `Prelude.seq`
+      Prelude.rnf sourceConfiguration `Prelude.seq`
+        Prelude.rnf arn `Prelude.seq`
+          Prelude.rnf muxType
 
 instance
   Data.ToJSON

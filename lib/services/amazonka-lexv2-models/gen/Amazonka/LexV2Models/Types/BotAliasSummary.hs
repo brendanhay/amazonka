@@ -150,10 +150,10 @@ instance Prelude.Hashable BotAliasSummary where
 
 instance Prelude.NFData BotAliasSummary where
   rnf BotAliasSummary' {..} =
-    Prelude.rnf botAliasId
-      `Prelude.seq` Prelude.rnf botAliasName
-      `Prelude.seq` Prelude.rnf botAliasStatus
-      `Prelude.seq` Prelude.rnf botVersion
-      `Prelude.seq` Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
+    Prelude.rnf botAliasId `Prelude.seq`
+      Prelude.rnf botAliasName `Prelude.seq`
+        Prelude.rnf botAliasStatus `Prelude.seq`
+          Prelude.rnf botVersion `Prelude.seq`
+            Prelude.rnf creationDateTime `Prelude.seq`
+              Prelude.rnf description `Prelude.seq`
+                Prelude.rnf lastUpdatedDateTime

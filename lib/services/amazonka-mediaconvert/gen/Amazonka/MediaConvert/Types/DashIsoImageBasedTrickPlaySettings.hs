@@ -183,12 +183,12 @@ instance
     DashIsoImageBasedTrickPlaySettings
   where
   rnf DashIsoImageBasedTrickPlaySettings' {..} =
-    Prelude.rnf intervalCadence
-      `Prelude.seq` Prelude.rnf thumbnailHeight
-      `Prelude.seq` Prelude.rnf thumbnailInterval
-      `Prelude.seq` Prelude.rnf thumbnailWidth
-      `Prelude.seq` Prelude.rnf tileHeight
-      `Prelude.seq` Prelude.rnf tileWidth
+    Prelude.rnf intervalCadence `Prelude.seq`
+      Prelude.rnf thumbnailHeight `Prelude.seq`
+        Prelude.rnf thumbnailInterval `Prelude.seq`
+          Prelude.rnf thumbnailWidth `Prelude.seq`
+            Prelude.rnf tileHeight `Prelude.seq`
+              Prelude.rnf tileWidth
 
 instance
   Data.ToJSON

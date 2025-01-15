@@ -95,9 +95,9 @@ instance Prelude.Hashable AssetDestinationEntry where
 
 instance Prelude.NFData AssetDestinationEntry where
   rnf AssetDestinationEntry' {..} =
-    Prelude.rnf key
-      `Prelude.seq` Prelude.rnf assetId
-      `Prelude.seq` Prelude.rnf bucket
+    Prelude.rnf key `Prelude.seq`
+      Prelude.rnf assetId `Prelude.seq`
+        Prelude.rnf bucket
 
 instance Data.ToJSON AssetDestinationEntry where
   toJSON AssetDestinationEntry' {..} =

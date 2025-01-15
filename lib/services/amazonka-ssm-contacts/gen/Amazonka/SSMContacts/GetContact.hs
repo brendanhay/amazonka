@@ -222,9 +222,9 @@ getContactResponse_plan = Lens.lens (\GetContactResponse' {plan} -> plan) (\s@Ge
 
 instance Prelude.NFData GetContactResponse where
   rnf GetContactResponse' {..} =
-    Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf contactArn
-      `Prelude.seq` Prelude.rnf alias
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf plan
+    Prelude.rnf displayName `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf contactArn `Prelude.seq`
+          Prelude.rnf alias `Prelude.seq`
+            Prelude.rnf type' `Prelude.seq`
+              Prelude.rnf plan

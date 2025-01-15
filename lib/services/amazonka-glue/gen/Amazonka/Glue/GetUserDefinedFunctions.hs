@@ -150,12 +150,12 @@ instance Core.AWSPager GetUserDefinedFunctions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getUserDefinedFunctions_nextToken
-          Lens..~ rs
-          Lens.^? getUserDefinedFunctionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getUserDefinedFunctions_nextToken
+              Lens..~ rs
+              Lens.^? getUserDefinedFunctionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetUserDefinedFunctions where
   type
@@ -186,11 +186,11 @@ instance Prelude.Hashable GetUserDefinedFunctions where
 
 instance Prelude.NFData GetUserDefinedFunctions where
   rnf GetUserDefinedFunctions' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf pattern'
+    Prelude.rnf catalogId `Prelude.seq`
+      Prelude.rnf databaseName `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf pattern'
 
 instance Data.ToHeaders GetUserDefinedFunctions where
   toHeaders =
@@ -281,6 +281,6 @@ instance
     GetUserDefinedFunctionsResponse
   where
   rnf GetUserDefinedFunctionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf userDefinedFunctions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf userDefinedFunctions `Prelude.seq`
+        Prelude.rnf httpStatus

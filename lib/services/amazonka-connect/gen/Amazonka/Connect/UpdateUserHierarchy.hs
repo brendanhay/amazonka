@@ -116,9 +116,9 @@ instance Prelude.Hashable UpdateUserHierarchy where
 
 instance Prelude.NFData UpdateUserHierarchy where
   rnf UpdateUserHierarchy' {..} =
-    Prelude.rnf hierarchyGroupId
-      `Prelude.seq` Prelude.rnf userId
-      `Prelude.seq` Prelude.rnf instanceId
+    Prelude.rnf hierarchyGroupId `Prelude.seq`
+      Prelude.rnf userId `Prelude.seq`
+        Prelude.rnf instanceId
 
 instance Data.ToHeaders UpdateUserHierarchy where
   toHeaders =

@@ -114,8 +114,8 @@ instance
 
 instance Prelude.NFData AddTagsToOnPremisesInstances where
   rnf AddTagsToOnPremisesInstances' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf instanceNames
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf instanceNames
 
 instance Data.ToHeaders AddTagsToOnPremisesInstances where
   toHeaders =

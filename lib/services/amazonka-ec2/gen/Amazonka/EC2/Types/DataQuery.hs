@@ -147,12 +147,12 @@ instance Prelude.Hashable DataQuery where
 
 instance Prelude.NFData DataQuery where
   rnf DataQuery' {..} =
-    Prelude.rnf destination
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf metric
-      `Prelude.seq` Prelude.rnf period
-      `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf statistic
+    Prelude.rnf destination `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf metric `Prelude.seq`
+          Prelude.rnf period `Prelude.seq`
+            Prelude.rnf source `Prelude.seq`
+              Prelude.rnf statistic
 
 instance Data.ToQuery DataQuery where
   toQuery DataQuery' {..} =

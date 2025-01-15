@@ -383,18 +383,18 @@ instance Prelude.Hashable CreateCluster where
 
 instance Prelude.NFData CreateCluster where
   rnf CreateCluster' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf preferredMaintenanceWindow
-      `Prelude.seq` Prelude.rnf subnetIds
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf vpcSecurityGroupIds
-      `Prelude.seq` Prelude.rnf adminUserName
-      `Prelude.seq` Prelude.rnf adminUserPassword
-      `Prelude.seq` Prelude.rnf authType
-      `Prelude.seq` Prelude.rnf clusterName
-      `Prelude.seq` Prelude.rnf shardCapacity
-      `Prelude.seq` Prelude.rnf shardCount
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf kmsKeyId `Prelude.seq`
+        Prelude.rnf preferredMaintenanceWindow `Prelude.seq`
+          Prelude.rnf subnetIds `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf vpcSecurityGroupIds `Prelude.seq`
+                Prelude.rnf adminUserName `Prelude.seq`
+                  Prelude.rnf adminUserPassword `Prelude.seq`
+                    Prelude.rnf authType `Prelude.seq`
+                      Prelude.rnf clusterName `Prelude.seq`
+                        Prelude.rnf shardCapacity `Prelude.seq`
+                          Prelude.rnf shardCount
 
 instance Data.ToHeaders CreateCluster where
   toHeaders =
@@ -477,5 +477,5 @@ createClusterResponse_cluster = Lens.lens (\CreateClusterResponse' {cluster} -> 
 
 instance Prelude.NFData CreateClusterResponse where
   rnf CreateClusterResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf cluster
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf cluster

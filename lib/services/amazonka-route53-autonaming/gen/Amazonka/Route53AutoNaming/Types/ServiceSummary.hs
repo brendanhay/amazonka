@@ -274,13 +274,13 @@ instance Prelude.Hashable ServiceSummary where
 
 instance Prelude.NFData ServiceSummary where
   rnf ServiceSummary' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createDate
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf dnsConfig
-      `Prelude.seq` Prelude.rnf healthCheckConfig
-      `Prelude.seq` Prelude.rnf healthCheckCustomConfig
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf instanceCount
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf createDate `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf dnsConfig `Prelude.seq`
+            Prelude.rnf healthCheckConfig `Prelude.seq`
+              Prelude.rnf healthCheckCustomConfig `Prelude.seq`
+                Prelude.rnf id `Prelude.seq`
+                  Prelude.rnf instanceCount `Prelude.seq`
+                    Prelude.rnf name `Prelude.seq`
+                      Prelude.rnf type'

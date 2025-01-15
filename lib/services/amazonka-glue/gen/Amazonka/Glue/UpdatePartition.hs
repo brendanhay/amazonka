@@ -158,11 +158,11 @@ instance Prelude.Hashable UpdatePartition where
 
 instance Prelude.NFData UpdatePartition where
   rnf UpdatePartition' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf tableName
-      `Prelude.seq` Prelude.rnf partitionValueList
-      `Prelude.seq` Prelude.rnf partitionInput
+    Prelude.rnf catalogId `Prelude.seq`
+      Prelude.rnf databaseName `Prelude.seq`
+        Prelude.rnf tableName `Prelude.seq`
+          Prelude.rnf partitionValueList `Prelude.seq`
+            Prelude.rnf partitionInput
 
 instance Data.ToHeaders UpdatePartition where
   toHeaders =

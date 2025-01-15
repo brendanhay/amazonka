@@ -112,9 +112,9 @@ instance
 
 instance Prelude.NFData UpsolverDestinationProperties where
   rnf UpsolverDestinationProperties' {..} =
-    Prelude.rnf bucketPrefix
-      `Prelude.seq` Prelude.rnf bucketName
-      `Prelude.seq` Prelude.rnf s3OutputFormatConfig
+    Prelude.rnf bucketPrefix `Prelude.seq`
+      Prelude.rnf bucketName `Prelude.seq`
+        Prelude.rnf s3OutputFormatConfig
 
 instance Data.ToJSON UpsolverDestinationProperties where
   toJSON UpsolverDestinationProperties' {..} =

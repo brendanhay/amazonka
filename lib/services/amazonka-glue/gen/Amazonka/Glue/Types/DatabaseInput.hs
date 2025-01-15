@@ -127,12 +127,12 @@ instance Prelude.Hashable DatabaseInput where
 
 instance Prelude.NFData DatabaseInput where
   rnf DatabaseInput' {..} =
-    Prelude.rnf createTableDefaultPermissions
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf locationUri
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf targetDatabase
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf createTableDefaultPermissions `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf locationUri `Prelude.seq`
+          Prelude.rnf parameters `Prelude.seq`
+            Prelude.rnf targetDatabase `Prelude.seq`
+              Prelude.rnf name
 
 instance Data.ToJSON DatabaseInput where
   toJSON DatabaseInput' {..} =

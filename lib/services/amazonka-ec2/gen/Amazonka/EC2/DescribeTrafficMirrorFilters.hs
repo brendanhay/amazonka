@@ -160,12 +160,12 @@ instance Core.AWSPager DescribeTrafficMirrorFilters where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeTrafficMirrorFilters_nextToken
-          Lens..~ rs
-          Lens.^? describeTrafficMirrorFiltersResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeTrafficMirrorFilters_nextToken
+              Lens..~ rs
+              Lens.^? describeTrafficMirrorFiltersResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeTrafficMirrorFilters where
   type
@@ -200,11 +200,11 @@ instance
 
 instance Prelude.NFData DescribeTrafficMirrorFilters where
   rnf DescribeTrafficMirrorFilters' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf trafficMirrorFilterIds
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf trafficMirrorFilterIds
 
 instance Data.ToHeaders DescribeTrafficMirrorFilters where
   toHeaders = Prelude.const Prelude.mempty
@@ -289,6 +289,6 @@ instance
     DescribeTrafficMirrorFiltersResponse
   where
   rnf DescribeTrafficMirrorFiltersResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf trafficMirrorFilters
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf trafficMirrorFilters `Prelude.seq`
+        Prelude.rnf httpStatus

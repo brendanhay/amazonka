@@ -105,7 +105,7 @@ instance Prelude.Hashable EMRStepMetadata where
 
 instance Prelude.NFData EMRStepMetadata where
   rnf EMRStepMetadata' {..} =
-    Prelude.rnf clusterId
-      `Prelude.seq` Prelude.rnf logFilePath
-      `Prelude.seq` Prelude.rnf stepId
-      `Prelude.seq` Prelude.rnf stepName
+    Prelude.rnf clusterId `Prelude.seq`
+      Prelude.rnf logFilePath `Prelude.seq`
+        Prelude.rnf stepId `Prelude.seq`
+          Prelude.rnf stepName

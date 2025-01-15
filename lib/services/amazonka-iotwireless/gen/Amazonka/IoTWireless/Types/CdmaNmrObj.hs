@@ -100,10 +100,10 @@ instance Prelude.Hashable CdmaNmrObj where
 
 instance Prelude.NFData CdmaNmrObj where
   rnf CdmaNmrObj' {..} =
-    Prelude.rnf baseStationId
-      `Prelude.seq` Prelude.rnf pilotPower
-      `Prelude.seq` Prelude.rnf pnOffset
-      `Prelude.seq` Prelude.rnf cdmaChannel
+    Prelude.rnf baseStationId `Prelude.seq`
+      Prelude.rnf pilotPower `Prelude.seq`
+        Prelude.rnf pnOffset `Prelude.seq`
+          Prelude.rnf cdmaChannel
 
 instance Data.ToJSON CdmaNmrObj where
   toJSON CdmaNmrObj' {..} =

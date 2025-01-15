@@ -94,8 +94,8 @@ instance Prelude.Hashable GlueConfiguration where
 
 instance Prelude.NFData GlueConfiguration where
   rnf GlueConfiguration' {..} =
-    Prelude.rnf tableName
-      `Prelude.seq` Prelude.rnf databaseName
+    Prelude.rnf tableName `Prelude.seq`
+      Prelude.rnf databaseName
 
 instance Data.ToJSON GlueConfiguration where
   toJSON GlueConfiguration' {..} =

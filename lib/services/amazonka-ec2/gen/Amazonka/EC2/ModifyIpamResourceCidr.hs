@@ -202,13 +202,13 @@ instance Prelude.Hashable ModifyIpamResourceCidr where
 
 instance Prelude.NFData ModifyIpamResourceCidr where
   rnf ModifyIpamResourceCidr' {..} =
-    Prelude.rnf destinationIpamScopeId
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf resourceCidr
-      `Prelude.seq` Prelude.rnf resourceRegion
-      `Prelude.seq` Prelude.rnf currentIpamScopeId
-      `Prelude.seq` Prelude.rnf monitored
+    Prelude.rnf destinationIpamScopeId `Prelude.seq`
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf resourceId `Prelude.seq`
+          Prelude.rnf resourceCidr `Prelude.seq`
+            Prelude.rnf resourceRegion `Prelude.seq`
+              Prelude.rnf currentIpamScopeId `Prelude.seq`
+                Prelude.rnf monitored
 
 instance Data.ToHeaders ModifyIpamResourceCidr where
   toHeaders = Prelude.const Prelude.mempty
@@ -277,5 +277,5 @@ instance
     ModifyIpamResourceCidrResponse
   where
   rnf ModifyIpamResourceCidrResponse' {..} =
-    Prelude.rnf ipamResourceCidr
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf ipamResourceCidr `Prelude.seq`
+      Prelude.rnf httpStatus

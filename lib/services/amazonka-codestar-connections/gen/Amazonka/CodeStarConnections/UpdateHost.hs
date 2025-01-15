@@ -121,9 +121,9 @@ instance Prelude.Hashable UpdateHost where
 
 instance Prelude.NFData UpdateHost where
   rnf UpdateHost' {..} =
-    Prelude.rnf providerEndpoint
-      `Prelude.seq` Prelude.rnf vpcConfiguration
-      `Prelude.seq` Prelude.rnf hostArn
+    Prelude.rnf providerEndpoint `Prelude.seq`
+      Prelude.rnf vpcConfiguration `Prelude.seq`
+        Prelude.rnf hostArn
 
 instance Data.ToHeaders UpdateHost where
   toHeaders =

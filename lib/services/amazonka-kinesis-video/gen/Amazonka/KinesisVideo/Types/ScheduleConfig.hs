@@ -120,8 +120,8 @@ instance Prelude.Hashable ScheduleConfig where
 
 instance Prelude.NFData ScheduleConfig where
   rnf ScheduleConfig' {..} =
-    Prelude.rnf scheduleExpression
-      `Prelude.seq` Prelude.rnf durationInSeconds
+    Prelude.rnf scheduleExpression `Prelude.seq`
+      Prelude.rnf durationInSeconds
 
 instance Data.ToJSON ScheduleConfig where
   toJSON ScheduleConfig' {..} =

@@ -130,12 +130,12 @@ instance Core.AWSPager ListModelMetadata where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listModelMetadata_nextToken
-          Lens..~ rs
-          Lens.^? listModelMetadataResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listModelMetadata_nextToken
+              Lens..~ rs
+              Lens.^? listModelMetadataResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListModelMetadata where
   type
@@ -164,9 +164,9 @@ instance Prelude.Hashable ListModelMetadata where
 
 instance Prelude.NFData ListModelMetadata where
   rnf ListModelMetadata' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf searchExpression
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf searchExpression
 
 instance Data.ToHeaders ListModelMetadata where
   toHeaders =
@@ -250,6 +250,6 @@ listModelMetadataResponse_modelMetadataSummaries = Lens.lens (\ListModelMetadata
 
 instance Prelude.NFData ListModelMetadataResponse where
   rnf ListModelMetadataResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf modelMetadataSummaries
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf modelMetadataSummaries

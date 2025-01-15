@@ -282,16 +282,16 @@ instance
     DescribeThingRegistrationTaskResponse
   where
   rnf DescribeThingRegistrationTaskResponse' {..} =
-    Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf failureCount
-      `Prelude.seq` Prelude.rnf inputFileBucket
-      `Prelude.seq` Prelude.rnf inputFileKey
-      `Prelude.seq` Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf percentageProgress
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf successCount
-      `Prelude.seq` Prelude.rnf taskId
-      `Prelude.seq` Prelude.rnf templateBody
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf creationDate `Prelude.seq`
+      Prelude.rnf failureCount `Prelude.seq`
+        Prelude.rnf inputFileBucket `Prelude.seq`
+          Prelude.rnf inputFileKey `Prelude.seq`
+            Prelude.rnf lastModifiedDate `Prelude.seq`
+              Prelude.rnf message `Prelude.seq`
+                Prelude.rnf percentageProgress `Prelude.seq`
+                  Prelude.rnf roleArn `Prelude.seq`
+                    Prelude.rnf status `Prelude.seq`
+                      Prelude.rnf successCount `Prelude.seq`
+                        Prelude.rnf taskId `Prelude.seq`
+                          Prelude.rnf templateBody `Prelude.seq`
+                            Prelude.rnf httpStatus

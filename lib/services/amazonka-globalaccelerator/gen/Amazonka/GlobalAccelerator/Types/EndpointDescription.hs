@@ -200,8 +200,8 @@ instance Prelude.Hashable EndpointDescription where
 
 instance Prelude.NFData EndpointDescription where
   rnf EndpointDescription' {..} =
-    Prelude.rnf clientIPPreservationEnabled
-      `Prelude.seq` Prelude.rnf endpointId
-      `Prelude.seq` Prelude.rnf healthReason
-      `Prelude.seq` Prelude.rnf healthState
-      `Prelude.seq` Prelude.rnf weight
+    Prelude.rnf clientIPPreservationEnabled `Prelude.seq`
+      Prelude.rnf endpointId `Prelude.seq`
+        Prelude.rnf healthReason `Prelude.seq`
+          Prelude.rnf healthState `Prelude.seq`
+            Prelude.rnf weight

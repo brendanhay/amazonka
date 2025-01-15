@@ -135,10 +135,10 @@ instance Prelude.Hashable IotAnalyticsAction where
 
 instance Prelude.NFData IotAnalyticsAction where
   rnf IotAnalyticsAction' {..} =
-    Prelude.rnf batchMode
-      `Prelude.seq` Prelude.rnf channelArn
-      `Prelude.seq` Prelude.rnf channelName
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf batchMode `Prelude.seq`
+      Prelude.rnf channelArn `Prelude.seq`
+        Prelude.rnf channelName `Prelude.seq`
+          Prelude.rnf roleArn
 
 instance Data.ToJSON IotAnalyticsAction where
   toJSON IotAnalyticsAction' {..} =

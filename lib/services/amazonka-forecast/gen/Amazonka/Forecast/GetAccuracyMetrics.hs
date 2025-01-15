@@ -245,8 +245,8 @@ getAccuracyMetricsResponse_httpStatus = Lens.lens (\GetAccuracyMetricsResponse' 
 
 instance Prelude.NFData GetAccuracyMetricsResponse where
   rnf GetAccuracyMetricsResponse' {..} =
-    Prelude.rnf autoMLOverrideStrategy
-      `Prelude.seq` Prelude.rnf isAutoPredictor
-      `Prelude.seq` Prelude.rnf optimizationMetric
-      `Prelude.seq` Prelude.rnf predictorEvaluationResults
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf autoMLOverrideStrategy `Prelude.seq`
+      Prelude.rnf isAutoPredictor `Prelude.seq`
+        Prelude.rnf optimizationMetric `Prelude.seq`
+          Prelude.rnf predictorEvaluationResults `Prelude.seq`
+            Prelude.rnf httpStatus

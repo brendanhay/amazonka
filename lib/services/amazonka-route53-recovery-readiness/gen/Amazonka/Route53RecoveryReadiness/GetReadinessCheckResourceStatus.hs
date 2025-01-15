@@ -142,12 +142,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getReadinessCheckResourceStatus_nextToken
-          Lens..~ rs
-          Lens.^? getReadinessCheckResourceStatusResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getReadinessCheckResourceStatus_nextToken
+              Lens..~ rs
+              Lens.^? getReadinessCheckResourceStatusResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -186,10 +186,10 @@ instance
     GetReadinessCheckResourceStatus
   where
   rnf GetReadinessCheckResourceStatus' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf readinessCheckName
-      `Prelude.seq` Prelude.rnf resourceIdentifier
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf readinessCheckName `Prelude.seq`
+          Prelude.rnf resourceIdentifier
 
 instance
   Data.ToHeaders
@@ -285,7 +285,7 @@ instance
     GetReadinessCheckResourceStatusResponse
   where
   rnf GetReadinessCheckResourceStatusResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf readiness
-      `Prelude.seq` Prelude.rnf rules
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf readiness `Prelude.seq`
+        Prelude.rnf rules `Prelude.seq`
+          Prelude.rnf httpStatus

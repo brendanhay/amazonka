@@ -159,10 +159,10 @@ instance Prelude.Hashable AddProfileKey where
 
 instance Prelude.NFData AddProfileKey where
   rnf AddProfileKey' {..} =
-    Prelude.rnf profileId
-      `Prelude.seq` Prelude.rnf keyName
-      `Prelude.seq` Prelude.rnf values
-      `Prelude.seq` Prelude.rnf domainName
+    Prelude.rnf profileId `Prelude.seq`
+      Prelude.rnf keyName `Prelude.seq`
+        Prelude.rnf values `Prelude.seq`
+          Prelude.rnf domainName
 
 instance Data.ToHeaders AddProfileKey where
   toHeaders =
@@ -242,6 +242,6 @@ addProfileKeyResponse_httpStatus = Lens.lens (\AddProfileKeyResponse' {httpStatu
 
 instance Prelude.NFData AddProfileKeyResponse where
   rnf AddProfileKeyResponse' {..} =
-    Prelude.rnf keyName
-      `Prelude.seq` Prelude.rnf values
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf keyName `Prelude.seq`
+      Prelude.rnf values `Prelude.seq`
+        Prelude.rnf httpStatus

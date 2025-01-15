@@ -161,9 +161,9 @@ instance Prelude.Hashable SubscribeToShard where
 
 instance Prelude.NFData SubscribeToShard where
   rnf SubscribeToShard' {..} =
-    Prelude.rnf consumerARN
-      `Prelude.seq` Prelude.rnf shardId
-      `Prelude.seq` Prelude.rnf startingPosition
+    Prelude.rnf consumerARN `Prelude.seq`
+      Prelude.rnf shardId `Prelude.seq`
+        Prelude.rnf startingPosition
 
 instance Data.ToHeaders SubscribeToShard where
   toHeaders =
@@ -245,5 +245,5 @@ subscribeToShardResponse_eventStream = Lens.lens (\SubscribeToShardResponse' {ev
 
 instance Prelude.NFData SubscribeToShardResponse where
   rnf SubscribeToShardResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf eventStream
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf eventStream

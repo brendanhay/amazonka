@@ -203,14 +203,14 @@ instance Prelude.Hashable CaptionSourceSettings where
 
 instance Prelude.NFData CaptionSourceSettings where
   rnf CaptionSourceSettings' {..} =
-    Prelude.rnf ancillarySourceSettings
-      `Prelude.seq` Prelude.rnf dvbSubSourceSettings
-      `Prelude.seq` Prelude.rnf embeddedSourceSettings
-      `Prelude.seq` Prelude.rnf fileSourceSettings
-      `Prelude.seq` Prelude.rnf sourceType
-      `Prelude.seq` Prelude.rnf teletextSourceSettings
-      `Prelude.seq` Prelude.rnf trackSourceSettings
-      `Prelude.seq` Prelude.rnf webvttHlsSourceSettings
+    Prelude.rnf ancillarySourceSettings `Prelude.seq`
+      Prelude.rnf dvbSubSourceSettings `Prelude.seq`
+        Prelude.rnf embeddedSourceSettings `Prelude.seq`
+          Prelude.rnf fileSourceSettings `Prelude.seq`
+            Prelude.rnf sourceType `Prelude.seq`
+              Prelude.rnf teletextSourceSettings `Prelude.seq`
+                Prelude.rnf trackSourceSettings `Prelude.seq`
+                  Prelude.rnf webvttHlsSourceSettings
 
 instance Data.ToJSON CaptionSourceSettings where
   toJSON CaptionSourceSettings' {..} =

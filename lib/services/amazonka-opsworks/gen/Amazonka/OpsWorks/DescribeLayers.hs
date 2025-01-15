@@ -120,8 +120,8 @@ instance Prelude.Hashable DescribeLayers where
 
 instance Prelude.NFData DescribeLayers where
   rnf DescribeLayers' {..} =
-    Prelude.rnf layerIds
-      `Prelude.seq` Prelude.rnf stackId
+    Prelude.rnf layerIds `Prelude.seq`
+      Prelude.rnf stackId
 
 instance Data.ToHeaders DescribeLayers where
   toHeaders =
@@ -195,5 +195,5 @@ describeLayersResponse_httpStatus = Lens.lens (\DescribeLayersResponse' {httpSta
 
 instance Prelude.NFData DescribeLayersResponse where
   rnf DescribeLayersResponse' {..} =
-    Prelude.rnf layers
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf layers `Prelude.seq`
+      Prelude.rnf httpStatus

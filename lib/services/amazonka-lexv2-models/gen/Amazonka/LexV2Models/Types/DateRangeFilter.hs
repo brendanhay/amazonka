@@ -86,8 +86,8 @@ instance Prelude.Hashable DateRangeFilter where
 
 instance Prelude.NFData DateRangeFilter where
   rnf DateRangeFilter' {..} =
-    Prelude.rnf startDateTime
-      `Prelude.seq` Prelude.rnf endDateTime
+    Prelude.rnf startDateTime `Prelude.seq`
+      Prelude.rnf endDateTime
 
 instance Data.ToJSON DateRangeFilter where
   toJSON DateRangeFilter' {..} =

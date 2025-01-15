@@ -117,10 +117,10 @@ instance Prelude.Hashable ComponentDataConfiguration where
 
 instance Prelude.NFData ComponentDataConfiguration where
   rnf ComponentDataConfiguration' {..} =
-    Prelude.rnf identifiers
-      `Prelude.seq` Prelude.rnf predicate
-      `Prelude.seq` Prelude.rnf sort
-      `Prelude.seq` Prelude.rnf model
+    Prelude.rnf identifiers `Prelude.seq`
+      Prelude.rnf predicate `Prelude.seq`
+        Prelude.rnf sort `Prelude.seq`
+          Prelude.rnf model
 
 instance Data.ToJSON ComponentDataConfiguration where
   toJSON ComponentDataConfiguration' {..} =

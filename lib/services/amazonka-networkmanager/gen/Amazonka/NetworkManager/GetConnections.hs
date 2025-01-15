@@ -135,12 +135,12 @@ instance Core.AWSPager GetConnections where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getConnections_nextToken
-          Lens..~ rs
-          Lens.^? getConnectionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getConnections_nextToken
+              Lens..~ rs
+              Lens.^? getConnectionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetConnections where
   type
@@ -168,11 +168,11 @@ instance Prelude.Hashable GetConnections where
 
 instance Prelude.NFData GetConnections where
   rnf GetConnections' {..} =
-    Prelude.rnf connectionIds
-      `Prelude.seq` Prelude.rnf deviceId
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf globalNetworkId
+    Prelude.rnf connectionIds `Prelude.seq`
+      Prelude.rnf deviceId `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf globalNetworkId
 
 instance Data.ToHeaders GetConnections where
   toHeaders =
@@ -256,6 +256,6 @@ getConnectionsResponse_httpStatus = Lens.lens (\GetConnectionsResponse' {httpSta
 
 instance Prelude.NFData GetConnectionsResponse where
   rnf GetConnectionsResponse' {..} =
-    Prelude.rnf connections
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf connections `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

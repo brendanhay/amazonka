@@ -179,5 +179,5 @@ getRateBasedRuleResponse_httpStatus = Lens.lens (\GetRateBasedRuleResponse' {htt
 
 instance Prelude.NFData GetRateBasedRuleResponse where
   rnf GetRateBasedRuleResponse' {..} =
-    Prelude.rnf rule
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf rule `Prelude.seq`
+      Prelude.rnf httpStatus

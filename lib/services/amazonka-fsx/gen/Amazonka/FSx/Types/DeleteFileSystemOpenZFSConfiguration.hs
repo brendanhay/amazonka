@@ -113,9 +113,9 @@ instance
     DeleteFileSystemOpenZFSConfiguration
   where
   rnf DeleteFileSystemOpenZFSConfiguration' {..} =
-    Prelude.rnf finalBackupTags
-      `Prelude.seq` Prelude.rnf options
-      `Prelude.seq` Prelude.rnf skipFinalBackup
+    Prelude.rnf finalBackupTags `Prelude.seq`
+      Prelude.rnf options `Prelude.seq`
+        Prelude.rnf skipFinalBackup
 
 instance
   Data.ToJSON

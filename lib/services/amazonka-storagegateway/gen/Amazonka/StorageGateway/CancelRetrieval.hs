@@ -117,8 +117,8 @@ instance Prelude.Hashable CancelRetrieval where
 
 instance Prelude.NFData CancelRetrieval where
   rnf CancelRetrieval' {..} =
-    Prelude.rnf gatewayARN
-      `Prelude.seq` Prelude.rnf tapeARN
+    Prelude.rnf gatewayARN `Prelude.seq`
+      Prelude.rnf tapeARN
 
 instance Data.ToHeaders CancelRetrieval where
   toHeaders =
@@ -195,5 +195,5 @@ cancelRetrievalResponse_httpStatus = Lens.lens (\CancelRetrievalResponse' {httpS
 
 instance Prelude.NFData CancelRetrievalResponse where
   rnf CancelRetrievalResponse' {..} =
-    Prelude.rnf tapeARN
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf tapeARN `Prelude.seq`
+      Prelude.rnf httpStatus

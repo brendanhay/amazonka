@@ -120,12 +120,12 @@ instance Prelude.Hashable TopicRulePayload where
 
 instance Prelude.NFData TopicRulePayload where
   rnf TopicRulePayload' {..} =
-    Prelude.rnf awsIotSqlVersion
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf errorAction
-      `Prelude.seq` Prelude.rnf ruleDisabled
-      `Prelude.seq` Prelude.rnf sql
-      `Prelude.seq` Prelude.rnf actions
+    Prelude.rnf awsIotSqlVersion `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf errorAction `Prelude.seq`
+          Prelude.rnf ruleDisabled `Prelude.seq`
+            Prelude.rnf sql `Prelude.seq`
+              Prelude.rnf actions
 
 instance Data.ToJSON TopicRulePayload where
   toJSON TopicRulePayload' {..} =

@@ -177,9 +177,9 @@ instance Prelude.Hashable MetricQuery where
 
 instance Prelude.NFData MetricQuery where
   rnf MetricQuery' {..} =
-    Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf groupBy
-      `Prelude.seq` Prelude.rnf metric
+    Prelude.rnf filter' `Prelude.seq`
+      Prelude.rnf groupBy `Prelude.seq`
+        Prelude.rnf metric
 
 instance Data.ToJSON MetricQuery where
   toJSON MetricQuery' {..} =

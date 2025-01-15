@@ -154,11 +154,11 @@ instance
   where
   rnf
     AwsEc2LaunchTemplateDataMetadataOptionsDetails' {..} =
-      Prelude.rnf httpEndpoint
-        `Prelude.seq` Prelude.rnf httpProtocolIpv6
-        `Prelude.seq` Prelude.rnf httpPutResponseHopLimit
-        `Prelude.seq` Prelude.rnf httpTokens
-        `Prelude.seq` Prelude.rnf instanceMetadataTags
+      Prelude.rnf httpEndpoint `Prelude.seq`
+        Prelude.rnf httpProtocolIpv6 `Prelude.seq`
+          Prelude.rnf httpPutResponseHopLimit `Prelude.seq`
+            Prelude.rnf httpTokens `Prelude.seq`
+              Prelude.rnf instanceMetadataTags
 
 instance
   Data.ToJSON

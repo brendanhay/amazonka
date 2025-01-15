@@ -80,5 +80,5 @@ instance Prelude.Hashable SuggesterStatus where
 
 instance Prelude.NFData SuggesterStatus where
   rnf SuggesterStatus' {..} =
-    Prelude.rnf options
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf options `Prelude.seq`
+      Prelude.rnf status

@@ -173,10 +173,10 @@ instance Prelude.Hashable ListImageBuildVersions where
 
 instance Prelude.NFData ListImageBuildVersions where
   rnf ListImageBuildVersions' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf imageVersionArn
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf imageVersionArn
 
 instance Data.ToHeaders ListImageBuildVersions where
   toHeaders =
@@ -278,7 +278,7 @@ instance
     ListImageBuildVersionsResponse
   where
   rnf ListImageBuildVersionsResponse' {..} =
-    Prelude.rnf imageSummaryList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf imageSummaryList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf requestId `Prelude.seq`
+          Prelude.rnf httpStatus

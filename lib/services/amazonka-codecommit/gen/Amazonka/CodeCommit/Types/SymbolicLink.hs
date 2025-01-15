@@ -109,7 +109,7 @@ instance Prelude.Hashable SymbolicLink where
 
 instance Prelude.NFData SymbolicLink where
   rnf SymbolicLink' {..} =
-    Prelude.rnf absolutePath
-      `Prelude.seq` Prelude.rnf blobId
-      `Prelude.seq` Prelude.rnf fileMode
-      `Prelude.seq` Prelude.rnf relativePath
+    Prelude.rnf absolutePath `Prelude.seq`
+      Prelude.rnf blobId `Prelude.seq`
+        Prelude.rnf fileMode `Prelude.seq`
+          Prelude.rnf relativePath

@@ -110,9 +110,9 @@ instance Prelude.Hashable ExcludePeriodConfiguration where
 
 instance Prelude.NFData ExcludePeriodConfiguration where
   rnf ExcludePeriodConfiguration' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf amount
-      `Prelude.seq` Prelude.rnf granularity
+    Prelude.rnf status `Prelude.seq`
+      Prelude.rnf amount `Prelude.seq`
+        Prelude.rnf granularity
 
 instance Data.ToJSON ExcludePeriodConfiguration where
   toJSON ExcludePeriodConfiguration' {..} =

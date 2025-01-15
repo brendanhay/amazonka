@@ -143,10 +143,10 @@ instance
     ImportInstanceVolumeDetailItem
   where
   rnf ImportInstanceVolumeDetailItem' {..} =
-    Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf bytesConverted
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf image
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf volume
+    Prelude.rnf availabilityZone `Prelude.seq`
+      Prelude.rnf bytesConverted `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf image `Prelude.seq`
+            Prelude.rnf status `Prelude.seq`
+              Prelude.rnf statusMessage `Prelude.seq`
+                Prelude.rnf volume

@@ -191,12 +191,12 @@ instance Core.AWSPager ListMultipartUploads where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listMultipartUploads_marker
-          Lens..~ rs
-          Lens.^? listMultipartUploadsResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listMultipartUploads_marker
+              Lens..~ rs
+              Lens.^? listMultipartUploadsResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListMultipartUploads where
   type
@@ -224,10 +224,10 @@ instance Prelude.Hashable ListMultipartUploads where
 
 instance Prelude.NFData ListMultipartUploads where
   rnf ListMultipartUploads' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf vaultName
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf accountId `Prelude.seq`
+          Prelude.rnf vaultName
 
 instance Data.ToHeaders ListMultipartUploads where
   toHeaders = Prelude.const Prelude.mempty
@@ -308,6 +308,6 @@ listMultipartUploadsResponse_httpStatus = Lens.lens (\ListMultipartUploadsRespon
 
 instance Prelude.NFData ListMultipartUploadsResponse where
   rnf ListMultipartUploadsResponse' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf uploadsList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf uploadsList `Prelude.seq`
+        Prelude.rnf httpStatus

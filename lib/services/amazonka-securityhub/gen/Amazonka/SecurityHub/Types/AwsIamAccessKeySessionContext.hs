@@ -86,8 +86,8 @@ instance
 
 instance Prelude.NFData AwsIamAccessKeySessionContext where
   rnf AwsIamAccessKeySessionContext' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf sessionIssuer
+    Prelude.rnf attributes `Prelude.seq`
+      Prelude.rnf sessionIssuer
 
 instance Data.ToJSON AwsIamAccessKeySessionContext where
   toJSON AwsIamAccessKeySessionContext' {..} =

@@ -83,8 +83,8 @@ instance Prelude.Hashable UntagColumnOperation where
 
 instance Prelude.NFData UntagColumnOperation where
   rnf UntagColumnOperation' {..} =
-    Prelude.rnf columnName
-      `Prelude.seq` Prelude.rnf tagNames
+    Prelude.rnf columnName `Prelude.seq`
+      Prelude.rnf tagNames
 
 instance Data.ToJSON UntagColumnOperation where
   toJSON UntagColumnOperation' {..} =

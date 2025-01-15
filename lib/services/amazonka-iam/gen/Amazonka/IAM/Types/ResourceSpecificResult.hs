@@ -199,9 +199,9 @@ instance Prelude.Hashable ResourceSpecificResult where
 
 instance Prelude.NFData ResourceSpecificResult where
   rnf ResourceSpecificResult' {..} =
-    Prelude.rnf evalDecisionDetails
-      `Prelude.seq` Prelude.rnf matchedStatements
-      `Prelude.seq` Prelude.rnf missingContextValues
-      `Prelude.seq` Prelude.rnf permissionsBoundaryDecisionDetail
-      `Prelude.seq` Prelude.rnf evalResourceName
-      `Prelude.seq` Prelude.rnf evalResourceDecision
+    Prelude.rnf evalDecisionDetails `Prelude.seq`
+      Prelude.rnf matchedStatements `Prelude.seq`
+        Prelude.rnf missingContextValues `Prelude.seq`
+          Prelude.rnf permissionsBoundaryDecisionDetail `Prelude.seq`
+            Prelude.rnf evalResourceName `Prelude.seq`
+              Prelude.rnf evalResourceDecision

@@ -124,9 +124,9 @@ instance Prelude.Hashable Record where
 
 instance Prelude.NFData Record where
   rnf Record' {..} =
-    Prelude.rnf deviceLastModifiedDate
-      `Prelude.seq` Prelude.rnf key
-      `Prelude.seq` Prelude.rnf lastModifiedBy
-      `Prelude.seq` Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf syncCount
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf deviceLastModifiedDate `Prelude.seq`
+      Prelude.rnf key `Prelude.seq`
+        Prelude.rnf lastModifiedBy `Prelude.seq`
+          Prelude.rnf lastModifiedDate `Prelude.seq`
+            Prelude.rnf syncCount `Prelude.seq`
+              Prelude.rnf value

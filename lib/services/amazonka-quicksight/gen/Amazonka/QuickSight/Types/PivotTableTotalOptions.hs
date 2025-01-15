@@ -105,10 +105,10 @@ instance Prelude.Hashable PivotTableTotalOptions where
 
 instance Prelude.NFData PivotTableTotalOptions where
   rnf PivotTableTotalOptions' {..} =
-    Prelude.rnf columnSubtotalOptions
-      `Prelude.seq` Prelude.rnf columnTotalOptions
-      `Prelude.seq` Prelude.rnf rowSubtotalOptions
-      `Prelude.seq` Prelude.rnf rowTotalOptions
+    Prelude.rnf columnSubtotalOptions `Prelude.seq`
+      Prelude.rnf columnTotalOptions `Prelude.seq`
+        Prelude.rnf rowSubtotalOptions `Prelude.seq`
+          Prelude.rnf rowTotalOptions
 
 instance Data.ToJSON PivotTableTotalOptions where
   toJSON PivotTableTotalOptions' {..} =

@@ -91,9 +91,9 @@ instance Prelude.Hashable Location where
 
 instance Prelude.NFData Location where
   rnf Location' {..} =
-    Prelude.rnf address
-      `Prelude.seq` Prelude.rnf latitude
-      `Prelude.seq` Prelude.rnf longitude
+    Prelude.rnf address `Prelude.seq`
+      Prelude.rnf latitude `Prelude.seq`
+        Prelude.rnf longitude
 
 instance Data.ToJSON Location where
   toJSON Location' {..} =

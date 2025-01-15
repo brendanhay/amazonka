@@ -103,6 +103,6 @@ instance Prelude.Hashable UserAccessLoggingSettings where
 
 instance Prelude.NFData UserAccessLoggingSettings where
   rnf UserAccessLoggingSettings' {..} =
-    Prelude.rnf associatedPortalArns
-      `Prelude.seq` Prelude.rnf kinesisStreamArn
-      `Prelude.seq` Prelude.rnf userAccessLoggingSettingsArn
+    Prelude.rnf associatedPortalArns `Prelude.seq`
+      Prelude.rnf kinesisStreamArn `Prelude.seq`
+        Prelude.rnf userAccessLoggingSettingsArn

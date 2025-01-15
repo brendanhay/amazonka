@@ -316,12 +316,12 @@ instance Core.AWSPager DescribeVolumeStatus where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeVolumeStatus_nextToken
-          Lens..~ rs
-          Lens.^? describeVolumeStatusResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeVolumeStatus_nextToken
+              Lens..~ rs
+              Lens.^? describeVolumeStatusResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeVolumeStatus where
   type
@@ -334,9 +334,7 @@ instance Core.AWSRequest DescribeVolumeStatus where
       ( \s h x ->
           DescribeVolumeStatusResponse'
             Prelude.<$> (x Data..@? "nextToken")
-            Prelude.<*> ( x
-                            Data..@? "volumeStatusSet"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "volumeStatusSet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -353,11 +351,11 @@ instance Prelude.Hashable DescribeVolumeStatus where
 
 instance Prelude.NFData DescribeVolumeStatus where
   rnf DescribeVolumeStatus' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf volumeIds
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf volumeIds
 
 instance Data.ToHeaders DescribeVolumeStatus where
   toHeaders = Prelude.const Prelude.mempty
@@ -434,6 +432,6 @@ describeVolumeStatusResponse_httpStatus = Lens.lens (\DescribeVolumeStatusRespon
 
 instance Prelude.NFData DescribeVolumeStatusResponse where
   rnf DescribeVolumeStatusResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf volumeStatuses
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf volumeStatuses `Prelude.seq`
+        Prelude.rnf httpStatus

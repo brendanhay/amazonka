@@ -79,8 +79,8 @@ instance Prelude.Hashable AddPrefixListEntry where
 
 instance Prelude.NFData AddPrefixListEntry where
   rnf AddPrefixListEntry' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf cidr
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf cidr
 
 instance Data.ToQuery AddPrefixListEntry where
   toQuery AddPrefixListEntry' {..} =

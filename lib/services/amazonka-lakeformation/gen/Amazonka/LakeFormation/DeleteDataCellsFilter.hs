@@ -127,10 +127,10 @@ instance Prelude.Hashable DeleteDataCellsFilter where
 
 instance Prelude.NFData DeleteDataCellsFilter where
   rnf DeleteDataCellsFilter' {..} =
-    Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf tableCatalogId
-      `Prelude.seq` Prelude.rnf tableName
+    Prelude.rnf databaseName `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf tableCatalogId `Prelude.seq`
+          Prelude.rnf tableName
 
 instance Data.ToHeaders DeleteDataCellsFilter where
   toHeaders =

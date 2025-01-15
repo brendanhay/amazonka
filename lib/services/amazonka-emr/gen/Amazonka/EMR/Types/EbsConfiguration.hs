@@ -75,8 +75,8 @@ instance Prelude.Hashable EbsConfiguration where
 
 instance Prelude.NFData EbsConfiguration where
   rnf EbsConfiguration' {..} =
-    Prelude.rnf ebsBlockDeviceConfigs
-      `Prelude.seq` Prelude.rnf ebsOptimized
+    Prelude.rnf ebsBlockDeviceConfigs `Prelude.seq`
+      Prelude.rnf ebsOptimized
 
 instance Data.ToJSON EbsConfiguration where
   toJSON EbsConfiguration' {..} =

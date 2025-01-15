@@ -137,12 +137,12 @@ instance Core.AWSPager GetUsagePlanKeys where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getUsagePlanKeys_position
-          Lens..~ rs
-          Lens.^? getUsagePlanKeysResponse_position
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getUsagePlanKeys_position
+              Lens..~ rs
+              Lens.^? getUsagePlanKeysResponse_position
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetUsagePlanKeys where
   type
@@ -169,10 +169,10 @@ instance Prelude.Hashable GetUsagePlanKeys where
 
 instance Prelude.NFData GetUsagePlanKeys where
   rnf GetUsagePlanKeys' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nameQuery
-      `Prelude.seq` Prelude.rnf position
-      `Prelude.seq` Prelude.rnf usagePlanId
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf nameQuery `Prelude.seq`
+        Prelude.rnf position `Prelude.seq`
+          Prelude.rnf usagePlanId
 
 instance Data.ToHeaders GetUsagePlanKeys where
   toHeaders =
@@ -247,6 +247,6 @@ getUsagePlanKeysResponse_httpStatus = Lens.lens (\GetUsagePlanKeysResponse' {htt
 
 instance Prelude.NFData GetUsagePlanKeysResponse where
   rnf GetUsagePlanKeysResponse' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf position
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf items `Prelude.seq`
+      Prelude.rnf position `Prelude.seq`
+        Prelude.rnf httpStatus

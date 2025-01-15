@@ -148,10 +148,10 @@ instance Prelude.Hashable CreateSignalingChannel where
 
 instance Prelude.NFData CreateSignalingChannel where
   rnf CreateSignalingChannel' {..} =
-    Prelude.rnf channelType
-      `Prelude.seq` Prelude.rnf singleMasterConfiguration
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf channelName
+    Prelude.rnf channelType `Prelude.seq`
+      Prelude.rnf singleMasterConfiguration `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf channelName
 
 instance Data.ToHeaders CreateSignalingChannel where
   toHeaders = Prelude.const Prelude.mempty
@@ -218,5 +218,5 @@ instance
     CreateSignalingChannelResponse
   where
   rnf CreateSignalingChannelResponse' {..} =
-    Prelude.rnf channelARN
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf channelARN `Prelude.seq`
+      Prelude.rnf httpStatus

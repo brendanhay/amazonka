@@ -106,9 +106,9 @@ instance
     DNISEmergencyCallingConfiguration
   where
   rnf DNISEmergencyCallingConfiguration' {..} =
-    Prelude.rnf testPhoneNumber
-      `Prelude.seq` Prelude.rnf emergencyPhoneNumber
-      `Prelude.seq` Prelude.rnf callingCountry
+    Prelude.rnf testPhoneNumber `Prelude.seq`
+      Prelude.rnf emergencyPhoneNumber `Prelude.seq`
+        Prelude.rnf callingCountry
 
 instance
   Data.ToJSON

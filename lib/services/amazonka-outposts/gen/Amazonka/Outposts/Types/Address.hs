@@ -194,17 +194,17 @@ instance Prelude.Hashable Address where
 
 instance Prelude.NFData Address where
   rnf Address' {..} =
-    Prelude.rnf addressLine2
-      `Prelude.seq` Prelude.rnf addressLine3
-      `Prelude.seq` Prelude.rnf contactName
-      `Prelude.seq` Prelude.rnf contactPhoneNumber
-      `Prelude.seq` Prelude.rnf districtOrCounty
-      `Prelude.seq` Prelude.rnf municipality
-      `Prelude.seq` Prelude.rnf addressLine1
-      `Prelude.seq` Prelude.rnf city
-      `Prelude.seq` Prelude.rnf stateOrRegion
-      `Prelude.seq` Prelude.rnf postalCode
-      `Prelude.seq` Prelude.rnf countryCode
+    Prelude.rnf addressLine2 `Prelude.seq`
+      Prelude.rnf addressLine3 `Prelude.seq`
+        Prelude.rnf contactName `Prelude.seq`
+          Prelude.rnf contactPhoneNumber `Prelude.seq`
+            Prelude.rnf districtOrCounty `Prelude.seq`
+              Prelude.rnf municipality `Prelude.seq`
+                Prelude.rnf addressLine1 `Prelude.seq`
+                  Prelude.rnf city `Prelude.seq`
+                    Prelude.rnf stateOrRegion `Prelude.seq`
+                      Prelude.rnf postalCode `Prelude.seq`
+                        Prelude.rnf countryCode
 
 instance Data.ToJSON Address where
   toJSON Address' {..} =

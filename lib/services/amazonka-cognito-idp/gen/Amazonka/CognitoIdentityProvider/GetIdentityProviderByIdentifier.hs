@@ -124,8 +124,8 @@ instance
     GetIdentityProviderByIdentifier
   where
   rnf GetIdentityProviderByIdentifier' {..} =
-    Prelude.rnf userPoolId
-      `Prelude.seq` Prelude.rnf idpIdentifier
+    Prelude.rnf userPoolId `Prelude.seq`
+      Prelude.rnf idpIdentifier
 
 instance
   Data.ToHeaders
@@ -210,5 +210,5 @@ instance
     GetIdentityProviderByIdentifierResponse
   where
   rnf GetIdentityProviderByIdentifierResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf identityProvider
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf identityProvider

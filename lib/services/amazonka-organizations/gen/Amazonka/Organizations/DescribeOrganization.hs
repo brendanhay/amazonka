@@ -169,5 +169,5 @@ describeOrganizationResponse_httpStatus = Lens.lens (\DescribeOrganizationRespon
 
 instance Prelude.NFData DescribeOrganizationResponse where
   rnf DescribeOrganizationResponse' {..} =
-    Prelude.rnf organization
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf organization `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -206,13 +206,13 @@ instance Prelude.Hashable AwsLambdaFunctionDetails where
 
 instance Prelude.NFData AwsLambdaFunctionDetails where
   rnf AwsLambdaFunctionDetails' {..} =
-    Prelude.rnf architectures
-      `Prelude.seq` Prelude.rnf lastModifiedAt
-      `Prelude.seq` Prelude.rnf layers
-      `Prelude.seq` Prelude.rnf packageType
-      `Prelude.seq` Prelude.rnf vpcConfig
-      `Prelude.seq` Prelude.rnf codeSha256
-      `Prelude.seq` Prelude.rnf executionRoleArn
-      `Prelude.seq` Prelude.rnf functionName
-      `Prelude.seq` Prelude.rnf runtime
-      `Prelude.seq` Prelude.rnf version
+    Prelude.rnf architectures `Prelude.seq`
+      Prelude.rnf lastModifiedAt `Prelude.seq`
+        Prelude.rnf layers `Prelude.seq`
+          Prelude.rnf packageType `Prelude.seq`
+            Prelude.rnf vpcConfig `Prelude.seq`
+              Prelude.rnf codeSha256 `Prelude.seq`
+                Prelude.rnf executionRoleArn `Prelude.seq`
+                  Prelude.rnf functionName `Prelude.seq`
+                    Prelude.rnf runtime `Prelude.seq`
+                      Prelude.rnf version

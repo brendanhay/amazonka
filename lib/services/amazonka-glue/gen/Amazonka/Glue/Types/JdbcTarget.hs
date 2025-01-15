@@ -127,10 +127,10 @@ instance Prelude.Hashable JdbcTarget where
 
 instance Prelude.NFData JdbcTarget where
   rnf JdbcTarget' {..} =
-    Prelude.rnf connectionName
-      `Prelude.seq` Prelude.rnf enableAdditionalMetadata
-      `Prelude.seq` Prelude.rnf exclusions
-      `Prelude.seq` Prelude.rnf path
+    Prelude.rnf connectionName `Prelude.seq`
+      Prelude.rnf enableAdditionalMetadata `Prelude.seq`
+        Prelude.rnf exclusions `Prelude.seq`
+          Prelude.rnf path
 
 instance Data.ToJSON JdbcTarget where
   toJSON JdbcTarget' {..} =

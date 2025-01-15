@@ -104,7 +104,7 @@ instance Prelude.Hashable EBSResourceUtilization where
 
 instance Prelude.NFData EBSResourceUtilization where
   rnf EBSResourceUtilization' {..} =
-    Prelude.rnf ebsReadBytesPerSecond
-      `Prelude.seq` Prelude.rnf ebsReadOpsPerSecond
-      `Prelude.seq` Prelude.rnf ebsWriteBytesPerSecond
-      `Prelude.seq` Prelude.rnf ebsWriteOpsPerSecond
+    Prelude.rnf ebsReadBytesPerSecond `Prelude.seq`
+      Prelude.rnf ebsReadOpsPerSecond `Prelude.seq`
+        Prelude.rnf ebsWriteBytesPerSecond `Prelude.seq`
+          Prelude.rnf ebsWriteOpsPerSecond

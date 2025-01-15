@@ -167,10 +167,10 @@ instance Prelude.Hashable BatchInferenceJobSummary where
 
 instance Prelude.NFData BatchInferenceJobSummary where
   rnf BatchInferenceJobSummary' {..} =
-    Prelude.rnf batchInferenceJobArn
-      `Prelude.seq` Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
-      `Prelude.seq` Prelude.rnf solutionVersionArn
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf batchInferenceJobArn `Prelude.seq`
+      Prelude.rnf creationDateTime `Prelude.seq`
+        Prelude.rnf failureReason `Prelude.seq`
+          Prelude.rnf jobName `Prelude.seq`
+            Prelude.rnf lastUpdatedDateTime `Prelude.seq`
+              Prelude.rnf solutionVersionArn `Prelude.seq`
+                Prelude.rnf status

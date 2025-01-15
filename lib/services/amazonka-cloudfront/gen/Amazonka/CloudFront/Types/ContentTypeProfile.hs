@@ -98,9 +98,9 @@ instance Prelude.Hashable ContentTypeProfile where
 
 instance Prelude.NFData ContentTypeProfile where
   rnf ContentTypeProfile' {..} =
-    Prelude.rnf profileId
-      `Prelude.seq` Prelude.rnf format
-      `Prelude.seq` Prelude.rnf contentType
+    Prelude.rnf profileId `Prelude.seq`
+      Prelude.rnf format `Prelude.seq`
+        Prelude.rnf contentType
 
 instance Data.ToXML ContentTypeProfile where
   toXML ContentTypeProfile' {..} =

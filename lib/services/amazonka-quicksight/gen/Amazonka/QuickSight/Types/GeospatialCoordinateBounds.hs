@@ -115,10 +115,10 @@ instance Prelude.Hashable GeospatialCoordinateBounds where
 
 instance Prelude.NFData GeospatialCoordinateBounds where
   rnf GeospatialCoordinateBounds' {..} =
-    Prelude.rnf north
-      `Prelude.seq` Prelude.rnf south
-      `Prelude.seq` Prelude.rnf west
-      `Prelude.seq` Prelude.rnf east
+    Prelude.rnf north `Prelude.seq`
+      Prelude.rnf south `Prelude.seq`
+        Prelude.rnf west `Prelude.seq`
+          Prelude.rnf east
 
 instance Data.ToJSON GeospatialCoordinateBounds where
   toJSON GeospatialCoordinateBounds' {..} =

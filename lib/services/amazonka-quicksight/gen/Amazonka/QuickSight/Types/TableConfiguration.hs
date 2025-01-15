@@ -130,12 +130,12 @@ instance Prelude.Hashable TableConfiguration where
 
 instance Prelude.NFData TableConfiguration where
   rnf TableConfiguration' {..} =
-    Prelude.rnf fieldOptions
-      `Prelude.seq` Prelude.rnf fieldWells
-      `Prelude.seq` Prelude.rnf paginatedReportOptions
-      `Prelude.seq` Prelude.rnf sortConfiguration
-      `Prelude.seq` Prelude.rnf tableOptions
-      `Prelude.seq` Prelude.rnf totalOptions
+    Prelude.rnf fieldOptions `Prelude.seq`
+      Prelude.rnf fieldWells `Prelude.seq`
+        Prelude.rnf paginatedReportOptions `Prelude.seq`
+          Prelude.rnf sortConfiguration `Prelude.seq`
+            Prelude.rnf tableOptions `Prelude.seq`
+              Prelude.rnf totalOptions
 
 instance Data.ToJSON TableConfiguration where
   toJSON TableConfiguration' {..} =

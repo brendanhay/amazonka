@@ -115,12 +115,12 @@ instance Core.AWSPager ListRecipeVersions where
         (rs Lens.^. listRecipeVersionsResponse_recipes) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listRecipeVersions_nextToken
-          Lens..~ rs
-          Lens.^? listRecipeVersionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listRecipeVersions_nextToken
+              Lens..~ rs
+              Lens.^? listRecipeVersionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListRecipeVersions where
   type
@@ -146,9 +146,9 @@ instance Prelude.Hashable ListRecipeVersions where
 
 instance Prelude.NFData ListRecipeVersions where
   rnf ListRecipeVersions' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf name
 
 instance Data.ToHeaders ListRecipeVersions where
   toHeaders =
@@ -225,6 +225,6 @@ listRecipeVersionsResponse_recipes = Lens.lens (\ListRecipeVersionsResponse' {re
 
 instance Prelude.NFData ListRecipeVersionsResponse where
   rnf ListRecipeVersionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf recipes
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf recipes

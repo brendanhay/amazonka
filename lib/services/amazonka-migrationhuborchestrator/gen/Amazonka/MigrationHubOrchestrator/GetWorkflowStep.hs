@@ -163,9 +163,9 @@ instance Prelude.Hashable GetWorkflowStep where
 
 instance Prelude.NFData GetWorkflowStep where
   rnf GetWorkflowStep' {..} =
-    Prelude.rnf workflowId
-      `Prelude.seq` Prelude.rnf stepGroupId
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf workflowId `Prelude.seq`
+      Prelude.rnf stepGroupId `Prelude.seq`
+        Prelude.rnf id
 
 instance Data.ToHeaders GetWorkflowStep where
   toHeaders =

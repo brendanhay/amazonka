@@ -81,8 +81,8 @@ instance Prelude.Hashable ProcessingConfiguration where
 
 instance Prelude.NFData ProcessingConfiguration where
   rnf ProcessingConfiguration' {..} =
-    Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf processors
+    Prelude.rnf enabled `Prelude.seq`
+      Prelude.rnf processors
 
 instance Data.ToJSON ProcessingConfiguration where
   toJSON ProcessingConfiguration' {..} =

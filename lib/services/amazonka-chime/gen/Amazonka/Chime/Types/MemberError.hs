@@ -92,6 +92,6 @@ instance Prelude.Hashable MemberError where
 
 instance Prelude.NFData MemberError where
   rnf MemberError' {..} =
-    Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf memberId
+    Prelude.rnf errorCode `Prelude.seq`
+      Prelude.rnf errorMessage `Prelude.seq`
+        Prelude.rnf memberId

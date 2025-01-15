@@ -83,8 +83,8 @@ instance Prelude.Hashable RuleVariables where
 
 instance Prelude.NFData RuleVariables where
   rnf RuleVariables' {..} =
-    Prelude.rnf iPSets
-      `Prelude.seq` Prelude.rnf portSets
+    Prelude.rnf iPSets `Prelude.seq`
+      Prelude.rnf portSets
 
 instance Data.ToJSON RuleVariables where
   toJSON RuleVariables' {..} =

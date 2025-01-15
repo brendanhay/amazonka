@@ -113,7 +113,7 @@ instance Prelude.Hashable RuntimeVersion where
 
 instance Prelude.NFData RuntimeVersion where
   rnf RuntimeVersion' {..} =
-    Prelude.rnf deprecationDate
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf releaseDate
-      `Prelude.seq` Prelude.rnf versionName
+    Prelude.rnf deprecationDate `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf releaseDate `Prelude.seq`
+          Prelude.rnf versionName

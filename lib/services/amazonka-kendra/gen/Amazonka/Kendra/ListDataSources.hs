@@ -133,9 +133,9 @@ instance Prelude.Hashable ListDataSources where
 
 instance Prelude.NFData ListDataSources where
   rnf ListDataSources' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf indexId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf indexId
 
 instance Data.ToHeaders ListDataSources where
   toHeaders =
@@ -224,6 +224,6 @@ listDataSourcesResponse_httpStatus = Lens.lens (\ListDataSourcesResponse' {httpS
 
 instance Prelude.NFData ListDataSourcesResponse where
   rnf ListDataSourcesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf summaryItems
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf summaryItems `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -129,9 +129,9 @@ instance Prelude.Hashable UpdateAuthorizer where
 
 instance Prelude.NFData UpdateAuthorizer where
   rnf UpdateAuthorizer' {..} =
-    Prelude.rnf patchOperations
-      `Prelude.seq` Prelude.rnf restApiId
-      `Prelude.seq` Prelude.rnf authorizerId
+    Prelude.rnf patchOperations `Prelude.seq`
+      Prelude.rnf restApiId `Prelude.seq`
+        Prelude.rnf authorizerId
 
 instance Data.ToHeaders UpdateAuthorizer where
   toHeaders =

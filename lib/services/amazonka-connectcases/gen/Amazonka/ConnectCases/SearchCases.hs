@@ -166,12 +166,12 @@ instance Core.AWSPager SearchCases where
     | Core.stop (rs Lens.^. searchCasesResponse_cases) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& searchCases_nextToken
-          Lens..~ rs
-          Lens.^? searchCasesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& searchCases_nextToken
+              Lens..~ rs
+              Lens.^? searchCasesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest SearchCases where
   type AWSResponse SearchCases = SearchCasesResponse
@@ -199,13 +199,13 @@ instance Prelude.Hashable SearchCases where
 
 instance Prelude.NFData SearchCases where
   rnf SearchCases' {..} =
-    Prelude.rnf fields
-      `Prelude.seq` Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf searchTerm
-      `Prelude.seq` Prelude.rnf sorts
-      `Prelude.seq` Prelude.rnf domainId
+    Prelude.rnf fields `Prelude.seq`
+      Prelude.rnf filter' `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf searchTerm `Prelude.seq`
+              Prelude.rnf sorts `Prelude.seq`
+                Prelude.rnf domainId
 
 instance Data.ToHeaders SearchCases where
   toHeaders =
@@ -294,6 +294,6 @@ searchCasesResponse_cases = Lens.lens (\SearchCasesResponse' {cases} -> cases) (
 
 instance Prelude.NFData SearchCasesResponse where
   rnf SearchCasesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf cases
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf cases

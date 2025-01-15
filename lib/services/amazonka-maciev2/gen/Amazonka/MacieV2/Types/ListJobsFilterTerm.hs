@@ -84,9 +84,9 @@ instance Prelude.Hashable ListJobsFilterTerm where
 
 instance Prelude.NFData ListJobsFilterTerm where
   rnf ListJobsFilterTerm' {..} =
-    Prelude.rnf comparator
-      `Prelude.seq` Prelude.rnf key
-      `Prelude.seq` Prelude.rnf values
+    Prelude.rnf comparator `Prelude.seq`
+      Prelude.rnf key `Prelude.seq`
+        Prelude.rnf values
 
 instance Data.ToJSON ListJobsFilterTerm where
   toJSON ListJobsFilterTerm' {..} =

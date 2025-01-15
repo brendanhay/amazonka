@@ -93,6 +93,6 @@ instance Prelude.Hashable SuggestModel where
 
 instance Prelude.NFData SuggestModel where
   rnf SuggestModel' {..} =
-    Prelude.rnf found
-      `Prelude.seq` Prelude.rnf query
-      `Prelude.seq` Prelude.rnf suggestions
+    Prelude.rnf found `Prelude.seq`
+      Prelude.rnf query `Prelude.seq`
+        Prelude.rnf suggestions

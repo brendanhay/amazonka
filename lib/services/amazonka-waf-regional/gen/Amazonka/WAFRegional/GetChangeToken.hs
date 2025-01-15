@@ -170,5 +170,5 @@ getChangeTokenResponse_httpStatus = Lens.lens (\GetChangeTokenResponse' {httpSta
 
 instance Prelude.NFData GetChangeTokenResponse where
   rnf GetChangeTokenResponse' {..} =
-    Prelude.rnf changeToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf changeToken `Prelude.seq`
+      Prelude.rnf httpStatus

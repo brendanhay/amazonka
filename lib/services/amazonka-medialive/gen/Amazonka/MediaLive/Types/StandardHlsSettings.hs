@@ -89,8 +89,8 @@ instance Prelude.Hashable StandardHlsSettings where
 
 instance Prelude.NFData StandardHlsSettings where
   rnf StandardHlsSettings' {..} =
-    Prelude.rnf audioRenditionSets
-      `Prelude.seq` Prelude.rnf m3u8Settings
+    Prelude.rnf audioRenditionSets `Prelude.seq`
+      Prelude.rnf m3u8Settings
 
 instance Data.ToJSON StandardHlsSettings where
   toJSON StandardHlsSettings' {..} =

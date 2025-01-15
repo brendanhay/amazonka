@@ -171,9 +171,9 @@ instance Prelude.Hashable GetCredentialsForIdentity where
 
 instance Prelude.NFData GetCredentialsForIdentity where
   rnf GetCredentialsForIdentity' {..} =
-    Prelude.rnf customRoleArn
-      `Prelude.seq` Prelude.rnf logins
-      `Prelude.seq` Prelude.rnf identityId
+    Prelude.rnf customRoleArn `Prelude.seq`
+      Prelude.rnf logins `Prelude.seq`
+        Prelude.rnf identityId
 
 instance Data.ToHeaders GetCredentialsForIdentity where
   toHeaders =
@@ -262,6 +262,6 @@ instance
     GetCredentialsForIdentityResponse
   where
   rnf GetCredentialsForIdentityResponse' {..} =
-    Prelude.rnf credentials
-      `Prelude.seq` Prelude.rnf identityId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf credentials `Prelude.seq`
+      Prelude.rnf identityId `Prelude.seq`
+        Prelude.rnf httpStatus

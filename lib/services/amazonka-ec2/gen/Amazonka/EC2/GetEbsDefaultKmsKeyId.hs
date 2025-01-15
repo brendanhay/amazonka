@@ -169,5 +169,5 @@ getEbsDefaultKmsKeyIdResponse_httpStatus = Lens.lens (\GetEbsDefaultKmsKeyIdResp
 
 instance Prelude.NFData GetEbsDefaultKmsKeyIdResponse where
   rnf GetEbsDefaultKmsKeyIdResponse' {..} =
-    Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf kmsKeyId `Prelude.seq`
+      Prelude.rnf httpStatus

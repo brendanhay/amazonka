@@ -251,9 +251,9 @@ getUserResponse_userAttributes = Lens.lens (\GetUserResponse' {userAttributes} -
 
 instance Prelude.NFData GetUserResponse where
   rnf GetUserResponse' {..} =
-    Prelude.rnf mfaOptions
-      `Prelude.seq` Prelude.rnf preferredMfaSetting
-      `Prelude.seq` Prelude.rnf userMFASettingList
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf username
-      `Prelude.seq` Prelude.rnf userAttributes
+    Prelude.rnf mfaOptions `Prelude.seq`
+      Prelude.rnf preferredMfaSetting `Prelude.seq`
+        Prelude.rnf userMFASettingList `Prelude.seq`
+          Prelude.rnf httpStatus `Prelude.seq`
+            Prelude.rnf username `Prelude.seq`
+              Prelude.rnf userAttributes

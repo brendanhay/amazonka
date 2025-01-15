@@ -222,14 +222,14 @@ instance Prelude.Hashable Dataset where
 
 instance Prelude.NFData Dataset where
   rnf Dataset' {..} =
-    Prelude.rnf actions
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf contentDeliveryRules
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf lastUpdateTime
-      `Prelude.seq` Prelude.rnf lateDataRules
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf retentionPeriod
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf triggers
-      `Prelude.seq` Prelude.rnf versioningConfiguration
+    Prelude.rnf actions `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf contentDeliveryRules `Prelude.seq`
+          Prelude.rnf creationTime `Prelude.seq`
+            Prelude.rnf lastUpdateTime `Prelude.seq`
+              Prelude.rnf lateDataRules `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf retentionPeriod `Prelude.seq`
+                    Prelude.rnf status `Prelude.seq`
+                      Prelude.rnf triggers `Prelude.seq`
+                        Prelude.rnf versioningConfiguration

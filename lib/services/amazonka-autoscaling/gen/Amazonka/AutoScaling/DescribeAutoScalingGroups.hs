@@ -151,12 +151,12 @@ instance Core.AWSPager DescribeAutoScalingGroups where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeAutoScalingGroups_nextToken
-          Lens..~ rs
-          Lens.^? describeAutoScalingGroupsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeAutoScalingGroups_nextToken
+              Lens..~ rs
+              Lens.^? describeAutoScalingGroupsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeAutoScalingGroups where
   type
@@ -188,10 +188,10 @@ instance Prelude.Hashable DescribeAutoScalingGroups where
 
 instance Prelude.NFData DescribeAutoScalingGroups where
   rnf DescribeAutoScalingGroups' {..} =
-    Prelude.rnf autoScalingGroupNames
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf autoScalingGroupNames `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf maxRecords `Prelude.seq`
+          Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeAutoScalingGroups where
   toHeaders = Prelude.const Prelude.mempty
@@ -280,6 +280,6 @@ instance
     DescribeAutoScalingGroupsResponse
   where
   rnf DescribeAutoScalingGroupsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf autoScalingGroups
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf autoScalingGroups

@@ -156,8 +156,8 @@ instance Prelude.Hashable DataQualitySummary where
 
 instance Prelude.NFData DataQualitySummary where
   rnf DataQualitySummary' {..} =
-    Prelude.rnf insufficientSensorData
-      `Prelude.seq` Prelude.rnf missingSensorData
-      `Prelude.seq` Prelude.rnf invalidSensorData
-      `Prelude.seq` Prelude.rnf unsupportedTimestamps
-      `Prelude.seq` Prelude.rnf duplicateTimestamps
+    Prelude.rnf insufficientSensorData `Prelude.seq`
+      Prelude.rnf missingSensorData `Prelude.seq`
+        Prelude.rnf invalidSensorData `Prelude.seq`
+          Prelude.rnf unsupportedTimestamps `Prelude.seq`
+            Prelude.rnf duplicateTimestamps

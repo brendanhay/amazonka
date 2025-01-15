@@ -223,8 +223,8 @@ instance Prelude.Hashable SourceKeyword where
 
 instance Prelude.NFData SourceKeyword where
   rnf SourceKeyword' {..} =
-    Prelude.rnf keywordInputType
-      `Prelude.seq` Prelude.rnf keywordValue
+    Prelude.rnf keywordInputType `Prelude.seq`
+      Prelude.rnf keywordValue
 
 instance Data.ToJSON SourceKeyword where
   toJSON SourceKeyword' {..} =

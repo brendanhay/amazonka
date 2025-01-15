@@ -142,9 +142,9 @@ instance
     DescribeWorkspaceImagePermissions
   where
   rnf DescribeWorkspaceImagePermissions' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf imageId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf imageId
 
 instance
   Data.ToHeaders
@@ -259,7 +259,7 @@ instance
     DescribeWorkspaceImagePermissionsResponse
   where
   rnf DescribeWorkspaceImagePermissionsResponse' {..} =
-    Prelude.rnf imageId
-      `Prelude.seq` Prelude.rnf imagePermissions
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf imageId `Prelude.seq`
+      Prelude.rnf imagePermissions `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf httpStatus

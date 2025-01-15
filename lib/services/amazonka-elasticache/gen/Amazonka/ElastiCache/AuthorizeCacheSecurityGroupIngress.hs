@@ -157,9 +157,9 @@ instance
     AuthorizeCacheSecurityGroupIngress
   where
   rnf AuthorizeCacheSecurityGroupIngress' {..} =
-    Prelude.rnf cacheSecurityGroupName
-      `Prelude.seq` Prelude.rnf eC2SecurityGroupName
-      `Prelude.seq` Prelude.rnf eC2SecurityGroupOwnerId
+    Prelude.rnf cacheSecurityGroupName `Prelude.seq`
+      Prelude.rnf eC2SecurityGroupName `Prelude.seq`
+        Prelude.rnf eC2SecurityGroupOwnerId
 
 instance
   Data.ToHeaders
@@ -236,5 +236,5 @@ instance
     AuthorizeCacheSecurityGroupIngressResponse
   where
   rnf AuthorizeCacheSecurityGroupIngressResponse' {..} =
-    Prelude.rnf cacheSecurityGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf cacheSecurityGroup `Prelude.seq`
+      Prelude.rnf httpStatus

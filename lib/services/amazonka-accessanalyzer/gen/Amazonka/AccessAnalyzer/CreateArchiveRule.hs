@@ -132,10 +132,10 @@ instance Prelude.Hashable CreateArchiveRule where
 
 instance Prelude.NFData CreateArchiveRule where
   rnf CreateArchiveRule' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf analyzerName
-      `Prelude.seq` Prelude.rnf ruleName
-      `Prelude.seq` Prelude.rnf filter'
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf analyzerName `Prelude.seq`
+        Prelude.rnf ruleName `Prelude.seq`
+          Prelude.rnf filter'
 
 instance Data.ToHeaders CreateArchiveRule where
   toHeaders =

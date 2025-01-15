@@ -136,10 +136,10 @@ instance Prelude.Hashable TrustAnchorDetail where
 
 instance Prelude.NFData TrustAnchorDetail where
   rnf TrustAnchorDetail' {..} =
-    Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf trustAnchorArn
-      `Prelude.seq` Prelude.rnf trustAnchorId
-      `Prelude.seq` Prelude.rnf updatedAt
+    Prelude.rnf createdAt `Prelude.seq`
+      Prelude.rnf enabled `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf source `Prelude.seq`
+            Prelude.rnf trustAnchorArn `Prelude.seq`
+              Prelude.rnf trustAnchorId `Prelude.seq`
+                Prelude.rnf updatedAt

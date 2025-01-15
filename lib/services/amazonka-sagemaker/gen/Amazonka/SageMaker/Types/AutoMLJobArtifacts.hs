@@ -81,5 +81,5 @@ instance Prelude.Hashable AutoMLJobArtifacts where
 
 instance Prelude.NFData AutoMLJobArtifacts where
   rnf AutoMLJobArtifacts' {..} =
-    Prelude.rnf candidateDefinitionNotebookLocation
-      `Prelude.seq` Prelude.rnf dataExplorationNotebookLocation
+    Prelude.rnf candidateDefinitionNotebookLocation `Prelude.seq`
+      Prelude.rnf dataExplorationNotebookLocation

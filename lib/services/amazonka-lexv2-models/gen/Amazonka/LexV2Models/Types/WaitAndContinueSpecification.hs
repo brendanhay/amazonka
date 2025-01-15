@@ -130,10 +130,10 @@ instance
 
 instance Prelude.NFData WaitAndContinueSpecification where
   rnf WaitAndContinueSpecification' {..} =
-    Prelude.rnf active
-      `Prelude.seq` Prelude.rnf stillWaitingResponse
-      `Prelude.seq` Prelude.rnf waitingResponse
-      `Prelude.seq` Prelude.rnf continueResponse
+    Prelude.rnf active `Prelude.seq`
+      Prelude.rnf stillWaitingResponse `Prelude.seq`
+        Prelude.rnf waitingResponse `Prelude.seq`
+          Prelude.rnf continueResponse
 
 instance Data.ToJSON WaitAndContinueSpecification where
   toJSON WaitAndContinueSpecification' {..} =

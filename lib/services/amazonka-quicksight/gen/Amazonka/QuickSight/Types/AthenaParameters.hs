@@ -98,8 +98,8 @@ instance Prelude.Hashable AthenaParameters where
 
 instance Prelude.NFData AthenaParameters where
   rnf AthenaParameters' {..} =
-    Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf workGroup
+    Prelude.rnf roleArn `Prelude.seq`
+      Prelude.rnf workGroup
 
 instance Data.ToJSON AthenaParameters where
   toJSON AthenaParameters' {..} =

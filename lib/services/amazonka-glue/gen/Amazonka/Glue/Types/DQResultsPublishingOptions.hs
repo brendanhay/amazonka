@@ -104,10 +104,10 @@ instance Prelude.Hashable DQResultsPublishingOptions where
 
 instance Prelude.NFData DQResultsPublishingOptions where
   rnf DQResultsPublishingOptions' {..} =
-    Prelude.rnf cloudWatchMetricsEnabled
-      `Prelude.seq` Prelude.rnf evaluationContext
-      `Prelude.seq` Prelude.rnf resultsPublishingEnabled
-      `Prelude.seq` Prelude.rnf resultsS3Prefix
+    Prelude.rnf cloudWatchMetricsEnabled `Prelude.seq`
+      Prelude.rnf evaluationContext `Prelude.seq`
+        Prelude.rnf resultsPublishingEnabled `Prelude.seq`
+          Prelude.rnf resultsS3Prefix
 
 instance Data.ToJSON DQResultsPublishingOptions where
   toJSON DQResultsPublishingOptions' {..} =

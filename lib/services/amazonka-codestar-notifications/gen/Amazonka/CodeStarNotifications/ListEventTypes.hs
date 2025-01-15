@@ -122,12 +122,12 @@ instance Core.AWSPager ListEventTypes where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listEventTypes_nextToken
-          Lens..~ rs
-          Lens.^? listEventTypesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listEventTypes_nextToken
+              Lens..~ rs
+              Lens.^? listEventTypesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListEventTypes where
   type
@@ -153,9 +153,9 @@ instance Prelude.Hashable ListEventTypes where
 
 instance Prelude.NFData ListEventTypes where
   rnf ListEventTypes' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListEventTypes where
   toHeaders =
@@ -240,6 +240,6 @@ listEventTypesResponse_httpStatus = Lens.lens (\ListEventTypesResponse' {httpSta
 
 instance Prelude.NFData ListEventTypesResponse where
   rnf ListEventTypesResponse' {..} =
-    Prelude.rnf eventTypes
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf eventTypes `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

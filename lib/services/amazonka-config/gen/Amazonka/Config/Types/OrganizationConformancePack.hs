@@ -174,10 +174,10 @@ instance Prelude.Hashable OrganizationConformancePack where
 
 instance Prelude.NFData OrganizationConformancePack where
   rnf OrganizationConformancePack' {..} =
-    Prelude.rnf conformancePackInputParameters
-      `Prelude.seq` Prelude.rnf deliveryS3Bucket
-      `Prelude.seq` Prelude.rnf deliveryS3KeyPrefix
-      `Prelude.seq` Prelude.rnf excludedAccounts
-      `Prelude.seq` Prelude.rnf organizationConformancePackName
-      `Prelude.seq` Prelude.rnf organizationConformancePackArn
-      `Prelude.seq` Prelude.rnf lastUpdateTime
+    Prelude.rnf conformancePackInputParameters `Prelude.seq`
+      Prelude.rnf deliveryS3Bucket `Prelude.seq`
+        Prelude.rnf deliveryS3KeyPrefix `Prelude.seq`
+          Prelude.rnf excludedAccounts `Prelude.seq`
+            Prelude.rnf organizationConformancePackName `Prelude.seq`
+              Prelude.rnf organizationConformancePackArn `Prelude.seq`
+                Prelude.rnf lastUpdateTime

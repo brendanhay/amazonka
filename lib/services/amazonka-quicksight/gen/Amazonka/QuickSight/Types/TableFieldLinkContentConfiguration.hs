@@ -97,8 +97,8 @@ instance
     TableFieldLinkContentConfiguration
   where
   rnf TableFieldLinkContentConfiguration' {..} =
-    Prelude.rnf customIconContent
-      `Prelude.seq` Prelude.rnf customTextContent
+    Prelude.rnf customIconContent `Prelude.seq`
+      Prelude.rnf customTextContent
 
 instance
   Data.ToJSON

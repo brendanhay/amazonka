@@ -138,12 +138,12 @@ instance Core.AWSPager ListDiscoveredResources where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listDiscoveredResources_nextToken
-          Lens..~ rs
-          Lens.^? listDiscoveredResourcesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listDiscoveredResources_nextToken
+              Lens..~ rs
+              Lens.^? listDiscoveredResourcesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDiscoveredResources where
   type
@@ -173,10 +173,10 @@ instance Prelude.Hashable ListDiscoveredResources where
 
 instance Prelude.NFData ListDiscoveredResources where
   rnf ListDiscoveredResources' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf progressUpdateStream
-      `Prelude.seq` Prelude.rnf migrationTaskName
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf progressUpdateStream `Prelude.seq`
+          Prelude.rnf migrationTaskName
 
 instance Data.ToHeaders ListDiscoveredResources where
   toHeaders =
@@ -276,6 +276,6 @@ instance
     ListDiscoveredResourcesResponse
   where
   rnf ListDiscoveredResourcesResponse' {..} =
-    Prelude.rnf discoveredResourceList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf discoveredResourceList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

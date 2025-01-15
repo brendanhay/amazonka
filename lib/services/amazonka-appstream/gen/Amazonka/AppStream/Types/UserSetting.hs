@@ -87,8 +87,8 @@ instance Prelude.Hashable UserSetting where
 
 instance Prelude.NFData UserSetting where
   rnf UserSetting' {..} =
-    Prelude.rnf action
-      `Prelude.seq` Prelude.rnf permission
+    Prelude.rnf action `Prelude.seq`
+      Prelude.rnf permission
 
 instance Data.ToJSON UserSetting where
   toJSON UserSetting' {..} =

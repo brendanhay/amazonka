@@ -208,15 +208,15 @@ instance Prelude.Hashable NumericRangeFilter where
 
 instance Prelude.NFData NumericRangeFilter where
   rnf NumericRangeFilter' {..} =
-    Prelude.rnf aggregationFunction
-      `Prelude.seq` Prelude.rnf includeMaximum
-      `Prelude.seq` Prelude.rnf includeMinimum
-      `Prelude.seq` Prelude.rnf rangeMaximum
-      `Prelude.seq` Prelude.rnf rangeMinimum
-      `Prelude.seq` Prelude.rnf selectAllOptions
-      `Prelude.seq` Prelude.rnf filterId
-      `Prelude.seq` Prelude.rnf column
-      `Prelude.seq` Prelude.rnf nullOption
+    Prelude.rnf aggregationFunction `Prelude.seq`
+      Prelude.rnf includeMaximum `Prelude.seq`
+        Prelude.rnf includeMinimum `Prelude.seq`
+          Prelude.rnf rangeMaximum `Prelude.seq`
+            Prelude.rnf rangeMinimum `Prelude.seq`
+              Prelude.rnf selectAllOptions `Prelude.seq`
+                Prelude.rnf filterId `Prelude.seq`
+                  Prelude.rnf column `Prelude.seq`
+                    Prelude.rnf nullOption
 
 instance Data.ToJSON NumericRangeFilter where
   toJSON NumericRangeFilter' {..} =

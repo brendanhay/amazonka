@@ -99,8 +99,8 @@ instance Prelude.Hashable UpdateDevices where
 
 instance Prelude.NFData UpdateDevices where
   rnf UpdateDevices' {..} =
-    Prelude.rnf deviceFleetName
-      `Prelude.seq` Prelude.rnf devices
+    Prelude.rnf deviceFleetName `Prelude.seq`
+      Prelude.rnf devices
 
 instance Data.ToHeaders UpdateDevices where
   toHeaders =

@@ -91,8 +91,8 @@ instance Prelude.Hashable SheetTextBox where
 
 instance Prelude.NFData SheetTextBox where
   rnf SheetTextBox' {..} =
-    Prelude.rnf content
-      `Prelude.seq` Prelude.rnf sheetTextBoxId
+    Prelude.rnf content `Prelude.seq`
+      Prelude.rnf sheetTextBoxId
 
 instance Data.ToJSON SheetTextBox where
   toJSON SheetTextBox' {..} =

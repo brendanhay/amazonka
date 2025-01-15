@@ -113,8 +113,8 @@ instance Prelude.Hashable DeleteNodegroup where
 
 instance Prelude.NFData DeleteNodegroup where
   rnf DeleteNodegroup' {..} =
-    Prelude.rnf clusterName
-      `Prelude.seq` Prelude.rnf nodegroupName
+    Prelude.rnf clusterName `Prelude.seq`
+      Prelude.rnf nodegroupName
 
 instance Data.ToHeaders DeleteNodegroup where
   toHeaders =
@@ -180,5 +180,5 @@ deleteNodegroupResponse_httpStatus = Lens.lens (\DeleteNodegroupResponse' {httpS
 
 instance Prelude.NFData DeleteNodegroupResponse where
   rnf DeleteNodegroupResponse' {..} =
-    Prelude.rnf nodegroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nodegroup `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -175,6 +175,6 @@ batchGetJobsResponse_httpStatus = Lens.lens (\BatchGetJobsResponse' {httpStatus}
 
 instance Prelude.NFData BatchGetJobsResponse where
   rnf BatchGetJobsResponse' {..} =
-    Prelude.rnf jobs
-      `Prelude.seq` Prelude.rnf jobsNotFound
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf jobs `Prelude.seq`
+      Prelude.rnf jobsNotFound `Prelude.seq`
+        Prelude.rnf httpStatus

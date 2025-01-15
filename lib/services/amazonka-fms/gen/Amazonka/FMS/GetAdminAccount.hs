@@ -162,6 +162,6 @@ getAdminAccountResponse_httpStatus = Lens.lens (\GetAdminAccountResponse' {httpS
 
 instance Prelude.NFData GetAdminAccountResponse where
   rnf GetAdminAccountResponse' {..} =
-    Prelude.rnf adminAccount
-      `Prelude.seq` Prelude.rnf roleStatus
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf adminAccount `Prelude.seq`
+      Prelude.rnf roleStatus `Prelude.seq`
+        Prelude.rnf httpStatus

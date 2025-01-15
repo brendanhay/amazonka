@@ -514,19 +514,19 @@ instance Prelude.Hashable CreateFileSystem where
 
 instance Prelude.NFData CreateFileSystem where
   rnf CreateFileSystem' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf fileSystemTypeVersion
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf lustreConfiguration
-      `Prelude.seq` Prelude.rnf ontapConfiguration
-      `Prelude.seq` Prelude.rnf openZFSConfiguration
-      `Prelude.seq` Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf storageType
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf windowsConfiguration
-      `Prelude.seq` Prelude.rnf fileSystemType
-      `Prelude.seq` Prelude.rnf storageCapacity
-      `Prelude.seq` Prelude.rnf subnetIds
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf fileSystemTypeVersion `Prelude.seq`
+        Prelude.rnf kmsKeyId `Prelude.seq`
+          Prelude.rnf lustreConfiguration `Prelude.seq`
+            Prelude.rnf ontapConfiguration `Prelude.seq`
+              Prelude.rnf openZFSConfiguration `Prelude.seq`
+                Prelude.rnf securityGroupIds `Prelude.seq`
+                  Prelude.rnf storageType `Prelude.seq`
+                    Prelude.rnf tags `Prelude.seq`
+                      Prelude.rnf windowsConfiguration `Prelude.seq`
+                        Prelude.rnf fileSystemType `Prelude.seq`
+                          Prelude.rnf storageCapacity `Prelude.seq`
+                            Prelude.rnf subnetIds
 
 instance Data.ToHeaders CreateFileSystem where
   toHeaders =
@@ -621,5 +621,5 @@ createFileSystemResponse_httpStatus = Lens.lens (\CreateFileSystemResponse' {htt
 
 instance Prelude.NFData CreateFileSystemResponse where
   rnf CreateFileSystemResponse' {..} =
-    Prelude.rnf fileSystem
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf fileSystem `Prelude.seq`
+      Prelude.rnf httpStatus

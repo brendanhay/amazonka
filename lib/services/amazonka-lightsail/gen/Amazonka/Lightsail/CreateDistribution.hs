@@ -252,14 +252,14 @@ instance Prelude.Hashable CreateDistribution where
 
 instance Prelude.NFData CreateDistribution where
   rnf CreateDistribution' {..} =
-    Prelude.rnf cacheBehaviorSettings
-      `Prelude.seq` Prelude.rnf cacheBehaviors
-      `Prelude.seq` Prelude.rnf ipAddressType
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf distributionName
-      `Prelude.seq` Prelude.rnf origin
-      `Prelude.seq` Prelude.rnf defaultCacheBehavior
-      `Prelude.seq` Prelude.rnf bundleId
+    Prelude.rnf cacheBehaviorSettings `Prelude.seq`
+      Prelude.rnf cacheBehaviors `Prelude.seq`
+        Prelude.rnf ipAddressType `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf distributionName `Prelude.seq`
+              Prelude.rnf origin `Prelude.seq`
+                Prelude.rnf defaultCacheBehavior `Prelude.seq`
+                  Prelude.rnf bundleId
 
 instance Data.ToHeaders CreateDistribution where
   toHeaders =
@@ -359,6 +359,6 @@ createDistributionResponse_httpStatus = Lens.lens (\CreateDistributionResponse' 
 
 instance Prelude.NFData CreateDistributionResponse where
   rnf CreateDistributionResponse' {..} =
-    Prelude.rnf distribution
-      `Prelude.seq` Prelude.rnf operation
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf distribution `Prelude.seq`
+      Prelude.rnf operation `Prelude.seq`
+        Prelude.rnf httpStatus

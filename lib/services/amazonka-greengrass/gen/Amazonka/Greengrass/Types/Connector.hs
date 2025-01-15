@@ -103,9 +103,9 @@ instance Prelude.Hashable Connector where
 
 instance Prelude.NFData Connector where
   rnf Connector' {..} =
-    Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf connectorArn
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf parameters `Prelude.seq`
+      Prelude.rnf connectorArn `Prelude.seq`
+        Prelude.rnf id
 
 instance Data.ToJSON Connector where
   toJSON Connector' {..} =

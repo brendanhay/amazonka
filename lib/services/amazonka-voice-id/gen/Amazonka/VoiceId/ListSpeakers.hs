@@ -129,12 +129,12 @@ instance Core.AWSPager ListSpeakers where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listSpeakers_nextToken
-          Lens..~ rs
-          Lens.^? listSpeakersResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listSpeakers_nextToken
+              Lens..~ rs
+              Lens.^? listSpeakersResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSpeakers where
   type AWSResponse ListSpeakers = ListSpeakersResponse
@@ -161,9 +161,9 @@ instance Prelude.Hashable ListSpeakers where
 
 instance Prelude.NFData ListSpeakers where
   rnf ListSpeakers' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf domainId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf domainId
 
 instance Data.ToHeaders ListSpeakers where
   toHeaders =
@@ -255,6 +255,6 @@ listSpeakersResponse_httpStatus = Lens.lens (\ListSpeakersResponse' {httpStatus}
 
 instance Prelude.NFData ListSpeakersResponse where
   rnf ListSpeakersResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf speakerSummaries
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf speakerSummaries `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -154,13 +154,13 @@ instance Prelude.Hashable WeeklyAutoScalingSchedule where
 
 instance Prelude.NFData WeeklyAutoScalingSchedule where
   rnf WeeklyAutoScalingSchedule' {..} =
-    Prelude.rnf friday
-      `Prelude.seq` Prelude.rnf monday
-      `Prelude.seq` Prelude.rnf saturday
-      `Prelude.seq` Prelude.rnf sunday
-      `Prelude.seq` Prelude.rnf thursday
-      `Prelude.seq` Prelude.rnf tuesday
-      `Prelude.seq` Prelude.rnf wednesday
+    Prelude.rnf friday `Prelude.seq`
+      Prelude.rnf monday `Prelude.seq`
+        Prelude.rnf saturday `Prelude.seq`
+          Prelude.rnf sunday `Prelude.seq`
+            Prelude.rnf thursday `Prelude.seq`
+              Prelude.rnf tuesday `Prelude.seq`
+                Prelude.rnf wednesday
 
 instance Data.ToJSON WeeklyAutoScalingSchedule where
   toJSON WeeklyAutoScalingSchedule' {..} =

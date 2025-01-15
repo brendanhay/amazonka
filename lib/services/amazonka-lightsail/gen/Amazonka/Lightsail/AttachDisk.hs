@@ -130,9 +130,9 @@ instance Prelude.Hashable AttachDisk where
 
 instance Prelude.NFData AttachDisk where
   rnf AttachDisk' {..} =
-    Prelude.rnf diskName
-      `Prelude.seq` Prelude.rnf instanceName
-      `Prelude.seq` Prelude.rnf diskPath
+    Prelude.rnf diskName `Prelude.seq`
+      Prelude.rnf instanceName `Prelude.seq`
+        Prelude.rnf diskPath
 
 instance Data.ToHeaders AttachDisk where
   toHeaders =
@@ -211,5 +211,5 @@ attachDiskResponse_httpStatus = Lens.lens (\AttachDiskResponse' {httpStatus} -> 
 
 instance Prelude.NFData AttachDiskResponse where
   rnf AttachDiskResponse' {..} =
-    Prelude.rnf operations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operations `Prelude.seq`
+      Prelude.rnf httpStatus

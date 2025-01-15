@@ -123,8 +123,8 @@ instance
     DisassociatePhoneNumberFromUser
   where
   rnf DisassociatePhoneNumberFromUser' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf userId
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf userId
 
 instance
   Data.ToHeaders

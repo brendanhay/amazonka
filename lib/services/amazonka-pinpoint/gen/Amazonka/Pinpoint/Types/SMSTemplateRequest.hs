@@ -140,11 +140,11 @@ instance Prelude.Hashable SMSTemplateRequest where
 
 instance Prelude.NFData SMSTemplateRequest where
   rnf SMSTemplateRequest' {..} =
-    Prelude.rnf body
-      `Prelude.seq` Prelude.rnf defaultSubstitutions
-      `Prelude.seq` Prelude.rnf recommenderId
-      `Prelude.seq` Prelude.rnf templateDescription
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf body `Prelude.seq`
+      Prelude.rnf defaultSubstitutions `Prelude.seq`
+        Prelude.rnf recommenderId `Prelude.seq`
+          Prelude.rnf templateDescription `Prelude.seq`
+            Prelude.rnf tags
 
 instance Data.ToJSON SMSTemplateRequest where
   toJSON SMSTemplateRequest' {..} =

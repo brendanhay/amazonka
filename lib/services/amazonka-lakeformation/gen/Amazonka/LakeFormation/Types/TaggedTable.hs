@@ -108,7 +108,7 @@ instance Prelude.Hashable TaggedTable where
 
 instance Prelude.NFData TaggedTable where
   rnf TaggedTable' {..} =
-    Prelude.rnf lFTagOnDatabase
-      `Prelude.seq` Prelude.rnf lFTagsOnColumns
-      `Prelude.seq` Prelude.rnf lFTagsOnTable
-      `Prelude.seq` Prelude.rnf table
+    Prelude.rnf lFTagOnDatabase `Prelude.seq`
+      Prelude.rnf lFTagsOnColumns `Prelude.seq`
+        Prelude.rnf lFTagsOnTable `Prelude.seq`
+          Prelude.rnf table

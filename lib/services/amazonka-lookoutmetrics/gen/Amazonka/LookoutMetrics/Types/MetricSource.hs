@@ -129,12 +129,12 @@ instance Prelude.Hashable MetricSource where
 
 instance Prelude.NFData MetricSource where
   rnf MetricSource' {..} =
-    Prelude.rnf appFlowConfig
-      `Prelude.seq` Prelude.rnf athenaSourceConfig
-      `Prelude.seq` Prelude.rnf cloudWatchConfig
-      `Prelude.seq` Prelude.rnf rDSSourceConfig
-      `Prelude.seq` Prelude.rnf redshiftSourceConfig
-      `Prelude.seq` Prelude.rnf s3SourceConfig
+    Prelude.rnf appFlowConfig `Prelude.seq`
+      Prelude.rnf athenaSourceConfig `Prelude.seq`
+        Prelude.rnf cloudWatchConfig `Prelude.seq`
+          Prelude.rnf rDSSourceConfig `Prelude.seq`
+            Prelude.rnf redshiftSourceConfig `Prelude.seq`
+              Prelude.rnf s3SourceConfig
 
 instance Data.ToJSON MetricSource where
   toJSON MetricSource' {..} =

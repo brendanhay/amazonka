@@ -166,5 +166,5 @@ deleteApnsChannelResponse_aPNSChannelResponse = Lens.lens (\DeleteApnsChannelRes
 
 instance Prelude.NFData DeleteApnsChannelResponse where
   rnf DeleteApnsChannelResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf aPNSChannelResponse
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf aPNSChannelResponse

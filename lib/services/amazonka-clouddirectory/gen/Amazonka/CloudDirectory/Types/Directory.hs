@@ -109,7 +109,7 @@ instance Prelude.Hashable Directory where
 
 instance Prelude.NFData Directory where
   rnf Directory' {..} =
-    Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf directoryArn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf creationDateTime `Prelude.seq`
+      Prelude.rnf directoryArn `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf state

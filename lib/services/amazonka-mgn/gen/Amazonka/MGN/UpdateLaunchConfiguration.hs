@@ -214,17 +214,17 @@ instance Prelude.Hashable UpdateLaunchConfiguration where
 
 instance Prelude.NFData UpdateLaunchConfiguration where
   rnf UpdateLaunchConfiguration' {..} =
-    Prelude.rnf bootMode
-      `Prelude.seq` Prelude.rnf copyPrivateIp
-      `Prelude.seq` Prelude.rnf copyTags
-      `Prelude.seq` Prelude.rnf enableMapAutoTagging
-      `Prelude.seq` Prelude.rnf launchDisposition
-      `Prelude.seq` Prelude.rnf licensing
-      `Prelude.seq` Prelude.rnf mapAutoTaggingMpeID
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf postLaunchActions
-      `Prelude.seq` Prelude.rnf targetInstanceTypeRightSizingMethod
-      `Prelude.seq` Prelude.rnf sourceServerID
+    Prelude.rnf bootMode `Prelude.seq`
+      Prelude.rnf copyPrivateIp `Prelude.seq`
+        Prelude.rnf copyTags `Prelude.seq`
+          Prelude.rnf enableMapAutoTagging `Prelude.seq`
+            Prelude.rnf launchDisposition `Prelude.seq`
+              Prelude.rnf licensing `Prelude.seq`
+                Prelude.rnf mapAutoTaggingMpeID `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf postLaunchActions `Prelude.seq`
+                      Prelude.rnf targetInstanceTypeRightSizingMethod `Prelude.seq`
+                        Prelude.rnf sourceServerID
 
 instance Data.ToHeaders UpdateLaunchConfiguration where
   toHeaders =

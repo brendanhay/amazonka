@@ -123,11 +123,11 @@ instance Prelude.Hashable RuleAction where
 
 instance Prelude.NFData RuleAction where
   rnf RuleAction' {..} =
-    Prelude.rnf allow
-      `Prelude.seq` Prelude.rnf block
-      `Prelude.seq` Prelude.rnf captcha
-      `Prelude.seq` Prelude.rnf challenge
-      `Prelude.seq` Prelude.rnf count
+    Prelude.rnf allow `Prelude.seq`
+      Prelude.rnf block `Prelude.seq`
+        Prelude.rnf captcha `Prelude.seq`
+          Prelude.rnf challenge `Prelude.seq`
+            Prelude.rnf count
 
 instance Data.ToJSON RuleAction where
   toJSON RuleAction' {..} =

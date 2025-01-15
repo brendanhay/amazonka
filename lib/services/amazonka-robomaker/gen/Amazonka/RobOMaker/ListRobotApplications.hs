@@ -165,12 +165,12 @@ instance Core.AWSPager ListRobotApplications where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listRobotApplications_nextToken
-          Lens..~ rs
-          Lens.^? listRobotApplicationsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listRobotApplications_nextToken
+              Lens..~ rs
+              Lens.^? listRobotApplicationsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListRobotApplications where
   type
@@ -200,10 +200,10 @@ instance Prelude.Hashable ListRobotApplications where
 
 instance Prelude.NFData ListRobotApplications where
   rnf ListRobotApplications' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf versionQualifier
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf versionQualifier
 
 instance Data.ToHeaders ListRobotApplications where
   toHeaders =
@@ -302,6 +302,6 @@ listRobotApplicationsResponse_httpStatus = Lens.lens (\ListRobotApplicationsResp
 
 instance Prelude.NFData ListRobotApplicationsResponse where
   rnf ListRobotApplicationsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf robotApplicationSummaries
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf robotApplicationSummaries `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -184,14 +184,14 @@ instance Prelude.Hashable SavingsPlanOffering where
 
 instance Prelude.NFData SavingsPlanOffering where
   rnf SavingsPlanOffering' {..} =
-    Prelude.rnf currency
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf durationSeconds
-      `Prelude.seq` Prelude.rnf offeringId
-      `Prelude.seq` Prelude.rnf operation
-      `Prelude.seq` Prelude.rnf paymentOption
-      `Prelude.seq` Prelude.rnf planType
-      `Prelude.seq` Prelude.rnf productTypes
-      `Prelude.seq` Prelude.rnf properties
-      `Prelude.seq` Prelude.rnf serviceCode
-      `Prelude.seq` Prelude.rnf usageType
+    Prelude.rnf currency `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf durationSeconds `Prelude.seq`
+          Prelude.rnf offeringId `Prelude.seq`
+            Prelude.rnf operation `Prelude.seq`
+              Prelude.rnf paymentOption `Prelude.seq`
+                Prelude.rnf planType `Prelude.seq`
+                  Prelude.rnf productTypes `Prelude.seq`
+                    Prelude.rnf properties `Prelude.seq`
+                      Prelude.rnf serviceCode `Prelude.seq`
+                        Prelude.rnf usageType

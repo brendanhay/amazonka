@@ -122,9 +122,9 @@ instance Prelude.Hashable TagStepDetails where
 
 instance Prelude.NFData TagStepDetails where
   rnf TagStepDetails' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf sourceFileLocation
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf sourceFileLocation `Prelude.seq`
+        Prelude.rnf tags
 
 instance Data.ToJSON TagStepDetails where
   toJSON TagStepDetails' {..} =

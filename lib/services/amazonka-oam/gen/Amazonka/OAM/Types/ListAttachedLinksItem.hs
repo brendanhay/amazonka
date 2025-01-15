@@ -95,6 +95,6 @@ instance Prelude.Hashable ListAttachedLinksItem where
 
 instance Prelude.NFData ListAttachedLinksItem where
   rnf ListAttachedLinksItem' {..} =
-    Prelude.rnf label
-      `Prelude.seq` Prelude.rnf linkArn
-      `Prelude.seq` Prelude.rnf resourceTypes
+    Prelude.rnf label `Prelude.seq`
+      Prelude.rnf linkArn `Prelude.seq`
+        Prelude.rnf resourceTypes

@@ -86,8 +86,8 @@ instance Prelude.Hashable InstanceIdentity where
 
 instance Prelude.NFData InstanceIdentity where
   rnf InstanceIdentity' {..} =
-    Prelude.rnf document
-      `Prelude.seq` Prelude.rnf signature
+    Prelude.rnf document `Prelude.seq`
+      Prelude.rnf signature
 
 instance Data.ToJSON InstanceIdentity where
   toJSON InstanceIdentity' {..} =

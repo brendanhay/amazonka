@@ -73,8 +73,8 @@ instance Prelude.Hashable AppflowIntegration where
 
 instance Prelude.NFData AppflowIntegration where
   rnf AppflowIntegration' {..} =
-    Prelude.rnf batches
-      `Prelude.seq` Prelude.rnf flowDefinition
+    Prelude.rnf batches `Prelude.seq`
+      Prelude.rnf flowDefinition
 
 instance Data.ToJSON AppflowIntegration where
   toJSON AppflowIntegration' {..} =

@@ -131,8 +131,8 @@ instance Prelude.Hashable DescribeRule where
 
 instance Prelude.NFData DescribeRule where
   rnf DescribeRule' {..} =
-    Prelude.rnf eventBusName
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf eventBusName `Prelude.seq`
+      Prelude.rnf name
 
 instance Data.ToHeaders DescribeRule where
   toHeaders =
@@ -310,14 +310,14 @@ describeRuleResponse_httpStatus = Lens.lens (\DescribeRuleResponse' {httpStatus}
 
 instance Prelude.NFData DescribeRuleResponse where
   rnf DescribeRuleResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdBy
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf eventBusName
-      `Prelude.seq` Prelude.rnf eventPattern
-      `Prelude.seq` Prelude.rnf managedBy
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf scheduleExpression
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf createdBy `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf eventBusName `Prelude.seq`
+            Prelude.rnf eventPattern `Prelude.seq`
+              Prelude.rnf managedBy `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf roleArn `Prelude.seq`
+                    Prelude.rnf scheduleExpression `Prelude.seq`
+                      Prelude.rnf state `Prelude.seq`
+                        Prelude.rnf httpStatus

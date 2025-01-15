@@ -130,5 +130,5 @@ instance Prelude.Hashable TrafficSourceState where
 
 instance Prelude.NFData TrafficSourceState where
   rnf TrafficSourceState' {..} =
-    Prelude.rnf state
-      `Prelude.seq` Prelude.rnf trafficSource
+    Prelude.rnf state `Prelude.seq`
+      Prelude.rnf trafficSource

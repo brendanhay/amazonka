@@ -147,12 +147,12 @@ instance Core.AWSPager DescribeUsers where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeUsers_marker
-          Lens..~ rs
-          Lens.^? describeUsersResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeUsers_marker
+              Lens..~ rs
+              Lens.^? describeUsersResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeUsers where
   type
@@ -166,9 +166,7 @@ instance Core.AWSRequest DescribeUsers where
       ( \s h x ->
           DescribeUsersResponse'
             Prelude.<$> (x Data..@? "Marker")
-            Prelude.<*> ( x
-                            Data..@? "Users"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "Users" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -185,11 +183,11 @@ instance Prelude.Hashable DescribeUsers where
 
 instance Prelude.NFData DescribeUsers where
   rnf DescribeUsers' {..} =
-    Prelude.rnf engine
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf userId
+    Prelude.rnf engine `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf marker `Prelude.seq`
+          Prelude.rnf maxRecords `Prelude.seq`
+            Prelude.rnf userId
 
 instance Data.ToHeaders DescribeUsers where
   toHeaders = Prelude.const Prelude.mempty
@@ -271,6 +269,6 @@ describeUsersResponse_httpStatus = Lens.lens (\DescribeUsersResponse' {httpStatu
 
 instance Prelude.NFData DescribeUsersResponse where
   rnf DescribeUsersResponse' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf users
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf users `Prelude.seq`
+        Prelude.rnf httpStatus

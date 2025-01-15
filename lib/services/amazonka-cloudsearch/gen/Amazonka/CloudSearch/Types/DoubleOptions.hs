@@ -128,12 +128,12 @@ instance Prelude.Hashable DoubleOptions where
 
 instance Prelude.NFData DoubleOptions where
   rnf DoubleOptions' {..} =
-    Prelude.rnf defaultValue
-      `Prelude.seq` Prelude.rnf facetEnabled
-      `Prelude.seq` Prelude.rnf returnEnabled
-      `Prelude.seq` Prelude.rnf searchEnabled
-      `Prelude.seq` Prelude.rnf sortEnabled
-      `Prelude.seq` Prelude.rnf sourceField
+    Prelude.rnf defaultValue `Prelude.seq`
+      Prelude.rnf facetEnabled `Prelude.seq`
+        Prelude.rnf returnEnabled `Prelude.seq`
+          Prelude.rnf searchEnabled `Prelude.seq`
+            Prelude.rnf sortEnabled `Prelude.seq`
+              Prelude.rnf sourceField
 
 instance Data.ToQuery DoubleOptions where
   toQuery DoubleOptions' {..} =

@@ -169,13 +169,13 @@ instance Prelude.Hashable ListObjects where
 
 instance Prelude.NFData ListObjects where
   rnf ListObjects' {..} =
-    Prelude.rnf createdAfter
-      `Prelude.seq` Prelude.rnf createdBefore
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf startingObjectName
-      `Prelude.seq` Prelude.rnf startingObjectPrefix
-      `Prelude.seq` Prelude.rnf storageJobId
+    Prelude.rnf createdAfter `Prelude.seq`
+      Prelude.rnf createdBefore `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf startingObjectName `Prelude.seq`
+              Prelude.rnf startingObjectPrefix `Prelude.seq`
+                Prelude.rnf storageJobId
 
 instance Data.ToHeaders ListObjects where
   toHeaders =
@@ -257,6 +257,6 @@ listObjectsResponse_objectList = Lens.lens (\ListObjectsResponse' {objectList} -
 
 instance Prelude.NFData ListObjectsResponse where
   rnf ListObjectsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf objectList
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf objectList

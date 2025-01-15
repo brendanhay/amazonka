@@ -151,5 +151,5 @@ getGameResponse_httpStatus = Lens.lens (\GetGameResponse' {httpStatus} -> httpSt
 
 instance Prelude.NFData GetGameResponse where
   rnf GetGameResponse' {..} =
-    Prelude.rnf game
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf game `Prelude.seq`
+      Prelude.rnf httpStatus

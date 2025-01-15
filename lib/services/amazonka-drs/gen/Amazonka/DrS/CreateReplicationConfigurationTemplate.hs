@@ -321,20 +321,20 @@ instance
     CreateReplicationConfigurationTemplate
   where
   rnf CreateReplicationConfigurationTemplate' {..} =
-    Prelude.rnf ebsEncryptionKeyArn
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf associateDefaultSecurityGroup
-      `Prelude.seq` Prelude.rnf bandwidthThrottling
-      `Prelude.seq` Prelude.rnf createPublicIP
-      `Prelude.seq` Prelude.rnf dataPlaneRouting
-      `Prelude.seq` Prelude.rnf defaultLargeStagingDiskType
-      `Prelude.seq` Prelude.rnf ebsEncryption
-      `Prelude.seq` Prelude.rnf pitPolicy
-      `Prelude.seq` Prelude.rnf replicationServerInstanceType
-      `Prelude.seq` Prelude.rnf replicationServersSecurityGroupsIDs
-      `Prelude.seq` Prelude.rnf stagingAreaSubnetId
-      `Prelude.seq` Prelude.rnf stagingAreaTags
-      `Prelude.seq` Prelude.rnf useDedicatedReplicationServer
+    Prelude.rnf ebsEncryptionKeyArn `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf associateDefaultSecurityGroup `Prelude.seq`
+          Prelude.rnf bandwidthThrottling `Prelude.seq`
+            Prelude.rnf createPublicIP `Prelude.seq`
+              Prelude.rnf dataPlaneRouting `Prelude.seq`
+                Prelude.rnf defaultLargeStagingDiskType `Prelude.seq`
+                  Prelude.rnf ebsEncryption `Prelude.seq`
+                    Prelude.rnf pitPolicy `Prelude.seq`
+                      Prelude.rnf replicationServerInstanceType `Prelude.seq`
+                        Prelude.rnf replicationServersSecurityGroupsIDs `Prelude.seq`
+                          Prelude.rnf stagingAreaSubnetId `Prelude.seq`
+                            Prelude.rnf stagingAreaTags `Prelude.seq`
+                              Prelude.rnf useDedicatedReplicationServer
 
 instance
   Data.ToHeaders

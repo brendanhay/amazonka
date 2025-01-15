@@ -228,10 +228,10 @@ instance Prelude.Hashable StartZonalShift where
 
 instance Prelude.NFData StartZonalShift where
   rnf StartZonalShift' {..} =
-    Prelude.rnf awayFrom
-      `Prelude.seq` Prelude.rnf comment
-      `Prelude.seq` Prelude.rnf expiresIn
-      `Prelude.seq` Prelude.rnf resourceIdentifier
+    Prelude.rnf awayFrom `Prelude.seq`
+      Prelude.rnf comment `Prelude.seq`
+        Prelude.rnf expiresIn `Prelude.seq`
+          Prelude.rnf resourceIdentifier
 
 instance Data.ToHeaders StartZonalShift where
   toHeaders =

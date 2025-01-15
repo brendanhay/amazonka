@@ -144,8 +144,8 @@ instance Prelude.Hashable ListSubscribedRuleGroups where
 
 instance Prelude.NFData ListSubscribedRuleGroups where
   rnf ListSubscribedRuleGroups' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nextMarker
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf nextMarker
 
 instance Data.ToHeaders ListSubscribedRuleGroups where
   toHeaders =
@@ -242,6 +242,6 @@ instance
     ListSubscribedRuleGroupsResponse
   where
   rnf ListSubscribedRuleGroupsResponse' {..} =
-    Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf ruleGroups
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextMarker `Prelude.seq`
+      Prelude.rnf ruleGroups `Prelude.seq`
+        Prelude.rnf httpStatus

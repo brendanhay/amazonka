@@ -103,7 +103,7 @@ instance Prelude.Hashable PlanningStatistics where
 
 instance Prelude.NFData PlanningStatistics where
   rnf PlanningStatistics' {..} =
-    Prelude.rnf estimatedDataToScanBytes
-      `Prelude.seq` Prelude.rnf planningTimeMillis
-      `Prelude.seq` Prelude.rnf queueTimeMillis
-      `Prelude.seq` Prelude.rnf workUnitsGeneratedCount
+    Prelude.rnf estimatedDataToScanBytes `Prelude.seq`
+      Prelude.rnf planningTimeMillis `Prelude.seq`
+        Prelude.rnf queueTimeMillis `Prelude.seq`
+          Prelude.rnf workUnitsGeneratedCount

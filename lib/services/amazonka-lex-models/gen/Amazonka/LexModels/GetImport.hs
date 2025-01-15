@@ -224,11 +224,11 @@ getImportResponse_httpStatus = Lens.lens (\GetImportResponse' {httpStatus} -> ht
 
 instance Prelude.NFData GetImportResponse where
   rnf GetImportResponse' {..} =
-    Prelude.rnf createdDate
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf importId
-      `Prelude.seq` Prelude.rnf importStatus
-      `Prelude.seq` Prelude.rnf mergeStrategy
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf createdDate `Prelude.seq`
+      Prelude.rnf failureReason `Prelude.seq`
+        Prelude.rnf importId `Prelude.seq`
+          Prelude.rnf importStatus `Prelude.seq`
+            Prelude.rnf mergeStrategy `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf resourceType `Prelude.seq`
+                  Prelude.rnf httpStatus

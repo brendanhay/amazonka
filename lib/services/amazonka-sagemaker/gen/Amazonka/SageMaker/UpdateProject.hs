@@ -169,10 +169,10 @@ instance Prelude.Hashable UpdateProject where
 
 instance Prelude.NFData UpdateProject where
   rnf UpdateProject' {..} =
-    Prelude.rnf projectDescription
-      `Prelude.seq` Prelude.rnf serviceCatalogProvisioningUpdateDetails
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf projectName
+    Prelude.rnf projectDescription `Prelude.seq`
+      Prelude.rnf serviceCatalogProvisioningUpdateDetails `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf projectName
 
 instance Data.ToHeaders UpdateProject where
   toHeaders =
@@ -248,5 +248,5 @@ updateProjectResponse_projectArn = Lens.lens (\UpdateProjectResponse' {projectAr
 
 instance Prelude.NFData UpdateProjectResponse where
   rnf UpdateProjectResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf projectArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf projectArn

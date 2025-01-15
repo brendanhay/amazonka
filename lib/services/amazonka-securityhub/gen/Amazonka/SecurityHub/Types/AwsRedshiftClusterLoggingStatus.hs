@@ -167,12 +167,12 @@ instance
     AwsRedshiftClusterLoggingStatus
   where
   rnf AwsRedshiftClusterLoggingStatus' {..} =
-    Prelude.rnf bucketName
-      `Prelude.seq` Prelude.rnf lastFailureMessage
-      `Prelude.seq` Prelude.rnf lastFailureTime
-      `Prelude.seq` Prelude.rnf lastSuccessfulDeliveryTime
-      `Prelude.seq` Prelude.rnf loggingEnabled
-      `Prelude.seq` Prelude.rnf s3KeyPrefix
+    Prelude.rnf bucketName `Prelude.seq`
+      Prelude.rnf lastFailureMessage `Prelude.seq`
+        Prelude.rnf lastFailureTime `Prelude.seq`
+          Prelude.rnf lastSuccessfulDeliveryTime `Prelude.seq`
+            Prelude.rnf loggingEnabled `Prelude.seq`
+              Prelude.rnf s3KeyPrefix
 
 instance Data.ToJSON AwsRedshiftClusterLoggingStatus where
   toJSON AwsRedshiftClusterLoggingStatus' {..} =

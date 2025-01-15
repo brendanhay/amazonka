@@ -130,8 +130,8 @@ instance Prelude.Hashable DeleteUtterances where
 
 instance Prelude.NFData DeleteUtterances where
   rnf DeleteUtterances' {..} =
-    Prelude.rnf botName
-      `Prelude.seq` Prelude.rnf userId
+    Prelude.rnf botName `Prelude.seq`
+      Prelude.rnf userId
 
 instance Data.ToHeaders DeleteUtterances where
   toHeaders =

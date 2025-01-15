@@ -108,12 +108,12 @@ instance Core.AWSPager ListCodeSigningConfigs where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listCodeSigningConfigs_marker
-          Lens..~ rs
-          Lens.^? listCodeSigningConfigsResponse_nextMarker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listCodeSigningConfigs_marker
+              Lens..~ rs
+              Lens.^? listCodeSigningConfigsResponse_nextMarker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListCodeSigningConfigs where
   type
@@ -141,8 +141,8 @@ instance Prelude.Hashable ListCodeSigningConfigs where
 
 instance Prelude.NFData ListCodeSigningConfigs where
   rnf ListCodeSigningConfigs' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxItems
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf maxItems
 
 instance Data.ToHeaders ListCodeSigningConfigs where
   toHeaders = Prelude.const Prelude.mempty
@@ -211,6 +211,6 @@ instance
     ListCodeSigningConfigsResponse
   where
   rnf ListCodeSigningConfigsResponse' {..} =
-    Prelude.rnf codeSigningConfigs
-      `Prelude.seq` Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf codeSigningConfigs `Prelude.seq`
+      Prelude.rnf nextMarker `Prelude.seq`
+        Prelude.rnf httpStatus

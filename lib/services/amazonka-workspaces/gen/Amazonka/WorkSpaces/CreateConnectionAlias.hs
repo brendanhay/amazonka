@@ -131,8 +131,8 @@ instance Prelude.Hashable CreateConnectionAlias where
 
 instance Prelude.NFData CreateConnectionAlias where
   rnf CreateConnectionAlias' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf connectionString
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf connectionString
 
 instance Data.ToHeaders CreateConnectionAlias where
   toHeaders =
@@ -206,5 +206,5 @@ createConnectionAliasResponse_httpStatus = Lens.lens (\CreateConnectionAliasResp
 
 instance Prelude.NFData CreateConnectionAliasResponse where
   rnf CreateConnectionAliasResponse' {..} =
-    Prelude.rnf aliasId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf aliasId `Prelude.seq`
+      Prelude.rnf httpStatus

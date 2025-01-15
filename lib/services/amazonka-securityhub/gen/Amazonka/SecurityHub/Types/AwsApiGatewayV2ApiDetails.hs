@@ -227,16 +227,16 @@ instance Prelude.Hashable AwsApiGatewayV2ApiDetails where
 
 instance Prelude.NFData AwsApiGatewayV2ApiDetails where
   rnf AwsApiGatewayV2ApiDetails' {..} =
-    Prelude.rnf apiEndpoint
-      `Prelude.seq` Prelude.rnf apiId
-      `Prelude.seq` Prelude.rnf apiKeySelectionExpression
-      `Prelude.seq` Prelude.rnf corsConfiguration
-      `Prelude.seq` Prelude.rnf createdDate
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf protocolType
-      `Prelude.seq` Prelude.rnf routeSelectionExpression
-      `Prelude.seq` Prelude.rnf version
+    Prelude.rnf apiEndpoint `Prelude.seq`
+      Prelude.rnf apiId `Prelude.seq`
+        Prelude.rnf apiKeySelectionExpression `Prelude.seq`
+          Prelude.rnf corsConfiguration `Prelude.seq`
+            Prelude.rnf createdDate `Prelude.seq`
+              Prelude.rnf description `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf protocolType `Prelude.seq`
+                    Prelude.rnf routeSelectionExpression `Prelude.seq`
+                      Prelude.rnf version
 
 instance Data.ToJSON AwsApiGatewayV2ApiDetails where
   toJSON AwsApiGatewayV2ApiDetails' {..} =

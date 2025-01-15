@@ -219,12 +219,12 @@ instance Prelude.Hashable CreateModel where
 
 instance Prelude.NFData CreateModel where
   rnf CreateModel' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf projectName
-      `Prelude.seq` Prelude.rnf outputConfig
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf kmsKeyId `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf projectName `Prelude.seq`
+              Prelude.rnf outputConfig
 
 instance Data.ToHeaders CreateModel where
   toHeaders CreateModel' {..} =
@@ -297,5 +297,5 @@ createModelResponse_httpStatus = Lens.lens (\CreateModelResponse' {httpStatus} -
 
 instance Prelude.NFData CreateModelResponse where
   rnf CreateModelResponse' {..} =
-    Prelude.rnf modelMetadata
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf modelMetadata `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -102,6 +102,6 @@ instance Prelude.Hashable QueryLoggingConfig where
 
 instance Prelude.NFData QueryLoggingConfig where
   rnf QueryLoggingConfig' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf hostedZoneId
-      `Prelude.seq` Prelude.rnf cloudWatchLogsLogGroupArn
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf hostedZoneId `Prelude.seq`
+        Prelude.rnf cloudWatchLogsLogGroupArn

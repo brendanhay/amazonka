@@ -109,10 +109,10 @@ instance Prelude.Hashable StandbyWorkspace where
 
 instance Prelude.NFData StandbyWorkspace where
   rnf StandbyWorkspace' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf volumeEncryptionKey
-      `Prelude.seq` Prelude.rnf primaryWorkspaceId
-      `Prelude.seq` Prelude.rnf directoryId
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf volumeEncryptionKey `Prelude.seq`
+        Prelude.rnf primaryWorkspaceId `Prelude.seq`
+          Prelude.rnf directoryId
 
 instance Data.ToJSON StandbyWorkspace where
   toJSON StandbyWorkspace' {..} =

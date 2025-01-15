@@ -190,12 +190,12 @@ instance Core.AWSPager ListInstanceProfiles where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listInstanceProfiles_marker
-          Lens..~ rs
-          Lens.^? listInstanceProfilesResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listInstanceProfiles_marker
+              Lens..~ rs
+              Lens.^? listInstanceProfilesResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListInstanceProfiles where
   type
@@ -227,9 +227,9 @@ instance Prelude.Hashable ListInstanceProfiles where
 
 instance Prelude.NFData ListInstanceProfiles where
   rnf ListInstanceProfiles' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxItems
-      `Prelude.seq` Prelude.rnf pathPrefix
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf maxItems `Prelude.seq`
+        Prelude.rnf pathPrefix
 
 instance Data.ToHeaders ListInstanceProfiles where
   toHeaders = Prelude.const Prelude.mempty
@@ -334,7 +334,7 @@ listInstanceProfilesResponse_instanceProfiles = Lens.lens (\ListInstanceProfiles
 
 instance Prelude.NFData ListInstanceProfilesResponse where
   rnf ListInstanceProfilesResponse' {..} =
-    Prelude.rnf isTruncated
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf instanceProfiles
+    Prelude.rnf isTruncated `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf httpStatus `Prelude.seq`
+          Prelude.rnf instanceProfiles

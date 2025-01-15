@@ -169,5 +169,5 @@ describeTransactionResponse_httpStatus = Lens.lens (\DescribeTransactionResponse
 
 instance Prelude.NFData DescribeTransactionResponse where
   rnf DescribeTransactionResponse' {..} =
-    Prelude.rnf transactionDescription
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf transactionDescription `Prelude.seq`
+      Prelude.rnf httpStatus

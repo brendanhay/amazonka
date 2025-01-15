@@ -81,8 +81,8 @@ instance Prelude.Hashable ResourceUri where
 
 instance Prelude.NFData ResourceUri where
   rnf ResourceUri' {..} =
-    Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf uri
+    Prelude.rnf resourceType `Prelude.seq`
+      Prelude.rnf uri
 
 instance Data.ToJSON ResourceUri where
   toJSON ResourceUri' {..} =

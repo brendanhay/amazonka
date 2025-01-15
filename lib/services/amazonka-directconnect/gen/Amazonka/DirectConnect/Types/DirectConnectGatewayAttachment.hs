@@ -187,10 +187,10 @@ instance
     DirectConnectGatewayAttachment
   where
   rnf DirectConnectGatewayAttachment' {..} =
-    Prelude.rnf attachmentState
-      `Prelude.seq` Prelude.rnf attachmentType
-      `Prelude.seq` Prelude.rnf directConnectGatewayId
-      `Prelude.seq` Prelude.rnf stateChangeError
-      `Prelude.seq` Prelude.rnf virtualInterfaceId
-      `Prelude.seq` Prelude.rnf virtualInterfaceOwnerAccount
-      `Prelude.seq` Prelude.rnf virtualInterfaceRegion
+    Prelude.rnf attachmentState `Prelude.seq`
+      Prelude.rnf attachmentType `Prelude.seq`
+        Prelude.rnf directConnectGatewayId `Prelude.seq`
+          Prelude.rnf stateChangeError `Prelude.seq`
+            Prelude.rnf virtualInterfaceId `Prelude.seq`
+              Prelude.rnf virtualInterfaceOwnerAccount `Prelude.seq`
+                Prelude.rnf virtualInterfaceRegion

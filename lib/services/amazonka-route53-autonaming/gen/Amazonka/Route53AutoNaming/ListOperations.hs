@@ -163,12 +163,12 @@ instance Core.AWSPager ListOperations where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listOperations_nextToken
-          Lens..~ rs
-          Lens.^? listOperationsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listOperations_nextToken
+              Lens..~ rs
+              Lens.^? listOperationsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListOperations where
   type
@@ -194,9 +194,9 @@ instance Prelude.Hashable ListOperations where
 
 instance Prelude.NFData ListOperations where
   rnf ListOperations' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListOperations where
   toHeaders =
@@ -306,6 +306,6 @@ listOperationsResponse_httpStatus = Lens.lens (\ListOperationsResponse' {httpSta
 
 instance Prelude.NFData ListOperationsResponse where
   rnf ListOperationsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf operations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf operations `Prelude.seq`
+        Prelude.rnf httpStatus

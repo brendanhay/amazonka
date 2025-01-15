@@ -165,12 +165,12 @@ instance Core.AWSPager ListLinuxSubscriptions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listLinuxSubscriptions_nextToken
-          Lens..~ rs
-          Lens.^? listLinuxSubscriptionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listLinuxSubscriptions_nextToken
+              Lens..~ rs
+              Lens.^? listLinuxSubscriptionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListLinuxSubscriptions where
   type
@@ -196,9 +196,9 @@ instance Prelude.Hashable ListLinuxSubscriptions where
 
 instance Prelude.NFData ListLinuxSubscriptions where
   rnf ListLinuxSubscriptions' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListLinuxSubscriptions where
   toHeaders =
@@ -282,6 +282,6 @@ instance
     ListLinuxSubscriptionsResponse
   where
   rnf ListLinuxSubscriptionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf subscriptions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf subscriptions `Prelude.seq`
+        Prelude.rnf httpStatus

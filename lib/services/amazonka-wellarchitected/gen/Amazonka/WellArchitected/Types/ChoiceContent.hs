@@ -80,5 +80,5 @@ instance Prelude.Hashable ChoiceContent where
 
 instance Prelude.NFData ChoiceContent where
   rnf ChoiceContent' {..} =
-    Prelude.rnf displayText
-      `Prelude.seq` Prelude.rnf url
+    Prelude.rnf displayText `Prelude.seq`
+      Prelude.rnf url

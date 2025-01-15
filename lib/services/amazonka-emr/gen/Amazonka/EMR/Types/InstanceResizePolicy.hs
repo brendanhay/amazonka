@@ -108,9 +108,9 @@ instance Prelude.Hashable InstanceResizePolicy where
 
 instance Prelude.NFData InstanceResizePolicy where
   rnf InstanceResizePolicy' {..} =
-    Prelude.rnf instanceTerminationTimeout
-      `Prelude.seq` Prelude.rnf instancesToProtect
-      `Prelude.seq` Prelude.rnf instancesToTerminate
+    Prelude.rnf instanceTerminationTimeout `Prelude.seq`
+      Prelude.rnf instancesToProtect `Prelude.seq`
+        Prelude.rnf instancesToTerminate
 
 instance Data.ToJSON InstanceResizePolicy where
   toJSON InstanceResizePolicy' {..} =

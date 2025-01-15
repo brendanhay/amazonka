@@ -88,8 +88,8 @@ instance
 
 instance Prelude.NFData SoftwareTokenMfaSettingsType where
   rnf SoftwareTokenMfaSettingsType' {..} =
-    Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf preferredMfa
+    Prelude.rnf enabled `Prelude.seq`
+      Prelude.rnf preferredMfa
 
 instance Data.ToJSON SoftwareTokenMfaSettingsType where
   toJSON SoftwareTokenMfaSettingsType' {..} =

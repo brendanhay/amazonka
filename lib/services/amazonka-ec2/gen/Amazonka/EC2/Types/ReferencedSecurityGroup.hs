@@ -111,8 +111,8 @@ instance Prelude.Hashable ReferencedSecurityGroup where
 
 instance Prelude.NFData ReferencedSecurityGroup where
   rnf ReferencedSecurityGroup' {..} =
-    Prelude.rnf groupId
-      `Prelude.seq` Prelude.rnf peeringStatus
-      `Prelude.seq` Prelude.rnf userId
-      `Prelude.seq` Prelude.rnf vpcId
-      `Prelude.seq` Prelude.rnf vpcPeeringConnectionId
+    Prelude.rnf groupId `Prelude.seq`
+      Prelude.rnf peeringStatus `Prelude.seq`
+        Prelude.rnf userId `Prelude.seq`
+          Prelude.rnf vpcId `Prelude.seq`
+            Prelude.rnf vpcPeeringConnectionId

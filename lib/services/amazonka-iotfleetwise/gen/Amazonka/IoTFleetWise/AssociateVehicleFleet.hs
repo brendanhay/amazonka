@@ -108,8 +108,8 @@ instance Prelude.Hashable AssociateVehicleFleet where
 
 instance Prelude.NFData AssociateVehicleFleet where
   rnf AssociateVehicleFleet' {..} =
-    Prelude.rnf vehicleName
-      `Prelude.seq` Prelude.rnf fleetId
+    Prelude.rnf vehicleName `Prelude.seq`
+      Prelude.rnf fleetId
 
 instance Data.ToHeaders AssociateVehicleFleet where
   toHeaders =

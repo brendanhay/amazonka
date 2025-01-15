@@ -107,9 +107,9 @@ instance Prelude.Hashable DnssecSigningAttributes where
 
 instance Prelude.NFData DnssecSigningAttributes where
   rnf DnssecSigningAttributes' {..} =
-    Prelude.rnf algorithm
-      `Prelude.seq` Prelude.rnf flags
-      `Prelude.seq` Prelude.rnf publicKey
+    Prelude.rnf algorithm `Prelude.seq`
+      Prelude.rnf flags `Prelude.seq`
+        Prelude.rnf publicKey
 
 instance Data.ToJSON DnssecSigningAttributes where
   toJSON DnssecSigningAttributes' {..} =

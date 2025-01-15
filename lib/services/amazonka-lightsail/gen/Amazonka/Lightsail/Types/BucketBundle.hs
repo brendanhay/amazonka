@@ -131,9 +131,9 @@ instance Prelude.Hashable BucketBundle where
 
 instance Prelude.NFData BucketBundle where
   rnf BucketBundle' {..} =
-    Prelude.rnf bundleId
-      `Prelude.seq` Prelude.rnf isActive
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf price
-      `Prelude.seq` Prelude.rnf storagePerMonthInGb
-      `Prelude.seq` Prelude.rnf transferPerMonthInGb
+    Prelude.rnf bundleId `Prelude.seq`
+      Prelude.rnf isActive `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf price `Prelude.seq`
+            Prelude.rnf storagePerMonthInGb `Prelude.seq`
+              Prelude.rnf transferPerMonthInGb

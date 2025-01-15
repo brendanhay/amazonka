@@ -153,5 +153,5 @@ listTagsForResourcesResponse_httpStatus = Lens.lens (\ListTagsForResourcesRespon
 
 instance Prelude.NFData ListTagsForResourcesResponse where
   rnf ListTagsForResourcesResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf httpStatus

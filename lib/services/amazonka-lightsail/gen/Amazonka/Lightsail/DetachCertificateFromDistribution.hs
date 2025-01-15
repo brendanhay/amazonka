@@ -217,5 +217,5 @@ instance
     DetachCertificateFromDistributionResponse
   where
   rnf DetachCertificateFromDistributionResponse' {..} =
-    Prelude.rnf operation
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operation `Prelude.seq`
+      Prelude.rnf httpStatus

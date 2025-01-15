@@ -188,12 +188,12 @@ instance Prelude.Hashable SharedDirectory where
 
 instance Prelude.NFData SharedDirectory where
   rnf SharedDirectory' {..} =
-    Prelude.rnf createdDateTime
-      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
-      `Prelude.seq` Prelude.rnf ownerAccountId
-      `Prelude.seq` Prelude.rnf ownerDirectoryId
-      `Prelude.seq` Prelude.rnf shareMethod
-      `Prelude.seq` Prelude.rnf shareNotes
-      `Prelude.seq` Prelude.rnf shareStatus
-      `Prelude.seq` Prelude.rnf sharedAccountId
-      `Prelude.seq` Prelude.rnf sharedDirectoryId
+    Prelude.rnf createdDateTime `Prelude.seq`
+      Prelude.rnf lastUpdatedDateTime `Prelude.seq`
+        Prelude.rnf ownerAccountId `Prelude.seq`
+          Prelude.rnf ownerDirectoryId `Prelude.seq`
+            Prelude.rnf shareMethod `Prelude.seq`
+              Prelude.rnf shareNotes `Prelude.seq`
+                Prelude.rnf shareStatus `Prelude.seq`
+                  Prelude.rnf sharedAccountId `Prelude.seq`
+                    Prelude.rnf sharedDirectoryId

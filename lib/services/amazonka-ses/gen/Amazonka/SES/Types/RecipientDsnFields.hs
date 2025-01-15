@@ -183,13 +183,13 @@ instance Prelude.Hashable RecipientDsnFields where
 
 instance Prelude.NFData RecipientDsnFields where
   rnf RecipientDsnFields' {..} =
-    Prelude.rnf diagnosticCode
-      `Prelude.seq` Prelude.rnf extensionFields
-      `Prelude.seq` Prelude.rnf finalRecipient
-      `Prelude.seq` Prelude.rnf lastAttemptDate
-      `Prelude.seq` Prelude.rnf remoteMta
-      `Prelude.seq` Prelude.rnf action
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf diagnosticCode `Prelude.seq`
+      Prelude.rnf extensionFields `Prelude.seq`
+        Prelude.rnf finalRecipient `Prelude.seq`
+          Prelude.rnf lastAttemptDate `Prelude.seq`
+            Prelude.rnf remoteMta `Prelude.seq`
+              Prelude.rnf action `Prelude.seq`
+                Prelude.rnf status
 
 instance Data.ToQuery RecipientDsnFields where
   toQuery RecipientDsnFields' {..} =

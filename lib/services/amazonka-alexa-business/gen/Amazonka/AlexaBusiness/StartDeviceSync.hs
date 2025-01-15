@@ -134,9 +134,9 @@ instance Prelude.Hashable StartDeviceSync where
 
 instance Prelude.NFData StartDeviceSync where
   rnf StartDeviceSync' {..} =
-    Prelude.rnf deviceArn
-      `Prelude.seq` Prelude.rnf roomArn
-      `Prelude.seq` Prelude.rnf features
+    Prelude.rnf deviceArn `Prelude.seq`
+      Prelude.rnf roomArn `Prelude.seq`
+        Prelude.rnf features
 
 instance Data.ToHeaders StartDeviceSync where
   toHeaders =

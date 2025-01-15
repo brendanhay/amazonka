@@ -84,5 +84,5 @@ instance Prelude.Hashable EdgeModelSummary where
 
 instance Prelude.NFData EdgeModelSummary where
   rnf EdgeModelSummary' {..} =
-    Prelude.rnf modelName
-      `Prelude.seq` Prelude.rnf modelVersion
+    Prelude.rnf modelName `Prelude.seq`
+      Prelude.rnf modelVersion

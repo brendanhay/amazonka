@@ -110,8 +110,8 @@ instance Prelude.Hashable UpdateExpirationForHIT where
 
 instance Prelude.NFData UpdateExpirationForHIT where
   rnf UpdateExpirationForHIT' {..} =
-    Prelude.rnf hITId
-      `Prelude.seq` Prelude.rnf expireAt
+    Prelude.rnf hITId `Prelude.seq`
+      Prelude.rnf expireAt
 
 instance Data.ToHeaders UpdateExpirationForHIT where
   toHeaders =

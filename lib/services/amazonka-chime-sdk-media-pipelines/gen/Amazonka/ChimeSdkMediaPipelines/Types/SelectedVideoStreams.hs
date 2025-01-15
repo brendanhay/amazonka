@@ -82,8 +82,8 @@ instance Prelude.Hashable SelectedVideoStreams where
 
 instance Prelude.NFData SelectedVideoStreams where
   rnf SelectedVideoStreams' {..} =
-    Prelude.rnf attendeeIds
-      `Prelude.seq` Prelude.rnf externalUserIds
+    Prelude.rnf attendeeIds `Prelude.seq`
+      Prelude.rnf externalUserIds
 
 instance Data.ToJSON SelectedVideoStreams where
   toJSON SelectedVideoStreams' {..} =

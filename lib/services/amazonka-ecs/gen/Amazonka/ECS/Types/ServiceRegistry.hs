@@ -163,10 +163,10 @@ instance Prelude.Hashable ServiceRegistry where
 
 instance Prelude.NFData ServiceRegistry where
   rnf ServiceRegistry' {..} =
-    Prelude.rnf containerName
-      `Prelude.seq` Prelude.rnf containerPort
-      `Prelude.seq` Prelude.rnf port
-      `Prelude.seq` Prelude.rnf registryArn
+    Prelude.rnf containerName `Prelude.seq`
+      Prelude.rnf containerPort `Prelude.seq`
+        Prelude.rnf port `Prelude.seq`
+          Prelude.rnf registryArn
 
 instance Data.ToJSON ServiceRegistry where
   toJSON ServiceRegistry' {..} =

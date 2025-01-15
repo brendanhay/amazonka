@@ -91,6 +91,6 @@ instance Prelude.Hashable AddressBook where
 
 instance Prelude.NFData AddressBook where
   rnf AddressBook' {..} =
-    Prelude.rnf addressBookArn
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf addressBookArn `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf name

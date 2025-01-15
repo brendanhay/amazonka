@@ -178,9 +178,9 @@ instance Prelude.Hashable SetIdentityMailFromDomain where
 
 instance Prelude.NFData SetIdentityMailFromDomain where
   rnf SetIdentityMailFromDomain' {..} =
-    Prelude.rnf behaviorOnMXFailure
-      `Prelude.seq` Prelude.rnf mailFromDomain
-      `Prelude.seq` Prelude.rnf identity
+    Prelude.rnf behaviorOnMXFailure `Prelude.seq`
+      Prelude.rnf mailFromDomain `Prelude.seq`
+        Prelude.rnf identity
 
 instance Data.ToHeaders SetIdentityMailFromDomain where
   toHeaders = Prelude.const Prelude.mempty

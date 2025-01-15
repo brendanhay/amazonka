@@ -81,5 +81,5 @@ instance Prelude.Hashable ModelScores where
 
 instance Prelude.NFData ModelScores where
   rnf ModelScores' {..} =
-    Prelude.rnf modelVersion
-      `Prelude.seq` Prelude.rnf scores
+    Prelude.rnf modelVersion `Prelude.seq`
+      Prelude.rnf scores

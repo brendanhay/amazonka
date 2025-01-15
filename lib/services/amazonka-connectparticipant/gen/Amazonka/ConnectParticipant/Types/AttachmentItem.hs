@@ -113,7 +113,7 @@ instance Prelude.Hashable AttachmentItem where
 
 instance Prelude.NFData AttachmentItem where
   rnf AttachmentItem' {..} =
-    Prelude.rnf attachmentId
-      `Prelude.seq` Prelude.rnf attachmentName
-      `Prelude.seq` Prelude.rnf contentType
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf attachmentId `Prelude.seq`
+      Prelude.rnf attachmentName `Prelude.seq`
+        Prelude.rnf contentType `Prelude.seq`
+          Prelude.rnf status

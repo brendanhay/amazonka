@@ -387,18 +387,18 @@ instance Prelude.Hashable CreateEnvironment where
 
 instance Prelude.NFData CreateEnvironment where
   rnf CreateEnvironment' {..} =
-    Prelude.rnf codebuildRoleArn
-      `Prelude.seq` Prelude.rnf componentRoleArn
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf environmentAccountConnectionId
-      `Prelude.seq` Prelude.rnf protonServiceRoleArn
-      `Prelude.seq` Prelude.rnf provisioningRepository
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf templateMinorVersion
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf spec
-      `Prelude.seq` Prelude.rnf templateMajorVersion
-      `Prelude.seq` Prelude.rnf templateName
+    Prelude.rnf codebuildRoleArn `Prelude.seq`
+      Prelude.rnf componentRoleArn `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf environmentAccountConnectionId `Prelude.seq`
+            Prelude.rnf protonServiceRoleArn `Prelude.seq`
+              Prelude.rnf provisioningRepository `Prelude.seq`
+                Prelude.rnf tags `Prelude.seq`
+                  Prelude.rnf templateMinorVersion `Prelude.seq`
+                    Prelude.rnf name `Prelude.seq`
+                      Prelude.rnf spec `Prelude.seq`
+                        Prelude.rnf templateMajorVersion `Prelude.seq`
+                          Prelude.rnf templateName
 
 instance Data.ToHeaders CreateEnvironment where
   toHeaders =
@@ -494,5 +494,5 @@ createEnvironmentResponse_environment = Lens.lens (\CreateEnvironmentResponse' {
 
 instance Prelude.NFData CreateEnvironmentResponse where
   rnf CreateEnvironmentResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf environment
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf environment

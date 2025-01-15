@@ -169,12 +169,12 @@ instance Core.AWSPager DescribeInstanceTypeOfferings where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeInstanceTypeOfferings_nextToken
-          Lens..~ rs
-          Lens.^? describeInstanceTypeOfferingsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeInstanceTypeOfferings_nextToken
+              Lens..~ rs
+              Lens.^? describeInstanceTypeOfferingsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -212,11 +212,11 @@ instance
 
 instance Prelude.NFData DescribeInstanceTypeOfferings where
   rnf DescribeInstanceTypeOfferings' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf locationType
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf locationType `Prelude.seq`
+          Prelude.rnf maxResults `Prelude.seq`
+            Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeInstanceTypeOfferings where
   toHeaders = Prelude.const Prelude.mempty
@@ -297,6 +297,6 @@ instance
     DescribeInstanceTypeOfferingsResponse
   where
   rnf DescribeInstanceTypeOfferingsResponse' {..} =
-    Prelude.rnf instanceTypeOfferings
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf instanceTypeOfferings `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

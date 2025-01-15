@@ -93,9 +93,9 @@ instance Prelude.Hashable KPIFieldWells where
 
 instance Prelude.NFData KPIFieldWells where
   rnf KPIFieldWells' {..} =
-    Prelude.rnf targetValues
-      `Prelude.seq` Prelude.rnf trendGroups
-      `Prelude.seq` Prelude.rnf values
+    Prelude.rnf targetValues `Prelude.seq`
+      Prelude.rnf trendGroups `Prelude.seq`
+        Prelude.rnf values
 
 instance Data.ToJSON KPIFieldWells where
   toJSON KPIFieldWells' {..} =

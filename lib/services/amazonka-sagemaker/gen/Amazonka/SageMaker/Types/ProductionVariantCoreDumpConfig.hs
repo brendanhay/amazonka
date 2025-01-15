@@ -206,8 +206,8 @@ instance
     ProductionVariantCoreDumpConfig
   where
   rnf ProductionVariantCoreDumpConfig' {..} =
-    Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf destinationS3Uri
+    Prelude.rnf kmsKeyId `Prelude.seq`
+      Prelude.rnf destinationS3Uri
 
 instance Data.ToJSON ProductionVariantCoreDumpConfig where
   toJSON ProductionVariantCoreDumpConfig' {..} =

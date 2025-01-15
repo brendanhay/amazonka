@@ -90,8 +90,8 @@ instance
     KinesisVideoStreamStartSelector
   where
   rnf KinesisVideoStreamStartSelector' {..} =
-    Prelude.rnf fragmentNumber
-      `Prelude.seq` Prelude.rnf producerTimestamp
+    Prelude.rnf fragmentNumber `Prelude.seq`
+      Prelude.rnf producerTimestamp
 
 instance Data.ToJSON KinesisVideoStreamStartSelector where
   toJSON KinesisVideoStreamStartSelector' {..} =

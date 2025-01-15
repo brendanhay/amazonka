@@ -151,11 +151,11 @@ instance Prelude.Hashable UpdateVolume where
 
 instance Prelude.NFData UpdateVolume where
   rnf UpdateVolume' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf ontapConfiguration
-      `Prelude.seq` Prelude.rnf openZFSConfiguration
-      `Prelude.seq` Prelude.rnf volumeId
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf ontapConfiguration `Prelude.seq`
+          Prelude.rnf openZFSConfiguration `Prelude.seq`
+            Prelude.rnf volumeId
 
 instance Data.ToHeaders UpdateVolume where
   toHeaders =
@@ -236,5 +236,5 @@ updateVolumeResponse_httpStatus = Lens.lens (\UpdateVolumeResponse' {httpStatus}
 
 instance Prelude.NFData UpdateVolumeResponse where
   rnf UpdateVolumeResponse' {..} =
-    Prelude.rnf volume
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf volume `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -127,8 +127,8 @@ instance Prelude.Hashable ModifyClusterDbRevision where
 
 instance Prelude.NFData ModifyClusterDbRevision where
   rnf ModifyClusterDbRevision' {..} =
-    Prelude.rnf clusterIdentifier
-      `Prelude.seq` Prelude.rnf revisionTarget
+    Prelude.rnf clusterIdentifier `Prelude.seq`
+      Prelude.rnf revisionTarget
 
 instance Data.ToHeaders ModifyClusterDbRevision where
   toHeaders = Prelude.const Prelude.mempty
@@ -190,5 +190,5 @@ instance
     ModifyClusterDbRevisionResponse
   where
   rnf ModifyClusterDbRevisionResponse' {..} =
-    Prelude.rnf cluster
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf cluster `Prelude.seq`
+      Prelude.rnf httpStatus

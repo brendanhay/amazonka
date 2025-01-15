@@ -132,12 +132,12 @@ instance Core.AWSPager ListTypedLinkFacetAttributes where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listTypedLinkFacetAttributes_nextToken
-          Lens..~ rs
-          Lens.^? listTypedLinkFacetAttributesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listTypedLinkFacetAttributes_nextToken
+              Lens..~ rs
+              Lens.^? listTypedLinkFacetAttributesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListTypedLinkFacetAttributes where
   type
@@ -167,10 +167,10 @@ instance
 
 instance Prelude.NFData ListTypedLinkFacetAttributes where
   rnf ListTypedLinkFacetAttributes' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf schemaArn
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf schemaArn `Prelude.seq`
+          Prelude.rnf name
 
 instance Data.ToHeaders ListTypedLinkFacetAttributes where
   toHeaders ListTypedLinkFacetAttributes' {..} =
@@ -248,6 +248,6 @@ instance
     ListTypedLinkFacetAttributesResponse
   where
   rnf ListTypedLinkFacetAttributesResponse' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf attributes `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

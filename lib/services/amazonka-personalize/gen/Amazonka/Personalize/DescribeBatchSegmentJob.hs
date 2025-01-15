@@ -175,5 +175,5 @@ instance
     DescribeBatchSegmentJobResponse
   where
   rnf DescribeBatchSegmentJobResponse' {..} =
-    Prelude.rnf batchSegmentJob
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf batchSegmentJob `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -165,9 +165,9 @@ instance Prelude.Hashable RemoveAttributes where
 
 instance Prelude.NFData RemoveAttributes where
   rnf RemoveAttributes' {..} =
-    Prelude.rnf attributeType
-      `Prelude.seq` Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf updateAttributesRequest
+    Prelude.rnf attributeType `Prelude.seq`
+      Prelude.rnf applicationId `Prelude.seq`
+        Prelude.rnf updateAttributesRequest
 
 instance Data.ToHeaders RemoveAttributes where
   toHeaders =
@@ -240,5 +240,5 @@ removeAttributesResponse_attributesResource = Lens.lens (\RemoveAttributesRespon
 
 instance Prelude.NFData RemoveAttributesResponse where
   rnf RemoveAttributesResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf attributesResource
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf attributesResource

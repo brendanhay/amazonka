@@ -124,12 +124,12 @@ instance Core.AWSPager ListCoverage where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listCoverage_nextToken
-          Lens..~ rs
-          Lens.^? listCoverageResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listCoverage_nextToken
+              Lens..~ rs
+              Lens.^? listCoverageResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListCoverage where
   type AWSResponse ListCoverage = ListCoverageResponse
@@ -156,9 +156,9 @@ instance Prelude.Hashable ListCoverage where
 
 instance Prelude.NFData ListCoverage where
   rnf ListCoverage' {..} =
-    Prelude.rnf filterCriteria
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filterCriteria `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListCoverage where
   toHeaders =
@@ -250,6 +250,6 @@ listCoverageResponse_httpStatus = Lens.lens (\ListCoverageResponse' {httpStatus}
 
 instance Prelude.NFData ListCoverageResponse where
   rnf ListCoverageResponse' {..} =
-    Prelude.rnf coveredResources
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf coveredResources `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

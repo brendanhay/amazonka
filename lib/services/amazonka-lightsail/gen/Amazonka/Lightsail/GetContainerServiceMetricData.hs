@@ -326,12 +326,12 @@ instance
 
 instance Prelude.NFData GetContainerServiceMetricData where
   rnf GetContainerServiceMetricData' {..} =
-    Prelude.rnf serviceName
-      `Prelude.seq` Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf period
-      `Prelude.seq` Prelude.rnf statistics
+    Prelude.rnf serviceName `Prelude.seq`
+      Prelude.rnf metricName `Prelude.seq`
+        Prelude.rnf startTime `Prelude.seq`
+          Prelude.rnf endTime `Prelude.seq`
+            Prelude.rnf period `Prelude.seq`
+              Prelude.rnf statistics
 
 instance Data.ToHeaders GetContainerServiceMetricData where
   toHeaders =
@@ -420,6 +420,6 @@ instance
     GetContainerServiceMetricDataResponse
   where
   rnf GetContainerServiceMetricDataResponse' {..} =
-    Prelude.rnf metricData
-      `Prelude.seq` Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf metricData `Prelude.seq`
+      Prelude.rnf metricName `Prelude.seq`
+        Prelude.rnf httpStatus

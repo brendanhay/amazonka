@@ -111,8 +111,8 @@ instance Prelude.Hashable DeleteThingGroup where
 
 instance Prelude.NFData DeleteThingGroup where
   rnf DeleteThingGroup' {..} =
-    Prelude.rnf expectedVersion
-      `Prelude.seq` Prelude.rnf thingGroupName
+    Prelude.rnf expectedVersion `Prelude.seq`
+      Prelude.rnf thingGroupName
 
 instance Data.ToHeaders DeleteThingGroup where
   toHeaders = Prelude.const Prelude.mempty

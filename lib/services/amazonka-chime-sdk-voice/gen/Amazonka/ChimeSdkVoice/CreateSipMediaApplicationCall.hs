@@ -153,11 +153,11 @@ instance
 
 instance Prelude.NFData CreateSipMediaApplicationCall where
   rnf CreateSipMediaApplicationCall' {..} =
-    Prelude.rnf argumentsMap
-      `Prelude.seq` Prelude.rnf sipHeaders
-      `Prelude.seq` Prelude.rnf fromPhoneNumber
-      `Prelude.seq` Prelude.rnf toPhoneNumber
-      `Prelude.seq` Prelude.rnf sipMediaApplicationId
+    Prelude.rnf argumentsMap `Prelude.seq`
+      Prelude.rnf sipHeaders `Prelude.seq`
+        Prelude.rnf fromPhoneNumber `Prelude.seq`
+          Prelude.rnf toPhoneNumber `Prelude.seq`
+            Prelude.rnf sipMediaApplicationId
 
 instance Data.ToHeaders CreateSipMediaApplicationCall where
   toHeaders = Prelude.const Prelude.mempty
@@ -229,5 +229,5 @@ instance
     CreateSipMediaApplicationCallResponse
   where
   rnf CreateSipMediaApplicationCallResponse' {..} =
-    Prelude.rnf sipMediaApplicationCall
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf sipMediaApplicationCall `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -217,9 +217,9 @@ getEnrollmentStatusResponse_httpStatus = Lens.lens (\GetEnrollmentStatusResponse
 
 instance Prelude.NFData GetEnrollmentStatusResponse where
   rnf GetEnrollmentStatusResponse' {..} =
-    Prelude.rnf lastUpdatedTimestamp
-      `Prelude.seq` Prelude.rnf memberAccountsEnrolled
-      `Prelude.seq` Prelude.rnf numberOfMemberAccountsOptedIn
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusReason
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf lastUpdatedTimestamp `Prelude.seq`
+      Prelude.rnf memberAccountsEnrolled `Prelude.seq`
+        Prelude.rnf numberOfMemberAccountsOptedIn `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf statusReason `Prelude.seq`
+              Prelude.rnf httpStatus

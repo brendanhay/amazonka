@@ -128,8 +128,8 @@ instance
 
 instance Prelude.NFData DescribeDataSourcePermissions where
   rnf DescribeDataSourcePermissions' {..} =
-    Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf dataSourceId
+    Prelude.rnf awsAccountId `Prelude.seq`
+      Prelude.rnf dataSourceId
 
 instance Data.ToHeaders DescribeDataSourcePermissions where
   toHeaders =
@@ -229,8 +229,8 @@ instance
     DescribeDataSourcePermissionsResponse
   where
   rnf DescribeDataSourcePermissionsResponse' {..} =
-    Prelude.rnf dataSourceArn
-      `Prelude.seq` Prelude.rnf dataSourceId
-      `Prelude.seq` Prelude.rnf permissions
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf dataSourceArn `Prelude.seq`
+      Prelude.rnf dataSourceId `Prelude.seq`
+        Prelude.rnf permissions `Prelude.seq`
+          Prelude.rnf requestId `Prelude.seq`
+            Prelude.rnf status

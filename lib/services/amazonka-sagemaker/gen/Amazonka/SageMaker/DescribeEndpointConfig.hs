@@ -294,13 +294,13 @@ instance
     DescribeEndpointConfigResponse
   where
   rnf DescribeEndpointConfigResponse' {..} =
-    Prelude.rnf asyncInferenceConfig
-      `Prelude.seq` Prelude.rnf dataCaptureConfig
-      `Prelude.seq` Prelude.rnf explainerConfig
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf shadowProductionVariants
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf endpointConfigName
-      `Prelude.seq` Prelude.rnf endpointConfigArn
-      `Prelude.seq` Prelude.rnf productionVariants
-      `Prelude.seq` Prelude.rnf creationTime
+    Prelude.rnf asyncInferenceConfig `Prelude.seq`
+      Prelude.rnf dataCaptureConfig `Prelude.seq`
+        Prelude.rnf explainerConfig `Prelude.seq`
+          Prelude.rnf kmsKeyId `Prelude.seq`
+            Prelude.rnf shadowProductionVariants `Prelude.seq`
+              Prelude.rnf httpStatus `Prelude.seq`
+                Prelude.rnf endpointConfigName `Prelude.seq`
+                  Prelude.rnf endpointConfigArn `Prelude.seq`
+                    Prelude.rnf productionVariants `Prelude.seq`
+                      Prelude.rnf creationTime

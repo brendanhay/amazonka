@@ -85,8 +85,8 @@ instance Prelude.Hashable RetentionSettings where
 
 instance Prelude.NFData RetentionSettings where
   rnf RetentionSettings' {..} =
-    Prelude.rnf conversationRetentionSettings
-      `Prelude.seq` Prelude.rnf roomRetentionSettings
+    Prelude.rnf conversationRetentionSettings `Prelude.seq`
+      Prelude.rnf roomRetentionSettings
 
 instance Data.ToJSON RetentionSettings where
   toJSON RetentionSettings' {..} =

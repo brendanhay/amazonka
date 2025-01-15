@@ -83,8 +83,8 @@ instance Prelude.Hashable EncryptionAtRest where
 
 instance Prelude.NFData EncryptionAtRest where
   rnf EncryptionAtRest' {..} =
-    Prelude.rnf sseAwsKmsKeyId
-      `Prelude.seq` Prelude.rnf catalogEncryptionMode
+    Prelude.rnf sseAwsKmsKeyId `Prelude.seq`
+      Prelude.rnf catalogEncryptionMode
 
 instance Data.ToJSON EncryptionAtRest where
   toJSON EncryptionAtRest' {..} =

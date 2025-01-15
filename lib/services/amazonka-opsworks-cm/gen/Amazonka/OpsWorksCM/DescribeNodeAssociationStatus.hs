@@ -133,8 +133,8 @@ instance
 
 instance Prelude.NFData DescribeNodeAssociationStatus where
   rnf DescribeNodeAssociationStatus' {..} =
-    Prelude.rnf nodeAssociationStatusToken
-      `Prelude.seq` Prelude.rnf serverName
+    Prelude.rnf nodeAssociationStatusToken `Prelude.seq`
+      Prelude.rnf serverName
 
 instance Data.ToHeaders DescribeNodeAssociationStatus where
   toHeaders =
@@ -260,6 +260,6 @@ instance
     DescribeNodeAssociationStatusResponse
   where
   rnf DescribeNodeAssociationStatusResponse' {..} =
-    Prelude.rnf engineAttributes
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf nodeAssociationStatus
+    Prelude.rnf engineAttributes `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf nodeAssociationStatus

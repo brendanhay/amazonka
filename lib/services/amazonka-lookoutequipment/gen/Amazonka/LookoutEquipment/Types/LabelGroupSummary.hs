@@ -102,7 +102,7 @@ instance Prelude.Hashable LabelGroupSummary where
 
 instance Prelude.NFData LabelGroupSummary where
   rnf LabelGroupSummary' {..} =
-    Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf labelGroupArn
-      `Prelude.seq` Prelude.rnf labelGroupName
-      `Prelude.seq` Prelude.rnf updatedAt
+    Prelude.rnf createdAt `Prelude.seq`
+      Prelude.rnf labelGroupArn `Prelude.seq`
+        Prelude.rnf labelGroupName `Prelude.seq`
+          Prelude.rnf updatedAt

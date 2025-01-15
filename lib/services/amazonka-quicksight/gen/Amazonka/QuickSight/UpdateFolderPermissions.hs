@@ -144,10 +144,10 @@ instance Prelude.Hashable UpdateFolderPermissions where
 
 instance Prelude.NFData UpdateFolderPermissions where
   rnf UpdateFolderPermissions' {..} =
-    Prelude.rnf grantPermissions
-      `Prelude.seq` Prelude.rnf revokePermissions
-      `Prelude.seq` Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf folderId
+    Prelude.rnf grantPermissions `Prelude.seq`
+      Prelude.rnf revokePermissions `Prelude.seq`
+        Prelude.rnf awsAccountId `Prelude.seq`
+          Prelude.rnf folderId
 
 instance Data.ToHeaders UpdateFolderPermissions where
   toHeaders =
@@ -264,9 +264,9 @@ instance
     UpdateFolderPermissionsResponse
   where
   rnf UpdateFolderPermissionsResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf folderId
-      `Prelude.seq` Prelude.rnf permissions
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf folderId `Prelude.seq`
+        Prelude.rnf permissions `Prelude.seq`
+          Prelude.rnf requestId `Prelude.seq`
+            Prelude.rnf status `Prelude.seq`
+              Prelude.rnf httpStatus

@@ -88,8 +88,8 @@ instance Prelude.Hashable DetectorModelDefinition where
 
 instance Prelude.NFData DetectorModelDefinition where
   rnf DetectorModelDefinition' {..} =
-    Prelude.rnf states
-      `Prelude.seq` Prelude.rnf initialStateName
+    Prelude.rnf states `Prelude.seq`
+      Prelude.rnf initialStateName
 
 instance Data.ToJSON DetectorModelDefinition where
   toJSON DetectorModelDefinition' {..} =

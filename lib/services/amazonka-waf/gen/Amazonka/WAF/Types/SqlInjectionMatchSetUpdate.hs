@@ -103,8 +103,8 @@ instance Prelude.Hashable SqlInjectionMatchSetUpdate where
 
 instance Prelude.NFData SqlInjectionMatchSetUpdate where
   rnf SqlInjectionMatchSetUpdate' {..} =
-    Prelude.rnf action
-      `Prelude.seq` Prelude.rnf sqlInjectionMatchTuple
+    Prelude.rnf action `Prelude.seq`
+      Prelude.rnf sqlInjectionMatchTuple
 
 instance Data.ToJSON SqlInjectionMatchSetUpdate where
   toJSON SqlInjectionMatchSetUpdate' {..} =

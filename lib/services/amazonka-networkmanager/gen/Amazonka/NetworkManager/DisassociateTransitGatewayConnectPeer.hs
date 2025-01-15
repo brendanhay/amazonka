@@ -126,8 +126,8 @@ instance
     DisassociateTransitGatewayConnectPeer
   where
   rnf DisassociateTransitGatewayConnectPeer' {..} =
-    Prelude.rnf globalNetworkId
-      `Prelude.seq` Prelude.rnf transitGatewayConnectPeerArn
+    Prelude.rnf globalNetworkId `Prelude.seq`
+      Prelude.rnf transitGatewayConnectPeerArn
 
 instance
   Data.ToHeaders
@@ -207,5 +207,5 @@ instance
   where
   rnf
     DisassociateTransitGatewayConnectPeerResponse' {..} =
-      Prelude.rnf transitGatewayConnectPeerAssociation
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf transitGatewayConnectPeerAssociation `Prelude.seq`
+        Prelude.rnf httpStatus

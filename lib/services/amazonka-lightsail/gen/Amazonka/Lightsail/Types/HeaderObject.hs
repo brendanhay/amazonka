@@ -125,8 +125,8 @@ instance Prelude.Hashable HeaderObject where
 
 instance Prelude.NFData HeaderObject where
   rnf HeaderObject' {..} =
-    Prelude.rnf headersAllowList
-      `Prelude.seq` Prelude.rnf option
+    Prelude.rnf headersAllowList `Prelude.seq`
+      Prelude.rnf option
 
 instance Data.ToJSON HeaderObject where
   toJSON HeaderObject' {..} =

@@ -117,8 +117,8 @@ instance Prelude.Hashable UntagUser where
 
 instance Prelude.NFData UntagUser where
   rnf UntagUser' {..} =
-    Prelude.rnf userName
-      `Prelude.seq` Prelude.rnf tagKeys
+    Prelude.rnf userName `Prelude.seq`
+      Prelude.rnf tagKeys
 
 instance Data.ToHeaders UntagUser where
   toHeaders = Prelude.const Prelude.mempty

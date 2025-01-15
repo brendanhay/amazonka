@@ -136,9 +136,9 @@ instance Prelude.Hashable AddTagsToVault where
 
 instance Prelude.NFData AddTagsToVault where
   rnf AddTagsToVault' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf vaultName
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf accountId `Prelude.seq`
+        Prelude.rnf vaultName
 
 instance Data.ToHeaders AddTagsToVault where
   toHeaders = Prelude.const Prelude.mempty

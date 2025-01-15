@@ -160,12 +160,12 @@ instance Prelude.Hashable Channel where
 
 instance Prelude.NFData Channel where
   rnf Channel' {..} =
-    Prelude.rnf channelArn
-      `Prelude.seq` Prelude.rnf createdBy
-      `Prelude.seq` Prelude.rnf createdTimestamp
-      `Prelude.seq` Prelude.rnf lastMessageTimestamp
-      `Prelude.seq` Prelude.rnf lastUpdatedTimestamp
-      `Prelude.seq` Prelude.rnf metadata
-      `Prelude.seq` Prelude.rnf mode
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf privacy
+    Prelude.rnf channelArn `Prelude.seq`
+      Prelude.rnf createdBy `Prelude.seq`
+        Prelude.rnf createdTimestamp `Prelude.seq`
+          Prelude.rnf lastMessageTimestamp `Prelude.seq`
+            Prelude.rnf lastUpdatedTimestamp `Prelude.seq`
+              Prelude.rnf metadata `Prelude.seq`
+                Prelude.rnf mode `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf privacy

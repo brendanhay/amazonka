@@ -168,10 +168,10 @@ instance Prelude.Hashable EbuTtDDestinationSettings where
 
 instance Prelude.NFData EbuTtDDestinationSettings where
   rnf EbuTtDDestinationSettings' {..} =
-    Prelude.rnf copyrightHolder
-      `Prelude.seq` Prelude.rnf fillLineGap
-      `Prelude.seq` Prelude.rnf fontFamily
-      `Prelude.seq` Prelude.rnf styleControl
+    Prelude.rnf copyrightHolder `Prelude.seq`
+      Prelude.rnf fillLineGap `Prelude.seq`
+        Prelude.rnf fontFamily `Prelude.seq`
+          Prelude.rnf styleControl
 
 instance Data.ToJSON EbuTtDDestinationSettings where
   toJSON EbuTtDDestinationSettings' {..} =

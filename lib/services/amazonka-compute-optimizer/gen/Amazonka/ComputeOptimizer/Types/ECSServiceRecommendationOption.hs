@@ -137,8 +137,8 @@ instance
     ECSServiceRecommendationOption
   where
   rnf ECSServiceRecommendationOption' {..} =
-    Prelude.rnf containerRecommendations
-      `Prelude.seq` Prelude.rnf cpu
-      `Prelude.seq` Prelude.rnf memory
-      `Prelude.seq` Prelude.rnf projectedUtilizationMetrics
-      `Prelude.seq` Prelude.rnf savingsOpportunity
+    Prelude.rnf containerRecommendations `Prelude.seq`
+      Prelude.rnf cpu `Prelude.seq`
+        Prelude.rnf memory `Prelude.seq`
+          Prelude.rnf projectedUtilizationMetrics `Prelude.seq`
+            Prelude.rnf savingsOpportunity

@@ -81,8 +81,8 @@ instance Prelude.Hashable AttributeOperation where
 
 instance Prelude.NFData AttributeOperation where
   rnf AttributeOperation' {..} =
-    Prelude.rnf attributeValue
-      `Prelude.seq` Prelude.rnf attributePath
+    Prelude.rnf attributeValue `Prelude.seq`
+      Prelude.rnf attributePath
 
 instance Data.ToJSON AttributeOperation where
   toJSON AttributeOperation' {..} =

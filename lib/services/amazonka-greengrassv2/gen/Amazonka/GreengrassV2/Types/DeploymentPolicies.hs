@@ -114,9 +114,9 @@ instance Prelude.Hashable DeploymentPolicies where
 
 instance Prelude.NFData DeploymentPolicies where
   rnf DeploymentPolicies' {..} =
-    Prelude.rnf componentUpdatePolicy
-      `Prelude.seq` Prelude.rnf configurationValidationPolicy
-      `Prelude.seq` Prelude.rnf failureHandlingPolicy
+    Prelude.rnf componentUpdatePolicy `Prelude.seq`
+      Prelude.rnf configurationValidationPolicy `Prelude.seq`
+        Prelude.rnf failureHandlingPolicy
 
 instance Data.ToJSON DeploymentPolicies where
   toJSON DeploymentPolicies' {..} =

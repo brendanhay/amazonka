@@ -260,14 +260,14 @@ instance
     ListPackageVersionDependencies
   where
   rnf ListPackageVersionDependencies' {..} =
-    Prelude.rnf domainOwner
-      `Prelude.seq` Prelude.rnf namespace
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf repository
-      `Prelude.seq` Prelude.rnf format
-      `Prelude.seq` Prelude.rnf package
-      `Prelude.seq` Prelude.rnf packageVersion
+    Prelude.rnf domainOwner `Prelude.seq`
+      Prelude.rnf namespace `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf domain `Prelude.seq`
+            Prelude.rnf repository `Prelude.seq`
+              Prelude.rnf format `Prelude.seq`
+                Prelude.rnf package `Prelude.seq`
+                  Prelude.rnf packageVersion
 
 instance
   Data.ToHeaders
@@ -450,11 +450,11 @@ instance
     ListPackageVersionDependenciesResponse
   where
   rnf ListPackageVersionDependenciesResponse' {..} =
-    Prelude.rnf dependencies
-      `Prelude.seq` Prelude.rnf format
-      `Prelude.seq` Prelude.rnf namespace
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf package
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf versionRevision
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dependencies `Prelude.seq`
+      Prelude.rnf format `Prelude.seq`
+        Prelude.rnf namespace `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf package `Prelude.seq`
+              Prelude.rnf version `Prelude.seq`
+                Prelude.rnf versionRevision `Prelude.seq`
+                  Prelude.rnf httpStatus

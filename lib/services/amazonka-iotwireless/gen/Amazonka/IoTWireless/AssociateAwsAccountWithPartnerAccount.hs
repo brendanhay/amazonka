@@ -146,9 +146,9 @@ instance
     AssociateAwsAccountWithPartnerAccount
   where
   rnf AssociateAwsAccountWithPartnerAccount' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf sidewalk
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf sidewalk
 
 instance
   Data.ToHeaders
@@ -237,6 +237,6 @@ instance
   where
   rnf
     AssociateAwsAccountWithPartnerAccountResponse' {..} =
-      Prelude.rnf arn
-        `Prelude.seq` Prelude.rnf sidewalk
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf sidewalk `Prelude.seq`
+          Prelude.rnf httpStatus

@@ -94,5 +94,5 @@ instance
     RateBasedStatementManagedKeysIPSet
   where
   rnf RateBasedStatementManagedKeysIPSet' {..} =
-    Prelude.rnf addresses
-      `Prelude.seq` Prelude.rnf iPAddressVersion
+    Prelude.rnf addresses `Prelude.seq`
+      Prelude.rnf iPAddressVersion

@@ -111,8 +111,8 @@ instance Prelude.Hashable ConflictResolution where
 
 instance Prelude.NFData ConflictResolution where
   rnf ConflictResolution' {..} =
-    Prelude.rnf sourceName
-      `Prelude.seq` Prelude.rnf conflictResolvingModel
+    Prelude.rnf sourceName `Prelude.seq`
+      Prelude.rnf conflictResolvingModel
 
 instance Data.ToJSON ConflictResolution where
   toJSON ConflictResolution' {..} =

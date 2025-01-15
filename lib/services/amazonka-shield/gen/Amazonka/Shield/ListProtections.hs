@@ -190,12 +190,12 @@ instance Core.AWSPager ListProtections where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listProtections_nextToken
-          Lens..~ rs
-          Lens.^? listProtectionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listProtections_nextToken
+              Lens..~ rs
+              Lens.^? listProtectionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListProtections where
   type
@@ -221,9 +221,9 @@ instance Prelude.Hashable ListProtections where
 
 instance Prelude.NFData ListProtections where
   rnf ListProtections' {..} =
-    Prelude.rnf inclusionFilters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf inclusionFilters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListProtections where
   toHeaders =
@@ -343,6 +343,6 @@ listProtectionsResponse_httpStatus = Lens.lens (\ListProtectionsResponse' {httpS
 
 instance Prelude.NFData ListProtectionsResponse where
   rnf ListProtectionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf protections
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf protections `Prelude.seq`
+        Prelude.rnf httpStatus

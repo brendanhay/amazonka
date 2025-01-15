@@ -102,7 +102,7 @@ instance Prelude.Hashable GluePolicy where
 
 instance Prelude.NFData GluePolicy where
   rnf GluePolicy' {..} =
-    Prelude.rnf createTime
-      `Prelude.seq` Prelude.rnf policyHash
-      `Prelude.seq` Prelude.rnf policyInJson
-      `Prelude.seq` Prelude.rnf updateTime
+    Prelude.rnf createTime `Prelude.seq`
+      Prelude.rnf policyHash `Prelude.seq`
+        Prelude.rnf policyInJson `Prelude.seq`
+          Prelude.rnf updateTime

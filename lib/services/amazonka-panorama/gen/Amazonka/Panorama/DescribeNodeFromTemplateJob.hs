@@ -315,16 +315,16 @@ instance
     DescribeNodeFromTemplateJobResponse
   where
   rnf DescribeNodeFromTemplateJobResponse' {..} =
-    Prelude.rnf jobTags
-      `Prelude.seq` Prelude.rnf nodeDescription
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf nodeName
-      `Prelude.seq` Prelude.rnf outputPackageName
-      `Prelude.seq` Prelude.rnf outputPackageVersion
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf templateParameters
-      `Prelude.seq` Prelude.rnf templateType
+    Prelude.rnf jobTags `Prelude.seq`
+      Prelude.rnf nodeDescription `Prelude.seq`
+        Prelude.rnf httpStatus `Prelude.seq`
+          Prelude.rnf createdTime `Prelude.seq`
+            Prelude.rnf jobId `Prelude.seq`
+              Prelude.rnf lastUpdatedTime `Prelude.seq`
+                Prelude.rnf nodeName `Prelude.seq`
+                  Prelude.rnf outputPackageName `Prelude.seq`
+                    Prelude.rnf outputPackageVersion `Prelude.seq`
+                      Prelude.rnf status `Prelude.seq`
+                        Prelude.rnf statusMessage `Prelude.seq`
+                          Prelude.rnf templateParameters `Prelude.seq`
+                            Prelude.rnf templateType

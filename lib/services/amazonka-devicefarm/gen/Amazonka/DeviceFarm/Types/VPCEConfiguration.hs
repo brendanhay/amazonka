@@ -125,8 +125,8 @@ instance Prelude.Hashable VPCEConfiguration where
 
 instance Prelude.NFData VPCEConfiguration where
   rnf VPCEConfiguration' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf serviceDnsName
-      `Prelude.seq` Prelude.rnf vpceConfigurationDescription
-      `Prelude.seq` Prelude.rnf vpceConfigurationName
-      `Prelude.seq` Prelude.rnf vpceServiceName
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf serviceDnsName `Prelude.seq`
+        Prelude.rnf vpceConfigurationDescription `Prelude.seq`
+          Prelude.rnf vpceConfigurationName `Prelude.seq`
+            Prelude.rnf vpceServiceName

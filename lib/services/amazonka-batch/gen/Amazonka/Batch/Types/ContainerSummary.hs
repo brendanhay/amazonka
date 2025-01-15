@@ -83,5 +83,5 @@ instance Prelude.Hashable ContainerSummary where
 
 instance Prelude.NFData ContainerSummary where
   rnf ContainerSummary' {..} =
-    Prelude.rnf exitCode
-      `Prelude.seq` Prelude.rnf reason
+    Prelude.rnf exitCode `Prelude.seq`
+      Prelude.rnf reason

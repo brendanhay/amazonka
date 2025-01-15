@@ -161,12 +161,12 @@ instance Prelude.Hashable UpdateAccessPolicy where
 
 instance Prelude.NFData UpdateAccessPolicy where
   rnf UpdateAccessPolicy' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf policy
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf policyVersion
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf policy `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf policyVersion `Prelude.seq`
+              Prelude.rnf type'
 
 instance Data.ToHeaders UpdateAccessPolicy where
   toHeaders =
@@ -243,5 +243,5 @@ updateAccessPolicyResponse_httpStatus = Lens.lens (\UpdateAccessPolicyResponse' 
 
 instance Prelude.NFData UpdateAccessPolicyResponse where
   rnf UpdateAccessPolicyResponse' {..} =
-    Prelude.rnf accessPolicyDetail
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf accessPolicyDetail `Prelude.seq`
+      Prelude.rnf httpStatus

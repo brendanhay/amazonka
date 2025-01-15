@@ -132,12 +132,12 @@ instance Core.AWSPager ListDeliverabilityTestReports where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listDeliverabilityTestReports_nextToken
-          Lens..~ rs
-          Lens.^? listDeliverabilityTestReportsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listDeliverabilityTestReports_nextToken
+              Lens..~ rs
+              Lens.^? listDeliverabilityTestReportsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -171,8 +171,8 @@ instance
 
 instance Prelude.NFData ListDeliverabilityTestReports where
   rnf ListDeliverabilityTestReports' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf pageSize
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf pageSize
 
 instance Data.ToHeaders ListDeliverabilityTestReports where
   toHeaders =
@@ -266,6 +266,6 @@ instance
     ListDeliverabilityTestReportsResponse
   where
   rnf ListDeliverabilityTestReportsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf deliverabilityTestReports
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf deliverabilityTestReports

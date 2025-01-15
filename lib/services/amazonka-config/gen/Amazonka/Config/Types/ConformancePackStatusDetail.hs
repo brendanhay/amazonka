@@ -215,11 +215,11 @@ instance Prelude.Hashable ConformancePackStatusDetail where
 
 instance Prelude.NFData ConformancePackStatusDetail where
   rnf ConformancePackStatusDetail' {..} =
-    Prelude.rnf conformancePackStatusReason
-      `Prelude.seq` Prelude.rnf lastUpdateCompletedTime
-      `Prelude.seq` Prelude.rnf conformancePackName
-      `Prelude.seq` Prelude.rnf conformancePackId
-      `Prelude.seq` Prelude.rnf conformancePackArn
-      `Prelude.seq` Prelude.rnf conformancePackState
-      `Prelude.seq` Prelude.rnf stackArn
-      `Prelude.seq` Prelude.rnf lastUpdateRequestedTime
+    Prelude.rnf conformancePackStatusReason `Prelude.seq`
+      Prelude.rnf lastUpdateCompletedTime `Prelude.seq`
+        Prelude.rnf conformancePackName `Prelude.seq`
+          Prelude.rnf conformancePackId `Prelude.seq`
+            Prelude.rnf conformancePackArn `Prelude.seq`
+              Prelude.rnf conformancePackState `Prelude.seq`
+                Prelude.rnf stackArn `Prelude.seq`
+                  Prelude.rnf lastUpdateRequestedTime

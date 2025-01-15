@@ -205,12 +205,12 @@ instance
     UpdateQuerySuggestionsBlockList
   where
   rnf UpdateQuerySuggestionsBlockList' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf sourceS3Path
-      `Prelude.seq` Prelude.rnf indexId
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf roleArn `Prelude.seq`
+          Prelude.rnf sourceS3Path `Prelude.seq`
+            Prelude.rnf indexId `Prelude.seq`
+              Prelude.rnf id
 
 instance
   Data.ToHeaders

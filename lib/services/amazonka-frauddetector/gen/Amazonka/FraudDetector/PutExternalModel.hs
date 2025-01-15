@@ -180,13 +180,13 @@ instance Prelude.Hashable PutExternalModel where
 
 instance Prelude.NFData PutExternalModel where
   rnf PutExternalModel' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf modelEndpoint
-      `Prelude.seq` Prelude.rnf modelSource
-      `Prelude.seq` Prelude.rnf invokeModelEndpointRoleArn
-      `Prelude.seq` Prelude.rnf inputConfiguration
-      `Prelude.seq` Prelude.rnf outputConfiguration
-      `Prelude.seq` Prelude.rnf modelEndpointStatus
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf modelEndpoint `Prelude.seq`
+        Prelude.rnf modelSource `Prelude.seq`
+          Prelude.rnf invokeModelEndpointRoleArn `Prelude.seq`
+            Prelude.rnf inputConfiguration `Prelude.seq`
+              Prelude.rnf outputConfiguration `Prelude.seq`
+                Prelude.rnf modelEndpointStatus
 
 instance Data.ToHeaders PutExternalModel where
   toHeaders =

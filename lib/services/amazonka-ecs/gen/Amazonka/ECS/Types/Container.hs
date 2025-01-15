@@ -282,20 +282,20 @@ instance Prelude.Hashable Container where
 
 instance Prelude.NFData Container where
   rnf Container' {..} =
-    Prelude.rnf containerArn
-      `Prelude.seq` Prelude.rnf cpu
-      `Prelude.seq` Prelude.rnf exitCode
-      `Prelude.seq` Prelude.rnf gpuIds
-      `Prelude.seq` Prelude.rnf healthStatus
-      `Prelude.seq` Prelude.rnf image
-      `Prelude.seq` Prelude.rnf imageDigest
-      `Prelude.seq` Prelude.rnf lastStatus
-      `Prelude.seq` Prelude.rnf managedAgents
-      `Prelude.seq` Prelude.rnf memory
-      `Prelude.seq` Prelude.rnf memoryReservation
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf networkBindings
-      `Prelude.seq` Prelude.rnf networkInterfaces
-      `Prelude.seq` Prelude.rnf reason
-      `Prelude.seq` Prelude.rnf runtimeId
-      `Prelude.seq` Prelude.rnf taskArn
+    Prelude.rnf containerArn `Prelude.seq`
+      Prelude.rnf cpu `Prelude.seq`
+        Prelude.rnf exitCode `Prelude.seq`
+          Prelude.rnf gpuIds `Prelude.seq`
+            Prelude.rnf healthStatus `Prelude.seq`
+              Prelude.rnf image `Prelude.seq`
+                Prelude.rnf imageDigest `Prelude.seq`
+                  Prelude.rnf lastStatus `Prelude.seq`
+                    Prelude.rnf managedAgents `Prelude.seq`
+                      Prelude.rnf memory `Prelude.seq`
+                        Prelude.rnf memoryReservation `Prelude.seq`
+                          Prelude.rnf name `Prelude.seq`
+                            Prelude.rnf networkBindings `Prelude.seq`
+                              Prelude.rnf networkInterfaces `Prelude.seq`
+                                Prelude.rnf reason `Prelude.seq`
+                                  Prelude.rnf runtimeId `Prelude.seq`
+                                    Prelude.rnf taskArn

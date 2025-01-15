@@ -210,12 +210,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listFirewallRuleGroupAssociations_nextToken
-          Lens..~ rs
-          Lens.^? listFirewallRuleGroupAssociationsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listFirewallRuleGroupAssociations_nextToken
+              Lens..~ rs
+              Lens.^? listFirewallRuleGroupAssociationsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -258,12 +258,12 @@ instance
     ListFirewallRuleGroupAssociations
   where
   rnf ListFirewallRuleGroupAssociations' {..} =
-    Prelude.rnf firewallRuleGroupId
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf priority
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf firewallRuleGroupId `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf priority `Prelude.seq`
+            Prelude.rnf status `Prelude.seq`
+              Prelude.rnf vpcId
 
 instance
   Data.ToHeaders
@@ -381,6 +381,6 @@ instance
     ListFirewallRuleGroupAssociationsResponse
   where
   rnf ListFirewallRuleGroupAssociationsResponse' {..} =
-    Prelude.rnf firewallRuleGroupAssociations
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf firewallRuleGroupAssociations `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

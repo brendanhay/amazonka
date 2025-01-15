@@ -142,8 +142,8 @@ instance
   where
   rnf
     BatchAssociateApprovalRuleTemplateWithRepositories' {..} =
-      Prelude.rnf approvalRuleTemplateName
-        `Prelude.seq` Prelude.rnf repositoryNames
+      Prelude.rnf approvalRuleTemplateName `Prelude.seq`
+        Prelude.rnf repositoryNames
 
 instance
   Data.ToHeaders
@@ -255,6 +255,6 @@ instance
   where
   rnf
     BatchAssociateApprovalRuleTemplateWithRepositoriesResponse' {..} =
-      Prelude.rnf httpStatus
-        `Prelude.seq` Prelude.rnf associatedRepositoryNames
-        `Prelude.seq` Prelude.rnf errors
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf associatedRepositoryNames `Prelude.seq`
+          Prelude.rnf errors

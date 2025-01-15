@@ -130,9 +130,9 @@ instance Prelude.Hashable DescribeDocument where
 
 instance Prelude.NFData DescribeDocument where
   rnf DescribeDocument' {..} =
-    Prelude.rnf documentVersion
-      `Prelude.seq` Prelude.rnf versionName
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf documentVersion `Prelude.seq`
+      Prelude.rnf versionName `Prelude.seq`
+        Prelude.rnf name
 
 instance Data.ToHeaders DescribeDocument where
   toHeaders =
@@ -205,5 +205,5 @@ describeDocumentResponse_httpStatus = Lens.lens (\DescribeDocumentResponse' {htt
 
 instance Prelude.NFData DescribeDocumentResponse where
   rnf DescribeDocumentResponse' {..} =
-    Prelude.rnf document
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf document `Prelude.seq`
+      Prelude.rnf httpStatus

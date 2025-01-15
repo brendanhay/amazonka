@@ -154,11 +154,11 @@ instance Prelude.Hashable PutVoiceConnectorProxy where
 
 instance Prelude.NFData PutVoiceConnectorProxy where
   rnf PutVoiceConnectorProxy' {..} =
-    Prelude.rnf disabled
-      `Prelude.seq` Prelude.rnf fallBackPhoneNumber
-      `Prelude.seq` Prelude.rnf defaultSessionExpiryMinutes
-      `Prelude.seq` Prelude.rnf phoneNumberPoolCountries
-      `Prelude.seq` Prelude.rnf voiceConnectorId
+    Prelude.rnf disabled `Prelude.seq`
+      Prelude.rnf fallBackPhoneNumber `Prelude.seq`
+        Prelude.rnf defaultSessionExpiryMinutes `Prelude.seq`
+          Prelude.rnf phoneNumberPoolCountries `Prelude.seq`
+            Prelude.rnf voiceConnectorId
 
 instance Data.ToHeaders PutVoiceConnectorProxy where
   toHeaders = Prelude.const Prelude.mempty
@@ -236,5 +236,5 @@ instance
     PutVoiceConnectorProxyResponse
   where
   rnf PutVoiceConnectorProxyResponse' {..} =
-    Prelude.rnf proxy
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf proxy `Prelude.seq`
+      Prelude.rnf httpStatus

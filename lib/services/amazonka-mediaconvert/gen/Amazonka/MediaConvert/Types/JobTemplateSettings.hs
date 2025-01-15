@@ -335,18 +335,18 @@ instance Prelude.Hashable JobTemplateSettings where
 
 instance Prelude.NFData JobTemplateSettings where
   rnf JobTemplateSettings' {..} =
-    Prelude.rnf adAvailOffset
-      `Prelude.seq` Prelude.rnf availBlanking
-      `Prelude.seq` Prelude.rnf esam
-      `Prelude.seq` Prelude.rnf extendedDataServices
-      `Prelude.seq` Prelude.rnf inputs
-      `Prelude.seq` Prelude.rnf kantarWatermark
-      `Prelude.seq` Prelude.rnf motionImageInserter
-      `Prelude.seq` Prelude.rnf nielsenConfiguration
-      `Prelude.seq` Prelude.rnf nielsenNonLinearWatermark
-      `Prelude.seq` Prelude.rnf outputGroups
-      `Prelude.seq` Prelude.rnf timecodeConfig
-      `Prelude.seq` Prelude.rnf timedMetadataInsertion
+    Prelude.rnf adAvailOffset `Prelude.seq`
+      Prelude.rnf availBlanking `Prelude.seq`
+        Prelude.rnf esam `Prelude.seq`
+          Prelude.rnf extendedDataServices `Prelude.seq`
+            Prelude.rnf inputs `Prelude.seq`
+              Prelude.rnf kantarWatermark `Prelude.seq`
+                Prelude.rnf motionImageInserter `Prelude.seq`
+                  Prelude.rnf nielsenConfiguration `Prelude.seq`
+                    Prelude.rnf nielsenNonLinearWatermark `Prelude.seq`
+                      Prelude.rnf outputGroups `Prelude.seq`
+                        Prelude.rnf timecodeConfig `Prelude.seq`
+                          Prelude.rnf timedMetadataInsertion
 
 instance Data.ToJSON JobTemplateSettings where
   toJSON JobTemplateSettings' {..} =

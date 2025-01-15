@@ -109,8 +109,8 @@ instance Prelude.Hashable StartTest where
 
 instance Prelude.NFData StartTest where
   rnf StartTest' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf sourceServerIDs
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf sourceServerIDs
 
 instance Data.ToHeaders StartTest where
   toHeaders =
@@ -179,5 +179,5 @@ startTestResponse_httpStatus = Lens.lens (\StartTestResponse' {httpStatus} -> ht
 
 instance Prelude.NFData StartTestResponse where
   rnf StartTestResponse' {..} =
-    Prelude.rnf job
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf job `Prelude.seq`
+      Prelude.rnf httpStatus

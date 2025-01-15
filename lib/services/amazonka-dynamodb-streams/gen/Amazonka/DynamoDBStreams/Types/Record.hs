@@ -214,10 +214,10 @@ instance Prelude.Hashable Record where
 
 instance Prelude.NFData Record where
   rnf Record' {..} =
-    Prelude.rnf awsRegion
-      `Prelude.seq` Prelude.rnf dynamodb
-      `Prelude.seq` Prelude.rnf eventID
-      `Prelude.seq` Prelude.rnf eventName
-      `Prelude.seq` Prelude.rnf eventSource
-      `Prelude.seq` Prelude.rnf eventVersion
-      `Prelude.seq` Prelude.rnf userIdentity
+    Prelude.rnf awsRegion `Prelude.seq`
+      Prelude.rnf dynamodb `Prelude.seq`
+        Prelude.rnf eventID `Prelude.seq`
+          Prelude.rnf eventName `Prelude.seq`
+            Prelude.rnf eventSource `Prelude.seq`
+              Prelude.rnf eventVersion `Prelude.seq`
+                Prelude.rnf userIdentity

@@ -115,10 +115,10 @@ instance Prelude.Hashable UserPhoneConfig where
 
 instance Prelude.NFData UserPhoneConfig where
   rnf UserPhoneConfig' {..} =
-    Prelude.rnf afterContactWorkTimeLimit
-      `Prelude.seq` Prelude.rnf autoAccept
-      `Prelude.seq` Prelude.rnf deskPhoneNumber
-      `Prelude.seq` Prelude.rnf phoneType
+    Prelude.rnf afterContactWorkTimeLimit `Prelude.seq`
+      Prelude.rnf autoAccept `Prelude.seq`
+        Prelude.rnf deskPhoneNumber `Prelude.seq`
+          Prelude.rnf phoneType
 
 instance Data.ToJSON UserPhoneConfig where
   toJSON UserPhoneConfig' {..} =

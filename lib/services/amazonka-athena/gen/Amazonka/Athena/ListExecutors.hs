@@ -191,10 +191,10 @@ instance Prelude.Hashable ListExecutors where
 
 instance Prelude.NFData ListExecutors where
   rnf ListExecutors' {..} =
-    Prelude.rnf executorStateFilter
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sessionId
+    Prelude.rnf executorStateFilter `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf sessionId
 
 instance Data.ToHeaders ListExecutors where
   toHeaders =
@@ -297,7 +297,7 @@ listExecutorsResponse_sessionId = Lens.lens (\ListExecutorsResponse' {sessionId}
 
 instance Prelude.NFData ListExecutorsResponse where
   rnf ListExecutorsResponse' {..} =
-    Prelude.rnf executorsSummary
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf sessionId
+    Prelude.rnf executorsSummary `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus `Prelude.seq`
+          Prelude.rnf sessionId

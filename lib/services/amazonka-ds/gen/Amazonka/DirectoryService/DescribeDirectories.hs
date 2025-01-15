@@ -149,12 +149,12 @@ instance Core.AWSPager DescribeDirectories where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeDirectories_nextToken
-          Lens..~ rs
-          Lens.^? describeDirectoriesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeDirectories_nextToken
+              Lens..~ rs
+              Lens.^? describeDirectoriesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeDirectories where
   type
@@ -183,9 +183,9 @@ instance Prelude.Hashable DescribeDirectories where
 
 instance Prelude.NFData DescribeDirectories where
   rnf DescribeDirectories' {..} =
-    Prelude.rnf directoryIds
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf directoryIds `Prelude.seq`
+      Prelude.rnf limit `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeDirectories where
   toHeaders =
@@ -291,6 +291,6 @@ describeDirectoriesResponse_httpStatus = Lens.lens (\DescribeDirectoriesResponse
 
 instance Prelude.NFData DescribeDirectoriesResponse where
   rnf DescribeDirectoriesResponse' {..} =
-    Prelude.rnf directoryDescriptions
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf directoryDescriptions `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

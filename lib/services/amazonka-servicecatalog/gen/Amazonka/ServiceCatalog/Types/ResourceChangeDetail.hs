@@ -100,6 +100,6 @@ instance Prelude.Hashable ResourceChangeDetail where
 
 instance Prelude.NFData ResourceChangeDetail where
   rnf ResourceChangeDetail' {..} =
-    Prelude.rnf causingEntity
-      `Prelude.seq` Prelude.rnf evaluation
-      `Prelude.seq` Prelude.rnf target
+    Prelude.rnf causingEntity `Prelude.seq`
+      Prelude.rnf evaluation `Prelude.seq`
+        Prelude.rnf target

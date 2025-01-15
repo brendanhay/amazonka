@@ -242,11 +242,11 @@ getDataQualityRulesetResponse_httpStatus = Lens.lens (\GetDataQualityRulesetResp
 
 instance Prelude.NFData GetDataQualityRulesetResponse where
   rnf GetDataQualityRulesetResponse' {..} =
-    Prelude.rnf createdOn
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf lastModifiedOn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf recommendationRunId
-      `Prelude.seq` Prelude.rnf ruleset
-      `Prelude.seq` Prelude.rnf targetTable
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf createdOn `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf lastModifiedOn `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf recommendationRunId `Prelude.seq`
+              Prelude.rnf ruleset `Prelude.seq`
+                Prelude.rnf targetTable `Prelude.seq`
+                  Prelude.rnf httpStatus

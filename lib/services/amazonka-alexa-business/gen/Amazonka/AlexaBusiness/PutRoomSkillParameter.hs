@@ -122,9 +122,9 @@ instance Prelude.Hashable PutRoomSkillParameter where
 
 instance Prelude.NFData PutRoomSkillParameter where
   rnf PutRoomSkillParameter' {..} =
-    Prelude.rnf roomArn
-      `Prelude.seq` Prelude.rnf skillId
-      `Prelude.seq` Prelude.rnf roomSkillParameter
+    Prelude.rnf roomArn `Prelude.seq`
+      Prelude.rnf skillId `Prelude.seq`
+        Prelude.rnf roomSkillParameter
 
 instance Data.ToHeaders PutRoomSkillParameter where
   toHeaders =

@@ -116,9 +116,9 @@ instance Prelude.Hashable Channel where
 
 instance Prelude.NFData Channel where
   rnf Channel' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf eventPublishers
-      `Prelude.seq` Prelude.rnf uri
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf eventPublishers `Prelude.seq`
+        Prelude.rnf uri
 
 instance Data.ToJSON Channel where
   toJSON Channel' {..} =

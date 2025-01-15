@@ -122,12 +122,12 @@ instance Core.AWSPager ListSentimentDetectionJobs where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listSentimentDetectionJobs_nextToken
-          Lens..~ rs
-          Lens.^? listSentimentDetectionJobsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listSentimentDetectionJobs_nextToken
+              Lens..~ rs
+              Lens.^? listSentimentDetectionJobsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSentimentDetectionJobs where
   type
@@ -156,9 +156,9 @@ instance Prelude.Hashable ListSentimentDetectionJobs where
 
 instance Prelude.NFData ListSentimentDetectionJobs where
   rnf ListSentimentDetectionJobs' {..} =
-    Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filter' `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListSentimentDetectionJobs where
   toHeaders =
@@ -245,6 +245,6 @@ instance
     ListSentimentDetectionJobsResponse
   where
   rnf ListSentimentDetectionJobsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sentimentDetectionJobPropertiesList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf sentimentDetectionJobPropertiesList `Prelude.seq`
+        Prelude.rnf httpStatus

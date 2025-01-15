@@ -153,5 +153,5 @@ getExperimentResponse_httpStatus = Lens.lens (\GetExperimentResponse' {httpStatu
 
 instance Prelude.NFData GetExperimentResponse where
   rnf GetExperimentResponse' {..} =
-    Prelude.rnf experiment
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf experiment `Prelude.seq`
+      Prelude.rnf httpStatus

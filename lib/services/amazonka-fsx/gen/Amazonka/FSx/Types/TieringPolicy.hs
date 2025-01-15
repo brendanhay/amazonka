@@ -149,8 +149,8 @@ instance Prelude.Hashable TieringPolicy where
 
 instance Prelude.NFData TieringPolicy where
   rnf TieringPolicy' {..} =
-    Prelude.rnf coolingPeriod
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf coolingPeriod `Prelude.seq`
+      Prelude.rnf name
 
 instance Data.ToJSON TieringPolicy where
   toJSON TieringPolicy' {..} =

@@ -101,8 +101,8 @@ instance Prelude.Hashable DeleteFraudster where
 
 instance Prelude.NFData DeleteFraudster where
   rnf DeleteFraudster' {..} =
-    Prelude.rnf domainId
-      `Prelude.seq` Prelude.rnf fraudsterId
+    Prelude.rnf domainId `Prelude.seq`
+      Prelude.rnf fraudsterId
 
 instance Data.ToHeaders DeleteFraudster where
   toHeaders =

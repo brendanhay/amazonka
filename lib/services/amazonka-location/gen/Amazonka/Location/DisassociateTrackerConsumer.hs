@@ -131,8 +131,8 @@ instance Prelude.Hashable DisassociateTrackerConsumer where
 
 instance Prelude.NFData DisassociateTrackerConsumer where
   rnf DisassociateTrackerConsumer' {..} =
-    Prelude.rnf consumerArn
-      `Prelude.seq` Prelude.rnf trackerName
+    Prelude.rnf consumerArn `Prelude.seq`
+      Prelude.rnf trackerName
 
 instance Data.ToHeaders DisassociateTrackerConsumer where
   toHeaders =

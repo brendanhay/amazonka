@@ -385,19 +385,19 @@ describePortalResponse_portalLastUpdateDate = Lens.lens (\DescribePortalResponse
 
 instance Prelude.NFData DescribePortalResponse where
   rnf DescribePortalResponse' {..} =
-    Prelude.rnf alarms
-      `Prelude.seq` Prelude.rnf notificationSenderEmail
-      `Prelude.seq` Prelude.rnf portalAuthMode
-      `Prelude.seq` Prelude.rnf portalDescription
-      `Prelude.seq` Prelude.rnf portalLogoImageLocation
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf portalId
-      `Prelude.seq` Prelude.rnf portalArn
-      `Prelude.seq` Prelude.rnf portalName
-      `Prelude.seq` Prelude.rnf portalClientId
-      `Prelude.seq` Prelude.rnf portalStartUrl
-      `Prelude.seq` Prelude.rnf portalContactEmail
-      `Prelude.seq` Prelude.rnf portalStatus
-      `Prelude.seq` Prelude.rnf portalCreationDate
-      `Prelude.seq` Prelude.rnf portalLastUpdateDate
+    Prelude.rnf alarms `Prelude.seq`
+      Prelude.rnf notificationSenderEmail `Prelude.seq`
+        Prelude.rnf portalAuthMode `Prelude.seq`
+          Prelude.rnf portalDescription `Prelude.seq`
+            Prelude.rnf portalLogoImageLocation `Prelude.seq`
+              Prelude.rnf roleArn `Prelude.seq`
+                Prelude.rnf httpStatus `Prelude.seq`
+                  Prelude.rnf portalId `Prelude.seq`
+                    Prelude.rnf portalArn `Prelude.seq`
+                      Prelude.rnf portalName `Prelude.seq`
+                        Prelude.rnf portalClientId `Prelude.seq`
+                          Prelude.rnf portalStartUrl `Prelude.seq`
+                            Prelude.rnf portalContactEmail `Prelude.seq`
+                              Prelude.rnf portalStatus `Prelude.seq`
+                                Prelude.rnf portalCreationDate `Prelude.seq`
+                                  Prelude.rnf portalLastUpdateDate

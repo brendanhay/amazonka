@@ -108,9 +108,9 @@ instance
     RuleGroupSourceStatefulRulesDetails
   where
   rnf RuleGroupSourceStatefulRulesDetails' {..} =
-    Prelude.rnf action
-      `Prelude.seq` Prelude.rnf header
-      `Prelude.seq` Prelude.rnf ruleOptions
+    Prelude.rnf action `Prelude.seq`
+      Prelude.rnf header `Prelude.seq`
+        Prelude.rnf ruleOptions
 
 instance
   Data.ToJSON

@@ -218,12 +218,12 @@ instance Prelude.Hashable CreatePool where
 
 instance Prelude.NFData CreatePool where
   rnf CreatePool' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf deletionProtectionEnabled
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf originationIdentity
-      `Prelude.seq` Prelude.rnf isoCountryCode
-      `Prelude.seq` Prelude.rnf messageType
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf deletionProtectionEnabled `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf originationIdentity `Prelude.seq`
+            Prelude.rnf isoCountryCode `Prelude.seq`
+              Prelude.rnf messageType
 
 instance Data.ToHeaders CreatePool where
   toHeaders =
@@ -447,16 +447,16 @@ createPoolResponse_httpStatus = Lens.lens (\CreatePoolResponse' {httpStatus} -> 
 
 instance Prelude.NFData CreatePoolResponse where
   rnf CreatePoolResponse' {..} =
-    Prelude.rnf createdTimestamp
-      `Prelude.seq` Prelude.rnf deletionProtectionEnabled
-      `Prelude.seq` Prelude.rnf messageType
-      `Prelude.seq` Prelude.rnf optOutListName
-      `Prelude.seq` Prelude.rnf poolArn
-      `Prelude.seq` Prelude.rnf poolId
-      `Prelude.seq` Prelude.rnf selfManagedOptOutsEnabled
-      `Prelude.seq` Prelude.rnf sharedRoutesEnabled
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf twoWayChannelArn
-      `Prelude.seq` Prelude.rnf twoWayEnabled
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf createdTimestamp `Prelude.seq`
+      Prelude.rnf deletionProtectionEnabled `Prelude.seq`
+        Prelude.rnf messageType `Prelude.seq`
+          Prelude.rnf optOutListName `Prelude.seq`
+            Prelude.rnf poolArn `Prelude.seq`
+              Prelude.rnf poolId `Prelude.seq`
+                Prelude.rnf selfManagedOptOutsEnabled `Prelude.seq`
+                  Prelude.rnf sharedRoutesEnabled `Prelude.seq`
+                    Prelude.rnf status `Prelude.seq`
+                      Prelude.rnf tags `Prelude.seq`
+                        Prelude.rnf twoWayChannelArn `Prelude.seq`
+                          Prelude.rnf twoWayEnabled `Prelude.seq`
+                            Prelude.rnf httpStatus

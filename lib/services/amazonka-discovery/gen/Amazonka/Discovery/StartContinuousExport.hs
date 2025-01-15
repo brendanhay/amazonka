@@ -207,9 +207,9 @@ startContinuousExportResponse_httpStatus = Lens.lens (\StartContinuousExportResp
 
 instance Prelude.NFData StartContinuousExportResponse where
   rnf StartContinuousExportResponse' {..} =
-    Prelude.rnf dataSource
-      `Prelude.seq` Prelude.rnf exportId
-      `Prelude.seq` Prelude.rnf s3Bucket
-      `Prelude.seq` Prelude.rnf schemaStorageConfig
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dataSource `Prelude.seq`
+      Prelude.rnf exportId `Prelude.seq`
+        Prelude.rnf s3Bucket `Prelude.seq`
+          Prelude.rnf schemaStorageConfig `Prelude.seq`
+            Prelude.rnf startTime `Prelude.seq`
+              Prelude.rnf httpStatus

@@ -147,12 +147,12 @@ instance Core.AWSPager GetResources where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getResources_position
-          Lens..~ rs
-          Lens.^? getResourcesResponse_position
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getResources_position
+              Lens..~ rs
+              Lens.^? getResourcesResponse_position
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetResources where
   type AWSResponse GetResources = GetResourcesResponse
@@ -177,10 +177,10 @@ instance Prelude.Hashable GetResources where
 
 instance Prelude.NFData GetResources where
   rnf GetResources' {..} =
-    Prelude.rnf embed
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf position
-      `Prelude.seq` Prelude.rnf restApiId
+    Prelude.rnf embed `Prelude.seq`
+      Prelude.rnf limit `Prelude.seq`
+        Prelude.rnf position `Prelude.seq`
+          Prelude.rnf restApiId
 
 instance Data.ToHeaders GetResources where
   toHeaders =
@@ -256,6 +256,6 @@ getResourcesResponse_httpStatus = Lens.lens (\GetResourcesResponse' {httpStatus}
 
 instance Prelude.NFData GetResourcesResponse where
   rnf GetResourcesResponse' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf position
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf items `Prelude.seq`
+      Prelude.rnf position `Prelude.seq`
+        Prelude.rnf httpStatus

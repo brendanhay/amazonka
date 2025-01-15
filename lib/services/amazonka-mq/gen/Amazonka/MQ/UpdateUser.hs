@@ -162,11 +162,11 @@ instance Prelude.Hashable UpdateUser where
 
 instance Prelude.NFData UpdateUser where
   rnf UpdateUser' {..} =
-    Prelude.rnf consoleAccess
-      `Prelude.seq` Prelude.rnf groups
-      `Prelude.seq` Prelude.rnf password
-      `Prelude.seq` Prelude.rnf username
-      `Prelude.seq` Prelude.rnf brokerId
+    Prelude.rnf consoleAccess `Prelude.seq`
+      Prelude.rnf groups `Prelude.seq`
+        Prelude.rnf password `Prelude.seq`
+          Prelude.rnf username `Prelude.seq`
+            Prelude.rnf brokerId
 
 instance Data.ToHeaders UpdateUser where
   toHeaders =

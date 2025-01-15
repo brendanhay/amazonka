@@ -323,12 +323,12 @@ instance Core.AWSPager ListUploads where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listUploads_nextToken
-          Lens..~ rs
-          Lens.^? listUploadsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listUploads_nextToken
+              Lens..~ rs
+              Lens.^? listUploadsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListUploads where
   type AWSResponse ListUploads = ListUploadsResponse
@@ -352,9 +352,9 @@ instance Prelude.Hashable ListUploads where
 
 instance Prelude.NFData ListUploads where
   rnf ListUploads' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf type' `Prelude.seq`
+        Prelude.rnf arn
 
 instance Data.ToHeaders ListUploads where
   toHeaders =
@@ -444,6 +444,6 @@ listUploadsResponse_httpStatus = Lens.lens (\ListUploadsResponse' {httpStatus} -
 
 instance Prelude.NFData ListUploadsResponse where
   rnf ListUploadsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf uploads
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf uploads `Prelude.seq`
+        Prelude.rnf httpStatus

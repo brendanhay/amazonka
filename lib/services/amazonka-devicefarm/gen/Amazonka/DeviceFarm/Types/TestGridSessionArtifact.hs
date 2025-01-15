@@ -97,6 +97,6 @@ instance Prelude.Hashable TestGridSessionArtifact where
 
 instance Prelude.NFData TestGridSessionArtifact where
   rnf TestGridSessionArtifact' {..} =
-    Prelude.rnf filename
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf url
+    Prelude.rnf filename `Prelude.seq`
+      Prelude.rnf type' `Prelude.seq`
+        Prelude.rnf url

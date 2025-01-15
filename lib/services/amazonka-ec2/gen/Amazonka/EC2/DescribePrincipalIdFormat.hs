@@ -183,12 +183,12 @@ instance Core.AWSPager DescribePrincipalIdFormat where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describePrincipalIdFormat_nextToken
-          Lens..~ rs
-          Lens.^? describePrincipalIdFormatResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describePrincipalIdFormat_nextToken
+              Lens..~ rs
+              Lens.^? describePrincipalIdFormatResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribePrincipalIdFormat where
   type
@@ -201,9 +201,7 @@ instance Core.AWSRequest DescribePrincipalIdFormat where
       ( \s h x ->
           DescribePrincipalIdFormatResponse'
             Prelude.<$> (x Data..@? "nextToken")
-            Prelude.<*> ( x
-                            Data..@? "principalSet"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "principalSet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -219,10 +217,10 @@ instance Prelude.Hashable DescribePrincipalIdFormat where
 
 instance Prelude.NFData DescribePrincipalIdFormat where
   rnf DescribePrincipalIdFormat' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf resources
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf resources
 
 instance Data.ToHeaders DescribePrincipalIdFormat where
   toHeaders = Prelude.const Prelude.mempty
@@ -300,6 +298,6 @@ instance
     DescribePrincipalIdFormatResponse
   where
   rnf DescribePrincipalIdFormatResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf principals
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf principals `Prelude.seq`
+        Prelude.rnf httpStatus

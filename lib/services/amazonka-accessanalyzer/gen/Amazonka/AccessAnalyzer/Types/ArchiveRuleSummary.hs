@@ -112,7 +112,7 @@ instance Prelude.Hashable ArchiveRuleSummary where
 
 instance Prelude.NFData ArchiveRuleSummary where
   rnf ArchiveRuleSummary' {..} =
-    Prelude.rnf ruleName
-      `Prelude.seq` Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf updatedAt
+    Prelude.rnf ruleName `Prelude.seq`
+      Prelude.rnf filter' `Prelude.seq`
+        Prelude.rnf createdAt `Prelude.seq`
+          Prelude.rnf updatedAt

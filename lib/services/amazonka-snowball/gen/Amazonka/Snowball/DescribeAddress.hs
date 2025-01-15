@@ -167,5 +167,5 @@ describeAddressResponse_httpStatus = Lens.lens (\DescribeAddressResponse' {httpS
 
 instance Prelude.NFData DescribeAddressResponse where
   rnf DescribeAddressResponse' {..} =
-    Prelude.rnf address
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf address `Prelude.seq`
+      Prelude.rnf httpStatus

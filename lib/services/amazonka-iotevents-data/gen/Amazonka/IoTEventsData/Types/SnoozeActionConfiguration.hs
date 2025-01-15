@@ -83,5 +83,5 @@ instance Prelude.Hashable SnoozeActionConfiguration where
 
 instance Prelude.NFData SnoozeActionConfiguration where
   rnf SnoozeActionConfiguration' {..} =
-    Prelude.rnf note
-      `Prelude.seq` Prelude.rnf snoozeDuration
+    Prelude.rnf note `Prelude.seq`
+      Prelude.rnf snoozeDuration

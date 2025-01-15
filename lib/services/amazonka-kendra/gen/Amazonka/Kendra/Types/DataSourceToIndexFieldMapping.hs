@@ -102,9 +102,9 @@ instance
 
 instance Prelude.NFData DataSourceToIndexFieldMapping where
   rnf DataSourceToIndexFieldMapping' {..} =
-    Prelude.rnf dateFieldFormat
-      `Prelude.seq` Prelude.rnf dataSourceFieldName
-      `Prelude.seq` Prelude.rnf indexFieldName
+    Prelude.rnf dateFieldFormat `Prelude.seq`
+      Prelude.rnf dataSourceFieldName `Prelude.seq`
+        Prelude.rnf indexFieldName
 
 instance Data.ToJSON DataSourceToIndexFieldMapping where
   toJSON DataSourceToIndexFieldMapping' {..} =

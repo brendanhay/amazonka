@@ -91,5 +91,5 @@ instance
 
 instance Prelude.NFData ResponseHeadersPolicySummary where
   rnf ResponseHeadersPolicySummary' {..} =
-    Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf responseHeadersPolicy
+    Prelude.rnf type' `Prelude.seq`
+      Prelude.rnf responseHeadersPolicy

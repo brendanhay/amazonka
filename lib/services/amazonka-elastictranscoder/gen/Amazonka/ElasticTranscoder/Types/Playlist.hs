@@ -295,10 +295,10 @@ instance Prelude.Hashable Playlist where
 
 instance Prelude.NFData Playlist where
   rnf Playlist' {..} =
-    Prelude.rnf format
-      `Prelude.seq` Prelude.rnf hlsContentProtection
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf outputKeys
-      `Prelude.seq` Prelude.rnf playReadyDrm
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusDetail
+    Prelude.rnf format `Prelude.seq`
+      Prelude.rnf hlsContentProtection `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf outputKeys `Prelude.seq`
+            Prelude.rnf playReadyDrm `Prelude.seq`
+              Prelude.rnf status `Prelude.seq`
+                Prelude.rnf statusDetail

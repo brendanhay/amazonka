@@ -99,6 +99,6 @@ instance Prelude.Hashable AccountLimit where
 
 instance Prelude.NFData AccountLimit where
   rnf AccountLimit' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf used
-      `Prelude.seq` Prelude.rnf max
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf used `Prelude.seq`
+        Prelude.rnf max

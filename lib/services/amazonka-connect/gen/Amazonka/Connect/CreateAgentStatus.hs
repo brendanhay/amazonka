@@ -167,12 +167,12 @@ instance Prelude.Hashable CreateAgentStatus where
 
 instance Prelude.NFData CreateAgentStatus where
   rnf CreateAgentStatus' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf displayOrder
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf displayOrder `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf instanceId `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf state
 
 instance Data.ToHeaders CreateAgentStatus where
   toHeaders =
@@ -255,6 +255,6 @@ createAgentStatusResponse_httpStatus = Lens.lens (\CreateAgentStatusResponse' {h
 
 instance Prelude.NFData CreateAgentStatusResponse where
   rnf CreateAgentStatusResponse' {..} =
-    Prelude.rnf agentStatusARN
-      `Prelude.seq` Prelude.rnf agentStatusId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf agentStatusARN `Prelude.seq`
+      Prelude.rnf agentStatusId `Prelude.seq`
+        Prelude.rnf httpStatus

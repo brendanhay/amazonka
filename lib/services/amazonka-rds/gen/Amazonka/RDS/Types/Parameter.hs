@@ -190,17 +190,17 @@ instance Prelude.Hashable Parameter where
 
 instance Prelude.NFData Parameter where
   rnf Parameter' {..} =
-    Prelude.rnf allowedValues
-      `Prelude.seq` Prelude.rnf applyMethod
-      `Prelude.seq` Prelude.rnf applyType
-      `Prelude.seq` Prelude.rnf dataType
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf isModifiable
-      `Prelude.seq` Prelude.rnf minimumEngineVersion
-      `Prelude.seq` Prelude.rnf parameterName
-      `Prelude.seq` Prelude.rnf parameterValue
-      `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf supportedEngineModes
+    Prelude.rnf allowedValues `Prelude.seq`
+      Prelude.rnf applyMethod `Prelude.seq`
+        Prelude.rnf applyType `Prelude.seq`
+          Prelude.rnf dataType `Prelude.seq`
+            Prelude.rnf description `Prelude.seq`
+              Prelude.rnf isModifiable `Prelude.seq`
+                Prelude.rnf minimumEngineVersion `Prelude.seq`
+                  Prelude.rnf parameterName `Prelude.seq`
+                    Prelude.rnf parameterValue `Prelude.seq`
+                      Prelude.rnf source `Prelude.seq`
+                        Prelude.rnf supportedEngineModes
 
 instance Data.ToQuery Parameter where
   toQuery Parameter' {..} =

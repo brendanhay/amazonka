@@ -121,8 +121,8 @@ instance Prelude.Hashable TagDeliveryStream where
 
 instance Prelude.NFData TagDeliveryStream where
   rnf TagDeliveryStream' {..} =
-    Prelude.rnf deliveryStreamName
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf deliveryStreamName `Prelude.seq`
+      Prelude.rnf tags
 
 instance Data.ToHeaders TagDeliveryStream where
   toHeaders =

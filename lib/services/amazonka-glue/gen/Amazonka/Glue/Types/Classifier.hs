@@ -116,7 +116,7 @@ instance Prelude.Hashable Classifier where
 
 instance Prelude.NFData Classifier where
   rnf Classifier' {..} =
-    Prelude.rnf csvClassifier
-      `Prelude.seq` Prelude.rnf grokClassifier
-      `Prelude.seq` Prelude.rnf jsonClassifier
-      `Prelude.seq` Prelude.rnf xMLClassifier
+    Prelude.rnf csvClassifier `Prelude.seq`
+      Prelude.rnf grokClassifier `Prelude.seq`
+        Prelude.rnf jsonClassifier `Prelude.seq`
+          Prelude.rnf xMLClassifier

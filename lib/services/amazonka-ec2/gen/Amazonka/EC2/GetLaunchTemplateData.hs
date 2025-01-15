@@ -125,8 +125,8 @@ instance Prelude.Hashable GetLaunchTemplateData where
 
 instance Prelude.NFData GetLaunchTemplateData where
   rnf GetLaunchTemplateData' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf instanceId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf instanceId
 
 instance Data.ToHeaders GetLaunchTemplateData where
   toHeaders = Prelude.const Prelude.mempty
@@ -186,5 +186,5 @@ getLaunchTemplateDataResponse_httpStatus = Lens.lens (\GetLaunchTemplateDataResp
 
 instance Prelude.NFData GetLaunchTemplateDataResponse where
   rnf GetLaunchTemplateDataResponse' {..} =
-    Prelude.rnf launchTemplateData
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf launchTemplateData `Prelude.seq`
+      Prelude.rnf httpStatus

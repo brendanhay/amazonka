@@ -267,14 +267,14 @@ instance Prelude.Hashable CreateTapeWithBarcode where
 
 instance Prelude.NFData CreateTapeWithBarcode where
   rnf CreateTapeWithBarcode' {..} =
-    Prelude.rnf kmsEncrypted
-      `Prelude.seq` Prelude.rnf kmsKey
-      `Prelude.seq` Prelude.rnf poolId
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf worm
-      `Prelude.seq` Prelude.rnf gatewayARN
-      `Prelude.seq` Prelude.rnf tapeSizeInBytes
-      `Prelude.seq` Prelude.rnf tapeBarcode
+    Prelude.rnf kmsEncrypted `Prelude.seq`
+      Prelude.rnf kmsKey `Prelude.seq`
+        Prelude.rnf poolId `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf worm `Prelude.seq`
+              Prelude.rnf gatewayARN `Prelude.seq`
+                Prelude.rnf tapeSizeInBytes `Prelude.seq`
+                  Prelude.rnf tapeBarcode
 
 instance Data.ToHeaders CreateTapeWithBarcode where
   toHeaders =
@@ -359,5 +359,5 @@ createTapeWithBarcodeResponse_httpStatus = Lens.lens (\CreateTapeWithBarcodeResp
 
 instance Prelude.NFData CreateTapeWithBarcodeResponse where
   rnf CreateTapeWithBarcodeResponse' {..} =
-    Prelude.rnf tapeARN
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf tapeARN `Prelude.seq`
+      Prelude.rnf httpStatus

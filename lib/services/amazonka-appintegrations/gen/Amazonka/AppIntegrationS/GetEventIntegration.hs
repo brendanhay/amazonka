@@ -210,10 +210,10 @@ getEventIntegrationResponse_httpStatus = Lens.lens (\GetEventIntegrationResponse
 
 instance Prelude.NFData GetEventIntegrationResponse where
   rnf GetEventIntegrationResponse' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf eventBridgeBus
-      `Prelude.seq` Prelude.rnf eventFilter
-      `Prelude.seq` Prelude.rnf eventIntegrationArn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf eventBridgeBus `Prelude.seq`
+        Prelude.rnf eventFilter `Prelude.seq`
+          Prelude.rnf eventIntegrationArn `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf tags `Prelude.seq`
+                Prelude.rnf httpStatus

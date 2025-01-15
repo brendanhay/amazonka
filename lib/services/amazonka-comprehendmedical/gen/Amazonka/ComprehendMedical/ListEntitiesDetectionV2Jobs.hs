@@ -132,9 +132,9 @@ instance Prelude.Hashable ListEntitiesDetectionV2Jobs where
 
 instance Prelude.NFData ListEntitiesDetectionV2Jobs where
   rnf ListEntitiesDetectionV2Jobs' {..} =
-    Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filter' `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListEntitiesDetectionV2Jobs where
   toHeaders =
@@ -220,6 +220,6 @@ instance
     ListEntitiesDetectionV2JobsResponse
   where
   rnf ListEntitiesDetectionV2JobsResponse' {..} =
-    Prelude.rnf comprehendMedicalAsyncJobPropertiesList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf comprehendMedicalAsyncJobPropertiesList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

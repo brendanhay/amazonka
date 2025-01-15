@@ -134,8 +134,8 @@ instance Prelude.Hashable DeleteKeyPair where
 
 instance Prelude.NFData DeleteKeyPair where
   rnf DeleteKeyPair' {..} =
-    Prelude.rnf expectedFingerprint
-      `Prelude.seq` Prelude.rnf keyPairName
+    Prelude.rnf expectedFingerprint `Prelude.seq`
+      Prelude.rnf keyPairName
 
 instance Data.ToHeaders DeleteKeyPair where
   toHeaders =
@@ -214,5 +214,5 @@ deleteKeyPairResponse_httpStatus = Lens.lens (\DeleteKeyPairResponse' {httpStatu
 
 instance Prelude.NFData DeleteKeyPairResponse where
   rnf DeleteKeyPairResponse' {..} =
-    Prelude.rnf operation
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operation `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -316,20 +316,20 @@ instance
     CreateInfrastructureConfiguration
   where
   rnf CreateInfrastructureConfiguration' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf instanceMetadataOptions
-      `Prelude.seq` Prelude.rnf instanceTypes
-      `Prelude.seq` Prelude.rnf keyPair
-      `Prelude.seq` Prelude.rnf logging
-      `Prelude.seq` Prelude.rnf resourceTags
-      `Prelude.seq` Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf snsTopicArn
-      `Prelude.seq` Prelude.rnf subnetId
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf terminateInstanceOnFailure
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf instanceProfileName
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf instanceMetadataOptions `Prelude.seq`
+        Prelude.rnf instanceTypes `Prelude.seq`
+          Prelude.rnf keyPair `Prelude.seq`
+            Prelude.rnf logging `Prelude.seq`
+              Prelude.rnf resourceTags `Prelude.seq`
+                Prelude.rnf securityGroupIds `Prelude.seq`
+                  Prelude.rnf snsTopicArn `Prelude.seq`
+                    Prelude.rnf subnetId `Prelude.seq`
+                      Prelude.rnf tags `Prelude.seq`
+                        Prelude.rnf terminateInstanceOnFailure `Prelude.seq`
+                          Prelude.rnf name `Prelude.seq`
+                            Prelude.rnf instanceProfileName `Prelude.seq`
+                              Prelude.rnf clientToken
 
 instance
   Data.ToHeaders
@@ -453,7 +453,7 @@ instance
     CreateInfrastructureConfigurationResponse
   where
   rnf CreateInfrastructureConfigurationResponse' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf infrastructureConfigurationArn
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf infrastructureConfigurationArn `Prelude.seq`
+        Prelude.rnf requestId `Prelude.seq`
+          Prelude.rnf httpStatus

@@ -144,10 +144,10 @@ instance Prelude.Hashable PutStudioMembers where
 
 instance Prelude.NFData PutStudioMembers where
   rnf PutStudioMembers' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf identityStoreId
-      `Prelude.seq` Prelude.rnf members
-      `Prelude.seq` Prelude.rnf studioId
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf identityStoreId `Prelude.seq`
+        Prelude.rnf members `Prelude.seq`
+          Prelude.rnf studioId
 
 instance Data.ToHeaders PutStudioMembers where
   toHeaders PutStudioMembers' {..} =

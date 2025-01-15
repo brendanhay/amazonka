@@ -164,11 +164,11 @@ instance Prelude.Hashable ListServerNeighbors where
 
 instance Prelude.NFData ListServerNeighbors where
   rnf ListServerNeighbors' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf neighborConfigurationIds
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf portInformationNeeded
-      `Prelude.seq` Prelude.rnf configurationId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf neighborConfigurationIds `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf portInformationNeeded `Prelude.seq`
+            Prelude.rnf configurationId
 
 instance Data.ToHeaders ListServerNeighbors where
   toHeaders =
@@ -277,7 +277,7 @@ listServerNeighborsResponse_neighbors = Lens.lens (\ListServerNeighborsResponse'
 
 instance Prelude.NFData ListServerNeighborsResponse where
   rnf ListServerNeighborsResponse' {..} =
-    Prelude.rnf knownDependencyCount
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf neighbors
+    Prelude.rnf knownDependencyCount `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus `Prelude.seq`
+          Prelude.rnf neighbors

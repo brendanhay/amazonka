@@ -93,6 +93,6 @@ instance Prelude.Hashable ImageFailure where
 
 instance Prelude.NFData ImageFailure where
   rnf ImageFailure' {..} =
-    Prelude.rnf failureCode
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf imageId
+    Prelude.rnf failureCode `Prelude.seq`
+      Prelude.rnf failureReason `Prelude.seq`
+        Prelude.rnf imageId

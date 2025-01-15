@@ -142,9 +142,9 @@ instance
     FailoverGlobalReplicationGroup
   where
   rnf FailoverGlobalReplicationGroup' {..} =
-    Prelude.rnf globalReplicationGroupId
-      `Prelude.seq` Prelude.rnf primaryRegion
-      `Prelude.seq` Prelude.rnf primaryReplicationGroupId
+    Prelude.rnf globalReplicationGroupId `Prelude.seq`
+      Prelude.rnf primaryRegion `Prelude.seq`
+        Prelude.rnf primaryReplicationGroupId
 
 instance
   Data.ToHeaders
@@ -215,5 +215,5 @@ instance
     FailoverGlobalReplicationGroupResponse
   where
   rnf FailoverGlobalReplicationGroupResponse' {..} =
-    Prelude.rnf globalReplicationGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf globalReplicationGroup `Prelude.seq`
+      Prelude.rnf httpStatus

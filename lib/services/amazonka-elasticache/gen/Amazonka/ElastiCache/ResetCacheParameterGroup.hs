@@ -144,9 +144,9 @@ instance Prelude.Hashable ResetCacheParameterGroup where
 
 instance Prelude.NFData ResetCacheParameterGroup where
   rnf ResetCacheParameterGroup' {..} =
-    Prelude.rnf parameterNameValues
-      `Prelude.seq` Prelude.rnf resetAllParameters
-      `Prelude.seq` Prelude.rnf cacheParameterGroupName
+    Prelude.rnf parameterNameValues `Prelude.seq`
+      Prelude.rnf resetAllParameters `Prelude.seq`
+        Prelude.rnf cacheParameterGroupName
 
 instance Data.ToHeaders ResetCacheParameterGroup where
   toHeaders = Prelude.const Prelude.mempty

@@ -164,5 +164,5 @@ getNetworkProfileResponse_httpStatus = Lens.lens (\GetNetworkProfileResponse' {h
 
 instance Prelude.NFData GetNetworkProfileResponse where
   rnf GetNetworkProfileResponse' {..} =
-    Prelude.rnf networkProfile
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf networkProfile `Prelude.seq`
+      Prelude.rnf httpStatus

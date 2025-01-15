@@ -157,5 +157,5 @@ describeWorkspaceResponse_workspace = Lens.lens (\DescribeWorkspaceResponse' {wo
 
 instance Prelude.NFData DescribeWorkspaceResponse where
   rnf DescribeWorkspaceResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf workspace
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf workspace

@@ -127,9 +127,9 @@ instance Prelude.Hashable RequestServiceQuotaIncrease where
 
 instance Prelude.NFData RequestServiceQuotaIncrease where
   rnf RequestServiceQuotaIncrease' {..} =
-    Prelude.rnf serviceCode
-      `Prelude.seq` Prelude.rnf quotaCode
-      `Prelude.seq` Prelude.rnf desiredValue
+    Prelude.rnf serviceCode `Prelude.seq`
+      Prelude.rnf quotaCode `Prelude.seq`
+        Prelude.rnf desiredValue
 
 instance Data.ToHeaders RequestServiceQuotaIncrease where
   toHeaders =
@@ -206,5 +206,5 @@ instance
     RequestServiceQuotaIncreaseResponse
   where
   rnf RequestServiceQuotaIncreaseResponse' {..} =
-    Prelude.rnf requestedQuota
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf requestedQuota `Prelude.seq`
+      Prelude.rnf httpStatus

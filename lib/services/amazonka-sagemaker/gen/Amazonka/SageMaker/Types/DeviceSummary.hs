@@ -165,12 +165,12 @@ instance Prelude.Hashable DeviceSummary where
 
 instance Prelude.NFData DeviceSummary where
   rnf DeviceSummary' {..} =
-    Prelude.rnf agentVersion
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf deviceFleetName
-      `Prelude.seq` Prelude.rnf iotThingName
-      `Prelude.seq` Prelude.rnf latestHeartbeat
-      `Prelude.seq` Prelude.rnf models
-      `Prelude.seq` Prelude.rnf registrationTime
-      `Prelude.seq` Prelude.rnf deviceName
-      `Prelude.seq` Prelude.rnf deviceArn
+    Prelude.rnf agentVersion `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf deviceFleetName `Prelude.seq`
+          Prelude.rnf iotThingName `Prelude.seq`
+            Prelude.rnf latestHeartbeat `Prelude.seq`
+              Prelude.rnf models `Prelude.seq`
+                Prelude.rnf registrationTime `Prelude.seq`
+                  Prelude.rnf deviceName `Prelude.seq`
+                    Prelude.rnf deviceArn

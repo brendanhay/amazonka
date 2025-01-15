@@ -164,5 +164,5 @@ getTestResponse_httpStatus = Lens.lens (\GetTestResponse' {httpStatus} -> httpSt
 
 instance Prelude.NFData GetTestResponse where
   rnf GetTestResponse' {..} =
-    Prelude.rnf test
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf test `Prelude.seq`
+      Prelude.rnf httpStatus

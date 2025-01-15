@@ -104,9 +104,9 @@ instance
 
 instance Prelude.NFData VirtualGatewayConnectionPool where
   rnf VirtualGatewayConnectionPool' {..} =
-    Prelude.rnf grpc
-      `Prelude.seq` Prelude.rnf http
-      `Prelude.seq` Prelude.rnf http2
+    Prelude.rnf grpc `Prelude.seq`
+      Prelude.rnf http `Prelude.seq`
+        Prelude.rnf http2
 
 instance Data.ToJSON VirtualGatewayConnectionPool where
   toJSON VirtualGatewayConnectionPool' {..} =

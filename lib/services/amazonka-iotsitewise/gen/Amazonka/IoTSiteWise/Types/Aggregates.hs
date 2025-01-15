@@ -124,9 +124,9 @@ instance Prelude.Hashable Aggregates where
 
 instance Prelude.NFData Aggregates where
   rnf Aggregates' {..} =
-    Prelude.rnf average
-      `Prelude.seq` Prelude.rnf count
-      `Prelude.seq` Prelude.rnf maximum
-      `Prelude.seq` Prelude.rnf minimum
-      `Prelude.seq` Prelude.rnf standardDeviation
-      `Prelude.seq` Prelude.rnf sum
+    Prelude.rnf average `Prelude.seq`
+      Prelude.rnf count `Prelude.seq`
+        Prelude.rnf maximum `Prelude.seq`
+          Prelude.rnf minimum `Prelude.seq`
+            Prelude.rnf standardDeviation `Prelude.seq`
+              Prelude.rnf sum

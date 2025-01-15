@@ -142,8 +142,8 @@ instance
     BatchGetAggregateResourceConfig
   where
   rnf BatchGetAggregateResourceConfig' {..} =
-    Prelude.rnf configurationAggregatorName
-      `Prelude.seq` Prelude.rnf resourceIdentifiers
+    Prelude.rnf configurationAggregatorName `Prelude.seq`
+      Prelude.rnf resourceIdentifiers
 
 instance
   Data.ToHeaders
@@ -240,6 +240,6 @@ instance
     BatchGetAggregateResourceConfigResponse
   where
   rnf BatchGetAggregateResourceConfigResponse' {..} =
-    Prelude.rnf baseConfigurationItems
-      `Prelude.seq` Prelude.rnf unprocessedResourceIdentifiers
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf baseConfigurationItems `Prelude.seq`
+      Prelude.rnf unprocessedResourceIdentifiers `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -208,10 +208,10 @@ instance
     ListObservabilityConfigurations
   where
   rnf ListObservabilityConfigurations' {..} =
-    Prelude.rnf latestOnly
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf observabilityConfigurationName
+    Prelude.rnf latestOnly `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf observabilityConfigurationName
 
 instance
   Data.ToHeaders
@@ -313,6 +313,6 @@ instance
     ListObservabilityConfigurationsResponse
   where
   rnf ListObservabilityConfigurationsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf observabilityConfigurationSummaryList
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf observabilityConfigurationSummaryList

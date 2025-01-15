@@ -169,5 +169,5 @@ deleteEmailChannelResponse_emailChannelResponse = Lens.lens (\DeleteEmailChannel
 
 instance Prelude.NFData DeleteEmailChannelResponse where
   rnf DeleteEmailChannelResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf emailChannelResponse
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf emailChannelResponse

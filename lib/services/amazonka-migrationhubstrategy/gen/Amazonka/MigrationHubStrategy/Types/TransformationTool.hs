@@ -93,6 +93,6 @@ instance Prelude.Hashable TransformationTool where
 
 instance Prelude.NFData TransformationTool where
   rnf TransformationTool' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf tranformationToolInstallationLink
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf tranformationToolInstallationLink

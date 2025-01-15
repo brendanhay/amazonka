@@ -184,6 +184,6 @@ batchGetReportGroupsResponse_httpStatus = Lens.lens (\BatchGetReportGroupsRespon
 
 instance Prelude.NFData BatchGetReportGroupsResponse where
   rnf BatchGetReportGroupsResponse' {..} =
-    Prelude.rnf reportGroups
-      `Prelude.seq` Prelude.rnf reportGroupsNotFound
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf reportGroups `Prelude.seq`
+      Prelude.rnf reportGroupsNotFound `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -150,13 +150,13 @@ instance Prelude.Hashable TransformOperation where
 
 instance Prelude.NFData TransformOperation where
   rnf TransformOperation' {..} =
-    Prelude.rnf castColumnTypeOperation
-      `Prelude.seq` Prelude.rnf createColumnsOperation
-      `Prelude.seq` Prelude.rnf filterOperation
-      `Prelude.seq` Prelude.rnf projectOperation
-      `Prelude.seq` Prelude.rnf renameColumnOperation
-      `Prelude.seq` Prelude.rnf tagColumnOperation
-      `Prelude.seq` Prelude.rnf untagColumnOperation
+    Prelude.rnf castColumnTypeOperation `Prelude.seq`
+      Prelude.rnf createColumnsOperation `Prelude.seq`
+        Prelude.rnf filterOperation `Prelude.seq`
+          Prelude.rnf projectOperation `Prelude.seq`
+            Prelude.rnf renameColumnOperation `Prelude.seq`
+              Prelude.rnf tagColumnOperation `Prelude.seq`
+                Prelude.rnf untagColumnOperation
 
 instance Data.ToJSON TransformOperation where
   toJSON TransformOperation' {..} =

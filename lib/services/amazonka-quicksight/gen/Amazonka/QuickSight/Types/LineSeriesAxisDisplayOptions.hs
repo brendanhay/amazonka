@@ -92,8 +92,8 @@ instance
 
 instance Prelude.NFData LineSeriesAxisDisplayOptions where
   rnf LineSeriesAxisDisplayOptions' {..} =
-    Prelude.rnf axisOptions
-      `Prelude.seq` Prelude.rnf missingDataConfigurations
+    Prelude.rnf axisOptions `Prelude.seq`
+      Prelude.rnf missingDataConfigurations
 
 instance Data.ToJSON LineSeriesAxisDisplayOptions where
   toJSON LineSeriesAxisDisplayOptions' {..} =

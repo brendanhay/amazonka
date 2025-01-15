@@ -85,5 +85,5 @@ instance Prelude.Hashable DatasetLabelStats where
 
 instance Prelude.NFData DatasetLabelStats where
   rnf DatasetLabelStats' {..} =
-    Prelude.rnf boundingBoxCount
-      `Prelude.seq` Prelude.rnf entryCount
+    Prelude.rnf boundingBoxCount `Prelude.seq`
+      Prelude.rnf entryCount

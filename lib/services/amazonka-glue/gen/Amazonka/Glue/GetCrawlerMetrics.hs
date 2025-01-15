@@ -113,12 +113,12 @@ instance Core.AWSPager GetCrawlerMetrics where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getCrawlerMetrics_nextToken
-          Lens..~ rs
-          Lens.^? getCrawlerMetricsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getCrawlerMetrics_nextToken
+              Lens..~ rs
+              Lens.^? getCrawlerMetricsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetCrawlerMetrics where
   type
@@ -147,9 +147,9 @@ instance Prelude.Hashable GetCrawlerMetrics where
 
 instance Prelude.NFData GetCrawlerMetrics where
   rnf GetCrawlerMetrics' {..} =
-    Prelude.rnf crawlerNameList
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf crawlerNameList `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders GetCrawlerMetrics where
   toHeaders =
@@ -234,6 +234,6 @@ getCrawlerMetricsResponse_httpStatus = Lens.lens (\GetCrawlerMetricsResponse' {h
 
 instance Prelude.NFData GetCrawlerMetricsResponse where
   rnf GetCrawlerMetricsResponse' {..} =
-    Prelude.rnf crawlerMetricsList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf crawlerMetricsList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

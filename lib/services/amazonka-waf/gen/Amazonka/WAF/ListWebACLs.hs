@@ -135,12 +135,12 @@ instance Core.AWSPager ListWebACLs where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listWebACLs_nextMarker
-          Lens..~ rs
-          Lens.^? listWebACLsResponse_nextMarker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listWebACLs_nextMarker
+              Lens..~ rs
+              Lens.^? listWebACLsResponse_nextMarker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListWebACLs where
   type AWSResponse ListWebACLs = ListWebACLsResponse
@@ -163,8 +163,8 @@ instance Prelude.Hashable ListWebACLs where
 
 instance Prelude.NFData ListWebACLs where
   rnf ListWebACLs' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nextMarker
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf nextMarker
 
 instance Data.ToHeaders ListWebACLs where
   toHeaders =
@@ -257,6 +257,6 @@ listWebACLsResponse_httpStatus = Lens.lens (\ListWebACLsResponse' {httpStatus} -
 
 instance Prelude.NFData ListWebACLsResponse where
   rnf ListWebACLsResponse' {..} =
-    Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf webACLs
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextMarker `Prelude.seq`
+      Prelude.rnf webACLs `Prelude.seq`
+        Prelude.rnf httpStatus

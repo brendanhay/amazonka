@@ -115,8 +115,8 @@ instance Prelude.Hashable LayerVersionContentOutput where
 
 instance Prelude.NFData LayerVersionContentOutput where
   rnf LayerVersionContentOutput' {..} =
-    Prelude.rnf codeSha256
-      `Prelude.seq` Prelude.rnf codeSize
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf signingJobArn
-      `Prelude.seq` Prelude.rnf signingProfileVersionArn
+    Prelude.rnf codeSha256 `Prelude.seq`
+      Prelude.rnf codeSize `Prelude.seq`
+        Prelude.rnf location `Prelude.seq`
+          Prelude.rnf signingJobArn `Prelude.seq`
+            Prelude.rnf signingProfileVersionArn

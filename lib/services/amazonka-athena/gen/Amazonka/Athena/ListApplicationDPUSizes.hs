@@ -116,8 +116,8 @@ instance Prelude.Hashable ListApplicationDPUSizes where
 
 instance Prelude.NFData ListApplicationDPUSizes where
   rnf ListApplicationDPUSizes' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListApplicationDPUSizes where
   toHeaders =
@@ -211,6 +211,6 @@ instance
     ListApplicationDPUSizesResponse
   where
   rnf ListApplicationDPUSizesResponse' {..} =
-    Prelude.rnf applicationDPUSizes
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf applicationDPUSizes `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

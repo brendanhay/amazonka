@@ -148,10 +148,10 @@ instance
     CreateTransitGatewayRouteTableAttachment
   where
   rnf CreateTransitGatewayRouteTableAttachment' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf peeringId
-      `Prelude.seq` Prelude.rnf transitGatewayRouteTableArn
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf peeringId `Prelude.seq`
+          Prelude.rnf transitGatewayRouteTableArn
 
 instance
   Data.ToHeaders
@@ -247,5 +247,5 @@ instance
   where
   rnf
     CreateTransitGatewayRouteTableAttachmentResponse' {..} =
-      Prelude.rnf transitGatewayRouteTableAttachment
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf transitGatewayRouteTableAttachment `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -104,8 +104,8 @@ instance
     RiskExceptionConfigurationType
   where
   rnf RiskExceptionConfigurationType' {..} =
-    Prelude.rnf blockedIPRangeList
-      `Prelude.seq` Prelude.rnf skippedIPRangeList
+    Prelude.rnf blockedIPRangeList `Prelude.seq`
+      Prelude.rnf skippedIPRangeList
 
 instance Data.ToJSON RiskExceptionConfigurationType where
   toJSON RiskExceptionConfigurationType' {..} =

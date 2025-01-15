@@ -184,6 +184,6 @@ instance
     GetDistributionConfigurationResponse
   where
   rnf GetDistributionConfigurationResponse' {..} =
-    Prelude.rnf distributionConfiguration
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf distributionConfiguration `Prelude.seq`
+      Prelude.rnf requestId `Prelude.seq`
+        Prelude.rnf httpStatus

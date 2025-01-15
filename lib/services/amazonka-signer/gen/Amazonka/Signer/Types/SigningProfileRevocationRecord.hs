@@ -100,6 +100,6 @@ instance
     SigningProfileRevocationRecord
   where
   rnf SigningProfileRevocationRecord' {..} =
-    Prelude.rnf revocationEffectiveFrom
-      `Prelude.seq` Prelude.rnf revokedAt
-      `Prelude.seq` Prelude.rnf revokedBy
+    Prelude.rnf revocationEffectiveFrom `Prelude.seq`
+      Prelude.rnf revokedAt `Prelude.seq`
+        Prelude.rnf revokedBy

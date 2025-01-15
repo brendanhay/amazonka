@@ -113,6 +113,6 @@ instance
     ImportAssetsFromS3ResponseDetails
   where
   rnf ImportAssetsFromS3ResponseDetails' {..} =
-    Prelude.rnf assetSources
-      `Prelude.seq` Prelude.rnf dataSetId
-      `Prelude.seq` Prelude.rnf revisionId
+    Prelude.rnf assetSources `Prelude.seq`
+      Prelude.rnf dataSetId `Prelude.seq`
+        Prelude.rnf revisionId

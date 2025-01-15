@@ -248,12 +248,12 @@ instance Prelude.Hashable Environment where
 
 instance Prelude.NFData Environment where
   rnf Environment' {..} =
-    Prelude.rnf connectionType
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf lifecycle
-      `Prelude.seq` Prelude.rnf managedCredentialsStatus
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf ownerArn
+    Prelude.rnf connectionType `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf lifecycle `Prelude.seq`
+            Prelude.rnf managedCredentialsStatus `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf type' `Prelude.seq`
+                  Prelude.rnf arn `Prelude.seq`
+                    Prelude.rnf ownerArn

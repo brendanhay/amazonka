@@ -110,8 +110,8 @@ instance Prelude.Hashable PutProtocolsList where
 
 instance Prelude.NFData PutProtocolsList where
   rnf PutProtocolsList' {..} =
-    Prelude.rnf tagList
-      `Prelude.seq` Prelude.rnf protocolsList
+    Prelude.rnf tagList `Prelude.seq`
+      Prelude.rnf protocolsList
 
 instance Data.ToHeaders PutProtocolsList where
   toHeaders =
@@ -194,6 +194,6 @@ putProtocolsListResponse_httpStatus = Lens.lens (\PutProtocolsListResponse' {htt
 
 instance Prelude.NFData PutProtocolsListResponse where
   rnf PutProtocolsListResponse' {..} =
-    Prelude.rnf protocolsList
-      `Prelude.seq` Prelude.rnf protocolsListArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf protocolsList `Prelude.seq`
+      Prelude.rnf protocolsListArn `Prelude.seq`
+        Prelude.rnf httpStatus

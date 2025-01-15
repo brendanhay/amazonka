@@ -172,7 +172,7 @@ instance
     DownloadDefaultKeyPairResponse
   where
   rnf DownloadDefaultKeyPairResponse' {..} =
-    Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf privateKeyBase64
-      `Prelude.seq` Prelude.rnf publicKeyBase64
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf createdAt `Prelude.seq`
+      Prelude.rnf privateKeyBase64 `Prelude.seq`
+        Prelude.rnf publicKeyBase64 `Prelude.seq`
+          Prelude.rnf httpStatus

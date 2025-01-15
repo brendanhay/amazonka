@@ -154,10 +154,10 @@ instance Prelude.Hashable CreateLocationFsxLustre where
 
 instance Prelude.NFData CreateLocationFsxLustre where
   rnf CreateLocationFsxLustre' {..} =
-    Prelude.rnf subdirectory
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf fsxFilesystemArn
-      `Prelude.seq` Prelude.rnf securityGroupArns
+    Prelude.rnf subdirectory `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf fsxFilesystemArn `Prelude.seq`
+          Prelude.rnf securityGroupArns
 
 instance Data.ToHeaders CreateLocationFsxLustre where
   toHeaders =
@@ -240,5 +240,5 @@ instance
     CreateLocationFsxLustreResponse
   where
   rnf CreateLocationFsxLustreResponse' {..} =
-    Prelude.rnf locationArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf locationArn `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -147,13 +147,13 @@ instance Prelude.Hashable Sensor where
 
 instance Prelude.NFData Sensor where
   rnf Sensor' {..} =
-    Prelude.rnf allowedValues
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf max
-      `Prelude.seq` Prelude.rnf min
-      `Prelude.seq` Prelude.rnf unit
-      `Prelude.seq` Prelude.rnf fullyQualifiedName
-      `Prelude.seq` Prelude.rnf dataType
+    Prelude.rnf allowedValues `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf max `Prelude.seq`
+          Prelude.rnf min `Prelude.seq`
+            Prelude.rnf unit `Prelude.seq`
+              Prelude.rnf fullyQualifiedName `Prelude.seq`
+                Prelude.rnf dataType
 
 instance Data.ToJSON Sensor where
   toJSON Sensor' {..} =

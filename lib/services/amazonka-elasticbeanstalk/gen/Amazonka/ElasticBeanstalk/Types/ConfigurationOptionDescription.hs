@@ -284,9 +284,7 @@ instance Data.FromXML ConfigurationOptionDescription where
       Prelude.<*> (x Data..@? "Namespace")
       Prelude.<*> (x Data..@? "Regex")
       Prelude.<*> (x Data..@? "UserDefined")
-      Prelude.<*> ( x
-                      Data..@? "ValueOptions"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "ValueOptions" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "ValueType")
@@ -316,14 +314,14 @@ instance
     ConfigurationOptionDescription
   where
   rnf ConfigurationOptionDescription' {..} =
-    Prelude.rnf changeSeverity
-      `Prelude.seq` Prelude.rnf defaultValue
-      `Prelude.seq` Prelude.rnf maxLength
-      `Prelude.seq` Prelude.rnf maxValue
-      `Prelude.seq` Prelude.rnf minValue
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf namespace
-      `Prelude.seq` Prelude.rnf regex
-      `Prelude.seq` Prelude.rnf userDefined
-      `Prelude.seq` Prelude.rnf valueOptions
-      `Prelude.seq` Prelude.rnf valueType
+    Prelude.rnf changeSeverity `Prelude.seq`
+      Prelude.rnf defaultValue `Prelude.seq`
+        Prelude.rnf maxLength `Prelude.seq`
+          Prelude.rnf maxValue `Prelude.seq`
+            Prelude.rnf minValue `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf namespace `Prelude.seq`
+                  Prelude.rnf regex `Prelude.seq`
+                    Prelude.rnf userDefined `Prelude.seq`
+                      Prelude.rnf valueOptions `Prelude.seq`
+                        Prelude.rnf valueType

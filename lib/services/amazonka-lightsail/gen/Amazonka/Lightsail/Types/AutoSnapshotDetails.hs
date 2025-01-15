@@ -110,7 +110,7 @@ instance Prelude.Hashable AutoSnapshotDetails where
 
 instance Prelude.NFData AutoSnapshotDetails where
   rnf AutoSnapshotDetails' {..} =
-    Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf date
-      `Prelude.seq` Prelude.rnf fromAttachedDisks
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf createdAt `Prelude.seq`
+      Prelude.rnf date `Prelude.seq`
+        Prelude.rnf fromAttachedDisks `Prelude.seq`
+          Prelude.rnf status

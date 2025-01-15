@@ -82,8 +82,8 @@ instance Prelude.Hashable RenewalSettings where
 
 instance Prelude.NFData RenewalSettings where
   rnf RenewalSettings' {..} =
-    Prelude.rnf automaticRenewal
-      `Prelude.seq` Prelude.rnf renewalCount
+    Prelude.rnf automaticRenewal `Prelude.seq`
+      Prelude.rnf renewalCount
 
 instance Data.ToJSON RenewalSettings where
   toJSON RenewalSettings' {..} =

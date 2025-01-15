@@ -116,8 +116,8 @@ instance Prelude.Hashable UpdateRegistry where
 
 instance Prelude.NFData UpdateRegistry where
   rnf UpdateRegistry' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf registryName
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf registryName
 
 instance Data.ToHeaders UpdateRegistry where
   toHeaders =
@@ -213,8 +213,8 @@ updateRegistryResponse_httpStatus = Lens.lens (\UpdateRegistryResponse' {httpSta
 
 instance Prelude.NFData UpdateRegistryResponse where
   rnf UpdateRegistryResponse' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf registryArn
-      `Prelude.seq` Prelude.rnf registryName
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf registryArn `Prelude.seq`
+        Prelude.rnf registryName `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf httpStatus

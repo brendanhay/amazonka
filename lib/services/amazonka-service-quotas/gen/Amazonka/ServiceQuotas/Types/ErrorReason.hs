@@ -117,5 +117,5 @@ instance Prelude.Hashable ErrorReason where
 
 instance Prelude.NFData ErrorReason where
   rnf ErrorReason' {..} =
-    Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorMessage
+    Prelude.rnf errorCode `Prelude.seq`
+      Prelude.rnf errorMessage

@@ -148,10 +148,10 @@ instance
     Ec2InstanceAggregationResponse
   where
   rnf Ec2InstanceAggregationResponse' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf ami
-      `Prelude.seq` Prelude.rnf instanceTags
-      `Prelude.seq` Prelude.rnf networkFindings
-      `Prelude.seq` Prelude.rnf operatingSystem
-      `Prelude.seq` Prelude.rnf severityCounts
-      `Prelude.seq` Prelude.rnf instanceId
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf ami `Prelude.seq`
+        Prelude.rnf instanceTags `Prelude.seq`
+          Prelude.rnf networkFindings `Prelude.seq`
+            Prelude.rnf operatingSystem `Prelude.seq`
+              Prelude.rnf severityCounts `Prelude.seq`
+                Prelude.rnf instanceId

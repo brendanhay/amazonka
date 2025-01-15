@@ -240,18 +240,18 @@ instance Prelude.Hashable FlowDefinition where
 
 instance Prelude.NFData FlowDefinition where
   rnf FlowDefinition' {..} =
-    Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf createdBy
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf destinationConnectorLabel
-      `Prelude.seq` Prelude.rnf destinationConnectorType
-      `Prelude.seq` Prelude.rnf flowArn
-      `Prelude.seq` Prelude.rnf flowName
-      `Prelude.seq` Prelude.rnf flowStatus
-      `Prelude.seq` Prelude.rnf lastRunExecutionDetails
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf lastUpdatedBy
-      `Prelude.seq` Prelude.rnf sourceConnectorLabel
-      `Prelude.seq` Prelude.rnf sourceConnectorType
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf triggerType
+    Prelude.rnf createdAt `Prelude.seq`
+      Prelude.rnf createdBy `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf destinationConnectorLabel `Prelude.seq`
+            Prelude.rnf destinationConnectorType `Prelude.seq`
+              Prelude.rnf flowArn `Prelude.seq`
+                Prelude.rnf flowName `Prelude.seq`
+                  Prelude.rnf flowStatus `Prelude.seq`
+                    Prelude.rnf lastRunExecutionDetails `Prelude.seq`
+                      Prelude.rnf lastUpdatedAt `Prelude.seq`
+                        Prelude.rnf lastUpdatedBy `Prelude.seq`
+                          Prelude.rnf sourceConnectorLabel `Prelude.seq`
+                            Prelude.rnf sourceConnectorType `Prelude.seq`
+                              Prelude.rnf tags `Prelude.seq`
+                                Prelude.rnf triggerType

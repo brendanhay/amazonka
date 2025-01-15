@@ -212,10 +212,10 @@ instance Prelude.Hashable ClassifyDocument where
 
 instance Prelude.NFData ClassifyDocument where
   rnf ClassifyDocument' {..} =
-    Prelude.rnf bytes
-      `Prelude.seq` Prelude.rnf documentReaderConfig
-      `Prelude.seq` Prelude.rnf text
-      `Prelude.seq` Prelude.rnf endpointArn
+    Prelude.rnf bytes `Prelude.seq`
+      Prelude.rnf documentReaderConfig `Prelude.seq`
+        Prelude.rnf text `Prelude.seq`
+          Prelude.rnf endpointArn
 
 instance Data.ToHeaders ClassifyDocument where
   toHeaders =
@@ -366,9 +366,9 @@ classifyDocumentResponse_httpStatus = Lens.lens (\ClassifyDocumentResponse' {htt
 
 instance Prelude.NFData ClassifyDocumentResponse where
   rnf ClassifyDocumentResponse' {..} =
-    Prelude.rnf classes
-      `Prelude.seq` Prelude.rnf documentMetadata
-      `Prelude.seq` Prelude.rnf documentType
-      `Prelude.seq` Prelude.rnf errors
-      `Prelude.seq` Prelude.rnf labels
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf classes `Prelude.seq`
+      Prelude.rnf documentMetadata `Prelude.seq`
+        Prelude.rnf documentType `Prelude.seq`
+          Prelude.rnf errors `Prelude.seq`
+            Prelude.rnf labels `Prelude.seq`
+              Prelude.rnf httpStatus

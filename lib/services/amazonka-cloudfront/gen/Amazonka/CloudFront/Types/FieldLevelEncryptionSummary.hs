@@ -125,8 +125,8 @@ instance Prelude.Hashable FieldLevelEncryptionSummary where
 
 instance Prelude.NFData FieldLevelEncryptionSummary where
   rnf FieldLevelEncryptionSummary' {..} =
-    Prelude.rnf comment
-      `Prelude.seq` Prelude.rnf contentTypeProfileConfig
-      `Prelude.seq` Prelude.rnf queryArgProfileConfig
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf lastModifiedTime
+    Prelude.rnf comment `Prelude.seq`
+      Prelude.rnf contentTypeProfileConfig `Prelude.seq`
+        Prelude.rnf queryArgProfileConfig `Prelude.seq`
+          Prelude.rnf id `Prelude.seq`
+            Prelude.rnf lastModifiedTime

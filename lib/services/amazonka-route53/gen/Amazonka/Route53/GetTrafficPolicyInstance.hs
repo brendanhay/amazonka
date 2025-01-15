@@ -172,5 +172,5 @@ instance
     GetTrafficPolicyInstanceResponse
   where
   rnf GetTrafficPolicyInstanceResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf trafficPolicyInstance
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf trafficPolicyInstance

@@ -104,6 +104,6 @@ instance Prelude.Hashable IamRegistrationResponse where
 
 instance Prelude.NFData IamRegistrationResponse where
   rnf IamRegistrationResponse' {..} =
-    Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf registrationStatus
+    Prelude.rnf errorMessage `Prelude.seq`
+      Prelude.rnf roleArn `Prelude.seq`
+        Prelude.rnf registrationStatus

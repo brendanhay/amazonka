@@ -94,9 +94,9 @@ instance Prelude.Hashable TextConditionalFormat where
 
 instance Prelude.NFData TextConditionalFormat where
   rnf TextConditionalFormat' {..} =
-    Prelude.rnf backgroundColor
-      `Prelude.seq` Prelude.rnf icon
-      `Prelude.seq` Prelude.rnf textColor
+    Prelude.rnf backgroundColor `Prelude.seq`
+      Prelude.rnf icon `Prelude.seq`
+        Prelude.rnf textColor
 
 instance Data.ToJSON TextConditionalFormat where
   toJSON TextConditionalFormat' {..} =

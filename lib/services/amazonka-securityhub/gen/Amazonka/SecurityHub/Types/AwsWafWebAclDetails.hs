@@ -113,10 +113,10 @@ instance Prelude.Hashable AwsWafWebAclDetails where
 
 instance Prelude.NFData AwsWafWebAclDetails where
   rnf AwsWafWebAclDetails' {..} =
-    Prelude.rnf defaultAction
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf rules
-      `Prelude.seq` Prelude.rnf webAclId
+    Prelude.rnf defaultAction `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf rules `Prelude.seq`
+          Prelude.rnf webAclId
 
 instance Data.ToJSON AwsWafWebAclDetails where
   toJSON AwsWafWebAclDetails' {..} =

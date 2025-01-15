@@ -171,5 +171,5 @@ startTransactionResponse_httpStatus = Lens.lens (\StartTransactionResponse' {htt
 
 instance Prelude.NFData StartTransactionResponse where
   rnf StartTransactionResponse' {..} =
-    Prelude.rnf transactionId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf transactionId `Prelude.seq`
+      Prelude.rnf httpStatus

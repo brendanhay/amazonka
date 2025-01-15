@@ -223,11 +223,11 @@ instance Prelude.Hashable WhatIfForecastExportSummary where
 
 instance Prelude.NFData WhatIfForecastExportSummary where
   rnf WhatIfForecastExportSummary' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf destination
-      `Prelude.seq` Prelude.rnf lastModificationTime
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf whatIfForecastArns
-      `Prelude.seq` Prelude.rnf whatIfForecastExportArn
-      `Prelude.seq` Prelude.rnf whatIfForecastExportName
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf destination `Prelude.seq`
+        Prelude.rnf lastModificationTime `Prelude.seq`
+          Prelude.rnf message `Prelude.seq`
+            Prelude.rnf status `Prelude.seq`
+              Prelude.rnf whatIfForecastArns `Prelude.seq`
+                Prelude.rnf whatIfForecastExportArn `Prelude.seq`
+                  Prelude.rnf whatIfForecastExportName

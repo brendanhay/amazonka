@@ -221,13 +221,13 @@ instance Prelude.Hashable CreateStudio where
 
 instance Prelude.NFData CreateStudio where
   rnf CreateStudio' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf studioEncryptionConfiguration
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf adminRoleArn
-      `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf studioName
-      `Prelude.seq` Prelude.rnf userRoleArn
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf studioEncryptionConfiguration `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf adminRoleArn `Prelude.seq`
+            Prelude.rnf displayName `Prelude.seq`
+              Prelude.rnf studioName `Prelude.seq`
+                Prelude.rnf userRoleArn
 
 instance Data.ToHeaders CreateStudio where
   toHeaders CreateStudio' {..} =
@@ -297,5 +297,5 @@ createStudioResponse_httpStatus = Lens.lens (\CreateStudioResponse' {httpStatus}
 
 instance Prelude.NFData CreateStudioResponse where
   rnf CreateStudioResponse' {..} =
-    Prelude.rnf studio
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf studio `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -198,13 +198,13 @@ instance
     StartDataQualityRulesetEvaluationRun
   where
   rnf StartDataQualityRulesetEvaluationRun' {..} =
-    Prelude.rnf additionalRunOptions
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf numberOfWorkers
-      `Prelude.seq` Prelude.rnf timeout
-      `Prelude.seq` Prelude.rnf dataSource
-      `Prelude.seq` Prelude.rnf role'
-      `Prelude.seq` Prelude.rnf rulesetNames
+    Prelude.rnf additionalRunOptions `Prelude.seq`
+      Prelude.rnf clientToken `Prelude.seq`
+        Prelude.rnf numberOfWorkers `Prelude.seq`
+          Prelude.rnf timeout `Prelude.seq`
+            Prelude.rnf dataSource `Prelude.seq`
+              Prelude.rnf role' `Prelude.seq`
+                Prelude.rnf rulesetNames
 
 instance
   Data.ToHeaders
@@ -300,5 +300,5 @@ instance
     StartDataQualityRulesetEvaluationRunResponse
   where
   rnf StartDataQualityRulesetEvaluationRunResponse' {..} =
-    Prelude.rnf runId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf runId `Prelude.seq`
+      Prelude.rnf httpStatus

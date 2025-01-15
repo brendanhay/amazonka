@@ -115,8 +115,8 @@ instance Prelude.Hashable DeleteSecurityConfig where
 
 instance Prelude.NFData DeleteSecurityConfig where
   rnf DeleteSecurityConfig' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf id
 
 instance Data.ToHeaders DeleteSecurityConfig where
   toHeaders =

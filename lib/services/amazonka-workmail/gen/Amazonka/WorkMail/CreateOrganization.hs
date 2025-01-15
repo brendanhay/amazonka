@@ -179,12 +179,12 @@ instance Prelude.Hashable CreateOrganization where
 
 instance Prelude.NFData CreateOrganization where
   rnf CreateOrganization' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf directoryId
-      `Prelude.seq` Prelude.rnf domains
-      `Prelude.seq` Prelude.rnf enableInteroperability
-      `Prelude.seq` Prelude.rnf kmsKeyArn
-      `Prelude.seq` Prelude.rnf alias
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf directoryId `Prelude.seq`
+        Prelude.rnf domains `Prelude.seq`
+          Prelude.rnf enableInteroperability `Prelude.seq`
+            Prelude.rnf kmsKeyArn `Prelude.seq`
+              Prelude.rnf alias
 
 instance Data.ToHeaders CreateOrganization where
   toHeaders =
@@ -262,5 +262,5 @@ createOrganizationResponse_httpStatus = Lens.lens (\CreateOrganizationResponse' 
 
 instance Prelude.NFData CreateOrganizationResponse where
   rnf CreateOrganizationResponse' {..} =
-    Prelude.rnf organizationId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf organizationId `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -130,9 +130,9 @@ instance Prelude.Hashable CreateCoipCidr where
 
 instance Prelude.NFData CreateCoipCidr where
   rnf CreateCoipCidr' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf cidr
-      `Prelude.seq` Prelude.rnf coipPoolId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf cidr `Prelude.seq`
+        Prelude.rnf coipPoolId
 
 instance Data.ToHeaders CreateCoipCidr where
   toHeaders = Prelude.const Prelude.mempty
@@ -192,5 +192,5 @@ createCoipCidrResponse_httpStatus = Lens.lens (\CreateCoipCidrResponse' {httpSta
 
 instance Prelude.NFData CreateCoipCidrResponse where
   rnf CreateCoipCidrResponse' {..} =
-    Prelude.rnf coipCidr
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf coipCidr `Prelude.seq`
+      Prelude.rnf httpStatus

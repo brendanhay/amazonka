@@ -110,7 +110,7 @@ instance Prelude.Hashable CampaignSummary where
 
 instance Prelude.NFData CampaignSummary where
   rnf CampaignSummary' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf connectInstanceId
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf connectInstanceId `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf name

@@ -330,19 +330,19 @@ instance Prelude.Hashable CreateStudio where
 
 instance Prelude.NFData CreateStudio where
   rnf CreateStudio' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf idpAuthUrl
-      `Prelude.seq` Prelude.rnf idpRelayStateParameterName
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf userRole
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf authMode
-      `Prelude.seq` Prelude.rnf vpcId
-      `Prelude.seq` Prelude.rnf subnetIds
-      `Prelude.seq` Prelude.rnf serviceRole
-      `Prelude.seq` Prelude.rnf workspaceSecurityGroupId
-      `Prelude.seq` Prelude.rnf engineSecurityGroupId
-      `Prelude.seq` Prelude.rnf defaultS3Location
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf idpAuthUrl `Prelude.seq`
+        Prelude.rnf idpRelayStateParameterName `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf userRole `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf authMode `Prelude.seq`
+                  Prelude.rnf vpcId `Prelude.seq`
+                    Prelude.rnf subnetIds `Prelude.seq`
+                      Prelude.rnf serviceRole `Prelude.seq`
+                        Prelude.rnf workspaceSecurityGroupId `Prelude.seq`
+                          Prelude.rnf engineSecurityGroupId `Prelude.seq`
+                            Prelude.rnf defaultS3Location
 
 instance Data.ToHeaders CreateStudio where
   toHeaders =
@@ -442,6 +442,6 @@ createStudioResponse_httpStatus = Lens.lens (\CreateStudioResponse' {httpStatus}
 
 instance Prelude.NFData CreateStudioResponse where
   rnf CreateStudioResponse' {..} =
-    Prelude.rnf studioId
-      `Prelude.seq` Prelude.rnf url
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf studioId `Prelude.seq`
+      Prelude.rnf url `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -207,12 +207,12 @@ instance Prelude.Hashable ExecuteStatement where
 
 instance Prelude.NFData ExecuteStatement where
   rnf ExecuteStatement' {..} =
-    Prelude.rnf consistentRead
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf returnConsumedCapacity
-      `Prelude.seq` Prelude.rnf statement
+    Prelude.rnf consistentRead `Prelude.seq`
+      Prelude.rnf limit `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf parameters `Prelude.seq`
+            Prelude.rnf returnConsumedCapacity `Prelude.seq`
+              Prelude.rnf statement
 
 instance Data.ToHeaders ExecuteStatement where
   toHeaders =
@@ -350,8 +350,8 @@ executeStatementResponse_httpStatus = Lens.lens (\ExecuteStatementResponse' {htt
 
 instance Prelude.NFData ExecuteStatementResponse where
   rnf ExecuteStatementResponse' {..} =
-    Prelude.rnf consumedCapacity
-      `Prelude.seq` Prelude.rnf items
-      `Prelude.seq` Prelude.rnf lastEvaluatedKey
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf consumedCapacity `Prelude.seq`
+      Prelude.rnf items `Prelude.seq`
+        Prelude.rnf lastEvaluatedKey `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf httpStatus

@@ -207,8 +207,8 @@ getRetainedMessageResponse_httpStatus = Lens.lens (\GetRetainedMessageResponse' 
 
 instance Prelude.NFData GetRetainedMessageResponse where
   rnf GetRetainedMessageResponse' {..} =
-    Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf payload
-      `Prelude.seq` Prelude.rnf qos
-      `Prelude.seq` Prelude.rnf topic
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf lastModifiedTime `Prelude.seq`
+      Prelude.rnf payload `Prelude.seq`
+        Prelude.rnf qos `Prelude.seq`
+          Prelude.rnf topic `Prelude.seq`
+            Prelude.rnf httpStatus

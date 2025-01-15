@@ -129,12 +129,12 @@ instance Prelude.Hashable OTAUpdateFile where
 
 instance Prelude.NFData OTAUpdateFile where
   rnf OTAUpdateFile' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf codeSigning
-      `Prelude.seq` Prelude.rnf fileLocation
-      `Prelude.seq` Prelude.rnf fileName
-      `Prelude.seq` Prelude.rnf fileType
-      `Prelude.seq` Prelude.rnf fileVersion
+    Prelude.rnf attributes `Prelude.seq`
+      Prelude.rnf codeSigning `Prelude.seq`
+        Prelude.rnf fileLocation `Prelude.seq`
+          Prelude.rnf fileName `Prelude.seq`
+            Prelude.rnf fileType `Prelude.seq`
+              Prelude.rnf fileVersion
 
 instance Data.ToJSON OTAUpdateFile where
   toJSON OTAUpdateFile' {..} =

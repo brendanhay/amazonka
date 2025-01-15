@@ -120,8 +120,8 @@ instance Prelude.Hashable DisassociateAttributeGroup where
 
 instance Prelude.NFData DisassociateAttributeGroup where
   rnf DisassociateAttributeGroup' {..} =
-    Prelude.rnf application
-      `Prelude.seq` Prelude.rnf attributeGroup
+    Prelude.rnf application `Prelude.seq`
+      Prelude.rnf attributeGroup
 
 instance Data.ToHeaders DisassociateAttributeGroup where
   toHeaders =
@@ -199,6 +199,6 @@ instance
     DisassociateAttributeGroupResponse
   where
   rnf DisassociateAttributeGroupResponse' {..} =
-    Prelude.rnf applicationArn
-      `Prelude.seq` Prelude.rnf attributeGroupArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf applicationArn `Prelude.seq`
+      Prelude.rnf attributeGroupArn `Prelude.seq`
+        Prelude.rnf httpStatus

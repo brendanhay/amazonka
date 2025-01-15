@@ -136,9 +136,7 @@ instance Data.FromXML VerifiedAccessGroup where
       Prelude.<*> (x Data..@? "description")
       Prelude.<*> (x Data..@? "lastUpdatedTime")
       Prelude.<*> (x Data..@? "owner")
-      Prelude.<*> ( x
-                      Data..@? "tagSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "verifiedAccessGroupArn")
@@ -160,12 +158,12 @@ instance Prelude.Hashable VerifiedAccessGroup where
 
 instance Prelude.NFData VerifiedAccessGroup where
   rnf VerifiedAccessGroup' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf deletionTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf owner
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf verifiedAccessGroupArn
-      `Prelude.seq` Prelude.rnf verifiedAccessGroupId
-      `Prelude.seq` Prelude.rnf verifiedAccessInstanceId
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf deletionTime `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf lastUpdatedTime `Prelude.seq`
+            Prelude.rnf owner `Prelude.seq`
+              Prelude.rnf tags `Prelude.seq`
+                Prelude.rnf verifiedAccessGroupArn `Prelude.seq`
+                  Prelude.rnf verifiedAccessGroupId `Prelude.seq`
+                    Prelude.rnf verifiedAccessInstanceId

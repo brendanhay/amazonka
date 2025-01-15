@@ -140,10 +140,10 @@ instance Prelude.Hashable GetStatistics where
 
 instance Prelude.NFData GetStatistics where
   rnf GetStatistics' {..} =
-    Prelude.rnf aggregationField
-      `Prelude.seq` Prelude.rnf indexName
-      `Prelude.seq` Prelude.rnf queryVersion
-      `Prelude.seq` Prelude.rnf queryString
+    Prelude.rnf aggregationField `Prelude.seq`
+      Prelude.rnf indexName `Prelude.seq`
+        Prelude.rnf queryVersion `Prelude.seq`
+          Prelude.rnf queryString
 
 instance Data.ToHeaders GetStatistics where
   toHeaders = Prelude.const Prelude.mempty
@@ -210,5 +210,5 @@ getStatisticsResponse_httpStatus = Lens.lens (\GetStatisticsResponse' {httpStatu
 
 instance Prelude.NFData GetStatisticsResponse where
   rnf GetStatisticsResponse' {..} =
-    Prelude.rnf statistics
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf statistics `Prelude.seq`
+      Prelude.rnf httpStatus

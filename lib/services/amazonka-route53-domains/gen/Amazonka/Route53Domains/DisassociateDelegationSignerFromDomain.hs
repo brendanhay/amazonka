@@ -228,5 +228,5 @@ instance
   where
   rnf
     DisassociateDelegationSignerFromDomainResponse' {..} =
-      Prelude.rnf operationId
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf operationId `Prelude.seq`
+        Prelude.rnf httpStatus

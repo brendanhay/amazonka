@@ -83,5 +83,5 @@ instance Prelude.Hashable FailureInfo where
 
 instance Prelude.NFData FailureInfo where
   rnf FailureInfo' {..} =
-    Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf failedRecordsS3Url
+    Prelude.rnf errorMessage `Prelude.seq`
+      Prelude.rnf failedRecordsS3Url

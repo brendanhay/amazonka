@@ -135,9 +135,9 @@ instance Prelude.Hashable ConfirmProductInstance where
 
 instance Prelude.NFData ConfirmProductInstance where
   rnf ConfirmProductInstance' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf productCode
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf instanceId `Prelude.seq`
+        Prelude.rnf productCode
 
 instance Data.ToHeaders ConfirmProductInstance where
   toHeaders = Prelude.const Prelude.mempty
@@ -219,6 +219,6 @@ instance
     ConfirmProductInstanceResponse
   where
   rnf ConfirmProductInstanceResponse' {..} =
-    Prelude.rnf ownerId
-      `Prelude.seq` Prelude.rnf return'
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf ownerId `Prelude.seq`
+      Prelude.rnf return' `Prelude.seq`
+        Prelude.rnf httpStatus

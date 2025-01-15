@@ -125,8 +125,8 @@ instance Prelude.Hashable AcceptVpcPeeringConnection where
 
 instance Prelude.NFData AcceptVpcPeeringConnection where
   rnf AcceptVpcPeeringConnection' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf vpcPeeringConnectionId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf vpcPeeringConnectionId
 
 instance Data.ToHeaders AcceptVpcPeeringConnection where
   toHeaders = Prelude.const Prelude.mempty
@@ -190,5 +190,5 @@ instance
     AcceptVpcPeeringConnectionResponse
   where
   rnf AcceptVpcPeeringConnectionResponse' {..} =
-    Prelude.rnf vpcPeeringConnection
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf vpcPeeringConnection `Prelude.seq`
+      Prelude.rnf httpStatus

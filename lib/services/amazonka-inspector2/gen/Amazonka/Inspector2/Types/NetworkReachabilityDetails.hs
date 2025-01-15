@@ -110,6 +110,6 @@ instance Prelude.Hashable NetworkReachabilityDetails where
 
 instance Prelude.NFData NetworkReachabilityDetails where
   rnf NetworkReachabilityDetails' {..} =
-    Prelude.rnf networkPath
-      `Prelude.seq` Prelude.rnf openPortRange
-      `Prelude.seq` Prelude.rnf protocol
+    Prelude.rnf networkPath `Prelude.seq`
+      Prelude.rnf openPortRange `Prelude.seq`
+        Prelude.rnf protocol

@@ -93,8 +93,8 @@ instance Prelude.Hashable EnumerationValue where
 
 instance Prelude.NFData EnumerationValue where
   rnf EnumerationValue' {..} =
-    Prelude.rnf synonyms
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf synonyms `Prelude.seq`
+      Prelude.rnf value
 
 instance Data.ToJSON EnumerationValue where
   toJSON EnumerationValue' {..} =

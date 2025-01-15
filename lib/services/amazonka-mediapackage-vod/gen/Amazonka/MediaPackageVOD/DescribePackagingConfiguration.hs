@@ -247,12 +247,12 @@ instance
     DescribePackagingConfigurationResponse
   where
   rnf DescribePackagingConfigurationResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf cmafPackage
-      `Prelude.seq` Prelude.rnf dashPackage
-      `Prelude.seq` Prelude.rnf hlsPackage
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf mssPackage
-      `Prelude.seq` Prelude.rnf packagingGroupId
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf cmafPackage `Prelude.seq`
+        Prelude.rnf dashPackage `Prelude.seq`
+          Prelude.rnf hlsPackage `Prelude.seq`
+            Prelude.rnf id `Prelude.seq`
+              Prelude.rnf mssPackage `Prelude.seq`
+                Prelude.rnf packagingGroupId `Prelude.seq`
+                  Prelude.rnf tags `Prelude.seq`
+                    Prelude.rnf httpStatus

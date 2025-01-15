@@ -129,10 +129,10 @@ instance Prelude.Hashable ConditionalSplitActivity where
 
 instance Prelude.NFData ConditionalSplitActivity where
   rnf ConditionalSplitActivity' {..} =
-    Prelude.rnf condition
-      `Prelude.seq` Prelude.rnf evaluationWaitTime
-      `Prelude.seq` Prelude.rnf falseActivity
-      `Prelude.seq` Prelude.rnf trueActivity
+    Prelude.rnf condition `Prelude.seq`
+      Prelude.rnf evaluationWaitTime `Prelude.seq`
+        Prelude.rnf falseActivity `Prelude.seq`
+          Prelude.rnf trueActivity
 
 instance Data.ToJSON ConditionalSplitActivity where
   toJSON ConditionalSplitActivity' {..} =

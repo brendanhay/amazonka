@@ -92,6 +92,6 @@ instance Prelude.Hashable RequestImpactStatistics where
 
 instance Prelude.NFData RequestImpactStatistics where
   rnf RequestImpactStatistics' {..} =
-    Prelude.rnf faultCount
-      `Prelude.seq` Prelude.rnf okCount
-      `Prelude.seq` Prelude.rnf totalCount
+    Prelude.rnf faultCount `Prelude.seq`
+      Prelude.rnf okCount `Prelude.seq`
+        Prelude.rnf totalCount

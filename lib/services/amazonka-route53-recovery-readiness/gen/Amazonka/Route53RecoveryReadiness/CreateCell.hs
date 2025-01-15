@@ -133,9 +133,9 @@ instance Prelude.Hashable CreateCell where
 
 instance Prelude.NFData CreateCell where
   rnf CreateCell' {..} =
-    Prelude.rnf cells
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf cellName
+    Prelude.rnf cells `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf cellName
 
 instance Data.ToHeaders CreateCell where
   toHeaders =
@@ -246,9 +246,9 @@ createCellResponse_httpStatus = Lens.lens (\CreateCellResponse' {httpStatus} -> 
 
 instance Prelude.NFData CreateCellResponse where
   rnf CreateCellResponse' {..} =
-    Prelude.rnf cellArn
-      `Prelude.seq` Prelude.rnf cellName
-      `Prelude.seq` Prelude.rnf cells
-      `Prelude.seq` Prelude.rnf parentReadinessScopes
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf cellArn `Prelude.seq`
+      Prelude.rnf cellName `Prelude.seq`
+        Prelude.rnf cells `Prelude.seq`
+          Prelude.rnf parentReadinessScopes `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf httpStatus

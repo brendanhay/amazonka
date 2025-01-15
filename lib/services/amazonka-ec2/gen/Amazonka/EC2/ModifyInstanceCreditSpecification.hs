@@ -161,9 +161,9 @@ instance
     ModifyInstanceCreditSpecification
   where
   rnf ModifyInstanceCreditSpecification' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf instanceCreditSpecifications
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf instanceCreditSpecifications
 
 instance
   Data.ToHeaders
@@ -257,6 +257,6 @@ instance
     ModifyInstanceCreditSpecificationResponse
   where
   rnf ModifyInstanceCreditSpecificationResponse' {..} =
-    Prelude.rnf successfulInstanceCreditSpecifications
-      `Prelude.seq` Prelude.rnf unsuccessfulInstanceCreditSpecifications
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf successfulInstanceCreditSpecifications `Prelude.seq`
+      Prelude.rnf unsuccessfulInstanceCreditSpecifications `Prelude.seq`
+        Prelude.rnf httpStatus

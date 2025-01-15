@@ -165,12 +165,12 @@ instance Core.AWSPager DescribeEcsClusters where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeEcsClusters_nextToken
-          Lens..~ rs
-          Lens.^? describeEcsClustersResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeEcsClusters_nextToken
+              Lens..~ rs
+              Lens.^? describeEcsClustersResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeEcsClusters where
   type
@@ -197,10 +197,10 @@ instance Prelude.Hashable DescribeEcsClusters where
 
 instance Prelude.NFData DescribeEcsClusters where
   rnf DescribeEcsClusters' {..} =
-    Prelude.rnf ecsClusterArns
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf stackId
+    Prelude.rnf ecsClusterArns `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf stackId
 
 instance Data.ToHeaders DescribeEcsClusters where
   toHeaders =
@@ -299,6 +299,6 @@ describeEcsClustersResponse_httpStatus = Lens.lens (\DescribeEcsClustersResponse
 
 instance Prelude.NFData DescribeEcsClustersResponse where
   rnf DescribeEcsClustersResponse' {..} =
-    Prelude.rnf ecsClusters
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf ecsClusters `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

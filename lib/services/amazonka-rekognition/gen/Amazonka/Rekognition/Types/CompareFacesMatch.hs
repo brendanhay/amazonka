@@ -88,5 +88,5 @@ instance Prelude.Hashable CompareFacesMatch where
 
 instance Prelude.NFData CompareFacesMatch where
   rnf CompareFacesMatch' {..} =
-    Prelude.rnf face
-      `Prelude.seq` Prelude.rnf similarity
+    Prelude.rnf face `Prelude.seq`
+      Prelude.rnf similarity

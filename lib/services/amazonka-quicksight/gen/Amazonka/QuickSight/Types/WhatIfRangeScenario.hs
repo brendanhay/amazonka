@@ -98,9 +98,9 @@ instance Prelude.Hashable WhatIfRangeScenario where
 
 instance Prelude.NFData WhatIfRangeScenario where
   rnf WhatIfRangeScenario' {..} =
-    Prelude.rnf startDate
-      `Prelude.seq` Prelude.rnf endDate
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf startDate `Prelude.seq`
+      Prelude.rnf endDate `Prelude.seq`
+        Prelude.rnf value
 
 instance Data.ToJSON WhatIfRangeScenario where
   toJSON WhatIfRangeScenario' {..} =

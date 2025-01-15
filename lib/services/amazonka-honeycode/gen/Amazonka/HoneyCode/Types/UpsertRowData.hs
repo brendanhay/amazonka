@@ -135,9 +135,9 @@ instance Prelude.Hashable UpsertRowData where
 
 instance Prelude.NFData UpsertRowData where
   rnf UpsertRowData' {..} =
-    Prelude.rnf batchItemId
-      `Prelude.seq` Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf cellsToUpdate
+    Prelude.rnf batchItemId `Prelude.seq`
+      Prelude.rnf filter' `Prelude.seq`
+        Prelude.rnf cellsToUpdate
 
 instance Data.ToJSON UpsertRowData where
   toJSON UpsertRowData' {..} =

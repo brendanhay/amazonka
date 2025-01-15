@@ -154,11 +154,11 @@ instance Prelude.Hashable SourceProperties where
 
 instance Prelude.NFData SourceProperties where
   rnf SourceProperties' {..} =
-    Prelude.rnf cpus
-      `Prelude.seq` Prelude.rnf disks
-      `Prelude.seq` Prelude.rnf identificationHints
-      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
-      `Prelude.seq` Prelude.rnf networkInterfaces
-      `Prelude.seq` Prelude.rnf os
-      `Prelude.seq` Prelude.rnf ramBytes
-      `Prelude.seq` Prelude.rnf recommendedInstanceType
+    Prelude.rnf cpus `Prelude.seq`
+      Prelude.rnf disks `Prelude.seq`
+        Prelude.rnf identificationHints `Prelude.seq`
+          Prelude.rnf lastUpdatedDateTime `Prelude.seq`
+            Prelude.rnf networkInterfaces `Prelude.seq`
+              Prelude.rnf os `Prelude.seq`
+                Prelude.rnf ramBytes `Prelude.seq`
+                  Prelude.rnf recommendedInstanceType

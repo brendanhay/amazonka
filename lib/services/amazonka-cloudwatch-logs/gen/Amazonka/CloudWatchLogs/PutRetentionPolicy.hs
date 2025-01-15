@@ -117,8 +117,8 @@ instance Prelude.Hashable PutRetentionPolicy where
 
 instance Prelude.NFData PutRetentionPolicy where
   rnf PutRetentionPolicy' {..} =
-    Prelude.rnf logGroupName
-      `Prelude.seq` Prelude.rnf retentionInDays
+    Prelude.rnf logGroupName `Prelude.seq`
+      Prelude.rnf retentionInDays
 
 instance Data.ToHeaders PutRetentionPolicy where
   toHeaders =

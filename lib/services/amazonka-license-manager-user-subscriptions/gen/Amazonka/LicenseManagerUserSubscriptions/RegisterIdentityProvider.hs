@@ -127,9 +127,9 @@ instance Prelude.Hashable RegisterIdentityProvider where
 
 instance Prelude.NFData RegisterIdentityProvider where
   rnf RegisterIdentityProvider' {..} =
-    Prelude.rnf settings
-      `Prelude.seq` Prelude.rnf identityProvider
-      `Prelude.seq` Prelude.rnf product
+    Prelude.rnf settings `Prelude.seq`
+      Prelude.rnf identityProvider `Prelude.seq`
+        Prelude.rnf product
 
 instance Data.ToHeaders RegisterIdentityProvider where
   toHeaders =
@@ -210,5 +210,5 @@ instance
     RegisterIdentityProviderResponse
   where
   rnf RegisterIdentityProviderResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf identityProviderSummary
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf identityProviderSummary

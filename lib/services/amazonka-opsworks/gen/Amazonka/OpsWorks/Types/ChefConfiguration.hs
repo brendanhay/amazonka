@@ -81,8 +81,8 @@ instance Prelude.Hashable ChefConfiguration where
 
 instance Prelude.NFData ChefConfiguration where
   rnf ChefConfiguration' {..} =
-    Prelude.rnf berkshelfVersion
-      `Prelude.seq` Prelude.rnf manageBerkshelf
+    Prelude.rnf berkshelfVersion `Prelude.seq`
+      Prelude.rnf manageBerkshelf
 
 instance Data.ToJSON ChefConfiguration where
   toJSON ChefConfiguration' {..} =

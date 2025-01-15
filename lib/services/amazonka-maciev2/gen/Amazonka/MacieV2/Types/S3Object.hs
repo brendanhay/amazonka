@@ -211,15 +211,15 @@ instance Prelude.Hashable S3Object where
 
 instance Prelude.NFData S3Object where
   rnf S3Object' {..} =
-    Prelude.rnf bucketArn
-      `Prelude.seq` Prelude.rnf eTag
-      `Prelude.seq` Prelude.rnf extension
-      `Prelude.seq` Prelude.rnf key
-      `Prelude.seq` Prelude.rnf lastModified
-      `Prelude.seq` Prelude.rnf path
-      `Prelude.seq` Prelude.rnf publicAccess
-      `Prelude.seq` Prelude.rnf serverSideEncryption
-      `Prelude.seq` Prelude.rnf size
-      `Prelude.seq` Prelude.rnf storageClass
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf versionId
+    Prelude.rnf bucketArn `Prelude.seq`
+      Prelude.rnf eTag `Prelude.seq`
+        Prelude.rnf extension `Prelude.seq`
+          Prelude.rnf key `Prelude.seq`
+            Prelude.rnf lastModified `Prelude.seq`
+              Prelude.rnf path `Prelude.seq`
+                Prelude.rnf publicAccess `Prelude.seq`
+                  Prelude.rnf serverSideEncryption `Prelude.seq`
+                    Prelude.rnf size `Prelude.seq`
+                      Prelude.rnf storageClass `Prelude.seq`
+                        Prelude.rnf tags `Prelude.seq`
+                          Prelude.rnf versionId

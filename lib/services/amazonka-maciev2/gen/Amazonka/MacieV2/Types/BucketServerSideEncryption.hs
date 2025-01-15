@@ -130,5 +130,5 @@ instance Prelude.Hashable BucketServerSideEncryption where
 
 instance Prelude.NFData BucketServerSideEncryption where
   rnf BucketServerSideEncryption' {..} =
-    Prelude.rnf kmsMasterKeyId
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf kmsMasterKeyId `Prelude.seq`
+      Prelude.rnf type'

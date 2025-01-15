@@ -186,5 +186,5 @@ deprovisionByoipCidrResponse_httpStatus = Lens.lens (\DeprovisionByoipCidrRespon
 
 instance Prelude.NFData DeprovisionByoipCidrResponse where
   rnf DeprovisionByoipCidrResponse' {..} =
-    Prelude.rnf byoipCidr
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf byoipCidr `Prelude.seq`
+      Prelude.rnf httpStatus

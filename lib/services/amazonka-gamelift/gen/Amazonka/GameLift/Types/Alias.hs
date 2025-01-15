@@ -173,10 +173,10 @@ instance Prelude.Hashable Alias where
 
 instance Prelude.NFData Alias where
   rnf Alias' {..} =
-    Prelude.rnf aliasArn
-      `Prelude.seq` Prelude.rnf aliasId
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf routingStrategy
+    Prelude.rnf aliasArn `Prelude.seq`
+      Prelude.rnf aliasId `Prelude.seq`
+        Prelude.rnf creationTime `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf lastUpdatedTime `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf routingStrategy

@@ -108,12 +108,12 @@ instance Core.AWSPager ListNamespaces where
         (rs Lens.^. listNamespacesResponse_namespaces) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listNamespaces_nextToken
-          Lens..~ rs
-          Lens.^? listNamespacesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listNamespaces_nextToken
+              Lens..~ rs
+              Lens.^? listNamespacesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListNamespaces where
   type
@@ -138,8 +138,8 @@ instance Prelude.Hashable ListNamespaces where
 
 instance Prelude.NFData ListNamespaces where
   rnf ListNamespaces' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListNamespaces where
   toHeaders =
@@ -227,6 +227,6 @@ listNamespacesResponse_namespaces = Lens.lens (\ListNamespacesResponse' {namespa
 
 instance Prelude.NFData ListNamespacesResponse where
   rnf ListNamespacesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf namespaces
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf namespaces

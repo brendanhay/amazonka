@@ -184,12 +184,12 @@ instance Core.AWSPager ListPredictors where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listPredictors_nextToken
-          Lens..~ rs
-          Lens.^? listPredictorsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listPredictors_nextToken
+              Lens..~ rs
+              Lens.^? listPredictorsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPredictors where
   type
@@ -215,9 +215,9 @@ instance Prelude.Hashable ListPredictors where
 
 instance Prelude.NFData ListPredictors where
   rnf ListPredictors' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListPredictors where
   toHeaders =
@@ -303,6 +303,6 @@ listPredictorsResponse_httpStatus = Lens.lens (\ListPredictorsResponse' {httpSta
 
 instance Prelude.NFData ListPredictorsResponse where
   rnf ListPredictorsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf predictors
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf predictors `Prelude.seq`
+        Prelude.rnf httpStatus

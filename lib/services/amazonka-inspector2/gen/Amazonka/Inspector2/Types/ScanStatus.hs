@@ -86,5 +86,5 @@ instance Prelude.Hashable ScanStatus where
 
 instance Prelude.NFData ScanStatus where
   rnf ScanStatus' {..} =
-    Prelude.rnf reason
-      `Prelude.seq` Prelude.rnf statusCode
+    Prelude.rnf reason `Prelude.seq`
+      Prelude.rnf statusCode

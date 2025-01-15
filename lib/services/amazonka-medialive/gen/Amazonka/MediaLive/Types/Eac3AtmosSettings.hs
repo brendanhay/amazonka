@@ -159,13 +159,13 @@ instance Prelude.Hashable Eac3AtmosSettings where
 
 instance Prelude.NFData Eac3AtmosSettings where
   rnf Eac3AtmosSettings' {..} =
-    Prelude.rnf bitrate
-      `Prelude.seq` Prelude.rnf codingMode
-      `Prelude.seq` Prelude.rnf dialnorm
-      `Prelude.seq` Prelude.rnf drcLine
-      `Prelude.seq` Prelude.rnf drcRf
-      `Prelude.seq` Prelude.rnf heightTrim
-      `Prelude.seq` Prelude.rnf surroundTrim
+    Prelude.rnf bitrate `Prelude.seq`
+      Prelude.rnf codingMode `Prelude.seq`
+        Prelude.rnf dialnorm `Prelude.seq`
+          Prelude.rnf drcLine `Prelude.seq`
+            Prelude.rnf drcRf `Prelude.seq`
+              Prelude.rnf heightTrim `Prelude.seq`
+                Prelude.rnf surroundTrim
 
 instance Data.ToJSON Eac3AtmosSettings where
   toJSON Eac3AtmosSettings' {..} =

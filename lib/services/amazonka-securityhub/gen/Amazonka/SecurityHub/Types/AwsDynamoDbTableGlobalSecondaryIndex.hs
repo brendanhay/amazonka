@@ -197,15 +197,15 @@ instance
     AwsDynamoDbTableGlobalSecondaryIndex
   where
   rnf AwsDynamoDbTableGlobalSecondaryIndex' {..} =
-    Prelude.rnf backfilling
-      `Prelude.seq` Prelude.rnf indexArn
-      `Prelude.seq` Prelude.rnf indexName
-      `Prelude.seq` Prelude.rnf indexSizeBytes
-      `Prelude.seq` Prelude.rnf indexStatus
-      `Prelude.seq` Prelude.rnf itemCount
-      `Prelude.seq` Prelude.rnf keySchema
-      `Prelude.seq` Prelude.rnf projection
-      `Prelude.seq` Prelude.rnf provisionedThroughput
+    Prelude.rnf backfilling `Prelude.seq`
+      Prelude.rnf indexArn `Prelude.seq`
+        Prelude.rnf indexName `Prelude.seq`
+          Prelude.rnf indexSizeBytes `Prelude.seq`
+            Prelude.rnf indexStatus `Prelude.seq`
+              Prelude.rnf itemCount `Prelude.seq`
+                Prelude.rnf keySchema `Prelude.seq`
+                  Prelude.rnf projection `Prelude.seq`
+                    Prelude.rnf provisionedThroughput
 
 instance
   Data.ToJSON

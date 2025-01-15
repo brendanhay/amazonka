@@ -111,8 +111,8 @@ instance Prelude.Hashable SetCognitoEvents where
 
 instance Prelude.NFData SetCognitoEvents where
   rnf SetCognitoEvents' {..} =
-    Prelude.rnf identityPoolId
-      `Prelude.seq` Prelude.rnf events
+    Prelude.rnf identityPoolId `Prelude.seq`
+      Prelude.rnf events
 
 instance Data.ToHeaders SetCognitoEvents where
   toHeaders =

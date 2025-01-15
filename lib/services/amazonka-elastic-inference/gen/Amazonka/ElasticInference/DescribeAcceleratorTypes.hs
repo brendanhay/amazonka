@@ -145,5 +145,5 @@ instance
     DescribeAcceleratorTypesResponse
   where
   rnf DescribeAcceleratorTypesResponse' {..} =
-    Prelude.rnf acceleratorTypes
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf acceleratorTypes `Prelude.seq`
+      Prelude.rnf httpStatus

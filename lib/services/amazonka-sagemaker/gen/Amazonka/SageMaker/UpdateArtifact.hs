@@ -130,10 +130,10 @@ instance Prelude.Hashable UpdateArtifact where
 
 instance Prelude.NFData UpdateArtifact where
   rnf UpdateArtifact' {..} =
-    Prelude.rnf artifactName
-      `Prelude.seq` Prelude.rnf properties
-      `Prelude.seq` Prelude.rnf propertiesToRemove
-      `Prelude.seq` Prelude.rnf artifactArn
+    Prelude.rnf artifactName `Prelude.seq`
+      Prelude.rnf properties `Prelude.seq`
+        Prelude.rnf propertiesToRemove `Prelude.seq`
+          Prelude.rnf artifactArn
 
 instance Data.ToHeaders UpdateArtifact where
   toHeaders =
@@ -207,5 +207,5 @@ updateArtifactResponse_httpStatus = Lens.lens (\UpdateArtifactResponse' {httpSta
 
 instance Prelude.NFData UpdateArtifactResponse where
   rnf UpdateArtifactResponse' {..} =
-    Prelude.rnf artifactArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf artifactArn `Prelude.seq`
+      Prelude.rnf httpStatus

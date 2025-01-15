@@ -97,9 +97,9 @@ instance
     CreateBackendStorageResourceConfig
   where
   rnf CreateBackendStorageResourceConfig' {..} =
-    Prelude.rnf bucketName
-      `Prelude.seq` Prelude.rnf serviceName
-      `Prelude.seq` Prelude.rnf permissions
+    Prelude.rnf bucketName `Prelude.seq`
+      Prelude.rnf serviceName `Prelude.seq`
+        Prelude.rnf permissions
 
 instance
   Data.ToJSON

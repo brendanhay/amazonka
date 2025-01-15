@@ -293,25 +293,25 @@ instance Prelude.Hashable LineChartConfiguration where
 
 instance Prelude.NFData LineChartConfiguration where
   rnf LineChartConfiguration' {..} =
-    Prelude.rnf contributionAnalysisDefaults
-      `Prelude.seq` Prelude.rnf dataLabels
-      `Prelude.seq` Prelude.rnf defaultSeriesSettings
-      `Prelude.seq` Prelude.rnf fieldWells
-      `Prelude.seq` Prelude.rnf forecastConfigurations
-      `Prelude.seq` Prelude.rnf legend
-      `Prelude.seq` Prelude.rnf primaryYAxisDisplayOptions
-      `Prelude.seq` Prelude.rnf primaryYAxisLabelOptions
-      `Prelude.seq` Prelude.rnf referenceLines
-      `Prelude.seq` Prelude.rnf secondaryYAxisDisplayOptions
-      `Prelude.seq` Prelude.rnf secondaryYAxisLabelOptions
-      `Prelude.seq` Prelude.rnf series
-      `Prelude.seq` Prelude.rnf smallMultiplesOptions
-      `Prelude.seq` Prelude.rnf sortConfiguration
-      `Prelude.seq` Prelude.rnf tooltip
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf visualPalette
-      `Prelude.seq` Prelude.rnf xAxisDisplayOptions
-      `Prelude.seq` Prelude.rnf xAxisLabelOptions
+    Prelude.rnf contributionAnalysisDefaults `Prelude.seq`
+      Prelude.rnf dataLabels `Prelude.seq`
+        Prelude.rnf defaultSeriesSettings `Prelude.seq`
+          Prelude.rnf fieldWells `Prelude.seq`
+            Prelude.rnf forecastConfigurations `Prelude.seq`
+              Prelude.rnf legend `Prelude.seq`
+                Prelude.rnf primaryYAxisDisplayOptions `Prelude.seq`
+                  Prelude.rnf primaryYAxisLabelOptions `Prelude.seq`
+                    Prelude.rnf referenceLines `Prelude.seq`
+                      Prelude.rnf secondaryYAxisDisplayOptions `Prelude.seq`
+                        Prelude.rnf secondaryYAxisLabelOptions `Prelude.seq`
+                          Prelude.rnf series `Prelude.seq`
+                            Prelude.rnf smallMultiplesOptions `Prelude.seq`
+                              Prelude.rnf sortConfiguration `Prelude.seq`
+                                Prelude.rnf tooltip `Prelude.seq`
+                                  Prelude.rnf type' `Prelude.seq`
+                                    Prelude.rnf visualPalette `Prelude.seq`
+                                      Prelude.rnf xAxisDisplayOptions `Prelude.seq`
+                                        Prelude.rnf xAxisLabelOptions
 
 instance Data.ToJSON LineChartConfiguration where
   toJSON LineChartConfiguration' {..} =

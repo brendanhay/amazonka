@@ -121,8 +121,8 @@ instance Prelude.Hashable DescribeReceiptRule where
 
 instance Prelude.NFData DescribeReceiptRule where
   rnf DescribeReceiptRule' {..} =
-    Prelude.rnf ruleSetName
-      `Prelude.seq` Prelude.rnf ruleName
+    Prelude.rnf ruleSetName `Prelude.seq`
+      Prelude.rnf ruleName
 
 instance Data.ToHeaders DescribeReceiptRule where
   toHeaders = Prelude.const Prelude.mempty
@@ -190,5 +190,5 @@ describeReceiptRuleResponse_httpStatus = Lens.lens (\DescribeReceiptRuleResponse
 
 instance Prelude.NFData DescribeReceiptRuleResponse where
   rnf DescribeReceiptRuleResponse' {..} =
-    Prelude.rnf rule
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf rule `Prelude.seq`
+      Prelude.rnf httpStatus

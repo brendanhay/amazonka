@@ -125,9 +125,7 @@ instance Core.AWSRequest DescribeAnalysisSchemes where
       ( \s h x ->
           DescribeAnalysisSchemesResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x
-                            Data..@? "AnalysisSchemes"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "AnalysisSchemes" Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLList "member"
                         )
       )
@@ -141,9 +139,9 @@ instance Prelude.Hashable DescribeAnalysisSchemes where
 
 instance Prelude.NFData DescribeAnalysisSchemes where
   rnf DescribeAnalysisSchemes' {..} =
-    Prelude.rnf analysisSchemeNames
-      `Prelude.seq` Prelude.rnf deployed
-      `Prelude.seq` Prelude.rnf domainName
+    Prelude.rnf analysisSchemeNames `Prelude.seq`
+      Prelude.rnf deployed `Prelude.seq`
+        Prelude.rnf domainName
 
 instance Data.ToHeaders DescribeAnalysisSchemes where
   toHeaders = Prelude.const Prelude.mempty
@@ -214,5 +212,5 @@ instance
     DescribeAnalysisSchemesResponse
   where
   rnf DescribeAnalysisSchemesResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf analysisSchemes
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf analysisSchemes

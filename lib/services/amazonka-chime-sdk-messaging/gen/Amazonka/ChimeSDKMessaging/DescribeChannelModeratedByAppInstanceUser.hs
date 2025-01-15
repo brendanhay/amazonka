@@ -145,9 +145,9 @@ instance
     DescribeChannelModeratedByAppInstanceUser
   where
   rnf DescribeChannelModeratedByAppInstanceUser' {..} =
-    Prelude.rnf channelArn
-      `Prelude.seq` Prelude.rnf appInstanceUserArn
-      `Prelude.seq` Prelude.rnf chimeBearer
+    Prelude.rnf channelArn `Prelude.seq`
+      Prelude.rnf appInstanceUserArn `Prelude.seq`
+        Prelude.rnf chimeBearer
 
 instance
   Data.ToHeaders
@@ -224,5 +224,5 @@ instance
   where
   rnf
     DescribeChannelModeratedByAppInstanceUserResponse' {..} =
-      Prelude.rnf channel
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf channel `Prelude.seq`
+        Prelude.rnf httpStatus

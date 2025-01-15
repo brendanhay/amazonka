@@ -118,8 +118,8 @@ instance Prelude.Hashable AccountTakeoverActionType where
 
 instance Prelude.NFData AccountTakeoverActionType where
   rnf AccountTakeoverActionType' {..} =
-    Prelude.rnf notify
-      `Prelude.seq` Prelude.rnf eventAction
+    Prelude.rnf notify `Prelude.seq`
+      Prelude.rnf eventAction
 
 instance Data.ToJSON AccountTakeoverActionType where
   toJSON AccountTakeoverActionType' {..} =

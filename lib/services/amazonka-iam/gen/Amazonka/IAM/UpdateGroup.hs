@@ -180,9 +180,9 @@ instance Prelude.Hashable UpdateGroup where
 
 instance Prelude.NFData UpdateGroup where
   rnf UpdateGroup' {..} =
-    Prelude.rnf newGroupName'
-      `Prelude.seq` Prelude.rnf newPath'
-      `Prelude.seq` Prelude.rnf groupName
+    Prelude.rnf newGroupName' `Prelude.seq`
+      Prelude.rnf newPath' `Prelude.seq`
+        Prelude.rnf groupName
 
 instance Data.ToHeaders UpdateGroup where
   toHeaders = Prelude.const Prelude.mempty

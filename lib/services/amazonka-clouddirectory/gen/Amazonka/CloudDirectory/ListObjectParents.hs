@@ -178,12 +178,12 @@ instance Prelude.Hashable ListObjectParents where
 
 instance Prelude.NFData ListObjectParents where
   rnf ListObjectParents' {..} =
-    Prelude.rnf consistencyLevel
-      `Prelude.seq` Prelude.rnf includeAllLinksToEachParent
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf directoryArn
-      `Prelude.seq` Prelude.rnf objectReference
+    Prelude.rnf consistencyLevel `Prelude.seq`
+      Prelude.rnf includeAllLinksToEachParent `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf directoryArn `Prelude.seq`
+              Prelude.rnf objectReference
 
 instance Data.ToHeaders ListObjectParents where
   toHeaders ListObjectParents' {..} =
@@ -275,7 +275,7 @@ listObjectParentsResponse_httpStatus = Lens.lens (\ListObjectParentsResponse' {h
 
 instance Prelude.NFData ListObjectParentsResponse where
   rnf ListObjectParentsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf parentLinks
-      `Prelude.seq` Prelude.rnf parents
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf parentLinks `Prelude.seq`
+        Prelude.rnf parents `Prelude.seq`
+          Prelude.rnf httpStatus

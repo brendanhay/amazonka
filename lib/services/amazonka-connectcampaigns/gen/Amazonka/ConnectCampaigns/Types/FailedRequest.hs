@@ -89,6 +89,6 @@ instance Prelude.Hashable FailedRequest where
 
 instance Prelude.NFData FailedRequest where
   rnf FailedRequest' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf failureCode
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf failureCode `Prelude.seq`
+        Prelude.rnf id

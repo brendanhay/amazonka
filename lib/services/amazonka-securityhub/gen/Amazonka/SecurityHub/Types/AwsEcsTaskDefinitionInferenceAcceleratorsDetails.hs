@@ -94,8 +94,8 @@ instance
   where
   rnf
     AwsEcsTaskDefinitionInferenceAcceleratorsDetails' {..} =
-      Prelude.rnf deviceName
-        `Prelude.seq` Prelude.rnf deviceType
+      Prelude.rnf deviceName `Prelude.seq`
+        Prelude.rnf deviceType
 
 instance
   Data.ToJSON

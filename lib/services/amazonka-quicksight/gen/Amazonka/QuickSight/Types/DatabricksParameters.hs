@@ -101,9 +101,9 @@ instance Prelude.Hashable DatabricksParameters where
 
 instance Prelude.NFData DatabricksParameters where
   rnf DatabricksParameters' {..} =
-    Prelude.rnf host
-      `Prelude.seq` Prelude.rnf port
-      `Prelude.seq` Prelude.rnf sqlEndpointPath
+    Prelude.rnf host `Prelude.seq`
+      Prelude.rnf port `Prelude.seq`
+        Prelude.rnf sqlEndpointPath
 
 instance Data.ToJSON DatabricksParameters where
   toJSON DatabricksParameters' {..} =

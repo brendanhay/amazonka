@@ -101,8 +101,8 @@ instance Prelude.Hashable DeleteResourceServer where
 
 instance Prelude.NFData DeleteResourceServer where
   rnf DeleteResourceServer' {..} =
-    Prelude.rnf userPoolId
-      `Prelude.seq` Prelude.rnf identifier
+    Prelude.rnf userPoolId `Prelude.seq`
+      Prelude.rnf identifier
 
 instance Data.ToHeaders DeleteResourceServer where
   toHeaders =

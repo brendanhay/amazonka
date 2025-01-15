@@ -176,10 +176,10 @@ instance Prelude.Hashable ListConflictingAliases where
 
 instance Prelude.NFData ListConflictingAliases where
   rnf ListConflictingAliases' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxItems
-      `Prelude.seq` Prelude.rnf distributionId
-      `Prelude.seq` Prelude.rnf alias
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf maxItems `Prelude.seq`
+        Prelude.rnf distributionId `Prelude.seq`
+          Prelude.rnf alias
 
 instance Data.ToHeaders ListConflictingAliases where
   toHeaders = Prelude.const Prelude.mempty
@@ -241,5 +241,5 @@ instance
     ListConflictingAliasesResponse
   where
   rnf ListConflictingAliasesResponse' {..} =
-    Prelude.rnf conflictingAliasesList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf conflictingAliasesList `Prelude.seq`
+      Prelude.rnf httpStatus

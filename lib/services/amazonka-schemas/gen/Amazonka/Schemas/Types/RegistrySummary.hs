@@ -89,6 +89,6 @@ instance Prelude.Hashable RegistrySummary where
 
 instance Prelude.NFData RegistrySummary where
   rnf RegistrySummary' {..} =
-    Prelude.rnf registryArn
-      `Prelude.seq` Prelude.rnf registryName
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf registryArn `Prelude.seq`
+      Prelude.rnf registryName `Prelude.seq`
+        Prelude.rnf tags

@@ -172,5 +172,5 @@ getOnPremisesInstanceResponse_httpStatus = Lens.lens (\GetOnPremisesInstanceResp
 
 instance Prelude.NFData GetOnPremisesInstanceResponse where
   rnf GetOnPremisesInstanceResponse' {..} =
-    Prelude.rnf instanceInfo
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf instanceInfo `Prelude.seq`
+      Prelude.rnf httpStatus

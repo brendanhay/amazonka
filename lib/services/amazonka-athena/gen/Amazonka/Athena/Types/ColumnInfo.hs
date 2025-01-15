@@ -179,13 +179,13 @@ instance Prelude.Hashable ColumnInfo where
 
 instance Prelude.NFData ColumnInfo where
   rnf ColumnInfo' {..} =
-    Prelude.rnf caseSensitive
-      `Prelude.seq` Prelude.rnf catalogName
-      `Prelude.seq` Prelude.rnf label
-      `Prelude.seq` Prelude.rnf nullable
-      `Prelude.seq` Prelude.rnf precision
-      `Prelude.seq` Prelude.rnf scale
-      `Prelude.seq` Prelude.rnf schemaName
-      `Prelude.seq` Prelude.rnf tableName
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf caseSensitive `Prelude.seq`
+      Prelude.rnf catalogName `Prelude.seq`
+        Prelude.rnf label `Prelude.seq`
+          Prelude.rnf nullable `Prelude.seq`
+            Prelude.rnf precision `Prelude.seq`
+              Prelude.rnf scale `Prelude.seq`
+                Prelude.rnf schemaName `Prelude.seq`
+                  Prelude.rnf tableName `Prelude.seq`
+                    Prelude.rnf name `Prelude.seq`
+                      Prelude.rnf type'

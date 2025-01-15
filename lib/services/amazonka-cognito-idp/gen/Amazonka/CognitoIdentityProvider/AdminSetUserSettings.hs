@@ -132,9 +132,9 @@ instance Prelude.Hashable AdminSetUserSettings where
 
 instance Prelude.NFData AdminSetUserSettings where
   rnf AdminSetUserSettings' {..} =
-    Prelude.rnf userPoolId
-      `Prelude.seq` Prelude.rnf username
-      `Prelude.seq` Prelude.rnf mfaOptions
+    Prelude.rnf userPoolId `Prelude.seq`
+      Prelude.rnf username `Prelude.seq`
+        Prelude.rnf mfaOptions
 
 instance Data.ToHeaders AdminSetUserSettings where
   toHeaders =

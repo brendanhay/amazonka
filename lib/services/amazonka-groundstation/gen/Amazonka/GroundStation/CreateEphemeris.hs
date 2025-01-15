@@ -204,14 +204,14 @@ instance Prelude.Hashable CreateEphemeris where
 
 instance Prelude.NFData CreateEphemeris where
   rnf CreateEphemeris' {..} =
-    Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf ephemeris
-      `Prelude.seq` Prelude.rnf expirationTime
-      `Prelude.seq` Prelude.rnf kmsKeyArn
-      `Prelude.seq` Prelude.rnf priority
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf satelliteId
+    Prelude.rnf enabled `Prelude.seq`
+      Prelude.rnf ephemeris `Prelude.seq`
+        Prelude.rnf expirationTime `Prelude.seq`
+          Prelude.rnf kmsKeyArn `Prelude.seq`
+            Prelude.rnf priority `Prelude.seq`
+              Prelude.rnf tags `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf satelliteId
 
 instance Data.ToHeaders CreateEphemeris where
   toHeaders =

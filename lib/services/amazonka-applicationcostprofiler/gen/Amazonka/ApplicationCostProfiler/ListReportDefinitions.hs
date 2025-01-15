@@ -106,12 +106,12 @@ instance Core.AWSPager ListReportDefinitions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listReportDefinitions_nextToken
-          Lens..~ rs
-          Lens.^? listReportDefinitionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listReportDefinitions_nextToken
+              Lens..~ rs
+              Lens.^? listReportDefinitionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListReportDefinitions where
   type
@@ -139,8 +139,8 @@ instance Prelude.Hashable ListReportDefinitions where
 
 instance Prelude.NFData ListReportDefinitions where
   rnf ListReportDefinitions' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListReportDefinitions where
   toHeaders =
@@ -216,6 +216,6 @@ listReportDefinitionsResponse_httpStatus = Lens.lens (\ListReportDefinitionsResp
 
 instance Prelude.NFData ListReportDefinitionsResponse where
   rnf ListReportDefinitionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf reportDefinitions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf reportDefinitions `Prelude.seq`
+        Prelude.rnf httpStatus

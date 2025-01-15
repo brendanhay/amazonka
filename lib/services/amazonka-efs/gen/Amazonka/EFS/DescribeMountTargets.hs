@@ -183,12 +183,12 @@ instance Core.AWSPager DescribeMountTargets where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeMountTargets_marker
-          Lens..~ rs
-          Lens.^? describeMountTargetsResponse_nextMarker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeMountTargets_marker
+              Lens..~ rs
+              Lens.^? describeMountTargetsResponse_nextMarker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeMountTargets where
   type
@@ -217,11 +217,11 @@ instance Prelude.Hashable DescribeMountTargets where
 
 instance Prelude.NFData DescribeMountTargets where
   rnf DescribeMountTargets' {..} =
-    Prelude.rnf accessPointId
-      `Prelude.seq` Prelude.rnf fileSystemId
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxItems
-      `Prelude.seq` Prelude.rnf mountTargetId
+    Prelude.rnf accessPointId `Prelude.seq`
+      Prelude.rnf fileSystemId `Prelude.seq`
+        Prelude.rnf marker `Prelude.seq`
+          Prelude.rnf maxItems `Prelude.seq`
+            Prelude.rnf mountTargetId
 
 instance Data.ToHeaders DescribeMountTargets where
   toHeaders = Prelude.const Prelude.mempty
@@ -312,7 +312,7 @@ describeMountTargetsResponse_httpStatus = Lens.lens (\DescribeMountTargetsRespon
 
 instance Prelude.NFData DescribeMountTargetsResponse where
   rnf DescribeMountTargetsResponse' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf mountTargets
-      `Prelude.seq` Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf mountTargets `Prelude.seq`
+        Prelude.rnf nextMarker `Prelude.seq`
+          Prelude.rnf httpStatus

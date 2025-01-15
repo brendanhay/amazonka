@@ -898,5 +898,5 @@ startBuildBatchResponse_httpStatus = Lens.lens (\StartBuildBatchResponse' {httpS
 
 instance Prelude.NFData StartBuildBatchResponse where
   rnf StartBuildBatchResponse' {..} =
-    Prelude.rnf buildBatch
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf buildBatch `Prelude.seq`
+      Prelude.rnf httpStatus

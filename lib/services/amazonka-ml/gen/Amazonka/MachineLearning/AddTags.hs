@@ -130,9 +130,9 @@ instance Prelude.Hashable AddTags where
 
 instance Prelude.NFData AddTags where
   rnf AddTags' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf resourceType
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf resourceId `Prelude.seq`
+        Prelude.rnf resourceType
 
 instance Data.ToHeaders AddTags where
   toHeaders =
@@ -214,6 +214,6 @@ addTagsResponse_httpStatus = Lens.lens (\AddTagsResponse' {httpStatus} -> httpSt
 
 instance Prelude.NFData AddTagsResponse where
   rnf AddTagsResponse' {..} =
-    Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf resourceId `Prelude.seq`
+      Prelude.rnf resourceType `Prelude.seq`
+        Prelude.rnf httpStatus

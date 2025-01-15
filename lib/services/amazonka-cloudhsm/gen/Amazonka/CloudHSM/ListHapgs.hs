@@ -108,12 +108,12 @@ instance Core.AWSPager ListHapgs where
     | Core.stop (rs Lens.^. listHapgsResponse_hapgList) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listHapgs_nextToken
-          Lens..~ rs
-          Lens.^? listHapgsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listHapgs_nextToken
+              Lens..~ rs
+              Lens.^? listHapgsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListHapgs where
   type AWSResponse ListHapgs = ListHapgsResponse
@@ -215,6 +215,6 @@ listHapgsResponse_hapgList = Lens.lens (\ListHapgsResponse' {hapgList} -> hapgLi
 
 instance Prelude.NFData ListHapgsResponse where
   rnf ListHapgsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf hapgList
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf hapgList

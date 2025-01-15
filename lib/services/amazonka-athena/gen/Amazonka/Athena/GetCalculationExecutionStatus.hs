@@ -193,6 +193,6 @@ instance
     GetCalculationExecutionStatusResponse
   where
   rnf GetCalculationExecutionStatusResponse' {..} =
-    Prelude.rnf statistics
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf statistics `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf httpStatus

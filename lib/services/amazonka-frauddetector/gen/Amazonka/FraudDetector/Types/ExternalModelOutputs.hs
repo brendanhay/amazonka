@@ -82,5 +82,5 @@ instance Prelude.Hashable ExternalModelOutputs where
 
 instance Prelude.NFData ExternalModelOutputs where
   rnf ExternalModelOutputs' {..} =
-    Prelude.rnf externalModel
-      `Prelude.seq` Prelude.rnf outputs
+    Prelude.rnf externalModel `Prelude.seq`
+      Prelude.rnf outputs

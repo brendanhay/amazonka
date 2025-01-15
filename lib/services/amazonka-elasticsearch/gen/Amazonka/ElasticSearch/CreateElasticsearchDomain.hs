@@ -325,22 +325,22 @@ instance Prelude.Hashable CreateElasticsearchDomain where
 
 instance Prelude.NFData CreateElasticsearchDomain where
   rnf CreateElasticsearchDomain' {..} =
-    Prelude.rnf accessPolicies
-      `Prelude.seq` Prelude.rnf advancedOptions
-      `Prelude.seq` Prelude.rnf advancedSecurityOptions
-      `Prelude.seq` Prelude.rnf autoTuneOptions
-      `Prelude.seq` Prelude.rnf cognitoOptions
-      `Prelude.seq` Prelude.rnf domainEndpointOptions
-      `Prelude.seq` Prelude.rnf eBSOptions
-      `Prelude.seq` Prelude.rnf elasticsearchClusterConfig
-      `Prelude.seq` Prelude.rnf elasticsearchVersion
-      `Prelude.seq` Prelude.rnf encryptionAtRestOptions
-      `Prelude.seq` Prelude.rnf logPublishingOptions
-      `Prelude.seq` Prelude.rnf nodeToNodeEncryptionOptions
-      `Prelude.seq` Prelude.rnf snapshotOptions
-      `Prelude.seq` Prelude.rnf tagList
-      `Prelude.seq` Prelude.rnf vPCOptions
-      `Prelude.seq` Prelude.rnf domainName
+    Prelude.rnf accessPolicies `Prelude.seq`
+      Prelude.rnf advancedOptions `Prelude.seq`
+        Prelude.rnf advancedSecurityOptions `Prelude.seq`
+          Prelude.rnf autoTuneOptions `Prelude.seq`
+            Prelude.rnf cognitoOptions `Prelude.seq`
+              Prelude.rnf domainEndpointOptions `Prelude.seq`
+                Prelude.rnf eBSOptions `Prelude.seq`
+                  Prelude.rnf elasticsearchClusterConfig `Prelude.seq`
+                    Prelude.rnf elasticsearchVersion `Prelude.seq`
+                      Prelude.rnf encryptionAtRestOptions `Prelude.seq`
+                        Prelude.rnf logPublishingOptions `Prelude.seq`
+                          Prelude.rnf nodeToNodeEncryptionOptions `Prelude.seq`
+                            Prelude.rnf snapshotOptions `Prelude.seq`
+                              Prelude.rnf tagList `Prelude.seq`
+                                Prelude.rnf vPCOptions `Prelude.seq`
+                                  Prelude.rnf domainName
 
 instance Data.ToHeaders CreateElasticsearchDomain where
   toHeaders = Prelude.const Prelude.mempty
@@ -433,5 +433,5 @@ instance
     CreateElasticsearchDomainResponse
   where
   rnf CreateElasticsearchDomainResponse' {..} =
-    Prelude.rnf domainStatus
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf domainStatus `Prelude.seq`
+      Prelude.rnf httpStatus

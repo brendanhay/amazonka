@@ -75,9 +75,7 @@ instance
   where
   parseXML x =
     ResponseHeadersPolicyRemoveHeadersConfig'
-      Prelude.<$> ( x
-                      Data..@? "Items"
-                      Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "Items" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
                         ( Data.parseXMLList
                             "ResponseHeadersPolicyRemoveHeader"
@@ -101,8 +99,8 @@ instance
     ResponseHeadersPolicyRemoveHeadersConfig
   where
   rnf ResponseHeadersPolicyRemoveHeadersConfig' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf quantity
+    Prelude.rnf items `Prelude.seq`
+      Prelude.rnf quantity
 
 instance
   Data.ToXML

@@ -133,12 +133,12 @@ instance Core.AWSPager GetEnabledStandards where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getEnabledStandards_nextToken
-          Lens..~ rs
-          Lens.^? getEnabledStandardsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getEnabledStandards_nextToken
+              Lens..~ rs
+              Lens.^? getEnabledStandardsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetEnabledStandards where
   type
@@ -167,9 +167,9 @@ instance Prelude.Hashable GetEnabledStandards where
 
 instance Prelude.NFData GetEnabledStandards where
   rnf GetEnabledStandards' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf standardsSubscriptionArns
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf standardsSubscriptionArns
 
 instance Data.ToHeaders GetEnabledStandards where
   toHeaders =
@@ -252,6 +252,6 @@ getEnabledStandardsResponse_httpStatus = Lens.lens (\GetEnabledStandardsResponse
 
 instance Prelude.NFData GetEnabledStandardsResponse where
   rnf GetEnabledStandardsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf standardsSubscriptions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf standardsSubscriptions `Prelude.seq`
+        Prelude.rnf httpStatus

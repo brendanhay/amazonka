@@ -136,8 +136,8 @@ instance Prelude.Hashable ListJournalS3Exports where
 
 instance Prelude.NFData ListJournalS3Exports where
   rnf ListJournalS3Exports' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListJournalS3Exports where
   toHeaders =
@@ -228,6 +228,6 @@ listJournalS3ExportsResponse_httpStatus = Lens.lens (\ListJournalS3ExportsRespon
 
 instance Prelude.NFData ListJournalS3ExportsResponse where
   rnf ListJournalS3ExportsResponse' {..} =
-    Prelude.rnf journalS3Exports
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf journalS3Exports `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

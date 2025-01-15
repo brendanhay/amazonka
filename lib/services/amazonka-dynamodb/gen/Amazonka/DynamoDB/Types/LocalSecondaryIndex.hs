@@ -147,9 +147,9 @@ instance Prelude.Hashable LocalSecondaryIndex where
 
 instance Prelude.NFData LocalSecondaryIndex where
   rnf LocalSecondaryIndex' {..} =
-    Prelude.rnf indexName
-      `Prelude.seq` Prelude.rnf keySchema
-      `Prelude.seq` Prelude.rnf projection
+    Prelude.rnf indexName `Prelude.seq`
+      Prelude.rnf keySchema `Prelude.seq`
+        Prelude.rnf projection
 
 instance Data.ToJSON LocalSecondaryIndex where
   toJSON LocalSecondaryIndex' {..} =

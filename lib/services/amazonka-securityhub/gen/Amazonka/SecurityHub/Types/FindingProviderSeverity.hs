@@ -81,8 +81,8 @@ instance Prelude.Hashable FindingProviderSeverity where
 
 instance Prelude.NFData FindingProviderSeverity where
   rnf FindingProviderSeverity' {..} =
-    Prelude.rnf label
-      `Prelude.seq` Prelude.rnf original
+    Prelude.rnf label `Prelude.seq`
+      Prelude.rnf original
 
 instance Data.ToJSON FindingProviderSeverity where
   toJSON FindingProviderSeverity' {..} =

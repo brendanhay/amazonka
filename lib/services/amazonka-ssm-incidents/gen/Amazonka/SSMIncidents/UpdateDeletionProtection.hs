@@ -124,9 +124,9 @@ instance Prelude.Hashable UpdateDeletionProtection where
 
 instance Prelude.NFData UpdateDeletionProtection where
   rnf UpdateDeletionProtection' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf deletionProtected
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf deletionProtected
 
 instance Data.ToHeaders UpdateDeletionProtection where
   toHeaders =

@@ -92,8 +92,8 @@ instance Prelude.Hashable Hdr10Plus where
 
 instance Prelude.NFData Hdr10Plus where
   rnf Hdr10Plus' {..} =
-    Prelude.rnf masteringMonitorNits
-      `Prelude.seq` Prelude.rnf targetMonitorNits
+    Prelude.rnf masteringMonitorNits `Prelude.seq`
+      Prelude.rnf targetMonitorNits
 
 instance Data.ToJSON Hdr10Plus where
   toJSON Hdr10Plus' {..} =

@@ -141,8 +141,8 @@ instance Prelude.Hashable DeleteCacheCluster where
 
 instance Prelude.NFData DeleteCacheCluster where
   rnf DeleteCacheCluster' {..} =
-    Prelude.rnf finalSnapshotIdentifier
-      `Prelude.seq` Prelude.rnf cacheClusterId
+    Prelude.rnf finalSnapshotIdentifier `Prelude.seq`
+      Prelude.rnf cacheClusterId
 
 instance Data.ToHeaders DeleteCacheCluster where
   toHeaders = Prelude.const Prelude.mempty
@@ -202,5 +202,5 @@ deleteCacheClusterResponse_httpStatus = Lens.lens (\DeleteCacheClusterResponse' 
 
 instance Prelude.NFData DeleteCacheClusterResponse where
   rnf DeleteCacheClusterResponse' {..} =
-    Prelude.rnf cacheCluster
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf cacheCluster `Prelude.seq`
+      Prelude.rnf httpStatus

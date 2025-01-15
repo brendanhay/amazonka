@@ -129,9 +129,9 @@ instance
 
 instance Prelude.NFData ProvisionedProductPlanSummary where
   rnf ProvisionedProductPlanSummary' {..} =
-    Prelude.rnf planId
-      `Prelude.seq` Prelude.rnf planName
-      `Prelude.seq` Prelude.rnf planType
-      `Prelude.seq` Prelude.rnf provisionProductId
-      `Prelude.seq` Prelude.rnf provisionProductName
-      `Prelude.seq` Prelude.rnf provisioningArtifactId
+    Prelude.rnf planId `Prelude.seq`
+      Prelude.rnf planName `Prelude.seq`
+        Prelude.rnf planType `Prelude.seq`
+          Prelude.rnf provisionProductId `Prelude.seq`
+            Prelude.rnf provisionProductName `Prelude.seq`
+              Prelude.rnf provisioningArtifactId

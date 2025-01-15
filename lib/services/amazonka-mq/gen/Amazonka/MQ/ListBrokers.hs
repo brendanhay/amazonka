@@ -108,12 +108,12 @@ instance Core.AWSPager ListBrokers where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listBrokers_nextToken
-          Lens..~ rs
-          Lens.^? listBrokersResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listBrokers_nextToken
+              Lens..~ rs
+              Lens.^? listBrokersResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListBrokers where
   type AWSResponse ListBrokers = ListBrokersResponse
@@ -139,8 +139,8 @@ instance Prelude.Hashable ListBrokers where
 
 instance Prelude.NFData ListBrokers where
   rnf ListBrokers' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListBrokers where
   toHeaders =
@@ -216,6 +216,6 @@ listBrokersResponse_httpStatus = Lens.lens (\ListBrokersResponse' {httpStatus} -
 
 instance Prelude.NFData ListBrokersResponse where
   rnf ListBrokersResponse' {..} =
-    Prelude.rnf brokerSummaries
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf brokerSummaries `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

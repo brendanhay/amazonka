@@ -127,8 +127,8 @@ instance Prelude.Hashable LoadBalancerTlsPolicy where
 
 instance Prelude.NFData LoadBalancerTlsPolicy where
   rnf LoadBalancerTlsPolicy' {..} =
-    Prelude.rnf ciphers
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf isDefault
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf protocols
+    Prelude.rnf ciphers `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf isDefault `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf protocols

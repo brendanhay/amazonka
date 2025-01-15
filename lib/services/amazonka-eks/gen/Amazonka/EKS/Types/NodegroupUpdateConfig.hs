@@ -96,8 +96,8 @@ instance Prelude.Hashable NodegroupUpdateConfig where
 
 instance Prelude.NFData NodegroupUpdateConfig where
   rnf NodegroupUpdateConfig' {..} =
-    Prelude.rnf maxUnavailable
-      `Prelude.seq` Prelude.rnf maxUnavailablePercentage
+    Prelude.rnf maxUnavailable `Prelude.seq`
+      Prelude.rnf maxUnavailablePercentage
 
 instance Data.ToJSON NodegroupUpdateConfig where
   toJSON NodegroupUpdateConfig' {..} =

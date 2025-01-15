@@ -138,7 +138,7 @@ instance Prelude.Hashable AddOn where
 
 instance Prelude.NFData AddOn where
   rnf AddOn' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf nextSnapshotTimeOfDay
-      `Prelude.seq` Prelude.rnf snapshotTimeOfDay
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf nextSnapshotTimeOfDay `Prelude.seq`
+        Prelude.rnf snapshotTimeOfDay `Prelude.seq`
+          Prelude.rnf status

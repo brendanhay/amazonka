@@ -150,7 +150,7 @@ instance
   where
   rnf
     ChildWorkflowExecutionTerminatedEventAttributes' {..} =
-      Prelude.rnf workflowExecution
-        `Prelude.seq` Prelude.rnf workflowType
-        `Prelude.seq` Prelude.rnf initiatedEventId
-        `Prelude.seq` Prelude.rnf startedEventId
+      Prelude.rnf workflowExecution `Prelude.seq`
+        Prelude.rnf workflowType `Prelude.seq`
+          Prelude.rnf initiatedEventId `Prelude.seq`
+            Prelude.rnf startedEventId

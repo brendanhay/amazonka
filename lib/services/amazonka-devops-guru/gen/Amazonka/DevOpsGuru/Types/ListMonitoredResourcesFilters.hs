@@ -79,8 +79,8 @@ instance
 
 instance Prelude.NFData ListMonitoredResourcesFilters where
   rnf ListMonitoredResourcesFilters' {..} =
-    Prelude.rnf resourcePermission
-      `Prelude.seq` Prelude.rnf resourceTypeFilters
+    Prelude.rnf resourcePermission `Prelude.seq`
+      Prelude.rnf resourceTypeFilters
 
 instance Data.ToJSON ListMonitoredResourcesFilters where
   toJSON ListMonitoredResourcesFilters' {..} =

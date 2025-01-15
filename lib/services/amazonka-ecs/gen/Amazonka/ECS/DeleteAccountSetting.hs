@@ -146,8 +146,8 @@ instance Prelude.Hashable DeleteAccountSetting where
 
 instance Prelude.NFData DeleteAccountSetting where
   rnf DeleteAccountSetting' {..} =
-    Prelude.rnf principalArn
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf principalArn `Prelude.seq`
+      Prelude.rnf name
 
 instance Data.ToHeaders DeleteAccountSetting where
   toHeaders =
@@ -220,5 +220,5 @@ deleteAccountSettingResponse_httpStatus = Lens.lens (\DeleteAccountSettingRespon
 
 instance Prelude.NFData DeleteAccountSettingResponse where
   rnf DeleteAccountSettingResponse' {..} =
-    Prelude.rnf setting
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf setting `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -107,6 +107,6 @@ instance Prelude.Hashable OverallVolume where
 
 instance Prelude.NFData OverallVolume where
   rnf OverallVolume' {..} =
-    Prelude.rnf domainIspPlacements
-      `Prelude.seq` Prelude.rnf readRatePercent
-      `Prelude.seq` Prelude.rnf volumeStatistics
+    Prelude.rnf domainIspPlacements `Prelude.seq`
+      Prelude.rnf readRatePercent `Prelude.seq`
+        Prelude.rnf volumeStatistics

@@ -103,10 +103,10 @@ instance Prelude.Hashable CreateGrokClassifierRequest where
 
 instance Prelude.NFData CreateGrokClassifierRequest where
   rnf CreateGrokClassifierRequest' {..} =
-    Prelude.rnf customPatterns
-      `Prelude.seq` Prelude.rnf classification
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf grokPattern
+    Prelude.rnf customPatterns `Prelude.seq`
+      Prelude.rnf classification `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf grokPattern
 
 instance Data.ToJSON CreateGrokClassifierRequest where
   toJSON CreateGrokClassifierRequest' {..} =

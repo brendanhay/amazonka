@@ -90,9 +90,9 @@ instance Prelude.Hashable SearchQuantumTasksFilter where
 
 instance Prelude.NFData SearchQuantumTasksFilter where
   rnf SearchQuantumTasksFilter' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf operator
-      `Prelude.seq` Prelude.rnf values
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf operator `Prelude.seq`
+        Prelude.rnf values
 
 instance Data.ToJSON SearchQuantumTasksFilter where
   toJSON SearchQuantumTasksFilter' {..} =

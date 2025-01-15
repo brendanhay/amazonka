@@ -478,12 +478,12 @@ instance Core.AWSPager GetResources where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getResources_paginationToken
-          Lens..~ rs
-          Lens.^? getResourcesResponse_paginationToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getResources_paginationToken
+              Lens..~ rs
+              Lens.^? getResourcesResponse_paginationToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetResources where
   type AWSResponse GetResources = GetResourcesResponse
@@ -515,14 +515,14 @@ instance Prelude.Hashable GetResources where
 
 instance Prelude.NFData GetResources where
   rnf GetResources' {..} =
-    Prelude.rnf excludeCompliantResources
-      `Prelude.seq` Prelude.rnf includeComplianceDetails
-      `Prelude.seq` Prelude.rnf paginationToken
-      `Prelude.seq` Prelude.rnf resourceARNList
-      `Prelude.seq` Prelude.rnf resourceTypeFilters
-      `Prelude.seq` Prelude.rnf resourcesPerPage
-      `Prelude.seq` Prelude.rnf tagFilters
-      `Prelude.seq` Prelude.rnf tagsPerPage
+    Prelude.rnf excludeCompliantResources `Prelude.seq`
+      Prelude.rnf includeComplianceDetails `Prelude.seq`
+        Prelude.rnf paginationToken `Prelude.seq`
+          Prelude.rnf resourceARNList `Prelude.seq`
+            Prelude.rnf resourceTypeFilters `Prelude.seq`
+              Prelude.rnf resourcesPerPage `Prelude.seq`
+                Prelude.rnf tagFilters `Prelude.seq`
+                  Prelude.rnf tagsPerPage
 
 instance Data.ToHeaders GetResources where
   toHeaders =
@@ -628,6 +628,6 @@ getResourcesResponse_httpStatus = Lens.lens (\GetResourcesResponse' {httpStatus}
 
 instance Prelude.NFData GetResourcesResponse where
   rnf GetResourcesResponse' {..} =
-    Prelude.rnf paginationToken
-      `Prelude.seq` Prelude.rnf resourceTagMappingList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf paginationToken `Prelude.seq`
+      Prelude.rnf resourceTagMappingList `Prelude.seq`
+        Prelude.rnf httpStatus

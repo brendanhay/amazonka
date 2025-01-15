@@ -223,14 +223,14 @@ instance Prelude.Hashable CreateScheduledAction where
 
 instance Prelude.NFData CreateScheduledAction where
   rnf CreateScheduledAction' {..} =
-    Prelude.rnf enable
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf scheduledActionDescription
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf scheduledActionName
-      `Prelude.seq` Prelude.rnf targetAction
-      `Prelude.seq` Prelude.rnf schedule
-      `Prelude.seq` Prelude.rnf iamRole
+    Prelude.rnf enable `Prelude.seq`
+      Prelude.rnf endTime `Prelude.seq`
+        Prelude.rnf scheduledActionDescription `Prelude.seq`
+          Prelude.rnf startTime `Prelude.seq`
+            Prelude.rnf scheduledActionName `Prelude.seq`
+              Prelude.rnf targetAction `Prelude.seq`
+                Prelude.rnf schedule `Prelude.seq`
+                  Prelude.rnf iamRole
 
 instance Data.ToHeaders CreateScheduledAction where
   toHeaders = Prelude.const Prelude.mempty

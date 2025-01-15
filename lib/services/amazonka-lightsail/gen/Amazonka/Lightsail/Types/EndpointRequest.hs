@@ -89,9 +89,9 @@ instance Prelude.Hashable EndpointRequest where
 
 instance Prelude.NFData EndpointRequest where
   rnf EndpointRequest' {..} =
-    Prelude.rnf healthCheck
-      `Prelude.seq` Prelude.rnf containerName
-      `Prelude.seq` Prelude.rnf containerPort
+    Prelude.rnf healthCheck `Prelude.seq`
+      Prelude.rnf containerName `Prelude.seq`
+        Prelude.rnf containerPort
 
 instance Data.ToJSON EndpointRequest where
   toJSON EndpointRequest' {..} =

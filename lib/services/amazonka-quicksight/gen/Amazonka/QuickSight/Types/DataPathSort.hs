@@ -84,8 +84,8 @@ instance Prelude.Hashable DataPathSort where
 
 instance Prelude.NFData DataPathSort where
   rnf DataPathSort' {..} =
-    Prelude.rnf direction
-      `Prelude.seq` Prelude.rnf sortPaths
+    Prelude.rnf direction `Prelude.seq`
+      Prelude.rnf sortPaths
 
 instance Data.ToJSON DataPathSort where
   toJSON DataPathSort' {..} =

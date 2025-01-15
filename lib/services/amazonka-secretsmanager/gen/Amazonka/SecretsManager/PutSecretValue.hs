@@ -373,11 +373,11 @@ instance Prelude.Hashable PutSecretValue where
 
 instance Prelude.NFData PutSecretValue where
   rnf PutSecretValue' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf secretBinary
-      `Prelude.seq` Prelude.rnf secretString
-      `Prelude.seq` Prelude.rnf versionStages
-      `Prelude.seq` Prelude.rnf secretId
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf secretBinary `Prelude.seq`
+        Prelude.rnf secretString `Prelude.seq`
+          Prelude.rnf versionStages `Prelude.seq`
+            Prelude.rnf secretId
 
 instance Data.ToHeaders PutSecretValue where
   toHeaders =
@@ -486,8 +486,8 @@ putSecretValueResponse_httpStatus = Lens.lens (\PutSecretValueResponse' {httpSta
 
 instance Prelude.NFData PutSecretValueResponse where
   rnf PutSecretValueResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf versionId
-      `Prelude.seq` Prelude.rnf versionStages
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf versionId `Prelude.seq`
+          Prelude.rnf versionStages `Prelude.seq`
+            Prelude.rnf httpStatus

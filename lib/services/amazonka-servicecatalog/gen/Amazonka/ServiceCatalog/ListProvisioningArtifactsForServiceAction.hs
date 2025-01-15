@@ -152,12 +152,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listProvisioningArtifactsForServiceAction_pageToken
-          Lens..~ rs
-          Lens.^? listProvisioningArtifactsForServiceActionResponse_nextPageToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listProvisioningArtifactsForServiceAction_pageToken
+              Lens..~ rs
+              Lens.^? listProvisioningArtifactsForServiceActionResponse_nextPageToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -199,10 +199,10 @@ instance
     ListProvisioningArtifactsForServiceAction
   where
   rnf ListProvisioningArtifactsForServiceAction' {..} =
-    Prelude.rnf acceptLanguage
-      `Prelude.seq` Prelude.rnf pageSize
-      `Prelude.seq` Prelude.rnf pageToken
-      `Prelude.seq` Prelude.rnf serviceActionId
+    Prelude.rnf acceptLanguage `Prelude.seq`
+      Prelude.rnf pageSize `Prelude.seq`
+        Prelude.rnf pageToken `Prelude.seq`
+          Prelude.rnf serviceActionId
 
 instance
   Data.ToHeaders
@@ -313,6 +313,6 @@ instance
   where
   rnf
     ListProvisioningArtifactsForServiceActionResponse' {..} =
-      Prelude.rnf nextPageToken
-        `Prelude.seq` Prelude.rnf provisioningArtifactViews
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf nextPageToken `Prelude.seq`
+        Prelude.rnf provisioningArtifactViews `Prelude.seq`
+          Prelude.rnf httpStatus

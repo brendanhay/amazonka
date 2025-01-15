@@ -106,6 +106,6 @@ instance Prelude.Hashable PublishBatchResultEntry where
 
 instance Prelude.NFData PublishBatchResultEntry where
   rnf PublishBatchResultEntry' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf messageId
-      `Prelude.seq` Prelude.rnf sequenceNumber
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf messageId `Prelude.seq`
+        Prelude.rnf sequenceNumber

@@ -99,8 +99,8 @@ instance Prelude.Hashable NetworkInputSettings where
 
 instance Prelude.NFData NetworkInputSettings where
   rnf NetworkInputSettings' {..} =
-    Prelude.rnf hlsInputSettings
-      `Prelude.seq` Prelude.rnf serverValidation
+    Prelude.rnf hlsInputSettings `Prelude.seq`
+      Prelude.rnf serverValidation
 
 instance Data.ToJSON NetworkInputSettings where
   toJSON NetworkInputSettings' {..} =

@@ -139,6 +139,6 @@ instance
     DocumentAttributeValueCountPair
   where
   rnf DocumentAttributeValueCountPair' {..} =
-    Prelude.rnf count
-      `Prelude.seq` Prelude.rnf documentAttributeValue
-      `Prelude.seq` Prelude.rnf facetResults
+    Prelude.rnf count `Prelude.seq`
+      Prelude.rnf documentAttributeValue `Prelude.seq`
+        Prelude.rnf facetResults

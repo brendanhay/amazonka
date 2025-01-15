@@ -264,14 +264,14 @@ describeRulesetResponse_name = Lens.lens (\DescribeRulesetResponse' {name} -> na
 
 instance Prelude.NFData DescribeRulesetResponse where
   rnf DescribeRulesetResponse' {..} =
-    Prelude.rnf createDate
-      `Prelude.seq` Prelude.rnf createdBy
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf lastModifiedBy
-      `Prelude.seq` Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf rules
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf targetArn
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf createDate `Prelude.seq`
+      Prelude.rnf createdBy `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf lastModifiedBy `Prelude.seq`
+            Prelude.rnf lastModifiedDate `Prelude.seq`
+              Prelude.rnf resourceArn `Prelude.seq`
+                Prelude.rnf rules `Prelude.seq`
+                  Prelude.rnf tags `Prelude.seq`
+                    Prelude.rnf targetArn `Prelude.seq`
+                      Prelude.rnf httpStatus `Prelude.seq`
+                        Prelude.rnf name

@@ -178,11 +178,11 @@ instance
   where
   rnf
     DescribeDirectConnectGatewayAssociationProposals' {..} =
-      Prelude.rnf associatedGatewayId
-        `Prelude.seq` Prelude.rnf directConnectGatewayId
-        `Prelude.seq` Prelude.rnf maxResults
-        `Prelude.seq` Prelude.rnf nextToken
-        `Prelude.seq` Prelude.rnf proposalId
+      Prelude.rnf associatedGatewayId `Prelude.seq`
+        Prelude.rnf directConnectGatewayId `Prelude.seq`
+          Prelude.rnf maxResults `Prelude.seq`
+            Prelude.rnf nextToken `Prelude.seq`
+              Prelude.rnf proposalId
 
 instance
   Data.ToHeaders

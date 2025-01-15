@@ -188,12 +188,12 @@ instance Prelude.Hashable UpdateFlowEntitlement where
 
 instance Prelude.NFData UpdateFlowEntitlement where
   rnf UpdateFlowEntitlement' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf encryption
-      `Prelude.seq` Prelude.rnf entitlementStatus
-      `Prelude.seq` Prelude.rnf subscribers
-      `Prelude.seq` Prelude.rnf flowArn
-      `Prelude.seq` Prelude.rnf entitlementArn
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf encryption `Prelude.seq`
+        Prelude.rnf entitlementStatus `Prelude.seq`
+          Prelude.rnf subscribers `Prelude.seq`
+            Prelude.rnf flowArn `Prelude.seq`
+              Prelude.rnf entitlementArn
 
 instance Data.ToHeaders UpdateFlowEntitlement where
   toHeaders =
@@ -280,6 +280,6 @@ updateFlowEntitlementResponse_httpStatus = Lens.lens (\UpdateFlowEntitlementResp
 
 instance Prelude.NFData UpdateFlowEntitlementResponse where
   rnf UpdateFlowEntitlementResponse' {..} =
-    Prelude.rnf entitlement
-      `Prelude.seq` Prelude.rnf flowArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf entitlement `Prelude.seq`
+      Prelude.rnf flowArn `Prelude.seq`
+        Prelude.rnf httpStatus

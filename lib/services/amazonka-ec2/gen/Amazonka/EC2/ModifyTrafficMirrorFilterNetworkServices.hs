@@ -166,10 +166,10 @@ instance
     ModifyTrafficMirrorFilterNetworkServices
   where
   rnf ModifyTrafficMirrorFilterNetworkServices' {..} =
-    Prelude.rnf addNetworkServices
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf removeNetworkServices
-      `Prelude.seq` Prelude.rnf trafficMirrorFilterId
+    Prelude.rnf addNetworkServices `Prelude.seq`
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf removeNetworkServices `Prelude.seq`
+          Prelude.rnf trafficMirrorFilterId
 
 instance
   Data.ToHeaders
@@ -254,5 +254,5 @@ instance
   where
   rnf
     ModifyTrafficMirrorFilterNetworkServicesResponse' {..} =
-      Prelude.rnf trafficMirrorFilter
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf trafficMirrorFilter `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -258,7 +258,7 @@ getEventSelectorsResponse_httpStatus = Lens.lens (\GetEventSelectorsResponse' {h
 
 instance Prelude.NFData GetEventSelectorsResponse where
   rnf GetEventSelectorsResponse' {..} =
-    Prelude.rnf advancedEventSelectors
-      `Prelude.seq` Prelude.rnf eventSelectors
-      `Prelude.seq` Prelude.rnf trailARN
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf advancedEventSelectors `Prelude.seq`
+      Prelude.rnf eventSelectors `Prelude.seq`
+        Prelude.rnf trailARN `Prelude.seq`
+          Prelude.rnf httpStatus

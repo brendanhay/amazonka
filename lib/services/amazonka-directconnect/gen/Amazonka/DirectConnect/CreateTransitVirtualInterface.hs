@@ -137,8 +137,8 @@ instance
 
 instance Prelude.NFData CreateTransitVirtualInterface where
   rnf CreateTransitVirtualInterface' {..} =
-    Prelude.rnf connectionId
-      `Prelude.seq` Prelude.rnf newTransitVirtualInterface'
+    Prelude.rnf connectionId `Prelude.seq`
+      Prelude.rnf newTransitVirtualInterface'
 
 instance Data.ToHeaders CreateTransitVirtualInterface where
   toHeaders =
@@ -216,5 +216,5 @@ instance
     CreateTransitVirtualInterfaceResponse
   where
   rnf CreateTransitVirtualInterfaceResponse' {..} =
-    Prelude.rnf virtualInterface
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf virtualInterface `Prelude.seq`
+      Prelude.rnf httpStatus

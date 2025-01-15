@@ -86,8 +86,8 @@ instance Prelude.Hashable AlarmCapabilities where
 
 instance Prelude.NFData AlarmCapabilities where
   rnf AlarmCapabilities' {..} =
-    Prelude.rnf acknowledgeFlow
-      `Prelude.seq` Prelude.rnf initializationConfiguration
+    Prelude.rnf acknowledgeFlow `Prelude.seq`
+      Prelude.rnf initializationConfiguration
 
 instance Data.ToJSON AlarmCapabilities where
   toJSON AlarmCapabilities' {..} =

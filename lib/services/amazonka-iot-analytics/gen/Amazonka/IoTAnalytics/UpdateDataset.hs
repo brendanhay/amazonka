@@ -187,13 +187,13 @@ instance Prelude.Hashable UpdateDataset where
 
 instance Prelude.NFData UpdateDataset where
   rnf UpdateDataset' {..} =
-    Prelude.rnf contentDeliveryRules
-      `Prelude.seq` Prelude.rnf lateDataRules
-      `Prelude.seq` Prelude.rnf retentionPeriod
-      `Prelude.seq` Prelude.rnf triggers
-      `Prelude.seq` Prelude.rnf versioningConfiguration
-      `Prelude.seq` Prelude.rnf datasetName
-      `Prelude.seq` Prelude.rnf actions
+    Prelude.rnf contentDeliveryRules `Prelude.seq`
+      Prelude.rnf lateDataRules `Prelude.seq`
+        Prelude.rnf retentionPeriod `Prelude.seq`
+          Prelude.rnf triggers `Prelude.seq`
+            Prelude.rnf versioningConfiguration `Prelude.seq`
+              Prelude.rnf datasetName `Prelude.seq`
+                Prelude.rnf actions
 
 instance Data.ToHeaders UpdateDataset where
   toHeaders = Prelude.const Prelude.mempty

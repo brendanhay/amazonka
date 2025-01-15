@@ -95,9 +95,9 @@ instance Prelude.Hashable KinesisAction where
 
 instance Prelude.NFData KinesisAction where
   rnf KinesisAction' {..} =
-    Prelude.rnf partitionKey
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf streamName
+    Prelude.rnf partitionKey `Prelude.seq`
+      Prelude.rnf roleArn `Prelude.seq`
+        Prelude.rnf streamName
 
 instance Data.ToJSON KinesisAction where
   toJSON KinesisAction' {..} =

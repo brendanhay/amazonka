@@ -141,8 +141,8 @@ instance Prelude.Hashable GetCalendarState where
 
 instance Prelude.NFData GetCalendarState where
   rnf GetCalendarState' {..} =
-    Prelude.rnf atTime
-      `Prelude.seq` Prelude.rnf calendarNames
+    Prelude.rnf atTime `Prelude.seq`
+      Prelude.rnf calendarNames
 
 instance Data.ToHeaders GetCalendarState where
   toHeaders =
@@ -252,7 +252,7 @@ getCalendarStateResponse_httpStatus = Lens.lens (\GetCalendarStateResponse' {htt
 
 instance Prelude.NFData GetCalendarStateResponse where
   rnf GetCalendarStateResponse' {..} =
-    Prelude.rnf atTime
-      `Prelude.seq` Prelude.rnf nextTransitionTime
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf atTime `Prelude.seq`
+      Prelude.rnf nextTransitionTime `Prelude.seq`
+        Prelude.rnf state `Prelude.seq`
+          Prelude.rnf httpStatus

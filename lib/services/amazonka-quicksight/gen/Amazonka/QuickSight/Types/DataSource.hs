@@ -265,16 +265,16 @@ instance Prelude.Hashable DataSource where
 
 instance Prelude.NFData DataSource where
   rnf DataSource' {..} =
-    Prelude.rnf alternateDataSourceParameters
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf dataSourceId
-      `Prelude.seq` Prelude.rnf dataSourceParameters
-      `Prelude.seq` Prelude.rnf errorInfo
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf secretArn
-      `Prelude.seq` Prelude.rnf sslProperties
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf vpcConnectionProperties
+    Prelude.rnf alternateDataSourceParameters `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf createdTime `Prelude.seq`
+          Prelude.rnf dataSourceId `Prelude.seq`
+            Prelude.rnf dataSourceParameters `Prelude.seq`
+              Prelude.rnf errorInfo `Prelude.seq`
+                Prelude.rnf lastUpdatedTime `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf secretArn `Prelude.seq`
+                      Prelude.rnf sslProperties `Prelude.seq`
+                        Prelude.rnf status `Prelude.seq`
+                          Prelude.rnf type' `Prelude.seq`
+                            Prelude.rnf vpcConnectionProperties

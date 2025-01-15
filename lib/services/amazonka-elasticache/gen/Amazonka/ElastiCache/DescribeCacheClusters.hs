@@ -203,12 +203,12 @@ instance Core.AWSPager DescribeCacheClusters where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeCacheClusters_marker
-          Lens..~ rs
-          Lens.^? describeCacheClustersResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeCacheClusters_marker
+              Lens..~ rs
+              Lens.^? describeCacheClustersResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeCacheClusters where
   type
@@ -221,9 +221,7 @@ instance Core.AWSRequest DescribeCacheClusters where
       "DescribeCacheClustersResult"
       ( \s h x ->
           DescribeCacheClustersResponse'
-            Prelude.<$> ( x
-                            Data..@? "CacheClusters"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "CacheClusters" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "CacheCluster")
                         )
             Prelude.<*> (x Data..@? "Marker")
@@ -241,11 +239,11 @@ instance Prelude.Hashable DescribeCacheClusters where
 
 instance Prelude.NFData DescribeCacheClusters where
   rnf DescribeCacheClusters' {..} =
-    Prelude.rnf cacheClusterId
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf showCacheClustersNotInReplicationGroups
-      `Prelude.seq` Prelude.rnf showCacheNodeInfo
+    Prelude.rnf cacheClusterId `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf maxRecords `Prelude.seq`
+          Prelude.rnf showCacheClustersNotInReplicationGroups `Prelude.seq`
+            Prelude.rnf showCacheNodeInfo
 
 instance Data.ToHeaders DescribeCacheClusters where
   toHeaders = Prelude.const Prelude.mempty
@@ -323,6 +321,6 @@ describeCacheClustersResponse_httpStatus = Lens.lens (\DescribeCacheClustersResp
 
 instance Prelude.NFData DescribeCacheClustersResponse where
   rnf DescribeCacheClustersResponse' {..} =
-    Prelude.rnf cacheClusters
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf cacheClusters `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -95,6 +95,6 @@ instance Prelude.Hashable ChoiceAnswerSummary where
 
 instance Prelude.NFData ChoiceAnswerSummary where
   rnf ChoiceAnswerSummary' {..} =
-    Prelude.rnf choiceId
-      `Prelude.seq` Prelude.rnf reason
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf choiceId `Prelude.seq`
+      Prelude.rnf reason `Prelude.seq`
+        Prelude.rnf status

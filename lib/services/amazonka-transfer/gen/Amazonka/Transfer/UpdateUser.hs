@@ -373,14 +373,14 @@ instance Prelude.Hashable UpdateUser where
 
 instance Prelude.NFData UpdateUser where
   rnf UpdateUser' {..} =
-    Prelude.rnf homeDirectory
-      `Prelude.seq` Prelude.rnf homeDirectoryMappings
-      `Prelude.seq` Prelude.rnf homeDirectoryType
-      `Prelude.seq` Prelude.rnf policy
-      `Prelude.seq` Prelude.rnf posixProfile
-      `Prelude.seq` Prelude.rnf role'
-      `Prelude.seq` Prelude.rnf serverId
-      `Prelude.seq` Prelude.rnf userName
+    Prelude.rnf homeDirectory `Prelude.seq`
+      Prelude.rnf homeDirectoryMappings `Prelude.seq`
+        Prelude.rnf homeDirectoryType `Prelude.seq`
+          Prelude.rnf policy `Prelude.seq`
+            Prelude.rnf posixProfile `Prelude.seq`
+              Prelude.rnf role' `Prelude.seq`
+                Prelude.rnf serverId `Prelude.seq`
+                  Prelude.rnf userName
 
 instance Data.ToHeaders UpdateUser where
   toHeaders =
@@ -483,6 +483,6 @@ updateUserResponse_userName = Lens.lens (\UpdateUserResponse' {userName} -> user
 
 instance Prelude.NFData UpdateUserResponse where
   rnf UpdateUserResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf serverId
-      `Prelude.seq` Prelude.rnf userName
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf serverId `Prelude.seq`
+        Prelude.rnf userName

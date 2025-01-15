@@ -134,10 +134,10 @@ instance Prelude.Hashable FrameCaptureSettings where
 
 instance Prelude.NFData FrameCaptureSettings where
   rnf FrameCaptureSettings' {..} =
-    Prelude.rnf framerateDenominator
-      `Prelude.seq` Prelude.rnf framerateNumerator
-      `Prelude.seq` Prelude.rnf maxCaptures
-      `Prelude.seq` Prelude.rnf quality
+    Prelude.rnf framerateDenominator `Prelude.seq`
+      Prelude.rnf framerateNumerator `Prelude.seq`
+        Prelude.rnf maxCaptures `Prelude.seq`
+          Prelude.rnf quality
 
 instance Data.ToJSON FrameCaptureSettings where
   toJSON FrameCaptureSettings' {..} =

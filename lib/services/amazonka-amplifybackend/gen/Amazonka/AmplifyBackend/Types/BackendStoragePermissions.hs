@@ -93,8 +93,8 @@ instance Prelude.Hashable BackendStoragePermissions where
 
 instance Prelude.NFData BackendStoragePermissions where
   rnf BackendStoragePermissions' {..} =
-    Prelude.rnf unAuthenticated
-      `Prelude.seq` Prelude.rnf authenticated
+    Prelude.rnf unAuthenticated `Prelude.seq`
+      Prelude.rnf authenticated
 
 instance Data.ToJSON BackendStoragePermissions where
   toJSON BackendStoragePermissions' {..} =

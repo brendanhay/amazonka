@@ -137,9 +137,9 @@ instance Prelude.Hashable DeleteStreamingSession where
 
 instance Prelude.NFData DeleteStreamingSession where
   rnf DeleteStreamingSession' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf sessionId
-      `Prelude.seq` Prelude.rnf studioId
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf sessionId `Prelude.seq`
+        Prelude.rnf studioId
 
 instance Data.ToHeaders DeleteStreamingSession where
   toHeaders DeleteStreamingSession' {..} =
@@ -205,5 +205,5 @@ instance
     DeleteStreamingSessionResponse
   where
   rnf DeleteStreamingSessionResponse' {..} =
-    Prelude.rnf session
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf session `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -112,7 +112,7 @@ instance Prelude.Hashable VolumeRecoveryPointInfo where
 
 instance Prelude.NFData VolumeRecoveryPointInfo where
   rnf VolumeRecoveryPointInfo' {..} =
-    Prelude.rnf volumeARN
-      `Prelude.seq` Prelude.rnf volumeRecoveryPointTime
-      `Prelude.seq` Prelude.rnf volumeSizeInBytes
-      `Prelude.seq` Prelude.rnf volumeUsageInBytes
+    Prelude.rnf volumeARN `Prelude.seq`
+      Prelude.rnf volumeRecoveryPointTime `Prelude.seq`
+        Prelude.rnf volumeSizeInBytes `Prelude.seq`
+          Prelude.rnf volumeUsageInBytes

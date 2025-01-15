@@ -216,15 +216,15 @@ instance Prelude.Hashable UpdateCluster where
 
 instance Prelude.NFData UpdateCluster where
   rnf UpdateCluster' {..} =
-    Prelude.rnf addressId
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf forwardingAddressId
-      `Prelude.seq` Prelude.rnf notification
-      `Prelude.seq` Prelude.rnf onDeviceServiceConfiguration
-      `Prelude.seq` Prelude.rnf resources
-      `Prelude.seq` Prelude.rnf roleARN
-      `Prelude.seq` Prelude.rnf shippingOption
-      `Prelude.seq` Prelude.rnf clusterId
+    Prelude.rnf addressId `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf forwardingAddressId `Prelude.seq`
+          Prelude.rnf notification `Prelude.seq`
+            Prelude.rnf onDeviceServiceConfiguration `Prelude.seq`
+              Prelude.rnf resources `Prelude.seq`
+                Prelude.rnf roleARN `Prelude.seq`
+                  Prelude.rnf shippingOption `Prelude.seq`
+                    Prelude.rnf clusterId
 
 instance Data.ToHeaders UpdateCluster where
   toHeaders =

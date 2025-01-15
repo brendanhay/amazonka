@@ -158,11 +158,11 @@ instance Prelude.Hashable UpdateSecurityConfig where
 
 instance Prelude.NFData UpdateSecurityConfig where
   rnf UpdateSecurityConfig' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf samlOptions
-      `Prelude.seq` Prelude.rnf configVersion
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf samlOptions `Prelude.seq`
+          Prelude.rnf configVersion `Prelude.seq`
+            Prelude.rnf id
 
 instance Data.ToHeaders UpdateSecurityConfig where
   toHeaders =
@@ -238,5 +238,5 @@ updateSecurityConfigResponse_httpStatus = Lens.lens (\UpdateSecurityConfigRespon
 
 instance Prelude.NFData UpdateSecurityConfigResponse where
   rnf UpdateSecurityConfigResponse' {..} =
-    Prelude.rnf securityConfigDetail
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf securityConfigDetail `Prelude.seq`
+      Prelude.rnf httpStatus

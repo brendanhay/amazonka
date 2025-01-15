@@ -129,8 +129,8 @@ instance Prelude.Hashable GetOperationsForResource where
 
 instance Prelude.NFData GetOperationsForResource where
   rnf GetOperationsForResource' {..} =
-    Prelude.rnf pageToken
-      `Prelude.seq` Prelude.rnf resourceName
+    Prelude.rnf pageToken `Prelude.seq`
+      Prelude.rnf resourceName
 
 instance Data.ToHeaders GetOperationsForResource where
   toHeaders =
@@ -263,7 +263,7 @@ instance
     GetOperationsForResourceResponse
   where
   rnf GetOperationsForResourceResponse' {..} =
-    Prelude.rnf nextPageCount
-      `Prelude.seq` Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf operations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextPageCount `Prelude.seq`
+      Prelude.rnf nextPageToken `Prelude.seq`
+        Prelude.rnf operations `Prelude.seq`
+          Prelude.rnf httpStatus

@@ -122,8 +122,8 @@ instance Prelude.Hashable ListLedgers where
 
 instance Prelude.NFData ListLedgers where
   rnf ListLedgers' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListLedgers where
   toHeaders =
@@ -219,6 +219,6 @@ listLedgersResponse_httpStatus = Lens.lens (\ListLedgersResponse' {httpStatus} -
 
 instance Prelude.NFData ListLedgersResponse where
   rnf ListLedgersResponse' {..} =
-    Prelude.rnf ledgers
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf ledgers `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

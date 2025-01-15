@@ -114,10 +114,10 @@ instance Prelude.Hashable PostgreSQLCatalogTarget where
 
 instance Prelude.NFData PostgreSQLCatalogTarget where
   rnf PostgreSQLCatalogTarget' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf inputs
-      `Prelude.seq` Prelude.rnf database
-      `Prelude.seq` Prelude.rnf table
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf inputs `Prelude.seq`
+        Prelude.rnf database `Prelude.seq`
+          Prelude.rnf table
 
 instance Data.ToJSON PostgreSQLCatalogTarget where
   toJSON PostgreSQLCatalogTarget' {..} =

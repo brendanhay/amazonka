@@ -97,8 +97,8 @@ instance
     AwsCloudFrontDistributionOriginSslProtocols
   where
   rnf AwsCloudFrontDistributionOriginSslProtocols' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf quantity
+    Prelude.rnf items `Prelude.seq`
+      Prelude.rnf quantity
 
 instance
   Data.ToJSON

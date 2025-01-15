@@ -451,19 +451,19 @@ instance Prelude.Hashable MedicalTranscriptionJob where
 
 instance Prelude.NFData MedicalTranscriptionJob where
   rnf MedicalTranscriptionJob' {..} =
-    Prelude.rnf completionTime
-      `Prelude.seq` Prelude.rnf contentIdentificationType
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf languageCode
-      `Prelude.seq` Prelude.rnf media
-      `Prelude.seq` Prelude.rnf mediaFormat
-      `Prelude.seq` Prelude.rnf mediaSampleRateHertz
-      `Prelude.seq` Prelude.rnf medicalTranscriptionJobName
-      `Prelude.seq` Prelude.rnf settings
-      `Prelude.seq` Prelude.rnf specialty
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf transcript
-      `Prelude.seq` Prelude.rnf transcriptionJobStatus
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf completionTime `Prelude.seq`
+      Prelude.rnf contentIdentificationType `Prelude.seq`
+        Prelude.rnf creationTime `Prelude.seq`
+          Prelude.rnf failureReason `Prelude.seq`
+            Prelude.rnf languageCode `Prelude.seq`
+              Prelude.rnf media `Prelude.seq`
+                Prelude.rnf mediaFormat `Prelude.seq`
+                  Prelude.rnf mediaSampleRateHertz `Prelude.seq`
+                    Prelude.rnf medicalTranscriptionJobName `Prelude.seq`
+                      Prelude.rnf settings `Prelude.seq`
+                        Prelude.rnf specialty `Prelude.seq`
+                          Prelude.rnf startTime `Prelude.seq`
+                            Prelude.rnf tags `Prelude.seq`
+                              Prelude.rnf transcript `Prelude.seq`
+                                Prelude.rnf transcriptionJobStatus `Prelude.seq`
+                                  Prelude.rnf type'

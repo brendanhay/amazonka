@@ -89,9 +89,7 @@ instance Data.FromXML ImportSnapshotTask where
       Prelude.<$> (x Data..@? "description")
       Prelude.<*> (x Data..@? "importTaskId")
       Prelude.<*> (x Data..@? "snapshotTaskDetail")
-      Prelude.<*> ( x
-                      Data..@? "tagSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
@@ -105,7 +103,7 @@ instance Prelude.Hashable ImportSnapshotTask where
 
 instance Prelude.NFData ImportSnapshotTask where
   rnf ImportSnapshotTask' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf importTaskId
-      `Prelude.seq` Prelude.rnf snapshotTaskDetail
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf importTaskId `Prelude.seq`
+        Prelude.rnf snapshotTaskDetail `Prelude.seq`
+          Prelude.rnf tags

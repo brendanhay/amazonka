@@ -262,13 +262,13 @@ instance
     DescribeDomainConfigurationResponse
   where
   rnf DescribeDomainConfigurationResponse' {..} =
-    Prelude.rnf authorizerConfig
-      `Prelude.seq` Prelude.rnf domainConfigurationArn
-      `Prelude.seq` Prelude.rnf domainConfigurationName
-      `Prelude.seq` Prelude.rnf domainConfigurationStatus
-      `Prelude.seq` Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf domainType
-      `Prelude.seq` Prelude.rnf lastStatusChangeDate
-      `Prelude.seq` Prelude.rnf serverCertificates
-      `Prelude.seq` Prelude.rnf serviceType
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf authorizerConfig `Prelude.seq`
+      Prelude.rnf domainConfigurationArn `Prelude.seq`
+        Prelude.rnf domainConfigurationName `Prelude.seq`
+          Prelude.rnf domainConfigurationStatus `Prelude.seq`
+            Prelude.rnf domainName `Prelude.seq`
+              Prelude.rnf domainType `Prelude.seq`
+                Prelude.rnf lastStatusChangeDate `Prelude.seq`
+                  Prelude.rnf serverCertificates `Prelude.seq`
+                    Prelude.rnf serviceType `Prelude.seq`
+                      Prelude.rnf httpStatus

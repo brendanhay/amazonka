@@ -85,8 +85,8 @@ instance Prelude.Hashable DecimalDefaultValues where
 
 instance Prelude.NFData DecimalDefaultValues where
   rnf DecimalDefaultValues' {..} =
-    Prelude.rnf dynamicValue
-      `Prelude.seq` Prelude.rnf staticValues
+    Prelude.rnf dynamicValue `Prelude.seq`
+      Prelude.rnf staticValues
 
 instance Data.ToJSON DecimalDefaultValues where
   toJSON DecimalDefaultValues' {..} =

@@ -145,8 +145,8 @@ instance Prelude.Hashable UpdateRuntimeConfiguration where
 
 instance Prelude.NFData UpdateRuntimeConfiguration where
   rnf UpdateRuntimeConfiguration' {..} =
-    Prelude.rnf fleetId
-      `Prelude.seq` Prelude.rnf runtimeConfiguration
+    Prelude.rnf fleetId `Prelude.seq`
+      Prelude.rnf runtimeConfiguration
 
 instance Data.ToHeaders UpdateRuntimeConfiguration where
   toHeaders =
@@ -228,5 +228,5 @@ instance
     UpdateRuntimeConfigurationResponse
   where
   rnf UpdateRuntimeConfigurationResponse' {..} =
-    Prelude.rnf runtimeConfiguration
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf runtimeConfiguration `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -338,17 +338,17 @@ describeThesaurusResponse_httpStatus = Lens.lens (\DescribeThesaurusResponse' {h
 
 instance Prelude.NFData DescribeThesaurusResponse where
   rnf DescribeThesaurusResponse' {..} =
-    Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf fileSizeBytes
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf indexId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf sourceS3Path
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf synonymRuleCount
-      `Prelude.seq` Prelude.rnf termCount
-      `Prelude.seq` Prelude.rnf updatedAt
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf createdAt `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf errorMessage `Prelude.seq`
+          Prelude.rnf fileSizeBytes `Prelude.seq`
+            Prelude.rnf id `Prelude.seq`
+              Prelude.rnf indexId `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf roleArn `Prelude.seq`
+                    Prelude.rnf sourceS3Path `Prelude.seq`
+                      Prelude.rnf status `Prelude.seq`
+                        Prelude.rnf synonymRuleCount `Prelude.seq`
+                          Prelude.rnf termCount `Prelude.seq`
+                            Prelude.rnf updatedAt `Prelude.seq`
+                              Prelude.rnf httpStatus

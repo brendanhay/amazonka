@@ -144,8 +144,8 @@ instance Prelude.Hashable TransactGetItems where
 
 instance Prelude.NFData TransactGetItems where
   rnf TransactGetItems' {..} =
-    Prelude.rnf returnConsumedCapacity
-      `Prelude.seq` Prelude.rnf transactItems
+    Prelude.rnf returnConsumedCapacity `Prelude.seq`
+      Prelude.rnf transactItems
 
 instance Data.ToHeaders TransactGetItems where
   toHeaders =
@@ -265,6 +265,6 @@ transactGetItemsResponse_httpStatus = Lens.lens (\TransactGetItemsResponse' {htt
 
 instance Prelude.NFData TransactGetItemsResponse where
   rnf TransactGetItemsResponse' {..} =
-    Prelude.rnf consumedCapacity
-      `Prelude.seq` Prelude.rnf responses
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf consumedCapacity `Prelude.seq`
+      Prelude.rnf responses `Prelude.seq`
+        Prelude.rnf httpStatus

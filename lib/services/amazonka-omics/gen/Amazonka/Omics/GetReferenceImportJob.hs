@@ -124,8 +124,8 @@ instance Prelude.Hashable GetReferenceImportJob where
 
 instance Prelude.NFData GetReferenceImportJob where
   rnf GetReferenceImportJob' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf referenceStoreId
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf referenceStoreId
 
 instance Data.ToHeaders GetReferenceImportJob where
   toHeaders =
@@ -271,12 +271,12 @@ getReferenceImportJobResponse_status = Lens.lens (\GetReferenceImportJobResponse
 
 instance Prelude.NFData GetReferenceImportJobResponse where
   rnf GetReferenceImportJobResponse' {..} =
-    Prelude.rnf completionTime
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf referenceStoreId
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf sources
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf completionTime `Prelude.seq`
+      Prelude.rnf statusMessage `Prelude.seq`
+        Prelude.rnf httpStatus `Prelude.seq`
+          Prelude.rnf creationTime `Prelude.seq`
+            Prelude.rnf id `Prelude.seq`
+              Prelude.rnf referenceStoreId `Prelude.seq`
+                Prelude.rnf roleArn `Prelude.seq`
+                  Prelude.rnf sources `Prelude.seq`
+                    Prelude.rnf status

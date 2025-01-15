@@ -114,8 +114,8 @@ instance Prelude.Hashable DescribeHostKey where
 
 instance Prelude.NFData DescribeHostKey where
   rnf DescribeHostKey' {..} =
-    Prelude.rnf serverId
-      `Prelude.seq` Prelude.rnf hostKeyId
+    Prelude.rnf serverId `Prelude.seq`
+      Prelude.rnf hostKeyId
 
 instance Data.ToHeaders DescribeHostKey where
   toHeaders =
@@ -189,5 +189,5 @@ describeHostKeyResponse_hostKey = Lens.lens (\DescribeHostKeyResponse' {hostKey}
 
 instance Prelude.NFData DescribeHostKeyResponse where
   rnf DescribeHostKeyResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf hostKey
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf hostKey

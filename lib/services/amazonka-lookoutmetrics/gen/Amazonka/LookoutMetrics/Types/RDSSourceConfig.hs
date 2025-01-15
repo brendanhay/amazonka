@@ -152,14 +152,14 @@ instance Prelude.Hashable RDSSourceConfig where
 
 instance Prelude.NFData RDSSourceConfig where
   rnf RDSSourceConfig' {..} =
-    Prelude.rnf dbInstanceIdentifier
-      `Prelude.seq` Prelude.rnf databaseHost
-      `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf databasePort
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf secretManagerArn
-      `Prelude.seq` Prelude.rnf tableName
-      `Prelude.seq` Prelude.rnf vpcConfiguration
+    Prelude.rnf dbInstanceIdentifier `Prelude.seq`
+      Prelude.rnf databaseHost `Prelude.seq`
+        Prelude.rnf databaseName `Prelude.seq`
+          Prelude.rnf databasePort `Prelude.seq`
+            Prelude.rnf roleArn `Prelude.seq`
+              Prelude.rnf secretManagerArn `Prelude.seq`
+                Prelude.rnf tableName `Prelude.seq`
+                  Prelude.rnf vpcConfiguration
 
 instance Data.ToJSON RDSSourceConfig where
   toJSON RDSSourceConfig' {..} =

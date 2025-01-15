@@ -123,9 +123,9 @@ instance Prelude.Hashable ConditionalSpecification where
 
 instance Prelude.NFData ConditionalSpecification where
   rnf ConditionalSpecification' {..} =
-    Prelude.rnf active
-      `Prelude.seq` Prelude.rnf conditionalBranches
-      `Prelude.seq` Prelude.rnf defaultBranch
+    Prelude.rnf active `Prelude.seq`
+      Prelude.rnf conditionalBranches `Prelude.seq`
+        Prelude.rnf defaultBranch
 
 instance Data.ToJSON ConditionalSpecification where
   toJSON ConditionalSpecification' {..} =

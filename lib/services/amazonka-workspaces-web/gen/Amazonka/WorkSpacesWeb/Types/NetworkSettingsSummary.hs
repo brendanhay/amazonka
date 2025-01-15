@@ -81,5 +81,5 @@ instance Prelude.Hashable NetworkSettingsSummary where
 
 instance Prelude.NFData NetworkSettingsSummary where
   rnf NetworkSettingsSummary' {..} =
-    Prelude.rnf networkSettingsArn
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf networkSettingsArn `Prelude.seq`
+      Prelude.rnf vpcId

@@ -153,9 +153,9 @@ instance Prelude.Hashable PutEvaluations where
 
 instance Prelude.NFData PutEvaluations where
   rnf PutEvaluations' {..} =
-    Prelude.rnf evaluations
-      `Prelude.seq` Prelude.rnf testMode
-      `Prelude.seq` Prelude.rnf resultToken
+    Prelude.rnf evaluations `Prelude.seq`
+      Prelude.rnf testMode `Prelude.seq`
+        Prelude.rnf resultToken
 
 instance Data.ToHeaders PutEvaluations where
   toHeaders =
@@ -231,5 +231,5 @@ putEvaluationsResponse_httpStatus = Lens.lens (\PutEvaluationsResponse' {httpSta
 
 instance Prelude.NFData PutEvaluationsResponse where
   rnf PutEvaluationsResponse' {..} =
-    Prelude.rnf failedEvaluations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf failedEvaluations `Prelude.seq`
+      Prelude.rnf httpStatus

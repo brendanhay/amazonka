@@ -190,5 +190,5 @@ getJobManifestResponse_httpStatus = Lens.lens (\GetJobManifestResponse' {httpSta
 
 instance Prelude.NFData GetJobManifestResponse where
   rnf GetJobManifestResponse' {..} =
-    Prelude.rnf manifestURI
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf manifestURI `Prelude.seq`
+      Prelude.rnf httpStatus

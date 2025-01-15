@@ -97,6 +97,6 @@ instance Prelude.Hashable EventRiskType where
 
 instance Prelude.NFData EventRiskType where
   rnf EventRiskType' {..} =
-    Prelude.rnf compromisedCredentialsDetected
-      `Prelude.seq` Prelude.rnf riskDecision
-      `Prelude.seq` Prelude.rnf riskLevel
+    Prelude.rnf compromisedCredentialsDetected `Prelude.seq`
+      Prelude.rnf riskDecision `Prelude.seq`
+        Prelude.rnf riskLevel

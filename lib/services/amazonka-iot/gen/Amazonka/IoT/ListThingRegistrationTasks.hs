@@ -123,12 +123,12 @@ instance Core.AWSPager ListThingRegistrationTasks where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listThingRegistrationTasks_nextToken
-          Lens..~ rs
-          Lens.^? listThingRegistrationTasksResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listThingRegistrationTasks_nextToken
+              Lens..~ rs
+              Lens.^? listThingRegistrationTasksResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListThingRegistrationTasks where
   type
@@ -154,9 +154,9 @@ instance Prelude.Hashable ListThingRegistrationTasks where
 
 instance Prelude.NFData ListThingRegistrationTasks where
   rnf ListThingRegistrationTasks' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf status
 
 instance Data.ToHeaders ListThingRegistrationTasks where
   toHeaders = Prelude.const Prelude.mempty
@@ -228,6 +228,6 @@ instance
     ListThingRegistrationTasksResponse
   where
   rnf ListThingRegistrationTasksResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf taskIds
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf taskIds `Prelude.seq`
+        Prelude.rnf httpStatus

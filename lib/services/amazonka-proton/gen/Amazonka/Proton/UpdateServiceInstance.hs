@@ -265,12 +265,12 @@ instance Prelude.Hashable UpdateServiceInstance where
 
 instance Prelude.NFData UpdateServiceInstance where
   rnf UpdateServiceInstance' {..} =
-    Prelude.rnf spec
-      `Prelude.seq` Prelude.rnf templateMajorVersion
-      `Prelude.seq` Prelude.rnf templateMinorVersion
-      `Prelude.seq` Prelude.rnf deploymentType
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf serviceName
+    Prelude.rnf spec `Prelude.seq`
+      Prelude.rnf templateMajorVersion `Prelude.seq`
+        Prelude.rnf templateMinorVersion `Prelude.seq`
+          Prelude.rnf deploymentType `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf serviceName
 
 instance Data.ToHeaders UpdateServiceInstance where
   toHeaders =
@@ -354,5 +354,5 @@ updateServiceInstanceResponse_serviceInstance = Lens.lens (\UpdateServiceInstanc
 
 instance Prelude.NFData UpdateServiceInstanceResponse where
   rnf UpdateServiceInstanceResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf serviceInstance
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf serviceInstance

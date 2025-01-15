@@ -91,9 +91,9 @@ instance Prelude.Hashable DatasetOwnerInfo where
 
 instance Prelude.NFData DatasetOwnerInfo where
   rnf DatasetOwnerInfo' {..} =
-    Prelude.rnf email
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf phoneNumber
+    Prelude.rnf email `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf phoneNumber
 
 instance Data.ToJSON DatasetOwnerInfo where
   toJSON DatasetOwnerInfo' {..} =

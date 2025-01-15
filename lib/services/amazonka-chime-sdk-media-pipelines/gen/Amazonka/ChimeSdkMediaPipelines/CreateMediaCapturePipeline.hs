@@ -186,13 +186,13 @@ instance Prelude.Hashable CreateMediaCapturePipeline where
 
 instance Prelude.NFData CreateMediaCapturePipeline where
   rnf CreateMediaCapturePipeline' {..} =
-    Prelude.rnf chimeSdkMeetingConfiguration
-      `Prelude.seq` Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf sourceType
-      `Prelude.seq` Prelude.rnf sourceArn
-      `Prelude.seq` Prelude.rnf sinkType
-      `Prelude.seq` Prelude.rnf sinkArn
+    Prelude.rnf chimeSdkMeetingConfiguration `Prelude.seq`
+      Prelude.rnf clientRequestToken `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf sourceType `Prelude.seq`
+            Prelude.rnf sourceArn `Prelude.seq`
+              Prelude.rnf sinkType `Prelude.seq`
+                Prelude.rnf sinkArn
 
 instance Data.ToHeaders CreateMediaCapturePipeline where
   toHeaders = Prelude.const Prelude.mempty
@@ -266,5 +266,5 @@ instance
     CreateMediaCapturePipelineResponse
   where
   rnf CreateMediaCapturePipelineResponse' {..} =
-    Prelude.rnf mediaCapturePipeline
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf mediaCapturePipeline `Prelude.seq`
+      Prelude.rnf httpStatus

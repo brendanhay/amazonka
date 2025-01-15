@@ -207,12 +207,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getLambdaFunctionRecommendations_nextToken
-          Lens..~ rs
-          Lens.^? getLambdaFunctionRecommendationsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getLambdaFunctionRecommendations_nextToken
+              Lens..~ rs
+              Lens.^? getLambdaFunctionRecommendationsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -254,11 +254,11 @@ instance
     GetLambdaFunctionRecommendations
   where
   rnf GetLambdaFunctionRecommendations' {..} =
-    Prelude.rnf accountIds
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf functionArns
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf accountIds `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf functionArns `Prelude.seq`
+          Prelude.rnf maxResults `Prelude.seq`
+            Prelude.rnf nextToken
 
 instance
   Data.ToHeaders
@@ -365,6 +365,6 @@ instance
     GetLambdaFunctionRecommendationsResponse
   where
   rnf GetLambdaFunctionRecommendationsResponse' {..} =
-    Prelude.rnf lambdaFunctionRecommendations
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf lambdaFunctionRecommendations `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

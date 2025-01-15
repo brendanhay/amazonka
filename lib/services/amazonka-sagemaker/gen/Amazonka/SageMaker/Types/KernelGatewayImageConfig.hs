@@ -89,8 +89,8 @@ instance Prelude.Hashable KernelGatewayImageConfig where
 
 instance Prelude.NFData KernelGatewayImageConfig where
   rnf KernelGatewayImageConfig' {..} =
-    Prelude.rnf fileSystemConfig
-      `Prelude.seq` Prelude.rnf kernelSpecs
+    Prelude.rnf fileSystemConfig `Prelude.seq`
+      Prelude.rnf kernelSpecs
 
 instance Data.ToJSON KernelGatewayImageConfig where
   toJSON KernelGatewayImageConfig' {..} =

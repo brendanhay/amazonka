@@ -124,11 +124,11 @@ instance Prelude.Hashable DNSTargetResource where
 
 instance Prelude.NFData DNSTargetResource where
   rnf DNSTargetResource' {..} =
-    Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf hostedZoneArn
-      `Prelude.seq` Prelude.rnf recordSetId
-      `Prelude.seq` Prelude.rnf recordType
-      `Prelude.seq` Prelude.rnf targetResource
+    Prelude.rnf domainName `Prelude.seq`
+      Prelude.rnf hostedZoneArn `Prelude.seq`
+        Prelude.rnf recordSetId `Prelude.seq`
+          Prelude.rnf recordType `Prelude.seq`
+            Prelude.rnf targetResource
 
 instance Data.ToJSON DNSTargetResource where
   toJSON DNSTargetResource' {..} =

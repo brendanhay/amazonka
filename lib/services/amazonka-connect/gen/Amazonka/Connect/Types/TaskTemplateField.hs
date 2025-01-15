@@ -109,10 +109,10 @@ instance Prelude.Hashable TaskTemplateField where
 
 instance Prelude.NFData TaskTemplateField where
   rnf TaskTemplateField' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf singleSelectOptions
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf singleSelectOptions `Prelude.seq`
+        Prelude.rnf type' `Prelude.seq`
+          Prelude.rnf id
 
 instance Data.ToJSON TaskTemplateField where
   toJSON TaskTemplateField' {..} =

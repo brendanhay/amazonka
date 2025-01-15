@@ -227,14 +227,14 @@ instance Prelude.Hashable StartNotebookExecution where
 
 instance Prelude.NFData StartNotebookExecution where
   rnf StartNotebookExecution' {..} =
-    Prelude.rnf notebookExecutionName
-      `Prelude.seq` Prelude.rnf notebookInstanceSecurityGroupId
-      `Prelude.seq` Prelude.rnf notebookParams
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf editorId
-      `Prelude.seq` Prelude.rnf relativePath
-      `Prelude.seq` Prelude.rnf executionEngine
-      `Prelude.seq` Prelude.rnf serviceRole
+    Prelude.rnf notebookExecutionName `Prelude.seq`
+      Prelude.rnf notebookInstanceSecurityGroupId `Prelude.seq`
+        Prelude.rnf notebookParams `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf editorId `Prelude.seq`
+              Prelude.rnf relativePath `Prelude.seq`
+                Prelude.rnf executionEngine `Prelude.seq`
+                  Prelude.rnf serviceRole
 
 instance Data.ToHeaders StartNotebookExecution where
   toHeaders =
@@ -320,5 +320,5 @@ instance
     StartNotebookExecutionResponse
   where
   rnf StartNotebookExecutionResponse' {..} =
-    Prelude.rnf notebookExecutionId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf notebookExecutionId `Prelude.seq`
+      Prelude.rnf httpStatus

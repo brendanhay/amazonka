@@ -103,7 +103,7 @@ instance Prelude.Hashable MissionProfileListItem where
 
 instance Prelude.NFData MissionProfileListItem where
   rnf MissionProfileListItem' {..} =
-    Prelude.rnf missionProfileArn
-      `Prelude.seq` Prelude.rnf missionProfileId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf region
+    Prelude.rnf missionProfileArn `Prelude.seq`
+      Prelude.rnf missionProfileId `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf region

@@ -164,6 +164,6 @@ getResourcePolicyResponse_httpStatus = Lens.lens (\GetResourcePolicyResponse' {h
 
 instance Prelude.NFData GetResourcePolicyResponse where
   rnf GetResourcePolicyResponse' {..} =
-    Prelude.rnf policy
-      `Prelude.seq` Prelude.rnf revisionId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf policy `Prelude.seq`
+      Prelude.rnf revisionId `Prelude.seq`
+        Prelude.rnf httpStatus

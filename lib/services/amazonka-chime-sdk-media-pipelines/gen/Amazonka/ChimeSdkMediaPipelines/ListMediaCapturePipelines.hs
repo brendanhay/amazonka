@@ -115,8 +115,8 @@ instance Prelude.Hashable ListMediaCapturePipelines where
 
 instance Prelude.NFData ListMediaCapturePipelines where
   rnf ListMediaCapturePipelines' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListMediaCapturePipelines where
   toHeaders = Prelude.const Prelude.mempty
@@ -184,6 +184,6 @@ instance
     ListMediaCapturePipelinesResponse
   where
   rnf ListMediaCapturePipelinesResponse' {..} =
-    Prelude.rnf mediaCapturePipelines
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf mediaCapturePipelines `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -107,9 +107,9 @@ instance
     PivotTableCellConditionalFormatting
   where
   rnf PivotTableCellConditionalFormatting' {..} =
-    Prelude.rnf scope
-      `Prelude.seq` Prelude.rnf textFormat
-      `Prelude.seq` Prelude.rnf fieldId
+    Prelude.rnf scope `Prelude.seq`
+      Prelude.rnf textFormat `Prelude.seq`
+        Prelude.rnf fieldId
 
 instance
   Data.ToJSON

@@ -172,11 +172,11 @@ instance
     CreateNetworkInterfacePermission
   where
   rnf CreateNetworkInterfacePermission' {..} =
-    Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf awsService
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf networkInterfaceId
-      `Prelude.seq` Prelude.rnf permission
+    Prelude.rnf awsAccountId `Prelude.seq`
+      Prelude.rnf awsService `Prelude.seq`
+        Prelude.rnf dryRun `Prelude.seq`
+          Prelude.rnf networkInterfaceId `Prelude.seq`
+            Prelude.rnf permission
 
 instance
   Data.ToHeaders
@@ -253,5 +253,5 @@ instance
     CreateNetworkInterfacePermissionResponse
   where
   rnf CreateNetworkInterfacePermissionResponse' {..} =
-    Prelude.rnf interfacePermission
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf interfacePermission `Prelude.seq`
+      Prelude.rnf httpStatus

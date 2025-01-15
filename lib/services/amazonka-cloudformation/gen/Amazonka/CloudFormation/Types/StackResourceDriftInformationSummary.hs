@@ -164,5 +164,5 @@ instance
     StackResourceDriftInformationSummary
   where
   rnf StackResourceDriftInformationSummary' {..} =
-    Prelude.rnf lastCheckTimestamp
-      `Prelude.seq` Prelude.rnf stackResourceDriftStatus
+    Prelude.rnf lastCheckTimestamp `Prelude.seq`
+      Prelude.rnf stackResourceDriftStatus

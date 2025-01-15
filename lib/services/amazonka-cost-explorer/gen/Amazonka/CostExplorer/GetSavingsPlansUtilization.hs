@@ -260,10 +260,10 @@ instance Prelude.Hashable GetSavingsPlansUtilization where
 
 instance Prelude.NFData GetSavingsPlansUtilization where
   rnf GetSavingsPlansUtilization' {..} =
-    Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf granularity
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf timePeriod
+    Prelude.rnf filter' `Prelude.seq`
+      Prelude.rnf granularity `Prelude.seq`
+        Prelude.rnf sortBy `Prelude.seq`
+          Prelude.rnf timePeriod
 
 instance Data.ToHeaders GetSavingsPlansUtilization where
   toHeaders =
@@ -360,6 +360,6 @@ instance
     GetSavingsPlansUtilizationResponse
   where
   rnf GetSavingsPlansUtilizationResponse' {..} =
-    Prelude.rnf savingsPlansUtilizationsByTime
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf total
+    Prelude.rnf savingsPlansUtilizationsByTime `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf total

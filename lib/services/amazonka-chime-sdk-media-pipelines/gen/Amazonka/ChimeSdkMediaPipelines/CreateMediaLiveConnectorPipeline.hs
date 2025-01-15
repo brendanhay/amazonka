@@ -144,10 +144,10 @@ instance
     CreateMediaLiveConnectorPipeline
   where
   rnf CreateMediaLiveConnectorPipeline' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf sources
-      `Prelude.seq` Prelude.rnf sinks
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf sources `Prelude.seq`
+          Prelude.rnf sinks
 
 instance
   Data.ToHeaders
@@ -222,5 +222,5 @@ instance
     CreateMediaLiveConnectorPipelineResponse
   where
   rnf CreateMediaLiveConnectorPipelineResponse' {..} =
-    Prelude.rnf mediaLiveConnectorPipeline
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf mediaLiveConnectorPipeline `Prelude.seq`
+      Prelude.rnf httpStatus

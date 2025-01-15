@@ -142,9 +142,9 @@ instance
     DisassociateEntitiesFromExperience
   where
   rnf DisassociateEntitiesFromExperience' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf indexId
-      `Prelude.seq` Prelude.rnf entityList
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf indexId `Prelude.seq`
+        Prelude.rnf entityList
 
 instance
   Data.ToHeaders
@@ -237,5 +237,5 @@ instance
     DisassociateEntitiesFromExperienceResponse
   where
   rnf DisassociateEntitiesFromExperienceResponse' {..} =
-    Prelude.rnf failedEntityList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf failedEntityList `Prelude.seq`
+      Prelude.rnf httpStatus

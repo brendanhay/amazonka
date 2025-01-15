@@ -245,9 +245,7 @@ instance Core.AWSRequest DescribeAddresses where
     Response.receiveXML
       ( \s h x ->
           DescribeAddressesResponse'
-            Prelude.<$> ( x
-                            Data..@? "addressesSet"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "addressesSet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -263,10 +261,10 @@ instance Prelude.Hashable DescribeAddresses where
 
 instance Prelude.NFData DescribeAddresses where
   rnf DescribeAddresses' {..} =
-    Prelude.rnf allocationIds
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf publicIps
+    Prelude.rnf allocationIds `Prelude.seq`
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf filters `Prelude.seq`
+          Prelude.rnf publicIps
 
 instance Data.ToHeaders DescribeAddresses where
   toHeaders = Prelude.const Prelude.mempty
@@ -333,5 +331,5 @@ describeAddressesResponse_httpStatus = Lens.lens (\DescribeAddressesResponse' {h
 
 instance Prelude.NFData DescribeAddressesResponse where
   rnf DescribeAddressesResponse' {..} =
-    Prelude.rnf addresses
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf addresses `Prelude.seq`
+      Prelude.rnf httpStatus

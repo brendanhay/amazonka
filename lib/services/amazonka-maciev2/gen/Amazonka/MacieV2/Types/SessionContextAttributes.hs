@@ -88,5 +88,5 @@ instance Prelude.Hashable SessionContextAttributes where
 
 instance Prelude.NFData SessionContextAttributes where
   rnf SessionContextAttributes' {..} =
-    Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf mfaAuthenticated
+    Prelude.rnf creationDate `Prelude.seq`
+      Prelude.rnf mfaAuthenticated

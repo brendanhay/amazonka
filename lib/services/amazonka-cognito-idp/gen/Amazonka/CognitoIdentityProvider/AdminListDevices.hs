@@ -138,10 +138,10 @@ instance Prelude.Hashable AdminListDevices where
 
 instance Prelude.NFData AdminListDevices where
   rnf AdminListDevices' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf paginationToken
-      `Prelude.seq` Prelude.rnf userPoolId
-      `Prelude.seq` Prelude.rnf username
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf paginationToken `Prelude.seq`
+        Prelude.rnf userPoolId `Prelude.seq`
+          Prelude.rnf username
 
 instance Data.ToHeaders AdminListDevices where
   toHeaders =
@@ -228,6 +228,6 @@ adminListDevicesResponse_httpStatus = Lens.lens (\AdminListDevicesResponse' {htt
 
 instance Prelude.NFData AdminListDevicesResponse where
   rnf AdminListDevicesResponse' {..} =
-    Prelude.rnf devices
-      `Prelude.seq` Prelude.rnf paginationToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf devices `Prelude.seq`
+      Prelude.rnf paginationToken `Prelude.seq`
+        Prelude.rnf httpStatus

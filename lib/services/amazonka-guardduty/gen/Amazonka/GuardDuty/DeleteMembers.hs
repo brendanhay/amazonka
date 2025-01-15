@@ -120,8 +120,8 @@ instance Prelude.Hashable DeleteMembers where
 
 instance Prelude.NFData DeleteMembers where
   rnf DeleteMembers' {..} =
-    Prelude.rnf detectorId
-      `Prelude.seq` Prelude.rnf accountIds
+    Prelude.rnf detectorId `Prelude.seq`
+      Prelude.rnf accountIds
 
 instance Data.ToHeaders DeleteMembers where
   toHeaders =
@@ -192,5 +192,5 @@ deleteMembersResponse_unprocessedAccounts = Lens.lens (\DeleteMembersResponse' {
 
 instance Prelude.NFData DeleteMembersResponse where
   rnf DeleteMembersResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf unprocessedAccounts
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf unprocessedAccounts

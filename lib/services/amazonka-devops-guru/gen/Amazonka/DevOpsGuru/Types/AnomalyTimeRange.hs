@@ -85,5 +85,5 @@ instance Prelude.Hashable AnomalyTimeRange where
 
 instance Prelude.NFData AnomalyTimeRange where
   rnf AnomalyTimeRange' {..} =
-    Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf startTime
+    Prelude.rnf endTime `Prelude.seq`
+      Prelude.rnf startTime

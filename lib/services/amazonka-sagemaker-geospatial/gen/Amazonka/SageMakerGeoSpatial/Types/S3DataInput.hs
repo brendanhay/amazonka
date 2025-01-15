@@ -97,9 +97,9 @@ instance Prelude.Hashable S3DataInput where
 
 instance Prelude.NFData S3DataInput where
   rnf S3DataInput' {..} =
-    Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf metadataProvider
-      `Prelude.seq` Prelude.rnf s3Uri
+    Prelude.rnf kmsKeyId `Prelude.seq`
+      Prelude.rnf metadataProvider `Prelude.seq`
+        Prelude.rnf s3Uri
 
 instance Data.ToJSON S3DataInput where
   toJSON S3DataInput' {..} =

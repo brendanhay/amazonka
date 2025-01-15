@@ -160,10 +160,10 @@ instance Prelude.Hashable PutPipelineDefinition where
 
 instance Prelude.NFData PutPipelineDefinition where
   rnf PutPipelineDefinition' {..} =
-    Prelude.rnf parameterObjects
-      `Prelude.seq` Prelude.rnf parameterValues
-      `Prelude.seq` Prelude.rnf pipelineId
-      `Prelude.seq` Prelude.rnf pipelineObjects
+    Prelude.rnf parameterObjects `Prelude.seq`
+      Prelude.rnf parameterValues `Prelude.seq`
+        Prelude.rnf pipelineId `Prelude.seq`
+          Prelude.rnf pipelineObjects
 
 instance Data.ToHeaders PutPipelineDefinition where
   toHeaders =
@@ -280,7 +280,7 @@ putPipelineDefinitionResponse_errored = Lens.lens (\PutPipelineDefinitionRespons
 
 instance Prelude.NFData PutPipelineDefinitionResponse where
   rnf PutPipelineDefinitionResponse' {..} =
-    Prelude.rnf validationErrors
-      `Prelude.seq` Prelude.rnf validationWarnings
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf errored
+    Prelude.rnf validationErrors `Prelude.seq`
+      Prelude.rnf validationWarnings `Prelude.seq`
+        Prelude.rnf httpStatus `Prelude.seq`
+          Prelude.rnf errored

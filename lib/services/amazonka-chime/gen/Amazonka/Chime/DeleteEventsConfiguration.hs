@@ -103,8 +103,8 @@ instance Prelude.Hashable DeleteEventsConfiguration where
 
 instance Prelude.NFData DeleteEventsConfiguration where
   rnf DeleteEventsConfiguration' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf botId
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf botId
 
 instance Data.ToHeaders DeleteEventsConfiguration where
   toHeaders = Prelude.const Prelude.mempty

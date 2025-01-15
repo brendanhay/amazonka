@@ -116,7 +116,7 @@ instance
   where
   rnf
     DeleteLaunchTemplateVersionsResponseErrorItem' {..} =
-      Prelude.rnf launchTemplateId
-        `Prelude.seq` Prelude.rnf launchTemplateName
-        `Prelude.seq` Prelude.rnf responseError
-        `Prelude.seq` Prelude.rnf versionNumber
+      Prelude.rnf launchTemplateId `Prelude.seq`
+        Prelude.rnf launchTemplateName `Prelude.seq`
+          Prelude.rnf responseError `Prelude.seq`
+            Prelude.rnf versionNumber

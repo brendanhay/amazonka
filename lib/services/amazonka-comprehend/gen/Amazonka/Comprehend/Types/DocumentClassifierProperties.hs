@@ -378,21 +378,21 @@ instance
 
 instance Prelude.NFData DocumentClassifierProperties where
   rnf DocumentClassifierProperties' {..} =
-    Prelude.rnf classifierMetadata
-      `Prelude.seq` Prelude.rnf dataAccessRoleArn
-      `Prelude.seq` Prelude.rnf documentClassifierArn
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf inputDataConfig
-      `Prelude.seq` Prelude.rnf languageCode
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf mode
-      `Prelude.seq` Prelude.rnf modelKmsKeyId
-      `Prelude.seq` Prelude.rnf outputDataConfig
-      `Prelude.seq` Prelude.rnf sourceModelArn
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf submitTime
-      `Prelude.seq` Prelude.rnf trainingEndTime
-      `Prelude.seq` Prelude.rnf trainingStartTime
-      `Prelude.seq` Prelude.rnf versionName
-      `Prelude.seq` Prelude.rnf volumeKmsKeyId
-      `Prelude.seq` Prelude.rnf vpcConfig
+    Prelude.rnf classifierMetadata `Prelude.seq`
+      Prelude.rnf dataAccessRoleArn `Prelude.seq`
+        Prelude.rnf documentClassifierArn `Prelude.seq`
+          Prelude.rnf endTime `Prelude.seq`
+            Prelude.rnf inputDataConfig `Prelude.seq`
+              Prelude.rnf languageCode `Prelude.seq`
+                Prelude.rnf message `Prelude.seq`
+                  Prelude.rnf mode `Prelude.seq`
+                    Prelude.rnf modelKmsKeyId `Prelude.seq`
+                      Prelude.rnf outputDataConfig `Prelude.seq`
+                        Prelude.rnf sourceModelArn `Prelude.seq`
+                          Prelude.rnf status `Prelude.seq`
+                            Prelude.rnf submitTime `Prelude.seq`
+                              Prelude.rnf trainingEndTime `Prelude.seq`
+                                Prelude.rnf trainingStartTime `Prelude.seq`
+                                  Prelude.rnf versionName `Prelude.seq`
+                                    Prelude.rnf volumeKmsKeyId `Prelude.seq`
+                                      Prelude.rnf vpcConfig

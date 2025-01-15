@@ -102,12 +102,12 @@ instance Core.AWSPager GetDisks where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getDisks_pageToken
-          Lens..~ rs
-          Lens.^? getDisksResponse_nextPageToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getDisks_pageToken
+              Lens..~ rs
+              Lens.^? getDisksResponse_nextPageToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetDisks where
   type AWSResponse GetDisks = GetDisksResponse
@@ -227,6 +227,6 @@ getDisksResponse_httpStatus = Lens.lens (\GetDisksResponse' {httpStatus} -> http
 
 instance Prelude.NFData GetDisksResponse where
   rnf GetDisksResponse' {..} =
-    Prelude.rnf disks
-      `Prelude.seq` Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf disks `Prelude.seq`
+      Prelude.rnf nextPageToken `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -101,9 +101,9 @@ instance Prelude.Hashable ExcelOptions where
 
 instance Prelude.NFData ExcelOptions where
   rnf ExcelOptions' {..} =
-    Prelude.rnf headerRow
-      `Prelude.seq` Prelude.rnf sheetIndexes
-      `Prelude.seq` Prelude.rnf sheetNames
+    Prelude.rnf headerRow `Prelude.seq`
+      Prelude.rnf sheetIndexes `Prelude.seq`
+        Prelude.rnf sheetNames
 
 instance Data.ToJSON ExcelOptions where
   toJSON ExcelOptions' {..} =

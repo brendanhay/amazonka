@@ -248,20 +248,20 @@ instance Prelude.Hashable CreateChannel' where
 
 instance Prelude.NFData CreateChannel' where
   rnf CreateChannel'' {..} =
-    Prelude.rnf cdiInputSpecification
-      `Prelude.seq` Prelude.rnf channelClass
-      `Prelude.seq` Prelude.rnf destinations
-      `Prelude.seq` Prelude.rnf encoderSettings
-      `Prelude.seq` Prelude.rnf inputAttachments
-      `Prelude.seq` Prelude.rnf inputSpecification
-      `Prelude.seq` Prelude.rnf logLevel
-      `Prelude.seq` Prelude.rnf maintenance
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf reserved
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf vpc
+    Prelude.rnf cdiInputSpecification `Prelude.seq`
+      Prelude.rnf channelClass `Prelude.seq`
+        Prelude.rnf destinations `Prelude.seq`
+          Prelude.rnf encoderSettings `Prelude.seq`
+            Prelude.rnf inputAttachments `Prelude.seq`
+              Prelude.rnf inputSpecification `Prelude.seq`
+                Prelude.rnf logLevel `Prelude.seq`
+                  Prelude.rnf maintenance `Prelude.seq`
+                    Prelude.rnf name `Prelude.seq`
+                      Prelude.rnf requestId `Prelude.seq`
+                        Prelude.rnf reserved `Prelude.seq`
+                          Prelude.rnf roleArn `Prelude.seq`
+                            Prelude.rnf tags `Prelude.seq`
+                              Prelude.rnf vpc
 
 instance Data.ToHeaders CreateChannel' where
   toHeaders =
@@ -346,5 +346,5 @@ createChannelResponse_httpStatus = Lens.lens (\CreateChannelResponse' {httpStatu
 
 instance Prelude.NFData CreateChannelResponse where
   rnf CreateChannelResponse' {..} =
-    Prelude.rnf channel
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf channel `Prelude.seq`
+      Prelude.rnf httpStatus

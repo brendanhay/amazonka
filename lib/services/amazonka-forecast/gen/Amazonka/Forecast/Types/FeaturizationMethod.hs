@@ -190,8 +190,8 @@ instance Prelude.Hashable FeaturizationMethod where
 
 instance Prelude.NFData FeaturizationMethod where
   rnf FeaturizationMethod' {..} =
-    Prelude.rnf featurizationMethodParameters
-      `Prelude.seq` Prelude.rnf featurizationMethodName
+    Prelude.rnf featurizationMethodParameters `Prelude.seq`
+      Prelude.rnf featurizationMethodName
 
 instance Data.ToJSON FeaturizationMethod where
   toJSON FeaturizationMethod' {..} =

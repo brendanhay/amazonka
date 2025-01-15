@@ -102,6 +102,6 @@ instance
 
 instance Prelude.NFData HighestSeverityThreatDetails where
   rnf HighestSeverityThreatDetails' {..} =
-    Prelude.rnf count
-      `Prelude.seq` Prelude.rnf severity
-      `Prelude.seq` Prelude.rnf threatName
+    Prelude.rnf count `Prelude.seq`
+      Prelude.rnf severity `Prelude.seq`
+        Prelude.rnf threatName

@@ -223,5 +223,5 @@ deleteInterconnectResponse_httpStatus = Lens.lens (\DeleteInterconnectResponse' 
 
 instance Prelude.NFData DeleteInterconnectResponse where
   rnf DeleteInterconnectResponse' {..} =
-    Prelude.rnf interconnectState
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf interconnectState `Prelude.seq`
+      Prelude.rnf httpStatus

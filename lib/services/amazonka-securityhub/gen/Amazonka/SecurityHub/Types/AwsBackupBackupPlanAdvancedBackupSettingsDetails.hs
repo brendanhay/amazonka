@@ -127,8 +127,8 @@ instance
   where
   rnf
     AwsBackupBackupPlanAdvancedBackupSettingsDetails' {..} =
-      Prelude.rnf backupOptions
-        `Prelude.seq` Prelude.rnf resourceType
+      Prelude.rnf backupOptions `Prelude.seq`
+        Prelude.rnf resourceType
 
 instance
   Data.ToJSON

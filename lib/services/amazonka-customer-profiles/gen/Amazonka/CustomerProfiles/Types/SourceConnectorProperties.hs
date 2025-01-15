@@ -117,11 +117,11 @@ instance Prelude.Hashable SourceConnectorProperties where
 
 instance Prelude.NFData SourceConnectorProperties where
   rnf SourceConnectorProperties' {..} =
-    Prelude.rnf marketo
-      `Prelude.seq` Prelude.rnf s3
-      `Prelude.seq` Prelude.rnf salesforce
-      `Prelude.seq` Prelude.rnf serviceNow
-      `Prelude.seq` Prelude.rnf zendesk
+    Prelude.rnf marketo `Prelude.seq`
+      Prelude.rnf s3 `Prelude.seq`
+        Prelude.rnf salesforce `Prelude.seq`
+          Prelude.rnf serviceNow `Prelude.seq`
+            Prelude.rnf zendesk
 
 instance Data.ToJSON SourceConnectorProperties where
   toJSON SourceConnectorProperties' {..} =

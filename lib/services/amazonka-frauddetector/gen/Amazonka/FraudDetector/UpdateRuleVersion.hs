@@ -163,12 +163,12 @@ instance Prelude.Hashable UpdateRuleVersion where
 
 instance Prelude.NFData UpdateRuleVersion where
   rnf UpdateRuleVersion' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf rule
-      `Prelude.seq` Prelude.rnf expression
-      `Prelude.seq` Prelude.rnf language
-      `Prelude.seq` Prelude.rnf outcomes
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf rule `Prelude.seq`
+          Prelude.rnf expression `Prelude.seq`
+            Prelude.rnf language `Prelude.seq`
+              Prelude.rnf outcomes
 
 instance Data.ToHeaders UpdateRuleVersion where
   toHeaders =
@@ -244,5 +244,5 @@ updateRuleVersionResponse_httpStatus = Lens.lens (\UpdateRuleVersionResponse' {h
 
 instance Prelude.NFData UpdateRuleVersionResponse where
   rnf UpdateRuleVersionResponse' {..} =
-    Prelude.rnf rule
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf rule `Prelude.seq`
+      Prelude.rnf httpStatus

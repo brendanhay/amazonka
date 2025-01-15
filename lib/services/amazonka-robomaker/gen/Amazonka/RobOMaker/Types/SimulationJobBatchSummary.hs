@@ -259,10 +259,10 @@ instance Prelude.Hashable SimulationJobBatchSummary where
 
 instance Prelude.NFData SimulationJobBatchSummary where
   rnf SimulationJobBatchSummary' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf createdRequestCount
-      `Prelude.seq` Prelude.rnf failedRequestCount
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf pendingRequestCount
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf createdAt `Prelude.seq`
+        Prelude.rnf createdRequestCount `Prelude.seq`
+          Prelude.rnf failedRequestCount `Prelude.seq`
+            Prelude.rnf lastUpdatedAt `Prelude.seq`
+              Prelude.rnf pendingRequestCount `Prelude.seq`
+                Prelude.rnf status

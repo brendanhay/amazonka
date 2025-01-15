@@ -112,9 +112,9 @@ instance
   where
   rnf
     AwsEc2LaunchTemplateDataPrivateDnsNameOptionsDetails' {..} =
-      Prelude.rnf enableResourceNameDnsAAAARecord
-        `Prelude.seq` Prelude.rnf enableResourceNameDnsARecord
-        `Prelude.seq` Prelude.rnf hostnameType
+      Prelude.rnf enableResourceNameDnsAAAARecord `Prelude.seq`
+        Prelude.rnf enableResourceNameDnsARecord `Prelude.seq`
+          Prelude.rnf hostnameType
 
 instance
   Data.ToJSON

@@ -105,8 +105,8 @@ instance Prelude.Hashable DeleteLayerVersion where
 
 instance Prelude.NFData DeleteLayerVersion where
   rnf DeleteLayerVersion' {..} =
-    Prelude.rnf layerName
-      `Prelude.seq` Prelude.rnf versionNumber
+    Prelude.rnf layerName `Prelude.seq`
+      Prelude.rnf versionNumber
 
 instance Data.ToHeaders DeleteLayerVersion where
   toHeaders = Prelude.const Prelude.mempty

@@ -85,5 +85,5 @@ instance Prelude.Hashable TableExcerpt where
 
 instance Prelude.NFData TableExcerpt where
   rnf TableExcerpt' {..} =
-    Prelude.rnf rows
-      `Prelude.seq` Prelude.rnf totalNumberOfRows
+    Prelude.rnf rows `Prelude.seq`
+      Prelude.rnf totalNumberOfRows

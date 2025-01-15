@@ -101,9 +101,9 @@ instance Prelude.Hashable TestGridVpcConfig where
 
 instance Prelude.NFData TestGridVpcConfig where
   rnf TestGridVpcConfig' {..} =
-    Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf subnetIds
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf securityGroupIds `Prelude.seq`
+      Prelude.rnf subnetIds `Prelude.seq`
+        Prelude.rnf vpcId
 
 instance Data.ToJSON TestGridVpcConfig where
   toJSON TestGridVpcConfig' {..} =

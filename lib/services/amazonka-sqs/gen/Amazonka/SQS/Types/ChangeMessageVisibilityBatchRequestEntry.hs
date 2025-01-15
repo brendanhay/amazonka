@@ -125,9 +125,9 @@ instance
     ChangeMessageVisibilityBatchRequestEntry
   where
   rnf ChangeMessageVisibilityBatchRequestEntry' {..} =
-    Prelude.rnf visibilityTimeout
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf receiptHandle
+    Prelude.rnf visibilityTimeout `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf receiptHandle
 
 instance
   Data.ToQuery

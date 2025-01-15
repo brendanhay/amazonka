@@ -172,12 +172,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeVerifiedAccessEndpoints_nextToken
-          Lens..~ rs
-          Lens.^? describeVerifiedAccessEndpointsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeVerifiedAccessEndpoints_nextToken
+              Lens..~ rs
+              Lens.^? describeVerifiedAccessEndpointsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -222,13 +222,13 @@ instance
     DescribeVerifiedAccessEndpoints
   where
   rnf DescribeVerifiedAccessEndpoints' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf verifiedAccessEndpointIds
-      `Prelude.seq` Prelude.rnf verifiedAccessGroupId
-      `Prelude.seq` Prelude.rnf verifiedAccessInstanceId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf verifiedAccessEndpointIds `Prelude.seq`
+              Prelude.rnf verifiedAccessGroupId `Prelude.seq`
+                Prelude.rnf verifiedAccessInstanceId
 
 instance
   Data.ToHeaders
@@ -321,6 +321,6 @@ instance
     DescribeVerifiedAccessEndpointsResponse
   where
   rnf DescribeVerifiedAccessEndpointsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf verifiedAccessEndpoints
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf verifiedAccessEndpoints `Prelude.seq`
+        Prelude.rnf httpStatus

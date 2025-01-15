@@ -223,12 +223,12 @@ instance Core.AWSPager ListAttacks where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listAttacks_nextToken
-          Lens..~ rs
-          Lens.^? listAttacksResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listAttacks_nextToken
+              Lens..~ rs
+              Lens.^? listAttacksResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAttacks where
   type AWSResponse ListAttacks = ListAttacksResponse
@@ -257,11 +257,11 @@ instance Prelude.Hashable ListAttacks where
 
 instance Prelude.NFData ListAttacks where
   rnf ListAttacks' {..} =
-    Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf resourceArns
-      `Prelude.seq` Prelude.rnf startTime
+    Prelude.rnf endTime `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf resourceArns `Prelude.seq`
+            Prelude.rnf startTime
 
 instance Data.ToHeaders ListAttacks where
   toHeaders =
@@ -382,6 +382,6 @@ listAttacksResponse_httpStatus = Lens.lens (\ListAttacksResponse' {httpStatus} -
 
 instance Prelude.NFData ListAttacksResponse where
   rnf ListAttacksResponse' {..} =
-    Prelude.rnf attackSummaries
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf attackSummaries `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

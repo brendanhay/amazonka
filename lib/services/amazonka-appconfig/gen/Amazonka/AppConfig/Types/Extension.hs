@@ -145,10 +145,10 @@ instance Prelude.Hashable Extension where
 
 instance Prelude.NFData Extension where
   rnf Extension' {..} =
-    Prelude.rnf actions
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf versionNumber
+    Prelude.rnf actions `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf id `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf parameters `Prelude.seq`
+                Prelude.rnf versionNumber

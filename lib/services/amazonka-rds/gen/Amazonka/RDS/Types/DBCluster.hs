@@ -1234,9 +1234,7 @@ instance Data.FromXML DBCluster where
       Prelude.<*> (x Data..@? "ActivityStreamMode")
       Prelude.<*> (x Data..@? "ActivityStreamStatus")
       Prelude.<*> (x Data..@? "AllocatedStorage")
-      Prelude.<*> ( x
-                      Data..@? "AssociatedRoles"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "AssociatedRoles" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "DBClusterRole")
                   )
       Prelude.<*> (x Data..@? "AutoMinorVersionUpgrade")
@@ -1255,9 +1253,7 @@ instance Data.FromXML DBCluster where
       Prelude.<*> (x Data..@? "ClusterCreateTime")
       Prelude.<*> (x Data..@? "CopyTagsToSnapshot")
       Prelude.<*> (x Data..@? "CrossAccountClone")
-      Prelude.<*> ( x
-                      Data..@? "CustomEndpoints"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "CustomEndpoints" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "DBClusterArn")
@@ -1330,9 +1326,7 @@ instance Data.FromXML DBCluster where
       Prelude.<*> (x Data..@? "Status")
       Prelude.<*> (x Data..@? "StorageEncrypted")
       Prelude.<*> (x Data..@? "StorageType")
-      Prelude.<*> ( x
-                      Data..@? "TagList"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "TagList" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "Tag")
                   )
       Prelude.<*> ( x

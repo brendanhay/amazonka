@@ -113,8 +113,8 @@ instance Prelude.Hashable DescribeAgreement where
 
 instance Prelude.NFData DescribeAgreement where
   rnf DescribeAgreement' {..} =
-    Prelude.rnf agreementId
-      `Prelude.seq` Prelude.rnf serverId
+    Prelude.rnf agreementId `Prelude.seq`
+      Prelude.rnf serverId
 
 instance Data.ToHeaders DescribeAgreement where
   toHeaders =
@@ -192,5 +192,5 @@ describeAgreementResponse_agreement = Lens.lens (\DescribeAgreementResponse' {ag
 
 instance Prelude.NFData DescribeAgreementResponse where
   rnf DescribeAgreementResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf agreement
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf agreement

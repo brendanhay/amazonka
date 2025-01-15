@@ -116,10 +116,10 @@ instance Prelude.Hashable ColumnStatistics where
 
 instance Prelude.NFData ColumnStatistics where
   rnf ColumnStatistics' {..} =
-    Prelude.rnf columnName
-      `Prelude.seq` Prelude.rnf columnType
-      `Prelude.seq` Prelude.rnf analyzedTime
-      `Prelude.seq` Prelude.rnf statisticsData
+    Prelude.rnf columnName `Prelude.seq`
+      Prelude.rnf columnType `Prelude.seq`
+        Prelude.rnf analyzedTime `Prelude.seq`
+          Prelude.rnf statisticsData
 
 instance Data.ToJSON ColumnStatistics where
   toJSON ColumnStatistics' {..} =

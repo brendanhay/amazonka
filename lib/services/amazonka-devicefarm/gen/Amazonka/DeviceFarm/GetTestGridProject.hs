@@ -167,5 +167,5 @@ getTestGridProjectResponse_httpStatus = Lens.lens (\GetTestGridProjectResponse' 
 
 instance Prelude.NFData GetTestGridProjectResponse where
   rnf GetTestGridProjectResponse' {..} =
-    Prelude.rnf testGridProject
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf testGridProject `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -229,11 +229,11 @@ instance Prelude.Hashable EnableLogging where
 
 instance Prelude.NFData EnableLogging where
   rnf EnableLogging' {..} =
-    Prelude.rnf bucketName
-      `Prelude.seq` Prelude.rnf logDestinationType
-      `Prelude.seq` Prelude.rnf logExports
-      `Prelude.seq` Prelude.rnf s3KeyPrefix
-      `Prelude.seq` Prelude.rnf clusterIdentifier
+    Prelude.rnf bucketName `Prelude.seq`
+      Prelude.rnf logDestinationType `Prelude.seq`
+        Prelude.rnf logExports `Prelude.seq`
+          Prelude.rnf s3KeyPrefix `Prelude.seq`
+            Prelude.rnf clusterIdentifier
 
 instance Data.ToHeaders EnableLogging where
   toHeaders = Prelude.const Prelude.mempty

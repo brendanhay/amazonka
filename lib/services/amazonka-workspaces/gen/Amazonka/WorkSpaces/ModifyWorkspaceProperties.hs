@@ -118,8 +118,8 @@ instance Prelude.Hashable ModifyWorkspaceProperties where
 
 instance Prelude.NFData ModifyWorkspaceProperties where
   rnf ModifyWorkspaceProperties' {..} =
-    Prelude.rnf workspaceId
-      `Prelude.seq` Prelude.rnf workspaceProperties
+    Prelude.rnf workspaceId `Prelude.seq`
+      Prelude.rnf workspaceProperties
 
 instance Data.ToHeaders ModifyWorkspaceProperties where
   toHeaders =

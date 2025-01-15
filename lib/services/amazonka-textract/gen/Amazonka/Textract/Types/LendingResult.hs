@@ -97,6 +97,6 @@ instance Prelude.Hashable LendingResult where
 
 instance Prelude.NFData LendingResult where
   rnf LendingResult' {..} =
-    Prelude.rnf extractions
-      `Prelude.seq` Prelude.rnf page
-      `Prelude.seq` Prelude.rnf pageClassification
+    Prelude.rnf extractions `Prelude.seq`
+      Prelude.rnf page `Prelude.seq`
+        Prelude.rnf pageClassification

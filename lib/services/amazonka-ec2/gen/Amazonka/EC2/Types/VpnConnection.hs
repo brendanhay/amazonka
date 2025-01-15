@@ -229,20 +229,14 @@ instance Data.FromXML VpnConnection where
       Prelude.<*> (x Data..@? "customerGatewayConfiguration")
       Prelude.<*> (x Data..@? "gatewayAssociationState")
       Prelude.<*> (x Data..@? "options")
-      Prelude.<*> ( x
-                      Data..@? "routes"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "routes" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x
-                      Data..@? "tagSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "transitGatewayId")
-      Prelude.<*> ( x
-                      Data..@? "vgwTelemetry"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "vgwTelemetry" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "vpnGatewayId")
@@ -272,18 +266,18 @@ instance Prelude.Hashable VpnConnection where
 
 instance Prelude.NFData VpnConnection where
   rnf VpnConnection' {..} =
-    Prelude.rnf category
-      `Prelude.seq` Prelude.rnf coreNetworkArn
-      `Prelude.seq` Prelude.rnf coreNetworkAttachmentArn
-      `Prelude.seq` Prelude.rnf customerGatewayConfiguration
-      `Prelude.seq` Prelude.rnf gatewayAssociationState
-      `Prelude.seq` Prelude.rnf options
-      `Prelude.seq` Prelude.rnf routes
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf transitGatewayId
-      `Prelude.seq` Prelude.rnf vgwTelemetry
-      `Prelude.seq` Prelude.rnf vpnGatewayId
-      `Prelude.seq` Prelude.rnf vpnConnectionId
-      `Prelude.seq` Prelude.rnf customerGatewayId
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf category `Prelude.seq`
+      Prelude.rnf coreNetworkArn `Prelude.seq`
+        Prelude.rnf coreNetworkAttachmentArn `Prelude.seq`
+          Prelude.rnf customerGatewayConfiguration `Prelude.seq`
+            Prelude.rnf gatewayAssociationState `Prelude.seq`
+              Prelude.rnf options `Prelude.seq`
+                Prelude.rnf routes `Prelude.seq`
+                  Prelude.rnf tags `Prelude.seq`
+                    Prelude.rnf transitGatewayId `Prelude.seq`
+                      Prelude.rnf vgwTelemetry `Prelude.seq`
+                        Prelude.rnf vpnGatewayId `Prelude.seq`
+                          Prelude.rnf vpnConnectionId `Prelude.seq`
+                            Prelude.rnf customerGatewayId `Prelude.seq`
+                              Prelude.rnf state `Prelude.seq`
+                                Prelude.rnf type'

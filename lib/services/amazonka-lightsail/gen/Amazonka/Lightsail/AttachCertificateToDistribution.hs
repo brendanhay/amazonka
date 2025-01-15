@@ -182,8 +182,8 @@ instance
     AttachCertificateToDistribution
   where
   rnf AttachCertificateToDistribution' {..} =
-    Prelude.rnf distributionName
-      `Prelude.seq` Prelude.rnf certificateName
+    Prelude.rnf distributionName `Prelude.seq`
+      Prelude.rnf certificateName
 
 instance
   Data.ToHeaders
@@ -271,5 +271,5 @@ instance
     AttachCertificateToDistributionResponse
   where
   rnf AttachCertificateToDistributionResponse' {..} =
-    Prelude.rnf operation
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operation `Prelude.seq`
+      Prelude.rnf httpStatus

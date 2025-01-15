@@ -90,8 +90,8 @@ instance Prelude.Hashable ComponentVariant where
 
 instance Prelude.NFData ComponentVariant where
   rnf ComponentVariant' {..} =
-    Prelude.rnf overrides
-      `Prelude.seq` Prelude.rnf variantValues
+    Prelude.rnf overrides `Prelude.seq`
+      Prelude.rnf variantValues
 
 instance Data.ToJSON ComponentVariant where
   toJSON ComponentVariant' {..} =

@@ -176,12 +176,12 @@ instance Prelude.Hashable TemplateVersion where
 
 instance Prelude.NFData TemplateVersion where
   rnf TemplateVersion' {..} =
-    Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf dataSetConfigurations
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf errors
-      `Prelude.seq` Prelude.rnf sheets
-      `Prelude.seq` Prelude.rnf sourceEntityArn
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf themeArn
-      `Prelude.seq` Prelude.rnf versionNumber
+    Prelude.rnf createdTime `Prelude.seq`
+      Prelude.rnf dataSetConfigurations `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf errors `Prelude.seq`
+            Prelude.rnf sheets `Prelude.seq`
+              Prelude.rnf sourceEntityArn `Prelude.seq`
+                Prelude.rnf status `Prelude.seq`
+                  Prelude.rnf themeArn `Prelude.seq`
+                    Prelude.rnf versionNumber

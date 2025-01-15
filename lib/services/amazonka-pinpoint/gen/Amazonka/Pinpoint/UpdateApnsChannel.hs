@@ -115,8 +115,8 @@ instance Prelude.Hashable UpdateApnsChannel where
 
 instance Prelude.NFData UpdateApnsChannel where
   rnf UpdateApnsChannel' {..} =
-    Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf aPNSChannelRequest
+    Prelude.rnf applicationId `Prelude.seq`
+      Prelude.rnf aPNSChannelRequest
 
 instance Data.ToHeaders UpdateApnsChannel where
   toHeaders =
@@ -188,5 +188,5 @@ updateApnsChannelResponse_aPNSChannelResponse = Lens.lens (\UpdateApnsChannelRes
 
 instance Prelude.NFData UpdateApnsChannelResponse where
   rnf UpdateApnsChannelResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf aPNSChannelResponse
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf aPNSChannelResponse

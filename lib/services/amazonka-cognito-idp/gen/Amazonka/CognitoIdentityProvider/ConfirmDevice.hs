@@ -138,10 +138,10 @@ instance Prelude.Hashable ConfirmDevice where
 
 instance Prelude.NFData ConfirmDevice where
   rnf ConfirmDevice' {..} =
-    Prelude.rnf deviceName
-      `Prelude.seq` Prelude.rnf deviceSecretVerifierConfig
-      `Prelude.seq` Prelude.rnf accessToken
-      `Prelude.seq` Prelude.rnf deviceKey
+    Prelude.rnf deviceName `Prelude.seq`
+      Prelude.rnf deviceSecretVerifierConfig `Prelude.seq`
+        Prelude.rnf accessToken `Prelude.seq`
+          Prelude.rnf deviceKey
 
 instance Data.ToHeaders ConfirmDevice where
   toHeaders =
@@ -222,5 +222,5 @@ confirmDeviceResponse_httpStatus = Lens.lens (\ConfirmDeviceResponse' {httpStatu
 
 instance Prelude.NFData ConfirmDeviceResponse where
   rnf ConfirmDeviceResponse' {..} =
-    Prelude.rnf userConfirmationNecessary
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf userConfirmationNecessary `Prelude.seq`
+      Prelude.rnf httpStatus

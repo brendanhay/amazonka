@@ -154,9 +154,9 @@ instance
 
 instance Prelude.NFData FileCacheLustreConfiguration where
   rnf FileCacheLustreConfiguration' {..} =
-    Prelude.rnf deploymentType
-      `Prelude.seq` Prelude.rnf logConfiguration
-      `Prelude.seq` Prelude.rnf metadataConfiguration
-      `Prelude.seq` Prelude.rnf mountName
-      `Prelude.seq` Prelude.rnf perUnitStorageThroughput
-      `Prelude.seq` Prelude.rnf weeklyMaintenanceStartTime
+    Prelude.rnf deploymentType `Prelude.seq`
+      Prelude.rnf logConfiguration `Prelude.seq`
+        Prelude.rnf metadataConfiguration `Prelude.seq`
+          Prelude.rnf mountName `Prelude.seq`
+            Prelude.rnf perUnitStorageThroughput `Prelude.seq`
+              Prelude.rnf weeklyMaintenanceStartTime

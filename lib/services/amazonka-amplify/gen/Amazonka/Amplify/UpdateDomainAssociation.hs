@@ -160,12 +160,12 @@ instance Prelude.Hashable UpdateDomainAssociation where
 
 instance Prelude.NFData UpdateDomainAssociation where
   rnf UpdateDomainAssociation' {..} =
-    Prelude.rnf autoSubDomainCreationPatterns
-      `Prelude.seq` Prelude.rnf autoSubDomainIAMRole
-      `Prelude.seq` Prelude.rnf enableAutoSubDomain
-      `Prelude.seq` Prelude.rnf subDomainSettings
-      `Prelude.seq` Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf domainName
+    Prelude.rnf autoSubDomainCreationPatterns `Prelude.seq`
+      Prelude.rnf autoSubDomainIAMRole `Prelude.seq`
+        Prelude.rnf enableAutoSubDomain `Prelude.seq`
+          Prelude.rnf subDomainSettings `Prelude.seq`
+            Prelude.rnf appId `Prelude.seq`
+              Prelude.rnf domainName
 
 instance Data.ToHeaders UpdateDomainAssociation where
   toHeaders =
@@ -258,5 +258,5 @@ instance
     UpdateDomainAssociationResponse
   where
   rnf UpdateDomainAssociationResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf domainAssociation
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf domainAssociation

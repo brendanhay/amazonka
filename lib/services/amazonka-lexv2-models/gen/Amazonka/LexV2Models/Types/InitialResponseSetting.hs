@@ -104,10 +104,10 @@ instance Prelude.Hashable InitialResponseSetting where
 
 instance Prelude.NFData InitialResponseSetting where
   rnf InitialResponseSetting' {..} =
-    Prelude.rnf codeHook
-      `Prelude.seq` Prelude.rnf conditional
-      `Prelude.seq` Prelude.rnf initialResponse
-      `Prelude.seq` Prelude.rnf nextStep
+    Prelude.rnf codeHook `Prelude.seq`
+      Prelude.rnf conditional `Prelude.seq`
+        Prelude.rnf initialResponse `Prelude.seq`
+          Prelude.rnf nextStep
 
 instance Data.ToJSON InitialResponseSetting where
   toJSON InitialResponseSetting' {..} =

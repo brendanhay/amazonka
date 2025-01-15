@@ -184,10 +184,10 @@ instance Prelude.Hashable DescribePortfolioShares where
 
 instance Prelude.NFData DescribePortfolioShares where
   rnf DescribePortfolioShares' {..} =
-    Prelude.rnf pageSize
-      `Prelude.seq` Prelude.rnf pageToken
-      `Prelude.seq` Prelude.rnf portfolioId
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf pageSize `Prelude.seq`
+      Prelude.rnf pageToken `Prelude.seq`
+        Prelude.rnf portfolioId `Prelude.seq`
+          Prelude.rnf type'
 
 instance Data.ToHeaders DescribePortfolioShares where
   toHeaders =
@@ -277,6 +277,6 @@ instance
     DescribePortfolioSharesResponse
   where
   rnf DescribePortfolioSharesResponse' {..} =
-    Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf portfolioShareDetails
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextPageToken `Prelude.seq`
+      Prelude.rnf portfolioShareDetails `Prelude.seq`
+        Prelude.rnf httpStatus

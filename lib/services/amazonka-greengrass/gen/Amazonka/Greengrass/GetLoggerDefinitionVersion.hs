@@ -151,9 +151,9 @@ instance Prelude.Hashable GetLoggerDefinitionVersion where
 
 instance Prelude.NFData GetLoggerDefinitionVersion where
   rnf GetLoggerDefinitionVersion' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf loggerDefinitionVersionId
-      `Prelude.seq` Prelude.rnf loggerDefinitionId
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf loggerDefinitionVersionId `Prelude.seq`
+        Prelude.rnf loggerDefinitionId
 
 instance Data.ToHeaders GetLoggerDefinitionVersion where
   toHeaders =
@@ -262,9 +262,9 @@ instance
     GetLoggerDefinitionVersionResponse
   where
   rnf GetLoggerDefinitionVersionResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationTimestamp
-      `Prelude.seq` Prelude.rnf definition
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf creationTimestamp `Prelude.seq`
+        Prelude.rnf definition `Prelude.seq`
+          Prelude.rnf id `Prelude.seq`
+            Prelude.rnf version `Prelude.seq`
+              Prelude.rnf httpStatus

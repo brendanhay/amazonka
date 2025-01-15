@@ -122,8 +122,8 @@ instance Prelude.Hashable CreateAppInstanceAdmin where
 
 instance Prelude.NFData CreateAppInstanceAdmin where
   rnf CreateAppInstanceAdmin' {..} =
-    Prelude.rnf appInstanceAdminArn
-      `Prelude.seq` Prelude.rnf appInstanceArn
+    Prelude.rnf appInstanceAdminArn `Prelude.seq`
+      Prelude.rnf appInstanceArn
 
 instance Data.ToHeaders CreateAppInstanceAdmin where
   toHeaders = Prelude.const Prelude.mempty
@@ -201,6 +201,6 @@ instance
     CreateAppInstanceAdminResponse
   where
   rnf CreateAppInstanceAdminResponse' {..} =
-    Prelude.rnf appInstanceAdmin
-      `Prelude.seq` Prelude.rnf appInstanceArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf appInstanceAdmin `Prelude.seq`
+      Prelude.rnf appInstanceArn `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -166,10 +166,10 @@ instance Prelude.Hashable CreateUserProfile where
 
 instance Prelude.NFData CreateUserProfile where
   rnf CreateUserProfile' {..} =
-    Prelude.rnf sshPublicKey
-      `Prelude.seq` Prelude.rnf userArn
-      `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf emailAddress
+    Prelude.rnf sshPublicKey `Prelude.seq`
+      Prelude.rnf userArn `Prelude.seq`
+        Prelude.rnf displayName `Prelude.seq`
+          Prelude.rnf emailAddress
 
 instance Data.ToHeaders CreateUserProfile where
   toHeaders =
@@ -306,10 +306,10 @@ createUserProfileResponse_userArn = Lens.lens (\CreateUserProfileResponse' {user
 
 instance Prelude.NFData CreateUserProfileResponse where
   rnf CreateUserProfileResponse' {..} =
-    Prelude.rnf createdTimestamp
-      `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf emailAddress
-      `Prelude.seq` Prelude.rnf lastModifiedTimestamp
-      `Prelude.seq` Prelude.rnf sshPublicKey
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf userArn
+    Prelude.rnf createdTimestamp `Prelude.seq`
+      Prelude.rnf displayName `Prelude.seq`
+        Prelude.rnf emailAddress `Prelude.seq`
+          Prelude.rnf lastModifiedTimestamp `Prelude.seq`
+            Prelude.rnf sshPublicKey `Prelude.seq`
+              Prelude.rnf httpStatus `Prelude.seq`
+                Prelude.rnf userArn

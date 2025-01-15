@@ -95,6 +95,6 @@ instance Prelude.Hashable ExecuteStatementResult where
 
 instance Prelude.NFData ExecuteStatementResult where
   rnf ExecuteStatementResult' {..} =
-    Prelude.rnf consumedIOs
-      `Prelude.seq` Prelude.rnf firstPage
-      `Prelude.seq` Prelude.rnf timingInformation
+    Prelude.rnf consumedIOs `Prelude.seq`
+      Prelude.rnf firstPage `Prelude.seq`
+        Prelude.rnf timingInformation

@@ -230,14 +230,14 @@ instance Prelude.Hashable DeletePackageVersions where
 
 instance Prelude.NFData DeletePackageVersions where
   rnf DeletePackageVersions' {..} =
-    Prelude.rnf domainOwner
-      `Prelude.seq` Prelude.rnf expectedStatus
-      `Prelude.seq` Prelude.rnf namespace
-      `Prelude.seq` Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf repository
-      `Prelude.seq` Prelude.rnf format
-      `Prelude.seq` Prelude.rnf package
-      `Prelude.seq` Prelude.rnf versions
+    Prelude.rnf domainOwner `Prelude.seq`
+      Prelude.rnf expectedStatus `Prelude.seq`
+        Prelude.rnf namespace `Prelude.seq`
+          Prelude.rnf domain `Prelude.seq`
+            Prelude.rnf repository `Prelude.seq`
+              Prelude.rnf format `Prelude.seq`
+                Prelude.rnf package `Prelude.seq`
+                  Prelude.rnf versions
 
 instance Data.ToHeaders DeletePackageVersions where
   toHeaders =
@@ -366,6 +366,6 @@ deletePackageVersionsResponse_httpStatus = Lens.lens (\DeletePackageVersionsResp
 
 instance Prelude.NFData DeletePackageVersionsResponse where
   rnf DeletePackageVersionsResponse' {..} =
-    Prelude.rnf failedVersions
-      `Prelude.seq` Prelude.rnf successfulVersions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf failedVersions `Prelude.seq`
+      Prelude.rnf successfulVersions `Prelude.seq`
+        Prelude.rnf httpStatus

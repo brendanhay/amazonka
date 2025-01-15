@@ -200,17 +200,17 @@ instance Prelude.Hashable BoxPlotChartConfiguration where
 
 instance Prelude.NFData BoxPlotChartConfiguration where
   rnf BoxPlotChartConfiguration' {..} =
-    Prelude.rnf boxPlotOptions
-      `Prelude.seq` Prelude.rnf categoryAxis
-      `Prelude.seq` Prelude.rnf categoryLabelOptions
-      `Prelude.seq` Prelude.rnf fieldWells
-      `Prelude.seq` Prelude.rnf legend
-      `Prelude.seq` Prelude.rnf primaryYAxisDisplayOptions
-      `Prelude.seq` Prelude.rnf primaryYAxisLabelOptions
-      `Prelude.seq` Prelude.rnf referenceLines
-      `Prelude.seq` Prelude.rnf sortConfiguration
-      `Prelude.seq` Prelude.rnf tooltip
-      `Prelude.seq` Prelude.rnf visualPalette
+    Prelude.rnf boxPlotOptions `Prelude.seq`
+      Prelude.rnf categoryAxis `Prelude.seq`
+        Prelude.rnf categoryLabelOptions `Prelude.seq`
+          Prelude.rnf fieldWells `Prelude.seq`
+            Prelude.rnf legend `Prelude.seq`
+              Prelude.rnf primaryYAxisDisplayOptions `Prelude.seq`
+                Prelude.rnf primaryYAxisLabelOptions `Prelude.seq`
+                  Prelude.rnf referenceLines `Prelude.seq`
+                    Prelude.rnf sortConfiguration `Prelude.seq`
+                      Prelude.rnf tooltip `Prelude.seq`
+                        Prelude.rnf visualPalette
 
 instance Data.ToJSON BoxPlotChartConfiguration where
   toJSON BoxPlotChartConfiguration' {..} =

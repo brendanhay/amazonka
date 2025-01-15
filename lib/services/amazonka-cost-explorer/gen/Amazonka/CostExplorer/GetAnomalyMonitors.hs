@@ -130,9 +130,9 @@ instance Prelude.Hashable GetAnomalyMonitors where
 
 instance Prelude.NFData GetAnomalyMonitors where
   rnf GetAnomalyMonitors' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf monitorArnList
-      `Prelude.seq` Prelude.rnf nextPageToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf monitorArnList `Prelude.seq`
+        Prelude.rnf nextPageToken
 
 instance Data.ToHeaders GetAnomalyMonitors where
   toHeaders =
@@ -225,6 +225,6 @@ getAnomalyMonitorsResponse_anomalyMonitors = Lens.lens (\GetAnomalyMonitorsRespo
 
 instance Prelude.NFData GetAnomalyMonitorsResponse where
   rnf GetAnomalyMonitorsResponse' {..} =
-    Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf anomalyMonitors
+    Prelude.rnf nextPageToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf anomalyMonitors

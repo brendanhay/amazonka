@@ -81,5 +81,5 @@ instance
 
 instance Prelude.NFData VolumeStatusAttachmentStatus where
   rnf VolumeStatusAttachmentStatus' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf ioPerformance
+    Prelude.rnf instanceId `Prelude.seq`
+      Prelude.rnf ioPerformance

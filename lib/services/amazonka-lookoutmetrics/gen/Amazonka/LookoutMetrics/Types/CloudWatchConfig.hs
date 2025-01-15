@@ -85,8 +85,8 @@ instance Prelude.Hashable CloudWatchConfig where
 
 instance Prelude.NFData CloudWatchConfig where
   rnf CloudWatchConfig' {..} =
-    Prelude.rnf backTestConfiguration
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf backTestConfiguration `Prelude.seq`
+      Prelude.rnf roleArn
 
 instance Data.ToJSON CloudWatchConfig where
   toJSON CloudWatchConfig' {..} =

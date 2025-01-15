@@ -90,8 +90,8 @@ instance
 
 instance Prelude.NFData PipeTargetSqsQueueParameters where
   rnf PipeTargetSqsQueueParameters' {..} =
-    Prelude.rnf messageDeduplicationId
-      `Prelude.seq` Prelude.rnf messageGroupId
+    Prelude.rnf messageDeduplicationId `Prelude.seq`
+      Prelude.rnf messageGroupId
 
 instance Data.ToJSON PipeTargetSqsQueueParameters where
   toJSON PipeTargetSqsQueueParameters' {..} =

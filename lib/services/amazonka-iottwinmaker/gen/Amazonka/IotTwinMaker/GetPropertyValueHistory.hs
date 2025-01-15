@@ -289,20 +289,20 @@ instance Prelude.Hashable GetPropertyValueHistory where
 
 instance Prelude.NFData GetPropertyValueHistory where
   rnf GetPropertyValueHistory' {..} =
-    Prelude.rnf componentName
-      `Prelude.seq` Prelude.rnf componentTypeId
-      `Prelude.seq` Prelude.rnf endDateTime
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf entityId
-      `Prelude.seq` Prelude.rnf interpolation
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf orderByTime
-      `Prelude.seq` Prelude.rnf propertyFilters
-      `Prelude.seq` Prelude.rnf startDateTime
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf workspaceId
-      `Prelude.seq` Prelude.rnf selectedProperties
+    Prelude.rnf componentName `Prelude.seq`
+      Prelude.rnf componentTypeId `Prelude.seq`
+        Prelude.rnf endDateTime `Prelude.seq`
+          Prelude.rnf endTime `Prelude.seq`
+            Prelude.rnf entityId `Prelude.seq`
+              Prelude.rnf interpolation `Prelude.seq`
+                Prelude.rnf maxResults `Prelude.seq`
+                  Prelude.rnf nextToken `Prelude.seq`
+                    Prelude.rnf orderByTime `Prelude.seq`
+                      Prelude.rnf propertyFilters `Prelude.seq`
+                        Prelude.rnf startDateTime `Prelude.seq`
+                          Prelude.rnf startTime `Prelude.seq`
+                            Prelude.rnf workspaceId `Prelude.seq`
+                              Prelude.rnf selectedProperties
 
 instance Data.ToHeaders GetPropertyValueHistory where
   toHeaders =
@@ -405,6 +405,6 @@ instance
     GetPropertyValueHistoryResponse
   where
   rnf GetPropertyValueHistoryResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf propertyValues
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf propertyValues

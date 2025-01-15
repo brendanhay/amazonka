@@ -186,7 +186,7 @@ instance Prelude.Hashable Attendee where
 
 instance Prelude.NFData Attendee where
   rnf Attendee' {..} =
-    Prelude.rnf attendeeId
-      `Prelude.seq` Prelude.rnf capabilities
-      `Prelude.seq` Prelude.rnf externalUserId
-      `Prelude.seq` Prelude.rnf joinToken
+    Prelude.rnf attendeeId `Prelude.seq`
+      Prelude.rnf capabilities `Prelude.seq`
+        Prelude.rnf externalUserId `Prelude.seq`
+          Prelude.rnf joinToken

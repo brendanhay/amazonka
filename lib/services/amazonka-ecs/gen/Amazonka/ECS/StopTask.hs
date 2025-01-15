@@ -148,9 +148,9 @@ instance Prelude.Hashable StopTask where
 
 instance Prelude.NFData StopTask where
   rnf StopTask' {..} =
-    Prelude.rnf cluster
-      `Prelude.seq` Prelude.rnf reason
-      `Prelude.seq` Prelude.rnf task
+    Prelude.rnf cluster `Prelude.seq`
+      Prelude.rnf reason `Prelude.seq`
+        Prelude.rnf task
 
 instance Data.ToHeaders StopTask where
   toHeaders =
@@ -223,5 +223,5 @@ stopTaskResponse_httpStatus = Lens.lens (\StopTaskResponse' {httpStatus} -> http
 
 instance Prelude.NFData StopTaskResponse where
   rnf StopTaskResponse' {..} =
-    Prelude.rnf task
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf task `Prelude.seq`
+      Prelude.rnf httpStatus

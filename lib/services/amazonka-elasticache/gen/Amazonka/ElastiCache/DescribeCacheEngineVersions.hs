@@ -220,12 +220,12 @@ instance Core.AWSPager DescribeCacheEngineVersions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeCacheEngineVersions_marker
-          Lens..~ rs
-          Lens.^? describeCacheEngineVersionsResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeCacheEngineVersions_marker
+              Lens..~ rs
+              Lens.^? describeCacheEngineVersionsResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeCacheEngineVersions where
   type
@@ -259,12 +259,12 @@ instance Prelude.Hashable DescribeCacheEngineVersions where
 
 instance Prelude.NFData DescribeCacheEngineVersions where
   rnf DescribeCacheEngineVersions' {..} =
-    Prelude.rnf cacheParameterGroupFamily
-      `Prelude.seq` Prelude.rnf defaultOnly
-      `Prelude.seq` Prelude.rnf engine
-      `Prelude.seq` Prelude.rnf engineVersion
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
+    Prelude.rnf cacheParameterGroupFamily `Prelude.seq`
+      Prelude.rnf defaultOnly `Prelude.seq`
+        Prelude.rnf engine `Prelude.seq`
+          Prelude.rnf engineVersion `Prelude.seq`
+            Prelude.rnf marker `Prelude.seq`
+              Prelude.rnf maxRecords
 
 instance Data.ToHeaders DescribeCacheEngineVersions where
   toHeaders = Prelude.const Prelude.mempty
@@ -348,6 +348,6 @@ instance
     DescribeCacheEngineVersionsResponse
   where
   rnf DescribeCacheEngineVersionsResponse' {..} =
-    Prelude.rnf cacheEngineVersions
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf cacheEngineVersions `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf httpStatus

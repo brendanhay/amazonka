@@ -125,12 +125,12 @@ instance Prelude.Hashable LoRaWANGateway where
 
 instance Prelude.NFData LoRaWANGateway where
   rnf LoRaWANGateway' {..} =
-    Prelude.rnf beaconing
-      `Prelude.seq` Prelude.rnf gatewayEui
-      `Prelude.seq` Prelude.rnf joinEuiFilters
-      `Prelude.seq` Prelude.rnf netIdFilters
-      `Prelude.seq` Prelude.rnf rfRegion
-      `Prelude.seq` Prelude.rnf subBands
+    Prelude.rnf beaconing `Prelude.seq`
+      Prelude.rnf gatewayEui `Prelude.seq`
+        Prelude.rnf joinEuiFilters `Prelude.seq`
+          Prelude.rnf netIdFilters `Prelude.seq`
+            Prelude.rnf rfRegion `Prelude.seq`
+              Prelude.rnf subBands
 
 instance Data.ToJSON LoRaWANGateway where
   toJSON LoRaWANGateway' {..} =

@@ -132,6 +132,6 @@ instance Prelude.Hashable DashConfiguration where
 
 instance Prelude.NFData DashConfiguration where
   rnf DashConfiguration' {..} =
-    Prelude.rnf manifestEndpointPrefix
-      `Prelude.seq` Prelude.rnf mpdLocation
-      `Prelude.seq` Prelude.rnf originManifestType
+    Prelude.rnf manifestEndpointPrefix `Prelude.seq`
+      Prelude.rnf mpdLocation `Prelude.seq`
+        Prelude.rnf originManifestType

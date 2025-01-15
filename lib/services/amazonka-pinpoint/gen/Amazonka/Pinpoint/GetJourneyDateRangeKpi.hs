@@ -225,13 +225,13 @@ instance Prelude.Hashable GetJourneyDateRangeKpi where
 
 instance Prelude.NFData GetJourneyDateRangeKpi where
   rnf GetJourneyDateRangeKpi' {..} =
-    Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf pageSize
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf journeyId
-      `Prelude.seq` Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf kpiName
+    Prelude.rnf endTime `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf pageSize `Prelude.seq`
+          Prelude.rnf startTime `Prelude.seq`
+            Prelude.rnf journeyId `Prelude.seq`
+              Prelude.rnf applicationId `Prelude.seq`
+                Prelude.rnf kpiName
 
 instance Data.ToHeaders GetJourneyDateRangeKpi where
   toHeaders =
@@ -312,5 +312,5 @@ instance
     GetJourneyDateRangeKpiResponse
   where
   rnf GetJourneyDateRangeKpiResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf journeyDateRangeKpiResponse
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf journeyDateRangeKpiResponse

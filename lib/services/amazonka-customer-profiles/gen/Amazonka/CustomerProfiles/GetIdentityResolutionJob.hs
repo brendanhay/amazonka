@@ -136,8 +136,8 @@ instance Prelude.Hashable GetIdentityResolutionJob where
 
 instance Prelude.NFData GetIdentityResolutionJob where
   rnf GetIdentityResolutionJob' {..} =
-    Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf jobId
+    Prelude.rnf domainName `Prelude.seq`
+      Prelude.rnf jobId
 
 instance Data.ToHeaders GetIdentityResolutionJob where
   toHeaders =
@@ -371,15 +371,15 @@ instance
     GetIdentityResolutionJobResponse
   where
   rnf GetIdentityResolutionJobResponse' {..} =
-    Prelude.rnf autoMerging
-      `Prelude.seq` Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf exportingLocation
-      `Prelude.seq` Prelude.rnf jobEndTime
-      `Prelude.seq` Prelude.rnf jobExpirationTime
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf jobStartTime
-      `Prelude.seq` Prelude.rnf jobStats
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf autoMerging `Prelude.seq`
+      Prelude.rnf domainName `Prelude.seq`
+        Prelude.rnf exportingLocation `Prelude.seq`
+          Prelude.rnf jobEndTime `Prelude.seq`
+            Prelude.rnf jobExpirationTime `Prelude.seq`
+              Prelude.rnf jobId `Prelude.seq`
+                Prelude.rnf jobStartTime `Prelude.seq`
+                  Prelude.rnf jobStats `Prelude.seq`
+                    Prelude.rnf lastUpdatedAt `Prelude.seq`
+                      Prelude.rnf message `Prelude.seq`
+                        Prelude.rnf status `Prelude.seq`
+                          Prelude.rnf httpStatus

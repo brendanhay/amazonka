@@ -162,12 +162,12 @@ instance Prelude.Hashable UpdateExperience where
 
 instance Prelude.NFData UpdateExperience where
   rnf UpdateExperience' {..} =
-    Prelude.rnf configuration
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf indexId
+    Prelude.rnf configuration `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf roleArn `Prelude.seq`
+            Prelude.rnf id `Prelude.seq`
+              Prelude.rnf indexId
 
 instance Data.ToHeaders UpdateExperience where
   toHeaders =

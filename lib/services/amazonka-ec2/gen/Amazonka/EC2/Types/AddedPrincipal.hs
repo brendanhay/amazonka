@@ -100,7 +100,7 @@ instance Prelude.Hashable AddedPrincipal where
 
 instance Prelude.NFData AddedPrincipal where
   rnf AddedPrincipal' {..} =
-    Prelude.rnf principal
-      `Prelude.seq` Prelude.rnf principalType
-      `Prelude.seq` Prelude.rnf serviceId
-      `Prelude.seq` Prelude.rnf servicePermissionId
+    Prelude.rnf principal `Prelude.seq`
+      Prelude.rnf principalType `Prelude.seq`
+        Prelude.rnf serviceId `Prelude.seq`
+          Prelude.rnf servicePermissionId

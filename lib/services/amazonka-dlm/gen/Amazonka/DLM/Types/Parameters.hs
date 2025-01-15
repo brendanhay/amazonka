@@ -150,9 +150,9 @@ instance Prelude.Hashable Parameters where
 
 instance Prelude.NFData Parameters where
   rnf Parameters' {..} =
-    Prelude.rnf excludeBootVolume
-      `Prelude.seq` Prelude.rnf excludeDataVolumeTags
-      `Prelude.seq` Prelude.rnf noReboot
+    Prelude.rnf excludeBootVolume `Prelude.seq`
+      Prelude.rnf excludeDataVolumeTags `Prelude.seq`
+        Prelude.rnf noReboot
 
 instance Data.ToJSON Parameters where
   toJSON Parameters' {..} =

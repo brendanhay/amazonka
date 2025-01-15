@@ -108,8 +108,8 @@ instance Prelude.Hashable CancelJob where
 
 instance Prelude.NFData CancelJob where
   rnf CancelJob' {..} =
-    Prelude.rnf aPIVersion
-      `Prelude.seq` Prelude.rnf jobId
+    Prelude.rnf aPIVersion `Prelude.seq`
+      Prelude.rnf jobId
 
 instance Data.ToHeaders CancelJob where
   toHeaders = Prelude.const Prelude.mempty
@@ -169,5 +169,5 @@ cancelJobResponse_httpStatus = Lens.lens (\CancelJobResponse' {httpStatus} -> ht
 
 instance Prelude.NFData CancelJobResponse where
   rnf CancelJobResponse' {..} =
-    Prelude.rnf success
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf success `Prelude.seq`
+      Prelude.rnf httpStatus

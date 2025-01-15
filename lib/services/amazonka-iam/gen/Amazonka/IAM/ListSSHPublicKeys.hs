@@ -178,12 +178,12 @@ instance Core.AWSPager ListSSHPublicKeys where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listSSHPublicKeys_marker
-          Lens..~ rs
-          Lens.^? listSSHPublicKeysResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listSSHPublicKeys_marker
+              Lens..~ rs
+              Lens.^? listSSHPublicKeysResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSSHPublicKeys where
   type
@@ -198,9 +198,7 @@ instance Core.AWSRequest ListSSHPublicKeys where
           ListSSHPublicKeysResponse'
             Prelude.<$> (x Data..@? "IsTruncated")
             Prelude.<*> (x Data..@? "Marker")
-            Prelude.<*> ( x
-                            Data..@? "SSHPublicKeys"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "SSHPublicKeys" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -215,9 +213,9 @@ instance Prelude.Hashable ListSSHPublicKeys where
 
 instance Prelude.NFData ListSSHPublicKeys where
   rnf ListSSHPublicKeys' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxItems
-      `Prelude.seq` Prelude.rnf userName
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf maxItems `Prelude.seq`
+        Prelude.rnf userName
 
 instance Data.ToHeaders ListSSHPublicKeys where
   toHeaders = Prelude.const Prelude.mempty
@@ -322,7 +320,7 @@ listSSHPublicKeysResponse_httpStatus = Lens.lens (\ListSSHPublicKeysResponse' {h
 
 instance Prelude.NFData ListSSHPublicKeysResponse where
   rnf ListSSHPublicKeysResponse' {..} =
-    Prelude.rnf isTruncated
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf sSHPublicKeys
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf isTruncated `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf sSHPublicKeys `Prelude.seq`
+          Prelude.rnf httpStatus

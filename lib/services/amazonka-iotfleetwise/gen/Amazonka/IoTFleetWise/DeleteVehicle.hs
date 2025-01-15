@@ -184,6 +184,6 @@ deleteVehicleResponse_arn = Lens.lens (\DeleteVehicleResponse' {arn} -> arn) (\s
 
 instance Prelude.NFData DeleteVehicleResponse where
   rnf DeleteVehicleResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf vehicleName
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf vehicleName `Prelude.seq`
+        Prelude.rnf arn

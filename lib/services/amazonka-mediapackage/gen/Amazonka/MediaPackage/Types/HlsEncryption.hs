@@ -120,11 +120,11 @@ instance Prelude.Hashable HlsEncryption where
 
 instance Prelude.NFData HlsEncryption where
   rnf HlsEncryption' {..} =
-    Prelude.rnf constantInitializationVector
-      `Prelude.seq` Prelude.rnf encryptionMethod
-      `Prelude.seq` Prelude.rnf keyRotationIntervalSeconds
-      `Prelude.seq` Prelude.rnf repeatExtXKey
-      `Prelude.seq` Prelude.rnf spekeKeyProvider
+    Prelude.rnf constantInitializationVector `Prelude.seq`
+      Prelude.rnf encryptionMethod `Prelude.seq`
+        Prelude.rnf keyRotationIntervalSeconds `Prelude.seq`
+          Prelude.rnf repeatExtXKey `Prelude.seq`
+            Prelude.rnf spekeKeyProvider
 
 instance Data.ToJSON HlsEncryption where
   toJSON HlsEncryption' {..} =

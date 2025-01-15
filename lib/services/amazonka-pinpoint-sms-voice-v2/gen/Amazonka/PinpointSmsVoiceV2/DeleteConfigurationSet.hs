@@ -250,10 +250,10 @@ instance
     DeleteConfigurationSetResponse
   where
   rnf DeleteConfigurationSetResponse' {..} =
-    Prelude.rnf configurationSetArn
-      `Prelude.seq` Prelude.rnf configurationSetName
-      `Prelude.seq` Prelude.rnf createdTimestamp
-      `Prelude.seq` Prelude.rnf defaultMessageType
-      `Prelude.seq` Prelude.rnf defaultSenderId
-      `Prelude.seq` Prelude.rnf eventDestinations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf configurationSetArn `Prelude.seq`
+      Prelude.rnf configurationSetName `Prelude.seq`
+        Prelude.rnf createdTimestamp `Prelude.seq`
+          Prelude.rnf defaultMessageType `Prelude.seq`
+            Prelude.rnf defaultSenderId `Prelude.seq`
+              Prelude.rnf eventDestinations `Prelude.seq`
+                Prelude.rnf httpStatus

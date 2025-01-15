@@ -122,9 +122,9 @@ instance Prelude.Hashable BatchPutFieldOptions where
 
 instance Prelude.NFData BatchPutFieldOptions where
   rnf BatchPutFieldOptions' {..} =
-    Prelude.rnf domainId
-      `Prelude.seq` Prelude.rnf fieldId
-      `Prelude.seq` Prelude.rnf options
+    Prelude.rnf domainId `Prelude.seq`
+      Prelude.rnf fieldId `Prelude.seq`
+        Prelude.rnf options
 
 instance Data.ToHeaders BatchPutFieldOptions where
   toHeaders =
@@ -198,5 +198,5 @@ batchPutFieldOptionsResponse_httpStatus = Lens.lens (\BatchPutFieldOptionsRespon
 
 instance Prelude.NFData BatchPutFieldOptionsResponse where
   rnf BatchPutFieldOptionsResponse' {..} =
-    Prelude.rnf errors
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf errors `Prelude.seq`
+      Prelude.rnf httpStatus

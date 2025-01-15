@@ -123,8 +123,8 @@ instance Prelude.Hashable JsonClassifier where
 
 instance Prelude.NFData JsonClassifier where
   rnf JsonClassifier' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf lastUpdated
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf jsonPath
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf lastUpdated `Prelude.seq`
+        Prelude.rnf version `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf jsonPath

@@ -252,12 +252,12 @@ instance Core.AWSPager DescribeDBClusters where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeDBClusters_marker
-          Lens..~ rs
-          Lens.^? describeDBClustersResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeDBClusters_marker
+              Lens..~ rs
+              Lens.^? describeDBClustersResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeDBClusters where
   type
@@ -270,9 +270,7 @@ instance Core.AWSRequest DescribeDBClusters where
       "DescribeDBClustersResult"
       ( \s h x ->
           DescribeDBClustersResponse'
-            Prelude.<$> ( x
-                            Data..@? "DBClusters"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "DBClusters" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "DBCluster")
                         )
             Prelude.<*> (x Data..@? "Marker")
@@ -290,11 +288,11 @@ instance Prelude.Hashable DescribeDBClusters where
 
 instance Prelude.NFData DescribeDBClusters where
   rnf DescribeDBClusters' {..} =
-    Prelude.rnf dbClusterIdentifier
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf includeShared
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
+    Prelude.rnf dbClusterIdentifier `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf includeShared `Prelude.seq`
+          Prelude.rnf marker `Prelude.seq`
+            Prelude.rnf maxRecords
 
 instance Data.ToHeaders DescribeDBClusters where
   toHeaders = Prelude.const Prelude.mempty
@@ -374,6 +372,6 @@ describeDBClustersResponse_httpStatus = Lens.lens (\DescribeDBClustersResponse' 
 
 instance Prelude.NFData DescribeDBClustersResponse where
   rnf DescribeDBClustersResponse' {..} =
-    Prelude.rnf dbClusters
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dbClusters `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf httpStatus

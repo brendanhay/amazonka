@@ -116,9 +116,9 @@ instance Prelude.Hashable TargetInstances where
 
 instance Prelude.NFData TargetInstances where
   rnf TargetInstances' {..} =
-    Prelude.rnf autoScalingGroups
-      `Prelude.seq` Prelude.rnf ec2TagSet
-      `Prelude.seq` Prelude.rnf tagFilters
+    Prelude.rnf autoScalingGroups `Prelude.seq`
+      Prelude.rnf ec2TagSet `Prelude.seq`
+        Prelude.rnf tagFilters
 
 instance Data.ToJSON TargetInstances where
   toJSON TargetInstances' {..} =

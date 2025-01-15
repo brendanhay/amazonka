@@ -121,8 +121,8 @@ instance Prelude.Hashable EFSAuthorizationConfig where
 
 instance Prelude.NFData EFSAuthorizationConfig where
   rnf EFSAuthorizationConfig' {..} =
-    Prelude.rnf accessPointId
-      `Prelude.seq` Prelude.rnf iam
+    Prelude.rnf accessPointId `Prelude.seq`
+      Prelude.rnf iam
 
 instance Data.ToJSON EFSAuthorizationConfig where
   toJSON EFSAuthorizationConfig' {..} =

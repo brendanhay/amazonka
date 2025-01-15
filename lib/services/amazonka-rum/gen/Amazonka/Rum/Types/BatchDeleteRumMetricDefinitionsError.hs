@@ -115,6 +115,6 @@ instance
     BatchDeleteRumMetricDefinitionsError
   where
   rnf BatchDeleteRumMetricDefinitionsError' {..} =
-    Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf metricDefinitionId
+    Prelude.rnf errorCode `Prelude.seq`
+      Prelude.rnf errorMessage `Prelude.seq`
+        Prelude.rnf metricDefinitionId

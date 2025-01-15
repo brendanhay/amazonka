@@ -137,10 +137,10 @@ instance Prelude.Hashable UpdateNode where
 
 instance Prelude.NFData UpdateNode where
   rnf UpdateNode' {..} =
-    Prelude.rnf logPublishingConfiguration
-      `Prelude.seq` Prelude.rnf memberId
-      `Prelude.seq` Prelude.rnf networkId
-      `Prelude.seq` Prelude.rnf nodeId
+    Prelude.rnf logPublishingConfiguration `Prelude.seq`
+      Prelude.rnf memberId `Prelude.seq`
+        Prelude.rnf networkId `Prelude.seq`
+          Prelude.rnf nodeId
 
 instance Data.ToHeaders UpdateNode where
   toHeaders =

@@ -152,12 +152,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeVerifiedAccessTrustProviders_nextToken
-          Lens..~ rs
-          Lens.^? describeVerifiedAccessTrustProvidersResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeVerifiedAccessTrustProviders_nextToken
+              Lens..~ rs
+              Lens.^? describeVerifiedAccessTrustProvidersResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -200,11 +200,11 @@ instance
     DescribeVerifiedAccessTrustProviders
   where
   rnf DescribeVerifiedAccessTrustProviders' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf verifiedAccessTrustProviderIds
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf verifiedAccessTrustProviderIds
 
 instance
   Data.ToHeaders
@@ -299,6 +299,6 @@ instance
     DescribeVerifiedAccessTrustProvidersResponse
   where
   rnf DescribeVerifiedAccessTrustProvidersResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf verifiedAccessTrustProviders
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf verifiedAccessTrustProviders `Prelude.seq`
+        Prelude.rnf httpStatus

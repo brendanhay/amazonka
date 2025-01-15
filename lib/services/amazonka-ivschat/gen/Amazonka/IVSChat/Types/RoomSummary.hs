@@ -174,11 +174,11 @@ instance Prelude.Hashable RoomSummary where
 
 instance Prelude.NFData RoomSummary where
   rnf RoomSummary' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createTime
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf loggingConfigurationIdentifiers
-      `Prelude.seq` Prelude.rnf messageReviewHandler
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf updateTime
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf createTime `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf loggingConfigurationIdentifiers `Prelude.seq`
+            Prelude.rnf messageReviewHandler `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf tags `Prelude.seq`
+                  Prelude.rnf updateTime

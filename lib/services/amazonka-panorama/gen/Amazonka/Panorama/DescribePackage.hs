@@ -254,12 +254,12 @@ describePackageResponse_tags = Lens.lens (\DescribePackageResponse' {tags} -> ta
 
 instance Prelude.NFData DescribePackageResponse where
   rnf DescribePackageResponse' {..} =
-    Prelude.rnf readAccessPrincipalArns
-      `Prelude.seq` Prelude.rnf writeAccessPrincipalArns
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf packageId
-      `Prelude.seq` Prelude.rnf packageName
-      `Prelude.seq` Prelude.rnf storageLocation
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf readAccessPrincipalArns `Prelude.seq`
+      Prelude.rnf writeAccessPrincipalArns `Prelude.seq`
+        Prelude.rnf httpStatus `Prelude.seq`
+          Prelude.rnf arn `Prelude.seq`
+            Prelude.rnf createdTime `Prelude.seq`
+              Prelude.rnf packageId `Prelude.seq`
+                Prelude.rnf packageName `Prelude.seq`
+                  Prelude.rnf storageLocation `Prelude.seq`
+                    Prelude.rnf tags

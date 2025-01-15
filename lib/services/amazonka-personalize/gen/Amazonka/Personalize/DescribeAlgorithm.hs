@@ -164,5 +164,5 @@ describeAlgorithmResponse_httpStatus = Lens.lens (\DescribeAlgorithmResponse' {h
 
 instance Prelude.NFData DescribeAlgorithmResponse where
   rnf DescribeAlgorithmResponse' {..} =
-    Prelude.rnf algorithm
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf algorithm `Prelude.seq`
+      Prelude.rnf httpStatus

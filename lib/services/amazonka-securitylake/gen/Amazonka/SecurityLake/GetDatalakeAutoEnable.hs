@@ -142,5 +142,5 @@ getDatalakeAutoEnableResponse_autoEnableNewAccounts = Lens.lens (\GetDatalakeAut
 
 instance Prelude.NFData GetDatalakeAutoEnableResponse where
   rnf GetDatalakeAutoEnableResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf autoEnableNewAccounts
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf autoEnableNewAccounts

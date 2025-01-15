@@ -241,11 +241,11 @@ instance Prelude.Hashable SetTypeConfiguration where
 
 instance Prelude.NFData SetTypeConfiguration where
   rnf SetTypeConfiguration' {..} =
-    Prelude.rnf configurationAlias
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf typeArn
-      `Prelude.seq` Prelude.rnf typeName
-      `Prelude.seq` Prelude.rnf configuration
+    Prelude.rnf configurationAlias `Prelude.seq`
+      Prelude.rnf type' `Prelude.seq`
+        Prelude.rnf typeArn `Prelude.seq`
+          Prelude.rnf typeName `Prelude.seq`
+            Prelude.rnf configuration
 
 instance Data.ToHeaders SetTypeConfiguration where
   toHeaders = Prelude.const Prelude.mempty
@@ -320,5 +320,5 @@ setTypeConfigurationResponse_httpStatus = Lens.lens (\SetTypeConfigurationRespon
 
 instance Prelude.NFData SetTypeConfigurationResponse where
   rnf SetTypeConfigurationResponse' {..} =
-    Prelude.rnf configurationArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf configurationArn `Prelude.seq`
+      Prelude.rnf httpStatus

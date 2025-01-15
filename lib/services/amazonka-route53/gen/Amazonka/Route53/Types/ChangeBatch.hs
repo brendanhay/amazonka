@@ -77,8 +77,8 @@ instance Prelude.Hashable ChangeBatch where
 
 instance Prelude.NFData ChangeBatch where
   rnf ChangeBatch' {..} =
-    Prelude.rnf comment
-      `Prelude.seq` Prelude.rnf changes
+    Prelude.rnf comment `Prelude.seq`
+      Prelude.rnf changes
 
 instance Data.ToXML ChangeBatch where
   toXML ChangeBatch' {..} =

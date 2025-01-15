@@ -250,17 +250,17 @@ instance Prelude.Hashable CreateJobTemplate where
 
 instance Prelude.NFData CreateJobTemplate where
   rnf CreateJobTemplate' {..} =
-    Prelude.rnf abortConfig
-      `Prelude.seq` Prelude.rnf document
-      `Prelude.seq` Prelude.rnf documentSource
-      `Prelude.seq` Prelude.rnf jobArn
-      `Prelude.seq` Prelude.rnf jobExecutionsRetryConfig
-      `Prelude.seq` Prelude.rnf jobExecutionsRolloutConfig
-      `Prelude.seq` Prelude.rnf presignedUrlConfig
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf timeoutConfig
-      `Prelude.seq` Prelude.rnf jobTemplateId
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf abortConfig `Prelude.seq`
+      Prelude.rnf document `Prelude.seq`
+        Prelude.rnf documentSource `Prelude.seq`
+          Prelude.rnf jobArn `Prelude.seq`
+            Prelude.rnf jobExecutionsRetryConfig `Prelude.seq`
+              Prelude.rnf jobExecutionsRolloutConfig `Prelude.seq`
+                Prelude.rnf presignedUrlConfig `Prelude.seq`
+                  Prelude.rnf tags `Prelude.seq`
+                    Prelude.rnf timeoutConfig `Prelude.seq`
+                      Prelude.rnf jobTemplateId `Prelude.seq`
+                        Prelude.rnf description
 
 instance Data.ToHeaders CreateJobTemplate where
   toHeaders = Prelude.const Prelude.mempty
@@ -344,6 +344,6 @@ createJobTemplateResponse_httpStatus = Lens.lens (\CreateJobTemplateResponse' {h
 
 instance Prelude.NFData CreateJobTemplateResponse where
   rnf CreateJobTemplateResponse' {..} =
-    Prelude.rnf jobTemplateArn
-      `Prelude.seq` Prelude.rnf jobTemplateId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf jobTemplateArn `Prelude.seq`
+      Prelude.rnf jobTemplateId `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -82,8 +82,8 @@ instance Prelude.Hashable PolicyVersionIdentifier where
 
 instance Prelude.NFData PolicyVersionIdentifier where
   rnf PolicyVersionIdentifier' {..} =
-    Prelude.rnf policyName
-      `Prelude.seq` Prelude.rnf policyVersionId
+    Prelude.rnf policyName `Prelude.seq`
+      Prelude.rnf policyVersionId
 
 instance Data.ToJSON PolicyVersionIdentifier where
   toJSON PolicyVersionIdentifier' {..} =

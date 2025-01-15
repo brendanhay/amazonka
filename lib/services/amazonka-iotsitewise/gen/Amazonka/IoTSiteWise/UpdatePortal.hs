@@ -228,15 +228,15 @@ instance Prelude.Hashable UpdatePortal where
 
 instance Prelude.NFData UpdatePortal where
   rnf UpdatePortal' {..} =
-    Prelude.rnf alarms
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf notificationSenderEmail
-      `Prelude.seq` Prelude.rnf portalDescription
-      `Prelude.seq` Prelude.rnf portalLogoImage
-      `Prelude.seq` Prelude.rnf portalId
-      `Prelude.seq` Prelude.rnf portalName
-      `Prelude.seq` Prelude.rnf portalContactEmail
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf alarms `Prelude.seq`
+      Prelude.rnf clientToken `Prelude.seq`
+        Prelude.rnf notificationSenderEmail `Prelude.seq`
+          Prelude.rnf portalDescription `Prelude.seq`
+            Prelude.rnf portalLogoImage `Prelude.seq`
+              Prelude.rnf portalId `Prelude.seq`
+                Prelude.rnf portalName `Prelude.seq`
+                  Prelude.rnf portalContactEmail `Prelude.seq`
+                    Prelude.rnf roleArn
 
 instance Data.ToHeaders UpdatePortal where
   toHeaders =
@@ -320,5 +320,5 @@ updatePortalResponse_portalStatus = Lens.lens (\UpdatePortalResponse' {portalSta
 
 instance Prelude.NFData UpdatePortalResponse where
   rnf UpdatePortalResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf portalStatus
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf portalStatus

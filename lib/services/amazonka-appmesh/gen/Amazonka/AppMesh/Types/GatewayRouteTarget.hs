@@ -83,8 +83,8 @@ instance Prelude.Hashable GatewayRouteTarget where
 
 instance Prelude.NFData GatewayRouteTarget where
   rnf GatewayRouteTarget' {..} =
-    Prelude.rnf port
-      `Prelude.seq` Prelude.rnf virtualService
+    Prelude.rnf port `Prelude.seq`
+      Prelude.rnf virtualService
 
 instance Data.ToJSON GatewayRouteTarget where
   toJSON GatewayRouteTarget' {..} =

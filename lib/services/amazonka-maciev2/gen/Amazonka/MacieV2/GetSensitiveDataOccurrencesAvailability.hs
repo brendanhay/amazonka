@@ -291,6 +291,6 @@ instance
   where
   rnf
     GetSensitiveDataOccurrencesAvailabilityResponse' {..} =
-      Prelude.rnf code
-        `Prelude.seq` Prelude.rnf reasons
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf code `Prelude.seq`
+        Prelude.rnf reasons `Prelude.seq`
+          Prelude.rnf httpStatus

@@ -229,12 +229,12 @@ getDiscoverySummaryResponse_httpStatus = Lens.lens (\GetDiscoverySummaryResponse
 
 instance Prelude.NFData GetDiscoverySummaryResponse where
   rnf GetDiscoverySummaryResponse' {..} =
-    Prelude.rnf agentSummary
-      `Prelude.seq` Prelude.rnf agentlessCollectorSummary
-      `Prelude.seq` Prelude.rnf applications
-      `Prelude.seq` Prelude.rnf connectorSummary
-      `Prelude.seq` Prelude.rnf meCollectorSummary
-      `Prelude.seq` Prelude.rnf servers
-      `Prelude.seq` Prelude.rnf serversMappedToApplications
-      `Prelude.seq` Prelude.rnf serversMappedtoTags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf agentSummary `Prelude.seq`
+      Prelude.rnf agentlessCollectorSummary `Prelude.seq`
+        Prelude.rnf applications `Prelude.seq`
+          Prelude.rnf connectorSummary `Prelude.seq`
+            Prelude.rnf meCollectorSummary `Prelude.seq`
+              Prelude.rnf servers `Prelude.seq`
+                Prelude.rnf serversMappedToApplications `Prelude.seq`
+                  Prelude.rnf serversMappedtoTags `Prelude.seq`
+                    Prelude.rnf httpStatus

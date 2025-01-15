@@ -81,5 +81,5 @@ instance Prelude.Hashable TimestreamDestination where
 
 instance Prelude.NFData TimestreamDestination where
   rnf TimestreamDestination' {..} =
-    Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf tableName
+    Prelude.rnf databaseName `Prelude.seq`
+      Prelude.rnf tableName

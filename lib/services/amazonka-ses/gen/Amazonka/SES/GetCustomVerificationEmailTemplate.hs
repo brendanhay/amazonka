@@ -263,10 +263,10 @@ instance
     GetCustomVerificationEmailTemplateResponse
   where
   rnf GetCustomVerificationEmailTemplateResponse' {..} =
-    Prelude.rnf failureRedirectionURL
-      `Prelude.seq` Prelude.rnf fromEmailAddress
-      `Prelude.seq` Prelude.rnf successRedirectionURL
-      `Prelude.seq` Prelude.rnf templateContent
-      `Prelude.seq` Prelude.rnf templateName
-      `Prelude.seq` Prelude.rnf templateSubject
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf failureRedirectionURL `Prelude.seq`
+      Prelude.rnf fromEmailAddress `Prelude.seq`
+        Prelude.rnf successRedirectionURL `Prelude.seq`
+          Prelude.rnf templateContent `Prelude.seq`
+            Prelude.rnf templateName `Prelude.seq`
+              Prelude.rnf templateSubject `Prelude.seq`
+                Prelude.rnf httpStatus

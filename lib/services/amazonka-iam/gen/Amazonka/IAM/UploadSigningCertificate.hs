@@ -187,8 +187,8 @@ instance Prelude.Hashable UploadSigningCertificate where
 
 instance Prelude.NFData UploadSigningCertificate where
   rnf UploadSigningCertificate' {..} =
-    Prelude.rnf userName
-      `Prelude.seq` Prelude.rnf certificateBody
+    Prelude.rnf userName `Prelude.seq`
+      Prelude.rnf certificateBody
 
 instance Data.ToHeaders UploadSigningCertificate where
   toHeaders = Prelude.const Prelude.mempty
@@ -257,5 +257,5 @@ instance
     UploadSigningCertificateResponse
   where
   rnf UploadSigningCertificateResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf certificate
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf certificate

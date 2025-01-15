@@ -137,9 +137,9 @@ instance Prelude.Hashable AttachVpnGateway where
 
 instance Prelude.NFData AttachVpnGateway where
   rnf AttachVpnGateway' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf vpcId
-      `Prelude.seq` Prelude.rnf vpnGatewayId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf vpcId `Prelude.seq`
+        Prelude.rnf vpnGatewayId
 
 instance Data.ToHeaders AttachVpnGateway where
   toHeaders = Prelude.const Prelude.mempty
@@ -202,5 +202,5 @@ attachVpnGatewayResponse_httpStatus = Lens.lens (\AttachVpnGatewayResponse' {htt
 
 instance Prelude.NFData AttachVpnGatewayResponse where
   rnf AttachVpnGatewayResponse' {..} =
-    Prelude.rnf vpcAttachment
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf vpcAttachment `Prelude.seq`
+      Prelude.rnf httpStatus

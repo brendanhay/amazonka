@@ -235,9 +235,7 @@ volume_volumeType = Lens.lens (\Volume' {volumeType} -> volumeType) (\s@Volume' 
 instance Data.FromXML Volume where
   parseXML x =
     Volume'
-      Prelude.<$> ( x
-                      Data..@? "attachmentSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "attachmentSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "fastRestored")
@@ -245,9 +243,7 @@ instance Data.FromXML Volume where
       Prelude.<*> (x Data..@? "kmsKeyId")
       Prelude.<*> (x Data..@? "multiAttachEnabled")
       Prelude.<*> (x Data..@? "outpostArn")
-      Prelude.<*> ( x
-                      Data..@? "tagSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "throughput")
@@ -282,19 +278,19 @@ instance Prelude.Hashable Volume where
 
 instance Prelude.NFData Volume where
   rnf Volume' {..} =
-    Prelude.rnf attachments
-      `Prelude.seq` Prelude.rnf fastRestored
-      `Prelude.seq` Prelude.rnf iops
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf multiAttachEnabled
-      `Prelude.seq` Prelude.rnf outpostArn
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf throughput
-      `Prelude.seq` Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf createTime
-      `Prelude.seq` Prelude.rnf encrypted
-      `Prelude.seq` Prelude.rnf size
-      `Prelude.seq` Prelude.rnf snapshotId
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf volumeId
-      `Prelude.seq` Prelude.rnf volumeType
+    Prelude.rnf attachments `Prelude.seq`
+      Prelude.rnf fastRestored `Prelude.seq`
+        Prelude.rnf iops `Prelude.seq`
+          Prelude.rnf kmsKeyId `Prelude.seq`
+            Prelude.rnf multiAttachEnabled `Prelude.seq`
+              Prelude.rnf outpostArn `Prelude.seq`
+                Prelude.rnf tags `Prelude.seq`
+                  Prelude.rnf throughput `Prelude.seq`
+                    Prelude.rnf availabilityZone `Prelude.seq`
+                      Prelude.rnf createTime `Prelude.seq`
+                        Prelude.rnf encrypted `Prelude.seq`
+                          Prelude.rnf size `Prelude.seq`
+                            Prelude.rnf snapshotId `Prelude.seq`
+                              Prelude.rnf state `Prelude.seq`
+                                Prelude.rnf volumeId `Prelude.seq`
+                                  Prelude.rnf volumeType

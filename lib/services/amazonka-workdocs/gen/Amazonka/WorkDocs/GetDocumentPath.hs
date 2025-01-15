@@ -154,11 +154,11 @@ instance Prelude.Hashable GetDocumentPath where
 
 instance Prelude.NFData GetDocumentPath where
   rnf GetDocumentPath' {..} =
-    Prelude.rnf authenticationToken
-      `Prelude.seq` Prelude.rnf fields
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf documentId
+    Prelude.rnf authenticationToken `Prelude.seq`
+      Prelude.rnf fields `Prelude.seq`
+        Prelude.rnf limit `Prelude.seq`
+          Prelude.rnf marker `Prelude.seq`
+            Prelude.rnf documentId
 
 instance Data.ToHeaders GetDocumentPath where
   toHeaders GetDocumentPath' {..} =
@@ -221,5 +221,5 @@ getDocumentPathResponse_httpStatus = Lens.lens (\GetDocumentPathResponse' {httpS
 
 instance Prelude.NFData GetDocumentPathResponse where
   rnf GetDocumentPathResponse' {..} =
-    Prelude.rnf path
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf path `Prelude.seq`
+      Prelude.rnf httpStatus

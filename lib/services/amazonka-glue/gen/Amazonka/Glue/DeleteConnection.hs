@@ -109,8 +109,8 @@ instance Prelude.Hashable DeleteConnection where
 
 instance Prelude.NFData DeleteConnection where
   rnf DeleteConnection' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf connectionName
+    Prelude.rnf catalogId `Prelude.seq`
+      Prelude.rnf connectionName
 
 instance Data.ToHeaders DeleteConnection where
   toHeaders =

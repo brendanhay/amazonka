@@ -179,5 +179,5 @@ instance
     DescribeEmergencyContactSettingsResponse
   where
   rnf DescribeEmergencyContactSettingsResponse' {..} =
-    Prelude.rnf emergencyContactList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf emergencyContactList `Prelude.seq`
+      Prelude.rnf httpStatus

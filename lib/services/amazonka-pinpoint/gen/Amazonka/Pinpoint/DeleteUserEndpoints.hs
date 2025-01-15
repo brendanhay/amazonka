@@ -114,8 +114,8 @@ instance Prelude.Hashable DeleteUserEndpoints where
 
 instance Prelude.NFData DeleteUserEndpoints where
   rnf DeleteUserEndpoints' {..} =
-    Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf userId
+    Prelude.rnf applicationId `Prelude.seq`
+      Prelude.rnf userId
 
 instance Data.ToHeaders DeleteUserEndpoints where
   toHeaders =
@@ -184,5 +184,5 @@ deleteUserEndpointsResponse_endpointsResponse = Lens.lens (\DeleteUserEndpointsR
 
 instance Prelude.NFData DeleteUserEndpointsResponse where
   rnf DeleteUserEndpointsResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf endpointsResponse
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf endpointsResponse

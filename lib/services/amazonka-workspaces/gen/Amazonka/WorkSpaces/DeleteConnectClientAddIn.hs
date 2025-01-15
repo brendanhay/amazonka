@@ -109,8 +109,8 @@ instance Prelude.Hashable DeleteConnectClientAddIn where
 
 instance Prelude.NFData DeleteConnectClientAddIn where
   rnf DeleteConnectClientAddIn' {..} =
-    Prelude.rnf addInId
-      `Prelude.seq` Prelude.rnf resourceId
+    Prelude.rnf addInId `Prelude.seq`
+      Prelude.rnf resourceId
 
 instance Data.ToHeaders DeleteConnectClientAddIn where
   toHeaders =

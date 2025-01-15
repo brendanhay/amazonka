@@ -111,6 +111,6 @@ instance Prelude.Hashable SupportService where
 
 instance Prelude.NFData SupportService where
   rnf SupportService' {..} =
-    Prelude.rnf categories
-      `Prelude.seq` Prelude.rnf code
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf categories `Prelude.seq`
+      Prelude.rnf code `Prelude.seq`
+        Prelude.rnf name

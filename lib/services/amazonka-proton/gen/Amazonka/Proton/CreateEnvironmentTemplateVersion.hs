@@ -207,12 +207,12 @@ instance
     CreateEnvironmentTemplateVersion
   where
   rnf CreateEnvironmentTemplateVersion' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf majorVersion
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf templateName
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf majorVersion `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf source `Prelude.seq`
+              Prelude.rnf templateName
 
 instance
   Data.ToHeaders
@@ -303,5 +303,5 @@ instance
     CreateEnvironmentTemplateVersionResponse
   where
   rnf CreateEnvironmentTemplateVersionResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf environmentTemplateVersion
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf environmentTemplateVersion

@@ -128,9 +128,9 @@ instance Prelude.Hashable ModifyClusterSubnetGroup where
 
 instance Prelude.NFData ModifyClusterSubnetGroup where
   rnf ModifyClusterSubnetGroup' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf clusterSubnetGroupName
-      `Prelude.seq` Prelude.rnf subnetIds
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf clusterSubnetGroupName `Prelude.seq`
+        Prelude.rnf subnetIds
 
 instance Data.ToHeaders ModifyClusterSubnetGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -195,5 +195,5 @@ instance
     ModifyClusterSubnetGroupResponse
   where
   rnf ModifyClusterSubnetGroupResponse' {..} =
-    Prelude.rnf clusterSubnetGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf clusterSubnetGroup `Prelude.seq`
+      Prelude.rnf httpStatus

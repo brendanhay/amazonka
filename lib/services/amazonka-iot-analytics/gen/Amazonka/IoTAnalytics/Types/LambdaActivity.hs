@@ -120,10 +120,10 @@ instance Prelude.Hashable LambdaActivity where
 
 instance Prelude.NFData LambdaActivity where
   rnf LambdaActivity' {..} =
-    Prelude.rnf next
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf lambdaName
-      `Prelude.seq` Prelude.rnf batchSize
+    Prelude.rnf next `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf lambdaName `Prelude.seq`
+          Prelude.rnf batchSize
 
 instance Data.ToJSON LambdaActivity where
   toJSON LambdaActivity' {..} =

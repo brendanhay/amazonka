@@ -135,10 +135,10 @@ instance Prelude.Hashable EvaluatedRule where
 
 instance Prelude.NFData EvaluatedRule where
   rnf EvaluatedRule' {..} =
-    Prelude.rnf evaluated
-      `Prelude.seq` Prelude.rnf expression
-      `Prelude.seq` Prelude.rnf expressionWithValues
-      `Prelude.seq` Prelude.rnf matched
-      `Prelude.seq` Prelude.rnf outcomes
-      `Prelude.seq` Prelude.rnf ruleId
-      `Prelude.seq` Prelude.rnf ruleVersion
+    Prelude.rnf evaluated `Prelude.seq`
+      Prelude.rnf expression `Prelude.seq`
+        Prelude.rnf expressionWithValues `Prelude.seq`
+          Prelude.rnf matched `Prelude.seq`
+            Prelude.rnf outcomes `Prelude.seq`
+              Prelude.rnf ruleId `Prelude.seq`
+                Prelude.rnf ruleVersion

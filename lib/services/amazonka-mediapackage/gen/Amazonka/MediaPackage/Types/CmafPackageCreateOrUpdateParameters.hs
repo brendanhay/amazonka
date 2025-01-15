@@ -117,11 +117,11 @@ instance
     CmafPackageCreateOrUpdateParameters
   where
   rnf CmafPackageCreateOrUpdateParameters' {..} =
-    Prelude.rnf encryption
-      `Prelude.seq` Prelude.rnf hlsManifests
-      `Prelude.seq` Prelude.rnf segmentDurationSeconds
-      `Prelude.seq` Prelude.rnf segmentPrefix
-      `Prelude.seq` Prelude.rnf streamSelection
+    Prelude.rnf encryption `Prelude.seq`
+      Prelude.rnf hlsManifests `Prelude.seq`
+        Prelude.rnf segmentDurationSeconds `Prelude.seq`
+          Prelude.rnf segmentPrefix `Prelude.seq`
+            Prelude.rnf streamSelection
 
 instance
   Data.ToJSON

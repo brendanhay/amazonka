@@ -141,10 +141,10 @@ instance
     SubSlotValueElicitationSetting
   where
   rnf SubSlotValueElicitationSetting' {..} =
-    Prelude.rnf defaultValueSpecification
-      `Prelude.seq` Prelude.rnf sampleUtterances
-      `Prelude.seq` Prelude.rnf waitAndContinueSpecification
-      `Prelude.seq` Prelude.rnf promptSpecification
+    Prelude.rnf defaultValueSpecification `Prelude.seq`
+      Prelude.rnf sampleUtterances `Prelude.seq`
+        Prelude.rnf waitAndContinueSpecification `Prelude.seq`
+          Prelude.rnf promptSpecification
 
 instance Data.ToJSON SubSlotValueElicitationSetting where
   toJSON SubSlotValueElicitationSetting' {..} =

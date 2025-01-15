@@ -105,8 +105,8 @@ instance Prelude.Hashable FlushStageAuthorizersCache where
 
 instance Prelude.NFData FlushStageAuthorizersCache where
   rnf FlushStageAuthorizersCache' {..} =
-    Prelude.rnf restApiId
-      `Prelude.seq` Prelude.rnf stageName
+    Prelude.rnf restApiId `Prelude.seq`
+      Prelude.rnf stageName
 
 instance Data.ToHeaders FlushStageAuthorizersCache where
   toHeaders =

@@ -121,9 +121,9 @@ instance Prelude.Hashable DeleteApp where
 
 instance Prelude.NFData DeleteApp where
   rnf DeleteApp' {..} =
-    Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf forceStopAppReplication
-      `Prelude.seq` Prelude.rnf forceTerminateApp
+    Prelude.rnf appId `Prelude.seq`
+      Prelude.rnf forceStopAppReplication `Prelude.seq`
+        Prelude.rnf forceTerminateApp
 
 instance Data.ToHeaders DeleteApp where
   toHeaders =

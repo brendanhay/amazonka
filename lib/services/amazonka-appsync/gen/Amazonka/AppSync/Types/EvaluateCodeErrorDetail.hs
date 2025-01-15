@@ -82,5 +82,5 @@ instance Prelude.Hashable EvaluateCodeErrorDetail where
 
 instance Prelude.NFData EvaluateCodeErrorDetail where
   rnf EvaluateCodeErrorDetail' {..} =
-    Prelude.rnf codeErrors
-      `Prelude.seq` Prelude.rnf message
+    Prelude.rnf codeErrors `Prelude.seq`
+      Prelude.rnf message

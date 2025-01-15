@@ -96,5 +96,5 @@ instance Prelude.Hashable EventCategoryGroup where
 
 instance Prelude.NFData EventCategoryGroup where
   rnf EventCategoryGroup' {..} =
-    Prelude.rnf eventCategories
-      `Prelude.seq` Prelude.rnf sourceType
+    Prelude.rnf eventCategories `Prelude.seq`
+      Prelude.rnf sourceType

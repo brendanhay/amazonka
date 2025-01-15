@@ -96,6 +96,6 @@ instance Prelude.Hashable ResultData where
 
 instance Prelude.NFData ResultData where
   rnf ResultData' {..} =
-    Prelude.rnf relevanceScore
-      `Prelude.seq` Prelude.rnf document
-      `Prelude.seq` Prelude.rnf resultId
+    Prelude.rnf relevanceScore `Prelude.seq`
+      Prelude.rnf document `Prelude.seq`
+        Prelude.rnf resultId

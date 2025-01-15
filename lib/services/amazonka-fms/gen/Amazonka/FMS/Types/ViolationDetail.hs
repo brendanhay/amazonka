@@ -160,10 +160,10 @@ instance Prelude.Hashable ViolationDetail where
 
 instance Prelude.NFData ViolationDetail where
   rnf ViolationDetail' {..} =
-    Prelude.rnf resourceDescription
-      `Prelude.seq` Prelude.rnf resourceTags
-      `Prelude.seq` Prelude.rnf policyId
-      `Prelude.seq` Prelude.rnf memberAccount
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf resourceViolations
+    Prelude.rnf resourceDescription `Prelude.seq`
+      Prelude.rnf resourceTags `Prelude.seq`
+        Prelude.rnf policyId `Prelude.seq`
+          Prelude.rnf memberAccount `Prelude.seq`
+            Prelude.rnf resourceId `Prelude.seq`
+              Prelude.rnf resourceType `Prelude.seq`
+                Prelude.rnf resourceViolations

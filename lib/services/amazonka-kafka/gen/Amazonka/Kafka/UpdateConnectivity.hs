@@ -139,9 +139,9 @@ instance Prelude.Hashable UpdateConnectivity where
 
 instance Prelude.NFData UpdateConnectivity where
   rnf UpdateConnectivity' {..} =
-    Prelude.rnf clusterArn
-      `Prelude.seq` Prelude.rnf connectivityInfo
-      `Prelude.seq` Prelude.rnf currentVersion
+    Prelude.rnf clusterArn `Prelude.seq`
+      Prelude.rnf connectivityInfo `Prelude.seq`
+        Prelude.rnf currentVersion
 
 instance Data.ToHeaders UpdateConnectivity where
   toHeaders =
@@ -226,6 +226,6 @@ updateConnectivityResponse_httpStatus = Lens.lens (\UpdateConnectivityResponse' 
 
 instance Prelude.NFData UpdateConnectivityResponse where
   rnf UpdateConnectivityResponse' {..} =
-    Prelude.rnf clusterArn
-      `Prelude.seq` Prelude.rnf clusterOperationArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf clusterArn `Prelude.seq`
+      Prelude.rnf clusterOperationArn `Prelude.seq`
+        Prelude.rnf httpStatus

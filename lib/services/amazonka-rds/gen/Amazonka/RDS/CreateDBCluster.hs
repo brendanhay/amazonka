@@ -2646,5 +2646,5 @@ createDBClusterResponse_httpStatus = Lens.lens (\CreateDBClusterResponse' {httpS
 
 instance Prelude.NFData CreateDBClusterResponse where
   rnf CreateDBClusterResponse' {..} =
-    Prelude.rnf dbCluster
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dbCluster `Prelude.seq`
+      Prelude.rnf httpStatus

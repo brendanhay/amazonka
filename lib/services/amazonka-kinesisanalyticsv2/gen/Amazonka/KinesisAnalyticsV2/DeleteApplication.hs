@@ -113,8 +113,8 @@ instance Prelude.Hashable DeleteApplication where
 
 instance Prelude.NFData DeleteApplication where
   rnf DeleteApplication' {..} =
-    Prelude.rnf applicationName
-      `Prelude.seq` Prelude.rnf createTimestamp
+    Prelude.rnf applicationName `Prelude.seq`
+      Prelude.rnf createTimestamp
 
 instance Data.ToHeaders DeleteApplication where
   toHeaders =

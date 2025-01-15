@@ -105,12 +105,12 @@ instance Core.AWSPager ListEulas where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listEulas_nextToken
-          Lens..~ rs
-          Lens.^? listEulasResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listEulas_nextToken
+              Lens..~ rs
+              Lens.^? listEulasResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListEulas where
   type AWSResponse ListEulas = ListEulasResponse
@@ -133,8 +133,8 @@ instance Prelude.Hashable ListEulas where
 
 instance Prelude.NFData ListEulas where
   rnf ListEulas' {..} =
-    Prelude.rnf eulaIds
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf eulaIds `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListEulas where
   toHeaders =
@@ -211,6 +211,6 @@ listEulasResponse_httpStatus = Lens.lens (\ListEulasResponse' {httpStatus} -> ht
 
 instance Prelude.NFData ListEulasResponse where
   rnf ListEulasResponse' {..} =
-    Prelude.rnf eulas
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf eulas `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

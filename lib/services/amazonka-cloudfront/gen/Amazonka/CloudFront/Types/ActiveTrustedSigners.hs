@@ -96,9 +96,7 @@ activeTrustedSigners_quantity = Lens.lens (\ActiveTrustedSigners' {quantity} -> 
 instance Data.FromXML ActiveTrustedSigners where
   parseXML x =
     ActiveTrustedSigners'
-      Prelude.<$> ( x
-                      Data..@? "Items"
-                      Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "Items" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "Signer")
                   )
       Prelude.<*> (x Data..@ "Enabled")
@@ -113,6 +111,6 @@ instance Prelude.Hashable ActiveTrustedSigners where
 
 instance Prelude.NFData ActiveTrustedSigners where
   rnf ActiveTrustedSigners' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf quantity
+    Prelude.rnf items `Prelude.seq`
+      Prelude.rnf enabled `Prelude.seq`
+        Prelude.rnf quantity

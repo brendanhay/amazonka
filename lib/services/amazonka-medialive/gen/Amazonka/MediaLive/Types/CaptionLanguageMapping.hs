@@ -112,9 +112,9 @@ instance Prelude.Hashable CaptionLanguageMapping where
 
 instance Prelude.NFData CaptionLanguageMapping where
   rnf CaptionLanguageMapping' {..} =
-    Prelude.rnf languageCode
-      `Prelude.seq` Prelude.rnf languageDescription
-      `Prelude.seq` Prelude.rnf captionChannel
+    Prelude.rnf languageCode `Prelude.seq`
+      Prelude.rnf languageDescription `Prelude.seq`
+        Prelude.rnf captionChannel
 
 instance Data.ToJSON CaptionLanguageMapping where
   toJSON CaptionLanguageMapping' {..} =

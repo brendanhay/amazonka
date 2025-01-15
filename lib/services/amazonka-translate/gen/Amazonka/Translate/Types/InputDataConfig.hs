@@ -184,8 +184,8 @@ instance Prelude.Hashable InputDataConfig where
 
 instance Prelude.NFData InputDataConfig where
   rnf InputDataConfig' {..} =
-    Prelude.rnf s3Uri
-      `Prelude.seq` Prelude.rnf contentType
+    Prelude.rnf s3Uri `Prelude.seq`
+      Prelude.rnf contentType
 
 instance Data.ToJSON InputDataConfig where
   toJSON InputDataConfig' {..} =

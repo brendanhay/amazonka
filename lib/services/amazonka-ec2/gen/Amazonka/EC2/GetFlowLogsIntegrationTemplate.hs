@@ -176,10 +176,10 @@ instance
     GetFlowLogsIntegrationTemplate
   where
   rnf GetFlowLogsIntegrationTemplate' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf flowLogId
-      `Prelude.seq` Prelude.rnf configDeliveryS3DestinationArn
-      `Prelude.seq` Prelude.rnf integrateServices
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf flowLogId `Prelude.seq`
+        Prelude.rnf configDeliveryS3DestinationArn `Prelude.seq`
+          Prelude.rnf integrateServices
 
 instance
   Data.ToHeaders
@@ -251,5 +251,5 @@ instance
     GetFlowLogsIntegrationTemplateResponse
   where
   rnf GetFlowLogsIntegrationTemplateResponse' {..} =
-    Prelude.rnf result
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf result `Prelude.seq`
+      Prelude.rnf httpStatus

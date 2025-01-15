@@ -199,9 +199,7 @@ instance Core.AWSRequest DescribeStackResources where
       "DescribeStackResourcesResult"
       ( \s h x ->
           DescribeStackResourcesResponse'
-            Prelude.<$> ( x
-                            Data..@? "StackResources"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "StackResources" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -216,9 +214,9 @@ instance Prelude.Hashable DescribeStackResources where
 
 instance Prelude.NFData DescribeStackResources where
   rnf DescribeStackResources' {..} =
-    Prelude.rnf logicalResourceId
-      `Prelude.seq` Prelude.rnf physicalResourceId
-      `Prelude.seq` Prelude.rnf stackName
+    Prelude.rnf logicalResourceId `Prelude.seq`
+      Prelude.rnf physicalResourceId `Prelude.seq`
+        Prelude.rnf stackName
 
 instance Data.ToHeaders DescribeStackResources where
   toHeaders = Prelude.const Prelude.mempty
@@ -284,5 +282,5 @@ instance
     DescribeStackResourcesResponse
   where
   rnf DescribeStackResourcesResponse' {..} =
-    Prelude.rnf stackResources
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf stackResources `Prelude.seq`
+      Prelude.rnf httpStatus

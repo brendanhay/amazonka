@@ -73,8 +73,8 @@ instance Prelude.Hashable ReplaceableItem where
 
 instance Prelude.NFData ReplaceableItem where
   rnf ReplaceableItem' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf attributes
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf attributes
 
 instance Data.ToQuery ReplaceableItem where
   toQuery ReplaceableItem' {..} =

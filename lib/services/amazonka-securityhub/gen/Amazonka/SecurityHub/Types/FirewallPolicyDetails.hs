@@ -165,11 +165,11 @@ instance Prelude.Hashable FirewallPolicyDetails where
 
 instance Prelude.NFData FirewallPolicyDetails where
   rnf FirewallPolicyDetails' {..} =
-    Prelude.rnf statefulRuleGroupReferences
-      `Prelude.seq` Prelude.rnf statelessCustomActions
-      `Prelude.seq` Prelude.rnf statelessDefaultActions
-      `Prelude.seq` Prelude.rnf statelessFragmentDefaultActions
-      `Prelude.seq` Prelude.rnf statelessRuleGroupReferences
+    Prelude.rnf statefulRuleGroupReferences `Prelude.seq`
+      Prelude.rnf statelessCustomActions `Prelude.seq`
+        Prelude.rnf statelessDefaultActions `Prelude.seq`
+          Prelude.rnf statelessFragmentDefaultActions `Prelude.seq`
+            Prelude.rnf statelessRuleGroupReferences
 
 instance Data.ToJSON FirewallPolicyDetails where
   toJSON FirewallPolicyDetails' {..} =

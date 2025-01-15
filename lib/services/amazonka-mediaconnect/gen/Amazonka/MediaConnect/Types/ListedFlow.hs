@@ -165,10 +165,10 @@ instance Prelude.Hashable ListedFlow where
 
 instance Prelude.NFData ListedFlow where
   rnf ListedFlow' {..} =
-    Prelude.rnf maintenance
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf sourceType
-      `Prelude.seq` Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf flowArn
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf maintenance `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf sourceType `Prelude.seq`
+            Prelude.rnf availabilityZone `Prelude.seq`
+              Prelude.rnf flowArn `Prelude.seq`
+                Prelude.rnf name

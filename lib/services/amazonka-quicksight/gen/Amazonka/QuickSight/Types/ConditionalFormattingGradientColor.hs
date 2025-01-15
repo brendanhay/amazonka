@@ -102,8 +102,8 @@ instance
     ConditionalFormattingGradientColor
   where
   rnf ConditionalFormattingGradientColor' {..} =
-    Prelude.rnf expression
-      `Prelude.seq` Prelude.rnf color
+    Prelude.rnf expression `Prelude.seq`
+      Prelude.rnf color
 
 instance
   Data.ToJSON

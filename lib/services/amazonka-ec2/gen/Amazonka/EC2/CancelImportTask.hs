@@ -130,9 +130,9 @@ instance Prelude.Hashable CancelImportTask where
 
 instance Prelude.NFData CancelImportTask where
   rnf CancelImportTask' {..} =
-    Prelude.rnf cancelReason
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf importTaskId
+    Prelude.rnf cancelReason `Prelude.seq`
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf importTaskId
 
 instance Data.ToHeaders CancelImportTask where
   toHeaders = Prelude.const Prelude.mempty
@@ -211,7 +211,7 @@ cancelImportTaskResponse_httpStatus = Lens.lens (\CancelImportTaskResponse' {htt
 
 instance Prelude.NFData CancelImportTaskResponse where
   rnf CancelImportTaskResponse' {..} =
-    Prelude.rnf importTaskId
-      `Prelude.seq` Prelude.rnf previousState
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf importTaskId `Prelude.seq`
+      Prelude.rnf previousState `Prelude.seq`
+        Prelude.rnf state `Prelude.seq`
+          Prelude.rnf httpStatus

@@ -71,8 +71,8 @@ instance Prelude.Hashable SchemaVersionNumber where
 
 instance Prelude.NFData SchemaVersionNumber where
   rnf SchemaVersionNumber' {..} =
-    Prelude.rnf latestVersion
-      `Prelude.seq` Prelude.rnf versionNumber
+    Prelude.rnf latestVersion `Prelude.seq`
+      Prelude.rnf versionNumber
 
 instance Data.ToJSON SchemaVersionNumber where
   toJSON SchemaVersionNumber' {..} =

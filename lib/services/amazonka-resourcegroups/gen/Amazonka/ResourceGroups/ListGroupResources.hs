@@ -267,12 +267,12 @@ instance Core.AWSPager ListGroupResources where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listGroupResources_nextToken
-          Lens..~ rs
-          Lens.^? listGroupResourcesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listGroupResources_nextToken
+              Lens..~ rs
+              Lens.^? listGroupResourcesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListGroupResources where
   type
@@ -305,11 +305,11 @@ instance Prelude.Hashable ListGroupResources where
 
 instance Prelude.NFData ListGroupResources where
   rnf ListGroupResources' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf group'
-      `Prelude.seq` Prelude.rnf groupName
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf group' `Prelude.seq`
+        Prelude.rnf groupName `Prelude.seq`
+          Prelude.rnf maxResults `Prelude.seq`
+            Prelude.rnf nextToken
 
 instance Data.ToHeaders ListGroupResources where
   toHeaders = Prelude.const Prelude.mempty
@@ -427,8 +427,8 @@ listGroupResourcesResponse_httpStatus = Lens.lens (\ListGroupResourcesResponse' 
 
 instance Prelude.NFData ListGroupResourcesResponse where
   rnf ListGroupResourcesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf queryErrors
-      `Prelude.seq` Prelude.rnf resourceIdentifiers
-      `Prelude.seq` Prelude.rnf resources
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf queryErrors `Prelude.seq`
+        Prelude.rnf resourceIdentifiers `Prelude.seq`
+          Prelude.rnf resources `Prelude.seq`
+            Prelude.rnf httpStatus

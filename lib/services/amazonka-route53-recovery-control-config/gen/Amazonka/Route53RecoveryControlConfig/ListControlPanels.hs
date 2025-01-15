@@ -112,12 +112,12 @@ instance Core.AWSPager ListControlPanels where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listControlPanels_nextToken
-          Lens..~ rs
-          Lens.^? listControlPanelsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listControlPanels_nextToken
+              Lens..~ rs
+              Lens.^? listControlPanelsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListControlPanels where
   type
@@ -143,9 +143,9 @@ instance Prelude.Hashable ListControlPanels where
 
 instance Prelude.NFData ListControlPanels where
   rnf ListControlPanels' {..} =
-    Prelude.rnf clusterArn
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf clusterArn `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListControlPanels where
   toHeaders =
@@ -219,6 +219,6 @@ listControlPanelsResponse_httpStatus = Lens.lens (\ListControlPanelsResponse' {h
 
 instance Prelude.NFData ListControlPanelsResponse where
   rnf ListControlPanelsResponse' {..} =
-    Prelude.rnf controlPanels
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf controlPanels `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

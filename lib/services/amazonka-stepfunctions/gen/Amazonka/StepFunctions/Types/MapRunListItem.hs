@@ -125,8 +125,8 @@ instance Prelude.Hashable MapRunListItem where
 
 instance Prelude.NFData MapRunListItem where
   rnf MapRunListItem' {..} =
-    Prelude.rnf stopDate
-      `Prelude.seq` Prelude.rnf executionArn
-      `Prelude.seq` Prelude.rnf mapRunArn
-      `Prelude.seq` Prelude.rnf stateMachineArn
-      `Prelude.seq` Prelude.rnf startDate
+    Prelude.rnf stopDate `Prelude.seq`
+      Prelude.rnf executionArn `Prelude.seq`
+        Prelude.rnf mapRunArn `Prelude.seq`
+          Prelude.rnf stateMachineArn `Prelude.seq`
+            Prelude.rnf startDate

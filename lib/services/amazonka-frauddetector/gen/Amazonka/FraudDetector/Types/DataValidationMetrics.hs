@@ -89,5 +89,5 @@ instance Prelude.Hashable DataValidationMetrics where
 
 instance Prelude.NFData DataValidationMetrics where
   rnf DataValidationMetrics' {..} =
-    Prelude.rnf fieldLevelMessages
-      `Prelude.seq` Prelude.rnf fileLevelMessages
+    Prelude.rnf fieldLevelMessages `Prelude.seq`
+      Prelude.rnf fileLevelMessages

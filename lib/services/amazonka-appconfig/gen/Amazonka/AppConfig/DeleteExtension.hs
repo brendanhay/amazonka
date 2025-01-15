@@ -106,8 +106,8 @@ instance Prelude.Hashable DeleteExtension where
 
 instance Prelude.NFData DeleteExtension where
   rnf DeleteExtension' {..} =
-    Prelude.rnf versionNumber
-      `Prelude.seq` Prelude.rnf extensionIdentifier
+    Prelude.rnf versionNumber `Prelude.seq`
+      Prelude.rnf extensionIdentifier
 
 instance Data.ToHeaders DeleteExtension where
   toHeaders =

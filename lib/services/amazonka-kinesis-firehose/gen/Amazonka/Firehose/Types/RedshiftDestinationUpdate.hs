@@ -197,17 +197,17 @@ instance Prelude.Hashable RedshiftDestinationUpdate where
 
 instance Prelude.NFData RedshiftDestinationUpdate where
   rnf RedshiftDestinationUpdate' {..} =
-    Prelude.rnf cloudWatchLoggingOptions
-      `Prelude.seq` Prelude.rnf clusterJDBCURL
-      `Prelude.seq` Prelude.rnf copyCommand
-      `Prelude.seq` Prelude.rnf password
-      `Prelude.seq` Prelude.rnf processingConfiguration
-      `Prelude.seq` Prelude.rnf retryOptions
-      `Prelude.seq` Prelude.rnf roleARN
-      `Prelude.seq` Prelude.rnf s3BackupMode
-      `Prelude.seq` Prelude.rnf s3BackupUpdate
-      `Prelude.seq` Prelude.rnf s3Update
-      `Prelude.seq` Prelude.rnf username
+    Prelude.rnf cloudWatchLoggingOptions `Prelude.seq`
+      Prelude.rnf clusterJDBCURL `Prelude.seq`
+        Prelude.rnf copyCommand `Prelude.seq`
+          Prelude.rnf password `Prelude.seq`
+            Prelude.rnf processingConfiguration `Prelude.seq`
+              Prelude.rnf retryOptions `Prelude.seq`
+                Prelude.rnf roleARN `Prelude.seq`
+                  Prelude.rnf s3BackupMode `Prelude.seq`
+                    Prelude.rnf s3BackupUpdate `Prelude.seq`
+                      Prelude.rnf s3Update `Prelude.seq`
+                        Prelude.rnf username
 
 instance Data.ToJSON RedshiftDestinationUpdate where
   toJSON RedshiftDestinationUpdate' {..} =

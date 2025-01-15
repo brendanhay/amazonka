@@ -78,8 +78,8 @@ instance Prelude.Hashable CdmaLocalId where
 
 instance Prelude.NFData CdmaLocalId where
   rnf CdmaLocalId' {..} =
-    Prelude.rnf pnOffset
-      `Prelude.seq` Prelude.rnf cdmaChannel
+    Prelude.rnf pnOffset `Prelude.seq`
+      Prelude.rnf cdmaChannel
 
 instance Data.ToJSON CdmaLocalId where
   toJSON CdmaLocalId' {..} =

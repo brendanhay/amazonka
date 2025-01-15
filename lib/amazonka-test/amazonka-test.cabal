@@ -62,5 +62,6 @@ library
     , temporary             >=1.2
     , text                  >=1.1
     , time                  >=1.9
+    , time-compat           ^>=1.9.8
     , unordered-containers  >=0.2.5
     , yaml                  >=0.8.7

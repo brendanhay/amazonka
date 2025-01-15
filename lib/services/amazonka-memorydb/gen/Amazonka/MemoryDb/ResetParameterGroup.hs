@@ -135,9 +135,9 @@ instance Prelude.Hashable ResetParameterGroup where
 
 instance Prelude.NFData ResetParameterGroup where
   rnf ResetParameterGroup' {..} =
-    Prelude.rnf allParameters
-      `Prelude.seq` Prelude.rnf parameterNames
-      `Prelude.seq` Prelude.rnf parameterGroupName
+    Prelude.rnf allParameters `Prelude.seq`
+      Prelude.rnf parameterNames `Prelude.seq`
+        Prelude.rnf parameterGroupName
 
 instance Data.ToHeaders ResetParameterGroup where
   toHeaders =
@@ -213,5 +213,5 @@ resetParameterGroupResponse_httpStatus = Lens.lens (\ResetParameterGroupResponse
 
 instance Prelude.NFData ResetParameterGroupResponse where
   rnf ResetParameterGroupResponse' {..} =
-    Prelude.rnf parameterGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf parameterGroup `Prelude.seq`
+      Prelude.rnf httpStatus

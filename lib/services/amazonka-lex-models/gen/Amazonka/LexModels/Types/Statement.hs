@@ -96,8 +96,8 @@ instance Prelude.Hashable Statement where
 
 instance Prelude.NFData Statement where
   rnf Statement' {..} =
-    Prelude.rnf responseCard
-      `Prelude.seq` Prelude.rnf messages
+    Prelude.rnf responseCard `Prelude.seq`
+      Prelude.rnf messages
 
 instance Data.ToJSON Statement where
   toJSON Statement' {..} =

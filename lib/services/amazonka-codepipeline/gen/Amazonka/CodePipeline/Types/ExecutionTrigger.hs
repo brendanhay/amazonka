@@ -93,5 +93,5 @@ instance Prelude.Hashable ExecutionTrigger where
 
 instance Prelude.NFData ExecutionTrigger where
   rnf ExecutionTrigger' {..} =
-    Prelude.rnf triggerDetail
-      `Prelude.seq` Prelude.rnf triggerType
+    Prelude.rnf triggerDetail `Prelude.seq`
+      Prelude.rnf triggerType

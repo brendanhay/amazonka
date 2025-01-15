@@ -332,13 +332,13 @@ instance
     DescribeStateMachineForExecutionResponse
   where
   rnf DescribeStateMachineForExecutionResponse' {..} =
-    Prelude.rnf label
-      `Prelude.seq` Prelude.rnf loggingConfiguration
-      `Prelude.seq` Prelude.rnf mapRunArn
-      `Prelude.seq` Prelude.rnf tracingConfiguration
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf stateMachineArn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf definition
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf updateDate
+    Prelude.rnf label `Prelude.seq`
+      Prelude.rnf loggingConfiguration `Prelude.seq`
+        Prelude.rnf mapRunArn `Prelude.seq`
+          Prelude.rnf tracingConfiguration `Prelude.seq`
+            Prelude.rnf httpStatus `Prelude.seq`
+              Prelude.rnf stateMachineArn `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf definition `Prelude.seq`
+                    Prelude.rnf roleArn `Prelude.seq`
+                      Prelude.rnf updateDate

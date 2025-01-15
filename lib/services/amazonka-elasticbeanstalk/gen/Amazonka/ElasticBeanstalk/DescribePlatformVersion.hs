@@ -164,5 +164,5 @@ instance
     DescribePlatformVersionResponse
   where
   rnf DescribePlatformVersionResponse' {..} =
-    Prelude.rnf platformDescription
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf platformDescription `Prelude.seq`
+      Prelude.rnf httpStatus

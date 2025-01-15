@@ -143,6 +143,6 @@ getAccountSettingsResponse_httpStatus = Lens.lens (\GetAccountSettingsResponse' 
 
 instance Prelude.NFData GetAccountSettingsResponse where
   rnf GetAccountSettingsResponse' {..} =
-    Prelude.rnf accountLimit
-      `Prelude.seq` Prelude.rnf accountUsage
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf accountLimit `Prelude.seq`
+      Prelude.rnf accountUsage `Prelude.seq`
+        Prelude.rnf httpStatus

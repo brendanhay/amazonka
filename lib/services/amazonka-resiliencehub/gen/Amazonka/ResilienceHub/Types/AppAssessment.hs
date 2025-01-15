@@ -285,19 +285,19 @@ instance Prelude.Hashable AppAssessment where
 
 instance Prelude.NFData AppAssessment where
   rnf AppAssessment' {..} =
-    Prelude.rnf appArn
-      `Prelude.seq` Prelude.rnf appVersion
-      `Prelude.seq` Prelude.rnf assessmentName
-      `Prelude.seq` Prelude.rnf compliance
-      `Prelude.seq` Prelude.rnf complianceStatus
-      `Prelude.seq` Prelude.rnf cost
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf policy
-      `Prelude.seq` Prelude.rnf resiliencyScore
-      `Prelude.seq` Prelude.rnf resourceErrorsDetails
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf assessmentArn
-      `Prelude.seq` Prelude.rnf assessmentStatus
-      `Prelude.seq` Prelude.rnf invoker
+    Prelude.rnf appArn `Prelude.seq`
+      Prelude.rnf appVersion `Prelude.seq`
+        Prelude.rnf assessmentName `Prelude.seq`
+          Prelude.rnf compliance `Prelude.seq`
+            Prelude.rnf complianceStatus `Prelude.seq`
+              Prelude.rnf cost `Prelude.seq`
+                Prelude.rnf endTime `Prelude.seq`
+                  Prelude.rnf message `Prelude.seq`
+                    Prelude.rnf policy `Prelude.seq`
+                      Prelude.rnf resiliencyScore `Prelude.seq`
+                        Prelude.rnf resourceErrorsDetails `Prelude.seq`
+                          Prelude.rnf startTime `Prelude.seq`
+                            Prelude.rnf tags `Prelude.seq`
+                              Prelude.rnf assessmentArn `Prelude.seq`
+                                Prelude.rnf assessmentStatus `Prelude.seq`
+                                  Prelude.rnf invoker

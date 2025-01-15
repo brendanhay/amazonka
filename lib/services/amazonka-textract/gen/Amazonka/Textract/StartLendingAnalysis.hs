@@ -213,12 +213,12 @@ instance Prelude.Hashable StartLendingAnalysis where
 
 instance Prelude.NFData StartLendingAnalysis where
   rnf StartLendingAnalysis' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf jobTag
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf notificationChannel
-      `Prelude.seq` Prelude.rnf outputConfig
-      `Prelude.seq` Prelude.rnf documentLocation
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf jobTag `Prelude.seq`
+        Prelude.rnf kmsKeyId `Prelude.seq`
+          Prelude.rnf notificationChannel `Prelude.seq`
+            Prelude.rnf outputConfig `Prelude.seq`
+              Prelude.rnf documentLocation
 
 instance Data.ToHeaders StartLendingAnalysis where
   toHeaders =
@@ -304,5 +304,5 @@ startLendingAnalysisResponse_httpStatus = Lens.lens (\StartLendingAnalysisRespon
 
 instance Prelude.NFData StartLendingAnalysisResponse where
   rnf StartLendingAnalysisResponse' {..} =
-    Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf jobId `Prelude.seq`
+      Prelude.rnf httpStatus

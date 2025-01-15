@@ -102,9 +102,9 @@ instance Prelude.Hashable ShareRule where
 
 instance Prelude.NFData ShareRule where
   rnf ShareRule' {..} =
-    Prelude.rnf unshareInterval
-      `Prelude.seq` Prelude.rnf unshareIntervalUnit
-      `Prelude.seq` Prelude.rnf targetAccounts
+    Prelude.rnf unshareInterval `Prelude.seq`
+      Prelude.rnf unshareIntervalUnit `Prelude.seq`
+        Prelude.rnf targetAccounts
 
 instance Data.ToJSON ShareRule where
   toJSON ShareRule' {..} =

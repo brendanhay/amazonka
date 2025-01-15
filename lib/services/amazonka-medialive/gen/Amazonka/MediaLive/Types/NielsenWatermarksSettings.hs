@@ -104,9 +104,9 @@ instance Prelude.Hashable NielsenWatermarksSettings where
 
 instance Prelude.NFData NielsenWatermarksSettings where
   rnf NielsenWatermarksSettings' {..} =
-    Prelude.rnf nielsenCbetSettings
-      `Prelude.seq` Prelude.rnf nielsenDistributionType
-      `Prelude.seq` Prelude.rnf nielsenNaesIiNwSettings
+    Prelude.rnf nielsenCbetSettings `Prelude.seq`
+      Prelude.rnf nielsenDistributionType `Prelude.seq`
+        Prelude.rnf nielsenNaesIiNwSettings
 
 instance Data.ToJSON NielsenWatermarksSettings where
   toJSON NielsenWatermarksSettings' {..} =

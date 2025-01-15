@@ -152,11 +152,11 @@ instance Prelude.Hashable UpdateAssessmentFramework where
 
 instance Prelude.NFData UpdateAssessmentFramework where
   rnf UpdateAssessmentFramework' {..} =
-    Prelude.rnf complianceType
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf frameworkId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf controlSets
+    Prelude.rnf complianceType `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf frameworkId `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf controlSets
 
 instance Data.ToHeaders UpdateAssessmentFramework where
   toHeaders =
@@ -233,5 +233,5 @@ instance
     UpdateAssessmentFrameworkResponse
   where
   rnf UpdateAssessmentFrameworkResponse' {..} =
-    Prelude.rnf framework
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf framework `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -123,8 +123,8 @@ instance
     AssociateConfigurationItemsToApplication
   where
   rnf AssociateConfigurationItemsToApplication' {..} =
-    Prelude.rnf applicationConfigurationId
-      `Prelude.seq` Prelude.rnf configurationIds
+    Prelude.rnf applicationConfigurationId `Prelude.seq`
+      Prelude.rnf configurationIds
 
 instance
   Data.ToHeaders

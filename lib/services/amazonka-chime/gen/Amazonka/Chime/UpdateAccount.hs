@@ -124,9 +124,9 @@ instance Prelude.Hashable UpdateAccount where
 
 instance Prelude.NFData UpdateAccount where
   rnf UpdateAccount' {..} =
-    Prelude.rnf defaultLicense
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf accountId
+    Prelude.rnf defaultLicense `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf accountId
 
 instance Data.ToHeaders UpdateAccount where
   toHeaders = Prelude.const Prelude.mempty
@@ -188,5 +188,5 @@ updateAccountResponse_httpStatus = Lens.lens (\UpdateAccountResponse' {httpStatu
 
 instance Prelude.NFData UpdateAccountResponse where
   rnf UpdateAccountResponse' {..} =
-    Prelude.rnf account
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf account `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -191,15 +191,15 @@ instance Prelude.Hashable DirectMessageConfiguration where
 
 instance Prelude.NFData DirectMessageConfiguration where
   rnf DirectMessageConfiguration' {..} =
-    Prelude.rnf aDMMessage
-      `Prelude.seq` Prelude.rnf aPNSMessage
-      `Prelude.seq` Prelude.rnf baiduMessage
-      `Prelude.seq` Prelude.rnf defaultMessage
-      `Prelude.seq` Prelude.rnf defaultPushNotificationMessage
-      `Prelude.seq` Prelude.rnf emailMessage
-      `Prelude.seq` Prelude.rnf gCMMessage
-      `Prelude.seq` Prelude.rnf sMSMessage
-      `Prelude.seq` Prelude.rnf voiceMessage
+    Prelude.rnf aDMMessage `Prelude.seq`
+      Prelude.rnf aPNSMessage `Prelude.seq`
+        Prelude.rnf baiduMessage `Prelude.seq`
+          Prelude.rnf defaultMessage `Prelude.seq`
+            Prelude.rnf defaultPushNotificationMessage `Prelude.seq`
+              Prelude.rnf emailMessage `Prelude.seq`
+                Prelude.rnf gCMMessage `Prelude.seq`
+                  Prelude.rnf sMSMessage `Prelude.seq`
+                    Prelude.rnf voiceMessage
 
 instance Data.ToJSON DirectMessageConfiguration where
   toJSON DirectMessageConfiguration' {..} =

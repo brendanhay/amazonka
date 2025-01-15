@@ -222,16 +222,16 @@ instance Prelude.Hashable Session where
 
 instance Prelude.NFData Session where
   rnf Session' {..} =
-    Prelude.rnf command
-      `Prelude.seq` Prelude.rnf connections
-      `Prelude.seq` Prelude.rnf createdOn
-      `Prelude.seq` Prelude.rnf defaultArguments
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf glueVersion
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf maxCapacity
-      `Prelude.seq` Prelude.rnf progress
-      `Prelude.seq` Prelude.rnf role'
-      `Prelude.seq` Prelude.rnf securityConfiguration
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf command `Prelude.seq`
+      Prelude.rnf connections `Prelude.seq`
+        Prelude.rnf createdOn `Prelude.seq`
+          Prelude.rnf defaultArguments `Prelude.seq`
+            Prelude.rnf description `Prelude.seq`
+              Prelude.rnf errorMessage `Prelude.seq`
+                Prelude.rnf glueVersion `Prelude.seq`
+                  Prelude.rnf id `Prelude.seq`
+                    Prelude.rnf maxCapacity `Prelude.seq`
+                      Prelude.rnf progress `Prelude.seq`
+                        Prelude.rnf role' `Prelude.seq`
+                          Prelude.rnf securityConfiguration `Prelude.seq`
+                            Prelude.rnf status

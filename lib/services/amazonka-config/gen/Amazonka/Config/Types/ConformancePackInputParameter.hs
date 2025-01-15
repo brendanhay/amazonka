@@ -93,8 +93,8 @@ instance
 
 instance Prelude.NFData ConformancePackInputParameter where
   rnf ConformancePackInputParameter' {..} =
-    Prelude.rnf parameterName
-      `Prelude.seq` Prelude.rnf parameterValue
+    Prelude.rnf parameterName `Prelude.seq`
+      Prelude.rnf parameterValue
 
 instance Data.ToJSON ConformancePackInputParameter where
   toJSON ConformancePackInputParameter' {..} =

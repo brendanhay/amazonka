@@ -171,9 +171,9 @@ instance Prelude.Hashable FunctionUrlConfig where
 
 instance Prelude.NFData FunctionUrlConfig where
   rnf FunctionUrlConfig' {..} =
-    Prelude.rnf cors
-      `Prelude.seq` Prelude.rnf functionUrl
-      `Prelude.seq` Prelude.rnf functionArn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf authType
+    Prelude.rnf cors `Prelude.seq`
+      Prelude.rnf functionUrl `Prelude.seq`
+        Prelude.rnf functionArn `Prelude.seq`
+          Prelude.rnf creationTime `Prelude.seq`
+            Prelude.rnf lastModifiedTime `Prelude.seq`
+              Prelude.rnf authType

@@ -154,10 +154,10 @@ instance Prelude.Hashable ListEndpoints where
 
 instance Prelude.NFData ListEndpoints where
   rnf ListEndpoints' {..} =
-    Prelude.rnf homeRegion
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf namePrefix
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf homeRegion `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf namePrefix `Prelude.seq`
+          Prelude.rnf nextToken
 
 instance Data.ToHeaders ListEndpoints where
   toHeaders =
@@ -250,6 +250,6 @@ listEndpointsResponse_httpStatus = Lens.lens (\ListEndpointsResponse' {httpStatu
 
 instance Prelude.NFData ListEndpointsResponse where
   rnf ListEndpointsResponse' {..} =
-    Prelude.rnf endpoints
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf endpoints `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

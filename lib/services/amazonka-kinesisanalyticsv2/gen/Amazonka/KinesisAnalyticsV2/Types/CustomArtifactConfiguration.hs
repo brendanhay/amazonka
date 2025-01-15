@@ -92,9 +92,9 @@ instance Prelude.Hashable CustomArtifactConfiguration where
 
 instance Prelude.NFData CustomArtifactConfiguration where
   rnf CustomArtifactConfiguration' {..} =
-    Prelude.rnf mavenReference
-      `Prelude.seq` Prelude.rnf s3ContentLocation
-      `Prelude.seq` Prelude.rnf artifactType
+    Prelude.rnf mavenReference `Prelude.seq`
+      Prelude.rnf s3ContentLocation `Prelude.seq`
+        Prelude.rnf artifactType
 
 instance Data.ToJSON CustomArtifactConfiguration where
   toJSON CustomArtifactConfiguration' {..} =

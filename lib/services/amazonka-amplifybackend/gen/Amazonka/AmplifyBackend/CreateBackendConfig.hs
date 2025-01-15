@@ -117,8 +117,8 @@ instance Prelude.Hashable CreateBackendConfig where
 
 instance Prelude.NFData CreateBackendConfig where
   rnf CreateBackendConfig' {..} =
-    Prelude.rnf backendManagerAppId
-      `Prelude.seq` Prelude.rnf appId
+    Prelude.rnf backendManagerAppId `Prelude.seq`
+      Prelude.rnf appId
 
 instance Data.ToHeaders CreateBackendConfig where
   toHeaders =
@@ -216,8 +216,8 @@ createBackendConfigResponse_httpStatus = Lens.lens (\CreateBackendConfigResponse
 
 instance Prelude.NFData CreateBackendConfigResponse where
   rnf CreateBackendConfigResponse' {..} =
-    Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf backendEnvironmentName
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf appId `Prelude.seq`
+      Prelude.rnf backendEnvironmentName `Prelude.seq`
+        Prelude.rnf jobId `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf httpStatus

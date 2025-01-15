@@ -174,12 +174,12 @@ instance Prelude.Hashable ExportTask where
 
 instance Prelude.NFData ExportTask where
   rnf ExportTask' {..} =
-    Prelude.rnf destination
-      `Prelude.seq` Prelude.rnf destinationPrefix
-      `Prelude.seq` Prelude.rnf executionInfo
-      `Prelude.seq` Prelude.rnf from
-      `Prelude.seq` Prelude.rnf logGroupName
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf taskId
-      `Prelude.seq` Prelude.rnf taskName
-      `Prelude.seq` Prelude.rnf to
+    Prelude.rnf destination `Prelude.seq`
+      Prelude.rnf destinationPrefix `Prelude.seq`
+        Prelude.rnf executionInfo `Prelude.seq`
+          Prelude.rnf from `Prelude.seq`
+            Prelude.rnf logGroupName `Prelude.seq`
+              Prelude.rnf status `Prelude.seq`
+                Prelude.rnf taskId `Prelude.seq`
+                  Prelude.rnf taskName `Prelude.seq`
+                    Prelude.rnf to

@@ -120,12 +120,12 @@ instance Core.AWSPager ListWorkspaces where
         (rs Lens.^. listWorkspacesResponse_workspaces) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listWorkspaces_nextToken
-          Lens..~ rs
-          Lens.^? listWorkspacesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listWorkspaces_nextToken
+              Lens..~ rs
+              Lens.^? listWorkspacesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListWorkspaces where
   type
@@ -151,9 +151,9 @@ instance Prelude.Hashable ListWorkspaces where
 
 instance Prelude.NFData ListWorkspaces where
   rnf ListWorkspaces' {..} =
-    Prelude.rnf alias
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf alias `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListWorkspaces where
   toHeaders =
@@ -232,6 +232,6 @@ listWorkspacesResponse_workspaces = Lens.lens (\ListWorkspacesResponse' {workspa
 
 instance Prelude.NFData ListWorkspacesResponse where
   rnf ListWorkspacesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf workspaces
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf workspaces

@@ -138,12 +138,12 @@ instance Core.AWSPager GetIntents where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getIntents_nextToken
-          Lens..~ rs
-          Lens.^? getIntentsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getIntents_nextToken
+              Lens..~ rs
+              Lens.^? getIntentsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetIntents where
   type AWSResponse GetIntents = GetIntentsResponse
@@ -167,9 +167,9 @@ instance Prelude.Hashable GetIntents where
 
 instance Prelude.NFData GetIntents where
   rnf GetIntents' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nameContains
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nameContains `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders GetIntents where
   toHeaders =
@@ -248,6 +248,6 @@ getIntentsResponse_httpStatus = Lens.lens (\GetIntentsResponse' {httpStatus} -> 
 
 instance Prelude.NFData GetIntentsResponse where
   rnf GetIntentsResponse' {..} =
-    Prelude.rnf intents
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf intents `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -121,12 +121,12 @@ instance Core.AWSPager ListMitigationActions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listMitigationActions_nextToken
-          Lens..~ rs
-          Lens.^? listMitigationActionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listMitigationActions_nextToken
+              Lens..~ rs
+              Lens.^? listMitigationActionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListMitigationActions where
   type
@@ -155,9 +155,9 @@ instance Prelude.Hashable ListMitigationActions where
 
 instance Prelude.NFData ListMitigationActions where
   rnf ListMitigationActions' {..} =
-    Prelude.rnf actionType
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf actionType `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListMitigationActions where
   toHeaders = Prelude.const Prelude.mempty
@@ -223,6 +223,6 @@ listMitigationActionsResponse_httpStatus = Lens.lens (\ListMitigationActionsResp
 
 instance Prelude.NFData ListMitigationActionsResponse where
   rnf ListMitigationActionsResponse' {..} =
-    Prelude.rnf actionIdentifiers
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf actionIdentifiers `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

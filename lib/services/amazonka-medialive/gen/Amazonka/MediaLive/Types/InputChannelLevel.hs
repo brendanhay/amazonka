@@ -87,8 +87,8 @@ instance Prelude.Hashable InputChannelLevel where
 
 instance Prelude.NFData InputChannelLevel where
   rnf InputChannelLevel' {..} =
-    Prelude.rnf inputChannel
-      `Prelude.seq` Prelude.rnf gain
+    Prelude.rnf inputChannel `Prelude.seq`
+      Prelude.rnf gain
 
 instance Data.ToJSON InputChannelLevel where
   toJSON InputChannelLevel' {..} =

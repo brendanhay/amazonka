@@ -411,24 +411,24 @@ instance Prelude.Hashable GlacierJobDescription where
 
 instance Prelude.NFData GlacierJobDescription where
   rnf GlacierJobDescription' {..} =
-    Prelude.rnf action
-      `Prelude.seq` Prelude.rnf archiveId
-      `Prelude.seq` Prelude.rnf archiveSHA256TreeHash
-      `Prelude.seq` Prelude.rnf archiveSizeInBytes
-      `Prelude.seq` Prelude.rnf completed
-      `Prelude.seq` Prelude.rnf completionDate
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf inventoryRetrievalParameters
-      `Prelude.seq` Prelude.rnf inventorySizeInBytes
-      `Prelude.seq` Prelude.rnf jobDescription
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf jobOutputPath
-      `Prelude.seq` Prelude.rnf outputLocation
-      `Prelude.seq` Prelude.rnf retrievalByteRange
-      `Prelude.seq` Prelude.rnf sHA256TreeHash
-      `Prelude.seq` Prelude.rnf sNSTopic
-      `Prelude.seq` Prelude.rnf selectParameters
-      `Prelude.seq` Prelude.rnf statusCode
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf tier
-      `Prelude.seq` Prelude.rnf vaultARN
+    Prelude.rnf action `Prelude.seq`
+      Prelude.rnf archiveId `Prelude.seq`
+        Prelude.rnf archiveSHA256TreeHash `Prelude.seq`
+          Prelude.rnf archiveSizeInBytes `Prelude.seq`
+            Prelude.rnf completed `Prelude.seq`
+              Prelude.rnf completionDate `Prelude.seq`
+                Prelude.rnf creationDate `Prelude.seq`
+                  Prelude.rnf inventoryRetrievalParameters `Prelude.seq`
+                    Prelude.rnf inventorySizeInBytes `Prelude.seq`
+                      Prelude.rnf jobDescription `Prelude.seq`
+                        Prelude.rnf jobId `Prelude.seq`
+                          Prelude.rnf jobOutputPath `Prelude.seq`
+                            Prelude.rnf outputLocation `Prelude.seq`
+                              Prelude.rnf retrievalByteRange `Prelude.seq`
+                                Prelude.rnf sHA256TreeHash `Prelude.seq`
+                                  Prelude.rnf sNSTopic `Prelude.seq`
+                                    Prelude.rnf selectParameters `Prelude.seq`
+                                      Prelude.rnf statusCode `Prelude.seq`
+                                        Prelude.rnf statusMessage `Prelude.seq`
+                                          Prelude.rnf tier `Prelude.seq`
+                                            Prelude.rnf vaultARN

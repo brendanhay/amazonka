@@ -170,10 +170,10 @@ instance Prelude.Hashable PutPermission where
 
 instance Prelude.NFData PutPermission where
   rnf PutPermission' {..} =
-    Prelude.rnf revisionId
-      `Prelude.seq` Prelude.rnf actionGroup
-      `Prelude.seq` Prelude.rnf principals
-      `Prelude.seq` Prelude.rnf profilingGroupName
+    Prelude.rnf revisionId `Prelude.seq`
+      Prelude.rnf actionGroup `Prelude.seq`
+        Prelude.rnf principals `Prelude.seq`
+          Prelude.rnf profilingGroupName
 
 instance Data.ToHeaders PutPermission where
   toHeaders =
@@ -274,6 +274,6 @@ putPermissionResponse_revisionId = Lens.lens (\PutPermissionResponse' {revisionI
 
 instance Prelude.NFData PutPermissionResponse where
   rnf PutPermissionResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf policy
-      `Prelude.seq` Prelude.rnf revisionId
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf policy `Prelude.seq`
+        Prelude.rnf revisionId

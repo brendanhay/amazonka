@@ -102,9 +102,9 @@ instance Prelude.Hashable LambdaDeviceMount where
 
 instance Prelude.NFData LambdaDeviceMount where
   rnf LambdaDeviceMount' {..} =
-    Prelude.rnf addGroupOwner
-      `Prelude.seq` Prelude.rnf permission
-      `Prelude.seq` Prelude.rnf path
+    Prelude.rnf addGroupOwner `Prelude.seq`
+      Prelude.rnf permission `Prelude.seq`
+        Prelude.rnf path
 
 instance Data.ToJSON LambdaDeviceMount where
   toJSON LambdaDeviceMount' {..} =

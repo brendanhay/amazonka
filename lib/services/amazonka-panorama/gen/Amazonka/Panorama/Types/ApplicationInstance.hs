@@ -197,15 +197,15 @@ instance Prelude.Hashable ApplicationInstance where
 
 instance Prelude.NFData ApplicationInstance where
   rnf ApplicationInstance' {..} =
-    Prelude.rnf applicationInstanceId
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf defaultRuntimeContextDevice
-      `Prelude.seq` Prelude.rnf defaultRuntimeContextDeviceName
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf healthStatus
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf runtimeContextStates
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusDescription
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf applicationInstanceId `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf createdTime `Prelude.seq`
+          Prelude.rnf defaultRuntimeContextDevice `Prelude.seq`
+            Prelude.rnf defaultRuntimeContextDeviceName `Prelude.seq`
+              Prelude.rnf description `Prelude.seq`
+                Prelude.rnf healthStatus `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf runtimeContextStates `Prelude.seq`
+                      Prelude.rnf status `Prelude.seq`
+                        Prelude.rnf statusDescription `Prelude.seq`
+                          Prelude.rnf tags

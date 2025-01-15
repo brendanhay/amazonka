@@ -133,8 +133,8 @@ instance
     QueryStatisticsForDescribeQuery
   where
   rnf QueryStatisticsForDescribeQuery' {..} =
-    Prelude.rnf bytesScanned
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf eventsMatched
-      `Prelude.seq` Prelude.rnf eventsScanned
-      `Prelude.seq` Prelude.rnf executionTimeInMillis
+    Prelude.rnf bytesScanned `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf eventsMatched `Prelude.seq`
+          Prelude.rnf eventsScanned `Prelude.seq`
+            Prelude.rnf executionTimeInMillis

@@ -170,5 +170,5 @@ deleteExperimentResponse_httpStatus = Lens.lens (\DeleteExperimentResponse' {htt
 
 instance Prelude.NFData DeleteExperimentResponse where
   rnf DeleteExperimentResponse' {..} =
-    Prelude.rnf experimentArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf experimentArn `Prelude.seq`
+      Prelude.rnf httpStatus

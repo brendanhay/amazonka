@@ -108,6 +108,6 @@ instance Prelude.Hashable Facet where
 
 instance Prelude.NFData Facet where
   rnf Facet' {..} =
-    Prelude.rnf facetStyle
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf objectType
+    Prelude.rnf facetStyle `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf objectType

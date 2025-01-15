@@ -174,12 +174,12 @@ instance Core.AWSPager ListContexts where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listContexts_nextToken
-          Lens..~ rs
-          Lens.^? listContextsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listContexts_nextToken
+              Lens..~ rs
+              Lens.^? listContextsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListContexts where
   type AWSResponse ListContexts = ListContextsResponse
@@ -211,14 +211,14 @@ instance Prelude.Hashable ListContexts where
 
 instance Prelude.NFData ListContexts where
   rnf ListContexts' {..} =
-    Prelude.rnf contextType
-      `Prelude.seq` Prelude.rnf createdAfter
-      `Prelude.seq` Prelude.rnf createdBefore
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf sortOrder
-      `Prelude.seq` Prelude.rnf sourceUri
+    Prelude.rnf contextType `Prelude.seq`
+      Prelude.rnf createdAfter `Prelude.seq`
+        Prelude.rnf createdBefore `Prelude.seq`
+          Prelude.rnf maxResults `Prelude.seq`
+            Prelude.rnf nextToken `Prelude.seq`
+              Prelude.rnf sortBy `Prelude.seq`
+                Prelude.rnf sortOrder `Prelude.seq`
+                  Prelude.rnf sourceUri
 
 instance Data.ToHeaders ListContexts where
   toHeaders =
@@ -304,6 +304,6 @@ listContextsResponse_httpStatus = Lens.lens (\ListContextsResponse' {httpStatus}
 
 instance Prelude.NFData ListContextsResponse where
   rnf ListContextsResponse' {..} =
-    Prelude.rnf contextSummaries
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf contextSummaries `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

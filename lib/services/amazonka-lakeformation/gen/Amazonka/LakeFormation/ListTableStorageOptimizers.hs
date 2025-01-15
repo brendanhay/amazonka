@@ -166,12 +166,12 @@ instance Prelude.Hashable ListTableStorageOptimizers where
 
 instance Prelude.NFData ListTableStorageOptimizers where
   rnf ListTableStorageOptimizers' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf storageOptimizerType
-      `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf tableName
+    Prelude.rnf catalogId `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf storageOptimizerType `Prelude.seq`
+            Prelude.rnf databaseName `Prelude.seq`
+              Prelude.rnf tableName
 
 instance Data.ToHeaders ListTableStorageOptimizers where
   toHeaders =
@@ -260,6 +260,6 @@ instance
     ListTableStorageOptimizersResponse
   where
   rnf ListTableStorageOptimizersResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf storageOptimizerList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf storageOptimizerList `Prelude.seq`
+        Prelude.rnf httpStatus

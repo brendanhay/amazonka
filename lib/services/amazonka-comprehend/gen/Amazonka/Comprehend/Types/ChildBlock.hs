@@ -91,6 +91,6 @@ instance Prelude.Hashable ChildBlock where
 
 instance Prelude.NFData ChildBlock where
   rnf ChildBlock' {..} =
-    Prelude.rnf beginOffset
-      `Prelude.seq` Prelude.rnf childBlockId
-      `Prelude.seq` Prelude.rnf endOffset
+    Prelude.rnf beginOffset `Prelude.seq`
+      Prelude.rnf childBlockId `Prelude.seq`
+        Prelude.rnf endOffset

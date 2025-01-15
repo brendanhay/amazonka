@@ -167,11 +167,11 @@ instance Prelude.Hashable UpdateBillingGroup where
 
 instance Prelude.NFData UpdateBillingGroup where
   rnf UpdateBillingGroup' {..} =
-    Prelude.rnf computationPreference
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf computationPreference `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf arn
 
 instance Data.ToHeaders UpdateBillingGroup where
   toHeaders =
@@ -324,13 +324,13 @@ updateBillingGroupResponse_httpStatus = Lens.lens (\UpdateBillingGroupResponse' 
 
 instance Prelude.NFData UpdateBillingGroupResponse where
   rnf UpdateBillingGroupResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf pricingPlanArn
-      `Prelude.seq` Prelude.rnf primaryAccountId
-      `Prelude.seq` Prelude.rnf size
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusReason
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf lastModifiedTime `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf pricingPlanArn `Prelude.seq`
+              Prelude.rnf primaryAccountId `Prelude.seq`
+                Prelude.rnf size `Prelude.seq`
+                  Prelude.rnf status `Prelude.seq`
+                    Prelude.rnf statusReason `Prelude.seq`
+                      Prelude.rnf httpStatus

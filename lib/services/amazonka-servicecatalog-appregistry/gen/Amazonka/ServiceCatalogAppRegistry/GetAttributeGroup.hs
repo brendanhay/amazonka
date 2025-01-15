@@ -254,12 +254,12 @@ getAttributeGroupResponse_httpStatus = Lens.lens (\GetAttributeGroupResponse' {h
 
 instance Prelude.NFData GetAttributeGroupResponse where
   rnf GetAttributeGroupResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf lastUpdateTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf attributes `Prelude.seq`
+        Prelude.rnf creationTime `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf id `Prelude.seq`
+              Prelude.rnf lastUpdateTime `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf tags `Prelude.seq`
+                    Prelude.rnf httpStatus

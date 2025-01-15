@@ -117,9 +117,9 @@ instance Prelude.Hashable UpdateAddressBook where
 
 instance Prelude.NFData UpdateAddressBook where
   rnf UpdateAddressBook' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf addressBookArn
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf addressBookArn
 
 instance Data.ToHeaders UpdateAddressBook where
   toHeaders =

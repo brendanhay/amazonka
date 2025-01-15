@@ -151,10 +151,10 @@ instance Prelude.Hashable GetRepositorySyncStatus where
 
 instance Prelude.NFData GetRepositorySyncStatus where
   rnf GetRepositorySyncStatus' {..} =
-    Prelude.rnf branch
-      `Prelude.seq` Prelude.rnf repositoryName
-      `Prelude.seq` Prelude.rnf repositoryProvider
-      `Prelude.seq` Prelude.rnf syncType
+    Prelude.rnf branch `Prelude.seq`
+      Prelude.rnf repositoryName `Prelude.seq`
+        Prelude.rnf repositoryProvider `Prelude.seq`
+          Prelude.rnf syncType
 
 instance Data.ToHeaders GetRepositorySyncStatus where
   toHeaders =
@@ -234,5 +234,5 @@ instance
     GetRepositorySyncStatusResponse
   where
   rnf GetRepositorySyncStatusResponse' {..} =
-    Prelude.rnf latestSync
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf latestSync `Prelude.seq`
+      Prelude.rnf httpStatus

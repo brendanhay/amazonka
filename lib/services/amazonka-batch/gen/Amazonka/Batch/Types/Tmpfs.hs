@@ -131,9 +131,9 @@ instance Prelude.Hashable Tmpfs where
 
 instance Prelude.NFData Tmpfs where
   rnf Tmpfs' {..} =
-    Prelude.rnf mountOptions
-      `Prelude.seq` Prelude.rnf containerPath
-      `Prelude.seq` Prelude.rnf size
+    Prelude.rnf mountOptions `Prelude.seq`
+      Prelude.rnf containerPath `Prelude.seq`
+        Prelude.rnf size
 
 instance Data.ToJSON Tmpfs where
   toJSON Tmpfs' {..} =

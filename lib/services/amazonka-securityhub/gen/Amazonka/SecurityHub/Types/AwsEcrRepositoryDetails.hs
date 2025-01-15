@@ -130,12 +130,12 @@ instance Prelude.Hashable AwsEcrRepositoryDetails where
 
 instance Prelude.NFData AwsEcrRepositoryDetails where
   rnf AwsEcrRepositoryDetails' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf imageScanningConfiguration
-      `Prelude.seq` Prelude.rnf imageTagMutability
-      `Prelude.seq` Prelude.rnf lifecyclePolicy
-      `Prelude.seq` Prelude.rnf repositoryName
-      `Prelude.seq` Prelude.rnf repositoryPolicyText
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf imageScanningConfiguration `Prelude.seq`
+        Prelude.rnf imageTagMutability `Prelude.seq`
+          Prelude.rnf lifecyclePolicy `Prelude.seq`
+            Prelude.rnf repositoryName `Prelude.seq`
+              Prelude.rnf repositoryPolicyText
 
 instance Data.ToJSON AwsEcrRepositoryDetails where
   toJSON AwsEcrRepositoryDetails' {..} =

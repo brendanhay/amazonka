@@ -190,7 +190,7 @@ instance
     GetTrafficDistributionResponse
   where
   rnf GetTrafficDistributionResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf telephonyConfig
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf telephonyConfig `Prelude.seq`
+          Prelude.rnf httpStatus

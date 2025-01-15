@@ -91,6 +91,6 @@ instance Prelude.Hashable InputSource where
 
 instance Prelude.NFData InputSource where
   rnf InputSource' {..} =
-    Prelude.rnf passwordParam
-      `Prelude.seq` Prelude.rnf url
-      `Prelude.seq` Prelude.rnf username
+    Prelude.rnf passwordParam `Prelude.seq`
+      Prelude.rnf url `Prelude.seq`
+        Prelude.rnf username

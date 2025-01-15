@@ -349,9 +349,7 @@ instance Data.FromXML DBClusterSnapshot where
       Prelude.<*> (x Data..@? "SourceDBClusterSnapshotArn")
       Prelude.<*> (x Data..@? "Status")
       Prelude.<*> (x Data..@? "StorageEncrypted")
-      Prelude.<*> ( x
-                      Data..@? "TagList"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "TagList" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "Tag")
                   )
       Prelude.<*> (x Data..@? "VpcId")

@@ -309,21 +309,21 @@ instance Prelude.Hashable ReplicationJob where
 
 instance Prelude.NFData ReplicationJob where
   rnf ReplicationJob' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf encrypted
-      `Prelude.seq` Prelude.rnf frequency
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf latestAmiId
-      `Prelude.seq` Prelude.rnf licenseType
-      `Prelude.seq` Prelude.rnf nextReplicationRunStartTime
-      `Prelude.seq` Prelude.rnf numberOfRecentAmisToKeep
-      `Prelude.seq` Prelude.rnf replicationJobId
-      `Prelude.seq` Prelude.rnf replicationRunList
-      `Prelude.seq` Prelude.rnf roleName
-      `Prelude.seq` Prelude.rnf runOnce
-      `Prelude.seq` Prelude.rnf seedReplicationTime
-      `Prelude.seq` Prelude.rnf serverId
-      `Prelude.seq` Prelude.rnf serverType
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf vmServer
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf encrypted `Prelude.seq`
+        Prelude.rnf frequency `Prelude.seq`
+          Prelude.rnf kmsKeyId `Prelude.seq`
+            Prelude.rnf latestAmiId `Prelude.seq`
+              Prelude.rnf licenseType `Prelude.seq`
+                Prelude.rnf nextReplicationRunStartTime `Prelude.seq`
+                  Prelude.rnf numberOfRecentAmisToKeep `Prelude.seq`
+                    Prelude.rnf replicationJobId `Prelude.seq`
+                      Prelude.rnf replicationRunList `Prelude.seq`
+                        Prelude.rnf roleName `Prelude.seq`
+                          Prelude.rnf runOnce `Prelude.seq`
+                            Prelude.rnf seedReplicationTime `Prelude.seq`
+                              Prelude.rnf serverId `Prelude.seq`
+                                Prelude.rnf serverType `Prelude.seq`
+                                  Prelude.rnf state `Prelude.seq`
+                                    Prelude.rnf statusMessage `Prelude.seq`
+                                      Prelude.rnf vmServer

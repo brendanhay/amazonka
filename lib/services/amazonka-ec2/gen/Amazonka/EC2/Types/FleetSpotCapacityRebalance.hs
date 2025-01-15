@@ -146,5 +146,5 @@ instance Prelude.Hashable FleetSpotCapacityRebalance where
 
 instance Prelude.NFData FleetSpotCapacityRebalance where
   rnf FleetSpotCapacityRebalance' {..} =
-    Prelude.rnf replacementStrategy
-      `Prelude.seq` Prelude.rnf terminationDelay
+    Prelude.rnf replacementStrategy `Prelude.seq`
+      Prelude.rnf terminationDelay

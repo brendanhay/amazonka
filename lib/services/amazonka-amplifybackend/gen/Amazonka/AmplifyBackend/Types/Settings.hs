@@ -82,8 +82,8 @@ instance Prelude.Hashable Settings where
 
 instance Prelude.NFData Settings where
   rnf Settings' {..} =
-    Prelude.rnf mfaTypes
-      `Prelude.seq` Prelude.rnf smsMessage
+    Prelude.rnf mfaTypes `Prelude.seq`
+      Prelude.rnf smsMessage
 
 instance Data.ToJSON Settings where
   toJSON Settings' {..} =

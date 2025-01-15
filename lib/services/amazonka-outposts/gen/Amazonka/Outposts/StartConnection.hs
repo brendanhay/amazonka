@@ -154,10 +154,10 @@ instance Prelude.Hashable StartConnection where
 
 instance Prelude.NFData StartConnection where
   rnf StartConnection' {..} =
-    Prelude.rnf deviceSerialNumber
-      `Prelude.seq` Prelude.rnf assetId
-      `Prelude.seq` Prelude.rnf clientPublicKey
-      `Prelude.seq` Prelude.rnf networkInterfaceDeviceIndex
+    Prelude.rnf deviceSerialNumber `Prelude.seq`
+      Prelude.rnf assetId `Prelude.seq`
+        Prelude.rnf clientPublicKey `Prelude.seq`
+          Prelude.rnf networkInterfaceDeviceIndex
 
 instance Data.ToHeaders StartConnection where
   toHeaders =
@@ -242,6 +242,6 @@ startConnectionResponse_httpStatus = Lens.lens (\StartConnectionResponse' {httpS
 
 instance Prelude.NFData StartConnectionResponse where
   rnf StartConnectionResponse' {..} =
-    Prelude.rnf connectionId
-      `Prelude.seq` Prelude.rnf underlayIpAddress
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf connectionId `Prelude.seq`
+      Prelude.rnf underlayIpAddress `Prelude.seq`
+        Prelude.rnf httpStatus

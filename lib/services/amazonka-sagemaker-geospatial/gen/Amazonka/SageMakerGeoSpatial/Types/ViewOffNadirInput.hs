@@ -80,8 +80,8 @@ instance Prelude.Hashable ViewOffNadirInput where
 
 instance Prelude.NFData ViewOffNadirInput where
   rnf ViewOffNadirInput' {..} =
-    Prelude.rnf lowerBound
-      `Prelude.seq` Prelude.rnf upperBound
+    Prelude.rnf lowerBound `Prelude.seq`
+      Prelude.rnf upperBound
 
 instance Data.ToJSON ViewOffNadirInput where
   toJSON ViewOffNadirInput' {..} =

@@ -326,10 +326,10 @@ instance Prelude.Hashable UpdateConstraint where
 
 instance Prelude.NFData UpdateConstraint where
   rnf UpdateConstraint' {..} =
-    Prelude.rnf acceptLanguage
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf acceptLanguage `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf parameters `Prelude.seq`
+          Prelude.rnf id
 
 instance Data.ToHeaders UpdateConstraint where
   toHeaders =
@@ -423,7 +423,7 @@ updateConstraintResponse_httpStatus = Lens.lens (\UpdateConstraintResponse' {htt
 
 instance Prelude.NFData UpdateConstraintResponse where
   rnf UpdateConstraintResponse' {..} =
-    Prelude.rnf constraintDetail
-      `Prelude.seq` Prelude.rnf constraintParameters
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf constraintDetail `Prelude.seq`
+      Prelude.rnf constraintParameters `Prelude.seq`
+        Prelude.rnf status `Prelude.seq`
+          Prelude.rnf httpStatus

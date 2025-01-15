@@ -163,5 +163,5 @@ describeFilterResponse_httpStatus = Lens.lens (\DescribeFilterResponse' {httpSta
 
 instance Prelude.NFData DescribeFilterResponse where
   rnf DescribeFilterResponse' {..} =
-    Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf filter' `Prelude.seq`
+      Prelude.rnf httpStatus

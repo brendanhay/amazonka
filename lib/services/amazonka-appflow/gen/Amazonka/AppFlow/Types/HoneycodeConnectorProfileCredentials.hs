@@ -89,9 +89,9 @@ instance
     HoneycodeConnectorProfileCredentials
   where
   rnf HoneycodeConnectorProfileCredentials' {..} =
-    Prelude.rnf accessToken
-      `Prelude.seq` Prelude.rnf oAuthRequest
-      `Prelude.seq` Prelude.rnf refreshToken
+    Prelude.rnf accessToken `Prelude.seq`
+      Prelude.rnf oAuthRequest `Prelude.seq`
+        Prelude.rnf refreshToken
 
 instance
   Data.ToJSON

@@ -153,9 +153,9 @@ instance Prelude.Hashable CreateRevision where
 
 instance Prelude.NFData CreateRevision where
   rnf CreateRevision' {..} =
-    Prelude.rnf comment
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf dataSetId
+    Prelude.rnf comment `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf dataSetId
 
 instance Data.ToHeaders CreateRevision where
   toHeaders =
@@ -363,16 +363,16 @@ createRevisionResponse_httpStatus = Lens.lens (\CreateRevisionResponse' {httpSta
 
 instance Prelude.NFData CreateRevisionResponse where
   rnf CreateRevisionResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf comment
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf dataSetId
-      `Prelude.seq` Prelude.rnf finalized
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf revocationComment
-      `Prelude.seq` Prelude.rnf revoked
-      `Prelude.seq` Prelude.rnf revokedAt
-      `Prelude.seq` Prelude.rnf sourceId
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf updatedAt
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf comment `Prelude.seq`
+        Prelude.rnf createdAt `Prelude.seq`
+          Prelude.rnf dataSetId `Prelude.seq`
+            Prelude.rnf finalized `Prelude.seq`
+              Prelude.rnf id `Prelude.seq`
+                Prelude.rnf revocationComment `Prelude.seq`
+                  Prelude.rnf revoked `Prelude.seq`
+                    Prelude.rnf revokedAt `Prelude.seq`
+                      Prelude.rnf sourceId `Prelude.seq`
+                        Prelude.rnf tags `Prelude.seq`
+                          Prelude.rnf updatedAt `Prelude.seq`
+                            Prelude.rnf httpStatus

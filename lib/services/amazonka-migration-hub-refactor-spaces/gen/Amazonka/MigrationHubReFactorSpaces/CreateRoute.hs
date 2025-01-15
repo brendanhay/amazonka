@@ -287,14 +287,14 @@ instance Prelude.Hashable CreateRoute where
 
 instance Prelude.NFData CreateRoute where
   rnf CreateRoute' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf defaultRoute
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf uriPathRoute
-      `Prelude.seq` Prelude.rnf applicationIdentifier
-      `Prelude.seq` Prelude.rnf environmentIdentifier
-      `Prelude.seq` Prelude.rnf routeType
-      `Prelude.seq` Prelude.rnf serviceIdentifier
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf defaultRoute `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf uriPathRoute `Prelude.seq`
+            Prelude.rnf applicationIdentifier `Prelude.seq`
+              Prelude.rnf environmentIdentifier `Prelude.seq`
+                Prelude.rnf routeType `Prelude.seq`
+                  Prelude.rnf serviceIdentifier
 
 instance Data.ToHeaders CreateRoute where
   toHeaders =
@@ -501,16 +501,16 @@ createRouteResponse_httpStatus = Lens.lens (\CreateRouteResponse' {httpStatus} -
 
 instance Prelude.NFData CreateRouteResponse where
   rnf CreateRouteResponse' {..} =
-    Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdByAccountId
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf ownerAccountId
-      `Prelude.seq` Prelude.rnf routeId
-      `Prelude.seq` Prelude.rnf routeType
-      `Prelude.seq` Prelude.rnf serviceId
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf uriPathRoute
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf applicationId `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf createdByAccountId `Prelude.seq`
+          Prelude.rnf createdTime `Prelude.seq`
+            Prelude.rnf lastUpdatedTime `Prelude.seq`
+              Prelude.rnf ownerAccountId `Prelude.seq`
+                Prelude.rnf routeId `Prelude.seq`
+                  Prelude.rnf routeType `Prelude.seq`
+                    Prelude.rnf serviceId `Prelude.seq`
+                      Prelude.rnf state `Prelude.seq`
+                        Prelude.rnf tags `Prelude.seq`
+                          Prelude.rnf uriPathRoute `Prelude.seq`
+                            Prelude.rnf httpStatus

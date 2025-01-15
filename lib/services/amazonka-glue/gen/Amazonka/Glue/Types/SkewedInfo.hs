@@ -101,9 +101,9 @@ instance Prelude.Hashable SkewedInfo where
 
 instance Prelude.NFData SkewedInfo where
   rnf SkewedInfo' {..} =
-    Prelude.rnf skewedColumnNames
-      `Prelude.seq` Prelude.rnf skewedColumnValueLocationMaps
-      `Prelude.seq` Prelude.rnf skewedColumnValues
+    Prelude.rnf skewedColumnNames `Prelude.seq`
+      Prelude.rnf skewedColumnValueLocationMaps `Prelude.seq`
+        Prelude.rnf skewedColumnValues
 
 instance Data.ToJSON SkewedInfo where
   toJSON SkewedInfo' {..} =

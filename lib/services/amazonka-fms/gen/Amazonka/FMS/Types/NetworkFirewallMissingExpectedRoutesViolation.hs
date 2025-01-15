@@ -106,6 +106,6 @@ instance
   where
   rnf
     NetworkFirewallMissingExpectedRoutesViolation' {..} =
-      Prelude.rnf expectedRoutes
-        `Prelude.seq` Prelude.rnf violationTarget
-        `Prelude.seq` Prelude.rnf vpcId
+      Prelude.rnf expectedRoutes `Prelude.seq`
+        Prelude.rnf violationTarget `Prelude.seq`
+          Prelude.rnf vpcId

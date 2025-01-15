@@ -126,12 +126,12 @@ instance Core.AWSPager ListBackupPlanVersions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listBackupPlanVersions_nextToken
-          Lens..~ rs
-          Lens.^? listBackupPlanVersionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listBackupPlanVersions_nextToken
+              Lens..~ rs
+              Lens.^? listBackupPlanVersionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListBackupPlanVersions where
   type
@@ -160,9 +160,9 @@ instance Prelude.Hashable ListBackupPlanVersions where
 
 instance Prelude.NFData ListBackupPlanVersions where
   rnf ListBackupPlanVersions' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf backupPlanId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf backupPlanId
 
 instance Data.ToHeaders ListBackupPlanVersions where
   toHeaders =
@@ -255,6 +255,6 @@ instance
     ListBackupPlanVersionsResponse
   where
   rnf ListBackupPlanVersionsResponse' {..} =
-    Prelude.rnf backupPlanVersionsList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf backupPlanVersionsList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

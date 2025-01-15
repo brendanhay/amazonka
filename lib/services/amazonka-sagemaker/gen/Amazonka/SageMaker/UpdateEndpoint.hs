@@ -211,12 +211,12 @@ instance Prelude.Hashable UpdateEndpoint where
 
 instance Prelude.NFData UpdateEndpoint where
   rnf UpdateEndpoint' {..} =
-    Prelude.rnf deploymentConfig
-      `Prelude.seq` Prelude.rnf excludeRetainedVariantProperties
-      `Prelude.seq` Prelude.rnf retainAllVariantProperties
-      `Prelude.seq` Prelude.rnf retainDeploymentConfig
-      `Prelude.seq` Prelude.rnf endpointName
-      `Prelude.seq` Prelude.rnf endpointConfigName
+    Prelude.rnf deploymentConfig `Prelude.seq`
+      Prelude.rnf excludeRetainedVariantProperties `Prelude.seq`
+        Prelude.rnf retainAllVariantProperties `Prelude.seq`
+          Prelude.rnf retainDeploymentConfig `Prelude.seq`
+            Prelude.rnf endpointName `Prelude.seq`
+              Prelude.rnf endpointConfigName
 
 instance Data.ToHeaders UpdateEndpoint where
   toHeaders =
@@ -297,5 +297,5 @@ updateEndpointResponse_endpointArn = Lens.lens (\UpdateEndpointResponse' {endpoi
 
 instance Prelude.NFData UpdateEndpointResponse where
   rnf UpdateEndpointResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf endpointArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf endpointArn

@@ -144,9 +144,9 @@ instance Prelude.Hashable StartBgpFailoverTest where
 
 instance Prelude.NFData StartBgpFailoverTest where
   rnf StartBgpFailoverTest' {..} =
-    Prelude.rnf bgpPeers
-      `Prelude.seq` Prelude.rnf testDurationInMinutes
-      `Prelude.seq` Prelude.rnf virtualInterfaceId
+    Prelude.rnf bgpPeers `Prelude.seq`
+      Prelude.rnf testDurationInMinutes `Prelude.seq`
+        Prelude.rnf virtualInterfaceId
 
 instance Data.ToHeaders StartBgpFailoverTest where
   toHeaders =
@@ -222,5 +222,5 @@ startBgpFailoverTestResponse_httpStatus = Lens.lens (\StartBgpFailoverTestRespon
 
 instance Prelude.NFData StartBgpFailoverTestResponse where
   rnf StartBgpFailoverTestResponse' {..} =
-    Prelude.rnf virtualInterfaceTest
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf virtualInterfaceTest `Prelude.seq`
+      Prelude.rnf httpStatus

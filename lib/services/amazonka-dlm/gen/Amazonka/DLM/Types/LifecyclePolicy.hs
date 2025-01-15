@@ -174,13 +174,13 @@ instance Prelude.Hashable LifecyclePolicy where
 
 instance Prelude.NFData LifecyclePolicy where
   rnf LifecyclePolicy' {..} =
-    Prelude.rnf dateCreated
-      `Prelude.seq` Prelude.rnf dateModified
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf executionRoleArn
-      `Prelude.seq` Prelude.rnf policyArn
-      `Prelude.seq` Prelude.rnf policyDetails
-      `Prelude.seq` Prelude.rnf policyId
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf dateCreated `Prelude.seq`
+      Prelude.rnf dateModified `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf executionRoleArn `Prelude.seq`
+            Prelude.rnf policyArn `Prelude.seq`
+              Prelude.rnf policyDetails `Prelude.seq`
+                Prelude.rnf policyId `Prelude.seq`
+                  Prelude.rnf state `Prelude.seq`
+                    Prelude.rnf statusMessage `Prelude.seq`
+                      Prelude.rnf tags

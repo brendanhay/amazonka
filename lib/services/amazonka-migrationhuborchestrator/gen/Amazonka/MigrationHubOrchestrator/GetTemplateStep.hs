@@ -143,9 +143,9 @@ instance Prelude.Hashable GetTemplateStep where
 
 instance Prelude.NFData GetTemplateStep where
   rnf GetTemplateStep' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf templateId
-      `Prelude.seq` Prelude.rnf stepGroupId
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf templateId `Prelude.seq`
+        Prelude.rnf stepGroupId
 
 instance Data.ToHeaders GetTemplateStep where
   toHeaders =
@@ -306,15 +306,15 @@ getTemplateStepResponse_httpStatus = Lens.lens (\GetTemplateStepResponse' {httpS
 
 instance Prelude.NFData GetTemplateStepResponse where
   rnf GetTemplateStepResponse' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf next
-      `Prelude.seq` Prelude.rnf outputs
-      `Prelude.seq` Prelude.rnf previous
-      `Prelude.seq` Prelude.rnf stepActionType
-      `Prelude.seq` Prelude.rnf stepAutomationConfiguration
-      `Prelude.seq` Prelude.rnf stepGroupId
-      `Prelude.seq` Prelude.rnf templateId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf next `Prelude.seq`
+              Prelude.rnf outputs `Prelude.seq`
+                Prelude.rnf previous `Prelude.seq`
+                  Prelude.rnf stepActionType `Prelude.seq`
+                    Prelude.rnf stepAutomationConfiguration `Prelude.seq`
+                      Prelude.rnf stepGroupId `Prelude.seq`
+                        Prelude.rnf templateId `Prelude.seq`
+                          Prelude.rnf httpStatus

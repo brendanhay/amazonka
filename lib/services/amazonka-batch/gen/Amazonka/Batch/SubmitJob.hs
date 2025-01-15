@@ -456,21 +456,21 @@ instance Prelude.Hashable SubmitJob where
 
 instance Prelude.NFData SubmitJob where
   rnf SubmitJob' {..} =
-    Prelude.rnf arrayProperties
-      `Prelude.seq` Prelude.rnf containerOverrides
-      `Prelude.seq` Prelude.rnf dependsOn
-      `Prelude.seq` Prelude.rnf eksPropertiesOverride
-      `Prelude.seq` Prelude.rnf nodeOverrides
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf propagateTags
-      `Prelude.seq` Prelude.rnf retryStrategy
-      `Prelude.seq` Prelude.rnf schedulingPriorityOverride
-      `Prelude.seq` Prelude.rnf shareIdentifier
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf timeout
-      `Prelude.seq` Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf jobQueue
-      `Prelude.seq` Prelude.rnf jobDefinition
+    Prelude.rnf arrayProperties `Prelude.seq`
+      Prelude.rnf containerOverrides `Prelude.seq`
+        Prelude.rnf dependsOn `Prelude.seq`
+          Prelude.rnf eksPropertiesOverride `Prelude.seq`
+            Prelude.rnf nodeOverrides `Prelude.seq`
+              Prelude.rnf parameters `Prelude.seq`
+                Prelude.rnf propagateTags `Prelude.seq`
+                  Prelude.rnf retryStrategy `Prelude.seq`
+                    Prelude.rnf schedulingPriorityOverride `Prelude.seq`
+                      Prelude.rnf shareIdentifier `Prelude.seq`
+                        Prelude.rnf tags `Prelude.seq`
+                          Prelude.rnf timeout `Prelude.seq`
+                            Prelude.rnf jobName `Prelude.seq`
+                              Prelude.rnf jobQueue `Prelude.seq`
+                                Prelude.rnf jobDefinition
 
 instance Data.ToHeaders SubmitJob where
   toHeaders =
@@ -579,7 +579,7 @@ submitJobResponse_jobId = Lens.lens (\SubmitJobResponse' {jobId} -> jobId) (\s@S
 
 instance Prelude.NFData SubmitJobResponse where
   rnf SubmitJobResponse' {..} =
-    Prelude.rnf jobArn
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf jobId
+    Prelude.rnf jobArn `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf jobName `Prelude.seq`
+          Prelude.rnf jobId

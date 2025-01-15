@@ -179,10 +179,10 @@ instance Prelude.Hashable ReleaseAddress where
 
 instance Prelude.NFData ReleaseAddress where
   rnf ReleaseAddress' {..} =
-    Prelude.rnf allocationId
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf networkBorderGroup
-      `Prelude.seq` Prelude.rnf publicIp
+    Prelude.rnf allocationId `Prelude.seq`
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf networkBorderGroup `Prelude.seq`
+          Prelude.rnf publicIp
 
 instance Data.ToHeaders ReleaseAddress where
   toHeaders = Prelude.const Prelude.mempty

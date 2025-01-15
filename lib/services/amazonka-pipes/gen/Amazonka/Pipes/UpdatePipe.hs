@@ -205,15 +205,15 @@ instance Prelude.Hashable UpdatePipe where
 
 instance Prelude.NFData UpdatePipe where
   rnf UpdatePipe' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf desiredState
-      `Prelude.seq` Prelude.rnf enrichment
-      `Prelude.seq` Prelude.rnf enrichmentParameters
-      `Prelude.seq` Prelude.rnf sourceParameters
-      `Prelude.seq` Prelude.rnf target
-      `Prelude.seq` Prelude.rnf targetParameters
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf desiredState `Prelude.seq`
+        Prelude.rnf enrichment `Prelude.seq`
+          Prelude.rnf enrichmentParameters `Prelude.seq`
+            Prelude.rnf sourceParameters `Prelude.seq`
+              Prelude.rnf target `Prelude.seq`
+                Prelude.rnf targetParameters `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf roleArn
 
 instance Data.ToHeaders UpdatePipe where
   toHeaders =
@@ -342,10 +342,10 @@ updatePipeResponse_httpStatus = Lens.lens (\UpdatePipeResponse' {httpStatus} -> 
 
 instance Prelude.NFData UpdatePipeResponse where
   rnf UpdatePipeResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf currentState
-      `Prelude.seq` Prelude.rnf desiredState
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf currentState `Prelude.seq`
+          Prelude.rnf desiredState `Prelude.seq`
+            Prelude.rnf lastModifiedTime `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf httpStatus

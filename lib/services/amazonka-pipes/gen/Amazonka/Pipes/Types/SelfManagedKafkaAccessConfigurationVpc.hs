@@ -105,8 +105,8 @@ instance
     SelfManagedKafkaAccessConfigurationVpc
   where
   rnf SelfManagedKafkaAccessConfigurationVpc' {..} =
-    Prelude.rnf securityGroup
-      `Prelude.seq` Prelude.rnf subnets
+    Prelude.rnf securityGroup `Prelude.seq`
+      Prelude.rnf subnets
 
 instance
   Data.ToJSON

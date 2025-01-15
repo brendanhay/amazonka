@@ -111,9 +111,7 @@ instance Data.FromXML TargetNetwork where
     TargetNetwork'
       Prelude.<$> (x Data..@? "associationId")
       Prelude.<*> (x Data..@? "clientVpnEndpointId")
-      Prelude.<*> ( x
-                      Data..@? "securityGroups"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "securityGroups" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "status")
@@ -132,9 +130,9 @@ instance Prelude.Hashable TargetNetwork where
 
 instance Prelude.NFData TargetNetwork where
   rnf TargetNetwork' {..} =
-    Prelude.rnf associationId
-      `Prelude.seq` Prelude.rnf clientVpnEndpointId
-      `Prelude.seq` Prelude.rnf securityGroups
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf targetNetworkId
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf associationId `Prelude.seq`
+      Prelude.rnf clientVpnEndpointId `Prelude.seq`
+        Prelude.rnf securityGroups `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf targetNetworkId `Prelude.seq`
+              Prelude.rnf vpcId

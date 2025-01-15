@@ -240,13 +240,13 @@ instance Prelude.Hashable CreateBot where
 
 instance Prelude.NFData CreateBot where
   rnf CreateBot' {..} =
-    Prelude.rnf botTags
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf testBotAliasTags
-      `Prelude.seq` Prelude.rnf botName
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf dataPrivacy
-      `Prelude.seq` Prelude.rnf idleSessionTTLInSeconds
+    Prelude.rnf botTags `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf testBotAliasTags `Prelude.seq`
+          Prelude.rnf botName `Prelude.seq`
+            Prelude.rnf roleArn `Prelude.seq`
+              Prelude.rnf dataPrivacy `Prelude.seq`
+                Prelude.rnf idleSessionTTLInSeconds
 
 instance Data.ToHeaders CreateBot where
   toHeaders =
@@ -416,14 +416,14 @@ createBotResponse_httpStatus = Lens.lens (\CreateBotResponse' {httpStatus} -> ht
 
 instance Prelude.NFData CreateBotResponse where
   rnf CreateBotResponse' {..} =
-    Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf botName
-      `Prelude.seq` Prelude.rnf botStatus
-      `Prelude.seq` Prelude.rnf botTags
-      `Prelude.seq` Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf dataPrivacy
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf idleSessionTTLInSeconds
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf testBotAliasTags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf botId `Prelude.seq`
+      Prelude.rnf botName `Prelude.seq`
+        Prelude.rnf botStatus `Prelude.seq`
+          Prelude.rnf botTags `Prelude.seq`
+            Prelude.rnf creationDateTime `Prelude.seq`
+              Prelude.rnf dataPrivacy `Prelude.seq`
+                Prelude.rnf description `Prelude.seq`
+                  Prelude.rnf idleSessionTTLInSeconds `Prelude.seq`
+                    Prelude.rnf roleArn `Prelude.seq`
+                      Prelude.rnf testBotAliasTags `Prelude.seq`
+                        Prelude.rnf httpStatus

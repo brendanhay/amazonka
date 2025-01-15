@@ -94,8 +94,8 @@ instance Prelude.Hashable LoggingFilter where
 
 instance Prelude.NFData LoggingFilter where
   rnf LoggingFilter' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf defaultBehavior
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf defaultBehavior
 
 instance Data.ToJSON LoggingFilter where
   toJSON LoggingFilter' {..} =

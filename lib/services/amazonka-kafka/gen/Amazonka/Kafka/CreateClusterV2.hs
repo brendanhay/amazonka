@@ -136,10 +136,10 @@ instance Prelude.Hashable CreateClusterV2 where
 
 instance Prelude.NFData CreateClusterV2 where
   rnf CreateClusterV2' {..} =
-    Prelude.rnf provisioned
-      `Prelude.seq` Prelude.rnf serverless
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clusterName
+    Prelude.rnf provisioned `Prelude.seq`
+      Prelude.rnf serverless `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf clusterName
 
 instance Data.ToHeaders CreateClusterV2 where
   toHeaders =
@@ -243,8 +243,8 @@ createClusterV2Response_httpStatus = Lens.lens (\CreateClusterV2Response' {httpS
 
 instance Prelude.NFData CreateClusterV2Response where
   rnf CreateClusterV2Response' {..} =
-    Prelude.rnf clusterArn
-      `Prelude.seq` Prelude.rnf clusterName
-      `Prelude.seq` Prelude.rnf clusterType
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf clusterArn `Prelude.seq`
+      Prelude.rnf clusterName `Prelude.seq`
+        Prelude.rnf clusterType `Prelude.seq`
+          Prelude.rnf state `Prelude.seq`
+            Prelude.rnf httpStatus

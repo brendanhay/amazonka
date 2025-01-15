@@ -154,11 +154,11 @@ instance Prelude.Hashable GetFolderPath where
 
 instance Prelude.NFData GetFolderPath where
   rnf GetFolderPath' {..} =
-    Prelude.rnf authenticationToken
-      `Prelude.seq` Prelude.rnf fields
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf folderId
+    Prelude.rnf authenticationToken `Prelude.seq`
+      Prelude.rnf fields `Prelude.seq`
+        Prelude.rnf limit `Prelude.seq`
+          Prelude.rnf marker `Prelude.seq`
+            Prelude.rnf folderId
 
 instance Data.ToHeaders GetFolderPath where
   toHeaders GetFolderPath' {..} =
@@ -221,5 +221,5 @@ getFolderPathResponse_httpStatus = Lens.lens (\GetFolderPathResponse' {httpStatu
 
 instance Prelude.NFData GetFolderPathResponse where
   rnf GetFolderPathResponse' {..} =
-    Prelude.rnf path
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf path `Prelude.seq`
+      Prelude.rnf httpStatus

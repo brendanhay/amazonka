@@ -254,11 +254,11 @@ instance Prelude.Hashable TestType where
 
 instance Prelude.NFData TestType where
   rnf TestType' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf logDeliveryBucket
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf typeName
-      `Prelude.seq` Prelude.rnf versionId
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf logDeliveryBucket `Prelude.seq`
+        Prelude.rnf type' `Prelude.seq`
+          Prelude.rnf typeName `Prelude.seq`
+            Prelude.rnf versionId
 
 instance Data.ToHeaders TestType where
   toHeaders = Prelude.const Prelude.mempty
@@ -319,5 +319,5 @@ testTypeResponse_httpStatus = Lens.lens (\TestTypeResponse' {httpStatus} -> http
 
 instance Prelude.NFData TestTypeResponse where
   rnf TestTypeResponse' {..} =
-    Prelude.rnf typeVersionArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf typeVersionArn `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -108,5 +108,5 @@ instance Prelude.Hashable LocationState where
 
 instance Prelude.NFData LocationState where
   rnf LocationState' {..} =
-    Prelude.rnf location
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf location `Prelude.seq`
+      Prelude.rnf status

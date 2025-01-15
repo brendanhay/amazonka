@@ -673,21 +673,21 @@ instance Prelude.Hashable Statement where
 
 instance Prelude.NFData Statement where
   rnf Statement' {..} =
-    Prelude.rnf andStatement
-      `Prelude.seq` Prelude.rnf byteMatchStatement
-      `Prelude.seq` Prelude.rnf geoMatchStatement
-      `Prelude.seq` Prelude.rnf iPSetReferenceStatement
-      `Prelude.seq` Prelude.rnf labelMatchStatement
-      `Prelude.seq` Prelude.rnf managedRuleGroupStatement
-      `Prelude.seq` Prelude.rnf notStatement
-      `Prelude.seq` Prelude.rnf orStatement
-      `Prelude.seq` Prelude.rnf rateBasedStatement
-      `Prelude.seq` Prelude.rnf regexMatchStatement
-      `Prelude.seq` Prelude.rnf regexPatternSetReferenceStatement
-      `Prelude.seq` Prelude.rnf ruleGroupReferenceStatement
-      `Prelude.seq` Prelude.rnf sizeConstraintStatement
-      `Prelude.seq` Prelude.rnf sqliMatchStatement
-      `Prelude.seq` Prelude.rnf xssMatchStatement
+    Prelude.rnf andStatement `Prelude.seq`
+      Prelude.rnf byteMatchStatement `Prelude.seq`
+        Prelude.rnf geoMatchStatement `Prelude.seq`
+          Prelude.rnf iPSetReferenceStatement `Prelude.seq`
+            Prelude.rnf labelMatchStatement `Prelude.seq`
+              Prelude.rnf managedRuleGroupStatement `Prelude.seq`
+                Prelude.rnf notStatement `Prelude.seq`
+                  Prelude.rnf orStatement `Prelude.seq`
+                    Prelude.rnf rateBasedStatement `Prelude.seq`
+                      Prelude.rnf regexMatchStatement `Prelude.seq`
+                        Prelude.rnf regexPatternSetReferenceStatement `Prelude.seq`
+                          Prelude.rnf ruleGroupReferenceStatement `Prelude.seq`
+                            Prelude.rnf sizeConstraintStatement `Prelude.seq`
+                              Prelude.rnf sqliMatchStatement `Prelude.seq`
+                                Prelude.rnf xssMatchStatement
 
 instance Data.ToJSON Statement where
   toJSON Statement' {..} =

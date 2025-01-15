@@ -81,8 +81,8 @@ instance Prelude.Hashable FunctionExecutionConfig where
 
 instance Prelude.NFData FunctionExecutionConfig where
   rnf FunctionExecutionConfig' {..} =
-    Prelude.rnf isolationMode
-      `Prelude.seq` Prelude.rnf runAs
+    Prelude.rnf isolationMode `Prelude.seq`
+      Prelude.rnf runAs
 
 instance Data.ToJSON FunctionExecutionConfig where
   toJSON FunctionExecutionConfig' {..} =

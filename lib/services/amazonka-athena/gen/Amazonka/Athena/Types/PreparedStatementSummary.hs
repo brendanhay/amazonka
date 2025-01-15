@@ -81,5 +81,5 @@ instance Prelude.Hashable PreparedStatementSummary where
 
 instance Prelude.NFData PreparedStatementSummary where
   rnf PreparedStatementSummary' {..} =
-    Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf statementName
+    Prelude.rnf lastModifiedTime `Prelude.seq`
+      Prelude.rnf statementName

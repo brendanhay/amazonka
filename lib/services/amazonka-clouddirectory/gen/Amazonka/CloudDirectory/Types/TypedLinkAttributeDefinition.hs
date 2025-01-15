@@ -141,12 +141,12 @@ instance
 
 instance Prelude.NFData TypedLinkAttributeDefinition where
   rnf TypedLinkAttributeDefinition' {..} =
-    Prelude.rnf defaultValue
-      `Prelude.seq` Prelude.rnf isImmutable
-      `Prelude.seq` Prelude.rnf rules
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf requiredBehavior
+    Prelude.rnf defaultValue `Prelude.seq`
+      Prelude.rnf isImmutable `Prelude.seq`
+        Prelude.rnf rules `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf type' `Prelude.seq`
+              Prelude.rnf requiredBehavior
 
 instance Data.ToJSON TypedLinkAttributeDefinition where
   toJSON TypedLinkAttributeDefinition' {..} =

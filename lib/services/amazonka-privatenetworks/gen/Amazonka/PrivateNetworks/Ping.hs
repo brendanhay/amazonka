@@ -134,5 +134,5 @@ pingResponse_httpStatus = Lens.lens (\PingResponse' {httpStatus} -> httpStatus) 
 
 instance Prelude.NFData PingResponse where
   rnf PingResponse' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf status `Prelude.seq`
+      Prelude.rnf httpStatus

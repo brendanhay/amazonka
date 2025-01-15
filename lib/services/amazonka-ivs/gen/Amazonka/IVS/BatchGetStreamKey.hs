@@ -170,6 +170,6 @@ batchGetStreamKeyResponse_httpStatus = Lens.lens (\BatchGetStreamKeyResponse' {h
 
 instance Prelude.NFData BatchGetStreamKeyResponse where
   rnf BatchGetStreamKeyResponse' {..} =
-    Prelude.rnf errors
-      `Prelude.seq` Prelude.rnf streamKeys
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf errors `Prelude.seq`
+      Prelude.rnf streamKeys `Prelude.seq`
+        Prelude.rnf httpStatus

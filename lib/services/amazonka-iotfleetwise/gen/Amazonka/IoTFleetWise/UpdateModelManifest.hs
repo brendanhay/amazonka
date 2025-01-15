@@ -156,11 +156,11 @@ instance Prelude.Hashable UpdateModelManifest where
 
 instance Prelude.NFData UpdateModelManifest where
   rnf UpdateModelManifest' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf nodesToAdd
-      `Prelude.seq` Prelude.rnf nodesToRemove
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf nodesToAdd `Prelude.seq`
+        Prelude.rnf nodesToRemove `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf name
 
 instance Data.ToHeaders UpdateModelManifest where
   toHeaders =
@@ -252,6 +252,6 @@ updateModelManifestResponse_arn = Lens.lens (\UpdateModelManifestResponse' {arn}
 
 instance Prelude.NFData UpdateModelManifestResponse where
   rnf UpdateModelManifestResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf arn

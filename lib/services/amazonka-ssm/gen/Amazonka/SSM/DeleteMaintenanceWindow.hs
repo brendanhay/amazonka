@@ -168,5 +168,5 @@ instance
     DeleteMaintenanceWindowResponse
   where
   rnf DeleteMaintenanceWindowResponse' {..} =
-    Prelude.rnf windowId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf windowId `Prelude.seq`
+      Prelude.rnf httpStatus

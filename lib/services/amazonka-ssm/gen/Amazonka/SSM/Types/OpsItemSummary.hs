@@ -325,20 +325,20 @@ instance Prelude.Hashable OpsItemSummary where
 
 instance Prelude.NFData OpsItemSummary where
   rnf OpsItemSummary' {..} =
-    Prelude.rnf actualEndTime
-      `Prelude.seq` Prelude.rnf actualStartTime
-      `Prelude.seq` Prelude.rnf category
-      `Prelude.seq` Prelude.rnf createdBy
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf lastModifiedBy
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf operationalData
-      `Prelude.seq` Prelude.rnf opsItemId
-      `Prelude.seq` Prelude.rnf opsItemType
-      `Prelude.seq` Prelude.rnf plannedEndTime
-      `Prelude.seq` Prelude.rnf plannedStartTime
-      `Prelude.seq` Prelude.rnf priority
-      `Prelude.seq` Prelude.rnf severity
-      `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf title
+    Prelude.rnf actualEndTime `Prelude.seq`
+      Prelude.rnf actualStartTime `Prelude.seq`
+        Prelude.rnf category `Prelude.seq`
+          Prelude.rnf createdBy `Prelude.seq`
+            Prelude.rnf createdTime `Prelude.seq`
+              Prelude.rnf lastModifiedBy `Prelude.seq`
+                Prelude.rnf lastModifiedTime `Prelude.seq`
+                  Prelude.rnf operationalData `Prelude.seq`
+                    Prelude.rnf opsItemId `Prelude.seq`
+                      Prelude.rnf opsItemType `Prelude.seq`
+                        Prelude.rnf plannedEndTime `Prelude.seq`
+                          Prelude.rnf plannedStartTime `Prelude.seq`
+                            Prelude.rnf priority `Prelude.seq`
+                              Prelude.rnf severity `Prelude.seq`
+                                Prelude.rnf source `Prelude.seq`
+                                  Prelude.rnf status `Prelude.seq`
+                                    Prelude.rnf title

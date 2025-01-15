@@ -170,9 +170,9 @@ instance
     RoutingProfileQueueConfigSummary
   where
   rnf RoutingProfileQueueConfigSummary' {..} =
-    Prelude.rnf queueId
-      `Prelude.seq` Prelude.rnf queueArn
-      `Prelude.seq` Prelude.rnf queueName
-      `Prelude.seq` Prelude.rnf priority
-      `Prelude.seq` Prelude.rnf delay
-      `Prelude.seq` Prelude.rnf channel
+    Prelude.rnf queueId `Prelude.seq`
+      Prelude.rnf queueArn `Prelude.seq`
+        Prelude.rnf queueName `Prelude.seq`
+          Prelude.rnf priority `Prelude.seq`
+            Prelude.rnf delay `Prelude.seq`
+              Prelude.rnf channel

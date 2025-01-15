@@ -155,10 +155,10 @@ instance Prelude.Hashable GetFieldResponse where
 
 instance Prelude.NFData GetFieldResponse where
   rnf GetFieldResponse' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf fieldArn
-      `Prelude.seq` Prelude.rnf fieldId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf namespace
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf fieldArn `Prelude.seq`
+          Prelude.rnf fieldId `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf namespace `Prelude.seq`
+                Prelude.rnf type'

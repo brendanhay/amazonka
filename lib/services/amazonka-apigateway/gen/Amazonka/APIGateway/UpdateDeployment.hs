@@ -126,9 +126,9 @@ instance Prelude.Hashable UpdateDeployment where
 
 instance Prelude.NFData UpdateDeployment where
   rnf UpdateDeployment' {..} =
-    Prelude.rnf patchOperations
-      `Prelude.seq` Prelude.rnf restApiId
-      `Prelude.seq` Prelude.rnf deploymentId
+    Prelude.rnf patchOperations `Prelude.seq`
+      Prelude.rnf restApiId `Prelude.seq`
+        Prelude.rnf deploymentId
 
 instance Data.ToHeaders UpdateDeployment where
   toHeaders =

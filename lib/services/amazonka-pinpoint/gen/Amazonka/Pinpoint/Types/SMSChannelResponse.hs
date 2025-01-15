@@ -240,17 +240,17 @@ instance Prelude.Hashable SMSChannelResponse where
 
 instance Prelude.NFData SMSChannelResponse where
   rnf SMSChannelResponse' {..} =
-    Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf hasCredential
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf isArchived
-      `Prelude.seq` Prelude.rnf lastModifiedBy
-      `Prelude.seq` Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf promotionalMessagesPerSecond
-      `Prelude.seq` Prelude.rnf senderId
-      `Prelude.seq` Prelude.rnf shortCode
-      `Prelude.seq` Prelude.rnf transactionalMessagesPerSecond
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf platform
+    Prelude.rnf applicationId `Prelude.seq`
+      Prelude.rnf creationDate `Prelude.seq`
+        Prelude.rnf enabled `Prelude.seq`
+          Prelude.rnf hasCredential `Prelude.seq`
+            Prelude.rnf id `Prelude.seq`
+              Prelude.rnf isArchived `Prelude.seq`
+                Prelude.rnf lastModifiedBy `Prelude.seq`
+                  Prelude.rnf lastModifiedDate `Prelude.seq`
+                    Prelude.rnf promotionalMessagesPerSecond `Prelude.seq`
+                      Prelude.rnf senderId `Prelude.seq`
+                        Prelude.rnf shortCode `Prelude.seq`
+                          Prelude.rnf transactionalMessagesPerSecond `Prelude.seq`
+                            Prelude.rnf version `Prelude.seq`
+                              Prelude.rnf platform

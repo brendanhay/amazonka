@@ -120,8 +120,8 @@ instance Prelude.Hashable SNSAction where
 
 instance Prelude.NFData SNSAction where
   rnf SNSAction' {..} =
-    Prelude.rnf encoding
-      `Prelude.seq` Prelude.rnf topicArn
+    Prelude.rnf encoding `Prelude.seq`
+      Prelude.rnf topicArn
 
 instance Data.ToQuery SNSAction where
   toQuery SNSAction' {..} =

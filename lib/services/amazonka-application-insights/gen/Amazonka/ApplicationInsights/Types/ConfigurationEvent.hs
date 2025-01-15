@@ -132,9 +132,9 @@ instance Prelude.Hashable ConfigurationEvent where
 
 instance Prelude.NFData ConfigurationEvent where
   rnf ConfigurationEvent' {..} =
-    Prelude.rnf eventDetail
-      `Prelude.seq` Prelude.rnf eventResourceName
-      `Prelude.seq` Prelude.rnf eventResourceType
-      `Prelude.seq` Prelude.rnf eventStatus
-      `Prelude.seq` Prelude.rnf eventTime
-      `Prelude.seq` Prelude.rnf monitoredResourceARN
+    Prelude.rnf eventDetail `Prelude.seq`
+      Prelude.rnf eventResourceName `Prelude.seq`
+        Prelude.rnf eventResourceType `Prelude.seq`
+          Prelude.rnf eventStatus `Prelude.seq`
+            Prelude.rnf eventTime `Prelude.seq`
+              Prelude.rnf monitoredResourceARN

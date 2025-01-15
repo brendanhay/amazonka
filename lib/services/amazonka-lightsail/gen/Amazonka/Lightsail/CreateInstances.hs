@@ -309,16 +309,16 @@ instance Prelude.Hashable CreateInstances where
 
 instance Prelude.NFData CreateInstances where
   rnf CreateInstances' {..} =
-    Prelude.rnf addOns
-      `Prelude.seq` Prelude.rnf customImageName
-      `Prelude.seq` Prelude.rnf ipAddressType
-      `Prelude.seq` Prelude.rnf keyPairName
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf userData
-      `Prelude.seq` Prelude.rnf instanceNames
-      `Prelude.seq` Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf blueprintId
-      `Prelude.seq` Prelude.rnf bundleId
+    Prelude.rnf addOns `Prelude.seq`
+      Prelude.rnf customImageName `Prelude.seq`
+        Prelude.rnf ipAddressType `Prelude.seq`
+          Prelude.rnf keyPairName `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf userData `Prelude.seq`
+                Prelude.rnf instanceNames `Prelude.seq`
+                  Prelude.rnf availabilityZone `Prelude.seq`
+                    Prelude.rnf blueprintId `Prelude.seq`
+                      Prelude.rnf bundleId
 
 instance Data.ToHeaders CreateInstances where
   toHeaders =
@@ -407,5 +407,5 @@ createInstancesResponse_httpStatus = Lens.lens (\CreateInstancesResponse' {httpS
 
 instance Prelude.NFData CreateInstancesResponse where
   rnf CreateInstancesResponse' {..} =
-    Prelude.rnf operations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operations `Prelude.seq`
+      Prelude.rnf httpStatus

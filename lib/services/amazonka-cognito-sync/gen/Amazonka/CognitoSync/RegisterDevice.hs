@@ -151,10 +151,10 @@ instance Prelude.Hashable RegisterDevice where
 
 instance Prelude.NFData RegisterDevice where
   rnf RegisterDevice' {..} =
-    Prelude.rnf identityPoolId
-      `Prelude.seq` Prelude.rnf identityId
-      `Prelude.seq` Prelude.rnf platform
-      `Prelude.seq` Prelude.rnf token
+    Prelude.rnf identityPoolId `Prelude.seq`
+      Prelude.rnf identityId `Prelude.seq`
+        Prelude.rnf platform `Prelude.seq`
+          Prelude.rnf token
 
 instance Data.ToHeaders RegisterDevice where
   toHeaders =
@@ -231,5 +231,5 @@ registerDeviceResponse_httpStatus = Lens.lens (\RegisterDeviceResponse' {httpSta
 
 instance Prelude.NFData RegisterDeviceResponse where
   rnf RegisterDeviceResponse' {..} =
-    Prelude.rnf deviceId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf deviceId `Prelude.seq`
+      Prelude.rnf httpStatus

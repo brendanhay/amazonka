@@ -199,13 +199,13 @@ instance Prelude.Hashable ImportJobProperties where
 
 instance Prelude.NFData ImportJobProperties where
   rnf ImportJobProperties' {..} =
-    Prelude.rnf dataAccessRoleArn
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf jobOutputDataConfig
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf jobStatus
-      `Prelude.seq` Prelude.rnf submitTime
-      `Prelude.seq` Prelude.rnf datastoreId
-      `Prelude.seq` Prelude.rnf inputDataConfig
+    Prelude.rnf dataAccessRoleArn `Prelude.seq`
+      Prelude.rnf endTime `Prelude.seq`
+        Prelude.rnf jobName `Prelude.seq`
+          Prelude.rnf jobOutputDataConfig `Prelude.seq`
+            Prelude.rnf message `Prelude.seq`
+              Prelude.rnf jobId `Prelude.seq`
+                Prelude.rnf jobStatus `Prelude.seq`
+                  Prelude.rnf submitTime `Prelude.seq`
+                    Prelude.rnf datastoreId `Prelude.seq`
+                      Prelude.rnf inputDataConfig

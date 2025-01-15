@@ -195,9 +195,9 @@ instance
     GetWirelessGatewayTaskResponse
   where
   rnf GetWirelessGatewayTaskResponse' {..} =
-    Prelude.rnf lastUplinkReceivedAt
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf taskCreatedAt
-      `Prelude.seq` Prelude.rnf wirelessGatewayId
-      `Prelude.seq` Prelude.rnf wirelessGatewayTaskDefinitionId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf lastUplinkReceivedAt `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf taskCreatedAt `Prelude.seq`
+          Prelude.rnf wirelessGatewayId `Prelude.seq`
+            Prelude.rnf wirelessGatewayTaskDefinitionId `Prelude.seq`
+              Prelude.rnf httpStatus

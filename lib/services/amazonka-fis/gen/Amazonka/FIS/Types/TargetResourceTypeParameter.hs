@@ -82,5 +82,5 @@ instance Prelude.Hashable TargetResourceTypeParameter where
 
 instance Prelude.NFData TargetResourceTypeParameter where
   rnf TargetResourceTypeParameter' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf required
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf required

@@ -136,9 +136,9 @@ instance Prelude.Hashable UpdateContributorInsights where
 
 instance Prelude.NFData UpdateContributorInsights where
   rnf UpdateContributorInsights' {..} =
-    Prelude.rnf indexName
-      `Prelude.seq` Prelude.rnf tableName
-      `Prelude.seq` Prelude.rnf contributorInsightsAction
+    Prelude.rnf indexName `Prelude.seq`
+      Prelude.rnf tableName `Prelude.seq`
+        Prelude.rnf contributorInsightsAction
 
 instance Data.ToHeaders UpdateContributorInsights where
   toHeaders =
@@ -236,7 +236,7 @@ instance
     UpdateContributorInsightsResponse
   where
   rnf UpdateContributorInsightsResponse' {..} =
-    Prelude.rnf contributorInsightsStatus
-      `Prelude.seq` Prelude.rnf indexName
-      `Prelude.seq` Prelude.rnf tableName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf contributorInsightsStatus `Prelude.seq`
+      Prelude.rnf indexName `Prelude.seq`
+        Prelude.rnf tableName `Prelude.seq`
+          Prelude.rnf httpStatus

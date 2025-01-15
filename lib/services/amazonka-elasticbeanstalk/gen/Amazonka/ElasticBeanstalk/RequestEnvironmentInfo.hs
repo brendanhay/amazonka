@@ -172,9 +172,9 @@ instance Prelude.Hashable RequestEnvironmentInfo where
 
 instance Prelude.NFData RequestEnvironmentInfo where
   rnf RequestEnvironmentInfo' {..} =
-    Prelude.rnf environmentId
-      `Prelude.seq` Prelude.rnf environmentName
-      `Prelude.seq` Prelude.rnf infoType
+    Prelude.rnf environmentId `Prelude.seq`
+      Prelude.rnf environmentName `Prelude.seq`
+        Prelude.rnf infoType
 
 instance Data.ToHeaders RequestEnvironmentInfo where
   toHeaders = Prelude.const Prelude.mempty

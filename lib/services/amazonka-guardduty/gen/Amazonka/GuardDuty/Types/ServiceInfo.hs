@@ -214,16 +214,16 @@ instance Prelude.Hashable ServiceInfo where
 
 instance Prelude.NFData ServiceInfo where
   rnf ServiceInfo' {..} =
-    Prelude.rnf action
-      `Prelude.seq` Prelude.rnf additionalInfo
-      `Prelude.seq` Prelude.rnf archived
-      `Prelude.seq` Prelude.rnf count
-      `Prelude.seq` Prelude.rnf detectorId
-      `Prelude.seq` Prelude.rnf ebsVolumeScanDetails
-      `Prelude.seq` Prelude.rnf eventFirstSeen
-      `Prelude.seq` Prelude.rnf eventLastSeen
-      `Prelude.seq` Prelude.rnf evidence
-      `Prelude.seq` Prelude.rnf featureName
-      `Prelude.seq` Prelude.rnf resourceRole
-      `Prelude.seq` Prelude.rnf serviceName
-      `Prelude.seq` Prelude.rnf userFeedback
+    Prelude.rnf action `Prelude.seq`
+      Prelude.rnf additionalInfo `Prelude.seq`
+        Prelude.rnf archived `Prelude.seq`
+          Prelude.rnf count `Prelude.seq`
+            Prelude.rnf detectorId `Prelude.seq`
+              Prelude.rnf ebsVolumeScanDetails `Prelude.seq`
+                Prelude.rnf eventFirstSeen `Prelude.seq`
+                  Prelude.rnf eventLastSeen `Prelude.seq`
+                    Prelude.rnf evidence `Prelude.seq`
+                      Prelude.rnf featureName `Prelude.seq`
+                        Prelude.rnf resourceRole `Prelude.seq`
+                          Prelude.rnf serviceName `Prelude.seq`
+                            Prelude.rnf userFeedback

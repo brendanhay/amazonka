@@ -124,13 +124,13 @@ instance Prelude.Hashable AwsEcrContainerAggregation where
 
 instance Prelude.NFData AwsEcrContainerAggregation where
   rnf AwsEcrContainerAggregation' {..} =
-    Prelude.rnf architectures
-      `Prelude.seq` Prelude.rnf imageShas
-      `Prelude.seq` Prelude.rnf imageTags
-      `Prelude.seq` Prelude.rnf repositories
-      `Prelude.seq` Prelude.rnf resourceIds
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf sortOrder
+    Prelude.rnf architectures `Prelude.seq`
+      Prelude.rnf imageShas `Prelude.seq`
+        Prelude.rnf imageTags `Prelude.seq`
+          Prelude.rnf repositories `Prelude.seq`
+            Prelude.rnf resourceIds `Prelude.seq`
+              Prelude.rnf sortBy `Prelude.seq`
+                Prelude.rnf sortOrder
 
 instance Data.ToJSON AwsEcrContainerAggregation where
   toJSON AwsEcrContainerAggregation' {..} =

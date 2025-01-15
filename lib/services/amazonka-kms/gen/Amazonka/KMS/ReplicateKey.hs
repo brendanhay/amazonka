@@ -654,12 +654,12 @@ instance Prelude.Hashable ReplicateKey where
 
 instance Prelude.NFData ReplicateKey where
   rnf ReplicateKey' {..} =
-    Prelude.rnf bypassPolicyLockoutSafetyCheck
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf policy
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf keyId
-      `Prelude.seq` Prelude.rnf replicaRegion
+    Prelude.rnf bypassPolicyLockoutSafetyCheck `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf policy `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf keyId `Prelude.seq`
+              Prelude.rnf replicaRegion
 
 instance Data.ToHeaders ReplicateKey where
   toHeaders =
@@ -778,7 +778,7 @@ replicateKeyResponse_httpStatus = Lens.lens (\ReplicateKeyResponse' {httpStatus}
 
 instance Prelude.NFData ReplicateKeyResponse where
   rnf ReplicateKeyResponse' {..} =
-    Prelude.rnf replicaKeyMetadata
-      `Prelude.seq` Prelude.rnf replicaPolicy
-      `Prelude.seq` Prelude.rnf replicaTags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf replicaKeyMetadata `Prelude.seq`
+      Prelude.rnf replicaPolicy `Prelude.seq`
+        Prelude.rnf replicaTags `Prelude.seq`
+          Prelude.rnf httpStatus

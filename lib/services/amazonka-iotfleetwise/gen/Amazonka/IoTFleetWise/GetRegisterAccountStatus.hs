@@ -280,10 +280,10 @@ instance
     GetRegisterAccountStatusResponse
   where
   rnf GetRegisterAccountStatusResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf customerAccountId
-      `Prelude.seq` Prelude.rnf accountStatus
-      `Prelude.seq` Prelude.rnf timestreamRegistrationResponse
-      `Prelude.seq` Prelude.rnf iamRegistrationResponse
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf lastModificationTime
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf customerAccountId `Prelude.seq`
+        Prelude.rnf accountStatus `Prelude.seq`
+          Prelude.rnf timestreamRegistrationResponse `Prelude.seq`
+            Prelude.rnf iamRegistrationResponse `Prelude.seq`
+              Prelude.rnf creationTime `Prelude.seq`
+                Prelude.rnf lastModificationTime

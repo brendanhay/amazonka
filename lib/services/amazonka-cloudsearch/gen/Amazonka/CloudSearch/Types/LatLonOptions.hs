@@ -125,12 +125,12 @@ instance Prelude.Hashable LatLonOptions where
 
 instance Prelude.NFData LatLonOptions where
   rnf LatLonOptions' {..} =
-    Prelude.rnf defaultValue
-      `Prelude.seq` Prelude.rnf facetEnabled
-      `Prelude.seq` Prelude.rnf returnEnabled
-      `Prelude.seq` Prelude.rnf searchEnabled
-      `Prelude.seq` Prelude.rnf sortEnabled
-      `Prelude.seq` Prelude.rnf sourceField
+    Prelude.rnf defaultValue `Prelude.seq`
+      Prelude.rnf facetEnabled `Prelude.seq`
+        Prelude.rnf returnEnabled `Prelude.seq`
+          Prelude.rnf searchEnabled `Prelude.seq`
+            Prelude.rnf sortEnabled `Prelude.seq`
+              Prelude.rnf sourceField
 
 instance Data.ToQuery LatLonOptions where
   toQuery LatLonOptions' {..} =

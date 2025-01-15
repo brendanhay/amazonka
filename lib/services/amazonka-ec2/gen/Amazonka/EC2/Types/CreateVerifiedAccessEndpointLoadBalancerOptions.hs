@@ -104,10 +104,10 @@ instance
   where
   rnf
     CreateVerifiedAccessEndpointLoadBalancerOptions' {..} =
-      Prelude.rnf loadBalancerArn
-        `Prelude.seq` Prelude.rnf port
-        `Prelude.seq` Prelude.rnf protocol
-        `Prelude.seq` Prelude.rnf subnetIds
+      Prelude.rnf loadBalancerArn `Prelude.seq`
+        Prelude.rnf port `Prelude.seq`
+          Prelude.rnf protocol `Prelude.seq`
+            Prelude.rnf subnetIds
 
 instance
   Data.ToQuery

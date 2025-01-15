@@ -262,20 +262,20 @@ instance Prelude.Hashable BatchReadOperation where
 
 instance Prelude.NFData BatchReadOperation where
   rnf BatchReadOperation' {..} =
-    Prelude.rnf getLinkAttributes
-      `Prelude.seq` Prelude.rnf getObjectAttributes
-      `Prelude.seq` Prelude.rnf getObjectInformation
-      `Prelude.seq` Prelude.rnf listAttachedIndices
-      `Prelude.seq` Prelude.rnf listIncomingTypedLinks
-      `Prelude.seq` Prelude.rnf listIndex
-      `Prelude.seq` Prelude.rnf listObjectAttributes
-      `Prelude.seq` Prelude.rnf listObjectChildren
-      `Prelude.seq` Prelude.rnf listObjectParentPaths
-      `Prelude.seq` Prelude.rnf listObjectParents
-      `Prelude.seq` Prelude.rnf listObjectPolicies
-      `Prelude.seq` Prelude.rnf listOutgoingTypedLinks
-      `Prelude.seq` Prelude.rnf listPolicyAttachments
-      `Prelude.seq` Prelude.rnf lookupPolicy
+    Prelude.rnf getLinkAttributes `Prelude.seq`
+      Prelude.rnf getObjectAttributes `Prelude.seq`
+        Prelude.rnf getObjectInformation `Prelude.seq`
+          Prelude.rnf listAttachedIndices `Prelude.seq`
+            Prelude.rnf listIncomingTypedLinks `Prelude.seq`
+              Prelude.rnf listIndex `Prelude.seq`
+                Prelude.rnf listObjectAttributes `Prelude.seq`
+                  Prelude.rnf listObjectChildren `Prelude.seq`
+                    Prelude.rnf listObjectParentPaths `Prelude.seq`
+                      Prelude.rnf listObjectParents `Prelude.seq`
+                        Prelude.rnf listObjectPolicies `Prelude.seq`
+                          Prelude.rnf listOutgoingTypedLinks `Prelude.seq`
+                            Prelude.rnf listPolicyAttachments `Prelude.seq`
+                              Prelude.rnf lookupPolicy
 
 instance Data.ToJSON BatchReadOperation where
   toJSON BatchReadOperation' {..} =

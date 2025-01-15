@@ -137,9 +137,9 @@ instance Prelude.Hashable DescribeOutboundConnections where
 
 instance Prelude.NFData DescribeOutboundConnections where
   rnf DescribeOutboundConnections' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeOutboundConnections where
   toHeaders = Prelude.const Prelude.mempty
@@ -223,6 +223,6 @@ instance
     DescribeOutboundConnectionsResponse
   where
   rnf DescribeOutboundConnectionsResponse' {..} =
-    Prelude.rnf connections
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf connections `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

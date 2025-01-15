@@ -191,14 +191,14 @@ instance Prelude.Hashable ReplicationTaskStats where
 
 instance Prelude.NFData ReplicationTaskStats where
   rnf ReplicationTaskStats' {..} =
-    Prelude.rnf elapsedTimeMillis
-      `Prelude.seq` Prelude.rnf freshStartDate
-      `Prelude.seq` Prelude.rnf fullLoadFinishDate
-      `Prelude.seq` Prelude.rnf fullLoadProgressPercent
-      `Prelude.seq` Prelude.rnf fullLoadStartDate
-      `Prelude.seq` Prelude.rnf startDate
-      `Prelude.seq` Prelude.rnf stopDate
-      `Prelude.seq` Prelude.rnf tablesErrored
-      `Prelude.seq` Prelude.rnf tablesLoaded
-      `Prelude.seq` Prelude.rnf tablesLoading
-      `Prelude.seq` Prelude.rnf tablesQueued
+    Prelude.rnf elapsedTimeMillis `Prelude.seq`
+      Prelude.rnf freshStartDate `Prelude.seq`
+        Prelude.rnf fullLoadFinishDate `Prelude.seq`
+          Prelude.rnf fullLoadProgressPercent `Prelude.seq`
+            Prelude.rnf fullLoadStartDate `Prelude.seq`
+              Prelude.rnf startDate `Prelude.seq`
+                Prelude.rnf stopDate `Prelude.seq`
+                  Prelude.rnf tablesErrored `Prelude.seq`
+                    Prelude.rnf tablesLoaded `Prelude.seq`
+                      Prelude.rnf tablesLoading `Prelude.seq`
+                        Prelude.rnf tablesQueued

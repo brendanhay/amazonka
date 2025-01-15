@@ -98,6 +98,6 @@ instance
     TransitGatewayPolicyTableEntry
   where
   rnf TransitGatewayPolicyTableEntry' {..} =
-    Prelude.rnf policyRule
-      `Prelude.seq` Prelude.rnf policyRuleNumber
-      `Prelude.seq` Prelude.rnf targetRouteTableId
+    Prelude.rnf policyRule `Prelude.seq`
+      Prelude.rnf policyRuleNumber `Prelude.seq`
+        Prelude.rnf targetRouteTableId

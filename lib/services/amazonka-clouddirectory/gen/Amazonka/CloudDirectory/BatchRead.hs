@@ -126,9 +126,9 @@ instance Prelude.Hashable BatchRead where
 
 instance Prelude.NFData BatchRead where
   rnf BatchRead' {..} =
-    Prelude.rnf consistencyLevel
-      `Prelude.seq` Prelude.rnf directoryArn
-      `Prelude.seq` Prelude.rnf operations
+    Prelude.rnf consistencyLevel `Prelude.seq`
+      Prelude.rnf directoryArn `Prelude.seq`
+        Prelude.rnf operations
 
 instance Data.ToHeaders BatchRead where
   toHeaders BatchRead' {..} =
@@ -192,5 +192,5 @@ batchReadResponse_httpStatus = Lens.lens (\BatchReadResponse' {httpStatus} -> ht
 
 instance Prelude.NFData BatchReadResponse where
   rnf BatchReadResponse' {..} =
-    Prelude.rnf responses
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf responses `Prelude.seq`
+      Prelude.rnf httpStatus

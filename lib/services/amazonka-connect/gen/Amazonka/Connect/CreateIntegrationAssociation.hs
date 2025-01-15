@@ -201,13 +201,13 @@ instance
 
 instance Prelude.NFData CreateIntegrationAssociation where
   rnf CreateIntegrationAssociation' {..} =
-    Prelude.rnf sourceApplicationName
-      `Prelude.seq` Prelude.rnf sourceApplicationUrl
-      `Prelude.seq` Prelude.rnf sourceType
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf integrationType
-      `Prelude.seq` Prelude.rnf integrationArn
+    Prelude.rnf sourceApplicationName `Prelude.seq`
+      Prelude.rnf sourceApplicationUrl `Prelude.seq`
+        Prelude.rnf sourceType `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf instanceId `Prelude.seq`
+              Prelude.rnf integrationType `Prelude.seq`
+                Prelude.rnf integrationArn
 
 instance Data.ToHeaders CreateIntegrationAssociation where
   toHeaders =
@@ -302,6 +302,6 @@ instance
     CreateIntegrationAssociationResponse
   where
   rnf CreateIntegrationAssociationResponse' {..} =
-    Prelude.rnf integrationAssociationArn
-      `Prelude.seq` Prelude.rnf integrationAssociationId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf integrationAssociationArn `Prelude.seq`
+      Prelude.rnf integrationAssociationId `Prelude.seq`
+        Prelude.rnf httpStatus

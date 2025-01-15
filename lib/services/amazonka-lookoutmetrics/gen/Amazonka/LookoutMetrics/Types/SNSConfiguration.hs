@@ -127,9 +127,9 @@ instance Prelude.Hashable SNSConfiguration where
 
 instance Prelude.NFData SNSConfiguration where
   rnf SNSConfiguration' {..} =
-    Prelude.rnf snsFormat
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf snsTopicArn
+    Prelude.rnf snsFormat `Prelude.seq`
+      Prelude.rnf roleArn `Prelude.seq`
+        Prelude.rnf snsTopicArn
 
 instance Data.ToJSON SNSConfiguration where
   toJSON SNSConfiguration' {..} =

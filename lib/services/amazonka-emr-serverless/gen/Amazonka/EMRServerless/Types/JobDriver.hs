@@ -82,8 +82,8 @@ instance Prelude.Hashable JobDriver where
 
 instance Prelude.NFData JobDriver where
   rnf JobDriver' {..} =
-    Prelude.rnf hive
-      `Prelude.seq` Prelude.rnf sparkSubmit
+    Prelude.rnf hive `Prelude.seq`
+      Prelude.rnf sparkSubmit
 
 instance Data.ToJSON JobDriver where
   toJSON JobDriver' {..} =

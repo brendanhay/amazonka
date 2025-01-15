@@ -536,22 +536,22 @@ describeSecretResponse_httpStatus = Lens.lens (\DescribeSecretResponse' {httpSta
 
 instance Prelude.NFData DescribeSecretResponse where
   rnf DescribeSecretResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdDate
-      `Prelude.seq` Prelude.rnf deletedDate
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf lastAccessedDate
-      `Prelude.seq` Prelude.rnf lastChangedDate
-      `Prelude.seq` Prelude.rnf lastRotatedDate
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf nextRotationDate
-      `Prelude.seq` Prelude.rnf owningService
-      `Prelude.seq` Prelude.rnf primaryRegion
-      `Prelude.seq` Prelude.rnf replicationStatus
-      `Prelude.seq` Prelude.rnf rotationEnabled
-      `Prelude.seq` Prelude.rnf rotationLambdaARN
-      `Prelude.seq` Prelude.rnf rotationRules
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf versionIdsToStages
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf createdDate `Prelude.seq`
+        Prelude.rnf deletedDate `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf kmsKeyId `Prelude.seq`
+              Prelude.rnf lastAccessedDate `Prelude.seq`
+                Prelude.rnf lastChangedDate `Prelude.seq`
+                  Prelude.rnf lastRotatedDate `Prelude.seq`
+                    Prelude.rnf name `Prelude.seq`
+                      Prelude.rnf nextRotationDate `Prelude.seq`
+                        Prelude.rnf owningService `Prelude.seq`
+                          Prelude.rnf primaryRegion `Prelude.seq`
+                            Prelude.rnf replicationStatus `Prelude.seq`
+                              Prelude.rnf rotationEnabled `Prelude.seq`
+                                Prelude.rnf rotationLambdaARN `Prelude.seq`
+                                  Prelude.rnf rotationRules `Prelude.seq`
+                                    Prelude.rnf tags `Prelude.seq`
+                                      Prelude.rnf versionIdsToStages `Prelude.seq`
+                                        Prelude.rnf httpStatus

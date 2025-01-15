@@ -194,17 +194,17 @@ instance
     ImportInstanceLaunchSpecification
   where
   rnf ImportInstanceLaunchSpecification' {..} =
-    Prelude.rnf additionalInfo
-      `Prelude.seq` Prelude.rnf architecture
-      `Prelude.seq` Prelude.rnf groupIds
-      `Prelude.seq` Prelude.rnf groupNames
-      `Prelude.seq` Prelude.rnf instanceInitiatedShutdownBehavior
-      `Prelude.seq` Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf monitoring
-      `Prelude.seq` Prelude.rnf placement
-      `Prelude.seq` Prelude.rnf privateIpAddress
-      `Prelude.seq` Prelude.rnf subnetId
-      `Prelude.seq` Prelude.rnf userData
+    Prelude.rnf additionalInfo `Prelude.seq`
+      Prelude.rnf architecture `Prelude.seq`
+        Prelude.rnf groupIds `Prelude.seq`
+          Prelude.rnf groupNames `Prelude.seq`
+            Prelude.rnf instanceInitiatedShutdownBehavior `Prelude.seq`
+              Prelude.rnf instanceType `Prelude.seq`
+                Prelude.rnf monitoring `Prelude.seq`
+                  Prelude.rnf placement `Prelude.seq`
+                    Prelude.rnf privateIpAddress `Prelude.seq`
+                      Prelude.rnf subnetId `Prelude.seq`
+                        Prelude.rnf userData
 
 instance
   Data.ToQuery

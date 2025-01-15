@@ -148,13 +148,13 @@ instance Prelude.Hashable FunnelChartConfiguration where
 
 instance Prelude.NFData FunnelChartConfiguration where
   rnf FunnelChartConfiguration' {..} =
-    Prelude.rnf categoryLabelOptions
-      `Prelude.seq` Prelude.rnf dataLabelOptions
-      `Prelude.seq` Prelude.rnf fieldWells
-      `Prelude.seq` Prelude.rnf sortConfiguration
-      `Prelude.seq` Prelude.rnf tooltip
-      `Prelude.seq` Prelude.rnf valueLabelOptions
-      `Prelude.seq` Prelude.rnf visualPalette
+    Prelude.rnf categoryLabelOptions `Prelude.seq`
+      Prelude.rnf dataLabelOptions `Prelude.seq`
+        Prelude.rnf fieldWells `Prelude.seq`
+          Prelude.rnf sortConfiguration `Prelude.seq`
+            Prelude.rnf tooltip `Prelude.seq`
+              Prelude.rnf valueLabelOptions `Prelude.seq`
+                Prelude.rnf visualPalette
 
 instance Data.ToJSON FunnelChartConfiguration where
   toJSON FunnelChartConfiguration' {..} =

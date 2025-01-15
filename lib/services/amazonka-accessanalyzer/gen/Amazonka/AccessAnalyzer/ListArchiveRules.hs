@@ -113,12 +113,12 @@ instance Core.AWSPager ListArchiveRules where
         (rs Lens.^. listArchiveRulesResponse_archiveRules) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listArchiveRules_nextToken
-          Lens..~ rs
-          Lens.^? listArchiveRulesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listArchiveRules_nextToken
+              Lens..~ rs
+              Lens.^? listArchiveRulesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListArchiveRules where
   type
@@ -144,9 +144,9 @@ instance Prelude.Hashable ListArchiveRules where
 
 instance Prelude.NFData ListArchiveRules where
   rnf ListArchiveRules' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf analyzerName
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf analyzerName
 
 instance Data.ToHeaders ListArchiveRules where
   toHeaders =
@@ -226,6 +226,6 @@ listArchiveRulesResponse_archiveRules = Lens.lens (\ListArchiveRulesResponse' {a
 
 instance Prelude.NFData ListArchiveRulesResponse where
   rnf ListArchiveRulesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf archiveRules
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf archiveRules

@@ -158,14 +158,14 @@ instance Prelude.Hashable Operation where
 
 instance Prelude.NFData Operation where
   rnf Operation' {..} =
-    Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf properties
-      `Prelude.seq` Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf endTime `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf lastUpdatedTime `Prelude.seq`
+          Prelude.rnf properties `Prelude.seq`
+            Prelude.rnf resourceArn `Prelude.seq`
+              Prelude.rnf resourceId `Prelude.seq`
+                Prelude.rnf resourceType `Prelude.seq`
+                  Prelude.rnf startTime `Prelude.seq`
+                    Prelude.rnf status `Prelude.seq`
+                      Prelude.rnf statusMessage `Prelude.seq`
+                        Prelude.rnf type'

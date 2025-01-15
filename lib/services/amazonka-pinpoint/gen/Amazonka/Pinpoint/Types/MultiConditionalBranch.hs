@@ -85,8 +85,8 @@ instance Prelude.Hashable MultiConditionalBranch where
 
 instance Prelude.NFData MultiConditionalBranch where
   rnf MultiConditionalBranch' {..} =
-    Prelude.rnf condition
-      `Prelude.seq` Prelude.rnf nextActivity
+    Prelude.rnf condition `Prelude.seq`
+      Prelude.rnf nextActivity
 
 instance Data.ToJSON MultiConditionalBranch where
   toJSON MultiConditionalBranch' {..} =

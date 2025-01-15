@@ -78,5 +78,5 @@ instance Prelude.Hashable SuccessfulRequest where
 
 instance Prelude.NFData SuccessfulRequest where
   rnf SuccessfulRequest' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf id

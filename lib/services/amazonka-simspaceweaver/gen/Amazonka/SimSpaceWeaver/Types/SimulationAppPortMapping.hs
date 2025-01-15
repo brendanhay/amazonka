@@ -95,5 +95,5 @@ instance Prelude.Hashable SimulationAppPortMapping where
 
 instance Prelude.NFData SimulationAppPortMapping where
   rnf SimulationAppPortMapping' {..} =
-    Prelude.rnf actual
-      `Prelude.seq` Prelude.rnf declared
+    Prelude.rnf actual `Prelude.seq`
+      Prelude.rnf declared

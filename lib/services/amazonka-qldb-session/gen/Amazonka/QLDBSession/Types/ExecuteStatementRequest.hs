@@ -88,9 +88,9 @@ instance Prelude.Hashable ExecuteStatementRequest where
 
 instance Prelude.NFData ExecuteStatementRequest where
   rnf ExecuteStatementRequest' {..} =
-    Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf transactionId
-      `Prelude.seq` Prelude.rnf statement
+    Prelude.rnf parameters `Prelude.seq`
+      Prelude.rnf transactionId `Prelude.seq`
+        Prelude.rnf statement
 
 instance Data.ToJSON ExecuteStatementRequest where
   toJSON ExecuteStatementRequest' {..} =

@@ -94,8 +94,8 @@ instance Prelude.Hashable ProvisioningHook where
 
 instance Prelude.NFData ProvisioningHook where
   rnf ProvisioningHook' {..} =
-    Prelude.rnf payloadVersion
-      `Prelude.seq` Prelude.rnf targetArn
+    Prelude.rnf payloadVersion `Prelude.seq`
+      Prelude.rnf targetArn
 
 instance Data.ToJSON ProvisioningHook where
   toJSON ProvisioningHook' {..} =

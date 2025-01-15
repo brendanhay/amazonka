@@ -86,9 +86,9 @@ instance Prelude.Hashable BatchListAttachedIndices where
 
 instance Prelude.NFData BatchListAttachedIndices where
   rnf BatchListAttachedIndices' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf targetReference
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf targetReference
 
 instance Data.ToJSON BatchListAttachedIndices where
   toJSON BatchListAttachedIndices' {..} =

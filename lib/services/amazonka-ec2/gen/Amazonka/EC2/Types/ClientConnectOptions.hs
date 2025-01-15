@@ -78,8 +78,8 @@ instance Prelude.Hashable ClientConnectOptions where
 
 instance Prelude.NFData ClientConnectOptions where
   rnf ClientConnectOptions' {..} =
-    Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf lambdaFunctionArn
+    Prelude.rnf enabled `Prelude.seq`
+      Prelude.rnf lambdaFunctionArn
 
 instance Data.ToQuery ClientConnectOptions where
   toQuery ClientConnectOptions' {..} =

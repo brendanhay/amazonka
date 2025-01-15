@@ -139,10 +139,10 @@ instance Prelude.Hashable DeviceDescription where
 
 instance Prelude.NFData DeviceDescription where
   rnf DeviceDescription' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf deviceId
-      `Prelude.seq` Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf remainingLife
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf attributes `Prelude.seq`
+        Prelude.rnf deviceId `Prelude.seq`
+          Prelude.rnf enabled `Prelude.seq`
+            Prelude.rnf remainingLife `Prelude.seq`
+              Prelude.rnf tags `Prelude.seq`
+                Prelude.rnf type'

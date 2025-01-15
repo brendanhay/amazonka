@@ -185,12 +185,12 @@ instance Prelude.Hashable ResourceShareInvitation where
 
 instance Prelude.NFData ResourceShareInvitation where
   rnf ResourceShareInvitation' {..} =
-    Prelude.rnf invitationTimestamp
-      `Prelude.seq` Prelude.rnf receiverAccountId
-      `Prelude.seq` Prelude.rnf receiverArn
-      `Prelude.seq` Prelude.rnf resourceShareArn
-      `Prelude.seq` Prelude.rnf resourceShareAssociations
-      `Prelude.seq` Prelude.rnf resourceShareInvitationArn
-      `Prelude.seq` Prelude.rnf resourceShareName
-      `Prelude.seq` Prelude.rnf senderAccountId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf invitationTimestamp `Prelude.seq`
+      Prelude.rnf receiverAccountId `Prelude.seq`
+        Prelude.rnf receiverArn `Prelude.seq`
+          Prelude.rnf resourceShareArn `Prelude.seq`
+            Prelude.rnf resourceShareAssociations `Prelude.seq`
+              Prelude.rnf resourceShareInvitationArn `Prelude.seq`
+                Prelude.rnf resourceShareName `Prelude.seq`
+                  Prelude.rnf senderAccountId `Prelude.seq`
+                    Prelude.rnf status

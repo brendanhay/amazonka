@@ -143,9 +143,9 @@ instance Prelude.Hashable CreateInsight where
 
 instance Prelude.NFData CreateInsight where
   rnf CreateInsight' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf groupByAttribute
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf groupByAttribute
 
 instance Data.ToHeaders CreateInsight where
   toHeaders =
@@ -217,5 +217,5 @@ createInsightResponse_insightArn = Lens.lens (\CreateInsightResponse' {insightAr
 
 instance Prelude.NFData CreateInsightResponse where
   rnf CreateInsightResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf insightArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf insightArn

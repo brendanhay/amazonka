@@ -112,8 +112,8 @@ instance
     OnDemandProvisioningSpecification
   where
   rnf OnDemandProvisioningSpecification' {..} =
-    Prelude.rnf capacityReservationOptions
-      `Prelude.seq` Prelude.rnf allocationStrategy
+    Prelude.rnf capacityReservationOptions `Prelude.seq`
+      Prelude.rnf allocationStrategy
 
 instance
   Data.ToJSON

@@ -168,11 +168,11 @@ instance Prelude.Hashable CreateRuleGroupsNamespace where
 
 instance Prelude.NFData CreateRuleGroupsNamespace where
   rnf CreateRuleGroupsNamespace' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf data'
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf workspaceId
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf data' `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf workspaceId
 
 instance Data.ToHeaders CreateRuleGroupsNamespace where
   toHeaders =
@@ -290,8 +290,8 @@ instance
     CreateRuleGroupsNamespaceResponse
   where
   rnf CreateRuleGroupsNamespaceResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf arn `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf status

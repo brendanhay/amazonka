@@ -150,10 +150,10 @@ instance Prelude.Hashable AssociateCustomerGateway where
 
 instance Prelude.NFData AssociateCustomerGateway where
   rnf AssociateCustomerGateway' {..} =
-    Prelude.rnf linkId
-      `Prelude.seq` Prelude.rnf customerGatewayArn
-      `Prelude.seq` Prelude.rnf globalNetworkId
-      `Prelude.seq` Prelude.rnf deviceId
+    Prelude.rnf linkId `Prelude.seq`
+      Prelude.rnf customerGatewayArn `Prelude.seq`
+        Prelude.rnf globalNetworkId `Prelude.seq`
+          Prelude.rnf deviceId
 
 instance Data.ToHeaders AssociateCustomerGateway where
   toHeaders =
@@ -232,5 +232,5 @@ instance
     AssociateCustomerGatewayResponse
   where
   rnf AssociateCustomerGatewayResponse' {..} =
-    Prelude.rnf customerGatewayAssociation
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf customerGatewayAssociation `Prelude.seq`
+      Prelude.rnf httpStatus

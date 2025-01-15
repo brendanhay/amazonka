@@ -109,9 +109,7 @@ instance
     Response.receiveXML
       ( \s h x ->
           DeleteVpcEndpointConnectionNotificationsResponse'
-            Prelude.<$> ( x
-                            Data..@? "unsuccessful"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "unsuccessful" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -133,8 +131,8 @@ instance
     DeleteVpcEndpointConnectionNotifications
   where
   rnf DeleteVpcEndpointConnectionNotifications' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf connectionNotificationIds
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf connectionNotificationIds
 
 instance
   Data.ToHeaders
@@ -215,5 +213,5 @@ instance
   where
   rnf
     DeleteVpcEndpointConnectionNotificationsResponse' {..} =
-      Prelude.rnf unsuccessful
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf unsuccessful `Prelude.seq`
+        Prelude.rnf httpStatus

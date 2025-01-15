@@ -157,9 +157,9 @@ instance Prelude.Hashable RDSMetadata where
 
 instance Prelude.NFData RDSMetadata where
   rnf RDSMetadata' {..} =
-    Prelude.rnf dataPipelineId
-      `Prelude.seq` Prelude.rnf database
-      `Prelude.seq` Prelude.rnf databaseUserName
-      `Prelude.seq` Prelude.rnf resourceRole
-      `Prelude.seq` Prelude.rnf selectSqlQuery
-      `Prelude.seq` Prelude.rnf serviceRole
+    Prelude.rnf dataPipelineId `Prelude.seq`
+      Prelude.rnf database `Prelude.seq`
+        Prelude.rnf databaseUserName `Prelude.seq`
+          Prelude.rnf resourceRole `Prelude.seq`
+            Prelude.rnf selectSqlQuery `Prelude.seq`
+              Prelude.rnf serviceRole

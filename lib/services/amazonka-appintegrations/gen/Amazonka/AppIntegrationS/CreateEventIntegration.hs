@@ -167,12 +167,12 @@ instance Prelude.Hashable CreateEventIntegration where
 
 instance Prelude.NFData CreateEventIntegration where
   rnf CreateEventIntegration' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf eventFilter
-      `Prelude.seq` Prelude.rnf eventBridgeBus
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf eventFilter `Prelude.seq`
+              Prelude.rnf eventBridgeBus
 
 instance Data.ToHeaders CreateEventIntegration where
   toHeaders =
@@ -249,5 +249,5 @@ instance
     CreateEventIntegrationResponse
   where
   rnf CreateEventIntegrationResponse' {..} =
-    Prelude.rnf eventIntegrationArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf eventIntegrationArn `Prelude.seq`
+      Prelude.rnf httpStatus

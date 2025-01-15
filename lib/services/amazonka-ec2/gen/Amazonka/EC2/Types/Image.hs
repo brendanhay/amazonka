@@ -480,18 +480,14 @@ instance Data.FromXML Image where
       Prelude.<*> (x Data..@? "name")
       Prelude.<*> (x Data..@? "platform")
       Prelude.<*> (x Data..@? "platformDetails")
-      Prelude.<*> ( x
-                      Data..@? "productCodes"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "productCodes" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "ramdiskId")
       Prelude.<*> (x Data..@? "rootDeviceName")
       Prelude.<*> (x Data..@? "sriovNetSupport")
       Prelude.<*> (x Data..@? "stateReason")
-      Prelude.<*> ( x
-                      Data..@? "tagSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "tpmSupport")

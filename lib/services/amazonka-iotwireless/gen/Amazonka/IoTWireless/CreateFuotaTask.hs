@@ -163,13 +163,13 @@ instance Prelude.Hashable CreateFuotaTask where
 
 instance Prelude.NFData CreateFuotaTask where
   rnf CreateFuotaTask' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf loRaWAN
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf firmwareUpdateImage
-      `Prelude.seq` Prelude.rnf firmwareUpdateRole
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf loRaWAN `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf firmwareUpdateImage `Prelude.seq`
+                Prelude.rnf firmwareUpdateRole
 
 instance Data.ToHeaders CreateFuotaTask where
   toHeaders = Prelude.const Prelude.mempty
@@ -244,6 +244,6 @@ createFuotaTaskResponse_httpStatus = Lens.lens (\CreateFuotaTaskResponse' {httpS
 
 instance Prelude.NFData CreateFuotaTaskResponse where
   rnf CreateFuotaTaskResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf httpStatus

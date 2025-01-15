@@ -191,14 +191,14 @@ instance Prelude.Hashable Step where
 
 instance Prelude.NFData Step where
   rnf Step' {..} =
-    Prelude.rnf artifactsUrl
-      `Prelude.seq` Prelude.rnf context
-      `Prelude.seq` Prelude.rnf logUrl
-      `Prelude.seq` Prelude.rnf screenshots
-      `Prelude.seq` Prelude.rnf statusReason
-      `Prelude.seq` Prelude.rnf testArtifactsUrl
-      `Prelude.seq` Prelude.rnf testConfigUrl
-      `Prelude.seq` Prelude.rnf stepName
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf endTime
+    Prelude.rnf artifactsUrl `Prelude.seq`
+      Prelude.rnf context `Prelude.seq`
+        Prelude.rnf logUrl `Prelude.seq`
+          Prelude.rnf screenshots `Prelude.seq`
+            Prelude.rnf statusReason `Prelude.seq`
+              Prelude.rnf testArtifactsUrl `Prelude.seq`
+                Prelude.rnf testConfigUrl `Prelude.seq`
+                  Prelude.rnf stepName `Prelude.seq`
+                    Prelude.rnf startTime `Prelude.seq`
+                      Prelude.rnf status `Prelude.seq`
+                        Prelude.rnf endTime

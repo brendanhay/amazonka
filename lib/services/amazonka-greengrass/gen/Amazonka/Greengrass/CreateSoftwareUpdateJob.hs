@@ -178,13 +178,13 @@ instance Prelude.Hashable CreateSoftwareUpdateJob where
 
 instance Prelude.NFData CreateSoftwareUpdateJob where
   rnf CreateSoftwareUpdateJob' {..} =
-    Prelude.rnf amznClientToken
-      `Prelude.seq` Prelude.rnf updateAgentLogLevel
-      `Prelude.seq` Prelude.rnf s3UrlSignerRole
-      `Prelude.seq` Prelude.rnf updateTargetsArchitecture
-      `Prelude.seq` Prelude.rnf softwareToUpdate
-      `Prelude.seq` Prelude.rnf updateTargets
-      `Prelude.seq` Prelude.rnf updateTargetsOperatingSystem
+    Prelude.rnf amznClientToken `Prelude.seq`
+      Prelude.rnf updateAgentLogLevel `Prelude.seq`
+        Prelude.rnf s3UrlSignerRole `Prelude.seq`
+          Prelude.rnf updateTargetsArchitecture `Prelude.seq`
+            Prelude.rnf softwareToUpdate `Prelude.seq`
+              Prelude.rnf updateTargets `Prelude.seq`
+                Prelude.rnf updateTargetsOperatingSystem
 
 instance Data.ToHeaders CreateSoftwareUpdateJob where
   toHeaders CreateSoftwareUpdateJob' {..} =
@@ -287,7 +287,7 @@ instance
     CreateSoftwareUpdateJobResponse
   where
   rnf CreateSoftwareUpdateJobResponse' {..} =
-    Prelude.rnf iotJobArn
-      `Prelude.seq` Prelude.rnf iotJobId
-      `Prelude.seq` Prelude.rnf platformSoftwareVersion
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf iotJobArn `Prelude.seq`
+      Prelude.rnf iotJobId `Prelude.seq`
+        Prelude.rnf platformSoftwareVersion `Prelude.seq`
+          Prelude.rnf httpStatus

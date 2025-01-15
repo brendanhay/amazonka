@@ -152,9 +152,9 @@ instance
     ModifyVpcEndpointServicePayerResponsibility
   where
   rnf ModifyVpcEndpointServicePayerResponsibility' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf serviceId
-      `Prelude.seq` Prelude.rnf payerResponsibility
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf serviceId `Prelude.seq`
+        Prelude.rnf payerResponsibility
 
 instance
   Data.ToHeaders
@@ -233,5 +233,5 @@ instance
   where
   rnf
     ModifyVpcEndpointServicePayerResponsibilityResponse' {..} =
-      Prelude.rnf returnValue
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf returnValue `Prelude.seq`
+        Prelude.rnf httpStatus

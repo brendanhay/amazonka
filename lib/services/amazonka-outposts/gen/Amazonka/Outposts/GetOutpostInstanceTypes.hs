@@ -124,9 +124,9 @@ instance Prelude.Hashable GetOutpostInstanceTypes where
 
 instance Prelude.NFData GetOutpostInstanceTypes where
   rnf GetOutpostInstanceTypes' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf outpostId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf outpostId
 
 instance Data.ToHeaders GetOutpostInstanceTypes where
   toHeaders =
@@ -219,8 +219,8 @@ instance
     GetOutpostInstanceTypesResponse
   where
   rnf GetOutpostInstanceTypesResponse' {..} =
-    Prelude.rnf instanceTypes
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf outpostArn
-      `Prelude.seq` Prelude.rnf outpostId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf instanceTypes `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf outpostArn `Prelude.seq`
+          Prelude.rnf outpostId `Prelude.seq`
+            Prelude.rnf httpStatus

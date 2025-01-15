@@ -121,9 +121,9 @@ instance Prelude.Hashable CreateACL where
 
 instance Prelude.NFData CreateACL where
   rnf CreateACL' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf userNames
-      `Prelude.seq` Prelude.rnf aCLName
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf userNames `Prelude.seq`
+        Prelude.rnf aCLName
 
 instance Data.ToHeaders CreateACL where
   toHeaders =
@@ -194,5 +194,5 @@ createACLResponse_httpStatus = Lens.lens (\CreateACLResponse' {httpStatus} -> ht
 
 instance Prelude.NFData CreateACLResponse where
   rnf CreateACLResponse' {..} =
-    Prelude.rnf acl
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf acl `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -157,12 +157,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeSubscribersForNotification_nextToken
-          Lens..~ rs
-          Lens.^? describeSubscribersForNotificationResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeSubscribersForNotification_nextToken
+              Lens..~ rs
+              Lens.^? describeSubscribersForNotificationResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -201,11 +201,11 @@ instance
     DescribeSubscribersForNotification
   where
   rnf DescribeSubscribersForNotification' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf budgetName
-      `Prelude.seq` Prelude.rnf notification
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf accountId `Prelude.seq`
+          Prelude.rnf budgetName `Prelude.seq`
+            Prelude.rnf notification
 
 instance
   Data.ToHeaders
@@ -311,6 +311,6 @@ instance
     DescribeSubscribersForNotificationResponse
   where
   rnf DescribeSubscribersForNotificationResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf subscribers
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf subscribers `Prelude.seq`
+        Prelude.rnf httpStatus

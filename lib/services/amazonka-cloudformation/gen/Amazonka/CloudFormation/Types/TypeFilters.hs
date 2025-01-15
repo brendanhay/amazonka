@@ -138,9 +138,9 @@ instance Prelude.Hashable TypeFilters where
 
 instance Prelude.NFData TypeFilters where
   rnf TypeFilters' {..} =
-    Prelude.rnf category
-      `Prelude.seq` Prelude.rnf publisherId
-      `Prelude.seq` Prelude.rnf typeNamePrefix
+    Prelude.rnf category `Prelude.seq`
+      Prelude.rnf publisherId `Prelude.seq`
+        Prelude.rnf typeNamePrefix
 
 instance Data.ToQuery TypeFilters where
   toQuery TypeFilters' {..} =

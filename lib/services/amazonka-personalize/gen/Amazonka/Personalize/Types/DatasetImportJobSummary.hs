@@ -164,10 +164,10 @@ instance Prelude.Hashable DatasetImportJobSummary where
 
 instance Prelude.NFData DatasetImportJobSummary where
   rnf DatasetImportJobSummary' {..} =
-    Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf datasetImportJobArn
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf importMode
-      `Prelude.seq` Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf creationDateTime `Prelude.seq`
+      Prelude.rnf datasetImportJobArn `Prelude.seq`
+        Prelude.rnf failureReason `Prelude.seq`
+          Prelude.rnf importMode `Prelude.seq`
+            Prelude.rnf jobName `Prelude.seq`
+              Prelude.rnf lastUpdatedDateTime `Prelude.seq`
+                Prelude.rnf status

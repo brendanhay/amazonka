@@ -120,12 +120,12 @@ instance Core.AWSPager ListScripts where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listScripts_nextToken
-          Lens..~ rs
-          Lens.^? listScriptsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listScripts_nextToken
+              Lens..~ rs
+              Lens.^? listScriptsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListScripts where
   type AWSResponse ListScripts = ListScriptsResponse
@@ -148,8 +148,8 @@ instance Prelude.Hashable ListScripts where
 
 instance Prelude.NFData ListScripts where
   rnf ListScripts' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListScripts where
   toHeaders =
@@ -234,6 +234,6 @@ listScriptsResponse_httpStatus = Lens.lens (\ListScriptsResponse' {httpStatus} -
 
 instance Prelude.NFData ListScriptsResponse where
   rnf ListScriptsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf scripts
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf scripts `Prelude.seq`
+        Prelude.rnf httpStatus

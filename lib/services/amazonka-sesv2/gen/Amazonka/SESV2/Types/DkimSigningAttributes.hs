@@ -101,9 +101,9 @@ instance Prelude.Hashable DkimSigningAttributes where
 
 instance Prelude.NFData DkimSigningAttributes where
   rnf DkimSigningAttributes' {..} =
-    Prelude.rnf domainSigningPrivateKey
-      `Prelude.seq` Prelude.rnf domainSigningSelector
-      `Prelude.seq` Prelude.rnf nextSigningKeyLength
+    Prelude.rnf domainSigningPrivateKey `Prelude.seq`
+      Prelude.rnf domainSigningSelector `Prelude.seq`
+        Prelude.rnf nextSigningKeyLength
 
 instance Data.ToJSON DkimSigningAttributes where
   toJSON DkimSigningAttributes' {..} =

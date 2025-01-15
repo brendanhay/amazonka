@@ -294,14 +294,14 @@ instance
     UpdateSlackChannelConfiguration
   where
   rnf UpdateSlackChannelConfiguration' {..} =
-    Prelude.rnf channelName
-      `Prelude.seq` Prelude.rnf channelRoleArn
-      `Prelude.seq` Prelude.rnf notifyOnAddCorrespondenceToCase
-      `Prelude.seq` Prelude.rnf notifyOnCaseSeverity
-      `Prelude.seq` Prelude.rnf notifyOnCreateOrReopenCase
-      `Prelude.seq` Prelude.rnf notifyOnResolveCase
-      `Prelude.seq` Prelude.rnf channelId
-      `Prelude.seq` Prelude.rnf teamId
+    Prelude.rnf channelName `Prelude.seq`
+      Prelude.rnf channelRoleArn `Prelude.seq`
+        Prelude.rnf notifyOnAddCorrespondenceToCase `Prelude.seq`
+          Prelude.rnf notifyOnCaseSeverity `Prelude.seq`
+            Prelude.rnf notifyOnCreateOrReopenCase `Prelude.seq`
+              Prelude.rnf notifyOnResolveCase `Prelude.seq`
+                Prelude.rnf channelId `Prelude.seq`
+                  Prelude.rnf teamId
 
 instance
   Data.ToHeaders
@@ -484,12 +484,12 @@ instance
     UpdateSlackChannelConfigurationResponse
   where
   rnf UpdateSlackChannelConfigurationResponse' {..} =
-    Prelude.rnf channelId
-      `Prelude.seq` Prelude.rnf channelName
-      `Prelude.seq` Prelude.rnf channelRoleArn
-      `Prelude.seq` Prelude.rnf notifyOnAddCorrespondenceToCase
-      `Prelude.seq` Prelude.rnf notifyOnCaseSeverity
-      `Prelude.seq` Prelude.rnf notifyOnCreateOrReopenCase
-      `Prelude.seq` Prelude.rnf notifyOnResolveCase
-      `Prelude.seq` Prelude.rnf teamId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf channelId `Prelude.seq`
+      Prelude.rnf channelName `Prelude.seq`
+        Prelude.rnf channelRoleArn `Prelude.seq`
+          Prelude.rnf notifyOnAddCorrespondenceToCase `Prelude.seq`
+            Prelude.rnf notifyOnCaseSeverity `Prelude.seq`
+              Prelude.rnf notifyOnCreateOrReopenCase `Prelude.seq`
+                Prelude.rnf notifyOnResolveCase `Prelude.seq`
+                  Prelude.rnf teamId `Prelude.seq`
+                    Prelude.rnf httpStatus

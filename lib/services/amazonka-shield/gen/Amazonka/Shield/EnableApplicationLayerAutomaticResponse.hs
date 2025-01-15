@@ -167,8 +167,8 @@ instance
     EnableApplicationLayerAutomaticResponse
   where
   rnf EnableApplicationLayerAutomaticResponse' {..} =
-    Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf action
+    Prelude.rnf resourceArn `Prelude.seq`
+      Prelude.rnf action
 
 instance
   Data.ToHeaders

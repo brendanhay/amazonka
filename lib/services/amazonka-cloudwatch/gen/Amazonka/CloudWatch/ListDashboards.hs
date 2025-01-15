@@ -120,12 +120,12 @@ instance Core.AWSPager ListDashboards where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listDashboards_nextToken
-          Lens..~ rs
-          Lens.^? listDashboardsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listDashboards_nextToken
+              Lens..~ rs
+              Lens.^? listDashboardsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDashboards where
   type
@@ -155,8 +155,8 @@ instance Prelude.Hashable ListDashboards where
 
 instance Prelude.NFData ListDashboards where
   rnf ListDashboards' {..} =
-    Prelude.rnf dashboardNamePrefix
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf dashboardNamePrefix `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListDashboards where
   toHeaders = Prelude.const Prelude.mempty
@@ -225,6 +225,6 @@ listDashboardsResponse_httpStatus = Lens.lens (\ListDashboardsResponse' {httpSta
 
 instance Prelude.NFData ListDashboardsResponse where
   rnf ListDashboardsResponse' {..} =
-    Prelude.rnf dashboardEntries
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dashboardEntries `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

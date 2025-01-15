@@ -101,6 +101,6 @@ instance Prelude.Hashable ScalingPolicy where
 
 instance Prelude.NFData ScalingPolicy where
   rnf ScalingPolicy' {..} =
-    Prelude.rnf targetTrackingConfiguration
-      `Prelude.seq` Prelude.rnf policyName
-      `Prelude.seq` Prelude.rnf policyType
+    Prelude.rnf targetTrackingConfiguration `Prelude.seq`
+      Prelude.rnf policyName `Prelude.seq`
+        Prelude.rnf policyType

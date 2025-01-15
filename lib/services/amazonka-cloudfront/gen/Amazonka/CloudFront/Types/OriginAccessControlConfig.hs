@@ -207,11 +207,11 @@ instance Prelude.Hashable OriginAccessControlConfig where
 
 instance Prelude.NFData OriginAccessControlConfig where
   rnf OriginAccessControlConfig' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf signingProtocol
-      `Prelude.seq` Prelude.rnf signingBehavior
-      `Prelude.seq` Prelude.rnf originAccessControlOriginType
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf signingProtocol `Prelude.seq`
+          Prelude.rnf signingBehavior `Prelude.seq`
+            Prelude.rnf originAccessControlOriginType
 
 instance Data.ToXML OriginAccessControlConfig where
   toXML OriginAccessControlConfig' {..} =

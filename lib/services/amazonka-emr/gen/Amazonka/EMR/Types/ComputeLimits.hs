@@ -175,11 +175,11 @@ instance Prelude.Hashable ComputeLimits where
 
 instance Prelude.NFData ComputeLimits where
   rnf ComputeLimits' {..} =
-    Prelude.rnf maximumCoreCapacityUnits
-      `Prelude.seq` Prelude.rnf maximumOnDemandCapacityUnits
-      `Prelude.seq` Prelude.rnf unitType
-      `Prelude.seq` Prelude.rnf minimumCapacityUnits
-      `Prelude.seq` Prelude.rnf maximumCapacityUnits
+    Prelude.rnf maximumCoreCapacityUnits `Prelude.seq`
+      Prelude.rnf maximumOnDemandCapacityUnits `Prelude.seq`
+        Prelude.rnf unitType `Prelude.seq`
+          Prelude.rnf minimumCapacityUnits `Prelude.seq`
+            Prelude.rnf maximumCapacityUnits
 
 instance Data.ToJSON ComputeLimits where
   toJSON ComputeLimits' {..} =

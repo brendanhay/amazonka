@@ -85,5 +85,5 @@ instance Prelude.Hashable Identity where
 
 instance Prelude.NFData Identity where
   rnf Identity' {..} =
-    Prelude.rnf sourceIp
-      `Prelude.seq` Prelude.rnf userAgent
+    Prelude.rnf sourceIp `Prelude.seq`
+      Prelude.rnf userAgent

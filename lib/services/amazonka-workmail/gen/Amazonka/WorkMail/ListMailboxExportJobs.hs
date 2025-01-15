@@ -123,9 +123,9 @@ instance Prelude.Hashable ListMailboxExportJobs where
 
 instance Prelude.NFData ListMailboxExportJobs where
   rnf ListMailboxExportJobs' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf organizationId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf organizationId
 
 instance Data.ToHeaders ListMailboxExportJobs where
   toHeaders =
@@ -209,6 +209,6 @@ listMailboxExportJobsResponse_httpStatus = Lens.lens (\ListMailboxExportJobsResp
 
 instance Prelude.NFData ListMailboxExportJobsResponse where
   rnf ListMailboxExportJobsResponse' {..} =
-    Prelude.rnf jobs
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf jobs `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

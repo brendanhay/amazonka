@@ -151,5 +151,5 @@ getDirectoryResponse_directory = Lens.lens (\GetDirectoryResponse' {directory} -
 
 instance Prelude.NFData GetDirectoryResponse where
   rnf GetDirectoryResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf directory
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf directory

@@ -107,6 +107,6 @@ instance Prelude.Hashable HsmStatus where
 
 instance Prelude.NFData HsmStatus where
   rnf HsmStatus' {..} =
-    Prelude.rnf hsmClientCertificateIdentifier
-      `Prelude.seq` Prelude.rnf hsmConfigurationIdentifier
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf hsmClientCertificateIdentifier `Prelude.seq`
+      Prelude.rnf hsmConfigurationIdentifier `Prelude.seq`
+        Prelude.rnf status

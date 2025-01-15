@@ -1013,5 +1013,5 @@ cloneStackResponse_httpStatus = Lens.lens (\CloneStackResponse' {httpStatus} -> 
 
 instance Prelude.NFData CloneStackResponse where
   rnf CloneStackResponse' {..} =
-    Prelude.rnf stackId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf stackId `Prelude.seq`
+      Prelude.rnf httpStatus

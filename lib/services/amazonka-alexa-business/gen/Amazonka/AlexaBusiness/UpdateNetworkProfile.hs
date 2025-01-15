@@ -180,13 +180,13 @@ instance Prelude.Hashable UpdateNetworkProfile where
 
 instance Prelude.NFData UpdateNetworkProfile where
   rnf UpdateNetworkProfile' {..} =
-    Prelude.rnf certificateAuthorityArn
-      `Prelude.seq` Prelude.rnf currentPassword
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf networkProfileName
-      `Prelude.seq` Prelude.rnf nextPassword
-      `Prelude.seq` Prelude.rnf trustAnchors
-      `Prelude.seq` Prelude.rnf networkProfileArn
+    Prelude.rnf certificateAuthorityArn `Prelude.seq`
+      Prelude.rnf currentPassword `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf networkProfileName `Prelude.seq`
+            Prelude.rnf nextPassword `Prelude.seq`
+              Prelude.rnf trustAnchors `Prelude.seq`
+                Prelude.rnf networkProfileArn
 
 instance Data.ToHeaders UpdateNetworkProfile where
   toHeaders =

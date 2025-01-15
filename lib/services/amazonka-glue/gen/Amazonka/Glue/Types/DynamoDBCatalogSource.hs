@@ -97,9 +97,9 @@ instance Prelude.Hashable DynamoDBCatalogSource where
 
 instance Prelude.NFData DynamoDBCatalogSource where
   rnf DynamoDBCatalogSource' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf database
-      `Prelude.seq` Prelude.rnf table
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf database `Prelude.seq`
+        Prelude.rnf table
 
 instance Data.ToJSON DynamoDBCatalogSource where
   toJSON DynamoDBCatalogSource' {..} =

@@ -154,5 +154,5 @@ getSegmentResponse_segment = Lens.lens (\GetSegmentResponse' {segment} -> segmen
 
 instance Prelude.NFData GetSegmentResponse where
   rnf GetSegmentResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf segment
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf segment

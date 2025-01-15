@@ -116,9 +116,9 @@ instance
 
 instance Prelude.NFData PipeEnrichmentHttpParameters where
   rnf PipeEnrichmentHttpParameters' {..} =
-    Prelude.rnf headerParameters
-      `Prelude.seq` Prelude.rnf pathParameterValues
-      `Prelude.seq` Prelude.rnf queryStringParameters
+    Prelude.rnf headerParameters `Prelude.seq`
+      Prelude.rnf pathParameterValues `Prelude.seq`
+        Prelude.rnf queryStringParameters
 
 instance Data.ToJSON PipeEnrichmentHttpParameters where
   toJSON PipeEnrichmentHttpParameters' {..} =

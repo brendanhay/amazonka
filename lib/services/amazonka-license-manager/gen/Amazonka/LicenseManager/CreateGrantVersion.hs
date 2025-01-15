@@ -173,13 +173,13 @@ instance Prelude.Hashable CreateGrantVersion where
 
 instance Prelude.NFData CreateGrantVersion where
   rnf CreateGrantVersion' {..} =
-    Prelude.rnf allowedOperations
-      `Prelude.seq` Prelude.rnf grantName
-      `Prelude.seq` Prelude.rnf sourceVersion
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusReason
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf grantArn
+    Prelude.rnf allowedOperations `Prelude.seq`
+      Prelude.rnf grantName `Prelude.seq`
+        Prelude.rnf sourceVersion `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf statusReason `Prelude.seq`
+              Prelude.rnf clientToken `Prelude.seq`
+                Prelude.rnf grantArn
 
 instance Data.ToHeaders CreateGrantVersion where
   toHeaders =
@@ -276,7 +276,7 @@ createGrantVersionResponse_httpStatus = Lens.lens (\CreateGrantVersionResponse' 
 
 instance Prelude.NFData CreateGrantVersionResponse where
   rnf CreateGrantVersionResponse' {..} =
-    Prelude.rnf grantArn
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf grantArn `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf version `Prelude.seq`
+          Prelude.rnf httpStatus

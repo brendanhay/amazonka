@@ -78,8 +78,8 @@ instance Prelude.Hashable EventTimeRange where
 
 instance Prelude.NFData EventTimeRange where
   rnf EventTimeRange' {..} =
-    Prelude.rnf fromTime
-      `Prelude.seq` Prelude.rnf toTime
+    Prelude.rnf fromTime `Prelude.seq`
+      Prelude.rnf toTime
 
 instance Data.ToJSON EventTimeRange where
   toJSON EventTimeRange' {..} =

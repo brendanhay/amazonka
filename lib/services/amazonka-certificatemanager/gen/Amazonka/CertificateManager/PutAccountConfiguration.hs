@@ -122,8 +122,8 @@ instance Prelude.Hashable PutAccountConfiguration where
 
 instance Prelude.NFData PutAccountConfiguration where
   rnf PutAccountConfiguration' {..} =
-    Prelude.rnf expiryEvents
-      `Prelude.seq` Prelude.rnf idempotencyToken
+    Prelude.rnf expiryEvents `Prelude.seq`
+      Prelude.rnf idempotencyToken
 
 instance Data.ToHeaders PutAccountConfiguration where
   toHeaders =

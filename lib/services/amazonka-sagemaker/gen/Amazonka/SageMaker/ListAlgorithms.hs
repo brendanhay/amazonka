@@ -170,12 +170,12 @@ instance Core.AWSPager ListAlgorithms where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listAlgorithms_nextToken
-          Lens..~ rs
-          Lens.^? listAlgorithmsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listAlgorithms_nextToken
+              Lens..~ rs
+              Lens.^? listAlgorithmsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAlgorithms where
   type
@@ -208,13 +208,13 @@ instance Prelude.Hashable ListAlgorithms where
 
 instance Prelude.NFData ListAlgorithms where
   rnf ListAlgorithms' {..} =
-    Prelude.rnf creationTimeAfter
-      `Prelude.seq` Prelude.rnf creationTimeBefore
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nameContains
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf sortOrder
+    Prelude.rnf creationTimeAfter `Prelude.seq`
+      Prelude.rnf creationTimeBefore `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nameContains `Prelude.seq`
+            Prelude.rnf nextToken `Prelude.seq`
+              Prelude.rnf sortBy `Prelude.seq`
+                Prelude.rnf sortOrder
 
 instance Data.ToHeaders ListAlgorithms where
   toHeaders =
@@ -307,6 +307,6 @@ listAlgorithmsResponse_algorithmSummaryList = Lens.lens (\ListAlgorithmsResponse
 
 instance Prelude.NFData ListAlgorithmsResponse where
   rnf ListAlgorithmsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf algorithmSummaryList
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf algorithmSummaryList

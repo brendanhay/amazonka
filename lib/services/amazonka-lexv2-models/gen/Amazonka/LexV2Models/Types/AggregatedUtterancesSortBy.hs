@@ -80,8 +80,8 @@ instance Prelude.Hashable AggregatedUtterancesSortBy where
 
 instance Prelude.NFData AggregatedUtterancesSortBy where
   rnf AggregatedUtterancesSortBy' {..} =
-    Prelude.rnf attribute
-      `Prelude.seq` Prelude.rnf order
+    Prelude.rnf attribute `Prelude.seq`
+      Prelude.rnf order
 
 instance Data.ToJSON AggregatedUtterancesSortBy where
   toJSON AggregatedUtterancesSortBy' {..} =

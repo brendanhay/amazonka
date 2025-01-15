@@ -177,12 +177,12 @@ instance
 
 instance Prelude.NFData DescribeProvisioningArtifact where
   rnf DescribeProvisioningArtifact' {..} =
-    Prelude.rnf acceptLanguage
-      `Prelude.seq` Prelude.rnf productId
-      `Prelude.seq` Prelude.rnf productName
-      `Prelude.seq` Prelude.rnf provisioningArtifactId
-      `Prelude.seq` Prelude.rnf provisioningArtifactName
-      `Prelude.seq` Prelude.rnf verbose
+    Prelude.rnf acceptLanguage `Prelude.seq`
+      Prelude.rnf productId `Prelude.seq`
+        Prelude.rnf productName `Prelude.seq`
+          Prelude.rnf provisioningArtifactId `Prelude.seq`
+            Prelude.rnf provisioningArtifactName `Prelude.seq`
+              Prelude.rnf verbose
 
 instance Data.ToHeaders DescribeProvisioningArtifact where
   toHeaders =
@@ -287,7 +287,7 @@ instance
     DescribeProvisioningArtifactResponse
   where
   rnf DescribeProvisioningArtifactResponse' {..} =
-    Prelude.rnf info
-      `Prelude.seq` Prelude.rnf provisioningArtifactDetail
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf info `Prelude.seq`
+      Prelude.rnf provisioningArtifactDetail `Prelude.seq`
+        Prelude.rnf status `Prelude.seq`
+          Prelude.rnf httpStatus

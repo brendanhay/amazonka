@@ -197,11 +197,11 @@ instance Prelude.Hashable CreateStudioSessionMapping where
 
 instance Prelude.NFData CreateStudioSessionMapping where
   rnf CreateStudioSessionMapping' {..} =
-    Prelude.rnf identityId
-      `Prelude.seq` Prelude.rnf identityName
-      `Prelude.seq` Prelude.rnf studioId
-      `Prelude.seq` Prelude.rnf identityType
-      `Prelude.seq` Prelude.rnf sessionPolicyArn
+    Prelude.rnf identityId `Prelude.seq`
+      Prelude.rnf identityName `Prelude.seq`
+        Prelude.rnf studioId `Prelude.seq`
+          Prelude.rnf identityType `Prelude.seq`
+            Prelude.rnf sessionPolicyArn
 
 instance Data.ToHeaders CreateStudioSessionMapping where
   toHeaders =

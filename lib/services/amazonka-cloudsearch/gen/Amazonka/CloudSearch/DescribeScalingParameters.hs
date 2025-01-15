@@ -172,5 +172,5 @@ instance
     DescribeScalingParametersResponse
   where
   rnf DescribeScalingParametersResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf scalingParameters
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf scalingParameters

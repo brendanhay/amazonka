@@ -139,11 +139,11 @@ instance Prelude.Hashable DeleteApp where
 
 instance Prelude.NFData DeleteApp where
   rnf DeleteApp' {..} =
-    Prelude.rnf spaceName
-      `Prelude.seq` Prelude.rnf userProfileName
-      `Prelude.seq` Prelude.rnf domainId
-      `Prelude.seq` Prelude.rnf appType
-      `Prelude.seq` Prelude.rnf appName
+    Prelude.rnf spaceName `Prelude.seq`
+      Prelude.rnf userProfileName `Prelude.seq`
+        Prelude.rnf domainId `Prelude.seq`
+          Prelude.rnf appType `Prelude.seq`
+            Prelude.rnf appName
 
 instance Data.ToHeaders DeleteApp where
   toHeaders =

@@ -93,5 +93,5 @@ instance Prelude.Hashable ServiceIntegrationConfig where
 
 instance Prelude.NFData ServiceIntegrationConfig where
   rnf ServiceIntegrationConfig' {..} =
-    Prelude.rnf logsAnomalyDetection
-      `Prelude.seq` Prelude.rnf opsCenter
+    Prelude.rnf logsAnomalyDetection `Prelude.seq`
+      Prelude.rnf opsCenter

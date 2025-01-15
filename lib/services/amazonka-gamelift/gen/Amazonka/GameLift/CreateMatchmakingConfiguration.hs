@@ -486,21 +486,21 @@ instance
     CreateMatchmakingConfiguration
   where
   rnf CreateMatchmakingConfiguration' {..} =
-    Prelude.rnf acceptanceTimeoutSeconds
-      `Prelude.seq` Prelude.rnf additionalPlayerCount
-      `Prelude.seq` Prelude.rnf backfillMode
-      `Prelude.seq` Prelude.rnf customEventData
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf flexMatchMode
-      `Prelude.seq` Prelude.rnf gameProperties
-      `Prelude.seq` Prelude.rnf gameSessionData
-      `Prelude.seq` Prelude.rnf gameSessionQueueArns
-      `Prelude.seq` Prelude.rnf notificationTarget
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf requestTimeoutSeconds
-      `Prelude.seq` Prelude.rnf acceptanceRequired
-      `Prelude.seq` Prelude.rnf ruleSetName
+    Prelude.rnf acceptanceTimeoutSeconds `Prelude.seq`
+      Prelude.rnf additionalPlayerCount `Prelude.seq`
+        Prelude.rnf backfillMode `Prelude.seq`
+          Prelude.rnf customEventData `Prelude.seq`
+            Prelude.rnf description `Prelude.seq`
+              Prelude.rnf flexMatchMode `Prelude.seq`
+                Prelude.rnf gameProperties `Prelude.seq`
+                  Prelude.rnf gameSessionData `Prelude.seq`
+                    Prelude.rnf gameSessionQueueArns `Prelude.seq`
+                      Prelude.rnf notificationTarget `Prelude.seq`
+                        Prelude.rnf tags `Prelude.seq`
+                          Prelude.rnf name `Prelude.seq`
+                            Prelude.rnf requestTimeoutSeconds `Prelude.seq`
+                              Prelude.rnf acceptanceRequired `Prelude.seq`
+                                Prelude.rnf ruleSetName
 
 instance
   Data.ToHeaders
@@ -604,5 +604,5 @@ instance
     CreateMatchmakingConfigurationResponse
   where
   rnf CreateMatchmakingConfigurationResponse' {..} =
-    Prelude.rnf configuration
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf configuration `Prelude.seq`
+      Prelude.rnf httpStatus

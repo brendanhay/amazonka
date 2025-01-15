@@ -164,5 +164,5 @@ describeListenerResponse_httpStatus = Lens.lens (\DescribeListenerResponse' {htt
 
 instance Prelude.NFData DescribeListenerResponse where
   rnf DescribeListenerResponse' {..} =
-    Prelude.rnf listener
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf listener `Prelude.seq`
+      Prelude.rnf httpStatus

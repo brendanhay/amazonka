@@ -267,17 +267,17 @@ instance Prelude.Hashable IncidentRecord where
 
 instance Prelude.NFData IncidentRecord where
   rnf IncidentRecord' {..} =
-    Prelude.rnf automationExecutions
-      `Prelude.seq` Prelude.rnf chatChannel
-      `Prelude.seq` Prelude.rnf notificationTargets
-      `Prelude.seq` Prelude.rnf resolvedTime
-      `Prelude.seq` Prelude.rnf summary
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf dedupeString
-      `Prelude.seq` Prelude.rnf impact
-      `Prelude.seq` Prelude.rnf incidentRecordSource
-      `Prelude.seq` Prelude.rnf lastModifiedBy
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf title
+    Prelude.rnf automationExecutions `Prelude.seq`
+      Prelude.rnf chatChannel `Prelude.seq`
+        Prelude.rnf notificationTargets `Prelude.seq`
+          Prelude.rnf resolvedTime `Prelude.seq`
+            Prelude.rnf summary `Prelude.seq`
+              Prelude.rnf arn `Prelude.seq`
+                Prelude.rnf creationTime `Prelude.seq`
+                  Prelude.rnf dedupeString `Prelude.seq`
+                    Prelude.rnf impact `Prelude.seq`
+                      Prelude.rnf incidentRecordSource `Prelude.seq`
+                        Prelude.rnf lastModifiedBy `Prelude.seq`
+                          Prelude.rnf lastModifiedTime `Prelude.seq`
+                            Prelude.rnf status `Prelude.seq`
+                              Prelude.rnf title

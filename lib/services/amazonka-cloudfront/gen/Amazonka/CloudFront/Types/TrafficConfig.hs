@@ -93,9 +93,9 @@ instance Prelude.Hashable TrafficConfig where
 
 instance Prelude.NFData TrafficConfig where
   rnf TrafficConfig' {..} =
-    Prelude.rnf singleHeaderConfig
-      `Prelude.seq` Prelude.rnf singleWeightConfig
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf singleHeaderConfig `Prelude.seq`
+      Prelude.rnf singleWeightConfig `Prelude.seq`
+        Prelude.rnf type'
 
 instance Data.ToXML TrafficConfig where
   toXML TrafficConfig' {..} =

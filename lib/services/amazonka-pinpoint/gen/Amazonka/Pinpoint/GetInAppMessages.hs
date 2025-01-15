@@ -113,8 +113,8 @@ instance Prelude.Hashable GetInAppMessages where
 
 instance Prelude.NFData GetInAppMessages where
   rnf GetInAppMessages' {..} =
-    Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf endpointId
+    Prelude.rnf applicationId `Prelude.seq`
+      Prelude.rnf endpointId
 
 instance Data.ToHeaders GetInAppMessages where
   toHeaders =
@@ -184,5 +184,5 @@ getInAppMessagesResponse_inAppMessagesResponse = Lens.lens (\GetInAppMessagesRes
 
 instance Prelude.NFData GetInAppMessagesResponse where
   rnf GetInAppMessagesResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf inAppMessagesResponse
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf inAppMessagesResponse

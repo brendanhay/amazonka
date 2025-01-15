@@ -107,9 +107,9 @@ instance Prelude.Hashable ModelOutputConfiguration where
 
 instance Prelude.NFData ModelOutputConfiguration where
   rnf ModelOutputConfiguration' {..} =
-    Prelude.rnf csvIndexToVariableMap
-      `Prelude.seq` Prelude.rnf jsonKeyToVariableMap
-      `Prelude.seq` Prelude.rnf format
+    Prelude.rnf csvIndexToVariableMap `Prelude.seq`
+      Prelude.rnf jsonKeyToVariableMap `Prelude.seq`
+        Prelude.rnf format
 
 instance Data.ToJSON ModelOutputConfiguration where
   toJSON ModelOutputConfiguration' {..} =

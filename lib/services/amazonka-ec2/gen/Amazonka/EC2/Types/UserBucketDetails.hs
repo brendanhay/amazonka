@@ -77,5 +77,5 @@ instance Prelude.Hashable UserBucketDetails where
 
 instance Prelude.NFData UserBucketDetails where
   rnf UserBucketDetails' {..} =
-    Prelude.rnf s3Bucket
-      `Prelude.seq` Prelude.rnf s3Key
+    Prelude.rnf s3Bucket `Prelude.seq`
+      Prelude.rnf s3Key

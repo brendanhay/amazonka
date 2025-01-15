@@ -173,9 +173,9 @@ instance Prelude.Hashable CreateLogGroup where
 
 instance Prelude.NFData CreateLogGroup where
   rnf CreateLogGroup' {..} =
-    Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf logGroupName
+    Prelude.rnf kmsKeyId `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf logGroupName
 
 instance Data.ToHeaders CreateLogGroup where
   toHeaders =

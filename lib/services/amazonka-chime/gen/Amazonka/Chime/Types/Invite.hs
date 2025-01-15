@@ -105,7 +105,7 @@ instance Prelude.Hashable Invite where
 
 instance Prelude.NFData Invite where
   rnf Invite' {..} =
-    Prelude.rnf emailAddress
-      `Prelude.seq` Prelude.rnf emailStatus
-      `Prelude.seq` Prelude.rnf inviteId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf emailAddress `Prelude.seq`
+      Prelude.rnf emailStatus `Prelude.seq`
+        Prelude.rnf inviteId `Prelude.seq`
+          Prelude.rnf status

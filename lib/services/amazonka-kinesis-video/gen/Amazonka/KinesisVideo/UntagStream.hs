@@ -122,9 +122,9 @@ instance Prelude.Hashable UntagStream where
 
 instance Prelude.NFData UntagStream where
   rnf UntagStream' {..} =
-    Prelude.rnf streamARN
-      `Prelude.seq` Prelude.rnf streamName
-      `Prelude.seq` Prelude.rnf tagKeyList
+    Prelude.rnf streamARN `Prelude.seq`
+      Prelude.rnf streamName `Prelude.seq`
+        Prelude.rnf tagKeyList
 
 instance Data.ToHeaders UntagStream where
   toHeaders = Prelude.const Prelude.mempty

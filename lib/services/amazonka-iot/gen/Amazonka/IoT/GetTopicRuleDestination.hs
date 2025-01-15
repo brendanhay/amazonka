@@ -153,5 +153,5 @@ instance
     GetTopicRuleDestinationResponse
   where
   rnf GetTopicRuleDestinationResponse' {..} =
-    Prelude.rnf topicRuleDestination
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf topicRuleDestination `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -150,10 +150,10 @@ instance Prelude.Hashable FieldTypeDetails where
 
 instance Prelude.NFData FieldTypeDetails where
   rnf FieldTypeDetails' {..} =
-    Prelude.rnf fieldLengthRange
-      `Prelude.seq` Prelude.rnf fieldValueRange
-      `Prelude.seq` Prelude.rnf supportedDateFormat
-      `Prelude.seq` Prelude.rnf supportedValues
-      `Prelude.seq` Prelude.rnf valueRegexPattern
-      `Prelude.seq` Prelude.rnf fieldType
-      `Prelude.seq` Prelude.rnf filterOperators
+    Prelude.rnf fieldLengthRange `Prelude.seq`
+      Prelude.rnf fieldValueRange `Prelude.seq`
+        Prelude.rnf supportedDateFormat `Prelude.seq`
+          Prelude.rnf supportedValues `Prelude.seq`
+            Prelude.rnf valueRegexPattern `Prelude.seq`
+              Prelude.rnf fieldType `Prelude.seq`
+                Prelude.rnf filterOperators

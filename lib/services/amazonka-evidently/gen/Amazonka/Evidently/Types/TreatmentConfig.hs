@@ -97,10 +97,10 @@ instance Prelude.Hashable TreatmentConfig where
 
 instance Prelude.NFData TreatmentConfig where
   rnf TreatmentConfig' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf feature
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf variation
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf feature `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf variation
 
 instance Data.ToJSON TreatmentConfig where
   toJSON TreatmentConfig' {..} =

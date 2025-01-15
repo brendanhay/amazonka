@@ -94,9 +94,9 @@ instance Prelude.Hashable UpdateProvisioningParameter where
 
 instance Prelude.NFData UpdateProvisioningParameter where
   rnf UpdateProvisioningParameter' {..} =
-    Prelude.rnf key
-      `Prelude.seq` Prelude.rnf usePreviousValue
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf key `Prelude.seq`
+      Prelude.rnf usePreviousValue `Prelude.seq`
+        Prelude.rnf value
 
 instance Data.ToJSON UpdateProvisioningParameter where
   toJSON UpdateProvisioningParameter' {..} =

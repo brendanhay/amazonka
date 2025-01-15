@@ -111,8 +111,8 @@ instance
     ComponentDependencyRequirement
   where
   rnf ComponentDependencyRequirement' {..} =
-    Prelude.rnf dependencyType
-      `Prelude.seq` Prelude.rnf versionRequirement
+    Prelude.rnf dependencyType `Prelude.seq`
+      Prelude.rnf versionRequirement
 
 instance Data.ToJSON ComponentDependencyRequirement where
   toJSON ComponentDependencyRequirement' {..} =

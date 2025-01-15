@@ -106,7 +106,7 @@ instance Prelude.Hashable FrameworkMetadata where
 
 instance Prelude.NFData FrameworkMetadata where
   rnf FrameworkMetadata' {..} =
-    Prelude.rnf complianceType
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf logo
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf complianceType `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf logo `Prelude.seq`
+          Prelude.rnf name

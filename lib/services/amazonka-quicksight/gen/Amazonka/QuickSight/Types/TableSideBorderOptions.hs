@@ -125,12 +125,12 @@ instance Prelude.Hashable TableSideBorderOptions where
 
 instance Prelude.NFData TableSideBorderOptions where
   rnf TableSideBorderOptions' {..} =
-    Prelude.rnf bottom
-      `Prelude.seq` Prelude.rnf innerHorizontal
-      `Prelude.seq` Prelude.rnf innerVertical
-      `Prelude.seq` Prelude.rnf left
-      `Prelude.seq` Prelude.rnf right
-      `Prelude.seq` Prelude.rnf top
+    Prelude.rnf bottom `Prelude.seq`
+      Prelude.rnf innerHorizontal `Prelude.seq`
+        Prelude.rnf innerVertical `Prelude.seq`
+          Prelude.rnf left `Prelude.seq`
+            Prelude.rnf right `Prelude.seq`
+              Prelude.rnf top
 
 instance Data.ToJSON TableSideBorderOptions where
   toJSON TableSideBorderOptions' {..} =

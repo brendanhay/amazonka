@@ -172,8 +172,8 @@ instance
 
 instance Prelude.NFData CachePolicyQueryStringsConfig where
   rnf CachePolicyQueryStringsConfig' {..} =
-    Prelude.rnf queryStrings
-      `Prelude.seq` Prelude.rnf queryStringBehavior
+    Prelude.rnf queryStrings `Prelude.seq`
+      Prelude.rnf queryStringBehavior
 
 instance Data.ToXML CachePolicyQueryStringsConfig where
   toXML CachePolicyQueryStringsConfig' {..} =

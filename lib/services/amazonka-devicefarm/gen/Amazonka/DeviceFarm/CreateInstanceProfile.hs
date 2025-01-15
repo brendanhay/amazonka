@@ -161,11 +161,11 @@ instance Prelude.Hashable CreateInstanceProfile where
 
 instance Prelude.NFData CreateInstanceProfile where
   rnf CreateInstanceProfile' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf excludeAppPackagesFromCleanup
-      `Prelude.seq` Prelude.rnf packageCleanup
-      `Prelude.seq` Prelude.rnf rebootAfterUse
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf excludeAppPackagesFromCleanup `Prelude.seq`
+        Prelude.rnf packageCleanup `Prelude.seq`
+          Prelude.rnf rebootAfterUse `Prelude.seq`
+            Prelude.rnf name
 
 instance Data.ToHeaders CreateInstanceProfile where
   toHeaders =
@@ -244,5 +244,5 @@ createInstanceProfileResponse_httpStatus = Lens.lens (\CreateInstanceProfileResp
 
 instance Prelude.NFData CreateInstanceProfileResponse where
   rnf CreateInstanceProfileResponse' {..} =
-    Prelude.rnf instanceProfile
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf instanceProfile `Prelude.seq`
+      Prelude.rnf httpStatus

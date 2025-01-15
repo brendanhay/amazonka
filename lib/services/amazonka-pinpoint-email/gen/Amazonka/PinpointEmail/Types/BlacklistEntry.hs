@@ -99,6 +99,6 @@ instance Prelude.Hashable BlacklistEntry where
 
 instance Prelude.NFData BlacklistEntry where
   rnf BlacklistEntry' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf listingTime
-      `Prelude.seq` Prelude.rnf rblName
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf listingTime `Prelude.seq`
+        Prelude.rnf rblName

@@ -81,8 +81,8 @@ instance Prelude.Hashable ECSService where
 
 instance Prelude.NFData ECSService where
   rnf ECSService' {..} =
-    Prelude.rnf clusterName
-      `Prelude.seq` Prelude.rnf serviceName
+    Prelude.rnf clusterName `Prelude.seq`
+      Prelude.rnf serviceName
 
 instance Data.ToJSON ECSService where
   toJSON ECSService' {..} =

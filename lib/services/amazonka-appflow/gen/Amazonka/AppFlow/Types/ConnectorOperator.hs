@@ -253,22 +253,22 @@ instance Prelude.Hashable ConnectorOperator where
 
 instance Prelude.NFData ConnectorOperator where
   rnf ConnectorOperator' {..} =
-    Prelude.rnf amplitude
-      `Prelude.seq` Prelude.rnf customConnector
-      `Prelude.seq` Prelude.rnf datadog
-      `Prelude.seq` Prelude.rnf dynatrace
-      `Prelude.seq` Prelude.rnf googleAnalytics
-      `Prelude.seq` Prelude.rnf inforNexus
-      `Prelude.seq` Prelude.rnf marketo
-      `Prelude.seq` Prelude.rnf s3
-      `Prelude.seq` Prelude.rnf sAPOData
-      `Prelude.seq` Prelude.rnf salesforce
-      `Prelude.seq` Prelude.rnf serviceNow
-      `Prelude.seq` Prelude.rnf singular
-      `Prelude.seq` Prelude.rnf slack
-      `Prelude.seq` Prelude.rnf trendmicro
-      `Prelude.seq` Prelude.rnf veeva
-      `Prelude.seq` Prelude.rnf zendesk
+    Prelude.rnf amplitude `Prelude.seq`
+      Prelude.rnf customConnector `Prelude.seq`
+        Prelude.rnf datadog `Prelude.seq`
+          Prelude.rnf dynatrace `Prelude.seq`
+            Prelude.rnf googleAnalytics `Prelude.seq`
+              Prelude.rnf inforNexus `Prelude.seq`
+                Prelude.rnf marketo `Prelude.seq`
+                  Prelude.rnf s3 `Prelude.seq`
+                    Prelude.rnf sAPOData `Prelude.seq`
+                      Prelude.rnf salesforce `Prelude.seq`
+                        Prelude.rnf serviceNow `Prelude.seq`
+                          Prelude.rnf singular `Prelude.seq`
+                            Prelude.rnf slack `Prelude.seq`
+                              Prelude.rnf trendmicro `Prelude.seq`
+                                Prelude.rnf veeva `Prelude.seq`
+                                  Prelude.rnf zendesk
 
 instance Data.ToJSON ConnectorOperator where
   toJSON ConnectorOperator' {..} =

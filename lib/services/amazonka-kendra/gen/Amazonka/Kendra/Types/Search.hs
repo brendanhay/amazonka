@@ -124,10 +124,10 @@ instance Prelude.Hashable Search where
 
 instance Prelude.NFData Search where
   rnf Search' {..} =
-    Prelude.rnf displayable
-      `Prelude.seq` Prelude.rnf facetable
-      `Prelude.seq` Prelude.rnf searchable
-      `Prelude.seq` Prelude.rnf sortable
+    Prelude.rnf displayable `Prelude.seq`
+      Prelude.rnf facetable `Prelude.seq`
+        Prelude.rnf searchable `Prelude.seq`
+          Prelude.rnf sortable
 
 instance Data.ToJSON Search where
   toJSON Search' {..} =

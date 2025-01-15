@@ -175,8 +175,8 @@ instance Prelude.Hashable ListGeofenceResponseEntry where
 
 instance Prelude.NFData ListGeofenceResponseEntry where
   rnf ListGeofenceResponseEntry' {..} =
-    Prelude.rnf createTime
-      `Prelude.seq` Prelude.rnf geofenceId
-      `Prelude.seq` Prelude.rnf geometry
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf updateTime
+    Prelude.rnf createTime `Prelude.seq`
+      Prelude.rnf geofenceId `Prelude.seq`
+        Prelude.rnf geometry `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf updateTime

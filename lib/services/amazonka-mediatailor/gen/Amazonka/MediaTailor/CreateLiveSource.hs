@@ -158,10 +158,10 @@ instance Prelude.Hashable CreateLiveSource where
 
 instance Prelude.NFData CreateLiveSource where
   rnf CreateLiveSource' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpPackageConfigurations
-      `Prelude.seq` Prelude.rnf liveSourceName
-      `Prelude.seq` Prelude.rnf sourceLocationName
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf httpPackageConfigurations `Prelude.seq`
+        Prelude.rnf liveSourceName `Prelude.seq`
+          Prelude.rnf sourceLocationName
 
 instance Data.ToHeaders CreateLiveSource where
   toHeaders =
@@ -301,11 +301,11 @@ createLiveSourceResponse_httpStatus = Lens.lens (\CreateLiveSourceResponse' {htt
 
 instance Prelude.NFData CreateLiveSourceResponse where
   rnf CreateLiveSourceResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf httpPackageConfigurations
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf liveSourceName
-      `Prelude.seq` Prelude.rnf sourceLocationName
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf httpPackageConfigurations `Prelude.seq`
+          Prelude.rnf lastModifiedTime `Prelude.seq`
+            Prelude.rnf liveSourceName `Prelude.seq`
+              Prelude.rnf sourceLocationName `Prelude.seq`
+                Prelude.rnf tags `Prelude.seq`
+                  Prelude.rnf httpStatus

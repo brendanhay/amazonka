@@ -89,5 +89,5 @@ instance Prelude.Hashable PostLaunchActionsStatus where
 
 instance Prelude.NFData PostLaunchActionsStatus where
   rnf PostLaunchActionsStatus' {..} =
-    Prelude.rnf postLaunchActionsLaunchStatusList
-      `Prelude.seq` Prelude.rnf ssmAgentDiscoveryDatetime
+    Prelude.rnf postLaunchActionsLaunchStatusList `Prelude.seq`
+      Prelude.rnf ssmAgentDiscoveryDatetime

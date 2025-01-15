@@ -156,10 +156,10 @@ instance Prelude.Hashable CreateWorkspaceApiKey where
 
 instance Prelude.NFData CreateWorkspaceApiKey where
   rnf CreateWorkspaceApiKey' {..} =
-    Prelude.rnf keyName
-      `Prelude.seq` Prelude.rnf keyRole
-      `Prelude.seq` Prelude.rnf secondsToLive
-      `Prelude.seq` Prelude.rnf workspaceId
+    Prelude.rnf keyName `Prelude.seq`
+      Prelude.rnf keyRole `Prelude.seq`
+        Prelude.rnf secondsToLive `Prelude.seq`
+          Prelude.rnf workspaceId
 
 instance Data.ToHeaders CreateWorkspaceApiKey where
   toHeaders =
@@ -263,7 +263,7 @@ createWorkspaceApiKeyResponse_workspaceId = Lens.lens (\CreateWorkspaceApiKeyRes
 
 instance Prelude.NFData CreateWorkspaceApiKeyResponse where
   rnf CreateWorkspaceApiKeyResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf key
-      `Prelude.seq` Prelude.rnf keyName
-      `Prelude.seq` Prelude.rnf workspaceId
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf key `Prelude.seq`
+        Prelude.rnf keyName `Prelude.seq`
+          Prelude.rnf workspaceId

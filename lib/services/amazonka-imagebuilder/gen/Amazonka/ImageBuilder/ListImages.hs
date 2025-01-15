@@ -200,12 +200,12 @@ instance Prelude.Hashable ListImages where
 
 instance Prelude.NFData ListImages where
   rnf ListImages' {..} =
-    Prelude.rnf byName
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf includeDeprecated
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf owner
+    Prelude.rnf byName `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf includeDeprecated `Prelude.seq`
+          Prelude.rnf maxResults `Prelude.seq`
+            Prelude.rnf nextToken `Prelude.seq`
+              Prelude.rnf owner
 
 instance Data.ToHeaders ListImages where
   toHeaders =
@@ -336,7 +336,7 @@ listImagesResponse_httpStatus = Lens.lens (\ListImagesResponse' {httpStatus} -> 
 
 instance Prelude.NFData ListImagesResponse where
   rnf ListImagesResponse' {..} =
-    Prelude.rnf imageVersionList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf imageVersionList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf requestId `Prelude.seq`
+          Prelude.rnf httpStatus

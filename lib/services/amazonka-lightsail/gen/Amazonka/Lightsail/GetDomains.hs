@@ -102,12 +102,12 @@ instance Core.AWSPager GetDomains where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getDomains_pageToken
-          Lens..~ rs
-          Lens.^? getDomainsResponse_nextPageToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getDomains_pageToken
+              Lens..~ rs
+              Lens.^? getDomainsResponse_nextPageToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetDomains where
   type AWSResponse GetDomains = GetDomainsResponse
@@ -227,6 +227,6 @@ getDomainsResponse_httpStatus = Lens.lens (\GetDomainsResponse' {httpStatus} -> 
 
 instance Prelude.NFData GetDomainsResponse where
   rnf GetDomainsResponse' {..} =
-    Prelude.rnf domains
-      `Prelude.seq` Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf domains `Prelude.seq`
+      Prelude.rnf nextPageToken `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -142,10 +142,10 @@ instance Prelude.Hashable CreateUser where
 
 instance Prelude.NFData CreateUser where
   rnf CreateUser' {..} =
-    Prelude.rnf organizationId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf password
+    Prelude.rnf organizationId `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf displayName `Prelude.seq`
+          Prelude.rnf password
 
 instance Data.ToHeaders CreateUser where
   toHeaders =
@@ -218,5 +218,5 @@ createUserResponse_httpStatus = Lens.lens (\CreateUserResponse' {httpStatus} -> 
 
 instance Prelude.NFData CreateUserResponse where
   rnf CreateUserResponse' {..} =
-    Prelude.rnf userId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf userId `Prelude.seq`
+      Prelude.rnf httpStatus

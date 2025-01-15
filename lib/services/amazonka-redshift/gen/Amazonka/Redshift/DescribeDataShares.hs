@@ -140,12 +140,12 @@ instance Core.AWSPager DescribeDataShares where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeDataShares_marker
-          Lens..~ rs
-          Lens.^? describeDataSharesResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeDataShares_marker
+              Lens..~ rs
+              Lens.^? describeDataSharesResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeDataShares where
   type
@@ -158,9 +158,7 @@ instance Core.AWSRequest DescribeDataShares where
       "DescribeDataSharesResult"
       ( \s h x ->
           DescribeDataSharesResponse'
-            Prelude.<$> ( x
-                            Data..@? "DataShares"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "DataShares" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (x Data..@? "Marker")
@@ -176,9 +174,9 @@ instance Prelude.Hashable DescribeDataShares where
 
 instance Prelude.NFData DescribeDataShares where
   rnf DescribeDataShares' {..} =
-    Prelude.rnf dataShareArn
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
+    Prelude.rnf dataShareArn `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf maxRecords
 
 instance Data.ToHeaders DescribeDataShares where
   toHeaders = Prelude.const Prelude.mempty
@@ -263,6 +261,6 @@ describeDataSharesResponse_httpStatus = Lens.lens (\DescribeDataSharesResponse' 
 
 instance Prelude.NFData DescribeDataSharesResponse where
   rnf DescribeDataSharesResponse' {..} =
-    Prelude.rnf dataShares
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dataShares `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf httpStatus

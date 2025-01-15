@@ -90,5 +90,5 @@ instance Prelude.Hashable PointOfInterest where
 
 instance Prelude.NFData PointOfInterest where
   rnf PointOfInterest' {..} =
-    Prelude.rnf beginOffsetMillis
-      `Prelude.seq` Prelude.rnf endOffsetMillis
+    Prelude.rnf beginOffsetMillis `Prelude.seq`
+      Prelude.rnf endOffsetMillis

@@ -126,10 +126,10 @@ instance Prelude.Hashable NFSFileShareDefaults where
 
 instance Prelude.NFData NFSFileShareDefaults where
   rnf NFSFileShareDefaults' {..} =
-    Prelude.rnf directoryMode
-      `Prelude.seq` Prelude.rnf fileMode
-      `Prelude.seq` Prelude.rnf groupId
-      `Prelude.seq` Prelude.rnf ownerId
+    Prelude.rnf directoryMode `Prelude.seq`
+      Prelude.rnf fileMode `Prelude.seq`
+        Prelude.rnf groupId `Prelude.seq`
+          Prelude.rnf ownerId
 
 instance Data.ToJSON NFSFileShareDefaults where
   toJSON NFSFileShareDefaults' {..} =

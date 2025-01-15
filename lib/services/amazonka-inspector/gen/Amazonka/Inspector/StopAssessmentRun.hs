@@ -112,8 +112,8 @@ instance Prelude.Hashable StopAssessmentRun where
 
 instance Prelude.NFData StopAssessmentRun where
   rnf StopAssessmentRun' {..} =
-    Prelude.rnf stopAction
-      `Prelude.seq` Prelude.rnf assessmentRunArn
+    Prelude.rnf stopAction `Prelude.seq`
+      Prelude.rnf assessmentRunArn
 
 instance Data.ToHeaders StopAssessmentRun where
   toHeaders =

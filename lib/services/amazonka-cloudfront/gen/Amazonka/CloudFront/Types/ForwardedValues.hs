@@ -389,10 +389,10 @@ instance Prelude.Hashable ForwardedValues where
 
 instance Prelude.NFData ForwardedValues where
   rnf ForwardedValues' {..} =
-    Prelude.rnf headers
-      `Prelude.seq` Prelude.rnf queryStringCacheKeys
-      `Prelude.seq` Prelude.rnf queryString
-      `Prelude.seq` Prelude.rnf cookies
+    Prelude.rnf headers `Prelude.seq`
+      Prelude.rnf queryStringCacheKeys `Prelude.seq`
+        Prelude.rnf queryString `Prelude.seq`
+          Prelude.rnf cookies
 
 instance Data.ToXML ForwardedValues where
   toXML ForwardedValues' {..} =

@@ -112,10 +112,10 @@ instance Prelude.Hashable StaticIpConnectionInfo where
 
 instance Prelude.NFData StaticIpConnectionInfo where
   rnf StaticIpConnectionInfo' {..} =
-    Prelude.rnf defaultGateway
-      `Prelude.seq` Prelude.rnf dns
-      `Prelude.seq` Prelude.rnf ipAddress
-      `Prelude.seq` Prelude.rnf mask
+    Prelude.rnf defaultGateway `Prelude.seq`
+      Prelude.rnf dns `Prelude.seq`
+        Prelude.rnf ipAddress `Prelude.seq`
+          Prelude.rnf mask
 
 instance Data.ToJSON StaticIpConnectionInfo where
   toJSON StaticIpConnectionInfo' {..} =

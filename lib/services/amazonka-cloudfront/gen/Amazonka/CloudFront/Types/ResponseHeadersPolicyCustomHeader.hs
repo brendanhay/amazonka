@@ -116,9 +116,9 @@ instance
     ResponseHeadersPolicyCustomHeader
   where
   rnf ResponseHeadersPolicyCustomHeader' {..} =
-    Prelude.rnf header
-      `Prelude.seq` Prelude.rnf value
-      `Prelude.seq` Prelude.rnf override
+    Prelude.rnf header `Prelude.seq`
+      Prelude.rnf value `Prelude.seq`
+        Prelude.rnf override
 
 instance Data.ToXML ResponseHeadersPolicyCustomHeader where
   toXML ResponseHeadersPolicyCustomHeader' {..} =

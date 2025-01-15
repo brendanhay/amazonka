@@ -202,12 +202,12 @@ instance Prelude.Hashable UpdateAssetProperty where
 
 instance Prelude.NFData UpdateAssetProperty where
   rnf UpdateAssetProperty' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf propertyAlias
-      `Prelude.seq` Prelude.rnf propertyNotificationState
-      `Prelude.seq` Prelude.rnf propertyUnit
-      `Prelude.seq` Prelude.rnf assetId
-      `Prelude.seq` Prelude.rnf propertyId
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf propertyAlias `Prelude.seq`
+        Prelude.rnf propertyNotificationState `Prelude.seq`
+          Prelude.rnf propertyUnit `Prelude.seq`
+            Prelude.rnf assetId `Prelude.seq`
+              Prelude.rnf propertyId
 
 instance Data.ToHeaders UpdateAssetProperty where
   toHeaders =

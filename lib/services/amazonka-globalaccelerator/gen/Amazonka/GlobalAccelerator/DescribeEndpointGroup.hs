@@ -170,5 +170,5 @@ describeEndpointGroupResponse_httpStatus = Lens.lens (\DescribeEndpointGroupResp
 
 instance Prelude.NFData DescribeEndpointGroupResponse where
   rnf DescribeEndpointGroupResponse' {..} =
-    Prelude.rnf endpointGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf endpointGroup `Prelude.seq`
+      Prelude.rnf httpStatus

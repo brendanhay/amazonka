@@ -165,6 +165,6 @@ getSchemaAsJsonResponse_httpStatus = Lens.lens (\GetSchemaAsJsonResponse' {httpS
 
 instance Prelude.NFData GetSchemaAsJsonResponse where
   rnf GetSchemaAsJsonResponse' {..} =
-    Prelude.rnf document
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf document `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf httpStatus

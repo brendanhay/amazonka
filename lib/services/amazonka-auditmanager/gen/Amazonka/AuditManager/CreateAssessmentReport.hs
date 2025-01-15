@@ -187,10 +187,10 @@ instance Prelude.Hashable CreateAssessmentReport where
 
 instance Prelude.NFData CreateAssessmentReport where
   rnf CreateAssessmentReport' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf queryStatement
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf assessmentId
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf queryStatement `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf assessmentId
 
 instance Data.ToHeaders CreateAssessmentReport where
   toHeaders =
@@ -269,5 +269,5 @@ instance
     CreateAssessmentReportResponse
   where
   rnf CreateAssessmentReportResponse' {..} =
-    Prelude.rnf assessmentReport
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf assessmentReport `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -96,9 +96,9 @@ instance Prelude.Hashable CustomImage where
 
 instance Prelude.NFData CustomImage where
   rnf CustomImage' {..} =
-    Prelude.rnf imageVersionNumber
-      `Prelude.seq` Prelude.rnf imageName
-      `Prelude.seq` Prelude.rnf appImageConfigName
+    Prelude.rnf imageVersionNumber `Prelude.seq`
+      Prelude.rnf imageName `Prelude.seq`
+        Prelude.rnf appImageConfigName
 
 instance Data.ToJSON CustomImage where
   toJSON CustomImage' {..} =

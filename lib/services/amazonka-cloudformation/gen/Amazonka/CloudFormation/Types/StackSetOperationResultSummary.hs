@@ -207,9 +207,9 @@ instance
     StackSetOperationResultSummary
   where
   rnf StackSetOperationResultSummary' {..} =
-    Prelude.rnf account
-      `Prelude.seq` Prelude.rnf accountGateResult
-      `Prelude.seq` Prelude.rnf organizationalUnitId
-      `Prelude.seq` Prelude.rnf region
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusReason
+    Prelude.rnf account `Prelude.seq`
+      Prelude.rnf accountGateResult `Prelude.seq`
+        Prelude.rnf organizationalUnitId `Prelude.seq`
+          Prelude.rnf region `Prelude.seq`
+            Prelude.rnf status `Prelude.seq`
+              Prelude.rnf statusReason

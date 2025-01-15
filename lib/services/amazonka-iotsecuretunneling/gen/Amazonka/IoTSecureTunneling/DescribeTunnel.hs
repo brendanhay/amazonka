@@ -167,5 +167,5 @@ describeTunnelResponse_httpStatus = Lens.lens (\DescribeTunnelResponse' {httpSta
 
 instance Prelude.NFData DescribeTunnelResponse where
   rnf DescribeTunnelResponse' {..} =
-    Prelude.rnf tunnel
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf tunnel `Prelude.seq`
+      Prelude.rnf httpStatus

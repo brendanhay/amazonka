@@ -111,8 +111,8 @@ instance Prelude.Hashable Alarms where
 
 instance Prelude.NFData Alarms where
   rnf Alarms' {..} =
-    Prelude.rnf notificationLambdaArn
-      `Prelude.seq` Prelude.rnf alarmRoleArn
+    Prelude.rnf notificationLambdaArn `Prelude.seq`
+      Prelude.rnf alarmRoleArn
 
 instance Data.ToJSON Alarms where
   toJSON Alarms' {..} =

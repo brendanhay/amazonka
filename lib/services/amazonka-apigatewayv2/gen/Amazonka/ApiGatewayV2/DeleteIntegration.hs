@@ -101,8 +101,8 @@ instance Prelude.Hashable DeleteIntegration where
 
 instance Prelude.NFData DeleteIntegration where
   rnf DeleteIntegration' {..} =
-    Prelude.rnf apiId
-      `Prelude.seq` Prelude.rnf integrationId
+    Prelude.rnf apiId `Prelude.seq`
+      Prelude.rnf integrationId
 
 instance Data.ToHeaders DeleteIntegration where
   toHeaders =

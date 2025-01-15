@@ -115,12 +115,12 @@ instance Core.AWSPager ListDatasetGroups where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listDatasetGroups_nextToken
-          Lens..~ rs
-          Lens.^? listDatasetGroupsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listDatasetGroups_nextToken
+              Lens..~ rs
+              Lens.^? listDatasetGroupsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDatasetGroups where
   type
@@ -145,8 +145,8 @@ instance Prelude.Hashable ListDatasetGroups where
 
 instance Prelude.NFData ListDatasetGroups where
   rnf ListDatasetGroups' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListDatasetGroups where
   toHeaders =
@@ -231,6 +231,6 @@ listDatasetGroupsResponse_httpStatus = Lens.lens (\ListDatasetGroupsResponse' {h
 
 instance Prelude.NFData ListDatasetGroupsResponse where
   rnf ListDatasetGroupsResponse' {..} =
-    Prelude.rnf datasetGroups
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf datasetGroups `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

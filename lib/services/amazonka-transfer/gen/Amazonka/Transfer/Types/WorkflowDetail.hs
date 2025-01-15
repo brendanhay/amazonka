@@ -96,8 +96,8 @@ instance Prelude.Hashable WorkflowDetail where
 
 instance Prelude.NFData WorkflowDetail where
   rnf WorkflowDetail' {..} =
-    Prelude.rnf workflowId
-      `Prelude.seq` Prelude.rnf executionRole
+    Prelude.rnf workflowId `Prelude.seq`
+      Prelude.rnf executionRole
 
 instance Data.ToJSON WorkflowDetail where
   toJSON WorkflowDetail' {..} =

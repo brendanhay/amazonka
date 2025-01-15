@@ -118,8 +118,8 @@ instance Prelude.Hashable AssetDetails where
 
 instance Prelude.NFData AssetDetails where
   rnf AssetDetails' {..} =
-    Prelude.rnf apiGatewayApiAsset
-      `Prelude.seq` Prelude.rnf lakeFormationDataPermissionAsset
-      `Prelude.seq` Prelude.rnf redshiftDataShareAsset
-      `Prelude.seq` Prelude.rnf s3DataAccessAsset
-      `Prelude.seq` Prelude.rnf s3SnapshotAsset
+    Prelude.rnf apiGatewayApiAsset `Prelude.seq`
+      Prelude.rnf lakeFormationDataPermissionAsset `Prelude.seq`
+        Prelude.rnf redshiftDataShareAsset `Prelude.seq`
+          Prelude.rnf s3DataAccessAsset `Prelude.seq`
+            Prelude.rnf s3SnapshotAsset

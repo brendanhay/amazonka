@@ -105,6 +105,6 @@ instance
     RepositoryScanningConfigurationFailure
   where
   rnf RepositoryScanningConfigurationFailure' {..} =
-    Prelude.rnf failureCode
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf repositoryName
+    Prelude.rnf failureCode `Prelude.seq`
+      Prelude.rnf failureReason `Prelude.seq`
+        Prelude.rnf repositoryName

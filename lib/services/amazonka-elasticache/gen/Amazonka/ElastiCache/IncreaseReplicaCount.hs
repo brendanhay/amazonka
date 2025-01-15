@@ -163,10 +163,10 @@ instance Prelude.Hashable IncreaseReplicaCount where
 
 instance Prelude.NFData IncreaseReplicaCount where
   rnf IncreaseReplicaCount' {..} =
-    Prelude.rnf newReplicaCount'
-      `Prelude.seq` Prelude.rnf replicaConfiguration
-      `Prelude.seq` Prelude.rnf replicationGroupId
-      `Prelude.seq` Prelude.rnf applyImmediately
+    Prelude.rnf newReplicaCount' `Prelude.seq`
+      Prelude.rnf replicaConfiguration `Prelude.seq`
+        Prelude.rnf replicationGroupId `Prelude.seq`
+          Prelude.rnf applyImmediately
 
 instance Data.ToHeaders IncreaseReplicaCount where
   toHeaders = Prelude.const Prelude.mempty
@@ -231,5 +231,5 @@ increaseReplicaCountResponse_httpStatus = Lens.lens (\IncreaseReplicaCountRespon
 
 instance Prelude.NFData IncreaseReplicaCountResponse where
   rnf IncreaseReplicaCountResponse' {..} =
-    Prelude.rnf replicationGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf replicationGroup `Prelude.seq`
+      Prelude.rnf httpStatus

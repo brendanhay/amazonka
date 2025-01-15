@@ -136,8 +136,8 @@ instance Prelude.Hashable DeleteAssessmentReport where
 
 instance Prelude.NFData DeleteAssessmentReport where
   rnf DeleteAssessmentReport' {..} =
-    Prelude.rnf assessmentId
-      `Prelude.seq` Prelude.rnf assessmentReportId
+    Prelude.rnf assessmentId `Prelude.seq`
+      Prelude.rnf assessmentReportId
 
 instance Data.ToHeaders DeleteAssessmentReport where
   toHeaders =

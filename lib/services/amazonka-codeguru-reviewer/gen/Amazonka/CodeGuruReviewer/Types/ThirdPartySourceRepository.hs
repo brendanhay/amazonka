@@ -114,9 +114,9 @@ instance Prelude.Hashable ThirdPartySourceRepository where
 
 instance Prelude.NFData ThirdPartySourceRepository where
   rnf ThirdPartySourceRepository' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf connectionArn
-      `Prelude.seq` Prelude.rnf owner
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf connectionArn `Prelude.seq`
+        Prelude.rnf owner
 
 instance Data.ToJSON ThirdPartySourceRepository where
   toJSON ThirdPartySourceRepository' {..} =

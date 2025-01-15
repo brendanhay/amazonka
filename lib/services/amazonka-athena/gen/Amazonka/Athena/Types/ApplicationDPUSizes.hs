@@ -87,5 +87,5 @@ instance Prelude.Hashable ApplicationDPUSizes where
 
 instance Prelude.NFData ApplicationDPUSizes where
   rnf ApplicationDPUSizes' {..} =
-    Prelude.rnf applicationRuntimeId
-      `Prelude.seq` Prelude.rnf supportedDPUSizes
+    Prelude.rnf applicationRuntimeId `Prelude.seq`
+      Prelude.rnf supportedDPUSizes

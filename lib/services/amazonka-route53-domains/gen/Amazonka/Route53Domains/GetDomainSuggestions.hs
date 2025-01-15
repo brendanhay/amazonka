@@ -208,9 +208,9 @@ instance Prelude.Hashable GetDomainSuggestions where
 
 instance Prelude.NFData GetDomainSuggestions where
   rnf GetDomainSuggestions' {..} =
-    Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf suggestionCount
-      `Prelude.seq` Prelude.rnf onlyAvailable
+    Prelude.rnf domainName `Prelude.seq`
+      Prelude.rnf suggestionCount `Prelude.seq`
+        Prelude.rnf onlyAvailable
 
 instance Data.ToHeaders GetDomainSuggestions where
   toHeaders =
@@ -292,5 +292,5 @@ getDomainSuggestionsResponse_httpStatus = Lens.lens (\GetDomainSuggestionsRespon
 
 instance Prelude.NFData GetDomainSuggestionsResponse where
   rnf GetDomainSuggestionsResponse' {..} =
-    Prelude.rnf suggestionsList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf suggestionsList `Prelude.seq`
+      Prelude.rnf httpStatus

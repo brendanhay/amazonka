@@ -158,9 +158,9 @@ instance Prelude.Hashable EvaluationResult where
 
 instance Prelude.NFData EvaluationResult where
   rnf EvaluationResult' {..} =
-    Prelude.rnf annotation
-      `Prelude.seq` Prelude.rnf complianceType
-      `Prelude.seq` Prelude.rnf configRuleInvokedTime
-      `Prelude.seq` Prelude.rnf evaluationResultIdentifier
-      `Prelude.seq` Prelude.rnf resultRecordedTime
-      `Prelude.seq` Prelude.rnf resultToken
+    Prelude.rnf annotation `Prelude.seq`
+      Prelude.rnf complianceType `Prelude.seq`
+        Prelude.rnf configRuleInvokedTime `Prelude.seq`
+          Prelude.rnf evaluationResultIdentifier `Prelude.seq`
+            Prelude.rnf resultRecordedTime `Prelude.seq`
+              Prelude.rnf resultToken

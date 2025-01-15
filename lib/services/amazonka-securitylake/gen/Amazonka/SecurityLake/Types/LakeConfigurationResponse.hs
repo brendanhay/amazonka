@@ -202,10 +202,10 @@ instance Prelude.Hashable LakeConfigurationResponse where
 
 instance Prelude.NFData LakeConfigurationResponse where
   rnf LakeConfigurationResponse' {..} =
-    Prelude.rnf encryptionKey
-      `Prelude.seq` Prelude.rnf replicationDestinationRegions
-      `Prelude.seq` Prelude.rnf replicationRoleArn
-      `Prelude.seq` Prelude.rnf retentionSettings
-      `Prelude.seq` Prelude.rnf s3BucketArn
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf tagsMap
+    Prelude.rnf encryptionKey `Prelude.seq`
+      Prelude.rnf replicationDestinationRegions `Prelude.seq`
+        Prelude.rnf replicationRoleArn `Prelude.seq`
+          Prelude.rnf retentionSettings `Prelude.seq`
+            Prelude.rnf s3BucketArn `Prelude.seq`
+              Prelude.rnf status `Prelude.seq`
+                Prelude.rnf tagsMap

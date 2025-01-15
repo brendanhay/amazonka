@@ -136,9 +136,9 @@ instance Prelude.Hashable ModifySnapshotTier where
 
 instance Prelude.NFData ModifySnapshotTier where
   rnf ModifySnapshotTier' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf storageTier
-      `Prelude.seq` Prelude.rnf snapshotId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf storageTier `Prelude.seq`
+        Prelude.rnf snapshotId
 
 instance Data.ToHeaders ModifySnapshotTier where
   toHeaders = Prelude.const Prelude.mempty
@@ -208,6 +208,6 @@ modifySnapshotTierResponse_httpStatus = Lens.lens (\ModifySnapshotTierResponse' 
 
 instance Prelude.NFData ModifySnapshotTierResponse where
   rnf ModifySnapshotTierResponse' {..} =
-    Prelude.rnf snapshotId
-      `Prelude.seq` Prelude.rnf tieringStartTime
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf snapshotId `Prelude.seq`
+      Prelude.rnf tieringStartTime `Prelude.seq`
+        Prelude.rnf httpStatus

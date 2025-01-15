@@ -70,8 +70,8 @@ instance Prelude.Hashable HttpContext where
 
 instance Prelude.NFData HttpContext where
   rnf HttpContext' {..} =
-    Prelude.rnf headers
-      `Prelude.seq` Prelude.rnf queryString
+    Prelude.rnf headers `Prelude.seq`
+      Prelude.rnf queryString
 
 instance Data.ToJSON HttpContext where
   toJSON HttpContext' {..} =

@@ -113,9 +113,9 @@ instance Prelude.Hashable AssociateBot where
 
 instance Prelude.NFData AssociateBot where
   rnf AssociateBot' {..} =
-    Prelude.rnf lexBot
-      `Prelude.seq` Prelude.rnf lexV2Bot
-      `Prelude.seq` Prelude.rnf instanceId
+    Prelude.rnf lexBot `Prelude.seq`
+      Prelude.rnf lexV2Bot `Prelude.seq`
+        Prelude.rnf instanceId
 
 instance Data.ToHeaders AssociateBot where
   toHeaders =

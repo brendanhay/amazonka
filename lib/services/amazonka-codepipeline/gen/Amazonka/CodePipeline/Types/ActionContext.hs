@@ -84,5 +84,5 @@ instance Prelude.Hashable ActionContext where
 
 instance Prelude.NFData ActionContext where
   rnf ActionContext' {..} =
-    Prelude.rnf actionExecutionId
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf actionExecutionId `Prelude.seq`
+      Prelude.rnf name

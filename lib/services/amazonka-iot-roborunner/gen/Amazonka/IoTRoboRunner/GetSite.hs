@@ -227,11 +227,11 @@ getSiteResponse_updatedAt = Lens.lens (\GetSiteResponse' {updatedAt} -> updatedA
 
 instance Prelude.NFData GetSiteResponse where
   rnf GetSiteResponse' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf countryCode
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf updatedAt
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf arn `Prelude.seq`
+          Prelude.rnf id `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf countryCode `Prelude.seq`
+                Prelude.rnf createdAt `Prelude.seq`
+                  Prelude.rnf updatedAt

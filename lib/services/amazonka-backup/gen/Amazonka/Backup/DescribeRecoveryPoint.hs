@@ -171,8 +171,8 @@ instance Prelude.Hashable DescribeRecoveryPoint where
 
 instance Prelude.NFData DescribeRecoveryPoint where
   rnf DescribeRecoveryPoint' {..} =
-    Prelude.rnf backupVaultName
-      `Prelude.seq` Prelude.rnf recoveryPointArn
+    Prelude.rnf backupVaultName `Prelude.seq`
+      Prelude.rnf recoveryPointArn
 
 instance Data.ToHeaders DescribeRecoveryPoint where
   toHeaders =
@@ -652,26 +652,26 @@ describeRecoveryPointResponse_httpStatus = Lens.lens (\DescribeRecoveryPointResp
 
 instance Prelude.NFData DescribeRecoveryPointResponse where
   rnf DescribeRecoveryPointResponse' {..} =
-    Prelude.rnf backupSizeInBytes
-      `Prelude.seq` Prelude.rnf backupVaultArn
-      `Prelude.seq` Prelude.rnf backupVaultName
-      `Prelude.seq` Prelude.rnf calculatedLifecycle
-      `Prelude.seq` Prelude.rnf completionDate
-      `Prelude.seq` Prelude.rnf compositeMemberIdentifier
-      `Prelude.seq` Prelude.rnf createdBy
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf encryptionKeyArn
-      `Prelude.seq` Prelude.rnf iamRoleArn
-      `Prelude.seq` Prelude.rnf isEncrypted
-      `Prelude.seq` Prelude.rnf isParent
-      `Prelude.seq` Prelude.rnf lastRestoreTime
-      `Prelude.seq` Prelude.rnf lifecycle
-      `Prelude.seq` Prelude.rnf parentRecoveryPointArn
-      `Prelude.seq` Prelude.rnf recoveryPointArn
-      `Prelude.seq` Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf sourceBackupVaultArn
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf storageClass
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf backupSizeInBytes `Prelude.seq`
+      Prelude.rnf backupVaultArn `Prelude.seq`
+        Prelude.rnf backupVaultName `Prelude.seq`
+          Prelude.rnf calculatedLifecycle `Prelude.seq`
+            Prelude.rnf completionDate `Prelude.seq`
+              Prelude.rnf compositeMemberIdentifier `Prelude.seq`
+                Prelude.rnf createdBy `Prelude.seq`
+                  Prelude.rnf creationDate `Prelude.seq`
+                    Prelude.rnf encryptionKeyArn `Prelude.seq`
+                      Prelude.rnf iamRoleArn `Prelude.seq`
+                        Prelude.rnf isEncrypted `Prelude.seq`
+                          Prelude.rnf isParent `Prelude.seq`
+                            Prelude.rnf lastRestoreTime `Prelude.seq`
+                              Prelude.rnf lifecycle `Prelude.seq`
+                                Prelude.rnf parentRecoveryPointArn `Prelude.seq`
+                                  Prelude.rnf recoveryPointArn `Prelude.seq`
+                                    Prelude.rnf resourceArn `Prelude.seq`
+                                      Prelude.rnf resourceType `Prelude.seq`
+                                        Prelude.rnf sourceBackupVaultArn `Prelude.seq`
+                                          Prelude.rnf status `Prelude.seq`
+                                            Prelude.rnf statusMessage `Prelude.seq`
+                                              Prelude.rnf storageClass `Prelude.seq`
+                                                Prelude.rnf httpStatus

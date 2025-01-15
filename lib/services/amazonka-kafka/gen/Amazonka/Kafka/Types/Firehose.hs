@@ -78,8 +78,8 @@ instance Prelude.Hashable Firehose where
 
 instance Prelude.NFData Firehose where
   rnf Firehose' {..} =
-    Prelude.rnf deliveryStream
-      `Prelude.seq` Prelude.rnf enabled
+    Prelude.rnf deliveryStream `Prelude.seq`
+      Prelude.rnf enabled
 
 instance Data.ToJSON Firehose where
   toJSON Firehose' {..} =

@@ -142,13 +142,13 @@ instance Prelude.Hashable SubtotalOptions where
 
 instance Prelude.NFData SubtotalOptions where
   rnf SubtotalOptions' {..} =
-    Prelude.rnf customLabel
-      `Prelude.seq` Prelude.rnf fieldLevel
-      `Prelude.seq` Prelude.rnf fieldLevelOptions
-      `Prelude.seq` Prelude.rnf metricHeaderCellStyle
-      `Prelude.seq` Prelude.rnf totalCellStyle
-      `Prelude.seq` Prelude.rnf totalsVisibility
-      `Prelude.seq` Prelude.rnf valueCellStyle
+    Prelude.rnf customLabel `Prelude.seq`
+      Prelude.rnf fieldLevel `Prelude.seq`
+        Prelude.rnf fieldLevelOptions `Prelude.seq`
+          Prelude.rnf metricHeaderCellStyle `Prelude.seq`
+            Prelude.rnf totalCellStyle `Prelude.seq`
+              Prelude.rnf totalsVisibility `Prelude.seq`
+                Prelude.rnf valueCellStyle
 
 instance Data.ToJSON SubtotalOptions where
   toJSON SubtotalOptions' {..} =

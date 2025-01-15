@@ -195,13 +195,13 @@ instance Prelude.Hashable HubContentInfo where
 
 instance Prelude.NFData HubContentInfo where
   rnf HubContentInfo' {..} =
-    Prelude.rnf hubContentDescription
-      `Prelude.seq` Prelude.rnf hubContentDisplayName
-      `Prelude.seq` Prelude.rnf hubContentSearchKeywords
-      `Prelude.seq` Prelude.rnf hubContentName
-      `Prelude.seq` Prelude.rnf hubContentArn
-      `Prelude.seq` Prelude.rnf hubContentVersion
-      `Prelude.seq` Prelude.rnf hubContentType
-      `Prelude.seq` Prelude.rnf documentSchemaVersion
-      `Prelude.seq` Prelude.rnf hubContentStatus
-      `Prelude.seq` Prelude.rnf creationTime
+    Prelude.rnf hubContentDescription `Prelude.seq`
+      Prelude.rnf hubContentDisplayName `Prelude.seq`
+        Prelude.rnf hubContentSearchKeywords `Prelude.seq`
+          Prelude.rnf hubContentName `Prelude.seq`
+            Prelude.rnf hubContentArn `Prelude.seq`
+              Prelude.rnf hubContentVersion `Prelude.seq`
+                Prelude.rnf hubContentType `Prelude.seq`
+                  Prelude.rnf documentSchemaVersion `Prelude.seq`
+                    Prelude.rnf hubContentStatus `Prelude.seq`
+                      Prelude.rnf creationTime

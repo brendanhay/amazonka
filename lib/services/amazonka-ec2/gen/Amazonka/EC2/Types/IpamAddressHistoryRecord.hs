@@ -216,14 +216,14 @@ instance Prelude.Hashable IpamAddressHistoryRecord where
 
 instance Prelude.NFData IpamAddressHistoryRecord where
   rnf IpamAddressHistoryRecord' {..} =
-    Prelude.rnf resourceCidr
-      `Prelude.seq` Prelude.rnf resourceComplianceStatus
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf resourceName
-      `Prelude.seq` Prelude.rnf resourceOverlapStatus
-      `Prelude.seq` Prelude.rnf resourceOwnerId
-      `Prelude.seq` Prelude.rnf resourceRegion
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf sampledEndTime
-      `Prelude.seq` Prelude.rnf sampledStartTime
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf resourceCidr `Prelude.seq`
+      Prelude.rnf resourceComplianceStatus `Prelude.seq`
+        Prelude.rnf resourceId `Prelude.seq`
+          Prelude.rnf resourceName `Prelude.seq`
+            Prelude.rnf resourceOverlapStatus `Prelude.seq`
+              Prelude.rnf resourceOwnerId `Prelude.seq`
+                Prelude.rnf resourceRegion `Prelude.seq`
+                  Prelude.rnf resourceType `Prelude.seq`
+                    Prelude.rnf sampledEndTime `Prelude.seq`
+                      Prelude.rnf sampledStartTime `Prelude.seq`
+                        Prelude.rnf vpcId

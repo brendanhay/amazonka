@@ -101,8 +101,8 @@ instance Prelude.Hashable HoldoutActivity where
 
 instance Prelude.NFData HoldoutActivity where
   rnf HoldoutActivity' {..} =
-    Prelude.rnf nextActivity
-      `Prelude.seq` Prelude.rnf percentage
+    Prelude.rnf nextActivity `Prelude.seq`
+      Prelude.rnf percentage
 
 instance Data.ToJSON HoldoutActivity where
   toJSON HoldoutActivity' {..} =

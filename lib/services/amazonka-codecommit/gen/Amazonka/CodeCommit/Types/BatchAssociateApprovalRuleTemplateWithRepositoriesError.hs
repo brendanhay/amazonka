@@ -113,6 +113,6 @@ instance
   where
   rnf
     BatchAssociateApprovalRuleTemplateWithRepositoriesError' {..} =
-      Prelude.rnf errorCode
-        `Prelude.seq` Prelude.rnf errorMessage
-        `Prelude.seq` Prelude.rnf repositoryName
+      Prelude.rnf errorCode `Prelude.seq`
+        Prelude.rnf errorMessage `Prelude.seq`
+          Prelude.rnf repositoryName

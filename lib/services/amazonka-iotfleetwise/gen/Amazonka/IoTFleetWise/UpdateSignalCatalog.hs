@@ -146,11 +146,11 @@ instance Prelude.Hashable UpdateSignalCatalog where
 
 instance Prelude.NFData UpdateSignalCatalog where
   rnf UpdateSignalCatalog' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf nodesToAdd
-      `Prelude.seq` Prelude.rnf nodesToRemove
-      `Prelude.seq` Prelude.rnf nodesToUpdate
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf nodesToAdd `Prelude.seq`
+        Prelude.rnf nodesToRemove `Prelude.seq`
+          Prelude.rnf nodesToUpdate `Prelude.seq`
+            Prelude.rnf name
 
 instance Data.ToHeaders UpdateSignalCatalog where
   toHeaders =
@@ -242,6 +242,6 @@ updateSignalCatalogResponse_arn = Lens.lens (\UpdateSignalCatalogResponse' {arn}
 
 instance Prelude.NFData UpdateSignalCatalogResponse where
   rnf UpdateSignalCatalogResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf arn

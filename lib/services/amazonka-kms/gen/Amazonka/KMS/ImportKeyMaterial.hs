@@ -371,11 +371,11 @@ instance Prelude.Hashable ImportKeyMaterial where
 
 instance Prelude.NFData ImportKeyMaterial where
   rnf ImportKeyMaterial' {..} =
-    Prelude.rnf expirationModel
-      `Prelude.seq` Prelude.rnf validTo
-      `Prelude.seq` Prelude.rnf keyId
-      `Prelude.seq` Prelude.rnf importToken
-      `Prelude.seq` Prelude.rnf encryptedKeyMaterial
+    Prelude.rnf expirationModel `Prelude.seq`
+      Prelude.rnf validTo `Prelude.seq`
+        Prelude.rnf keyId `Prelude.seq`
+          Prelude.rnf importToken `Prelude.seq`
+            Prelude.rnf encryptedKeyMaterial
 
 instance Data.ToHeaders ImportKeyMaterial where
   toHeaders =

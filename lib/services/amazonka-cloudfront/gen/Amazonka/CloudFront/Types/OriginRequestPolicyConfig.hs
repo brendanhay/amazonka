@@ -153,11 +153,11 @@ instance Prelude.Hashable OriginRequestPolicyConfig where
 
 instance Prelude.NFData OriginRequestPolicyConfig where
   rnf OriginRequestPolicyConfig' {..} =
-    Prelude.rnf comment
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf headersConfig
-      `Prelude.seq` Prelude.rnf cookiesConfig
-      `Prelude.seq` Prelude.rnf queryStringsConfig
+    Prelude.rnf comment `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf headersConfig `Prelude.seq`
+          Prelude.rnf cookiesConfig `Prelude.seq`
+            Prelude.rnf queryStringsConfig
 
 instance Data.ToXML OriginRequestPolicyConfig where
   toXML OriginRequestPolicyConfig' {..} =

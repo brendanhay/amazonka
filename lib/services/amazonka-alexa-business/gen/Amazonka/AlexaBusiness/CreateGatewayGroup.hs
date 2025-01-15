@@ -138,10 +138,10 @@ instance Prelude.Hashable CreateGatewayGroup where
 
 instance Prelude.NFData CreateGatewayGroup where
   rnf CreateGatewayGroup' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf clientRequestToken
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf clientRequestToken
 
 instance Data.ToHeaders CreateGatewayGroup where
   toHeaders =
@@ -217,5 +217,5 @@ createGatewayGroupResponse_httpStatus = Lens.lens (\CreateGatewayGroupResponse' 
 
 instance Prelude.NFData CreateGatewayGroupResponse where
   rnf CreateGatewayGroupResponse' {..} =
-    Prelude.rnf gatewayGroupArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf gatewayGroupArn `Prelude.seq`
+      Prelude.rnf httpStatus

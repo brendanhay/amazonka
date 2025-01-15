@@ -178,12 +178,12 @@ instance Prelude.Hashable ImportBackendAuth where
 
 instance Prelude.NFData ImportBackendAuth where
   rnf ImportBackendAuth' {..} =
-    Prelude.rnf identityPoolId
-      `Prelude.seq` Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf backendEnvironmentName
-      `Prelude.seq` Prelude.rnf userPoolId
-      `Prelude.seq` Prelude.rnf nativeClientId
-      `Prelude.seq` Prelude.rnf webClientId
+    Prelude.rnf identityPoolId `Prelude.seq`
+      Prelude.rnf appId `Prelude.seq`
+        Prelude.rnf backendEnvironmentName `Prelude.seq`
+          Prelude.rnf userPoolId `Prelude.seq`
+            Prelude.rnf nativeClientId `Prelude.seq`
+              Prelude.rnf webClientId
 
 instance Data.ToHeaders ImportBackendAuth where
   toHeaders =
@@ -307,10 +307,10 @@ importBackendAuthResponse_httpStatus = Lens.lens (\ImportBackendAuthResponse' {h
 
 instance Prelude.NFData ImportBackendAuthResponse where
   rnf ImportBackendAuthResponse' {..} =
-    Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf backendEnvironmentName
-      `Prelude.seq` Prelude.rnf error
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf operation
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf appId `Prelude.seq`
+      Prelude.rnf backendEnvironmentName `Prelude.seq`
+        Prelude.rnf error `Prelude.seq`
+          Prelude.rnf jobId `Prelude.seq`
+            Prelude.rnf operation `Prelude.seq`
+              Prelude.rnf status `Prelude.seq`
+                Prelude.rnf httpStatus

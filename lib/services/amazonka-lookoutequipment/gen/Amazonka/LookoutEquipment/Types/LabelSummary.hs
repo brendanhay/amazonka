@@ -167,12 +167,12 @@ instance Prelude.Hashable LabelSummary where
 
 instance Prelude.NFData LabelSummary where
   rnf LabelSummary' {..} =
-    Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf equipment
-      `Prelude.seq` Prelude.rnf faultCode
-      `Prelude.seq` Prelude.rnf labelGroupArn
-      `Prelude.seq` Prelude.rnf labelGroupName
-      `Prelude.seq` Prelude.rnf labelId
-      `Prelude.seq` Prelude.rnf rating
-      `Prelude.seq` Prelude.rnf startTime
+    Prelude.rnf createdAt `Prelude.seq`
+      Prelude.rnf endTime `Prelude.seq`
+        Prelude.rnf equipment `Prelude.seq`
+          Prelude.rnf faultCode `Prelude.seq`
+            Prelude.rnf labelGroupArn `Prelude.seq`
+              Prelude.rnf labelGroupName `Prelude.seq`
+                Prelude.rnf labelId `Prelude.seq`
+                  Prelude.rnf rating `Prelude.seq`
+                    Prelude.rnf startTime

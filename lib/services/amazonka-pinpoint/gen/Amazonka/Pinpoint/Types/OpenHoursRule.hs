@@ -80,8 +80,8 @@ instance Prelude.Hashable OpenHoursRule where
 
 instance Prelude.NFData OpenHoursRule where
   rnf OpenHoursRule' {..} =
-    Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf startTime
+    Prelude.rnf endTime `Prelude.seq`
+      Prelude.rnf startTime
 
 instance Data.ToJSON OpenHoursRule where
   toJSON OpenHoursRule' {..} =

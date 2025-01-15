@@ -69,9 +69,7 @@ instance Core.AWSRequest ListDomainNames where
       "ListDomainNamesResult"
       ( \s h x ->
           ListDomainNamesResponse'
-            Prelude.<$> ( x
-                            Data..@? "DomainNames"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "DomainNames" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLMap "entry" "key" "value")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -145,5 +143,5 @@ listDomainNamesResponse_httpStatus = Lens.lens (\ListDomainNamesResponse' {httpS
 
 instance Prelude.NFData ListDomainNamesResponse where
   rnf ListDomainNamesResponse' {..} =
-    Prelude.rnf domainNames
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf domainNames `Prelude.seq`
+      Prelude.rnf httpStatus

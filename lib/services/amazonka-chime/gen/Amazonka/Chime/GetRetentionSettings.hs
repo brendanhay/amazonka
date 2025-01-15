@@ -167,6 +167,6 @@ getRetentionSettingsResponse_httpStatus = Lens.lens (\GetRetentionSettingsRespon
 
 instance Prelude.NFData GetRetentionSettingsResponse where
   rnf GetRetentionSettingsResponse' {..} =
-    Prelude.rnf initiateDeletionTimestamp
-      `Prelude.seq` Prelude.rnf retentionSettings
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf initiateDeletionTimestamp `Prelude.seq`
+      Prelude.rnf retentionSettings `Prelude.seq`
+        Prelude.rnf httpStatus

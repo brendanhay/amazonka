@@ -162,12 +162,12 @@ instance Prelude.Hashable MultiplexSummary where
 
 instance Prelude.NFData MultiplexSummary where
   rnf MultiplexSummary' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf availabilityZones
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf multiplexSettings
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf pipelinesRunningCount
-      `Prelude.seq` Prelude.rnf programCount
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf availabilityZones `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf multiplexSettings `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf pipelinesRunningCount `Prelude.seq`
+                Prelude.rnf programCount `Prelude.seq`
+                  Prelude.rnf state `Prelude.seq`
+                    Prelude.rnf tags

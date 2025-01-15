@@ -309,12 +309,12 @@ instance Core.AWSPager DescribeAlarms where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeAlarms_nextToken
-          Lens..~ rs
-          Lens.^? describeAlarmsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeAlarms_nextToken
+              Lens..~ rs
+              Lens.^? describeAlarmsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeAlarms where
   type
@@ -327,14 +327,10 @@ instance Core.AWSRequest DescribeAlarms where
       "DescribeAlarmsResult"
       ( \s h x ->
           DescribeAlarmsResponse'
-            Prelude.<$> ( x
-                            Data..@? "CompositeAlarms"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "CompositeAlarms" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> ( x
-                            Data..@? "MetricAlarms"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "MetricAlarms" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (x Data..@? "NextToken")
@@ -356,15 +352,15 @@ instance Prelude.Hashable DescribeAlarms where
 
 instance Prelude.NFData DescribeAlarms where
   rnf DescribeAlarms' {..} =
-    Prelude.rnf actionPrefix
-      `Prelude.seq` Prelude.rnf alarmNamePrefix
-      `Prelude.seq` Prelude.rnf alarmNames
-      `Prelude.seq` Prelude.rnf alarmTypes
-      `Prelude.seq` Prelude.rnf childrenOfAlarmName
-      `Prelude.seq` Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf parentsOfAlarmName
-      `Prelude.seq` Prelude.rnf stateValue
+    Prelude.rnf actionPrefix `Prelude.seq`
+      Prelude.rnf alarmNamePrefix `Prelude.seq`
+        Prelude.rnf alarmNames `Prelude.seq`
+          Prelude.rnf alarmTypes `Prelude.seq`
+            Prelude.rnf childrenOfAlarmName `Prelude.seq`
+              Prelude.rnf maxRecords `Prelude.seq`
+                Prelude.rnf nextToken `Prelude.seq`
+                  Prelude.rnf parentsOfAlarmName `Prelude.seq`
+                    Prelude.rnf stateValue
 
 instance Data.ToHeaders DescribeAlarms where
   toHeaders = Prelude.const Prelude.mempty
@@ -453,7 +449,7 @@ describeAlarmsResponse_httpStatus = Lens.lens (\DescribeAlarmsResponse' {httpSta
 
 instance Prelude.NFData DescribeAlarmsResponse where
   rnf DescribeAlarmsResponse' {..} =
-    Prelude.rnf compositeAlarms
-      `Prelude.seq` Prelude.rnf metricAlarms
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf compositeAlarms `Prelude.seq`
+      Prelude.rnf metricAlarms `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf httpStatus

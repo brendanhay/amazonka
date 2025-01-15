@@ -99,9 +99,9 @@ instance Prelude.Hashable SecurityDetails where
 
 instance Prelude.NFData SecurityDetails where
   rnf SecurityDetails' {..} =
-    Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf subnetIds
+    Prelude.rnf roleArn `Prelude.seq`
+      Prelude.rnf securityGroupIds `Prelude.seq`
+        Prelude.rnf subnetIds
 
 instance Data.ToJSON SecurityDetails where
   toJSON SecurityDetails' {..} =

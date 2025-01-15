@@ -216,13 +216,13 @@ instance Prelude.Hashable ProvisionByoipCidr where
 
 instance Prelude.NFData ProvisionByoipCidr where
   rnf ProvisionByoipCidr' {..} =
-    Prelude.rnf cidrAuthorizationContext
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf multiRegion
-      `Prelude.seq` Prelude.rnf poolTagSpecifications
-      `Prelude.seq` Prelude.rnf publiclyAdvertisable
-      `Prelude.seq` Prelude.rnf cidr
+    Prelude.rnf cidrAuthorizationContext `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf dryRun `Prelude.seq`
+          Prelude.rnf multiRegion `Prelude.seq`
+            Prelude.rnf poolTagSpecifications `Prelude.seq`
+              Prelude.rnf publiclyAdvertisable `Prelude.seq`
+                Prelude.rnf cidr
 
 instance Data.ToHeaders ProvisionByoipCidr where
   toHeaders = Prelude.const Prelude.mempty
@@ -291,5 +291,5 @@ provisionByoipCidrResponse_httpStatus = Lens.lens (\ProvisionByoipCidrResponse' 
 
 instance Prelude.NFData ProvisionByoipCidrResponse where
   rnf ProvisionByoipCidrResponse' {..} =
-    Prelude.rnf byoipCidr
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf byoipCidr `Prelude.seq`
+      Prelude.rnf httpStatus

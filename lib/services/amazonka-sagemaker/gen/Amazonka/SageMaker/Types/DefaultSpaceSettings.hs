@@ -109,10 +109,10 @@ instance Prelude.Hashable DefaultSpaceSettings where
 
 instance Prelude.NFData DefaultSpaceSettings where
   rnf DefaultSpaceSettings' {..} =
-    Prelude.rnf executionRole
-      `Prelude.seq` Prelude.rnf jupyterServerAppSettings
-      `Prelude.seq` Prelude.rnf kernelGatewayAppSettings
-      `Prelude.seq` Prelude.rnf securityGroups
+    Prelude.rnf executionRole `Prelude.seq`
+      Prelude.rnf jupyterServerAppSettings `Prelude.seq`
+        Prelude.rnf kernelGatewayAppSettings `Prelude.seq`
+          Prelude.rnf securityGroups
 
 instance Data.ToJSON DefaultSpaceSettings where
   toJSON DefaultSpaceSettings' {..} =

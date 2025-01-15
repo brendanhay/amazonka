@@ -118,9 +118,9 @@ instance Prelude.Hashable SmallMultiplesOptions where
 
 instance Prelude.NFData SmallMultiplesOptions where
   rnf SmallMultiplesOptions' {..} =
-    Prelude.rnf maxVisibleColumns
-      `Prelude.seq` Prelude.rnf maxVisibleRows
-      `Prelude.seq` Prelude.rnf panelConfiguration
+    Prelude.rnf maxVisibleColumns `Prelude.seq`
+      Prelude.rnf maxVisibleRows `Prelude.seq`
+        Prelude.rnf panelConfiguration
 
 instance Data.ToJSON SmallMultiplesOptions where
   toJSON SmallMultiplesOptions' {..} =

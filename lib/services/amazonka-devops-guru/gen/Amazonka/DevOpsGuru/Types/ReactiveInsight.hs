@@ -161,11 +161,11 @@ instance Prelude.Hashable ReactiveInsight where
 
 instance Prelude.NFData ReactiveInsight where
   rnf ReactiveInsight' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf insightTimeRange
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf resourceCollection
-      `Prelude.seq` Prelude.rnf severity
-      `Prelude.seq` Prelude.rnf ssmOpsItemId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf insightTimeRange `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf resourceCollection `Prelude.seq`
+              Prelude.rnf severity `Prelude.seq`
+                Prelude.rnf ssmOpsItemId `Prelude.seq`
+                  Prelude.rnf status

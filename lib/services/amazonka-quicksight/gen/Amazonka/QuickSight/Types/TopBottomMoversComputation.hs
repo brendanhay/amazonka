@@ -175,14 +175,14 @@ instance Prelude.Hashable TopBottomMoversComputation where
 
 instance Prelude.NFData TopBottomMoversComputation where
   rnf TopBottomMoversComputation' {..} =
-    Prelude.rnf moverSize
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf sortOrder
-      `Prelude.seq` Prelude.rnf value
-      `Prelude.seq` Prelude.rnf computationId
-      `Prelude.seq` Prelude.rnf time
-      `Prelude.seq` Prelude.rnf category
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf moverSize `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf sortOrder `Prelude.seq`
+          Prelude.rnf value `Prelude.seq`
+            Prelude.rnf computationId `Prelude.seq`
+              Prelude.rnf time `Prelude.seq`
+                Prelude.rnf category `Prelude.seq`
+                  Prelude.rnf type'
 
 instance Data.ToJSON TopBottomMoversComputation where
   toJSON TopBottomMoversComputation' {..} =

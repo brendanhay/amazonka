@@ -81,5 +81,5 @@ instance Prelude.Hashable S3SignedObject where
 
 instance Prelude.NFData S3SignedObject where
   rnf S3SignedObject' {..} =
-    Prelude.rnf bucketName
-      `Prelude.seq` Prelude.rnf key
+    Prelude.rnf bucketName `Prelude.seq`
+      Prelude.rnf key

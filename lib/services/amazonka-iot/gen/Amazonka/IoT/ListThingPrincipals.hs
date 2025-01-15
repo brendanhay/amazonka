@@ -128,12 +128,12 @@ instance Core.AWSPager ListThingPrincipals where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listThingPrincipals_nextToken
-          Lens..~ rs
-          Lens.^? listThingPrincipalsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listThingPrincipals_nextToken
+              Lens..~ rs
+              Lens.^? listThingPrincipalsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListThingPrincipals where
   type
@@ -159,9 +159,9 @@ instance Prelude.Hashable ListThingPrincipals where
 
 instance Prelude.NFData ListThingPrincipals where
   rnf ListThingPrincipals' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf thingName
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf thingName
 
 instance Data.ToHeaders ListThingPrincipals where
   toHeaders = Prelude.const Prelude.mempty
@@ -233,6 +233,6 @@ listThingPrincipalsResponse_httpStatus = Lens.lens (\ListThingPrincipalsResponse
 
 instance Prelude.NFData ListThingPrincipalsResponse where
   rnf ListThingPrincipalsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf principals
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf principals `Prelude.seq`
+        Prelude.rnf httpStatus

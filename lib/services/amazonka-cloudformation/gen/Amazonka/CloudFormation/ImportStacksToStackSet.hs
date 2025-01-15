@@ -204,13 +204,13 @@ instance Prelude.Hashable ImportStacksToStackSet where
 
 instance Prelude.NFData ImportStacksToStackSet where
   rnf ImportStacksToStackSet' {..} =
-    Prelude.rnf callAs
-      `Prelude.seq` Prelude.rnf operationId
-      `Prelude.seq` Prelude.rnf operationPreferences
-      `Prelude.seq` Prelude.rnf organizationalUnitIds
-      `Prelude.seq` Prelude.rnf stackIds
-      `Prelude.seq` Prelude.rnf stackIdsUrl
-      `Prelude.seq` Prelude.rnf stackSetName
+    Prelude.rnf callAs `Prelude.seq`
+      Prelude.rnf operationId `Prelude.seq`
+        Prelude.rnf operationPreferences `Prelude.seq`
+          Prelude.rnf organizationalUnitIds `Prelude.seq`
+            Prelude.rnf stackIds `Prelude.seq`
+              Prelude.rnf stackIdsUrl `Prelude.seq`
+                Prelude.rnf stackSetName
 
 instance Data.ToHeaders ImportStacksToStackSet where
   toHeaders = Prelude.const Prelude.mempty
@@ -284,5 +284,5 @@ instance
     ImportStacksToStackSetResponse
   where
   rnf ImportStacksToStackSetResponse' {..} =
-    Prelude.rnf operationId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operationId `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -108,8 +108,8 @@ instance Prelude.Hashable GenerateTemplate where
 
 instance Prelude.NFData GenerateTemplate where
   rnf GenerateTemplate' {..} =
-    Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf templateFormat
+    Prelude.rnf appId `Prelude.seq`
+      Prelude.rnf templateFormat
 
 instance Data.ToHeaders GenerateTemplate where
   toHeaders =
@@ -183,5 +183,5 @@ generateTemplateResponse_httpStatus = Lens.lens (\GenerateTemplateResponse' {htt
 
 instance Prelude.NFData GenerateTemplateResponse where
   rnf GenerateTemplateResponse' {..} =
-    Prelude.rnf s3Location
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf s3Location `Prelude.seq`
+      Prelude.rnf httpStatus

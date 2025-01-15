@@ -222,15 +222,15 @@ instance Prelude.Hashable CreateNetworkInsightsPath where
 
 instance Prelude.NFData CreateNetworkInsightsPath where
   rnf CreateNetworkInsightsPath' {..} =
-    Prelude.rnf destinationIp
-      `Prelude.seq` Prelude.rnf destinationPort
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf sourceIp
-      `Prelude.seq` Prelude.rnf tagSpecifications
-      `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf destination
-      `Prelude.seq` Prelude.rnf protocol
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf destinationIp `Prelude.seq`
+      Prelude.rnf destinationPort `Prelude.seq`
+        Prelude.rnf dryRun `Prelude.seq`
+          Prelude.rnf sourceIp `Prelude.seq`
+            Prelude.rnf tagSpecifications `Prelude.seq`
+              Prelude.rnf source `Prelude.seq`
+                Prelude.rnf destination `Prelude.seq`
+                  Prelude.rnf protocol `Prelude.seq`
+                    Prelude.rnf clientToken
 
 instance Data.ToHeaders CreateNetworkInsightsPath where
   toHeaders = Prelude.const Prelude.mempty
@@ -303,5 +303,5 @@ instance
     CreateNetworkInsightsPathResponse
   where
   rnf CreateNetworkInsightsPathResponse' {..} =
-    Prelude.rnf networkInsightsPath
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf networkInsightsPath `Prelude.seq`
+      Prelude.rnf httpStatus

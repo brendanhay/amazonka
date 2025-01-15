@@ -107,7 +107,7 @@ instance Prelude.Hashable Filter where
 
 instance Prelude.NFData Filter where
   rnf Filter' {..} =
-    Prelude.rnf maximum
-      `Prelude.seq` Prelude.rnf minimum
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf maximum `Prelude.seq`
+      Prelude.rnf minimum `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf type'

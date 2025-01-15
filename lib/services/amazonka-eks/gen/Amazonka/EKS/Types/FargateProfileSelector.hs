@@ -86,8 +86,8 @@ instance Prelude.Hashable FargateProfileSelector where
 
 instance Prelude.NFData FargateProfileSelector where
   rnf FargateProfileSelector' {..} =
-    Prelude.rnf labels
-      `Prelude.seq` Prelude.rnf namespace
+    Prelude.rnf labels `Prelude.seq`
+      Prelude.rnf namespace
 
 instance Data.ToJSON FargateProfileSelector where
   toJSON FargateProfileSelector' {..} =

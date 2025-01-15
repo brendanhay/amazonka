@@ -91,5 +91,5 @@ instance Prelude.Hashable BatchLookupPolicyResponse where
 
 instance Prelude.NFData BatchLookupPolicyResponse where
   rnf BatchLookupPolicyResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf policyToPathList
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf policyToPathList

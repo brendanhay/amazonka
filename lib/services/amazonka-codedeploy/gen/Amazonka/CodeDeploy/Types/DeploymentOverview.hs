@@ -131,9 +131,9 @@ instance Prelude.Hashable DeploymentOverview where
 
 instance Prelude.NFData DeploymentOverview where
   rnf DeploymentOverview' {..} =
-    Prelude.rnf failed
-      `Prelude.seq` Prelude.rnf inProgress
-      `Prelude.seq` Prelude.rnf pending
-      `Prelude.seq` Prelude.rnf ready
-      `Prelude.seq` Prelude.rnf skipped
-      `Prelude.seq` Prelude.rnf succeeded
+    Prelude.rnf failed `Prelude.seq`
+      Prelude.rnf inProgress `Prelude.seq`
+        Prelude.rnf pending `Prelude.seq`
+          Prelude.rnf ready `Prelude.seq`
+            Prelude.rnf skipped `Prelude.seq`
+              Prelude.rnf succeeded

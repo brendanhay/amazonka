@@ -98,8 +98,8 @@ instance Prelude.Hashable AggregationConfig where
 
 instance Prelude.NFData AggregationConfig where
   rnf AggregationConfig' {..} =
-    Prelude.rnf aggregationType
-      `Prelude.seq` Prelude.rnf targetFileSize
+    Prelude.rnf aggregationType `Prelude.seq`
+      Prelude.rnf targetFileSize
 
 instance Data.ToJSON AggregationConfig where
   toJSON AggregationConfig' {..} =

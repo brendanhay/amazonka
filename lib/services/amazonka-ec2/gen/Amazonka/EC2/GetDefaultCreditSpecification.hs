@@ -129,8 +129,8 @@ instance
 
 instance Prelude.NFData GetDefaultCreditSpecification where
   rnf GetDefaultCreditSpecification' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf instanceFamily
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf instanceFamily
 
 instance Data.ToHeaders GetDefaultCreditSpecification where
   toHeaders = Prelude.const Prelude.mempty
@@ -195,5 +195,5 @@ instance
     GetDefaultCreditSpecificationResponse
   where
   rnf GetDefaultCreditSpecificationResponse' {..} =
-    Prelude.rnf instanceFamilyCreditSpecification
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf instanceFamilyCreditSpecification `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -252,16 +252,16 @@ instance Prelude.Hashable ReplaceNetworkAclEntry where
 
 instance Prelude.NFData ReplaceNetworkAclEntry where
   rnf ReplaceNetworkAclEntry' {..} =
-    Prelude.rnf cidrBlock
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf icmpTypeCode
-      `Prelude.seq` Prelude.rnf ipv6CidrBlock
-      `Prelude.seq` Prelude.rnf portRange
-      `Prelude.seq` Prelude.rnf egress
-      `Prelude.seq` Prelude.rnf networkAclId
-      `Prelude.seq` Prelude.rnf protocol
-      `Prelude.seq` Prelude.rnf ruleAction
-      `Prelude.seq` Prelude.rnf ruleNumber
+    Prelude.rnf cidrBlock `Prelude.seq`
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf icmpTypeCode `Prelude.seq`
+          Prelude.rnf ipv6CidrBlock `Prelude.seq`
+            Prelude.rnf portRange `Prelude.seq`
+              Prelude.rnf egress `Prelude.seq`
+                Prelude.rnf networkAclId `Prelude.seq`
+                  Prelude.rnf protocol `Prelude.seq`
+                    Prelude.rnf ruleAction `Prelude.seq`
+                      Prelude.rnf ruleNumber
 
 instance Data.ToHeaders ReplaceNetworkAclEntry where
   toHeaders = Prelude.const Prelude.mempty

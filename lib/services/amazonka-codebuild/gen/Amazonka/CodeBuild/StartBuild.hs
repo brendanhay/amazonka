@@ -918,5 +918,5 @@ startBuildResponse_httpStatus = Lens.lens (\StartBuildResponse' {httpStatus} -> 
 
 instance Prelude.NFData StartBuildResponse where
   rnf StartBuildResponse' {..} =
-    Prelude.rnf build
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf build `Prelude.seq`
+      Prelude.rnf httpStatus

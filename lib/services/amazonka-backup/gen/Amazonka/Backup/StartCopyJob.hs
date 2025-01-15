@@ -199,12 +199,12 @@ instance Prelude.Hashable StartCopyJob where
 
 instance Prelude.NFData StartCopyJob where
   rnf StartCopyJob' {..} =
-    Prelude.rnf idempotencyToken
-      `Prelude.seq` Prelude.rnf lifecycle
-      `Prelude.seq` Prelude.rnf recoveryPointArn
-      `Prelude.seq` Prelude.rnf sourceBackupVaultName
-      `Prelude.seq` Prelude.rnf destinationBackupVaultArn
-      `Prelude.seq` Prelude.rnf iamRoleArn
+    Prelude.rnf idempotencyToken `Prelude.seq`
+      Prelude.rnf lifecycle `Prelude.seq`
+        Prelude.rnf recoveryPointArn `Prelude.seq`
+          Prelude.rnf sourceBackupVaultName `Prelude.seq`
+            Prelude.rnf destinationBackupVaultArn `Prelude.seq`
+              Prelude.rnf iamRoleArn
 
 instance Data.ToHeaders StartCopyJob where
   toHeaders =
@@ -314,7 +314,7 @@ startCopyJobResponse_httpStatus = Lens.lens (\StartCopyJobResponse' {httpStatus}
 
 instance Prelude.NFData StartCopyJobResponse where
   rnf StartCopyJobResponse' {..} =
-    Prelude.rnf copyJobId
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf isParent
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf copyJobId `Prelude.seq`
+      Prelude.rnf creationDate `Prelude.seq`
+        Prelude.rnf isParent `Prelude.seq`
+          Prelude.rnf httpStatus

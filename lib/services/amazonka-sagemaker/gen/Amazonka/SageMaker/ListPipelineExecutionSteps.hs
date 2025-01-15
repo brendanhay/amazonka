@@ -132,12 +132,12 @@ instance Core.AWSPager ListPipelineExecutionSteps where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listPipelineExecutionSteps_nextToken
-          Lens..~ rs
-          Lens.^? listPipelineExecutionStepsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listPipelineExecutionSteps_nextToken
+              Lens..~ rs
+              Lens.^? listPipelineExecutionStepsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPipelineExecutionSteps where
   type
@@ -167,10 +167,10 @@ instance Prelude.Hashable ListPipelineExecutionSteps where
 
 instance Prelude.NFData ListPipelineExecutionSteps where
   rnf ListPipelineExecutionSteps' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf pipelineExecutionArn
-      `Prelude.seq` Prelude.rnf sortOrder
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf pipelineExecutionArn `Prelude.seq`
+          Prelude.rnf sortOrder
 
 instance Data.ToHeaders ListPipelineExecutionSteps where
   toHeaders =
@@ -274,6 +274,6 @@ instance
     ListPipelineExecutionStepsResponse
   where
   rnf ListPipelineExecutionStepsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf pipelineExecutionSteps
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf pipelineExecutionSteps `Prelude.seq`
+        Prelude.rnf httpStatus

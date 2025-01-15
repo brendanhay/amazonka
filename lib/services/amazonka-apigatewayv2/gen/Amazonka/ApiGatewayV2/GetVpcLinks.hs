@@ -109,8 +109,8 @@ instance Prelude.Hashable GetVpcLinks where
 
 instance Prelude.NFData GetVpcLinks where
   rnf GetVpcLinks' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders GetVpcLinks where
   toHeaders =
@@ -185,6 +185,6 @@ getVpcLinksResponse_httpStatus = Lens.lens (\GetVpcLinksResponse' {httpStatus} -
 
 instance Prelude.NFData GetVpcLinksResponse where
   rnf GetVpcLinksResponse' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf items `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

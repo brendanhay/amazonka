@@ -86,8 +86,8 @@ instance Prelude.Hashable DatabasePreferences where
 
 instance Prelude.NFData DatabasePreferences where
   rnf DatabasePreferences' {..} =
-    Prelude.rnf databaseManagementPreference
-      `Prelude.seq` Prelude.rnf databaseMigrationPreference
+    Prelude.rnf databaseManagementPreference `Prelude.seq`
+      Prelude.rnf databaseMigrationPreference
 
 instance Data.ToJSON DatabasePreferences where
   toJSON DatabasePreferences' {..} =

@@ -83,8 +83,8 @@ instance Prelude.Hashable TrainingDataSchema where
 
 instance Prelude.NFData TrainingDataSchema where
   rnf TrainingDataSchema' {..} =
-    Prelude.rnf labelSchema
-      `Prelude.seq` Prelude.rnf modelVariables
+    Prelude.rnf labelSchema `Prelude.seq`
+      Prelude.rnf modelVariables
 
 instance Data.ToJSON TrainingDataSchema where
   toJSON TrainingDataSchema' {..} =

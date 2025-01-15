@@ -182,13 +182,13 @@ instance Prelude.Hashable Activation where
 
 instance Prelude.NFData Activation where
   rnf Activation' {..} =
-    Prelude.rnf activationId
-      `Prelude.seq` Prelude.rnf createdDate
-      `Prelude.seq` Prelude.rnf defaultInstanceName
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf expirationDate
-      `Prelude.seq` Prelude.rnf expired
-      `Prelude.seq` Prelude.rnf iamRole
-      `Prelude.seq` Prelude.rnf registrationLimit
-      `Prelude.seq` Prelude.rnf registrationsCount
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf activationId `Prelude.seq`
+      Prelude.rnf createdDate `Prelude.seq`
+        Prelude.rnf defaultInstanceName `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf expirationDate `Prelude.seq`
+              Prelude.rnf expired `Prelude.seq`
+                Prelude.rnf iamRole `Prelude.seq`
+                  Prelude.rnf registrationLimit `Prelude.seq`
+                    Prelude.rnf registrationsCount `Prelude.seq`
+                      Prelude.rnf tags

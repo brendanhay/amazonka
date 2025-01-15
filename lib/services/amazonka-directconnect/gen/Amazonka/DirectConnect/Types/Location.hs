@@ -137,9 +137,9 @@ instance Prelude.Hashable Location where
 
 instance Prelude.NFData Location where
   rnf Location' {..} =
-    Prelude.rnf availableMacSecPortSpeeds
-      `Prelude.seq` Prelude.rnf availablePortSpeeds
-      `Prelude.seq` Prelude.rnf availableProviders
-      `Prelude.seq` Prelude.rnf locationCode
-      `Prelude.seq` Prelude.rnf locationName
-      `Prelude.seq` Prelude.rnf region
+    Prelude.rnf availableMacSecPortSpeeds `Prelude.seq`
+      Prelude.rnf availablePortSpeeds `Prelude.seq`
+        Prelude.rnf availableProviders `Prelude.seq`
+          Prelude.rnf locationCode `Prelude.seq`
+            Prelude.rnf locationName `Prelude.seq`
+              Prelude.rnf region

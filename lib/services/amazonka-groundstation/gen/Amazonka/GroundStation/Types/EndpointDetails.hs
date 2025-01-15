@@ -85,8 +85,8 @@ instance Prelude.Hashable EndpointDetails where
 
 instance Prelude.NFData EndpointDetails where
   rnf EndpointDetails' {..} =
-    Prelude.rnf endpoint
-      `Prelude.seq` Prelude.rnf securityDetails
+    Prelude.rnf endpoint `Prelude.seq`
+      Prelude.rnf securityDetails
 
 instance Data.ToJSON EndpointDetails where
   toJSON EndpointDetails' {..} =

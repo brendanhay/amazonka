@@ -109,6 +109,6 @@ instance
     ActiveDirectoryBackupAttributes
   where
   rnf ActiveDirectoryBackupAttributes' {..} =
-    Prelude.rnf activeDirectoryId
-      `Prelude.seq` Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf resourceARN
+    Prelude.rnf activeDirectoryId `Prelude.seq`
+      Prelude.rnf domainName `Prelude.seq`
+        Prelude.rnf resourceARN

@@ -134,12 +134,12 @@ instance Core.AWSPager ListPublicKeys where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listPublicKeys_nextToken
-          Lens..~ rs
-          Lens.^? listPublicKeysResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listPublicKeys_nextToken
+              Lens..~ rs
+              Lens.^? listPublicKeysResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPublicKeys where
   type
@@ -165,9 +165,9 @@ instance Prelude.Hashable ListPublicKeys where
 
 instance Prelude.NFData ListPublicKeys where
   rnf ListPublicKeys' {..} =
-    Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf startTime
+    Prelude.rnf endTime `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf startTime
 
 instance Data.ToHeaders ListPublicKeys where
   toHeaders =
@@ -259,6 +259,6 @@ listPublicKeysResponse_httpStatus = Lens.lens (\ListPublicKeysResponse' {httpSta
 
 instance Prelude.NFData ListPublicKeysResponse where
   rnf ListPublicKeysResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf publicKeyList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf publicKeyList `Prelude.seq`
+        Prelude.rnf httpStatus

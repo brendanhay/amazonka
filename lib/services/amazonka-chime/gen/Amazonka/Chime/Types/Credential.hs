@@ -77,8 +77,8 @@ instance Prelude.Hashable Credential where
 
 instance Prelude.NFData Credential where
   rnf Credential' {..} =
-    Prelude.rnf password
-      `Prelude.seq` Prelude.rnf username
+    Prelude.rnf password `Prelude.seq`
+      Prelude.rnf username
 
 instance Data.ToJSON Credential where
   toJSON Credential' {..} =

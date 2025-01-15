@@ -107,10 +107,10 @@ instance Prelude.Hashable Threat where
 
 instance Prelude.NFData Threat where
   rnf Threat' {..} =
-    Prelude.rnf filePaths
-      `Prelude.seq` Prelude.rnf itemCount
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf severity
+    Prelude.rnf filePaths `Prelude.seq`
+      Prelude.rnf itemCount `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf severity
 
 instance Data.ToJSON Threat where
   toJSON Threat' {..} =

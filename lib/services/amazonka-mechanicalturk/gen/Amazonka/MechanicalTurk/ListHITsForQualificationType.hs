@@ -119,12 +119,12 @@ instance Core.AWSPager ListHITsForQualificationType where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listHITsForQualificationType_nextToken
-          Lens..~ rs
-          Lens.^? listHITsForQualificationTypeResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listHITsForQualificationType_nextToken
+              Lens..~ rs
+              Lens.^? listHITsForQualificationTypeResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListHITsForQualificationType where
   type
@@ -154,9 +154,9 @@ instance
 
 instance Prelude.NFData ListHITsForQualificationType where
   rnf ListHITsForQualificationType' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf qualificationTypeId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf qualificationTypeId
 
 instance Data.ToHeaders ListHITsForQualificationType where
   toHeaders =
@@ -254,7 +254,7 @@ instance
     ListHITsForQualificationTypeResponse
   where
   rnf ListHITsForQualificationTypeResponse' {..} =
-    Prelude.rnf hITs
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf numResults
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf hITs `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf numResults `Prelude.seq`
+          Prelude.rnf httpStatus

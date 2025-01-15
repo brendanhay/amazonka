@@ -163,9 +163,9 @@ instance Prelude.Hashable ListImagePipelines where
 
 instance Prelude.NFData ListImagePipelines where
   rnf ListImagePipelines' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListImagePipelines where
   toHeaders =
@@ -262,7 +262,7 @@ listImagePipelinesResponse_httpStatus = Lens.lens (\ListImagePipelinesResponse' 
 
 instance Prelude.NFData ListImagePipelinesResponse where
   rnf ListImagePipelinesResponse' {..} =
-    Prelude.rnf imagePipelineList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf imagePipelineList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf requestId `Prelude.seq`
+          Prelude.rnf httpStatus

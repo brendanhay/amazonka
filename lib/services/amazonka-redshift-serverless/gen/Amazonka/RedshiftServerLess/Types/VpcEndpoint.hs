@@ -99,6 +99,6 @@ instance Prelude.Hashable VpcEndpoint where
 
 instance Prelude.NFData VpcEndpoint where
   rnf VpcEndpoint' {..} =
-    Prelude.rnf networkInterfaces
-      `Prelude.seq` Prelude.rnf vpcEndpointId
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf networkInterfaces `Prelude.seq`
+      Prelude.rnf vpcEndpointId `Prelude.seq`
+        Prelude.rnf vpcId

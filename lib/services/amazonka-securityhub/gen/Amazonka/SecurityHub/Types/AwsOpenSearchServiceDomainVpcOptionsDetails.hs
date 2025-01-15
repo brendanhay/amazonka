@@ -102,8 +102,8 @@ instance
     AwsOpenSearchServiceDomainVpcOptionsDetails
   where
   rnf AwsOpenSearchServiceDomainVpcOptionsDetails' {..} =
-    Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf subnetIds
+    Prelude.rnf securityGroupIds `Prelude.seq`
+      Prelude.rnf subnetIds
 
 instance
   Data.ToJSON

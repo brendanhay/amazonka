@@ -327,14 +327,14 @@ instance
     DescribeModelCardExportJobResponse
   where
   rnf DescribeModelCardExportJobResponse' {..} =
-    Prelude.rnf exportArtifacts
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf modelCardExportJobName
-      `Prelude.seq` Prelude.rnf modelCardExportJobArn
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf modelCardName
-      `Prelude.seq` Prelude.rnf modelCardVersion
-      `Prelude.seq` Prelude.rnf outputConfig
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf lastModifiedAt
+    Prelude.rnf exportArtifacts `Prelude.seq`
+      Prelude.rnf failureReason `Prelude.seq`
+        Prelude.rnf httpStatus `Prelude.seq`
+          Prelude.rnf modelCardExportJobName `Prelude.seq`
+            Prelude.rnf modelCardExportJobArn `Prelude.seq`
+              Prelude.rnf status `Prelude.seq`
+                Prelude.rnf modelCardName `Prelude.seq`
+                  Prelude.rnf modelCardVersion `Prelude.seq`
+                    Prelude.rnf outputConfig `Prelude.seq`
+                      Prelude.rnf createdAt `Prelude.seq`
+                        Prelude.rnf lastModifiedAt

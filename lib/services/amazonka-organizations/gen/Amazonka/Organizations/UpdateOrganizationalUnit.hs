@@ -146,8 +146,8 @@ instance Prelude.Hashable UpdateOrganizationalUnit where
 
 instance Prelude.NFData UpdateOrganizationalUnit where
   rnf UpdateOrganizationalUnit' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf organizationalUnitId
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf organizationalUnitId
 
 instance Data.ToHeaders UpdateOrganizationalUnit where
   toHeaders =
@@ -229,5 +229,5 @@ instance
     UpdateOrganizationalUnitResponse
   where
   rnf UpdateOrganizationalUnitResponse' {..} =
-    Prelude.rnf organizationalUnit
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf organizationalUnit `Prelude.seq`
+      Prelude.rnf httpStatus

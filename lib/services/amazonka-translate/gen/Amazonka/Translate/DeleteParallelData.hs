@@ -174,6 +174,6 @@ deleteParallelDataResponse_httpStatus = Lens.lens (\DeleteParallelDataResponse' 
 
 instance Prelude.NFData DeleteParallelDataResponse where
   rnf DeleteParallelDataResponse' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf httpStatus

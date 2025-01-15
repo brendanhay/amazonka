@@ -78,5 +78,5 @@ instance Prelude.Hashable VpcCidrBlockState where
 
 instance Prelude.NFData VpcCidrBlockState where
   rnf VpcCidrBlockState' {..} =
-    Prelude.rnf state
-      `Prelude.seq` Prelude.rnf statusMessage
+    Prelude.rnf state `Prelude.seq`
+      Prelude.rnf statusMessage

@@ -164,9 +164,9 @@ instance Prelude.Hashable StopModel where
 
 instance Prelude.NFData StopModel where
   rnf StopModel' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf projectName
-      `Prelude.seq` Prelude.rnf modelVersion
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf projectName `Prelude.seq`
+        Prelude.rnf modelVersion
 
 instance Data.ToHeaders StopModel where
   toHeaders StopModel' {..} =
@@ -232,5 +232,5 @@ stopModelResponse_httpStatus = Lens.lens (\StopModelResponse' {httpStatus} -> ht
 
 instance Prelude.NFData StopModelResponse where
   rnf StopModelResponse' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf status `Prelude.seq`
+      Prelude.rnf httpStatus

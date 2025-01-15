@@ -85,8 +85,8 @@ instance Prelude.Hashable GeospatialWindowOptions where
 
 instance Prelude.NFData GeospatialWindowOptions where
   rnf GeospatialWindowOptions' {..} =
-    Prelude.rnf bounds
-      `Prelude.seq` Prelude.rnf mapZoomMode
+    Prelude.rnf bounds `Prelude.seq`
+      Prelude.rnf mapZoomMode
 
 instance Data.ToJSON GeospatialWindowOptions where
   toJSON GeospatialWindowOptions' {..} =

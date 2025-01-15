@@ -214,9 +214,9 @@ instance Prelude.Hashable ManagedRuleSetSummary where
 
 instance Prelude.NFData ManagedRuleSetSummary where
   rnf ManagedRuleSetSummary' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf labelNamespace
-      `Prelude.seq` Prelude.rnf lockToken
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf labelNamespace `Prelude.seq`
+            Prelude.rnf lockToken `Prelude.seq`
+              Prelude.rnf name

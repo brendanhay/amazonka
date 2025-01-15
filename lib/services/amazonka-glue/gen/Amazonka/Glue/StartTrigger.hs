@@ -160,5 +160,5 @@ startTriggerResponse_httpStatus = Lens.lens (\StartTriggerResponse' {httpStatus}
 
 instance Prelude.NFData StartTriggerResponse where
   rnf StartTriggerResponse' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf httpStatus

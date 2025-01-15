@@ -166,12 +166,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listUsageForLicenseConfiguration_nextToken
-          Lens..~ rs
-          Lens.^? listUsageForLicenseConfigurationResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listUsageForLicenseConfiguration_nextToken
+              Lens..~ rs
+              Lens.^? listUsageForLicenseConfigurationResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -212,10 +212,10 @@ instance
     ListUsageForLicenseConfiguration
   where
   rnf ListUsageForLicenseConfiguration' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf licenseConfigurationArn
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf licenseConfigurationArn
 
 instance
   Data.ToHeaders
@@ -312,6 +312,6 @@ instance
     ListUsageForLicenseConfigurationResponse
   where
   rnf ListUsageForLicenseConfigurationResponse' {..} =
-    Prelude.rnf licenseConfigurationUsageList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf licenseConfigurationUsageList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

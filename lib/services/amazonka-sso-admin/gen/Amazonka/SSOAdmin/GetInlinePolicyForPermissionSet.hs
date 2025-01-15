@@ -133,8 +133,8 @@ instance
     GetInlinePolicyForPermissionSet
   where
   rnf GetInlinePolicyForPermissionSet' {..} =
-    Prelude.rnf instanceArn
-      `Prelude.seq` Prelude.rnf permissionSetArn
+    Prelude.rnf instanceArn `Prelude.seq`
+      Prelude.rnf permissionSetArn
 
 instance
   Data.ToHeaders
@@ -215,5 +215,5 @@ instance
     GetInlinePolicyForPermissionSetResponse
   where
   rnf GetInlinePolicyForPermissionSetResponse' {..} =
-    Prelude.rnf inlinePolicy
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf inlinePolicy `Prelude.seq`
+      Prelude.rnf httpStatus

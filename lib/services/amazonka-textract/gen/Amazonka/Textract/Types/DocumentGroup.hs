@@ -118,7 +118,7 @@ instance Prelude.Hashable DocumentGroup where
 
 instance Prelude.NFData DocumentGroup where
   rnf DocumentGroup' {..} =
-    Prelude.rnf detectedSignatures
-      `Prelude.seq` Prelude.rnf splitDocuments
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf undetectedSignatures
+    Prelude.rnf detectedSignatures `Prelude.seq`
+      Prelude.rnf splitDocuments `Prelude.seq`
+        Prelude.rnf type' `Prelude.seq`
+          Prelude.rnf undetectedSignatures

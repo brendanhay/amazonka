@@ -169,12 +169,12 @@ instance Prelude.Hashable ModelPackagingJobMetadata where
 
 instance Prelude.NFData ModelPackagingJobMetadata where
   rnf ModelPackagingJobMetadata' {..} =
-    Prelude.rnf creationTimestamp
-      `Prelude.seq` Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf lastUpdatedTimestamp
-      `Prelude.seq` Prelude.rnf modelPackagingJobDescription
-      `Prelude.seq` Prelude.rnf modelPackagingMethod
-      `Prelude.seq` Prelude.rnf modelVersion
-      `Prelude.seq` Prelude.rnf projectName
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusMessage
+    Prelude.rnf creationTimestamp `Prelude.seq`
+      Prelude.rnf jobName `Prelude.seq`
+        Prelude.rnf lastUpdatedTimestamp `Prelude.seq`
+          Prelude.rnf modelPackagingJobDescription `Prelude.seq`
+            Prelude.rnf modelPackagingMethod `Prelude.seq`
+              Prelude.rnf modelVersion `Prelude.seq`
+                Prelude.rnf projectName `Prelude.seq`
+                  Prelude.rnf status `Prelude.seq`
+                    Prelude.rnf statusMessage

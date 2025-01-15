@@ -82,8 +82,8 @@ instance Prelude.Hashable PlatformInput where
 
 instance Prelude.NFData PlatformInput where
   rnf PlatformInput' {..} =
-    Prelude.rnf comparisonOperator
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf comparisonOperator `Prelude.seq`
+      Prelude.rnf value
 
 instance Data.ToJSON PlatformInput where
   toJSON PlatformInput' {..} =

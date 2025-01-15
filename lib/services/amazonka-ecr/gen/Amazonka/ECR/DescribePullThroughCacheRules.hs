@@ -174,12 +174,12 @@ instance Core.AWSPager DescribePullThroughCacheRules where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describePullThroughCacheRules_nextToken
-          Lens..~ rs
-          Lens.^? describePullThroughCacheRulesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describePullThroughCacheRules_nextToken
+              Lens..~ rs
+              Lens.^? describePullThroughCacheRulesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -215,10 +215,10 @@ instance
 
 instance Prelude.NFData DescribePullThroughCacheRules where
   rnf DescribePullThroughCacheRules' {..} =
-    Prelude.rnf ecrRepositoryPrefixes
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf registryId
+    Prelude.rnf ecrRepositoryPrefixes `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf registryId
 
 instance Data.ToHeaders DescribePullThroughCacheRules where
   toHeaders =
@@ -319,6 +319,6 @@ instance
     DescribePullThroughCacheRulesResponse
   where
   rnf DescribePullThroughCacheRulesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf pullThroughCacheRules
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf pullThroughCacheRules `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -211,12 +211,12 @@ instance Prelude.Hashable GatewayRouteRef where
 
 instance Prelude.NFData GatewayRouteRef where
   rnf GatewayRouteRef' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf gatewayRouteName
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf meshName
-      `Prelude.seq` Prelude.rnf meshOwner
-      `Prelude.seq` Prelude.rnf resourceOwner
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf virtualGatewayName
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf createdAt `Prelude.seq`
+        Prelude.rnf gatewayRouteName `Prelude.seq`
+          Prelude.rnf lastUpdatedAt `Prelude.seq`
+            Prelude.rnf meshName `Prelude.seq`
+              Prelude.rnf meshOwner `Prelude.seq`
+                Prelude.rnf resourceOwner `Prelude.seq`
+                  Prelude.rnf version `Prelude.seq`
+                    Prelude.rnf virtualGatewayName

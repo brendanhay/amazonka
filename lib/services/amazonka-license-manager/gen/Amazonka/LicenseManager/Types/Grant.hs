@@ -198,13 +198,13 @@ instance Prelude.Hashable Grant where
 
 instance Prelude.NFData Grant where
   rnf Grant' {..} =
-    Prelude.rnf statusReason
-      `Prelude.seq` Prelude.rnf grantArn
-      `Prelude.seq` Prelude.rnf grantName
-      `Prelude.seq` Prelude.rnf parentArn
-      `Prelude.seq` Prelude.rnf licenseArn
-      `Prelude.seq` Prelude.rnf granteePrincipalArn
-      `Prelude.seq` Prelude.rnf homeRegion
-      `Prelude.seq` Prelude.rnf grantStatus
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf grantedOperations
+    Prelude.rnf statusReason `Prelude.seq`
+      Prelude.rnf grantArn `Prelude.seq`
+        Prelude.rnf grantName `Prelude.seq`
+          Prelude.rnf parentArn `Prelude.seq`
+            Prelude.rnf licenseArn `Prelude.seq`
+              Prelude.rnf granteePrincipalArn `Prelude.seq`
+                Prelude.rnf homeRegion `Prelude.seq`
+                  Prelude.rnf grantStatus `Prelude.seq`
+                    Prelude.rnf version `Prelude.seq`
+                      Prelude.rnf grantedOperations

@@ -188,13 +188,13 @@ instance
     UpdateSubscriptionNotificationConfiguration
   where
   rnf UpdateSubscriptionNotificationConfiguration' {..} =
-    Prelude.rnf createSqs
-      `Prelude.seq` Prelude.rnf httpsApiKeyName
-      `Prelude.seq` Prelude.rnf httpsApiKeyValue
-      `Prelude.seq` Prelude.rnf httpsMethod
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf subscriptionEndpoint
-      `Prelude.seq` Prelude.rnf subscriptionId
+    Prelude.rnf createSqs `Prelude.seq`
+      Prelude.rnf httpsApiKeyName `Prelude.seq`
+        Prelude.rnf httpsApiKeyValue `Prelude.seq`
+          Prelude.rnf httpsMethod `Prelude.seq`
+            Prelude.rnf roleArn `Prelude.seq`
+              Prelude.rnf subscriptionEndpoint `Prelude.seq`
+                Prelude.rnf subscriptionId
 
 instance
   Data.ToHeaders
@@ -294,5 +294,5 @@ instance
   where
   rnf
     UpdateSubscriptionNotificationConfigurationResponse' {..} =
-      Prelude.rnf queueArn
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf queueArn `Prelude.seq`
+        Prelude.rnf httpStatus

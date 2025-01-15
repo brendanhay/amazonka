@@ -209,12 +209,12 @@ instance Core.AWSPager ListStackSets where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listStackSets_nextToken
-          Lens..~ rs
-          Lens.^? listStackSetsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listStackSets_nextToken
+              Lens..~ rs
+              Lens.^? listStackSetsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListStackSets where
   type
@@ -228,9 +228,7 @@ instance Core.AWSRequest ListStackSets where
       ( \s h x ->
           ListStackSetsResponse'
             Prelude.<$> (x Data..@? "NextToken")
-            Prelude.<*> ( x
-                            Data..@? "Summaries"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "Summaries" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -246,10 +244,10 @@ instance Prelude.Hashable ListStackSets where
 
 instance Prelude.NFData ListStackSets where
   rnf ListStackSets' {..} =
-    Prelude.rnf callAs
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf callAs `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf status
 
 instance Data.ToHeaders ListStackSets where
   toHeaders = Prelude.const Prelude.mempty
@@ -334,6 +332,6 @@ listStackSetsResponse_httpStatus = Lens.lens (\ListStackSetsResponse' {httpStatu
 
 instance Prelude.NFData ListStackSetsResponse where
   rnf ListStackSetsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf summaries
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf summaries `Prelude.seq`
+        Prelude.rnf httpStatus

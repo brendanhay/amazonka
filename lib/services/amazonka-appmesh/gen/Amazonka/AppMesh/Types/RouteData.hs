@@ -145,9 +145,9 @@ instance Prelude.Hashable RouteData where
 
 instance Prelude.NFData RouteData where
   rnf RouteData' {..} =
-    Prelude.rnf meshName
-      `Prelude.seq` Prelude.rnf metadata
-      `Prelude.seq` Prelude.rnf routeName
-      `Prelude.seq` Prelude.rnf spec
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf virtualRouterName
+    Prelude.rnf meshName `Prelude.seq`
+      Prelude.rnf metadata `Prelude.seq`
+        Prelude.rnf routeName `Prelude.seq`
+          Prelude.rnf spec `Prelude.seq`
+            Prelude.rnf status `Prelude.seq`
+              Prelude.rnf virtualRouterName

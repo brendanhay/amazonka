@@ -103,9 +103,7 @@ continuousDeploymentPolicyList_quantity = Lens.lens (\ContinuousDeploymentPolicy
 instance Data.FromXML ContinuousDeploymentPolicyList where
   parseXML x =
     ContinuousDeploymentPolicyList'
-      Prelude.<$> ( x
-                      Data..@? "Items"
-                      Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "Items" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
                         ( Data.parseXMLList
                             "ContinuousDeploymentPolicySummary"
@@ -133,7 +131,7 @@ instance
     ContinuousDeploymentPolicyList
   where
   rnf ContinuousDeploymentPolicyList' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf maxItems
-      `Prelude.seq` Prelude.rnf quantity
+    Prelude.rnf items `Prelude.seq`
+      Prelude.rnf nextMarker `Prelude.seq`
+        Prelude.rnf maxItems `Prelude.seq`
+          Prelude.rnf quantity

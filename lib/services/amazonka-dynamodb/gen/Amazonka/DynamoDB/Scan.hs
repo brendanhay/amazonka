@@ -853,12 +853,12 @@ instance Core.AWSPager Scan where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& scan_exclusiveStartKey
-          Lens..~ rs
-          Lens.^? scanResponse_lastEvaluatedKey
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& scan_exclusiveStartKey
+              Lens..~ rs
+              Lens.^? scanResponse_lastEvaluatedKey
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest Scan where
   type AWSResponse Scan = ScanResponse
@@ -901,22 +901,22 @@ instance Prelude.Hashable Scan where
 
 instance Prelude.NFData Scan where
   rnf Scan' {..} =
-    Prelude.rnf attributesToGet
-      `Prelude.seq` Prelude.rnf conditionalOperator
-      `Prelude.seq` Prelude.rnf consistentRead
-      `Prelude.seq` Prelude.rnf exclusiveStartKey
-      `Prelude.seq` Prelude.rnf expressionAttributeNames
-      `Prelude.seq` Prelude.rnf expressionAttributeValues
-      `Prelude.seq` Prelude.rnf filterExpression
-      `Prelude.seq` Prelude.rnf indexName
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf projectionExpression
-      `Prelude.seq` Prelude.rnf returnConsumedCapacity
-      `Prelude.seq` Prelude.rnf scanFilter
-      `Prelude.seq` Prelude.rnf segment
-      `Prelude.seq` Prelude.rnf select
-      `Prelude.seq` Prelude.rnf totalSegments
-      `Prelude.seq` Prelude.rnf tableName
+    Prelude.rnf attributesToGet `Prelude.seq`
+      Prelude.rnf conditionalOperator `Prelude.seq`
+        Prelude.rnf consistentRead `Prelude.seq`
+          Prelude.rnf exclusiveStartKey `Prelude.seq`
+            Prelude.rnf expressionAttributeNames `Prelude.seq`
+              Prelude.rnf expressionAttributeValues `Prelude.seq`
+                Prelude.rnf filterExpression `Prelude.seq`
+                  Prelude.rnf indexName `Prelude.seq`
+                    Prelude.rnf limit `Prelude.seq`
+                      Prelude.rnf projectionExpression `Prelude.seq`
+                        Prelude.rnf returnConsumedCapacity `Prelude.seq`
+                          Prelude.rnf scanFilter `Prelude.seq`
+                            Prelude.rnf segment `Prelude.seq`
+                              Prelude.rnf select `Prelude.seq`
+                                Prelude.rnf totalSegments `Prelude.seq`
+                                  Prelude.rnf tableName
 
 instance Data.ToHeaders Scan where
   toHeaders =
@@ -1140,9 +1140,9 @@ scanResponse_httpStatus = Lens.lens (\ScanResponse' {httpStatus} -> httpStatus) 
 
 instance Prelude.NFData ScanResponse where
   rnf ScanResponse' {..} =
-    Prelude.rnf consumedCapacity
-      `Prelude.seq` Prelude.rnf count
-      `Prelude.seq` Prelude.rnf items
-      `Prelude.seq` Prelude.rnf lastEvaluatedKey
-      `Prelude.seq` Prelude.rnf scannedCount
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf consumedCapacity `Prelude.seq`
+      Prelude.rnf count `Prelude.seq`
+        Prelude.rnf items `Prelude.seq`
+          Prelude.rnf lastEvaluatedKey `Prelude.seq`
+            Prelude.rnf scannedCount `Prelude.seq`
+              Prelude.rnf httpStatus

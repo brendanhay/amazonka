@@ -85,8 +85,8 @@ instance Prelude.Hashable RowAlternateColorOptions where
 
 instance Prelude.NFData RowAlternateColorOptions where
   rnf RowAlternateColorOptions' {..} =
-    Prelude.rnf rowAlternateColors
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf rowAlternateColors `Prelude.seq`
+      Prelude.rnf status
 
 instance Data.ToJSON RowAlternateColorOptions where
   toJSON RowAlternateColorOptions' {..} =

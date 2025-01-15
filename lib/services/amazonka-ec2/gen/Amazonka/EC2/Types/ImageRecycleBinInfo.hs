@@ -113,8 +113,8 @@ instance Prelude.Hashable ImageRecycleBinInfo where
 
 instance Prelude.NFData ImageRecycleBinInfo where
   rnf ImageRecycleBinInfo' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf imageId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf recycleBinEnterTime
-      `Prelude.seq` Prelude.rnf recycleBinExitTime
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf imageId `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf recycleBinEnterTime `Prelude.seq`
+            Prelude.rnf recycleBinExitTime

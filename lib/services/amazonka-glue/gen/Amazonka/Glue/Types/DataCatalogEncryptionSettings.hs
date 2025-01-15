@@ -99,8 +99,8 @@ instance
 
 instance Prelude.NFData DataCatalogEncryptionSettings where
   rnf DataCatalogEncryptionSettings' {..} =
-    Prelude.rnf connectionPasswordEncryption
-      `Prelude.seq` Prelude.rnf encryptionAtRest
+    Prelude.rnf connectionPasswordEncryption `Prelude.seq`
+      Prelude.rnf encryptionAtRest
 
 instance Data.ToJSON DataCatalogEncryptionSettings where
   toJSON DataCatalogEncryptionSettings' {..} =

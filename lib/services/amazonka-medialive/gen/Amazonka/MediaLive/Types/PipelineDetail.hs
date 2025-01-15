@@ -129,8 +129,8 @@ instance Prelude.Hashable PipelineDetail where
 
 instance Prelude.NFData PipelineDetail where
   rnf PipelineDetail' {..} =
-    Prelude.rnf activeInputAttachmentName
-      `Prelude.seq` Prelude.rnf activeInputSwitchActionName
-      `Prelude.seq` Prelude.rnf activeMotionGraphicsActionName
-      `Prelude.seq` Prelude.rnf activeMotionGraphicsUri
-      `Prelude.seq` Prelude.rnf pipelineId
+    Prelude.rnf activeInputAttachmentName `Prelude.seq`
+      Prelude.rnf activeInputSwitchActionName `Prelude.seq`
+        Prelude.rnf activeMotionGraphicsActionName `Prelude.seq`
+          Prelude.rnf activeMotionGraphicsUri `Prelude.seq`
+            Prelude.rnf pipelineId

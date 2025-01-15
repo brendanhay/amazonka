@@ -176,11 +176,11 @@ instance
     CreateNetworkInsightsAccessScope
   where
   rnf CreateNetworkInsightsAccessScope' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf excludePaths
-      `Prelude.seq` Prelude.rnf matchPaths
-      `Prelude.seq` Prelude.rnf tagSpecifications
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf excludePaths `Prelude.seq`
+        Prelude.rnf matchPaths `Prelude.seq`
+          Prelude.rnf tagSpecifications `Prelude.seq`
+            Prelude.rnf clientToken
 
 instance
   Data.ToHeaders
@@ -274,6 +274,6 @@ instance
     CreateNetworkInsightsAccessScopeResponse
   where
   rnf CreateNetworkInsightsAccessScopeResponse' {..} =
-    Prelude.rnf networkInsightsAccessScope
-      `Prelude.seq` Prelude.rnf networkInsightsAccessScopeContent
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf networkInsightsAccessScope `Prelude.seq`
+      Prelude.rnf networkInsightsAccessScopeContent `Prelude.seq`
+        Prelude.rnf httpStatus

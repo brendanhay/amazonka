@@ -105,9 +105,7 @@ instance Core.AWSRequest DescribeInstanceHealth where
       "DescribeInstanceHealthResult"
       ( \s h x ->
           DescribeInstanceHealthResponse'
-            Prelude.<$> ( x
-                            Data..@? "InstanceStates"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "InstanceStates" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -121,8 +119,8 @@ instance Prelude.Hashable DescribeInstanceHealth where
 
 instance Prelude.NFData DescribeInstanceHealth where
   rnf DescribeInstanceHealth' {..} =
-    Prelude.rnf instances
-      `Prelude.seq` Prelude.rnf loadBalancerName
+    Prelude.rnf instances `Prelude.seq`
+      Prelude.rnf loadBalancerName
 
 instance Data.ToHeaders DescribeInstanceHealth where
   toHeaders = Prelude.const Prelude.mempty
@@ -189,5 +187,5 @@ instance
     DescribeInstanceHealthResponse
   where
   rnf DescribeInstanceHealthResponse' {..} =
-    Prelude.rnf instanceStates
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf instanceStates `Prelude.seq`
+      Prelude.rnf httpStatus

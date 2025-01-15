@@ -202,10 +202,10 @@ instance
 
 instance Prelude.NFData ListAutoScalingConfigurations where
   rnf ListAutoScalingConfigurations' {..} =
-    Prelude.rnf autoScalingConfigurationName
-      `Prelude.seq` Prelude.rnf latestOnly
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf autoScalingConfigurationName `Prelude.seq`
+      Prelude.rnf latestOnly `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken
 
 instance Data.ToHeaders ListAutoScalingConfigurations where
   toHeaders =
@@ -303,6 +303,6 @@ instance
     ListAutoScalingConfigurationsResponse
   where
   rnf ListAutoScalingConfigurationsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf autoScalingConfigurationSummaryList
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf autoScalingConfigurationSummaryList

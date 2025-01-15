@@ -174,5 +174,5 @@ cancelQueryResponse_httpStatus = Lens.lens (\CancelQueryResponse' {httpStatus} -
 
 instance Prelude.NFData CancelQueryResponse where
   rnf CancelQueryResponse' {..} =
-    Prelude.rnf cancellationMessage
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf cancellationMessage `Prelude.seq`
+      Prelude.rnf httpStatus

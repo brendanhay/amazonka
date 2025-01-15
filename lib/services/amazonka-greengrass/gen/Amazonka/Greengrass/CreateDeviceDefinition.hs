@@ -143,10 +143,10 @@ instance Prelude.Hashable CreateDeviceDefinition where
 
 instance Prelude.NFData CreateDeviceDefinition where
   rnf CreateDeviceDefinition' {..} =
-    Prelude.rnf amznClientToken
-      `Prelude.seq` Prelude.rnf initialVersion
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf amznClientToken `Prelude.seq`
+      Prelude.rnf initialVersion `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf tags
 
 instance Data.ToHeaders CreateDeviceDefinition where
   toHeaders CreateDeviceDefinition' {..} =
@@ -278,11 +278,11 @@ instance
     CreateDeviceDefinitionResponse
   where
   rnf CreateDeviceDefinitionResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationTimestamp
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf lastUpdatedTimestamp
-      `Prelude.seq` Prelude.rnf latestVersion
-      `Prelude.seq` Prelude.rnf latestVersionArn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf creationTimestamp `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf lastUpdatedTimestamp `Prelude.seq`
+            Prelude.rnf latestVersion `Prelude.seq`
+              Prelude.rnf latestVersionArn `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf httpStatus

@@ -204,12 +204,12 @@ instance Core.AWSPager ListHyperParameterTuningJobs where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listHyperParameterTuningJobs_nextToken
-          Lens..~ rs
-          Lens.^? listHyperParameterTuningJobsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listHyperParameterTuningJobs_nextToken
+              Lens..~ rs
+              Lens.^? listHyperParameterTuningJobsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListHyperParameterTuningJobs where
   type
@@ -248,16 +248,16 @@ instance
 
 instance Prelude.NFData ListHyperParameterTuningJobs where
   rnf ListHyperParameterTuningJobs' {..} =
-    Prelude.rnf creationTimeAfter
-      `Prelude.seq` Prelude.rnf creationTimeBefore
-      `Prelude.seq` Prelude.rnf lastModifiedTimeAfter
-      `Prelude.seq` Prelude.rnf lastModifiedTimeBefore
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nameContains
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf sortOrder
-      `Prelude.seq` Prelude.rnf statusEquals
+    Prelude.rnf creationTimeAfter `Prelude.seq`
+      Prelude.rnf creationTimeBefore `Prelude.seq`
+        Prelude.rnf lastModifiedTimeAfter `Prelude.seq`
+          Prelude.rnf lastModifiedTimeBefore `Prelude.seq`
+            Prelude.rnf maxResults `Prelude.seq`
+              Prelude.rnf nameContains `Prelude.seq`
+                Prelude.rnf nextToken `Prelude.seq`
+                  Prelude.rnf sortBy `Prelude.seq`
+                    Prelude.rnf sortOrder `Prelude.seq`
+                      Prelude.rnf statusEquals
 
 instance Data.ToHeaders ListHyperParameterTuningJobs where
   toHeaders =
@@ -364,6 +364,6 @@ instance
     ListHyperParameterTuningJobsResponse
   where
   rnf ListHyperParameterTuningJobsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf hyperParameterTuningJobSummaries
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf hyperParameterTuningJobSummaries

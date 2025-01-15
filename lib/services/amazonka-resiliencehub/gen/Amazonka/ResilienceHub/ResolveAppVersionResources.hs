@@ -128,8 +128,8 @@ instance Prelude.Hashable ResolveAppVersionResources where
 
 instance Prelude.NFData ResolveAppVersionResources where
   rnf ResolveAppVersionResources' {..} =
-    Prelude.rnf appArn
-      `Prelude.seq` Prelude.rnf appVersion
+    Prelude.rnf appArn `Prelude.seq`
+      Prelude.rnf appVersion
 
 instance Data.ToHeaders ResolveAppVersionResources where
   toHeaders =
@@ -254,8 +254,8 @@ instance
     ResolveAppVersionResourcesResponse
   where
   rnf ResolveAppVersionResourcesResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf appArn
-      `Prelude.seq` Prelude.rnf appVersion
-      `Prelude.seq` Prelude.rnf resolutionId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf appArn `Prelude.seq`
+        Prelude.rnf appVersion `Prelude.seq`
+          Prelude.rnf resolutionId `Prelude.seq`
+            Prelude.rnf status

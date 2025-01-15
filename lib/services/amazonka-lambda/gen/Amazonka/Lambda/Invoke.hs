@@ -305,12 +305,12 @@ instance Prelude.Hashable Invoke where
 
 instance Prelude.NFData Invoke where
   rnf Invoke' {..} =
-    Prelude.rnf clientContext
-      `Prelude.seq` Prelude.rnf invocationType
-      `Prelude.seq` Prelude.rnf logType
-      `Prelude.seq` Prelude.rnf qualifier
-      `Prelude.seq` Prelude.rnf functionName
-      `Prelude.seq` Prelude.rnf payload
+    Prelude.rnf clientContext `Prelude.seq`
+      Prelude.rnf invocationType `Prelude.seq`
+        Prelude.rnf logType `Prelude.seq`
+          Prelude.rnf qualifier `Prelude.seq`
+            Prelude.rnf functionName `Prelude.seq`
+              Prelude.rnf payload
 
 instance Data.ToBody Invoke where
   toBody Invoke' {..} = Data.toBody payload
@@ -417,8 +417,8 @@ invokeResponse_statusCode = Lens.lens (\InvokeResponse' {statusCode} -> statusCo
 
 instance Prelude.NFData InvokeResponse where
   rnf InvokeResponse' {..} =
-    Prelude.rnf executedVersion
-      `Prelude.seq` Prelude.rnf functionError
-      `Prelude.seq` Prelude.rnf logResult
-      `Prelude.seq` Prelude.rnf payload
-      `Prelude.seq` Prelude.rnf statusCode
+    Prelude.rnf executedVersion `Prelude.seq`
+      Prelude.rnf functionError `Prelude.seq`
+        Prelude.rnf logResult `Prelude.seq`
+          Prelude.rnf payload `Prelude.seq`
+            Prelude.rnf statusCode

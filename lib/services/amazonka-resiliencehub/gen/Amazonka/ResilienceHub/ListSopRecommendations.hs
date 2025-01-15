@@ -147,9 +147,9 @@ instance Prelude.Hashable ListSopRecommendations where
 
 instance Prelude.NFData ListSopRecommendations where
   rnf ListSopRecommendations' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf assessmentArn
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf assessmentArn
 
 instance Data.ToHeaders ListSopRecommendations where
   toHeaders =
@@ -238,6 +238,6 @@ instance
     ListSopRecommendationsResponse
   where
   rnf ListSopRecommendationsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf sopRecommendations
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf sopRecommendations

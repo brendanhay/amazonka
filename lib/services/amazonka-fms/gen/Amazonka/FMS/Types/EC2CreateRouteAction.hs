@@ -151,10 +151,10 @@ instance Prelude.Hashable EC2CreateRouteAction where
 
 instance Prelude.NFData EC2CreateRouteAction where
   rnf EC2CreateRouteAction' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf destinationCidrBlock
-      `Prelude.seq` Prelude.rnf destinationIpv6CidrBlock
-      `Prelude.seq` Prelude.rnf destinationPrefixListId
-      `Prelude.seq` Prelude.rnf gatewayId
-      `Prelude.seq` Prelude.rnf vpcEndpointId
-      `Prelude.seq` Prelude.rnf routeTableId
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf destinationCidrBlock `Prelude.seq`
+        Prelude.rnf destinationIpv6CidrBlock `Prelude.seq`
+          Prelude.rnf destinationPrefixListId `Prelude.seq`
+            Prelude.rnf gatewayId `Prelude.seq`
+              Prelude.rnf vpcEndpointId `Prelude.seq`
+                Prelude.rnf routeTableId

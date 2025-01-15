@@ -126,11 +126,11 @@ instance Prelude.Hashable CatalogTarget where
 
 instance Prelude.NFData CatalogTarget where
   rnf CatalogTarget' {..} =
-    Prelude.rnf connectionName
-      `Prelude.seq` Prelude.rnf dlqEventQueueArn
-      `Prelude.seq` Prelude.rnf eventQueueArn
-      `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf tables
+    Prelude.rnf connectionName `Prelude.seq`
+      Prelude.rnf dlqEventQueueArn `Prelude.seq`
+        Prelude.rnf eventQueueArn `Prelude.seq`
+          Prelude.rnf databaseName `Prelude.seq`
+            Prelude.rnf tables
 
 instance Data.ToJSON CatalogTarget where
   toJSON CatalogTarget' {..} =

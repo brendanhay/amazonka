@@ -123,8 +123,8 @@ instance Prelude.Hashable UpdateDomainName where
 
 instance Prelude.NFData UpdateDomainName where
   rnf UpdateDomainName' {..} =
-    Prelude.rnf patchOperations
-      `Prelude.seq` Prelude.rnf domainName
+    Prelude.rnf patchOperations `Prelude.seq`
+      Prelude.rnf domainName
 
 instance Data.ToHeaders UpdateDomainName where
   toHeaders =

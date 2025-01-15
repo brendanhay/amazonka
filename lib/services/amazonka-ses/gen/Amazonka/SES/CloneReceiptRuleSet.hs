@@ -144,8 +144,8 @@ instance Prelude.Hashable CloneReceiptRuleSet where
 
 instance Prelude.NFData CloneReceiptRuleSet where
   rnf CloneReceiptRuleSet' {..} =
-    Prelude.rnf ruleSetName
-      `Prelude.seq` Prelude.rnf originalRuleSetName
+    Prelude.rnf ruleSetName `Prelude.seq`
+      Prelude.rnf originalRuleSetName
 
 instance Data.ToHeaders CloneReceiptRuleSet where
   toHeaders = Prelude.const Prelude.mempty

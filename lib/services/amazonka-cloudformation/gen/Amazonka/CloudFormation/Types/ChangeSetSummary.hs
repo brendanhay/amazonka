@@ -210,15 +210,15 @@ instance Prelude.Hashable ChangeSetSummary where
 
 instance Prelude.NFData ChangeSetSummary where
   rnf ChangeSetSummary' {..} =
-    Prelude.rnf changeSetId
-      `Prelude.seq` Prelude.rnf changeSetName
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf executionStatus
-      `Prelude.seq` Prelude.rnf includeNestedStacks
-      `Prelude.seq` Prelude.rnf parentChangeSetId
-      `Prelude.seq` Prelude.rnf rootChangeSetId
-      `Prelude.seq` Prelude.rnf stackId
-      `Prelude.seq` Prelude.rnf stackName
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusReason
+    Prelude.rnf changeSetId `Prelude.seq`
+      Prelude.rnf changeSetName `Prelude.seq`
+        Prelude.rnf creationTime `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf executionStatus `Prelude.seq`
+              Prelude.rnf includeNestedStacks `Prelude.seq`
+                Prelude.rnf parentChangeSetId `Prelude.seq`
+                  Prelude.rnf rootChangeSetId `Prelude.seq`
+                    Prelude.rnf stackId `Prelude.seq`
+                      Prelude.rnf stackName `Prelude.seq`
+                        Prelude.rnf status `Prelude.seq`
+                          Prelude.rnf statusReason

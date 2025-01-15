@@ -108,10 +108,10 @@ instance Prelude.Hashable ComboChartSortConfiguration where
 
 instance Prelude.NFData ComboChartSortConfiguration where
   rnf ComboChartSortConfiguration' {..} =
-    Prelude.rnf categoryItemsLimit
-      `Prelude.seq` Prelude.rnf categorySort
-      `Prelude.seq` Prelude.rnf colorItemsLimit
-      `Prelude.seq` Prelude.rnf colorSort
+    Prelude.rnf categoryItemsLimit `Prelude.seq`
+      Prelude.rnf categorySort `Prelude.seq`
+        Prelude.rnf colorItemsLimit `Prelude.seq`
+          Prelude.rnf colorSort
 
 instance Data.ToJSON ComboChartSortConfiguration where
   toJSON ComboChartSortConfiguration' {..} =

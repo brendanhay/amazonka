@@ -147,12 +147,12 @@ instance Core.AWSPager ListSkills where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listSkills_nextToken
-          Lens..~ rs
-          Lens.^? listSkillsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listSkills_nextToken
+              Lens..~ rs
+              Lens.^? listSkillsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSkills where
   type AWSResponse ListSkills = ListSkillsResponse
@@ -178,11 +178,11 @@ instance Prelude.Hashable ListSkills where
 
 instance Prelude.NFData ListSkills where
   rnf ListSkills' {..} =
-    Prelude.rnf enablementType
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf skillGroupArn
-      `Prelude.seq` Prelude.rnf skillType
+    Prelude.rnf enablementType `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf skillGroupArn `Prelude.seq`
+            Prelude.rnf skillType
 
 instance Data.ToHeaders ListSkills where
   toHeaders =
@@ -267,6 +267,6 @@ listSkillsResponse_httpStatus = Lens.lens (\ListSkillsResponse' {httpStatus} -> 
 
 instance Prelude.NFData ListSkillsResponse where
   rnf ListSkillsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf skillSummaries
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf skillSummaries `Prelude.seq`
+        Prelude.rnf httpStatus

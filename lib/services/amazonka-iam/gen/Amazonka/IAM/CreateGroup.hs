@@ -162,8 +162,8 @@ instance Prelude.Hashable CreateGroup where
 
 instance Prelude.NFData CreateGroup where
   rnf CreateGroup' {..} =
-    Prelude.rnf path
-      `Prelude.seq` Prelude.rnf groupName
+    Prelude.rnf path `Prelude.seq`
+      Prelude.rnf groupName
 
 instance Data.ToHeaders CreateGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -226,5 +226,5 @@ createGroupResponse_group = Lens.lens (\CreateGroupResponse' {group'} -> group')
 
 instance Prelude.NFData CreateGroupResponse where
   rnf CreateGroupResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf group'
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf group'

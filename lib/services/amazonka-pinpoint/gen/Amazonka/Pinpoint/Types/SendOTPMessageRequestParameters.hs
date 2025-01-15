@@ -201,17 +201,17 @@ instance
     SendOTPMessageRequestParameters
   where
   rnf SendOTPMessageRequestParameters' {..} =
-    Prelude.rnf allowedAttempts
-      `Prelude.seq` Prelude.rnf codeLength
-      `Prelude.seq` Prelude.rnf entityId
-      `Prelude.seq` Prelude.rnf language
-      `Prelude.seq` Prelude.rnf templateId
-      `Prelude.seq` Prelude.rnf validityPeriod
-      `Prelude.seq` Prelude.rnf brandName
-      `Prelude.seq` Prelude.rnf referenceId
-      `Prelude.seq` Prelude.rnf channel
-      `Prelude.seq` Prelude.rnf destinationIdentity
-      `Prelude.seq` Prelude.rnf originationIdentity
+    Prelude.rnf allowedAttempts `Prelude.seq`
+      Prelude.rnf codeLength `Prelude.seq`
+        Prelude.rnf entityId `Prelude.seq`
+          Prelude.rnf language `Prelude.seq`
+            Prelude.rnf templateId `Prelude.seq`
+              Prelude.rnf validityPeriod `Prelude.seq`
+                Prelude.rnf brandName `Prelude.seq`
+                  Prelude.rnf referenceId `Prelude.seq`
+                    Prelude.rnf channel `Prelude.seq`
+                      Prelude.rnf destinationIdentity `Prelude.seq`
+                        Prelude.rnf originationIdentity
 
 instance Data.ToJSON SendOTPMessageRequestParameters where
   toJSON SendOTPMessageRequestParameters' {..} =

@@ -160,9 +160,9 @@ instance Prelude.Hashable ConstraintDetail where
 
 instance Prelude.NFData ConstraintDetail where
   rnf ConstraintDetail' {..} =
-    Prelude.rnf constraintId
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf owner
-      `Prelude.seq` Prelude.rnf portfolioId
-      `Prelude.seq` Prelude.rnf productId
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf constraintId `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf owner `Prelude.seq`
+          Prelude.rnf portfolioId `Prelude.seq`
+            Prelude.rnf productId `Prelude.seq`
+              Prelude.rnf type'

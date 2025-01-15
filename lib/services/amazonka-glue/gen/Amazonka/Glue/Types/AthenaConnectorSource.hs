@@ -161,13 +161,13 @@ instance Prelude.Hashable AthenaConnectorSource where
 
 instance Prelude.NFData AthenaConnectorSource where
   rnf AthenaConnectorSource' {..} =
-    Prelude.rnf connectionTable
-      `Prelude.seq` Prelude.rnf outputSchemas
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf connectionName
-      `Prelude.seq` Prelude.rnf connectorName
-      `Prelude.seq` Prelude.rnf connectionType
-      `Prelude.seq` Prelude.rnf schemaName
+    Prelude.rnf connectionTable `Prelude.seq`
+      Prelude.rnf outputSchemas `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf connectionName `Prelude.seq`
+            Prelude.rnf connectorName `Prelude.seq`
+              Prelude.rnf connectionType `Prelude.seq`
+                Prelude.rnf schemaName
 
 instance Data.ToJSON AthenaConnectorSource where
   toJSON AthenaConnectorSource' {..} =

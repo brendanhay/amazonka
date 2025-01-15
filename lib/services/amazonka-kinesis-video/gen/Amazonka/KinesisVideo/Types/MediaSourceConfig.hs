@@ -102,8 +102,8 @@ instance Prelude.Hashable MediaSourceConfig where
 
 instance Prelude.NFData MediaSourceConfig where
   rnf MediaSourceConfig' {..} =
-    Prelude.rnf mediaUriSecretArn
-      `Prelude.seq` Prelude.rnf mediaUriType
+    Prelude.rnf mediaUriSecretArn `Prelude.seq`
+      Prelude.rnf mediaUriType
 
 instance Data.ToJSON MediaSourceConfig where
   toJSON MediaSourceConfig' {..} =

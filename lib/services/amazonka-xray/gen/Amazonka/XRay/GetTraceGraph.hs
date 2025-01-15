@@ -102,12 +102,12 @@ instance Core.AWSPager GetTraceGraph where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getTraceGraph_nextToken
-          Lens..~ rs
-          Lens.^? getTraceGraphResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getTraceGraph_nextToken
+              Lens..~ rs
+              Lens.^? getTraceGraphResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetTraceGraph where
   type
@@ -132,8 +132,8 @@ instance Prelude.Hashable GetTraceGraph where
 
 instance Prelude.NFData GetTraceGraph where
   rnf GetTraceGraph' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf traceIds
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf traceIds
 
 instance Data.ToHeaders GetTraceGraph where
   toHeaders = Prelude.const Prelude.mempty
@@ -202,6 +202,6 @@ getTraceGraphResponse_httpStatus = Lens.lens (\GetTraceGraphResponse' {httpStatu
 
 instance Prelude.NFData GetTraceGraphResponse where
   rnf GetTraceGraphResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf services
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf services `Prelude.seq`
+        Prelude.rnf httpStatus

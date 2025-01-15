@@ -169,12 +169,12 @@ instance Core.AWSPager SearchAvailablePhoneNumbers where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& searchAvailablePhoneNumbers_nextToken
-          Lens..~ rs
-          Lens.^? searchAvailablePhoneNumbersResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& searchAvailablePhoneNumbers_nextToken
+              Lens..~ rs
+              Lens.^? searchAvailablePhoneNumbersResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest SearchAvailablePhoneNumbers where
   type
@@ -206,12 +206,12 @@ instance Prelude.Hashable SearchAvailablePhoneNumbers where
 
 instance Prelude.NFData SearchAvailablePhoneNumbers where
   rnf SearchAvailablePhoneNumbers' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf phoneNumberPrefix
-      `Prelude.seq` Prelude.rnf targetArn
-      `Prelude.seq` Prelude.rnf phoneNumberCountryCode
-      `Prelude.seq` Prelude.rnf phoneNumberType
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf phoneNumberPrefix `Prelude.seq`
+          Prelude.rnf targetArn `Prelude.seq`
+            Prelude.rnf phoneNumberCountryCode `Prelude.seq`
+              Prelude.rnf phoneNumberType
 
 instance Data.ToHeaders SearchAvailablePhoneNumbers where
   toHeaders =
@@ -308,6 +308,6 @@ instance
     SearchAvailablePhoneNumbersResponse
   where
   rnf SearchAvailablePhoneNumbersResponse' {..} =
-    Prelude.rnf availableNumbersList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf availableNumbersList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

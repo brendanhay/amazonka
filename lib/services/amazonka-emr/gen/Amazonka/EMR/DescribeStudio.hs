@@ -164,5 +164,5 @@ describeStudioResponse_httpStatus = Lens.lens (\DescribeStudioResponse' {httpSta
 
 instance Prelude.NFData DescribeStudioResponse where
   rnf DescribeStudioResponse' {..} =
-    Prelude.rnf studio
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf studio `Prelude.seq`
+      Prelude.rnf httpStatus

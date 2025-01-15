@@ -199,10 +199,10 @@ instance Prelude.Hashable DisassociateSubnets where
 
 instance Prelude.NFData DisassociateSubnets where
   rnf DisassociateSubnets' {..} =
-    Prelude.rnf firewallArn
-      `Prelude.seq` Prelude.rnf firewallName
-      `Prelude.seq` Prelude.rnf updateToken
-      `Prelude.seq` Prelude.rnf subnetIds
+    Prelude.rnf firewallArn `Prelude.seq`
+      Prelude.rnf firewallName `Prelude.seq`
+        Prelude.rnf updateToken `Prelude.seq`
+          Prelude.rnf subnetIds
 
 instance Data.ToHeaders DisassociateSubnets where
   toHeaders =
@@ -355,8 +355,8 @@ disassociateSubnetsResponse_httpStatus = Lens.lens (\DisassociateSubnetsResponse
 
 instance Prelude.NFData DisassociateSubnetsResponse where
   rnf DisassociateSubnetsResponse' {..} =
-    Prelude.rnf firewallArn
-      `Prelude.seq` Prelude.rnf firewallName
-      `Prelude.seq` Prelude.rnf subnetMappings
-      `Prelude.seq` Prelude.rnf updateToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf firewallArn `Prelude.seq`
+      Prelude.rnf firewallName `Prelude.seq`
+        Prelude.rnf subnetMappings `Prelude.seq`
+          Prelude.rnf updateToken `Prelude.seq`
+            Prelude.rnf httpStatus

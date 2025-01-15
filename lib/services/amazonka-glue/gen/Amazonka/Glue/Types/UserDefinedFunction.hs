@@ -149,11 +149,11 @@ instance Prelude.Hashable UserDefinedFunction where
 
 instance Prelude.NFData UserDefinedFunction where
   rnf UserDefinedFunction' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf className
-      `Prelude.seq` Prelude.rnf createTime
-      `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf functionName
-      `Prelude.seq` Prelude.rnf ownerName
-      `Prelude.seq` Prelude.rnf ownerType
-      `Prelude.seq` Prelude.rnf resourceUris
+    Prelude.rnf catalogId `Prelude.seq`
+      Prelude.rnf className `Prelude.seq`
+        Prelude.rnf createTime `Prelude.seq`
+          Prelude.rnf databaseName `Prelude.seq`
+            Prelude.rnf functionName `Prelude.seq`
+              Prelude.rnf ownerName `Prelude.seq`
+                Prelude.rnf ownerType `Prelude.seq`
+                  Prelude.rnf resourceUris

@@ -202,12 +202,12 @@ instance Core.AWSPager ListParts where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listParts_marker
-          Lens..~ rs
-          Lens.^? listPartsResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listParts_marker
+              Lens..~ rs
+              Lens.^? listPartsResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListParts where
   type AWSResponse ListParts = ListPartsResponse
@@ -239,11 +239,11 @@ instance Prelude.Hashable ListParts where
 
 instance Prelude.NFData ListParts where
   rnf ListParts' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf vaultName
-      `Prelude.seq` Prelude.rnf uploadId
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf accountId `Prelude.seq`
+          Prelude.rnf vaultName `Prelude.seq`
+            Prelude.rnf uploadId
 
 instance Data.ToHeaders ListParts where
   toHeaders = Prelude.const Prelude.mempty
@@ -379,11 +379,11 @@ listPartsResponse_httpStatus = Lens.lens (\ListPartsResponse' {httpStatus} -> ht
 
 instance Prelude.NFData ListPartsResponse where
   rnf ListPartsResponse' {..} =
-    Prelude.rnf archiveDescription
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf multipartUploadId
-      `Prelude.seq` Prelude.rnf partSizeInBytes
-      `Prelude.seq` Prelude.rnf parts
-      `Prelude.seq` Prelude.rnf vaultARN
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf archiveDescription `Prelude.seq`
+      Prelude.rnf creationDate `Prelude.seq`
+        Prelude.rnf marker `Prelude.seq`
+          Prelude.rnf multipartUploadId `Prelude.seq`
+            Prelude.rnf partSizeInBytes `Prelude.seq`
+              Prelude.rnf parts `Prelude.seq`
+                Prelude.rnf vaultARN `Prelude.seq`
+                  Prelude.rnf httpStatus

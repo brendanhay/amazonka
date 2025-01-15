@@ -446,8 +446,8 @@ instance Prelude.Hashable TextTransformation where
 
 instance Prelude.NFData TextTransformation where
   rnf TextTransformation' {..} =
-    Prelude.rnf priority
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf priority `Prelude.seq`
+      Prelude.rnf type'
 
 instance Data.ToJSON TextTransformation where
   toJSON TextTransformation' {..} =

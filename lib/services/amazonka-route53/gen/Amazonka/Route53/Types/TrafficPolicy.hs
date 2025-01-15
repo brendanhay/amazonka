@@ -158,9 +158,9 @@ instance Prelude.Hashable TrafficPolicy where
 
 instance Prelude.NFData TrafficPolicy where
   rnf TrafficPolicy' {..} =
-    Prelude.rnf comment
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf document
+    Prelude.rnf comment `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf version `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf type' `Prelude.seq`
+              Prelude.rnf document

@@ -112,8 +112,8 @@ instance Prelude.Hashable AdminEnableUser where
 
 instance Prelude.NFData AdminEnableUser where
   rnf AdminEnableUser' {..} =
-    Prelude.rnf userPoolId
-      `Prelude.seq` Prelude.rnf username
+    Prelude.rnf userPoolId `Prelude.seq`
+      Prelude.rnf username
 
 instance Data.ToHeaders AdminEnableUser where
   toHeaders =

@@ -244,15 +244,15 @@ instance Prelude.Hashable CreateFaq where
 
 instance Prelude.NFData CreateFaq where
   rnf CreateFaq' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf fileFormat
-      `Prelude.seq` Prelude.rnf languageCode
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf indexId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf s3Path
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf fileFormat `Prelude.seq`
+          Prelude.rnf languageCode `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf indexId `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf s3Path `Prelude.seq`
+                    Prelude.rnf roleArn
 
 instance Data.ToHeaders CreateFaq where
   toHeaders =

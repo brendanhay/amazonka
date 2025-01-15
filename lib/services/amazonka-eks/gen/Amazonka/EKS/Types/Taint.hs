@@ -94,9 +94,9 @@ instance Prelude.Hashable Taint where
 
 instance Prelude.NFData Taint where
   rnf Taint' {..} =
-    Prelude.rnf effect
-      `Prelude.seq` Prelude.rnf key
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf effect `Prelude.seq`
+      Prelude.rnf key `Prelude.seq`
+        Prelude.rnf value
 
 instance Data.ToJSON Taint where
   toJSON Taint' {..} =

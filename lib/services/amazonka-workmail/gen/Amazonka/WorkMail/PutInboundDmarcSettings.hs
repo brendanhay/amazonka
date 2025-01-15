@@ -111,8 +111,8 @@ instance Prelude.Hashable PutInboundDmarcSettings where
 
 instance Prelude.NFData PutInboundDmarcSettings where
   rnf PutInboundDmarcSettings' {..} =
-    Prelude.rnf organizationId
-      `Prelude.seq` Prelude.rnf enforced
+    Prelude.rnf organizationId `Prelude.seq`
+      Prelude.rnf enforced
 
 instance Data.ToHeaders PutInboundDmarcSettings where
   toHeaders =

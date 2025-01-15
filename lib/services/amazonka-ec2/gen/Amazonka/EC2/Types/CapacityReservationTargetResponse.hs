@@ -90,5 +90,5 @@ instance
     CapacityReservationTargetResponse
   where
   rnf CapacityReservationTargetResponse' {..} =
-    Prelude.rnf capacityReservationId
-      `Prelude.seq` Prelude.rnf capacityReservationResourceGroupArn
+    Prelude.rnf capacityReservationId `Prelude.seq`
+      Prelude.rnf capacityReservationResourceGroupArn

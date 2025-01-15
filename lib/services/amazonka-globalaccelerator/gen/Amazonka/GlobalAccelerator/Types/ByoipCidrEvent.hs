@@ -94,5 +94,5 @@ instance Prelude.Hashable ByoipCidrEvent where
 
 instance Prelude.NFData ByoipCidrEvent where
   rnf ByoipCidrEvent' {..} =
-    Prelude.rnf message
-      `Prelude.seq` Prelude.rnf timestamp
+    Prelude.rnf message `Prelude.seq`
+      Prelude.rnf timestamp

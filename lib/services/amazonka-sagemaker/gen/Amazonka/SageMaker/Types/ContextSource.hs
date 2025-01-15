@@ -93,9 +93,9 @@ instance Prelude.Hashable ContextSource where
 
 instance Prelude.NFData ContextSource where
   rnf ContextSource' {..} =
-    Prelude.rnf sourceId
-      `Prelude.seq` Prelude.rnf sourceType
-      `Prelude.seq` Prelude.rnf sourceUri
+    Prelude.rnf sourceId `Prelude.seq`
+      Prelude.rnf sourceType `Prelude.seq`
+        Prelude.rnf sourceUri
 
 instance Data.ToJSON ContextSource where
   toJSON ContextSource' {..} =

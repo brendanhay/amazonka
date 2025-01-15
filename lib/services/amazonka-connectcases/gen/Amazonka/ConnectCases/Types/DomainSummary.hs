@@ -97,6 +97,6 @@ instance Prelude.Hashable DomainSummary where
 
 instance Prelude.NFData DomainSummary where
   rnf DomainSummary' {..} =
-    Prelude.rnf domainArn
-      `Prelude.seq` Prelude.rnf domainId
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf domainArn `Prelude.seq`
+      Prelude.rnf domainId `Prelude.seq`
+        Prelude.rnf name

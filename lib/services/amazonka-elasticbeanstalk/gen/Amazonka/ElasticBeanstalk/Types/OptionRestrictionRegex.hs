@@ -80,5 +80,5 @@ instance Prelude.Hashable OptionRestrictionRegex where
 
 instance Prelude.NFData OptionRestrictionRegex where
   rnf OptionRestrictionRegex' {..} =
-    Prelude.rnf label
-      `Prelude.seq` Prelude.rnf pattern'
+    Prelude.rnf label `Prelude.seq`
+      Prelude.rnf pattern'

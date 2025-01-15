@@ -191,13 +191,13 @@ instance Prelude.Hashable RtmpGroupSettings where
 
 instance Prelude.NFData RtmpGroupSettings where
   rnf RtmpGroupSettings' {..} =
-    Prelude.rnf adMarkers
-      `Prelude.seq` Prelude.rnf authenticationScheme
-      `Prelude.seq` Prelude.rnf cacheFullBehavior
-      `Prelude.seq` Prelude.rnf cacheLength
-      `Prelude.seq` Prelude.rnf captionData
-      `Prelude.seq` Prelude.rnf inputLossAction
-      `Prelude.seq` Prelude.rnf restartDelay
+    Prelude.rnf adMarkers `Prelude.seq`
+      Prelude.rnf authenticationScheme `Prelude.seq`
+        Prelude.rnf cacheFullBehavior `Prelude.seq`
+          Prelude.rnf cacheLength `Prelude.seq`
+            Prelude.rnf captionData `Prelude.seq`
+              Prelude.rnf inputLossAction `Prelude.seq`
+                Prelude.rnf restartDelay
 
 instance Data.ToJSON RtmpGroupSettings where
   toJSON RtmpGroupSettings' {..} =

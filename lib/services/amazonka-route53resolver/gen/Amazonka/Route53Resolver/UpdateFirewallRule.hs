@@ -285,15 +285,15 @@ instance Prelude.Hashable UpdateFirewallRule where
 
 instance Prelude.NFData UpdateFirewallRule where
   rnf UpdateFirewallRule' {..} =
-    Prelude.rnf action
-      `Prelude.seq` Prelude.rnf blockOverrideDnsType
-      `Prelude.seq` Prelude.rnf blockOverrideDomain
-      `Prelude.seq` Prelude.rnf blockOverrideTtl
-      `Prelude.seq` Prelude.rnf blockResponse
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf priority
-      `Prelude.seq` Prelude.rnf firewallRuleGroupId
-      `Prelude.seq` Prelude.rnf firewallDomainListId
+    Prelude.rnf action `Prelude.seq`
+      Prelude.rnf blockOverrideDnsType `Prelude.seq`
+        Prelude.rnf blockOverrideDomain `Prelude.seq`
+          Prelude.rnf blockOverrideTtl `Prelude.seq`
+            Prelude.rnf blockResponse `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf priority `Prelude.seq`
+                  Prelude.rnf firewallRuleGroupId `Prelude.seq`
+                    Prelude.rnf firewallDomainListId
 
 instance Data.ToHeaders UpdateFirewallRule where
   toHeaders =
@@ -380,5 +380,5 @@ updateFirewallRuleResponse_httpStatus = Lens.lens (\UpdateFirewallRuleResponse' 
 
 instance Prelude.NFData UpdateFirewallRuleResponse where
   rnf UpdateFirewallRuleResponse' {..} =
-    Prelude.rnf firewallRule
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf firewallRule `Prelude.seq`
+      Prelude.rnf httpStatus

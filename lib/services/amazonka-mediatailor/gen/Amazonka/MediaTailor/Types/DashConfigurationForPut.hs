@@ -105,8 +105,8 @@ instance Prelude.Hashable DashConfigurationForPut where
 
 instance Prelude.NFData DashConfigurationForPut where
   rnf DashConfigurationForPut' {..} =
-    Prelude.rnf mpdLocation
-      `Prelude.seq` Prelude.rnf originManifestType
+    Prelude.rnf mpdLocation `Prelude.seq`
+      Prelude.rnf originManifestType
 
 instance Data.ToJSON DashConfigurationForPut where
   toJSON DashConfigurationForPut' {..} =

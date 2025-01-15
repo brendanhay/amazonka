@@ -103,7 +103,7 @@ instance Prelude.Hashable ConfigListItem where
 
 instance Prelude.NFData ConfigListItem where
   rnf ConfigListItem' {..} =
-    Prelude.rnf configArn
-      `Prelude.seq` Prelude.rnf configId
-      `Prelude.seq` Prelude.rnf configType
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf configArn `Prelude.seq`
+      Prelude.rnf configId `Prelude.seq`
+        Prelude.rnf configType `Prelude.seq`
+          Prelude.rnf name

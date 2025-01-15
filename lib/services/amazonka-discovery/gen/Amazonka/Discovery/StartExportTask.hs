@@ -170,10 +170,10 @@ instance Prelude.Hashable StartExportTask where
 
 instance Prelude.NFData StartExportTask where
   rnf StartExportTask' {..} =
-    Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf exportDataFormat
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf startTime
+    Prelude.rnf endTime `Prelude.seq`
+      Prelude.rnf exportDataFormat `Prelude.seq`
+        Prelude.rnf filters `Prelude.seq`
+          Prelude.rnf startTime
 
 instance Data.ToHeaders StartExportTask where
   toHeaders =
@@ -249,5 +249,5 @@ startExportTaskResponse_httpStatus = Lens.lens (\StartExportTaskResponse' {httpS
 
 instance Prelude.NFData StartExportTaskResponse where
   rnf StartExportTaskResponse' {..} =
-    Prelude.rnf exportId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf exportId `Prelude.seq`
+      Prelude.rnf httpStatus

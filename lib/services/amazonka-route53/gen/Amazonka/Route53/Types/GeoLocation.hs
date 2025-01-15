@@ -175,9 +175,9 @@ instance Prelude.Hashable GeoLocation where
 
 instance Prelude.NFData GeoLocation where
   rnf GeoLocation' {..} =
-    Prelude.rnf continentCode
-      `Prelude.seq` Prelude.rnf countryCode
-      `Prelude.seq` Prelude.rnf subdivisionCode
+    Prelude.rnf continentCode `Prelude.seq`
+      Prelude.rnf countryCode `Prelude.seq`
+        Prelude.rnf subdivisionCode
 
 instance Data.ToXML GeoLocation where
   toXML GeoLocation' {..} =

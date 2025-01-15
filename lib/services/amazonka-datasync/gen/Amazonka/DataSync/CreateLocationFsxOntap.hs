@@ -212,11 +212,11 @@ instance Prelude.Hashable CreateLocationFsxOntap where
 
 instance Prelude.NFData CreateLocationFsxOntap where
   rnf CreateLocationFsxOntap' {..} =
-    Prelude.rnf subdirectory
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf protocol
-      `Prelude.seq` Prelude.rnf securityGroupArns
-      `Prelude.seq` Prelude.rnf storageVirtualMachineArn
+    Prelude.rnf subdirectory `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf protocol `Prelude.seq`
+          Prelude.rnf securityGroupArns `Prelude.seq`
+            Prelude.rnf storageVirtualMachineArn
 
 instance Data.ToHeaders CreateLocationFsxOntap where
   toHeaders =
@@ -302,5 +302,5 @@ instance
     CreateLocationFsxOntapResponse
   where
   rnf CreateLocationFsxOntapResponse' {..} =
-    Prelude.rnf locationArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf locationArn `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -211,13 +211,13 @@ instance Prelude.Hashable BackupSummary where
 
 instance Prelude.NFData BackupSummary where
   rnf BackupSummary' {..} =
-    Prelude.rnf backupArn
-      `Prelude.seq` Prelude.rnf backupCreationDateTime
-      `Prelude.seq` Prelude.rnf backupExpiryDateTime
-      `Prelude.seq` Prelude.rnf backupName
-      `Prelude.seq` Prelude.rnf backupSizeBytes
-      `Prelude.seq` Prelude.rnf backupStatus
-      `Prelude.seq` Prelude.rnf backupType
-      `Prelude.seq` Prelude.rnf tableArn
-      `Prelude.seq` Prelude.rnf tableId
-      `Prelude.seq` Prelude.rnf tableName
+    Prelude.rnf backupArn `Prelude.seq`
+      Prelude.rnf backupCreationDateTime `Prelude.seq`
+        Prelude.rnf backupExpiryDateTime `Prelude.seq`
+          Prelude.rnf backupName `Prelude.seq`
+            Prelude.rnf backupSizeBytes `Prelude.seq`
+              Prelude.rnf backupStatus `Prelude.seq`
+                Prelude.rnf backupType `Prelude.seq`
+                  Prelude.rnf tableArn `Prelude.seq`
+                    Prelude.rnf tableId `Prelude.seq`
+                      Prelude.rnf tableName

@@ -124,8 +124,8 @@ instance Prelude.Hashable GetReadSetExportJob where
 
 instance Prelude.NFData GetReadSetExportJob where
   rnf GetReadSetExportJob' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf sequenceStoreId
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf sequenceStoreId
 
 instance Data.ToHeaders GetReadSetExportJob where
   toHeaders =
@@ -271,12 +271,12 @@ getReadSetExportJobResponse_status = Lens.lens (\GetReadSetExportJobResponse' {s
 
 instance Prelude.NFData GetReadSetExportJobResponse where
   rnf GetReadSetExportJobResponse' {..} =
-    Prelude.rnf completionTime
-      `Prelude.seq` Prelude.rnf readSets
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf destination
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf sequenceStoreId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf completionTime `Prelude.seq`
+      Prelude.rnf readSets `Prelude.seq`
+        Prelude.rnf statusMessage `Prelude.seq`
+          Prelude.rnf httpStatus `Prelude.seq`
+            Prelude.rnf creationTime `Prelude.seq`
+              Prelude.rnf destination `Prelude.seq`
+                Prelude.rnf id `Prelude.seq`
+                  Prelude.rnf sequenceStoreId `Prelude.seq`
+                    Prelude.rnf status

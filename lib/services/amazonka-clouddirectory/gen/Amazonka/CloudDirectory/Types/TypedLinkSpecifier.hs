@@ -124,10 +124,10 @@ instance Prelude.Hashable TypedLinkSpecifier where
 
 instance Prelude.NFData TypedLinkSpecifier where
   rnf TypedLinkSpecifier' {..} =
-    Prelude.rnf typedLinkFacet
-      `Prelude.seq` Prelude.rnf sourceObjectReference
-      `Prelude.seq` Prelude.rnf targetObjectReference
-      `Prelude.seq` Prelude.rnf identityAttributeValues
+    Prelude.rnf typedLinkFacet `Prelude.seq`
+      Prelude.rnf sourceObjectReference `Prelude.seq`
+        Prelude.rnf targetObjectReference `Prelude.seq`
+          Prelude.rnf identityAttributeValues
 
 instance Data.ToJSON TypedLinkSpecifier where
   toJSON TypedLinkSpecifier' {..} =

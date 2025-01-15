@@ -133,12 +133,12 @@ instance Prelude.Hashable OutputUpdate where
 
 instance Prelude.NFData OutputUpdate where
   rnf OutputUpdate' {..} =
-    Prelude.rnf destinationSchemaUpdate
-      `Prelude.seq` Prelude.rnf kinesisFirehoseOutputUpdate
-      `Prelude.seq` Prelude.rnf kinesisStreamsOutputUpdate
-      `Prelude.seq` Prelude.rnf lambdaOutputUpdate
-      `Prelude.seq` Prelude.rnf nameUpdate
-      `Prelude.seq` Prelude.rnf outputId
+    Prelude.rnf destinationSchemaUpdate `Prelude.seq`
+      Prelude.rnf kinesisFirehoseOutputUpdate `Prelude.seq`
+        Prelude.rnf kinesisStreamsOutputUpdate `Prelude.seq`
+          Prelude.rnf lambdaOutputUpdate `Prelude.seq`
+            Prelude.rnf nameUpdate `Prelude.seq`
+              Prelude.rnf outputId
 
 instance Data.ToJSON OutputUpdate where
   toJSON OutputUpdate' {..} =

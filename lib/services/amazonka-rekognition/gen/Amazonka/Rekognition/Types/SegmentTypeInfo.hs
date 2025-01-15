@@ -83,5 +83,5 @@ instance Prelude.Hashable SegmentTypeInfo where
 
 instance Prelude.NFData SegmentTypeInfo where
   rnf SegmentTypeInfo' {..} =
-    Prelude.rnf modelVersion
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf modelVersion `Prelude.seq`
+      Prelude.rnf type'

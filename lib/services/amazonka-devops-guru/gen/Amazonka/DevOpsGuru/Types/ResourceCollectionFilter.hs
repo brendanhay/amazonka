@@ -195,5 +195,5 @@ instance Prelude.Hashable ResourceCollectionFilter where
 
 instance Prelude.NFData ResourceCollectionFilter where
   rnf ResourceCollectionFilter' {..} =
-    Prelude.rnf cloudFormation
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf cloudFormation `Prelude.seq`
+      Prelude.rnf tags

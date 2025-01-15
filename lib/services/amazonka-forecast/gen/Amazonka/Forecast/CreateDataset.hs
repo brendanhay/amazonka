@@ -361,13 +361,13 @@ instance Prelude.Hashable CreateDataset where
 
 instance Prelude.NFData CreateDataset where
   rnf CreateDataset' {..} =
-    Prelude.rnf dataFrequency
-      `Prelude.seq` Prelude.rnf encryptionConfig
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf datasetName
-      `Prelude.seq` Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf datasetType
-      `Prelude.seq` Prelude.rnf schema
+    Prelude.rnf dataFrequency `Prelude.seq`
+      Prelude.rnf encryptionConfig `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf datasetName `Prelude.seq`
+            Prelude.rnf domain `Prelude.seq`
+              Prelude.rnf datasetType `Prelude.seq`
+                Prelude.rnf schema
 
 instance Data.ToHeaders CreateDataset where
   toHeaders =
@@ -446,5 +446,5 @@ createDatasetResponse_httpStatus = Lens.lens (\CreateDatasetResponse' {httpStatu
 
 instance Prelude.NFData CreateDatasetResponse where
   rnf CreateDatasetResponse' {..} =
-    Prelude.rnf datasetArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf datasetArn `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -151,9 +151,9 @@ instance
 
 instance Prelude.NFData StartNextPendingJobExecution where
   rnf StartNextPendingJobExecution' {..} =
-    Prelude.rnf statusDetails
-      `Prelude.seq` Prelude.rnf stepTimeoutInMinutes
-      `Prelude.seq` Prelude.rnf thingName
+    Prelude.rnf statusDetails `Prelude.seq`
+      Prelude.rnf stepTimeoutInMinutes `Prelude.seq`
+        Prelude.rnf thingName
 
 instance Data.ToHeaders StartNextPendingJobExecution where
   toHeaders = Prelude.const Prelude.mempty
@@ -220,5 +220,5 @@ instance
     StartNextPendingJobExecutionResponse
   where
   rnf StartNextPendingJobExecutionResponse' {..} =
-    Prelude.rnf execution
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf execution `Prelude.seq`
+      Prelude.rnf httpStatus

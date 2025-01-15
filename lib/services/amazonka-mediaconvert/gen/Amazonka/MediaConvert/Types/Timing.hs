@@ -92,6 +92,6 @@ instance Prelude.Hashable Timing where
 
 instance Prelude.NFData Timing where
   rnf Timing' {..} =
-    Prelude.rnf finishTime
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf submitTime
+    Prelude.rnf finishTime `Prelude.seq`
+      Prelude.rnf startTime `Prelude.seq`
+        Prelude.rnf submitTime

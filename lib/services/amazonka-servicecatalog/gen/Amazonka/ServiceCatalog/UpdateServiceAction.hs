@@ -160,11 +160,11 @@ instance Prelude.Hashable UpdateServiceAction where
 
 instance Prelude.NFData UpdateServiceAction where
   rnf UpdateServiceAction' {..} =
-    Prelude.rnf acceptLanguage
-      `Prelude.seq` Prelude.rnf definition
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf acceptLanguage `Prelude.seq`
+      Prelude.rnf definition `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf id
 
 instance Data.ToHeaders UpdateServiceAction where
   toHeaders =
@@ -241,5 +241,5 @@ updateServiceActionResponse_httpStatus = Lens.lens (\UpdateServiceActionResponse
 
 instance Prelude.NFData UpdateServiceActionResponse where
   rnf UpdateServiceActionResponse' {..} =
-    Prelude.rnf serviceActionDetail
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf serviceActionDetail `Prelude.seq`
+      Prelude.rnf httpStatus

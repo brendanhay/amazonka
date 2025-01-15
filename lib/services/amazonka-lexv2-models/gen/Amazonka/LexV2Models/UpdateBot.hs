@@ -218,12 +218,12 @@ instance Prelude.Hashable UpdateBot where
 
 instance Prelude.NFData UpdateBot where
   rnf UpdateBot' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf botName
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf dataPrivacy
-      `Prelude.seq` Prelude.rnf idleSessionTTLInSeconds
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf botId `Prelude.seq`
+        Prelude.rnf botName `Prelude.seq`
+          Prelude.rnf roleArn `Prelude.seq`
+            Prelude.rnf dataPrivacy `Prelude.seq`
+              Prelude.rnf idleSessionTTLInSeconds
 
 instance Data.ToHeaders UpdateBot where
   toHeaders =
@@ -382,13 +382,13 @@ updateBotResponse_httpStatus = Lens.lens (\UpdateBotResponse' {httpStatus} -> ht
 
 instance Prelude.NFData UpdateBotResponse where
   rnf UpdateBotResponse' {..} =
-    Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf botName
-      `Prelude.seq` Prelude.rnf botStatus
-      `Prelude.seq` Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf dataPrivacy
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf idleSessionTTLInSeconds
-      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf botId `Prelude.seq`
+      Prelude.rnf botName `Prelude.seq`
+        Prelude.rnf botStatus `Prelude.seq`
+          Prelude.rnf creationDateTime `Prelude.seq`
+            Prelude.rnf dataPrivacy `Prelude.seq`
+              Prelude.rnf description `Prelude.seq`
+                Prelude.rnf idleSessionTTLInSeconds `Prelude.seq`
+                  Prelude.rnf lastUpdatedDateTime `Prelude.seq`
+                    Prelude.rnf roleArn `Prelude.seq`
+                      Prelude.rnf httpStatus

@@ -120,8 +120,8 @@ instance
     GridLayoutScreenCanvasSizeOptions
   where
   rnf GridLayoutScreenCanvasSizeOptions' {..} =
-    Prelude.rnf optimizedViewPortWidth
-      `Prelude.seq` Prelude.rnf resizeOption
+    Prelude.rnf optimizedViewPortWidth `Prelude.seq`
+      Prelude.rnf resizeOption
 
 instance
   Data.ToJSON

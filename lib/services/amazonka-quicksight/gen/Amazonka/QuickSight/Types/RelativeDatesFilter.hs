@@ -250,16 +250,16 @@ instance Prelude.Hashable RelativeDatesFilter where
 
 instance Prelude.NFData RelativeDatesFilter where
   rnf RelativeDatesFilter' {..} =
-    Prelude.rnf excludePeriodConfiguration
-      `Prelude.seq` Prelude.rnf minimumGranularity
-      `Prelude.seq` Prelude.rnf parameterName
-      `Prelude.seq` Prelude.rnf relativeDateValue
-      `Prelude.seq` Prelude.rnf filterId
-      `Prelude.seq` Prelude.rnf column
-      `Prelude.seq` Prelude.rnf anchorDateConfiguration
-      `Prelude.seq` Prelude.rnf timeGranularity
-      `Prelude.seq` Prelude.rnf relativeDateType
-      `Prelude.seq` Prelude.rnf nullOption
+    Prelude.rnf excludePeriodConfiguration `Prelude.seq`
+      Prelude.rnf minimumGranularity `Prelude.seq`
+        Prelude.rnf parameterName `Prelude.seq`
+          Prelude.rnf relativeDateValue `Prelude.seq`
+            Prelude.rnf filterId `Prelude.seq`
+              Prelude.rnf column `Prelude.seq`
+                Prelude.rnf anchorDateConfiguration `Prelude.seq`
+                  Prelude.rnf timeGranularity `Prelude.seq`
+                    Prelude.rnf relativeDateType `Prelude.seq`
+                      Prelude.rnf nullOption
 
 instance Data.ToJSON RelativeDatesFilter where
   toJSON RelativeDatesFilter' {..} =

@@ -95,9 +95,9 @@ instance Prelude.Hashable SensitiveDataDetections where
 
 instance Prelude.NFData SensitiveDataDetections where
   rnf SensitiveDataDetections' {..} =
-    Prelude.rnf count
-      `Prelude.seq` Prelude.rnf occurrences
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf count `Prelude.seq`
+      Prelude.rnf occurrences `Prelude.seq`
+        Prelude.rnf type'
 
 instance Data.ToJSON SensitiveDataDetections where
   toJSON SensitiveDataDetections' {..} =

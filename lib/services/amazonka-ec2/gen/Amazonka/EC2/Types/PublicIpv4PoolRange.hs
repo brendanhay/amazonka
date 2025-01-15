@@ -100,7 +100,7 @@ instance Prelude.Hashable PublicIpv4PoolRange where
 
 instance Prelude.NFData PublicIpv4PoolRange where
   rnf PublicIpv4PoolRange' {..} =
-    Prelude.rnf addressCount
-      `Prelude.seq` Prelude.rnf availableAddressCount
-      `Prelude.seq` Prelude.rnf firstAddress
-      `Prelude.seq` Prelude.rnf lastAddress
+    Prelude.rnf addressCount `Prelude.seq`
+      Prelude.rnf availableAddressCount `Prelude.seq`
+        Prelude.rnf firstAddress `Prelude.seq`
+          Prelude.rnf lastAddress

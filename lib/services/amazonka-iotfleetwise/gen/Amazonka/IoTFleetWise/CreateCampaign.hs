@@ -395,21 +395,21 @@ instance Prelude.Hashable CreateCampaign where
 
 instance Prelude.NFData CreateCampaign where
   rnf CreateCampaign' {..} =
-    Prelude.rnf compression
-      `Prelude.seq` Prelude.rnf dataExtraDimensions
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf diagnosticsMode
-      `Prelude.seq` Prelude.rnf expiryTime
-      `Prelude.seq` Prelude.rnf postTriggerCollectionDuration
-      `Prelude.seq` Prelude.rnf priority
-      `Prelude.seq` Prelude.rnf signalsToCollect
-      `Prelude.seq` Prelude.rnf spoolingMode
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf signalCatalogArn
-      `Prelude.seq` Prelude.rnf targetArn
-      `Prelude.seq` Prelude.rnf collectionScheme
+    Prelude.rnf compression `Prelude.seq`
+      Prelude.rnf dataExtraDimensions `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf diagnosticsMode `Prelude.seq`
+            Prelude.rnf expiryTime `Prelude.seq`
+              Prelude.rnf postTriggerCollectionDuration `Prelude.seq`
+                Prelude.rnf priority `Prelude.seq`
+                  Prelude.rnf signalsToCollect `Prelude.seq`
+                    Prelude.rnf spoolingMode `Prelude.seq`
+                      Prelude.rnf startTime `Prelude.seq`
+                        Prelude.rnf tags `Prelude.seq`
+                          Prelude.rnf name `Prelude.seq`
+                            Prelude.rnf signalCatalogArn `Prelude.seq`
+                              Prelude.rnf targetArn `Prelude.seq`
+                                Prelude.rnf collectionScheme
 
 instance Data.ToHeaders CreateCampaign where
   toHeaders =
@@ -509,6 +509,6 @@ createCampaignResponse_httpStatus = Lens.lens (\CreateCampaignResponse' {httpSta
 
 instance Prelude.NFData CreateCampaignResponse where
   rnf CreateCampaignResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf httpStatus

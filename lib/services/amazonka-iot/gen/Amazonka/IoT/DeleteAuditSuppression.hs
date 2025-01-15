@@ -112,8 +112,8 @@ instance Prelude.Hashable DeleteAuditSuppression where
 
 instance Prelude.NFData DeleteAuditSuppression where
   rnf DeleteAuditSuppression' {..} =
-    Prelude.rnf checkName
-      `Prelude.seq` Prelude.rnf resourceIdentifier
+    Prelude.rnf checkName `Prelude.seq`
+      Prelude.rnf resourceIdentifier
 
 instance Data.ToHeaders DeleteAuditSuppression where
   toHeaders = Prelude.const Prelude.mempty

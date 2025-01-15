@@ -162,10 +162,10 @@ instance Prelude.Hashable DescribeFileSystemAliases where
 
 instance Prelude.NFData DescribeFileSystemAliases where
   rnf DescribeFileSystemAliases' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf fileSystemId
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf fileSystemId
 
 instance Data.ToHeaders DescribeFileSystemAliases where
   toHeaders =
@@ -264,6 +264,6 @@ instance
     DescribeFileSystemAliasesResponse
   where
   rnf DescribeFileSystemAliasesResponse' {..} =
-    Prelude.rnf aliases
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf aliases `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

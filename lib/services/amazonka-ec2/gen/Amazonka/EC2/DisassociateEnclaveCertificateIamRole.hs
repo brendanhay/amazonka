@@ -144,9 +144,9 @@ instance
     DisassociateEnclaveCertificateIamRole
   where
   rnf DisassociateEnclaveCertificateIamRole' {..} =
-    Prelude.rnf certificateArn
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf certificateArn `Prelude.seq`
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf roleArn
 
 instance
   Data.ToHeaders
@@ -223,5 +223,5 @@ instance
   where
   rnf
     DisassociateEnclaveCertificateIamRoleResponse' {..} =
-      Prelude.rnf return'
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf return' `Prelude.seq`
+        Prelude.rnf httpStatus

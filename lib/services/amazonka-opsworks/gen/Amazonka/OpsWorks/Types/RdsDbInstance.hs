@@ -169,12 +169,12 @@ instance Prelude.Hashable RdsDbInstance where
 
 instance Prelude.NFData RdsDbInstance where
   rnf RdsDbInstance' {..} =
-    Prelude.rnf address
-      `Prelude.seq` Prelude.rnf dbInstanceIdentifier
-      `Prelude.seq` Prelude.rnf dbPassword
-      `Prelude.seq` Prelude.rnf dbUser
-      `Prelude.seq` Prelude.rnf engine
-      `Prelude.seq` Prelude.rnf missingOnRds
-      `Prelude.seq` Prelude.rnf rdsDbInstanceArn
-      `Prelude.seq` Prelude.rnf region
-      `Prelude.seq` Prelude.rnf stackId
+    Prelude.rnf address `Prelude.seq`
+      Prelude.rnf dbInstanceIdentifier `Prelude.seq`
+        Prelude.rnf dbPassword `Prelude.seq`
+          Prelude.rnf dbUser `Prelude.seq`
+            Prelude.rnf engine `Prelude.seq`
+              Prelude.rnf missingOnRds `Prelude.seq`
+                Prelude.rnf rdsDbInstanceArn `Prelude.seq`
+                  Prelude.rnf region `Prelude.seq`
+                    Prelude.rnf stackId

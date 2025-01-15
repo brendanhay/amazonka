@@ -140,10 +140,10 @@ instance Prelude.Hashable CreateCustomPlugin where
 
 instance Prelude.NFData CreateCustomPlugin where
   rnf CreateCustomPlugin' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf contentType
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf contentType `Prelude.seq`
+        Prelude.rnf location `Prelude.seq`
+          Prelude.rnf name
 
 instance Data.ToHeaders CreateCustomPlugin where
   toHeaders =
@@ -244,8 +244,8 @@ createCustomPluginResponse_httpStatus = Lens.lens (\CreateCustomPluginResponse' 
 
 instance Prelude.NFData CreateCustomPluginResponse where
   rnf CreateCustomPluginResponse' {..} =
-    Prelude.rnf customPluginArn
-      `Prelude.seq` Prelude.rnf customPluginState
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf revision
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf customPluginArn `Prelude.seq`
+      Prelude.rnf customPluginState `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf revision `Prelude.seq`
+            Prelude.rnf httpStatus

@@ -229,12 +229,12 @@ instance Core.AWSPager DescribeHsmClientCertificates where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeHsmClientCertificates_marker
-          Lens..~ rs
-          Lens.^? describeHsmClientCertificatesResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeHsmClientCertificates_marker
+              Lens..~ rs
+              Lens.^? describeHsmClientCertificatesResponse_marker
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -273,11 +273,11 @@ instance
 
 instance Prelude.NFData DescribeHsmClientCertificates where
   rnf DescribeHsmClientCertificates' {..} =
-    Prelude.rnf hsmClientCertificateIdentifier
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf tagKeys
-      `Prelude.seq` Prelude.rnf tagValues
+    Prelude.rnf hsmClientCertificateIdentifier `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf maxRecords `Prelude.seq`
+          Prelude.rnf tagKeys `Prelude.seq`
+            Prelude.rnf tagValues
 
 instance Data.ToHeaders DescribeHsmClientCertificates where
   toHeaders = Prelude.const Prelude.mempty
@@ -382,6 +382,6 @@ instance
     DescribeHsmClientCertificatesResponse
   where
   rnf DescribeHsmClientCertificatesResponse' {..} =
-    Prelude.rnf hsmClientCertificates
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf hsmClientCertificates `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -141,9 +141,9 @@ instance Prelude.Hashable PostCommentReply where
 
 instance Prelude.NFData PostCommentReply where
   rnf PostCommentReply' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf inReplyTo
-      `Prelude.seq` Prelude.rnf content
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf inReplyTo `Prelude.seq`
+        Prelude.rnf content
 
 instance Data.ToHeaders PostCommentReply where
   toHeaders =
@@ -218,5 +218,5 @@ postCommentReplyResponse_httpStatus = Lens.lens (\PostCommentReplyResponse' {htt
 
 instance Prelude.NFData PostCommentReplyResponse where
   rnf PostCommentReplyResponse' {..} =
-    Prelude.rnf comment
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf comment `Prelude.seq`
+      Prelude.rnf httpStatus

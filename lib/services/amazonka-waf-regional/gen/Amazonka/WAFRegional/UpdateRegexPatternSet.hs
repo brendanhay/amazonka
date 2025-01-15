@@ -178,9 +178,9 @@ instance Prelude.Hashable UpdateRegexPatternSet where
 
 instance Prelude.NFData UpdateRegexPatternSet where
   rnf UpdateRegexPatternSet' {..} =
-    Prelude.rnf regexPatternSetId
-      `Prelude.seq` Prelude.rnf updates
-      `Prelude.seq` Prelude.rnf changeToken
+    Prelude.rnf regexPatternSetId `Prelude.seq`
+      Prelude.rnf updates `Prelude.seq`
+        Prelude.rnf changeToken
 
 instance Data.ToHeaders UpdateRegexPatternSet where
   toHeaders =
@@ -261,5 +261,5 @@ updateRegexPatternSetResponse_httpStatus = Lens.lens (\UpdateRegexPatternSetResp
 
 instance Prelude.NFData UpdateRegexPatternSetResponse where
   rnf UpdateRegexPatternSetResponse' {..} =
-    Prelude.rnf changeToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf changeToken `Prelude.seq`
+      Prelude.rnf httpStatus

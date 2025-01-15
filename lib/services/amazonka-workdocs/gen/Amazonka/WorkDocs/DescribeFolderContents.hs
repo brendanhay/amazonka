@@ -187,12 +187,12 @@ instance Core.AWSPager DescribeFolderContents where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeFolderContents_marker
-          Lens..~ rs
-          Lens.^? describeFolderContentsResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeFolderContents_marker
+              Lens..~ rs
+              Lens.^? describeFolderContentsResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeFolderContents where
   type
@@ -224,14 +224,14 @@ instance Prelude.Hashable DescribeFolderContents where
 
 instance Prelude.NFData DescribeFolderContents where
   rnf DescribeFolderContents' {..} =
-    Prelude.rnf authenticationToken
-      `Prelude.seq` Prelude.rnf include
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf order
-      `Prelude.seq` Prelude.rnf sort
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf folderId
+    Prelude.rnf authenticationToken `Prelude.seq`
+      Prelude.rnf include `Prelude.seq`
+        Prelude.rnf limit `Prelude.seq`
+          Prelude.rnf marker `Prelude.seq`
+            Prelude.rnf order `Prelude.seq`
+              Prelude.rnf sort `Prelude.seq`
+                Prelude.rnf type' `Prelude.seq`
+                  Prelude.rnf folderId
 
 instance Data.ToHeaders DescribeFolderContents where
   toHeaders DescribeFolderContents' {..} =
@@ -322,7 +322,7 @@ instance
     DescribeFolderContentsResponse
   where
   rnf DescribeFolderContentsResponse' {..} =
-    Prelude.rnf documents
-      `Prelude.seq` Prelude.rnf folders
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf documents `Prelude.seq`
+      Prelude.rnf folders `Prelude.seq`
+        Prelude.rnf marker `Prelude.seq`
+          Prelude.rnf httpStatus

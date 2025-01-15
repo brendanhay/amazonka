@@ -119,10 +119,10 @@ instance
     InclusionProtectionGroupFilters
   where
   rnf InclusionProtectionGroupFilters' {..} =
-    Prelude.rnf aggregations
-      `Prelude.seq` Prelude.rnf patterns
-      `Prelude.seq` Prelude.rnf protectionGroupIds
-      `Prelude.seq` Prelude.rnf resourceTypes
+    Prelude.rnf aggregations `Prelude.seq`
+      Prelude.rnf patterns `Prelude.seq`
+        Prelude.rnf protectionGroupIds `Prelude.seq`
+          Prelude.rnf resourceTypes
 
 instance Data.ToJSON InclusionProtectionGroupFilters where
   toJSON InclusionProtectionGroupFilters' {..} =

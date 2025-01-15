@@ -128,8 +128,8 @@ instance Prelude.Hashable DescribeLiveSource where
 
 instance Prelude.NFData DescribeLiveSource where
   rnf DescribeLiveSource' {..} =
-    Prelude.rnf liveSourceName
-      `Prelude.seq` Prelude.rnf sourceLocationName
+    Prelude.rnf liveSourceName `Prelude.seq`
+      Prelude.rnf sourceLocationName
 
 instance Data.ToHeaders DescribeLiveSource where
   toHeaders =
@@ -257,11 +257,11 @@ describeLiveSourceResponse_httpStatus = Lens.lens (\DescribeLiveSourceResponse' 
 
 instance Prelude.NFData DescribeLiveSourceResponse where
   rnf DescribeLiveSourceResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf httpPackageConfigurations
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf liveSourceName
-      `Prelude.seq` Prelude.rnf sourceLocationName
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf httpPackageConfigurations `Prelude.seq`
+          Prelude.rnf lastModifiedTime `Prelude.seq`
+            Prelude.rnf liveSourceName `Prelude.seq`
+              Prelude.rnf sourceLocationName `Prelude.seq`
+                Prelude.rnf tags `Prelude.seq`
+                  Prelude.rnf httpStatus

@@ -127,8 +127,8 @@ instance
     DescribeCostCategoryDefinition
   where
   rnf DescribeCostCategoryDefinition' {..} =
-    Prelude.rnf effectiveOn
-      `Prelude.seq` Prelude.rnf costCategoryArn
+    Prelude.rnf effectiveOn `Prelude.seq`
+      Prelude.rnf costCategoryArn
 
 instance
   Data.ToHeaders
@@ -208,5 +208,5 @@ instance
     DescribeCostCategoryDefinitionResponse
   where
   rnf DescribeCostCategoryDefinitionResponse' {..} =
-    Prelude.rnf costCategory
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf costCategory `Prelude.seq`
+      Prelude.rnf httpStatus

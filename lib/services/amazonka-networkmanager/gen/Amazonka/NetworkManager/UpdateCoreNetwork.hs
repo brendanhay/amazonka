@@ -108,8 +108,8 @@ instance Prelude.Hashable UpdateCoreNetwork where
 
 instance Prelude.NFData UpdateCoreNetwork where
   rnf UpdateCoreNetwork' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf coreNetworkId
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf coreNetworkId
 
 instance Data.ToHeaders UpdateCoreNetwork where
   toHeaders =
@@ -178,5 +178,5 @@ updateCoreNetworkResponse_httpStatus = Lens.lens (\UpdateCoreNetworkResponse' {h
 
 instance Prelude.NFData UpdateCoreNetworkResponse where
   rnf UpdateCoreNetworkResponse' {..} =
-    Prelude.rnf coreNetwork
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf coreNetwork `Prelude.seq`
+      Prelude.rnf httpStatus

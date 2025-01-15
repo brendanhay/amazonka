@@ -83,5 +83,5 @@ instance Prelude.Hashable EnvironmentResponse where
 
 instance Prelude.NFData EnvironmentResponse where
   rnf EnvironmentResponse' {..} =
-    Prelude.rnf error
-      `Prelude.seq` Prelude.rnf variables
+    Prelude.rnf error `Prelude.seq`
+      Prelude.rnf variables

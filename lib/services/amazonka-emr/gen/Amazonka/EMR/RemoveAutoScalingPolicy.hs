@@ -117,8 +117,8 @@ instance Prelude.Hashable RemoveAutoScalingPolicy where
 
 instance Prelude.NFData RemoveAutoScalingPolicy where
   rnf RemoveAutoScalingPolicy' {..} =
-    Prelude.rnf clusterId
-      `Prelude.seq` Prelude.rnf instanceGroupId
+    Prelude.rnf clusterId `Prelude.seq`
+      Prelude.rnf instanceGroupId
 
 instance Data.ToHeaders RemoveAutoScalingPolicy where
   toHeaders =

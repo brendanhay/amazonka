@@ -133,8 +133,8 @@ instance
     DetachLoadBalancerTargetGroups
   where
   rnf DetachLoadBalancerTargetGroups' {..} =
-    Prelude.rnf autoScalingGroupName
-      `Prelude.seq` Prelude.rnf targetGroupARNs
+    Prelude.rnf autoScalingGroupName `Prelude.seq`
+      Prelude.rnf targetGroupARNs
 
 instance
   Data.ToHeaders

@@ -99,9 +99,9 @@ instance Prelude.Hashable BackupPlanInput where
 
 instance Prelude.NFData BackupPlanInput where
   rnf BackupPlanInput' {..} =
-    Prelude.rnf advancedBackupSettings
-      `Prelude.seq` Prelude.rnf backupPlanName
-      `Prelude.seq` Prelude.rnf rules
+    Prelude.rnf advancedBackupSettings `Prelude.seq`
+      Prelude.rnf backupPlanName `Prelude.seq`
+        Prelude.rnf rules
 
 instance Data.ToJSON BackupPlanInput where
   toJSON BackupPlanInput' {..} =

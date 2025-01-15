@@ -168,6 +168,6 @@ getDistributionConfigResponse_httpStatus = Lens.lens (\GetDistributionConfigResp
 
 instance Prelude.NFData GetDistributionConfigResponse where
   rnf GetDistributionConfigResponse' {..} =
-    Prelude.rnf distributionConfig
-      `Prelude.seq` Prelude.rnf eTag
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf distributionConfig `Prelude.seq`
+      Prelude.rnf eTag `Prelude.seq`
+        Prelude.rnf httpStatus

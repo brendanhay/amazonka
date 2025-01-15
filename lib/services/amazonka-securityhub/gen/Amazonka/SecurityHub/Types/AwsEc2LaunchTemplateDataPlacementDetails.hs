@@ -166,14 +166,14 @@ instance
     AwsEc2LaunchTemplateDataPlacementDetails
   where
   rnf AwsEc2LaunchTemplateDataPlacementDetails' {..} =
-    Prelude.rnf affinity
-      `Prelude.seq` Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf groupName
-      `Prelude.seq` Prelude.rnf hostId
-      `Prelude.seq` Prelude.rnf hostResourceGroupArn
-      `Prelude.seq` Prelude.rnf partitionNumber
-      `Prelude.seq` Prelude.rnf spreadDomain
-      `Prelude.seq` Prelude.rnf tenancy
+    Prelude.rnf affinity `Prelude.seq`
+      Prelude.rnf availabilityZone `Prelude.seq`
+        Prelude.rnf groupName `Prelude.seq`
+          Prelude.rnf hostId `Prelude.seq`
+            Prelude.rnf hostResourceGroupArn `Prelude.seq`
+              Prelude.rnf partitionNumber `Prelude.seq`
+                Prelude.rnf spreadDomain `Prelude.seq`
+                  Prelude.rnf tenancy
 
 instance
   Data.ToJSON

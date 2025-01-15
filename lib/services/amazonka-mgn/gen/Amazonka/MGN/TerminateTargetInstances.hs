@@ -111,8 +111,8 @@ instance Prelude.Hashable TerminateTargetInstances where
 
 instance Prelude.NFData TerminateTargetInstances where
   rnf TerminateTargetInstances' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf sourceServerIDs
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf sourceServerIDs
 
 instance Data.ToHeaders TerminateTargetInstances where
   toHeaders =
@@ -185,5 +185,5 @@ instance
     TerminateTargetInstancesResponse
   where
   rnf TerminateTargetInstancesResponse' {..} =
-    Prelude.rnf job
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf job `Prelude.seq`
+      Prelude.rnf httpStatus

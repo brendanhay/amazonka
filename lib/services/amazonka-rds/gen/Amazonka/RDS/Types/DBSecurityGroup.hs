@@ -127,9 +127,7 @@ instance Data.FromXML DBSecurityGroup where
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "EC2SecurityGroup")
                   )
-      Prelude.<*> ( x
-                      Data..@? "IPRanges"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "IPRanges" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "IPRange")
                   )
       Prelude.<*> (x Data..@? "OwnerId")
@@ -148,10 +146,10 @@ instance Prelude.Hashable DBSecurityGroup where
 
 instance Prelude.NFData DBSecurityGroup where
   rnf DBSecurityGroup' {..} =
-    Prelude.rnf dbSecurityGroupArn
-      `Prelude.seq` Prelude.rnf dbSecurityGroupDescription
-      `Prelude.seq` Prelude.rnf dbSecurityGroupName
-      `Prelude.seq` Prelude.rnf eC2SecurityGroups
-      `Prelude.seq` Prelude.rnf iPRanges
-      `Prelude.seq` Prelude.rnf ownerId
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf dbSecurityGroupArn `Prelude.seq`
+      Prelude.rnf dbSecurityGroupDescription `Prelude.seq`
+        Prelude.rnf dbSecurityGroupName `Prelude.seq`
+          Prelude.rnf eC2SecurityGroups `Prelude.seq`
+            Prelude.rnf iPRanges `Prelude.seq`
+              Prelude.rnf ownerId `Prelude.seq`
+                Prelude.rnf vpcId

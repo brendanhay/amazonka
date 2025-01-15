@@ -164,10 +164,10 @@ instance Prelude.Hashable TimelineEvent where
 
 instance Prelude.NFData TimelineEvent where
   rnf TimelineEvent' {..} =
-    Prelude.rnf eventReferences
-      `Prelude.seq` Prelude.rnf eventData
-      `Prelude.seq` Prelude.rnf eventId
-      `Prelude.seq` Prelude.rnf eventTime
-      `Prelude.seq` Prelude.rnf eventType
-      `Prelude.seq` Prelude.rnf eventUpdatedTime
-      `Prelude.seq` Prelude.rnf incidentRecordArn
+    Prelude.rnf eventReferences `Prelude.seq`
+      Prelude.rnf eventData `Prelude.seq`
+        Prelude.rnf eventId `Prelude.seq`
+          Prelude.rnf eventTime `Prelude.seq`
+            Prelude.rnf eventType `Prelude.seq`
+              Prelude.rnf eventUpdatedTime `Prelude.seq`
+                Prelude.rnf incidentRecordArn

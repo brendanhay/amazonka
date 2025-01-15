@@ -214,9 +214,9 @@ instance Prelude.Hashable Leg where
 
 instance Prelude.NFData Leg where
   rnf Leg' {..} =
-    Prelude.rnf geometry
-      `Prelude.seq` Prelude.rnf distance
-      `Prelude.seq` Prelude.rnf durationSeconds
-      `Prelude.seq` Prelude.rnf endPosition
-      `Prelude.seq` Prelude.rnf startPosition
-      `Prelude.seq` Prelude.rnf steps
+    Prelude.rnf geometry `Prelude.seq`
+      Prelude.rnf distance `Prelude.seq`
+        Prelude.rnf durationSeconds `Prelude.seq`
+          Prelude.rnf endPosition `Prelude.seq`
+            Prelude.rnf startPosition `Prelude.seq`
+              Prelude.rnf steps

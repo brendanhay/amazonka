@@ -128,12 +128,12 @@ instance Core.AWSPager ListEntityRecognizers where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listEntityRecognizers_nextToken
-          Lens..~ rs
-          Lens.^? listEntityRecognizersResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listEntityRecognizers_nextToken
+              Lens..~ rs
+              Lens.^? listEntityRecognizersResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListEntityRecognizers where
   type
@@ -162,9 +162,9 @@ instance Prelude.Hashable ListEntityRecognizers where
 
 instance Prelude.NFData ListEntityRecognizers where
   rnf ListEntityRecognizers' {..} =
-    Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filter' `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListEntityRecognizers where
   toHeaders =
@@ -247,6 +247,6 @@ listEntityRecognizersResponse_httpStatus = Lens.lens (\ListEntityRecognizersResp
 
 instance Prelude.NFData ListEntityRecognizersResponse where
   rnf ListEntityRecognizersResponse' {..} =
-    Prelude.rnf entityRecognizerPropertiesList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf entityRecognizerPropertiesList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -131,8 +131,8 @@ instance Prelude.Hashable GetVaultAccessPolicy where
 
 instance Prelude.NFData GetVaultAccessPolicy where
   rnf GetVaultAccessPolicy' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf vaultName
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf vaultName
 
 instance Data.ToHeaders GetVaultAccessPolicy where
   toHeaders = Prelude.const Prelude.mempty
@@ -193,5 +193,5 @@ getVaultAccessPolicyResponse_httpStatus = Lens.lens (\GetVaultAccessPolicyRespon
 
 instance Prelude.NFData GetVaultAccessPolicyResponse where
   rnf GetVaultAccessPolicyResponse' {..} =
-    Prelude.rnf policy
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf policy `Prelude.seq`
+      Prelude.rnf httpStatus

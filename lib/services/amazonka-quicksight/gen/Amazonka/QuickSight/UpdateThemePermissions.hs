@@ -181,10 +181,10 @@ instance Prelude.Hashable UpdateThemePermissions where
 
 instance Prelude.NFData UpdateThemePermissions where
   rnf UpdateThemePermissions' {..} =
-    Prelude.rnf grantPermissions
-      `Prelude.seq` Prelude.rnf revokePermissions
-      `Prelude.seq` Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf themeId
+    Prelude.rnf grantPermissions `Prelude.seq`
+      Prelude.rnf revokePermissions `Prelude.seq`
+        Prelude.rnf awsAccountId `Prelude.seq`
+          Prelude.rnf themeId
 
 instance Data.ToHeaders UpdateThemePermissions where
   toHeaders =
@@ -292,8 +292,8 @@ instance
     UpdateThemePermissionsResponse
   where
   rnf UpdateThemePermissionsResponse' {..} =
-    Prelude.rnf permissions
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf themeArn
-      `Prelude.seq` Prelude.rnf themeId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf permissions `Prelude.seq`
+      Prelude.rnf requestId `Prelude.seq`
+        Prelude.rnf themeArn `Prelude.seq`
+          Prelude.rnf themeId `Prelude.seq`
+            Prelude.rnf status

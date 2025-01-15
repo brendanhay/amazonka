@@ -135,8 +135,8 @@ instance Prelude.Hashable BillingRecord where
 
 instance Prelude.NFData BillingRecord where
   rnf BillingRecord' {..} =
-    Prelude.rnf billDate
-      `Prelude.seq` Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf invoiceId
-      `Prelude.seq` Prelude.rnf operation
-      `Prelude.seq` Prelude.rnf price
+    Prelude.rnf billDate `Prelude.seq`
+      Prelude.rnf domainName `Prelude.seq`
+        Prelude.rnf invoiceId `Prelude.seq`
+          Prelude.rnf operation `Prelude.seq`
+            Prelude.rnf price

@@ -255,12 +255,12 @@ instance Core.AWSPager DescribeExportTasks where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeExportTasks_marker
-          Lens..~ rs
-          Lens.^? describeExportTasksResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeExportTasks_marker
+              Lens..~ rs
+              Lens.^? describeExportTasksResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeExportTasks where
   type
@@ -273,9 +273,7 @@ instance Core.AWSRequest DescribeExportTasks where
       "DescribeExportTasksResult"
       ( \s h x ->
           DescribeExportTasksResponse'
-            Prelude.<$> ( x
-                            Data..@? "ExportTasks"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "ExportTasks" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "ExportTask")
                         )
             Prelude.<*> (x Data..@? "Marker")
@@ -294,12 +292,12 @@ instance Prelude.Hashable DescribeExportTasks where
 
 instance Prelude.NFData DescribeExportTasks where
   rnf DescribeExportTasks' {..} =
-    Prelude.rnf exportTaskIdentifier
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf sourceArn
-      `Prelude.seq` Prelude.rnf sourceType
+    Prelude.rnf exportTaskIdentifier `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf marker `Prelude.seq`
+          Prelude.rnf maxRecords `Prelude.seq`
+            Prelude.rnf sourceArn `Prelude.seq`
+              Prelude.rnf sourceType
 
 instance Data.ToHeaders DescribeExportTasks where
   toHeaders = Prelude.const Prelude.mempty
@@ -380,6 +378,6 @@ describeExportTasksResponse_httpStatus = Lens.lens (\DescribeExportTasksResponse
 
 instance Prelude.NFData DescribeExportTasksResponse where
   rnf DescribeExportTasksResponse' {..} =
-    Prelude.rnf exportTasks
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf exportTasks `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf httpStatus

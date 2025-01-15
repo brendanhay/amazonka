@@ -231,8 +231,8 @@ getVocabularyFilterResponse_httpStatus = Lens.lens (\GetVocabularyFilterResponse
 
 instance Prelude.NFData GetVocabularyFilterResponse where
   rnf GetVocabularyFilterResponse' {..} =
-    Prelude.rnf downloadUri
-      `Prelude.seq` Prelude.rnf languageCode
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf vocabularyFilterName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf downloadUri `Prelude.seq`
+      Prelude.rnf languageCode `Prelude.seq`
+        Prelude.rnf lastModifiedTime `Prelude.seq`
+          Prelude.rnf vocabularyFilterName `Prelude.seq`
+            Prelude.rnf httpStatus

@@ -92,5 +92,5 @@ instance
     BatchStopJobRunSuccessfulSubmission
   where
   rnf BatchStopJobRunSuccessfulSubmission' {..} =
-    Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf jobRunId
+    Prelude.rnf jobName `Prelude.seq`
+      Prelude.rnf jobRunId

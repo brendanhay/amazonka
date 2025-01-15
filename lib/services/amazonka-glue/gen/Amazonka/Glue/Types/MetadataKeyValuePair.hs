@@ -71,8 +71,8 @@ instance Prelude.Hashable MetadataKeyValuePair where
 
 instance Prelude.NFData MetadataKeyValuePair where
   rnf MetadataKeyValuePair' {..} =
-    Prelude.rnf metadataKey
-      `Prelude.seq` Prelude.rnf metadataValue
+    Prelude.rnf metadataKey `Prelude.seq`
+      Prelude.rnf metadataValue
 
 instance Data.ToJSON MetadataKeyValuePair where
   toJSON MetadataKeyValuePair' {..} =

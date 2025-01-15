@@ -129,11 +129,11 @@ instance Prelude.Hashable Behavior where
 
 instance Prelude.NFData Behavior where
   rnf Behavior' {..} =
-    Prelude.rnf criteria
-      `Prelude.seq` Prelude.rnf metric
-      `Prelude.seq` Prelude.rnf metricDimension
-      `Prelude.seq` Prelude.rnf suppressAlerts
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf criteria `Prelude.seq`
+      Prelude.rnf metric `Prelude.seq`
+        Prelude.rnf metricDimension `Prelude.seq`
+          Prelude.rnf suppressAlerts `Prelude.seq`
+            Prelude.rnf name
 
 instance Data.ToJSON Behavior where
   toJSON Behavior' {..} =

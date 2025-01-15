@@ -111,9 +111,9 @@ instance
     GeospatialMapAggregatedFieldWells
   where
   rnf GeospatialMapAggregatedFieldWells' {..} =
-    Prelude.rnf colors
-      `Prelude.seq` Prelude.rnf geospatial
-      `Prelude.seq` Prelude.rnf values
+    Prelude.rnf colors `Prelude.seq`
+      Prelude.rnf geospatial `Prelude.seq`
+        Prelude.rnf values
 
 instance
   Data.ToJSON

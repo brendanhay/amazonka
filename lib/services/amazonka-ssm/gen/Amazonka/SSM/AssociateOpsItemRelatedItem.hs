@@ -171,10 +171,10 @@ instance Prelude.Hashable AssociateOpsItemRelatedItem where
 
 instance Prelude.NFData AssociateOpsItemRelatedItem where
   rnf AssociateOpsItemRelatedItem' {..} =
-    Prelude.rnf opsItemId
-      `Prelude.seq` Prelude.rnf associationType
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf resourceUri
+    Prelude.rnf opsItemId `Prelude.seq`
+      Prelude.rnf associationType `Prelude.seq`
+        Prelude.rnf resourceType `Prelude.seq`
+          Prelude.rnf resourceUri
 
 instance Data.ToHeaders AssociateOpsItemRelatedItem where
   toHeaders =
@@ -253,5 +253,5 @@ instance
     AssociateOpsItemRelatedItemResponse
   where
   rnf AssociateOpsItemRelatedItemResponse' {..} =
-    Prelude.rnf associationId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf associationId `Prelude.seq`
+      Prelude.rnf httpStatus

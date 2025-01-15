@@ -181,5 +181,5 @@ instance
     DescribeUserHierarchyStructureResponse
   where
   rnf DescribeUserHierarchyStructureResponse' {..} =
-    Prelude.rnf hierarchyStructure
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf hierarchyStructure `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -102,7 +102,7 @@ instance Prelude.Hashable ScanFilePath where
 
 instance Prelude.NFData ScanFilePath where
   rnf ScanFilePath' {..} =
-    Prelude.rnf fileName
-      `Prelude.seq` Prelude.rnf filePath
-      `Prelude.seq` Prelude.rnf hash
-      `Prelude.seq` Prelude.rnf volumeArn
+    Prelude.rnf fileName `Prelude.seq`
+      Prelude.rnf filePath `Prelude.seq`
+        Prelude.rnf hash `Prelude.seq`
+          Prelude.rnf volumeArn

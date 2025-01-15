@@ -140,10 +140,10 @@ instance Prelude.Hashable UpdateConfig where
 
 instance Prelude.NFData UpdateConfig where
   rnf UpdateConfig' {..} =
-    Prelude.rnf configData
-      `Prelude.seq` Prelude.rnf configId
-      `Prelude.seq` Prelude.rnf configType
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf configData `Prelude.seq`
+      Prelude.rnf configId `Prelude.seq`
+        Prelude.rnf configType `Prelude.seq`
+          Prelude.rnf name
 
 instance Data.ToHeaders UpdateConfig where
   toHeaders =

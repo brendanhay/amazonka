@@ -187,12 +187,12 @@ instance Prelude.Hashable UserSettings where
 
 instance Prelude.NFData UserSettings where
   rnf UserSettings' {..} =
-    Prelude.rnf associatedPortalArns
-      `Prelude.seq` Prelude.rnf copyAllowed
-      `Prelude.seq` Prelude.rnf disconnectTimeoutInMinutes
-      `Prelude.seq` Prelude.rnf downloadAllowed
-      `Prelude.seq` Prelude.rnf idleDisconnectTimeoutInMinutes
-      `Prelude.seq` Prelude.rnf pasteAllowed
-      `Prelude.seq` Prelude.rnf printAllowed
-      `Prelude.seq` Prelude.rnf uploadAllowed
-      `Prelude.seq` Prelude.rnf userSettingsArn
+    Prelude.rnf associatedPortalArns `Prelude.seq`
+      Prelude.rnf copyAllowed `Prelude.seq`
+        Prelude.rnf disconnectTimeoutInMinutes `Prelude.seq`
+          Prelude.rnf downloadAllowed `Prelude.seq`
+            Prelude.rnf idleDisconnectTimeoutInMinutes `Prelude.seq`
+              Prelude.rnf pasteAllowed `Prelude.seq`
+                Prelude.rnf printAllowed `Prelude.seq`
+                  Prelude.rnf uploadAllowed `Prelude.seq`
+                    Prelude.rnf userSettingsArn

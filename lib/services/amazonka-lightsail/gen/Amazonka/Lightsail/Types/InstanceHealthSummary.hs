@@ -247,6 +247,6 @@ instance Prelude.Hashable InstanceHealthSummary where
 
 instance Prelude.NFData InstanceHealthSummary where
   rnf InstanceHealthSummary' {..} =
-    Prelude.rnf instanceHealth
-      `Prelude.seq` Prelude.rnf instanceHealthReason
-      `Prelude.seq` Prelude.rnf instanceName
+    Prelude.rnf instanceHealth `Prelude.seq`
+      Prelude.rnf instanceHealthReason `Prelude.seq`
+        Prelude.rnf instanceName

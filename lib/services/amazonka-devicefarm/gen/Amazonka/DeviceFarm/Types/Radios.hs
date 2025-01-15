@@ -106,10 +106,10 @@ instance Prelude.Hashable Radios where
 
 instance Prelude.NFData Radios where
   rnf Radios' {..} =
-    Prelude.rnf bluetooth
-      `Prelude.seq` Prelude.rnf gps
-      `Prelude.seq` Prelude.rnf nfc
-      `Prelude.seq` Prelude.rnf wifi
+    Prelude.rnf bluetooth `Prelude.seq`
+      Prelude.rnf gps `Prelude.seq`
+        Prelude.rnf nfc `Prelude.seq`
+          Prelude.rnf wifi
 
 instance Data.ToJSON Radios where
   toJSON Radios' {..} =

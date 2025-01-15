@@ -187,14 +187,14 @@ instance Prelude.Hashable ActionTypeDeclaration where
 
 instance Prelude.NFData ActionTypeDeclaration where
   rnf ActionTypeDeclaration' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf permissions
-      `Prelude.seq` Prelude.rnf properties
-      `Prelude.seq` Prelude.rnf urls
-      `Prelude.seq` Prelude.rnf executor
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf inputArtifactDetails
-      `Prelude.seq` Prelude.rnf outputArtifactDetails
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf permissions `Prelude.seq`
+        Prelude.rnf properties `Prelude.seq`
+          Prelude.rnf urls `Prelude.seq`
+            Prelude.rnf executor `Prelude.seq`
+              Prelude.rnf id `Prelude.seq`
+                Prelude.rnf inputArtifactDetails `Prelude.seq`
+                  Prelude.rnf outputArtifactDetails
 
 instance Data.ToJSON ActionTypeDeclaration where
   toJSON ActionTypeDeclaration' {..} =

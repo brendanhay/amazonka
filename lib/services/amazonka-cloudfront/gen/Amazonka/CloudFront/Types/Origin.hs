@@ -355,16 +355,16 @@ instance Prelude.Hashable Origin where
 
 instance Prelude.NFData Origin where
   rnf Origin' {..} =
-    Prelude.rnf connectionAttempts
-      `Prelude.seq` Prelude.rnf connectionTimeout
-      `Prelude.seq` Prelude.rnf customHeaders
-      `Prelude.seq` Prelude.rnf customOriginConfig
-      `Prelude.seq` Prelude.rnf originAccessControlId
-      `Prelude.seq` Prelude.rnf originPath
-      `Prelude.seq` Prelude.rnf originShield
-      `Prelude.seq` Prelude.rnf s3OriginConfig
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf domainName
+    Prelude.rnf connectionAttempts `Prelude.seq`
+      Prelude.rnf connectionTimeout `Prelude.seq`
+        Prelude.rnf customHeaders `Prelude.seq`
+          Prelude.rnf customOriginConfig `Prelude.seq`
+            Prelude.rnf originAccessControlId `Prelude.seq`
+              Prelude.rnf originPath `Prelude.seq`
+                Prelude.rnf originShield `Prelude.seq`
+                  Prelude.rnf s3OriginConfig `Prelude.seq`
+                    Prelude.rnf id `Prelude.seq`
+                      Prelude.rnf domainName
 
 instance Data.ToXML Origin where
   toXML Origin' {..} =

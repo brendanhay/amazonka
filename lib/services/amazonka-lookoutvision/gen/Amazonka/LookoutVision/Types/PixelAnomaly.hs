@@ -88,5 +88,5 @@ instance Prelude.Hashable PixelAnomaly where
 
 instance Prelude.NFData PixelAnomaly where
   rnf PixelAnomaly' {..} =
-    Prelude.rnf color
-      `Prelude.seq` Prelude.rnf totalPercentageArea
+    Prelude.rnf color `Prelude.seq`
+      Prelude.rnf totalPercentageArea

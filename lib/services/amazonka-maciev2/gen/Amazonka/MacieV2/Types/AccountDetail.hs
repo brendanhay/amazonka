@@ -75,8 +75,8 @@ instance Prelude.Hashable AccountDetail where
 
 instance Prelude.NFData AccountDetail where
   rnf AccountDetail' {..} =
-    Prelude.rnf email
-      `Prelude.seq` Prelude.rnf accountId
+    Prelude.rnf email `Prelude.seq`
+      Prelude.rnf accountId
 
 instance Data.ToJSON AccountDetail where
   toJSON AccountDetail' {..} =

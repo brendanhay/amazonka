@@ -115,10 +115,10 @@ instance Prelude.Hashable HeatMapSortConfiguration where
 
 instance Prelude.NFData HeatMapSortConfiguration where
   rnf HeatMapSortConfiguration' {..} =
-    Prelude.rnf heatMapColumnItemsLimitConfiguration
-      `Prelude.seq` Prelude.rnf heatMapColumnSort
-      `Prelude.seq` Prelude.rnf heatMapRowItemsLimitConfiguration
-      `Prelude.seq` Prelude.rnf heatMapRowSort
+    Prelude.rnf heatMapColumnItemsLimitConfiguration `Prelude.seq`
+      Prelude.rnf heatMapColumnSort `Prelude.seq`
+        Prelude.rnf heatMapRowItemsLimitConfiguration `Prelude.seq`
+          Prelude.rnf heatMapRowSort
 
 instance Data.ToJSON HeatMapSortConfiguration where
   toJSON HeatMapSortConfiguration' {..} =

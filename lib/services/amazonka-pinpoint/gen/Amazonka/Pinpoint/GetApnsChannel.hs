@@ -164,5 +164,5 @@ getApnsChannelResponse_aPNSChannelResponse = Lens.lens (\GetApnsChannelResponse'
 
 instance Prelude.NFData GetApnsChannelResponse where
   rnf GetApnsChannelResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf aPNSChannelResponse
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf aPNSChannelResponse

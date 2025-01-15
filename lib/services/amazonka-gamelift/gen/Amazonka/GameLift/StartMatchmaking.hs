@@ -176,9 +176,9 @@ instance Prelude.Hashable StartMatchmaking where
 
 instance Prelude.NFData StartMatchmaking where
   rnf StartMatchmaking' {..} =
-    Prelude.rnf ticketId
-      `Prelude.seq` Prelude.rnf configurationName
-      `Prelude.seq` Prelude.rnf players
+    Prelude.rnf ticketId `Prelude.seq`
+      Prelude.rnf configurationName `Prelude.seq`
+        Prelude.rnf players
 
 instance Data.ToHeaders StartMatchmaking where
   toHeaders =
@@ -257,5 +257,5 @@ startMatchmakingResponse_httpStatus = Lens.lens (\StartMatchmakingResponse' {htt
 
 instance Prelude.NFData StartMatchmakingResponse where
   rnf StartMatchmakingResponse' {..} =
-    Prelude.rnf matchmakingTicket
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf matchmakingTicket `Prelude.seq`
+      Prelude.rnf httpStatus

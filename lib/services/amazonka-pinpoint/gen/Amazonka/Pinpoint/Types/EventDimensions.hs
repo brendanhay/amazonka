@@ -125,9 +125,9 @@ instance Prelude.Hashable EventDimensions where
 
 instance Prelude.NFData EventDimensions where
   rnf EventDimensions' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf eventType
-      `Prelude.seq` Prelude.rnf metrics
+    Prelude.rnf attributes `Prelude.seq`
+      Prelude.rnf eventType `Prelude.seq`
+        Prelude.rnf metrics
 
 instance Data.ToJSON EventDimensions where
   toJSON EventDimensions' {..} =

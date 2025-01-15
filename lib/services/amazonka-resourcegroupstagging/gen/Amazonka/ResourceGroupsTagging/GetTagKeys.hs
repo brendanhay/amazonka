@@ -105,12 +105,12 @@ instance Core.AWSPager GetTagKeys where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getTagKeys_paginationToken
-          Lens..~ rs
-          Lens.^? getTagKeysResponse_paginationToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getTagKeys_paginationToken
+              Lens..~ rs
+              Lens.^? getTagKeysResponse_paginationToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetTagKeys where
   type AWSResponse GetTagKeys = GetTagKeysResponse
@@ -221,6 +221,6 @@ getTagKeysResponse_httpStatus = Lens.lens (\GetTagKeysResponse' {httpStatus} -> 
 
 instance Prelude.NFData GetTagKeysResponse where
   rnf GetTagKeysResponse' {..} =
-    Prelude.rnf paginationToken
-      `Prelude.seq` Prelude.rnf tagKeys
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf paginationToken `Prelude.seq`
+      Prelude.rnf tagKeys `Prelude.seq`
+        Prelude.rnf httpStatus

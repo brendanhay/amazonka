@@ -84,5 +84,5 @@ instance
 
 instance Prelude.NFData BackupPlanTemplatesListMember where
   rnf BackupPlanTemplatesListMember' {..} =
-    Prelude.rnf backupPlanTemplateId
-      `Prelude.seq` Prelude.rnf backupPlanTemplateName
+    Prelude.rnf backupPlanTemplateId `Prelude.seq`
+      Prelude.rnf backupPlanTemplateName

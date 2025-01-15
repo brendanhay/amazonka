@@ -104,6 +104,6 @@ instance Prelude.Hashable InferenceRecommendation where
 
 instance Prelude.NFData InferenceRecommendation where
   rnf InferenceRecommendation' {..} =
-    Prelude.rnf metrics
-      `Prelude.seq` Prelude.rnf endpointConfiguration
-      `Prelude.seq` Prelude.rnf modelConfiguration
+    Prelude.rnf metrics `Prelude.seq`
+      Prelude.rnf endpointConfiguration `Prelude.seq`
+        Prelude.rnf modelConfiguration

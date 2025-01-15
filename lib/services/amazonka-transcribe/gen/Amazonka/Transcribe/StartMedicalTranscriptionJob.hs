@@ -662,20 +662,20 @@ instance
 
 instance Prelude.NFData StartMedicalTranscriptionJob where
   rnf StartMedicalTranscriptionJob' {..} =
-    Prelude.rnf contentIdentificationType
-      `Prelude.seq` Prelude.rnf kmsEncryptionContext
-      `Prelude.seq` Prelude.rnf mediaFormat
-      `Prelude.seq` Prelude.rnf mediaSampleRateHertz
-      `Prelude.seq` Prelude.rnf outputEncryptionKMSKeyId
-      `Prelude.seq` Prelude.rnf outputKey
-      `Prelude.seq` Prelude.rnf settings
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf medicalTranscriptionJobName
-      `Prelude.seq` Prelude.rnf languageCode
-      `Prelude.seq` Prelude.rnf media
-      `Prelude.seq` Prelude.rnf outputBucketName
-      `Prelude.seq` Prelude.rnf specialty
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf contentIdentificationType `Prelude.seq`
+      Prelude.rnf kmsEncryptionContext `Prelude.seq`
+        Prelude.rnf mediaFormat `Prelude.seq`
+          Prelude.rnf mediaSampleRateHertz `Prelude.seq`
+            Prelude.rnf outputEncryptionKMSKeyId `Prelude.seq`
+              Prelude.rnf outputKey `Prelude.seq`
+                Prelude.rnf settings `Prelude.seq`
+                  Prelude.rnf tags `Prelude.seq`
+                    Prelude.rnf medicalTranscriptionJobName `Prelude.seq`
+                      Prelude.rnf languageCode `Prelude.seq`
+                        Prelude.rnf media `Prelude.seq`
+                          Prelude.rnf outputBucketName `Prelude.seq`
+                            Prelude.rnf specialty `Prelude.seq`
+                              Prelude.rnf type'
 
 instance Data.ToHeaders StartMedicalTranscriptionJob where
   toHeaders =
@@ -774,5 +774,5 @@ instance
     StartMedicalTranscriptionJobResponse
   where
   rnf StartMedicalTranscriptionJobResponse' {..} =
-    Prelude.rnf medicalTranscriptionJob
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf medicalTranscriptionJob `Prelude.seq`
+      Prelude.rnf httpStatus

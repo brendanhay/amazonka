@@ -96,8 +96,8 @@ instance Prelude.Hashable OneDriveUsers where
 
 instance Prelude.NFData OneDriveUsers where
   rnf OneDriveUsers' {..} =
-    Prelude.rnf oneDriveUserList
-      `Prelude.seq` Prelude.rnf oneDriveUserS3Path
+    Prelude.rnf oneDriveUserList `Prelude.seq`
+      Prelude.rnf oneDriveUserS3Path
 
 instance Data.ToJSON OneDriveUsers where
   toJSON OneDriveUsers' {..} =

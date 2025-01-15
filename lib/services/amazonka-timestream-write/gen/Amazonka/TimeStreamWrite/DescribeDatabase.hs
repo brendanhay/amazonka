@@ -170,5 +170,5 @@ describeDatabaseResponse_httpStatus = Lens.lens (\DescribeDatabaseResponse' {htt
 
 instance Prelude.NFData DescribeDatabaseResponse where
   rnf DescribeDatabaseResponse' {..} =
-    Prelude.rnf database
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf database `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -215,11 +215,11 @@ instance Prelude.Hashable CreateAccessPoint where
 
 instance Prelude.NFData CreateAccessPoint where
   rnf CreateAccessPoint' {..} =
-    Prelude.rnf posixUser
-      `Prelude.seq` Prelude.rnf rootDirectory
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf fileSystemId
+    Prelude.rnf posixUser `Prelude.seq`
+      Prelude.rnf rootDirectory `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf clientToken `Prelude.seq`
+            Prelude.rnf fileSystemId
 
 instance Data.ToHeaders CreateAccessPoint where
   toHeaders = Prelude.const Prelude.mempty

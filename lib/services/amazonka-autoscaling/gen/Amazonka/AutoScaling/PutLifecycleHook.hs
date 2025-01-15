@@ -324,14 +324,14 @@ instance Prelude.Hashable PutLifecycleHook where
 
 instance Prelude.NFData PutLifecycleHook where
   rnf PutLifecycleHook' {..} =
-    Prelude.rnf defaultResult
-      `Prelude.seq` Prelude.rnf heartbeatTimeout
-      `Prelude.seq` Prelude.rnf lifecycleTransition
-      `Prelude.seq` Prelude.rnf notificationMetadata
-      `Prelude.seq` Prelude.rnf notificationTargetARN
-      `Prelude.seq` Prelude.rnf roleARN
-      `Prelude.seq` Prelude.rnf lifecycleHookName
-      `Prelude.seq` Prelude.rnf autoScalingGroupName
+    Prelude.rnf defaultResult `Prelude.seq`
+      Prelude.rnf heartbeatTimeout `Prelude.seq`
+        Prelude.rnf lifecycleTransition `Prelude.seq`
+          Prelude.rnf notificationMetadata `Prelude.seq`
+            Prelude.rnf notificationTargetARN `Prelude.seq`
+              Prelude.rnf roleARN `Prelude.seq`
+                Prelude.rnf lifecycleHookName `Prelude.seq`
+                  Prelude.rnf autoScalingGroupName
 
 instance Data.ToHeaders PutLifecycleHook where
   toHeaders = Prelude.const Prelude.mempty

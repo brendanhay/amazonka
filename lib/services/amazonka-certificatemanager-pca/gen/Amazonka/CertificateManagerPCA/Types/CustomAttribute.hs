@@ -88,8 +88,8 @@ instance Prelude.Hashable CustomAttribute where
 
 instance Prelude.NFData CustomAttribute where
   rnf CustomAttribute' {..} =
-    Prelude.rnf objectIdentifier
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf objectIdentifier `Prelude.seq`
+      Prelude.rnf value
 
 instance Data.ToJSON CustomAttribute where
   toJSON CustomAttribute' {..} =

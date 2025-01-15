@@ -137,12 +137,12 @@ instance Core.AWSPager ListPlatformVersions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listPlatformVersions_nextToken
-          Lens..~ rs
-          Lens.^? listPlatformVersionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listPlatformVersions_nextToken
+              Lens..~ rs
+              Lens.^? listPlatformVersionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPlatformVersions where
   type
@@ -173,9 +173,9 @@ instance Prelude.Hashable ListPlatformVersions where
 
 instance Prelude.NFData ListPlatformVersions where
   rnf ListPlatformVersions' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxRecords `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListPlatformVersions where
   toHeaders = Prelude.const Prelude.mempty
@@ -250,6 +250,6 @@ listPlatformVersionsResponse_httpStatus = Lens.lens (\ListPlatformVersionsRespon
 
 instance Prelude.NFData ListPlatformVersionsResponse where
   rnf ListPlatformVersionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf platformSummaryList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf platformSummaryList `Prelude.seq`
+        Prelude.rnf httpStatus

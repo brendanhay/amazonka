@@ -129,12 +129,12 @@ instance Core.AWSPager GetInsights where
     | Core.stop (rs Lens.^. getInsightsResponse_insights) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getInsights_nextToken
-          Lens..~ rs
-          Lens.^? getInsightsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getInsights_nextToken
+              Lens..~ rs
+              Lens.^? getInsightsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetInsights where
   type AWSResponse GetInsights = GetInsightsResponse
@@ -158,9 +158,9 @@ instance Prelude.Hashable GetInsights where
 
 instance Prelude.NFData GetInsights where
   rnf GetInsights' {..} =
-    Prelude.rnf insightArns
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf insightArns `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders GetInsights where
   toHeaders =
@@ -238,6 +238,6 @@ getInsightsResponse_insights = Lens.lens (\GetInsightsResponse' {insights} -> in
 
 instance Prelude.NFData GetInsightsResponse where
   rnf GetInsightsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf insights
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf insights

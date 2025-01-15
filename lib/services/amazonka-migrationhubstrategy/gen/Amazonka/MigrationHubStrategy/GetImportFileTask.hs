@@ -277,15 +277,15 @@ getImportFileTaskResponse_httpStatus = Lens.lens (\GetImportFileTaskResponse' {h
 
 instance Prelude.NFData GetImportFileTaskResponse where
   rnf GetImportFileTaskResponse' {..} =
-    Prelude.rnf completionTime
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf importName
-      `Prelude.seq` Prelude.rnf inputS3Bucket
-      `Prelude.seq` Prelude.rnf inputS3Key
-      `Prelude.seq` Prelude.rnf numberOfRecordsFailed
-      `Prelude.seq` Prelude.rnf numberOfRecordsSuccess
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusReportS3Bucket
-      `Prelude.seq` Prelude.rnf statusReportS3Key
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf completionTime `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf importName `Prelude.seq`
+          Prelude.rnf inputS3Bucket `Prelude.seq`
+            Prelude.rnf inputS3Key `Prelude.seq`
+              Prelude.rnf numberOfRecordsFailed `Prelude.seq`
+                Prelude.rnf numberOfRecordsSuccess `Prelude.seq`
+                  Prelude.rnf startTime `Prelude.seq`
+                    Prelude.rnf status `Prelude.seq`
+                      Prelude.rnf statusReportS3Bucket `Prelude.seq`
+                        Prelude.rnf statusReportS3Key `Prelude.seq`
+                          Prelude.rnf httpStatus

@@ -86,8 +86,8 @@ instance Prelude.Hashable MetricSetDimensionFilter where
 
 instance Prelude.NFData MetricSetDimensionFilter where
   rnf MetricSetDimensionFilter' {..} =
-    Prelude.rnf filterList
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf filterList `Prelude.seq`
+      Prelude.rnf name
 
 instance Data.ToJSON MetricSetDimensionFilter where
   toJSON MetricSetDimensionFilter' {..} =

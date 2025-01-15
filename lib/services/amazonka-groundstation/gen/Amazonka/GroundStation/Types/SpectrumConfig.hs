@@ -137,9 +137,9 @@ instance Prelude.Hashable SpectrumConfig where
 
 instance Prelude.NFData SpectrumConfig where
   rnf SpectrumConfig' {..} =
-    Prelude.rnf polarization
-      `Prelude.seq` Prelude.rnf bandwidth
-      `Prelude.seq` Prelude.rnf centerFrequency
+    Prelude.rnf polarization `Prelude.seq`
+      Prelude.rnf bandwidth `Prelude.seq`
+        Prelude.rnf centerFrequency
 
 instance Data.ToJSON SpectrumConfig where
   toJSON SpectrumConfig' {..} =

@@ -158,5 +158,5 @@ getPermissionGroupResponse_httpStatus = Lens.lens (\GetPermissionGroupResponse' 
 
 instance Prelude.NFData GetPermissionGroupResponse where
   rnf GetPermissionGroupResponse' {..} =
-    Prelude.rnf permissionGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf permissionGroup `Prelude.seq`
+      Prelude.rnf httpStatus

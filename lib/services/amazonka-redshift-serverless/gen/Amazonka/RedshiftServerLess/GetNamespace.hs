@@ -165,5 +165,5 @@ getNamespaceResponse_namespace = Lens.lens (\GetNamespaceResponse' {namespace} -
 
 instance Prelude.NFData GetNamespaceResponse where
   rnf GetNamespaceResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf namespace
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf namespace

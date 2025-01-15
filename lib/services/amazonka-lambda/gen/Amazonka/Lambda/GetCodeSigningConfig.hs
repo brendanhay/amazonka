@@ -157,5 +157,5 @@ getCodeSigningConfigResponse_codeSigningConfig = Lens.lens (\GetCodeSigningConfi
 
 instance Prelude.NFData GetCodeSigningConfigResponse where
   rnf GetCodeSigningConfigResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf codeSigningConfig
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf codeSigningConfig

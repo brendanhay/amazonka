@@ -159,8 +159,8 @@ instance Prelude.Hashable CategoryProperties where
 
 instance Prelude.NFData CategoryProperties where
   rnf CategoryProperties' {..} =
-    Prelude.rnf categoryName
-      `Prelude.seq` Prelude.rnf createTime
-      `Prelude.seq` Prelude.rnf inputType
-      `Prelude.seq` Prelude.rnf lastUpdateTime
-      `Prelude.seq` Prelude.rnf rules
+    Prelude.rnf categoryName `Prelude.seq`
+      Prelude.rnf createTime `Prelude.seq`
+        Prelude.rnf inputType `Prelude.seq`
+          Prelude.rnf lastUpdateTime `Prelude.seq`
+            Prelude.rnf rules

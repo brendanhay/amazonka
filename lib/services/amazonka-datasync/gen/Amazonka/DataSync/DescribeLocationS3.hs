@@ -256,10 +256,10 @@ describeLocationS3Response_httpStatus = Lens.lens (\DescribeLocationS3Response' 
 
 instance Prelude.NFData DescribeLocationS3Response where
   rnf DescribeLocationS3Response' {..} =
-    Prelude.rnf agentArns
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf locationArn
-      `Prelude.seq` Prelude.rnf locationUri
-      `Prelude.seq` Prelude.rnf s3Config
-      `Prelude.seq` Prelude.rnf s3StorageClass
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf agentArns `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf locationArn `Prelude.seq`
+          Prelude.rnf locationUri `Prelude.seq`
+            Prelude.rnf s3Config `Prelude.seq`
+              Prelude.rnf s3StorageClass `Prelude.seq`
+                Prelude.rnf httpStatus

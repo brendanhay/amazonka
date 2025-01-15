@@ -154,9 +154,9 @@ instance
     UpdateUserAccessLoggingSettings
   where
   rnf UpdateUserAccessLoggingSettings' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf kinesisStreamArn
-      `Prelude.seq` Prelude.rnf userAccessLoggingSettingsArn
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf kinesisStreamArn `Prelude.seq`
+        Prelude.rnf userAccessLoggingSettingsArn
 
 instance
   Data.ToHeaders
@@ -241,5 +241,5 @@ instance
     UpdateUserAccessLoggingSettingsResponse
   where
   rnf UpdateUserAccessLoggingSettingsResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf userAccessLoggingSettings
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf userAccessLoggingSettings

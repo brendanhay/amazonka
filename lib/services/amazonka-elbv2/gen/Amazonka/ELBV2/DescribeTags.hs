@@ -87,9 +87,7 @@ instance Core.AWSRequest DescribeTags where
       "DescribeTagsResult"
       ( \s h x ->
           DescribeTagsResponse'
-            Prelude.<$> ( x
-                            Data..@? "TagDescriptions"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "TagDescriptions" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -160,5 +158,5 @@ describeTagsResponse_httpStatus = Lens.lens (\DescribeTagsResponse' {httpStatus}
 
 instance Prelude.NFData DescribeTagsResponse where
   rnf DescribeTagsResponse' {..} =
-    Prelude.rnf tagDescriptions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf tagDescriptions `Prelude.seq`
+      Prelude.rnf httpStatus

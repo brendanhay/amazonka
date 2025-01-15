@@ -120,8 +120,8 @@ instance Prelude.Hashable GetMembers where
 
 instance Prelude.NFData GetMembers where
   rnf GetMembers' {..} =
-    Prelude.rnf detectorId
-      `Prelude.seq` Prelude.rnf accountIds
+    Prelude.rnf detectorId `Prelude.seq`
+      Prelude.rnf accountIds
 
 instance Data.ToHeaders GetMembers where
   toHeaders =
@@ -201,6 +201,6 @@ getMembersResponse_unprocessedAccounts = Lens.lens (\GetMembersResponse' {unproc
 
 instance Prelude.NFData GetMembersResponse where
   rnf GetMembersResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf members
-      `Prelude.seq` Prelude.rnf unprocessedAccounts
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf members `Prelude.seq`
+        Prelude.rnf unprocessedAccounts

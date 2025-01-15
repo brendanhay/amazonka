@@ -103,8 +103,8 @@ instance Prelude.Hashable DeleteType where
 
 instance Prelude.NFData DeleteType where
   rnf DeleteType' {..} =
-    Prelude.rnf apiId
-      `Prelude.seq` Prelude.rnf typeName
+    Prelude.rnf apiId `Prelude.seq`
+      Prelude.rnf typeName
 
 instance Data.ToHeaders DeleteType where
   toHeaders =

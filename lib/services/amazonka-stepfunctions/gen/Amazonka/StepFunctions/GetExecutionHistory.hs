@@ -177,12 +177,12 @@ instance Core.AWSPager GetExecutionHistory where
         (rs Lens.^. getExecutionHistoryResponse_events) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getExecutionHistory_nextToken
-          Lens..~ rs
-          Lens.^? getExecutionHistoryResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getExecutionHistory_nextToken
+              Lens..~ rs
+              Lens.^? getExecutionHistoryResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetExecutionHistory where
   type
@@ -210,11 +210,11 @@ instance Prelude.Hashable GetExecutionHistory where
 
 instance Prelude.NFData GetExecutionHistory where
   rnf GetExecutionHistory' {..} =
-    Prelude.rnf includeExecutionData
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf reverseOrder
-      `Prelude.seq` Prelude.rnf executionArn
+    Prelude.rnf includeExecutionData `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf reverseOrder `Prelude.seq`
+            Prelude.rnf executionArn
 
 instance Data.ToHeaders GetExecutionHistory where
   toHeaders =
@@ -315,6 +315,6 @@ getExecutionHistoryResponse_events = Lens.lens (\GetExecutionHistoryResponse' {e
 
 instance Prelude.NFData GetExecutionHistoryResponse where
   rnf GetExecutionHistoryResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf events
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf events

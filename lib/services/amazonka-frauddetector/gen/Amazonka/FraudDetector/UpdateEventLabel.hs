@@ -141,10 +141,10 @@ instance Prelude.Hashable UpdateEventLabel where
 
 instance Prelude.NFData UpdateEventLabel where
   rnf UpdateEventLabel' {..} =
-    Prelude.rnf eventId
-      `Prelude.seq` Prelude.rnf eventTypeName
-      `Prelude.seq` Prelude.rnf assignedLabel
-      `Prelude.seq` Prelude.rnf labelTimestamp
+    Prelude.rnf eventId `Prelude.seq`
+      Prelude.rnf eventTypeName `Prelude.seq`
+        Prelude.rnf assignedLabel `Prelude.seq`
+          Prelude.rnf labelTimestamp
 
 instance Data.ToHeaders UpdateEventLabel where
   toHeaders =

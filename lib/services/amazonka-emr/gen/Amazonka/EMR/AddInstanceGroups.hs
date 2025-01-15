@@ -117,8 +117,8 @@ instance Prelude.Hashable AddInstanceGroups where
 
 instance Prelude.NFData AddInstanceGroups where
   rnf AddInstanceGroups' {..} =
-    Prelude.rnf instanceGroups
-      `Prelude.seq` Prelude.rnf jobFlowId
+    Prelude.rnf instanceGroups `Prelude.seq`
+      Prelude.rnf jobFlowId
 
 instance Data.ToHeaders AddInstanceGroups where
   toHeaders =
@@ -212,7 +212,7 @@ addInstanceGroupsResponse_httpStatus = Lens.lens (\AddInstanceGroupsResponse' {h
 
 instance Prelude.NFData AddInstanceGroupsResponse where
   rnf AddInstanceGroupsResponse' {..} =
-    Prelude.rnf clusterArn
-      `Prelude.seq` Prelude.rnf instanceGroupIds
-      `Prelude.seq` Prelude.rnf jobFlowId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf clusterArn `Prelude.seq`
+      Prelude.rnf instanceGroupIds `Prelude.seq`
+        Prelude.rnf jobFlowId `Prelude.seq`
+          Prelude.rnf httpStatus

@@ -113,8 +113,8 @@ instance Prelude.Hashable DeleteTemplateSyncConfig where
 
 instance Prelude.NFData DeleteTemplateSyncConfig where
   rnf DeleteTemplateSyncConfig' {..} =
-    Prelude.rnf templateName
-      `Prelude.seq` Prelude.rnf templateType
+    Prelude.rnf templateName `Prelude.seq`
+      Prelude.rnf templateType
 
 instance Data.ToHeaders DeleteTemplateSyncConfig where
   toHeaders =
@@ -190,5 +190,5 @@ instance
     DeleteTemplateSyncConfigResponse
   where
   rnf DeleteTemplateSyncConfigResponse' {..} =
-    Prelude.rnf templateSyncConfig
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf templateSyncConfig `Prelude.seq`
+      Prelude.rnf httpStatus

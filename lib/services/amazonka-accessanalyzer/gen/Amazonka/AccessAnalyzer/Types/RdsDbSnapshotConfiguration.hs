@@ -129,8 +129,8 @@ instance Prelude.Hashable RdsDbSnapshotConfiguration where
 
 instance Prelude.NFData RdsDbSnapshotConfiguration where
   rnf RdsDbSnapshotConfiguration' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf kmsKeyId
+    Prelude.rnf attributes `Prelude.seq`
+      Prelude.rnf kmsKeyId
 
 instance Data.ToJSON RdsDbSnapshotConfiguration where
   toJSON RdsDbSnapshotConfiguration' {..} =

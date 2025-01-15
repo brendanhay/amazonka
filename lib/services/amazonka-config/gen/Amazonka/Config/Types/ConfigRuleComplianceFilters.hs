@@ -105,10 +105,10 @@ instance Prelude.Hashable ConfigRuleComplianceFilters where
 
 instance Prelude.NFData ConfigRuleComplianceFilters where
   rnf ConfigRuleComplianceFilters' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf awsRegion
-      `Prelude.seq` Prelude.rnf complianceType
-      `Prelude.seq` Prelude.rnf configRuleName
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf awsRegion `Prelude.seq`
+        Prelude.rnf complianceType `Prelude.seq`
+          Prelude.rnf configRuleName
 
 instance Data.ToJSON ConfigRuleComplianceFilters where
   toJSON ConfigRuleComplianceFilters' {..} =

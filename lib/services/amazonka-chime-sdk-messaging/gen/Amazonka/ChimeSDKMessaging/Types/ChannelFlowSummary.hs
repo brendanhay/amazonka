@@ -93,6 +93,6 @@ instance Prelude.Hashable ChannelFlowSummary where
 
 instance Prelude.NFData ChannelFlowSummary where
   rnf ChannelFlowSummary' {..} =
-    Prelude.rnf channelFlowArn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf processors
+    Prelude.rnf channelFlowArn `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf processors

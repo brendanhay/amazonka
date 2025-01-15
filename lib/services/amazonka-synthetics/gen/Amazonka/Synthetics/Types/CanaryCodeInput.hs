@@ -163,11 +163,11 @@ instance Prelude.Hashable CanaryCodeInput where
 
 instance Prelude.NFData CanaryCodeInput where
   rnf CanaryCodeInput' {..} =
-    Prelude.rnf s3Bucket
-      `Prelude.seq` Prelude.rnf s3Key
-      `Prelude.seq` Prelude.rnf s3Version
-      `Prelude.seq` Prelude.rnf zipFile
-      `Prelude.seq` Prelude.rnf handler
+    Prelude.rnf s3Bucket `Prelude.seq`
+      Prelude.rnf s3Key `Prelude.seq`
+        Prelude.rnf s3Version `Prelude.seq`
+          Prelude.rnf zipFile `Prelude.seq`
+            Prelude.rnf handler
 
 instance Data.ToJSON CanaryCodeInput where
   toJSON CanaryCodeInput' {..} =

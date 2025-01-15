@@ -209,11 +209,11 @@ instance Prelude.Hashable DeleteJobExecution where
 
 instance Prelude.NFData DeleteJobExecution where
   rnf DeleteJobExecution' {..} =
-    Prelude.rnf force
-      `Prelude.seq` Prelude.rnf namespaceId
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf thingName
-      `Prelude.seq` Prelude.rnf executionNumber
+    Prelude.rnf force `Prelude.seq`
+      Prelude.rnf namespaceId `Prelude.seq`
+        Prelude.rnf jobId `Prelude.seq`
+          Prelude.rnf thingName `Prelude.seq`
+            Prelude.rnf executionNumber
 
 instance Data.ToHeaders DeleteJobExecution where
   toHeaders = Prelude.const Prelude.mempty

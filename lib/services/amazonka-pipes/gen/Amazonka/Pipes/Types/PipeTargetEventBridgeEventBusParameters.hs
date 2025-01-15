@@ -158,11 +158,11 @@ instance
     PipeTargetEventBridgeEventBusParameters
   where
   rnf PipeTargetEventBridgeEventBusParameters' {..} =
-    Prelude.rnf detailType
-      `Prelude.seq` Prelude.rnf endpointId
-      `Prelude.seq` Prelude.rnf resources
-      `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf time
+    Prelude.rnf detailType `Prelude.seq`
+      Prelude.rnf endpointId `Prelude.seq`
+        Prelude.rnf resources `Prelude.seq`
+          Prelude.rnf source `Prelude.seq`
+            Prelude.rnf time
 
 instance
   Data.ToJSON

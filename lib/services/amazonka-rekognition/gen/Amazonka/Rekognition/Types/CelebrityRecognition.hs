@@ -89,5 +89,5 @@ instance Prelude.Hashable CelebrityRecognition where
 
 instance Prelude.NFData CelebrityRecognition where
   rnf CelebrityRecognition' {..} =
-    Prelude.rnf celebrity
-      `Prelude.seq` Prelude.rnf timestamp
+    Prelude.rnf celebrity `Prelude.seq`
+      Prelude.rnf timestamp

@@ -195,12 +195,12 @@ instance Core.AWSPager ListMonitorEvaluations where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listMonitorEvaluations_nextToken
-          Lens..~ rs
-          Lens.^? listMonitorEvaluationsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listMonitorEvaluations_nextToken
+              Lens..~ rs
+              Lens.^? listMonitorEvaluationsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListMonitorEvaluations where
   type
@@ -230,10 +230,10 @@ instance Prelude.Hashable ListMonitorEvaluations where
 
 instance Prelude.NFData ListMonitorEvaluations where
   rnf ListMonitorEvaluations' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf monitorArn
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf monitorArn
 
 instance Data.ToHeaders ListMonitorEvaluations where
   toHeaders =
@@ -345,6 +345,6 @@ instance
     ListMonitorEvaluationsResponse
   where
   rnf ListMonitorEvaluationsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf predictorMonitorEvaluations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf predictorMonitorEvaluations `Prelude.seq`
+        Prelude.rnf httpStatus

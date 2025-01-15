@@ -95,8 +95,8 @@ instance
     SetParameterValueConfiguration
   where
   rnf SetParameterValueConfiguration' {..} =
-    Prelude.rnf destinationParameterName
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf destinationParameterName `Prelude.seq`
+      Prelude.rnf value
 
 instance Data.ToJSON SetParameterValueConfiguration where
   toJSON SetParameterValueConfiguration' {..} =

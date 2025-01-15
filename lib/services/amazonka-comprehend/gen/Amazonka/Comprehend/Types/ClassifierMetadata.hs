@@ -116,7 +116,7 @@ instance Prelude.Hashable ClassifierMetadata where
 
 instance Prelude.NFData ClassifierMetadata where
   rnf ClassifierMetadata' {..} =
-    Prelude.rnf evaluationMetrics
-      `Prelude.seq` Prelude.rnf numberOfLabels
-      `Prelude.seq` Prelude.rnf numberOfTestDocuments
-      `Prelude.seq` Prelude.rnf numberOfTrainedDocuments
+    Prelude.rnf evaluationMetrics `Prelude.seq`
+      Prelude.rnf numberOfLabels `Prelude.seq`
+        Prelude.rnf numberOfTestDocuments `Prelude.seq`
+          Prelude.rnf numberOfTrainedDocuments

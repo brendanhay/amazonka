@@ -188,11 +188,11 @@ instance Prelude.Hashable EksContainerSecurityContext where
 
 instance Prelude.NFData EksContainerSecurityContext where
   rnf EksContainerSecurityContext' {..} =
-    Prelude.rnf privileged
-      `Prelude.seq` Prelude.rnf readOnlyRootFilesystem
-      `Prelude.seq` Prelude.rnf runAsGroup
-      `Prelude.seq` Prelude.rnf runAsNonRoot
-      `Prelude.seq` Prelude.rnf runAsUser
+    Prelude.rnf privileged `Prelude.seq`
+      Prelude.rnf readOnlyRootFilesystem `Prelude.seq`
+        Prelude.rnf runAsGroup `Prelude.seq`
+          Prelude.rnf runAsNonRoot `Prelude.seq`
+            Prelude.rnf runAsUser
 
 instance Data.ToJSON EksContainerSecurityContext where
   toJSON EksContainerSecurityContext' {..} =

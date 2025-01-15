@@ -267,16 +267,16 @@ instance Prelude.Hashable CreateDBProxy where
 
 instance Prelude.NFData CreateDBProxy where
   rnf CreateDBProxy' {..} =
-    Prelude.rnf debugLogging
-      `Prelude.seq` Prelude.rnf idleClientTimeout
-      `Prelude.seq` Prelude.rnf requireTLS
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf vpcSecurityGroupIds
-      `Prelude.seq` Prelude.rnf dbProxyName
-      `Prelude.seq` Prelude.rnf engineFamily
-      `Prelude.seq` Prelude.rnf auth
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf vpcSubnetIds
+    Prelude.rnf debugLogging `Prelude.seq`
+      Prelude.rnf idleClientTimeout `Prelude.seq`
+        Prelude.rnf requireTLS `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf vpcSecurityGroupIds `Prelude.seq`
+              Prelude.rnf dbProxyName `Prelude.seq`
+                Prelude.rnf engineFamily `Prelude.seq`
+                  Prelude.rnf auth `Prelude.seq`
+                    Prelude.rnf roleArn `Prelude.seq`
+                      Prelude.rnf vpcSubnetIds
 
 instance Data.ToHeaders CreateDBProxy where
   toHeaders = Prelude.const Prelude.mempty
@@ -350,5 +350,5 @@ createDBProxyResponse_httpStatus = Lens.lens (\CreateDBProxyResponse' {httpStatu
 
 instance Prelude.NFData CreateDBProxyResponse where
   rnf CreateDBProxyResponse' {..} =
-    Prelude.rnf dbProxy
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dbProxy `Prelude.seq`
+      Prelude.rnf httpStatus

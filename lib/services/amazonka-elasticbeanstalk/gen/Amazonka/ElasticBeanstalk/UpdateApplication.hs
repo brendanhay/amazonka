@@ -121,8 +121,8 @@ instance Prelude.Hashable UpdateApplication where
 
 instance Prelude.NFData UpdateApplication where
   rnf UpdateApplication' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf applicationName
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf applicationName
 
 instance Data.ToHeaders UpdateApplication where
   toHeaders = Prelude.const Prelude.mempty

@@ -199,7 +199,7 @@ getCelebrityInfoResponse_httpStatus = Lens.lens (\GetCelebrityInfoResponse' {htt
 
 instance Prelude.NFData GetCelebrityInfoResponse where
   rnf GetCelebrityInfoResponse' {..} =
-    Prelude.rnf knownGender
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf urls
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf knownGender `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf urls `Prelude.seq`
+          Prelude.rnf httpStatus

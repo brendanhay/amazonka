@@ -85,8 +85,8 @@ instance Prelude.Hashable EthernetPayload where
 
 instance Prelude.NFData EthernetPayload where
   rnf EthernetPayload' {..} =
-    Prelude.rnf staticIpConnectionInfo
-      `Prelude.seq` Prelude.rnf connectionType
+    Prelude.rnf staticIpConnectionInfo `Prelude.seq`
+      Prelude.rnf connectionType
 
 instance Data.ToJSON EthernetPayload where
   toJSON EthernetPayload' {..} =

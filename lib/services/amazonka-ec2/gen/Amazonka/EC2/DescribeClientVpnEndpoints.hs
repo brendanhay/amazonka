@@ -160,12 +160,12 @@ instance Core.AWSPager DescribeClientVpnEndpoints where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeClientVpnEndpoints_nextToken
-          Lens..~ rs
-          Lens.^? describeClientVpnEndpointsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeClientVpnEndpoints_nextToken
+              Lens..~ rs
+              Lens.^? describeClientVpnEndpointsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeClientVpnEndpoints where
   type
@@ -197,11 +197,11 @@ instance Prelude.Hashable DescribeClientVpnEndpoints where
 
 instance Prelude.NFData DescribeClientVpnEndpoints where
   rnf DescribeClientVpnEndpoints' {..} =
-    Prelude.rnf clientVpnEndpointIds
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf clientVpnEndpointIds `Prelude.seq`
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf filters `Prelude.seq`
+          Prelude.rnf maxResults `Prelude.seq`
+            Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeClientVpnEndpoints where
   toHeaders = Prelude.const Prelude.mempty
@@ -283,6 +283,6 @@ instance
     DescribeClientVpnEndpointsResponse
   where
   rnf DescribeClientVpnEndpointsResponse' {..} =
-    Prelude.rnf clientVpnEndpoints
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf clientVpnEndpoints `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

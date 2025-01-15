@@ -131,9 +131,7 @@ instance Core.AWSRequest DetachInstances where
       "DetachInstancesResult"
       ( \s h x ->
           DetachInstancesResponse'
-            Prelude.<$> ( x
-                            Data..@? "Activities"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "Activities" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -148,9 +146,9 @@ instance Prelude.Hashable DetachInstances where
 
 instance Prelude.NFData DetachInstances where
   rnf DetachInstances' {..} =
-    Prelude.rnf instanceIds
-      `Prelude.seq` Prelude.rnf autoScalingGroupName
-      `Prelude.seq` Prelude.rnf shouldDecrementDesiredCapacity
+    Prelude.rnf instanceIds `Prelude.seq`
+      Prelude.rnf autoScalingGroupName `Prelude.seq`
+        Prelude.rnf shouldDecrementDesiredCapacity
 
 instance Data.ToHeaders DetachInstances where
   toHeaders = Prelude.const Prelude.mempty
@@ -217,5 +215,5 @@ detachInstancesResponse_httpStatus = Lens.lens (\DetachInstancesResponse' {httpS
 
 instance Prelude.NFData DetachInstancesResponse where
   rnf DetachInstancesResponse' {..} =
-    Prelude.rnf activities
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf activities `Prelude.seq`
+      Prelude.rnf httpStatus

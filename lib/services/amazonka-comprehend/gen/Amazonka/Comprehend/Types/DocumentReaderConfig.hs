@@ -186,9 +186,9 @@ instance Prelude.Hashable DocumentReaderConfig where
 
 instance Prelude.NFData DocumentReaderConfig where
   rnf DocumentReaderConfig' {..} =
-    Prelude.rnf documentReadMode
-      `Prelude.seq` Prelude.rnf featureTypes
-      `Prelude.seq` Prelude.rnf documentReadAction
+    Prelude.rnf documentReadMode `Prelude.seq`
+      Prelude.rnf featureTypes `Prelude.seq`
+        Prelude.rnf documentReadAction
 
 instance Data.ToJSON DocumentReaderConfig where
   toJSON DocumentReaderConfig' {..} =

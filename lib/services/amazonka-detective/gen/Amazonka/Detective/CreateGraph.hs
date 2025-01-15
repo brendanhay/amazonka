@@ -183,5 +183,5 @@ createGraphResponse_httpStatus = Lens.lens (\CreateGraphResponse' {httpStatus} -
 
 instance Prelude.NFData CreateGraphResponse where
   rnf CreateGraphResponse' {..} =
-    Prelude.rnf graphArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf graphArn `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -93,6 +93,6 @@ instance Prelude.Hashable ResolvedAttributes where
 
 instance Prelude.NFData ResolvedAttributes where
   rnf ResolvedAttributes' {..} =
-    Prelude.rnf autoMLJobObjective
-      `Prelude.seq` Prelude.rnf completionCriteria
-      `Prelude.seq` Prelude.rnf problemType
+    Prelude.rnf autoMLJobObjective `Prelude.seq`
+      Prelude.rnf completionCriteria `Prelude.seq`
+        Prelude.rnf problemType

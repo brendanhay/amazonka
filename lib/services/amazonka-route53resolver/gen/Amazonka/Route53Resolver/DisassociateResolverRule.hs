@@ -118,8 +118,8 @@ instance Prelude.Hashable DisassociateResolverRule where
 
 instance Prelude.NFData DisassociateResolverRule where
   rnf DisassociateResolverRule' {..} =
-    Prelude.rnf vPCId
-      `Prelude.seq` Prelude.rnf resolverRuleId
+    Prelude.rnf vPCId `Prelude.seq`
+      Prelude.rnf resolverRuleId
 
 instance Data.ToHeaders DisassociateResolverRule where
   toHeaders =
@@ -199,5 +199,5 @@ instance
     DisassociateResolverRuleResponse
   where
   rnf DisassociateResolverRuleResponse' {..} =
-    Prelude.rnf resolverRuleAssociation
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf resolverRuleAssociation `Prelude.seq`
+      Prelude.rnf httpStatus

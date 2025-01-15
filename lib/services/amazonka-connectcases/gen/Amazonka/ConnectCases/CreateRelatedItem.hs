@@ -149,10 +149,10 @@ instance Prelude.Hashable CreateRelatedItem where
 
 instance Prelude.NFData CreateRelatedItem where
   rnf CreateRelatedItem' {..} =
-    Prelude.rnf caseId
-      `Prelude.seq` Prelude.rnf content
-      `Prelude.seq` Prelude.rnf domainId
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf caseId `Prelude.seq`
+      Prelude.rnf content `Prelude.seq`
+        Prelude.rnf domainId `Prelude.seq`
+          Prelude.rnf type'
 
 instance Data.ToHeaders CreateRelatedItem where
   toHeaders =
@@ -244,6 +244,6 @@ createRelatedItemResponse_relatedItemId = Lens.lens (\CreateRelatedItemResponse'
 
 instance Prelude.NFData CreateRelatedItemResponse where
   rnf CreateRelatedItemResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf relatedItemArn
-      `Prelude.seq` Prelude.rnf relatedItemId
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf relatedItemArn `Prelude.seq`
+        Prelude.rnf relatedItemId

@@ -164,9 +164,9 @@ instance Prelude.Hashable ServerCertificateMetadata where
 
 instance Prelude.NFData ServerCertificateMetadata where
   rnf ServerCertificateMetadata' {..} =
-    Prelude.rnf expiration
-      `Prelude.seq` Prelude.rnf uploadDate
-      `Prelude.seq` Prelude.rnf path
-      `Prelude.seq` Prelude.rnf serverCertificateName
-      `Prelude.seq` Prelude.rnf serverCertificateId
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf expiration `Prelude.seq`
+      Prelude.rnf uploadDate `Prelude.seq`
+        Prelude.rnf path `Prelude.seq`
+          Prelude.rnf serverCertificateName `Prelude.seq`
+            Prelude.rnf serverCertificateId `Prelude.seq`
+              Prelude.rnf arn

@@ -105,8 +105,8 @@ instance Prelude.Hashable DeleteDomain where
 
 instance Prelude.NFData DeleteDomain where
   rnf DeleteDomain' {..} =
-    Prelude.rnf retentionPolicy
-      `Prelude.seq` Prelude.rnf domainId
+    Prelude.rnf retentionPolicy `Prelude.seq`
+      Prelude.rnf domainId
 
 instance Data.ToHeaders DeleteDomain where
   toHeaders =

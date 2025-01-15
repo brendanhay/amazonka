@@ -249,10 +249,10 @@ instance Prelude.Hashable GenerateMac where
 
 instance Prelude.NFData GenerateMac where
   rnf GenerateMac' {..} =
-    Prelude.rnf grantTokens
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf keyId
-      `Prelude.seq` Prelude.rnf macAlgorithm
+    Prelude.rnf grantTokens `Prelude.seq`
+      Prelude.rnf message `Prelude.seq`
+        Prelude.rnf keyId `Prelude.seq`
+          Prelude.rnf macAlgorithm
 
 instance Data.ToHeaders GenerateMac where
   toHeaders =
@@ -362,7 +362,7 @@ generateMacResponse_httpStatus = Lens.lens (\GenerateMacResponse' {httpStatus} -
 
 instance Prelude.NFData GenerateMacResponse where
   rnf GenerateMacResponse' {..} =
-    Prelude.rnf keyId
-      `Prelude.seq` Prelude.rnf mac
-      `Prelude.seq` Prelude.rnf macAlgorithm
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf keyId `Prelude.seq`
+      Prelude.rnf mac `Prelude.seq`
+        Prelude.rnf macAlgorithm `Prelude.seq`
+          Prelude.rnf httpStatus

@@ -140,10 +140,10 @@ instance Prelude.Hashable NodeInstance where
 
 instance Prelude.NFData NodeInstance where
   rnf NodeInstance' {..} =
-    Prelude.rnf nodeId
-      `Prelude.seq` Prelude.rnf nodeName
-      `Prelude.seq` Prelude.rnf packageName
-      `Prelude.seq` Prelude.rnf packagePatchVersion
-      `Prelude.seq` Prelude.rnf packageVersion
-      `Prelude.seq` Prelude.rnf currentStatus
-      `Prelude.seq` Prelude.rnf nodeInstanceId
+    Prelude.rnf nodeId `Prelude.seq`
+      Prelude.rnf nodeName `Prelude.seq`
+        Prelude.rnf packageName `Prelude.seq`
+          Prelude.rnf packagePatchVersion `Prelude.seq`
+            Prelude.rnf packageVersion `Prelude.seq`
+              Prelude.rnf currentStatus `Prelude.seq`
+                Prelude.rnf nodeInstanceId

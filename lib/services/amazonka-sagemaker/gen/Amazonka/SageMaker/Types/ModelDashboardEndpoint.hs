@@ -132,8 +132,8 @@ instance Prelude.Hashable ModelDashboardEndpoint where
 
 instance Prelude.NFData ModelDashboardEndpoint where
   rnf ModelDashboardEndpoint' {..} =
-    Prelude.rnf endpointName
-      `Prelude.seq` Prelude.rnf endpointArn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf endpointStatus
+    Prelude.rnf endpointName `Prelude.seq`
+      Prelude.rnf endpointArn `Prelude.seq`
+        Prelude.rnf creationTime `Prelude.seq`
+          Prelude.rnf lastModifiedTime `Prelude.seq`
+            Prelude.rnf endpointStatus

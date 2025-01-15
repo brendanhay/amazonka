@@ -227,8 +227,8 @@ getResourceProfileResponse_httpStatus = Lens.lens (\GetResourceProfileResponse' 
 
 instance Prelude.NFData GetResourceProfileResponse where
   rnf GetResourceProfileResponse' {..} =
-    Prelude.rnf profileUpdatedAt
-      `Prelude.seq` Prelude.rnf sensitivityScore
-      `Prelude.seq` Prelude.rnf sensitivityScoreOverridden
-      `Prelude.seq` Prelude.rnf statistics
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf profileUpdatedAt `Prelude.seq`
+      Prelude.rnf sensitivityScore `Prelude.seq`
+        Prelude.rnf sensitivityScoreOverridden `Prelude.seq`
+          Prelude.rnf statistics `Prelude.seq`
+            Prelude.rnf httpStatus

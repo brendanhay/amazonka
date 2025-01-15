@@ -114,7 +114,7 @@ instance Prelude.Hashable InterMetricImpactDetails where
 
 instance Prelude.NFData InterMetricImpactDetails where
   rnf InterMetricImpactDetails' {..} =
-    Prelude.rnf anomalyGroupId
-      `Prelude.seq` Prelude.rnf contributionPercentage
-      `Prelude.seq` Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf relationshipType
+    Prelude.rnf anomalyGroupId `Prelude.seq`
+      Prelude.rnf contributionPercentage `Prelude.seq`
+        Prelude.rnf metricName `Prelude.seq`
+          Prelude.rnf relationshipType

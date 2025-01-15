@@ -147,12 +147,12 @@ instance Core.AWSPager ListLFTags where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listLFTags_nextToken
-          Lens..~ rs
-          Lens.^? listLFTagsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listLFTags_nextToken
+              Lens..~ rs
+              Lens.^? listLFTagsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListLFTags where
   type AWSResponse ListLFTags = ListLFTagsResponse
@@ -177,10 +177,10 @@ instance Prelude.Hashable ListLFTags where
 
 instance Prelude.NFData ListLFTags where
   rnf ListLFTags' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf resourceShareType
+    Prelude.rnf catalogId `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf resourceShareType
 
 instance Data.ToHeaders ListLFTags where
   toHeaders =
@@ -263,6 +263,6 @@ listLFTagsResponse_httpStatus = Lens.lens (\ListLFTagsResponse' {httpStatus} -> 
 
 instance Prelude.NFData ListLFTagsResponse where
   rnf ListLFTagsResponse' {..} =
-    Prelude.rnf lFTags
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf lFTags `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

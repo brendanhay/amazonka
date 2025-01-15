@@ -111,10 +111,10 @@ instance Prelude.Hashable AwsBackupBackupPlanDetails where
 
 instance Prelude.NFData AwsBackupBackupPlanDetails where
   rnf AwsBackupBackupPlanDetails' {..} =
-    Prelude.rnf backupPlan
-      `Prelude.seq` Prelude.rnf backupPlanArn
-      `Prelude.seq` Prelude.rnf backupPlanId
-      `Prelude.seq` Prelude.rnf versionId
+    Prelude.rnf backupPlan `Prelude.seq`
+      Prelude.rnf backupPlanArn `Prelude.seq`
+        Prelude.rnf backupPlanId `Prelude.seq`
+          Prelude.rnf versionId
 
 instance Data.ToJSON AwsBackupBackupPlanDetails where
   toJSON AwsBackupBackupPlanDetails' {..} =

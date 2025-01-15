@@ -112,6 +112,6 @@ instance Prelude.Hashable ErrorsListItem where
 
 instance Prelude.NFData ErrorsListItem where
   rnf ErrorsListItem' {..} =
-    Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf page
+    Prelude.rnf errorCode `Prelude.seq`
+      Prelude.rnf errorMessage `Prelude.seq`
+        Prelude.rnf page

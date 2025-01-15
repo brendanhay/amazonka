@@ -183,12 +183,12 @@ instance Prelude.Hashable Account where
 
 instance Prelude.NFData Account where
   rnf Account' {..} =
-    Prelude.rnf accountStatus
-      `Prelude.seq` Prelude.rnf accountType
-      `Prelude.seq` Prelude.rnf createdTimestamp
-      `Prelude.seq` Prelude.rnf defaultLicense
-      `Prelude.seq` Prelude.rnf signinDelegateGroups
-      `Prelude.seq` Prelude.rnf supportedLicenses
-      `Prelude.seq` Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf accountStatus `Prelude.seq`
+      Prelude.rnf accountType `Prelude.seq`
+        Prelude.rnf createdTimestamp `Prelude.seq`
+          Prelude.rnf defaultLicense `Prelude.seq`
+            Prelude.rnf signinDelegateGroups `Prelude.seq`
+              Prelude.rnf supportedLicenses `Prelude.seq`
+                Prelude.rnf awsAccountId `Prelude.seq`
+                  Prelude.rnf accountId `Prelude.seq`
+                    Prelude.rnf name

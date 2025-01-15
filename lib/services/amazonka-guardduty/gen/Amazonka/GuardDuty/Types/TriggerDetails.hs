@@ -80,5 +80,5 @@ instance Prelude.Hashable TriggerDetails where
 
 instance Prelude.NFData TriggerDetails where
   rnf TriggerDetails' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf guardDutyFindingId
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf guardDutyFindingId

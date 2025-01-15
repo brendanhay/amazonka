@@ -392,22 +392,22 @@ getCampaignResponse_httpStatus = Lens.lens (\GetCampaignResponse' {httpStatus} -
 
 instance Prelude.NFData GetCampaignResponse where
   rnf GetCampaignResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf collectionScheme
-      `Prelude.seq` Prelude.rnf compression
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf dataExtraDimensions
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf diagnosticsMode
-      `Prelude.seq` Prelude.rnf expiryTime
-      `Prelude.seq` Prelude.rnf lastModificationTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf postTriggerCollectionDuration
-      `Prelude.seq` Prelude.rnf priority
-      `Prelude.seq` Prelude.rnf signalCatalogArn
-      `Prelude.seq` Prelude.rnf signalsToCollect
-      `Prelude.seq` Prelude.rnf spoolingMode
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf targetArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf collectionScheme `Prelude.seq`
+        Prelude.rnf compression `Prelude.seq`
+          Prelude.rnf creationTime `Prelude.seq`
+            Prelude.rnf dataExtraDimensions `Prelude.seq`
+              Prelude.rnf description `Prelude.seq`
+                Prelude.rnf diagnosticsMode `Prelude.seq`
+                  Prelude.rnf expiryTime `Prelude.seq`
+                    Prelude.rnf lastModificationTime `Prelude.seq`
+                      Prelude.rnf name `Prelude.seq`
+                        Prelude.rnf postTriggerCollectionDuration `Prelude.seq`
+                          Prelude.rnf priority `Prelude.seq`
+                            Prelude.rnf signalCatalogArn `Prelude.seq`
+                              Prelude.rnf signalsToCollect `Prelude.seq`
+                                Prelude.rnf spoolingMode `Prelude.seq`
+                                  Prelude.rnf startTime `Prelude.seq`
+                                    Prelude.rnf status `Prelude.seq`
+                                      Prelude.rnf targetArn `Prelude.seq`
+                                        Prelude.rnf httpStatus

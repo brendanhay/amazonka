@@ -92,6 +92,6 @@ instance Prelude.Hashable MetricData where
 
 instance Prelude.NFData MetricData where
   rnf MetricData' {..} =
-    Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf timestamp
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf metricName `Prelude.seq`
+      Prelude.rnf timestamp `Prelude.seq`
+        Prelude.rnf value

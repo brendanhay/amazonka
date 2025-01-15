@@ -126,9 +126,9 @@ instance Prelude.Hashable ListLabelGroups where
 
 instance Prelude.NFData ListLabelGroups where
   rnf ListLabelGroups' {..} =
-    Prelude.rnf labelGroupNameBeginsWith
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf labelGroupNameBeginsWith `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListLabelGroups where
   toHeaders =
@@ -215,6 +215,6 @@ listLabelGroupsResponse_httpStatus = Lens.lens (\ListLabelGroupsResponse' {httpS
 
 instance Prelude.NFData ListLabelGroupsResponse where
   rnf ListLabelGroupsResponse' {..} =
-    Prelude.rnf labelGroupSummaries
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf labelGroupSummaries `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

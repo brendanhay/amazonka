@@ -102,8 +102,8 @@ instance Prelude.Hashable BaseScreenshot where
 
 instance Prelude.NFData BaseScreenshot where
   rnf BaseScreenshot' {..} =
-    Prelude.rnf ignoreCoordinates
-      `Prelude.seq` Prelude.rnf screenshotName
+    Prelude.rnf ignoreCoordinates `Prelude.seq`
+      Prelude.rnf screenshotName
 
 instance Data.ToJSON BaseScreenshot where
   toJSON BaseScreenshot' {..} =

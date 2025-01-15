@@ -219,11 +219,11 @@ instance Prelude.Hashable UpdateScript where
 
 instance Prelude.NFData UpdateScript where
   rnf UpdateScript' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf storageLocation
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf zipFile
-      `Prelude.seq` Prelude.rnf scriptId
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf storageLocation `Prelude.seq`
+        Prelude.rnf version `Prelude.seq`
+          Prelude.rnf zipFile `Prelude.seq`
+            Prelude.rnf scriptId
 
 instance Data.ToHeaders UpdateScript where
   toHeaders =
@@ -315,5 +315,5 @@ updateScriptResponse_httpStatus = Lens.lens (\UpdateScriptResponse' {httpStatus}
 
 instance Prelude.NFData UpdateScriptResponse where
   rnf UpdateScriptResponse' {..} =
-    Prelude.rnf script
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf script `Prelude.seq`
+      Prelude.rnf httpStatus

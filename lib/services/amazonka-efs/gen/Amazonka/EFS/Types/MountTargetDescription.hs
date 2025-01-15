@@ -212,13 +212,13 @@ instance Prelude.Hashable MountTargetDescription where
 
 instance Prelude.NFData MountTargetDescription where
   rnf MountTargetDescription' {..} =
-    Prelude.rnf availabilityZoneId
-      `Prelude.seq` Prelude.rnf availabilityZoneName
-      `Prelude.seq` Prelude.rnf ipAddress
-      `Prelude.seq` Prelude.rnf networkInterfaceId
-      `Prelude.seq` Prelude.rnf ownerId
-      `Prelude.seq` Prelude.rnf vpcId
-      `Prelude.seq` Prelude.rnf mountTargetId
-      `Prelude.seq` Prelude.rnf fileSystemId
-      `Prelude.seq` Prelude.rnf subnetId
-      `Prelude.seq` Prelude.rnf lifeCycleState
+    Prelude.rnf availabilityZoneId `Prelude.seq`
+      Prelude.rnf availabilityZoneName `Prelude.seq`
+        Prelude.rnf ipAddress `Prelude.seq`
+          Prelude.rnf networkInterfaceId `Prelude.seq`
+            Prelude.rnf ownerId `Prelude.seq`
+              Prelude.rnf vpcId `Prelude.seq`
+                Prelude.rnf mountTargetId `Prelude.seq`
+                  Prelude.rnf fileSystemId `Prelude.seq`
+                    Prelude.rnf subnetId `Prelude.seq`
+                      Prelude.rnf lifeCycleState

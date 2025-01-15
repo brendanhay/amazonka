@@ -127,9 +127,9 @@ instance Prelude.Hashable MetricAttributionSummary where
 
 instance Prelude.NFData MetricAttributionSummary where
   rnf MetricAttributionSummary' {..} =
-    Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
-      `Prelude.seq` Prelude.rnf metricAttributionArn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf creationDateTime `Prelude.seq`
+      Prelude.rnf failureReason `Prelude.seq`
+        Prelude.rnf lastUpdatedDateTime `Prelude.seq`
+          Prelude.rnf metricAttributionArn `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf status

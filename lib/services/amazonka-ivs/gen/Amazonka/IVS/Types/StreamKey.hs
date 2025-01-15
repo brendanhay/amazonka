@@ -114,7 +114,7 @@ instance Prelude.Hashable StreamKey where
 
 instance Prelude.NFData StreamKey where
   rnf StreamKey' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf channelArn
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf channelArn `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf value

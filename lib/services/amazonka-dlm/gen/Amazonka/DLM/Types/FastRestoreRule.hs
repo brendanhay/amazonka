@@ -111,10 +111,10 @@ instance Prelude.Hashable FastRestoreRule where
 
 instance Prelude.NFData FastRestoreRule where
   rnf FastRestoreRule' {..} =
-    Prelude.rnf count
-      `Prelude.seq` Prelude.rnf interval
-      `Prelude.seq` Prelude.rnf intervalUnit
-      `Prelude.seq` Prelude.rnf availabilityZones
+    Prelude.rnf count `Prelude.seq`
+      Prelude.rnf interval `Prelude.seq`
+        Prelude.rnf intervalUnit `Prelude.seq`
+          Prelude.rnf availabilityZones
 
 instance Data.ToJSON FastRestoreRule where
   toJSON FastRestoreRule' {..} =

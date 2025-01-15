@@ -82,5 +82,5 @@ instance Prelude.Hashable MarketplaceInformation where
 
 instance Prelude.NFData MarketplaceInformation where
   rnf MarketplaceInformation' {..} =
-    Prelude.rnf productId
-      `Prelude.seq` Prelude.rnf productUrl
+    Prelude.rnf productId `Prelude.seq`
+      Prelude.rnf productUrl

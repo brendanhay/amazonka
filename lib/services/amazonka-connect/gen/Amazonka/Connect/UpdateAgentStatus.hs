@@ -162,13 +162,13 @@ instance Prelude.Hashable UpdateAgentStatus where
 
 instance Prelude.NFData UpdateAgentStatus where
   rnf UpdateAgentStatus' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf displayOrder
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf resetOrderNumber
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf agentStatusId
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf displayOrder `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf resetOrderNumber `Prelude.seq`
+            Prelude.rnf state `Prelude.seq`
+              Prelude.rnf instanceId `Prelude.seq`
+                Prelude.rnf agentStatusId
 
 instance Data.ToHeaders UpdateAgentStatus where
   toHeaders =

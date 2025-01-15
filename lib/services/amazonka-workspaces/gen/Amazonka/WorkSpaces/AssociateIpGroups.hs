@@ -107,8 +107,8 @@ instance Prelude.Hashable AssociateIpGroups where
 
 instance Prelude.NFData AssociateIpGroups where
   rnf AssociateIpGroups' {..} =
-    Prelude.rnf directoryId
-      `Prelude.seq` Prelude.rnf groupIds
+    Prelude.rnf directoryId `Prelude.seq`
+      Prelude.rnf groupIds
 
 instance Data.ToHeaders AssociateIpGroups where
   toHeaders =

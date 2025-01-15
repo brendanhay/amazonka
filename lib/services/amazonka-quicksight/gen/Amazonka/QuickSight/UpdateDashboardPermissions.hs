@@ -168,12 +168,12 @@ instance Prelude.Hashable UpdateDashboardPermissions where
 
 instance Prelude.NFData UpdateDashboardPermissions where
   rnf UpdateDashboardPermissions' {..} =
-    Prelude.rnf grantLinkPermissions
-      `Prelude.seq` Prelude.rnf grantPermissions
-      `Prelude.seq` Prelude.rnf revokeLinkPermissions
-      `Prelude.seq` Prelude.rnf revokePermissions
-      `Prelude.seq` Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf dashboardId
+    Prelude.rnf grantLinkPermissions `Prelude.seq`
+      Prelude.rnf grantPermissions `Prelude.seq`
+        Prelude.rnf revokeLinkPermissions `Prelude.seq`
+          Prelude.rnf revokePermissions `Prelude.seq`
+            Prelude.rnf awsAccountId `Prelude.seq`
+              Prelude.rnf dashboardId
 
 instance Data.ToHeaders UpdateDashboardPermissions where
   toHeaders =
@@ -298,9 +298,9 @@ instance
     UpdateDashboardPermissionsResponse
   where
   rnf UpdateDashboardPermissionsResponse' {..} =
-    Prelude.rnf dashboardArn
-      `Prelude.seq` Prelude.rnf dashboardId
-      `Prelude.seq` Prelude.rnf linkSharingConfiguration
-      `Prelude.seq` Prelude.rnf permissions
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf dashboardArn `Prelude.seq`
+      Prelude.rnf dashboardId `Prelude.seq`
+        Prelude.rnf linkSharingConfiguration `Prelude.seq`
+          Prelude.rnf permissions `Prelude.seq`
+            Prelude.rnf requestId `Prelude.seq`
+              Prelude.rnf status

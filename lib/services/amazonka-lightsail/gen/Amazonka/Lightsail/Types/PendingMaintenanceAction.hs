@@ -91,6 +91,6 @@ instance Prelude.Hashable PendingMaintenanceAction where
 
 instance Prelude.NFData PendingMaintenanceAction where
   rnf PendingMaintenanceAction' {..} =
-    Prelude.rnf action
-      `Prelude.seq` Prelude.rnf currentApplyDate
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf action `Prelude.seq`
+      Prelude.rnf currentApplyDate `Prelude.seq`
+        Prelude.rnf description

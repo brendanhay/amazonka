@@ -128,11 +128,11 @@ instance Prelude.Hashable Output where
 
 instance Prelude.NFData Output where
   rnf Output' {..} =
-    Prelude.rnf audioDescriptionNames
-      `Prelude.seq` Prelude.rnf captionDescriptionNames
-      `Prelude.seq` Prelude.rnf outputName
-      `Prelude.seq` Prelude.rnf videoDescriptionName
-      `Prelude.seq` Prelude.rnf outputSettings
+    Prelude.rnf audioDescriptionNames `Prelude.seq`
+      Prelude.rnf captionDescriptionNames `Prelude.seq`
+        Prelude.rnf outputName `Prelude.seq`
+          Prelude.rnf videoDescriptionName `Prelude.seq`
+            Prelude.rnf outputSettings
 
 instance Data.ToJSON Output where
   toJSON Output' {..} =

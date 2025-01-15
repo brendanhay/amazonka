@@ -88,5 +88,5 @@ instance Prelude.Hashable TelemetryConfiguration where
 
 instance Prelude.NFData TelemetryConfiguration where
   rnf TelemetryConfiguration' {..} =
-    Prelude.rnf configurationSyncStatus
-      `Prelude.seq` Prelude.rnf telemetry
+    Prelude.rnf configurationSyncStatus `Prelude.seq`
+      Prelude.rnf telemetry

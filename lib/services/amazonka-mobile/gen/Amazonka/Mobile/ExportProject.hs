@@ -209,7 +209,7 @@ exportProjectResponse_httpStatus = Lens.lens (\ExportProjectResponse' {httpStatu
 
 instance Prelude.NFData ExportProjectResponse where
   rnf ExportProjectResponse' {..} =
-    Prelude.rnf downloadUrl
-      `Prelude.seq` Prelude.rnf shareUrl
-      `Prelude.seq` Prelude.rnf snapshotId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf downloadUrl `Prelude.seq`
+      Prelude.rnf shareUrl `Prelude.seq`
+        Prelude.rnf snapshotId `Prelude.seq`
+          Prelude.rnf httpStatus

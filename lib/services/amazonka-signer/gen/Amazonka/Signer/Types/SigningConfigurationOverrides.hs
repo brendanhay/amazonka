@@ -93,8 +93,8 @@ instance
 
 instance Prelude.NFData SigningConfigurationOverrides where
   rnf SigningConfigurationOverrides' {..} =
-    Prelude.rnf encryptionAlgorithm
-      `Prelude.seq` Prelude.rnf hashAlgorithm
+    Prelude.rnf encryptionAlgorithm `Prelude.seq`
+      Prelude.rnf hashAlgorithm
 
 instance Data.ToJSON SigningConfigurationOverrides where
   toJSON SigningConfigurationOverrides' {..} =

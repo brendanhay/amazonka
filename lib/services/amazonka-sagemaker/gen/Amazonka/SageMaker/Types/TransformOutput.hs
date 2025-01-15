@@ -246,10 +246,10 @@ instance Prelude.Hashable TransformOutput where
 
 instance Prelude.NFData TransformOutput where
   rnf TransformOutput' {..} =
-    Prelude.rnf accept
-      `Prelude.seq` Prelude.rnf assembleWith
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf s3OutputPath
+    Prelude.rnf accept `Prelude.seq`
+      Prelude.rnf assembleWith `Prelude.seq`
+        Prelude.rnf kmsKeyId `Prelude.seq`
+          Prelude.rnf s3OutputPath
 
 instance Data.ToJSON TransformOutput where
   toJSON TransformOutput' {..} =

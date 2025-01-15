@@ -113,9 +113,9 @@ instance
     CompositedVideoArtifactsConfiguration
   where
   rnf CompositedVideoArtifactsConfiguration' {..} =
-    Prelude.rnf layout
-      `Prelude.seq` Prelude.rnf resolution
-      `Prelude.seq` Prelude.rnf gridViewConfiguration
+    Prelude.rnf layout `Prelude.seq`
+      Prelude.rnf resolution `Prelude.seq`
+        Prelude.rnf gridViewConfiguration
 
 instance
   Data.ToJSON

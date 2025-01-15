@@ -209,6 +209,6 @@ instance
     GetServiceLinkedRoleDeletionStatusResponse
   where
   rnf GetServiceLinkedRoleDeletionStatusResponse' {..} =
-    Prelude.rnf reason
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf reason `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf status

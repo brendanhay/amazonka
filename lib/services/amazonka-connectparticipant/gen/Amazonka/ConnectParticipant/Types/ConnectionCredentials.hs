@@ -90,5 +90,5 @@ instance Prelude.Hashable ConnectionCredentials where
 
 instance Prelude.NFData ConnectionCredentials where
   rnf ConnectionCredentials' {..} =
-    Prelude.rnf connectionToken
-      `Prelude.seq` Prelude.rnf expiry
+    Prelude.rnf connectionToken `Prelude.seq`
+      Prelude.rnf expiry

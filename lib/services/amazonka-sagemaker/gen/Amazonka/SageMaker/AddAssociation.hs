@@ -172,9 +172,9 @@ instance Prelude.Hashable AddAssociation where
 
 instance Prelude.NFData AddAssociation where
   rnf AddAssociation' {..} =
-    Prelude.rnf associationType
-      `Prelude.seq` Prelude.rnf sourceArn
-      `Prelude.seq` Prelude.rnf destinationArn
+    Prelude.rnf associationType `Prelude.seq`
+      Prelude.rnf sourceArn `Prelude.seq`
+        Prelude.rnf destinationArn
 
 instance Data.ToHeaders AddAssociation where
   toHeaders =
@@ -257,6 +257,6 @@ addAssociationResponse_httpStatus = Lens.lens (\AddAssociationResponse' {httpSta
 
 instance Prelude.NFData AddAssociationResponse where
   rnf AddAssociationResponse' {..} =
-    Prelude.rnf destinationArn
-      `Prelude.seq` Prelude.rnf sourceArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf destinationArn `Prelude.seq`
+      Prelude.rnf sourceArn `Prelude.seq`
+        Prelude.rnf httpStatus

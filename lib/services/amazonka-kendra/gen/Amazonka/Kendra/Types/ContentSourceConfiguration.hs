@@ -103,9 +103,9 @@ instance Prelude.Hashable ContentSourceConfiguration where
 
 instance Prelude.NFData ContentSourceConfiguration where
   rnf ContentSourceConfiguration' {..} =
-    Prelude.rnf dataSourceIds
-      `Prelude.seq` Prelude.rnf directPutContent
-      `Prelude.seq` Prelude.rnf faqIds
+    Prelude.rnf dataSourceIds `Prelude.seq`
+      Prelude.rnf directPutContent `Prelude.seq`
+        Prelude.rnf faqIds
 
 instance Data.ToJSON ContentSourceConfiguration where
   toJSON ContentSourceConfiguration' {..} =

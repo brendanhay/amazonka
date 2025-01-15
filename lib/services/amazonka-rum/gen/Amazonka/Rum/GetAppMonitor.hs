@@ -157,5 +157,5 @@ getAppMonitorResponse_httpStatus = Lens.lens (\GetAppMonitorResponse' {httpStatu
 
 instance Prelude.NFData GetAppMonitorResponse where
   rnf GetAppMonitorResponse' {..} =
-    Prelude.rnf appMonitor
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf appMonitor `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -138,10 +138,10 @@ instance Prelude.Hashable UpdatePlaceIndex where
 
 instance Prelude.NFData UpdatePlaceIndex where
   rnf UpdatePlaceIndex' {..} =
-    Prelude.rnf dataSourceConfiguration
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf pricingPlan
-      `Prelude.seq` Prelude.rnf indexName
+    Prelude.rnf dataSourceConfiguration `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf pricingPlan `Prelude.seq`
+          Prelude.rnf indexName
 
 instance Data.ToHeaders UpdatePlaceIndex where
   toHeaders =
@@ -260,7 +260,7 @@ updatePlaceIndexResponse_updateTime = Lens.lens (\UpdatePlaceIndexResponse' {upd
 
 instance Prelude.NFData UpdatePlaceIndexResponse where
   rnf UpdatePlaceIndexResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf indexArn
-      `Prelude.seq` Prelude.rnf indexName
-      `Prelude.seq` Prelude.rnf updateTime
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf indexArn `Prelude.seq`
+        Prelude.rnf indexName `Prelude.seq`
+          Prelude.rnf updateTime

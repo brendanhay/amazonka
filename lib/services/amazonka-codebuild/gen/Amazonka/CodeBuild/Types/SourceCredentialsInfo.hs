@@ -100,6 +100,6 @@ instance Prelude.Hashable SourceCredentialsInfo where
 
 instance Prelude.NFData SourceCredentialsInfo where
   rnf SourceCredentialsInfo' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf authType
-      `Prelude.seq` Prelude.rnf serverType
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf authType `Prelude.seq`
+        Prelude.rnf serverType

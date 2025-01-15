@@ -119,9 +119,9 @@ instance Prelude.Hashable AddTagsToStream where
 
 instance Prelude.NFData AddTagsToStream where
   rnf AddTagsToStream' {..} =
-    Prelude.rnf streamARN
-      `Prelude.seq` Prelude.rnf streamName
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf streamARN `Prelude.seq`
+      Prelude.rnf streamName `Prelude.seq`
+        Prelude.rnf tags
 
 instance Data.ToHeaders AddTagsToStream where
   toHeaders =

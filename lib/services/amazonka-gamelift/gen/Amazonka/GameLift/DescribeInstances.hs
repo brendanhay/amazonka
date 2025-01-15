@@ -180,12 +180,12 @@ instance Core.AWSPager DescribeInstances where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeInstances_nextToken
-          Lens..~ rs
-          Lens.^? describeInstancesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeInstances_nextToken
+              Lens..~ rs
+              Lens.^? describeInstancesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeInstances where
   type
@@ -213,11 +213,11 @@ instance Prelude.Hashable DescribeInstances where
 
 instance Prelude.NFData DescribeInstances where
   rnf DescribeInstances' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf fleetId
+    Prelude.rnf instanceId `Prelude.seq`
+      Prelude.rnf limit `Prelude.seq`
+        Prelude.rnf location `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf fleetId
 
 instance Data.ToHeaders DescribeInstances where
   toHeaders =
@@ -309,6 +309,6 @@ describeInstancesResponse_httpStatus = Lens.lens (\DescribeInstancesResponse' {h
 
 instance Prelude.NFData DescribeInstancesResponse where
   rnf DescribeInstancesResponse' {..} =
-    Prelude.rnf instances
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf instances `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

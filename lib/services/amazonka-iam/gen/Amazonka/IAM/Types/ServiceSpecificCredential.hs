@@ -177,10 +177,10 @@ instance Prelude.Hashable ServiceSpecificCredential where
 
 instance Prelude.NFData ServiceSpecificCredential where
   rnf ServiceSpecificCredential' {..} =
-    Prelude.rnf createDate
-      `Prelude.seq` Prelude.rnf serviceName
-      `Prelude.seq` Prelude.rnf serviceUserName
-      `Prelude.seq` Prelude.rnf servicePassword
-      `Prelude.seq` Prelude.rnf serviceSpecificCredentialId
-      `Prelude.seq` Prelude.rnf userName
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf createDate `Prelude.seq`
+      Prelude.rnf serviceName `Prelude.seq`
+        Prelude.rnf serviceUserName `Prelude.seq`
+          Prelude.rnf servicePassword `Prelude.seq`
+            Prelude.rnf serviceSpecificCredentialId `Prelude.seq`
+              Prelude.rnf userName `Prelude.seq`
+                Prelude.rnf status

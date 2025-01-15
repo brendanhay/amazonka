@@ -103,6 +103,6 @@ instance
 
 instance Prelude.NFData BatchUpdateDetectorErrorEntry where
   rnf BatchUpdateDetectorErrorEntry' {..} =
-    Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf messageId
+    Prelude.rnf errorCode `Prelude.seq`
+      Prelude.rnf errorMessage `Prelude.seq`
+        Prelude.rnf messageId

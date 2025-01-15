@@ -107,6 +107,6 @@ instance
     PendingModifiedRelationalDatabaseValues
   where
   rnf PendingModifiedRelationalDatabaseValues' {..} =
-    Prelude.rnf backupRetentionEnabled
-      `Prelude.seq` Prelude.rnf engineVersion
-      `Prelude.seq` Prelude.rnf masterUserPassword
+    Prelude.rnf backupRetentionEnabled `Prelude.seq`
+      Prelude.rnf engineVersion `Prelude.seq`
+        Prelude.rnf masterUserPassword

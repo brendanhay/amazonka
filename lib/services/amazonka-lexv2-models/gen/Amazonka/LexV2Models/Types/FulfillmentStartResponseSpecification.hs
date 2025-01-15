@@ -125,9 +125,9 @@ instance
     FulfillmentStartResponseSpecification
   where
   rnf FulfillmentStartResponseSpecification' {..} =
-    Prelude.rnf allowInterrupt
-      `Prelude.seq` Prelude.rnf delayInSeconds
-      `Prelude.seq` Prelude.rnf messageGroups
+    Prelude.rnf allowInterrupt `Prelude.seq`
+      Prelude.rnf delayInSeconds `Prelude.seq`
+        Prelude.rnf messageGroups
 
 instance
   Data.ToJSON

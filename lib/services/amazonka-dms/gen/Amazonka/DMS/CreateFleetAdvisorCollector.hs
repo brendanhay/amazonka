@@ -155,10 +155,10 @@ instance Prelude.Hashable CreateFleetAdvisorCollector where
 
 instance Prelude.NFData CreateFleetAdvisorCollector where
   rnf CreateFleetAdvisorCollector' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf collectorName
-      `Prelude.seq` Prelude.rnf serviceAccessRoleArn
-      `Prelude.seq` Prelude.rnf s3BucketName
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf collectorName `Prelude.seq`
+        Prelude.rnf serviceAccessRoleArn `Prelude.seq`
+          Prelude.rnf s3BucketName
 
 instance Data.ToHeaders CreateFleetAdvisorCollector where
   toHeaders =
@@ -285,9 +285,9 @@ instance
     CreateFleetAdvisorCollectorResponse
   where
   rnf CreateFleetAdvisorCollectorResponse' {..} =
-    Prelude.rnf collectorName
-      `Prelude.seq` Prelude.rnf collectorReferencedId
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf s3BucketName
-      `Prelude.seq` Prelude.rnf serviceAccessRoleArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf collectorName `Prelude.seq`
+      Prelude.rnf collectorReferencedId `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf s3BucketName `Prelude.seq`
+            Prelude.rnf serviceAccessRoleArn `Prelude.seq`
+              Prelude.rnf httpStatus

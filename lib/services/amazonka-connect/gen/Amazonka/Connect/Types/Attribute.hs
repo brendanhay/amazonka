@@ -81,5 +81,5 @@ instance Prelude.Hashable Attribute where
 
 instance Prelude.NFData Attribute where
   rnf Attribute' {..} =
-    Prelude.rnf attributeType
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf attributeType `Prelude.seq`
+      Prelude.rnf value

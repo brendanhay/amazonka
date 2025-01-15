@@ -342,13 +342,13 @@ instance Prelude.Hashable GetItem where
 
 instance Prelude.NFData GetItem where
   rnf GetItem' {..} =
-    Prelude.rnf attributesToGet
-      `Prelude.seq` Prelude.rnf consistentRead
-      `Prelude.seq` Prelude.rnf expressionAttributeNames
-      `Prelude.seq` Prelude.rnf projectionExpression
-      `Prelude.seq` Prelude.rnf returnConsumedCapacity
-      `Prelude.seq` Prelude.rnf tableName
-      `Prelude.seq` Prelude.rnf key
+    Prelude.rnf attributesToGet `Prelude.seq`
+      Prelude.rnf consistentRead `Prelude.seq`
+        Prelude.rnf expressionAttributeNames `Prelude.seq`
+          Prelude.rnf projectionExpression `Prelude.seq`
+            Prelude.rnf returnConsumedCapacity `Prelude.seq`
+              Prelude.rnf tableName `Prelude.seq`
+                Prelude.rnf key
 
 instance Data.ToHeaders GetItem where
   toHeaders =
@@ -461,6 +461,6 @@ getItemResponse_httpStatus = Lens.lens (\GetItemResponse' {httpStatus} -> httpSt
 
 instance Prelude.NFData GetItemResponse where
   rnf GetItemResponse' {..} =
-    Prelude.rnf consumedCapacity
-      `Prelude.seq` Prelude.rnf item
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf consumedCapacity `Prelude.seq`
+      Prelude.rnf item `Prelude.seq`
+        Prelude.rnf httpStatus

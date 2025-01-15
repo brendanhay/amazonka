@@ -161,10 +161,10 @@ instance Prelude.Hashable AuthorizeSnapshotAccess where
 
 instance Prelude.NFData AuthorizeSnapshotAccess where
   rnf AuthorizeSnapshotAccess' {..} =
-    Prelude.rnf snapshotArn
-      `Prelude.seq` Prelude.rnf snapshotClusterIdentifier
-      `Prelude.seq` Prelude.rnf snapshotIdentifier
-      `Prelude.seq` Prelude.rnf accountWithRestoreAccess
+    Prelude.rnf snapshotArn `Prelude.seq`
+      Prelude.rnf snapshotClusterIdentifier `Prelude.seq`
+        Prelude.rnf snapshotIdentifier `Prelude.seq`
+          Prelude.rnf accountWithRestoreAccess
 
 instance Data.ToHeaders AuthorizeSnapshotAccess where
   toHeaders = Prelude.const Prelude.mempty
@@ -230,5 +230,5 @@ instance
     AuthorizeSnapshotAccessResponse
   where
   rnf AuthorizeSnapshotAccessResponse' {..} =
-    Prelude.rnf snapshot
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf snapshot `Prelude.seq`
+      Prelude.rnf httpStatus

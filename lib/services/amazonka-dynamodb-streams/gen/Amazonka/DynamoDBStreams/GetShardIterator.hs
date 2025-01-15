@@ -202,10 +202,10 @@ instance Prelude.Hashable GetShardIterator where
 
 instance Prelude.NFData GetShardIterator where
   rnf GetShardIterator' {..} =
-    Prelude.rnf sequenceNumber
-      `Prelude.seq` Prelude.rnf streamArn
-      `Prelude.seq` Prelude.rnf shardId
-      `Prelude.seq` Prelude.rnf shardIteratorType
+    Prelude.rnf sequenceNumber `Prelude.seq`
+      Prelude.rnf streamArn `Prelude.seq`
+        Prelude.rnf shardId `Prelude.seq`
+          Prelude.rnf shardIteratorType
 
 instance Data.ToHeaders GetShardIterator where
   toHeaders =
@@ -290,5 +290,5 @@ getShardIteratorResponse_httpStatus = Lens.lens (\GetShardIteratorResponse' {htt
 
 instance Prelude.NFData GetShardIteratorResponse where
   rnf GetShardIteratorResponse' {..} =
-    Prelude.rnf shardIterator
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf shardIterator `Prelude.seq`
+      Prelude.rnf httpStatus

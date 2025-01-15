@@ -111,12 +111,12 @@ instance Core.AWSPager ListKeyspaces where
         (rs Lens.^. listKeyspacesResponse_keyspaces) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listKeyspaces_nextToken
-          Lens..~ rs
-          Lens.^? listKeyspacesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listKeyspaces_nextToken
+              Lens..~ rs
+              Lens.^? listKeyspacesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListKeyspaces where
   type
@@ -141,8 +141,8 @@ instance Prelude.Hashable ListKeyspaces where
 
 instance Prelude.NFData ListKeyspaces where
   rnf ListKeyspaces' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListKeyspaces where
   toHeaders =
@@ -226,6 +226,6 @@ listKeyspacesResponse_keyspaces = Lens.lens (\ListKeyspacesResponse' {keyspaces}
 
 instance Prelude.NFData ListKeyspacesResponse where
   rnf ListKeyspacesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf keyspaces
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf keyspaces

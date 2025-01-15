@@ -124,9 +124,9 @@ instance Prelude.Hashable ResetDeployments where
 
 instance Prelude.NFData ResetDeployments where
   rnf ResetDeployments' {..} =
-    Prelude.rnf amznClientToken
-      `Prelude.seq` Prelude.rnf force
-      `Prelude.seq` Prelude.rnf groupId
+    Prelude.rnf amznClientToken `Prelude.seq`
+      Prelude.rnf force `Prelude.seq`
+        Prelude.rnf groupId
 
 instance Data.ToHeaders ResetDeployments where
   toHeaders ResetDeployments' {..} =
@@ -204,6 +204,6 @@ resetDeploymentsResponse_httpStatus = Lens.lens (\ResetDeploymentsResponse' {htt
 
 instance Prelude.NFData ResetDeploymentsResponse where
   rnf ResetDeploymentsResponse' {..} =
-    Prelude.rnf deploymentArn
-      `Prelude.seq` Prelude.rnf deploymentId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf deploymentArn `Prelude.seq`
+      Prelude.rnf deploymentId `Prelude.seq`
+        Prelude.rnf httpStatus

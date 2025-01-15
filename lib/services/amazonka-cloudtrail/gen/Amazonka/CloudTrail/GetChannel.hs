@@ -227,9 +227,9 @@ getChannelResponse_httpStatus = Lens.lens (\GetChannelResponse' {httpStatus} -> 
 
 instance Prelude.NFData GetChannelResponse where
   rnf GetChannelResponse' {..} =
-    Prelude.rnf channelArn
-      `Prelude.seq` Prelude.rnf destinations
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf sourceConfig
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf channelArn `Prelude.seq`
+      Prelude.rnf destinations `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf source `Prelude.seq`
+            Prelude.rnf sourceConfig `Prelude.seq`
+              Prelude.rnf httpStatus

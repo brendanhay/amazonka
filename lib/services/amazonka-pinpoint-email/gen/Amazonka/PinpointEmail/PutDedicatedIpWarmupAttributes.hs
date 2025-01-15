@@ -129,8 +129,8 @@ instance
     PutDedicatedIpWarmupAttributes
   where
   rnf PutDedicatedIpWarmupAttributes' {..} =
-    Prelude.rnf ip
-      `Prelude.seq` Prelude.rnf warmupPercentage
+    Prelude.rnf ip `Prelude.seq`
+      Prelude.rnf warmupPercentage
 
 instance
   Data.ToHeaders

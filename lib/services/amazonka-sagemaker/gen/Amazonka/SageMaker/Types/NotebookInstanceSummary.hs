@@ -241,13 +241,13 @@ instance Prelude.Hashable NotebookInstanceSummary where
 
 instance Prelude.NFData NotebookInstanceSummary where
   rnf NotebookInstanceSummary' {..} =
-    Prelude.rnf additionalCodeRepositories
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf defaultCodeRepository
-      `Prelude.seq` Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf notebookInstanceLifecycleConfigName
-      `Prelude.seq` Prelude.rnf notebookInstanceStatus
-      `Prelude.seq` Prelude.rnf url
-      `Prelude.seq` Prelude.rnf notebookInstanceName
-      `Prelude.seq` Prelude.rnf notebookInstanceArn
+    Prelude.rnf additionalCodeRepositories `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf defaultCodeRepository `Prelude.seq`
+          Prelude.rnf instanceType `Prelude.seq`
+            Prelude.rnf lastModifiedTime `Prelude.seq`
+              Prelude.rnf notebookInstanceLifecycleConfigName `Prelude.seq`
+                Prelude.rnf notebookInstanceStatus `Prelude.seq`
+                  Prelude.rnf url `Prelude.seq`
+                    Prelude.rnf notebookInstanceName `Prelude.seq`
+                      Prelude.rnf notebookInstanceArn

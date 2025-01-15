@@ -138,9 +138,7 @@ instance Core.AWSRequest DescribeTrafficSources where
       ( \s h x ->
           DescribeTrafficSourcesResponse'
             Prelude.<$> (x Data..@? "NextToken")
-            Prelude.<*> ( x
-                            Data..@? "TrafficSources"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "TrafficSources" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -156,10 +154,10 @@ instance Prelude.Hashable DescribeTrafficSources where
 
 instance Prelude.NFData DescribeTrafficSources where
   rnf DescribeTrafficSources' {..} =
-    Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf autoScalingGroupName
-      `Prelude.seq` Prelude.rnf trafficSourceType
+    Prelude.rnf maxRecords `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf autoScalingGroupName `Prelude.seq`
+          Prelude.rnf trafficSourceType
 
 instance Data.ToHeaders DescribeTrafficSources where
   toHeaders = Prelude.const Prelude.mempty
@@ -242,6 +240,6 @@ instance
     DescribeTrafficSourcesResponse
   where
   rnf DescribeTrafficSourcesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf trafficSources
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf trafficSources `Prelude.seq`
+        Prelude.rnf httpStatus

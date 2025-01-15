@@ -139,13 +139,13 @@ instance Prelude.Hashable JwtTokenTypeConfiguration where
 
 instance Prelude.NFData JwtTokenTypeConfiguration where
   rnf JwtTokenTypeConfiguration' {..} =
-    Prelude.rnf claimRegex
-      `Prelude.seq` Prelude.rnf groupAttributeField
-      `Prelude.seq` Prelude.rnf issuer
-      `Prelude.seq` Prelude.rnf secretManagerArn
-      `Prelude.seq` Prelude.rnf url
-      `Prelude.seq` Prelude.rnf userNameAttributeField
-      `Prelude.seq` Prelude.rnf keyLocation
+    Prelude.rnf claimRegex `Prelude.seq`
+      Prelude.rnf groupAttributeField `Prelude.seq`
+        Prelude.rnf issuer `Prelude.seq`
+          Prelude.rnf secretManagerArn `Prelude.seq`
+            Prelude.rnf url `Prelude.seq`
+              Prelude.rnf userNameAttributeField `Prelude.seq`
+                Prelude.rnf keyLocation
 
 instance Data.ToJSON JwtTokenTypeConfiguration where
   toJSON JwtTokenTypeConfiguration' {..} =

@@ -139,12 +139,12 @@ instance Core.AWSPager ListUsers where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listUsers_nextToken
-          Lens..~ rs
-          Lens.^? listUsersResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listUsers_nextToken
+              Lens..~ rs
+              Lens.^? listUsersResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListUsers where
   type AWSResponse ListUsers = ListUsersResponse
@@ -170,11 +170,11 @@ instance Prelude.Hashable ListUsers where
 
 instance Prelude.NFData ListUsers where
   rnf ListUsers' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf userEmail
-      `Prelude.seq` Prelude.rnf userType
-      `Prelude.seq` Prelude.rnf accountId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf userEmail `Prelude.seq`
+          Prelude.rnf userType `Prelude.seq`
+            Prelude.rnf accountId
 
 instance Data.ToHeaders ListUsers where
   toHeaders = Prelude.const Prelude.mempty
@@ -242,6 +242,6 @@ listUsersResponse_httpStatus = Lens.lens (\ListUsersResponse' {httpStatus} -> ht
 
 instance Prelude.NFData ListUsersResponse where
   rnf ListUsersResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf users
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf users `Prelude.seq`
+        Prelude.rnf httpStatus

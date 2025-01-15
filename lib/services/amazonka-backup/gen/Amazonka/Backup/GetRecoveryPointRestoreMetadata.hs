@@ -147,8 +147,8 @@ instance
     GetRecoveryPointRestoreMetadata
   where
   rnf GetRecoveryPointRestoreMetadata' {..} =
-    Prelude.rnf backupVaultName
-      `Prelude.seq` Prelude.rnf recoveryPointArn
+    Prelude.rnf backupVaultName `Prelude.seq`
+      Prelude.rnf recoveryPointArn
 
 instance
   Data.ToHeaders
@@ -252,7 +252,7 @@ instance
     GetRecoveryPointRestoreMetadataResponse
   where
   rnf GetRecoveryPointRestoreMetadataResponse' {..} =
-    Prelude.rnf backupVaultArn
-      `Prelude.seq` Prelude.rnf recoveryPointArn
-      `Prelude.seq` Prelude.rnf restoreMetadata
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf backupVaultArn `Prelude.seq`
+      Prelude.rnf recoveryPointArn `Prelude.seq`
+        Prelude.rnf restoreMetadata `Prelude.seq`
+          Prelude.rnf httpStatus

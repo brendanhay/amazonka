@@ -151,10 +151,10 @@ instance Prelude.Hashable AudioOnlyHlsSettings where
 
 instance Prelude.NFData AudioOnlyHlsSettings where
   rnf AudioOnlyHlsSettings' {..} =
-    Prelude.rnf audioGroupId
-      `Prelude.seq` Prelude.rnf audioOnlyImage
-      `Prelude.seq` Prelude.rnf audioTrackType
-      `Prelude.seq` Prelude.rnf segmentType
+    Prelude.rnf audioGroupId `Prelude.seq`
+      Prelude.rnf audioOnlyImage `Prelude.seq`
+        Prelude.rnf audioTrackType `Prelude.seq`
+          Prelude.rnf segmentType
 
 instance Data.ToJSON AudioOnlyHlsSettings where
   toJSON AudioOnlyHlsSettings' {..} =

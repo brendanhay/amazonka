@@ -493,17 +493,17 @@ instance Prelude.Hashable CalculateRoute where
 
 instance Prelude.NFData CalculateRoute where
   rnf CalculateRoute' {..} =
-    Prelude.rnf carModeOptions
-      `Prelude.seq` Prelude.rnf departNow
-      `Prelude.seq` Prelude.rnf departureTime
-      `Prelude.seq` Prelude.rnf distanceUnit
-      `Prelude.seq` Prelude.rnf includeLegGeometry
-      `Prelude.seq` Prelude.rnf travelMode
-      `Prelude.seq` Prelude.rnf truckModeOptions
-      `Prelude.seq` Prelude.rnf waypointPositions
-      `Prelude.seq` Prelude.rnf calculatorName
-      `Prelude.seq` Prelude.rnf departurePosition
-      `Prelude.seq` Prelude.rnf destinationPosition
+    Prelude.rnf carModeOptions `Prelude.seq`
+      Prelude.rnf departNow `Prelude.seq`
+        Prelude.rnf departureTime `Prelude.seq`
+          Prelude.rnf distanceUnit `Prelude.seq`
+            Prelude.rnf includeLegGeometry `Prelude.seq`
+              Prelude.rnf travelMode `Prelude.seq`
+                Prelude.rnf truckModeOptions `Prelude.seq`
+                  Prelude.rnf waypointPositions `Prelude.seq`
+                    Prelude.rnf calculatorName `Prelude.seq`
+                      Prelude.rnf departurePosition `Prelude.seq`
+                        Prelude.rnf destinationPosition
 
 instance Data.ToHeaders CalculateRoute where
   toHeaders =
@@ -670,6 +670,6 @@ calculateRouteResponse_summary = Lens.lens (\CalculateRouteResponse' {summary} -
 
 instance Prelude.NFData CalculateRouteResponse where
   rnf CalculateRouteResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf legs
-      `Prelude.seq` Prelude.rnf summary
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf legs `Prelude.seq`
+        Prelude.rnf summary

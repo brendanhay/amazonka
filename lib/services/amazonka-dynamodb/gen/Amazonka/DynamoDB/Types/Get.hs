@@ -113,10 +113,10 @@ instance Prelude.Hashable Get where
 
 instance Prelude.NFData Get where
   rnf Get' {..} =
-    Prelude.rnf expressionAttributeNames
-      `Prelude.seq` Prelude.rnf projectionExpression
-      `Prelude.seq` Prelude.rnf key
-      `Prelude.seq` Prelude.rnf tableName
+    Prelude.rnf expressionAttributeNames `Prelude.seq`
+      Prelude.rnf projectionExpression `Prelude.seq`
+        Prelude.rnf key `Prelude.seq`
+          Prelude.rnf tableName
 
 instance Data.ToJSON Get where
   toJSON Get' {..} =

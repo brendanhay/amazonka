@@ -132,8 +132,8 @@ instance Prelude.Hashable ClusterSnapshotInList where
 
 instance Prelude.NFData ClusterSnapshotInList where
   rnf ClusterSnapshotInList' {..} =
-    Prelude.rnf clusterArn
-      `Prelude.seq` Prelude.rnf snapshotArn
-      `Prelude.seq` Prelude.rnf snapshotCreationTime
-      `Prelude.seq` Prelude.rnf snapshotName
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf clusterArn `Prelude.seq`
+      Prelude.rnf snapshotArn `Prelude.seq`
+        Prelude.rnf snapshotCreationTime `Prelude.seq`
+          Prelude.rnf snapshotName `Prelude.seq`
+            Prelude.rnf status

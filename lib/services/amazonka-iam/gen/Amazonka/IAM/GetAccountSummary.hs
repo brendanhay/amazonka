@@ -74,9 +74,7 @@ instance Core.AWSRequest GetAccountSummary where
       "GetAccountSummaryResult"
       ( \s h x ->
           GetAccountSummaryResponse'
-            Prelude.<$> ( x
-                            Data..@? "SummaryMap"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "SummaryMap" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLMap "entry" "key" "value")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -152,5 +150,5 @@ getAccountSummaryResponse_httpStatus = Lens.lens (\GetAccountSummaryResponse' {h
 
 instance Prelude.NFData GetAccountSummaryResponse where
   rnf GetAccountSummaryResponse' {..} =
-    Prelude.rnf summaryMap
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf summaryMap `Prelude.seq`
+      Prelude.rnf httpStatus

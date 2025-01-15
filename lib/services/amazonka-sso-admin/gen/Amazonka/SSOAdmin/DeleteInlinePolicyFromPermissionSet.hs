@@ -131,8 +131,8 @@ instance
     DeleteInlinePolicyFromPermissionSet
   where
   rnf DeleteInlinePolicyFromPermissionSet' {..} =
-    Prelude.rnf instanceArn
-      `Prelude.seq` Prelude.rnf permissionSetArn
+    Prelude.rnf instanceArn `Prelude.seq`
+      Prelude.rnf permissionSetArn
 
 instance
   Data.ToHeaders

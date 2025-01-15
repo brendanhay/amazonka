@@ -111,14 +111,10 @@ instance Data.FromXML ClusterSubnetGroup where
       Prelude.<$> (x Data..@? "ClusterSubnetGroupName")
       Prelude.<*> (x Data..@? "Description")
       Prelude.<*> (x Data..@? "SubnetGroupStatus")
-      Prelude.<*> ( x
-                      Data..@? "Subnets"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "Subnets" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "Subnet")
                   )
-      Prelude.<*> ( x
-                      Data..@? "Tags"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "Tag")
                   )
       Prelude.<*> (x Data..@? "VpcId")
@@ -135,9 +131,9 @@ instance Prelude.Hashable ClusterSubnetGroup where
 
 instance Prelude.NFData ClusterSubnetGroup where
   rnf ClusterSubnetGroup' {..} =
-    Prelude.rnf clusterSubnetGroupName
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf subnetGroupStatus
-      `Prelude.seq` Prelude.rnf subnets
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf clusterSubnetGroupName `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf subnetGroupStatus `Prelude.seq`
+          Prelude.rnf subnets `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf vpcId

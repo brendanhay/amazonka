@@ -123,8 +123,8 @@ instance Prelude.Hashable UploadListElement where
 
 instance Prelude.NFData UploadListElement where
   rnf UploadListElement' {..} =
-    Prelude.rnf archiveDescription
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf multipartUploadId
-      `Prelude.seq` Prelude.rnf partSizeInBytes
-      `Prelude.seq` Prelude.rnf vaultARN
+    Prelude.rnf archiveDescription `Prelude.seq`
+      Prelude.rnf creationDate `Prelude.seq`
+        Prelude.rnf multipartUploadId `Prelude.seq`
+          Prelude.rnf partSizeInBytes `Prelude.seq`
+            Prelude.rnf vaultARN

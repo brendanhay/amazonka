@@ -116,10 +116,10 @@ instance Prelude.Hashable CognitoOptions where
 
 instance Prelude.NFData CognitoOptions where
   rnf CognitoOptions' {..} =
-    Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf identityPoolId
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf userPoolId
+    Prelude.rnf enabled `Prelude.seq`
+      Prelude.rnf identityPoolId `Prelude.seq`
+        Prelude.rnf roleArn `Prelude.seq`
+          Prelude.rnf userPoolId
 
 instance Data.ToJSON CognitoOptions where
   toJSON CognitoOptions' {..} =

@@ -161,5 +161,5 @@ instance
     GetVoiceConnectorTerminationResponse
   where
   rnf GetVoiceConnectorTerminationResponse' {..} =
-    Prelude.rnf termination
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf termination `Prelude.seq`
+      Prelude.rnf httpStatus

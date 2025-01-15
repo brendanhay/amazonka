@@ -145,5 +145,5 @@ instance Prelude.Hashable ChangesetErrorInfo where
 
 instance Prelude.NFData ChangesetErrorInfo where
   rnf ChangesetErrorInfo' {..} =
-    Prelude.rnf errorCategory
-      `Prelude.seq` Prelude.rnf errorMessage
+    Prelude.rnf errorCategory `Prelude.seq`
+      Prelude.rnf errorMessage

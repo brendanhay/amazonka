@@ -119,9 +119,9 @@ instance Prelude.Hashable DeleteRouteRequestParameter where
 
 instance Prelude.NFData DeleteRouteRequestParameter where
   rnf DeleteRouteRequestParameter' {..} =
-    Prelude.rnf requestParameterKey
-      `Prelude.seq` Prelude.rnf apiId
-      `Prelude.seq` Prelude.rnf routeId
+    Prelude.rnf requestParameterKey `Prelude.seq`
+      Prelude.rnf apiId `Prelude.seq`
+        Prelude.rnf routeId
 
 instance Data.ToHeaders DeleteRouteRequestParameter where
   toHeaders =

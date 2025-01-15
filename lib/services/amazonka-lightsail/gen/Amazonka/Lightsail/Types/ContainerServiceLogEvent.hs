@@ -82,5 +82,5 @@ instance Prelude.Hashable ContainerServiceLogEvent where
 
 instance Prelude.NFData ContainerServiceLogEvent where
   rnf ContainerServiceLogEvent' {..} =
-    Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf message
+    Prelude.rnf createdAt `Prelude.seq`
+      Prelude.rnf message

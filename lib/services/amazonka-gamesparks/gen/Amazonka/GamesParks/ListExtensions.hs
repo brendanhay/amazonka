@@ -125,12 +125,12 @@ instance Core.AWSPager ListExtensions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listExtensions_nextToken
-          Lens..~ rs
-          Lens.^? listExtensionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listExtensions_nextToken
+              Lens..~ rs
+              Lens.^? listExtensionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListExtensions where
   type
@@ -155,8 +155,8 @@ instance Prelude.Hashable ListExtensions where
 
 instance Prelude.NFData ListExtensions where
   rnf ListExtensions' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListExtensions where
   toHeaders =
@@ -241,6 +241,6 @@ listExtensionsResponse_httpStatus = Lens.lens (\ListExtensionsResponse' {httpSta
 
 instance Prelude.NFData ListExtensionsResponse where
   rnf ListExtensionsResponse' {..} =
-    Prelude.rnf extensions
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf extensions `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -142,11 +142,11 @@ instance Prelude.Hashable CreateVolumeFromBackup where
 
 instance Prelude.NFData CreateVolumeFromBackup where
   rnf CreateVolumeFromBackup' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf ontapConfiguration
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf backupId
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf ontapConfiguration `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf backupId `Prelude.seq`
+            Prelude.rnf name
 
 instance Data.ToHeaders CreateVolumeFromBackup where
   toHeaders =
@@ -230,5 +230,5 @@ instance
     CreateVolumeFromBackupResponse
   where
   rnf CreateVolumeFromBackupResponse' {..} =
-    Prelude.rnf volume
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf volume `Prelude.seq`
+      Prelude.rnf httpStatus

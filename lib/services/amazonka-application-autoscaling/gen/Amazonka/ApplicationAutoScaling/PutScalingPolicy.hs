@@ -682,13 +682,13 @@ instance Prelude.Hashable PutScalingPolicy where
 
 instance Prelude.NFData PutScalingPolicy where
   rnf PutScalingPolicy' {..} =
-    Prelude.rnf policyType
-      `Prelude.seq` Prelude.rnf stepScalingPolicyConfiguration
-      `Prelude.seq` Prelude.rnf targetTrackingScalingPolicyConfiguration
-      `Prelude.seq` Prelude.rnf policyName
-      `Prelude.seq` Prelude.rnf serviceNamespace
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf scalableDimension
+    Prelude.rnf policyType `Prelude.seq`
+      Prelude.rnf stepScalingPolicyConfiguration `Prelude.seq`
+        Prelude.rnf targetTrackingScalingPolicyConfiguration `Prelude.seq`
+          Prelude.rnf policyName `Prelude.seq`
+            Prelude.rnf serviceNamespace `Prelude.seq`
+              Prelude.rnf resourceId `Prelude.seq`
+                Prelude.rnf scalableDimension
 
 instance Data.ToHeaders PutScalingPolicy where
   toHeaders =
@@ -780,6 +780,6 @@ putScalingPolicyResponse_policyARN = Lens.lens (\PutScalingPolicyResponse' {poli
 
 instance Prelude.NFData PutScalingPolicyResponse where
   rnf PutScalingPolicyResponse' {..} =
-    Prelude.rnf alarms
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf policyARN
+    Prelude.rnf alarms `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf policyARN

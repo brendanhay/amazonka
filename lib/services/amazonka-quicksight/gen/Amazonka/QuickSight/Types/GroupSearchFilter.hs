@@ -103,9 +103,9 @@ instance Prelude.Hashable GroupSearchFilter where
 
 instance Prelude.NFData GroupSearchFilter where
   rnf GroupSearchFilter' {..} =
-    Prelude.rnf operator
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf operator `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf value
 
 instance Data.ToJSON GroupSearchFilter where
   toJSON GroupSearchFilter' {..} =

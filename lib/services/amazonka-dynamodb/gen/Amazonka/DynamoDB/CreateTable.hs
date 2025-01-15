@@ -673,17 +673,17 @@ instance Prelude.Hashable CreateTable where
 
 instance Prelude.NFData CreateTable where
   rnf CreateTable' {..} =
-    Prelude.rnf billingMode
-      `Prelude.seq` Prelude.rnf globalSecondaryIndexes
-      `Prelude.seq` Prelude.rnf localSecondaryIndexes
-      `Prelude.seq` Prelude.rnf provisionedThroughput
-      `Prelude.seq` Prelude.rnf sSESpecification
-      `Prelude.seq` Prelude.rnf streamSpecification
-      `Prelude.seq` Prelude.rnf tableClass
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf attributeDefinitions
-      `Prelude.seq` Prelude.rnf tableName
-      `Prelude.seq` Prelude.rnf keySchema
+    Prelude.rnf billingMode `Prelude.seq`
+      Prelude.rnf globalSecondaryIndexes `Prelude.seq`
+        Prelude.rnf localSecondaryIndexes `Prelude.seq`
+          Prelude.rnf provisionedThroughput `Prelude.seq`
+            Prelude.rnf sSESpecification `Prelude.seq`
+              Prelude.rnf streamSpecification `Prelude.seq`
+                Prelude.rnf tableClass `Prelude.seq`
+                  Prelude.rnf tags `Prelude.seq`
+                    Prelude.rnf attributeDefinitions `Prelude.seq`
+                      Prelude.rnf tableName `Prelude.seq`
+                        Prelude.rnf keySchema
 
 instance Data.ToHeaders CreateTable where
   toHeaders =
@@ -775,5 +775,5 @@ createTableResponse_httpStatus = Lens.lens (\CreateTableResponse' {httpStatus} -
 
 instance Prelude.NFData CreateTableResponse where
   rnf CreateTableResponse' {..} =
-    Prelude.rnf tableDescription
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf tableDescription `Prelude.seq`
+      Prelude.rnf httpStatus

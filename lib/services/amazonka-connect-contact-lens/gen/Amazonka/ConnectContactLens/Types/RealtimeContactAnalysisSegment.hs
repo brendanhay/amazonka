@@ -91,5 +91,5 @@ instance
     RealtimeContactAnalysisSegment
   where
   rnf RealtimeContactAnalysisSegment' {..} =
-    Prelude.rnf categories
-      `Prelude.seq` Prelude.rnf transcript
+    Prelude.rnf categories `Prelude.seq`
+      Prelude.rnf transcript

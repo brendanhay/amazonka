@@ -152,13 +152,13 @@ instance Prelude.Hashable HlsAkamaiSettings where
 
 instance Prelude.NFData HlsAkamaiSettings where
   rnf HlsAkamaiSettings' {..} =
-    Prelude.rnf connectionRetryInterval
-      `Prelude.seq` Prelude.rnf filecacheDuration
-      `Prelude.seq` Prelude.rnf httpTransferMode
-      `Prelude.seq` Prelude.rnf numRetries
-      `Prelude.seq` Prelude.rnf restartDelay
-      `Prelude.seq` Prelude.rnf salt
-      `Prelude.seq` Prelude.rnf token
+    Prelude.rnf connectionRetryInterval `Prelude.seq`
+      Prelude.rnf filecacheDuration `Prelude.seq`
+        Prelude.rnf httpTransferMode `Prelude.seq`
+          Prelude.rnf numRetries `Prelude.seq`
+            Prelude.rnf restartDelay `Prelude.seq`
+              Prelude.rnf salt `Prelude.seq`
+                Prelude.rnf token
 
 instance Data.ToJSON HlsAkamaiSettings where
   toJSON HlsAkamaiSettings' {..} =

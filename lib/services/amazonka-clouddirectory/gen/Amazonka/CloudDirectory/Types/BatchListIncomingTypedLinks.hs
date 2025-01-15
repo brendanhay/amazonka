@@ -123,11 +123,11 @@ instance Prelude.Hashable BatchListIncomingTypedLinks where
 
 instance Prelude.NFData BatchListIncomingTypedLinks where
   rnf BatchListIncomingTypedLinks' {..} =
-    Prelude.rnf filterAttributeRanges
-      `Prelude.seq` Prelude.rnf filterTypedLink
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf objectReference
+    Prelude.rnf filterAttributeRanges `Prelude.seq`
+      Prelude.rnf filterTypedLink `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf objectReference
 
 instance Data.ToJSON BatchListIncomingTypedLinks where
   toJSON BatchListIncomingTypedLinks' {..} =

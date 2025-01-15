@@ -104,6 +104,6 @@ instance Prelude.Hashable TargetSummary where
 
 instance Prelude.NFData TargetSummary where
   rnf TargetSummary' {..} =
-    Prelude.rnf targetAddress
-      `Prelude.seq` Prelude.rnf targetStatus
-      `Prelude.seq` Prelude.rnf targetType
+    Prelude.rnf targetAddress `Prelude.seq`
+      Prelude.rnf targetStatus `Prelude.seq`
+        Prelude.rnf targetType

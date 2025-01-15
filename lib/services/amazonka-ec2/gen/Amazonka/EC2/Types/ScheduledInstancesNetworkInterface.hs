@@ -205,18 +205,18 @@ instance
     ScheduledInstancesNetworkInterface
   where
   rnf ScheduledInstancesNetworkInterface' {..} =
-    Prelude.rnf associatePublicIpAddress
-      `Prelude.seq` Prelude.rnf deleteOnTermination
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf deviceIndex
-      `Prelude.seq` Prelude.rnf groups
-      `Prelude.seq` Prelude.rnf ipv6AddressCount
-      `Prelude.seq` Prelude.rnf ipv6Addresses
-      `Prelude.seq` Prelude.rnf networkInterfaceId
-      `Prelude.seq` Prelude.rnf privateIpAddress
-      `Prelude.seq` Prelude.rnf privateIpAddressConfigs
-      `Prelude.seq` Prelude.rnf secondaryPrivateIpAddressCount
-      `Prelude.seq` Prelude.rnf subnetId
+    Prelude.rnf associatePublicIpAddress `Prelude.seq`
+      Prelude.rnf deleteOnTermination `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf deviceIndex `Prelude.seq`
+            Prelude.rnf groups `Prelude.seq`
+              Prelude.rnf ipv6AddressCount `Prelude.seq`
+                Prelude.rnf ipv6Addresses `Prelude.seq`
+                  Prelude.rnf networkInterfaceId `Prelude.seq`
+                    Prelude.rnf privateIpAddress `Prelude.seq`
+                      Prelude.rnf privateIpAddressConfigs `Prelude.seq`
+                        Prelude.rnf secondaryPrivateIpAddressCount `Prelude.seq`
+                          Prelude.rnf subnetId
 
 instance
   Data.ToQuery

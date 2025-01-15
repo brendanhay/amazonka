@@ -218,5 +218,5 @@ getSizeConstraintSetResponse_httpStatus = Lens.lens (\GetSizeConstraintSetRespon
 
 instance Prelude.NFData GetSizeConstraintSetResponse where
   rnf GetSizeConstraintSetResponse' {..} =
-    Prelude.rnf sizeConstraintSet
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf sizeConstraintSet `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -116,8 +116,8 @@ instance Prelude.Hashable GetIPSet where
 
 instance Prelude.NFData GetIPSet where
   rnf GetIPSet' {..} =
-    Prelude.rnf detectorId
-      `Prelude.seq` Prelude.rnf ipSetId
+    Prelude.rnf detectorId `Prelude.seq`
+      Prelude.rnf ipSetId
 
 instance Data.ToHeaders GetIPSet where
   toHeaders =
@@ -231,9 +231,9 @@ getIPSetResponse_status = Lens.lens (\GetIPSetResponse' {status} -> status) (\s@
 
 instance Prelude.NFData GetIPSetResponse where
   rnf GetIPSetResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf format
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf format `Prelude.seq`
+            Prelude.rnf location `Prelude.seq`
+              Prelude.rnf status

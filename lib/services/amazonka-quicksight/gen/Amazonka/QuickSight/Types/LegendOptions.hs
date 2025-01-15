@@ -146,11 +146,11 @@ instance Prelude.Hashable LegendOptions where
 
 instance Prelude.NFData LegendOptions where
   rnf LegendOptions' {..} =
-    Prelude.rnf height
-      `Prelude.seq` Prelude.rnf position
-      `Prelude.seq` Prelude.rnf title
-      `Prelude.seq` Prelude.rnf visibility
-      `Prelude.seq` Prelude.rnf width
+    Prelude.rnf height `Prelude.seq`
+      Prelude.rnf position `Prelude.seq`
+        Prelude.rnf title `Prelude.seq`
+          Prelude.rnf visibility `Prelude.seq`
+            Prelude.rnf width
 
 instance Data.ToJSON LegendOptions where
   toJSON LegendOptions' {..} =

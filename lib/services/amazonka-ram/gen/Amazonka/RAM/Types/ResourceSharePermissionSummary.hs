@@ -182,12 +182,12 @@ instance
     ResourceSharePermissionSummary
   where
   rnf ResourceSharePermissionSummary' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf defaultVersion
-      `Prelude.seq` Prelude.rnf isResourceTypeDefault
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf version
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf defaultVersion `Prelude.seq`
+          Prelude.rnf isResourceTypeDefault `Prelude.seq`
+            Prelude.rnf lastUpdatedTime `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf resourceType `Prelude.seq`
+                  Prelude.rnf status `Prelude.seq`
+                    Prelude.rnf version

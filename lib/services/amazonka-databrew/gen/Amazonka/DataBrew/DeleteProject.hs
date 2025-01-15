@@ -155,5 +155,5 @@ deleteProjectResponse_name = Lens.lens (\DeleteProjectResponse' {name} -> name) 
 
 instance Prelude.NFData DeleteProjectResponse where
   rnf DeleteProjectResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf name

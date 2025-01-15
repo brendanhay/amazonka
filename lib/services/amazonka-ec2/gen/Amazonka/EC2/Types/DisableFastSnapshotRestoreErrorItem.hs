@@ -95,5 +95,5 @@ instance
     DisableFastSnapshotRestoreErrorItem
   where
   rnf DisableFastSnapshotRestoreErrorItem' {..} =
-    Prelude.rnf fastSnapshotRestoreStateErrors
-      `Prelude.seq` Prelude.rnf snapshotId
+    Prelude.rnf fastSnapshotRestoreStateErrors `Prelude.seq`
+      Prelude.rnf snapshotId

@@ -271,13 +271,13 @@ instance
     UpdateFileSystemLustreConfiguration
   where
   rnf UpdateFileSystemLustreConfiguration' {..} =
-    Prelude.rnf autoImportPolicy
-      `Prelude.seq` Prelude.rnf automaticBackupRetentionDays
-      `Prelude.seq` Prelude.rnf dailyAutomaticBackupStartTime
-      `Prelude.seq` Prelude.rnf dataCompressionType
-      `Prelude.seq` Prelude.rnf logConfiguration
-      `Prelude.seq` Prelude.rnf rootSquashConfiguration
-      `Prelude.seq` Prelude.rnf weeklyMaintenanceStartTime
+    Prelude.rnf autoImportPolicy `Prelude.seq`
+      Prelude.rnf automaticBackupRetentionDays `Prelude.seq`
+        Prelude.rnf dailyAutomaticBackupStartTime `Prelude.seq`
+          Prelude.rnf dataCompressionType `Prelude.seq`
+            Prelude.rnf logConfiguration `Prelude.seq`
+              Prelude.rnf rootSquashConfiguration `Prelude.seq`
+                Prelude.rnf weeklyMaintenanceStartTime
 
 instance
   Data.ToJSON

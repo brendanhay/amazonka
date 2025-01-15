@@ -104,6 +104,6 @@ instance Prelude.Hashable MultiRegionConfiguration where
 
 instance Prelude.NFData MultiRegionConfiguration where
   rnf MultiRegionConfiguration' {..} =
-    Prelude.rnf multiRegionKeyType
-      `Prelude.seq` Prelude.rnf primaryKey
-      `Prelude.seq` Prelude.rnf replicaKeys
+    Prelude.rnf multiRegionKeyType `Prelude.seq`
+      Prelude.rnf primaryKey `Prelude.seq`
+        Prelude.rnf replicaKeys

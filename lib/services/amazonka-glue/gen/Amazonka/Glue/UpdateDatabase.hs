@@ -128,9 +128,9 @@ instance Prelude.Hashable UpdateDatabase where
 
 instance Prelude.NFData UpdateDatabase where
   rnf UpdateDatabase' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf databaseInput
+    Prelude.rnf catalogId `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf databaseInput
 
 instance Data.ToHeaders UpdateDatabase where
   toHeaders =

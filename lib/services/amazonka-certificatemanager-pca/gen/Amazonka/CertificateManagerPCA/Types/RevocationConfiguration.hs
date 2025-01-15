@@ -114,8 +114,8 @@ instance Prelude.Hashable RevocationConfiguration where
 
 instance Prelude.NFData RevocationConfiguration where
   rnf RevocationConfiguration' {..} =
-    Prelude.rnf crlConfiguration
-      `Prelude.seq` Prelude.rnf ocspConfiguration
+    Prelude.rnf crlConfiguration `Prelude.seq`
+      Prelude.rnf ocspConfiguration
 
 instance Data.ToJSON RevocationConfiguration where
   toJSON RevocationConfiguration' {..} =

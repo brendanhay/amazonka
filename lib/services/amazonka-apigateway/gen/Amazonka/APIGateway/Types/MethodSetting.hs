@@ -261,13 +261,13 @@ instance Prelude.Hashable MethodSetting where
 
 instance Prelude.NFData MethodSetting where
   rnf MethodSetting' {..} =
-    Prelude.rnf cacheDataEncrypted
-      `Prelude.seq` Prelude.rnf cacheTtlInSeconds
-      `Prelude.seq` Prelude.rnf cachingEnabled
-      `Prelude.seq` Prelude.rnf dataTraceEnabled
-      `Prelude.seq` Prelude.rnf loggingLevel
-      `Prelude.seq` Prelude.rnf metricsEnabled
-      `Prelude.seq` Prelude.rnf requireAuthorizationForCacheControl
-      `Prelude.seq` Prelude.rnf throttlingBurstLimit
-      `Prelude.seq` Prelude.rnf throttlingRateLimit
-      `Prelude.seq` Prelude.rnf unauthorizedCacheControlHeaderStrategy
+    Prelude.rnf cacheDataEncrypted `Prelude.seq`
+      Prelude.rnf cacheTtlInSeconds `Prelude.seq`
+        Prelude.rnf cachingEnabled `Prelude.seq`
+          Prelude.rnf dataTraceEnabled `Prelude.seq`
+            Prelude.rnf loggingLevel `Prelude.seq`
+              Prelude.rnf metricsEnabled `Prelude.seq`
+                Prelude.rnf requireAuthorizationForCacheControl `Prelude.seq`
+                  Prelude.rnf throttlingBurstLimit `Prelude.seq`
+                    Prelude.rnf throttlingRateLimit `Prelude.seq`
+                      Prelude.rnf unauthorizedCacheControlHeaderStrategy

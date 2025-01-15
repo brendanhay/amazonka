@@ -128,9 +128,9 @@ instance Prelude.Hashable UpdateConnectorRegistration where
 
 instance Prelude.NFData UpdateConnectorRegistration where
   rnf UpdateConnectorRegistration' {..} =
-    Prelude.rnf connectorProvisioningConfig
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf connectorLabel
+    Prelude.rnf connectorProvisioningConfig `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf connectorLabel
 
 instance Data.ToHeaders UpdateConnectorRegistration where
   toHeaders =
@@ -206,5 +206,5 @@ instance
     UpdateConnectorRegistrationResponse
   where
   rnf UpdateConnectorRegistrationResponse' {..} =
-    Prelude.rnf connectorArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf connectorArn `Prelude.seq`
+      Prelude.rnf httpStatus

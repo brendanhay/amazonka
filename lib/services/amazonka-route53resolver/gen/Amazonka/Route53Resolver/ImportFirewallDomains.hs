@@ -168,9 +168,9 @@ instance Prelude.Hashable ImportFirewallDomains where
 
 instance Prelude.NFData ImportFirewallDomains where
   rnf ImportFirewallDomains' {..} =
-    Prelude.rnf firewallDomainListId
-      `Prelude.seq` Prelude.rnf operation
-      `Prelude.seq` Prelude.rnf domainFileUrl
+    Prelude.rnf firewallDomainListId `Prelude.seq`
+      Prelude.rnf operation `Prelude.seq`
+        Prelude.rnf domainFileUrl
 
 instance Data.ToHeaders ImportFirewallDomains where
   toHeaders =
@@ -273,8 +273,8 @@ importFirewallDomainsResponse_httpStatus = Lens.lens (\ImportFirewallDomainsResp
 
 instance Prelude.NFData ImportFirewallDomainsResponse where
   rnf ImportFirewallDomainsResponse' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf status `Prelude.seq`
+          Prelude.rnf statusMessage `Prelude.seq`
+            Prelude.rnf httpStatus

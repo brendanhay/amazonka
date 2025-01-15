@@ -190,9 +190,9 @@ instance
     ListAvailableManagedRuleGroups
   where
   rnf ListAvailableManagedRuleGroups' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf scope
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf nextMarker `Prelude.seq`
+        Prelude.rnf scope
 
 instance
   Data.ToHeaders
@@ -289,6 +289,6 @@ instance
     ListAvailableManagedRuleGroupsResponse
   where
   rnf ListAvailableManagedRuleGroupsResponse' {..} =
-    Prelude.rnf managedRuleGroups
-      `Prelude.seq` Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf managedRuleGroups `Prelude.seq`
+      Prelude.rnf nextMarker `Prelude.seq`
+        Prelude.rnf httpStatus

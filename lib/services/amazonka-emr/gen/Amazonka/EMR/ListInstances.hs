@@ -162,12 +162,12 @@ instance Core.AWSPager ListInstances where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listInstances_marker
-          Lens..~ rs
-          Lens.^? listInstancesResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listInstances_marker
+              Lens..~ rs
+              Lens.^? listInstancesResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListInstances where
   type
@@ -197,13 +197,13 @@ instance Prelude.Hashable ListInstances where
 
 instance Prelude.NFData ListInstances where
   rnf ListInstances' {..} =
-    Prelude.rnf instanceFleetId
-      `Prelude.seq` Prelude.rnf instanceFleetType
-      `Prelude.seq` Prelude.rnf instanceGroupId
-      `Prelude.seq` Prelude.rnf instanceGroupTypes
-      `Prelude.seq` Prelude.rnf instanceStates
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf clusterId
+    Prelude.rnf instanceFleetId `Prelude.seq`
+      Prelude.rnf instanceFleetType `Prelude.seq`
+        Prelude.rnf instanceGroupId `Prelude.seq`
+          Prelude.rnf instanceGroupTypes `Prelude.seq`
+            Prelude.rnf instanceStates `Prelude.seq`
+              Prelude.rnf marker `Prelude.seq`
+                Prelude.rnf clusterId
 
 instance Data.ToHeaders ListInstances where
   toHeaders =
@@ -296,6 +296,6 @@ listInstancesResponse_httpStatus = Lens.lens (\ListInstancesResponse' {httpStatu
 
 instance Prelude.NFData ListInstancesResponse where
   rnf ListInstancesResponse' {..} =
-    Prelude.rnf instances
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf instances `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf httpStatus

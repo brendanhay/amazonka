@@ -151,5 +151,5 @@ instance
     GetContainerAPIMetadataResponse
   where
   rnf GetContainerAPIMetadataResponse' {..} =
-    Prelude.rnf metadata
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf metadata `Prelude.seq`
+      Prelude.rnf httpStatus

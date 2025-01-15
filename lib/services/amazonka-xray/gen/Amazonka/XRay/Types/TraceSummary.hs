@@ -336,23 +336,23 @@ instance Prelude.Hashable TraceSummary where
 
 instance Prelude.NFData TraceSummary where
   rnf TraceSummary' {..} =
-    Prelude.rnf annotations
-      `Prelude.seq` Prelude.rnf availabilityZones
-      `Prelude.seq` Prelude.rnf duration
-      `Prelude.seq` Prelude.rnf entryPoint
-      `Prelude.seq` Prelude.rnf errorRootCauses
-      `Prelude.seq` Prelude.rnf faultRootCauses
-      `Prelude.seq` Prelude.rnf hasError
-      `Prelude.seq` Prelude.rnf hasFault
-      `Prelude.seq` Prelude.rnf hasThrottle
-      `Prelude.seq` Prelude.rnf http
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf instanceIds
-      `Prelude.seq` Prelude.rnf isPartial
-      `Prelude.seq` Prelude.rnf matchedEventTime
-      `Prelude.seq` Prelude.rnf resourceARNs
-      `Prelude.seq` Prelude.rnf responseTime
-      `Prelude.seq` Prelude.rnf responseTimeRootCauses
-      `Prelude.seq` Prelude.rnf revision
-      `Prelude.seq` Prelude.rnf serviceIds
-      `Prelude.seq` Prelude.rnf users
+    Prelude.rnf annotations `Prelude.seq`
+      Prelude.rnf availabilityZones `Prelude.seq`
+        Prelude.rnf duration `Prelude.seq`
+          Prelude.rnf entryPoint `Prelude.seq`
+            Prelude.rnf errorRootCauses `Prelude.seq`
+              Prelude.rnf faultRootCauses `Prelude.seq`
+                Prelude.rnf hasError `Prelude.seq`
+                  Prelude.rnf hasFault `Prelude.seq`
+                    Prelude.rnf hasThrottle `Prelude.seq`
+                      Prelude.rnf http `Prelude.seq`
+                        Prelude.rnf id `Prelude.seq`
+                          Prelude.rnf instanceIds `Prelude.seq`
+                            Prelude.rnf isPartial `Prelude.seq`
+                              Prelude.rnf matchedEventTime `Prelude.seq`
+                                Prelude.rnf resourceARNs `Prelude.seq`
+                                  Prelude.rnf responseTime `Prelude.seq`
+                                    Prelude.rnf responseTimeRootCauses `Prelude.seq`
+                                      Prelude.rnf revision `Prelude.seq`
+                                        Prelude.rnf serviceIds `Prelude.seq`
+                                          Prelude.rnf users

@@ -130,8 +130,8 @@ instance
     RepositoryScanningConfiguration
   where
   rnf RepositoryScanningConfiguration' {..} =
-    Prelude.rnf appliedScanFilters
-      `Prelude.seq` Prelude.rnf repositoryArn
-      `Prelude.seq` Prelude.rnf repositoryName
-      `Prelude.seq` Prelude.rnf scanFrequency
-      `Prelude.seq` Prelude.rnf scanOnPush
+    Prelude.rnf appliedScanFilters `Prelude.seq`
+      Prelude.rnf repositoryArn `Prelude.seq`
+        Prelude.rnf repositoryName `Prelude.seq`
+          Prelude.rnf scanFrequency `Prelude.seq`
+            Prelude.rnf scanOnPush

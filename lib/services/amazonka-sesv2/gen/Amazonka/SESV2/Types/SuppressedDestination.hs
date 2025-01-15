@@ -127,7 +127,7 @@ instance Prelude.Hashable SuppressedDestination where
 
 instance Prelude.NFData SuppressedDestination where
   rnf SuppressedDestination' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf emailAddress
-      `Prelude.seq` Prelude.rnf reason
-      `Prelude.seq` Prelude.rnf lastUpdateTime
+    Prelude.rnf attributes `Prelude.seq`
+      Prelude.rnf emailAddress `Prelude.seq`
+        Prelude.rnf reason `Prelude.seq`
+          Prelude.rnf lastUpdateTime

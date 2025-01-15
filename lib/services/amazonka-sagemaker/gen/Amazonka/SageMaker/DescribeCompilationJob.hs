@@ -459,21 +459,21 @@ instance
     DescribeCompilationJobResponse
   where
   rnf DescribeCompilationJobResponse' {..} =
-    Prelude.rnf compilationEndTime
-      `Prelude.seq` Prelude.rnf compilationStartTime
-      `Prelude.seq` Prelude.rnf inferenceImage
-      `Prelude.seq` Prelude.rnf modelDigests
-      `Prelude.seq` Prelude.rnf modelPackageVersionArn
-      `Prelude.seq` Prelude.rnf vpcConfig
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf compilationJobName
-      `Prelude.seq` Prelude.rnf compilationJobArn
-      `Prelude.seq` Prelude.rnf compilationJobStatus
-      `Prelude.seq` Prelude.rnf stoppingCondition
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf modelArtifacts
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf inputConfig
-      `Prelude.seq` Prelude.rnf outputConfig
+    Prelude.rnf compilationEndTime `Prelude.seq`
+      Prelude.rnf compilationStartTime `Prelude.seq`
+        Prelude.rnf inferenceImage `Prelude.seq`
+          Prelude.rnf modelDigests `Prelude.seq`
+            Prelude.rnf modelPackageVersionArn `Prelude.seq`
+              Prelude.rnf vpcConfig `Prelude.seq`
+                Prelude.rnf httpStatus `Prelude.seq`
+                  Prelude.rnf compilationJobName `Prelude.seq`
+                    Prelude.rnf compilationJobArn `Prelude.seq`
+                      Prelude.rnf compilationJobStatus `Prelude.seq`
+                        Prelude.rnf stoppingCondition `Prelude.seq`
+                          Prelude.rnf creationTime `Prelude.seq`
+                            Prelude.rnf lastModifiedTime `Prelude.seq`
+                              Prelude.rnf failureReason `Prelude.seq`
+                                Prelude.rnf modelArtifacts `Prelude.seq`
+                                  Prelude.rnf roleArn `Prelude.seq`
+                                    Prelude.rnf inputConfig `Prelude.seq`
+                                      Prelude.rnf outputConfig

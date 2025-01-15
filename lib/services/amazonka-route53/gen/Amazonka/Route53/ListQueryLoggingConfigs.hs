@@ -184,12 +184,12 @@ instance Core.AWSPager ListQueryLoggingConfigs where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listQueryLoggingConfigs_nextToken
-          Lens..~ rs
-          Lens.^? listQueryLoggingConfigsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listQueryLoggingConfigs_nextToken
+              Lens..~ rs
+              Lens.^? listQueryLoggingConfigsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListQueryLoggingConfigs where
   type
@@ -219,9 +219,9 @@ instance Prelude.Hashable ListQueryLoggingConfigs where
 
 instance Prelude.NFData ListQueryLoggingConfigs where
   rnf ListQueryLoggingConfigs' {..} =
-    Prelude.rnf hostedZoneId
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf hostedZoneId `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListQueryLoggingConfigs where
   toHeaders = Prelude.const Prelude.mempty
@@ -324,6 +324,6 @@ instance
     ListQueryLoggingConfigsResponse
   where
   rnf ListQueryLoggingConfigsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf queryLoggingConfigs
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf queryLoggingConfigs

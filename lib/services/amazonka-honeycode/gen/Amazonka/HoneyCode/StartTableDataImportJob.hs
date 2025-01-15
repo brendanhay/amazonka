@@ -224,12 +224,12 @@ instance Prelude.Hashable StartTableDataImportJob where
 
 instance Prelude.NFData StartTableDataImportJob where
   rnf StartTableDataImportJob' {..} =
-    Prelude.rnf workbookId
-      `Prelude.seq` Prelude.rnf dataSource
-      `Prelude.seq` Prelude.rnf dataFormat
-      `Prelude.seq` Prelude.rnf destinationTableId
-      `Prelude.seq` Prelude.rnf importOptions
-      `Prelude.seq` Prelude.rnf clientRequestToken
+    Prelude.rnf workbookId `Prelude.seq`
+      Prelude.rnf dataSource `Prelude.seq`
+        Prelude.rnf dataFormat `Prelude.seq`
+          Prelude.rnf destinationTableId `Prelude.seq`
+            Prelude.rnf importOptions `Prelude.seq`
+              Prelude.rnf clientRequestToken
 
 instance Data.ToHeaders StartTableDataImportJob where
   toHeaders =
@@ -333,6 +333,6 @@ instance
     StartTableDataImportJobResponse
   where
   rnf StartTableDataImportJobResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf jobStatus
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf jobId `Prelude.seq`
+        Prelude.rnf jobStatus

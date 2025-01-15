@@ -130,9 +130,9 @@ instance Prelude.Hashable LicenseConfigurationUsage where
 
 instance Prelude.NFData LicenseConfigurationUsage where
   rnf LicenseConfigurationUsage' {..} =
-    Prelude.rnf associationTime
-      `Prelude.seq` Prelude.rnf consumedLicenses
-      `Prelude.seq` Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf resourceOwnerId
-      `Prelude.seq` Prelude.rnf resourceStatus
-      `Prelude.seq` Prelude.rnf resourceType
+    Prelude.rnf associationTime `Prelude.seq`
+      Prelude.rnf consumedLicenses `Prelude.seq`
+        Prelude.rnf resourceArn `Prelude.seq`
+          Prelude.rnf resourceOwnerId `Prelude.seq`
+            Prelude.rnf resourceStatus `Prelude.seq`
+              Prelude.rnf resourceType

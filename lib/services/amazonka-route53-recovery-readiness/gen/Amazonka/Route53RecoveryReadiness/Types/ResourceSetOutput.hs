@@ -155,8 +155,8 @@ instance Prelude.Hashable ResourceSetOutput where
 
 instance Prelude.NFData ResourceSetOutput where
   rnf ResourceSetOutput' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf resourceSetType
-      `Prelude.seq` Prelude.rnf resourceSetName
-      `Prelude.seq` Prelude.rnf resourceSetArn
-      `Prelude.seq` Prelude.rnf resources
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf resourceSetType `Prelude.seq`
+        Prelude.rnf resourceSetName `Prelude.seq`
+          Prelude.rnf resourceSetArn `Prelude.seq`
+            Prelude.rnf resources

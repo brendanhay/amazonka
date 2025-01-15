@@ -190,8 +190,8 @@ instance
     ParallelismConfigurationDescription
   where
   rnf ParallelismConfigurationDescription' {..} =
-    Prelude.rnf autoScalingEnabled
-      `Prelude.seq` Prelude.rnf configurationType
-      `Prelude.seq` Prelude.rnf currentParallelism
-      `Prelude.seq` Prelude.rnf parallelism
-      `Prelude.seq` Prelude.rnf parallelismPerKPU
+    Prelude.rnf autoScalingEnabled `Prelude.seq`
+      Prelude.rnf configurationType `Prelude.seq`
+        Prelude.rnf currentParallelism `Prelude.seq`
+          Prelude.rnf parallelism `Prelude.seq`
+            Prelude.rnf parallelismPerKPU

@@ -229,10 +229,10 @@ instance Prelude.Hashable ModifyDBSnapshotAttribute where
 
 instance Prelude.NFData ModifyDBSnapshotAttribute where
   rnf ModifyDBSnapshotAttribute' {..} =
-    Prelude.rnf valuesToAdd
-      `Prelude.seq` Prelude.rnf valuesToRemove
-      `Prelude.seq` Prelude.rnf dbSnapshotIdentifier
-      `Prelude.seq` Prelude.rnf attributeName
+    Prelude.rnf valuesToAdd `Prelude.seq`
+      Prelude.rnf valuesToRemove `Prelude.seq`
+        Prelude.rnf dbSnapshotIdentifier `Prelude.seq`
+          Prelude.rnf attributeName
 
 instance Data.ToHeaders ModifyDBSnapshotAttribute where
   toHeaders = Prelude.const Prelude.mempty
@@ -304,5 +304,5 @@ instance
     ModifyDBSnapshotAttributeResponse
   where
   rnf ModifyDBSnapshotAttributeResponse' {..} =
-    Prelude.rnf dbSnapshotAttributesResult
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dbSnapshotAttributesResult `Prelude.seq`
+      Prelude.rnf httpStatus

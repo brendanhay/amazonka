@@ -160,11 +160,11 @@ instance Prelude.Hashable InstanceUserSummary where
 
 instance Prelude.NFData InstanceUserSummary where
   rnf InstanceUserSummary' {..} =
-    Prelude.rnf associationDate
-      `Prelude.seq` Prelude.rnf disassociationDate
-      `Prelude.seq` Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf identityProvider
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf username
+    Prelude.rnf associationDate `Prelude.seq`
+      Prelude.rnf disassociationDate `Prelude.seq`
+        Prelude.rnf domain `Prelude.seq`
+          Prelude.rnf statusMessage `Prelude.seq`
+            Prelude.rnf identityProvider `Prelude.seq`
+              Prelude.rnf instanceId `Prelude.seq`
+                Prelude.rnf status `Prelude.seq`
+                  Prelude.rnf username

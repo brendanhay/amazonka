@@ -117,12 +117,12 @@ instance Core.AWSPager ListDomainConfigurations where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listDomainConfigurations_marker
-          Lens..~ rs
-          Lens.^? listDomainConfigurationsResponse_nextMarker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listDomainConfigurations_marker
+              Lens..~ rs
+              Lens.^? listDomainConfigurationsResponse_nextMarker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDomainConfigurations where
   type
@@ -151,9 +151,9 @@ instance Prelude.Hashable ListDomainConfigurations where
 
 instance Prelude.NFData ListDomainConfigurations where
   rnf ListDomainConfigurations' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf pageSize
-      `Prelude.seq` Prelude.rnf serviceType
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf pageSize `Prelude.seq`
+        Prelude.rnf serviceType
 
 instance Data.ToHeaders ListDomainConfigurations where
   toHeaders = Prelude.const Prelude.mempty
@@ -225,6 +225,6 @@ instance
     ListDomainConfigurationsResponse
   where
   rnf ListDomainConfigurationsResponse' {..} =
-    Prelude.rnf domainConfigurations
-      `Prelude.seq` Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf domainConfigurations `Prelude.seq`
+      Prelude.rnf nextMarker `Prelude.seq`
+        Prelude.rnf httpStatus

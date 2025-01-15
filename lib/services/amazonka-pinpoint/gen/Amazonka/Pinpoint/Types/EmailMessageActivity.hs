@@ -144,10 +144,10 @@ instance Prelude.Hashable EmailMessageActivity where
 
 instance Prelude.NFData EmailMessageActivity where
   rnf EmailMessageActivity' {..} =
-    Prelude.rnf messageConfig
-      `Prelude.seq` Prelude.rnf nextActivity
-      `Prelude.seq` Prelude.rnf templateName
-      `Prelude.seq` Prelude.rnf templateVersion
+    Prelude.rnf messageConfig `Prelude.seq`
+      Prelude.rnf nextActivity `Prelude.seq`
+        Prelude.rnf templateName `Prelude.seq`
+          Prelude.rnf templateVersion
 
 instance Data.ToJSON EmailMessageActivity where
   toJSON EmailMessageActivity' {..} =

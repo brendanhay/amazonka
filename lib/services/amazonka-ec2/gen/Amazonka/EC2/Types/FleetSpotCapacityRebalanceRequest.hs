@@ -151,8 +151,8 @@ instance
     FleetSpotCapacityRebalanceRequest
   where
   rnf FleetSpotCapacityRebalanceRequest' {..} =
-    Prelude.rnf replacementStrategy
-      `Prelude.seq` Prelude.rnf terminationDelay
+    Prelude.rnf replacementStrategy `Prelude.seq`
+      Prelude.rnf terminationDelay
 
 instance
   Data.ToQuery

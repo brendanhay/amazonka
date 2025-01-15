@@ -215,14 +215,14 @@ instance Prelude.Hashable PendingModifiedValues where
 
 instance Prelude.NFData PendingModifiedValues where
   rnf PendingModifiedValues' {..} =
-    Prelude.rnf automatedSnapshotRetentionPeriod
-      `Prelude.seq` Prelude.rnf clusterIdentifier
-      `Prelude.seq` Prelude.rnf clusterType
-      `Prelude.seq` Prelude.rnf clusterVersion
-      `Prelude.seq` Prelude.rnf encryptionType
-      `Prelude.seq` Prelude.rnf enhancedVpcRouting
-      `Prelude.seq` Prelude.rnf maintenanceTrackName
-      `Prelude.seq` Prelude.rnf masterUserPassword
-      `Prelude.seq` Prelude.rnf nodeType
-      `Prelude.seq` Prelude.rnf numberOfNodes
-      `Prelude.seq` Prelude.rnf publiclyAccessible
+    Prelude.rnf automatedSnapshotRetentionPeriod `Prelude.seq`
+      Prelude.rnf clusterIdentifier `Prelude.seq`
+        Prelude.rnf clusterType `Prelude.seq`
+          Prelude.rnf clusterVersion `Prelude.seq`
+            Prelude.rnf encryptionType `Prelude.seq`
+              Prelude.rnf enhancedVpcRouting `Prelude.seq`
+                Prelude.rnf maintenanceTrackName `Prelude.seq`
+                  Prelude.rnf masterUserPassword `Prelude.seq`
+                    Prelude.rnf nodeType `Prelude.seq`
+                      Prelude.rnf numberOfNodes `Prelude.seq`
+                        Prelude.rnf publiclyAccessible

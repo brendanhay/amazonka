@@ -105,9 +105,9 @@ instance
     CloudWatchLogOptionsSpecification
   where
   rnf CloudWatchLogOptionsSpecification' {..} =
-    Prelude.rnf logEnabled
-      `Prelude.seq` Prelude.rnf logGroupArn
-      `Prelude.seq` Prelude.rnf logOutputFormat
+    Prelude.rnf logEnabled `Prelude.seq`
+      Prelude.rnf logGroupArn `Prelude.seq`
+        Prelude.rnf logOutputFormat
 
 instance
   Data.ToQuery

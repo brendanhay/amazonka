@@ -82,9 +82,9 @@ instance Prelude.Hashable Filter where
 
 instance Prelude.NFData Filter where
   rnf Filter' {..} =
-    Prelude.rnf attribute
-      `Prelude.seq` Prelude.rnf operation
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf attribute `Prelude.seq`
+      Prelude.rnf operation `Prelude.seq`
+        Prelude.rnf value
 
 instance Data.ToJSON Filter where
   toJSON Filter' {..} =

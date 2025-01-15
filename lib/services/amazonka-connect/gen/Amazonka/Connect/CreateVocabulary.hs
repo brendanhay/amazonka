@@ -215,12 +215,12 @@ instance Prelude.Hashable CreateVocabulary where
 
 instance Prelude.NFData CreateVocabulary where
   rnf CreateVocabulary' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf vocabularyName
-      `Prelude.seq` Prelude.rnf languageCode
-      `Prelude.seq` Prelude.rnf content
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf instanceId `Prelude.seq`
+          Prelude.rnf vocabularyName `Prelude.seq`
+            Prelude.rnf languageCode `Prelude.seq`
+              Prelude.rnf content
 
 instance Data.ToHeaders CreateVocabulary where
   toHeaders =
@@ -323,7 +323,7 @@ createVocabularyResponse_state = Lens.lens (\CreateVocabularyResponse' {state} -
 
 instance Prelude.NFData CreateVocabularyResponse where
   rnf CreateVocabularyResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf vocabularyArn
-      `Prelude.seq` Prelude.rnf vocabularyId
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf vocabularyArn `Prelude.seq`
+        Prelude.rnf vocabularyId `Prelude.seq`
+          Prelude.rnf state

@@ -189,12 +189,12 @@ instance Prelude.Hashable OnDemandOptionsRequest where
 
 instance Prelude.NFData OnDemandOptionsRequest where
   rnf OnDemandOptionsRequest' {..} =
-    Prelude.rnf allocationStrategy
-      `Prelude.seq` Prelude.rnf capacityReservationOptions
-      `Prelude.seq` Prelude.rnf maxTotalPrice
-      `Prelude.seq` Prelude.rnf minTargetCapacity
-      `Prelude.seq` Prelude.rnf singleAvailabilityZone
-      `Prelude.seq` Prelude.rnf singleInstanceType
+    Prelude.rnf allocationStrategy `Prelude.seq`
+      Prelude.rnf capacityReservationOptions `Prelude.seq`
+        Prelude.rnf maxTotalPrice `Prelude.seq`
+          Prelude.rnf minTargetCapacity `Prelude.seq`
+            Prelude.rnf singleAvailabilityZone `Prelude.seq`
+              Prelude.rnf singleInstanceType
 
 instance Data.ToQuery OnDemandOptionsRequest where
   toQuery OnDemandOptionsRequest' {..} =

@@ -77,8 +77,8 @@ instance
 
 instance Prelude.NFData InstanceMarketOptionsRequest where
   rnf InstanceMarketOptionsRequest' {..} =
-    Prelude.rnf marketType
-      `Prelude.seq` Prelude.rnf spotOptions
+    Prelude.rnf marketType `Prelude.seq`
+      Prelude.rnf spotOptions
 
 instance Data.ToQuery InstanceMarketOptionsRequest where
   toQuery InstanceMarketOptionsRequest' {..} =

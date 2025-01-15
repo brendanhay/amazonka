@@ -103,6 +103,6 @@ instance Prelude.Hashable BatchAlarmActionErrorEntry where
 
 instance Prelude.NFData BatchAlarmActionErrorEntry where
   rnf BatchAlarmActionErrorEntry' {..} =
-    Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf requestId
+    Prelude.rnf errorCode `Prelude.seq`
+      Prelude.rnf errorMessage `Prelude.seq`
+        Prelude.rnf requestId

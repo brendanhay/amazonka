@@ -157,12 +157,12 @@ instance Core.AWSPager ListCandidatesForAutoMLJob where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listCandidatesForAutoMLJob_nextToken
-          Lens..~ rs
-          Lens.^? listCandidatesForAutoMLJobResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listCandidatesForAutoMLJob_nextToken
+              Lens..~ rs
+              Lens.^? listCandidatesForAutoMLJobResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListCandidatesForAutoMLJob where
   type
@@ -192,13 +192,13 @@ instance Prelude.Hashable ListCandidatesForAutoMLJob where
 
 instance Prelude.NFData ListCandidatesForAutoMLJob where
   rnf ListCandidatesForAutoMLJob' {..} =
-    Prelude.rnf candidateNameEquals
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf sortOrder
-      `Prelude.seq` Prelude.rnf statusEquals
-      `Prelude.seq` Prelude.rnf autoMLJobName
+    Prelude.rnf candidateNameEquals `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf sortBy `Prelude.seq`
+            Prelude.rnf sortOrder `Prelude.seq`
+              Prelude.rnf statusEquals `Prelude.seq`
+                Prelude.rnf autoMLJobName
 
 instance Data.ToHeaders ListCandidatesForAutoMLJob where
   toHeaders =
@@ -293,6 +293,6 @@ instance
     ListCandidatesForAutoMLJobResponse
   where
   rnf ListCandidatesForAutoMLJobResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf candidates
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf candidates

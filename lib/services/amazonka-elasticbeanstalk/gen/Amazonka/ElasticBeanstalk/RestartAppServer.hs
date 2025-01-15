@@ -124,8 +124,8 @@ instance Prelude.Hashable RestartAppServer where
 
 instance Prelude.NFData RestartAppServer where
   rnf RestartAppServer' {..} =
-    Prelude.rnf environmentId
-      `Prelude.seq` Prelude.rnf environmentName
+    Prelude.rnf environmentId `Prelude.seq`
+      Prelude.rnf environmentName
 
 instance Data.ToHeaders RestartAppServer where
   toHeaders = Prelude.const Prelude.mempty

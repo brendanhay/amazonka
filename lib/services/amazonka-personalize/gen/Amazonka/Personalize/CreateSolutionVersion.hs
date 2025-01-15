@@ -220,10 +220,10 @@ instance Prelude.Hashable CreateSolutionVersion where
 
 instance Prelude.NFData CreateSolutionVersion where
   rnf CreateSolutionVersion' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf trainingMode
-      `Prelude.seq` Prelude.rnf solutionArn
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf trainingMode `Prelude.seq`
+          Prelude.rnf solutionArn
 
 instance Data.ToHeaders CreateSolutionVersion where
   toHeaders =
@@ -298,5 +298,5 @@ createSolutionVersionResponse_httpStatus = Lens.lens (\CreateSolutionVersionResp
 
 instance Prelude.NFData CreateSolutionVersionResponse where
   rnf CreateSolutionVersionResponse' {..} =
-    Prelude.rnf solutionVersionArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf solutionVersionArn `Prelude.seq`
+      Prelude.rnf httpStatus

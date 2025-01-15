@@ -90,8 +90,8 @@ instance
 
 instance Prelude.NFData ComparisonFormatConfiguration where
   rnf ComparisonFormatConfiguration' {..} =
-    Prelude.rnf numberDisplayFormatConfiguration
-      `Prelude.seq` Prelude.rnf percentageDisplayFormatConfiguration
+    Prelude.rnf numberDisplayFormatConfiguration `Prelude.seq`
+      Prelude.rnf percentageDisplayFormatConfiguration
 
 instance Data.ToJSON ComparisonFormatConfiguration where
   toJSON ComparisonFormatConfiguration' {..} =

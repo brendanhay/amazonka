@@ -106,9 +106,9 @@ instance
   where
   rnf
     AwsOpenSearchServiceDomainMasterUserOptionsDetails' {..} =
-      Prelude.rnf masterUserArn
-        `Prelude.seq` Prelude.rnf masterUserName
-        `Prelude.seq` Prelude.rnf masterUserPassword
+      Prelude.rnf masterUserArn `Prelude.seq`
+        Prelude.rnf masterUserName `Prelude.seq`
+          Prelude.rnf masterUserPassword
 
 instance
   Data.ToJSON

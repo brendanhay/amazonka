@@ -102,7 +102,7 @@ instance Prelude.Hashable FunctionCodeLocation where
 
 instance Prelude.NFData FunctionCodeLocation where
   rnf FunctionCodeLocation' {..} =
-    Prelude.rnf imageUri
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf repositoryType
-      `Prelude.seq` Prelude.rnf resolvedImageUri
+    Prelude.rnf imageUri `Prelude.seq`
+      Prelude.rnf location `Prelude.seq`
+        Prelude.rnf repositoryType `Prelude.seq`
+          Prelude.rnf resolvedImageUri

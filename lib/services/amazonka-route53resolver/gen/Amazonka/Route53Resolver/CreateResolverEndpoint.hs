@@ -223,12 +223,12 @@ instance Prelude.Hashable CreateResolverEndpoint where
 
 instance Prelude.NFData CreateResolverEndpoint where
   rnf CreateResolverEndpoint' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf creatorRequestId
-      `Prelude.seq` Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf direction
-      `Prelude.seq` Prelude.rnf ipAddresses
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf creatorRequestId `Prelude.seq`
+          Prelude.rnf securityGroupIds `Prelude.seq`
+            Prelude.rnf direction `Prelude.seq`
+              Prelude.rnf ipAddresses
 
 instance Data.ToHeaders CreateResolverEndpoint where
   toHeaders =
@@ -313,5 +313,5 @@ instance
     CreateResolverEndpointResponse
   where
   rnf CreateResolverEndpointResponse' {..} =
-    Prelude.rnf resolverEndpoint
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf resolverEndpoint `Prelude.seq`
+      Prelude.rnf httpStatus

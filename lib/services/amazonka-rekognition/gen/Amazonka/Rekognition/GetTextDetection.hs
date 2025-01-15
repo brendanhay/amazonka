@@ -175,9 +175,9 @@ instance Prelude.Hashable GetTextDetection where
 
 instance Prelude.NFData GetTextDetection where
   rnf GetTextDetection' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf jobId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf jobId
 
 instance Data.ToHeaders GetTextDetection where
   toHeaders =
@@ -307,10 +307,10 @@ getTextDetectionResponse_httpStatus = Lens.lens (\GetTextDetectionResponse' {htt
 
 instance Prelude.NFData GetTextDetectionResponse where
   rnf GetTextDetectionResponse' {..} =
-    Prelude.rnf jobStatus
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf textDetections
-      `Prelude.seq` Prelude.rnf textModelVersion
-      `Prelude.seq` Prelude.rnf videoMetadata
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf jobStatus `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf statusMessage `Prelude.seq`
+          Prelude.rnf textDetections `Prelude.seq`
+            Prelude.rnf textModelVersion `Prelude.seq`
+              Prelude.rnf videoMetadata `Prelude.seq`
+                Prelude.rnf httpStatus

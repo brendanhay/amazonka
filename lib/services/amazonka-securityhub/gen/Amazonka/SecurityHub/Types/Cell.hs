@@ -118,10 +118,10 @@ instance Prelude.Hashable Cell where
 
 instance Prelude.NFData Cell where
   rnf Cell' {..} =
-    Prelude.rnf cellReference
-      `Prelude.seq` Prelude.rnf column
-      `Prelude.seq` Prelude.rnf columnName
-      `Prelude.seq` Prelude.rnf row
+    Prelude.rnf cellReference `Prelude.seq`
+      Prelude.rnf column `Prelude.seq`
+        Prelude.rnf columnName `Prelude.seq`
+          Prelude.rnf row
 
 instance Data.ToJSON Cell where
   toJSON Cell' {..} =

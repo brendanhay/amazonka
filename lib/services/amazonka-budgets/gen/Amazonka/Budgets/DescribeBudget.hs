@@ -120,8 +120,8 @@ instance Prelude.Hashable DescribeBudget where
 
 instance Prelude.NFData DescribeBudget where
   rnf DescribeBudget' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf budgetName
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf budgetName
 
 instance Data.ToHeaders DescribeBudget where
   toHeaders =
@@ -195,5 +195,5 @@ describeBudgetResponse_httpStatus = Lens.lens (\DescribeBudgetResponse' {httpSta
 
 instance Prelude.NFData DescribeBudgetResponse where
   rnf DescribeBudgetResponse' {..} =
-    Prelude.rnf budget
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf budget `Prelude.seq`
+      Prelude.rnf httpStatus

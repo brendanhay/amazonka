@@ -252,15 +252,15 @@ instance Prelude.Hashable SegmentResponse where
 
 instance Prelude.NFData SegmentResponse where
   rnf SegmentResponse' {..} =
-    Prelude.rnf dimensions
-      `Prelude.seq` Prelude.rnf importDefinition
-      `Prelude.seq` Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf segmentGroups
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf segmentType
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf applicationId
+    Prelude.rnf dimensions `Prelude.seq`
+      Prelude.rnf importDefinition `Prelude.seq`
+        Prelude.rnf lastModifiedDate `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf segmentGroups `Prelude.seq`
+              Prelude.rnf version `Prelude.seq`
+                Prelude.rnf tags `Prelude.seq`
+                  Prelude.rnf segmentType `Prelude.seq`
+                    Prelude.rnf creationDate `Prelude.seq`
+                      Prelude.rnf id `Prelude.seq`
+                        Prelude.rnf arn `Prelude.seq`
+                          Prelude.rnf applicationId

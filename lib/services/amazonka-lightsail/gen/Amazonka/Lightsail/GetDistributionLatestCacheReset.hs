@@ -222,6 +222,6 @@ instance
     GetDistributionLatestCacheResetResponse
   where
   rnf GetDistributionLatestCacheResetResponse' {..} =
-    Prelude.rnf createTime
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf createTime `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf httpStatus

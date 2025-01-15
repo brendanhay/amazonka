@@ -196,10 +196,10 @@ instance Prelude.Hashable UpdateListener where
 
 instance Prelude.NFData UpdateListener where
   rnf UpdateListener' {..} =
-    Prelude.rnf clientAffinity
-      `Prelude.seq` Prelude.rnf portRanges
-      `Prelude.seq` Prelude.rnf protocol
-      `Prelude.seq` Prelude.rnf listenerArn
+    Prelude.rnf clientAffinity `Prelude.seq`
+      Prelude.rnf portRanges `Prelude.seq`
+        Prelude.rnf protocol `Prelude.seq`
+          Prelude.rnf listenerArn
 
 instance Data.ToHeaders UpdateListener where
   toHeaders =
@@ -274,5 +274,5 @@ updateListenerResponse_httpStatus = Lens.lens (\UpdateListenerResponse' {httpSta
 
 instance Prelude.NFData UpdateListenerResponse where
   rnf UpdateListenerResponse' {..} =
-    Prelude.rnf listener
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf listener `Prelude.seq`
+      Prelude.rnf httpStatus

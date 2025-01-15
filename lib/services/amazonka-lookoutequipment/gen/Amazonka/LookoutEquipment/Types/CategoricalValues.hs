@@ -87,5 +87,5 @@ instance Prelude.Hashable CategoricalValues where
 
 instance Prelude.NFData CategoricalValues where
   rnf CategoricalValues' {..} =
-    Prelude.rnf numberOfCategory
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf numberOfCategory `Prelude.seq`
+      Prelude.rnf status

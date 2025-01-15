@@ -155,5 +155,5 @@ instance
     GetContainerServicePowersResponse
   where
   rnf GetContainerServicePowersResponse' {..} =
-    Prelude.rnf powers
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf powers `Prelude.seq`
+      Prelude.rnf httpStatus

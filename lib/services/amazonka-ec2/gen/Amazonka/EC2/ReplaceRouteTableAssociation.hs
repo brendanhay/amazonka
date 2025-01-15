@@ -147,9 +147,9 @@ instance
 
 instance Prelude.NFData ReplaceRouteTableAssociation where
   rnf ReplaceRouteTableAssociation' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf associationId
-      `Prelude.seq` Prelude.rnf routeTableId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf associationId `Prelude.seq`
+        Prelude.rnf routeTableId
 
 instance Data.ToHeaders ReplaceRouteTableAssociation where
   toHeaders = Prelude.const Prelude.mempty
@@ -224,6 +224,6 @@ instance
     ReplaceRouteTableAssociationResponse
   where
   rnf ReplaceRouteTableAssociationResponse' {..} =
-    Prelude.rnf associationState
-      `Prelude.seq` Prelude.rnf newAssociationId'
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf associationState `Prelude.seq`
+      Prelude.rnf newAssociationId' `Prelude.seq`
+        Prelude.rnf httpStatus

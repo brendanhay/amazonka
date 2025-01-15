@@ -308,16 +308,16 @@ instance Prelude.Hashable CreateIndex where
 
 instance Prelude.NFData CreateIndex where
   rnf CreateIndex' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf edition
-      `Prelude.seq` Prelude.rnf serverSideEncryptionConfiguration
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf userContextPolicy
-      `Prelude.seq` Prelude.rnf userGroupResolutionConfiguration
-      `Prelude.seq` Prelude.rnf userTokenConfigurations
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf edition `Prelude.seq`
+          Prelude.rnf serverSideEncryptionConfiguration `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf userContextPolicy `Prelude.seq`
+                Prelude.rnf userGroupResolutionConfiguration `Prelude.seq`
+                  Prelude.rnf userTokenConfigurations `Prelude.seq`
+                    Prelude.rnf name `Prelude.seq`
+                      Prelude.rnf roleArn
 
 instance Data.ToHeaders CreateIndex where
   toHeaders =

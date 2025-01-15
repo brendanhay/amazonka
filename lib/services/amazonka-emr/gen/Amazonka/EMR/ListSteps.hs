@@ -146,12 +146,12 @@ instance Core.AWSPager ListSteps where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listSteps_marker
-          Lens..~ rs
-          Lens.^? listStepsResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listSteps_marker
+              Lens..~ rs
+              Lens.^? listStepsResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSteps where
   type AWSResponse ListSteps = ListStepsResponse
@@ -176,10 +176,10 @@ instance Prelude.Hashable ListSteps where
 
 instance Prelude.NFData ListSteps where
   rnf ListSteps' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf stepIds
-      `Prelude.seq` Prelude.rnf stepStates
-      `Prelude.seq` Prelude.rnf clusterId
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf stepIds `Prelude.seq`
+        Prelude.rnf stepStates `Prelude.seq`
+          Prelude.rnf clusterId
 
 instance Data.ToHeaders ListSteps where
   toHeaders =
@@ -272,6 +272,6 @@ listStepsResponse_httpStatus = Lens.lens (\ListStepsResponse' {httpStatus} -> ht
 
 instance Prelude.NFData ListStepsResponse where
   rnf ListStepsResponse' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf steps
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf steps `Prelude.seq`
+        Prelude.rnf httpStatus

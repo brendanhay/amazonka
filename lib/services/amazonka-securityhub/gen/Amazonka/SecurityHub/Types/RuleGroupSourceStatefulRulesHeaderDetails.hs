@@ -167,12 +167,12 @@ instance
     RuleGroupSourceStatefulRulesHeaderDetails
   where
   rnf RuleGroupSourceStatefulRulesHeaderDetails' {..} =
-    Prelude.rnf destination
-      `Prelude.seq` Prelude.rnf destinationPort
-      `Prelude.seq` Prelude.rnf direction
-      `Prelude.seq` Prelude.rnf protocol
-      `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf sourcePort
+    Prelude.rnf destination `Prelude.seq`
+      Prelude.rnf destinationPort `Prelude.seq`
+        Prelude.rnf direction `Prelude.seq`
+          Prelude.rnf protocol `Prelude.seq`
+            Prelude.rnf source `Prelude.seq`
+              Prelude.rnf sourcePort
 
 instance
   Data.ToJSON

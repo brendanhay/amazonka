@@ -130,8 +130,8 @@ instance
     PutConfigurationSetSendingOptions
   where
   rnf PutConfigurationSetSendingOptions' {..} =
-    Prelude.rnf sendingEnabled
-      `Prelude.seq` Prelude.rnf configurationSetName
+    Prelude.rnf sendingEnabled `Prelude.seq`
+      Prelude.rnf configurationSetName
 
 instance
   Data.ToHeaders

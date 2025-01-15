@@ -130,12 +130,12 @@ instance Core.AWSPager DescribeUpdateDirectory where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeUpdateDirectory_nextToken
-          Lens..~ rs
-          Lens.^? describeUpdateDirectoryResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeUpdateDirectory_nextToken
+              Lens..~ rs
+              Lens.^? describeUpdateDirectoryResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeUpdateDirectory where
   type
@@ -165,10 +165,10 @@ instance Prelude.Hashable DescribeUpdateDirectory where
 
 instance Prelude.NFData DescribeUpdateDirectory where
   rnf DescribeUpdateDirectory' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf regionName
-      `Prelude.seq` Prelude.rnf directoryId
-      `Prelude.seq` Prelude.rnf updateType
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf regionName `Prelude.seq`
+        Prelude.rnf directoryId `Prelude.seq`
+          Prelude.rnf updateType
 
 instance Data.ToHeaders DescribeUpdateDirectory where
   toHeaders =
@@ -261,6 +261,6 @@ instance
     DescribeUpdateDirectoryResponse
   where
   rnf DescribeUpdateDirectoryResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf updateActivities
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf updateActivities `Prelude.seq`
+        Prelude.rnf httpStatus

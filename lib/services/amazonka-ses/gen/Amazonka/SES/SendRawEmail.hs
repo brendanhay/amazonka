@@ -572,14 +572,14 @@ instance Prelude.Hashable SendRawEmail where
 
 instance Prelude.NFData SendRawEmail where
   rnf SendRawEmail' {..} =
-    Prelude.rnf configurationSetName
-      `Prelude.seq` Prelude.rnf destinations
-      `Prelude.seq` Prelude.rnf fromArn
-      `Prelude.seq` Prelude.rnf returnPathArn
-      `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf sourceArn
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf rawMessage
+    Prelude.rnf configurationSetName `Prelude.seq`
+      Prelude.rnf destinations `Prelude.seq`
+        Prelude.rnf fromArn `Prelude.seq`
+          Prelude.rnf returnPathArn `Prelude.seq`
+            Prelude.rnf source `Prelude.seq`
+              Prelude.rnf sourceArn `Prelude.seq`
+                Prelude.rnf tags `Prelude.seq`
+                  Prelude.rnf rawMessage
 
 instance Data.ToHeaders SendRawEmail where
   toHeaders = Prelude.const Prelude.mempty
@@ -652,5 +652,5 @@ sendRawEmailResponse_messageId = Lens.lens (\SendRawEmailResponse' {messageId} -
 
 instance Prelude.NFData SendRawEmailResponse where
   rnf SendRawEmailResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf messageId
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf messageId

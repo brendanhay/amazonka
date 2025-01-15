@@ -180,5 +180,5 @@ instance
     RegisterDefaultPatchBaselineResponse
   where
   rnf RegisterDefaultPatchBaselineResponse' {..} =
-    Prelude.rnf baselineId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf baselineId `Prelude.seq`
+      Prelude.rnf httpStatus

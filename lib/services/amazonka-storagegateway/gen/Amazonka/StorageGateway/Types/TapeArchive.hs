@@ -246,16 +246,16 @@ instance Prelude.Hashable TapeArchive where
 
 instance Prelude.NFData TapeArchive where
   rnf TapeArchive' {..} =
-    Prelude.rnf completionTime
-      `Prelude.seq` Prelude.rnf kmsKey
-      `Prelude.seq` Prelude.rnf poolEntryDate
-      `Prelude.seq` Prelude.rnf poolId
-      `Prelude.seq` Prelude.rnf retentionStartDate
-      `Prelude.seq` Prelude.rnf retrievedTo
-      `Prelude.seq` Prelude.rnf tapeARN
-      `Prelude.seq` Prelude.rnf tapeBarcode
-      `Prelude.seq` Prelude.rnf tapeCreatedDate
-      `Prelude.seq` Prelude.rnf tapeSizeInBytes
-      `Prelude.seq` Prelude.rnf tapeStatus
-      `Prelude.seq` Prelude.rnf tapeUsedInBytes
-      `Prelude.seq` Prelude.rnf worm
+    Prelude.rnf completionTime `Prelude.seq`
+      Prelude.rnf kmsKey `Prelude.seq`
+        Prelude.rnf poolEntryDate `Prelude.seq`
+          Prelude.rnf poolId `Prelude.seq`
+            Prelude.rnf retentionStartDate `Prelude.seq`
+              Prelude.rnf retrievedTo `Prelude.seq`
+                Prelude.rnf tapeARN `Prelude.seq`
+                  Prelude.rnf tapeBarcode `Prelude.seq`
+                    Prelude.rnf tapeCreatedDate `Prelude.seq`
+                      Prelude.rnf tapeSizeInBytes `Prelude.seq`
+                        Prelude.rnf tapeStatus `Prelude.seq`
+                          Prelude.rnf tapeUsedInBytes `Prelude.seq`
+                            Prelude.rnf worm

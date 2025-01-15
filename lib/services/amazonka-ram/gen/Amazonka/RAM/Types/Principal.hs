@@ -128,8 +128,8 @@ instance Prelude.Hashable Principal where
 
 instance Prelude.NFData Principal where
   rnf Principal' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf external
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf resourceShareArn
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf external `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf lastUpdatedTime `Prelude.seq`
+            Prelude.rnf resourceShareArn

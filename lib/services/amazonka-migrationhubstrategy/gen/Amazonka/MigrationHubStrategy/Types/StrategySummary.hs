@@ -81,5 +81,5 @@ instance Prelude.Hashable StrategySummary where
 
 instance Prelude.NFData StrategySummary where
   rnf StrategySummary' {..} =
-    Prelude.rnf count
-      `Prelude.seq` Prelude.rnf strategy
+    Prelude.rnf count `Prelude.seq`
+      Prelude.rnf strategy

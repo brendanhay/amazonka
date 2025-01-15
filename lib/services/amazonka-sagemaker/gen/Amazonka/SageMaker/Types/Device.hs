@@ -82,9 +82,9 @@ instance Prelude.Hashable Device where
 
 instance Prelude.NFData Device where
   rnf Device' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf iotThingName
-      `Prelude.seq` Prelude.rnf deviceName
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf iotThingName `Prelude.seq`
+        Prelude.rnf deviceName
 
 instance Data.ToJSON Device where
   toJSON Device' {..} =

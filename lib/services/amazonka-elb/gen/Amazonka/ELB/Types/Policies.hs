@@ -88,9 +88,7 @@ instance Data.FromXML Policies where
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x
-                      Data..@? "OtherPolicies"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "OtherPolicies" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 
@@ -103,6 +101,6 @@ instance Prelude.Hashable Policies where
 
 instance Prelude.NFData Policies where
   rnf Policies' {..} =
-    Prelude.rnf appCookieStickinessPolicies
-      `Prelude.seq` Prelude.rnf lBCookieStickinessPolicies
-      `Prelude.seq` Prelude.rnf otherPolicies
+    Prelude.rnf appCookieStickinessPolicies `Prelude.seq`
+      Prelude.rnf lBCookieStickinessPolicies `Prelude.seq`
+        Prelude.rnf otherPolicies

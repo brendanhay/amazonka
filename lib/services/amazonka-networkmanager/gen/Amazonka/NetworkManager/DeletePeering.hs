@@ -153,5 +153,5 @@ deletePeeringResponse_httpStatus = Lens.lens (\DeletePeeringResponse' {httpStatu
 
 instance Prelude.NFData DeletePeeringResponse where
   rnf DeletePeeringResponse' {..} =
-    Prelude.rnf peering
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf peering `Prelude.seq`
+      Prelude.rnf httpStatus

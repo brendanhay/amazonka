@@ -127,8 +127,8 @@ instance Prelude.Hashable DocumentInfo where
 
 instance Prelude.NFData DocumentInfo where
   rnf DocumentInfo' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf documentId
+    Prelude.rnf attributes `Prelude.seq`
+      Prelude.rnf documentId
 
 instance Data.ToJSON DocumentInfo where
   toJSON DocumentInfo' {..} =

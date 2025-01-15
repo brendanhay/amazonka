@@ -201,10 +201,10 @@ instance Prelude.Hashable ListCalculationExecutions where
 
 instance Prelude.NFData ListCalculationExecutions where
   rnf ListCalculationExecutions' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf stateFilter
-      `Prelude.seq` Prelude.rnf sessionId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf stateFilter `Prelude.seq`
+          Prelude.rnf sessionId
 
 instance Data.ToHeaders ListCalculationExecutions where
   toHeaders =
@@ -300,6 +300,6 @@ instance
     ListCalculationExecutionsResponse
   where
   rnf ListCalculationExecutionsResponse' {..} =
-    Prelude.rnf calculations
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf calculations `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

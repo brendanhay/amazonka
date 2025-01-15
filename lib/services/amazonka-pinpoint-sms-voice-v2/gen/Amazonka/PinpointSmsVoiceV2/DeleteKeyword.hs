@@ -136,8 +136,8 @@ instance Prelude.Hashable DeleteKeyword where
 
 instance Prelude.NFData DeleteKeyword where
   rnf DeleteKeyword' {..} =
-    Prelude.rnf originationIdentity
-      `Prelude.seq` Prelude.rnf keyword
+    Prelude.rnf originationIdentity `Prelude.seq`
+      Prelude.rnf keyword
 
 instance Data.ToHeaders DeleteKeyword where
   toHeaders =
@@ -246,9 +246,9 @@ deleteKeywordResponse_httpStatus = Lens.lens (\DeleteKeywordResponse' {httpStatu
 
 instance Prelude.NFData DeleteKeywordResponse where
   rnf DeleteKeywordResponse' {..} =
-    Prelude.rnf keyword
-      `Prelude.seq` Prelude.rnf keywordAction
-      `Prelude.seq` Prelude.rnf keywordMessage
-      `Prelude.seq` Prelude.rnf originationIdentity
-      `Prelude.seq` Prelude.rnf originationIdentityArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf keyword `Prelude.seq`
+      Prelude.rnf keywordAction `Prelude.seq`
+        Prelude.rnf keywordMessage `Prelude.seq`
+          Prelude.rnf originationIdentity `Prelude.seq`
+            Prelude.rnf originationIdentityArn `Prelude.seq`
+              Prelude.rnf httpStatus

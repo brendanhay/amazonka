@@ -131,8 +131,8 @@ instance Prelude.Hashable GetDistributions where
 
 instance Prelude.NFData GetDistributions where
   rnf GetDistributions' {..} =
-    Prelude.rnf distributionName
-      `Prelude.seq` Prelude.rnf pageToken
+    Prelude.rnf distributionName `Prelude.seq`
+      Prelude.rnf pageToken
 
 instance Data.ToHeaders GetDistributions where
   toHeaders =
@@ -233,6 +233,6 @@ getDistributionsResponse_httpStatus = Lens.lens (\GetDistributionsResponse' {htt
 
 instance Prelude.NFData GetDistributionsResponse where
   rnf GetDistributionsResponse' {..} =
-    Prelude.rnf distributions
-      `Prelude.seq` Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf distributions `Prelude.seq`
+      Prelude.rnf nextPageToken `Prelude.seq`
+        Prelude.rnf httpStatus

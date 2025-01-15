@@ -90,6 +90,6 @@ instance Prelude.Hashable TargetHealthDescription where
 
 instance Prelude.NFData TargetHealthDescription where
   rnf TargetHealthDescription' {..} =
-    Prelude.rnf healthCheckPort
-      `Prelude.seq` Prelude.rnf target
-      `Prelude.seq` Prelude.rnf targetHealth
+    Prelude.rnf healthCheckPort `Prelude.seq`
+      Prelude.rnf target `Prelude.seq`
+        Prelude.rnf targetHealth

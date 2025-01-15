@@ -109,8 +109,8 @@ instance Prelude.Hashable AuthorizeIpRules where
 
 instance Prelude.NFData AuthorizeIpRules where
   rnf AuthorizeIpRules' {..} =
-    Prelude.rnf groupId
-      `Prelude.seq` Prelude.rnf userRules
+    Prelude.rnf groupId `Prelude.seq`
+      Prelude.rnf userRules
 
 instance Data.ToHeaders AuthorizeIpRules where
   toHeaders =

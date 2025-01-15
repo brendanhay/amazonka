@@ -154,9 +154,9 @@ instance Prelude.Hashable CreateCacheSecurityGroup where
 
 instance Prelude.NFData CreateCacheSecurityGroup where
   rnf CreateCacheSecurityGroup' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf cacheSecurityGroupName
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf cacheSecurityGroupName `Prelude.seq`
+        Prelude.rnf description
 
 instance Data.ToHeaders CreateCacheSecurityGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -222,5 +222,5 @@ instance
     CreateCacheSecurityGroupResponse
   where
   rnf CreateCacheSecurityGroupResponse' {..} =
-    Prelude.rnf cacheSecurityGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf cacheSecurityGroup `Prelude.seq`
+      Prelude.rnf httpStatus

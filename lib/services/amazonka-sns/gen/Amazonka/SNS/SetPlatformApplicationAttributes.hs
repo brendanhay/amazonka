@@ -301,8 +301,8 @@ instance
     SetPlatformApplicationAttributes
   where
   rnf SetPlatformApplicationAttributes' {..} =
-    Prelude.rnf platformApplicationArn
-      `Prelude.seq` Prelude.rnf attributes
+    Prelude.rnf platformApplicationArn `Prelude.seq`
+      Prelude.rnf attributes
 
 instance
   Data.ToHeaders

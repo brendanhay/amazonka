@@ -132,12 +132,12 @@ instance Core.AWSPager ListFileShares where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listFileShares_marker
-          Lens..~ rs
-          Lens.^? listFileSharesResponse_nextMarker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listFileShares_marker
+              Lens..~ rs
+              Lens.^? listFileSharesResponse_nextMarker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListFileShares where
   type
@@ -167,9 +167,9 @@ instance Prelude.Hashable ListFileShares where
 
 instance Prelude.NFData ListFileShares where
   rnf ListFileShares' {..} =
-    Prelude.rnf gatewayARN
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf marker
+    Prelude.rnf gatewayARN `Prelude.seq`
+      Prelude.rnf limit `Prelude.seq`
+        Prelude.rnf marker
 
 instance Data.ToHeaders ListFileShares where
   toHeaders =
@@ -272,7 +272,7 @@ listFileSharesResponse_httpStatus = Lens.lens (\ListFileSharesResponse' {httpSta
 
 instance Prelude.NFData ListFileSharesResponse where
   rnf ListFileSharesResponse' {..} =
-    Prelude.rnf fileShareInfoList
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf fileShareInfoList `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf nextMarker `Prelude.seq`
+          Prelude.rnf httpStatus

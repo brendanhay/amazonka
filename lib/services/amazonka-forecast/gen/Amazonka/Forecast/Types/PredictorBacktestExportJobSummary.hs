@@ -212,10 +212,10 @@ instance
     PredictorBacktestExportJobSummary
   where
   rnf PredictorBacktestExportJobSummary' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf destination
-      `Prelude.seq` Prelude.rnf lastModificationTime
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf predictorBacktestExportJobArn
-      `Prelude.seq` Prelude.rnf predictorBacktestExportJobName
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf destination `Prelude.seq`
+        Prelude.rnf lastModificationTime `Prelude.seq`
+          Prelude.rnf message `Prelude.seq`
+            Prelude.rnf predictorBacktestExportJobArn `Prelude.seq`
+              Prelude.rnf predictorBacktestExportJobName `Prelude.seq`
+                Prelude.rnf status

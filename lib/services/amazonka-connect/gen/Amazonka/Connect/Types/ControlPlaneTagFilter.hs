@@ -96,9 +96,9 @@ instance Prelude.Hashable ControlPlaneTagFilter where
 
 instance Prelude.NFData ControlPlaneTagFilter where
   rnf ControlPlaneTagFilter' {..} =
-    Prelude.rnf andConditions
-      `Prelude.seq` Prelude.rnf orConditions
-      `Prelude.seq` Prelude.rnf tagCondition
+    Prelude.rnf andConditions `Prelude.seq`
+      Prelude.rnf orConditions `Prelude.seq`
+        Prelude.rnf tagCondition
 
 instance Data.ToJSON ControlPlaneTagFilter where
   toJSON ControlPlaneTagFilter' {..} =

@@ -176,11 +176,11 @@ instance Prelude.Hashable CreateRule where
 
 instance Prelude.NFData CreateRule where
   rnf CreateRule' {..} =
-    Prelude.rnf cronExpression
-      `Prelude.seq` Prelude.rnf interval
-      `Prelude.seq` Prelude.rnf intervalUnit
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf times
+    Prelude.rnf cronExpression `Prelude.seq`
+      Prelude.rnf interval `Prelude.seq`
+        Prelude.rnf intervalUnit `Prelude.seq`
+          Prelude.rnf location `Prelude.seq`
+            Prelude.rnf times
 
 instance Data.ToJSON CreateRule where
   toJSON CreateRule' {..} =

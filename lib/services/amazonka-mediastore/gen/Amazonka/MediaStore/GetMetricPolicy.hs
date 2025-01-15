@@ -169,5 +169,5 @@ getMetricPolicyResponse_metricPolicy = Lens.lens (\GetMetricPolicyResponse' {met
 
 instance Prelude.NFData GetMetricPolicyResponse where
   rnf GetMetricPolicyResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf metricPolicy
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf metricPolicy

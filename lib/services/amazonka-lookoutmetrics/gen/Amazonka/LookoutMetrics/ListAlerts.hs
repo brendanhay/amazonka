@@ -131,9 +131,9 @@ instance Prelude.Hashable ListAlerts where
 
 instance Prelude.NFData ListAlerts where
   rnf ListAlerts' {..} =
-    Prelude.rnf anomalyDetectorArn
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf anomalyDetectorArn `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListAlerts where
   toHeaders =
@@ -216,6 +216,6 @@ listAlertsResponse_httpStatus = Lens.lens (\ListAlertsResponse' {httpStatus} -> 
 
 instance Prelude.NFData ListAlertsResponse where
   rnf ListAlertsResponse' {..} =
-    Prelude.rnf alertSummaryList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf alertSummaryList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

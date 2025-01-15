@@ -94,9 +94,9 @@ instance
   where
   rnf
     UpdateExperimentTemplateLogConfigurationInput' {..} =
-      Prelude.rnf cloudWatchLogsConfiguration
-        `Prelude.seq` Prelude.rnf logSchemaVersion
-        `Prelude.seq` Prelude.rnf s3Configuration
+      Prelude.rnf cloudWatchLogsConfiguration `Prelude.seq`
+        Prelude.rnf logSchemaVersion `Prelude.seq`
+          Prelude.rnf s3Configuration
 
 instance
   Data.ToJSON

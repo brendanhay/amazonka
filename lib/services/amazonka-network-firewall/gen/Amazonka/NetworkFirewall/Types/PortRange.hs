@@ -92,8 +92,8 @@ instance Prelude.Hashable PortRange where
 
 instance Prelude.NFData PortRange where
   rnf PortRange' {..} =
-    Prelude.rnf fromPort
-      `Prelude.seq` Prelude.rnf toPort
+    Prelude.rnf fromPort `Prelude.seq`
+      Prelude.rnf toPort
 
 instance Data.ToJSON PortRange where
   toJSON PortRange' {..} =

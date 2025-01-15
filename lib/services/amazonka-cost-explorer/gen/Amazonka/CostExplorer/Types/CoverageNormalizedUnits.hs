@@ -121,7 +121,7 @@ instance Prelude.Hashable CoverageNormalizedUnits where
 
 instance Prelude.NFData CoverageNormalizedUnits where
   rnf CoverageNormalizedUnits' {..} =
-    Prelude.rnf coverageNormalizedUnitsPercentage
-      `Prelude.seq` Prelude.rnf onDemandNormalizedUnits
-      `Prelude.seq` Prelude.rnf reservedNormalizedUnits
-      `Prelude.seq` Prelude.rnf totalRunningNormalizedUnits
+    Prelude.rnf coverageNormalizedUnitsPercentage `Prelude.seq`
+      Prelude.rnf onDemandNormalizedUnits `Prelude.seq`
+        Prelude.rnf reservedNormalizedUnits `Prelude.seq`
+          Prelude.rnf totalRunningNormalizedUnits

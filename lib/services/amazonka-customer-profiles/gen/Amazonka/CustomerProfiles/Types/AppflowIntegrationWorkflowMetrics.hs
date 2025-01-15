@@ -112,6 +112,6 @@ instance
     AppflowIntegrationWorkflowMetrics
   where
   rnf AppflowIntegrationWorkflowMetrics' {..} =
-    Prelude.rnf recordsProcessed
-      `Prelude.seq` Prelude.rnf stepsCompleted
-      `Prelude.seq` Prelude.rnf totalSteps
+    Prelude.rnf recordsProcessed `Prelude.seq`
+      Prelude.rnf stepsCompleted `Prelude.seq`
+        Prelude.rnf totalSteps

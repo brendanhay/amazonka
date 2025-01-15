@@ -113,8 +113,8 @@ instance Prelude.Hashable RemoveFlowSource where
 
 instance Prelude.NFData RemoveFlowSource where
   rnf RemoveFlowSource' {..} =
-    Prelude.rnf flowArn
-      `Prelude.seq` Prelude.rnf sourceArn
+    Prelude.rnf flowArn `Prelude.seq`
+      Prelude.rnf sourceArn
 
 instance Data.ToHeaders RemoveFlowSource where
   toHeaders =
@@ -189,6 +189,6 @@ removeFlowSourceResponse_httpStatus = Lens.lens (\RemoveFlowSourceResponse' {htt
 
 instance Prelude.NFData RemoveFlowSourceResponse where
   rnf RemoveFlowSourceResponse' {..} =
-    Prelude.rnf flowArn
-      `Prelude.seq` Prelude.rnf sourceArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf flowArn `Prelude.seq`
+      Prelude.rnf sourceArn `Prelude.seq`
+        Prelude.rnf httpStatus

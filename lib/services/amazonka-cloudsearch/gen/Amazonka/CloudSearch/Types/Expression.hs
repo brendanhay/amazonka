@@ -80,8 +80,8 @@ instance Prelude.Hashable Expression where
 
 instance Prelude.NFData Expression where
   rnf Expression' {..} =
-    Prelude.rnf expressionName
-      `Prelude.seq` Prelude.rnf expressionValue
+    Prelude.rnf expressionName `Prelude.seq`
+      Prelude.rnf expressionValue
 
 instance Data.ToQuery Expression where
   toQuery Expression' {..} =

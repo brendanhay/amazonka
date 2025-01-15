@@ -158,9 +158,9 @@ instance
     DescribeAppVersionResourcesResolutionStatus
   where
   rnf DescribeAppVersionResourcesResolutionStatus' {..} =
-    Prelude.rnf resolutionId
-      `Prelude.seq` Prelude.rnf appArn
-      `Prelude.seq` Prelude.rnf appVersion
+    Prelude.rnf resolutionId `Prelude.seq`
+      Prelude.rnf appArn `Prelude.seq`
+        Prelude.rnf appVersion
 
 instance
   Data.ToHeaders
@@ -313,9 +313,9 @@ instance
   where
   rnf
     DescribeAppVersionResourcesResolutionStatusResponse' {..} =
-      Prelude.rnf errorMessage
-        `Prelude.seq` Prelude.rnf httpStatus
-        `Prelude.seq` Prelude.rnf appArn
-        `Prelude.seq` Prelude.rnf appVersion
-        `Prelude.seq` Prelude.rnf resolutionId
-        `Prelude.seq` Prelude.rnf status
+      Prelude.rnf errorMessage `Prelude.seq`
+        Prelude.rnf httpStatus `Prelude.seq`
+          Prelude.rnf appArn `Prelude.seq`
+            Prelude.rnf appVersion `Prelude.seq`
+              Prelude.rnf resolutionId `Prelude.seq`
+                Prelude.rnf status

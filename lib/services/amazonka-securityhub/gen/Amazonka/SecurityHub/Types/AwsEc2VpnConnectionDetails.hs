@@ -225,17 +225,17 @@ instance Prelude.Hashable AwsEc2VpnConnectionDetails where
 
 instance Prelude.NFData AwsEc2VpnConnectionDetails where
   rnf AwsEc2VpnConnectionDetails' {..} =
-    Prelude.rnf category
-      `Prelude.seq` Prelude.rnf customerGatewayConfiguration
-      `Prelude.seq` Prelude.rnf customerGatewayId
-      `Prelude.seq` Prelude.rnf options
-      `Prelude.seq` Prelude.rnf routes
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf transitGatewayId
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf vgwTelemetry
-      `Prelude.seq` Prelude.rnf vpnConnectionId
-      `Prelude.seq` Prelude.rnf vpnGatewayId
+    Prelude.rnf category `Prelude.seq`
+      Prelude.rnf customerGatewayConfiguration `Prelude.seq`
+        Prelude.rnf customerGatewayId `Prelude.seq`
+          Prelude.rnf options `Prelude.seq`
+            Prelude.rnf routes `Prelude.seq`
+              Prelude.rnf state `Prelude.seq`
+                Prelude.rnf transitGatewayId `Prelude.seq`
+                  Prelude.rnf type' `Prelude.seq`
+                    Prelude.rnf vgwTelemetry `Prelude.seq`
+                      Prelude.rnf vpnConnectionId `Prelude.seq`
+                        Prelude.rnf vpnGatewayId
 
 instance Data.ToJSON AwsEc2VpnConnectionDetails where
   toJSON AwsEc2VpnConnectionDetails' {..} =

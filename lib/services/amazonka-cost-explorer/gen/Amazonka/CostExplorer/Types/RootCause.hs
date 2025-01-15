@@ -116,8 +116,8 @@ instance Prelude.Hashable RootCause where
 
 instance Prelude.NFData RootCause where
   rnf RootCause' {..} =
-    Prelude.rnf linkedAccount
-      `Prelude.seq` Prelude.rnf linkedAccountName
-      `Prelude.seq` Prelude.rnf region
-      `Prelude.seq` Prelude.rnf service
-      `Prelude.seq` Prelude.rnf usageType
+    Prelude.rnf linkedAccount `Prelude.seq`
+      Prelude.rnf linkedAccountName `Prelude.seq`
+        Prelude.rnf region `Prelude.seq`
+          Prelude.rnf service `Prelude.seq`
+            Prelude.rnf usageType

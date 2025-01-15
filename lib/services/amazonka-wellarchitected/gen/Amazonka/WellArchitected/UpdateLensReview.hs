@@ -132,10 +132,10 @@ instance Prelude.Hashable UpdateLensReview where
 
 instance Prelude.NFData UpdateLensReview where
   rnf UpdateLensReview' {..} =
-    Prelude.rnf lensNotes
-      `Prelude.seq` Prelude.rnf pillarNotes
-      `Prelude.seq` Prelude.rnf workloadId
-      `Prelude.seq` Prelude.rnf lensAlias
+    Prelude.rnf lensNotes `Prelude.seq`
+      Prelude.rnf pillarNotes `Prelude.seq`
+        Prelude.rnf workloadId `Prelude.seq`
+          Prelude.rnf lensAlias
 
 instance Data.ToHeaders UpdateLensReview where
   toHeaders =
@@ -219,6 +219,6 @@ updateLensReviewResponse_httpStatus = Lens.lens (\UpdateLensReviewResponse' {htt
 
 instance Prelude.NFData UpdateLensReviewResponse where
   rnf UpdateLensReviewResponse' {..} =
-    Prelude.rnf lensReview
-      `Prelude.seq` Prelude.rnf workloadId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf lensReview `Prelude.seq`
+      Prelude.rnf workloadId `Prelude.seq`
+        Prelude.rnf httpStatus

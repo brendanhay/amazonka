@@ -109,7 +109,7 @@ instance Prelude.Hashable CertificateValidationRecord where
 
 instance Prelude.NFData CertificateValidationRecord where
   rnf CertificateValidationRecord' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf type' `Prelude.seq`
+          Prelude.rnf value

@@ -217,10 +217,10 @@ instance Prelude.Hashable BatchCreateTableRows where
 
 instance Prelude.NFData BatchCreateTableRows where
   rnf BatchCreateTableRows' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf workbookId
-      `Prelude.seq` Prelude.rnf tableId
-      `Prelude.seq` Prelude.rnf rowsToCreate
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf workbookId `Prelude.seq`
+        Prelude.rnf tableId `Prelude.seq`
+          Prelude.rnf rowsToCreate
 
 instance Data.ToHeaders BatchCreateTableRows where
   toHeaders =
@@ -331,7 +331,7 @@ batchCreateTableRowsResponse_createdRows = Lens.lens (\BatchCreateTableRowsRespo
 
 instance Prelude.NFData BatchCreateTableRowsResponse where
   rnf BatchCreateTableRowsResponse' {..} =
-    Prelude.rnf failedBatchItems
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf workbookCursor
-      `Prelude.seq` Prelude.rnf createdRows
+    Prelude.rnf failedBatchItems `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf workbookCursor `Prelude.seq`
+          Prelude.rnf createdRows

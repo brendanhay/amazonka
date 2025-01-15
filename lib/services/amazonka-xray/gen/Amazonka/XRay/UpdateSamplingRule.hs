@@ -158,5 +158,5 @@ updateSamplingRuleResponse_httpStatus = Lens.lens (\UpdateSamplingRuleResponse' 
 
 instance Prelude.NFData UpdateSamplingRuleResponse where
   rnf UpdateSamplingRuleResponse' {..} =
-    Prelude.rnf samplingRuleRecord
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf samplingRuleRecord `Prelude.seq`
+      Prelude.rnf httpStatus

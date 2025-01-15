@@ -355,13 +355,13 @@ instance
     DescribeQuerySuggestionsConfigResponse
   where
   rnf DescribeQuerySuggestionsConfigResponse' {..} =
-    Prelude.rnf includeQueriesWithoutUserInformation
-      `Prelude.seq` Prelude.rnf lastClearTime
-      `Prelude.seq` Prelude.rnf lastSuggestionsBuildTime
-      `Prelude.seq` Prelude.rnf minimumNumberOfQueryingUsers
-      `Prelude.seq` Prelude.rnf minimumQueryCount
-      `Prelude.seq` Prelude.rnf mode
-      `Prelude.seq` Prelude.rnf queryLogLookBackWindowInDays
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf totalSuggestionsCount
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf includeQueriesWithoutUserInformation `Prelude.seq`
+      Prelude.rnf lastClearTime `Prelude.seq`
+        Prelude.rnf lastSuggestionsBuildTime `Prelude.seq`
+          Prelude.rnf minimumNumberOfQueryingUsers `Prelude.seq`
+            Prelude.rnf minimumQueryCount `Prelude.seq`
+              Prelude.rnf mode `Prelude.seq`
+                Prelude.rnf queryLogLookBackWindowInDays `Prelude.seq`
+                  Prelude.rnf status `Prelude.seq`
+                    Prelude.rnf totalSuggestionsCount `Prelude.seq`
+                      Prelude.rnf httpStatus

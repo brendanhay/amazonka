@@ -161,9 +161,9 @@ instance
     CreateAppCookieStickinessPolicy
   where
   rnf CreateAppCookieStickinessPolicy' {..} =
-    Prelude.rnf loadBalancerName
-      `Prelude.seq` Prelude.rnf policyName
-      `Prelude.seq` Prelude.rnf cookieName
+    Prelude.rnf loadBalancerName `Prelude.seq`
+      Prelude.rnf policyName `Prelude.seq`
+        Prelude.rnf cookieName
 
 instance
   Data.ToHeaders

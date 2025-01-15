@@ -229,9 +229,9 @@ instance Prelude.Hashable DataSetSearchFilter where
 
 instance Prelude.NFData DataSetSearchFilter where
   rnf DataSetSearchFilter' {..} =
-    Prelude.rnf operator
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf operator `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf value
 
 instance Data.ToJSON DataSetSearchFilter where
   toJSON DataSetSearchFilter' {..} =

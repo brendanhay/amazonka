@@ -82,5 +82,5 @@ instance Prelude.Hashable UnprocessedIdentityId where
 
 instance Prelude.NFData UnprocessedIdentityId where
   rnf UnprocessedIdentityId' {..} =
-    Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf identityId
+    Prelude.rnf errorCode `Prelude.seq`
+      Prelude.rnf identityId

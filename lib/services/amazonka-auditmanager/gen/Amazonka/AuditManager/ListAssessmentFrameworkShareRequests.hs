@@ -143,9 +143,9 @@ instance
     ListAssessmentFrameworkShareRequests
   where
   rnf ListAssessmentFrameworkShareRequests' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf requestType
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf requestType
 
 instance
   Data.ToHeaders
@@ -236,6 +236,6 @@ instance
     ListAssessmentFrameworkShareRequestsResponse
   where
   rnf ListAssessmentFrameworkShareRequestsResponse' {..} =
-    Prelude.rnf assessmentFrameworkShareRequests
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf assessmentFrameworkShareRequests `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

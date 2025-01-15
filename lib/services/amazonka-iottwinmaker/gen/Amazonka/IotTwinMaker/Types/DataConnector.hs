@@ -84,8 +84,8 @@ instance Prelude.Hashable DataConnector where
 
 instance Prelude.NFData DataConnector where
   rnf DataConnector' {..} =
-    Prelude.rnf isNative
-      `Prelude.seq` Prelude.rnf lambda
+    Prelude.rnf isNative `Prelude.seq`
+      Prelude.rnf lambda
 
 instance Data.ToJSON DataConnector where
   toJSON DataConnector' {..} =

@@ -244,10 +244,10 @@ instance
     UpdatePullRequestApprovalRuleContent
   where
   rnf UpdatePullRequestApprovalRuleContent' {..} =
-    Prelude.rnf existingRuleContentSha256
-      `Prelude.seq` Prelude.rnf pullRequestId
-      `Prelude.seq` Prelude.rnf approvalRuleName
-      `Prelude.seq` Prelude.rnf newRuleContent'
+    Prelude.rnf existingRuleContentSha256 `Prelude.seq`
+      Prelude.rnf pullRequestId `Prelude.seq`
+        Prelude.rnf approvalRuleName `Prelude.seq`
+          Prelude.rnf newRuleContent'
 
 instance
   Data.ToHeaders
@@ -344,5 +344,5 @@ instance
     UpdatePullRequestApprovalRuleContentResponse
   where
   rnf UpdatePullRequestApprovalRuleContentResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf approvalRule
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf approvalRule

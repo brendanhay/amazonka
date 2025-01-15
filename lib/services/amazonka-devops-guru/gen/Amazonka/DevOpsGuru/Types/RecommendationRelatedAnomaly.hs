@@ -112,6 +112,6 @@ instance
 
 instance Prelude.NFData RecommendationRelatedAnomaly where
   rnf RecommendationRelatedAnomaly' {..} =
-    Prelude.rnf anomalyId
-      `Prelude.seq` Prelude.rnf resources
-      `Prelude.seq` Prelude.rnf sourceDetails
+    Prelude.rnf anomalyId `Prelude.seq`
+      Prelude.rnf resources `Prelude.seq`
+        Prelude.rnf sourceDetails

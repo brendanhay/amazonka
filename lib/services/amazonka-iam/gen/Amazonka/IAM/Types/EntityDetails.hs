@@ -108,5 +108,5 @@ instance Prelude.Hashable EntityDetails where
 
 instance Prelude.NFData EntityDetails where
   rnf EntityDetails' {..} =
-    Prelude.rnf lastAuthenticated
-      `Prelude.seq` Prelude.rnf entityInfo
+    Prelude.rnf lastAuthenticated `Prelude.seq`
+      Prelude.rnf entityInfo

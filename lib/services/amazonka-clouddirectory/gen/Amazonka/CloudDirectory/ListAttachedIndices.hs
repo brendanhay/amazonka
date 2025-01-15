@@ -139,12 +139,12 @@ instance Core.AWSPager ListAttachedIndices where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listAttachedIndices_nextToken
-          Lens..~ rs
-          Lens.^? listAttachedIndicesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listAttachedIndices_nextToken
+              Lens..~ rs
+              Lens.^? listAttachedIndicesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAttachedIndices where
   type
@@ -175,11 +175,11 @@ instance Prelude.Hashable ListAttachedIndices where
 
 instance Prelude.NFData ListAttachedIndices where
   rnf ListAttachedIndices' {..} =
-    Prelude.rnf consistencyLevel
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf directoryArn
-      `Prelude.seq` Prelude.rnf targetReference
+    Prelude.rnf consistencyLevel `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf directoryArn `Prelude.seq`
+            Prelude.rnf targetReference
 
 instance Data.ToHeaders ListAttachedIndices where
   toHeaders ListAttachedIndices' {..} =
@@ -257,6 +257,6 @@ listAttachedIndicesResponse_httpStatus = Lens.lens (\ListAttachedIndicesResponse
 
 instance Prelude.NFData ListAttachedIndicesResponse where
   rnf ListAttachedIndicesResponse' {..} =
-    Prelude.rnf indexAttachments
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf indexAttachments `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

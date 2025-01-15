@@ -88,9 +88,9 @@ instance Prelude.Hashable AssociationExecutionFilter where
 
 instance Prelude.NFData AssociationExecutionFilter where
   rnf AssociationExecutionFilter' {..} =
-    Prelude.rnf key
-      `Prelude.seq` Prelude.rnf value
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf key `Prelude.seq`
+      Prelude.rnf value `Prelude.seq`
+        Prelude.rnf type'
 
 instance Data.ToJSON AssociationExecutionFilter where
   toJSON AssociationExecutionFilter' {..} =

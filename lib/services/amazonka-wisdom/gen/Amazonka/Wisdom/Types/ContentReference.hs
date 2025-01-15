@@ -102,7 +102,7 @@ instance Prelude.Hashable ContentReference where
 
 instance Prelude.NFData ContentReference where
   rnf ContentReference' {..} =
-    Prelude.rnf contentArn
-      `Prelude.seq` Prelude.rnf contentId
-      `Prelude.seq` Prelude.rnf knowledgeBaseArn
-      `Prelude.seq` Prelude.rnf knowledgeBaseId
+    Prelude.rnf contentArn `Prelude.seq`
+      Prelude.rnf contentId `Prelude.seq`
+        Prelude.rnf knowledgeBaseArn `Prelude.seq`
+          Prelude.rnf knowledgeBaseId

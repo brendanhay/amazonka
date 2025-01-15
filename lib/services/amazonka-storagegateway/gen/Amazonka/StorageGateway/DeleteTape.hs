@@ -141,9 +141,9 @@ instance Prelude.Hashable DeleteTape where
 
 instance Prelude.NFData DeleteTape where
   rnf DeleteTape' {..} =
-    Prelude.rnf bypassGovernanceRetention
-      `Prelude.seq` Prelude.rnf gatewayARN
-      `Prelude.seq` Prelude.rnf tapeARN
+    Prelude.rnf bypassGovernanceRetention `Prelude.seq`
+      Prelude.rnf gatewayARN `Prelude.seq`
+        Prelude.rnf tapeARN
 
 instance Data.ToHeaders DeleteTape where
   toHeaders =
@@ -219,5 +219,5 @@ deleteTapeResponse_httpStatus = Lens.lens (\DeleteTapeResponse' {httpStatus} -> 
 
 instance Prelude.NFData DeleteTapeResponse where
   rnf DeleteTapeResponse' {..} =
-    Prelude.rnf tapeARN
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf tapeARN `Prelude.seq`
+      Prelude.rnf httpStatus

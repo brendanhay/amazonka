@@ -139,10 +139,10 @@ instance Prelude.Hashable DeleteIntent where
 
 instance Prelude.NFData DeleteIntent where
   rnf DeleteIntent' {..} =
-    Prelude.rnf intentId
-      `Prelude.seq` Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf botVersion
-      `Prelude.seq` Prelude.rnf localeId
+    Prelude.rnf intentId `Prelude.seq`
+      Prelude.rnf botId `Prelude.seq`
+        Prelude.rnf botVersion `Prelude.seq`
+          Prelude.rnf localeId
 
 instance Data.ToHeaders DeleteIntent where
   toHeaders =

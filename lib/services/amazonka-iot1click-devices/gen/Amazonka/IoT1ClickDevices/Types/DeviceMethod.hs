@@ -78,8 +78,8 @@ instance Prelude.Hashable DeviceMethod where
 
 instance Prelude.NFData DeviceMethod where
   rnf DeviceMethod' {..} =
-    Prelude.rnf deviceType
-      `Prelude.seq` Prelude.rnf methodName
+    Prelude.rnf deviceType `Prelude.seq`
+      Prelude.rnf methodName
 
 instance Data.ToJSON DeviceMethod where
   toJSON DeviceMethod' {..} =

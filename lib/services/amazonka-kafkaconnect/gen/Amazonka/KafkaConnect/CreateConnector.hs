@@ -265,18 +265,18 @@ instance Prelude.Hashable CreateConnector where
 
 instance Prelude.NFData CreateConnector where
   rnf CreateConnector' {..} =
-    Prelude.rnf connectorDescription
-      `Prelude.seq` Prelude.rnf logDelivery
-      `Prelude.seq` Prelude.rnf workerConfiguration
-      `Prelude.seq` Prelude.rnf capacity
-      `Prelude.seq` Prelude.rnf connectorConfiguration
-      `Prelude.seq` Prelude.rnf connectorName
-      `Prelude.seq` Prelude.rnf kafkaCluster
-      `Prelude.seq` Prelude.rnf kafkaClusterClientAuthentication
-      `Prelude.seq` Prelude.rnf kafkaClusterEncryptionInTransit
-      `Prelude.seq` Prelude.rnf kafkaConnectVersion
-      `Prelude.seq` Prelude.rnf plugins
-      `Prelude.seq` Prelude.rnf serviceExecutionRoleArn
+    Prelude.rnf connectorDescription `Prelude.seq`
+      Prelude.rnf logDelivery `Prelude.seq`
+        Prelude.rnf workerConfiguration `Prelude.seq`
+          Prelude.rnf capacity `Prelude.seq`
+            Prelude.rnf connectorConfiguration `Prelude.seq`
+              Prelude.rnf connectorName `Prelude.seq`
+                Prelude.rnf kafkaCluster `Prelude.seq`
+                  Prelude.rnf kafkaClusterClientAuthentication `Prelude.seq`
+                    Prelude.rnf kafkaClusterEncryptionInTransit `Prelude.seq`
+                      Prelude.rnf kafkaConnectVersion `Prelude.seq`
+                        Prelude.rnf plugins `Prelude.seq`
+                          Prelude.rnf serviceExecutionRoleArn
 
 instance Data.ToHeaders CreateConnector where
   toHeaders =
@@ -388,7 +388,7 @@ createConnectorResponse_httpStatus = Lens.lens (\CreateConnectorResponse' {httpS
 
 instance Prelude.NFData CreateConnectorResponse where
   rnf CreateConnectorResponse' {..} =
-    Prelude.rnf connectorArn
-      `Prelude.seq` Prelude.rnf connectorName
-      `Prelude.seq` Prelude.rnf connectorState
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf connectorArn `Prelude.seq`
+      Prelude.rnf connectorName `Prelude.seq`
+        Prelude.rnf connectorState `Prelude.seq`
+          Prelude.rnf httpStatus

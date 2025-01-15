@@ -95,8 +95,8 @@ instance
     ParametricCloudWatchMonitoringConfiguration
   where
   rnf ParametricCloudWatchMonitoringConfiguration' {..} =
-    Prelude.rnf logGroupName
-      `Prelude.seq` Prelude.rnf logStreamNamePrefix
+    Prelude.rnf logGroupName `Prelude.seq`
+      Prelude.rnf logStreamNamePrefix
 
 instance
   Data.ToJSON

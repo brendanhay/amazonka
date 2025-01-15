@@ -172,5 +172,5 @@ stopRunResponse_httpStatus = Lens.lens (\StopRunResponse' {httpStatus} -> httpSt
 
 instance Prelude.NFData StopRunResponse where
   rnf StopRunResponse' {..} =
-    Prelude.rnf run
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf run `Prelude.seq`
+      Prelude.rnf httpStatus

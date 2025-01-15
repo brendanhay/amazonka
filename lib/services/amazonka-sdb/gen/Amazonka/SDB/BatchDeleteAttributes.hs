@@ -106,8 +106,8 @@ instance Prelude.Hashable BatchDeleteAttributes where
 
 instance Prelude.NFData BatchDeleteAttributes where
   rnf BatchDeleteAttributes' {..} =
-    Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf items
+    Prelude.rnf domainName `Prelude.seq`
+      Prelude.rnf items
 
 instance Data.ToHeaders BatchDeleteAttributes where
   toHeaders = Prelude.const Prelude.mempty

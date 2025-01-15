@@ -92,6 +92,6 @@ instance Prelude.Hashable StagingSourceServer where
 
 instance Prelude.NFData StagingSourceServer where
   rnf StagingSourceServer' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf hostname
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf hostname `Prelude.seq`
+        Prelude.rnf tags

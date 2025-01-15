@@ -113,8 +113,8 @@ instance Prelude.Hashable DescribeAppInstanceAdmin where
 
 instance Prelude.NFData DescribeAppInstanceAdmin where
   rnf DescribeAppInstanceAdmin' {..} =
-    Prelude.rnf appInstanceAdminArn
-      `Prelude.seq` Prelude.rnf appInstanceArn
+    Prelude.rnf appInstanceAdminArn `Prelude.seq`
+      Prelude.rnf appInstanceArn
 
 instance Data.ToHeaders DescribeAppInstanceAdmin where
   toHeaders = Prelude.const Prelude.mempty
@@ -181,5 +181,5 @@ instance
     DescribeAppInstanceAdminResponse
   where
   rnf DescribeAppInstanceAdminResponse' {..} =
-    Prelude.rnf appInstanceAdmin
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf appInstanceAdmin `Prelude.seq`
+      Prelude.rnf httpStatus

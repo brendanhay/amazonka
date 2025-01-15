@@ -128,10 +128,10 @@ instance Prelude.Hashable PutDetector where
 
 instance Prelude.NFData PutDetector where
   rnf PutDetector' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf detectorId
-      `Prelude.seq` Prelude.rnf eventTypeName
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf detectorId `Prelude.seq`
+          Prelude.rnf eventTypeName
 
 instance Data.ToHeaders PutDetector where
   toHeaders =

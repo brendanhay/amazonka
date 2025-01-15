@@ -90,10 +90,10 @@ instance Prelude.Hashable EdgeMetric where
 
 instance Prelude.NFData EdgeMetric where
   rnf EdgeMetric' {..} =
-    Prelude.rnf dimension
-      `Prelude.seq` Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf timestamp
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf dimension `Prelude.seq`
+      Prelude.rnf metricName `Prelude.seq`
+        Prelude.rnf timestamp `Prelude.seq`
+          Prelude.rnf value
 
 instance Data.ToJSON EdgeMetric where
   toJSON EdgeMetric' {..} =

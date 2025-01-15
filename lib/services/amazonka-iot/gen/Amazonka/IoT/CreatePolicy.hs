@@ -165,9 +165,9 @@ instance Prelude.Hashable CreatePolicy where
 
 instance Prelude.NFData CreatePolicy where
   rnf CreatePolicy' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf policyName
-      `Prelude.seq` Prelude.rnf policyDocument
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf policyName `Prelude.seq`
+        Prelude.rnf policyDocument
 
 instance Data.ToHeaders CreatePolicy where
   toHeaders = Prelude.const Prelude.mempty
@@ -259,8 +259,8 @@ createPolicyResponse_httpStatus = Lens.lens (\CreatePolicyResponse' {httpStatus}
 
 instance Prelude.NFData CreatePolicyResponse where
   rnf CreatePolicyResponse' {..} =
-    Prelude.rnf policyArn
-      `Prelude.seq` Prelude.rnf policyDocument
-      `Prelude.seq` Prelude.rnf policyName
-      `Prelude.seq` Prelude.rnf policyVersionId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf policyArn `Prelude.seq`
+      Prelude.rnf policyDocument `Prelude.seq`
+        Prelude.rnf policyName `Prelude.seq`
+          Prelude.rnf policyVersionId `Prelude.seq`
+            Prelude.rnf httpStatus

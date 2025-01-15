@@ -198,12 +198,12 @@ instance Prelude.Hashable DeleteAccountAssignment where
 
 instance Prelude.NFData DeleteAccountAssignment where
   rnf DeleteAccountAssignment' {..} =
-    Prelude.rnf instanceArn
-      `Prelude.seq` Prelude.rnf targetId
-      `Prelude.seq` Prelude.rnf targetType
-      `Prelude.seq` Prelude.rnf permissionSetArn
-      `Prelude.seq` Prelude.rnf principalType
-      `Prelude.seq` Prelude.rnf principalId
+    Prelude.rnf instanceArn `Prelude.seq`
+      Prelude.rnf targetId `Prelude.seq`
+        Prelude.rnf targetType `Prelude.seq`
+          Prelude.rnf permissionSetArn `Prelude.seq`
+            Prelude.rnf principalType `Prelude.seq`
+              Prelude.rnf principalId
 
 instance Data.ToHeaders DeleteAccountAssignment where
   toHeaders =
@@ -284,5 +284,5 @@ instance
     DeleteAccountAssignmentResponse
   where
   rnf DeleteAccountAssignmentResponse' {..} =
-    Prelude.rnf accountAssignmentDeletionStatus
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf accountAssignmentDeletionStatus `Prelude.seq`
+      Prelude.rnf httpStatus

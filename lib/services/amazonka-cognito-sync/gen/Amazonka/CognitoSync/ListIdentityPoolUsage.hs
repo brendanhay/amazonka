@@ -122,8 +122,8 @@ instance Prelude.Hashable ListIdentityPoolUsage where
 
 instance Prelude.NFData ListIdentityPoolUsage where
   rnf ListIdentityPoolUsage' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListIdentityPoolUsage where
   toHeaders =
@@ -216,8 +216,8 @@ listIdentityPoolUsageResponse_httpStatus = Lens.lens (\ListIdentityPoolUsageResp
 
 instance Prelude.NFData ListIdentityPoolUsageResponse where
   rnf ListIdentityPoolUsageResponse' {..} =
-    Prelude.rnf count
-      `Prelude.seq` Prelude.rnf identityPoolUsages
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf count `Prelude.seq`
+      Prelude.rnf identityPoolUsages `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf httpStatus

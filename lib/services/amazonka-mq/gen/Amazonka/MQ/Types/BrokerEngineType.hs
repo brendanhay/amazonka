@@ -85,5 +85,5 @@ instance Prelude.Hashable BrokerEngineType where
 
 instance Prelude.NFData BrokerEngineType where
   rnf BrokerEngineType' {..} =
-    Prelude.rnf engineType
-      `Prelude.seq` Prelude.rnf engineVersions
+    Prelude.rnf engineType `Prelude.seq`
+      Prelude.rnf engineVersions

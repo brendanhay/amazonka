@@ -140,9 +140,9 @@ instance
     DisassociateInstanceStorageConfig
   where
   rnf DisassociateInstanceStorageConfig' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf associationId
-      `Prelude.seq` Prelude.rnf resourceType
+    Prelude.rnf instanceId `Prelude.seq`
+      Prelude.rnf associationId `Prelude.seq`
+        Prelude.rnf resourceType
 
 instance
   Data.ToHeaders

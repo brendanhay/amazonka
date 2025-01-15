@@ -141,9 +141,9 @@ instance
     DescribeConnectionAliasPermissions
   where
   rnf DescribeConnectionAliasPermissions' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf aliasId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf aliasId
 
 instance
   Data.ToHeaders
@@ -255,7 +255,7 @@ instance
     DescribeConnectionAliasPermissionsResponse
   where
   rnf DescribeConnectionAliasPermissionsResponse' {..} =
-    Prelude.rnf aliasId
-      `Prelude.seq` Prelude.rnf connectionAliasPermissions
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf aliasId `Prelude.seq`
+      Prelude.rnf connectionAliasPermissions `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf httpStatus

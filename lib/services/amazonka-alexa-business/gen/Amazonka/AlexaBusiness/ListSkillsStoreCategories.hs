@@ -103,12 +103,12 @@ instance Core.AWSPager ListSkillsStoreCategories where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listSkillsStoreCategories_nextToken
-          Lens..~ rs
-          Lens.^? listSkillsStoreCategoriesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listSkillsStoreCategories_nextToken
+              Lens..~ rs
+              Lens.^? listSkillsStoreCategoriesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSkillsStoreCategories where
   type
@@ -133,8 +133,8 @@ instance Prelude.Hashable ListSkillsStoreCategories where
 
 instance Prelude.NFData ListSkillsStoreCategories where
   rnf ListSkillsStoreCategories' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListSkillsStoreCategories where
   toHeaders =
@@ -219,6 +219,6 @@ instance
     ListSkillsStoreCategoriesResponse
   where
   rnf ListSkillsStoreCategoriesResponse' {..} =
-    Prelude.rnf categoryList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf categoryList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

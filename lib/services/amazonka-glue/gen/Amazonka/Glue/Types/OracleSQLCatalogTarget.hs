@@ -114,10 +114,10 @@ instance Prelude.Hashable OracleSQLCatalogTarget where
 
 instance Prelude.NFData OracleSQLCatalogTarget where
   rnf OracleSQLCatalogTarget' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf inputs
-      `Prelude.seq` Prelude.rnf database
-      `Prelude.seq` Prelude.rnf table
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf inputs `Prelude.seq`
+        Prelude.rnf database `Prelude.seq`
+          Prelude.rnf table
 
 instance Data.ToJSON OracleSQLCatalogTarget where
   toJSON OracleSQLCatalogTarget' {..} =

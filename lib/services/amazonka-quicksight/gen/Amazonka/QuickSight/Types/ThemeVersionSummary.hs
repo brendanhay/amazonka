@@ -114,8 +114,8 @@ instance Prelude.Hashable ThemeVersionSummary where
 
 instance Prelude.NFData ThemeVersionSummary where
   rnf ThemeVersionSummary' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf versionNumber
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf createdTime `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf versionNumber

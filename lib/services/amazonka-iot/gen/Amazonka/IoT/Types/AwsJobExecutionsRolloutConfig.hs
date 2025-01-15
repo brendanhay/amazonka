@@ -88,8 +88,8 @@ instance
 
 instance Prelude.NFData AwsJobExecutionsRolloutConfig where
   rnf AwsJobExecutionsRolloutConfig' {..} =
-    Prelude.rnf exponentialRate
-      `Prelude.seq` Prelude.rnf maximumPerMinute
+    Prelude.rnf exponentialRate `Prelude.seq`
+      Prelude.rnf maximumPerMinute
 
 instance Data.ToJSON AwsJobExecutionsRolloutConfig where
   toJSON AwsJobExecutionsRolloutConfig' {..} =

@@ -194,14 +194,14 @@ instance Prelude.Hashable UpdateLaunchProfile where
 
 instance Prelude.NFData UpdateLaunchProfile where
   rnf UpdateLaunchProfile' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf launchProfileProtocolVersions
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf streamConfiguration
-      `Prelude.seq` Prelude.rnf studioComponentIds
-      `Prelude.seq` Prelude.rnf launchProfileId
-      `Prelude.seq` Prelude.rnf studioId
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf launchProfileProtocolVersions `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf streamConfiguration `Prelude.seq`
+              Prelude.rnf studioComponentIds `Prelude.seq`
+                Prelude.rnf launchProfileId `Prelude.seq`
+                  Prelude.rnf studioId
 
 instance Data.ToHeaders UpdateLaunchProfile where
   toHeaders UpdateLaunchProfile' {..} =
@@ -279,5 +279,5 @@ updateLaunchProfileResponse_httpStatus = Lens.lens (\UpdateLaunchProfileResponse
 
 instance Prelude.NFData UpdateLaunchProfileResponse where
   rnf UpdateLaunchProfileResponse' {..} =
-    Prelude.rnf launchProfile
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf launchProfile `Prelude.seq`
+      Prelude.rnf httpStatus

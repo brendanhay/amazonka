@@ -181,11 +181,11 @@ instance
     ReplicationGroupPendingModifiedValues
   where
   rnf ReplicationGroupPendingModifiedValues' {..} =
-    Prelude.rnf authTokenStatus
-      `Prelude.seq` Prelude.rnf automaticFailoverStatus
-      `Prelude.seq` Prelude.rnf logDeliveryConfigurations
-      `Prelude.seq` Prelude.rnf primaryClusterId
-      `Prelude.seq` Prelude.rnf resharding
-      `Prelude.seq` Prelude.rnf transitEncryptionEnabled
-      `Prelude.seq` Prelude.rnf transitEncryptionMode
-      `Prelude.seq` Prelude.rnf userGroups
+    Prelude.rnf authTokenStatus `Prelude.seq`
+      Prelude.rnf automaticFailoverStatus `Prelude.seq`
+        Prelude.rnf logDeliveryConfigurations `Prelude.seq`
+          Prelude.rnf primaryClusterId `Prelude.seq`
+            Prelude.rnf resharding `Prelude.seq`
+              Prelude.rnf transitEncryptionEnabled `Prelude.seq`
+                Prelude.rnf transitEncryptionMode `Prelude.seq`
+                  Prelude.rnf userGroups

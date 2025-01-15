@@ -134,10 +134,10 @@ instance Prelude.Hashable Channel where
 
 instance Prelude.NFData Channel where
   rnf Channel' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf egressAccessLogs
-      `Prelude.seq` Prelude.rnf hlsIngest
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf ingressAccessLogs
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf egressAccessLogs `Prelude.seq`
+          Prelude.rnf hlsIngest `Prelude.seq`
+            Prelude.rnf id `Prelude.seq`
+              Prelude.rnf ingressAccessLogs `Prelude.seq`
+                Prelude.rnf tags

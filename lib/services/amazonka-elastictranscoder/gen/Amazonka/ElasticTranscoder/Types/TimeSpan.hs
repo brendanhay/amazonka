@@ -110,8 +110,8 @@ instance Prelude.Hashable TimeSpan where
 
 instance Prelude.NFData TimeSpan where
   rnf TimeSpan' {..} =
-    Prelude.rnf duration
-      `Prelude.seq` Prelude.rnf startTime
+    Prelude.rnf duration `Prelude.seq`
+      Prelude.rnf startTime
 
 instance Data.ToJSON TimeSpan where
   toJSON TimeSpan' {..} =

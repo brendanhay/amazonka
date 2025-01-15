@@ -118,8 +118,8 @@ instance Prelude.Hashable EntityRecognizerSummary where
 
 instance Prelude.NFData EntityRecognizerSummary where
   rnf EntityRecognizerSummary' {..} =
-    Prelude.rnf latestVersionCreatedAt
-      `Prelude.seq` Prelude.rnf latestVersionName
-      `Prelude.seq` Prelude.rnf latestVersionStatus
-      `Prelude.seq` Prelude.rnf numberOfVersions
-      `Prelude.seq` Prelude.rnf recognizerName
+    Prelude.rnf latestVersionCreatedAt `Prelude.seq`
+      Prelude.rnf latestVersionName `Prelude.seq`
+        Prelude.rnf latestVersionStatus `Prelude.seq`
+          Prelude.rnf numberOfVersions `Prelude.seq`
+            Prelude.rnf recognizerName

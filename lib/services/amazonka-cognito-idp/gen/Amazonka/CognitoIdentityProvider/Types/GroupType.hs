@@ -180,10 +180,10 @@ instance Prelude.Hashable GroupType where
 
 instance Prelude.NFData GroupType where
   rnf GroupType' {..} =
-    Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf groupName
-      `Prelude.seq` Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf precedence
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf userPoolId
+    Prelude.rnf creationDate `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf groupName `Prelude.seq`
+          Prelude.rnf lastModifiedDate `Prelude.seq`
+            Prelude.rnf precedence `Prelude.seq`
+              Prelude.rnf roleArn `Prelude.seq`
+                Prelude.rnf userPoolId

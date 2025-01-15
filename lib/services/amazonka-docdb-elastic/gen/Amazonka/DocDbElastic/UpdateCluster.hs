@@ -235,15 +235,15 @@ instance Prelude.Hashable UpdateCluster where
 
 instance Prelude.NFData UpdateCluster where
   rnf UpdateCluster' {..} =
-    Prelude.rnf adminUserPassword
-      `Prelude.seq` Prelude.rnf authType
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf preferredMaintenanceWindow
-      `Prelude.seq` Prelude.rnf shardCapacity
-      `Prelude.seq` Prelude.rnf shardCount
-      `Prelude.seq` Prelude.rnf subnetIds
-      `Prelude.seq` Prelude.rnf vpcSecurityGroupIds
-      `Prelude.seq` Prelude.rnf clusterArn
+    Prelude.rnf adminUserPassword `Prelude.seq`
+      Prelude.rnf authType `Prelude.seq`
+        Prelude.rnf clientToken `Prelude.seq`
+          Prelude.rnf preferredMaintenanceWindow `Prelude.seq`
+            Prelude.rnf shardCapacity `Prelude.seq`
+              Prelude.rnf shardCount `Prelude.seq`
+                Prelude.rnf subnetIds `Prelude.seq`
+                  Prelude.rnf vpcSecurityGroupIds `Prelude.seq`
+                    Prelude.rnf clusterArn
 
 instance Data.ToHeaders UpdateCluster where
   toHeaders =
@@ -323,5 +323,5 @@ updateClusterResponse_cluster = Lens.lens (\UpdateClusterResponse' {cluster} -> 
 
 instance Prelude.NFData UpdateClusterResponse where
   rnf UpdateClusterResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf cluster
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf cluster

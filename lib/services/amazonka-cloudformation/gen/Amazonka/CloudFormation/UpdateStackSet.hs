@@ -957,25 +957,25 @@ instance Prelude.Hashable UpdateStackSet where
 
 instance Prelude.NFData UpdateStackSet where
   rnf UpdateStackSet' {..} =
-    Prelude.rnf accounts
-      `Prelude.seq` Prelude.rnf administrationRoleARN
-      `Prelude.seq` Prelude.rnf autoDeployment
-      `Prelude.seq` Prelude.rnf callAs
-      `Prelude.seq` Prelude.rnf capabilities
-      `Prelude.seq` Prelude.rnf deploymentTargets
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf executionRoleName
-      `Prelude.seq` Prelude.rnf managedExecution
-      `Prelude.seq` Prelude.rnf operationId
-      `Prelude.seq` Prelude.rnf operationPreferences
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf permissionModel
-      `Prelude.seq` Prelude.rnf regions
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf templateBody
-      `Prelude.seq` Prelude.rnf templateURL
-      `Prelude.seq` Prelude.rnf usePreviousTemplate
-      `Prelude.seq` Prelude.rnf stackSetName
+    Prelude.rnf accounts `Prelude.seq`
+      Prelude.rnf administrationRoleARN `Prelude.seq`
+        Prelude.rnf autoDeployment `Prelude.seq`
+          Prelude.rnf callAs `Prelude.seq`
+            Prelude.rnf capabilities `Prelude.seq`
+              Prelude.rnf deploymentTargets `Prelude.seq`
+                Prelude.rnf description `Prelude.seq`
+                  Prelude.rnf executionRoleName `Prelude.seq`
+                    Prelude.rnf managedExecution `Prelude.seq`
+                      Prelude.rnf operationId `Prelude.seq`
+                        Prelude.rnf operationPreferences `Prelude.seq`
+                          Prelude.rnf parameters `Prelude.seq`
+                            Prelude.rnf permissionModel `Prelude.seq`
+                              Prelude.rnf regions `Prelude.seq`
+                                Prelude.rnf tags `Prelude.seq`
+                                  Prelude.rnf templateBody `Prelude.seq`
+                                    Prelude.rnf templateURL `Prelude.seq`
+                                      Prelude.rnf usePreviousTemplate `Prelude.seq`
+                                        Prelude.rnf stackSetName
 
 instance Data.ToHeaders UpdateStackSet where
   toHeaders = Prelude.const Prelude.mempty
@@ -1063,5 +1063,5 @@ updateStackSetResponse_httpStatus = Lens.lens (\UpdateStackSetResponse' {httpSta
 
 instance Prelude.NFData UpdateStackSetResponse where
   rnf UpdateStackSetResponse' {..} =
-    Prelude.rnf operationId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operationId `Prelude.seq`
+      Prelude.rnf httpStatus

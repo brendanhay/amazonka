@@ -196,10 +196,10 @@ instance Prelude.Hashable DescribeCapacityProviders where
 
 instance Prelude.NFData DescribeCapacityProviders where
   rnf DescribeCapacityProviders' {..} =
-    Prelude.rnf capacityProviders
-      `Prelude.seq` Prelude.rnf include
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf capacityProviders `Prelude.seq`
+      Prelude.rnf include `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeCapacityProviders where
   toHeaders =
@@ -305,7 +305,7 @@ instance
     DescribeCapacityProvidersResponse
   where
   rnf DescribeCapacityProvidersResponse' {..} =
-    Prelude.rnf capacityProviders
-      `Prelude.seq` Prelude.rnf failures
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf capacityProviders `Prelude.seq`
+      Prelude.rnf failures `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf httpStatus

@@ -174,10 +174,10 @@ instance
     AssociateClientVpnTargetNetwork
   where
   rnf AssociateClientVpnTargetNetwork' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf clientVpnEndpointId
-      `Prelude.seq` Prelude.rnf subnetId
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf clientVpnEndpointId `Prelude.seq`
+          Prelude.rnf subnetId
 
 instance
   Data.ToHeaders
@@ -257,6 +257,6 @@ instance
     AssociateClientVpnTargetNetworkResponse
   where
   rnf AssociateClientVpnTargetNetworkResponse' {..} =
-    Prelude.rnf associationId
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf associationId `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf httpStatus

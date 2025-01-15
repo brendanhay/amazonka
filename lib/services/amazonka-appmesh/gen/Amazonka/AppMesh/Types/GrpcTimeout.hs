@@ -99,8 +99,8 @@ instance Prelude.Hashable GrpcTimeout where
 
 instance Prelude.NFData GrpcTimeout where
   rnf GrpcTimeout' {..} =
-    Prelude.rnf idle
-      `Prelude.seq` Prelude.rnf perRequest
+    Prelude.rnf idle `Prelude.seq`
+      Prelude.rnf perRequest
 
 instance Data.ToJSON GrpcTimeout where
   toJSON GrpcTimeout' {..} =

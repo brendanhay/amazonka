@@ -125,9 +125,9 @@ instance Prelude.Hashable LaunchTemplateSpecification where
 
 instance Prelude.NFData LaunchTemplateSpecification where
   rnf LaunchTemplateSpecification' {..} =
-    Prelude.rnf launchTemplateId
-      `Prelude.seq` Prelude.rnf launchTemplateName
-      `Prelude.seq` Prelude.rnf version
+    Prelude.rnf launchTemplateId `Prelude.seq`
+      Prelude.rnf launchTemplateName `Prelude.seq`
+        Prelude.rnf version
 
 instance Data.ToQuery LaunchTemplateSpecification where
   toQuery LaunchTemplateSpecification' {..} =

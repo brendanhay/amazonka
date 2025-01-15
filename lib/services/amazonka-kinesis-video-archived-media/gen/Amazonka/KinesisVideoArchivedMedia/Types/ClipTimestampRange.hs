@@ -123,8 +123,8 @@ instance Prelude.Hashable ClipTimestampRange where
 
 instance Prelude.NFData ClipTimestampRange where
   rnf ClipTimestampRange' {..} =
-    Prelude.rnf startTimestamp
-      `Prelude.seq` Prelude.rnf endTimestamp
+    Prelude.rnf startTimestamp `Prelude.seq`
+      Prelude.rnf endTimestamp
 
 instance Data.ToJSON ClipTimestampRange where
   toJSON ClipTimestampRange' {..} =

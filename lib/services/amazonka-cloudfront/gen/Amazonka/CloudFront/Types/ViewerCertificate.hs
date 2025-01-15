@@ -429,13 +429,13 @@ instance Prelude.Hashable ViewerCertificate where
 
 instance Prelude.NFData ViewerCertificate where
   rnf ViewerCertificate' {..} =
-    Prelude.rnf aCMCertificateArn
-      `Prelude.seq` Prelude.rnf certificate
-      `Prelude.seq` Prelude.rnf certificateSource
-      `Prelude.seq` Prelude.rnf cloudFrontDefaultCertificate
-      `Prelude.seq` Prelude.rnf iAMCertificateId
-      `Prelude.seq` Prelude.rnf minimumProtocolVersion
-      `Prelude.seq` Prelude.rnf sSLSupportMethod
+    Prelude.rnf aCMCertificateArn `Prelude.seq`
+      Prelude.rnf certificate `Prelude.seq`
+        Prelude.rnf certificateSource `Prelude.seq`
+          Prelude.rnf cloudFrontDefaultCertificate `Prelude.seq`
+            Prelude.rnf iAMCertificateId `Prelude.seq`
+              Prelude.rnf minimumProtocolVersion `Prelude.seq`
+                Prelude.rnf sSLSupportMethod
 
 instance Data.ToXML ViewerCertificate where
   toXML ViewerCertificate' {..} =

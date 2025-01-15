@@ -85,8 +85,8 @@ instance
     CompatibleEnvironmentTemplateInput
   where
   rnf CompatibleEnvironmentTemplateInput' {..} =
-    Prelude.rnf majorVersion
-      `Prelude.seq` Prelude.rnf templateName
+    Prelude.rnf majorVersion `Prelude.seq`
+      Prelude.rnf templateName
 
 instance
   Data.ToJSON

@@ -176,14 +176,14 @@ instance Prelude.Hashable FindingFilter where
 
 instance Prelude.NFData FindingFilter where
   rnf FindingFilter' {..} =
-    Prelude.rnf agentIds
-      `Prelude.seq` Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf autoScalingGroups
-      `Prelude.seq` Prelude.rnf creationTimeRange
-      `Prelude.seq` Prelude.rnf ruleNames
-      `Prelude.seq` Prelude.rnf rulesPackageArns
-      `Prelude.seq` Prelude.rnf severities
-      `Prelude.seq` Prelude.rnf userAttributes
+    Prelude.rnf agentIds `Prelude.seq`
+      Prelude.rnf attributes `Prelude.seq`
+        Prelude.rnf autoScalingGroups `Prelude.seq`
+          Prelude.rnf creationTimeRange `Prelude.seq`
+            Prelude.rnf ruleNames `Prelude.seq`
+              Prelude.rnf rulesPackageArns `Prelude.seq`
+                Prelude.rnf severities `Prelude.seq`
+                  Prelude.rnf userAttributes
 
 instance Data.ToJSON FindingFilter where
   toJSON FindingFilter' {..} =

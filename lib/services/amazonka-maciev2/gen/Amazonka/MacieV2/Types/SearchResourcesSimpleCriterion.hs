@@ -155,9 +155,9 @@ instance
     SearchResourcesSimpleCriterion
   where
   rnf SearchResourcesSimpleCriterion' {..} =
-    Prelude.rnf comparator
-      `Prelude.seq` Prelude.rnf key
-      `Prelude.seq` Prelude.rnf values
+    Prelude.rnf comparator `Prelude.seq`
+      Prelude.rnf key `Prelude.seq`
+        Prelude.rnf values
 
 instance Data.ToJSON SearchResourcesSimpleCriterion where
   toJSON SearchResourcesSimpleCriterion' {..} =

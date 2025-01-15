@@ -263,11 +263,11 @@ instance Prelude.Hashable CopySnapshot where
 
 instance Prelude.NFData CopySnapshot where
   rnf CopySnapshot' {..} =
-    Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf targetBucket
-      `Prelude.seq` Prelude.rnf sourceSnapshotName
-      `Prelude.seq` Prelude.rnf targetSnapshotName
+    Prelude.rnf kmsKeyId `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf targetBucket `Prelude.seq`
+          Prelude.rnf sourceSnapshotName `Prelude.seq`
+            Prelude.rnf targetSnapshotName
 
 instance Data.ToHeaders CopySnapshot where
   toHeaders = Prelude.const Prelude.mempty
@@ -330,5 +330,5 @@ copySnapshotResponse_httpStatus = Lens.lens (\CopySnapshotResponse' {httpStatus}
 
 instance Prelude.NFData CopySnapshotResponse where
   rnf CopySnapshotResponse' {..} =
-    Prelude.rnf snapshot
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf snapshot `Prelude.seq`
+      Prelude.rnf httpStatus

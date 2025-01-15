@@ -129,9 +129,9 @@ instance Prelude.Hashable ListLanguages where
 
 instance Prelude.NFData ListLanguages where
   rnf ListLanguages' {..} =
-    Prelude.rnf displayLanguageCode
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf displayLanguageCode `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListLanguages where
   toHeaders =
@@ -230,7 +230,7 @@ listLanguagesResponse_httpStatus = Lens.lens (\ListLanguagesResponse' {httpStatu
 
 instance Prelude.NFData ListLanguagesResponse where
   rnf ListLanguagesResponse' {..} =
-    Prelude.rnf displayLanguageCode
-      `Prelude.seq` Prelude.rnf languages
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf displayLanguageCode `Prelude.seq`
+      Prelude.rnf languages `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf httpStatus

@@ -248,15 +248,15 @@ instance Prelude.Hashable CreateIdentityPool where
 
 instance Prelude.NFData CreateIdentityPool where
   rnf CreateIdentityPool' {..} =
-    Prelude.rnf allowClassicFlow
-      `Prelude.seq` Prelude.rnf cognitoIdentityProviders
-      `Prelude.seq` Prelude.rnf developerProviderName
-      `Prelude.seq` Prelude.rnf identityPoolTags
-      `Prelude.seq` Prelude.rnf openIdConnectProviderARNs
-      `Prelude.seq` Prelude.rnf samlProviderARNs
-      `Prelude.seq` Prelude.rnf supportedLoginProviders
-      `Prelude.seq` Prelude.rnf identityPoolName
-      `Prelude.seq` Prelude.rnf allowUnauthenticatedIdentities
+    Prelude.rnf allowClassicFlow `Prelude.seq`
+      Prelude.rnf cognitoIdentityProviders `Prelude.seq`
+        Prelude.rnf developerProviderName `Prelude.seq`
+          Prelude.rnf identityPoolTags `Prelude.seq`
+            Prelude.rnf openIdConnectProviderARNs `Prelude.seq`
+              Prelude.rnf samlProviderARNs `Prelude.seq`
+                Prelude.rnf supportedLoginProviders `Prelude.seq`
+                  Prelude.rnf identityPoolName `Prelude.seq`
+                    Prelude.rnf allowUnauthenticatedIdentities
 
 instance Data.ToHeaders CreateIdentityPool where
   toHeaders =

@@ -98,8 +98,8 @@ instance Prelude.Hashable DeleteSchema where
 
 instance Prelude.NFData DeleteSchema where
   rnf DeleteSchema' {..} =
-    Prelude.rnf registryName
-      `Prelude.seq` Prelude.rnf schemaName
+    Prelude.rnf registryName `Prelude.seq`
+      Prelude.rnf schemaName
 
 instance Data.ToHeaders DeleteSchema where
   toHeaders =

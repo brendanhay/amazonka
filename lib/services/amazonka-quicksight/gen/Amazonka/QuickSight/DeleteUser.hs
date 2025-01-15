@@ -129,9 +129,9 @@ instance Prelude.Hashable DeleteUser where
 
 instance Prelude.NFData DeleteUser where
   rnf DeleteUser' {..} =
-    Prelude.rnf userName
-      `Prelude.seq` Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf namespace
+    Prelude.rnf userName `Prelude.seq`
+      Prelude.rnf awsAccountId `Prelude.seq`
+        Prelude.rnf namespace
 
 instance Data.ToHeaders DeleteUser where
   toHeaders =
@@ -198,5 +198,5 @@ deleteUserResponse_status = Lens.lens (\DeleteUserResponse' {status} -> status) 
 
 instance Prelude.NFData DeleteUserResponse where
   rnf DeleteUserResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf requestId `Prelude.seq`
+      Prelude.rnf status

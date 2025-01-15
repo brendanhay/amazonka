@@ -199,12 +199,12 @@ instance Core.AWSPager DescribeLaunchTemplates where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeLaunchTemplates_nextToken
-          Lens..~ rs
-          Lens.^? describeLaunchTemplatesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeLaunchTemplates_nextToken
+              Lens..~ rs
+              Lens.^? describeLaunchTemplatesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeLaunchTemplates where
   type
@@ -216,9 +216,7 @@ instance Core.AWSRequest DescribeLaunchTemplates where
     Response.receiveXML
       ( \s h x ->
           DescribeLaunchTemplatesResponse'
-            Prelude.<$> ( x
-                            Data..@? "launchTemplates"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "launchTemplates" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (x Data..@? "nextToken")
@@ -237,12 +235,12 @@ instance Prelude.Hashable DescribeLaunchTemplates where
 
 instance Prelude.NFData DescribeLaunchTemplates where
   rnf DescribeLaunchTemplates' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf launchTemplateIds
-      `Prelude.seq` Prelude.rnf launchTemplateNames
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf launchTemplateIds `Prelude.seq`
+          Prelude.rnf launchTemplateNames `Prelude.seq`
+            Prelude.rnf maxResults `Prelude.seq`
+              Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeLaunchTemplates where
   toHeaders = Prelude.const Prelude.mempty
@@ -328,6 +326,6 @@ instance
     DescribeLaunchTemplatesResponse
   where
   rnf DescribeLaunchTemplatesResponse' {..} =
-    Prelude.rnf launchTemplates
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf launchTemplates `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

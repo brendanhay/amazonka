@@ -190,5 +190,5 @@ instance
     DescribeEntitiesDetectionV2JobResponse
   where
   rnf DescribeEntitiesDetectionV2JobResponse' {..} =
-    Prelude.rnf comprehendMedicalAsyncJobProperties
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf comprehendMedicalAsyncJobProperties `Prelude.seq`
+      Prelude.rnf httpStatus

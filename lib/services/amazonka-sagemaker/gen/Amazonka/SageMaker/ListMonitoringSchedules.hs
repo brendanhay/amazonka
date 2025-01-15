@@ -245,12 +245,12 @@ instance Core.AWSPager ListMonitoringSchedules where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listMonitoringSchedules_nextToken
-          Lens..~ rs
-          Lens.^? listMonitoringSchedulesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listMonitoringSchedules_nextToken
+              Lens..~ rs
+              Lens.^? listMonitoringSchedulesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListMonitoringSchedules where
   type
@@ -289,19 +289,19 @@ instance Prelude.Hashable ListMonitoringSchedules where
 
 instance Prelude.NFData ListMonitoringSchedules where
   rnf ListMonitoringSchedules' {..} =
-    Prelude.rnf creationTimeAfter
-      `Prelude.seq` Prelude.rnf creationTimeBefore
-      `Prelude.seq` Prelude.rnf endpointName
-      `Prelude.seq` Prelude.rnf lastModifiedTimeAfter
-      `Prelude.seq` Prelude.rnf lastModifiedTimeBefore
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf monitoringJobDefinitionName
-      `Prelude.seq` Prelude.rnf monitoringTypeEquals
-      `Prelude.seq` Prelude.rnf nameContains
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf sortOrder
-      `Prelude.seq` Prelude.rnf statusEquals
+    Prelude.rnf creationTimeAfter `Prelude.seq`
+      Prelude.rnf creationTimeBefore `Prelude.seq`
+        Prelude.rnf endpointName `Prelude.seq`
+          Prelude.rnf lastModifiedTimeAfter `Prelude.seq`
+            Prelude.rnf lastModifiedTimeBefore `Prelude.seq`
+              Prelude.rnf maxResults `Prelude.seq`
+                Prelude.rnf monitoringJobDefinitionName `Prelude.seq`
+                  Prelude.rnf monitoringTypeEquals `Prelude.seq`
+                    Prelude.rnf nameContains `Prelude.seq`
+                      Prelude.rnf nextToken `Prelude.seq`
+                        Prelude.rnf sortBy `Prelude.seq`
+                          Prelude.rnf sortOrder `Prelude.seq`
+                            Prelude.rnf statusEquals
 
 instance Data.ToHeaders ListMonitoringSchedules where
   toHeaders =
@@ -410,6 +410,6 @@ instance
     ListMonitoringSchedulesResponse
   where
   rnf ListMonitoringSchedulesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf monitoringScheduleSummaries
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf monitoringScheduleSummaries

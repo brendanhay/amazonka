@@ -177,10 +177,10 @@ instance Prelude.Hashable CreatePlatformEndpoint where
 
 instance Prelude.NFData CreatePlatformEndpoint where
   rnf CreatePlatformEndpoint' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf customUserData
-      `Prelude.seq` Prelude.rnf platformApplicationArn
-      `Prelude.seq` Prelude.rnf token
+    Prelude.rnf attributes `Prelude.seq`
+      Prelude.rnf customUserData `Prelude.seq`
+        Prelude.rnf platformApplicationArn `Prelude.seq`
+          Prelude.rnf token
 
 instance Data.ToHeaders CreatePlatformEndpoint where
   toHeaders = Prelude.const Prelude.mempty
@@ -252,5 +252,5 @@ instance
     CreatePlatformEndpointResponse
   where
   rnf CreatePlatformEndpointResponse' {..} =
-    Prelude.rnf endpointArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf endpointArn `Prelude.seq`
+      Prelude.rnf httpStatus

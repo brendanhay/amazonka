@@ -121,8 +121,8 @@ instance
     CreateGroupCertificateAuthority
   where
   rnf CreateGroupCertificateAuthority' {..} =
-    Prelude.rnf amznClientToken
-      `Prelude.seq` Prelude.rnf groupId
+    Prelude.rnf amznClientToken `Prelude.seq`
+      Prelude.rnf groupId
 
 instance
   Data.ToHeaders
@@ -194,5 +194,5 @@ instance
     CreateGroupCertificateAuthorityResponse
   where
   rnf CreateGroupCertificateAuthorityResponse' {..} =
-    Prelude.rnf groupCertificateAuthorityArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf groupCertificateAuthorityArn `Prelude.seq`
+      Prelude.rnf httpStatus

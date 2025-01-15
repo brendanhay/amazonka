@@ -121,7 +121,7 @@ instance Prelude.Hashable TestWindowSummary where
 
 instance Prelude.NFData TestWindowSummary where
   rnf TestWindowSummary' {..} =
-    Prelude.rnf message
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf testWindowEnd
-      `Prelude.seq` Prelude.rnf testWindowStart
+    Prelude.rnf message `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf testWindowEnd `Prelude.seq`
+          Prelude.rnf testWindowStart

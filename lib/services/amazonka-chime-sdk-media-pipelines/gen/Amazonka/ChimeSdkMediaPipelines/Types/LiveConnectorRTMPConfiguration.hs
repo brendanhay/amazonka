@@ -103,9 +103,9 @@ instance
     LiveConnectorRTMPConfiguration
   where
   rnf LiveConnectorRTMPConfiguration' {..} =
-    Prelude.rnf audioChannels
-      `Prelude.seq` Prelude.rnf audioSampleRate
-      `Prelude.seq` Prelude.rnf url
+    Prelude.rnf audioChannels `Prelude.seq`
+      Prelude.rnf audioSampleRate `Prelude.seq`
+        Prelude.rnf url
 
 instance Data.ToJSON LiveConnectorRTMPConfiguration where
   toJSON LiveConnectorRTMPConfiguration' {..} =

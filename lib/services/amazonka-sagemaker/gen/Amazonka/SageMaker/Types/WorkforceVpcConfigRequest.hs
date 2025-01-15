@@ -84,9 +84,9 @@ instance Prelude.Hashable WorkforceVpcConfigRequest where
 
 instance Prelude.NFData WorkforceVpcConfigRequest where
   rnf WorkforceVpcConfigRequest' {..} =
-    Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf subnets
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf securityGroupIds `Prelude.seq`
+      Prelude.rnf subnets `Prelude.seq`
+        Prelude.rnf vpcId
 
 instance Data.ToJSON WorkforceVpcConfigRequest where
   toJSON WorkforceVpcConfigRequest' {..} =

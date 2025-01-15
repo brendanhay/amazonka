@@ -87,9 +87,9 @@ instance Prelude.Hashable PlainTextMessageType where
 
 instance Prelude.NFData PlainTextMessageType where
   rnf PlainTextMessageType' {..} =
-    Prelude.rnf languageCode
-      `Prelude.seq` Prelude.rnf text
-      `Prelude.seq` Prelude.rnf voiceId
+    Prelude.rnf languageCode `Prelude.seq`
+      Prelude.rnf text `Prelude.seq`
+        Prelude.rnf voiceId
 
 instance Data.ToJSON PlainTextMessageType where
   toJSON PlainTextMessageType' {..} =

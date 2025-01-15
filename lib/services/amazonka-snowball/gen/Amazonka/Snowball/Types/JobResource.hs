@@ -103,9 +103,9 @@ instance Prelude.Hashable JobResource where
 
 instance Prelude.NFData JobResource where
   rnf JobResource' {..} =
-    Prelude.rnf ec2AmiResources
-      `Prelude.seq` Prelude.rnf lambdaResources
-      `Prelude.seq` Prelude.rnf s3Resources
+    Prelude.rnf ec2AmiResources `Prelude.seq`
+      Prelude.rnf lambdaResources `Prelude.seq`
+        Prelude.rnf s3Resources
 
 instance Data.ToJSON JobResource where
   toJSON JobResource' {..} =

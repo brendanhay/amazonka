@@ -143,12 +143,12 @@ instance Core.AWSPager GetDatabases where
         (rs Lens.^. getDatabasesResponse_databaseList) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getDatabases_nextToken
-          Lens..~ rs
-          Lens.^? getDatabasesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getDatabases_nextToken
+              Lens..~ rs
+              Lens.^? getDatabasesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetDatabases where
   type AWSResponse GetDatabases = GetDatabasesResponse
@@ -173,10 +173,10 @@ instance Prelude.Hashable GetDatabases where
 
 instance Prelude.NFData GetDatabases where
   rnf GetDatabases' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf resourceShareType
+    Prelude.rnf catalogId `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf resourceShareType
 
 instance Data.ToHeaders GetDatabases where
   toHeaders =
@@ -261,6 +261,6 @@ getDatabasesResponse_databaseList = Lens.lens (\GetDatabasesResponse' {databaseL
 
 instance Prelude.NFData GetDatabasesResponse where
   rnf GetDatabasesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf databaseList
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf databaseList

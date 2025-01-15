@@ -127,7 +127,7 @@ instance Prelude.Hashable SSHPublicKeyMetadata where
 
 instance Prelude.NFData SSHPublicKeyMetadata where
   rnf SSHPublicKeyMetadata' {..} =
-    Prelude.rnf userName
-      `Prelude.seq` Prelude.rnf sSHPublicKeyId
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf uploadDate
+    Prelude.rnf userName `Prelude.seq`
+      Prelude.rnf sSHPublicKeyId `Prelude.seq`
+        Prelude.rnf status `Prelude.seq`
+          Prelude.rnf uploadDate

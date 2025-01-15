@@ -181,7 +181,7 @@ createDistributionResponse_httpStatus = Lens.lens (\CreateDistributionResponse' 
 
 instance Prelude.NFData CreateDistributionResponse where
   rnf CreateDistributionResponse' {..} =
-    Prelude.rnf distribution
-      `Prelude.seq` Prelude.rnf eTag
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf distribution `Prelude.seq`
+      Prelude.rnf eTag `Prelude.seq`
+        Prelude.rnf location `Prelude.seq`
+          Prelude.rnf httpStatus

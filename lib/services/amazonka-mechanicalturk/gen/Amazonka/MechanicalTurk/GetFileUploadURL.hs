@@ -128,8 +128,8 @@ instance Prelude.Hashable GetFileUploadURL where
 
 instance Prelude.NFData GetFileUploadURL where
   rnf GetFileUploadURL' {..} =
-    Prelude.rnf assignmentId
-      `Prelude.seq` Prelude.rnf questionIdentifier
+    Prelude.rnf assignmentId `Prelude.seq`
+      Prelude.rnf questionIdentifier
 
 instance Data.ToHeaders GetFileUploadURL where
   toHeaders =
@@ -203,5 +203,5 @@ getFileUploadURLResponse_httpStatus = Lens.lens (\GetFileUploadURLResponse' {htt
 
 instance Prelude.NFData GetFileUploadURLResponse where
   rnf GetFileUploadURLResponse' {..} =
-    Prelude.rnf fileUploadURL
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf fileUploadURL `Prelude.seq`
+      Prelude.rnf httpStatus

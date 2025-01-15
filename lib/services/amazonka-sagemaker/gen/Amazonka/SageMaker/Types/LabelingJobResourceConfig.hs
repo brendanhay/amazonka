@@ -146,8 +146,8 @@ instance Prelude.Hashable LabelingJobResourceConfig where
 
 instance Prelude.NFData LabelingJobResourceConfig where
   rnf LabelingJobResourceConfig' {..} =
-    Prelude.rnf volumeKmsKeyId
-      `Prelude.seq` Prelude.rnf vpcConfig
+    Prelude.rnf volumeKmsKeyId `Prelude.seq`
+      Prelude.rnf vpcConfig
 
 instance Data.ToJSON LabelingJobResourceConfig where
   toJSON LabelingJobResourceConfig' {..} =

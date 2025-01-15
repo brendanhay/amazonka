@@ -129,9 +129,9 @@ instance Prelude.Hashable InputSecurityGroup where
 
 instance Prelude.NFData InputSecurityGroup where
   rnf InputSecurityGroup' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf inputs
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf whitelistRules
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf inputs `Prelude.seq`
+          Prelude.rnf state `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf whitelistRules

@@ -92,6 +92,6 @@ instance Prelude.Hashable LoRaWANGatewayMetadata where
 
 instance Prelude.NFData LoRaWANGatewayMetadata where
   rnf LoRaWANGatewayMetadata' {..} =
-    Prelude.rnf gatewayEui
-      `Prelude.seq` Prelude.rnf rssi
-      `Prelude.seq` Prelude.rnf snr
+    Prelude.rnf gatewayEui `Prelude.seq`
+      Prelude.rnf rssi `Prelude.seq`
+        Prelude.rnf snr

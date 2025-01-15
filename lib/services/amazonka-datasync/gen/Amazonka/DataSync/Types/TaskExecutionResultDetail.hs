@@ -179,12 +179,12 @@ instance Prelude.Hashable TaskExecutionResultDetail where
 
 instance Prelude.NFData TaskExecutionResultDetail where
   rnf TaskExecutionResultDetail' {..} =
-    Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorDetail
-      `Prelude.seq` Prelude.rnf prepareDuration
-      `Prelude.seq` Prelude.rnf prepareStatus
-      `Prelude.seq` Prelude.rnf totalDuration
-      `Prelude.seq` Prelude.rnf transferDuration
-      `Prelude.seq` Prelude.rnf transferStatus
-      `Prelude.seq` Prelude.rnf verifyDuration
-      `Prelude.seq` Prelude.rnf verifyStatus
+    Prelude.rnf errorCode `Prelude.seq`
+      Prelude.rnf errorDetail `Prelude.seq`
+        Prelude.rnf prepareDuration `Prelude.seq`
+          Prelude.rnf prepareStatus `Prelude.seq`
+            Prelude.rnf totalDuration `Prelude.seq`
+              Prelude.rnf transferDuration `Prelude.seq`
+                Prelude.rnf transferStatus `Prelude.seq`
+                  Prelude.rnf verifyDuration `Prelude.seq`
+                    Prelude.rnf verifyStatus

@@ -219,11 +219,11 @@ instance Prelude.Hashable CreateListener where
 
 instance Prelude.NFData CreateListener where
   rnf CreateListener' {..} =
-    Prelude.rnf clientAffinity
-      `Prelude.seq` Prelude.rnf acceleratorArn
-      `Prelude.seq` Prelude.rnf portRanges
-      `Prelude.seq` Prelude.rnf protocol
-      `Prelude.seq` Prelude.rnf idempotencyToken
+    Prelude.rnf clientAffinity `Prelude.seq`
+      Prelude.rnf acceleratorArn `Prelude.seq`
+        Prelude.rnf portRanges `Prelude.seq`
+          Prelude.rnf protocol `Prelude.seq`
+            Prelude.rnf idempotencyToken
 
 instance Data.ToHeaders CreateListener where
   toHeaders =
@@ -301,5 +301,5 @@ createListenerResponse_httpStatus = Lens.lens (\CreateListenerResponse' {httpSta
 
 instance Prelude.NFData CreateListenerResponse where
   rnf CreateListenerResponse' {..} =
-    Prelude.rnf listener
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf listener `Prelude.seq`
+      Prelude.rnf httpStatus

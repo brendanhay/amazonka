@@ -150,9 +150,9 @@ instance
     PutInlinePolicyToPermissionSet
   where
   rnf PutInlinePolicyToPermissionSet' {..} =
-    Prelude.rnf instanceArn
-      `Prelude.seq` Prelude.rnf permissionSetArn
-      `Prelude.seq` Prelude.rnf inlinePolicy
+    Prelude.rnf instanceArn `Prelude.seq`
+      Prelude.rnf permissionSetArn `Prelude.seq`
+        Prelude.rnf inlinePolicy
 
 instance
   Data.ToHeaders

@@ -144,12 +144,12 @@ instance Core.AWSPager ListSchedules where
         (rs Lens.^. listSchedulesResponse_schedules) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listSchedules_nextToken
-          Lens..~ rs
-          Lens.^? listSchedulesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listSchedules_nextToken
+              Lens..~ rs
+              Lens.^? listSchedulesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSchedules where
   type
@@ -177,11 +177,11 @@ instance Prelude.Hashable ListSchedules where
 
 instance Prelude.NFData ListSchedules where
   rnf ListSchedules' {..} =
-    Prelude.rnf groupName
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf namePrefix
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf groupName `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf namePrefix `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf state
 
 instance Data.ToHeaders ListSchedules where
   toHeaders =
@@ -259,6 +259,6 @@ listSchedulesResponse_schedules = Lens.lens (\ListSchedulesResponse' {schedules}
 
 instance Prelude.NFData ListSchedulesResponse where
   rnf ListSchedulesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf schedules
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf schedules

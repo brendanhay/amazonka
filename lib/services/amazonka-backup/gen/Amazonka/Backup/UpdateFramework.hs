@@ -157,10 +157,10 @@ instance Prelude.Hashable UpdateFramework where
 
 instance Prelude.NFData UpdateFramework where
   rnf UpdateFramework' {..} =
-    Prelude.rnf frameworkControls
-      `Prelude.seq` Prelude.rnf frameworkDescription
-      `Prelude.seq` Prelude.rnf idempotencyToken
-      `Prelude.seq` Prelude.rnf frameworkName
+    Prelude.rnf frameworkControls `Prelude.seq`
+      Prelude.rnf frameworkDescription `Prelude.seq`
+        Prelude.rnf idempotencyToken `Prelude.seq`
+          Prelude.rnf frameworkName
 
 instance Data.ToHeaders UpdateFramework where
   toHeaders =
@@ -271,7 +271,7 @@ updateFrameworkResponse_httpStatus = Lens.lens (\UpdateFrameworkResponse' {httpS
 
 instance Prelude.NFData UpdateFrameworkResponse where
   rnf UpdateFrameworkResponse' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf frameworkArn
-      `Prelude.seq` Prelude.rnf frameworkName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf frameworkArn `Prelude.seq`
+        Prelude.rnf frameworkName `Prelude.seq`
+          Prelude.rnf httpStatus

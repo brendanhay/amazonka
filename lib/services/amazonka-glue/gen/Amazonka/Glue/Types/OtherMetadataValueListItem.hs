@@ -85,5 +85,5 @@ instance Prelude.Hashable OtherMetadataValueListItem where
 
 instance Prelude.NFData OtherMetadataValueListItem where
   rnf OtherMetadataValueListItem' {..} =
-    Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf metadataValue
+    Prelude.rnf createdTime `Prelude.seq`
+      Prelude.rnf metadataValue

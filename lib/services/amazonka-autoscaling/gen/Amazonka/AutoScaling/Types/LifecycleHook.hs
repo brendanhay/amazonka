@@ -199,12 +199,12 @@ instance Prelude.Hashable LifecycleHook where
 
 instance Prelude.NFData LifecycleHook where
   rnf LifecycleHook' {..} =
-    Prelude.rnf autoScalingGroupName
-      `Prelude.seq` Prelude.rnf defaultResult
-      `Prelude.seq` Prelude.rnf globalTimeout
-      `Prelude.seq` Prelude.rnf heartbeatTimeout
-      `Prelude.seq` Prelude.rnf lifecycleHookName
-      `Prelude.seq` Prelude.rnf lifecycleTransition
-      `Prelude.seq` Prelude.rnf notificationMetadata
-      `Prelude.seq` Prelude.rnf notificationTargetARN
-      `Prelude.seq` Prelude.rnf roleARN
+    Prelude.rnf autoScalingGroupName `Prelude.seq`
+      Prelude.rnf defaultResult `Prelude.seq`
+        Prelude.rnf globalTimeout `Prelude.seq`
+          Prelude.rnf heartbeatTimeout `Prelude.seq`
+            Prelude.rnf lifecycleHookName `Prelude.seq`
+              Prelude.rnf lifecycleTransition `Prelude.seq`
+                Prelude.rnf notificationMetadata `Prelude.seq`
+                  Prelude.rnf notificationTargetARN `Prelude.seq`
+                    Prelude.rnf roleARN

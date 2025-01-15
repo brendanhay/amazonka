@@ -960,6 +960,6 @@ runJobFlowResponse_httpStatus = Lens.lens (\RunJobFlowResponse' {httpStatus} -> 
 
 instance Prelude.NFData RunJobFlowResponse where
   rnf RunJobFlowResponse' {..} =
-    Prelude.rnf clusterArn
-      `Prelude.seq` Prelude.rnf jobFlowId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf clusterArn `Prelude.seq`
+      Prelude.rnf jobFlowId `Prelude.seq`
+        Prelude.rnf httpStatus

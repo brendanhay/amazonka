@@ -119,9 +119,9 @@ instance Prelude.Hashable EncryptionEntity where
 
 instance Prelude.NFData EncryptionEntity where
   rnf EncryptionEntity' {..} =
-    Prelude.rnf publicKeyId
-      `Prelude.seq` Prelude.rnf providerId
-      `Prelude.seq` Prelude.rnf fieldPatterns
+    Prelude.rnf publicKeyId `Prelude.seq`
+      Prelude.rnf providerId `Prelude.seq`
+        Prelude.rnf fieldPatterns
 
 instance Data.ToXML EncryptionEntity where
   toXML EncryptionEntity' {..} =

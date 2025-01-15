@@ -125,12 +125,12 @@ instance Core.AWSPager ListLogSubscriptions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listLogSubscriptions_nextToken
-          Lens..~ rs
-          Lens.^? listLogSubscriptionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listLogSubscriptions_nextToken
+              Lens..~ rs
+              Lens.^? listLogSubscriptionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListLogSubscriptions where
   type
@@ -159,9 +159,9 @@ instance Prelude.Hashable ListLogSubscriptions where
 
 instance Prelude.NFData ListLogSubscriptions where
   rnf ListLogSubscriptions' {..} =
-    Prelude.rnf directoryId
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf directoryId `Prelude.seq`
+      Prelude.rnf limit `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListLogSubscriptions where
   toHeaders =
@@ -247,6 +247,6 @@ listLogSubscriptionsResponse_httpStatus = Lens.lens (\ListLogSubscriptionsRespon
 
 instance Prelude.NFData ListLogSubscriptionsResponse where
   rnf ListLogSubscriptionsResponse' {..} =
-    Prelude.rnf logSubscriptions
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf logSubscriptions `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

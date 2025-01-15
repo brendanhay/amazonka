@@ -160,8 +160,8 @@ instance Prelude.Hashable Record where
 
 instance Prelude.NFData Record where
   rnf Record' {..} =
-    Prelude.rnf approximateArrivalTimestamp
-      `Prelude.seq` Prelude.rnf encryptionType
-      `Prelude.seq` Prelude.rnf sequenceNumber
-      `Prelude.seq` Prelude.rnf data'
-      `Prelude.seq` Prelude.rnf partitionKey
+    Prelude.rnf approximateArrivalTimestamp `Prelude.seq`
+      Prelude.rnf encryptionType `Prelude.seq`
+        Prelude.rnf sequenceNumber `Prelude.seq`
+          Prelude.rnf data' `Prelude.seq`
+            Prelude.rnf partitionKey

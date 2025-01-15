@@ -168,5 +168,5 @@ associateMemberResponse_accountId = Lens.lens (\AssociateMemberResponse' {accoun
 
 instance Prelude.NFData AssociateMemberResponse where
   rnf AssociateMemberResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf accountId
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf accountId

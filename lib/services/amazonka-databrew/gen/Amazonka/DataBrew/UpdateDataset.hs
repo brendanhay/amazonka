@@ -147,11 +147,11 @@ instance Prelude.Hashable UpdateDataset where
 
 instance Prelude.NFData UpdateDataset where
   rnf UpdateDataset' {..} =
-    Prelude.rnf format
-      `Prelude.seq` Prelude.rnf formatOptions
-      `Prelude.seq` Prelude.rnf pathOptions
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf input
+    Prelude.rnf format `Prelude.seq`
+      Prelude.rnf formatOptions `Prelude.seq`
+        Prelude.rnf pathOptions `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf input
 
 instance Data.ToHeaders UpdateDataset where
   toHeaders =
@@ -224,5 +224,5 @@ updateDatasetResponse_name = Lens.lens (\UpdateDatasetResponse' {name} -> name) 
 
 instance Prelude.NFData UpdateDatasetResponse where
   rnf UpdateDatasetResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf name

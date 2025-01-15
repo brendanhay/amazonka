@@ -123,8 +123,8 @@ instance
 
 instance Prelude.NFData GetPatchBaselineForPatchGroup where
   rnf GetPatchBaselineForPatchGroup' {..} =
-    Prelude.rnf operatingSystem
-      `Prelude.seq` Prelude.rnf patchGroup
+    Prelude.rnf operatingSystem `Prelude.seq`
+      Prelude.rnf patchGroup
 
 instance Data.ToHeaders GetPatchBaselineForPatchGroup where
   toHeaders =
@@ -222,7 +222,7 @@ instance
     GetPatchBaselineForPatchGroupResponse
   where
   rnf GetPatchBaselineForPatchGroupResponse' {..} =
-    Prelude.rnf baselineId
-      `Prelude.seq` Prelude.rnf operatingSystem
-      `Prelude.seq` Prelude.rnf patchGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf baselineId `Prelude.seq`
+      Prelude.rnf operatingSystem `Prelude.seq`
+        Prelude.rnf patchGroup `Prelude.seq`
+          Prelude.rnf httpStatus

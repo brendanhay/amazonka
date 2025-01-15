@@ -128,9 +128,9 @@ instance Prelude.Hashable UpdateGatewayResponse where
 
 instance Prelude.NFData UpdateGatewayResponse where
   rnf UpdateGatewayResponse' {..} =
-    Prelude.rnf patchOperations
-      `Prelude.seq` Prelude.rnf restApiId
-      `Prelude.seq` Prelude.rnf responseType
+    Prelude.rnf patchOperations `Prelude.seq`
+      Prelude.rnf restApiId `Prelude.seq`
+        Prelude.rnf responseType
 
 instance Data.ToHeaders UpdateGatewayResponse where
   toHeaders =

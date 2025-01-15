@@ -297,20 +297,20 @@ instance Prelude.Hashable CreateProfileJob where
 
 instance Prelude.NFData CreateProfileJob where
   rnf CreateProfileJob' {..} =
-    Prelude.rnf configuration
-      `Prelude.seq` Prelude.rnf encryptionKeyArn
-      `Prelude.seq` Prelude.rnf encryptionMode
-      `Prelude.seq` Prelude.rnf jobSample
-      `Prelude.seq` Prelude.rnf logSubscription
-      `Prelude.seq` Prelude.rnf maxCapacity
-      `Prelude.seq` Prelude.rnf maxRetries
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf timeout
-      `Prelude.seq` Prelude.rnf validationConfigurations
-      `Prelude.seq` Prelude.rnf datasetName
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf outputLocation
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf configuration `Prelude.seq`
+      Prelude.rnf encryptionKeyArn `Prelude.seq`
+        Prelude.rnf encryptionMode `Prelude.seq`
+          Prelude.rnf jobSample `Prelude.seq`
+            Prelude.rnf logSubscription `Prelude.seq`
+              Prelude.rnf maxCapacity `Prelude.seq`
+                Prelude.rnf maxRetries `Prelude.seq`
+                  Prelude.rnf tags `Prelude.seq`
+                    Prelude.rnf timeout `Prelude.seq`
+                      Prelude.rnf validationConfigurations `Prelude.seq`
+                        Prelude.rnf datasetName `Prelude.seq`
+                          Prelude.rnf name `Prelude.seq`
+                            Prelude.rnf outputLocation `Prelude.seq`
+                              Prelude.rnf roleArn
 
 instance Data.ToHeaders CreateProfileJob where
   toHeaders =
@@ -398,5 +398,5 @@ createProfileJobResponse_name = Lens.lens (\CreateProfileJobResponse' {name} -> 
 
 instance Prelude.NFData CreateProfileJobResponse where
   rnf CreateProfileJobResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf name

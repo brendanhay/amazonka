@@ -303,14 +303,10 @@ instance Core.AWSRequest GetInsightRuleReport where
             Prelude.<$> (x Data..@? "AggregateValue")
             Prelude.<*> (x Data..@? "AggregationStatistic")
             Prelude.<*> (x Data..@? "ApproximateUniqueCount")
-            Prelude.<*> ( x
-                            Data..@? "Contributors"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "Contributors" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> ( x
-                            Data..@? "KeyLabels"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "KeyLabels" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> ( x
@@ -334,13 +330,13 @@ instance Prelude.Hashable GetInsightRuleReport where
 
 instance Prelude.NFData GetInsightRuleReport where
   rnf GetInsightRuleReport' {..} =
-    Prelude.rnf maxContributorCount
-      `Prelude.seq` Prelude.rnf metrics
-      `Prelude.seq` Prelude.rnf orderBy
-      `Prelude.seq` Prelude.rnf ruleName
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf period
+    Prelude.rnf maxContributorCount `Prelude.seq`
+      Prelude.rnf metrics `Prelude.seq`
+        Prelude.rnf orderBy `Prelude.seq`
+          Prelude.rnf ruleName `Prelude.seq`
+            Prelude.rnf startTime `Prelude.seq`
+              Prelude.rnf endTime `Prelude.seq`
+                Prelude.rnf period
 
 instance Data.ToHeaders GetInsightRuleReport where
   toHeaders = Prelude.const Prelude.mempty
@@ -476,10 +472,10 @@ getInsightRuleReportResponse_httpStatus = Lens.lens (\GetInsightRuleReportRespon
 
 instance Prelude.NFData GetInsightRuleReportResponse where
   rnf GetInsightRuleReportResponse' {..} =
-    Prelude.rnf aggregateValue
-      `Prelude.seq` Prelude.rnf aggregationStatistic
-      `Prelude.seq` Prelude.rnf approximateUniqueCount
-      `Prelude.seq` Prelude.rnf contributors
-      `Prelude.seq` Prelude.rnf keyLabels
-      `Prelude.seq` Prelude.rnf metricDatapoints
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf aggregateValue `Prelude.seq`
+      Prelude.rnf aggregationStatistic `Prelude.seq`
+        Prelude.rnf approximateUniqueCount `Prelude.seq`
+          Prelude.rnf contributors `Prelude.seq`
+            Prelude.rnf keyLabels `Prelude.seq`
+              Prelude.rnf metricDatapoints `Prelude.seq`
+                Prelude.rnf httpStatus

@@ -79,5 +79,5 @@ instance Prelude.Hashable DeviceEvent where
 
 instance Prelude.NFData DeviceEvent where
   rnf DeviceEvent' {..} =
-    Prelude.rnf device
-      `Prelude.seq` Prelude.rnf stdEvent
+    Prelude.rnf device `Prelude.seq`
+      Prelude.rnf stdEvent

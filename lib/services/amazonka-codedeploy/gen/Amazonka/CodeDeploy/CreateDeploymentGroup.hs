@@ -429,24 +429,24 @@ instance Prelude.Hashable CreateDeploymentGroup where
 
 instance Prelude.NFData CreateDeploymentGroup where
   rnf CreateDeploymentGroup' {..} =
-    Prelude.rnf alarmConfiguration
-      `Prelude.seq` Prelude.rnf autoRollbackConfiguration
-      `Prelude.seq` Prelude.rnf autoScalingGroups
-      `Prelude.seq` Prelude.rnf blueGreenDeploymentConfiguration
-      `Prelude.seq` Prelude.rnf deploymentConfigName
-      `Prelude.seq` Prelude.rnf deploymentStyle
-      `Prelude.seq` Prelude.rnf ec2TagFilters
-      `Prelude.seq` Prelude.rnf ec2TagSet
-      `Prelude.seq` Prelude.rnf ecsServices
-      `Prelude.seq` Prelude.rnf loadBalancerInfo
-      `Prelude.seq` Prelude.rnf onPremisesInstanceTagFilters
-      `Prelude.seq` Prelude.rnf onPremisesTagSet
-      `Prelude.seq` Prelude.rnf outdatedInstancesStrategy
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf triggerConfigurations
-      `Prelude.seq` Prelude.rnf applicationName
-      `Prelude.seq` Prelude.rnf deploymentGroupName
-      `Prelude.seq` Prelude.rnf serviceRoleArn
+    Prelude.rnf alarmConfiguration `Prelude.seq`
+      Prelude.rnf autoRollbackConfiguration `Prelude.seq`
+        Prelude.rnf autoScalingGroups `Prelude.seq`
+          Prelude.rnf blueGreenDeploymentConfiguration `Prelude.seq`
+            Prelude.rnf deploymentConfigName `Prelude.seq`
+              Prelude.rnf deploymentStyle `Prelude.seq`
+                Prelude.rnf ec2TagFilters `Prelude.seq`
+                  Prelude.rnf ec2TagSet `Prelude.seq`
+                    Prelude.rnf ecsServices `Prelude.seq`
+                      Prelude.rnf loadBalancerInfo `Prelude.seq`
+                        Prelude.rnf onPremisesInstanceTagFilters `Prelude.seq`
+                          Prelude.rnf onPremisesTagSet `Prelude.seq`
+                            Prelude.rnf outdatedInstancesStrategy `Prelude.seq`
+                              Prelude.rnf tags `Prelude.seq`
+                                Prelude.rnf triggerConfigurations `Prelude.seq`
+                                  Prelude.rnf applicationName `Prelude.seq`
+                                    Prelude.rnf deploymentGroupName `Prelude.seq`
+                                      Prelude.rnf serviceRoleArn
 
 instance Data.ToHeaders CreateDeploymentGroup where
   toHeaders =
@@ -551,5 +551,5 @@ createDeploymentGroupResponse_httpStatus = Lens.lens (\CreateDeploymentGroupResp
 
 instance Prelude.NFData CreateDeploymentGroupResponse where
   rnf CreateDeploymentGroupResponse' {..} =
-    Prelude.rnf deploymentGroupId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf deploymentGroupId `Prelude.seq`
+      Prelude.rnf httpStatus

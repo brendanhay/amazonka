@@ -89,9 +89,9 @@ instance Prelude.Hashable ConnectionLogOptions where
 
 instance Prelude.NFData ConnectionLogOptions where
   rnf ConnectionLogOptions' {..} =
-    Prelude.rnf cloudwatchLogGroup
-      `Prelude.seq` Prelude.rnf cloudwatchLogStream
-      `Prelude.seq` Prelude.rnf enabled
+    Prelude.rnf cloudwatchLogGroup `Prelude.seq`
+      Prelude.rnf cloudwatchLogStream `Prelude.seq`
+        Prelude.rnf enabled
 
 instance Data.ToQuery ConnectionLogOptions where
   toQuery ConnectionLogOptions' {..} =

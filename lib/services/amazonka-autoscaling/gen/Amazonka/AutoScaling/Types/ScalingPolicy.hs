@@ -265,9 +265,7 @@ instance Data.FromXML ScalingPolicy where
   parseXML x =
     ScalingPolicy'
       Prelude.<$> (x Data..@? "AdjustmentType")
-      Prelude.<*> ( x
-                      Data..@? "Alarms"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "Alarms" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "AutoScalingGroupName")
@@ -282,9 +280,7 @@ instance Data.FromXML ScalingPolicy where
       Prelude.<*> (x Data..@? "PolicyType")
       Prelude.<*> (x Data..@? "PredictiveScalingConfiguration")
       Prelude.<*> (x Data..@? "ScalingAdjustment")
-      Prelude.<*> ( x
-                      Data..@? "StepAdjustments"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "StepAdjustments" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "TargetTrackingConfiguration")
@@ -311,20 +307,20 @@ instance Prelude.Hashable ScalingPolicy where
 
 instance Prelude.NFData ScalingPolicy where
   rnf ScalingPolicy' {..} =
-    Prelude.rnf adjustmentType
-      `Prelude.seq` Prelude.rnf alarms
-      `Prelude.seq` Prelude.rnf autoScalingGroupName
-      `Prelude.seq` Prelude.rnf cooldown
-      `Prelude.seq` Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf estimatedInstanceWarmup
-      `Prelude.seq` Prelude.rnf metricAggregationType
-      `Prelude.seq` Prelude.rnf minAdjustmentMagnitude
-      `Prelude.seq` Prelude.rnf minAdjustmentStep
-      `Prelude.seq` Prelude.rnf policyARN
-      `Prelude.seq` Prelude.rnf policyName
-      `Prelude.seq` Prelude.rnf policyType
-      `Prelude.seq` Prelude.rnf predictiveScalingConfiguration
-      `Prelude.seq` Prelude.rnf scalingAdjustment
-      `Prelude.seq` Prelude.rnf stepAdjustments
-      `Prelude.seq` Prelude.rnf
-        targetTrackingConfiguration
+    Prelude.rnf adjustmentType `Prelude.seq`
+      Prelude.rnf alarms `Prelude.seq`
+        Prelude.rnf autoScalingGroupName `Prelude.seq`
+          Prelude.rnf cooldown `Prelude.seq`
+            Prelude.rnf enabled `Prelude.seq`
+              Prelude.rnf estimatedInstanceWarmup `Prelude.seq`
+                Prelude.rnf metricAggregationType `Prelude.seq`
+                  Prelude.rnf minAdjustmentMagnitude `Prelude.seq`
+                    Prelude.rnf minAdjustmentStep `Prelude.seq`
+                      Prelude.rnf policyARN `Prelude.seq`
+                        Prelude.rnf policyName `Prelude.seq`
+                          Prelude.rnf policyType `Prelude.seq`
+                            Prelude.rnf predictiveScalingConfiguration `Prelude.seq`
+                              Prelude.rnf scalingAdjustment `Prelude.seq`
+                                Prelude.rnf stepAdjustments `Prelude.seq`
+                                  Prelude.rnf
+                                    targetTrackingConfiguration

@@ -125,12 +125,12 @@ instance Core.AWSPager ListVariantStores where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listVariantStores_nextToken
-          Lens..~ rs
-          Lens.^? listVariantStoresResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listVariantStores_nextToken
+              Lens..~ rs
+              Lens.^? listVariantStoresResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListVariantStores where
   type
@@ -157,10 +157,10 @@ instance Prelude.Hashable ListVariantStores where
 
 instance Prelude.NFData ListVariantStores where
   rnf ListVariantStores' {..} =
-    Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf ids
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filter' `Prelude.seq`
+      Prelude.rnf ids `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken
 
 instance Data.ToHeaders ListVariantStores where
   toHeaders =
@@ -242,6 +242,6 @@ listVariantStoresResponse_httpStatus = Lens.lens (\ListVariantStoresResponse' {h
 
 instance Prelude.NFData ListVariantStoresResponse where
   rnf ListVariantStoresResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf variantStores
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf variantStores `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -115,8 +115,8 @@ instance Prelude.Hashable GetTrustStoreCertificate where
 
 instance Prelude.NFData GetTrustStoreCertificate where
   rnf GetTrustStoreCertificate' {..} =
-    Prelude.rnf thumbprint
-      `Prelude.seq` Prelude.rnf trustStoreArn
+    Prelude.rnf thumbprint `Prelude.seq`
+      Prelude.rnf trustStoreArn
 
 instance Data.ToHeaders GetTrustStoreCertificate where
   toHeaders =
@@ -194,6 +194,6 @@ instance
     GetTrustStoreCertificateResponse
   where
   rnf GetTrustStoreCertificateResponse' {..} =
-    Prelude.rnf certificate
-      `Prelude.seq` Prelude.rnf trustStoreArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf certificate `Prelude.seq`
+      Prelude.rnf trustStoreArn `Prelude.seq`
+        Prelude.rnf httpStatus

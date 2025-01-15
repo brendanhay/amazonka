@@ -236,17 +236,17 @@ instance Prelude.Hashable S3ParquetSource where
 
 instance Prelude.NFData S3ParquetSource where
   rnf S3ParquetSource' {..} =
-    Prelude.rnf additionalOptions
-      `Prelude.seq` Prelude.rnf compressionType
-      `Prelude.seq` Prelude.rnf exclusions
-      `Prelude.seq` Prelude.rnf groupFiles
-      `Prelude.seq` Prelude.rnf groupSize
-      `Prelude.seq` Prelude.rnf maxBand
-      `Prelude.seq` Prelude.rnf maxFilesInBand
-      `Prelude.seq` Prelude.rnf outputSchemas
-      `Prelude.seq` Prelude.rnf recurse
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf paths
+    Prelude.rnf additionalOptions `Prelude.seq`
+      Prelude.rnf compressionType `Prelude.seq`
+        Prelude.rnf exclusions `Prelude.seq`
+          Prelude.rnf groupFiles `Prelude.seq`
+            Prelude.rnf groupSize `Prelude.seq`
+              Prelude.rnf maxBand `Prelude.seq`
+                Prelude.rnf maxFilesInBand `Prelude.seq`
+                  Prelude.rnf outputSchemas `Prelude.seq`
+                    Prelude.rnf recurse `Prelude.seq`
+                      Prelude.rnf name `Prelude.seq`
+                        Prelude.rnf paths
 
 instance Data.ToJSON S3ParquetSource where
   toJSON S3ParquetSource' {..} =

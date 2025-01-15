@@ -457,19 +457,19 @@ instance Prelude.Hashable KeySigningKey where
 
 instance Prelude.NFData KeySigningKey where
   rnf KeySigningKey' {..} =
-    Prelude.rnf createdDate
-      `Prelude.seq` Prelude.rnf dNSKEYRecord
-      `Prelude.seq` Prelude.rnf dSRecord
-      `Prelude.seq` Prelude.rnf digestAlgorithmMnemonic
-      `Prelude.seq` Prelude.rnf digestAlgorithmType
-      `Prelude.seq` Prelude.rnf digestValue
-      `Prelude.seq` Prelude.rnf flag
-      `Prelude.seq` Prelude.rnf keyTag
-      `Prelude.seq` Prelude.rnf kmsArn
-      `Prelude.seq` Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf publicKey
-      `Prelude.seq` Prelude.rnf signingAlgorithmMnemonic
-      `Prelude.seq` Prelude.rnf signingAlgorithmType
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusMessage
+    Prelude.rnf createdDate `Prelude.seq`
+      Prelude.rnf dNSKEYRecord `Prelude.seq`
+        Prelude.rnf dSRecord `Prelude.seq`
+          Prelude.rnf digestAlgorithmMnemonic `Prelude.seq`
+            Prelude.rnf digestAlgorithmType `Prelude.seq`
+              Prelude.rnf digestValue `Prelude.seq`
+                Prelude.rnf flag `Prelude.seq`
+                  Prelude.rnf keyTag `Prelude.seq`
+                    Prelude.rnf kmsArn `Prelude.seq`
+                      Prelude.rnf lastModifiedDate `Prelude.seq`
+                        Prelude.rnf name `Prelude.seq`
+                          Prelude.rnf publicKey `Prelude.seq`
+                            Prelude.rnf signingAlgorithmMnemonic `Prelude.seq`
+                              Prelude.rnf signingAlgorithmType `Prelude.seq`
+                                Prelude.rnf status `Prelude.seq`
+                                  Prelude.rnf statusMessage

@@ -77,8 +77,8 @@ instance Prelude.Hashable WorkerConfiguration where
 
 instance Prelude.NFData WorkerConfiguration where
   rnf WorkerConfiguration' {..} =
-    Prelude.rnf revision
-      `Prelude.seq` Prelude.rnf workerConfigurationArn
+    Prelude.rnf revision `Prelude.seq`
+      Prelude.rnf workerConfigurationArn
 
 instance Data.ToJSON WorkerConfiguration where
   toJSON WorkerConfiguration' {..} =

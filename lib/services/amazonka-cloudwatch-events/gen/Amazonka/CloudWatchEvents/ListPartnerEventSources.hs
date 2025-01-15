@@ -138,9 +138,9 @@ instance Prelude.Hashable ListPartnerEventSources where
 
 instance Prelude.NFData ListPartnerEventSources where
   rnf ListPartnerEventSources' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf namePrefix
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf namePrefix
 
 instance Data.ToHeaders ListPartnerEventSources where
   toHeaders =
@@ -229,6 +229,6 @@ instance
     ListPartnerEventSourcesResponse
   where
   rnf ListPartnerEventSourcesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf partnerEventSources
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf partnerEventSources `Prelude.seq`
+        Prelude.rnf httpStatus

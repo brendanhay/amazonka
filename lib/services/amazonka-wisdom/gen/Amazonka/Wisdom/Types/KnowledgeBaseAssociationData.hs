@@ -84,5 +84,5 @@ instance
 
 instance Prelude.NFData KnowledgeBaseAssociationData where
   rnf KnowledgeBaseAssociationData' {..} =
-    Prelude.rnf knowledgeBaseArn
-      `Prelude.seq` Prelude.rnf knowledgeBaseId
+    Prelude.rnf knowledgeBaseArn `Prelude.seq`
+      Prelude.rnf knowledgeBaseId

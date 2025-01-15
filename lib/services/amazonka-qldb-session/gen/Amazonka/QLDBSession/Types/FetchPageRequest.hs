@@ -74,8 +74,8 @@ instance Prelude.Hashable FetchPageRequest where
 
 instance Prelude.NFData FetchPageRequest where
   rnf FetchPageRequest' {..} =
-    Prelude.rnf transactionId
-      `Prelude.seq` Prelude.rnf nextPageToken
+    Prelude.rnf transactionId `Prelude.seq`
+      Prelude.rnf nextPageToken
 
 instance Data.ToJSON FetchPageRequest where
   toJSON FetchPageRequest' {..} =

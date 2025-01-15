@@ -140,10 +140,10 @@ instance Prelude.Hashable CreatePackagingGroup where
 
 instance Prelude.NFData CreatePackagingGroup where
   rnf CreatePackagingGroup' {..} =
-    Prelude.rnf authorization
-      `Prelude.seq` Prelude.rnf egressAccessLogs
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf authorization `Prelude.seq`
+      Prelude.rnf egressAccessLogs `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf id
 
 instance Data.ToHeaders CreatePackagingGroup where
   toHeaders =
@@ -257,10 +257,10 @@ createPackagingGroupResponse_httpStatus = Lens.lens (\CreatePackagingGroupRespon
 
 instance Prelude.NFData CreatePackagingGroupResponse where
   rnf CreatePackagingGroupResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf authorization
-      `Prelude.seq` Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf egressAccessLogs
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf authorization `Prelude.seq`
+        Prelude.rnf domainName `Prelude.seq`
+          Prelude.rnf egressAccessLogs `Prelude.seq`
+            Prelude.rnf id `Prelude.seq`
+              Prelude.rnf tags `Prelude.seq`
+                Prelude.rnf httpStatus

@@ -218,5 +218,5 @@ instance
     GetIdentityVerificationAttributesResponse
   where
   rnf GetIdentityVerificationAttributesResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf verificationAttributes
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf verificationAttributes

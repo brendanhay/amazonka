@@ -87,6 +87,6 @@ instance Prelude.Hashable PhoneNumberError where
 
 instance Prelude.NFData PhoneNumberError where
   rnf PhoneNumberError' {..} =
-    Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf phoneNumberId
+    Prelude.rnf errorCode `Prelude.seq`
+      Prelude.rnf errorMessage `Prelude.seq`
+        Prelude.rnf phoneNumberId

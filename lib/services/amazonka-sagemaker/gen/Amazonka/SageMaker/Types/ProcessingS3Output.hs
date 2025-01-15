@@ -117,9 +117,9 @@ instance Prelude.Hashable ProcessingS3Output where
 
 instance Prelude.NFData ProcessingS3Output where
   rnf ProcessingS3Output' {..} =
-    Prelude.rnf s3Uri
-      `Prelude.seq` Prelude.rnf localPath
-      `Prelude.seq` Prelude.rnf s3UploadMode
+    Prelude.rnf s3Uri `Prelude.seq`
+      Prelude.rnf localPath `Prelude.seq`
+        Prelude.rnf s3UploadMode
 
 instance Data.ToJSON ProcessingS3Output where
   toJSON ProcessingS3Output' {..} =

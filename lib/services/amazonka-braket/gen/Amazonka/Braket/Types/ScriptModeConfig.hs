@@ -107,9 +107,9 @@ instance Prelude.Hashable ScriptModeConfig where
 
 instance Prelude.NFData ScriptModeConfig where
   rnf ScriptModeConfig' {..} =
-    Prelude.rnf compressionType
-      `Prelude.seq` Prelude.rnf entryPoint
-      `Prelude.seq` Prelude.rnf s3Uri
+    Prelude.rnf compressionType `Prelude.seq`
+      Prelude.rnf entryPoint `Prelude.seq`
+        Prelude.rnf s3Uri
 
 instance Data.ToJSON ScriptModeConfig where
   toJSON ScriptModeConfig' {..} =

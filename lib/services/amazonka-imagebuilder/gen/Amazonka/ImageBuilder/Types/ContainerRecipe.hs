@@ -367,20 +367,20 @@ instance Prelude.Hashable ContainerRecipe where
 
 instance Prelude.NFData ContainerRecipe where
   rnf ContainerRecipe' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf components
-      `Prelude.seq` Prelude.rnf containerType
-      `Prelude.seq` Prelude.rnf dateCreated
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf dockerfileTemplateData
-      `Prelude.seq` Prelude.rnf encrypted
-      `Prelude.seq` Prelude.rnf instanceConfiguration
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf owner
-      `Prelude.seq` Prelude.rnf parentImage
-      `Prelude.seq` Prelude.rnf platform
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf targetRepository
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf workingDirectory
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf components `Prelude.seq`
+        Prelude.rnf containerType `Prelude.seq`
+          Prelude.rnf dateCreated `Prelude.seq`
+            Prelude.rnf description `Prelude.seq`
+              Prelude.rnf dockerfileTemplateData `Prelude.seq`
+                Prelude.rnf encrypted `Prelude.seq`
+                  Prelude.rnf instanceConfiguration `Prelude.seq`
+                    Prelude.rnf kmsKeyId `Prelude.seq`
+                      Prelude.rnf name `Prelude.seq`
+                        Prelude.rnf owner `Prelude.seq`
+                          Prelude.rnf parentImage `Prelude.seq`
+                            Prelude.rnf platform `Prelude.seq`
+                              Prelude.rnf tags `Prelude.seq`
+                                Prelude.rnf targetRepository `Prelude.seq`
+                                  Prelude.rnf version `Prelude.seq`
+                                    Prelude.rnf workingDirectory

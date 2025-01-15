@@ -147,8 +147,8 @@ instance Prelude.Hashable RecommendationTrigger where
 
 instance Prelude.NFData RecommendationTrigger where
   rnf RecommendationTrigger' {..} =
-    Prelude.rnf data'
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf recommendationIds
-      `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf data' `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf recommendationIds `Prelude.seq`
+          Prelude.rnf source `Prelude.seq`
+            Prelude.rnf type'

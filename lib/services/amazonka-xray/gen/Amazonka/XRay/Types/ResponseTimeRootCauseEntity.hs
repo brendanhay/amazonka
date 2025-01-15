@@ -93,6 +93,6 @@ instance Prelude.Hashable ResponseTimeRootCauseEntity where
 
 instance Prelude.NFData ResponseTimeRootCauseEntity where
   rnf ResponseTimeRootCauseEntity' {..} =
-    Prelude.rnf coverage
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf remote
+    Prelude.rnf coverage `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf remote

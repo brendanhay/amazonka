@@ -97,6 +97,6 @@ instance Prelude.Hashable DeviceSelectionResult where
 
 instance Prelude.NFData DeviceSelectionResult where
   rnf DeviceSelectionResult' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf matchedDevicesCount
-      `Prelude.seq` Prelude.rnf maxDevices
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf matchedDevicesCount `Prelude.seq`
+        Prelude.rnf maxDevices

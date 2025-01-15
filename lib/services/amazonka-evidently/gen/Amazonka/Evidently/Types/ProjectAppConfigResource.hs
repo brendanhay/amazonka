@@ -108,6 +108,6 @@ instance Prelude.Hashable ProjectAppConfigResource where
 
 instance Prelude.NFData ProjectAppConfigResource where
   rnf ProjectAppConfigResource' {..} =
-    Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf configurationProfileId
-      `Prelude.seq` Prelude.rnf environmentId
+    Prelude.rnf applicationId `Prelude.seq`
+      Prelude.rnf configurationProfileId `Prelude.seq`
+        Prelude.rnf environmentId

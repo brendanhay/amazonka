@@ -258,6 +258,6 @@ putChunkResponse_chunkChecksumAlgorithm = Lens.lens (\PutChunkResponse' {chunkCh
 
 instance Prelude.NFData PutChunkResponse where
   rnf PutChunkResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf chunkChecksum
-      `Prelude.seq` Prelude.rnf chunkChecksumAlgorithm
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf chunkChecksum `Prelude.seq`
+        Prelude.rnf chunkChecksumAlgorithm

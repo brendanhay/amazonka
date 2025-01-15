@@ -184,12 +184,12 @@ instance
     StartDataQualityRuleRecommendationRun
   where
   rnf StartDataQualityRuleRecommendationRun' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf createdRulesetName
-      `Prelude.seq` Prelude.rnf numberOfWorkers
-      `Prelude.seq` Prelude.rnf timeout
-      `Prelude.seq` Prelude.rnf dataSource
-      `Prelude.seq` Prelude.rnf role'
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf createdRulesetName `Prelude.seq`
+        Prelude.rnf numberOfWorkers `Prelude.seq`
+          Prelude.rnf timeout `Prelude.seq`
+            Prelude.rnf dataSource `Prelude.seq`
+              Prelude.rnf role'
 
 instance
   Data.ToHeaders
@@ -285,5 +285,5 @@ instance
   where
   rnf
     StartDataQualityRuleRecommendationRunResponse' {..} =
-      Prelude.rnf runId
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf runId `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -133,12 +133,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeMappedResourceConfiguration_nextToken
-          Lens..~ rs
-          Lens.^? describeMappedResourceConfigurationResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeMappedResourceConfiguration_nextToken
+              Lens..~ rs
+              Lens.^? describeMappedResourceConfigurationResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -179,10 +179,10 @@ instance
     DescribeMappedResourceConfiguration
   where
   rnf DescribeMappedResourceConfiguration' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf streamARN
-      `Prelude.seq` Prelude.rnf streamName
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf streamARN `Prelude.seq`
+          Prelude.rnf streamName
 
 instance
   Data.ToHeaders
@@ -278,6 +278,6 @@ instance
     DescribeMappedResourceConfigurationResponse
   where
   rnf DescribeMappedResourceConfigurationResponse' {..} =
-    Prelude.rnf mappedResourceConfigurationList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf mappedResourceConfigurationList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

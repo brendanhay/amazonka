@@ -163,12 +163,12 @@ instance Core.AWSPager GetRecommendationSummaries where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getRecommendationSummaries_nextToken
-          Lens..~ rs
-          Lens.^? getRecommendationSummariesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getRecommendationSummaries_nextToken
+              Lens..~ rs
+              Lens.^? getRecommendationSummariesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetRecommendationSummaries where
   type
@@ -197,9 +197,9 @@ instance Prelude.Hashable GetRecommendationSummaries where
 
 instance Prelude.NFData GetRecommendationSummaries where
   rnf GetRecommendationSummaries' {..} =
-    Prelude.rnf accountIds
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf accountIds `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders GetRecommendationSummaries where
   toHeaders =
@@ -298,6 +298,6 @@ instance
     GetRecommendationSummariesResponse
   where
   rnf GetRecommendationSummariesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf recommendationSummaries
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf recommendationSummaries `Prelude.seq`
+        Prelude.rnf httpStatus

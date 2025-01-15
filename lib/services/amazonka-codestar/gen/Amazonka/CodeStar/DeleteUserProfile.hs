@@ -169,5 +169,5 @@ deleteUserProfileResponse_userArn = Lens.lens (\DeleteUserProfileResponse' {user
 
 instance Prelude.NFData DeleteUserProfileResponse where
   rnf DeleteUserProfileResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf userArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf userArn

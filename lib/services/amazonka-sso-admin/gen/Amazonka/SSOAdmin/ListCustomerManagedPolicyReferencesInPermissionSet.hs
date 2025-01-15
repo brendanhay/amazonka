@@ -142,12 +142,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listCustomerManagedPolicyReferencesInPermissionSet_nextToken
-          Lens..~ rs
-          Lens.^? listCustomerManagedPolicyReferencesInPermissionSetResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listCustomerManagedPolicyReferencesInPermissionSet_nextToken
+              Lens..~ rs
+              Lens.^? listCustomerManagedPolicyReferencesInPermissionSetResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -190,10 +190,10 @@ instance
   where
   rnf
     ListCustomerManagedPolicyReferencesInPermissionSet' {..} =
-      Prelude.rnf maxResults
-        `Prelude.seq` Prelude.rnf nextToken
-        `Prelude.seq` Prelude.rnf instanceArn
-        `Prelude.seq` Prelude.rnf permissionSetArn
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf instanceArn `Prelude.seq`
+            Prelude.rnf permissionSetArn
 
 instance
   Data.ToHeaders
@@ -304,6 +304,6 @@ instance
   where
   rnf
     ListCustomerManagedPolicyReferencesInPermissionSetResponse' {..} =
-      Prelude.rnf customerManagedPolicyReferences
-        `Prelude.seq` Prelude.rnf nextToken
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf customerManagedPolicyReferences `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf httpStatus

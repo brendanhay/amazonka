@@ -127,7 +127,7 @@ instance Prelude.Hashable UsageByAccount where
 
 instance Prelude.NFData UsageByAccount where
   rnf UsageByAccount' {..} =
-    Prelude.rnf currency
-      `Prelude.seq` Prelude.rnf estimatedCost
-      `Prelude.seq` Prelude.rnf serviceLimit
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf currency `Prelude.seq`
+      Prelude.rnf estimatedCost `Prelude.seq`
+        Prelude.rnf serviceLimit `Prelude.seq`
+          Prelude.rnf type'

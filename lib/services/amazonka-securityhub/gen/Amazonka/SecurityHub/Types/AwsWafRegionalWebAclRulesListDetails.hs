@@ -135,11 +135,11 @@ instance
     AwsWafRegionalWebAclRulesListDetails
   where
   rnf AwsWafRegionalWebAclRulesListDetails' {..} =
-    Prelude.rnf action
-      `Prelude.seq` Prelude.rnf overrideAction
-      `Prelude.seq` Prelude.rnf priority
-      `Prelude.seq` Prelude.rnf ruleId
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf action `Prelude.seq`
+      Prelude.rnf overrideAction `Prelude.seq`
+        Prelude.rnf priority `Prelude.seq`
+          Prelude.rnf ruleId `Prelude.seq`
+            Prelude.rnf type'
 
 instance
   Data.ToJSON

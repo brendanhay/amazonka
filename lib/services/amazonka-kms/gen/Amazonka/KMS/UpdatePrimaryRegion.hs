@@ -232,8 +232,8 @@ instance Prelude.Hashable UpdatePrimaryRegion where
 
 instance Prelude.NFData UpdatePrimaryRegion where
   rnf UpdatePrimaryRegion' {..} =
-    Prelude.rnf keyId
-      `Prelude.seq` Prelude.rnf primaryRegion
+    Prelude.rnf keyId `Prelude.seq`
+      Prelude.rnf primaryRegion
 
 instance Data.ToHeaders UpdatePrimaryRegion where
   toHeaders =

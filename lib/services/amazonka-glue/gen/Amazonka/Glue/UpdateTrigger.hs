@@ -110,8 +110,8 @@ instance Prelude.Hashable UpdateTrigger where
 
 instance Prelude.NFData UpdateTrigger where
   rnf UpdateTrigger' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf triggerUpdate
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf triggerUpdate
 
 instance Data.ToHeaders UpdateTrigger where
   toHeaders =
@@ -182,5 +182,5 @@ updateTriggerResponse_httpStatus = Lens.lens (\UpdateTriggerResponse' {httpStatu
 
 instance Prelude.NFData UpdateTriggerResponse where
   rnf UpdateTriggerResponse' {..} =
-    Prelude.rnf trigger
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf trigger `Prelude.seq`
+      Prelude.rnf httpStatus

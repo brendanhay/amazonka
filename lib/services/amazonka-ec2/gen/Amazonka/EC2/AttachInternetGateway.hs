@@ -124,9 +124,9 @@ instance Prelude.Hashable AttachInternetGateway where
 
 instance Prelude.NFData AttachInternetGateway where
   rnf AttachInternetGateway' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf internetGatewayId
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf internetGatewayId `Prelude.seq`
+        Prelude.rnf vpcId
 
 instance Data.ToHeaders AttachInternetGateway where
   toHeaders = Prelude.const Prelude.mempty

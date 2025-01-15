@@ -128,10 +128,10 @@ instance
     ScatterPlotCategoricallyAggregatedFieldWells
   where
   rnf ScatterPlotCategoricallyAggregatedFieldWells' {..} =
-    Prelude.rnf category
-      `Prelude.seq` Prelude.rnf size
-      `Prelude.seq` Prelude.rnf xAxis
-      `Prelude.seq` Prelude.rnf yAxis
+    Prelude.rnf category `Prelude.seq`
+      Prelude.rnf size `Prelude.seq`
+        Prelude.rnf xAxis `Prelude.seq`
+          Prelude.rnf yAxis
 
 instance
   Data.ToJSON

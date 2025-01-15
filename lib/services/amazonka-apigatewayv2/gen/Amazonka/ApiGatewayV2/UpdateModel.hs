@@ -165,12 +165,12 @@ instance Prelude.Hashable UpdateModel where
 
 instance Prelude.NFData UpdateModel where
   rnf UpdateModel' {..} =
-    Prelude.rnf contentType
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf schema
-      `Prelude.seq` Prelude.rnf modelId
-      `Prelude.seq` Prelude.rnf apiId
+    Prelude.rnf contentType `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf schema `Prelude.seq`
+            Prelude.rnf modelId `Prelude.seq`
+              Prelude.rnf apiId
 
 instance Data.ToHeaders UpdateModel where
   toHeaders =
@@ -285,9 +285,9 @@ updateModelResponse_httpStatus = Lens.lens (\UpdateModelResponse' {httpStatus} -
 
 instance Prelude.NFData UpdateModelResponse where
   rnf UpdateModelResponse' {..} =
-    Prelude.rnf contentType
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf modelId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf schema
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf contentType `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf modelId `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf schema `Prelude.seq`
+              Prelude.rnf httpStatus

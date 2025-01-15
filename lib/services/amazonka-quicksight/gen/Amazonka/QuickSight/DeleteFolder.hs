@@ -112,8 +112,8 @@ instance Prelude.Hashable DeleteFolder where
 
 instance Prelude.NFData DeleteFolder where
   rnf DeleteFolder' {..} =
-    Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf folderId
+    Prelude.rnf awsAccountId `Prelude.seq`
+      Prelude.rnf folderId
 
 instance Data.ToHeaders DeleteFolder where
   toHeaders =
@@ -196,7 +196,7 @@ deleteFolderResponse_status = Lens.lens (\DeleteFolderResponse' {status} -> stat
 
 instance Prelude.NFData DeleteFolderResponse where
   rnf DeleteFolderResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf folderId
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf folderId `Prelude.seq`
+        Prelude.rnf requestId `Prelude.seq`
+          Prelude.rnf status

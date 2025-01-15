@@ -136,9 +136,9 @@ instance Prelude.Hashable DestinationToCreate where
 
 instance Prelude.NFData DestinationToCreate where
   rnf DestinationToCreate' {..} =
-    Prelude.rnf availabilityZoneName
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf region
+    Prelude.rnf availabilityZoneName `Prelude.seq`
+      Prelude.rnf kmsKeyId `Prelude.seq`
+        Prelude.rnf region
 
 instance Data.ToJSON DestinationToCreate where
   toJSON DestinationToCreate' {..} =

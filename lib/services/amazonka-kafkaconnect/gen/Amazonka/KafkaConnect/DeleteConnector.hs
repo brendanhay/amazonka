@@ -110,8 +110,8 @@ instance Prelude.Hashable DeleteConnector where
 
 instance Prelude.NFData DeleteConnector where
   rnf DeleteConnector' {..} =
-    Prelude.rnf currentVersion
-      `Prelude.seq` Prelude.rnf connectorArn
+    Prelude.rnf currentVersion `Prelude.seq`
+      Prelude.rnf connectorArn
 
 instance Data.ToHeaders DeleteConnector where
   toHeaders =
@@ -187,6 +187,6 @@ deleteConnectorResponse_httpStatus = Lens.lens (\DeleteConnectorResponse' {httpS
 
 instance Prelude.NFData DeleteConnectorResponse where
   rnf DeleteConnectorResponse' {..} =
-    Prelude.rnf connectorArn
-      `Prelude.seq` Prelude.rnf connectorState
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf connectorArn `Prelude.seq`
+      Prelude.rnf connectorState `Prelude.seq`
+        Prelude.rnf httpStatus

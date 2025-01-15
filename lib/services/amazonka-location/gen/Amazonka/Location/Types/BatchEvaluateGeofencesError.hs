@@ -108,6 +108,6 @@ instance Prelude.Hashable BatchEvaluateGeofencesError where
 
 instance Prelude.NFData BatchEvaluateGeofencesError where
   rnf BatchEvaluateGeofencesError' {..} =
-    Prelude.rnf deviceId
-      `Prelude.seq` Prelude.rnf error
-      `Prelude.seq` Prelude.rnf sampleTime
+    Prelude.rnf deviceId `Prelude.seq`
+      Prelude.rnf error `Prelude.seq`
+        Prelude.rnf sampleTime

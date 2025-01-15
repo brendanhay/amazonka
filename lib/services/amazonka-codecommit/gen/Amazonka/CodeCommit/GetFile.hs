@@ -145,9 +145,9 @@ instance Prelude.Hashable GetFile where
 
 instance Prelude.NFData GetFile where
   rnf GetFile' {..} =
-    Prelude.rnf commitSpecifier
-      `Prelude.seq` Prelude.rnf repositoryName
-      `Prelude.seq` Prelude.rnf filePath
+    Prelude.rnf commitSpecifier `Prelude.seq`
+      Prelude.rnf repositoryName `Prelude.seq`
+        Prelude.rnf filePath
 
 instance Data.ToHeaders GetFile where
   toHeaders =
@@ -318,10 +318,10 @@ getFileResponse_fileContent = Lens.lens (\GetFileResponse' {fileContent} -> file
 
 instance Prelude.NFData GetFileResponse where
   rnf GetFileResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf commitId
-      `Prelude.seq` Prelude.rnf blobId
-      `Prelude.seq` Prelude.rnf filePath
-      `Prelude.seq` Prelude.rnf fileMode
-      `Prelude.seq` Prelude.rnf fileSize
-      `Prelude.seq` Prelude.rnf fileContent
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf commitId `Prelude.seq`
+        Prelude.rnf blobId `Prelude.seq`
+          Prelude.rnf filePath `Prelude.seq`
+            Prelude.rnf fileMode `Prelude.seq`
+              Prelude.rnf fileSize `Prelude.seq`
+                Prelude.rnf fileContent

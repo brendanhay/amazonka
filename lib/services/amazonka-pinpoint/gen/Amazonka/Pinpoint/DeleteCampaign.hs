@@ -113,8 +113,8 @@ instance Prelude.Hashable DeleteCampaign where
 
 instance Prelude.NFData DeleteCampaign where
   rnf DeleteCampaign' {..} =
-    Prelude.rnf campaignId
-      `Prelude.seq` Prelude.rnf applicationId
+    Prelude.rnf campaignId `Prelude.seq`
+      Prelude.rnf applicationId
 
 instance Data.ToHeaders DeleteCampaign where
   toHeaders =
@@ -182,5 +182,5 @@ deleteCampaignResponse_campaignResponse = Lens.lens (\DeleteCampaignResponse' {c
 
 instance Prelude.NFData DeleteCampaignResponse where
   rnf DeleteCampaignResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf campaignResponse
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf campaignResponse

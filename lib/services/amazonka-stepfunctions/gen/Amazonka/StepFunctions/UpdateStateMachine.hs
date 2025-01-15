@@ -166,11 +166,11 @@ instance Prelude.Hashable UpdateStateMachine where
 
 instance Prelude.NFData UpdateStateMachine where
   rnf UpdateStateMachine' {..} =
-    Prelude.rnf definition
-      `Prelude.seq` Prelude.rnf loggingConfiguration
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf tracingConfiguration
-      `Prelude.seq` Prelude.rnf stateMachineArn
+    Prelude.rnf definition `Prelude.seq`
+      Prelude.rnf loggingConfiguration `Prelude.seq`
+        Prelude.rnf roleArn `Prelude.seq`
+          Prelude.rnf tracingConfiguration `Prelude.seq`
+            Prelude.rnf stateMachineArn
 
 instance Data.ToHeaders UpdateStateMachine where
   toHeaders =
@@ -253,5 +253,5 @@ updateStateMachineResponse_updateDate = Lens.lens (\UpdateStateMachineResponse' 
 
 instance Prelude.NFData UpdateStateMachineResponse where
   rnf UpdateStateMachineResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf updateDate
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf updateDate

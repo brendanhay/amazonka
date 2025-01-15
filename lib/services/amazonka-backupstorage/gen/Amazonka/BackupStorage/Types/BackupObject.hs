@@ -137,9 +137,9 @@ instance Prelude.Hashable BackupObject where
 
 instance Prelude.NFData BackupObject where
   rnf BackupObject' {..} =
-    Prelude.rnf chunksCount
-      `Prelude.seq` Prelude.rnf metadataString
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf objectChecksum
-      `Prelude.seq` Prelude.rnf objectChecksumAlgorithm
-      `Prelude.seq` Prelude.rnf objectToken
+    Prelude.rnf chunksCount `Prelude.seq`
+      Prelude.rnf metadataString `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf objectChecksum `Prelude.seq`
+            Prelude.rnf objectChecksumAlgorithm `Prelude.seq`
+              Prelude.rnf objectToken

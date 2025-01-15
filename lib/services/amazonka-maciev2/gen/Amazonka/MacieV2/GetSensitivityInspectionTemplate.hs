@@ -232,9 +232,9 @@ instance
     GetSensitivityInspectionTemplateResponse
   where
   rnf GetSensitivityInspectionTemplateResponse' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf excludes
-      `Prelude.seq` Prelude.rnf includes
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf sensitivityInspectionTemplateId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf excludes `Prelude.seq`
+        Prelude.rnf includes `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf sensitivityInspectionTemplateId `Prelude.seq`
+              Prelude.rnf httpStatus

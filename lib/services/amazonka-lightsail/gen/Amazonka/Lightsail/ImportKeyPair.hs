@@ -110,8 +110,8 @@ instance Prelude.Hashable ImportKeyPair where
 
 instance Prelude.NFData ImportKeyPair where
   rnf ImportKeyPair' {..} =
-    Prelude.rnf keyPairName
-      `Prelude.seq` Prelude.rnf publicKeyBase64
+    Prelude.rnf keyPairName `Prelude.seq`
+      Prelude.rnf publicKeyBase64
 
 instance Data.ToHeaders ImportKeyPair where
   toHeaders =
@@ -190,5 +190,5 @@ importKeyPairResponse_httpStatus = Lens.lens (\ImportKeyPairResponse' {httpStatu
 
 instance Prelude.NFData ImportKeyPairResponse where
   rnf ImportKeyPairResponse' {..} =
-    Prelude.rnf operation
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operation `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -146,11 +146,11 @@ instance Prelude.Hashable GetChangeLogs where
 
 instance Prelude.NFData GetChangeLogs where
   rnf GetChangeLogs' {..} =
-    Prelude.rnf controlId
-      `Prelude.seq` Prelude.rnf controlSetId
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf assessmentId
+    Prelude.rnf controlId `Prelude.seq`
+      Prelude.rnf controlSetId `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf assessmentId
 
 instance Data.ToHeaders GetChangeLogs where
   toHeaders =
@@ -230,6 +230,6 @@ getChangeLogsResponse_httpStatus = Lens.lens (\GetChangeLogsResponse' {httpStatu
 
 instance Prelude.NFData GetChangeLogsResponse where
   rnf GetChangeLogsResponse' {..} =
-    Prelude.rnf changeLogs
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf changeLogs `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

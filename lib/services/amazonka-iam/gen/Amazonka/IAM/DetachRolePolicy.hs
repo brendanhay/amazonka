@@ -136,8 +136,8 @@ instance Prelude.Hashable DetachRolePolicy where
 
 instance Prelude.NFData DetachRolePolicy where
   rnf DetachRolePolicy' {..} =
-    Prelude.rnf roleName
-      `Prelude.seq` Prelude.rnf policyArn
+    Prelude.rnf roleName `Prelude.seq`
+      Prelude.rnf policyArn
 
 instance Data.ToHeaders DetachRolePolicy where
   toHeaders = Prelude.const Prelude.mempty

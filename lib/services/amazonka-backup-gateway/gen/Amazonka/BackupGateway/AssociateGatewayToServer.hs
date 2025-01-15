@@ -122,8 +122,8 @@ instance Prelude.Hashable AssociateGatewayToServer where
 
 instance Prelude.NFData AssociateGatewayToServer where
   rnf AssociateGatewayToServer' {..} =
-    Prelude.rnf gatewayArn
-      `Prelude.seq` Prelude.rnf serverArn
+    Prelude.rnf gatewayArn `Prelude.seq`
+      Prelude.rnf serverArn
 
 instance Data.ToHeaders AssociateGatewayToServer where
   toHeaders =
@@ -199,5 +199,5 @@ instance
     AssociateGatewayToServerResponse
   where
   rnf AssociateGatewayToServerResponse' {..} =
-    Prelude.rnf gatewayArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf gatewayArn `Prelude.seq`
+      Prelude.rnf httpStatus

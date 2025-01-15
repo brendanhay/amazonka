@@ -157,11 +157,11 @@ instance Prelude.Hashable SearchGroups where
 
 instance Prelude.NFData SearchGroups where
   rnf SearchGroups' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf namespace
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf awsAccountId `Prelude.seq`
+          Prelude.rnf namespace `Prelude.seq`
+            Prelude.rnf filters
 
 instance Data.ToHeaders SearchGroups where
   toHeaders =
@@ -259,7 +259,7 @@ searchGroupsResponse_status = Lens.lens (\SearchGroupsResponse' {status} -> stat
 
 instance Prelude.NFData SearchGroupsResponse where
   rnf SearchGroupsResponse' {..} =
-    Prelude.rnf groupList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf groupList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf requestId `Prelude.seq`
+          Prelude.rnf status

@@ -151,8 +151,8 @@ instance
     AddDraftAppVersionResourceMappings
   where
   rnf AddDraftAppVersionResourceMappings' {..} =
-    Prelude.rnf appArn
-      `Prelude.seq` Prelude.rnf resourceMappings
+    Prelude.rnf appArn `Prelude.seq`
+      Prelude.rnf resourceMappings
 
 instance
   Data.ToHeaders
@@ -289,7 +289,7 @@ instance
     AddDraftAppVersionResourceMappingsResponse
   where
   rnf AddDraftAppVersionResourceMappingsResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf appArn
-      `Prelude.seq` Prelude.rnf appVersion
-      `Prelude.seq` Prelude.rnf resourceMappings
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf appArn `Prelude.seq`
+        Prelude.rnf appVersion `Prelude.seq`
+          Prelude.rnf resourceMappings

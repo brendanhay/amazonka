@@ -146,10 +146,10 @@ instance Prelude.Hashable DeleteGatewayRoute where
 
 instance Prelude.NFData DeleteGatewayRoute where
   rnf DeleteGatewayRoute' {..} =
-    Prelude.rnf meshOwner
-      `Prelude.seq` Prelude.rnf gatewayRouteName
-      `Prelude.seq` Prelude.rnf meshName
-      `Prelude.seq` Prelude.rnf virtualGatewayName
+    Prelude.rnf meshOwner `Prelude.seq`
+      Prelude.rnf gatewayRouteName `Prelude.seq`
+        Prelude.rnf meshName `Prelude.seq`
+          Prelude.rnf virtualGatewayName
 
 instance Data.ToHeaders DeleteGatewayRoute where
   toHeaders =
@@ -222,5 +222,5 @@ deleteGatewayRouteResponse_gatewayRoute = Lens.lens (\DeleteGatewayRouteResponse
 
 instance Prelude.NFData DeleteGatewayRouteResponse where
   rnf DeleteGatewayRouteResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf gatewayRoute
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf gatewayRoute

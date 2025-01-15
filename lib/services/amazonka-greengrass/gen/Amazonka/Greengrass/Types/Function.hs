@@ -100,9 +100,9 @@ instance Prelude.Hashable Function where
 
 instance Prelude.NFData Function where
   rnf Function' {..} =
-    Prelude.rnf functionArn
-      `Prelude.seq` Prelude.rnf functionConfiguration
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf functionArn `Prelude.seq`
+      Prelude.rnf functionConfiguration `Prelude.seq`
+        Prelude.rnf id
 
 instance Data.ToJSON Function where
   toJSON Function' {..} =

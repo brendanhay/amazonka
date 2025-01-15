@@ -92,9 +92,9 @@ instance Prelude.Hashable PolicyParameter where
 
 instance Prelude.NFData PolicyParameter where
   rnf PolicyParameter' {..} =
-    Prelude.rnf key
-      `Prelude.seq` Prelude.rnf mapEntries
-      `Prelude.seq` Prelude.rnf values
+    Prelude.rnf key `Prelude.seq`
+      Prelude.rnf mapEntries `Prelude.seq`
+        Prelude.rnf values
 
 instance Data.ToJSON PolicyParameter where
   toJSON PolicyParameter' {..} =

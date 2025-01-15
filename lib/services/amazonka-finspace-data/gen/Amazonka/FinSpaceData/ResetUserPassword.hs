@@ -116,8 +116,8 @@ instance Prelude.Hashable ResetUserPassword where
 
 instance Prelude.NFData ResetUserPassword where
   rnf ResetUserPassword' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf userId
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf userId
 
 instance Data.ToHeaders ResetUserPassword where
   toHeaders =
@@ -198,6 +198,6 @@ resetUserPasswordResponse_httpStatus = Lens.lens (\ResetUserPasswordResponse' {h
 
 instance Prelude.NFData ResetUserPasswordResponse where
   rnf ResetUserPasswordResponse' {..} =
-    Prelude.rnf temporaryPassword
-      `Prelude.seq` Prelude.rnf userId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf temporaryPassword `Prelude.seq`
+      Prelude.rnf userId `Prelude.seq`
+        Prelude.rnf httpStatus

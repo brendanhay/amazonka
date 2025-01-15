@@ -119,8 +119,8 @@ instance Prelude.Hashable DefineSuggester where
 
 instance Prelude.NFData DefineSuggester where
   rnf DefineSuggester' {..} =
-    Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf suggester
+    Prelude.rnf domainName `Prelude.seq`
+      Prelude.rnf suggester
 
 instance Data.ToHeaders DefineSuggester where
   toHeaders = Prelude.const Prelude.mempty
@@ -183,5 +183,5 @@ defineSuggesterResponse_suggester = Lens.lens (\DefineSuggesterResponse' {sugges
 
 instance Prelude.NFData DefineSuggesterResponse where
   rnf DefineSuggesterResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf suggester
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf suggester

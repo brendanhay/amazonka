@@ -170,10 +170,10 @@ instance Prelude.Hashable ListTranscriptionJobs where
 
 instance Prelude.NFData ListTranscriptionJobs where
   rnf ListTranscriptionJobs' {..} =
-    Prelude.rnf jobNameContains
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf jobNameContains `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf status
 
 instance Data.ToHeaders ListTranscriptionJobs where
   toHeaders =
@@ -282,7 +282,7 @@ listTranscriptionJobsResponse_httpStatus = Lens.lens (\ListTranscriptionJobsResp
 
 instance Prelude.NFData ListTranscriptionJobsResponse where
   rnf ListTranscriptionJobsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf transcriptionJobSummaries
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf transcriptionJobSummaries `Prelude.seq`
+          Prelude.rnf httpStatus

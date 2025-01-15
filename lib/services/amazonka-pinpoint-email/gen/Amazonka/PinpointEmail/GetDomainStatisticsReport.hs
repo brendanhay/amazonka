@@ -140,9 +140,9 @@ instance Prelude.Hashable GetDomainStatisticsReport where
 
 instance Prelude.NFData GetDomainStatisticsReport where
   rnf GetDomainStatisticsReport' {..} =
-    Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf startDate
-      `Prelude.seq` Prelude.rnf endDate
+    Prelude.rnf domain `Prelude.seq`
+      Prelude.rnf startDate `Prelude.seq`
+        Prelude.rnf endDate
 
 instance Data.ToHeaders GetDomainStatisticsReport where
   toHeaders =
@@ -241,6 +241,6 @@ instance
     GetDomainStatisticsReportResponse
   where
   rnf GetDomainStatisticsReportResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf overallVolume
-      `Prelude.seq` Prelude.rnf dailyVolumes
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf overallVolume `Prelude.seq`
+        Prelude.rnf dailyVolumes

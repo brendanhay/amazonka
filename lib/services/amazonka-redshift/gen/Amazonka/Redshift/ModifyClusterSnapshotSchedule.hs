@@ -127,9 +127,9 @@ instance
 
 instance Prelude.NFData ModifyClusterSnapshotSchedule where
   rnf ModifyClusterSnapshotSchedule' {..} =
-    Prelude.rnf disassociateSchedule
-      `Prelude.seq` Prelude.rnf scheduleIdentifier
-      `Prelude.seq` Prelude.rnf clusterIdentifier
+    Prelude.rnf disassociateSchedule `Prelude.seq`
+      Prelude.rnf scheduleIdentifier `Prelude.seq`
+        Prelude.rnf clusterIdentifier
 
 instance Data.ToHeaders ModifyClusterSnapshotSchedule where
   toHeaders = Prelude.const Prelude.mempty

@@ -93,8 +93,8 @@ instance Prelude.Hashable AddHeaderAction where
 
 instance Prelude.NFData AddHeaderAction where
   rnf AddHeaderAction' {..} =
-    Prelude.rnf headerName
-      `Prelude.seq` Prelude.rnf headerValue
+    Prelude.rnf headerName `Prelude.seq`
+      Prelude.rnf headerValue
 
 instance Data.ToQuery AddHeaderAction where
   toQuery AddHeaderAction' {..} =

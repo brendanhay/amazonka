@@ -94,5 +94,5 @@ instance Prelude.Hashable DominantLanguage where
 
 instance Prelude.NFData DominantLanguage where
   rnf DominantLanguage' {..} =
-    Prelude.rnf languageCode
-      `Prelude.seq` Prelude.rnf score
+    Prelude.rnf languageCode `Prelude.seq`
+      Prelude.rnf score

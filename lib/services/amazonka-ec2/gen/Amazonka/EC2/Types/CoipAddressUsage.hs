@@ -99,7 +99,7 @@ instance Prelude.Hashable CoipAddressUsage where
 
 instance Prelude.NFData CoipAddressUsage where
   rnf CoipAddressUsage' {..} =
-    Prelude.rnf allocationId
-      `Prelude.seq` Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf awsService
-      `Prelude.seq` Prelude.rnf coIp
+    Prelude.rnf allocationId `Prelude.seq`
+      Prelude.rnf awsAccountId `Prelude.seq`
+        Prelude.rnf awsService `Prelude.seq`
+          Prelude.rnf coIp

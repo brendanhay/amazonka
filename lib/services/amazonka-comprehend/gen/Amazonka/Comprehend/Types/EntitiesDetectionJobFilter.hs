@@ -108,10 +108,10 @@ instance Prelude.Hashable EntitiesDetectionJobFilter where
 
 instance Prelude.NFData EntitiesDetectionJobFilter where
   rnf EntitiesDetectionJobFilter' {..} =
-    Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf jobStatus
-      `Prelude.seq` Prelude.rnf submitTimeAfter
-      `Prelude.seq` Prelude.rnf submitTimeBefore
+    Prelude.rnf jobName `Prelude.seq`
+      Prelude.rnf jobStatus `Prelude.seq`
+        Prelude.rnf submitTimeAfter `Prelude.seq`
+          Prelude.rnf submitTimeBefore
 
 instance Data.ToJSON EntitiesDetectionJobFilter where
   toJSON EntitiesDetectionJobFilter' {..} =

@@ -87,5 +87,5 @@ instance Prelude.Hashable ThirdPartyJob where
 
 instance Prelude.NFData ThirdPartyJob where
   rnf ThirdPartyJob' {..} =
-    Prelude.rnf clientId
-      `Prelude.seq` Prelude.rnf jobId
+    Prelude.rnf clientId `Prelude.seq`
+      Prelude.rnf jobId

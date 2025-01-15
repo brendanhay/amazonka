@@ -133,8 +133,8 @@ instance
 
 instance Prelude.NFData BlueInstanceTerminationOption where
   rnf BlueInstanceTerminationOption' {..} =
-    Prelude.rnf action
-      `Prelude.seq` Prelude.rnf terminationWaitTimeInMinutes
+    Prelude.rnf action `Prelude.seq`
+      Prelude.rnf terminationWaitTimeInMinutes
 
 instance Data.ToJSON BlueInstanceTerminationOption where
   toJSON BlueInstanceTerminationOption' {..} =

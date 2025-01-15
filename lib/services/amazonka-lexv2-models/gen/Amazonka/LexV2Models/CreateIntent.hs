@@ -498,21 +498,21 @@ instance Prelude.Hashable CreateIntent where
 
 instance Prelude.NFData CreateIntent where
   rnf CreateIntent' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf dialogCodeHook
-      `Prelude.seq` Prelude.rnf fulfillmentCodeHook
-      `Prelude.seq` Prelude.rnf initialResponseSetting
-      `Prelude.seq` Prelude.rnf inputContexts
-      `Prelude.seq` Prelude.rnf intentClosingSetting
-      `Prelude.seq` Prelude.rnf intentConfirmationSetting
-      `Prelude.seq` Prelude.rnf kendraConfiguration
-      `Prelude.seq` Prelude.rnf outputContexts
-      `Prelude.seq` Prelude.rnf parentIntentSignature
-      `Prelude.seq` Prelude.rnf sampleUtterances
-      `Prelude.seq` Prelude.rnf intentName
-      `Prelude.seq` Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf botVersion
-      `Prelude.seq` Prelude.rnf localeId
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf dialogCodeHook `Prelude.seq`
+        Prelude.rnf fulfillmentCodeHook `Prelude.seq`
+          Prelude.rnf initialResponseSetting `Prelude.seq`
+            Prelude.rnf inputContexts `Prelude.seq`
+              Prelude.rnf intentClosingSetting `Prelude.seq`
+                Prelude.rnf intentConfirmationSetting `Prelude.seq`
+                  Prelude.rnf kendraConfiguration `Prelude.seq`
+                    Prelude.rnf outputContexts `Prelude.seq`
+                      Prelude.rnf parentIntentSignature `Prelude.seq`
+                        Prelude.rnf sampleUtterances `Prelude.seq`
+                          Prelude.rnf intentName `Prelude.seq`
+                            Prelude.rnf botId `Prelude.seq`
+                              Prelude.rnf botVersion `Prelude.seq`
+                                Prelude.rnf localeId
 
 instance Data.ToHeaders CreateIntent where
   toHeaders =
@@ -758,21 +758,21 @@ createIntentResponse_httpStatus = Lens.lens (\CreateIntentResponse' {httpStatus}
 
 instance Prelude.NFData CreateIntentResponse where
   rnf CreateIntentResponse' {..} =
-    Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf botVersion
-      `Prelude.seq` Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf dialogCodeHook
-      `Prelude.seq` Prelude.rnf fulfillmentCodeHook
-      `Prelude.seq` Prelude.rnf initialResponseSetting
-      `Prelude.seq` Prelude.rnf inputContexts
-      `Prelude.seq` Prelude.rnf intentClosingSetting
-      `Prelude.seq` Prelude.rnf intentConfirmationSetting
-      `Prelude.seq` Prelude.rnf intentId
-      `Prelude.seq` Prelude.rnf intentName
-      `Prelude.seq` Prelude.rnf kendraConfiguration
-      `Prelude.seq` Prelude.rnf localeId
-      `Prelude.seq` Prelude.rnf outputContexts
-      `Prelude.seq` Prelude.rnf parentIntentSignature
-      `Prelude.seq` Prelude.rnf sampleUtterances
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf botId `Prelude.seq`
+      Prelude.rnf botVersion `Prelude.seq`
+        Prelude.rnf creationDateTime `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf dialogCodeHook `Prelude.seq`
+              Prelude.rnf fulfillmentCodeHook `Prelude.seq`
+                Prelude.rnf initialResponseSetting `Prelude.seq`
+                  Prelude.rnf inputContexts `Prelude.seq`
+                    Prelude.rnf intentClosingSetting `Prelude.seq`
+                      Prelude.rnf intentConfirmationSetting `Prelude.seq`
+                        Prelude.rnf intentId `Prelude.seq`
+                          Prelude.rnf intentName `Prelude.seq`
+                            Prelude.rnf kendraConfiguration `Prelude.seq`
+                              Prelude.rnf localeId `Prelude.seq`
+                                Prelude.rnf outputContexts `Prelude.seq`
+                                  Prelude.rnf parentIntentSignature `Prelude.seq`
+                                    Prelude.rnf sampleUtterances `Prelude.seq`
+                                      Prelude.rnf httpStatus

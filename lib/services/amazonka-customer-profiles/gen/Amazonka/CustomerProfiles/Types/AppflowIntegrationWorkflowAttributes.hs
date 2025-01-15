@@ -122,6 +122,6 @@ instance
     AppflowIntegrationWorkflowAttributes
   where
   rnf AppflowIntegrationWorkflowAttributes' {..} =
-    Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf sourceConnectorType
-      `Prelude.seq` Prelude.rnf connectorProfileName
+    Prelude.rnf roleArn `Prelude.seq`
+      Prelude.rnf sourceConnectorType `Prelude.seq`
+        Prelude.rnf connectorProfileName

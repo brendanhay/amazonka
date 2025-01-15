@@ -147,9 +147,9 @@ instance Prelude.Hashable ListResourceSetResources where
 
 instance Prelude.NFData ListResourceSetResources where
   rnf ListResourceSetResources' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf identifier
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf identifier
 
 instance Data.ToHeaders ListResourceSetResources where
   toHeaders =
@@ -250,6 +250,6 @@ instance
     ListResourceSetResourcesResponse
   where
   rnf ListResourceSetResourcesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf items
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf items

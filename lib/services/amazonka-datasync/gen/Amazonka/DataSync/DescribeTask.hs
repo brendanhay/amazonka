@@ -413,20 +413,20 @@ describeTaskResponse_httpStatus = Lens.lens (\DescribeTaskResponse' {httpStatus}
 
 instance Prelude.NFData DescribeTaskResponse where
   rnf DescribeTaskResponse' {..} =
-    Prelude.rnf cloudWatchLogGroupArn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf currentTaskExecutionArn
-      `Prelude.seq` Prelude.rnf destinationLocationArn
-      `Prelude.seq` Prelude.rnf destinationNetworkInterfaceArns
-      `Prelude.seq` Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorDetail
-      `Prelude.seq` Prelude.rnf excludes
-      `Prelude.seq` Prelude.rnf includes
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf options
-      `Prelude.seq` Prelude.rnf schedule
-      `Prelude.seq` Prelude.rnf sourceLocationArn
-      `Prelude.seq` Prelude.rnf sourceNetworkInterfaceArns
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf taskArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf cloudWatchLogGroupArn `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf currentTaskExecutionArn `Prelude.seq`
+          Prelude.rnf destinationLocationArn `Prelude.seq`
+            Prelude.rnf destinationNetworkInterfaceArns `Prelude.seq`
+              Prelude.rnf errorCode `Prelude.seq`
+                Prelude.rnf errorDetail `Prelude.seq`
+                  Prelude.rnf excludes `Prelude.seq`
+                    Prelude.rnf includes `Prelude.seq`
+                      Prelude.rnf name `Prelude.seq`
+                        Prelude.rnf options `Prelude.seq`
+                          Prelude.rnf schedule `Prelude.seq`
+                            Prelude.rnf sourceLocationArn `Prelude.seq`
+                              Prelude.rnf sourceNetworkInterfaceArns `Prelude.seq`
+                                Prelude.rnf status `Prelude.seq`
+                                  Prelude.rnf taskArn `Prelude.seq`
+                                    Prelude.rnf httpStatus

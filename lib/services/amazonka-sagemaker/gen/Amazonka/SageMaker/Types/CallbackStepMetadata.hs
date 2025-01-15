@@ -99,6 +99,6 @@ instance Prelude.Hashable CallbackStepMetadata where
 
 instance Prelude.NFData CallbackStepMetadata where
   rnf CallbackStepMetadata' {..} =
-    Prelude.rnf callbackToken
-      `Prelude.seq` Prelude.rnf outputParameters
-      `Prelude.seq` Prelude.rnf sqsQueueUrl
+    Prelude.rnf callbackToken `Prelude.seq`
+      Prelude.rnf outputParameters `Prelude.seq`
+        Prelude.rnf sqsQueueUrl

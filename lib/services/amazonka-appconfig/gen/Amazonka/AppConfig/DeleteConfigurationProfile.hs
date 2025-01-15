@@ -110,8 +110,8 @@ instance Prelude.Hashable DeleteConfigurationProfile where
 
 instance Prelude.NFData DeleteConfigurationProfile where
   rnf DeleteConfigurationProfile' {..} =
-    Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf configurationProfileId
+    Prelude.rnf applicationId `Prelude.seq`
+      Prelude.rnf configurationProfileId
 
 instance Data.ToHeaders DeleteConfigurationProfile where
   toHeaders =

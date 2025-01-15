@@ -144,12 +144,12 @@ instance Core.AWSPager GetApiKeys where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getApiKeys_position
-          Lens..~ rs
-          Lens.^? getApiKeysResponse_position
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getApiKeys_position
+              Lens..~ rs
+              Lens.^? getApiKeysResponse_position
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetApiKeys where
   type AWSResponse GetApiKeys = GetApiKeysResponse
@@ -176,11 +176,11 @@ instance Prelude.Hashable GetApiKeys where
 
 instance Prelude.NFData GetApiKeys where
   rnf GetApiKeys' {..} =
-    Prelude.rnf customerId
-      `Prelude.seq` Prelude.rnf includeValues
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nameQuery
-      `Prelude.seq` Prelude.rnf position
+    Prelude.rnf customerId `Prelude.seq`
+      Prelude.rnf includeValues `Prelude.seq`
+        Prelude.rnf limit `Prelude.seq`
+          Prelude.rnf nameQuery `Prelude.seq`
+            Prelude.rnf position
 
 instance Data.ToHeaders GetApiKeys where
   toHeaders =
@@ -267,7 +267,7 @@ getApiKeysResponse_httpStatus = Lens.lens (\GetApiKeysResponse' {httpStatus} -> 
 
 instance Prelude.NFData GetApiKeysResponse where
   rnf GetApiKeysResponse' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf position
-      `Prelude.seq` Prelude.rnf warnings
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf items `Prelude.seq`
+      Prelude.rnf position `Prelude.seq`
+        Prelude.rnf warnings `Prelude.seq`
+          Prelude.rnf httpStatus

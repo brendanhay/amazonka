@@ -213,11 +213,11 @@ instance Prelude.Hashable ECSTaskSet where
 
 instance Prelude.NFData ECSTaskSet where
   rnf ECSTaskSet' {..} =
-    Prelude.rnf desiredCount
-      `Prelude.seq` Prelude.rnf identifer
-      `Prelude.seq` Prelude.rnf pendingCount
-      `Prelude.seq` Prelude.rnf runningCount
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf targetGroup
-      `Prelude.seq` Prelude.rnf taskSetLabel
-      `Prelude.seq` Prelude.rnf trafficWeight
+    Prelude.rnf desiredCount `Prelude.seq`
+      Prelude.rnf identifer `Prelude.seq`
+        Prelude.rnf pendingCount `Prelude.seq`
+          Prelude.rnf runningCount `Prelude.seq`
+            Prelude.rnf status `Prelude.seq`
+              Prelude.rnf targetGroup `Prelude.seq`
+                Prelude.rnf taskSetLabel `Prelude.seq`
+                  Prelude.rnf trafficWeight

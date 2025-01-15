@@ -524,13 +524,13 @@ instance Prelude.Hashable AdvancedFieldSelector where
 
 instance Prelude.NFData AdvancedFieldSelector where
   rnf AdvancedFieldSelector' {..} =
-    Prelude.rnf endsWith
-      `Prelude.seq` Prelude.rnf equals
-      `Prelude.seq` Prelude.rnf notEndsWith
-      `Prelude.seq` Prelude.rnf notEquals
-      `Prelude.seq` Prelude.rnf notStartsWith
-      `Prelude.seq` Prelude.rnf startsWith
-      `Prelude.seq` Prelude.rnf field
+    Prelude.rnf endsWith `Prelude.seq`
+      Prelude.rnf equals `Prelude.seq`
+        Prelude.rnf notEndsWith `Prelude.seq`
+          Prelude.rnf notEquals `Prelude.seq`
+            Prelude.rnf notStartsWith `Prelude.seq`
+              Prelude.rnf startsWith `Prelude.seq`
+                Prelude.rnf field
 
 instance Data.ToJSON AdvancedFieldSelector where
   toJSON AdvancedFieldSelector' {..} =

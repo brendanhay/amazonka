@@ -98,12 +98,12 @@ instance Core.AWSPager ListGitHubAccountTokenNames where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listGitHubAccountTokenNames_nextToken
-          Lens..~ rs
-          Lens.^? listGitHubAccountTokenNamesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listGitHubAccountTokenNames_nextToken
+              Lens..~ rs
+              Lens.^? listGitHubAccountTokenNamesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListGitHubAccountTokenNames where
   type
@@ -217,6 +217,6 @@ instance
     ListGitHubAccountTokenNamesResponse
   where
   rnf ListGitHubAccountTokenNamesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf tokenNameList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf tokenNameList `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -162,10 +162,10 @@ instance Prelude.Hashable EvaluationResult where
 
 instance Prelude.NFData EvaluationResult where
   rnf EvaluationResult' {..} =
-    Prelude.rnf details
-      `Prelude.seq` Prelude.rnf project
-      `Prelude.seq` Prelude.rnf reason
-      `Prelude.seq` Prelude.rnf value
-      `Prelude.seq` Prelude.rnf variation
-      `Prelude.seq` Prelude.rnf entityId
-      `Prelude.seq` Prelude.rnf feature
+    Prelude.rnf details `Prelude.seq`
+      Prelude.rnf project `Prelude.seq`
+        Prelude.rnf reason `Prelude.seq`
+          Prelude.rnf value `Prelude.seq`
+            Prelude.rnf variation `Prelude.seq`
+              Prelude.rnf entityId `Prelude.seq`
+                Prelude.rnf feature

@@ -139,10 +139,10 @@ instance Prelude.Hashable ImportSignalCatalog where
 
 instance Prelude.NFData ImportSignalCatalog where
   rnf ImportSignalCatalog' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf vss
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf vss `Prelude.seq`
+          Prelude.rnf name
 
 instance Data.ToHeaders ImportSignalCatalog where
   toHeaders =
@@ -233,6 +233,6 @@ importSignalCatalogResponse_arn = Lens.lens (\ImportSignalCatalogResponse' {arn}
 
 instance Prelude.NFData ImportSignalCatalogResponse where
   rnf ImportSignalCatalogResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf arn

@@ -185,13 +185,13 @@ instance Prelude.Hashable Trigger where
 
 instance Prelude.NFData Trigger where
   rnf Trigger' {..} =
-    Prelude.rnf actions
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf eventBatchingCondition
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf predicate
-      `Prelude.seq` Prelude.rnf schedule
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf workflowName
+    Prelude.rnf actions `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf eventBatchingCondition `Prelude.seq`
+          Prelude.rnf id `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf predicate `Prelude.seq`
+                Prelude.rnf schedule `Prelude.seq`
+                  Prelude.rnf state `Prelude.seq`
+                    Prelude.rnf type' `Prelude.seq`
+                      Prelude.rnf workflowName

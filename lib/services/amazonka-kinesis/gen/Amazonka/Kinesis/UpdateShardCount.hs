@@ -224,10 +224,10 @@ instance Prelude.Hashable UpdateShardCount where
 
 instance Prelude.NFData UpdateShardCount where
   rnf UpdateShardCount' {..} =
-    Prelude.rnf streamARN
-      `Prelude.seq` Prelude.rnf streamName
-      `Prelude.seq` Prelude.rnf targetShardCount
-      `Prelude.seq` Prelude.rnf scalingType
+    Prelude.rnf streamARN `Prelude.seq`
+      Prelude.rnf streamName `Prelude.seq`
+        Prelude.rnf targetShardCount `Prelude.seq`
+          Prelude.rnf scalingType
 
 instance Data.ToHeaders UpdateShardCount where
   toHeaders =
@@ -330,8 +330,8 @@ updateShardCountResponse_httpStatus = Lens.lens (\UpdateShardCountResponse' {htt
 
 instance Prelude.NFData UpdateShardCountResponse where
   rnf UpdateShardCountResponse' {..} =
-    Prelude.rnf currentShardCount
-      `Prelude.seq` Prelude.rnf streamARN
-      `Prelude.seq` Prelude.rnf streamName
-      `Prelude.seq` Prelude.rnf targetShardCount
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf currentShardCount `Prelude.seq`
+      Prelude.rnf streamARN `Prelude.seq`
+        Prelude.rnf streamName `Prelude.seq`
+          Prelude.rnf targetShardCount `Prelude.seq`
+            Prelude.rnf httpStatus

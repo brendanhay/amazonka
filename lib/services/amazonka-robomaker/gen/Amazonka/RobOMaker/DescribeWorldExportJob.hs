@@ -384,14 +384,14 @@ instance
     DescribeWorldExportJobResponse
   where
   rnf DescribeWorldExportJobResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf failureCode
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf iamRole
-      `Prelude.seq` Prelude.rnf outputLocation
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf worlds
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf clientRequestToken `Prelude.seq`
+        Prelude.rnf createdAt `Prelude.seq`
+          Prelude.rnf failureCode `Prelude.seq`
+            Prelude.rnf failureReason `Prelude.seq`
+              Prelude.rnf iamRole `Prelude.seq`
+                Prelude.rnf outputLocation `Prelude.seq`
+                  Prelude.rnf status `Prelude.seq`
+                    Prelude.rnf tags `Prelude.seq`
+                      Prelude.rnf worlds `Prelude.seq`
+                        Prelude.rnf httpStatus

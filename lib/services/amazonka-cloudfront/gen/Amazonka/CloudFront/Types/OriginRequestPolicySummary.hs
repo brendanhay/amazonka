@@ -87,5 +87,5 @@ instance Prelude.Hashable OriginRequestPolicySummary where
 
 instance Prelude.NFData OriginRequestPolicySummary where
   rnf OriginRequestPolicySummary' {..} =
-    Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf originRequestPolicy
+    Prelude.rnf type' `Prelude.seq`
+      Prelude.rnf originRequestPolicy

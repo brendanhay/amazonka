@@ -286,12 +286,12 @@ instance
     ExportLambdaFunctionRecommendations
   where
   rnf ExportLambdaFunctionRecommendations' {..} =
-    Prelude.rnf accountIds
-      `Prelude.seq` Prelude.rnf fieldsToExport
-      `Prelude.seq` Prelude.rnf fileFormat
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf includeMemberAccounts
-      `Prelude.seq` Prelude.rnf s3DestinationConfig
+    Prelude.rnf accountIds `Prelude.seq`
+      Prelude.rnf fieldsToExport `Prelude.seq`
+        Prelude.rnf fileFormat `Prelude.seq`
+          Prelude.rnf filters `Prelude.seq`
+            Prelude.rnf includeMemberAccounts `Prelude.seq`
+              Prelude.rnf s3DestinationConfig
 
 instance
   Data.ToHeaders
@@ -405,6 +405,6 @@ instance
     ExportLambdaFunctionRecommendationsResponse
   where
   rnf ExportLambdaFunctionRecommendationsResponse' {..} =
-    Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf s3Destination
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf jobId `Prelude.seq`
+      Prelude.rnf s3Destination `Prelude.seq`
+        Prelude.rnf httpStatus

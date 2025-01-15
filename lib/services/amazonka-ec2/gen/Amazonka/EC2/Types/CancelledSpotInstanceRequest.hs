@@ -82,5 +82,5 @@ instance
 
 instance Prelude.NFData CancelledSpotInstanceRequest where
   rnf CancelledSpotInstanceRequest' {..} =
-    Prelude.rnf spotInstanceRequestId
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf spotInstanceRequestId `Prelude.seq`
+      Prelude.rnf state

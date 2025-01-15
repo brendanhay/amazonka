@@ -452,10 +452,10 @@ instance Prelude.Hashable S3DataSpec where
 
 instance Prelude.NFData S3DataSpec where
   rnf S3DataSpec' {..} =
-    Prelude.rnf dataRearrangement
-      `Prelude.seq` Prelude.rnf dataSchema
-      `Prelude.seq` Prelude.rnf dataSchemaLocationS3
-      `Prelude.seq` Prelude.rnf dataLocationS3
+    Prelude.rnf dataRearrangement `Prelude.seq`
+      Prelude.rnf dataSchema `Prelude.seq`
+        Prelude.rnf dataSchemaLocationS3 `Prelude.seq`
+          Prelude.rnf dataLocationS3
 
 instance Data.ToJSON S3DataSpec where
   toJSON S3DataSpec' {..} =

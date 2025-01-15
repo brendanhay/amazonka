@@ -129,8 +129,8 @@ instance Prelude.Hashable ListOriginAccessControls where
 
 instance Prelude.NFData ListOriginAccessControls where
   rnf ListOriginAccessControls' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxItems
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf maxItems
 
 instance Data.ToHeaders ListOriginAccessControls where
   toHeaders = Prelude.const Prelude.mempty
@@ -190,5 +190,5 @@ instance
     ListOriginAccessControlsResponse
   where
   rnf ListOriginAccessControlsResponse' {..} =
-    Prelude.rnf originAccessControlList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf originAccessControlList `Prelude.seq`
+      Prelude.rnf httpStatus

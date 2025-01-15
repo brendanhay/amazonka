@@ -169,8 +169,8 @@ instance Prelude.Hashable DeleteCustomDBEngineVersion where
 
 instance Prelude.NFData DeleteCustomDBEngineVersion where
   rnf DeleteCustomDBEngineVersion' {..} =
-    Prelude.rnf engine
-      `Prelude.seq` Prelude.rnf engineVersion
+    Prelude.rnf engine `Prelude.seq`
+      Prelude.rnf engineVersion
 
 instance Data.ToHeaders DeleteCustomDBEngineVersion where
   toHeaders = Prelude.const Prelude.mempty

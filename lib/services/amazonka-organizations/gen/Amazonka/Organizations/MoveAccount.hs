@@ -199,9 +199,9 @@ instance Prelude.Hashable MoveAccount where
 
 instance Prelude.NFData MoveAccount where
   rnf MoveAccount' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf sourceParentId
-      `Prelude.seq` Prelude.rnf destinationParentId
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf sourceParentId `Prelude.seq`
+        Prelude.rnf destinationParentId
 
 instance Data.ToHeaders MoveAccount where
   toHeaders =

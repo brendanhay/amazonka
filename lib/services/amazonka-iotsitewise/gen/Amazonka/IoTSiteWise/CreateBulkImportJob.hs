@@ -175,11 +175,11 @@ instance Prelude.Hashable CreateBulkImportJob where
 
 instance Prelude.NFData CreateBulkImportJob where
   rnf CreateBulkImportJob' {..} =
-    Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf jobRoleArn
-      `Prelude.seq` Prelude.rnf files
-      `Prelude.seq` Prelude.rnf errorReportLocation
-      `Prelude.seq` Prelude.rnf jobConfiguration
+    Prelude.rnf jobName `Prelude.seq`
+      Prelude.rnf jobRoleArn `Prelude.seq`
+        Prelude.rnf files `Prelude.seq`
+          Prelude.rnf errorReportLocation `Prelude.seq`
+            Prelude.rnf jobConfiguration
 
 instance Data.ToHeaders CreateBulkImportJob where
   toHeaders =
@@ -341,7 +341,7 @@ createBulkImportJobResponse_jobStatus = Lens.lens (\CreateBulkImportJobResponse'
 
 instance Prelude.NFData CreateBulkImportJobResponse where
   rnf CreateBulkImportJobResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf jobStatus
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf jobId `Prelude.seq`
+        Prelude.rnf jobName `Prelude.seq`
+          Prelude.rnf jobStatus

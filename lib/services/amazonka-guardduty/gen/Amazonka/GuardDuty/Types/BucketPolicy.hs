@@ -87,5 +87,5 @@ instance Prelude.Hashable BucketPolicy where
 
 instance Prelude.NFData BucketPolicy where
   rnf BucketPolicy' {..} =
-    Prelude.rnf allowsPublicReadAccess
-      `Prelude.seq` Prelude.rnf allowsPublicWriteAccess
+    Prelude.rnf allowsPublicReadAccess `Prelude.seq`
+      Prelude.rnf allowsPublicWriteAccess

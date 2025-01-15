@@ -114,8 +114,8 @@ instance Prelude.Hashable GetLayerVersionPolicy where
 
 instance Prelude.NFData GetLayerVersionPolicy where
   rnf GetLayerVersionPolicy' {..} =
-    Prelude.rnf layerName
-      `Prelude.seq` Prelude.rnf versionNumber
+    Prelude.rnf layerName `Prelude.seq`
+      Prelude.rnf versionNumber
 
 instance Data.ToHeaders GetLayerVersionPolicy where
   toHeaders = Prelude.const Prelude.mempty
@@ -183,6 +183,6 @@ getLayerVersionPolicyResponse_httpStatus = Lens.lens (\GetLayerVersionPolicyResp
 
 instance Prelude.NFData GetLayerVersionPolicyResponse where
   rnf GetLayerVersionPolicyResponse' {..} =
-    Prelude.rnf policy
-      `Prelude.seq` Prelude.rnf revisionId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf policy `Prelude.seq`
+      Prelude.rnf revisionId `Prelude.seq`
+        Prelude.rnf httpStatus

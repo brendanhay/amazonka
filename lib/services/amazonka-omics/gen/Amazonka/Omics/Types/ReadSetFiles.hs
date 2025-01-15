@@ -92,6 +92,6 @@ instance Prelude.Hashable ReadSetFiles where
 
 instance Prelude.NFData ReadSetFiles where
   rnf ReadSetFiles' {..} =
-    Prelude.rnf index
-      `Prelude.seq` Prelude.rnf source1
-      `Prelude.seq` Prelude.rnf source2
+    Prelude.rnf index `Prelude.seq`
+      Prelude.rnf source1 `Prelude.seq`
+        Prelude.rnf source2

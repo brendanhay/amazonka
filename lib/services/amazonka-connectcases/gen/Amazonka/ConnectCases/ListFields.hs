@@ -125,9 +125,9 @@ instance Prelude.Hashable ListFields where
 
 instance Prelude.NFData ListFields where
   rnf ListFields' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf domainId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf domainId
 
 instance Data.ToHeaders ListFields where
   toHeaders =
@@ -207,6 +207,6 @@ listFieldsResponse_fields = Lens.lens (\ListFieldsResponse' {fields} -> fields) 
 
 instance Prelude.NFData ListFieldsResponse where
   rnf ListFieldsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf fields
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf fields

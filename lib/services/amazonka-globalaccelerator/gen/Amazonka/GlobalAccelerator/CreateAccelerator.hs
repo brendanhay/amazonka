@@ -264,12 +264,12 @@ instance Prelude.Hashable CreateAccelerator where
 
 instance Prelude.NFData CreateAccelerator where
   rnf CreateAccelerator' {..} =
-    Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf ipAddressType
-      `Prelude.seq` Prelude.rnf ipAddresses
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf idempotencyToken
+    Prelude.rnf enabled `Prelude.seq`
+      Prelude.rnf ipAddressType `Prelude.seq`
+        Prelude.rnf ipAddresses `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf idempotencyToken
 
 instance Data.ToHeaders CreateAccelerator where
   toHeaders =
@@ -350,5 +350,5 @@ createAcceleratorResponse_httpStatus = Lens.lens (\CreateAcceleratorResponse' {h
 
 instance Prelude.NFData CreateAcceleratorResponse where
   rnf CreateAcceleratorResponse' {..} =
-    Prelude.rnf accelerator
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf accelerator `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -86,8 +86,8 @@ instance Prelude.Hashable LambdaLinuxProcessParams where
 
 instance Prelude.NFData LambdaLinuxProcessParams where
   rnf LambdaLinuxProcessParams' {..} =
-    Prelude.rnf containerParams
-      `Prelude.seq` Prelude.rnf isolationMode
+    Prelude.rnf containerParams `Prelude.seq`
+      Prelude.rnf isolationMode
 
 instance Data.ToJSON LambdaLinuxProcessParams where
   toJSON LambdaLinuxProcessParams' {..} =

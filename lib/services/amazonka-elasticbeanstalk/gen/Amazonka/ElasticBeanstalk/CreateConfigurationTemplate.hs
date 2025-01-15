@@ -338,15 +338,15 @@ instance Prelude.Hashable CreateConfigurationTemplate where
 
 instance Prelude.NFData CreateConfigurationTemplate where
   rnf CreateConfigurationTemplate' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf environmentId
-      `Prelude.seq` Prelude.rnf optionSettings
-      `Prelude.seq` Prelude.rnf platformArn
-      `Prelude.seq` Prelude.rnf solutionStackName
-      `Prelude.seq` Prelude.rnf sourceConfiguration
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf applicationName
-      `Prelude.seq` Prelude.rnf templateName
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf environmentId `Prelude.seq`
+        Prelude.rnf optionSettings `Prelude.seq`
+          Prelude.rnf platformArn `Prelude.seq`
+            Prelude.rnf solutionStackName `Prelude.seq`
+              Prelude.rnf sourceConfiguration `Prelude.seq`
+                Prelude.rnf tags `Prelude.seq`
+                  Prelude.rnf applicationName `Prelude.seq`
+                    Prelude.rnf templateName
 
 instance Data.ToHeaders CreateConfigurationTemplate where
   toHeaders = Prelude.const Prelude.mempty

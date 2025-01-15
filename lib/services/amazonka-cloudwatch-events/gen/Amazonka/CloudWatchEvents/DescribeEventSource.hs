@@ -237,10 +237,10 @@ describeEventSourceResponse_httpStatus = Lens.lens (\DescribeEventSourceResponse
 
 instance Prelude.NFData DescribeEventSourceResponse where
   rnf DescribeEventSourceResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdBy
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf expirationTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf createdBy `Prelude.seq`
+        Prelude.rnf creationTime `Prelude.seq`
+          Prelude.rnf expirationTime `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf state `Prelude.seq`
+                Prelude.rnf httpStatus

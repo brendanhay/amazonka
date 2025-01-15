@@ -147,12 +147,12 @@ instance Core.AWSPager ListProtocolsLists where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listProtocolsLists_nextToken
-          Lens..~ rs
-          Lens.^? listProtocolsListsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listProtocolsLists_nextToken
+              Lens..~ rs
+              Lens.^? listProtocolsListsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListProtocolsLists where
   type
@@ -178,9 +178,9 @@ instance Prelude.Hashable ListProtocolsLists where
 
 instance Prelude.NFData ListProtocolsLists where
   rnf ListProtocolsLists' {..} =
-    Prelude.rnf defaultLists
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf defaultLists `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf maxResults
 
 instance Data.ToHeaders ListProtocolsLists where
   toHeaders =
@@ -272,6 +272,6 @@ listProtocolsListsResponse_httpStatus = Lens.lens (\ListProtocolsListsResponse' 
 
 instance Prelude.NFData ListProtocolsListsResponse where
   rnf ListProtocolsListsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf protocolsLists
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf protocolsLists `Prelude.seq`
+        Prelude.rnf httpStatus

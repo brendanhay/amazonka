@@ -112,7 +112,7 @@ instance Prelude.Hashable SignupResponse where
 
 instance Prelude.NFData SignupResponse where
   rnf SignupResponse' {..} =
-    Prelude.rnf iAMUser
-      `Prelude.seq` Prelude.rnf accountName
-      `Prelude.seq` Prelude.rnf directoryType
-      `Prelude.seq` Prelude.rnf userLoginName
+    Prelude.rnf iAMUser `Prelude.seq`
+      Prelude.rnf accountName `Prelude.seq`
+        Prelude.rnf directoryType `Prelude.seq`
+          Prelude.rnf userLoginName

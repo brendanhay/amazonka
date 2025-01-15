@@ -99,6 +99,6 @@ instance Prelude.Hashable EventBus where
 
 instance Prelude.NFData EventBus where
   rnf EventBus' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf policy
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf policy

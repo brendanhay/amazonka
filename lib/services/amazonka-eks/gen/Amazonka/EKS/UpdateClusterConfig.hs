@@ -186,10 +186,10 @@ instance Prelude.Hashable UpdateClusterConfig where
 
 instance Prelude.NFData UpdateClusterConfig where
   rnf UpdateClusterConfig' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf logging
-      `Prelude.seq` Prelude.rnf resourcesVpcConfig
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf logging `Prelude.seq`
+        Prelude.rnf resourcesVpcConfig `Prelude.seq`
+          Prelude.rnf name
 
 instance Data.ToHeaders UpdateClusterConfig where
   toHeaders =
@@ -262,5 +262,5 @@ updateClusterConfigResponse_httpStatus = Lens.lens (\UpdateClusterConfigResponse
 
 instance Prelude.NFData UpdateClusterConfigResponse where
   rnf UpdateClusterConfigResponse' {..} =
-    Prelude.rnf update
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf update `Prelude.seq`
+      Prelude.rnf httpStatus

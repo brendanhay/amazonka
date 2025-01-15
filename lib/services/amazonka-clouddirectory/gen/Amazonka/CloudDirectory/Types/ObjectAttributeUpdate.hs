@@ -73,8 +73,8 @@ instance Prelude.Hashable ObjectAttributeUpdate where
 
 instance Prelude.NFData ObjectAttributeUpdate where
   rnf ObjectAttributeUpdate' {..} =
-    Prelude.rnf objectAttributeAction
-      `Prelude.seq` Prelude.rnf objectAttributeKey
+    Prelude.rnf objectAttributeAction `Prelude.seq`
+      Prelude.rnf objectAttributeKey
 
 instance Data.ToJSON ObjectAttributeUpdate where
   toJSON ObjectAttributeUpdate' {..} =

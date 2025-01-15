@@ -72,8 +72,8 @@ instance Prelude.Hashable DescribeActivationsFilter where
 
 instance Prelude.NFData DescribeActivationsFilter where
   rnf DescribeActivationsFilter' {..} =
-    Prelude.rnf filterKey
-      `Prelude.seq` Prelude.rnf filterValues
+    Prelude.rnf filterKey `Prelude.seq`
+      Prelude.rnf filterValues
 
 instance Data.ToJSON DescribeActivationsFilter where
   toJSON DescribeActivationsFilter' {..} =

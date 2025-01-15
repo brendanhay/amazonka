@@ -82,5 +82,5 @@ instance Prelude.Hashable InstanceBlockDeviceMapping where
 
 instance Prelude.NFData InstanceBlockDeviceMapping where
   rnf InstanceBlockDeviceMapping' {..} =
-    Prelude.rnf deviceName
-      `Prelude.seq` Prelude.rnf ebs
+    Prelude.rnf deviceName `Prelude.seq`
+      Prelude.rnf ebs

@@ -115,8 +115,8 @@ instance Prelude.Hashable SamplingStatisticSummary where
 
 instance Prelude.NFData SamplingStatisticSummary where
   rnf SamplingStatisticSummary' {..} =
-    Prelude.rnf borrowCount
-      `Prelude.seq` Prelude.rnf requestCount
-      `Prelude.seq` Prelude.rnf ruleName
-      `Prelude.seq` Prelude.rnf sampledCount
-      `Prelude.seq` Prelude.rnf timestamp
+    Prelude.rnf borrowCount `Prelude.seq`
+      Prelude.rnf requestCount `Prelude.seq`
+        Prelude.rnf ruleName `Prelude.seq`
+          Prelude.rnf sampledCount `Prelude.seq`
+            Prelude.rnf timestamp

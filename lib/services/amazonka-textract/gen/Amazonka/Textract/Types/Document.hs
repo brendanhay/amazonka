@@ -119,8 +119,8 @@ instance Prelude.Hashable Document where
 
 instance Prelude.NFData Document where
   rnf Document' {..} =
-    Prelude.rnf bytes
-      `Prelude.seq` Prelude.rnf s3Object
+    Prelude.rnf bytes `Prelude.seq`
+      Prelude.rnf s3Object
 
 instance Data.ToJSON Document where
   toJSON Document' {..} =

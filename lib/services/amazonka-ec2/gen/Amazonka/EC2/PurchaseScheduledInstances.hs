@@ -154,9 +154,9 @@ instance Prelude.Hashable PurchaseScheduledInstances where
 
 instance Prelude.NFData PurchaseScheduledInstances where
   rnf PurchaseScheduledInstances' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf purchaseRequests
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf purchaseRequests
 
 instance Data.ToHeaders PurchaseScheduledInstances where
   toHeaders = Prelude.const Prelude.mempty
@@ -222,5 +222,5 @@ instance
     PurchaseScheduledInstancesResponse
   where
   rnf PurchaseScheduledInstancesResponse' {..} =
-    Prelude.rnf scheduledInstanceSet
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf scheduledInstanceSet `Prelude.seq`
+      Prelude.rnf httpStatus

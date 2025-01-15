@@ -182,6 +182,6 @@ batchGetBuildBatchesResponse_httpStatus = Lens.lens (\BatchGetBuildBatchesRespon
 
 instance Prelude.NFData BatchGetBuildBatchesResponse where
   rnf BatchGetBuildBatchesResponse' {..} =
-    Prelude.rnf buildBatches
-      `Prelude.seq` Prelude.rnf buildBatchesNotFound
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf buildBatches `Prelude.seq`
+      Prelude.rnf buildBatchesNotFound `Prelude.seq`
+        Prelude.rnf httpStatus

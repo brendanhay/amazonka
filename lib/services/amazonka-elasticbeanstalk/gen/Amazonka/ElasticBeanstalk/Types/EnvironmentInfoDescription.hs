@@ -112,7 +112,7 @@ instance Prelude.Hashable EnvironmentInfoDescription where
 
 instance Prelude.NFData EnvironmentInfoDescription where
   rnf EnvironmentInfoDescription' {..} =
-    Prelude.rnf ec2InstanceId
-      `Prelude.seq` Prelude.rnf infoType
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf sampleTimestamp
+    Prelude.rnf ec2InstanceId `Prelude.seq`
+      Prelude.rnf infoType `Prelude.seq`
+        Prelude.rnf message `Prelude.seq`
+          Prelude.rnf sampleTimestamp

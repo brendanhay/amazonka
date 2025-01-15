@@ -170,5 +170,5 @@ describeApplicationResponse_httpStatus = Lens.lens (\DescribeApplicationResponse
 
 instance Prelude.NFData DescribeApplicationResponse where
   rnf DescribeApplicationResponse' {..} =
-    Prelude.rnf applicationInfo
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf applicationInfo `Prelude.seq`
+      Prelude.rnf httpStatus

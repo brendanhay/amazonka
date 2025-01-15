@@ -388,12 +388,12 @@ instance Prelude.Hashable GetClusterCredentials where
 
 instance Prelude.NFData GetClusterCredentials where
   rnf GetClusterCredentials' {..} =
-    Prelude.rnf autoCreate
-      `Prelude.seq` Prelude.rnf dbGroups
-      `Prelude.seq` Prelude.rnf dbName
-      `Prelude.seq` Prelude.rnf durationSeconds
-      `Prelude.seq` Prelude.rnf dbUser
-      `Prelude.seq` Prelude.rnf clusterIdentifier
+    Prelude.rnf autoCreate `Prelude.seq`
+      Prelude.rnf dbGroups `Prelude.seq`
+        Prelude.rnf dbName `Prelude.seq`
+          Prelude.rnf durationSeconds `Prelude.seq`
+            Prelude.rnf dbUser `Prelude.seq`
+              Prelude.rnf clusterIdentifier
 
 instance Data.ToHeaders GetClusterCredentials where
   toHeaders = Prelude.const Prelude.mempty
@@ -498,7 +498,7 @@ getClusterCredentialsResponse_httpStatus = Lens.lens (\GetClusterCredentialsResp
 
 instance Prelude.NFData GetClusterCredentialsResponse where
   rnf GetClusterCredentialsResponse' {..} =
-    Prelude.rnf dbPassword
-      `Prelude.seq` Prelude.rnf dbUser
-      `Prelude.seq` Prelude.rnf expiration
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dbPassword `Prelude.seq`
+      Prelude.rnf dbUser `Prelude.seq`
+        Prelude.rnf expiration `Prelude.seq`
+          Prelude.rnf httpStatus

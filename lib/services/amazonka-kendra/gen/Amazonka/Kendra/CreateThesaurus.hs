@@ -192,13 +192,13 @@ instance Prelude.Hashable CreateThesaurus where
 
 instance Prelude.NFData CreateThesaurus where
   rnf CreateThesaurus' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf indexId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf sourceS3Path
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf indexId `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf roleArn `Prelude.seq`
+                Prelude.rnf sourceS3Path
 
 instance Data.ToHeaders CreateThesaurus where
   toHeaders =

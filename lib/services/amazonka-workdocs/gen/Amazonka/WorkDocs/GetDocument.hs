@@ -122,9 +122,9 @@ instance Prelude.Hashable GetDocument where
 
 instance Prelude.NFData GetDocument where
   rnf GetDocument' {..} =
-    Prelude.rnf authenticationToken
-      `Prelude.seq` Prelude.rnf includeCustomMetadata
-      `Prelude.seq` Prelude.rnf documentId
+    Prelude.rnf authenticationToken `Prelude.seq`
+      Prelude.rnf includeCustomMetadata `Prelude.seq`
+        Prelude.rnf documentId
 
 instance Data.ToHeaders GetDocument where
   toHeaders GetDocument' {..} =
@@ -196,6 +196,6 @@ getDocumentResponse_httpStatus = Lens.lens (\GetDocumentResponse' {httpStatus} -
 
 instance Prelude.NFData GetDocumentResponse where
   rnf GetDocumentResponse' {..} =
-    Prelude.rnf customMetadata
-      `Prelude.seq` Prelude.rnf metadata
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf customMetadata `Prelude.seq`
+      Prelude.rnf metadata `Prelude.seq`
+        Prelude.rnf httpStatus

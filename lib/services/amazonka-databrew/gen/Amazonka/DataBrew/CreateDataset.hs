@@ -161,12 +161,12 @@ instance Prelude.Hashable CreateDataset where
 
 instance Prelude.NFData CreateDataset where
   rnf CreateDataset' {..} =
-    Prelude.rnf format
-      `Prelude.seq` Prelude.rnf formatOptions
-      `Prelude.seq` Prelude.rnf pathOptions
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf input
+    Prelude.rnf format `Prelude.seq`
+      Prelude.rnf formatOptions `Prelude.seq`
+        Prelude.rnf pathOptions `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf input
 
 instance Data.ToHeaders CreateDataset where
   toHeaders =
@@ -240,5 +240,5 @@ createDatasetResponse_name = Lens.lens (\CreateDatasetResponse' {name} -> name) 
 
 instance Prelude.NFData CreateDatasetResponse where
   rnf CreateDatasetResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf name

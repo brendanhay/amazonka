@@ -150,11 +150,11 @@ instance Prelude.Hashable Hsm where
 
 instance Prelude.NFData Hsm where
   rnf Hsm' {..} =
-    Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf clusterId
-      `Prelude.seq` Prelude.rnf eniId
-      `Prelude.seq` Prelude.rnf eniIp
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf stateMessage
-      `Prelude.seq` Prelude.rnf subnetId
-      `Prelude.seq` Prelude.rnf hsmId
+    Prelude.rnf availabilityZone `Prelude.seq`
+      Prelude.rnf clusterId `Prelude.seq`
+        Prelude.rnf eniId `Prelude.seq`
+          Prelude.rnf eniIp `Prelude.seq`
+            Prelude.rnf state `Prelude.seq`
+              Prelude.rnf stateMessage `Prelude.seq`
+                Prelude.rnf subnetId `Prelude.seq`
+                  Prelude.rnf hsmId

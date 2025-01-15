@@ -146,9 +146,9 @@ instance Prelude.Hashable PlatformFilter where
 
 instance Prelude.NFData PlatformFilter where
   rnf PlatformFilter' {..} =
-    Prelude.rnf operator
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf values
+    Prelude.rnf operator `Prelude.seq`
+      Prelude.rnf type' `Prelude.seq`
+        Prelude.rnf values
 
 instance Data.ToQuery PlatformFilter where
   toQuery PlatformFilter' {..} =

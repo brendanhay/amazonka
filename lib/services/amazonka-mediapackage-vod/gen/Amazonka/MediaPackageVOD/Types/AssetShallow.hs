@@ -145,11 +145,11 @@ instance Prelude.Hashable AssetShallow where
 
 instance Prelude.NFData AssetShallow where
   rnf AssetShallow' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf packagingGroupId
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf sourceArn
-      `Prelude.seq` Prelude.rnf sourceRoleArn
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf createdAt `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf packagingGroupId `Prelude.seq`
+            Prelude.rnf resourceId `Prelude.seq`
+              Prelude.rnf sourceArn `Prelude.seq`
+                Prelude.rnf sourceRoleArn `Prelude.seq`
+                  Prelude.rnf tags

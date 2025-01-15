@@ -126,7 +126,7 @@ instance Prelude.Hashable FileSystemSize where
 
 instance Prelude.NFData FileSystemSize where
   rnf FileSystemSize' {..} =
-    Prelude.rnf timestamp
-      `Prelude.seq` Prelude.rnf valueInIA
-      `Prelude.seq` Prelude.rnf valueInStandard
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf timestamp `Prelude.seq`
+      Prelude.rnf valueInIA `Prelude.seq`
+        Prelude.rnf valueInStandard `Prelude.seq`
+          Prelude.rnf value

@@ -306,14 +306,14 @@ instance Prelude.Hashable CreateCompilationJob where
 
 instance Prelude.NFData CreateCompilationJob where
   rnf CreateCompilationJob' {..} =
-    Prelude.rnf inputConfig
-      `Prelude.seq` Prelude.rnf modelPackageVersionArn
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf vpcConfig
-      `Prelude.seq` Prelude.rnf compilationJobName
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf outputConfig
-      `Prelude.seq` Prelude.rnf stoppingCondition
+    Prelude.rnf inputConfig `Prelude.seq`
+      Prelude.rnf modelPackageVersionArn `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf vpcConfig `Prelude.seq`
+            Prelude.rnf compilationJobName `Prelude.seq`
+              Prelude.rnf roleArn `Prelude.seq`
+                Prelude.rnf outputConfig `Prelude.seq`
+                  Prelude.rnf stoppingCondition
 
 instance Data.ToHeaders CreateCompilationJob where
   toHeaders =
@@ -411,5 +411,5 @@ createCompilationJobResponse_compilationJobArn = Lens.lens (\CreateCompilationJo
 
 instance Prelude.NFData CreateCompilationJobResponse where
   rnf CreateCompilationJobResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf compilationJobArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf compilationJobArn

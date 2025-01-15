@@ -108,10 +108,10 @@ instance Prelude.Hashable Rectangle where
 
 instance Prelude.NFData Rectangle where
   rnf Rectangle' {..} =
-    Prelude.rnf height
-      `Prelude.seq` Prelude.rnf width
-      `Prelude.seq` Prelude.rnf x
-      `Prelude.seq` Prelude.rnf y
+    Prelude.rnf height `Prelude.seq`
+      Prelude.rnf width `Prelude.seq`
+        Prelude.rnf x `Prelude.seq`
+          Prelude.rnf y
 
 instance Data.ToJSON Rectangle where
   toJSON Rectangle' {..} =

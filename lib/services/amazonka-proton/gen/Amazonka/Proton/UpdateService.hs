@@ -149,9 +149,9 @@ instance Prelude.Hashable UpdateService where
 
 instance Prelude.NFData UpdateService where
   rnf UpdateService' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf spec
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf spec `Prelude.seq`
+        Prelude.rnf name
 
 instance Data.ToHeaders UpdateService where
   toHeaders =
@@ -226,5 +226,5 @@ updateServiceResponse_service = Lens.lens (\UpdateServiceResponse' {service} -> 
 
 instance Prelude.NFData UpdateServiceResponse where
   rnf UpdateServiceResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf service
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf service

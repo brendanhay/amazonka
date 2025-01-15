@@ -127,8 +127,8 @@ instance Prelude.Hashable DescribeFeatureMetadata where
 
 instance Prelude.NFData DescribeFeatureMetadata where
   rnf DescribeFeatureMetadata' {..} =
-    Prelude.rnf featureGroupName
-      `Prelude.seq` Prelude.rnf featureName
+    Prelude.rnf featureGroupName `Prelude.seq`
+      Prelude.rnf featureName
 
 instance Data.ToHeaders DescribeFeatureMetadata where
   toHeaders =
@@ -298,12 +298,12 @@ instance
     DescribeFeatureMetadataResponse
   where
   rnf DescribeFeatureMetadataResponse' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf featureGroupArn
-      `Prelude.seq` Prelude.rnf featureGroupName
-      `Prelude.seq` Prelude.rnf featureName
-      `Prelude.seq` Prelude.rnf featureType
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf lastModifiedTime
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf parameters `Prelude.seq`
+        Prelude.rnf httpStatus `Prelude.seq`
+          Prelude.rnf featureGroupArn `Prelude.seq`
+            Prelude.rnf featureGroupName `Prelude.seq`
+              Prelude.rnf featureName `Prelude.seq`
+                Prelude.rnf featureType `Prelude.seq`
+                  Prelude.rnf creationTime `Prelude.seq`
+                    Prelude.rnf lastModifiedTime

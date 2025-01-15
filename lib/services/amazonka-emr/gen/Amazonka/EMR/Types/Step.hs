@@ -193,9 +193,9 @@ instance Prelude.Hashable Step where
 
 instance Prelude.NFData Step where
   rnf Step' {..} =
-    Prelude.rnf actionOnFailure
-      `Prelude.seq` Prelude.rnf config
-      `Prelude.seq` Prelude.rnf executionRoleArn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf actionOnFailure `Prelude.seq`
+      Prelude.rnf config `Prelude.seq`
+        Prelude.rnf executionRoleArn `Prelude.seq`
+          Prelude.rnf id `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf status

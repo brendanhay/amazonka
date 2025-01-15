@@ -142,12 +142,12 @@ instance Prelude.Hashable Gnss where
 
 instance Prelude.NFData Gnss where
   rnf Gnss' {..} =
-    Prelude.rnf assistAltitude
-      `Prelude.seq` Prelude.rnf assistPosition
-      `Prelude.seq` Prelude.rnf captureTime
-      `Prelude.seq` Prelude.rnf captureTimeAccuracy
-      `Prelude.seq` Prelude.rnf use2DSolver
-      `Prelude.seq` Prelude.rnf payload
+    Prelude.rnf assistAltitude `Prelude.seq`
+      Prelude.rnf assistPosition `Prelude.seq`
+        Prelude.rnf captureTime `Prelude.seq`
+          Prelude.rnf captureTimeAccuracy `Prelude.seq`
+            Prelude.rnf use2DSolver `Prelude.seq`
+              Prelude.rnf payload
 
 instance Data.ToJSON Gnss where
   toJSON Gnss' {..} =

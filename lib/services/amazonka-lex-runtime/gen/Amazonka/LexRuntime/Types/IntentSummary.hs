@@ -272,13 +272,13 @@ instance Prelude.Hashable IntentSummary where
 
 instance Prelude.NFData IntentSummary where
   rnf IntentSummary' {..} =
-    Prelude.rnf checkpointLabel
-      `Prelude.seq` Prelude.rnf confirmationStatus
-      `Prelude.seq` Prelude.rnf fulfillmentState
-      `Prelude.seq` Prelude.rnf intentName
-      `Prelude.seq` Prelude.rnf slotToElicit
-      `Prelude.seq` Prelude.rnf slots
-      `Prelude.seq` Prelude.rnf dialogActionType
+    Prelude.rnf checkpointLabel `Prelude.seq`
+      Prelude.rnf confirmationStatus `Prelude.seq`
+        Prelude.rnf fulfillmentState `Prelude.seq`
+          Prelude.rnf intentName `Prelude.seq`
+            Prelude.rnf slotToElicit `Prelude.seq`
+              Prelude.rnf slots `Prelude.seq`
+                Prelude.rnf dialogActionType
 
 instance Data.ToJSON IntentSummary where
   toJSON IntentSummary' {..} =

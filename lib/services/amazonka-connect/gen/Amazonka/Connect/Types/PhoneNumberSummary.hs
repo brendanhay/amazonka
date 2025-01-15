@@ -115,8 +115,8 @@ instance Prelude.Hashable PhoneNumberSummary where
 
 instance Prelude.NFData PhoneNumberSummary where
   rnf PhoneNumberSummary' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf phoneNumber
-      `Prelude.seq` Prelude.rnf phoneNumberCountryCode
-      `Prelude.seq` Prelude.rnf phoneNumberType
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf phoneNumber `Prelude.seq`
+          Prelude.rnf phoneNumberCountryCode `Prelude.seq`
+            Prelude.rnf phoneNumberType

@@ -134,5 +134,5 @@ instance Prelude.Hashable Domain where
 
 instance Prelude.NFData Domain where
   rnf Domain' {..} =
-    Prelude.rnf lifecycle
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf lifecycle `Prelude.seq`
+      Prelude.rnf name

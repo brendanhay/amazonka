@@ -78,9 +78,7 @@ instance Data.FromXML Endpoint where
     Endpoint'
       Prelude.<$> (x Data..@? "Address")
       Prelude.<*> (x Data..@? "Port")
-      Prelude.<*> ( x
-                      Data..@? "VpcEndpoints"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "VpcEndpoints" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "VpcEndpoint")
                   )
 
@@ -93,6 +91,6 @@ instance Prelude.Hashable Endpoint where
 
 instance Prelude.NFData Endpoint where
   rnf Endpoint' {..} =
-    Prelude.rnf address
-      `Prelude.seq` Prelude.rnf port
-      `Prelude.seq` Prelude.rnf vpcEndpoints
+    Prelude.rnf address `Prelude.seq`
+      Prelude.rnf port `Prelude.seq`
+        Prelude.rnf vpcEndpoints

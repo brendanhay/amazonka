@@ -114,8 +114,8 @@ instance Prelude.Hashable ListParallelData where
 
 instance Prelude.NFData ListParallelData where
   rnf ListParallelData' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListParallelData where
   toHeaders =
@@ -203,6 +203,6 @@ listParallelDataResponse_httpStatus = Lens.lens (\ListParallelDataResponse' {htt
 
 instance Prelude.NFData ListParallelDataResponse where
   rnf ListParallelDataResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf parallelDataPropertiesList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf parallelDataPropertiesList `Prelude.seq`
+        Prelude.rnf httpStatus

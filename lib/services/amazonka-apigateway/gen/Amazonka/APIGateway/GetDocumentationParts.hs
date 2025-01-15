@@ -166,12 +166,12 @@ instance Core.AWSPager GetDocumentationParts where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getDocumentationParts_position
-          Lens..~ rs
-          Lens.^? getDocumentationPartsResponse_position
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getDocumentationParts_position
+              Lens..~ rs
+              Lens.^? getDocumentationPartsResponse_position
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetDocumentationParts where
   type
@@ -201,13 +201,13 @@ instance Prelude.Hashable GetDocumentationParts where
 
 instance Prelude.NFData GetDocumentationParts where
   rnf GetDocumentationParts' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf locationStatus
-      `Prelude.seq` Prelude.rnf nameQuery
-      `Prelude.seq` Prelude.rnf path
-      `Prelude.seq` Prelude.rnf position
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf restApiId
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf locationStatus `Prelude.seq`
+        Prelude.rnf nameQuery `Prelude.seq`
+          Prelude.rnf path `Prelude.seq`
+            Prelude.rnf position `Prelude.seq`
+              Prelude.rnf type' `Prelude.seq`
+                Prelude.rnf restApiId
 
 instance Data.ToHeaders GetDocumentationParts where
   toHeaders =
@@ -288,6 +288,6 @@ getDocumentationPartsResponse_httpStatus = Lens.lens (\GetDocumentationPartsResp
 
 instance Prelude.NFData GetDocumentationPartsResponse where
   rnf GetDocumentationPartsResponse' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf position
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf items `Prelude.seq`
+      Prelude.rnf position `Prelude.seq`
+        Prelude.rnf httpStatus

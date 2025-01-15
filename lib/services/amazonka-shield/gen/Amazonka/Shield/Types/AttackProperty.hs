@@ -153,8 +153,8 @@ instance Prelude.Hashable AttackProperty where
 
 instance Prelude.NFData AttackProperty where
   rnf AttackProperty' {..} =
-    Prelude.rnf attackLayer
-      `Prelude.seq` Prelude.rnf attackPropertyIdentifier
-      `Prelude.seq` Prelude.rnf topContributors
-      `Prelude.seq` Prelude.rnf total
-      `Prelude.seq` Prelude.rnf unit
+    Prelude.rnf attackLayer `Prelude.seq`
+      Prelude.rnf attackPropertyIdentifier `Prelude.seq`
+        Prelude.rnf topContributors `Prelude.seq`
+          Prelude.rnf total `Prelude.seq`
+            Prelude.rnf unit

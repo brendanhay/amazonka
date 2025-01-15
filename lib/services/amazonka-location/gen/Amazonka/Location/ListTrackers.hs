@@ -113,12 +113,12 @@ instance Core.AWSPager ListTrackers where
     | Core.stop (rs Lens.^. listTrackersResponse_entries) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listTrackers_nextToken
-          Lens..~ rs
-          Lens.^? listTrackersResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listTrackers_nextToken
+              Lens..~ rs
+              Lens.^? listTrackersResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListTrackers where
   type AWSResponse ListTrackers = ListTrackersResponse
@@ -141,8 +141,8 @@ instance Prelude.Hashable ListTrackers where
 
 instance Prelude.NFData ListTrackers where
   rnf ListTrackers' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListTrackers where
   toHeaders =
@@ -231,6 +231,6 @@ listTrackersResponse_entries = Lens.lens (\ListTrackersResponse' {entries} -> en
 
 instance Prelude.NFData ListTrackersResponse where
   rnf ListTrackersResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf entries
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf entries

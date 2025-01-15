@@ -315,17 +315,17 @@ instance Prelude.Hashable RecommendationTemplate where
 
 instance Prelude.NFData RecommendationTemplate where
   rnf RecommendationTemplate' {..} =
-    Prelude.rnf appArn
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf needsReplacements
-      `Prelude.seq` Prelude.rnf recommendationIds
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf templatesLocation
-      `Prelude.seq` Prelude.rnf assessmentArn
-      `Prelude.seq` Prelude.rnf format
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf recommendationTemplateArn
-      `Prelude.seq` Prelude.rnf recommendationTypes
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf appArn `Prelude.seq`
+      Prelude.rnf endTime `Prelude.seq`
+        Prelude.rnf message `Prelude.seq`
+          Prelude.rnf needsReplacements `Prelude.seq`
+            Prelude.rnf recommendationIds `Prelude.seq`
+              Prelude.rnf startTime `Prelude.seq`
+                Prelude.rnf tags `Prelude.seq`
+                  Prelude.rnf templatesLocation `Prelude.seq`
+                    Prelude.rnf assessmentArn `Prelude.seq`
+                      Prelude.rnf format `Prelude.seq`
+                        Prelude.rnf name `Prelude.seq`
+                          Prelude.rnf recommendationTemplateArn `Prelude.seq`
+                            Prelude.rnf recommendationTypes `Prelude.seq`
+                              Prelude.rnf status

@@ -137,8 +137,8 @@ instance Prelude.Hashable ListEmailTemplates where
 
 instance Prelude.NFData ListEmailTemplates where
   rnf ListEmailTemplates' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf pageSize
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf pageSize
 
 instance Data.ToHeaders ListEmailTemplates where
   toHeaders =
@@ -222,6 +222,6 @@ listEmailTemplatesResponse_httpStatus = Lens.lens (\ListEmailTemplatesResponse' 
 
 instance Prelude.NFData ListEmailTemplatesResponse where
   rnf ListEmailTemplatesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf templatesMetadata
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf templatesMetadata `Prelude.seq`
+        Prelude.rnf httpStatus

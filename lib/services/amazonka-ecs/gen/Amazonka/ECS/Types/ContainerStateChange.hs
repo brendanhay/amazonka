@@ -125,13 +125,13 @@ instance Prelude.Hashable ContainerStateChange where
 
 instance Prelude.NFData ContainerStateChange where
   rnf ContainerStateChange' {..} =
-    Prelude.rnf containerName
-      `Prelude.seq` Prelude.rnf exitCode
-      `Prelude.seq` Prelude.rnf imageDigest
-      `Prelude.seq` Prelude.rnf networkBindings
-      `Prelude.seq` Prelude.rnf reason
-      `Prelude.seq` Prelude.rnf runtimeId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf containerName `Prelude.seq`
+      Prelude.rnf exitCode `Prelude.seq`
+        Prelude.rnf imageDigest `Prelude.seq`
+          Prelude.rnf networkBindings `Prelude.seq`
+            Prelude.rnf reason `Prelude.seq`
+              Prelude.rnf runtimeId `Prelude.seq`
+                Prelude.rnf status
 
 instance Data.ToJSON ContainerStateChange where
   toJSON ContainerStateChange' {..} =

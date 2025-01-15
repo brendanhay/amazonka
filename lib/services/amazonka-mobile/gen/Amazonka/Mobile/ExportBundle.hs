@@ -123,9 +123,9 @@ instance Prelude.Hashable ExportBundle where
 
 instance Prelude.NFData ExportBundle where
   rnf ExportBundle' {..} =
-    Prelude.rnf platform
-      `Prelude.seq` Prelude.rnf projectId
-      `Prelude.seq` Prelude.rnf bundleId
+    Prelude.rnf platform `Prelude.seq`
+      Prelude.rnf projectId `Prelude.seq`
+        Prelude.rnf bundleId
 
 instance Data.ToHeaders ExportBundle where
   toHeaders =
@@ -203,5 +203,5 @@ exportBundleResponse_httpStatus = Lens.lens (\ExportBundleResponse' {httpStatus}
 
 instance Prelude.NFData ExportBundleResponse where
   rnf ExportBundleResponse' {..} =
-    Prelude.rnf downloadUrl
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf downloadUrl `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -253,14 +253,14 @@ instance Prelude.Hashable StartDocumentAnalysis where
 
 instance Prelude.NFData StartDocumentAnalysis where
   rnf StartDocumentAnalysis' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf jobTag
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf notificationChannel
-      `Prelude.seq` Prelude.rnf outputConfig
-      `Prelude.seq` Prelude.rnf queriesConfig
-      `Prelude.seq` Prelude.rnf documentLocation
-      `Prelude.seq` Prelude.rnf featureTypes
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf jobTag `Prelude.seq`
+        Prelude.rnf kmsKeyId `Prelude.seq`
+          Prelude.rnf notificationChannel `Prelude.seq`
+            Prelude.rnf outputConfig `Prelude.seq`
+              Prelude.rnf queriesConfig `Prelude.seq`
+                Prelude.rnf documentLocation `Prelude.seq`
+                  Prelude.rnf featureTypes
 
 instance Data.ToHeaders StartDocumentAnalysis where
   toHeaders =
@@ -348,5 +348,5 @@ startDocumentAnalysisResponse_httpStatus = Lens.lens (\StartDocumentAnalysisResp
 
 instance Prelude.NFData StartDocumentAnalysisResponse where
   rnf StartDocumentAnalysisResponse' {..} =
-    Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf jobId `Prelude.seq`
+      Prelude.rnf httpStatus

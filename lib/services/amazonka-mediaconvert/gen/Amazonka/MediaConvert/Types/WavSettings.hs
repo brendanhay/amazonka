@@ -122,10 +122,10 @@ instance Prelude.Hashable WavSettings where
 
 instance Prelude.NFData WavSettings where
   rnf WavSettings' {..} =
-    Prelude.rnf bitDepth
-      `Prelude.seq` Prelude.rnf channels
-      `Prelude.seq` Prelude.rnf format
-      `Prelude.seq` Prelude.rnf sampleRate
+    Prelude.rnf bitDepth `Prelude.seq`
+      Prelude.rnf channels `Prelude.seq`
+        Prelude.rnf format `Prelude.seq`
+          Prelude.rnf sampleRate
 
 instance Data.ToJSON WavSettings where
   toJSON WavSettings' {..} =

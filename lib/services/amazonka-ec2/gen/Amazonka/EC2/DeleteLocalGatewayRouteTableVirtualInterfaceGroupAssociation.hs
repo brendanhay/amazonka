@@ -138,8 +138,8 @@ instance
   where
   rnf
     DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation' {..} =
-      Prelude.rnf dryRun
-        `Prelude.seq` Prelude.rnf
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf
           localGatewayRouteTableVirtualInterfaceGroupAssociationId
 
 instance

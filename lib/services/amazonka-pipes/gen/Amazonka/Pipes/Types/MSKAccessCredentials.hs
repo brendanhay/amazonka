@@ -81,8 +81,8 @@ instance Prelude.Hashable MSKAccessCredentials where
 
 instance Prelude.NFData MSKAccessCredentials where
   rnf MSKAccessCredentials' {..} =
-    Prelude.rnf clientCertificateTlsAuth
-      `Prelude.seq` Prelude.rnf saslScram512Auth
+    Prelude.rnf clientCertificateTlsAuth `Prelude.seq`
+      Prelude.rnf saslScram512Auth
 
 instance Data.ToJSON MSKAccessCredentials where
   toJSON MSKAccessCredentials' {..} =

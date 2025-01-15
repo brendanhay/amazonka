@@ -237,16 +237,16 @@ instance
     CreateDataQualityJobDefinition
   where
   rnf CreateDataQualityJobDefinition' {..} =
-    Prelude.rnf dataQualityBaselineConfig
-      `Prelude.seq` Prelude.rnf networkConfig
-      `Prelude.seq` Prelude.rnf stoppingCondition
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf jobDefinitionName
-      `Prelude.seq` Prelude.rnf dataQualityAppSpecification
-      `Prelude.seq` Prelude.rnf dataQualityJobInput
-      `Prelude.seq` Prelude.rnf dataQualityJobOutputConfig
-      `Prelude.seq` Prelude.rnf jobResources
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf dataQualityBaselineConfig `Prelude.seq`
+      Prelude.rnf networkConfig `Prelude.seq`
+        Prelude.rnf stoppingCondition `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf jobDefinitionName `Prelude.seq`
+              Prelude.rnf dataQualityAppSpecification `Prelude.seq`
+                Prelude.rnf dataQualityJobInput `Prelude.seq`
+                  Prelude.rnf dataQualityJobOutputConfig `Prelude.seq`
+                    Prelude.rnf jobResources `Prelude.seq`
+                      Prelude.rnf roleArn
 
 instance
   Data.ToHeaders
@@ -348,5 +348,5 @@ instance
     CreateDataQualityJobDefinitionResponse
   where
   rnf CreateDataQualityJobDefinitionResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf jobDefinitionArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf jobDefinitionArn

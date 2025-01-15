@@ -128,8 +128,8 @@ instance Prelude.Hashable BuildGroup where
 
 instance Prelude.NFData BuildGroup where
   rnf BuildGroup' {..} =
-    Prelude.rnf currentBuildSummary
-      `Prelude.seq` Prelude.rnf dependsOn
-      `Prelude.seq` Prelude.rnf identifier
-      `Prelude.seq` Prelude.rnf ignoreFailure
-      `Prelude.seq` Prelude.rnf priorBuildSummaryList
+    Prelude.rnf currentBuildSummary `Prelude.seq`
+      Prelude.rnf dependsOn `Prelude.seq`
+        Prelude.rnf identifier `Prelude.seq`
+          Prelude.rnf ignoreFailure `Prelude.seq`
+            Prelude.rnf priorBuildSummaryList

@@ -187,6 +187,6 @@ instance
     DescribeApplicationStateResponse
   where
   rnf DescribeApplicationStateResponse' {..} =
-    Prelude.rnf applicationStatus
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf applicationStatus `Prelude.seq`
+      Prelude.rnf lastUpdatedTime `Prelude.seq`
+        Prelude.rnf httpStatus

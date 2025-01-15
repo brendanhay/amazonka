@@ -196,9 +196,9 @@ instance
     CreateSnapshotFromVolumeRecoveryPoint
   where
   rnf CreateSnapshotFromVolumeRecoveryPoint' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf volumeARN
-      `Prelude.seq` Prelude.rnf snapshotDescription
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf volumeARN `Prelude.seq`
+        Prelude.rnf snapshotDescription
 
 instance
   Data.ToHeaders
@@ -315,7 +315,7 @@ instance
   where
   rnf
     CreateSnapshotFromVolumeRecoveryPointResponse' {..} =
-      Prelude.rnf snapshotId
-        `Prelude.seq` Prelude.rnf volumeARN
-        `Prelude.seq` Prelude.rnf volumeRecoveryPointTime
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf snapshotId `Prelude.seq`
+        Prelude.rnf volumeARN `Prelude.seq`
+          Prelude.rnf volumeRecoveryPointTime `Prelude.seq`
+            Prelude.rnf httpStatus

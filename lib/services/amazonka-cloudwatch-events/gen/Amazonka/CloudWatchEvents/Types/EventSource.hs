@@ -146,9 +146,9 @@ instance Prelude.Hashable EventSource where
 
 instance Prelude.NFData EventSource where
   rnf EventSource' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdBy
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf expirationTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf createdBy `Prelude.seq`
+        Prelude.rnf creationTime `Prelude.seq`
+          Prelude.rnf expirationTime `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf state

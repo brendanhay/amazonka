@@ -116,9 +116,9 @@ instance Prelude.Hashable DatastoreStorage where
 
 instance Prelude.NFData DatastoreStorage where
   rnf DatastoreStorage' {..} =
-    Prelude.rnf customerManagedS3
-      `Prelude.seq` Prelude.rnf iotSiteWiseMultiLayerStorage
-      `Prelude.seq` Prelude.rnf serviceManagedS3
+    Prelude.rnf customerManagedS3 `Prelude.seq`
+      Prelude.rnf iotSiteWiseMultiLayerStorage `Prelude.seq`
+        Prelude.rnf serviceManagedS3
 
 instance Data.ToJSON DatastoreStorage where
   toJSON DatastoreStorage' {..} =

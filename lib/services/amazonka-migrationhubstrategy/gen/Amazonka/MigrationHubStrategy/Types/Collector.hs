@@ -151,11 +151,11 @@ instance Prelude.Hashable Collector where
 
 instance Prelude.NFData Collector where
   rnf Collector' {..} =
-    Prelude.rnf collectorHealth
-      `Prelude.seq` Prelude.rnf collectorId
-      `Prelude.seq` Prelude.rnf collectorVersion
-      `Prelude.seq` Prelude.rnf configurationSummary
-      `Prelude.seq` Prelude.rnf hostName
-      `Prelude.seq` Prelude.rnf ipAddress
-      `Prelude.seq` Prelude.rnf lastActivityTimeStamp
-      `Prelude.seq` Prelude.rnf registeredTimeStamp
+    Prelude.rnf collectorHealth `Prelude.seq`
+      Prelude.rnf collectorId `Prelude.seq`
+        Prelude.rnf collectorVersion `Prelude.seq`
+          Prelude.rnf configurationSummary `Prelude.seq`
+            Prelude.rnf hostName `Prelude.seq`
+              Prelude.rnf ipAddress `Prelude.seq`
+                Prelude.rnf lastActivityTimeStamp `Prelude.seq`
+                  Prelude.rnf registeredTimeStamp

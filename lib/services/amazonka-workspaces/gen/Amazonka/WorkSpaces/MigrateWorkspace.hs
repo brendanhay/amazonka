@@ -126,8 +126,8 @@ instance Prelude.Hashable MigrateWorkspace where
 
 instance Prelude.NFData MigrateWorkspace where
   rnf MigrateWorkspace' {..} =
-    Prelude.rnf sourceWorkspaceId
-      `Prelude.seq` Prelude.rnf bundleId
+    Prelude.rnf sourceWorkspaceId `Prelude.seq`
+      Prelude.rnf bundleId
 
 instance Data.ToHeaders MigrateWorkspace where
   toHeaders =
@@ -216,6 +216,6 @@ migrateWorkspaceResponse_httpStatus = Lens.lens (\MigrateWorkspaceResponse' {htt
 
 instance Prelude.NFData MigrateWorkspaceResponse where
   rnf MigrateWorkspaceResponse' {..} =
-    Prelude.rnf sourceWorkspaceId
-      `Prelude.seq` Prelude.rnf targetWorkspaceId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf sourceWorkspaceId `Prelude.seq`
+      Prelude.rnf targetWorkspaceId `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -132,12 +132,12 @@ instance Core.AWSPager SearchSessions where
         (rs Lens.^. searchSessionsResponse_sessionSummaries) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& searchSessions_nextToken
-          Lens..~ rs
-          Lens.^? searchSessionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& searchSessions_nextToken
+              Lens..~ rs
+              Lens.^? searchSessionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest SearchSessions where
   type
@@ -167,10 +167,10 @@ instance Prelude.Hashable SearchSessions where
 
 instance Prelude.NFData SearchSessions where
   rnf SearchSessions' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf assistantId
-      `Prelude.seq` Prelude.rnf searchExpression
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf assistantId `Prelude.seq`
+          Prelude.rnf searchExpression
 
 instance Data.ToHeaders SearchSessions where
   toHeaders =
@@ -260,6 +260,6 @@ searchSessionsResponse_sessionSummaries = Lens.lens (\SearchSessionsResponse' {s
 
 instance Prelude.NFData SearchSessionsResponse where
   rnf SearchSessionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf sessionSummaries
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf sessionSummaries

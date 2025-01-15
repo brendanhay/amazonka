@@ -163,10 +163,10 @@ instance Prelude.Hashable GetRevision where
 
 instance Prelude.NFData GetRevision where
   rnf GetRevision' {..} =
-    Prelude.rnf digestTipAddress
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf blockAddress
-      `Prelude.seq` Prelude.rnf documentId
+    Prelude.rnf digestTipAddress `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf blockAddress `Prelude.seq`
+          Prelude.rnf documentId
 
 instance Data.ToHeaders GetRevision where
   toHeaders =
@@ -258,6 +258,6 @@ getRevisionResponse_revision = Lens.lens (\GetRevisionResponse' {revision} -> re
 
 instance Prelude.NFData GetRevisionResponse where
   rnf GetRevisionResponse' {..} =
-    Prelude.rnf proof
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf revision
+    Prelude.rnf proof `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf revision

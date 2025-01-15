@@ -106,9 +106,9 @@ instance Prelude.Hashable ExplicitHierarchy where
 
 instance Prelude.NFData ExplicitHierarchy where
   rnf ExplicitHierarchy' {..} =
-    Prelude.rnf drillDownFilters
-      `Prelude.seq` Prelude.rnf hierarchyId
-      `Prelude.seq` Prelude.rnf columns
+    Prelude.rnf drillDownFilters `Prelude.seq`
+      Prelude.rnf hierarchyId `Prelude.seq`
+        Prelude.rnf columns
 
 instance Data.ToJSON ExplicitHierarchy where
   toJSON ExplicitHierarchy' {..} =

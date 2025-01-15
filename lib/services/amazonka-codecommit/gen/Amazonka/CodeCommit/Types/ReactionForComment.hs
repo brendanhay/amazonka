@@ -104,6 +104,6 @@ instance Prelude.Hashable ReactionForComment where
 
 instance Prelude.NFData ReactionForComment where
   rnf ReactionForComment' {..} =
-    Prelude.rnf reaction
-      `Prelude.seq` Prelude.rnf reactionUsers
-      `Prelude.seq` Prelude.rnf reactionsFromDeletedUsersCount
+    Prelude.rnf reaction `Prelude.seq`
+      Prelude.rnf reactionUsers `Prelude.seq`
+        Prelude.rnf reactionsFromDeletedUsersCount

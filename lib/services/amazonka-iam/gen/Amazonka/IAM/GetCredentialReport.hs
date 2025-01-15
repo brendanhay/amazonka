@@ -176,7 +176,7 @@ getCredentialReportResponse_httpStatus = Lens.lens (\GetCredentialReportResponse
 
 instance Prelude.NFData GetCredentialReportResponse where
   rnf GetCredentialReportResponse' {..} =
-    Prelude.rnf content
-      `Prelude.seq` Prelude.rnf generatedTime
-      `Prelude.seq` Prelude.rnf reportFormat
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf content `Prelude.seq`
+      Prelude.rnf generatedTime `Prelude.seq`
+        Prelude.rnf reportFormat `Prelude.seq`
+          Prelude.rnf httpStatus

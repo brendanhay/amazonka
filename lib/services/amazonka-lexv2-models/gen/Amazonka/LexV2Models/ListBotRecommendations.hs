@@ -181,11 +181,11 @@ instance Prelude.Hashable ListBotRecommendations where
 
 instance Prelude.NFData ListBotRecommendations where
   rnf ListBotRecommendations' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf botVersion
-      `Prelude.seq` Prelude.rnf localeId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf botId `Prelude.seq`
+          Prelude.rnf botVersion `Prelude.seq`
+            Prelude.rnf localeId
 
 instance Data.ToHeaders ListBotRecommendations where
   toHeaders =
@@ -333,9 +333,9 @@ instance
     ListBotRecommendationsResponse
   where
   rnf ListBotRecommendationsResponse' {..} =
-    Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf botRecommendationSummaries
-      `Prelude.seq` Prelude.rnf botVersion
-      `Prelude.seq` Prelude.rnf localeId
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf botId `Prelude.seq`
+      Prelude.rnf botRecommendationSummaries `Prelude.seq`
+        Prelude.rnf botVersion `Prelude.seq`
+          Prelude.rnf localeId `Prelude.seq`
+            Prelude.rnf nextToken `Prelude.seq`
+              Prelude.rnf httpStatus

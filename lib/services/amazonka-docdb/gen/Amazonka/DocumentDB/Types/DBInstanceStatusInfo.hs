@@ -107,7 +107,7 @@ instance Prelude.Hashable DBInstanceStatusInfo where
 
 instance Prelude.NFData DBInstanceStatusInfo where
   rnf DBInstanceStatusInfo' {..} =
-    Prelude.rnf message
-      `Prelude.seq` Prelude.rnf normal
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusType
+    Prelude.rnf message `Prelude.seq`
+      Prelude.rnf normal `Prelude.seq`
+        Prelude.rnf status `Prelude.seq`
+          Prelude.rnf statusType

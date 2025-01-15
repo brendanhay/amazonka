@@ -83,5 +83,5 @@ instance Prelude.Hashable NotificationSummary where
 
 instance Prelude.NFData NotificationSummary where
   rnf NotificationSummary' {..} =
-    Prelude.rnf lensUpgradeSummary
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf lensUpgradeSummary `Prelude.seq`
+      Prelude.rnf type'

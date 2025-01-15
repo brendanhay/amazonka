@@ -328,16 +328,16 @@ instance Prelude.Hashable CreateCachediSCSIVolume where
 
 instance Prelude.NFData CreateCachediSCSIVolume where
   rnf CreateCachediSCSIVolume' {..} =
-    Prelude.rnf kmsEncrypted
-      `Prelude.seq` Prelude.rnf kmsKey
-      `Prelude.seq` Prelude.rnf snapshotId
-      `Prelude.seq` Prelude.rnf sourceVolumeARN
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf gatewayARN
-      `Prelude.seq` Prelude.rnf volumeSizeInBytes
-      `Prelude.seq` Prelude.rnf targetName
-      `Prelude.seq` Prelude.rnf networkInterfaceId
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf kmsEncrypted `Prelude.seq`
+      Prelude.rnf kmsKey `Prelude.seq`
+        Prelude.rnf snapshotId `Prelude.seq`
+          Prelude.rnf sourceVolumeARN `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf gatewayARN `Prelude.seq`
+                Prelude.rnf volumeSizeInBytes `Prelude.seq`
+                  Prelude.rnf targetName `Prelude.seq`
+                    Prelude.rnf networkInterfaceId `Prelude.seq`
+                      Prelude.rnf clientToken
 
 instance Data.ToHeaders CreateCachediSCSIVolume where
   toHeaders =
@@ -436,6 +436,6 @@ instance
     CreateCachediSCSIVolumeResponse
   where
   rnf CreateCachediSCSIVolumeResponse' {..} =
-    Prelude.rnf targetARN
-      `Prelude.seq` Prelude.rnf volumeARN
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf targetARN `Prelude.seq`
+      Prelude.rnf volumeARN `Prelude.seq`
+        Prelude.rnf httpStatus

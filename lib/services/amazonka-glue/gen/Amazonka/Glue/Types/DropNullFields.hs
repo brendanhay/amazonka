@@ -130,10 +130,10 @@ instance Prelude.Hashable DropNullFields where
 
 instance Prelude.NFData DropNullFields where
   rnf DropNullFields' {..} =
-    Prelude.rnf nullCheckBoxList
-      `Prelude.seq` Prelude.rnf nullTextList
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf inputs
+    Prelude.rnf nullCheckBoxList `Prelude.seq`
+      Prelude.rnf nullTextList `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf inputs
 
 instance Data.ToJSON DropNullFields where
   toJSON DropNullFields' {..} =

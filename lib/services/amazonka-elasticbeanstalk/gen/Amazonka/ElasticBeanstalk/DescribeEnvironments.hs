@@ -218,12 +218,12 @@ instance Core.AWSPager DescribeEnvironments where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeEnvironments_nextToken
-          Lens..~ rs
-          Lens.^? environmentDescriptionsMessage_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeEnvironments_nextToken
+              Lens..~ rs
+              Lens.^? environmentDescriptionsMessage_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeEnvironments where
   type
@@ -250,14 +250,14 @@ instance Prelude.Hashable DescribeEnvironments where
 
 instance Prelude.NFData DescribeEnvironments where
   rnf DescribeEnvironments' {..} =
-    Prelude.rnf applicationName
-      `Prelude.seq` Prelude.rnf environmentIds
-      `Prelude.seq` Prelude.rnf environmentNames
-      `Prelude.seq` Prelude.rnf includeDeleted
-      `Prelude.seq` Prelude.rnf includedDeletedBackTo
-      `Prelude.seq` Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf versionLabel
+    Prelude.rnf applicationName `Prelude.seq`
+      Prelude.rnf environmentIds `Prelude.seq`
+        Prelude.rnf environmentNames `Prelude.seq`
+          Prelude.rnf includeDeleted `Prelude.seq`
+            Prelude.rnf includedDeletedBackTo `Prelude.seq`
+              Prelude.rnf maxRecords `Prelude.seq`
+                Prelude.rnf nextToken `Prelude.seq`
+                  Prelude.rnf versionLabel
 
 instance Data.ToHeaders DescribeEnvironments where
   toHeaders = Prelude.const Prelude.mempty

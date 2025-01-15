@@ -83,8 +83,8 @@ instance Prelude.Hashable TransformSortCriteria where
 
 instance Prelude.NFData TransformSortCriteria where
   rnf TransformSortCriteria' {..} =
-    Prelude.rnf column
-      `Prelude.seq` Prelude.rnf sortDirection
+    Prelude.rnf column `Prelude.seq`
+      Prelude.rnf sortDirection
 
 instance Data.ToJSON TransformSortCriteria where
   toJSON TransformSortCriteria' {..} =

@@ -147,12 +147,12 @@ instance Core.AWSPager ListLaunchPaths where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listLaunchPaths_pageToken
-          Lens..~ rs
-          Lens.^? listLaunchPathsResponse_nextPageToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listLaunchPaths_pageToken
+              Lens..~ rs
+              Lens.^? listLaunchPathsResponse_nextPageToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListLaunchPaths where
   type
@@ -182,10 +182,10 @@ instance Prelude.Hashable ListLaunchPaths where
 
 instance Prelude.NFData ListLaunchPaths where
   rnf ListLaunchPaths' {..} =
-    Prelude.rnf acceptLanguage
-      `Prelude.seq` Prelude.rnf pageSize
-      `Prelude.seq` Prelude.rnf pageToken
-      `Prelude.seq` Prelude.rnf productId
+    Prelude.rnf acceptLanguage `Prelude.seq`
+      Prelude.rnf pageSize `Prelude.seq`
+        Prelude.rnf pageToken `Prelude.seq`
+          Prelude.rnf productId
 
 instance Data.ToHeaders ListLaunchPaths where
   toHeaders =
@@ -273,6 +273,6 @@ listLaunchPathsResponse_httpStatus = Lens.lens (\ListLaunchPathsResponse' {httpS
 
 instance Prelude.NFData ListLaunchPathsResponse where
   rnf ListLaunchPathsResponse' {..} =
-    Prelude.rnf launchPathSummaries
-      `Prelude.seq` Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf launchPathSummaries `Prelude.seq`
+      Prelude.rnf nextPageToken `Prelude.seq`
+        Prelude.rnf httpStatus

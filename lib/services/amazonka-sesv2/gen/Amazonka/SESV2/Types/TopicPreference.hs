@@ -88,8 +88,8 @@ instance Prelude.Hashable TopicPreference where
 
 instance Prelude.NFData TopicPreference where
   rnf TopicPreference' {..} =
-    Prelude.rnf topicName
-      `Prelude.seq` Prelude.rnf subscriptionStatus
+    Prelude.rnf topicName `Prelude.seq`
+      Prelude.rnf subscriptionStatus
 
 instance Data.ToJSON TopicPreference where
   toJSON TopicPreference' {..} =

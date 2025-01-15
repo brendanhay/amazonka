@@ -74,8 +74,8 @@ instance Prelude.Hashable Consent where
 
 instance Prelude.NFData Consent where
   rnf Consent' {..} =
-    Prelude.rnf maxPrice
-      `Prelude.seq` Prelude.rnf currency
+    Prelude.rnf maxPrice `Prelude.seq`
+      Prelude.rnf currency
 
 instance Data.ToJSON Consent where
   toJSON Consent' {..} =

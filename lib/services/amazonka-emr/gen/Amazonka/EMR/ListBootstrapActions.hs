@@ -107,12 +107,12 @@ instance Core.AWSPager ListBootstrapActions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listBootstrapActions_marker
-          Lens..~ rs
-          Lens.^? listBootstrapActionsResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listBootstrapActions_marker
+              Lens..~ rs
+              Lens.^? listBootstrapActionsResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListBootstrapActions where
   type
@@ -140,8 +140,8 @@ instance Prelude.Hashable ListBootstrapActions where
 
 instance Prelude.NFData ListBootstrapActions where
   rnf ListBootstrapActions' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf clusterId
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf clusterId
 
 instance Data.ToHeaders ListBootstrapActions where
   toHeaders =
@@ -225,6 +225,6 @@ listBootstrapActionsResponse_httpStatus = Lens.lens (\ListBootstrapActionsRespon
 
 instance Prelude.NFData ListBootstrapActionsResponse where
   rnf ListBootstrapActionsResponse' {..} =
-    Prelude.rnf bootstrapActions
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf bootstrapActions `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf httpStatus

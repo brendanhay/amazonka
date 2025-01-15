@@ -172,10 +172,10 @@ instance
     ListVectorEnrichmentJobOutputConfig
   where
   rnf ListVectorEnrichmentJobOutputConfig' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf durationInSeconds
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf creationTime `Prelude.seq`
+          Prelude.rnf durationInSeconds `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf status `Prelude.seq`
+                Prelude.rnf type'

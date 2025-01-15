@@ -421,16 +421,16 @@ instance Prelude.Hashable RegisterWorkflowType where
 
 instance Prelude.NFData RegisterWorkflowType where
   rnf RegisterWorkflowType' {..} =
-    Prelude.rnf defaultChildPolicy
-      `Prelude.seq` Prelude.rnf defaultExecutionStartToCloseTimeout
-      `Prelude.seq` Prelude.rnf defaultLambdaRole
-      `Prelude.seq` Prelude.rnf defaultTaskList
-      `Prelude.seq` Prelude.rnf defaultTaskPriority
-      `Prelude.seq` Prelude.rnf defaultTaskStartToCloseTimeout
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf version
+    Prelude.rnf defaultChildPolicy `Prelude.seq`
+      Prelude.rnf defaultExecutionStartToCloseTimeout `Prelude.seq`
+        Prelude.rnf defaultLambdaRole `Prelude.seq`
+          Prelude.rnf defaultTaskList `Prelude.seq`
+            Prelude.rnf defaultTaskPriority `Prelude.seq`
+              Prelude.rnf defaultTaskStartToCloseTimeout `Prelude.seq`
+                Prelude.rnf description `Prelude.seq`
+                  Prelude.rnf domain `Prelude.seq`
+                    Prelude.rnf name `Prelude.seq`
+                      Prelude.rnf version
 
 instance Data.ToHeaders RegisterWorkflowType where
   toHeaders =

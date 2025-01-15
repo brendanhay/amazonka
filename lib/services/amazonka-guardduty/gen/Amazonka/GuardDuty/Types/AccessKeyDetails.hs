@@ -102,7 +102,7 @@ instance Prelude.Hashable AccessKeyDetails where
 
 instance Prelude.NFData AccessKeyDetails where
   rnf AccessKeyDetails' {..} =
-    Prelude.rnf accessKeyId
-      `Prelude.seq` Prelude.rnf principalId
-      `Prelude.seq` Prelude.rnf userName
-      `Prelude.seq` Prelude.rnf userType
+    Prelude.rnf accessKeyId `Prelude.seq`
+      Prelude.rnf principalId `Prelude.seq`
+        Prelude.rnf userName `Prelude.seq`
+          Prelude.rnf userType

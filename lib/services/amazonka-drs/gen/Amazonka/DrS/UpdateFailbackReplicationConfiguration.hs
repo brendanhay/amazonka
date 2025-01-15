@@ -144,10 +144,10 @@ instance
     UpdateFailbackReplicationConfiguration
   where
   rnf UpdateFailbackReplicationConfiguration' {..} =
-    Prelude.rnf bandwidthThrottling
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf usePrivateIP
-      `Prelude.seq` Prelude.rnf recoveryInstanceID
+    Prelude.rnf bandwidthThrottling `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf usePrivateIP `Prelude.seq`
+          Prelude.rnf recoveryInstanceID
 
 instance
   Data.ToHeaders

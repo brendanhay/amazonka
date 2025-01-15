@@ -82,5 +82,5 @@ instance Prelude.Hashable ReservationCoverageGroup where
 
 instance Prelude.NFData ReservationCoverageGroup where
   rnf ReservationCoverageGroup' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf coverage
+    Prelude.rnf attributes `Prelude.seq`
+      Prelude.rnf coverage

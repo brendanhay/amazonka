@@ -161,5 +161,5 @@ getKeyPairResponse_httpStatus = Lens.lens (\GetKeyPairResponse' {httpStatus} -> 
 
 instance Prelude.NFData GetKeyPairResponse where
   rnf GetKeyPairResponse' {..} =
-    Prelude.rnf keyPair
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf keyPair `Prelude.seq`
+      Prelude.rnf httpStatus

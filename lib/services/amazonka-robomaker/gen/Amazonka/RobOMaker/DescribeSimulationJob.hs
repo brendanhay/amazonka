@@ -542,25 +542,25 @@ describeSimulationJobResponse_httpStatus = Lens.lens (\DescribeSimulationJobResp
 
 instance Prelude.NFData DescribeSimulationJobResponse where
   rnf DescribeSimulationJobResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf compute
-      `Prelude.seq` Prelude.rnf dataSources
-      `Prelude.seq` Prelude.rnf failureBehavior
-      `Prelude.seq` Prelude.rnf failureCode
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf iamRole
-      `Prelude.seq` Prelude.rnf lastStartedAt
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf loggingConfig
-      `Prelude.seq` Prelude.rnf maxJobDurationInSeconds
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf networkInterface
-      `Prelude.seq` Prelude.rnf outputLocation
-      `Prelude.seq` Prelude.rnf robotApplications
-      `Prelude.seq` Prelude.rnf simulationApplications
-      `Prelude.seq` Prelude.rnf simulationTimeMillis
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf vpcConfig
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf clientRequestToken `Prelude.seq`
+        Prelude.rnf compute `Prelude.seq`
+          Prelude.rnf dataSources `Prelude.seq`
+            Prelude.rnf failureBehavior `Prelude.seq`
+              Prelude.rnf failureCode `Prelude.seq`
+                Prelude.rnf failureReason `Prelude.seq`
+                  Prelude.rnf iamRole `Prelude.seq`
+                    Prelude.rnf lastStartedAt `Prelude.seq`
+                      Prelude.rnf lastUpdatedAt `Prelude.seq`
+                        Prelude.rnf loggingConfig `Prelude.seq`
+                          Prelude.rnf maxJobDurationInSeconds `Prelude.seq`
+                            Prelude.rnf name `Prelude.seq`
+                              Prelude.rnf networkInterface `Prelude.seq`
+                                Prelude.rnf outputLocation `Prelude.seq`
+                                  Prelude.rnf robotApplications `Prelude.seq`
+                                    Prelude.rnf simulationApplications `Prelude.seq`
+                                      Prelude.rnf simulationTimeMillis `Prelude.seq`
+                                        Prelude.rnf status `Prelude.seq`
+                                          Prelude.rnf tags `Prelude.seq`
+                                            Prelude.rnf vpcConfig `Prelude.seq`
+                                              Prelude.rnf httpStatus

@@ -162,5 +162,5 @@ getTrailResponse_httpStatus = Lens.lens (\GetTrailResponse' {httpStatus} -> http
 
 instance Prelude.NFData GetTrailResponse where
   rnf GetTrailResponse' {..} =
-    Prelude.rnf trail
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf trail `Prelude.seq`
+      Prelude.rnf httpStatus

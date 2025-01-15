@@ -79,8 +79,8 @@ instance Prelude.Hashable OutputResolutionStackInput where
 
 instance Prelude.NFData OutputResolutionStackInput where
   rnf OutputResolutionStackInput' {..} =
-    Prelude.rnf predefined
-      `Prelude.seq` Prelude.rnf userDefined
+    Prelude.rnf predefined `Prelude.seq`
+      Prelude.rnf userDefined
 
 instance Data.ToJSON OutputResolutionStackInput where
   toJSON OutputResolutionStackInput' {..} =

@@ -107,8 +107,8 @@ instance Prelude.Hashable DeleteSkillAuthorization where
 
 instance Prelude.NFData DeleteSkillAuthorization where
   rnf DeleteSkillAuthorization' {..} =
-    Prelude.rnf roomArn
-      `Prelude.seq` Prelude.rnf skillId
+    Prelude.rnf roomArn `Prelude.seq`
+      Prelude.rnf skillId
 
 instance Data.ToHeaders DeleteSkillAuthorization where
   toHeaders =

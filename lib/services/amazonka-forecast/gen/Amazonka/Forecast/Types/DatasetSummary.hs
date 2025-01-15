@@ -148,9 +148,9 @@ instance Prelude.Hashable DatasetSummary where
 
 instance Prelude.NFData DatasetSummary where
   rnf DatasetSummary' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf datasetArn
-      `Prelude.seq` Prelude.rnf datasetName
-      `Prelude.seq` Prelude.rnf datasetType
-      `Prelude.seq` Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf lastModificationTime
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf datasetArn `Prelude.seq`
+        Prelude.rnf datasetName `Prelude.seq`
+          Prelude.rnf datasetType `Prelude.seq`
+            Prelude.rnf domain `Prelude.seq`
+              Prelude.rnf lastModificationTime

@@ -136,9 +136,9 @@ instance
     AwsRdsDbInstanceAssociatedRole
   where
   rnf AwsRdsDbInstanceAssociatedRole' {..} =
-    Prelude.rnf featureName
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf featureName `Prelude.seq`
+      Prelude.rnf roleArn `Prelude.seq`
+        Prelude.rnf status
 
 instance Data.ToJSON AwsRdsDbInstanceAssociatedRole where
   toJSON AwsRdsDbInstanceAssociatedRole' {..} =

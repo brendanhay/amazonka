@@ -159,9 +159,9 @@ instance Prelude.Hashable LabelingJobAlgorithmsConfig where
 
 instance Prelude.NFData LabelingJobAlgorithmsConfig where
   rnf LabelingJobAlgorithmsConfig' {..} =
-    Prelude.rnf initialActiveLearningModelArn
-      `Prelude.seq` Prelude.rnf labelingJobResourceConfig
-      `Prelude.seq` Prelude.rnf labelingJobAlgorithmSpecificationArn
+    Prelude.rnf initialActiveLearningModelArn `Prelude.seq`
+      Prelude.rnf labelingJobResourceConfig `Prelude.seq`
+        Prelude.rnf labelingJobAlgorithmSpecificationArn
 
 instance Data.ToJSON LabelingJobAlgorithmsConfig where
   toJSON LabelingJobAlgorithmsConfig' {..} =

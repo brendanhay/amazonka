@@ -143,12 +143,12 @@ instance Core.AWSPager ListQuickConnects where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listQuickConnects_nextToken
-          Lens..~ rs
-          Lens.^? listQuickConnectsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listQuickConnects_nextToken
+              Lens..~ rs
+              Lens.^? listQuickConnectsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListQuickConnects where
   type
@@ -178,10 +178,10 @@ instance Prelude.Hashable ListQuickConnects where
 
 instance Prelude.NFData ListQuickConnects where
   rnf ListQuickConnects' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf quickConnectTypes
-      `Prelude.seq` Prelude.rnf instanceId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf quickConnectTypes `Prelude.seq`
+          Prelude.rnf instanceId
 
 instance Data.ToHeaders ListQuickConnects where
   toHeaders =
@@ -264,6 +264,6 @@ listQuickConnectsResponse_httpStatus = Lens.lens (\ListQuickConnectsResponse' {h
 
 instance Prelude.NFData ListQuickConnectsResponse where
   rnf ListQuickConnectsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf quickConnectSummaryList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf quickConnectSummaryList `Prelude.seq`
+        Prelude.rnf httpStatus

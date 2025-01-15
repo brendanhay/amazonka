@@ -179,5 +179,5 @@ getContainerServicesResponse_httpStatus = Lens.lens (\GetContainerServicesRespon
 
 instance Prelude.NFData GetContainerServicesResponse where
   rnf GetContainerServicesResponse' {..} =
-    Prelude.rnf containerServices
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf containerServices `Prelude.seq`
+      Prelude.rnf httpStatus

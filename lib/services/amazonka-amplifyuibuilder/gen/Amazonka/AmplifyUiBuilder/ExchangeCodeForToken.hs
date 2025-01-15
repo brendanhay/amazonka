@@ -114,8 +114,8 @@ instance Prelude.Hashable ExchangeCodeForToken where
 
 instance Prelude.NFData ExchangeCodeForToken where
   rnf ExchangeCodeForToken' {..} =
-    Prelude.rnf provider
-      `Prelude.seq` Prelude.rnf request
+    Prelude.rnf provider `Prelude.seq`
+      Prelude.rnf request
 
 instance Data.ToHeaders ExchangeCodeForToken where
   toHeaders =
@@ -213,7 +213,7 @@ exchangeCodeForTokenResponse_refreshToken = Lens.lens (\ExchangeCodeForTokenResp
 
 instance Prelude.NFData ExchangeCodeForTokenResponse where
   rnf ExchangeCodeForTokenResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf accessToken
-      `Prelude.seq` Prelude.rnf expiresIn
-      `Prelude.seq` Prelude.rnf refreshToken
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf accessToken `Prelude.seq`
+        Prelude.rnf expiresIn `Prelude.seq`
+          Prelude.rnf refreshToken

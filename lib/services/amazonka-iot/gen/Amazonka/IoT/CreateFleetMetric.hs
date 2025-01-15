@@ -227,16 +227,16 @@ instance Prelude.Hashable CreateFleetMetric where
 
 instance Prelude.NFData CreateFleetMetric where
   rnf CreateFleetMetric' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf indexName
-      `Prelude.seq` Prelude.rnf queryVersion
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf unit
-      `Prelude.seq` Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf queryString
-      `Prelude.seq` Prelude.rnf aggregationType
-      `Prelude.seq` Prelude.rnf period
-      `Prelude.seq` Prelude.rnf aggregationField
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf indexName `Prelude.seq`
+        Prelude.rnf queryVersion `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf unit `Prelude.seq`
+              Prelude.rnf metricName `Prelude.seq`
+                Prelude.rnf queryString `Prelude.seq`
+                  Prelude.rnf aggregationType `Prelude.seq`
+                    Prelude.rnf period `Prelude.seq`
+                      Prelude.rnf aggregationField
 
 instance Data.ToHeaders CreateFleetMetric where
   toHeaders = Prelude.const Prelude.mempty
@@ -317,6 +317,6 @@ createFleetMetricResponse_httpStatus = Lens.lens (\CreateFleetMetricResponse' {h
 
 instance Prelude.NFData CreateFleetMetricResponse where
   rnf CreateFleetMetricResponse' {..} =
-    Prelude.rnf metricArn
-      `Prelude.seq` Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf metricArn `Prelude.seq`
+      Prelude.rnf metricName `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -83,8 +83,8 @@ instance Prelude.Hashable GlobalTableBorderOptions where
 
 instance Prelude.NFData GlobalTableBorderOptions where
   rnf GlobalTableBorderOptions' {..} =
-    Prelude.rnf sideSpecificBorder
-      `Prelude.seq` Prelude.rnf uniformBorder
+    Prelude.rnf sideSpecificBorder `Prelude.seq`
+      Prelude.rnf uniformBorder
 
 instance Data.ToJSON GlobalTableBorderOptions where
   toJSON GlobalTableBorderOptions' {..} =

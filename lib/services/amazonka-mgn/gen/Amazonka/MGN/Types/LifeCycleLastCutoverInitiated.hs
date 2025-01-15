@@ -82,5 +82,5 @@ instance
 
 instance Prelude.NFData LifeCycleLastCutoverInitiated where
   rnf LifeCycleLastCutoverInitiated' {..} =
-    Prelude.rnf apiCallDateTime
-      `Prelude.seq` Prelude.rnf jobID
+    Prelude.rnf apiCallDateTime `Prelude.seq`
+      Prelude.rnf jobID

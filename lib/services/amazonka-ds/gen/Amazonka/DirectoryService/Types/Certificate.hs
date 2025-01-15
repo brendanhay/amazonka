@@ -158,11 +158,11 @@ instance Prelude.Hashable Certificate where
 
 instance Prelude.NFData Certificate where
   rnf Certificate' {..} =
-    Prelude.rnf certificateId
-      `Prelude.seq` Prelude.rnf clientCertAuthSettings
-      `Prelude.seq` Prelude.rnf commonName
-      `Prelude.seq` Prelude.rnf expiryDateTime
-      `Prelude.seq` Prelude.rnf registeredDateTime
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf stateReason
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf certificateId `Prelude.seq`
+      Prelude.rnf clientCertAuthSettings `Prelude.seq`
+        Prelude.rnf commonName `Prelude.seq`
+          Prelude.rnf expiryDateTime `Prelude.seq`
+            Prelude.rnf registeredDateTime `Prelude.seq`
+              Prelude.rnf state `Prelude.seq`
+                Prelude.rnf stateReason `Prelude.seq`
+                  Prelude.rnf type'

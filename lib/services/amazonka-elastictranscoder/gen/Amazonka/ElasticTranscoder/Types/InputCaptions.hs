@@ -141,8 +141,8 @@ instance Prelude.Hashable InputCaptions where
 
 instance Prelude.NFData InputCaptions where
   rnf InputCaptions' {..} =
-    Prelude.rnf captionSources
-      `Prelude.seq` Prelude.rnf mergePolicy
+    Prelude.rnf captionSources `Prelude.seq`
+      Prelude.rnf mergePolicy
 
 instance Data.ToJSON InputCaptions where
   toJSON InputCaptions' {..} =

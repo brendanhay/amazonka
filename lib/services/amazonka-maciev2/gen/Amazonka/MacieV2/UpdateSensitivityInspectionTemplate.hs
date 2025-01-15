@@ -168,10 +168,10 @@ instance
     UpdateSensitivityInspectionTemplate
   where
   rnf UpdateSensitivityInspectionTemplate' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf excludes
-      `Prelude.seq` Prelude.rnf includes
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf excludes `Prelude.seq`
+        Prelude.rnf includes `Prelude.seq`
+          Prelude.rnf id
 
 instance
   Data.ToHeaders

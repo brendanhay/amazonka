@@ -107,6 +107,6 @@ instance Prelude.Hashable TeamMember where
 
 instance Prelude.NFData TeamMember where
   rnf TeamMember' {..} =
-    Prelude.rnf remoteAccessAllowed
-      `Prelude.seq` Prelude.rnf userArn
-      `Prelude.seq` Prelude.rnf projectRole
+    Prelude.rnf remoteAccessAllowed `Prelude.seq`
+      Prelude.rnf userArn `Prelude.seq`
+        Prelude.rnf projectRole

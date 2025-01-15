@@ -127,10 +127,10 @@ instance Prelude.Hashable PutPortfolioPreferences where
 
 instance Prelude.NFData PutPortfolioPreferences where
   rnf PutPortfolioPreferences' {..} =
-    Prelude.rnf applicationMode
-      `Prelude.seq` Prelude.rnf applicationPreferences
-      `Prelude.seq` Prelude.rnf databasePreferences
-      `Prelude.seq` Prelude.rnf prioritizeBusinessGoals
+    Prelude.rnf applicationMode `Prelude.seq`
+      Prelude.rnf applicationPreferences `Prelude.seq`
+        Prelude.rnf databasePreferences `Prelude.seq`
+          Prelude.rnf prioritizeBusinessGoals
 
 instance Data.ToHeaders PutPortfolioPreferences where
   toHeaders =

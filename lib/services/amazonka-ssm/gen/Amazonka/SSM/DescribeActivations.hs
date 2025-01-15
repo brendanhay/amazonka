@@ -124,12 +124,12 @@ instance Core.AWSPager DescribeActivations where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeActivations_nextToken
-          Lens..~ rs
-          Lens.^? describeActivationsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeActivations_nextToken
+              Lens..~ rs
+              Lens.^? describeActivationsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeActivations where
   type
@@ -155,9 +155,9 @@ instance Prelude.Hashable DescribeActivations where
 
 instance Prelude.NFData DescribeActivations where
   rnf DescribeActivations' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeActivations where
   toHeaders =
@@ -243,6 +243,6 @@ describeActivationsResponse_httpStatus = Lens.lens (\DescribeActivationsResponse
 
 instance Prelude.NFData DescribeActivationsResponse where
   rnf DescribeActivationsResponse' {..} =
-    Prelude.rnf activationList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf activationList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

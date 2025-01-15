@@ -131,8 +131,8 @@ instance Prelude.Hashable RegisterThing where
 
 instance Prelude.NFData RegisterThing where
   rnf RegisterThing' {..} =
-    Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf templateBody
+    Prelude.rnf parameters `Prelude.seq`
+      Prelude.rnf templateBody
 
 instance Data.ToHeaders RegisterThing where
   toHeaders = Prelude.const Prelude.mempty
@@ -202,6 +202,6 @@ registerThingResponse_httpStatus = Lens.lens (\RegisterThingResponse' {httpStatu
 
 instance Prelude.NFData RegisterThingResponse where
   rnf RegisterThingResponse' {..} =
-    Prelude.rnf certificatePem
-      `Prelude.seq` Prelude.rnf resourceArns
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf certificatePem `Prelude.seq`
+      Prelude.rnf resourceArns `Prelude.seq`
+        Prelude.rnf httpStatus

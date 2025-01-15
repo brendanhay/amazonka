@@ -121,10 +121,10 @@ instance Prelude.Hashable StringParameterDeclaration where
 
 instance Prelude.NFData StringParameterDeclaration where
   rnf StringParameterDeclaration' {..} =
-    Prelude.rnf defaultValues
-      `Prelude.seq` Prelude.rnf valueWhenUnset
-      `Prelude.seq` Prelude.rnf parameterValueType
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf defaultValues `Prelude.seq`
+      Prelude.rnf valueWhenUnset `Prelude.seq`
+        Prelude.rnf parameterValueType `Prelude.seq`
+          Prelude.rnf name
 
 instance Data.ToJSON StringParameterDeclaration where
   toJSON StringParameterDeclaration' {..} =

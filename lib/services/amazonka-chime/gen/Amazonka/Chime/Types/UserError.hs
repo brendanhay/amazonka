@@ -94,6 +94,6 @@ instance Prelude.Hashable UserError where
 
 instance Prelude.NFData UserError where
   rnf UserError' {..} =
-    Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf userId
+    Prelude.rnf errorCode `Prelude.seq`
+      Prelude.rnf errorMessage `Prelude.seq`
+        Prelude.rnf userId

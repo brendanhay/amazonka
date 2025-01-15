@@ -179,7 +179,7 @@ instance Prelude.Hashable TagHealth where
 
 instance Prelude.NFData TagHealth where
   rnf TagHealth' {..} =
-    Prelude.rnf analyzedResourceCount
-      `Prelude.seq` Prelude.rnf appBoundaryKey
-      `Prelude.seq` Prelude.rnf insight
-      `Prelude.seq` Prelude.rnf tagValue
+    Prelude.rnf analyzedResourceCount `Prelude.seq`
+      Prelude.rnf appBoundaryKey `Prelude.seq`
+        Prelude.rnf insight `Prelude.seq`
+          Prelude.rnf tagValue

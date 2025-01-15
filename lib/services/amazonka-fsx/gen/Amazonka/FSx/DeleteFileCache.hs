@@ -122,8 +122,8 @@ instance Prelude.Hashable DeleteFileCache where
 
 instance Prelude.NFData DeleteFileCache where
   rnf DeleteFileCache' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf fileCacheId
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf fileCacheId
 
 instance Data.ToHeaders DeleteFileCache where
   toHeaders =
@@ -209,6 +209,6 @@ deleteFileCacheResponse_httpStatus = Lens.lens (\DeleteFileCacheResponse' {httpS
 
 instance Prelude.NFData DeleteFileCacheResponse where
   rnf DeleteFileCacheResponse' {..} =
-    Prelude.rnf fileCacheId
-      `Prelude.seq` Prelude.rnf lifecycle
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf fileCacheId `Prelude.seq`
+      Prelude.rnf lifecycle `Prelude.seq`
+        Prelude.rnf httpStatus

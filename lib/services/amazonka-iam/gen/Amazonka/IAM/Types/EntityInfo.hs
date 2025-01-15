@@ -128,8 +128,8 @@ instance Prelude.Hashable EntityInfo where
 
 instance Prelude.NFData EntityInfo where
   rnf EntityInfo' {..} =
-    Prelude.rnf path
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf path `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf type' `Prelude.seq`
+            Prelude.rnf id

@@ -84,8 +84,8 @@ instance Prelude.Hashable CapacityLimits where
 
 instance Prelude.NFData CapacityLimits where
   rnf CapacityLimits' {..} =
-    Prelude.rnf maxIndexingCapacityInOCU
-      `Prelude.seq` Prelude.rnf maxSearchCapacityInOCU
+    Prelude.rnf maxIndexingCapacityInOCU `Prelude.seq`
+      Prelude.rnf maxSearchCapacityInOCU
 
 instance Data.ToJSON CapacityLimits where
   toJSON CapacityLimits' {..} =

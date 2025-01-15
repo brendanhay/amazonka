@@ -201,5 +201,5 @@ instance
     GetSupportedResourceTypesResponse
   where
   rnf GetSupportedResourceTypesResponse' {..} =
-    Prelude.rnf resourceTypes
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf resourceTypes `Prelude.seq`
+      Prelude.rnf httpStatus

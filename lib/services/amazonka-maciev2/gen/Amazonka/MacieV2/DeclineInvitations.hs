@@ -171,5 +171,5 @@ declineInvitationsResponse_httpStatus = Lens.lens (\DeclineInvitationsResponse' 
 
 instance Prelude.NFData DeclineInvitationsResponse where
   rnf DeclineInvitationsResponse' {..} =
-    Prelude.rnf unprocessedAccounts
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf unprocessedAccounts `Prelude.seq`
+      Prelude.rnf httpStatus

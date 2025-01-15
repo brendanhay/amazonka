@@ -194,13 +194,13 @@ instance Prelude.Hashable Filter where
 
 instance Prelude.NFData Filter where
   rnf Filter' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf reason
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf action
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf criteria
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf ownerId
-      `Prelude.seq` Prelude.rnf updatedAt
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf reason `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf action `Prelude.seq`
+            Prelude.rnf arn `Prelude.seq`
+              Prelude.rnf createdAt `Prelude.seq`
+                Prelude.rnf criteria `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf ownerId `Prelude.seq`
+                      Prelude.rnf updatedAt

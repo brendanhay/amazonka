@@ -147,5 +147,5 @@ getMasterAccountResponse_httpStatus = Lens.lens (\GetMasterAccountResponse' {htt
 
 instance Prelude.NFData GetMasterAccountResponse where
   rnf GetMasterAccountResponse' {..} =
-    Prelude.rnf master
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf master `Prelude.seq`
+      Prelude.rnf httpStatus

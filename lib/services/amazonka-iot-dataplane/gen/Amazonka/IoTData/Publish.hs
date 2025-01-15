@@ -293,16 +293,16 @@ instance Prelude.Hashable Publish where
 
 instance Prelude.NFData Publish where
   rnf Publish' {..} =
-    Prelude.rnf contentType
-      `Prelude.seq` Prelude.rnf correlationData
-      `Prelude.seq` Prelude.rnf messageExpiry
-      `Prelude.seq` Prelude.rnf payload
-      `Prelude.seq` Prelude.rnf payloadFormatIndicator
-      `Prelude.seq` Prelude.rnf qos
-      `Prelude.seq` Prelude.rnf responseTopic
-      `Prelude.seq` Prelude.rnf retain
-      `Prelude.seq` Prelude.rnf userProperties
-      `Prelude.seq` Prelude.rnf topic
+    Prelude.rnf contentType `Prelude.seq`
+      Prelude.rnf correlationData `Prelude.seq`
+        Prelude.rnf messageExpiry `Prelude.seq`
+          Prelude.rnf payload `Prelude.seq`
+            Prelude.rnf payloadFormatIndicator `Prelude.seq`
+              Prelude.rnf qos `Prelude.seq`
+                Prelude.rnf responseTopic `Prelude.seq`
+                  Prelude.rnf retain `Prelude.seq`
+                    Prelude.rnf userProperties `Prelude.seq`
+                      Prelude.rnf topic
 
 instance Data.ToBody Publish where
   toBody Publish' {..} = Data.toBody payload

@@ -106,7 +106,7 @@ instance Prelude.Hashable PillarDifference where
 
 instance Prelude.NFData PillarDifference where
   rnf PillarDifference' {..} =
-    Prelude.rnf differenceStatus
-      `Prelude.seq` Prelude.rnf pillarId
-      `Prelude.seq` Prelude.rnf pillarName
-      `Prelude.seq` Prelude.rnf questionDifferences
+    Prelude.rnf differenceStatus `Prelude.seq`
+      Prelude.rnf pillarId `Prelude.seq`
+        Prelude.rnf pillarName `Prelude.seq`
+          Prelude.rnf questionDifferences

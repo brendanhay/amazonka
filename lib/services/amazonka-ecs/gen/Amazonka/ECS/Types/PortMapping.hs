@@ -541,12 +541,12 @@ instance Prelude.Hashable PortMapping where
 
 instance Prelude.NFData PortMapping where
   rnf PortMapping' {..} =
-    Prelude.rnf appProtocol
-      `Prelude.seq` Prelude.rnf containerPort
-      `Prelude.seq` Prelude.rnf containerPortRange
-      `Prelude.seq` Prelude.rnf hostPort
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf protocol
+    Prelude.rnf appProtocol `Prelude.seq`
+      Prelude.rnf containerPort `Prelude.seq`
+        Prelude.rnf containerPortRange `Prelude.seq`
+          Prelude.rnf hostPort `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf protocol
 
 instance Data.ToJSON PortMapping where
   toJSON PortMapping' {..} =

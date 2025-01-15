@@ -205,13 +205,13 @@ instance Prelude.Hashable ServicePipeline where
 
 instance Prelude.NFData ServicePipeline where
   rnf ServicePipeline' {..} =
-    Prelude.rnf deploymentStatusMessage
-      `Prelude.seq` Prelude.rnf spec
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf deploymentStatus
-      `Prelude.seq` Prelude.rnf lastDeploymentAttemptedAt
-      `Prelude.seq` Prelude.rnf lastDeploymentSucceededAt
-      `Prelude.seq` Prelude.rnf templateMajorVersion
-      `Prelude.seq` Prelude.rnf templateMinorVersion
-      `Prelude.seq` Prelude.rnf templateName
+    Prelude.rnf deploymentStatusMessage `Prelude.seq`
+      Prelude.rnf spec `Prelude.seq`
+        Prelude.rnf arn `Prelude.seq`
+          Prelude.rnf createdAt `Prelude.seq`
+            Prelude.rnf deploymentStatus `Prelude.seq`
+              Prelude.rnf lastDeploymentAttemptedAt `Prelude.seq`
+                Prelude.rnf lastDeploymentSucceededAt `Prelude.seq`
+                  Prelude.rnf templateMajorVersion `Prelude.seq`
+                    Prelude.rnf templateMinorVersion `Prelude.seq`
+                      Prelude.rnf templateName

@@ -80,8 +80,8 @@ instance Prelude.Hashable SenderIdAndCountry where
 
 instance Prelude.NFData SenderIdAndCountry where
   rnf SenderIdAndCountry' {..} =
-    Prelude.rnf senderId
-      `Prelude.seq` Prelude.rnf isoCountryCode
+    Prelude.rnf senderId `Prelude.seq`
+      Prelude.rnf isoCountryCode
 
 instance Data.ToJSON SenderIdAndCountry where
   toJSON SenderIdAndCountry' {..} =

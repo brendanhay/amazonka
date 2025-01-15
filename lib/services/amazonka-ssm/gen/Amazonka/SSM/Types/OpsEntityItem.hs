@@ -80,5 +80,5 @@ instance Prelude.Hashable OpsEntityItem where
 
 instance Prelude.NFData OpsEntityItem where
   rnf OpsEntityItem' {..} =
-    Prelude.rnf captureTime
-      `Prelude.seq` Prelude.rnf content
+    Prelude.rnf captureTime `Prelude.seq`
+      Prelude.rnf content

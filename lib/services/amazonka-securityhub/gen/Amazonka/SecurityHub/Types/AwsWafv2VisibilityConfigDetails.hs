@@ -119,9 +119,9 @@ instance
     AwsWafv2VisibilityConfigDetails
   where
   rnf AwsWafv2VisibilityConfigDetails' {..} =
-    Prelude.rnf cloudWatchMetricsEnabled
-      `Prelude.seq` Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf sampledRequestsEnabled
+    Prelude.rnf cloudWatchMetricsEnabled `Prelude.seq`
+      Prelude.rnf metricName `Prelude.seq`
+        Prelude.rnf sampledRequestsEnabled
 
 instance Data.ToJSON AwsWafv2VisibilityConfigDetails where
   toJSON AwsWafv2VisibilityConfigDetails' {..} =

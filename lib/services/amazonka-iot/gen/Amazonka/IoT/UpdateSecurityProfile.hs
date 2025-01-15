@@ -282,16 +282,16 @@ instance Prelude.Hashable UpdateSecurityProfile where
 
 instance Prelude.NFData UpdateSecurityProfile where
   rnf UpdateSecurityProfile' {..} =
-    Prelude.rnf additionalMetricsToRetain
-      `Prelude.seq` Prelude.rnf additionalMetricsToRetainV2
-      `Prelude.seq` Prelude.rnf alertTargets
-      `Prelude.seq` Prelude.rnf behaviors
-      `Prelude.seq` Prelude.rnf deleteAdditionalMetricsToRetain
-      `Prelude.seq` Prelude.rnf deleteAlertTargets
-      `Prelude.seq` Prelude.rnf deleteBehaviors
-      `Prelude.seq` Prelude.rnf expectedVersion
-      `Prelude.seq` Prelude.rnf securityProfileDescription
-      `Prelude.seq` Prelude.rnf securityProfileName
+    Prelude.rnf additionalMetricsToRetain `Prelude.seq`
+      Prelude.rnf additionalMetricsToRetainV2 `Prelude.seq`
+        Prelude.rnf alertTargets `Prelude.seq`
+          Prelude.rnf behaviors `Prelude.seq`
+            Prelude.rnf deleteAdditionalMetricsToRetain `Prelude.seq`
+              Prelude.rnf deleteAlertTargets `Prelude.seq`
+                Prelude.rnf deleteBehaviors `Prelude.seq`
+                  Prelude.rnf expectedVersion `Prelude.seq`
+                    Prelude.rnf securityProfileDescription `Prelude.seq`
+                      Prelude.rnf securityProfileName
 
 instance Data.ToHeaders UpdateSecurityProfile where
   toHeaders = Prelude.const Prelude.mempty
@@ -479,14 +479,14 @@ updateSecurityProfileResponse_httpStatus = Lens.lens (\UpdateSecurityProfileResp
 
 instance Prelude.NFData UpdateSecurityProfileResponse where
   rnf UpdateSecurityProfileResponse' {..} =
-    Prelude.rnf additionalMetricsToRetain
-      `Prelude.seq` Prelude.rnf additionalMetricsToRetainV2
-      `Prelude.seq` Prelude.rnf alertTargets
-      `Prelude.seq` Prelude.rnf behaviors
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf securityProfileArn
-      `Prelude.seq` Prelude.rnf securityProfileDescription
-      `Prelude.seq` Prelude.rnf securityProfileName
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf additionalMetricsToRetain `Prelude.seq`
+      Prelude.rnf additionalMetricsToRetainV2 `Prelude.seq`
+        Prelude.rnf alertTargets `Prelude.seq`
+          Prelude.rnf behaviors `Prelude.seq`
+            Prelude.rnf creationDate `Prelude.seq`
+              Prelude.rnf lastModifiedDate `Prelude.seq`
+                Prelude.rnf securityProfileArn `Prelude.seq`
+                  Prelude.rnf securityProfileDescription `Prelude.seq`
+                    Prelude.rnf securityProfileName `Prelude.seq`
+                      Prelude.rnf version `Prelude.seq`
+                        Prelude.rnf httpStatus

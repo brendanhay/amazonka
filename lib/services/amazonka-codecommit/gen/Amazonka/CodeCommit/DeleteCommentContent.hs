@@ -168,5 +168,5 @@ deleteCommentContentResponse_httpStatus = Lens.lens (\DeleteCommentContentRespon
 
 instance Prelude.NFData DeleteCommentContentResponse where
   rnf DeleteCommentContentResponse' {..} =
-    Prelude.rnf comment
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf comment `Prelude.seq`
+      Prelude.rnf httpStatus

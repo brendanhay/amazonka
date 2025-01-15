@@ -186,6 +186,6 @@ deleteDecoderManifestResponse_arn = Lens.lens (\DeleteDecoderManifestResponse' {
 
 instance Prelude.NFData DeleteDecoderManifestResponse where
   rnf DeleteDecoderManifestResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf arn

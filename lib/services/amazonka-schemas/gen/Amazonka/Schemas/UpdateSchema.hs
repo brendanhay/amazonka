@@ -168,12 +168,12 @@ instance Prelude.Hashable UpdateSchema where
 
 instance Prelude.NFData UpdateSchema where
   rnf UpdateSchema' {..} =
-    Prelude.rnf clientTokenId
-      `Prelude.seq` Prelude.rnf content
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf registryName
-      `Prelude.seq` Prelude.rnf schemaName
+    Prelude.rnf clientTokenId `Prelude.seq`
+      Prelude.rnf content `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf type' `Prelude.seq`
+            Prelude.rnf registryName `Prelude.seq`
+              Prelude.rnf schemaName
 
 instance Data.ToHeaders UpdateSchema where
   toHeaders =
@@ -312,12 +312,12 @@ updateSchemaResponse_httpStatus = Lens.lens (\UpdateSchemaResponse' {httpStatus}
 
 instance Prelude.NFData UpdateSchemaResponse where
   rnf UpdateSchemaResponse' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf lastModified
-      `Prelude.seq` Prelude.rnf schemaArn
-      `Prelude.seq` Prelude.rnf schemaName
-      `Prelude.seq` Prelude.rnf schemaVersion
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf versionCreatedDate
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf lastModified `Prelude.seq`
+        Prelude.rnf schemaArn `Prelude.seq`
+          Prelude.rnf schemaName `Prelude.seq`
+            Prelude.rnf schemaVersion `Prelude.seq`
+              Prelude.rnf tags `Prelude.seq`
+                Prelude.rnf type' `Prelude.seq`
+                  Prelude.rnf versionCreatedDate `Prelude.seq`
+                    Prelude.rnf httpStatus

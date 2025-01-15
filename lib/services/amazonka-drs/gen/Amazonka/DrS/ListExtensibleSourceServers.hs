@@ -121,12 +121,12 @@ instance Core.AWSPager ListExtensibleSourceServers where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listExtensibleSourceServers_nextToken
-          Lens..~ rs
-          Lens.^? listExtensibleSourceServersResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listExtensibleSourceServers_nextToken
+              Lens..~ rs
+              Lens.^? listExtensibleSourceServersResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListExtensibleSourceServers where
   type
@@ -152,9 +152,9 @@ instance Prelude.Hashable ListExtensibleSourceServers where
 
 instance Prelude.NFData ListExtensibleSourceServers where
   rnf ListExtensibleSourceServers' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf stagingAccountID
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf stagingAccountID
 
 instance Data.ToHeaders ListExtensibleSourceServers where
   toHeaders =
@@ -237,6 +237,6 @@ instance
     ListExtensibleSourceServersResponse
   where
   rnf ListExtensibleSourceServersResponse' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf items `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

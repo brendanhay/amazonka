@@ -308,9 +308,7 @@ instance Data.FromXML Subnet where
       Prelude.<*> (x Data..@? "ownerId")
       Prelude.<*> (x Data..@? "privateDnsNameOptionsOnLaunch")
       Prelude.<*> (x Data..@? "subnetArn")
-      Prelude.<*> ( x
-                      Data..@? "tagSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@ "availabilityZone")
@@ -347,24 +345,24 @@ instance Prelude.Hashable Subnet where
 
 instance Prelude.NFData Subnet where
   rnf Subnet' {..} =
-    Prelude.rnf assignIpv6AddressOnCreation
-      `Prelude.seq` Prelude.rnf availabilityZoneId
-      `Prelude.seq` Prelude.rnf customerOwnedIpv4Pool
-      `Prelude.seq` Prelude.rnf defaultForAz
-      `Prelude.seq` Prelude.rnf enableDns64
-      `Prelude.seq` Prelude.rnf enableLniAtDeviceIndex
-      `Prelude.seq` Prelude.rnf ipv6CidrBlockAssociationSet
-      `Prelude.seq` Prelude.rnf ipv6Native
-      `Prelude.seq` Prelude.rnf mapCustomerOwnedIpOnLaunch
-      `Prelude.seq` Prelude.rnf mapPublicIpOnLaunch
-      `Prelude.seq` Prelude.rnf outpostArn
-      `Prelude.seq` Prelude.rnf ownerId
-      `Prelude.seq` Prelude.rnf privateDnsNameOptionsOnLaunch
-      `Prelude.seq` Prelude.rnf subnetArn
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf availableIpAddressCount
-      `Prelude.seq` Prelude.rnf cidrBlock
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf subnetId
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf assignIpv6AddressOnCreation `Prelude.seq`
+      Prelude.rnf availabilityZoneId `Prelude.seq`
+        Prelude.rnf customerOwnedIpv4Pool `Prelude.seq`
+          Prelude.rnf defaultForAz `Prelude.seq`
+            Prelude.rnf enableDns64 `Prelude.seq`
+              Prelude.rnf enableLniAtDeviceIndex `Prelude.seq`
+                Prelude.rnf ipv6CidrBlockAssociationSet `Prelude.seq`
+                  Prelude.rnf ipv6Native `Prelude.seq`
+                    Prelude.rnf mapCustomerOwnedIpOnLaunch `Prelude.seq`
+                      Prelude.rnf mapPublicIpOnLaunch `Prelude.seq`
+                        Prelude.rnf outpostArn `Prelude.seq`
+                          Prelude.rnf ownerId `Prelude.seq`
+                            Prelude.rnf privateDnsNameOptionsOnLaunch `Prelude.seq`
+                              Prelude.rnf subnetArn `Prelude.seq`
+                                Prelude.rnf tags `Prelude.seq`
+                                  Prelude.rnf availabilityZone `Prelude.seq`
+                                    Prelude.rnf availableIpAddressCount `Prelude.seq`
+                                      Prelude.rnf cidrBlock `Prelude.seq`
+                                        Prelude.rnf state `Prelude.seq`
+                                          Prelude.rnf subnetId `Prelude.seq`
+                                            Prelude.rnf vpcId

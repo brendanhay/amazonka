@@ -392,20 +392,20 @@ instance Prelude.Hashable SlackConfiguration where
 
 instance Prelude.NFData SlackConfiguration where
   rnf SlackConfiguration' {..} =
-    Prelude.rnf crawlBotMessage
-      `Prelude.seq` Prelude.rnf excludeArchived
-      `Prelude.seq` Prelude.rnf exclusionPatterns
-      `Prelude.seq` Prelude.rnf fieldMappings
-      `Prelude.seq` Prelude.rnf inclusionPatterns
-      `Prelude.seq` Prelude.rnf lookBackPeriod
-      `Prelude.seq` Prelude.rnf privateChannelFilter
-      `Prelude.seq` Prelude.rnf publicChannelFilter
-      `Prelude.seq` Prelude.rnf useChangeLog
-      `Prelude.seq` Prelude.rnf vpcConfiguration
-      `Prelude.seq` Prelude.rnf teamId
-      `Prelude.seq` Prelude.rnf secretArn
-      `Prelude.seq` Prelude.rnf slackEntityList
-      `Prelude.seq` Prelude.rnf sinceCrawlDate
+    Prelude.rnf crawlBotMessage `Prelude.seq`
+      Prelude.rnf excludeArchived `Prelude.seq`
+        Prelude.rnf exclusionPatterns `Prelude.seq`
+          Prelude.rnf fieldMappings `Prelude.seq`
+            Prelude.rnf inclusionPatterns `Prelude.seq`
+              Prelude.rnf lookBackPeriod `Prelude.seq`
+                Prelude.rnf privateChannelFilter `Prelude.seq`
+                  Prelude.rnf publicChannelFilter `Prelude.seq`
+                    Prelude.rnf useChangeLog `Prelude.seq`
+                      Prelude.rnf vpcConfiguration `Prelude.seq`
+                        Prelude.rnf teamId `Prelude.seq`
+                          Prelude.rnf secretArn `Prelude.seq`
+                            Prelude.rnf slackEntityList `Prelude.seq`
+                              Prelude.rnf sinceCrawlDate
 
 instance Data.ToJSON SlackConfiguration where
   toJSON SlackConfiguration' {..} =

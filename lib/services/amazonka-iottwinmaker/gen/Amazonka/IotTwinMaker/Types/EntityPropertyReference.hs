@@ -111,10 +111,10 @@ instance Prelude.Hashable EntityPropertyReference where
 
 instance Prelude.NFData EntityPropertyReference where
   rnf EntityPropertyReference' {..} =
-    Prelude.rnf componentName
-      `Prelude.seq` Prelude.rnf entityId
-      `Prelude.seq` Prelude.rnf externalIdProperty
-      `Prelude.seq` Prelude.rnf propertyName
+    Prelude.rnf componentName `Prelude.seq`
+      Prelude.rnf entityId `Prelude.seq`
+        Prelude.rnf externalIdProperty `Prelude.seq`
+          Prelude.rnf propertyName
 
 instance Data.ToJSON EntityPropertyReference where
   toJSON EntityPropertyReference' {..} =

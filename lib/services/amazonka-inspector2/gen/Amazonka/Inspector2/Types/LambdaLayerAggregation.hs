@@ -105,11 +105,11 @@ instance Prelude.Hashable LambdaLayerAggregation where
 
 instance Prelude.NFData LambdaLayerAggregation where
   rnf LambdaLayerAggregation' {..} =
-    Prelude.rnf functionNames
-      `Prelude.seq` Prelude.rnf layerArns
-      `Prelude.seq` Prelude.rnf resourceIds
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf sortOrder
+    Prelude.rnf functionNames `Prelude.seq`
+      Prelude.rnf layerArns `Prelude.seq`
+        Prelude.rnf resourceIds `Prelude.seq`
+          Prelude.rnf sortBy `Prelude.seq`
+            Prelude.rnf sortOrder
 
 instance Data.ToJSON LambdaLayerAggregation where
   toJSON LambdaLayerAggregation' {..} =

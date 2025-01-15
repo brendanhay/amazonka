@@ -121,9 +121,9 @@ instance Prelude.Hashable UnsubscribeFromEvent where
 
 instance Prelude.NFData UnsubscribeFromEvent where
   rnf UnsubscribeFromEvent' {..} =
-    Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf event
-      `Prelude.seq` Prelude.rnf topicArn
+    Prelude.rnf resourceArn `Prelude.seq`
+      Prelude.rnf event `Prelude.seq`
+        Prelude.rnf topicArn
 
 instance Data.ToHeaders UnsubscribeFromEvent where
   toHeaders =

@@ -153,12 +153,12 @@ instance Prelude.Hashable VoiceTemplateRequest where
 
 instance Prelude.NFData VoiceTemplateRequest where
   rnf VoiceTemplateRequest' {..} =
-    Prelude.rnf body
-      `Prelude.seq` Prelude.rnf defaultSubstitutions
-      `Prelude.seq` Prelude.rnf languageCode
-      `Prelude.seq` Prelude.rnf templateDescription
-      `Prelude.seq` Prelude.rnf voiceId
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf body `Prelude.seq`
+      Prelude.rnf defaultSubstitutions `Prelude.seq`
+        Prelude.rnf languageCode `Prelude.seq`
+          Prelude.rnf templateDescription `Prelude.seq`
+            Prelude.rnf voiceId `Prelude.seq`
+              Prelude.rnf tags
 
 instance Data.ToJSON VoiceTemplateRequest where
   toJSON VoiceTemplateRequest' {..} =

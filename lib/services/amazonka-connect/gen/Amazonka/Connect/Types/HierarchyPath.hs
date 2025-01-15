@@ -114,8 +114,8 @@ instance Prelude.Hashable HierarchyPath where
 
 instance Prelude.NFData HierarchyPath where
   rnf HierarchyPath' {..} =
-    Prelude.rnf levelFive
-      `Prelude.seq` Prelude.rnf levelFour
-      `Prelude.seq` Prelude.rnf levelOne
-      `Prelude.seq` Prelude.rnf levelThree
-      `Prelude.seq` Prelude.rnf levelTwo
+    Prelude.rnf levelFive `Prelude.seq`
+      Prelude.rnf levelFour `Prelude.seq`
+        Prelude.rnf levelOne `Prelude.seq`
+          Prelude.rnf levelThree `Prelude.seq`
+            Prelude.rnf levelTwo

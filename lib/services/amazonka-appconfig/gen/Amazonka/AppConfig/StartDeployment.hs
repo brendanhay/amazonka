@@ -193,13 +193,13 @@ instance Prelude.Hashable StartDeployment where
 
 instance Prelude.NFData StartDeployment where
   rnf StartDeployment' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf environmentId
-      `Prelude.seq` Prelude.rnf deploymentStrategyId
-      `Prelude.seq` Prelude.rnf configurationProfileId
-      `Prelude.seq` Prelude.rnf configurationVersion
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf applicationId `Prelude.seq`
+          Prelude.rnf environmentId `Prelude.seq`
+            Prelude.rnf deploymentStrategyId `Prelude.seq`
+              Prelude.rnf configurationProfileId `Prelude.seq`
+                Prelude.rnf configurationVersion
 
 instance Data.ToHeaders StartDeployment where
   toHeaders =

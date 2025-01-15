@@ -113,8 +113,8 @@ instance Prelude.Hashable DeleteSegment where
 
 instance Prelude.NFData DeleteSegment where
   rnf DeleteSegment' {..} =
-    Prelude.rnf segmentId
-      `Prelude.seq` Prelude.rnf applicationId
+    Prelude.rnf segmentId `Prelude.seq`
+      Prelude.rnf applicationId
 
 instance Data.ToHeaders DeleteSegment where
   toHeaders =
@@ -182,5 +182,5 @@ deleteSegmentResponse_segmentResponse = Lens.lens (\DeleteSegmentResponse' {segm
 
 instance Prelude.NFData DeleteSegmentResponse where
   rnf DeleteSegmentResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf segmentResponse
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf segmentResponse

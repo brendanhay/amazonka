@@ -143,10 +143,10 @@ instance Prelude.Hashable RecoveryInstanceProperties where
 
 instance Prelude.NFData RecoveryInstanceProperties where
   rnf RecoveryInstanceProperties' {..} =
-    Prelude.rnf cpus
-      `Prelude.seq` Prelude.rnf disks
-      `Prelude.seq` Prelude.rnf identificationHints
-      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
-      `Prelude.seq` Prelude.rnf networkInterfaces
-      `Prelude.seq` Prelude.rnf os
-      `Prelude.seq` Prelude.rnf ramBytes
+    Prelude.rnf cpus `Prelude.seq`
+      Prelude.rnf disks `Prelude.seq`
+        Prelude.rnf identificationHints `Prelude.seq`
+          Prelude.rnf lastUpdatedDateTime `Prelude.seq`
+            Prelude.rnf networkInterfaces `Prelude.seq`
+              Prelude.rnf os `Prelude.seq`
+                Prelude.rnf ramBytes

@@ -127,12 +127,12 @@ instance Core.AWSPager ListCidrBlocks where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listCidrBlocks_nextToken
-          Lens..~ rs
-          Lens.^? listCidrBlocksResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listCidrBlocks_nextToken
+              Lens..~ rs
+              Lens.^? listCidrBlocksResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListCidrBlocks where
   type
@@ -144,9 +144,7 @@ instance Core.AWSRequest ListCidrBlocks where
     Response.receiveXML
       ( \s h x ->
           ListCidrBlocksResponse'
-            Prelude.<$> ( x
-                            Data..@? "CidrBlocks"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "CidrBlocks" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (x Data..@? "NextToken")
@@ -163,10 +161,10 @@ instance Prelude.Hashable ListCidrBlocks where
 
 instance Prelude.NFData ListCidrBlocks where
   rnf ListCidrBlocks' {..} =
-    Prelude.rnf locationName
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf collectionId
+    Prelude.rnf locationName `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf collectionId
 
 instance Data.ToHeaders ListCidrBlocks where
   toHeaders = Prelude.const Prelude.mempty
@@ -249,6 +247,6 @@ listCidrBlocksResponse_httpStatus = Lens.lens (\ListCidrBlocksResponse' {httpSta
 
 instance Prelude.NFData ListCidrBlocksResponse where
   rnf ListCidrBlocksResponse' {..} =
-    Prelude.rnf cidrBlocks
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf cidrBlocks `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

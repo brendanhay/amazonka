@@ -144,10 +144,10 @@ instance Prelude.Hashable DeleteChannelMessage where
 
 instance Prelude.NFData DeleteChannelMessage where
   rnf DeleteChannelMessage' {..} =
-    Prelude.rnf subChannelId
-      `Prelude.seq` Prelude.rnf channelArn
-      `Prelude.seq` Prelude.rnf messageId
-      `Prelude.seq` Prelude.rnf chimeBearer
+    Prelude.rnf subChannelId `Prelude.seq`
+      Prelude.rnf channelArn `Prelude.seq`
+        Prelude.rnf messageId `Prelude.seq`
+          Prelude.rnf chimeBearer
 
 instance Data.ToHeaders DeleteChannelMessage where
   toHeaders DeleteChannelMessage' {..} =

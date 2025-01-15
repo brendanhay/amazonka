@@ -172,10 +172,10 @@ instance Prelude.Hashable UpdateFunction where
 
 instance Prelude.NFData UpdateFunction where
   rnf UpdateFunction' {..} =
-    Prelude.rnf ifMatch
-      `Prelude.seq` Prelude.rnf functionConfig
-      `Prelude.seq` Prelude.rnf functionCode
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf ifMatch `Prelude.seq`
+      Prelude.rnf functionConfig `Prelude.seq`
+        Prelude.rnf functionCode `Prelude.seq`
+          Prelude.rnf name
 
 instance Data.ToElement UpdateFunction where
   toElement =
@@ -256,6 +256,6 @@ updateFunctionResponse_httpStatus = Lens.lens (\UpdateFunctionResponse' {httpSta
 
 instance Prelude.NFData UpdateFunctionResponse where
   rnf UpdateFunctionResponse' {..} =
-    Prelude.rnf eTag
-      `Prelude.seq` Prelude.rnf functionSummary
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf eTag `Prelude.seq`
+      Prelude.rnf functionSummary `Prelude.seq`
+        Prelude.rnf httpStatus

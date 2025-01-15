@@ -231,13 +231,13 @@ instance
     RegisterAppInstanceUserEndpoint
   where
   rnf RegisterAppInstanceUserEndpoint' {..} =
-    Prelude.rnf allowMessages
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf appInstanceUserArn
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf endpointAttributes
-      `Prelude.seq` Prelude.rnf clientRequestToken
+    Prelude.rnf allowMessages `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf appInstanceUserArn `Prelude.seq`
+          Prelude.rnf type' `Prelude.seq`
+            Prelude.rnf resourceArn `Prelude.seq`
+              Prelude.rnf endpointAttributes `Prelude.seq`
+                Prelude.rnf clientRequestToken
 
 instance
   Data.ToHeaders
@@ -325,6 +325,6 @@ instance
     RegisterAppInstanceUserEndpointResponse
   where
   rnf RegisterAppInstanceUserEndpointResponse' {..} =
-    Prelude.rnf appInstanceUserArn
-      `Prelude.seq` Prelude.rnf endpointId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf appInstanceUserArn `Prelude.seq`
+      Prelude.rnf endpointId `Prelude.seq`
+        Prelude.rnf httpStatus

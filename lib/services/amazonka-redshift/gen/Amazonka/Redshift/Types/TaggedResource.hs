@@ -164,6 +164,6 @@ instance Prelude.Hashable TaggedResource where
 
 instance Prelude.NFData TaggedResource where
   rnf TaggedResource' {..} =
-    Prelude.rnf resourceName
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf tag
+    Prelude.rnf resourceName `Prelude.seq`
+      Prelude.rnf resourceType `Prelude.seq`
+        Prelude.rnf tag

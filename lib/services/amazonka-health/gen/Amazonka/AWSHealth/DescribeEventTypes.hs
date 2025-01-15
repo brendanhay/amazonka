@@ -151,12 +151,12 @@ instance Core.AWSPager DescribeEventTypes where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeEventTypes_nextToken
-          Lens..~ rs
-          Lens.^? describeEventTypesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeEventTypes_nextToken
+              Lens..~ rs
+              Lens.^? describeEventTypesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeEventTypes where
   type
@@ -183,10 +183,10 @@ instance Prelude.Hashable DescribeEventTypes where
 
 instance Prelude.NFData DescribeEventTypes where
   rnf DescribeEventTypes' {..} =
-    Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf locale
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filter' `Prelude.seq`
+      Prelude.rnf locale `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeEventTypes where
   toHeaders =
@@ -294,6 +294,6 @@ describeEventTypesResponse_httpStatus = Lens.lens (\DescribeEventTypesResponse' 
 
 instance Prelude.NFData DescribeEventTypesResponse where
   rnf DescribeEventTypesResponse' {..} =
-    Prelude.rnf eventTypes
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf eventTypes `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -115,8 +115,8 @@ instance Prelude.Hashable UpdateConnectivityInfo where
 
 instance Prelude.NFData UpdateConnectivityInfo where
   rnf UpdateConnectivityInfo' {..} =
-    Prelude.rnf connectivityInfo
-      `Prelude.seq` Prelude.rnf thingName
+    Prelude.rnf connectivityInfo `Prelude.seq`
+      Prelude.rnf thingName
 
 instance Data.ToHeaders UpdateConnectivityInfo where
   toHeaders =
@@ -202,6 +202,6 @@ instance
     UpdateConnectivityInfoResponse
   where
   rnf UpdateConnectivityInfoResponse' {..} =
-    Prelude.rnf message
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf message `Prelude.seq`
+      Prelude.rnf version `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -152,5 +152,5 @@ getAuthorizationTokenResponse_httpStatus = Lens.lens (\GetAuthorizationTokenResp
 
 instance Prelude.NFData GetAuthorizationTokenResponse where
   rnf GetAuthorizationTokenResponse' {..} =
-    Prelude.rnf authorizationData
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf authorizationData `Prelude.seq`
+      Prelude.rnf httpStatus

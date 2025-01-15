@@ -89,8 +89,8 @@ instance Prelude.Hashable TimeBasedCanary where
 
 instance Prelude.NFData TimeBasedCanary where
   rnf TimeBasedCanary' {..} =
-    Prelude.rnf canaryInterval
-      `Prelude.seq` Prelude.rnf canaryPercentage
+    Prelude.rnf canaryInterval `Prelude.seq`
+      Prelude.rnf canaryPercentage
 
 instance Data.ToJSON TimeBasedCanary where
   toJSON TimeBasedCanary' {..} =

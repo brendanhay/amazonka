@@ -103,9 +103,9 @@ instance Prelude.Hashable MessageDsn where
 
 instance Prelude.NFData MessageDsn where
   rnf MessageDsn' {..} =
-    Prelude.rnf arrivalDate
-      `Prelude.seq` Prelude.rnf extensionFields
-      `Prelude.seq` Prelude.rnf reportingMta
+    Prelude.rnf arrivalDate `Prelude.seq`
+      Prelude.rnf extensionFields `Prelude.seq`
+        Prelude.rnf reportingMta
 
 instance Data.ToQuery MessageDsn where
   toQuery MessageDsn' {..} =

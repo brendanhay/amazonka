@@ -129,8 +129,8 @@ instance Prelude.Hashable DescribeLunaClient where
 
 instance Prelude.NFData DescribeLunaClient where
   rnf DescribeLunaClient' {..} =
-    Prelude.rnf certificateFingerprint
-      `Prelude.seq` Prelude.rnf clientArn
+    Prelude.rnf certificateFingerprint `Prelude.seq`
+      Prelude.rnf clientArn
 
 instance Data.ToHeaders DescribeLunaClient where
   toHeaders =
@@ -240,9 +240,9 @@ describeLunaClientResponse_httpStatus = Lens.lens (\DescribeLunaClientResponse' 
 
 instance Prelude.NFData DescribeLunaClientResponse where
   rnf DescribeLunaClientResponse' {..} =
-    Prelude.rnf certificate
-      `Prelude.seq` Prelude.rnf certificateFingerprint
-      `Prelude.seq` Prelude.rnf clientArn
-      `Prelude.seq` Prelude.rnf label
-      `Prelude.seq` Prelude.rnf lastModifiedTimestamp
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf certificate `Prelude.seq`
+      Prelude.rnf certificateFingerprint `Prelude.seq`
+        Prelude.rnf clientArn `Prelude.seq`
+          Prelude.rnf label `Prelude.seq`
+            Prelude.rnf lastModifiedTimestamp `Prelude.seq`
+              Prelude.rnf httpStatus

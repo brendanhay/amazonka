@@ -158,5 +158,5 @@ getEnvironmentResponse_httpStatus = Lens.lens (\GetEnvironmentResponse' {httpSta
 
 instance Prelude.NFData GetEnvironmentResponse where
   rnf GetEnvironmentResponse' {..} =
-    Prelude.rnf environment
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf environment `Prelude.seq`
+      Prelude.rnf httpStatus

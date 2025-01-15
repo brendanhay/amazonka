@@ -212,8 +212,8 @@ instance Prelude.Hashable CreateHealthCheck where
 
 instance Prelude.NFData CreateHealthCheck where
   rnf CreateHealthCheck' {..} =
-    Prelude.rnf callerReference
-      `Prelude.seq` Prelude.rnf healthCheckConfig
+    Prelude.rnf callerReference `Prelude.seq`
+      Prelude.rnf healthCheckConfig
 
 instance Data.ToElement CreateHealthCheck where
   toElement =
@@ -299,6 +299,6 @@ createHealthCheckResponse_location = Lens.lens (\CreateHealthCheckResponse' {loc
 
 instance Prelude.NFData CreateHealthCheckResponse where
   rnf CreateHealthCheckResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf healthCheck
-      `Prelude.seq` Prelude.rnf location
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf healthCheck `Prelude.seq`
+        Prelude.rnf location

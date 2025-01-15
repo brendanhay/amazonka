@@ -95,6 +95,6 @@ instance Prelude.Hashable LendingField where
 
 instance Prelude.NFData LendingField where
   rnf LendingField' {..} =
-    Prelude.rnf keyDetection
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf valueDetections
+    Prelude.rnf keyDetection `Prelude.seq`
+      Prelude.rnf type' `Prelude.seq`
+        Prelude.rnf valueDetections

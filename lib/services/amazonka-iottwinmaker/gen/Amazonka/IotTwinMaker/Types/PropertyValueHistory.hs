@@ -87,5 +87,5 @@ instance Prelude.Hashable PropertyValueHistory where
 
 instance Prelude.NFData PropertyValueHistory where
   rnf PropertyValueHistory' {..} =
-    Prelude.rnf values
-      `Prelude.seq` Prelude.rnf entityPropertyReference
+    Prelude.rnf values `Prelude.seq`
+      Prelude.rnf entityPropertyReference

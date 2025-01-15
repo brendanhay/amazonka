@@ -75,8 +75,8 @@ instance Prelude.Hashable ReshardingConfiguration where
 
 instance Prelude.NFData ReshardingConfiguration where
   rnf ReshardingConfiguration' {..} =
-    Prelude.rnf nodeGroupId
-      `Prelude.seq` Prelude.rnf preferredAvailabilityZones
+    Prelude.rnf nodeGroupId `Prelude.seq`
+      Prelude.rnf preferredAvailabilityZones
 
 instance Data.ToQuery ReshardingConfiguration where
   toQuery ReshardingConfiguration' {..} =

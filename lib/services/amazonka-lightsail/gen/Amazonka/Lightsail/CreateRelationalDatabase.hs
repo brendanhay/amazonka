@@ -698,17 +698,17 @@ instance Prelude.Hashable CreateRelationalDatabase where
 
 instance Prelude.NFData CreateRelationalDatabase where
   rnf CreateRelationalDatabase' {..} =
-    Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf masterUserPassword
-      `Prelude.seq` Prelude.rnf preferredBackupWindow
-      `Prelude.seq` Prelude.rnf preferredMaintenanceWindow
-      `Prelude.seq` Prelude.rnf publiclyAccessible
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf relationalDatabaseName
-      `Prelude.seq` Prelude.rnf relationalDatabaseBlueprintId
-      `Prelude.seq` Prelude.rnf relationalDatabaseBundleId
-      `Prelude.seq` Prelude.rnf masterDatabaseName
-      `Prelude.seq` Prelude.rnf masterUsername
+    Prelude.rnf availabilityZone `Prelude.seq`
+      Prelude.rnf masterUserPassword `Prelude.seq`
+        Prelude.rnf preferredBackupWindow `Prelude.seq`
+          Prelude.rnf preferredMaintenanceWindow `Prelude.seq`
+            Prelude.rnf publiclyAccessible `Prelude.seq`
+              Prelude.rnf tags `Prelude.seq`
+                Prelude.rnf relationalDatabaseName `Prelude.seq`
+                  Prelude.rnf relationalDatabaseBlueprintId `Prelude.seq`
+                    Prelude.rnf relationalDatabaseBundleId `Prelude.seq`
+                      Prelude.rnf masterDatabaseName `Prelude.seq`
+                        Prelude.rnf masterUsername
 
 instance Data.ToHeaders CreateRelationalDatabase where
   toHeaders =
@@ -815,5 +815,5 @@ instance
     CreateRelationalDatabaseResponse
   where
   rnf CreateRelationalDatabaseResponse' {..} =
-    Prelude.rnf operations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operations `Prelude.seq`
+      Prelude.rnf httpStatus

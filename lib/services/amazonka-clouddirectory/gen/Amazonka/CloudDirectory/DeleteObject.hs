@@ -113,8 +113,8 @@ instance Prelude.Hashable DeleteObject where
 
 instance Prelude.NFData DeleteObject where
   rnf DeleteObject' {..} =
-    Prelude.rnf directoryArn
-      `Prelude.seq` Prelude.rnf objectReference
+    Prelude.rnf directoryArn `Prelude.seq`
+      Prelude.rnf objectReference
 
 instance Data.ToHeaders DeleteObject where
   toHeaders DeleteObject' {..} =

@@ -220,13 +220,13 @@ instance
     AwsEc2SecurityGroupIpPermission
   where
   rnf AwsEc2SecurityGroupIpPermission' {..} =
-    Prelude.rnf fromPort
-      `Prelude.seq` Prelude.rnf ipProtocol
-      `Prelude.seq` Prelude.rnf ipRanges
-      `Prelude.seq` Prelude.rnf ipv6Ranges
-      `Prelude.seq` Prelude.rnf prefixListIds
-      `Prelude.seq` Prelude.rnf toPort
-      `Prelude.seq` Prelude.rnf userIdGroupPairs
+    Prelude.rnf fromPort `Prelude.seq`
+      Prelude.rnf ipProtocol `Prelude.seq`
+        Prelude.rnf ipRanges `Prelude.seq`
+          Prelude.rnf ipv6Ranges `Prelude.seq`
+            Prelude.rnf prefixListIds `Prelude.seq`
+              Prelude.rnf toPort `Prelude.seq`
+                Prelude.rnf userIdGroupPairs
 
 instance Data.ToJSON AwsEc2SecurityGroupIpPermission where
   toJSON AwsEc2SecurityGroupIpPermission' {..} =

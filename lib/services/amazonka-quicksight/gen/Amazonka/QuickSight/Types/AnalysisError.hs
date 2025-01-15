@@ -94,6 +94,6 @@ instance Prelude.Hashable AnalysisError where
 
 instance Prelude.NFData AnalysisError where
   rnf AnalysisError' {..} =
-    Prelude.rnf message
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf violatedEntities
+    Prelude.rnf message `Prelude.seq`
+      Prelude.rnf type' `Prelude.seq`
+        Prelude.rnf violatedEntities

@@ -113,8 +113,8 @@ instance Prelude.Hashable DeleteImagePermissions where
 
 instance Prelude.NFData DeleteImagePermissions where
   rnf DeleteImagePermissions' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf sharedAccountId
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf sharedAccountId
 
 instance Data.ToHeaders DeleteImagePermissions where
   toHeaders =

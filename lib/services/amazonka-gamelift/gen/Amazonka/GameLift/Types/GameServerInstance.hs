@@ -128,7 +128,7 @@ instance Prelude.Hashable GameServerInstance where
 
 instance Prelude.NFData GameServerInstance where
   rnf GameServerInstance' {..} =
-    Prelude.rnf gameServerGroupArn
-      `Prelude.seq` Prelude.rnf gameServerGroupName
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf instanceStatus
+    Prelude.rnf gameServerGroupArn `Prelude.seq`
+      Prelude.rnf gameServerGroupName `Prelude.seq`
+        Prelude.rnf instanceId `Prelude.seq`
+          Prelude.rnf instanceStatus

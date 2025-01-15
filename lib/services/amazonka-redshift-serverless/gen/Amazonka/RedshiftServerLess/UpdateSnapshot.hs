@@ -108,8 +108,8 @@ instance Prelude.Hashable UpdateSnapshot where
 
 instance Prelude.NFData UpdateSnapshot where
   rnf UpdateSnapshot' {..} =
-    Prelude.rnf retentionPeriod
-      `Prelude.seq` Prelude.rnf snapshotName
+    Prelude.rnf retentionPeriod `Prelude.seq`
+      Prelude.rnf snapshotName
 
 instance Data.ToHeaders UpdateSnapshot where
   toHeaders =
@@ -182,5 +182,5 @@ updateSnapshotResponse_httpStatus = Lens.lens (\UpdateSnapshotResponse' {httpSta
 
 instance Prelude.NFData UpdateSnapshotResponse where
   rnf UpdateSnapshotResponse' {..} =
-    Prelude.rnf snapshot
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf snapshot `Prelude.seq`
+      Prelude.rnf httpStatus

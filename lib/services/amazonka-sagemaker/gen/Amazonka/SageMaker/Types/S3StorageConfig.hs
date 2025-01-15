@@ -121,9 +121,9 @@ instance Prelude.Hashable S3StorageConfig where
 
 instance Prelude.NFData S3StorageConfig where
   rnf S3StorageConfig' {..} =
-    Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf resolvedOutputS3Uri
-      `Prelude.seq` Prelude.rnf s3Uri
+    Prelude.rnf kmsKeyId `Prelude.seq`
+      Prelude.rnf resolvedOutputS3Uri `Prelude.seq`
+        Prelude.rnf s3Uri
 
 instance Data.ToJSON S3StorageConfig where
   toJSON S3StorageConfig' {..} =

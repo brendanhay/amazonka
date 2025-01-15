@@ -99,6 +99,6 @@ instance Prelude.Hashable InAppCampaignSchedule where
 
 instance Prelude.NFData InAppCampaignSchedule where
   rnf InAppCampaignSchedule' {..} =
-    Prelude.rnf endDate
-      `Prelude.seq` Prelude.rnf eventFilter
-      `Prelude.seq` Prelude.rnf quietTime
+    Prelude.rnf endDate `Prelude.seq`
+      Prelude.rnf eventFilter `Prelude.seq`
+        Prelude.rnf quietTime

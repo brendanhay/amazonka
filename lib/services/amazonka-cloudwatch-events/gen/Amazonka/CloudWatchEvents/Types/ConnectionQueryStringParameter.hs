@@ -103,9 +103,9 @@ instance
     ConnectionQueryStringParameter
   where
   rnf ConnectionQueryStringParameter' {..} =
-    Prelude.rnf isValueSecret
-      `Prelude.seq` Prelude.rnf key
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf isValueSecret `Prelude.seq`
+      Prelude.rnf key `Prelude.seq`
+        Prelude.rnf value
 
 instance Data.ToJSON ConnectionQueryStringParameter where
   toJSON ConnectionQueryStringParameter' {..} =

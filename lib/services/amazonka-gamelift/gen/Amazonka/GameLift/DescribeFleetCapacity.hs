@@ -167,12 +167,12 @@ instance Core.AWSPager DescribeFleetCapacity where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeFleetCapacity_nextToken
-          Lens..~ rs
-          Lens.^? describeFleetCapacityResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeFleetCapacity_nextToken
+              Lens..~ rs
+              Lens.^? describeFleetCapacityResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeFleetCapacity where
   type
@@ -198,9 +198,9 @@ instance Prelude.Hashable DescribeFleetCapacity where
 
 instance Prelude.NFData DescribeFleetCapacity where
   rnf DescribeFleetCapacity' {..} =
-    Prelude.rnf fleetIds
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf fleetIds `Prelude.seq`
+      Prelude.rnf limit `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeFleetCapacity where
   toHeaders =
@@ -295,6 +295,6 @@ describeFleetCapacityResponse_httpStatus = Lens.lens (\DescribeFleetCapacityResp
 
 instance Prelude.NFData DescribeFleetCapacityResponse where
   rnf DescribeFleetCapacityResponse' {..} =
-    Prelude.rnf fleetCapacity
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf fleetCapacity `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

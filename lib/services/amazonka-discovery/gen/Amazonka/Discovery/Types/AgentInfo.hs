@@ -180,13 +180,13 @@ instance Prelude.Hashable AgentInfo where
 
 instance Prelude.NFData AgentInfo where
   rnf AgentInfo' {..} =
-    Prelude.rnf agentId
-      `Prelude.seq` Prelude.rnf agentNetworkInfoList
-      `Prelude.seq` Prelude.rnf agentType
-      `Prelude.seq` Prelude.rnf collectionStatus
-      `Prelude.seq` Prelude.rnf connectorId
-      `Prelude.seq` Prelude.rnf health
-      `Prelude.seq` Prelude.rnf hostName
-      `Prelude.seq` Prelude.rnf lastHealthPingTime
-      `Prelude.seq` Prelude.rnf registeredTime
-      `Prelude.seq` Prelude.rnf version
+    Prelude.rnf agentId `Prelude.seq`
+      Prelude.rnf agentNetworkInfoList `Prelude.seq`
+        Prelude.rnf agentType `Prelude.seq`
+          Prelude.rnf collectionStatus `Prelude.seq`
+            Prelude.rnf connectorId `Prelude.seq`
+              Prelude.rnf health `Prelude.seq`
+                Prelude.rnf hostName `Prelude.seq`
+                  Prelude.rnf lastHealthPingTime `Prelude.seq`
+                    Prelude.rnf registeredTime `Prelude.seq`
+                      Prelude.rnf version

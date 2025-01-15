@@ -151,5 +151,5 @@ instance
     GetDistributionBundlesResponse
   where
   rnf GetDistributionBundlesResponse' {..} =
-    Prelude.rnf bundles
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf bundles `Prelude.seq`
+      Prelude.rnf httpStatus

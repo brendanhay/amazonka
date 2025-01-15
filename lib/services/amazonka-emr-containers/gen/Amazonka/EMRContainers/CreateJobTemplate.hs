@@ -157,11 +157,11 @@ instance Prelude.Hashable CreateJobTemplate where
 
 instance Prelude.NFData CreateJobTemplate where
   rnf CreateJobTemplate' {..} =
-    Prelude.rnf kmsKeyArn
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf jobTemplateData
+    Prelude.rnf kmsKeyArn `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf clientToken `Prelude.seq`
+            Prelude.rnf jobTemplateData
 
 instance Data.ToHeaders CreateJobTemplate where
   toHeaders =
@@ -263,8 +263,8 @@ createJobTemplateResponse_httpStatus = Lens.lens (\CreateJobTemplateResponse' {h
 
 instance Prelude.NFData CreateJobTemplateResponse where
   rnf CreateJobTemplateResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf createdAt `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf httpStatus

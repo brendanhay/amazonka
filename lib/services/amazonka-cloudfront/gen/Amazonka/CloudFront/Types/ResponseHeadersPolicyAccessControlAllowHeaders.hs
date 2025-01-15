@@ -79,9 +79,7 @@ instance
   parseXML x =
     ResponseHeadersPolicyAccessControlAllowHeaders'
       Prelude.<$> (x Data..@ "Quantity")
-      Prelude.<*> ( x
-                      Data..@? "Items"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "Items" Core..!@ Prelude.mempty
                       Prelude.>>= Data.parseXMLList "Header"
                   )
 
@@ -102,8 +100,8 @@ instance
   where
   rnf
     ResponseHeadersPolicyAccessControlAllowHeaders' {..} =
-      Prelude.rnf quantity
-        `Prelude.seq` Prelude.rnf items
+      Prelude.rnf quantity `Prelude.seq`
+        Prelude.rnf items
 
 instance
   Data.ToXML

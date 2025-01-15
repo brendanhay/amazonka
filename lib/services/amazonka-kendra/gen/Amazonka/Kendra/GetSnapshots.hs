@@ -235,11 +235,11 @@ instance Prelude.Hashable GetSnapshots where
 
 instance Prelude.NFData GetSnapshots where
   rnf GetSnapshots' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf indexId
-      `Prelude.seq` Prelude.rnf interval
-      `Prelude.seq` Prelude.rnf metricType
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf indexId `Prelude.seq`
+          Prelude.rnf interval `Prelude.seq`
+            Prelude.rnf metricType
 
 instance Data.ToHeaders GetSnapshots where
   toHeaders =
@@ -353,8 +353,8 @@ getSnapshotsResponse_httpStatus = Lens.lens (\GetSnapshotsResponse' {httpStatus}
 
 instance Prelude.NFData GetSnapshotsResponse where
   rnf GetSnapshotsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf snapShotTimeFilter
-      `Prelude.seq` Prelude.rnf snapshotsData
-      `Prelude.seq` Prelude.rnf snapshotsDataHeader
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf snapShotTimeFilter `Prelude.seq`
+        Prelude.rnf snapshotsData `Prelude.seq`
+          Prelude.rnf snapshotsDataHeader `Prelude.seq`
+            Prelude.rnf httpStatus

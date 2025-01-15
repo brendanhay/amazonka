@@ -168,5 +168,5 @@ instance
     AcknowledgeOrderReceiptResponse
   where
   rnf AcknowledgeOrderReceiptResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf order
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf order

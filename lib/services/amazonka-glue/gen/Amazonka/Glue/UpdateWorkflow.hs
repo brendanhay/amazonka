@@ -146,10 +146,10 @@ instance Prelude.Hashable UpdateWorkflow where
 
 instance Prelude.NFData UpdateWorkflow where
   rnf UpdateWorkflow' {..} =
-    Prelude.rnf defaultRunProperties
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf maxConcurrentRuns
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf defaultRunProperties `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf maxConcurrentRuns `Prelude.seq`
+          Prelude.rnf name
 
 instance Data.ToHeaders UpdateWorkflow where
   toHeaders =
@@ -223,5 +223,5 @@ updateWorkflowResponse_httpStatus = Lens.lens (\UpdateWorkflowResponse' {httpSta
 
 instance Prelude.NFData UpdateWorkflowResponse where
   rnf UpdateWorkflowResponse' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf httpStatus

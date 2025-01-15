@@ -134,10 +134,10 @@ instance Prelude.Hashable ListTokens where
 
 instance Prelude.NFData ListTokens where
   rnf ListTokens' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf tokenIds
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf tokenIds
 
 instance Data.ToHeaders ListTokens where
   toHeaders =
@@ -220,6 +220,6 @@ listTokensResponse_httpStatus = Lens.lens (\ListTokensResponse' {httpStatus} -> 
 
 instance Prelude.NFData ListTokensResponse where
   rnf ListTokensResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf tokens
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf tokens `Prelude.seq`
+        Prelude.rnf httpStatus

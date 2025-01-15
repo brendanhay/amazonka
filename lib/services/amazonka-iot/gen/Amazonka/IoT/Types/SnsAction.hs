@@ -114,9 +114,9 @@ instance Prelude.Hashable SnsAction where
 
 instance Prelude.NFData SnsAction where
   rnf SnsAction' {..} =
-    Prelude.rnf messageFormat
-      `Prelude.seq` Prelude.rnf targetArn
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf messageFormat `Prelude.seq`
+      Prelude.rnf targetArn `Prelude.seq`
+        Prelude.rnf roleArn
 
 instance Data.ToJSON SnsAction where
   toJSON SnsAction' {..} =

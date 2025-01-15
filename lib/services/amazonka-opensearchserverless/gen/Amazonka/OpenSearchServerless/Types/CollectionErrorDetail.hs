@@ -111,7 +111,7 @@ instance Prelude.Hashable CollectionErrorDetail where
 
 instance Prelude.NFData CollectionErrorDetail where
   rnf CollectionErrorDetail' {..} =
-    Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf errorCode `Prelude.seq`
+      Prelude.rnf errorMessage `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf name

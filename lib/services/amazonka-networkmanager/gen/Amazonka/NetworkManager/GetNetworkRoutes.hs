@@ -215,16 +215,16 @@ instance Prelude.Hashable GetNetworkRoutes where
 
 instance Prelude.NFData GetNetworkRoutes where
   rnf GetNetworkRoutes' {..} =
-    Prelude.rnf destinationFilters
-      `Prelude.seq` Prelude.rnf exactCidrMatches
-      `Prelude.seq` Prelude.rnf longestPrefixMatches
-      `Prelude.seq` Prelude.rnf prefixListIds
-      `Prelude.seq` Prelude.rnf states
-      `Prelude.seq` Prelude.rnf subnetOfMatches
-      `Prelude.seq` Prelude.rnf supernetOfMatches
-      `Prelude.seq` Prelude.rnf types
-      `Prelude.seq` Prelude.rnf globalNetworkId
-      `Prelude.seq` Prelude.rnf routeTableIdentifier
+    Prelude.rnf destinationFilters `Prelude.seq`
+      Prelude.rnf exactCidrMatches `Prelude.seq`
+        Prelude.rnf longestPrefixMatches `Prelude.seq`
+          Prelude.rnf prefixListIds `Prelude.seq`
+            Prelude.rnf states `Prelude.seq`
+              Prelude.rnf subnetOfMatches `Prelude.seq`
+                Prelude.rnf supernetOfMatches `Prelude.seq`
+                  Prelude.rnf types `Prelude.seq`
+                    Prelude.rnf globalNetworkId `Prelude.seq`
+                      Prelude.rnf routeTableIdentifier
 
 instance Data.ToHeaders GetNetworkRoutes where
   toHeaders =
@@ -349,9 +349,9 @@ getNetworkRoutesResponse_httpStatus = Lens.lens (\GetNetworkRoutesResponse' {htt
 
 instance Prelude.NFData GetNetworkRoutesResponse where
   rnf GetNetworkRoutesResponse' {..} =
-    Prelude.rnf coreNetworkSegmentEdge
-      `Prelude.seq` Prelude.rnf networkRoutes
-      `Prelude.seq` Prelude.rnf routeTableArn
-      `Prelude.seq` Prelude.rnf routeTableTimestamp
-      `Prelude.seq` Prelude.rnf routeTableType
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf coreNetworkSegmentEdge `Prelude.seq`
+      Prelude.rnf networkRoutes `Prelude.seq`
+        Prelude.rnf routeTableArn `Prelude.seq`
+          Prelude.rnf routeTableTimestamp `Prelude.seq`
+            Prelude.rnf routeTableType `Prelude.seq`
+              Prelude.rnf httpStatus

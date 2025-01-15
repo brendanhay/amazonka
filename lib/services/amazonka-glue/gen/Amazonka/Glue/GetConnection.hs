@@ -137,9 +137,9 @@ instance Prelude.Hashable GetConnection where
 
 instance Prelude.NFData GetConnection where
   rnf GetConnection' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf hidePassword
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf catalogId `Prelude.seq`
+      Prelude.rnf hidePassword `Prelude.seq`
+        Prelude.rnf name
 
 instance Data.ToHeaders GetConnection where
   toHeaders =
@@ -211,5 +211,5 @@ getConnectionResponse_httpStatus = Lens.lens (\GetConnectionResponse' {httpStatu
 
 instance Prelude.NFData GetConnectionResponse where
   rnf GetConnectionResponse' {..} =
-    Prelude.rnf connection
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf connection `Prelude.seq`
+      Prelude.rnf httpStatus

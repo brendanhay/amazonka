@@ -102,9 +102,9 @@ instance Prelude.Hashable ExportFilter where
 
 instance Prelude.NFData ExportFilter where
   rnf ExportFilter' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf values
-      `Prelude.seq` Prelude.rnf operator
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf values `Prelude.seq`
+        Prelude.rnf operator
 
 instance Data.ToJSON ExportFilter where
   toJSON ExportFilter' {..} =

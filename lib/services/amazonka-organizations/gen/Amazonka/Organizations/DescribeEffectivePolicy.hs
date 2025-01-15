@@ -150,8 +150,8 @@ instance Prelude.Hashable DescribeEffectivePolicy where
 
 instance Prelude.NFData DescribeEffectivePolicy where
   rnf DescribeEffectivePolicy' {..} =
-    Prelude.rnf targetId
-      `Prelude.seq` Prelude.rnf policyType
+    Prelude.rnf targetId `Prelude.seq`
+      Prelude.rnf policyType
 
 instance Data.ToHeaders DescribeEffectivePolicy where
   toHeaders =
@@ -227,5 +227,5 @@ instance
     DescribeEffectivePolicyResponse
   where
   rnf DescribeEffectivePolicyResponse' {..} =
-    Prelude.rnf effectivePolicy
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf effectivePolicy `Prelude.seq`
+      Prelude.rnf httpStatus

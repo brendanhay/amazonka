@@ -146,8 +146,8 @@ instance Prelude.Hashable GeofenceGeometry where
 
 instance Prelude.NFData GeofenceGeometry where
   rnf GeofenceGeometry' {..} =
-    Prelude.rnf circle
-      `Prelude.seq` Prelude.rnf polygon
+    Prelude.rnf circle `Prelude.seq`
+      Prelude.rnf polygon
 
 instance Data.ToJSON GeofenceGeometry where
   toJSON GeofenceGeometry' {..} =

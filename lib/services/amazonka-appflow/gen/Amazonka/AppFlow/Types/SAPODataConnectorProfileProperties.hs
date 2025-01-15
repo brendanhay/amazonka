@@ -166,13 +166,13 @@ instance
     SAPODataConnectorProfileProperties
   where
   rnf SAPODataConnectorProfileProperties' {..} =
-    Prelude.rnf logonLanguage
-      `Prelude.seq` Prelude.rnf oAuthProperties
-      `Prelude.seq` Prelude.rnf privateLinkServiceName
-      `Prelude.seq` Prelude.rnf applicationHostUrl
-      `Prelude.seq` Prelude.rnf applicationServicePath
-      `Prelude.seq` Prelude.rnf portNumber
-      `Prelude.seq` Prelude.rnf clientNumber
+    Prelude.rnf logonLanguage `Prelude.seq`
+      Prelude.rnf oAuthProperties `Prelude.seq`
+        Prelude.rnf privateLinkServiceName `Prelude.seq`
+          Prelude.rnf applicationHostUrl `Prelude.seq`
+            Prelude.rnf applicationServicePath `Prelude.seq`
+              Prelude.rnf portNumber `Prelude.seq`
+                Prelude.rnf clientNumber
 
 instance
   Data.ToJSON

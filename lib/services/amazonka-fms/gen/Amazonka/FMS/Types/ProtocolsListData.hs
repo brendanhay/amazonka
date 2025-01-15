@@ -152,13 +152,13 @@ instance Prelude.Hashable ProtocolsListData where
 
 instance Prelude.NFData ProtocolsListData where
   rnf ProtocolsListData' {..} =
-    Prelude.rnf createTime
-      `Prelude.seq` Prelude.rnf lastUpdateTime
-      `Prelude.seq` Prelude.rnf listId
-      `Prelude.seq` Prelude.rnf listUpdateToken
-      `Prelude.seq` Prelude.rnf previousProtocolsList
-      `Prelude.seq` Prelude.rnf listName
-      `Prelude.seq` Prelude.rnf protocolsList
+    Prelude.rnf createTime `Prelude.seq`
+      Prelude.rnf lastUpdateTime `Prelude.seq`
+        Prelude.rnf listId `Prelude.seq`
+          Prelude.rnf listUpdateToken `Prelude.seq`
+            Prelude.rnf previousProtocolsList `Prelude.seq`
+              Prelude.rnf listName `Prelude.seq`
+                Prelude.rnf protocolsList
 
 instance Data.ToJSON ProtocolsListData where
   toJSON ProtocolsListData' {..} =

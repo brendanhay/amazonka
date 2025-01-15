@@ -86,5 +86,5 @@ instance Prelude.Hashable LogGroupSummary where
 
 instance Prelude.NFData LogGroupSummary where
   rnf LogGroupSummary' {..} =
-    Prelude.rnf logGroupName
-      `Prelude.seq` Prelude.rnf logType
+    Prelude.rnf logGroupName `Prelude.seq`
+      Prelude.rnf logType

@@ -101,9 +101,9 @@ instance
     ExportAssetToSignedUrlRequestDetails
   where
   rnf ExportAssetToSignedUrlRequestDetails' {..} =
-    Prelude.rnf assetId
-      `Prelude.seq` Prelude.rnf dataSetId
-      `Prelude.seq` Prelude.rnf revisionId
+    Prelude.rnf assetId `Prelude.seq`
+      Prelude.rnf dataSetId `Prelude.seq`
+        Prelude.rnf revisionId
 
 instance
   Data.ToJSON

@@ -455,16 +455,16 @@ instance Prelude.Hashable PutScalingPolicy where
 
 instance Prelude.NFData PutScalingPolicy where
   rnf PutScalingPolicy' {..} =
-    Prelude.rnf comparisonOperator
-      `Prelude.seq` Prelude.rnf evaluationPeriods
-      `Prelude.seq` Prelude.rnf policyType
-      `Prelude.seq` Prelude.rnf scalingAdjustment
-      `Prelude.seq` Prelude.rnf scalingAdjustmentType
-      `Prelude.seq` Prelude.rnf targetConfiguration
-      `Prelude.seq` Prelude.rnf threshold
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf fleetId
-      `Prelude.seq` Prelude.rnf metricName
+    Prelude.rnf comparisonOperator `Prelude.seq`
+      Prelude.rnf evaluationPeriods `Prelude.seq`
+        Prelude.rnf policyType `Prelude.seq`
+          Prelude.rnf scalingAdjustment `Prelude.seq`
+            Prelude.rnf scalingAdjustmentType `Prelude.seq`
+              Prelude.rnf targetConfiguration `Prelude.seq`
+                Prelude.rnf threshold `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf fleetId `Prelude.seq`
+                      Prelude.rnf metricName
 
 instance Data.ToHeaders PutScalingPolicy where
   toHeaders =
@@ -550,5 +550,5 @@ putScalingPolicyResponse_httpStatus = Lens.lens (\PutScalingPolicyResponse' {htt
 
 instance Prelude.NFData PutScalingPolicyResponse where
   rnf PutScalingPolicyResponse' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf httpStatus

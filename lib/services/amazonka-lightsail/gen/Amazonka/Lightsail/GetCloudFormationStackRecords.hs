@@ -112,12 +112,12 @@ instance Core.AWSPager GetCloudFormationStackRecords where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getCloudFormationStackRecords_pageToken
-          Lens..~ rs
-          Lens.^? getCloudFormationStackRecordsResponse_nextPageToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getCloudFormationStackRecords_pageToken
+              Lens..~ rs
+              Lens.^? getCloudFormationStackRecordsResponse_nextPageToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -253,6 +253,6 @@ instance
     GetCloudFormationStackRecordsResponse
   where
   rnf GetCloudFormationStackRecordsResponse' {..} =
-    Prelude.rnf cloudFormationStackRecords
-      `Prelude.seq` Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf cloudFormationStackRecords `Prelude.seq`
+      Prelude.rnf nextPageToken `Prelude.seq`
+        Prelude.rnf httpStatus

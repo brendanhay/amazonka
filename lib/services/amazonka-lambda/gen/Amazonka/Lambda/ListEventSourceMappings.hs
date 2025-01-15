@@ -211,12 +211,12 @@ instance Core.AWSPager ListEventSourceMappings where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listEventSourceMappings_marker
-          Lens..~ rs
-          Lens.^? listEventSourceMappingsResponse_nextMarker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listEventSourceMappings_marker
+              Lens..~ rs
+              Lens.^? listEventSourceMappingsResponse_nextMarker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListEventSourceMappings where
   type
@@ -246,10 +246,10 @@ instance Prelude.Hashable ListEventSourceMappings where
 
 instance Prelude.NFData ListEventSourceMappings where
   rnf ListEventSourceMappings' {..} =
-    Prelude.rnf eventSourceArn
-      `Prelude.seq` Prelude.rnf functionName
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxItems
+    Prelude.rnf eventSourceArn `Prelude.seq`
+      Prelude.rnf functionName `Prelude.seq`
+        Prelude.rnf marker `Prelude.seq`
+          Prelude.rnf maxItems
 
 instance Data.ToHeaders ListEventSourceMappings where
   toHeaders = Prelude.const Prelude.mempty
@@ -323,6 +323,6 @@ instance
     ListEventSourceMappingsResponse
   where
   rnf ListEventSourceMappingsResponse' {..} =
-    Prelude.rnf eventSourceMappings
-      `Prelude.seq` Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf eventSourceMappings `Prelude.seq`
+      Prelude.rnf nextMarker `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -138,9 +138,9 @@ instance Prelude.Hashable CreateReceiptRule where
 
 instance Prelude.NFData CreateReceiptRule where
   rnf CreateReceiptRule' {..} =
-    Prelude.rnf after
-      `Prelude.seq` Prelude.rnf ruleSetName
-      `Prelude.seq` Prelude.rnf rule
+    Prelude.rnf after `Prelude.seq`
+      Prelude.rnf ruleSetName `Prelude.seq`
+        Prelude.rnf rule
 
 instance Data.ToHeaders CreateReceiptRule where
   toHeaders = Prelude.const Prelude.mempty

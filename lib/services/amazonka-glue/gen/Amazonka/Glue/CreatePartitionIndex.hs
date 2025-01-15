@@ -144,10 +144,10 @@ instance Prelude.Hashable CreatePartitionIndex where
 
 instance Prelude.NFData CreatePartitionIndex where
   rnf CreatePartitionIndex' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf tableName
-      `Prelude.seq` Prelude.rnf partitionIndex
+    Prelude.rnf catalogId `Prelude.seq`
+      Prelude.rnf databaseName `Prelude.seq`
+        Prelude.rnf tableName `Prelude.seq`
+          Prelude.rnf partitionIndex
 
 instance Data.ToHeaders CreatePartitionIndex where
   toHeaders =

@@ -105,8 +105,8 @@ instance Prelude.Hashable SessionStickinessConfig where
 
 instance Prelude.NFData SessionStickinessConfig where
   rnf SessionStickinessConfig' {..} =
-    Prelude.rnf idleTTL
-      `Prelude.seq` Prelude.rnf maximumTTL
+    Prelude.rnf idleTTL `Prelude.seq`
+      Prelude.rnf maximumTTL
 
 instance Data.ToXML SessionStickinessConfig where
   toXML SessionStickinessConfig' {..} =

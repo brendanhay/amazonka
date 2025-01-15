@@ -146,9 +146,9 @@ instance
     DisassociateTransitGatewayRouteTable
   where
   rnf DisassociateTransitGatewayRouteTable' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf transitGatewayRouteTableId
-      `Prelude.seq` Prelude.rnf transitGatewayAttachmentId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf transitGatewayRouteTableId `Prelude.seq`
+        Prelude.rnf transitGatewayAttachmentId
 
 instance
   Data.ToHeaders
@@ -226,5 +226,5 @@ instance
     DisassociateTransitGatewayRouteTableResponse
   where
   rnf DisassociateTransitGatewayRouteTableResponse' {..} =
-    Prelude.rnf association
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf association `Prelude.seq`
+      Prelude.rnf httpStatus

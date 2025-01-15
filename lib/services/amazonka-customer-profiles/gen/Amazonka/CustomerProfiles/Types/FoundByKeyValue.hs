@@ -83,5 +83,5 @@ instance Prelude.Hashable FoundByKeyValue where
 
 instance Prelude.NFData FoundByKeyValue where
   rnf FoundByKeyValue' {..} =
-    Prelude.rnf keyName
-      `Prelude.seq` Prelude.rnf values
+    Prelude.rnf keyName `Prelude.seq`
+      Prelude.rnf values

@@ -117,8 +117,8 @@ instance
 
 instance Prelude.NFData ModifySelfservicePermissions where
   rnf ModifySelfservicePermissions' {..} =
-    Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf selfservicePermissions
+    Prelude.rnf resourceId `Prelude.seq`
+      Prelude.rnf selfservicePermissions
 
 instance Data.ToHeaders ModifySelfservicePermissions where
   toHeaders =

@@ -98,9 +98,9 @@ instance Prelude.Hashable SplitFields where
 
 instance Prelude.NFData SplitFields where
   rnf SplitFields' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf inputs
-      `Prelude.seq` Prelude.rnf paths
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf inputs `Prelude.seq`
+        Prelude.rnf paths
 
 instance Data.ToJSON SplitFields where
   toJSON SplitFields' {..} =

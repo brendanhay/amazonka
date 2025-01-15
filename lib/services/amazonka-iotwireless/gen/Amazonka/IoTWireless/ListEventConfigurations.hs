@@ -131,9 +131,9 @@ instance Prelude.Hashable ListEventConfigurations where
 
 instance Prelude.NFData ListEventConfigurations where
   rnf ListEventConfigurations' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf resourceType
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf resourceType
 
 instance Data.ToHeaders ListEventConfigurations where
   toHeaders = Prelude.const Prelude.mempty
@@ -208,6 +208,6 @@ instance
     ListEventConfigurationsResponse
   where
   rnf ListEventConfigurationsResponse' {..} =
-    Prelude.rnf eventConfigurationsList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf eventConfigurationsList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

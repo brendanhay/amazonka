@@ -214,12 +214,12 @@ instance
     ServiceNowServiceCatalogConfiguration
   where
   rnf ServiceNowServiceCatalogConfiguration' {..} =
-    Prelude.rnf crawlAttachments
-      `Prelude.seq` Prelude.rnf documentTitleFieldName
-      `Prelude.seq` Prelude.rnf excludeAttachmentFilePatterns
-      `Prelude.seq` Prelude.rnf fieldMappings
-      `Prelude.seq` Prelude.rnf includeAttachmentFilePatterns
-      `Prelude.seq` Prelude.rnf documentDataFieldName
+    Prelude.rnf crawlAttachments `Prelude.seq`
+      Prelude.rnf documentTitleFieldName `Prelude.seq`
+        Prelude.rnf excludeAttachmentFilePatterns `Prelude.seq`
+          Prelude.rnf fieldMappings `Prelude.seq`
+            Prelude.rnf includeAttachmentFilePatterns `Prelude.seq`
+              Prelude.rnf documentDataFieldName
 
 instance
   Data.ToJSON

@@ -108,6 +108,6 @@ instance
     BatchGetDocumentStatusResponseError
   where
   rnf BatchGetDocumentStatusResponseError' {..} =
-    Prelude.rnf documentId
-      `Prelude.seq` Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorMessage
+    Prelude.rnf documentId `Prelude.seq`
+      Prelude.rnf errorCode `Prelude.seq`
+        Prelude.rnf errorMessage

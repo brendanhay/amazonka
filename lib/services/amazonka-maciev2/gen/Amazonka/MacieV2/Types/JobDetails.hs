@@ -232,7 +232,7 @@ instance Prelude.Hashable JobDetails where
 
 instance Prelude.NFData JobDetails where
   rnf JobDetails' {..} =
-    Prelude.rnf isDefinedInJob
-      `Prelude.seq` Prelude.rnf isMonitoredByJob
-      `Prelude.seq` Prelude.rnf lastJobId
-      `Prelude.seq` Prelude.rnf lastJobRunTime
+    Prelude.rnf isDefinedInJob `Prelude.seq`
+      Prelude.rnf isMonitoredByJob `Prelude.seq`
+        Prelude.rnf lastJobId `Prelude.seq`
+          Prelude.rnf lastJobRunTime

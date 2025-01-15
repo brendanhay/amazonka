@@ -125,8 +125,8 @@ instance Prelude.Hashable PutDataLakeSettings where
 
 instance Prelude.NFData PutDataLakeSettings where
   rnf PutDataLakeSettings' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf dataLakeSettings
+    Prelude.rnf catalogId `Prelude.seq`
+      Prelude.rnf dataLakeSettings
 
 instance Data.ToHeaders PutDataLakeSettings where
   toHeaders =

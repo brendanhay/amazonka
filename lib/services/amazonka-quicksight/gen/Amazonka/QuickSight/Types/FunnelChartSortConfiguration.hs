@@ -86,8 +86,8 @@ instance
 
 instance Prelude.NFData FunnelChartSortConfiguration where
   rnf FunnelChartSortConfiguration' {..} =
-    Prelude.rnf categoryItemsLimit
-      `Prelude.seq` Prelude.rnf categorySort
+    Prelude.rnf categoryItemsLimit `Prelude.seq`
+      Prelude.rnf categorySort
 
 instance Data.ToJSON FunnelChartSortConfiguration where
   toJSON FunnelChartSortConfiguration' {..} =

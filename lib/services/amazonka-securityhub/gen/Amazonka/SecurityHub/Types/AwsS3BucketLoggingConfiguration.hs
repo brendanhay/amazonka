@@ -92,8 +92,8 @@ instance
     AwsS3BucketLoggingConfiguration
   where
   rnf AwsS3BucketLoggingConfiguration' {..} =
-    Prelude.rnf destinationBucketName
-      `Prelude.seq` Prelude.rnf logFilePrefix
+    Prelude.rnf destinationBucketName `Prelude.seq`
+      Prelude.rnf logFilePrefix
 
 instance Data.ToJSON AwsS3BucketLoggingConfiguration where
   toJSON AwsS3BucketLoggingConfiguration' {..} =

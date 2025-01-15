@@ -78,8 +78,8 @@ instance Prelude.Hashable ListJobsFilterCriteria where
 
 instance Prelude.NFData ListJobsFilterCriteria where
   rnf ListJobsFilterCriteria' {..} =
-    Prelude.rnf excludes
-      `Prelude.seq` Prelude.rnf includes
+    Prelude.rnf excludes `Prelude.seq`
+      Prelude.rnf includes
 
 instance Data.ToJSON ListJobsFilterCriteria where
   toJSON ListJobsFilterCriteria' {..} =

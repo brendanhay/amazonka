@@ -133,8 +133,8 @@ instance
 
 instance Prelude.NFData BatchDetectTargetedSentiment where
   rnf BatchDetectTargetedSentiment' {..} =
-    Prelude.rnf textList
-      `Prelude.seq` Prelude.rnf languageCode
+    Prelude.rnf textList `Prelude.seq`
+      Prelude.rnf languageCode
 
 instance Data.ToHeaders BatchDetectTargetedSentiment where
   toHeaders =
@@ -228,6 +228,6 @@ instance
     BatchDetectTargetedSentimentResponse
   where
   rnf BatchDetectTargetedSentimentResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf resultList
-      `Prelude.seq` Prelude.rnf errorList
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf resultList `Prelude.seq`
+        Prelude.rnf errorList

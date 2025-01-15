@@ -108,9 +108,9 @@ instance
     SankeyDiagramSortConfiguration
   where
   rnf SankeyDiagramSortConfiguration' {..} =
-    Prelude.rnf destinationItemsLimit
-      `Prelude.seq` Prelude.rnf sourceItemsLimit
-      `Prelude.seq` Prelude.rnf weightSort
+    Prelude.rnf destinationItemsLimit `Prelude.seq`
+      Prelude.rnf sourceItemsLimit `Prelude.seq`
+        Prelude.rnf weightSort
 
 instance Data.ToJSON SankeyDiagramSortConfiguration where
   toJSON SankeyDiagramSortConfiguration' {..} =

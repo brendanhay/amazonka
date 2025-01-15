@@ -114,12 +114,12 @@ instance Core.AWSPager ListStreamKeys where
         (rs Lens.^. listStreamKeysResponse_streamKeys) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listStreamKeys_nextToken
-          Lens..~ rs
-          Lens.^? listStreamKeysResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listStreamKeys_nextToken
+              Lens..~ rs
+              Lens.^? listStreamKeysResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListStreamKeys where
   type
@@ -145,9 +145,9 @@ instance Prelude.Hashable ListStreamKeys where
 
 instance Prelude.NFData ListStreamKeys where
   rnf ListStreamKeys' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf channelArn
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf channelArn
 
 instance Data.ToHeaders ListStreamKeys where
   toHeaders =
@@ -229,6 +229,6 @@ listStreamKeysResponse_streamKeys = Lens.lens (\ListStreamKeysResponse' {streamK
 
 instance Prelude.NFData ListStreamKeysResponse where
   rnf ListStreamKeysResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf streamKeys
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf streamKeys

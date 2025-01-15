@@ -150,9 +150,9 @@ instance Prelude.Hashable CreateCodeRepository where
 
 instance Prelude.NFData CreateCodeRepository where
   rnf CreateCodeRepository' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf codeRepositoryName
-      `Prelude.seq` Prelude.rnf gitConfig
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf codeRepositoryName `Prelude.seq`
+        Prelude.rnf gitConfig
 
 instance Data.ToHeaders CreateCodeRepository where
   toHeaders =
@@ -231,5 +231,5 @@ createCodeRepositoryResponse_codeRepositoryArn = Lens.lens (\CreateCodeRepositor
 
 instance Prelude.NFData CreateCodeRepositoryResponse where
   rnf CreateCodeRepositoryResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf codeRepositoryArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf codeRepositoryArn

@@ -153,10 +153,10 @@ instance Prelude.Hashable CreateEndpointAccess where
 
 instance Prelude.NFData CreateEndpointAccess where
   rnf CreateEndpointAccess' {..} =
-    Prelude.rnf vpcSecurityGroupIds
-      `Prelude.seq` Prelude.rnf endpointName
-      `Prelude.seq` Prelude.rnf subnetIds
-      `Prelude.seq` Prelude.rnf workgroupName
+    Prelude.rnf vpcSecurityGroupIds `Prelude.seq`
+      Prelude.rnf endpointName `Prelude.seq`
+        Prelude.rnf subnetIds `Prelude.seq`
+          Prelude.rnf workgroupName
 
 instance Data.ToHeaders CreateEndpointAccess where
   toHeaders =
@@ -233,5 +233,5 @@ createEndpointAccessResponse_httpStatus = Lens.lens (\CreateEndpointAccessRespon
 
 instance Prelude.NFData CreateEndpointAccessResponse where
   rnf CreateEndpointAccessResponse' {..} =
-    Prelude.rnf endpoint
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf endpoint `Prelude.seq`
+      Prelude.rnf httpStatus

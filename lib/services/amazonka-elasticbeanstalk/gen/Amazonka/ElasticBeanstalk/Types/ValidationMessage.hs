@@ -117,7 +117,7 @@ instance Prelude.Hashable ValidationMessage where
 
 instance Prelude.NFData ValidationMessage where
   rnf ValidationMessage' {..} =
-    Prelude.rnf message
-      `Prelude.seq` Prelude.rnf namespace
-      `Prelude.seq` Prelude.rnf optionName
-      `Prelude.seq` Prelude.rnf severity
+    Prelude.rnf message `Prelude.seq`
+      Prelude.rnf namespace `Prelude.seq`
+        Prelude.rnf optionName `Prelude.seq`
+          Prelude.rnf severity

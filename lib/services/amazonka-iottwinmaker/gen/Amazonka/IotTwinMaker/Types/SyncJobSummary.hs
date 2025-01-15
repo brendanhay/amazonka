@@ -125,9 +125,9 @@ instance Prelude.Hashable SyncJobSummary where
 
 instance Prelude.NFData SyncJobSummary where
   rnf SyncJobSummary' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf syncSource
-      `Prelude.seq` Prelude.rnf updateDateTime
-      `Prelude.seq` Prelude.rnf workspaceId
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf creationDateTime `Prelude.seq`
+        Prelude.rnf status `Prelude.seq`
+          Prelude.rnf syncSource `Prelude.seq`
+            Prelude.rnf updateDateTime `Prelude.seq`
+              Prelude.rnf workspaceId

@@ -106,8 +106,8 @@ instance Prelude.Hashable GetBot where
 
 instance Prelude.NFData GetBot where
   rnf GetBot' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf botId
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf botId
 
 instance Data.ToHeaders GetBot where
   toHeaders = Prelude.const Prelude.mempty
@@ -164,5 +164,5 @@ getBotResponse_httpStatus = Lens.lens (\GetBotResponse' {httpStatus} -> httpStat
 
 instance Prelude.NFData GetBotResponse where
   rnf GetBotResponse' {..} =
-    Prelude.rnf bot
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf bot `Prelude.seq`
+      Prelude.rnf httpStatus

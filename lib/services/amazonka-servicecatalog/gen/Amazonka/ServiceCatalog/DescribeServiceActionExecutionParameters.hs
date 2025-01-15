@@ -161,9 +161,9 @@ instance
     DescribeServiceActionExecutionParameters
   where
   rnf DescribeServiceActionExecutionParameters' {..} =
-    Prelude.rnf acceptLanguage
-      `Prelude.seq` Prelude.rnf provisionedProductId
-      `Prelude.seq` Prelude.rnf serviceActionId
+    Prelude.rnf acceptLanguage `Prelude.seq`
+      Prelude.rnf provisionedProductId `Prelude.seq`
+        Prelude.rnf serviceActionId
 
 instance
   Data.ToHeaders
@@ -259,5 +259,5 @@ instance
   where
   rnf
     DescribeServiceActionExecutionParametersResponse' {..} =
-      Prelude.rnf serviceActionParameters
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf serviceActionParameters `Prelude.seq`
+        Prelude.rnf httpStatus

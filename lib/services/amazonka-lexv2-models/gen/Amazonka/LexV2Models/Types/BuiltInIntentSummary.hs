@@ -86,5 +86,5 @@ instance Prelude.Hashable BuiltInIntentSummary where
 
 instance Prelude.NFData BuiltInIntentSummary where
   rnf BuiltInIntentSummary' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf intentSignature
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf intentSignature

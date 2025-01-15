@@ -142,10 +142,10 @@ instance Prelude.Hashable AddPartner where
 
 instance Prelude.NFData AddPartner where
   rnf AddPartner' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf clusterIdentifier
-      `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf partnerName
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf clusterIdentifier `Prelude.seq`
+        Prelude.rnf databaseName `Prelude.seq`
+          Prelude.rnf partnerName
 
 instance Data.ToHeaders AddPartner where
   toHeaders = Prelude.const Prelude.mempty

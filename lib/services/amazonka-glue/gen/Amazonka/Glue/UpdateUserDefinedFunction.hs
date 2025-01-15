@@ -148,10 +148,10 @@ instance Prelude.Hashable UpdateUserDefinedFunction where
 
 instance Prelude.NFData UpdateUserDefinedFunction where
   rnf UpdateUserDefinedFunction' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf functionName
-      `Prelude.seq` Prelude.rnf functionInput
+    Prelude.rnf catalogId `Prelude.seq`
+      Prelude.rnf databaseName `Prelude.seq`
+        Prelude.rnf functionName `Prelude.seq`
+          Prelude.rnf functionInput
 
 instance Data.ToHeaders UpdateUserDefinedFunction where
   toHeaders =

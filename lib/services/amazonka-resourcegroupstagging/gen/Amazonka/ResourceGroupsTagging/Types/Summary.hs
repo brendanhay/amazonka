@@ -134,9 +134,9 @@ instance Prelude.Hashable Summary where
 
 instance Prelude.NFData Summary where
   rnf Summary' {..} =
-    Prelude.rnf lastUpdated
-      `Prelude.seq` Prelude.rnf nonCompliantResources
-      `Prelude.seq` Prelude.rnf region
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf targetId
-      `Prelude.seq` Prelude.rnf targetIdType
+    Prelude.rnf lastUpdated `Prelude.seq`
+      Prelude.rnf nonCompliantResources `Prelude.seq`
+        Prelude.rnf region `Prelude.seq`
+          Prelude.rnf resourceType `Prelude.seq`
+            Prelude.rnf targetId `Prelude.seq`
+              Prelude.rnf targetIdType

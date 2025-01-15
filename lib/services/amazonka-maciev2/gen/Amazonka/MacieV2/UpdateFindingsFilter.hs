@@ -222,13 +222,13 @@ instance Prelude.Hashable UpdateFindingsFilter where
 
 instance Prelude.NFData UpdateFindingsFilter where
   rnf UpdateFindingsFilter' {..} =
-    Prelude.rnf action
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf findingCriteria
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf position
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf action `Prelude.seq`
+      Prelude.rnf clientToken `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf findingCriteria `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf position `Prelude.seq`
+                Prelude.rnf id
 
 instance Data.ToHeaders UpdateFindingsFilter where
   toHeaders =
@@ -312,6 +312,6 @@ updateFindingsFilterResponse_httpStatus = Lens.lens (\UpdateFindingsFilterRespon
 
 instance Prelude.NFData UpdateFindingsFilterResponse where
   rnf UpdateFindingsFilterResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf httpStatus

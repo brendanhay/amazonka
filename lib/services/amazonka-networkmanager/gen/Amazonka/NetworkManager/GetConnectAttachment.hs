@@ -159,5 +159,5 @@ getConnectAttachmentResponse_httpStatus = Lens.lens (\GetConnectAttachmentRespon
 
 instance Prelude.NFData GetConnectAttachmentResponse where
   rnf GetConnectAttachmentResponse' {..} =
-    Prelude.rnf connectAttachment
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf connectAttachment `Prelude.seq`
+      Prelude.rnf httpStatus

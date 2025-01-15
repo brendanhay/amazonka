@@ -132,8 +132,8 @@ instance
 
 instance Prelude.NFData DescribeConditionalForwarders where
   rnf DescribeConditionalForwarders' {..} =
-    Prelude.rnf remoteDomainNames
-      `Prelude.seq` Prelude.rnf directoryId
+    Prelude.rnf remoteDomainNames `Prelude.seq`
+      Prelude.rnf directoryId
 
 instance Data.ToHeaders DescribeConditionalForwarders where
   toHeaders =
@@ -212,5 +212,5 @@ instance
     DescribeConditionalForwardersResponse
   where
   rnf DescribeConditionalForwardersResponse' {..} =
-    Prelude.rnf conditionalForwarders
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf conditionalForwarders `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -93,6 +93,6 @@ instance Prelude.Hashable FailedCreateAssociation where
 
 instance Prelude.NFData FailedCreateAssociation where
   rnf FailedCreateAssociation' {..} =
-    Prelude.rnf entry
-      `Prelude.seq` Prelude.rnf fault
-      `Prelude.seq` Prelude.rnf message
+    Prelude.rnf entry `Prelude.seq`
+      Prelude.rnf fault `Prelude.seq`
+        Prelude.rnf message

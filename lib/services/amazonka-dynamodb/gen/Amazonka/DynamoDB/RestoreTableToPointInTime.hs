@@ -256,16 +256,16 @@ instance Prelude.Hashable RestoreTableToPointInTime where
 
 instance Prelude.NFData RestoreTableToPointInTime where
   rnf RestoreTableToPointInTime' {..} =
-    Prelude.rnf billingModeOverride
-      `Prelude.seq` Prelude.rnf globalSecondaryIndexOverride
-      `Prelude.seq` Prelude.rnf localSecondaryIndexOverride
-      `Prelude.seq` Prelude.rnf provisionedThroughputOverride
-      `Prelude.seq` Prelude.rnf restoreDateTime
-      `Prelude.seq` Prelude.rnf sSESpecificationOverride
-      `Prelude.seq` Prelude.rnf sourceTableArn
-      `Prelude.seq` Prelude.rnf sourceTableName
-      `Prelude.seq` Prelude.rnf useLatestRestorableTime
-      `Prelude.seq` Prelude.rnf targetTableName
+    Prelude.rnf billingModeOverride `Prelude.seq`
+      Prelude.rnf globalSecondaryIndexOverride `Prelude.seq`
+        Prelude.rnf localSecondaryIndexOverride `Prelude.seq`
+          Prelude.rnf provisionedThroughputOverride `Prelude.seq`
+            Prelude.rnf restoreDateTime `Prelude.seq`
+              Prelude.rnf sSESpecificationOverride `Prelude.seq`
+                Prelude.rnf sourceTableArn `Prelude.seq`
+                  Prelude.rnf sourceTableName `Prelude.seq`
+                    Prelude.rnf useLatestRestorableTime `Prelude.seq`
+                      Prelude.rnf targetTableName
 
 instance Data.ToHeaders RestoreTableToPointInTime where
   toHeaders =
@@ -359,5 +359,5 @@ instance
     RestoreTableToPointInTimeResponse
   where
   rnf RestoreTableToPointInTimeResponse' {..} =
-    Prelude.rnf tableDescription
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf tableDescription `Prelude.seq`
+      Prelude.rnf httpStatus

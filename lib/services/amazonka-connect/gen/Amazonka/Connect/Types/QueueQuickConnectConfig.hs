@@ -85,8 +85,8 @@ instance Prelude.Hashable QueueQuickConnectConfig where
 
 instance Prelude.NFData QueueQuickConnectConfig where
   rnf QueueQuickConnectConfig' {..} =
-    Prelude.rnf queueId
-      `Prelude.seq` Prelude.rnf contactFlowId
+    Prelude.rnf queueId `Prelude.seq`
+      Prelude.rnf contactFlowId
 
 instance Data.ToJSON QueueQuickConnectConfig where
   toJSON QueueQuickConnectConfig' {..} =

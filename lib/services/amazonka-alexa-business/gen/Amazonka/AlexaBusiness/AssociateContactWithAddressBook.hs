@@ -122,8 +122,8 @@ instance
     AssociateContactWithAddressBook
   where
   rnf AssociateContactWithAddressBook' {..} =
-    Prelude.rnf contactArn
-      `Prelude.seq` Prelude.rnf addressBookArn
+    Prelude.rnf contactArn `Prelude.seq`
+      Prelude.rnf addressBookArn
 
 instance
   Data.ToHeaders

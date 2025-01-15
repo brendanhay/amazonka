@@ -107,7 +107,7 @@ instance Prelude.Hashable RelatedWorkspaceProperties where
 
 instance Prelude.NFData RelatedWorkspaceProperties where
   rnf RelatedWorkspaceProperties' {..} =
-    Prelude.rnf region
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf workspaceId
+    Prelude.rnf region `Prelude.seq`
+      Prelude.rnf state `Prelude.seq`
+        Prelude.rnf type' `Prelude.seq`
+          Prelude.rnf workspaceId

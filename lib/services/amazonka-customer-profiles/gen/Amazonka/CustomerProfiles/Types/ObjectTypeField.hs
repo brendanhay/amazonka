@@ -104,9 +104,9 @@ instance Prelude.Hashable ObjectTypeField where
 
 instance Prelude.NFData ObjectTypeField where
   rnf ObjectTypeField' {..} =
-    Prelude.rnf contentType
-      `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf target
+    Prelude.rnf contentType `Prelude.seq`
+      Prelude.rnf source `Prelude.seq`
+        Prelude.rnf target
 
 instance Data.ToJSON ObjectTypeField where
   toJSON ObjectTypeField' {..} =

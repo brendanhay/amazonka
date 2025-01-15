@@ -96,6 +96,6 @@ instance
 
 instance Prelude.NFData TransitGatewayRouteAttachment where
   rnf TransitGatewayRouteAttachment' {..} =
-    Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf transitGatewayAttachmentId
+    Prelude.rnf resourceId `Prelude.seq`
+      Prelude.rnf resourceType `Prelude.seq`
+        Prelude.rnf transitGatewayAttachmentId

@@ -145,9 +145,9 @@ instance
     UpdateDashboardPublishedVersion
   where
   rnf UpdateDashboardPublishedVersion' {..} =
-    Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf dashboardId
-      `Prelude.seq` Prelude.rnf versionNumber
+    Prelude.rnf awsAccountId `Prelude.seq`
+      Prelude.rnf dashboardId `Prelude.seq`
+        Prelude.rnf versionNumber
 
 instance
   Data.ToHeaders
@@ -242,7 +242,7 @@ instance
     UpdateDashboardPublishedVersionResponse
   where
   rnf UpdateDashboardPublishedVersionResponse' {..} =
-    Prelude.rnf dashboardArn
-      `Prelude.seq` Prelude.rnf dashboardId
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf dashboardArn `Prelude.seq`
+      Prelude.rnf dashboardId `Prelude.seq`
+        Prelude.rnf requestId `Prelude.seq`
+          Prelude.rnf status

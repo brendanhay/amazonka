@@ -167,11 +167,11 @@ instance Prelude.Hashable Latency where
 
 instance Prelude.NFData Latency where
   rnf Latency' {..} =
-    Prelude.rnf p10
-      `Prelude.seq` Prelude.rnf p50
-      `Prelude.seq` Prelude.rnf p75
-      `Prelude.seq` Prelude.rnf p85
-      `Prelude.seq` Prelude.rnf p90
-      `Prelude.seq` Prelude.rnf p95
-      `Prelude.seq` Prelude.rnf p99
-      `Prelude.seq` Prelude.rnf p999
+    Prelude.rnf p10 `Prelude.seq`
+      Prelude.rnf p50 `Prelude.seq`
+        Prelude.rnf p75 `Prelude.seq`
+          Prelude.rnf p85 `Prelude.seq`
+            Prelude.rnf p90 `Prelude.seq`
+              Prelude.rnf p95 `Prelude.seq`
+                Prelude.rnf p99 `Prelude.seq`
+                  Prelude.rnf p999

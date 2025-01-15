@@ -115,8 +115,8 @@ instance Prelude.Hashable DescribeDataSource where
 
 instance Prelude.NFData DescribeDataSource where
   rnf DescribeDataSource' {..} =
-    Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf dataSourceId
+    Prelude.rnf awsAccountId `Prelude.seq`
+      Prelude.rnf dataSourceId
 
 instance Data.ToHeaders DescribeDataSource where
   toHeaders =
@@ -191,6 +191,6 @@ describeDataSourceResponse_status = Lens.lens (\DescribeDataSourceResponse' {sta
 
 instance Prelude.NFData DescribeDataSourceResponse where
   rnf DescribeDataSourceResponse' {..} =
-    Prelude.rnf dataSource
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf dataSource `Prelude.seq`
+      Prelude.rnf requestId `Prelude.seq`
+        Prelude.rnf status

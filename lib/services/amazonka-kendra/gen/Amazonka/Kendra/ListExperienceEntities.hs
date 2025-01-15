@@ -137,9 +137,9 @@ instance Prelude.Hashable ListExperienceEntities where
 
 instance Prelude.NFData ListExperienceEntities where
   rnf ListExperienceEntities' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf indexId
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf indexId
 
 instance Data.ToHeaders ListExperienceEntities where
   toHeaders =
@@ -231,6 +231,6 @@ instance
     ListExperienceEntitiesResponse
   where
   rnf ListExperienceEntitiesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf summaryItems
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf summaryItems `Prelude.seq`
+        Prelude.rnf httpStatus

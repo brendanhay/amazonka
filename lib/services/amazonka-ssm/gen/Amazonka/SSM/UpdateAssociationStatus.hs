@@ -132,9 +132,9 @@ instance Prelude.Hashable UpdateAssociationStatus where
 
 instance Prelude.NFData UpdateAssociationStatus where
   rnf UpdateAssociationStatus' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf associationStatus
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf instanceId `Prelude.seq`
+        Prelude.rnf associationStatus
 
 instance Data.ToHeaders UpdateAssociationStatus where
   toHeaders =
@@ -212,5 +212,5 @@ instance
     UpdateAssociationStatusResponse
   where
   rnf UpdateAssociationStatusResponse' {..} =
-    Prelude.rnf associationDescription
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf associationDescription `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -123,11 +123,11 @@ instance Prelude.Hashable QueryPlanningContext where
 
 instance Prelude.NFData QueryPlanningContext where
   rnf QueryPlanningContext' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf queryAsOfTime
-      `Prelude.seq` Prelude.rnf queryParameters
-      `Prelude.seq` Prelude.rnf transactionId
-      `Prelude.seq` Prelude.rnf databaseName
+    Prelude.rnf catalogId `Prelude.seq`
+      Prelude.rnf queryAsOfTime `Prelude.seq`
+        Prelude.rnf queryParameters `Prelude.seq`
+          Prelude.rnf transactionId `Prelude.seq`
+            Prelude.rnf databaseName
 
 instance Data.ToJSON QueryPlanningContext where
   toJSON QueryPlanningContext' {..} =

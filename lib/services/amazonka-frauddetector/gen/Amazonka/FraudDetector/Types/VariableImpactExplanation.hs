@@ -125,6 +125,6 @@ instance Prelude.Hashable VariableImpactExplanation where
 
 instance Prelude.NFData VariableImpactExplanation where
   rnf VariableImpactExplanation' {..} =
-    Prelude.rnf eventVariableName
-      `Prelude.seq` Prelude.rnf logOddsImpact
-      `Prelude.seq` Prelude.rnf relativeImpact
+    Prelude.rnf eventVariableName `Prelude.seq`
+      Prelude.rnf logOddsImpact `Prelude.seq`
+        Prelude.rnf relativeImpact

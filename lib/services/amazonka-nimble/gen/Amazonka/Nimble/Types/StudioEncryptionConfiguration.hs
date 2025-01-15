@@ -87,8 +87,8 @@ instance
 
 instance Prelude.NFData StudioEncryptionConfiguration where
   rnf StudioEncryptionConfiguration' {..} =
-    Prelude.rnf keyArn
-      `Prelude.seq` Prelude.rnf keyType
+    Prelude.rnf keyArn `Prelude.seq`
+      Prelude.rnf keyType
 
 instance Data.ToJSON StudioEncryptionConfiguration where
   toJSON StudioEncryptionConfiguration' {..} =

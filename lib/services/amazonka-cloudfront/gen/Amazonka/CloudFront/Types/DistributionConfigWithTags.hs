@@ -80,8 +80,8 @@ instance Prelude.Hashable DistributionConfigWithTags where
 
 instance Prelude.NFData DistributionConfigWithTags where
   rnf DistributionConfigWithTags' {..} =
-    Prelude.rnf distributionConfig
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf distributionConfig `Prelude.seq`
+      Prelude.rnf tags
 
 instance Data.ToXML DistributionConfigWithTags where
   toXML DistributionConfigWithTags' {..} =

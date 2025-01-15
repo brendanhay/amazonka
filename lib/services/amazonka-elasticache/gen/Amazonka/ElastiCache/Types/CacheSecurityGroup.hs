@@ -123,8 +123,8 @@ instance Prelude.Hashable CacheSecurityGroup where
 
 instance Prelude.NFData CacheSecurityGroup where
   rnf CacheSecurityGroup' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf cacheSecurityGroupName
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf eC2SecurityGroups
-      `Prelude.seq` Prelude.rnf ownerId
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf cacheSecurityGroupName `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf eC2SecurityGroups `Prelude.seq`
+            Prelude.rnf ownerId

@@ -163,10 +163,10 @@ instance
     CreateNotificationSubscription
   where
   rnf CreateNotificationSubscription' {..} =
-    Prelude.rnf organizationId
-      `Prelude.seq` Prelude.rnf endpoint
-      `Prelude.seq` Prelude.rnf protocol
-      `Prelude.seq` Prelude.rnf subscriptionType
+    Prelude.rnf organizationId `Prelude.seq`
+      Prelude.rnf endpoint `Prelude.seq`
+        Prelude.rnf protocol `Prelude.seq`
+          Prelude.rnf subscriptionType
 
 instance
   Data.ToHeaders
@@ -249,5 +249,5 @@ instance
     CreateNotificationSubscriptionResponse
   where
   rnf CreateNotificationSubscriptionResponse' {..} =
-    Prelude.rnf subscription
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf subscription `Prelude.seq`
+      Prelude.rnf httpStatus

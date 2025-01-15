@@ -151,9 +151,9 @@ instance Prelude.Hashable CancelSpotFleetRequests where
 
 instance Prelude.NFData CancelSpotFleetRequests where
   rnf CancelSpotFleetRequests' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf spotFleetRequestIds
-      `Prelude.seq` Prelude.rnf terminateInstances
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf spotFleetRequestIds `Prelude.seq`
+        Prelude.rnf terminateInstances
 
 instance Data.ToHeaders CancelSpotFleetRequests where
   toHeaders = Prelude.const Prelude.mempty
@@ -237,6 +237,6 @@ instance
     CancelSpotFleetRequestsResponse
   where
   rnf CancelSpotFleetRequestsResponse' {..} =
-    Prelude.rnf successfulFleetRequests
-      `Prelude.seq` Prelude.rnf unsuccessfulFleetRequests
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf successfulFleetRequests `Prelude.seq`
+      Prelude.rnf unsuccessfulFleetRequests `Prelude.seq`
+        Prelude.rnf httpStatus

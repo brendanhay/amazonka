@@ -152,6 +152,6 @@ getPricingPlanResponse_currentPricingPlan = Lens.lens (\GetPricingPlanResponse' 
 
 instance Prelude.NFData GetPricingPlanResponse where
   rnf GetPricingPlanResponse' {..} =
-    Prelude.rnf pendingPricingPlan
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf currentPricingPlan
+    Prelude.rnf pendingPricingPlan `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf currentPricingPlan

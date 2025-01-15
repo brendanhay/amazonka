@@ -139,12 +139,12 @@ instance Core.AWSPager ListActivities where
         (rs Lens.^. listActivitiesResponse_activities) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listActivities_nextToken
-          Lens..~ rs
-          Lens.^? listActivitiesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listActivities_nextToken
+              Lens..~ rs
+              Lens.^? listActivitiesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListActivities where
   type
@@ -169,8 +169,8 @@ instance Prelude.Hashable ListActivities where
 
 instance Prelude.NFData ListActivities where
   rnf ListActivities' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListActivities where
   toHeaders =
@@ -267,6 +267,6 @@ listActivitiesResponse_activities = Lens.lens (\ListActivitiesResponse' {activit
 
 instance Prelude.NFData ListActivitiesResponse where
   rnf ListActivitiesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf activities
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf activities

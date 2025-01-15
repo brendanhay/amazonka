@@ -155,12 +155,12 @@ instance Core.AWSPager ListDeviceEvents where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listDeviceEvents_nextToken
-          Lens..~ rs
-          Lens.^? listDeviceEventsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listDeviceEvents_nextToken
+              Lens..~ rs
+              Lens.^? listDeviceEventsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDeviceEvents where
   type
@@ -187,10 +187,10 @@ instance Prelude.Hashable ListDeviceEvents where
 
 instance Prelude.NFData ListDeviceEvents where
   rnf ListDeviceEvents' {..} =
-    Prelude.rnf eventType
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf deviceArn
+    Prelude.rnf eventType `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf deviceArn
 
 instance Data.ToHeaders ListDeviceEvents where
   toHeaders =
@@ -274,6 +274,6 @@ listDeviceEventsResponse_httpStatus = Lens.lens (\ListDeviceEventsResponse' {htt
 
 instance Prelude.NFData ListDeviceEventsResponse where
   rnf ListDeviceEventsResponse' {..} =
-    Prelude.rnf deviceEvents
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf deviceEvents `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

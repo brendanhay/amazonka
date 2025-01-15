@@ -136,10 +136,10 @@ instance Prelude.Hashable Dashboard where
 
 instance Prelude.NFData Dashboard where
   rnf Dashboard' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf dashboardId
-      `Prelude.seq` Prelude.rnf lastPublishedTime
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf version
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf createdTime `Prelude.seq`
+        Prelude.rnf dashboardId `Prelude.seq`
+          Prelude.rnf lastPublishedTime `Prelude.seq`
+            Prelude.rnf lastUpdatedTime `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf version

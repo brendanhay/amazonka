@@ -106,7 +106,7 @@ instance Prelude.Hashable NatGatewayAddress where
 
 instance Prelude.NFData NatGatewayAddress where
   rnf NatGatewayAddress' {..} =
-    Prelude.rnf allocationId
-      `Prelude.seq` Prelude.rnf networkInterfaceId
-      `Prelude.seq` Prelude.rnf privateIp
-      `Prelude.seq` Prelude.rnf publicIp
+    Prelude.rnf allocationId `Prelude.seq`
+      Prelude.rnf networkInterfaceId `Prelude.seq`
+        Prelude.rnf privateIp `Prelude.seq`
+          Prelude.rnf publicIp

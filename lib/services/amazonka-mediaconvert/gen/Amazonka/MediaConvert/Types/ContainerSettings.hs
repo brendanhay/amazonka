@@ -214,15 +214,15 @@ instance Prelude.Hashable ContainerSettings where
 
 instance Prelude.NFData ContainerSettings where
   rnf ContainerSettings' {..} =
-    Prelude.rnf cmfcSettings
-      `Prelude.seq` Prelude.rnf container
-      `Prelude.seq` Prelude.rnf f4vSettings
-      `Prelude.seq` Prelude.rnf m2tsSettings
-      `Prelude.seq` Prelude.rnf m3u8Settings
-      `Prelude.seq` Prelude.rnf movSettings
-      `Prelude.seq` Prelude.rnf mp4Settings
-      `Prelude.seq` Prelude.rnf mpdSettings
-      `Prelude.seq` Prelude.rnf mxfSettings
+    Prelude.rnf cmfcSettings `Prelude.seq`
+      Prelude.rnf container `Prelude.seq`
+        Prelude.rnf f4vSettings `Prelude.seq`
+          Prelude.rnf m2tsSettings `Prelude.seq`
+            Prelude.rnf m3u8Settings `Prelude.seq`
+              Prelude.rnf movSettings `Prelude.seq`
+                Prelude.rnf mp4Settings `Prelude.seq`
+                  Prelude.rnf mpdSettings `Prelude.seq`
+                    Prelude.rnf mxfSettings
 
 instance Data.ToJSON ContainerSettings where
   toJSON ContainerSettings' {..} =

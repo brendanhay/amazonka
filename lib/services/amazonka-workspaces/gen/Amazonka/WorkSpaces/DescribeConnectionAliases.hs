@@ -136,10 +136,10 @@ instance Prelude.Hashable DescribeConnectionAliases where
 
 instance Prelude.NFData DescribeConnectionAliases where
   rnf DescribeConnectionAliases' {..} =
-    Prelude.rnf aliasIds
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf resourceId
+    Prelude.rnf aliasIds `Prelude.seq`
+      Prelude.rnf limit `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf resourceId
 
 instance Data.ToHeaders DescribeConnectionAliases where
   toHeaders =
@@ -229,6 +229,6 @@ instance
     DescribeConnectionAliasesResponse
   where
   rnf DescribeConnectionAliasesResponse' {..} =
-    Prelude.rnf connectionAliases
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf connectionAliases `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

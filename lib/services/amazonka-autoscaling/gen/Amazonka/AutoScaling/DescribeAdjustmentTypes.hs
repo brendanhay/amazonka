@@ -78,9 +78,7 @@ instance Core.AWSRequest DescribeAdjustmentTypes where
       "DescribeAdjustmentTypesResult"
       ( \s h x ->
           DescribeAdjustmentTypesResponse'
-            Prelude.<$> ( x
-                            Data..@? "AdjustmentTypes"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "AdjustmentTypes" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -154,5 +152,5 @@ instance
     DescribeAdjustmentTypesResponse
   where
   rnf DescribeAdjustmentTypesResponse' {..} =
-    Prelude.rnf adjustmentTypes
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf adjustmentTypes `Prelude.seq`
+      Prelude.rnf httpStatus

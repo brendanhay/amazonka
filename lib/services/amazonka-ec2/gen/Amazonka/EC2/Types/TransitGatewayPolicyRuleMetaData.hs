@@ -90,5 +90,5 @@ instance
     TransitGatewayPolicyRuleMetaData
   where
   rnf TransitGatewayPolicyRuleMetaData' {..} =
-    Prelude.rnf metaDataKey
-      `Prelude.seq` Prelude.rnf metaDataValue
+    Prelude.rnf metaDataKey `Prelude.seq`
+      Prelude.rnf metaDataValue

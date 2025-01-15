@@ -145,8 +145,8 @@ instance
   where
   rnf
     BatchDisassociateApprovalRuleTemplateFromRepositories' {..} =
-      Prelude.rnf approvalRuleTemplateName
-        `Prelude.seq` Prelude.rnf repositoryNames
+      Prelude.rnf approvalRuleTemplateName `Prelude.seq`
+        Prelude.rnf repositoryNames
 
 instance
   Data.ToHeaders
@@ -258,6 +258,6 @@ instance
   where
   rnf
     BatchDisassociateApprovalRuleTemplateFromRepositoriesResponse' {..} =
-      Prelude.rnf httpStatus
-        `Prelude.seq` Prelude.rnf disassociatedRepositoryNames
-        `Prelude.seq` Prelude.rnf errors
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf disassociatedRepositoryNames `Prelude.seq`
+          Prelude.rnf errors

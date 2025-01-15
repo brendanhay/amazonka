@@ -181,10 +181,10 @@ instance Prelude.Hashable CreatePermission where
 
 instance Prelude.NFData CreatePermission where
   rnf CreatePermission' {..} =
-    Prelude.rnf sourceAccount
-      `Prelude.seq` Prelude.rnf certificateAuthorityArn
-      `Prelude.seq` Prelude.rnf principal
-      `Prelude.seq` Prelude.rnf actions
+    Prelude.rnf sourceAccount `Prelude.seq`
+      Prelude.rnf certificateAuthorityArn `Prelude.seq`
+        Prelude.rnf principal `Prelude.seq`
+          Prelude.rnf actions
 
 instance Data.ToHeaders CreatePermission where
   toHeaders =

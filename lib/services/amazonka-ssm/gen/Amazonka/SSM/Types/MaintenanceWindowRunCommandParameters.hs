@@ -262,17 +262,17 @@ instance
     MaintenanceWindowRunCommandParameters
   where
   rnf MaintenanceWindowRunCommandParameters' {..} =
-    Prelude.rnf cloudWatchOutputConfig
-      `Prelude.seq` Prelude.rnf comment
-      `Prelude.seq` Prelude.rnf documentHash
-      `Prelude.seq` Prelude.rnf documentHashType
-      `Prelude.seq` Prelude.rnf documentVersion
-      `Prelude.seq` Prelude.rnf notificationConfig
-      `Prelude.seq` Prelude.rnf outputS3BucketName
-      `Prelude.seq` Prelude.rnf outputS3KeyPrefix
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf serviceRoleArn
-      `Prelude.seq` Prelude.rnf timeoutSeconds
+    Prelude.rnf cloudWatchOutputConfig `Prelude.seq`
+      Prelude.rnf comment `Prelude.seq`
+        Prelude.rnf documentHash `Prelude.seq`
+          Prelude.rnf documentHashType `Prelude.seq`
+            Prelude.rnf documentVersion `Prelude.seq`
+              Prelude.rnf notificationConfig `Prelude.seq`
+                Prelude.rnf outputS3BucketName `Prelude.seq`
+                  Prelude.rnf outputS3KeyPrefix `Prelude.seq`
+                    Prelude.rnf parameters `Prelude.seq`
+                      Prelude.rnf serviceRoleArn `Prelude.seq`
+                        Prelude.rnf timeoutSeconds
 
 instance
   Data.ToJSON

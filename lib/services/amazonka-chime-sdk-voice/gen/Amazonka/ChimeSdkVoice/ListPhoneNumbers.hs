@@ -146,12 +146,12 @@ instance Prelude.Hashable ListPhoneNumbers where
 
 instance Prelude.NFData ListPhoneNumbers where
   rnf ListPhoneNumbers' {..} =
-    Prelude.rnf filterName
-      `Prelude.seq` Prelude.rnf filterValue
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf productType
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf filterName `Prelude.seq`
+      Prelude.rnf filterValue `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf productType `Prelude.seq`
+              Prelude.rnf status
 
 instance Data.ToHeaders ListPhoneNumbers where
   toHeaders = Prelude.const Prelude.mempty
@@ -218,6 +218,6 @@ listPhoneNumbersResponse_httpStatus = Lens.lens (\ListPhoneNumbersResponse' {htt
 
 instance Prelude.NFData ListPhoneNumbersResponse where
   rnf ListPhoneNumbersResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf phoneNumbers
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf phoneNumbers `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -158,6 +158,6 @@ getAccountBalanceResponse_httpStatus = Lens.lens (\GetAccountBalanceResponse' {h
 
 instance Prelude.NFData GetAccountBalanceResponse where
   rnf GetAccountBalanceResponse' {..} =
-    Prelude.rnf availableBalance
-      `Prelude.seq` Prelude.rnf onHoldBalance
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf availableBalance `Prelude.seq`
+      Prelude.rnf onHoldBalance `Prelude.seq`
+        Prelude.rnf httpStatus

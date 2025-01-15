@@ -82,5 +82,5 @@ instance Prelude.Hashable RemediationActionWithOrder where
 
 instance Prelude.NFData RemediationActionWithOrder where
   rnf RemediationActionWithOrder' {..} =
-    Prelude.rnf order
-      `Prelude.seq` Prelude.rnf remediationAction
+    Prelude.rnf order `Prelude.seq`
+      Prelude.rnf remediationAction

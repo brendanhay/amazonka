@@ -100,8 +100,8 @@ instance
     ServerGroupReplicationConfiguration
   where
   rnf ServerGroupReplicationConfiguration' {..} =
-    Prelude.rnf serverGroupId
-      `Prelude.seq` Prelude.rnf serverReplicationConfigurations
+    Prelude.rnf serverGroupId `Prelude.seq`
+      Prelude.rnf serverReplicationConfigurations
 
 instance
   Data.ToJSON

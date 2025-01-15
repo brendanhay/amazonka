@@ -122,8 +122,8 @@ instance Prelude.Hashable UpdateEmailTemplate where
 
 instance Prelude.NFData UpdateEmailTemplate where
   rnf UpdateEmailTemplate' {..} =
-    Prelude.rnf templateName
-      `Prelude.seq` Prelude.rnf templateContent
+    Prelude.rnf templateName `Prelude.seq`
+      Prelude.rnf templateContent
 
 instance Data.ToHeaders UpdateEmailTemplate where
   toHeaders =

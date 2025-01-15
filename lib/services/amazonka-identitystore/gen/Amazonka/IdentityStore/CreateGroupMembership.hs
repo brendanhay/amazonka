@@ -137,9 +137,9 @@ instance Prelude.Hashable CreateGroupMembership where
 
 instance Prelude.NFData CreateGroupMembership where
   rnf CreateGroupMembership' {..} =
-    Prelude.rnf identityStoreId
-      `Prelude.seq` Prelude.rnf groupId
-      `Prelude.seq` Prelude.rnf memberId
+    Prelude.rnf identityStoreId `Prelude.seq`
+      Prelude.rnf groupId `Prelude.seq`
+        Prelude.rnf memberId
 
 instance Data.ToHeaders CreateGroupMembership where
   toHeaders =
@@ -233,6 +233,6 @@ createGroupMembershipResponse_identityStoreId = Lens.lens (\CreateGroupMembershi
 
 instance Prelude.NFData CreateGroupMembershipResponse where
   rnf CreateGroupMembershipResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf membershipId
-      `Prelude.seq` Prelude.rnf identityStoreId
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf membershipId `Prelude.seq`
+        Prelude.rnf identityStoreId

@@ -117,14 +117,14 @@ instance Core.AWSPager ListJobs where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listJobs_marker
-          Lens..~ rs
-          Lens.^? listJobsResponse_jobs
-          Prelude.. Lens._Just
-          Prelude.. Lens._last
-          Prelude.. job_jobId
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listJobs_marker
+              Lens..~ rs
+              Lens.^? listJobsResponse_jobs
+              Prelude.. Lens._Just
+              Prelude.. Lens._last
+              Prelude.. job_jobId
 
 instance Core.AWSRequest ListJobs where
   type AWSResponse ListJobs = ListJobsResponse
@@ -136,9 +136,7 @@ instance Core.AWSRequest ListJobs where
       ( \s h x ->
           ListJobsResponse'
             Prelude.<$> (x Data..@? "IsTruncated")
-            Prelude.<*> ( x
-                            Data..@? "Jobs"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "Jobs" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -153,9 +151,9 @@ instance Prelude.Hashable ListJobs where
 
 instance Prelude.NFData ListJobs where
   rnf ListJobs' {..} =
-    Prelude.rnf aPIVersion
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxJobs
+    Prelude.rnf aPIVersion `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf maxJobs
 
 instance Data.ToHeaders ListJobs where
   toHeaders = Prelude.const Prelude.mempty
@@ -224,6 +222,6 @@ listJobsResponse_httpStatus = Lens.lens (\ListJobsResponse' {httpStatus} -> http
 
 instance Prelude.NFData ListJobsResponse where
   rnf ListJobsResponse' {..} =
-    Prelude.rnf isTruncated
-      `Prelude.seq` Prelude.rnf jobs
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf isTruncated `Prelude.seq`
+      Prelude.rnf jobs `Prelude.seq`
+        Prelude.rnf httpStatus

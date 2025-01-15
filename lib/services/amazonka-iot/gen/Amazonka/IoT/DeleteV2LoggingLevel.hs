@@ -108,8 +108,8 @@ instance Prelude.Hashable DeleteV2LoggingLevel where
 
 instance Prelude.NFData DeleteV2LoggingLevel where
   rnf DeleteV2LoggingLevel' {..} =
-    Prelude.rnf targetType
-      `Prelude.seq` Prelude.rnf targetName
+    Prelude.rnf targetType `Prelude.seq`
+      Prelude.rnf targetName
 
 instance Data.ToHeaders DeleteV2LoggingLevel where
   toHeaders = Prelude.const Prelude.mempty

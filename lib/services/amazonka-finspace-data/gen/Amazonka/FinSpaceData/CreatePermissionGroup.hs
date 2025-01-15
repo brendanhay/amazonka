@@ -210,10 +210,10 @@ instance Prelude.Hashable CreatePermissionGroup where
 
 instance Prelude.NFData CreatePermissionGroup where
   rnf CreatePermissionGroup' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf applicationPermissions
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf applicationPermissions
 
 instance Data.ToHeaders CreatePermissionGroup where
   toHeaders =
@@ -287,5 +287,5 @@ createPermissionGroupResponse_httpStatus = Lens.lens (\CreatePermissionGroupResp
 
 instance Prelude.NFData CreatePermissionGroupResponse where
   rnf CreatePermissionGroupResponse' {..} =
-    Prelude.rnf permissionGroupId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf permissionGroupId `Prelude.seq`
+      Prelude.rnf httpStatus

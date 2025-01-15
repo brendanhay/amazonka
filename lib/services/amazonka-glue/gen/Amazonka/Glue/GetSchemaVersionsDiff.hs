@@ -167,10 +167,10 @@ instance Prelude.Hashable GetSchemaVersionsDiff where
 
 instance Prelude.NFData GetSchemaVersionsDiff where
   rnf GetSchemaVersionsDiff' {..} =
-    Prelude.rnf schemaId
-      `Prelude.seq` Prelude.rnf firstSchemaVersionNumber
-      `Prelude.seq` Prelude.rnf secondSchemaVersionNumber
-      `Prelude.seq` Prelude.rnf schemaDiffType
+    Prelude.rnf schemaId `Prelude.seq`
+      Prelude.rnf firstSchemaVersionNumber `Prelude.seq`
+        Prelude.rnf secondSchemaVersionNumber `Prelude.seq`
+          Prelude.rnf schemaDiffType
 
 instance Data.ToHeaders GetSchemaVersionsDiff where
   toHeaders =
@@ -252,5 +252,5 @@ getSchemaVersionsDiffResponse_httpStatus = Lens.lens (\GetSchemaVersionsDiffResp
 
 instance Prelude.NFData GetSchemaVersionsDiffResponse where
   rnf GetSchemaVersionsDiffResponse' {..} =
-    Prelude.rnf diff
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf diff `Prelude.seq`
+      Prelude.rnf httpStatus

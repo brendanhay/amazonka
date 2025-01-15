@@ -195,17 +195,17 @@ instance Prelude.Hashable Configuration where
 
 instance Prelude.NFData Configuration where
   rnf Configuration' {..} =
-    Prelude.rnf ebsSnapshot
-      `Prelude.seq` Prelude.rnf ecrRepository
-      `Prelude.seq` Prelude.rnf efsFileSystem
-      `Prelude.seq` Prelude.rnf iamRole
-      `Prelude.seq` Prelude.rnf kmsKey
-      `Prelude.seq` Prelude.rnf rdsDbClusterSnapshot
-      `Prelude.seq` Prelude.rnf rdsDbSnapshot
-      `Prelude.seq` Prelude.rnf s3Bucket
-      `Prelude.seq` Prelude.rnf secretsManagerSecret
-      `Prelude.seq` Prelude.rnf snsTopic
-      `Prelude.seq` Prelude.rnf sqsQueue
+    Prelude.rnf ebsSnapshot `Prelude.seq`
+      Prelude.rnf ecrRepository `Prelude.seq`
+        Prelude.rnf efsFileSystem `Prelude.seq`
+          Prelude.rnf iamRole `Prelude.seq`
+            Prelude.rnf kmsKey `Prelude.seq`
+              Prelude.rnf rdsDbClusterSnapshot `Prelude.seq`
+                Prelude.rnf rdsDbSnapshot `Prelude.seq`
+                  Prelude.rnf s3Bucket `Prelude.seq`
+                    Prelude.rnf secretsManagerSecret `Prelude.seq`
+                      Prelude.rnf snsTopic `Prelude.seq`
+                        Prelude.rnf sqsQueue
 
 instance Data.ToJSON Configuration where
   toJSON Configuration' {..} =

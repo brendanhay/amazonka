@@ -139,9 +139,9 @@ instance
   where
   rnf
     DeleteServiceQuotaIncreaseRequestFromTemplate' {..} =
-      Prelude.rnf serviceCode
-        `Prelude.seq` Prelude.rnf quotaCode
-        `Prelude.seq` Prelude.rnf awsRegion
+      Prelude.rnf serviceCode `Prelude.seq`
+        Prelude.rnf quotaCode `Prelude.seq`
+          Prelude.rnf awsRegion
 
 instance
   Data.ToHeaders

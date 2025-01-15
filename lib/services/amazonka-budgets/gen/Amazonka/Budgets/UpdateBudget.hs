@@ -121,8 +121,8 @@ instance Prelude.Hashable UpdateBudget where
 
 instance Prelude.NFData UpdateBudget where
   rnf UpdateBudget' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf newBudget'
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf newBudget'
 
 instance Data.ToHeaders UpdateBudget where
   toHeaders =

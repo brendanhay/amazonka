@@ -118,10 +118,10 @@ instance Prelude.Hashable TagScopeTerm where
 
 instance Prelude.NFData TagScopeTerm where
   rnf TagScopeTerm' {..} =
-    Prelude.rnf comparator
-      `Prelude.seq` Prelude.rnf key
-      `Prelude.seq` Prelude.rnf tagValues
-      `Prelude.seq` Prelude.rnf target
+    Prelude.rnf comparator `Prelude.seq`
+      Prelude.rnf key `Prelude.seq`
+        Prelude.rnf tagValues `Prelude.seq`
+          Prelude.rnf target
 
 instance Data.ToJSON TagScopeTerm where
   toJSON TagScopeTerm' {..} =

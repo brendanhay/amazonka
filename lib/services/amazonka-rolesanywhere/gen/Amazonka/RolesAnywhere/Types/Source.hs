@@ -82,8 +82,8 @@ instance Prelude.Hashable Source where
 
 instance Prelude.NFData Source where
   rnf Source' {..} =
-    Prelude.rnf sourceData
-      `Prelude.seq` Prelude.rnf sourceType
+    Prelude.rnf sourceData `Prelude.seq`
+      Prelude.rnf sourceType
 
 instance Data.ToJSON Source where
   toJSON Source' {..} =

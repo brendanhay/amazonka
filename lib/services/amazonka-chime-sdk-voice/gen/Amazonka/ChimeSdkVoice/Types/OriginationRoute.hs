@@ -107,11 +107,11 @@ instance Prelude.Hashable OriginationRoute where
 
 instance Prelude.NFData OriginationRoute where
   rnf OriginationRoute' {..} =
-    Prelude.rnf host
-      `Prelude.seq` Prelude.rnf port
-      `Prelude.seq` Prelude.rnf priority
-      `Prelude.seq` Prelude.rnf protocol
-      `Prelude.seq` Prelude.rnf weight
+    Prelude.rnf host `Prelude.seq`
+      Prelude.rnf port `Prelude.seq`
+        Prelude.rnf priority `Prelude.seq`
+          Prelude.rnf protocol `Prelude.seq`
+            Prelude.rnf weight
 
 instance Data.ToJSON OriginationRoute where
   toJSON OriginationRoute' {..} =

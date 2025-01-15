@@ -128,9 +128,9 @@ instance Prelude.Hashable ListImpersonationRoles where
 
 instance Prelude.NFData ListImpersonationRoles where
   rnf ListImpersonationRoles' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf organizationId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf organizationId
 
 instance Data.ToHeaders ListImpersonationRoles where
   toHeaders =
@@ -220,6 +220,6 @@ instance
     ListImpersonationRolesResponse
   where
   rnf ListImpersonationRolesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf roles
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf roles `Prelude.seq`
+        Prelude.rnf httpStatus

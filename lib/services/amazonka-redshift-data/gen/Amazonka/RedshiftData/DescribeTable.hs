@@ -263,12 +263,12 @@ instance Core.AWSPager DescribeTable where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeTable_nextToken
-          Lens..~ rs
-          Lens.^? describeTableResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeTable_nextToken
+              Lens..~ rs
+              Lens.^? describeTableResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeTable where
   type
@@ -302,16 +302,16 @@ instance Prelude.Hashable DescribeTable where
 
 instance Prelude.NFData DescribeTable where
   rnf DescribeTable' {..} =
-    Prelude.rnf clusterIdentifier
-      `Prelude.seq` Prelude.rnf connectedDatabase
-      `Prelude.seq` Prelude.rnf dbUser
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf schema
-      `Prelude.seq` Prelude.rnf secretArn
-      `Prelude.seq` Prelude.rnf table
-      `Prelude.seq` Prelude.rnf workgroupName
-      `Prelude.seq` Prelude.rnf database
+    Prelude.rnf clusterIdentifier `Prelude.seq`
+      Prelude.rnf connectedDatabase `Prelude.seq`
+        Prelude.rnf dbUser `Prelude.seq`
+          Prelude.rnf maxResults `Prelude.seq`
+            Prelude.rnf nextToken `Prelude.seq`
+              Prelude.rnf schema `Prelude.seq`
+                Prelude.rnf secretArn `Prelude.seq`
+                  Prelude.rnf table `Prelude.seq`
+                    Prelude.rnf workgroupName `Prelude.seq`
+                      Prelude.rnf database
 
 instance Data.ToHeaders DescribeTable where
   toHeaders =
@@ -425,7 +425,7 @@ describeTableResponse_httpStatus = Lens.lens (\DescribeTableResponse' {httpStatu
 
 instance Prelude.NFData DescribeTableResponse where
   rnf DescribeTableResponse' {..} =
-    Prelude.rnf columnList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf tableName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf columnList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf tableName `Prelude.seq`
+          Prelude.rnf httpStatus

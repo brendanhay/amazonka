@@ -575,12 +575,12 @@ instance Core.AWSPager DescribeScheduledActions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeScheduledActions_nextToken
-          Lens..~ rs
-          Lens.^? describeScheduledActionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeScheduledActions_nextToken
+              Lens..~ rs
+              Lens.^? describeScheduledActionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeScheduledActions where
   type
@@ -612,12 +612,12 @@ instance Prelude.Hashable DescribeScheduledActions where
 
 instance Prelude.NFData DescribeScheduledActions where
   rnf DescribeScheduledActions' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf scalableDimension
-      `Prelude.seq` Prelude.rnf scheduledActionNames
-      `Prelude.seq` Prelude.rnf serviceNamespace
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf resourceId `Prelude.seq`
+          Prelude.rnf scalableDimension `Prelude.seq`
+            Prelude.rnf scheduledActionNames `Prelude.seq`
+              Prelude.rnf serviceNamespace
 
 instance Data.ToHeaders DescribeScheduledActions where
   toHeaders =
@@ -712,6 +712,6 @@ instance
     DescribeScheduledActionsResponse
   where
   rnf DescribeScheduledActionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf scheduledActions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf scheduledActions `Prelude.seq`
+        Prelude.rnf httpStatus

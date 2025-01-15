@@ -91,8 +91,8 @@ instance Prelude.Hashable TableFieldCustomTextContent where
 
 instance Prelude.NFData TableFieldCustomTextContent where
   rnf TableFieldCustomTextContent' {..} =
-    Prelude.rnf value
-      `Prelude.seq` Prelude.rnf fontConfiguration
+    Prelude.rnf value `Prelude.seq`
+      Prelude.rnf fontConfiguration
 
 instance Data.ToJSON TableFieldCustomTextContent where
   toJSON TableFieldCustomTextContent' {..} =

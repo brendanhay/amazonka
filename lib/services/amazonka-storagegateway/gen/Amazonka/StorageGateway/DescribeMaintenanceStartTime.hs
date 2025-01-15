@@ -273,10 +273,10 @@ instance
     DescribeMaintenanceStartTimeResponse
   where
   rnf DescribeMaintenanceStartTimeResponse' {..} =
-    Prelude.rnf dayOfMonth
-      `Prelude.seq` Prelude.rnf dayOfWeek
-      `Prelude.seq` Prelude.rnf gatewayARN
-      `Prelude.seq` Prelude.rnf hourOfDay
-      `Prelude.seq` Prelude.rnf minuteOfHour
-      `Prelude.seq` Prelude.rnf timezone
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dayOfMonth `Prelude.seq`
+      Prelude.rnf dayOfWeek `Prelude.seq`
+        Prelude.rnf gatewayARN `Prelude.seq`
+          Prelude.rnf hourOfDay `Prelude.seq`
+            Prelude.rnf minuteOfHour `Prelude.seq`
+              Prelude.rnf timezone `Prelude.seq`
+                Prelude.rnf httpStatus

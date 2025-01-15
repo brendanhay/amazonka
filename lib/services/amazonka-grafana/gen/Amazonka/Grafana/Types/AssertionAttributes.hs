@@ -144,12 +144,12 @@ instance Prelude.Hashable AssertionAttributes where
 
 instance Prelude.NFData AssertionAttributes where
   rnf AssertionAttributes' {..} =
-    Prelude.rnf email
-      `Prelude.seq` Prelude.rnf groups
-      `Prelude.seq` Prelude.rnf login
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf org
-      `Prelude.seq` Prelude.rnf role'
+    Prelude.rnf email `Prelude.seq`
+      Prelude.rnf groups `Prelude.seq`
+        Prelude.rnf login `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf org `Prelude.seq`
+              Prelude.rnf role'
 
 instance Data.ToJSON AssertionAttributes where
   toJSON AssertionAttributes' {..} =

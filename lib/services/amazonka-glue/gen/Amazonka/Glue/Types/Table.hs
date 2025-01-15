@@ -316,23 +316,23 @@ instance Prelude.Hashable Table where
 
 instance Prelude.NFData Table where
   rnf Table' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf createTime
-      `Prelude.seq` Prelude.rnf createdBy
-      `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf isRegisteredWithLakeFormation
-      `Prelude.seq` Prelude.rnf lastAccessTime
-      `Prelude.seq` Prelude.rnf lastAnalyzedTime
-      `Prelude.seq` Prelude.rnf owner
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf partitionKeys
-      `Prelude.seq` Prelude.rnf retention
-      `Prelude.seq` Prelude.rnf storageDescriptor
-      `Prelude.seq` Prelude.rnf tableType
-      `Prelude.seq` Prelude.rnf targetTable
-      `Prelude.seq` Prelude.rnf updateTime
-      `Prelude.seq` Prelude.rnf versionId
-      `Prelude.seq` Prelude.rnf viewExpandedText
-      `Prelude.seq` Prelude.rnf viewOriginalText
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf catalogId `Prelude.seq`
+      Prelude.rnf createTime `Prelude.seq`
+        Prelude.rnf createdBy `Prelude.seq`
+          Prelude.rnf databaseName `Prelude.seq`
+            Prelude.rnf description `Prelude.seq`
+              Prelude.rnf isRegisteredWithLakeFormation `Prelude.seq`
+                Prelude.rnf lastAccessTime `Prelude.seq`
+                  Prelude.rnf lastAnalyzedTime `Prelude.seq`
+                    Prelude.rnf owner `Prelude.seq`
+                      Prelude.rnf parameters `Prelude.seq`
+                        Prelude.rnf partitionKeys `Prelude.seq`
+                          Prelude.rnf retention `Prelude.seq`
+                            Prelude.rnf storageDescriptor `Prelude.seq`
+                              Prelude.rnf tableType `Prelude.seq`
+                                Prelude.rnf targetTable `Prelude.seq`
+                                  Prelude.rnf updateTime `Prelude.seq`
+                                    Prelude.rnf versionId `Prelude.seq`
+                                      Prelude.rnf viewExpandedText `Prelude.seq`
+                                        Prelude.rnf viewOriginalText `Prelude.seq`
+                                          Prelude.rnf name

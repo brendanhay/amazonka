@@ -165,8 +165,8 @@ instance Prelude.Hashable GetRolePolicy where
 
 instance Prelude.NFData GetRolePolicy where
   rnf GetRolePolicy' {..} =
-    Prelude.rnf roleName
-      `Prelude.seq` Prelude.rnf policyName
+    Prelude.rnf roleName `Prelude.seq`
+      Prelude.rnf policyName
 
 instance Data.ToHeaders GetRolePolicy where
   toHeaders = Prelude.const Prelude.mempty
@@ -270,7 +270,7 @@ getRolePolicyResponse_policyDocument = Lens.lens (\GetRolePolicyResponse' {polic
 
 instance Prelude.NFData GetRolePolicyResponse where
   rnf GetRolePolicyResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf roleName
-      `Prelude.seq` Prelude.rnf policyName
-      `Prelude.seq` Prelude.rnf policyDocument
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf roleName `Prelude.seq`
+        Prelude.rnf policyName `Prelude.seq`
+          Prelude.rnf policyDocument

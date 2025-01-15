@@ -182,5 +182,5 @@ deleteKnownHostKeysResponse_httpStatus = Lens.lens (\DeleteKnownHostKeysResponse
 
 instance Prelude.NFData DeleteKnownHostKeysResponse where
   rnf DeleteKnownHostKeysResponse' {..} =
-    Prelude.rnf operations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operations `Prelude.seq`
+      Prelude.rnf httpStatus

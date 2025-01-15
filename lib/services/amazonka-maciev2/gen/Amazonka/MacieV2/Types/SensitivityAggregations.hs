@@ -147,7 +147,7 @@ instance Prelude.Hashable SensitivityAggregations where
 
 instance Prelude.NFData SensitivityAggregations where
   rnf SensitivityAggregations' {..} =
-    Prelude.rnf classifiableSizeInBytes
-      `Prelude.seq` Prelude.rnf publiclyAccessibleCount
-      `Prelude.seq` Prelude.rnf totalCount
-      `Prelude.seq` Prelude.rnf totalSizeInBytes
+    Prelude.rnf classifiableSizeInBytes `Prelude.seq`
+      Prelude.rnf publiclyAccessibleCount `Prelude.seq`
+        Prelude.rnf totalCount `Prelude.seq`
+          Prelude.rnf totalSizeInBytes

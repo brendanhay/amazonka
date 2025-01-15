@@ -97,8 +97,8 @@ instance
     FleetLaunchTemplateConfigRequest
   where
   rnf FleetLaunchTemplateConfigRequest' {..} =
-    Prelude.rnf launchTemplateSpecification
-      `Prelude.seq` Prelude.rnf overrides
+    Prelude.rnf launchTemplateSpecification `Prelude.seq`
+      Prelude.rnf overrides
 
 instance
   Data.ToQuery

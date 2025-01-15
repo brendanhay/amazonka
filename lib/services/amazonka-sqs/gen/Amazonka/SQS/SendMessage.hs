@@ -517,13 +517,13 @@ instance Prelude.Hashable SendMessage where
 
 instance Prelude.NFData SendMessage where
   rnf SendMessage' {..} =
-    Prelude.rnf delaySeconds
-      `Prelude.seq` Prelude.rnf messageAttributes
-      `Prelude.seq` Prelude.rnf messageDeduplicationId
-      `Prelude.seq` Prelude.rnf messageGroupId
-      `Prelude.seq` Prelude.rnf messageSystemAttributes
-      `Prelude.seq` Prelude.rnf queueUrl
-      `Prelude.seq` Prelude.rnf messageBody
+    Prelude.rnf delaySeconds `Prelude.seq`
+      Prelude.rnf messageAttributes `Prelude.seq`
+        Prelude.rnf messageDeduplicationId `Prelude.seq`
+          Prelude.rnf messageGroupId `Prelude.seq`
+            Prelude.rnf messageSystemAttributes `Prelude.seq`
+              Prelude.rnf queueUrl `Prelude.seq`
+                Prelude.rnf messageBody
 
 instance Data.ToHeaders SendMessage where
   toHeaders = Prelude.const Prelude.mempty
@@ -696,9 +696,9 @@ sendMessageResponse_httpStatus = Lens.lens (\SendMessageResponse' {httpStatus} -
 
 instance Prelude.NFData SendMessageResponse where
   rnf SendMessageResponse' {..} =
-    Prelude.rnf mD5OfMessageAttributes
-      `Prelude.seq` Prelude.rnf mD5OfMessageBody
-      `Prelude.seq` Prelude.rnf mD5OfMessageSystemAttributes
-      `Prelude.seq` Prelude.rnf messageId
-      `Prelude.seq` Prelude.rnf sequenceNumber
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf mD5OfMessageAttributes `Prelude.seq`
+      Prelude.rnf mD5OfMessageBody `Prelude.seq`
+        Prelude.rnf mD5OfMessageSystemAttributes `Prelude.seq`
+          Prelude.rnf messageId `Prelude.seq`
+            Prelude.rnf sequenceNumber `Prelude.seq`
+              Prelude.rnf httpStatus

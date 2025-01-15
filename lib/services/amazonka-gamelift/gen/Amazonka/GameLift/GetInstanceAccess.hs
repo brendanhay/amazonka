@@ -152,8 +152,8 @@ instance Prelude.Hashable GetInstanceAccess where
 
 instance Prelude.NFData GetInstanceAccess where
   rnf GetInstanceAccess' {..} =
-    Prelude.rnf fleetId
-      `Prelude.seq` Prelude.rnf instanceId
+    Prelude.rnf fleetId `Prelude.seq`
+      Prelude.rnf instanceId
 
 instance Data.ToHeaders GetInstanceAccess where
   toHeaders =
@@ -227,5 +227,5 @@ getInstanceAccessResponse_httpStatus = Lens.lens (\GetInstanceAccessResponse' {h
 
 instance Prelude.NFData GetInstanceAccessResponse where
   rnf GetInstanceAccessResponse' {..} =
-    Prelude.rnf instanceAccess
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf instanceAccess `Prelude.seq`
+      Prelude.rnf httpStatus

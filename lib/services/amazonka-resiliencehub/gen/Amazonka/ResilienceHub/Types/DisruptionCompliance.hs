@@ -172,13 +172,13 @@ instance Prelude.Hashable DisruptionCompliance where
 
 instance Prelude.NFData DisruptionCompliance where
   rnf DisruptionCompliance' {..} =
-    Prelude.rnf achievableRpoInSecs
-      `Prelude.seq` Prelude.rnf achievableRtoInSecs
-      `Prelude.seq` Prelude.rnf currentRpoInSecs
-      `Prelude.seq` Prelude.rnf currentRtoInSecs
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf rpoDescription
-      `Prelude.seq` Prelude.rnf rpoReferenceId
-      `Prelude.seq` Prelude.rnf rtoDescription
-      `Prelude.seq` Prelude.rnf rtoReferenceId
-      `Prelude.seq` Prelude.rnf complianceStatus
+    Prelude.rnf achievableRpoInSecs `Prelude.seq`
+      Prelude.rnf achievableRtoInSecs `Prelude.seq`
+        Prelude.rnf currentRpoInSecs `Prelude.seq`
+          Prelude.rnf currentRtoInSecs `Prelude.seq`
+            Prelude.rnf message `Prelude.seq`
+              Prelude.rnf rpoDescription `Prelude.seq`
+                Prelude.rnf rpoReferenceId `Prelude.seq`
+                  Prelude.rnf rtoDescription `Prelude.seq`
+                    Prelude.rnf rtoReferenceId `Prelude.seq`
+                      Prelude.rnf complianceStatus

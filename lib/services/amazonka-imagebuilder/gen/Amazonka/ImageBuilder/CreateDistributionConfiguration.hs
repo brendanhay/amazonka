@@ -162,11 +162,11 @@ instance
     CreateDistributionConfiguration
   where
   rnf CreateDistributionConfiguration' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf distributions
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf distributions `Prelude.seq`
+            Prelude.rnf clientToken
 
 instance
   Data.ToHeaders
@@ -268,7 +268,7 @@ instance
     CreateDistributionConfigurationResponse
   where
   rnf CreateDistributionConfigurationResponse' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf distributionConfigurationArn
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf distributionConfigurationArn `Prelude.seq`
+        Prelude.rnf requestId `Prelude.seq`
+          Prelude.rnf httpStatus

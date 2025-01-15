@@ -120,9 +120,9 @@ instance Prelude.Hashable UpdateFileCache where
 
 instance Prelude.NFData UpdateFileCache where
   rnf UpdateFileCache' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf lustreConfiguration
-      `Prelude.seq` Prelude.rnf fileCacheId
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf lustreConfiguration `Prelude.seq`
+        Prelude.rnf fileCacheId
 
 instance Data.ToHeaders UpdateFileCache where
   toHeaders =
@@ -198,5 +198,5 @@ updateFileCacheResponse_httpStatus = Lens.lens (\UpdateFileCacheResponse' {httpS
 
 instance Prelude.NFData UpdateFileCacheResponse where
   rnf UpdateFileCacheResponse' {..} =
-    Prelude.rnf fileCache
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf fileCache `Prelude.seq`
+      Prelude.rnf httpStatus

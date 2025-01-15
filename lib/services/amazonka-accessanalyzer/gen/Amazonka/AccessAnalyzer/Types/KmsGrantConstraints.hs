@@ -120,8 +120,8 @@ instance Prelude.Hashable KmsGrantConstraints where
 
 instance Prelude.NFData KmsGrantConstraints where
   rnf KmsGrantConstraints' {..} =
-    Prelude.rnf encryptionContextEquals
-      `Prelude.seq` Prelude.rnf encryptionContextSubset
+    Prelude.rnf encryptionContextEquals `Prelude.seq`
+      Prelude.rnf encryptionContextSubset
 
 instance Data.ToJSON KmsGrantConstraints where
   toJSON KmsGrantConstraints' {..} =

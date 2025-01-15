@@ -138,9 +138,9 @@ instance Prelude.Hashable DeleteBackendAuth where
 
 instance Prelude.NFData DeleteBackendAuth where
   rnf DeleteBackendAuth' {..} =
-    Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf backendEnvironmentName
-      `Prelude.seq` Prelude.rnf resourceName
+    Prelude.rnf appId `Prelude.seq`
+      Prelude.rnf backendEnvironmentName `Prelude.seq`
+        Prelude.rnf resourceName
 
 instance Data.ToHeaders DeleteBackendAuth where
   toHeaders =
@@ -258,10 +258,10 @@ deleteBackendAuthResponse_httpStatus = Lens.lens (\DeleteBackendAuthResponse' {h
 
 instance Prelude.NFData DeleteBackendAuthResponse where
   rnf DeleteBackendAuthResponse' {..} =
-    Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf backendEnvironmentName
-      `Prelude.seq` Prelude.rnf error
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf operation
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf appId `Prelude.seq`
+      Prelude.rnf backendEnvironmentName `Prelude.seq`
+        Prelude.rnf error `Prelude.seq`
+          Prelude.rnf jobId `Prelude.seq`
+            Prelude.rnf operation `Prelude.seq`
+              Prelude.rnf status `Prelude.seq`
+                Prelude.rnf httpStatus

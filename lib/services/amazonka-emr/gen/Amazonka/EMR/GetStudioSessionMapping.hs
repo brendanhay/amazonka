@@ -167,10 +167,10 @@ instance Prelude.Hashable GetStudioSessionMapping where
 
 instance Prelude.NFData GetStudioSessionMapping where
   rnf GetStudioSessionMapping' {..} =
-    Prelude.rnf identityId
-      `Prelude.seq` Prelude.rnf identityName
-      `Prelude.seq` Prelude.rnf studioId
-      `Prelude.seq` Prelude.rnf identityType
+    Prelude.rnf identityId `Prelude.seq`
+      Prelude.rnf identityName `Prelude.seq`
+        Prelude.rnf studioId `Prelude.seq`
+          Prelude.rnf identityType
 
 instance Data.ToHeaders GetStudioSessionMapping where
   toHeaders =
@@ -251,5 +251,5 @@ instance
     GetStudioSessionMappingResponse
   where
   rnf GetStudioSessionMappingResponse' {..} =
-    Prelude.rnf sessionMapping
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf sessionMapping `Prelude.seq`
+      Prelude.rnf httpStatus

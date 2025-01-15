@@ -84,8 +84,8 @@ instance Prelude.Hashable SSOIdentity where
 
 instance Prelude.NFData SSOIdentity where
   rnf SSOIdentity' {..} =
-    Prelude.rnf userId
-      `Prelude.seq` Prelude.rnf identityStoreId
+    Prelude.rnf userId `Prelude.seq`
+      Prelude.rnf identityStoreId
 
 instance Data.ToJSON SSOIdentity where
   toJSON SSOIdentity' {..} =

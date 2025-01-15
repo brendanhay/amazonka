@@ -102,9 +102,9 @@ instance Prelude.Hashable RecoveryPointSelection where
 
 instance Prelude.NFData RecoveryPointSelection where
   rnf RecoveryPointSelection' {..} =
-    Prelude.rnf dateRange
-      `Prelude.seq` Prelude.rnf resourceIdentifiers
-      `Prelude.seq` Prelude.rnf vaultNames
+    Prelude.rnf dateRange `Prelude.seq`
+      Prelude.rnf resourceIdentifiers `Prelude.seq`
+        Prelude.rnf vaultNames
 
 instance Data.ToJSON RecoveryPointSelection where
   toJSON RecoveryPointSelection' {..} =

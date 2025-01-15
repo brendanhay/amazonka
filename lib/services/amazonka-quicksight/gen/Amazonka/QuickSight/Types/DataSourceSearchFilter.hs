@@ -199,9 +199,9 @@ instance Prelude.Hashable DataSourceSearchFilter where
 
 instance Prelude.NFData DataSourceSearchFilter where
   rnf DataSourceSearchFilter' {..} =
-    Prelude.rnf operator
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf operator `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf value
 
 instance Data.ToJSON DataSourceSearchFilter where
   toJSON DataSourceSearchFilter' {..} =

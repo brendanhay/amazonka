@@ -199,12 +199,12 @@ instance Core.AWSPager GetDifferences where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getDifferences_nextToken
-          Lens..~ rs
-          Lens.^? getDifferencesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getDifferences_nextToken
+              Lens..~ rs
+              Lens.^? getDifferencesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetDifferences where
   type
@@ -234,13 +234,13 @@ instance Prelude.Hashable GetDifferences where
 
 instance Prelude.NFData GetDifferences where
   rnf GetDifferences' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf afterPath
-      `Prelude.seq` Prelude.rnf beforeCommitSpecifier
-      `Prelude.seq` Prelude.rnf beforePath
-      `Prelude.seq` Prelude.rnf repositoryName
-      `Prelude.seq` Prelude.rnf afterCommitSpecifier
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf afterPath `Prelude.seq`
+          Prelude.rnf beforeCommitSpecifier `Prelude.seq`
+            Prelude.rnf beforePath `Prelude.seq`
+              Prelude.rnf repositoryName `Prelude.seq`
+                Prelude.rnf afterCommitSpecifier
 
 instance Data.ToHeaders GetDifferences where
   toHeaders =
@@ -341,6 +341,6 @@ getDifferencesResponse_httpStatus = Lens.lens (\GetDifferencesResponse' {httpSta
 
 instance Prelude.NFData GetDifferencesResponse where
   rnf GetDifferencesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf differences
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf differences `Prelude.seq`
+        Prelude.rnf httpStatus

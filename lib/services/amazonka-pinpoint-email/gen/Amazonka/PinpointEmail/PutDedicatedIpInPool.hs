@@ -125,8 +125,8 @@ instance Prelude.Hashable PutDedicatedIpInPool where
 
 instance Prelude.NFData PutDedicatedIpInPool where
   rnf PutDedicatedIpInPool' {..} =
-    Prelude.rnf ip
-      `Prelude.seq` Prelude.rnf destinationPoolName
+    Prelude.rnf ip `Prelude.seq`
+      Prelude.rnf destinationPoolName
 
 instance Data.ToHeaders PutDedicatedIpInPool where
   toHeaders =

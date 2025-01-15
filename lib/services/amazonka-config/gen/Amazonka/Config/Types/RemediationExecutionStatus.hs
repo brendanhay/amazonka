@@ -117,8 +117,8 @@ instance Prelude.Hashable RemediationExecutionStatus where
 
 instance Prelude.NFData RemediationExecutionStatus where
   rnf RemediationExecutionStatus' {..} =
-    Prelude.rnf invocationTime
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf resourceKey
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf stepDetails
+    Prelude.rnf invocationTime `Prelude.seq`
+      Prelude.rnf lastUpdatedTime `Prelude.seq`
+        Prelude.rnf resourceKey `Prelude.seq`
+          Prelude.rnf state `Prelude.seq`
+            Prelude.rnf stepDetails

@@ -132,9 +132,9 @@ instance
     ListDataQualityRulesetEvaluationRuns
   where
   rnf ListDataQualityRulesetEvaluationRuns' {..} =
-    Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filter' `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance
   Data.ToHeaders
@@ -236,6 +236,6 @@ instance
     ListDataQualityRulesetEvaluationRunsResponse
   where
   rnf ListDataQualityRulesetEvaluationRunsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf runs
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf runs `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -118,8 +118,8 @@ instance Prelude.Hashable CancelMLTaskRun where
 
 instance Prelude.NFData CancelMLTaskRun where
   rnf CancelMLTaskRun' {..} =
-    Prelude.rnf transformId
-      `Prelude.seq` Prelude.rnf taskRunId
+    Prelude.rnf transformId `Prelude.seq`
+      Prelude.rnf taskRunId
 
 instance Data.ToHeaders CancelMLTaskRun where
   toHeaders =
@@ -207,7 +207,7 @@ cancelMLTaskRunResponse_httpStatus = Lens.lens (\CancelMLTaskRunResponse' {httpS
 
 instance Prelude.NFData CancelMLTaskRunResponse where
   rnf CancelMLTaskRunResponse' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf taskRunId
-      `Prelude.seq` Prelude.rnf transformId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf status `Prelude.seq`
+      Prelude.rnf taskRunId `Prelude.seq`
+        Prelude.rnf transformId `Prelude.seq`
+          Prelude.rnf httpStatus

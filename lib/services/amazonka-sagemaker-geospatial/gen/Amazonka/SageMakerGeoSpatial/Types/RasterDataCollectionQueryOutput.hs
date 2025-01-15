@@ -132,8 +132,8 @@ instance
     RasterDataCollectionQueryOutput
   where
   rnf RasterDataCollectionQueryOutput' {..} =
-    Prelude.rnf areaOfInterest
-      `Prelude.seq` Prelude.rnf propertyFilters
-      `Prelude.seq` Prelude.rnf rasterDataCollectionArn
-      `Prelude.seq` Prelude.rnf rasterDataCollectionName
-      `Prelude.seq` Prelude.rnf timeRangeFilter
+    Prelude.rnf areaOfInterest `Prelude.seq`
+      Prelude.rnf propertyFilters `Prelude.seq`
+        Prelude.rnf rasterDataCollectionArn `Prelude.seq`
+          Prelude.rnf rasterDataCollectionName `Prelude.seq`
+            Prelude.rnf timeRangeFilter

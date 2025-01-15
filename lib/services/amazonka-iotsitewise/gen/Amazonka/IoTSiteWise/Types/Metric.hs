@@ -152,10 +152,10 @@ instance Prelude.Hashable Metric where
 
 instance Prelude.NFData Metric where
   rnf Metric' {..} =
-    Prelude.rnf processingConfig
-      `Prelude.seq` Prelude.rnf expression
-      `Prelude.seq` Prelude.rnf variables
-      `Prelude.seq` Prelude.rnf window
+    Prelude.rnf processingConfig `Prelude.seq`
+      Prelude.rnf expression `Prelude.seq`
+        Prelude.rnf variables `Prelude.seq`
+          Prelude.rnf window
 
 instance Data.ToJSON Metric where
   toJSON Metric' {..} =

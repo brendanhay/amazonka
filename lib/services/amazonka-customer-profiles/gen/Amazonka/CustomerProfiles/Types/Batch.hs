@@ -76,8 +76,8 @@ instance Prelude.Hashable Batch where
 
 instance Prelude.NFData Batch where
   rnf Batch' {..} =
-    Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf endTime
+    Prelude.rnf startTime `Prelude.seq`
+      Prelude.rnf endTime
 
 instance Data.ToJSON Batch where
   toJSON Batch' {..} =

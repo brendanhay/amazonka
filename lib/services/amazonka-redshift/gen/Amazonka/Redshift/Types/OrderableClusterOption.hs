@@ -105,7 +105,7 @@ instance Prelude.Hashable OrderableClusterOption where
 
 instance Prelude.NFData OrderableClusterOption where
   rnf OrderableClusterOption' {..} =
-    Prelude.rnf availabilityZones
-      `Prelude.seq` Prelude.rnf clusterType
-      `Prelude.seq` Prelude.rnf clusterVersion
-      `Prelude.seq` Prelude.rnf nodeType
+    Prelude.rnf availabilityZones `Prelude.seq`
+      Prelude.rnf clusterType `Prelude.seq`
+        Prelude.rnf clusterVersion `Prelude.seq`
+          Prelude.rnf nodeType

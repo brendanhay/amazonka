@@ -98,8 +98,8 @@ instance
     DatasetContentDeliveryDestination
   where
   rnf DatasetContentDeliveryDestination' {..} =
-    Prelude.rnf iotEventsDestinationConfiguration
-      `Prelude.seq` Prelude.rnf s3DestinationConfiguration
+    Prelude.rnf iotEventsDestinationConfiguration `Prelude.seq`
+      Prelude.rnf s3DestinationConfiguration
 
 instance
   Data.ToJSON

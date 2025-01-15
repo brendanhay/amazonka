@@ -194,5 +194,5 @@ instance
     GetResolverQueryLogConfigPolicyResponse
   where
   rnf GetResolverQueryLogConfigPolicyResponse' {..} =
-    Prelude.rnf resolverQueryLogConfigPolicy
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf resolverQueryLogConfigPolicy `Prelude.seq`
+      Prelude.rnf httpStatus

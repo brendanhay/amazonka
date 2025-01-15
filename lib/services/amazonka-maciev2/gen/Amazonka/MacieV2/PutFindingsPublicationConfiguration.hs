@@ -124,8 +124,8 @@ instance
     PutFindingsPublicationConfiguration
   where
   rnf PutFindingsPublicationConfiguration' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf securityHubConfiguration
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf securityHubConfiguration
 
 instance
   Data.ToHeaders

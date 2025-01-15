@@ -99,6 +99,6 @@ instance Prelude.Hashable FreeTrialInfoError where
 
 instance Prelude.NFData FreeTrialInfoError where
   rnf FreeTrialInfoError' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf code
-      `Prelude.seq` Prelude.rnf message
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf code `Prelude.seq`
+        Prelude.rnf message

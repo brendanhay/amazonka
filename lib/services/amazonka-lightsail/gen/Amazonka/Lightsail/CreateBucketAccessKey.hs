@@ -202,6 +202,6 @@ createBucketAccessKeyResponse_httpStatus = Lens.lens (\CreateBucketAccessKeyResp
 
 instance Prelude.NFData CreateBucketAccessKeyResponse where
   rnf CreateBucketAccessKeyResponse' {..} =
-    Prelude.rnf accessKey
-      `Prelude.seq` Prelude.rnf operations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf accessKey `Prelude.seq`
+      Prelude.rnf operations `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -165,13 +165,13 @@ instance Prelude.Hashable FilterListControl where
 
 instance Prelude.NFData FilterListControl where
   rnf FilterListControl' {..} =
-    Prelude.rnf cascadingControlConfiguration
-      `Prelude.seq` Prelude.rnf displayOptions
-      `Prelude.seq` Prelude.rnf selectableValues
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf filterControlId
-      `Prelude.seq` Prelude.rnf title
-      `Prelude.seq` Prelude.rnf sourceFilterId
+    Prelude.rnf cascadingControlConfiguration `Prelude.seq`
+      Prelude.rnf displayOptions `Prelude.seq`
+        Prelude.rnf selectableValues `Prelude.seq`
+          Prelude.rnf type' `Prelude.seq`
+            Prelude.rnf filterControlId `Prelude.seq`
+              Prelude.rnf title `Prelude.seq`
+                Prelude.rnf sourceFilterId
 
 instance Data.ToJSON FilterListControl where
   toJSON FilterListControl' {..} =

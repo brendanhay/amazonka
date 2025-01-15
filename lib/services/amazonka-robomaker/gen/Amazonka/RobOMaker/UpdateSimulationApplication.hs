@@ -193,13 +193,13 @@ instance Prelude.Hashable UpdateSimulationApplication where
 
 instance Prelude.NFData UpdateSimulationApplication where
   rnf UpdateSimulationApplication' {..} =
-    Prelude.rnf currentRevisionId
-      `Prelude.seq` Prelude.rnf environment
-      `Prelude.seq` Prelude.rnf renderingEngine
-      `Prelude.seq` Prelude.rnf sources
-      `Prelude.seq` Prelude.rnf application
-      `Prelude.seq` Prelude.rnf simulationSoftwareSuite
-      `Prelude.seq` Prelude.rnf robotSoftwareSuite
+    Prelude.rnf currentRevisionId `Prelude.seq`
+      Prelude.rnf environment `Prelude.seq`
+        Prelude.rnf renderingEngine `Prelude.seq`
+          Prelude.rnf sources `Prelude.seq`
+            Prelude.rnf application `Prelude.seq`
+              Prelude.rnf simulationSoftwareSuite `Prelude.seq`
+                Prelude.rnf robotSoftwareSuite
 
 instance Data.ToHeaders UpdateSimulationApplication where
   toHeaders =
@@ -370,14 +370,14 @@ instance
     UpdateSimulationApplicationResponse
   where
   rnf UpdateSimulationApplicationResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf environment
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf renderingEngine
-      `Prelude.seq` Prelude.rnf revisionId
-      `Prelude.seq` Prelude.rnf robotSoftwareSuite
-      `Prelude.seq` Prelude.rnf simulationSoftwareSuite
-      `Prelude.seq` Prelude.rnf sources
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf environment `Prelude.seq`
+        Prelude.rnf lastUpdatedAt `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf renderingEngine `Prelude.seq`
+              Prelude.rnf revisionId `Prelude.seq`
+                Prelude.rnf robotSoftwareSuite `Prelude.seq`
+                  Prelude.rnf simulationSoftwareSuite `Prelude.seq`
+                    Prelude.rnf sources `Prelude.seq`
+                      Prelude.rnf version `Prelude.seq`
+                        Prelude.rnf httpStatus

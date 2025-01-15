@@ -112,7 +112,7 @@ instance Prelude.Hashable UsageStatistics where
 
 instance Prelude.NFData UsageStatistics where
   rnf UsageStatistics' {..} =
-    Prelude.rnf sumByAccount
-      `Prelude.seq` Prelude.rnf sumByDataSource
-      `Prelude.seq` Prelude.rnf sumByResource
-      `Prelude.seq` Prelude.rnf topResources
+    Prelude.rnf sumByAccount `Prelude.seq`
+      Prelude.rnf sumByDataSource `Prelude.seq`
+        Prelude.rnf sumByResource `Prelude.seq`
+          Prelude.rnf topResources

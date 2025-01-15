@@ -325,14 +325,14 @@ instance Prelude.Hashable Member where
 
 instance Prelude.NFData Member where
   rnf Member' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf frameworkAttributes
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf kmsKeyArn
-      `Prelude.seq` Prelude.rnf logPublishingConfiguration
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf networkId
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf creationDate `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf frameworkAttributes `Prelude.seq`
+            Prelude.rnf id `Prelude.seq`
+              Prelude.rnf kmsKeyArn `Prelude.seq`
+                Prelude.rnf logPublishingConfiguration `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf networkId `Prelude.seq`
+                      Prelude.rnf status `Prelude.seq`
+                        Prelude.rnf tags

@@ -84,5 +84,5 @@ instance Prelude.Hashable HashAlgorithmOptions where
 
 instance Prelude.NFData HashAlgorithmOptions where
   rnf HashAlgorithmOptions' {..} =
-    Prelude.rnf allowedValues
-      `Prelude.seq` Prelude.rnf defaultValue
+    Prelude.rnf allowedValues `Prelude.seq`
+      Prelude.rnf defaultValue

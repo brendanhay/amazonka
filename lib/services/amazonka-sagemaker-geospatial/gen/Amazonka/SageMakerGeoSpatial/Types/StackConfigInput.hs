@@ -78,8 +78,8 @@ instance Prelude.Hashable StackConfigInput where
 
 instance Prelude.NFData StackConfigInput where
   rnf StackConfigInput' {..} =
-    Prelude.rnf outputResolution
-      `Prelude.seq` Prelude.rnf targetBands
+    Prelude.rnf outputResolution `Prelude.seq`
+      Prelude.rnf targetBands
 
 instance Data.ToJSON StackConfigInput where
   toJSON StackConfigInput' {..} =

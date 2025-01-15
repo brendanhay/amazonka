@@ -119,7 +119,7 @@ instance
     FailedCreateSimulationJobRequest
   where
   rnf FailedCreateSimulationJobRequest' {..} =
-    Prelude.rnf failedAt
-      `Prelude.seq` Prelude.rnf failureCode
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf request
+    Prelude.rnf failedAt `Prelude.seq`
+      Prelude.rnf failureCode `Prelude.seq`
+        Prelude.rnf failureReason `Prelude.seq`
+          Prelude.rnf request

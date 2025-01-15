@@ -97,9 +97,9 @@ instance Prelude.Hashable SlotTypeFilter where
 
 instance Prelude.NFData SlotTypeFilter where
   rnf SlotTypeFilter' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf values
-      `Prelude.seq` Prelude.rnf operator
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf values `Prelude.seq`
+        Prelude.rnf operator
 
 instance Data.ToJSON SlotTypeFilter where
   toJSON SlotTypeFilter' {..} =

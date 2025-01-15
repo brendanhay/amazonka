@@ -151,10 +151,10 @@ instance Prelude.Hashable CreateThemeAlias where
 
 instance Prelude.NFData CreateThemeAlias where
   rnf CreateThemeAlias' {..} =
-    Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf themeId
-      `Prelude.seq` Prelude.rnf aliasName
-      `Prelude.seq` Prelude.rnf themeVersionNumber
+    Prelude.rnf awsAccountId `Prelude.seq`
+      Prelude.rnf themeId `Prelude.seq`
+        Prelude.rnf aliasName `Prelude.seq`
+          Prelude.rnf themeVersionNumber
 
 instance Data.ToHeaders CreateThemeAlias where
   toHeaders =
@@ -240,6 +240,6 @@ createThemeAliasResponse_status = Lens.lens (\CreateThemeAliasResponse' {status}
 
 instance Prelude.NFData CreateThemeAliasResponse where
   rnf CreateThemeAliasResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf themeAlias
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf requestId `Prelude.seq`
+      Prelude.rnf themeAlias `Prelude.seq`
+        Prelude.rnf status

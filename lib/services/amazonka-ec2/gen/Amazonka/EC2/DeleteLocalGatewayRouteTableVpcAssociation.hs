@@ -133,8 +133,8 @@ instance
     DeleteLocalGatewayRouteTableVpcAssociation
   where
   rnf DeleteLocalGatewayRouteTableVpcAssociation' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf localGatewayRouteTableVpcAssociationId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf localGatewayRouteTableVpcAssociationId
 
 instance
   Data.ToHeaders
@@ -213,5 +213,5 @@ instance
   where
   rnf
     DeleteLocalGatewayRouteTableVpcAssociationResponse' {..} =
-      Prelude.rnf localGatewayRouteTableVpcAssociation
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf localGatewayRouteTableVpcAssociation `Prelude.seq`
+        Prelude.rnf httpStatus

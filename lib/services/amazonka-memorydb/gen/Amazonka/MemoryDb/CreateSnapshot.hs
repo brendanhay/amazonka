@@ -135,10 +135,10 @@ instance Prelude.Hashable CreateSnapshot where
 
 instance Prelude.NFData CreateSnapshot where
   rnf CreateSnapshot' {..} =
-    Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clusterName
-      `Prelude.seq` Prelude.rnf snapshotName
+    Prelude.rnf kmsKeyId `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf clusterName `Prelude.seq`
+          Prelude.rnf snapshotName
 
 instance Data.ToHeaders CreateSnapshot where
   toHeaders =
@@ -212,5 +212,5 @@ createSnapshotResponse_httpStatus = Lens.lens (\CreateSnapshotResponse' {httpSta
 
 instance Prelude.NFData CreateSnapshotResponse where
   rnf CreateSnapshotResponse' {..} =
-    Prelude.rnf snapshot
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf snapshot `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -278,14 +278,14 @@ instance Prelude.Hashable CreateConfigurationProfile where
 
 instance Prelude.NFData CreateConfigurationProfile where
   rnf CreateConfigurationProfile' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf retrievalRoleArn
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf validators
-      `Prelude.seq` Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf locationUri
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf retrievalRoleArn `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf type' `Prelude.seq`
+            Prelude.rnf validators `Prelude.seq`
+              Prelude.rnf applicationId `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf locationUri
 
 instance Data.ToHeaders CreateConfigurationProfile where
   toHeaders =

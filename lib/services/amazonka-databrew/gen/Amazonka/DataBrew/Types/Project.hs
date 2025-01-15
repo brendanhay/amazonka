@@ -232,17 +232,17 @@ instance Prelude.Hashable Project where
 
 instance Prelude.NFData Project where
   rnf Project' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf createDate
-      `Prelude.seq` Prelude.rnf createdBy
-      `Prelude.seq` Prelude.rnf datasetName
-      `Prelude.seq` Prelude.rnf lastModifiedBy
-      `Prelude.seq` Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf openDate
-      `Prelude.seq` Prelude.rnf openedBy
-      `Prelude.seq` Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf sample
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf recipeName
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf createDate `Prelude.seq`
+        Prelude.rnf createdBy `Prelude.seq`
+          Prelude.rnf datasetName `Prelude.seq`
+            Prelude.rnf lastModifiedBy `Prelude.seq`
+              Prelude.rnf lastModifiedDate `Prelude.seq`
+                Prelude.rnf openDate `Prelude.seq`
+                  Prelude.rnf openedBy `Prelude.seq`
+                    Prelude.rnf resourceArn `Prelude.seq`
+                      Prelude.rnf roleArn `Prelude.seq`
+                        Prelude.rnf sample `Prelude.seq`
+                          Prelude.rnf tags `Prelude.seq`
+                            Prelude.rnf name `Prelude.seq`
+                              Prelude.rnf recipeName

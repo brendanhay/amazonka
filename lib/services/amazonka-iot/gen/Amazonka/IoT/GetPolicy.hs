@@ -219,11 +219,11 @@ getPolicyResponse_httpStatus = Lens.lens (\GetPolicyResponse' {httpStatus} -> ht
 
 instance Prelude.NFData GetPolicyResponse where
   rnf GetPolicyResponse' {..} =
-    Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf defaultVersionId
-      `Prelude.seq` Prelude.rnf generationId
-      `Prelude.seq` Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf policyArn
-      `Prelude.seq` Prelude.rnf policyDocument
-      `Prelude.seq` Prelude.rnf policyName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf creationDate `Prelude.seq`
+      Prelude.rnf defaultVersionId `Prelude.seq`
+        Prelude.rnf generationId `Prelude.seq`
+          Prelude.rnf lastModifiedDate `Prelude.seq`
+            Prelude.rnf policyArn `Prelude.seq`
+              Prelude.rnf policyDocument `Prelude.seq`
+                Prelude.rnf policyName `Prelude.seq`
+                  Prelude.rnf httpStatus

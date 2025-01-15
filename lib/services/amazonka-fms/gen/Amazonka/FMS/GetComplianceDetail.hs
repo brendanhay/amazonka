@@ -136,8 +136,8 @@ instance Prelude.Hashable GetComplianceDetail where
 
 instance Prelude.NFData GetComplianceDetail where
   rnf GetComplianceDetail' {..} =
-    Prelude.rnf policyId
-      `Prelude.seq` Prelude.rnf memberAccount
+    Prelude.rnf policyId `Prelude.seq`
+      Prelude.rnf memberAccount
 
 instance Data.ToHeaders GetComplianceDetail where
   toHeaders =
@@ -214,5 +214,5 @@ getComplianceDetailResponse_httpStatus = Lens.lens (\GetComplianceDetailResponse
 
 instance Prelude.NFData GetComplianceDetailResponse where
   rnf GetComplianceDetailResponse' {..} =
-    Prelude.rnf policyComplianceDetail
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf policyComplianceDetail `Prelude.seq`
+      Prelude.rnf httpStatus

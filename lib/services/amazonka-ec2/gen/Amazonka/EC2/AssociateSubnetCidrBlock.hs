@@ -120,8 +120,8 @@ instance Prelude.Hashable AssociateSubnetCidrBlock where
 
 instance Prelude.NFData AssociateSubnetCidrBlock where
   rnf AssociateSubnetCidrBlock' {..} =
-    Prelude.rnf ipv6CidrBlock
-      `Prelude.seq` Prelude.rnf subnetId
+    Prelude.rnf ipv6CidrBlock `Prelude.seq`
+      Prelude.rnf subnetId
 
 instance Data.ToHeaders AssociateSubnetCidrBlock where
   toHeaders = Prelude.const Prelude.mempty
@@ -193,6 +193,6 @@ instance
     AssociateSubnetCidrBlockResponse
   where
   rnf AssociateSubnetCidrBlockResponse' {..} =
-    Prelude.rnf ipv6CidrBlockAssociation
-      `Prelude.seq` Prelude.rnf subnetId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf ipv6CidrBlockAssociation `Prelude.seq`
+      Prelude.rnf subnetId `Prelude.seq`
+        Prelude.rnf httpStatus

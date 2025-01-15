@@ -104,6 +104,6 @@ instance Prelude.Hashable LocationAttributes where
 
 instance Prelude.NFData LocationAttributes where
   rnf LocationAttributes' {..} =
-    Prelude.rnf locationState
-      `Prelude.seq` Prelude.rnf stoppedActions
-      `Prelude.seq` Prelude.rnf updateStatus
+    Prelude.rnf locationState `Prelude.seq`
+      Prelude.rnf stoppedActions `Prelude.seq`
+        Prelude.rnf updateStatus

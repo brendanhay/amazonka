@@ -170,11 +170,11 @@ instance
     GetEvidenceFoldersByAssessmentControl
   where
   rnf GetEvidenceFoldersByAssessmentControl' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf assessmentId
-      `Prelude.seq` Prelude.rnf controlSetId
-      `Prelude.seq` Prelude.rnf controlId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf assessmentId `Prelude.seq`
+          Prelude.rnf controlSetId `Prelude.seq`
+            Prelude.rnf controlId
 
 instance
   Data.ToHeaders
@@ -272,6 +272,6 @@ instance
   where
   rnf
     GetEvidenceFoldersByAssessmentControlResponse' {..} =
-      Prelude.rnf evidenceFolders
-        `Prelude.seq` Prelude.rnf nextToken
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf evidenceFolders `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf httpStatus

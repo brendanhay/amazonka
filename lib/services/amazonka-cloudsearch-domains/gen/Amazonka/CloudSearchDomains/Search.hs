@@ -1140,20 +1140,20 @@ instance Prelude.Hashable Search where
 
 instance Prelude.NFData Search where
   rnf Search' {..} =
-    Prelude.rnf cursor
-      `Prelude.seq` Prelude.rnf expr
-      `Prelude.seq` Prelude.rnf facet
-      `Prelude.seq` Prelude.rnf filterQuery
-      `Prelude.seq` Prelude.rnf highlight
-      `Prelude.seq` Prelude.rnf partial
-      `Prelude.seq` Prelude.rnf queryOptions
-      `Prelude.seq` Prelude.rnf queryParser
-      `Prelude.seq` Prelude.rnf return'
-      `Prelude.seq` Prelude.rnf size
-      `Prelude.seq` Prelude.rnf sort
-      `Prelude.seq` Prelude.rnf start
-      `Prelude.seq` Prelude.rnf stats
-      `Prelude.seq` Prelude.rnf query
+    Prelude.rnf cursor `Prelude.seq`
+      Prelude.rnf expr `Prelude.seq`
+        Prelude.rnf facet `Prelude.seq`
+          Prelude.rnf filterQuery `Prelude.seq`
+            Prelude.rnf highlight `Prelude.seq`
+              Prelude.rnf partial `Prelude.seq`
+                Prelude.rnf queryOptions `Prelude.seq`
+                  Prelude.rnf queryParser `Prelude.seq`
+                    Prelude.rnf return' `Prelude.seq`
+                      Prelude.rnf size `Prelude.seq`
+                        Prelude.rnf sort `Prelude.seq`
+                          Prelude.rnf start `Prelude.seq`
+                            Prelude.rnf stats `Prelude.seq`
+                              Prelude.rnf query
 
 instance Data.ToHeaders Search where
   toHeaders =
@@ -1260,8 +1260,8 @@ searchResponse_httpStatus = Lens.lens (\SearchResponse' {httpStatus} -> httpStat
 
 instance Prelude.NFData SearchResponse where
   rnf SearchResponse' {..} =
-    Prelude.rnf facets
-      `Prelude.seq` Prelude.rnf hits
-      `Prelude.seq` Prelude.rnf stats
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf facets `Prelude.seq`
+      Prelude.rnf hits `Prelude.seq`
+        Prelude.rnf stats `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf httpStatus

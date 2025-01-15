@@ -143,12 +143,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeGlobalReplicationGroups_marker
-          Lens..~ rs
-          Lens.^? describeGlobalReplicationGroupsResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeGlobalReplicationGroups_marker
+              Lens..~ rs
+              Lens.^? describeGlobalReplicationGroupsResponse_marker
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -192,10 +192,10 @@ instance
     DescribeGlobalReplicationGroups
   where
   rnf DescribeGlobalReplicationGroups' {..} =
-    Prelude.rnf globalReplicationGroupId
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf showMemberInfo
+    Prelude.rnf globalReplicationGroupId `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf maxRecords `Prelude.seq`
+          Prelude.rnf showMemberInfo
 
 instance
   Data.ToHeaders
@@ -288,6 +288,6 @@ instance
     DescribeGlobalReplicationGroupsResponse
   where
   rnf DescribeGlobalReplicationGroupsResponse' {..} =
-    Prelude.rnf globalReplicationGroups
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf globalReplicationGroups `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -84,5 +84,5 @@ instance Prelude.Hashable Statistics where
 
 instance Prelude.NFData Statistics where
   rnf Statistics' {..} =
-    Prelude.rnf approximateNumberOfObjectsToProcess
-      `Prelude.seq` Prelude.rnf numberOfRuns
+    Prelude.rnf approximateNumberOfObjectsToProcess `Prelude.seq`
+      Prelude.rnf numberOfRuns

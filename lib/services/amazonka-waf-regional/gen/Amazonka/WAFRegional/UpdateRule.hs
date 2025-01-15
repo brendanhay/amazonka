@@ -189,9 +189,9 @@ instance Prelude.Hashable UpdateRule where
 
 instance Prelude.NFData UpdateRule where
   rnf UpdateRule' {..} =
-    Prelude.rnf ruleId
-      `Prelude.seq` Prelude.rnf changeToken
-      `Prelude.seq` Prelude.rnf updates
+    Prelude.rnf ruleId `Prelude.seq`
+      Prelude.rnf changeToken `Prelude.seq`
+        Prelude.rnf updates
 
 instance Data.ToHeaders UpdateRule where
   toHeaders =
@@ -270,5 +270,5 @@ updateRuleResponse_httpStatus = Lens.lens (\UpdateRuleResponse' {httpStatus} -> 
 
 instance Prelude.NFData UpdateRuleResponse where
   rnf UpdateRuleResponse' {..} =
-    Prelude.rnf changeToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf changeToken `Prelude.seq`
+      Prelude.rnf httpStatus

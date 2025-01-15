@@ -194,12 +194,12 @@ instance Core.AWSPager DescribeImageScanFindings where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeImageScanFindings_nextToken
-          Lens..~ rs
-          Lens.^? describeImageScanFindingsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeImageScanFindings_nextToken
+              Lens..~ rs
+              Lens.^? describeImageScanFindingsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeImageScanFindings where
   type
@@ -231,11 +231,11 @@ instance Prelude.Hashable DescribeImageScanFindings where
 
 instance Prelude.NFData DescribeImageScanFindings where
   rnf DescribeImageScanFindings' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf registryId
-      `Prelude.seq` Prelude.rnf repositoryName
-      `Prelude.seq` Prelude.rnf imageId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf registryId `Prelude.seq`
+          Prelude.rnf repositoryName `Prelude.seq`
+            Prelude.rnf imageId
 
 instance Data.ToHeaders DescribeImageScanFindings where
   toHeaders =
@@ -368,10 +368,10 @@ instance
     DescribeImageScanFindingsResponse
   where
   rnf DescribeImageScanFindingsResponse' {..} =
-    Prelude.rnf imageId
-      `Prelude.seq` Prelude.rnf imageScanFindings
-      `Prelude.seq` Prelude.rnf imageScanStatus
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf registryId
-      `Prelude.seq` Prelude.rnf repositoryName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf imageId `Prelude.seq`
+      Prelude.rnf imageScanFindings `Prelude.seq`
+        Prelude.rnf imageScanStatus `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf registryId `Prelude.seq`
+              Prelude.rnf repositoryName `Prelude.seq`
+                Prelude.rnf httpStatus

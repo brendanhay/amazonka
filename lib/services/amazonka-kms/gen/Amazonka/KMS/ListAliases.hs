@@ -220,12 +220,12 @@ instance Core.AWSPager ListAliases where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listAliases_marker
-          Lens..~ rs
-          Lens.^? listAliasesResponse_nextMarker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listAliases_marker
+              Lens..~ rs
+              Lens.^? listAliasesResponse_nextMarker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAliases where
   type AWSResponse ListAliases = ListAliasesResponse
@@ -250,9 +250,9 @@ instance Prelude.Hashable ListAliases where
 
 instance Prelude.NFData ListAliases where
   rnf ListAliases' {..} =
-    Prelude.rnf keyId
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf marker
+    Prelude.rnf keyId `Prelude.seq`
+      Prelude.rnf limit `Prelude.seq`
+        Prelude.rnf marker
 
 instance Data.ToHeaders ListAliases where
   toHeaders =
@@ -353,7 +353,7 @@ listAliasesResponse_httpStatus = Lens.lens (\ListAliasesResponse' {httpStatus} -
 
 instance Prelude.NFData ListAliasesResponse where
   rnf ListAliasesResponse' {..} =
-    Prelude.rnf aliases
-      `Prelude.seq` Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf truncated
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf aliases `Prelude.seq`
+      Prelude.rnf nextMarker `Prelude.seq`
+        Prelude.rnf truncated `Prelude.seq`
+          Prelude.rnf httpStatus

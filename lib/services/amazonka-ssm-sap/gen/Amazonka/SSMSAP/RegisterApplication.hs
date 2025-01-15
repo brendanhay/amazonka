@@ -172,13 +172,13 @@ instance Prelude.Hashable RegisterApplication where
 
 instance Prelude.NFData RegisterApplication where
   rnf RegisterApplication' {..} =
-    Prelude.rnf sapInstanceNumber
-      `Prelude.seq` Prelude.rnf sid
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf applicationType
-      `Prelude.seq` Prelude.rnf instances
-      `Prelude.seq` Prelude.rnf credentials
+    Prelude.rnf sapInstanceNumber `Prelude.seq`
+      Prelude.rnf sid `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf applicationId `Prelude.seq`
+            Prelude.rnf applicationType `Prelude.seq`
+              Prelude.rnf instances `Prelude.seq`
+                Prelude.rnf credentials
 
 instance Data.ToHeaders RegisterApplication where
   toHeaders =
@@ -259,6 +259,6 @@ registerApplicationResponse_httpStatus = Lens.lens (\RegisterApplicationResponse
 
 instance Prelude.NFData RegisterApplicationResponse where
   rnf RegisterApplicationResponse' {..} =
-    Prelude.rnf application
-      `Prelude.seq` Prelude.rnf operationId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf application `Prelude.seq`
+      Prelude.rnf operationId `Prelude.seq`
+        Prelude.rnf httpStatus

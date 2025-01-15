@@ -124,7 +124,7 @@ instance Prelude.Hashable MeetingRoomConfiguration where
 
 instance Prelude.NFData MeetingRoomConfiguration where
   rnf MeetingRoomConfiguration' {..} =
-    Prelude.rnf endOfMeetingReminder
-      `Prelude.seq` Prelude.rnf instantBooking
-      `Prelude.seq` Prelude.rnf requireCheckIn
-      `Prelude.seq` Prelude.rnf roomUtilizationMetricsEnabled
+    Prelude.rnf endOfMeetingReminder `Prelude.seq`
+      Prelude.rnf instantBooking `Prelude.seq`
+        Prelude.rnf requireCheckIn `Prelude.seq`
+          Prelude.rnf roomUtilizationMetricsEnabled

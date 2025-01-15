@@ -177,12 +177,12 @@ instance Prelude.Hashable UpdateResiliencyPolicy where
 
 instance Prelude.NFData UpdateResiliencyPolicy where
   rnf UpdateResiliencyPolicy' {..} =
-    Prelude.rnf dataLocationConstraint
-      `Prelude.seq` Prelude.rnf policy
-      `Prelude.seq` Prelude.rnf policyDescription
-      `Prelude.seq` Prelude.rnf policyName
-      `Prelude.seq` Prelude.rnf tier
-      `Prelude.seq` Prelude.rnf policyArn
+    Prelude.rnf dataLocationConstraint `Prelude.seq`
+      Prelude.rnf policy `Prelude.seq`
+        Prelude.rnf policyDescription `Prelude.seq`
+          Prelude.rnf policyName `Prelude.seq`
+            Prelude.rnf tier `Prelude.seq`
+              Prelude.rnf policyArn
 
 instance Data.ToHeaders UpdateResiliencyPolicy where
   toHeaders =
@@ -267,5 +267,5 @@ instance
     UpdateResiliencyPolicyResponse
   where
   rnf UpdateResiliencyPolicyResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf policy
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf policy

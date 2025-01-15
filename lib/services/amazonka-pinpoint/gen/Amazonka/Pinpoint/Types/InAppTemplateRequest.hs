@@ -114,11 +114,11 @@ instance Prelude.Hashable InAppTemplateRequest where
 
 instance Prelude.NFData InAppTemplateRequest where
   rnf InAppTemplateRequest' {..} =
-    Prelude.rnf content
-      `Prelude.seq` Prelude.rnf customConfig
-      `Prelude.seq` Prelude.rnf layout
-      `Prelude.seq` Prelude.rnf templateDescription
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf content `Prelude.seq`
+      Prelude.rnf customConfig `Prelude.seq`
+        Prelude.rnf layout `Prelude.seq`
+          Prelude.rnf templateDescription `Prelude.seq`
+            Prelude.rnf tags
 
 instance Data.ToJSON InAppTemplateRequest where
   toJSON InAppTemplateRequest' {..} =

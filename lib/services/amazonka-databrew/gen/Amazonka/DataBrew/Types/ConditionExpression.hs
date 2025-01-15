@@ -115,9 +115,9 @@ instance Prelude.Hashable ConditionExpression where
 
 instance Prelude.NFData ConditionExpression where
   rnf ConditionExpression' {..} =
-    Prelude.rnf value
-      `Prelude.seq` Prelude.rnf condition
-      `Prelude.seq` Prelude.rnf targetColumn
+    Prelude.rnf value `Prelude.seq`
+      Prelude.rnf condition `Prelude.seq`
+        Prelude.rnf targetColumn
 
 instance Data.ToJSON ConditionExpression where
   toJSON ConditionExpression' {..} =

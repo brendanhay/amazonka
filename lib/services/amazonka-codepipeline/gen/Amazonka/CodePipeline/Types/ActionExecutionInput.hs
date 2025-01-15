@@ -152,10 +152,10 @@ instance Prelude.Hashable ActionExecutionInput where
 
 instance Prelude.NFData ActionExecutionInput where
   rnf ActionExecutionInput' {..} =
-    Prelude.rnf actionTypeId
-      `Prelude.seq` Prelude.rnf configuration
-      `Prelude.seq` Prelude.rnf inputArtifacts
-      `Prelude.seq` Prelude.rnf namespace
-      `Prelude.seq` Prelude.rnf region
-      `Prelude.seq` Prelude.rnf resolvedConfiguration
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf actionTypeId `Prelude.seq`
+      Prelude.rnf configuration `Prelude.seq`
+        Prelude.rnf inputArtifacts `Prelude.seq`
+          Prelude.rnf namespace `Prelude.seq`
+            Prelude.rnf region `Prelude.seq`
+              Prelude.rnf resolvedConfiguration `Prelude.seq`
+                Prelude.rnf roleArn

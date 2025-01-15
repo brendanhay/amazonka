@@ -113,10 +113,10 @@ instance
     PartnerIntegrationInputMessage
   where
   rnf PartnerIntegrationInputMessage' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf clusterIdentifier
-      `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf partnerName
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf clusterIdentifier `Prelude.seq`
+        Prelude.rnf databaseName `Prelude.seq`
+          Prelude.rnf partnerName
 
 instance Data.ToQuery PartnerIntegrationInputMessage where
   toQuery PartnerIntegrationInputMessage' {..} =

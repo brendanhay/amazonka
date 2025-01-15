@@ -107,9 +107,9 @@ instance Prelude.Hashable CodeRepository where
 
 instance Prelude.NFData CodeRepository where
   rnf CodeRepository' {..} =
-    Prelude.rnf codeConfiguration
-      `Prelude.seq` Prelude.rnf repositoryUrl
-      `Prelude.seq` Prelude.rnf sourceCodeVersion
+    Prelude.rnf codeConfiguration `Prelude.seq`
+      Prelude.rnf repositoryUrl `Prelude.seq`
+        Prelude.rnf sourceCodeVersion
 
 instance Data.ToJSON CodeRepository where
   toJSON CodeRepository' {..} =

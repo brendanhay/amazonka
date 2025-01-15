@@ -84,5 +84,5 @@ instance Prelude.Hashable PhaseContext where
 
 instance Prelude.NFData PhaseContext where
   rnf PhaseContext' {..} =
-    Prelude.rnf message
-      `Prelude.seq` Prelude.rnf statusCode
+    Prelude.rnf message `Prelude.seq`
+      Prelude.rnf statusCode

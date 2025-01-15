@@ -179,8 +179,8 @@ instance Prelude.Hashable AssociateWebACL where
 
 instance Prelude.NFData AssociateWebACL where
   rnf AssociateWebACL' {..} =
-    Prelude.rnf webACLArn
-      `Prelude.seq` Prelude.rnf resourceArn
+    Prelude.rnf webACLArn `Prelude.seq`
+      Prelude.rnf resourceArn
 
 instance Data.ToHeaders AssociateWebACL where
   toHeaders =

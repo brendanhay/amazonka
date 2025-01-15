@@ -153,9 +153,9 @@ instance Prelude.Hashable Predicate where
 
 instance Prelude.NFData Predicate where
   rnf Predicate' {..} =
-    Prelude.rnf negated
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf dataId
+    Prelude.rnf negated `Prelude.seq`
+      Prelude.rnf type' `Prelude.seq`
+        Prelude.rnf dataId
 
 instance Data.ToJSON Predicate where
   toJSON Predicate' {..} =

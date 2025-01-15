@@ -225,16 +225,16 @@ instance Prelude.Hashable ParameterHistory where
 
 instance Prelude.NFData ParameterHistory where
   rnf ParameterHistory' {..} =
-    Prelude.rnf allowedPattern
-      `Prelude.seq` Prelude.rnf dataType
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf keyId
-      `Prelude.seq` Prelude.rnf labels
-      `Prelude.seq` Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf lastModifiedUser
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf policies
-      `Prelude.seq` Prelude.rnf tier
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf value
-      `Prelude.seq` Prelude.rnf version
+    Prelude.rnf allowedPattern `Prelude.seq`
+      Prelude.rnf dataType `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf keyId `Prelude.seq`
+            Prelude.rnf labels `Prelude.seq`
+              Prelude.rnf lastModifiedDate `Prelude.seq`
+                Prelude.rnf lastModifiedUser `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf policies `Prelude.seq`
+                      Prelude.rnf tier `Prelude.seq`
+                        Prelude.rnf type' `Prelude.seq`
+                          Prelude.rnf value `Prelude.seq`
+                            Prelude.rnf version

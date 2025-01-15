@@ -182,11 +182,11 @@ instance Prelude.Hashable UpdateRumMetricDefinition where
 
 instance Prelude.NFData UpdateRumMetricDefinition where
   rnf UpdateRumMetricDefinition' {..} =
-    Prelude.rnf destinationArn
-      `Prelude.seq` Prelude.rnf appMonitorName
-      `Prelude.seq` Prelude.rnf destination
-      `Prelude.seq` Prelude.rnf metricDefinition
-      `Prelude.seq` Prelude.rnf metricDefinitionId
+    Prelude.rnf destinationArn `Prelude.seq`
+      Prelude.rnf appMonitorName `Prelude.seq`
+        Prelude.rnf destination `Prelude.seq`
+          Prelude.rnf metricDefinition `Prelude.seq`
+            Prelude.rnf metricDefinitionId
 
 instance Data.ToHeaders UpdateRumMetricDefinition where
   toHeaders =

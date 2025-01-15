@@ -117,7 +117,7 @@ instance Prelude.Hashable Invalidation where
 
 instance Prelude.NFData Invalidation where
   rnf Invalidation' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf createTime
-      `Prelude.seq` Prelude.rnf invalidationBatch
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf createTime `Prelude.seq`
+          Prelude.rnf invalidationBatch

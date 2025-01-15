@@ -93,9 +93,9 @@ instance Prelude.Hashable UpsertRedshiftTargetOptions where
 
 instance Prelude.NFData UpsertRedshiftTargetOptions where
   rnf UpsertRedshiftTargetOptions' {..} =
-    Prelude.rnf connectionName
-      `Prelude.seq` Prelude.rnf tableLocation
-      `Prelude.seq` Prelude.rnf upsertKeys
+    Prelude.rnf connectionName `Prelude.seq`
+      Prelude.rnf tableLocation `Prelude.seq`
+        Prelude.rnf upsertKeys
 
 instance Data.ToJSON UpsertRedshiftTargetOptions where
   toJSON UpsertRedshiftTargetOptions' {..} =

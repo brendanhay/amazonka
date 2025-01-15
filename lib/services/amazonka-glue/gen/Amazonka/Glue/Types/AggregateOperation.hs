@@ -99,8 +99,8 @@ instance Prelude.Hashable AggregateOperation where
 
 instance Prelude.NFData AggregateOperation where
   rnf AggregateOperation' {..} =
-    Prelude.rnf column
-      `Prelude.seq` Prelude.rnf aggFunc
+    Prelude.rnf column `Prelude.seq`
+      Prelude.rnf aggFunc
 
 instance Data.ToJSON AggregateOperation where
   toJSON AggregateOperation' {..} =

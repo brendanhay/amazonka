@@ -205,12 +205,12 @@ instance Prelude.Hashable MeterUsage where
 
 instance Prelude.NFData MeterUsage where
   rnf MeterUsage' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf usageAllocations
-      `Prelude.seq` Prelude.rnf usageQuantity
-      `Prelude.seq` Prelude.rnf productCode
-      `Prelude.seq` Prelude.rnf timestamp
-      `Prelude.seq` Prelude.rnf usageDimension
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf usageAllocations `Prelude.seq`
+        Prelude.rnf usageQuantity `Prelude.seq`
+          Prelude.rnf productCode `Prelude.seq`
+            Prelude.rnf timestamp `Prelude.seq`
+              Prelude.rnf usageDimension
 
 instance Data.ToHeaders MeterUsage where
   toHeaders =
@@ -289,5 +289,5 @@ meterUsageResponse_httpStatus = Lens.lens (\MeterUsageResponse' {httpStatus} -> 
 
 instance Prelude.NFData MeterUsageResponse where
   rnf MeterUsageResponse' {..} =
-    Prelude.rnf meteringRecordId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf meteringRecordId `Prelude.seq`
+      Prelude.rnf httpStatus

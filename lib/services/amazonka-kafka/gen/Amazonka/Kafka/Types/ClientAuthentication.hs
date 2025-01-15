@@ -94,9 +94,9 @@ instance Prelude.Hashable ClientAuthentication where
 
 instance Prelude.NFData ClientAuthentication where
   rnf ClientAuthentication' {..} =
-    Prelude.rnf sasl
-      `Prelude.seq` Prelude.rnf tls
-      `Prelude.seq` Prelude.rnf unauthenticated
+    Prelude.rnf sasl `Prelude.seq`
+      Prelude.rnf tls `Prelude.seq`
+        Prelude.rnf unauthenticated
 
 instance Data.ToJSON ClientAuthentication where
   toJSON ClientAuthentication' {..} =

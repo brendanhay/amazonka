@@ -84,8 +84,8 @@ instance Prelude.Hashable Distribution where
 
 instance Prelude.NFData Distribution where
   rnf Distribution' {..} =
-    Prelude.rnf region
-      `Prelude.seq` Prelude.rnf percentage
+    Prelude.rnf region `Prelude.seq`
+      Prelude.rnf percentage
 
 instance Data.ToJSON Distribution where
   toJSON Distribution' {..} =

@@ -81,9 +81,9 @@ instance Prelude.Hashable SequenceStoreFilter where
 
 instance Prelude.NFData SequenceStoreFilter where
   rnf SequenceStoreFilter' {..} =
-    Prelude.rnf createdAfter
-      `Prelude.seq` Prelude.rnf createdBefore
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf createdAfter `Prelude.seq`
+      Prelude.rnf createdBefore `Prelude.seq`
+        Prelude.rnf name
 
 instance Data.ToJSON SequenceStoreFilter where
   toJSON SequenceStoreFilter' {..} =

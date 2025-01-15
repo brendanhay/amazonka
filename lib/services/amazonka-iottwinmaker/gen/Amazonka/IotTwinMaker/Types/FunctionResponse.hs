@@ -107,7 +107,7 @@ instance Prelude.Hashable FunctionResponse where
 
 instance Prelude.NFData FunctionResponse where
   rnf FunctionResponse' {..} =
-    Prelude.rnf implementedBy
-      `Prelude.seq` Prelude.rnf isInherited
-      `Prelude.seq` Prelude.rnf requiredProperties
-      `Prelude.seq` Prelude.rnf scope
+    Prelude.rnf implementedBy `Prelude.seq`
+      Prelude.rnf isInherited `Prelude.seq`
+        Prelude.rnf requiredProperties `Prelude.seq`
+          Prelude.rnf scope

@@ -178,5 +178,5 @@ instance
     DescribeProfilingGroupResponse
   where
   rnf DescribeProfilingGroupResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf profilingGroup
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf profilingGroup

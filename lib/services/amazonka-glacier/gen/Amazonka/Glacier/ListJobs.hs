@@ -218,12 +218,12 @@ instance Core.AWSPager ListJobs where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listJobs_marker
-          Lens..~ rs
-          Lens.^? listJobsResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listJobs_marker
+              Lens..~ rs
+              Lens.^? listJobsResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListJobs where
   type AWSResponse ListJobs = ListJobsResponse
@@ -251,12 +251,12 @@ instance Prelude.Hashable ListJobs where
 
 instance Prelude.NFData ListJobs where
   rnf ListJobs' {..} =
-    Prelude.rnf completed
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf statuscode
-      `Prelude.seq` Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf vaultName
+    Prelude.rnf completed `Prelude.seq`
+      Prelude.rnf limit `Prelude.seq`
+        Prelude.rnf marker `Prelude.seq`
+          Prelude.rnf statuscode `Prelude.seq`
+            Prelude.rnf accountId `Prelude.seq`
+              Prelude.rnf vaultName
 
 instance Data.ToHeaders ListJobs where
   toHeaders = Prelude.const Prelude.mempty
@@ -346,6 +346,6 @@ listJobsResponse_httpStatus = Lens.lens (\ListJobsResponse' {httpStatus} -> http
 
 instance Prelude.NFData ListJobsResponse where
   rnf ListJobsResponse' {..} =
-    Prelude.rnf jobList
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf jobList `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf httpStatus

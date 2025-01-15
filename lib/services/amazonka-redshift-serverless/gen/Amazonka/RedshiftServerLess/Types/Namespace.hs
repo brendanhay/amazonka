@@ -205,14 +205,14 @@ instance Prelude.Hashable Namespace where
 
 instance Prelude.NFData Namespace where
   rnf Namespace' {..} =
-    Prelude.rnf adminUsername
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf dbName
-      `Prelude.seq` Prelude.rnf defaultIamRoleArn
-      `Prelude.seq` Prelude.rnf iamRoles
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf logExports
-      `Prelude.seq` Prelude.rnf namespaceArn
-      `Prelude.seq` Prelude.rnf namespaceId
-      `Prelude.seq` Prelude.rnf namespaceName
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf adminUsername `Prelude.seq`
+      Prelude.rnf creationDate `Prelude.seq`
+        Prelude.rnf dbName `Prelude.seq`
+          Prelude.rnf defaultIamRoleArn `Prelude.seq`
+            Prelude.rnf iamRoles `Prelude.seq`
+              Prelude.rnf kmsKeyId `Prelude.seq`
+                Prelude.rnf logExports `Prelude.seq`
+                  Prelude.rnf namespaceArn `Prelude.seq`
+                    Prelude.rnf namespaceId `Prelude.seq`
+                      Prelude.rnf namespaceName `Prelude.seq`
+                        Prelude.rnf status

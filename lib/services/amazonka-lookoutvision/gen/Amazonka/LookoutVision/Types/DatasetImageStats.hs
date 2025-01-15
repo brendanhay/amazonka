@@ -102,7 +102,7 @@ instance Prelude.Hashable DatasetImageStats where
 
 instance Prelude.NFData DatasetImageStats where
   rnf DatasetImageStats' {..} =
-    Prelude.rnf anomaly
-      `Prelude.seq` Prelude.rnf labeled
-      `Prelude.seq` Prelude.rnf normal
-      `Prelude.seq` Prelude.rnf total
+    Prelude.rnf anomaly `Prelude.seq`
+      Prelude.rnf labeled `Prelude.seq`
+        Prelude.rnf normal `Prelude.seq`
+          Prelude.rnf total

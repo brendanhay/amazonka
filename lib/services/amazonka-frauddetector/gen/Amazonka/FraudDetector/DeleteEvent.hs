@@ -123,9 +123,9 @@ instance Prelude.Hashable DeleteEvent where
 
 instance Prelude.NFData DeleteEvent where
   rnf DeleteEvent' {..} =
-    Prelude.rnf deleteAuditHistory
-      `Prelude.seq` Prelude.rnf eventId
-      `Prelude.seq` Prelude.rnf eventTypeName
+    Prelude.rnf deleteAuditHistory `Prelude.seq`
+      Prelude.rnf eventId `Prelude.seq`
+        Prelude.rnf eventTypeName
 
 instance Data.ToHeaders DeleteEvent where
   toHeaders =

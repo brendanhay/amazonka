@@ -84,8 +84,8 @@ instance Prelude.Hashable CustomValuesConfiguration where
 
 instance Prelude.NFData CustomValuesConfiguration where
   rnf CustomValuesConfiguration' {..} =
-    Prelude.rnf includeNullValue
-      `Prelude.seq` Prelude.rnf customValues
+    Prelude.rnf includeNullValue `Prelude.seq`
+      Prelude.rnf customValues
 
 instance Data.ToJSON CustomValuesConfiguration where
   toJSON CustomValuesConfiguration' {..} =

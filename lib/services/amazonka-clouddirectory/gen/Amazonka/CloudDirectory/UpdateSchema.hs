@@ -112,8 +112,8 @@ instance Prelude.Hashable UpdateSchema where
 
 instance Prelude.NFData UpdateSchema where
   rnf UpdateSchema' {..} =
-    Prelude.rnf schemaArn
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf schemaArn `Prelude.seq`
+      Prelude.rnf name
 
 instance Data.ToHeaders UpdateSchema where
   toHeaders UpdateSchema' {..} =
@@ -178,5 +178,5 @@ updateSchemaResponse_httpStatus = Lens.lens (\UpdateSchemaResponse' {httpStatus}
 
 instance Prelude.NFData UpdateSchemaResponse where
   rnf UpdateSchemaResponse' {..} =
-    Prelude.rnf schemaArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf schemaArn `Prelude.seq`
+      Prelude.rnf httpStatus

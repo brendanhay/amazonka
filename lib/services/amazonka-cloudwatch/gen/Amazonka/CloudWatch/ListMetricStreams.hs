@@ -99,9 +99,7 @@ instance Core.AWSRequest ListMetricStreams where
       "ListMetricStreamsResult"
       ( \s h x ->
           ListMetricStreamsResponse'
-            Prelude.<$> ( x
-                            Data..@? "Entries"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "Entries" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (x Data..@? "NextToken")
@@ -116,8 +114,8 @@ instance Prelude.Hashable ListMetricStreams where
 
 instance Prelude.NFData ListMetricStreams where
   rnf ListMetricStreams' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListMetricStreams where
   toHeaders = Prelude.const Prelude.mempty
@@ -192,6 +190,6 @@ listMetricStreamsResponse_httpStatus = Lens.lens (\ListMetricStreamsResponse' {h
 
 instance Prelude.NFData ListMetricStreamsResponse where
   rnf ListMetricStreamsResponse' {..} =
-    Prelude.rnf entries
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf entries `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

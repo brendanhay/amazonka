@@ -194,14 +194,14 @@ instance Prelude.Hashable CreateUser where
 
 instance Prelude.NFData CreateUser where
   rnf CreateUser' {..} =
-    Prelude.rnf authenticationMode
-      `Prelude.seq` Prelude.rnf noPasswordRequired
-      `Prelude.seq` Prelude.rnf passwords
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf userId
-      `Prelude.seq` Prelude.rnf userName
-      `Prelude.seq` Prelude.rnf engine
-      `Prelude.seq` Prelude.rnf accessString
+    Prelude.rnf authenticationMode `Prelude.seq`
+      Prelude.rnf noPasswordRequired `Prelude.seq`
+        Prelude.rnf passwords `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf userId `Prelude.seq`
+              Prelude.rnf userName `Prelude.seq`
+                Prelude.rnf engine `Prelude.seq`
+                  Prelude.rnf accessString
 
 instance Data.ToHeaders CreateUser where
   toHeaders = Prelude.const Prelude.mempty

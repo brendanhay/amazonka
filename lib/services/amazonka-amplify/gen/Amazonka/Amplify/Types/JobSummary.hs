@@ -192,12 +192,12 @@ instance Prelude.Hashable JobSummary where
 
 instance Prelude.NFData JobSummary where
   rnf JobSummary' {..} =
-    Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf jobArn
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf commitId
-      `Prelude.seq` Prelude.rnf commitMessage
-      `Prelude.seq` Prelude.rnf commitTime
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf jobType
+    Prelude.rnf endTime `Prelude.seq`
+      Prelude.rnf jobArn `Prelude.seq`
+        Prelude.rnf jobId `Prelude.seq`
+          Prelude.rnf commitId `Prelude.seq`
+            Prelude.rnf commitMessage `Prelude.seq`
+              Prelude.rnf commitTime `Prelude.seq`
+                Prelude.rnf startTime `Prelude.seq`
+                  Prelude.rnf status `Prelude.seq`
+                    Prelude.rnf jobType

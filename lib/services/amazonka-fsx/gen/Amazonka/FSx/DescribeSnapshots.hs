@@ -162,10 +162,10 @@ instance Prelude.Hashable DescribeSnapshots where
 
 instance Prelude.NFData DescribeSnapshots where
   rnf DescribeSnapshots' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf snapshotIds
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf snapshotIds
 
 instance Data.ToHeaders DescribeSnapshots where
   toHeaders =
@@ -248,6 +248,6 @@ describeSnapshotsResponse_httpStatus = Lens.lens (\DescribeSnapshotsResponse' {h
 
 instance Prelude.NFData DescribeSnapshotsResponse where
   rnf DescribeSnapshotsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf snapshots
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf snapshots `Prelude.seq`
+        Prelude.rnf httpStatus

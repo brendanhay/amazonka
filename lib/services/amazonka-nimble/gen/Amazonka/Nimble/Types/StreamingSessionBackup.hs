@@ -178,13 +178,13 @@ instance Prelude.Hashable StreamingSessionBackup where
 
 instance Prelude.NFData StreamingSessionBackup where
   rnf StreamingSessionBackup' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf backupId
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf launchProfileId
-      `Prelude.seq` Prelude.rnf ownedBy
-      `Prelude.seq` Prelude.rnf sessionId
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf statusCode
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf backupId `Prelude.seq`
+        Prelude.rnf createdAt `Prelude.seq`
+          Prelude.rnf launchProfileId `Prelude.seq`
+            Prelude.rnf ownedBy `Prelude.seq`
+              Prelude.rnf sessionId `Prelude.seq`
+                Prelude.rnf state `Prelude.seq`
+                  Prelude.rnf statusCode `Prelude.seq`
+                    Prelude.rnf statusMessage `Prelude.seq`
+                      Prelude.rnf tags

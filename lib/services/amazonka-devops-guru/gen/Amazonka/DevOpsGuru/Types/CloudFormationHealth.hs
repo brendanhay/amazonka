@@ -107,6 +107,6 @@ instance Prelude.Hashable CloudFormationHealth where
 
 instance Prelude.NFData CloudFormationHealth where
   rnf CloudFormationHealth' {..} =
-    Prelude.rnf analyzedResourceCount
-      `Prelude.seq` Prelude.rnf insight
-      `Prelude.seq` Prelude.rnf stackName
+    Prelude.rnf analyzedResourceCount `Prelude.seq`
+      Prelude.rnf insight `Prelude.seq`
+        Prelude.rnf stackName

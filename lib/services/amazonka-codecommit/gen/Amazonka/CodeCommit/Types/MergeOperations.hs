@@ -84,5 +84,5 @@ instance Prelude.Hashable MergeOperations where
 
 instance Prelude.NFData MergeOperations where
   rnf MergeOperations' {..} =
-    Prelude.rnf destination
-      `Prelude.seq` Prelude.rnf source
+    Prelude.rnf destination `Prelude.seq`
+      Prelude.rnf source

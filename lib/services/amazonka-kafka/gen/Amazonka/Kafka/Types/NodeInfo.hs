@@ -127,9 +127,9 @@ instance Prelude.Hashable NodeInfo where
 
 instance Prelude.NFData NodeInfo where
   rnf NodeInfo' {..} =
-    Prelude.rnf addedToClusterTime
-      `Prelude.seq` Prelude.rnf brokerNodeInfo
-      `Prelude.seq` Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf nodeARN
-      `Prelude.seq` Prelude.rnf nodeType
-      `Prelude.seq` Prelude.rnf zookeeperNodeInfo
+    Prelude.rnf addedToClusterTime `Prelude.seq`
+      Prelude.rnf brokerNodeInfo `Prelude.seq`
+        Prelude.rnf instanceType `Prelude.seq`
+          Prelude.rnf nodeARN `Prelude.seq`
+            Prelude.rnf nodeType `Prelude.seq`
+              Prelude.rnf zookeeperNodeInfo

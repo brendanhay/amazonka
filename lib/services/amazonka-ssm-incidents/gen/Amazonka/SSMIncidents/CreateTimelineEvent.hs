@@ -198,12 +198,12 @@ instance Prelude.Hashable CreateTimelineEvent where
 
 instance Prelude.NFData CreateTimelineEvent where
   rnf CreateTimelineEvent' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf eventReferences
-      `Prelude.seq` Prelude.rnf eventData
-      `Prelude.seq` Prelude.rnf eventTime
-      `Prelude.seq` Prelude.rnf eventType
-      `Prelude.seq` Prelude.rnf incidentRecordArn
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf eventReferences `Prelude.seq`
+        Prelude.rnf eventData `Prelude.seq`
+          Prelude.rnf eventTime `Prelude.seq`
+            Prelude.rnf eventType `Prelude.seq`
+              Prelude.rnf incidentRecordArn
 
 instance Data.ToHeaders CreateTimelineEvent where
   toHeaders =
@@ -294,6 +294,6 @@ createTimelineEventResponse_incidentRecordArn = Lens.lens (\CreateTimelineEventR
 
 instance Prelude.NFData CreateTimelineEventResponse where
   rnf CreateTimelineEventResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf eventId
-      `Prelude.seq` Prelude.rnf incidentRecordArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf eventId `Prelude.seq`
+        Prelude.rnf incidentRecordArn

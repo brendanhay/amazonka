@@ -139,6 +139,6 @@ instance
     UnprocessedPreparedStatementName
   where
   rnf UnprocessedPreparedStatementName' {..} =
-    Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf statementName
+    Prelude.rnf errorCode `Prelude.seq`
+      Prelude.rnf errorMessage `Prelude.seq`
+        Prelude.rnf statementName

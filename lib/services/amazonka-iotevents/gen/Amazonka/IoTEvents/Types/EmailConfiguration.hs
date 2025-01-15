@@ -121,9 +121,9 @@ instance Prelude.Hashable EmailConfiguration where
 
 instance Prelude.NFData EmailConfiguration where
   rnf EmailConfiguration' {..} =
-    Prelude.rnf content
-      `Prelude.seq` Prelude.rnf from
-      `Prelude.seq` Prelude.rnf recipients
+    Prelude.rnf content `Prelude.seq`
+      Prelude.rnf from `Prelude.seq`
+        Prelude.rnf recipients
 
 instance Data.ToJSON EmailConfiguration where
   toJSON EmailConfiguration' {..} =

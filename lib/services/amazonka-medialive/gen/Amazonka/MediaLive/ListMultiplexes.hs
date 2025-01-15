@@ -104,12 +104,12 @@ instance Core.AWSPager ListMultiplexes where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listMultiplexes_nextToken
-          Lens..~ rs
-          Lens.^? listMultiplexesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listMultiplexes_nextToken
+              Lens..~ rs
+              Lens.^? listMultiplexesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListMultiplexes where
   type
@@ -134,8 +134,8 @@ instance Prelude.Hashable ListMultiplexes where
 
 instance Prelude.NFData ListMultiplexes where
   rnf ListMultiplexes' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListMultiplexes where
   toHeaders =
@@ -210,6 +210,6 @@ listMultiplexesResponse_httpStatus = Lens.lens (\ListMultiplexesResponse' {httpS
 
 instance Prelude.NFData ListMultiplexesResponse where
   rnf ListMultiplexesResponse' {..} =
-    Prelude.rnf multiplexes
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf multiplexes `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

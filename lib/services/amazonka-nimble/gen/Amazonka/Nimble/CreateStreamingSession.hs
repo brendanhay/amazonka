@@ -192,13 +192,13 @@ instance Prelude.Hashable CreateStreamingSession where
 
 instance Prelude.NFData CreateStreamingSession where
   rnf CreateStreamingSession' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf ec2InstanceType
-      `Prelude.seq` Prelude.rnf ownedBy
-      `Prelude.seq` Prelude.rnf streamingImageId
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf launchProfileId
-      `Prelude.seq` Prelude.rnf studioId
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf ec2InstanceType `Prelude.seq`
+        Prelude.rnf ownedBy `Prelude.seq`
+          Prelude.rnf streamingImageId `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf launchProfileId `Prelude.seq`
+                Prelude.rnf studioId
 
 instance Data.ToHeaders CreateStreamingSession where
   toHeaders CreateStreamingSession' {..} =
@@ -278,5 +278,5 @@ instance
     CreateStreamingSessionResponse
   where
   rnf CreateStreamingSessionResponse' {..} =
-    Prelude.rnf session
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf session `Prelude.seq`
+      Prelude.rnf httpStatus

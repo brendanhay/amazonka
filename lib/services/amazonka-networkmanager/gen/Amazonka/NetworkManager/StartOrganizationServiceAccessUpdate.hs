@@ -200,5 +200,5 @@ instance
     StartOrganizationServiceAccessUpdateResponse
   where
   rnf StartOrganizationServiceAccessUpdateResponse' {..} =
-    Prelude.rnf organizationStatus
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf organizationStatus `Prelude.seq`
+      Prelude.rnf httpStatus

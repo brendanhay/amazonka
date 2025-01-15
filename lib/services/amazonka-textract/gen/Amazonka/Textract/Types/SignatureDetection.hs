@@ -83,5 +83,5 @@ instance Prelude.Hashable SignatureDetection where
 
 instance Prelude.NFData SignatureDetection where
   rnf SignatureDetection' {..} =
-    Prelude.rnf confidence
-      `Prelude.seq` Prelude.rnf geometry
+    Prelude.rnf confidence `Prelude.seq`
+      Prelude.rnf geometry

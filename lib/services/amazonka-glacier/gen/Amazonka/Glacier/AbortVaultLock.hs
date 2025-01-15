@@ -136,8 +136,8 @@ instance Prelude.Hashable AbortVaultLock where
 
 instance Prelude.NFData AbortVaultLock where
   rnf AbortVaultLock' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf vaultName
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf vaultName
 
 instance Data.ToHeaders AbortVaultLock where
   toHeaders = Prelude.const Prelude.mempty

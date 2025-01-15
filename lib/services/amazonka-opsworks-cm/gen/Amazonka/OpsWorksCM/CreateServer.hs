@@ -790,27 +790,27 @@ instance Prelude.Hashable CreateServer where
 
 instance Prelude.NFData CreateServer where
   rnf CreateServer' {..} =
-    Prelude.rnf associatePublicIpAddress
-      `Prelude.seq` Prelude.rnf backupId
-      `Prelude.seq` Prelude.rnf backupRetentionCount
-      `Prelude.seq` Prelude.rnf customCertificate
-      `Prelude.seq` Prelude.rnf customDomain
-      `Prelude.seq` Prelude.rnf customPrivateKey
-      `Prelude.seq` Prelude.rnf disableAutomatedBackup
-      `Prelude.seq` Prelude.rnf engineAttributes
-      `Prelude.seq` Prelude.rnf engineModel
-      `Prelude.seq` Prelude.rnf engineVersion
-      `Prelude.seq` Prelude.rnf keyPair
-      `Prelude.seq` Prelude.rnf preferredBackupWindow
-      `Prelude.seq` Prelude.rnf preferredMaintenanceWindow
-      `Prelude.seq` Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf subnetIds
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf engine
-      `Prelude.seq` Prelude.rnf serverName
-      `Prelude.seq` Prelude.rnf instanceProfileArn
-      `Prelude.seq` Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf serviceRoleArn
+    Prelude.rnf associatePublicIpAddress `Prelude.seq`
+      Prelude.rnf backupId `Prelude.seq`
+        Prelude.rnf backupRetentionCount `Prelude.seq`
+          Prelude.rnf customCertificate `Prelude.seq`
+            Prelude.rnf customDomain `Prelude.seq`
+              Prelude.rnf customPrivateKey `Prelude.seq`
+                Prelude.rnf disableAutomatedBackup `Prelude.seq`
+                  Prelude.rnf engineAttributes `Prelude.seq`
+                    Prelude.rnf engineModel `Prelude.seq`
+                      Prelude.rnf engineVersion `Prelude.seq`
+                        Prelude.rnf keyPair `Prelude.seq`
+                          Prelude.rnf preferredBackupWindow `Prelude.seq`
+                            Prelude.rnf preferredMaintenanceWindow `Prelude.seq`
+                              Prelude.rnf securityGroupIds `Prelude.seq`
+                                Prelude.rnf subnetIds `Prelude.seq`
+                                  Prelude.rnf tags `Prelude.seq`
+                                    Prelude.rnf engine `Prelude.seq`
+                                      Prelude.rnf serverName `Prelude.seq`
+                                        Prelude.rnf instanceProfileArn `Prelude.seq`
+                                          Prelude.rnf instanceType `Prelude.seq`
+                                            Prelude.rnf serviceRoleArn
 
 instance Data.ToHeaders CreateServer where
   toHeaders =
@@ -912,5 +912,5 @@ createServerResponse_httpStatus = Lens.lens (\CreateServerResponse' {httpStatus}
 
 instance Prelude.NFData CreateServerResponse where
   rnf CreateServerResponse' {..} =
-    Prelude.rnf server
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf server `Prelude.seq`
+      Prelude.rnf httpStatus

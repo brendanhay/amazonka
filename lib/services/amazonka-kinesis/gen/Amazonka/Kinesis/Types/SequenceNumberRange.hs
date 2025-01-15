@@ -86,5 +86,5 @@ instance Prelude.Hashable SequenceNumberRange where
 
 instance Prelude.NFData SequenceNumberRange where
   rnf SequenceNumberRange' {..} =
-    Prelude.rnf endingSequenceNumber
-      `Prelude.seq` Prelude.rnf startingSequenceNumber
+    Prelude.rnf endingSequenceNumber `Prelude.seq`
+      Prelude.rnf startingSequenceNumber

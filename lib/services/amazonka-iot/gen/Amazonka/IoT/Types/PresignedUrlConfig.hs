@@ -104,8 +104,8 @@ instance Prelude.Hashable PresignedUrlConfig where
 
 instance Prelude.NFData PresignedUrlConfig where
   rnf PresignedUrlConfig' {..} =
-    Prelude.rnf expiresInSec
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf expiresInSec `Prelude.seq`
+      Prelude.rnf roleArn
 
 instance Data.ToJSON PresignedUrlConfig where
   toJSON PresignedUrlConfig' {..} =

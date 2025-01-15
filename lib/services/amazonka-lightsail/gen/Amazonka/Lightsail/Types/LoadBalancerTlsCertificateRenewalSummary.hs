@@ -197,5 +197,5 @@ instance
     LoadBalancerTlsCertificateRenewalSummary
   where
   rnf LoadBalancerTlsCertificateRenewalSummary' {..} =
-    Prelude.rnf domainValidationOptions
-      `Prelude.seq` Prelude.rnf renewalStatus
+    Prelude.rnf domainValidationOptions `Prelude.seq`
+      Prelude.rnf renewalStatus

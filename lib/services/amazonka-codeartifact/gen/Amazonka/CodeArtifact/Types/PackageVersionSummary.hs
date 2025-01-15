@@ -123,7 +123,7 @@ instance Prelude.Hashable PackageVersionSummary where
 
 instance Prelude.NFData PackageVersionSummary where
   rnf PackageVersionSummary' {..} =
-    Prelude.rnf origin
-      `Prelude.seq` Prelude.rnf revision
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf origin `Prelude.seq`
+      Prelude.rnf revision `Prelude.seq`
+        Prelude.rnf version `Prelude.seq`
+          Prelude.rnf status

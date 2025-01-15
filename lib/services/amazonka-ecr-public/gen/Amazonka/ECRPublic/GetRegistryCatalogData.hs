@@ -151,5 +151,5 @@ instance
     GetRegistryCatalogDataResponse
   where
   rnf GetRegistryCatalogDataResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf registryCatalogData
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf registryCatalogData

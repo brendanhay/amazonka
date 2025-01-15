@@ -219,18 +219,18 @@ instance Prelude.Hashable AwsS3BucketDetails where
 
 instance Prelude.NFData AwsS3BucketDetails where
   rnf AwsS3BucketDetails' {..} =
-    Prelude.rnf accessControlList
-      `Prelude.seq` Prelude.rnf bucketLifecycleConfiguration
-      `Prelude.seq` Prelude.rnf bucketLoggingConfiguration
-      `Prelude.seq` Prelude.rnf bucketNotificationConfiguration
-      `Prelude.seq` Prelude.rnf bucketVersioningConfiguration
-      `Prelude.seq` Prelude.rnf bucketWebsiteConfiguration
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf ownerAccountId
-      `Prelude.seq` Prelude.rnf ownerId
-      `Prelude.seq` Prelude.rnf ownerName
-      `Prelude.seq` Prelude.rnf publicAccessBlockConfiguration
-      `Prelude.seq` Prelude.rnf serverSideEncryptionConfiguration
+    Prelude.rnf accessControlList `Prelude.seq`
+      Prelude.rnf bucketLifecycleConfiguration `Prelude.seq`
+        Prelude.rnf bucketLoggingConfiguration `Prelude.seq`
+          Prelude.rnf bucketNotificationConfiguration `Prelude.seq`
+            Prelude.rnf bucketVersioningConfiguration `Prelude.seq`
+              Prelude.rnf bucketWebsiteConfiguration `Prelude.seq`
+                Prelude.rnf createdAt `Prelude.seq`
+                  Prelude.rnf ownerAccountId `Prelude.seq`
+                    Prelude.rnf ownerId `Prelude.seq`
+                      Prelude.rnf ownerName `Prelude.seq`
+                        Prelude.rnf publicAccessBlockConfiguration `Prelude.seq`
+                          Prelude.rnf serverSideEncryptionConfiguration
 
 instance Data.ToJSON AwsS3BucketDetails where
   toJSON AwsS3BucketDetails' {..} =

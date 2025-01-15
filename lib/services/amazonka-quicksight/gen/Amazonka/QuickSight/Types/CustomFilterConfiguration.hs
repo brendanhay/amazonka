@@ -166,11 +166,11 @@ instance Prelude.Hashable CustomFilterConfiguration where
 
 instance Prelude.NFData CustomFilterConfiguration where
   rnf CustomFilterConfiguration' {..} =
-    Prelude.rnf categoryValue
-      `Prelude.seq` Prelude.rnf parameterName
-      `Prelude.seq` Prelude.rnf selectAllOptions
-      `Prelude.seq` Prelude.rnf matchOperator
-      `Prelude.seq` Prelude.rnf nullOption
+    Prelude.rnf categoryValue `Prelude.seq`
+      Prelude.rnf parameterName `Prelude.seq`
+        Prelude.rnf selectAllOptions `Prelude.seq`
+          Prelude.rnf matchOperator `Prelude.seq`
+            Prelude.rnf nullOption
 
 instance Data.ToJSON CustomFilterConfiguration where
   toJSON CustomFilterConfiguration' {..} =

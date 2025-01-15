@@ -147,9 +147,9 @@ instance
     UpdateApprovalRuleTemplateContent
   where
   rnf UpdateApprovalRuleTemplateContent' {..} =
-    Prelude.rnf existingRuleContentSha256
-      `Prelude.seq` Prelude.rnf approvalRuleTemplateName
-      `Prelude.seq` Prelude.rnf newRuleContent'
+    Prelude.rnf existingRuleContentSha256 `Prelude.seq`
+      Prelude.rnf approvalRuleTemplateName `Prelude.seq`
+        Prelude.rnf newRuleContent'
 
 instance
   Data.ToHeaders
@@ -247,5 +247,5 @@ instance
     UpdateApprovalRuleTemplateContentResponse
   where
   rnf UpdateApprovalRuleTemplateContentResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf approvalRuleTemplate
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf approvalRuleTemplate

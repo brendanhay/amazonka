@@ -144,9 +144,9 @@ instance Prelude.Hashable ResetClusterParameterGroup where
 
 instance Prelude.NFData ResetClusterParameterGroup where
   rnf ResetClusterParameterGroup' {..} =
-    Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf resetAllParameters
-      `Prelude.seq` Prelude.rnf parameterGroupName
+    Prelude.rnf parameters `Prelude.seq`
+      Prelude.rnf resetAllParameters `Prelude.seq`
+        Prelude.rnf parameterGroupName
 
 instance Data.ToHeaders ResetClusterParameterGroup where
   toHeaders = Prelude.const Prelude.mempty

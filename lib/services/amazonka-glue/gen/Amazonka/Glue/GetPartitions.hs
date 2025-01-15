@@ -447,12 +447,12 @@ instance Core.AWSPager GetPartitions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getPartitions_nextToken
-          Lens..~ rs
-          Lens.^? getPartitionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getPartitions_nextToken
+              Lens..~ rs
+              Lens.^? getPartitionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetPartitions where
   type
@@ -485,16 +485,16 @@ instance Prelude.Hashable GetPartitions where
 
 instance Prelude.NFData GetPartitions where
   rnf GetPartitions' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf excludeColumnSchema
-      `Prelude.seq` Prelude.rnf expression
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf queryAsOfTime
-      `Prelude.seq` Prelude.rnf segment
-      `Prelude.seq` Prelude.rnf transactionId
-      `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf tableName
+    Prelude.rnf catalogId `Prelude.seq`
+      Prelude.rnf excludeColumnSchema `Prelude.seq`
+        Prelude.rnf expression `Prelude.seq`
+          Prelude.rnf maxResults `Prelude.seq`
+            Prelude.rnf nextToken `Prelude.seq`
+              Prelude.rnf queryAsOfTime `Prelude.seq`
+                Prelude.rnf segment `Prelude.seq`
+                  Prelude.rnf transactionId `Prelude.seq`
+                    Prelude.rnf databaseName `Prelude.seq`
+                      Prelude.rnf tableName
 
 instance Data.ToHeaders GetPartitions where
   toHeaders =
@@ -585,6 +585,6 @@ getPartitionsResponse_httpStatus = Lens.lens (\GetPartitionsResponse' {httpStatu
 
 instance Prelude.NFData GetPartitionsResponse where
   rnf GetPartitionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf partitions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf partitions `Prelude.seq`
+        Prelude.rnf httpStatus

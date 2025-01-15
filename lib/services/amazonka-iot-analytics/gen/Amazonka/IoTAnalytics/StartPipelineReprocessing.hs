@@ -161,10 +161,10 @@ instance Prelude.Hashable StartPipelineReprocessing where
 
 instance Prelude.NFData StartPipelineReprocessing where
   rnf StartPipelineReprocessing' {..} =
-    Prelude.rnf channelMessages
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf pipelineName
+    Prelude.rnf channelMessages `Prelude.seq`
+      Prelude.rnf endTime `Prelude.seq`
+        Prelude.rnf startTime `Prelude.seq`
+          Prelude.rnf pipelineName
 
 instance Data.ToHeaders StartPipelineReprocessing where
   toHeaders = Prelude.const Prelude.mempty
@@ -235,5 +235,5 @@ instance
     StartPipelineReprocessingResponse
   where
   rnf StartPipelineReprocessingResponse' {..} =
-    Prelude.rnf reprocessingId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf reprocessingId `Prelude.seq`
+      Prelude.rnf httpStatus

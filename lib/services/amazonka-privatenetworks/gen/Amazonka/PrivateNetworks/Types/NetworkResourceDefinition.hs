@@ -98,9 +98,9 @@ instance Prelude.Hashable NetworkResourceDefinition where
 
 instance Prelude.NFData NetworkResourceDefinition where
   rnf NetworkResourceDefinition' {..} =
-    Prelude.rnf options
-      `Prelude.seq` Prelude.rnf count
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf options `Prelude.seq`
+      Prelude.rnf count `Prelude.seq`
+        Prelude.rnf type'
 
 instance Data.ToJSON NetworkResourceDefinition where
   toJSON NetworkResourceDefinition' {..} =

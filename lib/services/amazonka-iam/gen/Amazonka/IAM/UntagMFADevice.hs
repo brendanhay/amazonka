@@ -126,8 +126,8 @@ instance Prelude.Hashable UntagMFADevice where
 
 instance Prelude.NFData UntagMFADevice where
   rnf UntagMFADevice' {..} =
-    Prelude.rnf serialNumber
-      `Prelude.seq` Prelude.rnf tagKeys
+    Prelude.rnf serialNumber `Prelude.seq`
+      Prelude.rnf tagKeys
 
 instance Data.ToHeaders UntagMFADevice where
   toHeaders = Prelude.const Prelude.mempty

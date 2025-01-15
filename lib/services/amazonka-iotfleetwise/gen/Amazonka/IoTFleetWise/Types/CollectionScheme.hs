@@ -89,8 +89,8 @@ instance Prelude.Hashable CollectionScheme where
 
 instance Prelude.NFData CollectionScheme where
   rnf CollectionScheme' {..} =
-    Prelude.rnf conditionBasedCollectionScheme
-      `Prelude.seq` Prelude.rnf timeBasedCollectionScheme
+    Prelude.rnf conditionBasedCollectionScheme `Prelude.seq`
+      Prelude.rnf timeBasedCollectionScheme
 
 instance Data.ToJSON CollectionScheme where
   toJSON CollectionScheme' {..} =

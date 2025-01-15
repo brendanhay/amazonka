@@ -209,8 +209,8 @@ instance Prelude.Hashable ChangeResourceRecordSets where
 
 instance Prelude.NFData ChangeResourceRecordSets where
   rnf ChangeResourceRecordSets' {..} =
-    Prelude.rnf hostedZoneId
-      `Prelude.seq` Prelude.rnf changeBatch
+    Prelude.rnf hostedZoneId `Prelude.seq`
+      Prelude.rnf changeBatch
 
 instance Data.ToElement ChangeResourceRecordSets where
   toElement =
@@ -300,5 +300,5 @@ instance
     ChangeResourceRecordSetsResponse
   where
   rnf ChangeResourceRecordSetsResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf changeInfo
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf changeInfo

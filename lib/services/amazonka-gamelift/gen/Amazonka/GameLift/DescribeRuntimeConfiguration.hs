@@ -192,5 +192,5 @@ instance
     DescribeRuntimeConfigurationResponse
   where
   rnf DescribeRuntimeConfigurationResponse' {..} =
-    Prelude.rnf runtimeConfiguration
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf runtimeConfiguration `Prelude.seq`
+      Prelude.rnf httpStatus

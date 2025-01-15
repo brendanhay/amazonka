@@ -116,10 +116,10 @@ instance
     AwsS3BucketWebsiteConfiguration
   where
   rnf AwsS3BucketWebsiteConfiguration' {..} =
-    Prelude.rnf errorDocument
-      `Prelude.seq` Prelude.rnf indexDocumentSuffix
-      `Prelude.seq` Prelude.rnf redirectAllRequestsTo
-      `Prelude.seq` Prelude.rnf routingRules
+    Prelude.rnf errorDocument `Prelude.seq`
+      Prelude.rnf indexDocumentSuffix `Prelude.seq`
+        Prelude.rnf redirectAllRequestsTo `Prelude.seq`
+          Prelude.rnf routingRules
 
 instance Data.ToJSON AwsS3BucketWebsiteConfiguration where
   toJSON AwsS3BucketWebsiteConfiguration' {..} =

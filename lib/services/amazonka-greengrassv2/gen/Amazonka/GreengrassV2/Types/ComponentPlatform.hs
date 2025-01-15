@@ -107,8 +107,8 @@ instance Prelude.Hashable ComponentPlatform where
 
 instance Prelude.NFData ComponentPlatform where
   rnf ComponentPlatform' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf attributes `Prelude.seq`
+      Prelude.rnf name
 
 instance Data.ToJSON ComponentPlatform where
   toJSON ComponentPlatform' {..} =

@@ -88,6 +88,6 @@ instance Prelude.Hashable PhoneNumberAssociation where
 
 instance Prelude.NFData PhoneNumberAssociation where
   rnf PhoneNumberAssociation' {..} =
-    Prelude.rnf associatedTimestamp
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf associatedTimestamp `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf value

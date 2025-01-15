@@ -92,5 +92,5 @@ instance
     ThirdPartyFirewallFirewallPolicy
   where
   rnf ThirdPartyFirewallFirewallPolicy' {..} =
-    Prelude.rnf firewallPolicyId
-      `Prelude.seq` Prelude.rnf firewallPolicyName
+    Prelude.rnf firewallPolicyId `Prelude.seq`
+      Prelude.rnf firewallPolicyName

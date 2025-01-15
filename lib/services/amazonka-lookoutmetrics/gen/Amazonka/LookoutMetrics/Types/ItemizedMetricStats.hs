@@ -80,5 +80,5 @@ instance Prelude.Hashable ItemizedMetricStats where
 
 instance Prelude.NFData ItemizedMetricStats where
   rnf ItemizedMetricStats' {..} =
-    Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf occurrenceCount
+    Prelude.rnf metricName `Prelude.seq`
+      Prelude.rnf occurrenceCount

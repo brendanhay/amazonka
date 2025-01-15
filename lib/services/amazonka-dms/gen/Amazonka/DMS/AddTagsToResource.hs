@@ -126,8 +126,8 @@ instance Prelude.Hashable AddTagsToResource where
 
 instance Prelude.NFData AddTagsToResource where
   rnf AddTagsToResource' {..} =
-    Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf resourceArn `Prelude.seq`
+      Prelude.rnf tags
 
 instance Data.ToHeaders AddTagsToResource where
   toHeaders =

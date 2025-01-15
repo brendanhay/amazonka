@@ -81,5 +81,5 @@ instance Prelude.Hashable CustomPluginDescription where
 
 instance Prelude.NFData CustomPluginDescription where
   rnf CustomPluginDescription' {..} =
-    Prelude.rnf customPluginArn
-      `Prelude.seq` Prelude.rnf revision
+    Prelude.rnf customPluginArn `Prelude.seq`
+      Prelude.rnf revision

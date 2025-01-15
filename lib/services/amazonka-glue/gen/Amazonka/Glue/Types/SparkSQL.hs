@@ -149,11 +149,11 @@ instance Prelude.Hashable SparkSQL where
 
 instance Prelude.NFData SparkSQL where
   rnf SparkSQL' {..} =
-    Prelude.rnf outputSchemas
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf inputs
-      `Prelude.seq` Prelude.rnf sqlQuery
-      `Prelude.seq` Prelude.rnf sqlAliases
+    Prelude.rnf outputSchemas `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf inputs `Prelude.seq`
+          Prelude.rnf sqlQuery `Prelude.seq`
+            Prelude.rnf sqlAliases
 
 instance Data.ToJSON SparkSQL where
   toJSON SparkSQL' {..} =

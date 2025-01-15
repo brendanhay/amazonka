@@ -121,10 +121,10 @@ instance
     AwsBackupRecoveryPointCreatedByDetails
   where
   rnf AwsBackupRecoveryPointCreatedByDetails' {..} =
-    Prelude.rnf backupPlanArn
-      `Prelude.seq` Prelude.rnf backupPlanId
-      `Prelude.seq` Prelude.rnf backupPlanVersion
-      `Prelude.seq` Prelude.rnf backupRuleId
+    Prelude.rnf backupPlanArn `Prelude.seq`
+      Prelude.rnf backupPlanId `Prelude.seq`
+        Prelude.rnf backupPlanVersion `Prelude.seq`
+          Prelude.rnf backupRuleId
 
 instance
   Data.ToJSON

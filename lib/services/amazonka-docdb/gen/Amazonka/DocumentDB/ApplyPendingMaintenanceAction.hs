@@ -179,9 +179,9 @@ instance
 
 instance Prelude.NFData ApplyPendingMaintenanceAction where
   rnf ApplyPendingMaintenanceAction' {..} =
-    Prelude.rnf resourceIdentifier
-      `Prelude.seq` Prelude.rnf applyAction
-      `Prelude.seq` Prelude.rnf optInType
+    Prelude.rnf resourceIdentifier `Prelude.seq`
+      Prelude.rnf applyAction `Prelude.seq`
+        Prelude.rnf optInType
 
 instance Data.ToHeaders ApplyPendingMaintenanceAction where
   toHeaders = Prelude.const Prelude.mempty
@@ -246,5 +246,5 @@ instance
     ApplyPendingMaintenanceActionResponse
   where
   rnf ApplyPendingMaintenanceActionResponse' {..} =
-    Prelude.rnf resourcePendingMaintenanceActions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf resourcePendingMaintenanceActions `Prelude.seq`
+      Prelude.rnf httpStatus

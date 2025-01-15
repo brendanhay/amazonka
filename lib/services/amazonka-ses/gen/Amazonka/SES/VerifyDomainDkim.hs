@@ -125,9 +125,7 @@ instance Core.AWSRequest VerifyDomainDkim where
       ( \s h x ->
           VerifyDomainDkimResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x
-                            Data..@? "DkimTokens"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "DkimTokens" Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLList "member"
                         )
       )
@@ -238,5 +236,5 @@ verifyDomainDkimResponse_dkimTokens = Lens.lens (\VerifyDomainDkimResponse' {dki
 
 instance Prelude.NFData VerifyDomainDkimResponse where
   rnf VerifyDomainDkimResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf dkimTokens
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf dkimTokens

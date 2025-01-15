@@ -88,5 +88,5 @@ instance Prelude.Hashable SupportedResourceType where
 
 instance Prelude.NFData SupportedResourceType where
   rnf SupportedResourceType' {..} =
-    Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf service
+    Prelude.rnf resourceType `Prelude.seq`
+      Prelude.rnf service

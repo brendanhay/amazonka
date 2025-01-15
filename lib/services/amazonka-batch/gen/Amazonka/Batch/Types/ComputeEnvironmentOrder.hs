@@ -107,8 +107,8 @@ instance Prelude.Hashable ComputeEnvironmentOrder where
 
 instance Prelude.NFData ComputeEnvironmentOrder where
   rnf ComputeEnvironmentOrder' {..} =
-    Prelude.rnf order
-      `Prelude.seq` Prelude.rnf computeEnvironment
+    Prelude.rnf order `Prelude.seq`
+      Prelude.rnf computeEnvironment
 
 instance Data.ToJSON ComputeEnvironmentOrder where
   toJSON ComputeEnvironmentOrder' {..} =

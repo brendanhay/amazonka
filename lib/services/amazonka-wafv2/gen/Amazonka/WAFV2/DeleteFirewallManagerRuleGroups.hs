@@ -149,8 +149,8 @@ instance
     DeleteFirewallManagerRuleGroups
   where
   rnf DeleteFirewallManagerRuleGroups' {..} =
-    Prelude.rnf webACLArn
-      `Prelude.seq` Prelude.rnf webACLLockToken
+    Prelude.rnf webACLArn `Prelude.seq`
+      Prelude.rnf webACLLockToken
 
 instance
   Data.ToHeaders
@@ -252,5 +252,5 @@ instance
     DeleteFirewallManagerRuleGroupsResponse
   where
   rnf DeleteFirewallManagerRuleGroupsResponse' {..} =
-    Prelude.rnf nextWebACLLockToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextWebACLLockToken `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -565,11 +565,11 @@ instance Prelude.Hashable ScalableTarget where
 
 instance Prelude.NFData ScalableTarget where
   rnf ScalableTarget' {..} =
-    Prelude.rnf suspendedState
-      `Prelude.seq` Prelude.rnf serviceNamespace
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf scalableDimension
-      `Prelude.seq` Prelude.rnf minCapacity
-      `Prelude.seq` Prelude.rnf maxCapacity
-      `Prelude.seq` Prelude.rnf roleARN
-      `Prelude.seq` Prelude.rnf creationTime
+    Prelude.rnf suspendedState `Prelude.seq`
+      Prelude.rnf serviceNamespace `Prelude.seq`
+        Prelude.rnf resourceId `Prelude.seq`
+          Prelude.rnf scalableDimension `Prelude.seq`
+            Prelude.rnf minCapacity `Prelude.seq`
+              Prelude.rnf maxCapacity `Prelude.seq`
+                Prelude.rnf roleARN `Prelude.seq`
+                  Prelude.rnf creationTime

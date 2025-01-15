@@ -179,11 +179,11 @@ instance
     GetAggregateConfigRuleComplianceSummary
   where
   rnf GetAggregateConfigRuleComplianceSummary' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf groupByKey
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf configurationAggregatorName
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf groupByKey `Prelude.seq`
+        Prelude.rnf limit `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf configurationAggregatorName
 
 instance
   Data.ToHeaders
@@ -302,7 +302,7 @@ instance
   where
   rnf
     GetAggregateConfigRuleComplianceSummaryResponse' {..} =
-      Prelude.rnf aggregateComplianceCounts
-        `Prelude.seq` Prelude.rnf groupByKey
-        `Prelude.seq` Prelude.rnf nextToken
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf aggregateComplianceCounts `Prelude.seq`
+        Prelude.rnf groupByKey `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf httpStatus

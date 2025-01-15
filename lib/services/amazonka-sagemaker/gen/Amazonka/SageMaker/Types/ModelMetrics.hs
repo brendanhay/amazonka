@@ -106,10 +106,10 @@ instance Prelude.Hashable ModelMetrics where
 
 instance Prelude.NFData ModelMetrics where
   rnf ModelMetrics' {..} =
-    Prelude.rnf bias
-      `Prelude.seq` Prelude.rnf explainability
-      `Prelude.seq` Prelude.rnf modelDataQuality
-      `Prelude.seq` Prelude.rnf modelQuality
+    Prelude.rnf bias `Prelude.seq`
+      Prelude.rnf explainability `Prelude.seq`
+        Prelude.rnf modelDataQuality `Prelude.seq`
+          Prelude.rnf modelQuality
 
 instance Data.ToJSON ModelMetrics where
   toJSON ModelMetrics' {..} =

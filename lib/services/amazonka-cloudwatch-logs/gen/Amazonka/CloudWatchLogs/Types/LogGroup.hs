@@ -158,11 +158,11 @@ instance Prelude.Hashable LogGroup where
 
 instance Prelude.NFData LogGroup where
   rnf LogGroup' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf dataProtectionStatus
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf logGroupName
-      `Prelude.seq` Prelude.rnf metricFilterCount
-      `Prelude.seq` Prelude.rnf retentionInDays
-      `Prelude.seq` Prelude.rnf storedBytes
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf dataProtectionStatus `Prelude.seq`
+          Prelude.rnf kmsKeyId `Prelude.seq`
+            Prelude.rnf logGroupName `Prelude.seq`
+              Prelude.rnf metricFilterCount `Prelude.seq`
+                Prelude.rnf retentionInDays `Prelude.seq`
+                  Prelude.rnf storedBytes

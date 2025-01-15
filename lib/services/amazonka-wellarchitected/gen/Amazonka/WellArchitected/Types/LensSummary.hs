@@ -164,13 +164,13 @@ instance Prelude.Hashable LensSummary where
 
 instance Prelude.NFData LensSummary where
   rnf LensSummary' {..} =
-    Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf lensAlias
-      `Prelude.seq` Prelude.rnf lensArn
-      `Prelude.seq` Prelude.rnf lensName
-      `Prelude.seq` Prelude.rnf lensStatus
-      `Prelude.seq` Prelude.rnf lensType
-      `Prelude.seq` Prelude.rnf lensVersion
-      `Prelude.seq` Prelude.rnf owner
-      `Prelude.seq` Prelude.rnf updatedAt
+    Prelude.rnf createdAt `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf lensAlias `Prelude.seq`
+          Prelude.rnf lensArn `Prelude.seq`
+            Prelude.rnf lensName `Prelude.seq`
+              Prelude.rnf lensStatus `Prelude.seq`
+                Prelude.rnf lensType `Prelude.seq`
+                  Prelude.rnf lensVersion `Prelude.seq`
+                    Prelude.rnf owner `Prelude.seq`
+                      Prelude.rnf updatedAt

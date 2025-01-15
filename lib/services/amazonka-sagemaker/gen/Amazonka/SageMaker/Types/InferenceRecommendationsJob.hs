@@ -200,13 +200,13 @@ instance Prelude.Hashable InferenceRecommendationsJob where
 
 instance Prelude.NFData InferenceRecommendationsJob where
   rnf InferenceRecommendationsJob' {..} =
-    Prelude.rnf completionTime
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf jobDescription
-      `Prelude.seq` Prelude.rnf jobType
-      `Prelude.seq` Prelude.rnf jobArn
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf lastModifiedTime
+    Prelude.rnf completionTime `Prelude.seq`
+      Prelude.rnf failureReason `Prelude.seq`
+        Prelude.rnf jobName `Prelude.seq`
+          Prelude.rnf jobDescription `Prelude.seq`
+            Prelude.rnf jobType `Prelude.seq`
+              Prelude.rnf jobArn `Prelude.seq`
+                Prelude.rnf status `Prelude.seq`
+                  Prelude.rnf creationTime `Prelude.seq`
+                    Prelude.rnf roleArn `Prelude.seq`
+                      Prelude.rnf lastModifiedTime

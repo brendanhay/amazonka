@@ -218,12 +218,12 @@ instance Core.AWSPager ListAttachedRolePolicies where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listAttachedRolePolicies_marker
-          Lens..~ rs
-          Lens.^? listAttachedRolePoliciesResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listAttachedRolePolicies_marker
+              Lens..~ rs
+              Lens.^? listAttachedRolePoliciesResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAttachedRolePolicies where
   type
@@ -256,10 +256,10 @@ instance Prelude.Hashable ListAttachedRolePolicies where
 
 instance Prelude.NFData ListAttachedRolePolicies where
   rnf ListAttachedRolePolicies' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxItems
-      `Prelude.seq` Prelude.rnf pathPrefix
-      `Prelude.seq` Prelude.rnf roleName
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf maxItems `Prelude.seq`
+        Prelude.rnf pathPrefix `Prelude.seq`
+          Prelude.rnf roleName
 
 instance Data.ToHeaders ListAttachedRolePolicies where
   toHeaders = Prelude.const Prelude.mempty
@@ -368,7 +368,7 @@ instance
     ListAttachedRolePoliciesResponse
   where
   rnf ListAttachedRolePoliciesResponse' {..} =
-    Prelude.rnf attachedPolicies
-      `Prelude.seq` Prelude.rnf isTruncated
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf attachedPolicies `Prelude.seq`
+      Prelude.rnf isTruncated `Prelude.seq`
+        Prelude.rnf marker `Prelude.seq`
+          Prelude.rnf httpStatus

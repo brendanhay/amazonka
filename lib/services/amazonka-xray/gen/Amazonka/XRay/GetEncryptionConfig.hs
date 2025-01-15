@@ -132,5 +132,5 @@ getEncryptionConfigResponse_httpStatus = Lens.lens (\GetEncryptionConfigResponse
 
 instance Prelude.NFData GetEncryptionConfigResponse where
   rnf GetEncryptionConfigResponse' {..} =
-    Prelude.rnf encryptionConfig
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf encryptionConfig `Prelude.seq`
+      Prelude.rnf httpStatus

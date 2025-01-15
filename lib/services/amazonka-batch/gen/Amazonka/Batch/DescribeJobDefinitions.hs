@@ -187,12 +187,12 @@ instance Core.AWSPager DescribeJobDefinitions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeJobDefinitions_nextToken
-          Lens..~ rs
-          Lens.^? describeJobDefinitionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeJobDefinitions_nextToken
+              Lens..~ rs
+              Lens.^? describeJobDefinitionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeJobDefinitions where
   type
@@ -220,11 +220,11 @@ instance Prelude.Hashable DescribeJobDefinitions where
 
 instance Prelude.NFData DescribeJobDefinitions where
   rnf DescribeJobDefinitions' {..} =
-    Prelude.rnf jobDefinitionName
-      `Prelude.seq` Prelude.rnf jobDefinitions
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf jobDefinitionName `Prelude.seq`
+      Prelude.rnf jobDefinitions `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf status
 
 instance Data.ToHeaders DescribeJobDefinitions where
   toHeaders =
@@ -319,6 +319,6 @@ instance
     DescribeJobDefinitionsResponse
   where
   rnf DescribeJobDefinitionsResponse' {..} =
-    Prelude.rnf jobDefinitions
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf jobDefinitions `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

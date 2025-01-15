@@ -161,10 +161,10 @@ instance Prelude.Hashable PostAgentProfile where
 
 instance Prelude.NFData PostAgentProfile where
   rnf PostAgentProfile' {..} =
-    Prelude.rnf profileToken
-      `Prelude.seq` Prelude.rnf agentProfile
-      `Prelude.seq` Prelude.rnf contentType
-      `Prelude.seq` Prelude.rnf profilingGroupName
+    Prelude.rnf profileToken `Prelude.seq`
+      Prelude.rnf agentProfile `Prelude.seq`
+        Prelude.rnf contentType `Prelude.seq`
+          Prelude.rnf profilingGroupName
 
 instance Data.ToBody PostAgentProfile where
   toBody PostAgentProfile' {..} =

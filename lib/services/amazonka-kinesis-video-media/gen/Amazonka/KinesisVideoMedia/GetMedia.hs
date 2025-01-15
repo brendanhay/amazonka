@@ -171,9 +171,9 @@ instance Prelude.Hashable GetMedia where
 
 instance Prelude.NFData GetMedia where
   rnf GetMedia' {..} =
-    Prelude.rnf streamARN
-      `Prelude.seq` Prelude.rnf streamName
-      `Prelude.seq` Prelude.rnf startSelector
+    Prelude.rnf streamARN `Prelude.seq`
+      Prelude.rnf streamName `Prelude.seq`
+        Prelude.rnf startSelector
 
 instance Data.ToHeaders GetMedia where
   toHeaders = Prelude.const Prelude.mempty

@@ -206,9 +206,9 @@ instance Prelude.Hashable CreateAttendee where
 
 instance Prelude.NFData CreateAttendee where
   rnf CreateAttendee' {..} =
-    Prelude.rnf capabilities
-      `Prelude.seq` Prelude.rnf meetingId
-      `Prelude.seq` Prelude.rnf externalUserId
+    Prelude.rnf capabilities `Prelude.seq`
+      Prelude.rnf meetingId `Prelude.seq`
+        Prelude.rnf externalUserId
 
 instance Data.ToHeaders CreateAttendee where
   toHeaders = Prelude.const Prelude.mempty
@@ -271,5 +271,5 @@ createAttendeeResponse_httpStatus = Lens.lens (\CreateAttendeeResponse' {httpSta
 
 instance Prelude.NFData CreateAttendeeResponse where
   rnf CreateAttendeeResponse' {..} =
-    Prelude.rnf attendee
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf attendee `Prelude.seq`
+      Prelude.rnf httpStatus

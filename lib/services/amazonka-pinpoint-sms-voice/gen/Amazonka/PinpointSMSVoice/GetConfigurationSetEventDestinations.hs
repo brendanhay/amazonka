@@ -193,5 +193,5 @@ instance
     GetConfigurationSetEventDestinationsResponse
   where
   rnf GetConfigurationSetEventDestinationsResponse' {..} =
-    Prelude.rnf eventDestinations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf eventDestinations `Prelude.seq`
+      Prelude.rnf httpStatus

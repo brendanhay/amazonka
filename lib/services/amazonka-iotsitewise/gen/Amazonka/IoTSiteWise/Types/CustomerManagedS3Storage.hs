@@ -109,8 +109,8 @@ instance Prelude.Hashable CustomerManagedS3Storage where
 
 instance Prelude.NFData CustomerManagedS3Storage where
   rnf CustomerManagedS3Storage' {..} =
-    Prelude.rnf s3ResourceArn
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf s3ResourceArn `Prelude.seq`
+      Prelude.rnf roleArn
 
 instance Data.ToJSON CustomerManagedS3Storage where
   toJSON CustomerManagedS3Storage' {..} =

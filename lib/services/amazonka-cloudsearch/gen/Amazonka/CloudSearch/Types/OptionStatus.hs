@@ -149,8 +149,8 @@ instance Prelude.Hashable OptionStatus where
 
 instance Prelude.NFData OptionStatus where
   rnf OptionStatus' {..} =
-    Prelude.rnf pendingDeletion
-      `Prelude.seq` Prelude.rnf updateVersion
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf updateDate
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf pendingDeletion `Prelude.seq`
+      Prelude.rnf updateVersion `Prelude.seq`
+        Prelude.rnf creationDate `Prelude.seq`
+          Prelude.rnf updateDate `Prelude.seq`
+            Prelude.rnf state

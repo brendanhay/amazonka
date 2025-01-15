@@ -80,8 +80,8 @@ instance Prelude.Hashable BatchAttachToIndex where
 
 instance Prelude.NFData BatchAttachToIndex where
   rnf BatchAttachToIndex' {..} =
-    Prelude.rnf indexReference
-      `Prelude.seq` Prelude.rnf targetReference
+    Prelude.rnf indexReference `Prelude.seq`
+      Prelude.rnf targetReference
 
 instance Data.ToJSON BatchAttachToIndex where
   toJSON BatchAttachToIndex' {..} =

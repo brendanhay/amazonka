@@ -124,9 +124,9 @@ instance Prelude.Hashable VirtualGatewayListenerTls where
 
 instance Prelude.NFData VirtualGatewayListenerTls where
   rnf VirtualGatewayListenerTls' {..} =
-    Prelude.rnf validation
-      `Prelude.seq` Prelude.rnf certificate
-      `Prelude.seq` Prelude.rnf mode
+    Prelude.rnf validation `Prelude.seq`
+      Prelude.rnf certificate `Prelude.seq`
+        Prelude.rnf mode
 
 instance Data.ToJSON VirtualGatewayListenerTls where
   toJSON VirtualGatewayListenerTls' {..} =

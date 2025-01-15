@@ -119,12 +119,12 @@ instance Prelude.Hashable MetricDatum where
 
 instance Prelude.NFData MetricDatum where
   rnf MetricDatum' {..} =
-    Prelude.rnf dimensions
-      `Prelude.seq` Prelude.rnf statisticValues
-      `Prelude.seq` Prelude.rnf unit
-      `Prelude.seq` Prelude.rnf value
-      `Prelude.seq` Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf timestamp
+    Prelude.rnf dimensions `Prelude.seq`
+      Prelude.rnf statisticValues `Prelude.seq`
+        Prelude.rnf unit `Prelude.seq`
+          Prelude.rnf value `Prelude.seq`
+            Prelude.rnf metricName `Prelude.seq`
+              Prelude.rnf timestamp
 
 instance Data.ToJSON MetricDatum where
   toJSON MetricDatum' {..} =

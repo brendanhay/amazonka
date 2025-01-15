@@ -105,6 +105,6 @@ instance
     PrivateConnectionProvisioningState
   where
   rnf PrivateConnectionProvisioningState' {..} =
-    Prelude.rnf failureCause
-      `Prelude.seq` Prelude.rnf failureMessage
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf failureCause `Prelude.seq`
+      Prelude.rnf failureMessage `Prelude.seq`
+        Prelude.rnf status

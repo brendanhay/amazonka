@@ -117,12 +117,12 @@ instance Core.AWSPager GetCellReadinessSummary where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getCellReadinessSummary_nextToken
-          Lens..~ rs
-          Lens.^? getCellReadinessSummaryResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getCellReadinessSummary_nextToken
+              Lens..~ rs
+              Lens.^? getCellReadinessSummaryResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetCellReadinessSummary where
   type
@@ -152,9 +152,9 @@ instance Prelude.Hashable GetCellReadinessSummary where
 
 instance Prelude.NFData GetCellReadinessSummary where
   rnf GetCellReadinessSummary' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf cellName
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf cellName
 
 instance Data.ToHeaders GetCellReadinessSummary where
   toHeaders =
@@ -241,7 +241,7 @@ instance
     GetCellReadinessSummaryResponse
   where
   rnf GetCellReadinessSummaryResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf readiness
-      `Prelude.seq` Prelude.rnf readinessChecks
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf readiness `Prelude.seq`
+        Prelude.rnf readinessChecks `Prelude.seq`
+          Prelude.rnf httpStatus

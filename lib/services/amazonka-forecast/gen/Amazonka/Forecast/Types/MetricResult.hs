@@ -85,5 +85,5 @@ instance Prelude.Hashable MetricResult where
 
 instance Prelude.NFData MetricResult where
   rnf MetricResult' {..} =
-    Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf metricValue
+    Prelude.rnf metricName `Prelude.seq`
+      Prelude.rnf metricValue

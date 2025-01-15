@@ -101,6 +101,6 @@ instance Prelude.Hashable ResourceTagMapping where
 
 instance Prelude.NFData ResourceTagMapping where
   rnf ResourceTagMapping' {..} =
-    Prelude.rnf complianceDetails
-      `Prelude.seq` Prelude.rnf resourceARN
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf complianceDetails `Prelude.seq`
+      Prelude.rnf resourceARN `Prelude.seq`
+        Prelude.rnf tags

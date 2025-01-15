@@ -482,15 +482,15 @@ instance Prelude.Hashable CreateFileSystem where
 
 instance Prelude.NFData CreateFileSystem where
   rnf CreateFileSystem' {..} =
-    Prelude.rnf availabilityZoneName
-      `Prelude.seq` Prelude.rnf backup
-      `Prelude.seq` Prelude.rnf encrypted
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf performanceMode
-      `Prelude.seq` Prelude.rnf provisionedThroughputInMibps
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf throughputMode
-      `Prelude.seq` Prelude.rnf creationToken
+    Prelude.rnf availabilityZoneName `Prelude.seq`
+      Prelude.rnf backup `Prelude.seq`
+        Prelude.rnf encrypted `Prelude.seq`
+          Prelude.rnf kmsKeyId `Prelude.seq`
+            Prelude.rnf performanceMode `Prelude.seq`
+              Prelude.rnf provisionedThroughputInMibps `Prelude.seq`
+                Prelude.rnf tags `Prelude.seq`
+                  Prelude.rnf throughputMode `Prelude.seq`
+                    Prelude.rnf creationToken
 
 instance Data.ToHeaders CreateFileSystem where
   toHeaders = Prelude.const Prelude.mempty

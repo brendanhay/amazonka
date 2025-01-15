@@ -114,10 +114,10 @@ instance Prelude.Hashable MySQLCatalogTarget where
 
 instance Prelude.NFData MySQLCatalogTarget where
   rnf MySQLCatalogTarget' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf inputs
-      `Prelude.seq` Prelude.rnf database
-      `Prelude.seq` Prelude.rnf table
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf inputs `Prelude.seq`
+        Prelude.rnf database `Prelude.seq`
+          Prelude.rnf table
 
 instance Data.ToJSON MySQLCatalogTarget where
   toJSON MySQLCatalogTarget' {..} =

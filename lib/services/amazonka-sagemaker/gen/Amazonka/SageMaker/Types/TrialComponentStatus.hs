@@ -81,8 +81,8 @@ instance Prelude.Hashable TrialComponentStatus where
 
 instance Prelude.NFData TrialComponentStatus where
   rnf TrialComponentStatus' {..} =
-    Prelude.rnf message
-      `Prelude.seq` Prelude.rnf primaryStatus
+    Prelude.rnf message `Prelude.seq`
+      Prelude.rnf primaryStatus
 
 instance Data.ToJSON TrialComponentStatus where
   toJSON TrialComponentStatus' {..} =

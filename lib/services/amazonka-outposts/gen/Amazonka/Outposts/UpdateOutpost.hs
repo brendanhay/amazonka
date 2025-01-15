@@ -128,10 +128,10 @@ instance Prelude.Hashable UpdateOutpost where
 
 instance Prelude.NFData UpdateOutpost where
   rnf UpdateOutpost' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf supportedHardwareType
-      `Prelude.seq` Prelude.rnf outpostId
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf supportedHardwareType `Prelude.seq`
+          Prelude.rnf outpostId
 
 instance Data.ToHeaders UpdateOutpost where
   toHeaders =
@@ -201,5 +201,5 @@ updateOutpostResponse_httpStatus = Lens.lens (\UpdateOutpostResponse' {httpStatu
 
 instance Prelude.NFData UpdateOutpostResponse where
   rnf UpdateOutpostResponse' {..} =
-    Prelude.rnf outpost
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf outpost `Prelude.seq`
+      Prelude.rnf httpStatus

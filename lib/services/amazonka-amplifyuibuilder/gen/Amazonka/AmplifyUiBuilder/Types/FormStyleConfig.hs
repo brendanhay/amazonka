@@ -83,8 +83,8 @@ instance Prelude.Hashable FormStyleConfig where
 
 instance Prelude.NFData FormStyleConfig where
   rnf FormStyleConfig' {..} =
-    Prelude.rnf tokenReference
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf tokenReference `Prelude.seq`
+      Prelude.rnf value
 
 instance Data.ToJSON FormStyleConfig where
   toJSON FormStyleConfig' {..} =

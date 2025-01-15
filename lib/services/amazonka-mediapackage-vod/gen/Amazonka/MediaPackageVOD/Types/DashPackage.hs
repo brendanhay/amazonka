@@ -184,13 +184,13 @@ instance Prelude.Hashable DashPackage where
 
 instance Prelude.NFData DashPackage where
   rnf DashPackage' {..} =
-    Prelude.rnf encryption
-      `Prelude.seq` Prelude.rnf includeEncoderConfigurationInSegments
-      `Prelude.seq` Prelude.rnf includeIframeOnlyStream
-      `Prelude.seq` Prelude.rnf periodTriggers
-      `Prelude.seq` Prelude.rnf segmentDurationSeconds
-      `Prelude.seq` Prelude.rnf segmentTemplateFormat
-      `Prelude.seq` Prelude.rnf dashManifests
+    Prelude.rnf encryption `Prelude.seq`
+      Prelude.rnf includeEncoderConfigurationInSegments `Prelude.seq`
+        Prelude.rnf includeIframeOnlyStream `Prelude.seq`
+          Prelude.rnf periodTriggers `Prelude.seq`
+            Prelude.rnf segmentDurationSeconds `Prelude.seq`
+              Prelude.rnf segmentTemplateFormat `Prelude.seq`
+                Prelude.rnf dashManifests
 
 instance Data.ToJSON DashPackage where
   toJSON DashPackage' {..} =

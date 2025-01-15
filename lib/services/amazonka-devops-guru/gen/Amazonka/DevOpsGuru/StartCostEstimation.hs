@@ -110,8 +110,8 @@ instance Prelude.Hashable StartCostEstimation where
 
 instance Prelude.NFData StartCostEstimation where
   rnf StartCostEstimation' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf resourceCollection
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf resourceCollection
 
 instance Data.ToHeaders StartCostEstimation where
   toHeaders =

@@ -108,10 +108,10 @@ instance Prelude.Hashable LambdaContainerParams where
 
 instance Prelude.NFData LambdaContainerParams where
   rnf LambdaContainerParams' {..} =
-    Prelude.rnf devices
-      `Prelude.seq` Prelude.rnf memorySizeInKB
-      `Prelude.seq` Prelude.rnf mountROSysfs
-      `Prelude.seq` Prelude.rnf volumes
+    Prelude.rnf devices `Prelude.seq`
+      Prelude.rnf memorySizeInKB `Prelude.seq`
+        Prelude.rnf mountROSysfs `Prelude.seq`
+          Prelude.rnf volumes
 
 instance Data.ToJSON LambdaContainerParams where
   toJSON LambdaContainerParams' {..} =

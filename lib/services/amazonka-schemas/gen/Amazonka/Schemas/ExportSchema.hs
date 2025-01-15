@@ -139,10 +139,10 @@ instance Prelude.Hashable ExportSchema where
 
 instance Prelude.NFData ExportSchema where
   rnf ExportSchema' {..} =
-    Prelude.rnf schemaVersion
-      `Prelude.seq` Prelude.rnf registryName
-      `Prelude.seq` Prelude.rnf schemaName
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf schemaVersion `Prelude.seq`
+      Prelude.rnf registryName `Prelude.seq`
+        Prelude.rnf schemaName `Prelude.seq`
+          Prelude.rnf type'
 
 instance Data.ToHeaders ExportSchema where
   toHeaders =
@@ -243,9 +243,9 @@ exportSchemaResponse_httpStatus = Lens.lens (\ExportSchemaResponse' {httpStatus}
 
 instance Prelude.NFData ExportSchemaResponse where
   rnf ExportSchemaResponse' {..} =
-    Prelude.rnf content
-      `Prelude.seq` Prelude.rnf schemaArn
-      `Prelude.seq` Prelude.rnf schemaName
-      `Prelude.seq` Prelude.rnf schemaVersion
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf content `Prelude.seq`
+      Prelude.rnf schemaArn `Prelude.seq`
+        Prelude.rnf schemaName `Prelude.seq`
+          Prelude.rnf schemaVersion `Prelude.seq`
+            Prelude.rnf type' `Prelude.seq`
+              Prelude.rnf httpStatus

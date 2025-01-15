@@ -116,9 +116,9 @@ instance Prelude.Hashable DeleteChannelBan where
 
 instance Prelude.NFData DeleteChannelBan where
   rnf DeleteChannelBan' {..} =
-    Prelude.rnf chimeBearer
-      `Prelude.seq` Prelude.rnf channelArn
-      `Prelude.seq` Prelude.rnf memberArn
+    Prelude.rnf chimeBearer `Prelude.seq`
+      Prelude.rnf channelArn `Prelude.seq`
+        Prelude.rnf memberArn
 
 instance Data.ToHeaders DeleteChannelBan where
   toHeaders DeleteChannelBan' {..} =

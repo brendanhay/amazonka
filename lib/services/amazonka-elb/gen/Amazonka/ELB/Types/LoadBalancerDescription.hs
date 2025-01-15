@@ -256,9 +256,7 @@ instance Data.FromXML LoadBalancerDescription where
       Prelude.<*> (x Data..@? "CreatedTime")
       Prelude.<*> (x Data..@? "DNSName")
       Prelude.<*> (x Data..@? "HealthCheck")
-      Prelude.<*> ( x
-                      Data..@? "Instances"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "Instances" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> ( x
@@ -269,15 +267,11 @@ instance Data.FromXML LoadBalancerDescription where
       Prelude.<*> (x Data..@? "LoadBalancerName")
       Prelude.<*> (x Data..@? "Policies")
       Prelude.<*> (x Data..@? "Scheme")
-      Prelude.<*> ( x
-                      Data..@? "SecurityGroups"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "SecurityGroups" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "SourceSecurityGroup")
-      Prelude.<*> ( x
-                      Data..@? "Subnets"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "Subnets" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "VPCId")
@@ -304,19 +298,19 @@ instance Prelude.Hashable LoadBalancerDescription where
 
 instance Prelude.NFData LoadBalancerDescription where
   rnf LoadBalancerDescription' {..} =
-    Prelude.rnf availabilityZones
-      `Prelude.seq` Prelude.rnf backendServerDescriptions
-      `Prelude.seq` Prelude.rnf canonicalHostedZoneName
-      `Prelude.seq` Prelude.rnf canonicalHostedZoneNameID
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf dNSName
-      `Prelude.seq` Prelude.rnf healthCheck
-      `Prelude.seq` Prelude.rnf instances
-      `Prelude.seq` Prelude.rnf listenerDescriptions
-      `Prelude.seq` Prelude.rnf loadBalancerName
-      `Prelude.seq` Prelude.rnf policies
-      `Prelude.seq` Prelude.rnf scheme
-      `Prelude.seq` Prelude.rnf securityGroups
-      `Prelude.seq` Prelude.rnf sourceSecurityGroup
-      `Prelude.seq` Prelude.rnf subnets
-      `Prelude.seq` Prelude.rnf vPCId
+    Prelude.rnf availabilityZones `Prelude.seq`
+      Prelude.rnf backendServerDescriptions `Prelude.seq`
+        Prelude.rnf canonicalHostedZoneName `Prelude.seq`
+          Prelude.rnf canonicalHostedZoneNameID `Prelude.seq`
+            Prelude.rnf createdTime `Prelude.seq`
+              Prelude.rnf dNSName `Prelude.seq`
+                Prelude.rnf healthCheck `Prelude.seq`
+                  Prelude.rnf instances `Prelude.seq`
+                    Prelude.rnf listenerDescriptions `Prelude.seq`
+                      Prelude.rnf loadBalancerName `Prelude.seq`
+                        Prelude.rnf policies `Prelude.seq`
+                          Prelude.rnf scheme `Prelude.seq`
+                            Prelude.rnf securityGroups `Prelude.seq`
+                              Prelude.rnf sourceSecurityGroup `Prelude.seq`
+                                Prelude.rnf subnets `Prelude.seq`
+                                  Prelude.rnf vPCId

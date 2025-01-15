@@ -99,8 +99,8 @@ instance Prelude.Hashable ValidationConfiguration where
 
 instance Prelude.NFData ValidationConfiguration where
   rnf ValidationConfiguration' {..} =
-    Prelude.rnf validationMode
-      `Prelude.seq` Prelude.rnf rulesetArn
+    Prelude.rnf validationMode `Prelude.seq`
+      Prelude.rnf rulesetArn
 
 instance Data.ToJSON ValidationConfiguration where
   toJSON ValidationConfiguration' {..} =

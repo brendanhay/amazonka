@@ -199,5 +199,5 @@ instance
     GetCertificateAuthorityCsrResponse
   where
   rnf GetCertificateAuthorityCsrResponse' {..} =
-    Prelude.rnf csr
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf csr `Prelude.seq`
+      Prelude.rnf httpStatus

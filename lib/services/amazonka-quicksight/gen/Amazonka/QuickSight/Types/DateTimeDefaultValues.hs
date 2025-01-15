@@ -100,9 +100,9 @@ instance Prelude.Hashable DateTimeDefaultValues where
 
 instance Prelude.NFData DateTimeDefaultValues where
   rnf DateTimeDefaultValues' {..} =
-    Prelude.rnf dynamicValue
-      `Prelude.seq` Prelude.rnf rollingDate
-      `Prelude.seq` Prelude.rnf staticValues
+    Prelude.rnf dynamicValue `Prelude.seq`
+      Prelude.rnf rollingDate `Prelude.seq`
+        Prelude.rnf staticValues
 
 instance Data.ToJSON DateTimeDefaultValues where
   toJSON DateTimeDefaultValues' {..} =

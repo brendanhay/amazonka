@@ -92,9 +92,7 @@ instance Data.FromXML ClusterDbRevision where
       Prelude.<$> (x Data..@? "ClusterIdentifier")
       Prelude.<*> (x Data..@? "CurrentDatabaseRevision")
       Prelude.<*> (x Data..@? "DatabaseRevisionReleaseDate")
-      Prelude.<*> ( x
-                      Data..@? "RevisionTargets"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "RevisionTargets" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "RevisionTarget")
                   )
 
@@ -108,7 +106,7 @@ instance Prelude.Hashable ClusterDbRevision where
 
 instance Prelude.NFData ClusterDbRevision where
   rnf ClusterDbRevision' {..} =
-    Prelude.rnf clusterIdentifier
-      `Prelude.seq` Prelude.rnf currentDatabaseRevision
-      `Prelude.seq` Prelude.rnf databaseRevisionReleaseDate
-      `Prelude.seq` Prelude.rnf revisionTargets
+    Prelude.rnf clusterIdentifier `Prelude.seq`
+      Prelude.rnf currentDatabaseRevision `Prelude.seq`
+        Prelude.rnf databaseRevisionReleaseDate `Prelude.seq`
+          Prelude.rnf revisionTargets

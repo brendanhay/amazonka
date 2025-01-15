@@ -276,9 +276,7 @@ instance Data.FromXML IpamResourceCidr where
       Prelude.<*> (x Data..@? "resourceName")
       Prelude.<*> (x Data..@? "resourceOwnerId")
       Prelude.<*> (x Data..@? "resourceRegion")
-      Prelude.<*> ( x
-                      Data..@? "resourceTagSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "resourceTagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "resourceType")
@@ -305,18 +303,18 @@ instance Prelude.Hashable IpamResourceCidr where
 
 instance Prelude.NFData IpamResourceCidr where
   rnf IpamResourceCidr' {..} =
-    Prelude.rnf complianceStatus
-      `Prelude.seq` Prelude.rnf ipUsage
-      `Prelude.seq` Prelude.rnf ipamId
-      `Prelude.seq` Prelude.rnf ipamPoolId
-      `Prelude.seq` Prelude.rnf ipamScopeId
-      `Prelude.seq` Prelude.rnf managementState
-      `Prelude.seq` Prelude.rnf overlapStatus
-      `Prelude.seq` Prelude.rnf resourceCidr
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf resourceName
-      `Prelude.seq` Prelude.rnf resourceOwnerId
-      `Prelude.seq` Prelude.rnf resourceRegion
-      `Prelude.seq` Prelude.rnf resourceTags
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf complianceStatus `Prelude.seq`
+      Prelude.rnf ipUsage `Prelude.seq`
+        Prelude.rnf ipamId `Prelude.seq`
+          Prelude.rnf ipamPoolId `Prelude.seq`
+            Prelude.rnf ipamScopeId `Prelude.seq`
+              Prelude.rnf managementState `Prelude.seq`
+                Prelude.rnf overlapStatus `Prelude.seq`
+                  Prelude.rnf resourceCidr `Prelude.seq`
+                    Prelude.rnf resourceId `Prelude.seq`
+                      Prelude.rnf resourceName `Prelude.seq`
+                        Prelude.rnf resourceOwnerId `Prelude.seq`
+                          Prelude.rnf resourceRegion `Prelude.seq`
+                            Prelude.rnf resourceTags `Prelude.seq`
+                              Prelude.rnf resourceType `Prelude.seq`
+                                Prelude.rnf vpcId

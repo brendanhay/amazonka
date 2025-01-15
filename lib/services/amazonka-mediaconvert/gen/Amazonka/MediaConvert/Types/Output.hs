@@ -217,14 +217,14 @@ instance Prelude.Hashable Output where
 
 instance Prelude.NFData Output where
   rnf Output' {..} =
-    Prelude.rnf audioDescriptions
-      `Prelude.seq` Prelude.rnf captionDescriptions
-      `Prelude.seq` Prelude.rnf containerSettings
-      `Prelude.seq` Prelude.rnf extension
-      `Prelude.seq` Prelude.rnf nameModifier
-      `Prelude.seq` Prelude.rnf outputSettings
-      `Prelude.seq` Prelude.rnf preset
-      `Prelude.seq` Prelude.rnf videoDescription
+    Prelude.rnf audioDescriptions `Prelude.seq`
+      Prelude.rnf captionDescriptions `Prelude.seq`
+        Prelude.rnf containerSettings `Prelude.seq`
+          Prelude.rnf extension `Prelude.seq`
+            Prelude.rnf nameModifier `Prelude.seq`
+              Prelude.rnf outputSettings `Prelude.seq`
+                Prelude.rnf preset `Prelude.seq`
+                  Prelude.rnf videoDescription
 
 instance Data.ToJSON Output where
   toJSON Output' {..} =

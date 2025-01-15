@@ -72,9 +72,7 @@ instance Data.FromXML ForwardActionConfig where
   parseXML x =
     ForwardActionConfig'
       Prelude.<$> (x Data..@? "TargetGroupStickinessConfig")
-      Prelude.<*> ( x
-                      Data..@? "TargetGroups"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "TargetGroups" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 
@@ -86,8 +84,8 @@ instance Prelude.Hashable ForwardActionConfig where
 
 instance Prelude.NFData ForwardActionConfig where
   rnf ForwardActionConfig' {..} =
-    Prelude.rnf targetGroupStickinessConfig
-      `Prelude.seq` Prelude.rnf targetGroups
+    Prelude.rnf targetGroupStickinessConfig `Prelude.seq`
+      Prelude.rnf targetGroups
 
 instance Data.ToQuery ForwardActionConfig where
   toQuery ForwardActionConfig' {..} =

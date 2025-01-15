@@ -97,6 +97,6 @@ instance Prelude.Hashable SubModule where
 
 instance Prelude.NFData SubModule where
   rnf SubModule' {..} =
-    Prelude.rnf absolutePath
-      `Prelude.seq` Prelude.rnf commitId
-      `Prelude.seq` Prelude.rnf relativePath
+    Prelude.rnf absolutePath `Prelude.seq`
+      Prelude.rnf commitId `Prelude.seq`
+        Prelude.rnf relativePath

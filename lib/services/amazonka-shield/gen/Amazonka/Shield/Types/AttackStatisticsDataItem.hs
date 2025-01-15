@@ -92,5 +92,5 @@ instance Prelude.Hashable AttackStatisticsDataItem where
 
 instance Prelude.NFData AttackStatisticsDataItem where
   rnf AttackStatisticsDataItem' {..} =
-    Prelude.rnf attackVolume
-      `Prelude.seq` Prelude.rnf attackCount
+    Prelude.rnf attackVolume `Prelude.seq`
+      Prelude.rnf attackCount

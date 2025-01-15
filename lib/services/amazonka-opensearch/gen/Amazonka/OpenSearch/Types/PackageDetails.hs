@@ -164,12 +164,12 @@ instance Prelude.Hashable PackageDetails where
 
 instance Prelude.NFData PackageDetails where
   rnf PackageDetails' {..} =
-    Prelude.rnf availablePackageVersion
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf errorDetails
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf packageDescription
-      `Prelude.seq` Prelude.rnf packageID
-      `Prelude.seq` Prelude.rnf packageName
-      `Prelude.seq` Prelude.rnf packageStatus
-      `Prelude.seq` Prelude.rnf packageType
+    Prelude.rnf availablePackageVersion `Prelude.seq`
+      Prelude.rnf createdAt `Prelude.seq`
+        Prelude.rnf errorDetails `Prelude.seq`
+          Prelude.rnf lastUpdatedAt `Prelude.seq`
+            Prelude.rnf packageDescription `Prelude.seq`
+              Prelude.rnf packageID `Prelude.seq`
+                Prelude.rnf packageName `Prelude.seq`
+                  Prelude.rnf packageStatus `Prelude.seq`
+                    Prelude.rnf packageType

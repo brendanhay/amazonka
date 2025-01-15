@@ -107,7 +107,7 @@ instance Prelude.Hashable BatchResultErrorEntry where
 
 instance Prelude.NFData BatchResultErrorEntry where
   rnf BatchResultErrorEntry' {..} =
-    Prelude.rnf message
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf code
-      `Prelude.seq` Prelude.rnf senderFault
+    Prelude.rnf message `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf code `Prelude.seq`
+          Prelude.rnf senderFault

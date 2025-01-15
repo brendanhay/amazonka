@@ -197,5 +197,5 @@ instance
     GetContainerServiceDeploymentsResponse
   where
   rnf GetContainerServiceDeploymentsResponse' {..} =
-    Prelude.rnf deployments
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf deployments `Prelude.seq`
+      Prelude.rnf httpStatus

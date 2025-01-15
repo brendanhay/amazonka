@@ -247,6 +247,6 @@ getInsightSelectorsResponse_httpStatus = Lens.lens (\GetInsightSelectorsResponse
 
 instance Prelude.NFData GetInsightSelectorsResponse where
   rnf GetInsightSelectorsResponse' {..} =
-    Prelude.rnf insightSelectors
-      `Prelude.seq` Prelude.rnf trailARN
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf insightSelectors `Prelude.seq`
+      Prelude.rnf trailARN `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -250,11 +250,11 @@ describeLedgerResponse_httpStatus = Lens.lens (\DescribeLedgerResponse' {httpSta
 
 instance Prelude.NFData DescribeLedgerResponse where
   rnf DescribeLedgerResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf deletionProtection
-      `Prelude.seq` Prelude.rnf encryptionDescription
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf permissionsMode
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf creationDateTime `Prelude.seq`
+        Prelude.rnf deletionProtection `Prelude.seq`
+          Prelude.rnf encryptionDescription `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf permissionsMode `Prelude.seq`
+                Prelude.rnf state `Prelude.seq`
+                  Prelude.rnf httpStatus

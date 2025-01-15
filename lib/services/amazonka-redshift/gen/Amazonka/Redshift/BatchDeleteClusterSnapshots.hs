@@ -87,14 +87,10 @@ instance Core.AWSRequest BatchDeleteClusterSnapshots where
       "BatchDeleteClusterSnapshotsResult"
       ( \s h x ->
           BatchDeleteClusterSnapshotsResponse'
-            Prelude.<$> ( x
-                            Data..@? "Errors"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "Errors" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "SnapshotErrorMessage")
                         )
-            Prelude.<*> ( x
-                            Data..@? "Resources"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "Resources" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "String")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -182,6 +178,6 @@ instance
     BatchDeleteClusterSnapshotsResponse
   where
   rnf BatchDeleteClusterSnapshotsResponse' {..} =
-    Prelude.rnf errors
-      `Prelude.seq` Prelude.rnf resources
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf errors `Prelude.seq`
+      Prelude.rnf resources `Prelude.seq`
+        Prelude.rnf httpStatus

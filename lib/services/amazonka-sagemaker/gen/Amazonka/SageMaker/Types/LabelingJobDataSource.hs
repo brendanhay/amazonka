@@ -100,8 +100,8 @@ instance Prelude.Hashable LabelingJobDataSource where
 
 instance Prelude.NFData LabelingJobDataSource where
   rnf LabelingJobDataSource' {..} =
-    Prelude.rnf s3DataSource
-      `Prelude.seq` Prelude.rnf snsDataSource
+    Prelude.rnf s3DataSource `Prelude.seq`
+      Prelude.rnf snsDataSource
 
 instance Data.ToJSON LabelingJobDataSource where
   toJSON LabelingJobDataSource' {..} =

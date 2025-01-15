@@ -143,10 +143,10 @@ instance Prelude.Hashable JobError where
 
 instance Prelude.NFData JobError where
   rnf JobError' {..} =
-    Prelude.rnf details
-      `Prelude.seq` Prelude.rnf limitName
-      `Prelude.seq` Prelude.rnf limitValue
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf code
-      `Prelude.seq` Prelude.rnf message
+    Prelude.rnf details `Prelude.seq`
+      Prelude.rnf limitName `Prelude.seq`
+        Prelude.rnf limitValue `Prelude.seq`
+          Prelude.rnf resourceId `Prelude.seq`
+            Prelude.rnf resourceType `Prelude.seq`
+              Prelude.rnf code `Prelude.seq`
+                Prelude.rnf message

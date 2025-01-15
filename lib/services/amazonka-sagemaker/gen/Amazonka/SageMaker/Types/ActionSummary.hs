@@ -140,10 +140,10 @@ instance Prelude.Hashable ActionSummary where
 
 instance Prelude.NFData ActionSummary where
   rnf ActionSummary' {..} =
-    Prelude.rnf actionArn
-      `Prelude.seq` Prelude.rnf actionName
-      `Prelude.seq` Prelude.rnf actionType
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf actionArn `Prelude.seq`
+      Prelude.rnf actionName `Prelude.seq`
+        Prelude.rnf actionType `Prelude.seq`
+          Prelude.rnf creationTime `Prelude.seq`
+            Prelude.rnf lastModifiedTime `Prelude.seq`
+              Prelude.rnf source `Prelude.seq`
+                Prelude.rnf status

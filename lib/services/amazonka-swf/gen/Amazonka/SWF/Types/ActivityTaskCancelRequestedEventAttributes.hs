@@ -110,5 +110,5 @@ instance
     ActivityTaskCancelRequestedEventAttributes
   where
   rnf ActivityTaskCancelRequestedEventAttributes' {..} =
-    Prelude.rnf decisionTaskCompletedEventId
-      `Prelude.seq` Prelude.rnf activityId
+    Prelude.rnf decisionTaskCompletedEventId `Prelude.seq`
+      Prelude.rnf activityId

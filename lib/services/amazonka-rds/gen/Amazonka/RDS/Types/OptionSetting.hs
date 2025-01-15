@@ -160,15 +160,15 @@ instance Prelude.Hashable OptionSetting where
 
 instance Prelude.NFData OptionSetting where
   rnf OptionSetting' {..} =
-    Prelude.rnf allowedValues
-      `Prelude.seq` Prelude.rnf applyType
-      `Prelude.seq` Prelude.rnf dataType
-      `Prelude.seq` Prelude.rnf defaultValue
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf isCollection
-      `Prelude.seq` Prelude.rnf isModifiable
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf allowedValues `Prelude.seq`
+      Prelude.rnf applyType `Prelude.seq`
+        Prelude.rnf dataType `Prelude.seq`
+          Prelude.rnf defaultValue `Prelude.seq`
+            Prelude.rnf description `Prelude.seq`
+              Prelude.rnf isCollection `Prelude.seq`
+                Prelude.rnf isModifiable `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf value
 
 instance Data.ToQuery OptionSetting where
   toQuery OptionSetting' {..} =

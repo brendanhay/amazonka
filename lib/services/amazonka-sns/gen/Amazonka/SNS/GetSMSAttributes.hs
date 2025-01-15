@@ -106,9 +106,7 @@ instance Core.AWSRequest GetSMSAttributes where
       "GetSMSAttributesResult"
       ( \s h x ->
           GetSMSAttributesResponse'
-            Prelude.<$> ( x
-                            Data..@? "attributes"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "attributes" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLMap "entry" "key" "value")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -182,5 +180,5 @@ getSMSAttributesResponse_httpStatus = Lens.lens (\GetSMSAttributesResponse' {htt
 
 instance Prelude.NFData GetSMSAttributesResponse where
   rnf GetSMSAttributesResponse' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf attributes `Prelude.seq`
+      Prelude.rnf httpStatus

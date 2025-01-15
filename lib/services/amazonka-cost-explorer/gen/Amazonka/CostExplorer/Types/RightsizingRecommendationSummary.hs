@@ -127,7 +127,7 @@ instance
     RightsizingRecommendationSummary
   where
   rnf RightsizingRecommendationSummary' {..} =
-    Prelude.rnf estimatedTotalMonthlySavingsAmount
-      `Prelude.seq` Prelude.rnf savingsCurrencyCode
-      `Prelude.seq` Prelude.rnf savingsPercentage
-      `Prelude.seq` Prelude.rnf totalRecommendationCount
+    Prelude.rnf estimatedTotalMonthlySavingsAmount `Prelude.seq`
+      Prelude.rnf savingsCurrencyCode `Prelude.seq`
+        Prelude.rnf savingsPercentage `Prelude.seq`
+          Prelude.rnf totalRecommendationCount

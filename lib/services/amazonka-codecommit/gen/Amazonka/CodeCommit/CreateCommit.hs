@@ -225,16 +225,16 @@ instance Prelude.Hashable CreateCommit where
 
 instance Prelude.NFData CreateCommit where
   rnf CreateCommit' {..} =
-    Prelude.rnf authorName
-      `Prelude.seq` Prelude.rnf commitMessage
-      `Prelude.seq` Prelude.rnf deleteFiles
-      `Prelude.seq` Prelude.rnf email
-      `Prelude.seq` Prelude.rnf keepEmptyFolders
-      `Prelude.seq` Prelude.rnf parentCommitId
-      `Prelude.seq` Prelude.rnf putFiles
-      `Prelude.seq` Prelude.rnf setFileModes
-      `Prelude.seq` Prelude.rnf repositoryName
-      `Prelude.seq` Prelude.rnf branchName
+    Prelude.rnf authorName `Prelude.seq`
+      Prelude.rnf commitMessage `Prelude.seq`
+        Prelude.rnf deleteFiles `Prelude.seq`
+          Prelude.rnf email `Prelude.seq`
+            Prelude.rnf keepEmptyFolders `Prelude.seq`
+              Prelude.rnf parentCommitId `Prelude.seq`
+                Prelude.rnf putFiles `Prelude.seq`
+                  Prelude.rnf setFileModes `Prelude.seq`
+                    Prelude.rnf repositoryName `Prelude.seq`
+                      Prelude.rnf branchName
 
 instance Data.ToHeaders CreateCommit where
   toHeaders =
@@ -359,9 +359,9 @@ createCommitResponse_httpStatus = Lens.lens (\CreateCommitResponse' {httpStatus}
 
 instance Prelude.NFData CreateCommitResponse where
   rnf CreateCommitResponse' {..} =
-    Prelude.rnf commitId
-      `Prelude.seq` Prelude.rnf filesAdded
-      `Prelude.seq` Prelude.rnf filesDeleted
-      `Prelude.seq` Prelude.rnf filesUpdated
-      `Prelude.seq` Prelude.rnf treeId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf commitId `Prelude.seq`
+      Prelude.rnf filesAdded `Prelude.seq`
+        Prelude.rnf filesDeleted `Prelude.seq`
+          Prelude.rnf filesUpdated `Prelude.seq`
+            Prelude.rnf treeId `Prelude.seq`
+              Prelude.rnf httpStatus

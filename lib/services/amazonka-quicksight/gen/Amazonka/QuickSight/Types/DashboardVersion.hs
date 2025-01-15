@@ -177,13 +177,13 @@ instance Prelude.Hashable DashboardVersion where
 
 instance Prelude.NFData DashboardVersion where
   rnf DashboardVersion' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf dataSetArns
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf errors
-      `Prelude.seq` Prelude.rnf sheets
-      `Prelude.seq` Prelude.rnf sourceEntityArn
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf themeArn
-      `Prelude.seq` Prelude.rnf versionNumber
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf createdTime `Prelude.seq`
+        Prelude.rnf dataSetArns `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf errors `Prelude.seq`
+              Prelude.rnf sheets `Prelude.seq`
+                Prelude.rnf sourceEntityArn `Prelude.seq`
+                  Prelude.rnf status `Prelude.seq`
+                    Prelude.rnf themeArn `Prelude.seq`
+                      Prelude.rnf versionNumber

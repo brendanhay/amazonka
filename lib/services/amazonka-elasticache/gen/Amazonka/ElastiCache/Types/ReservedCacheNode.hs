@@ -516,16 +516,16 @@ instance Prelude.Hashable ReservedCacheNode where
 
 instance Prelude.NFData ReservedCacheNode where
   rnf ReservedCacheNode' {..} =
-    Prelude.rnf cacheNodeCount
-      `Prelude.seq` Prelude.rnf cacheNodeType
-      `Prelude.seq` Prelude.rnf duration
-      `Prelude.seq` Prelude.rnf fixedPrice
-      `Prelude.seq` Prelude.rnf offeringType
-      `Prelude.seq` Prelude.rnf productDescription
-      `Prelude.seq` Prelude.rnf recurringCharges
-      `Prelude.seq` Prelude.rnf reservationARN
-      `Prelude.seq` Prelude.rnf reservedCacheNodeId
-      `Prelude.seq` Prelude.rnf reservedCacheNodesOfferingId
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf usagePrice
+    Prelude.rnf cacheNodeCount `Prelude.seq`
+      Prelude.rnf cacheNodeType `Prelude.seq`
+        Prelude.rnf duration `Prelude.seq`
+          Prelude.rnf fixedPrice `Prelude.seq`
+            Prelude.rnf offeringType `Prelude.seq`
+              Prelude.rnf productDescription `Prelude.seq`
+                Prelude.rnf recurringCharges `Prelude.seq`
+                  Prelude.rnf reservationARN `Prelude.seq`
+                    Prelude.rnf reservedCacheNodeId `Prelude.seq`
+                      Prelude.rnf reservedCacheNodesOfferingId `Prelude.seq`
+                        Prelude.rnf startTime `Prelude.seq`
+                          Prelude.rnf state `Prelude.seq`
+                            Prelude.rnf usagePrice

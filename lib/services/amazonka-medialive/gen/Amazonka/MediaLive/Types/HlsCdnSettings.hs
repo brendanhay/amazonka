@@ -114,11 +114,11 @@ instance Prelude.Hashable HlsCdnSettings where
 
 instance Prelude.NFData HlsCdnSettings where
   rnf HlsCdnSettings' {..} =
-    Prelude.rnf hlsAkamaiSettings
-      `Prelude.seq` Prelude.rnf hlsBasicPutSettings
-      `Prelude.seq` Prelude.rnf hlsMediaStoreSettings
-      `Prelude.seq` Prelude.rnf hlsS3Settings
-      `Prelude.seq` Prelude.rnf hlsWebdavSettings
+    Prelude.rnf hlsAkamaiSettings `Prelude.seq`
+      Prelude.rnf hlsBasicPutSettings `Prelude.seq`
+        Prelude.rnf hlsMediaStoreSettings `Prelude.seq`
+          Prelude.rnf hlsS3Settings `Prelude.seq`
+            Prelude.rnf hlsWebdavSettings
 
 instance Data.ToJSON HlsCdnSettings where
   toJSON HlsCdnSettings' {..} =

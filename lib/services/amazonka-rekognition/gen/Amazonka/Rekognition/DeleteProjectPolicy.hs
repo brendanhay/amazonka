@@ -127,9 +127,9 @@ instance Prelude.Hashable DeleteProjectPolicy where
 
 instance Prelude.NFData DeleteProjectPolicy where
   rnf DeleteProjectPolicy' {..} =
-    Prelude.rnf policyRevisionId
-      `Prelude.seq` Prelude.rnf projectArn
-      `Prelude.seq` Prelude.rnf policyName
+    Prelude.rnf policyRevisionId `Prelude.seq`
+      Prelude.rnf projectArn `Prelude.seq`
+        Prelude.rnf policyName
 
 instance Data.ToHeaders DeleteProjectPolicy where
   toHeaders =

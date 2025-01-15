@@ -91,5 +91,5 @@ instance Prelude.Hashable ModelPackageStatusDetails where
 
 instance Prelude.NFData ModelPackageStatusDetails where
   rnf ModelPackageStatusDetails' {..} =
-    Prelude.rnf imageScanStatuses
-      `Prelude.seq` Prelude.rnf validationStatuses
+    Prelude.rnf imageScanStatuses `Prelude.seq`
+      Prelude.rnf validationStatuses

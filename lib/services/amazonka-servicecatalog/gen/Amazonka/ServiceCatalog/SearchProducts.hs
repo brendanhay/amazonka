@@ -184,12 +184,12 @@ instance Prelude.Hashable SearchProducts where
 
 instance Prelude.NFData SearchProducts where
   rnf SearchProducts' {..} =
-    Prelude.rnf acceptLanguage
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf pageSize
-      `Prelude.seq` Prelude.rnf pageToken
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf sortOrder
+    Prelude.rnf acceptLanguage `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf pageSize `Prelude.seq`
+          Prelude.rnf pageToken `Prelude.seq`
+            Prelude.rnf sortBy `Prelude.seq`
+              Prelude.rnf sortOrder
 
 instance Data.ToHeaders SearchProducts where
   toHeaders =
@@ -288,7 +288,7 @@ searchProductsResponse_httpStatus = Lens.lens (\SearchProductsResponse' {httpSta
 
 instance Prelude.NFData SearchProductsResponse where
   rnf SearchProductsResponse' {..} =
-    Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf productViewAggregations
-      `Prelude.seq` Prelude.rnf productViewSummaries
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextPageToken `Prelude.seq`
+      Prelude.rnf productViewAggregations `Prelude.seq`
+        Prelude.rnf productViewSummaries `Prelude.seq`
+          Prelude.rnf httpStatus

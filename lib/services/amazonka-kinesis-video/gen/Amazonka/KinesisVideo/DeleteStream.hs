@@ -134,8 +134,8 @@ instance Prelude.Hashable DeleteStream where
 
 instance Prelude.NFData DeleteStream where
   rnf DeleteStream' {..} =
-    Prelude.rnf currentVersion
-      `Prelude.seq` Prelude.rnf streamARN
+    Prelude.rnf currentVersion `Prelude.seq`
+      Prelude.rnf streamARN
 
 instance Data.ToHeaders DeleteStream where
   toHeaders = Prelude.const Prelude.mempty

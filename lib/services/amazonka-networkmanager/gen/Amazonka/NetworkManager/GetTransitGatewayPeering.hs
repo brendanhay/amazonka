@@ -159,5 +159,5 @@ instance
     GetTransitGatewayPeeringResponse
   where
   rnf GetTransitGatewayPeeringResponse' {..} =
-    Prelude.rnf transitGatewayPeering
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf transitGatewayPeering `Prelude.seq`
+      Prelude.rnf httpStatus

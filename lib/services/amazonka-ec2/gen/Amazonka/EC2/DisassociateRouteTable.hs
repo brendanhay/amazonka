@@ -118,8 +118,8 @@ instance Prelude.Hashable DisassociateRouteTable where
 
 instance Prelude.NFData DisassociateRouteTable where
   rnf DisassociateRouteTable' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf associationId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf associationId
 
 instance Data.ToHeaders DisassociateRouteTable where
   toHeaders = Prelude.const Prelude.mempty

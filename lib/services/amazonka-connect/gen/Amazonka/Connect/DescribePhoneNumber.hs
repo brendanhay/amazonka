@@ -173,5 +173,5 @@ describePhoneNumberResponse_httpStatus = Lens.lens (\DescribePhoneNumberResponse
 
 instance Prelude.NFData DescribePhoneNumberResponse where
   rnf DescribePhoneNumberResponse' {..} =
-    Prelude.rnf claimedPhoneNumberSummary
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf claimedPhoneNumberSummary `Prelude.seq`
+      Prelude.rnf httpStatus

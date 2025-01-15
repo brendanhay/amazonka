@@ -112,7 +112,7 @@ instance
 
 instance Prelude.NFData TaskSubmitFailedEventDetails where
   rnf TaskSubmitFailedEventDetails' {..} =
-    Prelude.rnf cause
-      `Prelude.seq` Prelude.rnf error
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf resource
+    Prelude.rnf cause `Prelude.seq`
+      Prelude.rnf error `Prelude.seq`
+        Prelude.rnf resourceType `Prelude.seq`
+          Prelude.rnf resource

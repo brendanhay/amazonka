@@ -117,8 +117,8 @@ instance Prelude.Hashable BatchUnsuspendUser where
 
 instance Prelude.NFData BatchUnsuspendUser where
   rnf BatchUnsuspendUser' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf userIdList
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf userIdList
 
 instance Data.ToHeaders BatchUnsuspendUser where
   toHeaders = Prelude.const Prelude.mempty
@@ -187,5 +187,5 @@ batchUnsuspendUserResponse_httpStatus = Lens.lens (\BatchUnsuspendUserResponse' 
 
 instance Prelude.NFData BatchUnsuspendUserResponse where
   rnf BatchUnsuspendUserResponse' {..} =
-    Prelude.rnf userErrors
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf userErrors `Prelude.seq`
+      Prelude.rnf httpStatus

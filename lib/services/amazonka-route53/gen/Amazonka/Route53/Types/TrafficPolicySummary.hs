@@ -137,8 +137,8 @@ instance Prelude.Hashable TrafficPolicySummary where
 
 instance Prelude.NFData TrafficPolicySummary where
   rnf TrafficPolicySummary' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf latestVersion
-      `Prelude.seq` Prelude.rnf trafficPolicyCount
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf type' `Prelude.seq`
+          Prelude.rnf latestVersion `Prelude.seq`
+            Prelude.rnf trafficPolicyCount

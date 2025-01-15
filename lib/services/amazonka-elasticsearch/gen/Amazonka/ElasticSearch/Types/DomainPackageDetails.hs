@@ -168,12 +168,12 @@ instance Prelude.Hashable DomainPackageDetails where
 
 instance Prelude.NFData DomainPackageDetails where
   rnf DomainPackageDetails' {..} =
-    Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf domainPackageStatus
-      `Prelude.seq` Prelude.rnf errorDetails
-      `Prelude.seq` Prelude.rnf lastUpdated
-      `Prelude.seq` Prelude.rnf packageID
-      `Prelude.seq` Prelude.rnf packageName
-      `Prelude.seq` Prelude.rnf packageType
-      `Prelude.seq` Prelude.rnf packageVersion
-      `Prelude.seq` Prelude.rnf referencePath
+    Prelude.rnf domainName `Prelude.seq`
+      Prelude.rnf domainPackageStatus `Prelude.seq`
+        Prelude.rnf errorDetails `Prelude.seq`
+          Prelude.rnf lastUpdated `Prelude.seq`
+            Prelude.rnf packageID `Prelude.seq`
+              Prelude.rnf packageName `Prelude.seq`
+                Prelude.rnf packageType `Prelude.seq`
+                  Prelude.rnf packageVersion `Prelude.seq`
+                    Prelude.rnf referencePath

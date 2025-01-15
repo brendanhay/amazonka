@@ -154,5 +154,5 @@ getGraphqlApiResponse_httpStatus = Lens.lens (\GetGraphqlApiResponse' {httpStatu
 
 instance Prelude.NFData GetGraphqlApiResponse where
   rnf GetGraphqlApiResponse' {..} =
-    Prelude.rnf graphqlApi
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf graphqlApi `Prelude.seq`
+      Prelude.rnf httpStatus

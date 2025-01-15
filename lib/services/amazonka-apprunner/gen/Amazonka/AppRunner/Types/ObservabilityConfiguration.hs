@@ -193,11 +193,11 @@ instance Prelude.Hashable ObservabilityConfiguration where
 
 instance Prelude.NFData ObservabilityConfiguration where
   rnf ObservabilityConfiguration' {..} =
-    Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf deletedAt
-      `Prelude.seq` Prelude.rnf latest
-      `Prelude.seq` Prelude.rnf observabilityConfigurationArn
-      `Prelude.seq` Prelude.rnf observabilityConfigurationName
-      `Prelude.seq` Prelude.rnf observabilityConfigurationRevision
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf traceConfiguration
+    Prelude.rnf createdAt `Prelude.seq`
+      Prelude.rnf deletedAt `Prelude.seq`
+        Prelude.rnf latest `Prelude.seq`
+          Prelude.rnf observabilityConfigurationArn `Prelude.seq`
+            Prelude.rnf observabilityConfigurationName `Prelude.seq`
+              Prelude.rnf observabilityConfigurationRevision `Prelude.seq`
+                Prelude.rnf status `Prelude.seq`
+                  Prelude.rnf traceConfiguration

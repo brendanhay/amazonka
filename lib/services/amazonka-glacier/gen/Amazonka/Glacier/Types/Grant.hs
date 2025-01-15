@@ -82,8 +82,8 @@ instance Prelude.Hashable Grant where
 
 instance Prelude.NFData Grant where
   rnf Grant' {..} =
-    Prelude.rnf grantee
-      `Prelude.seq` Prelude.rnf permission
+    Prelude.rnf grantee `Prelude.seq`
+      Prelude.rnf permission
 
 instance Data.ToJSON Grant where
   toJSON Grant' {..} =

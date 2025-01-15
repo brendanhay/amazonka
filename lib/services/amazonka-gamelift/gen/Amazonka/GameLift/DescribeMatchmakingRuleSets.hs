@@ -138,12 +138,12 @@ instance Core.AWSPager DescribeMatchmakingRuleSets where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeMatchmakingRuleSets_nextToken
-          Lens..~ rs
-          Lens.^? describeMatchmakingRuleSetsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeMatchmakingRuleSets_nextToken
+              Lens..~ rs
+              Lens.^? describeMatchmakingRuleSetsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeMatchmakingRuleSets where
   type
@@ -169,9 +169,9 @@ instance Prelude.Hashable DescribeMatchmakingRuleSets where
 
 instance Prelude.NFData DescribeMatchmakingRuleSets where
   rnf DescribeMatchmakingRuleSets' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf names
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf names `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeMatchmakingRuleSets where
   toHeaders =
@@ -263,6 +263,6 @@ instance
     DescribeMatchmakingRuleSetsResponse
   where
   rnf DescribeMatchmakingRuleSetsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf ruleSets
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf ruleSets

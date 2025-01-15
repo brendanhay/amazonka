@@ -179,12 +179,12 @@ instance Prelude.Hashable QuantumTaskSummary where
 
 instance Prelude.NFData QuantumTaskSummary where
   rnf QuantumTaskSummary' {..} =
-    Prelude.rnf endedAt
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf deviceArn
-      `Prelude.seq` Prelude.rnf outputS3Bucket
-      `Prelude.seq` Prelude.rnf outputS3Directory
-      `Prelude.seq` Prelude.rnf quantumTaskArn
-      `Prelude.seq` Prelude.rnf shots
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf endedAt `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf createdAt `Prelude.seq`
+          Prelude.rnf deviceArn `Prelude.seq`
+            Prelude.rnf outputS3Bucket `Prelude.seq`
+              Prelude.rnf outputS3Directory `Prelude.seq`
+                Prelude.rnf quantumTaskArn `Prelude.seq`
+                  Prelude.rnf shots `Prelude.seq`
+                    Prelude.rnf status

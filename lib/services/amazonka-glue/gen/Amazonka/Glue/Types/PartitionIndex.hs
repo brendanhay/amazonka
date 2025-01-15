@@ -74,8 +74,8 @@ instance Prelude.Hashable PartitionIndex where
 
 instance Prelude.NFData PartitionIndex where
   rnf PartitionIndex' {..} =
-    Prelude.rnf keys
-      `Prelude.seq` Prelude.rnf indexName
+    Prelude.rnf keys `Prelude.seq`
+      Prelude.rnf indexName
 
 instance Data.ToJSON PartitionIndex where
   toJSON PartitionIndex' {..} =

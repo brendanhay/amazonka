@@ -262,10 +262,10 @@ instance
     UpdateProvisionedProductProperties
   where
   rnf UpdateProvisionedProductProperties' {..} =
-    Prelude.rnf acceptLanguage
-      `Prelude.seq` Prelude.rnf provisionedProductId
-      `Prelude.seq` Prelude.rnf provisionedProductProperties
-      `Prelude.seq` Prelude.rnf idempotencyToken
+    Prelude.rnf acceptLanguage `Prelude.seq`
+      Prelude.rnf provisionedProductId `Prelude.seq`
+        Prelude.rnf provisionedProductProperties `Prelude.seq`
+          Prelude.rnf idempotencyToken
 
 instance
   Data.ToHeaders
@@ -392,8 +392,8 @@ instance
     UpdateProvisionedProductPropertiesResponse
   where
   rnf UpdateProvisionedProductPropertiesResponse' {..} =
-    Prelude.rnf provisionedProductId
-      `Prelude.seq` Prelude.rnf provisionedProductProperties
-      `Prelude.seq` Prelude.rnf recordId
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf provisionedProductId `Prelude.seq`
+      Prelude.rnf provisionedProductProperties `Prelude.seq`
+        Prelude.rnf recordId `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf httpStatus

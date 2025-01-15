@@ -152,5 +152,5 @@ instance Prelude.Hashable ExpenseCurrency where
 
 instance Prelude.NFData ExpenseCurrency where
   rnf ExpenseCurrency' {..} =
-    Prelude.rnf code
-      `Prelude.seq` Prelude.rnf confidence
+    Prelude.rnf code `Prelude.seq`
+      Prelude.rnf confidence

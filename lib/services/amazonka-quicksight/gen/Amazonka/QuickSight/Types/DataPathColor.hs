@@ -98,9 +98,9 @@ instance Prelude.Hashable DataPathColor where
 
 instance Prelude.NFData DataPathColor where
   rnf DataPathColor' {..} =
-    Prelude.rnf timeGranularity
-      `Prelude.seq` Prelude.rnf element
-      `Prelude.seq` Prelude.rnf color
+    Prelude.rnf timeGranularity `Prelude.seq`
+      Prelude.rnf element `Prelude.seq`
+        Prelude.rnf color
 
 instance Data.ToJSON DataPathColor where
   toJSON DataPathColor' {..} =

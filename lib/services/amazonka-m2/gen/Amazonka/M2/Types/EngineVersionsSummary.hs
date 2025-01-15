@@ -85,5 +85,5 @@ instance Prelude.Hashable EngineVersionsSummary where
 
 instance Prelude.NFData EngineVersionsSummary where
   rnf EngineVersionsSummary' {..} =
-    Prelude.rnf engineType
-      `Prelude.seq` Prelude.rnf engineVersion
+    Prelude.rnf engineType `Prelude.seq`
+      Prelude.rnf engineVersion

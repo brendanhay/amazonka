@@ -100,7 +100,7 @@ instance Prelude.Hashable PciId where
 
 instance Prelude.NFData PciId where
   rnf PciId' {..} =
-    Prelude.rnf deviceId
-      `Prelude.seq` Prelude.rnf subsystemId
-      `Prelude.seq` Prelude.rnf subsystemVendorId
-      `Prelude.seq` Prelude.rnf vendorId
+    Prelude.rnf deviceId `Prelude.seq`
+      Prelude.rnf subsystemId `Prelude.seq`
+        Prelude.rnf subsystemVendorId `Prelude.seq`
+          Prelude.rnf vendorId

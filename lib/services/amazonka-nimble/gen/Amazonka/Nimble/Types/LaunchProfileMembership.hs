@@ -123,7 +123,7 @@ instance Prelude.Hashable LaunchProfileMembership where
 
 instance Prelude.NFData LaunchProfileMembership where
   rnf LaunchProfileMembership' {..} =
-    Prelude.rnf identityStoreId
-      `Prelude.seq` Prelude.rnf persona
-      `Prelude.seq` Prelude.rnf principalId
-      `Prelude.seq` Prelude.rnf sid
+    Prelude.rnf identityStoreId `Prelude.seq`
+      Prelude.rnf persona `Prelude.seq`
+        Prelude.rnf principalId `Prelude.seq`
+          Prelude.rnf sid

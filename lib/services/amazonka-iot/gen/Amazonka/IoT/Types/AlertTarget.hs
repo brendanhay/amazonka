@@ -90,8 +90,8 @@ instance Prelude.Hashable AlertTarget where
 
 instance Prelude.NFData AlertTarget where
   rnf AlertTarget' {..} =
-    Prelude.rnf alertTargetArn
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf alertTargetArn `Prelude.seq`
+      Prelude.rnf roleArn
 
 instance Data.ToJSON AlertTarget where
   toJSON AlertTarget' {..} =

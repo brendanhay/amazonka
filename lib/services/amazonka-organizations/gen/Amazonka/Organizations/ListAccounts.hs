@@ -153,12 +153,12 @@ instance Core.AWSPager ListAccounts where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listAccounts_nextToken
-          Lens..~ rs
-          Lens.^? listAccountsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listAccounts_nextToken
+              Lens..~ rs
+              Lens.^? listAccountsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAccounts where
   type AWSResponse ListAccounts = ListAccountsResponse
@@ -181,8 +181,8 @@ instance Prelude.Hashable ListAccounts where
 
 instance Prelude.NFData ListAccounts where
   rnf ListAccounts' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListAccounts where
   toHeaders =
@@ -275,6 +275,6 @@ listAccountsResponse_httpStatus = Lens.lens (\ListAccountsResponse' {httpStatus}
 
 instance Prelude.NFData ListAccountsResponse where
   rnf ListAccountsResponse' {..} =
-    Prelude.rnf accounts
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf accounts `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

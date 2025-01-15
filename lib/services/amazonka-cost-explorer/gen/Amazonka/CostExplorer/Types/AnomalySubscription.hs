@@ -252,14 +252,14 @@ instance Prelude.Hashable AnomalySubscription where
 
 instance Prelude.NFData AnomalySubscription where
   rnf AnomalySubscription' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf subscriptionArn
-      `Prelude.seq` Prelude.rnf threshold
-      `Prelude.seq` Prelude.rnf thresholdExpression
-      `Prelude.seq` Prelude.rnf monitorArnList
-      `Prelude.seq` Prelude.rnf subscribers
-      `Prelude.seq` Prelude.rnf frequency
-      `Prelude.seq` Prelude.rnf subscriptionName
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf subscriptionArn `Prelude.seq`
+        Prelude.rnf threshold `Prelude.seq`
+          Prelude.rnf thresholdExpression `Prelude.seq`
+            Prelude.rnf monitorArnList `Prelude.seq`
+              Prelude.rnf subscribers `Prelude.seq`
+                Prelude.rnf frequency `Prelude.seq`
+                  Prelude.rnf subscriptionName
 
 instance Data.ToJSON AnomalySubscription where
   toJSON AnomalySubscription' {..} =

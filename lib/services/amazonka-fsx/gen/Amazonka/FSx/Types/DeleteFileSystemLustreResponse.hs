@@ -91,5 +91,5 @@ instance
     DeleteFileSystemLustreResponse
   where
   rnf DeleteFileSystemLustreResponse' {..} =
-    Prelude.rnf finalBackupId
-      `Prelude.seq` Prelude.rnf finalBackupTags
+    Prelude.rnf finalBackupId `Prelude.seq`
+      Prelude.rnf finalBackupTags

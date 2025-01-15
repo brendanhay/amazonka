@@ -98,6 +98,6 @@ instance Prelude.Hashable ContributorInsightsSummary where
 
 instance Prelude.NFData ContributorInsightsSummary where
   rnf ContributorInsightsSummary' {..} =
-    Prelude.rnf contributorInsightsStatus
-      `Prelude.seq` Prelude.rnf indexName
-      `Prelude.seq` Prelude.rnf tableName
+    Prelude.rnf contributorInsightsStatus `Prelude.seq`
+      Prelude.rnf indexName `Prelude.seq`
+        Prelude.rnf tableName

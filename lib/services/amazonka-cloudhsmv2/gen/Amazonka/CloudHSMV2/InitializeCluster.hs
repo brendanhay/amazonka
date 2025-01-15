@@ -153,9 +153,9 @@ instance Prelude.Hashable InitializeCluster where
 
 instance Prelude.NFData InitializeCluster where
   rnf InitializeCluster' {..} =
-    Prelude.rnf clusterId
-      `Prelude.seq` Prelude.rnf signedCert
-      `Prelude.seq` Prelude.rnf trustAnchor
+    Prelude.rnf clusterId `Prelude.seq`
+      Prelude.rnf signedCert `Prelude.seq`
+        Prelude.rnf trustAnchor
 
 instance Data.ToHeaders InitializeCluster where
   toHeaders =
@@ -237,6 +237,6 @@ initializeClusterResponse_httpStatus = Lens.lens (\InitializeClusterResponse' {h
 
 instance Prelude.NFData InitializeClusterResponse where
   rnf InitializeClusterResponse' {..} =
-    Prelude.rnf state
-      `Prelude.seq` Prelude.rnf stateMessage
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf state `Prelude.seq`
+      Prelude.rnf stateMessage `Prelude.seq`
+        Prelude.rnf httpStatus

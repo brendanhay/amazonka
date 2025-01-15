@@ -228,10 +228,10 @@ instance Prelude.Hashable GetResource where
 
 instance Prelude.NFData GetResource where
   rnf GetResource' {..} =
-    Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf typeVersionId
-      `Prelude.seq` Prelude.rnf typeName
-      `Prelude.seq` Prelude.rnf identifier
+    Prelude.rnf roleArn `Prelude.seq`
+      Prelude.rnf typeVersionId `Prelude.seq`
+        Prelude.rnf typeName `Prelude.seq`
+          Prelude.rnf identifier
 
 instance Data.ToHeaders GetResource where
   toHeaders =
@@ -314,6 +314,6 @@ getResourceResponse_httpStatus = Lens.lens (\GetResourceResponse' {httpStatus} -
 
 instance Prelude.NFData GetResourceResponse where
   rnf GetResourceResponse' {..} =
-    Prelude.rnf resourceDescription
-      `Prelude.seq` Prelude.rnf typeName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf resourceDescription `Prelude.seq`
+      Prelude.rnf typeName `Prelude.seq`
+        Prelude.rnf httpStatus

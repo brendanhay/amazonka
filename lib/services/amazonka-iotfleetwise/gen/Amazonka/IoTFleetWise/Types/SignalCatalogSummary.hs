@@ -109,7 +109,7 @@ instance Prelude.Hashable SignalCatalogSummary where
 
 instance Prelude.NFData SignalCatalogSummary where
   rnf SignalCatalogSummary' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf lastModificationTime
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf lastModificationTime `Prelude.seq`
+          Prelude.rnf name

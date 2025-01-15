@@ -138,8 +138,8 @@ instance Prelude.Hashable PolicyGeneration where
 
 instance Prelude.NFData PolicyGeneration where
   rnf PolicyGeneration' {..} =
-    Prelude.rnf completedOn
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf principalArn
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf startedOn
+    Prelude.rnf completedOn `Prelude.seq`
+      Prelude.rnf jobId `Prelude.seq`
+        Prelude.rnf principalArn `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf startedOn

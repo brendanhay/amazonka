@@ -215,11 +215,11 @@ instance Prelude.Hashable StartContentModeration where
 
 instance Prelude.NFData StartContentModeration where
   rnf StartContentModeration' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf jobTag
-      `Prelude.seq` Prelude.rnf minConfidence
-      `Prelude.seq` Prelude.rnf notificationChannel
-      `Prelude.seq` Prelude.rnf video
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf jobTag `Prelude.seq`
+        Prelude.rnf minConfidence `Prelude.seq`
+          Prelude.rnf notificationChannel `Prelude.seq`
+            Prelude.rnf video
 
 instance Data.ToHeaders StartContentModeration where
   toHeaders =
@@ -303,5 +303,5 @@ instance
     StartContentModerationResponse
   where
   rnf StartContentModerationResponse' {..} =
-    Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf jobId `Prelude.seq`
+      Prelude.rnf httpStatus

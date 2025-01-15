@@ -168,8 +168,8 @@ instance
   where
   rnf
     ChildWorkflowExecutionTimedOutEventAttributes' {..} =
-      Prelude.rnf workflowExecution
-        `Prelude.seq` Prelude.rnf workflowType
-        `Prelude.seq` Prelude.rnf timeoutType
-        `Prelude.seq` Prelude.rnf initiatedEventId
-        `Prelude.seq` Prelude.rnf startedEventId
+      Prelude.rnf workflowExecution `Prelude.seq`
+        Prelude.rnf workflowType `Prelude.seq`
+          Prelude.rnf timeoutType `Prelude.seq`
+            Prelude.rnf initiatedEventId `Prelude.seq`
+              Prelude.rnf startedEventId

@@ -158,11 +158,11 @@ instance Prelude.Hashable GetBucketsAggregation where
 
 instance Prelude.NFData GetBucketsAggregation where
   rnf GetBucketsAggregation' {..} =
-    Prelude.rnf indexName
-      `Prelude.seq` Prelude.rnf queryVersion
-      `Prelude.seq` Prelude.rnf queryString
-      `Prelude.seq` Prelude.rnf aggregationField
-      `Prelude.seq` Prelude.rnf bucketsAggregationType
+    Prelude.rnf indexName `Prelude.seq`
+      Prelude.rnf queryVersion `Prelude.seq`
+        Prelude.rnf queryString `Prelude.seq`
+          Prelude.rnf aggregationField `Prelude.seq`
+            Prelude.rnf bucketsAggregationType
 
 instance Data.ToHeaders GetBucketsAggregation where
   toHeaders = Prelude.const Prelude.mempty
@@ -257,6 +257,6 @@ getBucketsAggregationResponse_httpStatus = Lens.lens (\GetBucketsAggregationResp
 
 instance Prelude.NFData GetBucketsAggregationResponse where
   rnf GetBucketsAggregationResponse' {..} =
-    Prelude.rnf buckets
-      `Prelude.seq` Prelude.rnf totalCount
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf buckets `Prelude.seq`
+      Prelude.rnf totalCount `Prelude.seq`
+        Prelude.rnf httpStatus

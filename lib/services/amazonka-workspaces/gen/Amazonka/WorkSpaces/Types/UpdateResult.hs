@@ -90,5 +90,5 @@ instance Prelude.Hashable UpdateResult where
 
 instance Prelude.NFData UpdateResult where
   rnf UpdateResult' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf updateAvailable
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf updateAvailable

@@ -132,9 +132,9 @@ instance Prelude.Hashable DescribeDomainAutoTunes where
 
 instance Prelude.NFData DescribeDomainAutoTunes where
   rnf DescribeDomainAutoTunes' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf domainName
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf domainName
 
 instance Data.ToHeaders DescribeDomainAutoTunes where
   toHeaders = Prelude.const Prelude.mempty
@@ -216,6 +216,6 @@ instance
     DescribeDomainAutoTunesResponse
   where
   rnf DescribeDomainAutoTunesResponse' {..} =
-    Prelude.rnf autoTunes
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf autoTunes `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

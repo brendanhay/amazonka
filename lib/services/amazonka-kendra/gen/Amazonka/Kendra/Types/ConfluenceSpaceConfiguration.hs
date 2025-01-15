@@ -178,11 +178,11 @@ instance
 
 instance Prelude.NFData ConfluenceSpaceConfiguration where
   rnf ConfluenceSpaceConfiguration' {..} =
-    Prelude.rnf crawlArchivedSpaces
-      `Prelude.seq` Prelude.rnf crawlPersonalSpaces
-      `Prelude.seq` Prelude.rnf excludeSpaces
-      `Prelude.seq` Prelude.rnf includeSpaces
-      `Prelude.seq` Prelude.rnf spaceFieldMappings
+    Prelude.rnf crawlArchivedSpaces `Prelude.seq`
+      Prelude.rnf crawlPersonalSpaces `Prelude.seq`
+        Prelude.rnf excludeSpaces `Prelude.seq`
+          Prelude.rnf includeSpaces `Prelude.seq`
+            Prelude.rnf spaceFieldMappings
 
 instance Data.ToJSON ConfluenceSpaceConfiguration where
   toJSON ConfluenceSpaceConfiguration' {..} =

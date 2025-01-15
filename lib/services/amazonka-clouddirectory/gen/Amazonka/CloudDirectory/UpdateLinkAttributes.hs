@@ -130,9 +130,9 @@ instance Prelude.Hashable UpdateLinkAttributes where
 
 instance Prelude.NFData UpdateLinkAttributes where
   rnf UpdateLinkAttributes' {..} =
-    Prelude.rnf directoryArn
-      `Prelude.seq` Prelude.rnf typedLinkSpecifier
-      `Prelude.seq` Prelude.rnf attributeUpdates
+    Prelude.rnf directoryArn `Prelude.seq`
+      Prelude.rnf typedLinkSpecifier `Prelude.seq`
+        Prelude.rnf attributeUpdates
 
 instance Data.ToHeaders UpdateLinkAttributes where
   toHeaders UpdateLinkAttributes' {..} =

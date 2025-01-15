@@ -114,11 +114,11 @@ instance Prelude.Hashable VpcInterfaceRequest where
 
 instance Prelude.NFData VpcInterfaceRequest where
   rnf VpcInterfaceRequest' {..} =
-    Prelude.rnf networkInterfaceType
-      `Prelude.seq` Prelude.rnf subnetId
-      `Prelude.seq` Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf networkInterfaceType `Prelude.seq`
+      Prelude.rnf subnetId `Prelude.seq`
+        Prelude.rnf securityGroupIds `Prelude.seq`
+          Prelude.rnf roleArn `Prelude.seq`
+            Prelude.rnf name
 
 instance Data.ToJSON VpcInterfaceRequest where
   toJSON VpcInterfaceRequest' {..} =

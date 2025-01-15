@@ -87,9 +87,7 @@ instance Data.FromXML GlobalClusterMember where
     GlobalClusterMember'
       Prelude.<$> (x Data..@? "DBClusterArn")
       Prelude.<*> (x Data..@? "IsWriter")
-      Prelude.<*> ( x
-                      Data..@? "Readers"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "Readers" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 
@@ -102,6 +100,6 @@ instance Prelude.Hashable GlobalClusterMember where
 
 instance Prelude.NFData GlobalClusterMember where
   rnf GlobalClusterMember' {..} =
-    Prelude.rnf dbClusterArn
-      `Prelude.seq` Prelude.rnf isWriter
-      `Prelude.seq` Prelude.rnf readers
+    Prelude.rnf dbClusterArn `Prelude.seq`
+      Prelude.rnf isWriter `Prelude.seq`
+        Prelude.rnf readers

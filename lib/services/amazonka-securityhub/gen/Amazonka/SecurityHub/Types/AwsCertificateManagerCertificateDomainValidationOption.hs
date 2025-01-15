@@ -161,12 +161,12 @@ instance
   where
   rnf
     AwsCertificateManagerCertificateDomainValidationOption' {..} =
-      Prelude.rnf domainName
-        `Prelude.seq` Prelude.rnf resourceRecord
-        `Prelude.seq` Prelude.rnf validationDomain
-        `Prelude.seq` Prelude.rnf validationEmails
-        `Prelude.seq` Prelude.rnf validationMethod
-        `Prelude.seq` Prelude.rnf validationStatus
+      Prelude.rnf domainName `Prelude.seq`
+        Prelude.rnf resourceRecord `Prelude.seq`
+          Prelude.rnf validationDomain `Prelude.seq`
+            Prelude.rnf validationEmails `Prelude.seq`
+              Prelude.rnf validationMethod `Prelude.seq`
+                Prelude.rnf validationStatus
 
 instance
   Data.ToJSON

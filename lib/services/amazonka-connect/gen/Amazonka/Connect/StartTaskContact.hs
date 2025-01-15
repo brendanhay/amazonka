@@ -275,17 +275,17 @@ instance Prelude.Hashable StartTaskContact where
 
 instance Prelude.NFData StartTaskContact where
   rnf StartTaskContact' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf contactFlowId
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf previousContactId
-      `Prelude.seq` Prelude.rnf quickConnectId
-      `Prelude.seq` Prelude.rnf references
-      `Prelude.seq` Prelude.rnf scheduledTime
-      `Prelude.seq` Prelude.rnf taskTemplateId
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf attributes `Prelude.seq`
+      Prelude.rnf clientToken `Prelude.seq`
+        Prelude.rnf contactFlowId `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf previousContactId `Prelude.seq`
+              Prelude.rnf quickConnectId `Prelude.seq`
+                Prelude.rnf references `Prelude.seq`
+                  Prelude.rnf scheduledTime `Prelude.seq`
+                    Prelude.rnf taskTemplateId `Prelude.seq`
+                      Prelude.rnf instanceId `Prelude.seq`
+                        Prelude.rnf name
 
 instance Data.ToHeaders StartTaskContact where
   toHeaders =
@@ -366,5 +366,5 @@ startTaskContactResponse_httpStatus = Lens.lens (\StartTaskContactResponse' {htt
 
 instance Prelude.NFData StartTaskContactResponse where
   rnf StartTaskContactResponse' {..} =
-    Prelude.rnf contactId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf contactId `Prelude.seq`
+      Prelude.rnf httpStatus

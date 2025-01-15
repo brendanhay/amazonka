@@ -139,10 +139,10 @@ instance Prelude.Hashable ListTemplates where
 
 instance Prelude.NFData ListTemplates where
   rnf ListTemplates' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf domainId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf status `Prelude.seq`
+          Prelude.rnf domainId
 
 instance Data.ToHeaders ListTemplates where
   toHeaders =
@@ -225,6 +225,6 @@ listTemplatesResponse_templates = Lens.lens (\ListTemplatesResponse' {templates}
 
 instance Prelude.NFData ListTemplatesResponse where
   rnf ListTemplatesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf templates
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf templates

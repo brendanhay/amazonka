@@ -92,5 +92,5 @@ instance
     RepositoryTriggerExecutionFailure
   where
   rnf RepositoryTriggerExecutionFailure' {..} =
-    Prelude.rnf failureMessage
-      `Prelude.seq` Prelude.rnf trigger
+    Prelude.rnf failureMessage `Prelude.seq`
+      Prelude.rnf trigger

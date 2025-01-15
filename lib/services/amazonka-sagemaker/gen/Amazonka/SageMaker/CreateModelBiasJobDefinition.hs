@@ -227,16 +227,16 @@ instance
 
 instance Prelude.NFData CreateModelBiasJobDefinition where
   rnf CreateModelBiasJobDefinition' {..} =
-    Prelude.rnf modelBiasBaselineConfig
-      `Prelude.seq` Prelude.rnf networkConfig
-      `Prelude.seq` Prelude.rnf stoppingCondition
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf jobDefinitionName
-      `Prelude.seq` Prelude.rnf modelBiasAppSpecification
-      `Prelude.seq` Prelude.rnf modelBiasJobInput
-      `Prelude.seq` Prelude.rnf modelBiasJobOutputConfig
-      `Prelude.seq` Prelude.rnf jobResources
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf modelBiasBaselineConfig `Prelude.seq`
+      Prelude.rnf networkConfig `Prelude.seq`
+        Prelude.rnf stoppingCondition `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf jobDefinitionName `Prelude.seq`
+              Prelude.rnf modelBiasAppSpecification `Prelude.seq`
+                Prelude.rnf modelBiasJobInput `Prelude.seq`
+                  Prelude.rnf modelBiasJobOutputConfig `Prelude.seq`
+                    Prelude.rnf jobResources `Prelude.seq`
+                      Prelude.rnf roleArn
 
 instance Data.ToHeaders CreateModelBiasJobDefinition where
   toHeaders =
@@ -334,5 +334,5 @@ instance
     CreateModelBiasJobDefinitionResponse
   where
   rnf CreateModelBiasJobDefinitionResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf jobDefinitionArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf jobDefinitionArn

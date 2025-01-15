@@ -116,8 +116,8 @@ instance Prelude.Hashable ModifyCacheParameterGroup where
 
 instance Prelude.NFData ModifyCacheParameterGroup where
   rnf ModifyCacheParameterGroup' {..} =
-    Prelude.rnf cacheParameterGroupName
-      `Prelude.seq` Prelude.rnf parameterNameValues
+    Prelude.rnf cacheParameterGroupName `Prelude.seq`
+      Prelude.rnf parameterNameValues
 
 instance Data.ToHeaders ModifyCacheParameterGroup where
   toHeaders = Prelude.const Prelude.mempty

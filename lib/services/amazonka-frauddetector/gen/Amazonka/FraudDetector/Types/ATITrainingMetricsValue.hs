@@ -86,5 +86,5 @@ instance Prelude.Hashable ATITrainingMetricsValue where
 
 instance Prelude.NFData ATITrainingMetricsValue where
   rnf ATITrainingMetricsValue' {..} =
-    Prelude.rnf metricDataPoints
-      `Prelude.seq` Prelude.rnf modelPerformance
+    Prelude.rnf metricDataPoints `Prelude.seq`
+      Prelude.rnf modelPerformance

@@ -543,19 +543,19 @@ instance Prelude.Hashable DataRepositoryAssociation where
 
 instance Prelude.NFData DataRepositoryAssociation where
   rnf DataRepositoryAssociation' {..} =
-    Prelude.rnf associationId
-      `Prelude.seq` Prelude.rnf batchImportMetaDataOnCreate
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf dataRepositoryPath
-      `Prelude.seq` Prelude.rnf dataRepositorySubdirectories
-      `Prelude.seq` Prelude.rnf failureDetails
-      `Prelude.seq` Prelude.rnf fileCacheId
-      `Prelude.seq` Prelude.rnf fileCachePath
-      `Prelude.seq` Prelude.rnf fileSystemId
-      `Prelude.seq` Prelude.rnf fileSystemPath
-      `Prelude.seq` Prelude.rnf importedFileChunkSize
-      `Prelude.seq` Prelude.rnf lifecycle
-      `Prelude.seq` Prelude.rnf nfs
-      `Prelude.seq` Prelude.rnf resourceARN
-      `Prelude.seq` Prelude.rnf s3
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf associationId `Prelude.seq`
+      Prelude.rnf batchImportMetaDataOnCreate `Prelude.seq`
+        Prelude.rnf creationTime `Prelude.seq`
+          Prelude.rnf dataRepositoryPath `Prelude.seq`
+            Prelude.rnf dataRepositorySubdirectories `Prelude.seq`
+              Prelude.rnf failureDetails `Prelude.seq`
+                Prelude.rnf fileCacheId `Prelude.seq`
+                  Prelude.rnf fileCachePath `Prelude.seq`
+                    Prelude.rnf fileSystemId `Prelude.seq`
+                      Prelude.rnf fileSystemPath `Prelude.seq`
+                        Prelude.rnf importedFileChunkSize `Prelude.seq`
+                          Prelude.rnf lifecycle `Prelude.seq`
+                            Prelude.rnf nfs `Prelude.seq`
+                              Prelude.rnf resourceARN `Prelude.seq`
+                                Prelude.rnf s3 `Prelude.seq`
+                                  Prelude.rnf tags

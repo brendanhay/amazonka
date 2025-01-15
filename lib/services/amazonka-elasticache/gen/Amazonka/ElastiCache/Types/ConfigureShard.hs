@@ -166,10 +166,10 @@ instance Prelude.Hashable ConfigureShard where
 
 instance Prelude.NFData ConfigureShard where
   rnf ConfigureShard' {..} =
-    Prelude.rnf preferredAvailabilityZones
-      `Prelude.seq` Prelude.rnf preferredOutpostArns
-      `Prelude.seq` Prelude.rnf nodeGroupId
-      `Prelude.seq` Prelude.rnf newReplicaCount'
+    Prelude.rnf preferredAvailabilityZones `Prelude.seq`
+      Prelude.rnf preferredOutpostArns `Prelude.seq`
+        Prelude.rnf nodeGroupId `Prelude.seq`
+          Prelude.rnf newReplicaCount'
 
 instance Data.ToQuery ConfigureShard where
   toQuery ConfigureShard' {..} =

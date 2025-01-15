@@ -121,9 +121,9 @@ instance Prelude.Hashable CreateTestGridProject where
 
 instance Prelude.NFData CreateTestGridProject where
   rnf CreateTestGridProject' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf vpcConfig
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf vpcConfig `Prelude.seq`
+        Prelude.rnf name
 
 instance Data.ToHeaders CreateTestGridProject where
   toHeaders =
@@ -197,5 +197,5 @@ createTestGridProjectResponse_httpStatus = Lens.lens (\CreateTestGridProjectResp
 
 instance Prelude.NFData CreateTestGridProjectResponse where
   rnf CreateTestGridProjectResponse' {..} =
-    Prelude.rnf testGridProject
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf testGridProject `Prelude.seq`
+      Prelude.rnf httpStatus

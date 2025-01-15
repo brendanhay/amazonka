@@ -126,12 +126,12 @@ instance Core.AWSPager ListNetworkProfiles where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listNetworkProfiles_nextToken
-          Lens..~ rs
-          Lens.^? listNetworkProfilesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listNetworkProfiles_nextToken
+              Lens..~ rs
+              Lens.^? listNetworkProfilesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListNetworkProfiles where
   type
@@ -160,9 +160,9 @@ instance Prelude.Hashable ListNetworkProfiles where
 
 instance Prelude.NFData ListNetworkProfiles where
   rnf ListNetworkProfiles' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf type' `Prelude.seq`
+        Prelude.rnf arn
 
 instance Data.ToHeaders ListNetworkProfiles where
   toHeaders =
@@ -251,6 +251,6 @@ listNetworkProfilesResponse_httpStatus = Lens.lens (\ListNetworkProfilesResponse
 
 instance Prelude.NFData ListNetworkProfilesResponse where
   rnf ListNetworkProfilesResponse' {..} =
-    Prelude.rnf networkProfiles
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf networkProfiles `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

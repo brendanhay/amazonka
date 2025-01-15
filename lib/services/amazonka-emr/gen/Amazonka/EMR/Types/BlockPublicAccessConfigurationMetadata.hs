@@ -106,5 +106,5 @@ instance
     BlockPublicAccessConfigurationMetadata
   where
   rnf BlockPublicAccessConfigurationMetadata' {..} =
-    Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf createdByArn
+    Prelude.rnf creationDateTime `Prelude.seq`
+      Prelude.rnf createdByArn

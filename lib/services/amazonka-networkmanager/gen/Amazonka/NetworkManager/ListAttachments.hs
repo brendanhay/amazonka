@@ -142,12 +142,12 @@ instance Core.AWSPager ListAttachments where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listAttachments_nextToken
-          Lens..~ rs
-          Lens.^? listAttachmentsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listAttachments_nextToken
+              Lens..~ rs
+              Lens.^? listAttachmentsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAttachments where
   type
@@ -176,12 +176,12 @@ instance Prelude.Hashable ListAttachments where
 
 instance Prelude.NFData ListAttachments where
   rnf ListAttachments' {..} =
-    Prelude.rnf attachmentType
-      `Prelude.seq` Prelude.rnf coreNetworkId
-      `Prelude.seq` Prelude.rnf edgeLocation
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf attachmentType `Prelude.seq`
+      Prelude.rnf coreNetworkId `Prelude.seq`
+        Prelude.rnf edgeLocation `Prelude.seq`
+          Prelude.rnf maxResults `Prelude.seq`
+            Prelude.rnf nextToken `Prelude.seq`
+              Prelude.rnf state
 
 instance Data.ToHeaders ListAttachments where
   toHeaders =
@@ -258,6 +258,6 @@ listAttachmentsResponse_httpStatus = Lens.lens (\ListAttachmentsResponse' {httpS
 
 instance Prelude.NFData ListAttachmentsResponse where
   rnf ListAttachmentsResponse' {..} =
-    Prelude.rnf attachments
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf attachments `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

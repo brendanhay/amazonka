@@ -153,9 +153,9 @@ instance Prelude.Hashable UpdateFileSystem where
 
 instance Prelude.NFData UpdateFileSystem where
   rnf UpdateFileSystem' {..} =
-    Prelude.rnf provisionedThroughputInMibps
-      `Prelude.seq` Prelude.rnf throughputMode
-      `Prelude.seq` Prelude.rnf fileSystemId
+    Prelude.rnf provisionedThroughputInMibps `Prelude.seq`
+      Prelude.rnf throughputMode `Prelude.seq`
+        Prelude.rnf fileSystemId
 
 instance Data.ToHeaders UpdateFileSystem where
   toHeaders = Prelude.const Prelude.mempty

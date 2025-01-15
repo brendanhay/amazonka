@@ -196,11 +196,11 @@ instance Prelude.Hashable CampaignSummary where
 
 instance Prelude.NFData CampaignSummary where
   rnf CampaignSummary' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf signalCatalogArn
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf targetArn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf lastModificationTime
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf signalCatalogArn `Prelude.seq`
+            Prelude.rnf status `Prelude.seq`
+              Prelude.rnf targetArn `Prelude.seq`
+                Prelude.rnf creationTime `Prelude.seq`
+                  Prelude.rnf lastModificationTime

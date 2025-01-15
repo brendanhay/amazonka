@@ -162,11 +162,11 @@ instance Prelude.Hashable VisualCustomAction where
 
 instance Prelude.NFData VisualCustomAction where
   rnf VisualCustomAction' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf customActionId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf trigger
-      `Prelude.seq` Prelude.rnf actionOperations
+    Prelude.rnf status `Prelude.seq`
+      Prelude.rnf customActionId `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf trigger `Prelude.seq`
+            Prelude.rnf actionOperations
 
 instance Data.ToJSON VisualCustomAction where
   toJSON VisualCustomAction' {..} =

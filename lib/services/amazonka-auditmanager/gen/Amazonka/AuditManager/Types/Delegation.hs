@@ -208,14 +208,14 @@ instance Prelude.Hashable Delegation where
 
 instance Prelude.NFData Delegation where
   rnf Delegation' {..} =
-    Prelude.rnf assessmentId
-      `Prelude.seq` Prelude.rnf assessmentName
-      `Prelude.seq` Prelude.rnf comment
-      `Prelude.seq` Prelude.rnf controlSetId
-      `Prelude.seq` Prelude.rnf createdBy
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf lastUpdated
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf roleType
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf assessmentId `Prelude.seq`
+      Prelude.rnf assessmentName `Prelude.seq`
+        Prelude.rnf comment `Prelude.seq`
+          Prelude.rnf controlSetId `Prelude.seq`
+            Prelude.rnf createdBy `Prelude.seq`
+              Prelude.rnf creationTime `Prelude.seq`
+                Prelude.rnf id `Prelude.seq`
+                  Prelude.rnf lastUpdated `Prelude.seq`
+                    Prelude.rnf roleArn `Prelude.seq`
+                      Prelude.rnf roleType `Prelude.seq`
+                        Prelude.rnf status

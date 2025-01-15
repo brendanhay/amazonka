@@ -188,6 +188,6 @@ describeFunctionResponse_httpStatus = Lens.lens (\DescribeFunctionResponse' {htt
 
 instance Prelude.NFData DescribeFunctionResponse where
   rnf DescribeFunctionResponse' {..} =
-    Prelude.rnf eTag
-      `Prelude.seq` Prelude.rnf functionSummary
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf eTag `Prelude.seq`
+      Prelude.rnf functionSummary `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -181,5 +181,5 @@ deleteProjectVersionResponse_httpStatus = Lens.lens (\DeleteProjectVersionRespon
 
 instance Prelude.NFData DeleteProjectVersionResponse where
   rnf DeleteProjectVersionResponse' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf status `Prelude.seq`
+      Prelude.rnf httpStatus

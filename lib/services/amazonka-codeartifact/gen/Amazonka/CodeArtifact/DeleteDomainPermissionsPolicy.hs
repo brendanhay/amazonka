@@ -138,9 +138,9 @@ instance
 
 instance Prelude.NFData DeleteDomainPermissionsPolicy where
   rnf DeleteDomainPermissionsPolicy' {..} =
-    Prelude.rnf domainOwner
-      `Prelude.seq` Prelude.rnf policyRevision
-      `Prelude.seq` Prelude.rnf domain
+    Prelude.rnf domainOwner `Prelude.seq`
+      Prelude.rnf policyRevision `Prelude.seq`
+        Prelude.rnf domain
 
 instance Data.ToHeaders DeleteDomainPermissionsPolicy where
   toHeaders =
@@ -212,5 +212,5 @@ instance
     DeleteDomainPermissionsPolicyResponse
   where
   rnf DeleteDomainPermissionsPolicyResponse' {..} =
-    Prelude.rnf policy
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf policy `Prelude.seq`
+      Prelude.rnf httpStatus

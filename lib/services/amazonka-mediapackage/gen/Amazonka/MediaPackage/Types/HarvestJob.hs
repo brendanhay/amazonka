@@ -173,12 +173,12 @@ instance Prelude.Hashable HarvestJob where
 
 instance Prelude.NFData HarvestJob where
   rnf HarvestJob' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf channelId
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf originEndpointId
-      `Prelude.seq` Prelude.rnf s3Destination
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf channelId `Prelude.seq`
+        Prelude.rnf createdAt `Prelude.seq`
+          Prelude.rnf endTime `Prelude.seq`
+            Prelude.rnf id `Prelude.seq`
+              Prelude.rnf originEndpointId `Prelude.seq`
+                Prelude.rnf s3Destination `Prelude.seq`
+                  Prelude.rnf startTime `Prelude.seq`
+                    Prelude.rnf status

@@ -118,8 +118,8 @@ instance Prelude.Hashable BatchStopJobRun where
 
 instance Prelude.NFData BatchStopJobRun where
   rnf BatchStopJobRun' {..} =
-    Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf jobRunIds
+    Prelude.rnf jobName `Prelude.seq`
+      Prelude.rnf jobRunIds
 
 instance Data.ToHeaders BatchStopJobRun where
   toHeaders =
@@ -204,6 +204,6 @@ batchStopJobRunResponse_httpStatus = Lens.lens (\BatchStopJobRunResponse' {httpS
 
 instance Prelude.NFData BatchStopJobRunResponse where
   rnf BatchStopJobRunResponse' {..} =
-    Prelude.rnf errors
-      `Prelude.seq` Prelude.rnf successfulSubmissions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf errors `Prelude.seq`
+      Prelude.rnf successfulSubmissions `Prelude.seq`
+        Prelude.rnf httpStatus

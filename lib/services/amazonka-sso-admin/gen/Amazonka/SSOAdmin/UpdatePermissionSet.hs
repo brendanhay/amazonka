@@ -158,11 +158,11 @@ instance Prelude.Hashable UpdatePermissionSet where
 
 instance Prelude.NFData UpdatePermissionSet where
   rnf UpdatePermissionSet' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf relayState
-      `Prelude.seq` Prelude.rnf sessionDuration
-      `Prelude.seq` Prelude.rnf instanceArn
-      `Prelude.seq` Prelude.rnf permissionSetArn
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf relayState `Prelude.seq`
+        Prelude.rnf sessionDuration `Prelude.seq`
+          Prelude.rnf instanceArn `Prelude.seq`
+            Prelude.rnf permissionSetArn
 
 instance Data.ToHeaders UpdatePermissionSet where
   toHeaders =

@@ -92,5 +92,5 @@ instance
     MultiplexProgramPipelineDetail
   where
   rnf MultiplexProgramPipelineDetail' {..} =
-    Prelude.rnf activeChannelPipeline
-      `Prelude.seq` Prelude.rnf pipelineId
+    Prelude.rnf activeChannelPipeline `Prelude.seq`
+      Prelude.rnf pipelineId

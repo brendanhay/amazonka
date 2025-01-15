@@ -132,9 +132,9 @@ instance Prelude.Hashable TagStream where
 
 instance Prelude.NFData TagStream where
   rnf TagStream' {..} =
-    Prelude.rnf streamARN
-      `Prelude.seq` Prelude.rnf streamName
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf streamARN `Prelude.seq`
+      Prelude.rnf streamName `Prelude.seq`
+        Prelude.rnf tags
 
 instance Data.ToHeaders TagStream where
   toHeaders = Prelude.const Prelude.mempty

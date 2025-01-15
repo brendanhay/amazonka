@@ -197,9 +197,7 @@ instance Core.AWSRequest DescribeKeyPairs where
     Response.receiveXML
       ( \s h x ->
           DescribeKeyPairsResponse'
-            Prelude.<$> ( x
-                            Data..@? "keySet"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "keySet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -216,11 +214,11 @@ instance Prelude.Hashable DescribeKeyPairs where
 
 instance Prelude.NFData DescribeKeyPairs where
   rnf DescribeKeyPairs' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf includePublicKey
-      `Prelude.seq` Prelude.rnf keyNames
-      `Prelude.seq` Prelude.rnf keyPairIds
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf includePublicKey `Prelude.seq`
+          Prelude.rnf keyNames `Prelude.seq`
+            Prelude.rnf keyPairIds
 
 instance Data.ToHeaders DescribeKeyPairs where
   toHeaders = Prelude.const Prelude.mempty
@@ -288,5 +286,5 @@ describeKeyPairsResponse_httpStatus = Lens.lens (\DescribeKeyPairsResponse' {htt
 
 instance Prelude.NFData DescribeKeyPairsResponse where
   rnf DescribeKeyPairsResponse' {..} =
-    Prelude.rnf keyPairs
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf keyPairs `Prelude.seq`
+      Prelude.rnf httpStatus

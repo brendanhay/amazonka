@@ -360,19 +360,19 @@ instance Prelude.Hashable CreateLocationHdfs where
 
 instance Prelude.NFData CreateLocationHdfs where
   rnf CreateLocationHdfs' {..} =
-    Prelude.rnf blockSize
-      `Prelude.seq` Prelude.rnf kerberosKeytab
-      `Prelude.seq` Prelude.rnf kerberosKrb5Conf
-      `Prelude.seq` Prelude.rnf kerberosPrincipal
-      `Prelude.seq` Prelude.rnf kmsKeyProviderUri
-      `Prelude.seq` Prelude.rnf qopConfiguration
-      `Prelude.seq` Prelude.rnf replicationFactor
-      `Prelude.seq` Prelude.rnf simpleUser
-      `Prelude.seq` Prelude.rnf subdirectory
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf nameNodes
-      `Prelude.seq` Prelude.rnf authenticationType
-      `Prelude.seq` Prelude.rnf agentArns
+    Prelude.rnf blockSize `Prelude.seq`
+      Prelude.rnf kerberosKeytab `Prelude.seq`
+        Prelude.rnf kerberosKrb5Conf `Prelude.seq`
+          Prelude.rnf kerberosPrincipal `Prelude.seq`
+            Prelude.rnf kmsKeyProviderUri `Prelude.seq`
+              Prelude.rnf qopConfiguration `Prelude.seq`
+                Prelude.rnf replicationFactor `Prelude.seq`
+                  Prelude.rnf simpleUser `Prelude.seq`
+                    Prelude.rnf subdirectory `Prelude.seq`
+                      Prelude.rnf tags `Prelude.seq`
+                        Prelude.rnf nameNodes `Prelude.seq`
+                          Prelude.rnf authenticationType `Prelude.seq`
+                            Prelude.rnf agentArns
 
 instance Data.ToHeaders CreateLocationHdfs where
   toHeaders =
@@ -463,5 +463,5 @@ createLocationHdfsResponse_httpStatus = Lens.lens (\CreateLocationHdfsResponse' 
 
 instance Prelude.NFData CreateLocationHdfsResponse where
   rnf CreateLocationHdfsResponse' {..} =
-    Prelude.rnf locationArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf locationArn `Prelude.seq`
+      Prelude.rnf httpStatus

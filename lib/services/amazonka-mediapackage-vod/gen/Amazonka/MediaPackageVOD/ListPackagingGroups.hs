@@ -102,12 +102,12 @@ instance Core.AWSPager ListPackagingGroups where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listPackagingGroups_nextToken
-          Lens..~ rs
-          Lens.^? listPackagingGroupsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listPackagingGroups_nextToken
+              Lens..~ rs
+              Lens.^? listPackagingGroupsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPackagingGroups where
   type
@@ -135,8 +135,8 @@ instance Prelude.Hashable ListPackagingGroups where
 
 instance Prelude.NFData ListPackagingGroups where
   rnf ListPackagingGroups' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListPackagingGroups where
   toHeaders =
@@ -212,6 +212,6 @@ listPackagingGroupsResponse_httpStatus = Lens.lens (\ListPackagingGroupsResponse
 
 instance Prelude.NFData ListPackagingGroupsResponse where
   rnf ListPackagingGroupsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf packagingGroups
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf packagingGroups `Prelude.seq`
+        Prelude.rnf httpStatus

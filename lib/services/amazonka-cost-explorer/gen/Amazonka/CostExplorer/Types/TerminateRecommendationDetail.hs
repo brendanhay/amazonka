@@ -87,5 +87,5 @@ instance
 
 instance Prelude.NFData TerminateRecommendationDetail where
   rnf TerminateRecommendationDetail' {..} =
-    Prelude.rnf currencyCode
-      `Prelude.seq` Prelude.rnf estimatedMonthlySavings
+    Prelude.rnf currencyCode `Prelude.seq`
+      Prelude.rnf estimatedMonthlySavings

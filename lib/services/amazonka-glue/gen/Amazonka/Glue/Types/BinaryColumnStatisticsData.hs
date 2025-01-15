@@ -101,9 +101,9 @@ instance Prelude.Hashable BinaryColumnStatisticsData where
 
 instance Prelude.NFData BinaryColumnStatisticsData where
   rnf BinaryColumnStatisticsData' {..} =
-    Prelude.rnf maximumLength
-      `Prelude.seq` Prelude.rnf averageLength
-      `Prelude.seq` Prelude.rnf numberOfNulls
+    Prelude.rnf maximumLength `Prelude.seq`
+      Prelude.rnf averageLength `Prelude.seq`
+        Prelude.rnf numberOfNulls
 
 instance Data.ToJSON BinaryColumnStatisticsData where
   toJSON BinaryColumnStatisticsData' {..} =

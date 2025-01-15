@@ -272,12 +272,12 @@ instance Prelude.Hashable MqttHeaders where
 
 instance Prelude.NFData MqttHeaders where
   rnf MqttHeaders' {..} =
-    Prelude.rnf contentType
-      `Prelude.seq` Prelude.rnf correlationData
-      `Prelude.seq` Prelude.rnf messageExpiry
-      `Prelude.seq` Prelude.rnf payloadFormatIndicator
-      `Prelude.seq` Prelude.rnf responseTopic
-      `Prelude.seq` Prelude.rnf userProperties
+    Prelude.rnf contentType `Prelude.seq`
+      Prelude.rnf correlationData `Prelude.seq`
+        Prelude.rnf messageExpiry `Prelude.seq`
+          Prelude.rnf payloadFormatIndicator `Prelude.seq`
+            Prelude.rnf responseTopic `Prelude.seq`
+              Prelude.rnf userProperties
 
 instance Data.ToJSON MqttHeaders where
   toJSON MqttHeaders' {..} =

@@ -109,7 +109,7 @@ instance Prelude.Hashable MetricPoint where
 
 instance Prelude.NFData MetricPoint where
   rnf MetricPoint' {..} =
-    Prelude.rnf endDate
-      `Prelude.seq` Prelude.rnf startDate
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf endDate `Prelude.seq`
+      Prelude.rnf startDate `Prelude.seq`
+        Prelude.rnf status `Prelude.seq`
+          Prelude.rnf value

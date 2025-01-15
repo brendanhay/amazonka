@@ -144,9 +144,9 @@ instance
     AssociatePhoneNumberContactFlow
   where
   rnf AssociatePhoneNumberContactFlow' {..} =
-    Prelude.rnf phoneNumberId
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf contactFlowId
+    Prelude.rnf phoneNumberId `Prelude.seq`
+      Prelude.rnf instanceId `Prelude.seq`
+        Prelude.rnf contactFlowId
 
 instance
   Data.ToHeaders

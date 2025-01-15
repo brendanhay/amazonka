@@ -112,9 +112,9 @@ instance
     AwsWafRulePredicateListDetails
   where
   rnf AwsWafRulePredicateListDetails' {..} =
-    Prelude.rnf dataId
-      `Prelude.seq` Prelude.rnf negated
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf dataId `Prelude.seq`
+      Prelude.rnf negated `Prelude.seq`
+        Prelude.rnf type'
 
 instance Data.ToJSON AwsWafRulePredicateListDetails where
   toJSON AwsWafRulePredicateListDetails' {..} =

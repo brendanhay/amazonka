@@ -130,6 +130,6 @@ instance
     EntityRecognizerEvaluationMetrics
   where
   rnf EntityRecognizerEvaluationMetrics' {..} =
-    Prelude.rnf f1Score
-      `Prelude.seq` Prelude.rnf precision
-      `Prelude.seq` Prelude.rnf recall
+    Prelude.rnf f1Score `Prelude.seq`
+      Prelude.rnf precision `Prelude.seq`
+        Prelude.rnf recall

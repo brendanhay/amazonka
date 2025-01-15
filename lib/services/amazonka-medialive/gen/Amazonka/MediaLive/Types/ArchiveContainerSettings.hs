@@ -81,8 +81,8 @@ instance Prelude.Hashable ArchiveContainerSettings where
 
 instance Prelude.NFData ArchiveContainerSettings where
   rnf ArchiveContainerSettings' {..} =
-    Prelude.rnf m2tsSettings
-      `Prelude.seq` Prelude.rnf rawSettings
+    Prelude.rnf m2tsSettings `Prelude.seq`
+      Prelude.rnf rawSettings
 
 instance Data.ToJSON ArchiveContainerSettings where
   toJSON ArchiveContainerSettings' {..} =

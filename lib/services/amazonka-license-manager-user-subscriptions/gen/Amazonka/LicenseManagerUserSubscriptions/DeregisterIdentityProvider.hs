@@ -114,8 +114,8 @@ instance Prelude.Hashable DeregisterIdentityProvider where
 
 instance Prelude.NFData DeregisterIdentityProvider where
   rnf DeregisterIdentityProvider' {..} =
-    Prelude.rnf identityProvider
-      `Prelude.seq` Prelude.rnf product
+    Prelude.rnf identityProvider `Prelude.seq`
+      Prelude.rnf product
 
 instance Data.ToHeaders DeregisterIdentityProvider where
   toHeaders =
@@ -195,5 +195,5 @@ instance
     DeregisterIdentityProviderResponse
   where
   rnf DeregisterIdentityProviderResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf identityProviderSummary
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf identityProviderSummary

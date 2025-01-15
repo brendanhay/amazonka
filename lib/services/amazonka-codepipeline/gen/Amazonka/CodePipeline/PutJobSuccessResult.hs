@@ -166,11 +166,11 @@ instance Prelude.Hashable PutJobSuccessResult where
 
 instance Prelude.NFData PutJobSuccessResult where
   rnf PutJobSuccessResult' {..} =
-    Prelude.rnf continuationToken
-      `Prelude.seq` Prelude.rnf currentRevision
-      `Prelude.seq` Prelude.rnf executionDetails
-      `Prelude.seq` Prelude.rnf outputVariables
-      `Prelude.seq` Prelude.rnf jobId
+    Prelude.rnf continuationToken `Prelude.seq`
+      Prelude.rnf currentRevision `Prelude.seq`
+        Prelude.rnf executionDetails `Prelude.seq`
+          Prelude.rnf outputVariables `Prelude.seq`
+            Prelude.rnf jobId
 
 instance Data.ToHeaders PutJobSuccessResult where
   toHeaders =

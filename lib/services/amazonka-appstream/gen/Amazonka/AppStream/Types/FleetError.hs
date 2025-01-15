@@ -81,5 +81,5 @@ instance Prelude.Hashable FleetError where
 
 instance Prelude.NFData FleetError where
   rnf FleetError' {..} =
-    Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorMessage
+    Prelude.rnf errorCode `Prelude.seq`
+      Prelude.rnf errorMessage

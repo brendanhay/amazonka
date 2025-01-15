@@ -140,8 +140,8 @@ instance Prelude.Hashable DescribeServices where
 
 instance Prelude.NFData DescribeServices where
   rnf DescribeServices' {..} =
-    Prelude.rnf language
-      `Prelude.seq` Prelude.rnf serviceCodeList
+    Prelude.rnf language `Prelude.seq`
+      Prelude.rnf serviceCodeList
 
 instance Data.ToHeaders DescribeServices where
   toHeaders =
@@ -218,5 +218,5 @@ describeServicesResponse_httpStatus = Lens.lens (\DescribeServicesResponse' {htt
 
 instance Prelude.NFData DescribeServicesResponse where
   rnf DescribeServicesResponse' {..} =
-    Prelude.rnf services
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf services `Prelude.seq`
+      Prelude.rnf httpStatus

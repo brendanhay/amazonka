@@ -258,13 +258,13 @@ instance Prelude.Hashable ResolverQueryLogConfig where
 
 instance Prelude.NFData ResolverQueryLogConfig where
   rnf ResolverQueryLogConfig' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf associationCount
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf creatorRequestId
-      `Prelude.seq` Prelude.rnf destinationArn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf ownerId
-      `Prelude.seq` Prelude.rnf shareStatus
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf associationCount `Prelude.seq`
+        Prelude.rnf creationTime `Prelude.seq`
+          Prelude.rnf creatorRequestId `Prelude.seq`
+            Prelude.rnf destinationArn `Prelude.seq`
+              Prelude.rnf id `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf ownerId `Prelude.seq`
+                    Prelude.rnf shareStatus `Prelude.seq`
+                      Prelude.rnf status

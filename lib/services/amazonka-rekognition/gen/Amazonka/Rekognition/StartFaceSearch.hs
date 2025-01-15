@@ -207,12 +207,12 @@ instance Prelude.Hashable StartFaceSearch where
 
 instance Prelude.NFData StartFaceSearch where
   rnf StartFaceSearch' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf faceMatchThreshold
-      `Prelude.seq` Prelude.rnf jobTag
-      `Prelude.seq` Prelude.rnf notificationChannel
-      `Prelude.seq` Prelude.rnf video
-      `Prelude.seq` Prelude.rnf collectionId
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf faceMatchThreshold `Prelude.seq`
+        Prelude.rnf jobTag `Prelude.seq`
+          Prelude.rnf notificationChannel `Prelude.seq`
+            Prelude.rnf video `Prelude.seq`
+              Prelude.rnf collectionId
 
 instance Data.ToHeaders StartFaceSearch where
   toHeaders =
@@ -294,5 +294,5 @@ startFaceSearchResponse_httpStatus = Lens.lens (\StartFaceSearchResponse' {httpS
 
 instance Prelude.NFData StartFaceSearchResponse where
   rnf StartFaceSearchResponse' {..} =
-    Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf jobId `Prelude.seq`
+      Prelude.rnf httpStatus

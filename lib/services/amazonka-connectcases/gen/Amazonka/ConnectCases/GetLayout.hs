@@ -116,8 +116,8 @@ instance Prelude.Hashable GetLayout where
 
 instance Prelude.NFData GetLayout where
   rnf GetLayout' {..} =
-    Prelude.rnf domainId
-      `Prelude.seq` Prelude.rnf layoutId
+    Prelude.rnf domainId `Prelude.seq`
+      Prelude.rnf layoutId
 
 instance Data.ToHeaders GetLayout where
   toHeaders =
@@ -240,9 +240,9 @@ getLayoutResponse_name = Lens.lens (\GetLayoutResponse' {name} -> name) (\s@GetL
 
 instance Prelude.NFData GetLayoutResponse where
   rnf GetLayoutResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf content
-      `Prelude.seq` Prelude.rnf layoutArn
-      `Prelude.seq` Prelude.rnf layoutId
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf content `Prelude.seq`
+          Prelude.rnf layoutArn `Prelude.seq`
+            Prelude.rnf layoutId `Prelude.seq`
+              Prelude.rnf name

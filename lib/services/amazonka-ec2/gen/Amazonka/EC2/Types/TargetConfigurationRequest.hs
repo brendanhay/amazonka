@@ -80,8 +80,8 @@ instance Prelude.Hashable TargetConfigurationRequest where
 
 instance Prelude.NFData TargetConfigurationRequest where
   rnf TargetConfigurationRequest' {..} =
-    Prelude.rnf instanceCount
-      `Prelude.seq` Prelude.rnf offeringId
+    Prelude.rnf instanceCount `Prelude.seq`
+      Prelude.rnf offeringId
 
 instance Data.ToQuery TargetConfigurationRequest where
   toQuery TargetConfigurationRequest' {..} =

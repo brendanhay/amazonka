@@ -110,5 +110,5 @@ instance Prelude.Hashable HostedZoneOwner where
 
 instance Prelude.NFData HostedZoneOwner where
   rnf HostedZoneOwner' {..} =
-    Prelude.rnf owningAccount
-      `Prelude.seq` Prelude.rnf owningService
+    Prelude.rnf owningAccount `Prelude.seq`
+      Prelude.rnf owningService

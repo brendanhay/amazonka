@@ -146,10 +146,10 @@ instance Prelude.Hashable CreateReportGroup where
 
 instance Prelude.NFData CreateReportGroup where
   rnf CreateReportGroup' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf exportConfig
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf type' `Prelude.seq`
+          Prelude.rnf exportConfig
 
 instance Data.ToHeaders CreateReportGroup where
   toHeaders =
@@ -224,5 +224,5 @@ createReportGroupResponse_httpStatus = Lens.lens (\CreateReportGroupResponse' {h
 
 instance Prelude.NFData CreateReportGroupResponse where
   rnf CreateReportGroupResponse' {..} =
-    Prelude.rnf reportGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf reportGroup `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -173,6 +173,6 @@ getViewResponse_httpStatus = Lens.lens (\GetViewResponse' {httpStatus} -> httpSt
 
 instance Prelude.NFData GetViewResponse where
   rnf GetViewResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf view
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf view `Prelude.seq`
+        Prelude.rnf httpStatus

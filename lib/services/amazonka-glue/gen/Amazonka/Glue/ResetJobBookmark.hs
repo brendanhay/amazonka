@@ -187,5 +187,5 @@ resetJobBookmarkResponse_httpStatus = Lens.lens (\ResetJobBookmarkResponse' {htt
 
 instance Prelude.NFData ResetJobBookmarkResponse where
   rnf ResetJobBookmarkResponse' {..} =
-    Prelude.rnf jobBookmarkEntry
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf jobBookmarkEntry `Prelude.seq`
+      Prelude.rnf httpStatus

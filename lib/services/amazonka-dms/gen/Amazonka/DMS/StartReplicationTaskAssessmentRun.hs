@@ -331,15 +331,15 @@ instance
     StartReplicationTaskAssessmentRun
   where
   rnf StartReplicationTaskAssessmentRun' {..} =
-    Prelude.rnf exclude
-      `Prelude.seq` Prelude.rnf includeOnly
-      `Prelude.seq` Prelude.rnf resultEncryptionMode
-      `Prelude.seq` Prelude.rnf resultKmsKeyArn
-      `Prelude.seq` Prelude.rnf resultLocationFolder
-      `Prelude.seq` Prelude.rnf replicationTaskArn
-      `Prelude.seq` Prelude.rnf serviceAccessRoleArn
-      `Prelude.seq` Prelude.rnf resultLocationBucket
-      `Prelude.seq` Prelude.rnf assessmentRunName
+    Prelude.rnf exclude `Prelude.seq`
+      Prelude.rnf includeOnly `Prelude.seq`
+        Prelude.rnf resultEncryptionMode `Prelude.seq`
+          Prelude.rnf resultKmsKeyArn `Prelude.seq`
+            Prelude.rnf resultLocationFolder `Prelude.seq`
+              Prelude.rnf replicationTaskArn `Prelude.seq`
+                Prelude.rnf serviceAccessRoleArn `Prelude.seq`
+                  Prelude.rnf resultLocationBucket `Prelude.seq`
+                    Prelude.rnf assessmentRunName
 
 instance
   Data.ToHeaders
@@ -448,5 +448,5 @@ instance
     StartReplicationTaskAssessmentRunResponse
   where
   rnf StartReplicationTaskAssessmentRunResponse' {..} =
-    Prelude.rnf replicationTaskAssessmentRun
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf replicationTaskAssessmentRun `Prelude.seq`
+      Prelude.rnf httpStatus

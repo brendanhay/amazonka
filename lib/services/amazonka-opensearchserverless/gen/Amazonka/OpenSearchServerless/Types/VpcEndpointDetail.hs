@@ -142,10 +142,10 @@ instance Prelude.Hashable VpcEndpointDetail where
 
 instance Prelude.NFData VpcEndpointDetail where
   rnf VpcEndpointDetail' {..} =
-    Prelude.rnf createdDate
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf subnetIds
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf createdDate `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf securityGroupIds `Prelude.seq`
+            Prelude.rnf status `Prelude.seq`
+              Prelude.rnf subnetIds `Prelude.seq`
+                Prelude.rnf vpcId

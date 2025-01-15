@@ -159,8 +159,8 @@ instance Prelude.Hashable PutDashboard where
 
 instance Prelude.NFData PutDashboard where
   rnf PutDashboard' {..} =
-    Prelude.rnf dashboardName
-      `Prelude.seq` Prelude.rnf dashboardBody
+    Prelude.rnf dashboardName `Prelude.seq`
+      Prelude.rnf dashboardBody
 
 instance Data.ToHeaders PutDashboard where
   toHeaders = Prelude.const Prelude.mempty
@@ -244,5 +244,5 @@ putDashboardResponse_httpStatus = Lens.lens (\PutDashboardResponse' {httpStatus}
 
 instance Prelude.NFData PutDashboardResponse where
   rnf PutDashboardResponse' {..} =
-    Prelude.rnf dashboardValidationMessages
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dashboardValidationMessages `Prelude.seq`
+      Prelude.rnf httpStatus

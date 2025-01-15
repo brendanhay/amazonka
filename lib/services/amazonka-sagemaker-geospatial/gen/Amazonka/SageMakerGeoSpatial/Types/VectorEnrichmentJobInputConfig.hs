@@ -93,8 +93,8 @@ instance
     VectorEnrichmentJobInputConfig
   where
   rnf VectorEnrichmentJobInputConfig' {..} =
-    Prelude.rnf dataSourceConfig
-      `Prelude.seq` Prelude.rnf documentType
+    Prelude.rnf dataSourceConfig `Prelude.seq`
+      Prelude.rnf documentType
 
 instance Data.ToJSON VectorEnrichmentJobInputConfig where
   toJSON VectorEnrichmentJobInputConfig' {..} =

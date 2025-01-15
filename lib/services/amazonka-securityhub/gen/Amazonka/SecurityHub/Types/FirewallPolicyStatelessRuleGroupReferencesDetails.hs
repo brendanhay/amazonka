@@ -94,8 +94,8 @@ instance
   where
   rnf
     FirewallPolicyStatelessRuleGroupReferencesDetails' {..} =
-      Prelude.rnf priority
-        `Prelude.seq` Prelude.rnf resourceArn
+      Prelude.rnf priority `Prelude.seq`
+        Prelude.rnf resourceArn
 
 instance
   Data.ToJSON

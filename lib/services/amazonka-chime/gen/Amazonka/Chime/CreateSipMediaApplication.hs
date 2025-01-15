@@ -129,9 +129,9 @@ instance Prelude.Hashable CreateSipMediaApplication where
 
 instance Prelude.NFData CreateSipMediaApplication where
   rnf CreateSipMediaApplication' {..} =
-    Prelude.rnf awsRegion
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf endpoints
+    Prelude.rnf awsRegion `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf endpoints
 
 instance Data.ToHeaders CreateSipMediaApplication where
   toHeaders = Prelude.const Prelude.mempty
@@ -196,5 +196,5 @@ instance
     CreateSipMediaApplicationResponse
   where
   rnf CreateSipMediaApplicationResponse' {..} =
-    Prelude.rnf sipMediaApplication
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf sipMediaApplication `Prelude.seq`
+      Prelude.rnf httpStatus

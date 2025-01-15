@@ -161,13 +161,13 @@ instance Prelude.Hashable ReceiptAction where
 
 instance Prelude.NFData ReceiptAction where
   rnf ReceiptAction' {..} =
-    Prelude.rnf addHeaderAction
-      `Prelude.seq` Prelude.rnf bounceAction
-      `Prelude.seq` Prelude.rnf lambdaAction
-      `Prelude.seq` Prelude.rnf s3Action
-      `Prelude.seq` Prelude.rnf sNSAction
-      `Prelude.seq` Prelude.rnf stopAction
-      `Prelude.seq` Prelude.rnf workmailAction
+    Prelude.rnf addHeaderAction `Prelude.seq`
+      Prelude.rnf bounceAction `Prelude.seq`
+        Prelude.rnf lambdaAction `Prelude.seq`
+          Prelude.rnf s3Action `Prelude.seq`
+            Prelude.rnf sNSAction `Prelude.seq`
+              Prelude.rnf stopAction `Prelude.seq`
+                Prelude.rnf workmailAction
 
 instance Data.ToQuery ReceiptAction where
   toQuery ReceiptAction' {..} =

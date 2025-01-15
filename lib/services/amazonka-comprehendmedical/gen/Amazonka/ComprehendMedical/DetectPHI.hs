@@ -215,7 +215,7 @@ detectPHIResponse_modelVersion = Lens.lens (\DetectPHIResponse' {modelVersion} -
 
 instance Prelude.NFData DetectPHIResponse where
   rnf DetectPHIResponse' {..} =
-    Prelude.rnf paginationToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf entities
-      `Prelude.seq` Prelude.rnf modelVersion
+    Prelude.rnf paginationToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf entities `Prelude.seq`
+          Prelude.rnf modelVersion

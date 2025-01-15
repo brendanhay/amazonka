@@ -221,10 +221,10 @@ instance Prelude.Hashable SearchPlaceIndexForPosition where
 
 instance Prelude.NFData SearchPlaceIndexForPosition where
   rnf SearchPlaceIndexForPosition' {..} =
-    Prelude.rnf language
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf indexName
-      `Prelude.seq` Prelude.rnf position
+    Prelude.rnf language `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf indexName `Prelude.seq`
+          Prelude.rnf position
 
 instance Data.ToHeaders SearchPlaceIndexForPosition where
   toHeaders =
@@ -324,6 +324,6 @@ instance
     SearchPlaceIndexForPositionResponse
   where
   rnf SearchPlaceIndexForPositionResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf results
-      `Prelude.seq` Prelude.rnf summary
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf results `Prelude.seq`
+        Prelude.rnf summary

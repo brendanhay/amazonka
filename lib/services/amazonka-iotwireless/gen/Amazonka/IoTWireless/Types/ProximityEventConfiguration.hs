@@ -90,8 +90,8 @@ instance Prelude.Hashable ProximityEventConfiguration where
 
 instance Prelude.NFData ProximityEventConfiguration where
   rnf ProximityEventConfiguration' {..} =
-    Prelude.rnf sidewalk
-      `Prelude.seq` Prelude.rnf wirelessDeviceIdEventTopic
+    Prelude.rnf sidewalk `Prelude.seq`
+      Prelude.rnf wirelessDeviceIdEventTopic
 
 instance Data.ToJSON ProximityEventConfiguration where
   toJSON ProximityEventConfiguration' {..} =

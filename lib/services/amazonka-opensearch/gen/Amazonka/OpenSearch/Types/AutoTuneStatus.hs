@@ -136,9 +136,9 @@ instance Prelude.Hashable AutoTuneStatus where
 
 instance Prelude.NFData AutoTuneStatus where
   rnf AutoTuneStatus' {..} =
-    Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf pendingDeletion
-      `Prelude.seq` Prelude.rnf updateVersion
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf updateDate
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf errorMessage `Prelude.seq`
+      Prelude.rnf pendingDeletion `Prelude.seq`
+        Prelude.rnf updateVersion `Prelude.seq`
+          Prelude.rnf creationDate `Prelude.seq`
+            Prelude.rnf updateDate `Prelude.seq`
+              Prelude.rnf state

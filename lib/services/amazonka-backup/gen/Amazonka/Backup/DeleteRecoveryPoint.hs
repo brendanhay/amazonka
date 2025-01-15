@@ -136,8 +136,8 @@ instance Prelude.Hashable DeleteRecoveryPoint where
 
 instance Prelude.NFData DeleteRecoveryPoint where
   rnf DeleteRecoveryPoint' {..} =
-    Prelude.rnf backupVaultName
-      `Prelude.seq` Prelude.rnf recoveryPointArn
+    Prelude.rnf backupVaultName `Prelude.seq`
+      Prelude.rnf recoveryPointArn
 
 instance Data.ToHeaders DeleteRecoveryPoint where
   toHeaders =

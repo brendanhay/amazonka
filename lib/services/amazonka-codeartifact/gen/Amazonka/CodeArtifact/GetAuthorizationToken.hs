@@ -163,9 +163,9 @@ instance Prelude.Hashable GetAuthorizationToken where
 
 instance Prelude.NFData GetAuthorizationToken where
   rnf GetAuthorizationToken' {..} =
-    Prelude.rnf domainOwner
-      `Prelude.seq` Prelude.rnf durationSeconds
-      `Prelude.seq` Prelude.rnf domain
+    Prelude.rnf domainOwner `Prelude.seq`
+      Prelude.rnf durationSeconds `Prelude.seq`
+        Prelude.rnf domain
 
 instance Data.ToHeaders GetAuthorizationToken where
   toHeaders =
@@ -245,6 +245,6 @@ getAuthorizationTokenResponse_httpStatus = Lens.lens (\GetAuthorizationTokenResp
 
 instance Prelude.NFData GetAuthorizationTokenResponse where
   rnf GetAuthorizationTokenResponse' {..} =
-    Prelude.rnf authorizationToken
-      `Prelude.seq` Prelude.rnf expiration
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf authorizationToken `Prelude.seq`
+      Prelude.rnf expiration `Prelude.seq`
+        Prelude.rnf httpStatus

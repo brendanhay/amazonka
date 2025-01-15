@@ -220,14 +220,14 @@ instance Prelude.Hashable MonitoringSchedule where
 
 instance Prelude.NFData MonitoringSchedule where
   rnf MonitoringSchedule' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf endpointName
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf lastMonitoringExecutionSummary
-      `Prelude.seq` Prelude.rnf monitoringScheduleArn
-      `Prelude.seq` Prelude.rnf monitoringScheduleConfig
-      `Prelude.seq` Prelude.rnf monitoringScheduleName
-      `Prelude.seq` Prelude.rnf monitoringScheduleStatus
-      `Prelude.seq` Prelude.rnf monitoringType
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf endpointName `Prelude.seq`
+        Prelude.rnf failureReason `Prelude.seq`
+          Prelude.rnf lastModifiedTime `Prelude.seq`
+            Prelude.rnf lastMonitoringExecutionSummary `Prelude.seq`
+              Prelude.rnf monitoringScheduleArn `Prelude.seq`
+                Prelude.rnf monitoringScheduleConfig `Prelude.seq`
+                  Prelude.rnf monitoringScheduleName `Prelude.seq`
+                    Prelude.rnf monitoringScheduleStatus `Prelude.seq`
+                      Prelude.rnf monitoringType `Prelude.seq`
+                        Prelude.rnf tags

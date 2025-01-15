@@ -354,21 +354,21 @@ describeConnectorResponse_httpStatus = Lens.lens (\DescribeConnectorResponse' {h
 
 instance Prelude.NFData DescribeConnectorResponse where
   rnf DescribeConnectorResponse' {..} =
-    Prelude.rnf capacity
-      `Prelude.seq` Prelude.rnf connectorArn
-      `Prelude.seq` Prelude.rnf connectorConfiguration
-      `Prelude.seq` Prelude.rnf connectorDescription
-      `Prelude.seq` Prelude.rnf connectorName
-      `Prelude.seq` Prelude.rnf connectorState
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf currentVersion
-      `Prelude.seq` Prelude.rnf kafkaCluster
-      `Prelude.seq` Prelude.rnf kafkaClusterClientAuthentication
-      `Prelude.seq` Prelude.rnf kafkaClusterEncryptionInTransit
-      `Prelude.seq` Prelude.rnf kafkaConnectVersion
-      `Prelude.seq` Prelude.rnf logDelivery
-      `Prelude.seq` Prelude.rnf plugins
-      `Prelude.seq` Prelude.rnf serviceExecutionRoleArn
-      `Prelude.seq` Prelude.rnf stateDescription
-      `Prelude.seq` Prelude.rnf workerConfiguration
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf capacity `Prelude.seq`
+      Prelude.rnf connectorArn `Prelude.seq`
+        Prelude.rnf connectorConfiguration `Prelude.seq`
+          Prelude.rnf connectorDescription `Prelude.seq`
+            Prelude.rnf connectorName `Prelude.seq`
+              Prelude.rnf connectorState `Prelude.seq`
+                Prelude.rnf creationTime `Prelude.seq`
+                  Prelude.rnf currentVersion `Prelude.seq`
+                    Prelude.rnf kafkaCluster `Prelude.seq`
+                      Prelude.rnf kafkaClusterClientAuthentication `Prelude.seq`
+                        Prelude.rnf kafkaClusterEncryptionInTransit `Prelude.seq`
+                          Prelude.rnf kafkaConnectVersion `Prelude.seq`
+                            Prelude.rnf logDelivery `Prelude.seq`
+                              Prelude.rnf plugins `Prelude.seq`
+                                Prelude.rnf serviceExecutionRoleArn `Prelude.seq`
+                                  Prelude.rnf stateDescription `Prelude.seq`
+                                    Prelude.rnf workerConfiguration `Prelude.seq`
+                                      Prelude.rnf httpStatus

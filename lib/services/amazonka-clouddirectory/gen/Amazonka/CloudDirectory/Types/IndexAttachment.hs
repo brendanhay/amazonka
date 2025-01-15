@@ -97,5 +97,5 @@ instance Prelude.Hashable IndexAttachment where
 
 instance Prelude.NFData IndexAttachment where
   rnf IndexAttachment' {..} =
-    Prelude.rnf indexedAttributes
-      `Prelude.seq` Prelude.rnf objectIdentifier
+    Prelude.rnf indexedAttributes `Prelude.seq`
+      Prelude.rnf objectIdentifier

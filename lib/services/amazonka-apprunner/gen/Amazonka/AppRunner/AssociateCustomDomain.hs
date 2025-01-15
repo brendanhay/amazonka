@@ -159,9 +159,9 @@ instance Prelude.Hashable AssociateCustomDomain where
 
 instance Prelude.NFData AssociateCustomDomain where
   rnf AssociateCustomDomain' {..} =
-    Prelude.rnf enableWWWSubdomain
-      `Prelude.seq` Prelude.rnf serviceArn
-      `Prelude.seq` Prelude.rnf domainName
+    Prelude.rnf enableWWWSubdomain `Prelude.seq`
+      Prelude.rnf serviceArn `Prelude.seq`
+        Prelude.rnf domainName
 
 instance Data.ToHeaders AssociateCustomDomain where
   toHeaders =
@@ -279,8 +279,8 @@ associateCustomDomainResponse_vpcDNSTargets = Lens.lens (\AssociateCustomDomainR
 
 instance Prelude.NFData AssociateCustomDomainResponse where
   rnf AssociateCustomDomainResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf dNSTarget
-      `Prelude.seq` Prelude.rnf serviceArn
-      `Prelude.seq` Prelude.rnf customDomain
-      `Prelude.seq` Prelude.rnf vpcDNSTargets
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf dNSTarget `Prelude.seq`
+        Prelude.rnf serviceArn `Prelude.seq`
+          Prelude.rnf customDomain `Prelude.seq`
+            Prelude.rnf vpcDNSTargets

@@ -113,6 +113,6 @@ instance Prelude.Hashable UserPausedDetails where
 
 instance Prelude.NFData UserPausedDetails where
   rnf UserPausedDetails' {..} =
-    Prelude.rnf jobExpiresAt
-      `Prelude.seq` Prelude.rnf jobImminentExpirationHealthEventArn
-      `Prelude.seq` Prelude.rnf jobPausedAt
+    Prelude.rnf jobExpiresAt `Prelude.seq`
+      Prelude.rnf jobImminentExpirationHealthEventArn `Prelude.seq`
+        Prelude.rnf jobPausedAt

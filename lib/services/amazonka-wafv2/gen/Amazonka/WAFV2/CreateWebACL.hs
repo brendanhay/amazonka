@@ -370,17 +370,17 @@ instance Prelude.Hashable CreateWebACL where
 
 instance Prelude.NFData CreateWebACL where
   rnf CreateWebACL' {..} =
-    Prelude.rnf captchaConfig
-      `Prelude.seq` Prelude.rnf challengeConfig
-      `Prelude.seq` Prelude.rnf customResponseBodies
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf rules
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf tokenDomains
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf scope
-      `Prelude.seq` Prelude.rnf defaultAction
-      `Prelude.seq` Prelude.rnf visibilityConfig
+    Prelude.rnf captchaConfig `Prelude.seq`
+      Prelude.rnf challengeConfig `Prelude.seq`
+        Prelude.rnf customResponseBodies `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf rules `Prelude.seq`
+              Prelude.rnf tags `Prelude.seq`
+                Prelude.rnf tokenDomains `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf scope `Prelude.seq`
+                      Prelude.rnf defaultAction `Prelude.seq`
+                        Prelude.rnf visibilityConfig
 
 instance Data.ToHeaders CreateWebACL where
   toHeaders =
@@ -473,5 +473,5 @@ createWebACLResponse_httpStatus = Lens.lens (\CreateWebACLResponse' {httpStatus}
 
 instance Prelude.NFData CreateWebACLResponse where
   rnf CreateWebACLResponse' {..} =
-    Prelude.rnf summary
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf summary `Prelude.seq`
+      Prelude.rnf httpStatus

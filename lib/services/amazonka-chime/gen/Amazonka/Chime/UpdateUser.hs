@@ -146,11 +146,11 @@ instance Prelude.Hashable UpdateUser where
 
 instance Prelude.NFData UpdateUser where
   rnf UpdateUser' {..} =
-    Prelude.rnf alexaForBusinessMetadata
-      `Prelude.seq` Prelude.rnf licenseType
-      `Prelude.seq` Prelude.rnf userType
-      `Prelude.seq` Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf userId
+    Prelude.rnf alexaForBusinessMetadata `Prelude.seq`
+      Prelude.rnf licenseType `Prelude.seq`
+        Prelude.rnf userType `Prelude.seq`
+          Prelude.rnf accountId `Prelude.seq`
+            Prelude.rnf userId
 
 instance Data.ToHeaders UpdateUser where
   toHeaders = Prelude.const Prelude.mempty
@@ -218,5 +218,5 @@ updateUserResponse_httpStatus = Lens.lens (\UpdateUserResponse' {httpStatus} -> 
 
 instance Prelude.NFData UpdateUserResponse where
   rnf UpdateUserResponse' {..} =
-    Prelude.rnf user
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf user `Prelude.seq`
+      Prelude.rnf httpStatus

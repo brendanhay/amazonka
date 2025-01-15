@@ -115,8 +115,8 @@ instance Prelude.Hashable UpdateRoleDescription where
 
 instance Prelude.NFData UpdateRoleDescription where
   rnf UpdateRoleDescription' {..} =
-    Prelude.rnf roleName
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf roleName `Prelude.seq`
+      Prelude.rnf description
 
 instance Data.ToHeaders UpdateRoleDescription where
   toHeaders = Prelude.const Prelude.mempty
@@ -176,5 +176,5 @@ updateRoleDescriptionResponse_httpStatus = Lens.lens (\UpdateRoleDescriptionResp
 
 instance Prelude.NFData UpdateRoleDescriptionResponse where
   rnf UpdateRoleDescriptionResponse' {..} =
-    Prelude.rnf role'
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf role' `Prelude.seq`
+      Prelude.rnf httpStatus

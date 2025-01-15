@@ -138,10 +138,10 @@ instance Prelude.Hashable Action where
 
 instance Prelude.NFData Action where
   rnf Action' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf uri
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf roleArn `Prelude.seq`
+          Prelude.rnf uri
 
 instance Data.ToJSON Action where
   toJSON Action' {..} =

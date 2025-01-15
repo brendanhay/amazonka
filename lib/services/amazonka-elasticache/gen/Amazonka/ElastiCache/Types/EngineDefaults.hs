@@ -112,9 +112,7 @@ instance Data.FromXML EngineDefaults where
                   )
       Prelude.<*> (x Data..@? "CacheParameterGroupFamily")
       Prelude.<*> (x Data..@? "Marker")
-      Prelude.<*> ( x
-                      Data..@? "Parameters"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "Parameters" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "Parameter")
                   )
 
@@ -128,7 +126,7 @@ instance Prelude.Hashable EngineDefaults where
 
 instance Prelude.NFData EngineDefaults where
   rnf EngineDefaults' {..} =
-    Prelude.rnf cacheNodeTypeSpecificParameters
-      `Prelude.seq` Prelude.rnf cacheParameterGroupFamily
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf parameters
+    Prelude.rnf cacheNodeTypeSpecificParameters `Prelude.seq`
+      Prelude.rnf cacheParameterGroupFamily `Prelude.seq`
+        Prelude.rnf marker `Prelude.seq`
+          Prelude.rnf parameters

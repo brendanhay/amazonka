@@ -178,10 +178,10 @@ instance
     UpdateFirewallRuleGroupAssociation
   where
   rnf UpdateFirewallRuleGroupAssociation' {..} =
-    Prelude.rnf mutationProtection
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf priority
-      `Prelude.seq` Prelude.rnf firewallRuleGroupAssociationId
+    Prelude.rnf mutationProtection `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf priority `Prelude.seq`
+          Prelude.rnf firewallRuleGroupAssociationId
 
 instance
   Data.ToHeaders
@@ -276,5 +276,5 @@ instance
     UpdateFirewallRuleGroupAssociationResponse
   where
   rnf UpdateFirewallRuleGroupAssociationResponse' {..} =
-    Prelude.rnf firewallRuleGroupAssociation
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf firewallRuleGroupAssociation `Prelude.seq`
+      Prelude.rnf httpStatus

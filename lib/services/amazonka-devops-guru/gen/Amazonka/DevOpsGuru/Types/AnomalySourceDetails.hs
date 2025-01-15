@@ -99,5 +99,5 @@ instance Prelude.Hashable AnomalySourceDetails where
 
 instance Prelude.NFData AnomalySourceDetails where
   rnf AnomalySourceDetails' {..} =
-    Prelude.rnf cloudWatchMetrics
-      `Prelude.seq` Prelude.rnf performanceInsightsMetrics
+    Prelude.rnf cloudWatchMetrics `Prelude.seq`
+      Prelude.rnf performanceInsightsMetrics

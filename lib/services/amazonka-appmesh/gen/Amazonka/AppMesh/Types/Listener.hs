@@ -135,12 +135,12 @@ instance Prelude.Hashable Listener where
 
 instance Prelude.NFData Listener where
   rnf Listener' {..} =
-    Prelude.rnf connectionPool
-      `Prelude.seq` Prelude.rnf healthCheck
-      `Prelude.seq` Prelude.rnf outlierDetection
-      `Prelude.seq` Prelude.rnf timeout
-      `Prelude.seq` Prelude.rnf tls
-      `Prelude.seq` Prelude.rnf portMapping
+    Prelude.rnf connectionPool `Prelude.seq`
+      Prelude.rnf healthCheck `Prelude.seq`
+        Prelude.rnf outlierDetection `Prelude.seq`
+          Prelude.rnf timeout `Prelude.seq`
+            Prelude.rnf tls `Prelude.seq`
+              Prelude.rnf portMapping
 
 instance Data.ToJSON Listener where
   toJSON Listener' {..} =

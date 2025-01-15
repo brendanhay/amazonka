@@ -166,11 +166,11 @@ instance Prelude.Hashable SetRiskConfiguration where
 
 instance Prelude.NFData SetRiskConfiguration where
   rnf SetRiskConfiguration' {..} =
-    Prelude.rnf accountTakeoverRiskConfiguration
-      `Prelude.seq` Prelude.rnf clientId
-      `Prelude.seq` Prelude.rnf compromisedCredentialsRiskConfiguration
-      `Prelude.seq` Prelude.rnf riskExceptionConfiguration
-      `Prelude.seq` Prelude.rnf userPoolId
+    Prelude.rnf accountTakeoverRiskConfiguration `Prelude.seq`
+      Prelude.rnf clientId `Prelude.seq`
+        Prelude.rnf compromisedCredentialsRiskConfiguration `Prelude.seq`
+          Prelude.rnf riskExceptionConfiguration `Prelude.seq`
+            Prelude.rnf userPoolId
 
 instance Data.ToHeaders SetRiskConfiguration where
   toHeaders =
@@ -253,5 +253,5 @@ setRiskConfigurationResponse_riskConfiguration = Lens.lens (\SetRiskConfiguratio
 
 instance Prelude.NFData SetRiskConfigurationResponse where
   rnf SetRiskConfigurationResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf riskConfiguration
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf riskConfiguration

@@ -312,16 +312,16 @@ describeFaqResponse_httpStatus = Lens.lens (\DescribeFaqResponse' {httpStatus} -
 
 instance Prelude.NFData DescribeFaqResponse where
   rnf DescribeFaqResponse' {..} =
-    Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf fileFormat
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf indexId
-      `Prelude.seq` Prelude.rnf languageCode
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf s3Path
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf updatedAt
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf createdAt `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf errorMessage `Prelude.seq`
+          Prelude.rnf fileFormat `Prelude.seq`
+            Prelude.rnf id `Prelude.seq`
+              Prelude.rnf indexId `Prelude.seq`
+                Prelude.rnf languageCode `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf roleArn `Prelude.seq`
+                      Prelude.rnf s3Path `Prelude.seq`
+                        Prelude.rnf status `Prelude.seq`
+                          Prelude.rnf updatedAt `Prelude.seq`
+                            Prelude.rnf httpStatus

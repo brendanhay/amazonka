@@ -89,9 +89,7 @@ instance Core.AWSRequest BuildSuggesters where
       "BuildSuggestersResult"
       ( \s h x ->
           BuildSuggestersResponse'
-            Prelude.<$> ( x
-                            Data..@? "FieldNames"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "FieldNames" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -163,5 +161,5 @@ buildSuggestersResponse_httpStatus = Lens.lens (\BuildSuggestersResponse' {httpS
 
 instance Prelude.NFData BuildSuggestersResponse where
   rnf BuildSuggestersResponse' {..} =
-    Prelude.rnf fieldNames
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf fieldNames `Prelude.seq`
+      Prelude.rnf httpStatus

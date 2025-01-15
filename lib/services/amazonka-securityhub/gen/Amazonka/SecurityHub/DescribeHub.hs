@@ -185,7 +185,7 @@ describeHubResponse_httpStatus = Lens.lens (\DescribeHubResponse' {httpStatus} -
 
 instance Prelude.NFData DescribeHubResponse where
   rnf DescribeHubResponse' {..} =
-    Prelude.rnf autoEnableControls
-      `Prelude.seq` Prelude.rnf hubArn
-      `Prelude.seq` Prelude.rnf subscribedAt
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf autoEnableControls `Prelude.seq`
+      Prelude.rnf hubArn `Prelude.seq`
+        Prelude.rnf subscribedAt `Prelude.seq`
+          Prelude.rnf httpStatus

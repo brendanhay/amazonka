@@ -271,12 +271,12 @@ getConfigurationSetResponse_httpStatus = Lens.lens (\GetConfigurationSetResponse
 
 instance Prelude.NFData GetConfigurationSetResponse where
   rnf GetConfigurationSetResponse' {..} =
-    Prelude.rnf configurationSetName
-      `Prelude.seq` Prelude.rnf deliveryOptions
-      `Prelude.seq` Prelude.rnf reputationOptions
-      `Prelude.seq` Prelude.rnf sendingOptions
-      `Prelude.seq` Prelude.rnf suppressionOptions
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf trackingOptions
-      `Prelude.seq` Prelude.rnf vdmOptions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf configurationSetName `Prelude.seq`
+      Prelude.rnf deliveryOptions `Prelude.seq`
+        Prelude.rnf reputationOptions `Prelude.seq`
+          Prelude.rnf sendingOptions `Prelude.seq`
+            Prelude.rnf suppressionOptions `Prelude.seq`
+              Prelude.rnf tags `Prelude.seq`
+                Prelude.rnf trackingOptions `Prelude.seq`
+                  Prelude.rnf vdmOptions `Prelude.seq`
+                    Prelude.rnf httpStatus

@@ -80,8 +80,8 @@ instance Prelude.Hashable DesiredConfiguration where
 
 instance Prelude.NFData DesiredConfiguration where
   rnf DesiredConfiguration' {..} =
-    Prelude.rnf launchTemplate
-      `Prelude.seq` Prelude.rnf mixedInstancesPolicy
+    Prelude.rnf launchTemplate `Prelude.seq`
+      Prelude.rnf mixedInstancesPolicy
 
 instance Data.ToQuery DesiredConfiguration where
   toQuery DesiredConfiguration' {..} =

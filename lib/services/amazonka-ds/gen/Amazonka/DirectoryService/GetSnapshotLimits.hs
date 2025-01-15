@@ -171,5 +171,5 @@ getSnapshotLimitsResponse_httpStatus = Lens.lens (\GetSnapshotLimitsResponse' {h
 
 instance Prelude.NFData GetSnapshotLimitsResponse where
   rnf GetSnapshotLimitsResponse' {..} =
-    Prelude.rnf snapshotLimits
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf snapshotLimits `Prelude.seq`
+      Prelude.rnf httpStatus

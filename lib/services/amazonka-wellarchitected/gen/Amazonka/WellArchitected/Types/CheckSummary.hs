@@ -177,14 +177,14 @@ instance Prelude.Hashable CheckSummary where
 
 instance Prelude.NFData CheckSummary where
   rnf CheckSummary' {..} =
-    Prelude.rnf accountSummary
-      `Prelude.seq` Prelude.rnf choiceId
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf lensArn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf pillarId
-      `Prelude.seq` Prelude.rnf provider
-      `Prelude.seq` Prelude.rnf questionId
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf updatedAt
+    Prelude.rnf accountSummary `Prelude.seq`
+      Prelude.rnf choiceId `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf id `Prelude.seq`
+            Prelude.rnf lensArn `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf pillarId `Prelude.seq`
+                  Prelude.rnf provider `Prelude.seq`
+                    Prelude.rnf questionId `Prelude.seq`
+                      Prelude.rnf status `Prelude.seq`
+                        Prelude.rnf updatedAt

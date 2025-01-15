@@ -154,8 +154,8 @@ instance Prelude.Hashable BatchMeterUsage where
 
 instance Prelude.NFData BatchMeterUsage where
   rnf BatchMeterUsage' {..} =
-    Prelude.rnf usageRecords
-      `Prelude.seq` Prelude.rnf productCode
+    Prelude.rnf usageRecords `Prelude.seq`
+      Prelude.rnf productCode
 
 instance Data.ToHeaders BatchMeterUsage where
   toHeaders =
@@ -254,6 +254,6 @@ batchMeterUsageResponse_httpStatus = Lens.lens (\BatchMeterUsageResponse' {httpS
 
 instance Prelude.NFData BatchMeterUsageResponse where
   rnf BatchMeterUsageResponse' {..} =
-    Prelude.rnf results
-      `Prelude.seq` Prelude.rnf unprocessedRecords
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf results `Prelude.seq`
+      Prelude.rnf unprocessedRecords `Prelude.seq`
+        Prelude.rnf httpStatus

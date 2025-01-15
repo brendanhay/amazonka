@@ -235,6 +235,6 @@ instance
     CancelDataRepositoryTaskResponse
   where
   rnf CancelDataRepositoryTaskResponse' {..} =
-    Prelude.rnf lifecycle
-      `Prelude.seq` Prelude.rnf taskId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf lifecycle `Prelude.seq`
+      Prelude.rnf taskId `Prelude.seq`
+        Prelude.rnf httpStatus

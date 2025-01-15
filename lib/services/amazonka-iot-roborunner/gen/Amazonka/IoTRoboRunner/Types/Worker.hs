@@ -203,15 +203,15 @@ instance Prelude.Hashable Worker where
 
 instance Prelude.NFData Worker where
   rnf Worker' {..} =
-    Prelude.rnf additionalFixedProperties
-      `Prelude.seq` Prelude.rnf additionalTransientProperties
-      `Prelude.seq` Prelude.rnf orientation
-      `Prelude.seq` Prelude.rnf position
-      `Prelude.seq` Prelude.rnf vendorProperties
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf fleet
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf updatedAt
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf site
+    Prelude.rnf additionalFixedProperties `Prelude.seq`
+      Prelude.rnf additionalTransientProperties `Prelude.seq`
+        Prelude.rnf orientation `Prelude.seq`
+          Prelude.rnf position `Prelude.seq`
+            Prelude.rnf vendorProperties `Prelude.seq`
+              Prelude.rnf arn `Prelude.seq`
+                Prelude.rnf id `Prelude.seq`
+                  Prelude.rnf fleet `Prelude.seq`
+                    Prelude.rnf createdAt `Prelude.seq`
+                      Prelude.rnf updatedAt `Prelude.seq`
+                        Prelude.rnf name `Prelude.seq`
+                          Prelude.rnf site

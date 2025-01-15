@@ -106,9 +106,9 @@ instance Prelude.Hashable Device where
 
 instance Prelude.NFData Device where
   rnf Device' {..} =
-    Prelude.rnf containerPath
-      `Prelude.seq` Prelude.rnf permissions
-      `Prelude.seq` Prelude.rnf hostPath
+    Prelude.rnf containerPath `Prelude.seq`
+      Prelude.rnf permissions `Prelude.seq`
+        Prelude.rnf hostPath
 
 instance Data.ToJSON Device where
   toJSON Device' {..} =

@@ -240,11 +240,11 @@ getBootstrapBrokersResponse_httpStatus = Lens.lens (\GetBootstrapBrokersResponse
 
 instance Prelude.NFData GetBootstrapBrokersResponse where
   rnf GetBootstrapBrokersResponse' {..} =
-    Prelude.rnf bootstrapBrokerString
-      `Prelude.seq` Prelude.rnf bootstrapBrokerStringPublicSaslIam
-      `Prelude.seq` Prelude.rnf bootstrapBrokerStringPublicSaslScram
-      `Prelude.seq` Prelude.rnf bootstrapBrokerStringPublicTls
-      `Prelude.seq` Prelude.rnf bootstrapBrokerStringSaslIam
-      `Prelude.seq` Prelude.rnf bootstrapBrokerStringSaslScram
-      `Prelude.seq` Prelude.rnf bootstrapBrokerStringTls
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf bootstrapBrokerString `Prelude.seq`
+      Prelude.rnf bootstrapBrokerStringPublicSaslIam `Prelude.seq`
+        Prelude.rnf bootstrapBrokerStringPublicSaslScram `Prelude.seq`
+          Prelude.rnf bootstrapBrokerStringPublicTls `Prelude.seq`
+            Prelude.rnf bootstrapBrokerStringSaslIam `Prelude.seq`
+              Prelude.rnf bootstrapBrokerStringSaslScram `Prelude.seq`
+                Prelude.rnf bootstrapBrokerStringTls `Prelude.seq`
+                  Prelude.rnf httpStatus

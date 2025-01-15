@@ -198,10 +198,10 @@ instance
 
 instance Prelude.NFData SpotProvisioningSpecification where
   rnf SpotProvisioningSpecification' {..} =
-    Prelude.rnf allocationStrategy
-      `Prelude.seq` Prelude.rnf blockDurationMinutes
-      `Prelude.seq` Prelude.rnf timeoutDurationMinutes
-      `Prelude.seq` Prelude.rnf timeoutAction
+    Prelude.rnf allocationStrategy `Prelude.seq`
+      Prelude.rnf blockDurationMinutes `Prelude.seq`
+        Prelude.rnf timeoutDurationMinutes `Prelude.seq`
+          Prelude.rnf timeoutAction
 
 instance Data.ToJSON SpotProvisioningSpecification where
   toJSON SpotProvisioningSpecification' {..} =

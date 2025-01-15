@@ -149,8 +149,8 @@ instance Prelude.Hashable SetEndpointAttributes where
 
 instance Prelude.NFData SetEndpointAttributes where
   rnf SetEndpointAttributes' {..} =
-    Prelude.rnf endpointArn
-      `Prelude.seq` Prelude.rnf attributes
+    Prelude.rnf endpointArn `Prelude.seq`
+      Prelude.rnf attributes
 
 instance Data.ToHeaders SetEndpointAttributes where
   toHeaders = Prelude.const Prelude.mempty

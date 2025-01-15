@@ -107,8 +107,8 @@ instance Prelude.Hashable UpdateEventIntegration where
 
 instance Prelude.NFData UpdateEventIntegration where
   rnf UpdateEventIntegration' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf name
 
 instance Data.ToHeaders UpdateEventIntegration where
   toHeaders =

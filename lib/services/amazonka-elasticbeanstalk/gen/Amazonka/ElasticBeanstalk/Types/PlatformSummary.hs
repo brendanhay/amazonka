@@ -220,15 +220,15 @@ instance Prelude.Hashable PlatformSummary where
 
 instance Prelude.NFData PlatformSummary where
   rnf PlatformSummary' {..} =
-    Prelude.rnf operatingSystemName
-      `Prelude.seq` Prelude.rnf operatingSystemVersion
-      `Prelude.seq` Prelude.rnf platformArn
-      `Prelude.seq` Prelude.rnf platformBranchLifecycleState
-      `Prelude.seq` Prelude.rnf platformBranchName
-      `Prelude.seq` Prelude.rnf platformCategory
-      `Prelude.seq` Prelude.rnf platformLifecycleState
-      `Prelude.seq` Prelude.rnf platformOwner
-      `Prelude.seq` Prelude.rnf platformStatus
-      `Prelude.seq` Prelude.rnf platformVersion
-      `Prelude.seq` Prelude.rnf supportedAddonList
-      `Prelude.seq` Prelude.rnf supportedTierList
+    Prelude.rnf operatingSystemName `Prelude.seq`
+      Prelude.rnf operatingSystemVersion `Prelude.seq`
+        Prelude.rnf platformArn `Prelude.seq`
+          Prelude.rnf platformBranchLifecycleState `Prelude.seq`
+            Prelude.rnf platformBranchName `Prelude.seq`
+              Prelude.rnf platformCategory `Prelude.seq`
+                Prelude.rnf platformLifecycleState `Prelude.seq`
+                  Prelude.rnf platformOwner `Prelude.seq`
+                    Prelude.rnf platformStatus `Prelude.seq`
+                      Prelude.rnf platformVersion `Prelude.seq`
+                        Prelude.rnf supportedAddonList `Prelude.seq`
+                          Prelude.rnf supportedTierList

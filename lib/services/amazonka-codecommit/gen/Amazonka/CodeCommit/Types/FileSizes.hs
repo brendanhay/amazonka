@@ -91,6 +91,6 @@ instance Prelude.Hashable FileSizes where
 
 instance Prelude.NFData FileSizes where
   rnf FileSizes' {..} =
-    Prelude.rnf base
-      `Prelude.seq` Prelude.rnf destination
-      `Prelude.seq` Prelude.rnf source
+    Prelude.rnf base `Prelude.seq`
+      Prelude.rnf destination `Prelude.seq`
+        Prelude.rnf source

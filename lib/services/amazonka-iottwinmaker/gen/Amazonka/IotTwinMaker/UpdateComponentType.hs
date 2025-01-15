@@ -205,15 +205,15 @@ instance Prelude.Hashable UpdateComponentType where
 
 instance Prelude.NFData UpdateComponentType where
   rnf UpdateComponentType' {..} =
-    Prelude.rnf componentTypeName
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf extendsFrom
-      `Prelude.seq` Prelude.rnf functions
-      `Prelude.seq` Prelude.rnf isSingleton
-      `Prelude.seq` Prelude.rnf propertyDefinitions
-      `Prelude.seq` Prelude.rnf propertyGroups
-      `Prelude.seq` Prelude.rnf workspaceId
-      `Prelude.seq` Prelude.rnf componentTypeId
+    Prelude.rnf componentTypeName `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf extendsFrom `Prelude.seq`
+          Prelude.rnf functions `Prelude.seq`
+            Prelude.rnf isSingleton `Prelude.seq`
+              Prelude.rnf propertyDefinitions `Prelude.seq`
+                Prelude.rnf propertyGroups `Prelude.seq`
+                  Prelude.rnf workspaceId `Prelude.seq`
+                    Prelude.rnf componentTypeId
 
 instance Data.ToHeaders UpdateComponentType where
   toHeaders =
@@ -336,8 +336,8 @@ updateComponentTypeResponse_state = Lens.lens (\UpdateComponentTypeResponse' {st
 
 instance Prelude.NFData UpdateComponentTypeResponse where
   rnf UpdateComponentTypeResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf workspaceId
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf componentTypeId
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf workspaceId `Prelude.seq`
+        Prelude.rnf arn `Prelude.seq`
+          Prelude.rnf componentTypeId `Prelude.seq`
+            Prelude.rnf state

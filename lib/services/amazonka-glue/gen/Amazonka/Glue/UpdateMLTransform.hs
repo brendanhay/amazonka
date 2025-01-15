@@ -303,17 +303,17 @@ instance Prelude.Hashable UpdateMLTransform where
 
 instance Prelude.NFData UpdateMLTransform where
   rnf UpdateMLTransform' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf glueVersion
-      `Prelude.seq` Prelude.rnf maxCapacity
-      `Prelude.seq` Prelude.rnf maxRetries
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf numberOfWorkers
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf role'
-      `Prelude.seq` Prelude.rnf timeout
-      `Prelude.seq` Prelude.rnf workerType
-      `Prelude.seq` Prelude.rnf transformId
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf glueVersion `Prelude.seq`
+        Prelude.rnf maxCapacity `Prelude.seq`
+          Prelude.rnf maxRetries `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf numberOfWorkers `Prelude.seq`
+                Prelude.rnf parameters `Prelude.seq`
+                  Prelude.rnf role' `Prelude.seq`
+                    Prelude.rnf timeout `Prelude.seq`
+                      Prelude.rnf workerType `Prelude.seq`
+                        Prelude.rnf transformId
 
 instance Data.ToHeaders UpdateMLTransform where
   toHeaders =
@@ -394,5 +394,5 @@ updateMLTransformResponse_httpStatus = Lens.lens (\UpdateMLTransformResponse' {h
 
 instance Prelude.NFData UpdateMLTransformResponse where
   rnf UpdateMLTransformResponse' {..} =
-    Prelude.rnf transformId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf transformId `Prelude.seq`
+      Prelude.rnf httpStatus

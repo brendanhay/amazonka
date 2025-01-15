@@ -164,5 +164,5 @@ stopReplicationResponse_httpStatus = Lens.lens (\StopReplicationResponse' {httpS
 
 instance Prelude.NFData StopReplicationResponse where
   rnf StopReplicationResponse' {..} =
-    Prelude.rnf sourceServer
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf sourceServer `Prelude.seq`
+      Prelude.rnf httpStatus

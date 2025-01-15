@@ -186,5 +186,5 @@ deleteQueryDefinitionResponse_httpStatus = Lens.lens (\DeleteQueryDefinitionResp
 
 instance Prelude.NFData DeleteQueryDefinitionResponse where
   rnf DeleteQueryDefinitionResponse' {..} =
-    Prelude.rnf success
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf success `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -176,11 +176,11 @@ instance Prelude.Hashable ExecuteCommand where
 
 instance Prelude.NFData ExecuteCommand where
   rnf ExecuteCommand' {..} =
-    Prelude.rnf cluster
-      `Prelude.seq` Prelude.rnf container
-      `Prelude.seq` Prelude.rnf command
-      `Prelude.seq` Prelude.rnf interactive
-      `Prelude.seq` Prelude.rnf task
+    Prelude.rnf cluster `Prelude.seq`
+      Prelude.rnf container `Prelude.seq`
+        Prelude.rnf command `Prelude.seq`
+          Prelude.rnf interactive `Prelude.seq`
+            Prelude.rnf task
 
 instance Data.ToHeaders ExecuteCommand where
   toHeaders =
@@ -310,10 +310,10 @@ executeCommandResponse_httpStatus = Lens.lens (\ExecuteCommandResponse' {httpSta
 
 instance Prelude.NFData ExecuteCommandResponse where
   rnf ExecuteCommandResponse' {..} =
-    Prelude.rnf clusterArn
-      `Prelude.seq` Prelude.rnf containerArn
-      `Prelude.seq` Prelude.rnf containerName
-      `Prelude.seq` Prelude.rnf interactive
-      `Prelude.seq` Prelude.rnf session
-      `Prelude.seq` Prelude.rnf taskArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf clusterArn `Prelude.seq`
+      Prelude.rnf containerArn `Prelude.seq`
+        Prelude.rnf containerName `Prelude.seq`
+          Prelude.rnf interactive `Prelude.seq`
+            Prelude.rnf session `Prelude.seq`
+              Prelude.rnf taskArn `Prelude.seq`
+                Prelude.rnf httpStatus

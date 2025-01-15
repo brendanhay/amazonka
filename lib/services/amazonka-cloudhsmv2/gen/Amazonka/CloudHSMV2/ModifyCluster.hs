@@ -114,8 +114,8 @@ instance Prelude.Hashable ModifyCluster where
 
 instance Prelude.NFData ModifyCluster where
   rnf ModifyCluster' {..} =
-    Prelude.rnf backupRetentionPolicy
-      `Prelude.seq` Prelude.rnf clusterId
+    Prelude.rnf backupRetentionPolicy `Prelude.seq`
+      Prelude.rnf clusterId
 
 instance Data.ToHeaders ModifyCluster where
   toHeaders =
@@ -189,5 +189,5 @@ modifyClusterResponse_httpStatus = Lens.lens (\ModifyClusterResponse' {httpStatu
 
 instance Prelude.NFData ModifyClusterResponse where
   rnf ModifyClusterResponse' {..} =
-    Prelude.rnf cluster
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf cluster `Prelude.seq`
+      Prelude.rnf httpStatus

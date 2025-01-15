@@ -142,7 +142,7 @@ instance
     ActivityTaskTimedOutEventAttributes
   where
   rnf ActivityTaskTimedOutEventAttributes' {..} =
-    Prelude.rnf details
-      `Prelude.seq` Prelude.rnf timeoutType
-      `Prelude.seq` Prelude.rnf scheduledEventId
-      `Prelude.seq` Prelude.rnf startedEventId
+    Prelude.rnf details `Prelude.seq`
+      Prelude.rnf timeoutType `Prelude.seq`
+        Prelude.rnf scheduledEventId `Prelude.seq`
+          Prelude.rnf startedEventId

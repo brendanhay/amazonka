@@ -113,8 +113,8 @@ instance Prelude.Hashable ArchiveFindings where
 
 instance Prelude.NFData ArchiveFindings where
   rnf ArchiveFindings' {..} =
-    Prelude.rnf detectorId
-      `Prelude.seq` Prelude.rnf findingIds
+    Prelude.rnf detectorId `Prelude.seq`
+      Prelude.rnf findingIds
 
 instance Data.ToHeaders ArchiveFindings where
   toHeaders =

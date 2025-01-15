@@ -81,9 +81,9 @@ instance Prelude.Hashable DescribeJobsRequestFilters where
 
 instance Prelude.NFData DescribeJobsRequestFilters where
   rnf DescribeJobsRequestFilters' {..} =
-    Prelude.rnf fromDate
-      `Prelude.seq` Prelude.rnf jobIDs
-      `Prelude.seq` Prelude.rnf toDate
+    Prelude.rnf fromDate `Prelude.seq`
+      Prelude.rnf jobIDs `Prelude.seq`
+        Prelude.rnf toDate
 
 instance Data.ToJSON DescribeJobsRequestFilters where
   toJSON DescribeJobsRequestFilters' {..} =

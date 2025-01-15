@@ -127,9 +127,9 @@ instance Prelude.Hashable UpdateWorkloadShare where
 
 instance Prelude.NFData UpdateWorkloadShare where
   rnf UpdateWorkloadShare' {..} =
-    Prelude.rnf shareId
-      `Prelude.seq` Prelude.rnf workloadId
-      `Prelude.seq` Prelude.rnf permissionType
+    Prelude.rnf shareId `Prelude.seq`
+      Prelude.rnf workloadId `Prelude.seq`
+        Prelude.rnf permissionType
 
 instance Data.ToHeaders UpdateWorkloadShare where
   toHeaders =
@@ -213,6 +213,6 @@ updateWorkloadShareResponse_httpStatus = Lens.lens (\UpdateWorkloadShareResponse
 
 instance Prelude.NFData UpdateWorkloadShareResponse where
   rnf UpdateWorkloadShareResponse' {..} =
-    Prelude.rnf workloadId
-      `Prelude.seq` Prelude.rnf workloadShare
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf workloadId `Prelude.seq`
+      Prelude.rnf workloadShare `Prelude.seq`
+        Prelude.rnf httpStatus

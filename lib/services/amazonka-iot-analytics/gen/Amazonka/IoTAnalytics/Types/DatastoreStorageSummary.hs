@@ -98,6 +98,6 @@ instance Prelude.Hashable DatastoreStorageSummary where
 
 instance Prelude.NFData DatastoreStorageSummary where
   rnf DatastoreStorageSummary' {..} =
-    Prelude.rnf customerManagedS3
-      `Prelude.seq` Prelude.rnf iotSiteWiseMultiLayerStorage
-      `Prelude.seq` Prelude.rnf serviceManagedS3
+    Prelude.rnf customerManagedS3 `Prelude.seq`
+      Prelude.rnf iotSiteWiseMultiLayerStorage `Prelude.seq`
+        Prelude.rnf serviceManagedS3

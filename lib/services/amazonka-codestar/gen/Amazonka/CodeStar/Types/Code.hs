@@ -93,8 +93,8 @@ instance Prelude.Hashable Code where
 
 instance Prelude.NFData Code where
   rnf Code' {..} =
-    Prelude.rnf source
-      `Prelude.seq` Prelude.rnf destination
+    Prelude.rnf source `Prelude.seq`
+      Prelude.rnf destination
 
 instance Data.ToJSON Code where
   toJSON Code' {..} =

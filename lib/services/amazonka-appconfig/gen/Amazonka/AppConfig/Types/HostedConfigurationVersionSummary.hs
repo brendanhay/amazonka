@@ -131,8 +131,8 @@ instance
     HostedConfigurationVersionSummary
   where
   rnf HostedConfigurationVersionSummary' {..} =
-    Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf configurationProfileId
-      `Prelude.seq` Prelude.rnf contentType
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf versionNumber
+    Prelude.rnf applicationId `Prelude.seq`
+      Prelude.rnf configurationProfileId `Prelude.seq`
+        Prelude.rnf contentType `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf versionNumber

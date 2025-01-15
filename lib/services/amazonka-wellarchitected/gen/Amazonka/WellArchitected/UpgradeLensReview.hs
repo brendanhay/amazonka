@@ -125,10 +125,10 @@ instance Prelude.Hashable UpgradeLensReview where
 
 instance Prelude.NFData UpgradeLensReview where
   rnf UpgradeLensReview' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf workloadId
-      `Prelude.seq` Prelude.rnf lensAlias
-      `Prelude.seq` Prelude.rnf milestoneName
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf workloadId `Prelude.seq`
+        Prelude.rnf lensAlias `Prelude.seq`
+          Prelude.rnf milestoneName
 
 instance Data.ToHeaders UpgradeLensReview where
   toHeaders =

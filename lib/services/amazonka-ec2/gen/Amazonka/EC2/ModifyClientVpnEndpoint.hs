@@ -344,20 +344,20 @@ instance Prelude.Hashable ModifyClientVpnEndpoint where
 
 instance Prelude.NFData ModifyClientVpnEndpoint where
   rnf ModifyClientVpnEndpoint' {..} =
-    Prelude.rnf clientConnectOptions
-      `Prelude.seq` Prelude.rnf clientLoginBannerOptions
-      `Prelude.seq` Prelude.rnf connectionLogOptions
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf dnsServers
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf selfServicePortal
-      `Prelude.seq` Prelude.rnf serverCertificateArn
-      `Prelude.seq` Prelude.rnf sessionTimeoutHours
-      `Prelude.seq` Prelude.rnf splitTunnel
-      `Prelude.seq` Prelude.rnf vpcId
-      `Prelude.seq` Prelude.rnf vpnPort
-      `Prelude.seq` Prelude.rnf clientVpnEndpointId
+    Prelude.rnf clientConnectOptions `Prelude.seq`
+      Prelude.rnf clientLoginBannerOptions `Prelude.seq`
+        Prelude.rnf connectionLogOptions `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf dnsServers `Prelude.seq`
+              Prelude.rnf dryRun `Prelude.seq`
+                Prelude.rnf securityGroupIds `Prelude.seq`
+                  Prelude.rnf selfServicePortal `Prelude.seq`
+                    Prelude.rnf serverCertificateArn `Prelude.seq`
+                      Prelude.rnf sessionTimeoutHours `Prelude.seq`
+                        Prelude.rnf splitTunnel `Prelude.seq`
+                          Prelude.rnf vpcId `Prelude.seq`
+                            Prelude.rnf vpnPort `Prelude.seq`
+                              Prelude.rnf clientVpnEndpointId
 
 instance Data.ToHeaders ModifyClientVpnEndpoint where
   toHeaders = Prelude.const Prelude.mempty
@@ -436,5 +436,5 @@ instance
     ModifyClientVpnEndpointResponse
   where
   rnf ModifyClientVpnEndpointResponse' {..} =
-    Prelude.rnf return'
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf return' `Prelude.seq`
+      Prelude.rnf httpStatus

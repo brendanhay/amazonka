@@ -114,8 +114,8 @@ instance Prelude.Hashable StartOnDemandReplicationRun where
 
 instance Prelude.NFData StartOnDemandReplicationRun where
   rnf StartOnDemandReplicationRun' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf replicationJobId
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf replicationJobId
 
 instance Data.ToHeaders StartOnDemandReplicationRun where
   toHeaders =
@@ -192,5 +192,5 @@ instance
     StartOnDemandReplicationRunResponse
   where
   rnf StartOnDemandReplicationRunResponse' {..} =
-    Prelude.rnf replicationRunId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf replicationRunId `Prelude.seq`
+      Prelude.rnf httpStatus

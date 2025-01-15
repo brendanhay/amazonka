@@ -104,11 +104,11 @@ instance Prelude.Hashable TitleAggregation where
 
 instance Prelude.NFData TitleAggregation where
   rnf TitleAggregation' {..} =
-    Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf sortOrder
-      `Prelude.seq` Prelude.rnf titles
-      `Prelude.seq` Prelude.rnf vulnerabilityIds
+    Prelude.rnf resourceType `Prelude.seq`
+      Prelude.rnf sortBy `Prelude.seq`
+        Prelude.rnf sortOrder `Prelude.seq`
+          Prelude.rnf titles `Prelude.seq`
+            Prelude.rnf vulnerabilityIds
 
 instance Data.ToJSON TitleAggregation where
   toJSON TitleAggregation' {..} =

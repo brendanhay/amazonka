@@ -136,12 +136,12 @@ instance Core.AWSPager DescribeSSLPolicies where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeSSLPolicies_marker
-          Lens..~ rs
-          Lens.^? describeSSLPoliciesResponse_nextMarker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeSSLPolicies_marker
+              Lens..~ rs
+              Lens.^? describeSSLPoliciesResponse_nextMarker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeSSLPolicies where
   type
@@ -155,9 +155,7 @@ instance Core.AWSRequest DescribeSSLPolicies where
       ( \s h x ->
           DescribeSSLPoliciesResponse'
             Prelude.<$> (x Data..@? "NextMarker")
-            Prelude.<*> ( x
-                            Data..@? "SslPolicies"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "SslPolicies" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -173,10 +171,10 @@ instance Prelude.Hashable DescribeSSLPolicies where
 
 instance Prelude.NFData DescribeSSLPolicies where
   rnf DescribeSSLPolicies' {..} =
-    Prelude.rnf loadBalancerType
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf names
-      `Prelude.seq` Prelude.rnf pageSize
+    Prelude.rnf loadBalancerType `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf names `Prelude.seq`
+          Prelude.rnf pageSize
 
 instance Data.ToHeaders DescribeSSLPolicies where
   toHeaders = Prelude.const Prelude.mempty
@@ -252,6 +250,6 @@ describeSSLPoliciesResponse_httpStatus = Lens.lens (\DescribeSSLPoliciesResponse
 
 instance Prelude.NFData DescribeSSLPoliciesResponse where
   rnf DescribeSSLPoliciesResponse' {..} =
-    Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf sslPolicies
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextMarker `Prelude.seq`
+      Prelude.rnf sslPolicies `Prelude.seq`
+        Prelude.rnf httpStatus

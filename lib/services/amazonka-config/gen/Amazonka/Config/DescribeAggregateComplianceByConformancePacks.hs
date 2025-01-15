@@ -149,12 +149,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeAggregateComplianceByConformancePacks_nextToken
-          Lens..~ rs
-          Lens.^? describeAggregateComplianceByConformancePacksResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeAggregateComplianceByConformancePacks_nextToken
+              Lens..~ rs
+              Lens.^? describeAggregateComplianceByConformancePacksResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -197,10 +197,10 @@ instance
   where
   rnf
     DescribeAggregateComplianceByConformancePacks' {..} =
-      Prelude.rnf filters
-        `Prelude.seq` Prelude.rnf limit
-        `Prelude.seq` Prelude.rnf nextToken
-        `Prelude.seq` Prelude.rnf configurationAggregatorName
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf limit `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf configurationAggregatorName
 
 instance
   Data.ToHeaders
@@ -310,6 +310,6 @@ instance
   where
   rnf
     DescribeAggregateComplianceByConformancePacksResponse' {..} =
-      Prelude.rnf aggregateComplianceByConformancePacks
-        `Prelude.seq` Prelude.rnf nextToken
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf aggregateComplianceByConformancePacks `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf httpStatus

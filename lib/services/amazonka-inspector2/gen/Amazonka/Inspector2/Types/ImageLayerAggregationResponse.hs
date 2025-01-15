@@ -134,8 +134,8 @@ instance
 
 instance Prelude.NFData ImageLayerAggregationResponse where
   rnf ImageLayerAggregationResponse' {..} =
-    Prelude.rnf severityCounts
-      `Prelude.seq` Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf layerHash
-      `Prelude.seq` Prelude.rnf repository
-      `Prelude.seq` Prelude.rnf resourceId
+    Prelude.rnf severityCounts `Prelude.seq`
+      Prelude.rnf accountId `Prelude.seq`
+        Prelude.rnf layerHash `Prelude.seq`
+          Prelude.rnf repository `Prelude.seq`
+            Prelude.rnf resourceId

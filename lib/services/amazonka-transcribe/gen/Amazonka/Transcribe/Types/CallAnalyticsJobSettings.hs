@@ -331,13 +331,13 @@ instance Prelude.Hashable CallAnalyticsJobSettings where
 
 instance Prelude.NFData CallAnalyticsJobSettings where
   rnf CallAnalyticsJobSettings' {..} =
-    Prelude.rnf contentRedaction
-      `Prelude.seq` Prelude.rnf languageIdSettings
-      `Prelude.seq` Prelude.rnf languageModelName
-      `Prelude.seq` Prelude.rnf languageOptions
-      `Prelude.seq` Prelude.rnf vocabularyFilterMethod
-      `Prelude.seq` Prelude.rnf vocabularyFilterName
-      `Prelude.seq` Prelude.rnf vocabularyName
+    Prelude.rnf contentRedaction `Prelude.seq`
+      Prelude.rnf languageIdSettings `Prelude.seq`
+        Prelude.rnf languageModelName `Prelude.seq`
+          Prelude.rnf languageOptions `Prelude.seq`
+            Prelude.rnf vocabularyFilterMethod `Prelude.seq`
+              Prelude.rnf vocabularyFilterName `Prelude.seq`
+                Prelude.rnf vocabularyName
 
 instance Data.ToJSON CallAnalyticsJobSettings where
   toJSON CallAnalyticsJobSettings' {..} =

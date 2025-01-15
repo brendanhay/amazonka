@@ -138,8 +138,8 @@ instance
     OriginRequestPolicyQueryStringsConfig
   where
   rnf OriginRequestPolicyQueryStringsConfig' {..} =
-    Prelude.rnf queryStrings
-      `Prelude.seq` Prelude.rnf queryStringBehavior
+    Prelude.rnf queryStrings `Prelude.seq`
+      Prelude.rnf queryStringBehavior
 
 instance
   Data.ToXML

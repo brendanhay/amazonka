@@ -252,12 +252,12 @@ getResponsePlanResponse_name = Lens.lens (\GetResponsePlanResponse' {name} -> na
 
 instance Prelude.NFData GetResponsePlanResponse where
   rnf GetResponsePlanResponse' {..} =
-    Prelude.rnf actions
-      `Prelude.seq` Prelude.rnf chatChannel
-      `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf engagements
-      `Prelude.seq` Prelude.rnf integrations
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf incidentTemplate
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf actions `Prelude.seq`
+      Prelude.rnf chatChannel `Prelude.seq`
+        Prelude.rnf displayName `Prelude.seq`
+          Prelude.rnf engagements `Prelude.seq`
+            Prelude.rnf integrations `Prelude.seq`
+              Prelude.rnf httpStatus `Prelude.seq`
+                Prelude.rnf arn `Prelude.seq`
+                  Prelude.rnf incidentTemplate `Prelude.seq`
+                    Prelude.rnf name

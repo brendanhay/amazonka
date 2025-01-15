@@ -163,12 +163,12 @@ instance Core.AWSPager ListModels where
     | Core.stop (rs Lens.^. listModelsResponse_models) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listModels_nextToken
-          Lens..~ rs
-          Lens.^? listModelsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listModels_nextToken
+              Lens..~ rs
+              Lens.^? listModelsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListModels where
   type AWSResponse ListModels = ListModelsResponse
@@ -196,13 +196,13 @@ instance Prelude.Hashable ListModels where
 
 instance Prelude.NFData ListModels where
   rnf ListModels' {..} =
-    Prelude.rnf creationTimeAfter
-      `Prelude.seq` Prelude.rnf creationTimeBefore
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nameContains
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf sortOrder
+    Prelude.rnf creationTimeAfter `Prelude.seq`
+      Prelude.rnf creationTimeBefore `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nameContains `Prelude.seq`
+            Prelude.rnf nextToken `Prelude.seq`
+              Prelude.rnf sortBy `Prelude.seq`
+                Prelude.rnf sortOrder
 
 instance Data.ToHeaders ListModels where
   toHeaders =
@@ -291,6 +291,6 @@ listModelsResponse_models = Lens.lens (\ListModelsResponse' {models} -> models) 
 
 instance Prelude.NFData ListModelsResponse where
   rnf ListModelsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf models
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf models

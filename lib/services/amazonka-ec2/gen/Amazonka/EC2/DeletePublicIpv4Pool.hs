@@ -180,5 +180,5 @@ deletePublicIpv4PoolResponse_httpStatus = Lens.lens (\DeletePublicIpv4PoolRespon
 
 instance Prelude.NFData DeletePublicIpv4PoolResponse where
   rnf DeletePublicIpv4PoolResponse' {..} =
-    Prelude.rnf returnValue
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf returnValue `Prelude.seq`
+      Prelude.rnf httpStatus

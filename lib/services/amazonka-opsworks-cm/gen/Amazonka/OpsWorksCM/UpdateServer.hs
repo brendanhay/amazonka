@@ -143,11 +143,11 @@ instance Prelude.Hashable UpdateServer where
 
 instance Prelude.NFData UpdateServer where
   rnf UpdateServer' {..} =
-    Prelude.rnf backupRetentionCount
-      `Prelude.seq` Prelude.rnf disableAutomatedBackup
-      `Prelude.seq` Prelude.rnf preferredBackupWindow
-      `Prelude.seq` Prelude.rnf preferredMaintenanceWindow
-      `Prelude.seq` Prelude.rnf serverName
+    Prelude.rnf backupRetentionCount `Prelude.seq`
+      Prelude.rnf disableAutomatedBackup `Prelude.seq`
+        Prelude.rnf preferredBackupWindow `Prelude.seq`
+          Prelude.rnf preferredMaintenanceWindow `Prelude.seq`
+            Prelude.rnf serverName
 
 instance Data.ToHeaders UpdateServer where
   toHeaders =
@@ -226,5 +226,5 @@ updateServerResponse_httpStatus = Lens.lens (\UpdateServerResponse' {httpStatus}
 
 instance Prelude.NFData UpdateServerResponse where
   rnf UpdateServerResponse' {..} =
-    Prelude.rnf server
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf server `Prelude.seq`
+      Prelude.rnf httpStatus

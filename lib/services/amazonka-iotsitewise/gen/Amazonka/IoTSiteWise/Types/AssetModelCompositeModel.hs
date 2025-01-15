@@ -124,11 +124,11 @@ instance Prelude.Hashable AssetModelCompositeModel where
 
 instance Prelude.NFData AssetModelCompositeModel where
   rnf AssetModelCompositeModel' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf properties
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf properties `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf type'
 
 instance Data.ToJSON AssetModelCompositeModel where
   toJSON AssetModelCompositeModel' {..} =

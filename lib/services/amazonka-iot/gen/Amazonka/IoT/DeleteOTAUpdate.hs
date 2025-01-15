@@ -136,9 +136,9 @@ instance Prelude.Hashable DeleteOTAUpdate where
 
 instance Prelude.NFData DeleteOTAUpdate where
   rnf DeleteOTAUpdate' {..} =
-    Prelude.rnf deleteStream
-      `Prelude.seq` Prelude.rnf forceDeleteAWSJob
-      `Prelude.seq` Prelude.rnf otaUpdateId
+    Prelude.rnf deleteStream `Prelude.seq`
+      Prelude.rnf forceDeleteAWSJob `Prelude.seq`
+        Prelude.rnf otaUpdateId
 
 instance Data.ToHeaders DeleteOTAUpdate where
   toHeaders = Prelude.const Prelude.mempty

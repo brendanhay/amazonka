@@ -108,8 +108,8 @@ instance Prelude.Hashable PlacementGroupConfig where
 
 instance Prelude.NFData PlacementGroupConfig where
   rnf PlacementGroupConfig' {..} =
-    Prelude.rnf placementStrategy
-      `Prelude.seq` Prelude.rnf instanceRole
+    Prelude.rnf placementStrategy `Prelude.seq`
+      Prelude.rnf instanceRole
 
 instance Data.ToJSON PlacementGroupConfig where
   toJSON PlacementGroupConfig' {..} =

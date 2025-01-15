@@ -171,10 +171,10 @@ instance Prelude.Hashable ListMedicalVocabularies where
 
 instance Prelude.NFData ListMedicalVocabularies where
   rnf ListMedicalVocabularies' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nameContains
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf stateEquals
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nameContains `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf stateEquals
 
 instance Data.ToHeaders ListMedicalVocabularies where
   toHeaders =
@@ -291,7 +291,7 @@ instance
     ListMedicalVocabulariesResponse
   where
   rnf ListMedicalVocabulariesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf vocabularies
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf vocabularies `Prelude.seq`
+          Prelude.rnf httpStatus

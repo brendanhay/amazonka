@@ -190,12 +190,12 @@ instance Prelude.Hashable DeliveryChannel where
 
 instance Prelude.NFData DeliveryChannel where
   rnf DeliveryChannel' {..} =
-    Prelude.rnf configSnapshotDeliveryProperties
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf s3BucketName
-      `Prelude.seq` Prelude.rnf s3KeyPrefix
-      `Prelude.seq` Prelude.rnf s3KmsKeyArn
-      `Prelude.seq` Prelude.rnf snsTopicARN
+    Prelude.rnf configSnapshotDeliveryProperties `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf s3BucketName `Prelude.seq`
+          Prelude.rnf s3KeyPrefix `Prelude.seq`
+            Prelude.rnf s3KmsKeyArn `Prelude.seq`
+              Prelude.rnf snsTopicARN
 
 instance Data.ToJSON DeliveryChannel where
   toJSON DeliveryChannel' {..} =

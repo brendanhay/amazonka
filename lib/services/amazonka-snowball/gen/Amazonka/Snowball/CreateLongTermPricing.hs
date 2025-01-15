@@ -135,9 +135,9 @@ instance Prelude.Hashable CreateLongTermPricing where
 
 instance Prelude.NFData CreateLongTermPricing where
   rnf CreateLongTermPricing' {..} =
-    Prelude.rnf isLongTermPricingAutoRenew
-      `Prelude.seq` Prelude.rnf snowballType
-      `Prelude.seq` Prelude.rnf longTermPricingType
+    Prelude.rnf isLongTermPricingAutoRenew `Prelude.seq`
+      Prelude.rnf snowballType `Prelude.seq`
+        Prelude.rnf longTermPricingType
 
 instance Data.ToHeaders CreateLongTermPricing where
   toHeaders =
@@ -213,5 +213,5 @@ createLongTermPricingResponse_httpStatus = Lens.lens (\CreateLongTermPricingResp
 
 instance Prelude.NFData CreateLongTermPricingResponse where
   rnf CreateLongTermPricingResponse' {..} =
-    Prelude.rnf longTermPricingId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf longTermPricingId `Prelude.seq`
+      Prelude.rnf httpStatus

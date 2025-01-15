@@ -105,6 +105,6 @@ instance
     ExperimentTemplateLogConfiguration
   where
   rnf ExperimentTemplateLogConfiguration' {..} =
-    Prelude.rnf cloudWatchLogsConfiguration
-      `Prelude.seq` Prelude.rnf logSchemaVersion
-      `Prelude.seq` Prelude.rnf s3Configuration
+    Prelude.rnf cloudWatchLogsConfiguration `Prelude.seq`
+      Prelude.rnf logSchemaVersion `Prelude.seq`
+        Prelude.rnf s3Configuration

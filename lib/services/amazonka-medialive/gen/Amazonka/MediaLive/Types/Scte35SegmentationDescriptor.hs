@@ -255,17 +255,17 @@ instance
 
 instance Prelude.NFData Scte35SegmentationDescriptor where
   rnf Scte35SegmentationDescriptor' {..} =
-    Prelude.rnf deliveryRestrictions
-      `Prelude.seq` Prelude.rnf segmentNum
-      `Prelude.seq` Prelude.rnf segmentationDuration
-      `Prelude.seq` Prelude.rnf segmentationTypeId
-      `Prelude.seq` Prelude.rnf segmentationUpid
-      `Prelude.seq` Prelude.rnf segmentationUpidType
-      `Prelude.seq` Prelude.rnf segmentsExpected
-      `Prelude.seq` Prelude.rnf subSegmentNum
-      `Prelude.seq` Prelude.rnf subSegmentsExpected
-      `Prelude.seq` Prelude.rnf segmentationEventId
-      `Prelude.seq` Prelude.rnf segmentationCancelIndicator
+    Prelude.rnf deliveryRestrictions `Prelude.seq`
+      Prelude.rnf segmentNum `Prelude.seq`
+        Prelude.rnf segmentationDuration `Prelude.seq`
+          Prelude.rnf segmentationTypeId `Prelude.seq`
+            Prelude.rnf segmentationUpid `Prelude.seq`
+              Prelude.rnf segmentationUpidType `Prelude.seq`
+                Prelude.rnf segmentsExpected `Prelude.seq`
+                  Prelude.rnf subSegmentNum `Prelude.seq`
+                    Prelude.rnf subSegmentsExpected `Prelude.seq`
+                      Prelude.rnf segmentationEventId `Prelude.seq`
+                        Prelude.rnf segmentationCancelIndicator
 
 instance Data.ToJSON Scte35SegmentationDescriptor where
   toJSON Scte35SegmentationDescriptor' {..} =

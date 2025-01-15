@@ -222,13 +222,13 @@ instance
     UpdateOntapVolumeConfiguration
   where
   rnf UpdateOntapVolumeConfiguration' {..} =
-    Prelude.rnf copyTagsToBackups
-      `Prelude.seq` Prelude.rnf junctionPath
-      `Prelude.seq` Prelude.rnf securityStyle
-      `Prelude.seq` Prelude.rnf sizeInMegabytes
-      `Prelude.seq` Prelude.rnf snapshotPolicy
-      `Prelude.seq` Prelude.rnf storageEfficiencyEnabled
-      `Prelude.seq` Prelude.rnf tieringPolicy
+    Prelude.rnf copyTagsToBackups `Prelude.seq`
+      Prelude.rnf junctionPath `Prelude.seq`
+        Prelude.rnf securityStyle `Prelude.seq`
+          Prelude.rnf sizeInMegabytes `Prelude.seq`
+            Prelude.rnf snapshotPolicy `Prelude.seq`
+              Prelude.rnf storageEfficiencyEnabled `Prelude.seq`
+                Prelude.rnf tieringPolicy
 
 instance Data.ToJSON UpdateOntapVolumeConfiguration where
   toJSON UpdateOntapVolumeConfiguration' {..} =

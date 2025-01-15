@@ -89,8 +89,8 @@ instance Prelude.Hashable IoTJobRateIncreaseCriteria where
 
 instance Prelude.NFData IoTJobRateIncreaseCriteria where
   rnf IoTJobRateIncreaseCriteria' {..} =
-    Prelude.rnf numberOfNotifiedThings
-      `Prelude.seq` Prelude.rnf numberOfSucceededThings
+    Prelude.rnf numberOfNotifiedThings `Prelude.seq`
+      Prelude.rnf numberOfSucceededThings
 
 instance Data.ToJSON IoTJobRateIncreaseCriteria where
   toJSON IoTJobRateIncreaseCriteria' {..} =

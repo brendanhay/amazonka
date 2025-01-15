@@ -158,11 +158,11 @@ instance Prelude.Hashable GetAccessControlEffect where
 
 instance Prelude.NFData GetAccessControlEffect where
   rnf GetAccessControlEffect' {..} =
-    Prelude.rnf impersonationRoleId
-      `Prelude.seq` Prelude.rnf userId
-      `Prelude.seq` Prelude.rnf organizationId
-      `Prelude.seq` Prelude.rnf ipAddress
-      `Prelude.seq` Prelude.rnf action
+    Prelude.rnf impersonationRoleId `Prelude.seq`
+      Prelude.rnf userId `Prelude.seq`
+        Prelude.rnf organizationId `Prelude.seq`
+          Prelude.rnf ipAddress `Prelude.seq`
+            Prelude.rnf action
 
 instance Data.ToHeaders GetAccessControlEffect where
   toHeaders =
@@ -252,6 +252,6 @@ instance
     GetAccessControlEffectResponse
   where
   rnf GetAccessControlEffectResponse' {..} =
-    Prelude.rnf effect
-      `Prelude.seq` Prelude.rnf matchedRules
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf effect `Prelude.seq`
+      Prelude.rnf matchedRules `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -131,9 +131,9 @@ instance Prelude.Hashable RecipeSummary where
 
 instance Prelude.NFData RecipeSummary where
   rnf RecipeSummary' {..} =
-    Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf recipeArn
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf creationDateTime `Prelude.seq`
+      Prelude.rnf domain `Prelude.seq`
+        Prelude.rnf lastUpdatedDateTime `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf recipeArn `Prelude.seq`
+              Prelude.rnf status

@@ -212,5 +212,5 @@ putTraceSegmentsResponse_httpStatus = Lens.lens (\PutTraceSegmentsResponse' {htt
 
 instance Prelude.NFData PutTraceSegmentsResponse where
   rnf PutTraceSegmentsResponse' {..} =
-    Prelude.rnf unprocessedTraceSegments
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf unprocessedTraceSegments `Prelude.seq`
+      Prelude.rnf httpStatus

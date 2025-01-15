@@ -144,13 +144,13 @@ instance Prelude.Hashable ObdInterface where
 
 instance Prelude.NFData ObdInterface where
   rnf ObdInterface' {..} =
-    Prelude.rnf dtcRequestIntervalSeconds
-      `Prelude.seq` Prelude.rnf hasTransmissionEcu
-      `Prelude.seq` Prelude.rnf obdStandard
-      `Prelude.seq` Prelude.rnf pidRequestIntervalSeconds
-      `Prelude.seq` Prelude.rnf useExtendedIds
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf requestMessageId
+    Prelude.rnf dtcRequestIntervalSeconds `Prelude.seq`
+      Prelude.rnf hasTransmissionEcu `Prelude.seq`
+        Prelude.rnf obdStandard `Prelude.seq`
+          Prelude.rnf pidRequestIntervalSeconds `Prelude.seq`
+            Prelude.rnf useExtendedIds `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf requestMessageId
 
 instance Data.ToJSON ObdInterface where
   toJSON ObdInterface' {..} =

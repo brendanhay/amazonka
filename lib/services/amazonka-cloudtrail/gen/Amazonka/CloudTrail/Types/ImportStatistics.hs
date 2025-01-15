@@ -118,8 +118,8 @@ instance Prelude.Hashable ImportStatistics where
 
 instance Prelude.NFData ImportStatistics where
   rnf ImportStatistics' {..} =
-    Prelude.rnf eventsCompleted
-      `Prelude.seq` Prelude.rnf failedEntries
-      `Prelude.seq` Prelude.rnf filesCompleted
-      `Prelude.seq` Prelude.rnf prefixesCompleted
-      `Prelude.seq` Prelude.rnf prefixesFound
+    Prelude.rnf eventsCompleted `Prelude.seq`
+      Prelude.rnf failedEntries `Prelude.seq`
+        Prelude.rnf filesCompleted `Prelude.seq`
+          Prelude.rnf prefixesCompleted `Prelude.seq`
+            Prelude.rnf prefixesFound

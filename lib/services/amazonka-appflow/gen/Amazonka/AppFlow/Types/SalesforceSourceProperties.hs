@@ -227,10 +227,10 @@ instance Prelude.Hashable SalesforceSourceProperties where
 
 instance Prelude.NFData SalesforceSourceProperties where
   rnf SalesforceSourceProperties' {..} =
-    Prelude.rnf dataTransferApi
-      `Prelude.seq` Prelude.rnf enableDynamicFieldUpdate
-      `Prelude.seq` Prelude.rnf includeDeletedRecords
-      `Prelude.seq` Prelude.rnf object'
+    Prelude.rnf dataTransferApi `Prelude.seq`
+      Prelude.rnf enableDynamicFieldUpdate `Prelude.seq`
+        Prelude.rnf includeDeletedRecords `Prelude.seq`
+          Prelude.rnf object'
 
 instance Data.ToJSON SalesforceSourceProperties where
   toJSON SalesforceSourceProperties' {..} =

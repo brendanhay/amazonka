@@ -193,13 +193,13 @@ instance Prelude.Hashable SchemaAttributeType where
 
 instance Prelude.NFData SchemaAttributeType where
   rnf SchemaAttributeType' {..} =
-    Prelude.rnf attributeDataType
-      `Prelude.seq` Prelude.rnf developerOnlyAttribute
-      `Prelude.seq` Prelude.rnf mutable
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf numberAttributeConstraints
-      `Prelude.seq` Prelude.rnf required
-      `Prelude.seq` Prelude.rnf stringAttributeConstraints
+    Prelude.rnf attributeDataType `Prelude.seq`
+      Prelude.rnf developerOnlyAttribute `Prelude.seq`
+        Prelude.rnf mutable `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf numberAttributeConstraints `Prelude.seq`
+              Prelude.rnf required `Prelude.seq`
+                Prelude.rnf stringAttributeConstraints
 
 instance Data.ToJSON SchemaAttributeType where
   toJSON SchemaAttributeType' {..} =

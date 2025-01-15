@@ -91,6 +91,6 @@ instance Prelude.Hashable BatchSuccessfulResultModel where
 
 instance Prelude.NFData BatchSuccessfulResultModel where
   rnf BatchSuccessfulResultModel' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf state

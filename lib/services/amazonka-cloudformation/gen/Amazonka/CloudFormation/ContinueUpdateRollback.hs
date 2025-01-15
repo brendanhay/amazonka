@@ -314,10 +314,10 @@ instance Prelude.Hashable ContinueUpdateRollback where
 
 instance Prelude.NFData ContinueUpdateRollback where
   rnf ContinueUpdateRollback' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf resourcesToSkip
-      `Prelude.seq` Prelude.rnf roleARN
-      `Prelude.seq` Prelude.rnf stackName
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf resourcesToSkip `Prelude.seq`
+        Prelude.rnf roleARN `Prelude.seq`
+          Prelude.rnf stackName
 
 instance Data.ToHeaders ContinueUpdateRollback where
   toHeaders = Prelude.const Prelude.mempty

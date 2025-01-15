@@ -617,13 +617,13 @@ instance Prelude.Hashable ScalingPolicy where
 
 instance Prelude.NFData ScalingPolicy where
   rnf ScalingPolicy' {..} =
-    Prelude.rnf alarms
-      `Prelude.seq` Prelude.rnf stepScalingPolicyConfiguration
-      `Prelude.seq` Prelude.rnf targetTrackingScalingPolicyConfiguration
-      `Prelude.seq` Prelude.rnf policyARN
-      `Prelude.seq` Prelude.rnf policyName
-      `Prelude.seq` Prelude.rnf serviceNamespace
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf scalableDimension
-      `Prelude.seq` Prelude.rnf policyType
-      `Prelude.seq` Prelude.rnf creationTime
+    Prelude.rnf alarms `Prelude.seq`
+      Prelude.rnf stepScalingPolicyConfiguration `Prelude.seq`
+        Prelude.rnf targetTrackingScalingPolicyConfiguration `Prelude.seq`
+          Prelude.rnf policyARN `Prelude.seq`
+            Prelude.rnf policyName `Prelude.seq`
+              Prelude.rnf serviceNamespace `Prelude.seq`
+                Prelude.rnf resourceId `Prelude.seq`
+                  Prelude.rnf scalableDimension `Prelude.seq`
+                    Prelude.rnf policyType `Prelude.seq`
+                      Prelude.rnf creationTime

@@ -133,8 +133,8 @@ instance
     DeleteTransitGatewayRouteTable
   where
   rnf DeleteTransitGatewayRouteTable' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf transitGatewayRouteTableId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf transitGatewayRouteTableId
 
 instance
   Data.ToHeaders
@@ -204,5 +204,5 @@ instance
     DeleteTransitGatewayRouteTableResponse
   where
   rnf DeleteTransitGatewayRouteTableResponse' {..} =
-    Prelude.rnf transitGatewayRouteTable
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf transitGatewayRouteTable `Prelude.seq`
+      Prelude.rnf httpStatus

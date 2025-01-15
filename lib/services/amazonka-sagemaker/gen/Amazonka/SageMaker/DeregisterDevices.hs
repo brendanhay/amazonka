@@ -101,8 +101,8 @@ instance Prelude.Hashable DeregisterDevices where
 
 instance Prelude.NFData DeregisterDevices where
   rnf DeregisterDevices' {..} =
-    Prelude.rnf deviceFleetName
-      `Prelude.seq` Prelude.rnf deviceNames
+    Prelude.rnf deviceFleetName `Prelude.seq`
+      Prelude.rnf deviceNames
 
 instance Data.ToHeaders DeregisterDevices where
   toHeaders =

@@ -118,8 +118,8 @@ instance
 
 instance Prelude.NFData DataQualityResultDescription where
   rnf DataQualityResultDescription' {..} =
-    Prelude.rnf dataSource
-      `Prelude.seq` Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf jobRunId
-      `Prelude.seq` Prelude.rnf resultId
-      `Prelude.seq` Prelude.rnf startedOn
+    Prelude.rnf dataSource `Prelude.seq`
+      Prelude.rnf jobName `Prelude.seq`
+        Prelude.rnf jobRunId `Prelude.seq`
+          Prelude.rnf resultId `Prelude.seq`
+            Prelude.rnf startedOn

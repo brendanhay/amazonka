@@ -136,8 +136,8 @@ instance Prelude.Hashable PutPolicy where
 
 instance Prelude.NFData PutPolicy where
   rnf PutPolicy' {..} =
-    Prelude.rnf tagList
-      `Prelude.seq` Prelude.rnf policy
+    Prelude.rnf tagList `Prelude.seq`
+      Prelude.rnf policy
 
 instance Data.ToHeaders PutPolicy where
   toHeaders =
@@ -216,6 +216,6 @@ putPolicyResponse_httpStatus = Lens.lens (\PutPolicyResponse' {httpStatus} -> ht
 
 instance Prelude.NFData PutPolicyResponse where
   rnf PutPolicyResponse' {..} =
-    Prelude.rnf policy
-      `Prelude.seq` Prelude.rnf policyArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf policy `Prelude.seq`
+      Prelude.rnf policyArn `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -129,10 +129,10 @@ instance Prelude.Hashable RequestMetadata where
 
 instance Prelude.NFData RequestMetadata where
   rnf RequestMetadata' {..} =
-    Prelude.rnf eventInfo
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf requester
-      `Prelude.seq` Prelude.rnf vendorName
+    Prelude.rnf eventInfo `Prelude.seq`
+      Prelude.rnf requestId `Prelude.seq`
+        Prelude.rnf requester `Prelude.seq`
+          Prelude.rnf vendorName
 
 instance Data.ToJSON RequestMetadata where
   toJSON RequestMetadata' {..} =

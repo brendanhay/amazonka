@@ -238,15 +238,15 @@ instance
   where
   rnf
     MaintenanceWindowExecutionTaskInvocationIdentity' {..} =
-      Prelude.rnf endTime
-        `Prelude.seq` Prelude.rnf executionId
-        `Prelude.seq` Prelude.rnf invocationId
-        `Prelude.seq` Prelude.rnf ownerInformation
-        `Prelude.seq` Prelude.rnf parameters
-        `Prelude.seq` Prelude.rnf startTime
-        `Prelude.seq` Prelude.rnf status
-        `Prelude.seq` Prelude.rnf statusDetails
-        `Prelude.seq` Prelude.rnf taskExecutionId
-        `Prelude.seq` Prelude.rnf taskType
-        `Prelude.seq` Prelude.rnf windowExecutionId
-        `Prelude.seq` Prelude.rnf windowTargetId
+      Prelude.rnf endTime `Prelude.seq`
+        Prelude.rnf executionId `Prelude.seq`
+          Prelude.rnf invocationId `Prelude.seq`
+            Prelude.rnf ownerInformation `Prelude.seq`
+              Prelude.rnf parameters `Prelude.seq`
+                Prelude.rnf startTime `Prelude.seq`
+                  Prelude.rnf status `Prelude.seq`
+                    Prelude.rnf statusDetails `Prelude.seq`
+                      Prelude.rnf taskExecutionId `Prelude.seq`
+                        Prelude.rnf taskType `Prelude.seq`
+                          Prelude.rnf windowExecutionId `Prelude.seq`
+                            Prelude.rnf windowTargetId

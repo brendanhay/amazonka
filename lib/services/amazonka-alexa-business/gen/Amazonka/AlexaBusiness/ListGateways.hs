@@ -120,9 +120,9 @@ instance Prelude.Hashable ListGateways where
 
 instance Prelude.NFData ListGateways where
   rnf ListGateways' {..} =
-    Prelude.rnf gatewayGroupArn
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf gatewayGroupArn `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListGateways where
   toHeaders =
@@ -205,6 +205,6 @@ listGatewaysResponse_httpStatus = Lens.lens (\ListGatewaysResponse' {httpStatus}
 
 instance Prelude.NFData ListGatewaysResponse where
   rnf ListGatewaysResponse' {..} =
-    Prelude.rnf gateways
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf gateways `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

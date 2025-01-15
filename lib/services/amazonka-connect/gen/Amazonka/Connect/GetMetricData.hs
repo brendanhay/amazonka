@@ -676,12 +676,12 @@ instance Core.AWSPager GetMetricData where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getMetricData_nextToken
-          Lens..~ rs
-          Lens.^? getMetricDataResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getMetricData_nextToken
+              Lens..~ rs
+              Lens.^? getMetricDataResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetMetricData where
   type
@@ -712,14 +712,14 @@ instance Prelude.Hashable GetMetricData where
 
 instance Prelude.NFData GetMetricData where
   rnf GetMetricData' {..} =
-    Prelude.rnf groupings
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf historicalMetrics
+    Prelude.rnf groupings `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf instanceId `Prelude.seq`
+            Prelude.rnf startTime `Prelude.seq`
+              Prelude.rnf endTime `Prelude.seq`
+                Prelude.rnf filters `Prelude.seq`
+                  Prelude.rnf historicalMetrics
 
 instance Data.ToHeaders GetMetricData where
   toHeaders =
@@ -826,6 +826,6 @@ getMetricDataResponse_httpStatus = Lens.lens (\GetMetricDataResponse' {httpStatu
 
 instance Prelude.NFData GetMetricDataResponse where
   rnf GetMetricDataResponse' {..} =
-    Prelude.rnf metricResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf metricResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

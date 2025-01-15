@@ -132,12 +132,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listWorkersWithQualificationType_nextToken
-          Lens..~ rs
-          Lens.^? listWorkersWithQualificationTypeResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listWorkersWithQualificationType_nextToken
+              Lens..~ rs
+              Lens.^? listWorkersWithQualificationTypeResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -176,10 +176,10 @@ instance
     ListWorkersWithQualificationType
   where
   rnf ListWorkersWithQualificationType' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf qualificationTypeId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf status `Prelude.seq`
+          Prelude.rnf qualificationTypeId
 
 instance
   Data.ToHeaders
@@ -285,7 +285,7 @@ instance
     ListWorkersWithQualificationTypeResponse
   where
   rnf ListWorkersWithQualificationTypeResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf numResults
-      `Prelude.seq` Prelude.rnf qualifications
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf numResults `Prelude.seq`
+        Prelude.rnf qualifications `Prelude.seq`
+          Prelude.rnf httpStatus

@@ -91,9 +91,9 @@ instance Prelude.Hashable USD where
 
 instance Prelude.NFData USD where
   rnf USD' {..} =
-    Prelude.rnf cents
-      `Prelude.seq` Prelude.rnf dollars
-      `Prelude.seq` Prelude.rnf tenthFractionsOfACent
+    Prelude.rnf cents `Prelude.seq`
+      Prelude.rnf dollars `Prelude.seq`
+        Prelude.rnf tenthFractionsOfACent
 
 instance Data.ToJSON USD where
   toJSON USD' {..} =

@@ -97,6 +97,6 @@ instance Prelude.Hashable LayoutSummary where
 
 instance Prelude.NFData LayoutSummary where
   rnf LayoutSummary' {..} =
-    Prelude.rnf layoutArn
-      `Prelude.seq` Prelude.rnf layoutId
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf layoutArn `Prelude.seq`
+      Prelude.rnf layoutId `Prelude.seq`
+        Prelude.rnf name

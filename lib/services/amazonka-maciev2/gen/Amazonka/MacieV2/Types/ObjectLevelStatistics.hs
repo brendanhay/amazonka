@@ -115,6 +115,6 @@ instance Prelude.Hashable ObjectLevelStatistics where
 
 instance Prelude.NFData ObjectLevelStatistics where
   rnf ObjectLevelStatistics' {..} =
-    Prelude.rnf fileType
-      `Prelude.seq` Prelude.rnf storageClass
-      `Prelude.seq` Prelude.rnf total
+    Prelude.rnf fileType `Prelude.seq`
+      Prelude.rnf storageClass `Prelude.seq`
+        Prelude.rnf total

@@ -143,9 +143,7 @@ instance Core.AWSRequest ValidateTemplate where
       "ValidateTemplateResult"
       ( \s h x ->
           ValidateTemplateResponse'
-            Prelude.<$> ( x
-                            Data..@? "Capabilities"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "Capabilities" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (x Data..@? "CapabilitiesReason")
@@ -155,9 +153,7 @@ instance Core.AWSRequest ValidateTemplate where
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (x Data..@? "Description")
-            Prelude.<*> ( x
-                            Data..@? "Parameters"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "Parameters" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -171,8 +167,8 @@ instance Prelude.Hashable ValidateTemplate where
 
 instance Prelude.NFData ValidateTemplate where
   rnf ValidateTemplate' {..} =
-    Prelude.rnf templateBody
-      `Prelude.seq` Prelude.rnf templateURL
+    Prelude.rnf templateBody `Prelude.seq`
+      Prelude.rnf templateURL
 
 instance Data.ToHeaders ValidateTemplate where
   toHeaders = Prelude.const Prelude.mempty
@@ -294,9 +290,9 @@ validateTemplateResponse_httpStatus = Lens.lens (\ValidateTemplateResponse' {htt
 
 instance Prelude.NFData ValidateTemplateResponse where
   rnf ValidateTemplateResponse' {..} =
-    Prelude.rnf capabilities
-      `Prelude.seq` Prelude.rnf capabilitiesReason
-      `Prelude.seq` Prelude.rnf declaredTransforms
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf capabilities `Prelude.seq`
+      Prelude.rnf capabilitiesReason `Prelude.seq`
+        Prelude.rnf declaredTransforms `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf parameters `Prelude.seq`
+              Prelude.rnf httpStatus

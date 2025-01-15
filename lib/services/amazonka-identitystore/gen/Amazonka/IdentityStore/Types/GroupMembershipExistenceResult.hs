@@ -108,6 +108,6 @@ instance
     GroupMembershipExistenceResult
   where
   rnf GroupMembershipExistenceResult' {..} =
-    Prelude.rnf groupId
-      `Prelude.seq` Prelude.rnf memberId
-      `Prelude.seq` Prelude.rnf membershipExists
+    Prelude.rnf groupId `Prelude.seq`
+      Prelude.rnf memberId `Prelude.seq`
+        Prelude.rnf membershipExists

@@ -327,16 +327,16 @@ instance Prelude.Hashable CreatePortal where
 
 instance Prelude.NFData CreatePortal where
   rnf CreatePortal' {..} =
-    Prelude.rnf alarms
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf notificationSenderEmail
-      `Prelude.seq` Prelude.rnf portalAuthMode
-      `Prelude.seq` Prelude.rnf portalDescription
-      `Prelude.seq` Prelude.rnf portalLogoImageFile
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf portalName
-      `Prelude.seq` Prelude.rnf portalContactEmail
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf alarms `Prelude.seq`
+      Prelude.rnf clientToken `Prelude.seq`
+        Prelude.rnf notificationSenderEmail `Prelude.seq`
+          Prelude.rnf portalAuthMode `Prelude.seq`
+            Prelude.rnf portalDescription `Prelude.seq`
+              Prelude.rnf portalLogoImageFile `Prelude.seq`
+                Prelude.rnf tags `Prelude.seq`
+                  Prelude.rnf portalName `Prelude.seq`
+                    Prelude.rnf portalContactEmail `Prelude.seq`
+                      Prelude.rnf roleArn
 
 instance Data.ToHeaders CreatePortal where
   toHeaders =
@@ -496,9 +496,9 @@ createPortalResponse_ssoApplicationId = Lens.lens (\CreatePortalResponse' {ssoAp
 
 instance Prelude.NFData CreatePortalResponse where
   rnf CreatePortalResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf portalId
-      `Prelude.seq` Prelude.rnf portalArn
-      `Prelude.seq` Prelude.rnf portalStartUrl
-      `Prelude.seq` Prelude.rnf portalStatus
-      `Prelude.seq` Prelude.rnf ssoApplicationId
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf portalId `Prelude.seq`
+        Prelude.rnf portalArn `Prelude.seq`
+          Prelude.rnf portalStartUrl `Prelude.seq`
+            Prelude.rnf portalStatus `Prelude.seq`
+              Prelude.rnf ssoApplicationId

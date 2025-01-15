@@ -118,8 +118,8 @@ instance Prelude.Hashable CancelQuery where
 
 instance Prelude.NFData CancelQuery where
   rnf CancelQuery' {..} =
-    Prelude.rnf eventDataStore
-      `Prelude.seq` Prelude.rnf queryId
+    Prelude.rnf eventDataStore `Prelude.seq`
+      Prelude.rnf queryId
 
 instance Data.ToHeaders CancelQuery where
   toHeaders =
@@ -211,6 +211,6 @@ cancelQueryResponse_queryStatus = Lens.lens (\CancelQueryResponse' {queryStatus}
 
 instance Prelude.NFData CancelQueryResponse where
   rnf CancelQueryResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf queryId
-      `Prelude.seq` Prelude.rnf queryStatus
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf queryId `Prelude.seq`
+        Prelude.rnf queryStatus

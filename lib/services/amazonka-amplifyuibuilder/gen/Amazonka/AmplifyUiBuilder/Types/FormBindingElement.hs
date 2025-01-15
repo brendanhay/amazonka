@@ -84,8 +84,8 @@ instance Prelude.Hashable FormBindingElement where
 
 instance Prelude.NFData FormBindingElement where
   rnf FormBindingElement' {..} =
-    Prelude.rnf element
-      `Prelude.seq` Prelude.rnf property
+    Prelude.rnf element `Prelude.seq`
+      Prelude.rnf property
 
 instance Data.ToJSON FormBindingElement where
   toJSON FormBindingElement' {..} =

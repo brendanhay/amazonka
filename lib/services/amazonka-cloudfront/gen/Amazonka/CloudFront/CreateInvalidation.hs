@@ -117,8 +117,8 @@ instance Prelude.Hashable CreateInvalidation where
 
 instance Prelude.NFData CreateInvalidation where
   rnf CreateInvalidation' {..} =
-    Prelude.rnf distributionId
-      `Prelude.seq` Prelude.rnf invalidationBatch
+    Prelude.rnf distributionId `Prelude.seq`
+      Prelude.rnf invalidationBatch
 
 instance Data.ToElement CreateInvalidation where
   toElement CreateInvalidation' {..} =
@@ -195,6 +195,6 @@ createInvalidationResponse_httpStatus = Lens.lens (\CreateInvalidationResponse' 
 
 instance Prelude.NFData CreateInvalidationResponse where
   rnf CreateInvalidationResponse' {..} =
-    Prelude.rnf invalidation
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf invalidation `Prelude.seq`
+      Prelude.rnf location `Prelude.seq`
+        Prelude.rnf httpStatus

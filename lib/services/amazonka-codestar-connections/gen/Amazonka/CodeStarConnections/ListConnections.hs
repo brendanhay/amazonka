@@ -145,10 +145,10 @@ instance Prelude.Hashable ListConnections where
 
 instance Prelude.NFData ListConnections where
   rnf ListConnections' {..} =
-    Prelude.rnf hostArnFilter
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf providerTypeFilter
+    Prelude.rnf hostArnFilter `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf providerTypeFilter
 
 instance Data.ToHeaders ListConnections where
   toHeaders =
@@ -242,6 +242,6 @@ listConnectionsResponse_httpStatus = Lens.lens (\ListConnectionsResponse' {httpS
 
 instance Prelude.NFData ListConnectionsResponse where
   rnf ListConnectionsResponse' {..} =
-    Prelude.rnf connections
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf connections `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

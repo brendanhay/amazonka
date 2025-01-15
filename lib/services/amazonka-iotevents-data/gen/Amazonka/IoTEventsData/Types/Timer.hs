@@ -84,5 +84,5 @@ instance Prelude.Hashable Timer where
 
 instance Prelude.NFData Timer where
   rnf Timer' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf timestamp
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf timestamp

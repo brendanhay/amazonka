@@ -100,10 +100,10 @@ instance Prelude.Hashable DatastoreFilter where
 
 instance Prelude.NFData DatastoreFilter where
   rnf DatastoreFilter' {..} =
-    Prelude.rnf createdAfter
-      `Prelude.seq` Prelude.rnf createdBefore
-      `Prelude.seq` Prelude.rnf datastoreName
-      `Prelude.seq` Prelude.rnf datastoreStatus
+    Prelude.rnf createdAfter `Prelude.seq`
+      Prelude.rnf createdBefore `Prelude.seq`
+        Prelude.rnf datastoreName `Prelude.seq`
+          Prelude.rnf datastoreStatus
 
 instance Data.ToJSON DatastoreFilter where
   toJSON DatastoreFilter' {..} =

@@ -203,13 +203,13 @@ instance Prelude.Hashable AppMonitor where
 
 instance Prelude.NFData AppMonitor where
   rnf AppMonitor' {..} =
-    Prelude.rnf appMonitorConfiguration
-      `Prelude.seq` Prelude.rnf created
-      `Prelude.seq` Prelude.rnf customEvents
-      `Prelude.seq` Prelude.rnf dataStorage
-      `Prelude.seq` Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf lastModified
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf appMonitorConfiguration `Prelude.seq`
+      Prelude.rnf created `Prelude.seq`
+        Prelude.rnf customEvents `Prelude.seq`
+          Prelude.rnf dataStorage `Prelude.seq`
+            Prelude.rnf domain `Prelude.seq`
+              Prelude.rnf id `Prelude.seq`
+                Prelude.rnf lastModified `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf state `Prelude.seq`
+                      Prelude.rnf tags

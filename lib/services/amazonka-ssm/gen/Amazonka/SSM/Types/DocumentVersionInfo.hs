@@ -198,13 +198,13 @@ instance Prelude.Hashable DocumentVersionInfo where
 
 instance Prelude.NFData DocumentVersionInfo where
   rnf DocumentVersionInfo' {..} =
-    Prelude.rnf createdDate
-      `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf documentFormat
-      `Prelude.seq` Prelude.rnf documentVersion
-      `Prelude.seq` Prelude.rnf isDefaultVersion
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf reviewStatus
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusInformation
-      `Prelude.seq` Prelude.rnf versionName
+    Prelude.rnf createdDate `Prelude.seq`
+      Prelude.rnf displayName `Prelude.seq`
+        Prelude.rnf documentFormat `Prelude.seq`
+          Prelude.rnf documentVersion `Prelude.seq`
+            Prelude.rnf isDefaultVersion `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf reviewStatus `Prelude.seq`
+                  Prelude.rnf status `Prelude.seq`
+                    Prelude.rnf statusInformation `Prelude.seq`
+                      Prelude.rnf versionName

@@ -112,8 +112,8 @@ instance Prelude.Hashable DeleteSamplingRule where
 
 instance Prelude.NFData DeleteSamplingRule where
   rnf DeleteSamplingRule' {..} =
-    Prelude.rnf ruleARN
-      `Prelude.seq` Prelude.rnf ruleName
+    Prelude.rnf ruleARN `Prelude.seq`
+      Prelude.rnf ruleName
 
 instance Data.ToHeaders DeleteSamplingRule where
   toHeaders = Prelude.const Prelude.mempty
@@ -174,5 +174,5 @@ deleteSamplingRuleResponse_httpStatus = Lens.lens (\DeleteSamplingRuleResponse' 
 
 instance Prelude.NFData DeleteSamplingRuleResponse where
   rnf DeleteSamplingRuleResponse' {..} =
-    Prelude.rnf samplingRuleRecord
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf samplingRuleRecord `Prelude.seq`
+      Prelude.rnf httpStatus

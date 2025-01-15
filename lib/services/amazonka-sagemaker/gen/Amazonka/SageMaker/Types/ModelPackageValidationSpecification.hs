@@ -108,8 +108,8 @@ instance
     ModelPackageValidationSpecification
   where
   rnf ModelPackageValidationSpecification' {..} =
-    Prelude.rnf validationRole
-      `Prelude.seq` Prelude.rnf validationProfiles
+    Prelude.rnf validationRole `Prelude.seq`
+      Prelude.rnf validationProfiles
 
 instance
   Data.ToJSON

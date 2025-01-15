@@ -114,8 +114,8 @@ instance Prelude.Hashable BatchPutPropertyValues where
 
 instance Prelude.NFData BatchPutPropertyValues where
   rnf BatchPutPropertyValues' {..} =
-    Prelude.rnf workspaceId
-      `Prelude.seq` Prelude.rnf entries
+    Prelude.rnf workspaceId `Prelude.seq`
+      Prelude.rnf entries
 
 instance Data.ToHeaders BatchPutPropertyValues where
   toHeaders =
@@ -195,5 +195,5 @@ instance
     BatchPutPropertyValuesResponse
   where
   rnf BatchPutPropertyValuesResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf errorEntries
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf errorEntries

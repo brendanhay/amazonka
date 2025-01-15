@@ -115,8 +115,8 @@ instance Prelude.Hashable DeregisterFromWorkMail where
 
 instance Prelude.NFData DeregisterFromWorkMail where
   rnf DeregisterFromWorkMail' {..} =
-    Prelude.rnf organizationId
-      `Prelude.seq` Prelude.rnf entityId
+    Prelude.rnf organizationId `Prelude.seq`
+      Prelude.rnf entityId
 
 instance Data.ToHeaders DeregisterFromWorkMail where
   toHeaders =

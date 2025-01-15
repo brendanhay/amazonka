@@ -157,12 +157,12 @@ instance Prelude.Hashable OpsItemRelatedItemSummary where
 
 instance Prelude.NFData OpsItemRelatedItemSummary where
   rnf OpsItemRelatedItemSummary' {..} =
-    Prelude.rnf associationId
-      `Prelude.seq` Prelude.rnf associationType
-      `Prelude.seq` Prelude.rnf createdBy
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf lastModifiedBy
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf opsItemId
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf resourceUri
+    Prelude.rnf associationId `Prelude.seq`
+      Prelude.rnf associationType `Prelude.seq`
+        Prelude.rnf createdBy `Prelude.seq`
+          Prelude.rnf createdTime `Prelude.seq`
+            Prelude.rnf lastModifiedBy `Prelude.seq`
+              Prelude.rnf lastModifiedTime `Prelude.seq`
+                Prelude.rnf opsItemId `Prelude.seq`
+                  Prelude.rnf resourceType `Prelude.seq`
+                    Prelude.rnf resourceUri

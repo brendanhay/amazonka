@@ -177,12 +177,12 @@ instance Prelude.Hashable CreateContactFlowModule where
 
 instance Prelude.NFData CreateContactFlowModule where
   rnf CreateContactFlowModule' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf content
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf instanceId `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf content
 
 instance Data.ToHeaders CreateContactFlowModule where
   toHeaders =
@@ -268,6 +268,6 @@ instance
     CreateContactFlowModuleResponse
   where
   rnf CreateContactFlowModuleResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -125,9 +125,9 @@ instance Prelude.Hashable DisassociateChannelFlow where
 
 instance Prelude.NFData DisassociateChannelFlow where
   rnf DisassociateChannelFlow' {..} =
-    Prelude.rnf channelArn
-      `Prelude.seq` Prelude.rnf channelFlowArn
-      `Prelude.seq` Prelude.rnf chimeBearer
+    Prelude.rnf channelArn `Prelude.seq`
+      Prelude.rnf channelFlowArn `Prelude.seq`
+        Prelude.rnf chimeBearer
 
 instance Data.ToHeaders DisassociateChannelFlow where
   toHeaders DisassociateChannelFlow' {..} =

@@ -274,25 +274,25 @@ instance Prelude.Hashable LoRaWANDeviceProfile where
 
 instance Prelude.NFData LoRaWANDeviceProfile where
   rnf LoRaWANDeviceProfile' {..} =
-    Prelude.rnf classBTimeout
-      `Prelude.seq` Prelude.rnf classCTimeout
-      `Prelude.seq` Prelude.rnf factoryPresetFreqsList
-      `Prelude.seq` Prelude.rnf macVersion
-      `Prelude.seq` Prelude.rnf maxDutyCycle
-      `Prelude.seq` Prelude.rnf maxEirp
-      `Prelude.seq` Prelude.rnf pingSlotDr
-      `Prelude.seq` Prelude.rnf pingSlotFreq
-      `Prelude.seq` Prelude.rnf pingSlotPeriod
-      `Prelude.seq` Prelude.rnf regParamsRevision
-      `Prelude.seq` Prelude.rnf rfRegion
-      `Prelude.seq` Prelude.rnf rxDataRate2
-      `Prelude.seq` Prelude.rnf rxDelay1
-      `Prelude.seq` Prelude.rnf rxDrOffset1
-      `Prelude.seq` Prelude.rnf rxFreq2
-      `Prelude.seq` Prelude.rnf supports32BitFCnt
-      `Prelude.seq` Prelude.rnf supportsClassB
-      `Prelude.seq` Prelude.rnf supportsClassC
-      `Prelude.seq` Prelude.rnf supportsJoin
+    Prelude.rnf classBTimeout `Prelude.seq`
+      Prelude.rnf classCTimeout `Prelude.seq`
+        Prelude.rnf factoryPresetFreqsList `Prelude.seq`
+          Prelude.rnf macVersion `Prelude.seq`
+            Prelude.rnf maxDutyCycle `Prelude.seq`
+              Prelude.rnf maxEirp `Prelude.seq`
+                Prelude.rnf pingSlotDr `Prelude.seq`
+                  Prelude.rnf pingSlotFreq `Prelude.seq`
+                    Prelude.rnf pingSlotPeriod `Prelude.seq`
+                      Prelude.rnf regParamsRevision `Prelude.seq`
+                        Prelude.rnf rfRegion `Prelude.seq`
+                          Prelude.rnf rxDataRate2 `Prelude.seq`
+                            Prelude.rnf rxDelay1 `Prelude.seq`
+                              Prelude.rnf rxDrOffset1 `Prelude.seq`
+                                Prelude.rnf rxFreq2 `Prelude.seq`
+                                  Prelude.rnf supports32BitFCnt `Prelude.seq`
+                                    Prelude.rnf supportsClassB `Prelude.seq`
+                                      Prelude.rnf supportsClassC `Prelude.seq`
+                                        Prelude.rnf supportsJoin
 
 instance Data.ToJSON LoRaWANDeviceProfile where
   toJSON LoRaWANDeviceProfile' {..} =

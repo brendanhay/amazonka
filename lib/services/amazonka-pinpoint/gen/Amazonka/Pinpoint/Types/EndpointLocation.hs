@@ -139,12 +139,12 @@ instance Prelude.Hashable EndpointLocation where
 
 instance Prelude.NFData EndpointLocation where
   rnf EndpointLocation' {..} =
-    Prelude.rnf city
-      `Prelude.seq` Prelude.rnf country
-      `Prelude.seq` Prelude.rnf latitude
-      `Prelude.seq` Prelude.rnf longitude
-      `Prelude.seq` Prelude.rnf postalCode
-      `Prelude.seq` Prelude.rnf region
+    Prelude.rnf city `Prelude.seq`
+      Prelude.rnf country `Prelude.seq`
+        Prelude.rnf latitude `Prelude.seq`
+          Prelude.rnf longitude `Prelude.seq`
+            Prelude.rnf postalCode `Prelude.seq`
+              Prelude.rnf region
 
 instance Data.ToJSON EndpointLocation where
   toJSON EndpointLocation' {..} =

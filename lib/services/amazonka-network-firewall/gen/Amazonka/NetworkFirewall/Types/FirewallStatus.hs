@@ -185,7 +185,7 @@ instance Prelude.Hashable FirewallStatus where
 
 instance Prelude.NFData FirewallStatus where
   rnf FirewallStatus' {..} =
-    Prelude.rnf capacityUsageSummary
-      `Prelude.seq` Prelude.rnf syncStates
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf configurationSyncStateSummary
+    Prelude.rnf capacityUsageSummary `Prelude.seq`
+      Prelude.rnf syncStates `Prelude.seq`
+        Prelude.rnf status `Prelude.seq`
+          Prelude.rnf configurationSyncStateSummary

@@ -81,5 +81,5 @@ instance Prelude.Hashable LaunchExecution where
 
 instance Prelude.NFData LaunchExecution where
   rnf LaunchExecution' {..} =
-    Prelude.rnf endedTime
-      `Prelude.seq` Prelude.rnf startedTime
+    Prelude.rnf endedTime `Prelude.seq`
+      Prelude.rnf startedTime

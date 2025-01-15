@@ -130,13 +130,13 @@ instance
     DataQualityRulesetFilterCriteria
   where
   rnf DataQualityRulesetFilterCriteria' {..} =
-    Prelude.rnf createdAfter
-      `Prelude.seq` Prelude.rnf createdBefore
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf lastModifiedAfter
-      `Prelude.seq` Prelude.rnf lastModifiedBefore
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf targetTable
+    Prelude.rnf createdAfter `Prelude.seq`
+      Prelude.rnf createdBefore `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf lastModifiedAfter `Prelude.seq`
+            Prelude.rnf lastModifiedBefore `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf targetTable
 
 instance Data.ToJSON DataQualityRulesetFilterCriteria where
   toJSON DataQualityRulesetFilterCriteria' {..} =

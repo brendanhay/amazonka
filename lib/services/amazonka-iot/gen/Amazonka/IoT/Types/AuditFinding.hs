@@ -191,14 +191,14 @@ instance Prelude.Hashable AuditFinding where
 
 instance Prelude.NFData AuditFinding where
   rnf AuditFinding' {..} =
-    Prelude.rnf checkName
-      `Prelude.seq` Prelude.rnf findingId
-      `Prelude.seq` Prelude.rnf findingTime
-      `Prelude.seq` Prelude.rnf isSuppressed
-      `Prelude.seq` Prelude.rnf nonCompliantResource
-      `Prelude.seq` Prelude.rnf reasonForNonCompliance
-      `Prelude.seq` Prelude.rnf reasonForNonComplianceCode
-      `Prelude.seq` Prelude.rnf relatedResources
-      `Prelude.seq` Prelude.rnf severity
-      `Prelude.seq` Prelude.rnf taskId
-      `Prelude.seq` Prelude.rnf taskStartTime
+    Prelude.rnf checkName `Prelude.seq`
+      Prelude.rnf findingId `Prelude.seq`
+        Prelude.rnf findingTime `Prelude.seq`
+          Prelude.rnf isSuppressed `Prelude.seq`
+            Prelude.rnf nonCompliantResource `Prelude.seq`
+              Prelude.rnf reasonForNonCompliance `Prelude.seq`
+                Prelude.rnf reasonForNonComplianceCode `Prelude.seq`
+                  Prelude.rnf relatedResources `Prelude.seq`
+                    Prelude.rnf severity `Prelude.seq`
+                      Prelude.rnf taskId `Prelude.seq`
+                        Prelude.rnf taskStartTime

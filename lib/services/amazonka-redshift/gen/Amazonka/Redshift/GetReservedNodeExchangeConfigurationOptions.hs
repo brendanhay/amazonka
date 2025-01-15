@@ -179,12 +179,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getReservedNodeExchangeConfigurationOptions_marker
-          Lens..~ rs
-          Lens.^? getReservedNodeExchangeConfigurationOptionsResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getReservedNodeExchangeConfigurationOptions_marker
+              Lens..~ rs
+              Lens.^? getReservedNodeExchangeConfigurationOptionsResponse_marker
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -232,11 +232,11 @@ instance
     GetReservedNodeExchangeConfigurationOptions
   where
   rnf GetReservedNodeExchangeConfigurationOptions' {..} =
-    Prelude.rnf clusterIdentifier
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf snapshotIdentifier
-      `Prelude.seq` Prelude.rnf actionType
+    Prelude.rnf clusterIdentifier `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf maxRecords `Prelude.seq`
+          Prelude.rnf snapshotIdentifier `Prelude.seq`
+            Prelude.rnf actionType
 
 instance
   Data.ToHeaders
@@ -339,6 +339,6 @@ instance
   where
   rnf
     GetReservedNodeExchangeConfigurationOptionsResponse' {..} =
-      Prelude.rnf marker
-        `Prelude.seq` Prelude.rnf reservedNodeConfigurationOptionList
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf reservedNodeConfigurationOptionList `Prelude.seq`
+          Prelude.rnf httpStatus

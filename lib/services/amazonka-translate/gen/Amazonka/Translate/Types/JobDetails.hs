@@ -96,6 +96,6 @@ instance Prelude.Hashable JobDetails where
 
 instance Prelude.NFData JobDetails where
   rnf JobDetails' {..} =
-    Prelude.rnf documentsWithErrorsCount
-      `Prelude.seq` Prelude.rnf inputDocumentsCount
-      `Prelude.seq` Prelude.rnf translatedDocumentsCount
+    Prelude.rnf documentsWithErrorsCount `Prelude.seq`
+      Prelude.rnf inputDocumentsCount `Prelude.seq`
+        Prelude.rnf translatedDocumentsCount

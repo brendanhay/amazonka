@@ -128,8 +128,8 @@ instance Prelude.Hashable DescribeResource where
 
 instance Prelude.NFData DescribeResource where
   rnf DescribeResource' {..} =
-    Prelude.rnf organizationId
-      `Prelude.seq` Prelude.rnf resourceId
+    Prelude.rnf organizationId `Prelude.seq`
+      Prelude.rnf resourceId
 
 instance Data.ToHeaders DescribeResource where
   toHeaders =
@@ -275,12 +275,12 @@ describeResourceResponse_httpStatus = Lens.lens (\DescribeResourceResponse' {htt
 
 instance Prelude.NFData DescribeResourceResponse where
   rnf DescribeResourceResponse' {..} =
-    Prelude.rnf bookingOptions
-      `Prelude.seq` Prelude.rnf disabledDate
-      `Prelude.seq` Prelude.rnf email
-      `Prelude.seq` Prelude.rnf enabledDate
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf bookingOptions `Prelude.seq`
+      Prelude.rnf disabledDate `Prelude.seq`
+        Prelude.rnf email `Prelude.seq`
+          Prelude.rnf enabledDate `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf resourceId `Prelude.seq`
+                Prelude.rnf state `Prelude.seq`
+                  Prelude.rnf type' `Prelude.seq`
+                    Prelude.rnf httpStatus

@@ -156,5 +156,5 @@ describeOfferingResponse_httpStatus = Lens.lens (\DescribeOfferingResponse' {htt
 
 instance Prelude.NFData DescribeOfferingResponse where
   rnf DescribeOfferingResponse' {..} =
-    Prelude.rnf offering
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf offering `Prelude.seq`
+      Prelude.rnf httpStatus

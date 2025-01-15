@@ -97,6 +97,6 @@ instance Prelude.Hashable Session where
 
 instance Prelude.NFData Session where
   rnf Session' {..} =
-    Prelude.rnf sessionId
-      `Prelude.seq` Prelude.rnf streamUrl
-      `Prelude.seq` Prelude.rnf tokenValue
+    Prelude.rnf sessionId `Prelude.seq`
+      Prelude.rnf streamUrl `Prelude.seq`
+        Prelude.rnf tokenValue

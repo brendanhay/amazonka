@@ -185,10 +185,10 @@ instance Prelude.Hashable GetInstancesHealthStatus where
 
 instance Prelude.NFData GetInstancesHealthStatus where
   rnf GetInstancesHealthStatus' {..} =
-    Prelude.rnf instances
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf serviceId
+    Prelude.rnf instances `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf serviceId
 
 instance Data.ToHeaders GetInstancesHealthStatus where
   toHeaders =
@@ -287,6 +287,6 @@ instance
     GetInstancesHealthStatusResponse
   where
   rnf GetInstancesHealthStatusResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf httpStatus

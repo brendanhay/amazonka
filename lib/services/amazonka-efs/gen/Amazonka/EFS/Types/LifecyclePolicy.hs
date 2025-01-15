@@ -106,8 +106,8 @@ instance Prelude.Hashable LifecyclePolicy where
 
 instance Prelude.NFData LifecyclePolicy where
   rnf LifecyclePolicy' {..} =
-    Prelude.rnf transitionToIA
-      `Prelude.seq` Prelude.rnf transitionToPrimaryStorageClass
+    Prelude.rnf transitionToIA `Prelude.seq`
+      Prelude.rnf transitionToPrimaryStorageClass
 
 instance Data.ToJSON LifecyclePolicy where
   toJSON LifecyclePolicy' {..} =

@@ -100,9 +100,9 @@ instance Prelude.Hashable Configuration where
 
 instance Prelude.NFData Configuration where
   rnf Configuration' {..} =
-    Prelude.rnf configurations
-      `Prelude.seq` Prelude.rnf properties
-      `Prelude.seq` Prelude.rnf classification
+    Prelude.rnf configurations `Prelude.seq`
+      Prelude.rnf properties `Prelude.seq`
+        Prelude.rnf classification
 
 instance Data.ToJSON Configuration where
   toJSON Configuration' {..} =

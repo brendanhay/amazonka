@@ -92,6 +92,6 @@ instance Prelude.Hashable ListedWorkflow where
 
 instance Prelude.NFData ListedWorkflow where
   rnf ListedWorkflow' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf workflowId
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf workflowId

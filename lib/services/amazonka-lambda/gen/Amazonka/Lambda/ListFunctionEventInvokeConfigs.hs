@@ -158,12 +158,12 @@ instance Core.AWSPager ListFunctionEventInvokeConfigs where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listFunctionEventInvokeConfigs_marker
-          Lens..~ rs
-          Lens.^? listFunctionEventInvokeConfigsResponse_nextMarker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listFunctionEventInvokeConfigs_marker
+              Lens..~ rs
+              Lens.^? listFunctionEventInvokeConfigsResponse_nextMarker
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -203,9 +203,9 @@ instance
     ListFunctionEventInvokeConfigs
   where
   rnf ListFunctionEventInvokeConfigs' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxItems
-      `Prelude.seq` Prelude.rnf functionName
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf maxItems `Prelude.seq`
+        Prelude.rnf functionName
 
 instance
   Data.ToHeaders
@@ -282,6 +282,6 @@ instance
     ListFunctionEventInvokeConfigsResponse
   where
   rnf ListFunctionEventInvokeConfigsResponse' {..} =
-    Prelude.rnf functionEventInvokeConfigs
-      `Prelude.seq` Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf functionEventInvokeConfigs `Prelude.seq`
+      Prelude.rnf nextMarker `Prelude.seq`
+        Prelude.rnf httpStatus

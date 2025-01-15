@@ -109,8 +109,8 @@ instance Prelude.Hashable DateRange where
 
 instance Prelude.NFData DateRange where
   rnf DateRange' {..} =
-    Prelude.rnf fromDate
-      `Prelude.seq` Prelude.rnf toDate
+    Prelude.rnf fromDate `Prelude.seq`
+      Prelude.rnf toDate
 
 instance Data.ToJSON DateRange where
   toJSON DateRange' {..} =

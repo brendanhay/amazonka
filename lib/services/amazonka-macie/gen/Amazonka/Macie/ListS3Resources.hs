@@ -132,12 +132,12 @@ instance Core.AWSPager ListS3Resources where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listS3Resources_nextToken
-          Lens..~ rs
-          Lens.^? listS3ResourcesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listS3Resources_nextToken
+              Lens..~ rs
+              Lens.^? listS3ResourcesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListS3Resources where
   type
@@ -163,9 +163,9 @@ instance Prelude.Hashable ListS3Resources where
 
 instance Prelude.NFData ListS3Resources where
   rnf ListS3Resources' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf memberAccountId
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf memberAccountId `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListS3Resources where
   toHeaders =
@@ -261,6 +261,6 @@ listS3ResourcesResponse_httpStatus = Lens.lens (\ListS3ResourcesResponse' {httpS
 
 instance Prelude.NFData ListS3ResourcesResponse where
   rnf ListS3ResourcesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf s3Resources
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf s3Resources `Prelude.seq`
+        Prelude.rnf httpStatus

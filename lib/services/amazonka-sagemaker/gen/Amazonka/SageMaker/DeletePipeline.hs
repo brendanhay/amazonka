@@ -119,8 +119,8 @@ instance Prelude.Hashable DeletePipeline where
 
 instance Prelude.NFData DeletePipeline where
   rnf DeletePipeline' {..} =
-    Prelude.rnf pipelineName
-      `Prelude.seq` Prelude.rnf clientRequestToken
+    Prelude.rnf pipelineName `Prelude.seq`
+      Prelude.rnf clientRequestToken
 
 instance Data.ToHeaders DeletePipeline where
   toHeaders =
@@ -192,5 +192,5 @@ deletePipelineResponse_httpStatus = Lens.lens (\DeletePipelineResponse' {httpSta
 
 instance Prelude.NFData DeletePipelineResponse where
   rnf DeletePipelineResponse' {..} =
-    Prelude.rnf pipelineArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf pipelineArn `Prelude.seq`
+      Prelude.rnf httpStatus

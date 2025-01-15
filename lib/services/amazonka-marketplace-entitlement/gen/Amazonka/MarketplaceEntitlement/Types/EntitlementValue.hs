@@ -115,7 +115,7 @@ instance Prelude.Hashable EntitlementValue where
 
 instance Prelude.NFData EntitlementValue where
   rnf EntitlementValue' {..} =
-    Prelude.rnf booleanValue
-      `Prelude.seq` Prelude.rnf doubleValue
-      `Prelude.seq` Prelude.rnf integerValue
-      `Prelude.seq` Prelude.rnf stringValue
+    Prelude.rnf booleanValue `Prelude.seq`
+      Prelude.rnf doubleValue `Prelude.seq`
+        Prelude.rnf integerValue `Prelude.seq`
+          Prelude.rnf stringValue

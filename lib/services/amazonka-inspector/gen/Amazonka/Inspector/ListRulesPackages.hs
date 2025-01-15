@@ -116,12 +116,12 @@ instance Core.AWSPager ListRulesPackages where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listRulesPackages_nextToken
-          Lens..~ rs
-          Lens.^? listRulesPackagesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listRulesPackages_nextToken
+              Lens..~ rs
+              Lens.^? listRulesPackagesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListRulesPackages where
   type
@@ -149,8 +149,8 @@ instance Prelude.Hashable ListRulesPackages where
 
 instance Prelude.NFData ListRulesPackages where
   rnf ListRulesPackages' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListRulesPackages where
   toHeaders =
@@ -244,6 +244,6 @@ listRulesPackagesResponse_rulesPackageArns = Lens.lens (\ListRulesPackagesRespon
 
 instance Prelude.NFData ListRulesPackagesResponse where
   rnf ListRulesPackagesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf rulesPackageArns
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf rulesPackageArns

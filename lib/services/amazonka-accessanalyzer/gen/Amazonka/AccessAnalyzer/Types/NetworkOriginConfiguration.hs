@@ -92,8 +92,8 @@ instance Prelude.Hashable NetworkOriginConfiguration where
 
 instance Prelude.NFData NetworkOriginConfiguration where
   rnf NetworkOriginConfiguration' {..} =
-    Prelude.rnf internetConfiguration
-      `Prelude.seq` Prelude.rnf vpcConfiguration
+    Prelude.rnf internetConfiguration `Prelude.seq`
+      Prelude.rnf vpcConfiguration
 
 instance Data.ToJSON NetworkOriginConfiguration where
   toJSON NetworkOriginConfiguration' {..} =

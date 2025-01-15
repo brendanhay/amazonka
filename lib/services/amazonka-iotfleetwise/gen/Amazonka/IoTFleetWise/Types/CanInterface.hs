@@ -93,9 +93,9 @@ instance Prelude.Hashable CanInterface where
 
 instance Prelude.NFData CanInterface where
   rnf CanInterface' {..} =
-    Prelude.rnf protocolName
-      `Prelude.seq` Prelude.rnf protocolVersion
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf protocolName `Prelude.seq`
+      Prelude.rnf protocolVersion `Prelude.seq`
+        Prelude.rnf name
 
 instance Data.ToJSON CanInterface where
   toJSON CanInterface' {..} =

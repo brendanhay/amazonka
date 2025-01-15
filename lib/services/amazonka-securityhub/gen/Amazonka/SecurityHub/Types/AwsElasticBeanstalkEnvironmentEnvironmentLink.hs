@@ -94,8 +94,8 @@ instance
   where
   rnf
     AwsElasticBeanstalkEnvironmentEnvironmentLink' {..} =
-      Prelude.rnf environmentName
-        `Prelude.seq` Prelude.rnf linkName
+      Prelude.rnf environmentName `Prelude.seq`
+        Prelude.rnf linkName
 
 instance
   Data.ToJSON

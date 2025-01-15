@@ -209,6 +209,6 @@ instance
 
 instance Prelude.NFData WindowsAuditLogConfiguration where
   rnf WindowsAuditLogConfiguration' {..} =
-    Prelude.rnf auditLogDestination
-      `Prelude.seq` Prelude.rnf fileAccessAuditLogLevel
-      `Prelude.seq` Prelude.rnf fileShareAccessAuditLogLevel
+    Prelude.rnf auditLogDestination `Prelude.seq`
+      Prelude.rnf fileAccessAuditLogLevel `Prelude.seq`
+        Prelude.rnf fileShareAccessAuditLogLevel

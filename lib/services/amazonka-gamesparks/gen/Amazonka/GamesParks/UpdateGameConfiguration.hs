@@ -111,8 +111,8 @@ instance Prelude.Hashable UpdateGameConfiguration where
 
 instance Prelude.NFData UpdateGameConfiguration where
   rnf UpdateGameConfiguration' {..} =
-    Prelude.rnf gameName
-      `Prelude.seq` Prelude.rnf modifications
+    Prelude.rnf gameName `Prelude.seq`
+      Prelude.rnf modifications
 
 instance Data.ToHeaders UpdateGameConfiguration where
   toHeaders =
@@ -186,5 +186,5 @@ instance
     UpdateGameConfigurationResponse
   where
   rnf UpdateGameConfigurationResponse' {..} =
-    Prelude.rnf gameConfiguration
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf gameConfiguration `Prelude.seq`
+      Prelude.rnf httpStatus

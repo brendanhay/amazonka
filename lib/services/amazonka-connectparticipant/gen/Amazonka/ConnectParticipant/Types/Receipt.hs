@@ -91,6 +91,6 @@ instance Prelude.Hashable Receipt where
 
 instance Prelude.NFData Receipt where
   rnf Receipt' {..} =
-    Prelude.rnf deliveredTimestamp
-      `Prelude.seq` Prelude.rnf readTimestamp
-      `Prelude.seq` Prelude.rnf recipientParticipantId
+    Prelude.rnf deliveredTimestamp `Prelude.seq`
+      Prelude.rnf readTimestamp `Prelude.seq`
+        Prelude.rnf recipientParticipantId

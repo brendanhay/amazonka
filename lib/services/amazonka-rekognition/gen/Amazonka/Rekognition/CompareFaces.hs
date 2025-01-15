@@ -270,10 +270,10 @@ instance Prelude.Hashable CompareFaces where
 
 instance Prelude.NFData CompareFaces where
   rnf CompareFaces' {..} =
-    Prelude.rnf qualityFilter
-      `Prelude.seq` Prelude.rnf similarityThreshold
-      `Prelude.seq` Prelude.rnf sourceImage
-      `Prelude.seq` Prelude.rnf targetImage
+    Prelude.rnf qualityFilter `Prelude.seq`
+      Prelude.rnf similarityThreshold `Prelude.seq`
+        Prelude.rnf sourceImage `Prelude.seq`
+          Prelude.rnf targetImage
 
 instance Data.ToHeaders CompareFaces where
   toHeaders =
@@ -478,9 +478,9 @@ compareFacesResponse_httpStatus = Lens.lens (\CompareFacesResponse' {httpStatus}
 
 instance Prelude.NFData CompareFacesResponse where
   rnf CompareFacesResponse' {..} =
-    Prelude.rnf faceMatches
-      `Prelude.seq` Prelude.rnf sourceImageFace
-      `Prelude.seq` Prelude.rnf sourceImageOrientationCorrection
-      `Prelude.seq` Prelude.rnf targetImageOrientationCorrection
-      `Prelude.seq` Prelude.rnf unmatchedFaces
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf faceMatches `Prelude.seq`
+      Prelude.rnf sourceImageFace `Prelude.seq`
+        Prelude.rnf sourceImageOrientationCorrection `Prelude.seq`
+          Prelude.rnf targetImageOrientationCorrection `Prelude.seq`
+            Prelude.rnf unmatchedFaces `Prelude.seq`
+              Prelude.rnf httpStatus

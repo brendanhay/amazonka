@@ -166,5 +166,5 @@ instance
     GetReusableDelegationSetResponse
   where
   rnf GetReusableDelegationSetResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf delegationSet
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf delegationSet

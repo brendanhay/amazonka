@@ -147,10 +147,10 @@ instance Prelude.Hashable CatalogItem where
 
 instance Prelude.NFData CatalogItem where
   rnf CatalogItem' {..} =
-    Prelude.rnf catalogItemId
-      `Prelude.seq` Prelude.rnf eC2Capacities
-      `Prelude.seq` Prelude.rnf itemStatus
-      `Prelude.seq` Prelude.rnf powerKva
-      `Prelude.seq` Prelude.rnf supportedStorage
-      `Prelude.seq` Prelude.rnf supportedUplinkGbps
-      `Prelude.seq` Prelude.rnf weightLbs
+    Prelude.rnf catalogItemId `Prelude.seq`
+      Prelude.rnf eC2Capacities `Prelude.seq`
+        Prelude.rnf itemStatus `Prelude.seq`
+          Prelude.rnf powerKva `Prelude.seq`
+            Prelude.rnf supportedStorage `Prelude.seq`
+              Prelude.rnf supportedUplinkGbps `Prelude.seq`
+                Prelude.rnf weightLbs

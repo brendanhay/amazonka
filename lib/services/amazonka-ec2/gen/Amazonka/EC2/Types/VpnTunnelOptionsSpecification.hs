@@ -529,25 +529,25 @@ instance
 
 instance Prelude.NFData VpnTunnelOptionsSpecification where
   rnf VpnTunnelOptionsSpecification' {..} =
-    Prelude.rnf dPDTimeoutAction
-      `Prelude.seq` Prelude.rnf dPDTimeoutSeconds
-      `Prelude.seq` Prelude.rnf iKEVersions
-      `Prelude.seq` Prelude.rnf logOptions
-      `Prelude.seq` Prelude.rnf phase1DHGroupNumbers
-      `Prelude.seq` Prelude.rnf phase1EncryptionAlgorithms
-      `Prelude.seq` Prelude.rnf phase1IntegrityAlgorithms
-      `Prelude.seq` Prelude.rnf phase1LifetimeSeconds
-      `Prelude.seq` Prelude.rnf phase2DHGroupNumbers
-      `Prelude.seq` Prelude.rnf phase2EncryptionAlgorithms
-      `Prelude.seq` Prelude.rnf phase2IntegrityAlgorithms
-      `Prelude.seq` Prelude.rnf phase2LifetimeSeconds
-      `Prelude.seq` Prelude.rnf preSharedKey
-      `Prelude.seq` Prelude.rnf rekeyFuzzPercentage
-      `Prelude.seq` Prelude.rnf rekeyMarginTimeSeconds
-      `Prelude.seq` Prelude.rnf replayWindowSize
-      `Prelude.seq` Prelude.rnf startupAction
-      `Prelude.seq` Prelude.rnf tunnelInsideCidr
-      `Prelude.seq` Prelude.rnf tunnelInsideIpv6Cidr
+    Prelude.rnf dPDTimeoutAction `Prelude.seq`
+      Prelude.rnf dPDTimeoutSeconds `Prelude.seq`
+        Prelude.rnf iKEVersions `Prelude.seq`
+          Prelude.rnf logOptions `Prelude.seq`
+            Prelude.rnf phase1DHGroupNumbers `Prelude.seq`
+              Prelude.rnf phase1EncryptionAlgorithms `Prelude.seq`
+                Prelude.rnf phase1IntegrityAlgorithms `Prelude.seq`
+                  Prelude.rnf phase1LifetimeSeconds `Prelude.seq`
+                    Prelude.rnf phase2DHGroupNumbers `Prelude.seq`
+                      Prelude.rnf phase2EncryptionAlgorithms `Prelude.seq`
+                        Prelude.rnf phase2IntegrityAlgorithms `Prelude.seq`
+                          Prelude.rnf phase2LifetimeSeconds `Prelude.seq`
+                            Prelude.rnf preSharedKey `Prelude.seq`
+                              Prelude.rnf rekeyFuzzPercentage `Prelude.seq`
+                                Prelude.rnf rekeyMarginTimeSeconds `Prelude.seq`
+                                  Prelude.rnf replayWindowSize `Prelude.seq`
+                                    Prelude.rnf startupAction `Prelude.seq`
+                                      Prelude.rnf tunnelInsideCidr `Prelude.seq`
+                                        Prelude.rnf tunnelInsideIpv6Cidr
 
 instance Data.ToQuery VpnTunnelOptionsSpecification where
   toQuery VpnTunnelOptionsSpecification' {..} =

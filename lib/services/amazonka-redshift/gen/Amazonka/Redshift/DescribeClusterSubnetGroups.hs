@@ -220,12 +220,12 @@ instance Core.AWSPager DescribeClusterSubnetGroups where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeClusterSubnetGroups_marker
-          Lens..~ rs
-          Lens.^? describeClusterSubnetGroupsResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeClusterSubnetGroups_marker
+              Lens..~ rs
+              Lens.^? describeClusterSubnetGroupsResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeClusterSubnetGroups where
   type
@@ -258,11 +258,11 @@ instance Prelude.Hashable DescribeClusterSubnetGroups where
 
 instance Prelude.NFData DescribeClusterSubnetGroups where
   rnf DescribeClusterSubnetGroups' {..} =
-    Prelude.rnf clusterSubnetGroupName
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf tagKeys
-      `Prelude.seq` Prelude.rnf tagValues
+    Prelude.rnf clusterSubnetGroupName `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf maxRecords `Prelude.seq`
+          Prelude.rnf tagKeys `Prelude.seq`
+            Prelude.rnf tagValues
 
 instance Data.ToHeaders DescribeClusterSubnetGroups where
   toHeaders = Prelude.const Prelude.mempty
@@ -361,6 +361,6 @@ instance
     DescribeClusterSubnetGroupsResponse
   where
   rnf DescribeClusterSubnetGroupsResponse' {..} =
-    Prelude.rnf clusterSubnetGroups
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf clusterSubnetGroups `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf httpStatus

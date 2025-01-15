@@ -127,9 +127,9 @@ instance Prelude.Hashable GetExtensionVersion where
 
 instance Prelude.NFData GetExtensionVersion where
   rnf GetExtensionVersion' {..} =
-    Prelude.rnf extensionVersion
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf namespace
+    Prelude.rnf extensionVersion `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf namespace
 
 instance Data.ToHeaders GetExtensionVersion where
   toHeaders =
@@ -197,5 +197,5 @@ getExtensionVersionResponse_httpStatus = Lens.lens (\GetExtensionVersionResponse
 
 instance Prelude.NFData GetExtensionVersionResponse where
   rnf GetExtensionVersionResponse' {..} =
-    Prelude.rnf extensionVersion
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf extensionVersion `Prelude.seq`
+      Prelude.rnf httpStatus

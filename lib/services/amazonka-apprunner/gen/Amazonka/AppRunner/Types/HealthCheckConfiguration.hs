@@ -190,12 +190,12 @@ instance Prelude.Hashable HealthCheckConfiguration where
 
 instance Prelude.NFData HealthCheckConfiguration where
   rnf HealthCheckConfiguration' {..} =
-    Prelude.rnf healthyThreshold
-      `Prelude.seq` Prelude.rnf interval
-      `Prelude.seq` Prelude.rnf path
-      `Prelude.seq` Prelude.rnf protocol
-      `Prelude.seq` Prelude.rnf timeout
-      `Prelude.seq` Prelude.rnf unhealthyThreshold
+    Prelude.rnf healthyThreshold `Prelude.seq`
+      Prelude.rnf interval `Prelude.seq`
+        Prelude.rnf path `Prelude.seq`
+          Prelude.rnf protocol `Prelude.seq`
+            Prelude.rnf timeout `Prelude.seq`
+              Prelude.rnf unhealthyThreshold
 
 instance Data.ToJSON HealthCheckConfiguration where
   toJSON HealthCheckConfiguration' {..} =

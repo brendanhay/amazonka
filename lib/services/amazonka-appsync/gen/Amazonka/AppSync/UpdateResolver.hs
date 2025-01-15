@@ -289,19 +289,19 @@ instance Prelude.Hashable UpdateResolver where
 
 instance Prelude.NFData UpdateResolver where
   rnf UpdateResolver' {..} =
-    Prelude.rnf cachingConfig
-      `Prelude.seq` Prelude.rnf code
-      `Prelude.seq` Prelude.rnf dataSourceName
-      `Prelude.seq` Prelude.rnf kind
-      `Prelude.seq` Prelude.rnf maxBatchSize
-      `Prelude.seq` Prelude.rnf pipelineConfig
-      `Prelude.seq` Prelude.rnf requestMappingTemplate
-      `Prelude.seq` Prelude.rnf responseMappingTemplate
-      `Prelude.seq` Prelude.rnf runtime
-      `Prelude.seq` Prelude.rnf syncConfig
-      `Prelude.seq` Prelude.rnf apiId
-      `Prelude.seq` Prelude.rnf typeName
-      `Prelude.seq` Prelude.rnf fieldName
+    Prelude.rnf cachingConfig `Prelude.seq`
+      Prelude.rnf code `Prelude.seq`
+        Prelude.rnf dataSourceName `Prelude.seq`
+          Prelude.rnf kind `Prelude.seq`
+            Prelude.rnf maxBatchSize `Prelude.seq`
+              Prelude.rnf pipelineConfig `Prelude.seq`
+                Prelude.rnf requestMappingTemplate `Prelude.seq`
+                  Prelude.rnf responseMappingTemplate `Prelude.seq`
+                    Prelude.rnf runtime `Prelude.seq`
+                      Prelude.rnf syncConfig `Prelude.seq`
+                        Prelude.rnf apiId `Prelude.seq`
+                          Prelude.rnf typeName `Prelude.seq`
+                            Prelude.rnf fieldName
 
 instance Data.ToHeaders UpdateResolver where
   toHeaders =
@@ -389,5 +389,5 @@ updateResolverResponse_httpStatus = Lens.lens (\UpdateResolverResponse' {httpSta
 
 instance Prelude.NFData UpdateResolverResponse where
   rnf UpdateResolverResponse' {..} =
-    Prelude.rnf resolver
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf resolver `Prelude.seq`
+      Prelude.rnf httpStatus

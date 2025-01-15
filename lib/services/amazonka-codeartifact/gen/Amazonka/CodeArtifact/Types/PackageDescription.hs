@@ -128,7 +128,7 @@ instance Prelude.Hashable PackageDescription where
 
 instance Prelude.NFData PackageDescription where
   rnf PackageDescription' {..} =
-    Prelude.rnf format
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf namespace
-      `Prelude.seq` Prelude.rnf originConfiguration
+    Prelude.rnf format `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf namespace `Prelude.seq`
+          Prelude.rnf originConfiguration

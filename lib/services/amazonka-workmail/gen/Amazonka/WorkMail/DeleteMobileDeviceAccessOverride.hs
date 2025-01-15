@@ -168,9 +168,9 @@ instance
     DeleteMobileDeviceAccessOverride
   where
   rnf DeleteMobileDeviceAccessOverride' {..} =
-    Prelude.rnf organizationId
-      `Prelude.seq` Prelude.rnf userId
-      `Prelude.seq` Prelude.rnf deviceId
+    Prelude.rnf organizationId `Prelude.seq`
+      Prelude.rnf userId `Prelude.seq`
+        Prelude.rnf deviceId
 
 instance
   Data.ToHeaders

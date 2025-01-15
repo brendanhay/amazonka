@@ -492,27 +492,27 @@ instance Prelude.Hashable CreateProject where
 
 instance Prelude.NFData CreateProject where
   rnf CreateProject' {..} =
-    Prelude.rnf badgeEnabled
-      `Prelude.seq` Prelude.rnf buildBatchConfig
-      `Prelude.seq` Prelude.rnf cache
-      `Prelude.seq` Prelude.rnf concurrentBuildLimit
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf encryptionKey
-      `Prelude.seq` Prelude.rnf fileSystemLocations
-      `Prelude.seq` Prelude.rnf logsConfig
-      `Prelude.seq` Prelude.rnf queuedTimeoutInMinutes
-      `Prelude.seq` Prelude.rnf secondaryArtifacts
-      `Prelude.seq` Prelude.rnf secondarySourceVersions
-      `Prelude.seq` Prelude.rnf secondarySources
-      `Prelude.seq` Prelude.rnf sourceVersion
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf timeoutInMinutes
-      `Prelude.seq` Prelude.rnf vpcConfig
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf artifacts
-      `Prelude.seq` Prelude.rnf environment
-      `Prelude.seq` Prelude.rnf serviceRole
+    Prelude.rnf badgeEnabled `Prelude.seq`
+      Prelude.rnf buildBatchConfig `Prelude.seq`
+        Prelude.rnf cache `Prelude.seq`
+          Prelude.rnf concurrentBuildLimit `Prelude.seq`
+            Prelude.rnf description `Prelude.seq`
+              Prelude.rnf encryptionKey `Prelude.seq`
+                Prelude.rnf fileSystemLocations `Prelude.seq`
+                  Prelude.rnf logsConfig `Prelude.seq`
+                    Prelude.rnf queuedTimeoutInMinutes `Prelude.seq`
+                      Prelude.rnf secondaryArtifacts `Prelude.seq`
+                        Prelude.rnf secondarySourceVersions `Prelude.seq`
+                          Prelude.rnf secondarySources `Prelude.seq`
+                            Prelude.rnf sourceVersion `Prelude.seq`
+                              Prelude.rnf tags `Prelude.seq`
+                                Prelude.rnf timeoutInMinutes `Prelude.seq`
+                                  Prelude.rnf vpcConfig `Prelude.seq`
+                                    Prelude.rnf name `Prelude.seq`
+                                      Prelude.rnf source `Prelude.seq`
+                                        Prelude.rnf artifacts `Prelude.seq`
+                                          Prelude.rnf environment `Prelude.seq`
+                                            Prelude.rnf serviceRole
 
 instance Data.ToHeaders CreateProject where
   toHeaders =
@@ -611,5 +611,5 @@ createProjectResponse_httpStatus = Lens.lens (\CreateProjectResponse' {httpStatu
 
 instance Prelude.NFData CreateProjectResponse where
   rnf CreateProjectResponse' {..} =
-    Prelude.rnf project
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf project `Prelude.seq`
+      Prelude.rnf httpStatus

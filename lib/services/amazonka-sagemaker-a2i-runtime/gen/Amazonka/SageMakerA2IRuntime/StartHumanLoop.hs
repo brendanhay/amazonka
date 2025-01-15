@@ -147,10 +147,10 @@ instance Prelude.Hashable StartHumanLoop where
 
 instance Prelude.NFData StartHumanLoop where
   rnf StartHumanLoop' {..} =
-    Prelude.rnf dataAttributes
-      `Prelude.seq` Prelude.rnf humanLoopName
-      `Prelude.seq` Prelude.rnf flowDefinitionArn
-      `Prelude.seq` Prelude.rnf humanLoopInput
+    Prelude.rnf dataAttributes `Prelude.seq`
+      Prelude.rnf humanLoopName `Prelude.seq`
+        Prelude.rnf flowDefinitionArn `Prelude.seq`
+          Prelude.rnf humanLoopInput
 
 instance Data.ToHeaders StartHumanLoop where
   toHeaders = Prelude.const Prelude.mempty
@@ -216,5 +216,5 @@ startHumanLoopResponse_httpStatus = Lens.lens (\StartHumanLoopResponse' {httpSta
 
 instance Prelude.NFData StartHumanLoopResponse where
   rnf StartHumanLoopResponse' {..} =
-    Prelude.rnf humanLoopArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf humanLoopArn `Prelude.seq`
+      Prelude.rnf httpStatus

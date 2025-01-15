@@ -94,9 +94,7 @@ keyGroupList_quantity = Lens.lens (\KeyGroupList' {quantity} -> quantity) (\s@Ke
 instance Data.FromXML KeyGroupList where
   parseXML x =
     KeyGroupList'
-      Prelude.<$> ( x
-                      Data..@? "Items"
-                      Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "Items" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "KeyGroupSummary")
                   )
       Prelude.<*> (x Data..@? "NextMarker")
@@ -113,7 +111,7 @@ instance Prelude.Hashable KeyGroupList where
 
 instance Prelude.NFData KeyGroupList where
   rnf KeyGroupList' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf maxItems
-      `Prelude.seq` Prelude.rnf quantity
+    Prelude.rnf items `Prelude.seq`
+      Prelude.rnf nextMarker `Prelude.seq`
+        Prelude.rnf maxItems `Prelude.seq`
+          Prelude.rnf quantity

@@ -86,8 +86,8 @@ instance
     IotSiteWiseAssetModelPropertyIdentifier
   where
   rnf IotSiteWiseAssetModelPropertyIdentifier' {..} =
-    Prelude.rnf assetModelId
-      `Prelude.seq` Prelude.rnf propertyId
+    Prelude.rnf assetModelId `Prelude.seq`
+      Prelude.rnf propertyId
 
 instance
   Data.ToJSON

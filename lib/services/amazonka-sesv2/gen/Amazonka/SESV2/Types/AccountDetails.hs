@@ -158,9 +158,9 @@ instance Prelude.Hashable AccountDetails where
 
 instance Prelude.NFData AccountDetails where
   rnf AccountDetails' {..} =
-    Prelude.rnf additionalContactEmailAddresses
-      `Prelude.seq` Prelude.rnf contactLanguage
-      `Prelude.seq` Prelude.rnf mailType
-      `Prelude.seq` Prelude.rnf reviewDetails
-      `Prelude.seq` Prelude.rnf useCaseDescription
-      `Prelude.seq` Prelude.rnf websiteURL
+    Prelude.rnf additionalContactEmailAddresses `Prelude.seq`
+      Prelude.rnf contactLanguage `Prelude.seq`
+        Prelude.rnf mailType `Prelude.seq`
+          Prelude.rnf reviewDetails `Prelude.seq`
+            Prelude.rnf useCaseDescription `Prelude.seq`
+              Prelude.rnf websiteURL

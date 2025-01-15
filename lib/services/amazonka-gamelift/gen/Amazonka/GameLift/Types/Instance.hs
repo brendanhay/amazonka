@@ -271,13 +271,13 @@ instance Prelude.Hashable Instance where
 
 instance Prelude.NFData Instance where
   rnf Instance' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf dnsName
-      `Prelude.seq` Prelude.rnf fleetArn
-      `Prelude.seq` Prelude.rnf fleetId
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf ipAddress
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf operatingSystem
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf dnsName `Prelude.seq`
+        Prelude.rnf fleetArn `Prelude.seq`
+          Prelude.rnf fleetId `Prelude.seq`
+            Prelude.rnf instanceId `Prelude.seq`
+              Prelude.rnf ipAddress `Prelude.seq`
+                Prelude.rnf location `Prelude.seq`
+                  Prelude.rnf operatingSystem `Prelude.seq`
+                    Prelude.rnf status `Prelude.seq`
+                      Prelude.rnf type'

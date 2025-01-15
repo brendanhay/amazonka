@@ -118,8 +118,8 @@ instance
     DeregisterAppInstanceUserEndpoint
   where
   rnf DeregisterAppInstanceUserEndpoint' {..} =
-    Prelude.rnf appInstanceUserArn
-      `Prelude.seq` Prelude.rnf endpointId
+    Prelude.rnf appInstanceUserArn `Prelude.seq`
+      Prelude.rnf endpointId
 
 instance
   Data.ToHeaders

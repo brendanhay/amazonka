@@ -149,5 +149,5 @@ getOTAUpdateResponse_httpStatus = Lens.lens (\GetOTAUpdateResponse' {httpStatus}
 
 instance Prelude.NFData GetOTAUpdateResponse where
   rnf GetOTAUpdateResponse' {..} =
-    Prelude.rnf otaUpdateInfo
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf otaUpdateInfo `Prelude.seq`
+      Prelude.rnf httpStatus

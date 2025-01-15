@@ -150,12 +150,12 @@ instance Core.AWSPager ListFlowDefinitions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listFlowDefinitions_nextToken
-          Lens..~ rs
-          Lens.^? listFlowDefinitionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listFlowDefinitions_nextToken
+              Lens..~ rs
+              Lens.^? listFlowDefinitionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListFlowDefinitions where
   type
@@ -186,11 +186,11 @@ instance Prelude.Hashable ListFlowDefinitions where
 
 instance Prelude.NFData ListFlowDefinitions where
   rnf ListFlowDefinitions' {..} =
-    Prelude.rnf creationTimeAfter
-      `Prelude.seq` Prelude.rnf creationTimeBefore
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortOrder
+    Prelude.rnf creationTimeAfter `Prelude.seq`
+      Prelude.rnf creationTimeBefore `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf sortOrder
 
 instance Data.ToHeaders ListFlowDefinitions where
   toHeaders =
@@ -277,6 +277,6 @@ listFlowDefinitionsResponse_flowDefinitionSummaries = Lens.lens (\ListFlowDefini
 
 instance Prelude.NFData ListFlowDefinitionsResponse where
   rnf ListFlowDefinitionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf flowDefinitionSummaries
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf flowDefinitionSummaries

@@ -117,8 +117,8 @@ instance Prelude.Hashable SetSMBGuestPassword where
 
 instance Prelude.NFData SetSMBGuestPassword where
   rnf SetSMBGuestPassword' {..} =
-    Prelude.rnf gatewayARN
-      `Prelude.seq` Prelude.rnf password
+    Prelude.rnf gatewayARN `Prelude.seq`
+      Prelude.rnf password
 
 instance Data.ToHeaders SetSMBGuestPassword where
   toHeaders =
@@ -190,5 +190,5 @@ setSMBGuestPasswordResponse_httpStatus = Lens.lens (\SetSMBGuestPasswordResponse
 
 instance Prelude.NFData SetSMBGuestPasswordResponse where
   rnf SetSMBGuestPasswordResponse' {..} =
-    Prelude.rnf gatewayARN
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf gatewayARN `Prelude.seq`
+      Prelude.rnf httpStatus

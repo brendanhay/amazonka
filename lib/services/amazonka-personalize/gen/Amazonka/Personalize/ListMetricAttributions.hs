@@ -119,12 +119,12 @@ instance Core.AWSPager ListMetricAttributions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listMetricAttributions_nextToken
-          Lens..~ rs
-          Lens.^? listMetricAttributionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listMetricAttributions_nextToken
+              Lens..~ rs
+              Lens.^? listMetricAttributionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListMetricAttributions where
   type
@@ -153,9 +153,9 @@ instance Prelude.Hashable ListMetricAttributions where
 
 instance Prelude.NFData ListMetricAttributions where
   rnf ListMetricAttributions' {..} =
-    Prelude.rnf datasetGroupArn
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf datasetGroupArn `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListMetricAttributions where
   toHeaders =
@@ -245,6 +245,6 @@ instance
     ListMetricAttributionsResponse
   where
   rnf ListMetricAttributionsResponse' {..} =
-    Prelude.rnf metricAttributions
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf metricAttributions `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

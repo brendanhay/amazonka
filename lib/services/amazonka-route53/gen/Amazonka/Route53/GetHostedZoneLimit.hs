@@ -139,8 +139,8 @@ instance Prelude.Hashable GetHostedZoneLimit where
 
 instance Prelude.NFData GetHostedZoneLimit where
   rnf GetHostedZoneLimit' {..} =
-    Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf hostedZoneId
+    Prelude.rnf type' `Prelude.seq`
+      Prelude.rnf hostedZoneId
 
 instance Data.ToHeaders GetHostedZoneLimit where
   toHeaders = Prelude.const Prelude.mempty
@@ -234,6 +234,6 @@ getHostedZoneLimitResponse_count = Lens.lens (\GetHostedZoneLimitResponse' {coun
 
 instance Prelude.NFData GetHostedZoneLimitResponse where
   rnf GetHostedZoneLimitResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf count
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf limit `Prelude.seq`
+        Prelude.rnf count

@@ -294,18 +294,18 @@ instance Prelude.Hashable UpdateSlot where
 
 instance Prelude.NFData UpdateSlot where
   rnf UpdateSlot' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf multipleValuesSetting
-      `Prelude.seq` Prelude.rnf obfuscationSetting
-      `Prelude.seq` Prelude.rnf slotTypeId
-      `Prelude.seq` Prelude.rnf subSlotSetting
-      `Prelude.seq` Prelude.rnf slotId
-      `Prelude.seq` Prelude.rnf slotName
-      `Prelude.seq` Prelude.rnf valueElicitationSetting
-      `Prelude.seq` Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf botVersion
-      `Prelude.seq` Prelude.rnf localeId
-      `Prelude.seq` Prelude.rnf intentId
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf multipleValuesSetting `Prelude.seq`
+        Prelude.rnf obfuscationSetting `Prelude.seq`
+          Prelude.rnf slotTypeId `Prelude.seq`
+            Prelude.rnf subSlotSetting `Prelude.seq`
+              Prelude.rnf slotId `Prelude.seq`
+                Prelude.rnf slotName `Prelude.seq`
+                  Prelude.rnf valueElicitationSetting `Prelude.seq`
+                    Prelude.rnf botId `Prelude.seq`
+                      Prelude.rnf botVersion `Prelude.seq`
+                        Prelude.rnf localeId `Prelude.seq`
+                          Prelude.rnf intentId
 
 instance Data.ToHeaders UpdateSlot where
   toHeaders =
@@ -529,18 +529,18 @@ updateSlotResponse_httpStatus = Lens.lens (\UpdateSlotResponse' {httpStatus} -> 
 
 instance Prelude.NFData UpdateSlotResponse where
   rnf UpdateSlotResponse' {..} =
-    Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf botVersion
-      `Prelude.seq` Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf intentId
-      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
-      `Prelude.seq` Prelude.rnf localeId
-      `Prelude.seq` Prelude.rnf multipleValuesSetting
-      `Prelude.seq` Prelude.rnf obfuscationSetting
-      `Prelude.seq` Prelude.rnf slotId
-      `Prelude.seq` Prelude.rnf slotName
-      `Prelude.seq` Prelude.rnf slotTypeId
-      `Prelude.seq` Prelude.rnf subSlotSetting
-      `Prelude.seq` Prelude.rnf valueElicitationSetting
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf botId `Prelude.seq`
+      Prelude.rnf botVersion `Prelude.seq`
+        Prelude.rnf creationDateTime `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf intentId `Prelude.seq`
+              Prelude.rnf lastUpdatedDateTime `Prelude.seq`
+                Prelude.rnf localeId `Prelude.seq`
+                  Prelude.rnf multipleValuesSetting `Prelude.seq`
+                    Prelude.rnf obfuscationSetting `Prelude.seq`
+                      Prelude.rnf slotId `Prelude.seq`
+                        Prelude.rnf slotName `Prelude.seq`
+                          Prelude.rnf slotTypeId `Prelude.seq`
+                            Prelude.rnf subSlotSetting `Prelude.seq`
+                              Prelude.rnf valueElicitationSetting `Prelude.seq`
+                                Prelude.rnf httpStatus

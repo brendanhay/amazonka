@@ -125,8 +125,8 @@ instance Prelude.Hashable DeleteServiceAction where
 
 instance Prelude.NFData DeleteServiceAction where
   rnf DeleteServiceAction' {..} =
-    Prelude.rnf acceptLanguage
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf acceptLanguage `Prelude.seq`
+      Prelude.rnf id
 
 instance Data.ToHeaders DeleteServiceAction where
   toHeaders =

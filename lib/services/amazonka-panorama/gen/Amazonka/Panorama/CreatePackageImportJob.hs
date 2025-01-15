@@ -151,11 +151,11 @@ instance Prelude.Hashable CreatePackageImportJob where
 
 instance Prelude.NFData CreatePackageImportJob where
   rnf CreatePackageImportJob' {..} =
-    Prelude.rnf jobTags
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf inputConfig
-      `Prelude.seq` Prelude.rnf jobType
-      `Prelude.seq` Prelude.rnf outputConfig
+    Prelude.rnf jobTags `Prelude.seq`
+      Prelude.rnf clientToken `Prelude.seq`
+        Prelude.rnf inputConfig `Prelude.seq`
+          Prelude.rnf jobType `Prelude.seq`
+            Prelude.rnf outputConfig
 
 instance Data.ToHeaders CreatePackageImportJob where
   toHeaders =
@@ -234,5 +234,5 @@ instance
     CreatePackageImportJobResponse
   where
   rnf CreatePackageImportJobResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf jobId
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf jobId

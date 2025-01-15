@@ -83,8 +83,8 @@ instance Prelude.Hashable BoxPlotSortConfiguration where
 
 instance Prelude.NFData BoxPlotSortConfiguration where
   rnf BoxPlotSortConfiguration' {..} =
-    Prelude.rnf categorySort
-      `Prelude.seq` Prelude.rnf paginationConfiguration
+    Prelude.rnf categorySort `Prelude.seq`
+      Prelude.rnf paginationConfiguration
 
 instance Data.ToJSON BoxPlotSortConfiguration where
   toJSON BoxPlotSortConfiguration' {..} =

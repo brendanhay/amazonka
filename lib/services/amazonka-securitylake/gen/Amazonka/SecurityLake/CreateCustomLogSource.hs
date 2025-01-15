@@ -186,10 +186,10 @@ instance Prelude.Hashable CreateCustomLogSource where
 
 instance Prelude.NFData CreateCustomLogSource where
   rnf CreateCustomLogSource' {..} =
-    Prelude.rnf customSourceName
-      `Prelude.seq` Prelude.rnf eventClass
-      `Prelude.seq` Prelude.rnf glueInvocationRoleArn
-      `Prelude.seq` Prelude.rnf logProviderAccountId
+    Prelude.rnf customSourceName `Prelude.seq`
+      Prelude.rnf eventClass `Prelude.seq`
+        Prelude.rnf glueInvocationRoleArn `Prelude.seq`
+          Prelude.rnf logProviderAccountId
 
 instance Data.ToHeaders CreateCustomLogSource where
   toHeaders =
@@ -338,9 +338,9 @@ createCustomLogSourceResponse_logProviderAccessRoleArn = Lens.lens (\CreateCusto
 
 instance Prelude.NFData CreateCustomLogSourceResponse where
   rnf CreateCustomLogSourceResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf customDataLocation
-      `Prelude.seq` Prelude.rnf glueCrawlerName
-      `Prelude.seq` Prelude.rnf glueDatabaseName
-      `Prelude.seq` Prelude.rnf glueTableName
-      `Prelude.seq` Prelude.rnf logProviderAccessRoleArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf customDataLocation `Prelude.seq`
+        Prelude.rnf glueCrawlerName `Prelude.seq`
+          Prelude.rnf glueDatabaseName `Prelude.seq`
+            Prelude.rnf glueTableName `Prelude.seq`
+              Prelude.rnf logProviderAccessRoleArn

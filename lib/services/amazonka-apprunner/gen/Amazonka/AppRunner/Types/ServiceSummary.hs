@@ -199,10 +199,10 @@ instance Prelude.Hashable ServiceSummary where
 
 instance Prelude.NFData ServiceSummary where
   rnf ServiceSummary' {..} =
-    Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf serviceArn
-      `Prelude.seq` Prelude.rnf serviceId
-      `Prelude.seq` Prelude.rnf serviceName
-      `Prelude.seq` Prelude.rnf serviceUrl
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf updatedAt
+    Prelude.rnf createdAt `Prelude.seq`
+      Prelude.rnf serviceArn `Prelude.seq`
+        Prelude.rnf serviceId `Prelude.seq`
+          Prelude.rnf serviceName `Prelude.seq`
+            Prelude.rnf serviceUrl `Prelude.seq`
+              Prelude.rnf status `Prelude.seq`
+                Prelude.rnf updatedAt

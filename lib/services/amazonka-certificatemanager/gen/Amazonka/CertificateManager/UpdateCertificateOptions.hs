@@ -129,8 +129,8 @@ instance Prelude.Hashable UpdateCertificateOptions where
 
 instance Prelude.NFData UpdateCertificateOptions where
   rnf UpdateCertificateOptions' {..} =
-    Prelude.rnf certificateArn
-      `Prelude.seq` Prelude.rnf options
+    Prelude.rnf certificateArn `Prelude.seq`
+      Prelude.rnf options
 
 instance Data.ToHeaders UpdateCertificateOptions where
   toHeaders =

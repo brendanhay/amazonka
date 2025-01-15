@@ -269,15 +269,15 @@ instance Prelude.Hashable QueryResultItem where
 
 instance Prelude.NFData QueryResultItem where
   rnf QueryResultItem' {..} =
-    Prelude.rnf additionalAttributes
-      `Prelude.seq` Prelude.rnf documentAttributes
-      `Prelude.seq` Prelude.rnf documentExcerpt
-      `Prelude.seq` Prelude.rnf documentId
-      `Prelude.seq` Prelude.rnf documentTitle
-      `Prelude.seq` Prelude.rnf documentURI
-      `Prelude.seq` Prelude.rnf feedbackToken
-      `Prelude.seq` Prelude.rnf format
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf scoreAttributes
-      `Prelude.seq` Prelude.rnf tableExcerpt
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf additionalAttributes `Prelude.seq`
+      Prelude.rnf documentAttributes `Prelude.seq`
+        Prelude.rnf documentExcerpt `Prelude.seq`
+          Prelude.rnf documentId `Prelude.seq`
+            Prelude.rnf documentTitle `Prelude.seq`
+              Prelude.rnf documentURI `Prelude.seq`
+                Prelude.rnf feedbackToken `Prelude.seq`
+                  Prelude.rnf format `Prelude.seq`
+                    Prelude.rnf id `Prelude.seq`
+                      Prelude.rnf scoreAttributes `Prelude.seq`
+                        Prelude.rnf tableExcerpt `Prelude.seq`
+                          Prelude.rnf type'

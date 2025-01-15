@@ -241,10 +241,10 @@ instance Prelude.Hashable AwsCodeBuildProjectSource where
 
 instance Prelude.NFData AwsCodeBuildProjectSource where
   rnf AwsCodeBuildProjectSource' {..} =
-    Prelude.rnf gitCloneDepth
-      `Prelude.seq` Prelude.rnf insecureSsl
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf gitCloneDepth `Prelude.seq`
+      Prelude.rnf insecureSsl `Prelude.seq`
+        Prelude.rnf location `Prelude.seq`
+          Prelude.rnf type'
 
 instance Data.ToJSON AwsCodeBuildProjectSource where
   toJSON AwsCodeBuildProjectSource' {..} =

@@ -336,17 +336,17 @@ describeDatasetResponse_httpStatus = Lens.lens (\DescribeDatasetResponse' {httpS
 
 instance Prelude.NFData DescribeDatasetResponse where
   rnf DescribeDatasetResponse' {..} =
-    Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf dataEndTime
-      `Prelude.seq` Prelude.rnf dataQualitySummary
-      `Prelude.seq` Prelude.rnf dataStartTime
-      `Prelude.seq` Prelude.rnf datasetArn
-      `Prelude.seq` Prelude.rnf datasetName
-      `Prelude.seq` Prelude.rnf ingestedFilesSummary
-      `Prelude.seq` Prelude.rnf ingestionInputConfiguration
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf schema
-      `Prelude.seq` Prelude.rnf serverSideKmsKeyId
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf createdAt `Prelude.seq`
+      Prelude.rnf dataEndTime `Prelude.seq`
+        Prelude.rnf dataQualitySummary `Prelude.seq`
+          Prelude.rnf dataStartTime `Prelude.seq`
+            Prelude.rnf datasetArn `Prelude.seq`
+              Prelude.rnf datasetName `Prelude.seq`
+                Prelude.rnf ingestedFilesSummary `Prelude.seq`
+                  Prelude.rnf ingestionInputConfiguration `Prelude.seq`
+                    Prelude.rnf lastUpdatedAt `Prelude.seq`
+                      Prelude.rnf roleArn `Prelude.seq`
+                        Prelude.rnf schema `Prelude.seq`
+                          Prelude.rnf serverSideKmsKeyId `Prelude.seq`
+                            Prelude.rnf status `Prelude.seq`
+                              Prelude.rnf httpStatus

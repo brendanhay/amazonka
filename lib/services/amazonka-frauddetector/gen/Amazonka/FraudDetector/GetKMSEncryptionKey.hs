@@ -145,5 +145,5 @@ getKMSEncryptionKeyResponse_httpStatus = Lens.lens (\GetKMSEncryptionKeyResponse
 
 instance Prelude.NFData GetKMSEncryptionKeyResponse where
   rnf GetKMSEncryptionKeyResponse' {..} =
-    Prelude.rnf kmsKey
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf kmsKey `Prelude.seq`
+      Prelude.rnf httpStatus

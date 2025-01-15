@@ -113,8 +113,8 @@ instance Prelude.Hashable ClarifyTextConfig where
 
 instance Prelude.NFData ClarifyTextConfig where
   rnf ClarifyTextConfig' {..} =
-    Prelude.rnf language
-      `Prelude.seq` Prelude.rnf granularity
+    Prelude.rnf language `Prelude.seq`
+      Prelude.rnf granularity
 
 instance Data.ToJSON ClarifyTextConfig where
   toJSON ClarifyTextConfig' {..} =

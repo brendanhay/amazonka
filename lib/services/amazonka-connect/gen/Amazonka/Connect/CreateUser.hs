@@ -266,16 +266,16 @@ instance Prelude.Hashable CreateUser where
 
 instance Prelude.NFData CreateUser where
   rnf CreateUser' {..} =
-    Prelude.rnf directoryUserId
-      `Prelude.seq` Prelude.rnf hierarchyGroupId
-      `Prelude.seq` Prelude.rnf identityInfo
-      `Prelude.seq` Prelude.rnf password
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf username
-      `Prelude.seq` Prelude.rnf phoneConfig
-      `Prelude.seq` Prelude.rnf securityProfileIds
-      `Prelude.seq` Prelude.rnf routingProfileId
-      `Prelude.seq` Prelude.rnf instanceId
+    Prelude.rnf directoryUserId `Prelude.seq`
+      Prelude.rnf hierarchyGroupId `Prelude.seq`
+        Prelude.rnf identityInfo `Prelude.seq`
+          Prelude.rnf password `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf username `Prelude.seq`
+                Prelude.rnf phoneConfig `Prelude.seq`
+                  Prelude.rnf securityProfileIds `Prelude.seq`
+                    Prelude.rnf routingProfileId `Prelude.seq`
+                      Prelude.rnf instanceId
 
 instance Data.ToHeaders CreateUser where
   toHeaders =
@@ -364,6 +364,6 @@ createUserResponse_httpStatus = Lens.lens (\CreateUserResponse' {httpStatus} -> 
 
 instance Prelude.NFData CreateUserResponse where
   rnf CreateUserResponse' {..} =
-    Prelude.rnf userArn
-      `Prelude.seq` Prelude.rnf userId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf userArn `Prelude.seq`
+      Prelude.rnf userId `Prelude.seq`
+        Prelude.rnf httpStatus

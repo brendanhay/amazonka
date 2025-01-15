@@ -286,16 +286,12 @@ instance
       Prelude.<*> (x Data..@? "deleteOnTermination")
       Prelude.<*> (x Data..@? "description")
       Prelude.<*> (x Data..@? "deviceIndex")
-      Prelude.<*> ( x
-                      Data..@? "groupSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "groupSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "groupId")
                   )
       Prelude.<*> (x Data..@? "interfaceType")
       Prelude.<*> (x Data..@? "ipv4PrefixCount")
-      Prelude.<*> ( x
-                      Data..@? "ipv4PrefixSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "ipv4PrefixSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "ipv6AddressCount")
@@ -305,9 +301,7 @@ instance
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "ipv6PrefixCount")
-      Prelude.<*> ( x
-                      Data..@? "ipv6PrefixSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "ipv6PrefixSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "networkCardIndex")

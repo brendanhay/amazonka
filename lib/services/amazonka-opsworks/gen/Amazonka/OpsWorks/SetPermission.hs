@@ -186,11 +186,11 @@ instance Prelude.Hashable SetPermission where
 
 instance Prelude.NFData SetPermission where
   rnf SetPermission' {..} =
-    Prelude.rnf allowSsh
-      `Prelude.seq` Prelude.rnf allowSudo
-      `Prelude.seq` Prelude.rnf level
-      `Prelude.seq` Prelude.rnf stackId
-      `Prelude.seq` Prelude.rnf iamUserArn
+    Prelude.rnf allowSsh `Prelude.seq`
+      Prelude.rnf allowSudo `Prelude.seq`
+        Prelude.rnf level `Prelude.seq`
+          Prelude.rnf stackId `Prelude.seq`
+            Prelude.rnf iamUserArn
 
 instance Data.ToHeaders SetPermission where
   toHeaders =

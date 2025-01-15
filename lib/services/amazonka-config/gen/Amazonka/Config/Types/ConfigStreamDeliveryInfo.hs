@@ -120,7 +120,7 @@ instance Prelude.Hashable ConfigStreamDeliveryInfo where
 
 instance Prelude.NFData ConfigStreamDeliveryInfo where
   rnf ConfigStreamDeliveryInfo' {..} =
-    Prelude.rnf lastErrorCode
-      `Prelude.seq` Prelude.rnf lastErrorMessage
-      `Prelude.seq` Prelude.rnf lastStatus
-      `Prelude.seq` Prelude.rnf lastStatusChangeTime
+    Prelude.rnf lastErrorCode `Prelude.seq`
+      Prelude.rnf lastErrorMessage `Prelude.seq`
+        Prelude.rnf lastStatus `Prelude.seq`
+          Prelude.rnf lastStatusChangeTime

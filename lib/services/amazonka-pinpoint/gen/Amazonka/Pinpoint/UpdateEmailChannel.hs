@@ -116,8 +116,8 @@ instance Prelude.Hashable UpdateEmailChannel where
 
 instance Prelude.NFData UpdateEmailChannel where
   rnf UpdateEmailChannel' {..} =
-    Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf emailChannelRequest
+    Prelude.rnf applicationId `Prelude.seq`
+      Prelude.rnf emailChannelRequest
 
 instance Data.ToHeaders UpdateEmailChannel where
   toHeaders =
@@ -189,5 +189,5 @@ updateEmailChannelResponse_emailChannelResponse = Lens.lens (\UpdateEmailChannel
 
 instance Prelude.NFData UpdateEmailChannelResponse where
   rnf UpdateEmailChannelResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf emailChannelResponse
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf emailChannelResponse

@@ -203,12 +203,12 @@ instance Core.AWSPager ListEndpoints where
         (rs Lens.^. listEndpointsResponse_endpoints) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listEndpoints_nextToken
-          Lens..~ rs
-          Lens.^? listEndpointsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listEndpoints_nextToken
+              Lens..~ rs
+              Lens.^? listEndpointsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListEndpoints where
   type
@@ -241,16 +241,16 @@ instance Prelude.Hashable ListEndpoints where
 
 instance Prelude.NFData ListEndpoints where
   rnf ListEndpoints' {..} =
-    Prelude.rnf creationTimeAfter
-      `Prelude.seq` Prelude.rnf creationTimeBefore
-      `Prelude.seq` Prelude.rnf lastModifiedTimeAfter
-      `Prelude.seq` Prelude.rnf lastModifiedTimeBefore
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nameContains
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf sortOrder
-      `Prelude.seq` Prelude.rnf statusEquals
+    Prelude.rnf creationTimeAfter `Prelude.seq`
+      Prelude.rnf creationTimeBefore `Prelude.seq`
+        Prelude.rnf lastModifiedTimeAfter `Prelude.seq`
+          Prelude.rnf lastModifiedTimeBefore `Prelude.seq`
+            Prelude.rnf maxResults `Prelude.seq`
+              Prelude.rnf nameContains `Prelude.seq`
+                Prelude.rnf nextToken `Prelude.seq`
+                  Prelude.rnf sortBy `Prelude.seq`
+                    Prelude.rnf sortOrder `Prelude.seq`
+                      Prelude.rnf statusEquals
 
 instance Data.ToHeaders ListEndpoints where
   toHeaders =
@@ -344,6 +344,6 @@ listEndpointsResponse_endpoints = Lens.lens (\ListEndpointsResponse' {endpoints}
 
 instance Prelude.NFData ListEndpointsResponse where
   rnf ListEndpointsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf endpoints
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf endpoints

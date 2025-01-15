@@ -161,5 +161,5 @@ deleteGlobalNetworkResponse_httpStatus = Lens.lens (\DeleteGlobalNetworkResponse
 
 instance Prelude.NFData DeleteGlobalNetworkResponse where
   rnf DeleteGlobalNetworkResponse' {..} =
-    Prelude.rnf globalNetwork
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf globalNetwork `Prelude.seq`
+      Prelude.rnf httpStatus

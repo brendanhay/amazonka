@@ -100,5 +100,5 @@ instance
     BatchGetAssetPropertyValueErrorInfo
   where
   rnf BatchGetAssetPropertyValueErrorInfo' {..} =
-    Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorTimestamp
+    Prelude.rnf errorCode `Prelude.seq`
+      Prelude.rnf errorTimestamp

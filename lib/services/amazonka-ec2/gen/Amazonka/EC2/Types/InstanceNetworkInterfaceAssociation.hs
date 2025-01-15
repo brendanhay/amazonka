@@ -125,8 +125,8 @@ instance
     InstanceNetworkInterfaceAssociation
   where
   rnf InstanceNetworkInterfaceAssociation' {..} =
-    Prelude.rnf carrierIp
-      `Prelude.seq` Prelude.rnf customerOwnedIp
-      `Prelude.seq` Prelude.rnf ipOwnerId
-      `Prelude.seq` Prelude.rnf publicDnsName
-      `Prelude.seq` Prelude.rnf publicIp
+    Prelude.rnf carrierIp `Prelude.seq`
+      Prelude.rnf customerOwnedIp `Prelude.seq`
+        Prelude.rnf ipOwnerId `Prelude.seq`
+          Prelude.rnf publicDnsName `Prelude.seq`
+            Prelude.rnf publicIp

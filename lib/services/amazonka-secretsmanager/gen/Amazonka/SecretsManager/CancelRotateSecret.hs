@@ -236,7 +236,7 @@ cancelRotateSecretResponse_httpStatus = Lens.lens (\CancelRotateSecretResponse' 
 
 instance Prelude.NFData CancelRotateSecretResponse where
   rnf CancelRotateSecretResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf versionId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf versionId `Prelude.seq`
+          Prelude.rnf httpStatus

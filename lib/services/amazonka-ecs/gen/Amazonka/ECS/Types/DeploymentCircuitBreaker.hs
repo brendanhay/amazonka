@@ -107,8 +107,8 @@ instance Prelude.Hashable DeploymentCircuitBreaker where
 
 instance Prelude.NFData DeploymentCircuitBreaker where
   rnf DeploymentCircuitBreaker' {..} =
-    Prelude.rnf enable
-      `Prelude.seq` Prelude.rnf rollback
+    Prelude.rnf enable `Prelude.seq`
+      Prelude.rnf rollback
 
 instance Data.ToJSON DeploymentCircuitBreaker where
   toJSON DeploymentCircuitBreaker' {..} =

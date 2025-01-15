@@ -132,8 +132,8 @@ instance
     GetExternalDataViewAccessDetails
   where
   rnf GetExternalDataViewAccessDetails' {..} =
-    Prelude.rnf dataViewId
-      `Prelude.seq` Prelude.rnf datasetId
+    Prelude.rnf dataViewId `Prelude.seq`
+      Prelude.rnf datasetId
 
 instance
   Data.ToHeaders
@@ -225,6 +225,6 @@ instance
     GetExternalDataViewAccessDetailsResponse
   where
   rnf GetExternalDataViewAccessDetailsResponse' {..} =
-    Prelude.rnf credentials
-      `Prelude.seq` Prelude.rnf s3Location
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf credentials `Prelude.seq`
+      Prelude.rnf s3Location `Prelude.seq`
+        Prelude.rnf httpStatus

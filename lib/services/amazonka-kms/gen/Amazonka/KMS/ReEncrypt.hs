@@ -603,14 +603,14 @@ instance Prelude.Hashable ReEncrypt where
 
 instance Prelude.NFData ReEncrypt where
   rnf ReEncrypt' {..} =
-    Prelude.rnf destinationEncryptionAlgorithm
-      `Prelude.seq` Prelude.rnf destinationEncryptionContext
-      `Prelude.seq` Prelude.rnf grantTokens
-      `Prelude.seq` Prelude.rnf sourceEncryptionAlgorithm
-      `Prelude.seq` Prelude.rnf sourceEncryptionContext
-      `Prelude.seq` Prelude.rnf sourceKeyId
-      `Prelude.seq` Prelude.rnf ciphertextBlob
-      `Prelude.seq` Prelude.rnf destinationKeyId
+    Prelude.rnf destinationEncryptionAlgorithm `Prelude.seq`
+      Prelude.rnf destinationEncryptionContext `Prelude.seq`
+        Prelude.rnf grantTokens `Prelude.seq`
+          Prelude.rnf sourceEncryptionAlgorithm `Prelude.seq`
+            Prelude.rnf sourceEncryptionContext `Prelude.seq`
+              Prelude.rnf sourceKeyId `Prelude.seq`
+                Prelude.rnf ciphertextBlob `Prelude.seq`
+                  Prelude.rnf destinationKeyId
 
 instance Data.ToHeaders ReEncrypt where
   toHeaders =
@@ -752,9 +752,9 @@ reEncryptResponse_httpStatus = Lens.lens (\ReEncryptResponse' {httpStatus} -> ht
 
 instance Prelude.NFData ReEncryptResponse where
   rnf ReEncryptResponse' {..} =
-    Prelude.rnf ciphertextBlob
-      `Prelude.seq` Prelude.rnf destinationEncryptionAlgorithm
-      `Prelude.seq` Prelude.rnf keyId
-      `Prelude.seq` Prelude.rnf sourceEncryptionAlgorithm
-      `Prelude.seq` Prelude.rnf sourceKeyId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf ciphertextBlob `Prelude.seq`
+      Prelude.rnf destinationEncryptionAlgorithm `Prelude.seq`
+        Prelude.rnf keyId `Prelude.seq`
+          Prelude.rnf sourceEncryptionAlgorithm `Prelude.seq`
+            Prelude.rnf sourceKeyId `Prelude.seq`
+              Prelude.rnf httpStatus

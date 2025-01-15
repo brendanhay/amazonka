@@ -219,12 +219,12 @@ instance Prelude.Hashable UpdatePortfolioShare where
 
 instance Prelude.NFData UpdatePortfolioShare where
   rnf UpdatePortfolioShare' {..} =
-    Prelude.rnf acceptLanguage
-      `Prelude.seq` Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf organizationNode
-      `Prelude.seq` Prelude.rnf sharePrincipals
-      `Prelude.seq` Prelude.rnf shareTagOptions
-      `Prelude.seq` Prelude.rnf portfolioId
+    Prelude.rnf acceptLanguage `Prelude.seq`
+      Prelude.rnf accountId `Prelude.seq`
+        Prelude.rnf organizationNode `Prelude.seq`
+          Prelude.rnf sharePrincipals `Prelude.seq`
+            Prelude.rnf shareTagOptions `Prelude.seq`
+              Prelude.rnf portfolioId
 
 instance Data.ToHeaders UpdatePortfolioShare where
   toHeaders =
@@ -320,6 +320,6 @@ updatePortfolioShareResponse_httpStatus = Lens.lens (\UpdatePortfolioShareRespon
 
 instance Prelude.NFData UpdatePortfolioShareResponse where
   rnf UpdatePortfolioShareResponse' {..} =
-    Prelude.rnf portfolioShareToken
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf portfolioShareToken `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf httpStatus

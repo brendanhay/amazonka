@@ -193,5 +193,5 @@ instance
     DescribeGameServerGroupResponse
   where
   rnf DescribeGameServerGroupResponse' {..} =
-    Prelude.rnf gameServerGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf gameServerGroup `Prelude.seq`
+      Prelude.rnf httpStatus

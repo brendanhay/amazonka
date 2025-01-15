@@ -86,5 +86,5 @@ instance
 
 instance Prelude.NFData CacheSecurityGroupMembership where
   rnf CacheSecurityGroupMembership' {..} =
-    Prelude.rnf cacheSecurityGroupName
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf cacheSecurityGroupName `Prelude.seq`
+      Prelude.rnf status

@@ -124,10 +124,10 @@ instance Prelude.Hashable OfflineStoreConfig where
 
 instance Prelude.NFData OfflineStoreConfig where
   rnf OfflineStoreConfig' {..} =
-    Prelude.rnf dataCatalogConfig
-      `Prelude.seq` Prelude.rnf disableGlueTableCreation
-      `Prelude.seq` Prelude.rnf tableFormat
-      `Prelude.seq` Prelude.rnf s3StorageConfig
+    Prelude.rnf dataCatalogConfig `Prelude.seq`
+      Prelude.rnf disableGlueTableCreation `Prelude.seq`
+        Prelude.rnf tableFormat `Prelude.seq`
+          Prelude.rnf s3StorageConfig
 
 instance Data.ToJSON OfflineStoreConfig where
   toJSON OfflineStoreConfig' {..} =

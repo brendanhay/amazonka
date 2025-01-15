@@ -81,5 +81,5 @@ instance Prelude.Hashable SolutionStackDescription where
 
 instance Prelude.NFData SolutionStackDescription where
   rnf SolutionStackDescription' {..} =
-    Prelude.rnf permittedFileTypes
-      `Prelude.seq` Prelude.rnf solutionStackName
+    Prelude.rnf permittedFileTypes `Prelude.seq`
+      Prelude.rnf solutionStackName

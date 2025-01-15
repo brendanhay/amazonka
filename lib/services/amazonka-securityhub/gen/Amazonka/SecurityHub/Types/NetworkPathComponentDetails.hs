@@ -83,8 +83,8 @@ instance Prelude.Hashable NetworkPathComponentDetails where
 
 instance Prelude.NFData NetworkPathComponentDetails where
   rnf NetworkPathComponentDetails' {..} =
-    Prelude.rnf address
-      `Prelude.seq` Prelude.rnf portRanges
+    Prelude.rnf address `Prelude.seq`
+      Prelude.rnf portRanges
 
 instance Data.ToJSON NetworkPathComponentDetails where
   toJSON NetworkPathComponentDetails' {..} =

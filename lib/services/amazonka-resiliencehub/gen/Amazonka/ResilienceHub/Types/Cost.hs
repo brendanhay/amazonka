@@ -98,6 +98,6 @@ instance Prelude.Hashable Cost where
 
 instance Prelude.NFData Cost where
   rnf Cost' {..} =
-    Prelude.rnf amount
-      `Prelude.seq` Prelude.rnf currency
-      `Prelude.seq` Prelude.rnf frequency
+    Prelude.rnf amount `Prelude.seq`
+      Prelude.rnf currency `Prelude.seq`
+        Prelude.rnf frequency

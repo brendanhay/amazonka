@@ -173,5 +173,5 @@ describeEventTrackerResponse_httpStatus = Lens.lens (\DescribeEventTrackerRespon
 
 instance Prelude.NFData DescribeEventTrackerResponse where
   rnf DescribeEventTrackerResponse' {..} =
-    Prelude.rnf eventTracker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf eventTracker `Prelude.seq`
+      Prelude.rnf httpStatus

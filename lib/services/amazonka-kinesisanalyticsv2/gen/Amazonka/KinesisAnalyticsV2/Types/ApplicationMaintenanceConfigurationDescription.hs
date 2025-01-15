@@ -100,5 +100,5 @@ instance
   where
   rnf
     ApplicationMaintenanceConfigurationDescription' {..} =
-      Prelude.rnf applicationMaintenanceWindowStartTime
-        `Prelude.seq` Prelude.rnf applicationMaintenanceWindowEndTime
+      Prelude.rnf applicationMaintenanceWindowStartTime `Prelude.seq`
+        Prelude.rnf applicationMaintenanceWindowEndTime

@@ -107,8 +107,8 @@ instance
     AwsEfsAccessPointRootDirectoryDetails
   where
   rnf AwsEfsAccessPointRootDirectoryDetails' {..} =
-    Prelude.rnf creationInfo
-      `Prelude.seq` Prelude.rnf path
+    Prelude.rnf creationInfo `Prelude.seq`
+      Prelude.rnf path
 
 instance
   Data.ToJSON

@@ -103,5 +103,5 @@ instance
     ConformancePackComplianceSummary
   where
   rnf ConformancePackComplianceSummary' {..} =
-    Prelude.rnf conformancePackName
-      `Prelude.seq` Prelude.rnf conformancePackComplianceStatus
+    Prelude.rnf conformancePackName `Prelude.seq`
+      Prelude.rnf conformancePackComplianceStatus

@@ -159,5 +159,5 @@ getDedicatedIpPoolResponse_httpStatus = Lens.lens (\GetDedicatedIpPoolResponse' 
 
 instance Prelude.NFData GetDedicatedIpPoolResponse where
   rnf GetDedicatedIpPoolResponse' {..} =
-    Prelude.rnf dedicatedIpPool
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dedicatedIpPool `Prelude.seq`
+      Prelude.rnf httpStatus

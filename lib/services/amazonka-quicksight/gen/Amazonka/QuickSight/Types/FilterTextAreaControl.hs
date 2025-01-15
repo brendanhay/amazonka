@@ -123,11 +123,11 @@ instance Prelude.Hashable FilterTextAreaControl where
 
 instance Prelude.NFData FilterTextAreaControl where
   rnf FilterTextAreaControl' {..} =
-    Prelude.rnf delimiter
-      `Prelude.seq` Prelude.rnf displayOptions
-      `Prelude.seq` Prelude.rnf filterControlId
-      `Prelude.seq` Prelude.rnf title
-      `Prelude.seq` Prelude.rnf sourceFilterId
+    Prelude.rnf delimiter `Prelude.seq`
+      Prelude.rnf displayOptions `Prelude.seq`
+        Prelude.rnf filterControlId `Prelude.seq`
+          Prelude.rnf title `Prelude.seq`
+            Prelude.rnf sourceFilterId
 
 instance Data.ToJSON FilterTextAreaControl where
   toJSON FilterTextAreaControl' {..} =

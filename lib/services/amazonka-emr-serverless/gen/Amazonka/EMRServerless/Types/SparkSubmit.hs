@@ -96,9 +96,9 @@ instance Prelude.Hashable SparkSubmit where
 
 instance Prelude.NFData SparkSubmit where
   rnf SparkSubmit' {..} =
-    Prelude.rnf entryPointArguments
-      `Prelude.seq` Prelude.rnf sparkSubmitParameters
-      `Prelude.seq` Prelude.rnf entryPoint
+    Prelude.rnf entryPointArguments `Prelude.seq`
+      Prelude.rnf sparkSubmitParameters `Prelude.seq`
+        Prelude.rnf entryPoint
 
 instance Data.ToJSON SparkSubmit where
   toJSON SparkSubmit' {..} =

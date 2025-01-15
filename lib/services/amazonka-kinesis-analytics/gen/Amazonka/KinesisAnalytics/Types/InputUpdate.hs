@@ -147,13 +147,13 @@ instance Prelude.Hashable InputUpdate where
 
 instance Prelude.NFData InputUpdate where
   rnf InputUpdate' {..} =
-    Prelude.rnf inputParallelismUpdate
-      `Prelude.seq` Prelude.rnf inputProcessingConfigurationUpdate
-      `Prelude.seq` Prelude.rnf inputSchemaUpdate
-      `Prelude.seq` Prelude.rnf kinesisFirehoseInputUpdate
-      `Prelude.seq` Prelude.rnf kinesisStreamsInputUpdate
-      `Prelude.seq` Prelude.rnf namePrefixUpdate
-      `Prelude.seq` Prelude.rnf inputId
+    Prelude.rnf inputParallelismUpdate `Prelude.seq`
+      Prelude.rnf inputProcessingConfigurationUpdate `Prelude.seq`
+        Prelude.rnf inputSchemaUpdate `Prelude.seq`
+          Prelude.rnf kinesisFirehoseInputUpdate `Prelude.seq`
+            Prelude.rnf kinesisStreamsInputUpdate `Prelude.seq`
+              Prelude.rnf namePrefixUpdate `Prelude.seq`
+                Prelude.rnf inputId
 
 instance Data.ToJSON InputUpdate where
   toJSON InputUpdate' {..} =

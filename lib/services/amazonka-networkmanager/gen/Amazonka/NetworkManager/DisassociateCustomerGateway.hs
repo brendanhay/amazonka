@@ -113,8 +113,8 @@ instance Prelude.Hashable DisassociateCustomerGateway where
 
 instance Prelude.NFData DisassociateCustomerGateway where
   rnf DisassociateCustomerGateway' {..} =
-    Prelude.rnf globalNetworkId
-      `Prelude.seq` Prelude.rnf customerGatewayArn
+    Prelude.rnf globalNetworkId `Prelude.seq`
+      Prelude.rnf customerGatewayArn
 
 instance Data.ToHeaders DisassociateCustomerGateway where
   toHeaders =
@@ -183,5 +183,5 @@ instance
     DisassociateCustomerGatewayResponse
   where
   rnf DisassociateCustomerGatewayResponse' {..} =
-    Prelude.rnf customerGatewayAssociation
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf customerGatewayAssociation `Prelude.seq`
+      Prelude.rnf httpStatus

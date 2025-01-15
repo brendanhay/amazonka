@@ -134,8 +134,8 @@ instance
   where
   rnf
     NetworkFirewallUnexpectedFirewallRoutesViolation' {..} =
-      Prelude.rnf firewallEndpoint
-        `Prelude.seq` Prelude.rnf firewallSubnetId
-        `Prelude.seq` Prelude.rnf routeTableId
-        `Prelude.seq` Prelude.rnf violatingRoutes
-        `Prelude.seq` Prelude.rnf vpcId
+      Prelude.rnf firewallEndpoint `Prelude.seq`
+        Prelude.rnf firewallSubnetId `Prelude.seq`
+          Prelude.rnf routeTableId `Prelude.seq`
+            Prelude.rnf violatingRoutes `Prelude.seq`
+              Prelude.rnf vpcId

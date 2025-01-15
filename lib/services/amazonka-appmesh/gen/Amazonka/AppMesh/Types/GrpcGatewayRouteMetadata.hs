@@ -97,9 +97,9 @@ instance Prelude.Hashable GrpcGatewayRouteMetadata where
 
 instance Prelude.NFData GrpcGatewayRouteMetadata where
   rnf GrpcGatewayRouteMetadata' {..} =
-    Prelude.rnf invert
-      `Prelude.seq` Prelude.rnf match
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf invert `Prelude.seq`
+      Prelude.rnf match `Prelude.seq`
+        Prelude.rnf name
 
 instance Data.ToJSON GrpcGatewayRouteMetadata where
   toJSON GrpcGatewayRouteMetadata' {..} =

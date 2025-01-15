@@ -118,8 +118,8 @@ instance
 
 instance Prelude.NFData GetPullRequestApprovalStates where
   rnf GetPullRequestApprovalStates' {..} =
-    Prelude.rnf pullRequestId
-      `Prelude.seq` Prelude.rnf revisionId
+    Prelude.rnf pullRequestId `Prelude.seq`
+      Prelude.rnf revisionId
 
 instance Data.ToHeaders GetPullRequestApprovalStates where
   toHeaders =
@@ -196,5 +196,5 @@ instance
     GetPullRequestApprovalStatesResponse
   where
   rnf GetPullRequestApprovalStatesResponse' {..} =
-    Prelude.rnf approvals
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf approvals `Prelude.seq`
+      Prelude.rnf httpStatus

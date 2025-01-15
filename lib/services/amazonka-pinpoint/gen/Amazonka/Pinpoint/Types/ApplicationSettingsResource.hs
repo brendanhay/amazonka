@@ -186,8 +186,8 @@ instance Prelude.Hashable ApplicationSettingsResource where
 
 instance Prelude.NFData ApplicationSettingsResource where
   rnf ApplicationSettingsResource' {..} =
-    Prelude.rnf campaignHook
-      `Prelude.seq` Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf limits
-      `Prelude.seq` Prelude.rnf quietTime
-      `Prelude.seq` Prelude.rnf applicationId
+    Prelude.rnf campaignHook `Prelude.seq`
+      Prelude.rnf lastModifiedDate `Prelude.seq`
+        Prelude.rnf limits `Prelude.seq`
+          Prelude.rnf quietTime `Prelude.seq`
+            Prelude.rnf applicationId

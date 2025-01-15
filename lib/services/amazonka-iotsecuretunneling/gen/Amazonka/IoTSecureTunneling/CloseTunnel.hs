@@ -113,8 +113,8 @@ instance Prelude.Hashable CloseTunnel where
 
 instance Prelude.NFData CloseTunnel where
   rnf CloseTunnel' {..} =
-    Prelude.rnf delete'
-      `Prelude.seq` Prelude.rnf tunnelId
+    Prelude.rnf delete' `Prelude.seq`
+      Prelude.rnf tunnelId
 
 instance Data.ToHeaders CloseTunnel where
   toHeaders =

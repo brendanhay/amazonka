@@ -108,11 +108,11 @@ instance Prelude.Hashable RecordPatch where
 
 instance Prelude.NFData RecordPatch where
   rnf RecordPatch' {..} =
-    Prelude.rnf deviceLastModifiedDate
-      `Prelude.seq` Prelude.rnf value
-      `Prelude.seq` Prelude.rnf op
-      `Prelude.seq` Prelude.rnf key
-      `Prelude.seq` Prelude.rnf syncCount
+    Prelude.rnf deviceLastModifiedDate `Prelude.seq`
+      Prelude.rnf value `Prelude.seq`
+        Prelude.rnf op `Prelude.seq`
+          Prelude.rnf key `Prelude.seq`
+            Prelude.rnf syncCount
 
 instance Data.ToJSON RecordPatch where
   toJSON RecordPatch' {..} =

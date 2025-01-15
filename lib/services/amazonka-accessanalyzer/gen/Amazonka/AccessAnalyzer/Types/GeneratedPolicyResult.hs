@@ -100,5 +100,5 @@ instance Prelude.Hashable GeneratedPolicyResult where
 
 instance Prelude.NFData GeneratedPolicyResult where
   rnf GeneratedPolicyResult' {..} =
-    Prelude.rnf generatedPolicies
-      `Prelude.seq` Prelude.rnf properties
+    Prelude.rnf generatedPolicies `Prelude.seq`
+      Prelude.rnf properties

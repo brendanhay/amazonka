@@ -135,9 +135,9 @@ instance Prelude.Hashable OwnerDirectoryDescription where
 
 instance Prelude.NFData OwnerDirectoryDescription where
   rnf OwnerDirectoryDescription' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf directoryId
-      `Prelude.seq` Prelude.rnf dnsIpAddrs
-      `Prelude.seq` Prelude.rnf radiusSettings
-      `Prelude.seq` Prelude.rnf radiusStatus
-      `Prelude.seq` Prelude.rnf vpcSettings
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf directoryId `Prelude.seq`
+        Prelude.rnf dnsIpAddrs `Prelude.seq`
+          Prelude.rnf radiusSettings `Prelude.seq`
+            Prelude.rnf radiusStatus `Prelude.seq`
+              Prelude.rnf vpcSettings

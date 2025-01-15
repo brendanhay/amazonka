@@ -194,13 +194,13 @@ instance Prelude.Hashable NeptuneSettings where
 
 instance Prelude.NFData NeptuneSettings where
   rnf NeptuneSettings' {..} =
-    Prelude.rnf errorRetryDuration
-      `Prelude.seq` Prelude.rnf iamAuthEnabled
-      `Prelude.seq` Prelude.rnf maxFileSize
-      `Prelude.seq` Prelude.rnf maxRetryCount
-      `Prelude.seq` Prelude.rnf serviceAccessRoleArn
-      `Prelude.seq` Prelude.rnf s3BucketName
-      `Prelude.seq` Prelude.rnf s3BucketFolder
+    Prelude.rnf errorRetryDuration `Prelude.seq`
+      Prelude.rnf iamAuthEnabled `Prelude.seq`
+        Prelude.rnf maxFileSize `Prelude.seq`
+          Prelude.rnf maxRetryCount `Prelude.seq`
+            Prelude.rnf serviceAccessRoleArn `Prelude.seq`
+              Prelude.rnf s3BucketName `Prelude.seq`
+                Prelude.rnf s3BucketFolder
 
 instance Data.ToJSON NeptuneSettings where
   toJSON NeptuneSettings' {..} =

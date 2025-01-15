@@ -157,10 +157,10 @@ instance
     CreateTransitGatewayMulticastDomain
   where
   rnf CreateTransitGatewayMulticastDomain' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf options
-      `Prelude.seq` Prelude.rnf tagSpecifications
-      `Prelude.seq` Prelude.rnf transitGatewayId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf options `Prelude.seq`
+        Prelude.rnf tagSpecifications `Prelude.seq`
+          Prelude.rnf transitGatewayId
 
 instance
   Data.ToHeaders
@@ -240,5 +240,5 @@ instance
     CreateTransitGatewayMulticastDomainResponse
   where
   rnf CreateTransitGatewayMulticastDomainResponse' {..} =
-    Prelude.rnf transitGatewayMulticastDomain
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf transitGatewayMulticastDomain `Prelude.seq`
+      Prelude.rnf httpStatus

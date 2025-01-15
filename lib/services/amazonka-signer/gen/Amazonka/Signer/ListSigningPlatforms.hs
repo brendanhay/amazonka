@@ -147,12 +147,12 @@ instance Core.AWSPager ListSigningPlatforms where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listSigningPlatforms_nextToken
-          Lens..~ rs
-          Lens.^? listSigningPlatformsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listSigningPlatforms_nextToken
+              Lens..~ rs
+              Lens.^? listSigningPlatformsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSigningPlatforms where
   type
@@ -180,11 +180,11 @@ instance Prelude.Hashable ListSigningPlatforms where
 
 instance Prelude.NFData ListSigningPlatforms where
   rnf ListSigningPlatforms' {..} =
-    Prelude.rnf category
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf partner
-      `Prelude.seq` Prelude.rnf target
+    Prelude.rnf category `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf partner `Prelude.seq`
+            Prelude.rnf target
 
 instance Data.ToHeaders ListSigningPlatforms where
   toHeaders =
@@ -260,6 +260,6 @@ listSigningPlatformsResponse_httpStatus = Lens.lens (\ListSigningPlatformsRespon
 
 instance Prelude.NFData ListSigningPlatformsResponse where
   rnf ListSigningPlatformsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf platforms
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf platforms `Prelude.seq`
+        Prelude.rnf httpStatus

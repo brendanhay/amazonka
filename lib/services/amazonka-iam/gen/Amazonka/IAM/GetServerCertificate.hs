@@ -189,5 +189,5 @@ getServerCertificateResponse_serverCertificate = Lens.lens (\GetServerCertificat
 
 instance Prelude.NFData GetServerCertificateResponse where
   rnf GetServerCertificateResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf serverCertificate
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf serverCertificate

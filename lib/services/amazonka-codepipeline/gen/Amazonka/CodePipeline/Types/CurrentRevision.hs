@@ -97,10 +97,10 @@ instance Prelude.Hashable CurrentRevision where
 
 instance Prelude.NFData CurrentRevision where
   rnf CurrentRevision' {..} =
-    Prelude.rnf created
-      `Prelude.seq` Prelude.rnf revisionSummary
-      `Prelude.seq` Prelude.rnf revision
-      `Prelude.seq` Prelude.rnf changeIdentifier
+    Prelude.rnf created `Prelude.seq`
+      Prelude.rnf revisionSummary `Prelude.seq`
+        Prelude.rnf revision `Prelude.seq`
+          Prelude.rnf changeIdentifier
 
 instance Data.ToJSON CurrentRevision where
   toJSON CurrentRevision' {..} =

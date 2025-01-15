@@ -199,5 +199,5 @@ instance
     SendContactMethodVerificationResponse
   where
   rnf SendContactMethodVerificationResponse' {..} =
-    Prelude.rnf operations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operations `Prelude.seq`
+      Prelude.rnf httpStatus

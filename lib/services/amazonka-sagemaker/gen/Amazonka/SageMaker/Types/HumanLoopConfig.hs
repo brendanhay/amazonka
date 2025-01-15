@@ -230,15 +230,15 @@ instance Prelude.Hashable HumanLoopConfig where
 
 instance Prelude.NFData HumanLoopConfig where
   rnf HumanLoopConfig' {..} =
-    Prelude.rnf publicWorkforceTaskPrice
-      `Prelude.seq` Prelude.rnf taskAvailabilityLifetimeInSeconds
-      `Prelude.seq` Prelude.rnf taskKeywords
-      `Prelude.seq` Prelude.rnf taskTimeLimitInSeconds
-      `Prelude.seq` Prelude.rnf workteamArn
-      `Prelude.seq` Prelude.rnf humanTaskUiArn
-      `Prelude.seq` Prelude.rnf taskTitle
-      `Prelude.seq` Prelude.rnf taskDescription
-      `Prelude.seq` Prelude.rnf taskCount
+    Prelude.rnf publicWorkforceTaskPrice `Prelude.seq`
+      Prelude.rnf taskAvailabilityLifetimeInSeconds `Prelude.seq`
+        Prelude.rnf taskKeywords `Prelude.seq`
+          Prelude.rnf taskTimeLimitInSeconds `Prelude.seq`
+            Prelude.rnf workteamArn `Prelude.seq`
+              Prelude.rnf humanTaskUiArn `Prelude.seq`
+                Prelude.rnf taskTitle `Prelude.seq`
+                  Prelude.rnf taskDescription `Prelude.seq`
+                    Prelude.rnf taskCount
 
 instance Data.ToJSON HumanLoopConfig where
   toJSON HumanLoopConfig' {..} =

@@ -89,8 +89,8 @@ instance Prelude.Hashable HttpEndpointCommonAttribute where
 
 instance Prelude.NFData HttpEndpointCommonAttribute where
   rnf HttpEndpointCommonAttribute' {..} =
-    Prelude.rnf attributeName
-      `Prelude.seq` Prelude.rnf attributeValue
+    Prelude.rnf attributeName `Prelude.seq`
+      Prelude.rnf attributeValue
 
 instance Data.ToJSON HttpEndpointCommonAttribute where
   toJSON HttpEndpointCommonAttribute' {..} =

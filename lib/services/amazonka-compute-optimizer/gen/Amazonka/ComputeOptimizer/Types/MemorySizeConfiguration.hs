@@ -80,5 +80,5 @@ instance Prelude.Hashable MemorySizeConfiguration where
 
 instance Prelude.NFData MemorySizeConfiguration where
   rnf MemorySizeConfiguration' {..} =
-    Prelude.rnf memory
-      `Prelude.seq` Prelude.rnf memoryReservation
+    Prelude.rnf memory `Prelude.seq`
+      Prelude.rnf memoryReservation

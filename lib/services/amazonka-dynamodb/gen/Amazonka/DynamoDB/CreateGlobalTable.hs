@@ -154,8 +154,8 @@ instance Prelude.Hashable CreateGlobalTable where
 
 instance Prelude.NFData CreateGlobalTable where
   rnf CreateGlobalTable' {..} =
-    Prelude.rnf globalTableName
-      `Prelude.seq` Prelude.rnf replicationGroup
+    Prelude.rnf globalTableName `Prelude.seq`
+      Prelude.rnf replicationGroup
 
 instance Data.ToHeaders CreateGlobalTable where
   toHeaders =
@@ -230,5 +230,5 @@ createGlobalTableResponse_httpStatus = Lens.lens (\CreateGlobalTableResponse' {h
 
 instance Prelude.NFData CreateGlobalTableResponse where
   rnf CreateGlobalTableResponse' {..} =
-    Prelude.rnf globalTableDescription
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf globalTableDescription `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -145,9 +145,9 @@ instance Prelude.Hashable ReplicateSecretToRegions where
 
 instance Prelude.NFData ReplicateSecretToRegions where
   rnf ReplicateSecretToRegions' {..} =
-    Prelude.rnf forceOverwriteReplicaSecret
-      `Prelude.seq` Prelude.rnf secretId
-      `Prelude.seq` Prelude.rnf addReplicaRegions
+    Prelude.rnf forceOverwriteReplicaSecret `Prelude.seq`
+      Prelude.rnf secretId `Prelude.seq`
+        Prelude.rnf addReplicaRegions
 
 instance Data.ToHeaders ReplicateSecretToRegions where
   toHeaders =
@@ -235,6 +235,6 @@ instance
     ReplicateSecretToRegionsResponse
   where
   rnf ReplicateSecretToRegionsResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf replicationStatus
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf replicationStatus `Prelude.seq`
+        Prelude.rnf httpStatus

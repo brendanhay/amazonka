@@ -103,7 +103,7 @@ instance Prelude.Hashable ShardDetail where
 
 instance Prelude.NFData ShardDetail where
   rnf ShardDetail' {..} =
-    Prelude.rnf configuration
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf size
-      `Prelude.seq` Prelude.rnf snapshotCreationTime
+    Prelude.rnf configuration `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf size `Prelude.seq`
+          Prelude.rnf snapshotCreationTime

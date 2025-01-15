@@ -104,12 +104,12 @@ instance Core.AWSPager ListOfferingPromotions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listOfferingPromotions_nextToken
-          Lens..~ rs
-          Lens.^? listOfferingPromotionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listOfferingPromotions_nextToken
+              Lens..~ rs
+              Lens.^? listOfferingPromotionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListOfferingPromotions where
   type
@@ -221,6 +221,6 @@ instance
     ListOfferingPromotionsResponse
   where
   rnf ListOfferingPromotionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf offeringPromotions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf offeringPromotions `Prelude.seq`
+        Prelude.rnf httpStatus

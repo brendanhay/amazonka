@@ -96,5 +96,5 @@ instance Prelude.Hashable WeightedQuantileLoss where
 
 instance Prelude.NFData WeightedQuantileLoss where
   rnf WeightedQuantileLoss' {..} =
-    Prelude.rnf lossValue
-      `Prelude.seq` Prelude.rnf quantile
+    Prelude.rnf lossValue `Prelude.seq`
+      Prelude.rnf quantile

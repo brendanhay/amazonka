@@ -139,12 +139,12 @@ instance Core.AWSPager ListStateMachines where
         (rs Lens.^. listStateMachinesResponse_stateMachines) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listStateMachines_nextToken
-          Lens..~ rs
-          Lens.^? listStateMachinesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listStateMachines_nextToken
+              Lens..~ rs
+              Lens.^? listStateMachinesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListStateMachines where
   type
@@ -169,8 +169,8 @@ instance Prelude.Hashable ListStateMachines where
 
 instance Prelude.NFData ListStateMachines where
   rnf ListStateMachines' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListStateMachines where
   toHeaders =
@@ -266,6 +266,6 @@ listStateMachinesResponse_stateMachines = Lens.lens (\ListStateMachinesResponse'
 
 instance Prelude.NFData ListStateMachinesResponse where
   rnf ListStateMachinesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf stateMachines
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf stateMachines

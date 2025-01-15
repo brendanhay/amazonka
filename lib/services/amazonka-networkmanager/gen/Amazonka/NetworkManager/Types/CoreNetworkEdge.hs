@@ -94,6 +94,6 @@ instance Prelude.Hashable CoreNetworkEdge where
 
 instance Prelude.NFData CoreNetworkEdge where
   rnf CoreNetworkEdge' {..} =
-    Prelude.rnf asn
-      `Prelude.seq` Prelude.rnf edgeLocation
-      `Prelude.seq` Prelude.rnf insideCidrBlocks
+    Prelude.rnf asn `Prelude.seq`
+      Prelude.rnf edgeLocation `Prelude.seq`
+        Prelude.rnf insideCidrBlocks

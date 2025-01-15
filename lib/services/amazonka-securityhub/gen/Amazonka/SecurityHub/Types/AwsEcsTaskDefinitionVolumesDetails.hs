@@ -121,10 +121,10 @@ instance
     AwsEcsTaskDefinitionVolumesDetails
   where
   rnf AwsEcsTaskDefinitionVolumesDetails' {..} =
-    Prelude.rnf dockerVolumeConfiguration
-      `Prelude.seq` Prelude.rnf efsVolumeConfiguration
-      `Prelude.seq` Prelude.rnf host
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf dockerVolumeConfiguration `Prelude.seq`
+      Prelude.rnf efsVolumeConfiguration `Prelude.seq`
+        Prelude.rnf host `Prelude.seq`
+          Prelude.rnf name
 
 instance
   Data.ToJSON

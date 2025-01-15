@@ -167,5 +167,5 @@ instance
     GetConnectInstanceConfigResponse
   where
   rnf GetConnectInstanceConfigResponse' {..} =
-    Prelude.rnf connectInstanceConfig
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf connectInstanceConfig `Prelude.seq`
+      Prelude.rnf httpStatus

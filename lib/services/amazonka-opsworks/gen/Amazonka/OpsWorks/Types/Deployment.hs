@@ -233,15 +233,15 @@ instance Prelude.Hashable Deployment where
 
 instance Prelude.NFData Deployment where
   rnf Deployment' {..} =
-    Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf command
-      `Prelude.seq` Prelude.rnf comment
-      `Prelude.seq` Prelude.rnf completedAt
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf customJson
-      `Prelude.seq` Prelude.rnf deploymentId
-      `Prelude.seq` Prelude.rnf duration
-      `Prelude.seq` Prelude.rnf iamUserArn
-      `Prelude.seq` Prelude.rnf instanceIds
-      `Prelude.seq` Prelude.rnf stackId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf appId `Prelude.seq`
+      Prelude.rnf command `Prelude.seq`
+        Prelude.rnf comment `Prelude.seq`
+          Prelude.rnf completedAt `Prelude.seq`
+            Prelude.rnf createdAt `Prelude.seq`
+              Prelude.rnf customJson `Prelude.seq`
+                Prelude.rnf deploymentId `Prelude.seq`
+                  Prelude.rnf duration `Prelude.seq`
+                    Prelude.rnf iamUserArn `Prelude.seq`
+                      Prelude.rnf instanceIds `Prelude.seq`
+                        Prelude.rnf stackId `Prelude.seq`
+                          Prelude.rnf status

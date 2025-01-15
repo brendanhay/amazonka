@@ -105,8 +105,8 @@ instance Prelude.Hashable SourceRegion where
 
 instance Prelude.NFData SourceRegion where
   rnf SourceRegion' {..} =
-    Prelude.rnf endpoint
-      `Prelude.seq` Prelude.rnf regionName
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf
-        supportsDBInstanceAutomatedBackupsReplication
+    Prelude.rnf endpoint `Prelude.seq`
+      Prelude.rnf regionName `Prelude.seq`
+        Prelude.rnf status `Prelude.seq`
+          Prelude.rnf
+            supportsDBInstanceAutomatedBackupsReplication

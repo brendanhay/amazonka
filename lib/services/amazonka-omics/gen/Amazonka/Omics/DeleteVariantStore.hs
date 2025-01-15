@@ -172,5 +172,5 @@ deleteVariantStoreResponse_status = Lens.lens (\DeleteVariantStoreResponse' {sta
 
 instance Prelude.NFData DeleteVariantStoreResponse where
   rnf DeleteVariantStoreResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf status

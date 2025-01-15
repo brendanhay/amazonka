@@ -108,8 +108,8 @@ instance Prelude.Hashable DeleteTable where
 
 instance Prelude.NFData DeleteTable where
   rnf DeleteTable' {..} =
-    Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf tableName
+    Prelude.rnf databaseName `Prelude.seq`
+      Prelude.rnf tableName
 
 instance Data.ToHeaders DeleteTable where
   toHeaders =

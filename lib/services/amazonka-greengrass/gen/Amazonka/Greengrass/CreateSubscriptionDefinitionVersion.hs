@@ -140,9 +140,9 @@ instance
     CreateSubscriptionDefinitionVersion
   where
   rnf CreateSubscriptionDefinitionVersion' {..} =
-    Prelude.rnf amznClientToken
-      `Prelude.seq` Prelude.rnf subscriptions
-      `Prelude.seq` Prelude.rnf subscriptionDefinitionId
+    Prelude.rnf amznClientToken `Prelude.seq`
+      Prelude.rnf subscriptions `Prelude.seq`
+        Prelude.rnf subscriptionDefinitionId
 
 instance
   Data.ToHeaders
@@ -257,8 +257,8 @@ instance
     CreateSubscriptionDefinitionVersionResponse
   where
   rnf CreateSubscriptionDefinitionVersionResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationTimestamp
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf creationTimestamp `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf version `Prelude.seq`
+            Prelude.rnf httpStatus

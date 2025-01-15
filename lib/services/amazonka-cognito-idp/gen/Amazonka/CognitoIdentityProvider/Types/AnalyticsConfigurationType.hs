@@ -135,11 +135,11 @@ instance Prelude.Hashable AnalyticsConfigurationType where
 
 instance Prelude.NFData AnalyticsConfigurationType where
   rnf AnalyticsConfigurationType' {..} =
-    Prelude.rnf applicationArn
-      `Prelude.seq` Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf externalId
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf userDataShared
+    Prelude.rnf applicationArn `Prelude.seq`
+      Prelude.rnf applicationId `Prelude.seq`
+        Prelude.rnf externalId `Prelude.seq`
+          Prelude.rnf roleArn `Prelude.seq`
+            Prelude.rnf userDataShared
 
 instance Data.ToJSON AnalyticsConfigurationType where
   toJSON AnalyticsConfigurationType' {..} =

@@ -136,10 +136,10 @@ instance Prelude.Hashable CreateRequestValidator where
 
 instance Prelude.NFData CreateRequestValidator where
   rnf CreateRequestValidator' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf validateRequestBody
-      `Prelude.seq` Prelude.rnf validateRequestParameters
-      `Prelude.seq` Prelude.rnf restApiId
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf validateRequestBody `Prelude.seq`
+        Prelude.rnf validateRequestParameters `Prelude.seq`
+          Prelude.rnf restApiId
 
 instance Data.ToHeaders CreateRequestValidator where
   toHeaders =

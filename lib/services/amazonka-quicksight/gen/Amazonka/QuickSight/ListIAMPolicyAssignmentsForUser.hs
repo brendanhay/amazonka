@@ -172,11 +172,11 @@ instance
     ListIAMPolicyAssignmentsForUser
   where
   rnf ListIAMPolicyAssignmentsForUser' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf userName
-      `Prelude.seq` Prelude.rnf namespace
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf awsAccountId `Prelude.seq`
+          Prelude.rnf userName `Prelude.seq`
+            Prelude.rnf namespace
 
 instance
   Data.ToHeaders
@@ -276,7 +276,7 @@ instance
     ListIAMPolicyAssignmentsForUserResponse
   where
   rnf ListIAMPolicyAssignmentsForUserResponse' {..} =
-    Prelude.rnf activeAssignments
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf activeAssignments `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf requestId `Prelude.seq`
+          Prelude.rnf status

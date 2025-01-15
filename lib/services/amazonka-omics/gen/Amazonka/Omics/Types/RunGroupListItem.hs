@@ -135,10 +135,10 @@ instance Prelude.Hashable RunGroupListItem where
 
 instance Prelude.NFData RunGroupListItem where
   rnf RunGroupListItem' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf maxCpus
-      `Prelude.seq` Prelude.rnf maxDuration
-      `Prelude.seq` Prelude.rnf maxRuns
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf maxCpus `Prelude.seq`
+            Prelude.rnf maxDuration `Prelude.seq`
+              Prelude.rnf maxRuns `Prelude.seq`
+                Prelude.rnf name

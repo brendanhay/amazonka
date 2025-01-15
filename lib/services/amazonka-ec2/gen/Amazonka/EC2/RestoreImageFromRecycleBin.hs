@@ -120,8 +120,8 @@ instance Prelude.Hashable RestoreImageFromRecycleBin where
 
 instance Prelude.NFData RestoreImageFromRecycleBin where
   rnf RestoreImageFromRecycleBin' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf imageId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf imageId
 
 instance Data.ToHeaders RestoreImageFromRecycleBin where
   toHeaders = Prelude.const Prelude.mempty
@@ -184,5 +184,5 @@ instance
     RestoreImageFromRecycleBinResponse
   where
   rnf RestoreImageFromRecycleBinResponse' {..} =
-    Prelude.rnf return'
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf return' `Prelude.seq`
+      Prelude.rnf httpStatus

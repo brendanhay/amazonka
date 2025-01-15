@@ -116,9 +116,7 @@ instance Data.FromXML VpcPeeringConnection where
       Prelude.<*> (x Data..@? "expirationTime")
       Prelude.<*> (x Data..@? "requesterVpcInfo")
       Prelude.<*> (x Data..@? "status")
-      Prelude.<*> ( x
-                      Data..@? "tagSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "vpcPeeringConnectionId")
@@ -135,9 +133,9 @@ instance Prelude.Hashable VpcPeeringConnection where
 
 instance Prelude.NFData VpcPeeringConnection where
   rnf VpcPeeringConnection' {..} =
-    Prelude.rnf accepterVpcInfo
-      `Prelude.seq` Prelude.rnf expirationTime
-      `Prelude.seq` Prelude.rnf requesterVpcInfo
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf vpcPeeringConnectionId
+    Prelude.rnf accepterVpcInfo `Prelude.seq`
+      Prelude.rnf expirationTime `Prelude.seq`
+        Prelude.rnf requesterVpcInfo `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf vpcPeeringConnectionId

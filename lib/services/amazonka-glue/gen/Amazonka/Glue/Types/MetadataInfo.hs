@@ -95,6 +95,6 @@ instance Prelude.Hashable MetadataInfo where
 
 instance Prelude.NFData MetadataInfo where
   rnf MetadataInfo' {..} =
-    Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf metadataValue
-      `Prelude.seq` Prelude.rnf otherMetadataValueList
+    Prelude.rnf createdTime `Prelude.seq`
+      Prelude.rnf metadataValue `Prelude.seq`
+        Prelude.rnf otherMetadataValueList

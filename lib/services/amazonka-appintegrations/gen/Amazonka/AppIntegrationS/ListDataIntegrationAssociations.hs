@@ -147,9 +147,9 @@ instance
     ListDataIntegrationAssociations
   where
   rnf ListDataIntegrationAssociations' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf dataIntegrationIdentifier
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf dataIntegrationIdentifier
 
 instance
   Data.ToHeaders
@@ -240,6 +240,6 @@ instance
     ListDataIntegrationAssociationsResponse
   where
   rnf ListDataIntegrationAssociationsResponse' {..} =
-    Prelude.rnf dataIntegrationAssociations
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dataIntegrationAssociations `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

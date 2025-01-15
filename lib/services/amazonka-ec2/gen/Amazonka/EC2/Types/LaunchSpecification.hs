@@ -243,9 +243,7 @@ instance Data.FromXML LaunchSpecification where
                   )
       Prelude.<*> (x Data..@? "placement")
       Prelude.<*> (x Data..@? "ramdiskId")
-      Prelude.<*> ( x
-                      Data..@? "groupSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "groupSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "subnetId")
@@ -272,18 +270,18 @@ instance Prelude.Hashable LaunchSpecification where
 
 instance Prelude.NFData LaunchSpecification where
   rnf LaunchSpecification' {..} =
-    Prelude.rnf addressingType
-      `Prelude.seq` Prelude.rnf blockDeviceMappings
-      `Prelude.seq` Prelude.rnf ebsOptimized
-      `Prelude.seq` Prelude.rnf iamInstanceProfile
-      `Prelude.seq` Prelude.rnf imageId
-      `Prelude.seq` Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf kernelId
-      `Prelude.seq` Prelude.rnf keyName
-      `Prelude.seq` Prelude.rnf monitoring
-      `Prelude.seq` Prelude.rnf networkInterfaces
-      `Prelude.seq` Prelude.rnf placement
-      `Prelude.seq` Prelude.rnf ramdiskId
-      `Prelude.seq` Prelude.rnf securityGroups
-      `Prelude.seq` Prelude.rnf subnetId
-      `Prelude.seq` Prelude.rnf userData
+    Prelude.rnf addressingType `Prelude.seq`
+      Prelude.rnf blockDeviceMappings `Prelude.seq`
+        Prelude.rnf ebsOptimized `Prelude.seq`
+          Prelude.rnf iamInstanceProfile `Prelude.seq`
+            Prelude.rnf imageId `Prelude.seq`
+              Prelude.rnf instanceType `Prelude.seq`
+                Prelude.rnf kernelId `Prelude.seq`
+                  Prelude.rnf keyName `Prelude.seq`
+                    Prelude.rnf monitoring `Prelude.seq`
+                      Prelude.rnf networkInterfaces `Prelude.seq`
+                        Prelude.rnf placement `Prelude.seq`
+                          Prelude.rnf ramdiskId `Prelude.seq`
+                            Prelude.rnf securityGroups `Prelude.seq`
+                              Prelude.rnf subnetId `Prelude.seq`
+                                Prelude.rnf userData

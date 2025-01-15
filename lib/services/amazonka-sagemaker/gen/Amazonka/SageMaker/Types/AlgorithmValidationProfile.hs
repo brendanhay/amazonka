@@ -113,9 +113,9 @@ instance Prelude.Hashable AlgorithmValidationProfile where
 
 instance Prelude.NFData AlgorithmValidationProfile where
   rnf AlgorithmValidationProfile' {..} =
-    Prelude.rnf transformJobDefinition
-      `Prelude.seq` Prelude.rnf profileName
-      `Prelude.seq` Prelude.rnf trainingJobDefinition
+    Prelude.rnf transformJobDefinition `Prelude.seq`
+      Prelude.rnf profileName `Prelude.seq`
+        Prelude.rnf trainingJobDefinition
 
 instance Data.ToJSON AlgorithmValidationProfile where
   toJSON AlgorithmValidationProfile' {..} =

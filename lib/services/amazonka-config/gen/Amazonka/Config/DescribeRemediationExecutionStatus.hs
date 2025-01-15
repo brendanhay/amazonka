@@ -142,12 +142,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeRemediationExecutionStatus_nextToken
-          Lens..~ rs
-          Lens.^? describeRemediationExecutionStatusResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeRemediationExecutionStatus_nextToken
+              Lens..~ rs
+              Lens.^? describeRemediationExecutionStatusResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -188,10 +188,10 @@ instance
     DescribeRemediationExecutionStatus
   where
   rnf DescribeRemediationExecutionStatus' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf resourceKeys
-      `Prelude.seq` Prelude.rnf configRuleName
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf resourceKeys `Prelude.seq`
+          Prelude.rnf configRuleName
 
 instance
   Data.ToHeaders
@@ -296,6 +296,6 @@ instance
     DescribeRemediationExecutionStatusResponse
   where
   rnf DescribeRemediationExecutionStatusResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf remediationExecutionStatuses
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf remediationExecutionStatuses `Prelude.seq`
+        Prelude.rnf httpStatus

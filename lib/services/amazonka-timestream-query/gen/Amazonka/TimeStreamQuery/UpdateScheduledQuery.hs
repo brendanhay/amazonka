@@ -102,8 +102,8 @@ instance Prelude.Hashable UpdateScheduledQuery where
 
 instance Prelude.NFData UpdateScheduledQuery where
   rnf UpdateScheduledQuery' {..} =
-    Prelude.rnf scheduledQueryArn
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf scheduledQueryArn `Prelude.seq`
+      Prelude.rnf state
 
 instance Data.ToHeaders UpdateScheduledQuery where
   toHeaders =

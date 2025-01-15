@@ -184,6 +184,6 @@ batchGetFreeTrialInfoResponse_failedAccounts = Lens.lens (\BatchGetFreeTrialInfo
 
 instance Prelude.NFData BatchGetFreeTrialInfoResponse where
   rnf BatchGetFreeTrialInfoResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf accounts
-      `Prelude.seq` Prelude.rnf failedAccounts
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf accounts `Prelude.seq`
+        Prelude.rnf failedAccounts

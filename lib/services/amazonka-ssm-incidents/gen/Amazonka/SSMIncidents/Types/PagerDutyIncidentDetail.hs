@@ -107,9 +107,9 @@ instance Prelude.Hashable PagerDutyIncidentDetail where
 
 instance Prelude.NFData PagerDutyIncidentDetail where
   rnf PagerDutyIncidentDetail' {..} =
-    Prelude.rnf autoResolve
-      `Prelude.seq` Prelude.rnf secretId
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf autoResolve `Prelude.seq`
+      Prelude.rnf secretId `Prelude.seq`
+        Prelude.rnf id
 
 instance Data.ToJSON PagerDutyIncidentDetail where
   toJSON PagerDutyIncidentDetail' {..} =

@@ -117,10 +117,10 @@ instance Prelude.Hashable AwsEc2VpcDetails where
 
 instance Prelude.NFData AwsEc2VpcDetails where
   rnf AwsEc2VpcDetails' {..} =
-    Prelude.rnf cidrBlockAssociationSet
-      `Prelude.seq` Prelude.rnf dhcpOptionsId
-      `Prelude.seq` Prelude.rnf ipv6CidrBlockAssociationSet
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf cidrBlockAssociationSet `Prelude.seq`
+      Prelude.rnf dhcpOptionsId `Prelude.seq`
+        Prelude.rnf ipv6CidrBlockAssociationSet `Prelude.seq`
+          Prelude.rnf state
 
 instance Data.ToJSON AwsEc2VpcDetails where
   toJSON AwsEc2VpcDetails' {..} =

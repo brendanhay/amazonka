@@ -80,8 +80,8 @@ instance Prelude.Hashable ProjectDataDeliveryConfig where
 
 instance Prelude.NFData ProjectDataDeliveryConfig where
   rnf ProjectDataDeliveryConfig' {..} =
-    Prelude.rnf cloudWatchLogs
-      `Prelude.seq` Prelude.rnf s3Destination
+    Prelude.rnf cloudWatchLogs `Prelude.seq`
+      Prelude.rnf s3Destination
 
 instance Data.ToJSON ProjectDataDeliveryConfig where
   toJSON ProjectDataDeliveryConfig' {..} =

@@ -82,8 +82,8 @@ instance
     LaunchTemplateInstanceMarketOptionsRequest
   where
   rnf LaunchTemplateInstanceMarketOptionsRequest' {..} =
-    Prelude.rnf marketType
-      `Prelude.seq` Prelude.rnf spotOptions
+    Prelude.rnf marketType `Prelude.seq`
+      Prelude.rnf spotOptions
 
 instance
   Data.ToQuery

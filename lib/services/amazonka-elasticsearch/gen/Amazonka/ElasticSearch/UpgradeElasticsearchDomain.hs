@@ -136,9 +136,9 @@ instance Prelude.Hashable UpgradeElasticsearchDomain where
 
 instance Prelude.NFData UpgradeElasticsearchDomain where
   rnf UpgradeElasticsearchDomain' {..} =
-    Prelude.rnf performCheckOnly
-      `Prelude.seq` Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf targetVersion
+    Prelude.rnf performCheckOnly `Prelude.seq`
+      Prelude.rnf domainName `Prelude.seq`
+        Prelude.rnf targetVersion
 
 instance Data.ToHeaders UpgradeElasticsearchDomain where
   toHeaders = Prelude.const Prelude.mempty
@@ -236,8 +236,8 @@ instance
     UpgradeElasticsearchDomainResponse
   where
   rnf UpgradeElasticsearchDomainResponse' {..} =
-    Prelude.rnf changeProgressDetails
-      `Prelude.seq` Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf performCheckOnly
-      `Prelude.seq` Prelude.rnf targetVersion
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf changeProgressDetails `Prelude.seq`
+      Prelude.rnf domainName `Prelude.seq`
+        Prelude.rnf performCheckOnly `Prelude.seq`
+          Prelude.rnf targetVersion `Prelude.seq`
+            Prelude.rnf httpStatus

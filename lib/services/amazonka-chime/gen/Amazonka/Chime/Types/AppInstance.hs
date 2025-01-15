@@ -114,8 +114,8 @@ instance Prelude.Hashable AppInstance where
 
 instance Prelude.NFData AppInstance where
   rnf AppInstance' {..} =
-    Prelude.rnf appInstanceArn
-      `Prelude.seq` Prelude.rnf createdTimestamp
-      `Prelude.seq` Prelude.rnf lastUpdatedTimestamp
-      `Prelude.seq` Prelude.rnf metadata
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf appInstanceArn `Prelude.seq`
+      Prelude.rnf createdTimestamp `Prelude.seq`
+        Prelude.rnf lastUpdatedTimestamp `Prelude.seq`
+          Prelude.rnf metadata `Prelude.seq`
+            Prelude.rnf name

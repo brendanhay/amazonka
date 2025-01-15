@@ -263,13 +263,13 @@ instance Prelude.Hashable BatchExecuteStatement where
 
 instance Prelude.NFData BatchExecuteStatement where
   rnf BatchExecuteStatement' {..} =
-    Prelude.rnf database
-      `Prelude.seq` Prelude.rnf parameterSets
-      `Prelude.seq` Prelude.rnf schema
-      `Prelude.seq` Prelude.rnf transactionId
-      `Prelude.seq` Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf secretArn
-      `Prelude.seq` Prelude.rnf sql
+    Prelude.rnf database `Prelude.seq`
+      Prelude.rnf parameterSets `Prelude.seq`
+        Prelude.rnf schema `Prelude.seq`
+          Prelude.rnf transactionId `Prelude.seq`
+            Prelude.rnf resourceArn `Prelude.seq`
+              Prelude.rnf secretArn `Prelude.seq`
+                Prelude.rnf sql
 
 instance Data.ToHeaders BatchExecuteStatement where
   toHeaders =
@@ -346,5 +346,5 @@ batchExecuteStatementResponse_httpStatus = Lens.lens (\BatchExecuteStatementResp
 
 instance Prelude.NFData BatchExecuteStatementResponse where
   rnf BatchExecuteStatementResponse' {..} =
-    Prelude.rnf updateResults
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf updateResults `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -218,14 +218,14 @@ instance Prelude.Hashable Workforce where
 
 instance Prelude.NFData Workforce where
   rnf Workforce' {..} =
-    Prelude.rnf cognitoConfig
-      `Prelude.seq` Prelude.rnf createDate
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf lastUpdatedDate
-      `Prelude.seq` Prelude.rnf oidcConfig
-      `Prelude.seq` Prelude.rnf sourceIpConfig
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf subDomain
-      `Prelude.seq` Prelude.rnf workforceVpcConfig
-      `Prelude.seq` Prelude.rnf workforceName
-      `Prelude.seq` Prelude.rnf workforceArn
+    Prelude.rnf cognitoConfig `Prelude.seq`
+      Prelude.rnf createDate `Prelude.seq`
+        Prelude.rnf failureReason `Prelude.seq`
+          Prelude.rnf lastUpdatedDate `Prelude.seq`
+            Prelude.rnf oidcConfig `Prelude.seq`
+              Prelude.rnf sourceIpConfig `Prelude.seq`
+                Prelude.rnf status `Prelude.seq`
+                  Prelude.rnf subDomain `Prelude.seq`
+                    Prelude.rnf workforceVpcConfig `Prelude.seq`
+                      Prelude.rnf workforceName `Prelude.seq`
+                        Prelude.rnf workforceArn

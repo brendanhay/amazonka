@@ -128,9 +128,9 @@ instance Prelude.Hashable CustomPluginRevisionSummary where
 
 instance Prelude.NFData CustomPluginRevisionSummary where
   rnf CustomPluginRevisionSummary' {..} =
-    Prelude.rnf contentType
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf fileDescription
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf revision
+    Prelude.rnf contentType `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf fileDescription `Prelude.seq`
+            Prelude.rnf location `Prelude.seq`
+              Prelude.rnf revision

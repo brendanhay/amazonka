@@ -153,9 +153,9 @@ instance Prelude.Hashable GetDeviceDefinitionVersion where
 
 instance Prelude.NFData GetDeviceDefinitionVersion where
   rnf GetDeviceDefinitionVersion' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf deviceDefinitionVersionId
-      `Prelude.seq` Prelude.rnf deviceDefinitionId
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf deviceDefinitionVersionId `Prelude.seq`
+        Prelude.rnf deviceDefinitionId
 
 instance Data.ToHeaders GetDeviceDefinitionVersion where
   toHeaders =
@@ -276,10 +276,10 @@ instance
     GetDeviceDefinitionVersionResponse
   where
   rnf GetDeviceDefinitionVersionResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationTimestamp
-      `Prelude.seq` Prelude.rnf definition
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf creationTimestamp `Prelude.seq`
+        Prelude.rnf definition `Prelude.seq`
+          Prelude.rnf id `Prelude.seq`
+            Prelude.rnf nextToken `Prelude.seq`
+              Prelude.rnf version `Prelude.seq`
+                Prelude.rnf httpStatus

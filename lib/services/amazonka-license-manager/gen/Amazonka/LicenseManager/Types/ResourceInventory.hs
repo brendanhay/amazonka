@@ -125,9 +125,9 @@ instance Prelude.Hashable ResourceInventory where
 
 instance Prelude.NFData ResourceInventory where
   rnf ResourceInventory' {..} =
-    Prelude.rnf platform
-      `Prelude.seq` Prelude.rnf platformVersion
-      `Prelude.seq` Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf resourceOwningAccountId
-      `Prelude.seq` Prelude.rnf resourceType
+    Prelude.rnf platform `Prelude.seq`
+      Prelude.rnf platformVersion `Prelude.seq`
+        Prelude.rnf resourceArn `Prelude.seq`
+          Prelude.rnf resourceId `Prelude.seq`
+            Prelude.rnf resourceOwningAccountId `Prelude.seq`
+              Prelude.rnf resourceType

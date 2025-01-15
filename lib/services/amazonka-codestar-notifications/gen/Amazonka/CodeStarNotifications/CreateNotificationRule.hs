@@ -251,14 +251,14 @@ instance Prelude.Hashable CreateNotificationRule where
 
 instance Prelude.NFData CreateNotificationRule where
   rnf CreateNotificationRule' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf eventTypeIds
-      `Prelude.seq` Prelude.rnf resource
-      `Prelude.seq` Prelude.rnf targets
-      `Prelude.seq` Prelude.rnf detailType
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf eventTypeIds `Prelude.seq`
+              Prelude.rnf resource `Prelude.seq`
+                Prelude.rnf targets `Prelude.seq`
+                  Prelude.rnf detailType
 
 instance Data.ToHeaders CreateNotificationRule where
   toHeaders =
@@ -337,5 +337,5 @@ instance
     CreateNotificationRuleResponse
   where
   rnf CreateNotificationRuleResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf httpStatus

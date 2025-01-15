@@ -219,12 +219,12 @@ instance Prelude.Hashable ImportAsProvisionedProduct where
 
 instance Prelude.NFData ImportAsProvisionedProduct where
   rnf ImportAsProvisionedProduct' {..} =
-    Prelude.rnf acceptLanguage
-      `Prelude.seq` Prelude.rnf productId
-      `Prelude.seq` Prelude.rnf provisioningArtifactId
-      `Prelude.seq` Prelude.rnf provisionedProductName
-      `Prelude.seq` Prelude.rnf physicalId
-      `Prelude.seq` Prelude.rnf idempotencyToken
+    Prelude.rnf acceptLanguage `Prelude.seq`
+      Prelude.rnf productId `Prelude.seq`
+        Prelude.rnf provisioningArtifactId `Prelude.seq`
+          Prelude.rnf provisionedProductName `Prelude.seq`
+            Prelude.rnf physicalId `Prelude.seq`
+              Prelude.rnf idempotencyToken
 
 instance Data.ToHeaders ImportAsProvisionedProduct where
   toHeaders =
@@ -311,5 +311,5 @@ instance
     ImportAsProvisionedProductResponse
   where
   rnf ImportAsProvisionedProductResponse' {..} =
-    Prelude.rnf recordDetail
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf recordDetail `Prelude.seq`
+      Prelude.rnf httpStatus

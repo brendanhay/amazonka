@@ -116,7 +116,7 @@ instance Prelude.Hashable AvailabilityZone where
 
 instance Prelude.NFData AvailabilityZone where
   rnf AvailabilityZone' {..} =
-    Prelude.rnf loadBalancerAddresses
-      `Prelude.seq` Prelude.rnf outpostId
-      `Prelude.seq` Prelude.rnf subnetId
-      `Prelude.seq` Prelude.rnf zoneName
+    Prelude.rnf loadBalancerAddresses `Prelude.seq`
+      Prelude.rnf outpostId `Prelude.seq`
+        Prelude.rnf subnetId `Prelude.seq`
+          Prelude.rnf zoneName

@@ -220,16 +220,16 @@ instance Prelude.Hashable RestoreTableFromSnapshot where
 
 instance Prelude.NFData RestoreTableFromSnapshot where
   rnf RestoreTableFromSnapshot' {..} =
-    Prelude.rnf activateCaseSensitiveIdentifier
-      `Prelude.seq` Prelude.rnf sourceSchemaName
-      `Prelude.seq` Prelude.rnf targetDatabaseName
-      `Prelude.seq` Prelude.rnf targetSchemaName
-      `Prelude.seq` Prelude.rnf namespaceName
-      `Prelude.seq` Prelude.rnf newTableName'
-      `Prelude.seq` Prelude.rnf snapshotName
-      `Prelude.seq` Prelude.rnf sourceDatabaseName
-      `Prelude.seq` Prelude.rnf sourceTableName
-      `Prelude.seq` Prelude.rnf workgroupName
+    Prelude.rnf activateCaseSensitiveIdentifier `Prelude.seq`
+      Prelude.rnf sourceSchemaName `Prelude.seq`
+        Prelude.rnf targetDatabaseName `Prelude.seq`
+          Prelude.rnf targetSchemaName `Prelude.seq`
+            Prelude.rnf namespaceName `Prelude.seq`
+              Prelude.rnf newTableName' `Prelude.seq`
+                Prelude.rnf snapshotName `Prelude.seq`
+                  Prelude.rnf sourceDatabaseName `Prelude.seq`
+                    Prelude.rnf sourceTableName `Prelude.seq`
+                      Prelude.rnf workgroupName
 
 instance Data.ToHeaders RestoreTableFromSnapshot where
   toHeaders =
@@ -323,5 +323,5 @@ instance
     RestoreTableFromSnapshotResponse
   where
   rnf RestoreTableFromSnapshotResponse' {..} =
-    Prelude.rnf tableRestoreStatus
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf tableRestoreStatus `Prelude.seq`
+      Prelude.rnf httpStatus

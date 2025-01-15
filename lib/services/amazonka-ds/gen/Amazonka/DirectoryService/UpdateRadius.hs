@@ -115,8 +115,8 @@ instance Prelude.Hashable UpdateRadius where
 
 instance Prelude.NFData UpdateRadius where
   rnf UpdateRadius' {..} =
-    Prelude.rnf directoryId
-      `Prelude.seq` Prelude.rnf radiusSettings
+    Prelude.rnf directoryId `Prelude.seq`
+      Prelude.rnf radiusSettings
 
 instance Data.ToHeaders UpdateRadius where
   toHeaders =

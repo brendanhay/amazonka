@@ -221,9 +221,7 @@ instance Data.FromXML LoadBalancer where
       Prelude.<*> (x Data..@? "LoadBalancerArn")
       Prelude.<*> (x Data..@? "LoadBalancerName")
       Prelude.<*> (x Data..@? "Scheme")
-      Prelude.<*> ( x
-                      Data..@? "SecurityGroups"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "SecurityGroups" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "State")
@@ -249,16 +247,16 @@ instance Prelude.Hashable LoadBalancer where
 
 instance Prelude.NFData LoadBalancer where
   rnf LoadBalancer' {..} =
-    Prelude.rnf availabilityZones
-      `Prelude.seq` Prelude.rnf canonicalHostedZoneId
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf customerOwnedIpv4Pool
-      `Prelude.seq` Prelude.rnf dNSName
-      `Prelude.seq` Prelude.rnf ipAddressType
-      `Prelude.seq` Prelude.rnf loadBalancerArn
-      `Prelude.seq` Prelude.rnf loadBalancerName
-      `Prelude.seq` Prelude.rnf scheme
-      `Prelude.seq` Prelude.rnf securityGroups
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf availabilityZones `Prelude.seq`
+      Prelude.rnf canonicalHostedZoneId `Prelude.seq`
+        Prelude.rnf createdTime `Prelude.seq`
+          Prelude.rnf customerOwnedIpv4Pool `Prelude.seq`
+            Prelude.rnf dNSName `Prelude.seq`
+              Prelude.rnf ipAddressType `Prelude.seq`
+                Prelude.rnf loadBalancerArn `Prelude.seq`
+                  Prelude.rnf loadBalancerName `Prelude.seq`
+                    Prelude.rnf scheme `Prelude.seq`
+                      Prelude.rnf securityGroups `Prelude.seq`
+                        Prelude.rnf state `Prelude.seq`
+                          Prelude.rnf type' `Prelude.seq`
+                            Prelude.rnf vpcId

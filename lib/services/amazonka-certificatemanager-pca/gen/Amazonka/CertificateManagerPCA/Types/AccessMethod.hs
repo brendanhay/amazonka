@@ -92,8 +92,8 @@ instance Prelude.Hashable AccessMethod where
 
 instance Prelude.NFData AccessMethod where
   rnf AccessMethod' {..} =
-    Prelude.rnf accessMethodType
-      `Prelude.seq` Prelude.rnf customObjectIdentifier
+    Prelude.rnf accessMethodType `Prelude.seq`
+      Prelude.rnf customObjectIdentifier
 
 instance Data.ToJSON AccessMethod where
   toJSON AccessMethod' {..} =

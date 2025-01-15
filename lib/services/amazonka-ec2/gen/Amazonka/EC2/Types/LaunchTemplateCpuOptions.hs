@@ -78,5 +78,5 @@ instance Prelude.Hashable LaunchTemplateCpuOptions where
 
 instance Prelude.NFData LaunchTemplateCpuOptions where
   rnf LaunchTemplateCpuOptions' {..} =
-    Prelude.rnf coreCount
-      `Prelude.seq` Prelude.rnf threadsPerCore
+    Prelude.rnf coreCount `Prelude.seq`
+      Prelude.rnf threadsPerCore

@@ -102,8 +102,8 @@ instance Prelude.Hashable SigningPlatformOverrides where
 
 instance Prelude.NFData SigningPlatformOverrides where
   rnf SigningPlatformOverrides' {..} =
-    Prelude.rnf signingConfiguration
-      `Prelude.seq` Prelude.rnf signingImageFormat
+    Prelude.rnf signingConfiguration `Prelude.seq`
+      Prelude.rnf signingImageFormat
 
 instance Data.ToJSON SigningPlatformOverrides where
   toJSON SigningPlatformOverrides' {..} =

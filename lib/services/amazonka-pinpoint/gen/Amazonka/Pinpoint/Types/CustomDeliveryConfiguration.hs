@@ -117,8 +117,8 @@ instance Prelude.Hashable CustomDeliveryConfiguration where
 
 instance Prelude.NFData CustomDeliveryConfiguration where
   rnf CustomDeliveryConfiguration' {..} =
-    Prelude.rnf endpointTypes
-      `Prelude.seq` Prelude.rnf deliveryUri
+    Prelude.rnf endpointTypes `Prelude.seq`
+      Prelude.rnf deliveryUri
 
 instance Data.ToJSON CustomDeliveryConfiguration where
   toJSON CustomDeliveryConfiguration' {..} =

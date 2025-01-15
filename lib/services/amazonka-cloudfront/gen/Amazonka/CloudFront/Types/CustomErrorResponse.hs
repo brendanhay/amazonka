@@ -262,10 +262,10 @@ instance Prelude.Hashable CustomErrorResponse where
 
 instance Prelude.NFData CustomErrorResponse where
   rnf CustomErrorResponse' {..} =
-    Prelude.rnf errorCachingMinTTL
-      `Prelude.seq` Prelude.rnf responseCode
-      `Prelude.seq` Prelude.rnf responsePagePath
-      `Prelude.seq` Prelude.rnf errorCode
+    Prelude.rnf errorCachingMinTTL `Prelude.seq`
+      Prelude.rnf responseCode `Prelude.seq`
+        Prelude.rnf responsePagePath `Prelude.seq`
+          Prelude.rnf errorCode
 
 instance Data.ToXML CustomErrorResponse where
   toXML CustomErrorResponse' {..} =

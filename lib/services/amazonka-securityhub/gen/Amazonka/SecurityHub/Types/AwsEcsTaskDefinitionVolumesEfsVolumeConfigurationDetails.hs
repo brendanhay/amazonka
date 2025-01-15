@@ -141,11 +141,11 @@ instance
   where
   rnf
     AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails' {..} =
-      Prelude.rnf authorizationConfig
-        `Prelude.seq` Prelude.rnf filesystemId
-        `Prelude.seq` Prelude.rnf rootDirectory
-        `Prelude.seq` Prelude.rnf transitEncryption
-        `Prelude.seq` Prelude.rnf transitEncryptionPort
+      Prelude.rnf authorizationConfig `Prelude.seq`
+        Prelude.rnf filesystemId `Prelude.seq`
+          Prelude.rnf rootDirectory `Prelude.seq`
+            Prelude.rnf transitEncryption `Prelude.seq`
+              Prelude.rnf transitEncryptionPort
 
 instance
   Data.ToJSON

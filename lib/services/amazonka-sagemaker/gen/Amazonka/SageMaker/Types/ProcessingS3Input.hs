@@ -196,12 +196,12 @@ instance Prelude.Hashable ProcessingS3Input where
 
 instance Prelude.NFData ProcessingS3Input where
   rnf ProcessingS3Input' {..} =
-    Prelude.rnf localPath
-      `Prelude.seq` Prelude.rnf s3CompressionType
-      `Prelude.seq` Prelude.rnf s3DataDistributionType
-      `Prelude.seq` Prelude.rnf s3InputMode
-      `Prelude.seq` Prelude.rnf s3Uri
-      `Prelude.seq` Prelude.rnf s3DataType
+    Prelude.rnf localPath `Prelude.seq`
+      Prelude.rnf s3CompressionType `Prelude.seq`
+        Prelude.rnf s3DataDistributionType `Prelude.seq`
+          Prelude.rnf s3InputMode `Prelude.seq`
+            Prelude.rnf s3Uri `Prelude.seq`
+              Prelude.rnf s3DataType
 
 instance Data.ToJSON ProcessingS3Input where
   toJSON ProcessingS3Input' {..} =

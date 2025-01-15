@@ -99,9 +99,9 @@ instance Prelude.Hashable Event where
 
 instance Prelude.NFData Event where
   rnf Event' {..} =
-    Prelude.rnf data'
-      `Prelude.seq` Prelude.rnf timestamp
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf data' `Prelude.seq`
+      Prelude.rnf timestamp `Prelude.seq`
+        Prelude.rnf type'
 
 instance Data.ToJSON Event where
   toJSON Event' {..} =

@@ -90,5 +90,5 @@ instance Prelude.Hashable Schedule where
 
 instance Prelude.NFData Schedule where
   rnf Schedule' {..} =
-    Prelude.rnf scheduleExpression
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf scheduleExpression `Prelude.seq`
+      Prelude.rnf state

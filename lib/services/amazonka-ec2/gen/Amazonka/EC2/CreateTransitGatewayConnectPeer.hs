@@ -221,13 +221,13 @@ instance
     CreateTransitGatewayConnectPeer
   where
   rnf CreateTransitGatewayConnectPeer' {..} =
-    Prelude.rnf bgpOptions
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf tagSpecifications
-      `Prelude.seq` Prelude.rnf transitGatewayAddress
-      `Prelude.seq` Prelude.rnf transitGatewayAttachmentId
-      `Prelude.seq` Prelude.rnf peerAddress
-      `Prelude.seq` Prelude.rnf insideCidrBlocks
+    Prelude.rnf bgpOptions `Prelude.seq`
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf tagSpecifications `Prelude.seq`
+          Prelude.rnf transitGatewayAddress `Prelude.seq`
+            Prelude.rnf transitGatewayAttachmentId `Prelude.seq`
+              Prelude.rnf peerAddress `Prelude.seq`
+                Prelude.rnf insideCidrBlocks
 
 instance
   Data.ToHeaders
@@ -306,5 +306,5 @@ instance
     CreateTransitGatewayConnectPeerResponse
   where
   rnf CreateTransitGatewayConnectPeerResponse' {..} =
-    Prelude.rnf transitGatewayConnectPeer
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf transitGatewayConnectPeer `Prelude.seq`
+      Prelude.rnf httpStatus

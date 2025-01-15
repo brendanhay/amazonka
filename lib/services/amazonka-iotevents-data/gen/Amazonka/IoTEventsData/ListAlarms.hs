@@ -120,9 +120,9 @@ instance Prelude.Hashable ListAlarms where
 
 instance Prelude.NFData ListAlarms where
   rnf ListAlarms' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf alarmModelName
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf alarmModelName
 
 instance Data.ToHeaders ListAlarms where
   toHeaders = Prelude.const Prelude.mempty
@@ -192,6 +192,6 @@ listAlarmsResponse_httpStatus = Lens.lens (\ListAlarmsResponse' {httpStatus} -> 
 
 instance Prelude.NFData ListAlarmsResponse where
   rnf ListAlarmsResponse' {..} =
-    Prelude.rnf alarmSummaries
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf alarmSummaries `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

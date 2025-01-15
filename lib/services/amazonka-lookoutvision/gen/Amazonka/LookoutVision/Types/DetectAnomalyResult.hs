@@ -192,8 +192,8 @@ instance Prelude.Hashable DetectAnomalyResult where
 
 instance Prelude.NFData DetectAnomalyResult where
   rnf DetectAnomalyResult' {..} =
-    Prelude.rnf anomalies
-      `Prelude.seq` Prelude.rnf anomalyMask
-      `Prelude.seq` Prelude.rnf confidence
-      `Prelude.seq` Prelude.rnf isAnomalous
-      `Prelude.seq` Prelude.rnf source
+    Prelude.rnf anomalies `Prelude.seq`
+      Prelude.rnf anomalyMask `Prelude.seq`
+        Prelude.rnf confidence `Prelude.seq`
+          Prelude.rnf isAnomalous `Prelude.seq`
+            Prelude.rnf source

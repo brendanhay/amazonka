@@ -124,9 +124,9 @@ instance Prelude.Hashable GetFindingsStatistics where
 
 instance Prelude.NFData GetFindingsStatistics where
   rnf GetFindingsStatistics' {..} =
-    Prelude.rnf findingCriteria
-      `Prelude.seq` Prelude.rnf detectorId
-      `Prelude.seq` Prelude.rnf findingStatisticTypes
+    Prelude.rnf findingCriteria `Prelude.seq`
+      Prelude.rnf detectorId `Prelude.seq`
+        Prelude.rnf findingStatisticTypes
 
 instance Data.ToHeaders GetFindingsStatistics where
   toHeaders =
@@ -208,5 +208,5 @@ getFindingsStatisticsResponse_findingStatistics = Lens.lens (\GetFindingsStatist
 
 instance Prelude.NFData GetFindingsStatisticsResponse where
   rnf GetFindingsStatisticsResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf findingStatistics
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf findingStatistics

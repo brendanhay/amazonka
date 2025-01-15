@@ -110,8 +110,8 @@ instance Prelude.Hashable TestCaseFilter where
 
 instance Prelude.NFData TestCaseFilter where
   rnf TestCaseFilter' {..} =
-    Prelude.rnf keyword
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf keyword `Prelude.seq`
+      Prelude.rnf status
 
 instance Data.ToJSON TestCaseFilter where
   toJSON TestCaseFilter' {..} =

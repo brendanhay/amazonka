@@ -147,9 +147,9 @@ instance Prelude.Hashable PurchaseOffering where
 
 instance Prelude.NFData PurchaseOffering where
   rnf PurchaseOffering' {..} =
-    Prelude.rnf offeringArn
-      `Prelude.seq` Prelude.rnf start
-      `Prelude.seq` Prelude.rnf reservationName
+    Prelude.rnf offeringArn `Prelude.seq`
+      Prelude.rnf start `Prelude.seq`
+        Prelude.rnf reservationName
 
 instance Data.ToHeaders PurchaseOffering where
   toHeaders =
@@ -220,5 +220,5 @@ purchaseOfferingResponse_httpStatus = Lens.lens (\PurchaseOfferingResponse' {htt
 
 instance Prelude.NFData PurchaseOfferingResponse where
   rnf PurchaseOfferingResponse' {..} =
-    Prelude.rnf reservation
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf reservation `Prelude.seq`
+      Prelude.rnf httpStatus

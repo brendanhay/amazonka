@@ -161,11 +161,11 @@ instance Prelude.Hashable RevokeClientVpnIngress where
 
 instance Prelude.NFData RevokeClientVpnIngress where
   rnf RevokeClientVpnIngress' {..} =
-    Prelude.rnf accessGroupId
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf revokeAllGroups
-      `Prelude.seq` Prelude.rnf clientVpnEndpointId
-      `Prelude.seq` Prelude.rnf targetNetworkCidr
+    Prelude.rnf accessGroupId `Prelude.seq`
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf revokeAllGroups `Prelude.seq`
+          Prelude.rnf clientVpnEndpointId `Prelude.seq`
+            Prelude.rnf targetNetworkCidr
 
 instance Data.ToHeaders RevokeClientVpnIngress where
   toHeaders = Prelude.const Prelude.mempty
@@ -231,5 +231,5 @@ instance
     RevokeClientVpnIngressResponse
   where
   rnf RevokeClientVpnIngressResponse' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf status `Prelude.seq`
+      Prelude.rnf httpStatus

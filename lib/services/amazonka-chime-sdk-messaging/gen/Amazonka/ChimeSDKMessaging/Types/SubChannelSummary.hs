@@ -81,5 +81,5 @@ instance Prelude.Hashable SubChannelSummary where
 
 instance Prelude.NFData SubChannelSummary where
   rnf SubChannelSummary' {..} =
-    Prelude.rnf membershipCount
-      `Prelude.seq` Prelude.rnf subChannelId
+    Prelude.rnf membershipCount `Prelude.seq`
+      Prelude.rnf subChannelId

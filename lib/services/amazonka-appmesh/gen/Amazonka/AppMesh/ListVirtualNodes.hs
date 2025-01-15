@@ -162,12 +162,12 @@ instance Core.AWSPager ListVirtualNodes where
         (rs Lens.^. listVirtualNodesResponse_virtualNodes) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listVirtualNodes_nextToken
-          Lens..~ rs
-          Lens.^? listVirtualNodesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listVirtualNodes_nextToken
+              Lens..~ rs
+              Lens.^? listVirtualNodesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListVirtualNodes where
   type
@@ -194,10 +194,10 @@ instance Prelude.Hashable ListVirtualNodes where
 
 instance Prelude.NFData ListVirtualNodes where
   rnf ListVirtualNodes' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf meshOwner
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf meshName
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf meshOwner `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf meshName
 
 instance Data.ToHeaders ListVirtualNodes where
   toHeaders =
@@ -287,6 +287,6 @@ listVirtualNodesResponse_virtualNodes = Lens.lens (\ListVirtualNodesResponse' {v
 
 instance Prelude.NFData ListVirtualNodesResponse where
   rnf ListVirtualNodesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf virtualNodes
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf virtualNodes

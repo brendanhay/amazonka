@@ -136,9 +136,9 @@ instance Prelude.Hashable RelationalDatabaseBlueprint where
 
 instance Prelude.NFData RelationalDatabaseBlueprint where
   rnf RelationalDatabaseBlueprint' {..} =
-    Prelude.rnf blueprintId
-      `Prelude.seq` Prelude.rnf engine
-      `Prelude.seq` Prelude.rnf engineDescription
-      `Prelude.seq` Prelude.rnf engineVersion
-      `Prelude.seq` Prelude.rnf engineVersionDescription
-      `Prelude.seq` Prelude.rnf isEngineDefault
+    Prelude.rnf blueprintId `Prelude.seq`
+      Prelude.rnf engine `Prelude.seq`
+        Prelude.rnf engineDescription `Prelude.seq`
+          Prelude.rnf engineVersion `Prelude.seq`
+            Prelude.rnf engineVersionDescription `Prelude.seq`
+              Prelude.rnf isEngineDefault

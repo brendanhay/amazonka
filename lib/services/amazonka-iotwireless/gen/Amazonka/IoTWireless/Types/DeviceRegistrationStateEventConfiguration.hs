@@ -102,8 +102,8 @@ instance
     DeviceRegistrationStateEventConfiguration
   where
   rnf DeviceRegistrationStateEventConfiguration' {..} =
-    Prelude.rnf sidewalk
-      `Prelude.seq` Prelude.rnf wirelessDeviceIdEventTopic
+    Prelude.rnf sidewalk `Prelude.seq`
+      Prelude.rnf wirelessDeviceIdEventTopic
 
 instance
   Data.ToJSON

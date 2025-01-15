@@ -114,8 +114,8 @@ instance
 
 instance Prelude.NFData DisassociateApplicationFleet where
   rnf DisassociateApplicationFleet' {..} =
-    Prelude.rnf fleetName
-      `Prelude.seq` Prelude.rnf applicationArn
+    Prelude.rnf fleetName `Prelude.seq`
+      Prelude.rnf applicationArn
 
 instance Data.ToHeaders DisassociateApplicationFleet where
   toHeaders =

@@ -147,10 +147,10 @@ instance Prelude.Hashable DeleteFolderMembership where
 
 instance Prelude.NFData DeleteFolderMembership where
   rnf DeleteFolderMembership' {..} =
-    Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf folderId
-      `Prelude.seq` Prelude.rnf memberId
-      `Prelude.seq` Prelude.rnf memberType
+    Prelude.rnf awsAccountId `Prelude.seq`
+      Prelude.rnf folderId `Prelude.seq`
+        Prelude.rnf memberId `Prelude.seq`
+          Prelude.rnf memberType
 
 instance Data.ToHeaders DeleteFolderMembership where
   toHeaders =
@@ -232,6 +232,6 @@ instance
     DeleteFolderMembershipResponse
   where
   rnf DeleteFolderMembershipResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf requestId `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf httpStatus

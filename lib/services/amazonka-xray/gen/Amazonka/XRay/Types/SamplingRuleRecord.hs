@@ -94,6 +94,6 @@ instance Prelude.Hashable SamplingRuleRecord where
 
 instance Prelude.NFData SamplingRuleRecord where
   rnf SamplingRuleRecord' {..} =
-    Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf modifiedAt
-      `Prelude.seq` Prelude.rnf samplingRule
+    Prelude.rnf createdAt `Prelude.seq`
+      Prelude.rnf modifiedAt `Prelude.seq`
+        Prelude.rnf samplingRule

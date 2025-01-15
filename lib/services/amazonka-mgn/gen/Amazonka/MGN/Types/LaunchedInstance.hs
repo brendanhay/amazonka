@@ -92,6 +92,6 @@ instance Prelude.Hashable LaunchedInstance where
 
 instance Prelude.NFData LaunchedInstance where
   rnf LaunchedInstance' {..} =
-    Prelude.rnf ec2InstanceID
-      `Prelude.seq` Prelude.rnf firstBoot
-      `Prelude.seq` Prelude.rnf jobID
+    Prelude.rnf ec2InstanceID `Prelude.seq`
+      Prelude.rnf firstBoot `Prelude.seq`
+        Prelude.rnf jobID

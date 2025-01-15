@@ -213,7 +213,7 @@ instance
     DeleteDefaultMessageTypeResponse
   where
   rnf DeleteDefaultMessageTypeResponse' {..} =
-    Prelude.rnf configurationSetArn
-      `Prelude.seq` Prelude.rnf configurationSetName
-      `Prelude.seq` Prelude.rnf messageType
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf configurationSetArn `Prelude.seq`
+      Prelude.rnf configurationSetName `Prelude.seq`
+        Prelude.rnf messageType `Prelude.seq`
+          Prelude.rnf httpStatus

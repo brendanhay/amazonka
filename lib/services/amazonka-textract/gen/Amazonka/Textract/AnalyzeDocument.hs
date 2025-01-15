@@ -229,10 +229,10 @@ instance Prelude.Hashable AnalyzeDocument where
 
 instance Prelude.NFData AnalyzeDocument where
   rnf AnalyzeDocument' {..} =
-    Prelude.rnf humanLoopConfig
-      `Prelude.seq` Prelude.rnf queriesConfig
-      `Prelude.seq` Prelude.rnf document
-      `Prelude.seq` Prelude.rnf featureTypes
+    Prelude.rnf humanLoopConfig `Prelude.seq`
+      Prelude.rnf queriesConfig `Prelude.seq`
+        Prelude.rnf document `Prelude.seq`
+          Prelude.rnf featureTypes
 
 instance Data.ToHeaders AnalyzeDocument where
   toHeaders =
@@ -333,8 +333,8 @@ analyzeDocumentResponse_httpStatus = Lens.lens (\AnalyzeDocumentResponse' {httpS
 
 instance Prelude.NFData AnalyzeDocumentResponse where
   rnf AnalyzeDocumentResponse' {..} =
-    Prelude.rnf analyzeDocumentModelVersion
-      `Prelude.seq` Prelude.rnf blocks
-      `Prelude.seq` Prelude.rnf documentMetadata
-      `Prelude.seq` Prelude.rnf humanLoopActivationOutput
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf analyzeDocumentModelVersion `Prelude.seq`
+      Prelude.rnf blocks `Prelude.seq`
+        Prelude.rnf documentMetadata `Prelude.seq`
+          Prelude.rnf humanLoopActivationOutput `Prelude.seq`
+            Prelude.rnf httpStatus

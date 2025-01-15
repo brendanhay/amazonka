@@ -423,12 +423,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getInterpolatedAssetPropertyValues_nextToken
-          Lens..~ rs
-          Lens.^? getInterpolatedAssetPropertyValuesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getInterpolatedAssetPropertyValues_nextToken
+              Lens..~ rs
+              Lens.^? getInterpolatedAssetPropertyValuesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -478,19 +478,19 @@ instance
     GetInterpolatedAssetPropertyValues
   where
   rnf GetInterpolatedAssetPropertyValues' {..} =
-    Prelude.rnf assetId
-      `Prelude.seq` Prelude.rnf endTimeOffsetInNanos
-      `Prelude.seq` Prelude.rnf intervalWindowInSeconds
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf propertyAlias
-      `Prelude.seq` Prelude.rnf propertyId
-      `Prelude.seq` Prelude.rnf startTimeOffsetInNanos
-      `Prelude.seq` Prelude.rnf startTimeInSeconds
-      `Prelude.seq` Prelude.rnf endTimeInSeconds
-      `Prelude.seq` Prelude.rnf quality
-      `Prelude.seq` Prelude.rnf intervalInSeconds
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf assetId `Prelude.seq`
+      Prelude.rnf endTimeOffsetInNanos `Prelude.seq`
+        Prelude.rnf intervalWindowInSeconds `Prelude.seq`
+          Prelude.rnf maxResults `Prelude.seq`
+            Prelude.rnf nextToken `Prelude.seq`
+              Prelude.rnf propertyAlias `Prelude.seq`
+                Prelude.rnf propertyId `Prelude.seq`
+                  Prelude.rnf startTimeOffsetInNanos `Prelude.seq`
+                    Prelude.rnf startTimeInSeconds `Prelude.seq`
+                      Prelude.rnf endTimeInSeconds `Prelude.seq`
+                        Prelude.rnf quality `Prelude.seq`
+                          Prelude.rnf intervalInSeconds `Prelude.seq`
+                            Prelude.rnf type'
 
 instance
   Data.ToHeaders
@@ -593,6 +593,6 @@ instance
     GetInterpolatedAssetPropertyValuesResponse
   where
   rnf GetInterpolatedAssetPropertyValuesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf interpolatedAssetPropertyValues
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf interpolatedAssetPropertyValues

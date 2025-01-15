@@ -202,12 +202,12 @@ instance Core.AWSPager DescribeDBClusterEndpoints where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeDBClusterEndpoints_marker
-          Lens..~ rs
-          Lens.^? describeDBClusterEndpointsResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeDBClusterEndpoints_marker
+              Lens..~ rs
+              Lens.^? describeDBClusterEndpointsResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeDBClusterEndpoints where
   type
@@ -240,11 +240,11 @@ instance Prelude.Hashable DescribeDBClusterEndpoints where
 
 instance Prelude.NFData DescribeDBClusterEndpoints where
   rnf DescribeDBClusterEndpoints' {..} =
-    Prelude.rnf dbClusterEndpointIdentifier
-      `Prelude.seq` Prelude.rnf dbClusterIdentifier
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
+    Prelude.rnf dbClusterEndpointIdentifier `Prelude.seq`
+      Prelude.rnf dbClusterIdentifier `Prelude.seq`
+        Prelude.rnf filters `Prelude.seq`
+          Prelude.rnf marker `Prelude.seq`
+            Prelude.rnf maxRecords
 
 instance Data.ToHeaders DescribeDBClusterEndpoints where
   toHeaders = Prelude.const Prelude.mempty
@@ -334,6 +334,6 @@ instance
     DescribeDBClusterEndpointsResponse
   where
   rnf DescribeDBClusterEndpointsResponse' {..} =
-    Prelude.rnf dbClusterEndpoints
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dbClusterEndpoints `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf httpStatus

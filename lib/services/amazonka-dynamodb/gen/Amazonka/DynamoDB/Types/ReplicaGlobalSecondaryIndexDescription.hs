@@ -96,5 +96,5 @@ instance
     ReplicaGlobalSecondaryIndexDescription
   where
   rnf ReplicaGlobalSecondaryIndexDescription' {..} =
-    Prelude.rnf indexName
-      `Prelude.seq` Prelude.rnf provisionedThroughputOverride
+    Prelude.rnf indexName `Prelude.seq`
+      Prelude.rnf provisionedThroughputOverride

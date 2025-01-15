@@ -143,12 +143,12 @@ instance Prelude.Hashable JobTemplateData where
 
 instance Prelude.NFData JobTemplateData where
   rnf JobTemplateData' {..} =
-    Prelude.rnf configurationOverrides
-      `Prelude.seq` Prelude.rnf jobTags
-      `Prelude.seq` Prelude.rnf parameterConfiguration
-      `Prelude.seq` Prelude.rnf executionRoleArn
-      `Prelude.seq` Prelude.rnf releaseLabel
-      `Prelude.seq` Prelude.rnf jobDriver
+    Prelude.rnf configurationOverrides `Prelude.seq`
+      Prelude.rnf jobTags `Prelude.seq`
+        Prelude.rnf parameterConfiguration `Prelude.seq`
+          Prelude.rnf executionRoleArn `Prelude.seq`
+            Prelude.rnf releaseLabel `Prelude.seq`
+              Prelude.rnf jobDriver
 
 instance Data.ToJSON JobTemplateData where
   toJSON JobTemplateData' {..} =

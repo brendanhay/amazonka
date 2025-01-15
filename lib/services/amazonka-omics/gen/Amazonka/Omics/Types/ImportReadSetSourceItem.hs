@@ -198,14 +198,14 @@ instance Prelude.Hashable ImportReadSetSourceItem where
 
 instance Prelude.NFData ImportReadSetSourceItem where
   rnf ImportReadSetSourceItem' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf generatedFrom
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf referenceArn
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf sampleId
-      `Prelude.seq` Prelude.rnf sourceFileType
-      `Prelude.seq` Prelude.rnf sourceFiles
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf subjectId
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf generatedFrom `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf referenceArn `Prelude.seq`
+            Prelude.rnf statusMessage `Prelude.seq`
+              Prelude.rnf tags `Prelude.seq`
+                Prelude.rnf sampleId `Prelude.seq`
+                  Prelude.rnf sourceFileType `Prelude.seq`
+                    Prelude.rnf sourceFiles `Prelude.seq`
+                      Prelude.rnf status `Prelude.seq`
+                        Prelude.rnf subjectId

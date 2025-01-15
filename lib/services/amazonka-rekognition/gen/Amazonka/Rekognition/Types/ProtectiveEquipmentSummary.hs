@@ -131,6 +131,6 @@ instance Prelude.Hashable ProtectiveEquipmentSummary where
 
 instance Prelude.NFData ProtectiveEquipmentSummary where
   rnf ProtectiveEquipmentSummary' {..} =
-    Prelude.rnf personsIndeterminate
-      `Prelude.seq` Prelude.rnf personsWithRequiredEquipment
-      `Prelude.seq` Prelude.rnf personsWithoutRequiredEquipment
+    Prelude.rnf personsIndeterminate `Prelude.seq`
+      Prelude.rnf personsWithRequiredEquipment `Prelude.seq`
+        Prelude.rnf personsWithoutRequiredEquipment

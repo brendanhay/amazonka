@@ -81,5 +81,5 @@ instance Prelude.Hashable SpellCorrectedQuery where
 
 instance Prelude.NFData SpellCorrectedQuery where
   rnf SpellCorrectedQuery' {..} =
-    Prelude.rnf corrections
-      `Prelude.seq` Prelude.rnf suggestedQueryText
+    Prelude.rnf corrections `Prelude.seq`
+      Prelude.rnf suggestedQueryText

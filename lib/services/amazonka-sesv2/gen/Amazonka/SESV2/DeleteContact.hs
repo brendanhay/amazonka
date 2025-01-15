@@ -108,8 +108,8 @@ instance Prelude.Hashable DeleteContact where
 
 instance Prelude.NFData DeleteContact where
   rnf DeleteContact' {..} =
-    Prelude.rnf contactListName
-      `Prelude.seq` Prelude.rnf emailAddress
+    Prelude.rnf contactListName `Prelude.seq`
+      Prelude.rnf emailAddress
 
 instance Data.ToHeaders DeleteContact where
   toHeaders =

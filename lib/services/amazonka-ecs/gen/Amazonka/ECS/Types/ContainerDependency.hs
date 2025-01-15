@@ -169,8 +169,8 @@ instance Prelude.Hashable ContainerDependency where
 
 instance Prelude.NFData ContainerDependency where
   rnf ContainerDependency' {..} =
-    Prelude.rnf containerName
-      `Prelude.seq` Prelude.rnf condition
+    Prelude.rnf containerName `Prelude.seq`
+      Prelude.rnf condition
 
 instance Data.ToJSON ContainerDependency where
   toJSON ContainerDependency' {..} =

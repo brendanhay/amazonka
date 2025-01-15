@@ -165,10 +165,10 @@ instance Prelude.Hashable GetAutoMergingPreview where
 
 instance Prelude.NFData GetAutoMergingPreview where
   rnf GetAutoMergingPreview' {..} =
-    Prelude.rnf minAllowedConfidenceScoreForMerging
-      `Prelude.seq` Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf consolidation
-      `Prelude.seq` Prelude.rnf conflictResolution
+    Prelude.rnf minAllowedConfidenceScoreForMerging `Prelude.seq`
+      Prelude.rnf domainName `Prelude.seq`
+        Prelude.rnf consolidation `Prelude.seq`
+          Prelude.rnf conflictResolution
 
 instance Data.ToHeaders GetAutoMergingPreview where
   toHeaders =
@@ -283,8 +283,8 @@ getAutoMergingPreviewResponse_domainName = Lens.lens (\GetAutoMergingPreviewResp
 
 instance Prelude.NFData GetAutoMergingPreviewResponse where
   rnf GetAutoMergingPreviewResponse' {..} =
-    Prelude.rnf numberOfMatchesInSample
-      `Prelude.seq` Prelude.rnf numberOfProfilesInSample
-      `Prelude.seq` Prelude.rnf numberOfProfilesWillBeMerged
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf domainName
+    Prelude.rnf numberOfMatchesInSample `Prelude.seq`
+      Prelude.rnf numberOfProfilesInSample `Prelude.seq`
+        Prelude.rnf numberOfProfilesWillBeMerged `Prelude.seq`
+          Prelude.rnf httpStatus `Prelude.seq`
+            Prelude.rnf domainName

@@ -100,8 +100,8 @@ instance Prelude.Hashable StatelessRuleGroupReference where
 
 instance Prelude.NFData StatelessRuleGroupReference where
   rnf StatelessRuleGroupReference' {..} =
-    Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf priority
+    Prelude.rnf resourceArn `Prelude.seq`
+      Prelude.rnf priority
 
 instance Data.ToJSON StatelessRuleGroupReference where
   toJSON StatelessRuleGroupReference' {..} =

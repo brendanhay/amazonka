@@ -122,8 +122,8 @@ instance
 
 instance Prelude.NFData UpdatePullRequestDescription where
   rnf UpdatePullRequestDescription' {..} =
-    Prelude.rnf pullRequestId
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf pullRequestId `Prelude.seq`
+      Prelude.rnf description
 
 instance Data.ToHeaders UpdatePullRequestDescription where
   toHeaders =
@@ -204,5 +204,5 @@ instance
     UpdatePullRequestDescriptionResponse
   where
   rnf UpdatePullRequestDescriptionResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf pullRequest
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf pullRequest

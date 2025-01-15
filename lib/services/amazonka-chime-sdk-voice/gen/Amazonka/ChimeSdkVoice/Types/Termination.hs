@@ -109,11 +109,11 @@ instance Prelude.Hashable Termination where
 
 instance Prelude.NFData Termination where
   rnf Termination' {..} =
-    Prelude.rnf callingRegions
-      `Prelude.seq` Prelude.rnf cidrAllowedList
-      `Prelude.seq` Prelude.rnf cpsLimit
-      `Prelude.seq` Prelude.rnf defaultPhoneNumber
-      `Prelude.seq` Prelude.rnf disabled
+    Prelude.rnf callingRegions `Prelude.seq`
+      Prelude.rnf cidrAllowedList `Prelude.seq`
+        Prelude.rnf cpsLimit `Prelude.seq`
+          Prelude.rnf defaultPhoneNumber `Prelude.seq`
+            Prelude.rnf disabled
 
 instance Data.ToJSON Termination where
   toJSON Termination' {..} =

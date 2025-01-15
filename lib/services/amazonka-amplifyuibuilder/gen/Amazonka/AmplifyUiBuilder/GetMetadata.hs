@@ -108,8 +108,8 @@ instance Prelude.Hashable GetMetadata where
 
 instance Prelude.NFData GetMetadata where
   rnf GetMetadata' {..} =
-    Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf environmentName
+    Prelude.rnf appId `Prelude.seq`
+      Prelude.rnf environmentName
 
 instance Data.ToHeaders GetMetadata where
   toHeaders =
@@ -175,5 +175,5 @@ getMetadataResponse_features = Lens.lens (\GetMetadataResponse' {features} -> fe
 
 instance Prelude.NFData GetMetadataResponse where
   rnf GetMetadataResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf features
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf features

@@ -80,5 +80,5 @@ instance Prelude.Hashable DatasetEntry where
 
 instance Prelude.NFData DatasetEntry where
   rnf DatasetEntry' {..} =
-    Prelude.rnf dataURI
-      `Prelude.seq` Prelude.rnf entryName
+    Prelude.rnf dataURI `Prelude.seq`
+      Prelude.rnf entryName

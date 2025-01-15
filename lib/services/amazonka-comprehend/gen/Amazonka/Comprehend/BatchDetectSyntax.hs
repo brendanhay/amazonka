@@ -134,8 +134,8 @@ instance Prelude.Hashable BatchDetectSyntax where
 
 instance Prelude.NFData BatchDetectSyntax where
   rnf BatchDetectSyntax' {..} =
-    Prelude.rnf textList
-      `Prelude.seq` Prelude.rnf languageCode
+    Prelude.rnf textList `Prelude.seq`
+      Prelude.rnf languageCode
 
 instance Data.ToHeaders BatchDetectSyntax where
   toHeaders =
@@ -235,6 +235,6 @@ batchDetectSyntaxResponse_errorList = Lens.lens (\BatchDetectSyntaxResponse' {er
 
 instance Prelude.NFData BatchDetectSyntaxResponse where
   rnf BatchDetectSyntaxResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf resultList
-      `Prelude.seq` Prelude.rnf errorList
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf resultList `Prelude.seq`
+        Prelude.rnf errorList

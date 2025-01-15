@@ -104,5 +104,5 @@ instance Prelude.Hashable ConstraintSummary where
 
 instance Prelude.NFData ConstraintSummary where
   rnf ConstraintSummary' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf type'

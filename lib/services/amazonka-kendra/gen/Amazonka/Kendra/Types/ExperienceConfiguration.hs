@@ -94,8 +94,8 @@ instance Prelude.Hashable ExperienceConfiguration where
 
 instance Prelude.NFData ExperienceConfiguration where
   rnf ExperienceConfiguration' {..} =
-    Prelude.rnf contentSourceConfiguration
-      `Prelude.seq` Prelude.rnf userIdentityConfiguration
+    Prelude.rnf contentSourceConfiguration `Prelude.seq`
+      Prelude.rnf userIdentityConfiguration
 
 instance Data.ToJSON ExperienceConfiguration where
   toJSON ExperienceConfiguration' {..} =

@@ -109,9 +109,9 @@ instance Prelude.Hashable ActionRevision where
 
 instance Prelude.NFData ActionRevision where
   rnf ActionRevision' {..} =
-    Prelude.rnf revisionId
-      `Prelude.seq` Prelude.rnf revisionChangeId
-      `Prelude.seq` Prelude.rnf created
+    Prelude.rnf revisionId `Prelude.seq`
+      Prelude.rnf revisionChangeId `Prelude.seq`
+        Prelude.rnf created
 
 instance Data.ToJSON ActionRevision where
   toJSON ActionRevision' {..} =

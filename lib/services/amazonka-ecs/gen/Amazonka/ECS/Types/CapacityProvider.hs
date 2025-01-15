@@ -266,10 +266,10 @@ instance Prelude.Hashable CapacityProvider where
 
 instance Prelude.NFData CapacityProvider where
   rnf CapacityProvider' {..} =
-    Prelude.rnf autoScalingGroupProvider
-      `Prelude.seq` Prelude.rnf capacityProviderArn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf updateStatus
-      `Prelude.seq` Prelude.rnf updateStatusReason
+    Prelude.rnf autoScalingGroupProvider `Prelude.seq`
+      Prelude.rnf capacityProviderArn `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf updateStatus `Prelude.seq`
+                Prelude.rnf updateStatusReason

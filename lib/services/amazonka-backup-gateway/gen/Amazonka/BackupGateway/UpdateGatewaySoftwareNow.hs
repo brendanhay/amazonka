@@ -176,5 +176,5 @@ instance
     UpdateGatewaySoftwareNowResponse
   where
   rnf UpdateGatewaySoftwareNowResponse' {..} =
-    Prelude.rnf gatewayArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf gatewayArn `Prelude.seq`
+      Prelude.rnf httpStatus

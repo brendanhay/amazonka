@@ -202,14 +202,14 @@ instance
     ModelDashboardMonitoringSchedule
   where
   rnf ModelDashboardMonitoringSchedule' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf endpointName
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf lastMonitoringExecutionSummary
-      `Prelude.seq` Prelude.rnf monitoringAlertSummaries
-      `Prelude.seq` Prelude.rnf monitoringScheduleArn
-      `Prelude.seq` Prelude.rnf monitoringScheduleConfig
-      `Prelude.seq` Prelude.rnf monitoringScheduleName
-      `Prelude.seq` Prelude.rnf monitoringScheduleStatus
-      `Prelude.seq` Prelude.rnf monitoringType
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf endpointName `Prelude.seq`
+        Prelude.rnf failureReason `Prelude.seq`
+          Prelude.rnf lastModifiedTime `Prelude.seq`
+            Prelude.rnf lastMonitoringExecutionSummary `Prelude.seq`
+              Prelude.rnf monitoringAlertSummaries `Prelude.seq`
+                Prelude.rnf monitoringScheduleArn `Prelude.seq`
+                  Prelude.rnf monitoringScheduleConfig `Prelude.seq`
+                    Prelude.rnf monitoringScheduleName `Prelude.seq`
+                      Prelude.rnf monitoringScheduleStatus `Prelude.seq`
+                        Prelude.rnf monitoringType

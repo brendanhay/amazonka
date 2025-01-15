@@ -110,10 +110,10 @@ instance Prelude.Hashable NetworkPathComponent where
 
 instance Prelude.NFData NetworkPathComponent where
   rnf NetworkPathComponent' {..} =
-    Prelude.rnf componentId
-      `Prelude.seq` Prelude.rnf componentType
-      `Prelude.seq` Prelude.rnf egress
-      `Prelude.seq` Prelude.rnf ingress
+    Prelude.rnf componentId `Prelude.seq`
+      Prelude.rnf componentType `Prelude.seq`
+        Prelude.rnf egress `Prelude.seq`
+          Prelude.rnf ingress
 
 instance Data.ToJSON NetworkPathComponent where
   toJSON NetworkPathComponent' {..} =

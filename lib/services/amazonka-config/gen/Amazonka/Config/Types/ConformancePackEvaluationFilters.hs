@@ -122,10 +122,10 @@ instance
     ConformancePackEvaluationFilters
   where
   rnf ConformancePackEvaluationFilters' {..} =
-    Prelude.rnf complianceType
-      `Prelude.seq` Prelude.rnf configRuleNames
-      `Prelude.seq` Prelude.rnf resourceIds
-      `Prelude.seq` Prelude.rnf resourceType
+    Prelude.rnf complianceType `Prelude.seq`
+      Prelude.rnf configRuleNames `Prelude.seq`
+        Prelude.rnf resourceIds `Prelude.seq`
+          Prelude.rnf resourceType
 
 instance Data.ToJSON ConformancePackEvaluationFilters where
   toJSON ConformancePackEvaluationFilters' {..} =

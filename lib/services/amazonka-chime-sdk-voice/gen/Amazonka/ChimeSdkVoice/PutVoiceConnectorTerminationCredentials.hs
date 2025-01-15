@@ -113,8 +113,8 @@ instance
     PutVoiceConnectorTerminationCredentials
   where
   rnf PutVoiceConnectorTerminationCredentials' {..} =
-    Prelude.rnf credentials
-      `Prelude.seq` Prelude.rnf voiceConnectorId
+    Prelude.rnf credentials `Prelude.seq`
+      Prelude.rnf voiceConnectorId
 
 instance
   Data.ToHeaders

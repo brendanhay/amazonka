@@ -226,10 +226,10 @@ instance Prelude.Hashable EnableMFADevice where
 
 instance Prelude.NFData EnableMFADevice where
   rnf EnableMFADevice' {..} =
-    Prelude.rnf userName
-      `Prelude.seq` Prelude.rnf serialNumber
-      `Prelude.seq` Prelude.rnf authenticationCode1
-      `Prelude.seq` Prelude.rnf authenticationCode2
+    Prelude.rnf userName `Prelude.seq`
+      Prelude.rnf serialNumber `Prelude.seq`
+        Prelude.rnf authenticationCode1 `Prelude.seq`
+          Prelude.rnf authenticationCode2
 
 instance Data.ToHeaders EnableMFADevice where
   toHeaders = Prelude.const Prelude.mempty

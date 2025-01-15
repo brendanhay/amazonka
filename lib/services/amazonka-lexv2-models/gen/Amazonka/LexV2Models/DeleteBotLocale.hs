@@ -141,9 +141,9 @@ instance Prelude.Hashable DeleteBotLocale where
 
 instance Prelude.NFData DeleteBotLocale where
   rnf DeleteBotLocale' {..} =
-    Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf botVersion
-      `Prelude.seq` Prelude.rnf localeId
+    Prelude.rnf botId `Prelude.seq`
+      Prelude.rnf botVersion `Prelude.seq`
+        Prelude.rnf localeId
 
 instance Data.ToHeaders DeleteBotLocale where
   toHeaders =
@@ -244,8 +244,8 @@ deleteBotLocaleResponse_httpStatus = Lens.lens (\DeleteBotLocaleResponse' {httpS
 
 instance Prelude.NFData DeleteBotLocaleResponse where
   rnf DeleteBotLocaleResponse' {..} =
-    Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf botLocaleStatus
-      `Prelude.seq` Prelude.rnf botVersion
-      `Prelude.seq` Prelude.rnf localeId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf botId `Prelude.seq`
+      Prelude.rnf botLocaleStatus `Prelude.seq`
+        Prelude.rnf botVersion `Prelude.seq`
+          Prelude.rnf localeId `Prelude.seq`
+            Prelude.rnf httpStatus

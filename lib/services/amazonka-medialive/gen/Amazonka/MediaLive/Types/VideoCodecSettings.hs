@@ -103,10 +103,10 @@ instance Prelude.Hashable VideoCodecSettings where
 
 instance Prelude.NFData VideoCodecSettings where
   rnf VideoCodecSettings' {..} =
-    Prelude.rnf frameCaptureSettings
-      `Prelude.seq` Prelude.rnf h264Settings
-      `Prelude.seq` Prelude.rnf h265Settings
-      `Prelude.seq` Prelude.rnf mpeg2Settings
+    Prelude.rnf frameCaptureSettings `Prelude.seq`
+      Prelude.rnf h264Settings `Prelude.seq`
+        Prelude.rnf h265Settings `Prelude.seq`
+          Prelude.rnf mpeg2Settings
 
 instance Data.ToJSON VideoCodecSettings where
   toJSON VideoCodecSettings' {..} =

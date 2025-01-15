@@ -89,8 +89,8 @@ instance Prelude.Hashable AllowListCriteria where
 
 instance Prelude.NFData AllowListCriteria where
   rnf AllowListCriteria' {..} =
-    Prelude.rnf regex
-      `Prelude.seq` Prelude.rnf s3WordsList
+    Prelude.rnf regex `Prelude.seq`
+      Prelude.rnf s3WordsList
 
 instance Data.ToJSON AllowListCriteria where
   toJSON AllowListCriteria' {..} =

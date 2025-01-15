@@ -261,15 +261,15 @@ instance Prelude.Hashable Firewall where
 
 instance Prelude.NFData Firewall where
   rnf Firewall' {..} =
-    Prelude.rnf deleteProtection
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf encryptionConfiguration
-      `Prelude.seq` Prelude.rnf firewallArn
-      `Prelude.seq` Prelude.rnf firewallName
-      `Prelude.seq` Prelude.rnf firewallPolicyChangeProtection
-      `Prelude.seq` Prelude.rnf subnetChangeProtection
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf firewallPolicyArn
-      `Prelude.seq` Prelude.rnf vpcId
-      `Prelude.seq` Prelude.rnf subnetMappings
-      `Prelude.seq` Prelude.rnf firewallId
+    Prelude.rnf deleteProtection `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf encryptionConfiguration `Prelude.seq`
+          Prelude.rnf firewallArn `Prelude.seq`
+            Prelude.rnf firewallName `Prelude.seq`
+              Prelude.rnf firewallPolicyChangeProtection `Prelude.seq`
+                Prelude.rnf subnetChangeProtection `Prelude.seq`
+                  Prelude.rnf tags `Prelude.seq`
+                    Prelude.rnf firewallPolicyArn `Prelude.seq`
+                      Prelude.rnf vpcId `Prelude.seq`
+                        Prelude.rnf subnetMappings `Prelude.seq`
+                          Prelude.rnf firewallId

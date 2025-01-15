@@ -136,9 +136,7 @@ instance Data.FromXML User where
       Prelude.<*> (x Data..@? "Engine")
       Prelude.<*> (x Data..@? "MinimumEngineVersion")
       Prelude.<*> (x Data..@? "Status")
-      Prelude.<*> ( x
-                      Data..@? "UserGroupIds"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "UserGroupIds" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "UserId")
@@ -159,12 +157,12 @@ instance Prelude.Hashable User where
 
 instance Prelude.NFData User where
   rnf User' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf accessString
-      `Prelude.seq` Prelude.rnf authentication
-      `Prelude.seq` Prelude.rnf engine
-      `Prelude.seq` Prelude.rnf minimumEngineVersion
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf userGroupIds
-      `Prelude.seq` Prelude.rnf userId
-      `Prelude.seq` Prelude.rnf userName
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf accessString `Prelude.seq`
+        Prelude.rnf authentication `Prelude.seq`
+          Prelude.rnf engine `Prelude.seq`
+            Prelude.rnf minimumEngineVersion `Prelude.seq`
+              Prelude.rnf status `Prelude.seq`
+                Prelude.rnf userGroupIds `Prelude.seq`
+                  Prelude.rnf userId `Prelude.seq`
+                    Prelude.rnf userName

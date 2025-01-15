@@ -172,5 +172,5 @@ getFirewallDomainListResponse_httpStatus = Lens.lens (\GetFirewallDomainListResp
 
 instance Prelude.NFData GetFirewallDomainListResponse where
   rnf GetFirewallDomainListResponse' {..} =
-    Prelude.rnf firewallDomainList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf firewallDomainList `Prelude.seq`
+      Prelude.rnf httpStatus

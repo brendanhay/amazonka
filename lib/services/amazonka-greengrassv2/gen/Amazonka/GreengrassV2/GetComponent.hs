@@ -116,8 +116,8 @@ instance Prelude.Hashable GetComponent where
 
 instance Prelude.NFData GetComponent where
   rnf GetComponent' {..} =
-    Prelude.rnf recipeOutputFormat
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf recipeOutputFormat `Prelude.seq`
+      Prelude.rnf arn
 
 instance Data.ToHeaders GetComponent where
   toHeaders = Prelude.const Prelude.mempty
@@ -214,7 +214,7 @@ getComponentResponse_recipe = Lens.lens (\GetComponentResponse' {recipe} -> reci
 
 instance Prelude.NFData GetComponentResponse where
   rnf GetComponentResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf recipeOutputFormat
-      `Prelude.seq` Prelude.rnf recipe
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf recipeOutputFormat `Prelude.seq`
+          Prelude.rnf recipe

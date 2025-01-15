@@ -149,6 +149,6 @@ instance Prelude.Hashable ByoipCidr where
 
 instance Prelude.NFData ByoipCidr where
   rnf ByoipCidr' {..} =
-    Prelude.rnf cidr
-      `Prelude.seq` Prelude.rnf events
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf cidr `Prelude.seq`
+      Prelude.rnf events `Prelude.seq`
+        Prelude.rnf state

@@ -155,9 +155,9 @@ instance Prelude.Hashable Accessor where
 
 instance Prelude.NFData Accessor where
   rnf Accessor' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf billingToken
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf billingToken `Prelude.seq`
+        Prelude.rnf creationDate `Prelude.seq`
+          Prelude.rnf id `Prelude.seq`
+            Prelude.rnf status `Prelude.seq`
+              Prelude.rnf type'

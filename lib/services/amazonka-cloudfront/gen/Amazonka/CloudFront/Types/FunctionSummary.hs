@@ -110,7 +110,7 @@ instance Prelude.Hashable FunctionSummary where
 
 instance Prelude.NFData FunctionSummary where
   rnf FunctionSummary' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf functionConfig
-      `Prelude.seq` Prelude.rnf functionMetadata
+    Prelude.rnf status `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf functionConfig `Prelude.seq`
+          Prelude.rnf functionMetadata

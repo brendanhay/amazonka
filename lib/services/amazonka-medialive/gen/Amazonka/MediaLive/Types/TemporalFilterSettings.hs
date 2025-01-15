@@ -101,8 +101,8 @@ instance Prelude.Hashable TemporalFilterSettings where
 
 instance Prelude.NFData TemporalFilterSettings where
   rnf TemporalFilterSettings' {..} =
-    Prelude.rnf postFilterSharpening
-      `Prelude.seq` Prelude.rnf strength
+    Prelude.rnf postFilterSharpening `Prelude.seq`
+      Prelude.rnf strength
 
 instance Data.ToJSON TemporalFilterSettings where
   toJSON TemporalFilterSettings' {..} =

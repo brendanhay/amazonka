@@ -143,12 +143,12 @@ instance Core.AWSPager ListProductSubscriptions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listProductSubscriptions_nextToken
-          Lens..~ rs
-          Lens.^? listProductSubscriptionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listProductSubscriptions_nextToken
+              Lens..~ rs
+              Lens.^? listProductSubscriptionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListProductSubscriptions where
   type
@@ -179,11 +179,11 @@ instance Prelude.Hashable ListProductSubscriptions where
 
 instance Prelude.NFData ListProductSubscriptions where
   rnf ListProductSubscriptions' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf identityProvider
-      `Prelude.seq` Prelude.rnf product
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf identityProvider `Prelude.seq`
+            Prelude.rnf product
 
 instance Data.ToHeaders ListProductSubscriptions where
   toHeaders =
@@ -269,6 +269,6 @@ instance
     ListProductSubscriptionsResponse
   where
   rnf ListProductSubscriptionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf productUserSummaries
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf productUserSummaries `Prelude.seq`
+        Prelude.rnf httpStatus

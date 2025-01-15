@@ -119,8 +119,8 @@ instance Prelude.Hashable Subscription where
 
 instance Prelude.NFData Subscription where
   rnf Subscription' {..} =
-    Prelude.rnf destination
-      `Prelude.seq` Prelude.rnf metric
-      `Prelude.seq` Prelude.rnf period
-      `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf statistic
+    Prelude.rnf destination `Prelude.seq`
+      Prelude.rnf metric `Prelude.seq`
+        Prelude.rnf period `Prelude.seq`
+          Prelude.rnf source `Prelude.seq`
+            Prelude.rnf statistic

@@ -191,9 +191,7 @@ instance Core.AWSRequest GetOrganizationsAccessReport where
       "GetOrganizationsAccessReportResult"
       ( \s h x ->
           GetOrganizationsAccessReportResponse'
-            Prelude.<$> ( x
-                            Data..@? "AccessDetails"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "AccessDetails" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (x Data..@? "ErrorDetails")
@@ -220,10 +218,10 @@ instance
 
 instance Prelude.NFData GetOrganizationsAccessReport where
   rnf GetOrganizationsAccessReport' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxItems
-      `Prelude.seq` Prelude.rnf sortKey
-      `Prelude.seq` Prelude.rnf jobId
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf maxItems `Prelude.seq`
+        Prelude.rnf sortKey `Prelude.seq`
+          Prelude.rnf jobId
 
 instance Data.ToHeaders GetOrganizationsAccessReport where
   toHeaders = Prelude.const Prelude.mempty
@@ -425,13 +423,13 @@ instance
     GetOrganizationsAccessReportResponse
   where
   rnf GetOrganizationsAccessReportResponse' {..} =
-    Prelude.rnf accessDetails
-      `Prelude.seq` Prelude.rnf errorDetails
-      `Prelude.seq` Prelude.rnf isTruncated
-      `Prelude.seq` Prelude.rnf jobCompletionDate
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf numberOfServicesAccessible
-      `Prelude.seq` Prelude.rnf numberOfServicesNotAccessed
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf jobStatus
-      `Prelude.seq` Prelude.rnf jobCreationDate
+    Prelude.rnf accessDetails `Prelude.seq`
+      Prelude.rnf errorDetails `Prelude.seq`
+        Prelude.rnf isTruncated `Prelude.seq`
+          Prelude.rnf jobCompletionDate `Prelude.seq`
+            Prelude.rnf marker `Prelude.seq`
+              Prelude.rnf numberOfServicesAccessible `Prelude.seq`
+                Prelude.rnf numberOfServicesNotAccessed `Prelude.seq`
+                  Prelude.rnf httpStatus `Prelude.seq`
+                    Prelude.rnf jobStatus `Prelude.seq`
+                      Prelude.rnf jobCreationDate

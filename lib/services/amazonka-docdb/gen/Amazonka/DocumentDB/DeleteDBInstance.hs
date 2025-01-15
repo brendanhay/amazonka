@@ -173,5 +173,5 @@ deleteDBInstanceResponse_httpStatus = Lens.lens (\DeleteDBInstanceResponse' {htt
 
 instance Prelude.NFData DeleteDBInstanceResponse where
   rnf DeleteDBInstanceResponse' {..} =
-    Prelude.rnf dbInstance
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dbInstance `Prelude.seq`
+      Prelude.rnf httpStatus

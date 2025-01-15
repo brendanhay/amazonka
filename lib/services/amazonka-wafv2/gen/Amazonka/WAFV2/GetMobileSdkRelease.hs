@@ -117,8 +117,8 @@ instance Prelude.Hashable GetMobileSdkRelease where
 
 instance Prelude.NFData GetMobileSdkRelease where
   rnf GetMobileSdkRelease' {..} =
-    Prelude.rnf platform
-      `Prelude.seq` Prelude.rnf releaseVersion
+    Prelude.rnf platform `Prelude.seq`
+      Prelude.rnf releaseVersion
 
 instance Data.ToHeaders GetMobileSdkRelease where
   toHeaders =
@@ -195,5 +195,5 @@ getMobileSdkReleaseResponse_httpStatus = Lens.lens (\GetMobileSdkReleaseResponse
 
 instance Prelude.NFData GetMobileSdkReleaseResponse where
   rnf GetMobileSdkReleaseResponse' {..} =
-    Prelude.rnf mobileSdkRelease
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf mobileSdkRelease `Prelude.seq`
+      Prelude.rnf httpStatus

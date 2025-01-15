@@ -168,5 +168,5 @@ instance
     StopEntitiesDetectionV2JobResponse
   where
   rnf StopEntitiesDetectionV2JobResponse' {..} =
-    Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf jobId `Prelude.seq`
+      Prelude.rnf httpStatus

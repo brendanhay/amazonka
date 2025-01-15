@@ -175,12 +175,12 @@ instance Core.AWSPager DescribeLocalGateways where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeLocalGateways_nextToken
-          Lens..~ rs
-          Lens.^? describeLocalGatewaysResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeLocalGateways_nextToken
+              Lens..~ rs
+              Lens.^? describeLocalGatewaysResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeLocalGateways where
   type
@@ -192,9 +192,7 @@ instance Core.AWSRequest DescribeLocalGateways where
     Response.receiveXML
       ( \s h x ->
           DescribeLocalGatewaysResponse'
-            Prelude.<$> ( x
-                            Data..@? "localGatewaySet"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "localGatewaySet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (x Data..@? "nextToken")
@@ -212,11 +210,11 @@ instance Prelude.Hashable DescribeLocalGateways where
 
 instance Prelude.NFData DescribeLocalGateways where
   rnf DescribeLocalGateways' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf localGatewayIds
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf localGatewayIds `Prelude.seq`
+          Prelude.rnf maxResults `Prelude.seq`
+            Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeLocalGateways where
   toHeaders = Prelude.const Prelude.mempty
@@ -295,6 +293,6 @@ describeLocalGatewaysResponse_httpStatus = Lens.lens (\DescribeLocalGatewaysResp
 
 instance Prelude.NFData DescribeLocalGatewaysResponse where
   rnf DescribeLocalGatewaysResponse' {..} =
-    Prelude.rnf localGateways
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf localGateways `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

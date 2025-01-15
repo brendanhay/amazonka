@@ -89,8 +89,8 @@ instance Prelude.Hashable FunctionDefinitionVersion where
 
 instance Prelude.NFData FunctionDefinitionVersion where
   rnf FunctionDefinitionVersion' {..} =
-    Prelude.rnf defaultConfig
-      `Prelude.seq` Prelude.rnf functions
+    Prelude.rnf defaultConfig `Prelude.seq`
+      Prelude.rnf functions
 
 instance Data.ToJSON FunctionDefinitionVersion where
   toJSON FunctionDefinitionVersion' {..} =

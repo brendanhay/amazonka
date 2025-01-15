@@ -185,5 +185,5 @@ deleteTableResponse_httpStatus = Lens.lens (\DeleteTableResponse' {httpStatus} -
 
 instance Prelude.NFData DeleteTableResponse where
   rnf DeleteTableResponse' {..} =
-    Prelude.rnf tableDescription
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf tableDescription `Prelude.seq`
+      Prelude.rnf httpStatus

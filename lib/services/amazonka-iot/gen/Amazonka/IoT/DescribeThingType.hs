@@ -209,9 +209,9 @@ describeThingTypeResponse_httpStatus = Lens.lens (\DescribeThingTypeResponse' {h
 
 instance Prelude.NFData DescribeThingTypeResponse where
   rnf DescribeThingTypeResponse' {..} =
-    Prelude.rnf thingTypeArn
-      `Prelude.seq` Prelude.rnf thingTypeId
-      `Prelude.seq` Prelude.rnf thingTypeMetadata
-      `Prelude.seq` Prelude.rnf thingTypeName
-      `Prelude.seq` Prelude.rnf thingTypeProperties
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf thingTypeArn `Prelude.seq`
+      Prelude.rnf thingTypeId `Prelude.seq`
+        Prelude.rnf thingTypeMetadata `Prelude.seq`
+          Prelude.rnf thingTypeName `Prelude.seq`
+            Prelude.rnf thingTypeProperties `Prelude.seq`
+              Prelude.rnf httpStatus

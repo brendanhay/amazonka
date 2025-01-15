@@ -142,9 +142,9 @@ instance Prelude.Hashable GetModelVersion where
 
 instance Prelude.NFData GetModelVersion where
   rnf GetModelVersion' {..} =
-    Prelude.rnf modelId
-      `Prelude.seq` Prelude.rnf modelType
-      `Prelude.seq` Prelude.rnf modelVersionNumber
+    Prelude.rnf modelId `Prelude.seq`
+      Prelude.rnf modelType `Prelude.seq`
+        Prelude.rnf modelVersionNumber
 
 instance Data.ToHeaders GetModelVersion where
   toHeaders =
@@ -362,13 +362,13 @@ getModelVersionResponse_httpStatus = Lens.lens (\GetModelVersionResponse' {httpS
 
 instance Prelude.NFData GetModelVersionResponse where
   rnf GetModelVersionResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf externalEventsDetail
-      `Prelude.seq` Prelude.rnf ingestedEventsDetail
-      `Prelude.seq` Prelude.rnf modelId
-      `Prelude.seq` Prelude.rnf modelType
-      `Prelude.seq` Prelude.rnf modelVersionNumber
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf trainingDataSchema
-      `Prelude.seq` Prelude.rnf trainingDataSource
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf externalEventsDetail `Prelude.seq`
+        Prelude.rnf ingestedEventsDetail `Prelude.seq`
+          Prelude.rnf modelId `Prelude.seq`
+            Prelude.rnf modelType `Prelude.seq`
+              Prelude.rnf modelVersionNumber `Prelude.seq`
+                Prelude.rnf status `Prelude.seq`
+                  Prelude.rnf trainingDataSchema `Prelude.seq`
+                    Prelude.rnf trainingDataSource `Prelude.seq`
+                      Prelude.rnf httpStatus

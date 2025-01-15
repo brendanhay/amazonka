@@ -119,12 +119,12 @@ instance Core.AWSPager ListUniqueProblems where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listUniqueProblems_nextToken
-          Lens..~ rs
-          Lens.^? listUniqueProblemsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listUniqueProblems_nextToken
+              Lens..~ rs
+              Lens.^? listUniqueProblemsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListUniqueProblems where
   type
@@ -287,6 +287,6 @@ listUniqueProblemsResponse_httpStatus = Lens.lens (\ListUniqueProblemsResponse' 
 
 instance Prelude.NFData ListUniqueProblemsResponse where
   rnf ListUniqueProblemsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf uniqueProblems
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf uniqueProblems `Prelude.seq`
+        Prelude.rnf httpStatus

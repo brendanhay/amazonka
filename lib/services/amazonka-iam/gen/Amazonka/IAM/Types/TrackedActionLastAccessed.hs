@@ -144,7 +144,7 @@ instance Prelude.Hashable TrackedActionLastAccessed where
 
 instance Prelude.NFData TrackedActionLastAccessed where
   rnf TrackedActionLastAccessed' {..} =
-    Prelude.rnf actionName
-      `Prelude.seq` Prelude.rnf lastAccessedEntity
-      `Prelude.seq` Prelude.rnf lastAccessedRegion
-      `Prelude.seq` Prelude.rnf lastAccessedTime
+    Prelude.rnf actionName `Prelude.seq`
+      Prelude.rnf lastAccessedEntity `Prelude.seq`
+        Prelude.rnf lastAccessedRegion `Prelude.seq`
+          Prelude.rnf lastAccessedTime

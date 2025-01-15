@@ -108,9 +108,9 @@ instance Prelude.Hashable FilesLimit where
 
 instance Prelude.NFData FilesLimit where
   rnf FilesLimit' {..} =
-    Prelude.rnf order
-      `Prelude.seq` Prelude.rnf orderedBy
-      `Prelude.seq` Prelude.rnf maxFiles
+    Prelude.rnf order `Prelude.seq`
+      Prelude.rnf orderedBy `Prelude.seq`
+        Prelude.rnf maxFiles
 
 instance Data.ToJSON FilesLimit where
   toJSON FilesLimit' {..} =

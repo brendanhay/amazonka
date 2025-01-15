@@ -144,9 +144,9 @@ instance Prelude.Hashable StreamSummary where
 
 instance Prelude.NFData StreamSummary where
   rnf StreamSummary' {..} =
-    Prelude.rnf channelArn
-      `Prelude.seq` Prelude.rnf health
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf streamId
-      `Prelude.seq` Prelude.rnf viewerCount
+    Prelude.rnf channelArn `Prelude.seq`
+      Prelude.rnf health `Prelude.seq`
+        Prelude.rnf startTime `Prelude.seq`
+          Prelude.rnf state `Prelude.seq`
+            Prelude.rnf streamId `Prelude.seq`
+              Prelude.rnf viewerCount

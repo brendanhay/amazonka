@@ -139,7 +139,7 @@ instance Prelude.Hashable Consumer where
 
 instance Prelude.NFData Consumer where
   rnf Consumer' {..} =
-    Prelude.rnf consumerName
-      `Prelude.seq` Prelude.rnf consumerARN
-      `Prelude.seq` Prelude.rnf consumerStatus
-      `Prelude.seq` Prelude.rnf consumerCreationTimestamp
+    Prelude.rnf consumerName `Prelude.seq`
+      Prelude.rnf consumerARN `Prelude.seq`
+        Prelude.rnf consumerStatus `Prelude.seq`
+          Prelude.rnf consumerCreationTimestamp

@@ -100,8 +100,8 @@ instance
     ElicitationCodeHookInvocationSetting
   where
   rnf ElicitationCodeHookInvocationSetting' {..} =
-    Prelude.rnf invocationLabel
-      `Prelude.seq` Prelude.rnf enableCodeHookInvocation
+    Prelude.rnf invocationLabel `Prelude.seq`
+      Prelude.rnf enableCodeHookInvocation
 
 instance
   Data.ToJSON

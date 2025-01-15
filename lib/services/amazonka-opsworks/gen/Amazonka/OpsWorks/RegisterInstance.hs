@@ -188,13 +188,13 @@ instance Prelude.Hashable RegisterInstance where
 
 instance Prelude.NFData RegisterInstance where
   rnf RegisterInstance' {..} =
-    Prelude.rnf hostname
-      `Prelude.seq` Prelude.rnf instanceIdentity
-      `Prelude.seq` Prelude.rnf privateIp
-      `Prelude.seq` Prelude.rnf publicIp
-      `Prelude.seq` Prelude.rnf rsaPublicKey
-      `Prelude.seq` Prelude.rnf rsaPublicKeyFingerprint
-      `Prelude.seq` Prelude.rnf stackId
+    Prelude.rnf hostname `Prelude.seq`
+      Prelude.rnf instanceIdentity `Prelude.seq`
+        Prelude.rnf privateIp `Prelude.seq`
+          Prelude.rnf publicIp `Prelude.seq`
+            Prelude.rnf rsaPublicKey `Prelude.seq`
+              Prelude.rnf rsaPublicKeyFingerprint `Prelude.seq`
+                Prelude.rnf stackId
 
 instance Data.ToHeaders RegisterInstance where
   toHeaders =
@@ -276,5 +276,5 @@ registerInstanceResponse_httpStatus = Lens.lens (\RegisterInstanceResponse' {htt
 
 instance Prelude.NFData RegisterInstanceResponse where
   rnf RegisterInstanceResponse' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf instanceId `Prelude.seq`
+      Prelude.rnf httpStatus

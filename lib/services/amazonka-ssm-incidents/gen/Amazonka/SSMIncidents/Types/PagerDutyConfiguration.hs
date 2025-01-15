@@ -108,9 +108,9 @@ instance Prelude.Hashable PagerDutyConfiguration where
 
 instance Prelude.NFData PagerDutyConfiguration where
   rnf PagerDutyConfiguration' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf pagerDutyIncidentConfiguration
-      `Prelude.seq` Prelude.rnf secretId
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf pagerDutyIncidentConfiguration `Prelude.seq`
+        Prelude.rnf secretId
 
 instance Data.ToJSON PagerDutyConfiguration where
   toJSON PagerDutyConfiguration' {..} =

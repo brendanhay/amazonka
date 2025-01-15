@@ -164,5 +164,5 @@ instance
     GetMonitoringSubscriptionResponse
   where
   rnf GetMonitoringSubscriptionResponse' {..} =
-    Prelude.rnf monitoringSubscription
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf monitoringSubscription `Prelude.seq`
+      Prelude.rnf httpStatus

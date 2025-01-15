@@ -80,8 +80,8 @@ instance Prelude.Hashable EoCloudCoverInput where
 
 instance Prelude.NFData EoCloudCoverInput where
   rnf EoCloudCoverInput' {..} =
-    Prelude.rnf lowerBound
-      `Prelude.seq` Prelude.rnf upperBound
+    Prelude.rnf lowerBound `Prelude.seq`
+      Prelude.rnf upperBound
 
 instance Data.ToJSON EoCloudCoverInput where
   toJSON EoCloudCoverInput' {..} =

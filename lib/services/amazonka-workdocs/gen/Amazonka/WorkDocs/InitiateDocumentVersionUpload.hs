@@ -192,14 +192,14 @@ instance
 
 instance Prelude.NFData InitiateDocumentVersionUpload where
   rnf InitiateDocumentVersionUpload' {..} =
-    Prelude.rnf authenticationToken
-      `Prelude.seq` Prelude.rnf contentCreatedTimestamp
-      `Prelude.seq` Prelude.rnf contentModifiedTimestamp
-      `Prelude.seq` Prelude.rnf contentType
-      `Prelude.seq` Prelude.rnf documentSizeInBytes
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf parentFolderId
+    Prelude.rnf authenticationToken `Prelude.seq`
+      Prelude.rnf contentCreatedTimestamp `Prelude.seq`
+        Prelude.rnf contentModifiedTimestamp `Prelude.seq`
+          Prelude.rnf contentType `Prelude.seq`
+            Prelude.rnf documentSizeInBytes `Prelude.seq`
+              Prelude.rnf id `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf parentFolderId
 
 instance Data.ToHeaders InitiateDocumentVersionUpload where
   toHeaders InitiateDocumentVersionUpload' {..} =
@@ -286,6 +286,6 @@ instance
     InitiateDocumentVersionUploadResponse
   where
   rnf InitiateDocumentVersionUploadResponse' {..} =
-    Prelude.rnf metadata
-      `Prelude.seq` Prelude.rnf uploadMetadata
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf metadata `Prelude.seq`
+      Prelude.rnf uploadMetadata `Prelude.seq`
+        Prelude.rnf httpStatus

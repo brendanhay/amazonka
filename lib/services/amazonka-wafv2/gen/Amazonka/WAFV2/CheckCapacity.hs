@@ -226,5 +226,5 @@ checkCapacityResponse_httpStatus = Lens.lens (\CheckCapacityResponse' {httpStatu
 
 instance Prelude.NFData CheckCapacityResponse where
   rnf CheckCapacityResponse' {..} =
-    Prelude.rnf capacity
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf capacity `Prelude.seq`
+      Prelude.rnf httpStatus

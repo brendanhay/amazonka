@@ -201,14 +201,14 @@ instance Prelude.Hashable Record where
 
 instance Prelude.NFData Record where
   rnf Record' {..} =
-    Prelude.rnf dimensions
-      `Prelude.seq` Prelude.rnf measureName
-      `Prelude.seq` Prelude.rnf measureValue
-      `Prelude.seq` Prelude.rnf measureValueType
-      `Prelude.seq` Prelude.rnf measureValues
-      `Prelude.seq` Prelude.rnf time
-      `Prelude.seq` Prelude.rnf timeUnit
-      `Prelude.seq` Prelude.rnf version
+    Prelude.rnf dimensions `Prelude.seq`
+      Prelude.rnf measureName `Prelude.seq`
+        Prelude.rnf measureValue `Prelude.seq`
+          Prelude.rnf measureValueType `Prelude.seq`
+            Prelude.rnf measureValues `Prelude.seq`
+              Prelude.rnf time `Prelude.seq`
+                Prelude.rnf timeUnit `Prelude.seq`
+                  Prelude.rnf version
 
 instance Data.ToJSON Record where
   toJSON Record' {..} =

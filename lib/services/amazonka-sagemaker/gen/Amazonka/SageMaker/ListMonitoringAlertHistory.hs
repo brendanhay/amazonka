@@ -188,12 +188,12 @@ instance Core.AWSPager ListMonitoringAlertHistory where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listMonitoringAlertHistory_nextToken
-          Lens..~ rs
-          Lens.^? listMonitoringAlertHistoryResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listMonitoringAlertHistory_nextToken
+              Lens..~ rs
+              Lens.^? listMonitoringAlertHistoryResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListMonitoringAlertHistory where
   type
@@ -228,15 +228,15 @@ instance Prelude.Hashable ListMonitoringAlertHistory where
 
 instance Prelude.NFData ListMonitoringAlertHistory where
   rnf ListMonitoringAlertHistory' {..} =
-    Prelude.rnf creationTimeAfter
-      `Prelude.seq` Prelude.rnf creationTimeBefore
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf monitoringAlertName
-      `Prelude.seq` Prelude.rnf monitoringScheduleName
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf sortOrder
-      `Prelude.seq` Prelude.rnf statusEquals
+    Prelude.rnf creationTimeAfter `Prelude.seq`
+      Prelude.rnf creationTimeBefore `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf monitoringAlertName `Prelude.seq`
+            Prelude.rnf monitoringScheduleName `Prelude.seq`
+              Prelude.rnf nextToken `Prelude.seq`
+                Prelude.rnf sortBy `Prelude.seq`
+                  Prelude.rnf sortOrder `Prelude.seq`
+                    Prelude.rnf statusEquals
 
 instance Data.ToHeaders ListMonitoringAlertHistory where
   toHeaders =
@@ -335,6 +335,6 @@ instance
     ListMonitoringAlertHistoryResponse
   where
   rnf ListMonitoringAlertHistoryResponse' {..} =
-    Prelude.rnf monitoringAlertHistory
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf monitoringAlertHistory `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

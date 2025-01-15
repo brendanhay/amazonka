@@ -113,8 +113,8 @@ instance
     FilterOperationSelectedFieldsConfiguration
   where
   rnf FilterOperationSelectedFieldsConfiguration' {..} =
-    Prelude.rnf selectedFieldOptions
-      `Prelude.seq` Prelude.rnf selectedFields
+    Prelude.rnf selectedFieldOptions `Prelude.seq`
+      Prelude.rnf selectedFields
 
 instance
   Data.ToJSON

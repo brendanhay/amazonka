@@ -148,10 +148,10 @@ instance Prelude.Hashable CreateConnection where
 
 instance Prelude.NFData CreateConnection where
   rnf CreateConnection' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf authorizationType
-      `Prelude.seq` Prelude.rnf authParameters
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf authorizationType `Prelude.seq`
+          Prelude.rnf authParameters
 
 instance Data.ToHeaders CreateConnection where
   toHeaders =
@@ -253,8 +253,8 @@ createConnectionResponse_httpStatus = Lens.lens (\CreateConnectionResponse' {htt
 
 instance Prelude.NFData CreateConnectionResponse where
   rnf CreateConnectionResponse' {..} =
-    Prelude.rnf connectionArn
-      `Prelude.seq` Prelude.rnf connectionState
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf connectionArn `Prelude.seq`
+      Prelude.rnf connectionState `Prelude.seq`
+        Prelude.rnf creationTime `Prelude.seq`
+          Prelude.rnf lastModifiedTime `Prelude.seq`
+            Prelude.rnf httpStatus

@@ -111,9 +111,9 @@ instance Prelude.Hashable TagAttendee where
 
 instance Prelude.NFData TagAttendee where
   rnf TagAttendee' {..} =
-    Prelude.rnf meetingId
-      `Prelude.seq` Prelude.rnf attendeeId
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf meetingId `Prelude.seq`
+      Prelude.rnf attendeeId `Prelude.seq`
+        Prelude.rnf tags
 
 instance Data.ToHeaders TagAttendee where
   toHeaders = Prelude.const Prelude.mempty

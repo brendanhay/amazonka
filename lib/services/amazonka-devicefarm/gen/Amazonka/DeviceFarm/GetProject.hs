@@ -164,5 +164,5 @@ getProjectResponse_httpStatus = Lens.lens (\GetProjectResponse' {httpStatus} -> 
 
 instance Prelude.NFData GetProjectResponse where
   rnf GetProjectResponse' {..} =
-    Prelude.rnf project
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf project `Prelude.seq`
+      Prelude.rnf httpStatus

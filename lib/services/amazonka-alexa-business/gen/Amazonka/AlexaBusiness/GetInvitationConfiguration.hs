@@ -180,7 +180,7 @@ instance
     GetInvitationConfigurationResponse
   where
   rnf GetInvitationConfigurationResponse' {..} =
-    Prelude.rnf contactEmail
-      `Prelude.seq` Prelude.rnf organizationName
-      `Prelude.seq` Prelude.rnf privateSkillIds
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf contactEmail `Prelude.seq`
+      Prelude.rnf organizationName `Prelude.seq`
+        Prelude.rnf privateSkillIds `Prelude.seq`
+          Prelude.rnf httpStatus

@@ -122,8 +122,8 @@ instance Prelude.Hashable MxfXavcProfileSettings where
 
 instance Prelude.NFData MxfXavcProfileSettings where
   rnf MxfXavcProfileSettings' {..} =
-    Prelude.rnf durationMode
-      `Prelude.seq` Prelude.rnf maxAncDataSize
+    Prelude.rnf durationMode `Prelude.seq`
+      Prelude.rnf maxAncDataSize
 
 instance Data.ToJSON MxfXavcProfileSettings where
   toJSON MxfXavcProfileSettings' {..} =

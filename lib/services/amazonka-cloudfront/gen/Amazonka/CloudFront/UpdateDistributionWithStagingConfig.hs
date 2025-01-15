@@ -162,9 +162,9 @@ instance
     UpdateDistributionWithStagingConfig
   where
   rnf UpdateDistributionWithStagingConfig' {..} =
-    Prelude.rnf ifMatch
-      `Prelude.seq` Prelude.rnf stagingDistributionId
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf ifMatch `Prelude.seq`
+      Prelude.rnf stagingDistributionId `Prelude.seq`
+        Prelude.rnf id
 
 instance
   Data.ToHeaders
@@ -247,6 +247,6 @@ instance
     UpdateDistributionWithStagingConfigResponse
   where
   rnf UpdateDistributionWithStagingConfigResponse' {..} =
-    Prelude.rnf distribution
-      `Prelude.seq` Prelude.rnf eTag
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf distribution `Prelude.seq`
+      Prelude.rnf eTag `Prelude.seq`
+        Prelude.rnf httpStatus

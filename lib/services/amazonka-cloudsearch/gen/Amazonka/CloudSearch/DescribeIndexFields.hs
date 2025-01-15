@@ -126,9 +126,7 @@ instance Core.AWSRequest DescribeIndexFields where
       ( \s h x ->
           DescribeIndexFieldsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x
-                            Data..@? "IndexFields"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "IndexFields" Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLList "member"
                         )
       )
@@ -142,9 +140,9 @@ instance Prelude.Hashable DescribeIndexFields where
 
 instance Prelude.NFData DescribeIndexFields where
   rnf DescribeIndexFields' {..} =
-    Prelude.rnf deployed
-      `Prelude.seq` Prelude.rnf fieldNames
-      `Prelude.seq` Prelude.rnf domainName
+    Prelude.rnf deployed `Prelude.seq`
+      Prelude.rnf fieldNames `Prelude.seq`
+        Prelude.rnf domainName
 
 instance Data.ToHeaders DescribeIndexFields where
   toHeaders = Prelude.const Prelude.mempty
@@ -210,5 +208,5 @@ describeIndexFieldsResponse_indexFields = Lens.lens (\DescribeIndexFieldsRespons
 
 instance Prelude.NFData DescribeIndexFieldsResponse where
   rnf DescribeIndexFieldsResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf indexFields
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf indexFields

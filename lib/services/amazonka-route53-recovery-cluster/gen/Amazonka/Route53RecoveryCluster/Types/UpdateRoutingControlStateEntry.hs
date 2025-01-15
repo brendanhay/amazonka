@@ -86,8 +86,8 @@ instance
     UpdateRoutingControlStateEntry
   where
   rnf UpdateRoutingControlStateEntry' {..} =
-    Prelude.rnf routingControlArn
-      `Prelude.seq` Prelude.rnf routingControlState
+    Prelude.rnf routingControlArn `Prelude.seq`
+      Prelude.rnf routingControlState
 
 instance Data.ToJSON UpdateRoutingControlStateEntry where
   toJSON UpdateRoutingControlStateEntry' {..} =

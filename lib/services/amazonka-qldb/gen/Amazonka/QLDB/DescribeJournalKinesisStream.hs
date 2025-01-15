@@ -127,8 +127,8 @@ instance
 
 instance Prelude.NFData DescribeJournalKinesisStream where
   rnf DescribeJournalKinesisStream' {..} =
-    Prelude.rnf ledgerName
-      `Prelude.seq` Prelude.rnf streamId
+    Prelude.rnf ledgerName `Prelude.seq`
+      Prelude.rnf streamId
 
 instance Data.ToHeaders DescribeJournalKinesisStream where
   toHeaders =
@@ -200,5 +200,5 @@ instance
     DescribeJournalKinesisStreamResponse
   where
   rnf DescribeJournalKinesisStreamResponse' {..} =
-    Prelude.rnf stream
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf stream `Prelude.seq`
+      Prelude.rnf httpStatus

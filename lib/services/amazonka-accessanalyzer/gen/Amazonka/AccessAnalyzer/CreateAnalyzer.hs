@@ -157,11 +157,11 @@ instance Prelude.Hashable CreateAnalyzer where
 
 instance Prelude.NFData CreateAnalyzer where
   rnf CreateAnalyzer' {..} =
-    Prelude.rnf archiveRules
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf analyzerName
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf archiveRules `Prelude.seq`
+      Prelude.rnf clientToken `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf analyzerName `Prelude.seq`
+            Prelude.rnf type'
 
 instance Data.ToHeaders CreateAnalyzer where
   toHeaders =
@@ -234,5 +234,5 @@ createAnalyzerResponse_httpStatus = Lens.lens (\CreateAnalyzerResponse' {httpSta
 
 instance Prelude.NFData CreateAnalyzerResponse where
   rnf CreateAnalyzerResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf httpStatus

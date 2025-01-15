@@ -181,17 +181,17 @@ instance Prelude.Hashable OrganizationEventFilter where
 
 instance Prelude.NFData OrganizationEventFilter where
   rnf OrganizationEventFilter' {..} =
-    Prelude.rnf awsAccountIds
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf entityArns
-      `Prelude.seq` Prelude.rnf entityValues
-      `Prelude.seq` Prelude.rnf eventStatusCodes
-      `Prelude.seq` Prelude.rnf eventTypeCategories
-      `Prelude.seq` Prelude.rnf eventTypeCodes
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf regions
-      `Prelude.seq` Prelude.rnf services
-      `Prelude.seq` Prelude.rnf startTime
+    Prelude.rnf awsAccountIds `Prelude.seq`
+      Prelude.rnf endTime `Prelude.seq`
+        Prelude.rnf entityArns `Prelude.seq`
+          Prelude.rnf entityValues `Prelude.seq`
+            Prelude.rnf eventStatusCodes `Prelude.seq`
+              Prelude.rnf eventTypeCategories `Prelude.seq`
+                Prelude.rnf eventTypeCodes `Prelude.seq`
+                  Prelude.rnf lastUpdatedTime `Prelude.seq`
+                    Prelude.rnf regions `Prelude.seq`
+                      Prelude.rnf services `Prelude.seq`
+                        Prelude.rnf startTime
 
 instance Data.ToJSON OrganizationEventFilter where
   toJSON OrganizationEventFilter' {..} =

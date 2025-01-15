@@ -91,8 +91,8 @@ instance Prelude.Hashable FilterRule where
 
 instance Prelude.NFData FilterRule where
   rnf FilterRule' {..} =
-    Prelude.rnf filterType
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf filterType `Prelude.seq`
+      Prelude.rnf value
 
 instance Data.ToJSON FilterRule where
   toJSON FilterRule' {..} =

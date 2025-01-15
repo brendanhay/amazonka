@@ -183,9 +183,9 @@ instance Prelude.Hashable CreateWebACLMigrationStack where
 
 instance Prelude.NFData CreateWebACLMigrationStack where
   rnf CreateWebACLMigrationStack' {..} =
-    Prelude.rnf webACLId
-      `Prelude.seq` Prelude.rnf s3BucketName
-      `Prelude.seq` Prelude.rnf ignoreUnsupportedType
+    Prelude.rnf webACLId `Prelude.seq`
+      Prelude.rnf s3BucketName `Prelude.seq`
+        Prelude.rnf ignoreUnsupportedType
 
 instance Data.ToHeaders CreateWebACLMigrationStack where
   toHeaders =
@@ -269,5 +269,5 @@ instance
     CreateWebACLMigrationStackResponse
   where
   rnf CreateWebACLMigrationStackResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf s3ObjectUrl
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf s3ObjectUrl

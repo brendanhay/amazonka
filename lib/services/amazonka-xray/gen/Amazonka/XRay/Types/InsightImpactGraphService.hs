@@ -173,9 +173,9 @@ instance Prelude.Hashable InsightImpactGraphService where
 
 instance Prelude.NFData InsightImpactGraphService where
   rnf InsightImpactGraphService' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf edges
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf names
-      `Prelude.seq` Prelude.rnf referenceId
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf edges `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf names `Prelude.seq`
+            Prelude.rnf referenceId `Prelude.seq`
+              Prelude.rnf type'

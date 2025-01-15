@@ -574,8 +574,8 @@ instance Prelude.Hashable Condition where
 
 instance Prelude.NFData Condition where
   rnf Condition' {..} =
-    Prelude.rnf attributeValueList
-      `Prelude.seq` Prelude.rnf comparisonOperator
+    Prelude.rnf attributeValueList `Prelude.seq`
+      Prelude.rnf comparisonOperator
 
 instance Data.ToJSON Condition where
   toJSON Condition' {..} =

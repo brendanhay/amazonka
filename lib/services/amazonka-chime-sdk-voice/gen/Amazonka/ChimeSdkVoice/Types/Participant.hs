@@ -76,5 +76,5 @@ instance Prelude.Hashable Participant where
 
 instance Prelude.NFData Participant where
   rnf Participant' {..} =
-    Prelude.rnf phoneNumber
-      `Prelude.seq` Prelude.rnf proxyPhoneNumber
+    Prelude.rnf phoneNumber `Prelude.seq`
+      Prelude.rnf proxyPhoneNumber

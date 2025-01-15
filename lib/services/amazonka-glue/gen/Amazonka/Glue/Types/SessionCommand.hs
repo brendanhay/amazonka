@@ -86,8 +86,8 @@ instance Prelude.Hashable SessionCommand where
 
 instance Prelude.NFData SessionCommand where
   rnf SessionCommand' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf pythonVersion
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf pythonVersion
 
 instance Data.ToJSON SessionCommand where
   toJSON SessionCommand' {..} =

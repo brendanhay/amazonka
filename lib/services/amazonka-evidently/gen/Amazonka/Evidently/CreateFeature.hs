@@ -254,14 +254,14 @@ instance Prelude.Hashable CreateFeature where
 
 instance Prelude.NFData CreateFeature where
   rnf CreateFeature' {..} =
-    Prelude.rnf defaultVariation
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf entityOverrides
-      `Prelude.seq` Prelude.rnf evaluationStrategy
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf project
-      `Prelude.seq` Prelude.rnf variations
+    Prelude.rnf defaultVariation `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf entityOverrides `Prelude.seq`
+          Prelude.rnf evaluationStrategy `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf project `Prelude.seq`
+                  Prelude.rnf variations
 
 instance Data.ToHeaders CreateFeature where
   toHeaders =
@@ -339,5 +339,5 @@ createFeatureResponse_httpStatus = Lens.lens (\CreateFeatureResponse' {httpStatu
 
 instance Prelude.NFData CreateFeatureResponse where
   rnf CreateFeatureResponse' {..} =
-    Prelude.rnf feature
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf feature `Prelude.seq`
+      Prelude.rnf httpStatus

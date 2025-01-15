@@ -154,9 +154,9 @@ instance Prelude.Hashable RegisterResource where
 
 instance Prelude.NFData RegisterResource where
   rnf RegisterResource' {..} =
-    Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf useServiceLinkedRole
-      `Prelude.seq` Prelude.rnf resourceArn
+    Prelude.rnf roleArn `Prelude.seq`
+      Prelude.rnf useServiceLinkedRole `Prelude.seq`
+        Prelude.rnf resourceArn
 
 instance Data.ToHeaders RegisterResource where
   toHeaders =

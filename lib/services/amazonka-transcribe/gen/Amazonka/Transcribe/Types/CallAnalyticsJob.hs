@@ -463,18 +463,18 @@ instance Prelude.Hashable CallAnalyticsJob where
 
 instance Prelude.NFData CallAnalyticsJob where
   rnf CallAnalyticsJob' {..} =
-    Prelude.rnf callAnalyticsJobName
-      `Prelude.seq` Prelude.rnf callAnalyticsJobStatus
-      `Prelude.seq` Prelude.rnf channelDefinitions
-      `Prelude.seq` Prelude.rnf completionTime
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf dataAccessRoleArn
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf identifiedLanguageScore
-      `Prelude.seq` Prelude.rnf languageCode
-      `Prelude.seq` Prelude.rnf media
-      `Prelude.seq` Prelude.rnf mediaFormat
-      `Prelude.seq` Prelude.rnf mediaSampleRateHertz
-      `Prelude.seq` Prelude.rnf settings
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf transcript
+    Prelude.rnf callAnalyticsJobName `Prelude.seq`
+      Prelude.rnf callAnalyticsJobStatus `Prelude.seq`
+        Prelude.rnf channelDefinitions `Prelude.seq`
+          Prelude.rnf completionTime `Prelude.seq`
+            Prelude.rnf creationTime `Prelude.seq`
+              Prelude.rnf dataAccessRoleArn `Prelude.seq`
+                Prelude.rnf failureReason `Prelude.seq`
+                  Prelude.rnf identifiedLanguageScore `Prelude.seq`
+                    Prelude.rnf languageCode `Prelude.seq`
+                      Prelude.rnf media `Prelude.seq`
+                        Prelude.rnf mediaFormat `Prelude.seq`
+                          Prelude.rnf mediaSampleRateHertz `Prelude.seq`
+                            Prelude.rnf settings `Prelude.seq`
+                              Prelude.rnf startTime `Prelude.seq`
+                                Prelude.rnf transcript

@@ -101,9 +101,9 @@ instance Prelude.Hashable S3ContentLocation where
 
 instance Prelude.NFData S3ContentLocation where
   rnf S3ContentLocation' {..} =
-    Prelude.rnf objectVersion
-      `Prelude.seq` Prelude.rnf bucketARN
-      `Prelude.seq` Prelude.rnf fileKey
+    Prelude.rnf objectVersion `Prelude.seq`
+      Prelude.rnf bucketARN `Prelude.seq`
+        Prelude.rnf fileKey
 
 instance Data.ToJSON S3ContentLocation where
   toJSON S3ContentLocation' {..} =

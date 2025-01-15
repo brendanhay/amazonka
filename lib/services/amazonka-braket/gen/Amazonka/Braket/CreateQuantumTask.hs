@@ -208,15 +208,15 @@ instance Prelude.Hashable CreateQuantumTask where
 
 instance Prelude.NFData CreateQuantumTask where
   rnf CreateQuantumTask' {..} =
-    Prelude.rnf deviceParameters
-      `Prelude.seq` Prelude.rnf jobToken
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf action
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf deviceArn
-      `Prelude.seq` Prelude.rnf outputS3Bucket
-      `Prelude.seq` Prelude.rnf outputS3KeyPrefix
-      `Prelude.seq` Prelude.rnf shots
+    Prelude.rnf deviceParameters `Prelude.seq`
+      Prelude.rnf jobToken `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf action `Prelude.seq`
+            Prelude.rnf clientToken `Prelude.seq`
+              Prelude.rnf deviceArn `Prelude.seq`
+                Prelude.rnf outputS3Bucket `Prelude.seq`
+                  Prelude.rnf outputS3KeyPrefix `Prelude.seq`
+                    Prelude.rnf shots
 
 instance Data.ToHeaders CreateQuantumTask where
   toHeaders =
@@ -299,5 +299,5 @@ createQuantumTaskResponse_quantumTaskArn = Lens.lens (\CreateQuantumTaskResponse
 
 instance Prelude.NFData CreateQuantumTaskResponse where
   rnf CreateQuantumTaskResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf quantumTaskArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf quantumTaskArn

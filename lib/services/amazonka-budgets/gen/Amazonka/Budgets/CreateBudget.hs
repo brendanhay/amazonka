@@ -139,9 +139,9 @@ instance Prelude.Hashable CreateBudget where
 
 instance Prelude.NFData CreateBudget where
   rnf CreateBudget' {..} =
-    Prelude.rnf notificationsWithSubscribers
-      `Prelude.seq` Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf budget
+    Prelude.rnf notificationsWithSubscribers `Prelude.seq`
+      Prelude.rnf accountId `Prelude.seq`
+        Prelude.rnf budget
 
 instance Data.ToHeaders CreateBudget where
   toHeaders =

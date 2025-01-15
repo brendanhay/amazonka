@@ -110,7 +110,7 @@ instance Prelude.Hashable Type where
 
 instance Prelude.NFData Type where
   rnf Type' {..} =
-    Prelude.rnf arrayColumnInfo
-      `Prelude.seq` Prelude.rnf rowColumnInfo
-      `Prelude.seq` Prelude.rnf scalarType
-      `Prelude.seq` Prelude.rnf timeSeriesMeasureValueColumnInfo
+    Prelude.rnf arrayColumnInfo `Prelude.seq`
+      Prelude.rnf rowColumnInfo `Prelude.seq`
+        Prelude.rnf scalarType `Prelude.seq`
+          Prelude.rnf timeSeriesMeasureValueColumnInfo

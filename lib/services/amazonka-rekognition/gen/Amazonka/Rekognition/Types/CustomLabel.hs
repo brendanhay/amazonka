@@ -104,6 +104,6 @@ instance Prelude.Hashable CustomLabel where
 
 instance Prelude.NFData CustomLabel where
   rnf CustomLabel' {..} =
-    Prelude.rnf confidence
-      `Prelude.seq` Prelude.rnf geometry
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf confidence `Prelude.seq`
+      Prelude.rnf geometry `Prelude.seq`
+        Prelude.rnf name

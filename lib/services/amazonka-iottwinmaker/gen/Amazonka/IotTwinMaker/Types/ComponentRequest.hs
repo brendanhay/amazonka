@@ -97,10 +97,10 @@ instance Prelude.Hashable ComponentRequest where
 
 instance Prelude.NFData ComponentRequest where
   rnf ComponentRequest' {..} =
-    Prelude.rnf componentTypeId
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf properties
-      `Prelude.seq` Prelude.rnf propertyGroups
+    Prelude.rnf componentTypeId `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf properties `Prelude.seq`
+          Prelude.rnf propertyGroups
 
 instance Data.ToJSON ComponentRequest where
   toJSON ComponentRequest' {..} =

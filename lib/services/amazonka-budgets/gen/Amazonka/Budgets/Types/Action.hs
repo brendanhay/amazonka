@@ -211,13 +211,13 @@ instance Prelude.Hashable Action where
 
 instance Prelude.NFData Action where
   rnf Action' {..} =
-    Prelude.rnf actionId
-      `Prelude.seq` Prelude.rnf budgetName
-      `Prelude.seq` Prelude.rnf notificationType
-      `Prelude.seq` Prelude.rnf actionType
-      `Prelude.seq` Prelude.rnf actionThreshold
-      `Prelude.seq` Prelude.rnf definition
-      `Prelude.seq` Prelude.rnf executionRoleArn
-      `Prelude.seq` Prelude.rnf approvalModel
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf subscribers
+    Prelude.rnf actionId `Prelude.seq`
+      Prelude.rnf budgetName `Prelude.seq`
+        Prelude.rnf notificationType `Prelude.seq`
+          Prelude.rnf actionType `Prelude.seq`
+            Prelude.rnf actionThreshold `Prelude.seq`
+              Prelude.rnf definition `Prelude.seq`
+                Prelude.rnf executionRoleArn `Prelude.seq`
+                  Prelude.rnf approvalModel `Prelude.seq`
+                    Prelude.rnf status `Prelude.seq`
+                      Prelude.rnf subscribers

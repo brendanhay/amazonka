@@ -119,9 +119,9 @@ instance Prelude.Hashable AdminAddUserToGroup where
 
 instance Prelude.NFData AdminAddUserToGroup where
   rnf AdminAddUserToGroup' {..} =
-    Prelude.rnf userPoolId
-      `Prelude.seq` Prelude.rnf username
-      `Prelude.seq` Prelude.rnf groupName
+    Prelude.rnf userPoolId `Prelude.seq`
+      Prelude.rnf username `Prelude.seq`
+        Prelude.rnf groupName
 
 instance Data.ToHeaders AdminAddUserToGroup where
   toHeaders =

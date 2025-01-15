@@ -215,13 +215,13 @@ instance Prelude.Hashable CreateApplication where
 
 instance Prelude.NFData CreateApplication where
   rnf CreateApplication' {..} =
-    Prelude.rnf apiGatewayProxy
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf environmentIdentifier
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf proxyType
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf apiGatewayProxy `Prelude.seq`
+      Prelude.rnf clientToken `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf environmentIdentifier `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf proxyType `Prelude.seq`
+                Prelude.rnf vpcId
 
 instance Data.ToHeaders CreateApplication where
   toHeaders =
@@ -435,17 +435,17 @@ createApplicationResponse_httpStatus = Lens.lens (\CreateApplicationResponse' {h
 
 instance Prelude.NFData CreateApplicationResponse where
   rnf CreateApplicationResponse' {..} =
-    Prelude.rnf apiGatewayProxy
-      `Prelude.seq` Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdByAccountId
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf environmentId
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf ownerAccountId
-      `Prelude.seq` Prelude.rnf proxyType
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf vpcId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf apiGatewayProxy `Prelude.seq`
+      Prelude.rnf applicationId `Prelude.seq`
+        Prelude.rnf arn `Prelude.seq`
+          Prelude.rnf createdByAccountId `Prelude.seq`
+            Prelude.rnf createdTime `Prelude.seq`
+              Prelude.rnf environmentId `Prelude.seq`
+                Prelude.rnf lastUpdatedTime `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf ownerAccountId `Prelude.seq`
+                      Prelude.rnf proxyType `Prelude.seq`
+                        Prelude.rnf state `Prelude.seq`
+                          Prelude.rnf tags `Prelude.seq`
+                            Prelude.rnf vpcId `Prelude.seq`
+                              Prelude.rnf httpStatus

@@ -133,9 +133,9 @@ instance Prelude.Hashable DatasetSummary where
 
 instance Prelude.NFData DatasetSummary where
   rnf DatasetSummary' {..} =
-    Prelude.rnf actions
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf datasetName
-      `Prelude.seq` Prelude.rnf lastUpdateTime
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf triggers
+    Prelude.rnf actions `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf datasetName `Prelude.seq`
+          Prelude.rnf lastUpdateTime `Prelude.seq`
+            Prelude.rnf status `Prelude.seq`
+              Prelude.rnf triggers

@@ -96,5 +96,5 @@ instance Prelude.Hashable AvailableCapacity where
 
 instance Prelude.NFData AvailableCapacity where
   rnf AvailableCapacity' {..} =
-    Prelude.rnf availableInstanceCapacity
-      `Prelude.seq` Prelude.rnf availableVCpus
+    Prelude.rnf availableInstanceCapacity `Prelude.seq`
+      Prelude.rnf availableVCpus

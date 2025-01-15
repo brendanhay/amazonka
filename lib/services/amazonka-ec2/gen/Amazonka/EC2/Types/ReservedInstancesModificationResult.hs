@@ -99,5 +99,5 @@ instance
     ReservedInstancesModificationResult
   where
   rnf ReservedInstancesModificationResult' {..} =
-    Prelude.rnf reservedInstancesId
-      `Prelude.seq` Prelude.rnf targetConfiguration
+    Prelude.rnf reservedInstancesId `Prelude.seq`
+      Prelude.rnf targetConfiguration

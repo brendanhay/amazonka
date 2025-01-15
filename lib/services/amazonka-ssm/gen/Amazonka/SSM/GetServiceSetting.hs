@@ -230,5 +230,5 @@ getServiceSettingResponse_httpStatus = Lens.lens (\GetServiceSettingResponse' {h
 
 instance Prelude.NFData GetServiceSettingResponse where
   rnf GetServiceSettingResponse' {..} =
-    Prelude.rnf serviceSetting
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf serviceSetting `Prelude.seq`
+      Prelude.rnf httpStatus

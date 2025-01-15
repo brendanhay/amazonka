@@ -138,9 +138,9 @@ instance Prelude.Hashable GetResource where
 
 instance Prelude.NFData GetResource where
   rnf GetResource' {..} =
-    Prelude.rnf embed
-      `Prelude.seq` Prelude.rnf restApiId
-      `Prelude.seq` Prelude.rnf resourceId
+    Prelude.rnf embed `Prelude.seq`
+      Prelude.rnf restApiId `Prelude.seq`
+        Prelude.rnf resourceId
 
 instance Data.ToHeaders GetResource where
   toHeaders =

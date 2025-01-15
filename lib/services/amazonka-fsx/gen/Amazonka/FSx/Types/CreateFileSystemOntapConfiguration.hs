@@ -244,16 +244,16 @@ instance
     CreateFileSystemOntapConfiguration
   where
   rnf CreateFileSystemOntapConfiguration' {..} =
-    Prelude.rnf automaticBackupRetentionDays
-      `Prelude.seq` Prelude.rnf dailyAutomaticBackupStartTime
-      `Prelude.seq` Prelude.rnf diskIopsConfiguration
-      `Prelude.seq` Prelude.rnf endpointIpAddressRange
-      `Prelude.seq` Prelude.rnf fsxAdminPassword
-      `Prelude.seq` Prelude.rnf preferredSubnetId
-      `Prelude.seq` Prelude.rnf routeTableIds
-      `Prelude.seq` Prelude.rnf weeklyMaintenanceStartTime
-      `Prelude.seq` Prelude.rnf deploymentType
-      `Prelude.seq` Prelude.rnf throughputCapacity
+    Prelude.rnf automaticBackupRetentionDays `Prelude.seq`
+      Prelude.rnf dailyAutomaticBackupStartTime `Prelude.seq`
+        Prelude.rnf diskIopsConfiguration `Prelude.seq`
+          Prelude.rnf endpointIpAddressRange `Prelude.seq`
+            Prelude.rnf fsxAdminPassword `Prelude.seq`
+              Prelude.rnf preferredSubnetId `Prelude.seq`
+                Prelude.rnf routeTableIds `Prelude.seq`
+                  Prelude.rnf weeklyMaintenanceStartTime `Prelude.seq`
+                    Prelude.rnf deploymentType `Prelude.seq`
+                      Prelude.rnf throughputCapacity
 
 instance
   Data.ToJSON

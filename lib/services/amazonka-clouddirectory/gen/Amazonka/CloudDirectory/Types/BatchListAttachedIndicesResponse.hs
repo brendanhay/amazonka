@@ -96,5 +96,5 @@ instance
     BatchListAttachedIndicesResponse
   where
   rnf BatchListAttachedIndicesResponse' {..} =
-    Prelude.rnf indexAttachments
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf indexAttachments `Prelude.seq`
+      Prelude.rnf nextToken

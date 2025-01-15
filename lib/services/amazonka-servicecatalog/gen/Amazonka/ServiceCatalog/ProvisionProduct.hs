@@ -291,19 +291,19 @@ instance Prelude.Hashable ProvisionProduct where
 
 instance Prelude.NFData ProvisionProduct where
   rnf ProvisionProduct' {..} =
-    Prelude.rnf acceptLanguage
-      `Prelude.seq` Prelude.rnf notificationArns
-      `Prelude.seq` Prelude.rnf pathId
-      `Prelude.seq` Prelude.rnf pathName
-      `Prelude.seq` Prelude.rnf productId
-      `Prelude.seq` Prelude.rnf productName
-      `Prelude.seq` Prelude.rnf provisioningArtifactId
-      `Prelude.seq` Prelude.rnf provisioningArtifactName
-      `Prelude.seq` Prelude.rnf provisioningParameters
-      `Prelude.seq` Prelude.rnf provisioningPreferences
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf provisionedProductName
-      `Prelude.seq` Prelude.rnf provisionToken
+    Prelude.rnf acceptLanguage `Prelude.seq`
+      Prelude.rnf notificationArns `Prelude.seq`
+        Prelude.rnf pathId `Prelude.seq`
+          Prelude.rnf pathName `Prelude.seq`
+            Prelude.rnf productId `Prelude.seq`
+              Prelude.rnf productName `Prelude.seq`
+                Prelude.rnf provisioningArtifactId `Prelude.seq`
+                  Prelude.rnf provisioningArtifactName `Prelude.seq`
+                    Prelude.rnf provisioningParameters `Prelude.seq`
+                      Prelude.rnf provisioningPreferences `Prelude.seq`
+                        Prelude.rnf tags `Prelude.seq`
+                          Prelude.rnf provisionedProductName `Prelude.seq`
+                            Prelude.rnf provisionToken
 
 instance Data.ToHeaders ProvisionProduct where
   toHeaders =
@@ -397,5 +397,5 @@ provisionProductResponse_httpStatus = Lens.lens (\ProvisionProductResponse' {htt
 
 instance Prelude.NFData ProvisionProductResponse where
   rnf ProvisionProductResponse' {..} =
-    Prelude.rnf recordDetail
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf recordDetail `Prelude.seq`
+      Prelude.rnf httpStatus

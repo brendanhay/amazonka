@@ -126,12 +126,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listConnectorDefinitionVersions_nextToken
-          Lens..~ rs
-          Lens.^? listConnectorDefinitionVersionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listConnectorDefinitionVersions_nextToken
+              Lens..~ rs
+              Lens.^? listConnectorDefinitionVersionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -168,9 +168,9 @@ instance
     ListConnectorDefinitionVersions
   where
   rnf ListConnectorDefinitionVersions' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf connectorDefinitionId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf connectorDefinitionId
 
 instance
   Data.ToHeaders
@@ -258,6 +258,6 @@ instance
     ListConnectorDefinitionVersionsResponse
   where
   rnf ListConnectorDefinitionVersionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf versions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf versions `Prelude.seq`
+        Prelude.rnf httpStatus

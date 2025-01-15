@@ -107,8 +107,8 @@ instance Prelude.Hashable CreatePhoneNumberOrder where
 
 instance Prelude.NFData CreatePhoneNumberOrder where
   rnf CreatePhoneNumberOrder' {..} =
-    Prelude.rnf productType
-      `Prelude.seq` Prelude.rnf e164PhoneNumbers
+    Prelude.rnf productType `Prelude.seq`
+      Prelude.rnf e164PhoneNumbers
 
 instance Data.ToHeaders CreatePhoneNumberOrder where
   toHeaders = Prelude.const Prelude.mempty
@@ -172,5 +172,5 @@ instance
     CreatePhoneNumberOrderResponse
   where
   rnf CreatePhoneNumberOrderResponse' {..} =
-    Prelude.rnf phoneNumberOrder
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf phoneNumberOrder `Prelude.seq`
+      Prelude.rnf httpStatus

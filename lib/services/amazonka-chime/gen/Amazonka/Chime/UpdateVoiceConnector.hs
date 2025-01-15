@@ -127,9 +127,9 @@ instance Prelude.Hashable UpdateVoiceConnector where
 
 instance Prelude.NFData UpdateVoiceConnector where
   rnf UpdateVoiceConnector' {..} =
-    Prelude.rnf voiceConnectorId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf requireEncryption
+    Prelude.rnf voiceConnectorId `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf requireEncryption
 
 instance Data.ToHeaders UpdateVoiceConnector where
   toHeaders = Prelude.const Prelude.mempty
@@ -193,5 +193,5 @@ updateVoiceConnectorResponse_httpStatus = Lens.lens (\UpdateVoiceConnectorRespon
 
 instance Prelude.NFData UpdateVoiceConnectorResponse where
   rnf UpdateVoiceConnectorResponse' {..} =
-    Prelude.rnf voiceConnector
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf voiceConnector `Prelude.seq`
+      Prelude.rnf httpStatus

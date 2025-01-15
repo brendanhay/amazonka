@@ -185,5 +185,5 @@ instance
     DeleteReplicationInstanceResponse
   where
   rnf DeleteReplicationInstanceResponse' {..} =
-    Prelude.rnf replicationInstance
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf replicationInstance `Prelude.seq`
+      Prelude.rnf httpStatus

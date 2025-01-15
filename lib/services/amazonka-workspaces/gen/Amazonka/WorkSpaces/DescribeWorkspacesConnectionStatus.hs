@@ -109,12 +109,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeWorkspacesConnectionStatus_nextToken
-          Lens..~ rs
-          Lens.^? describeWorkspacesConnectionStatusResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeWorkspacesConnectionStatus_nextToken
+              Lens..~ rs
+              Lens.^? describeWorkspacesConnectionStatusResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -153,8 +153,8 @@ instance
     DescribeWorkspacesConnectionStatus
   where
   rnf DescribeWorkspacesConnectionStatus' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf workspaceIds
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf workspaceIds
 
 instance
   Data.ToHeaders
@@ -256,6 +256,6 @@ instance
     DescribeWorkspacesConnectionStatusResponse
   where
   rnf DescribeWorkspacesConnectionStatusResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf workspacesConnectionStatus
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf workspacesConnectionStatus `Prelude.seq`
+        Prelude.rnf httpStatus

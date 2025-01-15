@@ -96,8 +96,8 @@ instance
     AwsS3BucketServerSideEncryptionByDefault
   where
   rnf AwsS3BucketServerSideEncryptionByDefault' {..} =
-    Prelude.rnf kmsMasterKeyID
-      `Prelude.seq` Prelude.rnf sSEAlgorithm
+    Prelude.rnf kmsMasterKeyID `Prelude.seq`
+      Prelude.rnf sSEAlgorithm
 
 instance
   Data.ToJSON

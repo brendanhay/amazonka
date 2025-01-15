@@ -162,8 +162,8 @@ instance
   where
   rnf
     ChildWorkflowExecutionCanceledEventAttributes' {..} =
-      Prelude.rnf details
-        `Prelude.seq` Prelude.rnf workflowExecution
-        `Prelude.seq` Prelude.rnf workflowType
-        `Prelude.seq` Prelude.rnf initiatedEventId
-        `Prelude.seq` Prelude.rnf startedEventId
+      Prelude.rnf details `Prelude.seq`
+        Prelude.rnf workflowExecution `Prelude.seq`
+          Prelude.rnf workflowType `Prelude.seq`
+            Prelude.rnf initiatedEventId `Prelude.seq`
+              Prelude.rnf startedEventId

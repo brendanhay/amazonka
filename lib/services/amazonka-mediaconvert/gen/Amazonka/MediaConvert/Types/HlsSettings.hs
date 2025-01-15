@@ -244,13 +244,13 @@ instance Prelude.Hashable HlsSettings where
 
 instance Prelude.NFData HlsSettings where
   rnf HlsSettings' {..} =
-    Prelude.rnf audioGroupId
-      `Prelude.seq` Prelude.rnf audioOnlyContainer
-      `Prelude.seq` Prelude.rnf audioRenditionSets
-      `Prelude.seq` Prelude.rnf audioTrackType
-      `Prelude.seq` Prelude.rnf descriptiveVideoServiceFlag
-      `Prelude.seq` Prelude.rnf iFrameOnlyManifest
-      `Prelude.seq` Prelude.rnf segmentModifier
+    Prelude.rnf audioGroupId `Prelude.seq`
+      Prelude.rnf audioOnlyContainer `Prelude.seq`
+        Prelude.rnf audioRenditionSets `Prelude.seq`
+          Prelude.rnf audioTrackType `Prelude.seq`
+            Prelude.rnf descriptiveVideoServiceFlag `Prelude.seq`
+              Prelude.rnf iFrameOnlyManifest `Prelude.seq`
+                Prelude.rnf segmentModifier
 
 instance Data.ToJSON HlsSettings where
   toJSON HlsSettings' {..} =

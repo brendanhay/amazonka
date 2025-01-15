@@ -123,9 +123,9 @@ instance Prelude.Hashable GetJob where
 
 instance Prelude.NFData GetJob where
   rnf GetJob' {..} =
-    Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf branchName
-      `Prelude.seq` Prelude.rnf jobId
+    Prelude.rnf appId `Prelude.seq`
+      Prelude.rnf branchName `Prelude.seq`
+        Prelude.rnf jobId
 
 instance Data.ToHeaders GetJob where
   toHeaders =
@@ -193,5 +193,5 @@ getJobResponse_job = Lens.lens (\GetJobResponse' {job} -> job) (\s@GetJobRespons
 
 instance Prelude.NFData GetJobResponse where
   rnf GetJobResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf job
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf job

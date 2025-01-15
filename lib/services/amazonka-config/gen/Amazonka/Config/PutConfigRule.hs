@@ -138,8 +138,8 @@ instance Prelude.Hashable PutConfigRule where
 
 instance Prelude.NFData PutConfigRule where
   rnf PutConfigRule' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf configRule
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf configRule
 
 instance Data.ToHeaders PutConfigRule where
   toHeaders =

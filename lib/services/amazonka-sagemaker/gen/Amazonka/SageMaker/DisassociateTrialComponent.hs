@@ -124,8 +124,8 @@ instance Prelude.Hashable DisassociateTrialComponent where
 
 instance Prelude.NFData DisassociateTrialComponent where
   rnf DisassociateTrialComponent' {..} =
-    Prelude.rnf trialComponentName
-      `Prelude.seq` Prelude.rnf trialName
+    Prelude.rnf trialComponentName `Prelude.seq`
+      Prelude.rnf trialName
 
 instance Data.ToHeaders DisassociateTrialComponent where
   toHeaders =
@@ -211,6 +211,6 @@ instance
     DisassociateTrialComponentResponse
   where
   rnf DisassociateTrialComponentResponse' {..} =
-    Prelude.rnf trialArn
-      `Prelude.seq` Prelude.rnf trialComponentArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf trialArn `Prelude.seq`
+      Prelude.rnf trialComponentArn `Prelude.seq`
+        Prelude.rnf httpStatus

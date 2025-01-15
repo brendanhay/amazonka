@@ -136,9 +136,9 @@ instance Prelude.Hashable DeleteResourcePolicy where
 
 instance Prelude.NFData DeleteResourcePolicy where
   rnf DeleteResourcePolicy' {..} =
-    Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf policyId
-      `Prelude.seq` Prelude.rnf policyHash
+    Prelude.rnf resourceArn `Prelude.seq`
+      Prelude.rnf policyId `Prelude.seq`
+        Prelude.rnf policyHash
 
 instance Data.ToHeaders DeleteResourcePolicy where
   toHeaders =

@@ -85,5 +85,5 @@ instance Prelude.Hashable HashKeyRange where
 
 instance Prelude.NFData HashKeyRange where
   rnf HashKeyRange' {..} =
-    Prelude.rnf startingHashKey
-      `Prelude.seq` Prelude.rnf endingHashKey
+    Prelude.rnf startingHashKey `Prelude.seq`
+      Prelude.rnf endingHashKey

@@ -123,12 +123,12 @@ instance Core.AWSPager ListForms where
     | Core.stop (rs Lens.^. listFormsResponse_entities) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listForms_nextToken
-          Lens..~ rs
-          Lens.^? listFormsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listForms_nextToken
+              Lens..~ rs
+              Lens.^? listFormsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListForms where
   type AWSResponse ListForms = ListFormsResponse
@@ -153,10 +153,10 @@ instance Prelude.Hashable ListForms where
 
 instance Prelude.NFData ListForms where
   rnf ListForms' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf environmentName
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf appId `Prelude.seq`
+          Prelude.rnf environmentName
 
 instance Data.ToHeaders ListForms where
   toHeaders =
@@ -235,6 +235,6 @@ listFormsResponse_entities = Lens.lens (\ListFormsResponse' {entities} -> entiti
 
 instance Prelude.NFData ListFormsResponse where
   rnf ListFormsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf entities
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf entities

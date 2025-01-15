@@ -147,9 +147,7 @@ instance Data.FromXML TransitGatewayPeeringAttachment where
       Prelude.<*> (x Data..@? "requesterTgwInfo")
       Prelude.<*> (x Data..@? "state")
       Prelude.<*> (x Data..@? "status")
-      Prelude.<*> ( x
-                      Data..@? "tagSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "transitGatewayAttachmentId")
@@ -177,12 +175,12 @@ instance
     TransitGatewayPeeringAttachment
   where
   rnf TransitGatewayPeeringAttachment' {..} =
-    Prelude.rnf accepterTgwInfo
-      `Prelude.seq` Prelude.rnf accepterTransitGatewayAttachmentId
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf options
-      `Prelude.seq` Prelude.rnf requesterTgwInfo
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf transitGatewayAttachmentId
+    Prelude.rnf accepterTgwInfo `Prelude.seq`
+      Prelude.rnf accepterTransitGatewayAttachmentId `Prelude.seq`
+        Prelude.rnf creationTime `Prelude.seq`
+          Prelude.rnf options `Prelude.seq`
+            Prelude.rnf requesterTgwInfo `Prelude.seq`
+              Prelude.rnf state `Prelude.seq`
+                Prelude.rnf status `Prelude.seq`
+                  Prelude.rnf tags `Prelude.seq`
+                    Prelude.rnf transitGatewayAttachmentId

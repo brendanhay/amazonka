@@ -133,12 +133,12 @@ instance Core.AWSPager ListPortfolios where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listPortfolios_pageToken
-          Lens..~ rs
-          Lens.^? listPortfoliosResponse_nextPageToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listPortfolios_pageToken
+              Lens..~ rs
+              Lens.^? listPortfoliosResponse_nextPageToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPortfolios where
   type
@@ -167,9 +167,9 @@ instance Prelude.Hashable ListPortfolios where
 
 instance Prelude.NFData ListPortfolios where
   rnf ListPortfolios' {..} =
-    Prelude.rnf acceptLanguage
-      `Prelude.seq` Prelude.rnf pageSize
-      `Prelude.seq` Prelude.rnf pageToken
+    Prelude.rnf acceptLanguage `Prelude.seq`
+      Prelude.rnf pageSize `Prelude.seq`
+        Prelude.rnf pageToken
 
 instance Data.ToHeaders ListPortfolios where
   toHeaders =
@@ -256,6 +256,6 @@ listPortfoliosResponse_httpStatus = Lens.lens (\ListPortfoliosResponse' {httpSta
 
 instance Prelude.NFData ListPortfoliosResponse where
   rnf ListPortfoliosResponse' {..} =
-    Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf portfolioDetails
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextPageToken `Prelude.seq`
+      Prelude.rnf portfolioDetails `Prelude.seq`
+        Prelude.rnf httpStatus

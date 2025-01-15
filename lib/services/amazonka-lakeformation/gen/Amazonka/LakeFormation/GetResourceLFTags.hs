@@ -138,9 +138,9 @@ instance Prelude.Hashable GetResourceLFTags where
 
 instance Prelude.NFData GetResourceLFTags where
   rnf GetResourceLFTags' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf showAssignedLFTags
-      `Prelude.seq` Prelude.rnf resource
+    Prelude.rnf catalogId `Prelude.seq`
+      Prelude.rnf showAssignedLFTags `Prelude.seq`
+        Prelude.rnf resource
 
 instance Data.ToHeaders GetResourceLFTags where
   toHeaders =
@@ -229,7 +229,7 @@ getResourceLFTagsResponse_httpStatus = Lens.lens (\GetResourceLFTagsResponse' {h
 
 instance Prelude.NFData GetResourceLFTagsResponse where
   rnf GetResourceLFTagsResponse' {..} =
-    Prelude.rnf lFTagOnDatabase
-      `Prelude.seq` Prelude.rnf lFTagsOnColumns
-      `Prelude.seq` Prelude.rnf lFTagsOnTable
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf lFTagOnDatabase `Prelude.seq`
+      Prelude.rnf lFTagsOnColumns `Prelude.seq`
+        Prelude.rnf lFTagsOnTable `Prelude.seq`
+          Prelude.rnf httpStatus

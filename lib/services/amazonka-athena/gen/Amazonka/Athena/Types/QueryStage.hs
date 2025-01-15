@@ -163,12 +163,12 @@ instance Prelude.Hashable QueryStage where
 
 instance Prelude.NFData QueryStage where
   rnf QueryStage' {..} =
-    Prelude.rnf executionTime
-      `Prelude.seq` Prelude.rnf inputBytes
-      `Prelude.seq` Prelude.rnf inputRows
-      `Prelude.seq` Prelude.rnf outputBytes
-      `Prelude.seq` Prelude.rnf outputRows
-      `Prelude.seq` Prelude.rnf queryStagePlan
-      `Prelude.seq` Prelude.rnf stageId
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf subStages
+    Prelude.rnf executionTime `Prelude.seq`
+      Prelude.rnf inputBytes `Prelude.seq`
+        Prelude.rnf inputRows `Prelude.seq`
+          Prelude.rnf outputBytes `Prelude.seq`
+            Prelude.rnf outputRows `Prelude.seq`
+              Prelude.rnf queryStagePlan `Prelude.seq`
+                Prelude.rnf stageId `Prelude.seq`
+                  Prelude.rnf state `Prelude.seq`
+                    Prelude.rnf subStages

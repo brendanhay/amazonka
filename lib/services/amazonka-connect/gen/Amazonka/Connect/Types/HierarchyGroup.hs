@@ -128,9 +128,9 @@ instance Prelude.Hashable HierarchyGroup where
 
 instance Prelude.NFData HierarchyGroup where
   rnf HierarchyGroup' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf hierarchyPath
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf levelId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf hierarchyPath `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf levelId `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf tags

@@ -218,12 +218,12 @@ instance Core.AWSPager GetDevicePositionHistory where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getDevicePositionHistory_nextToken
-          Lens..~ rs
-          Lens.^? getDevicePositionHistoryResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getDevicePositionHistory_nextToken
+              Lens..~ rs
+              Lens.^? getDevicePositionHistoryResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetDevicePositionHistory where
   type
@@ -255,12 +255,12 @@ instance Prelude.Hashable GetDevicePositionHistory where
 
 instance Prelude.NFData GetDevicePositionHistory where
   rnf GetDevicePositionHistory' {..} =
-    Prelude.rnf endTimeExclusive
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf startTimeInclusive
-      `Prelude.seq` Prelude.rnf deviceId
-      `Prelude.seq` Prelude.rnf trackerName
+    Prelude.rnf endTimeExclusive `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf startTimeInclusive `Prelude.seq`
+            Prelude.rnf deviceId `Prelude.seq`
+              Prelude.rnf trackerName
 
 instance Data.ToHeaders GetDevicePositionHistory where
   toHeaders =
@@ -358,6 +358,6 @@ instance
     GetDevicePositionHistoryResponse
   where
   rnf GetDevicePositionHistoryResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf devicePositions
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf devicePositions

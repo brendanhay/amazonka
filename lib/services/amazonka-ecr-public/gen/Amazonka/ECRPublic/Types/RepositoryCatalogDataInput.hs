@@ -228,12 +228,12 @@ instance Prelude.Hashable RepositoryCatalogDataInput where
 
 instance Prelude.NFData RepositoryCatalogDataInput where
   rnf RepositoryCatalogDataInput' {..} =
-    Prelude.rnf aboutText
-      `Prelude.seq` Prelude.rnf architectures
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf logoImageBlob
-      `Prelude.seq` Prelude.rnf operatingSystems
-      `Prelude.seq` Prelude.rnf usageText
+    Prelude.rnf aboutText `Prelude.seq`
+      Prelude.rnf architectures `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf logoImageBlob `Prelude.seq`
+            Prelude.rnf operatingSystems `Prelude.seq`
+              Prelude.rnf usageText
 
 instance Data.ToJSON RepositoryCatalogDataInput where
   toJSON RepositoryCatalogDataInput' {..} =

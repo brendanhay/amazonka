@@ -135,14 +135,10 @@ instance Core.AWSRequest BatchModifyClusterSnapshots where
       "BatchModifyClusterSnapshotsResult"
       ( \s h x ->
           BatchModifyClusterSnapshotsResponse'
-            Prelude.<$> ( x
-                            Data..@? "Errors"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "Errors" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "SnapshotErrorMessage")
                         )
-            Prelude.<*> ( x
-                            Data..@? "Resources"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "Resources" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "String")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -157,9 +153,9 @@ instance Prelude.Hashable BatchModifyClusterSnapshots where
 
 instance Prelude.NFData BatchModifyClusterSnapshots where
   rnf BatchModifyClusterSnapshots' {..} =
-    Prelude.rnf force
-      `Prelude.seq` Prelude.rnf manualSnapshotRetentionPeriod
-      `Prelude.seq` Prelude.rnf snapshotIdentifierList
+    Prelude.rnf force `Prelude.seq`
+      Prelude.rnf manualSnapshotRetentionPeriod `Prelude.seq`
+        Prelude.rnf snapshotIdentifierList
 
 instance Data.ToHeaders BatchModifyClusterSnapshots where
   toHeaders = Prelude.const Prelude.mempty
@@ -236,6 +232,6 @@ instance
     BatchModifyClusterSnapshotsResponse
   where
   rnf BatchModifyClusterSnapshotsResponse' {..} =
-    Prelude.rnf errors
-      `Prelude.seq` Prelude.rnf resources
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf errors `Prelude.seq`
+      Prelude.rnf resources `Prelude.seq`
+        Prelude.rnf httpStatus

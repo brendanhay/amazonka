@@ -99,6 +99,6 @@ instance Prelude.Hashable TimeSeries where
 
 instance Prelude.NFData TimeSeries where
   rnf TimeSeries' {..} =
-    Prelude.rnf timeSeriesId
-      `Prelude.seq` Prelude.rnf dimensionList
-      `Prelude.seq` Prelude.rnf metricValueList
+    Prelude.rnf timeSeriesId `Prelude.seq`
+      Prelude.rnf dimensionList `Prelude.seq`
+        Prelude.rnf metricValueList

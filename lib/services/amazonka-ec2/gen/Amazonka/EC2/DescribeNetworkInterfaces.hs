@@ -504,12 +504,12 @@ instance Core.AWSPager DescribeNetworkInterfaces where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeNetworkInterfaces_nextToken
-          Lens..~ rs
-          Lens.^? describeNetworkInterfacesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeNetworkInterfaces_nextToken
+              Lens..~ rs
+              Lens.^? describeNetworkInterfacesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeNetworkInterfaces where
   type
@@ -541,11 +541,11 @@ instance Prelude.Hashable DescribeNetworkInterfaces where
 
 instance Prelude.NFData DescribeNetworkInterfaces where
   rnf DescribeNetworkInterfaces' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf networkInterfaceIds
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf networkInterfaceIds `Prelude.seq`
+            Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeNetworkInterfaces where
   toHeaders = Prelude.const Prelude.mempty
@@ -629,6 +629,6 @@ instance
     DescribeNetworkInterfacesResponse
   where
   rnf DescribeNetworkInterfacesResponse' {..} =
-    Prelude.rnf networkInterfaces
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf networkInterfaces `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

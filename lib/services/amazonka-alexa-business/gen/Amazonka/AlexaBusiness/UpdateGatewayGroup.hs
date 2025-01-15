@@ -118,9 +118,9 @@ instance Prelude.Hashable UpdateGatewayGroup where
 
 instance Prelude.NFData UpdateGatewayGroup where
   rnf UpdateGatewayGroup' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf gatewayGroupArn
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf gatewayGroupArn
 
 instance Data.ToHeaders UpdateGatewayGroup where
   toHeaders =

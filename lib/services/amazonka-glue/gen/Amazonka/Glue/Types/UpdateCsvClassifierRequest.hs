@@ -150,15 +150,15 @@ instance Prelude.Hashable UpdateCsvClassifierRequest where
 
 instance Prelude.NFData UpdateCsvClassifierRequest where
   rnf UpdateCsvClassifierRequest' {..} =
-    Prelude.rnf allowSingleColumn
-      `Prelude.seq` Prelude.rnf containsHeader
-      `Prelude.seq` Prelude.rnf customDatatypeConfigured
-      `Prelude.seq` Prelude.rnf customDatatypes
-      `Prelude.seq` Prelude.rnf delimiter
-      `Prelude.seq` Prelude.rnf disableValueTrimming
-      `Prelude.seq` Prelude.rnf header
-      `Prelude.seq` Prelude.rnf quoteSymbol
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf allowSingleColumn `Prelude.seq`
+      Prelude.rnf containsHeader `Prelude.seq`
+        Prelude.rnf customDatatypeConfigured `Prelude.seq`
+          Prelude.rnf customDatatypes `Prelude.seq`
+            Prelude.rnf delimiter `Prelude.seq`
+              Prelude.rnf disableValueTrimming `Prelude.seq`
+                Prelude.rnf header `Prelude.seq`
+                  Prelude.rnf quoteSymbol `Prelude.seq`
+                    Prelude.rnf name
 
 instance Data.ToJSON UpdateCsvClassifierRequest where
   toJSON UpdateCsvClassifierRequest' {..} =

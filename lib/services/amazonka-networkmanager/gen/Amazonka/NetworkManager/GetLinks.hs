@@ -158,12 +158,12 @@ instance Core.AWSPager GetLinks where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getLinks_nextToken
-          Lens..~ rs
-          Lens.^? getLinksResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getLinks_nextToken
+              Lens..~ rs
+              Lens.^? getLinksResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetLinks where
   type AWSResponse GetLinks = GetLinksResponse
@@ -191,13 +191,13 @@ instance Prelude.Hashable GetLinks where
 
 instance Prelude.NFData GetLinks where
   rnf GetLinks' {..} =
-    Prelude.rnf linkIds
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf provider
-      `Prelude.seq` Prelude.rnf siteId
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf globalNetworkId
+    Prelude.rnf linkIds `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf provider `Prelude.seq`
+            Prelude.rnf siteId `Prelude.seq`
+              Prelude.rnf type' `Prelude.seq`
+                Prelude.rnf globalNetworkId
 
 instance Data.ToHeaders GetLinks where
   toHeaders =
@@ -280,6 +280,6 @@ getLinksResponse_httpStatus = Lens.lens (\GetLinksResponse' {httpStatus} -> http
 
 instance Prelude.NFData GetLinksResponse where
   rnf GetLinksResponse' {..} =
-    Prelude.rnf links
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf links `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

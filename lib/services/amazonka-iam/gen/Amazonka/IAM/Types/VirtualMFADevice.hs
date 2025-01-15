@@ -155,9 +155,7 @@ instance Data.FromXML VirtualMFADevice where
       Prelude.<$> (x Data..@? "Base32StringSeed")
       Prelude.<*> (x Data..@? "EnableDate")
       Prelude.<*> (x Data..@? "QRCodePNG")
-      Prelude.<*> ( x
-                      Data..@? "Tags"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "User")
@@ -175,9 +173,9 @@ instance Prelude.Hashable VirtualMFADevice where
 
 instance Prelude.NFData VirtualMFADevice where
   rnf VirtualMFADevice' {..} =
-    Prelude.rnf base32StringSeed
-      `Prelude.seq` Prelude.rnf enableDate
-      `Prelude.seq` Prelude.rnf qRCodePNG
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf user
-      `Prelude.seq` Prelude.rnf serialNumber
+    Prelude.rnf base32StringSeed `Prelude.seq`
+      Prelude.rnf enableDate `Prelude.seq`
+        Prelude.rnf qRCodePNG `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf user `Prelude.seq`
+              Prelude.rnf serialNumber

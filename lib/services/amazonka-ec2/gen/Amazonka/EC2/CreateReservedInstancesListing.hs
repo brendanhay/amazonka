@@ -201,10 +201,10 @@ instance
     CreateReservedInstancesListing
   where
   rnf CreateReservedInstancesListing' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf instanceCount
-      `Prelude.seq` Prelude.rnf priceSchedules
-      `Prelude.seq` Prelude.rnf reservedInstancesId
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf instanceCount `Prelude.seq`
+        Prelude.rnf priceSchedules `Prelude.seq`
+          Prelude.rnf reservedInstancesId
 
 instance
   Data.ToHeaders
@@ -277,5 +277,5 @@ instance
     CreateReservedInstancesListingResponse
   where
   rnf CreateReservedInstancesListingResponse' {..} =
-    Prelude.rnf reservedInstancesListings
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf reservedInstancesListings `Prelude.seq`
+      Prelude.rnf httpStatus

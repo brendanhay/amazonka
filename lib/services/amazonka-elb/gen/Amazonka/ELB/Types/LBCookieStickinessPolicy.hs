@@ -87,5 +87,5 @@ instance Prelude.Hashable LBCookieStickinessPolicy where
 
 instance Prelude.NFData LBCookieStickinessPolicy where
   rnf LBCookieStickinessPolicy' {..} =
-    Prelude.rnf cookieExpirationPeriod
-      `Prelude.seq` Prelude.rnf policyName
+    Prelude.rnf cookieExpirationPeriod `Prelude.seq`
+      Prelude.rnf policyName

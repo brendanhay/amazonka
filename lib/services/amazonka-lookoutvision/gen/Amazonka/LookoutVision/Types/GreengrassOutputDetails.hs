@@ -93,6 +93,6 @@ instance Prelude.Hashable GreengrassOutputDetails where
 
 instance Prelude.NFData GreengrassOutputDetails where
   rnf GreengrassOutputDetails' {..} =
-    Prelude.rnf componentName
-      `Prelude.seq` Prelude.rnf componentVersion
-      `Prelude.seq` Prelude.rnf componentVersionArn
+    Prelude.rnf componentName `Prelude.seq`
+      Prelude.rnf componentVersion `Prelude.seq`
+        Prelude.rnf componentVersionArn

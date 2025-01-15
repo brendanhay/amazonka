@@ -117,8 +117,8 @@ instance Prelude.Hashable AssociateConnectionAlias where
 
 instance Prelude.NFData AssociateConnectionAlias where
   rnf AssociateConnectionAlias' {..} =
-    Prelude.rnf aliasId
-      `Prelude.seq` Prelude.rnf resourceId
+    Prelude.rnf aliasId `Prelude.seq`
+      Prelude.rnf resourceId
 
 instance Data.ToHeaders AssociateConnectionAlias where
   toHeaders =
@@ -200,5 +200,5 @@ instance
     AssociateConnectionAliasResponse
   where
   rnf AssociateConnectionAliasResponse' {..} =
-    Prelude.rnf connectionIdentifier
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf connectionIdentifier `Prelude.seq`
+      Prelude.rnf httpStatus

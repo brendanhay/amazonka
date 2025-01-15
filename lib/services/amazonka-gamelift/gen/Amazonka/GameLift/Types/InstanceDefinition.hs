@@ -111,8 +111,8 @@ instance Prelude.Hashable InstanceDefinition where
 
 instance Prelude.NFData InstanceDefinition where
   rnf InstanceDefinition' {..} =
-    Prelude.rnf weightedCapacity
-      `Prelude.seq` Prelude.rnf instanceType
+    Prelude.rnf weightedCapacity `Prelude.seq`
+      Prelude.rnf instanceType
 
 instance Data.ToJSON InstanceDefinition where
   toJSON InstanceDefinition' {..} =

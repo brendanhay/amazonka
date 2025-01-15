@@ -92,5 +92,5 @@ instance Prelude.Hashable TimerFiredEventAttributes where
 
 instance Prelude.NFData TimerFiredEventAttributes where
   rnf TimerFiredEventAttributes' {..} =
-    Prelude.rnf timerId
-      `Prelude.seq` Prelude.rnf startedEventId
+    Prelude.rnf timerId `Prelude.seq`
+      Prelude.rnf startedEventId

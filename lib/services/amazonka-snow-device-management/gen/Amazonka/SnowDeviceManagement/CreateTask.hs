@@ -156,11 +156,11 @@ instance Prelude.Hashable CreateTask where
 
 instance Prelude.NFData CreateTask where
   rnf CreateTask' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf command
-      `Prelude.seq` Prelude.rnf targets
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf command `Prelude.seq`
+            Prelude.rnf targets
 
 instance Data.ToHeaders CreateTask where
   toHeaders =
@@ -240,6 +240,6 @@ createTaskResponse_httpStatus = Lens.lens (\CreateTaskResponse' {httpStatus} -> 
 
 instance Prelude.NFData CreateTaskResponse where
   rnf CreateTaskResponse' {..} =
-    Prelude.rnf taskArn
-      `Prelude.seq` Prelude.rnf taskId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf taskArn `Prelude.seq`
+      Prelude.rnf taskId `Prelude.seq`
+        Prelude.rnf httpStatus

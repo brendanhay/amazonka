@@ -156,10 +156,10 @@ instance Prelude.Hashable CreateDeployment where
 
 instance Prelude.NFData CreateDeployment where
   rnf CreateDeployment' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf applicationVersion
-      `Prelude.seq` Prelude.rnf environmentId
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf applicationId `Prelude.seq`
+        Prelude.rnf applicationVersion `Prelude.seq`
+          Prelude.rnf environmentId
 
 instance Data.ToHeaders CreateDeployment where
   toHeaders =
@@ -240,5 +240,5 @@ createDeploymentResponse_deploymentId = Lens.lens (\CreateDeploymentResponse' {d
 
 instance Prelude.NFData CreateDeploymentResponse where
   rnf CreateDeploymentResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf deploymentId
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf deploymentId

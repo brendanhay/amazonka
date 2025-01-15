@@ -88,8 +88,8 @@ instance
 
 instance Prelude.NFData HttpGatewayRoutePrefixRewrite where
   rnf HttpGatewayRoutePrefixRewrite' {..} =
-    Prelude.rnf defaultPrefix
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf defaultPrefix `Prelude.seq`
+      Prelude.rnf value
 
 instance Data.ToJSON HttpGatewayRoutePrefixRewrite where
   toJSON HttpGatewayRoutePrefixRewrite' {..} =

@@ -170,8 +170,8 @@ instance Prelude.Hashable TranslationSettings where
 
 instance Prelude.NFData TranslationSettings where
   rnf TranslationSettings' {..} =
-    Prelude.rnf formality
-      `Prelude.seq` Prelude.rnf profanity
+    Prelude.rnf formality `Prelude.seq`
+      Prelude.rnf profanity
 
 instance Data.ToJSON TranslationSettings where
   toJSON TranslationSettings' {..} =

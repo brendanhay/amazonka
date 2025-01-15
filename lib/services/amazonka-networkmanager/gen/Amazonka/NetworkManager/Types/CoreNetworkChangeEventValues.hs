@@ -109,7 +109,7 @@ instance
 
 instance Prelude.NFData CoreNetworkChangeEventValues where
   rnf CoreNetworkChangeEventValues' {..} =
-    Prelude.rnf attachmentId
-      `Prelude.seq` Prelude.rnf cidr
-      `Prelude.seq` Prelude.rnf edgeLocation
-      `Prelude.seq` Prelude.rnf segmentName
+    Prelude.rnf attachmentId `Prelude.seq`
+      Prelude.rnf cidr `Prelude.seq`
+        Prelude.rnf edgeLocation `Prelude.seq`
+          Prelude.rnf segmentName

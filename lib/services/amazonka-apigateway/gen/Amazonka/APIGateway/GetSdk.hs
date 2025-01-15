@@ -159,10 +159,10 @@ instance Prelude.Hashable GetSdk where
 
 instance Prelude.NFData GetSdk where
   rnf GetSdk' {..} =
-    Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf restApiId
-      `Prelude.seq` Prelude.rnf stageName
-      `Prelude.seq` Prelude.rnf sdkType
+    Prelude.rnf parameters `Prelude.seq`
+      Prelude.rnf restApiId `Prelude.seq`
+        Prelude.rnf stageName `Prelude.seq`
+          Prelude.rnf sdkType
 
 instance Data.ToHeaders GetSdk where
   toHeaders =
@@ -254,7 +254,7 @@ getSdkResponse_httpStatus = Lens.lens (\GetSdkResponse' {httpStatus} -> httpStat
 
 instance Prelude.NFData GetSdkResponse where
   rnf GetSdkResponse' {..} =
-    Prelude.rnf body
-      `Prelude.seq` Prelude.rnf contentDisposition
-      `Prelude.seq` Prelude.rnf contentType
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf body `Prelude.seq`
+      Prelude.rnf contentDisposition `Prelude.seq`
+        Prelude.rnf contentType `Prelude.seq`
+          Prelude.rnf httpStatus

@@ -391,13 +391,13 @@ instance Prelude.Hashable PublishBatchRequestEntry where
 
 instance Prelude.NFData PublishBatchRequestEntry where
   rnf PublishBatchRequestEntry' {..} =
-    Prelude.rnf messageAttributes
-      `Prelude.seq` Prelude.rnf messageDeduplicationId
-      `Prelude.seq` Prelude.rnf messageGroupId
-      `Prelude.seq` Prelude.rnf messageStructure
-      `Prelude.seq` Prelude.rnf subject
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf message
+    Prelude.rnf messageAttributes `Prelude.seq`
+      Prelude.rnf messageDeduplicationId `Prelude.seq`
+        Prelude.rnf messageGroupId `Prelude.seq`
+          Prelude.rnf messageStructure `Prelude.seq`
+            Prelude.rnf subject `Prelude.seq`
+              Prelude.rnf id `Prelude.seq`
+                Prelude.rnf message
 
 instance Data.ToQuery PublishBatchRequestEntry where
   toQuery PublishBatchRequestEntry' {..} =

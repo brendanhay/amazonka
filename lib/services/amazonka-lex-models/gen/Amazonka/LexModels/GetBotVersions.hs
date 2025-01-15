@@ -137,12 +137,12 @@ instance Core.AWSPager GetBotVersions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getBotVersions_nextToken
-          Lens..~ rs
-          Lens.^? getBotVersionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getBotVersions_nextToken
+              Lens..~ rs
+              Lens.^? getBotVersionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetBotVersions where
   type
@@ -168,9 +168,9 @@ instance Prelude.Hashable GetBotVersions where
 
 instance Prelude.NFData GetBotVersions where
   rnf GetBotVersions' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf name
 
 instance Data.ToHeaders GetBotVersions where
   toHeaders =
@@ -256,6 +256,6 @@ getBotVersionsResponse_httpStatus = Lens.lens (\GetBotVersionsResponse' {httpSta
 
 instance Prelude.NFData GetBotVersionsResponse where
   rnf GetBotVersionsResponse' {..} =
-    Prelude.rnf bots
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf bots `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -224,14 +224,14 @@ instance Prelude.Hashable MsSmoothGroupSettings where
 
 instance Prelude.NFData MsSmoothGroupSettings where
   rnf MsSmoothGroupSettings' {..} =
-    Prelude.rnf additionalManifests
-      `Prelude.seq` Prelude.rnf audioDeduplication
-      `Prelude.seq` Prelude.rnf destination
-      `Prelude.seq` Prelude.rnf destinationSettings
-      `Prelude.seq` Prelude.rnf encryption
-      `Prelude.seq` Prelude.rnf fragmentLength
-      `Prelude.seq` Prelude.rnf fragmentLengthControl
-      `Prelude.seq` Prelude.rnf manifestEncoding
+    Prelude.rnf additionalManifests `Prelude.seq`
+      Prelude.rnf audioDeduplication `Prelude.seq`
+        Prelude.rnf destination `Prelude.seq`
+          Prelude.rnf destinationSettings `Prelude.seq`
+            Prelude.rnf encryption `Prelude.seq`
+              Prelude.rnf fragmentLength `Prelude.seq`
+                Prelude.rnf fragmentLengthControl `Prelude.seq`
+                  Prelude.rnf manifestEncoding
 
 instance Data.ToJSON MsSmoothGroupSettings where
   toJSON MsSmoothGroupSettings' {..} =

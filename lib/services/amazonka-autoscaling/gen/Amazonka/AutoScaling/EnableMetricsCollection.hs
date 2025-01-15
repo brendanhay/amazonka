@@ -272,9 +272,9 @@ instance Prelude.Hashable EnableMetricsCollection where
 
 instance Prelude.NFData EnableMetricsCollection where
   rnf EnableMetricsCollection' {..} =
-    Prelude.rnf metrics
-      `Prelude.seq` Prelude.rnf autoScalingGroupName
-      `Prelude.seq` Prelude.rnf granularity
+    Prelude.rnf metrics `Prelude.seq`
+      Prelude.rnf autoScalingGroupName `Prelude.seq`
+        Prelude.rnf granularity
 
 instance Data.ToHeaders EnableMetricsCollection where
   toHeaders = Prelude.const Prelude.mempty

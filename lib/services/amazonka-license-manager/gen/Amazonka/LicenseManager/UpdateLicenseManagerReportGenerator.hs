@@ -212,13 +212,13 @@ instance
     UpdateLicenseManagerReportGenerator
   where
   rnf UpdateLicenseManagerReportGenerator' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf licenseManagerReportGeneratorArn
-      `Prelude.seq` Prelude.rnf reportGeneratorName
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf reportContext
-      `Prelude.seq` Prelude.rnf reportFrequency
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf licenseManagerReportGeneratorArn `Prelude.seq`
+        Prelude.rnf reportGeneratorName `Prelude.seq`
+          Prelude.rnf type' `Prelude.seq`
+            Prelude.rnf reportContext `Prelude.seq`
+              Prelude.rnf reportFrequency `Prelude.seq`
+                Prelude.rnf clientToken
 
 instance
   Data.ToHeaders

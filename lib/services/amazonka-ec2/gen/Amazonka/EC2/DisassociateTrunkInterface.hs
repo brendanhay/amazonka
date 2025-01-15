@@ -141,9 +141,9 @@ instance Prelude.Hashable DisassociateTrunkInterface where
 
 instance Prelude.NFData DisassociateTrunkInterface where
   rnf DisassociateTrunkInterface' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf associationId
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf associationId
 
 instance Data.ToHeaders DisassociateTrunkInterface where
   toHeaders = Prelude.const Prelude.mempty
@@ -222,6 +222,6 @@ instance
     DisassociateTrunkInterfaceResponse
   where
   rnf DisassociateTrunkInterfaceResponse' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf return'
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf return' `Prelude.seq`
+        Prelude.rnf httpStatus

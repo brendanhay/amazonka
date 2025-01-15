@@ -125,12 +125,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listAttributeGroupsForApplication_nextToken
-          Lens..~ rs
-          Lens.^? listAttributeGroupsForApplicationResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listAttributeGroupsForApplication_nextToken
+              Lens..~ rs
+              Lens.^? listAttributeGroupsForApplicationResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -170,9 +170,9 @@ instance
     ListAttributeGroupsForApplication
   where
   rnf ListAttributeGroupsForApplication' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf application
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf application
 
 instance
   Data.ToHeaders
@@ -266,6 +266,6 @@ instance
     ListAttributeGroupsForApplicationResponse
   where
   rnf ListAttributeGroupsForApplicationResponse' {..} =
-    Prelude.rnf attributeGroupsDetails
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf attributeGroupsDetails `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

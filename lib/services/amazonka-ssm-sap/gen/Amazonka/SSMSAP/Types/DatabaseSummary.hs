@@ -113,9 +113,9 @@ instance Prelude.Hashable DatabaseSummary where
 
 instance Prelude.NFData DatabaseSummary where
   rnf DatabaseSummary' {..} =
-    Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf componentId
-      `Prelude.seq` Prelude.rnf databaseId
-      `Prelude.seq` Prelude.rnf databaseType
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf applicationId `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf componentId `Prelude.seq`
+          Prelude.rnf databaseId `Prelude.seq`
+            Prelude.rnf databaseType `Prelude.seq`
+              Prelude.rnf tags

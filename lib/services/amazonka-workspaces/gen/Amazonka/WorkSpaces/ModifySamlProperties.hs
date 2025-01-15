@@ -145,9 +145,9 @@ instance Prelude.Hashable ModifySamlProperties where
 
 instance Prelude.NFData ModifySamlProperties where
   rnf ModifySamlProperties' {..} =
-    Prelude.rnf propertiesToDelete
-      `Prelude.seq` Prelude.rnf samlProperties
-      `Prelude.seq` Prelude.rnf resourceId
+    Prelude.rnf propertiesToDelete `Prelude.seq`
+      Prelude.rnf samlProperties `Prelude.seq`
+        Prelude.rnf resourceId
 
 instance Data.ToHeaders ModifySamlProperties where
   toHeaders =

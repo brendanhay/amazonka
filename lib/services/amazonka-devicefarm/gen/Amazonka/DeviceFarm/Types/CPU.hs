@@ -95,6 +95,6 @@ instance Prelude.Hashable CPU where
 
 instance Prelude.NFData CPU where
   rnf CPU' {..} =
-    Prelude.rnf architecture
-      `Prelude.seq` Prelude.rnf clock
-      `Prelude.seq` Prelude.rnf frequency
+    Prelude.rnf architecture `Prelude.seq`
+      Prelude.rnf clock `Prelude.seq`
+        Prelude.rnf frequency

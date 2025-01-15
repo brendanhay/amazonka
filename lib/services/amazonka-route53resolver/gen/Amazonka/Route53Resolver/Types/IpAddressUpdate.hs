@@ -94,9 +94,9 @@ instance Prelude.Hashable IpAddressUpdate where
 
 instance Prelude.NFData IpAddressUpdate where
   rnf IpAddressUpdate' {..} =
-    Prelude.rnf ip
-      `Prelude.seq` Prelude.rnf ipId
-      `Prelude.seq` Prelude.rnf subnetId
+    Prelude.rnf ip `Prelude.seq`
+      Prelude.rnf ipId `Prelude.seq`
+        Prelude.rnf subnetId
 
 instance Data.ToJSON IpAddressUpdate where
   toJSON IpAddressUpdate' {..} =

@@ -104,11 +104,11 @@ instance Prelude.Hashable ImageLayerAggregation where
 
 instance Prelude.NFData ImageLayerAggregation where
   rnf ImageLayerAggregation' {..} =
-    Prelude.rnf layerHashes
-      `Prelude.seq` Prelude.rnf repositories
-      `Prelude.seq` Prelude.rnf resourceIds
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf sortOrder
+    Prelude.rnf layerHashes `Prelude.seq`
+      Prelude.rnf repositories `Prelude.seq`
+        Prelude.rnf resourceIds `Prelude.seq`
+          Prelude.rnf sortBy `Prelude.seq`
+            Prelude.rnf sortOrder
 
 instance Data.ToJSON ImageLayerAggregation where
   toJSON ImageLayerAggregation' {..} =

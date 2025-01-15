@@ -211,13 +211,13 @@ instance Prelude.Hashable ListRecords where
 
 instance Prelude.NFData ListRecords where
   rnf ListRecords' {..} =
-    Prelude.rnf lastSyncCount
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf syncSessionToken
-      `Prelude.seq` Prelude.rnf identityPoolId
-      `Prelude.seq` Prelude.rnf identityId
-      `Prelude.seq` Prelude.rnf datasetName
+    Prelude.rnf lastSyncCount `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf syncSessionToken `Prelude.seq`
+            Prelude.rnf identityPoolId `Prelude.seq`
+              Prelude.rnf identityId `Prelude.seq`
+                Prelude.rnf datasetName
 
 instance Data.ToHeaders ListRecords where
   toHeaders =
@@ -366,13 +366,13 @@ listRecordsResponse_httpStatus = Lens.lens (\ListRecordsResponse' {httpStatus} -
 
 instance Prelude.NFData ListRecordsResponse where
   rnf ListRecordsResponse' {..} =
-    Prelude.rnf count
-      `Prelude.seq` Prelude.rnf datasetDeletedAfterRequestedSyncCount
-      `Prelude.seq` Prelude.rnf datasetExists
-      `Prelude.seq` Prelude.rnf datasetSyncCount
-      `Prelude.seq` Prelude.rnf lastModifiedBy
-      `Prelude.seq` Prelude.rnf mergedDatasetNames
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf records
-      `Prelude.seq` Prelude.rnf syncSessionToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf count `Prelude.seq`
+      Prelude.rnf datasetDeletedAfterRequestedSyncCount `Prelude.seq`
+        Prelude.rnf datasetExists `Prelude.seq`
+          Prelude.rnf datasetSyncCount `Prelude.seq`
+            Prelude.rnf lastModifiedBy `Prelude.seq`
+              Prelude.rnf mergedDatasetNames `Prelude.seq`
+                Prelude.rnf nextToken `Prelude.seq`
+                  Prelude.rnf records `Prelude.seq`
+                    Prelude.rnf syncSessionToken `Prelude.seq`
+                      Prelude.rnf httpStatus

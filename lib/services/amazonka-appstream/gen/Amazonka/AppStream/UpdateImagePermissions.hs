@@ -127,9 +127,9 @@ instance Prelude.Hashable UpdateImagePermissions where
 
 instance Prelude.NFData UpdateImagePermissions where
   rnf UpdateImagePermissions' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf sharedAccountId
-      `Prelude.seq` Prelude.rnf imagePermissions
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf sharedAccountId `Prelude.seq`
+        Prelude.rnf imagePermissions
 
 instance Data.ToHeaders UpdateImagePermissions where
   toHeaders =

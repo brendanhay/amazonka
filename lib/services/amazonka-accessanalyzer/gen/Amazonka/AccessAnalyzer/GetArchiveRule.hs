@@ -117,8 +117,8 @@ instance Prelude.Hashable GetArchiveRule where
 
 instance Prelude.NFData GetArchiveRule where
   rnf GetArchiveRule' {..} =
-    Prelude.rnf analyzerName
-      `Prelude.seq` Prelude.rnf ruleName
+    Prelude.rnf analyzerName `Prelude.seq`
+      Prelude.rnf ruleName
 
 instance Data.ToHeaders GetArchiveRule where
   toHeaders =
@@ -186,5 +186,5 @@ getArchiveRuleResponse_archiveRule = Lens.lens (\GetArchiveRuleResponse' {archiv
 
 instance Prelude.NFData GetArchiveRuleResponse where
   rnf GetArchiveRuleResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf archiveRule
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf archiveRule

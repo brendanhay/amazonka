@@ -138,9 +138,7 @@ instance Core.AWSRequest ListReusableDelegationSets where
           ListReusableDelegationSetsResponse'
             Prelude.<$> (x Data..@? "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x
-                            Data..@? "DelegationSets"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "DelegationSets" Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLList "DelegationSet"
                         )
             Prelude.<*> (x Data..@ "Marker")
@@ -156,8 +154,8 @@ instance Prelude.Hashable ListReusableDelegationSets where
 
 instance Prelude.NFData ListReusableDelegationSets where
   rnf ListReusableDelegationSets' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxItems
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf maxItems
 
 instance Data.ToHeaders ListReusableDelegationSets where
   toHeaders = Prelude.const Prelude.mempty
@@ -292,9 +290,9 @@ instance
     ListReusableDelegationSetsResponse
   where
   rnf ListReusableDelegationSetsResponse' {..} =
-    Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf delegationSets
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf isTruncated
-      `Prelude.seq` Prelude.rnf maxItems
+    Prelude.rnf nextMarker `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf delegationSets `Prelude.seq`
+          Prelude.rnf marker `Prelude.seq`
+            Prelude.rnf isTruncated `Prelude.seq`
+              Prelude.rnf maxItems

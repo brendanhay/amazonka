@@ -109,8 +109,8 @@ instance Prelude.Hashable UpdateDeviceMetadata where
 
 instance Prelude.NFData UpdateDeviceMetadata where
   rnf UpdateDeviceMetadata' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf deviceId
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf deviceId
 
 instance Data.ToHeaders UpdateDeviceMetadata where
   toHeaders =
@@ -178,5 +178,5 @@ updateDeviceMetadataResponse_httpStatus = Lens.lens (\UpdateDeviceMetadataRespon
 
 instance Prelude.NFData UpdateDeviceMetadataResponse where
   rnf UpdateDeviceMetadataResponse' {..} =
-    Prelude.rnf deviceId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf deviceId `Prelude.seq`
+      Prelude.rnf httpStatus

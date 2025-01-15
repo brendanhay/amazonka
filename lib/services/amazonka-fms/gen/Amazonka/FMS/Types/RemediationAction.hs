@@ -173,13 +173,13 @@ instance Prelude.Hashable RemediationAction where
 
 instance Prelude.NFData RemediationAction where
   rnf RemediationAction' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf eC2AssociateRouteTableAction
-      `Prelude.seq` Prelude.rnf eC2CopyRouteTableAction
-      `Prelude.seq` Prelude.rnf eC2CreateRouteAction
-      `Prelude.seq` Prelude.rnf eC2CreateRouteTableAction
-      `Prelude.seq` Prelude.rnf eC2DeleteRouteAction
-      `Prelude.seq` Prelude.rnf eC2ReplaceRouteAction
-      `Prelude.seq` Prelude.rnf eC2ReplaceRouteTableAssociationAction
-      `Prelude.seq` Prelude.rnf
-        fMSPolicyUpdateFirewallCreationConfigAction
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf eC2AssociateRouteTableAction `Prelude.seq`
+        Prelude.rnf eC2CopyRouteTableAction `Prelude.seq`
+          Prelude.rnf eC2CreateRouteAction `Prelude.seq`
+            Prelude.rnf eC2CreateRouteTableAction `Prelude.seq`
+              Prelude.rnf eC2DeleteRouteAction `Prelude.seq`
+                Prelude.rnf eC2ReplaceRouteAction `Prelude.seq`
+                  Prelude.rnf eC2ReplaceRouteTableAssociationAction `Prelude.seq`
+                    Prelude.rnf
+                      fMSPolicyUpdateFirewallCreationConfigAction

@@ -186,9 +186,7 @@ instance Data.FromXML SnapshotTierStatus where
       Prelude.<*> (x Data..@? "snapshotId")
       Prelude.<*> (x Data..@? "status")
       Prelude.<*> (x Data..@? "storageTier")
-      Prelude.<*> ( x
-                      Data..@? "tagSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "volumeId")
@@ -211,15 +209,15 @@ instance Prelude.Hashable SnapshotTierStatus where
 
 instance Prelude.NFData SnapshotTierStatus where
   rnf SnapshotTierStatus' {..} =
-    Prelude.rnf archivalCompleteTime
-      `Prelude.seq` Prelude.rnf lastTieringOperationStatus
-      `Prelude.seq` Prelude.rnf lastTieringOperationStatusDetail
-      `Prelude.seq` Prelude.rnf lastTieringProgress
-      `Prelude.seq` Prelude.rnf lastTieringStartTime
-      `Prelude.seq` Prelude.rnf ownerId
-      `Prelude.seq` Prelude.rnf restoreExpiryTime
-      `Prelude.seq` Prelude.rnf snapshotId
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf storageTier
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf volumeId
+    Prelude.rnf archivalCompleteTime `Prelude.seq`
+      Prelude.rnf lastTieringOperationStatus `Prelude.seq`
+        Prelude.rnf lastTieringOperationStatusDetail `Prelude.seq`
+          Prelude.rnf lastTieringProgress `Prelude.seq`
+            Prelude.rnf lastTieringStartTime `Prelude.seq`
+              Prelude.rnf ownerId `Prelude.seq`
+                Prelude.rnf restoreExpiryTime `Prelude.seq`
+                  Prelude.rnf snapshotId `Prelude.seq`
+                    Prelude.rnf status `Prelude.seq`
+                      Prelude.rnf storageTier `Prelude.seq`
+                        Prelude.rnf tags `Prelude.seq`
+                          Prelude.rnf volumeId

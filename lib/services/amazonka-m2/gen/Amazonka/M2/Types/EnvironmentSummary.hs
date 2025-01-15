@@ -174,11 +174,11 @@ instance Prelude.Hashable EnvironmentSummary where
 
 instance Prelude.NFData EnvironmentSummary where
   rnf EnvironmentSummary' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf engineType
-      `Prelude.seq` Prelude.rnf engineVersion
-      `Prelude.seq` Prelude.rnf environmentArn
-      `Prelude.seq` Prelude.rnf environmentId
-      `Prelude.seq` Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf engineType `Prelude.seq`
+        Prelude.rnf engineVersion `Prelude.seq`
+          Prelude.rnf environmentArn `Prelude.seq`
+            Prelude.rnf environmentId `Prelude.seq`
+              Prelude.rnf instanceType `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf status

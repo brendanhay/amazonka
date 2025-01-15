@@ -127,7 +127,7 @@ instance
     LoadBasedAutoScalingConfiguration
   where
   rnf LoadBasedAutoScalingConfiguration' {..} =
-    Prelude.rnf downScaling
-      `Prelude.seq` Prelude.rnf enable
-      `Prelude.seq` Prelude.rnf layerId
-      `Prelude.seq` Prelude.rnf upScaling
+    Prelude.rnf downScaling `Prelude.seq`
+      Prelude.rnf enable `Prelude.seq`
+        Prelude.rnf layerId `Prelude.seq`
+          Prelude.rnf upScaling

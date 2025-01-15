@@ -116,8 +116,8 @@ instance Prelude.Hashable AddCustomAttributes where
 
 instance Prelude.NFData AddCustomAttributes where
   rnf AddCustomAttributes' {..} =
-    Prelude.rnf userPoolId
-      `Prelude.seq` Prelude.rnf customAttributes
+    Prelude.rnf userPoolId `Prelude.seq`
+      Prelude.rnf customAttributes
 
 instance Data.ToHeaders AddCustomAttributes where
   toHeaders =

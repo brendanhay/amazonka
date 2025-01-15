@@ -165,8 +165,8 @@ instance Prelude.Hashable ListTrafficPolicies where
 
 instance Prelude.NFData ListTrafficPolicies where
   rnf ListTrafficPolicies' {..} =
-    Prelude.rnf maxItems
-      `Prelude.seq` Prelude.rnf trafficPolicyIdMarker
+    Prelude.rnf maxItems `Prelude.seq`
+      Prelude.rnf trafficPolicyIdMarker
 
 instance Data.ToHeaders ListTrafficPolicies where
   toHeaders = Prelude.const Prelude.mempty
@@ -286,8 +286,8 @@ listTrafficPoliciesResponse_maxItems = Lens.lens (\ListTrafficPoliciesResponse' 
 
 instance Prelude.NFData ListTrafficPoliciesResponse where
   rnf ListTrafficPoliciesResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf trafficPolicySummaries
-      `Prelude.seq` Prelude.rnf isTruncated
-      `Prelude.seq` Prelude.rnf trafficPolicyIdMarker
-      `Prelude.seq` Prelude.rnf maxItems
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf trafficPolicySummaries `Prelude.seq`
+        Prelude.rnf isTruncated `Prelude.seq`
+          Prelude.rnf trafficPolicyIdMarker `Prelude.seq`
+            Prelude.rnf maxItems

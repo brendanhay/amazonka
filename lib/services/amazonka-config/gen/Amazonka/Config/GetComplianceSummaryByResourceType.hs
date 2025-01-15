@@ -232,5 +232,5 @@ instance
     GetComplianceSummaryByResourceTypeResponse
   where
   rnf GetComplianceSummaryByResourceTypeResponse' {..} =
-    Prelude.rnf complianceSummariesByResourceType
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf complianceSummariesByResourceType `Prelude.seq`
+      Prelude.rnf httpStatus

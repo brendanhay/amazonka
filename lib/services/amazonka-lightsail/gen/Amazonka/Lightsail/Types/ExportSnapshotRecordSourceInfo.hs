@@ -164,11 +164,11 @@ instance
     ExportSnapshotRecordSourceInfo
   where
   rnf ExportSnapshotRecordSourceInfo' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf diskSnapshotInfo
-      `Prelude.seq` Prelude.rnf fromResourceArn
-      `Prelude.seq` Prelude.rnf fromResourceName
-      `Prelude.seq` Prelude.rnf instanceSnapshotInfo
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf resourceType
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf createdAt `Prelude.seq`
+        Prelude.rnf diskSnapshotInfo `Prelude.seq`
+          Prelude.rnf fromResourceArn `Prelude.seq`
+            Prelude.rnf fromResourceName `Prelude.seq`
+              Prelude.rnf instanceSnapshotInfo `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf resourceType

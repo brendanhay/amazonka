@@ -252,16 +252,16 @@ instance Prelude.Hashable MergePullRequestByThreeWay where
 
 instance Prelude.NFData MergePullRequestByThreeWay where
   rnf MergePullRequestByThreeWay' {..} =
-    Prelude.rnf authorName
-      `Prelude.seq` Prelude.rnf commitMessage
-      `Prelude.seq` Prelude.rnf conflictDetailLevel
-      `Prelude.seq` Prelude.rnf conflictResolution
-      `Prelude.seq` Prelude.rnf conflictResolutionStrategy
-      `Prelude.seq` Prelude.rnf email
-      `Prelude.seq` Prelude.rnf keepEmptyFolders
-      `Prelude.seq` Prelude.rnf sourceCommitId
-      `Prelude.seq` Prelude.rnf pullRequestId
-      `Prelude.seq` Prelude.rnf repositoryName
+    Prelude.rnf authorName `Prelude.seq`
+      Prelude.rnf commitMessage `Prelude.seq`
+        Prelude.rnf conflictDetailLevel `Prelude.seq`
+          Prelude.rnf conflictResolution `Prelude.seq`
+            Prelude.rnf conflictResolutionStrategy `Prelude.seq`
+              Prelude.rnf email `Prelude.seq`
+                Prelude.rnf keepEmptyFolders `Prelude.seq`
+                  Prelude.rnf sourceCommitId `Prelude.seq`
+                    Prelude.rnf pullRequestId `Prelude.seq`
+                      Prelude.rnf repositoryName
 
 instance Data.ToHeaders MergePullRequestByThreeWay where
   toHeaders =
@@ -350,5 +350,5 @@ instance
     MergePullRequestByThreeWayResponse
   where
   rnf MergePullRequestByThreeWayResponse' {..} =
-    Prelude.rnf pullRequest
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf pullRequest `Prelude.seq`
+      Prelude.rnf httpStatus

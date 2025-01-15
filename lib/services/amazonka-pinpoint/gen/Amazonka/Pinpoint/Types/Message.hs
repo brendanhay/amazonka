@@ -282,18 +282,18 @@ instance Prelude.Hashable Message where
 
 instance Prelude.NFData Message where
   rnf Message' {..} =
-    Prelude.rnf action
-      `Prelude.seq` Prelude.rnf body
-      `Prelude.seq` Prelude.rnf imageIconUrl
-      `Prelude.seq` Prelude.rnf imageSmallIconUrl
-      `Prelude.seq` Prelude.rnf imageUrl
-      `Prelude.seq` Prelude.rnf jsonBody
-      `Prelude.seq` Prelude.rnf mediaUrl
-      `Prelude.seq` Prelude.rnf rawContent
-      `Prelude.seq` Prelude.rnf silentPush
-      `Prelude.seq` Prelude.rnf timeToLive
-      `Prelude.seq` Prelude.rnf title
-      `Prelude.seq` Prelude.rnf url
+    Prelude.rnf action `Prelude.seq`
+      Prelude.rnf body `Prelude.seq`
+        Prelude.rnf imageIconUrl `Prelude.seq`
+          Prelude.rnf imageSmallIconUrl `Prelude.seq`
+            Prelude.rnf imageUrl `Prelude.seq`
+              Prelude.rnf jsonBody `Prelude.seq`
+                Prelude.rnf mediaUrl `Prelude.seq`
+                  Prelude.rnf rawContent `Prelude.seq`
+                    Prelude.rnf silentPush `Prelude.seq`
+                      Prelude.rnf timeToLive `Prelude.seq`
+                        Prelude.rnf title `Prelude.seq`
+                          Prelude.rnf url
 
 instance Data.ToJSON Message where
   toJSON Message' {..} =

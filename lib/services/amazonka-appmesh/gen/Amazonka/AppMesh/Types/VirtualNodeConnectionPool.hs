@@ -112,10 +112,10 @@ instance Prelude.Hashable VirtualNodeConnectionPool where
 
 instance Prelude.NFData VirtualNodeConnectionPool where
   rnf VirtualNodeConnectionPool' {..} =
-    Prelude.rnf grpc
-      `Prelude.seq` Prelude.rnf http
-      `Prelude.seq` Prelude.rnf http2
-      `Prelude.seq` Prelude.rnf tcp
+    Prelude.rnf grpc `Prelude.seq`
+      Prelude.rnf http `Prelude.seq`
+        Prelude.rnf http2 `Prelude.seq`
+          Prelude.rnf tcp
 
 instance Data.ToJSON VirtualNodeConnectionPool where
   toJSON VirtualNodeConnectionPool' {..} =

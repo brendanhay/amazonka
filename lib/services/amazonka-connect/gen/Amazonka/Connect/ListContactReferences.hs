@@ -148,12 +148,12 @@ instance Core.AWSPager ListContactReferences where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listContactReferences_nextToken
-          Lens..~ rs
-          Lens.^? listContactReferencesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listContactReferences_nextToken
+              Lens..~ rs
+              Lens.^? listContactReferencesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListContactReferences where
   type
@@ -183,10 +183,10 @@ instance Prelude.Hashable ListContactReferences where
 
 instance Prelude.NFData ListContactReferences where
   rnf ListContactReferences' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf contactId
-      `Prelude.seq` Prelude.rnf referenceTypes
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf instanceId `Prelude.seq`
+        Prelude.rnf contactId `Prelude.seq`
+          Prelude.rnf referenceTypes
 
 instance Data.ToHeaders ListContactReferences where
   toHeaders =
@@ -275,6 +275,6 @@ listContactReferencesResponse_httpStatus = Lens.lens (\ListContactReferencesResp
 
 instance Prelude.NFData ListContactReferencesResponse where
   rnf ListContactReferencesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf referenceSummaryList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf referenceSummaryList `Prelude.seq`
+        Prelude.rnf httpStatus

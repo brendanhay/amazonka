@@ -139,11 +139,11 @@ instance Prelude.Hashable Tool where
 
 instance Prelude.NFData Tool where
   rnf Tool' {..} =
-    Prelude.rnf exitBehavior
-      `Prelude.seq` Prelude.rnf streamOutputToCloudWatch
-      `Prelude.seq` Prelude.rnf streamUI
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf command
+    Prelude.rnf exitBehavior `Prelude.seq`
+      Prelude.rnf streamOutputToCloudWatch `Prelude.seq`
+        Prelude.rnf streamUI `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf command
 
 instance Data.ToJSON Tool where
   toJSON Tool' {..} =

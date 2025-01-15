@@ -393,18 +393,18 @@ instance
     DescribeInferenceSchedulerResponse
   where
   rnf DescribeInferenceSchedulerResponse' {..} =
-    Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf dataDelayOffsetInMinutes
-      `Prelude.seq` Prelude.rnf dataInputConfiguration
-      `Prelude.seq` Prelude.rnf dataOutputConfiguration
-      `Prelude.seq` Prelude.rnf dataUploadFrequency
-      `Prelude.seq` Prelude.rnf inferenceSchedulerArn
-      `Prelude.seq` Prelude.rnf inferenceSchedulerName
-      `Prelude.seq` Prelude.rnf latestInferenceResult
-      `Prelude.seq` Prelude.rnf modelArn
-      `Prelude.seq` Prelude.rnf modelName
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf serverSideKmsKeyId
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf updatedAt
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf createdAt `Prelude.seq`
+      Prelude.rnf dataDelayOffsetInMinutes `Prelude.seq`
+        Prelude.rnf dataInputConfiguration `Prelude.seq`
+          Prelude.rnf dataOutputConfiguration `Prelude.seq`
+            Prelude.rnf dataUploadFrequency `Prelude.seq`
+              Prelude.rnf inferenceSchedulerArn `Prelude.seq`
+                Prelude.rnf inferenceSchedulerName `Prelude.seq`
+                  Prelude.rnf latestInferenceResult `Prelude.seq`
+                    Prelude.rnf modelArn `Prelude.seq`
+                      Prelude.rnf modelName `Prelude.seq`
+                        Prelude.rnf roleArn `Prelude.seq`
+                          Prelude.rnf serverSideKmsKeyId `Prelude.seq`
+                            Prelude.rnf status `Prelude.seq`
+                              Prelude.rnf updatedAt `Prelude.seq`
+                                Prelude.rnf httpStatus

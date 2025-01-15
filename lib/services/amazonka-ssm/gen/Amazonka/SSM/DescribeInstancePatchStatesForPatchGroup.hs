@@ -155,12 +155,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeInstancePatchStatesForPatchGroup_nextToken
-          Lens..~ rs
-          Lens.^? describeInstancePatchStatesForPatchGroupResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeInstancePatchStatesForPatchGroup_nextToken
+              Lens..~ rs
+              Lens.^? describeInstancePatchStatesForPatchGroupResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -199,10 +199,10 @@ instance
     DescribeInstancePatchStatesForPatchGroup
   where
   rnf DescribeInstancePatchStatesForPatchGroup' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf patchGroup
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf patchGroup
 
 instance
   Data.ToHeaders
@@ -307,6 +307,6 @@ instance
   where
   rnf
     DescribeInstancePatchStatesForPatchGroupResponse' {..} =
-      Prelude.rnf instancePatchStates
-        `Prelude.seq` Prelude.rnf nextToken
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf instancePatchStates `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf httpStatus

@@ -112,8 +112,8 @@ instance Prelude.Hashable SendOTPMessage where
 
 instance Prelude.NFData SendOTPMessage where
   rnf SendOTPMessage' {..} =
-    Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf sendOTPMessageRequestParameters
+    Prelude.rnf applicationId `Prelude.seq`
+      Prelude.rnf sendOTPMessageRequestParameters
 
 instance Data.ToHeaders SendOTPMessage where
   toHeaders =
@@ -181,5 +181,5 @@ sendOTPMessageResponse_messageResponse = Lens.lens (\SendOTPMessageResponse' {me
 
 instance Prelude.NFData SendOTPMessageResponse where
   rnf SendOTPMessageResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf messageResponse
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf messageResponse

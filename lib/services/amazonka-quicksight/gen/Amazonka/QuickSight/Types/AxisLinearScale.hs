@@ -83,8 +83,8 @@ instance Prelude.Hashable AxisLinearScale where
 
 instance Prelude.NFData AxisLinearScale where
   rnf AxisLinearScale' {..} =
-    Prelude.rnf stepCount
-      `Prelude.seq` Prelude.rnf stepSize
+    Prelude.rnf stepCount `Prelude.seq`
+      Prelude.rnf stepSize
 
 instance Data.ToJSON AxisLinearScale where
   toJSON AxisLinearScale' {..} =

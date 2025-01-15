@@ -195,9 +195,9 @@ instance Prelude.Hashable UpdateVocabularyFilter where
 
 instance Prelude.NFData UpdateVocabularyFilter where
   rnf UpdateVocabularyFilter' {..} =
-    Prelude.rnf vocabularyFilterFileUri
-      `Prelude.seq` Prelude.rnf words
-      `Prelude.seq` Prelude.rnf vocabularyFilterName
+    Prelude.rnf vocabularyFilterFileUri `Prelude.seq`
+      Prelude.rnf words `Prelude.seq`
+        Prelude.rnf vocabularyFilterName
 
 instance Data.ToHeaders UpdateVocabularyFilter where
   toHeaders =
@@ -311,7 +311,7 @@ instance
     UpdateVocabularyFilterResponse
   where
   rnf UpdateVocabularyFilterResponse' {..} =
-    Prelude.rnf languageCode
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf vocabularyFilterName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf languageCode `Prelude.seq`
+      Prelude.rnf lastModifiedTime `Prelude.seq`
+        Prelude.rnf vocabularyFilterName `Prelude.seq`
+          Prelude.rnf httpStatus

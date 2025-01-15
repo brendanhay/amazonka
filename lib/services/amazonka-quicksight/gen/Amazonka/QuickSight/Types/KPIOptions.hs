@@ -150,13 +150,13 @@ instance Prelude.Hashable KPIOptions where
 
 instance Prelude.NFData KPIOptions where
   rnf KPIOptions' {..} =
-    Prelude.rnf comparison
-      `Prelude.seq` Prelude.rnf primaryValueDisplayType
-      `Prelude.seq` Prelude.rnf primaryValueFontConfiguration
-      `Prelude.seq` Prelude.rnf progressBar
-      `Prelude.seq` Prelude.rnf secondaryValue
-      `Prelude.seq` Prelude.rnf secondaryValueFontConfiguration
-      `Prelude.seq` Prelude.rnf trendArrows
+    Prelude.rnf comparison `Prelude.seq`
+      Prelude.rnf primaryValueDisplayType `Prelude.seq`
+        Prelude.rnf primaryValueFontConfiguration `Prelude.seq`
+          Prelude.rnf progressBar `Prelude.seq`
+            Prelude.rnf secondaryValue `Prelude.seq`
+              Prelude.rnf secondaryValueFontConfiguration `Prelude.seq`
+                Prelude.rnf trendArrows
 
 instance Data.ToJSON KPIOptions where
   toJSON KPIOptions' {..} =

@@ -654,10 +654,10 @@ instance Prelude.Hashable InputConfig where
 
 instance Prelude.NFData InputConfig where
   rnf InputConfig' {..} =
-    Prelude.rnf frameworkVersion
-      `Prelude.seq` Prelude.rnf s3Uri
-      `Prelude.seq` Prelude.rnf dataInputConfig
-      `Prelude.seq` Prelude.rnf framework
+    Prelude.rnf frameworkVersion `Prelude.seq`
+      Prelude.rnf s3Uri `Prelude.seq`
+        Prelude.rnf dataInputConfig `Prelude.seq`
+          Prelude.rnf framework
 
 instance Data.ToJSON InputConfig where
   toJSON InputConfig' {..} =

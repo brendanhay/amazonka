@@ -124,12 +124,12 @@ instance Core.AWSPager SelectResourceConfig where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& selectResourceConfig_nextToken
-          Lens..~ rs
-          Lens.^? selectResourceConfigResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& selectResourceConfig_nextToken
+              Lens..~ rs
+              Lens.^? selectResourceConfigResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest SelectResourceConfig where
   type
@@ -156,9 +156,9 @@ instance Prelude.Hashable SelectResourceConfig where
 
 instance Prelude.NFData SelectResourceConfig where
   rnf SelectResourceConfig' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf expression
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf expression
 
 instance Data.ToHeaders SelectResourceConfig where
   toHeaders =
@@ -253,7 +253,7 @@ selectResourceConfigResponse_httpStatus = Lens.lens (\SelectResourceConfigRespon
 
 instance Prelude.NFData SelectResourceConfigResponse where
   rnf SelectResourceConfigResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf queryInfo
-      `Prelude.seq` Prelude.rnf results
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf queryInfo `Prelude.seq`
+        Prelude.rnf results `Prelude.seq`
+          Prelude.rnf httpStatus

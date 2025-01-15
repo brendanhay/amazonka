@@ -204,9 +204,7 @@ instance Core.AWSRequest StopInstances where
     Response.receiveXML
       ( \s h x ->
           StopInstancesResponse'
-            Prelude.<$> ( x
-                            Data..@? "instancesSet"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "instancesSet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -222,10 +220,10 @@ instance Prelude.Hashable StopInstances where
 
 instance Prelude.NFData StopInstances where
   rnf StopInstances' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf force
-      `Prelude.seq` Prelude.rnf hibernate
-      `Prelude.seq` Prelude.rnf instanceIds
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf force `Prelude.seq`
+        Prelude.rnf hibernate `Prelude.seq`
+          Prelude.rnf instanceIds
 
 instance Data.ToHeaders StopInstances where
   toHeaders = Prelude.const Prelude.mempty
@@ -287,5 +285,5 @@ stopInstancesResponse_httpStatus = Lens.lens (\StopInstancesResponse' {httpStatu
 
 instance Prelude.NFData StopInstancesResponse where
   rnf StopInstancesResponse' {..} =
-    Prelude.rnf stoppingInstances
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf stoppingInstances `Prelude.seq`
+      Prelude.rnf httpStatus

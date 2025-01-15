@@ -128,9 +128,9 @@ instance
   where
   rnf
     AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails' {..} =
-      Prelude.rnf assignPublicIp
-        `Prelude.seq` Prelude.rnf securityGroups
-        `Prelude.seq` Prelude.rnf subnets
+      Prelude.rnf assignPublicIp `Prelude.seq`
+        Prelude.rnf securityGroups `Prelude.seq`
+          Prelude.rnf subnets
 
 instance
   Data.ToJSON

@@ -262,12 +262,12 @@ instance Prelude.Hashable CreateServiceAction where
 
 instance Prelude.NFData CreateServiceAction where
   rnf CreateServiceAction' {..} =
-    Prelude.rnf acceptLanguage
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf definitionType
-      `Prelude.seq` Prelude.rnf definition
-      `Prelude.seq` Prelude.rnf idempotencyToken
+    Prelude.rnf acceptLanguage `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf definitionType `Prelude.seq`
+            Prelude.rnf definition `Prelude.seq`
+              Prelude.rnf idempotencyToken
 
 instance Data.ToHeaders CreateServiceAction where
   toHeaders =
@@ -347,5 +347,5 @@ createServiceActionResponse_httpStatus = Lens.lens (\CreateServiceActionResponse
 
 instance Prelude.NFData CreateServiceActionResponse where
   rnf CreateServiceActionResponse' {..} =
-    Prelude.rnf serviceActionDetail
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf serviceActionDetail `Prelude.seq`
+      Prelude.rnf httpStatus

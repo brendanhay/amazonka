@@ -117,7 +117,7 @@ instance Prelude.Hashable TemplateVersionsResponse where
 
 instance Prelude.NFData TemplateVersionsResponse where
   rnf TemplateVersionsResponse' {..} =
-    Prelude.rnf message
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf requestID
-      `Prelude.seq` Prelude.rnf item
+    Prelude.rnf message `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf requestID `Prelude.seq`
+          Prelude.rnf item

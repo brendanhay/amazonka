@@ -170,10 +170,10 @@ instance
     GetVpnConnectionDeviceSampleConfiguration
   where
   rnf GetVpnConnectionDeviceSampleConfiguration' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf internetKeyExchangeVersion
-      `Prelude.seq` Prelude.rnf vpnConnectionId
-      `Prelude.seq` Prelude.rnf vpnConnectionDeviceTypeId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf internetKeyExchangeVersion `Prelude.seq`
+        Prelude.rnf vpnConnectionId `Prelude.seq`
+          Prelude.rnf vpnConnectionDeviceTypeId
 
 instance
   Data.ToHeaders
@@ -255,5 +255,5 @@ instance
   where
   rnf
     GetVpnConnectionDeviceSampleConfigurationResponse' {..} =
-      Prelude.rnf vpnConnectionDeviceSampleConfiguration
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf vpnConnectionDeviceSampleConfiguration `Prelude.seq`
+        Prelude.rnf httpStatus

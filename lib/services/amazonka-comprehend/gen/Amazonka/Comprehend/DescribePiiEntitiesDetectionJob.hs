@@ -186,5 +186,5 @@ instance
     DescribePiiEntitiesDetectionJobResponse
   where
   rnf DescribePiiEntitiesDetectionJobResponse' {..} =
-    Prelude.rnf piiEntitiesDetectionJobProperties
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf piiEntitiesDetectionJobProperties `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -107,8 +107,8 @@ instance Prelude.Hashable AssignVolume where
 
 instance Prelude.NFData AssignVolume where
   rnf AssignVolume' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf volumeId
+    Prelude.rnf instanceId `Prelude.seq`
+      Prelude.rnf volumeId
 
 instance Data.ToHeaders AssignVolume where
   toHeaders =

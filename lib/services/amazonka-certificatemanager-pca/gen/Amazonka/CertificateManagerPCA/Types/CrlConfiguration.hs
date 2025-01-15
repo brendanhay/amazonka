@@ -314,11 +314,11 @@ instance Prelude.Hashable CrlConfiguration where
 
 instance Prelude.NFData CrlConfiguration where
   rnf CrlConfiguration' {..} =
-    Prelude.rnf customCname
-      `Prelude.seq` Prelude.rnf expirationInDays
-      `Prelude.seq` Prelude.rnf s3BucketName
-      `Prelude.seq` Prelude.rnf s3ObjectAcl
-      `Prelude.seq` Prelude.rnf enabled
+    Prelude.rnf customCname `Prelude.seq`
+      Prelude.rnf expirationInDays `Prelude.seq`
+        Prelude.rnf s3BucketName `Prelude.seq`
+          Prelude.rnf s3ObjectAcl `Prelude.seq`
+            Prelude.rnf enabled
 
 instance Data.ToJSON CrlConfiguration where
   toJSON CrlConfiguration' {..} =

@@ -162,8 +162,8 @@ instance
     SetIdentityFeedbackForwardingEnabled
   where
   rnf SetIdentityFeedbackForwardingEnabled' {..} =
-    Prelude.rnf identity
-      `Prelude.seq` Prelude.rnf forwardingEnabled
+    Prelude.rnf identity `Prelude.seq`
+      Prelude.rnf forwardingEnabled
 
 instance
   Data.ToHeaders

@@ -295,8 +295,8 @@ instance Prelude.Hashable Artifact where
 
 instance Prelude.NFData Artifact where
   rnf Artifact' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf extension
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf url
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf extension `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf type' `Prelude.seq`
+            Prelude.rnf url

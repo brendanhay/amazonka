@@ -117,8 +117,8 @@ instance Prelude.Hashable ListServiceProfiles where
 
 instance Prelude.NFData ListServiceProfiles where
   rnf ListServiceProfiles' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListServiceProfiles where
   toHeaders = Prelude.const Prelude.mempty
@@ -186,6 +186,6 @@ listServiceProfilesResponse_httpStatus = Lens.lens (\ListServiceProfilesResponse
 
 instance Prelude.NFData ListServiceProfilesResponse where
   rnf ListServiceProfilesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf serviceProfileList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf serviceProfileList `Prelude.seq`
+        Prelude.rnf httpStatus

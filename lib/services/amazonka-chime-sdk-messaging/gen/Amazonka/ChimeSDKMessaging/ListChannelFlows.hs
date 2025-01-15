@@ -125,9 +125,9 @@ instance Prelude.Hashable ListChannelFlows where
 
 instance Prelude.NFData ListChannelFlows where
   rnf ListChannelFlows' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf appInstanceArn
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf appInstanceArn
 
 instance Data.ToHeaders ListChannelFlows where
   toHeaders = Prelude.const Prelude.mempty
@@ -196,6 +196,6 @@ listChannelFlowsResponse_httpStatus = Lens.lens (\ListChannelFlowsResponse' {htt
 
 instance Prelude.NFData ListChannelFlowsResponse where
   rnf ListChannelFlowsResponse' {..} =
-    Prelude.rnf channelFlows
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf channelFlows `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

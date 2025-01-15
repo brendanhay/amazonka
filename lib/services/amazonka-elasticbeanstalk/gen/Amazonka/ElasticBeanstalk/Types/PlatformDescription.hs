@@ -265,17 +265,13 @@ platformDescription_supportedTierList = Lens.lens (\PlatformDescription' {suppor
 instance Data.FromXML PlatformDescription where
   parseXML x =
     PlatformDescription'
-      Prelude.<$> ( x
-                      Data..@? "CustomAmiList"
-                      Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "CustomAmiList" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "DateCreated")
       Prelude.<*> (x Data..@? "DateUpdated")
       Prelude.<*> (x Data..@? "Description")
-      Prelude.<*> ( x
-                      Data..@? "Frameworks"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "Frameworks" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "Maintainer")
@@ -334,25 +330,25 @@ instance Prelude.Hashable PlatformDescription where
 
 instance Prelude.NFData PlatformDescription where
   rnf PlatformDescription' {..} =
-    Prelude.rnf customAmiList
-      `Prelude.seq` Prelude.rnf dateCreated
-      `Prelude.seq` Prelude.rnf dateUpdated
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf frameworks
-      `Prelude.seq` Prelude.rnf maintainer
-      `Prelude.seq` Prelude.rnf operatingSystemName
-      `Prelude.seq` Prelude.rnf operatingSystemVersion
-      `Prelude.seq` Prelude.rnf platformArn
-      `Prelude.seq` Prelude.rnf platformBranchLifecycleState
-      `Prelude.seq` Prelude.rnf platformBranchName
-      `Prelude.seq` Prelude.rnf platformCategory
-      `Prelude.seq` Prelude.rnf platformLifecycleState
-      `Prelude.seq` Prelude.rnf platformName
-      `Prelude.seq` Prelude.rnf platformOwner
-      `Prelude.seq` Prelude.rnf platformStatus
-      `Prelude.seq` Prelude.rnf platformVersion
-      `Prelude.seq` Prelude.rnf programmingLanguages
-      `Prelude.seq` Prelude.rnf solutionStackName
-      `Prelude.seq` Prelude.rnf supportedAddonList
-      `Prelude.seq` Prelude.rnf
-        supportedTierList
+    Prelude.rnf customAmiList `Prelude.seq`
+      Prelude.rnf dateCreated `Prelude.seq`
+        Prelude.rnf dateUpdated `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf frameworks `Prelude.seq`
+              Prelude.rnf maintainer `Prelude.seq`
+                Prelude.rnf operatingSystemName `Prelude.seq`
+                  Prelude.rnf operatingSystemVersion `Prelude.seq`
+                    Prelude.rnf platformArn `Prelude.seq`
+                      Prelude.rnf platformBranchLifecycleState `Prelude.seq`
+                        Prelude.rnf platformBranchName `Prelude.seq`
+                          Prelude.rnf platformCategory `Prelude.seq`
+                            Prelude.rnf platformLifecycleState `Prelude.seq`
+                              Prelude.rnf platformName `Prelude.seq`
+                                Prelude.rnf platformOwner `Prelude.seq`
+                                  Prelude.rnf platformStatus `Prelude.seq`
+                                    Prelude.rnf platformVersion `Prelude.seq`
+                                      Prelude.rnf programmingLanguages `Prelude.seq`
+                                        Prelude.rnf solutionStackName `Prelude.seq`
+                                          Prelude.rnf supportedAddonList `Prelude.seq`
+                                            Prelude.rnf
+                                              supportedTierList

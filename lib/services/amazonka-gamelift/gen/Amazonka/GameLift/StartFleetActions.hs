@@ -151,9 +151,9 @@ instance Prelude.Hashable StartFleetActions where
 
 instance Prelude.NFData StartFleetActions where
   rnf StartFleetActions' {..} =
-    Prelude.rnf location
-      `Prelude.seq` Prelude.rnf fleetId
-      `Prelude.seq` Prelude.rnf actions
+    Prelude.rnf location `Prelude.seq`
+      Prelude.rnf fleetId `Prelude.seq`
+        Prelude.rnf actions
 
 instance Data.ToHeaders StartFleetActions where
   toHeaders =
@@ -246,6 +246,6 @@ startFleetActionsResponse_httpStatus = Lens.lens (\StartFleetActionsResponse' {h
 
 instance Prelude.NFData StartFleetActionsResponse where
   rnf StartFleetActionsResponse' {..} =
-    Prelude.rnf fleetArn
-      `Prelude.seq` Prelude.rnf fleetId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf fleetArn `Prelude.seq`
+      Prelude.rnf fleetId `Prelude.seq`
+        Prelude.rnf httpStatus

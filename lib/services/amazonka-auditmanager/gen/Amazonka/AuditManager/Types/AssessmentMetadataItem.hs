@@ -154,11 +154,11 @@ instance Prelude.Hashable AssessmentMetadataItem where
 
 instance Prelude.NFData AssessmentMetadataItem where
   rnf AssessmentMetadataItem' {..} =
-    Prelude.rnf complianceType
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf delegations
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf lastUpdated
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf roles
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf complianceType `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf delegations `Prelude.seq`
+          Prelude.rnf id `Prelude.seq`
+            Prelude.rnf lastUpdated `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf roles `Prelude.seq`
+                  Prelude.rnf status

@@ -115,8 +115,8 @@ instance Prelude.Hashable DatasetContentSummary where
 
 instance Prelude.NFData DatasetContentSummary where
   rnf DatasetContentSummary' {..} =
-    Prelude.rnf completionTime
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf scheduleTime
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf version
+    Prelude.rnf completionTime `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf scheduleTime `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf version

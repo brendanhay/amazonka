@@ -224,13 +224,13 @@ instance Prelude.Hashable CreateLocationEfs where
 
 instance Prelude.NFData CreateLocationEfs where
   rnf CreateLocationEfs' {..} =
-    Prelude.rnf accessPointArn
-      `Prelude.seq` Prelude.rnf fileSystemAccessRoleArn
-      `Prelude.seq` Prelude.rnf inTransitEncryption
-      `Prelude.seq` Prelude.rnf subdirectory
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf efsFilesystemArn
-      `Prelude.seq` Prelude.rnf ec2Config
+    Prelude.rnf accessPointArn `Prelude.seq`
+      Prelude.rnf fileSystemAccessRoleArn `Prelude.seq`
+        Prelude.rnf inTransitEncryption `Prelude.seq`
+          Prelude.rnf subdirectory `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf efsFilesystemArn `Prelude.seq`
+                Prelude.rnf ec2Config
 
 instance Data.ToHeaders CreateLocationEfs where
   toHeaders =
@@ -317,5 +317,5 @@ createLocationEfsResponse_httpStatus = Lens.lens (\CreateLocationEfsResponse' {h
 
 instance Prelude.NFData CreateLocationEfsResponse where
   rnf CreateLocationEfsResponse' {..} =
-    Prelude.rnf locationArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf locationArn `Prelude.seq`
+      Prelude.rnf httpStatus

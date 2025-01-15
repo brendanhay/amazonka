@@ -166,12 +166,12 @@ instance Prelude.Hashable TemplateStepSummary where
 
 instance Prelude.NFData TemplateStepSummary where
   rnf TemplateStepSummary' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf next
-      `Prelude.seq` Prelude.rnf owner
-      `Prelude.seq` Prelude.rnf previous
-      `Prelude.seq` Prelude.rnf stepActionType
-      `Prelude.seq` Prelude.rnf stepGroupId
-      `Prelude.seq` Prelude.rnf targetType
-      `Prelude.seq` Prelude.rnf templateId
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf next `Prelude.seq`
+          Prelude.rnf owner `Prelude.seq`
+            Prelude.rnf previous `Prelude.seq`
+              Prelude.rnf stepActionType `Prelude.seq`
+                Prelude.rnf stepGroupId `Prelude.seq`
+                  Prelude.rnf targetType `Prelude.seq`
+                    Prelude.rnf templateId

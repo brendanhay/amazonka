@@ -99,6 +99,6 @@ instance Prelude.Hashable SNOMEDCTDetails where
 
 instance Prelude.NFData SNOMEDCTDetails where
   rnf SNOMEDCTDetails' {..} =
-    Prelude.rnf edition
-      `Prelude.seq` Prelude.rnf language
-      `Prelude.seq` Prelude.rnf versionDate
+    Prelude.rnf edition `Prelude.seq`
+      Prelude.rnf language `Prelude.seq`
+        Prelude.rnf versionDate

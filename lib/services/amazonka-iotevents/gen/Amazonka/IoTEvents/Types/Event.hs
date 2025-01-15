@@ -104,9 +104,9 @@ instance Prelude.Hashable Event where
 
 instance Prelude.NFData Event where
   rnf Event' {..} =
-    Prelude.rnf actions
-      `Prelude.seq` Prelude.rnf condition
-      `Prelude.seq` Prelude.rnf eventName
+    Prelude.rnf actions `Prelude.seq`
+      Prelude.rnf condition `Prelude.seq`
+        Prelude.rnf eventName
 
 instance Data.ToJSON Event where
   toJSON Event' {..} =

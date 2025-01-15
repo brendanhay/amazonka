@@ -174,11 +174,11 @@ instance Prelude.Hashable AttackDetail where
 
 instance Prelude.NFData AttackDetail where
   rnf AttackDetail' {..} =
-    Prelude.rnf attackCounters
-      `Prelude.seq` Prelude.rnf attackId
-      `Prelude.seq` Prelude.rnf attackProperties
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf mitigations
-      `Prelude.seq` Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf subResources
+    Prelude.rnf attackCounters `Prelude.seq`
+      Prelude.rnf attackId `Prelude.seq`
+        Prelude.rnf attackProperties `Prelude.seq`
+          Prelude.rnf endTime `Prelude.seq`
+            Prelude.rnf mitigations `Prelude.seq`
+              Prelude.rnf resourceArn `Prelude.seq`
+                Prelude.rnf startTime `Prelude.seq`
+                  Prelude.rnf subResources

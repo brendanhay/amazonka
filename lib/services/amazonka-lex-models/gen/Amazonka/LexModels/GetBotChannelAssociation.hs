@@ -155,9 +155,9 @@ instance Prelude.Hashable GetBotChannelAssociation where
 
 instance Prelude.NFData GetBotChannelAssociation where
   rnf GetBotChannelAssociation' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf botName
-      `Prelude.seq` Prelude.rnf botAlias
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf botName `Prelude.seq`
+        Prelude.rnf botAlias
 
 instance Data.ToHeaders GetBotChannelAssociation where
   toHeaders =
@@ -333,13 +333,13 @@ instance
     GetBotChannelAssociationResponse
   where
   rnf GetBotChannelAssociationResponse' {..} =
-    Prelude.rnf botAlias
-      `Prelude.seq` Prelude.rnf botConfiguration
-      `Prelude.seq` Prelude.rnf botName
-      `Prelude.seq` Prelude.rnf createdDate
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf botAlias `Prelude.seq`
+      Prelude.rnf botConfiguration `Prelude.seq`
+        Prelude.rnf botName `Prelude.seq`
+          Prelude.rnf createdDate `Prelude.seq`
+            Prelude.rnf description `Prelude.seq`
+              Prelude.rnf failureReason `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf status `Prelude.seq`
+                    Prelude.rnf type' `Prelude.seq`
+                      Prelude.rnf httpStatus

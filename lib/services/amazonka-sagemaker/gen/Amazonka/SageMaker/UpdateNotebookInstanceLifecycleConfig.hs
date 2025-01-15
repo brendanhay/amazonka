@@ -142,9 +142,9 @@ instance
     UpdateNotebookInstanceLifecycleConfig
   where
   rnf UpdateNotebookInstanceLifecycleConfig' {..} =
-    Prelude.rnf onCreate
-      `Prelude.seq` Prelude.rnf onStart
-      `Prelude.seq` Prelude.rnf notebookInstanceLifecycleConfigName
+    Prelude.rnf onCreate `Prelude.seq`
+      Prelude.rnf onStart `Prelude.seq`
+        Prelude.rnf notebookInstanceLifecycleConfigName
 
 instance
   Data.ToHeaders

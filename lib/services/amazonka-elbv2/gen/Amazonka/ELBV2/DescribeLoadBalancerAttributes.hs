@@ -103,9 +103,7 @@ instance
       "DescribeLoadBalancerAttributesResult"
       ( \s h x ->
           DescribeLoadBalancerAttributesResponse'
-            Prelude.<$> ( x
-                            Data..@? "Attributes"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "Attributes" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -193,5 +191,5 @@ instance
     DescribeLoadBalancerAttributesResponse
   where
   rnf DescribeLoadBalancerAttributesResponse' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf attributes `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -196,11 +196,11 @@ instance
     ListAvailableResourceDimensions
   where
   rnf ListAvailableResourceDimensions' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf serviceType
-      `Prelude.seq` Prelude.rnf identifier
-      `Prelude.seq` Prelude.rnf metrics
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf serviceType `Prelude.seq`
+          Prelude.rnf identifier `Prelude.seq`
+            Prelude.rnf metrics
 
 instance
   Data.ToHeaders
@@ -298,6 +298,6 @@ instance
     ListAvailableResourceDimensionsResponse
   where
   rnf ListAvailableResourceDimensionsResponse' {..} =
-    Prelude.rnf metricDimensions
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf metricDimensions `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

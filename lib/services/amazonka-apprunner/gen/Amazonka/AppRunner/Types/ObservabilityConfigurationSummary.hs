@@ -123,6 +123,6 @@ instance
     ObservabilityConfigurationSummary
   where
   rnf ObservabilityConfigurationSummary' {..} =
-    Prelude.rnf observabilityConfigurationArn
-      `Prelude.seq` Prelude.rnf observabilityConfigurationName
-      `Prelude.seq` Prelude.rnf observabilityConfigurationRevision
+    Prelude.rnf observabilityConfigurationArn `Prelude.seq`
+      Prelude.rnf observabilityConfigurationName `Prelude.seq`
+        Prelude.rnf observabilityConfigurationRevision

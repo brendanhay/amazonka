@@ -540,10 +540,10 @@ instance Prelude.Hashable DeleteScheduledAction where
 
 instance Prelude.NFData DeleteScheduledAction where
   rnf DeleteScheduledAction' {..} =
-    Prelude.rnf serviceNamespace
-      `Prelude.seq` Prelude.rnf scheduledActionName
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf scalableDimension
+    Prelude.rnf serviceNamespace `Prelude.seq`
+      Prelude.rnf scheduledActionName `Prelude.seq`
+        Prelude.rnf resourceId `Prelude.seq`
+          Prelude.rnf scalableDimension
 
 instance Data.ToHeaders DeleteScheduledAction where
   toHeaders =

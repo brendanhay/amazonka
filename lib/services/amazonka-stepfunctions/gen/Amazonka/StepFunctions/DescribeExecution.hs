@@ -392,18 +392,18 @@ describeExecutionResponse_startDate = Lens.lens (\DescribeExecutionResponse' {st
 
 instance Prelude.NFData DescribeExecutionResponse where
   rnf DescribeExecutionResponse' {..} =
-    Prelude.rnf cause
-      `Prelude.seq` Prelude.rnf error
-      `Prelude.seq` Prelude.rnf input
-      `Prelude.seq` Prelude.rnf inputDetails
-      `Prelude.seq` Prelude.rnf mapRunArn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf output
-      `Prelude.seq` Prelude.rnf outputDetails
-      `Prelude.seq` Prelude.rnf stopDate
-      `Prelude.seq` Prelude.rnf traceHeader
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf executionArn
-      `Prelude.seq` Prelude.rnf stateMachineArn
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf startDate
+    Prelude.rnf cause `Prelude.seq`
+      Prelude.rnf error `Prelude.seq`
+        Prelude.rnf input `Prelude.seq`
+          Prelude.rnf inputDetails `Prelude.seq`
+            Prelude.rnf mapRunArn `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf output `Prelude.seq`
+                  Prelude.rnf outputDetails `Prelude.seq`
+                    Prelude.rnf stopDate `Prelude.seq`
+                      Prelude.rnf traceHeader `Prelude.seq`
+                        Prelude.rnf httpStatus `Prelude.seq`
+                          Prelude.rnf executionArn `Prelude.seq`
+                            Prelude.rnf stateMachineArn `Prelude.seq`
+                              Prelude.rnf status `Prelude.seq`
+                                Prelude.rnf startDate

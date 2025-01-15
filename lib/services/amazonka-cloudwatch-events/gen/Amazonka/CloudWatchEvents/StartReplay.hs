@@ -187,12 +187,12 @@ instance Prelude.Hashable StartReplay where
 
 instance Prelude.NFData StartReplay where
   rnf StartReplay' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf replayName
-      `Prelude.seq` Prelude.rnf eventSourceArn
-      `Prelude.seq` Prelude.rnf eventStartTime
-      `Prelude.seq` Prelude.rnf eventEndTime
-      `Prelude.seq` Prelude.rnf destination
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf replayName `Prelude.seq`
+        Prelude.rnf eventSourceArn `Prelude.seq`
+          Prelude.rnf eventStartTime `Prelude.seq`
+            Prelude.rnf eventEndTime `Prelude.seq`
+              Prelude.rnf destination
 
 instance Data.ToHeaders StartReplay where
   toHeaders =
@@ -295,8 +295,8 @@ startReplayResponse_httpStatus = Lens.lens (\StartReplayResponse' {httpStatus} -
 
 instance Prelude.NFData StartReplayResponse where
   rnf StartReplayResponse' {..} =
-    Prelude.rnf replayArn
-      `Prelude.seq` Prelude.rnf replayStartTime
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf stateReason
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf replayArn `Prelude.seq`
+      Prelude.rnf replayStartTime `Prelude.seq`
+        Prelude.rnf state `Prelude.seq`
+          Prelude.rnf stateReason `Prelude.seq`
+            Prelude.rnf httpStatus

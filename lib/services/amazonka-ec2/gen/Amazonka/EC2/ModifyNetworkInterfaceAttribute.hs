@@ -214,13 +214,13 @@ instance
     ModifyNetworkInterfaceAttribute
   where
   rnf ModifyNetworkInterfaceAttribute' {..} =
-    Prelude.rnf attachment
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf enaSrdSpecification
-      `Prelude.seq` Prelude.rnf groups
-      `Prelude.seq` Prelude.rnf sourceDestCheck
-      `Prelude.seq` Prelude.rnf networkInterfaceId
+    Prelude.rnf attachment `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf dryRun `Prelude.seq`
+          Prelude.rnf enaSrdSpecification `Prelude.seq`
+            Prelude.rnf groups `Prelude.seq`
+              Prelude.rnf sourceDestCheck `Prelude.seq`
+                Prelude.rnf networkInterfaceId
 
 instance
   Data.ToHeaders

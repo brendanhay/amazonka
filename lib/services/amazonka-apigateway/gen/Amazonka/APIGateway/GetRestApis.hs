@@ -107,12 +107,12 @@ instance Core.AWSPager GetRestApis where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getRestApis_position
-          Lens..~ rs
-          Lens.^? getRestApisResponse_position
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getRestApis_position
+              Lens..~ rs
+              Lens.^? getRestApisResponse_position
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetRestApis where
   type AWSResponse GetRestApis = GetRestApisResponse
@@ -135,8 +135,8 @@ instance Prelude.Hashable GetRestApis where
 
 instance Prelude.NFData GetRestApis where
   rnf GetRestApis' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf position
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf position
 
 instance Data.ToHeaders GetRestApis where
   toHeaders =
@@ -207,6 +207,6 @@ getRestApisResponse_httpStatus = Lens.lens (\GetRestApisResponse' {httpStatus} -
 
 instance Prelude.NFData GetRestApisResponse where
   rnf GetRestApisResponse' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf position
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf items `Prelude.seq`
+      Prelude.rnf position `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -179,13 +179,13 @@ instance Prelude.Hashable CreateAssessment where
 
 instance Prelude.NFData CreateAssessment where
   rnf CreateAssessment' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf assessmentReportsDestination
-      `Prelude.seq` Prelude.rnf scope
-      `Prelude.seq` Prelude.rnf roles
-      `Prelude.seq` Prelude.rnf frameworkId
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf assessmentReportsDestination `Prelude.seq`
+            Prelude.rnf scope `Prelude.seq`
+              Prelude.rnf roles `Prelude.seq`
+                Prelude.rnf frameworkId
 
 instance Data.ToHeaders CreateAssessment where
   toHeaders =
@@ -261,5 +261,5 @@ createAssessmentResponse_httpStatus = Lens.lens (\CreateAssessmentResponse' {htt
 
 instance Prelude.NFData CreateAssessmentResponse where
   rnf CreateAssessmentResponse' {..} =
-    Prelude.rnf assessment
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf assessment `Prelude.seq`
+      Prelude.rnf httpStatus

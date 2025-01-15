@@ -97,5 +97,5 @@ instance Prelude.Hashable Gender where
 
 instance Prelude.NFData Gender where
   rnf Gender' {..} =
-    Prelude.rnf confidence
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf confidence `Prelude.seq`
+      Prelude.rnf value

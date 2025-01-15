@@ -221,13 +221,13 @@ instance Prelude.Hashable CreateNatGateway where
 
 instance Prelude.NFData CreateNatGateway where
   rnf CreateNatGateway' {..} =
-    Prelude.rnf allocationId
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf connectivityType
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf privateIpAddress
-      `Prelude.seq` Prelude.rnf tagSpecifications
-      `Prelude.seq` Prelude.rnf subnetId
+    Prelude.rnf allocationId `Prelude.seq`
+      Prelude.rnf clientToken `Prelude.seq`
+        Prelude.rnf connectivityType `Prelude.seq`
+          Prelude.rnf dryRun `Prelude.seq`
+            Prelude.rnf privateIpAddress `Prelude.seq`
+              Prelude.rnf tagSpecifications `Prelude.seq`
+                Prelude.rnf subnetId
 
 instance Data.ToHeaders CreateNatGateway where
   toHeaders = Prelude.const Prelude.mempty
@@ -307,6 +307,6 @@ createNatGatewayResponse_httpStatus = Lens.lens (\CreateNatGatewayResponse' {htt
 
 instance Prelude.NFData CreateNatGatewayResponse where
   rnf CreateNatGatewayResponse' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf natGateway
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf natGateway `Prelude.seq`
+        Prelude.rnf httpStatus

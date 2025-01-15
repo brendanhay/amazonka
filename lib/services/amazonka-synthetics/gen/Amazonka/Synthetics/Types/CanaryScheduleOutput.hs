@@ -136,5 +136,5 @@ instance Prelude.Hashable CanaryScheduleOutput where
 
 instance Prelude.NFData CanaryScheduleOutput where
   rnf CanaryScheduleOutput' {..} =
-    Prelude.rnf durationInSeconds
-      `Prelude.seq` Prelude.rnf expression
+    Prelude.rnf durationInSeconds `Prelude.seq`
+      Prelude.rnf expression

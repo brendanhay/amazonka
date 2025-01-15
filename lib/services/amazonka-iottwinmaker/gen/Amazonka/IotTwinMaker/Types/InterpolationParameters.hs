@@ -72,8 +72,8 @@ instance Prelude.Hashable InterpolationParameters where
 
 instance Prelude.NFData InterpolationParameters where
   rnf InterpolationParameters' {..} =
-    Prelude.rnf interpolationType
-      `Prelude.seq` Prelude.rnf intervalInSeconds
+    Prelude.rnf interpolationType `Prelude.seq`
+      Prelude.rnf intervalInSeconds
 
 instance Data.ToJSON InterpolationParameters where
   toJSON InterpolationParameters' {..} =

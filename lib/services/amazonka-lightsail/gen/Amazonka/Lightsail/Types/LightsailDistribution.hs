@@ -363,23 +363,23 @@ instance Prelude.Hashable LightsailDistribution where
 
 instance Prelude.NFData LightsailDistribution where
   rnf LightsailDistribution' {..} =
-    Prelude.rnf ableToUpdateBundle
-      `Prelude.seq` Prelude.rnf alternativeDomainNames
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf bundleId
-      `Prelude.seq` Prelude.rnf cacheBehaviorSettings
-      `Prelude.seq` Prelude.rnf cacheBehaviors
-      `Prelude.seq` Prelude.rnf certificateName
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf defaultCacheBehavior
-      `Prelude.seq` Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf ipAddressType
-      `Prelude.seq` Prelude.rnf isEnabled
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf origin
-      `Prelude.seq` Prelude.rnf originPublicDNS
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf supportCode
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf ableToUpdateBundle `Prelude.seq`
+      Prelude.rnf alternativeDomainNames `Prelude.seq`
+        Prelude.rnf arn `Prelude.seq`
+          Prelude.rnf bundleId `Prelude.seq`
+            Prelude.rnf cacheBehaviorSettings `Prelude.seq`
+              Prelude.rnf cacheBehaviors `Prelude.seq`
+                Prelude.rnf certificateName `Prelude.seq`
+                  Prelude.rnf createdAt `Prelude.seq`
+                    Prelude.rnf defaultCacheBehavior `Prelude.seq`
+                      Prelude.rnf domainName `Prelude.seq`
+                        Prelude.rnf ipAddressType `Prelude.seq`
+                          Prelude.rnf isEnabled `Prelude.seq`
+                            Prelude.rnf location `Prelude.seq`
+                              Prelude.rnf name `Prelude.seq`
+                                Prelude.rnf origin `Prelude.seq`
+                                  Prelude.rnf originPublicDNS `Prelude.seq`
+                                    Prelude.rnf resourceType `Prelude.seq`
+                                      Prelude.rnf status `Prelude.seq`
+                                        Prelude.rnf supportCode `Prelude.seq`
+                                          Prelude.rnf tags

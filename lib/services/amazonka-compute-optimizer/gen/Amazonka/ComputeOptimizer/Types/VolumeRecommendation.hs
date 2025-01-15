@@ -220,12 +220,12 @@ instance Prelude.Hashable VolumeRecommendation where
 
 instance Prelude.NFData VolumeRecommendation where
   rnf VolumeRecommendation' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf currentConfiguration
-      `Prelude.seq` Prelude.rnf currentPerformanceRisk
-      `Prelude.seq` Prelude.rnf finding
-      `Prelude.seq` Prelude.rnf lastRefreshTimestamp
-      `Prelude.seq` Prelude.rnf lookBackPeriodInDays
-      `Prelude.seq` Prelude.rnf utilizationMetrics
-      `Prelude.seq` Prelude.rnf volumeArn
-      `Prelude.seq` Prelude.rnf volumeRecommendationOptions
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf currentConfiguration `Prelude.seq`
+        Prelude.rnf currentPerformanceRisk `Prelude.seq`
+          Prelude.rnf finding `Prelude.seq`
+            Prelude.rnf lastRefreshTimestamp `Prelude.seq`
+              Prelude.rnf lookBackPeriodInDays `Prelude.seq`
+                Prelude.rnf utilizationMetrics `Prelude.seq`
+                  Prelude.rnf volumeArn `Prelude.seq`
+                    Prelude.rnf volumeRecommendationOptions

@@ -150,11 +150,11 @@ instance Prelude.Hashable CreateModelManifest where
 
 instance Prelude.NFData CreateModelManifest where
   rnf CreateModelManifest' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf nodes
-      `Prelude.seq` Prelude.rnf signalCatalogArn
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf nodes `Prelude.seq`
+            Prelude.rnf signalCatalogArn
 
 instance Data.ToHeaders CreateModelManifest where
   toHeaders =
@@ -247,6 +247,6 @@ createModelManifestResponse_arn = Lens.lens (\CreateModelManifestResponse' {arn}
 
 instance Prelude.NFData CreateModelManifestResponse where
   rnf CreateModelManifestResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf arn

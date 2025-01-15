@@ -147,9 +147,9 @@ instance Prelude.Hashable EdgeDeploymentStatus where
 
 instance Prelude.NFData EdgeDeploymentStatus where
   rnf EdgeDeploymentStatus' {..} =
-    Prelude.rnf edgeDeploymentStageStartTime
-      `Prelude.seq` Prelude.rnf edgeDeploymentStatusMessage
-      `Prelude.seq` Prelude.rnf stageStatus
-      `Prelude.seq` Prelude.rnf edgeDeploymentSuccessInStage
-      `Prelude.seq` Prelude.rnf edgeDeploymentPendingInStage
-      `Prelude.seq` Prelude.rnf edgeDeploymentFailedInStage
+    Prelude.rnf edgeDeploymentStageStartTime `Prelude.seq`
+      Prelude.rnf edgeDeploymentStatusMessage `Prelude.seq`
+        Prelude.rnf stageStatus `Prelude.seq`
+          Prelude.rnf edgeDeploymentSuccessInStage `Prelude.seq`
+            Prelude.rnf edgeDeploymentPendingInStage `Prelude.seq`
+              Prelude.rnf edgeDeploymentFailedInStage

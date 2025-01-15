@@ -144,8 +144,8 @@ instance Prelude.Hashable DeleteSizeConstraintSet where
 
 instance Prelude.NFData DeleteSizeConstraintSet where
   rnf DeleteSizeConstraintSet' {..} =
-    Prelude.rnf sizeConstraintSetId
-      `Prelude.seq` Prelude.rnf changeToken
+    Prelude.rnf sizeConstraintSetId `Prelude.seq`
+      Prelude.rnf changeToken
 
 instance Data.ToHeaders DeleteSizeConstraintSet where
   toHeaders =
@@ -228,5 +228,5 @@ instance
     DeleteSizeConstraintSetResponse
   where
   rnf DeleteSizeConstraintSetResponse' {..} =
-    Prelude.rnf changeToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf changeToken `Prelude.seq`
+      Prelude.rnf httpStatus

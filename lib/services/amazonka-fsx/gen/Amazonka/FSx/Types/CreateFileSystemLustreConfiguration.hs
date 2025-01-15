@@ -714,20 +714,20 @@ instance
     CreateFileSystemLustreConfiguration
   where
   rnf CreateFileSystemLustreConfiguration' {..} =
-    Prelude.rnf autoImportPolicy
-      `Prelude.seq` Prelude.rnf automaticBackupRetentionDays
-      `Prelude.seq` Prelude.rnf copyTagsToBackups
-      `Prelude.seq` Prelude.rnf dailyAutomaticBackupStartTime
-      `Prelude.seq` Prelude.rnf dataCompressionType
-      `Prelude.seq` Prelude.rnf deploymentType
-      `Prelude.seq` Prelude.rnf driveCacheType
-      `Prelude.seq` Prelude.rnf exportPath
-      `Prelude.seq` Prelude.rnf importPath
-      `Prelude.seq` Prelude.rnf importedFileChunkSize
-      `Prelude.seq` Prelude.rnf logConfiguration
-      `Prelude.seq` Prelude.rnf perUnitStorageThroughput
-      `Prelude.seq` Prelude.rnf rootSquashConfiguration
-      `Prelude.seq` Prelude.rnf weeklyMaintenanceStartTime
+    Prelude.rnf autoImportPolicy `Prelude.seq`
+      Prelude.rnf automaticBackupRetentionDays `Prelude.seq`
+        Prelude.rnf copyTagsToBackups `Prelude.seq`
+          Prelude.rnf dailyAutomaticBackupStartTime `Prelude.seq`
+            Prelude.rnf dataCompressionType `Prelude.seq`
+              Prelude.rnf deploymentType `Prelude.seq`
+                Prelude.rnf driveCacheType `Prelude.seq`
+                  Prelude.rnf exportPath `Prelude.seq`
+                    Prelude.rnf importPath `Prelude.seq`
+                      Prelude.rnf importedFileChunkSize `Prelude.seq`
+                        Prelude.rnf logConfiguration `Prelude.seq`
+                          Prelude.rnf perUnitStorageThroughput `Prelude.seq`
+                            Prelude.rnf rootSquashConfiguration `Prelude.seq`
+                              Prelude.rnf weeklyMaintenanceStartTime
 
 instance
   Data.ToJSON

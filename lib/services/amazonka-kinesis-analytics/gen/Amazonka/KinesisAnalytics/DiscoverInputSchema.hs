@@ -192,11 +192,11 @@ instance Prelude.Hashable DiscoverInputSchema where
 
 instance Prelude.NFData DiscoverInputSchema where
   rnf DiscoverInputSchema' {..} =
-    Prelude.rnf inputProcessingConfiguration
-      `Prelude.seq` Prelude.rnf inputStartingPositionConfiguration
-      `Prelude.seq` Prelude.rnf resourceARN
-      `Prelude.seq` Prelude.rnf roleARN
-      `Prelude.seq` Prelude.rnf s3Configuration
+    Prelude.rnf inputProcessingConfiguration `Prelude.seq`
+      Prelude.rnf inputStartingPositionConfiguration `Prelude.seq`
+        Prelude.rnf resourceARN `Prelude.seq`
+          Prelude.rnf roleARN `Prelude.seq`
+            Prelude.rnf s3Configuration
 
 instance Data.ToHeaders DiscoverInputSchema where
   toHeaders =
@@ -316,8 +316,8 @@ discoverInputSchemaResponse_httpStatus = Lens.lens (\DiscoverInputSchemaResponse
 
 instance Prelude.NFData DiscoverInputSchemaResponse where
   rnf DiscoverInputSchemaResponse' {..} =
-    Prelude.rnf inputSchema
-      `Prelude.seq` Prelude.rnf parsedInputRecords
-      `Prelude.seq` Prelude.rnf processedInputRecords
-      `Prelude.seq` Prelude.rnf rawInputRecords
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf inputSchema `Prelude.seq`
+      Prelude.rnf parsedInputRecords `Prelude.seq`
+        Prelude.rnf processedInputRecords `Prelude.seq`
+          Prelude.rnf rawInputRecords `Prelude.seq`
+            Prelude.rnf httpStatus

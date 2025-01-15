@@ -78,5 +78,5 @@ instance Prelude.Hashable ProductCode where
 
 instance Prelude.NFData ProductCode where
   rnf ProductCode' {..} =
-    Prelude.rnf productCodeId
-      `Prelude.seq` Prelude.rnf productCodeType
+    Prelude.rnf productCodeId `Prelude.seq`
+      Prelude.rnf productCodeType

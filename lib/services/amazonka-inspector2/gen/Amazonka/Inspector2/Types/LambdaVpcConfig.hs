@@ -103,6 +103,6 @@ instance Prelude.Hashable LambdaVpcConfig where
 
 instance Prelude.NFData LambdaVpcConfig where
   rnf LambdaVpcConfig' {..} =
-    Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf subnetIds
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf securityGroupIds `Prelude.seq`
+      Prelude.rnf subnetIds `Prelude.seq`
+        Prelude.rnf vpcId

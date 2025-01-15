@@ -144,8 +144,8 @@ instance Prelude.Hashable DeleteAccess where
 
 instance Prelude.NFData DeleteAccess where
   rnf DeleteAccess' {..} =
-    Prelude.rnf serverId
-      `Prelude.seq` Prelude.rnf externalId
+    Prelude.rnf serverId `Prelude.seq`
+      Prelude.rnf externalId
 
 instance Data.ToHeaders DeleteAccess where
   toHeaders =

@@ -94,9 +94,9 @@ instance Prelude.Hashable ConnectionBodyParameter where
 
 instance Prelude.NFData ConnectionBodyParameter where
   rnf ConnectionBodyParameter' {..} =
-    Prelude.rnf isValueSecret
-      `Prelude.seq` Prelude.rnf key
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf isValueSecret `Prelude.seq`
+      Prelude.rnf key `Prelude.seq`
+        Prelude.rnf value
 
 instance Data.ToJSON ConnectionBodyParameter where
   toJSON ConnectionBodyParameter' {..} =

@@ -77,5 +77,5 @@ instance Prelude.Hashable ResizeInfo where
 
 instance Prelude.NFData ResizeInfo where
   rnf ResizeInfo' {..} =
-    Prelude.rnf allowCancelResize
-      `Prelude.seq` Prelude.rnf resizeType
+    Prelude.rnf allowCancelResize `Prelude.seq`
+      Prelude.rnf resizeType

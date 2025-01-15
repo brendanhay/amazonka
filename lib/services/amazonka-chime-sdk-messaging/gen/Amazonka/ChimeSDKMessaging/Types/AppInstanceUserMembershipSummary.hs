@@ -104,6 +104,6 @@ instance
     AppInstanceUserMembershipSummary
   where
   rnf AppInstanceUserMembershipSummary' {..} =
-    Prelude.rnf readMarkerTimestamp
-      `Prelude.seq` Prelude.rnf subChannelId
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf readMarkerTimestamp `Prelude.seq`
+      Prelude.rnf subChannelId `Prelude.seq`
+        Prelude.rnf type'

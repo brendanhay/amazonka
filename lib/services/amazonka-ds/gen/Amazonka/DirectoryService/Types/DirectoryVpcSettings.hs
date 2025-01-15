@@ -89,8 +89,8 @@ instance Prelude.Hashable DirectoryVpcSettings where
 
 instance Prelude.NFData DirectoryVpcSettings where
   rnf DirectoryVpcSettings' {..} =
-    Prelude.rnf vpcId
-      `Prelude.seq` Prelude.rnf subnetIds
+    Prelude.rnf vpcId `Prelude.seq`
+      Prelude.rnf subnetIds
 
 instance Data.ToJSON DirectoryVpcSettings where
   toJSON DirectoryVpcSettings' {..} =

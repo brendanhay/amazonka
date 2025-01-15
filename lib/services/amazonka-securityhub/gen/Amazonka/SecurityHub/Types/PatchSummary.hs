@@ -236,17 +236,17 @@ instance Prelude.Hashable PatchSummary where
 
 instance Prelude.NFData PatchSummary where
   rnf PatchSummary' {..} =
-    Prelude.rnf failedCount
-      `Prelude.seq` Prelude.rnf installedCount
-      `Prelude.seq` Prelude.rnf installedOtherCount
-      `Prelude.seq` Prelude.rnf installedPendingReboot
-      `Prelude.seq` Prelude.rnf installedRejectedCount
-      `Prelude.seq` Prelude.rnf missingCount
-      `Prelude.seq` Prelude.rnf operation
-      `Prelude.seq` Prelude.rnf operationEndTime
-      `Prelude.seq` Prelude.rnf operationStartTime
-      `Prelude.seq` Prelude.rnf rebootOption
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf failedCount `Prelude.seq`
+      Prelude.rnf installedCount `Prelude.seq`
+        Prelude.rnf installedOtherCount `Prelude.seq`
+          Prelude.rnf installedPendingReboot `Prelude.seq`
+            Prelude.rnf installedRejectedCount `Prelude.seq`
+              Prelude.rnf missingCount `Prelude.seq`
+                Prelude.rnf operation `Prelude.seq`
+                  Prelude.rnf operationEndTime `Prelude.seq`
+                    Prelude.rnf operationStartTime `Prelude.seq`
+                      Prelude.rnf rebootOption `Prelude.seq`
+                        Prelude.rnf id
 
 instance Data.ToJSON PatchSummary where
   toJSON PatchSummary' {..} =

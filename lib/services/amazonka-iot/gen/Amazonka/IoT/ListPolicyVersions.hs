@@ -156,5 +156,5 @@ listPolicyVersionsResponse_httpStatus = Lens.lens (\ListPolicyVersionsResponse' 
 
 instance Prelude.NFData ListPolicyVersionsResponse where
   rnf ListPolicyVersionsResponse' {..} =
-    Prelude.rnf policyVersions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf policyVersions `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -191,9 +191,9 @@ instance Prelude.Hashable ManagedRuleSetVersion where
 
 instance Prelude.NFData ManagedRuleSetVersion where
   rnf ManagedRuleSetVersion' {..} =
-    Prelude.rnf associatedRuleGroupArn
-      `Prelude.seq` Prelude.rnf capacity
-      `Prelude.seq` Prelude.rnf expiryTimestamp
-      `Prelude.seq` Prelude.rnf forecastedLifetime
-      `Prelude.seq` Prelude.rnf lastUpdateTimestamp
-      `Prelude.seq` Prelude.rnf publishTimestamp
+    Prelude.rnf associatedRuleGroupArn `Prelude.seq`
+      Prelude.rnf capacity `Prelude.seq`
+        Prelude.rnf expiryTimestamp `Prelude.seq`
+          Prelude.rnf forecastedLifetime `Prelude.seq`
+            Prelude.rnf lastUpdateTimestamp `Prelude.seq`
+              Prelude.rnf publishTimestamp

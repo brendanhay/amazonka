@@ -112,8 +112,8 @@ instance Prelude.Hashable AuthorizeVpcEndpointAccess where
 
 instance Prelude.NFData AuthorizeVpcEndpointAccess where
   rnf AuthorizeVpcEndpointAccess' {..} =
-    Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf account
+    Prelude.rnf domainName `Prelude.seq`
+      Prelude.rnf account
 
 instance Data.ToHeaders AuthorizeVpcEndpointAccess where
   toHeaders = Prelude.const Prelude.mempty
@@ -188,5 +188,5 @@ instance
     AuthorizeVpcEndpointAccessResponse
   where
   rnf AuthorizeVpcEndpointAccessResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf authorizedPrincipal
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf authorizedPrincipal

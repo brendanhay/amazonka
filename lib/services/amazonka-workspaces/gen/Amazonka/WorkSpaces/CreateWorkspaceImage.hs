@@ -157,10 +157,10 @@ instance Prelude.Hashable CreateWorkspaceImage where
 
 instance Prelude.NFData CreateWorkspaceImage where
   rnf CreateWorkspaceImage' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf workspaceId
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf workspaceId
 
 instance Data.ToHeaders CreateWorkspaceImage where
   toHeaders =
@@ -307,12 +307,12 @@ createWorkspaceImageResponse_httpStatus = Lens.lens (\CreateWorkspaceImageRespon
 
 instance Prelude.NFData CreateWorkspaceImageResponse where
   rnf CreateWorkspaceImageResponse' {..} =
-    Prelude.rnf created
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf imageId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf operatingSystem
-      `Prelude.seq` Prelude.rnf ownerAccountId
-      `Prelude.seq` Prelude.rnf requiredTenancy
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf created `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf imageId `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf operatingSystem `Prelude.seq`
+              Prelude.rnf ownerAccountId `Prelude.seq`
+                Prelude.rnf requiredTenancy `Prelude.seq`
+                  Prelude.rnf state `Prelude.seq`
+                    Prelude.rnf httpStatus

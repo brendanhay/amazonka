@@ -164,12 +164,12 @@ instance Core.AWSPager ListEphemerides where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listEphemerides_nextToken
-          Lens..~ rs
-          Lens.^? listEphemeridesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listEphemerides_nextToken
+              Lens..~ rs
+              Lens.^? listEphemeridesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListEphemerides where
   type
@@ -198,12 +198,12 @@ instance Prelude.Hashable ListEphemerides where
 
 instance Prelude.NFData ListEphemerides where
   rnf ListEphemerides' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf statusList
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf satelliteId
-      `Prelude.seq` Prelude.rnf startTime
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf statusList `Prelude.seq`
+          Prelude.rnf endTime `Prelude.seq`
+            Prelude.rnf satelliteId `Prelude.seq`
+              Prelude.rnf startTime
 
 instance Data.ToHeaders ListEphemerides where
   toHeaders =
@@ -287,6 +287,6 @@ listEphemeridesResponse_httpStatus = Lens.lens (\ListEphemeridesResponse' {httpS
 
 instance Prelude.NFData ListEphemeridesResponse where
   rnf ListEphemeridesResponse' {..} =
-    Prelude.rnf ephemerides
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf ephemerides `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

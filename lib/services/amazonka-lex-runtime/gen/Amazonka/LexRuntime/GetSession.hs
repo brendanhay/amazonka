@@ -162,10 +162,10 @@ instance Prelude.Hashable GetSession where
 
 instance Prelude.NFData GetSession where
   rnf GetSession' {..} =
-    Prelude.rnf checkpointLabelFilter
-      `Prelude.seq` Prelude.rnf botName
-      `Prelude.seq` Prelude.rnf botAlias
-      `Prelude.seq` Prelude.rnf userId
+    Prelude.rnf checkpointLabelFilter `Prelude.seq`
+      Prelude.rnf botName `Prelude.seq`
+        Prelude.rnf botAlias `Prelude.seq`
+          Prelude.rnf userId
 
 instance Data.ToHeaders GetSession where
   toHeaders =
@@ -313,9 +313,9 @@ getSessionResponse_httpStatus = Lens.lens (\GetSessionResponse' {httpStatus} -> 
 
 instance Prelude.NFData GetSessionResponse where
   rnf GetSessionResponse' {..} =
-    Prelude.rnf activeContexts
-      `Prelude.seq` Prelude.rnf dialogAction
-      `Prelude.seq` Prelude.rnf recentIntentSummaryView
-      `Prelude.seq` Prelude.rnf sessionAttributes
-      `Prelude.seq` Prelude.rnf sessionId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf activeContexts `Prelude.seq`
+      Prelude.rnf dialogAction `Prelude.seq`
+        Prelude.rnf recentIntentSummaryView `Prelude.seq`
+          Prelude.rnf sessionAttributes `Prelude.seq`
+            Prelude.rnf sessionId `Prelude.seq`
+              Prelude.rnf httpStatus

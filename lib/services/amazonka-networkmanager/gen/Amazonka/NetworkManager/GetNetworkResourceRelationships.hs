@@ -275,12 +275,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getNetworkResourceRelationships_nextToken
-          Lens..~ rs
-          Lens.^? getNetworkResourceRelationshipsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getNetworkResourceRelationships_nextToken
+              Lens..~ rs
+              Lens.^? getNetworkResourceRelationshipsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -323,15 +323,15 @@ instance
     GetNetworkResourceRelationships
   where
   rnf GetNetworkResourceRelationships' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf awsRegion
-      `Prelude.seq` Prelude.rnf coreNetworkId
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf registeredGatewayArn
-      `Prelude.seq` Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf globalNetworkId
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf awsRegion `Prelude.seq`
+        Prelude.rnf coreNetworkId `Prelude.seq`
+          Prelude.rnf maxResults `Prelude.seq`
+            Prelude.rnf nextToken `Prelude.seq`
+              Prelude.rnf registeredGatewayArn `Prelude.seq`
+                Prelude.rnf resourceArn `Prelude.seq`
+                  Prelude.rnf resourceType `Prelude.seq`
+                    Prelude.rnf globalNetworkId
 
 instance
   Data.ToHeaders
@@ -422,6 +422,6 @@ instance
     GetNetworkResourceRelationshipsResponse
   where
   rnf GetNetworkResourceRelationshipsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf relationships
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf relationships `Prelude.seq`
+        Prelude.rnf httpStatus

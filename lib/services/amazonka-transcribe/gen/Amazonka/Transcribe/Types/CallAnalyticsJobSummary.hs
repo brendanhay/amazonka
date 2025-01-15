@@ -201,10 +201,10 @@ instance Prelude.Hashable CallAnalyticsJobSummary where
 
 instance Prelude.NFData CallAnalyticsJobSummary where
   rnf CallAnalyticsJobSummary' {..} =
-    Prelude.rnf callAnalyticsJobName
-      `Prelude.seq` Prelude.rnf callAnalyticsJobStatus
-      `Prelude.seq` Prelude.rnf completionTime
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf languageCode
-      `Prelude.seq` Prelude.rnf startTime
+    Prelude.rnf callAnalyticsJobName `Prelude.seq`
+      Prelude.rnf callAnalyticsJobStatus `Prelude.seq`
+        Prelude.rnf completionTime `Prelude.seq`
+          Prelude.rnf creationTime `Prelude.seq`
+            Prelude.rnf failureReason `Prelude.seq`
+              Prelude.rnf languageCode `Prelude.seq`
+                Prelude.rnf startTime

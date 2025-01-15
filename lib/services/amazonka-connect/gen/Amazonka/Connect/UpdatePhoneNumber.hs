@@ -144,9 +144,9 @@ instance Prelude.Hashable UpdatePhoneNumber where
 
 instance Prelude.NFData UpdatePhoneNumber where
   rnf UpdatePhoneNumber' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf phoneNumberId
-      `Prelude.seq` Prelude.rnf targetArn
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf phoneNumberId `Prelude.seq`
+        Prelude.rnf targetArn
 
 instance Data.ToHeaders UpdatePhoneNumber where
   toHeaders =
@@ -226,6 +226,6 @@ updatePhoneNumberResponse_httpStatus = Lens.lens (\UpdatePhoneNumberResponse' {h
 
 instance Prelude.NFData UpdatePhoneNumberResponse where
   rnf UpdatePhoneNumberResponse' {..} =
-    Prelude.rnf phoneNumberArn
-      `Prelude.seq` Prelude.rnf phoneNumberId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf phoneNumberArn `Prelude.seq`
+      Prelude.rnf phoneNumberId `Prelude.seq`
+        Prelude.rnf httpStatus

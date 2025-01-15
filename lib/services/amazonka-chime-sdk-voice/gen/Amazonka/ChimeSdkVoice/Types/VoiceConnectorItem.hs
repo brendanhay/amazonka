@@ -81,8 +81,8 @@ instance Prelude.Hashable VoiceConnectorItem where
 
 instance Prelude.NFData VoiceConnectorItem where
   rnf VoiceConnectorItem' {..} =
-    Prelude.rnf voiceConnectorId
-      `Prelude.seq` Prelude.rnf priority
+    Prelude.rnf voiceConnectorId `Prelude.seq`
+      Prelude.rnf priority
 
 instance Data.ToJSON VoiceConnectorItem where
   toJSON VoiceConnectorItem' {..} =

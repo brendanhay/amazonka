@@ -97,8 +97,8 @@ instance Prelude.Hashable QopConfiguration where
 
 instance Prelude.NFData QopConfiguration where
   rnf QopConfiguration' {..} =
-    Prelude.rnf dataTransferProtection
-      `Prelude.seq` Prelude.rnf rpcProtection
+    Prelude.rnf dataTransferProtection `Prelude.seq`
+      Prelude.rnf rpcProtection
 
 instance Data.ToJSON QopConfiguration where
   toJSON QopConfiguration' {..} =

@@ -127,9 +127,9 @@ instance
 
 instance Prelude.NFData UpdateSipMediaApplicationCall where
   rnf UpdateSipMediaApplicationCall' {..} =
-    Prelude.rnf sipMediaApplicationId
-      `Prelude.seq` Prelude.rnf transactionId
-      `Prelude.seq` Prelude.rnf arguments
+    Prelude.rnf sipMediaApplicationId `Prelude.seq`
+      Prelude.rnf transactionId `Prelude.seq`
+        Prelude.rnf arguments
 
 instance Data.ToHeaders UpdateSipMediaApplicationCall where
   toHeaders = Prelude.const Prelude.mempty
@@ -196,5 +196,5 @@ instance
     UpdateSipMediaApplicationCallResponse
   where
   rnf UpdateSipMediaApplicationCallResponse' {..} =
-    Prelude.rnf sipMediaApplicationCall
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf sipMediaApplicationCall `Prelude.seq`
+      Prelude.rnf httpStatus

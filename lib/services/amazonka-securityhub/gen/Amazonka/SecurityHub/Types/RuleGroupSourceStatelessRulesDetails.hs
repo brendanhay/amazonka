@@ -96,8 +96,8 @@ instance
     RuleGroupSourceStatelessRulesDetails
   where
   rnf RuleGroupSourceStatelessRulesDetails' {..} =
-    Prelude.rnf priority
-      `Prelude.seq` Prelude.rnf ruleDefinition
+    Prelude.rnf priority `Prelude.seq`
+      Prelude.rnf ruleDefinition
 
 instance
   Data.ToJSON

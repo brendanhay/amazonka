@@ -341,18 +341,18 @@ instance Prelude.Hashable ConfluenceConfiguration where
 
 instance Prelude.NFData ConfluenceConfiguration where
   rnf ConfluenceConfiguration' {..} =
-    Prelude.rnf attachmentConfiguration
-      `Prelude.seq` Prelude.rnf authenticationType
-      `Prelude.seq` Prelude.rnf blogConfiguration
-      `Prelude.seq` Prelude.rnf exclusionPatterns
-      `Prelude.seq` Prelude.rnf inclusionPatterns
-      `Prelude.seq` Prelude.rnf pageConfiguration
-      `Prelude.seq` Prelude.rnf proxyConfiguration
-      `Prelude.seq` Prelude.rnf spaceConfiguration
-      `Prelude.seq` Prelude.rnf vpcConfiguration
-      `Prelude.seq` Prelude.rnf serverUrl
-      `Prelude.seq` Prelude.rnf secretArn
-      `Prelude.seq` Prelude.rnf version
+    Prelude.rnf attachmentConfiguration `Prelude.seq`
+      Prelude.rnf authenticationType `Prelude.seq`
+        Prelude.rnf blogConfiguration `Prelude.seq`
+          Prelude.rnf exclusionPatterns `Prelude.seq`
+            Prelude.rnf inclusionPatterns `Prelude.seq`
+              Prelude.rnf pageConfiguration `Prelude.seq`
+                Prelude.rnf proxyConfiguration `Prelude.seq`
+                  Prelude.rnf spaceConfiguration `Prelude.seq`
+                    Prelude.rnf vpcConfiguration `Prelude.seq`
+                      Prelude.rnf serverUrl `Prelude.seq`
+                        Prelude.rnf secretArn `Prelude.seq`
+                          Prelude.rnf version
 
 instance Data.ToJSON ConfluenceConfiguration where
   toJSON ConfluenceConfiguration' {..} =

@@ -207,9 +207,9 @@ instance Prelude.Hashable UpdateCertificateAuthority where
 
 instance Prelude.NFData UpdateCertificateAuthority where
   rnf UpdateCertificateAuthority' {..} =
-    Prelude.rnf revocationConfiguration
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf certificateAuthorityArn
+    Prelude.rnf revocationConfiguration `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf certificateAuthorityArn
 
 instance Data.ToHeaders UpdateCertificateAuthority where
   toHeaders =

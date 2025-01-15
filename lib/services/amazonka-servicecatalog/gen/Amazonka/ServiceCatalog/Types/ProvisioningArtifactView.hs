@@ -87,5 +87,5 @@ instance Prelude.Hashable ProvisioningArtifactView where
 
 instance Prelude.NFData ProvisioningArtifactView where
   rnf ProvisioningArtifactView' {..} =
-    Prelude.rnf productViewSummary
-      `Prelude.seq` Prelude.rnf provisioningArtifact
+    Prelude.rnf productViewSummary `Prelude.seq`
+      Prelude.rnf provisioningArtifact

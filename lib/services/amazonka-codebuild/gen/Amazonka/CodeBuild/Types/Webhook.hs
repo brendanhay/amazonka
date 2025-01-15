@@ -180,10 +180,10 @@ instance Prelude.Hashable Webhook where
 
 instance Prelude.NFData Webhook where
   rnf Webhook' {..} =
-    Prelude.rnf branchFilter
-      `Prelude.seq` Prelude.rnf buildType
-      `Prelude.seq` Prelude.rnf filterGroups
-      `Prelude.seq` Prelude.rnf lastModifiedSecret
-      `Prelude.seq` Prelude.rnf payloadUrl
-      `Prelude.seq` Prelude.rnf secret
-      `Prelude.seq` Prelude.rnf url
+    Prelude.rnf branchFilter `Prelude.seq`
+      Prelude.rnf buildType `Prelude.seq`
+        Prelude.rnf filterGroups `Prelude.seq`
+          Prelude.rnf lastModifiedSecret `Prelude.seq`
+            Prelude.rnf payloadUrl `Prelude.seq`
+              Prelude.rnf secret `Prelude.seq`
+                Prelude.rnf url

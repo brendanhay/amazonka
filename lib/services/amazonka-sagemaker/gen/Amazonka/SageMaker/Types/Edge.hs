@@ -101,6 +101,6 @@ instance Prelude.Hashable Edge where
 
 instance Prelude.NFData Edge where
   rnf Edge' {..} =
-    Prelude.rnf associationType
-      `Prelude.seq` Prelude.rnf destinationArn
-      `Prelude.seq` Prelude.rnf sourceArn
+    Prelude.rnf associationType `Prelude.seq`
+      Prelude.rnf destinationArn `Prelude.seq`
+        Prelude.rnf sourceArn

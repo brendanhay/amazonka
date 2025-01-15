@@ -191,5 +191,5 @@ instance
     CreateExclusionsPreviewResponse
   where
   rnf CreateExclusionsPreviewResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf previewToken
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf previewToken

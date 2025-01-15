@@ -199,9 +199,9 @@ instance Prelude.Hashable OnDemandOptions where
 
 instance Prelude.NFData OnDemandOptions where
   rnf OnDemandOptions' {..} =
-    Prelude.rnf allocationStrategy
-      `Prelude.seq` Prelude.rnf capacityReservationOptions
-      `Prelude.seq` Prelude.rnf maxTotalPrice
-      `Prelude.seq` Prelude.rnf minTargetCapacity
-      `Prelude.seq` Prelude.rnf singleAvailabilityZone
-      `Prelude.seq` Prelude.rnf singleInstanceType
+    Prelude.rnf allocationStrategy `Prelude.seq`
+      Prelude.rnf capacityReservationOptions `Prelude.seq`
+        Prelude.rnf maxTotalPrice `Prelude.seq`
+          Prelude.rnf minTargetCapacity `Prelude.seq`
+            Prelude.rnf singleAvailabilityZone `Prelude.seq`
+              Prelude.rnf singleInstanceType

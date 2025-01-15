@@ -110,11 +110,11 @@ instance Prelude.Hashable TdscdmaNmrObj where
 
 instance Prelude.NFData TdscdmaNmrObj where
   rnf TdscdmaNmrObj' {..} =
-    Prelude.rnf pathLoss
-      `Prelude.seq` Prelude.rnf rscp
-      `Prelude.seq` Prelude.rnf utranCid
-      `Prelude.seq` Prelude.rnf uarfcn
-      `Prelude.seq` Prelude.rnf cellParams
+    Prelude.rnf pathLoss `Prelude.seq`
+      Prelude.rnf rscp `Prelude.seq`
+        Prelude.rnf utranCid `Prelude.seq`
+          Prelude.rnf uarfcn `Prelude.seq`
+            Prelude.rnf cellParams
 
 instance Data.ToJSON TdscdmaNmrObj where
   toJSON TdscdmaNmrObj' {..} =

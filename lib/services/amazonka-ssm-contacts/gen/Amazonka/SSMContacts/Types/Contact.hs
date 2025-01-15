@@ -113,7 +113,7 @@ instance Prelude.Hashable Contact where
 
 instance Prelude.NFData Contact where
   rnf Contact' {..} =
-    Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf contactArn
-      `Prelude.seq` Prelude.rnf alias
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf displayName `Prelude.seq`
+      Prelude.rnf contactArn `Prelude.seq`
+        Prelude.rnf alias `Prelude.seq`
+          Prelude.rnf type'

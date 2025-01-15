@@ -150,10 +150,10 @@ instance Prelude.Hashable DescribeTaskSets where
 
 instance Prelude.NFData DescribeTaskSets where
   rnf DescribeTaskSets' {..} =
-    Prelude.rnf include
-      `Prelude.seq` Prelude.rnf taskSets
-      `Prelude.seq` Prelude.rnf cluster
-      `Prelude.seq` Prelude.rnf service
+    Prelude.rnf include `Prelude.seq`
+      Prelude.rnf taskSets `Prelude.seq`
+        Prelude.rnf cluster `Prelude.seq`
+          Prelude.rnf service
 
 instance Data.ToHeaders DescribeTaskSets where
   toHeaders =
@@ -237,6 +237,6 @@ describeTaskSetsResponse_httpStatus = Lens.lens (\DescribeTaskSetsResponse' {htt
 
 instance Prelude.NFData DescribeTaskSetsResponse where
   rnf DescribeTaskSetsResponse' {..} =
-    Prelude.rnf failures
-      `Prelude.seq` Prelude.rnf taskSets
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf failures `Prelude.seq`
+      Prelude.rnf taskSets `Prelude.seq`
+        Prelude.rnf httpStatus

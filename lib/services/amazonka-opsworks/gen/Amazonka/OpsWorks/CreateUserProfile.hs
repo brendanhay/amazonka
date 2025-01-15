@@ -154,10 +154,10 @@ instance Prelude.Hashable CreateUserProfile where
 
 instance Prelude.NFData CreateUserProfile where
   rnf CreateUserProfile' {..} =
-    Prelude.rnf allowSelfManagement
-      `Prelude.seq` Prelude.rnf sshPublicKey
-      `Prelude.seq` Prelude.rnf sshUsername
-      `Prelude.seq` Prelude.rnf iamUserArn
+    Prelude.rnf allowSelfManagement `Prelude.seq`
+      Prelude.rnf sshPublicKey `Prelude.seq`
+        Prelude.rnf sshUsername `Prelude.seq`
+          Prelude.rnf iamUserArn
 
 instance Data.ToHeaders CreateUserProfile where
   toHeaders =
@@ -235,5 +235,5 @@ createUserProfileResponse_httpStatus = Lens.lens (\CreateUserProfileResponse' {h
 
 instance Prelude.NFData CreateUserProfileResponse where
   rnf CreateUserProfileResponse' {..} =
-    Prelude.rnf iamUserArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf iamUserArn `Prelude.seq`
+      Prelude.rnf httpStatus

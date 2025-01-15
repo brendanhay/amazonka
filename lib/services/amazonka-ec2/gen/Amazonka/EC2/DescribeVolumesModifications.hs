@@ -238,12 +238,12 @@ instance Core.AWSPager DescribeVolumesModifications where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeVolumesModifications_nextToken
-          Lens..~ rs
-          Lens.^? describeVolumesModificationsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeVolumesModifications_nextToken
+              Lens..~ rs
+              Lens.^? describeVolumesModificationsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeVolumesModifications where
   type
@@ -278,11 +278,11 @@ instance
 
 instance Prelude.NFData DescribeVolumesModifications where
   rnf DescribeVolumesModifications' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf volumeIds
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf volumeIds
 
 instance Data.ToHeaders DescribeVolumesModifications where
   toHeaders = Prelude.const Prelude.mempty
@@ -362,6 +362,6 @@ instance
     DescribeVolumesModificationsResponse
   where
   rnf DescribeVolumesModificationsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf volumesModifications
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf volumesModifications `Prelude.seq`
+        Prelude.rnf httpStatus

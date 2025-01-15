@@ -153,11 +153,11 @@ instance Prelude.Hashable UpdateStreamingImage where
 
 instance Prelude.NFData UpdateStreamingImage where
   rnf UpdateStreamingImage' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf streamingImageId
-      `Prelude.seq` Prelude.rnf studioId
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf streamingImageId `Prelude.seq`
+            Prelude.rnf studioId
 
 instance Data.ToHeaders UpdateStreamingImage where
   toHeaders UpdateStreamingImage' {..} =
@@ -228,5 +228,5 @@ updateStreamingImageResponse_httpStatus = Lens.lens (\UpdateStreamingImageRespon
 
 instance Prelude.NFData UpdateStreamingImageResponse where
   rnf UpdateStreamingImageResponse' {..} =
-    Prelude.rnf streamingImage
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf streamingImage `Prelude.seq`
+      Prelude.rnf httpStatus

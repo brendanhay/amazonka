@@ -96,6 +96,6 @@ instance Prelude.Hashable ProtectedTask where
 
 instance Prelude.NFData ProtectedTask where
   rnf ProtectedTask' {..} =
-    Prelude.rnf expirationDate
-      `Prelude.seq` Prelude.rnf protectionEnabled
-      `Prelude.seq` Prelude.rnf taskArn
+    Prelude.rnf expirationDate `Prelude.seq`
+      Prelude.rnf protectionEnabled `Prelude.seq`
+        Prelude.rnf taskArn

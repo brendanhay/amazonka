@@ -372,13 +372,13 @@ instance Prelude.Hashable CreateCertificateAuthority where
 
 instance Prelude.NFData CreateCertificateAuthority where
   rnf CreateCertificateAuthority' {..} =
-    Prelude.rnf idempotencyToken
-      `Prelude.seq` Prelude.rnf keyStorageSecurityStandard
-      `Prelude.seq` Prelude.rnf revocationConfiguration
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf usageMode
-      `Prelude.seq` Prelude.rnf certificateAuthorityConfiguration
-      `Prelude.seq` Prelude.rnf certificateAuthorityType
+    Prelude.rnf idempotencyToken `Prelude.seq`
+      Prelude.rnf keyStorageSecurityStandard `Prelude.seq`
+        Prelude.rnf revocationConfiguration `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf usageMode `Prelude.seq`
+              Prelude.rnf certificateAuthorityConfiguration `Prelude.seq`
+                Prelude.rnf certificateAuthorityType
 
 instance Data.ToHeaders CreateCertificateAuthority where
   toHeaders =
@@ -477,5 +477,5 @@ instance
     CreateCertificateAuthorityResponse
   where
   rnf CreateCertificateAuthorityResponse' {..} =
-    Prelude.rnf certificateAuthorityArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf certificateAuthorityArn `Prelude.seq`
+      Prelude.rnf httpStatus

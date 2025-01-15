@@ -88,8 +88,8 @@ instance Prelude.Hashable AccessDescription where
 
 instance Prelude.NFData AccessDescription where
   rnf AccessDescription' {..} =
-    Prelude.rnf accessMethod
-      `Prelude.seq` Prelude.rnf accessLocation
+    Prelude.rnf accessMethod `Prelude.seq`
+      Prelude.rnf accessLocation
 
 instance Data.ToJSON AccessDescription where
   toJSON AccessDescription' {..} =

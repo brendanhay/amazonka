@@ -79,8 +79,8 @@ instance Prelude.Hashable ReservedInstanceLimitPrice where
 
 instance Prelude.NFData ReservedInstanceLimitPrice where
   rnf ReservedInstanceLimitPrice' {..} =
-    Prelude.rnf amount
-      `Prelude.seq` Prelude.rnf currencyCode
+    Prelude.rnf amount `Prelude.seq`
+      Prelude.rnf currencyCode
 
 instance Data.ToQuery ReservedInstanceLimitPrice where
   toQuery ReservedInstanceLimitPrice' {..} =

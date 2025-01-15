@@ -188,10 +188,10 @@ instance Prelude.Hashable Script where
 
 instance Prelude.NFData Script where
   rnf Script' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf scriptArn
-      `Prelude.seq` Prelude.rnf scriptId
-      `Prelude.seq` Prelude.rnf sizeOnDisk
-      `Prelude.seq` Prelude.rnf storageLocation
-      `Prelude.seq` Prelude.rnf version
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf scriptArn `Prelude.seq`
+          Prelude.rnf scriptId `Prelude.seq`
+            Prelude.rnf sizeOnDisk `Prelude.seq`
+              Prelude.rnf storageLocation `Prelude.seq`
+                Prelude.rnf version

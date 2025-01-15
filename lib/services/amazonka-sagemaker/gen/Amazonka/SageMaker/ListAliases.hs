@@ -143,12 +143,12 @@ instance Core.AWSPager ListAliases where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listAliases_nextToken
-          Lens..~ rs
-          Lens.^? listAliasesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listAliases_nextToken
+              Lens..~ rs
+              Lens.^? listAliasesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAliases where
   type AWSResponse ListAliases = ListAliasesResponse
@@ -177,11 +177,11 @@ instance Prelude.Hashable ListAliases where
 
 instance Prelude.NFData ListAliases where
   rnf ListAliases' {..} =
-    Prelude.rnf alias
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf imageName
+    Prelude.rnf alias `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf version `Prelude.seq`
+            Prelude.rnf imageName
 
 instance Data.ToHeaders ListAliases where
   toHeaders =
@@ -263,6 +263,6 @@ listAliasesResponse_httpStatus = Lens.lens (\ListAliasesResponse' {httpStatus} -
 
 instance Prelude.NFData ListAliasesResponse where
   rnf ListAliasesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sageMakerImageVersionAliases
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf sageMakerImageVersionAliases `Prelude.seq`
+        Prelude.rnf httpStatus

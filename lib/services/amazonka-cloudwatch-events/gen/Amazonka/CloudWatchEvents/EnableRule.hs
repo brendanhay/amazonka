@@ -104,8 +104,8 @@ instance Prelude.Hashable EnableRule where
 
 instance Prelude.NFData EnableRule where
   rnf EnableRule' {..} =
-    Prelude.rnf eventBusName
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf eventBusName `Prelude.seq`
+      Prelude.rnf name
 
 instance Data.ToHeaders EnableRule where
   toHeaders =

@@ -270,13 +270,13 @@ instance
     DescribeSourceLocationResponse
   where
   rnf DescribeSourceLocationResponse' {..} =
-    Prelude.rnf accessConfiguration
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf defaultSegmentDeliveryConfiguration
-      `Prelude.seq` Prelude.rnf httpConfiguration
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf segmentDeliveryConfigurations
-      `Prelude.seq` Prelude.rnf sourceLocationName
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf accessConfiguration `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf creationTime `Prelude.seq`
+          Prelude.rnf defaultSegmentDeliveryConfiguration `Prelude.seq`
+            Prelude.rnf httpConfiguration `Prelude.seq`
+              Prelude.rnf lastModifiedTime `Prelude.seq`
+                Prelude.rnf segmentDeliveryConfigurations `Prelude.seq`
+                  Prelude.rnf sourceLocationName `Prelude.seq`
+                    Prelude.rnf tags `Prelude.seq`
+                      Prelude.rnf httpStatus

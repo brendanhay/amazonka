@@ -188,5 +188,5 @@ cancelHandshakeResponse_httpStatus = Lens.lens (\CancelHandshakeResponse' {httpS
 
 instance Prelude.NFData CancelHandshakeResponse where
   rnf CancelHandshakeResponse' {..} =
-    Prelude.rnf handshake
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf handshake `Prelude.seq`
+      Prelude.rnf httpStatus

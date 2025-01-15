@@ -156,10 +156,10 @@ instance Prelude.Hashable CustomerAgentInfo where
 
 instance Prelude.NFData CustomerAgentInfo where
   rnf CustomerAgentInfo' {..} =
-    Prelude.rnf activeAgents
-      `Prelude.seq` Prelude.rnf healthyAgents
-      `Prelude.seq` Prelude.rnf blackListedAgents
-      `Prelude.seq` Prelude.rnf shutdownAgents
-      `Prelude.seq` Prelude.rnf unhealthyAgents
-      `Prelude.seq` Prelude.rnf totalAgents
-      `Prelude.seq` Prelude.rnf unknownAgents
+    Prelude.rnf activeAgents `Prelude.seq`
+      Prelude.rnf healthyAgents `Prelude.seq`
+        Prelude.rnf blackListedAgents `Prelude.seq`
+          Prelude.rnf shutdownAgents `Prelude.seq`
+            Prelude.rnf unhealthyAgents `Prelude.seq`
+              Prelude.rnf totalAgents `Prelude.seq`
+                Prelude.rnf unknownAgents

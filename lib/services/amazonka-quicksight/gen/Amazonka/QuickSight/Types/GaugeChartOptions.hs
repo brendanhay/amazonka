@@ -118,11 +118,11 @@ instance Prelude.Hashable GaugeChartOptions where
 
 instance Prelude.NFData GaugeChartOptions where
   rnf GaugeChartOptions' {..} =
-    Prelude.rnf arc
-      `Prelude.seq` Prelude.rnf arcAxis
-      `Prelude.seq` Prelude.rnf comparison
-      `Prelude.seq` Prelude.rnf primaryValueDisplayType
-      `Prelude.seq` Prelude.rnf primaryValueFontConfiguration
+    Prelude.rnf arc `Prelude.seq`
+      Prelude.rnf arcAxis `Prelude.seq`
+        Prelude.rnf comparison `Prelude.seq`
+          Prelude.rnf primaryValueDisplayType `Prelude.seq`
+            Prelude.rnf primaryValueFontConfiguration
 
 instance Data.ToJSON GaugeChartOptions where
   toJSON GaugeChartOptions' {..} =

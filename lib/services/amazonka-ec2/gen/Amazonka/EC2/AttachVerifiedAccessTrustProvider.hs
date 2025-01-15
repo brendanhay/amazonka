@@ -168,10 +168,10 @@ instance
     AttachVerifiedAccessTrustProvider
   where
   rnf AttachVerifiedAccessTrustProvider' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf verifiedAccessInstanceId
-      `Prelude.seq` Prelude.rnf verifiedAccessTrustProviderId
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf verifiedAccessInstanceId `Prelude.seq`
+          Prelude.rnf verifiedAccessTrustProviderId
 
 instance
   Data.ToHeaders
@@ -260,6 +260,6 @@ instance
     AttachVerifiedAccessTrustProviderResponse
   where
   rnf AttachVerifiedAccessTrustProviderResponse' {..} =
-    Prelude.rnf verifiedAccessInstance
-      `Prelude.seq` Prelude.rnf verifiedAccessTrustProvider
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf verifiedAccessInstance `Prelude.seq`
+      Prelude.rnf verifiedAccessTrustProvider `Prelude.seq`
+        Prelude.rnf httpStatus

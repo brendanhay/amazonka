@@ -224,13 +224,13 @@ instance Prelude.Hashable UpdateFleetAttributes where
 
 instance Prelude.NFData UpdateFleetAttributes where
   rnf UpdateFleetAttributes' {..} =
-    Prelude.rnf anywhereConfiguration
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf metricGroups
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf newGameSessionProtectionPolicy'
-      `Prelude.seq` Prelude.rnf resourceCreationLimitPolicy
-      `Prelude.seq` Prelude.rnf fleetId
+    Prelude.rnf anywhereConfiguration `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf metricGroups `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf newGameSessionProtectionPolicy' `Prelude.seq`
+              Prelude.rnf resourceCreationLimitPolicy `Prelude.seq`
+                Prelude.rnf fleetId
 
 instance Data.ToHeaders UpdateFleetAttributes where
   toHeaders =
@@ -332,6 +332,6 @@ updateFleetAttributesResponse_httpStatus = Lens.lens (\UpdateFleetAttributesResp
 
 instance Prelude.NFData UpdateFleetAttributesResponse where
   rnf UpdateFleetAttributesResponse' {..} =
-    Prelude.rnf fleetArn
-      `Prelude.seq` Prelude.rnf fleetId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf fleetArn `Prelude.seq`
+      Prelude.rnf fleetId `Prelude.seq`
+        Prelude.rnf httpStatus

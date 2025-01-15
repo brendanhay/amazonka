@@ -97,8 +97,8 @@ instance Prelude.Hashable Condition where
 
 instance Prelude.NFData Condition where
   rnf Condition' {..} =
-    Prelude.rnf actionCondition
-      `Prelude.seq` Prelude.rnf labelNameCondition
+    Prelude.rnf actionCondition `Prelude.seq`
+      Prelude.rnf labelNameCondition
 
 instance Data.ToJSON Condition where
   toJSON Condition' {..} =

@@ -123,8 +123,8 @@ instance Prelude.Hashable Urls where
 
 instance Prelude.NFData Urls where
   rnf Urls' {..} =
-    Prelude.rnf seedUrlConfiguration
-      `Prelude.seq` Prelude.rnf siteMapsConfiguration
+    Prelude.rnf seedUrlConfiguration `Prelude.seq`
+      Prelude.rnf siteMapsConfiguration
 
 instance Data.ToJSON Urls where
   toJSON Urls' {..} =

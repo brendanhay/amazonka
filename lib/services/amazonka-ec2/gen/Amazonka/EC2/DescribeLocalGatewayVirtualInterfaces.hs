@@ -209,12 +209,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeLocalGatewayVirtualInterfaces_nextToken
-          Lens..~ rs
-          Lens.^? describeLocalGatewayVirtualInterfacesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeLocalGatewayVirtualInterfaces_nextToken
+              Lens..~ rs
+              Lens.^? describeLocalGatewayVirtualInterfacesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -258,11 +258,11 @@ instance
     DescribeLocalGatewayVirtualInterfaces
   where
   rnf DescribeLocalGatewayVirtualInterfaces' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf localGatewayVirtualInterfaceIds
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf localGatewayVirtualInterfaceIds `Prelude.seq`
+          Prelude.rnf maxResults `Prelude.seq`
+            Prelude.rnf nextToken
 
 instance
   Data.ToHeaders
@@ -357,6 +357,6 @@ instance
   where
   rnf
     DescribeLocalGatewayVirtualInterfacesResponse' {..} =
-      Prelude.rnf localGatewayVirtualInterfaces
-        `Prelude.seq` Prelude.rnf nextToken
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf localGatewayVirtualInterfaces `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf httpStatus

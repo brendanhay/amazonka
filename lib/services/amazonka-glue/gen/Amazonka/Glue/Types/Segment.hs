@@ -78,8 +78,8 @@ instance Prelude.Hashable Segment where
 
 instance Prelude.NFData Segment where
   rnf Segment' {..} =
-    Prelude.rnf segmentNumber
-      `Prelude.seq` Prelude.rnf totalSegments
+    Prelude.rnf segmentNumber `Prelude.seq`
+      Prelude.rnf totalSegments
 
 instance Data.ToJSON Segment where
   toJSON Segment' {..} =

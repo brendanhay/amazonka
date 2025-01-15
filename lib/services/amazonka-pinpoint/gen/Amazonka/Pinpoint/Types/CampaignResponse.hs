@@ -409,29 +409,29 @@ instance Prelude.Hashable CampaignResponse where
 
 instance Prelude.NFData CampaignResponse where
   rnf CampaignResponse' {..} =
-    Prelude.rnf additionalTreatments
-      `Prelude.seq` Prelude.rnf customDeliveryConfiguration
-      `Prelude.seq` Prelude.rnf defaultState
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf holdoutPercent
-      `Prelude.seq` Prelude.rnf hook
-      `Prelude.seq` Prelude.rnf isPaused
-      `Prelude.seq` Prelude.rnf limits
-      `Prelude.seq` Prelude.rnf messageConfiguration
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf priority
-      `Prelude.seq` Prelude.rnf schedule
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf templateConfiguration
-      `Prelude.seq` Prelude.rnf treatmentDescription
-      `Prelude.seq` Prelude.rnf treatmentName
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf segmentId
-      `Prelude.seq` Prelude.rnf segmentVersion
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf
-        applicationId
+    Prelude.rnf additionalTreatments `Prelude.seq`
+      Prelude.rnf customDeliveryConfiguration `Prelude.seq`
+        Prelude.rnf defaultState `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf holdoutPercent `Prelude.seq`
+              Prelude.rnf hook `Prelude.seq`
+                Prelude.rnf isPaused `Prelude.seq`
+                  Prelude.rnf limits `Prelude.seq`
+                    Prelude.rnf messageConfiguration `Prelude.seq`
+                      Prelude.rnf name `Prelude.seq`
+                        Prelude.rnf priority `Prelude.seq`
+                          Prelude.rnf schedule `Prelude.seq`
+                            Prelude.rnf state `Prelude.seq`
+                              Prelude.rnf templateConfiguration `Prelude.seq`
+                                Prelude.rnf treatmentDescription `Prelude.seq`
+                                  Prelude.rnf treatmentName `Prelude.seq`
+                                    Prelude.rnf version `Prelude.seq`
+                                      Prelude.rnf tags `Prelude.seq`
+                                        Prelude.rnf lastModifiedDate `Prelude.seq`
+                                          Prelude.rnf creationDate `Prelude.seq`
+                                            Prelude.rnf segmentId `Prelude.seq`
+                                              Prelude.rnf segmentVersion `Prelude.seq`
+                                                Prelude.rnf id `Prelude.seq`
+                                                  Prelude.rnf arn `Prelude.seq`
+                                                    Prelude.rnf
+                                                      applicationId

@@ -153,14 +153,14 @@ instance Prelude.Hashable HeatMapConfiguration where
 
 instance Prelude.NFData HeatMapConfiguration where
   rnf HeatMapConfiguration' {..} =
-    Prelude.rnf colorScale
-      `Prelude.seq` Prelude.rnf columnLabelOptions
-      `Prelude.seq` Prelude.rnf dataLabels
-      `Prelude.seq` Prelude.rnf fieldWells
-      `Prelude.seq` Prelude.rnf legend
-      `Prelude.seq` Prelude.rnf rowLabelOptions
-      `Prelude.seq` Prelude.rnf sortConfiguration
-      `Prelude.seq` Prelude.rnf tooltip
+    Prelude.rnf colorScale `Prelude.seq`
+      Prelude.rnf columnLabelOptions `Prelude.seq`
+        Prelude.rnf dataLabels `Prelude.seq`
+          Prelude.rnf fieldWells `Prelude.seq`
+            Prelude.rnf legend `Prelude.seq`
+              Prelude.rnf rowLabelOptions `Prelude.seq`
+                Prelude.rnf sortConfiguration `Prelude.seq`
+                  Prelude.rnf tooltip
 
 instance Data.ToJSON HeatMapConfiguration where
   toJSON HeatMapConfiguration' {..} =

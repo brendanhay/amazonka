@@ -171,13 +171,13 @@ instance Prelude.Hashable LocalGatewayRoute where
 
 instance Prelude.NFData LocalGatewayRoute where
   rnf LocalGatewayRoute' {..} =
-    Prelude.rnf coipPoolId
-      `Prelude.seq` Prelude.rnf destinationCidrBlock
-      `Prelude.seq` Prelude.rnf localGatewayRouteTableArn
-      `Prelude.seq` Prelude.rnf localGatewayRouteTableId
-      `Prelude.seq` Prelude.rnf localGatewayVirtualInterfaceGroupId
-      `Prelude.seq` Prelude.rnf networkInterfaceId
-      `Prelude.seq` Prelude.rnf ownerId
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf subnetId
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf coipPoolId `Prelude.seq`
+      Prelude.rnf destinationCidrBlock `Prelude.seq`
+        Prelude.rnf localGatewayRouteTableArn `Prelude.seq`
+          Prelude.rnf localGatewayRouteTableId `Prelude.seq`
+            Prelude.rnf localGatewayVirtualInterfaceGroupId `Prelude.seq`
+              Prelude.rnf networkInterfaceId `Prelude.seq`
+                Prelude.rnf ownerId `Prelude.seq`
+                  Prelude.rnf state `Prelude.seq`
+                    Prelude.rnf subnetId `Prelude.seq`
+                      Prelude.rnf type'

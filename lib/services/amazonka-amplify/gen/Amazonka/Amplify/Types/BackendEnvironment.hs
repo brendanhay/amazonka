@@ -146,9 +146,9 @@ instance Prelude.Hashable BackendEnvironment where
 
 instance Prelude.NFData BackendEnvironment where
   rnf BackendEnvironment' {..} =
-    Prelude.rnf deploymentArtifacts
-      `Prelude.seq` Prelude.rnf stackName
-      `Prelude.seq` Prelude.rnf backendEnvironmentArn
-      `Prelude.seq` Prelude.rnf environmentName
-      `Prelude.seq` Prelude.rnf createTime
-      `Prelude.seq` Prelude.rnf updateTime
+    Prelude.rnf deploymentArtifacts `Prelude.seq`
+      Prelude.rnf stackName `Prelude.seq`
+        Prelude.rnf backendEnvironmentArn `Prelude.seq`
+          Prelude.rnf environmentName `Prelude.seq`
+            Prelude.rnf createTime `Prelude.seq`
+              Prelude.rnf updateTime

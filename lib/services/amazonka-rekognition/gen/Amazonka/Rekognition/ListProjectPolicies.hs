@@ -132,12 +132,12 @@ instance Core.AWSPager ListProjectPolicies where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listProjectPolicies_nextToken
-          Lens..~ rs
-          Lens.^? listProjectPoliciesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listProjectPolicies_nextToken
+              Lens..~ rs
+              Lens.^? listProjectPoliciesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListProjectPolicies where
   type
@@ -166,9 +166,9 @@ instance Prelude.Hashable ListProjectPolicies where
 
 instance Prelude.NFData ListProjectPolicies where
   rnf ListProjectPolicies' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf projectArn
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf projectArn
 
 instance Data.ToHeaders ListProjectPolicies where
   toHeaders =
@@ -257,6 +257,6 @@ listProjectPoliciesResponse_httpStatus = Lens.lens (\ListProjectPoliciesResponse
 
 instance Prelude.NFData ListProjectPoliciesResponse where
   rnf ListProjectPoliciesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf projectPolicies
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf projectPolicies `Prelude.seq`
+        Prelude.rnf httpStatus

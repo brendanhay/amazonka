@@ -180,5 +180,5 @@ enableAllFeaturesResponse_httpStatus = Lens.lens (\EnableAllFeaturesResponse' {h
 
 instance Prelude.NFData EnableAllFeaturesResponse where
   rnf EnableAllFeaturesResponse' {..} =
-    Prelude.rnf handshake
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf handshake `Prelude.seq`
+      Prelude.rnf httpStatus

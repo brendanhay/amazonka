@@ -174,11 +174,11 @@ instance Prelude.Hashable CreateWorldExportJob where
 
 instance Prelude.NFData CreateWorldExportJob where
   rnf CreateWorldExportJob' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf worlds
-      `Prelude.seq` Prelude.rnf outputLocation
-      `Prelude.seq` Prelude.rnf iamRole
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf worlds `Prelude.seq`
+          Prelude.rnf outputLocation `Prelude.seq`
+            Prelude.rnf iamRole
 
 instance Data.ToHeaders CreateWorldExportJob where
   toHeaders =
@@ -452,12 +452,12 @@ createWorldExportJobResponse_httpStatus = Lens.lens (\CreateWorldExportJobRespon
 
 instance Prelude.NFData CreateWorldExportJobResponse where
   rnf CreateWorldExportJobResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf failureCode
-      `Prelude.seq` Prelude.rnf iamRole
-      `Prelude.seq` Prelude.rnf outputLocation
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf clientRequestToken `Prelude.seq`
+        Prelude.rnf createdAt `Prelude.seq`
+          Prelude.rnf failureCode `Prelude.seq`
+            Prelude.rnf iamRole `Prelude.seq`
+              Prelude.rnf outputLocation `Prelude.seq`
+                Prelude.rnf status `Prelude.seq`
+                  Prelude.rnf tags `Prelude.seq`
+                    Prelude.rnf httpStatus

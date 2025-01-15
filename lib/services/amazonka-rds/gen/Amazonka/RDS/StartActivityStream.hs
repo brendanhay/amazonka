@@ -187,11 +187,11 @@ instance Prelude.Hashable StartActivityStream where
 
 instance Prelude.NFData StartActivityStream where
   rnf StartActivityStream' {..} =
-    Prelude.rnf applyImmediately
-      `Prelude.seq` Prelude.rnf engineNativeAuditFieldsIncluded
-      `Prelude.seq` Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf mode
-      `Prelude.seq` Prelude.rnf kmsKeyId
+    Prelude.rnf applyImmediately `Prelude.seq`
+      Prelude.rnf engineNativeAuditFieldsIncluded `Prelude.seq`
+        Prelude.rnf resourceArn `Prelude.seq`
+          Prelude.rnf mode `Prelude.seq`
+            Prelude.rnf kmsKeyId
 
 instance Data.ToHeaders StartActivityStream where
   toHeaders = Prelude.const Prelude.mempty
@@ -313,10 +313,10 @@ startActivityStreamResponse_httpStatus = Lens.lens (\StartActivityStreamResponse
 
 instance Prelude.NFData StartActivityStreamResponse where
   rnf StartActivityStreamResponse' {..} =
-    Prelude.rnf applyImmediately
-      `Prelude.seq` Prelude.rnf engineNativeAuditFieldsIncluded
-      `Prelude.seq` Prelude.rnf kinesisStreamName
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf mode
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf applyImmediately `Prelude.seq`
+      Prelude.rnf engineNativeAuditFieldsIncluded `Prelude.seq`
+        Prelude.rnf kinesisStreamName `Prelude.seq`
+          Prelude.rnf kmsKeyId `Prelude.seq`
+            Prelude.rnf mode `Prelude.seq`
+              Prelude.rnf status `Prelude.seq`
+                Prelude.rnf httpStatus

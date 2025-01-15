@@ -134,10 +134,10 @@ instance Prelude.Hashable DeleteBGPPeer where
 
 instance Prelude.NFData DeleteBGPPeer where
   rnf DeleteBGPPeer' {..} =
-    Prelude.rnf asn
-      `Prelude.seq` Prelude.rnf bgpPeerId
-      `Prelude.seq` Prelude.rnf customerAddress
-      `Prelude.seq` Prelude.rnf virtualInterfaceId
+    Prelude.rnf asn `Prelude.seq`
+      Prelude.rnf bgpPeerId `Prelude.seq`
+        Prelude.rnf customerAddress `Prelude.seq`
+          Prelude.rnf virtualInterfaceId
 
 instance Data.ToHeaders DeleteBGPPeer where
   toHeaders =
@@ -214,5 +214,5 @@ deleteBGPPeerResponse_httpStatus = Lens.lens (\DeleteBGPPeerResponse' {httpStatu
 
 instance Prelude.NFData DeleteBGPPeerResponse where
   rnf DeleteBGPPeerResponse' {..} =
-    Prelude.rnf virtualInterface
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf virtualInterface `Prelude.seq`
+      Prelude.rnf httpStatus

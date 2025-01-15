@@ -198,9 +198,9 @@ instance Prelude.Hashable ResendValidationEmail where
 
 instance Prelude.NFData ResendValidationEmail where
   rnf ResendValidationEmail' {..} =
-    Prelude.rnf certificateArn
-      `Prelude.seq` Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf validationDomain
+    Prelude.rnf certificateArn `Prelude.seq`
+      Prelude.rnf domain `Prelude.seq`
+        Prelude.rnf validationDomain
 
 instance Data.ToHeaders ResendValidationEmail where
   toHeaders =

@@ -194,18 +194,18 @@ instance Prelude.Hashable CoverageFilterCriteria where
 
 instance Prelude.NFData CoverageFilterCriteria where
   rnf CoverageFilterCriteria' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf ec2InstanceTags
-      `Prelude.seq` Prelude.rnf ecrImageTags
-      `Prelude.seq` Prelude.rnf ecrRepositoryName
-      `Prelude.seq` Prelude.rnf lambdaFunctionName
-      `Prelude.seq` Prelude.rnf lambdaFunctionRuntime
-      `Prelude.seq` Prelude.rnf lambdaFunctionTags
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf scanStatusCode
-      `Prelude.seq` Prelude.rnf scanStatusReason
-      `Prelude.seq` Prelude.rnf scanType
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf ec2InstanceTags `Prelude.seq`
+        Prelude.rnf ecrImageTags `Prelude.seq`
+          Prelude.rnf ecrRepositoryName `Prelude.seq`
+            Prelude.rnf lambdaFunctionName `Prelude.seq`
+              Prelude.rnf lambdaFunctionRuntime `Prelude.seq`
+                Prelude.rnf lambdaFunctionTags `Prelude.seq`
+                  Prelude.rnf resourceId `Prelude.seq`
+                    Prelude.rnf resourceType `Prelude.seq`
+                      Prelude.rnf scanStatusCode `Prelude.seq`
+                        Prelude.rnf scanStatusReason `Prelude.seq`
+                          Prelude.rnf scanType
 
 instance Data.ToJSON CoverageFilterCriteria where
   toJSON CoverageFilterCriteria' {..} =

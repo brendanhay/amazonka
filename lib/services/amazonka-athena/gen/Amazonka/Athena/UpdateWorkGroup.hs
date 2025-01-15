@@ -134,10 +134,10 @@ instance Prelude.Hashable UpdateWorkGroup where
 
 instance Prelude.NFData UpdateWorkGroup where
   rnf UpdateWorkGroup' {..} =
-    Prelude.rnf configurationUpdates
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf workGroup
+    Prelude.rnf configurationUpdates `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf state `Prelude.seq`
+          Prelude.rnf workGroup
 
 instance Data.ToHeaders UpdateWorkGroup where
   toHeaders =

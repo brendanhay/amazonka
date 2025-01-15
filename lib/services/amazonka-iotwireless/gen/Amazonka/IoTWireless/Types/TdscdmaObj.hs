@@ -154,15 +154,15 @@ instance Prelude.Hashable TdscdmaObj where
 
 instance Prelude.NFData TdscdmaObj where
   rnf TdscdmaObj' {..} =
-    Prelude.rnf lac
-      `Prelude.seq` Prelude.rnf pathLoss
-      `Prelude.seq` Prelude.rnf rscp
-      `Prelude.seq` Prelude.rnf tdscdmaLocalId
-      `Prelude.seq` Prelude.rnf tdscdmaNmr
-      `Prelude.seq` Prelude.rnf tdscdmaTimingAdvance
-      `Prelude.seq` Prelude.rnf mcc
-      `Prelude.seq` Prelude.rnf mnc
-      `Prelude.seq` Prelude.rnf utranCid
+    Prelude.rnf lac `Prelude.seq`
+      Prelude.rnf pathLoss `Prelude.seq`
+        Prelude.rnf rscp `Prelude.seq`
+          Prelude.rnf tdscdmaLocalId `Prelude.seq`
+            Prelude.rnf tdscdmaNmr `Prelude.seq`
+              Prelude.rnf tdscdmaTimingAdvance `Prelude.seq`
+                Prelude.rnf mcc `Prelude.seq`
+                  Prelude.rnf mnc `Prelude.seq`
+                    Prelude.rnf utranCid
 
 instance Data.ToJSON TdscdmaObj where
   toJSON TdscdmaObj' {..} =

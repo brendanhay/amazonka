@@ -144,12 +144,12 @@ instance Core.AWSPager DescribeCacheSecurityGroups where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeCacheSecurityGroups_marker
-          Lens..~ rs
-          Lens.^? describeCacheSecurityGroupsResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeCacheSecurityGroups_marker
+              Lens..~ rs
+              Lens.^? describeCacheSecurityGroupsResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeCacheSecurityGroups where
   type
@@ -180,9 +180,9 @@ instance Prelude.Hashable DescribeCacheSecurityGroups where
 
 instance Prelude.NFData DescribeCacheSecurityGroups where
   rnf DescribeCacheSecurityGroups' {..} =
-    Prelude.rnf cacheSecurityGroupName
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
+    Prelude.rnf cacheSecurityGroupName `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf maxRecords
 
 instance Data.ToHeaders DescribeCacheSecurityGroups where
   toHeaders = Prelude.const Prelude.mempty
@@ -263,6 +263,6 @@ instance
     DescribeCacheSecurityGroupsResponse
   where
   rnf DescribeCacheSecurityGroupsResponse' {..} =
-    Prelude.rnf cacheSecurityGroups
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf cacheSecurityGroups `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf httpStatus

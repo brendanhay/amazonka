@@ -183,11 +183,11 @@ instance Prelude.Hashable DetachVolume where
 
 instance Prelude.NFData DetachVolume where
   rnf DetachVolume' {..} =
-    Prelude.rnf device
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf force
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf volumeId
+    Prelude.rnf device `Prelude.seq`
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf force `Prelude.seq`
+          Prelude.rnf instanceId `Prelude.seq`
+            Prelude.rnf volumeId
 
 instance Data.ToHeaders DetachVolume where
   toHeaders = Prelude.const Prelude.mempty

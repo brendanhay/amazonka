@@ -189,12 +189,12 @@ instance Prelude.Hashable CreateInterconnect where
 
 instance Prelude.NFData CreateInterconnect where
   rnf CreateInterconnect' {..} =
-    Prelude.rnf lagId
-      `Prelude.seq` Prelude.rnf providerName
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf interconnectName
-      `Prelude.seq` Prelude.rnf bandwidth
-      `Prelude.seq` Prelude.rnf location
+    Prelude.rnf lagId `Prelude.seq`
+      Prelude.rnf providerName `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf interconnectName `Prelude.seq`
+            Prelude.rnf bandwidth `Prelude.seq`
+              Prelude.rnf location
 
 instance Data.ToHeaders CreateInterconnect where
   toHeaders =

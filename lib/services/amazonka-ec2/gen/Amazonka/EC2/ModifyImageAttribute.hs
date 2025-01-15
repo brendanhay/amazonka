@@ -257,18 +257,18 @@ instance Prelude.Hashable ModifyImageAttribute where
 
 instance Prelude.NFData ModifyImageAttribute where
   rnf ModifyImageAttribute' {..} =
-    Prelude.rnf attribute
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf launchPermission
-      `Prelude.seq` Prelude.rnf operationType
-      `Prelude.seq` Prelude.rnf organizationArns
-      `Prelude.seq` Prelude.rnf organizationalUnitArns
-      `Prelude.seq` Prelude.rnf productCodes
-      `Prelude.seq` Prelude.rnf userGroups
-      `Prelude.seq` Prelude.rnf userIds
-      `Prelude.seq` Prelude.rnf value
-      `Prelude.seq` Prelude.rnf imageId
+    Prelude.rnf attribute `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf dryRun `Prelude.seq`
+          Prelude.rnf launchPermission `Prelude.seq`
+            Prelude.rnf operationType `Prelude.seq`
+              Prelude.rnf organizationArns `Prelude.seq`
+                Prelude.rnf organizationalUnitArns `Prelude.seq`
+                  Prelude.rnf productCodes `Prelude.seq`
+                    Prelude.rnf userGroups `Prelude.seq`
+                      Prelude.rnf userIds `Prelude.seq`
+                        Prelude.rnf value `Prelude.seq`
+                          Prelude.rnf imageId
 
 instance Data.ToHeaders ModifyImageAttribute where
   toHeaders = Prelude.const Prelude.mempty

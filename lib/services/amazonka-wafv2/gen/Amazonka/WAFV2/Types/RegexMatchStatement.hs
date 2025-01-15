@@ -119,9 +119,9 @@ instance Prelude.Hashable RegexMatchStatement where
 
 instance Prelude.NFData RegexMatchStatement where
   rnf RegexMatchStatement' {..} =
-    Prelude.rnf regexString
-      `Prelude.seq` Prelude.rnf fieldToMatch
-      `Prelude.seq` Prelude.rnf textTransformations
+    Prelude.rnf regexString `Prelude.seq`
+      Prelude.rnf fieldToMatch `Prelude.seq`
+        Prelude.rnf textTransformations
 
 instance Data.ToJSON RegexMatchStatement where
   toJSON RegexMatchStatement' {..} =

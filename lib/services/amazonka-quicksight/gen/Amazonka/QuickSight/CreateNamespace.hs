@@ -167,10 +167,10 @@ instance Prelude.Hashable CreateNamespace where
 
 instance Prelude.NFData CreateNamespace where
   rnf CreateNamespace' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf namespace
-      `Prelude.seq` Prelude.rnf identityStore
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf awsAccountId `Prelude.seq`
+        Prelude.rnf namespace `Prelude.seq`
+          Prelude.rnf identityStore
 
 instance Data.ToHeaders CreateNamespace where
   toHeaders =
@@ -308,10 +308,10 @@ createNamespaceResponse_status = Lens.lens (\CreateNamespaceResponse' {status} -
 
 instance Prelude.NFData CreateNamespaceResponse where
   rnf CreateNamespaceResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf capacityRegion
-      `Prelude.seq` Prelude.rnf creationStatus
-      `Prelude.seq` Prelude.rnf identityStore
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf capacityRegion `Prelude.seq`
+        Prelude.rnf creationStatus `Prelude.seq`
+          Prelude.rnf identityStore `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf requestId `Prelude.seq`
+                Prelude.rnf status

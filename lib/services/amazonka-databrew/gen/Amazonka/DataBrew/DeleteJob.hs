@@ -152,5 +152,5 @@ deleteJobResponse_name = Lens.lens (\DeleteJobResponse' {name} -> name) (\s@Dele
 
 instance Prelude.NFData DeleteJobResponse where
   rnf DeleteJobResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf name

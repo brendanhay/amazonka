@@ -100,8 +100,8 @@ instance Prelude.Hashable UpdateApplication where
 
 instance Prelude.NFData UpdateApplication where
   rnf UpdateApplication' {..} =
-    Prelude.rnf applicationName
-      `Prelude.seq` Prelude.rnf newApplicationName'
+    Prelude.rnf applicationName `Prelude.seq`
+      Prelude.rnf newApplicationName'
 
 instance Data.ToHeaders UpdateApplication where
   toHeaders =

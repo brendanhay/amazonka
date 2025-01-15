@@ -85,8 +85,8 @@ instance Prelude.Hashable CatalogSchemaChangePolicy where
 
 instance Prelude.NFData CatalogSchemaChangePolicy where
   rnf CatalogSchemaChangePolicy' {..} =
-    Prelude.rnf enableUpdateCatalog
-      `Prelude.seq` Prelude.rnf updateBehavior
+    Prelude.rnf enableUpdateCatalog `Prelude.seq`
+      Prelude.rnf updateBehavior
 
 instance Data.ToJSON CatalogSchemaChangePolicy where
   toJSON CatalogSchemaChangePolicy' {..} =

@@ -143,10 +143,10 @@ instance Prelude.Hashable CreateServiceProfile where
 
 instance Prelude.NFData CreateServiceProfile where
   rnf CreateServiceProfile' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf loRaWAN
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf loRaWAN `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf tags
 
 instance Data.ToHeaders CreateServiceProfile where
   toHeaders = Prelude.const Prelude.mempty
@@ -219,6 +219,6 @@ createServiceProfileResponse_httpStatus = Lens.lens (\CreateServiceProfileRespon
 
 instance Prelude.NFData CreateServiceProfileResponse where
   rnf CreateServiceProfileResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf httpStatus

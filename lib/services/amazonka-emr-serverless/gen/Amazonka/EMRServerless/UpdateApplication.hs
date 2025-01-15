@@ -240,16 +240,16 @@ instance Prelude.Hashable UpdateApplication where
 
 instance Prelude.NFData UpdateApplication where
   rnf UpdateApplication' {..} =
-    Prelude.rnf architecture
-      `Prelude.seq` Prelude.rnf autoStartConfiguration
-      `Prelude.seq` Prelude.rnf autoStopConfiguration
-      `Prelude.seq` Prelude.rnf imageConfiguration
-      `Prelude.seq` Prelude.rnf initialCapacity
-      `Prelude.seq` Prelude.rnf maximumCapacity
-      `Prelude.seq` Prelude.rnf networkConfiguration
-      `Prelude.seq` Prelude.rnf workerTypeSpecifications
-      `Prelude.seq` Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf architecture `Prelude.seq`
+      Prelude.rnf autoStartConfiguration `Prelude.seq`
+        Prelude.rnf autoStopConfiguration `Prelude.seq`
+          Prelude.rnf imageConfiguration `Prelude.seq`
+            Prelude.rnf initialCapacity `Prelude.seq`
+              Prelude.rnf maximumCapacity `Prelude.seq`
+                Prelude.rnf networkConfiguration `Prelude.seq`
+                  Prelude.rnf workerTypeSpecifications `Prelude.seq`
+                    Prelude.rnf applicationId `Prelude.seq`
+                      Prelude.rnf clientToken
 
 instance Data.ToHeaders UpdateApplication where
   toHeaders =
@@ -338,5 +338,5 @@ updateApplicationResponse_application = Lens.lens (\UpdateApplicationResponse' {
 
 instance Prelude.NFData UpdateApplicationResponse where
   rnf UpdateApplicationResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf application
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf application

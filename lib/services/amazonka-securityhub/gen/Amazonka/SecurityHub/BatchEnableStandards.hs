@@ -178,5 +178,5 @@ batchEnableStandardsResponse_httpStatus = Lens.lens (\BatchEnableStandardsRespon
 
 instance Prelude.NFData BatchEnableStandardsResponse where
   rnf BatchEnableStandardsResponse' {..} =
-    Prelude.rnf standardsSubscriptions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf standardsSubscriptions `Prelude.seq`
+      Prelude.rnf httpStatus

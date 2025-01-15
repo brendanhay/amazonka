@@ -83,5 +83,5 @@ instance Prelude.Hashable Bucket where
 
 instance Prelude.NFData Bucket where
   rnf Bucket' {..} =
-    Prelude.rnf count
-      `Prelude.seq` Prelude.rnf keyValue
+    Prelude.rnf count `Prelude.seq`
+      Prelude.rnf keyValue

@@ -138,8 +138,8 @@ instance Prelude.Hashable SortingConfiguration where
 
 instance Prelude.NFData SortingConfiguration where
   rnf SortingConfiguration' {..} =
-    Prelude.rnf documentAttributeKey
-      `Prelude.seq` Prelude.rnf sortOrder
+    Prelude.rnf documentAttributeKey `Prelude.seq`
+      Prelude.rnf sortOrder
 
 instance Data.ToJSON SortingConfiguration where
   toJSON SortingConfiguration' {..} =

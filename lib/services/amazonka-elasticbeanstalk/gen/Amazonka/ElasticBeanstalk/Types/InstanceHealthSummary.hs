@@ -165,11 +165,11 @@ instance Prelude.Hashable InstanceHealthSummary where
 
 instance Prelude.NFData InstanceHealthSummary where
   rnf InstanceHealthSummary' {..} =
-    Prelude.rnf degraded
-      `Prelude.seq` Prelude.rnf info
-      `Prelude.seq` Prelude.rnf noData
-      `Prelude.seq` Prelude.rnf ok
-      `Prelude.seq` Prelude.rnf pending
-      `Prelude.seq` Prelude.rnf severe
-      `Prelude.seq` Prelude.rnf unknown
-      `Prelude.seq` Prelude.rnf warning
+    Prelude.rnf degraded `Prelude.seq`
+      Prelude.rnf info `Prelude.seq`
+        Prelude.rnf noData `Prelude.seq`
+          Prelude.rnf ok `Prelude.seq`
+            Prelude.rnf pending `Prelude.seq`
+              Prelude.rnf severe `Prelude.seq`
+                Prelude.rnf unknown `Prelude.seq`
+                  Prelude.rnf warning

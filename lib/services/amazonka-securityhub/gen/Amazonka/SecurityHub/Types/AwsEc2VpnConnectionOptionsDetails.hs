@@ -93,8 +93,8 @@ instance
     AwsEc2VpnConnectionOptionsDetails
   where
   rnf AwsEc2VpnConnectionOptionsDetails' {..} =
-    Prelude.rnf staticRoutesOnly
-      `Prelude.seq` Prelude.rnf tunnelOptions
+    Prelude.rnf staticRoutesOnly `Prelude.seq`
+      Prelude.rnf tunnelOptions
 
 instance
   Data.ToJSON

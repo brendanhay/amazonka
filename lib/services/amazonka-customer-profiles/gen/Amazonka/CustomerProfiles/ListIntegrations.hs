@@ -135,10 +135,10 @@ instance Prelude.Hashable ListIntegrations where
 
 instance Prelude.NFData ListIntegrations where
   rnf ListIntegrations' {..} =
-    Prelude.rnf includeHidden
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf domainName
+    Prelude.rnf includeHidden `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf domainName
 
 instance Data.ToHeaders ListIntegrations where
   toHeaders =
@@ -213,6 +213,6 @@ listIntegrationsResponse_httpStatus = Lens.lens (\ListIntegrationsResponse' {htt
 
 instance Prelude.NFData ListIntegrationsResponse where
   rnf ListIntegrationsResponse' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf items `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

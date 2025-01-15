@@ -82,5 +82,5 @@ instance Prelude.Hashable ClientPropertiesResult where
 
 instance Prelude.NFData ClientPropertiesResult where
   rnf ClientPropertiesResult' {..} =
-    Prelude.rnf clientProperties
-      `Prelude.seq` Prelude.rnf resourceId
+    Prelude.rnf clientProperties `Prelude.seq`
+      Prelude.rnf resourceId

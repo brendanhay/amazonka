@@ -162,11 +162,11 @@ instance Prelude.Hashable BatchJobExecutionSummary where
 
 instance Prelude.NFData BatchJobExecutionSummary where
   rnf BatchJobExecutionSummary' {..} =
-    Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf jobType
-      `Prelude.seq` Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf executionId
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf endTime `Prelude.seq`
+      Prelude.rnf jobId `Prelude.seq`
+        Prelude.rnf jobName `Prelude.seq`
+          Prelude.rnf jobType `Prelude.seq`
+            Prelude.rnf applicationId `Prelude.seq`
+              Prelude.rnf executionId `Prelude.seq`
+                Prelude.rnf startTime `Prelude.seq`
+                  Prelude.rnf status

@@ -392,11 +392,11 @@ instance Prelude.Hashable SpotOptions where
 
 instance Prelude.NFData SpotOptions where
   rnf SpotOptions' {..} =
-    Prelude.rnf allocationStrategy
-      `Prelude.seq` Prelude.rnf instanceInterruptionBehavior
-      `Prelude.seq` Prelude.rnf instancePoolsToUseCount
-      `Prelude.seq` Prelude.rnf maintenanceStrategies
-      `Prelude.seq` Prelude.rnf maxTotalPrice
-      `Prelude.seq` Prelude.rnf minTargetCapacity
-      `Prelude.seq` Prelude.rnf singleAvailabilityZone
-      `Prelude.seq` Prelude.rnf singleInstanceType
+    Prelude.rnf allocationStrategy `Prelude.seq`
+      Prelude.rnf instanceInterruptionBehavior `Prelude.seq`
+        Prelude.rnf instancePoolsToUseCount `Prelude.seq`
+          Prelude.rnf maintenanceStrategies `Prelude.seq`
+            Prelude.rnf maxTotalPrice `Prelude.seq`
+              Prelude.rnf minTargetCapacity `Prelude.seq`
+                Prelude.rnf singleAvailabilityZone `Prelude.seq`
+                  Prelude.rnf singleInstanceType

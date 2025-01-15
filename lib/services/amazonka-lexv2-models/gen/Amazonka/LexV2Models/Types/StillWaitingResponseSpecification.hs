@@ -139,10 +139,10 @@ instance
     StillWaitingResponseSpecification
   where
   rnf StillWaitingResponseSpecification' {..} =
-    Prelude.rnf allowInterrupt
-      `Prelude.seq` Prelude.rnf messageGroups
-      `Prelude.seq` Prelude.rnf frequencyInSeconds
-      `Prelude.seq` Prelude.rnf timeoutInSeconds
+    Prelude.rnf allowInterrupt `Prelude.seq`
+      Prelude.rnf messageGroups `Prelude.seq`
+        Prelude.rnf frequencyInSeconds `Prelude.seq`
+          Prelude.rnf timeoutInSeconds
 
 instance
   Data.ToJSON

@@ -177,5 +177,5 @@ instance
     CancelServiceSoftwareUpdateResponse
   where
   rnf CancelServiceSoftwareUpdateResponse' {..} =
-    Prelude.rnf serviceSoftwareOptions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf serviceSoftwareOptions `Prelude.seq`
+      Prelude.rnf httpStatus

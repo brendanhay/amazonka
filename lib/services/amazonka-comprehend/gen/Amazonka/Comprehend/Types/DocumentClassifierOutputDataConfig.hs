@@ -156,8 +156,8 @@ instance
     DocumentClassifierOutputDataConfig
   where
   rnf DocumentClassifierOutputDataConfig' {..} =
-    Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf s3Uri
+    Prelude.rnf kmsKeyId `Prelude.seq`
+      Prelude.rnf s3Uri
 
 instance
   Data.ToJSON

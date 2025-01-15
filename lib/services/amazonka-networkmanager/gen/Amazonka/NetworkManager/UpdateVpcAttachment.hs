@@ -131,10 +131,10 @@ instance Prelude.Hashable UpdateVpcAttachment where
 
 instance Prelude.NFData UpdateVpcAttachment where
   rnf UpdateVpcAttachment' {..} =
-    Prelude.rnf addSubnetArns
-      `Prelude.seq` Prelude.rnf options
-      `Prelude.seq` Prelude.rnf removeSubnetArns
-      `Prelude.seq` Prelude.rnf attachmentId
+    Prelude.rnf addSubnetArns `Prelude.seq`
+      Prelude.rnf options `Prelude.seq`
+        Prelude.rnf removeSubnetArns `Prelude.seq`
+          Prelude.rnf attachmentId
 
 instance Data.ToHeaders UpdateVpcAttachment where
   toHeaders =
@@ -207,5 +207,5 @@ updateVpcAttachmentResponse_httpStatus = Lens.lens (\UpdateVpcAttachmentResponse
 
 instance Prelude.NFData UpdateVpcAttachmentResponse where
   rnf UpdateVpcAttachmentResponse' {..} =
-    Prelude.rnf vpcAttachment
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf vpcAttachment `Prelude.seq`
+      Prelude.rnf httpStatus

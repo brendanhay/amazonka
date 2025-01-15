@@ -135,10 +135,10 @@ instance Prelude.Hashable DominantColor where
 
 instance Prelude.NFData DominantColor where
   rnf DominantColor' {..} =
-    Prelude.rnf blue
-      `Prelude.seq` Prelude.rnf cSSColor
-      `Prelude.seq` Prelude.rnf green
-      `Prelude.seq` Prelude.rnf hexCode
-      `Prelude.seq` Prelude.rnf pixelPercent
-      `Prelude.seq` Prelude.rnf red
-      `Prelude.seq` Prelude.rnf simplifiedColor
+    Prelude.rnf blue `Prelude.seq`
+      Prelude.rnf cSSColor `Prelude.seq`
+        Prelude.rnf green `Prelude.seq`
+          Prelude.rnf hexCode `Prelude.seq`
+            Prelude.rnf pixelPercent `Prelude.seq`
+              Prelude.rnf red `Prelude.seq`
+                Prelude.rnf simplifiedColor

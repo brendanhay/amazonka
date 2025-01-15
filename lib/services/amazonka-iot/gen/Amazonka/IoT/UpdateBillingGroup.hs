@@ -137,9 +137,9 @@ instance Prelude.Hashable UpdateBillingGroup where
 
 instance Prelude.NFData UpdateBillingGroup where
   rnf UpdateBillingGroup' {..} =
-    Prelude.rnf expectedVersion
-      `Prelude.seq` Prelude.rnf billingGroupName
-      `Prelude.seq` Prelude.rnf billingGroupProperties
+    Prelude.rnf expectedVersion `Prelude.seq`
+      Prelude.rnf billingGroupName `Prelude.seq`
+        Prelude.rnf billingGroupProperties
 
 instance Data.ToHeaders UpdateBillingGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -206,5 +206,5 @@ updateBillingGroupResponse_httpStatus = Lens.lens (\UpdateBillingGroupResponse' 
 
 instance Prelude.NFData UpdateBillingGroupResponse where
   rnf UpdateBillingGroupResponse' {..} =
-    Prelude.rnf version
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf version `Prelude.seq`
+      Prelude.rnf httpStatus

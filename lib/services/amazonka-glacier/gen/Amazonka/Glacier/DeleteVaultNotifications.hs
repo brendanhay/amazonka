@@ -134,8 +134,8 @@ instance Prelude.Hashable DeleteVaultNotifications where
 
 instance Prelude.NFData DeleteVaultNotifications where
   rnf DeleteVaultNotifications' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf vaultName
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf vaultName
 
 instance Data.ToHeaders DeleteVaultNotifications where
   toHeaders = Prelude.const Prelude.mempty

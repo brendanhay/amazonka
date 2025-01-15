@@ -173,12 +173,12 @@ instance Core.AWSPager ListIncidentRecords where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listIncidentRecords_nextToken
-          Lens..~ rs
-          Lens.^? listIncidentRecordsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listIncidentRecords_nextToken
+              Lens..~ rs
+              Lens.^? listIncidentRecordsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListIncidentRecords where
   type
@@ -207,9 +207,9 @@ instance Prelude.Hashable ListIncidentRecords where
 
 instance Prelude.NFData ListIncidentRecords where
   rnf ListIncidentRecords' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListIncidentRecords where
   toHeaders =
@@ -288,6 +288,6 @@ listIncidentRecordsResponse_incidentRecordSummaries = Lens.lens (\ListIncidentRe
 
 instance Prelude.NFData ListIncidentRecordsResponse where
   rnf ListIncidentRecordsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf incidentRecordSummaries
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf incidentRecordSummaries

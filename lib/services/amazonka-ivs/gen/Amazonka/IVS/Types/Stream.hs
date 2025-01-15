@@ -158,10 +158,10 @@ instance Prelude.Hashable Stream where
 
 instance Prelude.NFData Stream where
   rnf Stream' {..} =
-    Prelude.rnf channelArn
-      `Prelude.seq` Prelude.rnf health
-      `Prelude.seq` Prelude.rnf playbackUrl
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf streamId
-      `Prelude.seq` Prelude.rnf viewerCount
+    Prelude.rnf channelArn `Prelude.seq`
+      Prelude.rnf health `Prelude.seq`
+        Prelude.rnf playbackUrl `Prelude.seq`
+          Prelude.rnf startTime `Prelude.seq`
+            Prelude.rnf state `Prelude.seq`
+              Prelude.rnf streamId `Prelude.seq`
+                Prelude.rnf viewerCount

@@ -158,5 +158,5 @@ getIncidentRecordResponse_incidentRecord = Lens.lens (\GetIncidentRecordResponse
 
 instance Prelude.NFData GetIncidentRecordResponse where
   rnf GetIncidentRecordResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf incidentRecord
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf incidentRecord

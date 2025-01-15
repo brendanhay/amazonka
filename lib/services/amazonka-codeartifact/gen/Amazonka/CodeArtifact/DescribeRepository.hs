@@ -125,9 +125,9 @@ instance Prelude.Hashable DescribeRepository where
 
 instance Prelude.NFData DescribeRepository where
   rnf DescribeRepository' {..} =
-    Prelude.rnf domainOwner
-      `Prelude.seq` Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf repository
+    Prelude.rnf domainOwner `Prelude.seq`
+      Prelude.rnf domain `Prelude.seq`
+        Prelude.rnf repository
 
 instance Data.ToHeaders DescribeRepository where
   toHeaders =
@@ -195,5 +195,5 @@ describeRepositoryResponse_httpStatus = Lens.lens (\DescribeRepositoryResponse' 
 
 instance Prelude.NFData DescribeRepositoryResponse where
   rnf DescribeRepositoryResponse' {..} =
-    Prelude.rnf repository
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf repository `Prelude.seq`
+      Prelude.rnf httpStatus

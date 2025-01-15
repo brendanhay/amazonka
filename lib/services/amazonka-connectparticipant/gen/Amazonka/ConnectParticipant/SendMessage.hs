@@ -173,10 +173,10 @@ instance Prelude.Hashable SendMessage where
 
 instance Prelude.NFData SendMessage where
   rnf SendMessage' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf contentType
-      `Prelude.seq` Prelude.rnf content
-      `Prelude.seq` Prelude.rnf connectionToken
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf contentType `Prelude.seq`
+        Prelude.rnf content `Prelude.seq`
+          Prelude.rnf connectionToken
 
 instance Data.ToHeaders SendMessage where
   toHeaders SendMessage' {..} =
@@ -261,6 +261,6 @@ sendMessageResponse_httpStatus = Lens.lens (\SendMessageResponse' {httpStatus} -
 
 instance Prelude.NFData SendMessageResponse where
   rnf SendMessageResponse' {..} =
-    Prelude.rnf absoluteTime
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf absoluteTime `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf httpStatus

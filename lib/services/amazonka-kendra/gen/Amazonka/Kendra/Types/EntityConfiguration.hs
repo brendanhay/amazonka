@@ -80,8 +80,8 @@ instance Prelude.Hashable EntityConfiguration where
 
 instance Prelude.NFData EntityConfiguration where
   rnf EntityConfiguration' {..} =
-    Prelude.rnf entityId
-      `Prelude.seq` Prelude.rnf entityType
+    Prelude.rnf entityId `Prelude.seq`
+      Prelude.rnf entityType
 
 instance Data.ToJSON EntityConfiguration where
   toJSON EntityConfiguration' {..} =

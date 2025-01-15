@@ -111,9 +111,9 @@ instance Prelude.Hashable DeleteForm where
 
 instance Prelude.NFData DeleteForm where
   rnf DeleteForm' {..} =
-    Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf environmentName
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf appId `Prelude.seq`
+      Prelude.rnf environmentName `Prelude.seq`
+        Prelude.rnf id
 
 instance Data.ToHeaders DeleteForm where
   toHeaders =

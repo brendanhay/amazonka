@@ -889,26 +889,26 @@ instance Prelude.Hashable CreateStack where
 
 instance Prelude.NFData CreateStack where
   rnf CreateStack' {..} =
-    Prelude.rnf agentVersion
-      `Prelude.seq` Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf chefConfiguration
-      `Prelude.seq` Prelude.rnf configurationManager
-      `Prelude.seq` Prelude.rnf customCookbooksSource
-      `Prelude.seq` Prelude.rnf customJson
-      `Prelude.seq` Prelude.rnf defaultAvailabilityZone
-      `Prelude.seq` Prelude.rnf defaultOs
-      `Prelude.seq` Prelude.rnf defaultRootDeviceType
-      `Prelude.seq` Prelude.rnf defaultSshKeyName
-      `Prelude.seq` Prelude.rnf defaultSubnetId
-      `Prelude.seq` Prelude.rnf hostnameTheme
-      `Prelude.seq` Prelude.rnf useCustomCookbooks
-      `Prelude.seq` Prelude.rnf useOpsworksSecurityGroups
-      `Prelude.seq` Prelude.rnf vpcId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf region
-      `Prelude.seq` Prelude.rnf serviceRoleArn
-      `Prelude.seq` Prelude.rnf
-        defaultInstanceProfileArn
+    Prelude.rnf agentVersion `Prelude.seq`
+      Prelude.rnf attributes `Prelude.seq`
+        Prelude.rnf chefConfiguration `Prelude.seq`
+          Prelude.rnf configurationManager `Prelude.seq`
+            Prelude.rnf customCookbooksSource `Prelude.seq`
+              Prelude.rnf customJson `Prelude.seq`
+                Prelude.rnf defaultAvailabilityZone `Prelude.seq`
+                  Prelude.rnf defaultOs `Prelude.seq`
+                    Prelude.rnf defaultRootDeviceType `Prelude.seq`
+                      Prelude.rnf defaultSshKeyName `Prelude.seq`
+                        Prelude.rnf defaultSubnetId `Prelude.seq`
+                          Prelude.rnf hostnameTheme `Prelude.seq`
+                            Prelude.rnf useCustomCookbooks `Prelude.seq`
+                              Prelude.rnf useOpsworksSecurityGroups `Prelude.seq`
+                                Prelude.rnf vpcId `Prelude.seq`
+                                  Prelude.rnf name `Prelude.seq`
+                                    Prelude.rnf region `Prelude.seq`
+                                      Prelude.rnf serviceRoleArn `Prelude.seq`
+                                        Prelude.rnf
+                                          defaultInstanceProfileArn
 
 instance Data.ToHeaders CreateStack where
   toHeaders =
@@ -1015,5 +1015,5 @@ createStackResponse_httpStatus = Lens.lens (\CreateStackResponse' {httpStatus} -
 
 instance Prelude.NFData CreateStackResponse where
   rnf CreateStackResponse' {..} =
-    Prelude.rnf stackId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf stackId `Prelude.seq`
+      Prelude.rnf httpStatus

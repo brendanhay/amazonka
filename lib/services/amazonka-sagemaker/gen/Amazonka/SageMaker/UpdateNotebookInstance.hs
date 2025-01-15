@@ -387,20 +387,20 @@ instance Prelude.Hashable UpdateNotebookInstance where
 
 instance Prelude.NFData UpdateNotebookInstance where
   rnf UpdateNotebookInstance' {..} =
-    Prelude.rnf acceleratorTypes
-      `Prelude.seq` Prelude.rnf additionalCodeRepositories
-      `Prelude.seq` Prelude.rnf defaultCodeRepository
-      `Prelude.seq` Prelude.rnf disassociateAcceleratorTypes
-      `Prelude.seq` Prelude.rnf disassociateAdditionalCodeRepositories
-      `Prelude.seq` Prelude.rnf disassociateDefaultCodeRepository
-      `Prelude.seq` Prelude.rnf disassociateLifecycleConfig
-      `Prelude.seq` Prelude.rnf instanceMetadataServiceConfiguration
-      `Prelude.seq` Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf lifecycleConfigName
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf rootAccess
-      `Prelude.seq` Prelude.rnf volumeSizeInGB
-      `Prelude.seq` Prelude.rnf notebookInstanceName
+    Prelude.rnf acceleratorTypes `Prelude.seq`
+      Prelude.rnf additionalCodeRepositories `Prelude.seq`
+        Prelude.rnf defaultCodeRepository `Prelude.seq`
+          Prelude.rnf disassociateAcceleratorTypes `Prelude.seq`
+            Prelude.rnf disassociateAdditionalCodeRepositories `Prelude.seq`
+              Prelude.rnf disassociateDefaultCodeRepository `Prelude.seq`
+                Prelude.rnf disassociateLifecycleConfig `Prelude.seq`
+                  Prelude.rnf instanceMetadataServiceConfiguration `Prelude.seq`
+                    Prelude.rnf instanceType `Prelude.seq`
+                      Prelude.rnf lifecycleConfigName `Prelude.seq`
+                        Prelude.rnf roleArn `Prelude.seq`
+                          Prelude.rnf rootAccess `Prelude.seq`
+                            Prelude.rnf volumeSizeInGB `Prelude.seq`
+                              Prelude.rnf notebookInstanceName
 
 instance Data.ToHeaders UpdateNotebookInstance where
   toHeaders =

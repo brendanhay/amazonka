@@ -130,8 +130,8 @@ instance
     DescribeFleetAdvisorLsaAnalysis
   where
   rnf DescribeFleetAdvisorLsaAnalysis' {..} =
-    Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxRecords `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance
   Data.ToHeaders
@@ -229,6 +229,6 @@ instance
     DescribeFleetAdvisorLsaAnalysisResponse
   where
   rnf DescribeFleetAdvisorLsaAnalysisResponse' {..} =
-    Prelude.rnf analysis
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf analysis `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -82,8 +82,8 @@ instance Prelude.Hashable ConnectionDraining where
 
 instance Prelude.NFData ConnectionDraining where
   rnf ConnectionDraining' {..} =
-    Prelude.rnf timeout
-      `Prelude.seq` Prelude.rnf enabled
+    Prelude.rnf timeout `Prelude.seq`
+      Prelude.rnf enabled
 
 instance Data.ToQuery ConnectionDraining where
   toQuery ConnectionDraining' {..} =

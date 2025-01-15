@@ -327,15 +327,15 @@ instance Prelude.Hashable SignUp where
 
 instance Prelude.NFData SignUp where
   rnf SignUp' {..} =
-    Prelude.rnf analyticsMetadata
-      `Prelude.seq` Prelude.rnf clientMetadata
-      `Prelude.seq` Prelude.rnf secretHash
-      `Prelude.seq` Prelude.rnf userAttributes
-      `Prelude.seq` Prelude.rnf userContextData
-      `Prelude.seq` Prelude.rnf validationData
-      `Prelude.seq` Prelude.rnf clientId
-      `Prelude.seq` Prelude.rnf username
-      `Prelude.seq` Prelude.rnf password
+    Prelude.rnf analyticsMetadata `Prelude.seq`
+      Prelude.rnf clientMetadata `Prelude.seq`
+        Prelude.rnf secretHash `Prelude.seq`
+          Prelude.rnf userAttributes `Prelude.seq`
+            Prelude.rnf userContextData `Prelude.seq`
+              Prelude.rnf validationData `Prelude.seq`
+                Prelude.rnf clientId `Prelude.seq`
+                  Prelude.rnf username `Prelude.seq`
+                    Prelude.rnf password
 
 instance Data.ToHeaders SignUp where
   toHeaders =
@@ -453,7 +453,7 @@ signUpResponse_userSub = Lens.lens (\SignUpResponse' {userSub} -> userSub) (\s@S
 
 instance Prelude.NFData SignUpResponse where
   rnf SignUpResponse' {..} =
-    Prelude.rnf codeDeliveryDetails
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf userConfirmed
-      `Prelude.seq` Prelude.rnf userSub
+    Prelude.rnf codeDeliveryDetails `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf userConfirmed `Prelude.seq`
+          Prelude.rnf userSub

@@ -131,9 +131,9 @@ instance Prelude.Hashable ListDatasourcePackages where
 
 instance Prelude.NFData ListDatasourcePackages where
   rnf ListDatasourcePackages' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf graphArn
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf graphArn
 
 instance Data.ToHeaders ListDatasourcePackages where
   toHeaders =
@@ -221,6 +221,6 @@ instance
     ListDatasourcePackagesResponse
   where
   rnf ListDatasourcePackagesResponse' {..} =
-    Prelude.rnf datasourcePackages
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf datasourcePackages `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

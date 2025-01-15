@@ -127,8 +127,8 @@ instance Prelude.Hashable DeleteResourcePolicy where
 
 instance Prelude.NFData DeleteResourcePolicy where
   rnf DeleteResourcePolicy' {..} =
-    Prelude.rnf expectedRevisionId
-      `Prelude.seq` Prelude.rnf resourceArn
+    Prelude.rnf expectedRevisionId `Prelude.seq`
+      Prelude.rnf resourceArn
 
 instance Data.ToHeaders DeleteResourcePolicy where
   toHeaders =
@@ -213,6 +213,6 @@ deleteResourcePolicyResponse_httpStatus = Lens.lens (\DeleteResourcePolicyRespon
 
 instance Prelude.NFData DeleteResourcePolicyResponse where
   rnf DeleteResourcePolicyResponse' {..} =
-    Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf revisionId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf resourceArn `Prelude.seq`
+      Prelude.rnf revisionId `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -252,18 +252,18 @@ instance Prelude.Hashable RemediationConfiguration where
 
 instance Prelude.NFData RemediationConfiguration where
   rnf RemediationConfiguration' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf automatic
-      `Prelude.seq` Prelude.rnf createdByService
-      `Prelude.seq` Prelude.rnf executionControls
-      `Prelude.seq` Prelude.rnf maximumAutomaticAttempts
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf retryAttemptSeconds
-      `Prelude.seq` Prelude.rnf targetVersion
-      `Prelude.seq` Prelude.rnf configRuleName
-      `Prelude.seq` Prelude.rnf targetType
-      `Prelude.seq` Prelude.rnf targetId
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf automatic `Prelude.seq`
+        Prelude.rnf createdByService `Prelude.seq`
+          Prelude.rnf executionControls `Prelude.seq`
+            Prelude.rnf maximumAutomaticAttempts `Prelude.seq`
+              Prelude.rnf parameters `Prelude.seq`
+                Prelude.rnf resourceType `Prelude.seq`
+                  Prelude.rnf retryAttemptSeconds `Prelude.seq`
+                    Prelude.rnf targetVersion `Prelude.seq`
+                      Prelude.rnf configRuleName `Prelude.seq`
+                        Prelude.rnf targetType `Prelude.seq`
+                          Prelude.rnf targetId
 
 instance Data.ToJSON RemediationConfiguration where
   toJSON RemediationConfiguration' {..} =

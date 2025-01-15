@@ -1528,5 +1528,5 @@ instance
     RestoreDBInstanceFromDBSnapshotResponse
   where
   rnf RestoreDBInstanceFromDBSnapshotResponse' {..} =
-    Prelude.rnf dbInstance
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dbInstance `Prelude.seq`
+      Prelude.rnf httpStatus

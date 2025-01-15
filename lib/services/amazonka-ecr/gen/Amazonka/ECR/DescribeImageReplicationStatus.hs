@@ -144,9 +144,9 @@ instance
     DescribeImageReplicationStatus
   where
   rnf DescribeImageReplicationStatus' {..} =
-    Prelude.rnf registryId
-      `Prelude.seq` Prelude.rnf repositoryName
-      `Prelude.seq` Prelude.rnf imageId
+    Prelude.rnf registryId `Prelude.seq`
+      Prelude.rnf repositoryName `Prelude.seq`
+        Prelude.rnf imageId
 
 instance
   Data.ToHeaders
@@ -249,7 +249,7 @@ instance
     DescribeImageReplicationStatusResponse
   where
   rnf DescribeImageReplicationStatusResponse' {..} =
-    Prelude.rnf imageId
-      `Prelude.seq` Prelude.rnf replicationStatuses
-      `Prelude.seq` Prelude.rnf repositoryName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf imageId `Prelude.seq`
+      Prelude.rnf replicationStatuses `Prelude.seq`
+        Prelude.rnf repositoryName `Prelude.seq`
+          Prelude.rnf httpStatus

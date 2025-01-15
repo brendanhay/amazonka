@@ -94,6 +94,6 @@ instance Prelude.Hashable RevisionTarget where
 
 instance Prelude.NFData RevisionTarget where
   rnf RevisionTarget' {..} =
-    Prelude.rnf databaseRevision
-      `Prelude.seq` Prelude.rnf databaseRevisionReleaseDate
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf databaseRevision `Prelude.seq`
+      Prelude.rnf databaseRevisionReleaseDate `Prelude.seq`
+        Prelude.rnf description

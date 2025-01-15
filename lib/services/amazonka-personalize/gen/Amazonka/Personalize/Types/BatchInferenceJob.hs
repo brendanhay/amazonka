@@ -250,16 +250,16 @@ instance Prelude.Hashable BatchInferenceJob where
 
 instance Prelude.NFData BatchInferenceJob where
   rnf BatchInferenceJob' {..} =
-    Prelude.rnf batchInferenceJobArn
-      `Prelude.seq` Prelude.rnf batchInferenceJobConfig
-      `Prelude.seq` Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf filterArn
-      `Prelude.seq` Prelude.rnf jobInput
-      `Prelude.seq` Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf jobOutput
-      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
-      `Prelude.seq` Prelude.rnf numResults
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf solutionVersionArn
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf batchInferenceJobArn `Prelude.seq`
+      Prelude.rnf batchInferenceJobConfig `Prelude.seq`
+        Prelude.rnf creationDateTime `Prelude.seq`
+          Prelude.rnf failureReason `Prelude.seq`
+            Prelude.rnf filterArn `Prelude.seq`
+              Prelude.rnf jobInput `Prelude.seq`
+                Prelude.rnf jobName `Prelude.seq`
+                  Prelude.rnf jobOutput `Prelude.seq`
+                    Prelude.rnf lastUpdatedDateTime `Prelude.seq`
+                      Prelude.rnf numResults `Prelude.seq`
+                        Prelude.rnf roleArn `Prelude.seq`
+                          Prelude.rnf solutionVersionArn `Prelude.seq`
+                            Prelude.rnf status

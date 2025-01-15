@@ -783,15 +783,15 @@ instance Prelude.Hashable GetHLSStreamingSessionURL where
 
 instance Prelude.NFData GetHLSStreamingSessionURL where
   rnf GetHLSStreamingSessionURL' {..} =
-    Prelude.rnf containerFormat
-      `Prelude.seq` Prelude.rnf discontinuityMode
-      `Prelude.seq` Prelude.rnf displayFragmentTimestamp
-      `Prelude.seq` Prelude.rnf expires
-      `Prelude.seq` Prelude.rnf hLSFragmentSelector
-      `Prelude.seq` Prelude.rnf maxMediaPlaylistFragmentResults
-      `Prelude.seq` Prelude.rnf playbackMode
-      `Prelude.seq` Prelude.rnf streamARN
-      `Prelude.seq` Prelude.rnf streamName
+    Prelude.rnf containerFormat `Prelude.seq`
+      Prelude.rnf discontinuityMode `Prelude.seq`
+        Prelude.rnf displayFragmentTimestamp `Prelude.seq`
+          Prelude.rnf expires `Prelude.seq`
+            Prelude.rnf hLSFragmentSelector `Prelude.seq`
+              Prelude.rnf maxMediaPlaylistFragmentResults `Prelude.seq`
+                Prelude.rnf playbackMode `Prelude.seq`
+                  Prelude.rnf streamARN `Prelude.seq`
+                    Prelude.rnf streamName
 
 instance Data.ToHeaders GetHLSStreamingSessionURL where
   toHeaders = Prelude.const Prelude.mempty
@@ -870,5 +870,5 @@ instance
     GetHLSStreamingSessionURLResponse
   where
   rnf GetHLSStreamingSessionURLResponse' {..} =
-    Prelude.rnf hLSStreamingSessionURL
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf hLSStreamingSessionURL `Prelude.seq`
+      Prelude.rnf httpStatus

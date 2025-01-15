@@ -83,8 +83,8 @@ instance Prelude.Hashable DestinationConfig where
 
 instance Prelude.NFData DestinationConfig where
   rnf DestinationConfig' {..} =
-    Prelude.rnf onFailure
-      `Prelude.seq` Prelude.rnf onSuccess
+    Prelude.rnf onFailure `Prelude.seq`
+      Prelude.rnf onSuccess
 
 instance Data.ToJSON DestinationConfig where
   toJSON DestinationConfig' {..} =

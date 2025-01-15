@@ -106,7 +106,7 @@ instance Prelude.Hashable SubResourceSummary where
 
 instance Prelude.NFData SubResourceSummary where
   rnf SubResourceSummary' {..} =
-    Prelude.rnf attackVectors
-      `Prelude.seq` Prelude.rnf counters
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf attackVectors `Prelude.seq`
+      Prelude.rnf counters `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf type'

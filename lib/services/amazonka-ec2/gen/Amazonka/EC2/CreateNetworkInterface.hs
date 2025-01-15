@@ -433,22 +433,22 @@ instance Prelude.Hashable CreateNetworkInterface where
 
 instance Prelude.NFData CreateNetworkInterface where
   rnf CreateNetworkInterface' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf groups
-      `Prelude.seq` Prelude.rnf interfaceType
-      `Prelude.seq` Prelude.rnf ipv4PrefixCount
-      `Prelude.seq` Prelude.rnf ipv4Prefixes
-      `Prelude.seq` Prelude.rnf ipv6AddressCount
-      `Prelude.seq` Prelude.rnf ipv6Addresses
-      `Prelude.seq` Prelude.rnf ipv6PrefixCount
-      `Prelude.seq` Prelude.rnf ipv6Prefixes
-      `Prelude.seq` Prelude.rnf privateIpAddress
-      `Prelude.seq` Prelude.rnf privateIpAddresses
-      `Prelude.seq` Prelude.rnf secondaryPrivateIpAddressCount
-      `Prelude.seq` Prelude.rnf tagSpecifications
-      `Prelude.seq` Prelude.rnf subnetId
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf dryRun `Prelude.seq`
+          Prelude.rnf groups `Prelude.seq`
+            Prelude.rnf interfaceType `Prelude.seq`
+              Prelude.rnf ipv4PrefixCount `Prelude.seq`
+                Prelude.rnf ipv4Prefixes `Prelude.seq`
+                  Prelude.rnf ipv6AddressCount `Prelude.seq`
+                    Prelude.rnf ipv6Addresses `Prelude.seq`
+                      Prelude.rnf ipv6PrefixCount `Prelude.seq`
+                        Prelude.rnf ipv6Prefixes `Prelude.seq`
+                          Prelude.rnf privateIpAddress `Prelude.seq`
+                            Prelude.rnf privateIpAddresses `Prelude.seq`
+                              Prelude.rnf secondaryPrivateIpAddressCount `Prelude.seq`
+                                Prelude.rnf tagSpecifications `Prelude.seq`
+                                  Prelude.rnf subnetId
 
 instance Data.ToHeaders CreateNetworkInterface where
   toHeaders = Prelude.const Prelude.mempty
@@ -556,6 +556,6 @@ instance
     CreateNetworkInterfaceResponse
   where
   rnf CreateNetworkInterfaceResponse' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf networkInterface
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf networkInterface `Prelude.seq`
+        Prelude.rnf httpStatus

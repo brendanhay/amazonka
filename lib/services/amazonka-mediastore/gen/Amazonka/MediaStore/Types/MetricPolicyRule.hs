@@ -92,8 +92,8 @@ instance Prelude.Hashable MetricPolicyRule where
 
 instance Prelude.NFData MetricPolicyRule where
   rnf MetricPolicyRule' {..} =
-    Prelude.rnf objectGroup
-      `Prelude.seq` Prelude.rnf objectGroupName
+    Prelude.rnf objectGroup `Prelude.seq`
+      Prelude.rnf objectGroupName
 
 instance Data.ToJSON MetricPolicyRule where
   toJSON MetricPolicyRule' {..} =

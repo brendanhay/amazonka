@@ -133,5 +133,5 @@ instance
     GetMessagingSessionEndpointResponse
   where
   rnf GetMessagingSessionEndpointResponse' {..} =
-    Prelude.rnf endpoint
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf endpoint `Prelude.seq`
+      Prelude.rnf httpStatus

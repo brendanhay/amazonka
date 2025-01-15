@@ -95,6 +95,6 @@ instance
 
 instance Prelude.NFData RouteAnalysisEndpointOptions where
   rnf RouteAnalysisEndpointOptions' {..} =
-    Prelude.rnf ipAddress
-      `Prelude.seq` Prelude.rnf transitGatewayArn
-      `Prelude.seq` Prelude.rnf transitGatewayAttachmentArn
+    Prelude.rnf ipAddress `Prelude.seq`
+      Prelude.rnf transitGatewayArn `Prelude.seq`
+        Prelude.rnf transitGatewayAttachmentArn

@@ -138,8 +138,8 @@ instance Prelude.Hashable ShareAttributes where
 
 instance Prelude.NFData ShareAttributes where
   rnf ShareAttributes' {..} =
-    Prelude.rnf weightFactor
-      `Prelude.seq` Prelude.rnf shareIdentifier
+    Prelude.rnf weightFactor `Prelude.seq`
+      Prelude.rnf shareIdentifier
 
 instance Data.ToJSON ShareAttributes where
   toJSON ShareAttributes' {..} =

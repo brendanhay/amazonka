@@ -128,8 +128,8 @@ instance Prelude.Hashable TaskStatisticsForAuditCheck where
 
 instance Prelude.NFData TaskStatisticsForAuditCheck where
   rnf TaskStatisticsForAuditCheck' {..} =
-    Prelude.rnf canceledFindingsCount
-      `Prelude.seq` Prelude.rnf failedFindingsCount
-      `Prelude.seq` Prelude.rnf skippedFindingsCount
-      `Prelude.seq` Prelude.rnf succeededFindingsCount
-      `Prelude.seq` Prelude.rnf totalFindingsCount
+    Prelude.rnf canceledFindingsCount `Prelude.seq`
+      Prelude.rnf failedFindingsCount `Prelude.seq`
+        Prelude.rnf skippedFindingsCount `Prelude.seq`
+          Prelude.rnf succeededFindingsCount `Prelude.seq`
+            Prelude.rnf totalFindingsCount

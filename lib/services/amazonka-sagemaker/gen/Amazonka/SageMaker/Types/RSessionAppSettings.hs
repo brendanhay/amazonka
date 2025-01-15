@@ -85,8 +85,8 @@ instance Prelude.Hashable RSessionAppSettings where
 
 instance Prelude.NFData RSessionAppSettings where
   rnf RSessionAppSettings' {..} =
-    Prelude.rnf customImages
-      `Prelude.seq` Prelude.rnf defaultResourceSpec
+    Prelude.rnf customImages `Prelude.seq`
+      Prelude.rnf defaultResourceSpec
 
 instance Data.ToJSON RSessionAppSettings where
   toJSON RSessionAppSettings' {..} =

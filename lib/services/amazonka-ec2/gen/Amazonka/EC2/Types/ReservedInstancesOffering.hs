@@ -265,18 +265,18 @@ instance Prelude.Hashable ReservedInstancesOffering where
 
 instance Prelude.NFData ReservedInstancesOffering where
   rnf ReservedInstancesOffering' {..} =
-    Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf currencyCode
-      `Prelude.seq` Prelude.rnf duration
-      `Prelude.seq` Prelude.rnf fixedPrice
-      `Prelude.seq` Prelude.rnf instanceTenancy
-      `Prelude.seq` Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf marketplace
-      `Prelude.seq` Prelude.rnf offeringClass
-      `Prelude.seq` Prelude.rnf offeringType
-      `Prelude.seq` Prelude.rnf pricingDetails
-      `Prelude.seq` Prelude.rnf productDescription
-      `Prelude.seq` Prelude.rnf recurringCharges
-      `Prelude.seq` Prelude.rnf reservedInstancesOfferingId
-      `Prelude.seq` Prelude.rnf scope
-      `Prelude.seq` Prelude.rnf usagePrice
+    Prelude.rnf availabilityZone `Prelude.seq`
+      Prelude.rnf currencyCode `Prelude.seq`
+        Prelude.rnf duration `Prelude.seq`
+          Prelude.rnf fixedPrice `Prelude.seq`
+            Prelude.rnf instanceTenancy `Prelude.seq`
+              Prelude.rnf instanceType `Prelude.seq`
+                Prelude.rnf marketplace `Prelude.seq`
+                  Prelude.rnf offeringClass `Prelude.seq`
+                    Prelude.rnf offeringType `Prelude.seq`
+                      Prelude.rnf pricingDetails `Prelude.seq`
+                        Prelude.rnf productDescription `Prelude.seq`
+                          Prelude.rnf recurringCharges `Prelude.seq`
+                            Prelude.rnf reservedInstancesOfferingId `Prelude.seq`
+                              Prelude.rnf scope `Prelude.seq`
+                                Prelude.rnf usagePrice

@@ -109,8 +109,8 @@ instance Prelude.Hashable ModelDeployConfig where
 
 instance Prelude.NFData ModelDeployConfig where
   rnf ModelDeployConfig' {..} =
-    Prelude.rnf autoGenerateEndpointName
-      `Prelude.seq` Prelude.rnf endpointName
+    Prelude.rnf autoGenerateEndpointName `Prelude.seq`
+      Prelude.rnf endpointName
 
 instance Data.ToJSON ModelDeployConfig where
   toJSON ModelDeployConfig' {..} =

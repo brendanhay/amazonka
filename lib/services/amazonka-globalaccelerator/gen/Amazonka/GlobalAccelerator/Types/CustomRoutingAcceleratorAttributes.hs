@@ -154,6 +154,6 @@ instance
     CustomRoutingAcceleratorAttributes
   where
   rnf CustomRoutingAcceleratorAttributes' {..} =
-    Prelude.rnf flowLogsEnabled
-      `Prelude.seq` Prelude.rnf flowLogsS3Bucket
-      `Prelude.seq` Prelude.rnf flowLogsS3Prefix
+    Prelude.rnf flowLogsEnabled `Prelude.seq`
+      Prelude.rnf flowLogsS3Bucket `Prelude.seq`
+        Prelude.rnf flowLogsS3Prefix

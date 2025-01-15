@@ -477,16 +477,16 @@ instance Prelude.Hashable ProjectArtifacts where
 
 instance Prelude.NFData ProjectArtifacts where
   rnf ProjectArtifacts' {..} =
-    Prelude.rnf artifactIdentifier
-      `Prelude.seq` Prelude.rnf bucketOwnerAccess
-      `Prelude.seq` Prelude.rnf encryptionDisabled
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf namespaceType
-      `Prelude.seq` Prelude.rnf overrideArtifactName
-      `Prelude.seq` Prelude.rnf packaging
-      `Prelude.seq` Prelude.rnf path
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf artifactIdentifier `Prelude.seq`
+      Prelude.rnf bucketOwnerAccess `Prelude.seq`
+        Prelude.rnf encryptionDisabled `Prelude.seq`
+          Prelude.rnf location `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf namespaceType `Prelude.seq`
+                Prelude.rnf overrideArtifactName `Prelude.seq`
+                  Prelude.rnf packaging `Prelude.seq`
+                    Prelude.rnf path `Prelude.seq`
+                      Prelude.rnf type'
 
 instance Data.ToJSON ProjectArtifacts where
   toJSON ProjectArtifacts' {..} =

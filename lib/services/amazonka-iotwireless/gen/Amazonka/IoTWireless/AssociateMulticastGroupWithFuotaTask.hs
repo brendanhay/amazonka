@@ -119,8 +119,8 @@ instance
     AssociateMulticastGroupWithFuotaTask
   where
   rnf AssociateMulticastGroupWithFuotaTask' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf multicastGroupId
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf multicastGroupId
 
 instance
   Data.ToHeaders

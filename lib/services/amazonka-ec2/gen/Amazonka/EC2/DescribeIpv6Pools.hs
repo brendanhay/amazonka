@@ -177,12 +177,12 @@ instance Core.AWSPager DescribeIpv6Pools where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeIpv6Pools_nextToken
-          Lens..~ rs
-          Lens.^? describeIpv6PoolsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeIpv6Pools_nextToken
+              Lens..~ rs
+              Lens.^? describeIpv6PoolsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeIpv6Pools where
   type
@@ -194,9 +194,7 @@ instance Core.AWSRequest DescribeIpv6Pools where
     Response.receiveXML
       ( \s h x ->
           DescribeIpv6PoolsResponse'
-            Prelude.<$> ( x
-                            Data..@? "ipv6PoolSet"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "ipv6PoolSet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (x Data..@? "nextToken")
@@ -214,11 +212,11 @@ instance Prelude.Hashable DescribeIpv6Pools where
 
 instance Prelude.NFData DescribeIpv6Pools where
   rnf DescribeIpv6Pools' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf poolIds
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf poolIds
 
 instance Data.ToHeaders DescribeIpv6Pools where
   toHeaders = Prelude.const Prelude.mempty
@@ -295,6 +293,6 @@ describeIpv6PoolsResponse_httpStatus = Lens.lens (\DescribeIpv6PoolsResponse' {h
 
 instance Prelude.NFData DescribeIpv6PoolsResponse where
   rnf DescribeIpv6PoolsResponse' {..} =
-    Prelude.rnf ipv6Pools
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf ipv6Pools `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

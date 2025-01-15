@@ -116,8 +116,8 @@ instance Prelude.Hashable DeleteLifecycleHook where
 
 instance Prelude.NFData DeleteLifecycleHook where
   rnf DeleteLifecycleHook' {..} =
-    Prelude.rnf lifecycleHookName
-      `Prelude.seq` Prelude.rnf autoScalingGroupName
+    Prelude.rnf lifecycleHookName `Prelude.seq`
+      Prelude.rnf autoScalingGroupName
 
 instance Data.ToHeaders DeleteLifecycleHook where
   toHeaders = Prelude.const Prelude.mempty

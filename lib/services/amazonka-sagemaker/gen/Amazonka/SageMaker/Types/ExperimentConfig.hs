@@ -118,10 +118,10 @@ instance Prelude.Hashable ExperimentConfig where
 
 instance Prelude.NFData ExperimentConfig where
   rnf ExperimentConfig' {..} =
-    Prelude.rnf experimentName
-      `Prelude.seq` Prelude.rnf runName
-      `Prelude.seq` Prelude.rnf trialComponentDisplayName
-      `Prelude.seq` Prelude.rnf trialName
+    Prelude.rnf experimentName `Prelude.seq`
+      Prelude.rnf runName `Prelude.seq`
+        Prelude.rnf trialComponentDisplayName `Prelude.seq`
+          Prelude.rnf trialName
 
 instance Data.ToJSON ExperimentConfig where
   toJSON ExperimentConfig' {..} =

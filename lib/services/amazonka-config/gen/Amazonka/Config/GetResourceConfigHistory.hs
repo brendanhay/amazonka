@@ -198,12 +198,12 @@ instance Core.AWSPager GetResourceConfigHistory where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getResourceConfigHistory_nextToken
-          Lens..~ rs
-          Lens.^? getResourceConfigHistoryResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getResourceConfigHistory_nextToken
+              Lens..~ rs
+              Lens.^? getResourceConfigHistoryResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetResourceConfigHistory where
   type
@@ -236,13 +236,13 @@ instance Prelude.Hashable GetResourceConfigHistory where
 
 instance Prelude.NFData GetResourceConfigHistory where
   rnf GetResourceConfigHistory' {..} =
-    Prelude.rnf chronologicalOrder
-      `Prelude.seq` Prelude.rnf earlierTime
-      `Prelude.seq` Prelude.rnf laterTime
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf resourceId
+    Prelude.rnf chronologicalOrder `Prelude.seq`
+      Prelude.rnf earlierTime `Prelude.seq`
+        Prelude.rnf laterTime `Prelude.seq`
+          Prelude.rnf limit `Prelude.seq`
+            Prelude.rnf nextToken `Prelude.seq`
+              Prelude.rnf resourceType `Prelude.seq`
+                Prelude.rnf resourceId
 
 instance Data.ToHeaders GetResourceConfigHistory where
   toHeaders =
@@ -338,6 +338,6 @@ instance
     GetResourceConfigHistoryResponse
   where
   rnf GetResourceConfigHistoryResponse' {..} =
-    Prelude.rnf configurationItems
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf configurationItems `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

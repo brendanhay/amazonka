@@ -134,12 +134,12 @@ instance Prelude.Hashable S3CatalogTarget where
 
 instance Prelude.NFData S3CatalogTarget where
   rnf S3CatalogTarget' {..} =
-    Prelude.rnf partitionKeys
-      `Prelude.seq` Prelude.rnf schemaChangePolicy
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf inputs
-      `Prelude.seq` Prelude.rnf table
-      `Prelude.seq` Prelude.rnf database
+    Prelude.rnf partitionKeys `Prelude.seq`
+      Prelude.rnf schemaChangePolicy `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf inputs `Prelude.seq`
+            Prelude.rnf table `Prelude.seq`
+              Prelude.rnf database
 
 instance Data.ToJSON S3CatalogTarget where
   toJSON S3CatalogTarget' {..} =

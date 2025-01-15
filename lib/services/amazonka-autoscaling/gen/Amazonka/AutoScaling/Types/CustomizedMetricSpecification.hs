@@ -164,15 +164,11 @@ customizedMetricSpecification_unit = Lens.lens (\CustomizedMetricSpecification' 
 instance Data.FromXML CustomizedMetricSpecification where
   parseXML x =
     CustomizedMetricSpecification'
-      Prelude.<$> ( x
-                      Data..@? "Dimensions"
-                      Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "Dimensions" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "MetricName")
-      Prelude.<*> ( x
-                      Data..@? "Metrics"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "Metrics" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "Namespace")
@@ -194,12 +190,12 @@ instance
 
 instance Prelude.NFData CustomizedMetricSpecification where
   rnf CustomizedMetricSpecification' {..} =
-    Prelude.rnf dimensions
-      `Prelude.seq` Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf metrics
-      `Prelude.seq` Prelude.rnf namespace
-      `Prelude.seq` Prelude.rnf statistic
-      `Prelude.seq` Prelude.rnf unit
+    Prelude.rnf dimensions `Prelude.seq`
+      Prelude.rnf metricName `Prelude.seq`
+        Prelude.rnf metrics `Prelude.seq`
+          Prelude.rnf namespace `Prelude.seq`
+            Prelude.rnf statistic `Prelude.seq`
+              Prelude.rnf unit
 
 instance Data.ToQuery CustomizedMetricSpecification where
   toQuery CustomizedMetricSpecification' {..} =

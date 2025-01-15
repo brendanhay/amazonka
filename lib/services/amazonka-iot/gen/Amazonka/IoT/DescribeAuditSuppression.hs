@@ -118,8 +118,8 @@ instance Prelude.Hashable DescribeAuditSuppression where
 
 instance Prelude.NFData DescribeAuditSuppression where
   rnf DescribeAuditSuppression' {..} =
-    Prelude.rnf checkName
-      `Prelude.seq` Prelude.rnf resourceIdentifier
+    Prelude.rnf checkName `Prelude.seq`
+      Prelude.rnf resourceIdentifier
 
 instance Data.ToHeaders DescribeAuditSuppression where
   toHeaders = Prelude.const Prelude.mempty
@@ -218,9 +218,9 @@ instance
     DescribeAuditSuppressionResponse
   where
   rnf DescribeAuditSuppressionResponse' {..} =
-    Prelude.rnf checkName
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf expirationDate
-      `Prelude.seq` Prelude.rnf resourceIdentifier
-      `Prelude.seq` Prelude.rnf suppressIndefinitely
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf checkName `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf expirationDate `Prelude.seq`
+          Prelude.rnf resourceIdentifier `Prelude.seq`
+            Prelude.rnf suppressIndefinitely `Prelude.seq`
+              Prelude.rnf httpStatus

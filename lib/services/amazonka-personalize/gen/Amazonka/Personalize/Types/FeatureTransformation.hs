@@ -145,9 +145,9 @@ instance Prelude.Hashable FeatureTransformation where
 
 instance Prelude.NFData FeatureTransformation where
   rnf FeatureTransformation' {..} =
-    Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf defaultParameters
-      `Prelude.seq` Prelude.rnf featureTransformationArn
-      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf creationDateTime `Prelude.seq`
+      Prelude.rnf defaultParameters `Prelude.seq`
+        Prelude.rnf featureTransformationArn `Prelude.seq`
+          Prelude.rnf lastUpdatedDateTime `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf status

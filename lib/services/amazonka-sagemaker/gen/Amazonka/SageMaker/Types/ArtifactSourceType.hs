@@ -85,8 +85,8 @@ instance Prelude.Hashable ArtifactSourceType where
 
 instance Prelude.NFData ArtifactSourceType where
   rnf ArtifactSourceType' {..} =
-    Prelude.rnf sourceIdType
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf sourceIdType `Prelude.seq`
+      Prelude.rnf value
 
 instance Data.ToJSON ArtifactSourceType where
   toJSON ArtifactSourceType' {..} =

@@ -91,6 +91,6 @@ instance Prelude.Hashable BatchError where
 
 instance Prelude.NFData BatchError where
   rnf BatchError' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf code
-      `Prelude.seq` Prelude.rnf message
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf code `Prelude.seq`
+        Prelude.rnf message

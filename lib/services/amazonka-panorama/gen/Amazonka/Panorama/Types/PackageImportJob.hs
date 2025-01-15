@@ -126,9 +126,9 @@ instance Prelude.Hashable PackageImportJob where
 
 instance Prelude.NFData PackageImportJob where
   rnf PackageImportJob' {..} =
-    Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf jobType
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusMessage
+    Prelude.rnf createdTime `Prelude.seq`
+      Prelude.rnf jobId `Prelude.seq`
+        Prelude.rnf jobType `Prelude.seq`
+          Prelude.rnf lastUpdatedTime `Prelude.seq`
+            Prelude.rnf status `Prelude.seq`
+              Prelude.rnf statusMessage

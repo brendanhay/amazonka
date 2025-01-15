@@ -91,6 +91,6 @@ instance Prelude.Hashable ServiceProfile where
 
 instance Prelude.NFData ServiceProfile where
   rnf ServiceProfile' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf name

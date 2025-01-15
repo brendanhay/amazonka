@@ -73,9 +73,7 @@ instance Data.FromXML LaunchTemplate where
   parseXML x =
     LaunchTemplate'
       Prelude.<$> (x Data..@? "LaunchTemplateSpecification")
-      Prelude.<*> ( x
-                      Data..@? "Overrides"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "Overrides" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 
@@ -87,8 +85,8 @@ instance Prelude.Hashable LaunchTemplate where
 
 instance Prelude.NFData LaunchTemplate where
   rnf LaunchTemplate' {..} =
-    Prelude.rnf launchTemplateSpecification
-      `Prelude.seq` Prelude.rnf overrides
+    Prelude.rnf launchTemplateSpecification `Prelude.seq`
+      Prelude.rnf overrides
 
 instance Data.ToQuery LaunchTemplate where
   toQuery LaunchTemplate' {..} =

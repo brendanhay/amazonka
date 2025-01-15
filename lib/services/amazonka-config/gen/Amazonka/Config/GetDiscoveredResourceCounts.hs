@@ -197,9 +197,9 @@ instance Prelude.Hashable GetDiscoveredResourceCounts where
 
 instance Prelude.NFData GetDiscoveredResourceCounts where
   rnf GetDiscoveredResourceCounts' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf resourceTypes
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf resourceTypes
 
 instance Data.ToHeaders GetDiscoveredResourceCounts where
   toHeaders =
@@ -343,7 +343,7 @@ instance
     GetDiscoveredResourceCountsResponse
   where
   rnf GetDiscoveredResourceCountsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf resourceCounts
-      `Prelude.seq` Prelude.rnf totalDiscoveredResources
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf resourceCounts `Prelude.seq`
+        Prelude.rnf totalDiscoveredResources `Prelude.seq`
+          Prelude.rnf httpStatus

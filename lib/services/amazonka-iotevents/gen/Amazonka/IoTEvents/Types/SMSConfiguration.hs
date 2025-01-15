@@ -107,9 +107,9 @@ instance Prelude.Hashable SMSConfiguration where
 
 instance Prelude.NFData SMSConfiguration where
   rnf SMSConfiguration' {..} =
-    Prelude.rnf additionalMessage
-      `Prelude.seq` Prelude.rnf senderId
-      `Prelude.seq` Prelude.rnf recipients
+    Prelude.rnf additionalMessage `Prelude.seq`
+      Prelude.rnf senderId `Prelude.seq`
+        Prelude.rnf recipients
 
 instance Data.ToJSON SMSConfiguration where
   toJSON SMSConfiguration' {..} =

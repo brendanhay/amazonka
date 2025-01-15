@@ -176,5 +176,5 @@ instance
     ListSupportedPhoneNumberCountriesResponse
   where
   rnf ListSupportedPhoneNumberCountriesResponse' {..} =
-    Prelude.rnf phoneNumberCountries
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf phoneNumberCountries `Prelude.seq`
+      Prelude.rnf httpStatus

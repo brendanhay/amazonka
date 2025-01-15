@@ -114,8 +114,8 @@ instance Prelude.Hashable SnapshotDetails where
 
 instance Prelude.NFData SnapshotDetails where
   rnf SnapshotDetails' {..} =
-    Prelude.rnf created
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf lastUpdated
-      `Prelude.seq` Prelude.rnf sections
+    Prelude.rnf created `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf lastUpdated `Prelude.seq`
+            Prelude.rnf sections

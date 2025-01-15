@@ -142,13 +142,13 @@ instance
     BucketCriteriaAdditionalProperties
   where
   rnf BucketCriteriaAdditionalProperties' {..} =
-    Prelude.rnf eq
-      `Prelude.seq` Prelude.rnf gt
-      `Prelude.seq` Prelude.rnf gte
-      `Prelude.seq` Prelude.rnf lt
-      `Prelude.seq` Prelude.rnf lte
-      `Prelude.seq` Prelude.rnf neq
-      `Prelude.seq` Prelude.rnf prefix
+    Prelude.rnf eq `Prelude.seq`
+      Prelude.rnf gt `Prelude.seq`
+        Prelude.rnf gte `Prelude.seq`
+          Prelude.rnf lt `Prelude.seq`
+            Prelude.rnf lte `Prelude.seq`
+              Prelude.rnf neq `Prelude.seq`
+                Prelude.rnf prefix
 
 instance
   Data.ToJSON

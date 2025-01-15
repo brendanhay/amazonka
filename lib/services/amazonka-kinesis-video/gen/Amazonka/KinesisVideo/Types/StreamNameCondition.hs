@@ -79,8 +79,8 @@ instance Prelude.Hashable StreamNameCondition where
 
 instance Prelude.NFData StreamNameCondition where
   rnf StreamNameCondition' {..} =
-    Prelude.rnf comparisonOperator
-      `Prelude.seq` Prelude.rnf comparisonValue
+    Prelude.rnf comparisonOperator `Prelude.seq`
+      Prelude.rnf comparisonValue
 
 instance Data.ToJSON StreamNameCondition where
   toJSON StreamNameCondition' {..} =

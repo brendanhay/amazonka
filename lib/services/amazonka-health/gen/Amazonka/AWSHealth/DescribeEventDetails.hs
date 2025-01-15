@@ -133,8 +133,8 @@ instance Prelude.Hashable DescribeEventDetails where
 
 instance Prelude.NFData DescribeEventDetails where
   rnf DescribeEventDetails' {..} =
-    Prelude.rnf locale
-      `Prelude.seq` Prelude.rnf eventArns
+    Prelude.rnf locale `Prelude.seq`
+      Prelude.rnf eventArns
 
 instance Data.ToHeaders DescribeEventDetails where
   toHeaders =
@@ -216,6 +216,6 @@ describeEventDetailsResponse_httpStatus = Lens.lens (\DescribeEventDetailsRespon
 
 instance Prelude.NFData DescribeEventDetailsResponse where
   rnf DescribeEventDetailsResponse' {..} =
-    Prelude.rnf failedSet
-      `Prelude.seq` Prelude.rnf successfulSet
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf failedSet `Prelude.seq`
+      Prelude.rnf successfulSet `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -134,12 +134,12 @@ instance Core.AWSPager QueryAssistant where
         (rs Lens.^. queryAssistantResponse_results) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& queryAssistant_nextToken
-          Lens..~ rs
-          Lens.^? queryAssistantResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& queryAssistant_nextToken
+              Lens..~ rs
+              Lens.^? queryAssistantResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest QueryAssistant where
   type
@@ -166,10 +166,10 @@ instance Prelude.Hashable QueryAssistant where
 
 instance Prelude.NFData QueryAssistant where
   rnf QueryAssistant' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf assistantId
-      `Prelude.seq` Prelude.rnf queryText
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf assistantId `Prelude.seq`
+          Prelude.rnf queryText
 
 instance Data.ToHeaders QueryAssistant where
   toHeaders =
@@ -253,6 +253,6 @@ queryAssistantResponse_results = Lens.lens (\QueryAssistantResponse' {results} -
 
 instance Prelude.NFData QueryAssistantResponse where
   rnf QueryAssistantResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf results
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf results

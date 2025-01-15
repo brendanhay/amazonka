@@ -125,9 +125,9 @@ instance Prelude.Hashable ListDevices where
 
 instance Prelude.NFData ListDevices where
   rnf ListDevices' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf paginationToken
-      `Prelude.seq` Prelude.rnf accessToken
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf paginationToken `Prelude.seq`
+        Prelude.rnf accessToken
 
 instance Data.ToHeaders ListDevices where
   toHeaders =
@@ -212,6 +212,6 @@ listDevicesResponse_httpStatus = Lens.lens (\ListDevicesResponse' {httpStatus} -
 
 instance Prelude.NFData ListDevicesResponse where
   rnf ListDevicesResponse' {..} =
-    Prelude.rnf devices
-      `Prelude.seq` Prelude.rnf paginationToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf devices `Prelude.seq`
+      Prelude.rnf paginationToken `Prelude.seq`
+        Prelude.rnf httpStatus

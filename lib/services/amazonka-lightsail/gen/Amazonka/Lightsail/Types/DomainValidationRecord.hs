@@ -120,7 +120,7 @@ instance Prelude.Hashable DomainValidationRecord where
 
 instance Prelude.NFData DomainValidationRecord where
   rnf DomainValidationRecord' {..} =
-    Prelude.rnf dnsRecordCreationState
-      `Prelude.seq` Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf resourceRecord
-      `Prelude.seq` Prelude.rnf validationStatus
+    Prelude.rnf dnsRecordCreationState `Prelude.seq`
+      Prelude.rnf domainName `Prelude.seq`
+        Prelude.rnf resourceRecord `Prelude.seq`
+          Prelude.rnf validationStatus

@@ -93,5 +93,5 @@ instance
     RedactedEwsAvailabilityProvider
   where
   rnf RedactedEwsAvailabilityProvider' {..} =
-    Prelude.rnf ewsEndpoint
-      `Prelude.seq` Prelude.rnf ewsUsername
+    Prelude.rnf ewsEndpoint `Prelude.seq`
+      Prelude.rnf ewsUsername

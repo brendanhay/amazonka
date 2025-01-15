@@ -132,11 +132,11 @@ instance Prelude.Hashable Occurrences where
 
 instance Prelude.NFData Occurrences where
   rnf Occurrences' {..} =
-    Prelude.rnf cells
-      `Prelude.seq` Prelude.rnf lineRanges
-      `Prelude.seq` Prelude.rnf offsetRanges
-      `Prelude.seq` Prelude.rnf pages
-      `Prelude.seq` Prelude.rnf records
+    Prelude.rnf cells `Prelude.seq`
+      Prelude.rnf lineRanges `Prelude.seq`
+        Prelude.rnf offsetRanges `Prelude.seq`
+          Prelude.rnf pages `Prelude.seq`
+            Prelude.rnf records
 
 instance Data.ToJSON Occurrences where
   toJSON Occurrences' {..} =

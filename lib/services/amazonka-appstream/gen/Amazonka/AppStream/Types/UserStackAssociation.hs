@@ -122,10 +122,10 @@ instance Prelude.Hashable UserStackAssociation where
 
 instance Prelude.NFData UserStackAssociation where
   rnf UserStackAssociation' {..} =
-    Prelude.rnf sendEmailNotification
-      `Prelude.seq` Prelude.rnf stackName
-      `Prelude.seq` Prelude.rnf userName
-      `Prelude.seq` Prelude.rnf authenticationType
+    Prelude.rnf sendEmailNotification `Prelude.seq`
+      Prelude.rnf stackName `Prelude.seq`
+        Prelude.rnf userName `Prelude.seq`
+          Prelude.rnf authenticationType
 
 instance Data.ToJSON UserStackAssociation where
   toJSON UserStackAssociation' {..} =

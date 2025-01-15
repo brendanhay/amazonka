@@ -118,10 +118,10 @@ instance Prelude.Hashable S3Action where
 
 instance Prelude.NFData S3Action where
   rnf S3Action' {..} =
-    Prelude.rnf cannedAcl
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf bucketName
-      `Prelude.seq` Prelude.rnf key
+    Prelude.rnf cannedAcl `Prelude.seq`
+      Prelude.rnf roleArn `Prelude.seq`
+        Prelude.rnf bucketName `Prelude.seq`
+          Prelude.rnf key
 
 instance Data.ToJSON S3Action where
   toJSON S3Action' {..} =

@@ -158,10 +158,10 @@ instance Prelude.Hashable CreateDBSubnetGroup where
 
 instance Prelude.NFData CreateDBSubnetGroup where
   rnf CreateDBSubnetGroup' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf dbSubnetGroupName
-      `Prelude.seq` Prelude.rnf dbSubnetGroupDescription
-      `Prelude.seq` Prelude.rnf subnetIds
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf dbSubnetGroupName `Prelude.seq`
+        Prelude.rnf dbSubnetGroupDescription `Prelude.seq`
+          Prelude.rnf subnetIds
 
 instance Data.ToHeaders CreateDBSubnetGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -226,5 +226,5 @@ createDBSubnetGroupResponse_httpStatus = Lens.lens (\CreateDBSubnetGroupResponse
 
 instance Prelude.NFData CreateDBSubnetGroupResponse where
   rnf CreateDBSubnetGroupResponse' {..} =
-    Prelude.rnf dbSubnetGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dbSubnetGroup `Prelude.seq`
+      Prelude.rnf httpStatus

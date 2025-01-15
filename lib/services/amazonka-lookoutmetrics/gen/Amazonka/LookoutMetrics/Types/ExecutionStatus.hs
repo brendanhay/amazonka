@@ -92,6 +92,6 @@ instance Prelude.Hashable ExecutionStatus where
 
 instance Prelude.NFData ExecutionStatus where
   rnf ExecutionStatus' {..} =
-    Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf timestamp
+    Prelude.rnf failureReason `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf timestamp

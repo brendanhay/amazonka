@@ -168,12 +168,12 @@ instance Prelude.Hashable ResponseDetails where
 
 instance Prelude.NFData ResponseDetails where
   rnf ResponseDetails' {..} =
-    Prelude.rnf createS3DataAccessFromS3Bucket
-      `Prelude.seq` Prelude.rnf exportAssetToSignedUrl
-      `Prelude.seq` Prelude.rnf exportAssetsToS3
-      `Prelude.seq` Prelude.rnf exportRevisionsToS3
-      `Prelude.seq` Prelude.rnf importAssetFromApiGatewayApi
-      `Prelude.seq` Prelude.rnf importAssetFromSignedUrl
-      `Prelude.seq` Prelude.rnf importAssetsFromLakeFormationTagPolicy
-      `Prelude.seq` Prelude.rnf importAssetsFromRedshiftDataShares
-      `Prelude.seq` Prelude.rnf importAssetsFromS3
+    Prelude.rnf createS3DataAccessFromS3Bucket `Prelude.seq`
+      Prelude.rnf exportAssetToSignedUrl `Prelude.seq`
+        Prelude.rnf exportAssetsToS3 `Prelude.seq`
+          Prelude.rnf exportRevisionsToS3 `Prelude.seq`
+            Prelude.rnf importAssetFromApiGatewayApi `Prelude.seq`
+              Prelude.rnf importAssetFromSignedUrl `Prelude.seq`
+                Prelude.rnf importAssetsFromLakeFormationTagPolicy `Prelude.seq`
+                  Prelude.rnf importAssetsFromRedshiftDataShares `Prelude.seq`
+                    Prelude.rnf importAssetsFromS3

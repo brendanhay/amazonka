@@ -122,7 +122,7 @@ instance
 
 instance Prelude.NFData DeploymentStageStatusSummary where
   rnf DeploymentStageStatusSummary' {..} =
-    Prelude.rnf stageName
-      `Prelude.seq` Prelude.rnf deviceSelectionConfig
-      `Prelude.seq` Prelude.rnf deploymentConfig
-      `Prelude.seq` Prelude.rnf deploymentStatus
+    Prelude.rnf stageName `Prelude.seq`
+      Prelude.rnf deviceSelectionConfig `Prelude.seq`
+        Prelude.rnf deploymentConfig `Prelude.seq`
+          Prelude.rnf deploymentStatus

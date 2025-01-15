@@ -236,11 +236,11 @@ instance Prelude.Hashable CompleteMultipartUpload where
 
 instance Prelude.NFData CompleteMultipartUpload where
   rnf CompleteMultipartUpload' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf vaultName
-      `Prelude.seq` Prelude.rnf uploadId
-      `Prelude.seq` Prelude.rnf archiveSize
-      `Prelude.seq` Prelude.rnf checksum
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf vaultName `Prelude.seq`
+        Prelude.rnf uploadId `Prelude.seq`
+          Prelude.rnf archiveSize `Prelude.seq`
+            Prelude.rnf checksum
 
 instance Data.ToHeaders CompleteMultipartUpload where
   toHeaders CompleteMultipartUpload' {..} =

@@ -146,13 +146,13 @@ instance Prelude.Hashable QueryFilters where
 
 instance Prelude.NFData QueryFilters where
   rnf QueryFilters' {..} =
-    Prelude.rnf createdAfter
-      `Prelude.seq` Prelude.rnf createdBefore
-      `Prelude.seq` Prelude.rnf lineageTypes
-      `Prelude.seq` Prelude.rnf modifiedAfter
-      `Prelude.seq` Prelude.rnf modifiedBefore
-      `Prelude.seq` Prelude.rnf properties
-      `Prelude.seq` Prelude.rnf types
+    Prelude.rnf createdAfter `Prelude.seq`
+      Prelude.rnf createdBefore `Prelude.seq`
+        Prelude.rnf lineageTypes `Prelude.seq`
+          Prelude.rnf modifiedAfter `Prelude.seq`
+            Prelude.rnf modifiedBefore `Prelude.seq`
+              Prelude.rnf properties `Prelude.seq`
+                Prelude.rnf types
 
 instance Data.ToJSON QueryFilters where
   toJSON QueryFilters' {..} =

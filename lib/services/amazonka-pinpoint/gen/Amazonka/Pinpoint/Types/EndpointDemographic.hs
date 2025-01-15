@@ -159,14 +159,14 @@ instance Prelude.Hashable EndpointDemographic where
 
 instance Prelude.NFData EndpointDemographic where
   rnf EndpointDemographic' {..} =
-    Prelude.rnf appVersion
-      `Prelude.seq` Prelude.rnf locale
-      `Prelude.seq` Prelude.rnf make
-      `Prelude.seq` Prelude.rnf model
-      `Prelude.seq` Prelude.rnf modelVersion
-      `Prelude.seq` Prelude.rnf platform
-      `Prelude.seq` Prelude.rnf platformVersion
-      `Prelude.seq` Prelude.rnf timezone
+    Prelude.rnf appVersion `Prelude.seq`
+      Prelude.rnf locale `Prelude.seq`
+        Prelude.rnf make `Prelude.seq`
+          Prelude.rnf model `Prelude.seq`
+            Prelude.rnf modelVersion `Prelude.seq`
+              Prelude.rnf platform `Prelude.seq`
+                Prelude.rnf platformVersion `Prelude.seq`
+                  Prelude.rnf timezone
 
 instance Data.ToJSON EndpointDemographic where
   toJSON EndpointDemographic' {..} =

@@ -146,9 +146,9 @@ instance Prelude.Hashable CreateExport where
 
 instance Prelude.NFData CreateExport where
   rnf CreateExport' {..} =
-    Prelude.rnf filePassword
-      `Prelude.seq` Prelude.rnf resourceSpecification
-      `Prelude.seq` Prelude.rnf fileFormat
+    Prelude.rnf filePassword `Prelude.seq`
+      Prelude.rnf resourceSpecification `Prelude.seq`
+        Prelude.rnf fileFormat
 
 instance Data.ToHeaders CreateExport where
   toHeaders =
@@ -272,9 +272,9 @@ createExportResponse_httpStatus = Lens.lens (\CreateExportResponse' {httpStatus}
 
 instance Prelude.NFData CreateExportResponse where
   rnf CreateExportResponse' {..} =
-    Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf exportId
-      `Prelude.seq` Prelude.rnf exportStatus
-      `Prelude.seq` Prelude.rnf fileFormat
-      `Prelude.seq` Prelude.rnf resourceSpecification
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf creationDateTime `Prelude.seq`
+      Prelude.rnf exportId `Prelude.seq`
+        Prelude.rnf exportStatus `Prelude.seq`
+          Prelude.rnf fileFormat `Prelude.seq`
+            Prelude.rnf resourceSpecification `Prelude.seq`
+              Prelude.rnf httpStatus

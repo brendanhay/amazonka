@@ -254,17 +254,17 @@ instance Prelude.Hashable App where
 
 instance Prelude.NFData App where
   rnf App' {..} =
-    Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf appSource
-      `Prelude.seq` Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf dataSources
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf domains
-      `Prelude.seq` Prelude.rnf enableSsl
-      `Prelude.seq` Prelude.rnf environment
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf shortname
-      `Prelude.seq` Prelude.rnf sslConfiguration
-      `Prelude.seq` Prelude.rnf stackId
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf appId `Prelude.seq`
+      Prelude.rnf appSource `Prelude.seq`
+        Prelude.rnf attributes `Prelude.seq`
+          Prelude.rnf createdAt `Prelude.seq`
+            Prelude.rnf dataSources `Prelude.seq`
+              Prelude.rnf description `Prelude.seq`
+                Prelude.rnf domains `Prelude.seq`
+                  Prelude.rnf enableSsl `Prelude.seq`
+                    Prelude.rnf environment `Prelude.seq`
+                      Prelude.rnf name `Prelude.seq`
+                        Prelude.rnf shortname `Prelude.seq`
+                          Prelude.rnf sslConfiguration `Prelude.seq`
+                            Prelude.rnf stackId `Prelude.seq`
+                              Prelude.rnf type'

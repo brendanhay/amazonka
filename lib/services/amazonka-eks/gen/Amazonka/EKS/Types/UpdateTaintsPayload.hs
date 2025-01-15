@@ -74,8 +74,8 @@ instance Prelude.Hashable UpdateTaintsPayload where
 
 instance Prelude.NFData UpdateTaintsPayload where
   rnf UpdateTaintsPayload' {..} =
-    Prelude.rnf addOrUpdateTaints
-      `Prelude.seq` Prelude.rnf removeTaints
+    Prelude.rnf addOrUpdateTaints `Prelude.seq`
+      Prelude.rnf removeTaints
 
 instance Data.ToJSON UpdateTaintsPayload where
   toJSON UpdateTaintsPayload' {..} =

@@ -84,8 +84,8 @@ instance Prelude.Hashable ArtifactDetails where
 
 instance Prelude.NFData ArtifactDetails where
   rnf ArtifactDetails' {..} =
-    Prelude.rnf minimumCount
-      `Prelude.seq` Prelude.rnf maximumCount
+    Prelude.rnf minimumCount `Prelude.seq`
+      Prelude.rnf maximumCount
 
 instance Data.ToJSON ArtifactDetails where
   toJSON ArtifactDetails' {..} =

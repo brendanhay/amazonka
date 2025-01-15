@@ -400,16 +400,16 @@ instance Prelude.Hashable UpdateUser where
 
 instance Prelude.NFData UpdateUser where
   rnf UpdateUser' {..} =
-    Prelude.rnf customFederationProviderUrl
-      `Prelude.seq` Prelude.rnf customPermissionsName
-      `Prelude.seq` Prelude.rnf externalLoginFederationProviderType
-      `Prelude.seq` Prelude.rnf externalLoginId
-      `Prelude.seq` Prelude.rnf unapplyCustomPermissions
-      `Prelude.seq` Prelude.rnf userName
-      `Prelude.seq` Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf namespace
-      `Prelude.seq` Prelude.rnf email
-      `Prelude.seq` Prelude.rnf role'
+    Prelude.rnf customFederationProviderUrl `Prelude.seq`
+      Prelude.rnf customPermissionsName `Prelude.seq`
+        Prelude.rnf externalLoginFederationProviderType `Prelude.seq`
+          Prelude.rnf externalLoginId `Prelude.seq`
+            Prelude.rnf unapplyCustomPermissions `Prelude.seq`
+              Prelude.rnf userName `Prelude.seq`
+                Prelude.rnf awsAccountId `Prelude.seq`
+                  Prelude.rnf namespace `Prelude.seq`
+                    Prelude.rnf email `Prelude.seq`
+                      Prelude.rnf role'
 
 instance Data.ToHeaders UpdateUser where
   toHeaders =
@@ -504,6 +504,6 @@ updateUserResponse_status = Lens.lens (\UpdateUserResponse' {status} -> status) 
 
 instance Prelude.NFData UpdateUserResponse where
   rnf UpdateUserResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf user
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf requestId `Prelude.seq`
+      Prelude.rnf user `Prelude.seq`
+        Prelude.rnf status

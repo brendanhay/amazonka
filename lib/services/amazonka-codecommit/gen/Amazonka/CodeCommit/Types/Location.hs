@@ -99,9 +99,9 @@ instance Prelude.Hashable Location where
 
 instance Prelude.NFData Location where
   rnf Location' {..} =
-    Prelude.rnf filePath
-      `Prelude.seq` Prelude.rnf filePosition
-      `Prelude.seq` Prelude.rnf relativeFileVersion
+    Prelude.rnf filePath `Prelude.seq`
+      Prelude.rnf filePosition `Prelude.seq`
+        Prelude.rnf relativeFileVersion
 
 instance Data.ToJSON Location where
   toJSON Location' {..} =

@@ -81,9 +81,9 @@ instance Prelude.Hashable InputConfigInput where
 
 instance Prelude.NFData InputConfigInput where
   rnf InputConfigInput' {..} =
-    Prelude.rnf dataSourceConfig
-      `Prelude.seq` Prelude.rnf previousEarthObservationJobArn
-      `Prelude.seq` Prelude.rnf rasterDataCollectionQuery
+    Prelude.rnf dataSourceConfig `Prelude.seq`
+      Prelude.rnf previousEarthObservationJobArn `Prelude.seq`
+        Prelude.rnf rasterDataCollectionQuery
 
 instance Data.ToJSON InputConfigInput where
   toJSON InputConfigInput' {..} =

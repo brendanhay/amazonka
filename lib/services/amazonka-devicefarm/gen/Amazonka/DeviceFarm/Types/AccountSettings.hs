@@ -185,11 +185,11 @@ instance Prelude.Hashable AccountSettings where
 
 instance Prelude.NFData AccountSettings where
   rnf AccountSettings' {..} =
-    Prelude.rnf awsAccountNumber
-      `Prelude.seq` Prelude.rnf defaultJobTimeoutMinutes
-      `Prelude.seq` Prelude.rnf maxJobTimeoutMinutes
-      `Prelude.seq` Prelude.rnf maxSlots
-      `Prelude.seq` Prelude.rnf skipAppResign
-      `Prelude.seq` Prelude.rnf trialMinutes
-      `Prelude.seq` Prelude.rnf unmeteredDevices
-      `Prelude.seq` Prelude.rnf unmeteredRemoteAccessDevices
+    Prelude.rnf awsAccountNumber `Prelude.seq`
+      Prelude.rnf defaultJobTimeoutMinutes `Prelude.seq`
+        Prelude.rnf maxJobTimeoutMinutes `Prelude.seq`
+          Prelude.rnf maxSlots `Prelude.seq`
+            Prelude.rnf skipAppResign `Prelude.seq`
+              Prelude.rnf trialMinutes `Prelude.seq`
+                Prelude.rnf unmeteredDevices `Prelude.seq`
+                  Prelude.rnf unmeteredRemoteAccessDevices

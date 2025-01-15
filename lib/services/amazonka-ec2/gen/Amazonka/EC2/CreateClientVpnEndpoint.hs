@@ -457,24 +457,24 @@ instance Prelude.Hashable CreateClientVpnEndpoint where
 
 instance Prelude.NFData CreateClientVpnEndpoint where
   rnf CreateClientVpnEndpoint' {..} =
-    Prelude.rnf clientConnectOptions
-      `Prelude.seq` Prelude.rnf clientLoginBannerOptions
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf dnsServers
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf selfServicePortal
-      `Prelude.seq` Prelude.rnf sessionTimeoutHours
-      `Prelude.seq` Prelude.rnf splitTunnel
-      `Prelude.seq` Prelude.rnf tagSpecifications
-      `Prelude.seq` Prelude.rnf transportProtocol
-      `Prelude.seq` Prelude.rnf vpcId
-      `Prelude.seq` Prelude.rnf vpnPort
-      `Prelude.seq` Prelude.rnf clientCidrBlock
-      `Prelude.seq` Prelude.rnf serverCertificateArn
-      `Prelude.seq` Prelude.rnf authenticationOptions
-      `Prelude.seq` Prelude.rnf connectionLogOptions
+    Prelude.rnf clientConnectOptions `Prelude.seq`
+      Prelude.rnf clientLoginBannerOptions `Prelude.seq`
+        Prelude.rnf clientToken `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf dnsServers `Prelude.seq`
+              Prelude.rnf dryRun `Prelude.seq`
+                Prelude.rnf securityGroupIds `Prelude.seq`
+                  Prelude.rnf selfServicePortal `Prelude.seq`
+                    Prelude.rnf sessionTimeoutHours `Prelude.seq`
+                      Prelude.rnf splitTunnel `Prelude.seq`
+                        Prelude.rnf tagSpecifications `Prelude.seq`
+                          Prelude.rnf transportProtocol `Prelude.seq`
+                            Prelude.rnf vpcId `Prelude.seq`
+                              Prelude.rnf vpnPort `Prelude.seq`
+                                Prelude.rnf clientCidrBlock `Prelude.seq`
+                                  Prelude.rnf serverCertificateArn `Prelude.seq`
+                                    Prelude.rnf authenticationOptions `Prelude.seq`
+                                      Prelude.rnf connectionLogOptions
 
 instance Data.ToHeaders CreateClientVpnEndpoint where
   toHeaders = Prelude.const Prelude.mempty
@@ -583,7 +583,7 @@ instance
     CreateClientVpnEndpointResponse
   where
   rnf CreateClientVpnEndpointResponse' {..} =
-    Prelude.rnf clientVpnEndpointId
-      `Prelude.seq` Prelude.rnf dnsName
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf clientVpnEndpointId `Prelude.seq`
+      Prelude.rnf dnsName `Prelude.seq`
+        Prelude.rnf status `Prelude.seq`
+          Prelude.rnf httpStatus

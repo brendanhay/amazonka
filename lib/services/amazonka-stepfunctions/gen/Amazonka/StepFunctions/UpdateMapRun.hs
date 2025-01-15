@@ -130,10 +130,10 @@ instance Prelude.Hashable UpdateMapRun where
 
 instance Prelude.NFData UpdateMapRun where
   rnf UpdateMapRun' {..} =
-    Prelude.rnf maxConcurrency
-      `Prelude.seq` Prelude.rnf toleratedFailureCount
-      `Prelude.seq` Prelude.rnf toleratedFailurePercentage
-      `Prelude.seq` Prelude.rnf mapRunArn
+    Prelude.rnf maxConcurrency `Prelude.seq`
+      Prelude.rnf toleratedFailureCount `Prelude.seq`
+        Prelude.rnf toleratedFailurePercentage `Prelude.seq`
+          Prelude.rnf mapRunArn
 
 instance Data.ToHeaders UpdateMapRun where
   toHeaders =

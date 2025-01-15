@@ -98,6 +98,6 @@ instance Prelude.Hashable ReactionValueFormats where
 
 instance Prelude.NFData ReactionValueFormats where
   rnf ReactionValueFormats' {..} =
-    Prelude.rnf emoji
-      `Prelude.seq` Prelude.rnf shortCode
-      `Prelude.seq` Prelude.rnf unicode
+    Prelude.rnf emoji `Prelude.seq`
+      Prelude.rnf shortCode `Prelude.seq`
+        Prelude.rnf unicode

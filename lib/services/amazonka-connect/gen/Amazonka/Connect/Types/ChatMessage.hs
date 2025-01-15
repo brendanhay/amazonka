@@ -95,8 +95,8 @@ instance Prelude.Hashable ChatMessage where
 
 instance Prelude.NFData ChatMessage where
   rnf ChatMessage' {..} =
-    Prelude.rnf contentType
-      `Prelude.seq` Prelude.rnf content
+    Prelude.rnf contentType `Prelude.seq`
+      Prelude.rnf content
 
 instance Data.ToJSON ChatMessage where
   toJSON ChatMessage' {..} =

@@ -165,9 +165,9 @@ instance
     DescribeRecommendationFeedback
   where
   rnf DescribeRecommendationFeedback' {..} =
-    Prelude.rnf userId
-      `Prelude.seq` Prelude.rnf codeReviewArn
-      `Prelude.seq` Prelude.rnf recommendationId
+    Prelude.rnf userId `Prelude.seq`
+      Prelude.rnf codeReviewArn `Prelude.seq`
+        Prelude.rnf recommendationId
 
 instance
   Data.ToHeaders
@@ -240,5 +240,5 @@ instance
     DescribeRecommendationFeedbackResponse
   where
   rnf DescribeRecommendationFeedbackResponse' {..} =
-    Prelude.rnf recommendationFeedback
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf recommendationFeedback `Prelude.seq`
+      Prelude.rnf httpStatus

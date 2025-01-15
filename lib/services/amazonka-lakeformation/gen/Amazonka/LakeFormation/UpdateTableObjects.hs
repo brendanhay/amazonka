@@ -154,11 +154,11 @@ instance Prelude.Hashable UpdateTableObjects where
 
 instance Prelude.NFData UpdateTableObjects where
   rnf UpdateTableObjects' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf transactionId
-      `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf tableName
-      `Prelude.seq` Prelude.rnf writeOperations
+    Prelude.rnf catalogId `Prelude.seq`
+      Prelude.rnf transactionId `Prelude.seq`
+        Prelude.rnf databaseName `Prelude.seq`
+          Prelude.rnf tableName `Prelude.seq`
+            Prelude.rnf writeOperations
 
 instance Data.ToHeaders UpdateTableObjects where
   toHeaders =

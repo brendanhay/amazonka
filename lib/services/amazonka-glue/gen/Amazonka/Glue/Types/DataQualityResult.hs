@@ -199,14 +199,14 @@ instance Prelude.Hashable DataQualityResult where
 
 instance Prelude.NFData DataQualityResult where
   rnf DataQualityResult' {..} =
-    Prelude.rnf completedOn
-      `Prelude.seq` Prelude.rnf dataSource
-      `Prelude.seq` Prelude.rnf evaluationContext
-      `Prelude.seq` Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf jobRunId
-      `Prelude.seq` Prelude.rnf resultId
-      `Prelude.seq` Prelude.rnf ruleResults
-      `Prelude.seq` Prelude.rnf rulesetEvaluationRunId
-      `Prelude.seq` Prelude.rnf rulesetName
-      `Prelude.seq` Prelude.rnf score
-      `Prelude.seq` Prelude.rnf startedOn
+    Prelude.rnf completedOn `Prelude.seq`
+      Prelude.rnf dataSource `Prelude.seq`
+        Prelude.rnf evaluationContext `Prelude.seq`
+          Prelude.rnf jobName `Prelude.seq`
+            Prelude.rnf jobRunId `Prelude.seq`
+              Prelude.rnf resultId `Prelude.seq`
+                Prelude.rnf ruleResults `Prelude.seq`
+                  Prelude.rnf rulesetEvaluationRunId `Prelude.seq`
+                    Prelude.rnf rulesetName `Prelude.seq`
+                      Prelude.rnf score `Prelude.seq`
+                        Prelude.rnf startedOn

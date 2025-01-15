@@ -170,10 +170,10 @@ instance Prelude.Hashable CreateDirectoryConfig where
 
 instance Prelude.NFData CreateDirectoryConfig where
   rnf CreateDirectoryConfig' {..} =
-    Prelude.rnf certificateBasedAuthProperties
-      `Prelude.seq` Prelude.rnf serviceAccountCredentials
-      `Prelude.seq` Prelude.rnf directoryName
-      `Prelude.seq` Prelude.rnf organizationalUnitDistinguishedNames
+    Prelude.rnf certificateBasedAuthProperties `Prelude.seq`
+      Prelude.rnf serviceAccountCredentials `Prelude.seq`
+        Prelude.rnf directoryName `Prelude.seq`
+          Prelude.rnf organizationalUnitDistinguishedNames
 
 instance Data.ToHeaders CreateDirectoryConfig where
   toHeaders =
@@ -253,5 +253,5 @@ createDirectoryConfigResponse_httpStatus = Lens.lens (\CreateDirectoryConfigResp
 
 instance Prelude.NFData CreateDirectoryConfigResponse where
   rnf CreateDirectoryConfigResponse' {..} =
-    Prelude.rnf directoryConfig
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf directoryConfig `Prelude.seq`
+      Prelude.rnf httpStatus

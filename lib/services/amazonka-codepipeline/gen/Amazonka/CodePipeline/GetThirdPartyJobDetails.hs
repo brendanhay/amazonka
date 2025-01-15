@@ -124,8 +124,8 @@ instance Prelude.Hashable GetThirdPartyJobDetails where
 
 instance Prelude.NFData GetThirdPartyJobDetails where
   rnf GetThirdPartyJobDetails' {..} =
-    Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf jobId `Prelude.seq`
+      Prelude.rnf clientToken
 
 instance Data.ToHeaders GetThirdPartyJobDetails where
   toHeaders =
@@ -206,5 +206,5 @@ instance
     GetThirdPartyJobDetailsResponse
   where
   rnf GetThirdPartyJobDetailsResponse' {..} =
-    Prelude.rnf jobDetails
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf jobDetails `Prelude.seq`
+      Prelude.rnf httpStatus

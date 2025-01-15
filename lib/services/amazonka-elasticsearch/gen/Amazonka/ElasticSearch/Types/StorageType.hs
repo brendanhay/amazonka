@@ -94,6 +94,6 @@ instance Prelude.Hashable StorageType where
 
 instance Prelude.NFData StorageType where
   rnf StorageType' {..} =
-    Prelude.rnf storageSubTypeName
-      `Prelude.seq` Prelude.rnf storageTypeLimits
-      `Prelude.seq` Prelude.rnf storageTypeName
+    Prelude.rnf storageSubTypeName `Prelude.seq`
+      Prelude.rnf storageTypeLimits `Prelude.seq`
+        Prelude.rnf storageTypeName

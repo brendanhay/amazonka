@@ -83,5 +83,5 @@ instance Prelude.Hashable AwsAccount where
 
 instance Prelude.NFData AwsAccount where
   rnf AwsAccount' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf principalId
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf principalId

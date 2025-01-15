@@ -108,8 +108,8 @@ instance
     AlgorithmValidationSpecification
   where
   rnf AlgorithmValidationSpecification' {..} =
-    Prelude.rnf validationRole
-      `Prelude.seq` Prelude.rnf validationProfiles
+    Prelude.rnf validationRole `Prelude.seq`
+      Prelude.rnf validationProfiles
 
 instance Data.ToJSON AlgorithmValidationSpecification where
   toJSON AlgorithmValidationSpecification' {..} =

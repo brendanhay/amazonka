@@ -154,12 +154,12 @@ instance Core.AWSPager ListResolverRuleAssociations where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listResolverRuleAssociations_nextToken
-          Lens..~ rs
-          Lens.^? listResolverRuleAssociationsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listResolverRuleAssociations_nextToken
+              Lens..~ rs
+              Lens.^? listResolverRuleAssociationsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListResolverRuleAssociations where
   type
@@ -192,9 +192,9 @@ instance
 
 instance Prelude.NFData ListResolverRuleAssociations where
   rnf ListResolverRuleAssociations' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListResolverRuleAssociations where
   toHeaders =
@@ -305,7 +305,7 @@ instance
     ListResolverRuleAssociationsResponse
   where
   rnf ListResolverRuleAssociationsResponse' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf resolverRuleAssociations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf resolverRuleAssociations `Prelude.seq`
+          Prelude.rnf httpStatus

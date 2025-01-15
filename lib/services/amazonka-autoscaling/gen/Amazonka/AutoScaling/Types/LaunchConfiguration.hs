@@ -432,9 +432,7 @@ instance Data.FromXML LaunchConfiguration where
       Prelude.<*> (x Data..@? "MetadataOptions")
       Prelude.<*> (x Data..@? "PlacementTenancy")
       Prelude.<*> (x Data..@? "RamdiskId")
-      Prelude.<*> ( x
-                      Data..@? "SecurityGroups"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "SecurityGroups" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "SpotPrice")
@@ -470,23 +468,23 @@ instance Prelude.Hashable LaunchConfiguration where
 
 instance Prelude.NFData LaunchConfiguration where
   rnf LaunchConfiguration' {..} =
-    Prelude.rnf associatePublicIpAddress
-      `Prelude.seq` Prelude.rnf blockDeviceMappings
-      `Prelude.seq` Prelude.rnf classicLinkVPCId
-      `Prelude.seq` Prelude.rnf classicLinkVPCSecurityGroups
-      `Prelude.seq` Prelude.rnf ebsOptimized
-      `Prelude.seq` Prelude.rnf iamInstanceProfile
-      `Prelude.seq` Prelude.rnf instanceMonitoring
-      `Prelude.seq` Prelude.rnf kernelId
-      `Prelude.seq` Prelude.rnf keyName
-      `Prelude.seq` Prelude.rnf launchConfigurationARN
-      `Prelude.seq` Prelude.rnf metadataOptions
-      `Prelude.seq` Prelude.rnf placementTenancy
-      `Prelude.seq` Prelude.rnf ramdiskId
-      `Prelude.seq` Prelude.rnf securityGroups
-      `Prelude.seq` Prelude.rnf spotPrice
-      `Prelude.seq` Prelude.rnf userData
-      `Prelude.seq` Prelude.rnf launchConfigurationName
-      `Prelude.seq` Prelude.rnf imageId
-      `Prelude.seq` Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf createdTime
+    Prelude.rnf associatePublicIpAddress `Prelude.seq`
+      Prelude.rnf blockDeviceMappings `Prelude.seq`
+        Prelude.rnf classicLinkVPCId `Prelude.seq`
+          Prelude.rnf classicLinkVPCSecurityGroups `Prelude.seq`
+            Prelude.rnf ebsOptimized `Prelude.seq`
+              Prelude.rnf iamInstanceProfile `Prelude.seq`
+                Prelude.rnf instanceMonitoring `Prelude.seq`
+                  Prelude.rnf kernelId `Prelude.seq`
+                    Prelude.rnf keyName `Prelude.seq`
+                      Prelude.rnf launchConfigurationARN `Prelude.seq`
+                        Prelude.rnf metadataOptions `Prelude.seq`
+                          Prelude.rnf placementTenancy `Prelude.seq`
+                            Prelude.rnf ramdiskId `Prelude.seq`
+                              Prelude.rnf securityGroups `Prelude.seq`
+                                Prelude.rnf spotPrice `Prelude.seq`
+                                  Prelude.rnf userData `Prelude.seq`
+                                    Prelude.rnf launchConfigurationName `Prelude.seq`
+                                      Prelude.rnf imageId `Prelude.seq`
+                                        Prelude.rnf instanceType `Prelude.seq`
+                                          Prelude.rnf createdTime

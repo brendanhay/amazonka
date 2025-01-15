@@ -166,9 +166,9 @@ instance Prelude.Hashable DeleteModel where
 
 instance Prelude.NFData DeleteModel where
   rnf DeleteModel' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf projectName
-      `Prelude.seq` Prelude.rnf modelVersion
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf projectName `Prelude.seq`
+        Prelude.rnf modelVersion
 
 instance Data.ToHeaders DeleteModel where
   toHeaders DeleteModel' {..} =
@@ -230,5 +230,5 @@ deleteModelResponse_httpStatus = Lens.lens (\DeleteModelResponse' {httpStatus} -
 
 instance Prelude.NFData DeleteModelResponse where
   rnf DeleteModelResponse' {..} =
-    Prelude.rnf modelArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf modelArn `Prelude.seq`
+      Prelude.rnf httpStatus

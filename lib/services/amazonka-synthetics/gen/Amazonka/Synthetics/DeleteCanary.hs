@@ -144,8 +144,8 @@ instance Prelude.Hashable DeleteCanary where
 
 instance Prelude.NFData DeleteCanary where
   rnf DeleteCanary' {..} =
-    Prelude.rnf deleteLambda
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf deleteLambda `Prelude.seq`
+      Prelude.rnf name
 
 instance Data.ToHeaders DeleteCanary where
   toHeaders =

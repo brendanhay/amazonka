@@ -103,7 +103,7 @@ instance Prelude.Hashable DatasetStats where
 
 instance Prelude.NFData DatasetStats where
   rnf DatasetStats' {..} =
-    Prelude.rnf errorEntries
-      `Prelude.seq` Prelude.rnf labeledEntries
-      `Prelude.seq` Prelude.rnf totalEntries
-      `Prelude.seq` Prelude.rnf totalLabels
+    Prelude.rnf errorEntries `Prelude.seq`
+      Prelude.rnf labeledEntries `Prelude.seq`
+        Prelude.rnf totalEntries `Prelude.seq`
+          Prelude.rnf totalLabels

@@ -80,5 +80,5 @@ instance Prelude.Hashable MaintenanceSchedule where
 
 instance Prelude.NFData MaintenanceSchedule where
   rnf MaintenanceSchedule' {..} =
-    Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf startTime
+    Prelude.rnf endTime `Prelude.seq`
+      Prelude.rnf startTime

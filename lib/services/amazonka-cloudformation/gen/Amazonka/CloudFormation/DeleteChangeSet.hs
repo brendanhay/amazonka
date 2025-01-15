@@ -124,8 +124,8 @@ instance Prelude.Hashable DeleteChangeSet where
 
 instance Prelude.NFData DeleteChangeSet where
   rnf DeleteChangeSet' {..} =
-    Prelude.rnf stackName
-      `Prelude.seq` Prelude.rnf changeSetName
+    Prelude.rnf stackName `Prelude.seq`
+      Prelude.rnf changeSetName
 
 instance Data.ToHeaders DeleteChangeSet where
   toHeaders = Prelude.const Prelude.mempty

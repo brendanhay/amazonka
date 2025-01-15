@@ -111,7 +111,7 @@ instance
     AccountAssociationsListElement
   where
   rnf AccountAssociationsListElement' {..} =
-    Prelude.rnf accountEmail
-      `Prelude.seq` Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf accountName
-      `Prelude.seq` Prelude.rnf billingGroupArn
+    Prelude.rnf accountEmail `Prelude.seq`
+      Prelude.rnf accountId `Prelude.seq`
+        Prelude.rnf accountName `Prelude.seq`
+          Prelude.rnf billingGroupArn

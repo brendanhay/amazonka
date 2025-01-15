@@ -164,11 +164,11 @@ instance Prelude.Hashable AssistantData where
 
 instance Prelude.NFData AssistantData where
   rnf AssistantData' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf serverSideEncryptionConfiguration
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf assistantArn
-      `Prelude.seq` Prelude.rnf assistantId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf serverSideEncryptionConfiguration `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf assistantArn `Prelude.seq`
+            Prelude.rnf assistantId `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf status `Prelude.seq`
+                  Prelude.rnf type'

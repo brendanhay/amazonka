@@ -143,12 +143,12 @@ instance Core.AWSPager GetDatalakeStatus where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getDatalakeStatus_nextToken
-          Lens..~ rs
-          Lens.^? getDatalakeStatusResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getDatalakeStatus_nextToken
+              Lens..~ rs
+              Lens.^? getDatalakeStatusResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetDatalakeStatus where
   type
@@ -177,9 +177,9 @@ instance Prelude.Hashable GetDatalakeStatus where
 
 instance Prelude.NFData GetDatalakeStatus where
   rnf GetDatalakeStatus' {..} =
-    Prelude.rnf accountSet
-      `Prelude.seq` Prelude.rnf maxAccountResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf accountSet `Prelude.seq`
+      Prelude.rnf maxAccountResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders GetDatalakeStatus where
   toHeaders =
@@ -277,6 +277,6 @@ getDatalakeStatusResponse_accountSourcesList = Lens.lens (\GetDatalakeStatusResp
 
 instance Prelude.NFData GetDatalakeStatusResponse where
   rnf GetDatalakeStatusResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf accountSourcesList
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf accountSourcesList

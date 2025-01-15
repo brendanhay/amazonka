@@ -103,8 +103,8 @@ instance Prelude.Hashable EgressConfiguration where
 
 instance Prelude.NFData EgressConfiguration where
   rnf EgressConfiguration' {..} =
-    Prelude.rnf egressType
-      `Prelude.seq` Prelude.rnf vpcConnectorArn
+    Prelude.rnf egressType `Prelude.seq`
+      Prelude.rnf vpcConnectorArn
 
 instance Data.ToJSON EgressConfiguration where
   toJSON EgressConfiguration' {..} =

@@ -90,8 +90,8 @@ instance Prelude.Hashable ReplicationRule where
 
 instance Prelude.NFData ReplicationRule where
   rnf ReplicationRule' {..} =
-    Prelude.rnf repositoryFilters
-      `Prelude.seq` Prelude.rnf destinations
+    Prelude.rnf repositoryFilters `Prelude.seq`
+      Prelude.rnf destinations
 
 instance Data.ToJSON ReplicationRule where
   toJSON ReplicationRule' {..} =

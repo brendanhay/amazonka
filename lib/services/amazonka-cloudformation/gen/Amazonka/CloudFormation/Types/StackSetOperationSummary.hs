@@ -257,11 +257,11 @@ instance Prelude.Hashable StackSetOperationSummary where
 
 instance Prelude.NFData StackSetOperationSummary where
   rnf StackSetOperationSummary' {..} =
-    Prelude.rnf action
-      `Prelude.seq` Prelude.rnf creationTimestamp
-      `Prelude.seq` Prelude.rnf endTimestamp
-      `Prelude.seq` Prelude.rnf operationId
-      `Prelude.seq` Prelude.rnf operationPreferences
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusDetails
-      `Prelude.seq` Prelude.rnf statusReason
+    Prelude.rnf action `Prelude.seq`
+      Prelude.rnf creationTimestamp `Prelude.seq`
+        Prelude.rnf endTimestamp `Prelude.seq`
+          Prelude.rnf operationId `Prelude.seq`
+            Prelude.rnf operationPreferences `Prelude.seq`
+              Prelude.rnf status `Prelude.seq`
+                Prelude.rnf statusDetails `Prelude.seq`
+                  Prelude.rnf statusReason

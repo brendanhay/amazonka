@@ -124,8 +124,8 @@ instance Prelude.Hashable GetResourcePosition where
 
 instance Prelude.NFData GetResourcePosition where
   rnf GetResourcePosition' {..} =
-    Prelude.rnf resourceIdentifier
-      `Prelude.seq` Prelude.rnf resourceType
+    Prelude.rnf resourceIdentifier `Prelude.seq`
+      Prelude.rnf resourceType
 
 instance Data.ToHeaders GetResourcePosition where
   toHeaders = Prelude.const Prelude.mempty
@@ -192,5 +192,5 @@ getResourcePositionResponse_httpStatus = Lens.lens (\GetResourcePositionResponse
 
 instance Prelude.NFData GetResourcePositionResponse where
   rnf GetResourcePositionResponse' {..} =
-    Prelude.rnf geoJsonPayload
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf geoJsonPayload `Prelude.seq`
+      Prelude.rnf httpStatus

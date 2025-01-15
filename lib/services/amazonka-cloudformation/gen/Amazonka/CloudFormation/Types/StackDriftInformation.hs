@@ -126,5 +126,5 @@ instance Prelude.Hashable StackDriftInformation where
 
 instance Prelude.NFData StackDriftInformation where
   rnf StackDriftInformation' {..} =
-    Prelude.rnf lastCheckTimestamp
-      `Prelude.seq` Prelude.rnf stackDriftStatus
+    Prelude.rnf lastCheckTimestamp `Prelude.seq`
+      Prelude.rnf stackDriftStatus

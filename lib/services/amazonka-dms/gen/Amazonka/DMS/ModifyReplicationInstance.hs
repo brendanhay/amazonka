@@ -373,18 +373,18 @@ instance Prelude.Hashable ModifyReplicationInstance where
 
 instance Prelude.NFData ModifyReplicationInstance where
   rnf ModifyReplicationInstance' {..} =
-    Prelude.rnf allocatedStorage
-      `Prelude.seq` Prelude.rnf allowMajorVersionUpgrade
-      `Prelude.seq` Prelude.rnf applyImmediately
-      `Prelude.seq` Prelude.rnf autoMinorVersionUpgrade
-      `Prelude.seq` Prelude.rnf engineVersion
-      `Prelude.seq` Prelude.rnf multiAZ
-      `Prelude.seq` Prelude.rnf networkType
-      `Prelude.seq` Prelude.rnf preferredMaintenanceWindow
-      `Prelude.seq` Prelude.rnf replicationInstanceClass
-      `Prelude.seq` Prelude.rnf replicationInstanceIdentifier
-      `Prelude.seq` Prelude.rnf vpcSecurityGroupIds
-      `Prelude.seq` Prelude.rnf replicationInstanceArn
+    Prelude.rnf allocatedStorage `Prelude.seq`
+      Prelude.rnf allowMajorVersionUpgrade `Prelude.seq`
+        Prelude.rnf applyImmediately `Prelude.seq`
+          Prelude.rnf autoMinorVersionUpgrade `Prelude.seq`
+            Prelude.rnf engineVersion `Prelude.seq`
+              Prelude.rnf multiAZ `Prelude.seq`
+                Prelude.rnf networkType `Prelude.seq`
+                  Prelude.rnf preferredMaintenanceWindow `Prelude.seq`
+                    Prelude.rnf replicationInstanceClass `Prelude.seq`
+                      Prelude.rnf replicationInstanceIdentifier `Prelude.seq`
+                        Prelude.rnf vpcSecurityGroupIds `Prelude.seq`
+                          Prelude.rnf replicationInstanceArn
 
 instance Data.ToHeaders ModifyReplicationInstance where
   toHeaders =
@@ -483,5 +483,5 @@ instance
     ModifyReplicationInstanceResponse
   where
   rnf ModifyReplicationInstanceResponse' {..} =
-    Prelude.rnf replicationInstance
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf replicationInstance `Prelude.seq`
+      Prelude.rnf httpStatus

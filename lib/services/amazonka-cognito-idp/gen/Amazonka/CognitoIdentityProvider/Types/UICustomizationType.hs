@@ -136,10 +136,10 @@ instance Prelude.Hashable UICustomizationType where
 
 instance Prelude.NFData UICustomizationType where
   rnf UICustomizationType' {..} =
-    Prelude.rnf css
-      `Prelude.seq` Prelude.rnf cSSVersion
-      `Prelude.seq` Prelude.rnf clientId
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf imageUrl
-      `Prelude.seq` Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf userPoolId
+    Prelude.rnf css `Prelude.seq`
+      Prelude.rnf cSSVersion `Prelude.seq`
+        Prelude.rnf clientId `Prelude.seq`
+          Prelude.rnf creationDate `Prelude.seq`
+            Prelude.rnf imageUrl `Prelude.seq`
+              Prelude.rnf lastModifiedDate `Prelude.seq`
+                Prelude.rnf userPoolId

@@ -145,10 +145,10 @@ instance Prelude.Hashable ImportBackendStorage where
 
 instance Prelude.NFData ImportBackendStorage where
   rnf ImportBackendStorage' {..} =
-    Prelude.rnf bucketName
-      `Prelude.seq` Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf backendEnvironmentName
-      `Prelude.seq` Prelude.rnf serviceName
+    Prelude.rnf bucketName `Prelude.seq`
+      Prelude.rnf appId `Prelude.seq`
+        Prelude.rnf backendEnvironmentName `Prelude.seq`
+          Prelude.rnf serviceName
 
 instance Data.ToHeaders ImportBackendStorage where
   toHeaders =
@@ -251,8 +251,8 @@ importBackendStorageResponse_httpStatus = Lens.lens (\ImportBackendStorageRespon
 
 instance Prelude.NFData ImportBackendStorageResponse where
   rnf ImportBackendStorageResponse' {..} =
-    Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf backendEnvironmentName
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf appId `Prelude.seq`
+      Prelude.rnf backendEnvironmentName `Prelude.seq`
+        Prelude.rnf jobId `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf httpStatus

@@ -157,8 +157,8 @@ instance
     ListServiceSpecificCredentials
   where
   rnf ListServiceSpecificCredentials' {..} =
-    Prelude.rnf serviceName
-      `Prelude.seq` Prelude.rnf userName
+    Prelude.rnf serviceName `Prelude.seq`
+      Prelude.rnf userName
 
 instance
   Data.ToHeaders
@@ -230,5 +230,5 @@ instance
     ListServiceSpecificCredentialsResponse
   where
   rnf ListServiceSpecificCredentialsResponse' {..} =
-    Prelude.rnf serviceSpecificCredentials
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf serviceSpecificCredentials `Prelude.seq`
+      Prelude.rnf httpStatus

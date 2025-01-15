@@ -164,12 +164,12 @@ instance Core.AWSPager ListVirtualServices where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listVirtualServices_nextToken
-          Lens..~ rs
-          Lens.^? listVirtualServicesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listVirtualServices_nextToken
+              Lens..~ rs
+              Lens.^? listVirtualServicesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListVirtualServices where
   type
@@ -199,10 +199,10 @@ instance Prelude.Hashable ListVirtualServices where
 
 instance Prelude.NFData ListVirtualServices where
   rnf ListVirtualServices' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf meshOwner
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf meshName
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf meshOwner `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf meshName
 
 instance Data.ToHeaders ListVirtualServices where
   toHeaders =
@@ -292,6 +292,6 @@ listVirtualServicesResponse_virtualServices = Lens.lens (\ListVirtualServicesRes
 
 instance Prelude.NFData ListVirtualServicesResponse where
   rnf ListVirtualServicesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf virtualServices
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf virtualServices

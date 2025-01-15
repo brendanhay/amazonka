@@ -272,11 +272,11 @@ instance Prelude.Hashable GetDevicePoolCompatibility where
 
 instance Prelude.NFData GetDevicePoolCompatibility where
   rnf GetDevicePoolCompatibility' {..} =
-    Prelude.rnf appArn
-      `Prelude.seq` Prelude.rnf configuration
-      `Prelude.seq` Prelude.rnf test
-      `Prelude.seq` Prelude.rnf testType
-      `Prelude.seq` Prelude.rnf devicePoolArn
+    Prelude.rnf appArn `Prelude.seq`
+      Prelude.rnf configuration `Prelude.seq`
+        Prelude.rnf test `Prelude.seq`
+          Prelude.rnf testType `Prelude.seq`
+            Prelude.rnf devicePoolArn
 
 instance Data.ToHeaders GetDevicePoolCompatibility where
   toHeaders =
@@ -367,6 +367,6 @@ instance
     GetDevicePoolCompatibilityResponse
   where
   rnf GetDevicePoolCompatibilityResponse' {..} =
-    Prelude.rnf compatibleDevices
-      `Prelude.seq` Prelude.rnf incompatibleDevices
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf compatibleDevices `Prelude.seq`
+      Prelude.rnf incompatibleDevices `Prelude.seq`
+        Prelude.rnf httpStatus

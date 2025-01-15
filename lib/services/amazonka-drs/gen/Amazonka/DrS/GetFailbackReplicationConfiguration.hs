@@ -243,8 +243,8 @@ instance
     GetFailbackReplicationConfigurationResponse
   where
   rnf GetFailbackReplicationConfigurationResponse' {..} =
-    Prelude.rnf bandwidthThrottling
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf usePrivateIP
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf recoveryInstanceID
+    Prelude.rnf bandwidthThrottling `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf usePrivateIP `Prelude.seq`
+          Prelude.rnf httpStatus `Prelude.seq`
+            Prelude.rnf recoveryInstanceID

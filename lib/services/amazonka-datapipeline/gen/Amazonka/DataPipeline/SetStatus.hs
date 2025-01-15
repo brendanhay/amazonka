@@ -125,9 +125,9 @@ instance Prelude.Hashable SetStatus where
 
 instance Prelude.NFData SetStatus where
   rnf SetStatus' {..} =
-    Prelude.rnf pipelineId
-      `Prelude.seq` Prelude.rnf objectIds
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf pipelineId `Prelude.seq`
+      Prelude.rnf objectIds `Prelude.seq`
+        Prelude.rnf status
 
 instance Data.ToHeaders SetStatus where
   toHeaders =

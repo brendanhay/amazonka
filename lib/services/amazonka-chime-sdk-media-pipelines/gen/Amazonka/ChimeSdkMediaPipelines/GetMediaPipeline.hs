@@ -151,5 +151,5 @@ getMediaPipelineResponse_httpStatus = Lens.lens (\GetMediaPipelineResponse' {htt
 
 instance Prelude.NFData GetMediaPipelineResponse where
   rnf GetMediaPipelineResponse' {..} =
-    Prelude.rnf mediaPipeline
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf mediaPipeline `Prelude.seq`
+      Prelude.rnf httpStatus

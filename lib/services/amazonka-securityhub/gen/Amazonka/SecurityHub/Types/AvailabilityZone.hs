@@ -80,8 +80,8 @@ instance Prelude.Hashable AvailabilityZone where
 
 instance Prelude.NFData AvailabilityZone where
   rnf AvailabilityZone' {..} =
-    Prelude.rnf subnetId
-      `Prelude.seq` Prelude.rnf zoneName
+    Prelude.rnf subnetId `Prelude.seq`
+      Prelude.rnf zoneName
 
 instance Data.ToJSON AvailabilityZone where
   toJSON AvailabilityZone' {..} =

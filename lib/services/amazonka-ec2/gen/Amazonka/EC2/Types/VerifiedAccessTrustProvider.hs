@@ -168,9 +168,7 @@ instance Data.FromXML VerifiedAccessTrustProvider where
       Prelude.<*> (x Data..@? "lastUpdatedTime")
       Prelude.<*> (x Data..@? "oidcOptions")
       Prelude.<*> (x Data..@? "policyReferenceName")
-      Prelude.<*> ( x
-                      Data..@? "tagSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "trustProviderType")
@@ -194,14 +192,14 @@ instance Prelude.Hashable VerifiedAccessTrustProvider where
 
 instance Prelude.NFData VerifiedAccessTrustProvider where
   rnf VerifiedAccessTrustProvider' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf deviceOptions
-      `Prelude.seq` Prelude.rnf deviceTrustProviderType
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf oidcOptions
-      `Prelude.seq` Prelude.rnf policyReferenceName
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf trustProviderType
-      `Prelude.seq` Prelude.rnf userTrustProviderType
-      `Prelude.seq` Prelude.rnf verifiedAccessTrustProviderId
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf deviceOptions `Prelude.seq`
+          Prelude.rnf deviceTrustProviderType `Prelude.seq`
+            Prelude.rnf lastUpdatedTime `Prelude.seq`
+              Prelude.rnf oidcOptions `Prelude.seq`
+                Prelude.rnf policyReferenceName `Prelude.seq`
+                  Prelude.rnf tags `Prelude.seq`
+                    Prelude.rnf trustProviderType `Prelude.seq`
+                      Prelude.rnf userTrustProviderType `Prelude.seq`
+                        Prelude.rnf verifiedAccessTrustProviderId

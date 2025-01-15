@@ -75,8 +75,8 @@ instance Prelude.Hashable CustomPlugin where
 
 instance Prelude.NFData CustomPlugin where
   rnf CustomPlugin' {..} =
-    Prelude.rnf customPluginArn
-      `Prelude.seq` Prelude.rnf revision
+    Prelude.rnf customPluginArn `Prelude.seq`
+      Prelude.rnf revision
 
 instance Data.ToJSON CustomPlugin where
   toJSON CustomPlugin' {..} =

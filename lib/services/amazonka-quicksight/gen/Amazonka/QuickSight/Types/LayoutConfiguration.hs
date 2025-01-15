@@ -117,9 +117,9 @@ instance Prelude.Hashable LayoutConfiguration where
 
 instance Prelude.NFData LayoutConfiguration where
   rnf LayoutConfiguration' {..} =
-    Prelude.rnf freeFormLayout
-      `Prelude.seq` Prelude.rnf gridLayout
-      `Prelude.seq` Prelude.rnf sectionBasedLayout
+    Prelude.rnf freeFormLayout `Prelude.seq`
+      Prelude.rnf gridLayout `Prelude.seq`
+        Prelude.rnf sectionBasedLayout
 
 instance Data.ToJSON LayoutConfiguration where
   toJSON LayoutConfiguration' {..} =

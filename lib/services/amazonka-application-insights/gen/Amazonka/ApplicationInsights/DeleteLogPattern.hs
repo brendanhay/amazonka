@@ -125,9 +125,9 @@ instance Prelude.Hashable DeleteLogPattern where
 
 instance Prelude.NFData DeleteLogPattern where
   rnf DeleteLogPattern' {..} =
-    Prelude.rnf resourceGroupName
-      `Prelude.seq` Prelude.rnf patternSetName
-      `Prelude.seq` Prelude.rnf patternName
+    Prelude.rnf resourceGroupName `Prelude.seq`
+      Prelude.rnf patternSetName `Prelude.seq`
+        Prelude.rnf patternName
 
 instance Data.ToHeaders DeleteLogPattern where
   toHeaders =

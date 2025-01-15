@@ -144,11 +144,11 @@ instance Prelude.Hashable ListModels where
 
 instance Prelude.NFData ListModels where
   rnf ListModels' {..} =
-    Prelude.rnf datasetNameBeginsWith
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf modelNameBeginsWith
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf datasetNameBeginsWith `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf modelNameBeginsWith `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf status
 
 instance Data.ToHeaders ListModels where
   toHeaders =
@@ -241,6 +241,6 @@ listModelsResponse_httpStatus = Lens.lens (\ListModelsResponse' {httpStatus} -> 
 
 instance Prelude.NFData ListModelsResponse where
   rnf ListModelsResponse' {..} =
-    Prelude.rnf modelSummaries
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf modelSummaries `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

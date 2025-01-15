@@ -117,7 +117,7 @@ instance Prelude.Hashable AccountSources where
 
 instance Prelude.NFData AccountSources where
   rnf AccountSources' {..} =
-    Prelude.rnf eventClass
-      `Prelude.seq` Prelude.rnf logsStatus
-      `Prelude.seq` Prelude.rnf account
-      `Prelude.seq` Prelude.rnf sourceType
+    Prelude.rnf eventClass `Prelude.seq`
+      Prelude.rnf logsStatus `Prelude.seq`
+        Prelude.rnf account `Prelude.seq`
+          Prelude.rnf sourceType

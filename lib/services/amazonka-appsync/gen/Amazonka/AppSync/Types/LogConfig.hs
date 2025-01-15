@@ -165,9 +165,9 @@ instance Prelude.Hashable LogConfig where
 
 instance Prelude.NFData LogConfig where
   rnf LogConfig' {..} =
-    Prelude.rnf excludeVerboseContent
-      `Prelude.seq` Prelude.rnf fieldLogLevel
-      `Prelude.seq` Prelude.rnf cloudWatchLogsRoleArn
+    Prelude.rnf excludeVerboseContent `Prelude.seq`
+      Prelude.rnf fieldLogLevel `Prelude.seq`
+        Prelude.rnf cloudWatchLogsRoleArn
 
 instance Data.ToJSON LogConfig where
   toJSON LogConfig' {..} =

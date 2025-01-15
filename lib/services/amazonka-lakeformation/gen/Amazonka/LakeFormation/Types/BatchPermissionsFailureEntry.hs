@@ -87,5 +87,5 @@ instance
 
 instance Prelude.NFData BatchPermissionsFailureEntry where
   rnf BatchPermissionsFailureEntry' {..} =
-    Prelude.rnf error
-      `Prelude.seq` Prelude.rnf requestEntry
+    Prelude.rnf error `Prelude.seq`
+      Prelude.rnf requestEntry

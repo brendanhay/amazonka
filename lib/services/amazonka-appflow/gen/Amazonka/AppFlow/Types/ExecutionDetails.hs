@@ -94,6 +94,6 @@ instance Prelude.Hashable ExecutionDetails where
 
 instance Prelude.NFData ExecutionDetails where
   rnf ExecutionDetails' {..} =
-    Prelude.rnf mostRecentExecutionMessage
-      `Prelude.seq` Prelude.rnf mostRecentExecutionStatus
-      `Prelude.seq` Prelude.rnf mostRecentExecutionTime
+    Prelude.rnf mostRecentExecutionMessage `Prelude.seq`
+      Prelude.rnf mostRecentExecutionStatus `Prelude.seq`
+        Prelude.rnf mostRecentExecutionTime

@@ -279,8 +279,8 @@ instance Prelude.Hashable CreateQueryLoggingConfig where
 
 instance Prelude.NFData CreateQueryLoggingConfig where
   rnf CreateQueryLoggingConfig' {..} =
-    Prelude.rnf hostedZoneId
-      `Prelude.seq` Prelude.rnf cloudWatchLogsLogGroupArn
+    Prelude.rnf hostedZoneId `Prelude.seq`
+      Prelude.rnf cloudWatchLogsLogGroupArn
 
 instance Data.ToElement CreateQueryLoggingConfig where
   toElement =
@@ -371,6 +371,6 @@ instance
     CreateQueryLoggingConfigResponse
   where
   rnf CreateQueryLoggingConfigResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf queryLoggingConfig
-      `Prelude.seq` Prelude.rnf location
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf queryLoggingConfig `Prelude.seq`
+        Prelude.rnf location

@@ -210,14 +210,14 @@ instance Prelude.Hashable CompilationJobSummary where
 
 instance Prelude.NFData CompilationJobSummary where
   rnf CompilationJobSummary' {..} =
-    Prelude.rnf compilationEndTime
-      `Prelude.seq` Prelude.rnf compilationStartTime
-      `Prelude.seq` Prelude.rnf compilationTargetDevice
-      `Prelude.seq` Prelude.rnf compilationTargetPlatformAccelerator
-      `Prelude.seq` Prelude.rnf compilationTargetPlatformArch
-      `Prelude.seq` Prelude.rnf compilationTargetPlatformOs
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf compilationJobName
-      `Prelude.seq` Prelude.rnf compilationJobArn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf compilationJobStatus
+    Prelude.rnf compilationEndTime `Prelude.seq`
+      Prelude.rnf compilationStartTime `Prelude.seq`
+        Prelude.rnf compilationTargetDevice `Prelude.seq`
+          Prelude.rnf compilationTargetPlatformAccelerator `Prelude.seq`
+            Prelude.rnf compilationTargetPlatformArch `Prelude.seq`
+              Prelude.rnf compilationTargetPlatformOs `Prelude.seq`
+                Prelude.rnf lastModifiedTime `Prelude.seq`
+                  Prelude.rnf compilationJobName `Prelude.seq`
+                    Prelude.rnf compilationJobArn `Prelude.seq`
+                      Prelude.rnf creationTime `Prelude.seq`
+                        Prelude.rnf compilationJobStatus

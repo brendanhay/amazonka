@@ -115,9 +115,9 @@ instance Prelude.Hashable BlueGreenUpdatePolicy where
 
 instance Prelude.NFData BlueGreenUpdatePolicy where
   rnf BlueGreenUpdatePolicy' {..} =
-    Prelude.rnf maximumExecutionTimeoutInSeconds
-      `Prelude.seq` Prelude.rnf terminationWaitInSeconds
-      `Prelude.seq` Prelude.rnf trafficRoutingConfiguration
+    Prelude.rnf maximumExecutionTimeoutInSeconds `Prelude.seq`
+      Prelude.rnf terminationWaitInSeconds `Prelude.seq`
+        Prelude.rnf trafficRoutingConfiguration
 
 instance Data.ToJSON BlueGreenUpdatePolicy where
   toJSON BlueGreenUpdatePolicy' {..} =

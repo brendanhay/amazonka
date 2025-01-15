@@ -125,8 +125,8 @@ instance
     S3ClassificationScopeExclusionUpdate
   where
   rnf S3ClassificationScopeExclusionUpdate' {..} =
-    Prelude.rnf bucketNames
-      `Prelude.seq` Prelude.rnf operation
+    Prelude.rnf bucketNames `Prelude.seq`
+      Prelude.rnf operation
 
 instance
   Data.ToJSON

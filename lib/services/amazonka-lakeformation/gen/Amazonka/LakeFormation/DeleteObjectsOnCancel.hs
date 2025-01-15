@@ -164,11 +164,11 @@ instance Prelude.Hashable DeleteObjectsOnCancel where
 
 instance Prelude.NFData DeleteObjectsOnCancel where
   rnf DeleteObjectsOnCancel' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf tableName
-      `Prelude.seq` Prelude.rnf transactionId
-      `Prelude.seq` Prelude.rnf objects
+    Prelude.rnf catalogId `Prelude.seq`
+      Prelude.rnf databaseName `Prelude.seq`
+        Prelude.rnf tableName `Prelude.seq`
+          Prelude.rnf transactionId `Prelude.seq`
+            Prelude.rnf objects
 
 instance Data.ToHeaders DeleteObjectsOnCancel where
   toHeaders =

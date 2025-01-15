@@ -123,9 +123,9 @@ instance Prelude.Hashable UpdatePlacement where
 
 instance Prelude.NFData UpdatePlacement where
   rnf UpdatePlacement' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf placementName
-      `Prelude.seq` Prelude.rnf projectName
+    Prelude.rnf attributes `Prelude.seq`
+      Prelude.rnf placementName `Prelude.seq`
+        Prelude.rnf projectName
 
 instance Data.ToHeaders UpdatePlacement where
   toHeaders =

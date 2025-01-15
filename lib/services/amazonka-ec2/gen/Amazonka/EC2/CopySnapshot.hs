@@ -381,9 +381,7 @@ instance Core.AWSRequest CopySnapshot where
       ( \s h x ->
           CopySnapshotResponse'
             Prelude.<$> (x Data..@? "snapshotId")
-            Prelude.<*> ( x
-                            Data..@? "tagSet"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -405,16 +403,16 @@ instance Prelude.Hashable CopySnapshot where
 
 instance Prelude.NFData CopySnapshot where
   rnf CopySnapshot' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf destinationOutpostArn
-      `Prelude.seq` Prelude.rnf destinationRegion
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf encrypted
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf presignedUrl
-      `Prelude.seq` Prelude.rnf tagSpecifications
-      `Prelude.seq` Prelude.rnf sourceRegion
-      `Prelude.seq` Prelude.rnf sourceSnapshotId
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf destinationOutpostArn `Prelude.seq`
+        Prelude.rnf destinationRegion `Prelude.seq`
+          Prelude.rnf dryRun `Prelude.seq`
+            Prelude.rnf encrypted `Prelude.seq`
+              Prelude.rnf kmsKeyId `Prelude.seq`
+                Prelude.rnf presignedUrl `Prelude.seq`
+                  Prelude.rnf tagSpecifications `Prelude.seq`
+                    Prelude.rnf sourceRegion `Prelude.seq`
+                      Prelude.rnf sourceSnapshotId
 
 instance Data.ToHeaders CopySnapshot where
   toHeaders = Prelude.const Prelude.mempty
@@ -494,6 +492,6 @@ copySnapshotResponse_httpStatus = Lens.lens (\CopySnapshotResponse' {httpStatus}
 
 instance Prelude.NFData CopySnapshotResponse where
   rnf CopySnapshotResponse' {..} =
-    Prelude.rnf snapshotId
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf snapshotId `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -169,5 +169,5 @@ describeInterconnectsResponse_httpStatus = Lens.lens (\DescribeInterconnectsResp
 
 instance Prelude.NFData DescribeInterconnectsResponse where
   rnf DescribeInterconnectsResponse' {..} =
-    Prelude.rnf interconnects
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf interconnects `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -139,5 +139,5 @@ instance
     WorkflowExecutionTimedOutEventAttributes
   where
   rnf WorkflowExecutionTimedOutEventAttributes' {..} =
-    Prelude.rnf timeoutType
-      `Prelude.seq` Prelude.rnf childPolicy
+    Prelude.rnf timeoutType `Prelude.seq`
+      Prelude.rnf childPolicy

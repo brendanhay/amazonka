@@ -100,6 +100,6 @@ instance Prelude.Hashable ResourceTargetDefinition where
 
 instance Prelude.NFData ResourceTargetDefinition where
   rnf ResourceTargetDefinition' {..} =
-    Prelude.rnf attribute
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf requiresRecreation
+    Prelude.rnf attribute `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf requiresRecreation

@@ -86,8 +86,8 @@ instance Prelude.Hashable EndPoint where
 
 instance Prelude.NFData EndPoint where
   rnf EndPoint' {..} =
-    Prelude.rnf kinesisStreamConfig
-      `Prelude.seq` Prelude.rnf streamType
+    Prelude.rnf kinesisStreamConfig `Prelude.seq`
+      Prelude.rnf streamType
 
 instance Data.ToXML EndPoint where
   toXML EndPoint' {..} =

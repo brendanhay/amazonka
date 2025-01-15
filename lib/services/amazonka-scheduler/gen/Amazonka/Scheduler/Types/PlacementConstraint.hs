@@ -99,8 +99,8 @@ instance Prelude.Hashable PlacementConstraint where
 
 instance Prelude.NFData PlacementConstraint where
   rnf PlacementConstraint' {..} =
-    Prelude.rnf expression
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf expression `Prelude.seq`
+      Prelude.rnf type'
 
 instance Data.ToJSON PlacementConstraint where
   toJSON PlacementConstraint' {..} =

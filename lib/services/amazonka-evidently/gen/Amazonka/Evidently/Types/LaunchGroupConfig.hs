@@ -97,10 +97,10 @@ instance Prelude.Hashable LaunchGroupConfig where
 
 instance Prelude.NFData LaunchGroupConfig where
   rnf LaunchGroupConfig' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf feature
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf variation
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf feature `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf variation
 
 instance Data.ToJSON LaunchGroupConfig where
   toJSON LaunchGroupConfig' {..} =

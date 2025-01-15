@@ -85,5 +85,5 @@ instance
 
 instance Prelude.NFData DimensionValuesWithAttributes where
   rnf DimensionValuesWithAttributes' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf attributes `Prelude.seq`
+      Prelude.rnf value

@@ -142,10 +142,10 @@ instance Prelude.Hashable ListThemeAliases where
 
 instance Prelude.NFData ListThemeAliases where
   rnf ListThemeAliases' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf themeId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf awsAccountId `Prelude.seq`
+          Prelude.rnf themeId
 
 instance Data.ToHeaders ListThemeAliases where
   toHeaders =
@@ -237,7 +237,7 @@ listThemeAliasesResponse_status = Lens.lens (\ListThemeAliasesResponse' {status}
 
 instance Prelude.NFData ListThemeAliasesResponse where
   rnf ListThemeAliasesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf themeAliasList
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf requestId `Prelude.seq`
+        Prelude.rnf themeAliasList `Prelude.seq`
+          Prelude.rnf status

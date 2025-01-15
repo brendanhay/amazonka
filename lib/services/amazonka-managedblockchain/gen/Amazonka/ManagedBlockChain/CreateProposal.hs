@@ -235,12 +235,12 @@ instance Prelude.Hashable CreateProposal where
 
 instance Prelude.NFData CreateProposal where
   rnf CreateProposal' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf networkId
-      `Prelude.seq` Prelude.rnf memberId
-      `Prelude.seq` Prelude.rnf actions
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf clientRequestToken `Prelude.seq`
+          Prelude.rnf networkId `Prelude.seq`
+            Prelude.rnf memberId `Prelude.seq`
+              Prelude.rnf actions
 
 instance Data.ToHeaders CreateProposal where
   toHeaders =
@@ -315,5 +315,5 @@ createProposalResponse_httpStatus = Lens.lens (\CreateProposalResponse' {httpSta
 
 instance Prelude.NFData CreateProposalResponse where
   rnf CreateProposalResponse' {..} =
-    Prelude.rnf proposalId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf proposalId `Prelude.seq`
+      Prelude.rnf httpStatus

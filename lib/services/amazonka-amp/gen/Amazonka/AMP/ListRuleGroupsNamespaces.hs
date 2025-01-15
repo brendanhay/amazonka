@@ -135,12 +135,12 @@ instance Core.AWSPager ListRuleGroupsNamespaces where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listRuleGroupsNamespaces_nextToken
-          Lens..~ rs
-          Lens.^? listRuleGroupsNamespacesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listRuleGroupsNamespaces_nextToken
+              Lens..~ rs
+              Lens.^? listRuleGroupsNamespacesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListRuleGroupsNamespaces where
   type
@@ -170,10 +170,10 @@ instance Prelude.Hashable ListRuleGroupsNamespaces where
 
 instance Prelude.NFData ListRuleGroupsNamespaces where
   rnf ListRuleGroupsNamespaces' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf workspaceId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf workspaceId
 
 instance Data.ToHeaders ListRuleGroupsNamespaces where
   toHeaders =
@@ -257,6 +257,6 @@ instance
     ListRuleGroupsNamespacesResponse
   where
   rnf ListRuleGroupsNamespacesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf ruleGroupsNamespaces
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf ruleGroupsNamespaces

@@ -120,9 +120,9 @@ instance Prelude.Hashable UpdateUser where
 
 instance Prelude.NFData UpdateUser where
   rnf UpdateUser' {..} =
-    Prelude.rnf accessString
-      `Prelude.seq` Prelude.rnf authenticationMode
-      `Prelude.seq` Prelude.rnf userName
+    Prelude.rnf accessString `Prelude.seq`
+      Prelude.rnf authenticationMode `Prelude.seq`
+        Prelude.rnf userName
 
 instance Data.ToHeaders UpdateUser where
   toHeaders =
@@ -194,5 +194,5 @@ updateUserResponse_httpStatus = Lens.lens (\UpdateUserResponse' {httpStatus} -> 
 
 instance Prelude.NFData UpdateUserResponse where
   rnf UpdateUserResponse' {..} =
-    Prelude.rnf user
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf user `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -92,5 +92,5 @@ instance Prelude.Hashable ContentModerationDetection where
 
 instance Prelude.NFData ContentModerationDetection where
   rnf ContentModerationDetection' {..} =
-    Prelude.rnf moderationLabel
-      `Prelude.seq` Prelude.rnf timestamp
+    Prelude.rnf moderationLabel `Prelude.seq`
+      Prelude.rnf timestamp

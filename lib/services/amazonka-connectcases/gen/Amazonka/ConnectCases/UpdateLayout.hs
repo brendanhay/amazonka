@@ -140,10 +140,10 @@ instance Prelude.Hashable UpdateLayout where
 
 instance Prelude.NFData UpdateLayout where
   rnf UpdateLayout' {..} =
-    Prelude.rnf content
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf domainId
-      `Prelude.seq` Prelude.rnf layoutId
+    Prelude.rnf content `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf domainId `Prelude.seq`
+          Prelude.rnf layoutId
 
 instance Data.ToHeaders UpdateLayout where
   toHeaders =

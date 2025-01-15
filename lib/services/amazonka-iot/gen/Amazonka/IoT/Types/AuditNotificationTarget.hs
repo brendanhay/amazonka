@@ -94,9 +94,9 @@ instance Prelude.Hashable AuditNotificationTarget where
 
 instance Prelude.NFData AuditNotificationTarget where
   rnf AuditNotificationTarget' {..} =
-    Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf targetArn
+    Prelude.rnf enabled `Prelude.seq`
+      Prelude.rnf roleArn `Prelude.seq`
+        Prelude.rnf targetArn
 
 instance Data.ToJSON AuditNotificationTarget where
   toJSON AuditNotificationTarget' {..} =

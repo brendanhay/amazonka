@@ -141,8 +141,8 @@ instance Prelude.Hashable GrantConstraints where
 
 instance Prelude.NFData GrantConstraints where
   rnf GrantConstraints' {..} =
-    Prelude.rnf encryptionContextEquals
-      `Prelude.seq` Prelude.rnf encryptionContextSubset
+    Prelude.rnf encryptionContextEquals `Prelude.seq`
+      Prelude.rnf encryptionContextSubset
 
 instance Data.ToJSON GrantConstraints where
   toJSON GrantConstraints' {..} =

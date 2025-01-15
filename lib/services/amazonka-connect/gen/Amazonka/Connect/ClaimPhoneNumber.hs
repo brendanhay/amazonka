@@ -189,11 +189,11 @@ instance Prelude.Hashable ClaimPhoneNumber where
 
 instance Prelude.NFData ClaimPhoneNumber where
   rnf ClaimPhoneNumber' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf phoneNumberDescription
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf targetArn
-      `Prelude.seq` Prelude.rnf phoneNumber
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf phoneNumberDescription `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf targetArn `Prelude.seq`
+            Prelude.rnf phoneNumber
 
 instance Data.ToHeaders ClaimPhoneNumber where
   toHeaders =
@@ -275,6 +275,6 @@ claimPhoneNumberResponse_httpStatus = Lens.lens (\ClaimPhoneNumberResponse' {htt
 
 instance Prelude.NFData ClaimPhoneNumberResponse where
   rnf ClaimPhoneNumberResponse' {..} =
-    Prelude.rnf phoneNumberArn
-      `Prelude.seq` Prelude.rnf phoneNumberId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf phoneNumberArn `Prelude.seq`
+      Prelude.rnf phoneNumberId `Prelude.seq`
+        Prelude.rnf httpStatus

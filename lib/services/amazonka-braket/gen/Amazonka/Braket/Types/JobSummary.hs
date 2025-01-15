@@ -168,11 +168,11 @@ instance Prelude.Hashable JobSummary where
 
 instance Prelude.NFData JobSummary where
   rnf JobSummary' {..} =
-    Prelude.rnf endedAt
-      `Prelude.seq` Prelude.rnf startedAt
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf device
-      `Prelude.seq` Prelude.rnf jobArn
-      `Prelude.seq` Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf endedAt `Prelude.seq`
+      Prelude.rnf startedAt `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf createdAt `Prelude.seq`
+            Prelude.rnf device `Prelude.seq`
+              Prelude.rnf jobArn `Prelude.seq`
+                Prelude.rnf jobName `Prelude.seq`
+                  Prelude.rnf status

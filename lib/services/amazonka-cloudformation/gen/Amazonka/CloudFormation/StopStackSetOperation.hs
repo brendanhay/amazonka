@@ -170,9 +170,9 @@ instance Prelude.Hashable StopStackSetOperation where
 
 instance Prelude.NFData StopStackSetOperation where
   rnf StopStackSetOperation' {..} =
-    Prelude.rnf callAs
-      `Prelude.seq` Prelude.rnf stackSetName
-      `Prelude.seq` Prelude.rnf operationId
+    Prelude.rnf callAs `Prelude.seq`
+      Prelude.rnf stackSetName `Prelude.seq`
+        Prelude.rnf operationId
 
 instance Data.ToHeaders StopStackSetOperation where
   toHeaders = Prelude.const Prelude.mempty

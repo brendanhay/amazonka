@@ -148,6 +148,6 @@ instance
     KubernetesNetworkConfigResponse
   where
   rnf KubernetesNetworkConfigResponse' {..} =
-    Prelude.rnf ipFamily
-      `Prelude.seq` Prelude.rnf serviceIpv4Cidr
-      `Prelude.seq` Prelude.rnf serviceIpv6Cidr
+    Prelude.rnf ipFamily `Prelude.seq`
+      Prelude.rnf serviceIpv4Cidr `Prelude.seq`
+        Prelude.rnf serviceIpv6Cidr

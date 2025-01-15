@@ -96,5 +96,5 @@ instance
     BatchUpdatePartitionFailureEntry
   where
   rnf BatchUpdatePartitionFailureEntry' {..} =
-    Prelude.rnf errorDetail
-      `Prelude.seq` Prelude.rnf partitionValueList
+    Prelude.rnf errorDetail `Prelude.seq`
+      Prelude.rnf partitionValueList

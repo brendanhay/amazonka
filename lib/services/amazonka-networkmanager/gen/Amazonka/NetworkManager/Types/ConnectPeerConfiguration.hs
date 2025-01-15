@@ -122,8 +122,8 @@ instance Prelude.Hashable ConnectPeerConfiguration where
 
 instance Prelude.NFData ConnectPeerConfiguration where
   rnf ConnectPeerConfiguration' {..} =
-    Prelude.rnf bgpConfigurations
-      `Prelude.seq` Prelude.rnf coreNetworkAddress
-      `Prelude.seq` Prelude.rnf insideCidrBlocks
-      `Prelude.seq` Prelude.rnf peerAddress
-      `Prelude.seq` Prelude.rnf protocol
+    Prelude.rnf bgpConfigurations `Prelude.seq`
+      Prelude.rnf coreNetworkAddress `Prelude.seq`
+        Prelude.rnf insideCidrBlocks `Prelude.seq`
+          Prelude.rnf peerAddress `Prelude.seq`
+            Prelude.rnf protocol

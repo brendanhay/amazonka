@@ -185,13 +185,13 @@ instance Prelude.Hashable UpdatePortfolio where
 
 instance Prelude.NFData UpdatePortfolio where
   rnf UpdatePortfolio' {..} =
-    Prelude.rnf acceptLanguage
-      `Prelude.seq` Prelude.rnf addTags
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf providerName
-      `Prelude.seq` Prelude.rnf removeTags
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf acceptLanguage `Prelude.seq`
+      Prelude.rnf addTags `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf displayName `Prelude.seq`
+            Prelude.rnf providerName `Prelude.seq`
+              Prelude.rnf removeTags `Prelude.seq`
+                Prelude.rnf id
 
 instance Data.ToHeaders UpdatePortfolio where
   toHeaders =
@@ -279,6 +279,6 @@ updatePortfolioResponse_httpStatus = Lens.lens (\UpdatePortfolioResponse' {httpS
 
 instance Prelude.NFData UpdatePortfolioResponse where
   rnf UpdatePortfolioResponse' {..} =
-    Prelude.rnf portfolioDetail
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf portfolioDetail `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf httpStatus

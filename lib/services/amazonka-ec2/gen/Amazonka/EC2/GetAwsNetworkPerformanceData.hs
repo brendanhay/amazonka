@@ -170,12 +170,12 @@ instance Core.AWSPager GetAwsNetworkPerformanceData where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getAwsNetworkPerformanceData_nextToken
-          Lens..~ rs
-          Lens.^? getAwsNetworkPerformanceDataResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getAwsNetworkPerformanceData_nextToken
+              Lens..~ rs
+              Lens.^? getAwsNetworkPerformanceDataResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetAwsNetworkPerformanceData where
   type
@@ -187,9 +187,7 @@ instance Core.AWSRequest GetAwsNetworkPerformanceData where
     Response.receiveXML
       ( \s h x ->
           GetAwsNetworkPerformanceDataResponse'
-            Prelude.<$> ( x
-                            Data..@? "dataResponseSet"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "dataResponseSet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (x Data..@? "nextToken")
@@ -211,12 +209,12 @@ instance
 
 instance Prelude.NFData GetAwsNetworkPerformanceData where
   rnf GetAwsNetworkPerformanceData' {..} =
-    Prelude.rnf dataQueries
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf startTime
+    Prelude.rnf dataQueries `Prelude.seq`
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf endTime `Prelude.seq`
+          Prelude.rnf maxResults `Prelude.seq`
+            Prelude.rnf nextToken `Prelude.seq`
+              Prelude.rnf startTime
 
 instance Data.ToHeaders GetAwsNetworkPerformanceData where
   toHeaders = Prelude.const Prelude.mempty
@@ -300,6 +298,6 @@ instance
     GetAwsNetworkPerformanceDataResponse
   where
   rnf GetAwsNetworkPerformanceDataResponse' {..} =
-    Prelude.rnf dataResponses
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dataResponses `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

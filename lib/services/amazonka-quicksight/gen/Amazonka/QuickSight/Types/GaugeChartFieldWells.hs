@@ -82,8 +82,8 @@ instance Prelude.Hashable GaugeChartFieldWells where
 
 instance Prelude.NFData GaugeChartFieldWells where
   rnf GaugeChartFieldWells' {..} =
-    Prelude.rnf targetValues
-      `Prelude.seq` Prelude.rnf values
+    Prelude.rnf targetValues `Prelude.seq`
+      Prelude.rnf values
 
 instance Data.ToJSON GaugeChartFieldWells where
   toJSON GaugeChartFieldWells' {..} =

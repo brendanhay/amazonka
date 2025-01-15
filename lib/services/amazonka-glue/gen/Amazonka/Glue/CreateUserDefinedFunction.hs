@@ -128,9 +128,9 @@ instance Prelude.Hashable CreateUserDefinedFunction where
 
 instance Prelude.NFData CreateUserDefinedFunction where
   rnf CreateUserDefinedFunction' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf functionInput
+    Prelude.rnf catalogId `Prelude.seq`
+      Prelude.rnf databaseName `Prelude.seq`
+        Prelude.rnf functionInput
 
 instance Data.ToHeaders CreateUserDefinedFunction where
   toHeaders =

@@ -156,10 +156,10 @@ instance Prelude.Hashable CreateMetricAttribution where
 
 instance Prelude.NFData CreateMetricAttribution where
   rnf CreateMetricAttribution' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf datasetGroupArn
-      `Prelude.seq` Prelude.rnf metrics
-      `Prelude.seq` Prelude.rnf metricsOutputConfig
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf datasetGroupArn `Prelude.seq`
+        Prelude.rnf metrics `Prelude.seq`
+          Prelude.rnf metricsOutputConfig
 
 instance Data.ToHeaders CreateMetricAttribution where
   toHeaders =
@@ -239,5 +239,5 @@ instance
     CreateMetricAttributionResponse
   where
   rnf CreateMetricAttributionResponse' {..} =
-    Prelude.rnf metricAttributionArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf metricAttributionArn `Prelude.seq`
+      Prelude.rnf httpStatus

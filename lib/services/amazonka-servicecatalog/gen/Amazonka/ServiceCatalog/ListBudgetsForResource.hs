@@ -154,10 +154,10 @@ instance Prelude.Hashable ListBudgetsForResource where
 
 instance Prelude.NFData ListBudgetsForResource where
   rnf ListBudgetsForResource' {..} =
-    Prelude.rnf acceptLanguage
-      `Prelude.seq` Prelude.rnf pageSize
-      `Prelude.seq` Prelude.rnf pageToken
-      `Prelude.seq` Prelude.rnf resourceId
+    Prelude.rnf acceptLanguage `Prelude.seq`
+      Prelude.rnf pageSize `Prelude.seq`
+        Prelude.rnf pageToken `Prelude.seq`
+          Prelude.rnf resourceId
 
 instance Data.ToHeaders ListBudgetsForResource where
   toHeaders =
@@ -248,6 +248,6 @@ instance
     ListBudgetsForResourceResponse
   where
   rnf ListBudgetsForResourceResponse' {..} =
-    Prelude.rnf budgets
-      `Prelude.seq` Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf budgets `Prelude.seq`
+      Prelude.rnf nextPageToken `Prelude.seq`
+        Prelude.rnf httpStatus

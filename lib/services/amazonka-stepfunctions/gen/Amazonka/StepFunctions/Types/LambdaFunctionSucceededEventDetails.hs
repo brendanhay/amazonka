@@ -97,5 +97,5 @@ instance
     LambdaFunctionSucceededEventDetails
   where
   rnf LambdaFunctionSucceededEventDetails' {..} =
-    Prelude.rnf output
-      `Prelude.seq` Prelude.rnf outputDetails
+    Prelude.rnf output `Prelude.seq`
+      Prelude.rnf outputDetails

@@ -93,8 +93,8 @@ instance
 
 instance Prelude.NFData TrialComponentParameterValue where
   rnf TrialComponentParameterValue' {..} =
-    Prelude.rnf numberValue
-      `Prelude.seq` Prelude.rnf stringValue
+    Prelude.rnf numberValue `Prelude.seq`
+      Prelude.rnf stringValue
 
 instance Data.ToJSON TrialComponentParameterValue where
   toJSON TrialComponentParameterValue' {..} =

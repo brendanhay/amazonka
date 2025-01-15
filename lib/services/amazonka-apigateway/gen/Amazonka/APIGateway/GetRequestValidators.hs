@@ -119,12 +119,12 @@ instance Core.AWSPager GetRequestValidators where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getRequestValidators_position
-          Lens..~ rs
-          Lens.^? getRequestValidatorsResponse_position
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getRequestValidators_position
+              Lens..~ rs
+              Lens.^? getRequestValidatorsResponse_position
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetRequestValidators where
   type
@@ -150,9 +150,9 @@ instance Prelude.Hashable GetRequestValidators where
 
 instance Prelude.NFData GetRequestValidators where
   rnf GetRequestValidators' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf position
-      `Prelude.seq` Prelude.rnf restApiId
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf position `Prelude.seq`
+        Prelude.rnf restApiId
 
 instance Data.ToHeaders GetRequestValidators where
   toHeaders =
@@ -227,6 +227,6 @@ getRequestValidatorsResponse_httpStatus = Lens.lens (\GetRequestValidatorsRespon
 
 instance Prelude.NFData GetRequestValidatorsResponse where
   rnf GetRequestValidatorsResponse' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf position
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf items `Prelude.seq`
+      Prelude.rnf position `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -110,7 +110,7 @@ instance Prelude.Hashable ScanDetections where
 
 instance Prelude.NFData ScanDetections where
   rnf ScanDetections' {..} =
-    Prelude.rnf highestSeverityThreatDetails
-      `Prelude.seq` Prelude.rnf scannedItemCount
-      `Prelude.seq` Prelude.rnf threatDetectedByName
-      `Prelude.seq` Prelude.rnf threatsDetectedItemCount
+    Prelude.rnf highestSeverityThreatDetails `Prelude.seq`
+      Prelude.rnf scannedItemCount `Prelude.seq`
+        Prelude.rnf threatDetectedByName `Prelude.seq`
+          Prelude.rnf threatsDetectedItemCount

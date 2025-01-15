@@ -79,5 +79,5 @@ instance Prelude.Hashable UnsuccessfulItem where
 
 instance Prelude.NFData UnsuccessfulItem where
   rnf UnsuccessfulItem' {..} =
-    Prelude.rnf error
-      `Prelude.seq` Prelude.rnf resourceId
+    Prelude.rnf error `Prelude.seq`
+      Prelude.rnf resourceId

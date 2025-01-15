@@ -145,12 +145,12 @@ instance Core.AWSPager ListMapRuns where
     | Core.stop (rs Lens.^. listMapRunsResponse_mapRuns) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listMapRuns_nextToken
-          Lens..~ rs
-          Lens.^? listMapRunsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listMapRuns_nextToken
+              Lens..~ rs
+              Lens.^? listMapRunsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListMapRuns where
   type AWSResponse ListMapRuns = ListMapRunsResponse
@@ -174,9 +174,9 @@ instance Prelude.Hashable ListMapRuns where
 
 instance Prelude.NFData ListMapRuns where
   rnf ListMapRuns' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf executionArn
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf executionArn
 
 instance Data.ToHeaders ListMapRuns where
   toHeaders =
@@ -279,6 +279,6 @@ listMapRunsResponse_mapRuns = Lens.lens (\ListMapRunsResponse' {mapRuns} -> mapR
 
 instance Prelude.NFData ListMapRunsResponse where
   rnf ListMapRunsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf mapRuns
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf mapRuns

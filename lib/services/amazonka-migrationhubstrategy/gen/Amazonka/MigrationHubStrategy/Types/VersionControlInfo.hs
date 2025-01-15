@@ -82,5 +82,5 @@ instance Prelude.Hashable VersionControlInfo where
 
 instance Prelude.NFData VersionControlInfo where
   rnf VersionControlInfo' {..} =
-    Prelude.rnf versionControlConfigurationTimeStamp
-      `Prelude.seq` Prelude.rnf versionControlType
+    Prelude.rnf versionControlConfigurationTimeStamp `Prelude.seq`
+      Prelude.rnf versionControlType

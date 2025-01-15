@@ -115,8 +115,8 @@ instance Prelude.Hashable DebugRuleEvaluationStatus where
 
 instance Prelude.NFData DebugRuleEvaluationStatus where
   rnf DebugRuleEvaluationStatus' {..} =
-    Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf ruleConfigurationName
-      `Prelude.seq` Prelude.rnf ruleEvaluationJobArn
-      `Prelude.seq` Prelude.rnf ruleEvaluationStatus
-      `Prelude.seq` Prelude.rnf statusDetails
+    Prelude.rnf lastModifiedTime `Prelude.seq`
+      Prelude.rnf ruleConfigurationName `Prelude.seq`
+        Prelude.rnf ruleEvaluationJobArn `Prelude.seq`
+          Prelude.rnf ruleEvaluationStatus `Prelude.seq`
+            Prelude.rnf statusDetails

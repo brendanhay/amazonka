@@ -75,8 +75,8 @@ instance Prelude.Hashable PurchaseRequest where
 
 instance Prelude.NFData PurchaseRequest where
   rnf PurchaseRequest' {..} =
-    Prelude.rnf instanceCount
-      `Prelude.seq` Prelude.rnf purchaseToken
+    Prelude.rnf instanceCount `Prelude.seq`
+      Prelude.rnf purchaseToken
 
 instance Data.ToQuery PurchaseRequest where
   toQuery PurchaseRequest' {..} =

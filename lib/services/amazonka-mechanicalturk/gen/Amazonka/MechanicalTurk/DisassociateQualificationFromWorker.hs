@@ -141,9 +141,9 @@ instance
     DisassociateQualificationFromWorker
   where
   rnf DisassociateQualificationFromWorker' {..} =
-    Prelude.rnf reason
-      `Prelude.seq` Prelude.rnf workerId
-      `Prelude.seq` Prelude.rnf qualificationTypeId
+    Prelude.rnf reason `Prelude.seq`
+      Prelude.rnf workerId `Prelude.seq`
+        Prelude.rnf qualificationTypeId
 
 instance
   Data.ToHeaders

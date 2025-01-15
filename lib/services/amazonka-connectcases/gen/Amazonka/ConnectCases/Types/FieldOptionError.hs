@@ -97,6 +97,6 @@ instance Prelude.Hashable FieldOptionError where
 
 instance Prelude.NFData FieldOptionError where
   rnf FieldOptionError' {..} =
-    Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf errorCode `Prelude.seq`
+      Prelude.rnf message `Prelude.seq`
+        Prelude.rnf value

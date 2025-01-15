@@ -126,8 +126,8 @@ instance Prelude.Hashable ConnectionAlias where
 
 instance Prelude.NFData ConnectionAlias where
   rnf ConnectionAlias' {..} =
-    Prelude.rnf aliasId
-      `Prelude.seq` Prelude.rnf associations
-      `Prelude.seq` Prelude.rnf connectionString
-      `Prelude.seq` Prelude.rnf ownerAccountId
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf aliasId `Prelude.seq`
+      Prelude.rnf associations `Prelude.seq`
+        Prelude.rnf connectionString `Prelude.seq`
+          Prelude.rnf ownerAccountId `Prelude.seq`
+            Prelude.rnf state

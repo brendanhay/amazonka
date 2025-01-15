@@ -281,9 +281,9 @@ instance
   where
   rnf
     DescribeDraftAppVersionResourcesImportStatusResponse' {..} =
-      Prelude.rnf errorMessage
-        `Prelude.seq` Prelude.rnf httpStatus
-        `Prelude.seq` Prelude.rnf appArn
-        `Prelude.seq` Prelude.rnf appVersion
-        `Prelude.seq` Prelude.rnf status
-        `Prelude.seq` Prelude.rnf statusChangeTime
+      Prelude.rnf errorMessage `Prelude.seq`
+        Prelude.rnf httpStatus `Prelude.seq`
+          Prelude.rnf appArn `Prelude.seq`
+            Prelude.rnf appVersion `Prelude.seq`
+              Prelude.rnf status `Prelude.seq`
+                Prelude.rnf statusChangeTime

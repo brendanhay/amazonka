@@ -113,8 +113,8 @@ instance Prelude.Hashable DescribeExecution where
 
 instance Prelude.NFData DescribeExecution where
   rnf DescribeExecution' {..} =
-    Prelude.rnf executionId
-      `Prelude.seq` Prelude.rnf workflowId
+    Prelude.rnf executionId `Prelude.seq`
+      Prelude.rnf workflowId
 
 instance Data.ToHeaders DescribeExecution where
   toHeaders =
@@ -203,6 +203,6 @@ describeExecutionResponse_execution = Lens.lens (\DescribeExecutionResponse' {ex
 
 instance Prelude.NFData DescribeExecutionResponse where
   rnf DescribeExecutionResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf workflowId
-      `Prelude.seq` Prelude.rnf execution
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf workflowId `Prelude.seq`
+        Prelude.rnf execution

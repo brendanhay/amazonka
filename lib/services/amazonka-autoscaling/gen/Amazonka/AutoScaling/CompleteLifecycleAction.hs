@@ -190,11 +190,11 @@ instance Prelude.Hashable CompleteLifecycleAction where
 
 instance Prelude.NFData CompleteLifecycleAction where
   rnf CompleteLifecycleAction' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf lifecycleActionToken
-      `Prelude.seq` Prelude.rnf lifecycleHookName
-      `Prelude.seq` Prelude.rnf autoScalingGroupName
-      `Prelude.seq` Prelude.rnf lifecycleActionResult
+    Prelude.rnf instanceId `Prelude.seq`
+      Prelude.rnf lifecycleActionToken `Prelude.seq`
+        Prelude.rnf lifecycleHookName `Prelude.seq`
+          Prelude.rnf autoScalingGroupName `Prelude.seq`
+            Prelude.rnf lifecycleActionResult
 
 instance Data.ToHeaders CompleteLifecycleAction where
   toHeaders = Prelude.const Prelude.mempty

@@ -92,6 +92,6 @@ instance Prelude.Hashable OutputColumn where
 
 instance Prelude.NFData OutputColumn where
   rnf OutputColumn' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf type'

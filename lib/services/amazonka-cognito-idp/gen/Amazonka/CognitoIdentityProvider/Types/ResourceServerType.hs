@@ -103,7 +103,7 @@ instance Prelude.Hashable ResourceServerType where
 
 instance Prelude.NFData ResourceServerType where
   rnf ResourceServerType' {..} =
-    Prelude.rnf identifier
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf scopes
-      `Prelude.seq` Prelude.rnf userPoolId
+    Prelude.rnf identifier `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf scopes `Prelude.seq`
+          Prelude.rnf userPoolId

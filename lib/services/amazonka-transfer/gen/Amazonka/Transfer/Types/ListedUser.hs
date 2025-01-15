@@ -205,9 +205,9 @@ instance Prelude.Hashable ListedUser where
 
 instance Prelude.NFData ListedUser where
   rnf ListedUser' {..} =
-    Prelude.rnf homeDirectory
-      `Prelude.seq` Prelude.rnf homeDirectoryType
-      `Prelude.seq` Prelude.rnf role'
-      `Prelude.seq` Prelude.rnf sshPublicKeyCount
-      `Prelude.seq` Prelude.rnf userName
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf homeDirectory `Prelude.seq`
+      Prelude.rnf homeDirectoryType `Prelude.seq`
+        Prelude.rnf role' `Prelude.seq`
+          Prelude.rnf sshPublicKeyCount `Prelude.seq`
+            Prelude.rnf userName `Prelude.seq`
+              Prelude.rnf arn

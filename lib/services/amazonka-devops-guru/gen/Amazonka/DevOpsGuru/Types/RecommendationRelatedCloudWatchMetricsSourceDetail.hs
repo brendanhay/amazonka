@@ -99,5 +99,5 @@ instance
   where
   rnf
     RecommendationRelatedCloudWatchMetricsSourceDetail' {..} =
-      Prelude.rnf metricName
-        `Prelude.seq` Prelude.rnf namespace
+      Prelude.rnf metricName `Prelude.seq`
+        Prelude.rnf namespace

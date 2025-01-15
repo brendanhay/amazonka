@@ -213,13 +213,13 @@ instance Prelude.Hashable SNOMEDCTEntity where
 
 instance Prelude.NFData SNOMEDCTEntity where
   rnf SNOMEDCTEntity' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf beginOffset
-      `Prelude.seq` Prelude.rnf category
-      `Prelude.seq` Prelude.rnf endOffset
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf sNOMEDCTConcepts
-      `Prelude.seq` Prelude.rnf score
-      `Prelude.seq` Prelude.rnf text
-      `Prelude.seq` Prelude.rnf traits
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf attributes `Prelude.seq`
+      Prelude.rnf beginOffset `Prelude.seq`
+        Prelude.rnf category `Prelude.seq`
+          Prelude.rnf endOffset `Prelude.seq`
+            Prelude.rnf id `Prelude.seq`
+              Prelude.rnf sNOMEDCTConcepts `Prelude.seq`
+                Prelude.rnf score `Prelude.seq`
+                  Prelude.rnf text `Prelude.seq`
+                    Prelude.rnf traits `Prelude.seq`
+                      Prelude.rnf type'

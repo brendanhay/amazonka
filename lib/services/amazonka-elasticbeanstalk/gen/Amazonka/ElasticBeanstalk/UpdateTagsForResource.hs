@@ -155,9 +155,9 @@ instance Prelude.Hashable UpdateTagsForResource where
 
 instance Prelude.NFData UpdateTagsForResource where
   rnf UpdateTagsForResource' {..} =
-    Prelude.rnf tagsToAdd
-      `Prelude.seq` Prelude.rnf tagsToRemove
-      `Prelude.seq` Prelude.rnf resourceArn
+    Prelude.rnf tagsToAdd `Prelude.seq`
+      Prelude.rnf tagsToRemove `Prelude.seq`
+        Prelude.rnf resourceArn
 
 instance Data.ToHeaders UpdateTagsForResource where
   toHeaders = Prelude.const Prelude.mempty

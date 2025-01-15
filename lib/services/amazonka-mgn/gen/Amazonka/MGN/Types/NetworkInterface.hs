@@ -91,6 +91,6 @@ instance Prelude.Hashable NetworkInterface where
 
 instance Prelude.NFData NetworkInterface where
   rnf NetworkInterface' {..} =
-    Prelude.rnf ips
-      `Prelude.seq` Prelude.rnf isPrimary
-      `Prelude.seq` Prelude.rnf macAddress
+    Prelude.rnf ips `Prelude.seq`
+      Prelude.rnf isPrimary `Prelude.seq`
+        Prelude.rnf macAddress

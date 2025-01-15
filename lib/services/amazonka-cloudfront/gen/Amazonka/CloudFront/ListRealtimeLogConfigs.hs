@@ -128,8 +128,8 @@ instance Prelude.Hashable ListRealtimeLogConfigs where
 
 instance Prelude.NFData ListRealtimeLogConfigs where
   rnf ListRealtimeLogConfigs' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxItems
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf maxItems
 
 instance Data.ToHeaders ListRealtimeLogConfigs where
   toHeaders = Prelude.const Prelude.mempty
@@ -189,5 +189,5 @@ instance
     ListRealtimeLogConfigsResponse
   where
   rnf ListRealtimeLogConfigsResponse' {..} =
-    Prelude.rnf realtimeLogConfigs
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf realtimeLogConfigs `Prelude.seq`
+      Prelude.rnf httpStatus

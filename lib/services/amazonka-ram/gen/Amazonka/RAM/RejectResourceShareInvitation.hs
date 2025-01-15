@@ -153,8 +153,8 @@ instance
 
 instance Prelude.NFData RejectResourceShareInvitation where
   rnf RejectResourceShareInvitation' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf resourceShareInvitationArn
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf resourceShareInvitationArn
 
 instance Data.ToHeaders RejectResourceShareInvitation where
   toHeaders =
@@ -252,6 +252,6 @@ instance
     RejectResourceShareInvitationResponse
   where
   rnf RejectResourceShareInvitationResponse' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf resourceShareInvitation
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf resourceShareInvitation `Prelude.seq`
+        Prelude.rnf httpStatus

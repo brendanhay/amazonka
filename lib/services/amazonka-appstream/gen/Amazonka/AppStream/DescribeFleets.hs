@@ -107,12 +107,12 @@ instance Core.AWSPager DescribeFleets where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeFleets_nextToken
-          Lens..~ rs
-          Lens.^? describeFleetsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeFleets_nextToken
+              Lens..~ rs
+              Lens.^? describeFleetsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeFleets where
   type
@@ -137,8 +137,8 @@ instance Prelude.Hashable DescribeFleets where
 
 instance Prelude.NFData DescribeFleets where
   rnf DescribeFleets' {..} =
-    Prelude.rnf names
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf names `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeFleets where
   toHeaders =
@@ -222,6 +222,6 @@ describeFleetsResponse_httpStatus = Lens.lens (\DescribeFleetsResponse' {httpSta
 
 instance Prelude.NFData DescribeFleetsResponse where
   rnf DescribeFleetsResponse' {..} =
-    Prelude.rnf fleets
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf fleets `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

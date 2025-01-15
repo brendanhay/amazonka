@@ -217,13 +217,13 @@ instance Prelude.Hashable ICD10CMEntity where
 
 instance Prelude.NFData ICD10CMEntity where
   rnf ICD10CMEntity' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf beginOffset
-      `Prelude.seq` Prelude.rnf category
-      `Prelude.seq` Prelude.rnf endOffset
-      `Prelude.seq` Prelude.rnf iCD10CMConcepts
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf score
-      `Prelude.seq` Prelude.rnf text
-      `Prelude.seq` Prelude.rnf traits
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf attributes `Prelude.seq`
+      Prelude.rnf beginOffset `Prelude.seq`
+        Prelude.rnf category `Prelude.seq`
+          Prelude.rnf endOffset `Prelude.seq`
+            Prelude.rnf iCD10CMConcepts `Prelude.seq`
+              Prelude.rnf id `Prelude.seq`
+                Prelude.rnf score `Prelude.seq`
+                  Prelude.rnf text `Prelude.seq`
+                    Prelude.rnf traits `Prelude.seq`
+                      Prelude.rnf type'

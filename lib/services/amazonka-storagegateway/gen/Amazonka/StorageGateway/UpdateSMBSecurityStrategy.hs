@@ -165,8 +165,8 @@ instance Prelude.Hashable UpdateSMBSecurityStrategy where
 
 instance Prelude.NFData UpdateSMBSecurityStrategy where
   rnf UpdateSMBSecurityStrategy' {..} =
-    Prelude.rnf gatewayARN
-      `Prelude.seq` Prelude.rnf sMBSecurityStrategy
+    Prelude.rnf gatewayARN `Prelude.seq`
+      Prelude.rnf sMBSecurityStrategy
 
 instance Data.ToHeaders UpdateSMBSecurityStrategy where
   toHeaders =
@@ -242,5 +242,5 @@ instance
     UpdateSMBSecurityStrategyResponse
   where
   rnf UpdateSMBSecurityStrategyResponse' {..} =
-    Prelude.rnf gatewayARN
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf gatewayARN `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -110,10 +110,10 @@ instance Prelude.Hashable DateMeasureField where
 
 instance Prelude.NFData DateMeasureField where
   rnf DateMeasureField' {..} =
-    Prelude.rnf aggregationFunction
-      `Prelude.seq` Prelude.rnf formatConfiguration
-      `Prelude.seq` Prelude.rnf fieldId
-      `Prelude.seq` Prelude.rnf column
+    Prelude.rnf aggregationFunction `Prelude.seq`
+      Prelude.rnf formatConfiguration `Prelude.seq`
+        Prelude.rnf fieldId `Prelude.seq`
+          Prelude.rnf column
 
 instance Data.ToJSON DateMeasureField where
   toJSON DateMeasureField' {..} =

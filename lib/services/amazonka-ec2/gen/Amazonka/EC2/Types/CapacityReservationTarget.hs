@@ -76,8 +76,8 @@ instance Prelude.Hashable CapacityReservationTarget where
 
 instance Prelude.NFData CapacityReservationTarget where
   rnf CapacityReservationTarget' {..} =
-    Prelude.rnf capacityReservationId
-      `Prelude.seq` Prelude.rnf capacityReservationResourceGroupArn
+    Prelude.rnf capacityReservationId `Prelude.seq`
+      Prelude.rnf capacityReservationResourceGroupArn
 
 instance Data.ToQuery CapacityReservationTarget where
   toQuery CapacityReservationTarget' {..} =

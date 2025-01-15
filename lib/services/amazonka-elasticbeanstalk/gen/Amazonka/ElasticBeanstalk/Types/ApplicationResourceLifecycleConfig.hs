@@ -124,8 +124,8 @@ instance
     ApplicationResourceLifecycleConfig
   where
   rnf ApplicationResourceLifecycleConfig' {..} =
-    Prelude.rnf serviceRole
-      `Prelude.seq` Prelude.rnf versionLifecycleConfig
+    Prelude.rnf serviceRole `Prelude.seq`
+      Prelude.rnf versionLifecycleConfig
 
 instance
   Data.ToQuery

@@ -107,9 +107,9 @@ instance
     FastLaunchLaunchTemplateSpecificationRequest
   where
   rnf FastLaunchLaunchTemplateSpecificationRequest' {..} =
-    Prelude.rnf launchTemplateId
-      `Prelude.seq` Prelude.rnf launchTemplateName
-      `Prelude.seq` Prelude.rnf version
+    Prelude.rnf launchTemplateId `Prelude.seq`
+      Prelude.rnf launchTemplateName `Prelude.seq`
+        Prelude.rnf version
 
 instance
   Data.ToQuery

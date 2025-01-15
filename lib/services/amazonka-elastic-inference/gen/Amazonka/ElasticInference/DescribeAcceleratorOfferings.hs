@@ -131,8 +131,8 @@ instance
 
 instance Prelude.NFData DescribeAcceleratorOfferings where
   rnf DescribeAcceleratorOfferings' {..} =
-    Prelude.rnf acceleratorTypes
-      `Prelude.seq` Prelude.rnf locationType
+    Prelude.rnf acceleratorTypes `Prelude.seq`
+      Prelude.rnf locationType
 
 instance Data.ToHeaders DescribeAcceleratorOfferings where
   toHeaders =
@@ -206,5 +206,5 @@ instance
     DescribeAcceleratorOfferingsResponse
   where
   rnf DescribeAcceleratorOfferingsResponse' {..} =
-    Prelude.rnf acceleratorTypeOfferings
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf acceleratorTypeOfferings `Prelude.seq`
+      Prelude.rnf httpStatus

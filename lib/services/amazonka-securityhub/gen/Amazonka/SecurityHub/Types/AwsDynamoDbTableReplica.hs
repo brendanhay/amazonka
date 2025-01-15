@@ -163,12 +163,12 @@ instance Prelude.Hashable AwsDynamoDbTableReplica where
 
 instance Prelude.NFData AwsDynamoDbTableReplica where
   rnf AwsDynamoDbTableReplica' {..} =
-    Prelude.rnf globalSecondaryIndexes
-      `Prelude.seq` Prelude.rnf kmsMasterKeyId
-      `Prelude.seq` Prelude.rnf provisionedThroughputOverride
-      `Prelude.seq` Prelude.rnf regionName
-      `Prelude.seq` Prelude.rnf replicaStatus
-      `Prelude.seq` Prelude.rnf replicaStatusDescription
+    Prelude.rnf globalSecondaryIndexes `Prelude.seq`
+      Prelude.rnf kmsMasterKeyId `Prelude.seq`
+        Prelude.rnf provisionedThroughputOverride `Prelude.seq`
+          Prelude.rnf regionName `Prelude.seq`
+            Prelude.rnf replicaStatus `Prelude.seq`
+              Prelude.rnf replicaStatusDescription
 
 instance Data.ToJSON AwsDynamoDbTableReplica where
   toJSON AwsDynamoDbTableReplica' {..} =

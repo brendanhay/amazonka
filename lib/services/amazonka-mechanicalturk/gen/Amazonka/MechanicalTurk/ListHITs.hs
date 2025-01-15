@@ -104,12 +104,12 @@ instance Core.AWSPager ListHITs where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listHITs_nextToken
-          Lens..~ rs
-          Lens.^? listHITsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listHITs_nextToken
+              Lens..~ rs
+              Lens.^? listHITsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListHITs where
   type AWSResponse ListHITs = ListHITsResponse
@@ -133,8 +133,8 @@ instance Prelude.Hashable ListHITs where
 
 instance Prelude.NFData ListHITs where
   rnf ListHITs' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListHITs where
   toHeaders =
@@ -226,7 +226,7 @@ listHITsResponse_httpStatus = Lens.lens (\ListHITsResponse' {httpStatus} -> http
 
 instance Prelude.NFData ListHITsResponse where
   rnf ListHITsResponse' {..} =
-    Prelude.rnf hITs
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf numResults
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf hITs `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf numResults `Prelude.seq`
+          Prelude.rnf httpStatus

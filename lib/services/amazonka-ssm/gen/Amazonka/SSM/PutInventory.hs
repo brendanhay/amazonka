@@ -110,8 +110,8 @@ instance Prelude.Hashable PutInventory where
 
 instance Prelude.NFData PutInventory where
   rnf PutInventory' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf items
+    Prelude.rnf instanceId `Prelude.seq`
+      Prelude.rnf items
 
 instance Data.ToHeaders PutInventory where
   toHeaders =
@@ -181,5 +181,5 @@ putInventoryResponse_httpStatus = Lens.lens (\PutInventoryResponse' {httpStatus}
 
 instance Prelude.NFData PutInventoryResponse where
   rnf PutInventoryResponse' {..} =
-    Prelude.rnf message
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf message `Prelude.seq`
+      Prelude.rnf httpStatus

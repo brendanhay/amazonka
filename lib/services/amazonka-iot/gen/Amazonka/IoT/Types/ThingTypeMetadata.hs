@@ -96,6 +96,6 @@ instance Prelude.Hashable ThingTypeMetadata where
 
 instance Prelude.NFData ThingTypeMetadata where
   rnf ThingTypeMetadata' {..} =
-    Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf deprecated
-      `Prelude.seq` Prelude.rnf deprecationDate
+    Prelude.rnf creationDate `Prelude.seq`
+      Prelude.rnf deprecated `Prelude.seq`
+        Prelude.rnf deprecationDate

@@ -188,12 +188,12 @@ instance Prelude.Hashable CreateEnvironmentTemplate where
 
 instance Prelude.NFData CreateEnvironmentTemplate where
   rnf CreateEnvironmentTemplate' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf encryptionKey
-      `Prelude.seq` Prelude.rnf provisioning
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf displayName `Prelude.seq`
+        Prelude.rnf encryptionKey `Prelude.seq`
+          Prelude.rnf provisioning `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf name
 
 instance Data.ToHeaders CreateEnvironmentTemplate where
   toHeaders =
@@ -278,5 +278,5 @@ instance
     CreateEnvironmentTemplateResponse
   where
   rnf CreateEnvironmentTemplateResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf environmentTemplate
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf environmentTemplate

@@ -131,9 +131,9 @@ instance Prelude.Hashable UpdatePublicDnsNamespace where
 
 instance Prelude.NFData UpdatePublicDnsNamespace where
   rnf UpdatePublicDnsNamespace' {..} =
-    Prelude.rnf updaterRequestId
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf namespace
+    Prelude.rnf updaterRequestId `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf namespace
 
 instance Data.ToHeaders UpdatePublicDnsNamespace where
   toHeaders =
@@ -217,5 +217,5 @@ instance
     UpdatePublicDnsNamespaceResponse
   where
   rnf UpdatePublicDnsNamespaceResponse' {..} =
-    Prelude.rnf operationId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operationId `Prelude.seq`
+      Prelude.rnf httpStatus

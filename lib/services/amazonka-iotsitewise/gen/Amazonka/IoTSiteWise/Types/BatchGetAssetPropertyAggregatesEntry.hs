@@ -219,16 +219,16 @@ instance
     BatchGetAssetPropertyAggregatesEntry
   where
   rnf BatchGetAssetPropertyAggregatesEntry' {..} =
-    Prelude.rnf assetId
-      `Prelude.seq` Prelude.rnf propertyAlias
-      `Prelude.seq` Prelude.rnf propertyId
-      `Prelude.seq` Prelude.rnf qualities
-      `Prelude.seq` Prelude.rnf timeOrdering
-      `Prelude.seq` Prelude.rnf entryId
-      `Prelude.seq` Prelude.rnf aggregateTypes
-      `Prelude.seq` Prelude.rnf resolution
-      `Prelude.seq` Prelude.rnf startDate
-      `Prelude.seq` Prelude.rnf endDate
+    Prelude.rnf assetId `Prelude.seq`
+      Prelude.rnf propertyAlias `Prelude.seq`
+        Prelude.rnf propertyId `Prelude.seq`
+          Prelude.rnf qualities `Prelude.seq`
+            Prelude.rnf timeOrdering `Prelude.seq`
+              Prelude.rnf entryId `Prelude.seq`
+                Prelude.rnf aggregateTypes `Prelude.seq`
+                  Prelude.rnf resolution `Prelude.seq`
+                    Prelude.rnf startDate `Prelude.seq`
+                      Prelude.rnf endDate
 
 instance
   Data.ToJSON

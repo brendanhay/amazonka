@@ -103,6 +103,6 @@ instance Prelude.Hashable InstanceTypeOffering where
 
 instance Prelude.NFData InstanceTypeOffering where
   rnf InstanceTypeOffering' {..} =
-    Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf locationType
+    Prelude.rnf instanceType `Prelude.seq`
+      Prelude.rnf location `Prelude.seq`
+        Prelude.rnf locationType

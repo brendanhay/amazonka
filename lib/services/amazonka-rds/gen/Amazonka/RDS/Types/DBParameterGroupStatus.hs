@@ -91,5 +91,5 @@ instance Prelude.Hashable DBParameterGroupStatus where
 
 instance Prelude.NFData DBParameterGroupStatus where
   rnf DBParameterGroupStatus' {..} =
-    Prelude.rnf dbParameterGroupName
-      `Prelude.seq` Prelude.rnf parameterApplyStatus
+    Prelude.rnf dbParameterGroupName `Prelude.seq`
+      Prelude.rnf parameterApplyStatus

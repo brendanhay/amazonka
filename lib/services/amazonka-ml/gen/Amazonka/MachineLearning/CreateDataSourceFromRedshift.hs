@@ -311,11 +311,11 @@ instance
 
 instance Prelude.NFData CreateDataSourceFromRedshift where
   rnf CreateDataSourceFromRedshift' {..} =
-    Prelude.rnf computeStatistics
-      `Prelude.seq` Prelude.rnf dataSourceName
-      `Prelude.seq` Prelude.rnf dataSourceId
-      `Prelude.seq` Prelude.rnf dataSpec
-      `Prelude.seq` Prelude.rnf roleARN
+    Prelude.rnf computeStatistics `Prelude.seq`
+      Prelude.rnf dataSourceName `Prelude.seq`
+        Prelude.rnf dataSourceId `Prelude.seq`
+          Prelude.rnf dataSpec `Prelude.seq`
+            Prelude.rnf roleARN
 
 instance Data.ToHeaders CreateDataSourceFromRedshift where
   toHeaders =
@@ -406,5 +406,5 @@ instance
     CreateDataSourceFromRedshiftResponse
   where
   rnf CreateDataSourceFromRedshiftResponse' {..} =
-    Prelude.rnf dataSourceId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dataSourceId `Prelude.seq`
+      Prelude.rnf httpStatus

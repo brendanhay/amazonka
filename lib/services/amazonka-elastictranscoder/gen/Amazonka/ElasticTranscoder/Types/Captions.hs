@@ -156,9 +156,9 @@ instance Prelude.Hashable Captions where
 
 instance Prelude.NFData Captions where
   rnf Captions' {..} =
-    Prelude.rnf captionFormats
-      `Prelude.seq` Prelude.rnf captionSources
-      `Prelude.seq` Prelude.rnf mergePolicy
+    Prelude.rnf captionFormats `Prelude.seq`
+      Prelude.rnf captionSources `Prelude.seq`
+        Prelude.rnf mergePolicy
 
 instance Data.ToJSON Captions where
   toJSON Captions' {..} =

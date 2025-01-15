@@ -178,8 +178,8 @@ instance Prelude.Hashable DescribeEC2InstanceLimits where
 
 instance Prelude.NFData DescribeEC2InstanceLimits where
   rnf DescribeEC2InstanceLimits' {..} =
-    Prelude.rnf eC2InstanceType
-      `Prelude.seq` Prelude.rnf location
+    Prelude.rnf eC2InstanceType `Prelude.seq`
+      Prelude.rnf location
 
 instance Data.ToHeaders DescribeEC2InstanceLimits where
   toHeaders =
@@ -256,5 +256,5 @@ instance
     DescribeEC2InstanceLimitsResponse
   where
   rnf DescribeEC2InstanceLimitsResponse' {..} =
-    Prelude.rnf eC2InstanceLimits
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf eC2InstanceLimits `Prelude.seq`
+      Prelude.rnf httpStatus

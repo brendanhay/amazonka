@@ -148,10 +148,10 @@ instance Prelude.Hashable DolbyVision where
 
 instance Prelude.NFData DolbyVision where
   rnf DolbyVision' {..} =
-    Prelude.rnf l6Metadata
-      `Prelude.seq` Prelude.rnf l6Mode
-      `Prelude.seq` Prelude.rnf mapping
-      `Prelude.seq` Prelude.rnf profile
+    Prelude.rnf l6Metadata `Prelude.seq`
+      Prelude.rnf l6Mode `Prelude.seq`
+        Prelude.rnf mapping `Prelude.seq`
+          Prelude.rnf profile
 
 instance Data.ToJSON DolbyVision where
   toJSON DolbyVision' {..} =

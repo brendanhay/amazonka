@@ -140,10 +140,10 @@ instance Prelude.Hashable RegisterConnector where
 
 instance Prelude.NFData RegisterConnector where
   rnf RegisterConnector' {..} =
-    Prelude.rnf connectorLabel
-      `Prelude.seq` Prelude.rnf connectorProvisioningConfig
-      `Prelude.seq` Prelude.rnf connectorProvisioningType
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf connectorLabel `Prelude.seq`
+      Prelude.rnf connectorProvisioningConfig `Prelude.seq`
+        Prelude.rnf connectorProvisioningType `Prelude.seq`
+          Prelude.rnf description
 
 instance Data.ToHeaders RegisterConnector where
   toHeaders =
@@ -217,5 +217,5 @@ registerConnectorResponse_httpStatus = Lens.lens (\RegisterConnectorResponse' {h
 
 instance Prelude.NFData RegisterConnectorResponse where
   rnf RegisterConnectorResponse' {..} =
-    Prelude.rnf connectorArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf connectorArn `Prelude.seq`
+      Prelude.rnf httpStatus

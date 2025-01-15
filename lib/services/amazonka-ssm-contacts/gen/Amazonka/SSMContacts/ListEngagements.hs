@@ -122,12 +122,12 @@ instance Core.AWSPager ListEngagements where
         (rs Lens.^. listEngagementsResponse_engagements) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listEngagements_nextToken
-          Lens..~ rs
-          Lens.^? listEngagementsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listEngagements_nextToken
+              Lens..~ rs
+              Lens.^? listEngagementsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListEngagements where
   type
@@ -154,10 +154,10 @@ instance Prelude.Hashable ListEngagements where
 
 instance Prelude.NFData ListEngagements where
   rnf ListEngagements' {..} =
-    Prelude.rnf incidentId
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf timeRangeValue
+    Prelude.rnf incidentId `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf timeRangeValue
 
 instance Data.ToHeaders ListEngagements where
   toHeaders =
@@ -245,6 +245,6 @@ listEngagementsResponse_engagements = Lens.lens (\ListEngagementsResponse' {enga
 
 instance Prelude.NFData ListEngagementsResponse where
   rnf ListEngagementsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf engagements
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf engagements

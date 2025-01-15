@@ -204,15 +204,15 @@ instance Prelude.Hashable Trial where
 
 instance Prelude.NFData Trial where
   rnf Trial' {..} =
-    Prelude.rnf createdBy
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf experimentName
-      `Prelude.seq` Prelude.rnf lastModifiedBy
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf metadataProperties
-      `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf trialArn
-      `Prelude.seq` Prelude.rnf trialComponentSummaries
-      `Prelude.seq` Prelude.rnf trialName
+    Prelude.rnf createdBy `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf displayName `Prelude.seq`
+          Prelude.rnf experimentName `Prelude.seq`
+            Prelude.rnf lastModifiedBy `Prelude.seq`
+              Prelude.rnf lastModifiedTime `Prelude.seq`
+                Prelude.rnf metadataProperties `Prelude.seq`
+                  Prelude.rnf source `Prelude.seq`
+                    Prelude.rnf tags `Prelude.seq`
+                      Prelude.rnf trialArn `Prelude.seq`
+                        Prelude.rnf trialComponentSummaries `Prelude.seq`
+                          Prelude.rnf trialName

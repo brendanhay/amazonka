@@ -148,10 +148,10 @@ instance Prelude.Hashable CreateFolderMembership where
 
 instance Prelude.NFData CreateFolderMembership where
   rnf CreateFolderMembership' {..} =
-    Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf folderId
-      `Prelude.seq` Prelude.rnf memberId
-      `Prelude.seq` Prelude.rnf memberType
+    Prelude.rnf awsAccountId `Prelude.seq`
+      Prelude.rnf folderId `Prelude.seq`
+        Prelude.rnf memberId `Prelude.seq`
+          Prelude.rnf memberType
 
 instance Data.ToHeaders CreateFolderMembership where
   toHeaders =
@@ -245,7 +245,7 @@ instance
     CreateFolderMembershipResponse
   where
   rnf CreateFolderMembershipResponse' {..} =
-    Prelude.rnf folderMember
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf folderMember `Prelude.seq`
+      Prelude.rnf requestId `Prelude.seq`
+        Prelude.rnf status `Prelude.seq`
+          Prelude.rnf httpStatus

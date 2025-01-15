@@ -183,10 +183,10 @@ instance Prelude.Hashable Account where
 
 instance Prelude.NFData Account where
   rnf Account' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf email
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf joinedMethod
-      `Prelude.seq` Prelude.rnf joinedTimestamp
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf email `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf joinedMethod `Prelude.seq`
+            Prelude.rnf joinedTimestamp `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf status

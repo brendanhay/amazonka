@@ -88,6 +88,6 @@ instance Prelude.Hashable Item where
 
 instance Prelude.NFData Item where
   rnf Item' {..} =
-    Prelude.rnf alternateNameEncoding
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf attributes
+    Prelude.rnf alternateNameEncoding `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf attributes

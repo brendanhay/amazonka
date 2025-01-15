@@ -136,8 +136,8 @@ instance
     CreateConfigurationSetTrackingOptions
   where
   rnf CreateConfigurationSetTrackingOptions' {..} =
-    Prelude.rnf configurationSetName
-      `Prelude.seq` Prelude.rnf trackingOptions
+    Prelude.rnf configurationSetName `Prelude.seq`
+      Prelude.rnf trackingOptions
 
 instance
   Data.ToHeaders

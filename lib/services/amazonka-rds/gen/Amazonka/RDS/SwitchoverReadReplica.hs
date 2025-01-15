@@ -176,5 +176,5 @@ switchoverReadReplicaResponse_httpStatus = Lens.lens (\SwitchoverReadReplicaResp
 
 instance Prelude.NFData SwitchoverReadReplicaResponse where
   rnf SwitchoverReadReplicaResponse' {..} =
-    Prelude.rnf dbInstance
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dbInstance `Prelude.seq`
+      Prelude.rnf httpStatus

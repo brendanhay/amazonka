@@ -120,12 +120,12 @@ instance Core.AWSPager ListSolutions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listSolutions_nextToken
-          Lens..~ rs
-          Lens.^? listSolutionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listSolutions_nextToken
+              Lens..~ rs
+              Lens.^? listSolutionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSolutions where
   type
@@ -151,9 +151,9 @@ instance Prelude.Hashable ListSolutions where
 
 instance Prelude.NFData ListSolutions where
   rnf ListSolutions' {..} =
-    Prelude.rnf datasetGroupArn
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf datasetGroupArn `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListSolutions where
   toHeaders =
@@ -236,6 +236,6 @@ listSolutionsResponse_httpStatus = Lens.lens (\ListSolutionsResponse' {httpStatu
 
 instance Prelude.NFData ListSolutionsResponse where
   rnf ListSolutionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf solutions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf solutions `Prelude.seq`
+        Prelude.rnf httpStatus

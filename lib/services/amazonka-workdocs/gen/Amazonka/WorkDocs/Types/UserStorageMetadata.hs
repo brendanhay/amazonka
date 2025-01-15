@@ -81,5 +81,5 @@ instance Prelude.Hashable UserStorageMetadata where
 
 instance Prelude.NFData UserStorageMetadata where
   rnf UserStorageMetadata' {..} =
-    Prelude.rnf storageRule
-      `Prelude.seq` Prelude.rnf storageUtilizedInBytes
+    Prelude.rnf storageRule `Prelude.seq`
+      Prelude.rnf storageUtilizedInBytes

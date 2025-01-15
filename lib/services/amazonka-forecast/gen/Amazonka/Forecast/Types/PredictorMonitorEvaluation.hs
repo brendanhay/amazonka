@@ -201,14 +201,14 @@ instance Prelude.Hashable PredictorMonitorEvaluation where
 
 instance Prelude.NFData PredictorMonitorEvaluation where
   rnf PredictorMonitorEvaluation' {..} =
-    Prelude.rnf evaluationState
-      `Prelude.seq` Prelude.rnf evaluationTime
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf metricResults
-      `Prelude.seq` Prelude.rnf monitorArn
-      `Prelude.seq` Prelude.rnf monitorDataSource
-      `Prelude.seq` Prelude.rnf numItemsEvaluated
-      `Prelude.seq` Prelude.rnf predictorEvent
-      `Prelude.seq` Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf windowEndDatetime
-      `Prelude.seq` Prelude.rnf windowStartDatetime
+    Prelude.rnf evaluationState `Prelude.seq`
+      Prelude.rnf evaluationTime `Prelude.seq`
+        Prelude.rnf message `Prelude.seq`
+          Prelude.rnf metricResults `Prelude.seq`
+            Prelude.rnf monitorArn `Prelude.seq`
+              Prelude.rnf monitorDataSource `Prelude.seq`
+                Prelude.rnf numItemsEvaluated `Prelude.seq`
+                  Prelude.rnf predictorEvent `Prelude.seq`
+                    Prelude.rnf resourceArn `Prelude.seq`
+                      Prelude.rnf windowEndDatetime `Prelude.seq`
+                        Prelude.rnf windowStartDatetime

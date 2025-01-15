@@ -127,8 +127,8 @@ instance
     FailedServiceActionAssociation
   where
   rnf FailedServiceActionAssociation' {..} =
-    Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf productId
-      `Prelude.seq` Prelude.rnf provisioningArtifactId
-      `Prelude.seq` Prelude.rnf serviceActionId
+    Prelude.rnf errorCode `Prelude.seq`
+      Prelude.rnf errorMessage `Prelude.seq`
+        Prelude.rnf productId `Prelude.seq`
+          Prelude.rnf provisioningArtifactId `Prelude.seq`
+            Prelude.rnf serviceActionId

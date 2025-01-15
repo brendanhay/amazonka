@@ -87,5 +87,5 @@ instance Prelude.Hashable DimensionNameValue where
 
 instance Prelude.NFData DimensionNameValue where
   rnf DimensionNameValue' {..} =
-    Prelude.rnf dimensionName
-      `Prelude.seq` Prelude.rnf dimensionValue
+    Prelude.rnf dimensionName `Prelude.seq`
+      Prelude.rnf dimensionValue

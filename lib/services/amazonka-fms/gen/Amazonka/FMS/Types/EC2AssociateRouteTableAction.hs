@@ -122,7 +122,7 @@ instance
 
 instance Prelude.NFData EC2AssociateRouteTableAction where
   rnf EC2AssociateRouteTableAction' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf gatewayId
-      `Prelude.seq` Prelude.rnf subnetId
-      `Prelude.seq` Prelude.rnf routeTableId
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf gatewayId `Prelude.seq`
+        Prelude.rnf subnetId `Prelude.seq`
+          Prelude.rnf routeTableId

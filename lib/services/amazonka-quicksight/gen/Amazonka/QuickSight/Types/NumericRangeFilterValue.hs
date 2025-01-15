@@ -81,8 +81,8 @@ instance Prelude.Hashable NumericRangeFilterValue where
 
 instance Prelude.NFData NumericRangeFilterValue where
   rnf NumericRangeFilterValue' {..} =
-    Prelude.rnf parameter
-      `Prelude.seq` Prelude.rnf staticValue
+    Prelude.rnf parameter `Prelude.seq`
+      Prelude.rnf staticValue
 
 instance Data.ToJSON NumericRangeFilterValue where
   toJSON NumericRangeFilterValue' {..} =

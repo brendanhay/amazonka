@@ -121,8 +121,8 @@ instance Prelude.Hashable DisableImageDeprecation where
 
 instance Prelude.NFData DisableImageDeprecation where
   rnf DisableImageDeprecation' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf imageId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf imageId
 
 instance Data.ToHeaders DisableImageDeprecation where
   toHeaders = Prelude.const Prelude.mempty
@@ -185,5 +185,5 @@ instance
     DisableImageDeprecationResponse
   where
   rnf DisableImageDeprecationResponse' {..} =
-    Prelude.rnf return'
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf return' `Prelude.seq`
+      Prelude.rnf httpStatus

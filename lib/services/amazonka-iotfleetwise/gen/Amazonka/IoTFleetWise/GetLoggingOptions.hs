@@ -148,5 +148,5 @@ getLoggingOptionsResponse_cloudWatchLogDelivery = Lens.lens (\GetLoggingOptionsR
 
 instance Prelude.NFData GetLoggingOptionsResponse where
   rnf GetLoggingOptionsResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf cloudWatchLogDelivery
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf cloudWatchLogDelivery

@@ -110,8 +110,8 @@ instance Prelude.Hashable GetFacet where
 
 instance Prelude.NFData GetFacet where
   rnf GetFacet' {..} =
-    Prelude.rnf schemaArn
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf schemaArn `Prelude.seq`
+      Prelude.rnf name
 
 instance Data.ToHeaders GetFacet where
   toHeaders GetFacet' {..} =
@@ -173,5 +173,5 @@ getFacetResponse_httpStatus = Lens.lens (\GetFacetResponse' {httpStatus} -> http
 
 instance Prelude.NFData GetFacetResponse where
   rnf GetFacetResponse' {..} =
-    Prelude.rnf facet
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf facet `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -157,9 +157,9 @@ instance
 
 instance Prelude.NFData PutImageScanningConfiguration where
   rnf PutImageScanningConfiguration' {..} =
-    Prelude.rnf registryId
-      `Prelude.seq` Prelude.rnf repositoryName
-      `Prelude.seq` Prelude.rnf imageScanningConfiguration
+    Prelude.rnf registryId `Prelude.seq`
+      Prelude.rnf repositoryName `Prelude.seq`
+        Prelude.rnf imageScanningConfiguration
 
 instance Data.ToHeaders PutImageScanningConfiguration where
   toHeaders =
@@ -258,7 +258,7 @@ instance
     PutImageScanningConfigurationResponse
   where
   rnf PutImageScanningConfigurationResponse' {..} =
-    Prelude.rnf imageScanningConfiguration
-      `Prelude.seq` Prelude.rnf registryId
-      `Prelude.seq` Prelude.rnf repositoryName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf imageScanningConfiguration `Prelude.seq`
+      Prelude.rnf registryId `Prelude.seq`
+        Prelude.rnf repositoryName `Prelude.seq`
+          Prelude.rnf httpStatus

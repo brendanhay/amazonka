@@ -104,9 +104,9 @@ instance Prelude.Hashable ResourceToImport where
 
 instance Prelude.NFData ResourceToImport where
   rnf ResourceToImport' {..} =
-    Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf logicalResourceId
-      `Prelude.seq` Prelude.rnf resourceIdentifier
+    Prelude.rnf resourceType `Prelude.seq`
+      Prelude.rnf logicalResourceId `Prelude.seq`
+        Prelude.rnf resourceIdentifier
 
 instance Data.ToQuery ResourceToImport where
   toQuery ResourceToImport' {..} =

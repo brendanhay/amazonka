@@ -84,8 +84,8 @@ instance Prelude.Hashable TriggerConfig where
 
 instance Prelude.NFData TriggerConfig where
   rnf TriggerConfig' {..} =
-    Prelude.rnf triggerProperties
-      `Prelude.seq` Prelude.rnf triggerType
+    Prelude.rnf triggerProperties `Prelude.seq`
+      Prelude.rnf triggerType
 
 instance Data.ToJSON TriggerConfig where
   toJSON TriggerConfig' {..} =

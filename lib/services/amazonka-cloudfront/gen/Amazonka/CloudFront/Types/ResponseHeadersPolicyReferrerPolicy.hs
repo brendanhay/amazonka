@@ -170,8 +170,8 @@ instance
     ResponseHeadersPolicyReferrerPolicy
   where
   rnf ResponseHeadersPolicyReferrerPolicy' {..} =
-    Prelude.rnf override
-      `Prelude.seq` Prelude.rnf referrerPolicy
+    Prelude.rnf override `Prelude.seq`
+      Prelude.rnf referrerPolicy
 
 instance
   Data.ToXML

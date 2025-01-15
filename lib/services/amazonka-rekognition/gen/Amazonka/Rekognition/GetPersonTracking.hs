@@ -202,10 +202,10 @@ instance Prelude.Hashable GetPersonTracking where
 
 instance Prelude.NFData GetPersonTracking where
   rnf GetPersonTracking' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf jobId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf sortBy `Prelude.seq`
+          Prelude.rnf jobId
 
 instance Data.ToHeaders GetPersonTracking where
   toHeaders =
@@ -334,9 +334,9 @@ getPersonTrackingResponse_httpStatus = Lens.lens (\GetPersonTrackingResponse' {h
 
 instance Prelude.NFData GetPersonTrackingResponse where
   rnf GetPersonTrackingResponse' {..} =
-    Prelude.rnf jobStatus
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf persons
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf videoMetadata
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf jobStatus `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf persons `Prelude.seq`
+          Prelude.rnf statusMessage `Prelude.seq`
+            Prelude.rnf videoMetadata `Prelude.seq`
+              Prelude.rnf httpStatus

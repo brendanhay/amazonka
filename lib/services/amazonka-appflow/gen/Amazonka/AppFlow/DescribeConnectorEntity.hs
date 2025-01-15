@@ -141,10 +141,10 @@ instance Prelude.Hashable DescribeConnectorEntity where
 
 instance Prelude.NFData DescribeConnectorEntity where
   rnf DescribeConnectorEntity' {..} =
-    Prelude.rnf apiVersion
-      `Prelude.seq` Prelude.rnf connectorProfileName
-      `Prelude.seq` Prelude.rnf connectorType
-      `Prelude.seq` Prelude.rnf connectorEntityName
+    Prelude.rnf apiVersion `Prelude.seq`
+      Prelude.rnf connectorProfileName `Prelude.seq`
+        Prelude.rnf connectorType `Prelude.seq`
+          Prelude.rnf connectorEntityName
 
 instance Data.ToHeaders DescribeConnectorEntity where
   toHeaders =
@@ -226,5 +226,5 @@ instance
     DescribeConnectorEntityResponse
   where
   rnf DescribeConnectorEntityResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf connectorEntityFields
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf connectorEntityFields

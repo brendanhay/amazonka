@@ -161,11 +161,11 @@ instance Prelude.Hashable StartFHIRExportJob where
 
 instance Prelude.NFData StartFHIRExportJob where
   rnf StartFHIRExportJob' {..} =
-    Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf outputDataConfig
-      `Prelude.seq` Prelude.rnf datastoreId
-      `Prelude.seq` Prelude.rnf dataAccessRoleArn
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf jobName `Prelude.seq`
+      Prelude.rnf outputDataConfig `Prelude.seq`
+        Prelude.rnf datastoreId `Prelude.seq`
+          Prelude.rnf dataAccessRoleArn `Prelude.seq`
+            Prelude.rnf clientToken
 
 instance Data.ToHeaders StartFHIRExportJob where
   toHeaders =
@@ -274,7 +274,7 @@ startFHIRExportJobResponse_jobStatus = Lens.lens (\StartFHIRExportJobResponse' {
 
 instance Prelude.NFData StartFHIRExportJobResponse where
   rnf StartFHIRExportJobResponse' {..} =
-    Prelude.rnf datastoreId
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf jobStatus
+    Prelude.rnf datastoreId `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf jobId `Prelude.seq`
+          Prelude.rnf jobStatus

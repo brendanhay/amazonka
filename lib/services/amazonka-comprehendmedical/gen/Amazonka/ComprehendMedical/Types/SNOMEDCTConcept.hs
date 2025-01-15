@@ -95,6 +95,6 @@ instance Prelude.Hashable SNOMEDCTConcept where
 
 instance Prelude.NFData SNOMEDCTConcept where
   rnf SNOMEDCTConcept' {..} =
-    Prelude.rnf code
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf score
+    Prelude.rnf code `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf score

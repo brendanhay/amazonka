@@ -1058,9 +1058,7 @@ instance Data.FromXML HealthCheckConfig where
       Prelude.<*> (x Data..@? "Inverted")
       Prelude.<*> (x Data..@? "MeasureLatency")
       Prelude.<*> (x Data..@? "Port")
-      Prelude.<*> ( x
-                      Data..@? "Regions"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "Regions" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList1 "Region")
                   )
       Prelude.<*> (x Data..@? "RequestInterval")
@@ -1093,24 +1091,24 @@ instance Prelude.Hashable HealthCheckConfig where
 
 instance Prelude.NFData HealthCheckConfig where
   rnf HealthCheckConfig' {..} =
-    Prelude.rnf alarmIdentifier
-      `Prelude.seq` Prelude.rnf childHealthChecks
-      `Prelude.seq` Prelude.rnf disabled
-      `Prelude.seq` Prelude.rnf enableSNI
-      `Prelude.seq` Prelude.rnf failureThreshold
-      `Prelude.seq` Prelude.rnf fullyQualifiedDomainName
-      `Prelude.seq` Prelude.rnf healthThreshold
-      `Prelude.seq` Prelude.rnf iPAddress
-      `Prelude.seq` Prelude.rnf insufficientDataHealthStatus
-      `Prelude.seq` Prelude.rnf inverted
-      `Prelude.seq` Prelude.rnf measureLatency
-      `Prelude.seq` Prelude.rnf port
-      `Prelude.seq` Prelude.rnf regions
-      `Prelude.seq` Prelude.rnf requestInterval
-      `Prelude.seq` Prelude.rnf resourcePath
-      `Prelude.seq` Prelude.rnf routingControlArn
-      `Prelude.seq` Prelude.rnf searchString
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf alarmIdentifier `Prelude.seq`
+      Prelude.rnf childHealthChecks `Prelude.seq`
+        Prelude.rnf disabled `Prelude.seq`
+          Prelude.rnf enableSNI `Prelude.seq`
+            Prelude.rnf failureThreshold `Prelude.seq`
+              Prelude.rnf fullyQualifiedDomainName `Prelude.seq`
+                Prelude.rnf healthThreshold `Prelude.seq`
+                  Prelude.rnf iPAddress `Prelude.seq`
+                    Prelude.rnf insufficientDataHealthStatus `Prelude.seq`
+                      Prelude.rnf inverted `Prelude.seq`
+                        Prelude.rnf measureLatency `Prelude.seq`
+                          Prelude.rnf port `Prelude.seq`
+                            Prelude.rnf regions `Prelude.seq`
+                              Prelude.rnf requestInterval `Prelude.seq`
+                                Prelude.rnf resourcePath `Prelude.seq`
+                                  Prelude.rnf routingControlArn `Prelude.seq`
+                                    Prelude.rnf searchString `Prelude.seq`
+                                      Prelude.rnf type'
 
 instance Data.ToXML HealthCheckConfig where
   toXML HealthCheckConfig' {..} =

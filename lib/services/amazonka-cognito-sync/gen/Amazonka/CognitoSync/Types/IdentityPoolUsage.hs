@@ -108,7 +108,7 @@ instance Prelude.Hashable IdentityPoolUsage where
 
 instance Prelude.NFData IdentityPoolUsage where
   rnf IdentityPoolUsage' {..} =
-    Prelude.rnf dataStorage
-      `Prelude.seq` Prelude.rnf identityPoolId
-      `Prelude.seq` Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf syncSessionsCount
+    Prelude.rnf dataStorage `Prelude.seq`
+      Prelude.rnf identityPoolId `Prelude.seq`
+        Prelude.rnf lastModifiedDate `Prelude.seq`
+          Prelude.rnf syncSessionsCount

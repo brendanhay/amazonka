@@ -99,8 +99,8 @@ instance Prelude.Hashable JWTConfiguration where
 
 instance Prelude.NFData JWTConfiguration where
   rnf JWTConfiguration' {..} =
-    Prelude.rnf audience
-      `Prelude.seq` Prelude.rnf issuer
+    Prelude.rnf audience `Prelude.seq`
+      Prelude.rnf issuer
 
 instance Data.ToJSON JWTConfiguration where
   toJSON JWTConfiguration' {..} =

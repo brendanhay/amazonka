@@ -938,5 +938,5 @@ instance
     ModifyReplicationGroupResponse
   where
   rnf ModifyReplicationGroupResponse' {..} =
-    Prelude.rnf replicationGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf replicationGroup `Prelude.seq`
+      Prelude.rnf httpStatus

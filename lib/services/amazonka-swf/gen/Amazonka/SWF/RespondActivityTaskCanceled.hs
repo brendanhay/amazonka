@@ -152,8 +152,8 @@ instance Prelude.Hashable RespondActivityTaskCanceled where
 
 instance Prelude.NFData RespondActivityTaskCanceled where
   rnf RespondActivityTaskCanceled' {..} =
-    Prelude.rnf details
-      `Prelude.seq` Prelude.rnf taskToken
+    Prelude.rnf details `Prelude.seq`
+      Prelude.rnf taskToken
 
 instance Data.ToHeaders RespondActivityTaskCanceled where
   toHeaders =

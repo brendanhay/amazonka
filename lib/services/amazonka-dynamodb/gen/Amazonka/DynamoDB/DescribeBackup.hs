@@ -166,5 +166,5 @@ describeBackupResponse_httpStatus = Lens.lens (\DescribeBackupResponse' {httpSta
 
 instance Prelude.NFData DescribeBackupResponse where
   rnf DescribeBackupResponse' {..} =
-    Prelude.rnf backupDescription
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf backupDescription `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -117,8 +117,8 @@ instance Prelude.Hashable StartFileTransfer where
 
 instance Prelude.NFData StartFileTransfer where
   rnf StartFileTransfer' {..} =
-    Prelude.rnf connectorId
-      `Prelude.seq` Prelude.rnf sendFilePaths
+    Prelude.rnf connectorId `Prelude.seq`
+      Prelude.rnf sendFilePaths
 
 instance Data.ToHeaders StartFileTransfer where
   toHeaders =
@@ -196,5 +196,5 @@ startFileTransferResponse_transferId = Lens.lens (\StartFileTransferResponse' {t
 
 instance Prelude.NFData StartFileTransferResponse where
   rnf StartFileTransferResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf transferId
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf transferId

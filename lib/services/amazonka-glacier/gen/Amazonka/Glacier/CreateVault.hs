@@ -150,8 +150,8 @@ instance Prelude.Hashable CreateVault where
 
 instance Prelude.NFData CreateVault where
   rnf CreateVault' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf vaultName
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf vaultName
 
 instance Data.ToHeaders CreateVault where
   toHeaders = Prelude.const Prelude.mempty
@@ -213,5 +213,5 @@ createVaultResponse_httpStatus = Lens.lens (\CreateVaultResponse' {httpStatus} -
 
 instance Prelude.NFData CreateVaultResponse where
   rnf CreateVaultResponse' {..} =
-    Prelude.rnf location
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf location `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -106,8 +106,8 @@ instance Prelude.Hashable ModifyInstanceFleet where
 
 instance Prelude.NFData ModifyInstanceFleet where
   rnf ModifyInstanceFleet' {..} =
-    Prelude.rnf clusterId
-      `Prelude.seq` Prelude.rnf instanceFleet
+    Prelude.rnf clusterId `Prelude.seq`
+      Prelude.rnf instanceFleet
 
 instance Data.ToHeaders ModifyInstanceFleet where
   toHeaders =

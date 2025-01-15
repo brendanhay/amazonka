@@ -314,16 +314,16 @@ instance Prelude.Hashable ActivateType where
 
 instance Prelude.NFData ActivateType where
   rnf ActivateType' {..} =
-    Prelude.rnf autoUpdate
-      `Prelude.seq` Prelude.rnf executionRoleArn
-      `Prelude.seq` Prelude.rnf loggingConfig
-      `Prelude.seq` Prelude.rnf majorVersion
-      `Prelude.seq` Prelude.rnf publicTypeArn
-      `Prelude.seq` Prelude.rnf publisherId
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf typeName
-      `Prelude.seq` Prelude.rnf typeNameAlias
-      `Prelude.seq` Prelude.rnf versionBump
+    Prelude.rnf autoUpdate `Prelude.seq`
+      Prelude.rnf executionRoleArn `Prelude.seq`
+        Prelude.rnf loggingConfig `Prelude.seq`
+          Prelude.rnf majorVersion `Prelude.seq`
+            Prelude.rnf publicTypeArn `Prelude.seq`
+              Prelude.rnf publisherId `Prelude.seq`
+                Prelude.rnf type' `Prelude.seq`
+                  Prelude.rnf typeName `Prelude.seq`
+                    Prelude.rnf typeNameAlias `Prelude.seq`
+                      Prelude.rnf versionBump
 
 instance Data.ToHeaders ActivateType where
   toHeaders = Prelude.const Prelude.mempty
@@ -393,5 +393,5 @@ activateTypeResponse_httpStatus = Lens.lens (\ActivateTypeResponse' {httpStatus}
 
 instance Prelude.NFData ActivateTypeResponse where
   rnf ActivateTypeResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf httpStatus

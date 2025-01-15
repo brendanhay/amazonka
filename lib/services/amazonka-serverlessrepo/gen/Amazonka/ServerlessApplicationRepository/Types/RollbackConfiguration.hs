@@ -92,8 +92,8 @@ instance Prelude.Hashable RollbackConfiguration where
 
 instance Prelude.NFData RollbackConfiguration where
   rnf RollbackConfiguration' {..} =
-    Prelude.rnf monitoringTimeInMinutes
-      `Prelude.seq` Prelude.rnf rollbackTriggers
+    Prelude.rnf monitoringTimeInMinutes `Prelude.seq`
+      Prelude.rnf rollbackTriggers
 
 instance Data.ToJSON RollbackConfiguration where
   toJSON RollbackConfiguration' {..} =

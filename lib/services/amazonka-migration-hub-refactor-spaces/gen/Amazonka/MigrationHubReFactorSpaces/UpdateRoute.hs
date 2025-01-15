@@ -151,10 +151,10 @@ instance Prelude.Hashable UpdateRoute where
 
 instance Prelude.NFData UpdateRoute where
   rnf UpdateRoute' {..} =
-    Prelude.rnf activationState
-      `Prelude.seq` Prelude.rnf applicationIdentifier
-      `Prelude.seq` Prelude.rnf environmentIdentifier
-      `Prelude.seq` Prelude.rnf routeIdentifier
+    Prelude.rnf activationState `Prelude.seq`
+      Prelude.rnf applicationIdentifier `Prelude.seq`
+        Prelude.rnf environmentIdentifier `Prelude.seq`
+          Prelude.rnf routeIdentifier
 
 instance Data.ToHeaders UpdateRoute where
   toHeaders =
@@ -291,10 +291,10 @@ updateRouteResponse_httpStatus = Lens.lens (\UpdateRouteResponse' {httpStatus} -
 
 instance Prelude.NFData UpdateRouteResponse where
   rnf UpdateRouteResponse' {..} =
-    Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf routeId
-      `Prelude.seq` Prelude.rnf serviceId
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf applicationId `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf lastUpdatedTime `Prelude.seq`
+          Prelude.rnf routeId `Prelude.seq`
+            Prelude.rnf serviceId `Prelude.seq`
+              Prelude.rnf state `Prelude.seq`
+                Prelude.rnf httpStatus

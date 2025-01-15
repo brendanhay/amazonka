@@ -116,8 +116,8 @@ instance Prelude.Hashable RetryBuild where
 
 instance Prelude.NFData RetryBuild where
   rnf RetryBuild' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf idempotencyToken
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf idempotencyToken
 
 instance Data.ToHeaders RetryBuild where
   toHeaders =
@@ -189,5 +189,5 @@ retryBuildResponse_httpStatus = Lens.lens (\RetryBuildResponse' {httpStatus} -> 
 
 instance Prelude.NFData RetryBuildResponse where
   rnf RetryBuildResponse' {..} =
-    Prelude.rnf build
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf build `Prelude.seq`
+      Prelude.rnf httpStatus

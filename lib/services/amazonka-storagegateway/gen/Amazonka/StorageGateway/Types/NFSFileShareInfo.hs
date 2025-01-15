@@ -485,28 +485,28 @@ instance Prelude.Hashable NFSFileShareInfo where
 
 instance Prelude.NFData NFSFileShareInfo where
   rnf NFSFileShareInfo' {..} =
-    Prelude.rnf auditDestinationARN
-      `Prelude.seq` Prelude.rnf bucketRegion
-      `Prelude.seq` Prelude.rnf cacheAttributes
-      `Prelude.seq` Prelude.rnf clientList
-      `Prelude.seq` Prelude.rnf defaultStorageClass
-      `Prelude.seq` Prelude.rnf fileShareARN
-      `Prelude.seq` Prelude.rnf fileShareId
-      `Prelude.seq` Prelude.rnf fileShareName
-      `Prelude.seq` Prelude.rnf fileShareStatus
-      `Prelude.seq` Prelude.rnf gatewayARN
-      `Prelude.seq` Prelude.rnf guessMIMETypeEnabled
-      `Prelude.seq` Prelude.rnf kmsEncrypted
-      `Prelude.seq` Prelude.rnf kmsKey
-      `Prelude.seq` Prelude.rnf locationARN
-      `Prelude.seq` Prelude.rnf nFSFileShareDefaults
-      `Prelude.seq` Prelude.rnf notificationPolicy
-      `Prelude.seq` Prelude.rnf objectACL
-      `Prelude.seq` Prelude.rnf path
-      `Prelude.seq` Prelude.rnf readOnly
-      `Prelude.seq` Prelude.rnf requesterPays
-      `Prelude.seq` Prelude.rnf role'
-      `Prelude.seq` Prelude.rnf squash
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf
-        vPCEndpointDNSName
+    Prelude.rnf auditDestinationARN `Prelude.seq`
+      Prelude.rnf bucketRegion `Prelude.seq`
+        Prelude.rnf cacheAttributes `Prelude.seq`
+          Prelude.rnf clientList `Prelude.seq`
+            Prelude.rnf defaultStorageClass `Prelude.seq`
+              Prelude.rnf fileShareARN `Prelude.seq`
+                Prelude.rnf fileShareId `Prelude.seq`
+                  Prelude.rnf fileShareName `Prelude.seq`
+                    Prelude.rnf fileShareStatus `Prelude.seq`
+                      Prelude.rnf gatewayARN `Prelude.seq`
+                        Prelude.rnf guessMIMETypeEnabled `Prelude.seq`
+                          Prelude.rnf kmsEncrypted `Prelude.seq`
+                            Prelude.rnf kmsKey `Prelude.seq`
+                              Prelude.rnf locationARN `Prelude.seq`
+                                Prelude.rnf nFSFileShareDefaults `Prelude.seq`
+                                  Prelude.rnf notificationPolicy `Prelude.seq`
+                                    Prelude.rnf objectACL `Prelude.seq`
+                                      Prelude.rnf path `Prelude.seq`
+                                        Prelude.rnf readOnly `Prelude.seq`
+                                          Prelude.rnf requesterPays `Prelude.seq`
+                                            Prelude.rnf role' `Prelude.seq`
+                                              Prelude.rnf squash `Prelude.seq`
+                                                Prelude.rnf tags `Prelude.seq`
+                                                  Prelude.rnf
+                                                    vPCEndpointDNSName

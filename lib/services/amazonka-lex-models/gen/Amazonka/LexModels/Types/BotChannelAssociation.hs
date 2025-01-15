@@ -211,12 +211,12 @@ instance Prelude.Hashable BotChannelAssociation where
 
 instance Prelude.NFData BotChannelAssociation where
   rnf BotChannelAssociation' {..} =
-    Prelude.rnf botAlias
-      `Prelude.seq` Prelude.rnf botConfiguration
-      `Prelude.seq` Prelude.rnf botName
-      `Prelude.seq` Prelude.rnf createdDate
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf botAlias `Prelude.seq`
+      Prelude.rnf botConfiguration `Prelude.seq`
+        Prelude.rnf botName `Prelude.seq`
+          Prelude.rnf createdDate `Prelude.seq`
+            Prelude.rnf description `Prelude.seq`
+              Prelude.rnf failureReason `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf status `Prelude.seq`
+                    Prelude.rnf type'

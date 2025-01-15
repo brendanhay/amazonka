@@ -357,15 +357,15 @@ instance Prelude.Hashable SynthesizeSpeech where
 
 instance Prelude.NFData SynthesizeSpeech where
   rnf SynthesizeSpeech' {..} =
-    Prelude.rnf engine
-      `Prelude.seq` Prelude.rnf languageCode
-      `Prelude.seq` Prelude.rnf lexiconNames
-      `Prelude.seq` Prelude.rnf sampleRate
-      `Prelude.seq` Prelude.rnf speechMarkTypes
-      `Prelude.seq` Prelude.rnf textType
-      `Prelude.seq` Prelude.rnf outputFormat
-      `Prelude.seq` Prelude.rnf text
-      `Prelude.seq` Prelude.rnf voiceId
+    Prelude.rnf engine `Prelude.seq`
+      Prelude.rnf languageCode `Prelude.seq`
+        Prelude.rnf lexiconNames `Prelude.seq`
+          Prelude.rnf sampleRate `Prelude.seq`
+            Prelude.rnf speechMarkTypes `Prelude.seq`
+              Prelude.rnf textType `Prelude.seq`
+                Prelude.rnf outputFormat `Prelude.seq`
+                  Prelude.rnf text `Prelude.seq`
+                    Prelude.rnf voiceId
 
 instance Data.ToHeaders SynthesizeSpeech where
   toHeaders = Prelude.const Prelude.mempty

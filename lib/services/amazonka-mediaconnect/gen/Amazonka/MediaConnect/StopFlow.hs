@@ -166,6 +166,6 @@ stopFlowResponse_httpStatus = Lens.lens (\StopFlowResponse' {httpStatus} -> http
 
 instance Prelude.NFData StopFlowResponse where
   rnf StopFlowResponse' {..} =
-    Prelude.rnf flowArn
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf flowArn `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf httpStatus

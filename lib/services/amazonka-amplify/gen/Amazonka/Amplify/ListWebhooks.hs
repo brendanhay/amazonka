@@ -127,9 +127,9 @@ instance Prelude.Hashable ListWebhooks where
 
 instance Prelude.NFData ListWebhooks where
   rnf ListWebhooks' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf appId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf appId
 
 instance Data.ToHeaders ListWebhooks where
   toHeaders =
@@ -208,6 +208,6 @@ listWebhooksResponse_webhooks = Lens.lens (\ListWebhooksResponse' {webhooks} -> 
 
 instance Prelude.NFData ListWebhooksResponse where
   rnf ListWebhooksResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf webhooks
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf webhooks

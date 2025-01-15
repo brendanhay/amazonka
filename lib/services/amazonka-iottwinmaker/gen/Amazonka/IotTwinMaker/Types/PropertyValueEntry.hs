@@ -91,8 +91,8 @@ instance Prelude.Hashable PropertyValueEntry where
 
 instance Prelude.NFData PropertyValueEntry where
   rnf PropertyValueEntry' {..} =
-    Prelude.rnf propertyValues
-      `Prelude.seq` Prelude.rnf entityPropertyReference
+    Prelude.rnf propertyValues `Prelude.seq`
+      Prelude.rnf entityPropertyReference
 
 instance Data.ToJSON PropertyValueEntry where
   toJSON PropertyValueEntry' {..} =

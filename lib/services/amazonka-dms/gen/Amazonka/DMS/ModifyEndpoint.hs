@@ -935,5 +935,5 @@ modifyEndpointResponse_httpStatus = Lens.lens (\ModifyEndpointResponse' {httpSta
 
 instance Prelude.NFData ModifyEndpointResponse where
   rnf ModifyEndpointResponse' {..} =
-    Prelude.rnf endpoint
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf endpoint `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -123,8 +123,8 @@ instance Prelude.Hashable UpdateResolverDnssecConfig where
 
 instance Prelude.NFData UpdateResolverDnssecConfig where
   rnf UpdateResolverDnssecConfig' {..} =
-    Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf validation
+    Prelude.rnf resourceId `Prelude.seq`
+      Prelude.rnf validation
 
 instance Data.ToHeaders UpdateResolverDnssecConfig where
   toHeaders =
@@ -203,5 +203,5 @@ instance
     UpdateResolverDnssecConfigResponse
   where
   rnf UpdateResolverDnssecConfigResponse' {..} =
-    Prelude.rnf resolverDNSSECConfig
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf resolverDNSSECConfig `Prelude.seq`
+      Prelude.rnf httpStatus

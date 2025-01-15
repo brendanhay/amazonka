@@ -156,11 +156,11 @@ instance Prelude.Hashable CreateMultiplex' where
 
 instance Prelude.NFData CreateMultiplex' where
   rnf CreateMultiplex'' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf multiplexSettings
-      `Prelude.seq` Prelude.rnf availabilityZones
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf requestId `Prelude.seq`
+        Prelude.rnf multiplexSettings `Prelude.seq`
+          Prelude.rnf availabilityZones `Prelude.seq`
+            Prelude.rnf name
 
 instance Data.ToHeaders CreateMultiplex' where
   toHeaders =
@@ -236,5 +236,5 @@ createMultiplexResponse_httpStatus = Lens.lens (\CreateMultiplexResponse' {httpS
 
 instance Prelude.NFData CreateMultiplexResponse where
   rnf CreateMultiplexResponse' {..} =
-    Prelude.rnf multiplex
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf multiplex `Prelude.seq`
+      Prelude.rnf httpStatus

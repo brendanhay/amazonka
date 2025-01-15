@@ -84,8 +84,8 @@ instance
     FederatedAuthenticationRequest
   where
   rnf FederatedAuthenticationRequest' {..} =
-    Prelude.rnf sAMLProviderArn
-      `Prelude.seq` Prelude.rnf selfServiceSAMLProviderArn
+    Prelude.rnf sAMLProviderArn `Prelude.seq`
+      Prelude.rnf selfServiceSAMLProviderArn
 
 instance Data.ToQuery FederatedAuthenticationRequest where
   toQuery FederatedAuthenticationRequest' {..} =

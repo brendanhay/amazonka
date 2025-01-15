@@ -131,10 +131,10 @@ instance Prelude.Hashable PresetSettings where
 
 instance Prelude.NFData PresetSettings where
   rnf PresetSettings' {..} =
-    Prelude.rnf audioDescriptions
-      `Prelude.seq` Prelude.rnf captionDescriptions
-      `Prelude.seq` Prelude.rnf containerSettings
-      `Prelude.seq` Prelude.rnf videoDescription
+    Prelude.rnf audioDescriptions `Prelude.seq`
+      Prelude.rnf captionDescriptions `Prelude.seq`
+        Prelude.rnf containerSettings `Prelude.seq`
+          Prelude.rnf videoDescription
 
 instance Data.ToJSON PresetSettings where
   toJSON PresetSettings' {..} =

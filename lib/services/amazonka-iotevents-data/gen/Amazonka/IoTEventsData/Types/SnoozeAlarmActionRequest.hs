@@ -119,11 +119,11 @@ instance Prelude.Hashable SnoozeAlarmActionRequest where
 
 instance Prelude.NFData SnoozeAlarmActionRequest where
   rnf SnoozeAlarmActionRequest' {..} =
-    Prelude.rnf keyValue
-      `Prelude.seq` Prelude.rnf note
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf alarmModelName
-      `Prelude.seq` Prelude.rnf snoozeDuration
+    Prelude.rnf keyValue `Prelude.seq`
+      Prelude.rnf note `Prelude.seq`
+        Prelude.rnf requestId `Prelude.seq`
+          Prelude.rnf alarmModelName `Prelude.seq`
+            Prelude.rnf snoozeDuration
 
 instance Data.ToJSON SnoozeAlarmActionRequest where
   toJSON SnoozeAlarmActionRequest' {..} =

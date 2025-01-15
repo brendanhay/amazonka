@@ -164,8 +164,8 @@ instance
     UpdateOrganizationConfiguration
   where
   rnf UpdateOrganizationConfiguration' {..} =
-    Prelude.rnf autoEnableStandards
-      `Prelude.seq` Prelude.rnf autoEnable
+    Prelude.rnf autoEnableStandards `Prelude.seq`
+      Prelude.rnf autoEnable
 
 instance
   Data.ToHeaders

@@ -83,8 +83,8 @@ instance Prelude.Hashable DmsTransferSettings where
 
 instance Prelude.NFData DmsTransferSettings where
   rnf DmsTransferSettings' {..} =
-    Prelude.rnf bucketName
-      `Prelude.seq` Prelude.rnf serviceAccessRoleArn
+    Prelude.rnf bucketName `Prelude.seq`
+      Prelude.rnf serviceAccessRoleArn
 
 instance Data.ToJSON DmsTransferSettings where
   toJSON DmsTransferSettings' {..} =

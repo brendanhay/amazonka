@@ -198,11 +198,11 @@ instance Prelude.Hashable GetCoipPoolUsage where
 
 instance Prelude.NFData GetCoipPoolUsage where
   rnf GetCoipPoolUsage' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf poolId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf poolId
 
 instance Data.ToHeaders GetCoipPoolUsage where
   toHeaders = Prelude.const Prelude.mempty
@@ -284,7 +284,7 @@ getCoipPoolUsageResponse_httpStatus = Lens.lens (\GetCoipPoolUsageResponse' {htt
 
 instance Prelude.NFData GetCoipPoolUsageResponse where
   rnf GetCoipPoolUsageResponse' {..} =
-    Prelude.rnf coipAddressUsages
-      `Prelude.seq` Prelude.rnf coipPoolId
-      `Prelude.seq` Prelude.rnf localGatewayRouteTableId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf coipAddressUsages `Prelude.seq`
+      Prelude.rnf coipPoolId `Prelude.seq`
+        Prelude.rnf localGatewayRouteTableId `Prelude.seq`
+          Prelude.rnf httpStatus

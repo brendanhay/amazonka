@@ -148,11 +148,11 @@ instance Prelude.Hashable CacheNodeUpdateStatus where
 
 instance Prelude.NFData CacheNodeUpdateStatus where
   rnf CacheNodeUpdateStatus' {..} =
-    Prelude.rnf cacheNodeId
-      `Prelude.seq` Prelude.rnf nodeDeletionDate
-      `Prelude.seq` Prelude.rnf nodeUpdateEndDate
-      `Prelude.seq` Prelude.rnf nodeUpdateInitiatedBy
-      `Prelude.seq` Prelude.rnf nodeUpdateInitiatedDate
-      `Prelude.seq` Prelude.rnf nodeUpdateStartDate
-      `Prelude.seq` Prelude.rnf nodeUpdateStatus
-      `Prelude.seq` Prelude.rnf nodeUpdateStatusModifiedDate
+    Prelude.rnf cacheNodeId `Prelude.seq`
+      Prelude.rnf nodeDeletionDate `Prelude.seq`
+        Prelude.rnf nodeUpdateEndDate `Prelude.seq`
+          Prelude.rnf nodeUpdateInitiatedBy `Prelude.seq`
+            Prelude.rnf nodeUpdateInitiatedDate `Prelude.seq`
+              Prelude.rnf nodeUpdateStartDate `Prelude.seq`
+                Prelude.rnf nodeUpdateStatus `Prelude.seq`
+                  Prelude.rnf nodeUpdateStatusModifiedDate

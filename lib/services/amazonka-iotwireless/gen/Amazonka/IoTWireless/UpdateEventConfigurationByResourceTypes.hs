@@ -167,11 +167,11 @@ instance
     UpdateEventConfigurationByResourceTypes
   where
   rnf UpdateEventConfigurationByResourceTypes' {..} =
-    Prelude.rnf connectionStatus
-      `Prelude.seq` Prelude.rnf deviceRegistrationState
-      `Prelude.seq` Prelude.rnf join
-      `Prelude.seq` Prelude.rnf messageDeliveryStatus
-      `Prelude.seq` Prelude.rnf proximity
+    Prelude.rnf connectionStatus `Prelude.seq`
+      Prelude.rnf deviceRegistrationState `Prelude.seq`
+        Prelude.rnf join `Prelude.seq`
+          Prelude.rnf messageDeliveryStatus `Prelude.seq`
+            Prelude.rnf proximity
 
 instance
   Data.ToHeaders

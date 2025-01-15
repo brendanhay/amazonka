@@ -338,18 +338,18 @@ getDeploymentResponse_httpStatus = Lens.lens (\GetDeploymentResponse' {httpStatu
 
 instance Prelude.NFData GetDeploymentResponse where
   rnf GetDeploymentResponse' {..} =
-    Prelude.rnf components
-      `Prelude.seq` Prelude.rnf creationTimestamp
-      `Prelude.seq` Prelude.rnf deploymentId
-      `Prelude.seq` Prelude.rnf deploymentName
-      `Prelude.seq` Prelude.rnf deploymentPolicies
-      `Prelude.seq` Prelude.rnf deploymentStatus
-      `Prelude.seq` Prelude.rnf iotJobArn
-      `Prelude.seq` Prelude.rnf iotJobConfiguration
-      `Prelude.seq` Prelude.rnf iotJobId
-      `Prelude.seq` Prelude.rnf isLatestForTarget
-      `Prelude.seq` Prelude.rnf parentTargetArn
-      `Prelude.seq` Prelude.rnf revisionId
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf targetArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf components `Prelude.seq`
+      Prelude.rnf creationTimestamp `Prelude.seq`
+        Prelude.rnf deploymentId `Prelude.seq`
+          Prelude.rnf deploymentName `Prelude.seq`
+            Prelude.rnf deploymentPolicies `Prelude.seq`
+              Prelude.rnf deploymentStatus `Prelude.seq`
+                Prelude.rnf iotJobArn `Prelude.seq`
+                  Prelude.rnf iotJobConfiguration `Prelude.seq`
+                    Prelude.rnf iotJobId `Prelude.seq`
+                      Prelude.rnf isLatestForTarget `Prelude.seq`
+                        Prelude.rnf parentTargetArn `Prelude.seq`
+                          Prelude.rnf revisionId `Prelude.seq`
+                            Prelude.rnf tags `Prelude.seq`
+                              Prelude.rnf targetArn `Prelude.seq`
+                                Prelude.rnf httpStatus

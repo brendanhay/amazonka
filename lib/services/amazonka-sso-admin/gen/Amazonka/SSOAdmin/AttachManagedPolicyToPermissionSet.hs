@@ -153,9 +153,9 @@ instance
     AttachManagedPolicyToPermissionSet
   where
   rnf AttachManagedPolicyToPermissionSet' {..} =
-    Prelude.rnf instanceArn
-      `Prelude.seq` Prelude.rnf permissionSetArn
-      `Prelude.seq` Prelude.rnf managedPolicyArn
+    Prelude.rnf instanceArn `Prelude.seq`
+      Prelude.rnf permissionSetArn `Prelude.seq`
+        Prelude.rnf managedPolicyArn
 
 instance
   Data.ToHeaders

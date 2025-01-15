@@ -150,12 +150,12 @@ instance Core.AWSPager GetUsage where
         (rs Lens.^? usage_items Prelude.. Lens._Just) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getUsage_position
-          Lens..~ rs
-          Lens.^? usage_position
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getUsage_position
+              Lens..~ rs
+              Lens.^? usage_position
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetUsage where
   type AWSResponse GetUsage = Usage
@@ -177,12 +177,12 @@ instance Prelude.Hashable GetUsage where
 
 instance Prelude.NFData GetUsage where
   rnf GetUsage' {..} =
-    Prelude.rnf keyId
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf position
-      `Prelude.seq` Prelude.rnf usagePlanId
-      `Prelude.seq` Prelude.rnf startDate
-      `Prelude.seq` Prelude.rnf endDate
+    Prelude.rnf keyId `Prelude.seq`
+      Prelude.rnf limit `Prelude.seq`
+        Prelude.rnf position `Prelude.seq`
+          Prelude.rnf usagePlanId `Prelude.seq`
+            Prelude.rnf startDate `Prelude.seq`
+              Prelude.rnf endDate
 
 instance Data.ToHeaders GetUsage where
   toHeaders =

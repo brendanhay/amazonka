@@ -115,8 +115,8 @@ instance Prelude.Hashable UpdateGcmChannel where
 
 instance Prelude.NFData UpdateGcmChannel where
   rnf UpdateGcmChannel' {..} =
-    Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf gCMChannelRequest
+    Prelude.rnf applicationId `Prelude.seq`
+      Prelude.rnf gCMChannelRequest
 
 instance Data.ToHeaders UpdateGcmChannel where
   toHeaders =
@@ -188,5 +188,5 @@ updateGcmChannelResponse_gCMChannelResponse = Lens.lens (\UpdateGcmChannelRespon
 
 instance Prelude.NFData UpdateGcmChannelResponse where
   rnf UpdateGcmChannelResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf gCMChannelResponse
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf gCMChannelResponse

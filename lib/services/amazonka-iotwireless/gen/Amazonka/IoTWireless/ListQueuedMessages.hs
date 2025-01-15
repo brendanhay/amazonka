@@ -144,10 +144,10 @@ instance Prelude.Hashable ListQueuedMessages where
 
 instance Prelude.NFData ListQueuedMessages where
   rnf ListQueuedMessages' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf wirelessDeviceType
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf wirelessDeviceType `Prelude.seq`
+          Prelude.rnf id
 
 instance Data.ToHeaders ListQueuedMessages where
   toHeaders = Prelude.const Prelude.mempty
@@ -221,6 +221,6 @@ listQueuedMessagesResponse_httpStatus = Lens.lens (\ListQueuedMessagesResponse' 
 
 instance Prelude.NFData ListQueuedMessagesResponse where
   rnf ListQueuedMessagesResponse' {..} =
-    Prelude.rnf downlinkQueueMessagesList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf downlinkQueueMessagesList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -103,9 +103,9 @@ instance Prelude.Hashable RelatedItem where
 
 instance Prelude.NFData RelatedItem where
   rnf RelatedItem' {..} =
-    Prelude.rnf generatedId
-      `Prelude.seq` Prelude.rnf title
-      `Prelude.seq` Prelude.rnf identifier
+    Prelude.rnf generatedId `Prelude.seq`
+      Prelude.rnf title `Prelude.seq`
+        Prelude.rnf identifier
 
 instance Data.ToJSON RelatedItem where
   toJSON RelatedItem' {..} =

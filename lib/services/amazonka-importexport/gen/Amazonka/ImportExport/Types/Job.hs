@@ -103,7 +103,7 @@ instance Prelude.Hashable Job where
 
 instance Prelude.NFData Job where
   rnf Job' {..} =
-    Prelude.rnf jobType
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf isCanceled
-      `Prelude.seq` Prelude.rnf creationDate
+    Prelude.rnf jobType `Prelude.seq`
+      Prelude.rnf jobId `Prelude.seq`
+        Prelude.rnf isCanceled `Prelude.seq`
+          Prelude.rnf creationDate

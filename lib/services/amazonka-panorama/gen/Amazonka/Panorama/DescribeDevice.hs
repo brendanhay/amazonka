@@ -372,24 +372,24 @@ describeDeviceResponse_httpStatus = Lens.lens (\DescribeDeviceResponse' {httpSta
 
 instance Prelude.NFData DescribeDeviceResponse where
   rnf DescribeDeviceResponse' {..} =
-    Prelude.rnf alternateSoftwares
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf brand
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf currentNetworkingStatus
-      `Prelude.seq` Prelude.rnf currentSoftware
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf deviceAggregatedStatus
-      `Prelude.seq` Prelude.rnf deviceConnectionStatus
-      `Prelude.seq` Prelude.rnf deviceId
-      `Prelude.seq` Prelude.rnf latestAlternateSoftware
-      `Prelude.seq` Prelude.rnf latestDeviceJob
-      `Prelude.seq` Prelude.rnf latestSoftware
-      `Prelude.seq` Prelude.rnf leaseExpirationTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf networkingConfiguration
-      `Prelude.seq` Prelude.rnf provisioningStatus
-      `Prelude.seq` Prelude.rnf serialNumber
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf alternateSoftwares `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf brand `Prelude.seq`
+          Prelude.rnf createdTime `Prelude.seq`
+            Prelude.rnf currentNetworkingStatus `Prelude.seq`
+              Prelude.rnf currentSoftware `Prelude.seq`
+                Prelude.rnf description `Prelude.seq`
+                  Prelude.rnf deviceAggregatedStatus `Prelude.seq`
+                    Prelude.rnf deviceConnectionStatus `Prelude.seq`
+                      Prelude.rnf deviceId `Prelude.seq`
+                        Prelude.rnf latestAlternateSoftware `Prelude.seq`
+                          Prelude.rnf latestDeviceJob `Prelude.seq`
+                            Prelude.rnf latestSoftware `Prelude.seq`
+                              Prelude.rnf leaseExpirationTime `Prelude.seq`
+                                Prelude.rnf name `Prelude.seq`
+                                  Prelude.rnf networkingConfiguration `Prelude.seq`
+                                    Prelude.rnf provisioningStatus `Prelude.seq`
+                                      Prelude.rnf serialNumber `Prelude.seq`
+                                        Prelude.rnf tags `Prelude.seq`
+                                          Prelude.rnf type' `Prelude.seq`
+                                            Prelude.rnf httpStatus

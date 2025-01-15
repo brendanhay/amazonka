@@ -131,8 +131,8 @@ instance Prelude.Hashable RemoveUserFromGroup where
 
 instance Prelude.NFData RemoveUserFromGroup where
   rnf RemoveUserFromGroup' {..} =
-    Prelude.rnf groupName
-      `Prelude.seq` Prelude.rnf userName
+    Prelude.rnf groupName `Prelude.seq`
+      Prelude.rnf userName
 
 instance Data.ToHeaders RemoveUserFromGroup where
   toHeaders = Prelude.const Prelude.mempty

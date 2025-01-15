@@ -92,9 +92,7 @@ instance Data.FromXML DeletionTaskFailureReasonType where
   parseXML x =
     DeletionTaskFailureReasonType'
       Prelude.<$> (x Data..@? "Reason")
-      Prelude.<*> ( x
-                      Data..@? "RoleUsageList"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "RoleUsageList" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 
@@ -109,5 +107,5 @@ instance
 
 instance Prelude.NFData DeletionTaskFailureReasonType where
   rnf DeletionTaskFailureReasonType' {..} =
-    Prelude.rnf reason
-      `Prelude.seq` Prelude.rnf roleUsageList
+    Prelude.rnf reason `Prelude.seq`
+      Prelude.rnf roleUsageList

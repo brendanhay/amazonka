@@ -120,8 +120,8 @@ instance Prelude.Hashable ResourcePermission where
 
 instance Prelude.NFData ResourcePermission where
   rnf ResourcePermission' {..} =
-    Prelude.rnf principal
-      `Prelude.seq` Prelude.rnf actions
+    Prelude.rnf principal `Prelude.seq`
+      Prelude.rnf actions
 
 instance Data.ToJSON ResourcePermission where
   toJSON ResourcePermission' {..} =

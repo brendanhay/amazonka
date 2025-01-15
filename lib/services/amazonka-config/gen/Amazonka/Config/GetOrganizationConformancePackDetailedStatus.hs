@@ -143,12 +143,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getOrganizationConformancePackDetailedStatus_nextToken
-          Lens..~ rs
-          Lens.^? getOrganizationConformancePackDetailedStatusResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getOrganizationConformancePackDetailedStatus_nextToken
+              Lens..~ rs
+              Lens.^? getOrganizationConformancePackDetailedStatusResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -190,10 +190,10 @@ instance
     GetOrganizationConformancePackDetailedStatus
   where
   rnf GetOrganizationConformancePackDetailedStatus' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf organizationConformancePackName
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf limit `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf organizationConformancePackName
 
 instance
   Data.ToHeaders

@@ -84,5 +84,5 @@ instance Prelude.Hashable PriceWithCurrency where
 
 instance Prelude.NFData PriceWithCurrency where
   rnf PriceWithCurrency' {..} =
-    Prelude.rnf price
-      `Prelude.seq` Prelude.rnf currency
+    Prelude.rnf price `Prelude.seq`
+      Prelude.rnf currency

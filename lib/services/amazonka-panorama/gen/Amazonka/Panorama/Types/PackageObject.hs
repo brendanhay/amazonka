@@ -100,6 +100,6 @@ instance Prelude.Hashable PackageObject where
 
 instance Prelude.NFData PackageObject where
   rnf PackageObject' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf packageVersion
-      `Prelude.seq` Prelude.rnf patchVersion
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf packageVersion `Prelude.seq`
+        Prelude.rnf patchVersion

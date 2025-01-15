@@ -180,9 +180,9 @@ instance
 
 instance Prelude.NFData ListPlaceIndexesResponseEntry where
   rnf ListPlaceIndexesResponseEntry' {..} =
-    Prelude.rnf pricingPlan
-      `Prelude.seq` Prelude.rnf createTime
-      `Prelude.seq` Prelude.rnf dataSource
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf indexName
-      `Prelude.seq` Prelude.rnf updateTime
+    Prelude.rnf pricingPlan `Prelude.seq`
+      Prelude.rnf createTime `Prelude.seq`
+        Prelude.rnf dataSource `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf indexName `Prelude.seq`
+              Prelude.rnf updateTime

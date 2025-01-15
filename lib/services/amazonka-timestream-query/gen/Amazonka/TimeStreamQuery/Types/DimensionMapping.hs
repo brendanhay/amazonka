@@ -86,8 +86,8 @@ instance Prelude.Hashable DimensionMapping where
 
 instance Prelude.NFData DimensionMapping where
   rnf DimensionMapping' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf dimensionValueType
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf dimensionValueType
 
 instance Data.ToJSON DimensionMapping where
   toJSON DimensionMapping' {..} =

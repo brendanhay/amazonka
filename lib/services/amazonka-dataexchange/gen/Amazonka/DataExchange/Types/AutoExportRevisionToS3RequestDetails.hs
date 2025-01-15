@@ -101,8 +101,8 @@ instance
     AutoExportRevisionToS3RequestDetails
   where
   rnf AutoExportRevisionToS3RequestDetails' {..} =
-    Prelude.rnf encryption
-      `Prelude.seq` Prelude.rnf revisionDestination
+    Prelude.rnf encryption `Prelude.seq`
+      Prelude.rnf revisionDestination
 
 instance
   Data.ToJSON

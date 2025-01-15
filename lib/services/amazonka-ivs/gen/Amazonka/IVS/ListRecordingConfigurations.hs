@@ -110,12 +110,12 @@ instance Core.AWSPager ListRecordingConfigurations where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listRecordingConfigurations_nextToken
-          Lens..~ rs
-          Lens.^? listRecordingConfigurationsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listRecordingConfigurations_nextToken
+              Lens..~ rs
+              Lens.^? listRecordingConfigurationsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListRecordingConfigurations where
   type
@@ -143,8 +143,8 @@ instance Prelude.Hashable ListRecordingConfigurations where
 
 instance Prelude.NFData ListRecordingConfigurations where
   rnf ListRecordingConfigurations' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListRecordingConfigurations where
   toHeaders =
@@ -229,6 +229,6 @@ instance
     ListRecordingConfigurationsResponse
   where
   rnf ListRecordingConfigurationsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf recordingConfigurations
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf recordingConfigurations

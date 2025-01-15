@@ -207,12 +207,12 @@ instance Core.AWSPager ListLabelingJobs where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listLabelingJobs_nextToken
-          Lens..~ rs
-          Lens.^? listLabelingJobsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listLabelingJobs_nextToken
+              Lens..~ rs
+              Lens.^? listLabelingJobsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListLabelingJobs where
   type
@@ -248,16 +248,16 @@ instance Prelude.Hashable ListLabelingJobs where
 
 instance Prelude.NFData ListLabelingJobs where
   rnf ListLabelingJobs' {..} =
-    Prelude.rnf creationTimeAfter
-      `Prelude.seq` Prelude.rnf creationTimeBefore
-      `Prelude.seq` Prelude.rnf lastModifiedTimeAfter
-      `Prelude.seq` Prelude.rnf lastModifiedTimeBefore
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nameContains
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf sortOrder
-      `Prelude.seq` Prelude.rnf statusEquals
+    Prelude.rnf creationTimeAfter `Prelude.seq`
+      Prelude.rnf creationTimeBefore `Prelude.seq`
+        Prelude.rnf lastModifiedTimeAfter `Prelude.seq`
+          Prelude.rnf lastModifiedTimeBefore `Prelude.seq`
+            Prelude.rnf maxResults `Prelude.seq`
+              Prelude.rnf nameContains `Prelude.seq`
+                Prelude.rnf nextToken `Prelude.seq`
+                  Prelude.rnf sortBy `Prelude.seq`
+                    Prelude.rnf sortOrder `Prelude.seq`
+                      Prelude.rnf statusEquals
 
 instance Data.ToHeaders ListLabelingJobs where
   toHeaders =
@@ -355,6 +355,6 @@ listLabelingJobsResponse_httpStatus = Lens.lens (\ListLabelingJobsResponse' {htt
 
 instance Prelude.NFData ListLabelingJobsResponse where
   rnf ListLabelingJobsResponse' {..} =
-    Prelude.rnf labelingJobSummaryList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf labelingJobSummaryList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

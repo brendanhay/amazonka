@@ -170,5 +170,5 @@ instance
     StopICD10CMInferenceJobResponse
   where
   rnf StopICD10CMInferenceJobResponse' {..} =
-    Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf jobId `Prelude.seq`
+      Prelude.rnf httpStatus

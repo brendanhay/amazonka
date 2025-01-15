@@ -168,11 +168,11 @@ instance Prelude.Hashable MonitorContact where
 
 instance Prelude.NFData MonitorContact where
   rnf MonitorContact' {..} =
-    Prelude.rnf allowedMonitorCapabilities
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf contactId
-      `Prelude.seq` Prelude.rnf userId
+    Prelude.rnf allowedMonitorCapabilities `Prelude.seq`
+      Prelude.rnf clientToken `Prelude.seq`
+        Prelude.rnf instanceId `Prelude.seq`
+          Prelude.rnf contactId `Prelude.seq`
+            Prelude.rnf userId
 
 instance Data.ToHeaders MonitorContact where
   toHeaders =
@@ -254,6 +254,6 @@ monitorContactResponse_httpStatus = Lens.lens (\MonitorContactResponse' {httpSta
 
 instance Prelude.NFData MonitorContactResponse where
   rnf MonitorContactResponse' {..} =
-    Prelude.rnf contactArn
-      `Prelude.seq` Prelude.rnf contactId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf contactArn `Prelude.seq`
+      Prelude.rnf contactId `Prelude.seq`
+        Prelude.rnf httpStatus

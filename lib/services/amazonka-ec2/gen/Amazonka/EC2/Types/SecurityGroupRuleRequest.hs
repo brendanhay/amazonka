@@ -177,14 +177,14 @@ instance Prelude.Hashable SecurityGroupRuleRequest where
 
 instance Prelude.NFData SecurityGroupRuleRequest where
   rnf SecurityGroupRuleRequest' {..} =
-    Prelude.rnf cidrIpv4
-      `Prelude.seq` Prelude.rnf cidrIpv6
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf fromPort
-      `Prelude.seq` Prelude.rnf ipProtocol
-      `Prelude.seq` Prelude.rnf prefixListId
-      `Prelude.seq` Prelude.rnf referencedGroupId
-      `Prelude.seq` Prelude.rnf toPort
+    Prelude.rnf cidrIpv4 `Prelude.seq`
+      Prelude.rnf cidrIpv6 `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf fromPort `Prelude.seq`
+            Prelude.rnf ipProtocol `Prelude.seq`
+              Prelude.rnf prefixListId `Prelude.seq`
+                Prelude.rnf referencedGroupId `Prelude.seq`
+                  Prelude.rnf toPort
 
 instance Data.ToQuery SecurityGroupRuleRequest where
   toQuery SecurityGroupRuleRequest' {..} =

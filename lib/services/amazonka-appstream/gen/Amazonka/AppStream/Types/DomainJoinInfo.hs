@@ -85,8 +85,8 @@ instance Prelude.Hashable DomainJoinInfo where
 
 instance Prelude.NFData DomainJoinInfo where
   rnf DomainJoinInfo' {..} =
-    Prelude.rnf directoryName
-      `Prelude.seq` Prelude.rnf organizationalUnitDistinguishedName
+    Prelude.rnf directoryName `Prelude.seq`
+      Prelude.rnf organizationalUnitDistinguishedName
 
 instance Data.ToJSON DomainJoinInfo where
   toJSON DomainJoinInfo' {..} =

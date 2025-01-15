@@ -92,9 +92,9 @@ instance Prelude.Hashable ServerGroup where
 
 instance Prelude.NFData ServerGroup where
   rnf ServerGroup' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf serverGroupId
-      `Prelude.seq` Prelude.rnf serverList
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf serverGroupId `Prelude.seq`
+        Prelude.rnf serverList
 
 instance Data.ToJSON ServerGroup where
   toJSON ServerGroup' {..} =

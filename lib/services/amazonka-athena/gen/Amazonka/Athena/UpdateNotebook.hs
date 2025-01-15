@@ -165,11 +165,11 @@ instance Prelude.Hashable UpdateNotebook where
 
 instance Prelude.NFData UpdateNotebook where
   rnf UpdateNotebook' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf sessionId
-      `Prelude.seq` Prelude.rnf notebookId
-      `Prelude.seq` Prelude.rnf payload
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf sessionId `Prelude.seq`
+        Prelude.rnf notebookId `Prelude.seq`
+          Prelude.rnf payload `Prelude.seq`
+            Prelude.rnf type'
 
 instance Data.ToHeaders UpdateNotebook where
   toHeaders =

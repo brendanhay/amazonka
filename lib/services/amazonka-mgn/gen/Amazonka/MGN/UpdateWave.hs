@@ -120,9 +120,9 @@ instance Prelude.Hashable UpdateWave where
 
 instance Prelude.NFData UpdateWave where
   rnf UpdateWave' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf waveID
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf waveID
 
 instance Data.ToHeaders UpdateWave where
   toHeaders =

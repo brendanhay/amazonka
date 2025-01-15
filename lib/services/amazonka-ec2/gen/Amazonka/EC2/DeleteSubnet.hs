@@ -106,8 +106,8 @@ instance Prelude.Hashable DeleteSubnet where
 
 instance Prelude.NFData DeleteSubnet where
   rnf DeleteSubnet' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf subnetId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf subnetId
 
 instance Data.ToHeaders DeleteSubnet where
   toHeaders = Prelude.const Prelude.mempty

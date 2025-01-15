@@ -106,8 +106,8 @@ instance Prelude.Hashable DeleteAccessLogSettings where
 
 instance Prelude.NFData DeleteAccessLogSettings where
   rnf DeleteAccessLogSettings' {..} =
-    Prelude.rnf stageName
-      `Prelude.seq` Prelude.rnf apiId
+    Prelude.rnf stageName `Prelude.seq`
+      Prelude.rnf apiId
 
 instance Data.ToHeaders DeleteAccessLogSettings where
   toHeaders =

@@ -105,8 +105,8 @@ instance
     CloudWatchLogGroupLogDestination
   where
   rnf CloudWatchLogGroupLogDestination' {..} =
-    Prelude.rnf cloudWatchLogGroupArn
-      `Prelude.seq` Prelude.rnf logPrefix
+    Prelude.rnf cloudWatchLogGroupArn `Prelude.seq`
+      Prelude.rnf logPrefix
 
 instance Data.ToJSON CloudWatchLogGroupLogDestination where
   toJSON CloudWatchLogGroupLogDestination' {..} =

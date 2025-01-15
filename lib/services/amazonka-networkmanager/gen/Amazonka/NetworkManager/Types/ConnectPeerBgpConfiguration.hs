@@ -103,7 +103,7 @@ instance Prelude.Hashable ConnectPeerBgpConfiguration where
 
 instance Prelude.NFData ConnectPeerBgpConfiguration where
   rnf ConnectPeerBgpConfiguration' {..} =
-    Prelude.rnf coreNetworkAddress
-      `Prelude.seq` Prelude.rnf coreNetworkAsn
-      `Prelude.seq` Prelude.rnf peerAddress
-      `Prelude.seq` Prelude.rnf peerAsn
+    Prelude.rnf coreNetworkAddress `Prelude.seq`
+      Prelude.rnf coreNetworkAsn `Prelude.seq`
+        Prelude.rnf peerAddress `Prelude.seq`
+          Prelude.rnf peerAsn

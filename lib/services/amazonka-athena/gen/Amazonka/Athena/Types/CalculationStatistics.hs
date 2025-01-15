@@ -84,5 +84,5 @@ instance Prelude.Hashable CalculationStatistics where
 
 instance Prelude.NFData CalculationStatistics where
   rnf CalculationStatistics' {..} =
-    Prelude.rnf dpuExecutionInMillis
-      `Prelude.seq` Prelude.rnf progress
+    Prelude.rnf dpuExecutionInMillis `Prelude.seq`
+      Prelude.rnf progress

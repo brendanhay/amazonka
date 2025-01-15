@@ -138,10 +138,10 @@ instance Prelude.Hashable TableMetadata where
 
 instance Prelude.NFData TableMetadata where
   rnf TableMetadata' {..} =
-    Prelude.rnf columns
-      `Prelude.seq` Prelude.rnf createTime
-      `Prelude.seq` Prelude.rnf lastAccessTime
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf partitionKeys
-      `Prelude.seq` Prelude.rnf tableType
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf columns `Prelude.seq`
+      Prelude.rnf createTime `Prelude.seq`
+        Prelude.rnf lastAccessTime `Prelude.seq`
+          Prelude.rnf parameters `Prelude.seq`
+            Prelude.rnf partitionKeys `Prelude.seq`
+              Prelude.rnf tableType `Prelude.seq`
+                Prelude.rnf name

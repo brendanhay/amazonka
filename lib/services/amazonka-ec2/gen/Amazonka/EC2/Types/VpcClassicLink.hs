@@ -83,9 +83,7 @@ instance Data.FromXML VpcClassicLink where
   parseXML x =
     VpcClassicLink'
       Prelude.<$> (x Data..@? "classicLinkEnabled")
-      Prelude.<*> ( x
-                      Data..@? "tagSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "vpcId")
@@ -99,6 +97,6 @@ instance Prelude.Hashable VpcClassicLink where
 
 instance Prelude.NFData VpcClassicLink where
   rnf VpcClassicLink' {..} =
-    Prelude.rnf classicLinkEnabled
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf classicLinkEnabled `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf vpcId

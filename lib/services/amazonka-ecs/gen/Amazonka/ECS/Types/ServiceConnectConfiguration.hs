@@ -171,10 +171,10 @@ instance Prelude.Hashable ServiceConnectConfiguration where
 
 instance Prelude.NFData ServiceConnectConfiguration where
   rnf ServiceConnectConfiguration' {..} =
-    Prelude.rnf logConfiguration
-      `Prelude.seq` Prelude.rnf namespace
-      `Prelude.seq` Prelude.rnf services
-      `Prelude.seq` Prelude.rnf enabled
+    Prelude.rnf logConfiguration `Prelude.seq`
+      Prelude.rnf namespace `Prelude.seq`
+        Prelude.rnf services `Prelude.seq`
+          Prelude.rnf enabled
 
 instance Data.ToJSON ServiceConnectConfiguration where
   toJSON ServiceConnectConfiguration' {..} =

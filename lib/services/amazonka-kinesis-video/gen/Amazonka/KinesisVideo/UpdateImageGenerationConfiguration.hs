@@ -145,9 +145,9 @@ instance
     UpdateImageGenerationConfiguration
   where
   rnf UpdateImageGenerationConfiguration' {..} =
-    Prelude.rnf imageGenerationConfiguration
-      `Prelude.seq` Prelude.rnf streamARN
-      `Prelude.seq` Prelude.rnf streamName
+    Prelude.rnf imageGenerationConfiguration `Prelude.seq`
+      Prelude.rnf streamARN `Prelude.seq`
+        Prelude.rnf streamName
 
 instance
   Data.ToHeaders

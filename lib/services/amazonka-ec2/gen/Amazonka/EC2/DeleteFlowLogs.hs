@@ -109,9 +109,7 @@ instance Core.AWSRequest DeleteFlowLogs where
     Response.receiveXML
       ( \s h x ->
           DeleteFlowLogsResponse'
-            Prelude.<$> ( x
-                            Data..@? "unsuccessful"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "unsuccessful" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -125,8 +123,8 @@ instance Prelude.Hashable DeleteFlowLogs where
 
 instance Prelude.NFData DeleteFlowLogs where
   rnf DeleteFlowLogs' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf flowLogIds
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf flowLogIds
 
 instance Data.ToHeaders DeleteFlowLogs where
   toHeaders = Prelude.const Prelude.mempty
@@ -186,5 +184,5 @@ deleteFlowLogsResponse_httpStatus = Lens.lens (\DeleteFlowLogsResponse' {httpSta
 
 instance Prelude.NFData DeleteFlowLogsResponse where
   rnf DeleteFlowLogsResponse' {..} =
-    Prelude.rnf unsuccessful
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf unsuccessful `Prelude.seq`
+      Prelude.rnf httpStatus

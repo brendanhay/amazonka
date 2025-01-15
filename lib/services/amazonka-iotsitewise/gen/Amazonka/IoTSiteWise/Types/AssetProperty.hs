@@ -167,10 +167,10 @@ instance Prelude.Hashable AssetProperty where
 
 instance Prelude.NFData AssetProperty where
   rnf AssetProperty' {..} =
-    Prelude.rnf alias
-      `Prelude.seq` Prelude.rnf dataTypeSpec
-      `Prelude.seq` Prelude.rnf notification
-      `Prelude.seq` Prelude.rnf unit
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf dataType
+    Prelude.rnf alias `Prelude.seq`
+      Prelude.rnf dataTypeSpec `Prelude.seq`
+        Prelude.rnf notification `Prelude.seq`
+          Prelude.rnf unit `Prelude.seq`
+            Prelude.rnf id `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf dataType

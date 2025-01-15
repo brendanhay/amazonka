@@ -312,12 +312,12 @@ instance Prelude.Hashable Version where
 
 instance Prelude.NFData Version where
   rnf Version' {..} =
-    Prelude.rnf sourceCodeArchiveUrl
-      `Prelude.seq` Prelude.rnf sourceCodeUrl
-      `Prelude.seq` Prelude.rnf templateUrl
-      `Prelude.seq` Prelude.rnf parameterDefinitions
-      `Prelude.seq` Prelude.rnf resourcesSupported
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf requiredCapabilities
-      `Prelude.seq` Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf semanticVersion
+    Prelude.rnf sourceCodeArchiveUrl `Prelude.seq`
+      Prelude.rnf sourceCodeUrl `Prelude.seq`
+        Prelude.rnf templateUrl `Prelude.seq`
+          Prelude.rnf parameterDefinitions `Prelude.seq`
+            Prelude.rnf resourcesSupported `Prelude.seq`
+              Prelude.rnf creationTime `Prelude.seq`
+                Prelude.rnf requiredCapabilities `Prelude.seq`
+                  Prelude.rnf applicationId `Prelude.seq`
+                    Prelude.rnf semanticVersion

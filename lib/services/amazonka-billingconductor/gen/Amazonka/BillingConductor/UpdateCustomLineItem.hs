@@ -157,11 +157,11 @@ instance Prelude.Hashable UpdateCustomLineItem where
 
 instance Prelude.NFData UpdateCustomLineItem where
   rnf UpdateCustomLineItem' {..} =
-    Prelude.rnf billingPeriodRange
-      `Prelude.seq` Prelude.rnf chargeDetails
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf billingPeriodRange `Prelude.seq`
+      Prelude.rnf chargeDetails `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf arn
 
 instance Data.ToHeaders UpdateCustomLineItem where
   toHeaders =
@@ -291,11 +291,11 @@ updateCustomLineItemResponse_httpStatus = Lens.lens (\UpdateCustomLineItemRespon
 
 instance Prelude.NFData UpdateCustomLineItemResponse where
   rnf UpdateCustomLineItemResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf associationSize
-      `Prelude.seq` Prelude.rnf billingGroupArn
-      `Prelude.seq` Prelude.rnf chargeDetails
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf associationSize `Prelude.seq`
+        Prelude.rnf billingGroupArn `Prelude.seq`
+          Prelude.rnf chargeDetails `Prelude.seq`
+            Prelude.rnf description `Prelude.seq`
+              Prelude.rnf lastModifiedTime `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf httpStatus

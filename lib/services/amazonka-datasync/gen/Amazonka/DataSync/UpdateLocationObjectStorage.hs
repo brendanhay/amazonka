@@ -235,14 +235,14 @@ instance Prelude.Hashable UpdateLocationObjectStorage where
 
 instance Prelude.NFData UpdateLocationObjectStorage where
   rnf UpdateLocationObjectStorage' {..} =
-    Prelude.rnf accessKey
-      `Prelude.seq` Prelude.rnf agentArns
-      `Prelude.seq` Prelude.rnf secretKey
-      `Prelude.seq` Prelude.rnf serverCertificate
-      `Prelude.seq` Prelude.rnf serverPort
-      `Prelude.seq` Prelude.rnf serverProtocol
-      `Prelude.seq` Prelude.rnf subdirectory
-      `Prelude.seq` Prelude.rnf locationArn
+    Prelude.rnf accessKey `Prelude.seq`
+      Prelude.rnf agentArns `Prelude.seq`
+        Prelude.rnf secretKey `Prelude.seq`
+          Prelude.rnf serverCertificate `Prelude.seq`
+            Prelude.rnf serverPort `Prelude.seq`
+              Prelude.rnf serverProtocol `Prelude.seq`
+                Prelude.rnf subdirectory `Prelude.seq`
+                  Prelude.rnf locationArn
 
 instance Data.ToHeaders UpdateLocationObjectStorage where
   toHeaders =

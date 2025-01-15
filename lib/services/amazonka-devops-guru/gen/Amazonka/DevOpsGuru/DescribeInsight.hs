@@ -181,6 +181,6 @@ describeInsightResponse_httpStatus = Lens.lens (\DescribeInsightResponse' {httpS
 
 instance Prelude.NFData DescribeInsightResponse where
   rnf DescribeInsightResponse' {..} =
-    Prelude.rnf proactiveInsight
-      `Prelude.seq` Prelude.rnf reactiveInsight
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf proactiveInsight `Prelude.seq`
+      Prelude.rnf reactiveInsight `Prelude.seq`
+        Prelude.rnf httpStatus

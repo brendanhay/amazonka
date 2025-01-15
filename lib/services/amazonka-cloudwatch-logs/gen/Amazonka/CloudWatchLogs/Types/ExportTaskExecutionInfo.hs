@@ -87,5 +87,5 @@ instance Prelude.Hashable ExportTaskExecutionInfo where
 
 instance Prelude.NFData ExportTaskExecutionInfo where
   rnf ExportTaskExecutionInfo' {..} =
-    Prelude.rnf completionTime
-      `Prelude.seq` Prelude.rnf creationTime
+    Prelude.rnf completionTime `Prelude.seq`
+      Prelude.rnf creationTime

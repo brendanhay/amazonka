@@ -114,8 +114,8 @@ instance Prelude.Hashable DisassociateRecoveryPoint where
 
 instance Prelude.NFData DisassociateRecoveryPoint where
   rnf DisassociateRecoveryPoint' {..} =
-    Prelude.rnf backupVaultName
-      `Prelude.seq` Prelude.rnf recoveryPointArn
+    Prelude.rnf backupVaultName `Prelude.seq`
+      Prelude.rnf recoveryPointArn
 
 instance Data.ToHeaders DisassociateRecoveryPoint where
   toHeaders =

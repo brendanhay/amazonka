@@ -240,12 +240,12 @@ instance Core.AWSPager DescribeVpcEndpointServices where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeVpcEndpointServices_nextToken
-          Lens..~ rs
-          Lens.^? describeVpcEndpointServicesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeVpcEndpointServices_nextToken
+              Lens..~ rs
+              Lens.^? describeVpcEndpointServicesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeVpcEndpointServices where
   type
@@ -263,9 +263,7 @@ instance Core.AWSRequest DescribeVpcEndpointServices where
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-            Prelude.<*> ( x
-                            Data..@? "serviceNameSet"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "serviceNameSet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -282,11 +280,11 @@ instance Prelude.Hashable DescribeVpcEndpointServices where
 
 instance Prelude.NFData DescribeVpcEndpointServices where
   rnf DescribeVpcEndpointServices' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf serviceNames
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf serviceNames
 
 instance Data.ToHeaders DescribeVpcEndpointServices where
   toHeaders = Prelude.const Prelude.mempty
@@ -381,7 +379,7 @@ instance
     DescribeVpcEndpointServicesResponse
   where
   rnf DescribeVpcEndpointServicesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf serviceDetails
-      `Prelude.seq` Prelude.rnf serviceNames
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf serviceDetails `Prelude.seq`
+        Prelude.rnf serviceNames `Prelude.seq`
+          Prelude.rnf httpStatus

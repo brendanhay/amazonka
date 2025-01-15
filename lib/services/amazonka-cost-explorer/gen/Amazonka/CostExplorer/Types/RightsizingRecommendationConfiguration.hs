@@ -115,8 +115,8 @@ instance
     RightsizingRecommendationConfiguration
   where
   rnf RightsizingRecommendationConfiguration' {..} =
-    Prelude.rnf recommendationTarget
-      `Prelude.seq` Prelude.rnf benefitsConsidered
+    Prelude.rnf recommendationTarget `Prelude.seq`
+      Prelude.rnf benefitsConsidered
 
 instance
   Data.ToJSON

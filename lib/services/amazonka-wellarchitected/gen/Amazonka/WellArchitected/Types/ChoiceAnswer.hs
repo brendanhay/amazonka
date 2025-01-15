@@ -106,7 +106,7 @@ instance Prelude.Hashable ChoiceAnswer where
 
 instance Prelude.NFData ChoiceAnswer where
   rnf ChoiceAnswer' {..} =
-    Prelude.rnf choiceId
-      `Prelude.seq` Prelude.rnf notes
-      `Prelude.seq` Prelude.rnf reason
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf choiceId `Prelude.seq`
+      Prelude.rnf notes `Prelude.seq`
+        Prelude.rnf reason `Prelude.seq`
+          Prelude.rnf status

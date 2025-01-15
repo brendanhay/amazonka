@@ -116,8 +116,8 @@ instance Prelude.Hashable GetDataSetImportTask where
 
 instance Prelude.NFData GetDataSetImportTask where
   rnf GetDataSetImportTask' {..} =
-    Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf taskId
+    Prelude.rnf applicationId `Prelude.seq`
+      Prelude.rnf taskId
 
 instance Data.ToHeaders GetDataSetImportTask where
   toHeaders =
@@ -208,7 +208,7 @@ getDataSetImportTaskResponse_taskId = Lens.lens (\GetDataSetImportTaskResponse' 
 
 instance Prelude.NFData GetDataSetImportTaskResponse where
   rnf GetDataSetImportTaskResponse' {..} =
-    Prelude.rnf summary
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf taskId
+    Prelude.rnf summary `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf status `Prelude.seq`
+          Prelude.rnf taskId

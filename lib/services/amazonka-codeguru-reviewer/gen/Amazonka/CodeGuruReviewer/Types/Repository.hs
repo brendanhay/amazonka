@@ -96,10 +96,10 @@ instance Prelude.Hashable Repository where
 
 instance Prelude.NFData Repository where
   rnf Repository' {..} =
-    Prelude.rnf bitbucket
-      `Prelude.seq` Prelude.rnf codeCommit
-      `Prelude.seq` Prelude.rnf gitHubEnterpriseServer
-      `Prelude.seq` Prelude.rnf s3Bucket
+    Prelude.rnf bitbucket `Prelude.seq`
+      Prelude.rnf codeCommit `Prelude.seq`
+        Prelude.rnf gitHubEnterpriseServer `Prelude.seq`
+          Prelude.rnf s3Bucket
 
 instance Data.ToJSON Repository where
   toJSON Repository' {..} =

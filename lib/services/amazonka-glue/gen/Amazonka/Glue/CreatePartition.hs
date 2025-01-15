@@ -141,10 +141,10 @@ instance Prelude.Hashable CreatePartition where
 
 instance Prelude.NFData CreatePartition where
   rnf CreatePartition' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf tableName
-      `Prelude.seq` Prelude.rnf partitionInput
+    Prelude.rnf catalogId `Prelude.seq`
+      Prelude.rnf databaseName `Prelude.seq`
+        Prelude.rnf tableName `Prelude.seq`
+          Prelude.rnf partitionInput
 
 instance Data.ToHeaders CreatePartition where
   toHeaders =

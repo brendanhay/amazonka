@@ -73,8 +73,8 @@ instance Prelude.Hashable ServerlessRequest where
 
 instance Prelude.NFData ServerlessRequest where
   rnf ServerlessRequest' {..} =
-    Prelude.rnf clientAuthentication
-      `Prelude.seq` Prelude.rnf vpcConfigs
+    Prelude.rnf clientAuthentication `Prelude.seq`
+      Prelude.rnf vpcConfigs
 
 instance Data.ToJSON ServerlessRequest where
   toJSON ServerlessRequest' {..} =

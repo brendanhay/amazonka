@@ -291,17 +291,17 @@ describeActionResponse_httpStatus = Lens.lens (\DescribeActionResponse' {httpSta
 
 instance Prelude.NFData DescribeActionResponse where
   rnf DescribeActionResponse' {..} =
-    Prelude.rnf actionArn
-      `Prelude.seq` Prelude.rnf actionName
-      `Prelude.seq` Prelude.rnf actionType
-      `Prelude.seq` Prelude.rnf createdBy
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf lastModifiedBy
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf lineageGroupArn
-      `Prelude.seq` Prelude.rnf metadataProperties
-      `Prelude.seq` Prelude.rnf properties
-      `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf actionArn `Prelude.seq`
+      Prelude.rnf actionName `Prelude.seq`
+        Prelude.rnf actionType `Prelude.seq`
+          Prelude.rnf createdBy `Prelude.seq`
+            Prelude.rnf creationTime `Prelude.seq`
+              Prelude.rnf description `Prelude.seq`
+                Prelude.rnf lastModifiedBy `Prelude.seq`
+                  Prelude.rnf lastModifiedTime `Prelude.seq`
+                    Prelude.rnf lineageGroupArn `Prelude.seq`
+                      Prelude.rnf metadataProperties `Prelude.seq`
+                        Prelude.rnf properties `Prelude.seq`
+                          Prelude.rnf source `Prelude.seq`
+                            Prelude.rnf status `Prelude.seq`
+                              Prelude.rnf httpStatus

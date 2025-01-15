@@ -149,9 +149,9 @@ instance
     ModifyInstanceCapacityReservationAttributes
   where
   rnf ModifyInstanceCapacityReservationAttributes' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf capacityReservationSpecification
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf instanceId `Prelude.seq`
+        Prelude.rnf capacityReservationSpecification
 
 instance
   Data.ToHeaders
@@ -231,5 +231,5 @@ instance
   where
   rnf
     ModifyInstanceCapacityReservationAttributesResponse' {..} =
-      Prelude.rnf return'
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf return' `Prelude.seq`
+        Prelude.rnf httpStatus

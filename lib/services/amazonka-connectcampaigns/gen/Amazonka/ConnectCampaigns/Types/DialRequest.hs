@@ -95,10 +95,10 @@ instance Prelude.Hashable DialRequest where
 
 instance Prelude.NFData DialRequest where
   rnf DialRequest' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf expirationTime
-      `Prelude.seq` Prelude.rnf phoneNumber
+    Prelude.rnf attributes `Prelude.seq`
+      Prelude.rnf clientToken `Prelude.seq`
+        Prelude.rnf expirationTime `Prelude.seq`
+          Prelude.rnf phoneNumber
 
 instance Data.ToJSON DialRequest where
   toJSON DialRequest' {..} =

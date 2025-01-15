@@ -151,8 +151,8 @@ instance Prelude.Hashable RecommenderUpdateSummary where
 
 instance Prelude.NFData RecommenderUpdateSummary where
   rnf RecommenderUpdateSummary' {..} =
-    Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
-      `Prelude.seq` Prelude.rnf recommenderConfig
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf creationDateTime `Prelude.seq`
+      Prelude.rnf failureReason `Prelude.seq`
+        Prelude.rnf lastUpdatedDateTime `Prelude.seq`
+          Prelude.rnf recommenderConfig `Prelude.seq`
+            Prelude.rnf status

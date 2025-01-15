@@ -311,22 +311,22 @@ instance Prelude.Hashable ADMMessage where
 
 instance Prelude.NFData ADMMessage where
   rnf ADMMessage' {..} =
-    Prelude.rnf action
-      `Prelude.seq` Prelude.rnf body
-      `Prelude.seq` Prelude.rnf consolidationKey
-      `Prelude.seq` Prelude.rnf data'
-      `Prelude.seq` Prelude.rnf expiresAfter
-      `Prelude.seq` Prelude.rnf iconReference
-      `Prelude.seq` Prelude.rnf imageIconUrl
-      `Prelude.seq` Prelude.rnf imageUrl
-      `Prelude.seq` Prelude.rnf md5
-      `Prelude.seq` Prelude.rnf rawContent
-      `Prelude.seq` Prelude.rnf silentPush
-      `Prelude.seq` Prelude.rnf smallImageIconUrl
-      `Prelude.seq` Prelude.rnf sound
-      `Prelude.seq` Prelude.rnf substitutions
-      `Prelude.seq` Prelude.rnf title
-      `Prelude.seq` Prelude.rnf url
+    Prelude.rnf action `Prelude.seq`
+      Prelude.rnf body `Prelude.seq`
+        Prelude.rnf consolidationKey `Prelude.seq`
+          Prelude.rnf data' `Prelude.seq`
+            Prelude.rnf expiresAfter `Prelude.seq`
+              Prelude.rnf iconReference `Prelude.seq`
+                Prelude.rnf imageIconUrl `Prelude.seq`
+                  Prelude.rnf imageUrl `Prelude.seq`
+                    Prelude.rnf md5 `Prelude.seq`
+                      Prelude.rnf rawContent `Prelude.seq`
+                        Prelude.rnf silentPush `Prelude.seq`
+                          Prelude.rnf smallImageIconUrl `Prelude.seq`
+                            Prelude.rnf sound `Prelude.seq`
+                              Prelude.rnf substitutions `Prelude.seq`
+                                Prelude.rnf title `Prelude.seq`
+                                  Prelude.rnf url
 
 instance Data.ToJSON ADMMessage where
   toJSON ADMMessage' {..} =

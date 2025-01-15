@@ -169,13 +169,13 @@ instance Prelude.Hashable ListLabels where
 
 instance Prelude.NFData ListLabels where
   rnf ListLabels' {..} =
-    Prelude.rnf equipment
-      `Prelude.seq` Prelude.rnf faultCode
-      `Prelude.seq` Prelude.rnf intervalEndTime
-      `Prelude.seq` Prelude.rnf intervalStartTime
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf labelGroupName
+    Prelude.rnf equipment `Prelude.seq`
+      Prelude.rnf faultCode `Prelude.seq`
+        Prelude.rnf intervalEndTime `Prelude.seq`
+          Prelude.rnf intervalStartTime `Prelude.seq`
+            Prelude.rnf maxResults `Prelude.seq`
+              Prelude.rnf nextToken `Prelude.seq`
+                Prelude.rnf labelGroupName
 
 instance Data.ToHeaders ListLabels where
   toHeaders =
@@ -268,6 +268,6 @@ listLabelsResponse_httpStatus = Lens.lens (\ListLabelsResponse' {httpStatus} -> 
 
 instance Prelude.NFData ListLabelsResponse where
   rnf ListLabelsResponse' {..} =
-    Prelude.rnf labelSummaries
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf labelSummaries `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

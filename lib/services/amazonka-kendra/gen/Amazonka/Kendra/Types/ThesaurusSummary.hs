@@ -114,8 +114,8 @@ instance Prelude.Hashable ThesaurusSummary where
 
 instance Prelude.NFData ThesaurusSummary where
   rnf ThesaurusSummary' {..} =
-    Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf updatedAt
+    Prelude.rnf createdAt `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf updatedAt

@@ -92,6 +92,6 @@ instance Prelude.Hashable NtpStatus where
 
 instance Prelude.NFData NtpStatus where
   rnf NtpStatus' {..} =
-    Prelude.rnf connectionStatus
-      `Prelude.seq` Prelude.rnf ipAddress
-      `Prelude.seq` Prelude.rnf ntpServerName
+    Prelude.rnf connectionStatus `Prelude.seq`
+      Prelude.rnf ipAddress `Prelude.seq`
+        Prelude.rnf ntpServerName

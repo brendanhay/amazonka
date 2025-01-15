@@ -160,12 +160,12 @@ instance Core.AWSPager GetVpnConnectionDeviceTypes where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getVpnConnectionDeviceTypes_nextToken
-          Lens..~ rs
-          Lens.^? getVpnConnectionDeviceTypesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getVpnConnectionDeviceTypes_nextToken
+              Lens..~ rs
+              Lens.^? getVpnConnectionDeviceTypesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetVpnConnectionDeviceTypes where
   type
@@ -195,9 +195,9 @@ instance Prelude.Hashable GetVpnConnectionDeviceTypes where
 
 instance Prelude.NFData GetVpnConnectionDeviceTypes where
   rnf GetVpnConnectionDeviceTypes' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders GetVpnConnectionDeviceTypes where
   toHeaders = Prelude.const Prelude.mempty
@@ -288,6 +288,6 @@ instance
     GetVpnConnectionDeviceTypesResponse
   where
   rnf GetVpnConnectionDeviceTypesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf vpnConnectionDeviceTypes
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf vpnConnectionDeviceTypes `Prelude.seq`
+        Prelude.rnf httpStatus

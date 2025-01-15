@@ -234,16 +234,16 @@ instance Prelude.Hashable JobParameters where
 
 instance Prelude.NFData JobParameters where
   rnf JobParameters' {..} =
-    Prelude.rnf archiveId
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf format
-      `Prelude.seq` Prelude.rnf inventoryRetrievalParameters
-      `Prelude.seq` Prelude.rnf outputLocation
-      `Prelude.seq` Prelude.rnf retrievalByteRange
-      `Prelude.seq` Prelude.rnf sNSTopic
-      `Prelude.seq` Prelude.rnf selectParameters
-      `Prelude.seq` Prelude.rnf tier
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf archiveId `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf format `Prelude.seq`
+          Prelude.rnf inventoryRetrievalParameters `Prelude.seq`
+            Prelude.rnf outputLocation `Prelude.seq`
+              Prelude.rnf retrievalByteRange `Prelude.seq`
+                Prelude.rnf sNSTopic `Prelude.seq`
+                  Prelude.rnf selectParameters `Prelude.seq`
+                    Prelude.rnf tier `Prelude.seq`
+                      Prelude.rnf type'
 
 instance Data.ToJSON JobParameters where
   toJSON JobParameters' {..} =

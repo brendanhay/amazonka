@@ -168,12 +168,12 @@ instance Core.AWSPager GetComplianceDetailsByResource where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getComplianceDetailsByResource_nextToken
-          Lens..~ rs
-          Lens.^? getComplianceDetailsByResourceResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getComplianceDetailsByResource_nextToken
+              Lens..~ rs
+              Lens.^? getComplianceDetailsByResourceResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -215,11 +215,11 @@ instance
     GetComplianceDetailsByResource
   where
   rnf GetComplianceDetailsByResource' {..} =
-    Prelude.rnf complianceTypes
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf resourceEvaluationId
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf resourceType
+    Prelude.rnf complianceTypes `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf resourceEvaluationId `Prelude.seq`
+          Prelude.rnf resourceId `Prelude.seq`
+            Prelude.rnf resourceType
 
 instance
   Data.ToHeaders
@@ -321,6 +321,6 @@ instance
     GetComplianceDetailsByResourceResponse
   where
   rnf GetComplianceDetailsByResourceResponse' {..} =
-    Prelude.rnf evaluationResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf evaluationResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -88,6 +88,6 @@ instance Prelude.Hashable CoipCidr where
 
 instance Prelude.NFData CoipCidr where
   rnf CoipCidr' {..} =
-    Prelude.rnf cidr
-      `Prelude.seq` Prelude.rnf coipPoolId
-      `Prelude.seq` Prelude.rnf localGatewayRouteTableId
+    Prelude.rnf cidr `Prelude.seq`
+      Prelude.rnf coipPoolId `Prelude.seq`
+        Prelude.rnf localGatewayRouteTableId

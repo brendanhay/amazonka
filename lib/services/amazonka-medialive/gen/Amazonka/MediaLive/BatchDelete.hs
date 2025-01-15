@@ -130,10 +130,10 @@ instance Prelude.Hashable BatchDelete' where
 
 instance Prelude.NFData BatchDelete' where
   rnf BatchDelete'' {..} =
-    Prelude.rnf channelIds
-      `Prelude.seq` Prelude.rnf inputIds
-      `Prelude.seq` Prelude.rnf inputSecurityGroupIds
-      `Prelude.seq` Prelude.rnf multiplexIds
+    Prelude.rnf channelIds `Prelude.seq`
+      Prelude.rnf inputIds `Prelude.seq`
+        Prelude.rnf inputSecurityGroupIds `Prelude.seq`
+          Prelude.rnf multiplexIds
 
 instance Data.ToHeaders BatchDelete' where
   toHeaders =
@@ -215,6 +215,6 @@ batchDeleteResponse_httpStatus = Lens.lens (\BatchDeleteResponse' {httpStatus} -
 
 instance Prelude.NFData BatchDeleteResponse where
   rnf BatchDeleteResponse' {..} =
-    Prelude.rnf failed
-      `Prelude.seq` Prelude.rnf successful
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf failed `Prelude.seq`
+      Prelude.rnf successful `Prelude.seq`
+        Prelude.rnf httpStatus

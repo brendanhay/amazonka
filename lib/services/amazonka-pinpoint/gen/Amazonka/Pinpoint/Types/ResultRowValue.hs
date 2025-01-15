@@ -111,6 +111,6 @@ instance Prelude.Hashable ResultRowValue where
 
 instance Prelude.NFData ResultRowValue where
   rnf ResultRowValue' {..} =
-    Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf value
-      `Prelude.seq` Prelude.rnf key
+    Prelude.rnf type' `Prelude.seq`
+      Prelude.rnf value `Prelude.seq`
+        Prelude.rnf key

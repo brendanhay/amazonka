@@ -112,8 +112,8 @@ instance Prelude.Hashable GetPreparedStatement where
 
 instance Prelude.NFData GetPreparedStatement where
   rnf GetPreparedStatement' {..} =
-    Prelude.rnf statementName
-      `Prelude.seq` Prelude.rnf workGroup
+    Prelude.rnf statementName `Prelude.seq`
+      Prelude.rnf workGroup
 
 instance Data.ToHeaders GetPreparedStatement where
   toHeaders =
@@ -187,5 +187,5 @@ getPreparedStatementResponse_httpStatus = Lens.lens (\GetPreparedStatementRespon
 
 instance Prelude.NFData GetPreparedStatementResponse where
   rnf GetPreparedStatementResponse' {..} =
-    Prelude.rnf preparedStatement
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf preparedStatement `Prelude.seq`
+      Prelude.rnf httpStatus

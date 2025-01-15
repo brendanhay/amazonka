@@ -176,9 +176,9 @@ instance
 
 instance Prelude.NFData SetIdentityNotificationTopic where
   rnf SetIdentityNotificationTopic' {..} =
-    Prelude.rnf snsTopic
-      `Prelude.seq` Prelude.rnf identity
-      `Prelude.seq` Prelude.rnf notificationType
+    Prelude.rnf snsTopic `Prelude.seq`
+      Prelude.rnf identity `Prelude.seq`
+        Prelude.rnf notificationType
 
 instance Data.ToHeaders SetIdentityNotificationTopic where
   toHeaders = Prelude.const Prelude.mempty

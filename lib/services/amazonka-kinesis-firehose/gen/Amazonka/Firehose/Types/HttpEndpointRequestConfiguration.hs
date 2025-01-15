@@ -109,8 +109,8 @@ instance
     HttpEndpointRequestConfiguration
   where
   rnf HttpEndpointRequestConfiguration' {..} =
-    Prelude.rnf commonAttributes
-      `Prelude.seq` Prelude.rnf contentEncoding
+    Prelude.rnf commonAttributes `Prelude.seq`
+      Prelude.rnf contentEncoding
 
 instance Data.ToJSON HttpEndpointRequestConfiguration where
   toJSON HttpEndpointRequestConfiguration' {..} =

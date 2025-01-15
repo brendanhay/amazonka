@@ -65,9 +65,7 @@ endpoint_endpointArn = Lens.lens (\Endpoint' {endpointArn} -> endpointArn) (\s@E
 instance Data.FromXML Endpoint where
   parseXML x =
     Endpoint'
-      Prelude.<$> ( x
-                      Data..@? "Attributes"
-                      Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "Attributes" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLMap "entry" "key" "value")
                   )
       Prelude.<*> (x Data..@? "EndpointArn")
@@ -80,5 +78,5 @@ instance Prelude.Hashable Endpoint where
 
 instance Prelude.NFData Endpoint where
   rnf Endpoint' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf endpointArn
+    Prelude.rnf attributes `Prelude.seq`
+      Prelude.rnf endpointArn

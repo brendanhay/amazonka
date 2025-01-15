@@ -266,12 +266,12 @@ instance Prelude.Hashable PutRecord where
 
 instance Prelude.NFData PutRecord where
   rnf PutRecord' {..} =
-    Prelude.rnf explicitHashKey
-      `Prelude.seq` Prelude.rnf sequenceNumberForOrdering
-      `Prelude.seq` Prelude.rnf streamARN
-      `Prelude.seq` Prelude.rnf streamName
-      `Prelude.seq` Prelude.rnf data'
-      `Prelude.seq` Prelude.rnf partitionKey
+    Prelude.rnf explicitHashKey `Prelude.seq`
+      Prelude.rnf sequenceNumberForOrdering `Prelude.seq`
+        Prelude.rnf streamARN `Prelude.seq`
+          Prelude.rnf streamName `Prelude.seq`
+            Prelude.rnf data' `Prelude.seq`
+              Prelude.rnf partitionKey
 
 instance Data.ToHeaders PutRecord where
   toHeaders =
@@ -402,7 +402,7 @@ putRecordResponse_sequenceNumber = Lens.lens (\PutRecordResponse' {sequenceNumbe
 
 instance Prelude.NFData PutRecordResponse where
   rnf PutRecordResponse' {..} =
-    Prelude.rnf encryptionType
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf shardId
-      `Prelude.seq` Prelude.rnf sequenceNumber
+    Prelude.rnf encryptionType `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf shardId `Prelude.seq`
+          Prelude.rnf sequenceNumber

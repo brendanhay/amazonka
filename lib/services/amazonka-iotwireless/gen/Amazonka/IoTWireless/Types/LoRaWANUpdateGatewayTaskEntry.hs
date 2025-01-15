@@ -85,5 +85,5 @@ instance
 
 instance Prelude.NFData LoRaWANUpdateGatewayTaskEntry where
   rnf LoRaWANUpdateGatewayTaskEntry' {..} =
-    Prelude.rnf currentVersion
-      `Prelude.seq` Prelude.rnf updateVersion
+    Prelude.rnf currentVersion `Prelude.seq`
+      Prelude.rnf updateVersion

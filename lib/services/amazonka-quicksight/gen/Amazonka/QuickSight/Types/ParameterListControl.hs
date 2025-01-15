@@ -153,13 +153,13 @@ instance Prelude.Hashable ParameterListControl where
 
 instance Prelude.NFData ParameterListControl where
   rnf ParameterListControl' {..} =
-    Prelude.rnf cascadingControlConfiguration
-      `Prelude.seq` Prelude.rnf displayOptions
-      `Prelude.seq` Prelude.rnf selectableValues
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf parameterControlId
-      `Prelude.seq` Prelude.rnf title
-      `Prelude.seq` Prelude.rnf sourceParameterName
+    Prelude.rnf cascadingControlConfiguration `Prelude.seq`
+      Prelude.rnf displayOptions `Prelude.seq`
+        Prelude.rnf selectableValues `Prelude.seq`
+          Prelude.rnf type' `Prelude.seq`
+            Prelude.rnf parameterControlId `Prelude.seq`
+              Prelude.rnf title `Prelude.seq`
+                Prelude.rnf sourceParameterName
 
 instance Data.ToJSON ParameterListControl where
   toJSON ParameterListControl' {..} =

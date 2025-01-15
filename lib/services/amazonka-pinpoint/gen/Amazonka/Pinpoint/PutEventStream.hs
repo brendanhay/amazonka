@@ -113,8 +113,8 @@ instance Prelude.Hashable PutEventStream where
 
 instance Prelude.NFData PutEventStream where
   rnf PutEventStream' {..} =
-    Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf writeEventStream
+    Prelude.rnf applicationId `Prelude.seq`
+      Prelude.rnf writeEventStream
 
 instance Data.ToHeaders PutEventStream where
   toHeaders =
@@ -183,5 +183,5 @@ putEventStreamResponse_eventStream = Lens.lens (\PutEventStreamResponse' {eventS
 
 instance Prelude.NFData PutEventStreamResponse where
   rnf PutEventStreamResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf eventStream
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf eventStream

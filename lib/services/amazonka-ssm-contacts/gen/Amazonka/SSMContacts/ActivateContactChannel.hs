@@ -112,8 +112,8 @@ instance Prelude.Hashable ActivateContactChannel where
 
 instance Prelude.NFData ActivateContactChannel where
   rnf ActivateContactChannel' {..} =
-    Prelude.rnf contactChannelId
-      `Prelude.seq` Prelude.rnf activationCode
+    Prelude.rnf contactChannelId `Prelude.seq`
+      Prelude.rnf activationCode
 
 instance Data.ToHeaders ActivateContactChannel where
   toHeaders =

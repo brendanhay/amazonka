@@ -100,6 +100,6 @@ instance Prelude.Hashable CIDRSummary where
 
 instance Prelude.NFData CIDRSummary where
   rnf CIDRSummary' {..} =
-    Prelude.rnf availableCIDRCount
-      `Prelude.seq` Prelude.rnf iPSetReferences
-      `Prelude.seq` Prelude.rnf utilizedCIDRCount
+    Prelude.rnf availableCIDRCount `Prelude.seq`
+      Prelude.rnf iPSetReferences `Prelude.seq`
+        Prelude.rnf utilizedCIDRCount

@@ -109,10 +109,10 @@ instance Prelude.Hashable ItemValue where
 
 instance Prelude.NFData ItemValue where
   rnf ItemValue' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf metricDefinition
-      `Prelude.seq` Prelude.rnf pagerDutyIncidentDetail
-      `Prelude.seq` Prelude.rnf url
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf metricDefinition `Prelude.seq`
+        Prelude.rnf pagerDutyIncidentDetail `Prelude.seq`
+          Prelude.rnf url
 
 instance Data.ToJSON ItemValue where
   toJSON ItemValue' {..} =

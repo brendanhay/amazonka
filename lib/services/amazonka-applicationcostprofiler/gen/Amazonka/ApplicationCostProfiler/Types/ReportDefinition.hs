@@ -141,10 +141,10 @@ instance Prelude.Hashable ReportDefinition where
 
 instance Prelude.NFData ReportDefinition where
   rnf ReportDefinition' {..} =
-    Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf destinationS3Location
-      `Prelude.seq` Prelude.rnf format
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf reportDescription
-      `Prelude.seq` Prelude.rnf reportFrequency
-      `Prelude.seq` Prelude.rnf reportId
+    Prelude.rnf createdAt `Prelude.seq`
+      Prelude.rnf destinationS3Location `Prelude.seq`
+        Prelude.rnf format `Prelude.seq`
+          Prelude.rnf lastUpdatedAt `Prelude.seq`
+            Prelude.rnf reportDescription `Prelude.seq`
+              Prelude.rnf reportFrequency `Prelude.seq`
+                Prelude.rnf reportId

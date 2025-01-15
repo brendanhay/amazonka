@@ -137,6 +137,6 @@ instance Prelude.Hashable Index where
 
 instance Prelude.NFData Index where
   rnf Index' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf region
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf region `Prelude.seq`
+        Prelude.rnf type'

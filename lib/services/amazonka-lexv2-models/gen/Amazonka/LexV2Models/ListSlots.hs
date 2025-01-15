@@ -228,14 +228,14 @@ instance Prelude.Hashable ListSlots where
 
 instance Prelude.NFData ListSlots where
   rnf ListSlots' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf botVersion
-      `Prelude.seq` Prelude.rnf localeId
-      `Prelude.seq` Prelude.rnf intentId
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf sortBy `Prelude.seq`
+            Prelude.rnf botId `Prelude.seq`
+              Prelude.rnf botVersion `Prelude.seq`
+                Prelude.rnf localeId `Prelude.seq`
+                  Prelude.rnf intentId
 
 instance Data.ToHeaders ListSlots where
   toHeaders =
@@ -382,10 +382,10 @@ listSlotsResponse_httpStatus = Lens.lens (\ListSlotsResponse' {httpStatus} -> ht
 
 instance Prelude.NFData ListSlotsResponse where
   rnf ListSlotsResponse' {..} =
-    Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf botVersion
-      `Prelude.seq` Prelude.rnf intentId
-      `Prelude.seq` Prelude.rnf localeId
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf slotSummaries
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf botId `Prelude.seq`
+      Prelude.rnf botVersion `Prelude.seq`
+        Prelude.rnf intentId `Prelude.seq`
+          Prelude.rnf localeId `Prelude.seq`
+            Prelude.rnf nextToken `Prelude.seq`
+              Prelude.rnf slotSummaries `Prelude.seq`
+                Prelude.rnf httpStatus

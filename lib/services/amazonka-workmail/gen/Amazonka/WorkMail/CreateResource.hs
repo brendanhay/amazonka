@@ -129,9 +129,9 @@ instance Prelude.Hashable CreateResource where
 
 instance Prelude.NFData CreateResource where
   rnf CreateResource' {..} =
-    Prelude.rnf organizationId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf organizationId `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf type'
 
 instance Data.ToHeaders CreateResource where
   toHeaders =
@@ -206,5 +206,5 @@ createResourceResponse_httpStatus = Lens.lens (\CreateResourceResponse' {httpSta
 
 instance Prelude.NFData CreateResourceResponse where
   rnf CreateResourceResponse' {..} =
-    Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf resourceId `Prelude.seq`
+      Prelude.rnf httpStatus

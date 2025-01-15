@@ -126,10 +126,10 @@ instance
     TimeSeriesReplacementsDataSource
   where
   rnf TimeSeriesReplacementsDataSource' {..} =
-    Prelude.rnf format
-      `Prelude.seq` Prelude.rnf timestampFormat
-      `Prelude.seq` Prelude.rnf s3Config
-      `Prelude.seq` Prelude.rnf schema
+    Prelude.rnf format `Prelude.seq`
+      Prelude.rnf timestampFormat `Prelude.seq`
+        Prelude.rnf s3Config `Prelude.seq`
+          Prelude.rnf schema
 
 instance Data.ToJSON TimeSeriesReplacementsDataSource where
   toJSON TimeSeriesReplacementsDataSource' {..} =

@@ -130,8 +130,8 @@ instance
     UpdateNumberOfDomainControllers
   where
   rnf UpdateNumberOfDomainControllers' {..} =
-    Prelude.rnf directoryId
-      `Prelude.seq` Prelude.rnf desiredNumber
+    Prelude.rnf directoryId `Prelude.seq`
+      Prelude.rnf desiredNumber
 
 instance
   Data.ToHeaders

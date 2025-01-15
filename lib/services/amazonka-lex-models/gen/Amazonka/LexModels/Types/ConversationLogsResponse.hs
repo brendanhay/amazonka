@@ -88,5 +88,5 @@ instance Prelude.Hashable ConversationLogsResponse where
 
 instance Prelude.NFData ConversationLogsResponse where
   rnf ConversationLogsResponse' {..} =
-    Prelude.rnf iamRoleArn
-      `Prelude.seq` Prelude.rnf logSettings
+    Prelude.rnf iamRoleArn `Prelude.seq`
+      Prelude.rnf logSettings

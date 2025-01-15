@@ -94,9 +94,9 @@ instance Prelude.Hashable StorageConnector where
 
 instance Prelude.NFData StorageConnector where
   rnf StorageConnector' {..} =
-    Prelude.rnf domains
-      `Prelude.seq` Prelude.rnf resourceIdentifier
-      `Prelude.seq` Prelude.rnf connectorType
+    Prelude.rnf domains `Prelude.seq`
+      Prelude.rnf resourceIdentifier `Prelude.seq`
+        Prelude.rnf connectorType
 
 instance Data.ToJSON StorageConnector where
   toJSON StorageConnector' {..} =

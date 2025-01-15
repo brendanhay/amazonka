@@ -526,20 +526,20 @@ instance Prelude.Hashable CmfcSettings where
 
 instance Prelude.NFData CmfcSettings where
   rnf CmfcSettings' {..} =
-    Prelude.rnf audioDuration
-      `Prelude.seq` Prelude.rnf audioGroupId
-      `Prelude.seq` Prelude.rnf audioRenditionSets
-      `Prelude.seq` Prelude.rnf audioTrackType
-      `Prelude.seq` Prelude.rnf descriptiveVideoServiceFlag
-      `Prelude.seq` Prelude.rnf iFrameOnlyManifest
-      `Prelude.seq` Prelude.rnf klvMetadata
-      `Prelude.seq` Prelude.rnf manifestMetadataSignaling
-      `Prelude.seq` Prelude.rnf scte35Esam
-      `Prelude.seq` Prelude.rnf scte35Source
-      `Prelude.seq` Prelude.rnf timedMetadata
-      `Prelude.seq` Prelude.rnf timedMetadataBoxVersion
-      `Prelude.seq` Prelude.rnf timedMetadataSchemeIdUri
-      `Prelude.seq` Prelude.rnf timedMetadataValue
+    Prelude.rnf audioDuration `Prelude.seq`
+      Prelude.rnf audioGroupId `Prelude.seq`
+        Prelude.rnf audioRenditionSets `Prelude.seq`
+          Prelude.rnf audioTrackType `Prelude.seq`
+            Prelude.rnf descriptiveVideoServiceFlag `Prelude.seq`
+              Prelude.rnf iFrameOnlyManifest `Prelude.seq`
+                Prelude.rnf klvMetadata `Prelude.seq`
+                  Prelude.rnf manifestMetadataSignaling `Prelude.seq`
+                    Prelude.rnf scte35Esam `Prelude.seq`
+                      Prelude.rnf scte35Source `Prelude.seq`
+                        Prelude.rnf timedMetadata `Prelude.seq`
+                          Prelude.rnf timedMetadataBoxVersion `Prelude.seq`
+                            Prelude.rnf timedMetadataSchemeIdUri `Prelude.seq`
+                              Prelude.rnf timedMetadataValue
 
 instance Data.ToJSON CmfcSettings where
   toJSON CmfcSettings' {..} =

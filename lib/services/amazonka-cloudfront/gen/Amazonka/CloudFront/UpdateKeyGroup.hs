@@ -138,9 +138,9 @@ instance Prelude.Hashable UpdateKeyGroup where
 
 instance Prelude.NFData UpdateKeyGroup where
   rnf UpdateKeyGroup' {..} =
-    Prelude.rnf ifMatch
-      `Prelude.seq` Prelude.rnf keyGroupConfig
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf ifMatch `Prelude.seq`
+      Prelude.rnf keyGroupConfig `Prelude.seq`
+        Prelude.rnf id
 
 instance Data.ToElement UpdateKeyGroup where
   toElement UpdateKeyGroup' {..} =
@@ -209,6 +209,6 @@ updateKeyGroupResponse_httpStatus = Lens.lens (\UpdateKeyGroupResponse' {httpSta
 
 instance Prelude.NFData UpdateKeyGroupResponse where
   rnf UpdateKeyGroupResponse' {..} =
-    Prelude.rnf eTag
-      `Prelude.seq` Prelude.rnf keyGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf eTag `Prelude.seq`
+      Prelude.rnf keyGroup `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -120,8 +120,8 @@ instance
     VerifiedAccessLogS3Destination
   where
   rnf VerifiedAccessLogS3Destination' {..} =
-    Prelude.rnf bucketName
-      `Prelude.seq` Prelude.rnf bucketOwner
-      `Prelude.seq` Prelude.rnf deliveryStatus
-      `Prelude.seq` Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf prefix
+    Prelude.rnf bucketName `Prelude.seq`
+      Prelude.rnf bucketOwner `Prelude.seq`
+        Prelude.rnf deliveryStatus `Prelude.seq`
+          Prelude.rnf enabled `Prelude.seq`
+            Prelude.rnf prefix

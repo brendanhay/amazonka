@@ -156,12 +156,12 @@ instance Prelude.Hashable LocationAction where
 
 instance Prelude.NFData LocationAction where
   rnf LocationAction' {..} =
-    Prelude.rnf timestamp
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf trackerName
-      `Prelude.seq` Prelude.rnf deviceId
-      `Prelude.seq` Prelude.rnf latitude
-      `Prelude.seq` Prelude.rnf longitude
+    Prelude.rnf timestamp `Prelude.seq`
+      Prelude.rnf roleArn `Prelude.seq`
+        Prelude.rnf trackerName `Prelude.seq`
+          Prelude.rnf deviceId `Prelude.seq`
+            Prelude.rnf latitude `Prelude.seq`
+              Prelude.rnf longitude
 
 instance Data.ToJSON LocationAction where
   toJSON LocationAction' {..} =

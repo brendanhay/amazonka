@@ -126,9 +126,9 @@ instance Prelude.Hashable DescribeConnectClientAddIns where
 
 instance Prelude.NFData DescribeConnectClientAddIns where
   rnf DescribeConnectClientAddIns' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf resourceId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf resourceId
 
 instance Data.ToHeaders DescribeConnectClientAddIns where
   toHeaders =
@@ -217,6 +217,6 @@ instance
     DescribeConnectClientAddInsResponse
   where
   rnf DescribeConnectClientAddInsResponse' {..} =
-    Prelude.rnf addIns
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf addIns `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

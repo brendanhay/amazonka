@@ -158,9 +158,9 @@ instance Prelude.Hashable QualificationRequest where
 
 instance Prelude.NFData QualificationRequest where
   rnf QualificationRequest' {..} =
-    Prelude.rnf answer
-      `Prelude.seq` Prelude.rnf qualificationRequestId
-      `Prelude.seq` Prelude.rnf qualificationTypeId
-      `Prelude.seq` Prelude.rnf submitTime
-      `Prelude.seq` Prelude.rnf test
-      `Prelude.seq` Prelude.rnf workerId
+    Prelude.rnf answer `Prelude.seq`
+      Prelude.rnf qualificationRequestId `Prelude.seq`
+        Prelude.rnf qualificationTypeId `Prelude.seq`
+          Prelude.rnf submitTime `Prelude.seq`
+            Prelude.rnf test `Prelude.seq`
+              Prelude.rnf workerId

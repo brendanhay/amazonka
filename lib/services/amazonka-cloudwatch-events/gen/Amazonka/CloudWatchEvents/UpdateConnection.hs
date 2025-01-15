@@ -138,10 +138,10 @@ instance Prelude.Hashable UpdateConnection where
 
 instance Prelude.NFData UpdateConnection where
   rnf UpdateConnection' {..} =
-    Prelude.rnf authParameters
-      `Prelude.seq` Prelude.rnf authorizationType
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf authParameters `Prelude.seq`
+      Prelude.rnf authorizationType `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf name
 
 instance Data.ToHeaders UpdateConnection where
   toHeaders =
@@ -252,9 +252,9 @@ updateConnectionResponse_httpStatus = Lens.lens (\UpdateConnectionResponse' {htt
 
 instance Prelude.NFData UpdateConnectionResponse where
   rnf UpdateConnectionResponse' {..} =
-    Prelude.rnf connectionArn
-      `Prelude.seq` Prelude.rnf connectionState
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf lastAuthorizedTime
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf connectionArn `Prelude.seq`
+      Prelude.rnf connectionState `Prelude.seq`
+        Prelude.rnf creationTime `Prelude.seq`
+          Prelude.rnf lastAuthorizedTime `Prelude.seq`
+            Prelude.rnf lastModifiedTime `Prelude.seq`
+              Prelude.rnf httpStatus

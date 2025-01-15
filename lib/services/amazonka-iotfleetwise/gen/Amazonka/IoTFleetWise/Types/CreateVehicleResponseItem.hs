@@ -91,6 +91,6 @@ instance Prelude.Hashable CreateVehicleResponseItem where
 
 instance Prelude.NFData CreateVehicleResponseItem where
   rnf CreateVehicleResponseItem' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf thingArn
-      `Prelude.seq` Prelude.rnf vehicleName
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf thingArn `Prelude.seq`
+        Prelude.rnf vehicleName

@@ -134,7 +134,7 @@ instance Prelude.Hashable TimerStartedEventAttributes where
 
 instance Prelude.NFData TimerStartedEventAttributes where
   rnf TimerStartedEventAttributes' {..} =
-    Prelude.rnf control
-      `Prelude.seq` Prelude.rnf timerId
-      `Prelude.seq` Prelude.rnf startToFireTimeout
-      `Prelude.seq` Prelude.rnf decisionTaskCompletedEventId
+    Prelude.rnf control `Prelude.seq`
+      Prelude.rnf timerId `Prelude.seq`
+        Prelude.rnf startToFireTimeout `Prelude.seq`
+          Prelude.rnf decisionTaskCompletedEventId

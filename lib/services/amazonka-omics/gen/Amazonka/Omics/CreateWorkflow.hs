@@ -210,16 +210,16 @@ instance Prelude.Hashable CreateWorkflow where
 
 instance Prelude.NFData CreateWorkflow where
   rnf CreateWorkflow' {..} =
-    Prelude.rnf definitionUri
-      `Prelude.seq` Prelude.rnf definitionZip
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf engine
-      `Prelude.seq` Prelude.rnf main
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf parameterTemplate
-      `Prelude.seq` Prelude.rnf storageCapacity
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf requestId
+    Prelude.rnf definitionUri `Prelude.seq`
+      Prelude.rnf definitionZip `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf engine `Prelude.seq`
+            Prelude.rnf main `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf parameterTemplate `Prelude.seq`
+                  Prelude.rnf storageCapacity `Prelude.seq`
+                    Prelude.rnf tags `Prelude.seq`
+                      Prelude.rnf requestId
 
 instance Data.ToHeaders CreateWorkflow where
   toHeaders =
@@ -324,8 +324,8 @@ createWorkflowResponse_httpStatus = Lens.lens (\CreateWorkflowResponse' {httpSta
 
 instance Prelude.NFData CreateWorkflowResponse where
   rnf CreateWorkflowResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf status `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf httpStatus

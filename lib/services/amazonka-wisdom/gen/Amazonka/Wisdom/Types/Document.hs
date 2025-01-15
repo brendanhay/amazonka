@@ -95,6 +95,6 @@ instance Prelude.Hashable Document where
 
 instance Prelude.NFData Document where
   rnf Document' {..} =
-    Prelude.rnf excerpt
-      `Prelude.seq` Prelude.rnf title
-      `Prelude.seq` Prelude.rnf contentReference
+    Prelude.rnf excerpt `Prelude.seq`
+      Prelude.rnf title `Prelude.seq`
+        Prelude.rnf contentReference

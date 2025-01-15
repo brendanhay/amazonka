@@ -131,9 +131,9 @@ instance Prelude.Hashable UpdateThingGroup where
 
 instance Prelude.NFData UpdateThingGroup where
   rnf UpdateThingGroup' {..} =
-    Prelude.rnf expectedVersion
-      `Prelude.seq` Prelude.rnf thingGroupName
-      `Prelude.seq` Prelude.rnf thingGroupProperties
+    Prelude.rnf expectedVersion `Prelude.seq`
+      Prelude.rnf thingGroupName `Prelude.seq`
+        Prelude.rnf thingGroupProperties
 
 instance Data.ToHeaders UpdateThingGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -200,5 +200,5 @@ updateThingGroupResponse_httpStatus = Lens.lens (\UpdateThingGroupResponse' {htt
 
 instance Prelude.NFData UpdateThingGroupResponse where
   rnf UpdateThingGroupResponse' {..} =
-    Prelude.rnf version
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf version `Prelude.seq`
+      Prelude.rnf httpStatus

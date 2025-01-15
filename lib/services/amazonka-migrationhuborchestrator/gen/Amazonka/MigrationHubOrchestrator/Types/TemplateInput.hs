@@ -92,6 +92,6 @@ instance Prelude.Hashable TemplateInput where
 
 instance Prelude.NFData TemplateInput where
   rnf TemplateInput' {..} =
-    Prelude.rnf dataType
-      `Prelude.seq` Prelude.rnf inputName
-      `Prelude.seq` Prelude.rnf required
+    Prelude.rnf dataType `Prelude.seq`
+      Prelude.rnf inputName `Prelude.seq`
+        Prelude.rnf required

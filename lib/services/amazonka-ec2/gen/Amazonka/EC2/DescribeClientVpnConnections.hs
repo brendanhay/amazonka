@@ -167,12 +167,12 @@ instance Core.AWSPager DescribeClientVpnConnections where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeClientVpnConnections_nextToken
-          Lens..~ rs
-          Lens.^? describeClientVpnConnectionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeClientVpnConnections_nextToken
+              Lens..~ rs
+              Lens.^? describeClientVpnConnectionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeClientVpnConnections where
   type
@@ -184,9 +184,7 @@ instance Core.AWSRequest DescribeClientVpnConnections where
     Response.receiveXML
       ( \s h x ->
           DescribeClientVpnConnectionsResponse'
-            Prelude.<$> ( x
-                            Data..@? "connections"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "connections" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (x Data..@? "nextToken")
@@ -207,11 +205,11 @@ instance
 
 instance Prelude.NFData DescribeClientVpnConnections where
   rnf DescribeClientVpnConnections' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf clientVpnEndpointId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf clientVpnEndpointId
 
 instance Data.ToHeaders DescribeClientVpnConnections where
   toHeaders = Prelude.const Prelude.mempty
@@ -292,6 +290,6 @@ instance
     DescribeClientVpnConnectionsResponse
   where
   rnf DescribeClientVpnConnectionsResponse' {..} =
-    Prelude.rnf connections
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf connections `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

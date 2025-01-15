@@ -109,8 +109,8 @@ instance Prelude.Hashable StopAutomationExecution where
 
 instance Prelude.NFData StopAutomationExecution where
   rnf StopAutomationExecution' {..} =
-    Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf automationExecutionId
+    Prelude.rnf type' `Prelude.seq`
+      Prelude.rnf automationExecutionId
 
 instance Data.ToHeaders StopAutomationExecution where
   toHeaders =

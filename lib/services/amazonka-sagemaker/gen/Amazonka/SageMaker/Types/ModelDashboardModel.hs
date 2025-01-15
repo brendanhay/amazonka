@@ -120,8 +120,8 @@ instance Prelude.Hashable ModelDashboardModel where
 
 instance Prelude.NFData ModelDashboardModel where
   rnf ModelDashboardModel' {..} =
-    Prelude.rnf endpoints
-      `Prelude.seq` Prelude.rnf lastBatchTransformJob
-      `Prelude.seq` Prelude.rnf model
-      `Prelude.seq` Prelude.rnf modelCard
-      `Prelude.seq` Prelude.rnf monitoringSchedules
+    Prelude.rnf endpoints `Prelude.seq`
+      Prelude.rnf lastBatchTransformJob `Prelude.seq`
+        Prelude.rnf model `Prelude.seq`
+          Prelude.rnf modelCard `Prelude.seq`
+            Prelude.rnf monitoringSchedules

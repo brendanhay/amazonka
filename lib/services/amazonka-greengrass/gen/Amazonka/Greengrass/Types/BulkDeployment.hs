@@ -94,6 +94,6 @@ instance Prelude.Hashable BulkDeployment where
 
 instance Prelude.NFData BulkDeployment where
   rnf BulkDeployment' {..} =
-    Prelude.rnf bulkDeploymentArn
-      `Prelude.seq` Prelude.rnf bulkDeploymentId
-      `Prelude.seq` Prelude.rnf createdAt
+    Prelude.rnf bulkDeploymentArn `Prelude.seq`
+      Prelude.rnf bulkDeploymentId `Prelude.seq`
+        Prelude.rnf createdAt

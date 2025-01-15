@@ -137,9 +137,9 @@ instance Prelude.Hashable DescribedWorkflow where
 
 instance Prelude.NFData DescribedWorkflow where
   rnf DescribedWorkflow' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf onExceptionSteps
-      `Prelude.seq` Prelude.rnf steps
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf workflowId
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf onExceptionSteps `Prelude.seq`
+        Prelude.rnf steps `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf workflowId `Prelude.seq`
+              Prelude.rnf arn

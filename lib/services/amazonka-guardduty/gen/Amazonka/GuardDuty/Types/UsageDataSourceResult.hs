@@ -83,5 +83,5 @@ instance Prelude.Hashable UsageDataSourceResult where
 
 instance Prelude.NFData UsageDataSourceResult where
   rnf UsageDataSourceResult' {..} =
-    Prelude.rnf dataSource
-      `Prelude.seq` Prelude.rnf total
+    Prelude.rnf dataSource `Prelude.seq`
+      Prelude.rnf total

@@ -102,10 +102,10 @@ instance
     InstanceEventWindowTimeRangeRequest
   where
   rnf InstanceEventWindowTimeRangeRequest' {..} =
-    Prelude.rnf endHour
-      `Prelude.seq` Prelude.rnf endWeekDay
-      `Prelude.seq` Prelude.rnf startHour
-      `Prelude.seq` Prelude.rnf startWeekDay
+    Prelude.rnf endHour `Prelude.seq`
+      Prelude.rnf endWeekDay `Prelude.seq`
+        Prelude.rnf startHour `Prelude.seq`
+          Prelude.rnf startWeekDay
 
 instance
   Data.ToQuery

@@ -110,8 +110,8 @@ instance Prelude.Hashable DeletePolicyVersion where
 
 instance Prelude.NFData DeletePolicyVersion where
   rnf DeletePolicyVersion' {..} =
-    Prelude.rnf policyName
-      `Prelude.seq` Prelude.rnf policyVersionId
+    Prelude.rnf policyName `Prelude.seq`
+      Prelude.rnf policyVersionId
 
 instance Data.ToHeaders DeletePolicyVersion where
   toHeaders = Prelude.const Prelude.mempty

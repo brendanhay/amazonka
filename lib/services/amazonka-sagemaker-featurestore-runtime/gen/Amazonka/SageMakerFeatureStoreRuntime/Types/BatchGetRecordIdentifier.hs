@@ -104,9 +104,9 @@ instance Prelude.Hashable BatchGetRecordIdentifier where
 
 instance Prelude.NFData BatchGetRecordIdentifier where
   rnf BatchGetRecordIdentifier' {..} =
-    Prelude.rnf featureNames
-      `Prelude.seq` Prelude.rnf featureGroupName
-      `Prelude.seq` Prelude.rnf recordIdentifiersValueAsString
+    Prelude.rnf featureNames `Prelude.seq`
+      Prelude.rnf featureGroupName `Prelude.seq`
+        Prelude.rnf recordIdentifiersValueAsString
 
 instance Data.ToJSON BatchGetRecordIdentifier where
   toJSON BatchGetRecordIdentifier' {..} =

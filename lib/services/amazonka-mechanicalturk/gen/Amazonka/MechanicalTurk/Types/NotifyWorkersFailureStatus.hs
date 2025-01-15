@@ -94,6 +94,6 @@ instance Prelude.Hashable NotifyWorkersFailureStatus where
 
 instance Prelude.NFData NotifyWorkersFailureStatus where
   rnf NotifyWorkersFailureStatus' {..} =
-    Prelude.rnf notifyWorkersFailureCode
-      `Prelude.seq` Prelude.rnf notifyWorkersFailureMessage
-      `Prelude.seq` Prelude.rnf workerId
+    Prelude.rnf notifyWorkersFailureCode `Prelude.seq`
+      Prelude.rnf notifyWorkersFailureMessage `Prelude.seq`
+        Prelude.rnf workerId

@@ -109,8 +109,8 @@ instance Prelude.Hashable DeleteLink where
 
 instance Prelude.NFData DeleteLink where
   rnf DeleteLink' {..} =
-    Prelude.rnf globalNetworkId
-      `Prelude.seq` Prelude.rnf linkId
+    Prelude.rnf globalNetworkId `Prelude.seq`
+      Prelude.rnf linkId
 
 instance Data.ToHeaders DeleteLink where
   toHeaders =
@@ -175,5 +175,5 @@ deleteLinkResponse_httpStatus = Lens.lens (\DeleteLinkResponse' {httpStatus} -> 
 
 instance Prelude.NFData DeleteLinkResponse where
   rnf DeleteLinkResponse' {..} =
-    Prelude.rnf link
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf link `Prelude.seq`
+      Prelude.rnf httpStatus

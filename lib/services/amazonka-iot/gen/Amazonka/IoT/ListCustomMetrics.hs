@@ -106,12 +106,12 @@ instance Core.AWSPager ListCustomMetrics where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listCustomMetrics_nextToken
-          Lens..~ rs
-          Lens.^? listCustomMetricsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listCustomMetrics_nextToken
+              Lens..~ rs
+              Lens.^? listCustomMetricsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListCustomMetrics where
   type
@@ -136,8 +136,8 @@ instance Prelude.Hashable ListCustomMetrics where
 
 instance Prelude.NFData ListCustomMetrics where
   rnf ListCustomMetrics' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListCustomMetrics where
   toHeaders = Prelude.const Prelude.mempty
@@ -205,6 +205,6 @@ listCustomMetricsResponse_httpStatus = Lens.lens (\ListCustomMetricsResponse' {h
 
 instance Prelude.NFData ListCustomMetricsResponse where
   rnf ListCustomMetricsResponse' {..} =
-    Prelude.rnf metricNames
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf metricNames `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

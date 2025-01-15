@@ -114,8 +114,8 @@ instance Prelude.Hashable DisassociateVehicleFleet where
 
 instance Prelude.NFData DisassociateVehicleFleet where
   rnf DisassociateVehicleFleet' {..} =
-    Prelude.rnf vehicleName
-      `Prelude.seq` Prelude.rnf fleetId
+    Prelude.rnf vehicleName `Prelude.seq`
+      Prelude.rnf fleetId
 
 instance Data.ToHeaders DisassociateVehicleFleet where
   toHeaders =

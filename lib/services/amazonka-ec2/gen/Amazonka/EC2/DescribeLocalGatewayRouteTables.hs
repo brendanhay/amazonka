@@ -199,12 +199,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeLocalGatewayRouteTables_nextToken
-          Lens..~ rs
-          Lens.^? describeLocalGatewayRouteTablesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeLocalGatewayRouteTables_nextToken
+              Lens..~ rs
+              Lens.^? describeLocalGatewayRouteTablesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -247,11 +247,11 @@ instance
     DescribeLocalGatewayRouteTables
   where
   rnf DescribeLocalGatewayRouteTables' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf localGatewayRouteTableIds
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf localGatewayRouteTableIds `Prelude.seq`
+          Prelude.rnf maxResults `Prelude.seq`
+            Prelude.rnf nextToken
 
 instance
   Data.ToHeaders
@@ -339,6 +339,6 @@ instance
     DescribeLocalGatewayRouteTablesResponse
   where
   rnf DescribeLocalGatewayRouteTablesResponse' {..} =
-    Prelude.rnf localGatewayRouteTables
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf localGatewayRouteTables `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

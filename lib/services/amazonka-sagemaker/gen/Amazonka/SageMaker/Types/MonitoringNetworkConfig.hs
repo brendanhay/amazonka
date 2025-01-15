@@ -104,9 +104,9 @@ instance Prelude.Hashable MonitoringNetworkConfig where
 
 instance Prelude.NFData MonitoringNetworkConfig where
   rnf MonitoringNetworkConfig' {..} =
-    Prelude.rnf enableInterContainerTrafficEncryption
-      `Prelude.seq` Prelude.rnf enableNetworkIsolation
-      `Prelude.seq` Prelude.rnf vpcConfig
+    Prelude.rnf enableInterContainerTrafficEncryption `Prelude.seq`
+      Prelude.rnf enableNetworkIsolation `Prelude.seq`
+        Prelude.rnf vpcConfig
 
 instance Data.ToJSON MonitoringNetworkConfig where
   toJSON MonitoringNetworkConfig' {..} =

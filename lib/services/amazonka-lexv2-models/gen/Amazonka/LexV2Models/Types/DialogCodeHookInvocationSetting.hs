@@ -136,10 +136,10 @@ instance
     DialogCodeHookInvocationSetting
   where
   rnf DialogCodeHookInvocationSetting' {..} =
-    Prelude.rnf invocationLabel
-      `Prelude.seq` Prelude.rnf enableCodeHookInvocation
-      `Prelude.seq` Prelude.rnf active
-      `Prelude.seq` Prelude.rnf postCodeHookSpecification
+    Prelude.rnf invocationLabel `Prelude.seq`
+      Prelude.rnf enableCodeHookInvocation `Prelude.seq`
+        Prelude.rnf active `Prelude.seq`
+          Prelude.rnf postCodeHookSpecification
 
 instance Data.ToJSON DialogCodeHookInvocationSetting where
   toJSON DialogCodeHookInvocationSetting' {..} =

@@ -322,21 +322,21 @@ instance Prelude.Hashable DataSource where
 
 instance Prelude.NFData DataSource where
   rnf DataSource' {..} =
-    Prelude.rnf computeStatistics
-      `Prelude.seq` Prelude.rnf computeTime
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf createdByIamUser
-      `Prelude.seq` Prelude.rnf dataLocationS3
-      `Prelude.seq` Prelude.rnf dataRearrangement
-      `Prelude.seq` Prelude.rnf dataSizeInBytes
-      `Prelude.seq` Prelude.rnf dataSourceId
-      `Prelude.seq` Prelude.rnf finishedAt
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf numberOfFiles
-      `Prelude.seq` Prelude.rnf rDSMetadata
-      `Prelude.seq` Prelude.rnf redshiftMetadata
-      `Prelude.seq` Prelude.rnf roleARN
-      `Prelude.seq` Prelude.rnf startedAt
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf computeStatistics `Prelude.seq`
+      Prelude.rnf computeTime `Prelude.seq`
+        Prelude.rnf createdAt `Prelude.seq`
+          Prelude.rnf createdByIamUser `Prelude.seq`
+            Prelude.rnf dataLocationS3 `Prelude.seq`
+              Prelude.rnf dataRearrangement `Prelude.seq`
+                Prelude.rnf dataSizeInBytes `Prelude.seq`
+                  Prelude.rnf dataSourceId `Prelude.seq`
+                    Prelude.rnf finishedAt `Prelude.seq`
+                      Prelude.rnf lastUpdatedAt `Prelude.seq`
+                        Prelude.rnf message `Prelude.seq`
+                          Prelude.rnf name `Prelude.seq`
+                            Prelude.rnf numberOfFiles `Prelude.seq`
+                              Prelude.rnf rDSMetadata `Prelude.seq`
+                                Prelude.rnf redshiftMetadata `Prelude.seq`
+                                  Prelude.rnf roleARN `Prelude.seq`
+                                    Prelude.rnf startedAt `Prelude.seq`
+                                      Prelude.rnf status

@@ -91,6 +91,6 @@ instance Prelude.Hashable S3LocationDescription where
 
 instance Prelude.NFData S3LocationDescription where
   rnf S3LocationDescription' {..} =
-    Prelude.rnf bucketArn
-      `Prelude.seq` Prelude.rnf fileKey
-      `Prelude.seq` Prelude.rnf objectVersion
+    Prelude.rnf bucketArn `Prelude.seq`
+      Prelude.rnf fileKey `Prelude.seq`
+        Prelude.rnf objectVersion

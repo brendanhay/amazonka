@@ -119,8 +119,8 @@ instance
     ConfluenceAttachmentConfiguration
   where
   rnf ConfluenceAttachmentConfiguration' {..} =
-    Prelude.rnf attachmentFieldMappings
-      `Prelude.seq` Prelude.rnf crawlAttachments
+    Prelude.rnf attachmentFieldMappings `Prelude.seq`
+      Prelude.rnf crawlAttachments
 
 instance
   Data.ToJSON

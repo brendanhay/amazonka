@@ -157,10 +157,10 @@ instance Prelude.Hashable ComparedFace where
 
 instance Prelude.NFData ComparedFace where
   rnf ComparedFace' {..} =
-    Prelude.rnf boundingBox
-      `Prelude.seq` Prelude.rnf confidence
-      `Prelude.seq` Prelude.rnf emotions
-      `Prelude.seq` Prelude.rnf landmarks
-      `Prelude.seq` Prelude.rnf pose
-      `Prelude.seq` Prelude.rnf quality
-      `Prelude.seq` Prelude.rnf smile
+    Prelude.rnf boundingBox `Prelude.seq`
+      Prelude.rnf confidence `Prelude.seq`
+        Prelude.rnf emotions `Prelude.seq`
+          Prelude.rnf landmarks `Prelude.seq`
+            Prelude.rnf pose `Prelude.seq`
+              Prelude.rnf quality `Prelude.seq`
+                Prelude.rnf smile

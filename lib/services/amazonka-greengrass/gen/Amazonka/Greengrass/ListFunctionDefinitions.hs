@@ -106,12 +106,12 @@ instance Core.AWSPager ListFunctionDefinitions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listFunctionDefinitions_nextToken
-          Lens..~ rs
-          Lens.^? listFunctionDefinitionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listFunctionDefinitions_nextToken
+              Lens..~ rs
+              Lens.^? listFunctionDefinitionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListFunctionDefinitions where
   type
@@ -136,8 +136,8 @@ instance Prelude.Hashable ListFunctionDefinitions where
 
 instance Prelude.NFData ListFunctionDefinitions where
   rnf ListFunctionDefinitions' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListFunctionDefinitions where
   toHeaders =
@@ -217,6 +217,6 @@ instance
     ListFunctionDefinitionsResponse
   where
   rnf ListFunctionDefinitionsResponse' {..} =
-    Prelude.rnf definitions
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf definitions `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

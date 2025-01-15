@@ -158,9 +158,9 @@ instance Prelude.Hashable InstanceMetadataOptions where
 
 instance Prelude.NFData InstanceMetadataOptions where
   rnf InstanceMetadataOptions' {..} =
-    Prelude.rnf httpEndpoint
-      `Prelude.seq` Prelude.rnf httpPutResponseHopLimit
-      `Prelude.seq` Prelude.rnf httpTokens
+    Prelude.rnf httpEndpoint `Prelude.seq`
+      Prelude.rnf httpPutResponseHopLimit `Prelude.seq`
+        Prelude.rnf httpTokens
 
 instance Data.ToQuery InstanceMetadataOptions where
   toQuery InstanceMetadataOptions' {..} =

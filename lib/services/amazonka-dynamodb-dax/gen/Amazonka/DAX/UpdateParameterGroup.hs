@@ -126,8 +126,8 @@ instance Prelude.Hashable UpdateParameterGroup where
 
 instance Prelude.NFData UpdateParameterGroup where
   rnf UpdateParameterGroup' {..} =
-    Prelude.rnf parameterGroupName
-      `Prelude.seq` Prelude.rnf parameterNameValues
+    Prelude.rnf parameterGroupName `Prelude.seq`
+      Prelude.rnf parameterNameValues
 
 instance Data.ToHeaders UpdateParameterGroup where
   toHeaders =
@@ -202,5 +202,5 @@ updateParameterGroupResponse_httpStatus = Lens.lens (\UpdateParameterGroupRespon
 
 instance Prelude.NFData UpdateParameterGroupResponse where
   rnf UpdateParameterGroupResponse' {..} =
-    Prelude.rnf parameterGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf parameterGroup `Prelude.seq`
+      Prelude.rnf httpStatus

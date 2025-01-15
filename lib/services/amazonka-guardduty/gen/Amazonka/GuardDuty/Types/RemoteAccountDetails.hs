@@ -90,5 +90,5 @@ instance Prelude.Hashable RemoteAccountDetails where
 
 instance Prelude.NFData RemoteAccountDetails where
   rnf RemoteAccountDetails' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf affiliated
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf affiliated

@@ -82,5 +82,5 @@ instance Prelude.Hashable Serverless where
 
 instance Prelude.NFData Serverless where
   rnf Serverless' {..} =
-    Prelude.rnf clientAuthentication
-      `Prelude.seq` Prelude.rnf vpcConfigs
+    Prelude.rnf clientAuthentication `Prelude.seq`
+      Prelude.rnf vpcConfigs

@@ -84,5 +84,5 @@ instance Prelude.Hashable PartitionError where
 
 instance Prelude.NFData PartitionError where
   rnf PartitionError' {..} =
-    Prelude.rnf errorDetail
-      `Prelude.seq` Prelude.rnf partitionValues
+    Prelude.rnf errorDetail `Prelude.seq`
+      Prelude.rnf partitionValues

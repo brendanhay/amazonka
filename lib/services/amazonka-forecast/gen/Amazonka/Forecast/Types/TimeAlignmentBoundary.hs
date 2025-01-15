@@ -120,10 +120,10 @@ instance Prelude.Hashable TimeAlignmentBoundary where
 
 instance Prelude.NFData TimeAlignmentBoundary where
   rnf TimeAlignmentBoundary' {..} =
-    Prelude.rnf dayOfMonth
-      `Prelude.seq` Prelude.rnf dayOfWeek
-      `Prelude.seq` Prelude.rnf hour
-      `Prelude.seq` Prelude.rnf month
+    Prelude.rnf dayOfMonth `Prelude.seq`
+      Prelude.rnf dayOfWeek `Prelude.seq`
+        Prelude.rnf hour `Prelude.seq`
+          Prelude.rnf month
 
 instance Data.ToJSON TimeAlignmentBoundary where
   toJSON TimeAlignmentBoundary' {..} =

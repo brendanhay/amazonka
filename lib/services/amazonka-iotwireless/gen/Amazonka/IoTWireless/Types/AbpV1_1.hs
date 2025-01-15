@@ -92,9 +92,9 @@ instance Prelude.Hashable AbpV1_1 where
 
 instance Prelude.NFData AbpV1_1 where
   rnf AbpV1_1' {..} =
-    Prelude.rnf devAddr
-      `Prelude.seq` Prelude.rnf fCntStart
-      `Prelude.seq` Prelude.rnf sessionKeys
+    Prelude.rnf devAddr `Prelude.seq`
+      Prelude.rnf fCntStart `Prelude.seq`
+        Prelude.rnf sessionKeys
 
 instance Data.ToJSON AbpV1_1 where
   toJSON AbpV1_1' {..} =

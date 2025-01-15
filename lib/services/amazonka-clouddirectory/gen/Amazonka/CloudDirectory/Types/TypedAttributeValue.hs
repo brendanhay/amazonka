@@ -123,11 +123,11 @@ instance Prelude.Hashable TypedAttributeValue where
 
 instance Prelude.NFData TypedAttributeValue where
   rnf TypedAttributeValue' {..} =
-    Prelude.rnf binaryValue
-      `Prelude.seq` Prelude.rnf booleanValue
-      `Prelude.seq` Prelude.rnf datetimeValue
-      `Prelude.seq` Prelude.rnf numberValue
-      `Prelude.seq` Prelude.rnf stringValue
+    Prelude.rnf binaryValue `Prelude.seq`
+      Prelude.rnf booleanValue `Prelude.seq`
+        Prelude.rnf datetimeValue `Prelude.seq`
+          Prelude.rnf numberValue `Prelude.seq`
+            Prelude.rnf stringValue
 
 instance Data.ToJSON TypedAttributeValue where
   toJSON TypedAttributeValue' {..} =

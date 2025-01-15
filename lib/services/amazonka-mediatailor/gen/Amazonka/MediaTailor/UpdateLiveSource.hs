@@ -142,9 +142,9 @@ instance Prelude.Hashable UpdateLiveSource where
 
 instance Prelude.NFData UpdateLiveSource where
   rnf UpdateLiveSource' {..} =
-    Prelude.rnf httpPackageConfigurations
-      `Prelude.seq` Prelude.rnf liveSourceName
-      `Prelude.seq` Prelude.rnf sourceLocationName
+    Prelude.rnf httpPackageConfigurations `Prelude.seq`
+      Prelude.rnf liveSourceName `Prelude.seq`
+        Prelude.rnf sourceLocationName
 
 instance Data.ToHeaders UpdateLiveSource where
   toHeaders =
@@ -286,11 +286,11 @@ updateLiveSourceResponse_httpStatus = Lens.lens (\UpdateLiveSourceResponse' {htt
 
 instance Prelude.NFData UpdateLiveSourceResponse where
   rnf UpdateLiveSourceResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf httpPackageConfigurations
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf liveSourceName
-      `Prelude.seq` Prelude.rnf sourceLocationName
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf httpPackageConfigurations `Prelude.seq`
+          Prelude.rnf lastModifiedTime `Prelude.seq`
+            Prelude.rnf liveSourceName `Prelude.seq`
+              Prelude.rnf sourceLocationName `Prelude.seq`
+                Prelude.rnf tags `Prelude.seq`
+                  Prelude.rnf httpStatus

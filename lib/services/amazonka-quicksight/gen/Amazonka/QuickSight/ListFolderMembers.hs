@@ -142,10 +142,10 @@ instance Prelude.Hashable ListFolderMembers where
 
 instance Prelude.NFData ListFolderMembers where
   rnf ListFolderMembers' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf folderId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf awsAccountId `Prelude.seq`
+          Prelude.rnf folderId
 
 instance Data.ToHeaders ListFolderMembers where
   toHeaders =
@@ -240,7 +240,7 @@ listFolderMembersResponse_status = Lens.lens (\ListFolderMembersResponse' {statu
 
 instance Prelude.NFData ListFolderMembersResponse where
   rnf ListFolderMembersResponse' {..} =
-    Prelude.rnf folderMemberList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf folderMemberList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf requestId `Prelude.seq`
+          Prelude.rnf status

@@ -110,8 +110,8 @@ instance Prelude.Hashable DashIsoEncryptionSettings where
 
 instance Prelude.NFData DashIsoEncryptionSettings where
   rnf DashIsoEncryptionSettings' {..} =
-    Prelude.rnf playbackDeviceCompatibility
-      `Prelude.seq` Prelude.rnf spekeKeyProvider
+    Prelude.rnf playbackDeviceCompatibility `Prelude.seq`
+      Prelude.rnf spekeKeyProvider
 
 instance Data.ToJSON DashIsoEncryptionSettings where
   toJSON DashIsoEncryptionSettings' {..} =

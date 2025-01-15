@@ -97,9 +97,9 @@ instance Prelude.Hashable BrokerEBSVolumeInfo where
 
 instance Prelude.NFData BrokerEBSVolumeInfo where
   rnf BrokerEBSVolumeInfo' {..} =
-    Prelude.rnf provisionedThroughput
-      `Prelude.seq` Prelude.rnf volumeSizeGB
-      `Prelude.seq` Prelude.rnf kafkaBrokerNodeId
+    Prelude.rnf provisionedThroughput `Prelude.seq`
+      Prelude.rnf volumeSizeGB `Prelude.seq`
+        Prelude.rnf kafkaBrokerNodeId
 
 instance Data.ToJSON BrokerEBSVolumeInfo where
   toJSON BrokerEBSVolumeInfo' {..} =

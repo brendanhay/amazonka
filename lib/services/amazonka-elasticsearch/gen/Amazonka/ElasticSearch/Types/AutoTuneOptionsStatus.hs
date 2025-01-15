@@ -86,5 +86,5 @@ instance Prelude.Hashable AutoTuneOptionsStatus where
 
 instance Prelude.NFData AutoTuneOptionsStatus where
   rnf AutoTuneOptionsStatus' {..} =
-    Prelude.rnf options
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf options `Prelude.seq`
+      Prelude.rnf status

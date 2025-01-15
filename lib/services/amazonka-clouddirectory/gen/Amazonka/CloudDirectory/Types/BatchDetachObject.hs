@@ -95,9 +95,9 @@ instance Prelude.Hashable BatchDetachObject where
 
 instance Prelude.NFData BatchDetachObject where
   rnf BatchDetachObject' {..} =
-    Prelude.rnf batchReferenceName
-      `Prelude.seq` Prelude.rnf parentReference
-      `Prelude.seq` Prelude.rnf linkName
+    Prelude.rnf batchReferenceName `Prelude.seq`
+      Prelude.rnf parentReference `Prelude.seq`
+        Prelude.rnf linkName
 
 instance Data.ToJSON BatchDetachObject where
   toJSON BatchDetachObject' {..} =

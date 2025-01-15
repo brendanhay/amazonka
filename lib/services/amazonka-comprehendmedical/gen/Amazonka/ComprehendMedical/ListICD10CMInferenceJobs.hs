@@ -132,9 +132,9 @@ instance Prelude.Hashable ListICD10CMInferenceJobs where
 
 instance Prelude.NFData ListICD10CMInferenceJobs where
   rnf ListICD10CMInferenceJobs' {..} =
-    Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filter' `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListICD10CMInferenceJobs where
   toHeaders =
@@ -220,6 +220,6 @@ instance
     ListICD10CMInferenceJobsResponse
   where
   rnf ListICD10CMInferenceJobsResponse' {..} =
-    Prelude.rnf comprehendMedicalAsyncJobPropertiesList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf comprehendMedicalAsyncJobPropertiesList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

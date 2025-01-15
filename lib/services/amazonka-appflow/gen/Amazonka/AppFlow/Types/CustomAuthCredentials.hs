@@ -74,8 +74,8 @@ instance Prelude.Hashable CustomAuthCredentials where
 
 instance Prelude.NFData CustomAuthCredentials where
   rnf CustomAuthCredentials' {..} =
-    Prelude.rnf credentialsMap
-      `Prelude.seq` Prelude.rnf customAuthenticationType
+    Prelude.rnf credentialsMap `Prelude.seq`
+      Prelude.rnf customAuthenticationType
 
 instance Data.ToJSON CustomAuthCredentials where
   toJSON CustomAuthCredentials' {..} =

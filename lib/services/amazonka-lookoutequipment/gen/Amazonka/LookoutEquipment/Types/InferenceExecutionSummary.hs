@@ -219,15 +219,15 @@ instance Prelude.Hashable InferenceExecutionSummary where
 
 instance Prelude.NFData InferenceExecutionSummary where
   rnf InferenceExecutionSummary' {..} =
-    Prelude.rnf customerResultObject
-      `Prelude.seq` Prelude.rnf dataEndTime
-      `Prelude.seq` Prelude.rnf dataInputConfiguration
-      `Prelude.seq` Prelude.rnf dataOutputConfiguration
-      `Prelude.seq` Prelude.rnf dataStartTime
-      `Prelude.seq` Prelude.rnf failedReason
-      `Prelude.seq` Prelude.rnf inferenceSchedulerArn
-      `Prelude.seq` Prelude.rnf inferenceSchedulerName
-      `Prelude.seq` Prelude.rnf modelArn
-      `Prelude.seq` Prelude.rnf modelName
-      `Prelude.seq` Prelude.rnf scheduledStartTime
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf customerResultObject `Prelude.seq`
+      Prelude.rnf dataEndTime `Prelude.seq`
+        Prelude.rnf dataInputConfiguration `Prelude.seq`
+          Prelude.rnf dataOutputConfiguration `Prelude.seq`
+            Prelude.rnf dataStartTime `Prelude.seq`
+              Prelude.rnf failedReason `Prelude.seq`
+                Prelude.rnf inferenceSchedulerArn `Prelude.seq`
+                  Prelude.rnf inferenceSchedulerName `Prelude.seq`
+                    Prelude.rnf modelArn `Prelude.seq`
+                      Prelude.rnf modelName `Prelude.seq`
+                        Prelude.rnf scheduledStartTime `Prelude.seq`
+                          Prelude.rnf status

@@ -182,14 +182,14 @@ instance Prelude.Hashable S3DestinationUpdate where
 
 instance Prelude.NFData S3DestinationUpdate where
   rnf S3DestinationUpdate' {..} =
-    Prelude.rnf bucketARN
-      `Prelude.seq` Prelude.rnf bufferingHints
-      `Prelude.seq` Prelude.rnf cloudWatchLoggingOptions
-      `Prelude.seq` Prelude.rnf compressionFormat
-      `Prelude.seq` Prelude.rnf encryptionConfiguration
-      `Prelude.seq` Prelude.rnf errorOutputPrefix
-      `Prelude.seq` Prelude.rnf prefix
-      `Prelude.seq` Prelude.rnf roleARN
+    Prelude.rnf bucketARN `Prelude.seq`
+      Prelude.rnf bufferingHints `Prelude.seq`
+        Prelude.rnf cloudWatchLoggingOptions `Prelude.seq`
+          Prelude.rnf compressionFormat `Prelude.seq`
+            Prelude.rnf encryptionConfiguration `Prelude.seq`
+              Prelude.rnf errorOutputPrefix `Prelude.seq`
+                Prelude.rnf prefix `Prelude.seq`
+                  Prelude.rnf roleARN
 
 instance Data.ToJSON S3DestinationUpdate where
   toJSON S3DestinationUpdate' {..} =

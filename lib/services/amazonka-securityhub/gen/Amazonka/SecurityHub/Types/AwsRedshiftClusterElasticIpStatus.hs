@@ -93,8 +93,8 @@ instance
     AwsRedshiftClusterElasticIpStatus
   where
   rnf AwsRedshiftClusterElasticIpStatus' {..} =
-    Prelude.rnf elasticIp
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf elasticIp `Prelude.seq`
+      Prelude.rnf status
 
 instance
   Data.ToJSON

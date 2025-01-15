@@ -166,12 +166,12 @@ instance Prelude.Hashable RegionDescription where
 
 instance Prelude.NFData RegionDescription where
   rnf RegionDescription' {..} =
-    Prelude.rnf desiredNumberOfDomainControllers
-      `Prelude.seq` Prelude.rnf directoryId
-      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
-      `Prelude.seq` Prelude.rnf launchTime
-      `Prelude.seq` Prelude.rnf regionName
-      `Prelude.seq` Prelude.rnf regionType
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusLastUpdatedDateTime
-      `Prelude.seq` Prelude.rnf vpcSettings
+    Prelude.rnf desiredNumberOfDomainControllers `Prelude.seq`
+      Prelude.rnf directoryId `Prelude.seq`
+        Prelude.rnf lastUpdatedDateTime `Prelude.seq`
+          Prelude.rnf launchTime `Prelude.seq`
+            Prelude.rnf regionName `Prelude.seq`
+              Prelude.rnf regionType `Prelude.seq`
+                Prelude.rnf status `Prelude.seq`
+                  Prelude.rnf statusLastUpdatedDateTime `Prelude.seq`
+                    Prelude.rnf vpcSettings

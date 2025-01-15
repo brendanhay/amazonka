@@ -118,12 +118,12 @@ instance Core.AWSPager ListDeviceDefinitionVersions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listDeviceDefinitionVersions_nextToken
-          Lens..~ rs
-          Lens.^? listDeviceDefinitionVersionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listDeviceDefinitionVersions_nextToken
+              Lens..~ rs
+              Lens.^? listDeviceDefinitionVersionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDeviceDefinitionVersions where
   type
@@ -152,9 +152,9 @@ instance
 
 instance Prelude.NFData ListDeviceDefinitionVersions where
   rnf ListDeviceDefinitionVersions' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf deviceDefinitionId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf deviceDefinitionId
 
 instance Data.ToHeaders ListDeviceDefinitionVersions where
   toHeaders =
@@ -238,6 +238,6 @@ instance
     ListDeviceDefinitionVersionsResponse
   where
   rnf ListDeviceDefinitionVersionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf versions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf versions `Prelude.seq`
+        Prelude.rnf httpStatus

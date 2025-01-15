@@ -138,12 +138,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getEnrollmentStatusesForOrganization_nextToken
-          Lens..~ rs
-          Lens.^? getEnrollmentStatusesForOrganizationResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getEnrollmentStatusesForOrganization_nextToken
+              Lens..~ rs
+              Lens.^? getEnrollmentStatusesForOrganizationResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -183,9 +183,9 @@ instance
     GetEnrollmentStatusesForOrganization
   where
   rnf GetEnrollmentStatusesForOrganization' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance
   Data.ToHeaders
@@ -299,6 +299,6 @@ instance
     GetEnrollmentStatusesForOrganizationResponse
   where
   rnf GetEnrollmentStatusesForOrganizationResponse' {..} =
-    Prelude.rnf accountEnrollmentStatuses
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf accountEnrollmentStatuses `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

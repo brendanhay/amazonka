@@ -100,8 +100,8 @@ instance Prelude.Hashable CSVMappingParameters where
 
 instance Prelude.NFData CSVMappingParameters where
   rnf CSVMappingParameters' {..} =
-    Prelude.rnf recordRowDelimiter
-      `Prelude.seq` Prelude.rnf recordColumnDelimiter
+    Prelude.rnf recordRowDelimiter `Prelude.seq`
+      Prelude.rnf recordColumnDelimiter
 
 instance Data.ToJSON CSVMappingParameters where
   toJSON CSVMappingParameters' {..} =

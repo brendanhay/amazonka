@@ -163,12 +163,12 @@ instance Core.AWSPager DescribeDBProxyTargetGroups where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeDBProxyTargetGroups_marker
-          Lens..~ rs
-          Lens.^? describeDBProxyTargetGroupsResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeDBProxyTargetGroups_marker
+              Lens..~ rs
+              Lens.^? describeDBProxyTargetGroupsResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeDBProxyTargetGroups where
   type
@@ -182,9 +182,7 @@ instance Core.AWSRequest DescribeDBProxyTargetGroups where
       ( \s h x ->
           DescribeDBProxyTargetGroupsResponse'
             Prelude.<$> (x Data..@? "Marker")
-            Prelude.<*> ( x
-                            Data..@? "TargetGroups"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "TargetGroups" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -201,11 +199,11 @@ instance Prelude.Hashable DescribeDBProxyTargetGroups where
 
 instance Prelude.NFData DescribeDBProxyTargetGroups where
   rnf DescribeDBProxyTargetGroups' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf targetGroupName
-      `Prelude.seq` Prelude.rnf dbProxyName
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf maxRecords `Prelude.seq`
+          Prelude.rnf targetGroupName `Prelude.seq`
+            Prelude.rnf dbProxyName
 
 instance Data.ToHeaders DescribeDBProxyTargetGroups where
   toHeaders = Prelude.const Prelude.mempty
@@ -293,6 +291,6 @@ instance
     DescribeDBProxyTargetGroupsResponse
   where
   rnf DescribeDBProxyTargetGroupsResponse' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf targetGroups
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf targetGroups `Prelude.seq`
+        Prelude.rnf httpStatus

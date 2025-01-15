@@ -132,8 +132,8 @@ instance
     LambdaFunctionScheduledEventDetails
   where
   rnf LambdaFunctionScheduledEventDetails' {..} =
-    Prelude.rnf input
-      `Prelude.seq` Prelude.rnf inputDetails
-      `Prelude.seq` Prelude.rnf taskCredentials
-      `Prelude.seq` Prelude.rnf timeoutInSeconds
-      `Prelude.seq` Prelude.rnf resource
+    Prelude.rnf input `Prelude.seq`
+      Prelude.rnf inputDetails `Prelude.seq`
+        Prelude.rnf taskCredentials `Prelude.seq`
+          Prelude.rnf timeoutInSeconds `Prelude.seq`
+            Prelude.rnf resource

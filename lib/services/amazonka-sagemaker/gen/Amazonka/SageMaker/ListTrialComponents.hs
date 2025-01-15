@@ -209,12 +209,12 @@ instance Core.AWSPager ListTrialComponents where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listTrialComponents_nextToken
-          Lens..~ rs
-          Lens.^? listTrialComponentsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listTrialComponents_nextToken
+              Lens..~ rs
+              Lens.^? listTrialComponentsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListTrialComponents where
   type
@@ -249,15 +249,15 @@ instance Prelude.Hashable ListTrialComponents where
 
 instance Prelude.NFData ListTrialComponents where
   rnf ListTrialComponents' {..} =
-    Prelude.rnf createdAfter
-      `Prelude.seq` Prelude.rnf createdBefore
-      `Prelude.seq` Prelude.rnf experimentName
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf sortOrder
-      `Prelude.seq` Prelude.rnf sourceArn
-      `Prelude.seq` Prelude.rnf trialName
+    Prelude.rnf createdAfter `Prelude.seq`
+      Prelude.rnf createdBefore `Prelude.seq`
+        Prelude.rnf experimentName `Prelude.seq`
+          Prelude.rnf maxResults `Prelude.seq`
+            Prelude.rnf nextToken `Prelude.seq`
+              Prelude.rnf sortBy `Prelude.seq`
+                Prelude.rnf sortOrder `Prelude.seq`
+                  Prelude.rnf sourceArn `Prelude.seq`
+                    Prelude.rnf trialName
 
 instance Data.ToHeaders ListTrialComponents where
   toHeaders =
@@ -347,6 +347,6 @@ listTrialComponentsResponse_httpStatus = Lens.lens (\ListTrialComponentsResponse
 
 instance Prelude.NFData ListTrialComponentsResponse where
   rnf ListTrialComponentsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf trialComponentSummaries
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf trialComponentSummaries `Prelude.seq`
+        Prelude.rnf httpStatus

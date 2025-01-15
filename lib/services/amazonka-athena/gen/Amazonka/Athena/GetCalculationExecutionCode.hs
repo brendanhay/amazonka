@@ -177,5 +177,5 @@ instance
     GetCalculationExecutionCodeResponse
   where
   rnf GetCalculationExecutionCodeResponse' {..} =
-    Prelude.rnf codeBlock
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf codeBlock `Prelude.seq`
+      Prelude.rnf httpStatus

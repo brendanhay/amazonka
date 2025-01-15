@@ -239,13 +239,13 @@ instance Prelude.Hashable CreateDataRepositoryTask where
 
 instance Prelude.NFData CreateDataRepositoryTask where
   rnf CreateDataRepositoryTask' {..} =
-    Prelude.rnf capacityToRelease
-      `Prelude.seq` Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf paths
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf fileSystemId
-      `Prelude.seq` Prelude.rnf report
+    Prelude.rnf capacityToRelease `Prelude.seq`
+      Prelude.rnf clientRequestToken `Prelude.seq`
+        Prelude.rnf paths `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf type' `Prelude.seq`
+              Prelude.rnf fileSystemId `Prelude.seq`
+                Prelude.rnf report
 
 instance Data.ToHeaders CreateDataRepositoryTask where
   toHeaders =
@@ -328,5 +328,5 @@ instance
     CreateDataRepositoryTaskResponse
   where
   rnf CreateDataRepositoryTaskResponse' {..} =
-    Prelude.rnf dataRepositoryTask
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dataRepositoryTask `Prelude.seq`
+      Prelude.rnf httpStatus

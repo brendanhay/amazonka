@@ -92,6 +92,6 @@ instance Prelude.Hashable ConfigIdResponse where
 
 instance Prelude.NFData ConfigIdResponse where
   rnf ConfigIdResponse' {..} =
-    Prelude.rnf configArn
-      `Prelude.seq` Prelude.rnf configId
-      `Prelude.seq` Prelude.rnf configType
+    Prelude.rnf configArn `Prelude.seq`
+      Prelude.rnf configId `Prelude.seq`
+        Prelude.rnf configType

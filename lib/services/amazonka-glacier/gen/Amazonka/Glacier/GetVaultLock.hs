@@ -152,8 +152,8 @@ instance Prelude.Hashable GetVaultLock where
 
 instance Prelude.NFData GetVaultLock where
   rnf GetVaultLock' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf vaultName
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf vaultName
 
 instance Data.ToHeaders GetVaultLock where
   toHeaders = Prelude.const Prelude.mempty
@@ -250,8 +250,8 @@ getVaultLockResponse_httpStatus = Lens.lens (\GetVaultLockResponse' {httpStatus}
 
 instance Prelude.NFData GetVaultLockResponse where
   rnf GetVaultLockResponse' {..} =
-    Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf expirationDate
-      `Prelude.seq` Prelude.rnf policy
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf creationDate `Prelude.seq`
+      Prelude.rnf expirationDate `Prelude.seq`
+        Prelude.rnf policy `Prelude.seq`
+          Prelude.rnf state `Prelude.seq`
+            Prelude.rnf httpStatus

@@ -121,12 +121,12 @@ instance Core.AWSPager ListUsageTotals where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listUsageTotals_nextToken
-          Lens..~ rs
-          Lens.^? listUsageTotalsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listUsageTotals_nextToken
+              Lens..~ rs
+              Lens.^? listUsageTotalsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListUsageTotals where
   type
@@ -152,9 +152,9 @@ instance Prelude.Hashable ListUsageTotals where
 
 instance Prelude.NFData ListUsageTotals where
   rnf ListUsageTotals' {..} =
-    Prelude.rnf accountIds
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf accountIds `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListUsageTotals where
   toHeaders =
@@ -236,6 +236,6 @@ listUsageTotalsResponse_httpStatus = Lens.lens (\ListUsageTotalsResponse' {httpS
 
 instance Prelude.NFData ListUsageTotalsResponse where
   rnf ListUsageTotalsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf totals
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf totals `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -112,12 +112,12 @@ instance Core.AWSPager ListDirectories where
         (rs Lens.^. listDirectoriesResponse_directories) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listDirectories_nextToken
-          Lens..~ rs
-          Lens.^? listDirectoriesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listDirectories_nextToken
+              Lens..~ rs
+              Lens.^? listDirectoriesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDirectories where
   type
@@ -143,9 +143,9 @@ instance Prelude.Hashable ListDirectories where
 
 instance Prelude.NFData ListDirectories where
   rnf ListDirectories' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf state
 
 instance Data.ToHeaders ListDirectories where
   toHeaders = Prelude.const Prelude.mempty
@@ -221,6 +221,6 @@ listDirectoriesResponse_directories = Lens.lens (\ListDirectoriesResponse' {dire
 
 instance Prelude.NFData ListDirectoriesResponse where
   rnf ListDirectoriesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf directories
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf directories

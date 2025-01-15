@@ -94,5 +94,5 @@ instance Prelude.Hashable AttachedPermissionsBoundary where
 
 instance Prelude.NFData AttachedPermissionsBoundary where
   rnf AttachedPermissionsBoundary' {..} =
-    Prelude.rnf permissionsBoundaryArn
-      `Prelude.seq` Prelude.rnf permissionsBoundaryType
+    Prelude.rnf permissionsBoundaryArn `Prelude.seq`
+      Prelude.rnf permissionsBoundaryType

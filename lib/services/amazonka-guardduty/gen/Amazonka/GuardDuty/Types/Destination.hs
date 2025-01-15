@@ -106,6 +106,6 @@ instance Prelude.Hashable Destination where
 
 instance Prelude.NFData Destination where
   rnf Destination' {..} =
-    Prelude.rnf destinationId
-      `Prelude.seq` Prelude.rnf destinationType
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf destinationId `Prelude.seq`
+      Prelude.rnf destinationType `Prelude.seq`
+        Prelude.rnf status

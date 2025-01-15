@@ -165,9 +165,9 @@ instance Prelude.Hashable BundleInstance where
 
 instance Prelude.NFData BundleInstance where
   rnf BundleInstance' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf storage
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf instanceId `Prelude.seq`
+        Prelude.rnf storage
 
 instance Data.ToHeaders BundleInstance where
   toHeaders = Prelude.const Prelude.mempty
@@ -230,5 +230,5 @@ bundleInstanceResponse_httpStatus = Lens.lens (\BundleInstanceResponse' {httpSta
 
 instance Prelude.NFData BundleInstanceResponse where
   rnf BundleInstanceResponse' {..} =
-    Prelude.rnf bundleTask
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf bundleTask `Prelude.seq`
+      Prelude.rnf httpStatus

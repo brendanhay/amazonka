@@ -177,5 +177,5 @@ getSoftwareUpdatesResponse_httpStatus = Lens.lens (\GetSoftwareUpdatesResponse' 
 
 instance Prelude.NFData GetSoftwareUpdatesResponse where
   rnf GetSoftwareUpdatesResponse' {..} =
-    Prelude.rnf updatesURI
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf updatesURI `Prelude.seq`
+      Prelude.rnf httpStatus

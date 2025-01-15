@@ -89,8 +89,8 @@ instance Prelude.Hashable TagCriterionForJob where
 
 instance Prelude.NFData TagCriterionForJob where
   rnf TagCriterionForJob' {..} =
-    Prelude.rnf comparator
-      `Prelude.seq` Prelude.rnf tagValues
+    Prelude.rnf comparator `Prelude.seq`
+      Prelude.rnf tagValues
 
 instance Data.ToJSON TagCriterionForJob where
   toJSON TagCriterionForJob' {..} =

@@ -123,8 +123,8 @@ instance Prelude.Hashable GetPrincipalTagAttributeMap where
 
 instance Prelude.NFData GetPrincipalTagAttributeMap where
   rnf GetPrincipalTagAttributeMap' {..} =
-    Prelude.rnf identityPoolId
-      `Prelude.seq` Prelude.rnf identityProviderName
+    Prelude.rnf identityPoolId `Prelude.seq`
+      Prelude.rnf identityProviderName
 
 instance Data.ToHeaders GetPrincipalTagAttributeMap where
   toHeaders =
@@ -240,8 +240,8 @@ instance
     GetPrincipalTagAttributeMapResponse
   where
   rnf GetPrincipalTagAttributeMapResponse' {..} =
-    Prelude.rnf identityPoolId
-      `Prelude.seq` Prelude.rnf identityProviderName
-      `Prelude.seq` Prelude.rnf principalTags
-      `Prelude.seq` Prelude.rnf useDefaults
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf identityPoolId `Prelude.seq`
+      Prelude.rnf identityProviderName `Prelude.seq`
+        Prelude.rnf principalTags `Prelude.seq`
+          Prelude.rnf useDefaults `Prelude.seq`
+            Prelude.rnf httpStatus

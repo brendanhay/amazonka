@@ -155,10 +155,10 @@ instance Prelude.Hashable PatchOperation where
 
 instance Prelude.NFData PatchOperation where
   rnf PatchOperation' {..} =
-    Prelude.rnf from
-      `Prelude.seq` Prelude.rnf op
-      `Prelude.seq` Prelude.rnf path
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf from `Prelude.seq`
+      Prelude.rnf op `Prelude.seq`
+        Prelude.rnf path `Prelude.seq`
+          Prelude.rnf value
 
 instance Data.ToJSON PatchOperation where
   toJSON PatchOperation' {..} =

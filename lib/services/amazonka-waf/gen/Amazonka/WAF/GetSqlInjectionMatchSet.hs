@@ -225,5 +225,5 @@ instance
     GetSqlInjectionMatchSetResponse
   where
   rnf GetSqlInjectionMatchSetResponse' {..} =
-    Prelude.rnf sqlInjectionMatchSet
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf sqlInjectionMatchSet `Prelude.seq`
+      Prelude.rnf httpStatus

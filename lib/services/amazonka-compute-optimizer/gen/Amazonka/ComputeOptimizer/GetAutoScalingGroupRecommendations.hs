@@ -221,12 +221,12 @@ instance
     GetAutoScalingGroupRecommendations
   where
   rnf GetAutoScalingGroupRecommendations' {..} =
-    Prelude.rnf accountIds
-      `Prelude.seq` Prelude.rnf autoScalingGroupArns
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf recommendationPreferences
+    Prelude.rnf accountIds `Prelude.seq`
+      Prelude.rnf autoScalingGroupArns `Prelude.seq`
+        Prelude.rnf filters `Prelude.seq`
+          Prelude.rnf maxResults `Prelude.seq`
+            Prelude.rnf nextToken `Prelude.seq`
+              Prelude.rnf recommendationPreferences
 
 instance
   Data.ToHeaders
@@ -360,7 +360,7 @@ instance
     GetAutoScalingGroupRecommendationsResponse
   where
   rnf GetAutoScalingGroupRecommendationsResponse' {..} =
-    Prelude.rnf autoScalingGroupRecommendations
-      `Prelude.seq` Prelude.rnf errors
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf autoScalingGroupRecommendations `Prelude.seq`
+      Prelude.rnf errors `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf httpStatus

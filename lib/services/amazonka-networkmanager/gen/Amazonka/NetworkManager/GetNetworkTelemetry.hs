@@ -270,12 +270,12 @@ instance Core.AWSPager GetNetworkTelemetry where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getNetworkTelemetry_nextToken
-          Lens..~ rs
-          Lens.^? getNetworkTelemetryResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getNetworkTelemetry_nextToken
+              Lens..~ rs
+              Lens.^? getNetworkTelemetryResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetNetworkTelemetry where
   type
@@ -310,15 +310,15 @@ instance Prelude.Hashable GetNetworkTelemetry where
 
 instance Prelude.NFData GetNetworkTelemetry where
   rnf GetNetworkTelemetry' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf awsRegion
-      `Prelude.seq` Prelude.rnf coreNetworkId
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf registeredGatewayArn
-      `Prelude.seq` Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf globalNetworkId
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf awsRegion `Prelude.seq`
+        Prelude.rnf coreNetworkId `Prelude.seq`
+          Prelude.rnf maxResults `Prelude.seq`
+            Prelude.rnf nextToken `Prelude.seq`
+              Prelude.rnf registeredGatewayArn `Prelude.seq`
+                Prelude.rnf resourceArn `Prelude.seq`
+                  Prelude.rnf resourceType `Prelude.seq`
+                    Prelude.rnf globalNetworkId
 
 instance Data.ToHeaders GetNetworkTelemetry where
   toHeaders =
@@ -402,6 +402,6 @@ getNetworkTelemetryResponse_httpStatus = Lens.lens (\GetNetworkTelemetryResponse
 
 instance Prelude.NFData GetNetworkTelemetryResponse where
   rnf GetNetworkTelemetryResponse' {..} =
-    Prelude.rnf networkTelemetry
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf networkTelemetry `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

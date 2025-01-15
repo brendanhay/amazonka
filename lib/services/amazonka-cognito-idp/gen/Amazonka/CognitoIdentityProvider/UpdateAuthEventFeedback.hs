@@ -156,11 +156,11 @@ instance Prelude.Hashable UpdateAuthEventFeedback where
 
 instance Prelude.NFData UpdateAuthEventFeedback where
   rnf UpdateAuthEventFeedback' {..} =
-    Prelude.rnf userPoolId
-      `Prelude.seq` Prelude.rnf username
-      `Prelude.seq` Prelude.rnf eventId
-      `Prelude.seq` Prelude.rnf feedbackToken
-      `Prelude.seq` Prelude.rnf feedbackValue
+    Prelude.rnf userPoolId `Prelude.seq`
+      Prelude.rnf username `Prelude.seq`
+        Prelude.rnf eventId `Prelude.seq`
+          Prelude.rnf feedbackToken `Prelude.seq`
+            Prelude.rnf feedbackValue
 
 instance Data.ToHeaders UpdateAuthEventFeedback where
   toHeaders =

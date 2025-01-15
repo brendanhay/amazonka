@@ -101,9 +101,9 @@ instance Prelude.Hashable ConnectionHttpParameters where
 
 instance Prelude.NFData ConnectionHttpParameters where
   rnf ConnectionHttpParameters' {..} =
-    Prelude.rnf bodyParameters
-      `Prelude.seq` Prelude.rnf headerParameters
-      `Prelude.seq` Prelude.rnf queryStringParameters
+    Prelude.rnf bodyParameters `Prelude.seq`
+      Prelude.rnf headerParameters `Prelude.seq`
+        Prelude.rnf queryStringParameters
 
 instance Data.ToJSON ConnectionHttpParameters where
   toJSON ConnectionHttpParameters' {..} =

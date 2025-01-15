@@ -169,11 +169,11 @@ instance Prelude.Hashable ImportSourceCredentials where
 
 instance Prelude.NFData ImportSourceCredentials where
   rnf ImportSourceCredentials' {..} =
-    Prelude.rnf shouldOverwrite
-      `Prelude.seq` Prelude.rnf username
-      `Prelude.seq` Prelude.rnf token
-      `Prelude.seq` Prelude.rnf serverType
-      `Prelude.seq` Prelude.rnf authType
+    Prelude.rnf shouldOverwrite `Prelude.seq`
+      Prelude.rnf username `Prelude.seq`
+        Prelude.rnf token `Prelude.seq`
+          Prelude.rnf serverType `Prelude.seq`
+            Prelude.rnf authType
 
 instance Data.ToHeaders ImportSourceCredentials where
   toHeaders =
@@ -253,5 +253,5 @@ instance
     ImportSourceCredentialsResponse
   where
   rnf ImportSourceCredentialsResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf httpStatus

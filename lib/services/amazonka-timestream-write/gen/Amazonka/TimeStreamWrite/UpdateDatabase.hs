@@ -159,8 +159,8 @@ instance Prelude.Hashable UpdateDatabase where
 
 instance Prelude.NFData UpdateDatabase where
   rnf UpdateDatabase' {..} =
-    Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf kmsKeyId
+    Prelude.rnf databaseName `Prelude.seq`
+      Prelude.rnf kmsKeyId
 
 instance Data.ToHeaders UpdateDatabase where
   toHeaders =
@@ -231,5 +231,5 @@ updateDatabaseResponse_httpStatus = Lens.lens (\UpdateDatabaseResponse' {httpSta
 
 instance Prelude.NFData UpdateDatabaseResponse where
   rnf UpdateDatabaseResponse' {..} =
-    Prelude.rnf database
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf database `Prelude.seq`
+      Prelude.rnf httpStatus

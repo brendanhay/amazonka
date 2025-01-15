@@ -118,9 +118,9 @@ instance Prelude.Hashable SubscribeToEvent where
 
 instance Prelude.NFData SubscribeToEvent where
   rnf SubscribeToEvent' {..} =
-    Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf event
-      `Prelude.seq` Prelude.rnf topicArn
+    Prelude.rnf resourceArn `Prelude.seq`
+      Prelude.rnf event `Prelude.seq`
+        Prelude.rnf topicArn
 
 instance Data.ToHeaders SubscribeToEvent where
   toHeaders =

@@ -255,11 +255,11 @@ instance
     StartDBInstanceAutomatedBackupsReplication
   where
   rnf StartDBInstanceAutomatedBackupsReplication' {..} =
-    Prelude.rnf backupRetentionPeriod
-      `Prelude.seq` Prelude.rnf destinationRegion
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf preSignedUrl
-      `Prelude.seq` Prelude.rnf sourceDBInstanceArn
+    Prelude.rnf backupRetentionPeriod `Prelude.seq`
+      Prelude.rnf destinationRegion `Prelude.seq`
+        Prelude.rnf kmsKeyId `Prelude.seq`
+          Prelude.rnf preSignedUrl `Prelude.seq`
+            Prelude.rnf sourceDBInstanceArn
 
 instance
   Data.ToHeaders
@@ -340,5 +340,5 @@ instance
   where
   rnf
     StartDBInstanceAutomatedBackupsReplicationResponse' {..} =
-      Prelude.rnf dbInstanceAutomatedBackup
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf dbInstanceAutomatedBackup `Prelude.seq`
+        Prelude.rnf httpStatus

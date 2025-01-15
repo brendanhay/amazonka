@@ -92,6 +92,6 @@ instance Prelude.Hashable Subscription where
 
 instance Prelude.NFData Subscription where
   rnf Subscription' {..} =
-    Prelude.rnf endPoint
-      `Prelude.seq` Prelude.rnf protocol
-      `Prelude.seq` Prelude.rnf subscriptionId
+    Prelude.rnf endPoint `Prelude.seq`
+      Prelude.rnf protocol `Prelude.seq`
+        Prelude.rnf subscriptionId

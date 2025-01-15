@@ -130,9 +130,9 @@ instance Prelude.Hashable ModifyVolumeAttribute where
 
 instance Prelude.NFData ModifyVolumeAttribute where
   rnf ModifyVolumeAttribute' {..} =
-    Prelude.rnf autoEnableIO
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf volumeId
+    Prelude.rnf autoEnableIO `Prelude.seq`
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf volumeId
 
 instance Data.ToHeaders ModifyVolumeAttribute where
   toHeaders = Prelude.const Prelude.mempty

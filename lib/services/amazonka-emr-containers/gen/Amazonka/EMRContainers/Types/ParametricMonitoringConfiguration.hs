@@ -107,9 +107,9 @@ instance
     ParametricMonitoringConfiguration
   where
   rnf ParametricMonitoringConfiguration' {..} =
-    Prelude.rnf cloudWatchMonitoringConfiguration
-      `Prelude.seq` Prelude.rnf persistentAppUI
-      `Prelude.seq` Prelude.rnf s3MonitoringConfiguration
+    Prelude.rnf cloudWatchMonitoringConfiguration `Prelude.seq`
+      Prelude.rnf persistentAppUI `Prelude.seq`
+        Prelude.rnf s3MonitoringConfiguration
 
 instance
   Data.ToJSON

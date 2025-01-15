@@ -76,8 +76,8 @@ instance Prelude.Hashable GetConnectionsFilter where
 
 instance Prelude.NFData GetConnectionsFilter where
   rnf GetConnectionsFilter' {..} =
-    Prelude.rnf connectionType
-      `Prelude.seq` Prelude.rnf matchCriteria
+    Prelude.rnf connectionType `Prelude.seq`
+      Prelude.rnf matchCriteria
 
 instance Data.ToJSON GetConnectionsFilter where
   toJSON GetConnectionsFilter' {..} =

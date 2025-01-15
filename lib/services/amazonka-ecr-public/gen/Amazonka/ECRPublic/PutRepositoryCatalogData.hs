@@ -134,9 +134,9 @@ instance Prelude.Hashable PutRepositoryCatalogData where
 
 instance Prelude.NFData PutRepositoryCatalogData where
   rnf PutRepositoryCatalogData' {..} =
-    Prelude.rnf registryId
-      `Prelude.seq` Prelude.rnf repositoryName
-      `Prelude.seq` Prelude.rnf catalogData
+    Prelude.rnf registryId `Prelude.seq`
+      Prelude.rnf repositoryName `Prelude.seq`
+        Prelude.rnf catalogData
 
 instance Data.ToHeaders PutRepositoryCatalogData where
   toHeaders =
@@ -214,5 +214,5 @@ instance
     PutRepositoryCatalogDataResponse
   where
   rnf PutRepositoryCatalogDataResponse' {..} =
-    Prelude.rnf catalogData
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf catalogData `Prelude.seq`
+      Prelude.rnf httpStatus

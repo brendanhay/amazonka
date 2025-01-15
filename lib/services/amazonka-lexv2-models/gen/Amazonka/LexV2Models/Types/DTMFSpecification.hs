@@ -123,10 +123,10 @@ instance Prelude.Hashable DTMFSpecification where
 
 instance Prelude.NFData DTMFSpecification where
   rnf DTMFSpecification' {..} =
-    Prelude.rnf maxLength
-      `Prelude.seq` Prelude.rnf endTimeoutMs
-      `Prelude.seq` Prelude.rnf deletionCharacter
-      `Prelude.seq` Prelude.rnf endCharacter
+    Prelude.rnf maxLength `Prelude.seq`
+      Prelude.rnf endTimeoutMs `Prelude.seq`
+        Prelude.rnf deletionCharacter `Prelude.seq`
+          Prelude.rnf endCharacter
 
 instance Data.ToJSON DTMFSpecification where
   toJSON DTMFSpecification' {..} =

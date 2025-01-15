@@ -158,9 +158,9 @@ instance Prelude.Hashable SqliMatchStatement where
 
 instance Prelude.NFData SqliMatchStatement where
   rnf SqliMatchStatement' {..} =
-    Prelude.rnf sensitivityLevel
-      `Prelude.seq` Prelude.rnf fieldToMatch
-      `Prelude.seq` Prelude.rnf textTransformations
+    Prelude.rnf sensitivityLevel `Prelude.seq`
+      Prelude.rnf fieldToMatch `Prelude.seq`
+        Prelude.rnf textTransformations
 
 instance Data.ToJSON SqliMatchStatement where
   toJSON SqliMatchStatement' {..} =

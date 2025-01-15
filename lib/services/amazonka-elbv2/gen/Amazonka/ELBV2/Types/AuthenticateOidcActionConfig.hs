@@ -281,18 +281,18 @@ instance
 
 instance Prelude.NFData AuthenticateOidcActionConfig where
   rnf AuthenticateOidcActionConfig' {..} =
-    Prelude.rnf authenticationRequestExtraParams
-      `Prelude.seq` Prelude.rnf clientSecret
-      `Prelude.seq` Prelude.rnf onUnauthenticatedRequest
-      `Prelude.seq` Prelude.rnf scope
-      `Prelude.seq` Prelude.rnf sessionCookieName
-      `Prelude.seq` Prelude.rnf sessionTimeout
-      `Prelude.seq` Prelude.rnf useExistingClientSecret
-      `Prelude.seq` Prelude.rnf issuer
-      `Prelude.seq` Prelude.rnf authorizationEndpoint
-      `Prelude.seq` Prelude.rnf tokenEndpoint
-      `Prelude.seq` Prelude.rnf userInfoEndpoint
-      `Prelude.seq` Prelude.rnf clientId
+    Prelude.rnf authenticationRequestExtraParams `Prelude.seq`
+      Prelude.rnf clientSecret `Prelude.seq`
+        Prelude.rnf onUnauthenticatedRequest `Prelude.seq`
+          Prelude.rnf scope `Prelude.seq`
+            Prelude.rnf sessionCookieName `Prelude.seq`
+              Prelude.rnf sessionTimeout `Prelude.seq`
+                Prelude.rnf useExistingClientSecret `Prelude.seq`
+                  Prelude.rnf issuer `Prelude.seq`
+                    Prelude.rnf authorizationEndpoint `Prelude.seq`
+                      Prelude.rnf tokenEndpoint `Prelude.seq`
+                        Prelude.rnf userInfoEndpoint `Prelude.seq`
+                          Prelude.rnf clientId
 
 instance Data.ToQuery AuthenticateOidcActionConfig where
   toQuery AuthenticateOidcActionConfig' {..} =

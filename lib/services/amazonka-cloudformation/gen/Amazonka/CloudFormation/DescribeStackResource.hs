@@ -148,8 +148,8 @@ instance Prelude.Hashable DescribeStackResource where
 
 instance Prelude.NFData DescribeStackResource where
   rnf DescribeStackResource' {..} =
-    Prelude.rnf stackName
-      `Prelude.seq` Prelude.rnf logicalResourceId
+    Prelude.rnf stackName `Prelude.seq`
+      Prelude.rnf logicalResourceId
 
 instance Data.ToHeaders DescribeStackResource where
   toHeaders = Prelude.const Prelude.mempty
@@ -214,5 +214,5 @@ describeStackResourceResponse_httpStatus = Lens.lens (\DescribeStackResourceResp
 
 instance Prelude.NFData DescribeStackResourceResponse where
   rnf DescribeStackResourceResponse' {..} =
-    Prelude.rnf stackResourceDetail
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf stackResourceDetail `Prelude.seq`
+      Prelude.rnf httpStatus

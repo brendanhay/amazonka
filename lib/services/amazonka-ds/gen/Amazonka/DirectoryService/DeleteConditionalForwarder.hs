@@ -117,8 +117,8 @@ instance Prelude.Hashable DeleteConditionalForwarder where
 
 instance Prelude.NFData DeleteConditionalForwarder where
   rnf DeleteConditionalForwarder' {..} =
-    Prelude.rnf directoryId
-      `Prelude.seq` Prelude.rnf remoteDomainName
+    Prelude.rnf directoryId `Prelude.seq`
+      Prelude.rnf remoteDomainName
 
 instance Data.ToHeaders DeleteConditionalForwarder where
   toHeaders =

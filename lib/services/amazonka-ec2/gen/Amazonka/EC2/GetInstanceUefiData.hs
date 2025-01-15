@@ -135,8 +135,8 @@ instance Prelude.Hashable GetInstanceUefiData where
 
 instance Prelude.NFData GetInstanceUefiData where
   rnf GetInstanceUefiData' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf instanceId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf instanceId
 
 instance Data.ToHeaders GetInstanceUefiData where
   toHeaders = Prelude.const Prelude.mempty
@@ -205,6 +205,6 @@ getInstanceUefiDataResponse_httpStatus = Lens.lens (\GetInstanceUefiDataResponse
 
 instance Prelude.NFData GetInstanceUefiDataResponse where
   rnf GetInstanceUefiDataResponse' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf uefiData
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf instanceId `Prelude.seq`
+      Prelude.rnf uefiData `Prelude.seq`
+        Prelude.rnf httpStatus

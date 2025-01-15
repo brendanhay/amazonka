@@ -84,5 +84,5 @@ instance Prelude.Hashable Language where
 
 instance Prelude.NFData Language where
   rnf Language' {..} =
-    Prelude.rnf languageName
-      `Prelude.seq` Prelude.rnf languageCode
+    Prelude.rnf languageName `Prelude.seq`
+      Prelude.rnf languageCode

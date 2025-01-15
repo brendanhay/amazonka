@@ -93,8 +93,8 @@ instance Prelude.Hashable IotTopicPublishAction where
 
 instance Prelude.NFData IotTopicPublishAction where
   rnf IotTopicPublishAction' {..} =
-    Prelude.rnf payload
-      `Prelude.seq` Prelude.rnf mqttTopic
+    Prelude.rnf payload `Prelude.seq`
+      Prelude.rnf mqttTopic
 
 instance Data.ToJSON IotTopicPublishAction where
   toJSON IotTopicPublishAction' {..} =

@@ -131,9 +131,9 @@ instance Prelude.Hashable Network where
 
 instance Prelude.NFData Network where
   rnf Network' {..} =
-    Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf statusReason
-      `Prelude.seq` Prelude.rnf networkArn
-      `Prelude.seq` Prelude.rnf networkName
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf createdAt `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf statusReason `Prelude.seq`
+          Prelude.rnf networkArn `Prelude.seq`
+            Prelude.rnf networkName `Prelude.seq`
+              Prelude.rnf status

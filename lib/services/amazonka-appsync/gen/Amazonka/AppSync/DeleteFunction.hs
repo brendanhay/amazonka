@@ -108,8 +108,8 @@ instance Prelude.Hashable DeleteFunction where
 
 instance Prelude.NFData DeleteFunction where
   rnf DeleteFunction' {..} =
-    Prelude.rnf apiId
-      `Prelude.seq` Prelude.rnf functionId
+    Prelude.rnf apiId `Prelude.seq`
+      Prelude.rnf functionId
 
 instance Data.ToHeaders DeleteFunction where
   toHeaders =

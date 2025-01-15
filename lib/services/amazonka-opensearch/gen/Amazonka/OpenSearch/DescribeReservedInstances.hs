@@ -146,9 +146,9 @@ instance Prelude.Hashable DescribeReservedInstances where
 
 instance Prelude.NFData DescribeReservedInstances where
   rnf DescribeReservedInstances' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf reservedInstanceId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf reservedInstanceId
 
 instance Data.ToHeaders DescribeReservedInstances where
   toHeaders = Prelude.const Prelude.mempty
@@ -227,6 +227,6 @@ instance
     DescribeReservedInstancesResponse
   where
   rnf DescribeReservedInstancesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf reservedInstances
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf reservedInstances `Prelude.seq`
+        Prelude.rnf httpStatus

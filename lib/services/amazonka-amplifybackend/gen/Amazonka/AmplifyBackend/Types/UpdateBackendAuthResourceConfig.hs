@@ -131,10 +131,10 @@ instance
     UpdateBackendAuthResourceConfig
   where
   rnf UpdateBackendAuthResourceConfig' {..} =
-    Prelude.rnf identityPoolConfigs
-      `Prelude.seq` Prelude.rnf authResources
-      `Prelude.seq` Prelude.rnf userPoolConfigs
-      `Prelude.seq` Prelude.rnf service
+    Prelude.rnf identityPoolConfigs `Prelude.seq`
+      Prelude.rnf authResources `Prelude.seq`
+        Prelude.rnf userPoolConfigs `Prelude.seq`
+          Prelude.rnf service
 
 instance Data.ToJSON UpdateBackendAuthResourceConfig where
   toJSON UpdateBackendAuthResourceConfig' {..} =

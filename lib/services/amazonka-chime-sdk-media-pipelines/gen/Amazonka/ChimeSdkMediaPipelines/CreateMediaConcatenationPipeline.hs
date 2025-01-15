@@ -156,10 +156,10 @@ instance
     CreateMediaConcatenationPipeline
   where
   rnf CreateMediaConcatenationPipeline' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf sources
-      `Prelude.seq` Prelude.rnf sinks
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf sources `Prelude.seq`
+          Prelude.rnf sinks
 
 instance
   Data.ToHeaders
@@ -237,5 +237,5 @@ instance
     CreateMediaConcatenationPipelineResponse
   where
   rnf CreateMediaConcatenationPipelineResponse' {..} =
-    Prelude.rnf mediaConcatenationPipeline
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf mediaConcatenationPipeline `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -131,8 +131,8 @@ instance Prelude.Hashable DataSourceSyncJobMetrics where
 
 instance Prelude.NFData DataSourceSyncJobMetrics where
   rnf DataSourceSyncJobMetrics' {..} =
-    Prelude.rnf documentsAdded
-      `Prelude.seq` Prelude.rnf documentsDeleted
-      `Prelude.seq` Prelude.rnf documentsFailed
-      `Prelude.seq` Prelude.rnf documentsModified
-      `Prelude.seq` Prelude.rnf documentsScanned
+    Prelude.rnf documentsAdded `Prelude.seq`
+      Prelude.rnf documentsDeleted `Prelude.seq`
+        Prelude.rnf documentsFailed `Prelude.seq`
+          Prelude.rnf documentsModified `Prelude.seq`
+            Prelude.rnf documentsScanned

@@ -89,8 +89,8 @@ instance Prelude.Hashable FileFormatDescriptor where
 
 instance Prelude.NFData FileFormatDescriptor where
   rnf FileFormatDescriptor' {..} =
-    Prelude.rnf csvFormatDescriptor
-      `Prelude.seq` Prelude.rnf jsonFormatDescriptor
+    Prelude.rnf csvFormatDescriptor `Prelude.seq`
+      Prelude.rnf jsonFormatDescriptor
 
 instance Data.ToJSON FileFormatDescriptor where
   toJSON FileFormatDescriptor' {..} =

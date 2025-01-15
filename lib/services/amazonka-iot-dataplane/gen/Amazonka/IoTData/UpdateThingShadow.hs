@@ -131,9 +131,9 @@ instance Prelude.Hashable UpdateThingShadow where
 
 instance Prelude.NFData UpdateThingShadow where
   rnf UpdateThingShadow' {..} =
-    Prelude.rnf shadowName
-      `Prelude.seq` Prelude.rnf thingName
-      `Prelude.seq` Prelude.rnf payload
+    Prelude.rnf shadowName `Prelude.seq`
+      Prelude.rnf thingName `Prelude.seq`
+        Prelude.rnf payload
 
 instance Data.ToBody UpdateThingShadow where
   toBody UpdateThingShadow' {..} = Data.toBody payload
@@ -193,5 +193,5 @@ updateThingShadowResponse_httpStatus = Lens.lens (\UpdateThingShadowResponse' {h
 
 instance Prelude.NFData UpdateThingShadowResponse where
   rnf UpdateThingShadowResponse' {..} =
-    Prelude.rnf payload
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf payload `Prelude.seq`
+      Prelude.rnf httpStatus

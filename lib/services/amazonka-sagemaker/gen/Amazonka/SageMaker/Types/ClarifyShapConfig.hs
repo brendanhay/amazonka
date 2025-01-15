@@ -154,11 +154,11 @@ instance Prelude.Hashable ClarifyShapConfig where
 
 instance Prelude.NFData ClarifyShapConfig where
   rnf ClarifyShapConfig' {..} =
-    Prelude.rnf numberOfSamples
-      `Prelude.seq` Prelude.rnf seed
-      `Prelude.seq` Prelude.rnf textConfig
-      `Prelude.seq` Prelude.rnf useLogit
-      `Prelude.seq` Prelude.rnf shapBaselineConfig
+    Prelude.rnf numberOfSamples `Prelude.seq`
+      Prelude.rnf seed `Prelude.seq`
+        Prelude.rnf textConfig `Prelude.seq`
+          Prelude.rnf useLogit `Prelude.seq`
+            Prelude.rnf shapBaselineConfig
 
 instance Data.ToJSON ClarifyShapConfig where
   toJSON ClarifyShapConfig' {..} =

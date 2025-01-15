@@ -140,9 +140,9 @@ instance
     GetEvidenceFoldersByAssessment
   where
   rnf GetEvidenceFoldersByAssessment' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf assessmentId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf assessmentId
 
 instance
   Data.ToHeaders
@@ -230,6 +230,6 @@ instance
     GetEvidenceFoldersByAssessmentResponse
   where
   rnf GetEvidenceFoldersByAssessmentResponse' {..} =
-    Prelude.rnf evidenceFolders
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf evidenceFolders `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

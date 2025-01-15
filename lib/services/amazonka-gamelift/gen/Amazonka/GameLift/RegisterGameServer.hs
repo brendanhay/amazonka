@@ -197,11 +197,11 @@ instance Prelude.Hashable RegisterGameServer where
 
 instance Prelude.NFData RegisterGameServer where
   rnf RegisterGameServer' {..} =
-    Prelude.rnf connectionInfo
-      `Prelude.seq` Prelude.rnf gameServerData
-      `Prelude.seq` Prelude.rnf gameServerGroupName
-      `Prelude.seq` Prelude.rnf gameServerId
-      `Prelude.seq` Prelude.rnf instanceId
+    Prelude.rnf connectionInfo `Prelude.seq`
+      Prelude.rnf gameServerData `Prelude.seq`
+        Prelude.rnf gameServerGroupName `Prelude.seq`
+          Prelude.rnf gameServerId `Prelude.seq`
+            Prelude.rnf instanceId
 
 instance Data.ToHeaders RegisterGameServer where
   toHeaders =
@@ -280,5 +280,5 @@ registerGameServerResponse_httpStatus = Lens.lens (\RegisterGameServerResponse' 
 
 instance Prelude.NFData RegisterGameServerResponse where
   rnf RegisterGameServerResponse' {..} =
-    Prelude.rnf gameServer
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf gameServer `Prelude.seq`
+      Prelude.rnf httpStatus

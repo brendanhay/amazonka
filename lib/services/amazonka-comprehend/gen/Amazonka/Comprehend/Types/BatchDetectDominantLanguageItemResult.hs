@@ -97,5 +97,5 @@ instance
     BatchDetectDominantLanguageItemResult
   where
   rnf BatchDetectDominantLanguageItemResult' {..} =
-    Prelude.rnf index
-      `Prelude.seq` Prelude.rnf languages
+    Prelude.rnf index `Prelude.seq`
+      Prelude.rnf languages

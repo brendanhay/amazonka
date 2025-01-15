@@ -94,8 +94,8 @@ instance Prelude.Hashable UplinkSpectrumConfig where
 
 instance Prelude.NFData UplinkSpectrumConfig where
   rnf UplinkSpectrumConfig' {..} =
-    Prelude.rnf polarization
-      `Prelude.seq` Prelude.rnf centerFrequency
+    Prelude.rnf polarization `Prelude.seq`
+      Prelude.rnf centerFrequency
 
 instance Data.ToJSON UplinkSpectrumConfig where
   toJSON UplinkSpectrumConfig' {..} =

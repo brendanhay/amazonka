@@ -151,5 +151,5 @@ instance
     GetAccountSendingEnabledResponse
   where
   rnf GetAccountSendingEnabledResponse' {..} =
-    Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf enabled `Prelude.seq`
+      Prelude.rnf httpStatus

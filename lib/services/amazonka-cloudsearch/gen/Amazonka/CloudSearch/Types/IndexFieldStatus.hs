@@ -80,5 +80,5 @@ instance Prelude.Hashable IndexFieldStatus where
 
 instance Prelude.NFData IndexFieldStatus where
   rnf IndexFieldStatus' {..} =
-    Prelude.rnf options
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf options `Prelude.seq`
+      Prelude.rnf status

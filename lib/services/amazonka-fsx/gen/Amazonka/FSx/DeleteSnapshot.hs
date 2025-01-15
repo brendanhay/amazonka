@@ -115,8 +115,8 @@ instance Prelude.Hashable DeleteSnapshot where
 
 instance Prelude.NFData DeleteSnapshot where
   rnf DeleteSnapshot' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf snapshotId
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf snapshotId
 
 instance Data.ToHeaders DeleteSnapshot where
   toHeaders =
@@ -202,6 +202,6 @@ deleteSnapshotResponse_httpStatus = Lens.lens (\DeleteSnapshotResponse' {httpSta
 
 instance Prelude.NFData DeleteSnapshotResponse where
   rnf DeleteSnapshotResponse' {..} =
-    Prelude.rnf lifecycle
-      `Prelude.seq` Prelude.rnf snapshotId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf lifecycle `Prelude.seq`
+      Prelude.rnf snapshotId `Prelude.seq`
+        Prelude.rnf httpStatus

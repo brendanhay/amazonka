@@ -137,12 +137,12 @@ instance Core.AWSPager ListReservations where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listReservations_nextToken
-          Lens..~ rs
-          Lens.^? listReservationsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listReservations_nextToken
+              Lens..~ rs
+              Lens.^? listReservationsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListReservations where
   type
@@ -167,8 +167,8 @@ instance Prelude.Hashable ListReservations where
 
 instance Prelude.NFData ListReservations where
   rnf ListReservations' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListReservations where
   toHeaders =
@@ -256,6 +256,6 @@ listReservationsResponse_httpStatus = Lens.lens (\ListReservationsResponse' {htt
 
 instance Prelude.NFData ListReservationsResponse where
   rnf ListReservationsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf reservations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf reservations `Prelude.seq`
+        Prelude.rnf httpStatus

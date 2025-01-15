@@ -149,10 +149,10 @@ instance Prelude.Hashable DescribeGatewayRoute where
 
 instance Prelude.NFData DescribeGatewayRoute where
   rnf DescribeGatewayRoute' {..} =
-    Prelude.rnf meshOwner
-      `Prelude.seq` Prelude.rnf gatewayRouteName
-      `Prelude.seq` Prelude.rnf meshName
-      `Prelude.seq` Prelude.rnf virtualGatewayName
+    Prelude.rnf meshOwner `Prelude.seq`
+      Prelude.rnf gatewayRouteName `Prelude.seq`
+        Prelude.rnf meshName `Prelude.seq`
+          Prelude.rnf virtualGatewayName
 
 instance Data.ToHeaders DescribeGatewayRoute where
   toHeaders =
@@ -225,5 +225,5 @@ describeGatewayRouteResponse_gatewayRoute = Lens.lens (\DescribeGatewayRouteResp
 
 instance Prelude.NFData DescribeGatewayRouteResponse where
   rnf DescribeGatewayRouteResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf gatewayRoute
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf gatewayRoute

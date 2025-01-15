@@ -91,8 +91,8 @@ instance Prelude.Hashable LambdaCodeHook where
 
 instance Prelude.NFData LambdaCodeHook where
   rnf LambdaCodeHook' {..} =
-    Prelude.rnf lambdaARN
-      `Prelude.seq` Prelude.rnf codeHookInterfaceVersion
+    Prelude.rnf lambdaARN `Prelude.seq`
+      Prelude.rnf codeHookInterfaceVersion
 
 instance Data.ToJSON LambdaCodeHook where
   toJSON LambdaCodeHook' {..} =

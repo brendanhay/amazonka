@@ -100,9 +100,9 @@ instance Prelude.Hashable FieldSeriesItem where
 
 instance Prelude.NFData FieldSeriesItem where
   rnf FieldSeriesItem' {..} =
-    Prelude.rnf settings
-      `Prelude.seq` Prelude.rnf fieldId
-      `Prelude.seq` Prelude.rnf axisBinding
+    Prelude.rnf settings `Prelude.seq`
+      Prelude.rnf fieldId `Prelude.seq`
+        Prelude.rnf axisBinding
 
 instance Data.ToJSON FieldSeriesItem where
   toJSON FieldSeriesItem' {..} =

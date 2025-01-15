@@ -138,7 +138,7 @@ instance Prelude.Hashable UserProfileSummary where
 
 instance Prelude.NFData UserProfileSummary where
   rnf UserProfileSummary' {..} =
-    Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf emailAddress
-      `Prelude.seq` Prelude.rnf sshPublicKey
-      `Prelude.seq` Prelude.rnf userArn
+    Prelude.rnf displayName `Prelude.seq`
+      Prelude.rnf emailAddress `Prelude.seq`
+        Prelude.rnf sshPublicKey `Prelude.seq`
+          Prelude.rnf userArn

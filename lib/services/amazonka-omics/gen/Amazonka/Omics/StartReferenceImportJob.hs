@@ -149,10 +149,10 @@ instance Prelude.Hashable StartReferenceImportJob where
 
 instance Prelude.NFData StartReferenceImportJob where
   rnf StartReferenceImportJob' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf referenceStoreId
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf sources
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf referenceStoreId `Prelude.seq`
+        Prelude.rnf roleArn `Prelude.seq`
+          Prelude.rnf sources
 
 instance Data.ToHeaders StartReferenceImportJob where
   toHeaders =
@@ -283,9 +283,9 @@ instance
     StartReferenceImportJobResponse
   where
   rnf StartReferenceImportJobResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf referenceStoreId
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf referenceStoreId `Prelude.seq`
+            Prelude.rnf roleArn `Prelude.seq`
+              Prelude.rnf status

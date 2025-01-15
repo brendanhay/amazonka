@@ -92,6 +92,6 @@ instance Prelude.Hashable UserContext where
 
 instance Prelude.NFData UserContext where
   rnf UserContext' {..} =
-    Prelude.rnf domainId
-      `Prelude.seq` Prelude.rnf userProfileArn
-      `Prelude.seq` Prelude.rnf userProfileName
+    Prelude.rnf domainId `Prelude.seq`
+      Prelude.rnf userProfileArn `Prelude.seq`
+        Prelude.rnf userProfileName

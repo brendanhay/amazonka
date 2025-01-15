@@ -143,8 +143,8 @@ instance Prelude.Hashable PutGroupConfiguration where
 
 instance Prelude.NFData PutGroupConfiguration where
   rnf PutGroupConfiguration' {..} =
-    Prelude.rnf configuration
-      `Prelude.seq` Prelude.rnf group'
+    Prelude.rnf configuration `Prelude.seq`
+      Prelude.rnf group'
 
 instance Data.ToHeaders PutGroupConfiguration where
   toHeaders = Prelude.const Prelude.mempty

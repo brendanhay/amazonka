@@ -285,20 +285,20 @@ instance Prelude.Hashable CreateDataSet where
 
 instance Prelude.NFData CreateDataSet where
   rnf CreateDataSet' {..} =
-    Prelude.rnf columnGroups
-      `Prelude.seq` Prelude.rnf columnLevelPermissionRules
-      `Prelude.seq` Prelude.rnf dataSetUsageConfiguration
-      `Prelude.seq` Prelude.rnf fieldFolders
-      `Prelude.seq` Prelude.rnf logicalTableMap
-      `Prelude.seq` Prelude.rnf permissions
-      `Prelude.seq` Prelude.rnf rowLevelPermissionDataSet
-      `Prelude.seq` Prelude.rnf rowLevelPermissionTagConfiguration
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf dataSetId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf physicalTableMap
-      `Prelude.seq` Prelude.rnf importMode
+    Prelude.rnf columnGroups `Prelude.seq`
+      Prelude.rnf columnLevelPermissionRules `Prelude.seq`
+        Prelude.rnf dataSetUsageConfiguration `Prelude.seq`
+          Prelude.rnf fieldFolders `Prelude.seq`
+            Prelude.rnf logicalTableMap `Prelude.seq`
+              Prelude.rnf permissions `Prelude.seq`
+                Prelude.rnf rowLevelPermissionDataSet `Prelude.seq`
+                  Prelude.rnf rowLevelPermissionTagConfiguration `Prelude.seq`
+                    Prelude.rnf tags `Prelude.seq`
+                      Prelude.rnf awsAccountId `Prelude.seq`
+                        Prelude.rnf dataSetId `Prelude.seq`
+                          Prelude.rnf name `Prelude.seq`
+                            Prelude.rnf physicalTableMap `Prelude.seq`
+                              Prelude.rnf importMode
 
 instance Data.ToHeaders CreateDataSet where
   toHeaders =
@@ -430,9 +430,9 @@ createDataSetResponse_status = Lens.lens (\CreateDataSetResponse' {status} -> st
 
 instance Prelude.NFData CreateDataSetResponse where
   rnf CreateDataSetResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf dataSetId
-      `Prelude.seq` Prelude.rnf ingestionArn
-      `Prelude.seq` Prelude.rnf ingestionId
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf dataSetId `Prelude.seq`
+        Prelude.rnf ingestionArn `Prelude.seq`
+          Prelude.rnf ingestionId `Prelude.seq`
+            Prelude.rnf requestId `Prelude.seq`
+              Prelude.rnf status

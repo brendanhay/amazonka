@@ -234,8 +234,8 @@ instance Prelude.Hashable UpdateAlias where
 
 instance Prelude.NFData UpdateAlias where
   rnf UpdateAlias' {..} =
-    Prelude.rnf aliasName
-      `Prelude.seq` Prelude.rnf targetKeyId
+    Prelude.rnf aliasName `Prelude.seq`
+      Prelude.rnf targetKeyId
 
 instance Data.ToHeaders UpdateAlias where
   toHeaders =

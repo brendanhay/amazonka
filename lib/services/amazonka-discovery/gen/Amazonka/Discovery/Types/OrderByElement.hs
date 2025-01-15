@@ -73,8 +73,8 @@ instance Prelude.Hashable OrderByElement where
 
 instance Prelude.NFData OrderByElement where
   rnf OrderByElement' {..} =
-    Prelude.rnf sortOrder
-      `Prelude.seq` Prelude.rnf fieldName
+    Prelude.rnf sortOrder `Prelude.seq`
+      Prelude.rnf fieldName
 
 instance Data.ToJSON OrderByElement where
   toJSON OrderByElement' {..} =

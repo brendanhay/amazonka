@@ -264,9 +264,9 @@ instance
     OrganizationConformancePackDetailedStatus
   where
   rnf OrganizationConformancePackDetailedStatus' {..} =
-    Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf lastUpdateTime
-      `Prelude.seq` Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf conformancePackName
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf errorCode `Prelude.seq`
+      Prelude.rnf errorMessage `Prelude.seq`
+        Prelude.rnf lastUpdateTime `Prelude.seq`
+          Prelude.rnf accountId `Prelude.seq`
+            Prelude.rnf conformancePackName `Prelude.seq`
+              Prelude.rnf status

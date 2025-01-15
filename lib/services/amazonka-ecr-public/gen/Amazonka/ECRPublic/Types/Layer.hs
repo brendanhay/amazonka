@@ -109,7 +109,7 @@ instance Prelude.Hashable Layer where
 
 instance Prelude.NFData Layer where
   rnf Layer' {..} =
-    Prelude.rnf layerAvailability
-      `Prelude.seq` Prelude.rnf layerDigest
-      `Prelude.seq` Prelude.rnf layerSize
-      `Prelude.seq` Prelude.rnf mediaType
+    Prelude.rnf layerAvailability `Prelude.seq`
+      Prelude.rnf layerDigest `Prelude.seq`
+        Prelude.rnf layerSize `Prelude.seq`
+          Prelude.rnf mediaType

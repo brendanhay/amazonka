@@ -168,5 +168,5 @@ deleteNamespaceResponse_httpStatus = Lens.lens (\DeleteNamespaceResponse' {httpS
 
 instance Prelude.NFData DeleteNamespaceResponse where
   rnf DeleteNamespaceResponse' {..} =
-    Prelude.rnf operationId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operationId `Prelude.seq`
+      Prelude.rnf httpStatus

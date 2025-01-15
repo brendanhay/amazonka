@@ -77,8 +77,8 @@ instance Prelude.Hashable ConnectorOAuthRequest where
 
 instance Prelude.NFData ConnectorOAuthRequest where
   rnf ConnectorOAuthRequest' {..} =
-    Prelude.rnf authCode
-      `Prelude.seq` Prelude.rnf redirectUri
+    Prelude.rnf authCode `Prelude.seq`
+      Prelude.rnf redirectUri
 
 instance Data.ToJSON ConnectorOAuthRequest where
   toJSON ConnectorOAuthRequest' {..} =

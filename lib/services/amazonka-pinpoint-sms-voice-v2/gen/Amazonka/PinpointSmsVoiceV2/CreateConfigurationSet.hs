@@ -142,9 +142,9 @@ instance Prelude.Hashable CreateConfigurationSet where
 
 instance Prelude.NFData CreateConfigurationSet where
   rnf CreateConfigurationSet' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf configurationSetName
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf configurationSetName
 
 instance Data.ToHeaders CreateConfigurationSet where
   toHeaders =
@@ -257,8 +257,8 @@ instance
     CreateConfigurationSetResponse
   where
   rnf CreateConfigurationSetResponse' {..} =
-    Prelude.rnf configurationSetArn
-      `Prelude.seq` Prelude.rnf configurationSetName
-      `Prelude.seq` Prelude.rnf createdTimestamp
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf configurationSetArn `Prelude.seq`
+      Prelude.rnf configurationSetName `Prelude.seq`
+        Prelude.rnf createdTimestamp `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf httpStatus

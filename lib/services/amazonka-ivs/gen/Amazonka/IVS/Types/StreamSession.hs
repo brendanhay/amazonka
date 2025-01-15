@@ -162,10 +162,10 @@ instance Prelude.Hashable StreamSession where
 
 instance Prelude.NFData StreamSession where
   rnf StreamSession' {..} =
-    Prelude.rnf channel
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf ingestConfiguration
-      `Prelude.seq` Prelude.rnf recordingConfiguration
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf streamId
-      `Prelude.seq` Prelude.rnf truncatedEvents
+    Prelude.rnf channel `Prelude.seq`
+      Prelude.rnf endTime `Prelude.seq`
+        Prelude.rnf ingestConfiguration `Prelude.seq`
+          Prelude.rnf recordingConfiguration `Prelude.seq`
+            Prelude.rnf startTime `Prelude.seq`
+              Prelude.rnf streamId `Prelude.seq`
+                Prelude.rnf truncatedEvents

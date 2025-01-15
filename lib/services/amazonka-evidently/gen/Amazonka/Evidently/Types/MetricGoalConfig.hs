@@ -87,8 +87,8 @@ instance Prelude.Hashable MetricGoalConfig where
 
 instance Prelude.NFData MetricGoalConfig where
   rnf MetricGoalConfig' {..} =
-    Prelude.rnf desiredChange
-      `Prelude.seq` Prelude.rnf metricDefinition
+    Prelude.rnf desiredChange `Prelude.seq`
+      Prelude.rnf metricDefinition
 
 instance Data.ToJSON MetricGoalConfig where
   toJSON MetricGoalConfig' {..} =

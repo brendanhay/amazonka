@@ -285,16 +285,16 @@ getEnvironmentResponse_httpStatus = Lens.lens (\GetEnvironmentResponse' {httpSta
 
 instance Prelude.NFData GetEnvironmentResponse where
   rnf GetEnvironmentResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf environmentId
-      `Prelude.seq` Prelude.rnf error
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf networkFabricType
-      `Prelude.seq` Prelude.rnf ownerAccountId
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf transitGatewayId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf createdTime `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf environmentId `Prelude.seq`
+            Prelude.rnf error `Prelude.seq`
+              Prelude.rnf lastUpdatedTime `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf networkFabricType `Prelude.seq`
+                    Prelude.rnf ownerAccountId `Prelude.seq`
+                      Prelude.rnf state `Prelude.seq`
+                        Prelude.rnf tags `Prelude.seq`
+                          Prelude.rnf transitGatewayId `Prelude.seq`
+                            Prelude.rnf httpStatus

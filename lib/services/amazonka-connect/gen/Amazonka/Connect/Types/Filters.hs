@@ -90,9 +90,9 @@ instance Prelude.Hashable Filters where
 
 instance Prelude.NFData Filters where
   rnf Filters' {..} =
-    Prelude.rnf channels
-      `Prelude.seq` Prelude.rnf queues
-      `Prelude.seq` Prelude.rnf routingProfiles
+    Prelude.rnf channels `Prelude.seq`
+      Prelude.rnf queues `Prelude.seq`
+        Prelude.rnf routingProfiles
 
 instance Data.ToJSON Filters where
   toJSON Filters' {..} =

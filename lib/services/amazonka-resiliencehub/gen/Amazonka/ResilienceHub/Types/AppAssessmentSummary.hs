@@ -227,15 +227,15 @@ instance Prelude.Hashable AppAssessmentSummary where
 
 instance Prelude.NFData AppAssessmentSummary where
   rnf AppAssessmentSummary' {..} =
-    Prelude.rnf appArn
-      `Prelude.seq` Prelude.rnf appVersion
-      `Prelude.seq` Prelude.rnf assessmentName
-      `Prelude.seq` Prelude.rnf complianceStatus
-      `Prelude.seq` Prelude.rnf cost
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf invoker
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf resiliencyScore
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf assessmentArn
-      `Prelude.seq` Prelude.rnf assessmentStatus
+    Prelude.rnf appArn `Prelude.seq`
+      Prelude.rnf appVersion `Prelude.seq`
+        Prelude.rnf assessmentName `Prelude.seq`
+          Prelude.rnf complianceStatus `Prelude.seq`
+            Prelude.rnf cost `Prelude.seq`
+              Prelude.rnf endTime `Prelude.seq`
+                Prelude.rnf invoker `Prelude.seq`
+                  Prelude.rnf message `Prelude.seq`
+                    Prelude.rnf resiliencyScore `Prelude.seq`
+                      Prelude.rnf startTime `Prelude.seq`
+                        Prelude.rnf assessmentArn `Prelude.seq`
+                          Prelude.rnf assessmentStatus

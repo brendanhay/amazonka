@@ -112,8 +112,8 @@ instance Prelude.Hashable DescribeRulesPackages where
 
 instance Prelude.NFData DescribeRulesPackages where
   rnf DescribeRulesPackages' {..} =
-    Prelude.rnf locale
-      `Prelude.seq` Prelude.rnf rulesPackageArns
+    Prelude.rnf locale `Prelude.seq`
+      Prelude.rnf rulesPackageArns
 
 instance Data.ToHeaders DescribeRulesPackages where
   toHeaders =
@@ -199,6 +199,6 @@ describeRulesPackagesResponse_failedItems = Lens.lens (\DescribeRulesPackagesRes
 
 instance Prelude.NFData DescribeRulesPackagesResponse where
   rnf DescribeRulesPackagesResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf rulesPackages
-      `Prelude.seq` Prelude.rnf failedItems
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf rulesPackages `Prelude.seq`
+        Prelude.rnf failedItems

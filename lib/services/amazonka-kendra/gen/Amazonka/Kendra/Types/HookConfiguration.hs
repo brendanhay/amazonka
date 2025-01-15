@@ -134,9 +134,9 @@ instance Prelude.Hashable HookConfiguration where
 
 instance Prelude.NFData HookConfiguration where
   rnf HookConfiguration' {..} =
-    Prelude.rnf invocationCondition
-      `Prelude.seq` Prelude.rnf lambdaArn
-      `Prelude.seq` Prelude.rnf s3Bucket
+    Prelude.rnf invocationCondition `Prelude.seq`
+      Prelude.rnf lambdaArn `Prelude.seq`
+        Prelude.rnf s3Bucket
 
 instance Data.ToJSON HookConfiguration where
   toJSON HookConfiguration' {..} =

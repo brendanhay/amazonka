@@ -194,13 +194,13 @@ instance Prelude.Hashable FirewallDomainList where
 
 instance Prelude.NFData FirewallDomainList where
   rnf FirewallDomainList' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf creatorRequestId
-      `Prelude.seq` Prelude.rnf domainCount
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf managedOwnerName
-      `Prelude.seq` Prelude.rnf modificationTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusMessage
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf creatorRequestId `Prelude.seq`
+          Prelude.rnf domainCount `Prelude.seq`
+            Prelude.rnf id `Prelude.seq`
+              Prelude.rnf managedOwnerName `Prelude.seq`
+                Prelude.rnf modificationTime `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf status `Prelude.seq`
+                      Prelude.rnf statusMessage

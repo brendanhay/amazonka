@@ -139,10 +139,10 @@ instance Prelude.Hashable Promotion where
 
 instance Prelude.NFData Promotion where
   rnf Promotion' {..} =
-    Prelude.rnf filterArn
-      `Prelude.seq` Prelude.rnf filterValues
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf percentPromotedItems
+    Prelude.rnf filterArn `Prelude.seq`
+      Prelude.rnf filterValues `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf percentPromotedItems
 
 instance Data.ToJSON Promotion where
   toJSON Promotion' {..} =

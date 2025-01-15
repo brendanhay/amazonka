@@ -148,11 +148,11 @@ instance Prelude.Hashable ContainerRecipeSummary where
 
 instance Prelude.NFData ContainerRecipeSummary where
   rnf ContainerRecipeSummary' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf containerType
-      `Prelude.seq` Prelude.rnf dateCreated
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf owner
-      `Prelude.seq` Prelude.rnf parentImage
-      `Prelude.seq` Prelude.rnf platform
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf containerType `Prelude.seq`
+        Prelude.rnf dateCreated `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf owner `Prelude.seq`
+              Prelude.rnf parentImage `Prelude.seq`
+                Prelude.rnf platform `Prelude.seq`
+                  Prelude.rnf tags

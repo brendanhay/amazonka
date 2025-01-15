@@ -125,10 +125,10 @@ instance Prelude.Hashable PublicKeyConfig where
 
 instance Prelude.NFData PublicKeyConfig where
   rnf PublicKeyConfig' {..} =
-    Prelude.rnf comment
-      `Prelude.seq` Prelude.rnf callerReference
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf encodedKey
+    Prelude.rnf comment `Prelude.seq`
+      Prelude.rnf callerReference `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf encodedKey
 
 instance Data.ToXML PublicKeyConfig where
   toXML PublicKeyConfig' {..} =

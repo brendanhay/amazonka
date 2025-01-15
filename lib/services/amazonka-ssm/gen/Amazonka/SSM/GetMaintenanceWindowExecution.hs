@@ -234,10 +234,10 @@ instance
     GetMaintenanceWindowExecutionResponse
   where
   rnf GetMaintenanceWindowExecutionResponse' {..} =
-    Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusDetails
-      `Prelude.seq` Prelude.rnf taskIds
-      `Prelude.seq` Prelude.rnf windowExecutionId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf endTime `Prelude.seq`
+      Prelude.rnf startTime `Prelude.seq`
+        Prelude.rnf status `Prelude.seq`
+          Prelude.rnf statusDetails `Prelude.seq`
+            Prelude.rnf taskIds `Prelude.seq`
+              Prelude.rnf windowExecutionId `Prelude.seq`
+                Prelude.rnf httpStatus

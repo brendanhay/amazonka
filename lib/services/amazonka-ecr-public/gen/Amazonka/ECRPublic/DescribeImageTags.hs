@@ -172,12 +172,12 @@ instance Core.AWSPager DescribeImageTags where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeImageTags_nextToken
-          Lens..~ rs
-          Lens.^? describeImageTagsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeImageTags_nextToken
+              Lens..~ rs
+              Lens.^? describeImageTagsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeImageTags where
   type
@@ -207,10 +207,10 @@ instance Prelude.Hashable DescribeImageTags where
 
 instance Prelude.NFData DescribeImageTags where
   rnf DescribeImageTags' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf registryId
-      `Prelude.seq` Prelude.rnf repositoryName
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf registryId `Prelude.seq`
+          Prelude.rnf repositoryName
 
 instance Data.ToHeaders DescribeImageTags where
   toHeaders =
@@ -304,6 +304,6 @@ describeImageTagsResponse_httpStatus = Lens.lens (\DescribeImageTagsResponse' {h
 
 instance Prelude.NFData DescribeImageTagsResponse where
   rnf DescribeImageTagsResponse' {..} =
-    Prelude.rnf imageTagDetails
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf imageTagDetails `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

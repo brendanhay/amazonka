@@ -96,8 +96,8 @@ instance Prelude.Hashable EncryptionOptions where
 
 instance Prelude.NFData EncryptionOptions where
   rnf EncryptionOptions' {..} =
-    Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf useAwsOwnedKey
+    Prelude.rnf kmsKeyId `Prelude.seq`
+      Prelude.rnf useAwsOwnedKey
 
 instance Data.ToJSON EncryptionOptions where
   toJSON EncryptionOptions' {..} =

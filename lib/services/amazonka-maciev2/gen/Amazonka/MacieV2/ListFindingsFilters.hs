@@ -109,12 +109,12 @@ instance Core.AWSPager ListFindingsFilters where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listFindingsFilters_nextToken
-          Lens..~ rs
-          Lens.^? listFindingsFiltersResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listFindingsFilters_nextToken
+              Lens..~ rs
+              Lens.^? listFindingsFiltersResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListFindingsFilters where
   type
@@ -142,8 +142,8 @@ instance Prelude.Hashable ListFindingsFilters where
 
 instance Prelude.NFData ListFindingsFilters where
   rnf ListFindingsFilters' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListFindingsFilters where
   toHeaders =
@@ -225,6 +225,6 @@ listFindingsFiltersResponse_httpStatus = Lens.lens (\ListFindingsFiltersResponse
 
 instance Prelude.NFData ListFindingsFiltersResponse where
   rnf ListFindingsFiltersResponse' {..} =
-    Prelude.rnf findingsFilterListItems
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf findingsFilterListItems `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

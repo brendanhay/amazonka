@@ -121,8 +121,8 @@ instance Prelude.Hashable CancelChangeSet where
 
 instance Prelude.NFData CancelChangeSet where
   rnf CancelChangeSet' {..} =
-    Prelude.rnf catalog
-      `Prelude.seq` Prelude.rnf changeSetId
+    Prelude.rnf catalog `Prelude.seq`
+      Prelude.rnf changeSetId
 
 instance Data.ToHeaders CancelChangeSet where
   toHeaders =
@@ -198,6 +198,6 @@ cancelChangeSetResponse_httpStatus = Lens.lens (\CancelChangeSetResponse' {httpS
 
 instance Prelude.NFData CancelChangeSetResponse where
   rnf CancelChangeSetResponse' {..} =
-    Prelude.rnf changeSetArn
-      `Prelude.seq` Prelude.rnf changeSetId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf changeSetArn `Prelude.seq`
+      Prelude.rnf changeSetId `Prelude.seq`
+        Prelude.rnf httpStatus

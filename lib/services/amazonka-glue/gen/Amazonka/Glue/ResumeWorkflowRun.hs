@@ -128,9 +128,9 @@ instance Prelude.Hashable ResumeWorkflowRun where
 
 instance Prelude.NFData ResumeWorkflowRun where
   rnf ResumeWorkflowRun' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf runId
-      `Prelude.seq` Prelude.rnf nodeIds
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf runId `Prelude.seq`
+        Prelude.rnf nodeIds
 
 instance Data.ToHeaders ResumeWorkflowRun where
   toHeaders =
@@ -214,6 +214,6 @@ resumeWorkflowRunResponse_httpStatus = Lens.lens (\ResumeWorkflowRunResponse' {h
 
 instance Prelude.NFData ResumeWorkflowRunResponse where
   rnf ResumeWorkflowRunResponse' {..} =
-    Prelude.rnf nodeIds
-      `Prelude.seq` Prelude.rnf runId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nodeIds `Prelude.seq`
+      Prelude.rnf runId `Prelude.seq`
+        Prelude.rnf httpStatus

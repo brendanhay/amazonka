@@ -243,17 +243,17 @@ instance Prelude.Hashable UpdateRecipeJob where
 
 instance Prelude.NFData UpdateRecipeJob where
   rnf UpdateRecipeJob' {..} =
-    Prelude.rnf dataCatalogOutputs
-      `Prelude.seq` Prelude.rnf databaseOutputs
-      `Prelude.seq` Prelude.rnf encryptionKeyArn
-      `Prelude.seq` Prelude.rnf encryptionMode
-      `Prelude.seq` Prelude.rnf logSubscription
-      `Prelude.seq` Prelude.rnf maxCapacity
-      `Prelude.seq` Prelude.rnf maxRetries
-      `Prelude.seq` Prelude.rnf outputs
-      `Prelude.seq` Prelude.rnf timeout
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf dataCatalogOutputs `Prelude.seq`
+      Prelude.rnf databaseOutputs `Prelude.seq`
+        Prelude.rnf encryptionKeyArn `Prelude.seq`
+          Prelude.rnf encryptionMode `Prelude.seq`
+            Prelude.rnf logSubscription `Prelude.seq`
+              Prelude.rnf maxCapacity `Prelude.seq`
+                Prelude.rnf maxRetries `Prelude.seq`
+                  Prelude.rnf outputs `Prelude.seq`
+                    Prelude.rnf timeout `Prelude.seq`
+                      Prelude.rnf name `Prelude.seq`
+                        Prelude.rnf roleArn
 
 instance Data.ToHeaders UpdateRecipeJob where
   toHeaders =
@@ -337,5 +337,5 @@ updateRecipeJobResponse_name = Lens.lens (\UpdateRecipeJobResponse' {name} -> na
 
 instance Prelude.NFData UpdateRecipeJobResponse where
   rnf UpdateRecipeJobResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf name

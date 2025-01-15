@@ -127,8 +127,8 @@ instance Prelude.Hashable RemoveFromGlobalCluster where
 
 instance Prelude.NFData RemoveFromGlobalCluster where
   rnf RemoveFromGlobalCluster' {..} =
-    Prelude.rnf globalClusterIdentifier
-      `Prelude.seq` Prelude.rnf dbClusterIdentifier
+    Prelude.rnf globalClusterIdentifier `Prelude.seq`
+      Prelude.rnf dbClusterIdentifier
 
 instance Data.ToHeaders RemoveFromGlobalCluster where
   toHeaders = Prelude.const Prelude.mempty
@@ -191,5 +191,5 @@ instance
     RemoveFromGlobalClusterResponse
   where
   rnf RemoveFromGlobalClusterResponse' {..} =
-    Prelude.rnf globalCluster
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf globalCluster `Prelude.seq`
+      Prelude.rnf httpStatus

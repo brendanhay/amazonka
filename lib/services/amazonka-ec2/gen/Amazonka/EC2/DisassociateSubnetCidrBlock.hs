@@ -175,6 +175,6 @@ instance
     DisassociateSubnetCidrBlockResponse
   where
   rnf DisassociateSubnetCidrBlockResponse' {..} =
-    Prelude.rnf ipv6CidrBlockAssociation
-      `Prelude.seq` Prelude.rnf subnetId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf ipv6CidrBlockAssociation `Prelude.seq`
+      Prelude.rnf subnetId `Prelude.seq`
+        Prelude.rnf httpStatus

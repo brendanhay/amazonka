@@ -211,12 +211,12 @@ instance Core.AWSPager DescribeSnapshots where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeSnapshots_marker
-          Lens..~ rs
-          Lens.^? describeSnapshotsResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeSnapshots_marker
+              Lens..~ rs
+              Lens.^? describeSnapshotsResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeSnapshots where
   type
@@ -230,9 +230,7 @@ instance Core.AWSRequest DescribeSnapshots where
       ( \s h x ->
           DescribeSnapshotsResponse'
             Prelude.<$> (x Data..@? "Marker")
-            Prelude.<*> ( x
-                            Data..@? "Snapshots"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "Snapshots" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "Snapshot")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -251,13 +249,13 @@ instance Prelude.Hashable DescribeSnapshots where
 
 instance Prelude.NFData DescribeSnapshots where
   rnf DescribeSnapshots' {..} =
-    Prelude.rnf cacheClusterId
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf replicationGroupId
-      `Prelude.seq` Prelude.rnf showNodeGroupConfig
-      `Prelude.seq` Prelude.rnf snapshotName
-      `Prelude.seq` Prelude.rnf snapshotSource
+    Prelude.rnf cacheClusterId `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf maxRecords `Prelude.seq`
+          Prelude.rnf replicationGroupId `Prelude.seq`
+            Prelude.rnf showNodeGroupConfig `Prelude.seq`
+              Prelude.rnf snapshotName `Prelude.seq`
+                Prelude.rnf snapshotSource
 
 instance Data.ToHeaders DescribeSnapshots where
   toHeaders = Prelude.const Prelude.mempty
@@ -345,6 +343,6 @@ describeSnapshotsResponse_httpStatus = Lens.lens (\DescribeSnapshotsResponse' {h
 
 instance Prelude.NFData DescribeSnapshotsResponse where
   rnf DescribeSnapshotsResponse' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf snapshots
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf snapshots `Prelude.seq`
+        Prelude.rnf httpStatus

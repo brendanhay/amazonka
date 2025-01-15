@@ -125,9 +125,9 @@ instance Prelude.Hashable GetBatchImportJobs where
 
 instance Prelude.NFData GetBatchImportJobs where
   rnf GetBatchImportJobs' {..} =
-    Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf jobId `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders GetBatchImportJobs where
   toHeaders =
@@ -210,6 +210,6 @@ getBatchImportJobsResponse_httpStatus = Lens.lens (\GetBatchImportJobsResponse' 
 
 instance Prelude.NFData GetBatchImportJobsResponse where
   rnf GetBatchImportJobsResponse' {..} =
-    Prelude.rnf batchImports
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf batchImports `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

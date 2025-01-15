@@ -126,8 +126,8 @@ instance
 
 instance Prelude.NFData DeleteTrafficMirrorFilterRule where
   rnf DeleteTrafficMirrorFilterRule' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf trafficMirrorFilterRuleId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf trafficMirrorFilterRuleId
 
 instance Data.ToHeaders DeleteTrafficMirrorFilterRule where
   toHeaders = Prelude.const Prelude.mempty
@@ -193,5 +193,5 @@ instance
     DeleteTrafficMirrorFilterRuleResponse
   where
   rnf DeleteTrafficMirrorFilterRuleResponse' {..} =
-    Prelude.rnf trafficMirrorFilterRuleId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf trafficMirrorFilterRuleId `Prelude.seq`
+      Prelude.rnf httpStatus

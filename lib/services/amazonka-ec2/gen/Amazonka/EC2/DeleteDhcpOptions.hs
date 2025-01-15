@@ -111,8 +111,8 @@ instance Prelude.Hashable DeleteDhcpOptions where
 
 instance Prelude.NFData DeleteDhcpOptions where
   rnf DeleteDhcpOptions' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf dhcpOptionsId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf dhcpOptionsId
 
 instance Data.ToHeaders DeleteDhcpOptions where
   toHeaders = Prelude.const Prelude.mempty

@@ -92,8 +92,8 @@ instance Prelude.Hashable Hdr10Settings where
 
 instance Prelude.NFData Hdr10Settings where
   rnf Hdr10Settings' {..} =
-    Prelude.rnf maxCll
-      `Prelude.seq` Prelude.rnf maxFall
+    Prelude.rnf maxCll `Prelude.seq`
+      Prelude.rnf maxFall
 
 instance Data.ToJSON Hdr10Settings where
   toJSON Hdr10Settings' {..} =

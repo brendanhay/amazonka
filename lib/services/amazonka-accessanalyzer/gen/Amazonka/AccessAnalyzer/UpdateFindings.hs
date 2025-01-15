@@ -148,11 +148,11 @@ instance Prelude.Hashable UpdateFindings where
 
 instance Prelude.NFData UpdateFindings where
   rnf UpdateFindings' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf ids
-      `Prelude.seq` Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf analyzerArn
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf ids `Prelude.seq`
+        Prelude.rnf resourceArn `Prelude.seq`
+          Prelude.rnf analyzerArn `Prelude.seq`
+            Prelude.rnf status
 
 instance Data.ToHeaders UpdateFindings where
   toHeaders =

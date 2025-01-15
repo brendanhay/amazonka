@@ -334,20 +334,20 @@ instance Core.AWSPager ListResourceRecordSets where
           ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listResourceRecordSets_startRecordName
-          Lens..~ rs
-          Lens.^? listResourceRecordSetsResponse_nextRecordName
-          Prelude.. Lens._Just
-          Prelude.& listResourceRecordSets_startRecordType
-          Lens..~ rs
-          Lens.^? listResourceRecordSetsResponse_nextRecordType
-          Prelude.. Lens._Just
-          Prelude.& listResourceRecordSets_startRecordIdentifier
-          Lens..~ rs
-          Lens.^? listResourceRecordSetsResponse_nextRecordIdentifier
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listResourceRecordSets_startRecordName
+              Lens..~ rs
+              Lens.^? listResourceRecordSetsResponse_nextRecordName
+              Prelude.. Lens._Just
+            Prelude.& listResourceRecordSets_startRecordType
+              Lens..~ rs
+              Lens.^? listResourceRecordSetsResponse_nextRecordType
+              Prelude.. Lens._Just
+            Prelude.& listResourceRecordSets_startRecordIdentifier
+              Lens..~ rs
+              Lens.^? listResourceRecordSetsResponse_nextRecordIdentifier
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListResourceRecordSets where
   type
@@ -383,11 +383,11 @@ instance Prelude.Hashable ListResourceRecordSets where
 
 instance Prelude.NFData ListResourceRecordSets where
   rnf ListResourceRecordSets' {..} =
-    Prelude.rnf maxItems
-      `Prelude.seq` Prelude.rnf startRecordIdentifier
-      `Prelude.seq` Prelude.rnf startRecordName
-      `Prelude.seq` Prelude.rnf startRecordType
-      `Prelude.seq` Prelude.rnf hostedZoneId
+    Prelude.rnf maxItems `Prelude.seq`
+      Prelude.rnf startRecordIdentifier `Prelude.seq`
+        Prelude.rnf startRecordName `Prelude.seq`
+          Prelude.rnf startRecordType `Prelude.seq`
+            Prelude.rnf hostedZoneId
 
 instance Data.ToHeaders ListResourceRecordSets where
   toHeaders = Prelude.const Prelude.mempty
@@ -547,10 +547,10 @@ instance
     ListResourceRecordSetsResponse
   where
   rnf ListResourceRecordSetsResponse' {..} =
-    Prelude.rnf nextRecordIdentifier
-      `Prelude.seq` Prelude.rnf nextRecordName
-      `Prelude.seq` Prelude.rnf nextRecordType
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf resourceRecordSets
-      `Prelude.seq` Prelude.rnf isTruncated
-      `Prelude.seq` Prelude.rnf maxItems
+    Prelude.rnf nextRecordIdentifier `Prelude.seq`
+      Prelude.rnf nextRecordName `Prelude.seq`
+        Prelude.rnf nextRecordType `Prelude.seq`
+          Prelude.rnf httpStatus `Prelude.seq`
+            Prelude.rnf resourceRecordSets `Prelude.seq`
+              Prelude.rnf isTruncated `Prelude.seq`
+                Prelude.rnf maxItems

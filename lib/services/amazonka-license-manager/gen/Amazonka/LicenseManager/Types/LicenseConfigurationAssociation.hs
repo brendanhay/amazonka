@@ -129,8 +129,8 @@ instance
     LicenseConfigurationAssociation
   where
   rnf LicenseConfigurationAssociation' {..} =
-    Prelude.rnf amiAssociationScope
-      `Prelude.seq` Prelude.rnf associationTime
-      `Prelude.seq` Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf resourceOwnerId
-      `Prelude.seq` Prelude.rnf resourceType
+    Prelude.rnf amiAssociationScope `Prelude.seq`
+      Prelude.rnf associationTime `Prelude.seq`
+        Prelude.rnf resourceArn `Prelude.seq`
+          Prelude.rnf resourceOwnerId `Prelude.seq`
+            Prelude.rnf resourceType

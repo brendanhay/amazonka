@@ -117,11 +117,11 @@ instance Prelude.Hashable Change where
 
 instance Prelude.NFData Change where
   rnf Change' {..} =
-    Prelude.rnf changeName
-      `Prelude.seq` Prelude.rnf entityTags
-      `Prelude.seq` Prelude.rnf changeType
-      `Prelude.seq` Prelude.rnf entity
-      `Prelude.seq` Prelude.rnf details
+    Prelude.rnf changeName `Prelude.seq`
+      Prelude.rnf entityTags `Prelude.seq`
+        Prelude.rnf changeType `Prelude.seq`
+          Prelude.rnf entity `Prelude.seq`
+            Prelude.rnf details
 
 instance Data.ToJSON Change where
   toJSON Change' {..} =

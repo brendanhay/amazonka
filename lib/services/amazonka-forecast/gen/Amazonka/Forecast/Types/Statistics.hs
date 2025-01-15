@@ -217,15 +217,15 @@ instance Prelude.Hashable Statistics where
 
 instance Prelude.NFData Statistics where
   rnf Statistics' {..} =
-    Prelude.rnf avg
-      `Prelude.seq` Prelude.rnf count
-      `Prelude.seq` Prelude.rnf countDistinct
-      `Prelude.seq` Prelude.rnf countDistinctLong
-      `Prelude.seq` Prelude.rnf countLong
-      `Prelude.seq` Prelude.rnf countNan
-      `Prelude.seq` Prelude.rnf countNanLong
-      `Prelude.seq` Prelude.rnf countNull
-      `Prelude.seq` Prelude.rnf countNullLong
-      `Prelude.seq` Prelude.rnf max
-      `Prelude.seq` Prelude.rnf min
-      `Prelude.seq` Prelude.rnf stddev
+    Prelude.rnf avg `Prelude.seq`
+      Prelude.rnf count `Prelude.seq`
+        Prelude.rnf countDistinct `Prelude.seq`
+          Prelude.rnf countDistinctLong `Prelude.seq`
+            Prelude.rnf countLong `Prelude.seq`
+              Prelude.rnf countNan `Prelude.seq`
+                Prelude.rnf countNanLong `Prelude.seq`
+                  Prelude.rnf countNull `Prelude.seq`
+                    Prelude.rnf countNullLong `Prelude.seq`
+                      Prelude.rnf max `Prelude.seq`
+                        Prelude.rnf min `Prelude.seq`
+                          Prelude.rnf stddev

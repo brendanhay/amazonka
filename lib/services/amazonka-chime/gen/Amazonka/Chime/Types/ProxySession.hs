@@ -213,16 +213,16 @@ instance Prelude.Hashable ProxySession where
 
 instance Prelude.NFData ProxySession where
   rnf ProxySession' {..} =
-    Prelude.rnf capabilities
-      `Prelude.seq` Prelude.rnf createdTimestamp
-      `Prelude.seq` Prelude.rnf endedTimestamp
-      `Prelude.seq` Prelude.rnf expiryMinutes
-      `Prelude.seq` Prelude.rnf geoMatchLevel
-      `Prelude.seq` Prelude.rnf geoMatchParams
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf numberSelectionBehavior
-      `Prelude.seq` Prelude.rnf participants
-      `Prelude.seq` Prelude.rnf proxySessionId
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf updatedTimestamp
-      `Prelude.seq` Prelude.rnf voiceConnectorId
+    Prelude.rnf capabilities `Prelude.seq`
+      Prelude.rnf createdTimestamp `Prelude.seq`
+        Prelude.rnf endedTimestamp `Prelude.seq`
+          Prelude.rnf expiryMinutes `Prelude.seq`
+            Prelude.rnf geoMatchLevel `Prelude.seq`
+              Prelude.rnf geoMatchParams `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf numberSelectionBehavior `Prelude.seq`
+                    Prelude.rnf participants `Prelude.seq`
+                      Prelude.rnf proxySessionId `Prelude.seq`
+                        Prelude.rnf status `Prelude.seq`
+                          Prelude.rnf updatedTimestamp `Prelude.seq`
+                            Prelude.rnf voiceConnectorId

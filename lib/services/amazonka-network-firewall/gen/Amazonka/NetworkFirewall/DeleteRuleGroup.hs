@@ -147,9 +147,9 @@ instance Prelude.Hashable DeleteRuleGroup where
 
 instance Prelude.NFData DeleteRuleGroup where
   rnf DeleteRuleGroup' {..} =
-    Prelude.rnf ruleGroupArn
-      `Prelude.seq` Prelude.rnf ruleGroupName
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf ruleGroupArn `Prelude.seq`
+      Prelude.rnf ruleGroupName `Prelude.seq`
+        Prelude.rnf type'
 
 instance Data.ToHeaders DeleteRuleGroup where
   toHeaders =
@@ -232,5 +232,5 @@ deleteRuleGroupResponse_ruleGroupResponse = Lens.lens (\DeleteRuleGroupResponse'
 
 instance Prelude.NFData DeleteRuleGroupResponse where
   rnf DeleteRuleGroupResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf ruleGroupResponse
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf ruleGroupResponse

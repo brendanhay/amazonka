@@ -80,9 +80,9 @@ instance Prelude.Hashable AppMonitorDetails where
 
 instance Prelude.NFData AppMonitorDetails where
   rnf AppMonitorDetails' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf version
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf version
 
 instance Data.ToJSON AppMonitorDetails where
   toJSON AppMonitorDetails' {..} =

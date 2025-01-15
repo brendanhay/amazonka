@@ -170,10 +170,10 @@ instance Prelude.Hashable ListVocabularies where
 
 instance Prelude.NFData ListVocabularies where
   rnf ListVocabularies' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nameContains
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf stateEquals
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nameContains `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf stateEquals
 
 instance Data.ToHeaders ListVocabularies where
   toHeaders =
@@ -287,7 +287,7 @@ listVocabulariesResponse_httpStatus = Lens.lens (\ListVocabulariesResponse' {htt
 
 instance Prelude.NFData ListVocabulariesResponse where
   rnf ListVocabulariesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf vocabularies
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf vocabularies `Prelude.seq`
+          Prelude.rnf httpStatus

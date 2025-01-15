@@ -101,9 +101,9 @@ instance Prelude.Hashable BooleanColumnStatisticsData where
 
 instance Prelude.NFData BooleanColumnStatisticsData where
   rnf BooleanColumnStatisticsData' {..} =
-    Prelude.rnf numberOfTrues
-      `Prelude.seq` Prelude.rnf numberOfFalses
-      `Prelude.seq` Prelude.rnf numberOfNulls
+    Prelude.rnf numberOfTrues `Prelude.seq`
+      Prelude.rnf numberOfFalses `Prelude.seq`
+        Prelude.rnf numberOfNulls
 
 instance Data.ToJSON BooleanColumnStatisticsData where
   toJSON BooleanColumnStatisticsData' {..} =

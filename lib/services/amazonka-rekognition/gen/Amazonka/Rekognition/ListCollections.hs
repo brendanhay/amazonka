@@ -117,12 +117,12 @@ instance Core.AWSPager ListCollections where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listCollections_nextToken
-          Lens..~ rs
-          Lens.^? listCollectionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listCollections_nextToken
+              Lens..~ rs
+              Lens.^? listCollectionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListCollections where
   type
@@ -151,8 +151,8 @@ instance Prelude.Hashable ListCollections where
 
 instance Prelude.NFData ListCollections where
   rnf ListCollections' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListCollections where
   toHeaders =
@@ -258,7 +258,7 @@ listCollectionsResponse_httpStatus = Lens.lens (\ListCollectionsResponse' {httpS
 
 instance Prelude.NFData ListCollectionsResponse where
   rnf ListCollectionsResponse' {..} =
-    Prelude.rnf collectionIds
-      `Prelude.seq` Prelude.rnf faceModelVersions
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf collectionIds `Prelude.seq`
+      Prelude.rnf faceModelVersions `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf httpStatus

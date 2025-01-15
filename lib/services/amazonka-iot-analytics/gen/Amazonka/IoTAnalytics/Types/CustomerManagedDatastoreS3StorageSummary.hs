@@ -115,6 +115,6 @@ instance
     CustomerManagedDatastoreS3StorageSummary
   where
   rnf CustomerManagedDatastoreS3StorageSummary' {..} =
-    Prelude.rnf bucket
-      `Prelude.seq` Prelude.rnf keyPrefix
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf bucket `Prelude.seq`
+      Prelude.rnf keyPrefix `Prelude.seq`
+        Prelude.rnf roleArn

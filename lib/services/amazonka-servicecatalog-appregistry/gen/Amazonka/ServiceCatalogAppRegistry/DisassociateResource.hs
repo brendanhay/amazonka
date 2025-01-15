@@ -129,9 +129,9 @@ instance Prelude.Hashable DisassociateResource where
 
 instance Prelude.NFData DisassociateResource where
   rnf DisassociateResource' {..} =
-    Prelude.rnf application
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf resource
+    Prelude.rnf application `Prelude.seq`
+      Prelude.rnf resourceType `Prelude.seq`
+        Prelude.rnf resource
 
 instance Data.ToHeaders DisassociateResource where
   toHeaders =
@@ -208,6 +208,6 @@ disassociateResourceResponse_httpStatus = Lens.lens (\DisassociateResourceRespon
 
 instance Prelude.NFData DisassociateResourceResponse where
   rnf DisassociateResourceResponse' {..} =
-    Prelude.rnf applicationArn
-      `Prelude.seq` Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf applicationArn `Prelude.seq`
+      Prelude.rnf resourceArn `Prelude.seq`
+        Prelude.rnf httpStatus

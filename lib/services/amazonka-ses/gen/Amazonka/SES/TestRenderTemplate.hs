@@ -120,8 +120,8 @@ instance Prelude.Hashable TestRenderTemplate where
 
 instance Prelude.NFData TestRenderTemplate where
   rnf TestRenderTemplate' {..} =
-    Prelude.rnf templateName
-      `Prelude.seq` Prelude.rnf templateData
+    Prelude.rnf templateName `Prelude.seq`
+      Prelude.rnf templateData
 
 instance Data.ToHeaders TestRenderTemplate where
   toHeaders = Prelude.const Prelude.mempty
@@ -187,5 +187,5 @@ testRenderTemplateResponse_httpStatus = Lens.lens (\TestRenderTemplateResponse' 
 
 instance Prelude.NFData TestRenderTemplateResponse where
   rnf TestRenderTemplateResponse' {..} =
-    Prelude.rnf renderedTemplate
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf renderedTemplate `Prelude.seq`
+      Prelude.rnf httpStatus

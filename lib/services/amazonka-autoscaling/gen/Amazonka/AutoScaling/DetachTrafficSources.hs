@@ -137,8 +137,8 @@ instance Prelude.Hashable DetachTrafficSources where
 
 instance Prelude.NFData DetachTrafficSources where
   rnf DetachTrafficSources' {..} =
-    Prelude.rnf autoScalingGroupName
-      `Prelude.seq` Prelude.rnf trafficSources
+    Prelude.rnf autoScalingGroupName `Prelude.seq`
+      Prelude.rnf trafficSources
 
 instance Data.ToHeaders DetachTrafficSources where
   toHeaders = Prelude.const Prelude.mempty

@@ -148,9 +148,9 @@ instance
     ListAccessControlConfigurations
   where
   rnf ListAccessControlConfigurations' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf indexId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf indexId
 
 instance
   Data.ToHeaders
@@ -247,6 +247,6 @@ instance
     ListAccessControlConfigurationsResponse
   where
   rnf ListAccessControlConfigurationsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf accessControlConfigurations
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf accessControlConfigurations

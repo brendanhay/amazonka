@@ -214,13 +214,13 @@ instance
 
 instance Prelude.NFData APNSPushNotificationTemplate where
   rnf APNSPushNotificationTemplate' {..} =
-    Prelude.rnf action
-      `Prelude.seq` Prelude.rnf body
-      `Prelude.seq` Prelude.rnf mediaUrl
-      `Prelude.seq` Prelude.rnf rawContent
-      `Prelude.seq` Prelude.rnf sound
-      `Prelude.seq` Prelude.rnf title
-      `Prelude.seq` Prelude.rnf url
+    Prelude.rnf action `Prelude.seq`
+      Prelude.rnf body `Prelude.seq`
+        Prelude.rnf mediaUrl `Prelude.seq`
+          Prelude.rnf rawContent `Prelude.seq`
+            Prelude.rnf sound `Prelude.seq`
+              Prelude.rnf title `Prelude.seq`
+                Prelude.rnf url
 
 instance Data.ToJSON APNSPushNotificationTemplate where
   toJSON APNSPushNotificationTemplate' {..} =

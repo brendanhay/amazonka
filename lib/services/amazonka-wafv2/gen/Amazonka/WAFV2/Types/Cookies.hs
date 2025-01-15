@@ -180,9 +180,9 @@ instance Prelude.Hashable Cookies where
 
 instance Prelude.NFData Cookies where
   rnf Cookies' {..} =
-    Prelude.rnf matchPattern
-      `Prelude.seq` Prelude.rnf matchScope
-      `Prelude.seq` Prelude.rnf oversizeHandling
+    Prelude.rnf matchPattern `Prelude.seq`
+      Prelude.rnf matchScope `Prelude.seq`
+        Prelude.rnf oversizeHandling
 
 instance Data.ToJSON Cookies where
   toJSON Cookies' {..} =

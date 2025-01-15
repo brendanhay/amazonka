@@ -116,11 +116,11 @@ instance Prelude.Hashable AwsEc2LaunchTemplateDetails where
 
 instance Prelude.NFData AwsEc2LaunchTemplateDetails where
   rnf AwsEc2LaunchTemplateDetails' {..} =
-    Prelude.rnf defaultVersionNumber
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf latestVersionNumber
-      `Prelude.seq` Prelude.rnf launchTemplateData
-      `Prelude.seq` Prelude.rnf launchTemplateName
+    Prelude.rnf defaultVersionNumber `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf latestVersionNumber `Prelude.seq`
+          Prelude.rnf launchTemplateData `Prelude.seq`
+            Prelude.rnf launchTemplateName
 
 instance Data.ToJSON AwsEc2LaunchTemplateDetails where
   toJSON AwsEc2LaunchTemplateDetails' {..} =

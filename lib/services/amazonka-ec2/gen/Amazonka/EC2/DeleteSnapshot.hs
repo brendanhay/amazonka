@@ -124,8 +124,8 @@ instance Prelude.Hashable DeleteSnapshot where
 
 instance Prelude.NFData DeleteSnapshot where
   rnf DeleteSnapshot' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf snapshotId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf snapshotId
 
 instance Data.ToHeaders DeleteSnapshot where
   toHeaders = Prelude.const Prelude.mempty

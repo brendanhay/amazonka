@@ -289,14 +289,14 @@ instance
     GetScalingPlanResourceForecastData
   where
   rnf GetScalingPlanResourceForecastData' {..} =
-    Prelude.rnf scalingPlanName
-      `Prelude.seq` Prelude.rnf scalingPlanVersion
-      `Prelude.seq` Prelude.rnf serviceNamespace
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf scalableDimension
-      `Prelude.seq` Prelude.rnf forecastDataType
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf endTime
+    Prelude.rnf scalingPlanName `Prelude.seq`
+      Prelude.rnf scalingPlanVersion `Prelude.seq`
+        Prelude.rnf serviceNamespace `Prelude.seq`
+          Prelude.rnf resourceId `Prelude.seq`
+            Prelude.rnf scalableDimension `Prelude.seq`
+              Prelude.rnf forecastDataType `Prelude.seq`
+                Prelude.rnf startTime `Prelude.seq`
+                  Prelude.rnf endTime
 
 instance
   Data.ToHeaders
@@ -396,5 +396,5 @@ instance
     GetScalingPlanResourceForecastDataResponse
   where
   rnf GetScalingPlanResourceForecastDataResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf datapoints
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf datapoints

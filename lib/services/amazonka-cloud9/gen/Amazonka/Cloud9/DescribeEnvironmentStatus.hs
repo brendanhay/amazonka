@@ -233,6 +233,6 @@ instance
     DescribeEnvironmentStatusResponse
   where
   rnf DescribeEnvironmentStatusResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf message
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf message

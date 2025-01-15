@@ -119,6 +119,6 @@ instance
 
 instance Prelude.NFData TimerCanceledEventAttributes where
   rnf TimerCanceledEventAttributes' {..} =
-    Prelude.rnf timerId
-      `Prelude.seq` Prelude.rnf startedEventId
-      `Prelude.seq` Prelude.rnf decisionTaskCompletedEventId
+    Prelude.rnf timerId `Prelude.seq`
+      Prelude.rnf startedEventId `Prelude.seq`
+        Prelude.rnf decisionTaskCompletedEventId

@@ -143,9 +143,9 @@ instance
     PutPermissionsBoundaryToPermissionSet
   where
   rnf PutPermissionsBoundaryToPermissionSet' {..} =
-    Prelude.rnf instanceArn
-      `Prelude.seq` Prelude.rnf permissionSetArn
-      `Prelude.seq` Prelude.rnf permissionsBoundary
+    Prelude.rnf instanceArn `Prelude.seq`
+      Prelude.rnf permissionSetArn `Prelude.seq`
+        Prelude.rnf permissionsBoundary
 
 instance
   Data.ToHeaders

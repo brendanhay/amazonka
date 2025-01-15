@@ -117,12 +117,12 @@ instance Core.AWSPager ListEulaAcceptances where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listEulaAcceptances_nextToken
-          Lens..~ rs
-          Lens.^? listEulaAcceptancesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listEulaAcceptances_nextToken
+              Lens..~ rs
+              Lens.^? listEulaAcceptancesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListEulaAcceptances where
   type
@@ -151,9 +151,9 @@ instance Prelude.Hashable ListEulaAcceptances where
 
 instance Prelude.NFData ListEulaAcceptances where
   rnf ListEulaAcceptances' {..} =
-    Prelude.rnf eulaIds
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf studioId
+    Prelude.rnf eulaIds `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf studioId
 
 instance Data.ToHeaders ListEulaAcceptances where
   toHeaders =
@@ -236,6 +236,6 @@ listEulaAcceptancesResponse_httpStatus = Lens.lens (\ListEulaAcceptancesResponse
 
 instance Prelude.NFData ListEulaAcceptancesResponse where
   rnf ListEulaAcceptancesResponse' {..} =
-    Prelude.rnf eulaAcceptances
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf eulaAcceptances `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

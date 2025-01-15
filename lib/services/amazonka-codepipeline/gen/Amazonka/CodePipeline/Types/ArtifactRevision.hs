@@ -151,9 +151,9 @@ instance Prelude.Hashable ArtifactRevision where
 
 instance Prelude.NFData ArtifactRevision where
   rnf ArtifactRevision' {..} =
-    Prelude.rnf created
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf revisionChangeIdentifier
-      `Prelude.seq` Prelude.rnf revisionId
-      `Prelude.seq` Prelude.rnf revisionSummary
-      `Prelude.seq` Prelude.rnf revisionUrl
+    Prelude.rnf created `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf revisionChangeIdentifier `Prelude.seq`
+          Prelude.rnf revisionId `Prelude.seq`
+            Prelude.rnf revisionSummary `Prelude.seq`
+              Prelude.rnf revisionUrl

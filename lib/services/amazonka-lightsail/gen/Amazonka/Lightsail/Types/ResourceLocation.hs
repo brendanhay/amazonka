@@ -82,5 +82,5 @@ instance Prelude.Hashable ResourceLocation where
 
 instance Prelude.NFData ResourceLocation where
   rnf ResourceLocation' {..} =
-    Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf regionName
+    Prelude.rnf availabilityZone `Prelude.seq`
+      Prelude.rnf regionName

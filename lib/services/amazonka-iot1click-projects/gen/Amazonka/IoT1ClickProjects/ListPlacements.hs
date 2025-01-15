@@ -114,12 +114,12 @@ instance Core.AWSPager ListPlacements where
         (rs Lens.^. listPlacementsResponse_placements) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listPlacements_nextToken
-          Lens..~ rs
-          Lens.^? listPlacementsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listPlacements_nextToken
+              Lens..~ rs
+              Lens.^? listPlacementsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPlacements where
   type
@@ -145,9 +145,9 @@ instance Prelude.Hashable ListPlacements where
 
 instance Prelude.NFData ListPlacements where
   rnf ListPlacements' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf projectName
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf projectName
 
 instance Data.ToHeaders ListPlacements where
   toHeaders =
@@ -225,6 +225,6 @@ listPlacementsResponse_placements = Lens.lens (\ListPlacementsResponse' {placeme
 
 instance Prelude.NFData ListPlacementsResponse where
   rnf ListPlacementsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf placements
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf placements

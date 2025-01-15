@@ -105,7 +105,7 @@ instance Prelude.Hashable SidewalkDevice where
 
 instance Prelude.NFData SidewalkDevice where
   rnf SidewalkDevice' {..} =
-    Prelude.rnf amazonId
-      `Prelude.seq` Prelude.rnf deviceCertificates
-      `Prelude.seq` Prelude.rnf sidewalkId
-      `Prelude.seq` Prelude.rnf sidewalkManufacturingSn
+    Prelude.rnf amazonId `Prelude.seq`
+      Prelude.rnf deviceCertificates `Prelude.seq`
+        Prelude.rnf sidewalkId `Prelude.seq`
+          Prelude.rnf sidewalkManufacturingSn

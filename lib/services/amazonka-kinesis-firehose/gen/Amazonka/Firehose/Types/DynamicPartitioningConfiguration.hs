@@ -102,8 +102,8 @@ instance
     DynamicPartitioningConfiguration
   where
   rnf DynamicPartitioningConfiguration' {..} =
-    Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf retryOptions
+    Prelude.rnf enabled `Prelude.seq`
+      Prelude.rnf retryOptions
 
 instance Data.ToJSON DynamicPartitioningConfiguration where
   toJSON DynamicPartitioningConfiguration' {..} =

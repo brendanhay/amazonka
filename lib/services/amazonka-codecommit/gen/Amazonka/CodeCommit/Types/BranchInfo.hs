@@ -80,5 +80,5 @@ instance Prelude.Hashable BranchInfo where
 
 instance Prelude.NFData BranchInfo where
   rnf BranchInfo' {..} =
-    Prelude.rnf branchName
-      `Prelude.seq` Prelude.rnf commitId
+    Prelude.rnf branchName `Prelude.seq`
+      Prelude.rnf commitId

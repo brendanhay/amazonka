@@ -118,10 +118,10 @@ instance Prelude.Hashable Notifications where
 
 instance Prelude.NFData Notifications where
   rnf Notifications' {..} =
-    Prelude.rnf completed
-      `Prelude.seq` Prelude.rnf error
-      `Prelude.seq` Prelude.rnf progressing
-      `Prelude.seq` Prelude.rnf warning
+    Prelude.rnf completed `Prelude.seq`
+      Prelude.rnf error `Prelude.seq`
+        Prelude.rnf progressing `Prelude.seq`
+          Prelude.rnf warning
 
 instance Data.ToJSON Notifications where
   toJSON Notifications' {..} =

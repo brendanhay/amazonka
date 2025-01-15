@@ -94,6 +94,6 @@ instance Prelude.Hashable AssetSummary where
 
 instance Prelude.NFData AssetSummary where
   rnf AssetSummary' {..} =
-    Prelude.rnf hashes
-      `Prelude.seq` Prelude.rnf size
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf hashes `Prelude.seq`
+      Prelude.rnf size `Prelude.seq`
+        Prelude.rnf name

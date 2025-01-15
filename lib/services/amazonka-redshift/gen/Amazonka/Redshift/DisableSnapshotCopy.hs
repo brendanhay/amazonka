@@ -176,5 +176,5 @@ disableSnapshotCopyResponse_httpStatus = Lens.lens (\DisableSnapshotCopyResponse
 
 instance Prelude.NFData DisableSnapshotCopyResponse where
   rnf DisableSnapshotCopyResponse' {..} =
-    Prelude.rnf cluster
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf cluster `Prelude.seq`
+      Prelude.rnf httpStatus

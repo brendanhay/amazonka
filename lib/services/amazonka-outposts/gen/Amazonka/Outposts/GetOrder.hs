@@ -150,5 +150,5 @@ getOrderResponse_httpStatus = Lens.lens (\GetOrderResponse' {httpStatus} -> http
 
 instance Prelude.NFData GetOrderResponse where
   rnf GetOrderResponse' {..} =
-    Prelude.rnf order
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf order `Prelude.seq`
+      Prelude.rnf httpStatus

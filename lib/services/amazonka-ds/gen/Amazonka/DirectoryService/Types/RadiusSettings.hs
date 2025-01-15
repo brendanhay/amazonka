@@ -167,14 +167,14 @@ instance Prelude.Hashable RadiusSettings where
 
 instance Prelude.NFData RadiusSettings where
   rnf RadiusSettings' {..} =
-    Prelude.rnf authenticationProtocol
-      `Prelude.seq` Prelude.rnf displayLabel
-      `Prelude.seq` Prelude.rnf radiusPort
-      `Prelude.seq` Prelude.rnf radiusRetries
-      `Prelude.seq` Prelude.rnf radiusServers
-      `Prelude.seq` Prelude.rnf radiusTimeout
-      `Prelude.seq` Prelude.rnf sharedSecret
-      `Prelude.seq` Prelude.rnf useSameUsername
+    Prelude.rnf authenticationProtocol `Prelude.seq`
+      Prelude.rnf displayLabel `Prelude.seq`
+        Prelude.rnf radiusPort `Prelude.seq`
+          Prelude.rnf radiusRetries `Prelude.seq`
+            Prelude.rnf radiusServers `Prelude.seq`
+              Prelude.rnf radiusTimeout `Prelude.seq`
+                Prelude.rnf sharedSecret `Prelude.seq`
+                  Prelude.rnf useSameUsername
 
 instance Data.ToJSON RadiusSettings where
   toJSON RadiusSettings' {..} =

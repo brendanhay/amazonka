@@ -122,9 +122,9 @@ instance Prelude.Hashable UpdateUserSecurityProfiles where
 
 instance Prelude.NFData UpdateUserSecurityProfiles where
   rnf UpdateUserSecurityProfiles' {..} =
-    Prelude.rnf securityProfileIds
-      `Prelude.seq` Prelude.rnf userId
-      `Prelude.seq` Prelude.rnf instanceId
+    Prelude.rnf securityProfileIds `Prelude.seq`
+      Prelude.rnf userId `Prelude.seq`
+        Prelude.rnf instanceId
 
 instance Data.ToHeaders UpdateUserSecurityProfiles where
   toHeaders =

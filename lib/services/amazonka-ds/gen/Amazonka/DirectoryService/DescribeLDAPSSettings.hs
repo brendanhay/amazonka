@@ -127,12 +127,12 @@ instance Core.AWSPager DescribeLDAPSSettings where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeLDAPSSettings_nextToken
-          Lens..~ rs
-          Lens.^? describeLDAPSSettingsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeLDAPSSettings_nextToken
+              Lens..~ rs
+              Lens.^? describeLDAPSSettingsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeLDAPSSettings where
   type
@@ -162,10 +162,10 @@ instance Prelude.Hashable DescribeLDAPSSettings where
 
 instance Prelude.NFData DescribeLDAPSSettings where
   rnf DescribeLDAPSSettings' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf directoryId
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf type' `Prelude.seq`
+          Prelude.rnf directoryId
 
 instance Data.ToHeaders DescribeLDAPSSettings where
   toHeaders =
@@ -258,6 +258,6 @@ describeLDAPSSettingsResponse_httpStatus = Lens.lens (\DescribeLDAPSSettingsResp
 
 instance Prelude.NFData DescribeLDAPSSettingsResponse where
   rnf DescribeLDAPSSettingsResponse' {..} =
-    Prelude.rnf lDAPSSettingsInfo
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf lDAPSSettingsInfo `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

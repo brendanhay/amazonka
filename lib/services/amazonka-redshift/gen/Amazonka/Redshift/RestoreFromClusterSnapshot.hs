@@ -1042,5 +1042,5 @@ instance
     RestoreFromClusterSnapshotResponse
   where
   rnf RestoreFromClusterSnapshotResponse' {..} =
-    Prelude.rnf cluster
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf cluster `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -121,9 +121,9 @@ instance Prelude.Hashable GetForm where
 
 instance Prelude.NFData GetForm where
   rnf GetForm' {..} =
-    Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf environmentName
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf appId `Prelude.seq`
+      Prelude.rnf environmentName `Prelude.seq`
+        Prelude.rnf id
 
 instance Data.ToHeaders GetForm where
   toHeaders =
@@ -190,5 +190,5 @@ getFormResponse_httpStatus = Lens.lens (\GetFormResponse' {httpStatus} -> httpSt
 
 instance Prelude.NFData GetFormResponse where
   rnf GetFormResponse' {..} =
-    Prelude.rnf form
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf form `Prelude.seq`
+      Prelude.rnf httpStatus

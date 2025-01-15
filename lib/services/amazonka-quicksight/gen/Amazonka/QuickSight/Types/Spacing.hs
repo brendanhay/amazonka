@@ -102,10 +102,10 @@ instance Prelude.Hashable Spacing where
 
 instance Prelude.NFData Spacing where
   rnf Spacing' {..} =
-    Prelude.rnf bottom
-      `Prelude.seq` Prelude.rnf left
-      `Prelude.seq` Prelude.rnf right
-      `Prelude.seq` Prelude.rnf top
+    Prelude.rnf bottom `Prelude.seq`
+      Prelude.rnf left `Prelude.seq`
+        Prelude.rnf right `Prelude.seq`
+          Prelude.rnf top
 
 instance Data.ToJSON Spacing where
   toJSON Spacing' {..} =

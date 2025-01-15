@@ -147,9 +147,9 @@ instance Prelude.Hashable ControlPanel where
 
 instance Prelude.NFData ControlPanel where
   rnf ControlPanel' {..} =
-    Prelude.rnf clusterArn
-      `Prelude.seq` Prelude.rnf controlPanelArn
-      `Prelude.seq` Prelude.rnf defaultControlPanel
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf routingControlCount
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf clusterArn `Prelude.seq`
+      Prelude.rnf controlPanelArn `Prelude.seq`
+        Prelude.rnf defaultControlPanel `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf routingControlCount `Prelude.seq`
+              Prelude.rnf status

@@ -139,9 +139,9 @@ instance
     UpdateContactFlowModuleContent
   where
   rnf UpdateContactFlowModuleContent' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf contactFlowModuleId
-      `Prelude.seq` Prelude.rnf content
+    Prelude.rnf instanceId `Prelude.seq`
+      Prelude.rnf contactFlowModuleId `Prelude.seq`
+        Prelude.rnf content
 
 instance
   Data.ToHeaders

@@ -196,5 +196,5 @@ instance
     GetOrganizationCustomRulePolicyResponse
   where
   rnf GetOrganizationCustomRulePolicyResponse' {..} =
-    Prelude.rnf policyText
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf policyText `Prelude.seq`
+      Prelude.rnf httpStatus

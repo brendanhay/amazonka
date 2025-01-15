@@ -95,9 +95,9 @@ instance Prelude.Hashable ChannelActivity where
 
 instance Prelude.NFData ChannelActivity where
   rnf ChannelActivity' {..} =
-    Prelude.rnf next
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf channelName
+    Prelude.rnf next `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf channelName
 
 instance Data.ToJSON ChannelActivity where
   toJSON ChannelActivity' {..} =

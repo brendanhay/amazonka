@@ -96,9 +96,9 @@ instance Prelude.Hashable AssessmentTarget where
 
 instance Prelude.NFData AssessmentTarget where
   rnf AssessmentTarget' {..} =
-    Prelude.rnf condition
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf values
+    Prelude.rnf condition `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf values
 
 instance Data.ToJSON AssessmentTarget where
   toJSON AssessmentTarget' {..} =

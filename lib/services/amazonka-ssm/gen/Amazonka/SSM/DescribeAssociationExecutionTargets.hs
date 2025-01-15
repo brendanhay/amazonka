@@ -175,12 +175,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeAssociationExecutionTargets_nextToken
-          Lens..~ rs
-          Lens.^? describeAssociationExecutionTargetsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeAssociationExecutionTargets_nextToken
+              Lens..~ rs
+              Lens.^? describeAssociationExecutionTargetsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -222,11 +222,11 @@ instance
     DescribeAssociationExecutionTargets
   where
   rnf DescribeAssociationExecutionTargets' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf associationId
-      `Prelude.seq` Prelude.rnf executionId
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf associationId `Prelude.seq`
+            Prelude.rnf executionId
 
 instance
   Data.ToHeaders
@@ -330,6 +330,6 @@ instance
     DescribeAssociationExecutionTargetsResponse
   where
   rnf DescribeAssociationExecutionTargetsResponse' {..} =
-    Prelude.rnf associationExecutionTargets
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf associationExecutionTargets `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

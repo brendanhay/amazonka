@@ -80,5 +80,5 @@ instance Prelude.Hashable UserIdentityInfoLite where
 
 instance Prelude.NFData UserIdentityInfoLite where
   rnf UserIdentityInfoLite' {..} =
-    Prelude.rnf firstName
-      `Prelude.seq` Prelude.rnf lastName
+    Prelude.rnf firstName `Prelude.seq`
+      Prelude.rnf lastName

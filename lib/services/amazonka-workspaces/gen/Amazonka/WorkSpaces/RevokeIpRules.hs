@@ -106,8 +106,8 @@ instance Prelude.Hashable RevokeIpRules where
 
 instance Prelude.NFData RevokeIpRules where
   rnf RevokeIpRules' {..} =
-    Prelude.rnf groupId
-      `Prelude.seq` Prelude.rnf userRules
+    Prelude.rnf groupId `Prelude.seq`
+      Prelude.rnf userRules
 
 instance Data.ToHeaders RevokeIpRules where
   toHeaders =

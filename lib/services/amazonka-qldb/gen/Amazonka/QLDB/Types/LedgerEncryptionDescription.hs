@@ -196,6 +196,6 @@ instance Prelude.Hashable LedgerEncryptionDescription where
 
 instance Prelude.NFData LedgerEncryptionDescription where
   rnf LedgerEncryptionDescription' {..} =
-    Prelude.rnf inaccessibleKmsKeyDateTime
-      `Prelude.seq` Prelude.rnf kmsKeyArn
-      `Prelude.seq` Prelude.rnf encryptionStatus
+    Prelude.rnf inaccessibleKmsKeyDateTime `Prelude.seq`
+      Prelude.rnf kmsKeyArn `Prelude.seq`
+        Prelude.rnf encryptionStatus

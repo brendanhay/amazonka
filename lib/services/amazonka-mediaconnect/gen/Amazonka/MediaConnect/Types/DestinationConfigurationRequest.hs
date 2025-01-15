@@ -109,9 +109,9 @@ instance
     DestinationConfigurationRequest
   where
   rnf DestinationConfigurationRequest' {..} =
-    Prelude.rnf destinationIp
-      `Prelude.seq` Prelude.rnf destinationPort
-      `Prelude.seq` Prelude.rnf interface
+    Prelude.rnf destinationIp `Prelude.seq`
+      Prelude.rnf destinationPort `Prelude.seq`
+        Prelude.rnf interface
 
 instance Data.ToJSON DestinationConfigurationRequest where
   toJSON DestinationConfigurationRequest' {..} =

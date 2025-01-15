@@ -254,18 +254,18 @@ instance Prelude.Hashable Finding where
 
 instance Prelude.NFData Finding where
   rnf Finding' {..} =
-    Prelude.rnf confidence
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf partition
-      `Prelude.seq` Prelude.rnf service
-      `Prelude.seq` Prelude.rnf title
-      `Prelude.seq` Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf region
-      `Prelude.seq` Prelude.rnf resource
-      `Prelude.seq` Prelude.rnf schemaVersion
-      `Prelude.seq` Prelude.rnf severity
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf updatedAt
+    Prelude.rnf confidence `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf partition `Prelude.seq`
+          Prelude.rnf service `Prelude.seq`
+            Prelude.rnf title `Prelude.seq`
+              Prelude.rnf accountId `Prelude.seq`
+                Prelude.rnf arn `Prelude.seq`
+                  Prelude.rnf createdAt `Prelude.seq`
+                    Prelude.rnf id `Prelude.seq`
+                      Prelude.rnf region `Prelude.seq`
+                        Prelude.rnf resource `Prelude.seq`
+                          Prelude.rnf schemaVersion `Prelude.seq`
+                            Prelude.rnf severity `Prelude.seq`
+                              Prelude.rnf type' `Prelude.seq`
+                                Prelude.rnf updatedAt

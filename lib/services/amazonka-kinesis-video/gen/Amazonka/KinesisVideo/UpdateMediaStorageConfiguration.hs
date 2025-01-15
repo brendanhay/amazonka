@@ -133,8 +133,8 @@ instance
     UpdateMediaStorageConfiguration
   where
   rnf UpdateMediaStorageConfiguration' {..} =
-    Prelude.rnf channelARN
-      `Prelude.seq` Prelude.rnf mediaStorageConfiguration
+    Prelude.rnf channelARN `Prelude.seq`
+      Prelude.rnf mediaStorageConfiguration
 
 instance
   Data.ToHeaders

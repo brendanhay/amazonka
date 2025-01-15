@@ -114,8 +114,8 @@ instance Prelude.Hashable GetChunk where
 
 instance Prelude.NFData GetChunk where
   rnf GetChunk' {..} =
-    Prelude.rnf storageJobId
-      `Prelude.seq` Prelude.rnf chunkToken
+    Prelude.rnf storageJobId `Prelude.seq`
+      Prelude.rnf chunkToken
 
 instance Data.ToHeaders GetChunk where
   toHeaders =

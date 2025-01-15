@@ -105,7 +105,7 @@ instance
 
 instance Prelude.NFData InstanceEventWindowTimeRange where
   rnf InstanceEventWindowTimeRange' {..} =
-    Prelude.rnf endHour
-      `Prelude.seq` Prelude.rnf endWeekDay
-      `Prelude.seq` Prelude.rnf startHour
-      `Prelude.seq` Prelude.rnf startWeekDay
+    Prelude.rnf endHour `Prelude.seq`
+      Prelude.rnf endWeekDay `Prelude.seq`
+        Prelude.rnf startHour `Prelude.seq`
+          Prelude.rnf startWeekDay

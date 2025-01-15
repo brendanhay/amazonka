@@ -129,8 +129,8 @@ instance Prelude.Hashable StartContentUpload where
 
 instance Prelude.NFData StartContentUpload where
   rnf StartContentUpload' {..} =
-    Prelude.rnf contentType
-      `Prelude.seq` Prelude.rnf knowledgeBaseId
+    Prelude.rnf contentType `Prelude.seq`
+      Prelude.rnf knowledgeBaseId
 
 instance Data.ToHeaders StartContentUpload where
   toHeaders =
@@ -239,8 +239,8 @@ startContentUploadResponse_urlExpiry = Lens.lens (\StartContentUploadResponse' {
 
 instance Prelude.NFData StartContentUploadResponse where
   rnf StartContentUploadResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf headersToInclude
-      `Prelude.seq` Prelude.rnf uploadId
-      `Prelude.seq` Prelude.rnf url
-      `Prelude.seq` Prelude.rnf urlExpiry
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf headersToInclude `Prelude.seq`
+        Prelude.rnf uploadId `Prelude.seq`
+          Prelude.rnf url `Prelude.seq`
+            Prelude.rnf urlExpiry

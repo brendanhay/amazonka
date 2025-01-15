@@ -122,8 +122,8 @@ instance Prelude.Hashable GetApplicationRevision where
 
 instance Prelude.NFData GetApplicationRevision where
   rnf GetApplicationRevision' {..} =
-    Prelude.rnf applicationName
-      `Prelude.seq` Prelude.rnf revision
+    Prelude.rnf applicationName `Prelude.seq`
+      Prelude.rnf revision
 
 instance Data.ToHeaders GetApplicationRevision where
   toHeaders =
@@ -220,7 +220,7 @@ instance
     GetApplicationRevisionResponse
   where
   rnf GetApplicationRevisionResponse' {..} =
-    Prelude.rnf applicationName
-      `Prelude.seq` Prelude.rnf revision
-      `Prelude.seq` Prelude.rnf revisionInfo
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf applicationName `Prelude.seq`
+      Prelude.rnf revision `Prelude.seq`
+        Prelude.rnf revisionInfo `Prelude.seq`
+          Prelude.rnf httpStatus

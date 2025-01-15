@@ -106,9 +106,9 @@ instance Prelude.Hashable ReferenceDataSource where
 
 instance Prelude.NFData ReferenceDataSource where
   rnf ReferenceDataSource' {..} =
-    Prelude.rnf s3ReferenceDataSource
-      `Prelude.seq` Prelude.rnf tableName
-      `Prelude.seq` Prelude.rnf referenceSchema
+    Prelude.rnf s3ReferenceDataSource `Prelude.seq`
+      Prelude.rnf tableName `Prelude.seq`
+        Prelude.rnf referenceSchema
 
 instance Data.ToJSON ReferenceDataSource where
   toJSON ReferenceDataSource' {..} =

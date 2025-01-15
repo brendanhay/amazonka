@@ -140,10 +140,10 @@ instance Prelude.Hashable UpdateProject where
 
 instance Prelude.NFData UpdateProject where
   rnf UpdateProject' {..} =
-    Prelude.rnf defaultJobTimeoutMinutes
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf vpcConfig
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf defaultJobTimeoutMinutes `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf vpcConfig `Prelude.seq`
+          Prelude.rnf arn
 
 instance Data.ToHeaders UpdateProject where
   toHeaders =
@@ -220,5 +220,5 @@ updateProjectResponse_httpStatus = Lens.lens (\UpdateProjectResponse' {httpStatu
 
 instance Prelude.NFData UpdateProjectResponse where
   rnf UpdateProjectResponse' {..} =
-    Prelude.rnf project
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf project `Prelude.seq`
+      Prelude.rnf httpStatus

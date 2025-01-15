@@ -92,6 +92,6 @@ instance Prelude.Hashable ReviewInformation where
 
 instance Prelude.NFData ReviewInformation where
   rnf ReviewInformation' {..} =
-    Prelude.rnf reviewedTime
-      `Prelude.seq` Prelude.rnf reviewer
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf reviewedTime `Prelude.seq`
+      Prelude.rnf reviewer `Prelude.seq`
+        Prelude.rnf status

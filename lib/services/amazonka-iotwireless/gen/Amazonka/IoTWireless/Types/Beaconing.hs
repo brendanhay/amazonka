@@ -80,8 +80,8 @@ instance Prelude.Hashable Beaconing where
 
 instance Prelude.NFData Beaconing where
   rnf Beaconing' {..} =
-    Prelude.rnf dataRate
-      `Prelude.seq` Prelude.rnf frequencies
+    Prelude.rnf dataRate `Prelude.seq`
+      Prelude.rnf frequencies
 
 instance Data.ToJSON Beaconing where
   toJSON Beaconing' {..} =

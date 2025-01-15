@@ -130,9 +130,9 @@ instance Prelude.Hashable GetRecord where
 
 instance Prelude.NFData GetRecord where
   rnf GetRecord' {..} =
-    Prelude.rnf featureNames
-      `Prelude.seq` Prelude.rnf featureGroupName
-      `Prelude.seq` Prelude.rnf recordIdentifierValueAsString
+    Prelude.rnf featureNames `Prelude.seq`
+      Prelude.rnf featureGroupName `Prelude.seq`
+        Prelude.rnf recordIdentifierValueAsString
 
 instance Data.ToHeaders GetRecord where
   toHeaders =
@@ -200,5 +200,5 @@ getRecordResponse_httpStatus = Lens.lens (\GetRecordResponse' {httpStatus} -> ht
 
 instance Prelude.NFData GetRecordResponse where
   rnf GetRecordResponse' {..} =
-    Prelude.rnf record
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf record `Prelude.seq`
+      Prelude.rnf httpStatus

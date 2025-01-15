@@ -160,6 +160,6 @@ instance
     RunFleetAdvisorLsaAnalysisResponse
   where
   rnf RunFleetAdvisorLsaAnalysisResponse' {..} =
-    Prelude.rnf lsaAnalysisId
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf lsaAnalysisId `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf httpStatus

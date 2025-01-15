@@ -85,5 +85,5 @@ instance Prelude.Hashable UserGroupsUpdateStatus where
 
 instance Prelude.NFData UserGroupsUpdateStatus where
   rnf UserGroupsUpdateStatus' {..} =
-    Prelude.rnf userGroupIdsToAdd
-      `Prelude.seq` Prelude.rnf userGroupIdsToRemove
+    Prelude.rnf userGroupIdsToAdd `Prelude.seq`
+      Prelude.rnf userGroupIdsToRemove

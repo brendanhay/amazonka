@@ -94,6 +94,6 @@ instance Prelude.Hashable ReceivedMetadata where
 
 instance Prelude.NFData ReceivedMetadata where
   rnf ReceivedMetadata' {..} =
-    Prelude.rnf allowedOperations
-      `Prelude.seq` Prelude.rnf receivedStatus
-      `Prelude.seq` Prelude.rnf receivedStatusReason
+    Prelude.rnf allowedOperations `Prelude.seq`
+      Prelude.rnf receivedStatus `Prelude.seq`
+        Prelude.rnf receivedStatusReason

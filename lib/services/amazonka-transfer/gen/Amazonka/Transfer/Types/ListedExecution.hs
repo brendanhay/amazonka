@@ -117,7 +117,7 @@ instance Prelude.Hashable ListedExecution where
 
 instance Prelude.NFData ListedExecution where
   rnf ListedExecution' {..} =
-    Prelude.rnf executionId
-      `Prelude.seq` Prelude.rnf initialFileLocation
-      `Prelude.seq` Prelude.rnf serviceMetadata
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf executionId `Prelude.seq`
+      Prelude.rnf initialFileLocation `Prelude.seq`
+        Prelude.rnf serviceMetadata `Prelude.seq`
+          Prelude.rnf status

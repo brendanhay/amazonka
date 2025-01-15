@@ -118,8 +118,8 @@ instance Prelude.Hashable DeleteClientVpnEndpoint where
 
 instance Prelude.NFData DeleteClientVpnEndpoint where
   rnf DeleteClientVpnEndpoint' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf clientVpnEndpointId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf clientVpnEndpointId
 
 instance Data.ToHeaders DeleteClientVpnEndpoint where
   toHeaders = Prelude.const Prelude.mempty
@@ -182,5 +182,5 @@ instance
     DeleteClientVpnEndpointResponse
   where
   rnf DeleteClientVpnEndpointResponse' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf status `Prelude.seq`
+      Prelude.rnf httpStatus

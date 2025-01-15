@@ -199,15 +199,15 @@ instance Prelude.Hashable Environment where
 
 instance Prelude.NFData Environment where
   rnf Environment' {..} =
-    Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf dedicatedServiceAccountId
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf environmentArn
-      `Prelude.seq` Prelude.rnf environmentId
-      `Prelude.seq` Prelude.rnf environmentUrl
-      `Prelude.seq` Prelude.rnf federationMode
-      `Prelude.seq` Prelude.rnf federationParameters
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf sageMakerStudioDomainUrl
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf awsAccountId `Prelude.seq`
+      Prelude.rnf dedicatedServiceAccountId `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf environmentArn `Prelude.seq`
+            Prelude.rnf environmentId `Prelude.seq`
+              Prelude.rnf environmentUrl `Prelude.seq`
+                Prelude.rnf federationMode `Prelude.seq`
+                  Prelude.rnf federationParameters `Prelude.seq`
+                    Prelude.rnf kmsKeyId `Prelude.seq`
+                      Prelude.rnf name `Prelude.seq`
+                        Prelude.rnf sageMakerStudioDomainUrl `Prelude.seq`
+                          Prelude.rnf status

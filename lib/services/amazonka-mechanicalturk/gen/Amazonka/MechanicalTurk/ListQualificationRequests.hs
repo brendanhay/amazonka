@@ -116,12 +116,12 @@ instance Core.AWSPager ListQualificationRequests where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listQualificationRequests_nextToken
-          Lens..~ rs
-          Lens.^? listQualificationRequestsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listQualificationRequests_nextToken
+              Lens..~ rs
+              Lens.^? listQualificationRequestsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListQualificationRequests where
   type
@@ -151,9 +151,9 @@ instance Prelude.Hashable ListQualificationRequests where
 
 instance Prelude.NFData ListQualificationRequests where
   rnf ListQualificationRequests' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf qualificationTypeId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf qualificationTypeId
 
 instance Data.ToHeaders ListQualificationRequests where
   toHeaders =
@@ -260,7 +260,7 @@ instance
     ListQualificationRequestsResponse
   where
   rnf ListQualificationRequestsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf numResults
-      `Prelude.seq` Prelude.rnf qualificationRequests
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf numResults `Prelude.seq`
+        Prelude.rnf qualificationRequests `Prelude.seq`
+          Prelude.rnf httpStatus

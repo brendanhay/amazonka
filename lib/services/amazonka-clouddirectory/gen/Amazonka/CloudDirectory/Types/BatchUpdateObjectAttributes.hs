@@ -75,8 +75,8 @@ instance Prelude.Hashable BatchUpdateObjectAttributes where
 
 instance Prelude.NFData BatchUpdateObjectAttributes where
   rnf BatchUpdateObjectAttributes' {..} =
-    Prelude.rnf objectReference
-      `Prelude.seq` Prelude.rnf attributeUpdates
+    Prelude.rnf objectReference `Prelude.seq`
+      Prelude.rnf attributeUpdates
 
 instance Data.ToJSON BatchUpdateObjectAttributes where
   toJSON BatchUpdateObjectAttributes' {..} =

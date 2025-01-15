@@ -116,13 +116,13 @@ instance Core.AWSPager ListDistributions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listDistributions_marker
-          Lens..~ rs
-          Lens.^? listDistributionsResponse_distributionList
-          Prelude.. distributionList_nextMarker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listDistributions_marker
+              Lens..~ rs
+              Lens.^? listDistributionsResponse_distributionList
+              Prelude.. distributionList_nextMarker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDistributions where
   type
@@ -146,8 +146,8 @@ instance Prelude.Hashable ListDistributions where
 
 instance Prelude.NFData ListDistributions where
   rnf ListDistributions' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxItems
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf maxItems
 
 instance Data.ToHeaders ListDistributions where
   toHeaders = Prelude.const Prelude.mempty
@@ -209,5 +209,5 @@ listDistributionsResponse_distributionList = Lens.lens (\ListDistributionsRespon
 
 instance Prelude.NFData ListDistributionsResponse where
   rnf ListDistributionsResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf distributionList
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf distributionList

@@ -269,12 +269,12 @@ instance
     DescribeApplicationInstanceDetailsResponse
   where
   rnf DescribeApplicationInstanceDetailsResponse' {..} =
-    Prelude.rnf applicationInstanceId
-      `Prelude.seq` Prelude.rnf applicationInstanceIdToReplace
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf defaultRuntimeContextDevice
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf manifestOverridesPayload
-      `Prelude.seq` Prelude.rnf manifestPayload
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf applicationInstanceId `Prelude.seq`
+      Prelude.rnf applicationInstanceIdToReplace `Prelude.seq`
+        Prelude.rnf createdTime `Prelude.seq`
+          Prelude.rnf defaultRuntimeContextDevice `Prelude.seq`
+            Prelude.rnf description `Prelude.seq`
+              Prelude.rnf manifestOverridesPayload `Prelude.seq`
+                Prelude.rnf manifestPayload `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf httpStatus

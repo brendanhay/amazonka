@@ -132,9 +132,9 @@ instance Prelude.Hashable Face where
 
 instance Prelude.NFData Face where
   rnf Face' {..} =
-    Prelude.rnf boundingBox
-      `Prelude.seq` Prelude.rnf confidence
-      `Prelude.seq` Prelude.rnf externalImageId
-      `Prelude.seq` Prelude.rnf faceId
-      `Prelude.seq` Prelude.rnf imageId
-      `Prelude.seq` Prelude.rnf indexFacesModelVersion
+    Prelude.rnf boundingBox `Prelude.seq`
+      Prelude.rnf confidence `Prelude.seq`
+        Prelude.rnf externalImageId `Prelude.seq`
+          Prelude.rnf faceId `Prelude.seq`
+            Prelude.rnf imageId `Prelude.seq`
+              Prelude.rnf indexFacesModelVersion

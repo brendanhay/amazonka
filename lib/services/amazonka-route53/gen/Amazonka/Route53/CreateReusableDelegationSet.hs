@@ -178,8 +178,8 @@ instance Prelude.Hashable CreateReusableDelegationSet where
 
 instance Prelude.NFData CreateReusableDelegationSet where
   rnf CreateReusableDelegationSet' {..} =
-    Prelude.rnf hostedZoneId
-      `Prelude.seq` Prelude.rnf callerReference
+    Prelude.rnf hostedZoneId `Prelude.seq`
+      Prelude.rnf callerReference
 
 instance Data.ToElement CreateReusableDelegationSet where
   toElement =
@@ -262,6 +262,6 @@ instance
     CreateReusableDelegationSetResponse
   where
   rnf CreateReusableDelegationSetResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf delegationSet
-      `Prelude.seq` Prelude.rnf location
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf delegationSet `Prelude.seq`
+        Prelude.rnf location

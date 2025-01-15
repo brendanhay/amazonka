@@ -184,11 +184,11 @@ instance Prelude.Hashable CreateChatToken where
 
 instance Prelude.NFData CreateChatToken where
   rnf CreateChatToken' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf capabilities
-      `Prelude.seq` Prelude.rnf sessionDurationInMinutes
-      `Prelude.seq` Prelude.rnf roomIdentifier
-      `Prelude.seq` Prelude.rnf userId
+    Prelude.rnf attributes `Prelude.seq`
+      Prelude.rnf capabilities `Prelude.seq`
+        Prelude.rnf sessionDurationInMinutes `Prelude.seq`
+          Prelude.rnf roomIdentifier `Prelude.seq`
+            Prelude.rnf userId
 
 instance Data.ToHeaders CreateChatToken where
   toHeaders =
@@ -289,7 +289,7 @@ createChatTokenResponse_httpStatus = Lens.lens (\CreateChatTokenResponse' {httpS
 
 instance Prelude.NFData CreateChatTokenResponse where
   rnf CreateChatTokenResponse' {..} =
-    Prelude.rnf sessionExpirationTime
-      `Prelude.seq` Prelude.rnf token
-      `Prelude.seq` Prelude.rnf tokenExpirationTime
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf sessionExpirationTime `Prelude.seq`
+      Prelude.rnf token `Prelude.seq`
+        Prelude.rnf tokenExpirationTime `Prelude.seq`
+          Prelude.rnf httpStatus

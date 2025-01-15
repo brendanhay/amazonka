@@ -180,5 +180,5 @@ getTrafficPolicyResponse_trafficPolicy = Lens.lens (\GetTrafficPolicyResponse' {
 
 instance Prelude.NFData GetTrafficPolicyResponse where
   rnf GetTrafficPolicyResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf trafficPolicy
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf trafficPolicy

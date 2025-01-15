@@ -106,5 +106,5 @@ instance Prelude.Hashable AssetRelationshipSummary where
 
 instance Prelude.NFData AssetRelationshipSummary where
   rnf AssetRelationshipSummary' {..} =
-    Prelude.rnf hierarchyInfo
-      `Prelude.seq` Prelude.rnf relationshipType
+    Prelude.rnf hierarchyInfo `Prelude.seq`
+      Prelude.rnf relationshipType

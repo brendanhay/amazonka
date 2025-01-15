@@ -126,9 +126,9 @@ instance Prelude.Hashable UpdateGroup where
 
 instance Prelude.NFData UpdateGroup where
   rnf UpdateGroup' {..} =
-    Prelude.rnf identityStoreId
-      `Prelude.seq` Prelude.rnf groupId
-      `Prelude.seq` Prelude.rnf operations
+    Prelude.rnf identityStoreId `Prelude.seq`
+      Prelude.rnf groupId `Prelude.seq`
+        Prelude.rnf operations
 
 instance Data.ToHeaders UpdateGroup where
   toHeaders =

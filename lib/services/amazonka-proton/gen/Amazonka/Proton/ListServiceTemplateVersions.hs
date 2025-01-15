@@ -145,12 +145,12 @@ instance Core.AWSPager ListServiceTemplateVersions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listServiceTemplateVersions_nextToken
-          Lens..~ rs
-          Lens.^? listServiceTemplateVersionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listServiceTemplateVersions_nextToken
+              Lens..~ rs
+              Lens.^? listServiceTemplateVersionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListServiceTemplateVersions where
   type
@@ -180,10 +180,10 @@ instance Prelude.Hashable ListServiceTemplateVersions where
 
 instance Prelude.NFData ListServiceTemplateVersions where
   rnf ListServiceTemplateVersions' {..} =
-    Prelude.rnf majorVersion
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf templateName
+    Prelude.rnf majorVersion `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf templateName
 
 instance Data.ToHeaders ListServiceTemplateVersions where
   toHeaders =
@@ -279,6 +279,6 @@ instance
     ListServiceTemplateVersionsResponse
   where
   rnf ListServiceTemplateVersionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf templateVersions
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf templateVersions

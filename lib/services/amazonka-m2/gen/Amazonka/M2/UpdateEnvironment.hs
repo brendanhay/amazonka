@@ -177,12 +177,12 @@ instance Prelude.Hashable UpdateEnvironment where
 
 instance Prelude.NFData UpdateEnvironment where
   rnf UpdateEnvironment' {..} =
-    Prelude.rnf applyDuringMaintenanceWindow
-      `Prelude.seq` Prelude.rnf desiredCapacity
-      `Prelude.seq` Prelude.rnf engineVersion
-      `Prelude.seq` Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf preferredMaintenanceWindow
-      `Prelude.seq` Prelude.rnf environmentId
+    Prelude.rnf applyDuringMaintenanceWindow `Prelude.seq`
+      Prelude.rnf desiredCapacity `Prelude.seq`
+        Prelude.rnf engineVersion `Prelude.seq`
+          Prelude.rnf instanceType `Prelude.seq`
+            Prelude.rnf preferredMaintenanceWindow `Prelude.seq`
+              Prelude.rnf environmentId
 
 instance Data.ToHeaders UpdateEnvironment where
   toHeaders =
@@ -263,5 +263,5 @@ updateEnvironmentResponse_environmentId = Lens.lens (\UpdateEnvironmentResponse'
 
 instance Prelude.NFData UpdateEnvironmentResponse where
   rnf UpdateEnvironmentResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf environmentId
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf environmentId

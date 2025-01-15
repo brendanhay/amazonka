@@ -116,9 +116,9 @@ instance Prelude.Hashable UpdateRdsDbInstance where
 
 instance Prelude.NFData UpdateRdsDbInstance where
   rnf UpdateRdsDbInstance' {..} =
-    Prelude.rnf dbPassword
-      `Prelude.seq` Prelude.rnf dbUser
-      `Prelude.seq` Prelude.rnf rdsDbInstanceArn
+    Prelude.rnf dbPassword `Prelude.seq`
+      Prelude.rnf dbUser `Prelude.seq`
+        Prelude.rnf rdsDbInstanceArn
 
 instance Data.ToHeaders UpdateRdsDbInstance where
   toHeaders =

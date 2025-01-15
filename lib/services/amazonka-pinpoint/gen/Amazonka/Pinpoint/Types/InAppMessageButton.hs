@@ -104,10 +104,10 @@ instance Prelude.Hashable InAppMessageButton where
 
 instance Prelude.NFData InAppMessageButton where
   rnf InAppMessageButton' {..} =
-    Prelude.rnf android
-      `Prelude.seq` Prelude.rnf defaultConfig
-      `Prelude.seq` Prelude.rnf ios
-      `Prelude.seq` Prelude.rnf web
+    Prelude.rnf android `Prelude.seq`
+      Prelude.rnf defaultConfig `Prelude.seq`
+        Prelude.rnf ios `Prelude.seq`
+          Prelude.rnf web
 
 instance Data.ToJSON InAppMessageButton where
   toJSON InAppMessageButton' {..} =

@@ -92,6 +92,6 @@ instance Prelude.Hashable VpcEndpointErrorDetail where
 
 instance Prelude.NFData VpcEndpointErrorDetail where
   rnf VpcEndpointErrorDetail' {..} =
-    Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf errorCode `Prelude.seq`
+      Prelude.rnf errorMessage `Prelude.seq`
+        Prelude.rnf id

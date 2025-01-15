@@ -117,8 +117,8 @@ instance Prelude.Hashable ExtendLicenseConsumption where
 
 instance Prelude.NFData ExtendLicenseConsumption where
   rnf ExtendLicenseConsumption' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf licenseConsumptionToken
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf licenseConsumptionToken
 
 instance Data.ToHeaders ExtendLicenseConsumption where
   toHeaders =
@@ -206,6 +206,6 @@ instance
     ExtendLicenseConsumptionResponse
   where
   rnf ExtendLicenseConsumptionResponse' {..} =
-    Prelude.rnf expiration
-      `Prelude.seq` Prelude.rnf licenseConsumptionToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf expiration `Prelude.seq`
+      Prelude.rnf licenseConsumptionToken `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -315,19 +315,19 @@ instance Prelude.Hashable StackEvent where
 
 instance Prelude.NFData StackEvent where
   rnf StackEvent' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf hookFailureMode
-      `Prelude.seq` Prelude.rnf hookInvocationPoint
-      `Prelude.seq` Prelude.rnf hookStatus
-      `Prelude.seq` Prelude.rnf hookStatusReason
-      `Prelude.seq` Prelude.rnf hookType
-      `Prelude.seq` Prelude.rnf logicalResourceId
-      `Prelude.seq` Prelude.rnf physicalResourceId
-      `Prelude.seq` Prelude.rnf resourceProperties
-      `Prelude.seq` Prelude.rnf resourceStatus
-      `Prelude.seq` Prelude.rnf resourceStatusReason
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf stackId
-      `Prelude.seq` Prelude.rnf eventId
-      `Prelude.seq` Prelude.rnf stackName
-      `Prelude.seq` Prelude.rnf timestamp
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf hookFailureMode `Prelude.seq`
+        Prelude.rnf hookInvocationPoint `Prelude.seq`
+          Prelude.rnf hookStatus `Prelude.seq`
+            Prelude.rnf hookStatusReason `Prelude.seq`
+              Prelude.rnf hookType `Prelude.seq`
+                Prelude.rnf logicalResourceId `Prelude.seq`
+                  Prelude.rnf physicalResourceId `Prelude.seq`
+                    Prelude.rnf resourceProperties `Prelude.seq`
+                      Prelude.rnf resourceStatus `Prelude.seq`
+                        Prelude.rnf resourceStatusReason `Prelude.seq`
+                          Prelude.rnf resourceType `Prelude.seq`
+                            Prelude.rnf stackId `Prelude.seq`
+                              Prelude.rnf eventId `Prelude.seq`
+                                Prelude.rnf stackName `Prelude.seq`
+                                  Prelude.rnf timestamp

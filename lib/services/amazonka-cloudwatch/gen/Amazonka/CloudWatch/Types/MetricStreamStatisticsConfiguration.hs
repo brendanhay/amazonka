@@ -123,9 +123,7 @@ instance
   where
   parseXML x =
     MetricStreamStatisticsConfiguration'
-      Prelude.<$> ( x
-                      Data..@? "IncludeMetrics"
-                      Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "IncludeMetrics" Core..!@ Prelude.mempty
                       Prelude.>>= Data.parseXMLList "member"
                   )
       Prelude.<*> ( x
@@ -150,8 +148,8 @@ instance
     MetricStreamStatisticsConfiguration
   where
   rnf MetricStreamStatisticsConfiguration' {..} =
-    Prelude.rnf includeMetrics
-      `Prelude.seq` Prelude.rnf additionalStatistics
+    Prelude.rnf includeMetrics `Prelude.seq`
+      Prelude.rnf additionalStatistics
 
 instance
   Data.ToQuery

@@ -130,12 +130,12 @@ instance Core.AWSPager DescribeEndpoints where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeEndpoints_nextToken
-          Lens..~ rs
-          Lens.^? describeEndpointsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeEndpoints_nextToken
+              Lens..~ rs
+              Lens.^? describeEndpointsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeEndpoints where
   type
@@ -161,9 +161,9 @@ instance Prelude.Hashable DescribeEndpoints where
 
 instance Prelude.NFData DescribeEndpoints where
   rnf DescribeEndpoints' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf mode
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf mode `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeEndpoints where
   toHeaders =
@@ -242,6 +242,6 @@ describeEndpointsResponse_httpStatus = Lens.lens (\DescribeEndpointsResponse' {h
 
 instance Prelude.NFData DescribeEndpointsResponse where
   rnf DescribeEndpointsResponse' {..} =
-    Prelude.rnf endpoints
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf endpoints `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -163,12 +163,12 @@ instance Prelude.Hashable ChannelSpecification where
 
 instance Prelude.NFData ChannelSpecification where
   rnf ChannelSpecification' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf isRequired
-      `Prelude.seq` Prelude.rnf supportedCompressionTypes
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf supportedContentTypes
-      `Prelude.seq` Prelude.rnf supportedInputModes
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf isRequired `Prelude.seq`
+        Prelude.rnf supportedCompressionTypes `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf supportedContentTypes `Prelude.seq`
+              Prelude.rnf supportedInputModes
 
 instance Data.ToJSON ChannelSpecification where
   toJSON ChannelSpecification' {..} =

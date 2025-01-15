@@ -276,15 +276,15 @@ instance Prelude.Hashable GetLogEvents where
 
 instance Prelude.NFData GetLogEvents where
   rnf GetLogEvents' {..} =
-    Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf logGroupIdentifier
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf startFromHead
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf unmask
-      `Prelude.seq` Prelude.rnf logGroupName
-      `Prelude.seq` Prelude.rnf logStreamName
+    Prelude.rnf endTime `Prelude.seq`
+      Prelude.rnf limit `Prelude.seq`
+        Prelude.rnf logGroupIdentifier `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf startFromHead `Prelude.seq`
+              Prelude.rnf startTime `Prelude.seq`
+                Prelude.rnf unmask `Prelude.seq`
+                  Prelude.rnf logGroupName `Prelude.seq`
+                    Prelude.rnf logStreamName
 
 instance Data.ToHeaders GetLogEvents where
   toHeaders =
@@ -393,7 +393,7 @@ getLogEventsResponse_httpStatus = Lens.lens (\GetLogEventsResponse' {httpStatus}
 
 instance Prelude.NFData GetLogEventsResponse where
   rnf GetLogEventsResponse' {..} =
-    Prelude.rnf events
-      `Prelude.seq` Prelude.rnf nextBackwardToken
-      `Prelude.seq` Prelude.rnf nextForwardToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf events `Prelude.seq`
+      Prelude.rnf nextBackwardToken `Prelude.seq`
+        Prelude.rnf nextForwardToken `Prelude.seq`
+          Prelude.rnf httpStatus

@@ -174,10 +174,10 @@ instance
 
 instance Prelude.NFData ListMedicalTranscriptionJobs where
   rnf ListMedicalTranscriptionJobs' {..} =
-    Prelude.rnf jobNameContains
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf jobNameContains `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf status
 
 instance Data.ToHeaders ListMedicalTranscriptionJobs where
   toHeaders =
@@ -292,7 +292,7 @@ instance
     ListMedicalTranscriptionJobsResponse
   where
   rnf ListMedicalTranscriptionJobsResponse' {..} =
-    Prelude.rnf medicalTranscriptionJobSummaries
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf medicalTranscriptionJobSummaries `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf status `Prelude.seq`
+          Prelude.rnf httpStatus

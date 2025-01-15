@@ -297,14 +297,14 @@ instance
     DescribeSecurityProfileResponse
   where
   rnf DescribeSecurityProfileResponse' {..} =
-    Prelude.rnf additionalMetricsToRetain
-      `Prelude.seq` Prelude.rnf additionalMetricsToRetainV2
-      `Prelude.seq` Prelude.rnf alertTargets
-      `Prelude.seq` Prelude.rnf behaviors
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf securityProfileArn
-      `Prelude.seq` Prelude.rnf securityProfileDescription
-      `Prelude.seq` Prelude.rnf securityProfileName
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf additionalMetricsToRetain `Prelude.seq`
+      Prelude.rnf additionalMetricsToRetainV2 `Prelude.seq`
+        Prelude.rnf alertTargets `Prelude.seq`
+          Prelude.rnf behaviors `Prelude.seq`
+            Prelude.rnf creationDate `Prelude.seq`
+              Prelude.rnf lastModifiedDate `Prelude.seq`
+                Prelude.rnf securityProfileArn `Prelude.seq`
+                  Prelude.rnf securityProfileDescription `Prelude.seq`
+                    Prelude.rnf securityProfileName `Prelude.seq`
+                      Prelude.rnf version `Prelude.seq`
+                        Prelude.rnf httpStatus

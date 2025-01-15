@@ -207,8 +207,8 @@ instance
     TrafficDistributionGroupSummary
   where
   rnf TrafficDistributionGroupSummary' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf instanceArn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf instanceArn `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf status

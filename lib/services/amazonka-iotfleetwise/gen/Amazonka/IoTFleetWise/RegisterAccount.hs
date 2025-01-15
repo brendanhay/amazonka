@@ -133,8 +133,8 @@ instance Prelude.Hashable RegisterAccount where
 
 instance Prelude.NFData RegisterAccount where
   rnf RegisterAccount' {..} =
-    Prelude.rnf iamResources
-      `Prelude.seq` Prelude.rnf timestreamResources
+    Prelude.rnf iamResources `Prelude.seq`
+      Prelude.rnf timestreamResources
 
 instance Data.ToHeaders RegisterAccount where
   toHeaders =
@@ -271,9 +271,9 @@ registerAccountResponse_lastModificationTime = Lens.lens (\RegisterAccountRespon
 
 instance Prelude.NFData RegisterAccountResponse where
   rnf RegisterAccountResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf registerAccountStatus
-      `Prelude.seq` Prelude.rnf timestreamResources
-      `Prelude.seq` Prelude.rnf iamResources
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf lastModificationTime
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf registerAccountStatus `Prelude.seq`
+        Prelude.rnf timestreamResources `Prelude.seq`
+          Prelude.rnf iamResources `Prelude.seq`
+            Prelude.rnf creationTime `Prelude.seq`
+              Prelude.rnf lastModificationTime

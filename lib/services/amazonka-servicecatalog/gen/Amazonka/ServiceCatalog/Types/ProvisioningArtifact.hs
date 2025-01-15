@@ -119,8 +119,8 @@ instance Prelude.Hashable ProvisioningArtifact where
 
 instance Prelude.NFData ProvisioningArtifact where
   rnf ProvisioningArtifact' {..} =
-    Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf guidance
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf createdTime `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf guidance `Prelude.seq`
+          Prelude.rnf id `Prelude.seq`
+            Prelude.rnf name

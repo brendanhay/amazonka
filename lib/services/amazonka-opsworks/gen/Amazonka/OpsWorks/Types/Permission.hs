@@ -161,8 +161,8 @@ instance Prelude.Hashable Permission where
 
 instance Prelude.NFData Permission where
   rnf Permission' {..} =
-    Prelude.rnf allowSsh
-      `Prelude.seq` Prelude.rnf allowSudo
-      `Prelude.seq` Prelude.rnf iamUserArn
-      `Prelude.seq` Prelude.rnf level
-      `Prelude.seq` Prelude.rnf stackId
+    Prelude.rnf allowSsh `Prelude.seq`
+      Prelude.rnf allowSudo `Prelude.seq`
+        Prelude.rnf iamUserArn `Prelude.seq`
+          Prelude.rnf level `Prelude.seq`
+            Prelude.rnf stackId

@@ -87,8 +87,8 @@ instance Prelude.Hashable GrpcGatewayRouteAction where
 
 instance Prelude.NFData GrpcGatewayRouteAction where
   rnf GrpcGatewayRouteAction' {..} =
-    Prelude.rnf rewrite
-      `Prelude.seq` Prelude.rnf target
+    Prelude.rnf rewrite `Prelude.seq`
+      Prelude.rnf target
 
 instance Data.ToJSON GrpcGatewayRouteAction where
   toJSON GrpcGatewayRouteAction' {..} =

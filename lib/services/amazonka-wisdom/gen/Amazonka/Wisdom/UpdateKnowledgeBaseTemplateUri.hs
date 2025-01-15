@@ -132,8 +132,8 @@ instance
     UpdateKnowledgeBaseTemplateUri
   where
   rnf UpdateKnowledgeBaseTemplateUri' {..} =
-    Prelude.rnf knowledgeBaseId
-      `Prelude.seq` Prelude.rnf templateUri
+    Prelude.rnf knowledgeBaseId `Prelude.seq`
+      Prelude.rnf templateUri
 
 instance
   Data.ToHeaders
@@ -212,5 +212,5 @@ instance
     UpdateKnowledgeBaseTemplateUriResponse
   where
   rnf UpdateKnowledgeBaseTemplateUriResponse' {..} =
-    Prelude.rnf knowledgeBase
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf knowledgeBase `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -227,11 +227,11 @@ instance Prelude.Hashable ModifyInstanceEventWindow where
 
 instance Prelude.NFData ModifyInstanceEventWindow where
   rnf ModifyInstanceEventWindow' {..} =
-    Prelude.rnf cronExpression
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf timeRanges
-      `Prelude.seq` Prelude.rnf instanceEventWindowId
+    Prelude.rnf cronExpression `Prelude.seq`
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf timeRanges `Prelude.seq`
+            Prelude.rnf instanceEventWindowId
 
 instance Data.ToHeaders ModifyInstanceEventWindow where
   toHeaders = Prelude.const Prelude.mempty
@@ -301,5 +301,5 @@ instance
     ModifyInstanceEventWindowResponse
   where
   rnf ModifyInstanceEventWindowResponse' {..} =
-    Prelude.rnf instanceEventWindow
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf instanceEventWindow `Prelude.seq`
+      Prelude.rnf httpStatus

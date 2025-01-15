@@ -173,11 +173,11 @@ instance Prelude.Hashable SipRule where
 
 instance Prelude.NFData SipRule where
   rnf SipRule' {..} =
-    Prelude.rnf createdTimestamp
-      `Prelude.seq` Prelude.rnf disabled
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf sipRuleId
-      `Prelude.seq` Prelude.rnf targetApplications
-      `Prelude.seq` Prelude.rnf triggerType
-      `Prelude.seq` Prelude.rnf triggerValue
-      `Prelude.seq` Prelude.rnf updatedTimestamp
+    Prelude.rnf createdTimestamp `Prelude.seq`
+      Prelude.rnf disabled `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf sipRuleId `Prelude.seq`
+            Prelude.rnf targetApplications `Prelude.seq`
+              Prelude.rnf triggerType `Prelude.seq`
+                Prelude.rnf triggerValue `Prelude.seq`
+                  Prelude.rnf updatedTimestamp

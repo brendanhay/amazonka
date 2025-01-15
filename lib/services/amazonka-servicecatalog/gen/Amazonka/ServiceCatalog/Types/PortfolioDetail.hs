@@ -124,9 +124,9 @@ instance Prelude.Hashable PortfolioDetail where
 
 instance Prelude.NFData PortfolioDetail where
   rnf PortfolioDetail' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf providerName
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf createdTime `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf displayName `Prelude.seq`
+            Prelude.rnf id `Prelude.seq`
+              Prelude.rnf providerName

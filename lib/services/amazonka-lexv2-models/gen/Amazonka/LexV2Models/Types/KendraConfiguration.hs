@@ -115,9 +115,9 @@ instance Prelude.Hashable KendraConfiguration where
 
 instance Prelude.NFData KendraConfiguration where
   rnf KendraConfiguration' {..} =
-    Prelude.rnf queryFilterString
-      `Prelude.seq` Prelude.rnf queryFilterStringEnabled
-      `Prelude.seq` Prelude.rnf kendraIndex
+    Prelude.rnf queryFilterString `Prelude.seq`
+      Prelude.rnf queryFilterStringEnabled `Prelude.seq`
+        Prelude.rnf kendraIndex
 
 instance Data.ToJSON KendraConfiguration where
   toJSON KendraConfiguration' {..} =

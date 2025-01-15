@@ -151,9 +151,9 @@ instance
   where
   rnf
     ListAssociatedApprovalRuleTemplatesForRepository' {..} =
-      Prelude.rnf maxResults
-        `Prelude.seq` Prelude.rnf nextToken
-        `Prelude.seq` Prelude.rnf repositoryName
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf repositoryName
 
 instance
   Data.ToHeaders
@@ -260,6 +260,6 @@ instance
   where
   rnf
     ListAssociatedApprovalRuleTemplatesForRepositoryResponse' {..} =
-      Prelude.rnf approvalRuleTemplateNames
-        `Prelude.seq` Prelude.rnf nextToken
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf approvalRuleTemplateNames `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf httpStatus

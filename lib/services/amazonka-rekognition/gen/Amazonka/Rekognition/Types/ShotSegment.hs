@@ -84,5 +84,5 @@ instance Prelude.Hashable ShotSegment where
 
 instance Prelude.NFData ShotSegment where
   rnf ShotSegment' {..} =
-    Prelude.rnf confidence
-      `Prelude.seq` Prelude.rnf index
+    Prelude.rnf confidence `Prelude.seq`
+      Prelude.rnf index

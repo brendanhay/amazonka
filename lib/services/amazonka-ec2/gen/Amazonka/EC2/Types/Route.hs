@@ -266,19 +266,19 @@ instance Prelude.Hashable Route where
 
 instance Prelude.NFData Route where
   rnf Route' {..} =
-    Prelude.rnf carrierGatewayId
-      `Prelude.seq` Prelude.rnf coreNetworkArn
-      `Prelude.seq` Prelude.rnf destinationCidrBlock
-      `Prelude.seq` Prelude.rnf destinationIpv6CidrBlock
-      `Prelude.seq` Prelude.rnf destinationPrefixListId
-      `Prelude.seq` Prelude.rnf egressOnlyInternetGatewayId
-      `Prelude.seq` Prelude.rnf gatewayId
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf instanceOwnerId
-      `Prelude.seq` Prelude.rnf localGatewayId
-      `Prelude.seq` Prelude.rnf natGatewayId
-      `Prelude.seq` Prelude.rnf networkInterfaceId
-      `Prelude.seq` Prelude.rnf origin
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf transitGatewayId
-      `Prelude.seq` Prelude.rnf vpcPeeringConnectionId
+    Prelude.rnf carrierGatewayId `Prelude.seq`
+      Prelude.rnf coreNetworkArn `Prelude.seq`
+        Prelude.rnf destinationCidrBlock `Prelude.seq`
+          Prelude.rnf destinationIpv6CidrBlock `Prelude.seq`
+            Prelude.rnf destinationPrefixListId `Prelude.seq`
+              Prelude.rnf egressOnlyInternetGatewayId `Prelude.seq`
+                Prelude.rnf gatewayId `Prelude.seq`
+                  Prelude.rnf instanceId `Prelude.seq`
+                    Prelude.rnf instanceOwnerId `Prelude.seq`
+                      Prelude.rnf localGatewayId `Prelude.seq`
+                        Prelude.rnf natGatewayId `Prelude.seq`
+                          Prelude.rnf networkInterfaceId `Prelude.seq`
+                            Prelude.rnf origin `Prelude.seq`
+                              Prelude.rnf state `Prelude.seq`
+                                Prelude.rnf transitGatewayId `Prelude.seq`
+                                  Prelude.rnf vpcPeeringConnectionId

@@ -121,8 +121,8 @@ instance Prelude.Hashable RecommendationData where
 
 instance Prelude.NFData RecommendationData where
   rnf RecommendationData' {..} =
-    Prelude.rnf relevanceLevel
-      `Prelude.seq` Prelude.rnf relevanceScore
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf document
-      `Prelude.seq` Prelude.rnf recommendationId
+    Prelude.rnf relevanceLevel `Prelude.seq`
+      Prelude.rnf relevanceScore `Prelude.seq`
+        Prelude.rnf type' `Prelude.seq`
+          Prelude.rnf document `Prelude.seq`
+            Prelude.rnf recommendationId

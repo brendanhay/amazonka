@@ -109,8 +109,8 @@ instance Prelude.Hashable DescribeRiskConfiguration where
 
 instance Prelude.NFData DescribeRiskConfiguration where
   rnf DescribeRiskConfiguration' {..} =
-    Prelude.rnf clientId
-      `Prelude.seq` Prelude.rnf userPoolId
+    Prelude.rnf clientId `Prelude.seq`
+      Prelude.rnf userPoolId
 
 instance Data.ToHeaders DescribeRiskConfiguration where
   toHeaders =
@@ -190,5 +190,5 @@ instance
     DescribeRiskConfigurationResponse
   where
   rnf DescribeRiskConfigurationResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf riskConfiguration
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf riskConfiguration

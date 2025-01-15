@@ -348,12 +348,12 @@ instance Core.AWSPager ListJobs where
         (rs Lens.^. listJobsResponse_jobSummaryList) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listJobs_nextToken
-          Lens..~ rs
-          Lens.^? listJobsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listJobs_nextToken
+              Lens..~ rs
+              Lens.^? listJobsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListJobs where
   type AWSResponse ListJobs = ListJobsResponse
@@ -384,13 +384,13 @@ instance Prelude.Hashable ListJobs where
 
 instance Prelude.NFData ListJobs where
   rnf ListJobs' {..} =
-    Prelude.rnf arrayJobId
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf jobQueue
-      `Prelude.seq` Prelude.rnf jobStatus
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf multiNodeJobId
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf arrayJobId `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf jobQueue `Prelude.seq`
+          Prelude.rnf jobStatus `Prelude.seq`
+            Prelude.rnf maxResults `Prelude.seq`
+              Prelude.rnf multiNodeJobId `Prelude.seq`
+                Prelude.rnf nextToken
 
 instance Data.ToHeaders ListJobs where
   toHeaders =
@@ -482,6 +482,6 @@ listJobsResponse_jobSummaryList = Lens.lens (\ListJobsResponse' {jobSummaryList}
 
 instance Prelude.NFData ListJobsResponse where
   rnf ListJobsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf jobSummaryList
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf jobSummaryList

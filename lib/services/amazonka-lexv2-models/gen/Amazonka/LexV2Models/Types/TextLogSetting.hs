@@ -84,8 +84,8 @@ instance Prelude.Hashable TextLogSetting where
 
 instance Prelude.NFData TextLogSetting where
   rnf TextLogSetting' {..} =
-    Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf destination
+    Prelude.rnf enabled `Prelude.seq`
+      Prelude.rnf destination
 
 instance Data.ToJSON TextLogSetting where
   toJSON TextLogSetting' {..} =

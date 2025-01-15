@@ -113,8 +113,8 @@ instance Prelude.Hashable BatchDeleteGeofence where
 
 instance Prelude.NFData BatchDeleteGeofence where
   rnf BatchDeleteGeofence' {..} =
-    Prelude.rnf collectionName
-      `Prelude.seq` Prelude.rnf geofenceIds
+    Prelude.rnf collectionName `Prelude.seq`
+      Prelude.rnf geofenceIds
 
 instance Data.ToHeaders BatchDeleteGeofence where
   toHeaders =
@@ -186,5 +186,5 @@ batchDeleteGeofenceResponse_errors = Lens.lens (\BatchDeleteGeofenceResponse' {e
 
 instance Prelude.NFData BatchDeleteGeofenceResponse where
   rnf BatchDeleteGeofenceResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf errors
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf errors

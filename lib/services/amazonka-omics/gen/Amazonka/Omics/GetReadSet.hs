@@ -132,10 +132,10 @@ instance Prelude.Hashable GetReadSet where
 
 instance Prelude.NFData GetReadSet where
   rnf GetReadSet' {..} =
-    Prelude.rnf file
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf partNumber
-      `Prelude.seq` Prelude.rnf sequenceStoreId
+    Prelude.rnf file `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf partNumber `Prelude.seq`
+          Prelude.rnf sequenceStoreId
 
 instance Data.ToHeaders GetReadSet where
   toHeaders =

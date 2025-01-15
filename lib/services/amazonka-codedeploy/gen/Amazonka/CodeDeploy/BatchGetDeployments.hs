@@ -179,5 +179,5 @@ batchGetDeploymentsResponse_httpStatus = Lens.lens (\BatchGetDeploymentsResponse
 
 instance Prelude.NFData BatchGetDeploymentsResponse where
   rnf BatchGetDeploymentsResponse' {..} =
-    Prelude.rnf deploymentsInfo
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf deploymentsInfo `Prelude.seq`
+      Prelude.rnf httpStatus

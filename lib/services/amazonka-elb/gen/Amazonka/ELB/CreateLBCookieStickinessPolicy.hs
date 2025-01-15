@@ -170,9 +170,9 @@ instance
     CreateLBCookieStickinessPolicy
   where
   rnf CreateLBCookieStickinessPolicy' {..} =
-    Prelude.rnf cookieExpirationPeriod
-      `Prelude.seq` Prelude.rnf loadBalancerName
-      `Prelude.seq` Prelude.rnf policyName
+    Prelude.rnf cookieExpirationPeriod `Prelude.seq`
+      Prelude.rnf loadBalancerName `Prelude.seq`
+        Prelude.rnf policyName
 
 instance
   Data.ToHeaders

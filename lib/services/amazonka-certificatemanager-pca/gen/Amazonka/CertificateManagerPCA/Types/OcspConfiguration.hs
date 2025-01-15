@@ -126,8 +126,8 @@ instance Prelude.Hashable OcspConfiguration where
 
 instance Prelude.NFData OcspConfiguration where
   rnf OcspConfiguration' {..} =
-    Prelude.rnf ocspCustomCname
-      `Prelude.seq` Prelude.rnf enabled
+    Prelude.rnf ocspCustomCname `Prelude.seq`
+      Prelude.rnf enabled
 
 instance Data.ToJSON OcspConfiguration where
   toJSON OcspConfiguration' {..} =

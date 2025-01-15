@@ -82,5 +82,5 @@ instance Prelude.Hashable NodeInterface where
 
 instance Prelude.NFData NodeInterface where
   rnf NodeInterface' {..} =
-    Prelude.rnf inputs
-      `Prelude.seq` Prelude.rnf outputs
+    Prelude.rnf inputs `Prelude.seq`
+      Prelude.rnf outputs

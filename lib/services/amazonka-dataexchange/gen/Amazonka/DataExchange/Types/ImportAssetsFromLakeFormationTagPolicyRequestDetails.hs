@@ -145,12 +145,12 @@ instance
   where
   rnf
     ImportAssetsFromLakeFormationTagPolicyRequestDetails' {..} =
-      Prelude.rnf database
-        `Prelude.seq` Prelude.rnf table
-        `Prelude.seq` Prelude.rnf catalogId
-        `Prelude.seq` Prelude.rnf roleArn
-        `Prelude.seq` Prelude.rnf dataSetId
-        `Prelude.seq` Prelude.rnf revisionId
+      Prelude.rnf database `Prelude.seq`
+        Prelude.rnf table `Prelude.seq`
+          Prelude.rnf catalogId `Prelude.seq`
+            Prelude.rnf roleArn `Prelude.seq`
+              Prelude.rnf dataSetId `Prelude.seq`
+                Prelude.rnf revisionId
 
 instance
   Data.ToJSON

@@ -96,8 +96,8 @@ instance Prelude.Hashable DecimalNumber where
 
 instance Prelude.NFData DecimalNumber where
   rnf DecimalNumber' {..} =
-    Prelude.rnf unscaledValue
-      `Prelude.seq` Prelude.rnf scale
+    Prelude.rnf unscaledValue `Prelude.seq`
+      Prelude.rnf scale
 
 instance Data.ToJSON DecimalNumber where
   toJSON DecimalNumber' {..} =

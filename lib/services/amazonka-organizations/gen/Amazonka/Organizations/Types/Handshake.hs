@@ -317,11 +317,11 @@ instance Prelude.Hashable Handshake where
 
 instance Prelude.NFData Handshake where
   rnf Handshake' {..} =
-    Prelude.rnf action
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf expirationTimestamp
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf parties
-      `Prelude.seq` Prelude.rnf requestedTimestamp
-      `Prelude.seq` Prelude.rnf resources
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf action `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf expirationTimestamp `Prelude.seq`
+          Prelude.rnf id `Prelude.seq`
+            Prelude.rnf parties `Prelude.seq`
+              Prelude.rnf requestedTimestamp `Prelude.seq`
+                Prelude.rnf resources `Prelude.seq`
+                  Prelude.rnf state

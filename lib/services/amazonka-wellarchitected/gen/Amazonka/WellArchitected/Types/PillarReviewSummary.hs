@@ -99,7 +99,7 @@ instance Prelude.Hashable PillarReviewSummary where
 
 instance Prelude.NFData PillarReviewSummary where
   rnf PillarReviewSummary' {..} =
-    Prelude.rnf notes
-      `Prelude.seq` Prelude.rnf pillarId
-      `Prelude.seq` Prelude.rnf pillarName
-      `Prelude.seq` Prelude.rnf riskCounts
+    Prelude.rnf notes `Prelude.seq`
+      Prelude.rnf pillarId `Prelude.seq`
+        Prelude.rnf pillarName `Prelude.seq`
+          Prelude.rnf riskCounts

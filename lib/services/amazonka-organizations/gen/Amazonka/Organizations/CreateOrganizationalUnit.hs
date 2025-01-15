@@ -195,9 +195,9 @@ instance Prelude.Hashable CreateOrganizationalUnit where
 
 instance Prelude.NFData CreateOrganizationalUnit where
   rnf CreateOrganizationalUnit' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf parentId
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf parentId `Prelude.seq`
+        Prelude.rnf name
 
 instance Data.ToHeaders CreateOrganizationalUnit where
   toHeaders =
@@ -274,5 +274,5 @@ instance
     CreateOrganizationalUnitResponse
   where
   rnf CreateOrganizationalUnitResponse' {..} =
-    Prelude.rnf organizationalUnit
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf organizationalUnit `Prelude.seq`
+      Prelude.rnf httpStatus

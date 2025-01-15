@@ -198,16 +198,16 @@ instance Prelude.Hashable InstanceGroupConfig where
 
 instance Prelude.NFData InstanceGroupConfig where
   rnf InstanceGroupConfig' {..} =
-    Prelude.rnf autoScalingPolicy
-      `Prelude.seq` Prelude.rnf bidPrice
-      `Prelude.seq` Prelude.rnf configurations
-      `Prelude.seq` Prelude.rnf customAmiId
-      `Prelude.seq` Prelude.rnf ebsConfiguration
-      `Prelude.seq` Prelude.rnf market
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf instanceRole
-      `Prelude.seq` Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf instanceCount
+    Prelude.rnf autoScalingPolicy `Prelude.seq`
+      Prelude.rnf bidPrice `Prelude.seq`
+        Prelude.rnf configurations `Prelude.seq`
+          Prelude.rnf customAmiId `Prelude.seq`
+            Prelude.rnf ebsConfiguration `Prelude.seq`
+              Prelude.rnf market `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf instanceRole `Prelude.seq`
+                    Prelude.rnf instanceType `Prelude.seq`
+                      Prelude.rnf instanceCount
 
 instance Data.ToJSON InstanceGroupConfig where
   toJSON InstanceGroupConfig' {..} =

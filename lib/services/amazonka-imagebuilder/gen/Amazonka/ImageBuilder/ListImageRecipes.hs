@@ -168,10 +168,10 @@ instance Prelude.Hashable ListImageRecipes where
 
 instance Prelude.NFData ListImageRecipes where
   rnf ListImageRecipes' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf owner
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf owner
 
 instance Data.ToHeaders ListImageRecipes where
   toHeaders =
@@ -269,7 +269,7 @@ listImageRecipesResponse_httpStatus = Lens.lens (\ListImageRecipesResponse' {htt
 
 instance Prelude.NFData ListImageRecipesResponse where
   rnf ListImageRecipesResponse' {..} =
-    Prelude.rnf imageRecipeSummaryList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf imageRecipeSummaryList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf requestId `Prelude.seq`
+          Prelude.rnf httpStatus

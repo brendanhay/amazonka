@@ -94,6 +94,6 @@ instance Prelude.Hashable FetchPageResult where
 
 instance Prelude.NFData FetchPageResult where
   rnf FetchPageResult' {..} =
-    Prelude.rnf consumedIOs
-      `Prelude.seq` Prelude.rnf page
-      `Prelude.seq` Prelude.rnf timingInformation
+    Prelude.rnf consumedIOs `Prelude.seq`
+      Prelude.rnf page `Prelude.seq`
+        Prelude.rnf timingInformation

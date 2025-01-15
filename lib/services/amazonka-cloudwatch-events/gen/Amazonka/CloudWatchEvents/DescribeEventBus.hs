@@ -201,7 +201,7 @@ describeEventBusResponse_httpStatus = Lens.lens (\DescribeEventBusResponse' {htt
 
 instance Prelude.NFData DescribeEventBusResponse where
   rnf DescribeEventBusResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf policy
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf policy `Prelude.seq`
+          Prelude.rnf httpStatus

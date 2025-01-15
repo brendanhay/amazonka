@@ -141,9 +141,9 @@ instance Prelude.Hashable DocumentAttributeTarget where
 
 instance Prelude.NFData DocumentAttributeTarget where
   rnf DocumentAttributeTarget' {..} =
-    Prelude.rnf targetDocumentAttributeKey
-      `Prelude.seq` Prelude.rnf targetDocumentAttributeValue
-      `Prelude.seq` Prelude.rnf targetDocumentAttributeValueDeletion
+    Prelude.rnf targetDocumentAttributeKey `Prelude.seq`
+      Prelude.rnf targetDocumentAttributeValue `Prelude.seq`
+        Prelude.rnf targetDocumentAttributeValueDeletion
 
 instance Data.ToJSON DocumentAttributeTarget where
   toJSON DocumentAttributeTarget' {..} =

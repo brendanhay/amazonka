@@ -99,9 +99,7 @@ instance Data.FromXML VCpuInfo where
       Prelude.<$> (x Data..@? "defaultCores")
       Prelude.<*> (x Data..@? "defaultThreadsPerCore")
       Prelude.<*> (x Data..@? "defaultVCpus")
-      Prelude.<*> ( x
-                      Data..@? "validCores"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "validCores" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> ( x
@@ -121,8 +119,8 @@ instance Prelude.Hashable VCpuInfo where
 
 instance Prelude.NFData VCpuInfo where
   rnf VCpuInfo' {..} =
-    Prelude.rnf defaultCores
-      `Prelude.seq` Prelude.rnf defaultThreadsPerCore
-      `Prelude.seq` Prelude.rnf defaultVCpus
-      `Prelude.seq` Prelude.rnf validCores
-      `Prelude.seq` Prelude.rnf validThreadsPerCore
+    Prelude.rnf defaultCores `Prelude.seq`
+      Prelude.rnf defaultThreadsPerCore `Prelude.seq`
+        Prelude.rnf defaultVCpus `Prelude.seq`
+          Prelude.rnf validCores `Prelude.seq`
+            Prelude.rnf validThreadsPerCore

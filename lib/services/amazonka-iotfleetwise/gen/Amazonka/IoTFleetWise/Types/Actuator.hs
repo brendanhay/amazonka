@@ -159,14 +159,14 @@ instance Prelude.Hashable Actuator where
 
 instance Prelude.NFData Actuator where
   rnf Actuator' {..} =
-    Prelude.rnf allowedValues
-      `Prelude.seq` Prelude.rnf assignedValue
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf max
-      `Prelude.seq` Prelude.rnf min
-      `Prelude.seq` Prelude.rnf unit
-      `Prelude.seq` Prelude.rnf fullyQualifiedName
-      `Prelude.seq` Prelude.rnf dataType
+    Prelude.rnf allowedValues `Prelude.seq`
+      Prelude.rnf assignedValue `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf max `Prelude.seq`
+            Prelude.rnf min `Prelude.seq`
+              Prelude.rnf unit `Prelude.seq`
+                Prelude.rnf fullyQualifiedName `Prelude.seq`
+                  Prelude.rnf dataType
 
 instance Data.ToJSON Actuator where
   toJSON Actuator' {..} =

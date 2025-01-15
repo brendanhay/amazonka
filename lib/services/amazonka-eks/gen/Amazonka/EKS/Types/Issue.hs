@@ -290,6 +290,6 @@ instance Prelude.Hashable Issue where
 
 instance Prelude.NFData Issue where
   rnf Issue' {..} =
-    Prelude.rnf code
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf resourceIds
+    Prelude.rnf code `Prelude.seq`
+      Prelude.rnf message `Prelude.seq`
+        Prelude.rnf resourceIds

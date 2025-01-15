@@ -115,11 +115,11 @@ instance Prelude.Hashable LiteralArrayOptions where
 
 instance Prelude.NFData LiteralArrayOptions where
   rnf LiteralArrayOptions' {..} =
-    Prelude.rnf defaultValue
-      `Prelude.seq` Prelude.rnf facetEnabled
-      `Prelude.seq` Prelude.rnf returnEnabled
-      `Prelude.seq` Prelude.rnf searchEnabled
-      `Prelude.seq` Prelude.rnf sourceFields
+    Prelude.rnf defaultValue `Prelude.seq`
+      Prelude.rnf facetEnabled `Prelude.seq`
+        Prelude.rnf returnEnabled `Prelude.seq`
+          Prelude.rnf searchEnabled `Prelude.seq`
+            Prelude.rnf sourceFields
 
 instance Data.ToQuery LiteralArrayOptions where
   toQuery LiteralArrayOptions' {..} =

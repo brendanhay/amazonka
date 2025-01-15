@@ -295,14 +295,14 @@ instance Prelude.Hashable DeleteStackInstances where
 
 instance Prelude.NFData DeleteStackInstances where
   rnf DeleteStackInstances' {..} =
-    Prelude.rnf accounts
-      `Prelude.seq` Prelude.rnf callAs
-      `Prelude.seq` Prelude.rnf deploymentTargets
-      `Prelude.seq` Prelude.rnf operationId
-      `Prelude.seq` Prelude.rnf operationPreferences
-      `Prelude.seq` Prelude.rnf stackSetName
-      `Prelude.seq` Prelude.rnf regions
-      `Prelude.seq` Prelude.rnf retainStacks
+    Prelude.rnf accounts `Prelude.seq`
+      Prelude.rnf callAs `Prelude.seq`
+        Prelude.rnf deploymentTargets `Prelude.seq`
+          Prelude.rnf operationId `Prelude.seq`
+            Prelude.rnf operationPreferences `Prelude.seq`
+              Prelude.rnf stackSetName `Prelude.seq`
+                Prelude.rnf regions `Prelude.seq`
+                  Prelude.rnf retainStacks
 
 instance Data.ToHeaders DeleteStackInstances where
   toHeaders = Prelude.const Prelude.mempty
@@ -370,5 +370,5 @@ deleteStackInstancesResponse_httpStatus = Lens.lens (\DeleteStackInstancesRespon
 
 instance Prelude.NFData DeleteStackInstancesResponse where
   rnf DeleteStackInstancesResponse' {..} =
-    Prelude.rnf operationId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operationId `Prelude.seq`
+      Prelude.rnf httpStatus

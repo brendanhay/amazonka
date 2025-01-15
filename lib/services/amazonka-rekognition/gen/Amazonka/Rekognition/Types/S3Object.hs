@@ -98,9 +98,9 @@ instance Prelude.Hashable S3Object where
 
 instance Prelude.NFData S3Object where
   rnf S3Object' {..} =
-    Prelude.rnf bucket
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf version
+    Prelude.rnf bucket `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf version
 
 instance Data.ToJSON S3Object where
   toJSON S3Object' {..} =

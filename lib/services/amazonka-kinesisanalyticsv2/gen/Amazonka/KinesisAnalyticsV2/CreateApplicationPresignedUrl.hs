@@ -149,9 +149,9 @@ instance
 
 instance Prelude.NFData CreateApplicationPresignedUrl where
   rnf CreateApplicationPresignedUrl' {..} =
-    Prelude.rnf sessionExpirationDurationInSeconds
-      `Prelude.seq` Prelude.rnf applicationName
-      `Prelude.seq` Prelude.rnf urlType
+    Prelude.rnf sessionExpirationDurationInSeconds `Prelude.seq`
+      Prelude.rnf applicationName `Prelude.seq`
+        Prelude.rnf urlType
 
 instance Data.ToHeaders CreateApplicationPresignedUrl where
   toHeaders =
@@ -230,5 +230,5 @@ instance
     CreateApplicationPresignedUrlResponse
   where
   rnf CreateApplicationPresignedUrlResponse' {..} =
-    Prelude.rnf authorizedUrl
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf authorizedUrl `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -105,8 +105,8 @@ instance
     RuleGroupSourceStatelessRuleDefinition
   where
   rnf RuleGroupSourceStatelessRuleDefinition' {..} =
-    Prelude.rnf actions
-      `Prelude.seq` Prelude.rnf matchAttributes
+    Prelude.rnf actions `Prelude.seq`
+      Prelude.rnf matchAttributes
 
 instance
   Data.ToJSON

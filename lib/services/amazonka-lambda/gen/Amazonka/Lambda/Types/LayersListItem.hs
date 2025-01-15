@@ -94,6 +94,6 @@ instance Prelude.Hashable LayersListItem where
 
 instance Prelude.NFData LayersListItem where
   rnf LayersListItem' {..} =
-    Prelude.rnf latestMatchingVersion
-      `Prelude.seq` Prelude.rnf layerArn
-      `Prelude.seq` Prelude.rnf layerName
+    Prelude.rnf latestMatchingVersion `Prelude.seq`
+      Prelude.rnf layerArn `Prelude.seq`
+        Prelude.rnf layerName

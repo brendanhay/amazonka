@@ -131,9 +131,9 @@ instance
     UpdatePullRequestApprovalState
   where
   rnf UpdatePullRequestApprovalState' {..} =
-    Prelude.rnf pullRequestId
-      `Prelude.seq` Prelude.rnf revisionId
-      `Prelude.seq` Prelude.rnf approvalState
+    Prelude.rnf pullRequestId `Prelude.seq`
+      Prelude.rnf revisionId `Prelude.seq`
+        Prelude.rnf approvalState
 
 instance
   Data.ToHeaders

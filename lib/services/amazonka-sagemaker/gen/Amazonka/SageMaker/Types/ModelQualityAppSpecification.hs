@@ -161,13 +161,13 @@ instance
 
 instance Prelude.NFData ModelQualityAppSpecification where
   rnf ModelQualityAppSpecification' {..} =
-    Prelude.rnf containerArguments
-      `Prelude.seq` Prelude.rnf containerEntrypoint
-      `Prelude.seq` Prelude.rnf environment
-      `Prelude.seq` Prelude.rnf postAnalyticsProcessorSourceUri
-      `Prelude.seq` Prelude.rnf problemType
-      `Prelude.seq` Prelude.rnf recordPreprocessorSourceUri
-      `Prelude.seq` Prelude.rnf imageUri
+    Prelude.rnf containerArguments `Prelude.seq`
+      Prelude.rnf containerEntrypoint `Prelude.seq`
+        Prelude.rnf environment `Prelude.seq`
+          Prelude.rnf postAnalyticsProcessorSourceUri `Prelude.seq`
+            Prelude.rnf problemType `Prelude.seq`
+              Prelude.rnf recordPreprocessorSourceUri `Prelude.seq`
+                Prelude.rnf imageUri
 
 instance Data.ToJSON ModelQualityAppSpecification where
   toJSON ModelQualityAppSpecification' {..} =

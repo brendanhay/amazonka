@@ -82,8 +82,8 @@ instance Prelude.Hashable GeoMosaicConfigInput where
 
 instance Prelude.NFData GeoMosaicConfigInput where
   rnf GeoMosaicConfigInput' {..} =
-    Prelude.rnf algorithmName
-      `Prelude.seq` Prelude.rnf targetBands
+    Prelude.rnf algorithmName `Prelude.seq`
+      Prelude.rnf targetBands
 
 instance Data.ToJSON GeoMosaicConfigInput where
   toJSON GeoMosaicConfigInput' {..} =

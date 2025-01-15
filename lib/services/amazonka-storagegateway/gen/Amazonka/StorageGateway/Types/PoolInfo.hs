@@ -163,9 +163,9 @@ instance Prelude.Hashable PoolInfo where
 
 instance Prelude.NFData PoolInfo where
   rnf PoolInfo' {..} =
-    Prelude.rnf poolARN
-      `Prelude.seq` Prelude.rnf poolName
-      `Prelude.seq` Prelude.rnf poolStatus
-      `Prelude.seq` Prelude.rnf retentionLockTimeInDays
-      `Prelude.seq` Prelude.rnf retentionLockType
-      `Prelude.seq` Prelude.rnf storageClass
+    Prelude.rnf poolARN `Prelude.seq`
+      Prelude.rnf poolName `Prelude.seq`
+        Prelude.rnf poolStatus `Prelude.seq`
+          Prelude.rnf retentionLockTimeInDays `Prelude.seq`
+            Prelude.rnf retentionLockType `Prelude.seq`
+              Prelude.rnf storageClass

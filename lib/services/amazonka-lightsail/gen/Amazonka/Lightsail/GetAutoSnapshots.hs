@@ -194,7 +194,7 @@ getAutoSnapshotsResponse_httpStatus = Lens.lens (\GetAutoSnapshotsResponse' {htt
 
 instance Prelude.NFData GetAutoSnapshotsResponse where
   rnf GetAutoSnapshotsResponse' {..} =
-    Prelude.rnf autoSnapshots
-      `Prelude.seq` Prelude.rnf resourceName
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf autoSnapshots `Prelude.seq`
+      Prelude.rnf resourceName `Prelude.seq`
+        Prelude.rnf resourceType `Prelude.seq`
+          Prelude.rnf httpStatus

@@ -150,12 +150,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeClientAuthenticationSettings_nextToken
-          Lens..~ rs
-          Lens.^? describeClientAuthenticationSettingsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeClientAuthenticationSettings_nextToken
+              Lens..~ rs
+              Lens.^? describeClientAuthenticationSettingsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -196,10 +196,10 @@ instance
     DescribeClientAuthenticationSettings
   where
   rnf DescribeClientAuthenticationSettings' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf directoryId
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf type' `Prelude.seq`
+          Prelude.rnf directoryId
 
 instance
   Data.ToHeaders
@@ -317,6 +317,6 @@ instance
     DescribeClientAuthenticationSettingsResponse
   where
   rnf DescribeClientAuthenticationSettingsResponse' {..} =
-    Prelude.rnf clientAuthenticationSettingsInfo
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf clientAuthenticationSettingsInfo `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

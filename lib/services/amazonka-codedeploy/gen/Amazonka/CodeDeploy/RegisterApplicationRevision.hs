@@ -124,9 +124,9 @@ instance Prelude.Hashable RegisterApplicationRevision where
 
 instance Prelude.NFData RegisterApplicationRevision where
   rnf RegisterApplicationRevision' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf applicationName
-      `Prelude.seq` Prelude.rnf revision
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf applicationName `Prelude.seq`
+        Prelude.rnf revision
 
 instance Data.ToHeaders RegisterApplicationRevision where
   toHeaders =

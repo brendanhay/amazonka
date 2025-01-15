@@ -138,10 +138,10 @@ instance Prelude.Hashable CreateUserGroup where
 
 instance Prelude.NFData CreateUserGroup where
   rnf CreateUserGroup' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf userIds
-      `Prelude.seq` Prelude.rnf userGroupId
-      `Prelude.seq` Prelude.rnf engine
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf userIds `Prelude.seq`
+        Prelude.rnf userGroupId `Prelude.seq`
+          Prelude.rnf engine
 
 instance Data.ToHeaders CreateUserGroup where
   toHeaders = Prelude.const Prelude.mempty

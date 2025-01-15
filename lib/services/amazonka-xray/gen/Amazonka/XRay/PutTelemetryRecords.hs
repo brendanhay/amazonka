@@ -119,10 +119,10 @@ instance Prelude.Hashable PutTelemetryRecords where
 
 instance Prelude.NFData PutTelemetryRecords where
   rnf PutTelemetryRecords' {..} =
-    Prelude.rnf eC2InstanceId
-      `Prelude.seq` Prelude.rnf hostname
-      `Prelude.seq` Prelude.rnf resourceARN
-      `Prelude.seq` Prelude.rnf telemetryRecords
+    Prelude.rnf eC2InstanceId `Prelude.seq`
+      Prelude.rnf hostname `Prelude.seq`
+        Prelude.rnf resourceARN `Prelude.seq`
+          Prelude.rnf telemetryRecords
 
 instance Data.ToHeaders PutTelemetryRecords where
   toHeaders = Prelude.const Prelude.mempty

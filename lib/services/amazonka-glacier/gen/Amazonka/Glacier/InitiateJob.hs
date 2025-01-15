@@ -142,9 +142,9 @@ instance Prelude.Hashable InitiateJob where
 
 instance Prelude.NFData InitiateJob where
   rnf InitiateJob' {..} =
-    Prelude.rnf jobParameters
-      `Prelude.seq` Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf vaultName
+    Prelude.rnf jobParameters `Prelude.seq`
+      Prelude.rnf accountId `Prelude.seq`
+        Prelude.rnf vaultName
 
 instance Data.ToHeaders InitiateJob where
   toHeaders = Prelude.const Prelude.mempty
@@ -225,7 +225,7 @@ initiateJobResponse_httpStatus = Lens.lens (\InitiateJobResponse' {httpStatus} -
 
 instance Prelude.NFData InitiateJobResponse where
   rnf InitiateJobResponse' {..} =
-    Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf jobOutputPath
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf jobId `Prelude.seq`
+      Prelude.rnf jobOutputPath `Prelude.seq`
+        Prelude.rnf location `Prelude.seq`
+          Prelude.rnf httpStatus

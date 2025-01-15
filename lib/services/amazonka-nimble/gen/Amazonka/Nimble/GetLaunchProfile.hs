@@ -114,8 +114,8 @@ instance Prelude.Hashable GetLaunchProfile where
 
 instance Prelude.NFData GetLaunchProfile where
   rnf GetLaunchProfile' {..} =
-    Prelude.rnf launchProfileId
-      `Prelude.seq` Prelude.rnf studioId
+    Prelude.rnf launchProfileId `Prelude.seq`
+      Prelude.rnf studioId
 
 instance Data.ToHeaders GetLaunchProfile where
   toHeaders =
@@ -181,5 +181,5 @@ getLaunchProfileResponse_httpStatus = Lens.lens (\GetLaunchProfileResponse' {htt
 
 instance Prelude.NFData GetLaunchProfileResponse where
   rnf GetLaunchProfileResponse' {..} =
-    Prelude.rnf launchProfile
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf launchProfile `Prelude.seq`
+      Prelude.rnf httpStatus

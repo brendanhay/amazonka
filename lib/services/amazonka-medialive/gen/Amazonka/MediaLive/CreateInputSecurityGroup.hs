@@ -108,8 +108,8 @@ instance Prelude.Hashable CreateInputSecurityGroup where
 
 instance Prelude.NFData CreateInputSecurityGroup where
   rnf CreateInputSecurityGroup' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf whitelistRules
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf whitelistRules
 
 instance Data.ToHeaders CreateInputSecurityGroup where
   toHeaders =
@@ -183,5 +183,5 @@ instance
     CreateInputSecurityGroupResponse
   where
   rnf CreateInputSecurityGroupResponse' {..} =
-    Prelude.rnf securityGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf securityGroup `Prelude.seq`
+      Prelude.rnf httpStatus

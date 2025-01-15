@@ -184,9 +184,9 @@ instance Prelude.Hashable ChangeCidrCollection where
 
 instance Prelude.NFData ChangeCidrCollection where
   rnf ChangeCidrCollection' {..} =
-    Prelude.rnf collectionVersion
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf changes
+    Prelude.rnf collectionVersion `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf changes
 
 instance Data.ToElement ChangeCidrCollection where
   toElement =

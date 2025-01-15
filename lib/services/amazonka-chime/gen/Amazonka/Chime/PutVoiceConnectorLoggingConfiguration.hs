@@ -128,8 +128,8 @@ instance
     PutVoiceConnectorLoggingConfiguration
   where
   rnf PutVoiceConnectorLoggingConfiguration' {..} =
-    Prelude.rnf voiceConnectorId
-      `Prelude.seq` Prelude.rnf loggingConfiguration
+    Prelude.rnf voiceConnectorId `Prelude.seq`
+      Prelude.rnf loggingConfiguration
 
 instance
   Data.ToHeaders
@@ -214,5 +214,5 @@ instance
   where
   rnf
     PutVoiceConnectorLoggingConfigurationResponse' {..} =
-      Prelude.rnf loggingConfiguration
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf loggingConfiguration `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -278,22 +278,22 @@ instance Prelude.Hashable UIColorPalette where
 
 instance Prelude.NFData UIColorPalette where
   rnf UIColorPalette' {..} =
-    Prelude.rnf accent
-      `Prelude.seq` Prelude.rnf accentForeground
-      `Prelude.seq` Prelude.rnf danger
-      `Prelude.seq` Prelude.rnf dangerForeground
-      `Prelude.seq` Prelude.rnf dimension
-      `Prelude.seq` Prelude.rnf dimensionForeground
-      `Prelude.seq` Prelude.rnf measure
-      `Prelude.seq` Prelude.rnf measureForeground
-      `Prelude.seq` Prelude.rnf primaryBackground
-      `Prelude.seq` Prelude.rnf primaryForeground
-      `Prelude.seq` Prelude.rnf secondaryBackground
-      `Prelude.seq` Prelude.rnf secondaryForeground
-      `Prelude.seq` Prelude.rnf success
-      `Prelude.seq` Prelude.rnf successForeground
-      `Prelude.seq` Prelude.rnf warning
-      `Prelude.seq` Prelude.rnf warningForeground
+    Prelude.rnf accent `Prelude.seq`
+      Prelude.rnf accentForeground `Prelude.seq`
+        Prelude.rnf danger `Prelude.seq`
+          Prelude.rnf dangerForeground `Prelude.seq`
+            Prelude.rnf dimension `Prelude.seq`
+              Prelude.rnf dimensionForeground `Prelude.seq`
+                Prelude.rnf measure `Prelude.seq`
+                  Prelude.rnf measureForeground `Prelude.seq`
+                    Prelude.rnf primaryBackground `Prelude.seq`
+                      Prelude.rnf primaryForeground `Prelude.seq`
+                        Prelude.rnf secondaryBackground `Prelude.seq`
+                          Prelude.rnf secondaryForeground `Prelude.seq`
+                            Prelude.rnf success `Prelude.seq`
+                              Prelude.rnf successForeground `Prelude.seq`
+                                Prelude.rnf warning `Prelude.seq`
+                                  Prelude.rnf warningForeground
 
 instance Data.ToJSON UIColorPalette where
   toJSON UIColorPalette' {..} =

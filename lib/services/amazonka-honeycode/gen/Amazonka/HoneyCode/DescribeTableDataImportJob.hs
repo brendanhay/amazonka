@@ -164,9 +164,9 @@ instance Prelude.Hashable DescribeTableDataImportJob where
 
 instance Prelude.NFData DescribeTableDataImportJob where
   rnf DescribeTableDataImportJob' {..} =
-    Prelude.rnf workbookId
-      `Prelude.seq` Prelude.rnf tableId
-      `Prelude.seq` Prelude.rnf jobId
+    Prelude.rnf workbookId `Prelude.seq`
+      Prelude.rnf tableId `Prelude.seq`
+        Prelude.rnf jobId
 
 instance Data.ToHeaders DescribeTableDataImportJob where
   toHeaders =
@@ -280,8 +280,8 @@ instance
     DescribeTableDataImportJobResponse
   where
   rnf DescribeTableDataImportJobResponse' {..} =
-    Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf jobStatus
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf jobMetadata
+    Prelude.rnf errorCode `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf jobStatus `Prelude.seq`
+          Prelude.rnf message `Prelude.seq`
+            Prelude.rnf jobMetadata

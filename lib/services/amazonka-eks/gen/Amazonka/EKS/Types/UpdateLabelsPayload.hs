@@ -72,8 +72,8 @@ instance Prelude.Hashable UpdateLabelsPayload where
 
 instance Prelude.NFData UpdateLabelsPayload where
   rnf UpdateLabelsPayload' {..} =
-    Prelude.rnf addOrUpdateLabels
-      `Prelude.seq` Prelude.rnf removeLabels
+    Prelude.rnf addOrUpdateLabels `Prelude.seq`
+      Prelude.rnf removeLabels
 
 instance Data.ToJSON UpdateLabelsPayload where
   toJSON UpdateLabelsPayload' {..} =

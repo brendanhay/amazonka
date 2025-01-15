@@ -111,6 +111,6 @@ instance
     BatchCreateDelegationByAssessmentError
   where
   rnf BatchCreateDelegationByAssessmentError' {..} =
-    Prelude.rnf createDelegationRequest
-      `Prelude.seq` Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorMessage
+    Prelude.rnf createDelegationRequest `Prelude.seq`
+      Prelude.rnf errorCode `Prelude.seq`
+        Prelude.rnf errorMessage

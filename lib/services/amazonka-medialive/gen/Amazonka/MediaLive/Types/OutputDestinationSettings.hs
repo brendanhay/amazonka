@@ -103,10 +103,10 @@ instance Prelude.Hashable OutputDestinationSettings where
 
 instance Prelude.NFData OutputDestinationSettings where
   rnf OutputDestinationSettings' {..} =
-    Prelude.rnf passwordParam
-      `Prelude.seq` Prelude.rnf streamName
-      `Prelude.seq` Prelude.rnf url
-      `Prelude.seq` Prelude.rnf username
+    Prelude.rnf passwordParam `Prelude.seq`
+      Prelude.rnf streamName `Prelude.seq`
+        Prelude.rnf url `Prelude.seq`
+          Prelude.rnf username
 
 instance Data.ToJSON OutputDestinationSettings where
   toJSON OutputDestinationSettings' {..} =

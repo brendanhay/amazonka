@@ -146,10 +146,10 @@ instance Prelude.Hashable HttpRetryPolicy where
 
 instance Prelude.NFData HttpRetryPolicy where
   rnf HttpRetryPolicy' {..} =
-    Prelude.rnf httpRetryEvents
-      `Prelude.seq` Prelude.rnf tcpRetryEvents
-      `Prelude.seq` Prelude.rnf maxRetries
-      `Prelude.seq` Prelude.rnf perRetryTimeout
+    Prelude.rnf httpRetryEvents `Prelude.seq`
+      Prelude.rnf tcpRetryEvents `Prelude.seq`
+        Prelude.rnf maxRetries `Prelude.seq`
+          Prelude.rnf perRetryTimeout
 
 instance Data.ToJSON HttpRetryPolicy where
   toJSON HttpRetryPolicy' {..} =

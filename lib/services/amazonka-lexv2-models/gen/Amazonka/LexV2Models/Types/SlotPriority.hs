@@ -85,8 +85,8 @@ instance Prelude.Hashable SlotPriority where
 
 instance Prelude.NFData SlotPriority where
   rnf SlotPriority' {..} =
-    Prelude.rnf priority
-      `Prelude.seq` Prelude.rnf slotId
+    Prelude.rnf priority `Prelude.seq`
+      Prelude.rnf slotId
 
 instance Data.ToJSON SlotPriority where
   toJSON SlotPriority' {..} =

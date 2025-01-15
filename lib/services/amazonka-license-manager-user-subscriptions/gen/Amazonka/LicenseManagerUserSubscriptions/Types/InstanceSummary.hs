@@ -118,8 +118,8 @@ instance Prelude.Hashable InstanceSummary where
 
 instance Prelude.NFData InstanceSummary where
   rnf InstanceSummary' {..} =
-    Prelude.rnf lastStatusCheckDate
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf products
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf lastStatusCheckDate `Prelude.seq`
+      Prelude.rnf statusMessage `Prelude.seq`
+        Prelude.rnf instanceId `Prelude.seq`
+          Prelude.rnf products `Prelude.seq`
+            Prelude.rnf status

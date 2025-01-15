@@ -111,5 +111,5 @@ instance Prelude.Hashable EncodingParameters where
 
 instance Prelude.NFData EncodingParameters where
   rnf EncodingParameters' {..} =
-    Prelude.rnf encoderProfile
-      `Prelude.seq` Prelude.rnf compressionFactor
+    Prelude.rnf encoderProfile `Prelude.seq`
+      Prelude.rnf compressionFactor

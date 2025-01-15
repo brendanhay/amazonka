@@ -212,7 +212,7 @@ instance
     DescribeBandwidthRateLimitResponse
   where
   rnf DescribeBandwidthRateLimitResponse' {..} =
-    Prelude.rnf averageDownloadRateLimitInBitsPerSec
-      `Prelude.seq` Prelude.rnf averageUploadRateLimitInBitsPerSec
-      `Prelude.seq` Prelude.rnf gatewayARN
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf averageDownloadRateLimitInBitsPerSec `Prelude.seq`
+      Prelude.rnf averageUploadRateLimitInBitsPerSec `Prelude.seq`
+        Prelude.rnf gatewayARN `Prelude.seq`
+          Prelude.rnf httpStatus

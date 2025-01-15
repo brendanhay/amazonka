@@ -115,8 +115,8 @@ instance Prelude.Hashable JobLogEventData where
 
 instance Prelude.NFData JobLogEventData where
   rnf JobLogEventData' {..} =
-    Prelude.rnf conversionProperties
-      `Prelude.seq` Prelude.rnf conversionServerID
-      `Prelude.seq` Prelude.rnf rawError
-      `Prelude.seq` Prelude.rnf sourceServerID
-      `Prelude.seq` Prelude.rnf targetInstanceID
+    Prelude.rnf conversionProperties `Prelude.seq`
+      Prelude.rnf conversionServerID `Prelude.seq`
+        Prelude.rnf rawError `Prelude.seq`
+          Prelude.rnf sourceServerID `Prelude.seq`
+            Prelude.rnf targetInstanceID

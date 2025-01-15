@@ -82,5 +82,5 @@ instance Prelude.Hashable RecentCaseCommunications where
 
 instance Prelude.NFData RecentCaseCommunications where
   rnf RecentCaseCommunications' {..} =
-    Prelude.rnf communications
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf communications `Prelude.seq`
+      Prelude.rnf nextToken

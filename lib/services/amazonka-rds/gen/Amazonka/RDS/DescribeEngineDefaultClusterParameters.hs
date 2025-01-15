@@ -173,14 +173,14 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeEngineDefaultClusterParameters_marker
-          Lens..~ rs
-          Lens.^? describeEngineDefaultClusterParametersResponse_engineDefaults
-          Prelude.. Lens._Just
-          Prelude.. engineDefaults_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeEngineDefaultClusterParameters_marker
+              Lens..~ rs
+              Lens.^? describeEngineDefaultClusterParametersResponse_engineDefaults
+              Prelude.. Lens._Just
+              Prelude.. engineDefaults_marker
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -219,10 +219,10 @@ instance
     DescribeEngineDefaultClusterParameters
   where
   rnf DescribeEngineDefaultClusterParameters' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf dbParameterGroupFamily
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf maxRecords `Prelude.seq`
+          Prelude.rnf dbParameterGroupFamily
 
 instance
   Data.ToHeaders
@@ -302,5 +302,5 @@ instance
   where
   rnf
     DescribeEngineDefaultClusterParametersResponse' {..} =
-      Prelude.rnf engineDefaults
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf engineDefaults `Prelude.seq`
+        Prelude.rnf httpStatus

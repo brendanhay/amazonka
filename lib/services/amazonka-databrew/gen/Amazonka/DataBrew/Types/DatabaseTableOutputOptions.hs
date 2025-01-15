@@ -88,8 +88,8 @@ instance Prelude.Hashable DatabaseTableOutputOptions where
 
 instance Prelude.NFData DatabaseTableOutputOptions where
   rnf DatabaseTableOutputOptions' {..} =
-    Prelude.rnf tempDirectory
-      `Prelude.seq` Prelude.rnf tableName
+    Prelude.rnf tempDirectory `Prelude.seq`
+      Prelude.rnf tableName
 
 instance Data.ToJSON DatabaseTableOutputOptions where
   toJSON DatabaseTableOutputOptions' {..} =

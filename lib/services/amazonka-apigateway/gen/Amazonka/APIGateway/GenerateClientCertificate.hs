@@ -115,8 +115,8 @@ instance Prelude.Hashable GenerateClientCertificate where
 
 instance Prelude.NFData GenerateClientCertificate where
   rnf GenerateClientCertificate' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf tags
 
 instance Data.ToHeaders GenerateClientCertificate where
   toHeaders =

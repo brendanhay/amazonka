@@ -150,12 +150,12 @@ instance Core.AWSPager ListOrganizationInsights where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listOrganizationInsights_nextToken
-          Lens..~ rs
-          Lens.^? listOrganizationInsightsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listOrganizationInsights_nextToken
+              Lens..~ rs
+              Lens.^? listOrganizationInsightsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListOrganizationInsights where
   type
@@ -190,11 +190,11 @@ instance Prelude.Hashable ListOrganizationInsights where
 
 instance Prelude.NFData ListOrganizationInsights where
   rnf ListOrganizationInsights' {..} =
-    Prelude.rnf accountIds
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf organizationalUnitIds
-      `Prelude.seq` Prelude.rnf statusFilter
+    Prelude.rnf accountIds `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf organizationalUnitIds `Prelude.seq`
+            Prelude.rnf statusFilter
 
 instance Data.ToHeaders ListOrganizationInsights where
   toHeaders =
@@ -297,7 +297,7 @@ instance
     ListOrganizationInsightsResponse
   where
   rnf ListOrganizationInsightsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf proactiveInsights
-      `Prelude.seq` Prelude.rnf reactiveInsights
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf proactiveInsights `Prelude.seq`
+        Prelude.rnf reactiveInsights `Prelude.seq`
+          Prelude.rnf httpStatus

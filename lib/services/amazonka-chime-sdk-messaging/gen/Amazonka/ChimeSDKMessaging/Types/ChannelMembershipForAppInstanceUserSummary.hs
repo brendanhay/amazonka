@@ -95,5 +95,5 @@ instance
     ChannelMembershipForAppInstanceUserSummary
   where
   rnf ChannelMembershipForAppInstanceUserSummary' {..} =
-    Prelude.rnf appInstanceUserMembershipSummary
-      `Prelude.seq` Prelude.rnf channelSummary
+    Prelude.rnf appInstanceUserMembershipSummary `Prelude.seq`
+      Prelude.rnf channelSummary

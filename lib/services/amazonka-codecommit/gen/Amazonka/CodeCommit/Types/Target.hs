@@ -90,9 +90,9 @@ instance Prelude.Hashable Target where
 
 instance Prelude.NFData Target where
   rnf Target' {..} =
-    Prelude.rnf destinationReference
-      `Prelude.seq` Prelude.rnf repositoryName
-      `Prelude.seq` Prelude.rnf sourceReference
+    Prelude.rnf destinationReference `Prelude.seq`
+      Prelude.rnf repositoryName `Prelude.seq`
+        Prelude.rnf sourceReference
 
 instance Data.ToJSON Target where
   toJSON Target' {..} =

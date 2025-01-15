@@ -96,8 +96,8 @@ instance
 
 instance Prelude.NFData ViolationEventOccurrenceRange where
   rnf ViolationEventOccurrenceRange' {..} =
-    Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf endTime
+    Prelude.rnf startTime `Prelude.seq`
+      Prelude.rnf endTime
 
 instance Data.ToJSON ViolationEventOccurrenceRange where
   toJSON ViolationEventOccurrenceRange' {..} =

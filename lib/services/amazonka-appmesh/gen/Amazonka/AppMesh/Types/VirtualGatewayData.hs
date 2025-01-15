@@ -131,8 +131,8 @@ instance Prelude.Hashable VirtualGatewayData where
 
 instance Prelude.NFData VirtualGatewayData where
   rnf VirtualGatewayData' {..} =
-    Prelude.rnf meshName
-      `Prelude.seq` Prelude.rnf metadata
-      `Prelude.seq` Prelude.rnf spec
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf virtualGatewayName
+    Prelude.rnf meshName `Prelude.seq`
+      Prelude.rnf metadata `Prelude.seq`
+        Prelude.rnf spec `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf virtualGatewayName

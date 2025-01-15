@@ -82,9 +82,9 @@ instance Prelude.Hashable FunctionRequest where
 
 instance Prelude.NFData FunctionRequest where
   rnf FunctionRequest' {..} =
-    Prelude.rnf implementedBy
-      `Prelude.seq` Prelude.rnf requiredProperties
-      `Prelude.seq` Prelude.rnf scope
+    Prelude.rnf implementedBy `Prelude.seq`
+      Prelude.rnf requiredProperties `Prelude.seq`
+        Prelude.rnf scope
 
 instance Data.ToJSON FunctionRequest where
   toJSON FunctionRequest' {..} =

@@ -127,8 +127,8 @@ instance Prelude.Hashable ProvisionedThroughput where
 
 instance Prelude.NFData ProvisionedThroughput where
   rnf ProvisionedThroughput' {..} =
-    Prelude.rnf readCapacityUnits
-      `Prelude.seq` Prelude.rnf writeCapacityUnits
+    Prelude.rnf readCapacityUnits `Prelude.seq`
+      Prelude.rnf writeCapacityUnits
 
 instance Data.ToJSON ProvisionedThroughput where
   toJSON ProvisionedThroughput' {..} =

@@ -173,8 +173,8 @@ instance Prelude.Hashable DeleteBucket where
 
 instance Prelude.NFData DeleteBucket where
   rnf DeleteBucket' {..} =
-    Prelude.rnf forceDelete
-      `Prelude.seq` Prelude.rnf bucketName
+    Prelude.rnf forceDelete `Prelude.seq`
+      Prelude.rnf bucketName
 
 instance Data.ToHeaders DeleteBucket where
   toHeaders =
@@ -252,5 +252,5 @@ deleteBucketResponse_httpStatus = Lens.lens (\DeleteBucketResponse' {httpStatus}
 
 instance Prelude.NFData DeleteBucketResponse where
   rnf DeleteBucketResponse' {..} =
-    Prelude.rnf operations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operations `Prelude.seq`
+      Prelude.rnf httpStatus

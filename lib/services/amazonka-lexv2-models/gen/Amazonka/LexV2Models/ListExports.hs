@@ -213,13 +213,13 @@ instance Prelude.Hashable ListExports where
 
 instance Prelude.NFData ListExports where
   rnf ListExports' {..} =
-    Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf botVersion
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf localeId
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortBy
+    Prelude.rnf botId `Prelude.seq`
+      Prelude.rnf botVersion `Prelude.seq`
+        Prelude.rnf filters `Prelude.seq`
+          Prelude.rnf localeId `Prelude.seq`
+            Prelude.rnf maxResults `Prelude.seq`
+              Prelude.rnf nextToken `Prelude.seq`
+                Prelude.rnf sortBy
 
 instance Data.ToHeaders ListExports where
   toHeaders =
@@ -346,9 +346,9 @@ listExportsResponse_httpStatus = Lens.lens (\ListExportsResponse' {httpStatus} -
 
 instance Prelude.NFData ListExportsResponse where
   rnf ListExportsResponse' {..} =
-    Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf botVersion
-      `Prelude.seq` Prelude.rnf exportSummaries
-      `Prelude.seq` Prelude.rnf localeId
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf botId `Prelude.seq`
+      Prelude.rnf botVersion `Prelude.seq`
+        Prelude.rnf exportSummaries `Prelude.seq`
+          Prelude.rnf localeId `Prelude.seq`
+            Prelude.rnf nextToken `Prelude.seq`
+              Prelude.rnf httpStatus

@@ -110,7 +110,7 @@ instance Prelude.Hashable Site where
 
 instance Prelude.NFData Site where
   rnf Site' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf countryCode
-      `Prelude.seq` Prelude.rnf createdAt
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf countryCode `Prelude.seq`
+          Prelude.rnf createdAt

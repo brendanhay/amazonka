@@ -138,10 +138,10 @@ instance Prelude.Hashable StopProductSubscription where
 
 instance Prelude.NFData StopProductSubscription where
   rnf StopProductSubscription' {..} =
-    Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf identityProvider
-      `Prelude.seq` Prelude.rnf product
-      `Prelude.seq` Prelude.rnf username
+    Prelude.rnf domain `Prelude.seq`
+      Prelude.rnf identityProvider `Prelude.seq`
+        Prelude.rnf product `Prelude.seq`
+          Prelude.rnf username
 
 instance Data.ToHeaders StopProductSubscription where
   toHeaders =
@@ -221,5 +221,5 @@ instance
     StopProductSubscriptionResponse
   where
   rnf StopProductSubscriptionResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf productUserSummary
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf productUserSummary

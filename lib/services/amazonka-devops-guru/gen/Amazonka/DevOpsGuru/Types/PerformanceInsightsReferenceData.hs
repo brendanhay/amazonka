@@ -100,5 +100,5 @@ instance
     PerformanceInsightsReferenceData
   where
   rnf PerformanceInsightsReferenceData' {..} =
-    Prelude.rnf comparisonValues
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf comparisonValues `Prelude.seq`
+      Prelude.rnf name

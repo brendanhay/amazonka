@@ -114,8 +114,8 @@ instance Prelude.Hashable RoomMembership where
 
 instance Prelude.NFData RoomMembership where
   rnf RoomMembership' {..} =
-    Prelude.rnf invitedBy
-      `Prelude.seq` Prelude.rnf member
-      `Prelude.seq` Prelude.rnf role'
-      `Prelude.seq` Prelude.rnf roomId
-      `Prelude.seq` Prelude.rnf updatedTimestamp
+    Prelude.rnf invitedBy `Prelude.seq`
+      Prelude.rnf member `Prelude.seq`
+        Prelude.rnf role' `Prelude.seq`
+          Prelude.rnf roomId `Prelude.seq`
+            Prelude.rnf updatedTimestamp

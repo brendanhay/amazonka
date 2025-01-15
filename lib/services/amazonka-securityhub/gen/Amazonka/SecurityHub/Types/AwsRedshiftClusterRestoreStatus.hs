@@ -186,12 +186,12 @@ instance
     AwsRedshiftClusterRestoreStatus
   where
   rnf AwsRedshiftClusterRestoreStatus' {..} =
-    Prelude.rnf currentRestoreRateInMegaBytesPerSecond
-      `Prelude.seq` Prelude.rnf elapsedTimeInSeconds
-      `Prelude.seq` Prelude.rnf estimatedTimeToCompletionInSeconds
-      `Prelude.seq` Prelude.rnf progressInMegaBytes
-      `Prelude.seq` Prelude.rnf snapshotSizeInMegaBytes
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf currentRestoreRateInMegaBytesPerSecond `Prelude.seq`
+      Prelude.rnf elapsedTimeInSeconds `Prelude.seq`
+        Prelude.rnf estimatedTimeToCompletionInSeconds `Prelude.seq`
+          Prelude.rnf progressInMegaBytes `Prelude.seq`
+            Prelude.rnf snapshotSizeInMegaBytes `Prelude.seq`
+              Prelude.rnf status
 
 instance Data.ToJSON AwsRedshiftClusterRestoreStatus where
   toJSON AwsRedshiftClusterRestoreStatus' {..} =

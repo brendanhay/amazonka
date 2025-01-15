@@ -156,10 +156,10 @@ instance Prelude.Hashable PutConfigurationAggregator where
 
 instance Prelude.NFData PutConfigurationAggregator where
   rnf PutConfigurationAggregator' {..} =
-    Prelude.rnf accountAggregationSources
-      `Prelude.seq` Prelude.rnf organizationAggregationSource
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf configurationAggregatorName
+    Prelude.rnf accountAggregationSources `Prelude.seq`
+      Prelude.rnf organizationAggregationSource `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf configurationAggregatorName
 
 instance Data.ToHeaders PutConfigurationAggregator where
   toHeaders =
@@ -242,5 +242,5 @@ instance
     PutConfigurationAggregatorResponse
   where
   rnf PutConfigurationAggregatorResponse' {..} =
-    Prelude.rnf configurationAggregator
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf configurationAggregator `Prelude.seq`
+      Prelude.rnf httpStatus

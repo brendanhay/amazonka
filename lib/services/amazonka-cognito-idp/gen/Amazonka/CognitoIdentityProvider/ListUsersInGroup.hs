@@ -134,12 +134,12 @@ instance Core.AWSPager ListUsersInGroup where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listUsersInGroup_nextToken
-          Lens..~ rs
-          Lens.^? listUsersInGroupResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listUsersInGroup_nextToken
+              Lens..~ rs
+              Lens.^? listUsersInGroupResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListUsersInGroup where
   type
@@ -166,10 +166,10 @@ instance Prelude.Hashable ListUsersInGroup where
 
 instance Prelude.NFData ListUsersInGroup where
   rnf ListUsersInGroup' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf userPoolId
-      `Prelude.seq` Prelude.rnf groupName
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf userPoolId `Prelude.seq`
+          Prelude.rnf groupName
 
 instance Data.ToHeaders ListUsersInGroup where
   toHeaders =
@@ -256,6 +256,6 @@ listUsersInGroupResponse_httpStatus = Lens.lens (\ListUsersInGroupResponse' {htt
 
 instance Prelude.NFData ListUsersInGroupResponse where
   rnf ListUsersInGroupResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf users
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf users `Prelude.seq`
+        Prelude.rnf httpStatus

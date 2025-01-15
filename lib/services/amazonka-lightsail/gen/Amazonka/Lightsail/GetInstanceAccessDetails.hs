@@ -115,8 +115,8 @@ instance Prelude.Hashable GetInstanceAccessDetails where
 
 instance Prelude.NFData GetInstanceAccessDetails where
   rnf GetInstanceAccessDetails' {..} =
-    Prelude.rnf protocol
-      `Prelude.seq` Prelude.rnf instanceName
+    Prelude.rnf protocol `Prelude.seq`
+      Prelude.rnf instanceName
 
 instance Data.ToHeaders GetInstanceAccessDetails where
   toHeaders =
@@ -195,5 +195,5 @@ instance
     GetInstanceAccessDetailsResponse
   where
   rnf GetInstanceAccessDetailsResponse' {..} =
-    Prelude.rnf accessDetails
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf accessDetails `Prelude.seq`
+      Prelude.rnf httpStatus

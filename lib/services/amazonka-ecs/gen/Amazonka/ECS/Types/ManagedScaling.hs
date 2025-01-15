@@ -184,11 +184,11 @@ instance Prelude.Hashable ManagedScaling where
 
 instance Prelude.NFData ManagedScaling where
   rnf ManagedScaling' {..} =
-    Prelude.rnf instanceWarmupPeriod
-      `Prelude.seq` Prelude.rnf maximumScalingStepSize
-      `Prelude.seq` Prelude.rnf minimumScalingStepSize
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf targetCapacity
+    Prelude.rnf instanceWarmupPeriod `Prelude.seq`
+      Prelude.rnf maximumScalingStepSize `Prelude.seq`
+        Prelude.rnf minimumScalingStepSize `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf targetCapacity
 
 instance Data.ToJSON ManagedScaling where
   toJSON ManagedScaling' {..} =

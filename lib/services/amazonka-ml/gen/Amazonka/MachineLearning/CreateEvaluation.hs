@@ -166,10 +166,10 @@ instance Prelude.Hashable CreateEvaluation where
 
 instance Prelude.NFData CreateEvaluation where
   rnf CreateEvaluation' {..} =
-    Prelude.rnf evaluationName
-      `Prelude.seq` Prelude.rnf evaluationId
-      `Prelude.seq` Prelude.rnf mLModelId
-      `Prelude.seq` Prelude.rnf evaluationDataSourceId
+    Prelude.rnf evaluationName `Prelude.seq`
+      Prelude.rnf evaluationId `Prelude.seq`
+        Prelude.rnf mLModelId `Prelude.seq`
+          Prelude.rnf evaluationDataSourceId
 
 instance Data.ToHeaders CreateEvaluation where
   toHeaders =
@@ -261,5 +261,5 @@ createEvaluationResponse_httpStatus = Lens.lens (\CreateEvaluationResponse' {htt
 
 instance Prelude.NFData CreateEvaluationResponse where
   rnf CreateEvaluationResponse' {..} =
-    Prelude.rnf evaluationId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf evaluationId `Prelude.seq`
+      Prelude.rnf httpStatus

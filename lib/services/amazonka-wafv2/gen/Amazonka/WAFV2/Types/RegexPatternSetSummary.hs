@@ -147,8 +147,8 @@ instance Prelude.Hashable RegexPatternSetSummary where
 
 instance Prelude.NFData RegexPatternSetSummary where
   rnf RegexPatternSetSummary' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf lockToken
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf lockToken `Prelude.seq`
+            Prelude.rnf name

@@ -117,8 +117,8 @@ instance Prelude.Hashable DescribeProject where
 
 instance Prelude.NFData DescribeProject where
   rnf DescribeProject' {..} =
-    Prelude.rnf syncFromResources
-      `Prelude.seq` Prelude.rnf projectId
+    Prelude.rnf syncFromResources `Prelude.seq`
+      Prelude.rnf projectId
 
 instance Data.ToHeaders DescribeProject where
   toHeaders =
@@ -182,5 +182,5 @@ describeProjectResponse_httpStatus = Lens.lens (\DescribeProjectResponse' {httpS
 
 instance Prelude.NFData DescribeProjectResponse where
   rnf DescribeProjectResponse' {..} =
-    Prelude.rnf details
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf details `Prelude.seq`
+      Prelude.rnf httpStatus

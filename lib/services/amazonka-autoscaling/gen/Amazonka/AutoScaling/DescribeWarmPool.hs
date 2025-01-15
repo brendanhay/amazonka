@@ -119,9 +119,7 @@ instance Core.AWSRequest DescribeWarmPool where
       "DescribeWarmPoolResult"
       ( \s h x ->
           DescribeWarmPoolResponse'
-            Prelude.<$> ( x
-                            Data..@? "Instances"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "Instances" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (x Data..@? "NextToken")
@@ -138,9 +136,9 @@ instance Prelude.Hashable DescribeWarmPool where
 
 instance Prelude.NFData DescribeWarmPool where
   rnf DescribeWarmPool' {..} =
-    Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf autoScalingGroupName
+    Prelude.rnf maxRecords `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf autoScalingGroupName
 
 instance Data.ToHeaders DescribeWarmPool where
   toHeaders = Prelude.const Prelude.mempty
@@ -228,7 +226,7 @@ describeWarmPoolResponse_httpStatus = Lens.lens (\DescribeWarmPoolResponse' {htt
 
 instance Prelude.NFData DescribeWarmPoolResponse where
   rnf DescribeWarmPoolResponse' {..} =
-    Prelude.rnf instances
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf warmPoolConfiguration
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf instances `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf warmPoolConfiguration `Prelude.seq`
+          Prelude.rnf httpStatus

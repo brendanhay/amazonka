@@ -82,5 +82,5 @@ instance Prelude.Hashable EcrRepositoryMetadata where
 
 instance Prelude.NFData EcrRepositoryMetadata where
   rnf EcrRepositoryMetadata' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf scanFrequency
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf scanFrequency

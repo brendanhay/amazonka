@@ -184,10 +184,10 @@ instance Prelude.Hashable AssociateExternalConnection where
 
 instance Prelude.NFData AssociateExternalConnection where
   rnf AssociateExternalConnection' {..} =
-    Prelude.rnf domainOwner
-      `Prelude.seq` Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf repository
-      `Prelude.seq` Prelude.rnf externalConnection
+    Prelude.rnf domainOwner `Prelude.seq`
+      Prelude.rnf domain `Prelude.seq`
+        Prelude.rnf repository `Prelude.seq`
+          Prelude.rnf externalConnection
 
 instance Data.ToHeaders AssociateExternalConnection where
   toHeaders =
@@ -260,5 +260,5 @@ instance
     AssociateExternalConnectionResponse
   where
   rnf AssociateExternalConnectionResponse' {..} =
-    Prelude.rnf repository
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf repository `Prelude.seq`
+      Prelude.rnf httpStatus

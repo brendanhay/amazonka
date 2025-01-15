@@ -116,7 +116,7 @@ instance Prelude.Hashable Subnet where
 
 instance Prelude.NFData Subnet where
   rnf Subnet' {..} =
-    Prelude.rnf subnetAvailabilityZone
-      `Prelude.seq` Prelude.rnf subnetIdentifier
-      `Prelude.seq` Prelude.rnf subnetOutpost
-      `Prelude.seq` Prelude.rnf supportedNetworkTypes
+    Prelude.rnf subnetAvailabilityZone `Prelude.seq`
+      Prelude.rnf subnetIdentifier `Prelude.seq`
+        Prelude.rnf subnetOutpost `Prelude.seq`
+          Prelude.rnf supportedNetworkTypes

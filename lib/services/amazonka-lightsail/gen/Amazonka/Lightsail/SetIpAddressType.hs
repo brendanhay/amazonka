@@ -160,9 +160,9 @@ instance Prelude.Hashable SetIpAddressType where
 
 instance Prelude.NFData SetIpAddressType where
   rnf SetIpAddressType' {..} =
-    Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf resourceName
-      `Prelude.seq` Prelude.rnf ipAddressType
+    Prelude.rnf resourceType `Prelude.seq`
+      Prelude.rnf resourceName `Prelude.seq`
+        Prelude.rnf ipAddressType
 
 instance Data.ToHeaders SetIpAddressType where
   toHeaders =
@@ -243,5 +243,5 @@ setIpAddressTypeResponse_httpStatus = Lens.lens (\SetIpAddressTypeResponse' {htt
 
 instance Prelude.NFData SetIpAddressTypeResponse where
   rnf SetIpAddressTypeResponse' {..} =
-    Prelude.rnf operations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operations `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -233,9 +233,9 @@ instance
     JourneyExecutionActivityMetricsResponse
   where
   rnf JourneyExecutionActivityMetricsResponse' {..} =
-    Prelude.rnf metrics
-      `Prelude.seq` Prelude.rnf journeyId
-      `Prelude.seq` Prelude.rnf lastEvaluatedTime
-      `Prelude.seq` Prelude.rnf journeyActivityId
-      `Prelude.seq` Prelude.rnf activityType
-      `Prelude.seq` Prelude.rnf applicationId
+    Prelude.rnf metrics `Prelude.seq`
+      Prelude.rnf journeyId `Prelude.seq`
+        Prelude.rnf lastEvaluatedTime `Prelude.seq`
+          Prelude.rnf journeyActivityId `Prelude.seq`
+            Prelude.rnf activityType `Prelude.seq`
+              Prelude.rnf applicationId

@@ -174,10 +174,10 @@ instance Prelude.Hashable StartPersonTracking where
 
 instance Prelude.NFData StartPersonTracking where
   rnf StartPersonTracking' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf jobTag
-      `Prelude.seq` Prelude.rnf notificationChannel
-      `Prelude.seq` Prelude.rnf video
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf jobTag `Prelude.seq`
+        Prelude.rnf notificationChannel `Prelude.seq`
+          Prelude.rnf video
 
 instance Data.ToHeaders StartPersonTracking where
   toHeaders =
@@ -257,5 +257,5 @@ startPersonTrackingResponse_httpStatus = Lens.lens (\StartPersonTrackingResponse
 
 instance Prelude.NFData StartPersonTrackingResponse where
   rnf StartPersonTrackingResponse' {..} =
-    Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf jobId `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -183,15 +183,15 @@ instance
     PipeSourceSelfManagedKafkaParameters
   where
   rnf PipeSourceSelfManagedKafkaParameters' {..} =
-    Prelude.rnf additionalBootstrapServers
-      `Prelude.seq` Prelude.rnf batchSize
-      `Prelude.seq` Prelude.rnf consumerGroupID
-      `Prelude.seq` Prelude.rnf credentials
-      `Prelude.seq` Prelude.rnf maximumBatchingWindowInSeconds
-      `Prelude.seq` Prelude.rnf serverRootCaCertificate
-      `Prelude.seq` Prelude.rnf startingPosition
-      `Prelude.seq` Prelude.rnf vpc
-      `Prelude.seq` Prelude.rnf topicName
+    Prelude.rnf additionalBootstrapServers `Prelude.seq`
+      Prelude.rnf batchSize `Prelude.seq`
+        Prelude.rnf consumerGroupID `Prelude.seq`
+          Prelude.rnf credentials `Prelude.seq`
+            Prelude.rnf maximumBatchingWindowInSeconds `Prelude.seq`
+              Prelude.rnf serverRootCaCertificate `Prelude.seq`
+                Prelude.rnf startingPosition `Prelude.seq`
+                  Prelude.rnf vpc `Prelude.seq`
+                    Prelude.rnf topicName
 
 instance
   Data.ToJSON

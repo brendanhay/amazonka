@@ -143,8 +143,8 @@ instance
     QueryRuntimeStatisticsTimeline
   where
   rnf QueryRuntimeStatisticsTimeline' {..} =
-    Prelude.rnf engineExecutionTimeInMillis
-      `Prelude.seq` Prelude.rnf queryPlanningTimeInMillis
-      `Prelude.seq` Prelude.rnf queryQueueTimeInMillis
-      `Prelude.seq` Prelude.rnf serviceProcessingTimeInMillis
-      `Prelude.seq` Prelude.rnf totalExecutionTimeInMillis
+    Prelude.rnf engineExecutionTimeInMillis `Prelude.seq`
+      Prelude.rnf queryPlanningTimeInMillis `Prelude.seq`
+        Prelude.rnf queryQueueTimeInMillis `Prelude.seq`
+          Prelude.rnf serviceProcessingTimeInMillis `Prelude.seq`
+            Prelude.rnf totalExecutionTimeInMillis

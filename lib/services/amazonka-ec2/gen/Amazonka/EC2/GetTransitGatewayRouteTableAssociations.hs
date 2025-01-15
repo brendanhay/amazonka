@@ -177,12 +177,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getTransitGatewayRouteTableAssociations_nextToken
-          Lens..~ rs
-          Lens.^? getTransitGatewayRouteTableAssociationsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getTransitGatewayRouteTableAssociations_nextToken
+              Lens..~ rs
+              Lens.^? getTransitGatewayRouteTableAssociationsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -198,9 +198,7 @@ instance
     Response.receiveXML
       ( \s h x ->
           GetTransitGatewayRouteTableAssociationsResponse'
-            Prelude.<$> ( x
-                            Data..@? "associations"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "associations" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (x Data..@? "nextToken")
@@ -226,11 +224,11 @@ instance
     GetTransitGatewayRouteTableAssociations
   where
   rnf GetTransitGatewayRouteTableAssociations' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf transitGatewayRouteTableId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf transitGatewayRouteTableId
 
 instance
   Data.ToHeaders
@@ -324,6 +322,6 @@ instance
   where
   rnf
     GetTransitGatewayRouteTableAssociationsResponse' {..} =
-      Prelude.rnf associations
-        `Prelude.seq` Prelude.rnf nextToken
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf associations `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf httpStatus

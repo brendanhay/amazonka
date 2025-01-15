@@ -82,8 +82,8 @@ instance Prelude.Hashable NotificationWithSubscribers where
 
 instance Prelude.NFData NotificationWithSubscribers where
   rnf NotificationWithSubscribers' {..} =
-    Prelude.rnf notification
-      `Prelude.seq` Prelude.rnf subscribers
+    Prelude.rnf notification `Prelude.seq`
+      Prelude.rnf subscribers
 
 instance Data.ToJSON NotificationWithSubscribers where
   toJSON NotificationWithSubscribers' {..} =

@@ -189,6 +189,6 @@ instance
     CreateUsageReportSubscriptionResponse
   where
   rnf CreateUsageReportSubscriptionResponse' {..} =
-    Prelude.rnf s3BucketName
-      `Prelude.seq` Prelude.rnf schedule
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf s3BucketName `Prelude.seq`
+      Prelude.rnf schedule `Prelude.seq`
+        Prelude.rnf httpStatus

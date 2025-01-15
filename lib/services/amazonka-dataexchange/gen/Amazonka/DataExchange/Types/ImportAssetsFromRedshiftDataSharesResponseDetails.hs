@@ -112,6 +112,6 @@ instance
   where
   rnf
     ImportAssetsFromRedshiftDataSharesResponseDetails' {..} =
-      Prelude.rnf assetSources
-        `Prelude.seq` Prelude.rnf dataSetId
-        `Prelude.seq` Prelude.rnf revisionId
+      Prelude.rnf assetSources `Prelude.seq`
+        Prelude.rnf dataSetId `Prelude.seq`
+          Prelude.rnf revisionId

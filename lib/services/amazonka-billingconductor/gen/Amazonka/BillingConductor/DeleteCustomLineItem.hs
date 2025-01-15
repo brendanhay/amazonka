@@ -109,8 +109,8 @@ instance Prelude.Hashable DeleteCustomLineItem where
 
 instance Prelude.NFData DeleteCustomLineItem where
   rnf DeleteCustomLineItem' {..} =
-    Prelude.rnf billingPeriodRange
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf billingPeriodRange `Prelude.seq`
+      Prelude.rnf arn
 
 instance Data.ToHeaders DeleteCustomLineItem where
   toHeaders =
@@ -180,5 +180,5 @@ deleteCustomLineItemResponse_httpStatus = Lens.lens (\DeleteCustomLineItemRespon
 
 instance Prelude.NFData DeleteCustomLineItemResponse where
   rnf DeleteCustomLineItemResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf httpStatus

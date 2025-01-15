@@ -289,11 +289,11 @@ instance
 
 instance Prelude.NFData RepositoryAssociationSummary where
   rnf RepositoryAssociationSummary' {..} =
-    Prelude.rnf associationArn
-      `Prelude.seq` Prelude.rnf associationId
-      `Prelude.seq` Prelude.rnf connectionArn
-      `Prelude.seq` Prelude.rnf lastUpdatedTimeStamp
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf owner
-      `Prelude.seq` Prelude.rnf providerType
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf associationArn `Prelude.seq`
+      Prelude.rnf associationId `Prelude.seq`
+        Prelude.rnf connectionArn `Prelude.seq`
+          Prelude.rnf lastUpdatedTimeStamp `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf owner `Prelude.seq`
+                Prelude.rnf providerType `Prelude.seq`
+                  Prelude.rnf state

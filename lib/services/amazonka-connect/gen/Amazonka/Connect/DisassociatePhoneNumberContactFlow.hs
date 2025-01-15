@@ -130,8 +130,8 @@ instance
     DisassociatePhoneNumberContactFlow
   where
   rnf DisassociatePhoneNumberContactFlow' {..} =
-    Prelude.rnf phoneNumberId
-      `Prelude.seq` Prelude.rnf instanceId
+    Prelude.rnf phoneNumberId `Prelude.seq`
+      Prelude.rnf instanceId
 
 instance
   Data.ToHeaders

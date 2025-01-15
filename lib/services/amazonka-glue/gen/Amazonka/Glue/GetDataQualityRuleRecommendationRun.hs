@@ -347,17 +347,17 @@ instance
     GetDataQualityRuleRecommendationRunResponse
   where
   rnf GetDataQualityRuleRecommendationRunResponse' {..} =
-    Prelude.rnf completedOn
-      `Prelude.seq` Prelude.rnf createdRulesetName
-      `Prelude.seq` Prelude.rnf dataSource
-      `Prelude.seq` Prelude.rnf errorString
-      `Prelude.seq` Prelude.rnf executionTime
-      `Prelude.seq` Prelude.rnf lastModifiedOn
-      `Prelude.seq` Prelude.rnf numberOfWorkers
-      `Prelude.seq` Prelude.rnf recommendedRuleset
-      `Prelude.seq` Prelude.rnf role'
-      `Prelude.seq` Prelude.rnf runId
-      `Prelude.seq` Prelude.rnf startedOn
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf timeout
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf completedOn `Prelude.seq`
+      Prelude.rnf createdRulesetName `Prelude.seq`
+        Prelude.rnf dataSource `Prelude.seq`
+          Prelude.rnf errorString `Prelude.seq`
+            Prelude.rnf executionTime `Prelude.seq`
+              Prelude.rnf lastModifiedOn `Prelude.seq`
+                Prelude.rnf numberOfWorkers `Prelude.seq`
+                  Prelude.rnf recommendedRuleset `Prelude.seq`
+                    Prelude.rnf role' `Prelude.seq`
+                      Prelude.rnf runId `Prelude.seq`
+                        Prelude.rnf startedOn `Prelude.seq`
+                          Prelude.rnf status `Prelude.seq`
+                            Prelude.rnf timeout `Prelude.seq`
+                              Prelude.rnf httpStatus

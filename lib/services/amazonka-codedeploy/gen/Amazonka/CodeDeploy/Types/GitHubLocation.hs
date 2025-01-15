@@ -96,8 +96,8 @@ instance Prelude.Hashable GitHubLocation where
 
 instance Prelude.NFData GitHubLocation where
   rnf GitHubLocation' {..} =
-    Prelude.rnf commitId
-      `Prelude.seq` Prelude.rnf repository
+    Prelude.rnf commitId `Prelude.seq`
+      Prelude.rnf repository
 
 instance Data.ToJSON GitHubLocation where
   toJSON GitHubLocation' {..} =

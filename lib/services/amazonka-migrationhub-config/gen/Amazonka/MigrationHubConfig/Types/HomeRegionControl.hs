@@ -123,7 +123,7 @@ instance Prelude.Hashable HomeRegionControl where
 
 instance Prelude.NFData HomeRegionControl where
   rnf HomeRegionControl' {..} =
-    Prelude.rnf controlId
-      `Prelude.seq` Prelude.rnf homeRegion
-      `Prelude.seq` Prelude.rnf requestedTime
-      `Prelude.seq` Prelude.rnf target
+    Prelude.rnf controlId `Prelude.seq`
+      Prelude.rnf homeRegion `Prelude.seq`
+        Prelude.rnf requestedTime `Prelude.seq`
+          Prelude.rnf target

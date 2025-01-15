@@ -122,5 +122,5 @@ instance
     RegisteredDomainDelegationInfo
   where
   rnf RegisteredDomainDelegationInfo' {..} =
-    Prelude.rnf nameServersUpdateState
-      `Prelude.seq` Prelude.rnf r53HostedZoneDeletionState
+    Prelude.rnf nameServersUpdateState `Prelude.seq`
+      Prelude.rnf r53HostedZoneDeletionState

@@ -188,12 +188,12 @@ instance
 
 instance Prelude.NFData GetProvisionedProductOutputs where
   rnf GetProvisionedProductOutputs' {..} =
-    Prelude.rnf acceptLanguage
-      `Prelude.seq` Prelude.rnf outputKeys
-      `Prelude.seq` Prelude.rnf pageSize
-      `Prelude.seq` Prelude.rnf pageToken
-      `Prelude.seq` Prelude.rnf provisionedProductId
-      `Prelude.seq` Prelude.rnf provisionedProductName
+    Prelude.rnf acceptLanguage `Prelude.seq`
+      Prelude.rnf outputKeys `Prelude.seq`
+        Prelude.rnf pageSize `Prelude.seq`
+          Prelude.rnf pageToken `Prelude.seq`
+            Prelude.rnf provisionedProductId `Prelude.seq`
+              Prelude.rnf provisionedProductName
 
 instance Data.ToHeaders GetProvisionedProductOutputs where
   toHeaders =
@@ -294,6 +294,6 @@ instance
     GetProvisionedProductOutputsResponse
   where
   rnf GetProvisionedProductOutputsResponse' {..} =
-    Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf outputs
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextPageToken `Prelude.seq`
+      Prelude.rnf outputs `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -145,10 +145,10 @@ instance Prelude.Hashable CreateSchedule where
 
 instance Prelude.NFData CreateSchedule where
   rnf CreateSchedule' {..} =
-    Prelude.rnf jobNames
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf cronExpression
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf jobNames `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf cronExpression `Prelude.seq`
+          Prelude.rnf name
 
 instance Data.ToHeaders CreateSchedule where
   toHeaders =
@@ -221,5 +221,5 @@ createScheduleResponse_name = Lens.lens (\CreateScheduleResponse' {name} -> name
 
 instance Prelude.NFData CreateScheduleResponse where
   rnf CreateScheduleResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf name

@@ -143,10 +143,10 @@ instance
 
 instance Prelude.NFData CreateLocalGatewayRouteTable where
   rnf CreateLocalGatewayRouteTable' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf mode
-      `Prelude.seq` Prelude.rnf tagSpecifications
-      `Prelude.seq` Prelude.rnf localGatewayId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf mode `Prelude.seq`
+        Prelude.rnf tagSpecifications `Prelude.seq`
+          Prelude.rnf localGatewayId
 
 instance Data.ToHeaders CreateLocalGatewayRouteTable where
   toHeaders = Prelude.const Prelude.mempty
@@ -216,5 +216,5 @@ instance
     CreateLocalGatewayRouteTableResponse
   where
   rnf CreateLocalGatewayRouteTableResponse' {..} =
-    Prelude.rnf localGatewayRouteTable
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf localGatewayRouteTable `Prelude.seq`
+      Prelude.rnf httpStatus

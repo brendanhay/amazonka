@@ -147,9 +147,9 @@ instance Prelude.Hashable ExpenseField where
 
 instance Prelude.NFData ExpenseField where
   rnf ExpenseField' {..} =
-    Prelude.rnf currency
-      `Prelude.seq` Prelude.rnf groupProperties
-      `Prelude.seq` Prelude.rnf labelDetection
-      `Prelude.seq` Prelude.rnf pageNumber
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf valueDetection
+    Prelude.rnf currency `Prelude.seq`
+      Prelude.rnf groupProperties `Prelude.seq`
+        Prelude.rnf labelDetection `Prelude.seq`
+          Prelude.rnf pageNumber `Prelude.seq`
+            Prelude.rnf type' `Prelude.seq`
+              Prelude.rnf valueDetection

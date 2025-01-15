@@ -301,14 +301,14 @@ instance
     MedicalTranscriptionJobSummary
   where
   rnf MedicalTranscriptionJobSummary' {..} =
-    Prelude.rnf completionTime
-      `Prelude.seq` Prelude.rnf contentIdentificationType
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf languageCode
-      `Prelude.seq` Prelude.rnf medicalTranscriptionJobName
-      `Prelude.seq` Prelude.rnf outputLocationType
-      `Prelude.seq` Prelude.rnf specialty
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf transcriptionJobStatus
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf completionTime `Prelude.seq`
+      Prelude.rnf contentIdentificationType `Prelude.seq`
+        Prelude.rnf creationTime `Prelude.seq`
+          Prelude.rnf failureReason `Prelude.seq`
+            Prelude.rnf languageCode `Prelude.seq`
+              Prelude.rnf medicalTranscriptionJobName `Prelude.seq`
+                Prelude.rnf outputLocationType `Prelude.seq`
+                  Prelude.rnf specialty `Prelude.seq`
+                    Prelude.rnf startTime `Prelude.seq`
+                      Prelude.rnf transcriptionJobStatus `Prelude.seq`
+                        Prelude.rnf type'

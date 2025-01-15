@@ -104,10 +104,10 @@ instance Prelude.Hashable IamActionDefinition where
 
 instance Prelude.NFData IamActionDefinition where
   rnf IamActionDefinition' {..} =
-    Prelude.rnf groups
-      `Prelude.seq` Prelude.rnf roles
-      `Prelude.seq` Prelude.rnf users
-      `Prelude.seq` Prelude.rnf policyArn
+    Prelude.rnf groups `Prelude.seq`
+      Prelude.rnf roles `Prelude.seq`
+        Prelude.rnf users `Prelude.seq`
+          Prelude.rnf policyArn
 
 instance Data.ToJSON IamActionDefinition where
   toJSON IamActionDefinition' {..} =

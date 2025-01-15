@@ -76,5 +76,5 @@ instance Prelude.Hashable RestoreWindow where
 
 instance Prelude.NFData RestoreWindow where
   rnf RestoreWindow' {..} =
-    Prelude.rnf earliestTime
-      `Prelude.seq` Prelude.rnf latestTime
+    Prelude.rnf earliestTime `Prelude.seq`
+      Prelude.rnf latestTime

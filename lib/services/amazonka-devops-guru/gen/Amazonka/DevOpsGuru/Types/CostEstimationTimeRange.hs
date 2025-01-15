@@ -80,5 +80,5 @@ instance Prelude.Hashable CostEstimationTimeRange where
 
 instance Prelude.NFData CostEstimationTimeRange where
   rnf CostEstimationTimeRange' {..} =
-    Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf startTime
+    Prelude.rnf endTime `Prelude.seq`
+      Prelude.rnf startTime

@@ -161,5 +161,5 @@ instance
     DisassociateServiceRoleFromAccountResponse
   where
   rnf DisassociateServiceRoleFromAccountResponse' {..} =
-    Prelude.rnf disassociatedAt
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf disassociatedAt `Prelude.seq`
+      Prelude.rnf httpStatus

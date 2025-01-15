@@ -113,8 +113,8 @@ instance Prelude.Hashable DeleteVpnGateway where
 
 instance Prelude.NFData DeleteVpnGateway where
   rnf DeleteVpnGateway' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf vpnGatewayId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf vpnGatewayId
 
 instance Data.ToHeaders DeleteVpnGateway where
   toHeaders = Prelude.const Prelude.mempty

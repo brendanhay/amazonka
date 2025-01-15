@@ -139,9 +139,9 @@ instance
 
 instance Prelude.NFData SetIdentityPoolConfiguration where
   rnf SetIdentityPoolConfiguration' {..} =
-    Prelude.rnf cognitoStreams
-      `Prelude.seq` Prelude.rnf pushSync
-      `Prelude.seq` Prelude.rnf identityPoolId
+    Prelude.rnf cognitoStreams `Prelude.seq`
+      Prelude.rnf pushSync `Prelude.seq`
+        Prelude.rnf identityPoolId
 
 instance Data.ToHeaders SetIdentityPoolConfiguration where
   toHeaders =
@@ -245,7 +245,7 @@ instance
     SetIdentityPoolConfigurationResponse
   where
   rnf SetIdentityPoolConfigurationResponse' {..} =
-    Prelude.rnf cognitoStreams
-      `Prelude.seq` Prelude.rnf identityPoolId
-      `Prelude.seq` Prelude.rnf pushSync
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf cognitoStreams `Prelude.seq`
+      Prelude.rnf identityPoolId `Prelude.seq`
+        Prelude.rnf pushSync `Prelude.seq`
+          Prelude.rnf httpStatus

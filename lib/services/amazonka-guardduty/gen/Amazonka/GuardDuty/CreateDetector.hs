@@ -147,11 +147,11 @@ instance Prelude.Hashable CreateDetector where
 
 instance Prelude.NFData CreateDetector where
   rnf CreateDetector' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf dataSources
-      `Prelude.seq` Prelude.rnf findingPublishingFrequency
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf enable
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf dataSources `Prelude.seq`
+        Prelude.rnf findingPublishingFrequency `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf enable
 
 instance Data.ToHeaders CreateDetector where
   toHeaders =
@@ -236,6 +236,6 @@ createDetectorResponse_httpStatus = Lens.lens (\CreateDetectorResponse' {httpSta
 
 instance Prelude.NFData CreateDetectorResponse where
   rnf CreateDetectorResponse' {..} =
-    Prelude.rnf detectorId
-      `Prelude.seq` Prelude.rnf unprocessedDataSources
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf detectorId `Prelude.seq`
+      Prelude.rnf unprocessedDataSources `Prelude.seq`
+        Prelude.rnf httpStatus

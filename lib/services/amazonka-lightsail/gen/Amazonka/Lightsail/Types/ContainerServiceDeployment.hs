@@ -169,8 +169,8 @@ instance Prelude.Hashable ContainerServiceDeployment where
 
 instance Prelude.NFData ContainerServiceDeployment where
   rnf ContainerServiceDeployment' {..} =
-    Prelude.rnf containers
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf publicEndpoint
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf version
+    Prelude.rnf containers `Prelude.seq`
+      Prelude.rnf createdAt `Prelude.seq`
+        Prelude.rnf publicEndpoint `Prelude.seq`
+          Prelude.rnf state `Prelude.seq`
+            Prelude.rnf version

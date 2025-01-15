@@ -143,10 +143,10 @@ instance Prelude.Hashable CreateConnectorDefinition where
 
 instance Prelude.NFData CreateConnectorDefinition where
   rnf CreateConnectorDefinition' {..} =
-    Prelude.rnf amznClientToken
-      `Prelude.seq` Prelude.rnf initialVersion
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf amznClientToken `Prelude.seq`
+      Prelude.rnf initialVersion `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf tags
 
 instance Data.ToHeaders CreateConnectorDefinition where
   toHeaders CreateConnectorDefinition' {..} =
@@ -278,11 +278,11 @@ instance
     CreateConnectorDefinitionResponse
   where
   rnf CreateConnectorDefinitionResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationTimestamp
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf lastUpdatedTimestamp
-      `Prelude.seq` Prelude.rnf latestVersion
-      `Prelude.seq` Prelude.rnf latestVersionArn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf creationTimestamp `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf lastUpdatedTimestamp `Prelude.seq`
+            Prelude.rnf latestVersion `Prelude.seq`
+              Prelude.rnf latestVersionArn `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf httpStatus

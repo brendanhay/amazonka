@@ -127,9 +127,9 @@ instance Prelude.Hashable ProjectPolicy where
 
 instance Prelude.NFData ProjectPolicy where
   rnf ProjectPolicy' {..} =
-    Prelude.rnf creationTimestamp
-      `Prelude.seq` Prelude.rnf lastUpdatedTimestamp
-      `Prelude.seq` Prelude.rnf policyDocument
-      `Prelude.seq` Prelude.rnf policyName
-      `Prelude.seq` Prelude.rnf policyRevisionId
-      `Prelude.seq` Prelude.rnf projectArn
+    Prelude.rnf creationTimestamp `Prelude.seq`
+      Prelude.rnf lastUpdatedTimestamp `Prelude.seq`
+        Prelude.rnf policyDocument `Prelude.seq`
+          Prelude.rnf policyName `Prelude.seq`
+            Prelude.rnf policyRevisionId `Prelude.seq`
+              Prelude.rnf projectArn

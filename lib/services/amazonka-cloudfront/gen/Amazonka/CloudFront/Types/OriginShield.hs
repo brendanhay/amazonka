@@ -131,8 +131,8 @@ instance Prelude.Hashable OriginShield where
 
 instance Prelude.NFData OriginShield where
   rnf OriginShield' {..} =
-    Prelude.rnf originShieldRegion
-      `Prelude.seq` Prelude.rnf enabled
+    Prelude.rnf originShieldRegion `Prelude.seq`
+      Prelude.rnf enabled
 
 instance Data.ToXML OriginShield where
   toXML OriginShield' {..} =

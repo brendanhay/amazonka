@@ -151,8 +151,8 @@ instance Prelude.Hashable WorkGroup where
 
 instance Prelude.NFData WorkGroup where
   rnf WorkGroup' {..} =
-    Prelude.rnf configuration
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf configuration `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf state `Prelude.seq`
+            Prelude.rnf name

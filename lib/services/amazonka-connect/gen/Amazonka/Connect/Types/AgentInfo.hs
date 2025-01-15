@@ -81,5 +81,5 @@ instance Prelude.Hashable AgentInfo where
 
 instance Prelude.NFData AgentInfo where
   rnf AgentInfo' {..} =
-    Prelude.rnf connectedToAgentTimestamp
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf connectedToAgentTimestamp `Prelude.seq`
+      Prelude.rnf id

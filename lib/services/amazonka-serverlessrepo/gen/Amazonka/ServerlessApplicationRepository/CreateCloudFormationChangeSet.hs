@@ -444,19 +444,19 @@ instance
 
 instance Prelude.NFData CreateCloudFormationChangeSet where
   rnf CreateCloudFormationChangeSet' {..} =
-    Prelude.rnf capabilities
-      `Prelude.seq` Prelude.rnf changeSetName
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf notificationArns
-      `Prelude.seq` Prelude.rnf parameterOverrides
-      `Prelude.seq` Prelude.rnf resourceTypes
-      `Prelude.seq` Prelude.rnf rollbackConfiguration
-      `Prelude.seq` Prelude.rnf semanticVersion
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf templateId
-      `Prelude.seq` Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf stackName
+    Prelude.rnf capabilities `Prelude.seq`
+      Prelude.rnf changeSetName `Prelude.seq`
+        Prelude.rnf clientToken `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf notificationArns `Prelude.seq`
+              Prelude.rnf parameterOverrides `Prelude.seq`
+                Prelude.rnf resourceTypes `Prelude.seq`
+                  Prelude.rnf rollbackConfiguration `Prelude.seq`
+                    Prelude.rnf semanticVersion `Prelude.seq`
+                      Prelude.rnf tags `Prelude.seq`
+                        Prelude.rnf templateId `Prelude.seq`
+                          Prelude.rnf applicationId `Prelude.seq`
+                            Prelude.rnf stackName
 
 instance Data.ToHeaders CreateCloudFormationChangeSet where
   toHeaders =
@@ -592,8 +592,8 @@ instance
     CreateCloudFormationChangeSetResponse
   where
   rnf CreateCloudFormationChangeSetResponse' {..} =
-    Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf changeSetId
-      `Prelude.seq` Prelude.rnf semanticVersion
-      `Prelude.seq` Prelude.rnf stackId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf applicationId `Prelude.seq`
+      Prelude.rnf changeSetId `Prelude.seq`
+        Prelude.rnf semanticVersion `Prelude.seq`
+          Prelude.rnf stackId `Prelude.seq`
+            Prelude.rnf httpStatus

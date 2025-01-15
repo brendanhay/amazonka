@@ -203,15 +203,15 @@ instance Prelude.Hashable UpdateMetricSet where
 
 instance Prelude.NFData UpdateMetricSet where
   rnf UpdateMetricSet' {..} =
-    Prelude.rnf dimensionFilterList
-      `Prelude.seq` Prelude.rnf dimensionList
-      `Prelude.seq` Prelude.rnf metricList
-      `Prelude.seq` Prelude.rnf metricSetDescription
-      `Prelude.seq` Prelude.rnf metricSetFrequency
-      `Prelude.seq` Prelude.rnf metricSource
-      `Prelude.seq` Prelude.rnf offset
-      `Prelude.seq` Prelude.rnf timestampColumn
-      `Prelude.seq` Prelude.rnf metricSetArn
+    Prelude.rnf dimensionFilterList `Prelude.seq`
+      Prelude.rnf dimensionList `Prelude.seq`
+        Prelude.rnf metricList `Prelude.seq`
+          Prelude.rnf metricSetDescription `Prelude.seq`
+            Prelude.rnf metricSetFrequency `Prelude.seq`
+              Prelude.rnf metricSource `Prelude.seq`
+                Prelude.rnf offset `Prelude.seq`
+                  Prelude.rnf timestampColumn `Prelude.seq`
+                    Prelude.rnf metricSetArn
 
 instance Data.ToHeaders UpdateMetricSet where
   toHeaders =
@@ -291,5 +291,5 @@ updateMetricSetResponse_httpStatus = Lens.lens (\UpdateMetricSetResponse' {httpS
 
 instance Prelude.NFData UpdateMetricSetResponse where
   rnf UpdateMetricSetResponse' {..} =
-    Prelude.rnf metricSetArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf metricSetArn `Prelude.seq`
+      Prelude.rnf httpStatus

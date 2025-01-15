@@ -155,11 +155,11 @@ instance Prelude.Hashable ImportSummary where
 
 instance Prelude.NFData ImportSummary where
   rnf ImportSummary' {..} =
-    Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf importId
-      `Prelude.seq` Prelude.rnf importStatus
-      `Prelude.seq` Prelude.rnf importedResourceId
-      `Prelude.seq` Prelude.rnf importedResourceName
-      `Prelude.seq` Prelude.rnf importedResourceType
-      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
-      `Prelude.seq` Prelude.rnf mergeStrategy
+    Prelude.rnf creationDateTime `Prelude.seq`
+      Prelude.rnf importId `Prelude.seq`
+        Prelude.rnf importStatus `Prelude.seq`
+          Prelude.rnf importedResourceId `Prelude.seq`
+            Prelude.rnf importedResourceName `Prelude.seq`
+              Prelude.rnf importedResourceType `Prelude.seq`
+                Prelude.rnf lastUpdatedDateTime `Prelude.seq`
+                  Prelude.rnf mergeStrategy

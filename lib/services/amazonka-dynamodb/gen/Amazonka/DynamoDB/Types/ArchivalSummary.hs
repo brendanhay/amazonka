@@ -121,6 +121,6 @@ instance Prelude.Hashable ArchivalSummary where
 
 instance Prelude.NFData ArchivalSummary where
   rnf ArchivalSummary' {..} =
-    Prelude.rnf archivalBackupArn
-      `Prelude.seq` Prelude.rnf archivalDateTime
-      `Prelude.seq` Prelude.rnf archivalReason
+    Prelude.rnf archivalBackupArn `Prelude.seq`
+      Prelude.rnf archivalDateTime `Prelude.seq`
+        Prelude.rnf archivalReason

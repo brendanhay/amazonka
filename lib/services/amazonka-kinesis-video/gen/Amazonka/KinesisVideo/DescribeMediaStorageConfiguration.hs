@@ -119,8 +119,8 @@ instance
     DescribeMediaStorageConfiguration
   where
   rnf DescribeMediaStorageConfiguration' {..} =
-    Prelude.rnf channelARN
-      `Prelude.seq` Prelude.rnf channelName
+    Prelude.rnf channelARN `Prelude.seq`
+      Prelude.rnf channelName
 
 instance
   Data.ToHeaders
@@ -201,5 +201,5 @@ instance
     DescribeMediaStorageConfigurationResponse
   where
   rnf DescribeMediaStorageConfigurationResponse' {..} =
-    Prelude.rnf mediaStorageConfiguration
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf mediaStorageConfiguration `Prelude.seq`
+      Prelude.rnf httpStatus

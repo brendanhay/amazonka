@@ -111,8 +111,8 @@ instance Prelude.Hashable ListTrustStores where
 
 instance Prelude.NFData ListTrustStores where
   rnf ListTrustStores' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListTrustStores where
   toHeaders =
@@ -188,6 +188,6 @@ listTrustStoresResponse_httpStatus = Lens.lens (\ListTrustStoresResponse' {httpS
 
 instance Prelude.NFData ListTrustStoresResponse where
   rnf ListTrustStoresResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf trustStores
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf trustStores `Prelude.seq`
+        Prelude.rnf httpStatus

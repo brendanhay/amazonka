@@ -85,8 +85,8 @@ instance Prelude.Hashable Suggester where
 
 instance Prelude.NFData Suggester where
   rnf Suggester' {..} =
-    Prelude.rnf suggesterName
-      `Prelude.seq` Prelude.rnf documentSuggesterOptions
+    Prelude.rnf suggesterName `Prelude.seq`
+      Prelude.rnf documentSuggesterOptions
 
 instance Data.ToQuery Suggester where
   toQuery Suggester' {..} =

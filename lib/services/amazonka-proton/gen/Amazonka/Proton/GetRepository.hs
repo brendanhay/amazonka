@@ -184,5 +184,5 @@ getRepositoryResponse_repository = Lens.lens (\GetRepositoryResponse' {repositor
 
 instance Prelude.NFData GetRepositoryResponse where
   rnf GetRepositoryResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf repository
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf repository

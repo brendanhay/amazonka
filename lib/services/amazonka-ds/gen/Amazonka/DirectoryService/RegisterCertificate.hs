@@ -145,10 +145,10 @@ instance Prelude.Hashable RegisterCertificate where
 
 instance Prelude.NFData RegisterCertificate where
   rnf RegisterCertificate' {..} =
-    Prelude.rnf clientCertAuthSettings
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf directoryId
-      `Prelude.seq` Prelude.rnf certificateData
+    Prelude.rnf clientCertAuthSettings `Prelude.seq`
+      Prelude.rnf type' `Prelude.seq`
+        Prelude.rnf directoryId `Prelude.seq`
+          Prelude.rnf certificateData
 
 instance Data.ToHeaders RegisterCertificate where
   toHeaders =
@@ -225,5 +225,5 @@ registerCertificateResponse_httpStatus = Lens.lens (\RegisterCertificateResponse
 
 instance Prelude.NFData RegisterCertificateResponse where
   rnf RegisterCertificateResponse' {..} =
-    Prelude.rnf certificateId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf certificateId `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -81,5 +81,5 @@ instance Prelude.Hashable BusinessReportS3Location where
 
 instance Prelude.NFData BusinessReportS3Location where
   rnf BusinessReportS3Location' {..} =
-    Prelude.rnf bucketName
-      `Prelude.seq` Prelude.rnf path
+    Prelude.rnf bucketName `Prelude.seq`
+      Prelude.rnf path

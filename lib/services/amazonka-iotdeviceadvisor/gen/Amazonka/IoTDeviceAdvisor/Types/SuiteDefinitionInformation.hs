@@ -138,10 +138,10 @@ instance Prelude.Hashable SuiteDefinitionInformation where
 
 instance Prelude.NFData SuiteDefinitionInformation where
   rnf SuiteDefinitionInformation' {..} =
-    Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf defaultDevices
-      `Prelude.seq` Prelude.rnf intendedForQualification
-      `Prelude.seq` Prelude.rnf isLongDurationTest
-      `Prelude.seq` Prelude.rnf protocol
-      `Prelude.seq` Prelude.rnf suiteDefinitionId
-      `Prelude.seq` Prelude.rnf suiteDefinitionName
+    Prelude.rnf createdAt `Prelude.seq`
+      Prelude.rnf defaultDevices `Prelude.seq`
+        Prelude.rnf intendedForQualification `Prelude.seq`
+          Prelude.rnf isLongDurationTest `Prelude.seq`
+            Prelude.rnf protocol `Prelude.seq`
+              Prelude.rnf suiteDefinitionId `Prelude.seq`
+                Prelude.rnf suiteDefinitionName

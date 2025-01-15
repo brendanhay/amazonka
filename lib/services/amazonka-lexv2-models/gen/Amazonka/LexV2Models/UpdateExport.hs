@@ -122,8 +122,8 @@ instance Prelude.Hashable UpdateExport where
 
 instance Prelude.NFData UpdateExport where
   rnf UpdateExport' {..} =
-    Prelude.rnf filePassword
-      `Prelude.seq` Prelude.rnf exportId
+    Prelude.rnf filePassword `Prelude.seq`
+      Prelude.rnf exportId
 
 instance Data.ToHeaders UpdateExport where
   toHeaders =
@@ -249,10 +249,10 @@ updateExportResponse_httpStatus = Lens.lens (\UpdateExportResponse' {httpStatus}
 
 instance Prelude.NFData UpdateExportResponse where
   rnf UpdateExportResponse' {..} =
-    Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf exportId
-      `Prelude.seq` Prelude.rnf exportStatus
-      `Prelude.seq` Prelude.rnf fileFormat
-      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
-      `Prelude.seq` Prelude.rnf resourceSpecification
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf creationDateTime `Prelude.seq`
+      Prelude.rnf exportId `Prelude.seq`
+        Prelude.rnf exportStatus `Prelude.seq`
+          Prelude.rnf fileFormat `Prelude.seq`
+            Prelude.rnf lastUpdatedDateTime `Prelude.seq`
+              Prelude.rnf resourceSpecification `Prelude.seq`
+                Prelude.rnf httpStatus

@@ -78,5 +78,5 @@ instance Prelude.Hashable Ipv6CidrAssociation where
 
 instance Prelude.NFData Ipv6CidrAssociation where
   rnf Ipv6CidrAssociation' {..} =
-    Prelude.rnf associatedResource
-      `Prelude.seq` Prelude.rnf ipv6Cidr
+    Prelude.rnf associatedResource `Prelude.seq`
+      Prelude.rnf ipv6Cidr

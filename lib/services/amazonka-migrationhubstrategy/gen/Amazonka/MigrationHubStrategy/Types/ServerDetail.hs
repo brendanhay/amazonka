@@ -231,17 +231,17 @@ instance Prelude.Hashable ServerDetail where
 
 instance Prelude.NFData ServerDetail where
   rnf ServerDetail' {..} =
-    Prelude.rnf antipatternReportS3Object
-      `Prelude.seq` Prelude.rnf antipatternReportStatus
-      `Prelude.seq` Prelude.rnf antipatternReportStatusMessage
-      `Prelude.seq` Prelude.rnf applicationComponentStrategySummary
-      `Prelude.seq` Prelude.rnf dataCollectionStatus
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf lastAnalyzedTimestamp
-      `Prelude.seq` Prelude.rnf listAntipatternSeveritySummary
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf recommendationSet
-      `Prelude.seq` Prelude.rnf serverError
-      `Prelude.seq` Prelude.rnf serverType
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf systemInfo
+    Prelude.rnf antipatternReportS3Object `Prelude.seq`
+      Prelude.rnf antipatternReportStatus `Prelude.seq`
+        Prelude.rnf antipatternReportStatusMessage `Prelude.seq`
+          Prelude.rnf applicationComponentStrategySummary `Prelude.seq`
+            Prelude.rnf dataCollectionStatus `Prelude.seq`
+              Prelude.rnf id `Prelude.seq`
+                Prelude.rnf lastAnalyzedTimestamp `Prelude.seq`
+                  Prelude.rnf listAntipatternSeveritySummary `Prelude.seq`
+                    Prelude.rnf name `Prelude.seq`
+                      Prelude.rnf recommendationSet `Prelude.seq`
+                        Prelude.rnf serverError `Prelude.seq`
+                          Prelude.rnf serverType `Prelude.seq`
+                            Prelude.rnf statusMessage `Prelude.seq`
+                              Prelude.rnf systemInfo

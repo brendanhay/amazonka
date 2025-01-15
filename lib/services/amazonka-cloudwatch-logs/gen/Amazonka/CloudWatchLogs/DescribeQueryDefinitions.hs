@@ -130,9 +130,9 @@ instance Prelude.Hashable DescribeQueryDefinitions where
 
 instance Prelude.NFData DescribeQueryDefinitions where
   rnf DescribeQueryDefinitions' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf queryDefinitionNamePrefix
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf queryDefinitionNamePrefix
 
 instance Data.ToHeaders DescribeQueryDefinitions where
   toHeaders =
@@ -218,6 +218,6 @@ instance
     DescribeQueryDefinitionsResponse
   where
   rnf DescribeQueryDefinitionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf queryDefinitions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf queryDefinitions `Prelude.seq`
+        Prelude.rnf httpStatus

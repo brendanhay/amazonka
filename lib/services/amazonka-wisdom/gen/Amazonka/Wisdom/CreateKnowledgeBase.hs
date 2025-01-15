@@ -195,14 +195,14 @@ instance Prelude.Hashable CreateKnowledgeBase where
 
 instance Prelude.NFData CreateKnowledgeBase where
   rnf CreateKnowledgeBase' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf renderingConfiguration
-      `Prelude.seq` Prelude.rnf serverSideEncryptionConfiguration
-      `Prelude.seq` Prelude.rnf sourceConfiguration
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf knowledgeBaseType
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf renderingConfiguration `Prelude.seq`
+          Prelude.rnf serverSideEncryptionConfiguration `Prelude.seq`
+            Prelude.rnf sourceConfiguration `Prelude.seq`
+              Prelude.rnf tags `Prelude.seq`
+                Prelude.rnf knowledgeBaseType `Prelude.seq`
+                  Prelude.rnf name
 
 instance Data.ToHeaders CreateKnowledgeBase where
   toHeaders =
@@ -281,5 +281,5 @@ createKnowledgeBaseResponse_httpStatus = Lens.lens (\CreateKnowledgeBaseResponse
 
 instance Prelude.NFData CreateKnowledgeBaseResponse where
   rnf CreateKnowledgeBaseResponse' {..} =
-    Prelude.rnf knowledgeBase
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf knowledgeBase `Prelude.seq`
+      Prelude.rnf httpStatus

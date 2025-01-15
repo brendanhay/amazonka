@@ -93,5 +93,5 @@ instance Prelude.Hashable EvaluationResult where
 
 instance Prelude.NFData EvaluationResult where
   rnf EvaluationResult' {..} =
-    Prelude.rnf f1Score
-      `Prelude.seq` Prelude.rnf summary
+    Prelude.rnf f1Score `Prelude.seq`
+      Prelude.rnf summary

@@ -176,5 +176,5 @@ instance
     DeleteInferenceExperimentResponse
   where
   rnf DeleteInferenceExperimentResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf inferenceExperimentArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf inferenceExperimentArn

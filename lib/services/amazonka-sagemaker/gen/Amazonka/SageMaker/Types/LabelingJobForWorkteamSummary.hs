@@ -147,9 +147,9 @@ instance
 
 instance Prelude.NFData LabelingJobForWorkteamSummary where
   rnf LabelingJobForWorkteamSummary' {..} =
-    Prelude.rnf labelCounters
-      `Prelude.seq` Prelude.rnf labelingJobName
-      `Prelude.seq` Prelude.rnf numberOfHumanWorkersPerDataObject
-      `Prelude.seq` Prelude.rnf jobReferenceCode
-      `Prelude.seq` Prelude.rnf workRequesterAccountId
-      `Prelude.seq` Prelude.rnf creationTime
+    Prelude.rnf labelCounters `Prelude.seq`
+      Prelude.rnf labelingJobName `Prelude.seq`
+        Prelude.rnf numberOfHumanWorkersPerDataObject `Prelude.seq`
+          Prelude.rnf jobReferenceCode `Prelude.seq`
+            Prelude.rnf workRequesterAccountId `Prelude.seq`
+              Prelude.rnf creationTime

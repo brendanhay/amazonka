@@ -128,8 +128,8 @@ instance Prelude.Hashable DeleteVpcPeeringConnection where
 
 instance Prelude.NFData DeleteVpcPeeringConnection where
   rnf DeleteVpcPeeringConnection' {..} =
-    Prelude.rnf fleetId
-      `Prelude.seq` Prelude.rnf vpcPeeringConnectionId
+    Prelude.rnf fleetId `Prelude.seq`
+      Prelude.rnf vpcPeeringConnectionId
 
 instance Data.ToHeaders DeleteVpcPeeringConnection where
   toHeaders =

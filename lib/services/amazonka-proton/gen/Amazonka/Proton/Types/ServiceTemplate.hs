@@ -179,12 +179,12 @@ instance Prelude.Hashable ServiceTemplate where
 
 instance Prelude.NFData ServiceTemplate where
   rnf ServiceTemplate' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf encryptionKey
-      `Prelude.seq` Prelude.rnf pipelineProvisioning
-      `Prelude.seq` Prelude.rnf recommendedVersion
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf lastModifiedAt
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf displayName `Prelude.seq`
+        Prelude.rnf encryptionKey `Prelude.seq`
+          Prelude.rnf pipelineProvisioning `Prelude.seq`
+            Prelude.rnf recommendedVersion `Prelude.seq`
+              Prelude.rnf arn `Prelude.seq`
+                Prelude.rnf createdAt `Prelude.seq`
+                  Prelude.rnf lastModifiedAt `Prelude.seq`
+                    Prelude.rnf name

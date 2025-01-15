@@ -137,8 +137,8 @@ instance Prelude.Hashable DeleteProgressUpdateStream where
 
 instance Prelude.NFData DeleteProgressUpdateStream where
   rnf DeleteProgressUpdateStream' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf progressUpdateStreamName
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf progressUpdateStreamName
 
 instance Data.ToHeaders DeleteProgressUpdateStream where
   toHeaders =

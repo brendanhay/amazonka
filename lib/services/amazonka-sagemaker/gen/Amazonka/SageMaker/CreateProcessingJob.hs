@@ -249,17 +249,17 @@ instance Prelude.Hashable CreateProcessingJob where
 
 instance Prelude.NFData CreateProcessingJob where
   rnf CreateProcessingJob' {..} =
-    Prelude.rnf environment
-      `Prelude.seq` Prelude.rnf experimentConfig
-      `Prelude.seq` Prelude.rnf networkConfig
-      `Prelude.seq` Prelude.rnf processingInputs
-      `Prelude.seq` Prelude.rnf processingOutputConfig
-      `Prelude.seq` Prelude.rnf stoppingCondition
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf processingJobName
-      `Prelude.seq` Prelude.rnf processingResources
-      `Prelude.seq` Prelude.rnf appSpecification
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf environment `Prelude.seq`
+      Prelude.rnf experimentConfig `Prelude.seq`
+        Prelude.rnf networkConfig `Prelude.seq`
+          Prelude.rnf processingInputs `Prelude.seq`
+            Prelude.rnf processingOutputConfig `Prelude.seq`
+              Prelude.rnf stoppingCondition `Prelude.seq`
+                Prelude.rnf tags `Prelude.seq`
+                  Prelude.rnf processingJobName `Prelude.seq`
+                    Prelude.rnf processingResources `Prelude.seq`
+                      Prelude.rnf appSpecification `Prelude.seq`
+                        Prelude.rnf roleArn
 
 instance Data.ToHeaders CreateProcessingJob where
   toHeaders =
@@ -352,5 +352,5 @@ createProcessingJobResponse_processingJobArn = Lens.lens (\CreateProcessingJobRe
 
 instance Prelude.NFData CreateProcessingJobResponse where
   rnf CreateProcessingJobResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf processingJobArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf processingJobArn

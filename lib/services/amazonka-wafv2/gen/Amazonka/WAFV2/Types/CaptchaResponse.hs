@@ -102,6 +102,6 @@ instance Prelude.Hashable CaptchaResponse where
 
 instance Prelude.NFData CaptchaResponse where
   rnf CaptchaResponse' {..} =
-    Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf responseCode
-      `Prelude.seq` Prelude.rnf solveTimestamp
+    Prelude.rnf failureReason `Prelude.seq`
+      Prelude.rnf responseCode `Prelude.seq`
+        Prelude.rnf solveTimestamp

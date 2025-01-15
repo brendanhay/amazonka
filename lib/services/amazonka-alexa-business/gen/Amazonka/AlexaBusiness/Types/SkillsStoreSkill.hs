@@ -139,10 +139,10 @@ instance Prelude.Hashable SkillsStoreSkill where
 
 instance Prelude.NFData SkillsStoreSkill where
   rnf SkillsStoreSkill' {..} =
-    Prelude.rnf iconUrl
-      `Prelude.seq` Prelude.rnf sampleUtterances
-      `Prelude.seq` Prelude.rnf shortDescription
-      `Prelude.seq` Prelude.rnf skillDetails
-      `Prelude.seq` Prelude.rnf skillId
-      `Prelude.seq` Prelude.rnf skillName
-      `Prelude.seq` Prelude.rnf supportsLinking
+    Prelude.rnf iconUrl `Prelude.seq`
+      Prelude.rnf sampleUtterances `Prelude.seq`
+        Prelude.rnf shortDescription `Prelude.seq`
+          Prelude.rnf skillDetails `Prelude.seq`
+            Prelude.rnf skillId `Prelude.seq`
+              Prelude.rnf skillName `Prelude.seq`
+                Prelude.rnf supportsLinking

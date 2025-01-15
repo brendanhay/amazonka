@@ -126,8 +126,8 @@ instance
     RegisterPatchBaselineForPatchGroup
   where
   rnf RegisterPatchBaselineForPatchGroup' {..} =
-    Prelude.rnf baselineId
-      `Prelude.seq` Prelude.rnf patchGroup
+    Prelude.rnf baselineId `Prelude.seq`
+      Prelude.rnf patchGroup
 
 instance
   Data.ToHeaders
@@ -225,6 +225,6 @@ instance
     RegisterPatchBaselineForPatchGroupResponse
   where
   rnf RegisterPatchBaselineForPatchGroupResponse' {..} =
-    Prelude.rnf baselineId
-      `Prelude.seq` Prelude.rnf patchGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf baselineId `Prelude.seq`
+      Prelude.rnf patchGroup `Prelude.seq`
+        Prelude.rnf httpStatus

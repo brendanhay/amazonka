@@ -164,9 +164,9 @@ instance Prelude.Hashable DeletePermission where
 
 instance Prelude.NFData DeletePermission where
   rnf DeletePermission' {..} =
-    Prelude.rnf sourceAccount
-      `Prelude.seq` Prelude.rnf certificateAuthorityArn
-      `Prelude.seq` Prelude.rnf principal
+    Prelude.rnf sourceAccount `Prelude.seq`
+      Prelude.rnf certificateAuthorityArn `Prelude.seq`
+        Prelude.rnf principal
 
 instance Data.ToHeaders DeletePermission where
   toHeaders =

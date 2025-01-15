@@ -147,12 +147,12 @@ instance Prelude.Hashable ThreatIntelIndicator where
 
 instance Prelude.NFData ThreatIntelIndicator where
   rnf ThreatIntelIndicator' {..} =
-    Prelude.rnf category
-      `Prelude.seq` Prelude.rnf lastObservedAt
-      `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf sourceUrl
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf category `Prelude.seq`
+      Prelude.rnf lastObservedAt `Prelude.seq`
+        Prelude.rnf source `Prelude.seq`
+          Prelude.rnf sourceUrl `Prelude.seq`
+            Prelude.rnf type' `Prelude.seq`
+              Prelude.rnf value
 
 instance Data.ToJSON ThreatIntelIndicator where
   toJSON ThreatIntelIndicator' {..} =

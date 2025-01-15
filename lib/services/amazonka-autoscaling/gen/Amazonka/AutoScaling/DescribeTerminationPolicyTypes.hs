@@ -174,5 +174,5 @@ instance
     DescribeTerminationPolicyTypesResponse
   where
   rnf DescribeTerminationPolicyTypesResponse' {..} =
-    Prelude.rnf terminationPolicyTypes
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf terminationPolicyTypes `Prelude.seq`
+      Prelude.rnf httpStatus

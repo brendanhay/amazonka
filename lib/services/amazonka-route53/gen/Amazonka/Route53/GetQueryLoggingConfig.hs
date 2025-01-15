@@ -168,5 +168,5 @@ getQueryLoggingConfigResponse_queryLoggingConfig = Lens.lens (\GetQueryLoggingCo
 
 instance Prelude.NFData GetQueryLoggingConfigResponse where
   rnf GetQueryLoggingConfigResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf queryLoggingConfig
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf queryLoggingConfig

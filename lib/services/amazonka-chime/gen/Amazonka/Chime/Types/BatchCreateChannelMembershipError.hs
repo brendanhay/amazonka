@@ -104,6 +104,6 @@ instance
     BatchCreateChannelMembershipError
   where
   rnf BatchCreateChannelMembershipError' {..} =
-    Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf memberArn
+    Prelude.rnf errorCode `Prelude.seq`
+      Prelude.rnf errorMessage `Prelude.seq`
+        Prelude.rnf memberArn

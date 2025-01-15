@@ -147,11 +147,11 @@ instance Prelude.Hashable ExperimentAction where
 
 instance Prelude.NFData ExperimentAction where
   rnf ExperimentAction' {..} =
-    Prelude.rnf actionId
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf startAfter
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf targets
+    Prelude.rnf actionId `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf endTime `Prelude.seq`
+          Prelude.rnf parameters `Prelude.seq`
+            Prelude.rnf startAfter `Prelude.seq`
+              Prelude.rnf startTime `Prelude.seq`
+                Prelude.rnf state `Prelude.seq`
+                  Prelude.rnf targets

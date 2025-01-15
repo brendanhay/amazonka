@@ -129,8 +129,8 @@ instance Prelude.Hashable DeletePortfolio where
 
 instance Prelude.NFData DeletePortfolio where
   rnf DeletePortfolio' {..} =
-    Prelude.rnf acceptLanguage
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf acceptLanguage `Prelude.seq`
+      Prelude.rnf id
 
 instance Data.ToHeaders DeletePortfolio where
   toHeaders =

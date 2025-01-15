@@ -142,12 +142,12 @@ instance Core.AWSPager ListKeys where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listKeys_marker
-          Lens..~ rs
-          Lens.^? listKeysResponse_nextMarker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listKeys_marker
+              Lens..~ rs
+              Lens.^? listKeysResponse_nextMarker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListKeys where
   type AWSResponse ListKeys = ListKeysResponse
@@ -271,7 +271,7 @@ listKeysResponse_httpStatus = Lens.lens (\ListKeysResponse' {httpStatus} -> http
 
 instance Prelude.NFData ListKeysResponse where
   rnf ListKeysResponse' {..} =
-    Prelude.rnf keys
-      `Prelude.seq` Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf truncated
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf keys `Prelude.seq`
+      Prelude.rnf nextMarker `Prelude.seq`
+        Prelude.rnf truncated `Prelude.seq`
+          Prelude.rnf httpStatus

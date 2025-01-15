@@ -120,8 +120,8 @@ instance Prelude.Hashable ListDataIntegrations where
 
 instance Prelude.NFData ListDataIntegrations where
   rnf ListDataIntegrations' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListDataIntegrations where
   toHeaders =
@@ -197,6 +197,6 @@ listDataIntegrationsResponse_httpStatus = Lens.lens (\ListDataIntegrationsRespon
 
 instance Prelude.NFData ListDataIntegrationsResponse where
   rnf ListDataIntegrationsResponse' {..} =
-    Prelude.rnf dataIntegrations
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dataIntegrations `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

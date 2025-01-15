@@ -376,15 +376,15 @@ instance
 
 instance Prelude.NFData LustreFileSystemConfiguration where
   rnf LustreFileSystemConfiguration' {..} =
-    Prelude.rnf automaticBackupRetentionDays
-      `Prelude.seq` Prelude.rnf copyTagsToBackups
-      `Prelude.seq` Prelude.rnf dailyAutomaticBackupStartTime
-      `Prelude.seq` Prelude.rnf dataCompressionType
-      `Prelude.seq` Prelude.rnf dataRepositoryConfiguration
-      `Prelude.seq` Prelude.rnf deploymentType
-      `Prelude.seq` Prelude.rnf driveCacheType
-      `Prelude.seq` Prelude.rnf logConfiguration
-      `Prelude.seq` Prelude.rnf mountName
-      `Prelude.seq` Prelude.rnf perUnitStorageThroughput
-      `Prelude.seq` Prelude.rnf rootSquashConfiguration
-      `Prelude.seq` Prelude.rnf weeklyMaintenanceStartTime
+    Prelude.rnf automaticBackupRetentionDays `Prelude.seq`
+      Prelude.rnf copyTagsToBackups `Prelude.seq`
+        Prelude.rnf dailyAutomaticBackupStartTime `Prelude.seq`
+          Prelude.rnf dataCompressionType `Prelude.seq`
+            Prelude.rnf dataRepositoryConfiguration `Prelude.seq`
+              Prelude.rnf deploymentType `Prelude.seq`
+                Prelude.rnf driveCacheType `Prelude.seq`
+                  Prelude.rnf logConfiguration `Prelude.seq`
+                    Prelude.rnf mountName `Prelude.seq`
+                      Prelude.rnf perUnitStorageThroughput `Prelude.seq`
+                        Prelude.rnf rootSquashConfiguration `Prelude.seq`
+                          Prelude.rnf weeklyMaintenanceStartTime

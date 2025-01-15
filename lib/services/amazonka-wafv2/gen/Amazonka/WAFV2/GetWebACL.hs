@@ -167,9 +167,9 @@ instance Prelude.Hashable GetWebACL where
 
 instance Prelude.NFData GetWebACL where
   rnf GetWebACL' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf scope
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf scope `Prelude.seq`
+        Prelude.rnf id
 
 instance Data.ToHeaders GetWebACL where
   toHeaders =
@@ -301,7 +301,7 @@ getWebACLResponse_httpStatus = Lens.lens (\GetWebACLResponse' {httpStatus} -> ht
 
 instance Prelude.NFData GetWebACLResponse where
   rnf GetWebACLResponse' {..} =
-    Prelude.rnf applicationIntegrationURL
-      `Prelude.seq` Prelude.rnf lockToken
-      `Prelude.seq` Prelude.rnf webACL
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf applicationIntegrationURL `Prelude.seq`
+      Prelude.rnf lockToken `Prelude.seq`
+        Prelude.rnf webACL `Prelude.seq`
+          Prelude.rnf httpStatus

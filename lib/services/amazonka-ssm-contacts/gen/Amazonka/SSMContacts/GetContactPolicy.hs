@@ -179,6 +179,6 @@ getContactPolicyResponse_httpStatus = Lens.lens (\GetContactPolicyResponse' {htt
 
 instance Prelude.NFData GetContactPolicyResponse where
   rnf GetContactPolicyResponse' {..} =
-    Prelude.rnf contactArn
-      `Prelude.seq` Prelude.rnf policy
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf contactArn `Prelude.seq`
+      Prelude.rnf policy `Prelude.seq`
+        Prelude.rnf httpStatus

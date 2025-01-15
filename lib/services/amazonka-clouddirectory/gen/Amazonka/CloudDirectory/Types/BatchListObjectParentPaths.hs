@@ -90,9 +90,9 @@ instance Prelude.Hashable BatchListObjectParentPaths where
 
 instance Prelude.NFData BatchListObjectParentPaths where
   rnf BatchListObjectParentPaths' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf objectReference
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf objectReference
 
 instance Data.ToJSON BatchListObjectParentPaths where
   toJSON BatchListObjectParentPaths' {..} =

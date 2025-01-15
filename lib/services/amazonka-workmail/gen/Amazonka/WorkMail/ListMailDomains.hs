@@ -124,9 +124,9 @@ instance Prelude.Hashable ListMailDomains where
 
 instance Prelude.NFData ListMailDomains where
   rnf ListMailDomains' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf organizationId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf organizationId
 
 instance Data.ToHeaders ListMailDomains where
   toHeaders =
@@ -219,6 +219,6 @@ listMailDomainsResponse_httpStatus = Lens.lens (\ListMailDomainsResponse' {httpS
 
 instance Prelude.NFData ListMailDomainsResponse where
   rnf ListMailDomainsResponse' {..} =
-    Prelude.rnf mailDomains
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf mailDomains `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

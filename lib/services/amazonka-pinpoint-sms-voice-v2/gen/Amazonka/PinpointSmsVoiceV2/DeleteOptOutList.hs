@@ -205,7 +205,7 @@ deleteOptOutListResponse_httpStatus = Lens.lens (\DeleteOptOutListResponse' {htt
 
 instance Prelude.NFData DeleteOptOutListResponse where
   rnf DeleteOptOutListResponse' {..} =
-    Prelude.rnf createdTimestamp
-      `Prelude.seq` Prelude.rnf optOutListArn
-      `Prelude.seq` Prelude.rnf optOutListName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf createdTimestamp `Prelude.seq`
+      Prelude.rnf optOutListArn `Prelude.seq`
+        Prelude.rnf optOutListName `Prelude.seq`
+          Prelude.rnf httpStatus

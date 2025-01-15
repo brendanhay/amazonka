@@ -76,8 +76,8 @@ instance Prelude.Hashable DataSetImportItem where
 
 instance Prelude.NFData DataSetImportItem where
   rnf DataSetImportItem' {..} =
-    Prelude.rnf dataSet
-      `Prelude.seq` Prelude.rnf externalLocation
+    Prelude.rnf dataSet `Prelude.seq`
+      Prelude.rnf externalLocation
 
 instance Data.ToJSON DataSetImportItem where
   toJSON DataSetImportItem' {..} =

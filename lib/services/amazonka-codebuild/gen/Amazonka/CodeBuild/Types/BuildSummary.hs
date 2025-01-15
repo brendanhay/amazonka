@@ -178,8 +178,8 @@ instance Prelude.Hashable BuildSummary where
 
 instance Prelude.NFData BuildSummary where
   rnf BuildSummary' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf buildStatus
-      `Prelude.seq` Prelude.rnf primaryArtifact
-      `Prelude.seq` Prelude.rnf requestedOn
-      `Prelude.seq` Prelude.rnf secondaryArtifacts
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf buildStatus `Prelude.seq`
+        Prelude.rnf primaryArtifact `Prelude.seq`
+          Prelude.rnf requestedOn `Prelude.seq`
+            Prelude.rnf secondaryArtifacts

@@ -297,14 +297,14 @@ instance Prelude.Hashable Accelerator where
 
 instance Prelude.NFData Accelerator where
   rnf Accelerator' {..} =
-    Prelude.rnf acceleratorArn
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf dnsName
-      `Prelude.seq` Prelude.rnf dualStackDnsName
-      `Prelude.seq` Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf events
-      `Prelude.seq` Prelude.rnf ipAddressType
-      `Prelude.seq` Prelude.rnf ipSets
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf acceleratorArn `Prelude.seq`
+      Prelude.rnf createdTime `Prelude.seq`
+        Prelude.rnf dnsName `Prelude.seq`
+          Prelude.rnf dualStackDnsName `Prelude.seq`
+            Prelude.rnf enabled `Prelude.seq`
+              Prelude.rnf events `Prelude.seq`
+                Prelude.rnf ipAddressType `Prelude.seq`
+                  Prelude.rnf ipSets `Prelude.seq`
+                    Prelude.rnf lastModifiedTime `Prelude.seq`
+                      Prelude.rnf name `Prelude.seq`
+                        Prelude.rnf status

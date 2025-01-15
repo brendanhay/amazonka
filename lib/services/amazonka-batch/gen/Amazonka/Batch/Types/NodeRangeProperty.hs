@@ -105,8 +105,8 @@ instance Prelude.Hashable NodeRangeProperty where
 
 instance Prelude.NFData NodeRangeProperty where
   rnf NodeRangeProperty' {..} =
-    Prelude.rnf container
-      `Prelude.seq` Prelude.rnf targetNodes
+    Prelude.rnf container `Prelude.seq`
+      Prelude.rnf targetNodes
 
 instance Data.ToJSON NodeRangeProperty where
   toJSON NodeRangeProperty' {..} =

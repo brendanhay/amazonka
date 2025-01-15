@@ -200,10 +200,10 @@ instance
     UpdateCustomRoutingAcceleratorAttributes
   where
   rnf UpdateCustomRoutingAcceleratorAttributes' {..} =
-    Prelude.rnf flowLogsEnabled
-      `Prelude.seq` Prelude.rnf flowLogsS3Bucket
-      `Prelude.seq` Prelude.rnf flowLogsS3Prefix
-      `Prelude.seq` Prelude.rnf acceleratorArn
+    Prelude.rnf flowLogsEnabled `Prelude.seq`
+      Prelude.rnf flowLogsS3Bucket `Prelude.seq`
+        Prelude.rnf flowLogsS3Prefix `Prelude.seq`
+          Prelude.rnf acceleratorArn
 
 instance
   Data.ToHeaders
@@ -299,5 +299,5 @@ instance
   where
   rnf
     UpdateCustomRoutingAcceleratorAttributesResponse' {..} =
-      Prelude.rnf acceleratorAttributes
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf acceleratorAttributes `Prelude.seq`
+        Prelude.rnf httpStatus

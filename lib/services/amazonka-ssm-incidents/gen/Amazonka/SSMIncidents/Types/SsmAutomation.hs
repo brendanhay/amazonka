@@ -146,12 +146,12 @@ instance Prelude.Hashable SsmAutomation where
 
 instance Prelude.NFData SsmAutomation where
   rnf SsmAutomation' {..} =
-    Prelude.rnf documentVersion
-      `Prelude.seq` Prelude.rnf dynamicParameters
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf targetAccount
-      `Prelude.seq` Prelude.rnf documentName
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf documentVersion `Prelude.seq`
+      Prelude.rnf dynamicParameters `Prelude.seq`
+        Prelude.rnf parameters `Prelude.seq`
+          Prelude.rnf targetAccount `Prelude.seq`
+            Prelude.rnf documentName `Prelude.seq`
+              Prelude.rnf roleArn
 
 instance Data.ToJSON SsmAutomation where
   toJSON SsmAutomation' {..} =

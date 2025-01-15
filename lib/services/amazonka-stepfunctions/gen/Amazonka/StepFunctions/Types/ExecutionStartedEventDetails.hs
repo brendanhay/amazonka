@@ -102,6 +102,6 @@ instance
 
 instance Prelude.NFData ExecutionStartedEventDetails where
   rnf ExecutionStartedEventDetails' {..} =
-    Prelude.rnf input
-      `Prelude.seq` Prelude.rnf inputDetails
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf input `Prelude.seq`
+      Prelude.rnf inputDetails `Prelude.seq`
+        Prelude.rnf roleArn

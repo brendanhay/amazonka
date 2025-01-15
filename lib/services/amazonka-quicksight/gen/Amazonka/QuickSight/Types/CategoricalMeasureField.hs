@@ -110,10 +110,10 @@ instance Prelude.Hashable CategoricalMeasureField where
 
 instance Prelude.NFData CategoricalMeasureField where
   rnf CategoricalMeasureField' {..} =
-    Prelude.rnf aggregationFunction
-      `Prelude.seq` Prelude.rnf formatConfiguration
-      `Prelude.seq` Prelude.rnf fieldId
-      `Prelude.seq` Prelude.rnf column
+    Prelude.rnf aggregationFunction `Prelude.seq`
+      Prelude.rnf formatConfiguration `Prelude.seq`
+        Prelude.rnf fieldId `Prelude.seq`
+          Prelude.rnf column
 
 instance Data.ToJSON CategoricalMeasureField where
   toJSON CategoricalMeasureField' {..} =

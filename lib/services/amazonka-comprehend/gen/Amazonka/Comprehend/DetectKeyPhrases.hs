@@ -120,8 +120,8 @@ instance Prelude.Hashable DetectKeyPhrases where
 
 instance Prelude.NFData DetectKeyPhrases where
   rnf DetectKeyPhrases' {..} =
-    Prelude.rnf text
-      `Prelude.seq` Prelude.rnf languageCode
+    Prelude.rnf text `Prelude.seq`
+      Prelude.rnf languageCode
 
 instance Data.ToHeaders DetectKeyPhrases where
   toHeaders =
@@ -203,5 +203,5 @@ detectKeyPhrasesResponse_httpStatus = Lens.lens (\DetectKeyPhrasesResponse' {htt
 
 instance Prelude.NFData DetectKeyPhrasesResponse where
   rnf DetectKeyPhrasesResponse' {..} =
-    Prelude.rnf keyPhrases
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf keyPhrases `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -107,9 +107,9 @@ instance Prelude.Hashable DestinationConfiguration where
 
 instance Prelude.NFData DestinationConfiguration where
   rnf DestinationConfiguration' {..} =
-    Prelude.rnf cloudWatchLogs
-      `Prelude.seq` Prelude.rnf firehose
-      `Prelude.seq` Prelude.rnf s3
+    Prelude.rnf cloudWatchLogs `Prelude.seq`
+      Prelude.rnf firehose `Prelude.seq`
+        Prelude.rnf s3
 
 instance Data.ToJSON DestinationConfiguration where
   toJSON DestinationConfiguration' {..} =

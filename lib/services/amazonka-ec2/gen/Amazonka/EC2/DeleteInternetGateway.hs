@@ -109,8 +109,8 @@ instance Prelude.Hashable DeleteInternetGateway where
 
 instance Prelude.NFData DeleteInternetGateway where
   rnf DeleteInternetGateway' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf internetGatewayId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf internetGatewayId
 
 instance Data.ToHeaders DeleteInternetGateway where
   toHeaders = Prelude.const Prelude.mempty

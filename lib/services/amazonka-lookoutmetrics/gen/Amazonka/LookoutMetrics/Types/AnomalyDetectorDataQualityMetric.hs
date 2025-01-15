@@ -100,5 +100,5 @@ instance
     AnomalyDetectorDataQualityMetric
   where
   rnf AnomalyDetectorDataQualityMetric' {..} =
-    Prelude.rnf metricSetDataQualityMetricList
-      `Prelude.seq` Prelude.rnf startTimestamp
+    Prelude.rnf metricSetDataQualityMetricList `Prelude.seq`
+      Prelude.rnf startTimestamp

@@ -118,8 +118,8 @@ instance Prelude.Hashable CancelUpdateStack where
 
 instance Prelude.NFData CancelUpdateStack where
   rnf CancelUpdateStack' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf stackName
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf stackName
 
 instance Data.ToHeaders CancelUpdateStack where
   toHeaders = Prelude.const Prelude.mempty

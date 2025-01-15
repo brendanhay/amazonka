@@ -90,5 +90,5 @@ instance Prelude.Hashable FileSystemEndpoints where
 
 instance Prelude.NFData FileSystemEndpoints where
   rnf FileSystemEndpoints' {..} =
-    Prelude.rnf intercluster
-      `Prelude.seq` Prelude.rnf management
+    Prelude.rnf intercluster `Prelude.seq`
+      Prelude.rnf management

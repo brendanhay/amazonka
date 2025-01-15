@@ -115,8 +115,8 @@ instance
     SameSheetTargetVisualConfiguration
   where
   rnf SameSheetTargetVisualConfiguration' {..} =
-    Prelude.rnf targetVisualOptions
-      `Prelude.seq` Prelude.rnf targetVisuals
+    Prelude.rnf targetVisualOptions `Prelude.seq`
+      Prelude.rnf targetVisuals
 
 instance
   Data.ToJSON

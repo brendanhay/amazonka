@@ -104,7 +104,7 @@ instance Prelude.Hashable NetworkStatus where
 
 instance Prelude.NFData NetworkStatus where
   rnf NetworkStatus' {..} =
-    Prelude.rnf ethernet0Status
-      `Prelude.seq` Prelude.rnf ethernet1Status
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf ntpStatus
+    Prelude.rnf ethernet0Status `Prelude.seq`
+      Prelude.rnf ethernet1Status `Prelude.seq`
+        Prelude.rnf lastUpdatedTime `Prelude.seq`
+          Prelude.rnf ntpStatus

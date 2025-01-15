@@ -101,8 +101,8 @@ instance
 
 instance Prelude.NFData DeleteClusterSnapshotMessage where
   rnf DeleteClusterSnapshotMessage' {..} =
-    Prelude.rnf snapshotClusterIdentifier
-      `Prelude.seq` Prelude.rnf snapshotIdentifier
+    Prelude.rnf snapshotClusterIdentifier `Prelude.seq`
+      Prelude.rnf snapshotIdentifier
 
 instance Data.ToQuery DeleteClusterSnapshotMessage where
   toQuery DeleteClusterSnapshotMessage' {..} =

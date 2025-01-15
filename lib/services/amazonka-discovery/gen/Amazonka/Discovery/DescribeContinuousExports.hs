@@ -118,12 +118,12 @@ instance Core.AWSPager DescribeContinuousExports where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeContinuousExports_nextToken
-          Lens..~ rs
-          Lens.^? describeContinuousExportsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeContinuousExports_nextToken
+              Lens..~ rs
+              Lens.^? describeContinuousExportsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeContinuousExports where
   type
@@ -149,9 +149,9 @@ instance Prelude.Hashable DescribeContinuousExports where
 
 instance Prelude.NFData DescribeContinuousExports where
   rnf DescribeContinuousExports' {..} =
-    Prelude.rnf exportIds
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf exportIds `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeContinuousExports where
   toHeaders =
@@ -237,6 +237,6 @@ instance
     DescribeContinuousExportsResponse
   where
   rnf DescribeContinuousExportsResponse' {..} =
-    Prelude.rnf descriptions
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf descriptions `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

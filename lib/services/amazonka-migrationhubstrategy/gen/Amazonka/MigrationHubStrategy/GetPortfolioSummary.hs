@@ -141,5 +141,5 @@ getPortfolioSummaryResponse_httpStatus = Lens.lens (\GetPortfolioSummaryResponse
 
 instance Prelude.NFData GetPortfolioSummaryResponse where
   rnf GetPortfolioSummaryResponse' {..} =
-    Prelude.rnf assessmentSummary
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf assessmentSummary `Prelude.seq`
+      Prelude.rnf httpStatus

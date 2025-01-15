@@ -145,9 +145,7 @@ instance Data.FromXML LocalGatewayVirtualInterface where
       Prelude.<*> (x Data..@? "ownerId")
       Prelude.<*> (x Data..@? "peerAddress")
       Prelude.<*> (x Data..@? "peerBgpAsn")
-      Prelude.<*> ( x
-                      Data..@? "tagSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "vlan")
@@ -170,12 +168,12 @@ instance
 
 instance Prelude.NFData LocalGatewayVirtualInterface where
   rnf LocalGatewayVirtualInterface' {..} =
-    Prelude.rnf localAddress
-      `Prelude.seq` Prelude.rnf localBgpAsn
-      `Prelude.seq` Prelude.rnf localGatewayId
-      `Prelude.seq` Prelude.rnf localGatewayVirtualInterfaceId
-      `Prelude.seq` Prelude.rnf ownerId
-      `Prelude.seq` Prelude.rnf peerAddress
-      `Prelude.seq` Prelude.rnf peerBgpAsn
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf vlan
+    Prelude.rnf localAddress `Prelude.seq`
+      Prelude.rnf localBgpAsn `Prelude.seq`
+        Prelude.rnf localGatewayId `Prelude.seq`
+          Prelude.rnf localGatewayVirtualInterfaceId `Prelude.seq`
+            Prelude.rnf ownerId `Prelude.seq`
+              Prelude.rnf peerAddress `Prelude.seq`
+                Prelude.rnf peerBgpAsn `Prelude.seq`
+                  Prelude.rnf tags `Prelude.seq`
+                    Prelude.rnf vlan

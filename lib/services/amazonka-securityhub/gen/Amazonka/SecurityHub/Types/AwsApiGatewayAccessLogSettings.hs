@@ -95,8 +95,8 @@ instance
     AwsApiGatewayAccessLogSettings
   where
   rnf AwsApiGatewayAccessLogSettings' {..} =
-    Prelude.rnf destinationArn
-      `Prelude.seq` Prelude.rnf format
+    Prelude.rnf destinationArn `Prelude.seq`
+      Prelude.rnf format
 
 instance Data.ToJSON AwsApiGatewayAccessLogSettings where
   toJSON AwsApiGatewayAccessLogSettings' {..} =

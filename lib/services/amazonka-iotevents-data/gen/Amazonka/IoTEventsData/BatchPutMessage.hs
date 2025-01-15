@@ -166,5 +166,5 @@ batchPutMessageResponse_httpStatus = Lens.lens (\BatchPutMessageResponse' {httpS
 
 instance Prelude.NFData BatchPutMessageResponse where
   rnf BatchPutMessageResponse' {..} =
-    Prelude.rnf batchPutMessageErrorEntries
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf batchPutMessageErrorEntries `Prelude.seq`
+      Prelude.rnf httpStatus

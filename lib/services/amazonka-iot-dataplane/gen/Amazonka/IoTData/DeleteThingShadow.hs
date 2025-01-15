@@ -118,8 +118,8 @@ instance Prelude.Hashable DeleteThingShadow where
 
 instance Prelude.NFData DeleteThingShadow where
   rnf DeleteThingShadow' {..} =
-    Prelude.rnf shadowName
-      `Prelude.seq` Prelude.rnf thingName
+    Prelude.rnf shadowName `Prelude.seq`
+      Prelude.rnf thingName
 
 instance Data.ToHeaders DeleteThingShadow where
   toHeaders = Prelude.const Prelude.mempty
@@ -178,5 +178,5 @@ deleteThingShadowResponse_payload = Lens.lens (\DeleteThingShadowResponse' {payl
 
 instance Prelude.NFData DeleteThingShadowResponse where
   rnf DeleteThingShadowResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf payload
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf payload

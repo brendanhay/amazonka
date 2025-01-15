@@ -155,10 +155,10 @@ instance Prelude.Hashable ChannelFlowCallback where
 
 instance Prelude.NFData ChannelFlowCallback where
   rnf ChannelFlowCallback' {..} =
-    Prelude.rnf deleteResource
-      `Prelude.seq` Prelude.rnf callbackId
-      `Prelude.seq` Prelude.rnf channelArn
-      `Prelude.seq` Prelude.rnf channelMessage
+    Prelude.rnf deleteResource `Prelude.seq`
+      Prelude.rnf callbackId `Prelude.seq`
+        Prelude.rnf channelArn `Prelude.seq`
+          Prelude.rnf channelMessage
 
 instance Data.ToHeaders ChannelFlowCallback where
   toHeaders = Prelude.const Prelude.mempty
@@ -235,6 +235,6 @@ channelFlowCallbackResponse_httpStatus = Lens.lens (\ChannelFlowCallbackResponse
 
 instance Prelude.NFData ChannelFlowCallbackResponse where
   rnf ChannelFlowCallbackResponse' {..} =
-    Prelude.rnf callbackId
-      `Prelude.seq` Prelude.rnf channelArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf callbackId `Prelude.seq`
+      Prelude.rnf channelArn `Prelude.seq`
+        Prelude.rnf httpStatus

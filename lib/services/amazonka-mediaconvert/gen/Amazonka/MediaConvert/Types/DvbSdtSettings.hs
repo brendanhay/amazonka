@@ -134,10 +134,10 @@ instance Prelude.Hashable DvbSdtSettings where
 
 instance Prelude.NFData DvbSdtSettings where
   rnf DvbSdtSettings' {..} =
-    Prelude.rnf outputSdt
-      `Prelude.seq` Prelude.rnf sdtInterval
-      `Prelude.seq` Prelude.rnf serviceName
-      `Prelude.seq` Prelude.rnf serviceProviderName
+    Prelude.rnf outputSdt `Prelude.seq`
+      Prelude.rnf sdtInterval `Prelude.seq`
+        Prelude.rnf serviceName `Prelude.seq`
+          Prelude.rnf serviceProviderName
 
 instance Data.ToJSON DvbSdtSettings where
   toJSON DvbSdtSettings' {..} =

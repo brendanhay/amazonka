@@ -81,8 +81,8 @@ instance Prelude.Hashable RelationshipValue where
 
 instance Prelude.NFData RelationshipValue where
   rnf RelationshipValue' {..} =
-    Prelude.rnf targetComponentName
-      `Prelude.seq` Prelude.rnf targetEntityId
+    Prelude.rnf targetComponentName `Prelude.seq`
+      Prelude.rnf targetEntityId
 
 instance Data.ToJSON RelationshipValue where
   toJSON RelationshipValue' {..} =

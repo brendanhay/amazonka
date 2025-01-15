@@ -187,10 +187,10 @@ instance Prelude.Hashable ParameterConstraints where
 
 instance Prelude.NFData ParameterConstraints where
   rnf ParameterConstraints' {..} =
-    Prelude.rnf allowedPattern
-      `Prelude.seq` Prelude.rnf allowedValues
-      `Prelude.seq` Prelude.rnf constraintDescription
-      `Prelude.seq` Prelude.rnf maxLength
-      `Prelude.seq` Prelude.rnf maxValue
-      `Prelude.seq` Prelude.rnf minLength
-      `Prelude.seq` Prelude.rnf minValue
+    Prelude.rnf allowedPattern `Prelude.seq`
+      Prelude.rnf allowedValues `Prelude.seq`
+        Prelude.rnf constraintDescription `Prelude.seq`
+          Prelude.rnf maxLength `Prelude.seq`
+            Prelude.rnf maxValue `Prelude.seq`
+              Prelude.rnf minLength `Prelude.seq`
+                Prelude.rnf minValue

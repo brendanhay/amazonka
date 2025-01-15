@@ -324,16 +324,16 @@ instance Prelude.Hashable CreateCluster where
 
 instance Prelude.NFData CreateCluster where
   rnf CreateCluster' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf encryptionConfig
-      `Prelude.seq` Prelude.rnf kubernetesNetworkConfig
-      `Prelude.seq` Prelude.rnf logging
-      `Prelude.seq` Prelude.rnf outpostConfig
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf resourcesVpcConfig
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf encryptionConfig `Prelude.seq`
+        Prelude.rnf kubernetesNetworkConfig `Prelude.seq`
+          Prelude.rnf logging `Prelude.seq`
+            Prelude.rnf outpostConfig `Prelude.seq`
+              Prelude.rnf tags `Prelude.seq`
+                Prelude.rnf version `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf roleArn `Prelude.seq`
+                      Prelude.rnf resourcesVpcConfig
 
 instance Data.ToHeaders CreateCluster where
   toHeaders =
@@ -413,5 +413,5 @@ createClusterResponse_httpStatus = Lens.lens (\CreateClusterResponse' {httpStatu
 
 instance Prelude.NFData CreateClusterResponse where
   rnf CreateClusterResponse' {..} =
-    Prelude.rnf cluster
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf cluster `Prelude.seq`
+      Prelude.rnf httpStatus

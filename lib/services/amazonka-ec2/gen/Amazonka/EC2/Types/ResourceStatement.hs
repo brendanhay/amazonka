@@ -66,14 +66,10 @@ resourceStatement_resources = Lens.lens (\ResourceStatement' {resources} -> reso
 instance Data.FromXML ResourceStatement where
   parseXML x =
     ResourceStatement'
-      Prelude.<$> ( x
-                      Data..@? "resourceTypeSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "resourceTypeSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x
-                      Data..@? "resourceSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "resourceSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
@@ -85,5 +81,5 @@ instance Prelude.Hashable ResourceStatement where
 
 instance Prelude.NFData ResourceStatement where
   rnf ResourceStatement' {..} =
-    Prelude.rnf resourceTypes
-      `Prelude.seq` Prelude.rnf resources
+    Prelude.rnf resourceTypes `Prelude.seq`
+      Prelude.rnf resources

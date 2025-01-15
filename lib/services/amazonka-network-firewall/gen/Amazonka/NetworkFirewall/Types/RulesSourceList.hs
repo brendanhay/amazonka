@@ -140,9 +140,9 @@ instance Prelude.Hashable RulesSourceList where
 
 instance Prelude.NFData RulesSourceList where
   rnf RulesSourceList' {..} =
-    Prelude.rnf targets
-      `Prelude.seq` Prelude.rnf targetTypes
-      `Prelude.seq` Prelude.rnf generatedRulesType
+    Prelude.rnf targets `Prelude.seq`
+      Prelude.rnf targetTypes `Prelude.seq`
+        Prelude.rnf generatedRulesType
 
 instance Data.ToJSON RulesSourceList where
   toJSON RulesSourceList' {..} =

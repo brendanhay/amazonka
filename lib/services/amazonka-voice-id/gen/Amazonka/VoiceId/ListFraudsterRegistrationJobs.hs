@@ -142,12 +142,12 @@ instance Core.AWSPager ListFraudsterRegistrationJobs where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listFraudsterRegistrationJobs_nextToken
-          Lens..~ rs
-          Lens.^? listFraudsterRegistrationJobsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listFraudsterRegistrationJobs_nextToken
+              Lens..~ rs
+              Lens.^? listFraudsterRegistrationJobsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -180,10 +180,10 @@ instance
 
 instance Prelude.NFData ListFraudsterRegistrationJobs where
   rnf ListFraudsterRegistrationJobs' {..} =
-    Prelude.rnf jobStatus
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf domainId
+    Prelude.rnf jobStatus `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf domainId
 
 instance Data.ToHeaders ListFraudsterRegistrationJobs where
   toHeaders =
@@ -282,6 +282,6 @@ instance
     ListFraudsterRegistrationJobsResponse
   where
   rnf ListFraudsterRegistrationJobsResponse' {..} =
-    Prelude.rnf jobSummaries
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf jobSummaries `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -118,8 +118,8 @@ instance Prelude.Hashable AssociatePackage where
 
 instance Prelude.NFData AssociatePackage where
   rnf AssociatePackage' {..} =
-    Prelude.rnf packageID
-      `Prelude.seq` Prelude.rnf domainName
+    Prelude.rnf packageID `Prelude.seq`
+      Prelude.rnf domainName
 
 instance Data.ToHeaders AssociatePackage where
   toHeaders = Prelude.const Prelude.mempty
@@ -182,5 +182,5 @@ associatePackageResponse_httpStatus = Lens.lens (\AssociatePackageResponse' {htt
 
 instance Prelude.NFData AssociatePackageResponse where
   rnf AssociatePackageResponse' {..} =
-    Prelude.rnf domainPackageDetails
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf domainPackageDetails `Prelude.seq`
+      Prelude.rnf httpStatus

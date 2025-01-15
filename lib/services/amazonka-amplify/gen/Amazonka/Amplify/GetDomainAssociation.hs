@@ -112,8 +112,8 @@ instance Prelude.Hashable GetDomainAssociation where
 
 instance Prelude.NFData GetDomainAssociation where
   rnf GetDomainAssociation' {..} =
-    Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf domainName
+    Prelude.rnf appId `Prelude.seq`
+      Prelude.rnf domainName
 
 instance Data.ToHeaders GetDomainAssociation where
   toHeaders =
@@ -188,5 +188,5 @@ getDomainAssociationResponse_domainAssociation = Lens.lens (\GetDomainAssociatio
 
 instance Prelude.NFData GetDomainAssociationResponse where
   rnf GetDomainAssociationResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf domainAssociation
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf domainAssociation

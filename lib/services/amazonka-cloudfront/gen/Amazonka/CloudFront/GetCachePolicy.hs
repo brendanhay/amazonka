@@ -179,6 +179,6 @@ getCachePolicyResponse_httpStatus = Lens.lens (\GetCachePolicyResponse' {httpSta
 
 instance Prelude.NFData GetCachePolicyResponse where
   rnf GetCachePolicyResponse' {..} =
-    Prelude.rnf cachePolicy
-      `Prelude.seq` Prelude.rnf eTag
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf cachePolicy `Prelude.seq`
+      Prelude.rnf eTag `Prelude.seq`
+        Prelude.rnf httpStatus

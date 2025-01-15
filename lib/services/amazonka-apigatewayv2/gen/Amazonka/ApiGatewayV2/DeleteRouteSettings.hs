@@ -117,9 +117,9 @@ instance Prelude.Hashable DeleteRouteSettings where
 
 instance Prelude.NFData DeleteRouteSettings where
   rnf DeleteRouteSettings' {..} =
-    Prelude.rnf stageName
-      `Prelude.seq` Prelude.rnf routeKey
-      `Prelude.seq` Prelude.rnf apiId
+    Prelude.rnf stageName `Prelude.seq`
+      Prelude.rnf routeKey `Prelude.seq`
+        Prelude.rnf apiId
 
 instance Data.ToHeaders DeleteRouteSettings where
   toHeaders =

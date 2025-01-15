@@ -231,5 +231,5 @@ instance
     StopCalculationExecutionResponse
   where
   rnf StopCalculationExecutionResponse' {..} =
-    Prelude.rnf state
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf state `Prelude.seq`
+      Prelude.rnf httpStatus

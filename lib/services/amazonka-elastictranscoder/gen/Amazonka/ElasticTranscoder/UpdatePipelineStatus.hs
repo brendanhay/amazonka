@@ -195,5 +195,5 @@ updatePipelineStatusResponse_httpStatus = Lens.lens (\UpdatePipelineStatusRespon
 
 instance Prelude.NFData UpdatePipelineStatusResponse where
   rnf UpdatePipelineStatusResponse' {..} =
-    Prelude.rnf pipeline
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf pipeline `Prelude.seq`
+      Prelude.rnf httpStatus

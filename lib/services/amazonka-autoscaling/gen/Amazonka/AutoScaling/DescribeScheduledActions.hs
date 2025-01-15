@@ -171,12 +171,12 @@ instance Core.AWSPager DescribeScheduledActions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeScheduledActions_nextToken
-          Lens..~ rs
-          Lens.^? describeScheduledActionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeScheduledActions_nextToken
+              Lens..~ rs
+              Lens.^? describeScheduledActionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeScheduledActions where
   type
@@ -210,12 +210,12 @@ instance Prelude.Hashable DescribeScheduledActions where
 
 instance Prelude.NFData DescribeScheduledActions where
   rnf DescribeScheduledActions' {..} =
-    Prelude.rnf autoScalingGroupName
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf scheduledActionNames
-      `Prelude.seq` Prelude.rnf startTime
+    Prelude.rnf autoScalingGroupName `Prelude.seq`
+      Prelude.rnf endTime `Prelude.seq`
+        Prelude.rnf maxRecords `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf scheduledActionNames `Prelude.seq`
+              Prelude.rnf startTime
 
 instance Data.ToHeaders DescribeScheduledActions where
   toHeaders = Prelude.const Prelude.mempty
@@ -305,6 +305,6 @@ instance
     DescribeScheduledActionsResponse
   where
   rnf DescribeScheduledActionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf scheduledUpdateGroupActions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf scheduledUpdateGroupActions `Prelude.seq`
+        Prelude.rnf httpStatus

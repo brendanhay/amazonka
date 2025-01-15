@@ -94,9 +94,9 @@ instance Prelude.Hashable SqlApplicationConfiguration where
 
 instance Prelude.NFData SqlApplicationConfiguration where
   rnf SqlApplicationConfiguration' {..} =
-    Prelude.rnf inputs
-      `Prelude.seq` Prelude.rnf outputs
-      `Prelude.seq` Prelude.rnf referenceDataSources
+    Prelude.rnf inputs `Prelude.seq`
+      Prelude.rnf outputs `Prelude.seq`
+        Prelude.rnf referenceDataSources
 
 instance Data.ToJSON SqlApplicationConfiguration where
   toJSON SqlApplicationConfiguration' {..} =

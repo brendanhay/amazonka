@@ -84,5 +84,5 @@ instance
 
 instance Prelude.NFData ExperimentS3LogConfiguration where
   rnf ExperimentS3LogConfiguration' {..} =
-    Prelude.rnf bucketName
-      `Prelude.seq` Prelude.rnf prefix
+    Prelude.rnf bucketName `Prelude.seq`
+      Prelude.rnf prefix

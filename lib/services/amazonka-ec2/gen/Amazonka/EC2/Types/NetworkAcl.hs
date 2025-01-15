@@ -114,22 +114,16 @@ networkAcl_vpcId = Lens.lens (\NetworkAcl' {vpcId} -> vpcId) (\s@NetworkAcl' {} 
 instance Data.FromXML NetworkAcl where
   parseXML x =
     NetworkAcl'
-      Prelude.<$> ( x
-                      Data..@? "associationSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "associationSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x
-                      Data..@? "entrySet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "entrySet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "default")
       Prelude.<*> (x Data..@? "networkAclId")
       Prelude.<*> (x Data..@? "ownerId")
-      Prelude.<*> ( x
-                      Data..@? "tagSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "vpcId")
@@ -147,10 +141,10 @@ instance Prelude.Hashable NetworkAcl where
 
 instance Prelude.NFData NetworkAcl where
   rnf NetworkAcl' {..} =
-    Prelude.rnf associations
-      `Prelude.seq` Prelude.rnf entries
-      `Prelude.seq` Prelude.rnf isDefault
-      `Prelude.seq` Prelude.rnf networkAclId
-      `Prelude.seq` Prelude.rnf ownerId
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf associations `Prelude.seq`
+      Prelude.rnf entries `Prelude.seq`
+        Prelude.rnf isDefault `Prelude.seq`
+          Prelude.rnf networkAclId `Prelude.seq`
+            Prelude.rnf ownerId `Prelude.seq`
+              Prelude.rnf tags `Prelude.seq`
+                Prelude.rnf vpcId

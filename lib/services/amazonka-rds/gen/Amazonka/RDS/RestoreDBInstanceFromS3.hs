@@ -1726,5 +1726,5 @@ instance
     RestoreDBInstanceFromS3Response
   where
   rnf RestoreDBInstanceFromS3Response' {..} =
-    Prelude.rnf dbInstance
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dbInstance `Prelude.seq`
+      Prelude.rnf httpStatus

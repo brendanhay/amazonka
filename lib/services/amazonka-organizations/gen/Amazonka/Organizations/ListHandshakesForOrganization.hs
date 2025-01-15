@@ -187,12 +187,12 @@ instance Core.AWSPager ListHandshakesForOrganization where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listHandshakesForOrganization_nextToken
-          Lens..~ rs
-          Lens.^? listHandshakesForOrganizationResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listHandshakesForOrganization_nextToken
+              Lens..~ rs
+              Lens.^? listHandshakesForOrganizationResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -224,9 +224,9 @@ instance
 
 instance Prelude.NFData ListHandshakesForOrganization where
   rnf ListHandshakesForOrganization' {..} =
-    Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filter' `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListHandshakesForOrganization where
   toHeaders =
@@ -327,6 +327,6 @@ instance
     ListHandshakesForOrganizationResponse
   where
   rnf ListHandshakesForOrganizationResponse' {..} =
-    Prelude.rnf handshakes
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf handshakes `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

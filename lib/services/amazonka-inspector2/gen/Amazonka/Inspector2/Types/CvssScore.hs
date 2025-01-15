@@ -114,7 +114,7 @@ instance Prelude.Hashable CvssScore where
 
 instance Prelude.NFData CvssScore where
   rnf CvssScore' {..} =
-    Prelude.rnf baseScore
-      `Prelude.seq` Prelude.rnf scoringVector
-      `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf version
+    Prelude.rnf baseScore `Prelude.seq`
+      Prelude.rnf scoringVector `Prelude.seq`
+        Prelude.rnf source `Prelude.seq`
+          Prelude.rnf version

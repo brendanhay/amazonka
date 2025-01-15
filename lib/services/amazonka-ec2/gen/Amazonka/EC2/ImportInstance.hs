@@ -163,11 +163,11 @@ instance Prelude.Hashable ImportInstance where
 
 instance Prelude.NFData ImportInstance where
   rnf ImportInstance' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf diskImages
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf launchSpecification
-      `Prelude.seq` Prelude.rnf platform
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf diskImages `Prelude.seq`
+        Prelude.rnf dryRun `Prelude.seq`
+          Prelude.rnf launchSpecification `Prelude.seq`
+            Prelude.rnf platform
 
 instance Data.ToHeaders ImportInstance where
   toHeaders = Prelude.const Prelude.mempty
@@ -233,5 +233,5 @@ importInstanceResponse_httpStatus = Lens.lens (\ImportInstanceResponse' {httpSta
 
 instance Prelude.NFData ImportInstanceResponse where
   rnf ImportInstanceResponse' {..} =
-    Prelude.rnf conversionTask
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf conversionTask `Prelude.seq`
+      Prelude.rnf httpStatus

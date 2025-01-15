@@ -100,5 +100,5 @@ instance
     BatchListObjectParentPathsResponse
   where
   rnf BatchListObjectParentPathsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf pathToObjectIdentifiersList
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf pathToObjectIdentifiersList

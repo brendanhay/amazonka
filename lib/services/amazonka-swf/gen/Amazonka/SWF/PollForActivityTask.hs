@@ -189,9 +189,9 @@ instance Prelude.Hashable PollForActivityTask where
 
 instance Prelude.NFData PollForActivityTask where
   rnf PollForActivityTask' {..} =
-    Prelude.rnf identity
-      `Prelude.seq` Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf taskList
+    Prelude.rnf identity `Prelude.seq`
+      Prelude.rnf domain `Prelude.seq`
+        Prelude.rnf taskList
 
 instance Data.ToHeaders PollForActivityTask where
   toHeaders =
@@ -328,10 +328,10 @@ pollForActivityTaskResponse_startedEventId = Lens.lens (\PollForActivityTaskResp
 
 instance Prelude.NFData PollForActivityTaskResponse where
   rnf PollForActivityTaskResponse' {..} =
-    Prelude.rnf activityId
-      `Prelude.seq` Prelude.rnf activityType
-      `Prelude.seq` Prelude.rnf input
-      `Prelude.seq` Prelude.rnf taskToken
-      `Prelude.seq` Prelude.rnf workflowExecution
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf startedEventId
+    Prelude.rnf activityId `Prelude.seq`
+      Prelude.rnf activityType `Prelude.seq`
+        Prelude.rnf input `Prelude.seq`
+          Prelude.rnf taskToken `Prelude.seq`
+            Prelude.rnf workflowExecution `Prelude.seq`
+              Prelude.rnf httpStatus `Prelude.seq`
+                Prelude.rnf startedEventId

@@ -217,10 +217,10 @@ getRegistryResponse_httpStatus = Lens.lens (\GetRegistryResponse' {httpStatus} -
 
 instance Prelude.NFData GetRegistryResponse where
   rnf GetRegistryResponse' {..} =
-    Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf registryArn
-      `Prelude.seq` Prelude.rnf registryName
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf updatedTime
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf createdTime `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf registryArn `Prelude.seq`
+          Prelude.rnf registryName `Prelude.seq`
+            Prelude.rnf status `Prelude.seq`
+              Prelude.rnf updatedTime `Prelude.seq`
+                Prelude.rnf httpStatus

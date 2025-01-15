@@ -140,9 +140,9 @@ instance Prelude.Hashable EC2ResourceUtilization where
 
 instance Prelude.NFData EC2ResourceUtilization where
   rnf EC2ResourceUtilization' {..} =
-    Prelude.rnf diskResourceUtilization
-      `Prelude.seq` Prelude.rnf eBSResourceUtilization
-      `Prelude.seq` Prelude.rnf maxCpuUtilizationPercentage
-      `Prelude.seq` Prelude.rnf maxMemoryUtilizationPercentage
-      `Prelude.seq` Prelude.rnf maxStorageUtilizationPercentage
-      `Prelude.seq` Prelude.rnf networkResourceUtilization
+    Prelude.rnf diskResourceUtilization `Prelude.seq`
+      Prelude.rnf eBSResourceUtilization `Prelude.seq`
+        Prelude.rnf maxCpuUtilizationPercentage `Prelude.seq`
+          Prelude.rnf maxMemoryUtilizationPercentage `Prelude.seq`
+            Prelude.rnf maxStorageUtilizationPercentage `Prelude.seq`
+              Prelude.rnf networkResourceUtilization

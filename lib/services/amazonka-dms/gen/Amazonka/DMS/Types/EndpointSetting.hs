@@ -164,12 +164,12 @@ instance Prelude.Hashable EndpointSetting where
 
 instance Prelude.NFData EndpointSetting where
   rnf EndpointSetting' {..} =
-    Prelude.rnf applicability
-      `Prelude.seq` Prelude.rnf defaultValue
-      `Prelude.seq` Prelude.rnf enumValues
-      `Prelude.seq` Prelude.rnf intValueMax
-      `Prelude.seq` Prelude.rnf intValueMin
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf sensitive
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf units
+    Prelude.rnf applicability `Prelude.seq`
+      Prelude.rnf defaultValue `Prelude.seq`
+        Prelude.rnf enumValues `Prelude.seq`
+          Prelude.rnf intValueMax `Prelude.seq`
+            Prelude.rnf intValueMin `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf sensitive `Prelude.seq`
+                  Prelude.rnf type' `Prelude.seq`
+                    Prelude.rnf units

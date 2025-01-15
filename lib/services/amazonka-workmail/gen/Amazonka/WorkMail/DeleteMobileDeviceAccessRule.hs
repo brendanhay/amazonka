@@ -120,8 +120,8 @@ instance
 
 instance Prelude.NFData DeleteMobileDeviceAccessRule where
   rnf DeleteMobileDeviceAccessRule' {..} =
-    Prelude.rnf organizationId
-      `Prelude.seq` Prelude.rnf mobileDeviceAccessRuleId
+    Prelude.rnf organizationId `Prelude.seq`
+      Prelude.rnf mobileDeviceAccessRuleId
 
 instance Data.ToHeaders DeleteMobileDeviceAccessRule where
   toHeaders =

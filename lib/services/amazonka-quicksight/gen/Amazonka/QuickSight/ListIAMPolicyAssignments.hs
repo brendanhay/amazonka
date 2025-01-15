@@ -159,11 +159,11 @@ instance Prelude.Hashable ListIAMPolicyAssignments where
 
 instance Prelude.NFData ListIAMPolicyAssignments where
   rnf ListIAMPolicyAssignments' {..} =
-    Prelude.rnf assignmentStatus
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf namespace
+    Prelude.rnf assignmentStatus `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf awsAccountId `Prelude.seq`
+            Prelude.rnf namespace
 
 instance Data.ToHeaders ListIAMPolicyAssignments where
   toHeaders =
@@ -258,7 +258,7 @@ instance
     ListIAMPolicyAssignmentsResponse
   where
   rnf ListIAMPolicyAssignmentsResponse' {..} =
-    Prelude.rnf iAMPolicyAssignments
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf iAMPolicyAssignments `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf requestId `Prelude.seq`
+          Prelude.rnf status

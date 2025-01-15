@@ -147,8 +147,8 @@ instance Prelude.Hashable QueryExecutionStatus where
 
 instance Prelude.NFData QueryExecutionStatus where
   rnf QueryExecutionStatus' {..} =
-    Prelude.rnf athenaError
-      `Prelude.seq` Prelude.rnf completionDateTime
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf stateChangeReason
-      `Prelude.seq` Prelude.rnf submissionDateTime
+    Prelude.rnf athenaError `Prelude.seq`
+      Prelude.rnf completionDateTime `Prelude.seq`
+        Prelude.rnf state `Prelude.seq`
+          Prelude.rnf stateChangeReason `Prelude.seq`
+            Prelude.rnf submissionDateTime

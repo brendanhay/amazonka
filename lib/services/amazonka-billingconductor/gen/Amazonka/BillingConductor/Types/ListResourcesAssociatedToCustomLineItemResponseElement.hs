@@ -110,6 +110,6 @@ instance
   where
   rnf
     ListResourcesAssociatedToCustomLineItemResponseElement' {..} =
-      Prelude.rnf arn
-        `Prelude.seq` Prelude.rnf endBillingPeriod
-        `Prelude.seq` Prelude.rnf relationship
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf endBillingPeriod `Prelude.seq`
+          Prelude.rnf relationship

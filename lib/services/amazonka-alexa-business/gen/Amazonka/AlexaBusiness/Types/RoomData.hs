@@ -124,9 +124,9 @@ instance Prelude.Hashable RoomData where
 
 instance Prelude.NFData RoomData where
   rnf RoomData' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf profileArn
-      `Prelude.seq` Prelude.rnf profileName
-      `Prelude.seq` Prelude.rnf providerCalendarId
-      `Prelude.seq` Prelude.rnf roomArn
-      `Prelude.seq` Prelude.rnf roomName
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf profileArn `Prelude.seq`
+        Prelude.rnf profileName `Prelude.seq`
+          Prelude.rnf providerCalendarId `Prelude.seq`
+            Prelude.rnf roomArn `Prelude.seq`
+              Prelude.rnf roomName

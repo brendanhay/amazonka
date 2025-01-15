@@ -103,9 +103,9 @@ instance Prelude.Hashable PivotTableSortBy where
 
 instance Prelude.NFData PivotTableSortBy where
   rnf PivotTableSortBy' {..} =
-    Prelude.rnf column
-      `Prelude.seq` Prelude.rnf dataPath
-      `Prelude.seq` Prelude.rnf field
+    Prelude.rnf column `Prelude.seq`
+      Prelude.rnf dataPath `Prelude.seq`
+        Prelude.rnf field
 
 instance Data.ToJSON PivotTableSortBy where
   toJSON PivotTableSortBy' {..} =

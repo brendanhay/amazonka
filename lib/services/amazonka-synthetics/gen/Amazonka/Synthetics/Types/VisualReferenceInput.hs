@@ -109,8 +109,8 @@ instance Prelude.Hashable VisualReferenceInput where
 
 instance Prelude.NFData VisualReferenceInput where
   rnf VisualReferenceInput' {..} =
-    Prelude.rnf baseScreenshots
-      `Prelude.seq` Prelude.rnf baseCanaryRunId
+    Prelude.rnf baseScreenshots `Prelude.seq`
+      Prelude.rnf baseCanaryRunId
 
 instance Data.ToJSON VisualReferenceInput where
   toJSON VisualReferenceInput' {..} =

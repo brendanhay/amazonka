@@ -92,6 +92,6 @@ instance Prelude.Hashable TrailInfo where
 
 instance Prelude.NFData TrailInfo where
   rnf TrailInfo' {..} =
-    Prelude.rnf homeRegion
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf trailARN
+    Prelude.rnf homeRegion `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf trailARN

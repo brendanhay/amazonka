@@ -418,12 +418,12 @@ instance Core.AWSPager DescribeSubnets where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeSubnets_nextToken
-          Lens..~ rs
-          Lens.^? describeSubnetsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeSubnets_nextToken
+              Lens..~ rs
+              Lens.^? describeSubnetsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeSubnets where
   type
@@ -436,9 +436,7 @@ instance Core.AWSRequest DescribeSubnets where
       ( \s h x ->
           DescribeSubnetsResponse'
             Prelude.<$> (x Data..@? "nextToken")
-            Prelude.<*> ( x
-                            Data..@? "subnetSet"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "subnetSet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -455,11 +453,11 @@ instance Prelude.Hashable DescribeSubnets where
 
 instance Prelude.NFData DescribeSubnets where
   rnf DescribeSubnets' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf subnetIds
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf subnetIds
 
 instance Data.ToHeaders DescribeSubnets where
   toHeaders = Prelude.const Prelude.mempty
@@ -536,6 +534,6 @@ describeSubnetsResponse_httpStatus = Lens.lens (\DescribeSubnetsResponse' {httpS
 
 instance Prelude.NFData DescribeSubnetsResponse where
   rnf DescribeSubnetsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf subnets
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf subnets `Prelude.seq`
+        Prelude.rnf httpStatus

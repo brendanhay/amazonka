@@ -120,10 +120,10 @@ instance Prelude.Hashable ProfilerConfigForUpdate where
 
 instance Prelude.NFData ProfilerConfigForUpdate where
   rnf ProfilerConfigForUpdate' {..} =
-    Prelude.rnf disableProfiler
-      `Prelude.seq` Prelude.rnf profilingIntervalInMilliseconds
-      `Prelude.seq` Prelude.rnf profilingParameters
-      `Prelude.seq` Prelude.rnf s3OutputPath
+    Prelude.rnf disableProfiler `Prelude.seq`
+      Prelude.rnf profilingIntervalInMilliseconds `Prelude.seq`
+        Prelude.rnf profilingParameters `Prelude.seq`
+          Prelude.rnf s3OutputPath
 
 instance Data.ToJSON ProfilerConfigForUpdate where
   toJSON ProfilerConfigForUpdate' {..} =

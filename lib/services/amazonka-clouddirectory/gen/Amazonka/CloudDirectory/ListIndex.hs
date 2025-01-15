@@ -152,12 +152,12 @@ instance Core.AWSPager ListIndex where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listIndex_nextToken
-          Lens..~ rs
-          Lens.^? listIndexResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listIndex_nextToken
+              Lens..~ rs
+              Lens.^? listIndexResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListIndex where
   type AWSResponse ListIndex = ListIndexResponse
@@ -187,12 +187,12 @@ instance Prelude.Hashable ListIndex where
 
 instance Prelude.NFData ListIndex where
   rnf ListIndex' {..} =
-    Prelude.rnf consistencyLevel
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf rangesOnIndexedValues
-      `Prelude.seq` Prelude.rnf directoryArn
-      `Prelude.seq` Prelude.rnf indexReference
+    Prelude.rnf consistencyLevel `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf rangesOnIndexedValues `Prelude.seq`
+            Prelude.rnf directoryArn `Prelude.seq`
+              Prelude.rnf indexReference
 
 instance Data.ToHeaders ListIndex where
   toHeaders ListIndex' {..} =
@@ -272,6 +272,6 @@ listIndexResponse_httpStatus = Lens.lens (\ListIndexResponse' {httpStatus} -> ht
 
 instance Prelude.NFData ListIndexResponse where
   rnf ListIndexResponse' {..} =
-    Prelude.rnf indexAttachments
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf indexAttachments `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

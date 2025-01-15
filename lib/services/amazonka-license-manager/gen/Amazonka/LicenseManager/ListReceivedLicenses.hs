@@ -160,10 +160,10 @@ instance Prelude.Hashable ListReceivedLicenses where
 
 instance Prelude.NFData ListReceivedLicenses where
   rnf ListReceivedLicenses' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf licenseArns
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf licenseArns `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken
 
 instance Data.ToHeaders ListReceivedLicenses where
   toHeaders =
@@ -247,6 +247,6 @@ listReceivedLicensesResponse_httpStatus = Lens.lens (\ListReceivedLicensesRespon
 
 instance Prelude.NFData ListReceivedLicensesResponse where
   rnf ListReceivedLicensesResponse' {..} =
-    Prelude.rnf licenses
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf licenses `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

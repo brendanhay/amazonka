@@ -138,8 +138,8 @@ instance
     DescribePermissionSetProvisioningStatus
   where
   rnf DescribePermissionSetProvisioningStatus' {..} =
-    Prelude.rnf instanceArn
-      `Prelude.seq` Prelude.rnf provisionPermissionSetRequestId
+    Prelude.rnf instanceArn `Prelude.seq`
+      Prelude.rnf provisionPermissionSetRequestId
 
 instance
   Data.ToHeaders
@@ -232,5 +232,5 @@ instance
   where
   rnf
     DescribePermissionSetProvisioningStatusResponse' {..} =
-      Prelude.rnf permissionSetProvisioningStatus
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf permissionSetProvisioningStatus `Prelude.seq`
+        Prelude.rnf httpStatus

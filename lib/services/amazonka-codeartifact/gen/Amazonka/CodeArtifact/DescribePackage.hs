@@ -197,12 +197,12 @@ instance Prelude.Hashable DescribePackage where
 
 instance Prelude.NFData DescribePackage where
   rnf DescribePackage' {..} =
-    Prelude.rnf domainOwner
-      `Prelude.seq` Prelude.rnf namespace
-      `Prelude.seq` Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf repository
-      `Prelude.seq` Prelude.rnf format
-      `Prelude.seq` Prelude.rnf package
+    Prelude.rnf domainOwner `Prelude.seq`
+      Prelude.rnf namespace `Prelude.seq`
+        Prelude.rnf domain `Prelude.seq`
+          Prelude.rnf repository `Prelude.seq`
+            Prelude.rnf format `Prelude.seq`
+              Prelude.rnf package
 
 instance Data.ToHeaders DescribePackage where
   toHeaders =
@@ -277,5 +277,5 @@ describePackageResponse_package = Lens.lens (\DescribePackageResponse' {package}
 
 instance Prelude.NFData DescribePackageResponse where
   rnf DescribePackageResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf package
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf package

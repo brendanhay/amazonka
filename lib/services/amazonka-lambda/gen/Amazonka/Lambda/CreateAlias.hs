@@ -195,11 +195,11 @@ instance Prelude.Hashable CreateAlias where
 
 instance Prelude.NFData CreateAlias where
   rnf CreateAlias' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf routingConfig
-      `Prelude.seq` Prelude.rnf functionName
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf functionVersion
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf routingConfig `Prelude.seq`
+        Prelude.rnf functionName `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf functionVersion
 
 instance Data.ToHeaders CreateAlias where
   toHeaders = Prelude.const Prelude.mempty

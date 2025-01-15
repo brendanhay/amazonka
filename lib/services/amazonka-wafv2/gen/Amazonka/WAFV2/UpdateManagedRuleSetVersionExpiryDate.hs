@@ -283,12 +283,12 @@ instance
     UpdateManagedRuleSetVersionExpiryDate
   where
   rnf UpdateManagedRuleSetVersionExpiryDate' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf scope
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf lockToken
-      `Prelude.seq` Prelude.rnf versionToExpire
-      `Prelude.seq` Prelude.rnf expiryTimestamp
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf scope `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf lockToken `Prelude.seq`
+            Prelude.rnf versionToExpire `Prelude.seq`
+              Prelude.rnf expiryTimestamp
 
 instance
   Data.ToHeaders
@@ -434,7 +434,7 @@ instance
   where
   rnf
     UpdateManagedRuleSetVersionExpiryDateResponse' {..} =
-      Prelude.rnf expiringVersion
-        `Prelude.seq` Prelude.rnf expiryTimestamp
-        `Prelude.seq` Prelude.rnf nextLockToken
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf expiringVersion `Prelude.seq`
+        Prelude.rnf expiryTimestamp `Prelude.seq`
+          Prelude.rnf nextLockToken `Prelude.seq`
+            Prelude.rnf httpStatus

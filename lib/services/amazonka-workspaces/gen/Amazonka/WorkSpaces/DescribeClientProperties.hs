@@ -175,5 +175,5 @@ instance
     DescribeClientPropertiesResponse
   where
   rnf DescribeClientPropertiesResponse' {..} =
-    Prelude.rnf clientPropertiesList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf clientPropertiesList `Prelude.seq`
+      Prelude.rnf httpStatus

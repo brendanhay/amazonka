@@ -116,8 +116,8 @@ instance Prelude.Hashable DeleteCertificate where
 
 instance Prelude.NFData DeleteCertificate where
   rnf DeleteCertificate' {..} =
-    Prelude.rnf forceDelete
-      `Prelude.seq` Prelude.rnf certificateId
+    Prelude.rnf forceDelete `Prelude.seq`
+      Prelude.rnf certificateId
 
 instance Data.ToHeaders DeleteCertificate where
   toHeaders = Prelude.const Prelude.mempty

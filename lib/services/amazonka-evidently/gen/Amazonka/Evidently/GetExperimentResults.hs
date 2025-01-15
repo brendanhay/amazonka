@@ -305,16 +305,16 @@ instance Prelude.Hashable GetExperimentResults where
 
 instance Prelude.NFData GetExperimentResults where
   rnf GetExperimentResults' {..} =
-    Prelude.rnf baseStat
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf period
-      `Prelude.seq` Prelude.rnf reportNames
-      `Prelude.seq` Prelude.rnf resultStats
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf experiment
-      `Prelude.seq` Prelude.rnf metricNames
-      `Prelude.seq` Prelude.rnf project
-      `Prelude.seq` Prelude.rnf treatmentNames
+    Prelude.rnf baseStat `Prelude.seq`
+      Prelude.rnf endTime `Prelude.seq`
+        Prelude.rnf period `Prelude.seq`
+          Prelude.rnf reportNames `Prelude.seq`
+            Prelude.rnf resultStats `Prelude.seq`
+              Prelude.rnf startTime `Prelude.seq`
+                Prelude.rnf experiment `Prelude.seq`
+                  Prelude.rnf metricNames `Prelude.seq`
+                    Prelude.rnf project `Prelude.seq`
+                      Prelude.rnf treatmentNames
 
 instance Data.ToHeaders GetExperimentResults where
   toHeaders =
@@ -436,8 +436,8 @@ getExperimentResultsResponse_httpStatus = Lens.lens (\GetExperimentResultsRespon
 
 instance Prelude.NFData GetExperimentResultsResponse where
   rnf GetExperimentResultsResponse' {..} =
-    Prelude.rnf details
-      `Prelude.seq` Prelude.rnf reports
-      `Prelude.seq` Prelude.rnf resultsData
-      `Prelude.seq` Prelude.rnf timestamps
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf details `Prelude.seq`
+      Prelude.rnf reports `Prelude.seq`
+        Prelude.rnf resultsData `Prelude.seq`
+          Prelude.rnf timestamps `Prelude.seq`
+            Prelude.rnf httpStatus

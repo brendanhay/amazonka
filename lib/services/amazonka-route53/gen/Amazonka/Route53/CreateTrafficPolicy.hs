@@ -137,9 +137,9 @@ instance Prelude.Hashable CreateTrafficPolicy where
 
 instance Prelude.NFData CreateTrafficPolicy where
   rnf CreateTrafficPolicy' {..} =
-    Prelude.rnf comment
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf document
+    Prelude.rnf comment `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf document
 
 instance Data.ToElement CreateTrafficPolicy where
   toElement =
@@ -223,6 +223,6 @@ createTrafficPolicyResponse_location = Lens.lens (\CreateTrafficPolicyResponse' 
 
 instance Prelude.NFData CreateTrafficPolicyResponse where
   rnf CreateTrafficPolicyResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf trafficPolicy
-      `Prelude.seq` Prelude.rnf location
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf trafficPolicy `Prelude.seq`
+        Prelude.rnf location

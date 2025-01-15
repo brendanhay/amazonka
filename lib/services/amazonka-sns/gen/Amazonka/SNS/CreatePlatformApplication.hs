@@ -172,9 +172,9 @@ instance Prelude.Hashable CreatePlatformApplication where
 
 instance Prelude.NFData CreatePlatformApplication where
   rnf CreatePlatformApplication' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf platform
-      `Prelude.seq` Prelude.rnf attributes
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf platform `Prelude.seq`
+        Prelude.rnf attributes
 
 instance Data.ToHeaders CreatePlatformApplication where
   toHeaders = Prelude.const Prelude.mempty
@@ -241,5 +241,5 @@ instance
     CreatePlatformApplicationResponse
   where
   rnf CreatePlatformApplicationResponse' {..} =
-    Prelude.rnf platformApplicationArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf platformApplicationArn `Prelude.seq`
+      Prelude.rnf httpStatus

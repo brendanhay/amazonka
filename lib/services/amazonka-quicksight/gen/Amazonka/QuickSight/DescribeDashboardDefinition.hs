@@ -159,10 +159,10 @@ instance Prelude.Hashable DescribeDashboardDefinition where
 
 instance Prelude.NFData DescribeDashboardDefinition where
   rnf DescribeDashboardDefinition' {..} =
-    Prelude.rnf aliasName
-      `Prelude.seq` Prelude.rnf versionNumber
-      `Prelude.seq` Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf dashboardId
+    Prelude.rnf aliasName `Prelude.seq`
+      Prelude.rnf versionNumber `Prelude.seq`
+        Prelude.rnf awsAccountId `Prelude.seq`
+          Prelude.rnf dashboardId
 
 instance Data.ToHeaders DescribeDashboardDefinition where
   toHeaders =
@@ -341,11 +341,11 @@ instance
     DescribeDashboardDefinitionResponse
   where
   rnf DescribeDashboardDefinitionResponse' {..} =
-    Prelude.rnf dashboardId
-      `Prelude.seq` Prelude.rnf definition
-      `Prelude.seq` Prelude.rnf errors
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf resourceStatus
-      `Prelude.seq` Prelude.rnf themeArn
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf dashboardId `Prelude.seq`
+      Prelude.rnf definition `Prelude.seq`
+        Prelude.rnf errors `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf requestId `Prelude.seq`
+              Prelude.rnf resourceStatus `Prelude.seq`
+                Prelude.rnf themeArn `Prelude.seq`
+                  Prelude.rnf status

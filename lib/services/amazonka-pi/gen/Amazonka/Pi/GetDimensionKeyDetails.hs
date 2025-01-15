@@ -235,11 +235,11 @@ instance Prelude.Hashable GetDimensionKeyDetails where
 
 instance Prelude.NFData GetDimensionKeyDetails where
   rnf GetDimensionKeyDetails' {..} =
-    Prelude.rnf requestedDimensions
-      `Prelude.seq` Prelude.rnf serviceType
-      `Prelude.seq` Prelude.rnf identifier
-      `Prelude.seq` Prelude.rnf group'
-      `Prelude.seq` Prelude.rnf groupIdentifier
+    Prelude.rnf requestedDimensions `Prelude.seq`
+      Prelude.rnf serviceType `Prelude.seq`
+        Prelude.rnf identifier `Prelude.seq`
+          Prelude.rnf group' `Prelude.seq`
+            Prelude.rnf groupIdentifier
 
 instance Data.ToHeaders GetDimensionKeyDetails where
   toHeaders =
@@ -320,5 +320,5 @@ instance
     GetDimensionKeyDetailsResponse
   where
   rnf GetDimensionKeyDetailsResponse' {..} =
-    Prelude.rnf dimensions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dimensions `Prelude.seq`
+      Prelude.rnf httpStatus

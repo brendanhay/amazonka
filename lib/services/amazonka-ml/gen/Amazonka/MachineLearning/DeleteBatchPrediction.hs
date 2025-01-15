@@ -190,5 +190,5 @@ deleteBatchPredictionResponse_httpStatus = Lens.lens (\DeleteBatchPredictionResp
 
 instance Prelude.NFData DeleteBatchPredictionResponse where
   rnf DeleteBatchPredictionResponse' {..} =
-    Prelude.rnf batchPredictionId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf batchPredictionId `Prelude.seq`
+      Prelude.rnf httpStatus

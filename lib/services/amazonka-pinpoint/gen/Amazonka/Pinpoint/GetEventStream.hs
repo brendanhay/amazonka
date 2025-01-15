@@ -162,5 +162,5 @@ getEventStreamResponse_eventStream = Lens.lens (\GetEventStreamResponse' {eventS
 
 instance Prelude.NFData GetEventStreamResponse where
   rnf GetEventStreamResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf eventStream
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf eventStream

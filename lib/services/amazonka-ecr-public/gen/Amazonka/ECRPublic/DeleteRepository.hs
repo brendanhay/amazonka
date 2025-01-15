@@ -128,9 +128,9 @@ instance Prelude.Hashable DeleteRepository where
 
 instance Prelude.NFData DeleteRepository where
   rnf DeleteRepository' {..} =
-    Prelude.rnf force
-      `Prelude.seq` Prelude.rnf registryId
-      `Prelude.seq` Prelude.rnf repositoryName
+    Prelude.rnf force `Prelude.seq`
+      Prelude.rnf registryId `Prelude.seq`
+        Prelude.rnf repositoryName
 
 instance Data.ToHeaders DeleteRepository where
   toHeaders =
@@ -205,5 +205,5 @@ deleteRepositoryResponse_httpStatus = Lens.lens (\DeleteRepositoryResponse' {htt
 
 instance Prelude.NFData DeleteRepositoryResponse where
   rnf DeleteRepositoryResponse' {..} =
-    Prelude.rnf repository
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf repository `Prelude.seq`
+      Prelude.rnf httpStatus

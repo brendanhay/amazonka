@@ -132,12 +132,12 @@ instance Core.AWSPager ListUserHierarchyGroups where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listUserHierarchyGroups_nextToken
-          Lens..~ rs
-          Lens.^? listUserHierarchyGroupsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listUserHierarchyGroups_nextToken
+              Lens..~ rs
+              Lens.^? listUserHierarchyGroupsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListUserHierarchyGroups where
   type
@@ -166,9 +166,9 @@ instance Prelude.Hashable ListUserHierarchyGroups where
 
 instance Prelude.NFData ListUserHierarchyGroups where
   rnf ListUserHierarchyGroups' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf instanceId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf instanceId
 
 instance Data.ToHeaders ListUserHierarchyGroups where
   toHeaders =
@@ -252,6 +252,6 @@ instance
     ListUserHierarchyGroupsResponse
   where
   rnf ListUserHierarchyGroupsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf userHierarchyGroupSummaryList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf userHierarchyGroupSummaryList `Prelude.seq`
+        Prelude.rnf httpStatus

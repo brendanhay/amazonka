@@ -209,13 +209,13 @@ instance Prelude.Hashable CreateManagedPrefixList where
 
 instance Prelude.NFData CreateManagedPrefixList where
   rnf CreateManagedPrefixList' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf entries
-      `Prelude.seq` Prelude.rnf tagSpecifications
-      `Prelude.seq` Prelude.rnf prefixListName
-      `Prelude.seq` Prelude.rnf maxEntries
-      `Prelude.seq` Prelude.rnf addressFamily
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf entries `Prelude.seq`
+          Prelude.rnf tagSpecifications `Prelude.seq`
+            Prelude.rnf prefixListName `Prelude.seq`
+              Prelude.rnf maxEntries `Prelude.seq`
+                Prelude.rnf addressFamily
 
 instance Data.ToHeaders CreateManagedPrefixList where
   toHeaders = Prelude.const Prelude.mempty
@@ -287,5 +287,5 @@ instance
     CreateManagedPrefixListResponse
   where
   rnf CreateManagedPrefixListResponse' {..} =
-    Prelude.rnf prefixList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf prefixList `Prelude.seq`
+      Prelude.rnf httpStatus

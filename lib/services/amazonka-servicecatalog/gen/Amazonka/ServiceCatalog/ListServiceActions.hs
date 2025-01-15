@@ -134,12 +134,12 @@ instance Core.AWSPager ListServiceActions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listServiceActions_pageToken
-          Lens..~ rs
-          Lens.^? listServiceActionsResponse_nextPageToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listServiceActions_pageToken
+              Lens..~ rs
+              Lens.^? listServiceActionsResponse_nextPageToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListServiceActions where
   type
@@ -168,9 +168,9 @@ instance Prelude.Hashable ListServiceActions where
 
 instance Prelude.NFData ListServiceActions where
   rnf ListServiceActions' {..} =
-    Prelude.rnf acceptLanguage
-      `Prelude.seq` Prelude.rnf pageSize
-      `Prelude.seq` Prelude.rnf pageToken
+    Prelude.rnf acceptLanguage `Prelude.seq`
+      Prelude.rnf pageSize `Prelude.seq`
+        Prelude.rnf pageToken
 
 instance Data.ToHeaders ListServiceActions where
   toHeaders =
@@ -260,6 +260,6 @@ listServiceActionsResponse_httpStatus = Lens.lens (\ListServiceActionsResponse' 
 
 instance Prelude.NFData ListServiceActionsResponse where
   rnf ListServiceActionsResponse' {..} =
-    Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf serviceActionSummaries
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextPageToken `Prelude.seq`
+      Prelude.rnf serviceActionSummaries `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -77,5 +77,5 @@ instance Prelude.Hashable CacheNodeTypeSpecificValue where
 
 instance Prelude.NFData CacheNodeTypeSpecificValue where
   rnf CacheNodeTypeSpecificValue' {..} =
-    Prelude.rnf cacheNodeType
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf cacheNodeType `Prelude.seq`
+      Prelude.rnf value

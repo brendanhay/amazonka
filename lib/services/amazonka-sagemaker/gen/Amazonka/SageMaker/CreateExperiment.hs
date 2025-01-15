@@ -170,10 +170,10 @@ instance Prelude.Hashable CreateExperiment where
 
 instance Prelude.NFData CreateExperiment where
   rnf CreateExperiment' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf experimentName
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf displayName `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf experimentName
 
 instance Data.ToHeaders CreateExperiment where
   toHeaders =
@@ -247,5 +247,5 @@ createExperimentResponse_httpStatus = Lens.lens (\CreateExperimentResponse' {htt
 
 instance Prelude.NFData CreateExperimentResponse where
   rnf CreateExperimentResponse' {..} =
-    Prelude.rnf experimentArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf experimentArn `Prelude.seq`
+      Prelude.rnf httpStatus

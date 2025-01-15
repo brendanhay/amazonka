@@ -124,8 +124,8 @@ instance Prelude.Hashable ResolveRoom where
 
 instance Prelude.NFData ResolveRoom where
   rnf ResolveRoom' {..} =
-    Prelude.rnf userId
-      `Prelude.seq` Prelude.rnf skillId
+    Prelude.rnf userId `Prelude.seq`
+      Prelude.rnf skillId
 
 instance Data.ToHeaders ResolveRoom where
   toHeaders =
@@ -215,7 +215,7 @@ resolveRoomResponse_httpStatus = Lens.lens (\ResolveRoomResponse' {httpStatus} -
 
 instance Prelude.NFData ResolveRoomResponse where
   rnf ResolveRoomResponse' {..} =
-    Prelude.rnf roomArn
-      `Prelude.seq` Prelude.rnf roomName
-      `Prelude.seq` Prelude.rnf roomSkillParameters
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf roomArn `Prelude.seq`
+      Prelude.rnf roomName `Prelude.seq`
+        Prelude.rnf roomSkillParameters `Prelude.seq`
+          Prelude.rnf httpStatus

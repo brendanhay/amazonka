@@ -134,9 +134,9 @@ instance Prelude.Hashable AuthenticationConfig where
 
 instance Prelude.NFData AuthenticationConfig where
   rnf AuthenticationConfig' {..} =
-    Prelude.rnf customAuthConfigs
-      `Prelude.seq` Prelude.rnf isApiKeyAuthSupported
-      `Prelude.seq` Prelude.rnf isBasicAuthSupported
-      `Prelude.seq` Prelude.rnf isCustomAuthSupported
-      `Prelude.seq` Prelude.rnf isOAuth2Supported
-      `Prelude.seq` Prelude.rnf oAuth2Defaults
+    Prelude.rnf customAuthConfigs `Prelude.seq`
+      Prelude.rnf isApiKeyAuthSupported `Prelude.seq`
+        Prelude.rnf isBasicAuthSupported `Prelude.seq`
+          Prelude.rnf isCustomAuthSupported `Prelude.seq`
+            Prelude.rnf isOAuth2Supported `Prelude.seq`
+              Prelude.rnf oAuth2Defaults

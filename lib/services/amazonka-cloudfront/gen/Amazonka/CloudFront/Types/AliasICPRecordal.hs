@@ -143,5 +143,5 @@ instance Prelude.Hashable AliasICPRecordal where
 
 instance Prelude.NFData AliasICPRecordal where
   rnf AliasICPRecordal' {..} =
-    Prelude.rnf cname
-      `Prelude.seq` Prelude.rnf iCPRecordalStatus
+    Prelude.rnf cname `Prelude.seq`
+      Prelude.rnf iCPRecordalStatus

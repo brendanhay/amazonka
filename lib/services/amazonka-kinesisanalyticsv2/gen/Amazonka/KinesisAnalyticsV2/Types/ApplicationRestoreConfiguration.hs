@@ -107,8 +107,8 @@ instance
     ApplicationRestoreConfiguration
   where
   rnf ApplicationRestoreConfiguration' {..} =
-    Prelude.rnf snapshotName
-      `Prelude.seq` Prelude.rnf applicationRestoreType
+    Prelude.rnf snapshotName `Prelude.seq`
+      Prelude.rnf applicationRestoreType
 
 instance Data.ToJSON ApplicationRestoreConfiguration where
   toJSON ApplicationRestoreConfiguration' {..} =

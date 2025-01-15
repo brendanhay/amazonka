@@ -98,9 +98,9 @@ instance Prelude.Hashable InputClippingSettings where
 
 instance Prelude.NFData InputClippingSettings where
   rnf InputClippingSettings' {..} =
-    Prelude.rnf startTimecode
-      `Prelude.seq` Prelude.rnf stopTimecode
-      `Prelude.seq` Prelude.rnf inputTimecodeSource
+    Prelude.rnf startTimecode `Prelude.seq`
+      Prelude.rnf stopTimecode `Prelude.seq`
+        Prelude.rnf inputTimecodeSource
 
 instance Data.ToJSON InputClippingSettings where
   toJSON InputClippingSettings' {..} =

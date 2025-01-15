@@ -112,7 +112,7 @@ instance Prelude.Hashable TemporaryCredential where
 
 instance Prelude.NFData TemporaryCredential where
   rnf TemporaryCredential' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf password
-      `Prelude.seq` Prelude.rnf username
-      `Prelude.seq` Prelude.rnf validForInMinutes
+    Prelude.rnf instanceId `Prelude.seq`
+      Prelude.rnf password `Prelude.seq`
+        Prelude.rnf username `Prelude.seq`
+          Prelude.rnf validForInMinutes

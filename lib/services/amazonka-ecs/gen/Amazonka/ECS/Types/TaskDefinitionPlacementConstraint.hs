@@ -110,8 +110,8 @@ instance
     TaskDefinitionPlacementConstraint
   where
   rnf TaskDefinitionPlacementConstraint' {..} =
-    Prelude.rnf expression
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf expression `Prelude.seq`
+      Prelude.rnf type'
 
 instance
   Data.ToJSON

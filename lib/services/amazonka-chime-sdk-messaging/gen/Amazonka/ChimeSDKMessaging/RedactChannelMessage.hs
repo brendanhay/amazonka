@@ -148,10 +148,10 @@ instance Prelude.Hashable RedactChannelMessage where
 
 instance Prelude.NFData RedactChannelMessage where
   rnf RedactChannelMessage' {..} =
-    Prelude.rnf subChannelId
-      `Prelude.seq` Prelude.rnf channelArn
-      `Prelude.seq` Prelude.rnf messageId
-      `Prelude.seq` Prelude.rnf chimeBearer
+    Prelude.rnf subChannelId `Prelude.seq`
+      Prelude.rnf channelArn `Prelude.seq`
+        Prelude.rnf messageId `Prelude.seq`
+          Prelude.rnf chimeBearer
 
 instance Data.ToHeaders RedactChannelMessage where
   toHeaders RedactChannelMessage' {..} =
@@ -247,7 +247,7 @@ redactChannelMessageResponse_httpStatus = Lens.lens (\RedactChannelMessageRespon
 
 instance Prelude.NFData RedactChannelMessageResponse where
   rnf RedactChannelMessageResponse' {..} =
-    Prelude.rnf channelArn
-      `Prelude.seq` Prelude.rnf messageId
-      `Prelude.seq` Prelude.rnf subChannelId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf channelArn `Prelude.seq`
+      Prelude.rnf messageId `Prelude.seq`
+        Prelude.rnf subChannelId `Prelude.seq`
+          Prelude.rnf httpStatus

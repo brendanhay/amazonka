@@ -107,7 +107,7 @@ instance Prelude.Hashable ElasticGpuAssociation where
 
 instance Prelude.NFData ElasticGpuAssociation where
   rnf ElasticGpuAssociation' {..} =
-    Prelude.rnf elasticGpuAssociationId
-      `Prelude.seq` Prelude.rnf elasticGpuAssociationState
-      `Prelude.seq` Prelude.rnf elasticGpuAssociationTime
-      `Prelude.seq` Prelude.rnf elasticGpuId
+    Prelude.rnf elasticGpuAssociationId `Prelude.seq`
+      Prelude.rnf elasticGpuAssociationState `Prelude.seq`
+        Prelude.rnf elasticGpuAssociationTime `Prelude.seq`
+          Prelude.rnf elasticGpuId

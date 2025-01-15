@@ -95,6 +95,6 @@ instance Prelude.Hashable BudgetedAndActualAmounts where
 
 instance Prelude.NFData BudgetedAndActualAmounts where
   rnf BudgetedAndActualAmounts' {..} =
-    Prelude.rnf actualAmount
-      `Prelude.seq` Prelude.rnf budgetedAmount
-      `Prelude.seq` Prelude.rnf timePeriod
+    Prelude.rnf actualAmount `Prelude.seq`
+      Prelude.rnf budgetedAmount `Prelude.seq`
+        Prelude.rnf timePeriod

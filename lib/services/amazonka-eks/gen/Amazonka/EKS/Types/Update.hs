@@ -128,9 +128,9 @@ instance Prelude.Hashable Update where
 
 instance Prelude.NFData Update where
   rnf Update' {..} =
-    Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf errors
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf params
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf createdAt `Prelude.seq`
+      Prelude.rnf errors `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf params `Prelude.seq`
+            Prelude.rnf status `Prelude.seq`
+              Prelude.rnf type'

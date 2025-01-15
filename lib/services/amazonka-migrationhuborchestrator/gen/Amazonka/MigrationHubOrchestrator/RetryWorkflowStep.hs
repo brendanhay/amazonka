@@ -129,9 +129,9 @@ instance Prelude.Hashable RetryWorkflowStep where
 
 instance Prelude.NFData RetryWorkflowStep where
   rnf RetryWorkflowStep' {..} =
-    Prelude.rnf workflowId
-      `Prelude.seq` Prelude.rnf stepGroupId
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf workflowId `Prelude.seq`
+      Prelude.rnf stepGroupId `Prelude.seq`
+        Prelude.rnf id
 
 instance Data.ToHeaders RetryWorkflowStep where
   toHeaders =
@@ -226,8 +226,8 @@ retryWorkflowStepResponse_httpStatus = Lens.lens (\RetryWorkflowStepResponse' {h
 
 instance Prelude.NFData RetryWorkflowStepResponse where
   rnf RetryWorkflowStepResponse' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf stepGroupId
-      `Prelude.seq` Prelude.rnf workflowId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf stepGroupId `Prelude.seq`
+          Prelude.rnf workflowId `Prelude.seq`
+            Prelude.rnf httpStatus

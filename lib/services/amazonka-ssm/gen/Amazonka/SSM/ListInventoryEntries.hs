@@ -165,11 +165,11 @@ instance Prelude.Hashable ListInventoryEntries where
 
 instance Prelude.NFData ListInventoryEntries where
   rnf ListInventoryEntries' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf typeName
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf instanceId `Prelude.seq`
+            Prelude.rnf typeName
 
 instance Data.ToHeaders ListInventoryEntries where
   toHeaders =
@@ -299,10 +299,10 @@ listInventoryEntriesResponse_httpStatus = Lens.lens (\ListInventoryEntriesRespon
 
 instance Prelude.NFData ListInventoryEntriesResponse where
   rnf ListInventoryEntriesResponse' {..} =
-    Prelude.rnf captureTime
-      `Prelude.seq` Prelude.rnf entries
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf schemaVersion
-      `Prelude.seq` Prelude.rnf typeName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf captureTime `Prelude.seq`
+      Prelude.rnf entries `Prelude.seq`
+        Prelude.rnf instanceId `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf schemaVersion `Prelude.seq`
+              Prelude.rnf typeName `Prelude.seq`
+                Prelude.rnf httpStatus

@@ -110,6 +110,6 @@ instance
     NetworkFirewallPolicyModifiedViolation
   where
   rnf NetworkFirewallPolicyModifiedViolation' {..} =
-    Prelude.rnf currentPolicyDescription
-      `Prelude.seq` Prelude.rnf expectedPolicyDescription
-      `Prelude.seq` Prelude.rnf violationTarget
+    Prelude.rnf currentPolicyDescription `Prelude.seq`
+      Prelude.rnf expectedPolicyDescription `Prelude.seq`
+        Prelude.rnf violationTarget

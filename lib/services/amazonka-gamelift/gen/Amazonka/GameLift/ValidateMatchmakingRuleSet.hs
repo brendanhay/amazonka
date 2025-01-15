@@ -181,5 +181,5 @@ instance
     ValidateMatchmakingRuleSetResponse
   where
   rnf ValidateMatchmakingRuleSetResponse' {..} =
-    Prelude.rnf valid
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf valid `Prelude.seq`
+      Prelude.rnf httpStatus

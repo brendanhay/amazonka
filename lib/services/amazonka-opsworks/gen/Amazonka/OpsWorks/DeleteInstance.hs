@@ -120,9 +120,9 @@ instance Prelude.Hashable DeleteInstance where
 
 instance Prelude.NFData DeleteInstance where
   rnf DeleteInstance' {..} =
-    Prelude.rnf deleteElasticIp
-      `Prelude.seq` Prelude.rnf deleteVolumes
-      `Prelude.seq` Prelude.rnf instanceId
+    Prelude.rnf deleteElasticIp `Prelude.seq`
+      Prelude.rnf deleteVolumes `Prelude.seq`
+        Prelude.rnf instanceId
 
 instance Data.ToHeaders DeleteInstance where
   toHeaders =

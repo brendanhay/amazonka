@@ -236,11 +236,11 @@ getLinkResponse_httpStatus = Lens.lens (\GetLinkResponse' {httpStatus} -> httpSt
 
 instance Prelude.NFData GetLinkResponse where
   rnf GetLinkResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf label
-      `Prelude.seq` Prelude.rnf labelTemplate
-      `Prelude.seq` Prelude.rnf resourceTypes
-      `Prelude.seq` Prelude.rnf sinkArn
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf label `Prelude.seq`
+          Prelude.rnf labelTemplate `Prelude.seq`
+            Prelude.rnf resourceTypes `Prelude.seq`
+              Prelude.rnf sinkArn `Prelude.seq`
+                Prelude.rnf tags `Prelude.seq`
+                  Prelude.rnf httpStatus

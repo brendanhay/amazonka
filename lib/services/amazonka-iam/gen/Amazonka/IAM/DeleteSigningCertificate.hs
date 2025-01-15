@@ -135,8 +135,8 @@ instance Prelude.Hashable DeleteSigningCertificate where
 
 instance Prelude.NFData DeleteSigningCertificate where
   rnf DeleteSigningCertificate' {..} =
-    Prelude.rnf userName
-      `Prelude.seq` Prelude.rnf certificateId
+    Prelude.rnf userName `Prelude.seq`
+      Prelude.rnf certificateId
 
 instance Data.ToHeaders DeleteSigningCertificate where
   toHeaders = Prelude.const Prelude.mempty

@@ -103,8 +103,8 @@ instance Prelude.Hashable SetTagsForResource where
 
 instance Prelude.NFData SetTagsForResource where
   rnf SetTagsForResource' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf resourceArn
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf resourceArn
 
 instance Data.ToHeaders SetTagsForResource where
   toHeaders =

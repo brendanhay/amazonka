@@ -94,6 +94,6 @@ instance Prelude.Hashable AccessScopePath where
 
 instance Prelude.NFData AccessScopePath where
   rnf AccessScopePath' {..} =
-    Prelude.rnf destination
-      `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf throughResources
+    Prelude.rnf destination `Prelude.seq`
+      Prelude.rnf source `Prelude.seq`
+        Prelude.rnf throughResources

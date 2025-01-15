@@ -175,5 +175,5 @@ describeScriptResponse_httpStatus = Lens.lens (\DescribeScriptResponse' {httpSta
 
 instance Prelude.NFData DescribeScriptResponse where
   rnf DescribeScriptResponse' {..} =
-    Prelude.rnf script
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf script `Prelude.seq`
+      Prelude.rnf httpStatus

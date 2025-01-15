@@ -210,10 +210,10 @@ instance Prelude.Hashable HostKeyAttributes where
 
 instance Prelude.NFData HostKeyAttributes where
   rnf HostKeyAttributes' {..} =
-    Prelude.rnf algorithm
-      `Prelude.seq` Prelude.rnf fingerprintSHA1
-      `Prelude.seq` Prelude.rnf fingerprintSHA256
-      `Prelude.seq` Prelude.rnf notValidAfter
-      `Prelude.seq` Prelude.rnf notValidBefore
-      `Prelude.seq` Prelude.rnf publicKey
-      `Prelude.seq` Prelude.rnf witnessedAt
+    Prelude.rnf algorithm `Prelude.seq`
+      Prelude.rnf fingerprintSHA1 `Prelude.seq`
+        Prelude.rnf fingerprintSHA256 `Prelude.seq`
+          Prelude.rnf notValidAfter `Prelude.seq`
+            Prelude.rnf notValidBefore `Prelude.seq`
+              Prelude.rnf publicKey `Prelude.seq`
+                Prelude.rnf witnessedAt

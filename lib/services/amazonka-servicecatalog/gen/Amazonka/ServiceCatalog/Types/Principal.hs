@@ -90,5 +90,5 @@ instance Prelude.Hashable Principal where
 
 instance Prelude.NFData Principal where
   rnf Principal' {..} =
-    Prelude.rnf principalARN
-      `Prelude.seq` Prelude.rnf principalType
+    Prelude.rnf principalARN `Prelude.seq`
+      Prelude.rnf principalType

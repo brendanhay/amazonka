@@ -204,14 +204,14 @@ instance
     OrganizationManagedRuleMetadata
   where
   rnf OrganizationManagedRuleMetadata' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf inputParameters
-      `Prelude.seq` Prelude.rnf maximumExecutionFrequency
-      `Prelude.seq` Prelude.rnf resourceIdScope
-      `Prelude.seq` Prelude.rnf resourceTypesScope
-      `Prelude.seq` Prelude.rnf tagKeyScope
-      `Prelude.seq` Prelude.rnf tagValueScope
-      `Prelude.seq` Prelude.rnf ruleIdentifier
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf inputParameters `Prelude.seq`
+        Prelude.rnf maximumExecutionFrequency `Prelude.seq`
+          Prelude.rnf resourceIdScope `Prelude.seq`
+            Prelude.rnf resourceTypesScope `Prelude.seq`
+              Prelude.rnf tagKeyScope `Prelude.seq`
+                Prelude.rnf tagValueScope `Prelude.seq`
+                  Prelude.rnf ruleIdentifier
 
 instance Data.ToJSON OrganizationManagedRuleMetadata where
   toJSON OrganizationManagedRuleMetadata' {..} =

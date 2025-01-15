@@ -184,6 +184,6 @@ getHostnameSuggestionResponse_httpStatus = Lens.lens (\GetHostnameSuggestionResp
 
 instance Prelude.NFData GetHostnameSuggestionResponse where
   rnf GetHostnameSuggestionResponse' {..} =
-    Prelude.rnf hostname
-      `Prelude.seq` Prelude.rnf layerId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf hostname `Prelude.seq`
+      Prelude.rnf layerId `Prelude.seq`
+        Prelude.rnf httpStatus

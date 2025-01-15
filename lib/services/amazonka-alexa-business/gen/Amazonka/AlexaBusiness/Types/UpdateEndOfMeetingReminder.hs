@@ -90,9 +90,9 @@ instance Prelude.Hashable UpdateEndOfMeetingReminder where
 
 instance Prelude.NFData UpdateEndOfMeetingReminder where
   rnf UpdateEndOfMeetingReminder' {..} =
-    Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf reminderAtMinutes
-      `Prelude.seq` Prelude.rnf reminderType
+    Prelude.rnf enabled `Prelude.seq`
+      Prelude.rnf reminderAtMinutes `Prelude.seq`
+        Prelude.rnf reminderType
 
 instance Data.ToJSON UpdateEndOfMeetingReminder where
   toJSON UpdateEndOfMeetingReminder' {..} =

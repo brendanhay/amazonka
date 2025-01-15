@@ -131,8 +131,8 @@ instance Prelude.Hashable CreateAssessmentTarget where
 
 instance Prelude.NFData CreateAssessmentTarget where
   rnf CreateAssessmentTarget' {..} =
-    Prelude.rnf resourceGroupArn
-      `Prelude.seq` Prelude.rnf assessmentTargetName
+    Prelude.rnf resourceGroupArn `Prelude.seq`
+      Prelude.rnf assessmentTargetName
 
 instance Data.ToHeaders CreateAssessmentTarget where
   toHeaders =
@@ -216,5 +216,5 @@ instance
     CreateAssessmentTargetResponse
   where
   rnf CreateAssessmentTargetResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf assessmentTargetArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf assessmentTargetArn

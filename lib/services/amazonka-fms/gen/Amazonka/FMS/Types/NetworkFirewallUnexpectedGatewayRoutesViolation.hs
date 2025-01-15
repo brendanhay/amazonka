@@ -122,7 +122,7 @@ instance
   where
   rnf
     NetworkFirewallUnexpectedGatewayRoutesViolation' {..} =
-      Prelude.rnf gatewayId
-        `Prelude.seq` Prelude.rnf routeTableId
-        `Prelude.seq` Prelude.rnf violatingRoutes
-        `Prelude.seq` Prelude.rnf vpcId
+      Prelude.rnf gatewayId `Prelude.seq`
+        Prelude.rnf routeTableId `Prelude.seq`
+          Prelude.rnf violatingRoutes `Prelude.seq`
+            Prelude.rnf vpcId

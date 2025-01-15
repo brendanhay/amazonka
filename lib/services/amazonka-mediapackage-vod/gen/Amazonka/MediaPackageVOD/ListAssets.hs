@@ -112,12 +112,12 @@ instance Core.AWSPager ListAssets where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listAssets_nextToken
-          Lens..~ rs
-          Lens.^? listAssetsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listAssets_nextToken
+              Lens..~ rs
+              Lens.^? listAssetsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAssets where
   type AWSResponse ListAssets = ListAssetsResponse
@@ -141,9 +141,9 @@ instance Prelude.Hashable ListAssets where
 
 instance Prelude.NFData ListAssets where
   rnf ListAssets' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf packagingGroupId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf packagingGroupId
 
 instance Data.ToHeaders ListAssets where
   toHeaders =
@@ -219,6 +219,6 @@ listAssetsResponse_httpStatus = Lens.lens (\ListAssetsResponse' {httpStatus} -> 
 
 instance Prelude.NFData ListAssetsResponse where
   rnf ListAssetsResponse' {..} =
-    Prelude.rnf assets
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf assets `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

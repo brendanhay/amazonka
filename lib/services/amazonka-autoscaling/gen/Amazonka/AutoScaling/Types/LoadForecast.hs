@@ -80,14 +80,10 @@ loadForecast_metricSpecification = Lens.lens (\LoadForecast' {metricSpecificatio
 instance Data.FromXML LoadForecast where
   parseXML x =
     LoadForecast'
-      Prelude.<$> ( x
-                      Data..@? "Timestamps"
-                      Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "Timestamps" Core..!@ Prelude.mempty
                       Prelude.>>= Data.parseXMLList "member"
                   )
-      Prelude.<*> ( x
-                      Data..@? "Values"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "Values" Core..!@ Prelude.mempty
                       Prelude.>>= Data.parseXMLList "member"
                   )
       Prelude.<*> (x Data..@ "MetricSpecification")
@@ -101,6 +97,6 @@ instance Prelude.Hashable LoadForecast where
 
 instance Prelude.NFData LoadForecast where
   rnf LoadForecast' {..} =
-    Prelude.rnf timestamps
-      `Prelude.seq` Prelude.rnf values
-      `Prelude.seq` Prelude.rnf metricSpecification
+    Prelude.rnf timestamps `Prelude.seq`
+      Prelude.rnf values `Prelude.seq`
+        Prelude.rnf metricSpecification

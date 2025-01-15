@@ -125,8 +125,8 @@ instance
     EnableOrganizationAdminAccount
   where
   rnf EnableOrganizationAdminAccount' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf adminAccountId
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf adminAccountId
 
 instance
   Data.ToHeaders

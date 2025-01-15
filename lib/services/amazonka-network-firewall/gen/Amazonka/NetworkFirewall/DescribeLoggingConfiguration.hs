@@ -127,8 +127,8 @@ instance
 
 instance Prelude.NFData DescribeLoggingConfiguration where
   rnf DescribeLoggingConfiguration' {..} =
-    Prelude.rnf firewallArn
-      `Prelude.seq` Prelude.rnf firewallName
+    Prelude.rnf firewallArn `Prelude.seq`
+      Prelude.rnf firewallName
 
 instance Data.ToHeaders DescribeLoggingConfiguration where
   toHeaders =
@@ -213,6 +213,6 @@ instance
     DescribeLoggingConfigurationResponse
   where
   rnf DescribeLoggingConfigurationResponse' {..} =
-    Prelude.rnf firewallArn
-      `Prelude.seq` Prelude.rnf loggingConfiguration
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf firewallArn `Prelude.seq`
+      Prelude.rnf loggingConfiguration `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -184,6 +184,6 @@ analyzeExpenseResponse_httpStatus = Lens.lens (\AnalyzeExpenseResponse' {httpSta
 
 instance Prelude.NFData AnalyzeExpenseResponse where
   rnf AnalyzeExpenseResponse' {..} =
-    Prelude.rnf documentMetadata
-      `Prelude.seq` Prelude.rnf expenseDocuments
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf documentMetadata `Prelude.seq`
+      Prelude.rnf expenseDocuments `Prelude.seq`
+        Prelude.rnf httpStatus

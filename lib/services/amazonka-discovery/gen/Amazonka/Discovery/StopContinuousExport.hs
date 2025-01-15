@@ -178,6 +178,6 @@ stopContinuousExportResponse_httpStatus = Lens.lens (\StopContinuousExportRespon
 
 instance Prelude.NFData StopContinuousExportResponse where
   rnf StopContinuousExportResponse' {..} =
-    Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf stopTime
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf startTime `Prelude.seq`
+      Prelude.rnf stopTime `Prelude.seq`
+        Prelude.rnf httpStatus

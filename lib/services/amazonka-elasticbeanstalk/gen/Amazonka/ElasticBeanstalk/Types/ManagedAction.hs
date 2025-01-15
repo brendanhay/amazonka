@@ -117,8 +117,8 @@ instance Prelude.Hashable ManagedAction where
 
 instance Prelude.NFData ManagedAction where
   rnf ManagedAction' {..} =
-    Prelude.rnf actionDescription
-      `Prelude.seq` Prelude.rnf actionId
-      `Prelude.seq` Prelude.rnf actionType
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf windowStartTime
+    Prelude.rnf actionDescription `Prelude.seq`
+      Prelude.rnf actionId `Prelude.seq`
+        Prelude.rnf actionType `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf windowStartTime

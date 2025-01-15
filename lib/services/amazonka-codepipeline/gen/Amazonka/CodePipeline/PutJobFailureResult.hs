@@ -107,8 +107,8 @@ instance Prelude.Hashable PutJobFailureResult where
 
 instance Prelude.NFData PutJobFailureResult where
   rnf PutJobFailureResult' {..} =
-    Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf failureDetails
+    Prelude.rnf jobId `Prelude.seq`
+      Prelude.rnf failureDetails
 
 instance Data.ToHeaders PutJobFailureResult where
   toHeaders =

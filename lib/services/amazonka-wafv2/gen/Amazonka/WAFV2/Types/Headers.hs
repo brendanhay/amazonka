@@ -183,9 +183,9 @@ instance Prelude.Hashable Headers where
 
 instance Prelude.NFData Headers where
   rnf Headers' {..} =
-    Prelude.rnf matchPattern
-      `Prelude.seq` Prelude.rnf matchScope
-      `Prelude.seq` Prelude.rnf oversizeHandling
+    Prelude.rnf matchPattern `Prelude.seq`
+      Prelude.rnf matchScope `Prelude.seq`
+        Prelude.rnf oversizeHandling
 
 instance Data.ToJSON Headers where
   toJSON Headers' {..} =

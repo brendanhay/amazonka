@@ -349,20 +349,20 @@ instance Prelude.Hashable AwsEcsTaskDefinitionDetails where
 
 instance Prelude.NFData AwsEcsTaskDefinitionDetails where
   rnf AwsEcsTaskDefinitionDetails' {..} =
-    Prelude.rnf containerDefinitions
-      `Prelude.seq` Prelude.rnf cpu
-      `Prelude.seq` Prelude.rnf executionRoleArn
-      `Prelude.seq` Prelude.rnf family
-      `Prelude.seq` Prelude.rnf inferenceAccelerators
-      `Prelude.seq` Prelude.rnf ipcMode
-      `Prelude.seq` Prelude.rnf memory
-      `Prelude.seq` Prelude.rnf networkMode
-      `Prelude.seq` Prelude.rnf pidMode
-      `Prelude.seq` Prelude.rnf placementConstraints
-      `Prelude.seq` Prelude.rnf proxyConfiguration
-      `Prelude.seq` Prelude.rnf requiresCompatibilities
-      `Prelude.seq` Prelude.rnf taskRoleArn
-      `Prelude.seq` Prelude.rnf volumes
+    Prelude.rnf containerDefinitions `Prelude.seq`
+      Prelude.rnf cpu `Prelude.seq`
+        Prelude.rnf executionRoleArn `Prelude.seq`
+          Prelude.rnf family `Prelude.seq`
+            Prelude.rnf inferenceAccelerators `Prelude.seq`
+              Prelude.rnf ipcMode `Prelude.seq`
+                Prelude.rnf memory `Prelude.seq`
+                  Prelude.rnf networkMode `Prelude.seq`
+                    Prelude.rnf pidMode `Prelude.seq`
+                      Prelude.rnf placementConstraints `Prelude.seq`
+                        Prelude.rnf proxyConfiguration `Prelude.seq`
+                          Prelude.rnf requiresCompatibilities `Prelude.seq`
+                            Prelude.rnf taskRoleArn `Prelude.seq`
+                              Prelude.rnf volumes
 
 instance Data.ToJSON AwsEcsTaskDefinitionDetails where
   toJSON AwsEcsTaskDefinitionDetails' {..} =

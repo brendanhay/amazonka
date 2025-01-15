@@ -117,9 +117,9 @@ instance Prelude.Hashable SuspendedState where
 
 instance Prelude.NFData SuspendedState where
   rnf SuspendedState' {..} =
-    Prelude.rnf dynamicScalingInSuspended
-      `Prelude.seq` Prelude.rnf dynamicScalingOutSuspended
-      `Prelude.seq` Prelude.rnf scheduledScalingSuspended
+    Prelude.rnf dynamicScalingInSuspended `Prelude.seq`
+      Prelude.rnf dynamicScalingOutSuspended `Prelude.seq`
+        Prelude.rnf scheduledScalingSuspended
 
 instance Data.ToJSON SuspendedState where
   toJSON SuspendedState' {..} =

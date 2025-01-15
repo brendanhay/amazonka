@@ -100,9 +100,9 @@ instance Prelude.Hashable ContainerProvider where
 
 instance Prelude.NFData ContainerProvider where
   rnf ContainerProvider' {..} =
-    Prelude.rnf info
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf info `Prelude.seq`
+      Prelude.rnf type' `Prelude.seq`
+        Prelude.rnf id
 
 instance Data.ToJSON ContainerProvider where
   toJSON ContainerProvider' {..} =

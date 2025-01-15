@@ -125,12 +125,12 @@ instance Core.AWSPager ListApplicationDependencies where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listApplicationDependencies_nextToken
-          Lens..~ rs
-          Lens.^? listApplicationDependenciesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listApplicationDependencies_nextToken
+              Lens..~ rs
+              Lens.^? listApplicationDependenciesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListApplicationDependencies where
   type
@@ -157,10 +157,10 @@ instance Prelude.Hashable ListApplicationDependencies where
 
 instance Prelude.NFData ListApplicationDependencies where
   rnf ListApplicationDependencies' {..} =
-    Prelude.rnf maxItems
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf semanticVersion
-      `Prelude.seq` Prelude.rnf applicationId
+    Prelude.rnf maxItems `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf semanticVersion `Prelude.seq`
+          Prelude.rnf applicationId
 
 instance Data.ToHeaders ListApplicationDependencies where
   toHeaders =
@@ -242,6 +242,6 @@ instance
     ListApplicationDependenciesResponse
   where
   rnf ListApplicationDependenciesResponse' {..} =
-    Prelude.rnf dependencies
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dependencies `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

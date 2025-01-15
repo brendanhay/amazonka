@@ -131,9 +131,9 @@ instance Prelude.Hashable CodeCoverageReportSummary where
 
 instance Prelude.NFData CodeCoverageReportSummary where
   rnf CodeCoverageReportSummary' {..} =
-    Prelude.rnf branchCoveragePercentage
-      `Prelude.seq` Prelude.rnf branchesCovered
-      `Prelude.seq` Prelude.rnf branchesMissed
-      `Prelude.seq` Prelude.rnf lineCoveragePercentage
-      `Prelude.seq` Prelude.rnf linesCovered
-      `Prelude.seq` Prelude.rnf linesMissed
+    Prelude.rnf branchCoveragePercentage `Prelude.seq`
+      Prelude.rnf branchesCovered `Prelude.seq`
+        Prelude.rnf branchesMissed `Prelude.seq`
+          Prelude.rnf lineCoveragePercentage `Prelude.seq`
+            Prelude.rnf linesCovered `Prelude.seq`
+              Prelude.rnf linesMissed

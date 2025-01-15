@@ -119,8 +119,8 @@ instance Prelude.Hashable WaveAggregatedStatus where
 
 instance Prelude.NFData WaveAggregatedStatus where
   rnf WaveAggregatedStatus' {..} =
-    Prelude.rnf healthStatus
-      `Prelude.seq` Prelude.rnf lastUpdateDateTime
-      `Prelude.seq` Prelude.rnf progressStatus
-      `Prelude.seq` Prelude.rnf replicationStartedDateTime
-      `Prelude.seq` Prelude.rnf totalApplications
+    Prelude.rnf healthStatus `Prelude.seq`
+      Prelude.rnf lastUpdateDateTime `Prelude.seq`
+        Prelude.rnf progressStatus `Prelude.seq`
+          Prelude.rnf replicationStartedDateTime `Prelude.seq`
+            Prelude.rnf totalApplications

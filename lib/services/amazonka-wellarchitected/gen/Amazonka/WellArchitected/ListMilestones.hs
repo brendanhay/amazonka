@@ -125,9 +125,9 @@ instance Prelude.Hashable ListMilestones where
 
 instance Prelude.NFData ListMilestones where
   rnf ListMilestones' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf workloadId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf workloadId
 
 instance Data.ToHeaders ListMilestones where
   toHeaders =
@@ -218,7 +218,7 @@ listMilestonesResponse_httpStatus = Lens.lens (\ListMilestonesResponse' {httpSta
 
 instance Prelude.NFData ListMilestonesResponse where
   rnf ListMilestonesResponse' {..} =
-    Prelude.rnf milestoneSummaries
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf workloadId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf milestoneSummaries `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf workloadId `Prelude.seq`
+          Prelude.rnf httpStatus

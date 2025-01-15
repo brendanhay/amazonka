@@ -101,9 +101,9 @@ instance Prelude.Hashable DvbNitSettings where
 
 instance Prelude.NFData DvbNitSettings where
   rnf DvbNitSettings' {..} =
-    Prelude.rnf repInterval
-      `Prelude.seq` Prelude.rnf networkName
-      `Prelude.seq` Prelude.rnf networkId
+    Prelude.rnf repInterval `Prelude.seq`
+      Prelude.rnf networkName `Prelude.seq`
+        Prelude.rnf networkId
 
 instance Data.ToJSON DvbNitSettings where
   toJSON DvbNitSettings' {..} =

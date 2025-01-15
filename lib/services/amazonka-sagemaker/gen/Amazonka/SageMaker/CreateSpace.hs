@@ -136,10 +136,10 @@ instance Prelude.Hashable CreateSpace where
 
 instance Prelude.NFData CreateSpace where
   rnf CreateSpace' {..} =
-    Prelude.rnf spaceSettings
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf domainId
-      `Prelude.seq` Prelude.rnf spaceName
+    Prelude.rnf spaceSettings `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf domainId `Prelude.seq`
+          Prelude.rnf spaceName
 
 instance Data.ToHeaders CreateSpace where
   toHeaders =
@@ -211,5 +211,5 @@ createSpaceResponse_httpStatus = Lens.lens (\CreateSpaceResponse' {httpStatus} -
 
 instance Prelude.NFData CreateSpaceResponse where
   rnf CreateSpaceResponse' {..} =
-    Prelude.rnf spaceArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf spaceArn `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -176,11 +176,11 @@ instance Prelude.Hashable CreateHost where
 
 instance Prelude.NFData CreateHost where
   rnf CreateHost' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf vpcConfiguration
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf providerType
-      `Prelude.seq` Prelude.rnf providerEndpoint
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf vpcConfiguration `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf providerType `Prelude.seq`
+            Prelude.rnf providerEndpoint
 
 instance Data.ToHeaders CreateHost where
   toHeaders =
@@ -265,6 +265,6 @@ createHostResponse_httpStatus = Lens.lens (\CreateHostResponse' {httpStatus} -> 
 
 instance Prelude.NFData CreateHostResponse where
   rnf CreateHostResponse' {..} =
-    Prelude.rnf hostArn
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf hostArn `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf httpStatus

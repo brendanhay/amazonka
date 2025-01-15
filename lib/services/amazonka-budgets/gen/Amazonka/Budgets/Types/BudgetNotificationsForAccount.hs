@@ -83,5 +83,5 @@ instance
 
 instance Prelude.NFData BudgetNotificationsForAccount where
   rnf BudgetNotificationsForAccount' {..} =
-    Prelude.rnf budgetName
-      `Prelude.seq` Prelude.rnf notifications
+    Prelude.rnf budgetName `Prelude.seq`
+      Prelude.rnf notifications

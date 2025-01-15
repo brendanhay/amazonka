@@ -203,11 +203,11 @@ instance Prelude.Hashable ApplicationSummary where
 
 instance Prelude.NFData ApplicationSummary where
   rnf ApplicationSummary' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf homePageUrl
-      `Prelude.seq` Prelude.rnf labels
-      `Prelude.seq` Prelude.rnf spdxLicenseId
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf author
-      `Prelude.seq` Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf homePageUrl `Prelude.seq`
+        Prelude.rnf labels `Prelude.seq`
+          Prelude.rnf spdxLicenseId `Prelude.seq`
+            Prelude.rnf description `Prelude.seq`
+              Prelude.rnf author `Prelude.seq`
+                Prelude.rnf applicationId `Prelude.seq`
+                  Prelude.rnf name

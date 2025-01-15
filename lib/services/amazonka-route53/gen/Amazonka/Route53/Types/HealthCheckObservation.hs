@@ -101,6 +101,6 @@ instance Prelude.Hashable HealthCheckObservation where
 
 instance Prelude.NFData HealthCheckObservation where
   rnf HealthCheckObservation' {..} =
-    Prelude.rnf iPAddress
-      `Prelude.seq` Prelude.rnf region
-      `Prelude.seq` Prelude.rnf statusReport
+    Prelude.rnf iPAddress `Prelude.seq`
+      Prelude.rnf region `Prelude.seq`
+        Prelude.rnf statusReport

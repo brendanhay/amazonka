@@ -181,15 +181,15 @@ instance Prelude.Hashable AwsCodeBuildProjectDetails where
 
 instance Prelude.NFData AwsCodeBuildProjectDetails where
   rnf AwsCodeBuildProjectDetails' {..} =
-    Prelude.rnf artifacts
-      `Prelude.seq` Prelude.rnf encryptionKey
-      `Prelude.seq` Prelude.rnf environment
-      `Prelude.seq` Prelude.rnf logsConfig
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf secondaryArtifacts
-      `Prelude.seq` Prelude.rnf serviceRole
-      `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf vpcConfig
+    Prelude.rnf artifacts `Prelude.seq`
+      Prelude.rnf encryptionKey `Prelude.seq`
+        Prelude.rnf environment `Prelude.seq`
+          Prelude.rnf logsConfig `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf secondaryArtifacts `Prelude.seq`
+                Prelude.rnf serviceRole `Prelude.seq`
+                  Prelude.rnf source `Prelude.seq`
+                    Prelude.rnf vpcConfig
 
 instance Data.ToJSON AwsCodeBuildProjectDetails where
   toJSON AwsCodeBuildProjectDetails' {..} =

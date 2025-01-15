@@ -192,9 +192,9 @@ instance Prelude.Hashable CustomerAction where
 
 instance Prelude.NFData CustomerAction where
   rnf CustomerAction' {..} =
-    Prelude.rnf acknowledgeActionConfiguration
-      `Prelude.seq` Prelude.rnf actionName
-      `Prelude.seq` Prelude.rnf disableActionConfiguration
-      `Prelude.seq` Prelude.rnf enableActionConfiguration
-      `Prelude.seq` Prelude.rnf resetActionConfiguration
-      `Prelude.seq` Prelude.rnf snoozeActionConfiguration
+    Prelude.rnf acknowledgeActionConfiguration `Prelude.seq`
+      Prelude.rnf actionName `Prelude.seq`
+        Prelude.rnf disableActionConfiguration `Prelude.seq`
+          Prelude.rnf enableActionConfiguration `Prelude.seq`
+            Prelude.rnf resetActionConfiguration `Prelude.seq`
+              Prelude.rnf snoozeActionConfiguration

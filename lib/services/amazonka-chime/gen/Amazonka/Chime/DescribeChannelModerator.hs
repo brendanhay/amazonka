@@ -128,9 +128,9 @@ instance Prelude.Hashable DescribeChannelModerator where
 
 instance Prelude.NFData DescribeChannelModerator where
   rnf DescribeChannelModerator' {..} =
-    Prelude.rnf chimeBearer
-      `Prelude.seq` Prelude.rnf channelArn
-      `Prelude.seq` Prelude.rnf channelModeratorArn
+    Prelude.rnf chimeBearer `Prelude.seq`
+      Prelude.rnf channelArn `Prelude.seq`
+        Prelude.rnf channelModeratorArn
 
 instance Data.ToHeaders DescribeChannelModerator where
   toHeaders DescribeChannelModerator' {..} =
@@ -193,5 +193,5 @@ instance
     DescribeChannelModeratorResponse
   where
   rnf DescribeChannelModeratorResponse' {..} =
-    Prelude.rnf channelModerator
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf channelModerator `Prelude.seq`
+      Prelude.rnf httpStatus

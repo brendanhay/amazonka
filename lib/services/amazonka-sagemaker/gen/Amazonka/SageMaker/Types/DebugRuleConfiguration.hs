@@ -158,13 +158,13 @@ instance Prelude.Hashable DebugRuleConfiguration where
 
 instance Prelude.NFData DebugRuleConfiguration where
   rnf DebugRuleConfiguration' {..} =
-    Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf localPath
-      `Prelude.seq` Prelude.rnf ruleParameters
-      `Prelude.seq` Prelude.rnf s3OutputPath
-      `Prelude.seq` Prelude.rnf volumeSizeInGB
-      `Prelude.seq` Prelude.rnf ruleConfigurationName
-      `Prelude.seq` Prelude.rnf ruleEvaluatorImage
+    Prelude.rnf instanceType `Prelude.seq`
+      Prelude.rnf localPath `Prelude.seq`
+        Prelude.rnf ruleParameters `Prelude.seq`
+          Prelude.rnf s3OutputPath `Prelude.seq`
+            Prelude.rnf volumeSizeInGB `Prelude.seq`
+              Prelude.rnf ruleConfigurationName `Prelude.seq`
+                Prelude.rnf ruleEvaluatorImage
 
 instance Data.ToJSON DebugRuleConfiguration where
   toJSON DebugRuleConfiguration' {..} =

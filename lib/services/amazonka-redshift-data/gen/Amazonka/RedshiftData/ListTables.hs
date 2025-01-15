@@ -287,12 +287,12 @@ instance Core.AWSPager ListTables where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listTables_nextToken
-          Lens..~ rs
-          Lens.^? listTablesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listTables_nextToken
+              Lens..~ rs
+              Lens.^? listTablesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListTables where
   type AWSResponse ListTables = ListTablesResponse
@@ -323,16 +323,16 @@ instance Prelude.Hashable ListTables where
 
 instance Prelude.NFData ListTables where
   rnf ListTables' {..} =
-    Prelude.rnf clusterIdentifier
-      `Prelude.seq` Prelude.rnf connectedDatabase
-      `Prelude.seq` Prelude.rnf dbUser
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf schemaPattern
-      `Prelude.seq` Prelude.rnf secretArn
-      `Prelude.seq` Prelude.rnf tablePattern
-      `Prelude.seq` Prelude.rnf workgroupName
-      `Prelude.seq` Prelude.rnf database
+    Prelude.rnf clusterIdentifier `Prelude.seq`
+      Prelude.rnf connectedDatabase `Prelude.seq`
+        Prelude.rnf dbUser `Prelude.seq`
+          Prelude.rnf maxResults `Prelude.seq`
+            Prelude.rnf nextToken `Prelude.seq`
+              Prelude.rnf schemaPattern `Prelude.seq`
+                Prelude.rnf secretArn `Prelude.seq`
+                  Prelude.rnf tablePattern `Prelude.seq`
+                    Prelude.rnf workgroupName `Prelude.seq`
+                      Prelude.rnf database
 
 instance Data.ToHeaders ListTables where
   toHeaders =
@@ -436,6 +436,6 @@ listTablesResponse_httpStatus = Lens.lens (\ListTablesResponse' {httpStatus} -> 
 
 instance Prelude.NFData ListTablesResponse where
   rnf ListTablesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf tables
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf tables `Prelude.seq`
+        Prelude.rnf httpStatus

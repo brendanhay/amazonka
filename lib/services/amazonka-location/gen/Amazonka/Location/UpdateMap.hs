@@ -124,9 +124,9 @@ instance Prelude.Hashable UpdateMap where
 
 instance Prelude.NFData UpdateMap where
   rnf UpdateMap' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf pricingPlan
-      `Prelude.seq` Prelude.rnf mapName
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf pricingPlan `Prelude.seq`
+        Prelude.rnf mapName
 
 instance Data.ToHeaders UpdateMap where
   toHeaders =
@@ -239,7 +239,7 @@ updateMapResponse_updateTime = Lens.lens (\UpdateMapResponse' {updateTime} -> up
 
 instance Prelude.NFData UpdateMapResponse where
   rnf UpdateMapResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf mapArn
-      `Prelude.seq` Prelude.rnf mapName
-      `Prelude.seq` Prelude.rnf updateTime
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf mapArn `Prelude.seq`
+        Prelude.rnf mapName `Prelude.seq`
+          Prelude.rnf updateTime

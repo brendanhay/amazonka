@@ -126,9 +126,9 @@ instance
 
 instance Prelude.NFData PutAppValidationConfiguration where
   rnf PutAppValidationConfiguration' {..} =
-    Prelude.rnf appValidationConfigurations
-      `Prelude.seq` Prelude.rnf serverGroupValidationConfigurations
-      `Prelude.seq` Prelude.rnf appId
+    Prelude.rnf appValidationConfigurations `Prelude.seq`
+      Prelude.rnf serverGroupValidationConfigurations `Prelude.seq`
+        Prelude.rnf appId
 
 instance Data.ToHeaders PutAppValidationConfiguration where
   toHeaders =

@@ -110,10 +110,10 @@ instance Prelude.Hashable StepInput where
 
 instance Prelude.NFData StepInput where
   rnf StepInput' {..} =
-    Prelude.rnf integerValue
-      `Prelude.seq` Prelude.rnf listOfStringsValue
-      `Prelude.seq` Prelude.rnf mapOfStringValue
-      `Prelude.seq` Prelude.rnf stringValue
+    Prelude.rnf integerValue `Prelude.seq`
+      Prelude.rnf listOfStringsValue `Prelude.seq`
+        Prelude.rnf mapOfStringValue `Prelude.seq`
+          Prelude.rnf stringValue
 
 instance Data.ToJSON StepInput where
   toJSON StepInput' {..} =

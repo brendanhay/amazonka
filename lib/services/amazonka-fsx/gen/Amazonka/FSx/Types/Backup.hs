@@ -318,19 +318,19 @@ instance Prelude.Hashable Backup where
 
 instance Prelude.NFData Backup where
   rnf Backup' {..} =
-    Prelude.rnf directoryInformation
-      `Prelude.seq` Prelude.rnf failureDetails
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf ownerId
-      `Prelude.seq` Prelude.rnf progressPercent
-      `Prelude.seq` Prelude.rnf resourceARN
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf sourceBackupId
-      `Prelude.seq` Prelude.rnf sourceBackupRegion
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf volume
-      `Prelude.seq` Prelude.rnf backupId
-      `Prelude.seq` Prelude.rnf lifecycle
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf fileSystem
+    Prelude.rnf directoryInformation `Prelude.seq`
+      Prelude.rnf failureDetails `Prelude.seq`
+        Prelude.rnf kmsKeyId `Prelude.seq`
+          Prelude.rnf ownerId `Prelude.seq`
+            Prelude.rnf progressPercent `Prelude.seq`
+              Prelude.rnf resourceARN `Prelude.seq`
+                Prelude.rnf resourceType `Prelude.seq`
+                  Prelude.rnf sourceBackupId `Prelude.seq`
+                    Prelude.rnf sourceBackupRegion `Prelude.seq`
+                      Prelude.rnf tags `Prelude.seq`
+                        Prelude.rnf volume `Prelude.seq`
+                          Prelude.rnf backupId `Prelude.seq`
+                            Prelude.rnf lifecycle `Prelude.seq`
+                              Prelude.rnf type' `Prelude.seq`
+                                Prelude.rnf creationTime `Prelude.seq`
+                                  Prelude.rnf fileSystem

@@ -90,8 +90,8 @@ instance Prelude.Hashable VolumeFrom where
 
 instance Prelude.NFData VolumeFrom where
   rnf VolumeFrom' {..} =
-    Prelude.rnf readOnly
-      `Prelude.seq` Prelude.rnf sourceContainer
+    Prelude.rnf readOnly `Prelude.seq`
+      Prelude.rnf sourceContainer
 
 instance Data.ToJSON VolumeFrom where
   toJSON VolumeFrom' {..} =

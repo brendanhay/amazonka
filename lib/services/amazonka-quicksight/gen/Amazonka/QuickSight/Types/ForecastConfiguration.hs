@@ -84,8 +84,8 @@ instance Prelude.Hashable ForecastConfiguration where
 
 instance Prelude.NFData ForecastConfiguration where
   rnf ForecastConfiguration' {..} =
-    Prelude.rnf forecastProperties
-      `Prelude.seq` Prelude.rnf scenario
+    Prelude.rnf forecastProperties `Prelude.seq`
+      Prelude.rnf scenario
 
 instance Data.ToJSON ForecastConfiguration where
   toJSON ForecastConfiguration' {..} =

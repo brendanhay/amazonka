@@ -233,5 +233,5 @@ getContactInformationResponse_httpStatus = Lens.lens (\GetContactInformationResp
 
 instance Prelude.NFData GetContactInformationResponse where
   rnf GetContactInformationResponse' {..} =
-    Prelude.rnf contactInformation
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf contactInformation `Prelude.seq`
+      Prelude.rnf httpStatus

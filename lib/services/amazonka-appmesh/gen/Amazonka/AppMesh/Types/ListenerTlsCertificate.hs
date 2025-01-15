@@ -101,9 +101,9 @@ instance Prelude.Hashable ListenerTlsCertificate where
 
 instance Prelude.NFData ListenerTlsCertificate where
   rnf ListenerTlsCertificate' {..} =
-    Prelude.rnf acm
-      `Prelude.seq` Prelude.rnf file
-      `Prelude.seq` Prelude.rnf sds
+    Prelude.rnf acm `Prelude.seq`
+      Prelude.rnf file `Prelude.seq`
+        Prelude.rnf sds
 
 instance Data.ToJSON ListenerTlsCertificate where
   toJSON ListenerTlsCertificate' {..} =

@@ -193,12 +193,12 @@ instance Prelude.Hashable CreateScheduledAudit where
 
 instance Prelude.NFData CreateScheduledAudit where
   rnf CreateScheduledAudit' {..} =
-    Prelude.rnf dayOfMonth
-      `Prelude.seq` Prelude.rnf dayOfWeek
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf frequency
-      `Prelude.seq` Prelude.rnf targetCheckNames
-      `Prelude.seq` Prelude.rnf scheduledAuditName
+    Prelude.rnf dayOfMonth `Prelude.seq`
+      Prelude.rnf dayOfWeek `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf frequency `Prelude.seq`
+            Prelude.rnf targetCheckNames `Prelude.seq`
+              Prelude.rnf scheduledAuditName
 
 instance Data.ToHeaders CreateScheduledAudit where
   toHeaders = Prelude.const Prelude.mempty
@@ -267,5 +267,5 @@ createScheduledAuditResponse_httpStatus = Lens.lens (\CreateScheduledAuditRespon
 
 instance Prelude.NFData CreateScheduledAuditResponse where
   rnf CreateScheduledAuditResponse' {..} =
-    Prelude.rnf scheduledAuditArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf scheduledAuditArn `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -152,12 +152,12 @@ instance Core.AWSPager GetUsageStatistics where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getUsageStatistics_nextToken
-          Lens..~ rs
-          Lens.^? getUsageStatisticsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getUsageStatistics_nextToken
+              Lens..~ rs
+              Lens.^? getUsageStatisticsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetUsageStatistics where
   type
@@ -186,11 +186,11 @@ instance Prelude.Hashable GetUsageStatistics where
 
 instance Prelude.NFData GetUsageStatistics where
   rnf GetUsageStatistics' {..} =
-    Prelude.rnf filterBy
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf timeRange
+    Prelude.rnf filterBy `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf sortBy `Prelude.seq`
+            Prelude.rnf timeRange
 
 instance Data.ToHeaders GetUsageStatistics where
   toHeaders =
@@ -298,7 +298,7 @@ getUsageStatisticsResponse_httpStatus = Lens.lens (\GetUsageStatisticsResponse' 
 
 instance Prelude.NFData GetUsageStatisticsResponse where
   rnf GetUsageStatisticsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf records
-      `Prelude.seq` Prelude.rnf timeRange
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf records `Prelude.seq`
+        Prelude.rnf timeRange `Prelude.seq`
+          Prelude.rnf httpStatus

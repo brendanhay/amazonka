@@ -85,8 +85,8 @@ instance Prelude.Hashable JobBookmarksEncryption where
 
 instance Prelude.NFData JobBookmarksEncryption where
   rnf JobBookmarksEncryption' {..} =
-    Prelude.rnf jobBookmarksEncryptionMode
-      `Prelude.seq` Prelude.rnf kmsKeyArn
+    Prelude.rnf jobBookmarksEncryptionMode `Prelude.seq`
+      Prelude.rnf kmsKeyArn
 
 instance Data.ToJSON JobBookmarksEncryption where
   toJSON JobBookmarksEncryption' {..} =

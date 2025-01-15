@@ -203,12 +203,12 @@ instance Core.AWSPager ListProcessingJobs where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listProcessingJobs_nextToken
-          Lens..~ rs
-          Lens.^? listProcessingJobsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listProcessingJobs_nextToken
+              Lens..~ rs
+              Lens.^? listProcessingJobsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListProcessingJobs where
   type
@@ -244,16 +244,16 @@ instance Prelude.Hashable ListProcessingJobs where
 
 instance Prelude.NFData ListProcessingJobs where
   rnf ListProcessingJobs' {..} =
-    Prelude.rnf creationTimeAfter
-      `Prelude.seq` Prelude.rnf creationTimeBefore
-      `Prelude.seq` Prelude.rnf lastModifiedTimeAfter
-      `Prelude.seq` Prelude.rnf lastModifiedTimeBefore
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nameContains
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf sortOrder
-      `Prelude.seq` Prelude.rnf statusEquals
+    Prelude.rnf creationTimeAfter `Prelude.seq`
+      Prelude.rnf creationTimeBefore `Prelude.seq`
+        Prelude.rnf lastModifiedTimeAfter `Prelude.seq`
+          Prelude.rnf lastModifiedTimeBefore `Prelude.seq`
+            Prelude.rnf maxResults `Prelude.seq`
+              Prelude.rnf nameContains `Prelude.seq`
+                Prelude.rnf nextToken `Prelude.seq`
+                  Prelude.rnf sortBy `Prelude.seq`
+                    Prelude.rnf sortOrder `Prelude.seq`
+                      Prelude.rnf statusEquals
 
 instance Data.ToHeaders ListProcessingJobs where
   toHeaders =
@@ -356,6 +356,6 @@ listProcessingJobsResponse_processingJobSummaries = Lens.lens (\ListProcessingJo
 
 instance Prelude.NFData ListProcessingJobsResponse where
   rnf ListProcessingJobsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf processingJobSummaries
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf processingJobSummaries

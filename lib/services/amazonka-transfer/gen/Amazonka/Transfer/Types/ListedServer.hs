@@ -258,11 +258,11 @@ instance Prelude.Hashable ListedServer where
 
 instance Prelude.NFData ListedServer where
   rnf ListedServer' {..} =
-    Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf endpointType
-      `Prelude.seq` Prelude.rnf identityProviderType
-      `Prelude.seq` Prelude.rnf loggingRole
-      `Prelude.seq` Prelude.rnf serverId
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf userCount
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf domain `Prelude.seq`
+      Prelude.rnf endpointType `Prelude.seq`
+        Prelude.rnf identityProviderType `Prelude.seq`
+          Prelude.rnf loggingRole `Prelude.seq`
+            Prelude.rnf serverId `Prelude.seq`
+              Prelude.rnf state `Prelude.seq`
+                Prelude.rnf userCount `Prelude.seq`
+                  Prelude.rnf arn

@@ -196,12 +196,12 @@ instance Prelude.Hashable UpdateDistribution where
 
 instance Prelude.NFData UpdateDistribution where
   rnf UpdateDistribution' {..} =
-    Prelude.rnf cacheBehaviorSettings
-      `Prelude.seq` Prelude.rnf cacheBehaviors
-      `Prelude.seq` Prelude.rnf defaultCacheBehavior
-      `Prelude.seq` Prelude.rnf isEnabled
-      `Prelude.seq` Prelude.rnf origin
-      `Prelude.seq` Prelude.rnf distributionName
+    Prelude.rnf cacheBehaviorSettings `Prelude.seq`
+      Prelude.rnf cacheBehaviors `Prelude.seq`
+        Prelude.rnf defaultCacheBehavior `Prelude.seq`
+          Prelude.rnf isEnabled `Prelude.seq`
+            Prelude.rnf origin `Prelude.seq`
+              Prelude.rnf distributionName
 
 instance Data.ToHeaders UpdateDistribution where
   toHeaders =
@@ -288,5 +288,5 @@ updateDistributionResponse_httpStatus = Lens.lens (\UpdateDistributionResponse' 
 
 instance Prelude.NFData UpdateDistributionResponse where
   rnf UpdateDistributionResponse' {..} =
-    Prelude.rnf operation
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operation `Prelude.seq`
+      Prelude.rnf httpStatus

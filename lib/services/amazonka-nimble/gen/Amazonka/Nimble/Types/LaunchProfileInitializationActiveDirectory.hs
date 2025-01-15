@@ -159,10 +159,10 @@ instance
     LaunchProfileInitializationActiveDirectory
   where
   rnf LaunchProfileInitializationActiveDirectory' {..} =
-    Prelude.rnf computerAttributes
-      `Prelude.seq` Prelude.rnf directoryId
-      `Prelude.seq` Prelude.rnf directoryName
-      `Prelude.seq` Prelude.rnf dnsIpAddresses
-      `Prelude.seq` Prelude.rnf organizationalUnitDistinguishedName
-      `Prelude.seq` Prelude.rnf studioComponentId
-      `Prelude.seq` Prelude.rnf studioComponentName
+    Prelude.rnf computerAttributes `Prelude.seq`
+      Prelude.rnf directoryId `Prelude.seq`
+        Prelude.rnf directoryName `Prelude.seq`
+          Prelude.rnf dnsIpAddresses `Prelude.seq`
+            Prelude.rnf organizationalUnitDistinguishedName `Prelude.seq`
+              Prelude.rnf studioComponentId `Prelude.seq`
+                Prelude.rnf studioComponentName

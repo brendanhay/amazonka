@@ -97,8 +97,8 @@ instance
     SipMediaApplicationAlexaSkillConfiguration
   where
   rnf SipMediaApplicationAlexaSkillConfiguration' {..} =
-    Prelude.rnf alexaSkillStatus
-      `Prelude.seq` Prelude.rnf alexaSkillIds
+    Prelude.rnf alexaSkillStatus `Prelude.seq`
+      Prelude.rnf alexaSkillIds
 
 instance
   Data.ToJSON

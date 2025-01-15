@@ -133,12 +133,12 @@ instance Core.AWSPager DescribeByoipCidrs where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeByoipCidrs_nextToken
-          Lens..~ rs
-          Lens.^? describeByoipCidrsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeByoipCidrs_nextToken
+              Lens..~ rs
+              Lens.^? describeByoipCidrsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeByoipCidrs where
   type
@@ -150,9 +150,7 @@ instance Core.AWSRequest DescribeByoipCidrs where
     Response.receiveXML
       ( \s h x ->
           DescribeByoipCidrsResponse'
-            Prelude.<$> ( x
-                            Data..@? "byoipCidrSet"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "byoipCidrSet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (x Data..@? "nextToken")
@@ -168,9 +166,9 @@ instance Prelude.Hashable DescribeByoipCidrs where
 
 instance Prelude.NFData DescribeByoipCidrs where
   rnf DescribeByoipCidrs' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf maxResults
 
 instance Data.ToHeaders DescribeByoipCidrs where
   toHeaders = Prelude.const Prelude.mempty
@@ -243,6 +241,6 @@ describeByoipCidrsResponse_httpStatus = Lens.lens (\DescribeByoipCidrsResponse' 
 
 instance Prelude.NFData DescribeByoipCidrsResponse where
   rnf DescribeByoipCidrsResponse' {..} =
-    Prelude.rnf byoipCidrs
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf byoipCidrs `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

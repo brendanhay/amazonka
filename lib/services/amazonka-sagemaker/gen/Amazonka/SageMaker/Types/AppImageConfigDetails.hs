@@ -118,8 +118,8 @@ instance Prelude.Hashable AppImageConfigDetails where
 
 instance Prelude.NFData AppImageConfigDetails where
   rnf AppImageConfigDetails' {..} =
-    Prelude.rnf appImageConfigArn
-      `Prelude.seq` Prelude.rnf appImageConfigName
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf kernelGatewayImageConfig
-      `Prelude.seq` Prelude.rnf lastModifiedTime
+    Prelude.rnf appImageConfigArn `Prelude.seq`
+      Prelude.rnf appImageConfigName `Prelude.seq`
+        Prelude.rnf creationTime `Prelude.seq`
+          Prelude.rnf kernelGatewayImageConfig `Prelude.seq`
+            Prelude.rnf lastModifiedTime

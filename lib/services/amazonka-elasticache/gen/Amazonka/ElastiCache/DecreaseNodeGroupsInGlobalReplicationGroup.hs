@@ -196,11 +196,11 @@ instance
     DecreaseNodeGroupsInGlobalReplicationGroup
   where
   rnf DecreaseNodeGroupsInGlobalReplicationGroup' {..} =
-    Prelude.rnf globalNodeGroupsToRemove
-      `Prelude.seq` Prelude.rnf globalNodeGroupsToRetain
-      `Prelude.seq` Prelude.rnf globalReplicationGroupId
-      `Prelude.seq` Prelude.rnf nodeGroupCount
-      `Prelude.seq` Prelude.rnf applyImmediately
+    Prelude.rnf globalNodeGroupsToRemove `Prelude.seq`
+      Prelude.rnf globalNodeGroupsToRetain `Prelude.seq`
+        Prelude.rnf globalReplicationGroupId `Prelude.seq`
+          Prelude.rnf nodeGroupCount `Prelude.seq`
+            Prelude.rnf applyImmediately
 
 instance
   Data.ToHeaders
@@ -289,5 +289,5 @@ instance
   where
   rnf
     DecreaseNodeGroupsInGlobalReplicationGroupResponse' {..} =
-      Prelude.rnf globalReplicationGroup
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf globalReplicationGroup `Prelude.seq`
+        Prelude.rnf httpStatus

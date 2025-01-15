@@ -117,10 +117,10 @@ instance Prelude.Hashable Core where
 
 instance Prelude.NFData Core where
   rnf Core' {..} =
-    Prelude.rnf syncShadow
-      `Prelude.seq` Prelude.rnf thingArn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf certificateArn
+    Prelude.rnf syncShadow `Prelude.seq`
+      Prelude.rnf thingArn `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf certificateArn
 
 instance Data.ToJSON Core where
   toJSON Core' {..} =

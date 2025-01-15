@@ -101,6 +101,6 @@ instance
     UpdateWirelessGatewayTaskEntry
   where
   rnf UpdateWirelessGatewayTaskEntry' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf loRaWAN
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf loRaWAN

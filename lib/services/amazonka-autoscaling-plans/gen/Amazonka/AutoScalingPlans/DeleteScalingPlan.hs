@@ -120,8 +120,8 @@ instance Prelude.Hashable DeleteScalingPlan where
 
 instance Prelude.NFData DeleteScalingPlan where
   rnf DeleteScalingPlan' {..} =
-    Prelude.rnf scalingPlanName
-      `Prelude.seq` Prelude.rnf scalingPlanVersion
+    Prelude.rnf scalingPlanName `Prelude.seq`
+      Prelude.rnf scalingPlanVersion
 
 instance Data.ToHeaders DeleteScalingPlan where
   toHeaders =

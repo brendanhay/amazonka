@@ -113,12 +113,12 @@ instance Core.AWSPager ListMaps where
     | Core.stop (rs Lens.^. listMapsResponse_entries) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listMaps_nextToken
-          Lens..~ rs
-          Lens.^? listMapsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listMaps_nextToken
+              Lens..~ rs
+              Lens.^? listMapsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListMaps where
   type AWSResponse ListMaps = ListMapsResponse
@@ -141,8 +141,8 @@ instance Prelude.Hashable ListMaps where
 
 instance Prelude.NFData ListMaps where
   rnf ListMaps' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListMaps where
   toHeaders =
@@ -225,6 +225,6 @@ listMapsResponse_entries = Lens.lens (\ListMapsResponse' {entries} -> entries) (
 
 instance Prelude.NFData ListMapsResponse where
   rnf ListMapsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf entries
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf entries

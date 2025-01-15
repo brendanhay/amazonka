@@ -133,8 +133,8 @@ instance
   where
   rnf
     UpdateConfigurationSetReputationMetricsEnabled' {..} =
-      Prelude.rnf configurationSetName
-        `Prelude.seq` Prelude.rnf enabled
+      Prelude.rnf configurationSetName `Prelude.seq`
+        Prelude.rnf enabled
 
 instance
   Data.ToHeaders

@@ -114,6 +114,6 @@ instance Prelude.Hashable CustomEntityType where
 
 instance Prelude.NFData CustomEntityType where
   rnf CustomEntityType' {..} =
-    Prelude.rnf contextWords
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf regexString
+    Prelude.rnf contextWords `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf regexString

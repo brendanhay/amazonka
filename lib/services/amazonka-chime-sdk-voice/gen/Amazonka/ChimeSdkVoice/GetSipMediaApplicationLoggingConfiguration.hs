@@ -183,5 +183,5 @@ instance
   where
   rnf
     GetSipMediaApplicationLoggingConfigurationResponse' {..} =
-      Prelude.rnf sipMediaApplicationLoggingConfiguration
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf sipMediaApplicationLoggingConfiguration `Prelude.seq`
+        Prelude.rnf httpStatus

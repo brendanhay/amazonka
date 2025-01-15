@@ -410,13 +410,13 @@ instance Prelude.Hashable CreateConstraint where
 
 instance Prelude.NFData CreateConstraint where
   rnf CreateConstraint' {..} =
-    Prelude.rnf acceptLanguage
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf portfolioId
-      `Prelude.seq` Prelude.rnf productId
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf idempotencyToken
+    Prelude.rnf acceptLanguage `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf portfolioId `Prelude.seq`
+          Prelude.rnf productId `Prelude.seq`
+            Prelude.rnf parameters `Prelude.seq`
+              Prelude.rnf type' `Prelude.seq`
+                Prelude.rnf idempotencyToken
 
 instance Data.ToHeaders CreateConstraint where
   toHeaders =
@@ -514,7 +514,7 @@ createConstraintResponse_httpStatus = Lens.lens (\CreateConstraintResponse' {htt
 
 instance Prelude.NFData CreateConstraintResponse where
   rnf CreateConstraintResponse' {..} =
-    Prelude.rnf constraintDetail
-      `Prelude.seq` Prelude.rnf constraintParameters
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf constraintDetail `Prelude.seq`
+      Prelude.rnf constraintParameters `Prelude.seq`
+        Prelude.rnf status `Prelude.seq`
+          Prelude.rnf httpStatus

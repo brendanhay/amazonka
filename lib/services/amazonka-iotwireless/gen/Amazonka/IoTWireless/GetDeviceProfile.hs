@@ -178,8 +178,8 @@ getDeviceProfileResponse_httpStatus = Lens.lens (\GetDeviceProfileResponse' {htt
 
 instance Prelude.NFData GetDeviceProfileResponse where
   rnf GetDeviceProfileResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf loRaWAN
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf loRaWAN `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf httpStatus

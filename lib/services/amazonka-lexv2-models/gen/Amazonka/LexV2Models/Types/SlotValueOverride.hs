@@ -106,9 +106,9 @@ instance Prelude.Hashable SlotValueOverride where
 
 instance Prelude.NFData SlotValueOverride where
   rnf SlotValueOverride' {..} =
-    Prelude.rnf shape
-      `Prelude.seq` Prelude.rnf value
-      `Prelude.seq` Prelude.rnf values
+    Prelude.rnf shape `Prelude.seq`
+      Prelude.rnf value `Prelude.seq`
+        Prelude.rnf values
 
 instance Data.ToJSON SlotValueOverride where
   toJSON SlotValueOverride' {..} =

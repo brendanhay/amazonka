@@ -81,5 +81,5 @@ instance Prelude.Hashable StackError where
 
 instance Prelude.NFData StackError where
   rnf StackError' {..} =
-    Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorMessage
+    Prelude.rnf errorCode `Prelude.seq`
+      Prelude.rnf errorMessage

@@ -92,5 +92,5 @@ instance
     ObjectIdentifierAndLinkNameTuple
   where
   rnf ObjectIdentifierAndLinkNameTuple' {..} =
-    Prelude.rnf linkName
-      `Prelude.seq` Prelude.rnf objectIdentifier
+    Prelude.rnf linkName `Prelude.seq`
+      Prelude.rnf objectIdentifier

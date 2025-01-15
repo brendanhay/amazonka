@@ -188,11 +188,11 @@ instance
 
 instance Prelude.NFData CreateRecordingConfiguration where
   rnf CreateRecordingConfiguration' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf recordingReconnectWindowSeconds
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf thumbnailConfiguration
-      `Prelude.seq` Prelude.rnf destinationConfiguration
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf recordingReconnectWindowSeconds `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf thumbnailConfiguration `Prelude.seq`
+            Prelude.rnf destinationConfiguration
 
 instance Data.ToHeaders CreateRecordingConfiguration where
   toHeaders =
@@ -271,5 +271,5 @@ instance
     CreateRecordingConfigurationResponse
   where
   rnf CreateRecordingConfigurationResponse' {..} =
-    Prelude.rnf recordingConfiguration
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf recordingConfiguration `Prelude.seq`
+      Prelude.rnf httpStatus

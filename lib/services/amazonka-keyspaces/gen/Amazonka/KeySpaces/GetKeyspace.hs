@@ -180,6 +180,6 @@ getKeyspaceResponse_resourceArn = Lens.lens (\GetKeyspaceResponse' {resourceArn}
 
 instance Prelude.NFData GetKeyspaceResponse where
   rnf GetKeyspaceResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf keyspaceName
-      `Prelude.seq` Prelude.rnf resourceArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf keyspaceName `Prelude.seq`
+        Prelude.rnf resourceArn

@@ -129,9 +129,9 @@ instance Prelude.Hashable Volume where
 
 instance Prelude.NFData Volume where
   rnf Volume' {..} =
-    Prelude.rnf efsVolumeConfiguration
-      `Prelude.seq` Prelude.rnf host
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf efsVolumeConfiguration `Prelude.seq`
+      Prelude.rnf host `Prelude.seq`
+        Prelude.rnf name
 
 instance Data.ToJSON Volume where
   toJSON Volume' {..} =

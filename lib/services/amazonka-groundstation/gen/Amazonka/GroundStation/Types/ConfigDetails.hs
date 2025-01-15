@@ -94,6 +94,6 @@ instance Prelude.Hashable ConfigDetails where
 
 instance Prelude.NFData ConfigDetails where
   rnf ConfigDetails' {..} =
-    Prelude.rnf antennaDemodDecodeDetails
-      `Prelude.seq` Prelude.rnf endpointDetails
-      `Prelude.seq` Prelude.rnf s3RecordingDetails
+    Prelude.rnf antennaDemodDecodeDetails `Prelude.seq`
+      Prelude.rnf endpointDetails `Prelude.seq`
+        Prelude.rnf s3RecordingDetails

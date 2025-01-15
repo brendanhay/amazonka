@@ -91,6 +91,6 @@ instance Prelude.Hashable PromptSummary where
 
 instance Prelude.NFData PromptSummary where
   rnf PromptSummary' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf name

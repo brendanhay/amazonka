@@ -111,8 +111,8 @@ instance Prelude.Hashable ActivateUser where
 
 instance Prelude.NFData ActivateUser where
   rnf ActivateUser' {..} =
-    Prelude.rnf authenticationToken
-      `Prelude.seq` Prelude.rnf userId
+    Prelude.rnf authenticationToken `Prelude.seq`
+      Prelude.rnf userId
 
 instance Data.ToHeaders ActivateUser where
   toHeaders ActivateUser' {..} =
@@ -173,5 +173,5 @@ activateUserResponse_httpStatus = Lens.lens (\ActivateUserResponse' {httpStatus}
 
 instance Prelude.NFData ActivateUserResponse where
   rnf ActivateUserResponse' {..} =
-    Prelude.rnf user
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf user `Prelude.seq`
+      Prelude.rnf httpStatus

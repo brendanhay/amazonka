@@ -101,8 +101,8 @@ instance
     RecordMarkerDecisionAttributes
   where
   rnf RecordMarkerDecisionAttributes' {..} =
-    Prelude.rnf details
-      `Prelude.seq` Prelude.rnf markerName
+    Prelude.rnf details `Prelude.seq`
+      Prelude.rnf markerName
 
 instance Data.ToJSON RecordMarkerDecisionAttributes where
   toJSON RecordMarkerDecisionAttributes' {..} =

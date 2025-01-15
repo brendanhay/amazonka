@@ -149,6 +149,6 @@ instance
   where
   rnf
     BucketCountPolicyAllowsUnencryptedObjectUploads' {..} =
-      Prelude.rnf allowsUnencryptedObjectUploads
-        `Prelude.seq` Prelude.rnf deniesUnencryptedObjectUploads
-        `Prelude.seq` Prelude.rnf unknown
+      Prelude.rnf allowsUnencryptedObjectUploads `Prelude.seq`
+        Prelude.rnf deniesUnencryptedObjectUploads `Prelude.seq`
+          Prelude.rnf unknown

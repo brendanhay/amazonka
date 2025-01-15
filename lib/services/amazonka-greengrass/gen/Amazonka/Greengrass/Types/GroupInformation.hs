@@ -138,10 +138,10 @@ instance Prelude.Hashable GroupInformation where
 
 instance Prelude.NFData GroupInformation where
   rnf GroupInformation' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationTimestamp
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf lastUpdatedTimestamp
-      `Prelude.seq` Prelude.rnf latestVersion
-      `Prelude.seq` Prelude.rnf latestVersionArn
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf creationTimestamp `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf lastUpdatedTimestamp `Prelude.seq`
+            Prelude.rnf latestVersion `Prelude.seq`
+              Prelude.rnf latestVersionArn `Prelude.seq`
+                Prelude.rnf name

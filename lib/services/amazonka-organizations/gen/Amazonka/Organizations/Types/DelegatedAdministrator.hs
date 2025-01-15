@@ -163,11 +163,11 @@ instance Prelude.Hashable DelegatedAdministrator where
 
 instance Prelude.NFData DelegatedAdministrator where
   rnf DelegatedAdministrator' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf delegationEnabledDate
-      `Prelude.seq` Prelude.rnf email
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf joinedMethod
-      `Prelude.seq` Prelude.rnf joinedTimestamp
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf delegationEnabledDate `Prelude.seq`
+        Prelude.rnf email `Prelude.seq`
+          Prelude.rnf id `Prelude.seq`
+            Prelude.rnf joinedMethod `Prelude.seq`
+              Prelude.rnf joinedTimestamp `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf status

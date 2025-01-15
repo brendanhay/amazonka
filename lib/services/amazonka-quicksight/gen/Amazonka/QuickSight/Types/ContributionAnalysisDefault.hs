@@ -92,8 +92,8 @@ instance Prelude.Hashable ContributionAnalysisDefault where
 
 instance Prelude.NFData ContributionAnalysisDefault where
   rnf ContributionAnalysisDefault' {..} =
-    Prelude.rnf measureFieldId
-      `Prelude.seq` Prelude.rnf contributorDimensions
+    Prelude.rnf measureFieldId `Prelude.seq`
+      Prelude.rnf contributorDimensions
 
 instance Data.ToJSON ContributionAnalysisDefault where
   toJSON ContributionAnalysisDefault' {..} =

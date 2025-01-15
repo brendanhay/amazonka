@@ -184,8 +184,8 @@ instance Prelude.Hashable CreateAnomalySubscription where
 
 instance Prelude.NFData CreateAnomalySubscription where
   rnf CreateAnomalySubscription' {..} =
-    Prelude.rnf resourceTags
-      `Prelude.seq` Prelude.rnf anomalySubscription
+    Prelude.rnf resourceTags `Prelude.seq`
+      Prelude.rnf anomalySubscription
 
 instance Data.ToHeaders CreateAnomalySubscription where
   toHeaders =
@@ -266,5 +266,5 @@ instance
     CreateAnomalySubscriptionResponse
   where
   rnf CreateAnomalySubscriptionResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf subscriptionArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf subscriptionArn

@@ -169,10 +169,10 @@ instance
     AssociateIdentityProviderConfig
   where
   rnf AssociateIdentityProviderConfig' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clusterName
-      `Prelude.seq` Prelude.rnf oidc
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf clusterName `Prelude.seq`
+          Prelude.rnf oidc
 
 instance
   Data.ToHeaders
@@ -263,6 +263,6 @@ instance
     AssociateIdentityProviderConfigResponse
   where
   rnf AssociateIdentityProviderConfigResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf update
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf update `Prelude.seq`
+        Prelude.rnf httpStatus

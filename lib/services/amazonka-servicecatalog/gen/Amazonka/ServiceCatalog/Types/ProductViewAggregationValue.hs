@@ -82,5 +82,5 @@ instance Prelude.Hashable ProductViewAggregationValue where
 
 instance Prelude.NFData ProductViewAggregationValue where
   rnf ProductViewAggregationValue' {..} =
-    Prelude.rnf approximateCount
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf approximateCount `Prelude.seq`
+      Prelude.rnf value

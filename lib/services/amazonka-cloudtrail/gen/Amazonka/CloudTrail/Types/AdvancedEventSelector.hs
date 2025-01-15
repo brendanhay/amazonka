@@ -107,8 +107,8 @@ instance Prelude.Hashable AdvancedEventSelector where
 
 instance Prelude.NFData AdvancedEventSelector where
   rnf AdvancedEventSelector' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf fieldSelectors
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf fieldSelectors
 
 instance Data.ToJSON AdvancedEventSelector where
   toJSON AdvancedEventSelector' {..} =

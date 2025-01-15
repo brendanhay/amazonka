@@ -83,8 +83,8 @@ instance Prelude.Hashable LandsatCloudCoverLandInput where
 
 instance Prelude.NFData LandsatCloudCoverLandInput where
   rnf LandsatCloudCoverLandInput' {..} =
-    Prelude.rnf lowerBound
-      `Prelude.seq` Prelude.rnf upperBound
+    Prelude.rnf lowerBound `Prelude.seq`
+      Prelude.rnf upperBound
 
 instance Data.ToJSON LandsatCloudCoverLandInput where
   toJSON LandsatCloudCoverLandInput' {..} =

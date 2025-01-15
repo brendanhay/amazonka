@@ -140,9 +140,9 @@ instance Prelude.Hashable DescribeEndpointSettings where
 
 instance Prelude.NFData DescribeEndpointSettings where
   rnf DescribeEndpointSettings' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf engineName
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf maxRecords `Prelude.seq`
+        Prelude.rnf engineName
 
 instance Data.ToHeaders DescribeEndpointSettings where
   toHeaders =
@@ -237,6 +237,6 @@ instance
     DescribeEndpointSettingsResponse
   where
   rnf DescribeEndpointSettingsResponse' {..} =
-    Prelude.rnf endpointSettings
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf endpointSettings `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf httpStatus

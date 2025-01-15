@@ -115,8 +115,8 @@ instance Prelude.Hashable UpdateVpcLink where
 
 instance Prelude.NFData UpdateVpcLink where
   rnf UpdateVpcLink' {..} =
-    Prelude.rnf patchOperations
-      `Prelude.seq` Prelude.rnf vpcLinkId
+    Prelude.rnf patchOperations `Prelude.seq`
+      Prelude.rnf vpcLinkId
 
 instance Data.ToHeaders UpdateVpcLink where
   toHeaders =

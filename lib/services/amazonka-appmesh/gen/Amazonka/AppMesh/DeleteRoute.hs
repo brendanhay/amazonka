@@ -146,10 +146,10 @@ instance Prelude.Hashable DeleteRoute where
 
 instance Prelude.NFData DeleteRoute where
   rnf DeleteRoute' {..} =
-    Prelude.rnf meshOwner
-      `Prelude.seq` Prelude.rnf meshName
-      `Prelude.seq` Prelude.rnf routeName
-      `Prelude.seq` Prelude.rnf virtualRouterName
+    Prelude.rnf meshOwner `Prelude.seq`
+      Prelude.rnf meshName `Prelude.seq`
+        Prelude.rnf routeName `Prelude.seq`
+          Prelude.rnf virtualRouterName
 
 instance Data.ToHeaders DeleteRoute where
   toHeaders =
@@ -221,5 +221,5 @@ deleteRouteResponse_route = Lens.lens (\DeleteRouteResponse' {route} -> route) (
 
 instance Prelude.NFData DeleteRouteResponse where
   rnf DeleteRouteResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf route
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf route

@@ -146,8 +146,8 @@ instance Prelude.Hashable DescribeVault where
 
 instance Prelude.NFData DescribeVault where
   rnf DescribeVault' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf vaultName
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf vaultName
 
 instance Data.ToHeaders DescribeVault where
   toHeaders = Prelude.const Prelude.mempty

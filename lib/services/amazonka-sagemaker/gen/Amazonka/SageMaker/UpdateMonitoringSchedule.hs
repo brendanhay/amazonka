@@ -120,8 +120,8 @@ instance Prelude.Hashable UpdateMonitoringSchedule where
 
 instance Prelude.NFData UpdateMonitoringSchedule where
   rnf UpdateMonitoringSchedule' {..} =
-    Prelude.rnf monitoringScheduleName
-      `Prelude.seq` Prelude.rnf monitoringScheduleConfig
+    Prelude.rnf monitoringScheduleName `Prelude.seq`
+      Prelude.rnf monitoringScheduleConfig
 
 instance Data.ToHeaders UpdateMonitoringSchedule where
   toHeaders =
@@ -208,5 +208,5 @@ instance
     UpdateMonitoringScheduleResponse
   where
   rnf UpdateMonitoringScheduleResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf monitoringScheduleArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf monitoringScheduleArn

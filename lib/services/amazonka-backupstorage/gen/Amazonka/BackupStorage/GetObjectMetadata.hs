@@ -118,8 +118,8 @@ instance Prelude.Hashable GetObjectMetadata where
 
 instance Prelude.NFData GetObjectMetadata where
   rnf GetObjectMetadata' {..} =
-    Prelude.rnf storageJobId
-      `Prelude.seq` Prelude.rnf objectToken
+    Prelude.rnf storageJobId `Prelude.seq`
+      Prelude.rnf objectToken
 
 instance Data.ToHeaders GetObjectMetadata where
   toHeaders =

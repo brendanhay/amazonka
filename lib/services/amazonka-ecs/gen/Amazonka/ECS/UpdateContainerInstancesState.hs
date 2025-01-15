@@ -204,9 +204,9 @@ instance
 
 instance Prelude.NFData UpdateContainerInstancesState where
   rnf UpdateContainerInstancesState' {..} =
-    Prelude.rnf cluster
-      `Prelude.seq` Prelude.rnf containerInstances
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf cluster `Prelude.seq`
+      Prelude.rnf containerInstances `Prelude.seq`
+        Prelude.rnf status
 
 instance Data.ToHeaders UpdateContainerInstancesState where
   toHeaders =
@@ -293,6 +293,6 @@ instance
     UpdateContainerInstancesStateResponse
   where
   rnf UpdateContainerInstancesStateResponse' {..} =
-    Prelude.rnf containerInstances
-      `Prelude.seq` Prelude.rnf failures
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf containerInstances `Prelude.seq`
+      Prelude.rnf failures `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -141,8 +141,8 @@ instance Prelude.Hashable DeleteByteMatchSet where
 
 instance Prelude.NFData DeleteByteMatchSet where
   rnf DeleteByteMatchSet' {..} =
-    Prelude.rnf byteMatchSetId
-      `Prelude.seq` Prelude.rnf changeToken
+    Prelude.rnf byteMatchSetId `Prelude.seq`
+      Prelude.rnf changeToken
 
 instance Data.ToHeaders DeleteByteMatchSet where
   toHeaders =
@@ -222,5 +222,5 @@ deleteByteMatchSetResponse_httpStatus = Lens.lens (\DeleteByteMatchSetResponse' 
 
 instance Prelude.NFData DeleteByteMatchSetResponse where
   rnf DeleteByteMatchSetResponse' {..} =
-    Prelude.rnf changeToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf changeToken `Prelude.seq`
+      Prelude.rnf httpStatus

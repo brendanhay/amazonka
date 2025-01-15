@@ -140,10 +140,10 @@ instance Prelude.Hashable IoTJobAbortCriteria where
 
 instance Prelude.NFData IoTJobAbortCriteria where
   rnf IoTJobAbortCriteria' {..} =
-    Prelude.rnf failureType
-      `Prelude.seq` Prelude.rnf action
-      `Prelude.seq` Prelude.rnf thresholdPercentage
-      `Prelude.seq` Prelude.rnf minNumberOfExecutedThings
+    Prelude.rnf failureType `Prelude.seq`
+      Prelude.rnf action `Prelude.seq`
+        Prelude.rnf thresholdPercentage `Prelude.seq`
+          Prelude.rnf minNumberOfExecutedThings
 
 instance Data.ToJSON IoTJobAbortCriteria where
   toJSON IoTJobAbortCriteria' {..} =

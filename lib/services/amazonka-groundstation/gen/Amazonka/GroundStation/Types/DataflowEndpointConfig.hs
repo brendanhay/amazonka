@@ -83,8 +83,8 @@ instance Prelude.Hashable DataflowEndpointConfig where
 
 instance Prelude.NFData DataflowEndpointConfig where
   rnf DataflowEndpointConfig' {..} =
-    Prelude.rnf dataflowEndpointRegion
-      `Prelude.seq` Prelude.rnf dataflowEndpointName
+    Prelude.rnf dataflowEndpointRegion `Prelude.seq`
+      Prelude.rnf dataflowEndpointName
 
 instance Data.ToJSON DataflowEndpointConfig where
   toJSON DataflowEndpointConfig' {..} =

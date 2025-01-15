@@ -158,12 +158,12 @@ instance Core.AWSPager DescribeClusters where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeClusters_nextToken
-          Lens..~ rs
-          Lens.^? describeClustersResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeClusters_nextToken
+              Lens..~ rs
+              Lens.^? describeClustersResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeClusters where
   type
@@ -189,9 +189,9 @@ instance Prelude.Hashable DescribeClusters where
 
 instance Prelude.NFData DescribeClusters where
   rnf DescribeClusters' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeClusters where
   toHeaders =
@@ -280,6 +280,6 @@ describeClustersResponse_httpStatus = Lens.lens (\DescribeClustersResponse' {htt
 
 instance Prelude.NFData DescribeClustersResponse where
   rnf DescribeClustersResponse' {..} =
-    Prelude.rnf clusters
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf clusters `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

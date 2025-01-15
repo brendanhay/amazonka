@@ -497,26 +497,26 @@ instance Prelude.Hashable CreateEnvironment where
 
 instance Prelude.NFData CreateEnvironment where
   rnf CreateEnvironment' {..} =
-    Prelude.rnf airflowConfigurationOptions
-      `Prelude.seq` Prelude.rnf airflowVersion
-      `Prelude.seq` Prelude.rnf environmentClass
-      `Prelude.seq` Prelude.rnf kmsKey
-      `Prelude.seq` Prelude.rnf loggingConfiguration
-      `Prelude.seq` Prelude.rnf maxWorkers
-      `Prelude.seq` Prelude.rnf minWorkers
-      `Prelude.seq` Prelude.rnf pluginsS3ObjectVersion
-      `Prelude.seq` Prelude.rnf pluginsS3Path
-      `Prelude.seq` Prelude.rnf requirementsS3ObjectVersion
-      `Prelude.seq` Prelude.rnf requirementsS3Path
-      `Prelude.seq` Prelude.rnf schedulers
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf webserverAccessMode
-      `Prelude.seq` Prelude.rnf weeklyMaintenanceWindowStart
-      `Prelude.seq` Prelude.rnf dagS3Path
-      `Prelude.seq` Prelude.rnf executionRoleArn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf networkConfiguration
-      `Prelude.seq` Prelude.rnf sourceBucketArn
+    Prelude.rnf airflowConfigurationOptions `Prelude.seq`
+      Prelude.rnf airflowVersion `Prelude.seq`
+        Prelude.rnf environmentClass `Prelude.seq`
+          Prelude.rnf kmsKey `Prelude.seq`
+            Prelude.rnf loggingConfiguration `Prelude.seq`
+              Prelude.rnf maxWorkers `Prelude.seq`
+                Prelude.rnf minWorkers `Prelude.seq`
+                  Prelude.rnf pluginsS3ObjectVersion `Prelude.seq`
+                    Prelude.rnf pluginsS3Path `Prelude.seq`
+                      Prelude.rnf requirementsS3ObjectVersion `Prelude.seq`
+                        Prelude.rnf requirementsS3Path `Prelude.seq`
+                          Prelude.rnf schedulers `Prelude.seq`
+                            Prelude.rnf tags `Prelude.seq`
+                              Prelude.rnf webserverAccessMode `Prelude.seq`
+                                Prelude.rnf weeklyMaintenanceWindowStart `Prelude.seq`
+                                  Prelude.rnf dagS3Path `Prelude.seq`
+                                    Prelude.rnf executionRoleArn `Prelude.seq`
+                                      Prelude.rnf name `Prelude.seq`
+                                        Prelude.rnf networkConfiguration `Prelude.seq`
+                                          Prelude.rnf sourceBucketArn
 
 instance Data.ToHeaders CreateEnvironment where
   toHeaders =
@@ -619,5 +619,5 @@ createEnvironmentResponse_httpStatus = Lens.lens (\CreateEnvironmentResponse' {h
 
 instance Prelude.NFData CreateEnvironmentResponse where
   rnf CreateEnvironmentResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf httpStatus

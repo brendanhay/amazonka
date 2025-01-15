@@ -103,9 +103,9 @@ instance Prelude.Hashable ServiceFilter where
 
 instance Prelude.NFData ServiceFilter where
   rnf ServiceFilter' {..} =
-    Prelude.rnf condition
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf values
+    Prelude.rnf condition `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf values
 
 instance Data.ToJSON ServiceFilter where
   toJSON ServiceFilter' {..} =

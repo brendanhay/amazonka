@@ -228,14 +228,14 @@ instance Prelude.Hashable PropertyDefinitionResponse where
 
 instance Prelude.NFData PropertyDefinitionResponse where
   rnf PropertyDefinitionResponse' {..} =
-    Prelude.rnf configuration
-      `Prelude.seq` Prelude.rnf defaultValue
-      `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf dataType
-      `Prelude.seq` Prelude.rnf isTimeSeries
-      `Prelude.seq` Prelude.rnf isRequiredInEntity
-      `Prelude.seq` Prelude.rnf isExternalId
-      `Prelude.seq` Prelude.rnf isStoredExternally
-      `Prelude.seq` Prelude.rnf isImported
-      `Prelude.seq` Prelude.rnf isFinal
-      `Prelude.seq` Prelude.rnf isInherited
+    Prelude.rnf configuration `Prelude.seq`
+      Prelude.rnf defaultValue `Prelude.seq`
+        Prelude.rnf displayName `Prelude.seq`
+          Prelude.rnf dataType `Prelude.seq`
+            Prelude.rnf isTimeSeries `Prelude.seq`
+              Prelude.rnf isRequiredInEntity `Prelude.seq`
+                Prelude.rnf isExternalId `Prelude.seq`
+                  Prelude.rnf isStoredExternally `Prelude.seq`
+                    Prelude.rnf isImported `Prelude.seq`
+                      Prelude.rnf isFinal `Prelude.seq`
+                        Prelude.rnf isInherited

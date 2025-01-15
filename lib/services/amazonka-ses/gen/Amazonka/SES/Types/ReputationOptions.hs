@@ -152,6 +152,6 @@ instance Prelude.Hashable ReputationOptions where
 
 instance Prelude.NFData ReputationOptions where
   rnf ReputationOptions' {..} =
-    Prelude.rnf lastFreshStart
-      `Prelude.seq` Prelude.rnf reputationMetricsEnabled
-      `Prelude.seq` Prelude.rnf sendingEnabled
+    Prelude.rnf lastFreshStart `Prelude.seq`
+      Prelude.rnf reputationMetricsEnabled `Prelude.seq`
+        Prelude.rnf sendingEnabled

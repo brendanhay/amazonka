@@ -180,14 +180,14 @@ instance Prelude.Hashable ListTestGridSessions where
 
 instance Prelude.NFData ListTestGridSessions where
   rnf ListTestGridSessions' {..} =
-    Prelude.rnf creationTimeAfter
-      `Prelude.seq` Prelude.rnf creationTimeBefore
-      `Prelude.seq` Prelude.rnf endTimeAfter
-      `Prelude.seq` Prelude.rnf endTimeBefore
-      `Prelude.seq` Prelude.rnf maxResult
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf projectArn
+    Prelude.rnf creationTimeAfter `Prelude.seq`
+      Prelude.rnf creationTimeBefore `Prelude.seq`
+        Prelude.rnf endTimeAfter `Prelude.seq`
+          Prelude.rnf endTimeBefore `Prelude.seq`
+            Prelude.rnf maxResult `Prelude.seq`
+              Prelude.rnf nextToken `Prelude.seq`
+                Prelude.rnf status `Prelude.seq`
+                  Prelude.rnf projectArn
 
 instance Data.ToHeaders ListTestGridSessions where
   toHeaders =
@@ -277,6 +277,6 @@ listTestGridSessionsResponse_httpStatus = Lens.lens (\ListTestGridSessionsRespon
 
 instance Prelude.NFData ListTestGridSessionsResponse where
   rnf ListTestGridSessionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf testGridSessions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf testGridSessions `Prelude.seq`
+        Prelude.rnf httpStatus

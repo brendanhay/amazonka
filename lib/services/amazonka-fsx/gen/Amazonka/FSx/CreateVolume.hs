@@ -153,12 +153,12 @@ instance Prelude.Hashable CreateVolume where
 
 instance Prelude.NFData CreateVolume where
   rnf CreateVolume' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf ontapConfiguration
-      `Prelude.seq` Prelude.rnf openZFSConfiguration
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf volumeType
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf ontapConfiguration `Prelude.seq`
+        Prelude.rnf openZFSConfiguration `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf volumeType `Prelude.seq`
+              Prelude.rnf name
 
 instance Data.ToHeaders CreateVolume where
   toHeaders =
@@ -240,5 +240,5 @@ createVolumeResponse_httpStatus = Lens.lens (\CreateVolumeResponse' {httpStatus}
 
 instance Prelude.NFData CreateVolumeResponse where
   rnf CreateVolumeResponse' {..} =
-    Prelude.rnf volume
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf volume `Prelude.seq`
+      Prelude.rnf httpStatus

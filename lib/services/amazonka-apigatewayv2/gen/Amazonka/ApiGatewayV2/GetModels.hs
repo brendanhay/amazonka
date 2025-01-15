@@ -117,12 +117,12 @@ instance Core.AWSPager GetModels where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getModels_nextToken
-          Lens..~ rs
-          Lens.^? getModelsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getModels_nextToken
+              Lens..~ rs
+              Lens.^? getModelsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetModels where
   type AWSResponse GetModels = GetModelsResponse
@@ -146,9 +146,9 @@ instance Prelude.Hashable GetModels where
 
 instance Prelude.NFData GetModels where
   rnf GetModels' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf apiId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf apiId
 
 instance Data.ToHeaders GetModels where
   toHeaders =
@@ -225,6 +225,6 @@ getModelsResponse_httpStatus = Lens.lens (\GetModelsResponse' {httpStatus} -> ht
 
 instance Prelude.NFData GetModelsResponse where
   rnf GetModelsResponse' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf items `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -95,9 +95,9 @@ instance
 
 instance Prelude.NFData AwsRedshiftClusterClusterNode where
   rnf AwsRedshiftClusterClusterNode' {..} =
-    Prelude.rnf nodeRole
-      `Prelude.seq` Prelude.rnf privateIpAddress
-      `Prelude.seq` Prelude.rnf publicIpAddress
+    Prelude.rnf nodeRole `Prelude.seq`
+      Prelude.rnf privateIpAddress `Prelude.seq`
+        Prelude.rnf publicIpAddress
 
 instance Data.ToJSON AwsRedshiftClusterClusterNode where
   toJSON AwsRedshiftClusterClusterNode' {..} =

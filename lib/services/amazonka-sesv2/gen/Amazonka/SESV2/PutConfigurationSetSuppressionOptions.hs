@@ -158,8 +158,8 @@ instance
     PutConfigurationSetSuppressionOptions
   where
   rnf PutConfigurationSetSuppressionOptions' {..} =
-    Prelude.rnf suppressedReasons
-      `Prelude.seq` Prelude.rnf configurationSetName
+    Prelude.rnf suppressedReasons `Prelude.seq`
+      Prelude.rnf configurationSetName
 
 instance
   Data.ToHeaders

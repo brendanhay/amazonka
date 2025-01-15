@@ -255,19 +255,19 @@ instance Prelude.Hashable SamplingRule where
 
 instance Prelude.NFData SamplingRule where
   rnf SamplingRule' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf ruleARN
-      `Prelude.seq` Prelude.rnf ruleName
-      `Prelude.seq` Prelude.rnf resourceARN
-      `Prelude.seq` Prelude.rnf priority
-      `Prelude.seq` Prelude.rnf fixedRate
-      `Prelude.seq` Prelude.rnf reservoirSize
-      `Prelude.seq` Prelude.rnf serviceName
-      `Prelude.seq` Prelude.rnf serviceType
-      `Prelude.seq` Prelude.rnf host
-      `Prelude.seq` Prelude.rnf hTTPMethod
-      `Prelude.seq` Prelude.rnf uRLPath
-      `Prelude.seq` Prelude.rnf version
+    Prelude.rnf attributes `Prelude.seq`
+      Prelude.rnf ruleARN `Prelude.seq`
+        Prelude.rnf ruleName `Prelude.seq`
+          Prelude.rnf resourceARN `Prelude.seq`
+            Prelude.rnf priority `Prelude.seq`
+              Prelude.rnf fixedRate `Prelude.seq`
+                Prelude.rnf reservoirSize `Prelude.seq`
+                  Prelude.rnf serviceName `Prelude.seq`
+                    Prelude.rnf serviceType `Prelude.seq`
+                      Prelude.rnf host `Prelude.seq`
+                        Prelude.rnf hTTPMethod `Prelude.seq`
+                          Prelude.rnf uRLPath `Prelude.seq`
+                            Prelude.rnf version
 
 instance Data.ToJSON SamplingRule where
   toJSON SamplingRule' {..} =

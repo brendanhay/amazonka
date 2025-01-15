@@ -166,13 +166,13 @@ instance Prelude.Hashable SnapshotDetail where
 
 instance Prelude.NFData SnapshotDetail where
   rnf SnapshotDetail' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf deviceName
-      `Prelude.seq` Prelude.rnf diskImageSize
-      `Prelude.seq` Prelude.rnf format
-      `Prelude.seq` Prelude.rnf progress
-      `Prelude.seq` Prelude.rnf snapshotId
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf url
-      `Prelude.seq` Prelude.rnf userBucket
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf deviceName `Prelude.seq`
+        Prelude.rnf diskImageSize `Prelude.seq`
+          Prelude.rnf format `Prelude.seq`
+            Prelude.rnf progress `Prelude.seq`
+              Prelude.rnf snapshotId `Prelude.seq`
+                Prelude.rnf status `Prelude.seq`
+                  Prelude.rnf statusMessage `Prelude.seq`
+                    Prelude.rnf url `Prelude.seq`
+                      Prelude.rnf userBucket

@@ -523,22 +523,22 @@ instance Prelude.Hashable MLTransform where
 
 instance Prelude.NFData MLTransform where
   rnf MLTransform' {..} =
-    Prelude.rnf createdOn
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf evaluationMetrics
-      `Prelude.seq` Prelude.rnf glueVersion
-      `Prelude.seq` Prelude.rnf inputRecordTables
-      `Prelude.seq` Prelude.rnf labelCount
-      `Prelude.seq` Prelude.rnf lastModifiedOn
-      `Prelude.seq` Prelude.rnf maxCapacity
-      `Prelude.seq` Prelude.rnf maxRetries
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf numberOfWorkers
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf role'
-      `Prelude.seq` Prelude.rnf schema
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf timeout
-      `Prelude.seq` Prelude.rnf transformEncryption
-      `Prelude.seq` Prelude.rnf transformId
-      `Prelude.seq` Prelude.rnf workerType
+    Prelude.rnf createdOn `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf evaluationMetrics `Prelude.seq`
+          Prelude.rnf glueVersion `Prelude.seq`
+            Prelude.rnf inputRecordTables `Prelude.seq`
+              Prelude.rnf labelCount `Prelude.seq`
+                Prelude.rnf lastModifiedOn `Prelude.seq`
+                  Prelude.rnf maxCapacity `Prelude.seq`
+                    Prelude.rnf maxRetries `Prelude.seq`
+                      Prelude.rnf name `Prelude.seq`
+                        Prelude.rnf numberOfWorkers `Prelude.seq`
+                          Prelude.rnf parameters `Prelude.seq`
+                            Prelude.rnf role' `Prelude.seq`
+                              Prelude.rnf schema `Prelude.seq`
+                                Prelude.rnf status `Prelude.seq`
+                                  Prelude.rnf timeout `Prelude.seq`
+                                    Prelude.rnf transformEncryption `Prelude.seq`
+                                      Prelude.rnf transformId `Prelude.seq`
+                                        Prelude.rnf workerType

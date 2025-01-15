@@ -143,10 +143,10 @@ instance Prelude.Hashable AssociateDiscoveredResource where
 
 instance Prelude.NFData AssociateDiscoveredResource where
   rnf AssociateDiscoveredResource' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf progressUpdateStream
-      `Prelude.seq` Prelude.rnf migrationTaskName
-      `Prelude.seq` Prelude.rnf discoveredResource
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf progressUpdateStream `Prelude.seq`
+        Prelude.rnf migrationTaskName `Prelude.seq`
+          Prelude.rnf discoveredResource
 
 instance Data.ToHeaders AssociateDiscoveredResource where
   toHeaders =

@@ -102,6 +102,6 @@ instance Prelude.Hashable ResourceState where
 
 instance Prelude.NFData ResourceState where
   rnf ResourceState' {..} =
-    Prelude.rnf lambda
-      `Prelude.seq` Prelude.rnf ec2
-      `Prelude.seq` Prelude.rnf ecr
+    Prelude.rnf lambda `Prelude.seq`
+      Prelude.rnf ec2 `Prelude.seq`
+        Prelude.rnf ecr

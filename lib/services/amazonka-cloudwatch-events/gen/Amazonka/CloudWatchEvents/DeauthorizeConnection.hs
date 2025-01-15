@@ -210,9 +210,9 @@ deauthorizeConnectionResponse_httpStatus = Lens.lens (\DeauthorizeConnectionResp
 
 instance Prelude.NFData DeauthorizeConnectionResponse where
   rnf DeauthorizeConnectionResponse' {..} =
-    Prelude.rnf connectionArn
-      `Prelude.seq` Prelude.rnf connectionState
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf lastAuthorizedTime
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf connectionArn `Prelude.seq`
+      Prelude.rnf connectionState `Prelude.seq`
+        Prelude.rnf creationTime `Prelude.seq`
+          Prelude.rnf lastAuthorizedTime `Prelude.seq`
+            Prelude.rnf lastModifiedTime `Prelude.seq`
+              Prelude.rnf httpStatus

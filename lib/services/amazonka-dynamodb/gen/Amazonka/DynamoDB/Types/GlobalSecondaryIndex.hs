@@ -186,10 +186,10 @@ instance Prelude.Hashable GlobalSecondaryIndex where
 
 instance Prelude.NFData GlobalSecondaryIndex where
   rnf GlobalSecondaryIndex' {..} =
-    Prelude.rnf provisionedThroughput
-      `Prelude.seq` Prelude.rnf indexName
-      `Prelude.seq` Prelude.rnf keySchema
-      `Prelude.seq` Prelude.rnf projection
+    Prelude.rnf provisionedThroughput `Prelude.seq`
+      Prelude.rnf indexName `Prelude.seq`
+        Prelude.rnf keySchema `Prelude.seq`
+          Prelude.rnf projection
 
 instance Data.ToJSON GlobalSecondaryIndex where
   toJSON GlobalSecondaryIndex' {..} =

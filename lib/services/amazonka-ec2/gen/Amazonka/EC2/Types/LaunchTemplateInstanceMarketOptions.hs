@@ -91,5 +91,5 @@ instance
     LaunchTemplateInstanceMarketOptions
   where
   rnf LaunchTemplateInstanceMarketOptions' {..} =
-    Prelude.rnf marketType
-      `Prelude.seq` Prelude.rnf spotOptions
+    Prelude.rnf marketType `Prelude.seq`
+      Prelude.rnf spotOptions

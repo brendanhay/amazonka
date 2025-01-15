@@ -231,5 +231,5 @@ instance
     CreatePartnerEventSourceResponse
   where
   rnf CreatePartnerEventSourceResponse' {..} =
-    Prelude.rnf eventSourceArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf eventSourceArn `Prelude.seq`
+      Prelude.rnf httpStatus

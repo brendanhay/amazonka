@@ -71,8 +71,8 @@ instance Prelude.Hashable StageKey where
 
 instance Prelude.NFData StageKey where
   rnf StageKey' {..} =
-    Prelude.rnf restApiId
-      `Prelude.seq` Prelude.rnf stageName
+    Prelude.rnf restApiId `Prelude.seq`
+      Prelude.rnf stageName
 
 instance Data.ToJSON StageKey where
   toJSON StageKey' {..} =

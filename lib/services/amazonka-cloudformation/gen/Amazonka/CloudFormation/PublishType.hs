@@ -199,10 +199,10 @@ instance Prelude.Hashable PublishType where
 
 instance Prelude.NFData PublishType where
   rnf PublishType' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf publicVersionNumber
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf typeName
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf publicVersionNumber `Prelude.seq`
+        Prelude.rnf type' `Prelude.seq`
+          Prelude.rnf typeName
 
 instance Data.ToHeaders PublishType where
   toHeaders = Prelude.const Prelude.mempty
@@ -267,5 +267,5 @@ publishTypeResponse_httpStatus = Lens.lens (\PublishTypeResponse' {httpStatus} -
 
 instance Prelude.NFData PublishTypeResponse where
   rnf PublishTypeResponse' {..} =
-    Prelude.rnf publicTypeArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf publicTypeArn `Prelude.seq`
+      Prelude.rnf httpStatus

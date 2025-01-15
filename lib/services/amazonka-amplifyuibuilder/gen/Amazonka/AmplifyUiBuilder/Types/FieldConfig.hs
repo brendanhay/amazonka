@@ -119,11 +119,11 @@ instance Prelude.Hashable FieldConfig where
 
 instance Prelude.NFData FieldConfig where
   rnf FieldConfig' {..} =
-    Prelude.rnf excluded
-      `Prelude.seq` Prelude.rnf inputType
-      `Prelude.seq` Prelude.rnf label
-      `Prelude.seq` Prelude.rnf position
-      `Prelude.seq` Prelude.rnf validations
+    Prelude.rnf excluded `Prelude.seq`
+      Prelude.rnf inputType `Prelude.seq`
+        Prelude.rnf label `Prelude.seq`
+          Prelude.rnf position `Prelude.seq`
+            Prelude.rnf validations
 
 instance Data.ToJSON FieldConfig where
   toJSON FieldConfig' {..} =

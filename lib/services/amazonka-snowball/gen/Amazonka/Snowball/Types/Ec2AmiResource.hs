@@ -85,8 +85,8 @@ instance Prelude.Hashable Ec2AmiResource where
 
 instance Prelude.NFData Ec2AmiResource where
   rnf Ec2AmiResource' {..} =
-    Prelude.rnf snowballAmiId
-      `Prelude.seq` Prelude.rnf amiId
+    Prelude.rnf snowballAmiId `Prelude.seq`
+      Prelude.rnf amiId
 
 instance Data.ToJSON Ec2AmiResource where
   toJSON Ec2AmiResource' {..} =

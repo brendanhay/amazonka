@@ -149,10 +149,10 @@ instance Prelude.Hashable ModifyClusterIamRoles where
 
 instance Prelude.NFData ModifyClusterIamRoles where
   rnf ModifyClusterIamRoles' {..} =
-    Prelude.rnf addIamRoles
-      `Prelude.seq` Prelude.rnf defaultIamRoleArn
-      `Prelude.seq` Prelude.rnf removeIamRoles
-      `Prelude.seq` Prelude.rnf clusterIdentifier
+    Prelude.rnf addIamRoles `Prelude.seq`
+      Prelude.rnf defaultIamRoleArn `Prelude.seq`
+        Prelude.rnf removeIamRoles `Prelude.seq`
+          Prelude.rnf clusterIdentifier
 
 instance Data.ToHeaders ModifyClusterIamRoles where
   toHeaders = Prelude.const Prelude.mempty
@@ -221,5 +221,5 @@ modifyClusterIamRolesResponse_httpStatus = Lens.lens (\ModifyClusterIamRolesResp
 
 instance Prelude.NFData ModifyClusterIamRolesResponse where
   rnf ModifyClusterIamRolesResponse' {..} =
-    Prelude.rnf cluster
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf cluster `Prelude.seq`
+      Prelude.rnf httpStatus

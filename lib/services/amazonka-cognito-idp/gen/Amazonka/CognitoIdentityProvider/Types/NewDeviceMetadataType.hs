@@ -81,5 +81,5 @@ instance Prelude.Hashable NewDeviceMetadataType where
 
 instance Prelude.NFData NewDeviceMetadataType where
   rnf NewDeviceMetadataType' {..} =
-    Prelude.rnf deviceGroupKey
-      `Prelude.seq` Prelude.rnf deviceKey
+    Prelude.rnf deviceGroupKey `Prelude.seq`
+      Prelude.rnf deviceKey

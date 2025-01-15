@@ -164,5 +164,5 @@ getSecurityConfigResponse_httpStatus = Lens.lens (\GetSecurityConfigResponse' {h
 
 instance Prelude.NFData GetSecurityConfigResponse where
   rnf GetSecurityConfigResponse' {..} =
-    Prelude.rnf securityConfigDetail
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf securityConfigDetail `Prelude.seq`
+      Prelude.rnf httpStatus

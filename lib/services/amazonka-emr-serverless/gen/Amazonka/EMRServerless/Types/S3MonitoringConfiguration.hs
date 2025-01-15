@@ -85,8 +85,8 @@ instance Prelude.Hashable S3MonitoringConfiguration where
 
 instance Prelude.NFData S3MonitoringConfiguration where
   rnf S3MonitoringConfiguration' {..} =
-    Prelude.rnf encryptionKeyArn
-      `Prelude.seq` Prelude.rnf logUri
+    Prelude.rnf encryptionKeyArn `Prelude.seq`
+      Prelude.rnf logUri
 
 instance Data.ToJSON S3MonitoringConfiguration where
   toJSON S3MonitoringConfiguration' {..} =

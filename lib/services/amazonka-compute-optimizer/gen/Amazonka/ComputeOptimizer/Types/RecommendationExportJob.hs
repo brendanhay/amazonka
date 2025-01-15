@@ -146,10 +146,10 @@ instance Prelude.Hashable RecommendationExportJob where
 
 instance Prelude.NFData RecommendationExportJob where
   rnf RecommendationExportJob' {..} =
-    Prelude.rnf creationTimestamp
-      `Prelude.seq` Prelude.rnf destination
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf lastUpdatedTimestamp
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf creationTimestamp `Prelude.seq`
+      Prelude.rnf destination `Prelude.seq`
+        Prelude.rnf failureReason `Prelude.seq`
+          Prelude.rnf jobId `Prelude.seq`
+            Prelude.rnf lastUpdatedTimestamp `Prelude.seq`
+              Prelude.rnf resourceType `Prelude.seq`
+                Prelude.rnf status

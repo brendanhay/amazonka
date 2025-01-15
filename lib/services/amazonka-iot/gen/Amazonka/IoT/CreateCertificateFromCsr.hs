@@ -168,8 +168,8 @@ instance Prelude.Hashable CreateCertificateFromCsr where
 
 instance Prelude.NFData CreateCertificateFromCsr where
   rnf CreateCertificateFromCsr' {..} =
-    Prelude.rnf setAsActive
-      `Prelude.seq` Prelude.rnf certificateSigningRequest
+    Prelude.rnf setAsActive `Prelude.seq`
+      Prelude.rnf certificateSigningRequest
 
 instance Data.ToHeaders CreateCertificateFromCsr where
   toHeaders = Prelude.const Prelude.mempty
@@ -262,7 +262,7 @@ instance
     CreateCertificateFromCsrResponse
   where
   rnf CreateCertificateFromCsrResponse' {..} =
-    Prelude.rnf certificateArn
-      `Prelude.seq` Prelude.rnf certificateId
-      `Prelude.seq` Prelude.rnf certificatePem
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf certificateArn `Prelude.seq`
+      Prelude.rnf certificateId `Prelude.seq`
+        Prelude.rnf certificatePem `Prelude.seq`
+          Prelude.rnf httpStatus

@@ -263,14 +263,14 @@ instance Prelude.Hashable ColorCorrector where
 
 instance Prelude.NFData ColorCorrector where
   rnf ColorCorrector' {..} =
-    Prelude.rnf brightness
-      `Prelude.seq` Prelude.rnf colorSpaceConversion
-      `Prelude.seq` Prelude.rnf contrast
-      `Prelude.seq` Prelude.rnf hdr10Metadata
-      `Prelude.seq` Prelude.rnf hue
-      `Prelude.seq` Prelude.rnf sampleRangeConversion
-      `Prelude.seq` Prelude.rnf saturation
-      `Prelude.seq` Prelude.rnf sdrReferenceWhiteLevel
+    Prelude.rnf brightness `Prelude.seq`
+      Prelude.rnf colorSpaceConversion `Prelude.seq`
+        Prelude.rnf contrast `Prelude.seq`
+          Prelude.rnf hdr10Metadata `Prelude.seq`
+            Prelude.rnf hue `Prelude.seq`
+              Prelude.rnf sampleRangeConversion `Prelude.seq`
+                Prelude.rnf saturation `Prelude.seq`
+                  Prelude.rnf sdrReferenceWhiteLevel
 
 instance Data.ToJSON ColorCorrector where
   toJSON ColorCorrector' {..} =

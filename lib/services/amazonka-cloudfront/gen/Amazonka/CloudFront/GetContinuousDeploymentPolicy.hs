@@ -174,6 +174,6 @@ instance
     GetContinuousDeploymentPolicyResponse
   where
   rnf GetContinuousDeploymentPolicyResponse' {..} =
-    Prelude.rnf continuousDeploymentPolicy
-      `Prelude.seq` Prelude.rnf eTag
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf continuousDeploymentPolicy `Prelude.seq`
+      Prelude.rnf eTag `Prelude.seq`
+        Prelude.rnf httpStatus

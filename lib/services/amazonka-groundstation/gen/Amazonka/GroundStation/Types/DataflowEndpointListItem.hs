@@ -81,5 +81,5 @@ instance Prelude.Hashable DataflowEndpointListItem where
 
 instance Prelude.NFData DataflowEndpointListItem where
   rnf DataflowEndpointListItem' {..} =
-    Prelude.rnf dataflowEndpointGroupArn
-      `Prelude.seq` Prelude.rnf dataflowEndpointGroupId
+    Prelude.rnf dataflowEndpointGroupArn `Prelude.seq`
+      Prelude.rnf dataflowEndpointGroupId

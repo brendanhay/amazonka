@@ -121,8 +121,8 @@ instance Prelude.Hashable DomainName where
 
 instance Prelude.NFData DomainName where
   rnf DomainName' {..} =
-    Prelude.rnf apiMappingSelectionExpression
-      `Prelude.seq` Prelude.rnf domainNameConfigurations
-      `Prelude.seq` Prelude.rnf mutualTlsAuthentication
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf domainName
+    Prelude.rnf apiMappingSelectionExpression `Prelude.seq`
+      Prelude.rnf domainNameConfigurations `Prelude.seq`
+        Prelude.rnf mutualTlsAuthentication `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf domainName

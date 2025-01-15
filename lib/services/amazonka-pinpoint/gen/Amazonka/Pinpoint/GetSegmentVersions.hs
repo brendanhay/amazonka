@@ -146,10 +146,10 @@ instance Prelude.Hashable GetSegmentVersions where
 
 instance Prelude.NFData GetSegmentVersions where
   rnf GetSegmentVersions' {..} =
-    Prelude.rnf pageSize
-      `Prelude.seq` Prelude.rnf token
-      `Prelude.seq` Prelude.rnf segmentId
-      `Prelude.seq` Prelude.rnf applicationId
+    Prelude.rnf pageSize `Prelude.seq`
+      Prelude.rnf token `Prelude.seq`
+        Prelude.rnf segmentId `Prelude.seq`
+          Prelude.rnf applicationId
 
 instance Data.ToHeaders GetSegmentVersions where
   toHeaders =
@@ -221,5 +221,5 @@ getSegmentVersionsResponse_segmentsResponse = Lens.lens (\GetSegmentVersionsResp
 
 instance Prelude.NFData GetSegmentVersionsResponse where
   rnf GetSegmentVersionsResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf segmentsResponse
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf segmentsResponse

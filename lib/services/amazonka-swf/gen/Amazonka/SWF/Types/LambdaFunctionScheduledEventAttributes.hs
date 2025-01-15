@@ -160,9 +160,9 @@ instance
     LambdaFunctionScheduledEventAttributes
   where
   rnf LambdaFunctionScheduledEventAttributes' {..} =
-    Prelude.rnf control
-      `Prelude.seq` Prelude.rnf input
-      `Prelude.seq` Prelude.rnf startToCloseTimeout
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf decisionTaskCompletedEventId
+    Prelude.rnf control `Prelude.seq`
+      Prelude.rnf input `Prelude.seq`
+        Prelude.rnf startToCloseTimeout `Prelude.seq`
+          Prelude.rnf id `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf decisionTaskCompletedEventId

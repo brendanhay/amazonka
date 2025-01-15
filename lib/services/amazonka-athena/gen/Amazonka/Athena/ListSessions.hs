@@ -201,10 +201,10 @@ instance Prelude.Hashable ListSessions where
 
 instance Prelude.NFData ListSessions where
   rnf ListSessions' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf stateFilter
-      `Prelude.seq` Prelude.rnf workGroup
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf stateFilter `Prelude.seq`
+          Prelude.rnf workGroup
 
 instance Data.ToHeaders ListSessions where
   toHeaders =
@@ -294,6 +294,6 @@ listSessionsResponse_httpStatus = Lens.lens (\ListSessionsResponse' {httpStatus}
 
 instance Prelude.NFData ListSessionsResponse where
   rnf ListSessionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sessions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf sessions `Prelude.seq`
+        Prelude.rnf httpStatus

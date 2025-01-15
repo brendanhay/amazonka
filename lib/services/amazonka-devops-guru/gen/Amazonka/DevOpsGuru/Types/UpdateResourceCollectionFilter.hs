@@ -184,8 +184,8 @@ instance
     UpdateResourceCollectionFilter
   where
   rnf UpdateResourceCollectionFilter' {..} =
-    Prelude.rnf cloudFormation
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf cloudFormation `Prelude.seq`
+      Prelude.rnf tags
 
 instance Data.ToJSON UpdateResourceCollectionFilter where
   toJSON UpdateResourceCollectionFilter' {..} =

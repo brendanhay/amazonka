@@ -146,9 +146,9 @@ instance Prelude.Hashable ListAlarmRecommendations where
 
 instance Prelude.NFData ListAlarmRecommendations where
   rnf ListAlarmRecommendations' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf assessmentArn
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf assessmentArn
 
 instance Data.ToHeaders ListAlarmRecommendations where
   toHeaders =
@@ -243,6 +243,6 @@ instance
     ListAlarmRecommendationsResponse
   where
   rnf ListAlarmRecommendationsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf alarmRecommendations
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf alarmRecommendations

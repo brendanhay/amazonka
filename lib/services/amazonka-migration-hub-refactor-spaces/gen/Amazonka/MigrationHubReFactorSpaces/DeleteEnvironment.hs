@@ -204,9 +204,9 @@ deleteEnvironmentResponse_httpStatus = Lens.lens (\DeleteEnvironmentResponse' {h
 
 instance Prelude.NFData DeleteEnvironmentResponse where
   rnf DeleteEnvironmentResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf environmentId
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf environmentId `Prelude.seq`
+        Prelude.rnf lastUpdatedTime `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf state `Prelude.seq`
+              Prelude.rnf httpStatus

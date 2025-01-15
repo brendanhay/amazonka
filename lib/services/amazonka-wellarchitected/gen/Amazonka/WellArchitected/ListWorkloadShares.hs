@@ -150,11 +150,11 @@ instance Prelude.Hashable ListWorkloadShares where
 
 instance Prelude.NFData ListWorkloadShares where
   rnf ListWorkloadShares' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sharedWithPrefix
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf workloadId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf sharedWithPrefix `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf workloadId
 
 instance Data.ToHeaders ListWorkloadShares where
   toHeaders =
@@ -239,7 +239,7 @@ listWorkloadSharesResponse_httpStatus = Lens.lens (\ListWorkloadSharesResponse' 
 
 instance Prelude.NFData ListWorkloadSharesResponse where
   rnf ListWorkloadSharesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf workloadId
-      `Prelude.seq` Prelude.rnf workloadShareSummaries
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf workloadId `Prelude.seq`
+        Prelude.rnf workloadShareSummaries `Prelude.seq`
+          Prelude.rnf httpStatus

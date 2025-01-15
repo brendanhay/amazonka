@@ -84,5 +84,5 @@ instance Prelude.Hashable ComplianceByConfigRule where
 
 instance Prelude.NFData ComplianceByConfigRule where
   rnf ComplianceByConfigRule' {..} =
-    Prelude.rnf compliance
-      `Prelude.seq` Prelude.rnf configRuleName
+    Prelude.rnf compliance `Prelude.seq`
+      Prelude.rnf configRuleName

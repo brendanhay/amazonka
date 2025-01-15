@@ -105,6 +105,6 @@ instance Prelude.Hashable ComplianceDetails where
 
 instance Prelude.NFData ComplianceDetails where
   rnf ComplianceDetails' {..} =
-    Prelude.rnf complianceStatus
-      `Prelude.seq` Prelude.rnf keysWithNoncompliantValues
-      `Prelude.seq` Prelude.rnf noncompliantKeys
+    Prelude.rnf complianceStatus `Prelude.seq`
+      Prelude.rnf keysWithNoncompliantValues `Prelude.seq`
+        Prelude.rnf noncompliantKeys

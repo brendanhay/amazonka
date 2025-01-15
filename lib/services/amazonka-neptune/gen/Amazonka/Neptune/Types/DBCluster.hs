@@ -538,9 +538,7 @@ instance Data.FromXML DBCluster where
   parseXML x =
     DBCluster'
       Prelude.<$> (x Data..@? "AllocatedStorage")
-      Prelude.<*> ( x
-                      Data..@? "AssociatedRoles"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "AssociatedRoles" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "DBClusterRole")
                   )
       Prelude.<*> (x Data..@? "AutomaticRestartTime")

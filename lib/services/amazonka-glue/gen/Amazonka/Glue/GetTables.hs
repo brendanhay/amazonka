@@ -170,12 +170,12 @@ instance Core.AWSPager GetTables where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getTables_nextToken
-          Lens..~ rs
-          Lens.^? getTablesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getTables_nextToken
+              Lens..~ rs
+              Lens.^? getTablesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetTables where
   type AWSResponse GetTables = GetTablesResponse
@@ -203,13 +203,13 @@ instance Prelude.Hashable GetTables where
 
 instance Prelude.NFData GetTables where
   rnf GetTables' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf expression
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf queryAsOfTime
-      `Prelude.seq` Prelude.rnf transactionId
-      `Prelude.seq` Prelude.rnf databaseName
+    Prelude.rnf catalogId `Prelude.seq`
+      Prelude.rnf expression `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf queryAsOfTime `Prelude.seq`
+              Prelude.rnf transactionId `Prelude.seq`
+                Prelude.rnf databaseName
 
 instance Data.ToHeaders GetTables where
   toHeaders =
@@ -296,6 +296,6 @@ getTablesResponse_httpStatus = Lens.lens (\GetTablesResponse' {httpStatus} -> ht
 
 instance Prelude.NFData GetTablesResponse where
   rnf GetTablesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf tableList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf tableList `Prelude.seq`
+        Prelude.rnf httpStatus

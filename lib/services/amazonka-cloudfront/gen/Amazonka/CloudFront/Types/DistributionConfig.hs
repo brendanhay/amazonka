@@ -697,25 +697,25 @@ instance Prelude.Hashable DistributionConfig where
 
 instance Prelude.NFData DistributionConfig where
   rnf DistributionConfig' {..} =
-    Prelude.rnf aliases
-      `Prelude.seq` Prelude.rnf cacheBehaviors
-      `Prelude.seq` Prelude.rnf continuousDeploymentPolicyId
-      `Prelude.seq` Prelude.rnf customErrorResponses
-      `Prelude.seq` Prelude.rnf defaultRootObject
-      `Prelude.seq` Prelude.rnf httpVersion
-      `Prelude.seq` Prelude.rnf isIPV6Enabled
-      `Prelude.seq` Prelude.rnf logging
-      `Prelude.seq` Prelude.rnf originGroups
-      `Prelude.seq` Prelude.rnf priceClass
-      `Prelude.seq` Prelude.rnf restrictions
-      `Prelude.seq` Prelude.rnf staging
-      `Prelude.seq` Prelude.rnf viewerCertificate
-      `Prelude.seq` Prelude.rnf webACLId
-      `Prelude.seq` Prelude.rnf callerReference
-      `Prelude.seq` Prelude.rnf origins
-      `Prelude.seq` Prelude.rnf defaultCacheBehavior
-      `Prelude.seq` Prelude.rnf comment
-      `Prelude.seq` Prelude.rnf enabled
+    Prelude.rnf aliases `Prelude.seq`
+      Prelude.rnf cacheBehaviors `Prelude.seq`
+        Prelude.rnf continuousDeploymentPolicyId `Prelude.seq`
+          Prelude.rnf customErrorResponses `Prelude.seq`
+            Prelude.rnf defaultRootObject `Prelude.seq`
+              Prelude.rnf httpVersion `Prelude.seq`
+                Prelude.rnf isIPV6Enabled `Prelude.seq`
+                  Prelude.rnf logging `Prelude.seq`
+                    Prelude.rnf originGroups `Prelude.seq`
+                      Prelude.rnf priceClass `Prelude.seq`
+                        Prelude.rnf restrictions `Prelude.seq`
+                          Prelude.rnf staging `Prelude.seq`
+                            Prelude.rnf viewerCertificate `Prelude.seq`
+                              Prelude.rnf webACLId `Prelude.seq`
+                                Prelude.rnf callerReference `Prelude.seq`
+                                  Prelude.rnf origins `Prelude.seq`
+                                    Prelude.rnf defaultCacheBehavior `Prelude.seq`
+                                      Prelude.rnf comment `Prelude.seq`
+                                        Prelude.rnf enabled
 
 instance Data.ToXML DistributionConfig where
   toXML DistributionConfig' {..} =

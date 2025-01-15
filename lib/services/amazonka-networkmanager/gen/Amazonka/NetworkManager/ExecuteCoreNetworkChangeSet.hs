@@ -112,8 +112,8 @@ instance Prelude.Hashable ExecuteCoreNetworkChangeSet where
 
 instance Prelude.NFData ExecuteCoreNetworkChangeSet where
   rnf ExecuteCoreNetworkChangeSet' {..} =
-    Prelude.rnf coreNetworkId
-      `Prelude.seq` Prelude.rnf policyVersionId
+    Prelude.rnf coreNetworkId `Prelude.seq`
+      Prelude.rnf policyVersionId
 
 instance Data.ToHeaders ExecuteCoreNetworkChangeSet where
   toHeaders =

@@ -156,5 +156,5 @@ deletePackageResponse_httpStatus = Lens.lens (\DeletePackageResponse' {httpStatu
 
 instance Prelude.NFData DeletePackageResponse where
   rnf DeletePackageResponse' {..} =
-    Prelude.rnf packageDetails
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf packageDetails `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -169,14 +169,14 @@ instance
 
 instance Prelude.NFData BackendAPIAppSyncAuthSettings where
   rnf BackendAPIAppSyncAuthSettings' {..} =
-    Prelude.rnf cognitoUserPoolId
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf expirationTime
-      `Prelude.seq` Prelude.rnf openIDAuthTTL
-      `Prelude.seq` Prelude.rnf openIDClientId
-      `Prelude.seq` Prelude.rnf openIDIatTTL
-      `Prelude.seq` Prelude.rnf openIDIssueURL
-      `Prelude.seq` Prelude.rnf openIDProviderName
+    Prelude.rnf cognitoUserPoolId `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf expirationTime `Prelude.seq`
+          Prelude.rnf openIDAuthTTL `Prelude.seq`
+            Prelude.rnf openIDClientId `Prelude.seq`
+              Prelude.rnf openIDIatTTL `Prelude.seq`
+                Prelude.rnf openIDIssueURL `Prelude.seq`
+                  Prelude.rnf openIDProviderName
 
 instance Data.ToJSON BackendAPIAppSyncAuthSettings where
   toJSON BackendAPIAppSyncAuthSettings' {..} =

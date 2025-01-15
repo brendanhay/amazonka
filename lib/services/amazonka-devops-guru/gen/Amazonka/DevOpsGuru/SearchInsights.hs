@@ -165,12 +165,12 @@ instance Core.AWSPager SearchInsights where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& searchInsights_nextToken
-          Lens..~ rs
-          Lens.^? searchInsightsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& searchInsights_nextToken
+              Lens..~ rs
+              Lens.^? searchInsightsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest SearchInsights where
   type
@@ -205,11 +205,11 @@ instance Prelude.Hashable SearchInsights where
 
 instance Prelude.NFData SearchInsights where
   rnf SearchInsights' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf startTimeRange
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf startTimeRange `Prelude.seq`
+            Prelude.rnf type'
 
 instance Data.ToHeaders SearchInsights where
   toHeaders =
@@ -303,7 +303,7 @@ searchInsightsResponse_httpStatus = Lens.lens (\SearchInsightsResponse' {httpSta
 
 instance Prelude.NFData SearchInsightsResponse where
   rnf SearchInsightsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf proactiveInsights
-      `Prelude.seq` Prelude.rnf reactiveInsights
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf proactiveInsights `Prelude.seq`
+        Prelude.rnf reactiveInsights `Prelude.seq`
+          Prelude.rnf httpStatus

@@ -118,8 +118,8 @@ instance Prelude.Hashable TestConnection where
 
 instance Prelude.NFData TestConnection where
   rnf TestConnection' {..} =
-    Prelude.rnf replicationInstanceArn
-      `Prelude.seq` Prelude.rnf endpointArn
+    Prelude.rnf replicationInstanceArn `Prelude.seq`
+      Prelude.rnf endpointArn
 
 instance Data.ToHeaders TestConnection where
   toHeaders =
@@ -197,5 +197,5 @@ testConnectionResponse_httpStatus = Lens.lens (\TestConnectionResponse' {httpSta
 
 instance Prelude.NFData TestConnectionResponse where
   rnf TestConnectionResponse' {..} =
-    Prelude.rnf connection
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf connection `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -84,8 +84,8 @@ instance Prelude.Hashable DataPathValue where
 
 instance Prelude.NFData DataPathValue where
   rnf DataPathValue' {..} =
-    Prelude.rnf fieldId
-      `Prelude.seq` Prelude.rnf fieldValue
+    Prelude.rnf fieldId `Prelude.seq`
+      Prelude.rnf fieldValue
 
 instance Data.ToJSON DataPathValue where
   toJSON DataPathValue' {..} =

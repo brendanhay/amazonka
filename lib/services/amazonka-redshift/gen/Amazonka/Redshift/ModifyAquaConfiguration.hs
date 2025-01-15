@@ -115,8 +115,8 @@ instance Prelude.Hashable ModifyAquaConfiguration where
 
 instance Prelude.NFData ModifyAquaConfiguration where
   rnf ModifyAquaConfiguration' {..} =
-    Prelude.rnf aquaConfigurationStatus
-      `Prelude.seq` Prelude.rnf clusterIdentifier
+    Prelude.rnf aquaConfigurationStatus `Prelude.seq`
+      Prelude.rnf clusterIdentifier
 
 instance Data.ToHeaders ModifyAquaConfiguration where
   toHeaders = Prelude.const Prelude.mempty
@@ -183,5 +183,5 @@ instance
     ModifyAquaConfigurationResponse
   where
   rnf ModifyAquaConfigurationResponse' {..} =
-    Prelude.rnf aquaConfiguration
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf aquaConfiguration `Prelude.seq`
+      Prelude.rnf httpStatus

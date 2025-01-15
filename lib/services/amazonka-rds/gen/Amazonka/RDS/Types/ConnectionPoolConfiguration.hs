@@ -243,11 +243,11 @@ instance Prelude.Hashable ConnectionPoolConfiguration where
 
 instance Prelude.NFData ConnectionPoolConfiguration where
   rnf ConnectionPoolConfiguration' {..} =
-    Prelude.rnf connectionBorrowTimeout
-      `Prelude.seq` Prelude.rnf initQuery
-      `Prelude.seq` Prelude.rnf maxConnectionsPercent
-      `Prelude.seq` Prelude.rnf maxIdleConnectionsPercent
-      `Prelude.seq` Prelude.rnf sessionPinningFilters
+    Prelude.rnf connectionBorrowTimeout `Prelude.seq`
+      Prelude.rnf initQuery `Prelude.seq`
+        Prelude.rnf maxConnectionsPercent `Prelude.seq`
+          Prelude.rnf maxIdleConnectionsPercent `Prelude.seq`
+            Prelude.rnf sessionPinningFilters
 
 instance Data.ToQuery ConnectionPoolConfiguration where
   toQuery ConnectionPoolConfiguration' {..} =

@@ -86,5 +86,5 @@ instance Prelude.Hashable MovingAddressStatus where
 
 instance Prelude.NFData MovingAddressStatus where
   rnf MovingAddressStatus' {..} =
-    Prelude.rnf moveStatus
-      `Prelude.seq` Prelude.rnf publicIp
+    Prelude.rnf moveStatus `Prelude.seq`
+      Prelude.rnf publicIp

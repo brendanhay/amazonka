@@ -160,10 +160,10 @@ instance Prelude.Hashable ListDistributedGrants where
 
 instance Prelude.NFData ListDistributedGrants where
   rnf ListDistributedGrants' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf grantArns
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf grantArns `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken
 
 instance Data.ToHeaders ListDistributedGrants where
   toHeaders =
@@ -247,6 +247,6 @@ listDistributedGrantsResponse_httpStatus = Lens.lens (\ListDistributedGrantsResp
 
 instance Prelude.NFData ListDistributedGrantsResponse where
   rnf ListDistributedGrantsResponse' {..} =
-    Prelude.rnf grants
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf grants `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

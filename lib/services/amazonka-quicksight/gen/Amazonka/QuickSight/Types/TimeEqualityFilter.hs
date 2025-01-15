@@ -135,11 +135,11 @@ instance Prelude.Hashable TimeEqualityFilter where
 
 instance Prelude.NFData TimeEqualityFilter where
   rnf TimeEqualityFilter' {..} =
-    Prelude.rnf parameterName
-      `Prelude.seq` Prelude.rnf timeGranularity
-      `Prelude.seq` Prelude.rnf value
-      `Prelude.seq` Prelude.rnf filterId
-      `Prelude.seq` Prelude.rnf column
+    Prelude.rnf parameterName `Prelude.seq`
+      Prelude.rnf timeGranularity `Prelude.seq`
+        Prelude.rnf value `Prelude.seq`
+          Prelude.rnf filterId `Prelude.seq`
+            Prelude.rnf column
 
 instance Data.ToJSON TimeEqualityFilter where
   toJSON TimeEqualityFilter' {..} =

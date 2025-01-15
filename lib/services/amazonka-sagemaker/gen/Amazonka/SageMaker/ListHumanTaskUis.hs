@@ -151,12 +151,12 @@ instance Core.AWSPager ListHumanTaskUis where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listHumanTaskUis_nextToken
-          Lens..~ rs
-          Lens.^? listHumanTaskUisResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listHumanTaskUis_nextToken
+              Lens..~ rs
+              Lens.^? listHumanTaskUisResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListHumanTaskUis where
   type
@@ -187,11 +187,11 @@ instance Prelude.Hashable ListHumanTaskUis where
 
 instance Prelude.NFData ListHumanTaskUis where
   rnf ListHumanTaskUis' {..} =
-    Prelude.rnf creationTimeAfter
-      `Prelude.seq` Prelude.rnf creationTimeBefore
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortOrder
+    Prelude.rnf creationTimeAfter `Prelude.seq`
+      Prelude.rnf creationTimeBefore `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf sortOrder
 
 instance Data.ToHeaders ListHumanTaskUis where
   toHeaders =
@@ -276,6 +276,6 @@ listHumanTaskUisResponse_humanTaskUiSummaries = Lens.lens (\ListHumanTaskUisResp
 
 instance Prelude.NFData ListHumanTaskUisResponse where
   rnf ListHumanTaskUisResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf humanTaskUiSummaries
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf humanTaskUiSummaries

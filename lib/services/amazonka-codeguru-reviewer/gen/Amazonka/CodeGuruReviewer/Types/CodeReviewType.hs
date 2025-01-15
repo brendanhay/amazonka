@@ -97,8 +97,8 @@ instance Prelude.Hashable CodeReviewType where
 
 instance Prelude.NFData CodeReviewType where
   rnf CodeReviewType' {..} =
-    Prelude.rnf analysisTypes
-      `Prelude.seq` Prelude.rnf repositoryAnalysis
+    Prelude.rnf analysisTypes `Prelude.seq`
+      Prelude.rnf repositoryAnalysis
 
 instance Data.ToJSON CodeReviewType where
   toJSON CodeReviewType' {..} =

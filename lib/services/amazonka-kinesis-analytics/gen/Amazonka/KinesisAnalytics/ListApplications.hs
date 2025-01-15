@@ -143,8 +143,8 @@ instance Prelude.Hashable ListApplications where
 
 instance Prelude.NFData ListApplications where
   rnf ListApplications' {..} =
-    Prelude.rnf exclusiveStartApplicationName
-      `Prelude.seq` Prelude.rnf limit
+    Prelude.rnf exclusiveStartApplicationName `Prelude.seq`
+      Prelude.rnf limit
 
 instance Data.ToHeaders ListApplications where
   toHeaders =
@@ -233,6 +233,6 @@ listApplicationsResponse_hasMoreApplications = Lens.lens (\ListApplicationsRespo
 
 instance Prelude.NFData ListApplicationsResponse where
   rnf ListApplicationsResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf applicationSummaries
-      `Prelude.seq` Prelude.rnf hasMoreApplications
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf applicationSummaries `Prelude.seq`
+        Prelude.rnf hasMoreApplications

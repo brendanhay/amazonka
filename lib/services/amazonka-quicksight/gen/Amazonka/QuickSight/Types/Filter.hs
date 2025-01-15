@@ -176,13 +176,13 @@ instance Prelude.Hashable Filter where
 
 instance Prelude.NFData Filter where
   rnf Filter' {..} =
-    Prelude.rnf categoryFilter
-      `Prelude.seq` Prelude.rnf numericEqualityFilter
-      `Prelude.seq` Prelude.rnf numericRangeFilter
-      `Prelude.seq` Prelude.rnf relativeDatesFilter
-      `Prelude.seq` Prelude.rnf timeEqualityFilter
-      `Prelude.seq` Prelude.rnf timeRangeFilter
-      `Prelude.seq` Prelude.rnf topBottomFilter
+    Prelude.rnf categoryFilter `Prelude.seq`
+      Prelude.rnf numericEqualityFilter `Prelude.seq`
+        Prelude.rnf numericRangeFilter `Prelude.seq`
+          Prelude.rnf relativeDatesFilter `Prelude.seq`
+            Prelude.rnf timeEqualityFilter `Prelude.seq`
+              Prelude.rnf timeRangeFilter `Prelude.seq`
+                Prelude.rnf topBottomFilter
 
 instance Data.ToJSON Filter where
   toJSON Filter' {..} =

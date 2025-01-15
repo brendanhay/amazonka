@@ -164,12 +164,12 @@ instance Prelude.Hashable AnswerSummary where
 
 instance Prelude.NFData AnswerSummary where
   rnf AnswerSummary' {..} =
-    Prelude.rnf choiceAnswerSummaries
-      `Prelude.seq` Prelude.rnf choices
-      `Prelude.seq` Prelude.rnf isApplicable
-      `Prelude.seq` Prelude.rnf pillarId
-      `Prelude.seq` Prelude.rnf questionId
-      `Prelude.seq` Prelude.rnf questionTitle
-      `Prelude.seq` Prelude.rnf reason
-      `Prelude.seq` Prelude.rnf risk
-      `Prelude.seq` Prelude.rnf selectedChoices
+    Prelude.rnf choiceAnswerSummaries `Prelude.seq`
+      Prelude.rnf choices `Prelude.seq`
+        Prelude.rnf isApplicable `Prelude.seq`
+          Prelude.rnf pillarId `Prelude.seq`
+            Prelude.rnf questionId `Prelude.seq`
+              Prelude.rnf questionTitle `Prelude.seq`
+                Prelude.rnf reason `Prelude.seq`
+                  Prelude.rnf risk `Prelude.seq`
+                    Prelude.rnf selectedChoices

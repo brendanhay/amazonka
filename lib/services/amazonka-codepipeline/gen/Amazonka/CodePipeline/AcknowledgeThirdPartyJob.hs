@@ -141,9 +141,9 @@ instance Prelude.Hashable AcknowledgeThirdPartyJob where
 
 instance Prelude.NFData AcknowledgeThirdPartyJob where
   rnf AcknowledgeThirdPartyJob' {..} =
-    Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf nonce
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf jobId `Prelude.seq`
+      Prelude.rnf nonce `Prelude.seq`
+        Prelude.rnf clientToken
 
 instance Data.ToHeaders AcknowledgeThirdPartyJob where
   toHeaders =
@@ -222,5 +222,5 @@ instance
     AcknowledgeThirdPartyJobResponse
   where
   rnf AcknowledgeThirdPartyJobResponse' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf status `Prelude.seq`
+      Prelude.rnf httpStatus

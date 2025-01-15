@@ -215,12 +215,12 @@ instance Core.AWSPager ListAccountSettings where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listAccountSettings_nextToken
-          Lens..~ rs
-          Lens.^? listAccountSettingsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listAccountSettings_nextToken
+              Lens..~ rs
+              Lens.^? listAccountSettingsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAccountSettings where
   type
@@ -249,12 +249,12 @@ instance Prelude.Hashable ListAccountSettings where
 
 instance Prelude.NFData ListAccountSettings where
   rnf ListAccountSettings' {..} =
-    Prelude.rnf effectiveSettings
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf principalArn
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf effectiveSettings `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf principalArn `Prelude.seq`
+              Prelude.rnf value
 
 instance Data.ToHeaders ListAccountSettings where
   toHeaders =
@@ -350,6 +350,6 @@ listAccountSettingsResponse_httpStatus = Lens.lens (\ListAccountSettingsResponse
 
 instance Prelude.NFData ListAccountSettingsResponse where
   rnf ListAccountSettingsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf settings
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf settings `Prelude.seq`
+        Prelude.rnf httpStatus

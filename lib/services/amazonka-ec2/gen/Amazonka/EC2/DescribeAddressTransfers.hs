@@ -140,12 +140,12 @@ instance Core.AWSPager DescribeAddressTransfers where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeAddressTransfers_nextToken
-          Lens..~ rs
-          Lens.^? describeAddressTransfersResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeAddressTransfers_nextToken
+              Lens..~ rs
+              Lens.^? describeAddressTransfersResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeAddressTransfers where
   type
@@ -176,10 +176,10 @@ instance Prelude.Hashable DescribeAddressTransfers where
 
 instance Prelude.NFData DescribeAddressTransfers where
   rnf DescribeAddressTransfers' {..} =
-    Prelude.rnf allocationIds
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf allocationIds `Prelude.seq`
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeAddressTransfers where
   toHeaders = Prelude.const Prelude.mempty
@@ -259,6 +259,6 @@ instance
     DescribeAddressTransfersResponse
   where
   rnf DescribeAddressTransfersResponse' {..} =
-    Prelude.rnf addressTransfers
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf addressTransfers `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

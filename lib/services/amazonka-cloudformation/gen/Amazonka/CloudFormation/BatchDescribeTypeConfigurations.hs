@@ -100,9 +100,7 @@ instance
       "BatchDescribeTypeConfigurationsResult"
       ( \s h x ->
           BatchDescribeTypeConfigurationsResponse'
-            Prelude.<$> ( x
-                            Data..@? "Errors"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "Errors" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> ( x
@@ -233,7 +231,7 @@ instance
     BatchDescribeTypeConfigurationsResponse
   where
   rnf BatchDescribeTypeConfigurationsResponse' {..} =
-    Prelude.rnf errors
-      `Prelude.seq` Prelude.rnf typeConfigurations
-      `Prelude.seq` Prelude.rnf unprocessedTypeConfigurations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf errors `Prelude.seq`
+      Prelude.rnf typeConfigurations `Prelude.seq`
+        Prelude.rnf unprocessedTypeConfigurations `Prelude.seq`
+          Prelude.rnf httpStatus

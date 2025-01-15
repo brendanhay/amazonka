@@ -303,14 +303,14 @@ instance Prelude.Hashable CreateAddon where
 
 instance Prelude.NFData CreateAddon where
   rnf CreateAddon' {..} =
-    Prelude.rnf addonVersion
-      `Prelude.seq` Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf configurationValues
-      `Prelude.seq` Prelude.rnf resolveConflicts
-      `Prelude.seq` Prelude.rnf serviceAccountRoleArn
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clusterName
-      `Prelude.seq` Prelude.rnf addonName
+    Prelude.rnf addonVersion `Prelude.seq`
+      Prelude.rnf clientRequestToken `Prelude.seq`
+        Prelude.rnf configurationValues `Prelude.seq`
+          Prelude.rnf resolveConflicts `Prelude.seq`
+            Prelude.rnf serviceAccountRoleArn `Prelude.seq`
+              Prelude.rnf tags `Prelude.seq`
+                Prelude.rnf clusterName `Prelude.seq`
+                  Prelude.rnf addonName
 
 instance Data.ToHeaders CreateAddon where
   toHeaders =
@@ -388,5 +388,5 @@ createAddonResponse_httpStatus = Lens.lens (\CreateAddonResponse' {httpStatus} -
 
 instance Prelude.NFData CreateAddonResponse where
   rnf CreateAddonResponse' {..} =
-    Prelude.rnf addon
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf addon `Prelude.seq`
+      Prelude.rnf httpStatus

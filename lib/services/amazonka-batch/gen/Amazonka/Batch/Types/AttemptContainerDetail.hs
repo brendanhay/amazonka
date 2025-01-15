@@ -154,9 +154,9 @@ instance Prelude.Hashable AttemptContainerDetail where
 
 instance Prelude.NFData AttemptContainerDetail where
   rnf AttemptContainerDetail' {..} =
-    Prelude.rnf containerInstanceArn
-      `Prelude.seq` Prelude.rnf exitCode
-      `Prelude.seq` Prelude.rnf logStreamName
-      `Prelude.seq` Prelude.rnf networkInterfaces
-      `Prelude.seq` Prelude.rnf reason
-      `Prelude.seq` Prelude.rnf taskArn
+    Prelude.rnf containerInstanceArn `Prelude.seq`
+      Prelude.rnf exitCode `Prelude.seq`
+        Prelude.rnf logStreamName `Prelude.seq`
+          Prelude.rnf networkInterfaces `Prelude.seq`
+            Prelude.rnf reason `Prelude.seq`
+              Prelude.rnf taskArn

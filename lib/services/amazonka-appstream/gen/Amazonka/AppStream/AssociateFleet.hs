@@ -108,8 +108,8 @@ instance Prelude.Hashable AssociateFleet where
 
 instance Prelude.NFData AssociateFleet where
   rnf AssociateFleet' {..} =
-    Prelude.rnf fleetName
-      `Prelude.seq` Prelude.rnf stackName
+    Prelude.rnf fleetName `Prelude.seq`
+      Prelude.rnf stackName
 
 instance Data.ToHeaders AssociateFleet where
   toHeaders =

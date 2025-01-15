@@ -226,13 +226,13 @@ instance Prelude.Hashable InstanceAccessDetails where
 
 instance Prelude.NFData InstanceAccessDetails where
   rnf InstanceAccessDetails' {..} =
-    Prelude.rnf certKey
-      `Prelude.seq` Prelude.rnf expiresAt
-      `Prelude.seq` Prelude.rnf hostKeys
-      `Prelude.seq` Prelude.rnf instanceName
-      `Prelude.seq` Prelude.rnf ipAddress
-      `Prelude.seq` Prelude.rnf password
-      `Prelude.seq` Prelude.rnf passwordData
-      `Prelude.seq` Prelude.rnf privateKey
-      `Prelude.seq` Prelude.rnf protocol
-      `Prelude.seq` Prelude.rnf username
+    Prelude.rnf certKey `Prelude.seq`
+      Prelude.rnf expiresAt `Prelude.seq`
+        Prelude.rnf hostKeys `Prelude.seq`
+          Prelude.rnf instanceName `Prelude.seq`
+            Prelude.rnf ipAddress `Prelude.seq`
+              Prelude.rnf password `Prelude.seq`
+                Prelude.rnf passwordData `Prelude.seq`
+                  Prelude.rnf privateKey `Prelude.seq`
+                    Prelude.rnf protocol `Prelude.seq`
+                      Prelude.rnf username

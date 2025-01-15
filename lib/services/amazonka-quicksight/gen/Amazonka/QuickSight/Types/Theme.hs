@@ -139,10 +139,10 @@ instance Prelude.Hashable Theme where
 
 instance Prelude.NFData Theme where
   rnf Theme' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf themeId
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf version
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf createdTime `Prelude.seq`
+        Prelude.rnf lastUpdatedTime `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf themeId `Prelude.seq`
+              Prelude.rnf type' `Prelude.seq`
+                Prelude.rnf version

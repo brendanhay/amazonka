@@ -220,14 +220,14 @@ instance Prelude.Hashable CreateEnvironment where
 
 instance Prelude.NFData CreateEnvironment where
   rnf CreateEnvironment' {..} =
-    Prelude.rnf dataBundles
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf federationMode
-      `Prelude.seq` Prelude.rnf federationParameters
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf superuserParameters
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf dataBundles `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf federationMode `Prelude.seq`
+          Prelude.rnf federationParameters `Prelude.seq`
+            Prelude.rnf kmsKeyId `Prelude.seq`
+              Prelude.rnf superuserParameters `Prelude.seq`
+                Prelude.rnf tags `Prelude.seq`
+                  Prelude.rnf name
 
 instance Data.ToHeaders CreateEnvironment where
   toHeaders =
@@ -329,7 +329,7 @@ createEnvironmentResponse_httpStatus = Lens.lens (\CreateEnvironmentResponse' {h
 
 instance Prelude.NFData CreateEnvironmentResponse where
   rnf CreateEnvironmentResponse' {..} =
-    Prelude.rnf environmentArn
-      `Prelude.seq` Prelude.rnf environmentId
-      `Prelude.seq` Prelude.rnf environmentUrl
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf environmentArn `Prelude.seq`
+      Prelude.rnf environmentId `Prelude.seq`
+        Prelude.rnf environmentUrl `Prelude.seq`
+          Prelude.rnf httpStatus

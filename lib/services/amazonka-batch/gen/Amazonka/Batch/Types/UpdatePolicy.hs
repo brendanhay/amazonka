@@ -90,8 +90,8 @@ instance Prelude.Hashable UpdatePolicy where
 
 instance Prelude.NFData UpdatePolicy where
   rnf UpdatePolicy' {..} =
-    Prelude.rnf jobExecutionTimeoutMinutes
-      `Prelude.seq` Prelude.rnf terminateJobsOnUpdate
+    Prelude.rnf jobExecutionTimeoutMinutes `Prelude.seq`
+      Prelude.rnf terminateJobsOnUpdate
 
 instance Data.ToJSON UpdatePolicy where
   toJSON UpdatePolicy' {..} =

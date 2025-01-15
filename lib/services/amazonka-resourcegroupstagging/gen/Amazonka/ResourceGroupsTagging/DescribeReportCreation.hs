@@ -214,7 +214,7 @@ instance
     DescribeReportCreationResponse
   where
   rnf DescribeReportCreationResponse' {..} =
-    Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf s3Location
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf errorMessage `Prelude.seq`
+      Prelude.rnf s3Location `Prelude.seq`
+        Prelude.rnf status `Prelude.seq`
+          Prelude.rnf httpStatus

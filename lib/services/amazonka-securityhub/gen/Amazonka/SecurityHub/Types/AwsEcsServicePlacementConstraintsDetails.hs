@@ -110,8 +110,8 @@ instance
     AwsEcsServicePlacementConstraintsDetails
   where
   rnf AwsEcsServicePlacementConstraintsDetails' {..} =
-    Prelude.rnf expression
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf expression `Prelude.seq`
+      Prelude.rnf type'
 
 instance
   Data.ToJSON

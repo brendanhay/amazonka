@@ -167,11 +167,11 @@ instance Prelude.Hashable ModifyDocumentPermission where
 
 instance Prelude.NFData ModifyDocumentPermission where
   rnf ModifyDocumentPermission' {..} =
-    Prelude.rnf accountIdsToAdd
-      `Prelude.seq` Prelude.rnf accountIdsToRemove
-      `Prelude.seq` Prelude.rnf sharedDocumentVersion
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf permissionType
+    Prelude.rnf accountIdsToAdd `Prelude.seq`
+      Prelude.rnf accountIdsToRemove `Prelude.seq`
+        Prelude.rnf sharedDocumentVersion `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf permissionType
 
 instance Data.ToHeaders ModifyDocumentPermission where
   toHeaders =

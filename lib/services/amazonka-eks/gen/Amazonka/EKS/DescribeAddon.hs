@@ -116,8 +116,8 @@ instance Prelude.Hashable DescribeAddon where
 
 instance Prelude.NFData DescribeAddon where
   rnf DescribeAddon' {..} =
-    Prelude.rnf clusterName
-      `Prelude.seq` Prelude.rnf addonName
+    Prelude.rnf clusterName `Prelude.seq`
+      Prelude.rnf addonName
 
 instance Data.ToHeaders DescribeAddon where
   toHeaders =
@@ -181,5 +181,5 @@ describeAddonResponse_httpStatus = Lens.lens (\DescribeAddonResponse' {httpStatu
 
 instance Prelude.NFData DescribeAddonResponse where
   rnf DescribeAddonResponse' {..} =
-    Prelude.rnf addon
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf addon `Prelude.seq`
+      Prelude.rnf httpStatus

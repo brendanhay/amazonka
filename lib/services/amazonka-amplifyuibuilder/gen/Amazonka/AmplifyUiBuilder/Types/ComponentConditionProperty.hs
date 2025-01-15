@@ -142,13 +142,13 @@ instance Prelude.Hashable ComponentConditionProperty where
 
 instance Prelude.NFData ComponentConditionProperty where
   rnf ComponentConditionProperty' {..} =
-    Prelude.rnf else'
-      `Prelude.seq` Prelude.rnf field
-      `Prelude.seq` Prelude.rnf operand
-      `Prelude.seq` Prelude.rnf operandType
-      `Prelude.seq` Prelude.rnf operator
-      `Prelude.seq` Prelude.rnf property
-      `Prelude.seq` Prelude.rnf then'
+    Prelude.rnf else' `Prelude.seq`
+      Prelude.rnf field `Prelude.seq`
+        Prelude.rnf operand `Prelude.seq`
+          Prelude.rnf operandType `Prelude.seq`
+            Prelude.rnf operator `Prelude.seq`
+              Prelude.rnf property `Prelude.seq`
+                Prelude.rnf then'
 
 instance Data.ToJSON ComponentConditionProperty where
   toJSON ComponentConditionProperty' {..} =

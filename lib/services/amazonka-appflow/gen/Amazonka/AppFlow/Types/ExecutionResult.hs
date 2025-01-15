@@ -103,7 +103,7 @@ instance Prelude.Hashable ExecutionResult where
 
 instance Prelude.NFData ExecutionResult where
   rnf ExecutionResult' {..} =
-    Prelude.rnf bytesProcessed
-      `Prelude.seq` Prelude.rnf bytesWritten
-      `Prelude.seq` Prelude.rnf errorInfo
-      `Prelude.seq` Prelude.rnf recordsProcessed
+    Prelude.rnf bytesProcessed `Prelude.seq`
+      Prelude.rnf bytesWritten `Prelude.seq`
+        Prelude.rnf errorInfo `Prelude.seq`
+          Prelude.rnf recordsProcessed

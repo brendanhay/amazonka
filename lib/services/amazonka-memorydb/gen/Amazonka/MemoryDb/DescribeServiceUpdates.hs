@@ -151,12 +151,12 @@ instance Core.AWSPager DescribeServiceUpdates where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeServiceUpdates_nextToken
-          Lens..~ rs
-          Lens.^? describeServiceUpdatesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeServiceUpdates_nextToken
+              Lens..~ rs
+              Lens.^? describeServiceUpdatesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeServiceUpdates where
   type
@@ -184,11 +184,11 @@ instance Prelude.Hashable DescribeServiceUpdates where
 
 instance Prelude.NFData DescribeServiceUpdates where
   rnf DescribeServiceUpdates' {..} =
-    Prelude.rnf clusterNames
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf serviceUpdateName
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf clusterNames `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf serviceUpdateName `Prelude.seq`
+            Prelude.rnf status
 
 instance Data.ToHeaders DescribeServiceUpdates where
   toHeaders =
@@ -289,6 +289,6 @@ instance
     DescribeServiceUpdatesResponse
   where
   rnf DescribeServiceUpdatesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf serviceUpdates
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf serviceUpdates `Prelude.seq`
+        Prelude.rnf httpStatus

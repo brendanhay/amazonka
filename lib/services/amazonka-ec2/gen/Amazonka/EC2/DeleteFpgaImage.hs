@@ -117,8 +117,8 @@ instance Prelude.Hashable DeleteFpgaImage where
 
 instance Prelude.NFData DeleteFpgaImage where
   rnf DeleteFpgaImage' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf fpgaImageId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf fpgaImageId
 
 instance Data.ToHeaders DeleteFpgaImage where
   toHeaders = Prelude.const Prelude.mempty
@@ -177,5 +177,5 @@ deleteFpgaImageResponse_httpStatus = Lens.lens (\DeleteFpgaImageResponse' {httpS
 
 instance Prelude.NFData DeleteFpgaImageResponse where
   rnf DeleteFpgaImageResponse' {..} =
-    Prelude.rnf return'
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf return' `Prelude.seq`
+      Prelude.rnf httpStatus

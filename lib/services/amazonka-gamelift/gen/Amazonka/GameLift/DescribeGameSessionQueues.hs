@@ -137,12 +137,12 @@ instance Core.AWSPager DescribeGameSessionQueues where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeGameSessionQueues_nextToken
-          Lens..~ rs
-          Lens.^? describeGameSessionQueuesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeGameSessionQueues_nextToken
+              Lens..~ rs
+              Lens.^? describeGameSessionQueuesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeGameSessionQueues where
   type
@@ -171,9 +171,9 @@ instance Prelude.Hashable DescribeGameSessionQueues where
 
 instance Prelude.NFData DescribeGameSessionQueues where
   rnf DescribeGameSessionQueues' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf names
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf names `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeGameSessionQueues where
   toHeaders =
@@ -265,6 +265,6 @@ instance
     DescribeGameSessionQueuesResponse
   where
   rnf DescribeGameSessionQueuesResponse' {..} =
-    Prelude.rnf gameSessionQueues
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf gameSessionQueues `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

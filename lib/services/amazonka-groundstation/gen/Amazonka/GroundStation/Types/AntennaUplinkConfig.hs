@@ -98,9 +98,9 @@ instance Prelude.Hashable AntennaUplinkConfig where
 
 instance Prelude.NFData AntennaUplinkConfig where
   rnf AntennaUplinkConfig' {..} =
-    Prelude.rnf transmitDisabled
-      `Prelude.seq` Prelude.rnf spectrumConfig
-      `Prelude.seq` Prelude.rnf targetEirp
+    Prelude.rnf transmitDisabled `Prelude.seq`
+      Prelude.rnf spectrumConfig `Prelude.seq`
+        Prelude.rnf targetEirp
 
 instance Data.ToJSON AntennaUplinkConfig where
   toJSON AntennaUplinkConfig' {..} =

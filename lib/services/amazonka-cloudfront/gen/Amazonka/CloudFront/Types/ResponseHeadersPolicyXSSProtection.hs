@@ -185,10 +185,10 @@ instance
     ResponseHeadersPolicyXSSProtection
   where
   rnf ResponseHeadersPolicyXSSProtection' {..} =
-    Prelude.rnf modeBlock
-      `Prelude.seq` Prelude.rnf reportUri
-      `Prelude.seq` Prelude.rnf override
-      `Prelude.seq` Prelude.rnf protection
+    Prelude.rnf modeBlock `Prelude.seq`
+      Prelude.rnf reportUri `Prelude.seq`
+        Prelude.rnf override `Prelude.seq`
+          Prelude.rnf protection
 
 instance
   Data.ToXML

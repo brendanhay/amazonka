@@ -174,5 +174,5 @@ instance
     DescribePHIDetectionJobResponse
   where
   rnf DescribePHIDetectionJobResponse' {..} =
-    Prelude.rnf comprehendMedicalAsyncJobProperties
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf comprehendMedicalAsyncJobProperties `Prelude.seq`
+      Prelude.rnf httpStatus

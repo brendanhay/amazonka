@@ -89,8 +89,8 @@ instance
     AmplitudeConnectorProfileCredentials
   where
   rnf AmplitudeConnectorProfileCredentials' {..} =
-    Prelude.rnf apiKey
-      `Prelude.seq` Prelude.rnf secretKey
+    Prelude.rnf apiKey `Prelude.seq`
+      Prelude.rnf secretKey
 
 instance
   Data.ToJSON

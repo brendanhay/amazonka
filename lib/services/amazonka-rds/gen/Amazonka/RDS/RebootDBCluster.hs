@@ -184,5 +184,5 @@ rebootDBClusterResponse_httpStatus = Lens.lens (\RebootDBClusterResponse' {httpS
 
 instance Prelude.NFData RebootDBClusterResponse where
   rnf RebootDBClusterResponse' {..} =
-    Prelude.rnf dbCluster
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dbCluster `Prelude.seq`
+      Prelude.rnf httpStatus

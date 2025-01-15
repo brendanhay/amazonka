@@ -130,8 +130,8 @@ instance
     UpdateRecommenderConfiguration'
   where
   rnf UpdateRecommenderConfiguration'' {..} =
-    Prelude.rnf recommenderId
-      `Prelude.seq` Prelude.rnf updateRecommenderConfiguration
+    Prelude.rnf recommenderId `Prelude.seq`
+      Prelude.rnf updateRecommenderConfiguration
 
 instance
   Data.ToHeaders
@@ -207,5 +207,5 @@ instance
     UpdateRecommenderConfigurationResponse
   where
   rnf UpdateRecommenderConfigurationResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf recommenderConfigurationResponse
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf recommenderConfigurationResponse

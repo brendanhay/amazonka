@@ -162,10 +162,10 @@ instance Prelude.Hashable AggregatedSourceStatus where
 
 instance Prelude.NFData AggregatedSourceStatus where
   rnf AggregatedSourceStatus' {..} =
-    Prelude.rnf awsRegion
-      `Prelude.seq` Prelude.rnf lastErrorCode
-      `Prelude.seq` Prelude.rnf lastErrorMessage
-      `Prelude.seq` Prelude.rnf lastUpdateStatus
-      `Prelude.seq` Prelude.rnf lastUpdateTime
-      `Prelude.seq` Prelude.rnf sourceId
-      `Prelude.seq` Prelude.rnf sourceType
+    Prelude.rnf awsRegion `Prelude.seq`
+      Prelude.rnf lastErrorCode `Prelude.seq`
+        Prelude.rnf lastErrorMessage `Prelude.seq`
+          Prelude.rnf lastUpdateStatus `Prelude.seq`
+            Prelude.rnf lastUpdateTime `Prelude.seq`
+              Prelude.rnf sourceId `Prelude.seq`
+                Prelude.rnf sourceType

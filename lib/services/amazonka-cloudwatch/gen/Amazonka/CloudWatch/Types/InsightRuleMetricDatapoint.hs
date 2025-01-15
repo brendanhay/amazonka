@@ -233,11 +233,11 @@ instance Prelude.Hashable InsightRuleMetricDatapoint where
 
 instance Prelude.NFData InsightRuleMetricDatapoint where
   rnf InsightRuleMetricDatapoint' {..} =
-    Prelude.rnf average
-      `Prelude.seq` Prelude.rnf maxContributorValue
-      `Prelude.seq` Prelude.rnf maximum
-      `Prelude.seq` Prelude.rnf minimum
-      `Prelude.seq` Prelude.rnf sampleCount
-      `Prelude.seq` Prelude.rnf sum
-      `Prelude.seq` Prelude.rnf uniqueContributors
-      `Prelude.seq` Prelude.rnf timestamp
+    Prelude.rnf average `Prelude.seq`
+      Prelude.rnf maxContributorValue `Prelude.seq`
+        Prelude.rnf maximum `Prelude.seq`
+          Prelude.rnf minimum `Prelude.seq`
+            Prelude.rnf sampleCount `Prelude.seq`
+              Prelude.rnf sum `Prelude.seq`
+                Prelude.rnf uniqueContributors `Prelude.seq`
+                  Prelude.rnf timestamp

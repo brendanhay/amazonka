@@ -214,12 +214,12 @@ instance Prelude.Hashable Parameter where
 
 instance Prelude.NFData Parameter where
   rnf Parameter' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf dataType
-      `Prelude.seq` Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf selector
-      `Prelude.seq` Prelude.rnf sourceResult
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf value
-      `Prelude.seq` Prelude.rnf version
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf dataType `Prelude.seq`
+        Prelude.rnf lastModifiedDate `Prelude.seq`
+          Prelude.rnf selector `Prelude.seq`
+            Prelude.rnf sourceResult `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf type' `Prelude.seq`
+                  Prelude.rnf value `Prelude.seq`
+                    Prelude.rnf version

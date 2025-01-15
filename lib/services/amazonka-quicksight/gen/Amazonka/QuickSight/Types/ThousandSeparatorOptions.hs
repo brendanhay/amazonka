@@ -82,8 +82,8 @@ instance Prelude.Hashable ThousandSeparatorOptions where
 
 instance Prelude.NFData ThousandSeparatorOptions where
   rnf ThousandSeparatorOptions' {..} =
-    Prelude.rnf symbol
-      `Prelude.seq` Prelude.rnf visibility
+    Prelude.rnf symbol `Prelude.seq`
+      Prelude.rnf visibility
 
 instance Data.ToJSON ThousandSeparatorOptions where
   toJSON ThousandSeparatorOptions' {..} =

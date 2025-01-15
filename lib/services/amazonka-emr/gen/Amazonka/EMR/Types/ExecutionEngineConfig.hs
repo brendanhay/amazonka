@@ -111,9 +111,9 @@ instance Prelude.Hashable ExecutionEngineConfig where
 
 instance Prelude.NFData ExecutionEngineConfig where
   rnf ExecutionEngineConfig' {..} =
-    Prelude.rnf masterInstanceSecurityGroupId
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf masterInstanceSecurityGroupId `Prelude.seq`
+      Prelude.rnf type' `Prelude.seq`
+        Prelude.rnf id
 
 instance Data.ToJSON ExecutionEngineConfig where
   toJSON ExecutionEngineConfig' {..} =

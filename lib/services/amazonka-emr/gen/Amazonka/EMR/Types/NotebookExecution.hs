@@ -313,16 +313,16 @@ instance Prelude.Hashable NotebookExecution where
 
 instance Prelude.NFData NotebookExecution where
   rnf NotebookExecution' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf editorId
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf executionEngine
-      `Prelude.seq` Prelude.rnf lastStateChangeReason
-      `Prelude.seq` Prelude.rnf notebookExecutionId
-      `Prelude.seq` Prelude.rnf notebookExecutionName
-      `Prelude.seq` Prelude.rnf notebookInstanceSecurityGroupId
-      `Prelude.seq` Prelude.rnf notebookParams
-      `Prelude.seq` Prelude.rnf outputNotebookURI
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf editorId `Prelude.seq`
+        Prelude.rnf endTime `Prelude.seq`
+          Prelude.rnf executionEngine `Prelude.seq`
+            Prelude.rnf lastStateChangeReason `Prelude.seq`
+              Prelude.rnf notebookExecutionId `Prelude.seq`
+                Prelude.rnf notebookExecutionName `Prelude.seq`
+                  Prelude.rnf notebookInstanceSecurityGroupId `Prelude.seq`
+                    Prelude.rnf notebookParams `Prelude.seq`
+                      Prelude.rnf outputNotebookURI `Prelude.seq`
+                        Prelude.rnf startTime `Prelude.seq`
+                          Prelude.rnf status `Prelude.seq`
+                            Prelude.rnf tags

@@ -118,8 +118,8 @@ instance Prelude.Hashable BatchCreateAttendee where
 
 instance Prelude.NFData BatchCreateAttendee where
   rnf BatchCreateAttendee' {..} =
-    Prelude.rnf meetingId
-      `Prelude.seq` Prelude.rnf attendees
+    Prelude.rnf meetingId `Prelude.seq`
+      Prelude.rnf attendees
 
 instance Data.ToHeaders BatchCreateAttendee where
   toHeaders = Prelude.const Prelude.mempty
@@ -197,6 +197,6 @@ batchCreateAttendeeResponse_httpStatus = Lens.lens (\BatchCreateAttendeeResponse
 
 instance Prelude.NFData BatchCreateAttendeeResponse where
   rnf BatchCreateAttendeeResponse' {..} =
-    Prelude.rnf attendees
-      `Prelude.seq` Prelude.rnf errors
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf attendees `Prelude.seq`
+      Prelude.rnf errors `Prelude.seq`
+        Prelude.rnf httpStatus

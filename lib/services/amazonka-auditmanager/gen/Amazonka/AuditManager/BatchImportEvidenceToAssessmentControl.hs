@@ -178,10 +178,10 @@ instance
     BatchImportEvidenceToAssessmentControl
   where
   rnf BatchImportEvidenceToAssessmentControl' {..} =
-    Prelude.rnf assessmentId
-      `Prelude.seq` Prelude.rnf controlSetId
-      `Prelude.seq` Prelude.rnf controlId
-      `Prelude.seq` Prelude.rnf manualEvidence
+    Prelude.rnf assessmentId `Prelude.seq`
+      Prelude.rnf controlSetId `Prelude.seq`
+        Prelude.rnf controlId `Prelude.seq`
+          Prelude.rnf manualEvidence
 
 instance
   Data.ToHeaders
@@ -279,5 +279,5 @@ instance
   where
   rnf
     BatchImportEvidenceToAssessmentControlResponse' {..} =
-      Prelude.rnf errors
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf errors `Prelude.seq`
+        Prelude.rnf httpStatus

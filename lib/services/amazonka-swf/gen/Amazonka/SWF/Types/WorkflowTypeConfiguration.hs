@@ -299,9 +299,9 @@ instance Prelude.Hashable WorkflowTypeConfiguration where
 
 instance Prelude.NFData WorkflowTypeConfiguration where
   rnf WorkflowTypeConfiguration' {..} =
-    Prelude.rnf defaultChildPolicy
-      `Prelude.seq` Prelude.rnf defaultExecutionStartToCloseTimeout
-      `Prelude.seq` Prelude.rnf defaultLambdaRole
-      `Prelude.seq` Prelude.rnf defaultTaskList
-      `Prelude.seq` Prelude.rnf defaultTaskPriority
-      `Prelude.seq` Prelude.rnf defaultTaskStartToCloseTimeout
+    Prelude.rnf defaultChildPolicy `Prelude.seq`
+      Prelude.rnf defaultExecutionStartToCloseTimeout `Prelude.seq`
+        Prelude.rnf defaultLambdaRole `Prelude.seq`
+          Prelude.rnf defaultTaskList `Prelude.seq`
+            Prelude.rnf defaultTaskPriority `Prelude.seq`
+              Prelude.rnf defaultTaskStartToCloseTimeout

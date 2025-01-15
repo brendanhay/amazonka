@@ -162,12 +162,12 @@ instance Core.AWSPager DescribeFileSystems where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeFileSystems_nextToken
-          Lens..~ rs
-          Lens.^? describeFileSystemsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeFileSystems_nextToken
+              Lens..~ rs
+              Lens.^? describeFileSystemsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeFileSystems where
   type
@@ -193,9 +193,9 @@ instance Prelude.Hashable DescribeFileSystems where
 
 instance Prelude.NFData DescribeFileSystems where
   rnf DescribeFileSystems' {..} =
-    Prelude.rnf fileSystemIds
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf fileSystemIds `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeFileSystems where
   toHeaders =
@@ -286,6 +286,6 @@ describeFileSystemsResponse_httpStatus = Lens.lens (\DescribeFileSystemsResponse
 
 instance Prelude.NFData DescribeFileSystemsResponse where
   rnf DescribeFileSystemsResponse' {..} =
-    Prelude.rnf fileSystems
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf fileSystems `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

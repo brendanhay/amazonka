@@ -247,16 +247,16 @@ instance Prelude.Hashable ServiceInstance where
 
 instance Prelude.NFData ServiceInstance where
   rnf ServiceInstance' {..} =
-    Prelude.rnf deploymentStatusMessage
-      `Prelude.seq` Prelude.rnf spec
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf deploymentStatus
-      `Prelude.seq` Prelude.rnf environmentName
-      `Prelude.seq` Prelude.rnf lastDeploymentAttemptedAt
-      `Prelude.seq` Prelude.rnf lastDeploymentSucceededAt
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf serviceName
-      `Prelude.seq` Prelude.rnf templateMajorVersion
-      `Prelude.seq` Prelude.rnf templateMinorVersion
-      `Prelude.seq` Prelude.rnf templateName
+    Prelude.rnf deploymentStatusMessage `Prelude.seq`
+      Prelude.rnf spec `Prelude.seq`
+        Prelude.rnf arn `Prelude.seq`
+          Prelude.rnf createdAt `Prelude.seq`
+            Prelude.rnf deploymentStatus `Prelude.seq`
+              Prelude.rnf environmentName `Prelude.seq`
+                Prelude.rnf lastDeploymentAttemptedAt `Prelude.seq`
+                  Prelude.rnf lastDeploymentSucceededAt `Prelude.seq`
+                    Prelude.rnf name `Prelude.seq`
+                      Prelude.rnf serviceName `Prelude.seq`
+                        Prelude.rnf templateMajorVersion `Prelude.seq`
+                          Prelude.rnf templateMinorVersion `Prelude.seq`
+                            Prelude.rnf templateName

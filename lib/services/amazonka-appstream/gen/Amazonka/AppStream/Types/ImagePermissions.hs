@@ -80,8 +80,8 @@ instance Prelude.Hashable ImagePermissions where
 
 instance Prelude.NFData ImagePermissions where
   rnf ImagePermissions' {..} =
-    Prelude.rnf allowFleet
-      `Prelude.seq` Prelude.rnf allowImageBuilder
+    Prelude.rnf allowFleet `Prelude.seq`
+      Prelude.rnf allowImageBuilder
 
 instance Data.ToJSON ImagePermissions where
   toJSON ImagePermissions' {..} =

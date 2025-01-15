@@ -106,8 +106,8 @@ instance Prelude.Hashable RemoveTags where
 
 instance Prelude.NFData RemoveTags where
   rnf RemoveTags' {..} =
-    Prelude.rnf pipelineId
-      `Prelude.seq` Prelude.rnf tagKeys
+    Prelude.rnf pipelineId `Prelude.seq`
+      Prelude.rnf tagKeys
 
 instance Data.ToHeaders RemoveTags where
   toHeaders =

@@ -103,5 +103,5 @@ instance
     ClientLoginBannerResponseOptions
   where
   rnf ClientLoginBannerResponseOptions' {..} =
-    Prelude.rnf bannerText
-      `Prelude.seq` Prelude.rnf enabled
+    Prelude.rnf bannerText `Prelude.seq`
+      Prelude.rnf enabled

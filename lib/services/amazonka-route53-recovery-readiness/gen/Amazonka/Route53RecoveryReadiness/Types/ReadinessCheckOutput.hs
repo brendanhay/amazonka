@@ -108,7 +108,7 @@ instance Prelude.Hashable ReadinessCheckOutput where
 
 instance Prelude.NFData ReadinessCheckOutput where
   rnf ReadinessCheckOutput' {..} =
-    Prelude.rnf readinessCheckName
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf readinessCheckArn
-      `Prelude.seq` Prelude.rnf resourceSet
+    Prelude.rnf readinessCheckName `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf readinessCheckArn `Prelude.seq`
+          Prelude.rnf resourceSet

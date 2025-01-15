@@ -138,8 +138,8 @@ instance Prelude.Hashable GetSchedule where
 
 instance Prelude.NFData GetSchedule where
   rnf GetSchedule' {..} =
-    Prelude.rnf groupName
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf groupName `Prelude.seq`
+      Prelude.rnf name
 
 instance Data.ToHeaders GetSchedule where
   toHeaders =
@@ -422,18 +422,18 @@ getScheduleResponse_httpStatus = Lens.lens (\GetScheduleResponse' {httpStatus} -
 
 instance Prelude.NFData GetScheduleResponse where
   rnf GetScheduleResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf endDate
-      `Prelude.seq` Prelude.rnf flexibleTimeWindow
-      `Prelude.seq` Prelude.rnf groupName
-      `Prelude.seq` Prelude.rnf kmsKeyArn
-      `Prelude.seq` Prelude.rnf lastModificationDate
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf scheduleExpression
-      `Prelude.seq` Prelude.rnf scheduleExpressionTimezone
-      `Prelude.seq` Prelude.rnf startDate
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf target
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf creationDate `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf endDate `Prelude.seq`
+            Prelude.rnf flexibleTimeWindow `Prelude.seq`
+              Prelude.rnf groupName `Prelude.seq`
+                Prelude.rnf kmsKeyArn `Prelude.seq`
+                  Prelude.rnf lastModificationDate `Prelude.seq`
+                    Prelude.rnf name `Prelude.seq`
+                      Prelude.rnf scheduleExpression `Prelude.seq`
+                        Prelude.rnf scheduleExpressionTimezone `Prelude.seq`
+                          Prelude.rnf startDate `Prelude.seq`
+                            Prelude.rnf state `Prelude.seq`
+                              Prelude.rnf target `Prelude.seq`
+                                Prelude.rnf httpStatus

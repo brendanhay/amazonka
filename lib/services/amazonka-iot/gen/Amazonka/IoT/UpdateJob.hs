@@ -202,14 +202,14 @@ instance Prelude.Hashable UpdateJob where
 
 instance Prelude.NFData UpdateJob where
   rnf UpdateJob' {..} =
-    Prelude.rnf abortConfig
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf jobExecutionsRetryConfig
-      `Prelude.seq` Prelude.rnf jobExecutionsRolloutConfig
-      `Prelude.seq` Prelude.rnf namespaceId
-      `Prelude.seq` Prelude.rnf presignedUrlConfig
-      `Prelude.seq` Prelude.rnf timeoutConfig
-      `Prelude.seq` Prelude.rnf jobId
+    Prelude.rnf abortConfig `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf jobExecutionsRetryConfig `Prelude.seq`
+          Prelude.rnf jobExecutionsRolloutConfig `Prelude.seq`
+            Prelude.rnf namespaceId `Prelude.seq`
+              Prelude.rnf presignedUrlConfig `Prelude.seq`
+                Prelude.rnf timeoutConfig `Prelude.seq`
+                  Prelude.rnf jobId
 
 instance Data.ToHeaders UpdateJob where
   toHeaders = Prelude.const Prelude.mempty

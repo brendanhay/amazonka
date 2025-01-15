@@ -274,18 +274,18 @@ instance Prelude.Hashable CreateJob where
 
 instance Prelude.NFData CreateJob where
   rnf CreateJob' {..} =
-    Prelude.rnf checkpointConfig
-      `Prelude.seq` Prelude.rnf hyperParameters
-      `Prelude.seq` Prelude.rnf inputDataConfig
-      `Prelude.seq` Prelude.rnf stoppingCondition
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf algorithmSpecification
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf deviceConfig
-      `Prelude.seq` Prelude.rnf instanceConfig
-      `Prelude.seq` Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf outputDataConfig
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf checkpointConfig `Prelude.seq`
+      Prelude.rnf hyperParameters `Prelude.seq`
+        Prelude.rnf inputDataConfig `Prelude.seq`
+          Prelude.rnf stoppingCondition `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf algorithmSpecification `Prelude.seq`
+                Prelude.rnf clientToken `Prelude.seq`
+                  Prelude.rnf deviceConfig `Prelude.seq`
+                    Prelude.rnf instanceConfig `Prelude.seq`
+                      Prelude.rnf jobName `Prelude.seq`
+                        Prelude.rnf outputDataConfig `Prelude.seq`
+                          Prelude.rnf roleArn
 
 instance Data.ToHeaders CreateJob where
   toHeaders =
@@ -374,5 +374,5 @@ createJobResponse_jobArn = Lens.lens (\CreateJobResponse' {jobArn} -> jobArn) (\
 
 instance Prelude.NFData CreateJobResponse where
   rnf CreateJobResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf jobArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf jobArn

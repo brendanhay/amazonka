@@ -165,8 +165,8 @@ instance Prelude.Hashable DescribeClusters where
 
 instance Prelude.NFData DescribeClusters where
   rnf DescribeClusters' {..} =
-    Prelude.rnf clusters
-      `Prelude.seq` Prelude.rnf include
+    Prelude.rnf clusters `Prelude.seq`
+      Prelude.rnf include
 
 instance Data.ToHeaders DescribeClusters where
   toHeaders =
@@ -248,6 +248,6 @@ describeClustersResponse_httpStatus = Lens.lens (\DescribeClustersResponse' {htt
 
 instance Prelude.NFData DescribeClustersResponse where
   rnf DescribeClustersResponse' {..} =
-    Prelude.rnf clusters
-      `Prelude.seq` Prelude.rnf failures
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf clusters `Prelude.seq`
+      Prelude.rnf failures `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -179,12 +179,12 @@ instance Prelude.Hashable CreateParallelData where
 
 instance Prelude.NFData CreateParallelData where
   rnf CreateParallelData' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf encryptionKey
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf parallelDataConfig
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf encryptionKey `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf parallelDataConfig `Prelude.seq`
+              Prelude.rnf clientToken
 
 instance Data.ToHeaders CreateParallelData where
   toHeaders =
@@ -273,6 +273,6 @@ createParallelDataResponse_httpStatus = Lens.lens (\CreateParallelDataResponse' 
 
 instance Prelude.NFData CreateParallelDataResponse where
   rnf CreateParallelDataResponse' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -210,12 +210,12 @@ instance
 
 instance Prelude.NFData OrderableReplicationInstance where
   rnf OrderableReplicationInstance' {..} =
-    Prelude.rnf availabilityZones
-      `Prelude.seq` Prelude.rnf defaultAllocatedStorage
-      `Prelude.seq` Prelude.rnf engineVersion
-      `Prelude.seq` Prelude.rnf includedAllocatedStorage
-      `Prelude.seq` Prelude.rnf maxAllocatedStorage
-      `Prelude.seq` Prelude.rnf minAllocatedStorage
-      `Prelude.seq` Prelude.rnf releaseStatus
-      `Prelude.seq` Prelude.rnf replicationInstanceClass
-      `Prelude.seq` Prelude.rnf storageType
+    Prelude.rnf availabilityZones `Prelude.seq`
+      Prelude.rnf defaultAllocatedStorage `Prelude.seq`
+        Prelude.rnf engineVersion `Prelude.seq`
+          Prelude.rnf includedAllocatedStorage `Prelude.seq`
+            Prelude.rnf maxAllocatedStorage `Prelude.seq`
+              Prelude.rnf minAllocatedStorage `Prelude.seq`
+                Prelude.rnf releaseStatus `Prelude.seq`
+                  Prelude.rnf replicationInstanceClass `Prelude.seq`
+                    Prelude.rnf storageType

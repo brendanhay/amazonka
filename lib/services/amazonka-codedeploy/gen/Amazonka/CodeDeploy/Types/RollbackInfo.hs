@@ -101,6 +101,6 @@ instance Prelude.Hashable RollbackInfo where
 
 instance Prelude.NFData RollbackInfo where
   rnf RollbackInfo' {..} =
-    Prelude.rnf rollbackDeploymentId
-      `Prelude.seq` Prelude.rnf rollbackMessage
-      `Prelude.seq` Prelude.rnf rollbackTriggeringDeploymentId
+    Prelude.rnf rollbackDeploymentId `Prelude.seq`
+      Prelude.rnf rollbackMessage `Prelude.seq`
+        Prelude.rnf rollbackTriggeringDeploymentId

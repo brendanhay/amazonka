@@ -110,8 +110,8 @@ instance Prelude.Hashable SecurityHubConfiguration where
 
 instance Prelude.NFData SecurityHubConfiguration where
   rnf SecurityHubConfiguration' {..} =
-    Prelude.rnf publishPolicyFindings
-      `Prelude.seq` Prelude.rnf publishClassificationFindings
+    Prelude.rnf publishPolicyFindings `Prelude.seq`
+      Prelude.rnf publishClassificationFindings
 
 instance Data.ToJSON SecurityHubConfiguration where
   toJSON SecurityHubConfiguration' {..} =

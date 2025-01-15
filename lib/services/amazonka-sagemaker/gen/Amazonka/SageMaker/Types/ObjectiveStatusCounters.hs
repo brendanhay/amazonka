@@ -110,6 +110,6 @@ instance Prelude.Hashable ObjectiveStatusCounters where
 
 instance Prelude.NFData ObjectiveStatusCounters where
   rnf ObjectiveStatusCounters' {..} =
-    Prelude.rnf failed
-      `Prelude.seq` Prelude.rnf pending
-      `Prelude.seq` Prelude.rnf succeeded
+    Prelude.rnf failed `Prelude.seq`
+      Prelude.rnf pending `Prelude.seq`
+        Prelude.rnf succeeded

@@ -232,17 +232,17 @@ instance Prelude.Hashable Activity where
 
 instance Prelude.NFData Activity where
   rnf Activity' {..} =
-    Prelude.rnf custom
-      `Prelude.seq` Prelude.rnf conditionalSplit
-      `Prelude.seq` Prelude.rnf contactCenter
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf email
-      `Prelude.seq` Prelude.rnf holdout
-      `Prelude.seq` Prelude.rnf multiCondition
-      `Prelude.seq` Prelude.rnf push
-      `Prelude.seq` Prelude.rnf randomSplit
-      `Prelude.seq` Prelude.rnf sms
-      `Prelude.seq` Prelude.rnf wait
+    Prelude.rnf custom `Prelude.seq`
+      Prelude.rnf conditionalSplit `Prelude.seq`
+        Prelude.rnf contactCenter `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf email `Prelude.seq`
+              Prelude.rnf holdout `Prelude.seq`
+                Prelude.rnf multiCondition `Prelude.seq`
+                  Prelude.rnf push `Prelude.seq`
+                    Prelude.rnf randomSplit `Prelude.seq`
+                      Prelude.rnf sms `Prelude.seq`
+                        Prelude.rnf wait
 
 instance Data.ToJSON Activity where
   toJSON Activity' {..} =

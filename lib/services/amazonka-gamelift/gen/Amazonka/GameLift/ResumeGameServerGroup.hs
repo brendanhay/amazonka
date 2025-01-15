@@ -135,8 +135,8 @@ instance Prelude.Hashable ResumeGameServerGroup where
 
 instance Prelude.NFData ResumeGameServerGroup where
   rnf ResumeGameServerGroup' {..} =
-    Prelude.rnf gameServerGroupName
-      `Prelude.seq` Prelude.rnf resumeActions
+    Prelude.rnf gameServerGroupName `Prelude.seq`
+      Prelude.rnf resumeActions
 
 instance Data.ToHeaders ResumeGameServerGroup where
   toHeaders =
@@ -214,5 +214,5 @@ resumeGameServerGroupResponse_httpStatus = Lens.lens (\ResumeGameServerGroupResp
 
 instance Prelude.NFData ResumeGameServerGroupResponse where
   rnf ResumeGameServerGroupResponse' {..} =
-    Prelude.rnf gameServerGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf gameServerGroup `Prelude.seq`
+      Prelude.rnf httpStatus

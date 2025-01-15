@@ -132,8 +132,8 @@ instance Prelude.Hashable DescribeProductView where
 
 instance Prelude.NFData DescribeProductView where
   rnf DescribeProductView' {..} =
-    Prelude.rnf acceptLanguage
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf acceptLanguage `Prelude.seq`
+      Prelude.rnf id
 
 instance Data.ToHeaders DescribeProductView where
   toHeaders =
@@ -216,6 +216,6 @@ describeProductViewResponse_httpStatus = Lens.lens (\DescribeProductViewResponse
 
 instance Prelude.NFData DescribeProductViewResponse where
   rnf DescribeProductViewResponse' {..} =
-    Prelude.rnf productViewSummary
-      `Prelude.seq` Prelude.rnf provisioningArtifacts
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf productViewSummary `Prelude.seq`
+      Prelude.rnf provisioningArtifacts `Prelude.seq`
+        Prelude.rnf httpStatus

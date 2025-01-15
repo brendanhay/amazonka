@@ -136,10 +136,10 @@ instance Prelude.Hashable UpdateArchive where
 
 instance Prelude.NFData UpdateArchive where
   rnf UpdateArchive' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf eventPattern
-      `Prelude.seq` Prelude.rnf retentionDays
-      `Prelude.seq` Prelude.rnf archiveName
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf eventPattern `Prelude.seq`
+        Prelude.rnf retentionDays `Prelude.seq`
+          Prelude.rnf archiveName
 
 instance Data.ToHeaders UpdateArchive where
   toHeaders =
@@ -239,8 +239,8 @@ updateArchiveResponse_httpStatus = Lens.lens (\UpdateArchiveResponse' {httpStatu
 
 instance Prelude.NFData UpdateArchiveResponse where
   rnf UpdateArchiveResponse' {..} =
-    Prelude.rnf archiveArn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf stateReason
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf archiveArn `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf state `Prelude.seq`
+          Prelude.rnf stateReason `Prelude.seq`
+            Prelude.rnf httpStatus

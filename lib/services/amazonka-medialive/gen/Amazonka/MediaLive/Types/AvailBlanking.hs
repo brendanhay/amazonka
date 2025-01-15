@@ -89,8 +89,8 @@ instance Prelude.Hashable AvailBlanking where
 
 instance Prelude.NFData AvailBlanking where
   rnf AvailBlanking' {..} =
-    Prelude.rnf availBlankingImage
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf availBlankingImage `Prelude.seq`
+      Prelude.rnf state
 
 instance Data.ToJSON AvailBlanking where
   toJSON AvailBlanking' {..} =

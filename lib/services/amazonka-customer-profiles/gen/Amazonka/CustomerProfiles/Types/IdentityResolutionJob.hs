@@ -219,11 +219,11 @@ instance Prelude.Hashable IdentityResolutionJob where
 
 instance Prelude.NFData IdentityResolutionJob where
   rnf IdentityResolutionJob' {..} =
-    Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf exportingLocation
-      `Prelude.seq` Prelude.rnf jobEndTime
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf jobStartTime
-      `Prelude.seq` Prelude.rnf jobStats
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf domainName `Prelude.seq`
+      Prelude.rnf exportingLocation `Prelude.seq`
+        Prelude.rnf jobEndTime `Prelude.seq`
+          Prelude.rnf jobId `Prelude.seq`
+            Prelude.rnf jobStartTime `Prelude.seq`
+              Prelude.rnf jobStats `Prelude.seq`
+                Prelude.rnf message `Prelude.seq`
+                  Prelude.rnf status

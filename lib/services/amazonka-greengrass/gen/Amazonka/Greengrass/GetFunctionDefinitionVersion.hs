@@ -158,9 +158,9 @@ instance
 
 instance Prelude.NFData GetFunctionDefinitionVersion where
   rnf GetFunctionDefinitionVersion' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf functionDefinitionId
-      `Prelude.seq` Prelude.rnf functionDefinitionVersionId
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf functionDefinitionId `Prelude.seq`
+        Prelude.rnf functionDefinitionVersionId
 
 instance Data.ToHeaders GetFunctionDefinitionVersion where
   toHeaders =
@@ -281,10 +281,10 @@ instance
     GetFunctionDefinitionVersionResponse
   where
   rnf GetFunctionDefinitionVersionResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationTimestamp
-      `Prelude.seq` Prelude.rnf definition
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf creationTimestamp `Prelude.seq`
+        Prelude.rnf definition `Prelude.seq`
+          Prelude.rnf id `Prelude.seq`
+            Prelude.rnf nextToken `Prelude.seq`
+              Prelude.rnf version `Prelude.seq`
+                Prelude.rnf httpStatus

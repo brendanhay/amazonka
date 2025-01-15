@@ -145,8 +145,8 @@ instance Prelude.Hashable StartMaintenance where
 
 instance Prelude.NFData StartMaintenance where
   rnf StartMaintenance' {..} =
-    Prelude.rnf engineAttributes
-      `Prelude.seq` Prelude.rnf serverName
+    Prelude.rnf engineAttributes `Prelude.seq`
+      Prelude.rnf serverName
 
 instance Data.ToHeaders StartMaintenance where
   toHeaders =
@@ -219,5 +219,5 @@ startMaintenanceResponse_httpStatus = Lens.lens (\StartMaintenanceResponse' {htt
 
 instance Prelude.NFData StartMaintenanceResponse where
   rnf StartMaintenanceResponse' {..} =
-    Prelude.rnf server
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf server `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -185,9 +185,9 @@ instance Prelude.Hashable GetManagedRuleSet where
 
 instance Prelude.NFData GetManagedRuleSet where
   rnf GetManagedRuleSet' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf scope
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf scope `Prelude.seq`
+        Prelude.rnf id
 
 instance Data.ToHeaders GetManagedRuleSet where
   toHeaders =
@@ -291,6 +291,6 @@ getManagedRuleSetResponse_httpStatus = Lens.lens (\GetManagedRuleSetResponse' {h
 
 instance Prelude.NFData GetManagedRuleSetResponse where
   rnf GetManagedRuleSetResponse' {..} =
-    Prelude.rnf lockToken
-      `Prelude.seq` Prelude.rnf managedRuleSet
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf lockToken `Prelude.seq`
+      Prelude.rnf managedRuleSet `Prelude.seq`
+        Prelude.rnf httpStatus

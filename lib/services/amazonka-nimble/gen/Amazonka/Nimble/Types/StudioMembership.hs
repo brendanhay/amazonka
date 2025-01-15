@@ -116,7 +116,7 @@ instance Prelude.Hashable StudioMembership where
 
 instance Prelude.NFData StudioMembership where
   rnf StudioMembership' {..} =
-    Prelude.rnf identityStoreId
-      `Prelude.seq` Prelude.rnf persona
-      `Prelude.seq` Prelude.rnf principalId
-      `Prelude.seq` Prelude.rnf sid
+    Prelude.rnf identityStoreId `Prelude.seq`
+      Prelude.rnf persona `Prelude.seq`
+        Prelude.rnf principalId `Prelude.seq`
+          Prelude.rnf sid

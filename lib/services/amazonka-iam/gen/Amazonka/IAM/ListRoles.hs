@@ -190,12 +190,12 @@ instance Core.AWSPager ListRoles where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listRoles_marker
-          Lens..~ rs
-          Lens.^? listRolesResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listRoles_marker
+              Lens..~ rs
+              Lens.^? listRolesResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListRoles where
   type AWSResponse ListRoles = ListRolesResponse
@@ -209,9 +209,7 @@ instance Core.AWSRequest ListRoles where
             Prelude.<$> (x Data..@? "IsTruncated")
             Prelude.<*> (x Data..@? "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x
-                            Data..@? "Roles"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "Roles" Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLList "member"
                         )
       )
@@ -225,9 +223,9 @@ instance Prelude.Hashable ListRoles where
 
 instance Prelude.NFData ListRoles where
   rnf ListRoles' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxItems
-      `Prelude.seq` Prelude.rnf pathPrefix
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf maxItems `Prelude.seq`
+        Prelude.rnf pathPrefix
 
 instance Data.ToHeaders ListRoles where
   toHeaders = Prelude.const Prelude.mempty
@@ -331,7 +329,7 @@ listRolesResponse_roles = Lens.lens (\ListRolesResponse' {roles} -> roles) (\s@L
 
 instance Prelude.NFData ListRolesResponse where
   rnf ListRolesResponse' {..} =
-    Prelude.rnf isTruncated
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf roles
+    Prelude.rnf isTruncated `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf httpStatus `Prelude.seq`
+          Prelude.rnf roles

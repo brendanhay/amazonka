@@ -144,9 +144,9 @@ instance Prelude.Hashable UsageStatisticsFilter where
 
 instance Prelude.NFData UsageStatisticsFilter where
   rnf UsageStatisticsFilter' {..} =
-    Prelude.rnf comparator
-      `Prelude.seq` Prelude.rnf key
-      `Prelude.seq` Prelude.rnf values
+    Prelude.rnf comparator `Prelude.seq`
+      Prelude.rnf key `Prelude.seq`
+        Prelude.rnf values
 
 instance Data.ToJSON UsageStatisticsFilter where
   toJSON UsageStatisticsFilter' {..} =

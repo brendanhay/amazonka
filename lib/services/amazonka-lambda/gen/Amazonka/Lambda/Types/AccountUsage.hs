@@ -83,5 +83,5 @@ instance Prelude.Hashable AccountUsage where
 
 instance Prelude.NFData AccountUsage where
   rnf AccountUsage' {..} =
-    Prelude.rnf functionCount
-      `Prelude.seq` Prelude.rnf totalCodeSize
+    Prelude.rnf functionCount `Prelude.seq`
+      Prelude.rnf totalCodeSize

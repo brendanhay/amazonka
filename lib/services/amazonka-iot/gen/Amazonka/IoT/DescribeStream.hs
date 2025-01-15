@@ -150,5 +150,5 @@ describeStreamResponse_httpStatus = Lens.lens (\DescribeStreamResponse' {httpSta
 
 instance Prelude.NFData DescribeStreamResponse where
   rnf DescribeStreamResponse' {..} =
-    Prelude.rnf streamInfo
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf streamInfo `Prelude.seq`
+      Prelude.rnf httpStatus

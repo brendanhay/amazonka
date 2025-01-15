@@ -144,6 +144,6 @@ instance
     StartTimerFailedEventAttributes
   where
   rnf StartTimerFailedEventAttributes' {..} =
-    Prelude.rnf timerId
-      `Prelude.seq` Prelude.rnf cause
-      `Prelude.seq` Prelude.rnf decisionTaskCompletedEventId
+    Prelude.rnf timerId `Prelude.seq`
+      Prelude.rnf cause `Prelude.seq`
+        Prelude.rnf decisionTaskCompletedEventId

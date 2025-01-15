@@ -115,8 +115,8 @@ instance Prelude.Hashable UpdateDatasetGroup where
 
 instance Prelude.NFData UpdateDatasetGroup where
   rnf UpdateDatasetGroup' {..} =
-    Prelude.rnf datasetGroupArn
-      `Prelude.seq` Prelude.rnf datasetArns
+    Prelude.rnf datasetGroupArn `Prelude.seq`
+      Prelude.rnf datasetArns
 
 instance Data.ToHeaders UpdateDatasetGroup where
   toHeaders =

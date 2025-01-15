@@ -129,9 +129,9 @@ instance Prelude.Hashable UpdateHostKey where
 
 instance Prelude.NFData UpdateHostKey where
   rnf UpdateHostKey' {..} =
-    Prelude.rnf serverId
-      `Prelude.seq` Prelude.rnf hostKeyId
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf serverId `Prelude.seq`
+      Prelude.rnf hostKeyId `Prelude.seq`
+        Prelude.rnf description
 
 instance Data.ToHeaders UpdateHostKey where
   toHeaders =
@@ -223,6 +223,6 @@ updateHostKeyResponse_hostKeyId = Lens.lens (\UpdateHostKeyResponse' {hostKeyId}
 
 instance Prelude.NFData UpdateHostKeyResponse where
   rnf UpdateHostKeyResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf serverId
-      `Prelude.seq` Prelude.rnf hostKeyId
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf serverId `Prelude.seq`
+        Prelude.rnf hostKeyId

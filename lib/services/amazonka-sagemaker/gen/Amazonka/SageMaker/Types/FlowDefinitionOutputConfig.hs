@@ -98,8 +98,8 @@ instance Prelude.Hashable FlowDefinitionOutputConfig where
 
 instance Prelude.NFData FlowDefinitionOutputConfig where
   rnf FlowDefinitionOutputConfig' {..} =
-    Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf s3OutputPath
+    Prelude.rnf kmsKeyId `Prelude.seq`
+      Prelude.rnf s3OutputPath
 
 instance Data.ToJSON FlowDefinitionOutputConfig where
   toJSON FlowDefinitionOutputConfig' {..} =

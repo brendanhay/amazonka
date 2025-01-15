@@ -133,8 +133,8 @@ instance Prelude.Hashable StatelessRule where
 
 instance Prelude.NFData StatelessRule where
   rnf StatelessRule' {..} =
-    Prelude.rnf ruleDefinition
-      `Prelude.seq` Prelude.rnf priority
+    Prelude.rnf ruleDefinition `Prelude.seq`
+      Prelude.rnf priority
 
 instance Data.ToJSON StatelessRule where
   toJSON StatelessRule' {..} =

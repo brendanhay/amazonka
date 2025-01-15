@@ -89,5 +89,5 @@ instance Prelude.Hashable CandidateArtifactLocations where
 
 instance Prelude.NFData CandidateArtifactLocations where
   rnf CandidateArtifactLocations' {..} =
-    Prelude.rnf modelInsights
-      `Prelude.seq` Prelude.rnf explainability
+    Prelude.rnf modelInsights `Prelude.seq`
+      Prelude.rnf explainability

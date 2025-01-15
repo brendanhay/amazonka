@@ -151,8 +151,8 @@ instance Prelude.Hashable DescribeUser where
 
 instance Prelude.NFData DescribeUser where
   rnf DescribeUser' {..} =
-    Prelude.rnf identityStoreId
-      `Prelude.seq` Prelude.rnf userId
+    Prelude.rnf identityStoreId `Prelude.seq`
+      Prelude.rnf userId
 
 instance Data.ToHeaders DescribeUser where
   toHeaders =
@@ -382,20 +382,20 @@ describeUserResponse_identityStoreId = Lens.lens (\DescribeUserResponse' {identi
 
 instance Prelude.NFData DescribeUserResponse where
   rnf DescribeUserResponse' {..} =
-    Prelude.rnf addresses
-      `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf emails
-      `Prelude.seq` Prelude.rnf externalIds
-      `Prelude.seq` Prelude.rnf locale
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf nickName
-      `Prelude.seq` Prelude.rnf phoneNumbers
-      `Prelude.seq` Prelude.rnf preferredLanguage
-      `Prelude.seq` Prelude.rnf profileUrl
-      `Prelude.seq` Prelude.rnf timezone
-      `Prelude.seq` Prelude.rnf title
-      `Prelude.seq` Prelude.rnf userName
-      `Prelude.seq` Prelude.rnf userType
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf userId
-      `Prelude.seq` Prelude.rnf identityStoreId
+    Prelude.rnf addresses `Prelude.seq`
+      Prelude.rnf displayName `Prelude.seq`
+        Prelude.rnf emails `Prelude.seq`
+          Prelude.rnf externalIds `Prelude.seq`
+            Prelude.rnf locale `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf nickName `Prelude.seq`
+                  Prelude.rnf phoneNumbers `Prelude.seq`
+                    Prelude.rnf preferredLanguage `Prelude.seq`
+                      Prelude.rnf profileUrl `Prelude.seq`
+                        Prelude.rnf timezone `Prelude.seq`
+                          Prelude.rnf title `Prelude.seq`
+                            Prelude.rnf userName `Prelude.seq`
+                              Prelude.rnf userType `Prelude.seq`
+                                Prelude.rnf httpStatus `Prelude.seq`
+                                  Prelude.rnf userId `Prelude.seq`
+                                    Prelude.rnf identityStoreId

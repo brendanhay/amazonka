@@ -182,5 +182,5 @@ instance
   where
   rnf
     GetVoiceConnectorEmergencyCallingConfigurationResponse' {..} =
-      Prelude.rnf emergencyCallingConfiguration
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf emergencyCallingConfiguration `Prelude.seq`
+        Prelude.rnf httpStatus

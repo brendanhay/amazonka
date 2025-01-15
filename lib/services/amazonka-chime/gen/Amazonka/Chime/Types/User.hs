@@ -211,16 +211,16 @@ instance Prelude.Hashable User where
 
 instance Prelude.NFData User where
   rnf User' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf alexaForBusinessMetadata
-      `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf invitedOn
-      `Prelude.seq` Prelude.rnf licenseType
-      `Prelude.seq` Prelude.rnf personalPIN
-      `Prelude.seq` Prelude.rnf primaryEmail
-      `Prelude.seq` Prelude.rnf primaryProvisionedNumber
-      `Prelude.seq` Prelude.rnf registeredOn
-      `Prelude.seq` Prelude.rnf userInvitationStatus
-      `Prelude.seq` Prelude.rnf userRegistrationStatus
-      `Prelude.seq` Prelude.rnf userType
-      `Prelude.seq` Prelude.rnf userId
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf alexaForBusinessMetadata `Prelude.seq`
+        Prelude.rnf displayName `Prelude.seq`
+          Prelude.rnf invitedOn `Prelude.seq`
+            Prelude.rnf licenseType `Prelude.seq`
+              Prelude.rnf personalPIN `Prelude.seq`
+                Prelude.rnf primaryEmail `Prelude.seq`
+                  Prelude.rnf primaryProvisionedNumber `Prelude.seq`
+                    Prelude.rnf registeredOn `Prelude.seq`
+                      Prelude.rnf userInvitationStatus `Prelude.seq`
+                        Prelude.rnf userRegistrationStatus `Prelude.seq`
+                          Prelude.rnf userType `Prelude.seq`
+                            Prelude.rnf userId

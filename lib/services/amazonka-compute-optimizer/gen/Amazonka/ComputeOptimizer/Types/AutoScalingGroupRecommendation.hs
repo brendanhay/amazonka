@@ -348,15 +348,15 @@ instance
     AutoScalingGroupRecommendation
   where
   rnf AutoScalingGroupRecommendation' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf autoScalingGroupArn
-      `Prelude.seq` Prelude.rnf autoScalingGroupName
-      `Prelude.seq` Prelude.rnf currentConfiguration
-      `Prelude.seq` Prelude.rnf currentPerformanceRisk
-      `Prelude.seq` Prelude.rnf effectiveRecommendationPreferences
-      `Prelude.seq` Prelude.rnf finding
-      `Prelude.seq` Prelude.rnf inferredWorkloadTypes
-      `Prelude.seq` Prelude.rnf lastRefreshTimestamp
-      `Prelude.seq` Prelude.rnf lookBackPeriodInDays
-      `Prelude.seq` Prelude.rnf recommendationOptions
-      `Prelude.seq` Prelude.rnf utilizationMetrics
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf autoScalingGroupArn `Prelude.seq`
+        Prelude.rnf autoScalingGroupName `Prelude.seq`
+          Prelude.rnf currentConfiguration `Prelude.seq`
+            Prelude.rnf currentPerformanceRisk `Prelude.seq`
+              Prelude.rnf effectiveRecommendationPreferences `Prelude.seq`
+                Prelude.rnf finding `Prelude.seq`
+                  Prelude.rnf inferredWorkloadTypes `Prelude.seq`
+                    Prelude.rnf lastRefreshTimestamp `Prelude.seq`
+                      Prelude.rnf lookBackPeriodInDays `Prelude.seq`
+                        Prelude.rnf recommendationOptions `Prelude.seq`
+                          Prelude.rnf utilizationMetrics

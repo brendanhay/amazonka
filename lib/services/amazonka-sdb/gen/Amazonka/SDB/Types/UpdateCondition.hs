@@ -99,9 +99,9 @@ instance Prelude.Hashable UpdateCondition where
 
 instance Prelude.NFData UpdateCondition where
   rnf UpdateCondition' {..} =
-    Prelude.rnf exists
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf exists `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf value
 
 instance Data.ToQuery UpdateCondition where
   toQuery UpdateCondition' {..} =

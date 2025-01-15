@@ -102,9 +102,7 @@ instance Core.AWSRequest ExitStandby where
       "ExitStandbyResult"
       ( \s h x ->
           ExitStandbyResponse'
-            Prelude.<$> ( x
-                            Data..@? "Activities"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "Activities" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -118,8 +116,8 @@ instance Prelude.Hashable ExitStandby where
 
 instance Prelude.NFData ExitStandby where
   rnf ExitStandby' {..} =
-    Prelude.rnf instanceIds
-      `Prelude.seq` Prelude.rnf autoScalingGroupName
+    Prelude.rnf instanceIds `Prelude.seq`
+      Prelude.rnf autoScalingGroupName
 
 instance Data.ToHeaders ExitStandby where
   toHeaders = Prelude.const Prelude.mempty
@@ -180,5 +178,5 @@ exitStandbyResponse_httpStatus = Lens.lens (\ExitStandbyResponse' {httpStatus} -
 
 instance Prelude.NFData ExitStandbyResponse where
   rnf ExitStandbyResponse' {..} =
-    Prelude.rnf activities
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf activities `Prelude.seq`
+      Prelude.rnf httpStatus

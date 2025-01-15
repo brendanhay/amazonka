@@ -139,9 +139,9 @@ instance Prelude.Hashable CancelSteps where
 
 instance Prelude.NFData CancelSteps where
   rnf CancelSteps' {..} =
-    Prelude.rnf stepCancellationOption
-      `Prelude.seq` Prelude.rnf clusterId
-      `Prelude.seq` Prelude.rnf stepIds
+    Prelude.rnf stepCancellationOption `Prelude.seq`
+      Prelude.rnf clusterId `Prelude.seq`
+        Prelude.rnf stepIds
 
 instance Data.ToHeaders CancelSteps where
   toHeaders =
@@ -221,5 +221,5 @@ cancelStepsResponse_httpStatus = Lens.lens (\CancelStepsResponse' {httpStatus} -
 
 instance Prelude.NFData CancelStepsResponse where
   rnf CancelStepsResponse' {..} =
-    Prelude.rnf cancelStepsInfoList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf cancelStepsInfoList `Prelude.seq`
+      Prelude.rnf httpStatus

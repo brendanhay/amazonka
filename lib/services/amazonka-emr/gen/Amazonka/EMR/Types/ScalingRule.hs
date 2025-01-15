@@ -120,10 +120,10 @@ instance Prelude.Hashable ScalingRule where
 
 instance Prelude.NFData ScalingRule where
   rnf ScalingRule' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf action
-      `Prelude.seq` Prelude.rnf trigger
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf action `Prelude.seq`
+          Prelude.rnf trigger
 
 instance Data.ToJSON ScalingRule where
   toJSON ScalingRule' {..} =

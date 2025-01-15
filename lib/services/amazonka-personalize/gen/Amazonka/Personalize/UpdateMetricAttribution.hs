@@ -129,10 +129,10 @@ instance Prelude.Hashable UpdateMetricAttribution where
 
 instance Prelude.NFData UpdateMetricAttribution where
   rnf UpdateMetricAttribution' {..} =
-    Prelude.rnf addMetrics
-      `Prelude.seq` Prelude.rnf metricAttributionArn
-      `Prelude.seq` Prelude.rnf metricsOutputConfig
-      `Prelude.seq` Prelude.rnf removeMetrics
+    Prelude.rnf addMetrics `Prelude.seq`
+      Prelude.rnf metricAttributionArn `Prelude.seq`
+        Prelude.rnf metricsOutputConfig `Prelude.seq`
+          Prelude.rnf removeMetrics
 
 instance Data.ToHeaders UpdateMetricAttribution where
   toHeaders =
@@ -215,5 +215,5 @@ instance
     UpdateMetricAttributionResponse
   where
   rnf UpdateMetricAttributionResponse' {..} =
-    Prelude.rnf metricAttributionArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf metricAttributionArn `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -259,18 +259,18 @@ instance Prelude.Hashable UpdateProduct where
 
 instance Prelude.NFData UpdateProduct where
   rnf UpdateProduct' {..} =
-    Prelude.rnf acceptLanguage
-      `Prelude.seq` Prelude.rnf addTags
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf distributor
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf owner
-      `Prelude.seq` Prelude.rnf removeTags
-      `Prelude.seq` Prelude.rnf sourceConnection
-      `Prelude.seq` Prelude.rnf supportDescription
-      `Prelude.seq` Prelude.rnf supportEmail
-      `Prelude.seq` Prelude.rnf supportUrl
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf acceptLanguage `Prelude.seq`
+      Prelude.rnf addTags `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf distributor `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf owner `Prelude.seq`
+                Prelude.rnf removeTags `Prelude.seq`
+                  Prelude.rnf sourceConnection `Prelude.seq`
+                    Prelude.rnf supportDescription `Prelude.seq`
+                      Prelude.rnf supportEmail `Prelude.seq`
+                        Prelude.rnf supportUrl `Prelude.seq`
+                          Prelude.rnf id
 
 instance Data.ToHeaders UpdateProduct where
   toHeaders =
@@ -365,6 +365,6 @@ updateProductResponse_httpStatus = Lens.lens (\UpdateProductResponse' {httpStatu
 
 instance Prelude.NFData UpdateProductResponse where
   rnf UpdateProductResponse' {..} =
-    Prelude.rnf productViewDetail
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf productViewDetail `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf httpStatus

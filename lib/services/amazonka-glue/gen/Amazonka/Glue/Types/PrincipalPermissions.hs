@@ -83,8 +83,8 @@ instance Prelude.Hashable PrincipalPermissions where
 
 instance Prelude.NFData PrincipalPermissions where
   rnf PrincipalPermissions' {..} =
-    Prelude.rnf permissions
-      `Prelude.seq` Prelude.rnf principal
+    Prelude.rnf permissions `Prelude.seq`
+      Prelude.rnf principal
 
 instance Data.ToJSON PrincipalPermissions where
   toJSON PrincipalPermissions' {..} =

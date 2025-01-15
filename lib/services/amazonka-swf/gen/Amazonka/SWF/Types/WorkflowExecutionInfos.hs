@@ -103,5 +103,5 @@ instance Prelude.Hashable WorkflowExecutionInfos where
 
 instance Prelude.NFData WorkflowExecutionInfos where
   rnf WorkflowExecutionInfos' {..} =
-    Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf executionInfos
+    Prelude.rnf nextPageToken `Prelude.seq`
+      Prelude.rnf executionInfos

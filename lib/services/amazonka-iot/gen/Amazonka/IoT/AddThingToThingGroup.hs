@@ -151,11 +151,11 @@ instance Prelude.Hashable AddThingToThingGroup where
 
 instance Prelude.NFData AddThingToThingGroup where
   rnf AddThingToThingGroup' {..} =
-    Prelude.rnf overrideDynamicGroups
-      `Prelude.seq` Prelude.rnf thingArn
-      `Prelude.seq` Prelude.rnf thingGroupArn
-      `Prelude.seq` Prelude.rnf thingGroupName
-      `Prelude.seq` Prelude.rnf thingName
+    Prelude.rnf overrideDynamicGroups `Prelude.seq`
+      Prelude.rnf thingArn `Prelude.seq`
+        Prelude.rnf thingGroupArn `Prelude.seq`
+          Prelude.rnf thingGroupName `Prelude.seq`
+            Prelude.rnf thingName
 
 instance Data.ToHeaders AddThingToThingGroup where
   toHeaders = Prelude.const Prelude.mempty

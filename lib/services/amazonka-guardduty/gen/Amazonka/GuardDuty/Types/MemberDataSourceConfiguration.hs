@@ -92,5 +92,5 @@ instance
 
 instance Prelude.NFData MemberDataSourceConfiguration where
   rnf MemberDataSourceConfiguration' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf dataSources
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf dataSources

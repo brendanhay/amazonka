@@ -114,8 +114,8 @@ instance Prelude.Hashable ContinueDeployment where
 
 instance Prelude.NFData ContinueDeployment where
   rnf ContinueDeployment' {..} =
-    Prelude.rnf deploymentId
-      `Prelude.seq` Prelude.rnf deploymentWaitType
+    Prelude.rnf deploymentId `Prelude.seq`
+      Prelude.rnf deploymentWaitType
 
 instance Data.ToHeaders ContinueDeployment where
   toHeaders =

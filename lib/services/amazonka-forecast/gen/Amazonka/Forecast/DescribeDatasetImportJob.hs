@@ -481,20 +481,20 @@ instance
     DescribeDatasetImportJobResponse
   where
   rnf DescribeDatasetImportJobResponse' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf dataSize
-      `Prelude.seq` Prelude.rnf dataSource
-      `Prelude.seq` Prelude.rnf datasetArn
-      `Prelude.seq` Prelude.rnf datasetImportJobArn
-      `Prelude.seq` Prelude.rnf datasetImportJobName
-      `Prelude.seq` Prelude.rnf estimatedTimeRemainingInMinutes
-      `Prelude.seq` Prelude.rnf fieldStatistics
-      `Prelude.seq` Prelude.rnf format
-      `Prelude.seq` Prelude.rnf geolocationFormat
-      `Prelude.seq` Prelude.rnf lastModificationTime
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf timeZone
-      `Prelude.seq` Prelude.rnf timestampFormat
-      `Prelude.seq` Prelude.rnf useGeolocationForTimeZone
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf dataSize `Prelude.seq`
+        Prelude.rnf dataSource `Prelude.seq`
+          Prelude.rnf datasetArn `Prelude.seq`
+            Prelude.rnf datasetImportJobArn `Prelude.seq`
+              Prelude.rnf datasetImportJobName `Prelude.seq`
+                Prelude.rnf estimatedTimeRemainingInMinutes `Prelude.seq`
+                  Prelude.rnf fieldStatistics `Prelude.seq`
+                    Prelude.rnf format `Prelude.seq`
+                      Prelude.rnf geolocationFormat `Prelude.seq`
+                        Prelude.rnf lastModificationTime `Prelude.seq`
+                          Prelude.rnf message `Prelude.seq`
+                            Prelude.rnf status `Prelude.seq`
+                              Prelude.rnf timeZone `Prelude.seq`
+                                Prelude.rnf timestampFormat `Prelude.seq`
+                                  Prelude.rnf useGeolocationForTimeZone `Prelude.seq`
+                                    Prelude.rnf httpStatus

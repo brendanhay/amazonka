@@ -207,7 +207,7 @@ inferRxNormResponse_entities = Lens.lens (\InferRxNormResponse' {entities} -> en
 
 instance Prelude.NFData InferRxNormResponse where
   rnf InferRxNormResponse' {..} =
-    Prelude.rnf modelVersion
-      `Prelude.seq` Prelude.rnf paginationToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf entities
+    Prelude.rnf modelVersion `Prelude.seq`
+      Prelude.rnf paginationToken `Prelude.seq`
+        Prelude.rnf httpStatus `Prelude.seq`
+          Prelude.rnf entities

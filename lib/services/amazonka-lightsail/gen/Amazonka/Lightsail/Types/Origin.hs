@@ -113,7 +113,7 @@ instance Prelude.Hashable Origin where
 
 instance Prelude.NFData Origin where
   rnf Origin' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf protocolPolicy
-      `Prelude.seq` Prelude.rnf regionName
-      `Prelude.seq` Prelude.rnf resourceType
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf protocolPolicy `Prelude.seq`
+        Prelude.rnf regionName `Prelude.seq`
+          Prelude.rnf resourceType

@@ -80,5 +80,5 @@ instance Prelude.Hashable EnvironmentLink where
 
 instance Prelude.NFData EnvironmentLink where
   rnf EnvironmentLink' {..} =
-    Prelude.rnf environmentName
-      `Prelude.seq` Prelude.rnf linkName
+    Prelude.rnf environmentName `Prelude.seq`
+      Prelude.rnf linkName

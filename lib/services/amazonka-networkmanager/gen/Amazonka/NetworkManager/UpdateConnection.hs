@@ -151,11 +151,11 @@ instance Prelude.Hashable UpdateConnection where
 
 instance Prelude.NFData UpdateConnection where
   rnf UpdateConnection' {..} =
-    Prelude.rnf connectedLinkId
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf linkId
-      `Prelude.seq` Prelude.rnf globalNetworkId
-      `Prelude.seq` Prelude.rnf connectionId
+    Prelude.rnf connectedLinkId `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf linkId `Prelude.seq`
+          Prelude.rnf globalNetworkId `Prelude.seq`
+            Prelude.rnf connectionId
 
 instance Data.ToHeaders UpdateConnection where
   toHeaders =
@@ -232,5 +232,5 @@ updateConnectionResponse_httpStatus = Lens.lens (\UpdateConnectionResponse' {htt
 
 instance Prelude.NFData UpdateConnectionResponse where
   rnf UpdateConnectionResponse' {..} =
-    Prelude.rnf connection
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf connection `Prelude.seq`
+      Prelude.rnf httpStatus

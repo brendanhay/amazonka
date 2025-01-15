@@ -155,11 +155,11 @@ instance Prelude.Hashable ListArtifacts where
 
 instance Prelude.NFData ListArtifacts where
   rnf ListArtifacts' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf branchName
-      `Prelude.seq` Prelude.rnf jobId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf appId `Prelude.seq`
+          Prelude.rnf branchName `Prelude.seq`
+            Prelude.rnf jobId
 
 instance Data.ToHeaders ListArtifacts where
   toHeaders =
@@ -245,6 +245,6 @@ listArtifactsResponse_artifacts = Lens.lens (\ListArtifactsResponse' {artifacts}
 
 instance Prelude.NFData ListArtifactsResponse where
   rnf ListArtifactsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf artifacts
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf artifacts

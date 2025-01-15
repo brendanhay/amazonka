@@ -158,14 +158,14 @@ instance Prelude.Hashable ColumnStatisticsData where
 
 instance Prelude.NFData ColumnStatisticsData where
   rnf ColumnStatisticsData' {..} =
-    Prelude.rnf binaryColumnStatisticsData
-      `Prelude.seq` Prelude.rnf booleanColumnStatisticsData
-      `Prelude.seq` Prelude.rnf dateColumnStatisticsData
-      `Prelude.seq` Prelude.rnf decimalColumnStatisticsData
-      `Prelude.seq` Prelude.rnf doubleColumnStatisticsData
-      `Prelude.seq` Prelude.rnf longColumnStatisticsData
-      `Prelude.seq` Prelude.rnf stringColumnStatisticsData
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf binaryColumnStatisticsData `Prelude.seq`
+      Prelude.rnf booleanColumnStatisticsData `Prelude.seq`
+        Prelude.rnf dateColumnStatisticsData `Prelude.seq`
+          Prelude.rnf decimalColumnStatisticsData `Prelude.seq`
+            Prelude.rnf doubleColumnStatisticsData `Prelude.seq`
+              Prelude.rnf longColumnStatisticsData `Prelude.seq`
+                Prelude.rnf stringColumnStatisticsData `Prelude.seq`
+                  Prelude.rnf type'
 
 instance Data.ToJSON ColumnStatisticsData where
   toJSON ColumnStatisticsData' {..} =

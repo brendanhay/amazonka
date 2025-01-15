@@ -177,14 +177,14 @@ instance
     UpdateFileSystemOntapConfiguration
   where
   rnf UpdateFileSystemOntapConfiguration' {..} =
-    Prelude.rnf addRouteTableIds
-      `Prelude.seq` Prelude.rnf automaticBackupRetentionDays
-      `Prelude.seq` Prelude.rnf dailyAutomaticBackupStartTime
-      `Prelude.seq` Prelude.rnf diskIopsConfiguration
-      `Prelude.seq` Prelude.rnf fsxAdminPassword
-      `Prelude.seq` Prelude.rnf removeRouteTableIds
-      `Prelude.seq` Prelude.rnf throughputCapacity
-      `Prelude.seq` Prelude.rnf weeklyMaintenanceStartTime
+    Prelude.rnf addRouteTableIds `Prelude.seq`
+      Prelude.rnf automaticBackupRetentionDays `Prelude.seq`
+        Prelude.rnf dailyAutomaticBackupStartTime `Prelude.seq`
+          Prelude.rnf diskIopsConfiguration `Prelude.seq`
+            Prelude.rnf fsxAdminPassword `Prelude.seq`
+              Prelude.rnf removeRouteTableIds `Prelude.seq`
+                Prelude.rnf throughputCapacity `Prelude.seq`
+                  Prelude.rnf weeklyMaintenanceStartTime
 
 instance
   Data.ToJSON

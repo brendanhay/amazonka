@@ -80,8 +80,8 @@ instance Prelude.Hashable Output where
 
 instance Prelude.NFData Output where
   rnf Output' {..} =
-    Prelude.rnf key
-      `Prelude.seq` Prelude.rnf valueString
+    Prelude.rnf key `Prelude.seq`
+      Prelude.rnf valueString
 
 instance Data.ToJSON Output where
   toJSON Output' {..} =

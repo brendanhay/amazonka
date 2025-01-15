@@ -96,8 +96,8 @@ instance Prelude.Hashable SourceAuth where
 
 instance Prelude.NFData SourceAuth where
   rnf SourceAuth' {..} =
-    Prelude.rnf resource
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf resource `Prelude.seq`
+      Prelude.rnf type'
 
 instance Data.ToJSON SourceAuth where
   toJSON SourceAuth' {..} =

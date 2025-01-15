@@ -169,13 +169,13 @@ instance Prelude.Hashable RuleDetail where
 
 instance Prelude.NFData RuleDetail where
   rnf RuleDetail' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf detectorId
-      `Prelude.seq` Prelude.rnf expression
-      `Prelude.seq` Prelude.rnf language
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf outcomes
-      `Prelude.seq` Prelude.rnf ruleId
-      `Prelude.seq` Prelude.rnf ruleVersion
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf createdTime `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf detectorId `Prelude.seq`
+            Prelude.rnf expression `Prelude.seq`
+              Prelude.rnf language `Prelude.seq`
+                Prelude.rnf lastUpdatedTime `Prelude.seq`
+                  Prelude.rnf outcomes `Prelude.seq`
+                    Prelude.rnf ruleId `Prelude.seq`
+                      Prelude.rnf ruleVersion

@@ -117,12 +117,12 @@ instance Core.AWSPager ListPlaybackConfigurations where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listPlaybackConfigurations_nextToken
-          Lens..~ rs
-          Lens.^? listPlaybackConfigurationsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listPlaybackConfigurations_nextToken
+              Lens..~ rs
+              Lens.^? listPlaybackConfigurationsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPlaybackConfigurations where
   type
@@ -147,8 +147,8 @@ instance Prelude.Hashable ListPlaybackConfigurations where
 
 instance Prelude.NFData ListPlaybackConfigurations where
   rnf ListPlaybackConfigurations' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListPlaybackConfigurations where
   toHeaders =
@@ -233,6 +233,6 @@ instance
     ListPlaybackConfigurationsResponse
   where
   rnf ListPlaybackConfigurationsResponse' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf items `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

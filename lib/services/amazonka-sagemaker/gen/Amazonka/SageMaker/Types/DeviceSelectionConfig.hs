@@ -106,10 +106,10 @@ instance Prelude.Hashable DeviceSelectionConfig where
 
 instance Prelude.NFData DeviceSelectionConfig where
   rnf DeviceSelectionConfig' {..} =
-    Prelude.rnf deviceNameContains
-      `Prelude.seq` Prelude.rnf deviceNames
-      `Prelude.seq` Prelude.rnf percentage
-      `Prelude.seq` Prelude.rnf deviceSubsetType
+    Prelude.rnf deviceNameContains `Prelude.seq`
+      Prelude.rnf deviceNames `Prelude.seq`
+        Prelude.rnf percentage `Prelude.seq`
+          Prelude.rnf deviceSubsetType
 
 instance Data.ToJSON DeviceSelectionConfig where
   toJSON DeviceSelectionConfig' {..} =

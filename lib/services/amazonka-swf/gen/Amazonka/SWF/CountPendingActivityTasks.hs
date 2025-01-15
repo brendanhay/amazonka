@@ -131,8 +131,8 @@ instance Prelude.Hashable CountPendingActivityTasks where
 
 instance Prelude.NFData CountPendingActivityTasks where
   rnf CountPendingActivityTasks' {..} =
-    Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf taskList
+    Prelude.rnf domain `Prelude.seq`
+      Prelude.rnf taskList
 
 instance Data.ToHeaders CountPendingActivityTasks where
   toHeaders =

@@ -109,6 +109,6 @@ instance Prelude.Hashable FacetResult where
 
 instance Prelude.NFData FacetResult where
   rnf FacetResult' {..} =
-    Prelude.rnf documentAttributeKey
-      `Prelude.seq` Prelude.rnf documentAttributeValueCountPairs
-      `Prelude.seq` Prelude.rnf documentAttributeValueType
+    Prelude.rnf documentAttributeKey `Prelude.seq`
+      Prelude.rnf documentAttributeValueCountPairs `Prelude.seq`
+        Prelude.rnf documentAttributeValueType

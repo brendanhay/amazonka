@@ -162,11 +162,11 @@ instance Prelude.Hashable UpdateStreamProcessor where
 
 instance Prelude.NFData UpdateStreamProcessor where
   rnf UpdateStreamProcessor' {..} =
-    Prelude.rnf dataSharingPreferenceForUpdate
-      `Prelude.seq` Prelude.rnf parametersToDelete
-      `Prelude.seq` Prelude.rnf regionsOfInterestForUpdate
-      `Prelude.seq` Prelude.rnf settingsForUpdate
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf dataSharingPreferenceForUpdate `Prelude.seq`
+      Prelude.rnf parametersToDelete `Prelude.seq`
+        Prelude.rnf regionsOfInterestForUpdate `Prelude.seq`
+          Prelude.rnf settingsForUpdate `Prelude.seq`
+            Prelude.rnf name
 
 instance Data.ToHeaders UpdateStreamProcessor where
   toHeaders =

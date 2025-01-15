@@ -87,8 +87,8 @@ instance
 
 instance Prelude.NFData CloudWatchLogDeliveryOptions where
   rnf CloudWatchLogDeliveryOptions' {..} =
-    Prelude.rnf logGroupName
-      `Prelude.seq` Prelude.rnf logType
+    Prelude.rnf logGroupName `Prelude.seq`
+      Prelude.rnf logType
 
 instance Data.ToJSON CloudWatchLogDeliveryOptions where
   toJSON CloudWatchLogDeliveryOptions' {..} =

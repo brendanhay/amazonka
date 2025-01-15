@@ -207,11 +207,11 @@ instance Prelude.Hashable AdministrativeAction where
 
 instance Prelude.NFData AdministrativeAction where
   rnf AdministrativeAction' {..} =
-    Prelude.rnf administrativeActionType
-      `Prelude.seq` Prelude.rnf failureDetails
-      `Prelude.seq` Prelude.rnf progressPercent
-      `Prelude.seq` Prelude.rnf requestTime
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf targetFileSystemValues
-      `Prelude.seq` Prelude.rnf targetSnapshotValues
-      `Prelude.seq` Prelude.rnf targetVolumeValues
+    Prelude.rnf administrativeActionType `Prelude.seq`
+      Prelude.rnf failureDetails `Prelude.seq`
+        Prelude.rnf progressPercent `Prelude.seq`
+          Prelude.rnf requestTime `Prelude.seq`
+            Prelude.rnf status `Prelude.seq`
+              Prelude.rnf targetFileSystemValues `Prelude.seq`
+                Prelude.rnf targetSnapshotValues `Prelude.seq`
+                  Prelude.rnf targetVolumeValues

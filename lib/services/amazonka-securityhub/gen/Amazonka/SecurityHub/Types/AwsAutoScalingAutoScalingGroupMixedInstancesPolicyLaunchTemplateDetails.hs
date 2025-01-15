@@ -96,8 +96,8 @@ instance
   where
   rnf
     AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetails' {..} =
-      Prelude.rnf launchTemplateSpecification
-        `Prelude.seq` Prelude.rnf overrides
+      Prelude.rnf launchTemplateSpecification `Prelude.seq`
+        Prelude.rnf overrides
 
 instance
   Data.ToJSON

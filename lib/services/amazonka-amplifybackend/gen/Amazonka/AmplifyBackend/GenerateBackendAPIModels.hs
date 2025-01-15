@@ -138,9 +138,9 @@ instance Prelude.Hashable GenerateBackendAPIModels where
 
 instance Prelude.NFData GenerateBackendAPIModels where
   rnf GenerateBackendAPIModels' {..} =
-    Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf backendEnvironmentName
-      `Prelude.seq` Prelude.rnf resourceName
+    Prelude.rnf appId `Prelude.seq`
+      Prelude.rnf backendEnvironmentName `Prelude.seq`
+        Prelude.rnf resourceName
 
 instance Data.ToHeaders GenerateBackendAPIModels where
   toHeaders =
@@ -262,10 +262,10 @@ instance
     GenerateBackendAPIModelsResponse
   where
   rnf GenerateBackendAPIModelsResponse' {..} =
-    Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf backendEnvironmentName
-      `Prelude.seq` Prelude.rnf error
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf operation
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf appId `Prelude.seq`
+      Prelude.rnf backendEnvironmentName `Prelude.seq`
+        Prelude.rnf error `Prelude.seq`
+          Prelude.rnf jobId `Prelude.seq`
+            Prelude.rnf operation `Prelude.seq`
+              Prelude.rnf status `Prelude.seq`
+                Prelude.rnf httpStatus

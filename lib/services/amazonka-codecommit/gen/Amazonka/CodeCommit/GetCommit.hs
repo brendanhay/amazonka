@@ -111,8 +111,8 @@ instance Prelude.Hashable GetCommit where
 
 instance Prelude.NFData GetCommit where
   rnf GetCommit' {..} =
-    Prelude.rnf repositoryName
-      `Prelude.seq` Prelude.rnf commitId
+    Prelude.rnf repositoryName `Prelude.seq`
+      Prelude.rnf commitId
 
 instance Data.ToHeaders GetCommit where
   toHeaders =
@@ -192,5 +192,5 @@ getCommitResponse_commit = Lens.lens (\GetCommitResponse' {commit} -> commit) (\
 
 instance Prelude.NFData GetCommitResponse where
   rnf GetCommitResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf commit
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf commit

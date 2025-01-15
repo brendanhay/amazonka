@@ -154,11 +154,11 @@ instance Prelude.Hashable MovSettings where
 
 instance Prelude.NFData MovSettings where
   rnf MovSettings' {..} =
-    Prelude.rnf clapAtom
-      `Prelude.seq` Prelude.rnf cslgAtom
-      `Prelude.seq` Prelude.rnf mpeg2FourCCControl
-      `Prelude.seq` Prelude.rnf paddingControl
-      `Prelude.seq` Prelude.rnf reference
+    Prelude.rnf clapAtom `Prelude.seq`
+      Prelude.rnf cslgAtom `Prelude.seq`
+        Prelude.rnf mpeg2FourCCControl `Prelude.seq`
+          Prelude.rnf paddingControl `Prelude.seq`
+            Prelude.rnf reference
 
 instance Data.ToJSON MovSettings where
   toJSON MovSettings' {..} =

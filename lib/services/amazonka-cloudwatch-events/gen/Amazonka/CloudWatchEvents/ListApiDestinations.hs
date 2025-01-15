@@ -141,10 +141,10 @@ instance Prelude.Hashable ListApiDestinations where
 
 instance Prelude.NFData ListApiDestinations where
   rnf ListApiDestinations' {..} =
-    Prelude.rnf connectionArn
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf namePrefix
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf connectionArn `Prelude.seq`
+      Prelude.rnf limit `Prelude.seq`
+        Prelude.rnf namePrefix `Prelude.seq`
+          Prelude.rnf nextToken
 
 instance Data.ToHeaders ListApiDestinations where
   toHeaders =
@@ -234,6 +234,6 @@ listApiDestinationsResponse_httpStatus = Lens.lens (\ListApiDestinationsResponse
 
 instance Prelude.NFData ListApiDestinationsResponse where
   rnf ListApiDestinationsResponse' {..} =
-    Prelude.rnf apiDestinations
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf apiDestinations `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

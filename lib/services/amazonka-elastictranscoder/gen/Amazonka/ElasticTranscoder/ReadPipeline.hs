@@ -176,6 +176,6 @@ readPipelineResponse_httpStatus = Lens.lens (\ReadPipelineResponse' {httpStatus}
 
 instance Prelude.NFData ReadPipelineResponse where
   rnf ReadPipelineResponse' {..} =
-    Prelude.rnf pipeline
-      `Prelude.seq` Prelude.rnf warnings
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf pipeline `Prelude.seq`
+      Prelude.rnf warnings `Prelude.seq`
+        Prelude.rnf httpStatus

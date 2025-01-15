@@ -136,9 +136,9 @@ instance Prelude.Hashable GetServiceTemplateVersion where
 
 instance Prelude.NFData GetServiceTemplateVersion where
   rnf GetServiceTemplateVersion' {..} =
-    Prelude.rnf majorVersion
-      `Prelude.seq` Prelude.rnf minorVersion
-      `Prelude.seq` Prelude.rnf templateName
+    Prelude.rnf majorVersion `Prelude.seq`
+      Prelude.rnf minorVersion `Prelude.seq`
+        Prelude.rnf templateName
 
 instance Data.ToHeaders GetServiceTemplateVersion where
   toHeaders =
@@ -220,5 +220,5 @@ instance
     GetServiceTemplateVersionResponse
   where
   rnf GetServiceTemplateVersionResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf serviceTemplateVersion
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf serviceTemplateVersion

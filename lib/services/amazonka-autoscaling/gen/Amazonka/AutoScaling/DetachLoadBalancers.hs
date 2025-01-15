@@ -121,8 +121,8 @@ instance Prelude.Hashable DetachLoadBalancers where
 
 instance Prelude.NFData DetachLoadBalancers where
   rnf DetachLoadBalancers' {..} =
-    Prelude.rnf autoScalingGroupName
-      `Prelude.seq` Prelude.rnf loadBalancerNames
+    Prelude.rnf autoScalingGroupName `Prelude.seq`
+      Prelude.rnf loadBalancerNames
 
 instance Data.ToHeaders DetachLoadBalancers where
   toHeaders = Prelude.const Prelude.mempty

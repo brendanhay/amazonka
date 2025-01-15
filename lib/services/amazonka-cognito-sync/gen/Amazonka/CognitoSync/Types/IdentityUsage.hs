@@ -125,8 +125,8 @@ instance Prelude.Hashable IdentityUsage where
 
 instance Prelude.NFData IdentityUsage where
   rnf IdentityUsage' {..} =
-    Prelude.rnf dataStorage
-      `Prelude.seq` Prelude.rnf datasetCount
-      `Prelude.seq` Prelude.rnf identityId
-      `Prelude.seq` Prelude.rnf identityPoolId
-      `Prelude.seq` Prelude.rnf lastModifiedDate
+    Prelude.rnf dataStorage `Prelude.seq`
+      Prelude.rnf datasetCount `Prelude.seq`
+        Prelude.rnf identityId `Prelude.seq`
+          Prelude.rnf identityPoolId `Prelude.seq`
+            Prelude.rnf lastModifiedDate

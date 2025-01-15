@@ -153,5 +153,5 @@ stopExperimentResponse_httpStatus = Lens.lens (\StopExperimentResponse' {httpSta
 
 instance Prelude.NFData StopExperimentResponse where
   rnf StopExperimentResponse' {..} =
-    Prelude.rnf experiment
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf experiment `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -120,8 +120,8 @@ instance Prelude.Hashable DissociatePackage where
 
 instance Prelude.NFData DissociatePackage where
   rnf DissociatePackage' {..} =
-    Prelude.rnf packageID
-      `Prelude.seq` Prelude.rnf domainName
+    Prelude.rnf packageID `Prelude.seq`
+      Prelude.rnf domainName
 
 instance Data.ToHeaders DissociatePackage where
   toHeaders = Prelude.const Prelude.mempty
@@ -184,5 +184,5 @@ dissociatePackageResponse_httpStatus = Lens.lens (\DissociatePackageResponse' {h
 
 instance Prelude.NFData DissociatePackageResponse where
   rnf DissociatePackageResponse' {..} =
-    Prelude.rnf domainPackageDetails
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf domainPackageDetails `Prelude.seq`
+      Prelude.rnf httpStatus

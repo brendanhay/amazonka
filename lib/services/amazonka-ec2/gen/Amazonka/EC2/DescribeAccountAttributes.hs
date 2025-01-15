@@ -147,8 +147,8 @@ instance Prelude.Hashable DescribeAccountAttributes where
 
 instance Prelude.NFData DescribeAccountAttributes where
   rnf DescribeAccountAttributes' {..} =
-    Prelude.rnf attributeNames
-      `Prelude.seq` Prelude.rnf dryRun
+    Prelude.rnf attributeNames `Prelude.seq`
+      Prelude.rnf dryRun
 
 instance Data.ToHeaders DescribeAccountAttributes where
   toHeaders = Prelude.const Prelude.mempty
@@ -214,5 +214,5 @@ instance
     DescribeAccountAttributesResponse
   where
   rnf DescribeAccountAttributesResponse' {..} =
-    Prelude.rnf accountAttributes
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf accountAttributes `Prelude.seq`
+      Prelude.rnf httpStatus

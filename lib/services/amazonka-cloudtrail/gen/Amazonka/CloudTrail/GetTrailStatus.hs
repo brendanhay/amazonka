@@ -458,21 +458,21 @@ getTrailStatusResponse_httpStatus = Lens.lens (\GetTrailStatusResponse' {httpSta
 
 instance Prelude.NFData GetTrailStatusResponse where
   rnf GetTrailStatusResponse' {..} =
-    Prelude.rnf isLogging
-      `Prelude.seq` Prelude.rnf latestCloudWatchLogsDeliveryError
-      `Prelude.seq` Prelude.rnf latestCloudWatchLogsDeliveryTime
-      `Prelude.seq` Prelude.rnf latestDeliveryAttemptSucceeded
-      `Prelude.seq` Prelude.rnf latestDeliveryAttemptTime
-      `Prelude.seq` Prelude.rnf latestDeliveryError
-      `Prelude.seq` Prelude.rnf latestDeliveryTime
-      `Prelude.seq` Prelude.rnf latestDigestDeliveryError
-      `Prelude.seq` Prelude.rnf latestDigestDeliveryTime
-      `Prelude.seq` Prelude.rnf latestNotificationAttemptSucceeded
-      `Prelude.seq` Prelude.rnf latestNotificationAttemptTime
-      `Prelude.seq` Prelude.rnf latestNotificationError
-      `Prelude.seq` Prelude.rnf latestNotificationTime
-      `Prelude.seq` Prelude.rnf startLoggingTime
-      `Prelude.seq` Prelude.rnf stopLoggingTime
-      `Prelude.seq` Prelude.rnf timeLoggingStarted
-      `Prelude.seq` Prelude.rnf timeLoggingStopped
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf isLogging `Prelude.seq`
+      Prelude.rnf latestCloudWatchLogsDeliveryError `Prelude.seq`
+        Prelude.rnf latestCloudWatchLogsDeliveryTime `Prelude.seq`
+          Prelude.rnf latestDeliveryAttemptSucceeded `Prelude.seq`
+            Prelude.rnf latestDeliveryAttemptTime `Prelude.seq`
+              Prelude.rnf latestDeliveryError `Prelude.seq`
+                Prelude.rnf latestDeliveryTime `Prelude.seq`
+                  Prelude.rnf latestDigestDeliveryError `Prelude.seq`
+                    Prelude.rnf latestDigestDeliveryTime `Prelude.seq`
+                      Prelude.rnf latestNotificationAttemptSucceeded `Prelude.seq`
+                        Prelude.rnf latestNotificationAttemptTime `Prelude.seq`
+                          Prelude.rnf latestNotificationError `Prelude.seq`
+                            Prelude.rnf latestNotificationTime `Prelude.seq`
+                              Prelude.rnf startLoggingTime `Prelude.seq`
+                                Prelude.rnf stopLoggingTime `Prelude.seq`
+                                  Prelude.rnf timeLoggingStarted `Prelude.seq`
+                                    Prelude.rnf timeLoggingStopped `Prelude.seq`
+                                      Prelude.rnf httpStatus

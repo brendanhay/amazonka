@@ -109,8 +109,8 @@ instance Prelude.Hashable EnableVolumeIO where
 
 instance Prelude.NFData EnableVolumeIO where
   rnf EnableVolumeIO' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf volumeId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf volumeId
 
 instance Data.ToHeaders EnableVolumeIO where
   toHeaders = Prelude.const Prelude.mempty

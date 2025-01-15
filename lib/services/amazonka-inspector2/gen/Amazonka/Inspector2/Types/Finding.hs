@@ -321,22 +321,22 @@ instance Prelude.Hashable Finding where
 
 instance Prelude.NFData Finding where
   rnf Finding' {..} =
-    Prelude.rnf exploitAvailable
-      `Prelude.seq` Prelude.rnf exploitabilityDetails
-      `Prelude.seq` Prelude.rnf fixAvailable
-      `Prelude.seq` Prelude.rnf inspectorScore
-      `Prelude.seq` Prelude.rnf inspectorScoreDetails
-      `Prelude.seq` Prelude.rnf networkReachabilityDetails
-      `Prelude.seq` Prelude.rnf packageVulnerabilityDetails
-      `Prelude.seq` Prelude.rnf title
-      `Prelude.seq` Prelude.rnf updatedAt
-      `Prelude.seq` Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf findingArn
-      `Prelude.seq` Prelude.rnf firstObservedAt
-      `Prelude.seq` Prelude.rnf lastObservedAt
-      `Prelude.seq` Prelude.rnf remediation
-      `Prelude.seq` Prelude.rnf resources
-      `Prelude.seq` Prelude.rnf severity
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf exploitAvailable `Prelude.seq`
+      Prelude.rnf exploitabilityDetails `Prelude.seq`
+        Prelude.rnf fixAvailable `Prelude.seq`
+          Prelude.rnf inspectorScore `Prelude.seq`
+            Prelude.rnf inspectorScoreDetails `Prelude.seq`
+              Prelude.rnf networkReachabilityDetails `Prelude.seq`
+                Prelude.rnf packageVulnerabilityDetails `Prelude.seq`
+                  Prelude.rnf title `Prelude.seq`
+                    Prelude.rnf updatedAt `Prelude.seq`
+                      Prelude.rnf awsAccountId `Prelude.seq`
+                        Prelude.rnf description `Prelude.seq`
+                          Prelude.rnf findingArn `Prelude.seq`
+                            Prelude.rnf firstObservedAt `Prelude.seq`
+                              Prelude.rnf lastObservedAt `Prelude.seq`
+                                Prelude.rnf remediation `Prelude.seq`
+                                  Prelude.rnf resources `Prelude.seq`
+                                    Prelude.rnf severity `Prelude.seq`
+                                      Prelude.rnf status `Prelude.seq`
+                                        Prelude.rnf type'

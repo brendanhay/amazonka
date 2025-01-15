@@ -133,9 +133,9 @@ instance Prelude.Hashable ResumeContactRecording where
 
 instance Prelude.NFData ResumeContactRecording where
   rnf ResumeContactRecording' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf contactId
-      `Prelude.seq` Prelude.rnf initialContactId
+    Prelude.rnf instanceId `Prelude.seq`
+      Prelude.rnf contactId `Prelude.seq`
+        Prelude.rnf initialContactId
 
 instance Data.ToHeaders ResumeContactRecording where
   toHeaders =

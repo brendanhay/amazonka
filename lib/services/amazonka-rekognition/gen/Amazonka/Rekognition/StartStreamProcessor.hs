@@ -160,9 +160,9 @@ instance Prelude.Hashable StartStreamProcessor where
 
 instance Prelude.NFData StartStreamProcessor where
   rnf StartStreamProcessor' {..} =
-    Prelude.rnf startSelector
-      `Prelude.seq` Prelude.rnf stopSelector
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf startSelector `Prelude.seq`
+      Prelude.rnf stopSelector `Prelude.seq`
+        Prelude.rnf name
 
 instance Data.ToHeaders StartStreamProcessor where
   toHeaders =
@@ -236,5 +236,5 @@ startStreamProcessorResponse_httpStatus = Lens.lens (\StartStreamProcessorRespon
 
 instance Prelude.NFData StartStreamProcessorResponse where
   rnf StartStreamProcessorResponse' {..} =
-    Prelude.rnf sessionId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf sessionId `Prelude.seq`
+      Prelude.rnf httpStatus

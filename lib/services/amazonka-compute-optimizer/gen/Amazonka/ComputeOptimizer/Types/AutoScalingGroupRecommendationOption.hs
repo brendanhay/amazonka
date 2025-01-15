@@ -249,9 +249,9 @@ instance
     AutoScalingGroupRecommendationOption
   where
   rnf AutoScalingGroupRecommendationOption' {..} =
-    Prelude.rnf configuration
-      `Prelude.seq` Prelude.rnf migrationEffort
-      `Prelude.seq` Prelude.rnf performanceRisk
-      `Prelude.seq` Prelude.rnf projectedUtilizationMetrics
-      `Prelude.seq` Prelude.rnf rank
-      `Prelude.seq` Prelude.rnf savingsOpportunity
+    Prelude.rnf configuration `Prelude.seq`
+      Prelude.rnf migrationEffort `Prelude.seq`
+        Prelude.rnf performanceRisk `Prelude.seq`
+          Prelude.rnf projectedUtilizationMetrics `Prelude.seq`
+            Prelude.rnf rank `Prelude.seq`
+              Prelude.rnf savingsOpportunity

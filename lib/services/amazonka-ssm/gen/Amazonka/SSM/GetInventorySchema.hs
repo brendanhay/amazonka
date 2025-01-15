@@ -151,12 +151,12 @@ instance Core.AWSPager GetInventorySchema where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getInventorySchema_nextToken
-          Lens..~ rs
-          Lens.^? getInventorySchemaResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getInventorySchema_nextToken
+              Lens..~ rs
+              Lens.^? getInventorySchemaResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetInventorySchema where
   type
@@ -184,11 +184,11 @@ instance Prelude.Hashable GetInventorySchema where
 
 instance Prelude.NFData GetInventorySchema where
   rnf GetInventorySchema' {..} =
-    Prelude.rnf aggregator
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf subType
-      `Prelude.seq` Prelude.rnf typeName
+    Prelude.rnf aggregator `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf subType `Prelude.seq`
+            Prelude.rnf typeName
 
 instance Data.ToHeaders GetInventorySchema where
   toHeaders =
@@ -276,6 +276,6 @@ getInventorySchemaResponse_httpStatus = Lens.lens (\GetInventorySchemaResponse' 
 
 instance Prelude.NFData GetInventorySchemaResponse where
   rnf GetInventorySchemaResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf schemas
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf schemas `Prelude.seq`
+        Prelude.rnf httpStatus

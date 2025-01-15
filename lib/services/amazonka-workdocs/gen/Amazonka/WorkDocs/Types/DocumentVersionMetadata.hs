@@ -205,16 +205,16 @@ instance Prelude.Hashable DocumentVersionMetadata where
 
 instance Prelude.NFData DocumentVersionMetadata where
   rnf DocumentVersionMetadata' {..} =
-    Prelude.rnf contentCreatedTimestamp
-      `Prelude.seq` Prelude.rnf contentModifiedTimestamp
-      `Prelude.seq` Prelude.rnf contentType
-      `Prelude.seq` Prelude.rnf createdTimestamp
-      `Prelude.seq` Prelude.rnf creatorId
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf modifiedTimestamp
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf signature
-      `Prelude.seq` Prelude.rnf size
-      `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf thumbnail
+    Prelude.rnf contentCreatedTimestamp `Prelude.seq`
+      Prelude.rnf contentModifiedTimestamp `Prelude.seq`
+        Prelude.rnf contentType `Prelude.seq`
+          Prelude.rnf createdTimestamp `Prelude.seq`
+            Prelude.rnf creatorId `Prelude.seq`
+              Prelude.rnf id `Prelude.seq`
+                Prelude.rnf modifiedTimestamp `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf signature `Prelude.seq`
+                      Prelude.rnf size `Prelude.seq`
+                        Prelude.rnf source `Prelude.seq`
+                          Prelude.rnf status `Prelude.seq`
+                            Prelude.rnf thumbnail

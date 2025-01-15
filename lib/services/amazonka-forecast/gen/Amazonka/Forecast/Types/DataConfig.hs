@@ -96,9 +96,9 @@ instance Prelude.Hashable DataConfig where
 
 instance Prelude.NFData DataConfig where
   rnf DataConfig' {..} =
-    Prelude.rnf additionalDatasets
-      `Prelude.seq` Prelude.rnf attributeConfigs
-      `Prelude.seq` Prelude.rnf datasetGroupArn
+    Prelude.rnf additionalDatasets `Prelude.seq`
+      Prelude.rnf attributeConfigs `Prelude.seq`
+        Prelude.rnf datasetGroupArn
 
 instance Data.ToJSON DataConfig where
   toJSON DataConfig' {..} =

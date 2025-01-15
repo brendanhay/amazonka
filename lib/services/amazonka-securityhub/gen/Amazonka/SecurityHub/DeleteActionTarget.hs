@@ -167,5 +167,5 @@ deleteActionTargetResponse_actionTargetArn = Lens.lens (\DeleteActionTargetRespo
 
 instance Prelude.NFData DeleteActionTargetResponse where
   rnf DeleteActionTargetResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf actionTargetArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf actionTargetArn

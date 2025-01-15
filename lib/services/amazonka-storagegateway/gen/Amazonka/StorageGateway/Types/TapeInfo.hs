@@ -167,11 +167,11 @@ instance Prelude.Hashable TapeInfo where
 
 instance Prelude.NFData TapeInfo where
   rnf TapeInfo' {..} =
-    Prelude.rnf gatewayARN
-      `Prelude.seq` Prelude.rnf poolEntryDate
-      `Prelude.seq` Prelude.rnf poolId
-      `Prelude.seq` Prelude.rnf retentionStartDate
-      `Prelude.seq` Prelude.rnf tapeARN
-      `Prelude.seq` Prelude.rnf tapeBarcode
-      `Prelude.seq` Prelude.rnf tapeSizeInBytes
-      `Prelude.seq` Prelude.rnf tapeStatus
+    Prelude.rnf gatewayARN `Prelude.seq`
+      Prelude.rnf poolEntryDate `Prelude.seq`
+        Prelude.rnf poolId `Prelude.seq`
+          Prelude.rnf retentionStartDate `Prelude.seq`
+            Prelude.rnf tapeARN `Prelude.seq`
+              Prelude.rnf tapeBarcode `Prelude.seq`
+                Prelude.rnf tapeSizeInBytes `Prelude.seq`
+                  Prelude.rnf tapeStatus

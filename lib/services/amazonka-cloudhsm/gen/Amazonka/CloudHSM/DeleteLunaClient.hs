@@ -180,5 +180,5 @@ deleteLunaClientResponse_status = Lens.lens (\DeleteLunaClientResponse' {status}
 
 instance Prelude.NFData DeleteLunaClientResponse where
   rnf DeleteLunaClientResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf status

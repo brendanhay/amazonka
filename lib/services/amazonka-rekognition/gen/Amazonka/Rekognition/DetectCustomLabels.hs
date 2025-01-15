@@ -197,10 +197,10 @@ instance Prelude.Hashable DetectCustomLabels where
 
 instance Prelude.NFData DetectCustomLabels where
   rnf DetectCustomLabels' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf minConfidence
-      `Prelude.seq` Prelude.rnf projectVersionArn
-      `Prelude.seq` Prelude.rnf image
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf minConfidence `Prelude.seq`
+        Prelude.rnf projectVersionArn `Prelude.seq`
+          Prelude.rnf image
 
 instance Data.ToHeaders DetectCustomLabels where
   toHeaders =
@@ -276,5 +276,5 @@ detectCustomLabelsResponse_httpStatus = Lens.lens (\DetectCustomLabelsResponse' 
 
 instance Prelude.NFData DetectCustomLabelsResponse where
   rnf DetectCustomLabelsResponse' {..} =
-    Prelude.rnf customLabels
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf customLabels `Prelude.seq`
+      Prelude.rnf httpStatus

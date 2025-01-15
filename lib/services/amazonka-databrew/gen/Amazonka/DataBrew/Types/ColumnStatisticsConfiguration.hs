@@ -99,8 +99,8 @@ instance
 
 instance Prelude.NFData ColumnStatisticsConfiguration where
   rnf ColumnStatisticsConfiguration' {..} =
-    Prelude.rnf selectors
-      `Prelude.seq` Prelude.rnf statistics
+    Prelude.rnf selectors `Prelude.seq`
+      Prelude.rnf statistics
 
 instance Data.ToJSON ColumnStatisticsConfiguration where
   toJSON ColumnStatisticsConfiguration' {..} =

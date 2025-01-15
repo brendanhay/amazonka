@@ -122,11 +122,11 @@ instance Prelude.Hashable DynamodbDataSourceConfig where
 
 instance Prelude.NFData DynamodbDataSourceConfig where
   rnf DynamodbDataSourceConfig' {..} =
-    Prelude.rnf deltaSyncConfig
-      `Prelude.seq` Prelude.rnf useCallerCredentials
-      `Prelude.seq` Prelude.rnf versioned
-      `Prelude.seq` Prelude.rnf tableName
-      `Prelude.seq` Prelude.rnf awsRegion
+    Prelude.rnf deltaSyncConfig `Prelude.seq`
+      Prelude.rnf useCallerCredentials `Prelude.seq`
+        Prelude.rnf versioned `Prelude.seq`
+          Prelude.rnf tableName `Prelude.seq`
+            Prelude.rnf awsRegion
 
 instance Data.ToJSON DynamodbDataSourceConfig where
   toJSON DynamodbDataSourceConfig' {..} =

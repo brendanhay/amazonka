@@ -113,10 +113,10 @@ instance Prelude.Hashable ScriptDetails where
 
 instance Prelude.NFData ScriptDetails where
   rnf ScriptDetails' {..} =
-    Prelude.rnf executableParameters
-      `Prelude.seq` Prelude.rnf scriptS3Location
-      `Prelude.seq` Prelude.rnf executablePath
-      `Prelude.seq` Prelude.rnf timeoutInSeconds
+    Prelude.rnf executableParameters `Prelude.seq`
+      Prelude.rnf scriptS3Location `Prelude.seq`
+        Prelude.rnf executablePath `Prelude.seq`
+          Prelude.rnf timeoutInSeconds
 
 instance Data.ToJSON ScriptDetails where
   toJSON ScriptDetails' {..} =

@@ -183,8 +183,8 @@ instance
     DefaultClientBrandingAttributes
   where
   rnf DefaultClientBrandingAttributes' {..} =
-    Prelude.rnf forgotPasswordLink
-      `Prelude.seq` Prelude.rnf loginMessage
-      `Prelude.seq` Prelude.rnf logoUrl
-      `Prelude.seq` Prelude.rnf supportEmail
-      `Prelude.seq` Prelude.rnf supportLink
+    Prelude.rnf forgotPasswordLink `Prelude.seq`
+      Prelude.rnf loginMessage `Prelude.seq`
+        Prelude.rnf logoUrl `Prelude.seq`
+          Prelude.rnf supportEmail `Prelude.seq`
+            Prelude.rnf supportLink

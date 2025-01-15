@@ -162,10 +162,10 @@ instance
     CreateTransitGatewayRouteTableAnnouncement
   where
   rnf CreateTransitGatewayRouteTableAnnouncement' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf tagSpecifications
-      `Prelude.seq` Prelude.rnf transitGatewayRouteTableId
-      `Prelude.seq` Prelude.rnf peeringAttachmentId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf tagSpecifications `Prelude.seq`
+        Prelude.rnf transitGatewayRouteTableId `Prelude.seq`
+          Prelude.rnf peeringAttachmentId
 
 instance
   Data.ToHeaders
@@ -249,5 +249,5 @@ instance
   where
   rnf
     CreateTransitGatewayRouteTableAnnouncementResponse' {..} =
-      Prelude.rnf transitGatewayRouteTableAnnouncement
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf transitGatewayRouteTableAnnouncement `Prelude.seq`
+        Prelude.rnf httpStatus

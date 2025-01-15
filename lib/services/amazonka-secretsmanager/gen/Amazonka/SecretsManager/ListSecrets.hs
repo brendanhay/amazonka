@@ -174,12 +174,12 @@ instance Core.AWSPager ListSecrets where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listSecrets_nextToken
-          Lens..~ rs
-          Lens.^? listSecretsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listSecrets_nextToken
+              Lens..~ rs
+              Lens.^? listSecretsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSecrets where
   type AWSResponse ListSecrets = ListSecretsResponse
@@ -205,11 +205,11 @@ instance Prelude.Hashable ListSecrets where
 
 instance Prelude.NFData ListSecrets where
   rnf ListSecrets' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf includePlannedDeletion
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortOrder
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf includePlannedDeletion `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf sortOrder
 
 instance Data.ToHeaders ListSecrets where
   toHeaders =
@@ -304,6 +304,6 @@ listSecretsResponse_httpStatus = Lens.lens (\ListSecretsResponse' {httpStatus} -
 
 instance Prelude.NFData ListSecretsResponse where
   rnf ListSecretsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf secretList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf secretList `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -109,10 +109,10 @@ instance Prelude.Hashable GrpcRouteMatch where
 
 instance Prelude.NFData GrpcRouteMatch where
   rnf GrpcRouteMatch' {..} =
-    Prelude.rnf metadata
-      `Prelude.seq` Prelude.rnf methodName
-      `Prelude.seq` Prelude.rnf port
-      `Prelude.seq` Prelude.rnf serviceName
+    Prelude.rnf metadata `Prelude.seq`
+      Prelude.rnf methodName `Prelude.seq`
+        Prelude.rnf port `Prelude.seq`
+          Prelude.rnf serviceName
 
 instance Data.ToJSON GrpcRouteMatch where
   toJSON GrpcRouteMatch' {..} =

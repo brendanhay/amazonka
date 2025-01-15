@@ -254,9 +254,9 @@ instance
     ValidateAssessmentReportIntegrityResponse
   where
   rnf ValidateAssessmentReportIntegrityResponse' {..} =
-    Prelude.rnf signatureAlgorithm
-      `Prelude.seq` Prelude.rnf signatureDateTime
-      `Prelude.seq` Prelude.rnf signatureKeyId
-      `Prelude.seq` Prelude.rnf signatureValid
-      `Prelude.seq` Prelude.rnf validationErrors
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf signatureAlgorithm `Prelude.seq`
+      Prelude.rnf signatureDateTime `Prelude.seq`
+        Prelude.rnf signatureKeyId `Prelude.seq`
+          Prelude.rnf signatureValid `Prelude.seq`
+            Prelude.rnf validationErrors `Prelude.seq`
+              Prelude.rnf httpStatus

@@ -82,5 +82,5 @@ instance Prelude.Hashable PropertyResponse where
 
 instance Prelude.NFData PropertyResponse where
   rnf PropertyResponse' {..} =
-    Prelude.rnf definition
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf definition `Prelude.seq`
+      Prelude.rnf value

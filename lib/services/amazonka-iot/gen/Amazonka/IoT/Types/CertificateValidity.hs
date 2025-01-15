@@ -80,5 +80,5 @@ instance Prelude.Hashable CertificateValidity where
 
 instance Prelude.NFData CertificateValidity where
   rnf CertificateValidity' {..} =
-    Prelude.rnf notAfter
-      `Prelude.seq` Prelude.rnf notBefore
+    Prelude.rnf notAfter `Prelude.seq`
+      Prelude.rnf notBefore

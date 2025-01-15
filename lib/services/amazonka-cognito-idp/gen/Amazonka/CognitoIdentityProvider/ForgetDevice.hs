@@ -101,8 +101,8 @@ instance Prelude.Hashable ForgetDevice where
 
 instance Prelude.NFData ForgetDevice where
   rnf ForgetDevice' {..} =
-    Prelude.rnf accessToken
-      `Prelude.seq` Prelude.rnf deviceKey
+    Prelude.rnf accessToken `Prelude.seq`
+      Prelude.rnf deviceKey
 
 instance Data.ToHeaders ForgetDevice where
   toHeaders =

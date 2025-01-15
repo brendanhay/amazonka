@@ -100,5 +100,5 @@ instance Prelude.Hashable GeoMatchSetSummary where
 
 instance Prelude.NFData GeoMatchSetSummary where
   rnf GeoMatchSetSummary' {..} =
-    Prelude.rnf geoMatchSetId
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf geoMatchSetId `Prelude.seq`
+      Prelude.rnf name

@@ -116,12 +116,12 @@ instance Core.AWSPager ListTables where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listTables_exclusiveStartTableName
-          Lens..~ rs
-          Lens.^? listTablesResponse_lastEvaluatedTableName
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listTables_exclusiveStartTableName
+              Lens..~ rs
+              Lens.^? listTablesResponse_lastEvaluatedTableName
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListTables where
   type AWSResponse ListTables = ListTablesResponse
@@ -144,8 +144,8 @@ instance Prelude.Hashable ListTables where
 
 instance Prelude.NFData ListTables where
   rnf ListTables' {..} =
-    Prelude.rnf exclusiveStartTableName
-      `Prelude.seq` Prelude.rnf limit
+    Prelude.rnf exclusiveStartTableName `Prelude.seq`
+      Prelude.rnf limit
 
 instance Data.ToHeaders ListTables where
   toHeaders =
@@ -260,6 +260,6 @@ listTablesResponse_httpStatus = Lens.lens (\ListTablesResponse' {httpStatus} -> 
 
 instance Prelude.NFData ListTablesResponse where
   rnf ListTablesResponse' {..} =
-    Prelude.rnf lastEvaluatedTableName
-      `Prelude.seq` Prelude.rnf tableNames
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf lastEvaluatedTableName `Prelude.seq`
+      Prelude.rnf tableNames `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -193,6 +193,6 @@ instance
     BatchGetMembershipDatasourcesResponse
   where
   rnf BatchGetMembershipDatasourcesResponse' {..} =
-    Prelude.rnf membershipDatasources
-      `Prelude.seq` Prelude.rnf unprocessedGraphs
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf membershipDatasources `Prelude.seq`
+      Prelude.rnf unprocessedGraphs `Prelude.seq`
+        Prelude.rnf httpStatus

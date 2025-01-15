@@ -108,6 +108,6 @@ instance Prelude.Hashable SendUsersMessageResponse where
 
 instance Prelude.NFData SendUsersMessageResponse where
   rnf SendUsersMessageResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf result
-      `Prelude.seq` Prelude.rnf applicationId
+    Prelude.rnf requestId `Prelude.seq`
+      Prelude.rnf result `Prelude.seq`
+        Prelude.rnf applicationId

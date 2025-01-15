@@ -145,10 +145,10 @@ instance Prelude.Hashable OidcConfigForResponse where
 
 instance Prelude.NFData OidcConfigForResponse where
   rnf OidcConfigForResponse' {..} =
-    Prelude.rnf authorizationEndpoint
-      `Prelude.seq` Prelude.rnf clientId
-      `Prelude.seq` Prelude.rnf issuer
-      `Prelude.seq` Prelude.rnf jwksUri
-      `Prelude.seq` Prelude.rnf logoutEndpoint
-      `Prelude.seq` Prelude.rnf tokenEndpoint
-      `Prelude.seq` Prelude.rnf userInfoEndpoint
+    Prelude.rnf authorizationEndpoint `Prelude.seq`
+      Prelude.rnf clientId `Prelude.seq`
+        Prelude.rnf issuer `Prelude.seq`
+          Prelude.rnf jwksUri `Prelude.seq`
+            Prelude.rnf logoutEndpoint `Prelude.seq`
+              Prelude.rnf tokenEndpoint `Prelude.seq`
+                Prelude.rnf userInfoEndpoint

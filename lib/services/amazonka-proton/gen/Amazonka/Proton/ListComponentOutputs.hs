@@ -108,12 +108,12 @@ instance Core.AWSPager ListComponentOutputs where
         (rs Lens.^. listComponentOutputsResponse_outputs) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listComponentOutputs_nextToken
-          Lens..~ rs
-          Lens.^? listComponentOutputsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listComponentOutputs_nextToken
+              Lens..~ rs
+              Lens.^? listComponentOutputsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListComponentOutputs where
   type
@@ -138,8 +138,8 @@ instance Prelude.Hashable ListComponentOutputs where
 
 instance Prelude.NFData ListComponentOutputs where
   rnf ListComponentOutputs' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf componentName
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf componentName
 
 instance Data.ToHeaders ListComponentOutputs where
   toHeaders =
@@ -225,6 +225,6 @@ listComponentOutputsResponse_outputs = Lens.lens (\ListComponentOutputsResponse'
 
 instance Prelude.NFData ListComponentOutputsResponse where
   rnf ListComponentOutputsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf outputs
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf outputs

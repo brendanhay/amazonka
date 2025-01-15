@@ -111,8 +111,8 @@ instance Prelude.Hashable GetAttendee where
 
 instance Prelude.NFData GetAttendee where
   rnf GetAttendee' {..} =
-    Prelude.rnf meetingId
-      `Prelude.seq` Prelude.rnf attendeeId
+    Prelude.rnf meetingId `Prelude.seq`
+      Prelude.rnf attendeeId
 
 instance Data.ToHeaders GetAttendee where
   toHeaders = Prelude.const Prelude.mempty
@@ -169,5 +169,5 @@ getAttendeeResponse_httpStatus = Lens.lens (\GetAttendeeResponse' {httpStatus} -
 
 instance Prelude.NFData GetAttendeeResponse where
   rnf GetAttendeeResponse' {..} =
-    Prelude.rnf attendee
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf attendee `Prelude.seq`
+      Prelude.rnf httpStatus

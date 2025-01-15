@@ -81,5 +81,5 @@ instance Prelude.Hashable DataReplicationError where
 
 instance Prelude.NFData DataReplicationError where
   rnf DataReplicationError' {..} =
-    Prelude.rnf error
-      `Prelude.seq` Prelude.rnf rawError
+    Prelude.rnf error `Prelude.seq`
+      Prelude.rnf rawError

@@ -183,6 +183,6 @@ getPolicyResponse_revisionId = Lens.lens (\GetPolicyResponse' {revisionId} -> re
 
 instance Prelude.NFData GetPolicyResponse where
   rnf GetPolicyResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf policy
-      `Prelude.seq` Prelude.rnf revisionId
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf policy `Prelude.seq`
+        Prelude.rnf revisionId

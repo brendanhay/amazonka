@@ -132,9 +132,9 @@ instance Prelude.Hashable CreateReadinessCheck where
 
 instance Prelude.NFData CreateReadinessCheck where
   rnf CreateReadinessCheck' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf resourceSetName
-      `Prelude.seq` Prelude.rnf readinessCheckName
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf resourceSetName `Prelude.seq`
+        Prelude.rnf readinessCheckName
 
 instance Data.ToHeaders CreateReadinessCheck where
   toHeaders =
@@ -232,8 +232,8 @@ createReadinessCheckResponse_httpStatus = Lens.lens (\CreateReadinessCheckRespon
 
 instance Prelude.NFData CreateReadinessCheckResponse where
   rnf CreateReadinessCheckResponse' {..} =
-    Prelude.rnf readinessCheckArn
-      `Prelude.seq` Prelude.rnf readinessCheckName
-      `Prelude.seq` Prelude.rnf resourceSet
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf readinessCheckArn `Prelude.seq`
+      Prelude.rnf readinessCheckName `Prelude.seq`
+        Prelude.rnf resourceSet `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf httpStatus

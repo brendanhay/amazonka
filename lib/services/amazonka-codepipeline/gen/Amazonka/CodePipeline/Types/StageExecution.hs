@@ -98,5 +98,5 @@ instance Prelude.Hashable StageExecution where
 
 instance Prelude.NFData StageExecution where
   rnf StageExecution' {..} =
-    Prelude.rnf pipelineExecutionId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf pipelineExecutionId `Prelude.seq`
+      Prelude.rnf status

@@ -178,8 +178,8 @@ instance Prelude.Hashable DetachPolicy where
 
 instance Prelude.NFData DetachPolicy where
   rnf DetachPolicy' {..} =
-    Prelude.rnf policyId
-      `Prelude.seq` Prelude.rnf targetId
+    Prelude.rnf policyId `Prelude.seq`
+      Prelude.rnf targetId
 
 instance Data.ToHeaders DetachPolicy where
   toHeaders =

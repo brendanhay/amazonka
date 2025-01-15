@@ -145,7 +145,7 @@ instance
     ActivityTaskCanceledEventAttributes
   where
   rnf ActivityTaskCanceledEventAttributes' {..} =
-    Prelude.rnf details
-      `Prelude.seq` Prelude.rnf latestCancelRequestedEventId
-      `Prelude.seq` Prelude.rnf scheduledEventId
-      `Prelude.seq` Prelude.rnf startedEventId
+    Prelude.rnf details `Prelude.seq`
+      Prelude.rnf latestCancelRequestedEventId `Prelude.seq`
+        Prelude.rnf scheduledEventId `Prelude.seq`
+          Prelude.rnf startedEventId

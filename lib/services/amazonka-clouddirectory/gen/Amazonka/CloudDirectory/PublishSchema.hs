@@ -148,10 +148,10 @@ instance Prelude.Hashable PublishSchema where
 
 instance Prelude.NFData PublishSchema where
   rnf PublishSchema' {..} =
-    Prelude.rnf minorVersion
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf developmentSchemaArn
-      `Prelude.seq` Prelude.rnf version
+    Prelude.rnf minorVersion `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf developmentSchemaArn `Prelude.seq`
+          Prelude.rnf version
 
 instance Data.ToHeaders PublishSchema where
   toHeaders PublishSchema' {..} =
@@ -220,5 +220,5 @@ publishSchemaResponse_httpStatus = Lens.lens (\PublishSchemaResponse' {httpStatu
 
 instance Prelude.NFData PublishSchemaResponse where
   rnf PublishSchemaResponse' {..} =
-    Prelude.rnf publishedSchemaArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf publishedSchemaArn `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -222,6 +222,6 @@ getTaskProtectionResponse_httpStatus = Lens.lens (\GetTaskProtectionResponse' {h
 
 instance Prelude.NFData GetTaskProtectionResponse where
   rnf GetTaskProtectionResponse' {..} =
-    Prelude.rnf failures
-      `Prelude.seq` Prelude.rnf protectedTasks
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf failures `Prelude.seq`
+      Prelude.rnf protectedTasks `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -74,9 +74,7 @@ queryArgProfiles_quantity = Lens.lens (\QueryArgProfiles' {quantity} -> quantity
 instance Data.FromXML QueryArgProfiles where
   parseXML x =
     QueryArgProfiles'
-      Prelude.<$> ( x
-                      Data..@? "Items"
-                      Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "Items" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "QueryArgProfile")
                   )
       Prelude.<*> (x Data..@ "Quantity")
@@ -89,8 +87,8 @@ instance Prelude.Hashable QueryArgProfiles where
 
 instance Prelude.NFData QueryArgProfiles where
   rnf QueryArgProfiles' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf quantity
+    Prelude.rnf items `Prelude.seq`
+      Prelude.rnf quantity
 
 instance Data.ToXML QueryArgProfiles where
   toXML QueryArgProfiles' {..} =

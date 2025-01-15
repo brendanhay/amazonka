@@ -164,12 +164,12 @@ instance Prelude.Hashable UpdateVpcEndpoint where
 
 instance Prelude.NFData UpdateVpcEndpoint where
   rnf UpdateVpcEndpoint' {..} =
-    Prelude.rnf addSecurityGroupIds
-      `Prelude.seq` Prelude.rnf addSubnetIds
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf removeSecurityGroupIds
-      `Prelude.seq` Prelude.rnf removeSubnetIds
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf addSecurityGroupIds `Prelude.seq`
+      Prelude.rnf addSubnetIds `Prelude.seq`
+        Prelude.rnf clientToken `Prelude.seq`
+          Prelude.rnf removeSecurityGroupIds `Prelude.seq`
+            Prelude.rnf removeSubnetIds `Prelude.seq`
+              Prelude.rnf id
 
 instance Data.ToHeaders UpdateVpcEndpoint where
   toHeaders =
@@ -249,5 +249,5 @@ updateVpcEndpointResponse_httpStatus = Lens.lens (\UpdateVpcEndpointResponse' {h
 
 instance Prelude.NFData UpdateVpcEndpointResponse where
   rnf UpdateVpcEndpointResponse' {..} =
-    Prelude.rnf updateVpcEndpointDetail
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf updateVpcEndpointDetail `Prelude.seq`
+      Prelude.rnf httpStatus

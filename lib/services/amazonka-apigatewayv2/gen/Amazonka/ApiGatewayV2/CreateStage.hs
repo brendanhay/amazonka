@@ -250,17 +250,17 @@ instance Prelude.Hashable CreateStage where
 
 instance Prelude.NFData CreateStage where
   rnf CreateStage' {..} =
-    Prelude.rnf accessLogSettings
-      `Prelude.seq` Prelude.rnf autoDeploy
-      `Prelude.seq` Prelude.rnf clientCertificateId
-      `Prelude.seq` Prelude.rnf defaultRouteSettings
-      `Prelude.seq` Prelude.rnf deploymentId
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf routeSettings
-      `Prelude.seq` Prelude.rnf stageVariables
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf apiId
-      `Prelude.seq` Prelude.rnf stageName
+    Prelude.rnf accessLogSettings `Prelude.seq`
+      Prelude.rnf autoDeploy `Prelude.seq`
+        Prelude.rnf clientCertificateId `Prelude.seq`
+          Prelude.rnf defaultRouteSettings `Prelude.seq`
+            Prelude.rnf deploymentId `Prelude.seq`
+              Prelude.rnf description `Prelude.seq`
+                Prelude.rnf routeSettings `Prelude.seq`
+                  Prelude.rnf stageVariables `Prelude.seq`
+                    Prelude.rnf tags `Prelude.seq`
+                      Prelude.rnf apiId `Prelude.seq`
+                        Prelude.rnf stageName
 
 instance Data.ToHeaders CreateStage where
   toHeaders =
@@ -487,18 +487,18 @@ createStageResponse_httpStatus = Lens.lens (\CreateStageResponse' {httpStatus} -
 
 instance Prelude.NFData CreateStageResponse where
   rnf CreateStageResponse' {..} =
-    Prelude.rnf accessLogSettings
-      `Prelude.seq` Prelude.rnf apiGatewayManaged
-      `Prelude.seq` Prelude.rnf autoDeploy
-      `Prelude.seq` Prelude.rnf clientCertificateId
-      `Prelude.seq` Prelude.rnf createdDate
-      `Prelude.seq` Prelude.rnf defaultRouteSettings
-      `Prelude.seq` Prelude.rnf deploymentId
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf lastDeploymentStatusMessage
-      `Prelude.seq` Prelude.rnf lastUpdatedDate
-      `Prelude.seq` Prelude.rnf routeSettings
-      `Prelude.seq` Prelude.rnf stageName
-      `Prelude.seq` Prelude.rnf stageVariables
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf accessLogSettings `Prelude.seq`
+      Prelude.rnf apiGatewayManaged `Prelude.seq`
+        Prelude.rnf autoDeploy `Prelude.seq`
+          Prelude.rnf clientCertificateId `Prelude.seq`
+            Prelude.rnf createdDate `Prelude.seq`
+              Prelude.rnf defaultRouteSettings `Prelude.seq`
+                Prelude.rnf deploymentId `Prelude.seq`
+                  Prelude.rnf description `Prelude.seq`
+                    Prelude.rnf lastDeploymentStatusMessage `Prelude.seq`
+                      Prelude.rnf lastUpdatedDate `Prelude.seq`
+                        Prelude.rnf routeSettings `Prelude.seq`
+                          Prelude.rnf stageName `Prelude.seq`
+                            Prelude.rnf stageVariables `Prelude.seq`
+                              Prelude.rnf tags `Prelude.seq`
+                                Prelude.rnf httpStatus

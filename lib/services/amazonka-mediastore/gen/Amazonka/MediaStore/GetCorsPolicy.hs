@@ -172,5 +172,5 @@ getCorsPolicyResponse_corsPolicy = Lens.lens (\GetCorsPolicyResponse' {corsPolic
 
 instance Prelude.NFData GetCorsPolicyResponse where
   rnf GetCorsPolicyResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf corsPolicy
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf corsPolicy

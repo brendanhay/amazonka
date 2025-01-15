@@ -140,9 +140,9 @@ instance
     GetServiceQuotaIncreaseRequestFromTemplate
   where
   rnf GetServiceQuotaIncreaseRequestFromTemplate' {..} =
-    Prelude.rnf serviceCode
-      `Prelude.seq` Prelude.rnf quotaCode
-      `Prelude.seq` Prelude.rnf awsRegion
+    Prelude.rnf serviceCode `Prelude.seq`
+      Prelude.rnf quotaCode `Prelude.seq`
+        Prelude.rnf awsRegion
 
 instance
   Data.ToHeaders
@@ -235,5 +235,5 @@ instance
   where
   rnf
     GetServiceQuotaIncreaseRequestFromTemplateResponse' {..} =
-      Prelude.rnf serviceQuotaIncreaseRequestInTemplate
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf serviceQuotaIncreaseRequestInTemplate `Prelude.seq`
+        Prelude.rnf httpStatus

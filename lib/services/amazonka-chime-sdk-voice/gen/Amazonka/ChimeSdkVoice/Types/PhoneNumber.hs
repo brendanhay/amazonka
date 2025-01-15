@@ -202,17 +202,17 @@ instance Prelude.Hashable PhoneNumber where
 
 instance Prelude.NFData PhoneNumber where
   rnf PhoneNumber' {..} =
-    Prelude.rnf associations
-      `Prelude.seq` Prelude.rnf callingName
-      `Prelude.seq` Prelude.rnf callingNameStatus
-      `Prelude.seq` Prelude.rnf capabilities
-      `Prelude.seq` Prelude.rnf country
-      `Prelude.seq` Prelude.rnf createdTimestamp
-      `Prelude.seq` Prelude.rnf deletionTimestamp
-      `Prelude.seq` Prelude.rnf e164PhoneNumber
-      `Prelude.seq` Prelude.rnf orderId
-      `Prelude.seq` Prelude.rnf phoneNumberId
-      `Prelude.seq` Prelude.rnf productType
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf updatedTimestamp
+    Prelude.rnf associations `Prelude.seq`
+      Prelude.rnf callingName `Prelude.seq`
+        Prelude.rnf callingNameStatus `Prelude.seq`
+          Prelude.rnf capabilities `Prelude.seq`
+            Prelude.rnf country `Prelude.seq`
+              Prelude.rnf createdTimestamp `Prelude.seq`
+                Prelude.rnf deletionTimestamp `Prelude.seq`
+                  Prelude.rnf e164PhoneNumber `Prelude.seq`
+                    Prelude.rnf orderId `Prelude.seq`
+                      Prelude.rnf phoneNumberId `Prelude.seq`
+                        Prelude.rnf productType `Prelude.seq`
+                          Prelude.rnf status `Prelude.seq`
+                            Prelude.rnf type' `Prelude.seq`
+                              Prelude.rnf updatedTimestamp

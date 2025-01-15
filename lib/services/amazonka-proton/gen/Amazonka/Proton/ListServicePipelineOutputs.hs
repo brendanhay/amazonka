@@ -107,12 +107,12 @@ instance Core.AWSPager ListServicePipelineOutputs where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listServicePipelineOutputs_nextToken
-          Lens..~ rs
-          Lens.^? listServicePipelineOutputsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listServicePipelineOutputs_nextToken
+              Lens..~ rs
+              Lens.^? listServicePipelineOutputsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListServicePipelineOutputs where
   type
@@ -137,8 +137,8 @@ instance Prelude.Hashable ListServicePipelineOutputs where
 
 instance Prelude.NFData ListServicePipelineOutputs where
   rnf ListServicePipelineOutputs' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf serviceName
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf serviceName
 
 instance Data.ToHeaders ListServicePipelineOutputs where
   toHeaders =
@@ -226,6 +226,6 @@ instance
     ListServicePipelineOutputsResponse
   where
   rnf ListServicePipelineOutputsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf outputs
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf outputs

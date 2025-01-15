@@ -108,6 +108,6 @@ instance Prelude.Hashable ConnectorEntity where
 
 instance Prelude.NFData ConnectorEntity where
   rnf ConnectorEntity' {..} =
-    Prelude.rnf hasNestedEntities
-      `Prelude.seq` Prelude.rnf label
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf hasNestedEntities `Prelude.seq`
+      Prelude.rnf label `Prelude.seq`
+        Prelude.rnf name

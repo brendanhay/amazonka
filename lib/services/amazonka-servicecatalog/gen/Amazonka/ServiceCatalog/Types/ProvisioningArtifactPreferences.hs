@@ -135,5 +135,5 @@ instance
     ProvisioningArtifactPreferences
   where
   rnf ProvisioningArtifactPreferences' {..} =
-    Prelude.rnf stackSetAccounts
-      `Prelude.seq` Prelude.rnf stackSetRegions
+    Prelude.rnf stackSetAccounts `Prelude.seq`
+      Prelude.rnf stackSetRegions

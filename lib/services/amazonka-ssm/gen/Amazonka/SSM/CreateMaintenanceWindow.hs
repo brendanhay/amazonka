@@ -370,18 +370,18 @@ instance Prelude.Hashable CreateMaintenanceWindow where
 
 instance Prelude.NFData CreateMaintenanceWindow where
   rnf CreateMaintenanceWindow' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf endDate
-      `Prelude.seq` Prelude.rnf scheduleOffset
-      `Prelude.seq` Prelude.rnf scheduleTimezone
-      `Prelude.seq` Prelude.rnf startDate
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf schedule
-      `Prelude.seq` Prelude.rnf duration
-      `Prelude.seq` Prelude.rnf cutoff
-      `Prelude.seq` Prelude.rnf allowUnassociatedTargets
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf endDate `Prelude.seq`
+          Prelude.rnf scheduleOffset `Prelude.seq`
+            Prelude.rnf scheduleTimezone `Prelude.seq`
+              Prelude.rnf startDate `Prelude.seq`
+                Prelude.rnf tags `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf schedule `Prelude.seq`
+                      Prelude.rnf duration `Prelude.seq`
+                        Prelude.rnf cutoff `Prelude.seq`
+                          Prelude.rnf allowUnassociatedTargets
 
 instance Data.ToHeaders CreateMaintenanceWindow where
   toHeaders =
@@ -472,5 +472,5 @@ instance
     CreateMaintenanceWindowResponse
   where
   rnf CreateMaintenanceWindowResponse' {..} =
-    Prelude.rnf windowId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf windowId `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -116,12 +116,12 @@ instance Prelude.Hashable LambdaFunctionAggregation where
 
 instance Prelude.NFData LambdaFunctionAggregation where
   rnf LambdaFunctionAggregation' {..} =
-    Prelude.rnf functionNames
-      `Prelude.seq` Prelude.rnf functionTags
-      `Prelude.seq` Prelude.rnf resourceIds
-      `Prelude.seq` Prelude.rnf runtimes
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf sortOrder
+    Prelude.rnf functionNames `Prelude.seq`
+      Prelude.rnf functionTags `Prelude.seq`
+        Prelude.rnf resourceIds `Prelude.seq`
+          Prelude.rnf runtimes `Prelude.seq`
+            Prelude.rnf sortBy `Prelude.seq`
+              Prelude.rnf sortOrder
 
 instance Data.ToJSON LambdaFunctionAggregation where
   toJSON LambdaFunctionAggregation' {..} =

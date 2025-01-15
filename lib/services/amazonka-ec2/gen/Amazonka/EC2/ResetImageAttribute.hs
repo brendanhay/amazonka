@@ -126,9 +126,9 @@ instance Prelude.Hashable ResetImageAttribute where
 
 instance Prelude.NFData ResetImageAttribute where
   rnf ResetImageAttribute' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf attribute
-      `Prelude.seq` Prelude.rnf imageId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf attribute `Prelude.seq`
+        Prelude.rnf imageId
 
 instance Data.ToHeaders ResetImageAttribute where
   toHeaders = Prelude.const Prelude.mempty

@@ -167,12 +167,12 @@ instance Core.AWSPager ListUserTags where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listUserTags_marker
-          Lens..~ rs
-          Lens.^? listUserTagsResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listUserTags_marker
+              Lens..~ rs
+              Lens.^? listUserTagsResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListUserTags where
   type AWSResponse ListUserTags = ListUserTagsResponse
@@ -186,9 +186,7 @@ instance Core.AWSRequest ListUserTags where
             Prelude.<$> (x Data..@? "IsTruncated")
             Prelude.<*> (x Data..@? "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x
-                            Data..@? "Tags"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLList "member"
                         )
       )
@@ -202,9 +200,9 @@ instance Prelude.Hashable ListUserTags where
 
 instance Prelude.NFData ListUserTags where
   rnf ListUserTags' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxItems
-      `Prelude.seq` Prelude.rnf userName
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf maxItems `Prelude.seq`
+        Prelude.rnf userName
 
 instance Data.ToHeaders ListUserTags where
   toHeaders = Prelude.const Prelude.mempty
@@ -313,7 +311,7 @@ listUserTagsResponse_tags = Lens.lens (\ListUserTagsResponse' {tags} -> tags) (\
 
 instance Prelude.NFData ListUserTagsResponse where
   rnf ListUserTagsResponse' {..} =
-    Prelude.rnf isTruncated
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf isTruncated `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf httpStatus `Prelude.seq`
+          Prelude.rnf tags

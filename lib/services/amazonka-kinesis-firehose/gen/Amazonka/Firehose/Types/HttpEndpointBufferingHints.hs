@@ -110,8 +110,8 @@ instance Prelude.Hashable HttpEndpointBufferingHints where
 
 instance Prelude.NFData HttpEndpointBufferingHints where
   rnf HttpEndpointBufferingHints' {..} =
-    Prelude.rnf intervalInSeconds
-      `Prelude.seq` Prelude.rnf sizeInMBs
+    Prelude.rnf intervalInSeconds `Prelude.seq`
+      Prelude.rnf sizeInMBs
 
 instance Data.ToJSON HttpEndpointBufferingHints where
   toJSON HttpEndpointBufferingHints' {..} =

@@ -105,9 +105,9 @@ instance Prelude.Hashable HyperParameterRanges where
 
 instance Prelude.NFData HyperParameterRanges where
   rnf HyperParameterRanges' {..} =
-    Prelude.rnf categoricalHyperParameterRanges
-      `Prelude.seq` Prelude.rnf continuousHyperParameterRanges
-      `Prelude.seq` Prelude.rnf integerHyperParameterRanges
+    Prelude.rnf categoricalHyperParameterRanges `Prelude.seq`
+      Prelude.rnf continuousHyperParameterRanges `Prelude.seq`
+        Prelude.rnf integerHyperParameterRanges
 
 instance Data.ToJSON HyperParameterRanges where
   toJSON HyperParameterRanges' {..} =

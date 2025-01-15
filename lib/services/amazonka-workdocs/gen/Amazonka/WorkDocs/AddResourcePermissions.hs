@@ -136,10 +136,10 @@ instance Prelude.Hashable AddResourcePermissions where
 
 instance Prelude.NFData AddResourcePermissions where
   rnf AddResourcePermissions' {..} =
-    Prelude.rnf authenticationToken
-      `Prelude.seq` Prelude.rnf notificationOptions
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf principals
+    Prelude.rnf authenticationToken `Prelude.seq`
+      Prelude.rnf notificationOptions `Prelude.seq`
+        Prelude.rnf resourceId `Prelude.seq`
+          Prelude.rnf principals
 
 instance Data.ToHeaders AddResourcePermissions where
   toHeaders AddResourcePermissions' {..} =
@@ -214,5 +214,5 @@ instance
     AddResourcePermissionsResponse
   where
   rnf AddResourcePermissionsResponse' {..} =
-    Prelude.rnf shareResults
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf shareResults `Prelude.seq`
+      Prelude.rnf httpStatus

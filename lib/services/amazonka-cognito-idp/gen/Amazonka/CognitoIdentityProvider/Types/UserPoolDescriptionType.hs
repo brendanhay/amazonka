@@ -127,9 +127,9 @@ instance Prelude.Hashable UserPoolDescriptionType where
 
 instance Prelude.NFData UserPoolDescriptionType where
   rnf UserPoolDescriptionType' {..} =
-    Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf lambdaConfig
-      `Prelude.seq` Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf creationDate `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf lambdaConfig `Prelude.seq`
+          Prelude.rnf lastModifiedDate `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf status

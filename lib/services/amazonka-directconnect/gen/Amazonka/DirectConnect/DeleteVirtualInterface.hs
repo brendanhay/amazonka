@@ -269,5 +269,5 @@ instance
     DeleteVirtualInterfaceResponse
   where
   rnf DeleteVirtualInterfaceResponse' {..} =
-    Prelude.rnf virtualInterfaceState
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf virtualInterfaceState `Prelude.seq`
+      Prelude.rnf httpStatus

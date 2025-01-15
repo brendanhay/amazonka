@@ -168,14 +168,14 @@ instance Prelude.Hashable WorkspaceAccessProperties where
 
 instance Prelude.NFData WorkspaceAccessProperties where
   rnf WorkspaceAccessProperties' {..} =
-    Prelude.rnf deviceTypeAndroid
-      `Prelude.seq` Prelude.rnf deviceTypeChromeOs
-      `Prelude.seq` Prelude.rnf deviceTypeIos
-      `Prelude.seq` Prelude.rnf deviceTypeLinux
-      `Prelude.seq` Prelude.rnf deviceTypeOsx
-      `Prelude.seq` Prelude.rnf deviceTypeWeb
-      `Prelude.seq` Prelude.rnf deviceTypeWindows
-      `Prelude.seq` Prelude.rnf deviceTypeZeroClient
+    Prelude.rnf deviceTypeAndroid `Prelude.seq`
+      Prelude.rnf deviceTypeChromeOs `Prelude.seq`
+        Prelude.rnf deviceTypeIos `Prelude.seq`
+          Prelude.rnf deviceTypeLinux `Prelude.seq`
+            Prelude.rnf deviceTypeOsx `Prelude.seq`
+              Prelude.rnf deviceTypeWeb `Prelude.seq`
+                Prelude.rnf deviceTypeWindows `Prelude.seq`
+                  Prelude.rnf deviceTypeZeroClient
 
 instance Data.ToJSON WorkspaceAccessProperties where
   toJSON WorkspaceAccessProperties' {..} =

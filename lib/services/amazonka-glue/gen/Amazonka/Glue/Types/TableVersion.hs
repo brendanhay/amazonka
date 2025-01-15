@@ -84,5 +84,5 @@ instance Prelude.Hashable TableVersion where
 
 instance Prelude.NFData TableVersion where
   rnf TableVersion' {..} =
-    Prelude.rnf table
-      `Prelude.seq` Prelude.rnf versionId
+    Prelude.rnf table `Prelude.seq`
+      Prelude.rnf versionId

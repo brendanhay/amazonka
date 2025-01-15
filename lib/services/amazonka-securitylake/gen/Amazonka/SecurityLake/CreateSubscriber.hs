@@ -182,12 +182,12 @@ instance Prelude.Hashable CreateSubscriber where
 
 instance Prelude.NFData CreateSubscriber where
   rnf CreateSubscriber' {..} =
-    Prelude.rnf accessTypes
-      `Prelude.seq` Prelude.rnf subscriberDescription
-      `Prelude.seq` Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf externalId
-      `Prelude.seq` Prelude.rnf sourceTypes
-      `Prelude.seq` Prelude.rnf subscriberName
+    Prelude.rnf accessTypes `Prelude.seq`
+      Prelude.rnf subscriberDescription `Prelude.seq`
+        Prelude.rnf accountId `Prelude.seq`
+          Prelude.rnf externalId `Prelude.seq`
+            Prelude.rnf sourceTypes `Prelude.seq`
+              Prelude.rnf subscriberName
 
 instance Data.ToHeaders CreateSubscriber where
   toHeaders =
@@ -305,8 +305,8 @@ createSubscriberResponse_subscriptionId = Lens.lens (\CreateSubscriberResponse' 
 
 instance Prelude.NFData CreateSubscriberResponse where
   rnf CreateSubscriberResponse' {..} =
-    Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf s3BucketArn
-      `Prelude.seq` Prelude.rnf snsArn
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf subscriptionId
+    Prelude.rnf roleArn `Prelude.seq`
+      Prelude.rnf s3BucketArn `Prelude.seq`
+        Prelude.rnf snsArn `Prelude.seq`
+          Prelude.rnf httpStatus `Prelude.seq`
+            Prelude.rnf subscriptionId

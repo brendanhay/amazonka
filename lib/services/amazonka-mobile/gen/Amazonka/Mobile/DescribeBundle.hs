@@ -157,5 +157,5 @@ describeBundleResponse_httpStatus = Lens.lens (\DescribeBundleResponse' {httpSta
 
 instance Prelude.NFData DescribeBundleResponse where
   rnf DescribeBundleResponse' {..} =
-    Prelude.rnf details
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf details `Prelude.seq`
+      Prelude.rnf httpStatus

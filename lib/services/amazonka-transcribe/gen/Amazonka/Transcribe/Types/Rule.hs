@@ -129,10 +129,10 @@ instance Prelude.Hashable Rule where
 
 instance Prelude.NFData Rule where
   rnf Rule' {..} =
-    Prelude.rnf interruptionFilter
-      `Prelude.seq` Prelude.rnf nonTalkTimeFilter
-      `Prelude.seq` Prelude.rnf sentimentFilter
-      `Prelude.seq` Prelude.rnf transcriptFilter
+    Prelude.rnf interruptionFilter `Prelude.seq`
+      Prelude.rnf nonTalkTimeFilter `Prelude.seq`
+        Prelude.rnf sentimentFilter `Prelude.seq`
+          Prelude.rnf transcriptFilter
 
 instance Data.ToJSON Rule where
   toJSON Rule' {..} =

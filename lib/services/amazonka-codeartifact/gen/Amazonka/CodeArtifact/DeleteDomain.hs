@@ -111,8 +111,8 @@ instance Prelude.Hashable DeleteDomain where
 
 instance Prelude.NFData DeleteDomain where
   rnf DeleteDomain' {..} =
-    Prelude.rnf domainOwner
-      `Prelude.seq` Prelude.rnf domain
+    Prelude.rnf domainOwner `Prelude.seq`
+      Prelude.rnf domain
 
 instance Data.ToHeaders DeleteDomain where
   toHeaders =
@@ -178,5 +178,5 @@ deleteDomainResponse_httpStatus = Lens.lens (\DeleteDomainResponse' {httpStatus}
 
 instance Prelude.NFData DeleteDomainResponse where
   rnf DeleteDomainResponse' {..} =
-    Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf domain `Prelude.seq`
+      Prelude.rnf httpStatus

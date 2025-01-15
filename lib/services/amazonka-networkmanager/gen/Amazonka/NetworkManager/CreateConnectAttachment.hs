@@ -169,12 +169,12 @@ instance Prelude.Hashable CreateConnectAttachment where
 
 instance Prelude.NFData CreateConnectAttachment where
   rnf CreateConnectAttachment' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf coreNetworkId
-      `Prelude.seq` Prelude.rnf edgeLocation
-      `Prelude.seq` Prelude.rnf transportAttachmentId
-      `Prelude.seq` Prelude.rnf options
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf coreNetworkId `Prelude.seq`
+          Prelude.rnf edgeLocation `Prelude.seq`
+            Prelude.rnf transportAttachmentId `Prelude.seq`
+              Prelude.rnf options
 
 instance Data.ToHeaders CreateConnectAttachment where
   toHeaders =
@@ -253,5 +253,5 @@ instance
     CreateConnectAttachmentResponse
   where
   rnf CreateConnectAttachmentResponse' {..} =
-    Prelude.rnf connectAttachment
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf connectAttachment `Prelude.seq`
+      Prelude.rnf httpStatus

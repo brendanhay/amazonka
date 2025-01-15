@@ -156,12 +156,12 @@ instance Prelude.Hashable CreateRunGroup where
 
 instance Prelude.NFData CreateRunGroup where
   rnf CreateRunGroup' {..} =
-    Prelude.rnf maxCpus
-      `Prelude.seq` Prelude.rnf maxDuration
-      `Prelude.seq` Prelude.rnf maxRuns
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf requestId
+    Prelude.rnf maxCpus `Prelude.seq`
+      Prelude.rnf maxDuration `Prelude.seq`
+        Prelude.rnf maxRuns `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf requestId
 
 instance Data.ToHeaders CreateRunGroup where
   toHeaders =
@@ -251,7 +251,7 @@ createRunGroupResponse_httpStatus = Lens.lens (\CreateRunGroupResponse' {httpSta
 
 instance Prelude.NFData CreateRunGroupResponse where
   rnf CreateRunGroupResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf httpStatus

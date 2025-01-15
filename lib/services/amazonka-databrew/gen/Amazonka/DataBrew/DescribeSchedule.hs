@@ -253,13 +253,13 @@ describeScheduleResponse_name = Lens.lens (\DescribeScheduleResponse' {name} -> 
 
 instance Prelude.NFData DescribeScheduleResponse where
   rnf DescribeScheduleResponse' {..} =
-    Prelude.rnf createDate
-      `Prelude.seq` Prelude.rnf createdBy
-      `Prelude.seq` Prelude.rnf cronExpression
-      `Prelude.seq` Prelude.rnf jobNames
-      `Prelude.seq` Prelude.rnf lastModifiedBy
-      `Prelude.seq` Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf createDate `Prelude.seq`
+      Prelude.rnf createdBy `Prelude.seq`
+        Prelude.rnf cronExpression `Prelude.seq`
+          Prelude.rnf jobNames `Prelude.seq`
+            Prelude.rnf lastModifiedBy `Prelude.seq`
+              Prelude.rnf lastModifiedDate `Prelude.seq`
+                Prelude.rnf resourceArn `Prelude.seq`
+                  Prelude.rnf tags `Prelude.seq`
+                    Prelude.rnf httpStatus `Prelude.seq`
+                      Prelude.rnf name

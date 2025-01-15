@@ -206,15 +206,15 @@ instance Prelude.Hashable CreateDeployment where
 
 instance Prelude.NFData CreateDeployment where
   rnf CreateDeployment' {..} =
-    Prelude.rnf cacheClusterEnabled
-      `Prelude.seq` Prelude.rnf cacheClusterSize
-      `Prelude.seq` Prelude.rnf canarySettings
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf stageDescription
-      `Prelude.seq` Prelude.rnf stageName
-      `Prelude.seq` Prelude.rnf tracingEnabled
-      `Prelude.seq` Prelude.rnf variables
-      `Prelude.seq` Prelude.rnf restApiId
+    Prelude.rnf cacheClusterEnabled `Prelude.seq`
+      Prelude.rnf cacheClusterSize `Prelude.seq`
+        Prelude.rnf canarySettings `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf stageDescription `Prelude.seq`
+              Prelude.rnf stageName `Prelude.seq`
+                Prelude.rnf tracingEnabled `Prelude.seq`
+                  Prelude.rnf variables `Prelude.seq`
+                    Prelude.rnf restApiId
 
 instance Data.ToHeaders CreateDeployment where
   toHeaders =

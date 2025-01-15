@@ -151,10 +151,10 @@ instance Prelude.Hashable DeleteDocument where
 
 instance Prelude.NFData DeleteDocument where
   rnf DeleteDocument' {..} =
-    Prelude.rnf documentVersion
-      `Prelude.seq` Prelude.rnf force
-      `Prelude.seq` Prelude.rnf versionName
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf documentVersion `Prelude.seq`
+      Prelude.rnf force `Prelude.seq`
+        Prelude.rnf versionName `Prelude.seq`
+          Prelude.rnf name
 
 instance Data.ToHeaders DeleteDocument where
   toHeaders =

@@ -130,9 +130,9 @@ instance Prelude.Hashable BatchDeleteDocument where
 
 instance Prelude.NFData BatchDeleteDocument where
   rnf BatchDeleteDocument' {..} =
-    Prelude.rnf dataSourceSyncJobMetricTarget
-      `Prelude.seq` Prelude.rnf indexId
-      `Prelude.seq` Prelude.rnf documentIdList
+    Prelude.rnf dataSourceSyncJobMetricTarget `Prelude.seq`
+      Prelude.rnf indexId `Prelude.seq`
+        Prelude.rnf documentIdList
 
 instance Data.ToHeaders BatchDeleteDocument where
   toHeaders =
@@ -214,5 +214,5 @@ batchDeleteDocumentResponse_httpStatus = Lens.lens (\BatchDeleteDocumentResponse
 
 instance Prelude.NFData BatchDeleteDocumentResponse where
   rnf BatchDeleteDocumentResponse' {..} =
-    Prelude.rnf failedDocuments
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf failedDocuments `Prelude.seq`
+      Prelude.rnf httpStatus

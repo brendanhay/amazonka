@@ -171,13 +171,13 @@ instance
     AwsEc2NetworkInterfaceAttachment
   where
   rnf AwsEc2NetworkInterfaceAttachment' {..} =
-    Prelude.rnf attachTime
-      `Prelude.seq` Prelude.rnf attachmentId
-      `Prelude.seq` Prelude.rnf deleteOnTermination
-      `Prelude.seq` Prelude.rnf deviceIndex
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf instanceOwnerId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf attachTime `Prelude.seq`
+      Prelude.rnf attachmentId `Prelude.seq`
+        Prelude.rnf deleteOnTermination `Prelude.seq`
+          Prelude.rnf deviceIndex `Prelude.seq`
+            Prelude.rnf instanceId `Prelude.seq`
+              Prelude.rnf instanceOwnerId `Prelude.seq`
+                Prelude.rnf status
 
 instance Data.ToJSON AwsEc2NetworkInterfaceAttachment where
   toJSON AwsEc2NetworkInterfaceAttachment' {..} =

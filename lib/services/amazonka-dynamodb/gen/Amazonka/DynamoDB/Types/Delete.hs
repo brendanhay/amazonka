@@ -128,12 +128,12 @@ instance Prelude.Hashable Delete where
 
 instance Prelude.NFData Delete where
   rnf Delete' {..} =
-    Prelude.rnf conditionExpression
-      `Prelude.seq` Prelude.rnf expressionAttributeNames
-      `Prelude.seq` Prelude.rnf expressionAttributeValues
-      `Prelude.seq` Prelude.rnf returnValuesOnConditionCheckFailure
-      `Prelude.seq` Prelude.rnf key
-      `Prelude.seq` Prelude.rnf tableName
+    Prelude.rnf conditionExpression `Prelude.seq`
+      Prelude.rnf expressionAttributeNames `Prelude.seq`
+        Prelude.rnf expressionAttributeValues `Prelude.seq`
+          Prelude.rnf returnValuesOnConditionCheckFailure `Prelude.seq`
+            Prelude.rnf key `Prelude.seq`
+              Prelude.rnf tableName
 
 instance Data.ToJSON Delete where
   toJSON Delete' {..} =

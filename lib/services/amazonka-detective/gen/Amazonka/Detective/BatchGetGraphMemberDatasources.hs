@@ -136,8 +136,8 @@ instance
     BatchGetGraphMemberDatasources
   where
   rnf BatchGetGraphMemberDatasources' {..} =
-    Prelude.rnf graphArn
-      `Prelude.seq` Prelude.rnf accountIds
+    Prelude.rnf graphArn `Prelude.seq`
+      Prelude.rnf accountIds
 
 instance
   Data.ToHeaders
@@ -229,6 +229,6 @@ instance
     BatchGetGraphMemberDatasourcesResponse
   where
   rnf BatchGetGraphMemberDatasourcesResponse' {..} =
-    Prelude.rnf memberDatasources
-      `Prelude.seq` Prelude.rnf unprocessedAccounts
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf memberDatasources `Prelude.seq`
+      Prelude.rnf unprocessedAccounts `Prelude.seq`
+        Prelude.rnf httpStatus

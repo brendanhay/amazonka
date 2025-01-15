@@ -152,11 +152,11 @@ instance Prelude.Hashable BulkDeploymentResult where
 
 instance Prelude.NFData BulkDeploymentResult where
   rnf BulkDeploymentResult' {..} =
-    Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf deploymentArn
-      `Prelude.seq` Prelude.rnf deploymentId
-      `Prelude.seq` Prelude.rnf deploymentStatus
-      `Prelude.seq` Prelude.rnf deploymentType
-      `Prelude.seq` Prelude.rnf errorDetails
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf groupArn
+    Prelude.rnf createdAt `Prelude.seq`
+      Prelude.rnf deploymentArn `Prelude.seq`
+        Prelude.rnf deploymentId `Prelude.seq`
+          Prelude.rnf deploymentStatus `Prelude.seq`
+            Prelude.rnf deploymentType `Prelude.seq`
+              Prelude.rnf errorDetails `Prelude.seq`
+                Prelude.rnf errorMessage `Prelude.seq`
+                  Prelude.rnf groupArn

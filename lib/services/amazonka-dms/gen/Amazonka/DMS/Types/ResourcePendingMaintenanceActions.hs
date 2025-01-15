@@ -108,5 +108,5 @@ instance
     ResourcePendingMaintenanceActions
   where
   rnf ResourcePendingMaintenanceActions' {..} =
-    Prelude.rnf pendingMaintenanceActionDetails
-      `Prelude.seq` Prelude.rnf resourceIdentifier
+    Prelude.rnf pendingMaintenanceActionDetails `Prelude.seq`
+      Prelude.rnf resourceIdentifier

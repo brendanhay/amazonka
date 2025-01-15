@@ -130,9 +130,9 @@ instance Prelude.Hashable ErrorResponse where
 
 instance Prelude.NFData ErrorResponse where
   rnf ErrorResponse' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf additionalDetails
-      `Prelude.seq` Prelude.rnf code
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf resourceIdentifier
-      `Prelude.seq` Prelude.rnf resourceType
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf additionalDetails `Prelude.seq`
+        Prelude.rnf code `Prelude.seq`
+          Prelude.rnf message `Prelude.seq`
+            Prelude.rnf resourceIdentifier `Prelude.seq`
+              Prelude.rnf resourceType

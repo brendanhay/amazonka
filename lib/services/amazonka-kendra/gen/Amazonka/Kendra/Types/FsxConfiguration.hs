@@ -260,13 +260,13 @@ instance Prelude.Hashable FsxConfiguration where
 
 instance Prelude.NFData FsxConfiguration where
   rnf FsxConfiguration' {..} =
-    Prelude.rnf exclusionPatterns
-      `Prelude.seq` Prelude.rnf fieldMappings
-      `Prelude.seq` Prelude.rnf inclusionPatterns
-      `Prelude.seq` Prelude.rnf secretArn
-      `Prelude.seq` Prelude.rnf fileSystemId
-      `Prelude.seq` Prelude.rnf fileSystemType
-      `Prelude.seq` Prelude.rnf vpcConfiguration
+    Prelude.rnf exclusionPatterns `Prelude.seq`
+      Prelude.rnf fieldMappings `Prelude.seq`
+        Prelude.rnf inclusionPatterns `Prelude.seq`
+          Prelude.rnf secretArn `Prelude.seq`
+            Prelude.rnf fileSystemId `Prelude.seq`
+              Prelude.rnf fileSystemType `Prelude.seq`
+                Prelude.rnf vpcConfiguration
 
 instance Data.ToJSON FsxConfiguration where
   toJSON FsxConfiguration' {..} =

@@ -148,12 +148,12 @@ instance Core.AWSPager ListFargateProfiles where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listFargateProfiles_nextToken
-          Lens..~ rs
-          Lens.^? listFargateProfilesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listFargateProfiles_nextToken
+              Lens..~ rs
+              Lens.^? listFargateProfilesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListFargateProfiles where
   type
@@ -182,9 +182,9 @@ instance Prelude.Hashable ListFargateProfiles where
 
 instance Prelude.NFData ListFargateProfiles where
   rnf ListFargateProfiles' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf clusterName
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf clusterName
 
 instance Data.ToHeaders ListFargateProfiles where
   toHeaders =
@@ -274,6 +274,6 @@ listFargateProfilesResponse_httpStatus = Lens.lens (\ListFargateProfilesResponse
 
 instance Prelude.NFData ListFargateProfilesResponse where
   rnf ListFargateProfilesResponse' {..} =
-    Prelude.rnf fargateProfileNames
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf fargateProfileNames `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

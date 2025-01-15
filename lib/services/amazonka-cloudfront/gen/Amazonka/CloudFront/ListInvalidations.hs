@@ -137,13 +137,13 @@ instance Core.AWSPager ListInvalidations where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listInvalidations_marker
-          Lens..~ rs
-          Lens.^? listInvalidationsResponse_invalidationList
-          Prelude.. invalidationList_nextMarker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listInvalidations_marker
+              Lens..~ rs
+              Lens.^? listInvalidationsResponse_invalidationList
+              Prelude.. invalidationList_nextMarker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListInvalidations where
   type
@@ -168,9 +168,9 @@ instance Prelude.Hashable ListInvalidations where
 
 instance Prelude.NFData ListInvalidations where
   rnf ListInvalidations' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxItems
-      `Prelude.seq` Prelude.rnf distributionId
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf maxItems `Prelude.seq`
+        Prelude.rnf distributionId
 
 instance Data.ToHeaders ListInvalidations where
   toHeaders = Prelude.const Prelude.mempty
@@ -237,5 +237,5 @@ listInvalidationsResponse_invalidationList = Lens.lens (\ListInvalidationsRespon
 
 instance Prelude.NFData ListInvalidationsResponse where
   rnf ListInvalidationsResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf invalidationList
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf invalidationList

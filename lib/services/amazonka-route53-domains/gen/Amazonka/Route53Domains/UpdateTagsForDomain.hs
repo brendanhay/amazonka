@@ -118,8 +118,8 @@ instance Prelude.Hashable UpdateTagsForDomain where
 
 instance Prelude.NFData UpdateTagsForDomain where
   rnf UpdateTagsForDomain' {..} =
-    Prelude.rnf tagsToUpdate
-      `Prelude.seq` Prelude.rnf domainName
+    Prelude.rnf tagsToUpdate `Prelude.seq`
+      Prelude.rnf domainName
 
 instance Data.ToHeaders UpdateTagsForDomain where
   toHeaders =

@@ -136,10 +136,10 @@ instance Prelude.Hashable CreateSignalCatalog where
 
 instance Prelude.NFData CreateSignalCatalog where
   rnf CreateSignalCatalog' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf nodes
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf nodes `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf name
 
 instance Data.ToHeaders CreateSignalCatalog where
   toHeaders =
@@ -230,6 +230,6 @@ createSignalCatalogResponse_arn = Lens.lens (\CreateSignalCatalogResponse' {arn}
 
 instance Prelude.NFData CreateSignalCatalogResponse where
   rnf CreateSignalCatalogResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf arn

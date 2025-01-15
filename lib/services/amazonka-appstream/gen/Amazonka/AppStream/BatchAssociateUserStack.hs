@@ -177,5 +177,5 @@ instance
     BatchAssociateUserStackResponse
   where
   rnf BatchAssociateUserStackResponse' {..} =
-    Prelude.rnf errors
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf errors `Prelude.seq`
+      Prelude.rnf httpStatus

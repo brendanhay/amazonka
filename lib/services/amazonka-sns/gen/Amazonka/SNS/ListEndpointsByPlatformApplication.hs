@@ -132,12 +132,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listEndpointsByPlatformApplication_nextToken
-          Lens..~ rs
-          Lens.^? listEndpointsByPlatformApplicationResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listEndpointsByPlatformApplication_nextToken
+              Lens..~ rs
+              Lens.^? listEndpointsByPlatformApplicationResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -153,9 +153,7 @@ instance
       "ListEndpointsByPlatformApplicationResult"
       ( \s h x ->
           ListEndpointsByPlatformApplicationResponse'
-            Prelude.<$> ( x
-                            Data..@? "Endpoints"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "Endpoints" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (x Data..@? "NextToken")
@@ -178,8 +176,8 @@ instance
     ListEndpointsByPlatformApplication
   where
   rnf ListEndpointsByPlatformApplication' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf platformApplicationArn
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf platformApplicationArn
 
 instance
   Data.ToHeaders
@@ -272,6 +270,6 @@ instance
     ListEndpointsByPlatformApplicationResponse
   where
   rnf ListEndpointsByPlatformApplicationResponse' {..} =
-    Prelude.rnf endpoints
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf endpoints `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -126,12 +126,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listPipelineParametersForExecution_nextToken
-          Lens..~ rs
-          Lens.^? listPipelineParametersForExecutionResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listPipelineParametersForExecution_nextToken
+              Lens..~ rs
+              Lens.^? listPipelineParametersForExecutionResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -171,9 +171,9 @@ instance
     ListPipelineParametersForExecution
   where
   rnf ListPipelineParametersForExecution' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf pipelineExecutionArn
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf pipelineExecutionArn
 
 instance
   Data.ToHeaders
@@ -282,6 +282,6 @@ instance
     ListPipelineParametersForExecutionResponse
   where
   rnf ListPipelineParametersForExecutionResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf pipelineParameters
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf pipelineParameters `Prelude.seq`
+        Prelude.rnf httpStatus

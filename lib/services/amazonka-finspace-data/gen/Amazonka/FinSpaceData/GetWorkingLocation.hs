@@ -206,7 +206,7 @@ getWorkingLocationResponse_httpStatus = Lens.lens (\GetWorkingLocationResponse' 
 
 instance Prelude.NFData GetWorkingLocationResponse where
   rnf GetWorkingLocationResponse' {..} =
-    Prelude.rnf s3Bucket
-      `Prelude.seq` Prelude.rnf s3Path
-      `Prelude.seq` Prelude.rnf s3Uri
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf s3Bucket `Prelude.seq`
+      Prelude.rnf s3Path `Prelude.seq`
+        Prelude.rnf s3Uri `Prelude.seq`
+          Prelude.rnf httpStatus

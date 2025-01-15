@@ -162,10 +162,10 @@ instance Prelude.Hashable GetRecommendations where
 
 instance Prelude.NFData GetRecommendations where
   rnf GetRecommendations' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf waitTimeSeconds
-      `Prelude.seq` Prelude.rnf assistantId
-      `Prelude.seq` Prelude.rnf sessionId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf waitTimeSeconds `Prelude.seq`
+        Prelude.rnf assistantId `Prelude.seq`
+          Prelude.rnf sessionId
 
 instance Data.ToHeaders GetRecommendations where
   toHeaders =
@@ -245,6 +245,6 @@ getRecommendationsResponse_recommendations = Lens.lens (\GetRecommendationsRespo
 
 instance Prelude.NFData GetRecommendationsResponse where
   rnf GetRecommendationsResponse' {..} =
-    Prelude.rnf triggers
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf recommendations
+    Prelude.rnf triggers `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf recommendations

@@ -109,12 +109,12 @@ instance Core.AWSPager ListFleetMetrics where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listFleetMetrics_nextToken
-          Lens..~ rs
-          Lens.^? listFleetMetricsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listFleetMetrics_nextToken
+              Lens..~ rs
+              Lens.^? listFleetMetricsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListFleetMetrics where
   type
@@ -139,8 +139,8 @@ instance Prelude.Hashable ListFleetMetrics where
 
 instance Prelude.NFData ListFleetMetrics where
   rnf ListFleetMetrics' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListFleetMetrics where
   toHeaders = Prelude.const Prelude.mempty
@@ -208,6 +208,6 @@ listFleetMetricsResponse_httpStatus = Lens.lens (\ListFleetMetricsResponse' {htt
 
 instance Prelude.NFData ListFleetMetricsResponse where
   rnf ListFleetMetricsResponse' {..} =
-    Prelude.rnf fleetMetrics
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf fleetMetrics `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

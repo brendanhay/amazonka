@@ -86,8 +86,8 @@ instance Prelude.Hashable MotionGraphicsConfiguration where
 
 instance Prelude.NFData MotionGraphicsConfiguration where
   rnf MotionGraphicsConfiguration' {..} =
-    Prelude.rnf motionGraphicsInsertion
-      `Prelude.seq` Prelude.rnf motionGraphicsSettings
+    Prelude.rnf motionGraphicsInsertion `Prelude.seq`
+      Prelude.rnf motionGraphicsSettings
 
 instance Data.ToJSON MotionGraphicsConfiguration where
   toJSON MotionGraphicsConfiguration' {..} =

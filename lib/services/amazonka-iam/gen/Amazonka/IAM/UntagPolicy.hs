@@ -120,8 +120,8 @@ instance Prelude.Hashable UntagPolicy where
 
 instance Prelude.NFData UntagPolicy where
   rnf UntagPolicy' {..} =
-    Prelude.rnf policyArn
-      `Prelude.seq` Prelude.rnf tagKeys
+    Prelude.rnf policyArn `Prelude.seq`
+      Prelude.rnf tagKeys
 
 instance Data.ToHeaders UntagPolicy where
   toHeaders = Prelude.const Prelude.mempty

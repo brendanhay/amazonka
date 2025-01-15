@@ -98,6 +98,6 @@ instance Prelude.Hashable ActionExecutionResult where
 
 instance Prelude.NFData ActionExecutionResult where
   rnf ActionExecutionResult' {..} =
-    Prelude.rnf externalExecutionId
-      `Prelude.seq` Prelude.rnf externalExecutionSummary
-      `Prelude.seq` Prelude.rnf externalExecutionUrl
+    Prelude.rnf externalExecutionId `Prelude.seq`
+      Prelude.rnf externalExecutionSummary `Prelude.seq`
+        Prelude.rnf externalExecutionUrl

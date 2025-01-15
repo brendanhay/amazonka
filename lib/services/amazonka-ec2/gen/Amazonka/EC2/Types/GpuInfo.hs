@@ -70,9 +70,7 @@ gpuInfo_totalGpuMemoryInMiB = Lens.lens (\GpuInfo' {totalGpuMemoryInMiB} -> tota
 instance Data.FromXML GpuInfo where
   parseXML x =
     GpuInfo'
-      Prelude.<$> ( x
-                      Data..@? "gpus"
-                      Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "gpus" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "totalGpuMemoryInMiB")
@@ -85,5 +83,5 @@ instance Prelude.Hashable GpuInfo where
 
 instance Prelude.NFData GpuInfo where
   rnf GpuInfo' {..} =
-    Prelude.rnf gpus
-      `Prelude.seq` Prelude.rnf totalGpuMemoryInMiB
+    Prelude.rnf gpus `Prelude.seq`
+      Prelude.rnf totalGpuMemoryInMiB

@@ -133,9 +133,9 @@ instance Prelude.Hashable UpdateClusterConfiguration where
 
 instance Prelude.NFData UpdateClusterConfiguration where
   rnf UpdateClusterConfiguration' {..} =
-    Prelude.rnf clusterArn
-      `Prelude.seq` Prelude.rnf currentVersion
-      `Prelude.seq` Prelude.rnf configurationInfo
+    Prelude.rnf clusterArn `Prelude.seq`
+      Prelude.rnf currentVersion `Prelude.seq`
+        Prelude.rnf configurationInfo
 
 instance Data.ToHeaders UpdateClusterConfiguration where
   toHeaders =
@@ -223,6 +223,6 @@ instance
     UpdateClusterConfigurationResponse
   where
   rnf UpdateClusterConfigurationResponse' {..} =
-    Prelude.rnf clusterArn
-      `Prelude.seq` Prelude.rnf clusterOperationArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf clusterArn `Prelude.seq`
+      Prelude.rnf clusterOperationArn `Prelude.seq`
+        Prelude.rnf httpStatus

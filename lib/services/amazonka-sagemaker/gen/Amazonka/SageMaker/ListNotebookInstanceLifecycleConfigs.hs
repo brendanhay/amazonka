@@ -203,12 +203,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listNotebookInstanceLifecycleConfigs_nextToken
-          Lens..~ rs
-          Lens.^? listNotebookInstanceLifecycleConfigsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listNotebookInstanceLifecycleConfigs_nextToken
+              Lens..~ rs
+              Lens.^? listNotebookInstanceLifecycleConfigsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -254,15 +254,15 @@ instance
     ListNotebookInstanceLifecycleConfigs
   where
   rnf ListNotebookInstanceLifecycleConfigs' {..} =
-    Prelude.rnf creationTimeAfter
-      `Prelude.seq` Prelude.rnf creationTimeBefore
-      `Prelude.seq` Prelude.rnf lastModifiedTimeAfter
-      `Prelude.seq` Prelude.rnf lastModifiedTimeBefore
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nameContains
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf sortOrder
+    Prelude.rnf creationTimeAfter `Prelude.seq`
+      Prelude.rnf creationTimeBefore `Prelude.seq`
+        Prelude.rnf lastModifiedTimeAfter `Prelude.seq`
+          Prelude.rnf lastModifiedTimeBefore `Prelude.seq`
+            Prelude.rnf maxResults `Prelude.seq`
+              Prelude.rnf nameContains `Prelude.seq`
+                Prelude.rnf nextToken `Prelude.seq`
+                  Prelude.rnf sortBy `Prelude.seq`
+                    Prelude.rnf sortOrder
 
 instance
   Data.ToHeaders
@@ -378,6 +378,6 @@ instance
     ListNotebookInstanceLifecycleConfigsResponse
   where
   rnf ListNotebookInstanceLifecycleConfigsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf notebookInstanceLifecycleConfigs
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf notebookInstanceLifecycleConfigs `Prelude.seq`
+        Prelude.rnf httpStatus

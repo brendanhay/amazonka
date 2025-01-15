@@ -109,9 +109,7 @@ instance Data.FromXML TransitGatewayConnectPeer where
       Prelude.<$> (x Data..@? "connectPeerConfiguration")
       Prelude.<*> (x Data..@? "creationTime")
       Prelude.<*> (x Data..@? "state")
-      Prelude.<*> ( x
-                      Data..@? "tagSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "transitGatewayAttachmentId")
@@ -129,9 +127,9 @@ instance Prelude.Hashable TransitGatewayConnectPeer where
 
 instance Prelude.NFData TransitGatewayConnectPeer where
   rnf TransitGatewayConnectPeer' {..} =
-    Prelude.rnf connectPeerConfiguration
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf transitGatewayAttachmentId
-      `Prelude.seq` Prelude.rnf transitGatewayConnectPeerId
+    Prelude.rnf connectPeerConfiguration `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf state `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf transitGatewayAttachmentId `Prelude.seq`
+              Prelude.rnf transitGatewayConnectPeerId

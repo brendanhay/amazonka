@@ -120,8 +120,8 @@ instance Prelude.Hashable ExportLens where
 
 instance Prelude.NFData ExportLens where
   rnf ExportLens' {..} =
-    Prelude.rnf lensVersion
-      `Prelude.seq` Prelude.rnf lensAlias
+    Prelude.rnf lensVersion `Prelude.seq`
+      Prelude.rnf lensAlias
 
 instance Data.ToHeaders ExportLens where
   toHeaders =
@@ -183,5 +183,5 @@ exportLensResponse_httpStatus = Lens.lens (\ExportLensResponse' {httpStatus} -> 
 
 instance Prelude.NFData ExportLensResponse where
   rnf ExportLensResponse' {..} =
-    Prelude.rnf lensJSON
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf lensJSON `Prelude.seq`
+      Prelude.rnf httpStatus

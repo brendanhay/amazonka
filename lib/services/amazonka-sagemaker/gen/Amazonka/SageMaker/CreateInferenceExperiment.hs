@@ -425,17 +425,17 @@ instance Prelude.Hashable CreateInferenceExperiment where
 
 instance Prelude.NFData CreateInferenceExperiment where
   rnf CreateInferenceExperiment' {..} =
-    Prelude.rnf dataStorageConfig
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf kmsKey
-      `Prelude.seq` Prelude.rnf schedule
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf endpointName
-      `Prelude.seq` Prelude.rnf modelVariants
-      `Prelude.seq` Prelude.rnf shadowModeConfig
+    Prelude.rnf dataStorageConfig `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf kmsKey `Prelude.seq`
+          Prelude.rnf schedule `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf type' `Prelude.seq`
+                  Prelude.rnf roleArn `Prelude.seq`
+                    Prelude.rnf endpointName `Prelude.seq`
+                      Prelude.rnf modelVariants `Prelude.seq`
+                        Prelude.rnf shadowModeConfig
 
 instance Data.ToHeaders CreateInferenceExperiment where
   toHeaders =
@@ -527,5 +527,5 @@ instance
     CreateInferenceExperimentResponse
   where
   rnf CreateInferenceExperimentResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf inferenceExperimentArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf inferenceExperimentArn

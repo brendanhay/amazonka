@@ -179,6 +179,6 @@ deleteExportResponse_httpStatus = Lens.lens (\DeleteExportResponse' {httpStatus}
 
 instance Prelude.NFData DeleteExportResponse where
   rnf DeleteExportResponse' {..} =
-    Prelude.rnf exportId
-      `Prelude.seq` Prelude.rnf exportStatus
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf exportId `Prelude.seq`
+      Prelude.rnf exportStatus `Prelude.seq`
+        Prelude.rnf httpStatus

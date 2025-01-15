@@ -99,6 +99,6 @@ instance Prelude.Hashable EventDetails where
 
 instance Prelude.NFData EventDetails where
   rnf EventDetails' {..} =
-    Prelude.rnf event
-      `Prelude.seq` Prelude.rnf eventDescription
-      `Prelude.seq` Prelude.rnf eventMetadata
+    Prelude.rnf event `Prelude.seq`
+      Prelude.rnf eventDescription `Prelude.seq`
+        Prelude.rnf eventMetadata

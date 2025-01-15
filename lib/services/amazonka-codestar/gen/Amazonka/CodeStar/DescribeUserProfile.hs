@@ -277,10 +277,10 @@ describeUserProfileResponse_lastModifiedTimestamp = Lens.lens (\DescribeUserProf
 
 instance Prelude.NFData DescribeUserProfileResponse where
   rnf DescribeUserProfileResponse' {..} =
-    Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf emailAddress
-      `Prelude.seq` Prelude.rnf sshPublicKey
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf userArn
-      `Prelude.seq` Prelude.rnf createdTimestamp
-      `Prelude.seq` Prelude.rnf lastModifiedTimestamp
+    Prelude.rnf displayName `Prelude.seq`
+      Prelude.rnf emailAddress `Prelude.seq`
+        Prelude.rnf sshPublicKey `Prelude.seq`
+          Prelude.rnf httpStatus `Prelude.seq`
+            Prelude.rnf userArn `Prelude.seq`
+              Prelude.rnf createdTimestamp `Prelude.seq`
+                Prelude.rnf lastModifiedTimestamp

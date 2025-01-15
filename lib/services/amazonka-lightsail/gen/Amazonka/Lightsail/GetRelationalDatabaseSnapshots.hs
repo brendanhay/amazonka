@@ -109,12 +109,12 @@ instance Core.AWSPager GetRelationalDatabaseSnapshots where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getRelationalDatabaseSnapshots_pageToken
-          Lens..~ rs
-          Lens.^? getRelationalDatabaseSnapshotsResponse_nextPageToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getRelationalDatabaseSnapshots_pageToken
+              Lens..~ rs
+              Lens.^? getRelationalDatabaseSnapshotsResponse_nextPageToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -263,6 +263,6 @@ instance
     GetRelationalDatabaseSnapshotsResponse
   where
   rnf GetRelationalDatabaseSnapshotsResponse' {..} =
-    Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf relationalDatabaseSnapshots
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextPageToken `Prelude.seq`
+      Prelude.rnf relationalDatabaseSnapshots `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -132,9 +132,9 @@ instance Prelude.Hashable ListAssessmentFrameworks where
 
 instance Prelude.NFData ListAssessmentFrameworks where
   rnf ListAssessmentFrameworks' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf frameworkType
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf frameworkType
 
 instance Data.ToHeaders ListAssessmentFrameworks where
   toHeaders =
@@ -211,6 +211,6 @@ instance
     ListAssessmentFrameworksResponse
   where
   rnf ListAssessmentFrameworksResponse' {..} =
-    Prelude.rnf frameworkMetadataList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf frameworkMetadataList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

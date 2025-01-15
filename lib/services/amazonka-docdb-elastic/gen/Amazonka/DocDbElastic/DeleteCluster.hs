@@ -155,5 +155,5 @@ deleteClusterResponse_cluster = Lens.lens (\DeleteClusterResponse' {cluster} -> 
 
 instance Prelude.NFData DeleteClusterResponse where
   rnf DeleteClusterResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf cluster
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf cluster

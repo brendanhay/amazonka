@@ -90,5 +90,5 @@ instance Prelude.Hashable ProjectDataDelivery where
 
 instance Prelude.NFData ProjectDataDelivery where
   rnf ProjectDataDelivery' {..} =
-    Prelude.rnf cloudWatchLogs
-      `Prelude.seq` Prelude.rnf s3Destination
+    Prelude.rnf cloudWatchLogs `Prelude.seq`
+      Prelude.rnf s3Destination

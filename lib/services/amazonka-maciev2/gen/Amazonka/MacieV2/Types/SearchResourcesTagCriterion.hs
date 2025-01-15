@@ -80,8 +80,8 @@ instance Prelude.Hashable SearchResourcesTagCriterion where
 
 instance Prelude.NFData SearchResourcesTagCriterion where
   rnf SearchResourcesTagCriterion' {..} =
-    Prelude.rnf comparator
-      `Prelude.seq` Prelude.rnf tagValues
+    Prelude.rnf comparator `Prelude.seq`
+      Prelude.rnf tagValues
 
 instance Data.ToJSON SearchResourcesTagCriterion where
   toJSON SearchResourcesTagCriterion' {..} =

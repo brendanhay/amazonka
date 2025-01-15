@@ -121,9 +121,9 @@ instance Prelude.Hashable S3AccessPointConfiguration where
 
 instance Prelude.NFData S3AccessPointConfiguration where
   rnf S3AccessPointConfiguration' {..} =
-    Prelude.rnf accessPointPolicy
-      `Prelude.seq` Prelude.rnf networkOrigin
-      `Prelude.seq` Prelude.rnf publicAccessBlock
+    Prelude.rnf accessPointPolicy `Prelude.seq`
+      Prelude.rnf networkOrigin `Prelude.seq`
+        Prelude.rnf publicAccessBlock
 
 instance Data.ToJSON S3AccessPointConfiguration where
   toJSON S3AccessPointConfiguration' {..} =

@@ -137,9 +137,9 @@ instance Prelude.Hashable CreateConnection where
 
 instance Prelude.NFData CreateConnection where
   rnf CreateConnection' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf connectionName
-      `Prelude.seq` Prelude.rnf providerType
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf connectionName `Prelude.seq`
+        Prelude.rnf providerType
 
 instance Data.ToHeaders CreateConnection where
   toHeaders =
@@ -217,5 +217,5 @@ createConnectionResponse_connection = Lens.lens (\CreateConnectionResponse' {con
 
 instance Prelude.NFData CreateConnectionResponse where
   rnf CreateConnectionResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf connection
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf connection

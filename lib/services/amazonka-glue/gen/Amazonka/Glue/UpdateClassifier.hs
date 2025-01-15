@@ -128,10 +128,10 @@ instance Prelude.Hashable UpdateClassifier where
 
 instance Prelude.NFData UpdateClassifier where
   rnf UpdateClassifier' {..} =
-    Prelude.rnf csvClassifier
-      `Prelude.seq` Prelude.rnf grokClassifier
-      `Prelude.seq` Prelude.rnf jsonClassifier
-      `Prelude.seq` Prelude.rnf xMLClassifier
+    Prelude.rnf csvClassifier `Prelude.seq`
+      Prelude.rnf grokClassifier `Prelude.seq`
+        Prelude.rnf jsonClassifier `Prelude.seq`
+          Prelude.rnf xMLClassifier
 
 instance Data.ToHeaders UpdateClassifier where
   toHeaders =

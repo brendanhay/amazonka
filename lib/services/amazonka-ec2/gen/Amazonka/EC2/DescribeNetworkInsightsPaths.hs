@@ -172,12 +172,12 @@ instance Core.AWSPager DescribeNetworkInsightsPaths where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeNetworkInsightsPaths_nextToken
-          Lens..~ rs
-          Lens.^? describeNetworkInsightsPathsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeNetworkInsightsPaths_nextToken
+              Lens..~ rs
+              Lens.^? describeNetworkInsightsPathsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeNetworkInsightsPaths where
   type
@@ -212,11 +212,11 @@ instance
 
 instance Prelude.NFData DescribeNetworkInsightsPaths where
   rnf DescribeNetworkInsightsPaths' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf networkInsightsPathIds
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf networkInsightsPathIds `Prelude.seq`
+            Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeNetworkInsightsPaths where
   toHeaders = Prelude.const Prelude.mempty
@@ -300,6 +300,6 @@ instance
     DescribeNetworkInsightsPathsResponse
   where
   rnf DescribeNetworkInsightsPathsResponse' {..} =
-    Prelude.rnf networkInsightsPaths
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf networkInsightsPaths `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

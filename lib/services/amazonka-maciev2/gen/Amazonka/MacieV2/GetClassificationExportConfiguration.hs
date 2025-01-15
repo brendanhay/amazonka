@@ -166,5 +166,5 @@ instance
     GetClassificationExportConfigurationResponse
   where
   rnf GetClassificationExportConfigurationResponse' {..} =
-    Prelude.rnf configuration
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf configuration `Prelude.seq`
+      Prelude.rnf httpStatus

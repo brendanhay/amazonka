@@ -224,13 +224,13 @@ instance Prelude.Hashable Schedule where
 
 instance Prelude.NFData Schedule where
   rnf Schedule' {..} =
-    Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf eventFilter
-      `Prelude.seq` Prelude.rnf frequency
-      `Prelude.seq` Prelude.rnf isLocalTime
-      `Prelude.seq` Prelude.rnf quietTime
-      `Prelude.seq` Prelude.rnf timezone
-      `Prelude.seq` Prelude.rnf startTime
+    Prelude.rnf endTime `Prelude.seq`
+      Prelude.rnf eventFilter `Prelude.seq`
+        Prelude.rnf frequency `Prelude.seq`
+          Prelude.rnf isLocalTime `Prelude.seq`
+            Prelude.rnf quietTime `Prelude.seq`
+              Prelude.rnf timezone `Prelude.seq`
+                Prelude.rnf startTime
 
 instance Data.ToJSON Schedule where
   toJSON Schedule' {..} =

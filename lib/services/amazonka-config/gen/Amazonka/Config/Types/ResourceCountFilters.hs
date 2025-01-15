@@ -82,9 +82,9 @@ instance Prelude.Hashable ResourceCountFilters where
 
 instance Prelude.NFData ResourceCountFilters where
   rnf ResourceCountFilters' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf region
-      `Prelude.seq` Prelude.rnf resourceType
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf region `Prelude.seq`
+        Prelude.rnf resourceType
 
 instance Data.ToJSON ResourceCountFilters where
   toJSON ResourceCountFilters' {..} =

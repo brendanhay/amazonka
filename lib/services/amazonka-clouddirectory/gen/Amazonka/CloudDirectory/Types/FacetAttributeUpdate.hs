@@ -72,8 +72,8 @@ instance Prelude.Hashable FacetAttributeUpdate where
 
 instance Prelude.NFData FacetAttributeUpdate where
   rnf FacetAttributeUpdate' {..} =
-    Prelude.rnf action
-      `Prelude.seq` Prelude.rnf attribute
+    Prelude.rnf action `Prelude.seq`
+      Prelude.rnf attribute
 
 instance Data.ToJSON FacetAttributeUpdate where
   toJSON FacetAttributeUpdate' {..} =

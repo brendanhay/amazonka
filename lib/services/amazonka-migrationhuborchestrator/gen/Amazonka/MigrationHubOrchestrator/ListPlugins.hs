@@ -102,12 +102,12 @@ instance Core.AWSPager ListPlugins where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listPlugins_nextToken
-          Lens..~ rs
-          Lens.^? listPluginsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listPlugins_nextToken
+              Lens..~ rs
+              Lens.^? listPluginsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPlugins where
   type AWSResponse ListPlugins = ListPluginsResponse
@@ -130,8 +130,8 @@ instance Prelude.Hashable ListPlugins where
 
 instance Prelude.NFData ListPlugins where
   rnf ListPlugins' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListPlugins where
   toHeaders =
@@ -203,6 +203,6 @@ listPluginsResponse_httpStatus = Lens.lens (\ListPluginsResponse' {httpStatus} -
 
 instance Prelude.NFData ListPluginsResponse where
   rnf ListPluginsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf plugins
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf plugins `Prelude.seq`
+        Prelude.rnf httpStatus

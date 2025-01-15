@@ -144,10 +144,10 @@ instance Prelude.Hashable GetLinkAttributes where
 
 instance Prelude.NFData GetLinkAttributes where
   rnf GetLinkAttributes' {..} =
-    Prelude.rnf consistencyLevel
-      `Prelude.seq` Prelude.rnf directoryArn
-      `Prelude.seq` Prelude.rnf typedLinkSpecifier
-      `Prelude.seq` Prelude.rnf attributeNames
+    Prelude.rnf consistencyLevel `Prelude.seq`
+      Prelude.rnf directoryArn `Prelude.seq`
+        Prelude.rnf typedLinkSpecifier `Prelude.seq`
+          Prelude.rnf attributeNames
 
 instance Data.ToHeaders GetLinkAttributes where
   toHeaders GetLinkAttributes' {..} =
@@ -216,5 +216,5 @@ getLinkAttributesResponse_httpStatus = Lens.lens (\GetLinkAttributesResponse' {h
 
 instance Prelude.NFData GetLinkAttributesResponse where
   rnf GetLinkAttributesResponse' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf attributes `Prelude.seq`
+      Prelude.rnf httpStatus

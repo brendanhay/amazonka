@@ -187,12 +187,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeClientVpnTargetNetworks_nextToken
-          Lens..~ rs
-          Lens.^? describeClientVpnTargetNetworksResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeClientVpnTargetNetworks_nextToken
+              Lens..~ rs
+              Lens.^? describeClientVpnTargetNetworksResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -236,12 +236,12 @@ instance
     DescribeClientVpnTargetNetworks
   where
   rnf DescribeClientVpnTargetNetworks' {..} =
-    Prelude.rnf associationIds
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf clientVpnEndpointId
+    Prelude.rnf associationIds `Prelude.seq`
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf filters `Prelude.seq`
+          Prelude.rnf maxResults `Prelude.seq`
+            Prelude.rnf nextToken `Prelude.seq`
+              Prelude.rnf clientVpnEndpointId
 
 instance
   Data.ToHeaders
@@ -330,6 +330,6 @@ instance
     DescribeClientVpnTargetNetworksResponse
   where
   rnf DescribeClientVpnTargetNetworksResponse' {..} =
-    Prelude.rnf clientVpnTargetNetworks
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf clientVpnTargetNetworks `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

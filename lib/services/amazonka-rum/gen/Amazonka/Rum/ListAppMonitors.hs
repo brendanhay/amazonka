@@ -108,12 +108,12 @@ instance Core.AWSPager ListAppMonitors where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listAppMonitors_nextToken
-          Lens..~ rs
-          Lens.^? listAppMonitorsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listAppMonitors_nextToken
+              Lens..~ rs
+              Lens.^? listAppMonitorsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAppMonitors where
   type
@@ -141,8 +141,8 @@ instance Prelude.Hashable ListAppMonitors where
 
 instance Prelude.NFData ListAppMonitors where
   rnf ListAppMonitors' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListAppMonitors where
   toHeaders =
@@ -224,6 +224,6 @@ listAppMonitorsResponse_httpStatus = Lens.lens (\ListAppMonitorsResponse' {httpS
 
 instance Prelude.NFData ListAppMonitorsResponse where
   rnf ListAppMonitorsResponse' {..} =
-    Prelude.rnf appMonitorSummaries
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf appMonitorSummaries `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

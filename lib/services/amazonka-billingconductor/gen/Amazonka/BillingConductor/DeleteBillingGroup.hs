@@ -162,5 +162,5 @@ deleteBillingGroupResponse_httpStatus = Lens.lens (\DeleteBillingGroupResponse' 
 
 instance Prelude.NFData DeleteBillingGroupResponse where
   rnf DeleteBillingGroupResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf httpStatus

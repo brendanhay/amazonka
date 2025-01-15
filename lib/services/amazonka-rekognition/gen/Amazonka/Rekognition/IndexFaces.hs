@@ -390,12 +390,12 @@ instance Prelude.Hashable IndexFaces where
 
 instance Prelude.NFData IndexFaces where
   rnf IndexFaces' {..} =
-    Prelude.rnf detectionAttributes
-      `Prelude.seq` Prelude.rnf externalImageId
-      `Prelude.seq` Prelude.rnf maxFaces
-      `Prelude.seq` Prelude.rnf qualityFilter
-      `Prelude.seq` Prelude.rnf collectionId
-      `Prelude.seq` Prelude.rnf image
+    Prelude.rnf detectionAttributes `Prelude.seq`
+      Prelude.rnf externalImageId `Prelude.seq`
+        Prelude.rnf maxFaces `Prelude.seq`
+          Prelude.rnf qualityFilter `Prelude.seq`
+            Prelude.rnf collectionId `Prelude.seq`
+              Prelude.rnf image
 
 instance Data.ToHeaders IndexFaces where
   toHeaders =
@@ -594,8 +594,8 @@ indexFacesResponse_httpStatus = Lens.lens (\IndexFacesResponse' {httpStatus} -> 
 
 instance Prelude.NFData IndexFacesResponse where
   rnf IndexFacesResponse' {..} =
-    Prelude.rnf faceModelVersion
-      `Prelude.seq` Prelude.rnf faceRecords
-      `Prelude.seq` Prelude.rnf orientationCorrection
-      `Prelude.seq` Prelude.rnf unindexedFaces
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf faceModelVersion `Prelude.seq`
+      Prelude.rnf faceRecords `Prelude.seq`
+        Prelude.rnf orientationCorrection `Prelude.seq`
+          Prelude.rnf unindexedFaces `Prelude.seq`
+            Prelude.rnf httpStatus

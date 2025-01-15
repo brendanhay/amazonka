@@ -387,22 +387,22 @@ instance Prelude.Hashable UpdateOpsItem where
 
 instance Prelude.NFData UpdateOpsItem where
   rnf UpdateOpsItem' {..} =
-    Prelude.rnf actualEndTime
-      `Prelude.seq` Prelude.rnf actualStartTime
-      `Prelude.seq` Prelude.rnf category
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf notifications
-      `Prelude.seq` Prelude.rnf operationalData
-      `Prelude.seq` Prelude.rnf operationalDataToDelete
-      `Prelude.seq` Prelude.rnf opsItemArn
-      `Prelude.seq` Prelude.rnf plannedEndTime
-      `Prelude.seq` Prelude.rnf plannedStartTime
-      `Prelude.seq` Prelude.rnf priority
-      `Prelude.seq` Prelude.rnf relatedOpsItems
-      `Prelude.seq` Prelude.rnf severity
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf title
-      `Prelude.seq` Prelude.rnf opsItemId
+    Prelude.rnf actualEndTime `Prelude.seq`
+      Prelude.rnf actualStartTime `Prelude.seq`
+        Prelude.rnf category `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf notifications `Prelude.seq`
+              Prelude.rnf operationalData `Prelude.seq`
+                Prelude.rnf operationalDataToDelete `Prelude.seq`
+                  Prelude.rnf opsItemArn `Prelude.seq`
+                    Prelude.rnf plannedEndTime `Prelude.seq`
+                      Prelude.rnf plannedStartTime `Prelude.seq`
+                        Prelude.rnf priority `Prelude.seq`
+                          Prelude.rnf relatedOpsItems `Prelude.seq`
+                            Prelude.rnf severity `Prelude.seq`
+                              Prelude.rnf status `Prelude.seq`
+                                Prelude.rnf title `Prelude.seq`
+                                  Prelude.rnf opsItemId
 
 instance Data.ToHeaders UpdateOpsItem where
   toHeaders =

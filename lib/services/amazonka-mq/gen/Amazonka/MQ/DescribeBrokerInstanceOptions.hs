@@ -159,11 +159,11 @@ instance
 
 instance Prelude.NFData DescribeBrokerInstanceOptions where
   rnf DescribeBrokerInstanceOptions' {..} =
-    Prelude.rnf engineType
-      `Prelude.seq` Prelude.rnf hostInstanceType
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf storageType
+    Prelude.rnf engineType `Prelude.seq`
+      Prelude.rnf hostInstanceType `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf storageType
 
 instance Data.ToHeaders DescribeBrokerInstanceOptions where
   toHeaders =
@@ -257,7 +257,7 @@ instance
     DescribeBrokerInstanceOptionsResponse
   where
   rnf DescribeBrokerInstanceOptionsResponse' {..} =
-    Prelude.rnf brokerInstanceOptions
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf brokerInstanceOptions `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf httpStatus

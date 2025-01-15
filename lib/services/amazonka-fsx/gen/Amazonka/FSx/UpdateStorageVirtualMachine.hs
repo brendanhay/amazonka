@@ -138,10 +138,10 @@ instance Prelude.Hashable UpdateStorageVirtualMachine where
 
 instance Prelude.NFData UpdateStorageVirtualMachine where
   rnf UpdateStorageVirtualMachine' {..} =
-    Prelude.rnf activeDirectoryConfiguration
-      `Prelude.seq` Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf svmAdminPassword
-      `Prelude.seq` Prelude.rnf storageVirtualMachineId
+    Prelude.rnf activeDirectoryConfiguration `Prelude.seq`
+      Prelude.rnf clientRequestToken `Prelude.seq`
+        Prelude.rnf svmAdminPassword `Prelude.seq`
+          Prelude.rnf storageVirtualMachineId
 
 instance Data.ToHeaders UpdateStorageVirtualMachine where
   toHeaders =
@@ -224,5 +224,5 @@ instance
     UpdateStorageVirtualMachineResponse
   where
   rnf UpdateStorageVirtualMachineResponse' {..} =
-    Prelude.rnf storageVirtualMachine
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf storageVirtualMachine `Prelude.seq`
+      Prelude.rnf httpStatus

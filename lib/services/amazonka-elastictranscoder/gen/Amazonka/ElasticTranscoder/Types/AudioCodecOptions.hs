@@ -231,10 +231,10 @@ instance Prelude.Hashable AudioCodecOptions where
 
 instance Prelude.NFData AudioCodecOptions where
   rnf AudioCodecOptions' {..} =
-    Prelude.rnf bitDepth
-      `Prelude.seq` Prelude.rnf bitOrder
-      `Prelude.seq` Prelude.rnf profile
-      `Prelude.seq` Prelude.rnf signed
+    Prelude.rnf bitDepth `Prelude.seq`
+      Prelude.rnf bitOrder `Prelude.seq`
+        Prelude.rnf profile `Prelude.seq`
+          Prelude.rnf signed
 
 instance Data.ToJSON AudioCodecOptions where
   toJSON AudioCodecOptions' {..} =

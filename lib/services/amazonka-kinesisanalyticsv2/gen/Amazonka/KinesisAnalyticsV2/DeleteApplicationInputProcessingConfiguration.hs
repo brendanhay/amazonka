@@ -155,9 +155,9 @@ instance
   where
   rnf
     DeleteApplicationInputProcessingConfiguration' {..} =
-      Prelude.rnf applicationName
-        `Prelude.seq` Prelude.rnf currentApplicationVersionId
-        `Prelude.seq` Prelude.rnf inputId
+      Prelude.rnf applicationName `Prelude.seq`
+        Prelude.rnf currentApplicationVersionId `Prelude.seq`
+          Prelude.rnf inputId
 
 instance
   Data.ToHeaders
@@ -264,6 +264,6 @@ instance
   where
   rnf
     DeleteApplicationInputProcessingConfigurationResponse' {..} =
-      Prelude.rnf applicationARN
-        `Prelude.seq` Prelude.rnf applicationVersionId
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf applicationARN `Prelude.seq`
+        Prelude.rnf applicationVersionId `Prelude.seq`
+          Prelude.rnf httpStatus

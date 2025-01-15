@@ -101,12 +101,12 @@ instance Core.AWSPager ListResponsePlans where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listResponsePlans_nextToken
-          Lens..~ rs
-          Lens.^? listResponsePlansResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listResponsePlans_nextToken
+              Lens..~ rs
+              Lens.^? listResponsePlansResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListResponsePlans where
   type
@@ -134,8 +134,8 @@ instance Prelude.Hashable ListResponsePlans where
 
 instance Prelude.NFData ListResponsePlans where
   rnf ListResponsePlans' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListResponsePlans where
   toHeaders =
@@ -213,6 +213,6 @@ listResponsePlansResponse_responsePlanSummaries = Lens.lens (\ListResponsePlansR
 
 instance Prelude.NFData ListResponsePlansResponse where
   rnf ListResponsePlansResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf responsePlanSummaries
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf responsePlanSummaries

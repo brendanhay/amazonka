@@ -196,7 +196,7 @@ batchGetRecordResponse_unprocessedIdentifiers = Lens.lens (\BatchGetRecordRespon
 
 instance Prelude.NFData BatchGetRecordResponse where
   rnf BatchGetRecordResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf records
-      `Prelude.seq` Prelude.rnf errors
-      `Prelude.seq` Prelude.rnf unprocessedIdentifiers
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf records `Prelude.seq`
+        Prelude.rnf errors `Prelude.seq`
+          Prelude.rnf unprocessedIdentifiers

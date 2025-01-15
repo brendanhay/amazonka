@@ -255,16 +255,16 @@ instance Prelude.Hashable CreateAutoMLJob where
 
 instance Prelude.NFData CreateAutoMLJob where
   rnf CreateAutoMLJob' {..} =
-    Prelude.rnf autoMLJobConfig
-      `Prelude.seq` Prelude.rnf autoMLJobObjective
-      `Prelude.seq` Prelude.rnf generateCandidateDefinitionsOnly
-      `Prelude.seq` Prelude.rnf modelDeployConfig
-      `Prelude.seq` Prelude.rnf problemType
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf autoMLJobName
-      `Prelude.seq` Prelude.rnf inputDataConfig
-      `Prelude.seq` Prelude.rnf outputDataConfig
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf autoMLJobConfig `Prelude.seq`
+      Prelude.rnf autoMLJobObjective `Prelude.seq`
+        Prelude.rnf generateCandidateDefinitionsOnly `Prelude.seq`
+          Prelude.rnf modelDeployConfig `Prelude.seq`
+            Prelude.rnf problemType `Prelude.seq`
+              Prelude.rnf tags `Prelude.seq`
+                Prelude.rnf autoMLJobName `Prelude.seq`
+                  Prelude.rnf inputDataConfig `Prelude.seq`
+                    Prelude.rnf outputDataConfig `Prelude.seq`
+                      Prelude.rnf roleArn
 
 instance Data.ToHeaders CreateAutoMLJob where
   toHeaders =
@@ -352,5 +352,5 @@ createAutoMLJobResponse_autoMLJobArn = Lens.lens (\CreateAutoMLJobResponse' {aut
 
 instance Prelude.NFData CreateAutoMLJobResponse where
   rnf CreateAutoMLJobResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf autoMLJobArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf autoMLJobArn

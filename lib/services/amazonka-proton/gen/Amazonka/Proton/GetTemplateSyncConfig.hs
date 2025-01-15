@@ -113,8 +113,8 @@ instance Prelude.Hashable GetTemplateSyncConfig where
 
 instance Prelude.NFData GetTemplateSyncConfig where
   rnf GetTemplateSyncConfig' {..} =
-    Prelude.rnf templateName
-      `Prelude.seq` Prelude.rnf templateType
+    Prelude.rnf templateName `Prelude.seq`
+      Prelude.rnf templateType
 
 instance Data.ToHeaders GetTemplateSyncConfig where
   toHeaders =
@@ -187,5 +187,5 @@ getTemplateSyncConfigResponse_httpStatus = Lens.lens (\GetTemplateSyncConfigResp
 
 instance Prelude.NFData GetTemplateSyncConfigResponse where
   rnf GetTemplateSyncConfigResponse' {..} =
-    Prelude.rnf templateSyncConfig
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf templateSyncConfig `Prelude.seq`
+      Prelude.rnf httpStatus

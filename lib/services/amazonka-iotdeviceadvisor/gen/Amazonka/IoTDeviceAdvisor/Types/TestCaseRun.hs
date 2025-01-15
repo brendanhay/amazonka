@@ -224,13 +224,13 @@ instance Prelude.Hashable TestCaseRun where
 
 instance Prelude.NFData TestCaseRun where
   rnf TestCaseRun' {..} =
-    Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf failure
-      `Prelude.seq` Prelude.rnf logUrl
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf testCaseDefinitionId
-      `Prelude.seq` Prelude.rnf testCaseDefinitionName
-      `Prelude.seq` Prelude.rnf testCaseRunId
-      `Prelude.seq` Prelude.rnf testScenarios
-      `Prelude.seq` Prelude.rnf warnings
+    Prelude.rnf endTime `Prelude.seq`
+      Prelude.rnf failure `Prelude.seq`
+        Prelude.rnf logUrl `Prelude.seq`
+          Prelude.rnf startTime `Prelude.seq`
+            Prelude.rnf status `Prelude.seq`
+              Prelude.rnf testCaseDefinitionId `Prelude.seq`
+                Prelude.rnf testCaseDefinitionName `Prelude.seq`
+                  Prelude.rnf testCaseRunId `Prelude.seq`
+                    Prelude.rnf testScenarios `Prelude.seq`
+                      Prelude.rnf warnings

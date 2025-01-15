@@ -133,8 +133,8 @@ instance Prelude.Hashable SetDefaultMessageType where
 
 instance Prelude.NFData SetDefaultMessageType where
   rnf SetDefaultMessageType' {..} =
-    Prelude.rnf configurationSetName
-      `Prelude.seq` Prelude.rnf messageType
+    Prelude.rnf configurationSetName `Prelude.seq`
+      Prelude.rnf messageType
 
 instance Data.ToHeaders SetDefaultMessageType where
   toHeaders =
@@ -228,7 +228,7 @@ setDefaultMessageTypeResponse_httpStatus = Lens.lens (\SetDefaultMessageTypeResp
 
 instance Prelude.NFData SetDefaultMessageTypeResponse where
   rnf SetDefaultMessageTypeResponse' {..} =
-    Prelude.rnf configurationSetArn
-      `Prelude.seq` Prelude.rnf configurationSetName
-      `Prelude.seq` Prelude.rnf messageType
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf configurationSetArn `Prelude.seq`
+      Prelude.rnf configurationSetName `Prelude.seq`
+        Prelude.rnf messageType `Prelude.seq`
+          Prelude.rnf httpStatus

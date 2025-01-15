@@ -185,12 +185,12 @@ instance Prelude.Hashable CreateDashboard where
 
 instance Prelude.NFData CreateDashboard where
   rnf CreateDashboard' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf dashboardDescription
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf projectId
-      `Prelude.seq` Prelude.rnf dashboardName
-      `Prelude.seq` Prelude.rnf dashboardDefinition
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf dashboardDescription `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf projectId `Prelude.seq`
+            Prelude.rnf dashboardName `Prelude.seq`
+              Prelude.rnf dashboardDefinition
 
 instance Data.ToHeaders CreateDashboard where
   toHeaders =
@@ -292,6 +292,6 @@ createDashboardResponse_dashboardArn = Lens.lens (\CreateDashboardResponse' {das
 
 instance Prelude.NFData CreateDashboardResponse where
   rnf CreateDashboardResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf dashboardId
-      `Prelude.seq` Prelude.rnf dashboardArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf dashboardId `Prelude.seq`
+        Prelude.rnf dashboardArn

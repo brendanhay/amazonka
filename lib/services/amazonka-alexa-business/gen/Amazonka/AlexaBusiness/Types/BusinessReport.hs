@@ -119,8 +119,8 @@ instance Prelude.Hashable BusinessReport where
 
 instance Prelude.NFData BusinessReport where
   rnf BusinessReport' {..} =
-    Prelude.rnf deliveryTime
-      `Prelude.seq` Prelude.rnf downloadUrl
-      `Prelude.seq` Prelude.rnf failureCode
-      `Prelude.seq` Prelude.rnf s3Location
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf deliveryTime `Prelude.seq`
+      Prelude.rnf downloadUrl `Prelude.seq`
+        Prelude.rnf failureCode `Prelude.seq`
+          Prelude.rnf s3Location `Prelude.seq`
+            Prelude.rnf status

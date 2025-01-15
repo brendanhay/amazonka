@@ -403,11 +403,11 @@ instance Prelude.Hashable GenerateDataKey where
 
 instance Prelude.NFData GenerateDataKey where
   rnf GenerateDataKey' {..} =
-    Prelude.rnf encryptionContext
-      `Prelude.seq` Prelude.rnf grantTokens
-      `Prelude.seq` Prelude.rnf keySpec
-      `Prelude.seq` Prelude.rnf numberOfBytes
-      `Prelude.seq` Prelude.rnf keyId
+    Prelude.rnf encryptionContext `Prelude.seq`
+      Prelude.rnf grantTokens `Prelude.seq`
+        Prelude.rnf keySpec `Prelude.seq`
+          Prelude.rnf numberOfBytes `Prelude.seq`
+            Prelude.rnf keyId
 
 instance Data.ToHeaders GenerateDataKey where
   toHeaders =
@@ -552,7 +552,7 @@ generateDataKeyResponse_ciphertextBlob = Lens.lens (\GenerateDataKeyResponse' {c
 
 instance Prelude.NFData GenerateDataKeyResponse where
   rnf GenerateDataKeyResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf keyId
-      `Prelude.seq` Prelude.rnf plaintext
-      `Prelude.seq` Prelude.rnf ciphertextBlob
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf keyId `Prelude.seq`
+        Prelude.rnf plaintext `Prelude.seq`
+          Prelude.rnf ciphertextBlob

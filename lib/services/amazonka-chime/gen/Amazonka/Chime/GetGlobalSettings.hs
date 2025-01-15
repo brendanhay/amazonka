@@ -141,6 +141,6 @@ getGlobalSettingsResponse_httpStatus = Lens.lens (\GetGlobalSettingsResponse' {h
 
 instance Prelude.NFData GetGlobalSettingsResponse where
   rnf GetGlobalSettingsResponse' {..} =
-    Prelude.rnf businessCalling
-      `Prelude.seq` Prelude.rnf voiceConnector
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf businessCalling `Prelude.seq`
+      Prelude.rnf voiceConnector `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -109,8 +109,8 @@ instance Prelude.Hashable DeleteSite where
 
 instance Prelude.NFData DeleteSite where
   rnf DeleteSite' {..} =
-    Prelude.rnf globalNetworkId
-      `Prelude.seq` Prelude.rnf siteId
+    Prelude.rnf globalNetworkId `Prelude.seq`
+      Prelude.rnf siteId
 
 instance Data.ToHeaders DeleteSite where
   toHeaders =
@@ -175,5 +175,5 @@ deleteSiteResponse_httpStatus = Lens.lens (\DeleteSiteResponse' {httpStatus} -> 
 
 instance Prelude.NFData DeleteSiteResponse where
   rnf DeleteSiteResponse' {..} =
-    Prelude.rnf site
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf site `Prelude.seq`
+      Prelude.rnf httpStatus

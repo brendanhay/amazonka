@@ -216,15 +216,15 @@ instance Prelude.Hashable CreateManagedEndpoint where
 
 instance Prelude.NFData CreateManagedEndpoint where
   rnf CreateManagedEndpoint' {..} =
-    Prelude.rnf certificateArn
-      `Prelude.seq` Prelude.rnf configurationOverrides
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf virtualClusterId
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf releaseLabel
-      `Prelude.seq` Prelude.rnf executionRoleArn
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf certificateArn `Prelude.seq`
+      Prelude.rnf configurationOverrides `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf virtualClusterId `Prelude.seq`
+              Prelude.rnf type' `Prelude.seq`
+                Prelude.rnf releaseLabel `Prelude.seq`
+                  Prelude.rnf executionRoleArn `Prelude.seq`
+                    Prelude.rnf clientToken
 
 instance Data.ToHeaders CreateManagedEndpoint where
   toHeaders =
@@ -334,8 +334,8 @@ createManagedEndpointResponse_httpStatus = Lens.lens (\CreateManagedEndpointResp
 
 instance Prelude.NFData CreateManagedEndpointResponse where
   rnf CreateManagedEndpointResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf virtualClusterId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf virtualClusterId `Prelude.seq`
+            Prelude.rnf httpStatus

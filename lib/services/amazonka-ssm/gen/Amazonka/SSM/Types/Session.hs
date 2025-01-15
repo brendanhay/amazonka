@@ -190,14 +190,14 @@ instance Prelude.Hashable Session where
 
 instance Prelude.NFData Session where
   rnf Session' {..} =
-    Prelude.rnf details
-      `Prelude.seq` Prelude.rnf documentName
-      `Prelude.seq` Prelude.rnf endDate
-      `Prelude.seq` Prelude.rnf maxSessionDuration
-      `Prelude.seq` Prelude.rnf outputUrl
-      `Prelude.seq` Prelude.rnf owner
-      `Prelude.seq` Prelude.rnf reason
-      `Prelude.seq` Prelude.rnf sessionId
-      `Prelude.seq` Prelude.rnf startDate
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf target
+    Prelude.rnf details `Prelude.seq`
+      Prelude.rnf documentName `Prelude.seq`
+        Prelude.rnf endDate `Prelude.seq`
+          Prelude.rnf maxSessionDuration `Prelude.seq`
+            Prelude.rnf outputUrl `Prelude.seq`
+              Prelude.rnf owner `Prelude.seq`
+                Prelude.rnf reason `Prelude.seq`
+                  Prelude.rnf sessionId `Prelude.seq`
+                    Prelude.rnf startDate `Prelude.seq`
+                      Prelude.rnf status `Prelude.seq`
+                        Prelude.rnf target

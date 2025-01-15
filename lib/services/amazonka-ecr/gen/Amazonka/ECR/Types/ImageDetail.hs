@@ -242,14 +242,14 @@ instance Prelude.Hashable ImageDetail where
 
 instance Prelude.NFData ImageDetail where
   rnf ImageDetail' {..} =
-    Prelude.rnf artifactMediaType
-      `Prelude.seq` Prelude.rnf imageDigest
-      `Prelude.seq` Prelude.rnf imageManifestMediaType
-      `Prelude.seq` Prelude.rnf imagePushedAt
-      `Prelude.seq` Prelude.rnf imageScanFindingsSummary
-      `Prelude.seq` Prelude.rnf imageScanStatus
-      `Prelude.seq` Prelude.rnf imageSizeInBytes
-      `Prelude.seq` Prelude.rnf imageTags
-      `Prelude.seq` Prelude.rnf lastRecordedPullTime
-      `Prelude.seq` Prelude.rnf registryId
-      `Prelude.seq` Prelude.rnf repositoryName
+    Prelude.rnf artifactMediaType `Prelude.seq`
+      Prelude.rnf imageDigest `Prelude.seq`
+        Prelude.rnf imageManifestMediaType `Prelude.seq`
+          Prelude.rnf imagePushedAt `Prelude.seq`
+            Prelude.rnf imageScanFindingsSummary `Prelude.seq`
+              Prelude.rnf imageScanStatus `Prelude.seq`
+                Prelude.rnf imageSizeInBytes `Prelude.seq`
+                  Prelude.rnf imageTags `Prelude.seq`
+                    Prelude.rnf lastRecordedPullTime `Prelude.seq`
+                      Prelude.rnf registryId `Prelude.seq`
+                        Prelude.rnf repositoryName

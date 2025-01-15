@@ -170,12 +170,12 @@ instance Prelude.Hashable MessageRequest where
 
 instance Prelude.NFData MessageRequest where
   rnf MessageRequest' {..} =
-    Prelude.rnf addresses
-      `Prelude.seq` Prelude.rnf context
-      `Prelude.seq` Prelude.rnf endpoints
-      `Prelude.seq` Prelude.rnf templateConfiguration
-      `Prelude.seq` Prelude.rnf traceId
-      `Prelude.seq` Prelude.rnf messageConfiguration
+    Prelude.rnf addresses `Prelude.seq`
+      Prelude.rnf context `Prelude.seq`
+        Prelude.rnf endpoints `Prelude.seq`
+          Prelude.rnf templateConfiguration `Prelude.seq`
+            Prelude.rnf traceId `Prelude.seq`
+              Prelude.rnf messageConfiguration
 
 instance Data.ToJSON MessageRequest where
   toJSON MessageRequest' {..} =

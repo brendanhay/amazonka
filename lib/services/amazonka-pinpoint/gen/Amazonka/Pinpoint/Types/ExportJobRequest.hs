@@ -119,10 +119,10 @@ instance Prelude.Hashable ExportJobRequest where
 
 instance Prelude.NFData ExportJobRequest where
   rnf ExportJobRequest' {..} =
-    Prelude.rnf segmentId
-      `Prelude.seq` Prelude.rnf segmentVersion
-      `Prelude.seq` Prelude.rnf s3UrlPrefix
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf segmentId `Prelude.seq`
+      Prelude.rnf segmentVersion `Prelude.seq`
+        Prelude.rnf s3UrlPrefix `Prelude.seq`
+          Prelude.rnf roleArn
 
 instance Data.ToJSON ExportJobRequest where
   toJSON ExportJobRequest' {..} =

@@ -113,9 +113,7 @@ instance
       "DeregisterInstancesFromLoadBalancerResult"
       ( \s h x ->
           DeregisterInstancesFromLoadBalancerResponse'
-            Prelude.<$> ( x
-                            Data..@? "Instances"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "Instances" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -137,8 +135,8 @@ instance
     DeregisterInstancesFromLoadBalancer
   where
   rnf DeregisterInstancesFromLoadBalancer' {..} =
-    Prelude.rnf loadBalancerName
-      `Prelude.seq` Prelude.rnf instances
+    Prelude.rnf loadBalancerName `Prelude.seq`
+      Prelude.rnf instances
 
 instance
   Data.ToHeaders
@@ -216,5 +214,5 @@ instance
     DeregisterInstancesFromLoadBalancerResponse
   where
   rnf DeregisterInstancesFromLoadBalancerResponse' {..} =
-    Prelude.rnf instances
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf instances `Prelude.seq`
+      Prelude.rnf httpStatus

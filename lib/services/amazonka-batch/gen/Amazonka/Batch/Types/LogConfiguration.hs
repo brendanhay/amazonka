@@ -312,9 +312,9 @@ instance Prelude.Hashable LogConfiguration where
 
 instance Prelude.NFData LogConfiguration where
   rnf LogConfiguration' {..} =
-    Prelude.rnf options
-      `Prelude.seq` Prelude.rnf secretOptions
-      `Prelude.seq` Prelude.rnf logDriver
+    Prelude.rnf options `Prelude.seq`
+      Prelude.rnf secretOptions `Prelude.seq`
+        Prelude.rnf logDriver
 
 instance Data.ToJSON LogConfiguration where
   toJSON LogConfiguration' {..} =

@@ -119,9 +119,9 @@ instance
 
 instance Prelude.NFData MultiConditionalSplitActivity where
   rnf MultiConditionalSplitActivity' {..} =
-    Prelude.rnf branches
-      `Prelude.seq` Prelude.rnf defaultActivity
-      `Prelude.seq` Prelude.rnf evaluationWaitTime
+    Prelude.rnf branches `Prelude.seq`
+      Prelude.rnf defaultActivity `Prelude.seq`
+        Prelude.rnf evaluationWaitTime
 
 instance Data.ToJSON MultiConditionalSplitActivity where
   toJSON MultiConditionalSplitActivity' {..} =

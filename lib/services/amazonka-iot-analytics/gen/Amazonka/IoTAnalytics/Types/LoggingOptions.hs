@@ -101,9 +101,9 @@ instance Prelude.Hashable LoggingOptions where
 
 instance Prelude.NFData LoggingOptions where
   rnf LoggingOptions' {..} =
-    Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf level
-      `Prelude.seq` Prelude.rnf enabled
+    Prelude.rnf roleArn `Prelude.seq`
+      Prelude.rnf level `Prelude.seq`
+        Prelude.rnf enabled
 
 instance Data.ToJSON LoggingOptions where
   toJSON LoggingOptions' {..} =

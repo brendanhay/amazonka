@@ -203,13 +203,13 @@ instance Prelude.Hashable AutoScalingThresholds where
 
 instance Prelude.NFData AutoScalingThresholds where
   rnf AutoScalingThresholds' {..} =
-    Prelude.rnf alarms
-      `Prelude.seq` Prelude.rnf cpuThreshold
-      `Prelude.seq` Prelude.rnf ignoreMetricsTime
-      `Prelude.seq` Prelude.rnf instanceCount
-      `Prelude.seq` Prelude.rnf loadThreshold
-      `Prelude.seq` Prelude.rnf memoryThreshold
-      `Prelude.seq` Prelude.rnf thresholdsWaitTime
+    Prelude.rnf alarms `Prelude.seq`
+      Prelude.rnf cpuThreshold `Prelude.seq`
+        Prelude.rnf ignoreMetricsTime `Prelude.seq`
+          Prelude.rnf instanceCount `Prelude.seq`
+            Prelude.rnf loadThreshold `Prelude.seq`
+              Prelude.rnf memoryThreshold `Prelude.seq`
+                Prelude.rnf thresholdsWaitTime
 
 instance Data.ToJSON AutoScalingThresholds where
   toJSON AutoScalingThresholds' {..} =

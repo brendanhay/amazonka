@@ -206,7 +206,7 @@ instance
   where
   rnf
     DescribeDefaultEncryptionConfigurationResponse' {..} =
-      Prelude.rnf kmsKeyArn
-        `Prelude.seq` Prelude.rnf httpStatus
-        `Prelude.seq` Prelude.rnf encryptionType
-        `Prelude.seq` Prelude.rnf configurationStatus
+      Prelude.rnf kmsKeyArn `Prelude.seq`
+        Prelude.rnf httpStatus `Prelude.seq`
+          Prelude.rnf encryptionType `Prelude.seq`
+            Prelude.rnf configurationStatus

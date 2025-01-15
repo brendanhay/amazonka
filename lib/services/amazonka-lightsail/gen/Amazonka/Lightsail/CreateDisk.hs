@@ -175,11 +175,11 @@ instance Prelude.Hashable CreateDisk where
 
 instance Prelude.NFData CreateDisk where
   rnf CreateDisk' {..} =
-    Prelude.rnf addOns
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf diskName
-      `Prelude.seq` Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf sizeInGb
+    Prelude.rnf addOns `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf diskName `Prelude.seq`
+          Prelude.rnf availabilityZone `Prelude.seq`
+            Prelude.rnf sizeInGb
 
 instance Data.ToHeaders CreateDisk where
   toHeaders =
@@ -261,5 +261,5 @@ createDiskResponse_httpStatus = Lens.lens (\CreateDiskResponse' {httpStatus} -> 
 
 instance Prelude.NFData CreateDiskResponse where
   rnf CreateDiskResponse' {..} =
-    Prelude.rnf operations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operations `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -283,11 +283,11 @@ instance Prelude.Hashable DeleteResource where
 
 instance Prelude.NFData DeleteResource where
   rnf DeleteResource' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf typeVersionId
-      `Prelude.seq` Prelude.rnf typeName
-      `Prelude.seq` Prelude.rnf identifier
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf roleArn `Prelude.seq`
+        Prelude.rnf typeVersionId `Prelude.seq`
+          Prelude.rnf typeName `Prelude.seq`
+            Prelude.rnf identifier
 
 instance Data.ToHeaders DeleteResource where
   toHeaders =
@@ -381,5 +381,5 @@ deleteResourceResponse_httpStatus = Lens.lens (\DeleteResourceResponse' {httpSta
 
 instance Prelude.NFData DeleteResourceResponse where
   rnf DeleteResourceResponse' {..} =
-    Prelude.rnf progressEvent
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf progressEvent `Prelude.seq`
+      Prelude.rnf httpStatus

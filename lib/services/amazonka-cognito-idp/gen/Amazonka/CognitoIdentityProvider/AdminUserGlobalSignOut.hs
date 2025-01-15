@@ -118,8 +118,8 @@ instance Prelude.Hashable AdminUserGlobalSignOut where
 
 instance Prelude.NFData AdminUserGlobalSignOut where
   rnf AdminUserGlobalSignOut' {..} =
-    Prelude.rnf userPoolId
-      `Prelude.seq` Prelude.rnf username
+    Prelude.rnf userPoolId `Prelude.seq`
+      Prelude.rnf username
 
 instance Data.ToHeaders AdminUserGlobalSignOut where
   toHeaders =

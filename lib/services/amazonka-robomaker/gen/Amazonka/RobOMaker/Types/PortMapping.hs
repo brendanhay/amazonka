@@ -98,9 +98,9 @@ instance Prelude.Hashable PortMapping where
 
 instance Prelude.NFData PortMapping where
   rnf PortMapping' {..} =
-    Prelude.rnf enableOnPublicIp
-      `Prelude.seq` Prelude.rnf jobPort
-      `Prelude.seq` Prelude.rnf applicationPort
+    Prelude.rnf enableOnPublicIp `Prelude.seq`
+      Prelude.rnf jobPort `Prelude.seq`
+        Prelude.rnf applicationPort
 
 instance Data.ToJSON PortMapping where
   toJSON PortMapping' {..} =

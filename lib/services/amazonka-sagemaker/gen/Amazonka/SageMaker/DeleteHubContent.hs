@@ -131,10 +131,10 @@ instance Prelude.Hashable DeleteHubContent where
 
 instance Prelude.NFData DeleteHubContent where
   rnf DeleteHubContent' {..} =
-    Prelude.rnf hubName
-      `Prelude.seq` Prelude.rnf hubContentType
-      `Prelude.seq` Prelude.rnf hubContentName
-      `Prelude.seq` Prelude.rnf hubContentVersion
+    Prelude.rnf hubName `Prelude.seq`
+      Prelude.rnf hubContentType `Prelude.seq`
+        Prelude.rnf hubContentName `Prelude.seq`
+          Prelude.rnf hubContentVersion
 
 instance Data.ToHeaders DeleteHubContent where
   toHeaders =

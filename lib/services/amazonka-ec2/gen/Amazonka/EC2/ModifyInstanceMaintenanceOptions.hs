@@ -149,9 +149,9 @@ instance
     ModifyInstanceMaintenanceOptions
   where
   rnf ModifyInstanceMaintenanceOptions' {..} =
-    Prelude.rnf autoRecovery
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf instanceId
+    Prelude.rnf autoRecovery `Prelude.seq`
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf instanceId
 
 instance
   Data.ToHeaders
@@ -236,6 +236,6 @@ instance
     ModifyInstanceMaintenanceOptionsResponse
   where
   rnf ModifyInstanceMaintenanceOptionsResponse' {..} =
-    Prelude.rnf autoRecovery
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf autoRecovery `Prelude.seq`
+      Prelude.rnf instanceId `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -98,9 +98,9 @@ instance
     DescribeSourceServersRequestFilters
   where
   rnf DescribeSourceServersRequestFilters' {..} =
-    Prelude.rnf hardwareId
-      `Prelude.seq` Prelude.rnf sourceServerIDs
-      `Prelude.seq` Prelude.rnf stagingAccountIDs
+    Prelude.rnf hardwareId `Prelude.seq`
+      Prelude.rnf sourceServerIDs `Prelude.seq`
+        Prelude.rnf stagingAccountIDs
 
 instance
   Data.ToJSON

@@ -143,9 +143,9 @@ instance
 
 instance Prelude.NFData GetEnvironmentTemplateVersion where
   rnf GetEnvironmentTemplateVersion' {..} =
-    Prelude.rnf majorVersion
-      `Prelude.seq` Prelude.rnf minorVersion
-      `Prelude.seq` Prelude.rnf templateName
+    Prelude.rnf majorVersion `Prelude.seq`
+      Prelude.rnf minorVersion `Prelude.seq`
+        Prelude.rnf templateName
 
 instance Data.ToHeaders GetEnvironmentTemplateVersion where
   toHeaders =
@@ -227,5 +227,5 @@ instance
     GetEnvironmentTemplateVersionResponse
   where
   rnf GetEnvironmentTemplateVersionResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf environmentTemplateVersion
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf environmentTemplateVersion

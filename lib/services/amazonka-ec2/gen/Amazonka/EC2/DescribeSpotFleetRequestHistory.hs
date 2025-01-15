@@ -213,12 +213,12 @@ instance
     DescribeSpotFleetRequestHistory
   where
   rnf DescribeSpotFleetRequestHistory' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf eventType
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf spotFleetRequestId
-      `Prelude.seq` Prelude.rnf startTime
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf eventType `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf spotFleetRequestId `Prelude.seq`
+              Prelude.rnf startTime
 
 instance
   Data.ToHeaders
@@ -352,9 +352,9 @@ instance
     DescribeSpotFleetRequestHistoryResponse
   where
   rnf DescribeSpotFleetRequestHistoryResponse' {..} =
-    Prelude.rnf historyRecords
-      `Prelude.seq` Prelude.rnf lastEvaluatedTime
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf spotFleetRequestId
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf historyRecords `Prelude.seq`
+      Prelude.rnf lastEvaluatedTime `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf spotFleetRequestId `Prelude.seq`
+            Prelude.rnf startTime `Prelude.seq`
+              Prelude.rnf httpStatus

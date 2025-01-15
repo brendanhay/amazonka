@@ -221,10 +221,10 @@ instance Prelude.Hashable BatchUpsertTableRows where
 
 instance Prelude.NFData BatchUpsertTableRows where
   rnf BatchUpsertTableRows' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf workbookId
-      `Prelude.seq` Prelude.rnf tableId
-      `Prelude.seq` Prelude.rnf rowsToUpsert
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf workbookId `Prelude.seq`
+        Prelude.rnf tableId `Prelude.seq`
+          Prelude.rnf rowsToUpsert
 
 instance Data.ToHeaders BatchUpsertTableRows where
   toHeaders =
@@ -344,7 +344,7 @@ batchUpsertTableRowsResponse_workbookCursor = Lens.lens (\BatchUpsertTableRowsRe
 
 instance Prelude.NFData BatchUpsertTableRowsResponse where
   rnf BatchUpsertTableRowsResponse' {..} =
-    Prelude.rnf failedBatchItems
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf rows
-      `Prelude.seq` Prelude.rnf workbookCursor
+    Prelude.rnf failedBatchItems `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf rows `Prelude.seq`
+          Prelude.rnf workbookCursor

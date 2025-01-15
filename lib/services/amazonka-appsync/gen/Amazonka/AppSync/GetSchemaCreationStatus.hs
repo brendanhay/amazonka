@@ -175,6 +175,6 @@ instance
     GetSchemaCreationStatusResponse
   where
   rnf GetSchemaCreationStatusResponse' {..} =
-    Prelude.rnf details
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf details `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf httpStatus

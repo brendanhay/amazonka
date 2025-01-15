@@ -102,7 +102,7 @@ instance Prelude.Hashable Permission where
 
 instance Prelude.NFData Permission where
   rnf Permission' {..} =
-    Prelude.rnf action
-      `Prelude.seq` Prelude.rnf principal
-      `Prelude.seq` Prelude.rnf profileVersion
-      `Prelude.seq` Prelude.rnf statementId
+    Prelude.rnf action `Prelude.seq`
+      Prelude.rnf principal `Prelude.seq`
+        Prelude.rnf profileVersion `Prelude.seq`
+          Prelude.rnf statementId

@@ -103,8 +103,8 @@ instance Prelude.Hashable ModelInfrastructureConfig where
 
 instance Prelude.NFData ModelInfrastructureConfig where
   rnf ModelInfrastructureConfig' {..} =
-    Prelude.rnf infrastructureType
-      `Prelude.seq` Prelude.rnf realTimeInferenceConfig
+    Prelude.rnf infrastructureType `Prelude.seq`
+      Prelude.rnf realTimeInferenceConfig
 
 instance Data.ToJSON ModelInfrastructureConfig where
   toJSON ModelInfrastructureConfig' {..} =

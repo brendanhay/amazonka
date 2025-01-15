@@ -92,9 +92,9 @@ instance Prelude.Hashable HumanLoopConfig where
 
 instance Prelude.NFData HumanLoopConfig where
   rnf HumanLoopConfig' {..} =
-    Prelude.rnf dataAttributes
-      `Prelude.seq` Prelude.rnf humanLoopName
-      `Prelude.seq` Prelude.rnf flowDefinitionArn
+    Prelude.rnf dataAttributes `Prelude.seq`
+      Prelude.rnf humanLoopName `Prelude.seq`
+        Prelude.rnf flowDefinitionArn
 
 instance Data.ToJSON HumanLoopConfig where
   toJSON HumanLoopConfig' {..} =

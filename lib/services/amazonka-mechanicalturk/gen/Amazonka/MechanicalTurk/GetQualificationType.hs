@@ -171,5 +171,5 @@ getQualificationTypeResponse_httpStatus = Lens.lens (\GetQualificationTypeRespon
 
 instance Prelude.NFData GetQualificationTypeResponse where
   rnf GetQualificationTypeResponse' {..} =
-    Prelude.rnf qualificationType
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf qualificationType `Prelude.seq`
+      Prelude.rnf httpStatus

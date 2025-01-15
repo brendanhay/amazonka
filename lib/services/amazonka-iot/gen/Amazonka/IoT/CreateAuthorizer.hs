@@ -236,14 +236,14 @@ instance Prelude.Hashable CreateAuthorizer where
 
 instance Prelude.NFData CreateAuthorizer where
   rnf CreateAuthorizer' {..} =
-    Prelude.rnf enableCachingForHttp
-      `Prelude.seq` Prelude.rnf signingDisabled
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf tokenKeyName
-      `Prelude.seq` Prelude.rnf tokenSigningPublicKeys
-      `Prelude.seq` Prelude.rnf authorizerName
-      `Prelude.seq` Prelude.rnf authorizerFunctionArn
+    Prelude.rnf enableCachingForHttp `Prelude.seq`
+      Prelude.rnf signingDisabled `Prelude.seq`
+        Prelude.rnf status `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf tokenKeyName `Prelude.seq`
+              Prelude.rnf tokenSigningPublicKeys `Prelude.seq`
+                Prelude.rnf authorizerName `Prelude.seq`
+                  Prelude.rnf authorizerFunctionArn
 
 instance Data.ToHeaders CreateAuthorizer where
   toHeaders = Prelude.const Prelude.mempty
@@ -326,6 +326,6 @@ createAuthorizerResponse_httpStatus = Lens.lens (\CreateAuthorizerResponse' {htt
 
 instance Prelude.NFData CreateAuthorizerResponse where
   rnf CreateAuthorizerResponse' {..} =
-    Prelude.rnf authorizerArn
-      `Prelude.seq` Prelude.rnf authorizerName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf authorizerArn `Prelude.seq`
+      Prelude.rnf authorizerName `Prelude.seq`
+        Prelude.rnf httpStatus

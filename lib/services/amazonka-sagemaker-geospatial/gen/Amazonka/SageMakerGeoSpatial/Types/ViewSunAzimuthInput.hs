@@ -80,8 +80,8 @@ instance Prelude.Hashable ViewSunAzimuthInput where
 
 instance Prelude.NFData ViewSunAzimuthInput where
   rnf ViewSunAzimuthInput' {..} =
-    Prelude.rnf lowerBound
-      `Prelude.seq` Prelude.rnf upperBound
+    Prelude.rnf lowerBound `Prelude.seq`
+      Prelude.rnf upperBound
 
 instance Data.ToJSON ViewSunAzimuthInput where
   toJSON ViewSunAzimuthInput' {..} =

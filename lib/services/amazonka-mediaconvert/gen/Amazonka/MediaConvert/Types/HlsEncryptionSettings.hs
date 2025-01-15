@@ -184,13 +184,13 @@ instance Prelude.Hashable HlsEncryptionSettings where
 
 instance Prelude.NFData HlsEncryptionSettings where
   rnf HlsEncryptionSettings' {..} =
-    Prelude.rnf constantInitializationVector
-      `Prelude.seq` Prelude.rnf encryptionMethod
-      `Prelude.seq` Prelude.rnf initializationVectorInManifest
-      `Prelude.seq` Prelude.rnf offlineEncrypted
-      `Prelude.seq` Prelude.rnf spekeKeyProvider
-      `Prelude.seq` Prelude.rnf staticKeyProvider
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf constantInitializationVector `Prelude.seq`
+      Prelude.rnf encryptionMethod `Prelude.seq`
+        Prelude.rnf initializationVectorInManifest `Prelude.seq`
+          Prelude.rnf offlineEncrypted `Prelude.seq`
+            Prelude.rnf spekeKeyProvider `Prelude.seq`
+              Prelude.rnf staticKeyProvider `Prelude.seq`
+                Prelude.rnf type'
 
 instance Data.ToJSON HlsEncryptionSettings where
   toJSON HlsEncryptionSettings' {..} =

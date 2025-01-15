@@ -212,10 +212,10 @@ instance Prelude.Hashable CreateUser where
 
 instance Prelude.NFData CreateUser where
   rnf CreateUser' {..} =
-    Prelude.rnf path
-      `Prelude.seq` Prelude.rnf permissionsBoundary
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf userName
+    Prelude.rnf path `Prelude.seq`
+      Prelude.rnf permissionsBoundary `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf userName
 
 instance Data.ToHeaders CreateUser where
   toHeaders = Prelude.const Prelude.mempty
@@ -280,5 +280,5 @@ createUserResponse_httpStatus = Lens.lens (\CreateUserResponse' {httpStatus} -> 
 
 instance Prelude.NFData CreateUserResponse where
   rnf CreateUserResponse' {..} =
-    Prelude.rnf user
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf user `Prelude.seq`
+      Prelude.rnf httpStatus

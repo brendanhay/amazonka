@@ -81,5 +81,5 @@ instance Prelude.Hashable FailureSummary where
 
 instance Prelude.NFData FailureSummary where
   rnf FailureSummary' {..} =
-    Prelude.rnf failures
-      `Prelude.seq` Prelude.rnf totalFailureCount
+    Prelude.rnf failures `Prelude.seq`
+      Prelude.rnf totalFailureCount

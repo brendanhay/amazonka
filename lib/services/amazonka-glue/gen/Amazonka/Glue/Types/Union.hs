@@ -117,9 +117,9 @@ instance Prelude.Hashable Union where
 
 instance Prelude.NFData Union where
   rnf Union' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf inputs
-      `Prelude.seq` Prelude.rnf unionType
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf inputs `Prelude.seq`
+        Prelude.rnf unionType
 
 instance Data.ToJSON Union where
   toJSON Union' {..} =

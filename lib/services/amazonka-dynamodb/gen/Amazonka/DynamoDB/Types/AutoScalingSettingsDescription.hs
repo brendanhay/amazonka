@@ -135,8 +135,8 @@ instance
     AutoScalingSettingsDescription
   where
   rnf AutoScalingSettingsDescription' {..} =
-    Prelude.rnf autoScalingDisabled
-      `Prelude.seq` Prelude.rnf autoScalingRoleArn
-      `Prelude.seq` Prelude.rnf maximumUnits
-      `Prelude.seq` Prelude.rnf minimumUnits
-      `Prelude.seq` Prelude.rnf scalingPolicies
+    Prelude.rnf autoScalingDisabled `Prelude.seq`
+      Prelude.rnf autoScalingRoleArn `Prelude.seq`
+        Prelude.rnf maximumUnits `Prelude.seq`
+          Prelude.rnf minimumUnits `Prelude.seq`
+            Prelude.rnf scalingPolicies

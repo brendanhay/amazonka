@@ -246,7 +246,7 @@ getQueryResultsResponse_httpStatus = Lens.lens (\GetQueryResultsResponse' {httpS
 
 instance Prelude.NFData GetQueryResultsResponse where
   rnf GetQueryResultsResponse' {..} =
-    Prelude.rnf results
-      `Prelude.seq` Prelude.rnf statistics
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf results `Prelude.seq`
+      Prelude.rnf statistics `Prelude.seq`
+        Prelude.rnf status `Prelude.seq`
+          Prelude.rnf httpStatus

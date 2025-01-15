@@ -124,12 +124,12 @@ instance Prelude.Hashable TextOptions where
 
 instance Prelude.NFData TextOptions where
   rnf TextOptions' {..} =
-    Prelude.rnf analysisScheme
-      `Prelude.seq` Prelude.rnf defaultValue
-      `Prelude.seq` Prelude.rnf highlightEnabled
-      `Prelude.seq` Prelude.rnf returnEnabled
-      `Prelude.seq` Prelude.rnf sortEnabled
-      `Prelude.seq` Prelude.rnf sourceField
+    Prelude.rnf analysisScheme `Prelude.seq`
+      Prelude.rnf defaultValue `Prelude.seq`
+        Prelude.rnf highlightEnabled `Prelude.seq`
+          Prelude.rnf returnEnabled `Prelude.seq`
+            Prelude.rnf sortEnabled `Prelude.seq`
+              Prelude.rnf sourceField
 
 instance Data.ToQuery TextOptions where
   toQuery TextOptions' {..} =

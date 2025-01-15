@@ -155,10 +155,10 @@ instance Prelude.Hashable Entitlement where
 
 instance Prelude.NFData Entitlement where
   rnf Entitlement' {..} =
-    Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf stackName
-      `Prelude.seq` Prelude.rnf appVisibility
-      `Prelude.seq` Prelude.rnf attributes
+    Prelude.rnf createdTime `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf lastModifiedTime `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf stackName `Prelude.seq`
+              Prelude.rnf appVisibility `Prelude.seq`
+                Prelude.rnf attributes

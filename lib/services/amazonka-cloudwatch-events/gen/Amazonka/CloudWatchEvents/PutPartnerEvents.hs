@@ -183,6 +183,6 @@ putPartnerEventsResponse_httpStatus = Lens.lens (\PutPartnerEventsResponse' {htt
 
 instance Prelude.NFData PutPartnerEventsResponse where
   rnf PutPartnerEventsResponse' {..} =
-    Prelude.rnf entries
-      `Prelude.seq` Prelude.rnf failedEntryCount
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf entries `Prelude.seq`
+      Prelude.rnf failedEntryCount `Prelude.seq`
+        Prelude.rnf httpStatus

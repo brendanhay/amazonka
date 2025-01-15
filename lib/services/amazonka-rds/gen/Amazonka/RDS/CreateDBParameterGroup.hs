@@ -332,10 +332,10 @@ instance Prelude.Hashable CreateDBParameterGroup where
 
 instance Prelude.NFData CreateDBParameterGroup where
   rnf CreateDBParameterGroup' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf dbParameterGroupName
-      `Prelude.seq` Prelude.rnf dbParameterGroupFamily
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf dbParameterGroupName `Prelude.seq`
+        Prelude.rnf dbParameterGroupFamily `Prelude.seq`
+          Prelude.rnf description
 
 instance Data.ToHeaders CreateDBParameterGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -402,5 +402,5 @@ instance
     CreateDBParameterGroupResponse
   where
   rnf CreateDBParameterGroupResponse' {..} =
-    Prelude.rnf dbParameterGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dbParameterGroup `Prelude.seq`
+      Prelude.rnf httpStatus

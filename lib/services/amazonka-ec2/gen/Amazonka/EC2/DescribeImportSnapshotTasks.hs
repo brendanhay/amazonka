@@ -148,12 +148,12 @@ instance Core.AWSPager DescribeImportSnapshotTasks where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeImportSnapshotTasks_nextToken
-          Lens..~ rs
-          Lens.^? describeImportSnapshotTasksResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeImportSnapshotTasks_nextToken
+              Lens..~ rs
+              Lens.^? describeImportSnapshotTasksResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeImportSnapshotTasks where
   type
@@ -185,11 +185,11 @@ instance Prelude.Hashable DescribeImportSnapshotTasks where
 
 instance Prelude.NFData DescribeImportSnapshotTasks where
   rnf DescribeImportSnapshotTasks' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf importTaskIds
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf importTaskIds `Prelude.seq`
+          Prelude.rnf maxResults `Prelude.seq`
+            Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeImportSnapshotTasks where
   toHeaders = Prelude.const Prelude.mempty
@@ -276,6 +276,6 @@ instance
     DescribeImportSnapshotTasksResponse
   where
   rnf DescribeImportSnapshotTasksResponse' {..} =
-    Prelude.rnf importSnapshotTasks
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf importSnapshotTasks `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

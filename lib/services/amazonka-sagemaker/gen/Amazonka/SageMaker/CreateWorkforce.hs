@@ -198,12 +198,12 @@ instance Prelude.Hashable CreateWorkforce where
 
 instance Prelude.NFData CreateWorkforce where
   rnf CreateWorkforce' {..} =
-    Prelude.rnf cognitoConfig
-      `Prelude.seq` Prelude.rnf oidcConfig
-      `Prelude.seq` Prelude.rnf sourceIpConfig
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf workforceVpcConfig
-      `Prelude.seq` Prelude.rnf workforceName
+    Prelude.rnf cognitoConfig `Prelude.seq`
+      Prelude.rnf oidcConfig `Prelude.seq`
+        Prelude.rnf sourceIpConfig `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf workforceVpcConfig `Prelude.seq`
+              Prelude.rnf workforceName
 
 instance Data.ToHeaders CreateWorkforce where
   toHeaders =
@@ -284,5 +284,5 @@ createWorkforceResponse_workforceArn = Lens.lens (\CreateWorkforceResponse' {wor
 
 instance Prelude.NFData CreateWorkforceResponse where
   rnf CreateWorkforceResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf workforceArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf workforceArn

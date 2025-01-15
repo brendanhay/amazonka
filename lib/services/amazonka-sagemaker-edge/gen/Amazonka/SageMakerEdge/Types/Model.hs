@@ -102,11 +102,11 @@ instance Prelude.Hashable Model where
 
 instance Prelude.NFData Model where
   rnf Model' {..} =
-    Prelude.rnf latestInference
-      `Prelude.seq` Prelude.rnf latestSampleTime
-      `Prelude.seq` Prelude.rnf modelMetrics
-      `Prelude.seq` Prelude.rnf modelName
-      `Prelude.seq` Prelude.rnf modelVersion
+    Prelude.rnf latestInference `Prelude.seq`
+      Prelude.rnf latestSampleTime `Prelude.seq`
+        Prelude.rnf modelMetrics `Prelude.seq`
+          Prelude.rnf modelName `Prelude.seq`
+            Prelude.rnf modelVersion
 
 instance Data.ToJSON Model where
   toJSON Model' {..} =

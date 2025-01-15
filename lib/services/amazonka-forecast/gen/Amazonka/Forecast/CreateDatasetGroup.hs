@@ -272,10 +272,10 @@ instance Prelude.Hashable CreateDatasetGroup where
 
 instance Prelude.NFData CreateDatasetGroup where
   rnf CreateDatasetGroup' {..} =
-    Prelude.rnf datasetArns
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf datasetGroupName
-      `Prelude.seq` Prelude.rnf domain
+    Prelude.rnf datasetArns `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf datasetGroupName `Prelude.seq`
+          Prelude.rnf domain
 
 instance Data.ToHeaders CreateDatasetGroup where
   toHeaders =
@@ -351,5 +351,5 @@ createDatasetGroupResponse_httpStatus = Lens.lens (\CreateDatasetGroupResponse' 
 
 instance Prelude.NFData CreateDatasetGroupResponse where
   rnf CreateDatasetGroupResponse' {..} =
-    Prelude.rnf datasetGroupArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf datasetGroupArn `Prelude.seq`
+      Prelude.rnf httpStatus

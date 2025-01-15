@@ -82,8 +82,8 @@ instance Prelude.Hashable AlexaForBusinessMetadata where
 
 instance Prelude.NFData AlexaForBusinessMetadata where
   rnf AlexaForBusinessMetadata' {..} =
-    Prelude.rnf alexaForBusinessRoomArn
-      `Prelude.seq` Prelude.rnf isAlexaForBusinessEnabled
+    Prelude.rnf alexaForBusinessRoomArn `Prelude.seq`
+      Prelude.rnf isAlexaForBusinessEnabled
 
 instance Data.ToJSON AlexaForBusinessMetadata where
   toJSON AlexaForBusinessMetadata' {..} =

@@ -166,5 +166,5 @@ deleteWorkteamResponse_success = Lens.lens (\DeleteWorkteamResponse' {success} -
 
 instance Prelude.NFData DeleteWorkteamResponse where
   rnf DeleteWorkteamResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf success
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf success

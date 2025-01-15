@@ -190,9 +190,9 @@ instance Prelude.Hashable ProxyConfiguration where
 
 instance Prelude.NFData ProxyConfiguration where
   rnf ProxyConfiguration' {..} =
-    Prelude.rnf properties
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf containerName
+    Prelude.rnf properties `Prelude.seq`
+      Prelude.rnf type' `Prelude.seq`
+        Prelude.rnf containerName
 
 instance Data.ToJSON ProxyConfiguration where
   toJSON ProxyConfiguration' {..} =

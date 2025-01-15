@@ -188,11 +188,11 @@ instance Prelude.Hashable TimeSeriesSummary where
 
 instance Prelude.NFData TimeSeriesSummary where
   rnf TimeSeriesSummary' {..} =
-    Prelude.rnf alias
-      `Prelude.seq` Prelude.rnf assetId
-      `Prelude.seq` Prelude.rnf dataTypeSpec
-      `Prelude.seq` Prelude.rnf propertyId
-      `Prelude.seq` Prelude.rnf timeSeriesId
-      `Prelude.seq` Prelude.rnf dataType
-      `Prelude.seq` Prelude.rnf timeSeriesCreationDate
-      `Prelude.seq` Prelude.rnf timeSeriesLastUpdateDate
+    Prelude.rnf alias `Prelude.seq`
+      Prelude.rnf assetId `Prelude.seq`
+        Prelude.rnf dataTypeSpec `Prelude.seq`
+          Prelude.rnf propertyId `Prelude.seq`
+            Prelude.rnf timeSeriesId `Prelude.seq`
+              Prelude.rnf dataType `Prelude.seq`
+                Prelude.rnf timeSeriesCreationDate `Prelude.seq`
+                  Prelude.rnf timeSeriesLastUpdateDate

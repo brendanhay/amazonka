@@ -171,10 +171,10 @@ instance Prelude.Hashable CreateProfile where
 
 instance Prelude.NFData CreateProfile where
   rnf CreateProfile' {..} =
-    Prelude.rnf certificateIds
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf as2Id
-      `Prelude.seq` Prelude.rnf profileType
+    Prelude.rnf certificateIds `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf as2Id `Prelude.seq`
+          Prelude.rnf profileType
 
 instance Data.ToHeaders CreateProfile where
   toHeaders =
@@ -254,5 +254,5 @@ createProfileResponse_profileId = Lens.lens (\CreateProfileResponse' {profileId}
 
 instance Prelude.NFData CreateProfileResponse where
   rnf CreateProfileResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf profileId
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf profileId

@@ -192,11 +192,11 @@ instance Prelude.Hashable UpdateReportPlan where
 
 instance Prelude.NFData UpdateReportPlan where
   rnf UpdateReportPlan' {..} =
-    Prelude.rnf idempotencyToken
-      `Prelude.seq` Prelude.rnf reportDeliveryChannel
-      `Prelude.seq` Prelude.rnf reportPlanDescription
-      `Prelude.seq` Prelude.rnf reportSetting
-      `Prelude.seq` Prelude.rnf reportPlanName
+    Prelude.rnf idempotencyToken `Prelude.seq`
+      Prelude.rnf reportDeliveryChannel `Prelude.seq`
+        Prelude.rnf reportPlanDescription `Prelude.seq`
+          Prelude.rnf reportSetting `Prelude.seq`
+            Prelude.rnf reportPlanName
 
 instance Data.ToHeaders UpdateReportPlan where
   toHeaders =
@@ -302,7 +302,7 @@ updateReportPlanResponse_httpStatus = Lens.lens (\UpdateReportPlanResponse' {htt
 
 instance Prelude.NFData UpdateReportPlanResponse where
   rnf UpdateReportPlanResponse' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf reportPlanArn
-      `Prelude.seq` Prelude.rnf reportPlanName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf reportPlanArn `Prelude.seq`
+        Prelude.rnf reportPlanName `Prelude.seq`
+          Prelude.rnf httpStatus

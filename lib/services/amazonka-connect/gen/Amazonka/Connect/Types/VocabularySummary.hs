@@ -162,10 +162,10 @@ instance Prelude.Hashable VocabularySummary where
 
 instance Prelude.NFData VocabularySummary where
   rnf VocabularySummary' {..} =
-    Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf languageCode
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf lastModifiedTime
+    Prelude.rnf failureReason `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf arn `Prelude.seq`
+            Prelude.rnf languageCode `Prelude.seq`
+              Prelude.rnf state `Prelude.seq`
+                Prelude.rnf lastModifiedTime

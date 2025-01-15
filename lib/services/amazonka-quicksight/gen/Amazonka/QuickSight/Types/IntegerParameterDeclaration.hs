@@ -118,10 +118,10 @@ instance Prelude.Hashable IntegerParameterDeclaration where
 
 instance Prelude.NFData IntegerParameterDeclaration where
   rnf IntegerParameterDeclaration' {..} =
-    Prelude.rnf defaultValues
-      `Prelude.seq` Prelude.rnf valueWhenUnset
-      `Prelude.seq` Prelude.rnf parameterValueType
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf defaultValues `Prelude.seq`
+      Prelude.rnf valueWhenUnset `Prelude.seq`
+        Prelude.rnf parameterValueType `Prelude.seq`
+          Prelude.rnf name
 
 instance Data.ToJSON IntegerParameterDeclaration where
   toJSON IntegerParameterDeclaration' {..} =

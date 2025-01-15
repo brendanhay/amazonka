@@ -94,6 +94,6 @@ instance Prelude.Hashable TableMember where
 
 instance Prelude.NFData TableMember where
   rnf TableMember' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf schema
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf schema `Prelude.seq`
+        Prelude.rnf type'

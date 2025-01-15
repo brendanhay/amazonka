@@ -163,10 +163,10 @@ instance Prelude.Hashable RepositoryCatalogData where
 
 instance Prelude.NFData RepositoryCatalogData where
   rnf RepositoryCatalogData' {..} =
-    Prelude.rnf aboutText
-      `Prelude.seq` Prelude.rnf architectures
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf logoUrl
-      `Prelude.seq` Prelude.rnf marketplaceCertified
-      `Prelude.seq` Prelude.rnf operatingSystems
-      `Prelude.seq` Prelude.rnf usageText
+    Prelude.rnf aboutText `Prelude.seq`
+      Prelude.rnf architectures `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf logoUrl `Prelude.seq`
+            Prelude.rnf marketplaceCertified `Prelude.seq`
+              Prelude.rnf operatingSystems `Prelude.seq`
+                Prelude.rnf usageText

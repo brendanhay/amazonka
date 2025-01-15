@@ -188,5 +188,5 @@ deleteVolumeResponse_httpStatus = Lens.lens (\DeleteVolumeResponse' {httpStatus}
 
 instance Prelude.NFData DeleteVolumeResponse where
   rnf DeleteVolumeResponse' {..} =
-    Prelude.rnf volumeARN
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf volumeARN `Prelude.seq`
+      Prelude.rnf httpStatus

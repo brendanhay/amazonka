@@ -125,8 +125,8 @@ instance
     DisassociateAwsAccountFromPartnerAccount
   where
   rnf DisassociateAwsAccountFromPartnerAccount' {..} =
-    Prelude.rnf partnerAccountId
-      `Prelude.seq` Prelude.rnf partnerType
+    Prelude.rnf partnerAccountId `Prelude.seq`
+      Prelude.rnf partnerType
 
 instance
   Data.ToHeaders

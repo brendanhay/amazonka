@@ -80,5 +80,5 @@ instance Prelude.Hashable S3RecordingDetails where
 
 instance Prelude.NFData S3RecordingDetails where
   rnf S3RecordingDetails' {..} =
-    Prelude.rnf bucketArn
-      `Prelude.seq` Prelude.rnf keyTemplate
+    Prelude.rnf bucketArn `Prelude.seq`
+      Prelude.rnf keyTemplate

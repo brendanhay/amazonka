@@ -120,8 +120,8 @@ instance
 
 instance Prelude.NFData PutVoiceConnectorTermination where
   rnf PutVoiceConnectorTermination' {..} =
-    Prelude.rnf voiceConnectorId
-      `Prelude.seq` Prelude.rnf termination
+    Prelude.rnf voiceConnectorId `Prelude.seq`
+      Prelude.rnf termination
 
 instance Data.ToHeaders PutVoiceConnectorTermination where
   toHeaders = Prelude.const Prelude.mempty
@@ -188,5 +188,5 @@ instance
     PutVoiceConnectorTerminationResponse
   where
   rnf PutVoiceConnectorTerminationResponse' {..} =
-    Prelude.rnf termination
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf termination `Prelude.seq`
+      Prelude.rnf httpStatus

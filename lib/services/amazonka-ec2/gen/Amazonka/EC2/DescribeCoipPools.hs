@@ -163,12 +163,12 @@ instance Core.AWSPager DescribeCoipPools where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeCoipPools_nextToken
-          Lens..~ rs
-          Lens.^? describeCoipPoolsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeCoipPools_nextToken
+              Lens..~ rs
+              Lens.^? describeCoipPoolsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeCoipPools where
   type
@@ -180,9 +180,7 @@ instance Core.AWSRequest DescribeCoipPools where
     Response.receiveXML
       ( \s h x ->
           DescribeCoipPoolsResponse'
-            Prelude.<$> ( x
-                            Data..@? "coipPoolSet"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "coipPoolSet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (x Data..@? "nextToken")
@@ -200,11 +198,11 @@ instance Prelude.Hashable DescribeCoipPools where
 
 instance Prelude.NFData DescribeCoipPools where
   rnf DescribeCoipPools' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf poolIds
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf poolIds
 
 instance Data.ToHeaders DescribeCoipPools where
   toHeaders = Prelude.const Prelude.mempty
@@ -281,6 +279,6 @@ describeCoipPoolsResponse_httpStatus = Lens.lens (\DescribeCoipPoolsResponse' {h
 
 instance Prelude.NFData DescribeCoipPoolsResponse where
   rnf DescribeCoipPoolsResponse' {..} =
-    Prelude.rnf coipPools
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf coipPools `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

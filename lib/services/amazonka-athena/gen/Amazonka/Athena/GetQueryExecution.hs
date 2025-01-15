@@ -173,5 +173,5 @@ getQueryExecutionResponse_httpStatus = Lens.lens (\GetQueryExecutionResponse' {h
 
 instance Prelude.NFData GetQueryExecutionResponse where
   rnf GetQueryExecutionResponse' {..} =
-    Prelude.rnf queryExecution
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf queryExecution `Prelude.seq`
+      Prelude.rnf httpStatus

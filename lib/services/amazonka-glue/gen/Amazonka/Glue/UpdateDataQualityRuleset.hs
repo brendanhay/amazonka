@@ -138,10 +138,10 @@ instance Prelude.Hashable UpdateDataQualityRuleset where
 
 instance Prelude.NFData UpdateDataQualityRuleset where
   rnf UpdateDataQualityRuleset' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf ruleset
-      `Prelude.seq` Prelude.rnf updatedName
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf ruleset `Prelude.seq`
+        Prelude.rnf updatedName `Prelude.seq`
+          Prelude.rnf name
 
 instance Data.ToHeaders UpdateDataQualityRuleset where
   toHeaders =
@@ -240,7 +240,7 @@ instance
     UpdateDataQualityRulesetResponse
   where
   rnf UpdateDataQualityRulesetResponse' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf ruleset
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf ruleset `Prelude.seq`
+          Prelude.rnf httpStatus

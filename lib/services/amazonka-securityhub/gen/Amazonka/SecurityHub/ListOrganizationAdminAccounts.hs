@@ -116,12 +116,12 @@ instance Core.AWSPager ListOrganizationAdminAccounts where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listOrganizationAdminAccounts_nextToken
-          Lens..~ rs
-          Lens.^? listOrganizationAdminAccountsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listOrganizationAdminAccounts_nextToken
+              Lens..~ rs
+              Lens.^? listOrganizationAdminAccountsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -152,8 +152,8 @@ instance
 
 instance Prelude.NFData ListOrganizationAdminAccounts where
   rnf ListOrganizationAdminAccounts' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListOrganizationAdminAccounts where
   toHeaders =
@@ -229,6 +229,6 @@ instance
     ListOrganizationAdminAccountsResponse
   where
   rnf ListOrganizationAdminAccountsResponse' {..} =
-    Prelude.rnf adminAccounts
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf adminAccounts `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

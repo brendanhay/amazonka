@@ -122,9 +122,9 @@ instance Prelude.Hashable DescribeAppBlocks where
 
 instance Prelude.NFData DescribeAppBlocks where
   rnf DescribeAppBlocks' {..} =
-    Prelude.rnf arns
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf arns `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeAppBlocks where
   toHeaders =
@@ -210,6 +210,6 @@ describeAppBlocksResponse_httpStatus = Lens.lens (\DescribeAppBlocksResponse' {h
 
 instance Prelude.NFData DescribeAppBlocksResponse where
   rnf DescribeAppBlocksResponse' {..} =
-    Prelude.rnf appBlocks
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf appBlocks `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -150,9 +150,9 @@ instance Prelude.Hashable PrefixConfig where
 
 instance Prelude.NFData PrefixConfig where
   rnf PrefixConfig' {..} =
-    Prelude.rnf pathPrefixHierarchy
-      `Prelude.seq` Prelude.rnf prefixFormat
-      `Prelude.seq` Prelude.rnf prefixType
+    Prelude.rnf pathPrefixHierarchy `Prelude.seq`
+      Prelude.rnf prefixFormat `Prelude.seq`
+        Prelude.rnf prefixType
 
 instance Data.ToJSON PrefixConfig where
   toJSON PrefixConfig' {..} =

@@ -173,8 +173,8 @@ instance
 
 instance Prelude.NFData LustreLogCreateConfiguration where
   rnf LustreLogCreateConfiguration' {..} =
-    Prelude.rnf destination
-      `Prelude.seq` Prelude.rnf level
+    Prelude.rnf destination `Prelude.seq`
+      Prelude.rnf level
 
 instance Data.ToJSON LustreLogCreateConfiguration where
   toJSON LustreLogCreateConfiguration' {..} =

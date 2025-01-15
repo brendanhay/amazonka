@@ -278,23 +278,23 @@ instance Prelude.Hashable InstancesCount where
 
 instance Prelude.NFData InstancesCount where
   rnf InstancesCount' {..} =
-    Prelude.rnf assigning
-      `Prelude.seq` Prelude.rnf booting
-      `Prelude.seq` Prelude.rnf connectionLost
-      `Prelude.seq` Prelude.rnf deregistering
-      `Prelude.seq` Prelude.rnf online
-      `Prelude.seq` Prelude.rnf pending
-      `Prelude.seq` Prelude.rnf rebooting
-      `Prelude.seq` Prelude.rnf registered
-      `Prelude.seq` Prelude.rnf registering
-      `Prelude.seq` Prelude.rnf requested
-      `Prelude.seq` Prelude.rnf runningSetup
-      `Prelude.seq` Prelude.rnf setupFailed
-      `Prelude.seq` Prelude.rnf shuttingDown
-      `Prelude.seq` Prelude.rnf startFailed
-      `Prelude.seq` Prelude.rnf stopFailed
-      `Prelude.seq` Prelude.rnf stopped
-      `Prelude.seq` Prelude.rnf stopping
-      `Prelude.seq` Prelude.rnf terminated
-      `Prelude.seq` Prelude.rnf terminating
-      `Prelude.seq` Prelude.rnf unassigning
+    Prelude.rnf assigning `Prelude.seq`
+      Prelude.rnf booting `Prelude.seq`
+        Prelude.rnf connectionLost `Prelude.seq`
+          Prelude.rnf deregistering `Prelude.seq`
+            Prelude.rnf online `Prelude.seq`
+              Prelude.rnf pending `Prelude.seq`
+                Prelude.rnf rebooting `Prelude.seq`
+                  Prelude.rnf registered `Prelude.seq`
+                    Prelude.rnf registering `Prelude.seq`
+                      Prelude.rnf requested `Prelude.seq`
+                        Prelude.rnf runningSetup `Prelude.seq`
+                          Prelude.rnf setupFailed `Prelude.seq`
+                            Prelude.rnf shuttingDown `Prelude.seq`
+                              Prelude.rnf startFailed `Prelude.seq`
+                                Prelude.rnf stopFailed `Prelude.seq`
+                                  Prelude.rnf stopped `Prelude.seq`
+                                    Prelude.rnf stopping `Prelude.seq`
+                                      Prelude.rnf terminated `Prelude.seq`
+                                        Prelude.rnf terminating `Prelude.seq`
+                                          Prelude.rnf unassigning

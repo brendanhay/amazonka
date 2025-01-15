@@ -93,6 +93,6 @@ instance Prelude.Hashable DetectLabelsImageQuality where
 
 instance Prelude.NFData DetectLabelsImageQuality where
   rnf DetectLabelsImageQuality' {..} =
-    Prelude.rnf brightness
-      `Prelude.seq` Prelude.rnf contrast
-      `Prelude.seq` Prelude.rnf sharpness
+    Prelude.rnf brightness `Prelude.seq`
+      Prelude.rnf contrast `Prelude.seq`
+        Prelude.rnf sharpness

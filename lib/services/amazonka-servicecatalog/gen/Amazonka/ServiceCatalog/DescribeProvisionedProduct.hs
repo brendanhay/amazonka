@@ -170,9 +170,9 @@ instance Prelude.Hashable DescribeProvisionedProduct where
 
 instance Prelude.NFData DescribeProvisionedProduct where
   rnf DescribeProvisionedProduct' {..} =
-    Prelude.rnf acceptLanguage
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf acceptLanguage `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf name
 
 instance Data.ToHeaders DescribeProvisionedProduct where
   toHeaders =
@@ -263,6 +263,6 @@ instance
     DescribeProvisionedProductResponse
   where
   rnf DescribeProvisionedProductResponse' {..} =
-    Prelude.rnf cloudWatchDashboards
-      `Prelude.seq` Prelude.rnf provisionedProductDetail
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf cloudWatchDashboards `Prelude.seq`
+      Prelude.rnf provisionedProductDetail `Prelude.seq`
+        Prelude.rnf httpStatus

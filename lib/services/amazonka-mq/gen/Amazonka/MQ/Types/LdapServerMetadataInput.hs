@@ -263,17 +263,17 @@ instance Prelude.Hashable LdapServerMetadataInput where
 
 instance Prelude.NFData LdapServerMetadataInput where
   rnf LdapServerMetadataInput' {..} =
-    Prelude.rnf roleName
-      `Prelude.seq` Prelude.rnf roleSearchSubtree
-      `Prelude.seq` Prelude.rnf userRoleName
-      `Prelude.seq` Prelude.rnf userSearchSubtree
-      `Prelude.seq` Prelude.rnf hosts
-      `Prelude.seq` Prelude.rnf userSearchMatching
-      `Prelude.seq` Prelude.rnf userBase
-      `Prelude.seq` Prelude.rnf roleSearchMatching
-      `Prelude.seq` Prelude.rnf serviceAccountUsername
-      `Prelude.seq` Prelude.rnf roleBase
-      `Prelude.seq` Prelude.rnf serviceAccountPassword
+    Prelude.rnf roleName `Prelude.seq`
+      Prelude.rnf roleSearchSubtree `Prelude.seq`
+        Prelude.rnf userRoleName `Prelude.seq`
+          Prelude.rnf userSearchSubtree `Prelude.seq`
+            Prelude.rnf hosts `Prelude.seq`
+              Prelude.rnf userSearchMatching `Prelude.seq`
+                Prelude.rnf userBase `Prelude.seq`
+                  Prelude.rnf roleSearchMatching `Prelude.seq`
+                    Prelude.rnf serviceAccountUsername `Prelude.seq`
+                      Prelude.rnf roleBase `Prelude.seq`
+                        Prelude.rnf serviceAccountPassword
 
 instance Data.ToJSON LdapServerMetadataInput where
   toJSON LdapServerMetadataInput' {..} =

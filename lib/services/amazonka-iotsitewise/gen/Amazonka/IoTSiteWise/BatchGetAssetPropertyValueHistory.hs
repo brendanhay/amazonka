@@ -162,9 +162,9 @@ instance
     BatchGetAssetPropertyValueHistory
   where
   rnf BatchGetAssetPropertyValueHistory' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf entries
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf entries
 
 instance
   Data.ToHeaders
@@ -298,8 +298,8 @@ instance
     BatchGetAssetPropertyValueHistoryResponse
   where
   rnf BatchGetAssetPropertyValueHistoryResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf errorEntries
-      `Prelude.seq` Prelude.rnf successEntries
-      `Prelude.seq` Prelude.rnf skippedEntries
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf errorEntries `Prelude.seq`
+          Prelude.rnf successEntries `Prelude.seq`
+            Prelude.rnf skippedEntries

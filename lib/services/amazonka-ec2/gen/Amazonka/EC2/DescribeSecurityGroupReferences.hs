@@ -133,8 +133,8 @@ instance
     DescribeSecurityGroupReferences
   where
   rnf DescribeSecurityGroupReferences' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf groupId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf groupId
 
 instance
   Data.ToHeaders
@@ -203,5 +203,5 @@ instance
     DescribeSecurityGroupReferencesResponse
   where
   rnf DescribeSecurityGroupReferencesResponse' {..} =
-    Prelude.rnf securityGroupReferenceSet
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf securityGroupReferenceSet `Prelude.seq`
+      Prelude.rnf httpStatus

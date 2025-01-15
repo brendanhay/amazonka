@@ -130,8 +130,8 @@ instance
 
 instance Prelude.NFData DescribeDomainEndpointOptions where
   rnf DescribeDomainEndpointOptions' {..} =
-    Prelude.rnf deployed
-      `Prelude.seq` Prelude.rnf domainName
+    Prelude.rnf deployed `Prelude.seq`
+      Prelude.rnf domainName
 
 instance Data.ToHeaders DescribeDomainEndpointOptions where
   toHeaders = Prelude.const Prelude.mempty
@@ -199,5 +199,5 @@ instance
     DescribeDomainEndpointOptionsResponse
   where
   rnf DescribeDomainEndpointOptionsResponse' {..} =
-    Prelude.rnf domainEndpointOptions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf domainEndpointOptions `Prelude.seq`
+      Prelude.rnf httpStatus

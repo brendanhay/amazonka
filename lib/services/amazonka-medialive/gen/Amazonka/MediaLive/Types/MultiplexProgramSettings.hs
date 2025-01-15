@@ -114,10 +114,10 @@ instance Prelude.Hashable MultiplexProgramSettings where
 
 instance Prelude.NFData MultiplexProgramSettings where
   rnf MultiplexProgramSettings' {..} =
-    Prelude.rnf preferredChannelPipeline
-      `Prelude.seq` Prelude.rnf serviceDescriptor
-      `Prelude.seq` Prelude.rnf videoSettings
-      `Prelude.seq` Prelude.rnf programNumber
+    Prelude.rnf preferredChannelPipeline `Prelude.seq`
+      Prelude.rnf serviceDescriptor `Prelude.seq`
+        Prelude.rnf videoSettings `Prelude.seq`
+          Prelude.rnf programNumber
 
 instance Data.ToJSON MultiplexProgramSettings where
   toJSON MultiplexProgramSettings' {..} =

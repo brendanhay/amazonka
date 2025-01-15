@@ -135,9 +135,9 @@ instance Prelude.Hashable OpenXJsonSerDe where
 
 instance Prelude.NFData OpenXJsonSerDe where
   rnf OpenXJsonSerDe' {..} =
-    Prelude.rnf caseInsensitive
-      `Prelude.seq` Prelude.rnf columnToJsonKeyMappings
-      `Prelude.seq` Prelude.rnf convertDotsInJsonKeysToUnderscores
+    Prelude.rnf caseInsensitive `Prelude.seq`
+      Prelude.rnf columnToJsonKeyMappings `Prelude.seq`
+        Prelude.rnf convertDotsInJsonKeysToUnderscores
 
 instance Data.ToJSON OpenXJsonSerDe where
   toJSON OpenXJsonSerDe' {..} =

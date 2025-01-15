@@ -174,5 +174,5 @@ instance
     EnableSharingWithAwsOrganizationResponse
   where
   rnf EnableSharingWithAwsOrganizationResponse' {..} =
-    Prelude.rnf returnValue
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf returnValue `Prelude.seq`
+      Prelude.rnf httpStatus

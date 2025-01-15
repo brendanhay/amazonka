@@ -306,19 +306,19 @@ instance Prelude.Hashable CreateDomainName where
 
 instance Prelude.NFData CreateDomainName where
   rnf CreateDomainName' {..} =
-    Prelude.rnf certificateArn
-      `Prelude.seq` Prelude.rnf certificateBody
-      `Prelude.seq` Prelude.rnf certificateChain
-      `Prelude.seq` Prelude.rnf certificateName
-      `Prelude.seq` Prelude.rnf certificatePrivateKey
-      `Prelude.seq` Prelude.rnf endpointConfiguration
-      `Prelude.seq` Prelude.rnf mutualTlsAuthentication
-      `Prelude.seq` Prelude.rnf ownershipVerificationCertificateArn
-      `Prelude.seq` Prelude.rnf regionalCertificateArn
-      `Prelude.seq` Prelude.rnf regionalCertificateName
-      `Prelude.seq` Prelude.rnf securityPolicy
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf domainName
+    Prelude.rnf certificateArn `Prelude.seq`
+      Prelude.rnf certificateBody `Prelude.seq`
+        Prelude.rnf certificateChain `Prelude.seq`
+          Prelude.rnf certificateName `Prelude.seq`
+            Prelude.rnf certificatePrivateKey `Prelude.seq`
+              Prelude.rnf endpointConfiguration `Prelude.seq`
+                Prelude.rnf mutualTlsAuthentication `Prelude.seq`
+                  Prelude.rnf ownershipVerificationCertificateArn `Prelude.seq`
+                    Prelude.rnf regionalCertificateArn `Prelude.seq`
+                      Prelude.rnf regionalCertificateName `Prelude.seq`
+                        Prelude.rnf securityPolicy `Prelude.seq`
+                          Prelude.rnf tags `Prelude.seq`
+                            Prelude.rnf domainName
 
 instance Data.ToHeaders CreateDomainName where
   toHeaders =

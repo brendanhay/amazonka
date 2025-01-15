@@ -136,8 +136,8 @@ instance Prelude.Hashable GetDataView where
 
 instance Prelude.NFData GetDataView where
   rnf GetDataView' {..} =
-    Prelude.rnf dataViewId
-      `Prelude.seq` Prelude.rnf datasetId
+    Prelude.rnf dataViewId `Prelude.seq`
+      Prelude.rnf datasetId
 
 instance Data.ToHeaders GetDataView where
   toHeaders =
@@ -374,16 +374,16 @@ getDataViewResponse_httpStatus = Lens.lens (\GetDataViewResponse' {httpStatus} -
 
 instance Prelude.NFData GetDataViewResponse where
   rnf GetDataViewResponse' {..} =
-    Prelude.rnf asOfTimestamp
-      `Prelude.seq` Prelude.rnf autoUpdate
-      `Prelude.seq` Prelude.rnf createTime
-      `Prelude.seq` Prelude.rnf dataViewArn
-      `Prelude.seq` Prelude.rnf dataViewId
-      `Prelude.seq` Prelude.rnf datasetId
-      `Prelude.seq` Prelude.rnf destinationTypeParams
-      `Prelude.seq` Prelude.rnf errorInfo
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf partitionColumns
-      `Prelude.seq` Prelude.rnf sortColumns
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf asOfTimestamp `Prelude.seq`
+      Prelude.rnf autoUpdate `Prelude.seq`
+        Prelude.rnf createTime `Prelude.seq`
+          Prelude.rnf dataViewArn `Prelude.seq`
+            Prelude.rnf dataViewId `Prelude.seq`
+              Prelude.rnf datasetId `Prelude.seq`
+                Prelude.rnf destinationTypeParams `Prelude.seq`
+                  Prelude.rnf errorInfo `Prelude.seq`
+                    Prelude.rnf lastModifiedTime `Prelude.seq`
+                      Prelude.rnf partitionColumns `Prelude.seq`
+                        Prelude.rnf sortColumns `Prelude.seq`
+                          Prelude.rnf status `Prelude.seq`
+                            Prelude.rnf httpStatus

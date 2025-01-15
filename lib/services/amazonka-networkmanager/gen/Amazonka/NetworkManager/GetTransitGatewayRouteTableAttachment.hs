@@ -188,5 +188,5 @@ instance
   where
   rnf
     GetTransitGatewayRouteTableAttachmentResponse' {..} =
-      Prelude.rnf transitGatewayRouteTableAttachment
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf transitGatewayRouteTableAttachment `Prelude.seq`
+        Prelude.rnf httpStatus

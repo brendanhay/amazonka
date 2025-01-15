@@ -120,8 +120,8 @@ instance Prelude.Hashable UpdateTrafficDistribution where
 
 instance Prelude.NFData UpdateTrafficDistribution where
   rnf UpdateTrafficDistribution' {..} =
-    Prelude.rnf telephonyConfig
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf telephonyConfig `Prelude.seq`
+      Prelude.rnf id
 
 instance Data.ToHeaders UpdateTrafficDistribution where
   toHeaders =

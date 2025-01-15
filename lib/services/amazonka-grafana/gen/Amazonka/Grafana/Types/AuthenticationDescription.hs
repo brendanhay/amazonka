@@ -111,6 +111,6 @@ instance Prelude.Hashable AuthenticationDescription where
 
 instance Prelude.NFData AuthenticationDescription where
   rnf AuthenticationDescription' {..} =
-    Prelude.rnf awsSso
-      `Prelude.seq` Prelude.rnf saml
-      `Prelude.seq` Prelude.rnf providers
+    Prelude.rnf awsSso `Prelude.seq`
+      Prelude.rnf saml `Prelude.seq`
+        Prelude.rnf providers

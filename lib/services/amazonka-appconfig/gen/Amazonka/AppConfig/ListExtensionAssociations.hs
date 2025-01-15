@@ -154,11 +154,11 @@ instance Prelude.Hashable ListExtensionAssociations where
 
 instance Prelude.NFData ListExtensionAssociations where
   rnf ListExtensionAssociations' {..} =
-    Prelude.rnf extensionIdentifier
-      `Prelude.seq` Prelude.rnf extensionVersionNumber
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf resourceIdentifier
+    Prelude.rnf extensionIdentifier `Prelude.seq`
+      Prelude.rnf extensionVersionNumber `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf resourceIdentifier
 
 instance Data.ToHeaders ListExtensionAssociations where
   toHeaders =
@@ -244,6 +244,6 @@ instance
     ListExtensionAssociationsResponse
   where
   rnf ListExtensionAssociationsResponse' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf items `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

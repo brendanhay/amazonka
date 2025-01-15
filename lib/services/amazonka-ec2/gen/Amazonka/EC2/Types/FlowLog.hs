@@ -255,9 +255,7 @@ instance Data.FromXML FlowLog where
       Prelude.<*> (x Data..@? "logGroupName")
       Prelude.<*> (x Data..@? "maxAggregationInterval")
       Prelude.<*> (x Data..@? "resourceId")
-      Prelude.<*> ( x
-                      Data..@? "tagSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "trafficType")
@@ -284,19 +282,19 @@ instance Prelude.Hashable FlowLog where
 
 instance Prelude.NFData FlowLog where
   rnf FlowLog' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf deliverCrossAccountRole
-      `Prelude.seq` Prelude.rnf deliverLogsErrorMessage
-      `Prelude.seq` Prelude.rnf deliverLogsPermissionArn
-      `Prelude.seq` Prelude.rnf deliverLogsStatus
-      `Prelude.seq` Prelude.rnf destinationOptions
-      `Prelude.seq` Prelude.rnf flowLogId
-      `Prelude.seq` Prelude.rnf flowLogStatus
-      `Prelude.seq` Prelude.rnf logDestination
-      `Prelude.seq` Prelude.rnf logDestinationType
-      `Prelude.seq` Prelude.rnf logFormat
-      `Prelude.seq` Prelude.rnf logGroupName
-      `Prelude.seq` Prelude.rnf maxAggregationInterval
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf trafficType
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf deliverCrossAccountRole `Prelude.seq`
+        Prelude.rnf deliverLogsErrorMessage `Prelude.seq`
+          Prelude.rnf deliverLogsPermissionArn `Prelude.seq`
+            Prelude.rnf deliverLogsStatus `Prelude.seq`
+              Prelude.rnf destinationOptions `Prelude.seq`
+                Prelude.rnf flowLogId `Prelude.seq`
+                  Prelude.rnf flowLogStatus `Prelude.seq`
+                    Prelude.rnf logDestination `Prelude.seq`
+                      Prelude.rnf logDestinationType `Prelude.seq`
+                        Prelude.rnf logFormat `Prelude.seq`
+                          Prelude.rnf logGroupName `Prelude.seq`
+                            Prelude.rnf maxAggregationInterval `Prelude.seq`
+                              Prelude.rnf resourceId `Prelude.seq`
+                                Prelude.rnf tags `Prelude.seq`
+                                  Prelude.rnf trafficType

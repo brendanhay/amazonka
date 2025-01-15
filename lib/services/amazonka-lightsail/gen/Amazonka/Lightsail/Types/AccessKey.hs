@@ -163,8 +163,8 @@ instance Prelude.Hashable AccessKey where
 
 instance Prelude.NFData AccessKey where
   rnf AccessKey' {..} =
-    Prelude.rnf accessKeyId
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf lastUsed
-      `Prelude.seq` Prelude.rnf secretAccessKey
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf accessKeyId `Prelude.seq`
+      Prelude.rnf createdAt `Prelude.seq`
+        Prelude.rnf lastUsed `Prelude.seq`
+          Prelude.rnf secretAccessKey `Prelude.seq`
+            Prelude.rnf status

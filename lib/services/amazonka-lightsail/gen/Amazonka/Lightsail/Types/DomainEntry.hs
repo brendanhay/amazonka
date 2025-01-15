@@ -232,12 +232,12 @@ instance Prelude.Hashable DomainEntry where
 
 instance Prelude.NFData DomainEntry where
   rnf DomainEntry' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf isAlias
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf options
-      `Prelude.seq` Prelude.rnf target
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf isAlias `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf options `Prelude.seq`
+            Prelude.rnf target `Prelude.seq`
+              Prelude.rnf type'
 
 instance Data.ToJSON DomainEntry where
   toJSON DomainEntry' {..} =

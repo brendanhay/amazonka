@@ -94,9 +94,9 @@ instance Prelude.Hashable Operation where
 
 instance Prelude.NFData Operation where
   rnf Operation' {..} =
-    Prelude.rnf outputType
-      `Prelude.seq` Prelude.rnf equation
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf outputType `Prelude.seq`
+      Prelude.rnf equation `Prelude.seq`
+        Prelude.rnf name
 
 instance Data.ToJSON Operation where
   toJSON Operation' {..} =

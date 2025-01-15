@@ -154,9 +154,9 @@ instance Prelude.Hashable StartImportLabelsTaskRun where
 
 instance Prelude.NFData StartImportLabelsTaskRun where
   rnf StartImportLabelsTaskRun' {..} =
-    Prelude.rnf replaceAllLabels
-      `Prelude.seq` Prelude.rnf transformId
-      `Prelude.seq` Prelude.rnf inputS3Path
+    Prelude.rnf replaceAllLabels `Prelude.seq`
+      Prelude.rnf transformId `Prelude.seq`
+        Prelude.rnf inputS3Path
 
 instance Data.ToHeaders StartImportLabelsTaskRun where
   toHeaders =
@@ -234,5 +234,5 @@ instance
     StartImportLabelsTaskRunResponse
   where
   rnf StartImportLabelsTaskRunResponse' {..} =
-    Prelude.rnf taskRunId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf taskRunId `Prelude.seq`
+      Prelude.rnf httpStatus

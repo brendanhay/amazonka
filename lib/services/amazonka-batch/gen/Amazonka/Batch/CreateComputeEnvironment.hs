@@ -467,14 +467,14 @@ instance Prelude.Hashable CreateComputeEnvironment where
 
 instance Prelude.NFData CreateComputeEnvironment where
   rnf CreateComputeEnvironment' {..} =
-    Prelude.rnf computeResources
-      `Prelude.seq` Prelude.rnf eksConfiguration
-      `Prelude.seq` Prelude.rnf serviceRole
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf unmanagedvCpus
-      `Prelude.seq` Prelude.rnf computeEnvironmentName
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf computeResources `Prelude.seq`
+      Prelude.rnf eksConfiguration `Prelude.seq`
+        Prelude.rnf serviceRole `Prelude.seq`
+          Prelude.rnf state `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf unmanagedvCpus `Prelude.seq`
+                Prelude.rnf computeEnvironmentName `Prelude.seq`
+                  Prelude.rnf type'
 
 instance Data.ToHeaders CreateComputeEnvironment where
   toHeaders =
@@ -573,6 +573,6 @@ instance
     CreateComputeEnvironmentResponse
   where
   rnf CreateComputeEnvironmentResponse' {..} =
-    Prelude.rnf computeEnvironmentArn
-      `Prelude.seq` Prelude.rnf computeEnvironmentName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf computeEnvironmentArn `Prelude.seq`
+      Prelude.rnf computeEnvironmentName `Prelude.seq`
+        Prelude.rnf httpStatus

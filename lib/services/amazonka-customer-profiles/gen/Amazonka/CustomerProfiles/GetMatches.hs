@@ -174,9 +174,9 @@ instance Prelude.Hashable GetMatches where
 
 instance Prelude.NFData GetMatches where
   rnf GetMatches' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf domainName
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf domainName
 
 instance Data.ToHeaders GetMatches where
   toHeaders =
@@ -272,8 +272,8 @@ getMatchesResponse_httpStatus = Lens.lens (\GetMatchesResponse' {httpStatus} -> 
 
 instance Prelude.NFData GetMatchesResponse where
   rnf GetMatchesResponse' {..} =
-    Prelude.rnf matchGenerationDate
-      `Prelude.seq` Prelude.rnf matches
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf potentialMatches
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf matchGenerationDate `Prelude.seq`
+      Prelude.rnf matches `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf potentialMatches `Prelude.seq`
+            Prelude.rnf httpStatus

@@ -145,11 +145,11 @@ instance Prelude.Hashable PackagingConfiguration where
 
 instance Prelude.NFData PackagingConfiguration where
   rnf PackagingConfiguration' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf cmafPackage
-      `Prelude.seq` Prelude.rnf dashPackage
-      `Prelude.seq` Prelude.rnf hlsPackage
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf mssPackage
-      `Prelude.seq` Prelude.rnf packagingGroupId
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf cmafPackage `Prelude.seq`
+        Prelude.rnf dashPackage `Prelude.seq`
+          Prelude.rnf hlsPackage `Prelude.seq`
+            Prelude.rnf id `Prelude.seq`
+              Prelude.rnf mssPackage `Prelude.seq`
+                Prelude.rnf packagingGroupId `Prelude.seq`
+                  Prelude.rnf tags

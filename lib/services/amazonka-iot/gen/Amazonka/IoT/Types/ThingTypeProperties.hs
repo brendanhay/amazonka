@@ -86,8 +86,8 @@ instance Prelude.Hashable ThingTypeProperties where
 
 instance Prelude.NFData ThingTypeProperties where
   rnf ThingTypeProperties' {..} =
-    Prelude.rnf searchableAttributes
-      `Prelude.seq` Prelude.rnf thingTypeDescription
+    Prelude.rnf searchableAttributes `Prelude.seq`
+      Prelude.rnf thingTypeDescription
 
 instance Data.ToJSON ThingTypeProperties where
   toJSON ThingTypeProperties' {..} =

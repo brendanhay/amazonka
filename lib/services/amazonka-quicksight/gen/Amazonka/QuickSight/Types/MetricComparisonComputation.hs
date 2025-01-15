@@ -128,11 +128,11 @@ instance Prelude.Hashable MetricComparisonComputation where
 
 instance Prelude.NFData MetricComparisonComputation where
   rnf MetricComparisonComputation' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf computationId
-      `Prelude.seq` Prelude.rnf time
-      `Prelude.seq` Prelude.rnf fromValue
-      `Prelude.seq` Prelude.rnf targetValue
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf computationId `Prelude.seq`
+        Prelude.rnf time `Prelude.seq`
+          Prelude.rnf fromValue `Prelude.seq`
+            Prelude.rnf targetValue
 
 instance Data.ToJSON MetricComparisonComputation where
   toJSON MetricComparisonComputation' {..} =

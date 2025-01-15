@@ -114,8 +114,8 @@ instance Prelude.Hashable GetAWSDefaultServiceQuota where
 
 instance Prelude.NFData GetAWSDefaultServiceQuota where
   rnf GetAWSDefaultServiceQuota' {..} =
-    Prelude.rnf serviceCode
-      `Prelude.seq` Prelude.rnf quotaCode
+    Prelude.rnf serviceCode `Prelude.seq`
+      Prelude.rnf quotaCode
 
 instance Data.ToHeaders GetAWSDefaultServiceQuota where
   toHeaders =
@@ -191,5 +191,5 @@ instance
     GetAWSDefaultServiceQuotaResponse
   where
   rnf GetAWSDefaultServiceQuotaResponse' {..} =
-    Prelude.rnf quota
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf quota `Prelude.seq`
+      Prelude.rnf httpStatus

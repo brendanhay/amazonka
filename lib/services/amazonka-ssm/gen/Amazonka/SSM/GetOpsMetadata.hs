@@ -133,9 +133,9 @@ instance Prelude.Hashable GetOpsMetadata where
 
 instance Prelude.NFData GetOpsMetadata where
   rnf GetOpsMetadata' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf opsMetadataArn
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf opsMetadataArn
 
 instance Data.ToHeaders GetOpsMetadata where
   toHeaders =
@@ -228,7 +228,7 @@ getOpsMetadataResponse_httpStatus = Lens.lens (\GetOpsMetadataResponse' {httpSta
 
 instance Prelude.NFData GetOpsMetadataResponse where
   rnf GetOpsMetadataResponse' {..} =
-    Prelude.rnf metadata
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf metadata `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf resourceId `Prelude.seq`
+          Prelude.rnf httpStatus

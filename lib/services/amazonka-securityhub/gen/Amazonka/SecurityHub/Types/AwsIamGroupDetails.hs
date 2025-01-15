@@ -148,12 +148,12 @@ instance Prelude.Hashable AwsIamGroupDetails where
 
 instance Prelude.NFData AwsIamGroupDetails where
   rnf AwsIamGroupDetails' {..} =
-    Prelude.rnf attachedManagedPolicies
-      `Prelude.seq` Prelude.rnf createDate
-      `Prelude.seq` Prelude.rnf groupId
-      `Prelude.seq` Prelude.rnf groupName
-      `Prelude.seq` Prelude.rnf groupPolicyList
-      `Prelude.seq` Prelude.rnf path
+    Prelude.rnf attachedManagedPolicies `Prelude.seq`
+      Prelude.rnf createDate `Prelude.seq`
+        Prelude.rnf groupId `Prelude.seq`
+          Prelude.rnf groupName `Prelude.seq`
+            Prelude.rnf groupPolicyList `Prelude.seq`
+              Prelude.rnf path
 
 instance Data.ToJSON AwsIamGroupDetails where
   toJSON AwsIamGroupDetails' {..} =

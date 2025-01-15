@@ -166,11 +166,11 @@ instance Prelude.Hashable UpdateRobotApplication where
 
 instance Prelude.NFData UpdateRobotApplication where
   rnf UpdateRobotApplication' {..} =
-    Prelude.rnf currentRevisionId
-      `Prelude.seq` Prelude.rnf environment
-      `Prelude.seq` Prelude.rnf sources
-      `Prelude.seq` Prelude.rnf application
-      `Prelude.seq` Prelude.rnf robotSoftwareSuite
+    Prelude.rnf currentRevisionId `Prelude.seq`
+      Prelude.rnf environment `Prelude.seq`
+        Prelude.rnf sources `Prelude.seq`
+          Prelude.rnf application `Prelude.seq`
+            Prelude.rnf robotSoftwareSuite
 
 instance Data.ToHeaders UpdateRobotApplication where
   toHeaders =
@@ -319,12 +319,12 @@ instance
     UpdateRobotApplicationResponse
   where
   rnf UpdateRobotApplicationResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf environment
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf revisionId
-      `Prelude.seq` Prelude.rnf robotSoftwareSuite
-      `Prelude.seq` Prelude.rnf sources
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf environment `Prelude.seq`
+        Prelude.rnf lastUpdatedAt `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf revisionId `Prelude.seq`
+              Prelude.rnf robotSoftwareSuite `Prelude.seq`
+                Prelude.rnf sources `Prelude.seq`
+                  Prelude.rnf version `Prelude.seq`
+                    Prelude.rnf httpStatus

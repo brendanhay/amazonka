@@ -115,7 +115,7 @@ instance Prelude.Hashable IncidentRecordSource where
 
 instance Prelude.NFData IncidentRecordSource where
   rnf IncidentRecordSource' {..} =
-    Prelude.rnf invokedBy
-      `Prelude.seq` Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf createdBy
-      `Prelude.seq` Prelude.rnf source
+    Prelude.rnf invokedBy `Prelude.seq`
+      Prelude.rnf resourceArn `Prelude.seq`
+        Prelude.rnf createdBy `Prelude.seq`
+          Prelude.rnf source

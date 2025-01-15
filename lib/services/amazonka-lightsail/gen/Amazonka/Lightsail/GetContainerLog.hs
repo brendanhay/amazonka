@@ -304,12 +304,12 @@ instance Prelude.Hashable GetContainerLog where
 
 instance Prelude.NFData GetContainerLog where
   rnf GetContainerLog' {..} =
-    Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf filterPattern
-      `Prelude.seq` Prelude.rnf pageToken
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf serviceName
-      `Prelude.seq` Prelude.rnf containerName
+    Prelude.rnf endTime `Prelude.seq`
+      Prelude.rnf filterPattern `Prelude.seq`
+        Prelude.rnf pageToken `Prelude.seq`
+          Prelude.rnf startTime `Prelude.seq`
+            Prelude.rnf serviceName `Prelude.seq`
+              Prelude.rnf containerName
 
 instance Data.ToHeaders GetContainerLog where
   toHeaders =
@@ -414,6 +414,6 @@ getContainerLogResponse_httpStatus = Lens.lens (\GetContainerLogResponse' {httpS
 
 instance Prelude.NFData GetContainerLogResponse where
   rnf GetContainerLogResponse' {..} =
-    Prelude.rnf logEvents
-      `Prelude.seq` Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf logEvents `Prelude.seq`
+      Prelude.rnf nextPageToken `Prelude.seq`
+        Prelude.rnf httpStatus

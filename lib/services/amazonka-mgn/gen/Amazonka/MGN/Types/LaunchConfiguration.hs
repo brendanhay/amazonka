@@ -193,16 +193,16 @@ instance Prelude.Hashable LaunchConfiguration where
 
 instance Prelude.NFData LaunchConfiguration where
   rnf LaunchConfiguration' {..} =
-    Prelude.rnf bootMode
-      `Prelude.seq` Prelude.rnf copyPrivateIp
-      `Prelude.seq` Prelude.rnf copyTags
-      `Prelude.seq` Prelude.rnf ec2LaunchTemplateID
-      `Prelude.seq` Prelude.rnf enableMapAutoTagging
-      `Prelude.seq` Prelude.rnf launchDisposition
-      `Prelude.seq` Prelude.rnf licensing
-      `Prelude.seq` Prelude.rnf mapAutoTaggingMpeID
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf postLaunchActions
-      `Prelude.seq` Prelude.rnf sourceServerID
-      `Prelude.seq` Prelude.rnf
-        targetInstanceTypeRightSizingMethod
+    Prelude.rnf bootMode `Prelude.seq`
+      Prelude.rnf copyPrivateIp `Prelude.seq`
+        Prelude.rnf copyTags `Prelude.seq`
+          Prelude.rnf ec2LaunchTemplateID `Prelude.seq`
+            Prelude.rnf enableMapAutoTagging `Prelude.seq`
+              Prelude.rnf launchDisposition `Prelude.seq`
+                Prelude.rnf licensing `Prelude.seq`
+                  Prelude.rnf mapAutoTaggingMpeID `Prelude.seq`
+                    Prelude.rnf name `Prelude.seq`
+                      Prelude.rnf postLaunchActions `Prelude.seq`
+                        Prelude.rnf sourceServerID `Prelude.seq`
+                          Prelude.rnf
+                            targetInstanceTypeRightSizingMethod

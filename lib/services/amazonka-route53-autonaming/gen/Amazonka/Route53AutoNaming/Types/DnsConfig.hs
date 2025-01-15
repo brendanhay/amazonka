@@ -256,9 +256,9 @@ instance Prelude.Hashable DnsConfig where
 
 instance Prelude.NFData DnsConfig where
   rnf DnsConfig' {..} =
-    Prelude.rnf namespaceId
-      `Prelude.seq` Prelude.rnf routingPolicy
-      `Prelude.seq` Prelude.rnf dnsRecords
+    Prelude.rnf namespaceId `Prelude.seq`
+      Prelude.rnf routingPolicy `Prelude.seq`
+        Prelude.rnf dnsRecords
 
 instance Data.ToJSON DnsConfig where
   toJSON DnsConfig' {..} =

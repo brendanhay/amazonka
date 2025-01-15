@@ -369,15 +369,15 @@ instance Prelude.Hashable UpdateAccountPasswordPolicy where
 
 instance Prelude.NFData UpdateAccountPasswordPolicy where
   rnf UpdateAccountPasswordPolicy' {..} =
-    Prelude.rnf allowUsersToChangePassword
-      `Prelude.seq` Prelude.rnf hardExpiry
-      `Prelude.seq` Prelude.rnf maxPasswordAge
-      `Prelude.seq` Prelude.rnf minimumPasswordLength
-      `Prelude.seq` Prelude.rnf passwordReusePrevention
-      `Prelude.seq` Prelude.rnf requireLowercaseCharacters
-      `Prelude.seq` Prelude.rnf requireNumbers
-      `Prelude.seq` Prelude.rnf requireSymbols
-      `Prelude.seq` Prelude.rnf requireUppercaseCharacters
+    Prelude.rnf allowUsersToChangePassword `Prelude.seq`
+      Prelude.rnf hardExpiry `Prelude.seq`
+        Prelude.rnf maxPasswordAge `Prelude.seq`
+          Prelude.rnf minimumPasswordLength `Prelude.seq`
+            Prelude.rnf passwordReusePrevention `Prelude.seq`
+              Prelude.rnf requireLowercaseCharacters `Prelude.seq`
+                Prelude.rnf requireNumbers `Prelude.seq`
+                  Prelude.rnf requireSymbols `Prelude.seq`
+                    Prelude.rnf requireUppercaseCharacters
 
 instance Data.ToHeaders UpdateAccountPasswordPolicy where
   toHeaders = Prelude.const Prelude.mempty

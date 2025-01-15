@@ -165,12 +165,12 @@ instance Prelude.Hashable UpdateAuthorizer where
 
 instance Prelude.NFData UpdateAuthorizer where
   rnf UpdateAuthorizer' {..} =
-    Prelude.rnf authorizerFunctionArn
-      `Prelude.seq` Prelude.rnf enableCachingForHttp
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf tokenKeyName
-      `Prelude.seq` Prelude.rnf tokenSigningPublicKeys
-      `Prelude.seq` Prelude.rnf authorizerName
+    Prelude.rnf authorizerFunctionArn `Prelude.seq`
+      Prelude.rnf enableCachingForHttp `Prelude.seq`
+        Prelude.rnf status `Prelude.seq`
+          Prelude.rnf tokenKeyName `Prelude.seq`
+            Prelude.rnf tokenSigningPublicKeys `Prelude.seq`
+              Prelude.rnf authorizerName
 
 instance Data.ToHeaders UpdateAuthorizer where
   toHeaders = Prelude.const Prelude.mempty
@@ -248,6 +248,6 @@ updateAuthorizerResponse_httpStatus = Lens.lens (\UpdateAuthorizerResponse' {htt
 
 instance Prelude.NFData UpdateAuthorizerResponse where
   rnf UpdateAuthorizerResponse' {..} =
-    Prelude.rnf authorizerArn
-      `Prelude.seq` Prelude.rnf authorizerName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf authorizerArn `Prelude.seq`
+      Prelude.rnf authorizerName `Prelude.seq`
+        Prelude.rnf httpStatus

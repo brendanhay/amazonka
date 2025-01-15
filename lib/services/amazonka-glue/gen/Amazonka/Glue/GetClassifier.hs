@@ -162,5 +162,5 @@ getClassifierResponse_httpStatus = Lens.lens (\GetClassifierResponse' {httpStatu
 
 instance Prelude.NFData GetClassifierResponse where
   rnf GetClassifierResponse' {..} =
-    Prelude.rnf classifier
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf classifier `Prelude.seq`
+      Prelude.rnf httpStatus

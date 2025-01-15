@@ -152,11 +152,11 @@ instance Prelude.Hashable DistributionConfiguration where
 
 instance Prelude.NFData DistributionConfiguration where
   rnf DistributionConfiguration' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf dateCreated
-      `Prelude.seq` Prelude.rnf dateUpdated
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf distributions
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf timeoutMinutes
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf dateCreated `Prelude.seq`
+        Prelude.rnf dateUpdated `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf distributions `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf tags `Prelude.seq`
+                  Prelude.rnf timeoutMinutes

@@ -309,17 +309,17 @@ instance Prelude.Hashable ResolverRule where
 
 instance Prelude.NFData ResolverRule where
   rnf ResolverRule' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf creatorRequestId
-      `Prelude.seq` Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf modificationTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf ownerId
-      `Prelude.seq` Prelude.rnf resolverEndpointId
-      `Prelude.seq` Prelude.rnf ruleType
-      `Prelude.seq` Prelude.rnf shareStatus
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf targetIps
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf creatorRequestId `Prelude.seq`
+          Prelude.rnf domainName `Prelude.seq`
+            Prelude.rnf id `Prelude.seq`
+              Prelude.rnf modificationTime `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf ownerId `Prelude.seq`
+                    Prelude.rnf resolverEndpointId `Prelude.seq`
+                      Prelude.rnf ruleType `Prelude.seq`
+                        Prelude.rnf shareStatus `Prelude.seq`
+                          Prelude.rnf status `Prelude.seq`
+                            Prelude.rnf statusMessage `Prelude.seq`
+                              Prelude.rnf targetIps

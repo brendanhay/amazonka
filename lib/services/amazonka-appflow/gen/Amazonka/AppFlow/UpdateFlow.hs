@@ -182,13 +182,13 @@ instance Prelude.Hashable UpdateFlow where
 
 instance Prelude.NFData UpdateFlow where
   rnf UpdateFlow' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf metadataCatalogConfig
-      `Prelude.seq` Prelude.rnf flowName
-      `Prelude.seq` Prelude.rnf triggerConfig
-      `Prelude.seq` Prelude.rnf sourceFlowConfig
-      `Prelude.seq` Prelude.rnf destinationFlowConfigList
-      `Prelude.seq` Prelude.rnf tasks
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf metadataCatalogConfig `Prelude.seq`
+        Prelude.rnf flowName `Prelude.seq`
+          Prelude.rnf triggerConfig `Prelude.seq`
+            Prelude.rnf sourceFlowConfig `Prelude.seq`
+              Prelude.rnf destinationFlowConfigList `Prelude.seq`
+                Prelude.rnf tasks
 
 instance Data.ToHeaders UpdateFlow where
   toHeaders =
@@ -266,5 +266,5 @@ updateFlowResponse_httpStatus = Lens.lens (\UpdateFlowResponse' {httpStatus} -> 
 
 instance Prelude.NFData UpdateFlowResponse where
   rnf UpdateFlowResponse' {..} =
-    Prelude.rnf flowStatus
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf flowStatus `Prelude.seq`
+      Prelude.rnf httpStatus

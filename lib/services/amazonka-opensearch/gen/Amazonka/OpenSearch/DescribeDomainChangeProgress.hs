@@ -123,8 +123,8 @@ instance
 
 instance Prelude.NFData DescribeDomainChangeProgress where
   rnf DescribeDomainChangeProgress' {..} =
-    Prelude.rnf changeId
-      `Prelude.seq` Prelude.rnf domainName
+    Prelude.rnf changeId `Prelude.seq`
+      Prelude.rnf domainName
 
 instance Data.ToHeaders DescribeDomainChangeProgress where
   toHeaders = Prelude.const Prelude.mempty
@@ -191,5 +191,5 @@ instance
     DescribeDomainChangeProgressResponse
   where
   rnf DescribeDomainChangeProgressResponse' {..} =
-    Prelude.rnf changeProgressStatus
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf changeProgressStatus `Prelude.seq`
+      Prelude.rnf httpStatus

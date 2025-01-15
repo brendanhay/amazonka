@@ -86,9 +86,9 @@ instance Prelude.Hashable SSMLMessageType where
 
 instance Prelude.NFData SSMLMessageType where
   rnf SSMLMessageType' {..} =
-    Prelude.rnf languageCode
-      `Prelude.seq` Prelude.rnf text
-      `Prelude.seq` Prelude.rnf voiceId
+    Prelude.rnf languageCode `Prelude.seq`
+      Prelude.rnf text `Prelude.seq`
+        Prelude.rnf voiceId
 
 instance Data.ToJSON SSMLMessageType where
   toJSON SSMLMessageType' {..} =

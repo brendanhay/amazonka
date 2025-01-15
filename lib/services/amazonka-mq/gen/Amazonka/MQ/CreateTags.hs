@@ -98,8 +98,8 @@ instance Prelude.Hashable CreateTags where
 
 instance Prelude.NFData CreateTags where
   rnf CreateTags' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf resourceArn
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf resourceArn
 
 instance Data.ToHeaders CreateTags where
   toHeaders =

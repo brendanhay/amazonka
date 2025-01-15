@@ -156,5 +156,5 @@ getApiCacheResponse_httpStatus = Lens.lens (\GetApiCacheResponse' {httpStatus} -
 
 instance Prelude.NFData GetApiCacheResponse where
   rnf GetApiCacheResponse' {..} =
-    Prelude.rnf apiCache
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf apiCache `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -128,8 +128,8 @@ instance Prelude.Hashable SigningCertificate where
 
 instance Prelude.NFData SigningCertificate where
   rnf SigningCertificate' {..} =
-    Prelude.rnf uploadDate
-      `Prelude.seq` Prelude.rnf userName
-      `Prelude.seq` Prelude.rnf certificateId
-      `Prelude.seq` Prelude.rnf certificateBody
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf uploadDate `Prelude.seq`
+      Prelude.rnf userName `Prelude.seq`
+        Prelude.rnf certificateId `Prelude.seq`
+          Prelude.rnf certificateBody `Prelude.seq`
+            Prelude.rnf status

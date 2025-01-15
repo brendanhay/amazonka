@@ -170,5 +170,5 @@ describeObservationResponse_httpStatus = Lens.lens (\DescribeObservationResponse
 
 instance Prelude.NFData DescribeObservationResponse where
   rnf DescribeObservationResponse' {..} =
-    Prelude.rnf observation
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf observation `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -141,12 +141,12 @@ instance Core.AWSPager Select where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& select_nextToken
-          Lens..~ rs
-          Lens.^? selectResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& select_nextToken
+              Lens..~ rs
+              Lens.^? selectResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest Select where
   type AWSResponse Select = SelectResponse
@@ -171,9 +171,9 @@ instance Prelude.Hashable Select where
 
 instance Prelude.NFData Select where
   rnf Select' {..} =
-    Prelude.rnf consistentRead
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf selectExpression
+    Prelude.rnf consistentRead `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf selectExpression
 
 instance Data.ToHeaders Select where
   toHeaders = Prelude.const Prelude.mempty
@@ -247,6 +247,6 @@ selectResponse_httpStatus = Lens.lens (\SelectResponse' {httpStatus} -> httpStat
 
 instance Prelude.NFData SelectResponse where
   rnf SelectResponse' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf items `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -160,10 +160,10 @@ instance Prelude.Hashable User where
 
 instance Prelude.NFData User where
   rnf User' {..} =
-    Prelude.rnf consoleAccess
-      `Prelude.seq` Prelude.rnf groups
-      `Prelude.seq` Prelude.rnf username
-      `Prelude.seq` Prelude.rnf password
+    Prelude.rnf consoleAccess `Prelude.seq`
+      Prelude.rnf groups `Prelude.seq`
+        Prelude.rnf username `Prelude.seq`
+          Prelude.rnf password
 
 instance Data.ToJSON User where
   toJSON User' {..} =

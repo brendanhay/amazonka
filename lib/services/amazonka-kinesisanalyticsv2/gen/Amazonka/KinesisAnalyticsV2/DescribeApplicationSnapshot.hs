@@ -116,8 +116,8 @@ instance Prelude.Hashable DescribeApplicationSnapshot where
 
 instance Prelude.NFData DescribeApplicationSnapshot where
   rnf DescribeApplicationSnapshot' {..} =
-    Prelude.rnf applicationName
-      `Prelude.seq` Prelude.rnf snapshotName
+    Prelude.rnf applicationName `Prelude.seq`
+      Prelude.rnf snapshotName
 
 instance Data.ToHeaders DescribeApplicationSnapshot where
   toHeaders =
@@ -198,5 +198,5 @@ instance
     DescribeApplicationSnapshotResponse
   where
   rnf DescribeApplicationSnapshotResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf snapshotDetails
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf snapshotDetails

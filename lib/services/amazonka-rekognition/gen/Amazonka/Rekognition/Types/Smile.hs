@@ -81,5 +81,5 @@ instance Prelude.Hashable Smile where
 
 instance Prelude.NFData Smile where
   rnf Smile' {..} =
-    Prelude.rnf confidence
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf confidence `Prelude.seq`
+      Prelude.rnf value

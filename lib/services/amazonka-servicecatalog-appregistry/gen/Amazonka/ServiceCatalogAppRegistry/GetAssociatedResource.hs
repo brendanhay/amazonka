@@ -126,9 +126,9 @@ instance Prelude.Hashable GetAssociatedResource where
 
 instance Prelude.NFData GetAssociatedResource where
   rnf GetAssociatedResource' {..} =
-    Prelude.rnf application
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf resource
+    Prelude.rnf application `Prelude.seq`
+      Prelude.rnf resourceType `Prelude.seq`
+        Prelude.rnf resource
 
 instance Data.ToHeaders GetAssociatedResource where
   toHeaders =
@@ -196,5 +196,5 @@ getAssociatedResourceResponse_httpStatus = Lens.lens (\GetAssociatedResourceResp
 
 instance Prelude.NFData GetAssociatedResourceResponse where
   rnf GetAssociatedResourceResponse' {..} =
-    Prelude.rnf resource
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf resource `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -208,16 +208,16 @@ instance
     AwsRdsEventSubscriptionDetails
   where
   rnf AwsRdsEventSubscriptionDetails' {..} =
-    Prelude.rnf custSubscriptionId
-      `Prelude.seq` Prelude.rnf customerAwsId
-      `Prelude.seq` Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf eventCategoriesList
-      `Prelude.seq` Prelude.rnf eventSubscriptionArn
-      `Prelude.seq` Prelude.rnf snsTopicArn
-      `Prelude.seq` Prelude.rnf sourceIdsList
-      `Prelude.seq` Prelude.rnf sourceType
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf subscriptionCreationTime
+    Prelude.rnf custSubscriptionId `Prelude.seq`
+      Prelude.rnf customerAwsId `Prelude.seq`
+        Prelude.rnf enabled `Prelude.seq`
+          Prelude.rnf eventCategoriesList `Prelude.seq`
+            Prelude.rnf eventSubscriptionArn `Prelude.seq`
+              Prelude.rnf snsTopicArn `Prelude.seq`
+                Prelude.rnf sourceIdsList `Prelude.seq`
+                  Prelude.rnf sourceType `Prelude.seq`
+                    Prelude.rnf status `Prelude.seq`
+                      Prelude.rnf subscriptionCreationTime
 
 instance Data.ToJSON AwsRdsEventSubscriptionDetails where
   toJSON AwsRdsEventSubscriptionDetails' {..} =

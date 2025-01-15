@@ -910,5 +910,5 @@ createSMBFileShareResponse_httpStatus = Lens.lens (\CreateSMBFileShareResponse' 
 
 instance Prelude.NFData CreateSMBFileShareResponse where
   rnf CreateSMBFileShareResponse' {..} =
-    Prelude.rnf fileShareARN
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf fileShareARN `Prelude.seq`
+      Prelude.rnf httpStatus

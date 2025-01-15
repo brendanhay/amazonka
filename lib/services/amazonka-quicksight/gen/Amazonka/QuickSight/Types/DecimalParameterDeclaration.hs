@@ -121,10 +121,10 @@ instance Prelude.Hashable DecimalParameterDeclaration where
 
 instance Prelude.NFData DecimalParameterDeclaration where
   rnf DecimalParameterDeclaration' {..} =
-    Prelude.rnf defaultValues
-      `Prelude.seq` Prelude.rnf valueWhenUnset
-      `Prelude.seq` Prelude.rnf parameterValueType
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf defaultValues `Prelude.seq`
+      Prelude.rnf valueWhenUnset `Prelude.seq`
+        Prelude.rnf parameterValueType `Prelude.seq`
+          Prelude.rnf name
 
 instance Data.ToJSON DecimalParameterDeclaration where
   toJSON DecimalParameterDeclaration' {..} =

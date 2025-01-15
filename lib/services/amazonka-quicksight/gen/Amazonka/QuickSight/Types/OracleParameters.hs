@@ -97,9 +97,9 @@ instance Prelude.Hashable OracleParameters where
 
 instance Prelude.NFData OracleParameters where
   rnf OracleParameters' {..} =
-    Prelude.rnf host
-      `Prelude.seq` Prelude.rnf port
-      `Prelude.seq` Prelude.rnf database
+    Prelude.rnf host `Prelude.seq`
+      Prelude.rnf port `Prelude.seq`
+        Prelude.rnf database
 
 instance Data.ToJSON OracleParameters where
   toJSON OracleParameters' {..} =

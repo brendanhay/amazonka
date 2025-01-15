@@ -100,9 +100,9 @@ instance Prelude.Hashable DialogState where
 
 instance Prelude.NFData DialogState where
   rnf DialogState' {..} =
-    Prelude.rnf dialogAction
-      `Prelude.seq` Prelude.rnf intent
-      `Prelude.seq` Prelude.rnf sessionAttributes
+    Prelude.rnf dialogAction `Prelude.seq`
+      Prelude.rnf intent `Prelude.seq`
+        Prelude.rnf sessionAttributes
 
 instance Data.ToJSON DialogState where
   toJSON DialogState' {..} =

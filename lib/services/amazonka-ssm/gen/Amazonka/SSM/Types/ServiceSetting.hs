@@ -174,9 +174,9 @@ instance Prelude.Hashable ServiceSetting where
 
 instance Prelude.NFData ServiceSetting where
   rnf ServiceSetting' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf lastModifiedUser
-      `Prelude.seq` Prelude.rnf settingId
-      `Prelude.seq` Prelude.rnf settingValue
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf lastModifiedDate `Prelude.seq`
+        Prelude.rnf lastModifiedUser `Prelude.seq`
+          Prelude.rnf settingId `Prelude.seq`
+            Prelude.rnf settingValue `Prelude.seq`
+              Prelude.rnf status

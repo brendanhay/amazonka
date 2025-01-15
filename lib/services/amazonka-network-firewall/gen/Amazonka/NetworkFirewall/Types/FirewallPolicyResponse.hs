@@ -224,14 +224,14 @@ instance Prelude.Hashable FirewallPolicyResponse where
 
 instance Prelude.NFData FirewallPolicyResponse where
   rnf FirewallPolicyResponse' {..} =
-    Prelude.rnf consumedStatefulRuleCapacity
-      `Prelude.seq` Prelude.rnf consumedStatelessRuleCapacity
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf encryptionConfiguration
-      `Prelude.seq` Prelude.rnf firewallPolicyStatus
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf numberOfAssociations
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf firewallPolicyName
-      `Prelude.seq` Prelude.rnf firewallPolicyArn
-      `Prelude.seq` Prelude.rnf firewallPolicyId
+    Prelude.rnf consumedStatefulRuleCapacity `Prelude.seq`
+      Prelude.rnf consumedStatelessRuleCapacity `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf encryptionConfiguration `Prelude.seq`
+            Prelude.rnf firewallPolicyStatus `Prelude.seq`
+              Prelude.rnf lastModifiedTime `Prelude.seq`
+                Prelude.rnf numberOfAssociations `Prelude.seq`
+                  Prelude.rnf tags `Prelude.seq`
+                    Prelude.rnf firewallPolicyName `Prelude.seq`
+                      Prelude.rnf firewallPolicyArn `Prelude.seq`
+                        Prelude.rnf firewallPolicyId

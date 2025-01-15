@@ -184,10 +184,10 @@ instance Prelude.Hashable OrderSummary where
 
 instance Prelude.NFData OrderSummary where
   rnf OrderSummary' {..} =
-    Prelude.rnf lineItemCountsByStatus
-      `Prelude.seq` Prelude.rnf orderFulfilledDate
-      `Prelude.seq` Prelude.rnf orderId
-      `Prelude.seq` Prelude.rnf orderSubmissionDate
-      `Prelude.seq` Prelude.rnf orderType
-      `Prelude.seq` Prelude.rnf outpostId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf lineItemCountsByStatus `Prelude.seq`
+      Prelude.rnf orderFulfilledDate `Prelude.seq`
+        Prelude.rnf orderId `Prelude.seq`
+          Prelude.rnf orderSubmissionDate `Prelude.seq`
+            Prelude.rnf orderType `Prelude.seq`
+              Prelude.rnf outpostId `Prelude.seq`
+                Prelude.rnf status

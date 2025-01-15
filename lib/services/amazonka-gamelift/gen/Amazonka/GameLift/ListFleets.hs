@@ -175,12 +175,12 @@ instance Core.AWSPager ListFleets where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listFleets_nextToken
-          Lens..~ rs
-          Lens.^? listFleetsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listFleets_nextToken
+              Lens..~ rs
+              Lens.^? listFleetsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListFleets where
   type AWSResponse ListFleets = ListFleetsResponse
@@ -205,10 +205,10 @@ instance Prelude.Hashable ListFleets where
 
 instance Prelude.NFData ListFleets where
   rnf ListFleets' {..} =
-    Prelude.rnf buildId
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf scriptId
+    Prelude.rnf buildId `Prelude.seq`
+      Prelude.rnf limit `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf scriptId
 
 instance Data.ToHeaders ListFleets where
   toHeaders =
@@ -295,6 +295,6 @@ listFleetsResponse_httpStatus = Lens.lens (\ListFleetsResponse' {httpStatus} -> 
 
 instance Prelude.NFData ListFleetsResponse where
   rnf ListFleetsResponse' {..} =
-    Prelude.rnf fleetIds
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf fleetIds `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

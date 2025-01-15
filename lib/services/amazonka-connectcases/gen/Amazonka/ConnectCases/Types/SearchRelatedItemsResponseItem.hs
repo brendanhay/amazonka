@@ -140,8 +140,8 @@ instance
     SearchRelatedItemsResponseItem
   where
   rnf SearchRelatedItemsResponseItem' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf associationTime
-      `Prelude.seq` Prelude.rnf content
-      `Prelude.seq` Prelude.rnf relatedItemId
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf associationTime `Prelude.seq`
+        Prelude.rnf content `Prelude.seq`
+          Prelude.rnf relatedItemId `Prelude.seq`
+            Prelude.rnf type'

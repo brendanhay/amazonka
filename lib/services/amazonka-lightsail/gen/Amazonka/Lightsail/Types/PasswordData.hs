@@ -141,5 +141,5 @@ instance Prelude.Hashable PasswordData where
 
 instance Prelude.NFData PasswordData where
   rnf PasswordData' {..} =
-    Prelude.rnf ciphertext
-      `Prelude.seq` Prelude.rnf keyPairName
+    Prelude.rnf ciphertext `Prelude.seq`
+      Prelude.rnf keyPairName

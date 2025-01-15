@@ -97,5 +97,5 @@ instance
     VectorEnrichmentJobErrorDetails
   where
   rnf VectorEnrichmentJobErrorDetails' {..} =
-    Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf errorType
+    Prelude.rnf errorMessage `Prelude.seq`
+      Prelude.rnf errorType

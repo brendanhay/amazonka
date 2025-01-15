@@ -123,8 +123,8 @@ instance Prelude.Hashable ImageScanFindings where
 
 instance Prelude.NFData ImageScanFindings where
   rnf ImageScanFindings' {..} =
-    Prelude.rnf enhancedFindings
-      `Prelude.seq` Prelude.rnf findingSeverityCounts
-      `Prelude.seq` Prelude.rnf findings
-      `Prelude.seq` Prelude.rnf imageScanCompletedAt
-      `Prelude.seq` Prelude.rnf vulnerabilitySourceUpdatedAt
+    Prelude.rnf enhancedFindings `Prelude.seq`
+      Prelude.rnf findingSeverityCounts `Prelude.seq`
+        Prelude.rnf findings `Prelude.seq`
+          Prelude.rnf imageScanCompletedAt `Prelude.seq`
+            Prelude.rnf vulnerabilitySourceUpdatedAt

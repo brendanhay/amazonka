@@ -113,7 +113,7 @@ instance Prelude.Hashable DocumentParameter where
 
 instance Prelude.NFData DocumentParameter where
   rnf DocumentParameter' {..} =
-    Prelude.rnf defaultValue
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf defaultValue `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf type'

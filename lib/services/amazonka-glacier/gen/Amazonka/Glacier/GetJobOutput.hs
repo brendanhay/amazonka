@@ -293,10 +293,10 @@ instance Prelude.Hashable GetJobOutput where
 
 instance Prelude.NFData GetJobOutput where
   rnf GetJobOutput' {..} =
-    Prelude.rnf range
-      `Prelude.seq` Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf vaultName
-      `Prelude.seq` Prelude.rnf jobId
+    Prelude.rnf range `Prelude.seq`
+      Prelude.rnf accountId `Prelude.seq`
+        Prelude.rnf vaultName `Prelude.seq`
+          Prelude.rnf jobId
 
 instance Data.ToHeaders GetJobOutput where
   toHeaders GetJobOutput' {..} =

@@ -181,5 +181,5 @@ deleteHapgResponse_status = Lens.lens (\DeleteHapgResponse' {status} -> status) 
 
 instance Prelude.NFData DeleteHapgResponse where
   rnf DeleteHapgResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf status

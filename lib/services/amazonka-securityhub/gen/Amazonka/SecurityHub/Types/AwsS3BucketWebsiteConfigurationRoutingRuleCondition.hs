@@ -97,8 +97,8 @@ instance
   where
   rnf
     AwsS3BucketWebsiteConfigurationRoutingRuleCondition' {..} =
-      Prelude.rnf httpErrorCodeReturnedEquals
-        `Prelude.seq` Prelude.rnf keyPrefixEquals
+      Prelude.rnf httpErrorCodeReturnedEquals `Prelude.seq`
+        Prelude.rnf keyPrefixEquals
 
 instance
   Data.ToJSON

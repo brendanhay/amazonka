@@ -158,13 +158,13 @@ instance Prelude.Hashable Distribution where
 
 instance Prelude.NFData Distribution where
   rnf Distribution' {..} =
-    Prelude.rnf amiDistributionConfiguration
-      `Prelude.seq` Prelude.rnf containerDistributionConfiguration
-      `Prelude.seq` Prelude.rnf fastLaunchConfigurations
-      `Prelude.seq` Prelude.rnf launchTemplateConfigurations
-      `Prelude.seq` Prelude.rnf licenseConfigurationArns
-      `Prelude.seq` Prelude.rnf s3ExportConfiguration
-      `Prelude.seq` Prelude.rnf region
+    Prelude.rnf amiDistributionConfiguration `Prelude.seq`
+      Prelude.rnf containerDistributionConfiguration `Prelude.seq`
+        Prelude.rnf fastLaunchConfigurations `Prelude.seq`
+          Prelude.rnf launchTemplateConfigurations `Prelude.seq`
+            Prelude.rnf licenseConfigurationArns `Prelude.seq`
+              Prelude.rnf s3ExportConfiguration `Prelude.seq`
+                Prelude.rnf region
 
 instance Data.ToJSON Distribution where
   toJSON Distribution' {..} =

@@ -166,11 +166,11 @@ instance Prelude.Hashable Table where
 
 instance Prelude.NFData Table where
   rnf Table' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf magneticStoreWriteProperties
-      `Prelude.seq` Prelude.rnf retentionProperties
-      `Prelude.seq` Prelude.rnf tableName
-      `Prelude.seq` Prelude.rnf tableStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf databaseName `Prelude.seq`
+          Prelude.rnf lastUpdatedTime `Prelude.seq`
+            Prelude.rnf magneticStoreWriteProperties `Prelude.seq`
+              Prelude.rnf retentionProperties `Prelude.seq`
+                Prelude.rnf tableName `Prelude.seq`
+                  Prelude.rnf tableStatus

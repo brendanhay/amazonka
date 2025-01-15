@@ -121,9 +121,9 @@ instance Prelude.Hashable ListTagsForProject where
 
 instance Prelude.NFData ListTagsForProject where
   rnf ListTagsForProject' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf id
 
 instance Data.ToHeaders ListTagsForProject where
   toHeaders =
@@ -206,6 +206,6 @@ listTagsForProjectResponse_httpStatus = Lens.lens (\ListTagsForProjectResponse' 
 
 instance Prelude.NFData ListTagsForProjectResponse where
   rnf ListTagsForProjectResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf httpStatus

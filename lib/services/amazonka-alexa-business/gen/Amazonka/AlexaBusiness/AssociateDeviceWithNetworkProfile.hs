@@ -122,8 +122,8 @@ instance
     AssociateDeviceWithNetworkProfile
   where
   rnf AssociateDeviceWithNetworkProfile' {..} =
-    Prelude.rnf deviceArn
-      `Prelude.seq` Prelude.rnf networkProfileArn
+    Prelude.rnf deviceArn `Prelude.seq`
+      Prelude.rnf networkProfileArn
 
 instance
   Data.ToHeaders

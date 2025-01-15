@@ -148,8 +148,8 @@ instance
     AdditionalInstanceConfiguration
   where
   rnf AdditionalInstanceConfiguration' {..} =
-    Prelude.rnf systemsManagerAgent
-      `Prelude.seq` Prelude.rnf userDataOverride
+    Prelude.rnf systemsManagerAgent `Prelude.seq`
+      Prelude.rnf userDataOverride
 
 instance Data.ToJSON AdditionalInstanceConfiguration where
   toJSON AdditionalInstanceConfiguration' {..} =

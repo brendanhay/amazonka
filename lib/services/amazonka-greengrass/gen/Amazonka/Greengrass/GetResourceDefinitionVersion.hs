@@ -140,8 +140,8 @@ instance
 
 instance Prelude.NFData GetResourceDefinitionVersion where
   rnf GetResourceDefinitionVersion' {..} =
-    Prelude.rnf resourceDefinitionVersionId
-      `Prelude.seq` Prelude.rnf resourceDefinitionId
+    Prelude.rnf resourceDefinitionVersionId `Prelude.seq`
+      Prelude.rnf resourceDefinitionId
 
 instance Data.ToHeaders GetResourceDefinitionVersion where
   toHeaders =
@@ -249,9 +249,9 @@ instance
     GetResourceDefinitionVersionResponse
   where
   rnf GetResourceDefinitionVersionResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationTimestamp
-      `Prelude.seq` Prelude.rnf definition
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf creationTimestamp `Prelude.seq`
+        Prelude.rnf definition `Prelude.seq`
+          Prelude.rnf id `Prelude.seq`
+            Prelude.rnf version `Prelude.seq`
+              Prelude.rnf httpStatus

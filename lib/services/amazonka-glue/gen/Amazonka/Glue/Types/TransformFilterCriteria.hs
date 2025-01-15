@@ -183,15 +183,15 @@ instance Prelude.Hashable TransformFilterCriteria where
 
 instance Prelude.NFData TransformFilterCriteria where
   rnf TransformFilterCriteria' {..} =
-    Prelude.rnf createdAfter
-      `Prelude.seq` Prelude.rnf createdBefore
-      `Prelude.seq` Prelude.rnf glueVersion
-      `Prelude.seq` Prelude.rnf lastModifiedAfter
-      `Prelude.seq` Prelude.rnf lastModifiedBefore
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf schema
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf transformType
+    Prelude.rnf createdAfter `Prelude.seq`
+      Prelude.rnf createdBefore `Prelude.seq`
+        Prelude.rnf glueVersion `Prelude.seq`
+          Prelude.rnf lastModifiedAfter `Prelude.seq`
+            Prelude.rnf lastModifiedBefore `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf schema `Prelude.seq`
+                  Prelude.rnf status `Prelude.seq`
+                    Prelude.rnf transformType
 
 instance Data.ToJSON TransformFilterCriteria where
   toJSON TransformFilterCriteria' {..} =

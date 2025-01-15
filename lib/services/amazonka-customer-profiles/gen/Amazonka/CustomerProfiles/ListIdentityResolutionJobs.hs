@@ -132,9 +132,9 @@ instance Prelude.Hashable ListIdentityResolutionJobs where
 
 instance Prelude.NFData ListIdentityResolutionJobs where
   rnf ListIdentityResolutionJobs' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf domainName
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf domainName
 
 instance Data.ToHeaders ListIdentityResolutionJobs where
   toHeaders =
@@ -218,6 +218,6 @@ instance
     ListIdentityResolutionJobsResponse
   where
   rnf ListIdentityResolutionJobsResponse' {..} =
-    Prelude.rnf identityResolutionJobsList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf identityResolutionJobsList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -129,12 +129,12 @@ instance Core.AWSPager GetCustomerGatewayAssociations where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getCustomerGatewayAssociations_nextToken
-          Lens..~ rs
-          Lens.^? getCustomerGatewayAssociationsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getCustomerGatewayAssociations_nextToken
+              Lens..~ rs
+              Lens.^? getCustomerGatewayAssociationsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -175,10 +175,10 @@ instance
     GetCustomerGatewayAssociations
   where
   rnf GetCustomerGatewayAssociations' {..} =
-    Prelude.rnf customerGatewayArns
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf globalNetworkId
+    Prelude.rnf customerGatewayArns `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf globalNetworkId
 
 instance
   Data.ToHeaders
@@ -268,6 +268,6 @@ instance
     GetCustomerGatewayAssociationsResponse
   where
   rnf GetCustomerGatewayAssociationsResponse' {..} =
-    Prelude.rnf customerGatewayAssociations
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf customerGatewayAssociations `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

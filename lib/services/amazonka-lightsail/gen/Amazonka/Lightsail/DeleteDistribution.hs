@@ -184,5 +184,5 @@ deleteDistributionResponse_httpStatus = Lens.lens (\DeleteDistributionResponse' 
 
 instance Prelude.NFData DeleteDistributionResponse where
   rnf DeleteDistributionResponse' {..} =
-    Prelude.rnf operation
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operation `Prelude.seq`
+      Prelude.rnf httpStatus

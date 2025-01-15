@@ -126,7 +126,7 @@ instance Prelude.Hashable TrainingResultV2 where
 
 instance Prelude.NFData TrainingResultV2 where
   rnf TrainingResultV2' {..} =
-    Prelude.rnf aggregatedVariablesImportanceMetrics
-      `Prelude.seq` Prelude.rnf dataValidationMetrics
-      `Prelude.seq` Prelude.rnf trainingMetricsV2
-      `Prelude.seq` Prelude.rnf variableImportanceMetrics
+    Prelude.rnf aggregatedVariablesImportanceMetrics `Prelude.seq`
+      Prelude.rnf dataValidationMetrics `Prelude.seq`
+        Prelude.rnf trainingMetricsV2 `Prelude.seq`
+          Prelude.rnf variableImportanceMetrics

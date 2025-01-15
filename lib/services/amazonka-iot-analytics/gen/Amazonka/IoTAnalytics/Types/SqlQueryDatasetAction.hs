@@ -83,8 +83,8 @@ instance Prelude.Hashable SqlQueryDatasetAction where
 
 instance Prelude.NFData SqlQueryDatasetAction where
   rnf SqlQueryDatasetAction' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf sqlQuery
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf sqlQuery
 
 instance Data.ToJSON SqlQueryDatasetAction where
   toJSON SqlQueryDatasetAction' {..} =

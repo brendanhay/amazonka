@@ -159,9 +159,7 @@ instance Data.FromXML SingleInstanceHealth where
     SingleInstanceHealth'
       Prelude.<$> (x Data..@? "ApplicationMetrics")
       Prelude.<*> (x Data..@? "AvailabilityZone")
-      Prelude.<*> ( x
-                      Data..@? "Causes"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "Causes" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "Color")
@@ -188,13 +186,13 @@ instance Prelude.Hashable SingleInstanceHealth where
 
 instance Prelude.NFData SingleInstanceHealth where
   rnf SingleInstanceHealth' {..} =
-    Prelude.rnf applicationMetrics
-      `Prelude.seq` Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf causes
-      `Prelude.seq` Prelude.rnf color
-      `Prelude.seq` Prelude.rnf deployment
-      `Prelude.seq` Prelude.rnf healthStatus
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf launchedAt
-      `Prelude.seq` Prelude.rnf system
+    Prelude.rnf applicationMetrics `Prelude.seq`
+      Prelude.rnf availabilityZone `Prelude.seq`
+        Prelude.rnf causes `Prelude.seq`
+          Prelude.rnf color `Prelude.seq`
+            Prelude.rnf deployment `Prelude.seq`
+              Prelude.rnf healthStatus `Prelude.seq`
+                Prelude.rnf instanceId `Prelude.seq`
+                  Prelude.rnf instanceType `Prelude.seq`
+                    Prelude.rnf launchedAt `Prelude.seq`
+                      Prelude.rnf system

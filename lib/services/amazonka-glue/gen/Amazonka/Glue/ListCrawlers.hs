@@ -125,9 +125,9 @@ instance Prelude.Hashable ListCrawlers where
 
 instance Prelude.NFData ListCrawlers where
   rnf ListCrawlers' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf tags
 
 instance Data.ToHeaders ListCrawlers where
   toHeaders =
@@ -214,6 +214,6 @@ listCrawlersResponse_httpStatus = Lens.lens (\ListCrawlersResponse' {httpStatus}
 
 instance Prelude.NFData ListCrawlersResponse where
   rnf ListCrawlersResponse' {..} =
-    Prelude.rnf crawlerNames
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf crawlerNames `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

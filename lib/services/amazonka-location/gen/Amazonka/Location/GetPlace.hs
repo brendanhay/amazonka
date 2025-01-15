@@ -183,9 +183,9 @@ instance Prelude.Hashable GetPlace where
 
 instance Prelude.NFData GetPlace where
   rnf GetPlace' {..} =
-    Prelude.rnf language
-      `Prelude.seq` Prelude.rnf indexName
-      `Prelude.seq` Prelude.rnf placeId
+    Prelude.rnf language `Prelude.seq`
+      Prelude.rnf indexName `Prelude.seq`
+        Prelude.rnf placeId
 
 instance Data.ToHeaders GetPlace where
   toHeaders =
@@ -253,5 +253,5 @@ getPlaceResponse_place = Lens.lens (\GetPlaceResponse' {place} -> place) (\s@Get
 
 instance Prelude.NFData GetPlaceResponse where
   rnf GetPlaceResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf place
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf place

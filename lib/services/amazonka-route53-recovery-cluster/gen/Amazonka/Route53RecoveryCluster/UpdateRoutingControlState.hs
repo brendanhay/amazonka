@@ -177,9 +177,9 @@ instance Prelude.Hashable UpdateRoutingControlState where
 
 instance Prelude.NFData UpdateRoutingControlState where
   rnf UpdateRoutingControlState' {..} =
-    Prelude.rnf safetyRulesToOverride
-      `Prelude.seq` Prelude.rnf routingControlArn
-      `Prelude.seq` Prelude.rnf routingControlState
+    Prelude.rnf safetyRulesToOverride `Prelude.seq`
+      Prelude.rnf routingControlArn `Prelude.seq`
+        Prelude.rnf routingControlState
 
 instance Data.ToHeaders UpdateRoutingControlState where
   toHeaders =

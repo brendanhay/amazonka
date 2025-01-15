@@ -91,5 +91,5 @@ instance Prelude.Hashable FindingSourceDetail where
 
 instance Prelude.NFData FindingSourceDetail where
   rnf FindingSourceDetail' {..} =
-    Prelude.rnf accessPointAccount
-      `Prelude.seq` Prelude.rnf accessPointArn
+    Prelude.rnf accessPointAccount `Prelude.seq`
+      Prelude.rnf accessPointArn

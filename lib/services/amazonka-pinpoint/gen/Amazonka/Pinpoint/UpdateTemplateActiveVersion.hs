@@ -140,9 +140,9 @@ instance Prelude.Hashable UpdateTemplateActiveVersion where
 
 instance Prelude.NFData UpdateTemplateActiveVersion where
   rnf UpdateTemplateActiveVersion' {..} =
-    Prelude.rnf templateName
-      `Prelude.seq` Prelude.rnf templateType
-      `Prelude.seq` Prelude.rnf templateActiveVersionRequest
+    Prelude.rnf templateName `Prelude.seq`
+      Prelude.rnf templateType `Prelude.seq`
+        Prelude.rnf templateActiveVersionRequest
 
 instance Data.ToHeaders UpdateTemplateActiveVersion where
   toHeaders =
@@ -219,5 +219,5 @@ instance
     UpdateTemplateActiveVersionResponse
   where
   rnf UpdateTemplateActiveVersionResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf messageBody
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf messageBody

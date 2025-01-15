@@ -194,5 +194,5 @@ describeAppAssessmentResponse_assessment = Lens.lens (\DescribeAppAssessmentResp
 
 instance Prelude.NFData DescribeAppAssessmentResponse where
   rnf DescribeAppAssessmentResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf assessment
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf assessment

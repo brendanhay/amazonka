@@ -125,9 +125,9 @@ instance Prelude.Hashable Parameter where
 
 instance Prelude.NFData Parameter where
   rnf Parameter' {..} =
-    Prelude.rnf allowedValues
-      `Prelude.seq` Prelude.rnf dataType
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf minimumEngineVersion
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf allowedValues `Prelude.seq`
+      Prelude.rnf dataType `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf minimumEngineVersion `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf value

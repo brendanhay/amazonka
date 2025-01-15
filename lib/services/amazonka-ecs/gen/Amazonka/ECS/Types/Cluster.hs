@@ -562,19 +562,19 @@ instance Prelude.Hashable Cluster where
 
 instance Prelude.NFData Cluster where
   rnf Cluster' {..} =
-    Prelude.rnf activeServicesCount
-      `Prelude.seq` Prelude.rnf attachments
-      `Prelude.seq` Prelude.rnf attachmentsStatus
-      `Prelude.seq` Prelude.rnf capacityProviders
-      `Prelude.seq` Prelude.rnf clusterArn
-      `Prelude.seq` Prelude.rnf clusterName
-      `Prelude.seq` Prelude.rnf configuration
-      `Prelude.seq` Prelude.rnf defaultCapacityProviderStrategy
-      `Prelude.seq` Prelude.rnf pendingTasksCount
-      `Prelude.seq` Prelude.rnf registeredContainerInstancesCount
-      `Prelude.seq` Prelude.rnf runningTasksCount
-      `Prelude.seq` Prelude.rnf serviceConnectDefaults
-      `Prelude.seq` Prelude.rnf settings
-      `Prelude.seq` Prelude.rnf statistics
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf activeServicesCount `Prelude.seq`
+      Prelude.rnf attachments `Prelude.seq`
+        Prelude.rnf attachmentsStatus `Prelude.seq`
+          Prelude.rnf capacityProviders `Prelude.seq`
+            Prelude.rnf clusterArn `Prelude.seq`
+              Prelude.rnf clusterName `Prelude.seq`
+                Prelude.rnf configuration `Prelude.seq`
+                  Prelude.rnf defaultCapacityProviderStrategy `Prelude.seq`
+                    Prelude.rnf pendingTasksCount `Prelude.seq`
+                      Prelude.rnf registeredContainerInstancesCount `Prelude.seq`
+                        Prelude.rnf runningTasksCount `Prelude.seq`
+                          Prelude.rnf serviceConnectDefaults `Prelude.seq`
+                            Prelude.rnf settings `Prelude.seq`
+                              Prelude.rnf statistics `Prelude.seq`
+                                Prelude.rnf status `Prelude.seq`
+                                  Prelude.rnf tags

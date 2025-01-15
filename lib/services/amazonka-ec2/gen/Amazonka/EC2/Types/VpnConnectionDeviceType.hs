@@ -104,7 +104,7 @@ instance Prelude.Hashable VpnConnectionDeviceType where
 
 instance Prelude.NFData VpnConnectionDeviceType where
   rnf VpnConnectionDeviceType' {..} =
-    Prelude.rnf platform
-      `Prelude.seq` Prelude.rnf software
-      `Prelude.seq` Prelude.rnf vendor
-      `Prelude.seq` Prelude.rnf vpnConnectionDeviceTypeId
+    Prelude.rnf platform `Prelude.seq`
+      Prelude.rnf software `Prelude.seq`
+        Prelude.rnf vendor `Prelude.seq`
+          Prelude.rnf vpnConnectionDeviceTypeId

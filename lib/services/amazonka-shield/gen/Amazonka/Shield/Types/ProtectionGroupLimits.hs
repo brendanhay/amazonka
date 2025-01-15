@@ -91,5 +91,5 @@ instance Prelude.Hashable ProtectionGroupLimits where
 
 instance Prelude.NFData ProtectionGroupLimits where
   rnf ProtectionGroupLimits' {..} =
-    Prelude.rnf maxProtectionGroups
-      `Prelude.seq` Prelude.rnf patternTypeLimits
+    Prelude.rnf maxProtectionGroups `Prelude.seq`
+      Prelude.rnf patternTypeLimits

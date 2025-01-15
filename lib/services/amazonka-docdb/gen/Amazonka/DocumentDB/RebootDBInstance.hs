@@ -139,8 +139,8 @@ instance Prelude.Hashable RebootDBInstance where
 
 instance Prelude.NFData RebootDBInstance where
   rnf RebootDBInstance' {..} =
-    Prelude.rnf forceFailover
-      `Prelude.seq` Prelude.rnf dbInstanceIdentifier
+    Prelude.rnf forceFailover `Prelude.seq`
+      Prelude.rnf dbInstanceIdentifier
 
 instance Data.ToHeaders RebootDBInstance where
   toHeaders = Prelude.const Prelude.mempty
@@ -199,5 +199,5 @@ rebootDBInstanceResponse_httpStatus = Lens.lens (\RebootDBInstanceResponse' {htt
 
 instance Prelude.NFData RebootDBInstanceResponse where
   rnf RebootDBInstanceResponse' {..} =
-    Prelude.rnf dbInstance
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dbInstance `Prelude.seq`
+      Prelude.rnf httpStatus

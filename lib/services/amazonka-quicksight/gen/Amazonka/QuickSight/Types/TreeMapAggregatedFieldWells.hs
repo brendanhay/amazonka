@@ -103,9 +103,9 @@ instance Prelude.Hashable TreeMapAggregatedFieldWells where
 
 instance Prelude.NFData TreeMapAggregatedFieldWells where
   rnf TreeMapAggregatedFieldWells' {..} =
-    Prelude.rnf colors
-      `Prelude.seq` Prelude.rnf groups
-      `Prelude.seq` Prelude.rnf sizes
+    Prelude.rnf colors `Prelude.seq`
+      Prelude.rnf groups `Prelude.seq`
+        Prelude.rnf sizes
 
 instance Data.ToJSON TreeMapAggregatedFieldWells where
   toJSON TreeMapAggregatedFieldWells' {..} =

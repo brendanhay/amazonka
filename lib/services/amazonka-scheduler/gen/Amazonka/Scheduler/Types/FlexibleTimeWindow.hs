@@ -88,8 +88,8 @@ instance Prelude.Hashable FlexibleTimeWindow where
 
 instance Prelude.NFData FlexibleTimeWindow where
   rnf FlexibleTimeWindow' {..} =
-    Prelude.rnf maximumWindowInMinutes
-      `Prelude.seq` Prelude.rnf mode
+    Prelude.rnf maximumWindowInMinutes `Prelude.seq`
+      Prelude.rnf mode
 
 instance Data.ToJSON FlexibleTimeWindow where
   toJSON FlexibleTimeWindow' {..} =

@@ -232,11 +232,11 @@ instance
     GenerateEmbedUrlForRegisteredUser
   where
   rnf GenerateEmbedUrlForRegisteredUser' {..} =
-    Prelude.rnf allowedDomains
-      `Prelude.seq` Prelude.rnf sessionLifetimeInMinutes
-      `Prelude.seq` Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf userArn
-      `Prelude.seq` Prelude.rnf experienceConfiguration
+    Prelude.rnf allowedDomains `Prelude.seq`
+      Prelude.rnf sessionLifetimeInMinutes `Prelude.seq`
+        Prelude.rnf awsAccountId `Prelude.seq`
+          Prelude.rnf userArn `Prelude.seq`
+            Prelude.rnf experienceConfiguration
 
 instance
   Data.ToHeaders
@@ -353,6 +353,6 @@ instance
     GenerateEmbedUrlForRegisteredUserResponse
   where
   rnf GenerateEmbedUrlForRegisteredUserResponse' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf embedUrl
-      `Prelude.seq` Prelude.rnf requestId
+    Prelude.rnf status `Prelude.seq`
+      Prelude.rnf embedUrl `Prelude.seq`
+        Prelude.rnf requestId

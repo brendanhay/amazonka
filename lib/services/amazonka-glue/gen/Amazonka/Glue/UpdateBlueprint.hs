@@ -121,9 +121,9 @@ instance Prelude.Hashable UpdateBlueprint where
 
 instance Prelude.NFData UpdateBlueprint where
   rnf UpdateBlueprint' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf blueprintLocation
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf blueprintLocation
 
 instance Data.ToHeaders UpdateBlueprint where
   toHeaders =
@@ -195,5 +195,5 @@ updateBlueprintResponse_httpStatus = Lens.lens (\UpdateBlueprintResponse' {httpS
 
 instance Prelude.NFData UpdateBlueprintResponse where
   rnf UpdateBlueprintResponse' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf httpStatus

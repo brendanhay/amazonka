@@ -191,13 +191,13 @@ instance Prelude.Hashable ApplicationSummary where
 
 instance Prelude.NFData ApplicationSummary where
   rnf ApplicationSummary' {..} =
-    Prelude.rnf architecture
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf stateDetails
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf releaseLabel
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf updatedAt
+    Prelude.rnf architecture `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf stateDetails `Prelude.seq`
+          Prelude.rnf id `Prelude.seq`
+            Prelude.rnf arn `Prelude.seq`
+              Prelude.rnf releaseLabel `Prelude.seq`
+                Prelude.rnf type' `Prelude.seq`
+                  Prelude.rnf state `Prelude.seq`
+                    Prelude.rnf createdAt `Prelude.seq`
+                      Prelude.rnf updatedAt

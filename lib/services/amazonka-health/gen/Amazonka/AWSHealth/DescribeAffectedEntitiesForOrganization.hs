@@ -171,12 +171,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeAffectedEntitiesForOrganization_nextToken
-          Lens..~ rs
-          Lens.^? describeAffectedEntitiesForOrganizationResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeAffectedEntitiesForOrganization_nextToken
+              Lens..~ rs
+              Lens.^? describeAffectedEntitiesForOrganizationResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -216,10 +216,10 @@ instance
     DescribeAffectedEntitiesForOrganization
   where
   rnf DescribeAffectedEntitiesForOrganization' {..} =
-    Prelude.rnf locale
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf organizationEntityFilters
+    Prelude.rnf locale `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf organizationEntityFilters
 
 instance
   Data.ToHeaders
@@ -352,7 +352,7 @@ instance
   where
   rnf
     DescribeAffectedEntitiesForOrganizationResponse' {..} =
-      Prelude.rnf entities
-        `Prelude.seq` Prelude.rnf failedSet
-        `Prelude.seq` Prelude.rnf nextToken
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf entities `Prelude.seq`
+        Prelude.rnf failedSet `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf httpStatus

@@ -191,8 +191,8 @@ instance Prelude.Hashable GetAlternateContact where
 
 instance Prelude.NFData GetAlternateContact where
   rnf GetAlternateContact' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf alternateContactType
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf alternateContactType
 
 instance Data.ToHeaders GetAlternateContact where
   toHeaders =
@@ -267,5 +267,5 @@ getAlternateContactResponse_httpStatus = Lens.lens (\GetAlternateContactResponse
 
 instance Prelude.NFData GetAlternateContactResponse where
   rnf GetAlternateContactResponse' {..} =
-    Prelude.rnf alternateContact
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf alternateContact `Prelude.seq`
+      Prelude.rnf httpStatus

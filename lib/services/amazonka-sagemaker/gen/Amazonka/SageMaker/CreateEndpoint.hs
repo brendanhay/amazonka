@@ -227,10 +227,10 @@ instance Prelude.Hashable CreateEndpoint where
 
 instance Prelude.NFData CreateEndpoint where
   rnf CreateEndpoint' {..} =
-    Prelude.rnf deploymentConfig
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf endpointName
-      `Prelude.seq` Prelude.rnf endpointConfigName
+    Prelude.rnf deploymentConfig `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf endpointName `Prelude.seq`
+          Prelude.rnf endpointConfigName
 
 instance Data.ToHeaders CreateEndpoint where
   toHeaders =
@@ -306,5 +306,5 @@ createEndpointResponse_endpointArn = Lens.lens (\CreateEndpointResponse' {endpoi
 
 instance Prelude.NFData CreateEndpointResponse where
   rnf CreateEndpointResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf endpointArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf endpointArn

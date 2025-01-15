@@ -121,8 +121,8 @@ instance Prelude.Hashable CreateEmailTemplate where
 
 instance Prelude.NFData CreateEmailTemplate where
   rnf CreateEmailTemplate' {..} =
-    Prelude.rnf templateName
-      `Prelude.seq` Prelude.rnf emailTemplateRequest
+    Prelude.rnf templateName `Prelude.seq`
+      Prelude.rnf emailTemplateRequest
 
 instance Data.ToHeaders CreateEmailTemplate where
   toHeaders =
@@ -192,5 +192,5 @@ createEmailTemplateResponse_createTemplateMessageBody = Lens.lens (\CreateEmailT
 
 instance Prelude.NFData CreateEmailTemplateResponse where
   rnf CreateEmailTemplateResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf createTemplateMessageBody
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf createTemplateMessageBody

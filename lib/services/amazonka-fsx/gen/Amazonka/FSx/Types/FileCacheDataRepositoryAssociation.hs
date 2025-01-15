@@ -238,10 +238,10 @@ instance
     FileCacheDataRepositoryAssociation
   where
   rnf FileCacheDataRepositoryAssociation' {..} =
-    Prelude.rnf dataRepositorySubdirectories
-      `Prelude.seq` Prelude.rnf nfs
-      `Prelude.seq` Prelude.rnf fileCachePath
-      `Prelude.seq` Prelude.rnf dataRepositoryPath
+    Prelude.rnf dataRepositorySubdirectories `Prelude.seq`
+      Prelude.rnf nfs `Prelude.seq`
+        Prelude.rnf fileCachePath `Prelude.seq`
+          Prelude.rnf dataRepositoryPath
 
 instance
   Data.ToJSON

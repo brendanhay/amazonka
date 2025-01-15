@@ -123,8 +123,8 @@ instance Prelude.Hashable UngroupResources where
 
 instance Prelude.NFData UngroupResources where
   rnf UngroupResources' {..} =
-    Prelude.rnf group'
-      `Prelude.seq` Prelude.rnf resourceArns
+    Prelude.rnf group' `Prelude.seq`
+      Prelude.rnf resourceArns
 
 instance Data.ToHeaders UngroupResources where
   toHeaders = Prelude.const Prelude.mempty
@@ -220,7 +220,7 @@ ungroupResourcesResponse_httpStatus = Lens.lens (\UngroupResourcesResponse' {htt
 
 instance Prelude.NFData UngroupResourcesResponse where
   rnf UngroupResourcesResponse' {..} =
-    Prelude.rnf failed
-      `Prelude.seq` Prelude.rnf pending
-      `Prelude.seq` Prelude.rnf succeeded
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf failed `Prelude.seq`
+      Prelude.rnf pending `Prelude.seq`
+        Prelude.rnf succeeded `Prelude.seq`
+          Prelude.rnf httpStatus

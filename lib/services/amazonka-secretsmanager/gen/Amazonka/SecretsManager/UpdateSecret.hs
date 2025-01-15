@@ -352,12 +352,12 @@ instance Prelude.Hashable UpdateSecret where
 
 instance Prelude.NFData UpdateSecret where
   rnf UpdateSecret' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf secretBinary
-      `Prelude.seq` Prelude.rnf secretString
-      `Prelude.seq` Prelude.rnf secretId
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf kmsKeyId `Prelude.seq`
+          Prelude.rnf secretBinary `Prelude.seq`
+            Prelude.rnf secretString `Prelude.seq`
+              Prelude.rnf secretId
 
 instance Data.ToHeaders UpdateSecret where
   toHeaders =
@@ -458,7 +458,7 @@ updateSecretResponse_httpStatus = Lens.lens (\UpdateSecretResponse' {httpStatus}
 
 instance Prelude.NFData UpdateSecretResponse where
   rnf UpdateSecretResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf versionId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf versionId `Prelude.seq`
+          Prelude.rnf httpStatus

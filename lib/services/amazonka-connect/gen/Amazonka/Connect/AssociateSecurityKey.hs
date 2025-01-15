@@ -116,8 +116,8 @@ instance Prelude.Hashable AssociateSecurityKey where
 
 instance Prelude.NFData AssociateSecurityKey where
   rnf AssociateSecurityKey' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf key
+    Prelude.rnf instanceId `Prelude.seq`
+      Prelude.rnf key
 
 instance Data.ToHeaders AssociateSecurityKey where
   toHeaders =
@@ -189,5 +189,5 @@ associateSecurityKeyResponse_httpStatus = Lens.lens (\AssociateSecurityKeyRespon
 
 instance Prelude.NFData AssociateSecurityKeyResponse where
   rnf AssociateSecurityKeyResponse' {..} =
-    Prelude.rnf associationId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf associationId `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -167,10 +167,10 @@ instance Prelude.Hashable CreateLabelGroup where
 
 instance Prelude.NFData CreateLabelGroup where
   rnf CreateLabelGroup' {..} =
-    Prelude.rnf faultCodes
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf labelGroupName
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf faultCodes `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf labelGroupName `Prelude.seq`
+          Prelude.rnf clientToken
 
 instance Data.ToHeaders CreateLabelGroup where
   toHeaders =
@@ -261,6 +261,6 @@ createLabelGroupResponse_httpStatus = Lens.lens (\CreateLabelGroupResponse' {htt
 
 instance Prelude.NFData CreateLabelGroupResponse where
   rnf CreateLabelGroupResponse' {..} =
-    Prelude.rnf labelGroupArn
-      `Prelude.seq` Prelude.rnf labelGroupName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf labelGroupArn `Prelude.seq`
+      Prelude.rnf labelGroupName `Prelude.seq`
+        Prelude.rnf httpStatus

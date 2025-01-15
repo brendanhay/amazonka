@@ -103,8 +103,8 @@ instance
     LinuxSubscriptionsDiscoverySettings
   where
   rnf LinuxSubscriptionsDiscoverySettings' {..} =
-    Prelude.rnf organizationIntegration
-      `Prelude.seq` Prelude.rnf sourceRegions
+    Prelude.rnf organizationIntegration `Prelude.seq`
+      Prelude.rnf sourceRegions
 
 instance
   Data.ToJSON

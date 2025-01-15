@@ -120,8 +120,8 @@ instance Prelude.Hashable PutLifecyclePolicy where
 
 instance Prelude.NFData PutLifecyclePolicy where
   rnf PutLifecyclePolicy' {..} =
-    Prelude.rnf containerName
-      `Prelude.seq` Prelude.rnf lifecyclePolicy
+    Prelude.rnf containerName `Prelude.seq`
+      Prelude.rnf lifecyclePolicy
 
 instance Data.ToHeaders PutLifecyclePolicy where
   toHeaders =

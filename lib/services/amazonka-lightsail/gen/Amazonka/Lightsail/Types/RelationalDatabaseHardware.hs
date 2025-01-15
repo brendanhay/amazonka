@@ -92,6 +92,6 @@ instance Prelude.Hashable RelationalDatabaseHardware where
 
 instance Prelude.NFData RelationalDatabaseHardware where
   rnf RelationalDatabaseHardware' {..} =
-    Prelude.rnf cpuCount
-      `Prelude.seq` Prelude.rnf diskSizeInGb
-      `Prelude.seq` Prelude.rnf ramSizeInGb
+    Prelude.rnf cpuCount `Prelude.seq`
+      Prelude.rnf diskSizeInGb `Prelude.seq`
+        Prelude.rnf ramSizeInGb

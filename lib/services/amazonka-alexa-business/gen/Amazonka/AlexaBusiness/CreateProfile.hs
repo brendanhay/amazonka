@@ -260,20 +260,20 @@ instance Prelude.Hashable CreateProfile where
 
 instance Prelude.NFData CreateProfile where
   rnf CreateProfile' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf dataRetentionOptIn
-      `Prelude.seq` Prelude.rnf locale
-      `Prelude.seq` Prelude.rnf maxVolumeLimit
-      `Prelude.seq` Prelude.rnf meetingRoomConfiguration
-      `Prelude.seq` Prelude.rnf pSTNEnabled
-      `Prelude.seq` Prelude.rnf setupModeDisabled
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf profileName
-      `Prelude.seq` Prelude.rnf timezone
-      `Prelude.seq` Prelude.rnf address
-      `Prelude.seq` Prelude.rnf distanceUnit
-      `Prelude.seq` Prelude.rnf temperatureUnit
-      `Prelude.seq` Prelude.rnf wakeWord
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf dataRetentionOptIn `Prelude.seq`
+        Prelude.rnf locale `Prelude.seq`
+          Prelude.rnf maxVolumeLimit `Prelude.seq`
+            Prelude.rnf meetingRoomConfiguration `Prelude.seq`
+              Prelude.rnf pSTNEnabled `Prelude.seq`
+                Prelude.rnf setupModeDisabled `Prelude.seq`
+                  Prelude.rnf tags `Prelude.seq`
+                    Prelude.rnf profileName `Prelude.seq`
+                      Prelude.rnf timezone `Prelude.seq`
+                        Prelude.rnf address `Prelude.seq`
+                          Prelude.rnf distanceUnit `Prelude.seq`
+                            Prelude.rnf temperatureUnit `Prelude.seq`
+                              Prelude.rnf wakeWord
 
 instance Data.ToHeaders CreateProfile where
   toHeaders =
@@ -364,5 +364,5 @@ createProfileResponse_httpStatus = Lens.lens (\CreateProfileResponse' {httpStatu
 
 instance Prelude.NFData CreateProfileResponse where
   rnf CreateProfileResponse' {..} =
-    Prelude.rnf profileArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf profileArn `Prelude.seq`
+      Prelude.rnf httpStatus

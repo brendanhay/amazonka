@@ -121,10 +121,10 @@ instance
     ParameterDateTimePickerControl
   where
   rnf ParameterDateTimePickerControl' {..} =
-    Prelude.rnf displayOptions
-      `Prelude.seq` Prelude.rnf parameterControlId
-      `Prelude.seq` Prelude.rnf title
-      `Prelude.seq` Prelude.rnf sourceParameterName
+    Prelude.rnf displayOptions `Prelude.seq`
+      Prelude.rnf parameterControlId `Prelude.seq`
+        Prelude.rnf title `Prelude.seq`
+          Prelude.rnf sourceParameterName
 
 instance Data.ToJSON ParameterDateTimePickerControl where
   toJSON ParameterDateTimePickerControl' {..} =

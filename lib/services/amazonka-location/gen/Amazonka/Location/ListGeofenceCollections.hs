@@ -115,12 +115,12 @@ instance Core.AWSPager ListGeofenceCollections where
         (rs Lens.^. listGeofenceCollectionsResponse_entries) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listGeofenceCollections_nextToken
-          Lens..~ rs
-          Lens.^? listGeofenceCollectionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listGeofenceCollections_nextToken
+              Lens..~ rs
+              Lens.^? listGeofenceCollectionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListGeofenceCollections where
   type
@@ -145,8 +145,8 @@ instance Prelude.Hashable ListGeofenceCollections where
 
 instance Prelude.NFData ListGeofenceCollections where
   rnf ListGeofenceCollections' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListGeofenceCollections where
   toHeaders =
@@ -234,6 +234,6 @@ instance
     ListGeofenceCollectionsResponse
   where
   rnf ListGeofenceCollectionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf entries
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf entries

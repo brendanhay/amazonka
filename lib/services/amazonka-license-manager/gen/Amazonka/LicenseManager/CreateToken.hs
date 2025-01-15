@@ -162,11 +162,11 @@ instance Prelude.Hashable CreateToken where
 
 instance Prelude.NFData CreateToken where
   rnf CreateToken' {..} =
-    Prelude.rnf expirationInDays
-      `Prelude.seq` Prelude.rnf roleArns
-      `Prelude.seq` Prelude.rnf tokenProperties
-      `Prelude.seq` Prelude.rnf licenseArn
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf expirationInDays `Prelude.seq`
+      Prelude.rnf roleArns `Prelude.seq`
+        Prelude.rnf tokenProperties `Prelude.seq`
+          Prelude.rnf licenseArn `Prelude.seq`
+            Prelude.rnf clientToken
 
 instance Data.ToHeaders CreateToken where
   toHeaders =
@@ -261,7 +261,7 @@ createTokenResponse_httpStatus = Lens.lens (\CreateTokenResponse' {httpStatus} -
 
 instance Prelude.NFData CreateTokenResponse where
   rnf CreateTokenResponse' {..} =
-    Prelude.rnf token
-      `Prelude.seq` Prelude.rnf tokenId
-      `Prelude.seq` Prelude.rnf tokenType
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf token `Prelude.seq`
+      Prelude.rnf tokenId `Prelude.seq`
+        Prelude.rnf tokenType `Prelude.seq`
+          Prelude.rnf httpStatus

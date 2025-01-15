@@ -156,12 +156,12 @@ instance Core.AWSPager ListConstraintsForPortfolio where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listConstraintsForPortfolio_pageToken
-          Lens..~ rs
-          Lens.^? listConstraintsForPortfolioResponse_nextPageToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listConstraintsForPortfolio_pageToken
+              Lens..~ rs
+              Lens.^? listConstraintsForPortfolioResponse_nextPageToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListConstraintsForPortfolio where
   type
@@ -192,11 +192,11 @@ instance Prelude.Hashable ListConstraintsForPortfolio where
 
 instance Prelude.NFData ListConstraintsForPortfolio where
   rnf ListConstraintsForPortfolio' {..} =
-    Prelude.rnf acceptLanguage
-      `Prelude.seq` Prelude.rnf pageSize
-      `Prelude.seq` Prelude.rnf pageToken
-      `Prelude.seq` Prelude.rnf productId
-      `Prelude.seq` Prelude.rnf portfolioId
+    Prelude.rnf acceptLanguage `Prelude.seq`
+      Prelude.rnf pageSize `Prelude.seq`
+        Prelude.rnf pageToken `Prelude.seq`
+          Prelude.rnf productId `Prelude.seq`
+            Prelude.rnf portfolioId
 
 instance Data.ToHeaders ListConstraintsForPortfolio where
   toHeaders =
@@ -288,6 +288,6 @@ instance
     ListConstraintsForPortfolioResponse
   where
   rnf ListConstraintsForPortfolioResponse' {..} =
-    Prelude.rnf constraintDetails
-      `Prelude.seq` Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf constraintDetails `Prelude.seq`
+      Prelude.rnf nextPageToken `Prelude.seq`
+        Prelude.rnf httpStatus

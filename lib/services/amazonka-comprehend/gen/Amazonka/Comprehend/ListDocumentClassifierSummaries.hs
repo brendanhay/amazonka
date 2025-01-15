@@ -127,8 +127,8 @@ instance
     ListDocumentClassifierSummaries
   where
   rnf ListDocumentClassifierSummaries' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance
   Data.ToHeaders
@@ -217,6 +217,6 @@ instance
     ListDocumentClassifierSummariesResponse
   where
   rnf ListDocumentClassifierSummariesResponse' {..} =
-    Prelude.rnf documentClassifierSummariesList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf documentClassifierSummariesList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -120,8 +120,8 @@ instance Prelude.Hashable DeleteKeySigningKey where
 
 instance Prelude.NFData DeleteKeySigningKey where
   rnf DeleteKeySigningKey' {..} =
-    Prelude.rnf hostedZoneId
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf hostedZoneId `Prelude.seq`
+      Prelude.rnf name
 
 instance Data.ToHeaders DeleteKeySigningKey where
   toHeaders = Prelude.const Prelude.mempty
@@ -182,5 +182,5 @@ deleteKeySigningKeyResponse_changeInfo = Lens.lens (\DeleteKeySigningKeyResponse
 
 instance Prelude.NFData DeleteKeySigningKeyResponse where
   rnf DeleteKeySigningKeyResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf changeInfo
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf changeInfo

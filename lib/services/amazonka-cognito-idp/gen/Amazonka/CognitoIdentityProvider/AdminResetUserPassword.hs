@@ -241,9 +241,9 @@ instance Prelude.Hashable AdminResetUserPassword where
 
 instance Prelude.NFData AdminResetUserPassword where
   rnf AdminResetUserPassword' {..} =
-    Prelude.rnf clientMetadata
-      `Prelude.seq` Prelude.rnf userPoolId
-      `Prelude.seq` Prelude.rnf username
+    Prelude.rnf clientMetadata `Prelude.seq`
+      Prelude.rnf userPoolId `Prelude.seq`
+        Prelude.rnf username
 
 instance Data.ToHeaders AdminResetUserPassword where
   toHeaders =

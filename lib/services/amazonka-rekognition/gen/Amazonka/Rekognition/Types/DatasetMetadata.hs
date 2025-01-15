@@ -135,9 +135,9 @@ instance Prelude.Hashable DatasetMetadata where
 
 instance Prelude.NFData DatasetMetadata where
   rnf DatasetMetadata' {..} =
-    Prelude.rnf creationTimestamp
-      `Prelude.seq` Prelude.rnf datasetArn
-      `Prelude.seq` Prelude.rnf datasetType
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf statusMessageCode
+    Prelude.rnf creationTimestamp `Prelude.seq`
+      Prelude.rnf datasetArn `Prelude.seq`
+        Prelude.rnf datasetType `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf statusMessage `Prelude.seq`
+              Prelude.rnf statusMessageCode

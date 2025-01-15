@@ -118,8 +118,8 @@ instance Prelude.Hashable ListConfigurationSets where
 
 instance Prelude.NFData ListConfigurationSets where
   rnf ListConfigurationSets' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf pageSize
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf pageSize
 
 instance Data.ToHeaders ListConfigurationSets where
   toHeaders =
@@ -202,6 +202,6 @@ listConfigurationSetsResponse_httpStatus = Lens.lens (\ListConfigurationSetsResp
 
 instance Prelude.NFData ListConfigurationSetsResponse where
   rnf ListConfigurationSetsResponse' {..} =
-    Prelude.rnf configurationSets
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf configurationSets `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

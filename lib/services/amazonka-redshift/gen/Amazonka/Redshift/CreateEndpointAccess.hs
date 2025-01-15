@@ -172,11 +172,11 @@ instance Prelude.Hashable CreateEndpointAccess where
 
 instance Prelude.NFData CreateEndpointAccess where
   rnf CreateEndpointAccess' {..} =
-    Prelude.rnf clusterIdentifier
-      `Prelude.seq` Prelude.rnf resourceOwner
-      `Prelude.seq` Prelude.rnf vpcSecurityGroupIds
-      `Prelude.seq` Prelude.rnf endpointName
-      `Prelude.seq` Prelude.rnf subnetGroupName
+    Prelude.rnf clusterIdentifier `Prelude.seq`
+      Prelude.rnf resourceOwner `Prelude.seq`
+        Prelude.rnf vpcSecurityGroupIds `Prelude.seq`
+          Prelude.rnf endpointName `Prelude.seq`
+            Prelude.rnf subnetGroupName
 
 instance Data.ToHeaders CreateEndpointAccess where
   toHeaders = Prelude.const Prelude.mempty

@@ -115,8 +115,8 @@ instance Prelude.Hashable GetAppsList where
 
 instance Prelude.NFData GetAppsList where
   rnf GetAppsList' {..} =
-    Prelude.rnf defaultList
-      `Prelude.seq` Prelude.rnf listId
+    Prelude.rnf defaultList `Prelude.seq`
+      Prelude.rnf listId
 
 instance Data.ToHeaders GetAppsList where
   toHeaders =
@@ -197,6 +197,6 @@ getAppsListResponse_httpStatus = Lens.lens (\GetAppsListResponse' {httpStatus} -
 
 instance Prelude.NFData GetAppsListResponse where
   rnf GetAppsListResponse' {..} =
-    Prelude.rnf appsList
-      `Prelude.seq` Prelude.rnf appsListArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf appsList `Prelude.seq`
+      Prelude.rnf appsListArn `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -120,9 +120,9 @@ instance Prelude.Hashable UpdateSipMediaApplication where
 
 instance Prelude.NFData UpdateSipMediaApplication where
   rnf UpdateSipMediaApplication' {..} =
-    Prelude.rnf endpoints
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf sipMediaApplicationId
+    Prelude.rnf endpoints `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf sipMediaApplicationId
 
 instance Data.ToHeaders UpdateSipMediaApplication where
   toHeaders = Prelude.const Prelude.mempty
@@ -190,5 +190,5 @@ instance
     UpdateSipMediaApplicationResponse
   where
   rnf UpdateSipMediaApplicationResponse' {..} =
-    Prelude.rnf sipMediaApplication
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf sipMediaApplication `Prelude.seq`
+      Prelude.rnf httpStatus

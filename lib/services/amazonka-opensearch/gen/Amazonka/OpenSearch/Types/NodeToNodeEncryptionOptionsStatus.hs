@@ -103,5 +103,5 @@ instance
     NodeToNodeEncryptionOptionsStatus
   where
   rnf NodeToNodeEncryptionOptionsStatus' {..} =
-    Prelude.rnf options
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf options `Prelude.seq`
+      Prelude.rnf status

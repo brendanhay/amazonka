@@ -123,8 +123,8 @@ instance Prelude.Hashable LockRule where
 
 instance Prelude.NFData LockRule where
   rnf LockRule' {..} =
-    Prelude.rnf identifier
-      `Prelude.seq` Prelude.rnf lockConfiguration
+    Prelude.rnf identifier `Prelude.seq`
+      Prelude.rnf lockConfiguration
 
 instance Data.ToHeaders LockRule where
   toHeaders =
@@ -304,12 +304,12 @@ lockRuleResponse_httpStatus = Lens.lens (\LockRuleResponse' {httpStatus} -> http
 
 instance Prelude.NFData LockRuleResponse where
   rnf LockRuleResponse' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf identifier
-      `Prelude.seq` Prelude.rnf lockConfiguration
-      `Prelude.seq` Prelude.rnf lockState
-      `Prelude.seq` Prelude.rnf resourceTags
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf retentionPeriod
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf identifier `Prelude.seq`
+        Prelude.rnf lockConfiguration `Prelude.seq`
+          Prelude.rnf lockState `Prelude.seq`
+            Prelude.rnf resourceTags `Prelude.seq`
+              Prelude.rnf resourceType `Prelude.seq`
+                Prelude.rnf retentionPeriod `Prelude.seq`
+                  Prelude.rnf status `Prelude.seq`
+                    Prelude.rnf httpStatus

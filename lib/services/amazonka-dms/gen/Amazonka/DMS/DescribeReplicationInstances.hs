@@ -152,12 +152,12 @@ instance Core.AWSPager DescribeReplicationInstances where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeReplicationInstances_marker
-          Lens..~ rs
-          Lens.^? describeReplicationInstancesResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeReplicationInstances_marker
+              Lens..~ rs
+              Lens.^? describeReplicationInstancesResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeReplicationInstances where
   type
@@ -189,9 +189,9 @@ instance
 
 instance Prelude.NFData DescribeReplicationInstances where
   rnf DescribeReplicationInstances' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf maxRecords
 
 instance Data.ToHeaders DescribeReplicationInstances where
   toHeaders =
@@ -286,6 +286,6 @@ instance
     DescribeReplicationInstancesResponse
   where
   rnf DescribeReplicationInstancesResponse' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf replicationInstances
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf replicationInstances `Prelude.seq`
+        Prelude.rnf httpStatus

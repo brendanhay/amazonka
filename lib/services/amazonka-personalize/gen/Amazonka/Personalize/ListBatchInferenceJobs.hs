@@ -120,12 +120,12 @@ instance Core.AWSPager ListBatchInferenceJobs where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listBatchInferenceJobs_nextToken
-          Lens..~ rs
-          Lens.^? listBatchInferenceJobsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listBatchInferenceJobs_nextToken
+              Lens..~ rs
+              Lens.^? listBatchInferenceJobsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListBatchInferenceJobs where
   type
@@ -154,9 +154,9 @@ instance Prelude.Hashable ListBatchInferenceJobs where
 
 instance Prelude.NFData ListBatchInferenceJobs where
   rnf ListBatchInferenceJobs' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf solutionVersionArn
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf solutionVersionArn
 
 instance Data.ToHeaders ListBatchInferenceJobs where
   toHeaders =
@@ -246,6 +246,6 @@ instance
     ListBatchInferenceJobsResponse
   where
   rnf ListBatchInferenceJobsResponse' {..} =
-    Prelude.rnf batchInferenceJobs
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf batchInferenceJobs `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

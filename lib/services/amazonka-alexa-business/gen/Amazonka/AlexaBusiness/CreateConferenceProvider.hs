@@ -174,13 +174,13 @@ instance Prelude.Hashable CreateConferenceProvider where
 
 instance Prelude.NFData CreateConferenceProvider where
   rnf CreateConferenceProvider' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf iPDialIn
-      `Prelude.seq` Prelude.rnf pSTNDialIn
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf conferenceProviderName
-      `Prelude.seq` Prelude.rnf conferenceProviderType
-      `Prelude.seq` Prelude.rnf meetingSetting
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf iPDialIn `Prelude.seq`
+        Prelude.rnf pSTNDialIn `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf conferenceProviderName `Prelude.seq`
+              Prelude.rnf conferenceProviderType `Prelude.seq`
+                Prelude.rnf meetingSetting
 
 instance Data.ToHeaders CreateConferenceProvider where
   toHeaders =
@@ -269,5 +269,5 @@ instance
     CreateConferenceProviderResponse
   where
   rnf CreateConferenceProviderResponse' {..} =
-    Prelude.rnf conferenceProviderArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf conferenceProviderArn `Prelude.seq`
+      Prelude.rnf httpStatus

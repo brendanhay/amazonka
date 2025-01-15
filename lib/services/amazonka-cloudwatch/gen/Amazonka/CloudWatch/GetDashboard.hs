@@ -186,7 +186,7 @@ getDashboardResponse_httpStatus = Lens.lens (\GetDashboardResponse' {httpStatus}
 
 instance Prelude.NFData GetDashboardResponse where
   rnf GetDashboardResponse' {..} =
-    Prelude.rnf dashboardArn
-      `Prelude.seq` Prelude.rnf dashboardBody
-      `Prelude.seq` Prelude.rnf dashboardName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dashboardArn `Prelude.seq`
+      Prelude.rnf dashboardBody `Prelude.seq`
+        Prelude.rnf dashboardName `Prelude.seq`
+          Prelude.rnf httpStatus

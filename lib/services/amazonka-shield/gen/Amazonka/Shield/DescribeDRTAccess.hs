@@ -160,6 +160,6 @@ describeDRTAccessResponse_httpStatus = Lens.lens (\DescribeDRTAccessResponse' {h
 
 instance Prelude.NFData DescribeDRTAccessResponse where
   rnf DescribeDRTAccessResponse' {..} =
-    Prelude.rnf logBucketList
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf logBucketList `Prelude.seq`
+      Prelude.rnf roleArn `Prelude.seq`
+        Prelude.rnf httpStatus

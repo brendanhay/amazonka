@@ -166,5 +166,5 @@ describeWorkflowResponse_workflow = Lens.lens (\DescribeWorkflowResponse' {workf
 
 instance Prelude.NFData DescribeWorkflowResponse where
   rnf DescribeWorkflowResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf workflow
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf workflow

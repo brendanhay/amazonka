@@ -124,8 +124,8 @@ instance Prelude.Hashable Hypervisor where
 
 instance Prelude.NFData Hypervisor where
   rnf Hypervisor' {..} =
-    Prelude.rnf host
-      `Prelude.seq` Prelude.rnf hypervisorArn
-      `Prelude.seq` Prelude.rnf kmsKeyArn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf host `Prelude.seq`
+      Prelude.rnf hypervisorArn `Prelude.seq`
+        Prelude.rnf kmsKeyArn `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf state

@@ -114,8 +114,8 @@ instance Prelude.Hashable DetectMetricSetConfig where
 
 instance Prelude.NFData DetectMetricSetConfig where
   rnf DetectMetricSetConfig' {..} =
-    Prelude.rnf anomalyDetectorArn
-      `Prelude.seq` Prelude.rnf autoDetectionMetricSource
+    Prelude.rnf anomalyDetectorArn `Prelude.seq`
+      Prelude.rnf autoDetectionMetricSource
 
 instance Data.ToHeaders DetectMetricSetConfig where
   toHeaders =
@@ -188,5 +188,5 @@ detectMetricSetConfigResponse_httpStatus = Lens.lens (\DetectMetricSetConfigResp
 
 instance Prelude.NFData DetectMetricSetConfigResponse where
   rnf DetectMetricSetConfigResponse' {..} =
-    Prelude.rnf detectedMetricSetConfig
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf detectedMetricSetConfig `Prelude.seq`
+      Prelude.rnf httpStatus

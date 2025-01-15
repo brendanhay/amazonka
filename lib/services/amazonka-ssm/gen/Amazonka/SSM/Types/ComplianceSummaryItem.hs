@@ -97,6 +97,6 @@ instance Prelude.Hashable ComplianceSummaryItem where
 
 instance Prelude.NFData ComplianceSummaryItem where
   rnf ComplianceSummaryItem' {..} =
-    Prelude.rnf complianceType
-      `Prelude.seq` Prelude.rnf compliantSummary
-      `Prelude.seq` Prelude.rnf nonCompliantSummary
+    Prelude.rnf complianceType `Prelude.seq`
+      Prelude.rnf compliantSummary `Prelude.seq`
+        Prelude.rnf nonCompliantSummary

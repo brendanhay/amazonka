@@ -150,8 +150,8 @@ instance Prelude.Hashable DeleteCertificateAuthority where
 
 instance Prelude.NFData DeleteCertificateAuthority where
   rnf DeleteCertificateAuthority' {..} =
-    Prelude.rnf permanentDeletionTimeInDays
-      `Prelude.seq` Prelude.rnf certificateAuthorityArn
+    Prelude.rnf permanentDeletionTimeInDays `Prelude.seq`
+      Prelude.rnf certificateAuthorityArn
 
 instance Data.ToHeaders DeleteCertificateAuthority where
   toHeaders =

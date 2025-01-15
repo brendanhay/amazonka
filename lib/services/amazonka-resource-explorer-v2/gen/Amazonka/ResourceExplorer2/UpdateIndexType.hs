@@ -287,8 +287,8 @@ updateIndexTypeResponse_httpStatus = Lens.lens (\UpdateIndexTypeResponse' {httpS
 
 instance Prelude.NFData UpdateIndexTypeResponse where
   rnf UpdateIndexTypeResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf lastUpdatedAt `Prelude.seq`
+        Prelude.rnf state `Prelude.seq`
+          Prelude.rnf type' `Prelude.seq`
+            Prelude.rnf httpStatus

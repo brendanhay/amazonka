@@ -135,9 +135,9 @@ instance Prelude.Hashable DescribeVirtualService where
 
 instance Prelude.NFData DescribeVirtualService where
   rnf DescribeVirtualService' {..} =
-    Prelude.rnf meshOwner
-      `Prelude.seq` Prelude.rnf meshName
-      `Prelude.seq` Prelude.rnf virtualServiceName
+    Prelude.rnf meshOwner `Prelude.seq`
+      Prelude.rnf meshName `Prelude.seq`
+        Prelude.rnf virtualServiceName
 
 instance Data.ToHeaders DescribeVirtualService where
   toHeaders =
@@ -213,5 +213,5 @@ instance
     DescribeVirtualServiceResponse
   where
   rnf DescribeVirtualServiceResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf virtualService
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf virtualService

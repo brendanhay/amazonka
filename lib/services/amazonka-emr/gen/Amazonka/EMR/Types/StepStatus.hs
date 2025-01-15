@@ -109,7 +109,7 @@ instance Prelude.Hashable StepStatus where
 
 instance Prelude.NFData StepStatus where
   rnf StepStatus' {..} =
-    Prelude.rnf failureDetails
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf stateChangeReason
-      `Prelude.seq` Prelude.rnf timeline
+    Prelude.rnf failureDetails `Prelude.seq`
+      Prelude.rnf state `Prelude.seq`
+        Prelude.rnf stateChangeReason `Prelude.seq`
+          Prelude.rnf timeline

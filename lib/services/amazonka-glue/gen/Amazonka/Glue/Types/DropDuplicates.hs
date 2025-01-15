@@ -96,9 +96,9 @@ instance Prelude.Hashable DropDuplicates where
 
 instance Prelude.NFData DropDuplicates where
   rnf DropDuplicates' {..} =
-    Prelude.rnf columns
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf inputs
+    Prelude.rnf columns `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf inputs
 
 instance Data.ToJSON DropDuplicates where
   toJSON DropDuplicates' {..} =

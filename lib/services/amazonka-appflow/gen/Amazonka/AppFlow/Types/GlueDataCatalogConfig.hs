@@ -146,9 +146,9 @@ instance Prelude.Hashable GlueDataCatalogConfig where
 
 instance Prelude.NFData GlueDataCatalogConfig where
   rnf GlueDataCatalogConfig' {..} =
-    Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf tablePrefix
+    Prelude.rnf roleArn `Prelude.seq`
+      Prelude.rnf databaseName `Prelude.seq`
+        Prelude.rnf tablePrefix
 
 instance Data.ToJSON GlueDataCatalogConfig where
   toJSON GlueDataCatalogConfig' {..} =

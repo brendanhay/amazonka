@@ -109,8 +109,8 @@ instance Prelude.Hashable GetStages where
 
 instance Prelude.NFData GetStages where
   rnf GetStages' {..} =
-    Prelude.rnf deploymentId
-      `Prelude.seq` Prelude.rnf restApiId
+    Prelude.rnf deploymentId `Prelude.seq`
+      Prelude.rnf restApiId
 
 instance Data.ToHeaders GetStages where
   toHeaders =
@@ -173,5 +173,5 @@ getStagesResponse_httpStatus = Lens.lens (\GetStagesResponse' {httpStatus} -> ht
 
 instance Prelude.NFData GetStagesResponse where
   rnf GetStagesResponse' {..} =
-    Prelude.rnf item
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf item `Prelude.seq`
+      Prelude.rnf httpStatus

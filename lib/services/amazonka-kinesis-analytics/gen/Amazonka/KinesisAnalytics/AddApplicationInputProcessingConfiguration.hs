@@ -199,10 +199,10 @@ instance
     AddApplicationInputProcessingConfiguration
   where
   rnf AddApplicationInputProcessingConfiguration' {..} =
-    Prelude.rnf applicationName
-      `Prelude.seq` Prelude.rnf currentApplicationVersionId
-      `Prelude.seq` Prelude.rnf inputId
-      `Prelude.seq` Prelude.rnf inputProcessingConfiguration
+    Prelude.rnf applicationName `Prelude.seq`
+      Prelude.rnf currentApplicationVersionId `Prelude.seq`
+        Prelude.rnf inputId `Prelude.seq`
+          Prelude.rnf inputProcessingConfiguration
 
 instance
   Data.ToHeaders

@@ -145,11 +145,11 @@ instance Prelude.Hashable DeleteRoute where
 
 instance Prelude.NFData DeleteRoute where
   rnf DeleteRoute' {..} =
-    Prelude.rnf destinationCidrBlock
-      `Prelude.seq` Prelude.rnf destinationIpv6CidrBlock
-      `Prelude.seq` Prelude.rnf destinationPrefixListId
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf routeTableId
+    Prelude.rnf destinationCidrBlock `Prelude.seq`
+      Prelude.rnf destinationIpv6CidrBlock `Prelude.seq`
+        Prelude.rnf destinationPrefixListId `Prelude.seq`
+          Prelude.rnf dryRun `Prelude.seq`
+            Prelude.rnf routeTableId
 
 instance Data.ToHeaders DeleteRoute where
   toHeaders = Prelude.const Prelude.mempty

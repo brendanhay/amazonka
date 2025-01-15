@@ -402,11 +402,11 @@ instance
     DescribeStackDriftDetectionStatusResponse
   where
   rnf DescribeStackDriftDetectionStatusResponse' {..} =
-    Prelude.rnf detectionStatusReason
-      `Prelude.seq` Prelude.rnf driftedStackResourceCount
-      `Prelude.seq` Prelude.rnf stackDriftStatus
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf stackId
-      `Prelude.seq` Prelude.rnf stackDriftDetectionId
-      `Prelude.seq` Prelude.rnf detectionStatus
-      `Prelude.seq` Prelude.rnf timestamp
+    Prelude.rnf detectionStatusReason `Prelude.seq`
+      Prelude.rnf driftedStackResourceCount `Prelude.seq`
+        Prelude.rnf stackDriftStatus `Prelude.seq`
+          Prelude.rnf httpStatus `Prelude.seq`
+            Prelude.rnf stackId `Prelude.seq`
+              Prelude.rnf stackDriftDetectionId `Prelude.seq`
+                Prelude.rnf detectionStatus `Prelude.seq`
+                  Prelude.rnf timestamp

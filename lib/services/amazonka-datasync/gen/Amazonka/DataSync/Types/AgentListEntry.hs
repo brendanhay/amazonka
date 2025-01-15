@@ -95,6 +95,6 @@ instance Prelude.Hashable AgentListEntry where
 
 instance Prelude.NFData AgentListEntry where
   rnf AgentListEntry' {..} =
-    Prelude.rnf agentArn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf agentArn `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf status

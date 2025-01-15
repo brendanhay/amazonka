@@ -217,5 +217,5 @@ instance
     UpdateSubscriptionsToEventBridgeResponse
   where
   rnf UpdateSubscriptionsToEventBridgeResponse' {..} =
-    Prelude.rnf result
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf result `Prelude.seq`
+      Prelude.rnf httpStatus

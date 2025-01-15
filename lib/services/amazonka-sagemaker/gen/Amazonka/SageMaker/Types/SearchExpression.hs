@@ -125,10 +125,10 @@ instance Prelude.Hashable SearchExpression where
 
 instance Prelude.NFData SearchExpression where
   rnf SearchExpression' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf nestedFilters
-      `Prelude.seq` Prelude.rnf operator
-      `Prelude.seq` Prelude.rnf subExpressions
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf nestedFilters `Prelude.seq`
+        Prelude.rnf operator `Prelude.seq`
+          Prelude.rnf subExpressions
 
 instance Data.ToJSON SearchExpression where
   toJSON SearchExpression' {..} =

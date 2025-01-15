@@ -212,9 +212,7 @@ instance Data.FromXML Ipam where
       Prelude.<*> (x Data..@? "publicDefaultScopeId")
       Prelude.<*> (x Data..@? "scopeCount")
       Prelude.<*> (x Data..@? "state")
-      Prelude.<*> ( x
-                      Data..@? "tagSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
@@ -235,14 +233,14 @@ instance Prelude.Hashable Ipam where
 
 instance Prelude.NFData Ipam where
   rnf Ipam' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf ipamArn
-      `Prelude.seq` Prelude.rnf ipamId
-      `Prelude.seq` Prelude.rnf ipamRegion
-      `Prelude.seq` Prelude.rnf operatingRegions
-      `Prelude.seq` Prelude.rnf ownerId
-      `Prelude.seq` Prelude.rnf privateDefaultScopeId
-      `Prelude.seq` Prelude.rnf publicDefaultScopeId
-      `Prelude.seq` Prelude.rnf scopeCount
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf ipamArn `Prelude.seq`
+        Prelude.rnf ipamId `Prelude.seq`
+          Prelude.rnf ipamRegion `Prelude.seq`
+            Prelude.rnf operatingRegions `Prelude.seq`
+              Prelude.rnf ownerId `Prelude.seq`
+                Prelude.rnf privateDefaultScopeId `Prelude.seq`
+                  Prelude.rnf publicDefaultScopeId `Prelude.seq`
+                    Prelude.rnf scopeCount `Prelude.seq`
+                      Prelude.rnf state `Prelude.seq`
+                        Prelude.rnf tags

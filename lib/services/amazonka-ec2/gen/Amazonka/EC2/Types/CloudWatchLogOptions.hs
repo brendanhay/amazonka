@@ -103,6 +103,6 @@ instance Prelude.Hashable CloudWatchLogOptions where
 
 instance Prelude.NFData CloudWatchLogOptions where
   rnf CloudWatchLogOptions' {..} =
-    Prelude.rnf logEnabled
-      `Prelude.seq` Prelude.rnf logGroupArn
-      `Prelude.seq` Prelude.rnf logOutputFormat
+    Prelude.rnf logEnabled `Prelude.seq`
+      Prelude.rnf logGroupArn `Prelude.seq`
+        Prelude.rnf logOutputFormat

@@ -185,10 +185,10 @@ instance
 
 instance Prelude.NFData CreateDBClusterParameterGroup where
   rnf CreateDBClusterParameterGroup' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf dbClusterParameterGroupName
-      `Prelude.seq` Prelude.rnf dbParameterGroupFamily
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf dbClusterParameterGroupName `Prelude.seq`
+        Prelude.rnf dbParameterGroupFamily `Prelude.seq`
+          Prelude.rnf description
 
 instance Data.ToHeaders CreateDBClusterParameterGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -258,5 +258,5 @@ instance
     CreateDBClusterParameterGroupResponse
   where
   rnf CreateDBClusterParameterGroupResponse' {..} =
-    Prelude.rnf dbClusterParameterGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dbClusterParameterGroup `Prelude.seq`
+      Prelude.rnf httpStatus

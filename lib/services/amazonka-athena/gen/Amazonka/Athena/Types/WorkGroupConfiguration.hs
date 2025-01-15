@@ -242,15 +242,15 @@ instance Prelude.Hashable WorkGroupConfiguration where
 
 instance Prelude.NFData WorkGroupConfiguration where
   rnf WorkGroupConfiguration' {..} =
-    Prelude.rnf additionalConfiguration
-      `Prelude.seq` Prelude.rnf bytesScannedCutoffPerQuery
-      `Prelude.seq` Prelude.rnf customerContentEncryptionConfiguration
-      `Prelude.seq` Prelude.rnf enforceWorkGroupConfiguration
-      `Prelude.seq` Prelude.rnf engineVersion
-      `Prelude.seq` Prelude.rnf executionRole
-      `Prelude.seq` Prelude.rnf publishCloudWatchMetricsEnabled
-      `Prelude.seq` Prelude.rnf requesterPaysEnabled
-      `Prelude.seq` Prelude.rnf resultConfiguration
+    Prelude.rnf additionalConfiguration `Prelude.seq`
+      Prelude.rnf bytesScannedCutoffPerQuery `Prelude.seq`
+        Prelude.rnf customerContentEncryptionConfiguration `Prelude.seq`
+          Prelude.rnf enforceWorkGroupConfiguration `Prelude.seq`
+            Prelude.rnf engineVersion `Prelude.seq`
+              Prelude.rnf executionRole `Prelude.seq`
+                Prelude.rnf publishCloudWatchMetricsEnabled `Prelude.seq`
+                  Prelude.rnf requesterPaysEnabled `Prelude.seq`
+                    Prelude.rnf resultConfiguration
 
 instance Data.ToJSON WorkGroupConfiguration where
   toJSON WorkGroupConfiguration' {..} =

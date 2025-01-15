@@ -149,12 +149,12 @@ instance Core.AWSPager DescribeConnections where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeConnections_marker
-          Lens..~ rs
-          Lens.^? describeConnectionsResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeConnections_marker
+              Lens..~ rs
+              Lens.^? describeConnectionsResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeConnections where
   type
@@ -180,9 +180,9 @@ instance Prelude.Hashable DescribeConnections where
 
 instance Prelude.NFData DescribeConnections where
   rnf DescribeConnections' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf maxRecords
 
 instance Data.ToHeaders DescribeConnections where
   toHeaders =
@@ -273,6 +273,6 @@ describeConnectionsResponse_httpStatus = Lens.lens (\DescribeConnectionsResponse
 
 instance Prelude.NFData DescribeConnectionsResponse where
   rnf DescribeConnectionsResponse' {..} =
-    Prelude.rnf connections
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf connections `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf httpStatus

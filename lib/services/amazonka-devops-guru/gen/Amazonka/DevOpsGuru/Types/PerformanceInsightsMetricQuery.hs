@@ -207,6 +207,6 @@ instance
     PerformanceInsightsMetricQuery
   where
   rnf PerformanceInsightsMetricQuery' {..} =
-    Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf groupBy
-      `Prelude.seq` Prelude.rnf metric
+    Prelude.rnf filter' `Prelude.seq`
+      Prelude.rnf groupBy `Prelude.seq`
+        Prelude.rnf metric

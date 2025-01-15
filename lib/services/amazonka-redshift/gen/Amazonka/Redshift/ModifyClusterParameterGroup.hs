@@ -137,8 +137,8 @@ instance Prelude.Hashable ModifyClusterParameterGroup where
 
 instance Prelude.NFData ModifyClusterParameterGroup where
   rnf ModifyClusterParameterGroup' {..} =
-    Prelude.rnf parameterGroupName
-      `Prelude.seq` Prelude.rnf parameters
+    Prelude.rnf parameterGroupName `Prelude.seq`
+      Prelude.rnf parameters
 
 instance Data.ToHeaders ModifyClusterParameterGroup where
   toHeaders = Prelude.const Prelude.mempty

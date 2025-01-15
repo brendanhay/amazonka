@@ -97,8 +97,8 @@ instance Prelude.Hashable EventAccountFilter where
 
 instance Prelude.NFData EventAccountFilter where
   rnf EventAccountFilter' {..} =
-    Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf eventArn
+    Prelude.rnf awsAccountId `Prelude.seq`
+      Prelude.rnf eventArn
 
 instance Data.ToJSON EventAccountFilter where
   toJSON EventAccountFilter' {..} =

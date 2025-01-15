@@ -91,6 +91,6 @@ instance Prelude.Hashable RecordsIngested where
 
 instance Prelude.NFData RecordsIngested where
   rnf RecordsIngested' {..} =
-    Prelude.rnf magneticStore
-      `Prelude.seq` Prelude.rnf memoryStore
-      `Prelude.seq` Prelude.rnf total
+    Prelude.rnf magneticStore `Prelude.seq`
+      Prelude.rnf memoryStore `Prelude.seq`
+        Prelude.rnf total

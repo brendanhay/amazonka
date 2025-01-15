@@ -119,9 +119,9 @@ instance Prelude.Hashable BatchStopUpdateAction where
 
 instance Prelude.NFData BatchStopUpdateAction where
   rnf BatchStopUpdateAction' {..} =
-    Prelude.rnf cacheClusterIds
-      `Prelude.seq` Prelude.rnf replicationGroupIds
-      `Prelude.seq` Prelude.rnf serviceUpdateName
+    Prelude.rnf cacheClusterIds `Prelude.seq`
+      Prelude.rnf replicationGroupIds `Prelude.seq`
+        Prelude.rnf serviceUpdateName
 
 instance Data.ToHeaders BatchStopUpdateAction where
   toHeaders = Prelude.const Prelude.mempty

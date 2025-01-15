@@ -177,5 +177,5 @@ getTelemetryMetadataResponse_telemetryMetadata = Lens.lens (\GetTelemetryMetadat
 
 instance Prelude.NFData GetTelemetryMetadataResponse where
   rnf GetTelemetryMetadataResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf telemetryMetadata
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf telemetryMetadata

@@ -86,5 +86,5 @@ instance Prelude.Hashable BuiltInSlotTypeSummary where
 
 instance Prelude.NFData BuiltInSlotTypeSummary where
   rnf BuiltInSlotTypeSummary' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf slotTypeSignature
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf slotTypeSignature

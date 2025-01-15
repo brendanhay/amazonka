@@ -91,6 +91,6 @@ instance Prelude.Hashable GatewayGroupSummary where
 
 instance Prelude.NFData GatewayGroupSummary where
   rnf GatewayGroupSummary' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf name

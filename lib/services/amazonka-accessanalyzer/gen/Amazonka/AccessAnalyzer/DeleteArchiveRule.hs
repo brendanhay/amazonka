@@ -117,9 +117,9 @@ instance Prelude.Hashable DeleteArchiveRule where
 
 instance Prelude.NFData DeleteArchiveRule where
   rnf DeleteArchiveRule' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf analyzerName
-      `Prelude.seq` Prelude.rnf ruleName
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf analyzerName `Prelude.seq`
+        Prelude.rnf ruleName
 
 instance Data.ToHeaders DeleteArchiveRule where
   toHeaders =

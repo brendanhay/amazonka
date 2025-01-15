@@ -135,9 +135,9 @@ instance Prelude.Hashable DeleteUserByPrincipalId where
 
 instance Prelude.NFData DeleteUserByPrincipalId where
   rnf DeleteUserByPrincipalId' {..} =
-    Prelude.rnf principalId
-      `Prelude.seq` Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf namespace
+    Prelude.rnf principalId `Prelude.seq`
+      Prelude.rnf awsAccountId `Prelude.seq`
+        Prelude.rnf namespace
 
 instance Data.ToHeaders DeleteUserByPrincipalId where
   toHeaders =
@@ -208,5 +208,5 @@ instance
     DeleteUserByPrincipalIdResponse
   where
   rnf DeleteUserByPrincipalIdResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf requestId `Prelude.seq`
+      Prelude.rnf status

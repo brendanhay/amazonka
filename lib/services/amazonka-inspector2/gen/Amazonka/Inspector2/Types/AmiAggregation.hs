@@ -84,9 +84,9 @@ instance Prelude.Hashable AmiAggregation where
 
 instance Prelude.NFData AmiAggregation where
   rnf AmiAggregation' {..} =
-    Prelude.rnf amis
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf sortOrder
+    Prelude.rnf amis `Prelude.seq`
+      Prelude.rnf sortBy `Prelude.seq`
+        Prelude.rnf sortOrder
 
 instance Data.ToJSON AmiAggregation where
   toJSON AmiAggregation' {..} =

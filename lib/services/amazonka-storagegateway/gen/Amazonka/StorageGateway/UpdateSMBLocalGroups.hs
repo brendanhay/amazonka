@@ -113,8 +113,8 @@ instance Prelude.Hashable UpdateSMBLocalGroups where
 
 instance Prelude.NFData UpdateSMBLocalGroups where
   rnf UpdateSMBLocalGroups' {..} =
-    Prelude.rnf gatewayARN
-      `Prelude.seq` Prelude.rnf sMBLocalGroups
+    Prelude.rnf gatewayARN `Prelude.seq`
+      Prelude.rnf sMBLocalGroups
 
 instance Data.ToHeaders UpdateSMBLocalGroups where
   toHeaders =
@@ -187,5 +187,5 @@ updateSMBLocalGroupsResponse_httpStatus = Lens.lens (\UpdateSMBLocalGroupsRespon
 
 instance Prelude.NFData UpdateSMBLocalGroupsResponse where
   rnf UpdateSMBLocalGroupsResponse' {..} =
-    Prelude.rnf gatewayARN
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf gatewayARN `Prelude.seq`
+      Prelude.rnf httpStatus

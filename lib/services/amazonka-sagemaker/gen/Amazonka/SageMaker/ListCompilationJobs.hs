@@ -210,12 +210,12 @@ instance Core.AWSPager ListCompilationJobs where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listCompilationJobs_nextToken
-          Lens..~ rs
-          Lens.^? listCompilationJobsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listCompilationJobs_nextToken
+              Lens..~ rs
+              Lens.^? listCompilationJobsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListCompilationJobs where
   type
@@ -251,16 +251,16 @@ instance Prelude.Hashable ListCompilationJobs where
 
 instance Prelude.NFData ListCompilationJobs where
   rnf ListCompilationJobs' {..} =
-    Prelude.rnf creationTimeAfter
-      `Prelude.seq` Prelude.rnf creationTimeBefore
-      `Prelude.seq` Prelude.rnf lastModifiedTimeAfter
-      `Prelude.seq` Prelude.rnf lastModifiedTimeBefore
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nameContains
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf sortOrder
-      `Prelude.seq` Prelude.rnf statusEquals
+    Prelude.rnf creationTimeAfter `Prelude.seq`
+      Prelude.rnf creationTimeBefore `Prelude.seq`
+        Prelude.rnf lastModifiedTimeAfter `Prelude.seq`
+          Prelude.rnf lastModifiedTimeBefore `Prelude.seq`
+            Prelude.rnf maxResults `Prelude.seq`
+              Prelude.rnf nameContains `Prelude.seq`
+                Prelude.rnf nextToken `Prelude.seq`
+                  Prelude.rnf sortBy `Prelude.seq`
+                    Prelude.rnf sortOrder `Prelude.seq`
+                      Prelude.rnf statusEquals
 
 instance Data.ToHeaders ListCompilationJobs where
   toHeaders =
@@ -363,6 +363,6 @@ listCompilationJobsResponse_compilationJobSummaries = Lens.lens (\ListCompilatio
 
 instance Prelude.NFData ListCompilationJobsResponse where
   rnf ListCompilationJobsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf compilationJobSummaries
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf compilationJobSummaries

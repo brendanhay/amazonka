@@ -124,9 +124,9 @@ instance Prelude.Hashable UpdateQueueMaxContacts where
 
 instance Prelude.NFData UpdateQueueMaxContacts where
   rnf UpdateQueueMaxContacts' {..} =
-    Prelude.rnf maxContacts
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf queueId
+    Prelude.rnf maxContacts `Prelude.seq`
+      Prelude.rnf instanceId `Prelude.seq`
+        Prelude.rnf queueId
 
 instance Data.ToHeaders UpdateQueueMaxContacts where
   toHeaders =

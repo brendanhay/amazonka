@@ -141,11 +141,11 @@ instance Prelude.Hashable AwsElbLoadBalancerListener where
 
 instance Prelude.NFData AwsElbLoadBalancerListener where
   rnf AwsElbLoadBalancerListener' {..} =
-    Prelude.rnf instancePort
-      `Prelude.seq` Prelude.rnf instanceProtocol
-      `Prelude.seq` Prelude.rnf loadBalancerPort
-      `Prelude.seq` Prelude.rnf protocol
-      `Prelude.seq` Prelude.rnf sslCertificateId
+    Prelude.rnf instancePort `Prelude.seq`
+      Prelude.rnf instanceProtocol `Prelude.seq`
+        Prelude.rnf loadBalancerPort `Prelude.seq`
+          Prelude.rnf protocol `Prelude.seq`
+            Prelude.rnf sslCertificateId
 
 instance Data.ToJSON AwsElbLoadBalancerListener where
   toJSON AwsElbLoadBalancerListener' {..} =

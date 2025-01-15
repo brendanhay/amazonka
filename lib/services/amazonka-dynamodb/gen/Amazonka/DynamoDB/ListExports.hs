@@ -126,9 +126,9 @@ instance Prelude.Hashable ListExports where
 
 instance Prelude.NFData ListExports where
   rnf ListExports' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf tableArn
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf tableArn
 
 instance Data.ToHeaders ListExports where
   toHeaders =
@@ -217,6 +217,6 @@ listExportsResponse_httpStatus = Lens.lens (\ListExportsResponse' {httpStatus} -
 
 instance Prelude.NFData ListExportsResponse where
   rnf ListExportsResponse' {..} =
-    Prelude.rnf exportSummaries
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf exportSummaries `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

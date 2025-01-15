@@ -106,12 +106,12 @@ instance Core.AWSPager ListLinks where
     | Core.stop (rs Lens.^. listLinksResponse_items) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listLinks_nextToken
-          Lens..~ rs
-          Lens.^? listLinksResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listLinks_nextToken
+              Lens..~ rs
+              Lens.^? listLinksResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListLinks where
   type AWSResponse ListLinks = ListLinksResponse
@@ -134,8 +134,8 @@ instance Prelude.Hashable ListLinks where
 
 instance Prelude.NFData ListLinks where
   rnf ListLinks' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListLinks where
   toHeaders =
@@ -215,6 +215,6 @@ listLinksResponse_items = Lens.lens (\ListLinksResponse' {items} -> items) (\s@L
 
 instance Prelude.NFData ListLinksResponse where
   rnf ListLinksResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf items
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf items

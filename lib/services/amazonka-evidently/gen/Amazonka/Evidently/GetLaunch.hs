@@ -107,8 +107,8 @@ instance Prelude.Hashable GetLaunch where
 
 instance Prelude.NFData GetLaunch where
   rnf GetLaunch' {..} =
-    Prelude.rnf launch
-      `Prelude.seq` Prelude.rnf project
+    Prelude.rnf launch `Prelude.seq`
+      Prelude.rnf project
 
 instance Data.ToHeaders GetLaunch where
   toHeaders =
@@ -173,5 +173,5 @@ getLaunchResponse_httpStatus = Lens.lens (\GetLaunchResponse' {httpStatus} -> ht
 
 instance Prelude.NFData GetLaunchResponse where
   rnf GetLaunchResponse' {..} =
-    Prelude.rnf launch
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf launch `Prelude.seq`
+      Prelude.rnf httpStatus

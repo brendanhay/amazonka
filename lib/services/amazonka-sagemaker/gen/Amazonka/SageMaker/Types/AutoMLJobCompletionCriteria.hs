@@ -118,9 +118,9 @@ instance Prelude.Hashable AutoMLJobCompletionCriteria where
 
 instance Prelude.NFData AutoMLJobCompletionCriteria where
   rnf AutoMLJobCompletionCriteria' {..} =
-    Prelude.rnf maxAutoMLJobRuntimeInSeconds
-      `Prelude.seq` Prelude.rnf maxCandidates
-      `Prelude.seq` Prelude.rnf maxRuntimePerTrainingJobInSeconds
+    Prelude.rnf maxAutoMLJobRuntimeInSeconds `Prelude.seq`
+      Prelude.rnf maxCandidates `Prelude.seq`
+        Prelude.rnf maxRuntimePerTrainingJobInSeconds
 
 instance Data.ToJSON AutoMLJobCompletionCriteria where
   toJSON AutoMLJobCompletionCriteria' {..} =

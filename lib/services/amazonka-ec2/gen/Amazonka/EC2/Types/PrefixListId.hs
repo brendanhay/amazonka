@@ -89,8 +89,8 @@ instance Prelude.Hashable PrefixListId where
 
 instance Prelude.NFData PrefixListId where
   rnf PrefixListId' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf prefixListId
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf prefixListId
 
 instance Data.ToQuery PrefixListId where
   toQuery PrefixListId' {..} =

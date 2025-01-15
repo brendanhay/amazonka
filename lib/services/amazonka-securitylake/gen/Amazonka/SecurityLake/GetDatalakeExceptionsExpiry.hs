@@ -150,5 +150,5 @@ instance
     GetDatalakeExceptionsExpiryResponse
   where
   rnf GetDatalakeExceptionsExpiryResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf exceptionMessageExpiry
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf exceptionMessageExpiry

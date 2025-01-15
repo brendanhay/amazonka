@@ -126,9 +126,7 @@ instance Core.AWSRequest EnterStandby where
       "EnterStandbyResult"
       ( \s h x ->
           EnterStandbyResponse'
-            Prelude.<$> ( x
-                            Data..@? "Activities"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "Activities" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -143,9 +141,9 @@ instance Prelude.Hashable EnterStandby where
 
 instance Prelude.NFData EnterStandby where
   rnf EnterStandby' {..} =
-    Prelude.rnf instanceIds
-      `Prelude.seq` Prelude.rnf autoScalingGroupName
-      `Prelude.seq` Prelude.rnf shouldDecrementDesiredCapacity
+    Prelude.rnf instanceIds `Prelude.seq`
+      Prelude.rnf autoScalingGroupName `Prelude.seq`
+        Prelude.rnf shouldDecrementDesiredCapacity
 
 instance Data.ToHeaders EnterStandby where
   toHeaders = Prelude.const Prelude.mempty
@@ -208,5 +206,5 @@ enterStandbyResponse_httpStatus = Lens.lens (\EnterStandbyResponse' {httpStatus}
 
 instance Prelude.NFData EnterStandbyResponse where
   rnf EnterStandbyResponse' {..} =
-    Prelude.rnf activities
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf activities `Prelude.seq`
+      Prelude.rnf httpStatus

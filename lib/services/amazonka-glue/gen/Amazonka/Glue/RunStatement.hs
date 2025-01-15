@@ -119,9 +119,9 @@ instance Prelude.Hashable RunStatement where
 
 instance Prelude.NFData RunStatement where
   rnf RunStatement' {..} =
-    Prelude.rnf requestOrigin
-      `Prelude.seq` Prelude.rnf sessionId
-      `Prelude.seq` Prelude.rnf code
+    Prelude.rnf requestOrigin `Prelude.seq`
+      Prelude.rnf sessionId `Prelude.seq`
+        Prelude.rnf code
 
 instance Data.ToHeaders RunStatement where
   toHeaders =

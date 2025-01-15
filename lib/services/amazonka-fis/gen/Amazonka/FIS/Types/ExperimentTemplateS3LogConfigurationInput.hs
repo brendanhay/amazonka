@@ -82,8 +82,8 @@ instance
     ExperimentTemplateS3LogConfigurationInput
   where
   rnf ExperimentTemplateS3LogConfigurationInput' {..} =
-    Prelude.rnf prefix
-      `Prelude.seq` Prelude.rnf bucketName
+    Prelude.rnf prefix `Prelude.seq`
+      Prelude.rnf bucketName
 
 instance
   Data.ToJSON

@@ -151,8 +151,8 @@ instance
     ConformancePackEvaluationResult
   where
   rnf ConformancePackEvaluationResult' {..} =
-    Prelude.rnf annotation
-      `Prelude.seq` Prelude.rnf complianceType
-      `Prelude.seq` Prelude.rnf evaluationResultIdentifier
-      `Prelude.seq` Prelude.rnf configRuleInvokedTime
-      `Prelude.seq` Prelude.rnf resultRecordedTime
+    Prelude.rnf annotation `Prelude.seq`
+      Prelude.rnf complianceType `Prelude.seq`
+        Prelude.rnf evaluationResultIdentifier `Prelude.seq`
+          Prelude.rnf configRuleInvokedTime `Prelude.seq`
+            Prelude.rnf resultRecordedTime

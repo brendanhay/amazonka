@@ -163,12 +163,12 @@ instance Prelude.Hashable LicenseConversionTask where
 
 instance Prelude.NFData LicenseConversionTask where
   rnf LicenseConversionTask' {..} =
-    Prelude.rnf destinationLicenseContext
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf licenseConversionTaskId
-      `Prelude.seq` Prelude.rnf licenseConversionTime
-      `Prelude.seq` Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf sourceLicenseContext
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusMessage
+    Prelude.rnf destinationLicenseContext `Prelude.seq`
+      Prelude.rnf endTime `Prelude.seq`
+        Prelude.rnf licenseConversionTaskId `Prelude.seq`
+          Prelude.rnf licenseConversionTime `Prelude.seq`
+            Prelude.rnf resourceArn `Prelude.seq`
+              Prelude.rnf sourceLicenseContext `Prelude.seq`
+                Prelude.rnf startTime `Prelude.seq`
+                  Prelude.rnf status `Prelude.seq`
+                    Prelude.rnf statusMessage

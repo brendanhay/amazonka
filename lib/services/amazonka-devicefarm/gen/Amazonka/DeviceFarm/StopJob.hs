@@ -168,5 +168,5 @@ stopJobResponse_httpStatus = Lens.lens (\StopJobResponse' {httpStatus} -> httpSt
 
 instance Prelude.NFData StopJobResponse where
   rnf StopJobResponse' {..} =
-    Prelude.rnf job
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf job `Prelude.seq`
+      Prelude.rnf httpStatus

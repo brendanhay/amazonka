@@ -146,12 +146,12 @@ instance Core.AWSPager ListElasticsearchInstanceTypes where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listElasticsearchInstanceTypes_nextToken
-          Lens..~ rs
-          Lens.^? listElasticsearchInstanceTypesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listElasticsearchInstanceTypes_nextToken
+              Lens..~ rs
+              Lens.^? listElasticsearchInstanceTypesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -192,10 +192,10 @@ instance
     ListElasticsearchInstanceTypes
   where
   rnf ListElasticsearchInstanceTypes' {..} =
-    Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf elasticsearchVersion
+    Prelude.rnf domainName `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf elasticsearchVersion
 
 instance
   Data.ToHeaders
@@ -284,6 +284,6 @@ instance
     ListElasticsearchInstanceTypesResponse
   where
   rnf ListElasticsearchInstanceTypesResponse' {..} =
-    Prelude.rnf elasticsearchInstanceTypes
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf elasticsearchInstanceTypes `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

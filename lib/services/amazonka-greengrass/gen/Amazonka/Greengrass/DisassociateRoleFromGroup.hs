@@ -162,5 +162,5 @@ instance
     DisassociateRoleFromGroupResponse
   where
   rnf DisassociateRoleFromGroupResponse' {..} =
-    Prelude.rnf disassociatedAt
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf disassociatedAt `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -96,6 +96,6 @@ instance Prelude.Hashable Extraction where
 
 instance Prelude.NFData Extraction where
   rnf Extraction' {..} =
-    Prelude.rnf expenseDocument
-      `Prelude.seq` Prelude.rnf identityDocument
-      `Prelude.seq` Prelude.rnf lendingDocument
+    Prelude.rnf expenseDocument `Prelude.seq`
+      Prelude.rnf identityDocument `Prelude.seq`
+        Prelude.rnf lendingDocument

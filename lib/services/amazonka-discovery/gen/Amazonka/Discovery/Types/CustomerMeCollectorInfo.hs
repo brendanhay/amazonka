@@ -157,10 +157,10 @@ instance Prelude.Hashable CustomerMeCollectorInfo where
 
 instance Prelude.NFData CustomerMeCollectorInfo where
   rnf CustomerMeCollectorInfo' {..} =
-    Prelude.rnf activeMeCollectors
-      `Prelude.seq` Prelude.rnf healthyMeCollectors
-      `Prelude.seq` Prelude.rnf denyListedMeCollectors
-      `Prelude.seq` Prelude.rnf shutdownMeCollectors
-      `Prelude.seq` Prelude.rnf unhealthyMeCollectors
-      `Prelude.seq` Prelude.rnf totalMeCollectors
-      `Prelude.seq` Prelude.rnf unknownMeCollectors
+    Prelude.rnf activeMeCollectors `Prelude.seq`
+      Prelude.rnf healthyMeCollectors `Prelude.seq`
+        Prelude.rnf denyListedMeCollectors `Prelude.seq`
+          Prelude.rnf shutdownMeCollectors `Prelude.seq`
+            Prelude.rnf unhealthyMeCollectors `Prelude.seq`
+              Prelude.rnf totalMeCollectors `Prelude.seq`
+                Prelude.rnf unknownMeCollectors

@@ -97,6 +97,6 @@ instance Prelude.Hashable IssuerDetails where
 
 instance Prelude.NFData IssuerDetails where
   rnf IssuerDetails' {..} =
-    Prelude.rnf keyFingerprint
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf signKey
+    Prelude.rnf keyFingerprint `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf signKey

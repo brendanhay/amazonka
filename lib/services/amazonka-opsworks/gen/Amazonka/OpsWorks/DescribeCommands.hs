@@ -143,9 +143,9 @@ instance Prelude.Hashable DescribeCommands where
 
 instance Prelude.NFData DescribeCommands where
   rnf DescribeCommands' {..} =
-    Prelude.rnf commandIds
-      `Prelude.seq` Prelude.rnf deploymentId
-      `Prelude.seq` Prelude.rnf instanceId
+    Prelude.rnf commandIds `Prelude.seq`
+      Prelude.rnf deploymentId `Prelude.seq`
+        Prelude.rnf instanceId
 
 instance Data.ToHeaders DescribeCommands where
   toHeaders =
@@ -224,5 +224,5 @@ describeCommandsResponse_httpStatus = Lens.lens (\DescribeCommandsResponse' {htt
 
 instance Prelude.NFData DescribeCommandsResponse where
   rnf DescribeCommandsResponse' {..} =
-    Prelude.rnf commands
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf commands `Prelude.seq`
+      Prelude.rnf httpStatus

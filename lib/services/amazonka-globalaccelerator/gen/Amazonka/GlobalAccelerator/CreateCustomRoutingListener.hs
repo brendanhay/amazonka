@@ -147,9 +147,9 @@ instance Prelude.Hashable CreateCustomRoutingListener where
 
 instance Prelude.NFData CreateCustomRoutingListener where
   rnf CreateCustomRoutingListener' {..} =
-    Prelude.rnf acceleratorArn
-      `Prelude.seq` Prelude.rnf portRanges
-      `Prelude.seq` Prelude.rnf idempotencyToken
+    Prelude.rnf acceleratorArn `Prelude.seq`
+      Prelude.rnf portRanges `Prelude.seq`
+        Prelude.rnf idempotencyToken
 
 instance Data.ToHeaders CreateCustomRoutingListener where
   toHeaders =
@@ -228,5 +228,5 @@ instance
     CreateCustomRoutingListenerResponse
   where
   rnf CreateCustomRoutingListenerResponse' {..} =
-    Prelude.rnf listener
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf listener `Prelude.seq`
+      Prelude.rnf httpStatus

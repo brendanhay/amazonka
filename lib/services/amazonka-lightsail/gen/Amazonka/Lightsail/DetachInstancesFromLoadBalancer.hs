@@ -131,8 +131,8 @@ instance
     DetachInstancesFromLoadBalancer
   where
   rnf DetachInstancesFromLoadBalancer' {..} =
-    Prelude.rnf loadBalancerName
-      `Prelude.seq` Prelude.rnf instanceNames
+    Prelude.rnf loadBalancerName `Prelude.seq`
+      Prelude.rnf instanceNames
 
 instance
   Data.ToHeaders
@@ -220,5 +220,5 @@ instance
     DetachInstancesFromLoadBalancerResponse
   where
   rnf DetachInstancesFromLoadBalancerResponse' {..} =
-    Prelude.rnf operations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operations `Prelude.seq`
+      Prelude.rnf httpStatus

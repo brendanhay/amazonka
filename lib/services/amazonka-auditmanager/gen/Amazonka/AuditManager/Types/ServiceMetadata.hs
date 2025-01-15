@@ -105,7 +105,7 @@ instance Prelude.Hashable ServiceMetadata where
 
 instance Prelude.NFData ServiceMetadata where
   rnf ServiceMetadata' {..} =
-    Prelude.rnf category
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf category `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf displayName `Prelude.seq`
+          Prelude.rnf name

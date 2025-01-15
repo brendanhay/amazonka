@@ -123,9 +123,9 @@ instance Prelude.Hashable BatchUpdateSchedule where
 
 instance Prelude.NFData BatchUpdateSchedule where
   rnf BatchUpdateSchedule' {..} =
-    Prelude.rnf creates
-      `Prelude.seq` Prelude.rnf deletes
-      `Prelude.seq` Prelude.rnf channelId
+    Prelude.rnf creates `Prelude.seq`
+      Prelude.rnf deletes `Prelude.seq`
+        Prelude.rnf channelId
 
 instance Data.ToHeaders BatchUpdateSchedule where
   toHeaders =
@@ -207,6 +207,6 @@ batchUpdateScheduleResponse_httpStatus = Lens.lens (\BatchUpdateScheduleResponse
 
 instance Prelude.NFData BatchUpdateScheduleResponse where
   rnf BatchUpdateScheduleResponse' {..} =
-    Prelude.rnf creates
-      `Prelude.seq` Prelude.rnf deletes
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf creates `Prelude.seq`
+      Prelude.rnf deletes `Prelude.seq`
+        Prelude.rnf httpStatus

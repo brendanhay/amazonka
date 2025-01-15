@@ -109,9 +109,9 @@ instance
     AwsElasticBeanstalkEnvironmentTier
   where
   rnf AwsElasticBeanstalkEnvironmentTier' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf version
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf type' `Prelude.seq`
+        Prelude.rnf version
 
 instance
   Data.ToJSON

@@ -310,11 +310,11 @@ describeDatasetGroupResponse_httpStatus = Lens.lens (\DescribeDatasetGroupRespon
 
 instance Prelude.NFData DescribeDatasetGroupResponse where
   rnf DescribeDatasetGroupResponse' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf datasetArns
-      `Prelude.seq` Prelude.rnf datasetGroupArn
-      `Prelude.seq` Prelude.rnf datasetGroupName
-      `Prelude.seq` Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf lastModificationTime
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf datasetArns `Prelude.seq`
+        Prelude.rnf datasetGroupArn `Prelude.seq`
+          Prelude.rnf datasetGroupName `Prelude.seq`
+            Prelude.rnf domain `Prelude.seq`
+              Prelude.rnf lastModificationTime `Prelude.seq`
+                Prelude.rnf status `Prelude.seq`
+                  Prelude.rnf httpStatus

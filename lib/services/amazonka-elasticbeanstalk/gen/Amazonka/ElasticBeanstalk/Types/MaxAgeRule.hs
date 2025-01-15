@@ -93,9 +93,9 @@ instance Prelude.Hashable MaxAgeRule where
 
 instance Prelude.NFData MaxAgeRule where
   rnf MaxAgeRule' {..} =
-    Prelude.rnf deleteSourceFromS3
-      `Prelude.seq` Prelude.rnf maxAgeInDays
-      `Prelude.seq` Prelude.rnf enabled
+    Prelude.rnf deleteSourceFromS3 `Prelude.seq`
+      Prelude.rnf maxAgeInDays `Prelude.seq`
+        Prelude.rnf enabled
 
 instance Data.ToQuery MaxAgeRule where
   toQuery MaxAgeRule' {..} =

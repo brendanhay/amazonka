@@ -86,5 +86,5 @@ instance
     ClusterSecurityGroupMembership
   where
   rnf ClusterSecurityGroupMembership' {..} =
-    Prelude.rnf clusterSecurityGroupName
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf clusterSecurityGroupName `Prelude.seq`
+      Prelude.rnf status

@@ -299,15 +299,15 @@ describeMonitorResponse_httpStatus = Lens.lens (\DescribeMonitorResponse' {httpS
 
 instance Prelude.NFData DescribeMonitorResponse where
   rnf DescribeMonitorResponse' {..} =
-    Prelude.rnf baseline
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf estimatedEvaluationTimeRemainingInMinutes
-      `Prelude.seq` Prelude.rnf lastEvaluationState
-      `Prelude.seq` Prelude.rnf lastEvaluationTime
-      `Prelude.seq` Prelude.rnf lastModificationTime
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf monitorArn
-      `Prelude.seq` Prelude.rnf monitorName
-      `Prelude.seq` Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf baseline `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf estimatedEvaluationTimeRemainingInMinutes `Prelude.seq`
+          Prelude.rnf lastEvaluationState `Prelude.seq`
+            Prelude.rnf lastEvaluationTime `Prelude.seq`
+              Prelude.rnf lastModificationTime `Prelude.seq`
+                Prelude.rnf message `Prelude.seq`
+                  Prelude.rnf monitorArn `Prelude.seq`
+                    Prelude.rnf monitorName `Prelude.seq`
+                      Prelude.rnf resourceArn `Prelude.seq`
+                        Prelude.rnf status `Prelude.seq`
+                          Prelude.rnf httpStatus

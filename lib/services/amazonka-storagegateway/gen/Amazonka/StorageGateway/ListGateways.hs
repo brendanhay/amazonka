@@ -125,12 +125,12 @@ instance Core.AWSPager ListGateways where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listGateways_marker
-          Lens..~ rs
-          Lens.^? listGatewaysResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listGateways_marker
+              Lens..~ rs
+              Lens.^? listGatewaysResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListGateways where
   type AWSResponse ListGateways = ListGatewaysResponse
@@ -240,6 +240,6 @@ listGatewaysResponse_httpStatus = Lens.lens (\ListGatewaysResponse' {httpStatus}
 
 instance Prelude.NFData ListGatewaysResponse where
   rnf ListGatewaysResponse' {..} =
-    Prelude.rnf gateways
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf gateways `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf httpStatus

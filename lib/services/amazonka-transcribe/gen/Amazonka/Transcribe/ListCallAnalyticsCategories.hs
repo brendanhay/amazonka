@@ -134,8 +134,8 @@ instance Prelude.Hashable ListCallAnalyticsCategories where
 
 instance Prelude.NFData ListCallAnalyticsCategories where
   rnf ListCallAnalyticsCategories' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListCallAnalyticsCategories where
   toHeaders =
@@ -235,6 +235,6 @@ instance
     ListCallAnalyticsCategoriesResponse
   where
   rnf ListCallAnalyticsCategoriesResponse' {..} =
-    Prelude.rnf categories
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf categories `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -116,8 +116,8 @@ instance Prelude.Hashable GetBasePathMapping where
 
 instance Prelude.NFData GetBasePathMapping where
   rnf GetBasePathMapping' {..} =
-    Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf basePath
+    Prelude.rnf domainName `Prelude.seq`
+      Prelude.rnf basePath
 
 instance Data.ToHeaders GetBasePathMapping where
   toHeaders =

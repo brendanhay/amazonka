@@ -97,9 +97,9 @@ instance Prelude.Hashable StartCondition where
 
 instance Prelude.NFData StartCondition where
   rnf StartCondition' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf eventStartCondition
-      `Prelude.seq` Prelude.rnf segmentStartCondition
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf eventStartCondition `Prelude.seq`
+        Prelude.rnf segmentStartCondition
 
 instance Data.ToJSON StartCondition where
   toJSON StartCondition' {..} =

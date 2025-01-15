@@ -199,12 +199,12 @@ instance Core.AWSPager DescribeDBClusterParameters where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeDBClusterParameters_marker
-          Lens..~ rs
-          Lens.^? describeDBClusterParametersResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeDBClusterParameters_marker
+              Lens..~ rs
+              Lens.^? describeDBClusterParametersResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeDBClusterParameters where
   type
@@ -218,9 +218,7 @@ instance Core.AWSRequest DescribeDBClusterParameters where
       ( \s h x ->
           DescribeDBClusterParametersResponse'
             Prelude.<$> (x Data..@? "Marker")
-            Prelude.<*> ( x
-                            Data..@? "Parameters"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "Parameters" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "Parameter")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -237,11 +235,11 @@ instance Prelude.Hashable DescribeDBClusterParameters where
 
 instance Prelude.NFData DescribeDBClusterParameters where
   rnf DescribeDBClusterParameters' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf dbClusterParameterGroupName
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf maxRecords `Prelude.seq`
+          Prelude.rnf source `Prelude.seq`
+            Prelude.rnf dbClusterParameterGroupName
 
 instance Data.ToHeaders DescribeDBClusterParameters where
   toHeaders = Prelude.const Prelude.mempty
@@ -333,6 +331,6 @@ instance
     DescribeDBClusterParametersResponse
   where
   rnf DescribeDBClusterParametersResponse' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf parameters `Prelude.seq`
+        Prelude.rnf httpStatus

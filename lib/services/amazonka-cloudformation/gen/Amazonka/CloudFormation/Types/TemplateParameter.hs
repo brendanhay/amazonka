@@ -101,7 +101,7 @@ instance Prelude.Hashable TemplateParameter where
 
 instance Prelude.NFData TemplateParameter where
   rnf TemplateParameter' {..} =
-    Prelude.rnf defaultValue
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf noEcho
-      `Prelude.seq` Prelude.rnf parameterKey
+    Prelude.rnf defaultValue `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf noEcho `Prelude.seq`
+          Prelude.rnf parameterKey

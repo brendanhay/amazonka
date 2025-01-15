@@ -110,8 +110,8 @@ instance Prelude.Hashable DisassociateLicense where
 
 instance Prelude.NFData DisassociateLicense where
   rnf DisassociateLicense' {..} =
-    Prelude.rnf licenseType
-      `Prelude.seq` Prelude.rnf workspaceId
+    Prelude.rnf licenseType `Prelude.seq`
+      Prelude.rnf workspaceId
 
 instance Data.ToHeaders DisassociateLicense where
   toHeaders =
@@ -181,5 +181,5 @@ disassociateLicenseResponse_workspace = Lens.lens (\DisassociateLicenseResponse'
 
 instance Prelude.NFData DisassociateLicenseResponse where
   rnf DisassociateLicenseResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf workspace
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf workspace

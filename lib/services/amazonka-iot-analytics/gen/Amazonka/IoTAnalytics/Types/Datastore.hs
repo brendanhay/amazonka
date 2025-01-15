@@ -248,13 +248,13 @@ instance Prelude.Hashable Datastore where
 
 instance Prelude.NFData Datastore where
   rnf Datastore' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf datastorePartitions
-      `Prelude.seq` Prelude.rnf fileFormatConfiguration
-      `Prelude.seq` Prelude.rnf lastMessageArrivalTime
-      `Prelude.seq` Prelude.rnf lastUpdateTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf retentionPeriod
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf storage
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf datastorePartitions `Prelude.seq`
+          Prelude.rnf fileFormatConfiguration `Prelude.seq`
+            Prelude.rnf lastMessageArrivalTime `Prelude.seq`
+              Prelude.rnf lastUpdateTime `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf retentionPeriod `Prelude.seq`
+                    Prelude.rnf status `Prelude.seq`
+                      Prelude.rnf storage

@@ -120,9 +120,9 @@ instance Prelude.Hashable UpdateRoom where
 
 instance Prelude.NFData UpdateRoom where
   rnf UpdateRoom' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf roomId
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf accountId `Prelude.seq`
+        Prelude.rnf roomId
 
 instance Data.ToHeaders UpdateRoom where
   toHeaders = Prelude.const Prelude.mempty
@@ -186,5 +186,5 @@ updateRoomResponse_httpStatus = Lens.lens (\UpdateRoomResponse' {httpStatus} -> 
 
 instance Prelude.NFData UpdateRoomResponse where
   rnf UpdateRoomResponse' {..} =
-    Prelude.rnf room
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf room `Prelude.seq`
+      Prelude.rnf httpStatus

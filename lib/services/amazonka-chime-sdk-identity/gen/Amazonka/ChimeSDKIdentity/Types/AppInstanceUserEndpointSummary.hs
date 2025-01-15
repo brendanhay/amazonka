@@ -145,9 +145,9 @@ instance
     AppInstanceUserEndpointSummary
   where
   rnf AppInstanceUserEndpointSummary' {..} =
-    Prelude.rnf allowMessages
-      `Prelude.seq` Prelude.rnf appInstanceUserArn
-      `Prelude.seq` Prelude.rnf endpointId
-      `Prelude.seq` Prelude.rnf endpointState
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf allowMessages `Prelude.seq`
+      Prelude.rnf appInstanceUserArn `Prelude.seq`
+        Prelude.rnf endpointId `Prelude.seq`
+          Prelude.rnf endpointState `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf type'

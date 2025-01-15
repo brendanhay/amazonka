@@ -157,15 +157,15 @@ instance Prelude.Hashable ReadOptions where
 
 instance Prelude.NFData ReadOptions where
   rnf ReadOptions' {..} =
-    Prelude.rnf comment
-      `Prelude.seq` Prelude.rnf encoding
-      `Prelude.seq` Prelude.rnf escape
-      `Prelude.seq` Prelude.rnf escapeQuotes
-      `Prelude.seq` Prelude.rnf header
-      `Prelude.seq` Prelude.rnf lineSep
-      `Prelude.seq` Prelude.rnf quote
-      `Prelude.seq` Prelude.rnf quoteAll
-      `Prelude.seq` Prelude.rnf sep
+    Prelude.rnf comment `Prelude.seq`
+      Prelude.rnf encoding `Prelude.seq`
+        Prelude.rnf escape `Prelude.seq`
+          Prelude.rnf escapeQuotes `Prelude.seq`
+            Prelude.rnf header `Prelude.seq`
+              Prelude.rnf lineSep `Prelude.seq`
+                Prelude.rnf quote `Prelude.seq`
+                  Prelude.rnf quoteAll `Prelude.seq`
+                    Prelude.rnf sep
 
 instance Data.ToJSON ReadOptions where
   toJSON ReadOptions' {..} =

@@ -154,14 +154,14 @@ instance Prelude.Hashable GeneralName where
 
 instance Prelude.NFData GeneralName where
   rnf GeneralName' {..} =
-    Prelude.rnf directoryName
-      `Prelude.seq` Prelude.rnf dnsName
-      `Prelude.seq` Prelude.rnf ediPartyName
-      `Prelude.seq` Prelude.rnf ipAddress
-      `Prelude.seq` Prelude.rnf otherName
-      `Prelude.seq` Prelude.rnf registeredId
-      `Prelude.seq` Prelude.rnf rfc822Name
-      `Prelude.seq` Prelude.rnf uniformResourceIdentifier
+    Prelude.rnf directoryName `Prelude.seq`
+      Prelude.rnf dnsName `Prelude.seq`
+        Prelude.rnf ediPartyName `Prelude.seq`
+          Prelude.rnf ipAddress `Prelude.seq`
+            Prelude.rnf otherName `Prelude.seq`
+              Prelude.rnf registeredId `Prelude.seq`
+                Prelude.rnf rfc822Name `Prelude.seq`
+                  Prelude.rnf uniformResourceIdentifier
 
 instance Data.ToJSON GeneralName where
   toJSON GeneralName' {..} =

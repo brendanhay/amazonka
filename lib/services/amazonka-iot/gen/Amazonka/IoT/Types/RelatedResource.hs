@@ -93,6 +93,6 @@ instance Prelude.Hashable RelatedResource where
 
 instance Prelude.NFData RelatedResource where
   rnf RelatedResource' {..} =
-    Prelude.rnf additionalInfo
-      `Prelude.seq` Prelude.rnf resourceIdentifier
-      `Prelude.seq` Prelude.rnf resourceType
+    Prelude.rnf additionalInfo `Prelude.seq`
+      Prelude.rnf resourceIdentifier `Prelude.seq`
+        Prelude.rnf resourceType

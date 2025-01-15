@@ -132,8 +132,8 @@ instance Prelude.Hashable DescribeMailboxExportJob where
 
 instance Prelude.NFData DescribeMailboxExportJob where
   rnf DescribeMailboxExportJob' {..} =
-    Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf organizationId
+    Prelude.rnf jobId `Prelude.seq`
+      Prelude.rnf organizationId
 
 instance Data.ToHeaders DescribeMailboxExportJob where
   toHeaders =
@@ -321,16 +321,16 @@ instance
     DescribeMailboxExportJobResponse
   where
   rnf DescribeMailboxExportJobResponse' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf entityId
-      `Prelude.seq` Prelude.rnf errorInfo
-      `Prelude.seq` Prelude.rnf estimatedProgress
-      `Prelude.seq` Prelude.rnf kmsKeyArn
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf s3BucketName
-      `Prelude.seq` Prelude.rnf s3Path
-      `Prelude.seq` Prelude.rnf s3Prefix
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf endTime `Prelude.seq`
+        Prelude.rnf entityId `Prelude.seq`
+          Prelude.rnf errorInfo `Prelude.seq`
+            Prelude.rnf estimatedProgress `Prelude.seq`
+              Prelude.rnf kmsKeyArn `Prelude.seq`
+                Prelude.rnf roleArn `Prelude.seq`
+                  Prelude.rnf s3BucketName `Prelude.seq`
+                    Prelude.rnf s3Path `Prelude.seq`
+                      Prelude.rnf s3Prefix `Prelude.seq`
+                        Prelude.rnf startTime `Prelude.seq`
+                          Prelude.rnf state `Prelude.seq`
+                            Prelude.rnf httpStatus

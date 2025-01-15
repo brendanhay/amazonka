@@ -116,8 +116,8 @@ instance Prelude.Hashable DeleteProfileObjectType where
 
 instance Prelude.NFData DeleteProfileObjectType where
   rnf DeleteProfileObjectType' {..} =
-    Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf objectTypeName
+    Prelude.rnf domainName `Prelude.seq`
+      Prelude.rnf objectTypeName
 
 instance Data.ToHeaders DeleteProfileObjectType where
   toHeaders =
@@ -190,5 +190,5 @@ instance
     DeleteProfileObjectTypeResponse
   where
   rnf DeleteProfileObjectTypeResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf message
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf message

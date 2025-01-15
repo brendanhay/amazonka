@@ -146,10 +146,10 @@ instance Prelude.Hashable ClientVpnRoute where
 
 instance Prelude.NFData ClientVpnRoute where
   rnf ClientVpnRoute' {..} =
-    Prelude.rnf clientVpnEndpointId
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf destinationCidr
-      `Prelude.seq` Prelude.rnf origin
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf targetSubnet
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf clientVpnEndpointId `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf destinationCidr `Prelude.seq`
+          Prelude.rnf origin `Prelude.seq`
+            Prelude.rnf status `Prelude.seq`
+              Prelude.rnf targetSubnet `Prelude.seq`
+                Prelude.rnf type'

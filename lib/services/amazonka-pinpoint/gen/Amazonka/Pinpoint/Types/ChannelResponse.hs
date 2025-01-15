@@ -164,12 +164,12 @@ instance Prelude.Hashable ChannelResponse where
 
 instance Prelude.NFData ChannelResponse where
   rnf ChannelResponse' {..} =
-    Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf hasCredential
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf isArchived
-      `Prelude.seq` Prelude.rnf lastModifiedBy
-      `Prelude.seq` Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf version
+    Prelude.rnf applicationId `Prelude.seq`
+      Prelude.rnf creationDate `Prelude.seq`
+        Prelude.rnf enabled `Prelude.seq`
+          Prelude.rnf hasCredential `Prelude.seq`
+            Prelude.rnf id `Prelude.seq`
+              Prelude.rnf isArchived `Prelude.seq`
+                Prelude.rnf lastModifiedBy `Prelude.seq`
+                  Prelude.rnf lastModifiedDate `Prelude.seq`
+                    Prelude.rnf version

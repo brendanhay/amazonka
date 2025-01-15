@@ -182,13 +182,13 @@ instance Prelude.Hashable CustomLineItemListElement where
 
 instance Prelude.NFData CustomLineItemListElement where
   rnf CustomLineItemListElement' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf associationSize
-      `Prelude.seq` Prelude.rnf billingGroupArn
-      `Prelude.seq` Prelude.rnf chargeDetails
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf currencyCode
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf productCode
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf associationSize `Prelude.seq`
+        Prelude.rnf billingGroupArn `Prelude.seq`
+          Prelude.rnf chargeDetails `Prelude.seq`
+            Prelude.rnf creationTime `Prelude.seq`
+              Prelude.rnf currencyCode `Prelude.seq`
+                Prelude.rnf description `Prelude.seq`
+                  Prelude.rnf lastModifiedTime `Prelude.seq`
+                    Prelude.rnf name `Prelude.seq`
+                      Prelude.rnf productCode

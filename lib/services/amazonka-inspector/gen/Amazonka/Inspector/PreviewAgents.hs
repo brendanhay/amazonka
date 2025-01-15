@@ -127,12 +127,12 @@ instance Core.AWSPager PreviewAgents where
         (rs Lens.^. previewAgentsResponse_agentPreviews) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& previewAgents_nextToken
-          Lens..~ rs
-          Lens.^? previewAgentsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& previewAgents_nextToken
+              Lens..~ rs
+              Lens.^? previewAgentsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest PreviewAgents where
   type
@@ -158,9 +158,9 @@ instance Prelude.Hashable PreviewAgents where
 
 instance Prelude.NFData PreviewAgents where
   rnf PreviewAgents' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf previewAgentsArn
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf previewAgentsArn
 
 instance Data.ToHeaders PreviewAgents where
   toHeaders =
@@ -252,6 +252,6 @@ previewAgentsResponse_agentPreviews = Lens.lens (\PreviewAgentsResponse' {agentP
 
 instance Prelude.NFData PreviewAgentsResponse where
   rnf PreviewAgentsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf agentPreviews
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf agentPreviews

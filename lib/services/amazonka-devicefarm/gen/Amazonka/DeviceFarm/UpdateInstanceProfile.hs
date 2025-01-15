@@ -171,12 +171,12 @@ instance Prelude.Hashable UpdateInstanceProfile where
 
 instance Prelude.NFData UpdateInstanceProfile where
   rnf UpdateInstanceProfile' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf excludeAppPackagesFromCleanup
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf packageCleanup
-      `Prelude.seq` Prelude.rnf rebootAfterUse
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf excludeAppPackagesFromCleanup `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf packageCleanup `Prelude.seq`
+            Prelude.rnf rebootAfterUse `Prelude.seq`
+              Prelude.rnf arn
 
 instance Data.ToHeaders UpdateInstanceProfile where
   toHeaders =
@@ -256,5 +256,5 @@ updateInstanceProfileResponse_httpStatus = Lens.lens (\UpdateInstanceProfileResp
 
 instance Prelude.NFData UpdateInstanceProfileResponse where
   rnf UpdateInstanceProfileResponse' {..} =
-    Prelude.rnf instanceProfile
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf instanceProfile `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -108,9 +108,9 @@ instance
     ServerGroupLaunchConfiguration
   where
   rnf ServerGroupLaunchConfiguration' {..} =
-    Prelude.rnf launchOrder
-      `Prelude.seq` Prelude.rnf serverGroupId
-      `Prelude.seq` Prelude.rnf serverLaunchConfigurations
+    Prelude.rnf launchOrder `Prelude.seq`
+      Prelude.rnf serverGroupId `Prelude.seq`
+        Prelude.rnf serverLaunchConfigurations
 
 instance Data.ToJSON ServerGroupLaunchConfiguration where
   toJSON ServerGroupLaunchConfiguration' {..} =

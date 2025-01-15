@@ -135,9 +135,9 @@ instance Prelude.Hashable CreateInstanceSnapshot where
 
 instance Prelude.NFData CreateInstanceSnapshot where
   rnf CreateInstanceSnapshot' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf instanceSnapshotName
-      `Prelude.seq` Prelude.rnf instanceName
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf instanceSnapshotName `Prelude.seq`
+        Prelude.rnf instanceName
 
 instance Data.ToHeaders CreateInstanceSnapshot where
   toHeaders =
@@ -223,5 +223,5 @@ instance
     CreateInstanceSnapshotResponse
   where
   rnf CreateInstanceSnapshotResponse' {..} =
-    Prelude.rnf operations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operations `Prelude.seq`
+      Prelude.rnf httpStatus

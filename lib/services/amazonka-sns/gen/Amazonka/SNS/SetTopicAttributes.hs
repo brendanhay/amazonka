@@ -290,9 +290,9 @@ instance Prelude.Hashable SetTopicAttributes where
 
 instance Prelude.NFData SetTopicAttributes where
   rnf SetTopicAttributes' {..} =
-    Prelude.rnf attributeValue
-      `Prelude.seq` Prelude.rnf topicArn
-      `Prelude.seq` Prelude.rnf attributeName
+    Prelude.rnf attributeValue `Prelude.seq`
+      Prelude.rnf topicArn `Prelude.seq`
+        Prelude.rnf attributeName
 
 instance Data.ToHeaders SetTopicAttributes where
   toHeaders = Prelude.const Prelude.mempty

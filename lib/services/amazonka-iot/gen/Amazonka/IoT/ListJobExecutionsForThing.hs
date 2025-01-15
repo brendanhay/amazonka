@@ -175,12 +175,12 @@ instance Core.AWSPager ListJobExecutionsForThing where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listJobExecutionsForThing_nextToken
-          Lens..~ rs
-          Lens.^? listJobExecutionsForThingResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listJobExecutionsForThing_nextToken
+              Lens..~ rs
+              Lens.^? listJobExecutionsForThingResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListJobExecutionsForThing where
   type
@@ -212,12 +212,12 @@ instance Prelude.Hashable ListJobExecutionsForThing where
 
 instance Prelude.NFData ListJobExecutionsForThing where
   rnf ListJobExecutionsForThing' {..} =
-    Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf namespaceId
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf thingName
+    Prelude.rnf jobId `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf namespaceId `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf status `Prelude.seq`
+              Prelude.rnf thingName
 
 instance Data.ToHeaders ListJobExecutionsForThing where
   toHeaders = Prelude.const Prelude.mempty
@@ -293,6 +293,6 @@ instance
     ListJobExecutionsForThingResponse
   where
   rnf ListJobExecutionsForThingResponse' {..} =
-    Prelude.rnf executionSummaries
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf executionSummaries `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

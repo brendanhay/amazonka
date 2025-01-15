@@ -237,15 +237,11 @@ instance Data.FromXML VpcEndpoint where
   parseXML x =
     VpcEndpoint'
       Prelude.<$> (x Data..@? "creationTimestamp")
-      Prelude.<*> ( x
-                      Data..@? "dnsEntrySet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "dnsEntrySet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "dnsOptions")
-      Prelude.<*> ( x
-                      Data..@? "groupSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "groupSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "ipAddressType")
@@ -259,21 +255,15 @@ instance Data.FromXML VpcEndpoint where
       Prelude.<*> (x Data..@? "policyDocument")
       Prelude.<*> (x Data..@? "privateDnsEnabled")
       Prelude.<*> (x Data..@? "requesterManaged")
-      Prelude.<*> ( x
-                      Data..@? "routeTableIdSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "routeTableIdSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "serviceName")
       Prelude.<*> (x Data..@? "state")
-      Prelude.<*> ( x
-                      Data..@? "subnetIdSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "subnetIdSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x
-                      Data..@? "tagSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "vpcEndpointId")
@@ -305,22 +295,22 @@ instance Prelude.Hashable VpcEndpoint where
 
 instance Prelude.NFData VpcEndpoint where
   rnf VpcEndpoint' {..} =
-    Prelude.rnf creationTimestamp
-      `Prelude.seq` Prelude.rnf dnsEntries
-      `Prelude.seq` Prelude.rnf dnsOptions
-      `Prelude.seq` Prelude.rnf groups
-      `Prelude.seq` Prelude.rnf ipAddressType
-      `Prelude.seq` Prelude.rnf lastError
-      `Prelude.seq` Prelude.rnf networkInterfaceIds
-      `Prelude.seq` Prelude.rnf ownerId
-      `Prelude.seq` Prelude.rnf policyDocument
-      `Prelude.seq` Prelude.rnf privateDnsEnabled
-      `Prelude.seq` Prelude.rnf requesterManaged
-      `Prelude.seq` Prelude.rnf routeTableIds
-      `Prelude.seq` Prelude.rnf serviceName
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf subnetIds
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf vpcEndpointId
-      `Prelude.seq` Prelude.rnf vpcEndpointType
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf creationTimestamp `Prelude.seq`
+      Prelude.rnf dnsEntries `Prelude.seq`
+        Prelude.rnf dnsOptions `Prelude.seq`
+          Prelude.rnf groups `Prelude.seq`
+            Prelude.rnf ipAddressType `Prelude.seq`
+              Prelude.rnf lastError `Prelude.seq`
+                Prelude.rnf networkInterfaceIds `Prelude.seq`
+                  Prelude.rnf ownerId `Prelude.seq`
+                    Prelude.rnf policyDocument `Prelude.seq`
+                      Prelude.rnf privateDnsEnabled `Prelude.seq`
+                        Prelude.rnf requesterManaged `Prelude.seq`
+                          Prelude.rnf routeTableIds `Prelude.seq`
+                            Prelude.rnf serviceName `Prelude.seq`
+                              Prelude.rnf state `Prelude.seq`
+                                Prelude.rnf subnetIds `Prelude.seq`
+                                  Prelude.rnf tags `Prelude.seq`
+                                    Prelude.rnf vpcEndpointId `Prelude.seq`
+                                      Prelude.rnf vpcEndpointType `Prelude.seq`
+                                        Prelude.rnf vpcId

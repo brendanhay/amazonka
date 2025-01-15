@@ -80,8 +80,8 @@ instance Prelude.Hashable R53ResourceRecord where
 
 instance Prelude.NFData R53ResourceRecord where
   rnf R53ResourceRecord' {..} =
-    Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf recordSetId
+    Prelude.rnf domainName `Prelude.seq`
+      Prelude.rnf recordSetId
 
 instance Data.ToJSON R53ResourceRecord where
   toJSON R53ResourceRecord' {..} =

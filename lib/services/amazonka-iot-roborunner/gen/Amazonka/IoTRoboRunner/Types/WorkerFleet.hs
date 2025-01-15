@@ -147,10 +147,10 @@ instance Prelude.Hashable WorkerFleet where
 
 instance Prelude.NFData WorkerFleet where
   rnf WorkerFleet' {..} =
-    Prelude.rnf additionalFixedProperties
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf site
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf updatedAt
+    Prelude.rnf additionalFixedProperties `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf site `Prelude.seq`
+              Prelude.rnf createdAt `Prelude.seq`
+                Prelude.rnf updatedAt

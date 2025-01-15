@@ -125,8 +125,8 @@ instance
     DeleteEnvironmentConfiguration
   where
   rnf DeleteEnvironmentConfiguration' {..} =
-    Prelude.rnf applicationName
-      `Prelude.seq` Prelude.rnf environmentName
+    Prelude.rnf applicationName `Prelude.seq`
+      Prelude.rnf environmentName
 
 instance
   Data.ToHeaders

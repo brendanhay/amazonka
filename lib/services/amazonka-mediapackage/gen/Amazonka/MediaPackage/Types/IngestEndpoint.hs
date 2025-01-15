@@ -102,7 +102,7 @@ instance Prelude.Hashable IngestEndpoint where
 
 instance Prelude.NFData IngestEndpoint where
   rnf IngestEndpoint' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf password
-      `Prelude.seq` Prelude.rnf url
-      `Prelude.seq` Prelude.rnf username
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf password `Prelude.seq`
+        Prelude.rnf url `Prelude.seq`
+          Prelude.rnf username

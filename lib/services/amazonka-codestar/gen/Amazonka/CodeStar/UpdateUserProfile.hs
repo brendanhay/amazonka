@@ -160,10 +160,10 @@ instance Prelude.Hashable UpdateUserProfile where
 
 instance Prelude.NFData UpdateUserProfile where
   rnf UpdateUserProfile' {..} =
-    Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf emailAddress
-      `Prelude.seq` Prelude.rnf sshPublicKey
-      `Prelude.seq` Prelude.rnf userArn
+    Prelude.rnf displayName `Prelude.seq`
+      Prelude.rnf emailAddress `Prelude.seq`
+        Prelude.rnf sshPublicKey `Prelude.seq`
+          Prelude.rnf userArn
 
 instance Data.ToHeaders UpdateUserProfile where
   toHeaders =
@@ -300,10 +300,10 @@ updateUserProfileResponse_userArn = Lens.lens (\UpdateUserProfileResponse' {user
 
 instance Prelude.NFData UpdateUserProfileResponse where
   rnf UpdateUserProfileResponse' {..} =
-    Prelude.rnf createdTimestamp
-      `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf emailAddress
-      `Prelude.seq` Prelude.rnf lastModifiedTimestamp
-      `Prelude.seq` Prelude.rnf sshPublicKey
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf userArn
+    Prelude.rnf createdTimestamp `Prelude.seq`
+      Prelude.rnf displayName `Prelude.seq`
+        Prelude.rnf emailAddress `Prelude.seq`
+          Prelude.rnf lastModifiedTimestamp `Prelude.seq`
+            Prelude.rnf sshPublicKey `Prelude.seq`
+              Prelude.rnf httpStatus `Prelude.seq`
+                Prelude.rnf userArn

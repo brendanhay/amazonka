@@ -108,10 +108,10 @@ instance
 
 instance Prelude.NFData FieldValidationConfiguration where
   rnf FieldValidationConfiguration' {..} =
-    Prelude.rnf numValues
-      `Prelude.seq` Prelude.rnf strValues
-      `Prelude.seq` Prelude.rnf validationMessage
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf numValues `Prelude.seq`
+      Prelude.rnf strValues `Prelude.seq`
+        Prelude.rnf validationMessage `Prelude.seq`
+          Prelude.rnf type'
 
 instance Data.ToJSON FieldValidationConfiguration where
   toJSON FieldValidationConfiguration' {..} =

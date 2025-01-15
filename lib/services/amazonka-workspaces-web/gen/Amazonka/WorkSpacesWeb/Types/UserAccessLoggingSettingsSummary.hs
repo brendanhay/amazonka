@@ -93,5 +93,5 @@ instance
     UserAccessLoggingSettingsSummary
   where
   rnf UserAccessLoggingSettingsSummary' {..} =
-    Prelude.rnf kinesisStreamArn
-      `Prelude.seq` Prelude.rnf userAccessLoggingSettingsArn
+    Prelude.rnf kinesisStreamArn `Prelude.seq`
+      Prelude.rnf userAccessLoggingSettingsArn

@@ -115,8 +115,8 @@ instance Prelude.Hashable DeleteStudio where
 
 instance Prelude.NFData DeleteStudio where
   rnf DeleteStudio' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf studioId
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf studioId
 
 instance Data.ToHeaders DeleteStudio where
   toHeaders DeleteStudio' {..} =
@@ -176,5 +176,5 @@ deleteStudioResponse_studio = Lens.lens (\DeleteStudioResponse' {studio} -> stud
 
 instance Prelude.NFData DeleteStudioResponse where
   rnf DeleteStudioResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf studio
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf studio

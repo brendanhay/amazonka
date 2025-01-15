@@ -138,10 +138,10 @@ instance Prelude.Hashable DeleteNetworkAclEntry where
 
 instance Prelude.NFData DeleteNetworkAclEntry where
   rnf DeleteNetworkAclEntry' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf egress
-      `Prelude.seq` Prelude.rnf networkAclId
-      `Prelude.seq` Prelude.rnf ruleNumber
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf egress `Prelude.seq`
+        Prelude.rnf networkAclId `Prelude.seq`
+          Prelude.rnf ruleNumber
 
 instance Data.ToHeaders DeleteNetworkAclEntry where
   toHeaders = Prelude.const Prelude.mempty

@@ -104,7 +104,7 @@ instance Prelude.Hashable NetworkInterface where
 
 instance Prelude.NFData NetworkInterface where
   rnf NetworkInterface' {..} =
-    Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf networkInterfaceId
-      `Prelude.seq` Prelude.rnf privateIpAddress
-      `Prelude.seq` Prelude.rnf subnetId
+    Prelude.rnf availabilityZone `Prelude.seq`
+      Prelude.rnf networkInterfaceId `Prelude.seq`
+        Prelude.rnf privateIpAddress `Prelude.seq`
+          Prelude.rnf subnetId

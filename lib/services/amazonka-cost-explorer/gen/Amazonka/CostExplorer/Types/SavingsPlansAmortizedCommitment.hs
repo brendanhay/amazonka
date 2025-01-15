@@ -114,6 +114,6 @@ instance
     SavingsPlansAmortizedCommitment
   where
   rnf SavingsPlansAmortizedCommitment' {..} =
-    Prelude.rnf amortizedRecurringCommitment
-      `Prelude.seq` Prelude.rnf amortizedUpfrontCommitment
-      `Prelude.seq` Prelude.rnf totalAmortizedCommitment
+    Prelude.rnf amortizedRecurringCommitment `Prelude.seq`
+      Prelude.rnf amortizedUpfrontCommitment `Prelude.seq`
+        Prelude.rnf totalAmortizedCommitment

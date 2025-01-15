@@ -120,8 +120,8 @@ instance Prelude.Hashable RegisterEcsCluster where
 
 instance Prelude.NFData RegisterEcsCluster where
   rnf RegisterEcsCluster' {..} =
-    Prelude.rnf ecsClusterArn
-      `Prelude.seq` Prelude.rnf stackId
+    Prelude.rnf ecsClusterArn `Prelude.seq`
+      Prelude.rnf stackId
 
 instance Data.ToHeaders RegisterEcsCluster where
   toHeaders =
@@ -197,5 +197,5 @@ registerEcsClusterResponse_httpStatus = Lens.lens (\RegisterEcsClusterResponse' 
 
 instance Prelude.NFData RegisterEcsClusterResponse where
   rnf RegisterEcsClusterResponse' {..} =
-    Prelude.rnf ecsClusterArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf ecsClusterArn `Prelude.seq`
+      Prelude.rnf httpStatus

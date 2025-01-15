@@ -107,7 +107,7 @@ instance Prelude.Hashable LambdaFunctionMetadata where
 
 instance Prelude.NFData LambdaFunctionMetadata where
   rnf LambdaFunctionMetadata' {..} =
-    Prelude.rnf functionName
-      `Prelude.seq` Prelude.rnf functionTags
-      `Prelude.seq` Prelude.rnf layers
-      `Prelude.seq` Prelude.rnf runtime
+    Prelude.rnf functionName `Prelude.seq`
+      Prelude.rnf functionTags `Prelude.seq`
+        Prelude.rnf layers `Prelude.seq`
+          Prelude.rnf runtime

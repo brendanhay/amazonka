@@ -81,5 +81,5 @@ instance Prelude.Hashable SecurityPolicyStats where
 
 instance Prelude.NFData SecurityPolicyStats where
   rnf SecurityPolicyStats' {..} =
-    Prelude.rnf encryptionPolicyCount
-      `Prelude.seq` Prelude.rnf networkPolicyCount
+    Prelude.rnf encryptionPolicyCount `Prelude.seq`
+      Prelude.rnf networkPolicyCount

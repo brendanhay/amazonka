@@ -110,12 +110,12 @@ instance Core.AWSPager ListProgressUpdateStreams where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listProgressUpdateStreams_nextToken
-          Lens..~ rs
-          Lens.^? listProgressUpdateStreamsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listProgressUpdateStreams_nextToken
+              Lens..~ rs
+              Lens.^? listProgressUpdateStreamsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListProgressUpdateStreams where
   type
@@ -143,8 +143,8 @@ instance Prelude.Hashable ListProgressUpdateStreams where
 
 instance Prelude.NFData ListProgressUpdateStreams where
   rnf ListProgressUpdateStreams' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListProgressUpdateStreams where
   toHeaders =
@@ -239,6 +239,6 @@ instance
     ListProgressUpdateStreamsResponse
   where
   rnf ListProgressUpdateStreamsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf progressUpdateStreamSummaryList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf progressUpdateStreamSummaryList `Prelude.seq`
+        Prelude.rnf httpStatus

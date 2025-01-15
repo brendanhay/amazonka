@@ -90,8 +90,8 @@ instance Prelude.Hashable Specifications where
 
 instance Prelude.NFData Specifications where
   rnf Specifications' {..} =
-    Prelude.rnf slotTypeId
-      `Prelude.seq` Prelude.rnf valueElicitationSetting
+    Prelude.rnf slotTypeId `Prelude.seq`
+      Prelude.rnf valueElicitationSetting
 
 instance Data.ToJSON Specifications where
   toJSON Specifications' {..} =

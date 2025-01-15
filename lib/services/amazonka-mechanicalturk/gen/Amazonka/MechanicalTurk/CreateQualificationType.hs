@@ -326,16 +326,16 @@ instance Prelude.Hashable CreateQualificationType where
 
 instance Prelude.NFData CreateQualificationType where
   rnf CreateQualificationType' {..} =
-    Prelude.rnf answerKey
-      `Prelude.seq` Prelude.rnf autoGranted
-      `Prelude.seq` Prelude.rnf autoGrantedValue
-      `Prelude.seq` Prelude.rnf keywords
-      `Prelude.seq` Prelude.rnf retryDelayInSeconds
-      `Prelude.seq` Prelude.rnf test
-      `Prelude.seq` Prelude.rnf testDurationInSeconds
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf qualificationTypeStatus
+    Prelude.rnf answerKey `Prelude.seq`
+      Prelude.rnf autoGranted `Prelude.seq`
+        Prelude.rnf autoGrantedValue `Prelude.seq`
+          Prelude.rnf keywords `Prelude.seq`
+            Prelude.rnf retryDelayInSeconds `Prelude.seq`
+              Prelude.rnf test `Prelude.seq`
+                Prelude.rnf testDurationInSeconds `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf description `Prelude.seq`
+                      Prelude.rnf qualificationTypeStatus
 
 instance Data.ToHeaders CreateQualificationType where
   toHeaders =
@@ -428,5 +428,5 @@ instance
     CreateQualificationTypeResponse
   where
   rnf CreateQualificationTypeResponse' {..} =
-    Prelude.rnf qualificationType
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf qualificationType `Prelude.seq`
+      Prelude.rnf httpStatus

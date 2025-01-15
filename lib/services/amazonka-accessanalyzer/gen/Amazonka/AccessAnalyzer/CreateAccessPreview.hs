@@ -138,9 +138,9 @@ instance Prelude.Hashable CreateAccessPreview where
 
 instance Prelude.NFData CreateAccessPreview where
   rnf CreateAccessPreview' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf analyzerArn
-      `Prelude.seq` Prelude.rnf configurations
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf analyzerArn `Prelude.seq`
+        Prelude.rnf configurations
 
 instance Data.ToHeaders CreateAccessPreview where
   toHeaders =

@@ -132,9 +132,9 @@ instance Prelude.Hashable AliasConfiguration where
 
 instance Prelude.NFData AliasConfiguration where
   rnf AliasConfiguration' {..} =
-    Prelude.rnf aliasArn
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf functionVersion
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf revisionId
-      `Prelude.seq` Prelude.rnf routingConfig
+    Prelude.rnf aliasArn `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf functionVersion `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf revisionId `Prelude.seq`
+              Prelude.rnf routingConfig

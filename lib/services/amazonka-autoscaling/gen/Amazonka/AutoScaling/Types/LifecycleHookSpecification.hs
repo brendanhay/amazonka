@@ -204,13 +204,13 @@ instance Prelude.Hashable LifecycleHookSpecification where
 
 instance Prelude.NFData LifecycleHookSpecification where
   rnf LifecycleHookSpecification' {..} =
-    Prelude.rnf defaultResult
-      `Prelude.seq` Prelude.rnf heartbeatTimeout
-      `Prelude.seq` Prelude.rnf notificationMetadata
-      `Prelude.seq` Prelude.rnf notificationTargetARN
-      `Prelude.seq` Prelude.rnf roleARN
-      `Prelude.seq` Prelude.rnf lifecycleHookName
-      `Prelude.seq` Prelude.rnf lifecycleTransition
+    Prelude.rnf defaultResult `Prelude.seq`
+      Prelude.rnf heartbeatTimeout `Prelude.seq`
+        Prelude.rnf notificationMetadata `Prelude.seq`
+          Prelude.rnf notificationTargetARN `Prelude.seq`
+            Prelude.rnf roleARN `Prelude.seq`
+              Prelude.rnf lifecycleHookName `Prelude.seq`
+                Prelude.rnf lifecycleTransition
 
 instance Data.ToQuery LifecycleHookSpecification where
   toQuery LifecycleHookSpecification' {..} =

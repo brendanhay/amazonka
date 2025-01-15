@@ -78,8 +78,8 @@ instance Prelude.Hashable GCMChannelRequest where
 
 instance Prelude.NFData GCMChannelRequest where
   rnf GCMChannelRequest' {..} =
-    Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf apiKey
+    Prelude.rnf enabled `Prelude.seq`
+      Prelude.rnf apiKey
 
 instance Data.ToJSON GCMChannelRequest where
   toJSON GCMChannelRequest' {..} =

@@ -133,10 +133,10 @@ instance Prelude.Hashable UpdateApiKey where
 
 instance Prelude.NFData UpdateApiKey where
   rnf UpdateApiKey' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf expires
-      `Prelude.seq` Prelude.rnf apiId
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf expires `Prelude.seq`
+        Prelude.rnf apiId `Prelude.seq`
+          Prelude.rnf id
 
 instance Data.ToHeaders UpdateApiKey where
   toHeaders =
@@ -210,5 +210,5 @@ updateApiKeyResponse_httpStatus = Lens.lens (\UpdateApiKeyResponse' {httpStatus}
 
 instance Prelude.NFData UpdateApiKeyResponse where
   rnf UpdateApiKeyResponse' {..} =
-    Prelude.rnf apiKey
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf apiKey `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -116,8 +116,8 @@ instance
     DeleteNotificationConfiguration
   where
   rnf DeleteNotificationConfiguration' {..} =
-    Prelude.rnf autoScalingGroupName
-      `Prelude.seq` Prelude.rnf topicARN
+    Prelude.rnf autoScalingGroupName `Prelude.seq`
+      Prelude.rnf topicARN
 
 instance
   Data.ToHeaders

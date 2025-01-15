@@ -112,6 +112,6 @@ instance Prelude.Hashable CostAllocationTag where
 
 instance Prelude.NFData CostAllocationTag where
   rnf CostAllocationTag' {..} =
-    Prelude.rnf tagKey
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf tagKey `Prelude.seq`
+      Prelude.rnf type' `Prelude.seq`
+        Prelude.rnf status

@@ -105,6 +105,6 @@ instance Prelude.Hashable InputConfiguration where
 
 instance Prelude.NFData InputConfiguration where
   rnf InputConfiguration' {..} =
-    Prelude.rnf inputPort
-      `Prelude.seq` Prelude.rnf inputIp
-      `Prelude.seq` Prelude.rnf interface
+    Prelude.rnf inputPort `Prelude.seq`
+      Prelude.rnf inputIp `Prelude.seq`
+        Prelude.rnf interface

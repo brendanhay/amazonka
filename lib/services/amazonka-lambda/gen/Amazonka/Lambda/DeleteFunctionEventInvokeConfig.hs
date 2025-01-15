@@ -158,8 +158,8 @@ instance
     DeleteFunctionEventInvokeConfig
   where
   rnf DeleteFunctionEventInvokeConfig' {..} =
-    Prelude.rnf qualifier
-      `Prelude.seq` Prelude.rnf functionName
+    Prelude.rnf qualifier `Prelude.seq`
+      Prelude.rnf functionName
 
 instance
   Data.ToHeaders

@@ -111,8 +111,8 @@ instance Prelude.Hashable DeleteTrust where
 
 instance Prelude.NFData DeleteTrust where
   rnf DeleteTrust' {..} =
-    Prelude.rnf deleteAssociatedConditionalForwarder
-      `Prelude.seq` Prelude.rnf trustId
+    Prelude.rnf deleteAssociatedConditionalForwarder `Prelude.seq`
+      Prelude.rnf trustId
 
 instance Data.ToHeaders DeleteTrust where
   toHeaders =
@@ -187,5 +187,5 @@ deleteTrustResponse_httpStatus = Lens.lens (\DeleteTrustResponse' {httpStatus} -
 
 instance Prelude.NFData DeleteTrustResponse where
   rnf DeleteTrustResponse' {..} =
-    Prelude.rnf trustId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf trustId `Prelude.seq`
+      Prelude.rnf httpStatus

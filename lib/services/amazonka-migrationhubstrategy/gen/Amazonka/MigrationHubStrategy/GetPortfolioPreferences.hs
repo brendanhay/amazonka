@@ -173,8 +173,8 @@ instance
     GetPortfolioPreferencesResponse
   where
   rnf GetPortfolioPreferencesResponse' {..} =
-    Prelude.rnf applicationMode
-      `Prelude.seq` Prelude.rnf applicationPreferences
-      `Prelude.seq` Prelude.rnf databasePreferences
-      `Prelude.seq` Prelude.rnf prioritizeBusinessGoals
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf applicationMode `Prelude.seq`
+      Prelude.rnf applicationPreferences `Prelude.seq`
+        Prelude.rnf databasePreferences `Prelude.seq`
+          Prelude.rnf prioritizeBusinessGoals `Prelude.seq`
+            Prelude.rnf httpStatus

@@ -84,8 +84,8 @@ instance Prelude.Hashable SAMLIdp where
 
 instance Prelude.NFData SAMLIdp where
   rnf SAMLIdp' {..} =
-    Prelude.rnf metadataContent
-      `Prelude.seq` Prelude.rnf entityId
+    Prelude.rnf metadataContent `Prelude.seq`
+      Prelude.rnf entityId
 
 instance Data.ToJSON SAMLIdp where
   toJSON SAMLIdp' {..} =

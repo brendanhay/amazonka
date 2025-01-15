@@ -167,9 +167,9 @@ instance Prelude.Hashable RegisterUsage where
 
 instance Prelude.NFData RegisterUsage where
   rnf RegisterUsage' {..} =
-    Prelude.rnf nonce
-      `Prelude.seq` Prelude.rnf productCode
-      `Prelude.seq` Prelude.rnf publicKeyVersion
+    Prelude.rnf nonce `Prelude.seq`
+      Prelude.rnf productCode `Prelude.seq`
+        Prelude.rnf publicKeyVersion
 
 instance Data.ToHeaders RegisterUsage where
   toHeaders =
@@ -253,6 +253,6 @@ registerUsageResponse_httpStatus = Lens.lens (\RegisterUsageResponse' {httpStatu
 
 instance Prelude.NFData RegisterUsageResponse where
   rnf RegisterUsageResponse' {..} =
-    Prelude.rnf publicKeyRotationTimestamp
-      `Prelude.seq` Prelude.rnf signature
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf publicKeyRotationTimestamp `Prelude.seq`
+      Prelude.rnf signature `Prelude.seq`
+        Prelude.rnf httpStatus

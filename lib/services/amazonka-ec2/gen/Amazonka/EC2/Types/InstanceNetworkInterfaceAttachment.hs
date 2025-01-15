@@ -140,9 +140,9 @@ instance
     InstanceNetworkInterfaceAttachment
   where
   rnf InstanceNetworkInterfaceAttachment' {..} =
-    Prelude.rnf attachTime
-      `Prelude.seq` Prelude.rnf attachmentId
-      `Prelude.seq` Prelude.rnf deleteOnTermination
-      `Prelude.seq` Prelude.rnf deviceIndex
-      `Prelude.seq` Prelude.rnf networkCardIndex
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf attachTime `Prelude.seq`
+      Prelude.rnf attachmentId `Prelude.seq`
+        Prelude.rnf deleteOnTermination `Prelude.seq`
+          Prelude.rnf deviceIndex `Prelude.seq`
+            Prelude.rnf networkCardIndex `Prelude.seq`
+              Prelude.rnf status

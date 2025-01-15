@@ -158,11 +158,11 @@ instance Prelude.Hashable Page where
 
 instance Prelude.NFData Page where
   rnf Page' {..} =
-    Prelude.rnf deliveryTime
-      `Prelude.seq` Prelude.rnf incidentId
-      `Prelude.seq` Prelude.rnf readTime
-      `Prelude.seq` Prelude.rnf sentTime
-      `Prelude.seq` Prelude.rnf pageArn
-      `Prelude.seq` Prelude.rnf engagementArn
-      `Prelude.seq` Prelude.rnf contactArn
-      `Prelude.seq` Prelude.rnf sender
+    Prelude.rnf deliveryTime `Prelude.seq`
+      Prelude.rnf incidentId `Prelude.seq`
+        Prelude.rnf readTime `Prelude.seq`
+          Prelude.rnf sentTime `Prelude.seq`
+            Prelude.rnf pageArn `Prelude.seq`
+              Prelude.rnf engagementArn `Prelude.seq`
+                Prelude.rnf contactArn `Prelude.seq`
+                  Prelude.rnf sender

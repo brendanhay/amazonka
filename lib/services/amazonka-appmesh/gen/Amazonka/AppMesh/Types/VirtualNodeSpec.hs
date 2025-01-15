@@ -136,11 +136,11 @@ instance Prelude.Hashable VirtualNodeSpec where
 
 instance Prelude.NFData VirtualNodeSpec where
   rnf VirtualNodeSpec' {..} =
-    Prelude.rnf backendDefaults
-      `Prelude.seq` Prelude.rnf backends
-      `Prelude.seq` Prelude.rnf listeners
-      `Prelude.seq` Prelude.rnf logging
-      `Prelude.seq` Prelude.rnf serviceDiscovery
+    Prelude.rnf backendDefaults `Prelude.seq`
+      Prelude.rnf backends `Prelude.seq`
+        Prelude.rnf listeners `Prelude.seq`
+          Prelude.rnf logging `Prelude.seq`
+            Prelude.rnf serviceDiscovery
 
 instance Data.ToJSON VirtualNodeSpec where
   toJSON VirtualNodeSpec' {..} =

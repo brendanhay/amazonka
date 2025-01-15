@@ -89,8 +89,8 @@ instance Prelude.Hashable LoggingConfiguration where
 
 instance Prelude.NFData LoggingConfiguration where
   rnf LoggingConfiguration' {..} =
-    Prelude.rnf enableMediaMetricLogs
-      `Prelude.seq` Prelude.rnf enableSIPLogs
+    Prelude.rnf enableMediaMetricLogs `Prelude.seq`
+      Prelude.rnf enableSIPLogs
 
 instance Data.ToJSON LoggingConfiguration where
   toJSON LoggingConfiguration' {..} =

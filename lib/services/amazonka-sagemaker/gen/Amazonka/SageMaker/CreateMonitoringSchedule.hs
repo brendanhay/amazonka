@@ -137,9 +137,9 @@ instance Prelude.Hashable CreateMonitoringSchedule where
 
 instance Prelude.NFData CreateMonitoringSchedule where
   rnf CreateMonitoringSchedule' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf monitoringScheduleName
-      `Prelude.seq` Prelude.rnf monitoringScheduleConfig
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf monitoringScheduleName `Prelude.seq`
+        Prelude.rnf monitoringScheduleConfig
 
 instance Data.ToHeaders CreateMonitoringSchedule where
   toHeaders =
@@ -227,5 +227,5 @@ instance
     CreateMonitoringScheduleResponse
   where
   rnf CreateMonitoringScheduleResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf monitoringScheduleArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf monitoringScheduleArn

@@ -246,9 +246,7 @@ instance Data.FromXML Role where
       Prelude.<*> (x Data..@? "MaxSessionDuration")
       Prelude.<*> (x Data..@? "PermissionsBoundary")
       Prelude.<*> (x Data..@? "RoleLastUsed")
-      Prelude.<*> ( x
-                      Data..@? "Tags"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@ "Path")
@@ -274,14 +272,14 @@ instance Prelude.Hashable Role where
 
 instance Prelude.NFData Role where
   rnf Role' {..} =
-    Prelude.rnf assumeRolePolicyDocument
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf maxSessionDuration
-      `Prelude.seq` Prelude.rnf permissionsBoundary
-      `Prelude.seq` Prelude.rnf roleLastUsed
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf path
-      `Prelude.seq` Prelude.rnf roleName
-      `Prelude.seq` Prelude.rnf roleId
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createDate
+    Prelude.rnf assumeRolePolicyDocument `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf maxSessionDuration `Prelude.seq`
+          Prelude.rnf permissionsBoundary `Prelude.seq`
+            Prelude.rnf roleLastUsed `Prelude.seq`
+              Prelude.rnf tags `Prelude.seq`
+                Prelude.rnf path `Prelude.seq`
+                  Prelude.rnf roleName `Prelude.seq`
+                    Prelude.rnf roleId `Prelude.seq`
+                      Prelude.rnf arn `Prelude.seq`
+                        Prelude.rnf createDate

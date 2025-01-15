@@ -270,11 +270,11 @@ instance Prelude.Hashable StartReplicationTask where
 
 instance Prelude.NFData StartReplicationTask where
   rnf StartReplicationTask' {..} =
-    Prelude.rnf cdcStartPosition
-      `Prelude.seq` Prelude.rnf cdcStartTime
-      `Prelude.seq` Prelude.rnf cdcStopPosition
-      `Prelude.seq` Prelude.rnf replicationTaskArn
-      `Prelude.seq` Prelude.rnf startReplicationTaskType
+    Prelude.rnf cdcStartPosition `Prelude.seq`
+      Prelude.rnf cdcStartTime `Prelude.seq`
+        Prelude.rnf cdcStopPosition `Prelude.seq`
+          Prelude.rnf replicationTaskArn `Prelude.seq`
+            Prelude.rnf startReplicationTaskType
 
 instance Data.ToHeaders StartReplicationTask where
   toHeaders =
@@ -358,5 +358,5 @@ startReplicationTaskResponse_httpStatus = Lens.lens (\StartReplicationTaskRespon
 
 instance Prelude.NFData StartReplicationTaskResponse where
   rnf StartReplicationTaskResponse' {..} =
-    Prelude.rnf replicationTask
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf replicationTask `Prelude.seq`
+      Prelude.rnf httpStatus

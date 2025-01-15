@@ -120,8 +120,8 @@ instance
     ListProfileObjectTypeTemplates
   where
   rnf ListProfileObjectTypeTemplates' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance
   Data.ToHeaders
@@ -201,6 +201,6 @@ instance
     ListProfileObjectTypeTemplatesResponse
   where
   rnf ListProfileObjectTypeTemplatesResponse' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf items `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

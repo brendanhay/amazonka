@@ -138,10 +138,10 @@ instance Prelude.Hashable StartVariantImportJob where
 
 instance Prelude.NFData StartVariantImportJob where
   rnf StartVariantImportJob' {..} =
-    Prelude.rnf runLeftNormalization
-      `Prelude.seq` Prelude.rnf destinationName
-      `Prelude.seq` Prelude.rnf items
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf runLeftNormalization `Prelude.seq`
+      Prelude.rnf destinationName `Prelude.seq`
+        Prelude.rnf items `Prelude.seq`
+          Prelude.rnf roleArn
 
 instance Data.ToHeaders StartVariantImportJob where
   toHeaders =
@@ -216,5 +216,5 @@ startVariantImportJobResponse_jobId = Lens.lens (\StartVariantImportJobResponse'
 
 instance Prelude.NFData StartVariantImportJobResponse where
   rnf StartVariantImportJobResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf jobId
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf jobId

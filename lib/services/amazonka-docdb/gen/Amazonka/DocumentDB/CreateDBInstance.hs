@@ -382,18 +382,18 @@ instance Prelude.Hashable CreateDBInstance where
 
 instance Prelude.NFData CreateDBInstance where
   rnf CreateDBInstance' {..} =
-    Prelude.rnf autoMinorVersionUpgrade
-      `Prelude.seq` Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf copyTagsToSnapshot
-      `Prelude.seq` Prelude.rnf enablePerformanceInsights
-      `Prelude.seq` Prelude.rnf performanceInsightsKMSKeyId
-      `Prelude.seq` Prelude.rnf preferredMaintenanceWindow
-      `Prelude.seq` Prelude.rnf promotionTier
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf dbInstanceIdentifier
-      `Prelude.seq` Prelude.rnf dbInstanceClass
-      `Prelude.seq` Prelude.rnf engine
-      `Prelude.seq` Prelude.rnf dbClusterIdentifier
+    Prelude.rnf autoMinorVersionUpgrade `Prelude.seq`
+      Prelude.rnf availabilityZone `Prelude.seq`
+        Prelude.rnf copyTagsToSnapshot `Prelude.seq`
+          Prelude.rnf enablePerformanceInsights `Prelude.seq`
+            Prelude.rnf performanceInsightsKMSKeyId `Prelude.seq`
+              Prelude.rnf preferredMaintenanceWindow `Prelude.seq`
+                Prelude.rnf promotionTier `Prelude.seq`
+                  Prelude.rnf tags `Prelude.seq`
+                    Prelude.rnf dbInstanceIdentifier `Prelude.seq`
+                      Prelude.rnf dbInstanceClass `Prelude.seq`
+                        Prelude.rnf engine `Prelude.seq`
+                          Prelude.rnf dbClusterIdentifier
 
 instance Data.ToHeaders CreateDBInstance where
   toHeaders = Prelude.const Prelude.mempty
@@ -468,5 +468,5 @@ createDBInstanceResponse_httpStatus = Lens.lens (\CreateDBInstanceResponse' {htt
 
 instance Prelude.NFData CreateDBInstanceResponse where
   rnf CreateDBInstanceResponse' {..} =
-    Prelude.rnf dbInstance
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dbInstance `Prelude.seq`
+      Prelude.rnf httpStatus

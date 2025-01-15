@@ -187,8 +187,8 @@ instance Prelude.Hashable GetFunctionConfiguration where
 
 instance Prelude.NFData GetFunctionConfiguration where
   rnf GetFunctionConfiguration' {..} =
-    Prelude.rnf qualifier
-      `Prelude.seq` Prelude.rnf functionName
+    Prelude.rnf qualifier `Prelude.seq`
+      Prelude.rnf functionName
 
 instance Data.ToHeaders GetFunctionConfiguration where
   toHeaders = Prelude.const Prelude.mempty

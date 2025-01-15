@@ -106,8 +106,8 @@ instance
     IotSiteWiseCustomerManagedDatastoreS3Storage
   where
   rnf IotSiteWiseCustomerManagedDatastoreS3Storage' {..} =
-    Prelude.rnf keyPrefix
-      `Prelude.seq` Prelude.rnf bucket
+    Prelude.rnf keyPrefix `Prelude.seq`
+      Prelude.rnf bucket
 
 instance
   Data.ToJSON

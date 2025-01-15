@@ -128,9 +128,9 @@ instance Prelude.Hashable BatchGetBlueprints where
 
 instance Prelude.NFData BatchGetBlueprints where
   rnf BatchGetBlueprints' {..} =
-    Prelude.rnf includeBlueprint
-      `Prelude.seq` Prelude.rnf includeParameterSpec
-      `Prelude.seq` Prelude.rnf names
+    Prelude.rnf includeBlueprint `Prelude.seq`
+      Prelude.rnf includeParameterSpec `Prelude.seq`
+        Prelude.rnf names
 
 instance Data.ToHeaders BatchGetBlueprints where
   toHeaders =
@@ -213,6 +213,6 @@ batchGetBlueprintsResponse_httpStatus = Lens.lens (\BatchGetBlueprintsResponse' 
 
 instance Prelude.NFData BatchGetBlueprintsResponse where
   rnf BatchGetBlueprintsResponse' {..} =
-    Prelude.rnf blueprints
-      `Prelude.seq` Prelude.rnf missingBlueprints
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf blueprints `Prelude.seq`
+      Prelude.rnf missingBlueprints `Prelude.seq`
+        Prelude.rnf httpStatus

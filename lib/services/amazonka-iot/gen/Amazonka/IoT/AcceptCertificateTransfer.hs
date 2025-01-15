@@ -114,8 +114,8 @@ instance Prelude.Hashable AcceptCertificateTransfer where
 
 instance Prelude.NFData AcceptCertificateTransfer where
   rnf AcceptCertificateTransfer' {..} =
-    Prelude.rnf setAsActive
-      `Prelude.seq` Prelude.rnf certificateId
+    Prelude.rnf setAsActive `Prelude.seq`
+      Prelude.rnf certificateId
 
 instance Data.ToHeaders AcceptCertificateTransfer where
   toHeaders = Prelude.const Prelude.mempty

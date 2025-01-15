@@ -124,8 +124,8 @@ instance Prelude.Hashable EventTopic where
 
 instance Prelude.NFData EventTopic where
   rnf EventTopic' {..} =
-    Prelude.rnf createdDateTime
-      `Prelude.seq` Prelude.rnf directoryId
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf topicArn
-      `Prelude.seq` Prelude.rnf topicName
+    Prelude.rnf createdDateTime `Prelude.seq`
+      Prelude.rnf directoryId `Prelude.seq`
+        Prelude.rnf status `Prelude.seq`
+          Prelude.rnf topicArn `Prelude.seq`
+            Prelude.rnf topicName

@@ -152,13 +152,13 @@ instance Prelude.Hashable ApplicationConfiguration where
 
 instance Prelude.NFData ApplicationConfiguration where
   rnf ApplicationConfiguration' {..} =
-    Prelude.rnf applicationCodeConfiguration
-      `Prelude.seq` Prelude.rnf applicationSnapshotConfiguration
-      `Prelude.seq` Prelude.rnf environmentProperties
-      `Prelude.seq` Prelude.rnf flinkApplicationConfiguration
-      `Prelude.seq` Prelude.rnf sqlApplicationConfiguration
-      `Prelude.seq` Prelude.rnf vpcConfigurations
-      `Prelude.seq` Prelude.rnf zeppelinApplicationConfiguration
+    Prelude.rnf applicationCodeConfiguration `Prelude.seq`
+      Prelude.rnf applicationSnapshotConfiguration `Prelude.seq`
+        Prelude.rnf environmentProperties `Prelude.seq`
+          Prelude.rnf flinkApplicationConfiguration `Prelude.seq`
+            Prelude.rnf sqlApplicationConfiguration `Prelude.seq`
+              Prelude.rnf vpcConfigurations `Prelude.seq`
+                Prelude.rnf zeppelinApplicationConfiguration
 
 instance Data.ToJSON ApplicationConfiguration where
   toJSON ApplicationConfiguration' {..} =

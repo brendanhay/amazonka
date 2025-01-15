@@ -239,12 +239,12 @@ instance Prelude.Hashable PutAlternateContact where
 
 instance Prelude.NFData PutAlternateContact where
   rnf PutAlternateContact' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf alternateContactType
-      `Prelude.seq` Prelude.rnf emailAddress
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf phoneNumber
-      `Prelude.seq` Prelude.rnf title
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf alternateContactType `Prelude.seq`
+        Prelude.rnf emailAddress `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf phoneNumber `Prelude.seq`
+              Prelude.rnf title
 
 instance Data.ToHeaders PutAlternateContact where
   toHeaders =

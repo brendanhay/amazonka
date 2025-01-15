@@ -191,13 +191,13 @@ instance Prelude.Hashable UpdateLaunch where
 
 instance Prelude.NFData UpdateLaunch where
   rnf UpdateLaunch' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf groups
-      `Prelude.seq` Prelude.rnf metricMonitors
-      `Prelude.seq` Prelude.rnf randomizationSalt
-      `Prelude.seq` Prelude.rnf scheduledSplitsConfig
-      `Prelude.seq` Prelude.rnf launch
-      `Prelude.seq` Prelude.rnf project
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf groups `Prelude.seq`
+        Prelude.rnf metricMonitors `Prelude.seq`
+          Prelude.rnf randomizationSalt `Prelude.seq`
+            Prelude.rnf scheduledSplitsConfig `Prelude.seq`
+              Prelude.rnf launch `Prelude.seq`
+                Prelude.rnf project
 
 instance Data.ToHeaders UpdateLaunch where
   toHeaders =
@@ -282,5 +282,5 @@ updateLaunchResponse_launch = Lens.lens (\UpdateLaunchResponse' {launch} -> laun
 
 instance Prelude.NFData UpdateLaunchResponse where
   rnf UpdateLaunchResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf launch
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf launch

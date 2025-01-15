@@ -115,12 +115,12 @@ instance Core.AWSPager ListSafetyRules where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listSafetyRules_nextToken
-          Lens..~ rs
-          Lens.^? listSafetyRulesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listSafetyRules_nextToken
+              Lens..~ rs
+              Lens.^? listSafetyRulesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSafetyRules where
   type
@@ -146,9 +146,9 @@ instance Prelude.Hashable ListSafetyRules where
 
 instance Prelude.NFData ListSafetyRules where
   rnf ListSafetyRules' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf controlPanelArn
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf controlPanelArn
 
 instance Data.ToHeaders ListSafetyRules where
   toHeaders =
@@ -226,6 +226,6 @@ listSafetyRulesResponse_httpStatus = Lens.lens (\ListSafetyRulesResponse' {httpS
 
 instance Prelude.NFData ListSafetyRulesResponse where
   rnf ListSafetyRulesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf safetyRules
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf safetyRules `Prelude.seq`
+        Prelude.rnf httpStatus

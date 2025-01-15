@@ -219,12 +219,12 @@ instance Core.AWSPager DescribeActivities where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeActivities_marker
-          Lens..~ rs
-          Lens.^? describeActivitiesResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeActivities_marker
+              Lens..~ rs
+              Lens.^? describeActivitiesResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeActivities where
   type
@@ -257,16 +257,16 @@ instance Prelude.Hashable DescribeActivities where
 
 instance Prelude.NFData DescribeActivities where
   rnf DescribeActivities' {..} =
-    Prelude.rnf activityTypes
-      `Prelude.seq` Prelude.rnf authenticationToken
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf includeIndirectActivities
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf organizationId
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf userId
+    Prelude.rnf activityTypes `Prelude.seq`
+      Prelude.rnf authenticationToken `Prelude.seq`
+        Prelude.rnf endTime `Prelude.seq`
+          Prelude.rnf includeIndirectActivities `Prelude.seq`
+            Prelude.rnf limit `Prelude.seq`
+              Prelude.rnf marker `Prelude.seq`
+                Prelude.rnf organizationId `Prelude.seq`
+                  Prelude.rnf resourceId `Prelude.seq`
+                    Prelude.rnf startTime `Prelude.seq`
+                      Prelude.rnf userId
 
 instance Data.ToHeaders DescribeActivities where
   toHeaders DescribeActivities' {..} =
@@ -344,6 +344,6 @@ describeActivitiesResponse_httpStatus = Lens.lens (\DescribeActivitiesResponse' 
 
 instance Prelude.NFData DescribeActivitiesResponse where
   rnf DescribeActivitiesResponse' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf userActivities
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf userActivities `Prelude.seq`
+        Prelude.rnf httpStatus

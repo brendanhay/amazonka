@@ -200,5 +200,5 @@ advertiseByoipCidrResponse_httpStatus = Lens.lens (\AdvertiseByoipCidrResponse' 
 
 instance Prelude.NFData AdvertiseByoipCidrResponse where
   rnf AdvertiseByoipCidrResponse' {..} =
-    Prelude.rnf byoipCidr
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf byoipCidr `Prelude.seq`
+      Prelude.rnf httpStatus

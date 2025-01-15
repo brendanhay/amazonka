@@ -162,5 +162,5 @@ instance
     GetAppliedSchemaVersionResponse
   where
   rnf GetAppliedSchemaVersionResponse' {..} =
-    Prelude.rnf appliedSchemaArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf appliedSchemaArn `Prelude.seq`
+      Prelude.rnf httpStatus

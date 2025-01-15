@@ -84,9 +84,9 @@ instance Prelude.Hashable RepositoryAggregation where
 
 instance Prelude.NFData RepositoryAggregation where
   rnf RepositoryAggregation' {..} =
-    Prelude.rnf repositories
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf sortOrder
+    Prelude.rnf repositories `Prelude.seq`
+      Prelude.rnf sortBy `Prelude.seq`
+        Prelude.rnf sortOrder
 
 instance Data.ToJSON RepositoryAggregation where
   toJSON RepositoryAggregation' {..} =

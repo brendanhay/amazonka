@@ -90,5 +90,5 @@ instance Prelude.Hashable NetworkFrameworkAttributes where
 
 instance Prelude.NFData NetworkFrameworkAttributes where
   rnf NetworkFrameworkAttributes' {..} =
-    Prelude.rnf ethereum
-      `Prelude.seq` Prelude.rnf fabric
+    Prelude.rnf ethereum `Prelude.seq`
+      Prelude.rnf fabric

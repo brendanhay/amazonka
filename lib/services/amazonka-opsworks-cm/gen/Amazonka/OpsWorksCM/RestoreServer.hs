@@ -165,10 +165,10 @@ instance Prelude.Hashable RestoreServer where
 
 instance Prelude.NFData RestoreServer where
   rnf RestoreServer' {..} =
-    Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf keyPair
-      `Prelude.seq` Prelude.rnf backupId
-      `Prelude.seq` Prelude.rnf serverName
+    Prelude.rnf instanceType `Prelude.seq`
+      Prelude.rnf keyPair `Prelude.seq`
+        Prelude.rnf backupId `Prelude.seq`
+          Prelude.rnf serverName
 
 instance Data.ToHeaders RestoreServer where
   toHeaders =
@@ -241,5 +241,5 @@ restoreServerResponse_httpStatus = Lens.lens (\RestoreServerResponse' {httpStatu
 
 instance Prelude.NFData RestoreServerResponse where
   rnf RestoreServerResponse' {..} =
-    Prelude.rnf server
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf server `Prelude.seq`
+      Prelude.rnf httpStatus

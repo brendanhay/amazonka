@@ -176,9 +176,9 @@ instance
     UpdateWorkspaceImagePermission
   where
   rnf UpdateWorkspaceImagePermission' {..} =
-    Prelude.rnf imageId
-      `Prelude.seq` Prelude.rnf allowCopyImage
-      `Prelude.seq` Prelude.rnf sharedAccountId
+    Prelude.rnf imageId `Prelude.seq`
+      Prelude.rnf allowCopyImage `Prelude.seq`
+        Prelude.rnf sharedAccountId
 
 instance
   Data.ToHeaders

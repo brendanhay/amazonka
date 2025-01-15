@@ -195,12 +195,12 @@ instance Prelude.Hashable ComplianceItem where
 
 instance Prelude.NFData ComplianceItem where
   rnf ComplianceItem' {..} =
-    Prelude.rnf complianceType
-      `Prelude.seq` Prelude.rnf details
-      `Prelude.seq` Prelude.rnf executionSummary
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf severity
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf title
+    Prelude.rnf complianceType `Prelude.seq`
+      Prelude.rnf details `Prelude.seq`
+        Prelude.rnf executionSummary `Prelude.seq`
+          Prelude.rnf id `Prelude.seq`
+            Prelude.rnf resourceId `Prelude.seq`
+              Prelude.rnf resourceType `Prelude.seq`
+                Prelude.rnf severity `Prelude.seq`
+                  Prelude.rnf status `Prelude.seq`
+                    Prelude.rnf title

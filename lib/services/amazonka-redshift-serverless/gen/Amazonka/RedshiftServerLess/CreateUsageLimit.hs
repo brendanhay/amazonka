@@ -171,11 +171,11 @@ instance Prelude.Hashable CreateUsageLimit where
 
 instance Prelude.NFData CreateUsageLimit where
   rnf CreateUsageLimit' {..} =
-    Prelude.rnf breachAction
-      `Prelude.seq` Prelude.rnf period
-      `Prelude.seq` Prelude.rnf amount
-      `Prelude.seq` Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf usageType
+    Prelude.rnf breachAction `Prelude.seq`
+      Prelude.rnf period `Prelude.seq`
+        Prelude.rnf amount `Prelude.seq`
+          Prelude.rnf resourceArn `Prelude.seq`
+            Prelude.rnf usageType
 
 instance Data.ToHeaders CreateUsageLimit where
   toHeaders =
@@ -251,5 +251,5 @@ createUsageLimitResponse_httpStatus = Lens.lens (\CreateUsageLimitResponse' {htt
 
 instance Prelude.NFData CreateUsageLimitResponse where
   rnf CreateUsageLimitResponse' {..} =
-    Prelude.rnf usageLimit
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf usageLimit `Prelude.seq`
+      Prelude.rnf httpStatus

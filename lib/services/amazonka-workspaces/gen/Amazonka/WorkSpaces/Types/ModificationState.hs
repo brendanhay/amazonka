@@ -82,5 +82,5 @@ instance Prelude.Hashable ModificationState where
 
 instance Prelude.NFData ModificationState where
   rnf ModificationState' {..} =
-    Prelude.rnf resource
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf resource `Prelude.seq`
+      Prelude.rnf state

@@ -115,8 +115,8 @@ instance Prelude.Hashable DescribeTable where
 
 instance Prelude.NFData DescribeTable where
   rnf DescribeTable' {..} =
-    Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf tableName
+    Prelude.rnf databaseName `Prelude.seq`
+      Prelude.rnf tableName
 
 instance Data.ToHeaders DescribeTable where
   toHeaders =
@@ -188,5 +188,5 @@ describeTableResponse_httpStatus = Lens.lens (\DescribeTableResponse' {httpStatu
 
 instance Prelude.NFData DescribeTableResponse where
   rnf DescribeTableResponse' {..} =
-    Prelude.rnf table
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf table `Prelude.seq`
+      Prelude.rnf httpStatus

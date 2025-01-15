@@ -84,8 +84,8 @@ instance Prelude.Hashable RenameColumnOperation where
 
 instance Prelude.NFData RenameColumnOperation where
   rnf RenameColumnOperation' {..} =
-    Prelude.rnf columnName
-      `Prelude.seq` Prelude.rnf newColumnName'
+    Prelude.rnf columnName `Prelude.seq`
+      Prelude.rnf newColumnName'
 
 instance Data.ToJSON RenameColumnOperation where
   toJSON RenameColumnOperation' {..} =

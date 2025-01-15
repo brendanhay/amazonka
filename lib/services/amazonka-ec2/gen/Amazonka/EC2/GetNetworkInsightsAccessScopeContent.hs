@@ -131,8 +131,8 @@ instance
     GetNetworkInsightsAccessScopeContent
   where
   rnf GetNetworkInsightsAccessScopeContent' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf networkInsightsAccessScopeId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf networkInsightsAccessScopeId
 
 instance
   Data.ToHeaders
@@ -208,5 +208,5 @@ instance
     GetNetworkInsightsAccessScopeContentResponse
   where
   rnf GetNetworkInsightsAccessScopeContentResponse' {..} =
-    Prelude.rnf networkInsightsAccessScopeContent
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf networkInsightsAccessScopeContent `Prelude.seq`
+      Prelude.rnf httpStatus

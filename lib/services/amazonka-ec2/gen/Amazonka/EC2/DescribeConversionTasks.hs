@@ -110,9 +110,7 @@ instance Core.AWSRequest DescribeConversionTasks where
     Response.receiveXML
       ( \s h x ->
           DescribeConversionTasksResponse'
-            Prelude.<$> ( x
-                            Data..@? "conversionTasks"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "conversionTasks" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -126,8 +124,8 @@ instance Prelude.Hashable DescribeConversionTasks where
 
 instance Prelude.NFData DescribeConversionTasks where
   rnf DescribeConversionTasks' {..} =
-    Prelude.rnf conversionTaskIds
-      `Prelude.seq` Prelude.rnf dryRun
+    Prelude.rnf conversionTaskIds `Prelude.seq`
+      Prelude.rnf dryRun
 
 instance Data.ToHeaders DescribeConversionTasks where
   toHeaders = Prelude.const Prelude.mempty
@@ -193,5 +191,5 @@ instance
     DescribeConversionTasksResponse
   where
   rnf DescribeConversionTasksResponse' {..} =
-    Prelude.rnf conversionTasks
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf conversionTasks `Prelude.seq`
+      Prelude.rnf httpStatus

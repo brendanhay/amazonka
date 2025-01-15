@@ -125,8 +125,8 @@ instance
     AssociateApprovalRuleTemplateWithRepository
   where
   rnf AssociateApprovalRuleTemplateWithRepository' {..} =
-    Prelude.rnf approvalRuleTemplateName
-      `Prelude.seq` Prelude.rnf repositoryName
+    Prelude.rnf approvalRuleTemplateName `Prelude.seq`
+      Prelude.rnf repositoryName
 
 instance
   Data.ToHeaders

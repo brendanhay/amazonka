@@ -158,11 +158,11 @@ instance Prelude.Hashable GrpcRetryPolicy where
 
 instance Prelude.NFData GrpcRetryPolicy where
   rnf GrpcRetryPolicy' {..} =
-    Prelude.rnf grpcRetryEvents
-      `Prelude.seq` Prelude.rnf httpRetryEvents
-      `Prelude.seq` Prelude.rnf tcpRetryEvents
-      `Prelude.seq` Prelude.rnf maxRetries
-      `Prelude.seq` Prelude.rnf perRetryTimeout
+    Prelude.rnf grpcRetryEvents `Prelude.seq`
+      Prelude.rnf httpRetryEvents `Prelude.seq`
+        Prelude.rnf tcpRetryEvents `Prelude.seq`
+          Prelude.rnf maxRetries `Prelude.seq`
+            Prelude.rnf perRetryTimeout
 
 instance Data.ToJSON GrpcRetryPolicy where
   toJSON GrpcRetryPolicy' {..} =

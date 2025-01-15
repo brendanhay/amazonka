@@ -106,9 +106,9 @@ instance Prelude.Hashable DrillDownFilter where
 
 instance Prelude.NFData DrillDownFilter where
   rnf DrillDownFilter' {..} =
-    Prelude.rnf categoryFilter
-      `Prelude.seq` Prelude.rnf numericEqualityFilter
-      `Prelude.seq` Prelude.rnf timeRangeFilter
+    Prelude.rnf categoryFilter `Prelude.seq`
+      Prelude.rnf numericEqualityFilter `Prelude.seq`
+        Prelude.rnf timeRangeFilter
 
 instance Data.ToJSON DrillDownFilter where
   toJSON DrillDownFilter' {..} =

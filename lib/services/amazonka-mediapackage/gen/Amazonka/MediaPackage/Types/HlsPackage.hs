@@ -255,18 +255,18 @@ instance Prelude.Hashable HlsPackage where
 
 instance Prelude.NFData HlsPackage where
   rnf HlsPackage' {..} =
-    Prelude.rnf adMarkers
-      `Prelude.seq` Prelude.rnf adTriggers
-      `Prelude.seq` Prelude.rnf adsOnDeliveryRestrictions
-      `Prelude.seq` Prelude.rnf encryption
-      `Prelude.seq` Prelude.rnf includeDvbSubtitles
-      `Prelude.seq` Prelude.rnf includeIframeOnlyStream
-      `Prelude.seq` Prelude.rnf playlistType
-      `Prelude.seq` Prelude.rnf playlistWindowSeconds
-      `Prelude.seq` Prelude.rnf programDateTimeIntervalSeconds
-      `Prelude.seq` Prelude.rnf segmentDurationSeconds
-      `Prelude.seq` Prelude.rnf streamSelection
-      `Prelude.seq` Prelude.rnf useAudioRenditionGroup
+    Prelude.rnf adMarkers `Prelude.seq`
+      Prelude.rnf adTriggers `Prelude.seq`
+        Prelude.rnf adsOnDeliveryRestrictions `Prelude.seq`
+          Prelude.rnf encryption `Prelude.seq`
+            Prelude.rnf includeDvbSubtitles `Prelude.seq`
+              Prelude.rnf includeIframeOnlyStream `Prelude.seq`
+                Prelude.rnf playlistType `Prelude.seq`
+                  Prelude.rnf playlistWindowSeconds `Prelude.seq`
+                    Prelude.rnf programDateTimeIntervalSeconds `Prelude.seq`
+                      Prelude.rnf segmentDurationSeconds `Prelude.seq`
+                        Prelude.rnf streamSelection `Prelude.seq`
+                          Prelude.rnf useAudioRenditionGroup
 
 instance Data.ToJSON HlsPackage where
   toJSON HlsPackage' {..} =

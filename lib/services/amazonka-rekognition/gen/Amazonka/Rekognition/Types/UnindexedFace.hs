@@ -131,5 +131,5 @@ instance Prelude.Hashable UnindexedFace where
 
 instance Prelude.NFData UnindexedFace where
   rnf UnindexedFace' {..} =
-    Prelude.rnf faceDetail
-      `Prelude.seq` Prelude.rnf reasons
+    Prelude.rnf faceDetail `Prelude.seq`
+      Prelude.rnf reasons

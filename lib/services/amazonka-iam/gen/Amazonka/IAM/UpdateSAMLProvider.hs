@@ -145,8 +145,8 @@ instance Prelude.Hashable UpdateSAMLProvider where
 
 instance Prelude.NFData UpdateSAMLProvider where
   rnf UpdateSAMLProvider' {..} =
-    Prelude.rnf sAMLMetadataDocument
-      `Prelude.seq` Prelude.rnf sAMLProviderArn
+    Prelude.rnf sAMLMetadataDocument `Prelude.seq`
+      Prelude.rnf sAMLProviderArn
 
 instance Data.ToHeaders UpdateSAMLProvider where
   toHeaders = Prelude.const Prelude.mempty
@@ -208,5 +208,5 @@ updateSAMLProviderResponse_httpStatus = Lens.lens (\UpdateSAMLProviderResponse' 
 
 instance Prelude.NFData UpdateSAMLProviderResponse where
   rnf UpdateSAMLProviderResponse' {..} =
-    Prelude.rnf sAMLProviderArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf sAMLProviderArn `Prelude.seq`
+      Prelude.rnf httpStatus

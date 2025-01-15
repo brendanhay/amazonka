@@ -84,9 +84,7 @@ instance Data.FromXML KeyGroupConfig where
     KeyGroupConfig'
       Prelude.<$> (x Data..@? "Comment")
       Prelude.<*> (x Data..@ "Name")
-      Prelude.<*> ( x
-                      Data..@? "Items"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "Items" Core..!@ Prelude.mempty
                       Prelude.>>= Data.parseXMLList "PublicKey"
                   )
 
@@ -99,9 +97,9 @@ instance Prelude.Hashable KeyGroupConfig where
 
 instance Prelude.NFData KeyGroupConfig where
   rnf KeyGroupConfig' {..} =
-    Prelude.rnf comment
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf items
+    Prelude.rnf comment `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf items
 
 instance Data.ToXML KeyGroupConfig where
   toXML KeyGroupConfig' {..} =

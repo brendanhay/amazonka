@@ -205,13 +205,13 @@ instance Prelude.Hashable ClusterSnapshot where
 
 instance Prelude.NFData ClusterSnapshot where
   rnf ClusterSnapshot' {..} =
-    Prelude.rnf adminUserName
-      `Prelude.seq` Prelude.rnf clusterArn
-      `Prelude.seq` Prelude.rnf clusterCreationTime
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf snapshotArn
-      `Prelude.seq` Prelude.rnf snapshotCreationTime
-      `Prelude.seq` Prelude.rnf snapshotName
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf subnetIds
-      `Prelude.seq` Prelude.rnf vpcSecurityGroupIds
+    Prelude.rnf adminUserName `Prelude.seq`
+      Prelude.rnf clusterArn `Prelude.seq`
+        Prelude.rnf clusterCreationTime `Prelude.seq`
+          Prelude.rnf kmsKeyId `Prelude.seq`
+            Prelude.rnf snapshotArn `Prelude.seq`
+              Prelude.rnf snapshotCreationTime `Prelude.seq`
+                Prelude.rnf snapshotName `Prelude.seq`
+                  Prelude.rnf status `Prelude.seq`
+                    Prelude.rnf subnetIds `Prelude.seq`
+                      Prelude.rnf vpcSecurityGroupIds

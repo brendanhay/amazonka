@@ -169,13 +169,13 @@ instance Prelude.Hashable ConfigTypeData where
 
 instance Prelude.NFData ConfigTypeData where
   rnf ConfigTypeData' {..} =
-    Prelude.rnf antennaDownlinkConfig
-      `Prelude.seq` Prelude.rnf antennaDownlinkDemodDecodeConfig
-      `Prelude.seq` Prelude.rnf antennaUplinkConfig
-      `Prelude.seq` Prelude.rnf dataflowEndpointConfig
-      `Prelude.seq` Prelude.rnf s3RecordingConfig
-      `Prelude.seq` Prelude.rnf trackingConfig
-      `Prelude.seq` Prelude.rnf uplinkEchoConfig
+    Prelude.rnf antennaDownlinkConfig `Prelude.seq`
+      Prelude.rnf antennaDownlinkDemodDecodeConfig `Prelude.seq`
+        Prelude.rnf antennaUplinkConfig `Prelude.seq`
+          Prelude.rnf dataflowEndpointConfig `Prelude.seq`
+            Prelude.rnf s3RecordingConfig `Prelude.seq`
+              Prelude.rnf trackingConfig `Prelude.seq`
+                Prelude.rnf uplinkEchoConfig
 
 instance Data.ToJSON ConfigTypeData where
   toJSON ConfigTypeData' {..} =

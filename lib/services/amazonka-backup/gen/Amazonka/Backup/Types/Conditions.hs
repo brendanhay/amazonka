@@ -125,10 +125,10 @@ instance Prelude.Hashable Conditions where
 
 instance Prelude.NFData Conditions where
   rnf Conditions' {..} =
-    Prelude.rnf stringEquals
-      `Prelude.seq` Prelude.rnf stringLike
-      `Prelude.seq` Prelude.rnf stringNotEquals
-      `Prelude.seq` Prelude.rnf stringNotLike
+    Prelude.rnf stringEquals `Prelude.seq`
+      Prelude.rnf stringLike `Prelude.seq`
+        Prelude.rnf stringNotEquals `Prelude.seq`
+          Prelude.rnf stringNotLike
 
 instance Data.ToJSON Conditions where
   toJSON Conditions' {..} =

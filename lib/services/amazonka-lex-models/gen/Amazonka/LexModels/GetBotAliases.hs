@@ -144,12 +144,12 @@ instance Core.AWSPager GetBotAliases where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getBotAliases_nextToken
-          Lens..~ rs
-          Lens.^? getBotAliasesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getBotAliases_nextToken
+              Lens..~ rs
+              Lens.^? getBotAliasesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetBotAliases where
   type
@@ -176,10 +176,10 @@ instance Prelude.Hashable GetBotAliases where
 
 instance Prelude.NFData GetBotAliases where
   rnf GetBotAliases' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nameContains
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf botName
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nameContains `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf botName
 
 instance Data.ToHeaders GetBotAliases where
   toHeaders =
@@ -264,6 +264,6 @@ getBotAliasesResponse_httpStatus = Lens.lens (\GetBotAliasesResponse' {httpStatu
 
 instance Prelude.NFData GetBotAliasesResponse where
   rnf GetBotAliasesResponse' {..} =
-    Prelude.rnf botAliases
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf botAliases `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

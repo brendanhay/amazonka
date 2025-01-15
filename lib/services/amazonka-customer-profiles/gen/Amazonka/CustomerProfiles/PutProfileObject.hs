@@ -140,9 +140,9 @@ instance Prelude.Hashable PutProfileObject where
 
 instance Prelude.NFData PutProfileObject where
   rnf PutProfileObject' {..} =
-    Prelude.rnf objectTypeName
-      `Prelude.seq` Prelude.rnf object'
-      `Prelude.seq` Prelude.rnf domainName
+    Prelude.rnf objectTypeName `Prelude.seq`
+      Prelude.rnf object' `Prelude.seq`
+        Prelude.rnf domainName
 
 instance Data.ToHeaders PutProfileObject where
   toHeaders =
@@ -217,5 +217,5 @@ putProfileObjectResponse_httpStatus = Lens.lens (\PutProfileObjectResponse' {htt
 
 instance Prelude.NFData PutProfileObjectResponse where
   rnf PutProfileObjectResponse' {..} =
-    Prelude.rnf profileObjectUniqueKey
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf profileObjectUniqueKey `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -103,7 +103,7 @@ instance Prelude.Hashable ExecutionSummary where
 
 instance Prelude.NFData ExecutionSummary where
   rnf ExecutionSummary' {..} =
-    Prelude.rnf executionId
-      `Prelude.seq` Prelude.rnf managedDeviceId
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf taskId
+    Prelude.rnf executionId `Prelude.seq`
+      Prelude.rnf managedDeviceId `Prelude.seq`
+        Prelude.rnf state `Prelude.seq`
+          Prelude.rnf taskId

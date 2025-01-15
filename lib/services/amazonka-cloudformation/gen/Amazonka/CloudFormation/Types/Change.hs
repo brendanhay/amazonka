@@ -99,6 +99,6 @@ instance Prelude.Hashable Change where
 
 instance Prelude.NFData Change where
   rnf Change' {..} =
-    Prelude.rnf hookInvocationCount
-      `Prelude.seq` Prelude.rnf resourceChange
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf hookInvocationCount `Prelude.seq`
+      Prelude.rnf resourceChange `Prelude.seq`
+        Prelude.rnf type'

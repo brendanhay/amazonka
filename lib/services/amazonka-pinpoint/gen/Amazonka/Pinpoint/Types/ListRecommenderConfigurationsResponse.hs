@@ -103,5 +103,5 @@ instance
     ListRecommenderConfigurationsResponse
   where
   rnf ListRecommenderConfigurationsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf item
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf item

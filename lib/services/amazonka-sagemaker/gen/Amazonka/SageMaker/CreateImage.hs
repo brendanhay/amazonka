@@ -150,11 +150,11 @@ instance Prelude.Hashable CreateImage where
 
 instance Prelude.NFData CreateImage where
   rnf CreateImage' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf imageName
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf displayName `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf imageName `Prelude.seq`
+            Prelude.rnf roleArn
 
 instance Data.ToHeaders CreateImage where
   toHeaders =
@@ -227,5 +227,5 @@ createImageResponse_httpStatus = Lens.lens (\CreateImageResponse' {httpStatus} -
 
 instance Prelude.NFData CreateImageResponse where
   rnf CreateImageResponse' {..} =
-    Prelude.rnf imageArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf imageArn `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -154,14 +154,14 @@ instance Prelude.Hashable RedshiftSourceConfig where
 
 instance Prelude.NFData RedshiftSourceConfig where
   rnf RedshiftSourceConfig' {..} =
-    Prelude.rnf clusterIdentifier
-      `Prelude.seq` Prelude.rnf databaseHost
-      `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf databasePort
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf secretManagerArn
-      `Prelude.seq` Prelude.rnf tableName
-      `Prelude.seq` Prelude.rnf vpcConfiguration
+    Prelude.rnf clusterIdentifier `Prelude.seq`
+      Prelude.rnf databaseHost `Prelude.seq`
+        Prelude.rnf databaseName `Prelude.seq`
+          Prelude.rnf databasePort `Prelude.seq`
+            Prelude.rnf roleArn `Prelude.seq`
+              Prelude.rnf secretManagerArn `Prelude.seq`
+                Prelude.rnf tableName `Prelude.seq`
+                  Prelude.rnf vpcConfiguration
 
 instance Data.ToJSON RedshiftSourceConfig where
   toJSON RedshiftSourceConfig' {..} =

@@ -88,5 +88,5 @@ instance Prelude.Hashable DebugSession where
 
 instance Prelude.NFData DebugSession where
   rnf DebugSession' {..} =
-    Prelude.rnf sessionEnabled
-      `Prelude.seq` Prelude.rnf sessionTarget
+    Prelude.rnf sessionEnabled `Prelude.seq`
+      Prelude.rnf sessionTarget

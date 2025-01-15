@@ -177,9 +177,9 @@ instance Prelude.Hashable DetectModerationLabels where
 
 instance Prelude.NFData DetectModerationLabels where
   rnf DetectModerationLabels' {..} =
-    Prelude.rnf humanLoopConfig
-      `Prelude.seq` Prelude.rnf minConfidence
-      `Prelude.seq` Prelude.rnf image
+    Prelude.rnf humanLoopConfig `Prelude.seq`
+      Prelude.rnf minConfidence `Prelude.seq`
+        Prelude.rnf image
 
 instance Data.ToHeaders DetectModerationLabels where
   toHeaders =
@@ -281,7 +281,7 @@ instance
     DetectModerationLabelsResponse
   where
   rnf DetectModerationLabelsResponse' {..} =
-    Prelude.rnf humanLoopActivationOutput
-      `Prelude.seq` Prelude.rnf moderationLabels
-      `Prelude.seq` Prelude.rnf moderationModelVersion
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf humanLoopActivationOutput `Prelude.seq`
+      Prelude.rnf moderationLabels `Prelude.seq`
+        Prelude.rnf moderationModelVersion `Prelude.seq`
+          Prelude.rnf httpStatus

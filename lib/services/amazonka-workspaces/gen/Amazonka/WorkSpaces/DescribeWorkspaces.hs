@@ -178,12 +178,12 @@ instance Core.AWSPager DescribeWorkspaces where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeWorkspaces_nextToken
-          Lens..~ rs
-          Lens.^? describeWorkspacesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeWorkspaces_nextToken
+              Lens..~ rs
+              Lens.^? describeWorkspacesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeWorkspaces where
   type
@@ -212,12 +212,12 @@ instance Prelude.Hashable DescribeWorkspaces where
 
 instance Prelude.NFData DescribeWorkspaces where
   rnf DescribeWorkspaces' {..} =
-    Prelude.rnf bundleId
-      `Prelude.seq` Prelude.rnf directoryId
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf userName
-      `Prelude.seq` Prelude.rnf workspaceIds
+    Prelude.rnf bundleId `Prelude.seq`
+      Prelude.rnf directoryId `Prelude.seq`
+        Prelude.rnf limit `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf userName `Prelude.seq`
+              Prelude.rnf workspaceIds
 
 instance Data.ToHeaders DescribeWorkspaces where
   toHeaders =
@@ -315,6 +315,6 @@ describeWorkspacesResponse_httpStatus = Lens.lens (\DescribeWorkspacesResponse' 
 
 instance Prelude.NFData DescribeWorkspacesResponse where
   rnf DescribeWorkspacesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf workspaces
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf workspaces `Prelude.seq`
+        Prelude.rnf httpStatus

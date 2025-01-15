@@ -216,12 +216,12 @@ instance Core.AWSPager ListDatabases where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listDatabases_nextToken
-          Lens..~ rs
-          Lens.^? listDatabasesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listDatabases_nextToken
+              Lens..~ rs
+              Lens.^? listDatabasesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDatabases where
   type
@@ -251,13 +251,13 @@ instance Prelude.Hashable ListDatabases where
 
 instance Prelude.NFData ListDatabases where
   rnf ListDatabases' {..} =
-    Prelude.rnf clusterIdentifier
-      `Prelude.seq` Prelude.rnf dbUser
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf secretArn
-      `Prelude.seq` Prelude.rnf workgroupName
-      `Prelude.seq` Prelude.rnf database
+    Prelude.rnf clusterIdentifier `Prelude.seq`
+      Prelude.rnf dbUser `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf secretArn `Prelude.seq`
+              Prelude.rnf workgroupName `Prelude.seq`
+                Prelude.rnf database
 
 instance Data.ToHeaders ListDatabases where
   toHeaders =
@@ -357,6 +357,6 @@ listDatabasesResponse_httpStatus = Lens.lens (\ListDatabasesResponse' {httpStatu
 
 instance Prelude.NFData ListDatabasesResponse where
   rnf ListDatabasesResponse' {..} =
-    Prelude.rnf databases
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf databases `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

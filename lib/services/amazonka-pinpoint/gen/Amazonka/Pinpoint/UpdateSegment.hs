@@ -130,9 +130,9 @@ instance Prelude.Hashable UpdateSegment where
 
 instance Prelude.NFData UpdateSegment where
   rnf UpdateSegment' {..} =
-    Prelude.rnf segmentId
-      `Prelude.seq` Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf writeSegmentRequest
+    Prelude.rnf segmentId `Prelude.seq`
+      Prelude.rnf applicationId `Prelude.seq`
+        Prelude.rnf writeSegmentRequest
 
 instance Data.ToHeaders UpdateSegment where
   toHeaders =
@@ -204,5 +204,5 @@ updateSegmentResponse_segmentResponse = Lens.lens (\UpdateSegmentResponse' {segm
 
 instance Prelude.NFData UpdateSegmentResponse where
   rnf UpdateSegmentResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf segmentResponse
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf segmentResponse

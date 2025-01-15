@@ -154,5 +154,5 @@ getWorkloadResponse_httpStatus = Lens.lens (\GetWorkloadResponse' {httpStatus} -
 
 instance Prelude.NFData GetWorkloadResponse where
   rnf GetWorkloadResponse' {..} =
-    Prelude.rnf workload
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf workload `Prelude.seq`
+      Prelude.rnf httpStatus

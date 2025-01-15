@@ -126,11 +126,11 @@ instance Prelude.Hashable SelfservicePermissions where
 
 instance Prelude.NFData SelfservicePermissions where
   rnf SelfservicePermissions' {..} =
-    Prelude.rnf changeComputeType
-      `Prelude.seq` Prelude.rnf increaseVolumeSize
-      `Prelude.seq` Prelude.rnf rebuildWorkspace
-      `Prelude.seq` Prelude.rnf restartWorkspace
-      `Prelude.seq` Prelude.rnf switchRunningMode
+    Prelude.rnf changeComputeType `Prelude.seq`
+      Prelude.rnf increaseVolumeSize `Prelude.seq`
+        Prelude.rnf rebuildWorkspace `Prelude.seq`
+          Prelude.rnf restartWorkspace `Prelude.seq`
+            Prelude.rnf switchRunningMode
 
 instance Data.ToJSON SelfservicePermissions where
   toJSON SelfservicePermissions' {..} =

@@ -142,9 +142,9 @@ instance
 
 instance Prelude.NFData GetHostedConfigurationVersion where
   rnf GetHostedConfigurationVersion' {..} =
-    Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf configurationProfileId
-      `Prelude.seq` Prelude.rnf versionNumber
+    Prelude.rnf applicationId `Prelude.seq`
+      Prelude.rnf configurationProfileId `Prelude.seq`
+        Prelude.rnf versionNumber
 
 instance Data.ToHeaders GetHostedConfigurationVersion where
   toHeaders =

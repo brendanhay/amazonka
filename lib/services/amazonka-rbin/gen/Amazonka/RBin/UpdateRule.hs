@@ -209,11 +209,11 @@ instance Prelude.Hashable UpdateRule where
 
 instance Prelude.NFData UpdateRule where
   rnf UpdateRule' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf resourceTags
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf retentionPeriod
-      `Prelude.seq` Prelude.rnf identifier
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf resourceTags `Prelude.seq`
+        Prelude.rnf resourceType `Prelude.seq`
+          Prelude.rnf retentionPeriod `Prelude.seq`
+            Prelude.rnf identifier
 
 instance Data.ToHeaders UpdateRule where
   toHeaders =
@@ -401,12 +401,12 @@ updateRuleResponse_httpStatus = Lens.lens (\UpdateRuleResponse' {httpStatus} -> 
 
 instance Prelude.NFData UpdateRuleResponse where
   rnf UpdateRuleResponse' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf identifier
-      `Prelude.seq` Prelude.rnf lockEndTime
-      `Prelude.seq` Prelude.rnf lockState
-      `Prelude.seq` Prelude.rnf resourceTags
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf retentionPeriod
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf identifier `Prelude.seq`
+        Prelude.rnf lockEndTime `Prelude.seq`
+          Prelude.rnf lockState `Prelude.seq`
+            Prelude.rnf resourceTags `Prelude.seq`
+              Prelude.rnf resourceType `Prelude.seq`
+                Prelude.rnf retentionPeriod `Prelude.seq`
+                  Prelude.rnf status `Prelude.seq`
+                    Prelude.rnf httpStatus

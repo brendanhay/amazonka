@@ -155,11 +155,11 @@ instance Prelude.Hashable UpdateGroup where
 
 instance Prelude.NFData UpdateGroup where
   rnf UpdateGroup' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf precedence
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf groupName
-      `Prelude.seq` Prelude.rnf userPoolId
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf precedence `Prelude.seq`
+        Prelude.rnf roleArn `Prelude.seq`
+          Prelude.rnf groupName `Prelude.seq`
+            Prelude.rnf userPoolId
 
 instance Data.ToHeaders UpdateGroup where
   toHeaders =
@@ -234,5 +234,5 @@ updateGroupResponse_httpStatus = Lens.lens (\UpdateGroupResponse' {httpStatus} -
 
 instance Prelude.NFData UpdateGroupResponse where
   rnf UpdateGroupResponse' {..} =
-    Prelude.rnf group'
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf group' `Prelude.seq`
+      Prelude.rnf httpStatus

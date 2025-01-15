@@ -165,12 +165,12 @@ instance Core.AWSPager ListUpdates where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listUpdates_nextToken
-          Lens..~ rs
-          Lens.^? listUpdatesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listUpdates_nextToken
+              Lens..~ rs
+              Lens.^? listUpdatesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListUpdates where
   type AWSResponse ListUpdates = ListUpdatesResponse
@@ -196,11 +196,11 @@ instance Prelude.Hashable ListUpdates where
 
 instance Prelude.NFData ListUpdates where
   rnf ListUpdates' {..} =
-    Prelude.rnf addonName
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf nodegroupName
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf addonName `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf nodegroupName `Prelude.seq`
+            Prelude.rnf name
 
 instance Data.ToHeaders ListUpdates where
   toHeaders =
@@ -285,6 +285,6 @@ listUpdatesResponse_httpStatus = Lens.lens (\ListUpdatesResponse' {httpStatus} -
 
 instance Prelude.NFData ListUpdatesResponse where
   rnf ListUpdatesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf updateIds
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf updateIds `Prelude.seq`
+        Prelude.rnf httpStatus

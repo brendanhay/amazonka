@@ -110,10 +110,10 @@ instance Prelude.Hashable BodySectionConfiguration where
 
 instance Prelude.NFData BodySectionConfiguration where
   rnf BodySectionConfiguration' {..} =
-    Prelude.rnf pageBreakConfiguration
-      `Prelude.seq` Prelude.rnf style
-      `Prelude.seq` Prelude.rnf sectionId
-      `Prelude.seq` Prelude.rnf content
+    Prelude.rnf pageBreakConfiguration `Prelude.seq`
+      Prelude.rnf style `Prelude.seq`
+        Prelude.rnf sectionId `Prelude.seq`
+          Prelude.rnf content
 
 instance Data.ToJSON BodySectionConfiguration where
   toJSON BodySectionConfiguration' {..} =

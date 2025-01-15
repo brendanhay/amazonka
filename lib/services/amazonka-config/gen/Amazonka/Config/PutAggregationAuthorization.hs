@@ -125,9 +125,9 @@ instance Prelude.Hashable PutAggregationAuthorization where
 
 instance Prelude.NFData PutAggregationAuthorization where
   rnf PutAggregationAuthorization' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf authorizedAccountId
-      `Prelude.seq` Prelude.rnf authorizedAwsRegion
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf authorizedAccountId `Prelude.seq`
+        Prelude.rnf authorizedAwsRegion
 
 instance Data.ToHeaders PutAggregationAuthorization where
   toHeaders =
@@ -206,5 +206,5 @@ instance
     PutAggregationAuthorizationResponse
   where
   rnf PutAggregationAuthorizationResponse' {..} =
-    Prelude.rnf aggregationAuthorization
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf aggregationAuthorization `Prelude.seq`
+      Prelude.rnf httpStatus

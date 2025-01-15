@@ -72,8 +72,8 @@ instance Prelude.Hashable ListVariantImportJobsFilter where
 
 instance Prelude.NFData ListVariantImportJobsFilter where
   rnf ListVariantImportJobsFilter' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf storeName
+    Prelude.rnf status `Prelude.seq`
+      Prelude.rnf storeName
 
 instance Data.ToJSON ListVariantImportJobsFilter where
   toJSON ListVariantImportJobsFilter' {..} =

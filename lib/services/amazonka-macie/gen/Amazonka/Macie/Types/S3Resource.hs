@@ -85,8 +85,8 @@ instance Prelude.Hashable S3Resource where
 
 instance Prelude.NFData S3Resource where
   rnf S3Resource' {..} =
-    Prelude.rnf prefix
-      `Prelude.seq` Prelude.rnf bucketName
+    Prelude.rnf prefix `Prelude.seq`
+      Prelude.rnf bucketName
 
 instance Data.ToJSON S3Resource where
   toJSON S3Resource' {..} =

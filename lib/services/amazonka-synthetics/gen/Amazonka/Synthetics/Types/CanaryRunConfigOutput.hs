@@ -95,6 +95,6 @@ instance Prelude.Hashable CanaryRunConfigOutput where
 
 instance Prelude.NFData CanaryRunConfigOutput where
   rnf CanaryRunConfigOutput' {..} =
-    Prelude.rnf activeTracing
-      `Prelude.seq` Prelude.rnf memoryInMB
-      `Prelude.seq` Prelude.rnf timeoutInSeconds
+    Prelude.rnf activeTracing `Prelude.seq`
+      Prelude.rnf memoryInMB `Prelude.seq`
+        Prelude.rnf timeoutInSeconds

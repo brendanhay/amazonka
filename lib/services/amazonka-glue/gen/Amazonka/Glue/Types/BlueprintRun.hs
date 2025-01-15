@@ -217,13 +217,13 @@ instance Prelude.Hashable BlueprintRun where
 
 instance Prelude.NFData BlueprintRun where
   rnf BlueprintRun' {..} =
-    Prelude.rnf blueprintName
-      `Prelude.seq` Prelude.rnf completedOn
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf rollbackErrorMessage
-      `Prelude.seq` Prelude.rnf runId
-      `Prelude.seq` Prelude.rnf startedOn
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf workflowName
+    Prelude.rnf blueprintName `Prelude.seq`
+      Prelude.rnf completedOn `Prelude.seq`
+        Prelude.rnf errorMessage `Prelude.seq`
+          Prelude.rnf parameters `Prelude.seq`
+            Prelude.rnf roleArn `Prelude.seq`
+              Prelude.rnf rollbackErrorMessage `Prelude.seq`
+                Prelude.rnf runId `Prelude.seq`
+                  Prelude.rnf startedOn `Prelude.seq`
+                    Prelude.rnf state `Prelude.seq`
+                      Prelude.rnf workflowName

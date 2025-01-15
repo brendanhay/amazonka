@@ -114,8 +114,8 @@ instance Prelude.Hashable DescribeOrganizationHealth where
 
 instance Prelude.NFData DescribeOrganizationHealth where
   rnf DescribeOrganizationHealth' {..} =
-    Prelude.rnf accountIds
-      `Prelude.seq` Prelude.rnf organizationalUnitIds
+    Prelude.rnf accountIds `Prelude.seq`
+      Prelude.rnf organizationalUnitIds
 
 instance Data.ToHeaders DescribeOrganizationHealth where
   toHeaders =
@@ -242,8 +242,8 @@ instance
     DescribeOrganizationHealthResponse
   where
   rnf DescribeOrganizationHealthResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf openReactiveInsights
-      `Prelude.seq` Prelude.rnf openProactiveInsights
-      `Prelude.seq` Prelude.rnf metricsAnalyzed
-      `Prelude.seq` Prelude.rnf resourceHours
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf openReactiveInsights `Prelude.seq`
+        Prelude.rnf openProactiveInsights `Prelude.seq`
+          Prelude.rnf metricsAnalyzed `Prelude.seq`
+            Prelude.rnf resourceHours

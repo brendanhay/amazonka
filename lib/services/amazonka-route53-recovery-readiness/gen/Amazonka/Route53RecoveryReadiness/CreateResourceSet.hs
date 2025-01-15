@@ -177,10 +177,10 @@ instance Prelude.Hashable CreateResourceSet where
 
 instance Prelude.NFData CreateResourceSet where
   rnf CreateResourceSet' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf resourceSetType
-      `Prelude.seq` Prelude.rnf resourceSetName
-      `Prelude.seq` Prelude.rnf resources
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf resourceSetType `Prelude.seq`
+        Prelude.rnf resourceSetName `Prelude.seq`
+          Prelude.rnf resources
 
 instance Data.ToHeaders CreateResourceSet where
   toHeaders =
@@ -321,9 +321,9 @@ createResourceSetResponse_httpStatus = Lens.lens (\CreateResourceSetResponse' {h
 
 instance Prelude.NFData CreateResourceSetResponse where
   rnf CreateResourceSetResponse' {..} =
-    Prelude.rnf resourceSetArn
-      `Prelude.seq` Prelude.rnf resourceSetName
-      `Prelude.seq` Prelude.rnf resourceSetType
-      `Prelude.seq` Prelude.rnf resources
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf resourceSetArn `Prelude.seq`
+      Prelude.rnf resourceSetName `Prelude.seq`
+        Prelude.rnf resourceSetType `Prelude.seq`
+          Prelude.rnf resources `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf httpStatus

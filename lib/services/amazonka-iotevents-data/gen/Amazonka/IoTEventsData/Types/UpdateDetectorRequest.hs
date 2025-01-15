@@ -109,10 +109,10 @@ instance Prelude.Hashable UpdateDetectorRequest where
 
 instance Prelude.NFData UpdateDetectorRequest where
   rnf UpdateDetectorRequest' {..} =
-    Prelude.rnf keyValue
-      `Prelude.seq` Prelude.rnf messageId
-      `Prelude.seq` Prelude.rnf detectorModelName
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf keyValue `Prelude.seq`
+      Prelude.rnf messageId `Prelude.seq`
+        Prelude.rnf detectorModelName `Prelude.seq`
+          Prelude.rnf state
 
 instance Data.ToJSON UpdateDetectorRequest where
   toJSON UpdateDetectorRequest' {..} =

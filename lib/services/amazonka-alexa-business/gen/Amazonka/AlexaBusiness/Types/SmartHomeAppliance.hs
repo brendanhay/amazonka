@@ -92,6 +92,6 @@ instance Prelude.Hashable SmartHomeAppliance where
 
 instance Prelude.NFData SmartHomeAppliance where
   rnf SmartHomeAppliance' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf friendlyName
-      `Prelude.seq` Prelude.rnf manufacturerName
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf friendlyName `Prelude.seq`
+        Prelude.rnf manufacturerName

@@ -177,9 +177,9 @@ instance Prelude.Hashable CreateSnapshotCopyGrant where
 
 instance Prelude.NFData CreateSnapshotCopyGrant where
   rnf CreateSnapshotCopyGrant' {..} =
-    Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf snapshotCopyGrantName
+    Prelude.rnf kmsKeyId `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf snapshotCopyGrantName
 
 instance Data.ToHeaders CreateSnapshotCopyGrant where
   toHeaders = Prelude.const Prelude.mempty
@@ -245,5 +245,5 @@ instance
     CreateSnapshotCopyGrantResponse
   where
   rnf CreateSnapshotCopyGrantResponse' {..} =
-    Prelude.rnf snapshotCopyGrant
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf snapshotCopyGrant `Prelude.seq`
+      Prelude.rnf httpStatus

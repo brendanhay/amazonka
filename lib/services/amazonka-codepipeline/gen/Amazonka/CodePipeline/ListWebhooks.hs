@@ -113,12 +113,12 @@ instance Core.AWSPager ListWebhooks where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listWebhooks_nextToken
-          Lens..~ rs
-          Lens.^? listWebhooksResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listWebhooks_nextToken
+              Lens..~ rs
+              Lens.^? listWebhooksResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListWebhooks where
   type AWSResponse ListWebhooks = ListWebhooksResponse
@@ -141,8 +141,8 @@ instance Prelude.Hashable ListWebhooks where
 
 instance Prelude.NFData ListWebhooks where
   rnf ListWebhooks' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListWebhooks where
   toHeaders =
@@ -232,6 +232,6 @@ listWebhooksResponse_httpStatus = Lens.lens (\ListWebhooksResponse' {httpStatus}
 
 instance Prelude.NFData ListWebhooksResponse where
   rnf ListWebhooksResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf webhooks
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf webhooks `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -133,9 +133,9 @@ instance Prelude.Hashable UpdateOriginAccessControl where
 
 instance Prelude.NFData UpdateOriginAccessControl where
   rnf UpdateOriginAccessControl' {..} =
-    Prelude.rnf ifMatch
-      `Prelude.seq` Prelude.rnf originAccessControlConfig
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf ifMatch `Prelude.seq`
+      Prelude.rnf originAccessControlConfig `Prelude.seq`
+        Prelude.rnf id
 
 instance Data.ToElement UpdateOriginAccessControl where
   toElement UpdateOriginAccessControl' {..} =
@@ -211,6 +211,6 @@ instance
     UpdateOriginAccessControlResponse
   where
   rnf UpdateOriginAccessControlResponse' {..} =
-    Prelude.rnf eTag
-      `Prelude.seq` Prelude.rnf originAccessControl
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf eTag `Prelude.seq`
+      Prelude.rnf originAccessControl `Prelude.seq`
+        Prelude.rnf httpStatus

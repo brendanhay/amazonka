@@ -101,6 +101,6 @@ instance Prelude.Hashable IsBinaryFile where
 
 instance Prelude.NFData IsBinaryFile where
   rnf IsBinaryFile' {..} =
-    Prelude.rnf base
-      `Prelude.seq` Prelude.rnf destination
-      `Prelude.seq` Prelude.rnf source
+    Prelude.rnf base `Prelude.seq`
+      Prelude.rnf destination `Prelude.seq`
+        Prelude.rnf source

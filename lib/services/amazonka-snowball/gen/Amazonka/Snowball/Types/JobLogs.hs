@@ -121,6 +121,6 @@ instance Prelude.Hashable JobLogs where
 
 instance Prelude.NFData JobLogs where
   rnf JobLogs' {..} =
-    Prelude.rnf jobCompletionReportURI
-      `Prelude.seq` Prelude.rnf jobFailureLogURI
-      `Prelude.seq` Prelude.rnf jobSuccessLogURI
+    Prelude.rnf jobCompletionReportURI `Prelude.seq`
+      Prelude.rnf jobFailureLogURI `Prelude.seq`
+        Prelude.rnf jobSuccessLogURI

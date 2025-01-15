@@ -76,8 +76,8 @@ instance Prelude.Hashable ExtendedKeyUsage where
 
 instance Prelude.NFData ExtendedKeyUsage where
   rnf ExtendedKeyUsage' {..} =
-    Prelude.rnf extendedKeyUsageObjectIdentifier
-      `Prelude.seq` Prelude.rnf extendedKeyUsageType
+    Prelude.rnf extendedKeyUsageObjectIdentifier `Prelude.seq`
+      Prelude.rnf extendedKeyUsageType
 
 instance Data.ToJSON ExtendedKeyUsage where
   toJSON ExtendedKeyUsage' {..} =

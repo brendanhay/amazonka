@@ -208,5 +208,5 @@ instance Prelude.Hashable EnabledMetric where
 
 instance Prelude.NFData EnabledMetric where
   rnf EnabledMetric' {..} =
-    Prelude.rnf granularity
-      `Prelude.seq` Prelude.rnf metric
+    Prelude.rnf granularity `Prelude.seq`
+      Prelude.rnf metric

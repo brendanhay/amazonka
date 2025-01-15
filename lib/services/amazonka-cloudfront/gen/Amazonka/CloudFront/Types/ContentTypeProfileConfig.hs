@@ -95,8 +95,8 @@ instance Prelude.Hashable ContentTypeProfileConfig where
 
 instance Prelude.NFData ContentTypeProfileConfig where
   rnf ContentTypeProfileConfig' {..} =
-    Prelude.rnf contentTypeProfiles
-      `Prelude.seq` Prelude.rnf forwardWhenContentTypeIsUnknown
+    Prelude.rnf contentTypeProfiles `Prelude.seq`
+      Prelude.rnf forwardWhenContentTypeIsUnknown
 
 instance Data.ToXML ContentTypeProfileConfig where
   toXML ContentTypeProfileConfig' {..} =

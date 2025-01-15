@@ -204,11 +204,11 @@ instance Prelude.Hashable StartFaceDetection where
 
 instance Prelude.NFData StartFaceDetection where
   rnf StartFaceDetection' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf faceAttributes
-      `Prelude.seq` Prelude.rnf jobTag
-      `Prelude.seq` Prelude.rnf notificationChannel
-      `Prelude.seq` Prelude.rnf video
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf faceAttributes `Prelude.seq`
+        Prelude.rnf jobTag `Prelude.seq`
+          Prelude.rnf notificationChannel `Prelude.seq`
+            Prelude.rnf video
 
 instance Data.ToHeaders StartFaceDetection where
   toHeaders =
@@ -290,5 +290,5 @@ startFaceDetectionResponse_httpStatus = Lens.lens (\StartFaceDetectionResponse' 
 
 instance Prelude.NFData StartFaceDetectionResponse where
   rnf StartFaceDetectionResponse' {..} =
-    Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf jobId `Prelude.seq`
+      Prelude.rnf httpStatus

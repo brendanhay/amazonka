@@ -261,27 +261,27 @@ instance Prelude.Hashable FieldSourceProfileIds where
 
 instance Prelude.NFData FieldSourceProfileIds where
   rnf FieldSourceProfileIds' {..} =
-    Prelude.rnf accountNumber
-      `Prelude.seq` Prelude.rnf additionalInformation
-      `Prelude.seq` Prelude.rnf address
-      `Prelude.seq` Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf billingAddress
-      `Prelude.seq` Prelude.rnf birthDate
-      `Prelude.seq` Prelude.rnf businessEmailAddress
-      `Prelude.seq` Prelude.rnf businessName
-      `Prelude.seq` Prelude.rnf businessPhoneNumber
-      `Prelude.seq` Prelude.rnf emailAddress
-      `Prelude.seq` Prelude.rnf firstName
-      `Prelude.seq` Prelude.rnf gender
-      `Prelude.seq` Prelude.rnf homePhoneNumber
-      `Prelude.seq` Prelude.rnf lastName
-      `Prelude.seq` Prelude.rnf mailingAddress
-      `Prelude.seq` Prelude.rnf middleName
-      `Prelude.seq` Prelude.rnf mobilePhoneNumber
-      `Prelude.seq` Prelude.rnf partyType
-      `Prelude.seq` Prelude.rnf personalEmailAddress
-      `Prelude.seq` Prelude.rnf phoneNumber
-      `Prelude.seq` Prelude.rnf shippingAddress
+    Prelude.rnf accountNumber `Prelude.seq`
+      Prelude.rnf additionalInformation `Prelude.seq`
+        Prelude.rnf address `Prelude.seq`
+          Prelude.rnf attributes `Prelude.seq`
+            Prelude.rnf billingAddress `Prelude.seq`
+              Prelude.rnf birthDate `Prelude.seq`
+                Prelude.rnf businessEmailAddress `Prelude.seq`
+                  Prelude.rnf businessName `Prelude.seq`
+                    Prelude.rnf businessPhoneNumber `Prelude.seq`
+                      Prelude.rnf emailAddress `Prelude.seq`
+                        Prelude.rnf firstName `Prelude.seq`
+                          Prelude.rnf gender `Prelude.seq`
+                            Prelude.rnf homePhoneNumber `Prelude.seq`
+                              Prelude.rnf lastName `Prelude.seq`
+                                Prelude.rnf mailingAddress `Prelude.seq`
+                                  Prelude.rnf middleName `Prelude.seq`
+                                    Prelude.rnf mobilePhoneNumber `Prelude.seq`
+                                      Prelude.rnf partyType `Prelude.seq`
+                                        Prelude.rnf personalEmailAddress `Prelude.seq`
+                                          Prelude.rnf phoneNumber `Prelude.seq`
+                                            Prelude.rnf shippingAddress
 
 instance Data.ToJSON FieldSourceProfileIds where
   toJSON FieldSourceProfileIds' {..} =

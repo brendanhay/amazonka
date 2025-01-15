@@ -121,9 +121,9 @@ instance Prelude.Hashable PutEntityType where
 
 instance Prelude.NFData PutEntityType where
   rnf PutEntityType' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf name
 
 instance Data.ToHeaders PutEntityType where
   toHeaders =

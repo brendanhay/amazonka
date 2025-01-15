@@ -101,6 +101,6 @@ instance Prelude.Hashable EndpointConfigSummary where
 
 instance Prelude.NFData EndpointConfigSummary where
   rnf EndpointConfigSummary' {..} =
-    Prelude.rnf endpointConfigName
-      `Prelude.seq` Prelude.rnf endpointConfigArn
-      `Prelude.seq` Prelude.rnf creationTime
+    Prelude.rnf endpointConfigName `Prelude.seq`
+      Prelude.rnf endpointConfigArn `Prelude.seq`
+        Prelude.rnf creationTime

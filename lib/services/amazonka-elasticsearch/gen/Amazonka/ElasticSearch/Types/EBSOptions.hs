@@ -116,11 +116,11 @@ instance Prelude.Hashable EBSOptions where
 
 instance Prelude.NFData EBSOptions where
   rnf EBSOptions' {..} =
-    Prelude.rnf eBSEnabled
-      `Prelude.seq` Prelude.rnf iops
-      `Prelude.seq` Prelude.rnf throughput
-      `Prelude.seq` Prelude.rnf volumeSize
-      `Prelude.seq` Prelude.rnf volumeType
+    Prelude.rnf eBSEnabled `Prelude.seq`
+      Prelude.rnf iops `Prelude.seq`
+        Prelude.rnf throughput `Prelude.seq`
+          Prelude.rnf volumeSize `Prelude.seq`
+            Prelude.rnf volumeType
 
 instance Data.ToJSON EBSOptions where
   toJSON EBSOptions' {..} =

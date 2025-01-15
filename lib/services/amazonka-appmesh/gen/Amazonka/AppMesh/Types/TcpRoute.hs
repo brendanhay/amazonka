@@ -96,9 +96,9 @@ instance Prelude.Hashable TcpRoute where
 
 instance Prelude.NFData TcpRoute where
   rnf TcpRoute' {..} =
-    Prelude.rnf match
-      `Prelude.seq` Prelude.rnf timeout
-      `Prelude.seq` Prelude.rnf action
+    Prelude.rnf match `Prelude.seq`
+      Prelude.rnf timeout `Prelude.seq`
+        Prelude.rnf action
 
 instance Data.ToJSON TcpRoute where
   toJSON TcpRoute' {..} =

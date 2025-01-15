@@ -117,10 +117,10 @@ instance Prelude.Hashable FillMissingValues where
 
 instance Prelude.NFData FillMissingValues where
   rnf FillMissingValues' {..} =
-    Prelude.rnf filledPath
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf inputs
-      `Prelude.seq` Prelude.rnf imputedPath
+    Prelude.rnf filledPath `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf inputs `Prelude.seq`
+          Prelude.rnf imputedPath
 
 instance Data.ToJSON FillMissingValues where
   toJSON FillMissingValues' {..} =

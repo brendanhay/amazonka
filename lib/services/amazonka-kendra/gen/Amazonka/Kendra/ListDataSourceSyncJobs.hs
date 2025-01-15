@@ -175,12 +175,12 @@ instance Prelude.Hashable ListDataSourceSyncJobs where
 
 instance Prelude.NFData ListDataSourceSyncJobs where
   rnf ListDataSourceSyncJobs' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf startTimeFilter
-      `Prelude.seq` Prelude.rnf statusFilter
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf indexId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf startTimeFilter `Prelude.seq`
+          Prelude.rnf statusFilter `Prelude.seq`
+            Prelude.rnf id `Prelude.seq`
+              Prelude.rnf indexId
 
 instance Data.ToHeaders ListDataSourceSyncJobs where
   toHeaders =
@@ -273,6 +273,6 @@ instance
     ListDataSourceSyncJobsResponse
   where
   rnf ListDataSourceSyncJobsResponse' {..} =
-    Prelude.rnf history
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf history `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

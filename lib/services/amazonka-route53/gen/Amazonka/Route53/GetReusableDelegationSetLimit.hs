@@ -135,8 +135,8 @@ instance
 
 instance Prelude.NFData GetReusableDelegationSetLimit where
   rnf GetReusableDelegationSetLimit' {..} =
-    Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf delegationSetId
+    Prelude.rnf type' `Prelude.seq`
+      Prelude.rnf delegationSetId
 
 instance Data.ToHeaders GetReusableDelegationSetLimit where
   toHeaders = Prelude.const Prelude.mempty
@@ -221,6 +221,6 @@ instance
     GetReusableDelegationSetLimitResponse
   where
   rnf GetReusableDelegationSetLimitResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf count
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf limit `Prelude.seq`
+        Prelude.rnf count

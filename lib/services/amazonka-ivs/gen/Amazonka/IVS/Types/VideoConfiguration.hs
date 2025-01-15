@@ -160,11 +160,11 @@ instance Prelude.Hashable VideoConfiguration where
 
 instance Prelude.NFData VideoConfiguration where
   rnf VideoConfiguration' {..} =
-    Prelude.rnf avcLevel
-      `Prelude.seq` Prelude.rnf avcProfile
-      `Prelude.seq` Prelude.rnf codec
-      `Prelude.seq` Prelude.rnf encoder
-      `Prelude.seq` Prelude.rnf targetBitrate
-      `Prelude.seq` Prelude.rnf targetFramerate
-      `Prelude.seq` Prelude.rnf videoHeight
-      `Prelude.seq` Prelude.rnf videoWidth
+    Prelude.rnf avcLevel `Prelude.seq`
+      Prelude.rnf avcProfile `Prelude.seq`
+        Prelude.rnf codec `Prelude.seq`
+          Prelude.rnf encoder `Prelude.seq`
+            Prelude.rnf targetBitrate `Prelude.seq`
+              Prelude.rnf targetFramerate `Prelude.seq`
+                Prelude.rnf videoHeight `Prelude.seq`
+                  Prelude.rnf videoWidth

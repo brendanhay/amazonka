@@ -124,12 +124,12 @@ instance Core.AWSPager ListDocumentVersions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listDocumentVersions_nextToken
-          Lens..~ rs
-          Lens.^? listDocumentVersionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listDocumentVersions_nextToken
+              Lens..~ rs
+              Lens.^? listDocumentVersionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDocumentVersions where
   type
@@ -155,9 +155,9 @@ instance Prelude.Hashable ListDocumentVersions where
 
 instance Prelude.NFData ListDocumentVersions where
   rnf ListDocumentVersions' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf name
 
 instance Data.ToHeaders ListDocumentVersions where
   toHeaders =
@@ -243,6 +243,6 @@ listDocumentVersionsResponse_httpStatus = Lens.lens (\ListDocumentVersionsRespon
 
 instance Prelude.NFData ListDocumentVersionsResponse where
   rnf ListDocumentVersionsResponse' {..} =
-    Prelude.rnf documentVersions
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf documentVersions `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

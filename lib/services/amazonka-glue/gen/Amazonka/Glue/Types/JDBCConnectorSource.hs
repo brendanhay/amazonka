@@ -170,14 +170,14 @@ instance Prelude.Hashable JDBCConnectorSource where
 
 instance Prelude.NFData JDBCConnectorSource where
   rnf JDBCConnectorSource' {..} =
-    Prelude.rnf additionalOptions
-      `Prelude.seq` Prelude.rnf connectionTable
-      `Prelude.seq` Prelude.rnf outputSchemas
-      `Prelude.seq` Prelude.rnf query
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf connectionName
-      `Prelude.seq` Prelude.rnf connectorName
-      `Prelude.seq` Prelude.rnf connectionType
+    Prelude.rnf additionalOptions `Prelude.seq`
+      Prelude.rnf connectionTable `Prelude.seq`
+        Prelude.rnf outputSchemas `Prelude.seq`
+          Prelude.rnf query `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf connectionName `Prelude.seq`
+                Prelude.rnf connectorName `Prelude.seq`
+                  Prelude.rnf connectionType
 
 instance Data.ToJSON JDBCConnectorSource where
   toJSON JDBCConnectorSource' {..} =

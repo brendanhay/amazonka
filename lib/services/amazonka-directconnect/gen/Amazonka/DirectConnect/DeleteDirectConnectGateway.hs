@@ -179,5 +179,5 @@ instance
     DeleteDirectConnectGatewayResponse
   where
   rnf DeleteDirectConnectGatewayResponse' {..} =
-    Prelude.rnf directConnectGateway
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf directConnectGateway `Prelude.seq`
+      Prelude.rnf httpStatus

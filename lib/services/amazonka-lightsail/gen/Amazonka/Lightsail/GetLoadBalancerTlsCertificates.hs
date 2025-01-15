@@ -204,5 +204,5 @@ instance
     GetLoadBalancerTlsCertificatesResponse
   where
   rnf GetLoadBalancerTlsCertificatesResponse' {..} =
-    Prelude.rnf tlsCertificates
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf tlsCertificates `Prelude.seq`
+      Prelude.rnf httpStatus

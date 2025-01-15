@@ -143,9 +143,9 @@ instance Prelude.Hashable UpdateReportGroup where
 
 instance Prelude.NFData UpdateReportGroup where
   rnf UpdateReportGroup' {..} =
-    Prelude.rnf exportConfig
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf exportConfig `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf arn
 
 instance Data.ToHeaders UpdateReportGroup where
   toHeaders =
@@ -219,5 +219,5 @@ updateReportGroupResponse_httpStatus = Lens.lens (\UpdateReportGroupResponse' {h
 
 instance Prelude.NFData UpdateReportGroupResponse where
   rnf UpdateReportGroupResponse' {..} =
-    Prelude.rnf reportGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf reportGroup `Prelude.seq`
+      Prelude.rnf httpStatus

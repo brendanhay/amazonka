@@ -126,9 +126,9 @@ instance Prelude.Hashable WorkflowStepGroupSummary where
 
 instance Prelude.NFData WorkflowStepGroupSummary where
   rnf WorkflowStepGroupSummary' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf next
-      `Prelude.seq` Prelude.rnf owner
-      `Prelude.seq` Prelude.rnf previous
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf next `Prelude.seq`
+          Prelude.rnf owner `Prelude.seq`
+            Prelude.rnf previous `Prelude.seq`
+              Prelude.rnf status

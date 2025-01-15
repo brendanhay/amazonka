@@ -149,12 +149,12 @@ instance Core.AWSPager ListTimeSeries where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listTimeSeries_nextToken
-          Lens..~ rs
-          Lens.^? listTimeSeriesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listTimeSeries_nextToken
+              Lens..~ rs
+              Lens.^? listTimeSeriesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListTimeSeries where
   type
@@ -185,11 +185,11 @@ instance Prelude.Hashable ListTimeSeries where
 
 instance Prelude.NFData ListTimeSeries where
   rnf ListTimeSeries' {..} =
-    Prelude.rnf aliasPrefix
-      `Prelude.seq` Prelude.rnf assetId
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf timeSeriesType
+    Prelude.rnf aliasPrefix `Prelude.seq`
+      Prelude.rnf assetId `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf timeSeriesType
 
 instance Data.ToHeaders ListTimeSeries where
   toHeaders =
@@ -268,6 +268,6 @@ listTimeSeriesResponse_timeSeriesSummaries = Lens.lens (\ListTimeSeriesResponse'
 
 instance Prelude.NFData ListTimeSeriesResponse where
   rnf ListTimeSeriesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf timeSeriesSummaries
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf timeSeriesSummaries

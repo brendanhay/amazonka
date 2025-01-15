@@ -367,14 +367,14 @@ describeDatasetResponse_httpStatus = Lens.lens (\DescribeDatasetResponse' {httpS
 
 instance Prelude.NFData DescribeDatasetResponse where
   rnf DescribeDatasetResponse' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf dataFrequency
-      `Prelude.seq` Prelude.rnf datasetArn
-      `Prelude.seq` Prelude.rnf datasetName
-      `Prelude.seq` Prelude.rnf datasetType
-      `Prelude.seq` Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf encryptionConfig
-      `Prelude.seq` Prelude.rnf lastModificationTime
-      `Prelude.seq` Prelude.rnf schema
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf dataFrequency `Prelude.seq`
+        Prelude.rnf datasetArn `Prelude.seq`
+          Prelude.rnf datasetName `Prelude.seq`
+            Prelude.rnf datasetType `Prelude.seq`
+              Prelude.rnf domain `Prelude.seq`
+                Prelude.rnf encryptionConfig `Prelude.seq`
+                  Prelude.rnf lastModificationTime `Prelude.seq`
+                    Prelude.rnf schema `Prelude.seq`
+                      Prelude.rnf status `Prelude.seq`
+                        Prelude.rnf httpStatus

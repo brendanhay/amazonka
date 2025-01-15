@@ -184,6 +184,6 @@ getAccessKeyLastUsedResponse_httpStatus = Lens.lens (\GetAccessKeyLastUsedRespon
 
 instance Prelude.NFData GetAccessKeyLastUsedResponse where
   rnf GetAccessKeyLastUsedResponse' {..} =
-    Prelude.rnf accessKeyLastUsed
-      `Prelude.seq` Prelude.rnf userName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf accessKeyLastUsed `Prelude.seq`
+      Prelude.rnf userName `Prelude.seq`
+        Prelude.rnf httpStatus

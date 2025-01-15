@@ -124,10 +124,10 @@ instance Prelude.Hashable IntentClosingSetting where
 
 instance Prelude.NFData IntentClosingSetting where
   rnf IntentClosingSetting' {..} =
-    Prelude.rnf active
-      `Prelude.seq` Prelude.rnf closingResponse
-      `Prelude.seq` Prelude.rnf conditional
-      `Prelude.seq` Prelude.rnf nextStep
+    Prelude.rnf active `Prelude.seq`
+      Prelude.rnf closingResponse `Prelude.seq`
+        Prelude.rnf conditional `Prelude.seq`
+          Prelude.rnf nextStep
 
 instance Data.ToJSON IntentClosingSetting where
   toJSON IntentClosingSetting' {..} =

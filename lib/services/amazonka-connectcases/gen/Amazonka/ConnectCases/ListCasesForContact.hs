@@ -140,10 +140,10 @@ instance Prelude.Hashable ListCasesForContact where
 
 instance Prelude.NFData ListCasesForContact where
   rnf ListCasesForContact' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf contactArn
-      `Prelude.seq` Prelude.rnf domainId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf contactArn `Prelude.seq`
+          Prelude.rnf domainId
 
 instance Data.ToHeaders ListCasesForContact where
   toHeaders =
@@ -230,6 +230,6 @@ listCasesForContactResponse_cases = Lens.lens (\ListCasesForContactResponse' {ca
 
 instance Prelude.NFData ListCasesForContactResponse where
   rnf ListCasesForContactResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf cases
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf cases

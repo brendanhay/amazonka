@@ -163,5 +163,5 @@ deletePricingPlanResponse_httpStatus = Lens.lens (\DeletePricingPlanResponse' {h
 
 instance Prelude.NFData DeletePricingPlanResponse where
   rnf DeletePricingPlanResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf httpStatus

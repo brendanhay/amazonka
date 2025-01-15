@@ -105,12 +105,12 @@ instance Core.AWSPager BatchGetTraces where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& batchGetTraces_nextToken
-          Lens..~ rs
-          Lens.^? batchGetTracesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& batchGetTraces_nextToken
+              Lens..~ rs
+              Lens.^? batchGetTracesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest BatchGetTraces where
   type
@@ -139,8 +139,8 @@ instance Prelude.Hashable BatchGetTraces where
 
 instance Prelude.NFData BatchGetTraces where
   rnf BatchGetTraces' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf traceIds
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf traceIds
 
 instance Data.ToHeaders BatchGetTraces where
   toHeaders = Prelude.const Prelude.mempty
@@ -219,7 +219,7 @@ batchGetTracesResponse_httpStatus = Lens.lens (\BatchGetTracesResponse' {httpSta
 
 instance Prelude.NFData BatchGetTracesResponse where
   rnf BatchGetTracesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf traces
-      `Prelude.seq` Prelude.rnf unprocessedTraceIds
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf traces `Prelude.seq`
+        Prelude.rnf unprocessedTraceIds `Prelude.seq`
+          Prelude.rnf httpStatus

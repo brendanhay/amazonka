@@ -152,9 +152,9 @@ instance Prelude.Hashable DescribedProfile where
 
 instance Prelude.NFData DescribedProfile where
   rnf DescribedProfile' {..} =
-    Prelude.rnf as2Id
-      `Prelude.seq` Prelude.rnf certificateIds
-      `Prelude.seq` Prelude.rnf profileId
-      `Prelude.seq` Prelude.rnf profileType
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf as2Id `Prelude.seq`
+      Prelude.rnf certificateIds `Prelude.seq`
+        Prelude.rnf profileId `Prelude.seq`
+          Prelude.rnf profileType `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf arn

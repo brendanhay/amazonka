@@ -109,10 +109,10 @@ instance Prelude.Hashable MultiplexSettings where
 
 instance Prelude.NFData MultiplexSettings where
   rnf MultiplexSettings' {..} =
-    Prelude.rnf maximumVideoBufferDelayMilliseconds
-      `Prelude.seq` Prelude.rnf transportStreamReservedBitrate
-      `Prelude.seq` Prelude.rnf transportStreamBitrate
-      `Prelude.seq` Prelude.rnf transportStreamId
+    Prelude.rnf maximumVideoBufferDelayMilliseconds `Prelude.seq`
+      Prelude.rnf transportStreamReservedBitrate `Prelude.seq`
+        Prelude.rnf transportStreamBitrate `Prelude.seq`
+          Prelude.rnf transportStreamId
 
 instance Data.ToJSON MultiplexSettings where
   toJSON MultiplexSettings' {..} =

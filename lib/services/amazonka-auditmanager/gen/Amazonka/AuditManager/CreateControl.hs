@@ -167,13 +167,13 @@ instance Prelude.Hashable CreateControl where
 
 instance Prelude.NFData CreateControl where
   rnf CreateControl' {..} =
-    Prelude.rnf actionPlanInstructions
-      `Prelude.seq` Prelude.rnf actionPlanTitle
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf testingInformation
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf controlMappingSources
+    Prelude.rnf actionPlanInstructions `Prelude.seq`
+      Prelude.rnf actionPlanTitle `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf testingInformation `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf controlMappingSources
 
 instance Data.ToHeaders CreateControl where
   toHeaders =
@@ -252,5 +252,5 @@ createControlResponse_httpStatus = Lens.lens (\CreateControlResponse' {httpStatu
 
 instance Prelude.NFData CreateControlResponse where
   rnf CreateControlResponse' {..} =
-    Prelude.rnf control
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf control `Prelude.seq`
+      Prelude.rnf httpStatus

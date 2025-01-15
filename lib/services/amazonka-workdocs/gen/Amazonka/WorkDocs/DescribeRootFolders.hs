@@ -127,12 +127,12 @@ instance Core.AWSPager DescribeRootFolders where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeRootFolders_marker
-          Lens..~ rs
-          Lens.^? describeRootFoldersResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeRootFolders_marker
+              Lens..~ rs
+              Lens.^? describeRootFoldersResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeRootFolders where
   type
@@ -158,9 +158,9 @@ instance Prelude.Hashable DescribeRootFolders where
 
 instance Prelude.NFData DescribeRootFolders where
   rnf DescribeRootFolders' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf authenticationToken
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf authenticationToken
 
 instance Data.ToHeaders DescribeRootFolders where
   toHeaders DescribeRootFolders' {..} =
@@ -228,6 +228,6 @@ describeRootFoldersResponse_httpStatus = Lens.lens (\DescribeRootFoldersResponse
 
 instance Prelude.NFData DescribeRootFoldersResponse where
   rnf DescribeRootFoldersResponse' {..} =
-    Prelude.rnf folders
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf folders `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf httpStatus

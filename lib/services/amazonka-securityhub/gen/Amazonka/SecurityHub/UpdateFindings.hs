@@ -125,9 +125,9 @@ instance Prelude.Hashable UpdateFindings where
 
 instance Prelude.NFData UpdateFindings where
   rnf UpdateFindings' {..} =
-    Prelude.rnf note
-      `Prelude.seq` Prelude.rnf recordState
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf note `Prelude.seq`
+      Prelude.rnf recordState `Prelude.seq`
+        Prelude.rnf filters
 
 instance Data.ToHeaders UpdateFindings where
   toHeaders =

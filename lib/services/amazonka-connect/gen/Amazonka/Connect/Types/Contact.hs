@@ -240,17 +240,17 @@ instance Prelude.Hashable Contact where
 
 instance Prelude.NFData Contact where
   rnf Contact' {..} =
-    Prelude.rnf agentInfo
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf channel
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf disconnectTimestamp
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf initialContactId
-      `Prelude.seq` Prelude.rnf initiationMethod
-      `Prelude.seq` Prelude.rnf initiationTimestamp
-      `Prelude.seq` Prelude.rnf lastUpdateTimestamp
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf previousContactId
-      `Prelude.seq` Prelude.rnf queueInfo
-      `Prelude.seq` Prelude.rnf scheduledTimestamp
+    Prelude.rnf agentInfo `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf channel `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf disconnectTimestamp `Prelude.seq`
+              Prelude.rnf id `Prelude.seq`
+                Prelude.rnf initialContactId `Prelude.seq`
+                  Prelude.rnf initiationMethod `Prelude.seq`
+                    Prelude.rnf initiationTimestamp `Prelude.seq`
+                      Prelude.rnf lastUpdateTimestamp `Prelude.seq`
+                        Prelude.rnf name `Prelude.seq`
+                          Prelude.rnf previousContactId `Prelude.seq`
+                            Prelude.rnf queueInfo `Prelude.seq`
+                              Prelude.rnf scheduledTimestamp

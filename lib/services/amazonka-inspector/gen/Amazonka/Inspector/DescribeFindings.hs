@@ -113,8 +113,8 @@ instance Prelude.Hashable DescribeFindings where
 
 instance Prelude.NFData DescribeFindings where
   rnf DescribeFindings' {..} =
-    Prelude.rnf locale
-      `Prelude.seq` Prelude.rnf findingArns
+    Prelude.rnf locale `Prelude.seq`
+      Prelude.rnf findingArns
 
 instance Data.ToHeaders DescribeFindings where
   toHeaders =
@@ -199,6 +199,6 @@ describeFindingsResponse_failedItems = Lens.lens (\DescribeFindingsResponse' {fa
 
 instance Prelude.NFData DescribeFindingsResponse where
   rnf DescribeFindingsResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf findings
-      `Prelude.seq` Prelude.rnf failedItems
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf findings `Prelude.seq`
+        Prelude.rnf failedItems

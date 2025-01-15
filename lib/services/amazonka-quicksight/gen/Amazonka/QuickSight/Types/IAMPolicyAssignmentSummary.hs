@@ -82,5 +82,5 @@ instance Prelude.Hashable IAMPolicyAssignmentSummary where
 
 instance Prelude.NFData IAMPolicyAssignmentSummary where
   rnf IAMPolicyAssignmentSummary' {..} =
-    Prelude.rnf assignmentName
-      `Prelude.seq` Prelude.rnf assignmentStatus
+    Prelude.rnf assignmentName `Prelude.seq`
+      Prelude.rnf assignmentStatus

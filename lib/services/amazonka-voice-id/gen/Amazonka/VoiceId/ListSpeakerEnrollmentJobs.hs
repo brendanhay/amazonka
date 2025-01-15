@@ -142,12 +142,12 @@ instance Core.AWSPager ListSpeakerEnrollmentJobs where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listSpeakerEnrollmentJobs_nextToken
-          Lens..~ rs
-          Lens.^? listSpeakerEnrollmentJobsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listSpeakerEnrollmentJobs_nextToken
+              Lens..~ rs
+              Lens.^? listSpeakerEnrollmentJobsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSpeakerEnrollmentJobs where
   type
@@ -174,10 +174,10 @@ instance Prelude.Hashable ListSpeakerEnrollmentJobs where
 
 instance Prelude.NFData ListSpeakerEnrollmentJobs where
   rnf ListSpeakerEnrollmentJobs' {..} =
-    Prelude.rnf jobStatus
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf domainId
+    Prelude.rnf jobStatus `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf domainId
 
 instance Data.ToHeaders ListSpeakerEnrollmentJobs where
   toHeaders =
@@ -273,6 +273,6 @@ instance
     ListSpeakerEnrollmentJobsResponse
   where
   rnf ListSpeakerEnrollmentJobsResponse' {..} =
-    Prelude.rnf jobSummaries
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf jobSummaries `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

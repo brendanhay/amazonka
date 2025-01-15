@@ -203,14 +203,14 @@ instance Prelude.Hashable CreateChannel where
 
 instance Prelude.NFData CreateChannel where
   rnf CreateChannel' {..} =
-    Prelude.rnf chimeBearer
-      `Prelude.seq` Prelude.rnf metadata
-      `Prelude.seq` Prelude.rnf mode
-      `Prelude.seq` Prelude.rnf privacy
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf appInstanceArn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf clientRequestToken
+    Prelude.rnf chimeBearer `Prelude.seq`
+      Prelude.rnf metadata `Prelude.seq`
+        Prelude.rnf mode `Prelude.seq`
+          Prelude.rnf privacy `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf appInstanceArn `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf clientRequestToken
 
 instance Data.ToHeaders CreateChannel where
   toHeaders CreateChannel' {..} =
@@ -280,5 +280,5 @@ createChannelResponse_httpStatus = Lens.lens (\CreateChannelResponse' {httpStatu
 
 instance Prelude.NFData CreateChannelResponse where
   rnf CreateChannelResponse' {..} =
-    Prelude.rnf channelArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf channelArn `Prelude.seq`
+      Prelude.rnf httpStatus

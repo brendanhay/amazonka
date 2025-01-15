@@ -231,17 +231,17 @@ instance
     RedshiftDestinationConfiguration
   where
   rnf RedshiftDestinationConfiguration' {..} =
-    Prelude.rnf cloudWatchLoggingOptions
-      `Prelude.seq` Prelude.rnf processingConfiguration
-      `Prelude.seq` Prelude.rnf retryOptions
-      `Prelude.seq` Prelude.rnf s3BackupConfiguration
-      `Prelude.seq` Prelude.rnf s3BackupMode
-      `Prelude.seq` Prelude.rnf roleARN
-      `Prelude.seq` Prelude.rnf clusterJDBCURL
-      `Prelude.seq` Prelude.rnf copyCommand
-      `Prelude.seq` Prelude.rnf username
-      `Prelude.seq` Prelude.rnf password
-      `Prelude.seq` Prelude.rnf s3Configuration
+    Prelude.rnf cloudWatchLoggingOptions `Prelude.seq`
+      Prelude.rnf processingConfiguration `Prelude.seq`
+        Prelude.rnf retryOptions `Prelude.seq`
+          Prelude.rnf s3BackupConfiguration `Prelude.seq`
+            Prelude.rnf s3BackupMode `Prelude.seq`
+              Prelude.rnf roleARN `Prelude.seq`
+                Prelude.rnf clusterJDBCURL `Prelude.seq`
+                  Prelude.rnf copyCommand `Prelude.seq`
+                    Prelude.rnf username `Prelude.seq`
+                      Prelude.rnf password `Prelude.seq`
+                        Prelude.rnf s3Configuration
 
 instance Data.ToJSON RedshiftDestinationConfiguration where
   toJSON RedshiftDestinationConfiguration' {..} =

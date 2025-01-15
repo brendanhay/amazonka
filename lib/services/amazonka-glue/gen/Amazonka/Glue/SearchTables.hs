@@ -237,13 +237,13 @@ instance Prelude.Hashable SearchTables where
 
 instance Prelude.NFData SearchTables where
   rnf SearchTables' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf resourceShareType
-      `Prelude.seq` Prelude.rnf searchText
-      `Prelude.seq` Prelude.rnf sortCriteria
+    Prelude.rnf catalogId `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf resourceShareType `Prelude.seq`
+              Prelude.rnf searchText `Prelude.seq`
+                Prelude.rnf sortCriteria
 
 instance Data.ToHeaders SearchTables where
   toHeaders =
@@ -334,6 +334,6 @@ searchTablesResponse_httpStatus = Lens.lens (\SearchTablesResponse' {httpStatus}
 
 instance Prelude.NFData SearchTablesResponse where
   rnf SearchTablesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf tableList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf tableList `Prelude.seq`
+        Prelude.rnf httpStatus

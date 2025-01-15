@@ -119,8 +119,8 @@ instance Prelude.Hashable AuditSuppression where
 
 instance Prelude.NFData AuditSuppression where
   rnf AuditSuppression' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf expirationDate
-      `Prelude.seq` Prelude.rnf suppressIndefinitely
-      `Prelude.seq` Prelude.rnf checkName
-      `Prelude.seq` Prelude.rnf resourceIdentifier
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf expirationDate `Prelude.seq`
+        Prelude.rnf suppressIndefinitely `Prelude.seq`
+          Prelude.rnf checkName `Prelude.seq`
+            Prelude.rnf resourceIdentifier

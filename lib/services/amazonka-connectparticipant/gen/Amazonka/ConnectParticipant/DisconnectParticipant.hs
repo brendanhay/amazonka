@@ -122,8 +122,8 @@ instance Prelude.Hashable DisconnectParticipant where
 
 instance Prelude.NFData DisconnectParticipant where
   rnf DisconnectParticipant' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf connectionToken
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf connectionToken
 
 instance Data.ToHeaders DisconnectParticipant where
   toHeaders DisconnectParticipant' {..} =

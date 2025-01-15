@@ -140,9 +140,9 @@ instance
     ListMulticastGroupsByFuotaTask
   where
   rnf ListMulticastGroupsByFuotaTask' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf id
 
 instance
   Data.ToHeaders
@@ -221,6 +221,6 @@ instance
     ListMulticastGroupsByFuotaTaskResponse
   where
   rnf ListMulticastGroupsByFuotaTaskResponse' {..} =
-    Prelude.rnf multicastGroupList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf multicastGroupList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

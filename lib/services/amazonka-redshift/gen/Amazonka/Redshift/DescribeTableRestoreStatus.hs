@@ -158,12 +158,12 @@ instance Core.AWSPager DescribeTableRestoreStatus where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeTableRestoreStatus_marker
-          Lens..~ rs
-          Lens.^? describeTableRestoreStatusResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeTableRestoreStatus_marker
+              Lens..~ rs
+              Lens.^? describeTableRestoreStatusResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeTableRestoreStatus where
   type
@@ -195,10 +195,10 @@ instance Prelude.Hashable DescribeTableRestoreStatus where
 
 instance Prelude.NFData DescribeTableRestoreStatus where
   rnf DescribeTableRestoreStatus' {..} =
-    Prelude.rnf clusterIdentifier
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf tableRestoreRequestId
+    Prelude.rnf clusterIdentifier `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf maxRecords `Prelude.seq`
+          Prelude.rnf tableRestoreRequestId
 
 instance Data.ToHeaders DescribeTableRestoreStatus where
   toHeaders = Prelude.const Prelude.mempty
@@ -279,6 +279,6 @@ instance
     DescribeTableRestoreStatusResponse
   where
   rnf DescribeTableRestoreStatusResponse' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf tableRestoreStatusDetails
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf tableRestoreStatusDetails `Prelude.seq`
+        Prelude.rnf httpStatus

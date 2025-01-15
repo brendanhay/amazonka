@@ -125,12 +125,12 @@ instance Prelude.Hashable EntityFilter where
 
 instance Prelude.NFData EntityFilter where
   rnf EntityFilter' {..} =
-    Prelude.rnf entityArns
-      `Prelude.seq` Prelude.rnf entityValues
-      `Prelude.seq` Prelude.rnf lastUpdatedTimes
-      `Prelude.seq` Prelude.rnf statusCodes
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf eventArns
+    Prelude.rnf entityArns `Prelude.seq`
+      Prelude.rnf entityValues `Prelude.seq`
+        Prelude.rnf lastUpdatedTimes `Prelude.seq`
+          Prelude.rnf statusCodes `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf eventArns
 
 instance Data.ToJSON EntityFilter where
   toJSON EntityFilter' {..} =

@@ -119,8 +119,8 @@ instance Prelude.Hashable BatchGetDeploymentGroups where
 
 instance Prelude.NFData BatchGetDeploymentGroups where
   rnf BatchGetDeploymentGroups' {..} =
-    Prelude.rnf applicationName
-      `Prelude.seq` Prelude.rnf deploymentGroupNames
+    Prelude.rnf applicationName `Prelude.seq`
+      Prelude.rnf deploymentGroupNames
 
 instance Data.ToHeaders BatchGetDeploymentGroups where
   toHeaders =
@@ -211,6 +211,6 @@ instance
     BatchGetDeploymentGroupsResponse
   where
   rnf BatchGetDeploymentGroupsResponse' {..} =
-    Prelude.rnf deploymentGroupsInfo
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf deploymentGroupsInfo `Prelude.seq`
+      Prelude.rnf errorMessage `Prelude.seq`
+        Prelude.rnf httpStatus

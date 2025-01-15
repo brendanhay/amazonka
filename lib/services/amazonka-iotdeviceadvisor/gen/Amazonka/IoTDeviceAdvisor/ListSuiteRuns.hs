@@ -142,10 +142,10 @@ instance Prelude.Hashable ListSuiteRuns where
 
 instance Prelude.NFData ListSuiteRuns where
   rnf ListSuiteRuns' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf suiteDefinitionId
-      `Prelude.seq` Prelude.rnf suiteDefinitionVersion
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf suiteDefinitionId `Prelude.seq`
+          Prelude.rnf suiteDefinitionVersion
 
 instance Data.ToHeaders ListSuiteRuns where
   toHeaders =
@@ -223,6 +223,6 @@ listSuiteRunsResponse_httpStatus = Lens.lens (\ListSuiteRunsResponse' {httpStatu
 
 instance Prelude.NFData ListSuiteRunsResponse where
   rnf ListSuiteRunsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf suiteRunsList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf suiteRunsList `Prelude.seq`
+        Prelude.rnf httpStatus

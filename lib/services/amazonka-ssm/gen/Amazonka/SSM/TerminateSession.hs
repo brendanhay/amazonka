@@ -164,5 +164,5 @@ terminateSessionResponse_httpStatus = Lens.lens (\TerminateSessionResponse' {htt
 
 instance Prelude.NFData TerminateSessionResponse where
   rnf TerminateSessionResponse' {..} =
-    Prelude.rnf sessionId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf sessionId `Prelude.seq`
+      Prelude.rnf httpStatus

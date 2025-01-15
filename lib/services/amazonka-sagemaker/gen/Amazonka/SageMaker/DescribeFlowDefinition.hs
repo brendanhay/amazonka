@@ -311,14 +311,14 @@ instance
     DescribeFlowDefinitionResponse
   where
   rnf DescribeFlowDefinitionResponse' {..} =
-    Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf humanLoopActivationConfig
-      `Prelude.seq` Prelude.rnf humanLoopRequestSource
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf flowDefinitionArn
-      `Prelude.seq` Prelude.rnf flowDefinitionName
-      `Prelude.seq` Prelude.rnf flowDefinitionStatus
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf humanLoopConfig
-      `Prelude.seq` Prelude.rnf outputConfig
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf failureReason `Prelude.seq`
+      Prelude.rnf humanLoopActivationConfig `Prelude.seq`
+        Prelude.rnf humanLoopRequestSource `Prelude.seq`
+          Prelude.rnf httpStatus `Prelude.seq`
+            Prelude.rnf flowDefinitionArn `Prelude.seq`
+              Prelude.rnf flowDefinitionName `Prelude.seq`
+                Prelude.rnf flowDefinitionStatus `Prelude.seq`
+                  Prelude.rnf creationTime `Prelude.seq`
+                    Prelude.rnf humanLoopConfig `Prelude.seq`
+                      Prelude.rnf outputConfig `Prelude.seq`
+                        Prelude.rnf roleArn

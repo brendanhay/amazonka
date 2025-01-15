@@ -134,8 +134,8 @@ instance Prelude.Hashable TagCertificateAuthority where
 
 instance Prelude.NFData TagCertificateAuthority where
   rnf TagCertificateAuthority' {..} =
-    Prelude.rnf certificateAuthorityArn
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf certificateAuthorityArn `Prelude.seq`
+      Prelude.rnf tags
 
 instance Data.ToHeaders TagCertificateAuthority where
   toHeaders =

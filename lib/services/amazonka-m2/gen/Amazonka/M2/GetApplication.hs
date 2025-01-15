@@ -408,23 +408,23 @@ getApplicationResponse_status = Lens.lens (\GetApplicationResponse' {status} -> 
 
 instance Prelude.NFData GetApplicationResponse where
   rnf GetApplicationResponse' {..} =
-    Prelude.rnf deployedVersion
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf environmentId
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf lastStartTime
-      `Prelude.seq` Prelude.rnf listenerArns
-      `Prelude.seq` Prelude.rnf listenerPorts
-      `Prelude.seq` Prelude.rnf loadBalancerDnsName
-      `Prelude.seq` Prelude.rnf logGroups
-      `Prelude.seq` Prelude.rnf statusReason
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf targetGroupArns
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf applicationArn
-      `Prelude.seq` Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf engineType
-      `Prelude.seq` Prelude.rnf latestVersion
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf deployedVersion `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf environmentId `Prelude.seq`
+          Prelude.rnf kmsKeyId `Prelude.seq`
+            Prelude.rnf lastStartTime `Prelude.seq`
+              Prelude.rnf listenerArns `Prelude.seq`
+                Prelude.rnf listenerPorts `Prelude.seq`
+                  Prelude.rnf loadBalancerDnsName `Prelude.seq`
+                    Prelude.rnf logGroups `Prelude.seq`
+                      Prelude.rnf statusReason `Prelude.seq`
+                        Prelude.rnf tags `Prelude.seq`
+                          Prelude.rnf targetGroupArns `Prelude.seq`
+                            Prelude.rnf httpStatus `Prelude.seq`
+                              Prelude.rnf applicationArn `Prelude.seq`
+                                Prelude.rnf applicationId `Prelude.seq`
+                                  Prelude.rnf creationTime `Prelude.seq`
+                                    Prelude.rnf engineType `Prelude.seq`
+                                      Prelude.rnf latestVersion `Prelude.seq`
+                                        Prelude.rnf name `Prelude.seq`
+                                          Prelude.rnf status

@@ -183,6 +183,6 @@ batchGetAccountStatusResponse_accounts = Lens.lens (\BatchGetAccountStatusRespon
 
 instance Prelude.NFData BatchGetAccountStatusResponse where
   rnf BatchGetAccountStatusResponse' {..} =
-    Prelude.rnf failedAccounts
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf accounts
+    Prelude.rnf failedAccounts `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf accounts

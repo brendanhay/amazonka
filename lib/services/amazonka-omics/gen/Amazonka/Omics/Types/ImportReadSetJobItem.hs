@@ -141,9 +141,9 @@ instance Prelude.Hashable ImportReadSetJobItem where
 
 instance Prelude.NFData ImportReadSetJobItem where
   rnf ImportReadSetJobItem' {..} =
-    Prelude.rnf completionTime
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf sequenceStoreId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf completionTime `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf roleArn `Prelude.seq`
+            Prelude.rnf sequenceStoreId `Prelude.seq`
+              Prelude.rnf status

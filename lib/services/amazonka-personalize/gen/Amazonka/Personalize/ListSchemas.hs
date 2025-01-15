@@ -108,12 +108,12 @@ instance Core.AWSPager ListSchemas where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listSchemas_nextToken
-          Lens..~ rs
-          Lens.^? listSchemasResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listSchemas_nextToken
+              Lens..~ rs
+              Lens.^? listSchemasResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSchemas where
   type AWSResponse ListSchemas = ListSchemasResponse
@@ -136,8 +136,8 @@ instance Prelude.Hashable ListSchemas where
 
 instance Prelude.NFData ListSchemas where
   rnf ListSchemas' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListSchemas where
   toHeaders =
@@ -218,6 +218,6 @@ listSchemasResponse_httpStatus = Lens.lens (\ListSchemasResponse' {httpStatus} -
 
 instance Prelude.NFData ListSchemasResponse where
   rnf ListSchemasResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf schemas
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf schemas `Prelude.seq`
+        Prelude.rnf httpStatus

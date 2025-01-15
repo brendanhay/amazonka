@@ -132,8 +132,8 @@ instance
     ProtectiveEquipmentSummarizationAttributes
   where
   rnf ProtectiveEquipmentSummarizationAttributes' {..} =
-    Prelude.rnf minConfidence
-      `Prelude.seq` Prelude.rnf requiredEquipmentTypes
+    Prelude.rnf minConfidence `Prelude.seq`
+      Prelude.rnf requiredEquipmentTypes
 
 instance
   Data.ToJSON

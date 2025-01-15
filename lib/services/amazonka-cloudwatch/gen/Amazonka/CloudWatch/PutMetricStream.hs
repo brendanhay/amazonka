@@ -372,14 +372,14 @@ instance Prelude.Hashable PutMetricStream where
 
 instance Prelude.NFData PutMetricStream where
   rnf PutMetricStream' {..} =
-    Prelude.rnf excludeFilters
-      `Prelude.seq` Prelude.rnf includeFilters
-      `Prelude.seq` Prelude.rnf statisticsConfigurations
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf firehoseArn
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf outputFormat
+    Prelude.rnf excludeFilters `Prelude.seq`
+      Prelude.rnf includeFilters `Prelude.seq`
+        Prelude.rnf statisticsConfigurations `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf firehoseArn `Prelude.seq`
+                Prelude.rnf roleArn `Prelude.seq`
+                  Prelude.rnf outputFormat
 
 instance Data.ToHeaders PutMetricStream where
   toHeaders = Prelude.const Prelude.mempty
@@ -458,5 +458,5 @@ putMetricStreamResponse_httpStatus = Lens.lens (\PutMetricStreamResponse' {httpS
 
 instance Prelude.NFData PutMetricStreamResponse where
   rnf PutMetricStreamResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf httpStatus

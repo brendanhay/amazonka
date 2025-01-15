@@ -74,8 +74,8 @@ instance Prelude.Hashable ListBillingGroupsFilter where
 
 instance Prelude.NFData ListBillingGroupsFilter where
   rnf ListBillingGroupsFilter' {..} =
-    Prelude.rnf arns
-      `Prelude.seq` Prelude.rnf pricingPlan
+    Prelude.rnf arns `Prelude.seq`
+      Prelude.rnf pricingPlan
 
 instance Data.ToJSON ListBillingGroupsFilter where
   toJSON ListBillingGroupsFilter' {..} =

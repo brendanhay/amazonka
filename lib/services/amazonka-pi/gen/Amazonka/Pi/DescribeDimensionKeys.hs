@@ -454,18 +454,18 @@ instance Prelude.Hashable DescribeDimensionKeys where
 
 instance Prelude.NFData DescribeDimensionKeys where
   rnf DescribeDimensionKeys' {..} =
-    Prelude.rnf additionalMetrics
-      `Prelude.seq` Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf partitionBy
-      `Prelude.seq` Prelude.rnf periodInSeconds
-      `Prelude.seq` Prelude.rnf serviceType
-      `Prelude.seq` Prelude.rnf identifier
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf metric
-      `Prelude.seq` Prelude.rnf groupBy
+    Prelude.rnf additionalMetrics `Prelude.seq`
+      Prelude.rnf filter' `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf partitionBy `Prelude.seq`
+              Prelude.rnf periodInSeconds `Prelude.seq`
+                Prelude.rnf serviceType `Prelude.seq`
+                  Prelude.rnf identifier `Prelude.seq`
+                    Prelude.rnf startTime `Prelude.seq`
+                      Prelude.rnf endTime `Prelude.seq`
+                        Prelude.rnf metric `Prelude.seq`
+                          Prelude.rnf groupBy
 
 instance Data.ToHeaders DescribeDimensionKeys where
   toHeaders =
@@ -616,9 +616,9 @@ describeDimensionKeysResponse_httpStatus = Lens.lens (\DescribeDimensionKeysResp
 
 instance Prelude.NFData DescribeDimensionKeysResponse where
   rnf DescribeDimensionKeysResponse' {..} =
-    Prelude.rnf alignedEndTime
-      `Prelude.seq` Prelude.rnf alignedStartTime
-      `Prelude.seq` Prelude.rnf keys
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf partitionKeys
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf alignedEndTime `Prelude.seq`
+      Prelude.rnf alignedStartTime `Prelude.seq`
+        Prelude.rnf keys `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf partitionKeys `Prelude.seq`
+              Prelude.rnf httpStatus

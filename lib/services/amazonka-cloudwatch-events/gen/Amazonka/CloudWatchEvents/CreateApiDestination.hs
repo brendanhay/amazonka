@@ -179,12 +179,12 @@ instance Prelude.Hashable CreateApiDestination where
 
 instance Prelude.NFData CreateApiDestination where
   rnf CreateApiDestination' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf invocationRateLimitPerSecond
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf connectionArn
-      `Prelude.seq` Prelude.rnf invocationEndpoint
-      `Prelude.seq` Prelude.rnf httpMethod
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf invocationRateLimitPerSecond `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf connectionArn `Prelude.seq`
+            Prelude.rnf invocationEndpoint `Prelude.seq`
+              Prelude.rnf httpMethod
 
 instance Data.ToHeaders CreateApiDestination where
   toHeaders =
@@ -293,8 +293,8 @@ createApiDestinationResponse_httpStatus = Lens.lens (\CreateApiDestinationRespon
 
 instance Prelude.NFData CreateApiDestinationResponse where
   rnf CreateApiDestinationResponse' {..} =
-    Prelude.rnf apiDestinationArn
-      `Prelude.seq` Prelude.rnf apiDestinationState
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf apiDestinationArn `Prelude.seq`
+      Prelude.rnf apiDestinationState `Prelude.seq`
+        Prelude.rnf creationTime `Prelude.seq`
+          Prelude.rnf lastModifiedTime `Prelude.seq`
+            Prelude.rnf httpStatus

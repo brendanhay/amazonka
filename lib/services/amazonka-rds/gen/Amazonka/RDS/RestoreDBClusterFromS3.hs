@@ -1324,5 +1324,5 @@ instance
     RestoreDBClusterFromS3Response
   where
   rnf RestoreDBClusterFromS3Response' {..} =
-    Prelude.rnf dbCluster
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dbCluster `Prelude.seq`
+      Prelude.rnf httpStatus

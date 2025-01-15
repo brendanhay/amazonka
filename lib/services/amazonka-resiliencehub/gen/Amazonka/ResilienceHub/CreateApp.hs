@@ -186,12 +186,12 @@ instance Prelude.Hashable CreateApp where
 
 instance Prelude.NFData CreateApp where
   rnf CreateApp' {..} =
-    Prelude.rnf assessmentSchedule
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf policyArn
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf assessmentSchedule `Prelude.seq`
+      Prelude.rnf clientToken `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf policyArn `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf name
 
 instance Data.ToHeaders CreateApp where
   toHeaders =
@@ -272,5 +272,5 @@ createAppResponse_app = Lens.lens (\CreateAppResponse' {app} -> app) (\s@CreateA
 
 instance Prelude.NFData CreateAppResponse where
   rnf CreateAppResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf app
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf app

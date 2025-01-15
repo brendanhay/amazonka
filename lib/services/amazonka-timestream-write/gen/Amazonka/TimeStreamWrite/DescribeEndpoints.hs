@@ -165,5 +165,5 @@ describeEndpointsResponse_endpoints = Lens.lens (\DescribeEndpointsResponse' {en
 
 instance Prelude.NFData DescribeEndpointsResponse where
   rnf DescribeEndpointsResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf endpoints
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf endpoints

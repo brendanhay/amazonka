@@ -154,7 +154,7 @@ instance Prelude.Hashable PartitionIndexDescriptor where
 
 instance Prelude.NFData PartitionIndexDescriptor where
   rnf PartitionIndexDescriptor' {..} =
-    Prelude.rnf backfillErrors
-      `Prelude.seq` Prelude.rnf indexName
-      `Prelude.seq` Prelude.rnf keys
-      `Prelude.seq` Prelude.rnf indexStatus
+    Prelude.rnf backfillErrors `Prelude.seq`
+      Prelude.rnf indexName `Prelude.seq`
+        Prelude.rnf keys `Prelude.seq`
+          Prelude.rnf indexStatus

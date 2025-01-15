@@ -208,8 +208,8 @@ instance
     GetWirelessGatewayTaskDefinitionResponse
   where
   rnf GetWirelessGatewayTaskDefinitionResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf autoCreateTasks
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf update
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf autoCreateTasks `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf update `Prelude.seq`
+            Prelude.rnf httpStatus

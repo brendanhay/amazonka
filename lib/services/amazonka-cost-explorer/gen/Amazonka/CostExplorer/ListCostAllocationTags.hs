@@ -170,11 +170,11 @@ instance Prelude.Hashable ListCostAllocationTags where
 
 instance Prelude.NFData ListCostAllocationTags where
   rnf ListCostAllocationTags' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf tagKeys
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf status `Prelude.seq`
+          Prelude.rnf tagKeys `Prelude.seq`
+            Prelude.rnf type'
 
 instance Data.ToHeaders ListCostAllocationTags where
   toHeaders =
@@ -271,6 +271,6 @@ instance
     ListCostAllocationTagsResponse
   where
   rnf ListCostAllocationTagsResponse' {..} =
-    Prelude.rnf costAllocationTags
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf costAllocationTags `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

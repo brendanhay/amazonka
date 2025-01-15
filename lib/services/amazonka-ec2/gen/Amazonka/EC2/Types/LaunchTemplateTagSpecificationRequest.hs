@@ -107,8 +107,8 @@ instance
     LaunchTemplateTagSpecificationRequest
   where
   rnf LaunchTemplateTagSpecificationRequest' {..} =
-    Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf resourceType `Prelude.seq`
+      Prelude.rnf tags
 
 instance
   Data.ToQuery

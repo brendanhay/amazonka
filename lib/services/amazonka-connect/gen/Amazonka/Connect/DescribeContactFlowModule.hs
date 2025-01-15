@@ -116,8 +116,8 @@ instance Prelude.Hashable DescribeContactFlowModule where
 
 instance Prelude.NFData DescribeContactFlowModule where
   rnf DescribeContactFlowModule' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf contactFlowModuleId
+    Prelude.rnf instanceId `Prelude.seq`
+      Prelude.rnf contactFlowModuleId
 
 instance Data.ToHeaders DescribeContactFlowModule where
   toHeaders =
@@ -186,5 +186,5 @@ instance
     DescribeContactFlowModuleResponse
   where
   rnf DescribeContactFlowModuleResponse' {..} =
-    Prelude.rnf contactFlowModule
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf contactFlowModule `Prelude.seq`
+      Prelude.rnf httpStatus

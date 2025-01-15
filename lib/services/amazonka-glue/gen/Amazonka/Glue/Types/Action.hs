@@ -179,12 +179,12 @@ instance Prelude.Hashable Action where
 
 instance Prelude.NFData Action where
   rnf Action' {..} =
-    Prelude.rnf arguments
-      `Prelude.seq` Prelude.rnf crawlerName
-      `Prelude.seq` Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf notificationProperty
-      `Prelude.seq` Prelude.rnf securityConfiguration
-      `Prelude.seq` Prelude.rnf timeout
+    Prelude.rnf arguments `Prelude.seq`
+      Prelude.rnf crawlerName `Prelude.seq`
+        Prelude.rnf jobName `Prelude.seq`
+          Prelude.rnf notificationProperty `Prelude.seq`
+            Prelude.rnf securityConfiguration `Prelude.seq`
+              Prelude.rnf timeout
 
 instance Data.ToJSON Action where
   toJSON Action' {..} =

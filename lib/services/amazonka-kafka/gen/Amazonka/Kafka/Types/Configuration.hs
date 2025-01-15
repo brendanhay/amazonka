@@ -167,10 +167,10 @@ instance Prelude.Hashable Configuration where
 
 instance Prelude.NFData Configuration where
   rnf Configuration' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf latestRevision
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf kafkaVersions
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf latestRevision `Prelude.seq`
+        Prelude.rnf creationTime `Prelude.seq`
+          Prelude.rnf kafkaVersions `Prelude.seq`
+            Prelude.rnf arn `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf state

@@ -167,12 +167,12 @@ instance Core.AWSPager GetBotChannelAssociations where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getBotChannelAssociations_nextToken
-          Lens..~ rs
-          Lens.^? getBotChannelAssociationsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getBotChannelAssociations_nextToken
+              Lens..~ rs
+              Lens.^? getBotChannelAssociationsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetBotChannelAssociations where
   type
@@ -203,11 +203,11 @@ instance Prelude.Hashable GetBotChannelAssociations where
 
 instance Prelude.NFData GetBotChannelAssociations where
   rnf GetBotChannelAssociations' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nameContains
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf botName
-      `Prelude.seq` Prelude.rnf botAlias
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nameContains `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf botName `Prelude.seq`
+            Prelude.rnf botAlias
 
 instance Data.ToHeaders GetBotChannelAssociations where
   toHeaders =
@@ -303,6 +303,6 @@ instance
     GetBotChannelAssociationsResponse
   where
   rnf GetBotChannelAssociationsResponse' {..} =
-    Prelude.rnf botChannelAssociations
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf botChannelAssociations `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

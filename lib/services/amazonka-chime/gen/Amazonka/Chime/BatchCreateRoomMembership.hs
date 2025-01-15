@@ -124,9 +124,9 @@ instance Prelude.Hashable BatchCreateRoomMembership where
 
 instance Prelude.NFData BatchCreateRoomMembership where
   rnf BatchCreateRoomMembership' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf roomId
-      `Prelude.seq` Prelude.rnf membershipItemList
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf roomId `Prelude.seq`
+        Prelude.rnf membershipItemList
 
 instance Data.ToHeaders BatchCreateRoomMembership where
   toHeaders = Prelude.const Prelude.mempty
@@ -205,5 +205,5 @@ instance
     BatchCreateRoomMembershipResponse
   where
   rnf BatchCreateRoomMembershipResponse' {..} =
-    Prelude.rnf errors
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf errors `Prelude.seq`
+      Prelude.rnf httpStatus

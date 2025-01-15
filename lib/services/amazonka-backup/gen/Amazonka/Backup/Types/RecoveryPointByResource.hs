@@ -195,12 +195,12 @@ instance Prelude.Hashable RecoveryPointByResource where
 
 instance Prelude.NFData RecoveryPointByResource where
   rnf RecoveryPointByResource' {..} =
-    Prelude.rnf backupSizeBytes
-      `Prelude.seq` Prelude.rnf backupVaultName
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf encryptionKeyArn
-      `Prelude.seq` Prelude.rnf isParent
-      `Prelude.seq` Prelude.rnf parentRecoveryPointArn
-      `Prelude.seq` Prelude.rnf recoveryPointArn
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusMessage
+    Prelude.rnf backupSizeBytes `Prelude.seq`
+      Prelude.rnf backupVaultName `Prelude.seq`
+        Prelude.rnf creationDate `Prelude.seq`
+          Prelude.rnf encryptionKeyArn `Prelude.seq`
+            Prelude.rnf isParent `Prelude.seq`
+              Prelude.rnf parentRecoveryPointArn `Prelude.seq`
+                Prelude.rnf recoveryPointArn `Prelude.seq`
+                  Prelude.rnf status `Prelude.seq`
+                    Prelude.rnf statusMessage

@@ -230,12 +230,12 @@ instance Prelude.Hashable CreateDomain where
 
 instance Prelude.NFData CreateDomain where
   rnf CreateDomain' {..} =
-    Prelude.rnf deadLetterQueueUrl
-      `Prelude.seq` Prelude.rnf defaultEncryptionKey
-      `Prelude.seq` Prelude.rnf matching
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf defaultExpirationDays
+    Prelude.rnf deadLetterQueueUrl `Prelude.seq`
+      Prelude.rnf defaultEncryptionKey `Prelude.seq`
+        Prelude.rnf matching `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf domainName `Prelude.seq`
+              Prelude.rnf defaultExpirationDays
 
 instance Data.ToHeaders CreateDomain where
   toHeaders =
@@ -428,12 +428,12 @@ createDomainResponse_lastUpdatedAt = Lens.lens (\CreateDomainResponse' {lastUpda
 
 instance Prelude.NFData CreateDomainResponse where
   rnf CreateDomainResponse' {..} =
-    Prelude.rnf deadLetterQueueUrl
-      `Prelude.seq` Prelude.rnf defaultEncryptionKey
-      `Prelude.seq` Prelude.rnf matching
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf defaultExpirationDays
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
+    Prelude.rnf deadLetterQueueUrl `Prelude.seq`
+      Prelude.rnf defaultEncryptionKey `Prelude.seq`
+        Prelude.rnf matching `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf httpStatus `Prelude.seq`
+              Prelude.rnf domainName `Prelude.seq`
+                Prelude.rnf defaultExpirationDays `Prelude.seq`
+                  Prelude.rnf createdAt `Prelude.seq`
+                    Prelude.rnf lastUpdatedAt

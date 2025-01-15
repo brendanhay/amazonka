@@ -264,11 +264,11 @@ instance
     DescribeAuditMitigationActionsTaskResponse
   where
   rnf DescribeAuditMitigationActionsTaskResponse' {..} =
-    Prelude.rnf actionsDefinition
-      `Prelude.seq` Prelude.rnf auditCheckToActionsMapping
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf target
-      `Prelude.seq` Prelude.rnf taskStatistics
-      `Prelude.seq` Prelude.rnf taskStatus
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf actionsDefinition `Prelude.seq`
+      Prelude.rnf auditCheckToActionsMapping `Prelude.seq`
+        Prelude.rnf endTime `Prelude.seq`
+          Prelude.rnf startTime `Prelude.seq`
+            Prelude.rnf target `Prelude.seq`
+              Prelude.rnf taskStatistics `Prelude.seq`
+                Prelude.rnf taskStatus `Prelude.seq`
+                  Prelude.rnf httpStatus

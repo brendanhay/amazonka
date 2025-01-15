@@ -222,7 +222,7 @@ detectDocumentTextResponse_httpStatus = Lens.lens (\DetectDocumentTextResponse' 
 
 instance Prelude.NFData DetectDocumentTextResponse where
   rnf DetectDocumentTextResponse' {..} =
-    Prelude.rnf blocks
-      `Prelude.seq` Prelude.rnf detectDocumentTextModelVersion
-      `Prelude.seq` Prelude.rnf documentMetadata
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf blocks `Prelude.seq`
+      Prelude.rnf detectDocumentTextModelVersion `Prelude.seq`
+        Prelude.rnf documentMetadata `Prelude.seq`
+          Prelude.rnf httpStatus

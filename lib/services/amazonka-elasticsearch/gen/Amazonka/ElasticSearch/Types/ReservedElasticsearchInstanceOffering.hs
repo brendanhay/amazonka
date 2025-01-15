@@ -183,11 +183,11 @@ instance
     ReservedElasticsearchInstanceOffering
   where
   rnf ReservedElasticsearchInstanceOffering' {..} =
-    Prelude.rnf currencyCode
-      `Prelude.seq` Prelude.rnf duration
-      `Prelude.seq` Prelude.rnf elasticsearchInstanceType
-      `Prelude.seq` Prelude.rnf fixedPrice
-      `Prelude.seq` Prelude.rnf paymentOption
-      `Prelude.seq` Prelude.rnf recurringCharges
-      `Prelude.seq` Prelude.rnf reservedElasticsearchInstanceOfferingId
-      `Prelude.seq` Prelude.rnf usagePrice
+    Prelude.rnf currencyCode `Prelude.seq`
+      Prelude.rnf duration `Prelude.seq`
+        Prelude.rnf elasticsearchInstanceType `Prelude.seq`
+          Prelude.rnf fixedPrice `Prelude.seq`
+            Prelude.rnf paymentOption `Prelude.seq`
+              Prelude.rnf recurringCharges `Prelude.seq`
+                Prelude.rnf reservedElasticsearchInstanceOfferingId `Prelude.seq`
+                  Prelude.rnf usagePrice

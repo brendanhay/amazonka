@@ -125,8 +125,8 @@ instance
 
 instance Prelude.NFData UpdateDocumentDefaultVersion where
   rnf UpdateDocumentDefaultVersion' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf documentVersion
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf documentVersion
 
 instance Data.ToHeaders UpdateDocumentDefaultVersion where
   toHeaders =
@@ -206,5 +206,5 @@ instance
     UpdateDocumentDefaultVersionResponse
   where
   rnf UpdateDocumentDefaultVersionResponse' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf httpStatus

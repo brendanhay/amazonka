@@ -191,6 +191,6 @@ instance
     DeleteCostCategoryDefinitionResponse
   where
   rnf DeleteCostCategoryDefinitionResponse' {..} =
-    Prelude.rnf costCategoryArn
-      `Prelude.seq` Prelude.rnf effectiveEnd
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf costCategoryArn `Prelude.seq`
+      Prelude.rnf effectiveEnd `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -101,8 +101,8 @@ instance Prelude.Hashable ComparisonConfiguration where
 
 instance Prelude.NFData ComparisonConfiguration where
   rnf ComparisonConfiguration' {..} =
-    Prelude.rnf comparisonFormat
-      `Prelude.seq` Prelude.rnf comparisonMethod
+    Prelude.rnf comparisonFormat `Prelude.seq`
+      Prelude.rnf comparisonMethod
 
 instance Data.ToJSON ComparisonConfiguration where
   toJSON ComparisonConfiguration' {..} =

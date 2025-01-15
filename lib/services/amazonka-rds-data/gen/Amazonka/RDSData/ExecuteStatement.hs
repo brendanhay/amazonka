@@ -317,17 +317,17 @@ instance Prelude.Hashable ExecuteStatement where
 
 instance Prelude.NFData ExecuteStatement where
   rnf ExecuteStatement' {..} =
-    Prelude.rnf continueAfterTimeout
-      `Prelude.seq` Prelude.rnf database
-      `Prelude.seq` Prelude.rnf formatRecordsAs
-      `Prelude.seq` Prelude.rnf includeResultMetadata
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf resultSetOptions
-      `Prelude.seq` Prelude.rnf schema
-      `Prelude.seq` Prelude.rnf transactionId
-      `Prelude.seq` Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf secretArn
-      `Prelude.seq` Prelude.rnf sql
+    Prelude.rnf continueAfterTimeout `Prelude.seq`
+      Prelude.rnf database `Prelude.seq`
+        Prelude.rnf formatRecordsAs `Prelude.seq`
+          Prelude.rnf includeResultMetadata `Prelude.seq`
+            Prelude.rnf parameters `Prelude.seq`
+              Prelude.rnf resultSetOptions `Prelude.seq`
+                Prelude.rnf schema `Prelude.seq`
+                  Prelude.rnf transactionId `Prelude.seq`
+                    Prelude.rnf resourceArn `Prelude.seq`
+                      Prelude.rnf secretArn `Prelude.seq`
+                        Prelude.rnf sql
 
 instance Data.ToHeaders ExecuteStatement where
   toHeaders =
@@ -478,9 +478,9 @@ executeStatementResponse_httpStatus = Lens.lens (\ExecuteStatementResponse' {htt
 
 instance Prelude.NFData ExecuteStatementResponse where
   rnf ExecuteStatementResponse' {..} =
-    Prelude.rnf columnMetadata
-      `Prelude.seq` Prelude.rnf formattedRecords
-      `Prelude.seq` Prelude.rnf generatedFields
-      `Prelude.seq` Prelude.rnf numberOfRecordsUpdated
-      `Prelude.seq` Prelude.rnf records
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf columnMetadata `Prelude.seq`
+      Prelude.rnf formattedRecords `Prelude.seq`
+        Prelude.rnf generatedFields `Prelude.seq`
+          Prelude.rnf numberOfRecordsUpdated `Prelude.seq`
+            Prelude.rnf records `Prelude.seq`
+              Prelude.rnf httpStatus

@@ -176,11 +176,11 @@ instance Prelude.Hashable EventTracker where
 
 instance Prelude.NFData EventTracker where
   rnf EventTracker' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf datasetGroupArn
-      `Prelude.seq` Prelude.rnf eventTrackerArn
-      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf trackingId
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf creationDateTime `Prelude.seq`
+        Prelude.rnf datasetGroupArn `Prelude.seq`
+          Prelude.rnf eventTrackerArn `Prelude.seq`
+            Prelude.rnf lastUpdatedDateTime `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf status `Prelude.seq`
+                  Prelude.rnf trackingId

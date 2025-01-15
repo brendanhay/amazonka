@@ -87,5 +87,5 @@ instance Prelude.Hashable OptionGroupMembership where
 
 instance Prelude.NFData OptionGroupMembership where
   rnf OptionGroupMembership' {..} =
-    Prelude.rnf optionGroupName
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf optionGroupName `Prelude.seq`
+      Prelude.rnf status

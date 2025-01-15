@@ -116,8 +116,8 @@ instance Prelude.Hashable OptOutSpeaker where
 
 instance Prelude.NFData OptOutSpeaker where
   rnf OptOutSpeaker' {..} =
-    Prelude.rnf domainId
-      `Prelude.seq` Prelude.rnf speakerId
+    Prelude.rnf domainId `Prelude.seq`
+      Prelude.rnf speakerId
 
 instance Data.ToHeaders OptOutSpeaker where
   toHeaders =
@@ -187,5 +187,5 @@ optOutSpeakerResponse_httpStatus = Lens.lens (\OptOutSpeakerResponse' {httpStatu
 
 instance Prelude.NFData OptOutSpeakerResponse where
   rnf OptOutSpeakerResponse' {..} =
-    Prelude.rnf speaker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf speaker `Prelude.seq`
+      Prelude.rnf httpStatus

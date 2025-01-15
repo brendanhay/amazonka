@@ -144,9 +144,9 @@ instance Prelude.Hashable DescribeTemplateAlias where
 
 instance Prelude.NFData DescribeTemplateAlias where
   rnf DescribeTemplateAlias' {..} =
-    Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf templateId
-      `Prelude.seq` Prelude.rnf aliasName
+    Prelude.rnf awsAccountId `Prelude.seq`
+      Prelude.rnf templateId `Prelude.seq`
+        Prelude.rnf aliasName
 
 instance Data.ToHeaders DescribeTemplateAlias where
   toHeaders =
@@ -223,6 +223,6 @@ describeTemplateAliasResponse_status = Lens.lens (\DescribeTemplateAliasResponse
 
 instance Prelude.NFData DescribeTemplateAliasResponse where
   rnf DescribeTemplateAliasResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf templateAlias
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf requestId `Prelude.seq`
+      Prelude.rnf templateAlias `Prelude.seq`
+        Prelude.rnf status

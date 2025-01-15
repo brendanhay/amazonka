@@ -123,8 +123,8 @@ instance Prelude.Hashable RebootInputDevice' where
 
 instance Prelude.NFData RebootInputDevice' where
   rnf RebootInputDevice'' {..} =
-    Prelude.rnf force
-      `Prelude.seq` Prelude.rnf inputDeviceId
+    Prelude.rnf force `Prelude.seq`
+      Prelude.rnf inputDeviceId
 
 instance Data.ToHeaders RebootInputDevice' where
   toHeaders =

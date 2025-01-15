@@ -198,9 +198,9 @@ getScheduleGroupResponse_httpStatus = Lens.lens (\GetScheduleGroupResponse' {htt
 
 instance Prelude.NFData GetScheduleGroupResponse where
   rnf GetScheduleGroupResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf lastModificationDate
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf creationDate `Prelude.seq`
+        Prelude.rnf lastModificationDate `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf state `Prelude.seq`
+              Prelude.rnf httpStatus

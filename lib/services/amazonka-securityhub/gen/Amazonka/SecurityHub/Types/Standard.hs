@@ -132,8 +132,8 @@ instance Prelude.Hashable Standard where
 
 instance Prelude.NFData Standard where
   rnf Standard' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf enabledByDefault
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf standardsArn
-      `Prelude.seq` Prelude.rnf standardsManagedBy
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf enabledByDefault `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf standardsArn `Prelude.seq`
+            Prelude.rnf standardsManagedBy

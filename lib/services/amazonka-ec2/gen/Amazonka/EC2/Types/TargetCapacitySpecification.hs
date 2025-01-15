@@ -153,8 +153,8 @@ instance Prelude.Hashable TargetCapacitySpecification where
 
 instance Prelude.NFData TargetCapacitySpecification where
   rnf TargetCapacitySpecification' {..} =
-    Prelude.rnf defaultTargetCapacityType
-      `Prelude.seq` Prelude.rnf onDemandTargetCapacity
-      `Prelude.seq` Prelude.rnf spotTargetCapacity
-      `Prelude.seq` Prelude.rnf targetCapacityUnitType
-      `Prelude.seq` Prelude.rnf totalTargetCapacity
+    Prelude.rnf defaultTargetCapacityType `Prelude.seq`
+      Prelude.rnf onDemandTargetCapacity `Prelude.seq`
+        Prelude.rnf spotTargetCapacity `Prelude.seq`
+          Prelude.rnf targetCapacityUnitType `Prelude.seq`
+            Prelude.rnf totalTargetCapacity

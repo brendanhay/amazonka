@@ -158,10 +158,10 @@ instance Prelude.Hashable UpdateRevision where
 
 instance Prelude.NFData UpdateRevision where
   rnf UpdateRevision' {..} =
-    Prelude.rnf comment
-      `Prelude.seq` Prelude.rnf finalized
-      `Prelude.seq` Prelude.rnf dataSetId
-      `Prelude.seq` Prelude.rnf revisionId
+    Prelude.rnf comment `Prelude.seq`
+      Prelude.rnf finalized `Prelude.seq`
+        Prelude.rnf dataSetId `Prelude.seq`
+          Prelude.rnf revisionId
 
 instance Data.ToHeaders UpdateRevision where
   toHeaders =
@@ -364,15 +364,15 @@ updateRevisionResponse_httpStatus = Lens.lens (\UpdateRevisionResponse' {httpSta
 
 instance Prelude.NFData UpdateRevisionResponse where
   rnf UpdateRevisionResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf comment
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf dataSetId
-      `Prelude.seq` Prelude.rnf finalized
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf revocationComment
-      `Prelude.seq` Prelude.rnf revoked
-      `Prelude.seq` Prelude.rnf revokedAt
-      `Prelude.seq` Prelude.rnf sourceId
-      `Prelude.seq` Prelude.rnf updatedAt
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf comment `Prelude.seq`
+        Prelude.rnf createdAt `Prelude.seq`
+          Prelude.rnf dataSetId `Prelude.seq`
+            Prelude.rnf finalized `Prelude.seq`
+              Prelude.rnf id `Prelude.seq`
+                Prelude.rnf revocationComment `Prelude.seq`
+                  Prelude.rnf revoked `Prelude.seq`
+                    Prelude.rnf revokedAt `Prelude.seq`
+                      Prelude.rnf sourceId `Prelude.seq`
+                        Prelude.rnf updatedAt `Prelude.seq`
+                          Prelude.rnf httpStatus

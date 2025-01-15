@@ -97,9 +97,9 @@ instance Prelude.Hashable DataSetConfiguration where
 
 instance Prelude.NFData DataSetConfiguration where
   rnf DataSetConfiguration' {..} =
-    Prelude.rnf columnGroupSchemaList
-      `Prelude.seq` Prelude.rnf dataSetSchema
-      `Prelude.seq` Prelude.rnf placeholder
+    Prelude.rnf columnGroupSchemaList `Prelude.seq`
+      Prelude.rnf dataSetSchema `Prelude.seq`
+        Prelude.rnf placeholder
 
 instance Data.ToJSON DataSetConfiguration where
   toJSON DataSetConfiguration' {..} =

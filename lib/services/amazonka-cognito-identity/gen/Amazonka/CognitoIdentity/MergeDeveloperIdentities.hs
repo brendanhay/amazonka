@@ -179,10 +179,10 @@ instance Prelude.Hashable MergeDeveloperIdentities where
 
 instance Prelude.NFData MergeDeveloperIdentities where
   rnf MergeDeveloperIdentities' {..} =
-    Prelude.rnf sourceUserIdentifier
-      `Prelude.seq` Prelude.rnf destinationUserIdentifier
-      `Prelude.seq` Prelude.rnf developerProviderName
-      `Prelude.seq` Prelude.rnf identityPoolId
+    Prelude.rnf sourceUserIdentifier `Prelude.seq`
+      Prelude.rnf destinationUserIdentifier `Prelude.seq`
+        Prelude.rnf developerProviderName `Prelude.seq`
+          Prelude.rnf identityPoolId
 
 instance Data.ToHeaders MergeDeveloperIdentities where
   toHeaders =
@@ -272,5 +272,5 @@ instance
     MergeDeveloperIdentitiesResponse
   where
   rnf MergeDeveloperIdentitiesResponse' {..} =
-    Prelude.rnf identityId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf identityId `Prelude.seq`
+      Prelude.rnf httpStatus

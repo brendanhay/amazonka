@@ -592,12 +592,12 @@ instance Prelude.Hashable Connection where
 
 instance Prelude.NFData Connection where
   rnf Connection' {..} =
-    Prelude.rnf connectionProperties
-      `Prelude.seq` Prelude.rnf connectionType
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf lastUpdatedBy
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf matchCriteria
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf physicalConnectionRequirements
+    Prelude.rnf connectionProperties `Prelude.seq`
+      Prelude.rnf connectionType `Prelude.seq`
+        Prelude.rnf creationTime `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf lastUpdatedBy `Prelude.seq`
+              Prelude.rnf lastUpdatedTime `Prelude.seq`
+                Prelude.rnf matchCriteria `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf physicalConnectionRequirements

@@ -112,8 +112,8 @@ instance Prelude.Hashable DeletePortal where
 
 instance Prelude.NFData DeletePortal where
   rnf DeletePortal' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf portalId
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf portalId
 
 instance Data.ToHeaders DeletePortal where
   toHeaders =
@@ -179,5 +179,5 @@ deletePortalResponse_portalStatus = Lens.lens (\DeletePortalResponse' {portalSta
 
 instance Prelude.NFData DeletePortalResponse where
   rnf DeletePortalResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf portalStatus
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf portalStatus

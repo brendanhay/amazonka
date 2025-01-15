@@ -212,12 +212,12 @@ instance
     VerificationMessageTemplateType
   where
   rnf VerificationMessageTemplateType' {..} =
-    Prelude.rnf defaultEmailOption
-      `Prelude.seq` Prelude.rnf emailMessage
-      `Prelude.seq` Prelude.rnf emailMessageByLink
-      `Prelude.seq` Prelude.rnf emailSubject
-      `Prelude.seq` Prelude.rnf emailSubjectByLink
-      `Prelude.seq` Prelude.rnf smsMessage
+    Prelude.rnf defaultEmailOption `Prelude.seq`
+      Prelude.rnf emailMessage `Prelude.seq`
+        Prelude.rnf emailMessageByLink `Prelude.seq`
+          Prelude.rnf emailSubject `Prelude.seq`
+            Prelude.rnf emailSubjectByLink `Prelude.seq`
+              Prelude.rnf smsMessage
 
 instance Data.ToJSON VerificationMessageTemplateType where
   toJSON VerificationMessageTemplateType' {..} =

@@ -89,6 +89,6 @@ instance Prelude.Hashable ChoiceImprovementPlan where
 
 instance Prelude.NFData ChoiceImprovementPlan where
   rnf ChoiceImprovementPlan' {..} =
-    Prelude.rnf choiceId
-      `Prelude.seq` Prelude.rnf displayText
-      `Prelude.seq` Prelude.rnf improvementPlanUrl
+    Prelude.rnf choiceId `Prelude.seq`
+      Prelude.rnf displayText `Prelude.seq`
+        Prelude.rnf improvementPlanUrl

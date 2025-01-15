@@ -191,11 +191,11 @@ instance Prelude.Hashable GetEBSVolumeRecommendations where
 
 instance Prelude.NFData GetEBSVolumeRecommendations where
   rnf GetEBSVolumeRecommendations' {..} =
-    Prelude.rnf accountIds
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf volumeArns
+    Prelude.rnf accountIds `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf volumeArns
 
 instance Data.ToHeaders GetEBSVolumeRecommendations where
   toHeaders =
@@ -311,7 +311,7 @@ instance
     GetEBSVolumeRecommendationsResponse
   where
   rnf GetEBSVolumeRecommendationsResponse' {..} =
-    Prelude.rnf errors
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf volumeRecommendations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf errors `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf volumeRecommendations `Prelude.seq`
+          Prelude.rnf httpStatus

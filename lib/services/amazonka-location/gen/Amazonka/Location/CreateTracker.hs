@@ -345,13 +345,13 @@ instance Prelude.Hashable CreateTracker where
 
 instance Prelude.NFData CreateTracker where
   rnf CreateTracker' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf positionFiltering
-      `Prelude.seq` Prelude.rnf pricingPlan
-      `Prelude.seq` Prelude.rnf pricingPlanDataSource
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf trackerName
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf kmsKeyId `Prelude.seq`
+        Prelude.rnf positionFiltering `Prelude.seq`
+          Prelude.rnf pricingPlan `Prelude.seq`
+            Prelude.rnf pricingPlanDataSource `Prelude.seq`
+              Prelude.rnf tags `Prelude.seq`
+                Prelude.rnf trackerName
 
 instance Data.ToHeaders CreateTracker where
   toHeaders =
@@ -472,7 +472,7 @@ createTrackerResponse_trackerName = Lens.lens (\CreateTrackerResponse' {trackerN
 
 instance Prelude.NFData CreateTrackerResponse where
   rnf CreateTrackerResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf createTime
-      `Prelude.seq` Prelude.rnf trackerArn
-      `Prelude.seq` Prelude.rnf trackerName
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf createTime `Prelude.seq`
+        Prelude.rnf trackerArn `Prelude.seq`
+          Prelude.rnf trackerName

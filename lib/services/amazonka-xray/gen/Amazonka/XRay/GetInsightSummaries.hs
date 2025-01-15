@@ -180,13 +180,13 @@ instance Prelude.Hashable GetInsightSummaries where
 
 instance Prelude.NFData GetInsightSummaries where
   rnf GetInsightSummaries' {..} =
-    Prelude.rnf groupARN
-      `Prelude.seq` Prelude.rnf groupName
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf states
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf endTime
+    Prelude.rnf groupARN `Prelude.seq`
+      Prelude.rnf groupName `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf states `Prelude.seq`
+              Prelude.rnf startTime `Prelude.seq`
+                Prelude.rnf endTime
 
 instance Data.ToHeaders GetInsightSummaries where
   toHeaders = Prelude.const Prelude.mempty
@@ -270,6 +270,6 @@ getInsightSummariesResponse_httpStatus = Lens.lens (\GetInsightSummariesResponse
 
 instance Prelude.NFData GetInsightSummariesResponse where
   rnf GetInsightSummariesResponse' {..} =
-    Prelude.rnf insightSummaries
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf insightSummaries `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

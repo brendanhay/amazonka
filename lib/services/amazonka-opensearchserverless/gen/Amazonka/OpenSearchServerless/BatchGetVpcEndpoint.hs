@@ -186,6 +186,6 @@ batchGetVpcEndpointResponse_httpStatus = Lens.lens (\BatchGetVpcEndpointResponse
 
 instance Prelude.NFData BatchGetVpcEndpointResponse where
   rnf BatchGetVpcEndpointResponse' {..} =
-    Prelude.rnf vpcEndpointDetails
-      `Prelude.seq` Prelude.rnf vpcEndpointErrorDetails
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf vpcEndpointDetails `Prelude.seq`
+      Prelude.rnf vpcEndpointErrorDetails `Prelude.seq`
+        Prelude.rnf httpStatus

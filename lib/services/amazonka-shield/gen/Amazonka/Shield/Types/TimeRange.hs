@@ -80,8 +80,8 @@ instance Prelude.Hashable TimeRange where
 
 instance Prelude.NFData TimeRange where
   rnf TimeRange' {..} =
-    Prelude.rnf fromInclusive
-      `Prelude.seq` Prelude.rnf toExclusive
+    Prelude.rnf fromInclusive `Prelude.seq`
+      Prelude.rnf toExclusive
 
 instance Data.ToJSON TimeRange where
   toJSON TimeRange' {..} =

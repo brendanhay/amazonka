@@ -370,25 +370,25 @@ instance Prelude.Hashable MsSmoothGroupSettings where
 
 instance Prelude.NFData MsSmoothGroupSettings where
   rnf MsSmoothGroupSettings' {..} =
-    Prelude.rnf acquisitionPointId
-      `Prelude.seq` Prelude.rnf audioOnlyTimecodeControl
-      `Prelude.seq` Prelude.rnf certificateMode
-      `Prelude.seq` Prelude.rnf connectionRetryInterval
-      `Prelude.seq` Prelude.rnf eventId
-      `Prelude.seq` Prelude.rnf eventIdMode
-      `Prelude.seq` Prelude.rnf eventStopBehavior
-      `Prelude.seq` Prelude.rnf filecacheDuration
-      `Prelude.seq` Prelude.rnf fragmentLength
-      `Prelude.seq` Prelude.rnf inputLossAction
-      `Prelude.seq` Prelude.rnf numRetries
-      `Prelude.seq` Prelude.rnf restartDelay
-      `Prelude.seq` Prelude.rnf segmentationMode
-      `Prelude.seq` Prelude.rnf sendDelayMs
-      `Prelude.seq` Prelude.rnf sparseTrackType
-      `Prelude.seq` Prelude.rnf streamManifestBehavior
-      `Prelude.seq` Prelude.rnf timestampOffset
-      `Prelude.seq` Prelude.rnf timestampOffsetMode
-      `Prelude.seq` Prelude.rnf destination
+    Prelude.rnf acquisitionPointId `Prelude.seq`
+      Prelude.rnf audioOnlyTimecodeControl `Prelude.seq`
+        Prelude.rnf certificateMode `Prelude.seq`
+          Prelude.rnf connectionRetryInterval `Prelude.seq`
+            Prelude.rnf eventId `Prelude.seq`
+              Prelude.rnf eventIdMode `Prelude.seq`
+                Prelude.rnf eventStopBehavior `Prelude.seq`
+                  Prelude.rnf filecacheDuration `Prelude.seq`
+                    Prelude.rnf fragmentLength `Prelude.seq`
+                      Prelude.rnf inputLossAction `Prelude.seq`
+                        Prelude.rnf numRetries `Prelude.seq`
+                          Prelude.rnf restartDelay `Prelude.seq`
+                            Prelude.rnf segmentationMode `Prelude.seq`
+                              Prelude.rnf sendDelayMs `Prelude.seq`
+                                Prelude.rnf sparseTrackType `Prelude.seq`
+                                  Prelude.rnf streamManifestBehavior `Prelude.seq`
+                                    Prelude.rnf timestampOffset `Prelude.seq`
+                                      Prelude.rnf timestampOffsetMode `Prelude.seq`
+                                        Prelude.rnf destination
 
 instance Data.ToJSON MsSmoothGroupSettings where
   toJSON MsSmoothGroupSettings' {..} =

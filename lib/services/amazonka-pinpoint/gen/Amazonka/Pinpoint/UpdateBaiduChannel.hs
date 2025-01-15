@@ -116,8 +116,8 @@ instance Prelude.Hashable UpdateBaiduChannel where
 
 instance Prelude.NFData UpdateBaiduChannel where
   rnf UpdateBaiduChannel' {..} =
-    Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf baiduChannelRequest
+    Prelude.rnf applicationId `Prelude.seq`
+      Prelude.rnf baiduChannelRequest
 
 instance Data.ToHeaders UpdateBaiduChannel where
   toHeaders =
@@ -189,5 +189,5 @@ updateBaiduChannelResponse_baiduChannelResponse = Lens.lens (\UpdateBaiduChannel
 
 instance Prelude.NFData UpdateBaiduChannelResponse where
   rnf UpdateBaiduChannelResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf baiduChannelResponse
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf baiduChannelResponse

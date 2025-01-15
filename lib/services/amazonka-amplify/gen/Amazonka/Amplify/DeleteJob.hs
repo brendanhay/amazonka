@@ -123,9 +123,9 @@ instance Prelude.Hashable DeleteJob where
 
 instance Prelude.NFData DeleteJob where
   rnf DeleteJob' {..} =
-    Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf branchName
-      `Prelude.seq` Prelude.rnf jobId
+    Prelude.rnf appId `Prelude.seq`
+      Prelude.rnf branchName `Prelude.seq`
+        Prelude.rnf jobId
 
 instance Data.ToHeaders DeleteJob where
   toHeaders =
@@ -195,5 +195,5 @@ deleteJobResponse_jobSummary = Lens.lens (\DeleteJobResponse' {jobSummary} -> jo
 
 instance Prelude.NFData DeleteJobResponse where
   rnf DeleteJobResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf jobSummary
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf jobSummary

@@ -319,8 +319,8 @@ instance Prelude.Hashable SqlInjectionMatchTuple where
 
 instance Prelude.NFData SqlInjectionMatchTuple where
   rnf SqlInjectionMatchTuple' {..} =
-    Prelude.rnf fieldToMatch
-      `Prelude.seq` Prelude.rnf textTransformation
+    Prelude.rnf fieldToMatch `Prelude.seq`
+      Prelude.rnf textTransformation
 
 instance Data.ToJSON SqlInjectionMatchTuple where
   toJSON SqlInjectionMatchTuple' {..} =

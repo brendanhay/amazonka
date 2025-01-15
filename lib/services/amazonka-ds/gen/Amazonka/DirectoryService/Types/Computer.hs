@@ -98,6 +98,6 @@ instance Prelude.Hashable Computer where
 
 instance Prelude.NFData Computer where
   rnf Computer' {..} =
-    Prelude.rnf computerAttributes
-      `Prelude.seq` Prelude.rnf computerId
-      `Prelude.seq` Prelude.rnf computerName
+    Prelude.rnf computerAttributes `Prelude.seq`
+      Prelude.rnf computerId `Prelude.seq`
+        Prelude.rnf computerName

@@ -176,11 +176,11 @@ instance Prelude.Hashable StartCalculationExecution where
 
 instance Prelude.NFData StartCalculationExecution where
   rnf StartCalculationExecution' {..} =
-    Prelude.rnf calculationConfiguration
-      `Prelude.seq` Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf codeBlock
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf sessionId
+    Prelude.rnf calculationConfiguration `Prelude.seq`
+      Prelude.rnf clientRequestToken `Prelude.seq`
+        Prelude.rnf codeBlock `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf sessionId
 
 instance Data.ToHeaders StartCalculationExecution where
   toHeaders =
@@ -318,6 +318,6 @@ instance
     StartCalculationExecutionResponse
   where
   rnf StartCalculationExecutionResponse' {..} =
-    Prelude.rnf calculationExecutionId
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf calculationExecutionId `Prelude.seq`
+      Prelude.rnf state `Prelude.seq`
+        Prelude.rnf httpStatus

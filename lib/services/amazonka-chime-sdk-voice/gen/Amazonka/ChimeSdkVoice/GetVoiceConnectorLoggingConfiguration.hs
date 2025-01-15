@@ -179,5 +179,5 @@ instance
   where
   rnf
     GetVoiceConnectorLoggingConfigurationResponse' {..} =
-      Prelude.rnf loggingConfiguration
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf loggingConfiguration `Prelude.seq`
+        Prelude.rnf httpStatus

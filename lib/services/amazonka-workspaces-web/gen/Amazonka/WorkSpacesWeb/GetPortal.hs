@@ -151,5 +151,5 @@ getPortalResponse_httpStatus = Lens.lens (\GetPortalResponse' {httpStatus} -> ht
 
 instance Prelude.NFData GetPortalResponse where
   rnf GetPortalResponse' {..} =
-    Prelude.rnf portal
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf portal `Prelude.seq`
+      Prelude.rnf httpStatus

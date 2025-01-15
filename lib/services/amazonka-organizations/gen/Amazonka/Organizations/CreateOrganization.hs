@@ -228,5 +228,5 @@ createOrganizationResponse_httpStatus = Lens.lens (\CreateOrganizationResponse' 
 
 instance Prelude.NFData CreateOrganizationResponse where
   rnf CreateOrganizationResponse' {..} =
-    Prelude.rnf organization
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf organization `Prelude.seq`
+      Prelude.rnf httpStatus

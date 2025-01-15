@@ -127,10 +127,10 @@ instance Prelude.Hashable PSTNDialIn where
 
 instance Prelude.NFData PSTNDialIn where
   rnf PSTNDialIn' {..} =
-    Prelude.rnf countryCode
-      `Prelude.seq` Prelude.rnf phoneNumber
-      `Prelude.seq` Prelude.rnf oneClickIdDelay
-      `Prelude.seq` Prelude.rnf oneClickPinDelay
+    Prelude.rnf countryCode `Prelude.seq`
+      Prelude.rnf phoneNumber `Prelude.seq`
+        Prelude.rnf oneClickIdDelay `Prelude.seq`
+          Prelude.rnf oneClickPinDelay
 
 instance Data.ToJSON PSTNDialIn where
   toJSON PSTNDialIn' {..} =

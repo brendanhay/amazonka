@@ -197,11 +197,11 @@ instance Prelude.Hashable CreateBatchPrediction where
 
 instance Prelude.NFData CreateBatchPrediction where
   rnf CreateBatchPrediction' {..} =
-    Prelude.rnf batchPredictionName
-      `Prelude.seq` Prelude.rnf batchPredictionId
-      `Prelude.seq` Prelude.rnf mLModelId
-      `Prelude.seq` Prelude.rnf batchPredictionDataSourceId
-      `Prelude.seq` Prelude.rnf outputUri
+    Prelude.rnf batchPredictionName `Prelude.seq`
+      Prelude.rnf batchPredictionId `Prelude.seq`
+        Prelude.rnf mLModelId `Prelude.seq`
+          Prelude.rnf batchPredictionDataSourceId `Prelude.seq`
+            Prelude.rnf outputUri
 
 instance Data.ToHeaders CreateBatchPrediction where
   toHeaders =
@@ -295,5 +295,5 @@ createBatchPredictionResponse_httpStatus = Lens.lens (\CreateBatchPredictionResp
 
 instance Prelude.NFData CreateBatchPredictionResponse where
   rnf CreateBatchPredictionResponse' {..} =
-    Prelude.rnf batchPredictionId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf batchPredictionId `Prelude.seq`
+      Prelude.rnf httpStatus

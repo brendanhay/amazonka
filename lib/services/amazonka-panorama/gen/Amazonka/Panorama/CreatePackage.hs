@@ -112,8 +112,8 @@ instance Prelude.Hashable CreatePackage where
 
 instance Prelude.NFData CreatePackage where
   rnf CreatePackage' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf packageName
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf packageName
 
 instance Data.ToHeaders CreatePackage where
   toHeaders =
@@ -203,7 +203,7 @@ createPackageResponse_storageLocation = Lens.lens (\CreatePackageResponse' {stor
 
 instance Prelude.NFData CreatePackageResponse where
   rnf CreatePackageResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf packageId
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf storageLocation
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf packageId `Prelude.seq`
+        Prelude.rnf httpStatus `Prelude.seq`
+          Prelude.rnf storageLocation

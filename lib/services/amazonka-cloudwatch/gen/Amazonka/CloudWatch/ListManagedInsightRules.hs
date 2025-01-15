@@ -119,9 +119,7 @@ instance Core.AWSRequest ListManagedInsightRules where
       "ListManagedInsightRulesResult"
       ( \s h x ->
           ListManagedInsightRulesResponse'
-            Prelude.<$> ( x
-                            Data..@? "ManagedRules"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "ManagedRules" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (x Data..@? "NextToken")
@@ -137,9 +135,9 @@ instance Prelude.Hashable ListManagedInsightRules where
 
 instance Prelude.NFData ListManagedInsightRules where
   rnf ListManagedInsightRules' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf resourceARN
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf resourceARN
 
 instance Data.ToHeaders ListManagedInsightRules where
   toHeaders = Prelude.const Prelude.mempty
@@ -218,6 +216,6 @@ instance
     ListManagedInsightRulesResponse
   where
   rnf ListManagedInsightRulesResponse' {..} =
-    Prelude.rnf managedRules
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf managedRules `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

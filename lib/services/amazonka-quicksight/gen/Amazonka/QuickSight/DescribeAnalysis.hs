@@ -121,8 +121,8 @@ instance Prelude.Hashable DescribeAnalysis where
 
 instance Prelude.NFData DescribeAnalysis where
   rnf DescribeAnalysis' {..} =
-    Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf analysisId
+    Prelude.rnf awsAccountId `Prelude.seq`
+      Prelude.rnf analysisId
 
 instance Data.ToHeaders DescribeAnalysis where
   toHeaders =
@@ -200,6 +200,6 @@ describeAnalysisResponse_status = Lens.lens (\DescribeAnalysisResponse' {status}
 
 instance Prelude.NFData DescribeAnalysisResponse where
   rnf DescribeAnalysisResponse' {..} =
-    Prelude.rnf analysis
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf analysis `Prelude.seq`
+      Prelude.rnf requestId `Prelude.seq`
+        Prelude.rnf status

@@ -149,9 +149,9 @@ instance Prelude.Hashable ReviewResultDetail where
 
 instance Prelude.NFData ReviewResultDetail where
   rnf ReviewResultDetail' {..} =
-    Prelude.rnf actionId
-      `Prelude.seq` Prelude.rnf key
-      `Prelude.seq` Prelude.rnf questionId
-      `Prelude.seq` Prelude.rnf subjectId
-      `Prelude.seq` Prelude.rnf subjectType
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf actionId `Prelude.seq`
+      Prelude.rnf key `Prelude.seq`
+        Prelude.rnf questionId `Prelude.seq`
+          Prelude.rnf subjectId `Prelude.seq`
+            Prelude.rnf subjectType `Prelude.seq`
+              Prelude.rnf value

@@ -113,12 +113,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeAggregationAuthorizations_nextToken
-          Lens..~ rs
-          Lens.^? describeAggregationAuthorizationsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeAggregationAuthorizations_nextToken
+              Lens..~ rs
+              Lens.^? describeAggregationAuthorizationsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -157,8 +157,8 @@ instance
     DescribeAggregationAuthorizations
   where
   rnf DescribeAggregationAuthorizations' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance
   Data.ToHeaders
@@ -262,6 +262,6 @@ instance
     DescribeAggregationAuthorizationsResponse
   where
   rnf DescribeAggregationAuthorizationsResponse' {..} =
-    Prelude.rnf aggregationAuthorizations
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf aggregationAuthorizations `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

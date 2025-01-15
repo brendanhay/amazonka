@@ -82,5 +82,5 @@ instance Prelude.Hashable CoversBodyPart where
 
 instance Prelude.NFData CoversBodyPart where
   rnf CoversBodyPart' {..} =
-    Prelude.rnf confidence
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf confidence `Prelude.seq`
+      Prelude.rnf value

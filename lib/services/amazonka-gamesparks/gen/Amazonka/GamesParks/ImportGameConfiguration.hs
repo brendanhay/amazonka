@@ -115,8 +115,8 @@ instance Prelude.Hashable ImportGameConfiguration where
 
 instance Prelude.NFData ImportGameConfiguration where
   rnf ImportGameConfiguration' {..} =
-    Prelude.rnf gameName
-      `Prelude.seq` Prelude.rnf importSource
+    Prelude.rnf gameName `Prelude.seq`
+      Prelude.rnf importSource
 
 instance Data.ToHeaders ImportGameConfiguration where
   toHeaders =
@@ -188,5 +188,5 @@ instance
     ImportGameConfigurationResponse
   where
   rnf ImportGameConfigurationResponse' {..} =
-    Prelude.rnf gameConfiguration
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf gameConfiguration `Prelude.seq`
+      Prelude.rnf httpStatus

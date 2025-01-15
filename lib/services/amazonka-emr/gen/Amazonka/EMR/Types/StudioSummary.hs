@@ -144,10 +144,10 @@ instance Prelude.Hashable StudioSummary where
 
 instance Prelude.NFData StudioSummary where
   rnf StudioSummary' {..} =
-    Prelude.rnf authMode
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf studioId
-      `Prelude.seq` Prelude.rnf url
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf authMode `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf studioId `Prelude.seq`
+              Prelude.rnf url `Prelude.seq`
+                Prelude.rnf vpcId

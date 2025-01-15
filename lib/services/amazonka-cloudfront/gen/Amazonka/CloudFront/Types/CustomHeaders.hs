@@ -74,9 +74,7 @@ customHeaders_quantity = Lens.lens (\CustomHeaders' {quantity} -> quantity) (\s@
 instance Data.FromXML CustomHeaders where
   parseXML x =
     CustomHeaders'
-      Prelude.<$> ( x
-                      Data..@? "Items"
-                      Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "Items" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "OriginCustomHeader")
                   )
       Prelude.<*> (x Data..@ "Quantity")
@@ -89,8 +87,8 @@ instance Prelude.Hashable CustomHeaders where
 
 instance Prelude.NFData CustomHeaders where
   rnf CustomHeaders' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf quantity
+    Prelude.rnf items `Prelude.seq`
+      Prelude.rnf quantity
 
 instance Data.ToXML CustomHeaders where
   toXML CustomHeaders' {..} =

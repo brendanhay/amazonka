@@ -155,12 +155,12 @@ instance Core.AWSPager ListFunctions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listFunctions_marker
-          Lens..~ rs
-          Lens.^? listFunctionsResponse_nextMarker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listFunctions_marker
+              Lens..~ rs
+              Lens.^? listFunctionsResponse_nextMarker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListFunctions where
   type
@@ -187,10 +187,10 @@ instance Prelude.Hashable ListFunctions where
 
 instance Prelude.NFData ListFunctions where
   rnf ListFunctions' {..} =
-    Prelude.rnf functionVersion
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf masterRegion
-      `Prelude.seq` Prelude.rnf maxItems
+    Prelude.rnf functionVersion `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf masterRegion `Prelude.seq`
+          Prelude.rnf maxItems
 
 instance Data.ToHeaders ListFunctions where
   toHeaders = Prelude.const Prelude.mempty
@@ -258,6 +258,6 @@ listFunctionsResponse_httpStatus = Lens.lens (\ListFunctionsResponse' {httpStatu
 
 instance Prelude.NFData ListFunctionsResponse where
   rnf ListFunctionsResponse' {..} =
-    Prelude.rnf functions
-      `Prelude.seq` Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf functions `Prelude.seq`
+      Prelude.rnf nextMarker `Prelude.seq`
+        Prelude.rnf httpStatus

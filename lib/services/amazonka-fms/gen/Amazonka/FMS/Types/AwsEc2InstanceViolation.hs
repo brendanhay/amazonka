@@ -88,5 +88,5 @@ instance Prelude.Hashable AwsEc2InstanceViolation where
 
 instance Prelude.NFData AwsEc2InstanceViolation where
   rnf AwsEc2InstanceViolation' {..} =
-    Prelude.rnf awsEc2NetworkInterfaceViolations
-      `Prelude.seq` Prelude.rnf violationTarget
+    Prelude.rnf awsEc2NetworkInterfaceViolations `Prelude.seq`
+      Prelude.rnf violationTarget

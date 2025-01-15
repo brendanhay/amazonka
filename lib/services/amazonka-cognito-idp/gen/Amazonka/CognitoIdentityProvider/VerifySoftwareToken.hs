@@ -144,10 +144,10 @@ instance Prelude.Hashable VerifySoftwareToken where
 
 instance Prelude.NFData VerifySoftwareToken where
   rnf VerifySoftwareToken' {..} =
-    Prelude.rnf accessToken
-      `Prelude.seq` Prelude.rnf friendlyDeviceName
-      `Prelude.seq` Prelude.rnf session
-      `Prelude.seq` Prelude.rnf userCode
+    Prelude.rnf accessToken `Prelude.seq`
+      Prelude.rnf friendlyDeviceName `Prelude.seq`
+        Prelude.rnf session `Prelude.seq`
+          Prelude.rnf userCode
 
 instance Data.ToHeaders VerifySoftwareToken where
   toHeaders =
@@ -235,6 +235,6 @@ verifySoftwareTokenResponse_httpStatus = Lens.lens (\VerifySoftwareTokenResponse
 
 instance Prelude.NFData VerifySoftwareTokenResponse where
   rnf VerifySoftwareTokenResponse' {..} =
-    Prelude.rnf session
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf session `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf httpStatus

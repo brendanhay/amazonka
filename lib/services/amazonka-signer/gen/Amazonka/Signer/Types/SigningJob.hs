@@ -225,17 +225,17 @@ instance Prelude.Hashable SigningJob where
 
 instance Prelude.NFData SigningJob where
   rnf SigningJob' {..} =
-    Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf isRevoked
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf jobInvoker
-      `Prelude.seq` Prelude.rnf jobOwner
-      `Prelude.seq` Prelude.rnf platformDisplayName
-      `Prelude.seq` Prelude.rnf platformId
-      `Prelude.seq` Prelude.rnf profileName
-      `Prelude.seq` Prelude.rnf profileVersion
-      `Prelude.seq` Prelude.rnf signatureExpiresAt
-      `Prelude.seq` Prelude.rnf signedObject
-      `Prelude.seq` Prelude.rnf signingMaterial
-      `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf createdAt `Prelude.seq`
+      Prelude.rnf isRevoked `Prelude.seq`
+        Prelude.rnf jobId `Prelude.seq`
+          Prelude.rnf jobInvoker `Prelude.seq`
+            Prelude.rnf jobOwner `Prelude.seq`
+              Prelude.rnf platformDisplayName `Prelude.seq`
+                Prelude.rnf platformId `Prelude.seq`
+                  Prelude.rnf profileName `Prelude.seq`
+                    Prelude.rnf profileVersion `Prelude.seq`
+                      Prelude.rnf signatureExpiresAt `Prelude.seq`
+                        Prelude.rnf signedObject `Prelude.seq`
+                          Prelude.rnf signingMaterial `Prelude.seq`
+                            Prelude.rnf source `Prelude.seq`
+                              Prelude.rnf status

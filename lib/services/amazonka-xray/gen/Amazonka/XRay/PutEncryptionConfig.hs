@@ -211,5 +211,5 @@ putEncryptionConfigResponse_httpStatus = Lens.lens (\PutEncryptionConfigResponse
 
 instance Prelude.NFData PutEncryptionConfigResponse where
   rnf PutEncryptionConfigResponse' {..} =
-    Prelude.rnf encryptionConfig
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf encryptionConfig `Prelude.seq`
+      Prelude.rnf httpStatus

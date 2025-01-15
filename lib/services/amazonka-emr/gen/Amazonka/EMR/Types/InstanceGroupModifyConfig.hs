@@ -119,12 +119,12 @@ instance Prelude.Hashable InstanceGroupModifyConfig where
 
 instance Prelude.NFData InstanceGroupModifyConfig where
   rnf InstanceGroupModifyConfig' {..} =
-    Prelude.rnf configurations
-      `Prelude.seq` Prelude.rnf eC2InstanceIdsToTerminate
-      `Prelude.seq` Prelude.rnf instanceCount
-      `Prelude.seq` Prelude.rnf reconfigurationType
-      `Prelude.seq` Prelude.rnf shrinkPolicy
-      `Prelude.seq` Prelude.rnf instanceGroupId
+    Prelude.rnf configurations `Prelude.seq`
+      Prelude.rnf eC2InstanceIdsToTerminate `Prelude.seq`
+        Prelude.rnf instanceCount `Prelude.seq`
+          Prelude.rnf reconfigurationType `Prelude.seq`
+            Prelude.rnf shrinkPolicy `Prelude.seq`
+              Prelude.rnf instanceGroupId
 
 instance Data.ToJSON InstanceGroupModifyConfig where
   toJSON InstanceGroupModifyConfig' {..} =

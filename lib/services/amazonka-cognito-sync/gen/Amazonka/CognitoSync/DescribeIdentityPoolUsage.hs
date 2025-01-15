@@ -177,5 +177,5 @@ instance
     DescribeIdentityPoolUsageResponse
   where
   rnf DescribeIdentityPoolUsageResponse' {..} =
-    Prelude.rnf identityPoolUsage
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf identityPoolUsage `Prelude.seq`
+      Prelude.rnf httpStatus

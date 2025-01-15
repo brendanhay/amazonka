@@ -320,15 +320,15 @@ instance Prelude.Hashable PlayerSession where
 
 instance Prelude.NFData PlayerSession where
   rnf PlayerSession' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf dnsName
-      `Prelude.seq` Prelude.rnf fleetArn
-      `Prelude.seq` Prelude.rnf fleetId
-      `Prelude.seq` Prelude.rnf gameSessionId
-      `Prelude.seq` Prelude.rnf ipAddress
-      `Prelude.seq` Prelude.rnf playerData
-      `Prelude.seq` Prelude.rnf playerId
-      `Prelude.seq` Prelude.rnf playerSessionId
-      `Prelude.seq` Prelude.rnf port
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf terminationTime
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf dnsName `Prelude.seq`
+        Prelude.rnf fleetArn `Prelude.seq`
+          Prelude.rnf fleetId `Prelude.seq`
+            Prelude.rnf gameSessionId `Prelude.seq`
+              Prelude.rnf ipAddress `Prelude.seq`
+                Prelude.rnf playerData `Prelude.seq`
+                  Prelude.rnf playerId `Prelude.seq`
+                    Prelude.rnf playerSessionId `Prelude.seq`
+                      Prelude.rnf port `Prelude.seq`
+                        Prelude.rnf status `Prelude.seq`
+                          Prelude.rnf terminationTime

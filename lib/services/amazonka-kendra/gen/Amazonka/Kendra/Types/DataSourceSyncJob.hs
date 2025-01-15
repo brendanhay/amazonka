@@ -180,11 +180,11 @@ instance Prelude.Hashable DataSourceSyncJob where
 
 instance Prelude.NFData DataSourceSyncJob where
   rnf DataSourceSyncJob' {..} =
-    Prelude.rnf dataSourceErrorCode
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf executionId
-      `Prelude.seq` Prelude.rnf metrics
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf dataSourceErrorCode `Prelude.seq`
+      Prelude.rnf endTime `Prelude.seq`
+        Prelude.rnf errorCode `Prelude.seq`
+          Prelude.rnf errorMessage `Prelude.seq`
+            Prelude.rnf executionId `Prelude.seq`
+              Prelude.rnf metrics `Prelude.seq`
+                Prelude.rnf startTime `Prelude.seq`
+                  Prelude.rnf status

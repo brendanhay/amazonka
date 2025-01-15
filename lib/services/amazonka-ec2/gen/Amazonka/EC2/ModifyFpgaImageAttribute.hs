@@ -219,16 +219,16 @@ instance Prelude.Hashable ModifyFpgaImageAttribute where
 
 instance Prelude.NFData ModifyFpgaImageAttribute where
   rnf ModifyFpgaImageAttribute' {..} =
-    Prelude.rnf attribute
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf loadPermission
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf operationType
-      `Prelude.seq` Prelude.rnf productCodes
-      `Prelude.seq` Prelude.rnf userGroups
-      `Prelude.seq` Prelude.rnf userIds
-      `Prelude.seq` Prelude.rnf fpgaImageId
+    Prelude.rnf attribute `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf dryRun `Prelude.seq`
+          Prelude.rnf loadPermission `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf operationType `Prelude.seq`
+                Prelude.rnf productCodes `Prelude.seq`
+                  Prelude.rnf userGroups `Prelude.seq`
+                    Prelude.rnf userIds `Prelude.seq`
+                      Prelude.rnf fpgaImageId
 
 instance Data.ToHeaders ModifyFpgaImageAttribute where
   toHeaders = Prelude.const Prelude.mempty
@@ -306,5 +306,5 @@ instance
     ModifyFpgaImageAttributeResponse
   where
   rnf ModifyFpgaImageAttributeResponse' {..} =
-    Prelude.rnf fpgaImageAttribute
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf fpgaImageAttribute `Prelude.seq`
+      Prelude.rnf httpStatus

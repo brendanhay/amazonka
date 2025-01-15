@@ -147,13 +147,13 @@ instance Prelude.Hashable CatalogKafkaSource where
 
 instance Prelude.NFData CatalogKafkaSource where
   rnf CatalogKafkaSource' {..} =
-    Prelude.rnf dataPreviewOptions
-      `Prelude.seq` Prelude.rnf detectSchema
-      `Prelude.seq` Prelude.rnf streamingOptions
-      `Prelude.seq` Prelude.rnf windowSize
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf table
-      `Prelude.seq` Prelude.rnf database
+    Prelude.rnf dataPreviewOptions `Prelude.seq`
+      Prelude.rnf detectSchema `Prelude.seq`
+        Prelude.rnf streamingOptions `Prelude.seq`
+          Prelude.rnf windowSize `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf table `Prelude.seq`
+                Prelude.rnf database
 
 instance Data.ToJSON CatalogKafkaSource where
   toJSON CatalogKafkaSource' {..} =

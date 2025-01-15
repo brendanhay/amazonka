@@ -88,5 +88,5 @@ instance Prelude.Hashable EstimatedMonthlySavings where
 
 instance Prelude.NFData EstimatedMonthlySavings where
   rnf EstimatedMonthlySavings' {..} =
-    Prelude.rnf currency
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf currency `Prelude.seq`
+      Prelude.rnf value

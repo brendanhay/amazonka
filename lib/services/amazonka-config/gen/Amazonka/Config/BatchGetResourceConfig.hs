@@ -209,6 +209,6 @@ instance
     BatchGetResourceConfigResponse
   where
   rnf BatchGetResourceConfigResponse' {..} =
-    Prelude.rnf baseConfigurationItems
-      `Prelude.seq` Prelude.rnf unprocessedResourceKeys
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf baseConfigurationItems `Prelude.seq`
+      Prelude.rnf unprocessedResourceKeys `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -261,11 +261,11 @@ instance Prelude.Hashable UpdateChangeset where
 
 instance Prelude.NFData UpdateChangeset where
   rnf UpdateChangeset' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf datasetId
-      `Prelude.seq` Prelude.rnf changesetId
-      `Prelude.seq` Prelude.rnf sourceParams
-      `Prelude.seq` Prelude.rnf formatParams
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf datasetId `Prelude.seq`
+        Prelude.rnf changesetId `Prelude.seq`
+          Prelude.rnf sourceParams `Prelude.seq`
+            Prelude.rnf formatParams
 
 instance Data.ToHeaders UpdateChangeset where
   toHeaders =
@@ -355,6 +355,6 @@ updateChangesetResponse_httpStatus = Lens.lens (\UpdateChangesetResponse' {httpS
 
 instance Prelude.NFData UpdateChangesetResponse where
   rnf UpdateChangesetResponse' {..} =
-    Prelude.rnf changesetId
-      `Prelude.seq` Prelude.rnf datasetId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf changesetId `Prelude.seq`
+      Prelude.rnf datasetId `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -150,11 +150,11 @@ instance Prelude.Hashable NewAssertionRule where
 
 instance Prelude.NFData NewAssertionRule where
   rnf NewAssertionRule' {..} =
-    Prelude.rnf controlPanelArn
-      `Prelude.seq` Prelude.rnf assertedControls
-      `Prelude.seq` Prelude.rnf ruleConfig
-      `Prelude.seq` Prelude.rnf waitPeriodMs
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf controlPanelArn `Prelude.seq`
+      Prelude.rnf assertedControls `Prelude.seq`
+        Prelude.rnf ruleConfig `Prelude.seq`
+          Prelude.rnf waitPeriodMs `Prelude.seq`
+            Prelude.rnf name
 
 instance Data.ToJSON NewAssertionRule where
   toJSON NewAssertionRule' {..} =

@@ -135,12 +135,12 @@ instance Core.AWSPager ListIntegrationAssociations where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listIntegrationAssociations_nextToken
-          Lens..~ rs
-          Lens.^? listIntegrationAssociationsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listIntegrationAssociations_nextToken
+              Lens..~ rs
+              Lens.^? listIntegrationAssociationsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListIntegrationAssociations where
   type
@@ -170,10 +170,10 @@ instance Prelude.Hashable ListIntegrationAssociations where
 
 instance Prelude.NFData ListIntegrationAssociations where
   rnf ListIntegrationAssociations' {..} =
-    Prelude.rnf integrationType
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf instanceId
+    Prelude.rnf integrationType `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf instanceId
 
 instance Data.ToHeaders ListIntegrationAssociations where
   toHeaders =
@@ -258,6 +258,6 @@ instance
     ListIntegrationAssociationsResponse
   where
   rnf ListIntegrationAssociationsResponse' {..} =
-    Prelude.rnf integrationAssociationSummaryList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf integrationAssociationSummaryList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

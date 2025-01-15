@@ -99,7 +99,7 @@ instance Prelude.Hashable VolumeStatusAction where
 
 instance Prelude.NFData VolumeStatusAction where
   rnf VolumeStatusAction' {..} =
-    Prelude.rnf code
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf eventId
-      `Prelude.seq` Prelude.rnf eventType
+    Prelude.rnf code `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf eventId `Prelude.seq`
+          Prelude.rnf eventType

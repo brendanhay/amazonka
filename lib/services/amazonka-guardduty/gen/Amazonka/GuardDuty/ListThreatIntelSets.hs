@@ -136,12 +136,12 @@ instance Core.AWSPager ListThreatIntelSets where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listThreatIntelSets_nextToken
-          Lens..~ rs
-          Lens.^? listThreatIntelSetsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listThreatIntelSets_nextToken
+              Lens..~ rs
+              Lens.^? listThreatIntelSetsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListThreatIntelSets where
   type
@@ -170,9 +170,9 @@ instance Prelude.Hashable ListThreatIntelSets where
 
 instance Prelude.NFData ListThreatIntelSets where
   rnf ListThreatIntelSets' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf detectorId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf detectorId
 
 instance Data.ToHeaders ListThreatIntelSets where
   toHeaders =
@@ -253,6 +253,6 @@ listThreatIntelSetsResponse_threatIntelSetIds = Lens.lens (\ListThreatIntelSetsR
 
 instance Prelude.NFData ListThreatIntelSetsResponse where
   rnf ListThreatIntelSetsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf threatIntelSetIds
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf threatIntelSetIds

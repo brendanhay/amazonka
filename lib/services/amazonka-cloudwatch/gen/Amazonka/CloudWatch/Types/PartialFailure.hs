@@ -100,7 +100,7 @@ instance Prelude.Hashable PartialFailure where
 
 instance Prelude.NFData PartialFailure where
   rnf PartialFailure' {..} =
-    Prelude.rnf exceptionType
-      `Prelude.seq` Prelude.rnf failureCode
-      `Prelude.seq` Prelude.rnf failureDescription
-      `Prelude.seq` Prelude.rnf failureResource
+    Prelude.rnf exceptionType `Prelude.seq`
+      Prelude.rnf failureCode `Prelude.seq`
+        Prelude.rnf failureDescription `Prelude.seq`
+          Prelude.rnf failureResource

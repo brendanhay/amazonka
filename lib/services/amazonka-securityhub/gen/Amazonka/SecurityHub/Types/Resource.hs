@@ -183,14 +183,14 @@ instance Prelude.Hashable Resource where
 
 instance Prelude.NFData Resource where
   rnf Resource' {..} =
-    Prelude.rnf dataClassification
-      `Prelude.seq` Prelude.rnf details
-      `Prelude.seq` Prelude.rnf partition
-      `Prelude.seq` Prelude.rnf region
-      `Prelude.seq` Prelude.rnf resourceRole
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf dataClassification `Prelude.seq`
+      Prelude.rnf details `Prelude.seq`
+        Prelude.rnf partition `Prelude.seq`
+          Prelude.rnf region `Prelude.seq`
+            Prelude.rnf resourceRole `Prelude.seq`
+              Prelude.rnf tags `Prelude.seq`
+                Prelude.rnf type' `Prelude.seq`
+                  Prelude.rnf id
 
 instance Data.ToJSON Resource where
   toJSON Resource' {..} =

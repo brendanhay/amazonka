@@ -131,9 +131,9 @@ instance Prelude.Hashable ListThesauri where
 
 instance Prelude.NFData ListThesauri where
   rnf ListThesauri' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf indexId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf indexId
 
 instance Data.ToHeaders ListThesauri where
   toHeaders =
@@ -218,6 +218,6 @@ listThesauriResponse_httpStatus = Lens.lens (\ListThesauriResponse' {httpStatus}
 
 instance Prelude.NFData ListThesauriResponse where
   rnf ListThesauriResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf thesaurusSummaryItems
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf thesaurusSummaryItems `Prelude.seq`
+        Prelude.rnf httpStatus

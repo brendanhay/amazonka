@@ -231,15 +231,15 @@ instance
 
 instance Prelude.NFData EventsDetectionJobProperties where
   rnf EventsDetectionJobProperties' {..} =
-    Prelude.rnf dataAccessRoleArn
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf inputDataConfig
-      `Prelude.seq` Prelude.rnf jobArn
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf jobStatus
-      `Prelude.seq` Prelude.rnf languageCode
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf outputDataConfig
-      `Prelude.seq` Prelude.rnf submitTime
-      `Prelude.seq` Prelude.rnf targetEventTypes
+    Prelude.rnf dataAccessRoleArn `Prelude.seq`
+      Prelude.rnf endTime `Prelude.seq`
+        Prelude.rnf inputDataConfig `Prelude.seq`
+          Prelude.rnf jobArn `Prelude.seq`
+            Prelude.rnf jobId `Prelude.seq`
+              Prelude.rnf jobName `Prelude.seq`
+                Prelude.rnf jobStatus `Prelude.seq`
+                  Prelude.rnf languageCode `Prelude.seq`
+                    Prelude.rnf message `Prelude.seq`
+                      Prelude.rnf outputDataConfig `Prelude.seq`
+                        Prelude.rnf submitTime `Prelude.seq`
+                          Prelude.rnf targetEventTypes

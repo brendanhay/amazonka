@@ -191,5 +191,5 @@ instance
     DescribeTableReplicaAutoScalingResponse
   where
   rnf DescribeTableReplicaAutoScalingResponse' {..} =
-    Prelude.rnf tableAutoScalingDescription
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf tableAutoScalingDescription `Prelude.seq`
+      Prelude.rnf httpStatus

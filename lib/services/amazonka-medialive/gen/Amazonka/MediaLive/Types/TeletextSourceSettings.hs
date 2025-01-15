@@ -91,8 +91,8 @@ instance Prelude.Hashable TeletextSourceSettings where
 
 instance Prelude.NFData TeletextSourceSettings where
   rnf TeletextSourceSettings' {..} =
-    Prelude.rnf outputRectangle
-      `Prelude.seq` Prelude.rnf pageNumber
+    Prelude.rnf outputRectangle `Prelude.seq`
+      Prelude.rnf pageNumber
 
 instance Data.ToJSON TeletextSourceSettings where
   toJSON TeletextSourceSettings' {..} =

@@ -216,12 +216,12 @@ instance Core.AWSPager DescribeInternetGateways where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeInternetGateways_nextToken
-          Lens..~ rs
-          Lens.^? describeInternetGatewaysResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeInternetGateways_nextToken
+              Lens..~ rs
+              Lens.^? describeInternetGatewaysResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeInternetGateways where
   type
@@ -253,11 +253,11 @@ instance Prelude.Hashable DescribeInternetGateways where
 
 instance Prelude.NFData DescribeInternetGateways where
   rnf DescribeInternetGateways' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf internetGatewayIds
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf internetGatewayIds `Prelude.seq`
+          Prelude.rnf maxResults `Prelude.seq`
+            Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeInternetGateways where
   toHeaders = Prelude.const Prelude.mempty
@@ -339,6 +339,6 @@ instance
     DescribeInternetGatewaysResponse
   where
   rnf DescribeInternetGatewaysResponse' {..} =
-    Prelude.rnf internetGateways
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf internetGateways `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

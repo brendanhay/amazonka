@@ -136,10 +136,10 @@ instance Prelude.Hashable Folder where
 
 instance Prelude.NFData Folder where
   rnf Folder' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf folderId
-      `Prelude.seq` Prelude.rnf folderPath
-      `Prelude.seq` Prelude.rnf folderType
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf createdTime `Prelude.seq`
+        Prelude.rnf folderId `Prelude.seq`
+          Prelude.rnf folderPath `Prelude.seq`
+            Prelude.rnf folderType `Prelude.seq`
+              Prelude.rnf lastUpdatedTime `Prelude.seq`
+                Prelude.rnf name

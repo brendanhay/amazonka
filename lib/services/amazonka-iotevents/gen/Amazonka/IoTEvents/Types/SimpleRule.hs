@@ -108,9 +108,9 @@ instance Prelude.Hashable SimpleRule where
 
 instance Prelude.NFData SimpleRule where
   rnf SimpleRule' {..} =
-    Prelude.rnf inputProperty
-      `Prelude.seq` Prelude.rnf comparisonOperator
-      `Prelude.seq` Prelude.rnf threshold
+    Prelude.rnf inputProperty `Prelude.seq`
+      Prelude.rnf comparisonOperator `Prelude.seq`
+        Prelude.rnf threshold
 
 instance Data.ToJSON SimpleRule where
   toJSON SimpleRule' {..} =

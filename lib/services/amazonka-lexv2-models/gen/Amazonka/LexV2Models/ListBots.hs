@@ -164,10 +164,10 @@ instance Prelude.Hashable ListBots where
 
 instance Prelude.NFData ListBots where
   rnf ListBots' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortBy
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf sortBy
 
 instance Data.ToHeaders ListBots where
   toHeaders =
@@ -264,6 +264,6 @@ listBotsResponse_httpStatus = Lens.lens (\ListBotsResponse' {httpStatus} -> http
 
 instance Prelude.NFData ListBotsResponse where
   rnf ListBotsResponse' {..} =
-    Prelude.rnf botSummaries
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf botSummaries `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

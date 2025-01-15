@@ -109,10 +109,10 @@ instance Prelude.Hashable WriteSegmentRequest where
 
 instance Prelude.NFData WriteSegmentRequest where
   rnf WriteSegmentRequest' {..} =
-    Prelude.rnf dimensions
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf segmentGroups
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf dimensions `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf segmentGroups `Prelude.seq`
+          Prelude.rnf tags
 
 instance Data.ToJSON WriteSegmentRequest where
   toJSON WriteSegmentRequest' {..} =

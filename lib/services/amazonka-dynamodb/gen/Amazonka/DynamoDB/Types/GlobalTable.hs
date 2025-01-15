@@ -86,5 +86,5 @@ instance Prelude.Hashable GlobalTable where
 
 instance Prelude.NFData GlobalTable where
   rnf GlobalTable' {..} =
-    Prelude.rnf globalTableName
-      `Prelude.seq` Prelude.rnf replicationGroup
+    Prelude.rnf globalTableName `Prelude.seq`
+      Prelude.rnf replicationGroup

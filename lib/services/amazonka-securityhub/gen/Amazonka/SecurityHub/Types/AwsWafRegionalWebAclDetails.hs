@@ -123,11 +123,11 @@ instance Prelude.Hashable AwsWafRegionalWebAclDetails where
 
 instance Prelude.NFData AwsWafRegionalWebAclDetails where
   rnf AwsWafRegionalWebAclDetails' {..} =
-    Prelude.rnf defaultAction
-      `Prelude.seq` Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf rulesList
-      `Prelude.seq` Prelude.rnf webAclId
+    Prelude.rnf defaultAction `Prelude.seq`
+      Prelude.rnf metricName `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf rulesList `Prelude.seq`
+            Prelude.rnf webAclId
 
 instance Data.ToJSON AwsWafRegionalWebAclDetails where
   toJSON AwsWafRegionalWebAclDetails' {..} =

@@ -156,11 +156,11 @@ instance Prelude.Hashable CostCategoryReference where
 
 instance Prelude.NFData CostCategoryReference where
   rnf CostCategoryReference' {..} =
-    Prelude.rnf costCategoryArn
-      `Prelude.seq` Prelude.rnf defaultValue
-      `Prelude.seq` Prelude.rnf effectiveEnd
-      `Prelude.seq` Prelude.rnf effectiveStart
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf numberOfRules
-      `Prelude.seq` Prelude.rnf processingStatus
-      `Prelude.seq` Prelude.rnf values
+    Prelude.rnf costCategoryArn `Prelude.seq`
+      Prelude.rnf defaultValue `Prelude.seq`
+        Prelude.rnf effectiveEnd `Prelude.seq`
+          Prelude.rnf effectiveStart `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf numberOfRules `Prelude.seq`
+                Prelude.rnf processingStatus `Prelude.seq`
+                  Prelude.rnf values

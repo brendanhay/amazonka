@@ -138,8 +138,8 @@ instance
     BlockPublicAccessConfiguration
   where
   rnf BlockPublicAccessConfiguration' {..} =
-    Prelude.rnf permittedPublicSecurityGroupRuleRanges
-      `Prelude.seq` Prelude.rnf blockPublicSecurityGroupRules
+    Prelude.rnf permittedPublicSecurityGroupRuleRanges `Prelude.seq`
+      Prelude.rnf blockPublicSecurityGroupRules
 
 instance Data.ToJSON BlockPublicAccessConfiguration where
   toJSON BlockPublicAccessConfiguration' {..} =

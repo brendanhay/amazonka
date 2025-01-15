@@ -109,8 +109,8 @@ instance Prelude.Hashable DeleteBasePathMapping where
 
 instance Prelude.NFData DeleteBasePathMapping where
   rnf DeleteBasePathMapping' {..} =
-    Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf basePath
+    Prelude.rnf domainName `Prelude.seq`
+      Prelude.rnf basePath
 
 instance Data.ToHeaders DeleteBasePathMapping where
   toHeaders =

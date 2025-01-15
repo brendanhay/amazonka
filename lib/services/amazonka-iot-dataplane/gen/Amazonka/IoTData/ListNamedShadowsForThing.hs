@@ -128,9 +128,9 @@ instance Prelude.Hashable ListNamedShadowsForThing where
 
 instance Prelude.NFData ListNamedShadowsForThing where
   rnf ListNamedShadowsForThing' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf pageSize
-      `Prelude.seq` Prelude.rnf thingName
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf pageSize `Prelude.seq`
+        Prelude.rnf thingName
 
 instance Data.ToHeaders ListNamedShadowsForThing where
   toHeaders = Prelude.const Prelude.mempty
@@ -214,7 +214,7 @@ instance
     ListNamedShadowsForThingResponse
   where
   rnf ListNamedShadowsForThingResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf results
-      `Prelude.seq` Prelude.rnf timestamp
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf results `Prelude.seq`
+        Prelude.rnf timestamp `Prelude.seq`
+          Prelude.rnf httpStatus

@@ -93,8 +93,8 @@ instance Prelude.Hashable TimeToLiveSpecification where
 
 instance Prelude.NFData TimeToLiveSpecification where
   rnf TimeToLiveSpecification' {..} =
-    Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf attributeName
+    Prelude.rnf enabled `Prelude.seq`
+      Prelude.rnf attributeName
 
 instance Data.ToJSON TimeToLiveSpecification where
   toJSON TimeToLiveSpecification' {..} =

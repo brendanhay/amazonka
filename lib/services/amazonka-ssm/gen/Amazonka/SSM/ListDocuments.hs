@@ -164,12 +164,12 @@ instance Core.AWSPager ListDocuments where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listDocuments_nextToken
-          Lens..~ rs
-          Lens.^? listDocumentsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listDocuments_nextToken
+              Lens..~ rs
+              Lens.^? listDocumentsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDocuments where
   type
@@ -199,10 +199,10 @@ instance Prelude.Hashable ListDocuments where
 
 instance Prelude.NFData ListDocuments where
   rnf ListDocuments' {..} =
-    Prelude.rnf documentFilterList
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf documentFilterList `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken
 
 instance Data.ToHeaders ListDocuments where
   toHeaders =
@@ -288,6 +288,6 @@ listDocumentsResponse_httpStatus = Lens.lens (\ListDocumentsResponse' {httpStatu
 
 instance Prelude.NFData ListDocumentsResponse where
   rnf ListDocumentsResponse' {..} =
-    Prelude.rnf documentIdentifiers
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf documentIdentifiers `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

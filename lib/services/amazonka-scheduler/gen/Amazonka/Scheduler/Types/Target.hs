@@ -264,16 +264,16 @@ instance Prelude.Hashable Target where
 
 instance Prelude.NFData Target where
   rnf Target' {..} =
-    Prelude.rnf deadLetterConfig
-      `Prelude.seq` Prelude.rnf ecsParameters
-      `Prelude.seq` Prelude.rnf eventBridgeParameters
-      `Prelude.seq` Prelude.rnf input
-      `Prelude.seq` Prelude.rnf kinesisParameters
-      `Prelude.seq` Prelude.rnf retryPolicy
-      `Prelude.seq` Prelude.rnf sageMakerPipelineParameters
-      `Prelude.seq` Prelude.rnf sqsParameters
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf deadLetterConfig `Prelude.seq`
+      Prelude.rnf ecsParameters `Prelude.seq`
+        Prelude.rnf eventBridgeParameters `Prelude.seq`
+          Prelude.rnf input `Prelude.seq`
+            Prelude.rnf kinesisParameters `Prelude.seq`
+              Prelude.rnf retryPolicy `Prelude.seq`
+                Prelude.rnf sageMakerPipelineParameters `Prelude.seq`
+                  Prelude.rnf sqsParameters `Prelude.seq`
+                    Prelude.rnf arn `Prelude.seq`
+                      Prelude.rnf roleArn
 
 instance Data.ToJSON Target where
   toJSON Target' {..} =

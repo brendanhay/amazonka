@@ -130,9 +130,7 @@ instance Core.AWSRequest DescribeSnapshotAttribute where
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-            Prelude.<*> ( x
-                            Data..@? "productCodes"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "productCodes" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (x Data..@? "snapshotId")
@@ -148,9 +146,9 @@ instance Prelude.Hashable DescribeSnapshotAttribute where
 
 instance Prelude.NFData DescribeSnapshotAttribute where
   rnf DescribeSnapshotAttribute' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf attribute
-      `Prelude.seq` Prelude.rnf snapshotId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf attribute `Prelude.seq`
+        Prelude.rnf snapshotId
 
 instance Data.ToHeaders DescribeSnapshotAttribute where
   toHeaders = Prelude.const Prelude.mempty
@@ -235,7 +233,7 @@ instance
     DescribeSnapshotAttributeResponse
   where
   rnf DescribeSnapshotAttributeResponse' {..} =
-    Prelude.rnf createVolumePermissions
-      `Prelude.seq` Prelude.rnf productCodes
-      `Prelude.seq` Prelude.rnf snapshotId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf createVolumePermissions `Prelude.seq`
+      Prelude.rnf productCodes `Prelude.seq`
+        Prelude.rnf snapshotId `Prelude.seq`
+          Prelude.rnf httpStatus

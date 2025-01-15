@@ -255,15 +255,15 @@ instance Prelude.Hashable ApplicationDetail where
 
 instance Prelude.NFData ApplicationDetail where
   rnf ApplicationDetail' {..} =
-    Prelude.rnf applicationCode
-      `Prelude.seq` Prelude.rnf applicationDescription
-      `Prelude.seq` Prelude.rnf cloudWatchLoggingOptionDescriptions
-      `Prelude.seq` Prelude.rnf createTimestamp
-      `Prelude.seq` Prelude.rnf inputDescriptions
-      `Prelude.seq` Prelude.rnf lastUpdateTimestamp
-      `Prelude.seq` Prelude.rnf outputDescriptions
-      `Prelude.seq` Prelude.rnf referenceDataSourceDescriptions
-      `Prelude.seq` Prelude.rnf applicationName
-      `Prelude.seq` Prelude.rnf applicationARN
-      `Prelude.seq` Prelude.rnf applicationStatus
-      `Prelude.seq` Prelude.rnf applicationVersionId
+    Prelude.rnf applicationCode `Prelude.seq`
+      Prelude.rnf applicationDescription `Prelude.seq`
+        Prelude.rnf cloudWatchLoggingOptionDescriptions `Prelude.seq`
+          Prelude.rnf createTimestamp `Prelude.seq`
+            Prelude.rnf inputDescriptions `Prelude.seq`
+              Prelude.rnf lastUpdateTimestamp `Prelude.seq`
+                Prelude.rnf outputDescriptions `Prelude.seq`
+                  Prelude.rnf referenceDataSourceDescriptions `Prelude.seq`
+                    Prelude.rnf applicationName `Prelude.seq`
+                      Prelude.rnf applicationARN `Prelude.seq`
+                        Prelude.rnf applicationStatus `Prelude.seq`
+                          Prelude.rnf applicationVersionId

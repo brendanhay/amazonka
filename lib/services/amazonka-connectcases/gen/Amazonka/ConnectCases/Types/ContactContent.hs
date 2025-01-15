@@ -104,6 +104,6 @@ instance Prelude.Hashable ContactContent where
 
 instance Prelude.NFData ContactContent where
   rnf ContactContent' {..} =
-    Prelude.rnf channel
-      `Prelude.seq` Prelude.rnf connectedToSystemTime
-      `Prelude.seq` Prelude.rnf contactArn
+    Prelude.rnf channel `Prelude.seq`
+      Prelude.rnf connectedToSystemTime `Prelude.seq`
+        Prelude.rnf contactArn

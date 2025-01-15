@@ -103,10 +103,10 @@ instance Prelude.Hashable HlsSettings where
 
 instance Prelude.NFData HlsSettings where
   rnf HlsSettings' {..} =
-    Prelude.rnf audioOnlyHlsSettings
-      `Prelude.seq` Prelude.rnf fmp4HlsSettings
-      `Prelude.seq` Prelude.rnf frameCaptureHlsSettings
-      `Prelude.seq` Prelude.rnf standardHlsSettings
+    Prelude.rnf audioOnlyHlsSettings `Prelude.seq`
+      Prelude.rnf fmp4HlsSettings `Prelude.seq`
+        Prelude.rnf frameCaptureHlsSettings `Prelude.seq`
+          Prelude.rnf standardHlsSettings
 
 instance Data.ToJSON HlsSettings where
   toJSON HlsSettings' {..} =

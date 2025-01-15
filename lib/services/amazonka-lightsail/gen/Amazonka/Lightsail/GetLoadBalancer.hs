@@ -170,5 +170,5 @@ getLoadBalancerResponse_httpStatus = Lens.lens (\GetLoadBalancerResponse' {httpS
 
 instance Prelude.NFData GetLoadBalancerResponse where
   rnf GetLoadBalancerResponse' {..} =
-    Prelude.rnf loadBalancer
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf loadBalancer `Prelude.seq`
+      Prelude.rnf httpStatus

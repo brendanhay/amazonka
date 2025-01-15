@@ -80,8 +80,8 @@ instance Prelude.Hashable WorkflowParameter where
 
 instance Prelude.NFData WorkflowParameter where
   rnf WorkflowParameter' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf optional
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf optional
 
 instance Data.ToJSON WorkflowParameter where
   toJSON WorkflowParameter' {..} =

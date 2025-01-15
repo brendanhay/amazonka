@@ -196,12 +196,12 @@ instance Prelude.Hashable CreatePlacementGroup where
 
 instance Prelude.NFData CreatePlacementGroup where
   rnf CreatePlacementGroup' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf groupName
-      `Prelude.seq` Prelude.rnf partitionCount
-      `Prelude.seq` Prelude.rnf spreadLevel
-      `Prelude.seq` Prelude.rnf strategy
-      `Prelude.seq` Prelude.rnf tagSpecifications
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf groupName `Prelude.seq`
+        Prelude.rnf partitionCount `Prelude.seq`
+          Prelude.rnf spreadLevel `Prelude.seq`
+            Prelude.rnf strategy `Prelude.seq`
+              Prelude.rnf tagSpecifications
 
 instance Data.ToHeaders CreatePlacementGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -268,5 +268,5 @@ createPlacementGroupResponse_httpStatus = Lens.lens (\CreatePlacementGroupRespon
 
 instance Prelude.NFData CreatePlacementGroupResponse where
   rnf CreatePlacementGroupResponse' {..} =
-    Prelude.rnf placementGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf placementGroup `Prelude.seq`
+      Prelude.rnf httpStatus

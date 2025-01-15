@@ -156,10 +156,10 @@ instance Prelude.Hashable TrainingJobSummary where
 
 instance Prelude.NFData TrainingJobSummary where
   rnf TrainingJobSummary' {..} =
-    Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf trainingEndTime
-      `Prelude.seq` Prelude.rnf warmPoolStatus
-      `Prelude.seq` Prelude.rnf trainingJobName
-      `Prelude.seq` Prelude.rnf trainingJobArn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf trainingJobStatus
+    Prelude.rnf lastModifiedTime `Prelude.seq`
+      Prelude.rnf trainingEndTime `Prelude.seq`
+        Prelude.rnf warmPoolStatus `Prelude.seq`
+          Prelude.rnf trainingJobName `Prelude.seq`
+            Prelude.rnf trainingJobArn `Prelude.seq`
+              Prelude.rnf creationTime `Prelude.seq`
+                Prelude.rnf trainingJobStatus

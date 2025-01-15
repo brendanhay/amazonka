@@ -105,12 +105,12 @@ instance Core.AWSPager ListGateways where
         (rs Lens.^. listGatewaysResponse_gatewaySummaries) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listGateways_nextToken
-          Lens..~ rs
-          Lens.^? listGatewaysResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listGateways_nextToken
+              Lens..~ rs
+              Lens.^? listGatewaysResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListGateways where
   type AWSResponse ListGateways = ListGatewaysResponse
@@ -136,8 +136,8 @@ instance Prelude.Hashable ListGateways where
 
 instance Prelude.NFData ListGateways where
   rnf ListGateways' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListGateways where
   toHeaders =
@@ -212,6 +212,6 @@ listGatewaysResponse_gatewaySummaries = Lens.lens (\ListGatewaysResponse' {gatew
 
 instance Prelude.NFData ListGatewaysResponse where
   rnf ListGatewaysResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf gatewaySummaries
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf gatewaySummaries

@@ -164,9 +164,7 @@ instance Core.AWSRequest ListInstanceProfileTags where
             Prelude.<$> (x Data..@? "IsTruncated")
             Prelude.<*> (x Data..@? "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x
-                            Data..@? "Tags"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLList "member"
                         )
       )
@@ -180,9 +178,9 @@ instance Prelude.Hashable ListInstanceProfileTags where
 
 instance Prelude.NFData ListInstanceProfileTags where
   rnf ListInstanceProfileTags' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxItems
-      `Prelude.seq` Prelude.rnf instanceProfileName
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf maxItems `Prelude.seq`
+        Prelude.rnf instanceProfileName
 
 instance Data.ToHeaders ListInstanceProfileTags where
   toHeaders = Prelude.const Prelude.mempty
@@ -297,7 +295,7 @@ instance
     ListInstanceProfileTagsResponse
   where
   rnf ListInstanceProfileTagsResponse' {..} =
-    Prelude.rnf isTruncated
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf isTruncated `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf httpStatus `Prelude.seq`
+          Prelude.rnf tags

@@ -575,12 +575,12 @@ instance Core.AWSPager DescribeScalingPolicies where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeScalingPolicies_nextToken
-          Lens..~ rs
-          Lens.^? describeScalingPoliciesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeScalingPolicies_nextToken
+              Lens..~ rs
+              Lens.^? describeScalingPoliciesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeScalingPolicies where
   type
@@ -612,12 +612,12 @@ instance Prelude.Hashable DescribeScalingPolicies where
 
 instance Prelude.NFData DescribeScalingPolicies where
   rnf DescribeScalingPolicies' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf policyNames
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf scalableDimension
-      `Prelude.seq` Prelude.rnf serviceNamespace
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf policyNames `Prelude.seq`
+          Prelude.rnf resourceId `Prelude.seq`
+            Prelude.rnf scalableDimension `Prelude.seq`
+              Prelude.rnf serviceNamespace
 
 instance Data.ToHeaders DescribeScalingPolicies where
   toHeaders =
@@ -711,6 +711,6 @@ instance
     DescribeScalingPoliciesResponse
   where
   rnf DescribeScalingPoliciesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf scalingPolicies
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf scalingPolicies `Prelude.seq`
+        Prelude.rnf httpStatus

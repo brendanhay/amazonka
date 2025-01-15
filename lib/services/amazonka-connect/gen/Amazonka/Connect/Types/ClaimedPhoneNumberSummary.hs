@@ -261,12 +261,12 @@ instance Prelude.Hashable ClaimedPhoneNumberSummary where
 
 instance Prelude.NFData ClaimedPhoneNumberSummary where
   rnf ClaimedPhoneNumberSummary' {..} =
-    Prelude.rnf phoneNumber
-      `Prelude.seq` Prelude.rnf phoneNumberArn
-      `Prelude.seq` Prelude.rnf phoneNumberCountryCode
-      `Prelude.seq` Prelude.rnf phoneNumberDescription
-      `Prelude.seq` Prelude.rnf phoneNumberId
-      `Prelude.seq` Prelude.rnf phoneNumberStatus
-      `Prelude.seq` Prelude.rnf phoneNumberType
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf targetArn
+    Prelude.rnf phoneNumber `Prelude.seq`
+      Prelude.rnf phoneNumberArn `Prelude.seq`
+        Prelude.rnf phoneNumberCountryCode `Prelude.seq`
+          Prelude.rnf phoneNumberDescription `Prelude.seq`
+            Prelude.rnf phoneNumberId `Prelude.seq`
+              Prelude.rnf phoneNumberStatus `Prelude.seq`
+                Prelude.rnf phoneNumberType `Prelude.seq`
+                  Prelude.rnf tags `Prelude.seq`
+                    Prelude.rnf targetArn

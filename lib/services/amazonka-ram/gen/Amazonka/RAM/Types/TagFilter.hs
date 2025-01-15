@@ -74,8 +74,8 @@ instance Prelude.Hashable TagFilter where
 
 instance Prelude.NFData TagFilter where
   rnf TagFilter' {..} =
-    Prelude.rnf tagKey
-      `Prelude.seq` Prelude.rnf tagValues
+    Prelude.rnf tagKey `Prelude.seq`
+      Prelude.rnf tagValues
 
 instance Data.ToJSON TagFilter where
   toJSON TagFilter' {..} =

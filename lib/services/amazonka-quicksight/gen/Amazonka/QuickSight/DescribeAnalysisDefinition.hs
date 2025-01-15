@@ -140,8 +140,8 @@ instance Prelude.Hashable DescribeAnalysisDefinition where
 
 instance Prelude.NFData DescribeAnalysisDefinition where
   rnf DescribeAnalysisDefinition' {..} =
-    Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf analysisId
+    Prelude.rnf awsAccountId `Prelude.seq`
+      Prelude.rnf analysisId
 
 instance Data.ToHeaders DescribeAnalysisDefinition where
   toHeaders =
@@ -316,11 +316,11 @@ instance
     DescribeAnalysisDefinitionResponse
   where
   rnf DescribeAnalysisDefinitionResponse' {..} =
-    Prelude.rnf analysisId
-      `Prelude.seq` Prelude.rnf definition
-      `Prelude.seq` Prelude.rnf errors
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf resourceStatus
-      `Prelude.seq` Prelude.rnf themeArn
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf analysisId `Prelude.seq`
+      Prelude.rnf definition `Prelude.seq`
+        Prelude.rnf errors `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf requestId `Prelude.seq`
+              Prelude.rnf resourceStatus `Prelude.seq`
+                Prelude.rnf themeArn `Prelude.seq`
+                  Prelude.rnf status

@@ -120,8 +120,8 @@ instance Prelude.Hashable DescribeConnector where
 
 instance Prelude.NFData DescribeConnector where
   rnf DescribeConnector' {..} =
-    Prelude.rnf connectorLabel
-      `Prelude.seq` Prelude.rnf connectorType
+    Prelude.rnf connectorLabel `Prelude.seq`
+      Prelude.rnf connectorType
 
 instance Data.ToHeaders DescribeConnector where
   toHeaders =
@@ -192,5 +192,5 @@ describeConnectorResponse_httpStatus = Lens.lens (\DescribeConnectorResponse' {h
 
 instance Prelude.NFData DescribeConnectorResponse where
   rnf DescribeConnectorResponse' {..} =
-    Prelude.rnf connectorConfiguration
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf connectorConfiguration `Prelude.seq`
+      Prelude.rnf httpStatus

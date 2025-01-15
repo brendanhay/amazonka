@@ -159,9 +159,9 @@ instance Prelude.Hashable CustomResponse where
 
 instance Prelude.NFData CustomResponse where
   rnf CustomResponse' {..} =
-    Prelude.rnf customResponseBodyKey
-      `Prelude.seq` Prelude.rnf responseHeaders
-      `Prelude.seq` Prelude.rnf responseCode
+    Prelude.rnf customResponseBodyKey `Prelude.seq`
+      Prelude.rnf responseHeaders `Prelude.seq`
+        Prelude.rnf responseCode
 
 instance Data.ToJSON CustomResponse where
   toJSON CustomResponse' {..} =

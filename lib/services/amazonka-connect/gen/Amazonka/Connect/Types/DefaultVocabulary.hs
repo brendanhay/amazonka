@@ -124,7 +124,7 @@ instance Prelude.Hashable DefaultVocabulary where
 
 instance Prelude.NFData DefaultVocabulary where
   rnf DefaultVocabulary' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf languageCode
-      `Prelude.seq` Prelude.rnf vocabularyId
-      `Prelude.seq` Prelude.rnf vocabularyName
+    Prelude.rnf instanceId `Prelude.seq`
+      Prelude.rnf languageCode `Prelude.seq`
+        Prelude.rnf vocabularyId `Prelude.seq`
+          Prelude.rnf vocabularyName

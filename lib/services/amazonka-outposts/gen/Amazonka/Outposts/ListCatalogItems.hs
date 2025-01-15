@@ -146,11 +146,11 @@ instance Prelude.Hashable ListCatalogItems where
 
 instance Prelude.NFData ListCatalogItems where
   rnf ListCatalogItems' {..} =
-    Prelude.rnf eC2FamilyFilter
-      `Prelude.seq` Prelude.rnf itemClassFilter
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf supportedStorageFilter
+    Prelude.rnf eC2FamilyFilter `Prelude.seq`
+      Prelude.rnf itemClassFilter `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf supportedStorageFilter
 
 instance Data.ToHeaders ListCatalogItems where
   toHeaders =
@@ -237,6 +237,6 @@ listCatalogItemsResponse_httpStatus = Lens.lens (\ListCatalogItemsResponse' {htt
 
 instance Prelude.NFData ListCatalogItemsResponse where
   rnf ListCatalogItemsResponse' {..} =
-    Prelude.rnf catalogItems
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf catalogItems `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -137,10 +137,10 @@ instance Prelude.Hashable AppDetails where
 
 instance Prelude.NFData AppDetails where
   rnf AppDetails' {..} =
-    Prelude.rnf appName
-      `Prelude.seq` Prelude.rnf appType
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf domainId
-      `Prelude.seq` Prelude.rnf spaceName
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf userProfileName
+    Prelude.rnf appName `Prelude.seq`
+      Prelude.rnf appType `Prelude.seq`
+        Prelude.rnf creationTime `Prelude.seq`
+          Prelude.rnf domainId `Prelude.seq`
+            Prelude.rnf spaceName `Prelude.seq`
+              Prelude.rnf status `Prelude.seq`
+                Prelude.rnf userProfileName

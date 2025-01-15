@@ -170,12 +170,12 @@ instance
     DetectMitigationActionExecution
   where
   rnf DetectMitigationActionExecution' {..} =
-    Prelude.rnf actionName
-      `Prelude.seq` Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf executionEndDate
-      `Prelude.seq` Prelude.rnf executionStartDate
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf taskId
-      `Prelude.seq` Prelude.rnf thingName
-      `Prelude.seq` Prelude.rnf violationId
+    Prelude.rnf actionName `Prelude.seq`
+      Prelude.rnf errorCode `Prelude.seq`
+        Prelude.rnf executionEndDate `Prelude.seq`
+          Prelude.rnf executionStartDate `Prelude.seq`
+            Prelude.rnf message `Prelude.seq`
+              Prelude.rnf status `Prelude.seq`
+                Prelude.rnf taskId `Prelude.seq`
+                  Prelude.rnf thingName `Prelude.seq`
+                    Prelude.rnf violationId

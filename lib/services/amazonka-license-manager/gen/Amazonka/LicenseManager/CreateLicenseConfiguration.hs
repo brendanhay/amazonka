@@ -261,15 +261,15 @@ instance Prelude.Hashable CreateLicenseConfiguration where
 
 instance Prelude.NFData CreateLicenseConfiguration where
   rnf CreateLicenseConfiguration' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf disassociateWhenNotFound
-      `Prelude.seq` Prelude.rnf licenseCount
-      `Prelude.seq` Prelude.rnf licenseCountHardLimit
-      `Prelude.seq` Prelude.rnf licenseRules
-      `Prelude.seq` Prelude.rnf productInformationList
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf licenseCountingType
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf disassociateWhenNotFound `Prelude.seq`
+        Prelude.rnf licenseCount `Prelude.seq`
+          Prelude.rnf licenseCountHardLimit `Prelude.seq`
+            Prelude.rnf licenseRules `Prelude.seq`
+              Prelude.rnf productInformationList `Prelude.seq`
+                Prelude.rnf tags `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf licenseCountingType
 
 instance Data.ToHeaders CreateLicenseConfiguration where
   toHeaders =
@@ -356,5 +356,5 @@ instance
     CreateLicenseConfigurationResponse
   where
   rnf CreateLicenseConfigurationResponse' {..} =
-    Prelude.rnf licenseConfigurationArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf licenseConfigurationArn `Prelude.seq`
+      Prelude.rnf httpStatus

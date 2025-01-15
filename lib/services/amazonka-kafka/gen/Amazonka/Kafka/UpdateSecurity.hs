@@ -145,10 +145,10 @@ instance Prelude.Hashable UpdateSecurity where
 
 instance Prelude.NFData UpdateSecurity where
   rnf UpdateSecurity' {..} =
-    Prelude.rnf clientAuthentication
-      `Prelude.seq` Prelude.rnf encryptionInfo
-      `Prelude.seq` Prelude.rnf clusterArn
-      `Prelude.seq` Prelude.rnf currentVersion
+    Prelude.rnf clientAuthentication `Prelude.seq`
+      Prelude.rnf encryptionInfo `Prelude.seq`
+        Prelude.rnf clusterArn `Prelude.seq`
+          Prelude.rnf currentVersion
 
 instance Data.ToHeaders UpdateSecurity where
   toHeaders =
@@ -232,6 +232,6 @@ updateSecurityResponse_httpStatus = Lens.lens (\UpdateSecurityResponse' {httpSta
 
 instance Prelude.NFData UpdateSecurityResponse where
   rnf UpdateSecurityResponse' {..} =
-    Prelude.rnf clusterArn
-      `Prelude.seq` Prelude.rnf clusterOperationArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf clusterArn `Prelude.seq`
+      Prelude.rnf clusterOperationArn `Prelude.seq`
+        Prelude.rnf httpStatus

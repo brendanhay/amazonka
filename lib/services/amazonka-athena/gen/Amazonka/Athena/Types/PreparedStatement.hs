@@ -113,8 +113,8 @@ instance Prelude.Hashable PreparedStatement where
 
 instance Prelude.NFData PreparedStatement where
   rnf PreparedStatement' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf queryStatement
-      `Prelude.seq` Prelude.rnf statementName
-      `Prelude.seq` Prelude.rnf workGroupName
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf lastModifiedTime `Prelude.seq`
+        Prelude.rnf queryStatement `Prelude.seq`
+          Prelude.rnf statementName `Prelude.seq`
+            Prelude.rnf workGroupName

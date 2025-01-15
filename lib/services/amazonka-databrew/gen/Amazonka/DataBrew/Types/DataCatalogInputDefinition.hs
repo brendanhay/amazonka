@@ -120,10 +120,10 @@ instance Prelude.Hashable DataCatalogInputDefinition where
 
 instance Prelude.NFData DataCatalogInputDefinition where
   rnf DataCatalogInputDefinition' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf tempDirectory
-      `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf tableName
+    Prelude.rnf catalogId `Prelude.seq`
+      Prelude.rnf tempDirectory `Prelude.seq`
+        Prelude.rnf databaseName `Prelude.seq`
+          Prelude.rnf tableName
 
 instance Data.ToJSON DataCatalogInputDefinition where
   toJSON DataCatalogInputDefinition' {..} =

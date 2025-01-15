@@ -141,10 +141,10 @@ instance
     SnowflakeDestinationProperties
   where
   rnf SnowflakeDestinationProperties' {..} =
-    Prelude.rnf bucketPrefix
-      `Prelude.seq` Prelude.rnf errorHandlingConfig
-      `Prelude.seq` Prelude.rnf object'
-      `Prelude.seq` Prelude.rnf intermediateBucketName
+    Prelude.rnf bucketPrefix `Prelude.seq`
+      Prelude.rnf errorHandlingConfig `Prelude.seq`
+        Prelude.rnf object' `Prelude.seq`
+          Prelude.rnf intermediateBucketName
 
 instance Data.ToJSON SnowflakeDestinationProperties where
   toJSON SnowflakeDestinationProperties' {..} =

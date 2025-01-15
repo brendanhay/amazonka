@@ -182,9 +182,9 @@ instance
     DisassociateResourceSharePermission
   where
   rnf DisassociateResourceSharePermission' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf resourceShareArn
-      `Prelude.seq` Prelude.rnf permissionArn
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf resourceShareArn `Prelude.seq`
+        Prelude.rnf permissionArn
 
 instance
   Data.ToHeaders
@@ -298,6 +298,6 @@ instance
     DisassociateResourceSharePermissionResponse
   where
   rnf DisassociateResourceSharePermissionResponse' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf returnValue
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf returnValue `Prelude.seq`
+        Prelude.rnf httpStatus

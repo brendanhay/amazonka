@@ -101,6 +101,6 @@ instance Prelude.Hashable MonitorDataSource where
 
 instance Prelude.NFData MonitorDataSource where
   rnf MonitorDataSource' {..} =
-    Prelude.rnf datasetImportJobArn
-      `Prelude.seq` Prelude.rnf forecastArn
-      `Prelude.seq` Prelude.rnf predictorArn
+    Prelude.rnf datasetImportJobArn `Prelude.seq`
+      Prelude.rnf forecastArn `Prelude.seq`
+        Prelude.rnf predictorArn

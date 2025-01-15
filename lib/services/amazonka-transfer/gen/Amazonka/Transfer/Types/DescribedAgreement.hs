@@ -211,13 +211,13 @@ instance Prelude.Hashable DescribedAgreement where
 
 instance Prelude.NFData DescribedAgreement where
   rnf DescribedAgreement' {..} =
-    Prelude.rnf accessRole
-      `Prelude.seq` Prelude.rnf agreementId
-      `Prelude.seq` Prelude.rnf baseDirectory
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf localProfileId
-      `Prelude.seq` Prelude.rnf partnerProfileId
-      `Prelude.seq` Prelude.rnf serverId
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf accessRole `Prelude.seq`
+      Prelude.rnf agreementId `Prelude.seq`
+        Prelude.rnf baseDirectory `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf localProfileId `Prelude.seq`
+              Prelude.rnf partnerProfileId `Prelude.seq`
+                Prelude.rnf serverId `Prelude.seq`
+                  Prelude.rnf status `Prelude.seq`
+                    Prelude.rnf tags `Prelude.seq`
+                      Prelude.rnf arn

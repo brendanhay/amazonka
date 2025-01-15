@@ -279,14 +279,14 @@ instance Prelude.Hashable NetworkResource where
 
 instance Prelude.NFData NetworkResource where
   rnf NetworkResource' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf awsRegion
-      `Prelude.seq` Prelude.rnf coreNetworkId
-      `Prelude.seq` Prelude.rnf definition
-      `Prelude.seq` Prelude.rnf definitionTimestamp
-      `Prelude.seq` Prelude.rnf metadata
-      `Prelude.seq` Prelude.rnf registeredGatewayArn
-      `Prelude.seq` Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf awsRegion `Prelude.seq`
+        Prelude.rnf coreNetworkId `Prelude.seq`
+          Prelude.rnf definition `Prelude.seq`
+            Prelude.rnf definitionTimestamp `Prelude.seq`
+              Prelude.rnf metadata `Prelude.seq`
+                Prelude.rnf registeredGatewayArn `Prelude.seq`
+                  Prelude.rnf resourceArn `Prelude.seq`
+                    Prelude.rnf resourceId `Prelude.seq`
+                      Prelude.rnf resourceType `Prelude.seq`
+                        Prelude.rnf tags

@@ -96,8 +96,8 @@ instance Prelude.Hashable RecipeStep where
 
 instance Prelude.NFData RecipeStep where
   rnf RecipeStep' {..} =
-    Prelude.rnf conditionExpressions
-      `Prelude.seq` Prelude.rnf action
+    Prelude.rnf conditionExpressions `Prelude.seq`
+      Prelude.rnf action
 
 instance Data.ToJSON RecipeStep where
   toJSON RecipeStep' {..} =

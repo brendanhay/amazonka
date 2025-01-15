@@ -135,8 +135,8 @@ instance Prelude.Hashable AccessorSummary where
 
 instance Prelude.NFData AccessorSummary where
   rnf AccessorSummary' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf creationDate `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf type'

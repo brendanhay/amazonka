@@ -892,25 +892,25 @@ instance Prelude.Hashable TableDescription where
 
 instance Prelude.NFData TableDescription where
   rnf TableDescription' {..} =
-    Prelude.rnf archivalSummary
-      `Prelude.seq` Prelude.rnf attributeDefinitions
-      `Prelude.seq` Prelude.rnf billingModeSummary
-      `Prelude.seq` Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf globalSecondaryIndexes
-      `Prelude.seq` Prelude.rnf globalTableVersion
-      `Prelude.seq` Prelude.rnf itemCount
-      `Prelude.seq` Prelude.rnf keySchema
-      `Prelude.seq` Prelude.rnf latestStreamArn
-      `Prelude.seq` Prelude.rnf latestStreamLabel
-      `Prelude.seq` Prelude.rnf localSecondaryIndexes
-      `Prelude.seq` Prelude.rnf provisionedThroughput
-      `Prelude.seq` Prelude.rnf replicas
-      `Prelude.seq` Prelude.rnf restoreSummary
-      `Prelude.seq` Prelude.rnf sSEDescription
-      `Prelude.seq` Prelude.rnf streamSpecification
-      `Prelude.seq` Prelude.rnf tableArn
-      `Prelude.seq` Prelude.rnf tableClassSummary
-      `Prelude.seq` Prelude.rnf tableId
-      `Prelude.seq` Prelude.rnf tableName
-      `Prelude.seq` Prelude.rnf tableSizeBytes
-      `Prelude.seq` Prelude.rnf tableStatus
+    Prelude.rnf archivalSummary `Prelude.seq`
+      Prelude.rnf attributeDefinitions `Prelude.seq`
+        Prelude.rnf billingModeSummary `Prelude.seq`
+          Prelude.rnf creationDateTime `Prelude.seq`
+            Prelude.rnf globalSecondaryIndexes `Prelude.seq`
+              Prelude.rnf globalTableVersion `Prelude.seq`
+                Prelude.rnf itemCount `Prelude.seq`
+                  Prelude.rnf keySchema `Prelude.seq`
+                    Prelude.rnf latestStreamArn `Prelude.seq`
+                      Prelude.rnf latestStreamLabel `Prelude.seq`
+                        Prelude.rnf localSecondaryIndexes `Prelude.seq`
+                          Prelude.rnf provisionedThroughput `Prelude.seq`
+                            Prelude.rnf replicas `Prelude.seq`
+                              Prelude.rnf restoreSummary `Prelude.seq`
+                                Prelude.rnf sSEDescription `Prelude.seq`
+                                  Prelude.rnf streamSpecification `Prelude.seq`
+                                    Prelude.rnf tableArn `Prelude.seq`
+                                      Prelude.rnf tableClassSummary `Prelude.seq`
+                                        Prelude.rnf tableId `Prelude.seq`
+                                          Prelude.rnf tableName `Prelude.seq`
+                                            Prelude.rnf tableSizeBytes `Prelude.seq`
+                                              Prelude.rnf tableStatus

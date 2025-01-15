@@ -144,13 +144,13 @@ instance
 
 instance Prelude.NFData GitHubDocumentCrawlProperties where
   rnf GitHubDocumentCrawlProperties' {..} =
-    Prelude.rnf crawlIssue
-      `Prelude.seq` Prelude.rnf crawlIssueComment
-      `Prelude.seq` Prelude.rnf crawlIssueCommentAttachment
-      `Prelude.seq` Prelude.rnf crawlPullRequest
-      `Prelude.seq` Prelude.rnf crawlPullRequestComment
-      `Prelude.seq` Prelude.rnf crawlPullRequestCommentAttachment
-      `Prelude.seq` Prelude.rnf crawlRepositoryDocuments
+    Prelude.rnf crawlIssue `Prelude.seq`
+      Prelude.rnf crawlIssueComment `Prelude.seq`
+        Prelude.rnf crawlIssueCommentAttachment `Prelude.seq`
+          Prelude.rnf crawlPullRequest `Prelude.seq`
+            Prelude.rnf crawlPullRequestComment `Prelude.seq`
+              Prelude.rnf crawlPullRequestCommentAttachment `Prelude.seq`
+                Prelude.rnf crawlRepositoryDocuments
 
 instance Data.ToJSON GitHubDocumentCrawlProperties where
   toJSON GitHubDocumentCrawlProperties' {..} =

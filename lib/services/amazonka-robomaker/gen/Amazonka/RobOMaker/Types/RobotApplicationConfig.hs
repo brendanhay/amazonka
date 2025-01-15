@@ -178,13 +178,13 @@ instance Prelude.Hashable RobotApplicationConfig where
 
 instance Prelude.NFData RobotApplicationConfig where
   rnf RobotApplicationConfig' {..} =
-    Prelude.rnf applicationVersion
-      `Prelude.seq` Prelude.rnf tools
-      `Prelude.seq` Prelude.rnf uploadConfigurations
-      `Prelude.seq` Prelude.rnf useDefaultTools
-      `Prelude.seq` Prelude.rnf useDefaultUploadConfigurations
-      `Prelude.seq` Prelude.rnf application
-      `Prelude.seq` Prelude.rnf launchConfig
+    Prelude.rnf applicationVersion `Prelude.seq`
+      Prelude.rnf tools `Prelude.seq`
+        Prelude.rnf uploadConfigurations `Prelude.seq`
+          Prelude.rnf useDefaultTools `Prelude.seq`
+            Prelude.rnf useDefaultUploadConfigurations `Prelude.seq`
+              Prelude.rnf application `Prelude.seq`
+                Prelude.rnf launchConfig
 
 instance Data.ToJSON RobotApplicationConfig where
   toJSON RobotApplicationConfig' {..} =

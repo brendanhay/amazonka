@@ -91,9 +91,9 @@ instance Prelude.Hashable EwsAvailabilityProvider where
 
 instance Prelude.NFData EwsAvailabilityProvider where
   rnf EwsAvailabilityProvider' {..} =
-    Prelude.rnf ewsEndpoint
-      `Prelude.seq` Prelude.rnf ewsUsername
-      `Prelude.seq` Prelude.rnf ewsPassword
+    Prelude.rnf ewsEndpoint `Prelude.seq`
+      Prelude.rnf ewsUsername `Prelude.seq`
+        Prelude.rnf ewsPassword
 
 instance Data.ToJSON EwsAvailabilityProvider where
   toJSON EwsAvailabilityProvider' {..} =

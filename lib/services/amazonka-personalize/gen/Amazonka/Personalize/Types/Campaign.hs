@@ -192,13 +192,13 @@ instance Prelude.Hashable Campaign where
 
 instance Prelude.NFData Campaign where
   rnf Campaign' {..} =
-    Prelude.rnf campaignArn
-      `Prelude.seq` Prelude.rnf campaignConfig
-      `Prelude.seq` Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
-      `Prelude.seq` Prelude.rnf latestCampaignUpdate
-      `Prelude.seq` Prelude.rnf minProvisionedTPS
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf solutionVersionArn
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf campaignArn `Prelude.seq`
+      Prelude.rnf campaignConfig `Prelude.seq`
+        Prelude.rnf creationDateTime `Prelude.seq`
+          Prelude.rnf failureReason `Prelude.seq`
+            Prelude.rnf lastUpdatedDateTime `Prelude.seq`
+              Prelude.rnf latestCampaignUpdate `Prelude.seq`
+                Prelude.rnf minProvisionedTPS `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf solutionVersionArn `Prelude.seq`
+                      Prelude.rnf status

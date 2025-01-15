@@ -156,16 +156,16 @@ instance Prelude.Hashable Event where
 
 instance Prelude.NFData Event where
   rnf Event' {..} =
-    Prelude.rnf appPackageName
-      `Prelude.seq` Prelude.rnf appTitle
-      `Prelude.seq` Prelude.rnf appVersionCode
-      `Prelude.seq` Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf clientSdkVersion
-      `Prelude.seq` Prelude.rnf metrics
-      `Prelude.seq` Prelude.rnf sdkName
-      `Prelude.seq` Prelude.rnf session
-      `Prelude.seq` Prelude.rnf eventType
-      `Prelude.seq` Prelude.rnf timestamp
+    Prelude.rnf appPackageName `Prelude.seq`
+      Prelude.rnf appTitle `Prelude.seq`
+        Prelude.rnf appVersionCode `Prelude.seq`
+          Prelude.rnf attributes `Prelude.seq`
+            Prelude.rnf clientSdkVersion `Prelude.seq`
+              Prelude.rnf metrics `Prelude.seq`
+                Prelude.rnf sdkName `Prelude.seq`
+                  Prelude.rnf session `Prelude.seq`
+                    Prelude.rnf eventType `Prelude.seq`
+                      Prelude.rnf timestamp
 
 instance Data.ToJSON Event where
   toJSON Event' {..} =

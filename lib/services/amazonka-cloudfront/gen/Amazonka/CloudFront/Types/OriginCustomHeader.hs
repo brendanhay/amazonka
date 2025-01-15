@@ -90,8 +90,8 @@ instance Prelude.Hashable OriginCustomHeader where
 
 instance Prelude.NFData OriginCustomHeader where
   rnf OriginCustomHeader' {..} =
-    Prelude.rnf headerName
-      `Prelude.seq` Prelude.rnf headerValue
+    Prelude.rnf headerName `Prelude.seq`
+      Prelude.rnf headerValue
 
 instance Data.ToXML OriginCustomHeader where
   toXML OriginCustomHeader' {..} =

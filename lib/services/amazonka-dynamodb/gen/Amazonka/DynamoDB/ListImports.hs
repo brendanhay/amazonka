@@ -129,9 +129,9 @@ instance Prelude.Hashable ListImports where
 
 instance Prelude.NFData ListImports where
   rnf ListImports' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf pageSize
-      `Prelude.seq` Prelude.rnf tableArn
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf pageSize `Prelude.seq`
+        Prelude.rnf tableArn
 
 instance Data.ToHeaders ListImports where
   toHeaders =
@@ -220,6 +220,6 @@ listImportsResponse_httpStatus = Lens.lens (\ListImportsResponse' {httpStatus} -
 
 instance Prelude.NFData ListImportsResponse where
   rnf ListImportsResponse' {..} =
-    Prelude.rnf importSummaryList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf importSummaryList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

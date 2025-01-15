@@ -113,10 +113,10 @@ instance
     ComboChartAggregatedFieldWells
   where
   rnf ComboChartAggregatedFieldWells' {..} =
-    Prelude.rnf barValues
-      `Prelude.seq` Prelude.rnf category
-      `Prelude.seq` Prelude.rnf colors
-      `Prelude.seq` Prelude.rnf lineValues
+    Prelude.rnf barValues `Prelude.seq`
+      Prelude.rnf category `Prelude.seq`
+        Prelude.rnf colors `Prelude.seq`
+          Prelude.rnf lineValues
 
 instance Data.ToJSON ComboChartAggregatedFieldWells where
   toJSON ComboChartAggregatedFieldWells' {..} =

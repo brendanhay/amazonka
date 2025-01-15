@@ -251,13 +251,13 @@ instance Prelude.Hashable InvokeEndpointAsync where
 
 instance Prelude.NFData InvokeEndpointAsync where
   rnf InvokeEndpointAsync' {..} =
-    Prelude.rnf accept
-      `Prelude.seq` Prelude.rnf contentType
-      `Prelude.seq` Prelude.rnf customAttributes
-      `Prelude.seq` Prelude.rnf inferenceId
-      `Prelude.seq` Prelude.rnf requestTTLSeconds
-      `Prelude.seq` Prelude.rnf endpointName
-      `Prelude.seq` Prelude.rnf inputLocation
+    Prelude.rnf accept `Prelude.seq`
+      Prelude.rnf contentType `Prelude.seq`
+        Prelude.rnf customAttributes `Prelude.seq`
+          Prelude.rnf inferenceId `Prelude.seq`
+            Prelude.rnf requestTTLSeconds `Prelude.seq`
+              Prelude.rnf endpointName `Prelude.seq`
+                Prelude.rnf inputLocation
 
 instance Data.ToHeaders InvokeEndpointAsync where
   toHeaders InvokeEndpointAsync' {..} =
@@ -345,6 +345,6 @@ invokeEndpointAsyncResponse_httpStatus = Lens.lens (\InvokeEndpointAsyncResponse
 
 instance Prelude.NFData InvokeEndpointAsyncResponse where
   rnf InvokeEndpointAsyncResponse' {..} =
-    Prelude.rnf inferenceId
-      `Prelude.seq` Prelude.rnf outputLocation
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf inferenceId `Prelude.seq`
+      Prelude.rnf outputLocation `Prelude.seq`
+        Prelude.rnf httpStatus

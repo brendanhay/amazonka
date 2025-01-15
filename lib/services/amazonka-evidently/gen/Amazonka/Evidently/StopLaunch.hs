@@ -141,10 +141,10 @@ instance Prelude.Hashable StopLaunch where
 
 instance Prelude.NFData StopLaunch where
   rnf StopLaunch' {..} =
-    Prelude.rnf desiredState
-      `Prelude.seq` Prelude.rnf reason
-      `Prelude.seq` Prelude.rnf launch
-      `Prelude.seq` Prelude.rnf project
+    Prelude.rnf desiredState `Prelude.seq`
+      Prelude.rnf reason `Prelude.seq`
+        Prelude.rnf launch `Prelude.seq`
+          Prelude.rnf project
 
 instance Data.ToHeaders StopLaunch where
   toHeaders =
@@ -219,5 +219,5 @@ stopLaunchResponse_httpStatus = Lens.lens (\StopLaunchResponse' {httpStatus} -> 
 
 instance Prelude.NFData StopLaunchResponse where
   rnf StopLaunchResponse' {..} =
-    Prelude.rnf endedTime
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf endedTime `Prelude.seq`
+      Prelude.rnf httpStatus

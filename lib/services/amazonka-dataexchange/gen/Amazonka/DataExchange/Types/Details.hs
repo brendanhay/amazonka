@@ -88,5 +88,5 @@ instance Prelude.Hashable Details where
 
 instance Prelude.NFData Details where
   rnf Details' {..} =
-    Prelude.rnf importAssetFromSignedUrlJobErrorDetails
-      `Prelude.seq` Prelude.rnf importAssetsFromS3JobErrorDetails
+    Prelude.rnf importAssetFromSignedUrlJobErrorDetails `Prelude.seq`
+      Prelude.rnf importAssetsFromS3JobErrorDetails

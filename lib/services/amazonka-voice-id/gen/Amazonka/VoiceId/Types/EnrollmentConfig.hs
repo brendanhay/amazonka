@@ -95,8 +95,8 @@ instance Prelude.Hashable EnrollmentConfig where
 
 instance Prelude.NFData EnrollmentConfig where
   rnf EnrollmentConfig' {..} =
-    Prelude.rnf existingEnrollmentAction
-      `Prelude.seq` Prelude.rnf fraudDetectionConfig
+    Prelude.rnf existingEnrollmentAction `Prelude.seq`
+      Prelude.rnf fraudDetectionConfig
 
 instance Data.ToJSON EnrollmentConfig where
   toJSON EnrollmentConfig' {..} =

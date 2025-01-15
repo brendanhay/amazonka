@@ -92,5 +92,5 @@ instance Prelude.Hashable PolicyRole where
 
 instance Prelude.NFData PolicyRole where
   rnf PolicyRole' {..} =
-    Prelude.rnf roleId
-      `Prelude.seq` Prelude.rnf roleName
+    Prelude.rnf roleId `Prelude.seq`
+      Prelude.rnf roleName

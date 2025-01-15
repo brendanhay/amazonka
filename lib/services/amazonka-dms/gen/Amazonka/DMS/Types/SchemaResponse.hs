@@ -174,12 +174,12 @@ instance Prelude.Hashable SchemaResponse where
 
 instance Prelude.NFData SchemaResponse where
   rnf SchemaResponse' {..} =
-    Prelude.rnf codeLineCount
-      `Prelude.seq` Prelude.rnf codeSize
-      `Prelude.seq` Prelude.rnf complexity
-      `Prelude.seq` Prelude.rnf databaseInstance
-      `Prelude.seq` Prelude.rnf originalSchema
-      `Prelude.seq` Prelude.rnf schemaId
-      `Prelude.seq` Prelude.rnf schemaName
-      `Prelude.seq` Prelude.rnf server
-      `Prelude.seq` Prelude.rnf similarity
+    Prelude.rnf codeLineCount `Prelude.seq`
+      Prelude.rnf codeSize `Prelude.seq`
+        Prelude.rnf complexity `Prelude.seq`
+          Prelude.rnf databaseInstance `Prelude.seq`
+            Prelude.rnf originalSchema `Prelude.seq`
+              Prelude.rnf schemaId `Prelude.seq`
+                Prelude.rnf schemaName `Prelude.seq`
+                  Prelude.rnf server `Prelude.seq`
+                    Prelude.rnf similarity

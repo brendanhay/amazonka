@@ -224,13 +224,13 @@ instance
     HyperParameterTuningJobSummary
   where
   rnf HyperParameterTuningJobSummary' {..} =
-    Prelude.rnf hyperParameterTuningEndTime
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf resourceLimits
-      `Prelude.seq` Prelude.rnf hyperParameterTuningJobName
-      `Prelude.seq` Prelude.rnf hyperParameterTuningJobArn
-      `Prelude.seq` Prelude.rnf hyperParameterTuningJobStatus
-      `Prelude.seq` Prelude.rnf strategy
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf trainingJobStatusCounters
-      `Prelude.seq` Prelude.rnf objectiveStatusCounters
+    Prelude.rnf hyperParameterTuningEndTime `Prelude.seq`
+      Prelude.rnf lastModifiedTime `Prelude.seq`
+        Prelude.rnf resourceLimits `Prelude.seq`
+          Prelude.rnf hyperParameterTuningJobName `Prelude.seq`
+            Prelude.rnf hyperParameterTuningJobArn `Prelude.seq`
+              Prelude.rnf hyperParameterTuningJobStatus `Prelude.seq`
+                Prelude.rnf strategy `Prelude.seq`
+                  Prelude.rnf creationTime `Prelude.seq`
+                    Prelude.rnf trainingJobStatusCounters `Prelude.seq`
+                      Prelude.rnf objectiveStatusCounters

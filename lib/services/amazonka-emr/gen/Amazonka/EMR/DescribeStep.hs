@@ -110,8 +110,8 @@ instance Prelude.Hashable DescribeStep where
 
 instance Prelude.NFData DescribeStep where
   rnf DescribeStep' {..} =
-    Prelude.rnf clusterId
-      `Prelude.seq` Prelude.rnf stepId
+    Prelude.rnf clusterId `Prelude.seq`
+      Prelude.rnf stepId
 
 instance Data.ToHeaders DescribeStep where
   toHeaders =
@@ -185,5 +185,5 @@ describeStepResponse_httpStatus = Lens.lens (\DescribeStepResponse' {httpStatus}
 
 instance Prelude.NFData DescribeStepResponse where
   rnf DescribeStepResponse' {..} =
-    Prelude.rnf step
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf step `Prelude.seq`
+      Prelude.rnf httpStatus

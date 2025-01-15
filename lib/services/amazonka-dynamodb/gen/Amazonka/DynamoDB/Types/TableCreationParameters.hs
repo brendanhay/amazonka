@@ -161,13 +161,13 @@ instance Prelude.Hashable TableCreationParameters where
 
 instance Prelude.NFData TableCreationParameters where
   rnf TableCreationParameters' {..} =
-    Prelude.rnf billingMode
-      `Prelude.seq` Prelude.rnf globalSecondaryIndexes
-      `Prelude.seq` Prelude.rnf provisionedThroughput
-      `Prelude.seq` Prelude.rnf sSESpecification
-      `Prelude.seq` Prelude.rnf tableName
-      `Prelude.seq` Prelude.rnf attributeDefinitions
-      `Prelude.seq` Prelude.rnf keySchema
+    Prelude.rnf billingMode `Prelude.seq`
+      Prelude.rnf globalSecondaryIndexes `Prelude.seq`
+        Prelude.rnf provisionedThroughput `Prelude.seq`
+          Prelude.rnf sSESpecification `Prelude.seq`
+            Prelude.rnf tableName `Prelude.seq`
+              Prelude.rnf attributeDefinitions `Prelude.seq`
+                Prelude.rnf keySchema
 
 instance Data.ToJSON TableCreationParameters where
   toJSON TableCreationParameters' {..} =

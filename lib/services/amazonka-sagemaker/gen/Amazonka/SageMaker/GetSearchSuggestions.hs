@@ -115,8 +115,8 @@ instance Prelude.Hashable GetSearchSuggestions where
 
 instance Prelude.NFData GetSearchSuggestions where
   rnf GetSearchSuggestions' {..} =
-    Prelude.rnf suggestionQuery
-      `Prelude.seq` Prelude.rnf resource
+    Prelude.rnf suggestionQuery `Prelude.seq`
+      Prelude.rnf resource
 
 instance Data.ToHeaders GetSearchSuggestions where
   toHeaders =
@@ -193,5 +193,5 @@ getSearchSuggestionsResponse_httpStatus = Lens.lens (\GetSearchSuggestionsRespon
 
 instance Prelude.NFData GetSearchSuggestionsResponse where
   rnf GetSearchSuggestionsResponse' {..} =
-    Prelude.rnf propertyNameSuggestions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf propertyNameSuggestions `Prelude.seq`
+      Prelude.rnf httpStatus

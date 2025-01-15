@@ -168,10 +168,10 @@ instance
   where
   rnf
     ModifyVerifiedAccessInstanceLoggingConfiguration' {..} =
-      Prelude.rnf clientToken
-        `Prelude.seq` Prelude.rnf dryRun
-        `Prelude.seq` Prelude.rnf verifiedAccessInstanceId
-        `Prelude.seq` Prelude.rnf accessLogs
+      Prelude.rnf clientToken `Prelude.seq`
+        Prelude.rnf dryRun `Prelude.seq`
+          Prelude.rnf verifiedAccessInstanceId `Prelude.seq`
+            Prelude.rnf accessLogs
 
 instance
   Data.ToHeaders
@@ -255,5 +255,5 @@ instance
   where
   rnf
     ModifyVerifiedAccessInstanceLoggingConfigurationResponse' {..} =
-      Prelude.rnf loggingConfiguration
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf loggingConfiguration `Prelude.seq`
+        Prelude.rnf httpStatus

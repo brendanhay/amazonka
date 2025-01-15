@@ -99,6 +99,6 @@ instance Prelude.Hashable SanitizationWarning where
 
 instance Prelude.NFData SanitizationWarning where
   rnf SanitizationWarning' {..} =
-    Prelude.rnf attributeName
-      `Prelude.seq` Prelude.rnf elementName
-      `Prelude.seq` Prelude.rnf reason
+    Prelude.rnf attributeName `Prelude.seq`
+      Prelude.rnf elementName `Prelude.seq`
+        Prelude.rnf reason

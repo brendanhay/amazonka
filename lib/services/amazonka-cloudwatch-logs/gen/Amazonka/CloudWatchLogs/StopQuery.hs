@@ -164,5 +164,5 @@ stopQueryResponse_httpStatus = Lens.lens (\StopQueryResponse' {httpStatus} -> ht
 
 instance Prelude.NFData StopQueryResponse where
   rnf StopQueryResponse' {..} =
-    Prelude.rnf success
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf success `Prelude.seq`
+      Prelude.rnf httpStatus

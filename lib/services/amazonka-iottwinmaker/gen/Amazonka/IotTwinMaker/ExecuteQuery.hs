@@ -144,10 +144,10 @@ instance Prelude.Hashable ExecuteQuery where
 
 instance Prelude.NFData ExecuteQuery where
   rnf ExecuteQuery' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf workspaceId
-      `Prelude.seq` Prelude.rnf queryStatement
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf workspaceId `Prelude.seq`
+          Prelude.rnf queryStatement
 
 instance Data.ToHeaders ExecuteQuery where
   toHeaders =
@@ -237,7 +237,7 @@ executeQueryResponse_httpStatus = Lens.lens (\ExecuteQueryResponse' {httpStatus}
 
 instance Prelude.NFData ExecuteQueryResponse where
   rnf ExecuteQueryResponse' {..} =
-    Prelude.rnf columnDescriptions
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf rows
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf columnDescriptions `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf rows `Prelude.seq`
+          Prelude.rnf httpStatus

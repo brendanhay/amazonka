@@ -181,5 +181,5 @@ instance
     DescribeRefreshSchemasStatusResponse
   where
   rnf DescribeRefreshSchemasStatusResponse' {..} =
-    Prelude.rnf refreshSchemasStatus
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf refreshSchemasStatus `Prelude.seq`
+      Prelude.rnf httpStatus

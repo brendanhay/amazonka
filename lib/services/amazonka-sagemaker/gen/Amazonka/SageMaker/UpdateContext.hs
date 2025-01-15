@@ -130,10 +130,10 @@ instance Prelude.Hashable UpdateContext where
 
 instance Prelude.NFData UpdateContext where
   rnf UpdateContext' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf properties
-      `Prelude.seq` Prelude.rnf propertiesToRemove
-      `Prelude.seq` Prelude.rnf contextName
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf properties `Prelude.seq`
+        Prelude.rnf propertiesToRemove `Prelude.seq`
+          Prelude.rnf contextName
 
 instance Data.ToHeaders UpdateContext where
   toHeaders =
@@ -207,5 +207,5 @@ updateContextResponse_httpStatus = Lens.lens (\UpdateContextResponse' {httpStatu
 
 instance Prelude.NFData UpdateContextResponse where
   rnf UpdateContextResponse' {..} =
-    Prelude.rnf contextArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf contextArn `Prelude.seq`
+      Prelude.rnf httpStatus

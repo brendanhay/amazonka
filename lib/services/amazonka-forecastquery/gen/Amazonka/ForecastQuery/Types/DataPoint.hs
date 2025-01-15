@@ -80,5 +80,5 @@ instance Prelude.Hashable DataPoint where
 
 instance Prelude.NFData DataPoint where
   rnf DataPoint' {..} =
-    Prelude.rnf timestamp
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf timestamp `Prelude.seq`
+      Prelude.rnf value

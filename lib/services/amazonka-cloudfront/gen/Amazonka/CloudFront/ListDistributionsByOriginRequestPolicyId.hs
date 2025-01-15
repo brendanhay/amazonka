@@ -157,9 +157,9 @@ instance
     ListDistributionsByOriginRequestPolicyId
   where
   rnf ListDistributionsByOriginRequestPolicyId' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxItems
-      `Prelude.seq` Prelude.rnf originRequestPolicyId
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf maxItems `Prelude.seq`
+        Prelude.rnf originRequestPolicyId
 
 instance
   Data.ToHeaders
@@ -233,5 +233,5 @@ instance
   where
   rnf
     ListDistributionsByOriginRequestPolicyIdResponse' {..} =
-      Prelude.rnf distributionIdList
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf distributionIdList `Prelude.seq`
+        Prelude.rnf httpStatus

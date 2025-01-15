@@ -103,6 +103,6 @@ instance
     DocumentDefaultVersionDescription
   where
   rnf DocumentDefaultVersionDescription' {..} =
-    Prelude.rnf defaultVersion
-      `Prelude.seq` Prelude.rnf defaultVersionName
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf defaultVersion `Prelude.seq`
+      Prelude.rnf defaultVersionName `Prelude.seq`
+        Prelude.rnf name

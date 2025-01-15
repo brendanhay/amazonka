@@ -87,5 +87,5 @@ instance Prelude.Hashable NetworkFabricAttributes where
 
 instance Prelude.NFData NetworkFabricAttributes where
   rnf NetworkFabricAttributes' {..} =
-    Prelude.rnf edition
-      `Prelude.seq` Prelude.rnf orderingServiceEndpoint
+    Prelude.rnf edition `Prelude.seq`
+      Prelude.rnf orderingServiceEndpoint

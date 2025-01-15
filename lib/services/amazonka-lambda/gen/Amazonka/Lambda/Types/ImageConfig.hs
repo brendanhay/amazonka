@@ -96,9 +96,9 @@ instance Prelude.Hashable ImageConfig where
 
 instance Prelude.NFData ImageConfig where
   rnf ImageConfig' {..} =
-    Prelude.rnf command
-      `Prelude.seq` Prelude.rnf entryPoint
-      `Prelude.seq` Prelude.rnf workingDirectory
+    Prelude.rnf command `Prelude.seq`
+      Prelude.rnf entryPoint `Prelude.seq`
+        Prelude.rnf workingDirectory
 
 instance Data.ToJSON ImageConfig where
   toJSON ImageConfig' {..} =

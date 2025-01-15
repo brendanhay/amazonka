@@ -816,27 +816,27 @@ instance Prelude.Hashable CreateFleet where
 
 instance Prelude.NFData CreateFleet where
   rnf CreateFleet' {..} =
-    Prelude.rnf computeCapacity
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf disconnectTimeoutInSeconds
-      `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf domainJoinInfo
-      `Prelude.seq` Prelude.rnf enableDefaultInternetAccess
-      `Prelude.seq` Prelude.rnf fleetType
-      `Prelude.seq` Prelude.rnf iamRoleArn
-      `Prelude.seq` Prelude.rnf idleDisconnectTimeoutInSeconds
-      `Prelude.seq` Prelude.rnf imageArn
-      `Prelude.seq` Prelude.rnf imageName
-      `Prelude.seq` Prelude.rnf maxConcurrentSessions
-      `Prelude.seq` Prelude.rnf maxUserDurationInSeconds
-      `Prelude.seq` Prelude.rnf platform
-      `Prelude.seq` Prelude.rnf sessionScriptS3Location
-      `Prelude.seq` Prelude.rnf streamView
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf usbDeviceFilterStrings
-      `Prelude.seq` Prelude.rnf vpcConfig
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf instanceType
+    Prelude.rnf computeCapacity `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf disconnectTimeoutInSeconds `Prelude.seq`
+          Prelude.rnf displayName `Prelude.seq`
+            Prelude.rnf domainJoinInfo `Prelude.seq`
+              Prelude.rnf enableDefaultInternetAccess `Prelude.seq`
+                Prelude.rnf fleetType `Prelude.seq`
+                  Prelude.rnf iamRoleArn `Prelude.seq`
+                    Prelude.rnf idleDisconnectTimeoutInSeconds `Prelude.seq`
+                      Prelude.rnf imageArn `Prelude.seq`
+                        Prelude.rnf imageName `Prelude.seq`
+                          Prelude.rnf maxConcurrentSessions `Prelude.seq`
+                            Prelude.rnf maxUserDurationInSeconds `Prelude.seq`
+                              Prelude.rnf platform `Prelude.seq`
+                                Prelude.rnf sessionScriptS3Location `Prelude.seq`
+                                  Prelude.rnf streamView `Prelude.seq`
+                                    Prelude.rnf tags `Prelude.seq`
+                                      Prelude.rnf usbDeviceFilterStrings `Prelude.seq`
+                                        Prelude.rnf vpcConfig `Prelude.seq`
+                                          Prelude.rnf name `Prelude.seq`
+                                            Prelude.rnf instanceType
 
 instance Data.ToHeaders CreateFleet where
   toHeaders =
@@ -936,5 +936,5 @@ createFleetResponse_httpStatus = Lens.lens (\CreateFleetResponse' {httpStatus} -
 
 instance Prelude.NFData CreateFleetResponse where
   rnf CreateFleetResponse' {..} =
-    Prelude.rnf fleet
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf fleet `Prelude.seq`
+      Prelude.rnf httpStatus

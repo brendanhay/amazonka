@@ -156,8 +156,8 @@ instance Prelude.Hashable PutFunctionConcurrency where
 
 instance Prelude.NFData PutFunctionConcurrency where
   rnf PutFunctionConcurrency' {..} =
-    Prelude.rnf functionName
-      `Prelude.seq` Prelude.rnf reservedConcurrentExecutions
+    Prelude.rnf functionName `Prelude.seq`
+      Prelude.rnf reservedConcurrentExecutions
 
 instance Data.ToHeaders PutFunctionConcurrency where
   toHeaders = Prelude.const Prelude.mempty

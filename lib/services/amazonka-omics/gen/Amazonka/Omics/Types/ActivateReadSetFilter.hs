@@ -82,9 +82,9 @@ instance Prelude.Hashable ActivateReadSetFilter where
 
 instance Prelude.NFData ActivateReadSetFilter where
   rnf ActivateReadSetFilter' {..} =
-    Prelude.rnf createdAfter
-      `Prelude.seq` Prelude.rnf createdBefore
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf createdAfter `Prelude.seq`
+      Prelude.rnf createdBefore `Prelude.seq`
+        Prelude.rnf status
 
 instance Data.ToJSON ActivateReadSetFilter where
   toJSON ActivateReadSetFilter' {..} =

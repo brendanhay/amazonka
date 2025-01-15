@@ -256,10 +256,10 @@ instance
     ModifyCurrentDBClusterCapacity
   where
   rnf ModifyCurrentDBClusterCapacity' {..} =
-    Prelude.rnf capacity
-      `Prelude.seq` Prelude.rnf secondsBeforeTimeout
-      `Prelude.seq` Prelude.rnf timeoutAction
-      `Prelude.seq` Prelude.rnf dbClusterIdentifier
+    Prelude.rnf capacity `Prelude.seq`
+      Prelude.rnf secondsBeforeTimeout `Prelude.seq`
+        Prelude.rnf timeoutAction `Prelude.seq`
+          Prelude.rnf dbClusterIdentifier
 
 instance
   Data.ToHeaders
@@ -377,9 +377,9 @@ instance
     ModifyCurrentDBClusterCapacityResponse
   where
   rnf ModifyCurrentDBClusterCapacityResponse' {..} =
-    Prelude.rnf currentCapacity
-      `Prelude.seq` Prelude.rnf dbClusterIdentifier
-      `Prelude.seq` Prelude.rnf pendingCapacity
-      `Prelude.seq` Prelude.rnf secondsBeforeTimeout
-      `Prelude.seq` Prelude.rnf timeoutAction
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf currentCapacity `Prelude.seq`
+      Prelude.rnf dbClusterIdentifier `Prelude.seq`
+        Prelude.rnf pendingCapacity `Prelude.seq`
+          Prelude.rnf secondsBeforeTimeout `Prelude.seq`
+            Prelude.rnf timeoutAction `Prelude.seq`
+              Prelude.rnf httpStatus

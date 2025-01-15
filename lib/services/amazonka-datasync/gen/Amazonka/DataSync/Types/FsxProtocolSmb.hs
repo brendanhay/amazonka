@@ -193,10 +193,10 @@ instance Prelude.Hashable FsxProtocolSmb where
 
 instance Prelude.NFData FsxProtocolSmb where
   rnf FsxProtocolSmb' {..} =
-    Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf mountOptions
-      `Prelude.seq` Prelude.rnf password
-      `Prelude.seq` Prelude.rnf user
+    Prelude.rnf domain `Prelude.seq`
+      Prelude.rnf mountOptions `Prelude.seq`
+        Prelude.rnf password `Prelude.seq`
+          Prelude.rnf user
 
 instance Data.ToJSON FsxProtocolSmb where
   toJSON FsxProtocolSmb' {..} =

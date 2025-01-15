@@ -86,8 +86,8 @@ instance Prelude.Hashable VPC where
 
 instance Prelude.NFData VPC where
   rnf VPC' {..} =
-    Prelude.rnf vPCId
-      `Prelude.seq` Prelude.rnf vPCRegion
+    Prelude.rnf vPCId `Prelude.seq`
+      Prelude.rnf vPCRegion
 
 instance Data.ToXML VPC where
   toXML VPC' {..} =

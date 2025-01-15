@@ -238,17 +238,17 @@ instance
     AwsEc2VpcEndpointServiceDetails
   where
   rnf AwsEc2VpcEndpointServiceDetails' {..} =
-    Prelude.rnf acceptanceRequired
-      `Prelude.seq` Prelude.rnf availabilityZones
-      `Prelude.seq` Prelude.rnf baseEndpointDnsNames
-      `Prelude.seq` Prelude.rnf gatewayLoadBalancerArns
-      `Prelude.seq` Prelude.rnf managesVpcEndpoints
-      `Prelude.seq` Prelude.rnf networkLoadBalancerArns
-      `Prelude.seq` Prelude.rnf privateDnsName
-      `Prelude.seq` Prelude.rnf serviceId
-      `Prelude.seq` Prelude.rnf serviceName
-      `Prelude.seq` Prelude.rnf serviceState
-      `Prelude.seq` Prelude.rnf serviceType
+    Prelude.rnf acceptanceRequired `Prelude.seq`
+      Prelude.rnf availabilityZones `Prelude.seq`
+        Prelude.rnf baseEndpointDnsNames `Prelude.seq`
+          Prelude.rnf gatewayLoadBalancerArns `Prelude.seq`
+            Prelude.rnf managesVpcEndpoints `Prelude.seq`
+              Prelude.rnf networkLoadBalancerArns `Prelude.seq`
+                Prelude.rnf privateDnsName `Prelude.seq`
+                  Prelude.rnf serviceId `Prelude.seq`
+                    Prelude.rnf serviceName `Prelude.seq`
+                      Prelude.rnf serviceState `Prelude.seq`
+                        Prelude.rnf serviceType
 
 instance Data.ToJSON AwsEc2VpcEndpointServiceDetails where
   toJSON AwsEc2VpcEndpointServiceDetails' {..} =

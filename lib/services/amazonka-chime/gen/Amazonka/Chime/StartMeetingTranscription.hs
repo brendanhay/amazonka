@@ -114,8 +114,8 @@ instance Prelude.Hashable StartMeetingTranscription where
 
 instance Prelude.NFData StartMeetingTranscription where
   rnf StartMeetingTranscription' {..} =
-    Prelude.rnf meetingId
-      `Prelude.seq` Prelude.rnf transcriptionConfiguration
+    Prelude.rnf meetingId `Prelude.seq`
+      Prelude.rnf transcriptionConfiguration
 
 instance Data.ToHeaders StartMeetingTranscription where
   toHeaders = Prelude.const Prelude.mempty

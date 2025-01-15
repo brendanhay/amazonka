@@ -118,8 +118,8 @@ instance Prelude.Hashable GetFilter where
 
 instance Prelude.NFData GetFilter where
   rnf GetFilter' {..} =
-    Prelude.rnf detectorId
-      `Prelude.seq` Prelude.rnf filterName
+    Prelude.rnf detectorId `Prelude.seq`
+      Prelude.rnf filterName
 
 instance Data.ToHeaders GetFilter where
   toHeaders =
@@ -248,10 +248,10 @@ getFilterResponse_findingCriteria = Lens.lens (\GetFilterResponse' {findingCrite
 
 instance Prelude.NFData GetFilterResponse where
   rnf GetFilterResponse' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf rank
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf action
-      `Prelude.seq` Prelude.rnf findingCriteria
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf rank `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf httpStatus `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf action `Prelude.seq`
+                Prelude.rnf findingCriteria

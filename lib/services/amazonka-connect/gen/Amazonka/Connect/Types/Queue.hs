@@ -165,12 +165,12 @@ instance Prelude.Hashable Queue where
 
 instance Prelude.NFData Queue where
   rnf Queue' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf hoursOfOperationId
-      `Prelude.seq` Prelude.rnf maxContacts
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf outboundCallerConfig
-      `Prelude.seq` Prelude.rnf queueArn
-      `Prelude.seq` Prelude.rnf queueId
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf hoursOfOperationId `Prelude.seq`
+        Prelude.rnf maxContacts `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf outboundCallerConfig `Prelude.seq`
+              Prelude.rnf queueArn `Prelude.seq`
+                Prelude.rnf queueId `Prelude.seq`
+                  Prelude.rnf status `Prelude.seq`
+                    Prelude.rnf tags

@@ -303,6 +303,6 @@ instance
   where
   rnf
     GetThirdPartyFirewallAssociationStatusResponse' {..} =
-      Prelude.rnf marketplaceOnboardingStatus
-        `Prelude.seq` Prelude.rnf thirdPartyFirewallStatus
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf marketplaceOnboardingStatus `Prelude.seq`
+        Prelude.rnf thirdPartyFirewallStatus `Prelude.seq`
+          Prelude.rnf httpStatus

@@ -178,10 +178,10 @@ instance Prelude.Hashable UpdateAccountSettings where
 
 instance Prelude.NFData UpdateAccountSettings where
   rnf UpdateAccountSettings' {..} =
-    Prelude.rnf deletePipelineProvisioningRepository
-      `Prelude.seq` Prelude.rnf pipelineCodebuildRoleArn
-      `Prelude.seq` Prelude.rnf pipelineProvisioningRepository
-      `Prelude.seq` Prelude.rnf pipelineServiceRoleArn
+    Prelude.rnf deletePipelineProvisioningRepository `Prelude.seq`
+      Prelude.rnf pipelineCodebuildRoleArn `Prelude.seq`
+        Prelude.rnf pipelineProvisioningRepository `Prelude.seq`
+          Prelude.rnf pipelineServiceRoleArn
 
 instance Data.ToHeaders UpdateAccountSettings where
   toHeaders =
@@ -267,5 +267,5 @@ updateAccountSettingsResponse_accountSettings = Lens.lens (\UpdateAccountSetting
 
 instance Prelude.NFData UpdateAccountSettingsResponse where
   rnf UpdateAccountSettingsResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf accountSettings
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf accountSettings

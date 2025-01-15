@@ -148,12 +148,12 @@ instance Core.AWSPager ListTableColumns where
         (rs Lens.^. listTableColumnsResponse_tableColumns) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listTableColumns_nextToken
-          Lens..~ rs
-          Lens.^? listTableColumnsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listTableColumns_nextToken
+              Lens..~ rs
+              Lens.^? listTableColumnsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListTableColumns where
   type
@@ -180,9 +180,9 @@ instance Prelude.Hashable ListTableColumns where
 
 instance Prelude.NFData ListTableColumns where
   rnf ListTableColumns' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf workbookId
-      `Prelude.seq` Prelude.rnf tableId
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf workbookId `Prelude.seq`
+        Prelude.rnf tableId
 
 instance Data.ToHeaders ListTableColumns where
   toHeaders =
@@ -283,7 +283,7 @@ listTableColumnsResponse_tableColumns = Lens.lens (\ListTableColumnsResponse' {t
 
 instance Prelude.NFData ListTableColumnsResponse where
   rnf ListTableColumnsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf workbookCursor
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf tableColumns
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf workbookCursor `Prelude.seq`
+        Prelude.rnf httpStatus `Prelude.seq`
+          Prelude.rnf tableColumns

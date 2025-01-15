@@ -187,14 +187,14 @@ instance Prelude.Hashable S3DestinationConfiguration where
 
 instance Prelude.NFData S3DestinationConfiguration where
   rnf S3DestinationConfiguration' {..} =
-    Prelude.rnf bufferingHints
-      `Prelude.seq` Prelude.rnf cloudWatchLoggingOptions
-      `Prelude.seq` Prelude.rnf compressionFormat
-      `Prelude.seq` Prelude.rnf encryptionConfiguration
-      `Prelude.seq` Prelude.rnf errorOutputPrefix
-      `Prelude.seq` Prelude.rnf prefix
-      `Prelude.seq` Prelude.rnf roleARN
-      `Prelude.seq` Prelude.rnf bucketARN
+    Prelude.rnf bufferingHints `Prelude.seq`
+      Prelude.rnf cloudWatchLoggingOptions `Prelude.seq`
+        Prelude.rnf compressionFormat `Prelude.seq`
+          Prelude.rnf encryptionConfiguration `Prelude.seq`
+            Prelude.rnf errorOutputPrefix `Prelude.seq`
+              Prelude.rnf prefix `Prelude.seq`
+                Prelude.rnf roleARN `Prelude.seq`
+                  Prelude.rnf bucketARN
 
 instance Data.ToJSON S3DestinationConfiguration where
   toJSON S3DestinationConfiguration' {..} =

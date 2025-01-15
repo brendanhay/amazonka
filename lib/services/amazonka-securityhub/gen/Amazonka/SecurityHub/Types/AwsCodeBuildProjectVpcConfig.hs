@@ -98,9 +98,9 @@ instance
 
 instance Prelude.NFData AwsCodeBuildProjectVpcConfig where
   rnf AwsCodeBuildProjectVpcConfig' {..} =
-    Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf subnets
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf securityGroupIds `Prelude.seq`
+      Prelude.rnf subnets `Prelude.seq`
+        Prelude.rnf vpcId
 
 instance Data.ToJSON AwsCodeBuildProjectVpcConfig where
   toJSON AwsCodeBuildProjectVpcConfig' {..} =

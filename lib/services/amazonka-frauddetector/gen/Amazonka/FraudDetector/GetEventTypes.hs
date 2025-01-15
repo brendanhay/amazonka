@@ -125,9 +125,9 @@ instance Prelude.Hashable GetEventTypes where
 
 instance Prelude.NFData GetEventTypes where
   rnf GetEventTypes' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders GetEventTypes where
   toHeaders =
@@ -210,6 +210,6 @@ getEventTypesResponse_httpStatus = Lens.lens (\GetEventTypesResponse' {httpStatu
 
 instance Prelude.NFData GetEventTypesResponse where
   rnf GetEventTypesResponse' {..} =
-    Prelude.rnf eventTypes
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf eventTypes `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

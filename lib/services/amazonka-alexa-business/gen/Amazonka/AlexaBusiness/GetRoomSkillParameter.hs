@@ -124,9 +124,9 @@ instance Prelude.Hashable GetRoomSkillParameter where
 
 instance Prelude.NFData GetRoomSkillParameter where
   rnf GetRoomSkillParameter' {..} =
-    Prelude.rnf roomArn
-      `Prelude.seq` Prelude.rnf skillId
-      `Prelude.seq` Prelude.rnf parameterKey
+    Prelude.rnf roomArn `Prelude.seq`
+      Prelude.rnf skillId `Prelude.seq`
+        Prelude.rnf parameterKey
 
 instance Data.ToHeaders GetRoomSkillParameter where
   toHeaders =
@@ -200,5 +200,5 @@ getRoomSkillParameterResponse_httpStatus = Lens.lens (\GetRoomSkillParameterResp
 
 instance Prelude.NFData GetRoomSkillParameterResponse where
   rnf GetRoomSkillParameterResponse' {..} =
-    Prelude.rnf roomSkillParameter
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf roomSkillParameter `Prelude.seq`
+      Prelude.rnf httpStatus

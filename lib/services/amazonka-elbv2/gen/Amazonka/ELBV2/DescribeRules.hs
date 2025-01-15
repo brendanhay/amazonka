@@ -126,12 +126,12 @@ instance Core.AWSPager DescribeRules where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeRules_marker
-          Lens..~ rs
-          Lens.^? describeRulesResponse_nextMarker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeRules_marker
+              Lens..~ rs
+              Lens.^? describeRulesResponse_nextMarker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeRules where
   type
@@ -145,9 +145,7 @@ instance Core.AWSRequest DescribeRules where
       ( \s h x ->
           DescribeRulesResponse'
             Prelude.<$> (x Data..@? "NextMarker")
-            Prelude.<*> ( x
-                            Data..@? "Rules"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "Rules" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -163,10 +161,10 @@ instance Prelude.Hashable DescribeRules where
 
 instance Prelude.NFData DescribeRules where
   rnf DescribeRules' {..} =
-    Prelude.rnf listenerArn
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf pageSize
-      `Prelude.seq` Prelude.rnf ruleArns
+    Prelude.rnf listenerArn `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf pageSize `Prelude.seq`
+          Prelude.rnf ruleArns
 
 instance Data.ToHeaders DescribeRules where
   toHeaders = Prelude.const Prelude.mempty
@@ -242,6 +240,6 @@ describeRulesResponse_httpStatus = Lens.lens (\DescribeRulesResponse' {httpStatu
 
 instance Prelude.NFData DescribeRulesResponse where
   rnf DescribeRulesResponse' {..} =
-    Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf rules
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextMarker `Prelude.seq`
+      Prelude.rnf rules `Prelude.seq`
+        Prelude.rnf httpStatus

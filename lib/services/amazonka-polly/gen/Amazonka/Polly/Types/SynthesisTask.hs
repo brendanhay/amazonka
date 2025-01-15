@@ -309,18 +309,18 @@ instance Prelude.Hashable SynthesisTask where
 
 instance Prelude.NFData SynthesisTask where
   rnf SynthesisTask' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf engine
-      `Prelude.seq` Prelude.rnf languageCode
-      `Prelude.seq` Prelude.rnf lexiconNames
-      `Prelude.seq` Prelude.rnf outputFormat
-      `Prelude.seq` Prelude.rnf outputUri
-      `Prelude.seq` Prelude.rnf requestCharacters
-      `Prelude.seq` Prelude.rnf sampleRate
-      `Prelude.seq` Prelude.rnf snsTopicArn
-      `Prelude.seq` Prelude.rnf speechMarkTypes
-      `Prelude.seq` Prelude.rnf taskId
-      `Prelude.seq` Prelude.rnf taskStatus
-      `Prelude.seq` Prelude.rnf taskStatusReason
-      `Prelude.seq` Prelude.rnf textType
-      `Prelude.seq` Prelude.rnf voiceId
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf engine `Prelude.seq`
+        Prelude.rnf languageCode `Prelude.seq`
+          Prelude.rnf lexiconNames `Prelude.seq`
+            Prelude.rnf outputFormat `Prelude.seq`
+              Prelude.rnf outputUri `Prelude.seq`
+                Prelude.rnf requestCharacters `Prelude.seq`
+                  Prelude.rnf sampleRate `Prelude.seq`
+                    Prelude.rnf snsTopicArn `Prelude.seq`
+                      Prelude.rnf speechMarkTypes `Prelude.seq`
+                        Prelude.rnf taskId `Prelude.seq`
+                          Prelude.rnf taskStatus `Prelude.seq`
+                            Prelude.rnf taskStatusReason `Prelude.seq`
+                              Prelude.rnf textType `Prelude.seq`
+                                Prelude.rnf voiceId

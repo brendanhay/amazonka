@@ -150,11 +150,11 @@ instance Prelude.Hashable UpdateChannelMessage where
 
 instance Prelude.NFData UpdateChannelMessage where
   rnf UpdateChannelMessage' {..} =
-    Prelude.rnf chimeBearer
-      `Prelude.seq` Prelude.rnf content
-      `Prelude.seq` Prelude.rnf metadata
-      `Prelude.seq` Prelude.rnf channelArn
-      `Prelude.seq` Prelude.rnf messageId
+    Prelude.rnf chimeBearer `Prelude.seq`
+      Prelude.rnf content `Prelude.seq`
+        Prelude.rnf metadata `Prelude.seq`
+          Prelude.rnf channelArn `Prelude.seq`
+            Prelude.rnf messageId
 
 instance Data.ToHeaders UpdateChannelMessage where
   toHeaders UpdateChannelMessage' {..} =
@@ -232,6 +232,6 @@ updateChannelMessageResponse_httpStatus = Lens.lens (\UpdateChannelMessageRespon
 
 instance Prelude.NFData UpdateChannelMessageResponse where
   rnf UpdateChannelMessageResponse' {..} =
-    Prelude.rnf channelArn
-      `Prelude.seq` Prelude.rnf messageId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf channelArn `Prelude.seq`
+      Prelude.rnf messageId `Prelude.seq`
+        Prelude.rnf httpStatus

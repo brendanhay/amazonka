@@ -156,6 +156,6 @@ instance Prelude.Hashable SubtitlesOutput where
 
 instance Prelude.NFData SubtitlesOutput where
   rnf SubtitlesOutput' {..} =
-    Prelude.rnf formats
-      `Prelude.seq` Prelude.rnf outputStartIndex
-      `Prelude.seq` Prelude.rnf subtitleFileUris
+    Prelude.rnf formats `Prelude.seq`
+      Prelude.rnf outputStartIndex `Prelude.seq`
+        Prelude.rnf subtitleFileUris

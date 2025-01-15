@@ -169,9 +169,7 @@ instance Data.FromXML TrafficMirrorSession where
       Prelude.<*> (x Data..@? "ownerId")
       Prelude.<*> (x Data..@? "packetLength")
       Prelude.<*> (x Data..@? "sessionNumber")
-      Prelude.<*> ( x
-                      Data..@? "tagSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "trafficMirrorFilterId")
@@ -195,13 +193,13 @@ instance Prelude.Hashable TrafficMirrorSession where
 
 instance Prelude.NFData TrafficMirrorSession where
   rnf TrafficMirrorSession' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf networkInterfaceId
-      `Prelude.seq` Prelude.rnf ownerId
-      `Prelude.seq` Prelude.rnf packetLength
-      `Prelude.seq` Prelude.rnf sessionNumber
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf trafficMirrorFilterId
-      `Prelude.seq` Prelude.rnf trafficMirrorSessionId
-      `Prelude.seq` Prelude.rnf trafficMirrorTargetId
-      `Prelude.seq` Prelude.rnf virtualNetworkId
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf networkInterfaceId `Prelude.seq`
+        Prelude.rnf ownerId `Prelude.seq`
+          Prelude.rnf packetLength `Prelude.seq`
+            Prelude.rnf sessionNumber `Prelude.seq`
+              Prelude.rnf tags `Prelude.seq`
+                Prelude.rnf trafficMirrorFilterId `Prelude.seq`
+                  Prelude.rnf trafficMirrorSessionId `Prelude.seq`
+                    Prelude.rnf trafficMirrorTargetId `Prelude.seq`
+                      Prelude.rnf virtualNetworkId

@@ -128,9 +128,9 @@ instance Prelude.Hashable BotMetadata where
 
 instance Prelude.NFData BotMetadata where
   rnf BotMetadata' {..} =
-    Prelude.rnf createdDate
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf lastUpdatedDate
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf version
+    Prelude.rnf createdDate `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf lastUpdatedDate `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf status `Prelude.seq`
+              Prelude.rnf version

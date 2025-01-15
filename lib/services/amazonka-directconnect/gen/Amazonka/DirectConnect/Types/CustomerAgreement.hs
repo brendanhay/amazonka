@@ -83,5 +83,5 @@ instance Prelude.Hashable CustomerAgreement where
 
 instance Prelude.NFData CustomerAgreement where
   rnf CustomerAgreement' {..} =
-    Prelude.rnf agreementName
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf agreementName `Prelude.seq`
+      Prelude.rnf status

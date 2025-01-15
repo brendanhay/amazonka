@@ -81,8 +81,8 @@ instance Prelude.Hashable DeviceUnderTest where
 
 instance Prelude.NFData DeviceUnderTest where
   rnf DeviceUnderTest' {..} =
-    Prelude.rnf certificateArn
-      `Prelude.seq` Prelude.rnf thingArn
+    Prelude.rnf certificateArn `Prelude.seq`
+      Prelude.rnf thingArn
 
 instance Data.ToJSON DeviceUnderTest where
   toJSON DeviceUnderTest' {..} =

@@ -293,14 +293,14 @@ instance Prelude.Hashable CacheSettings where
 
 instance Prelude.NFData CacheSettings where
   rnf CacheSettings' {..} =
-    Prelude.rnf allowedHTTPMethods
-      `Prelude.seq` Prelude.rnf cachedHTTPMethods
-      `Prelude.seq` Prelude.rnf defaultTTL
-      `Prelude.seq` Prelude.rnf forwardedCookies
-      `Prelude.seq` Prelude.rnf forwardedHeaders
-      `Prelude.seq` Prelude.rnf forwardedQueryStrings
-      `Prelude.seq` Prelude.rnf maximumTTL
-      `Prelude.seq` Prelude.rnf minimumTTL
+    Prelude.rnf allowedHTTPMethods `Prelude.seq`
+      Prelude.rnf cachedHTTPMethods `Prelude.seq`
+        Prelude.rnf defaultTTL `Prelude.seq`
+          Prelude.rnf forwardedCookies `Prelude.seq`
+            Prelude.rnf forwardedHeaders `Prelude.seq`
+              Prelude.rnf forwardedQueryStrings `Prelude.seq`
+                Prelude.rnf maximumTTL `Prelude.seq`
+                  Prelude.rnf minimumTTL
 
 instance Data.ToJSON CacheSettings where
   toJSON CacheSettings' {..} =

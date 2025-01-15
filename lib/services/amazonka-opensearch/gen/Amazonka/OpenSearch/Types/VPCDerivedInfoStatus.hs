@@ -86,5 +86,5 @@ instance Prelude.Hashable VPCDerivedInfoStatus where
 
 instance Prelude.NFData VPCDerivedInfoStatus where
   rnf VPCDerivedInfoStatus' {..} =
-    Prelude.rnf options
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf options `Prelude.seq`
+      Prelude.rnf status

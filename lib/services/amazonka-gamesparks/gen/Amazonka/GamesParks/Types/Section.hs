@@ -92,6 +92,6 @@ instance Prelude.Hashable Section where
 
 instance Prelude.NFData Section where
   rnf Section' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf size
+    Prelude.rnf attributes `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf size

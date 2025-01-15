@@ -381,17 +381,17 @@ instance Prelude.Hashable CreateAuthorizer where
 
 instance Prelude.NFData CreateAuthorizer where
   rnf CreateAuthorizer' {..} =
-    Prelude.rnf authorizerCredentialsArn
-      `Prelude.seq` Prelude.rnf authorizerPayloadFormatVersion
-      `Prelude.seq` Prelude.rnf authorizerResultTtlInSeconds
-      `Prelude.seq` Prelude.rnf authorizerUri
-      `Prelude.seq` Prelude.rnf enableSimpleResponses
-      `Prelude.seq` Prelude.rnf identityValidationExpression
-      `Prelude.seq` Prelude.rnf jwtConfiguration
-      `Prelude.seq` Prelude.rnf apiId
-      `Prelude.seq` Prelude.rnf authorizerType
-      `Prelude.seq` Prelude.rnf identitySource
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf authorizerCredentialsArn `Prelude.seq`
+      Prelude.rnf authorizerPayloadFormatVersion `Prelude.seq`
+        Prelude.rnf authorizerResultTtlInSeconds `Prelude.seq`
+          Prelude.rnf authorizerUri `Prelude.seq`
+            Prelude.rnf enableSimpleResponses `Prelude.seq`
+              Prelude.rnf identityValidationExpression `Prelude.seq`
+                Prelude.rnf jwtConfiguration `Prelude.seq`
+                  Prelude.rnf apiId `Prelude.seq`
+                    Prelude.rnf authorizerType `Prelude.seq`
+                      Prelude.rnf identitySource `Prelude.seq`
+                        Prelude.rnf name
 
 instance Data.ToHeaders CreateAuthorizer where
   toHeaders =
@@ -715,15 +715,15 @@ createAuthorizerResponse_httpStatus = Lens.lens (\CreateAuthorizerResponse' {htt
 
 instance Prelude.NFData CreateAuthorizerResponse where
   rnf CreateAuthorizerResponse' {..} =
-    Prelude.rnf authorizerCredentialsArn
-      `Prelude.seq` Prelude.rnf authorizerId
-      `Prelude.seq` Prelude.rnf authorizerPayloadFormatVersion
-      `Prelude.seq` Prelude.rnf authorizerResultTtlInSeconds
-      `Prelude.seq` Prelude.rnf authorizerType
-      `Prelude.seq` Prelude.rnf authorizerUri
-      `Prelude.seq` Prelude.rnf enableSimpleResponses
-      `Prelude.seq` Prelude.rnf identitySource
-      `Prelude.seq` Prelude.rnf identityValidationExpression
-      `Prelude.seq` Prelude.rnf jwtConfiguration
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf authorizerCredentialsArn `Prelude.seq`
+      Prelude.rnf authorizerId `Prelude.seq`
+        Prelude.rnf authorizerPayloadFormatVersion `Prelude.seq`
+          Prelude.rnf authorizerResultTtlInSeconds `Prelude.seq`
+            Prelude.rnf authorizerType `Prelude.seq`
+              Prelude.rnf authorizerUri `Prelude.seq`
+                Prelude.rnf enableSimpleResponses `Prelude.seq`
+                  Prelude.rnf identitySource `Prelude.seq`
+                    Prelude.rnf identityValidationExpression `Prelude.seq`
+                      Prelude.rnf jwtConfiguration `Prelude.seq`
+                        Prelude.rnf name `Prelude.seq`
+                          Prelude.rnf httpStatus

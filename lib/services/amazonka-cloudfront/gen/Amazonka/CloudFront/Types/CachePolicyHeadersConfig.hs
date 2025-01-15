@@ -118,8 +118,8 @@ instance Prelude.Hashable CachePolicyHeadersConfig where
 
 instance Prelude.NFData CachePolicyHeadersConfig where
   rnf CachePolicyHeadersConfig' {..} =
-    Prelude.rnf headers
-      `Prelude.seq` Prelude.rnf headerBehavior
+    Prelude.rnf headers `Prelude.seq`
+      Prelude.rnf headerBehavior
 
 instance Data.ToXML CachePolicyHeadersConfig where
   toXML CachePolicyHeadersConfig' {..} =

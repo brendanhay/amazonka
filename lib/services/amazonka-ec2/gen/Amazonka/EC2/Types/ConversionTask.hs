@@ -130,9 +130,7 @@ instance Data.FromXML ConversionTask where
       Prelude.<*> (x Data..@? "importVolume")
       Prelude.<*> (x Data..@? "state")
       Prelude.<*> (x Data..@? "statusMessage")
-      Prelude.<*> ( x
-                      Data..@? "tagSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
@@ -149,10 +147,10 @@ instance Prelude.Hashable ConversionTask where
 
 instance Prelude.NFData ConversionTask where
   rnf ConversionTask' {..} =
-    Prelude.rnf conversionTaskId
-      `Prelude.seq` Prelude.rnf expirationTime
-      `Prelude.seq` Prelude.rnf importInstance
-      `Prelude.seq` Prelude.rnf importVolume
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf conversionTaskId `Prelude.seq`
+      Prelude.rnf expirationTime `Prelude.seq`
+        Prelude.rnf importInstance `Prelude.seq`
+          Prelude.rnf importVolume `Prelude.seq`
+            Prelude.rnf state `Prelude.seq`
+              Prelude.rnf statusMessage `Prelude.seq`
+                Prelude.rnf tags

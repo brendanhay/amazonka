@@ -152,10 +152,10 @@ instance Prelude.Hashable UpdateTrustStore where
 
 instance Prelude.NFData UpdateTrustStore where
   rnf UpdateTrustStore' {..} =
-    Prelude.rnf certificatesToAdd
-      `Prelude.seq` Prelude.rnf certificatesToDelete
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf trustStoreArn
+    Prelude.rnf certificatesToAdd `Prelude.seq`
+      Prelude.rnf certificatesToDelete `Prelude.seq`
+        Prelude.rnf clientToken `Prelude.seq`
+          Prelude.rnf trustStoreArn
 
 instance Data.ToHeaders UpdateTrustStore where
   toHeaders =
@@ -233,5 +233,5 @@ updateTrustStoreResponse_trustStoreArn = Lens.lens (\UpdateTrustStoreResponse' {
 
 instance Prelude.NFData UpdateTrustStoreResponse where
   rnf UpdateTrustStoreResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf trustStoreArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf trustStoreArn

@@ -117,9 +117,9 @@ instance Prelude.Hashable DeleteRoomMembership where
 
 instance Prelude.NFData DeleteRoomMembership where
   rnf DeleteRoomMembership' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf roomId
-      `Prelude.seq` Prelude.rnf memberId
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf roomId `Prelude.seq`
+        Prelude.rnf memberId
 
 instance Data.ToHeaders DeleteRoomMembership where
   toHeaders = Prelude.const Prelude.mempty

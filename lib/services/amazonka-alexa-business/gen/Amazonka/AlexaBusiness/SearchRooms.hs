@@ -145,12 +145,12 @@ instance Core.AWSPager SearchRooms where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& searchRooms_nextToken
-          Lens..~ rs
-          Lens.^? searchRoomsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& searchRooms_nextToken
+              Lens..~ rs
+              Lens.^? searchRoomsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest SearchRooms where
   type AWSResponse SearchRooms = SearchRoomsResponse
@@ -176,10 +176,10 @@ instance Prelude.Hashable SearchRooms where
 
 instance Prelude.NFData SearchRooms where
   rnf SearchRooms' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortCriteria
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf sortCriteria
 
 instance Data.ToHeaders SearchRooms where
   toHeaders =
@@ -271,7 +271,7 @@ searchRoomsResponse_httpStatus = Lens.lens (\SearchRoomsResponse' {httpStatus} -
 
 instance Prelude.NFData SearchRoomsResponse where
   rnf SearchRoomsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf rooms
-      `Prelude.seq` Prelude.rnf totalCount
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf rooms `Prelude.seq`
+        Prelude.rnf totalCount `Prelude.seq`
+          Prelude.rnf httpStatus

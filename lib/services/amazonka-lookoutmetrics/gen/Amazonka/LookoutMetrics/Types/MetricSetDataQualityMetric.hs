@@ -89,5 +89,5 @@ instance Prelude.Hashable MetricSetDataQualityMetric where
 
 instance Prelude.NFData MetricSetDataQualityMetric where
   rnf MetricSetDataQualityMetric' {..} =
-    Prelude.rnf dataQualityMetricList
-      `Prelude.seq` Prelude.rnf metricSetArn
+    Prelude.rnf dataQualityMetricList `Prelude.seq`
+      Prelude.rnf metricSetArn

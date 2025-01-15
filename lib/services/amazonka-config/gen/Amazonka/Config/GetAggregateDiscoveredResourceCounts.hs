@@ -181,11 +181,11 @@ instance
     GetAggregateDiscoveredResourceCounts
   where
   rnf GetAggregateDiscoveredResourceCounts' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf groupByKey
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf configurationAggregatorName
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf groupByKey `Prelude.seq`
+        Prelude.rnf limit `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf configurationAggregatorName
 
 instance
   Data.ToHeaders
@@ -321,8 +321,8 @@ instance
     GetAggregateDiscoveredResourceCountsResponse
   where
   rnf GetAggregateDiscoveredResourceCountsResponse' {..} =
-    Prelude.rnf groupByKey
-      `Prelude.seq` Prelude.rnf groupedResourceCounts
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf totalDiscoveredResources
+    Prelude.rnf groupByKey `Prelude.seq`
+      Prelude.rnf groupedResourceCounts `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf httpStatus `Prelude.seq`
+            Prelude.rnf totalDiscoveredResources

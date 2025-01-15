@@ -288,14 +288,14 @@ getSlotTypeResponse_httpStatus = Lens.lens (\GetSlotTypeResponse' {httpStatus} -
 
 instance Prelude.NFData GetSlotTypeResponse where
   rnf GetSlotTypeResponse' {..} =
-    Prelude.rnf checksum
-      `Prelude.seq` Prelude.rnf createdDate
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf enumerationValues
-      `Prelude.seq` Prelude.rnf lastUpdatedDate
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf parentSlotTypeSignature
-      `Prelude.seq` Prelude.rnf slotTypeConfigurations
-      `Prelude.seq` Prelude.rnf valueSelectionStrategy
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf checksum `Prelude.seq`
+      Prelude.rnf createdDate `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf enumerationValues `Prelude.seq`
+            Prelude.rnf lastUpdatedDate `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf parentSlotTypeSignature `Prelude.seq`
+                  Prelude.rnf slotTypeConfigurations `Prelude.seq`
+                    Prelude.rnf valueSelectionStrategy `Prelude.seq`
+                      Prelude.rnf version `Prelude.seq`
+                        Prelude.rnf httpStatus

@@ -80,8 +80,8 @@ instance Prelude.Hashable MssManifest where
 
 instance Prelude.NFData MssManifest where
   rnf MssManifest' {..} =
-    Prelude.rnf manifestName
-      `Prelude.seq` Prelude.rnf streamSelection
+    Prelude.rnf manifestName `Prelude.seq`
+      Prelude.rnf streamSelection
 
 instance Data.ToJSON MssManifest where
   toJSON MssManifest' {..} =

@@ -162,10 +162,10 @@ instance
     AwsEcsServiceServiceRegistriesDetails
   where
   rnf AwsEcsServiceServiceRegistriesDetails' {..} =
-    Prelude.rnf containerName
-      `Prelude.seq` Prelude.rnf containerPort
-      `Prelude.seq` Prelude.rnf port
-      `Prelude.seq` Prelude.rnf registryArn
+    Prelude.rnf containerName `Prelude.seq`
+      Prelude.rnf containerPort `Prelude.seq`
+        Prelude.rnf port `Prelude.seq`
+          Prelude.rnf registryArn
 
 instance
   Data.ToJSON

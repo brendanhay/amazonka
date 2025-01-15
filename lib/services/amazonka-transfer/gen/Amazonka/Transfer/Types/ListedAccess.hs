@@ -190,7 +190,7 @@ instance Prelude.Hashable ListedAccess where
 
 instance Prelude.NFData ListedAccess where
   rnf ListedAccess' {..} =
-    Prelude.rnf externalId
-      `Prelude.seq` Prelude.rnf homeDirectory
-      `Prelude.seq` Prelude.rnf homeDirectoryType
-      `Prelude.seq` Prelude.rnf role'
+    Prelude.rnf externalId `Prelude.seq`
+      Prelude.rnf homeDirectory `Prelude.seq`
+        Prelude.rnf homeDirectoryType `Prelude.seq`
+          Prelude.rnf role'

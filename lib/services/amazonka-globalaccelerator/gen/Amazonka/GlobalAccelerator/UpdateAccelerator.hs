@@ -156,10 +156,10 @@ instance Prelude.Hashable UpdateAccelerator where
 
 instance Prelude.NFData UpdateAccelerator where
   rnf UpdateAccelerator' {..} =
-    Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf ipAddressType
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf acceleratorArn
+    Prelude.rnf enabled `Prelude.seq`
+      Prelude.rnf ipAddressType `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf acceleratorArn
 
 instance Data.ToHeaders UpdateAccelerator where
   toHeaders =
@@ -235,5 +235,5 @@ updateAcceleratorResponse_httpStatus = Lens.lens (\UpdateAcceleratorResponse' {h
 
 instance Prelude.NFData UpdateAcceleratorResponse where
   rnf UpdateAcceleratorResponse' {..} =
-    Prelude.rnf accelerator
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf accelerator `Prelude.seq`
+      Prelude.rnf httpStatus

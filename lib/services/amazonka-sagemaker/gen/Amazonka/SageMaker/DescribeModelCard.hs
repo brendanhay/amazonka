@@ -133,8 +133,8 @@ instance Prelude.Hashable DescribeModelCard where
 
 instance Prelude.NFData DescribeModelCard where
   rnf DescribeModelCard' {..} =
-    Prelude.rnf modelCardVersion
-      `Prelude.seq` Prelude.rnf modelCardName
+    Prelude.rnf modelCardVersion `Prelude.seq`
+      Prelude.rnf modelCardName
 
 instance Data.ToHeaders DescribeModelCard where
   toHeaders =
@@ -397,15 +397,15 @@ describeModelCardResponse_createdBy = Lens.lens (\DescribeModelCardResponse' {cr
 
 instance Prelude.NFData DescribeModelCardResponse where
   rnf DescribeModelCardResponse' {..} =
-    Prelude.rnf lastModifiedBy
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf modelCardProcessingStatus
-      `Prelude.seq` Prelude.rnf securityConfig
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf modelCardArn
-      `Prelude.seq` Prelude.rnf modelCardName
-      `Prelude.seq` Prelude.rnf modelCardVersion
-      `Prelude.seq` Prelude.rnf content
-      `Prelude.seq` Prelude.rnf modelCardStatus
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf createdBy
+    Prelude.rnf lastModifiedBy `Prelude.seq`
+      Prelude.rnf lastModifiedTime `Prelude.seq`
+        Prelude.rnf modelCardProcessingStatus `Prelude.seq`
+          Prelude.rnf securityConfig `Prelude.seq`
+            Prelude.rnf httpStatus `Prelude.seq`
+              Prelude.rnf modelCardArn `Prelude.seq`
+                Prelude.rnf modelCardName `Prelude.seq`
+                  Prelude.rnf modelCardVersion `Prelude.seq`
+                    Prelude.rnf content `Prelude.seq`
+                      Prelude.rnf modelCardStatus `Prelude.seq`
+                        Prelude.rnf creationTime `Prelude.seq`
+                          Prelude.rnf createdBy

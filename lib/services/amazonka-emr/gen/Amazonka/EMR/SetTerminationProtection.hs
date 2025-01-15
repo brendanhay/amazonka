@@ -134,8 +134,8 @@ instance Prelude.Hashable SetTerminationProtection where
 
 instance Prelude.NFData SetTerminationProtection where
   rnf SetTerminationProtection' {..} =
-    Prelude.rnf jobFlowIds
-      `Prelude.seq` Prelude.rnf terminationProtected
+    Prelude.rnf jobFlowIds `Prelude.seq`
+      Prelude.rnf terminationProtected
 
 instance Data.ToHeaders SetTerminationProtection where
   toHeaders =

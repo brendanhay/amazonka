@@ -120,8 +120,8 @@ instance Prelude.Hashable DeleteAccountCustomization where
 
 instance Prelude.NFData DeleteAccountCustomization where
   rnf DeleteAccountCustomization' {..} =
-    Prelude.rnf namespace
-      `Prelude.seq` Prelude.rnf awsAccountId
+    Prelude.rnf namespace `Prelude.seq`
+      Prelude.rnf awsAccountId
 
 instance Data.ToHeaders DeleteAccountCustomization where
   toHeaders =
@@ -190,5 +190,5 @@ instance
     DeleteAccountCustomizationResponse
   where
   rnf DeleteAccountCustomizationResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf requestId `Prelude.seq`
+      Prelude.rnf status

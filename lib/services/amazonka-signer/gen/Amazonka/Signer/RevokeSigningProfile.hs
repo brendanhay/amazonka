@@ -140,10 +140,10 @@ instance Prelude.Hashable RevokeSigningProfile where
 
 instance Prelude.NFData RevokeSigningProfile where
   rnf RevokeSigningProfile' {..} =
-    Prelude.rnf profileVersion
-      `Prelude.seq` Prelude.rnf reason
-      `Prelude.seq` Prelude.rnf effectiveTime
-      `Prelude.seq` Prelude.rnf profileName
+    Prelude.rnf profileVersion `Prelude.seq`
+      Prelude.rnf reason `Prelude.seq`
+        Prelude.rnf effectiveTime `Prelude.seq`
+          Prelude.rnf profileName
 
 instance Data.ToHeaders RevokeSigningProfile where
   toHeaders =

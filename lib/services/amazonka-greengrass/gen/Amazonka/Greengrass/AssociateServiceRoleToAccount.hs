@@ -174,5 +174,5 @@ instance
     AssociateServiceRoleToAccountResponse
   where
   rnf AssociateServiceRoleToAccountResponse' {..} =
-    Prelude.rnf associatedAt
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf associatedAt `Prelude.seq`
+      Prelude.rnf httpStatus

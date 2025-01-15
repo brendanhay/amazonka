@@ -76,8 +76,8 @@ instance Prelude.Hashable ImportSortBy where
 
 instance Prelude.NFData ImportSortBy where
   rnf ImportSortBy' {..} =
-    Prelude.rnf attribute
-      `Prelude.seq` Prelude.rnf order
+    Prelude.rnf attribute `Prelude.seq`
+      Prelude.rnf order
 
 instance Data.ToJSON ImportSortBy where
   toJSON ImportSortBy' {..} =

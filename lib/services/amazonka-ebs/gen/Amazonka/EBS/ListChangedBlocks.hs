@@ -215,11 +215,11 @@ instance Prelude.Hashable ListChangedBlocks where
 
 instance Prelude.NFData ListChangedBlocks where
   rnf ListChangedBlocks' {..} =
-    Prelude.rnf firstSnapshotId
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf startingBlockIndex
-      `Prelude.seq` Prelude.rnf secondSnapshotId
+    Prelude.rnf firstSnapshotId `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf startingBlockIndex `Prelude.seq`
+            Prelude.rnf secondSnapshotId
 
 instance Data.ToHeaders ListChangedBlocks where
   toHeaders =
@@ -329,9 +329,9 @@ listChangedBlocksResponse_httpStatus = Lens.lens (\ListChangedBlocksResponse' {h
 
 instance Prelude.NFData ListChangedBlocksResponse where
   rnf ListChangedBlocksResponse' {..} =
-    Prelude.rnf blockSize
-      `Prelude.seq` Prelude.rnf changedBlocks
-      `Prelude.seq` Prelude.rnf expiryTime
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf volumeSize
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf blockSize `Prelude.seq`
+      Prelude.rnf changedBlocks `Prelude.seq`
+        Prelude.rnf expiryTime `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf volumeSize `Prelude.seq`
+              Prelude.rnf httpStatus

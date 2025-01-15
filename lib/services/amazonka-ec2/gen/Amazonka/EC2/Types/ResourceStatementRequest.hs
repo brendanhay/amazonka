@@ -72,8 +72,8 @@ instance Prelude.Hashable ResourceStatementRequest where
 
 instance Prelude.NFData ResourceStatementRequest where
   rnf ResourceStatementRequest' {..} =
-    Prelude.rnf resourceTypes
-      `Prelude.seq` Prelude.rnf resources
+    Prelude.rnf resourceTypes `Prelude.seq`
+      Prelude.rnf resources
 
 instance Data.ToQuery ResourceStatementRequest where
   toQuery ResourceStatementRequest' {..} =

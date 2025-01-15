@@ -199,9 +199,7 @@ instance Data.FromXML AvailabilityZone where
   parseXML x =
     AvailabilityZone'
       Prelude.<$> (x Data..@? "groupName")
-      Prelude.<*> ( x
-                      Data..@? "messageSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "messageSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "networkBorderGroup")
@@ -231,14 +229,14 @@ instance Prelude.Hashable AvailabilityZone where
 
 instance Prelude.NFData AvailabilityZone where
   rnf AvailabilityZone' {..} =
-    Prelude.rnf groupName
-      `Prelude.seq` Prelude.rnf messages
-      `Prelude.seq` Prelude.rnf networkBorderGroup
-      `Prelude.seq` Prelude.rnf optInStatus
-      `Prelude.seq` Prelude.rnf parentZoneId
-      `Prelude.seq` Prelude.rnf parentZoneName
-      `Prelude.seq` Prelude.rnf regionName
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf zoneId
-      `Prelude.seq` Prelude.rnf zoneName
-      `Prelude.seq` Prelude.rnf zoneType
+    Prelude.rnf groupName `Prelude.seq`
+      Prelude.rnf messages `Prelude.seq`
+        Prelude.rnf networkBorderGroup `Prelude.seq`
+          Prelude.rnf optInStatus `Prelude.seq`
+            Prelude.rnf parentZoneId `Prelude.seq`
+              Prelude.rnf parentZoneName `Prelude.seq`
+                Prelude.rnf regionName `Prelude.seq`
+                  Prelude.rnf state `Prelude.seq`
+                    Prelude.rnf zoneId `Prelude.seq`
+                      Prelude.rnf zoneName `Prelude.seq`
+                        Prelude.rnf zoneType

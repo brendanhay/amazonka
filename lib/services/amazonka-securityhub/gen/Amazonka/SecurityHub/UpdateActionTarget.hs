@@ -118,9 +118,9 @@ instance Prelude.Hashable UpdateActionTarget where
 
 instance Prelude.NFData UpdateActionTarget where
   rnf UpdateActionTarget' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf actionTargetArn
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf actionTargetArn
 
 instance Data.ToHeaders UpdateActionTarget where
   toHeaders =

@@ -249,17 +249,17 @@ instance Prelude.Hashable UpdateImagePipeline where
 
 instance Prelude.NFData UpdateImagePipeline where
   rnf UpdateImagePipeline' {..} =
-    Prelude.rnf containerRecipeArn
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf distributionConfigurationArn
-      `Prelude.seq` Prelude.rnf enhancedImageMetadataEnabled
-      `Prelude.seq` Prelude.rnf imageRecipeArn
-      `Prelude.seq` Prelude.rnf imageTestsConfiguration
-      `Prelude.seq` Prelude.rnf schedule
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf imagePipelineArn
-      `Prelude.seq` Prelude.rnf infrastructureConfigurationArn
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf containerRecipeArn `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf distributionConfigurationArn `Prelude.seq`
+          Prelude.rnf enhancedImageMetadataEnabled `Prelude.seq`
+            Prelude.rnf imageRecipeArn `Prelude.seq`
+              Prelude.rnf imageTestsConfiguration `Prelude.seq`
+                Prelude.rnf schedule `Prelude.seq`
+                  Prelude.rnf status `Prelude.seq`
+                    Prelude.rnf imagePipelineArn `Prelude.seq`
+                      Prelude.rnf infrastructureConfigurationArn `Prelude.seq`
+                        Prelude.rnf clientToken
 
 instance Data.ToHeaders UpdateImagePipeline where
   toHeaders =
@@ -367,7 +367,7 @@ updateImagePipelineResponse_httpStatus = Lens.lens (\UpdateImagePipelineResponse
 
 instance Prelude.NFData UpdateImagePipelineResponse where
   rnf UpdateImagePipelineResponse' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf imagePipelineArn
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf imagePipelineArn `Prelude.seq`
+        Prelude.rnf requestId `Prelude.seq`
+          Prelude.rnf httpStatus

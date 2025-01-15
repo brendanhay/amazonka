@@ -185,14 +185,14 @@ instance
 
 instance Prelude.NFData TransitGatewayMulticastGroup where
   rnf TransitGatewayMulticastGroup' {..} =
-    Prelude.rnf groupIpAddress
-      `Prelude.seq` Prelude.rnf groupMember
-      `Prelude.seq` Prelude.rnf groupSource
-      `Prelude.seq` Prelude.rnf memberType
-      `Prelude.seq` Prelude.rnf networkInterfaceId
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf resourceOwnerId
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf sourceType
-      `Prelude.seq` Prelude.rnf subnetId
-      `Prelude.seq` Prelude.rnf transitGatewayAttachmentId
+    Prelude.rnf groupIpAddress `Prelude.seq`
+      Prelude.rnf groupMember `Prelude.seq`
+        Prelude.rnf groupSource `Prelude.seq`
+          Prelude.rnf memberType `Prelude.seq`
+            Prelude.rnf networkInterfaceId `Prelude.seq`
+              Prelude.rnf resourceId `Prelude.seq`
+                Prelude.rnf resourceOwnerId `Prelude.seq`
+                  Prelude.rnf resourceType `Prelude.seq`
+                    Prelude.rnf sourceType `Prelude.seq`
+                      Prelude.rnf subnetId `Prelude.seq`
+                        Prelude.rnf transitGatewayAttachmentId

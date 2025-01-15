@@ -188,12 +188,12 @@ instance Core.AWSPager ListOperations where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listOperations_marker
-          Lens..~ rs
-          Lens.^? listOperationsResponse_nextPageMarker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listOperations_marker
+              Lens..~ rs
+              Lens.^? listOperationsResponse_nextPageMarker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListOperations where
   type
@@ -223,13 +223,13 @@ instance Prelude.Hashable ListOperations where
 
 instance Prelude.NFData ListOperations where
   rnf ListOperations' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxItems
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf sortOrder
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf submittedSince
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf maxItems `Prelude.seq`
+        Prelude.rnf sortBy `Prelude.seq`
+          Prelude.rnf sortOrder `Prelude.seq`
+            Prelude.rnf status `Prelude.seq`
+              Prelude.rnf submittedSince `Prelude.seq`
+                Prelude.rnf type'
 
 instance Data.ToHeaders ListOperations where
   toHeaders =
@@ -325,6 +325,6 @@ listOperationsResponse_httpStatus = Lens.lens (\ListOperationsResponse' {httpSta
 
 instance Prelude.NFData ListOperationsResponse where
   rnf ListOperationsResponse' {..} =
-    Prelude.rnf nextPageMarker
-      `Prelude.seq` Prelude.rnf operations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextPageMarker `Prelude.seq`
+      Prelude.rnf operations `Prelude.seq`
+        Prelude.rnf httpStatus

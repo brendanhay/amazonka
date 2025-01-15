@@ -209,13 +209,13 @@ instance Prelude.Hashable UpdateApplication where
 
 instance Prelude.NFData UpdateApplication where
   rnf UpdateApplication' {..} =
-    Prelude.rnf applicationConfigurationUpdate
-      `Prelude.seq` Prelude.rnf cloudWatchLoggingOptionUpdates
-      `Prelude.seq` Prelude.rnf conditionalToken
-      `Prelude.seq` Prelude.rnf currentApplicationVersionId
-      `Prelude.seq` Prelude.rnf runConfigurationUpdate
-      `Prelude.seq` Prelude.rnf serviceExecutionRoleUpdate
-      `Prelude.seq` Prelude.rnf applicationName
+    Prelude.rnf applicationConfigurationUpdate `Prelude.seq`
+      Prelude.rnf cloudWatchLoggingOptionUpdates `Prelude.seq`
+        Prelude.rnf conditionalToken `Prelude.seq`
+          Prelude.rnf currentApplicationVersionId `Prelude.seq`
+            Prelude.rnf runConfigurationUpdate `Prelude.seq`
+              Prelude.rnf serviceExecutionRoleUpdate `Prelude.seq`
+                Prelude.rnf applicationName
 
 instance Data.ToHeaders UpdateApplication where
   toHeaders =
@@ -304,5 +304,5 @@ updateApplicationResponse_applicationDetail = Lens.lens (\UpdateApplicationRespo
 
 instance Prelude.NFData UpdateApplicationResponse where
   rnf UpdateApplicationResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf applicationDetail
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf applicationDetail

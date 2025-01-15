@@ -173,12 +173,12 @@ instance Core.AWSPager ListPipes where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listPipes_nextToken
-          Lens..~ rs
-          Lens.^? listPipesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listPipes_nextToken
+              Lens..~ rs
+              Lens.^? listPipesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPipes where
   type AWSResponse ListPipes = ListPipesResponse
@@ -206,13 +206,13 @@ instance Prelude.Hashable ListPipes where
 
 instance Prelude.NFData ListPipes where
   rnf ListPipes' {..} =
-    Prelude.rnf currentState
-      `Prelude.seq` Prelude.rnf desiredState
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf namePrefix
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sourcePrefix
-      `Prelude.seq` Prelude.rnf targetPrefix
+    Prelude.rnf currentState `Prelude.seq`
+      Prelude.rnf desiredState `Prelude.seq`
+        Prelude.rnf limit `Prelude.seq`
+          Prelude.rnf namePrefix `Prelude.seq`
+            Prelude.rnf nextToken `Prelude.seq`
+              Prelude.rnf sourcePrefix `Prelude.seq`
+                Prelude.rnf targetPrefix
 
 instance Data.ToHeaders ListPipes where
   toHeaders =
@@ -301,6 +301,6 @@ listPipesResponse_httpStatus = Lens.lens (\ListPipesResponse' {httpStatus} -> ht
 
 instance Prelude.NFData ListPipesResponse where
   rnf ListPipesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf pipes
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf pipes `Prelude.seq`
+        Prelude.rnf httpStatus

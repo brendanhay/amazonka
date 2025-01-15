@@ -173,14 +173,14 @@ instance Prelude.Hashable JDBCConnectorTarget where
 
 instance Prelude.NFData JDBCConnectorTarget where
   rnf JDBCConnectorTarget' {..} =
-    Prelude.rnf additionalOptions
-      `Prelude.seq` Prelude.rnf outputSchemas
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf inputs
-      `Prelude.seq` Prelude.rnf connectionName
-      `Prelude.seq` Prelude.rnf connectionTable
-      `Prelude.seq` Prelude.rnf connectorName
-      `Prelude.seq` Prelude.rnf connectionType
+    Prelude.rnf additionalOptions `Prelude.seq`
+      Prelude.rnf outputSchemas `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf inputs `Prelude.seq`
+            Prelude.rnf connectionName `Prelude.seq`
+              Prelude.rnf connectionTable `Prelude.seq`
+                Prelude.rnf connectorName `Prelude.seq`
+                  Prelude.rnf connectionType
 
 instance Data.ToJSON JDBCConnectorTarget where
   toJSON JDBCConnectorTarget' {..} =

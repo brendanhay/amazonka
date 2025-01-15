@@ -124,7 +124,7 @@ instance Prelude.Hashable MergeHunk where
 
 instance Prelude.NFData MergeHunk where
   rnf MergeHunk' {..} =
-    Prelude.rnf base
-      `Prelude.seq` Prelude.rnf destination
-      `Prelude.seq` Prelude.rnf isConflict
-      `Prelude.seq` Prelude.rnf source
+    Prelude.rnf base `Prelude.seq`
+      Prelude.rnf destination `Prelude.seq`
+        Prelude.rnf isConflict `Prelude.seq`
+          Prelude.rnf source

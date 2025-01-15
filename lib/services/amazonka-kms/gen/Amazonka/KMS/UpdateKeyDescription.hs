@@ -156,8 +156,8 @@ instance Prelude.Hashable UpdateKeyDescription where
 
 instance Prelude.NFData UpdateKeyDescription where
   rnf UpdateKeyDescription' {..} =
-    Prelude.rnf keyId
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf keyId `Prelude.seq`
+      Prelude.rnf description
 
 instance Data.ToHeaders UpdateKeyDescription where
   toHeaders =

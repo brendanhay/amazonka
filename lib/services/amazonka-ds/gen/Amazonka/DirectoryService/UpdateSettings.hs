@@ -108,8 +108,8 @@ instance Prelude.Hashable UpdateSettings where
 
 instance Prelude.NFData UpdateSettings where
   rnf UpdateSettings' {..} =
-    Prelude.rnf directoryId
-      `Prelude.seq` Prelude.rnf settings
+    Prelude.rnf directoryId `Prelude.seq`
+      Prelude.rnf settings
 
 instance Data.ToHeaders UpdateSettings where
   toHeaders =
@@ -182,5 +182,5 @@ updateSettingsResponse_httpStatus = Lens.lens (\UpdateSettingsResponse' {httpSta
 
 instance Prelude.NFData UpdateSettingsResponse where
   rnf UpdateSettingsResponse' {..} =
-    Prelude.rnf directoryId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf directoryId `Prelude.seq`
+      Prelude.rnf httpStatus

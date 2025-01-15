@@ -134,11 +134,11 @@ instance
     PipeSourceRabbitMQBrokerParameters
   where
   rnf PipeSourceRabbitMQBrokerParameters' {..} =
-    Prelude.rnf batchSize
-      `Prelude.seq` Prelude.rnf maximumBatchingWindowInSeconds
-      `Prelude.seq` Prelude.rnf virtualHost
-      `Prelude.seq` Prelude.rnf credentials
-      `Prelude.seq` Prelude.rnf queueName
+    Prelude.rnf batchSize `Prelude.seq`
+      Prelude.rnf maximumBatchingWindowInSeconds `Prelude.seq`
+        Prelude.rnf virtualHost `Prelude.seq`
+          Prelude.rnf credentials `Prelude.seq`
+            Prelude.rnf queueName
 
 instance
   Data.ToJSON

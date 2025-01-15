@@ -211,10 +211,10 @@ instance Prelude.Hashable AssociateRepository where
 
 instance Prelude.NFData AssociateRepository where
   rnf AssociateRepository' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf kmsKeyDetails
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf repository
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf kmsKeyDetails `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf repository
 
 instance Data.ToHeaders AssociateRepository where
   toHeaders =
@@ -322,6 +322,6 @@ associateRepositoryResponse_httpStatus = Lens.lens (\AssociateRepositoryResponse
 
 instance Prelude.NFData AssociateRepositoryResponse where
   rnf AssociateRepositoryResponse' {..} =
-    Prelude.rnf repositoryAssociation
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf repositoryAssociation `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf httpStatus

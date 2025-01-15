@@ -192,12 +192,12 @@ instance Core.AWSPager ListAuditFindings where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listAuditFindings_nextToken
-          Lens..~ rs
-          Lens.^? listAuditFindingsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listAuditFindings_nextToken
+              Lens..~ rs
+              Lens.^? listAuditFindingsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAuditFindings where
   type
@@ -228,14 +228,14 @@ instance Prelude.Hashable ListAuditFindings where
 
 instance Prelude.NFData ListAuditFindings where
   rnf ListAuditFindings' {..} =
-    Prelude.rnf checkName
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf listSuppressedFindings
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf resourceIdentifier
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf taskId
+    Prelude.rnf checkName `Prelude.seq`
+      Prelude.rnf endTime `Prelude.seq`
+        Prelude.rnf listSuppressedFindings `Prelude.seq`
+          Prelude.rnf maxResults `Prelude.seq`
+            Prelude.rnf nextToken `Prelude.seq`
+              Prelude.rnf resourceIdentifier `Prelude.seq`
+                Prelude.rnf startTime `Prelude.seq`
+                  Prelude.rnf taskId
 
 instance Data.ToHeaders ListAuditFindings where
   toHeaders = Prelude.const Prelude.mempty
@@ -316,6 +316,6 @@ listAuditFindingsResponse_httpStatus = Lens.lens (\ListAuditFindingsResponse' {h
 
 instance Prelude.NFData ListAuditFindingsResponse where
   rnf ListAuditFindingsResponse' {..} =
-    Prelude.rnf findings
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf findings `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

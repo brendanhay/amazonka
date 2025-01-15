@@ -149,5 +149,5 @@ getSiteResponse_httpStatus = Lens.lens (\GetSiteResponse' {httpStatus} -> httpSt
 
 instance Prelude.NFData GetSiteResponse where
   rnf GetSiteResponse' {..} =
-    Prelude.rnf site
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf site `Prelude.seq`
+      Prelude.rnf httpStatus

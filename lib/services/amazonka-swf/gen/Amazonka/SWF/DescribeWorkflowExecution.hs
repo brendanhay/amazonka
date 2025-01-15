@@ -142,8 +142,8 @@ instance Prelude.Hashable DescribeWorkflowExecution where
 
 instance Prelude.NFData DescribeWorkflowExecution where
   rnf DescribeWorkflowExecution' {..} =
-    Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf execution
+    Prelude.rnf domain `Prelude.seq`
+      Prelude.rnf execution
 
 instance Data.ToHeaders DescribeWorkflowExecution where
   toHeaders =
@@ -289,9 +289,9 @@ instance
     DescribeWorkflowExecutionResponse
   where
   rnf DescribeWorkflowExecutionResponse' {..} =
-    Prelude.rnf latestActivityTaskTimestamp
-      `Prelude.seq` Prelude.rnf latestExecutionContext
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf executionInfo
-      `Prelude.seq` Prelude.rnf executionConfiguration
-      `Prelude.seq` Prelude.rnf openCounts
+    Prelude.rnf latestActivityTaskTimestamp `Prelude.seq`
+      Prelude.rnf latestExecutionContext `Prelude.seq`
+        Prelude.rnf httpStatus `Prelude.seq`
+          Prelude.rnf executionInfo `Prelude.seq`
+            Prelude.rnf executionConfiguration `Prelude.seq`
+              Prelude.rnf openCounts

@@ -141,11 +141,11 @@ instance Prelude.Hashable ModelInputConfiguration where
 
 instance Prelude.NFData ModelInputConfiguration where
   rnf ModelInputConfiguration' {..} =
-    Prelude.rnf csvInputTemplate
-      `Prelude.seq` Prelude.rnf eventTypeName
-      `Prelude.seq` Prelude.rnf format
-      `Prelude.seq` Prelude.rnf jsonInputTemplate
-      `Prelude.seq` Prelude.rnf useEventVariables
+    Prelude.rnf csvInputTemplate `Prelude.seq`
+      Prelude.rnf eventTypeName `Prelude.seq`
+        Prelude.rnf format `Prelude.seq`
+          Prelude.rnf jsonInputTemplate `Prelude.seq`
+            Prelude.rnf useEventVariables
 
 instance Data.ToJSON ModelInputConfiguration where
   toJSON ModelInputConfiguration' {..} =

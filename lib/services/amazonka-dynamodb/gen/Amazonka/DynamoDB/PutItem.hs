@@ -584,16 +584,16 @@ instance Prelude.Hashable PutItem where
 
 instance Prelude.NFData PutItem where
   rnf PutItem' {..} =
-    Prelude.rnf conditionExpression
-      `Prelude.seq` Prelude.rnf conditionalOperator
-      `Prelude.seq` Prelude.rnf expected
-      `Prelude.seq` Prelude.rnf expressionAttributeNames
-      `Prelude.seq` Prelude.rnf expressionAttributeValues
-      `Prelude.seq` Prelude.rnf returnConsumedCapacity
-      `Prelude.seq` Prelude.rnf returnItemCollectionMetrics
-      `Prelude.seq` Prelude.rnf returnValues
-      `Prelude.seq` Prelude.rnf tableName
-      `Prelude.seq` Prelude.rnf item
+    Prelude.rnf conditionExpression `Prelude.seq`
+      Prelude.rnf conditionalOperator `Prelude.seq`
+        Prelude.rnf expected `Prelude.seq`
+          Prelude.rnf expressionAttributeNames `Prelude.seq`
+            Prelude.rnf expressionAttributeValues `Prelude.seq`
+              Prelude.rnf returnConsumedCapacity `Prelude.seq`
+                Prelude.rnf returnItemCollectionMetrics `Prelude.seq`
+                  Prelude.rnf returnValues `Prelude.seq`
+                    Prelude.rnf tableName `Prelude.seq`
+                      Prelude.rnf item
 
 instance Data.ToHeaders PutItem where
   toHeaders =
@@ -784,7 +784,7 @@ putItemResponse_httpStatus = Lens.lens (\PutItemResponse' {httpStatus} -> httpSt
 
 instance Prelude.NFData PutItemResponse where
   rnf PutItemResponse' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf consumedCapacity
-      `Prelude.seq` Prelude.rnf itemCollectionMetrics
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf attributes `Prelude.seq`
+      Prelude.rnf consumedCapacity `Prelude.seq`
+        Prelude.rnf itemCollectionMetrics `Prelude.seq`
+          Prelude.rnf httpStatus

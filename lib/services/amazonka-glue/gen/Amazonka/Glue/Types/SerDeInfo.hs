@@ -95,9 +95,9 @@ instance Prelude.Hashable SerDeInfo where
 
 instance Prelude.NFData SerDeInfo where
   rnf SerDeInfo' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf serializationLibrary
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf parameters `Prelude.seq`
+        Prelude.rnf serializationLibrary
 
 instance Data.ToJSON SerDeInfo where
   toJSON SerDeInfo' {..} =

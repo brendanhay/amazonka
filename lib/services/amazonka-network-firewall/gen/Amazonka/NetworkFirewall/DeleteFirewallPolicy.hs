@@ -122,8 +122,8 @@ instance Prelude.Hashable DeleteFirewallPolicy where
 
 instance Prelude.NFData DeleteFirewallPolicy where
   rnf DeleteFirewallPolicy' {..} =
-    Prelude.rnf firewallPolicyArn
-      `Prelude.seq` Prelude.rnf firewallPolicyName
+    Prelude.rnf firewallPolicyArn `Prelude.seq`
+      Prelude.rnf firewallPolicyName
 
 instance Data.ToHeaders DeleteFirewallPolicy where
   toHeaders =
@@ -206,5 +206,5 @@ deleteFirewallPolicyResponse_firewallPolicyResponse = Lens.lens (\DeleteFirewall
 
 instance Prelude.NFData DeleteFirewallPolicyResponse where
   rnf DeleteFirewallPolicyResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf firewallPolicyResponse
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf firewallPolicyResponse

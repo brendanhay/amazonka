@@ -174,11 +174,11 @@ instance
     GetTransitGatewayPolicyTableEntries
   where
   rnf GetTransitGatewayPolicyTableEntries' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf transitGatewayPolicyTableId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf transitGatewayPolicyTableId
 
 instance
   Data.ToHeaders
@@ -258,5 +258,5 @@ instance
     GetTransitGatewayPolicyTableEntriesResponse
   where
   rnf GetTransitGatewayPolicyTableEntriesResponse' {..} =
-    Prelude.rnf transitGatewayPolicyTableEntries
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf transitGatewayPolicyTableEntries `Prelude.seq`
+      Prelude.rnf httpStatus

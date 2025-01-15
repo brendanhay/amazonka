@@ -109,7 +109,7 @@ instance Prelude.Hashable RecoveryGroupOutput where
 
 instance Prelude.NFData RecoveryGroupOutput where
   rnf RecoveryGroupOutput' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf recoveryGroupArn
-      `Prelude.seq` Prelude.rnf recoveryGroupName
-      `Prelude.seq` Prelude.rnf cells
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf recoveryGroupArn `Prelude.seq`
+        Prelude.rnf recoveryGroupName `Prelude.seq`
+          Prelude.rnf cells

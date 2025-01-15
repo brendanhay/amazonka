@@ -123,9 +123,9 @@ instance Prelude.Hashable DeleteSshPublicKey where
 
 instance Prelude.NFData DeleteSshPublicKey where
   rnf DeleteSshPublicKey' {..} =
-    Prelude.rnf serverId
-      `Prelude.seq` Prelude.rnf sshPublicKeyId
-      `Prelude.seq` Prelude.rnf userName
+    Prelude.rnf serverId `Prelude.seq`
+      Prelude.rnf sshPublicKeyId `Prelude.seq`
+        Prelude.rnf userName
 
 instance Data.ToHeaders DeleteSshPublicKey where
   toHeaders =

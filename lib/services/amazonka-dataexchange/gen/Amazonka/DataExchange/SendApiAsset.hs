@@ -197,14 +197,14 @@ instance Prelude.Hashable SendApiAsset where
 
 instance Prelude.NFData SendApiAsset where
   rnf SendApiAsset' {..} =
-    Prelude.rnf body
-      `Prelude.seq` Prelude.rnf method
-      `Prelude.seq` Prelude.rnf path
-      `Prelude.seq` Prelude.rnf queryStringParameters
-      `Prelude.seq` Prelude.rnf requestHeaders
-      `Prelude.seq` Prelude.rnf assetId
-      `Prelude.seq` Prelude.rnf dataSetId
-      `Prelude.seq` Prelude.rnf revisionId
+    Prelude.rnf body `Prelude.seq`
+      Prelude.rnf method `Prelude.seq`
+        Prelude.rnf path `Prelude.seq`
+          Prelude.rnf queryStringParameters `Prelude.seq`
+            Prelude.rnf requestHeaders `Prelude.seq`
+              Prelude.rnf assetId `Prelude.seq`
+                Prelude.rnf dataSetId `Prelude.seq`
+                  Prelude.rnf revisionId
 
 instance Data.ToBody SendApiAsset where
   toBody SendApiAsset' {..} = Data.toBody body
@@ -284,6 +284,6 @@ sendApiAssetResponse_httpStatus = Lens.lens (\SendApiAssetResponse' {httpStatus}
 
 instance Prelude.NFData SendApiAssetResponse where
   rnf SendApiAssetResponse' {..} =
-    Prelude.rnf body
-      `Prelude.seq` Prelude.rnf responseHeaders
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf body `Prelude.seq`
+      Prelude.rnf responseHeaders `Prelude.seq`
+        Prelude.rnf httpStatus

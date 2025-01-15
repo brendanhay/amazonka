@@ -165,11 +165,11 @@ instance
 
 instance Prelude.NFData ClusterPendingModifiedValues where
   rnf ClusterPendingModifiedValues' {..} =
-    Prelude.rnf allocatedStorage
-      `Prelude.seq` Prelude.rnf backupRetentionPeriod
-      `Prelude.seq` Prelude.rnf dbClusterIdentifier
-      `Prelude.seq` Prelude.rnf engineVersion
-      `Prelude.seq` Prelude.rnf iAMDatabaseAuthenticationEnabled
-      `Prelude.seq` Prelude.rnf iops
-      `Prelude.seq` Prelude.rnf masterUserPassword
-      `Prelude.seq` Prelude.rnf pendingCloudwatchLogsExports
+    Prelude.rnf allocatedStorage `Prelude.seq`
+      Prelude.rnf backupRetentionPeriod `Prelude.seq`
+        Prelude.rnf dbClusterIdentifier `Prelude.seq`
+          Prelude.rnf engineVersion `Prelude.seq`
+            Prelude.rnf iAMDatabaseAuthenticationEnabled `Prelude.seq`
+              Prelude.rnf iops `Prelude.seq`
+                Prelude.rnf masterUserPassword `Prelude.seq`
+                  Prelude.rnf pendingCloudwatchLogsExports

@@ -101,6 +101,6 @@ instance Prelude.Hashable QueryRuntimeStatistics where
 
 instance Prelude.NFData QueryRuntimeStatistics where
   rnf QueryRuntimeStatistics' {..} =
-    Prelude.rnf outputStage
-      `Prelude.seq` Prelude.rnf rows
-      `Prelude.seq` Prelude.rnf timeline
+    Prelude.rnf outputStage `Prelude.seq`
+      Prelude.rnf rows `Prelude.seq`
+        Prelude.rnf timeline

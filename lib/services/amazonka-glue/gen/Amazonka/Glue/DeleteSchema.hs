@@ -188,7 +188,7 @@ deleteSchemaResponse_httpStatus = Lens.lens (\DeleteSchemaResponse' {httpStatus}
 
 instance Prelude.NFData DeleteSchemaResponse where
   rnf DeleteSchemaResponse' {..} =
-    Prelude.rnf schemaArn
-      `Prelude.seq` Prelude.rnf schemaName
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf schemaArn `Prelude.seq`
+      Prelude.rnf schemaName `Prelude.seq`
+        Prelude.rnf status `Prelude.seq`
+          Prelude.rnf httpStatus

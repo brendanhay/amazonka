@@ -171,7 +171,7 @@ instance
   where
   rnf
     AutoScalingTargetTrackingScalingPolicyConfigurationDescription' {..} =
-      Prelude.rnf disableScaleIn
-        `Prelude.seq` Prelude.rnf scaleInCooldown
-        `Prelude.seq` Prelude.rnf scaleOutCooldown
-        `Prelude.seq` Prelude.rnf targetValue
+      Prelude.rnf disableScaleIn `Prelude.seq`
+        Prelude.rnf scaleInCooldown `Prelude.seq`
+          Prelude.rnf scaleOutCooldown `Prelude.seq`
+            Prelude.rnf targetValue

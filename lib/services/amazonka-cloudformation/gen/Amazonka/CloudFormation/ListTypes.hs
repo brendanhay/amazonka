@@ -327,12 +327,12 @@ instance Core.AWSPager ListTypes where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listTypes_nextToken
-          Lens..~ rs
-          Lens.^? listTypesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listTypes_nextToken
+              Lens..~ rs
+              Lens.^? listTypesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListTypes where
   type AWSResponse ListTypes = ListTypesResponse
@@ -344,9 +344,7 @@ instance Core.AWSRequest ListTypes where
       ( \s h x ->
           ListTypesResponse'
             Prelude.<$> (x Data..@? "NextToken")
-            Prelude.<*> ( x
-                            Data..@? "TypeSummaries"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "TypeSummaries" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -365,13 +363,13 @@ instance Prelude.Hashable ListTypes where
 
 instance Prelude.NFData ListTypes where
   rnf ListTypes' {..} =
-    Prelude.rnf deprecatedStatus
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf provisioningType
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf visibility
+    Prelude.rnf deprecatedStatus `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf provisioningType `Prelude.seq`
+              Prelude.rnf type' `Prelude.seq`
+                Prelude.rnf visibility
 
 instance Data.ToHeaders ListTypes where
   toHeaders = Prelude.const Prelude.mempty
@@ -459,6 +457,6 @@ listTypesResponse_httpStatus = Lens.lens (\ListTypesResponse' {httpStatus} -> ht
 
 instance Prelude.NFData ListTypesResponse where
   rnf ListTypesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf typeSummaries
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf typeSummaries `Prelude.seq`
+        Prelude.rnf httpStatus

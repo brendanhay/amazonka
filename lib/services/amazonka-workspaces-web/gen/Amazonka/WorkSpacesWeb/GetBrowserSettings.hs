@@ -159,5 +159,5 @@ getBrowserSettingsResponse_httpStatus = Lens.lens (\GetBrowserSettingsResponse' 
 
 instance Prelude.NFData GetBrowserSettingsResponse where
   rnf GetBrowserSettingsResponse' {..} =
-    Prelude.rnf browserSettings
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf browserSettings `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -134,9 +134,9 @@ instance Prelude.Hashable DeploymentConfigInfo where
 
 instance Prelude.NFData DeploymentConfigInfo where
   rnf DeploymentConfigInfo' {..} =
-    Prelude.rnf computePlatform
-      `Prelude.seq` Prelude.rnf createTime
-      `Prelude.seq` Prelude.rnf deploymentConfigId
-      `Prelude.seq` Prelude.rnf deploymentConfigName
-      `Prelude.seq` Prelude.rnf minimumHealthyHosts
-      `Prelude.seq` Prelude.rnf trafficRoutingConfig
+    Prelude.rnf computePlatform `Prelude.seq`
+      Prelude.rnf createTime `Prelude.seq`
+        Prelude.rnf deploymentConfigId `Prelude.seq`
+          Prelude.rnf deploymentConfigName `Prelude.seq`
+            Prelude.rnf minimumHealthyHosts `Prelude.seq`
+              Prelude.rnf trafficRoutingConfig

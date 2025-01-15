@@ -120,8 +120,8 @@ instance
     StartTechnicalCueDetectionFilter
   where
   rnf StartTechnicalCueDetectionFilter' {..} =
-    Prelude.rnf blackFrame
-      `Prelude.seq` Prelude.rnf minSegmentConfidence
+    Prelude.rnf blackFrame `Prelude.seq`
+      Prelude.rnf minSegmentConfidence
 
 instance Data.ToJSON StartTechnicalCueDetectionFilter where
   toJSON StartTechnicalCueDetectionFilter' {..} =

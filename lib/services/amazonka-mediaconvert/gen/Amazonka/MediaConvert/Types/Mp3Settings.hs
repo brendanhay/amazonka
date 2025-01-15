@@ -130,11 +130,11 @@ instance Prelude.Hashable Mp3Settings where
 
 instance Prelude.NFData Mp3Settings where
   rnf Mp3Settings' {..} =
-    Prelude.rnf bitrate
-      `Prelude.seq` Prelude.rnf channels
-      `Prelude.seq` Prelude.rnf rateControlMode
-      `Prelude.seq` Prelude.rnf sampleRate
-      `Prelude.seq` Prelude.rnf vbrQuality
+    Prelude.rnf bitrate `Prelude.seq`
+      Prelude.rnf channels `Prelude.seq`
+        Prelude.rnf rateControlMode `Prelude.seq`
+          Prelude.rnf sampleRate `Prelude.seq`
+            Prelude.rnf vbrQuality
 
 instance Data.ToJSON Mp3Settings where
   toJSON Mp3Settings' {..} =

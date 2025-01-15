@@ -135,8 +135,8 @@ instance Prelude.Hashable DisassociateMacSecKey where
 
 instance Prelude.NFData DisassociateMacSecKey where
   rnf DisassociateMacSecKey' {..} =
-    Prelude.rnf connectionId
-      `Prelude.seq` Prelude.rnf secretARN
+    Prelude.rnf connectionId `Prelude.seq`
+      Prelude.rnf secretARN
 
 instance Data.ToHeaders DisassociateMacSecKey where
   toHeaders =
@@ -224,6 +224,6 @@ disassociateMacSecKeyResponse_httpStatus = Lens.lens (\DisassociateMacSecKeyResp
 
 instance Prelude.NFData DisassociateMacSecKeyResponse where
   rnf DisassociateMacSecKeyResponse' {..} =
-    Prelude.rnf connectionId
-      `Prelude.seq` Prelude.rnf macSecKeys
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf connectionId `Prelude.seq`
+      Prelude.rnf macSecKeys `Prelude.seq`
+        Prelude.rnf httpStatus

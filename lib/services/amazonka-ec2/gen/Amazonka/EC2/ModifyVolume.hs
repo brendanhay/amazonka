@@ -328,13 +328,13 @@ instance Prelude.Hashable ModifyVolume where
 
 instance Prelude.NFData ModifyVolume where
   rnf ModifyVolume' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf iops
-      `Prelude.seq` Prelude.rnf multiAttachEnabled
-      `Prelude.seq` Prelude.rnf size
-      `Prelude.seq` Prelude.rnf throughput
-      `Prelude.seq` Prelude.rnf volumeType
-      `Prelude.seq` Prelude.rnf volumeId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf iops `Prelude.seq`
+        Prelude.rnf multiAttachEnabled `Prelude.seq`
+          Prelude.rnf size `Prelude.seq`
+            Prelude.rnf throughput `Prelude.seq`
+              Prelude.rnf volumeType `Prelude.seq`
+                Prelude.rnf volumeId
 
 instance Data.ToHeaders ModifyVolume where
   toHeaders = Prelude.const Prelude.mempty
@@ -399,5 +399,5 @@ modifyVolumeResponse_httpStatus = Lens.lens (\ModifyVolumeResponse' {httpStatus}
 
 instance Prelude.NFData ModifyVolumeResponse where
   rnf ModifyVolumeResponse' {..} =
-    Prelude.rnf volumeModification
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf volumeModification `Prelude.seq`
+      Prelude.rnf httpStatus

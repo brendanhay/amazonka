@@ -168,9 +168,7 @@ instance Core.AWSRequest DescribeAlarmsForMetric where
       "DescribeAlarmsForMetricResult"
       ( \s h x ->
           DescribeAlarmsForMetricResponse'
-            Prelude.<$> ( x
-                            Data..@? "MetricAlarms"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "MetricAlarms" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -189,13 +187,13 @@ instance Prelude.Hashable DescribeAlarmsForMetric where
 
 instance Prelude.NFData DescribeAlarmsForMetric where
   rnf DescribeAlarmsForMetric' {..} =
-    Prelude.rnf dimensions
-      `Prelude.seq` Prelude.rnf extendedStatistic
-      `Prelude.seq` Prelude.rnf period
-      `Prelude.seq` Prelude.rnf statistic
-      `Prelude.seq` Prelude.rnf unit
-      `Prelude.seq` Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf namespace
+    Prelude.rnf dimensions `Prelude.seq`
+      Prelude.rnf extendedStatistic `Prelude.seq`
+        Prelude.rnf period `Prelude.seq`
+          Prelude.rnf statistic `Prelude.seq`
+            Prelude.rnf unit `Prelude.seq`
+              Prelude.rnf metricName `Prelude.seq`
+                Prelude.rnf namespace
 
 instance Data.ToHeaders DescribeAlarmsForMetric where
   toHeaders = Prelude.const Prelude.mempty
@@ -265,5 +263,5 @@ instance
     DescribeAlarmsForMetricResponse
   where
   rnf DescribeAlarmsForMetricResponse' {..} =
-    Prelude.rnf metricAlarms
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf metricAlarms `Prelude.seq`
+      Prelude.rnf httpStatus

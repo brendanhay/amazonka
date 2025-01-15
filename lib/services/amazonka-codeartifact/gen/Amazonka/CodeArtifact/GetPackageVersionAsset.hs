@@ -255,15 +255,15 @@ instance Prelude.Hashable GetPackageVersionAsset where
 
 instance Prelude.NFData GetPackageVersionAsset where
   rnf GetPackageVersionAsset' {..} =
-    Prelude.rnf domainOwner
-      `Prelude.seq` Prelude.rnf namespace
-      `Prelude.seq` Prelude.rnf packageVersionRevision
-      `Prelude.seq` Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf repository
-      `Prelude.seq` Prelude.rnf format
-      `Prelude.seq` Prelude.rnf package
-      `Prelude.seq` Prelude.rnf packageVersion
-      `Prelude.seq` Prelude.rnf asset
+    Prelude.rnf domainOwner `Prelude.seq`
+      Prelude.rnf namespace `Prelude.seq`
+        Prelude.rnf packageVersionRevision `Prelude.seq`
+          Prelude.rnf domain `Prelude.seq`
+            Prelude.rnf repository `Prelude.seq`
+              Prelude.rnf format `Prelude.seq`
+                Prelude.rnf package `Prelude.seq`
+                  Prelude.rnf packageVersion `Prelude.seq`
+                    Prelude.rnf asset
 
 instance Data.ToHeaders GetPackageVersionAsset where
   toHeaders =

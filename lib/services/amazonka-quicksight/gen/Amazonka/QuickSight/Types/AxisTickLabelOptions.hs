@@ -82,8 +82,8 @@ instance Prelude.Hashable AxisTickLabelOptions where
 
 instance Prelude.NFData AxisTickLabelOptions where
   rnf AxisTickLabelOptions' {..} =
-    Prelude.rnf labelOptions
-      `Prelude.seq` Prelude.rnf rotationAngle
+    Prelude.rnf labelOptions `Prelude.seq`
+      Prelude.rnf rotationAngle
 
 instance Data.ToJSON AxisTickLabelOptions where
   toJSON AxisTickLabelOptions' {..} =

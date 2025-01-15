@@ -207,10 +207,10 @@ instance Prelude.Hashable EdgeOutputConfig where
 
 instance Prelude.NFData EdgeOutputConfig where
   rnf EdgeOutputConfig' {..} =
-    Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf presetDeploymentConfig
-      `Prelude.seq` Prelude.rnf presetDeploymentType
-      `Prelude.seq` Prelude.rnf s3OutputLocation
+    Prelude.rnf kmsKeyId `Prelude.seq`
+      Prelude.rnf presetDeploymentConfig `Prelude.seq`
+        Prelude.rnf presetDeploymentType `Prelude.seq`
+          Prelude.rnf s3OutputLocation
 
 instance Data.ToJSON EdgeOutputConfig where
   toJSON EdgeOutputConfig' {..} =

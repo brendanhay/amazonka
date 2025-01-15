@@ -85,8 +85,8 @@ instance Prelude.Hashable EventCondition where
 
 instance Prelude.NFData EventCondition where
   rnf EventCondition' {..} =
-    Prelude.rnf dimensions
-      `Prelude.seq` Prelude.rnf messageActivity
+    Prelude.rnf dimensions `Prelude.seq`
+      Prelude.rnf messageActivity
 
 instance Data.ToJSON EventCondition where
   toJSON EventCondition' {..} =

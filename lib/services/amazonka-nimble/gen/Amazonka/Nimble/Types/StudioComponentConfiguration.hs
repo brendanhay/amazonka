@@ -123,10 +123,10 @@ instance
 
 instance Prelude.NFData StudioComponentConfiguration where
   rnf StudioComponentConfiguration' {..} =
-    Prelude.rnf activeDirectoryConfiguration
-      `Prelude.seq` Prelude.rnf computeFarmConfiguration
-      `Prelude.seq` Prelude.rnf licenseServiceConfiguration
-      `Prelude.seq` Prelude.rnf sharedFileSystemConfiguration
+    Prelude.rnf activeDirectoryConfiguration `Prelude.seq`
+      Prelude.rnf computeFarmConfiguration `Prelude.seq`
+        Prelude.rnf licenseServiceConfiguration `Prelude.seq`
+          Prelude.rnf sharedFileSystemConfiguration
 
 instance Data.ToJSON StudioComponentConfiguration where
   toJSON StudioComponentConfiguration' {..} =

@@ -224,11 +224,11 @@ instance Prelude.Hashable UpdateProtectionGroup where
 
 instance Prelude.NFData UpdateProtectionGroup where
   rnf UpdateProtectionGroup' {..} =
-    Prelude.rnf members
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf protectionGroupId
-      `Prelude.seq` Prelude.rnf aggregation
-      `Prelude.seq` Prelude.rnf pattern'
+    Prelude.rnf members `Prelude.seq`
+      Prelude.rnf resourceType `Prelude.seq`
+        Prelude.rnf protectionGroupId `Prelude.seq`
+          Prelude.rnf aggregation `Prelude.seq`
+            Prelude.rnf pattern'
 
 instance Data.ToHeaders UpdateProtectionGroup where
   toHeaders =

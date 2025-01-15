@@ -172,9 +172,7 @@ instance Data.FromXML SnapshotInfo where
       Prelude.<*> (x Data..@? "snapshotId")
       Prelude.<*> (x Data..@? "startTime")
       Prelude.<*> (x Data..@? "state")
-      Prelude.<*> ( x
-                      Data..@? "tagSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "volumeId")
@@ -197,14 +195,14 @@ instance Prelude.Hashable SnapshotInfo where
 
 instance Prelude.NFData SnapshotInfo where
   rnf SnapshotInfo' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf encrypted
-      `Prelude.seq` Prelude.rnf outpostArn
-      `Prelude.seq` Prelude.rnf ownerId
-      `Prelude.seq` Prelude.rnf progress
-      `Prelude.seq` Prelude.rnf snapshotId
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf volumeId
-      `Prelude.seq` Prelude.rnf volumeSize
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf encrypted `Prelude.seq`
+        Prelude.rnf outpostArn `Prelude.seq`
+          Prelude.rnf ownerId `Prelude.seq`
+            Prelude.rnf progress `Prelude.seq`
+              Prelude.rnf snapshotId `Prelude.seq`
+                Prelude.rnf startTime `Prelude.seq`
+                  Prelude.rnf state `Prelude.seq`
+                    Prelude.rnf tags `Prelude.seq`
+                      Prelude.rnf volumeId `Prelude.seq`
+                        Prelude.rnf volumeSize

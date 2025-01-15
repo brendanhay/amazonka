@@ -135,12 +135,12 @@ instance Core.AWSPager ListGeoMatchSets where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listGeoMatchSets_nextMarker
-          Lens..~ rs
-          Lens.^? listGeoMatchSetsResponse_nextMarker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listGeoMatchSets_nextMarker
+              Lens..~ rs
+              Lens.^? listGeoMatchSetsResponse_nextMarker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListGeoMatchSets where
   type
@@ -165,8 +165,8 @@ instance Prelude.Hashable ListGeoMatchSets where
 
 instance Prelude.NFData ListGeoMatchSets where
   rnf ListGeoMatchSets' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nextMarker
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf nextMarker
 
 instance Data.ToHeaders ListGeoMatchSets where
   toHeaders =
@@ -260,6 +260,6 @@ listGeoMatchSetsResponse_httpStatus = Lens.lens (\ListGeoMatchSetsResponse' {htt
 
 instance Prelude.NFData ListGeoMatchSetsResponse where
   rnf ListGeoMatchSetsResponse' {..} =
-    Prelude.rnf geoMatchSets
-      `Prelude.seq` Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf geoMatchSets `Prelude.seq`
+      Prelude.rnf nextMarker `Prelude.seq`
+        Prelude.rnf httpStatus

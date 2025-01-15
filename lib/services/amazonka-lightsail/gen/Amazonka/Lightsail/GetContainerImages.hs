@@ -179,5 +179,5 @@ getContainerImagesResponse_httpStatus = Lens.lens (\GetContainerImagesResponse' 
 
 instance Prelude.NFData GetContainerImagesResponse where
   rnf GetContainerImagesResponse' {..} =
-    Prelude.rnf containerImages
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf containerImages `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -143,10 +143,10 @@ instance Prelude.Hashable PutCodeBinding where
 
 instance Prelude.NFData PutCodeBinding where
   rnf PutCodeBinding' {..} =
-    Prelude.rnf schemaVersion
-      `Prelude.seq` Prelude.rnf registryName
-      `Prelude.seq` Prelude.rnf schemaName
-      `Prelude.seq` Prelude.rnf language
+    Prelude.rnf schemaVersion `Prelude.seq`
+      Prelude.rnf registryName `Prelude.seq`
+        Prelude.rnf schemaName `Prelude.seq`
+          Prelude.rnf language
 
 instance Data.ToHeaders PutCodeBinding where
   toHeaders =
@@ -246,8 +246,8 @@ putCodeBindingResponse_httpStatus = Lens.lens (\PutCodeBindingResponse' {httpSta
 
 instance Prelude.NFData PutCodeBindingResponse where
   rnf PutCodeBindingResponse' {..} =
-    Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf lastModified
-      `Prelude.seq` Prelude.rnf schemaVersion
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf creationDate `Prelude.seq`
+      Prelude.rnf lastModified `Prelude.seq`
+        Prelude.rnf schemaVersion `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf httpStatus

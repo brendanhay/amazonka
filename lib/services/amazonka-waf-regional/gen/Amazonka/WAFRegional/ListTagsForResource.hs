@@ -134,9 +134,9 @@ instance Prelude.Hashable ListTagsForResource where
 
 instance Prelude.NFData ListTagsForResource where
   rnf ListTagsForResource' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf resourceARN
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf nextMarker `Prelude.seq`
+        Prelude.rnf resourceARN
 
 instance Data.ToHeaders ListTagsForResource where
   toHeaders =
@@ -215,6 +215,6 @@ listTagsForResourceResponse_httpStatus = Lens.lens (\ListTagsForResourceResponse
 
 instance Prelude.NFData ListTagsForResourceResponse where
   rnf ListTagsForResourceResponse' {..} =
-    Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf tagInfoForResource
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextMarker `Prelude.seq`
+      Prelude.rnf tagInfoForResource `Prelude.seq`
+        Prelude.rnf httpStatus

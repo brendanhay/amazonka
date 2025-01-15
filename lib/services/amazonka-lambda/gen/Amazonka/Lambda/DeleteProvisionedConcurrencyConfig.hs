@@ -152,8 +152,8 @@ instance
     DeleteProvisionedConcurrencyConfig
   where
   rnf DeleteProvisionedConcurrencyConfig' {..} =
-    Prelude.rnf functionName
-      `Prelude.seq` Prelude.rnf qualifier
+    Prelude.rnf functionName `Prelude.seq`
+      Prelude.rnf qualifier
 
 instance
   Data.ToHeaders

@@ -117,10 +117,10 @@ instance
 
 instance Prelude.NFData LineChartAggregatedFieldWells where
   rnf LineChartAggregatedFieldWells' {..} =
-    Prelude.rnf category
-      `Prelude.seq` Prelude.rnf colors
-      `Prelude.seq` Prelude.rnf smallMultiples
-      `Prelude.seq` Prelude.rnf values
+    Prelude.rnf category `Prelude.seq`
+      Prelude.rnf colors `Prelude.seq`
+        Prelude.rnf smallMultiples `Prelude.seq`
+          Prelude.rnf values
 
 instance Data.ToJSON LineChartAggregatedFieldWells where
   toJSON LineChartAggregatedFieldWells' {..} =

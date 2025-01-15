@@ -109,8 +109,8 @@ instance Prelude.Hashable PutResourcePolicy where
 
 instance Prelude.NFData PutResourcePolicy where
   rnf PutResourcePolicy' {..} =
-    Prelude.rnf policyDocument
-      `Prelude.seq` Prelude.rnf resourceArn
+    Prelude.rnf policyDocument `Prelude.seq`
+      Prelude.rnf resourceArn
 
 instance Data.ToHeaders PutResourcePolicy where
   toHeaders =

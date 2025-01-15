@@ -265,19 +265,19 @@ instance Prelude.Hashable IntentConfirmationSetting where
 
 instance Prelude.NFData IntentConfirmationSetting where
   rnf IntentConfirmationSetting' {..} =
-    Prelude.rnf active
-      `Prelude.seq` Prelude.rnf codeHook
-      `Prelude.seq` Prelude.rnf confirmationConditional
-      `Prelude.seq` Prelude.rnf confirmationNextStep
-      `Prelude.seq` Prelude.rnf confirmationResponse
-      `Prelude.seq` Prelude.rnf declinationConditional
-      `Prelude.seq` Prelude.rnf declinationNextStep
-      `Prelude.seq` Prelude.rnf declinationResponse
-      `Prelude.seq` Prelude.rnf elicitationCodeHook
-      `Prelude.seq` Prelude.rnf failureConditional
-      `Prelude.seq` Prelude.rnf failureNextStep
-      `Prelude.seq` Prelude.rnf failureResponse
-      `Prelude.seq` Prelude.rnf promptSpecification
+    Prelude.rnf active `Prelude.seq`
+      Prelude.rnf codeHook `Prelude.seq`
+        Prelude.rnf confirmationConditional `Prelude.seq`
+          Prelude.rnf confirmationNextStep `Prelude.seq`
+            Prelude.rnf confirmationResponse `Prelude.seq`
+              Prelude.rnf declinationConditional `Prelude.seq`
+                Prelude.rnf declinationNextStep `Prelude.seq`
+                  Prelude.rnf declinationResponse `Prelude.seq`
+                    Prelude.rnf elicitationCodeHook `Prelude.seq`
+                      Prelude.rnf failureConditional `Prelude.seq`
+                        Prelude.rnf failureNextStep `Prelude.seq`
+                          Prelude.rnf failureResponse `Prelude.seq`
+                            Prelude.rnf promptSpecification
 
 instance Data.ToJSON IntentConfirmationSetting where
   toJSON IntentConfirmationSetting' {..} =

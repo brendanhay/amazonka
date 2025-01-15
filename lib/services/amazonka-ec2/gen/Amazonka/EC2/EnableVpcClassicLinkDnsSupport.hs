@@ -188,5 +188,5 @@ instance
     EnableVpcClassicLinkDnsSupportResponse
   where
   rnf EnableVpcClassicLinkDnsSupportResponse' {..} =
-    Prelude.rnf return'
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf return' `Prelude.seq`
+      Prelude.rnf httpStatus

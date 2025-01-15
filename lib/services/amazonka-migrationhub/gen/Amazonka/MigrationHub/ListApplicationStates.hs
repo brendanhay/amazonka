@@ -124,12 +124,12 @@ instance Core.AWSPager ListApplicationStates where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listApplicationStates_nextToken
-          Lens..~ rs
-          Lens.^? listApplicationStatesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listApplicationStates_nextToken
+              Lens..~ rs
+              Lens.^? listApplicationStatesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListApplicationStates where
   type
@@ -158,9 +158,9 @@ instance Prelude.Hashable ListApplicationStates where
 
 instance Prelude.NFData ListApplicationStates where
   rnf ListApplicationStates' {..} =
-    Prelude.rnf applicationIds
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf applicationIds `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListApplicationStates where
   toHeaders =
@@ -250,6 +250,6 @@ listApplicationStatesResponse_httpStatus = Lens.lens (\ListApplicationStatesResp
 
 instance Prelude.NFData ListApplicationStatesResponse where
   rnf ListApplicationStatesResponse' {..} =
-    Prelude.rnf applicationStateList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf applicationStateList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

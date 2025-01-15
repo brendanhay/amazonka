@@ -135,9 +135,9 @@ instance Prelude.Hashable UpdateBrokerCount where
 
 instance Prelude.NFData UpdateBrokerCount where
   rnf UpdateBrokerCount' {..} =
-    Prelude.rnf clusterArn
-      `Prelude.seq` Prelude.rnf currentVersion
-      `Prelude.seq` Prelude.rnf targetNumberOfBrokerNodes
+    Prelude.rnf clusterArn `Prelude.seq`
+      Prelude.rnf currentVersion `Prelude.seq`
+        Prelude.rnf targetNumberOfBrokerNodes
 
 instance Data.ToHeaders UpdateBrokerCount where
   toHeaders =
@@ -224,6 +224,6 @@ updateBrokerCountResponse_httpStatus = Lens.lens (\UpdateBrokerCountResponse' {h
 
 instance Prelude.NFData UpdateBrokerCountResponse where
   rnf UpdateBrokerCountResponse' {..} =
-    Prelude.rnf clusterArn
-      `Prelude.seq` Prelude.rnf clusterOperationArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf clusterArn `Prelude.seq`
+      Prelude.rnf clusterOperationArn `Prelude.seq`
+        Prelude.rnf httpStatus

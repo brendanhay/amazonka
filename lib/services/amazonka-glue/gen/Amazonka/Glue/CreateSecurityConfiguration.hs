@@ -119,8 +119,8 @@ instance Prelude.Hashable CreateSecurityConfiguration where
 
 instance Prelude.NFData CreateSecurityConfiguration where
   rnf CreateSecurityConfiguration' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf encryptionConfiguration
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf encryptionConfiguration
 
 instance Data.ToHeaders CreateSecurityConfiguration where
   toHeaders =
@@ -208,6 +208,6 @@ instance
     CreateSecurityConfigurationResponse
   where
   rnf CreateSecurityConfigurationResponse' {..} =
-    Prelude.rnf createdTimestamp
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf createdTimestamp `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -184,6 +184,6 @@ getEmailTemplateResponse_templateContent = Lens.lens (\GetEmailTemplateResponse'
 
 instance Prelude.NFData GetEmailTemplateResponse where
   rnf GetEmailTemplateResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf templateName
-      `Prelude.seq` Prelude.rnf templateContent
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf templateName `Prelude.seq`
+        Prelude.rnf templateContent

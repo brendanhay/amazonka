@@ -132,9 +132,7 @@ instance Data.FromXML ExportImageTask where
       Prelude.<*> (x Data..@? "s3ExportLocation")
       Prelude.<*> (x Data..@? "status")
       Prelude.<*> (x Data..@? "statusMessage")
-      Prelude.<*> ( x
-                      Data..@? "tagSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
@@ -152,11 +150,11 @@ instance Prelude.Hashable ExportImageTask where
 
 instance Prelude.NFData ExportImageTask where
   rnf ExportImageTask' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf exportImageTaskId
-      `Prelude.seq` Prelude.rnf imageId
-      `Prelude.seq` Prelude.rnf progress
-      `Prelude.seq` Prelude.rnf s3ExportLocation
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf exportImageTaskId `Prelude.seq`
+        Prelude.rnf imageId `Prelude.seq`
+          Prelude.rnf progress `Prelude.seq`
+            Prelude.rnf s3ExportLocation `Prelude.seq`
+              Prelude.rnf status `Prelude.seq`
+                Prelude.rnf statusMessage `Prelude.seq`
+                  Prelude.rnf tags

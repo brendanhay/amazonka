@@ -115,8 +115,8 @@ instance Prelude.Hashable ListStoredQueries where
 
 instance Prelude.NFData ListStoredQueries where
   rnf ListStoredQueries' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListStoredQueries where
   toHeaders =
@@ -213,6 +213,6 @@ listStoredQueriesResponse_httpStatus = Lens.lens (\ListStoredQueriesResponse' {h
 
 instance Prelude.NFData ListStoredQueriesResponse where
   rnf ListStoredQueriesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf storedQueryMetadata
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf storedQueryMetadata `Prelude.seq`
+        Prelude.rnf httpStatus

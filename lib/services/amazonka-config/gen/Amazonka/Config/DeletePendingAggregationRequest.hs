@@ -117,8 +117,8 @@ instance
     DeletePendingAggregationRequest
   where
   rnf DeletePendingAggregationRequest' {..} =
-    Prelude.rnf requesterAccountId
-      `Prelude.seq` Prelude.rnf requesterAwsRegion
+    Prelude.rnf requesterAccountId `Prelude.seq`
+      Prelude.rnf requesterAwsRegion
 
 instance
   Data.ToHeaders

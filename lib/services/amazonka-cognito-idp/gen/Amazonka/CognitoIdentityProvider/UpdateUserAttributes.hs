@@ -261,9 +261,9 @@ instance Prelude.Hashable UpdateUserAttributes where
 
 instance Prelude.NFData UpdateUserAttributes where
   rnf UpdateUserAttributes' {..} =
-    Prelude.rnf clientMetadata
-      `Prelude.seq` Prelude.rnf userAttributes
-      `Prelude.seq` Prelude.rnf accessToken
+    Prelude.rnf clientMetadata `Prelude.seq`
+      Prelude.rnf userAttributes `Prelude.seq`
+        Prelude.rnf accessToken
 
 instance Data.ToHeaders UpdateUserAttributes where
   toHeaders =
@@ -345,5 +345,5 @@ updateUserAttributesResponse_httpStatus = Lens.lens (\UpdateUserAttributesRespon
 
 instance Prelude.NFData UpdateUserAttributesResponse where
   rnf UpdateUserAttributesResponse' {..} =
-    Prelude.rnf codeDeliveryDetailsList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf codeDeliveryDetailsList `Prelude.seq`
+      Prelude.rnf httpStatus

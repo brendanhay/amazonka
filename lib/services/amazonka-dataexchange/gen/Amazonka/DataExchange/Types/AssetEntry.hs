@@ -233,13 +233,13 @@ instance Prelude.Hashable AssetEntry where
 
 instance Prelude.NFData AssetEntry where
   rnf AssetEntry' {..} =
-    Prelude.rnf sourceId
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf assetDetails
-      `Prelude.seq` Prelude.rnf assetType
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf dataSetId
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf revisionId
-      `Prelude.seq` Prelude.rnf updatedAt
+    Prelude.rnf sourceId `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf assetDetails `Prelude.seq`
+          Prelude.rnf assetType `Prelude.seq`
+            Prelude.rnf createdAt `Prelude.seq`
+              Prelude.rnf dataSetId `Prelude.seq`
+                Prelude.rnf id `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf revisionId `Prelude.seq`
+                      Prelude.rnf updatedAt

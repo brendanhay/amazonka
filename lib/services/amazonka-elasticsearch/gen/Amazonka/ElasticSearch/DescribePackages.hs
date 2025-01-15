@@ -134,9 +134,9 @@ instance Prelude.Hashable DescribePackages where
 
 instance Prelude.NFData DescribePackages where
   rnf DescribePackages' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribePackages where
   toHeaders = Prelude.const Prelude.mempty
@@ -209,6 +209,6 @@ describePackagesResponse_httpStatus = Lens.lens (\DescribePackagesResponse' {htt
 
 instance Prelude.NFData DescribePackagesResponse where
   rnf DescribePackagesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf packageDetailsList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf packageDetailsList `Prelude.seq`
+        Prelude.rnf httpStatus

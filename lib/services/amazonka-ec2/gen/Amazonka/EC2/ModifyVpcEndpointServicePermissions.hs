@@ -174,10 +174,10 @@ instance
     ModifyVpcEndpointServicePermissions
   where
   rnf ModifyVpcEndpointServicePermissions' {..} =
-    Prelude.rnf addAllowedPrincipals
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf removeAllowedPrincipals
-      `Prelude.seq` Prelude.rnf serviceId
+    Prelude.rnf addAllowedPrincipals `Prelude.seq`
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf removeAllowedPrincipals `Prelude.seq`
+          Prelude.rnf serviceId
 
 instance
   Data.ToHeaders
@@ -269,6 +269,6 @@ instance
     ModifyVpcEndpointServicePermissionsResponse
   where
   rnf ModifyVpcEndpointServicePermissionsResponse' {..} =
-    Prelude.rnf addedPrincipals
-      `Prelude.seq` Prelude.rnf returnValue
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf addedPrincipals `Prelude.seq`
+      Prelude.rnf returnValue `Prelude.seq`
+        Prelude.rnf httpStatus

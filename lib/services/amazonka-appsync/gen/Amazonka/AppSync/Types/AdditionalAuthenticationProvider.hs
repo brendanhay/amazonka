@@ -121,10 +121,10 @@ instance
     AdditionalAuthenticationProvider
   where
   rnf AdditionalAuthenticationProvider' {..} =
-    Prelude.rnf authenticationType
-      `Prelude.seq` Prelude.rnf lambdaAuthorizerConfig
-      `Prelude.seq` Prelude.rnf openIDConnectConfig
-      `Prelude.seq` Prelude.rnf userPoolConfig
+    Prelude.rnf authenticationType `Prelude.seq`
+      Prelude.rnf lambdaAuthorizerConfig `Prelude.seq`
+        Prelude.rnf openIDConnectConfig `Prelude.seq`
+          Prelude.rnf userPoolConfig
 
 instance Data.ToJSON AdditionalAuthenticationProvider where
   toJSON AdditionalAuthenticationProvider' {..} =

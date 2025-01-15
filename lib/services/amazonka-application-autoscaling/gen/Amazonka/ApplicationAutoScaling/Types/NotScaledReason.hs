@@ -143,7 +143,7 @@ instance Prelude.Hashable NotScaledReason where
 
 instance Prelude.NFData NotScaledReason where
   rnf NotScaledReason' {..} =
-    Prelude.rnf currentCapacity
-      `Prelude.seq` Prelude.rnf maxCapacity
-      `Prelude.seq` Prelude.rnf minCapacity
-      `Prelude.seq` Prelude.rnf code
+    Prelude.rnf currentCapacity `Prelude.seq`
+      Prelude.rnf maxCapacity `Prelude.seq`
+        Prelude.rnf minCapacity `Prelude.seq`
+          Prelude.rnf code

@@ -148,11 +148,11 @@ instance Prelude.Hashable DataCollectionDetails where
 
 instance Prelude.NFData DataCollectionDetails where
   rnf DataCollectionDetails' {..} =
-    Prelude.rnf completionTime
-      `Prelude.seq` Prelude.rnf failed
-      `Prelude.seq` Prelude.rnf inProgress
-      `Prelude.seq` Prelude.rnf servers
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf success
+    Prelude.rnf completionTime `Prelude.seq`
+      Prelude.rnf failed `Prelude.seq`
+        Prelude.rnf inProgress `Prelude.seq`
+          Prelude.rnf servers `Prelude.seq`
+            Prelude.rnf startTime `Prelude.seq`
+              Prelude.rnf status `Prelude.seq`
+                Prelude.rnf statusMessage `Prelude.seq`
+                  Prelude.rnf success

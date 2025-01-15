@@ -92,5 +92,5 @@ instance
     VerifiedAccessInstanceLoggingConfiguration
   where
   rnf VerifiedAccessInstanceLoggingConfiguration' {..} =
-    Prelude.rnf accessLogs
-      `Prelude.seq` Prelude.rnf verifiedAccessInstanceId
+    Prelude.rnf accessLogs `Prelude.seq`
+      Prelude.rnf verifiedAccessInstanceId

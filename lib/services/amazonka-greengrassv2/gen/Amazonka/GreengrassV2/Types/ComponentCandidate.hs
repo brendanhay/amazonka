@@ -94,9 +94,9 @@ instance Prelude.Hashable ComponentCandidate where
 
 instance Prelude.NFData ComponentCandidate where
   rnf ComponentCandidate' {..} =
-    Prelude.rnf componentName
-      `Prelude.seq` Prelude.rnf componentVersion
-      `Prelude.seq` Prelude.rnf versionRequirements
+    Prelude.rnf componentName `Prelude.seq`
+      Prelude.rnf componentVersion `Prelude.seq`
+        Prelude.rnf versionRequirements
 
 instance Data.ToJSON ComponentCandidate where
   toJSON ComponentCandidate' {..} =

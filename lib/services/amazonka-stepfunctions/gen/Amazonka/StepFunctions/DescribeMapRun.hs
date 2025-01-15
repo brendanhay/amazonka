@@ -318,14 +318,14 @@ describeMapRunResponse_executionCounts = Lens.lens (\DescribeMapRunResponse' {ex
 
 instance Prelude.NFData DescribeMapRunResponse where
   rnf DescribeMapRunResponse' {..} =
-    Prelude.rnf stopDate
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf mapRunArn
-      `Prelude.seq` Prelude.rnf executionArn
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf startDate
-      `Prelude.seq` Prelude.rnf maxConcurrency
-      `Prelude.seq` Prelude.rnf toleratedFailurePercentage
-      `Prelude.seq` Prelude.rnf toleratedFailureCount
-      `Prelude.seq` Prelude.rnf itemCounts
-      `Prelude.seq` Prelude.rnf executionCounts
+    Prelude.rnf stopDate `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf mapRunArn `Prelude.seq`
+          Prelude.rnf executionArn `Prelude.seq`
+            Prelude.rnf status `Prelude.seq`
+              Prelude.rnf startDate `Prelude.seq`
+                Prelude.rnf maxConcurrency `Prelude.seq`
+                  Prelude.rnf toleratedFailurePercentage `Prelude.seq`
+                    Prelude.rnf toleratedFailureCount `Prelude.seq`
+                      Prelude.rnf itemCounts `Prelude.seq`
+                        Prelude.rnf executionCounts

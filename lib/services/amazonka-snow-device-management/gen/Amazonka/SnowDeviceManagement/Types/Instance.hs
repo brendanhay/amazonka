@@ -211,16 +211,16 @@ instance Prelude.Hashable Instance where
 
 instance Prelude.NFData Instance where
   rnf Instance' {..} =
-    Prelude.rnf amiLaunchIndex
-      `Prelude.seq` Prelude.rnf blockDeviceMappings
-      `Prelude.seq` Prelude.rnf cpuOptions
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf imageId
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf privateIpAddress
-      `Prelude.seq` Prelude.rnf publicIpAddress
-      `Prelude.seq` Prelude.rnf rootDeviceName
-      `Prelude.seq` Prelude.rnf securityGroups
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf updatedAt
+    Prelude.rnf amiLaunchIndex `Prelude.seq`
+      Prelude.rnf blockDeviceMappings `Prelude.seq`
+        Prelude.rnf cpuOptions `Prelude.seq`
+          Prelude.rnf createdAt `Prelude.seq`
+            Prelude.rnf imageId `Prelude.seq`
+              Prelude.rnf instanceId `Prelude.seq`
+                Prelude.rnf instanceType `Prelude.seq`
+                  Prelude.rnf privateIpAddress `Prelude.seq`
+                    Prelude.rnf publicIpAddress `Prelude.seq`
+                      Prelude.rnf rootDeviceName `Prelude.seq`
+                        Prelude.rnf securityGroups `Prelude.seq`
+                          Prelude.rnf state `Prelude.seq`
+                            Prelude.rnf updatedAt

@@ -175,5 +175,5 @@ instance
     DeleteVoiceMessageSpendLimitOverrideResponse
   where
   rnf DeleteVoiceMessageSpendLimitOverrideResponse' {..} =
-    Prelude.rnf monthlyLimit
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf monthlyLimit `Prelude.seq`
+      Prelude.rnf httpStatus

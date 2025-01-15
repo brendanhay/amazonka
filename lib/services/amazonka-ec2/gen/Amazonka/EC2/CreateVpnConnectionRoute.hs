@@ -114,8 +114,8 @@ instance Prelude.Hashable CreateVpnConnectionRoute where
 
 instance Prelude.NFData CreateVpnConnectionRoute where
   rnf CreateVpnConnectionRoute' {..} =
-    Prelude.rnf destinationCidrBlock
-      `Prelude.seq` Prelude.rnf vpnConnectionId
+    Prelude.rnf destinationCidrBlock `Prelude.seq`
+      Prelude.rnf vpnConnectionId
 
 instance Data.ToHeaders CreateVpnConnectionRoute where
   toHeaders = Prelude.const Prelude.mempty

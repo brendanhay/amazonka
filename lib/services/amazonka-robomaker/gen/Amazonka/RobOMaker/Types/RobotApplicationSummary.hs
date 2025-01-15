@@ -117,8 +117,8 @@ instance Prelude.Hashable RobotApplicationSummary where
 
 instance Prelude.NFData RobotApplicationSummary where
   rnf RobotApplicationSummary' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf robotSoftwareSuite
-      `Prelude.seq` Prelude.rnf version
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf lastUpdatedAt `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf robotSoftwareSuite `Prelude.seq`
+            Prelude.rnf version

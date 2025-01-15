@@ -101,6 +101,6 @@ instance Prelude.Hashable SubDomain where
 
 instance Prelude.NFData SubDomain where
   rnf SubDomain' {..} =
-    Prelude.rnf subDomainSetting
-      `Prelude.seq` Prelude.rnf verified
-      `Prelude.seq` Prelude.rnf dnsRecord
+    Prelude.rnf subDomainSetting `Prelude.seq`
+      Prelude.rnf verified `Prelude.seq`
+        Prelude.rnf dnsRecord

@@ -85,5 +85,5 @@ instance Prelude.Hashable TaskStartedEventDetails where
 
 instance Prelude.NFData TaskStartedEventDetails where
   rnf TaskStartedEventDetails' {..} =
-    Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf resource
+    Prelude.rnf resourceType `Prelude.seq`
+      Prelude.rnf resource

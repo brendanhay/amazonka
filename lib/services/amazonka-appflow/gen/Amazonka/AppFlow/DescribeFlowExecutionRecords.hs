@@ -134,9 +134,9 @@ instance
 
 instance Prelude.NFData DescribeFlowExecutionRecords where
   rnf DescribeFlowExecutionRecords' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf flowName
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf flowName
 
 instance Data.ToHeaders DescribeFlowExecutionRecords where
   toHeaders =
@@ -219,6 +219,6 @@ instance
     DescribeFlowExecutionRecordsResponse
   where
   rnf DescribeFlowExecutionRecordsResponse' {..} =
-    Prelude.rnf flowExecutions
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf flowExecutions `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

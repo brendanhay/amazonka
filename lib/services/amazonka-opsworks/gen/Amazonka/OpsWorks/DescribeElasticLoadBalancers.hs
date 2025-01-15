@@ -127,8 +127,8 @@ instance
 
 instance Prelude.NFData DescribeElasticLoadBalancers where
   rnf DescribeElasticLoadBalancers' {..} =
-    Prelude.rnf layerIds
-      `Prelude.seq` Prelude.rnf stackId
+    Prelude.rnf layerIds `Prelude.seq`
+      Prelude.rnf stackId
 
 instance Data.ToHeaders DescribeElasticLoadBalancers where
   toHeaders =
@@ -209,5 +209,5 @@ instance
     DescribeElasticLoadBalancersResponse
   where
   rnf DescribeElasticLoadBalancersResponse' {..} =
-    Prelude.rnf elasticLoadBalancers
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf elasticLoadBalancers `Prelude.seq`
+      Prelude.rnf httpStatus

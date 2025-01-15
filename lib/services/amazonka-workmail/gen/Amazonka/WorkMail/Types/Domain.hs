@@ -79,8 +79,8 @@ instance Prelude.Hashable Domain where
 
 instance Prelude.NFData Domain where
   rnf Domain' {..} =
-    Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf hostedZoneId
+    Prelude.rnf domainName `Prelude.seq`
+      Prelude.rnf hostedZoneId
 
 instance Data.ToJSON Domain where
   toJSON Domain' {..} =

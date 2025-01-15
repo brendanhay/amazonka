@@ -170,5 +170,5 @@ instance
     GetAppValidationOutputResponse
   where
   rnf GetAppValidationOutputResponse' {..} =
-    Prelude.rnf validationOutputList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf validationOutputList `Prelude.seq`
+      Prelude.rnf httpStatus

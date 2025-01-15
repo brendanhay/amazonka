@@ -132,8 +132,8 @@ instance Prelude.Hashable CreatePublicIpv4Pool where
 
 instance Prelude.NFData CreatePublicIpv4Pool where
   rnf CreatePublicIpv4Pool' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf tagSpecifications
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf tagSpecifications
 
 instance Data.ToHeaders CreatePublicIpv4Pool where
   toHeaders = Prelude.const Prelude.mempty
@@ -196,5 +196,5 @@ createPublicIpv4PoolResponse_httpStatus = Lens.lens (\CreatePublicIpv4PoolRespon
 
 instance Prelude.NFData CreatePublicIpv4PoolResponse where
   rnf CreatePublicIpv4PoolResponse' {..} =
-    Prelude.rnf poolId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf poolId `Prelude.seq`
+      Prelude.rnf httpStatus

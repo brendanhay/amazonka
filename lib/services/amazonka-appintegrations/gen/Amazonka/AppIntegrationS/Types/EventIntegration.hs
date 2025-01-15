@@ -125,9 +125,9 @@ instance Prelude.Hashable EventIntegration where
 
 instance Prelude.NFData EventIntegration where
   rnf EventIntegration' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf eventBridgeBus
-      `Prelude.seq` Prelude.rnf eventFilter
-      `Prelude.seq` Prelude.rnf eventIntegrationArn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf eventBridgeBus `Prelude.seq`
+        Prelude.rnf eventFilter `Prelude.seq`
+          Prelude.rnf eventIntegrationArn `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf tags

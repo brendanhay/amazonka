@@ -207,5 +207,5 @@ updateServiceResponse_httpStatus = Lens.lens (\UpdateServiceResponse' {httpStatu
 
 instance Prelude.NFData UpdateServiceResponse where
   rnf UpdateServiceResponse' {..} =
-    Prelude.rnf operationId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operationId `Prelude.seq`
+      Prelude.rnf httpStatus

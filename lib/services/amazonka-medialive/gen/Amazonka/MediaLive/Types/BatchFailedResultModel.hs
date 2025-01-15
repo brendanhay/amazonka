@@ -102,7 +102,7 @@ instance Prelude.Hashable BatchFailedResultModel where
 
 instance Prelude.NFData BatchFailedResultModel where
   rnf BatchFailedResultModel' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf code
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf message
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf code `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf message

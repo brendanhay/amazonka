@@ -224,11 +224,11 @@ instance Prelude.Hashable FieldStats where
 
 instance Prelude.NFData FieldStats where
   rnf FieldStats' {..} =
-    Prelude.rnf count
-      `Prelude.seq` Prelude.rnf max
-      `Prelude.seq` Prelude.rnf mean
-      `Prelude.seq` Prelude.rnf min
-      `Prelude.seq` Prelude.rnf missing
-      `Prelude.seq` Prelude.rnf stddev
-      `Prelude.seq` Prelude.rnf sum
-      `Prelude.seq` Prelude.rnf sumOfSquares
+    Prelude.rnf count `Prelude.seq`
+      Prelude.rnf max `Prelude.seq`
+        Prelude.rnf mean `Prelude.seq`
+          Prelude.rnf min `Prelude.seq`
+            Prelude.rnf missing `Prelude.seq`
+              Prelude.rnf stddev `Prelude.seq`
+                Prelude.rnf sum `Prelude.seq`
+                  Prelude.rnf sumOfSquares

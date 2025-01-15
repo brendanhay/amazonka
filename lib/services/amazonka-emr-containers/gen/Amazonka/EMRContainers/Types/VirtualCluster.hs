@@ -143,10 +143,10 @@ instance Prelude.Hashable VirtualCluster where
 
 instance Prelude.NFData VirtualCluster where
   rnf VirtualCluster' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf containerProvider
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf containerProvider `Prelude.seq`
+        Prelude.rnf createdAt `Prelude.seq`
+          Prelude.rnf id `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf state `Prelude.seq`
+                Prelude.rnf tags

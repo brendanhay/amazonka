@@ -188,7 +188,7 @@ getSinkPolicyResponse_httpStatus = Lens.lens (\GetSinkPolicyResponse' {httpStatu
 
 instance Prelude.NFData GetSinkPolicyResponse where
   rnf GetSinkPolicyResponse' {..} =
-    Prelude.rnf policy
-      `Prelude.seq` Prelude.rnf sinkArn
-      `Prelude.seq` Prelude.rnf sinkId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf policy `Prelude.seq`
+      Prelude.rnf sinkArn `Prelude.seq`
+        Prelude.rnf sinkId `Prelude.seq`
+          Prelude.rnf httpStatus

@@ -85,8 +85,8 @@ instance Prelude.Hashable ControlInputParameter where
 
 instance Prelude.NFData ControlInputParameter where
   rnf ControlInputParameter' {..} =
-    Prelude.rnf parameterName
-      `Prelude.seq` Prelude.rnf parameterValue
+    Prelude.rnf parameterName `Prelude.seq`
+      Prelude.rnf parameterValue
 
 instance Data.ToJSON ControlInputParameter where
   toJSON ControlInputParameter' {..} =

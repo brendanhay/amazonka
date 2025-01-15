@@ -336,10 +336,10 @@ instance Prelude.Hashable ProtocolDetails where
 
 instance Prelude.NFData ProtocolDetails where
   rnf ProtocolDetails' {..} =
-    Prelude.rnf as2Transports
-      `Prelude.seq` Prelude.rnf passiveIp
-      `Prelude.seq` Prelude.rnf setStatOption
-      `Prelude.seq` Prelude.rnf tlsSessionResumptionMode
+    Prelude.rnf as2Transports `Prelude.seq`
+      Prelude.rnf passiveIp `Prelude.seq`
+        Prelude.rnf setStatOption `Prelude.seq`
+          Prelude.rnf tlsSessionResumptionMode
 
 instance Data.ToJSON ProtocolDetails where
   toJSON ProtocolDetails' {..} =

@@ -108,8 +108,8 @@ instance Prelude.Hashable GetDatabase where
 
 instance Prelude.NFData GetDatabase where
   rnf GetDatabase' {..} =
-    Prelude.rnf catalogName
-      `Prelude.seq` Prelude.rnf databaseName
+    Prelude.rnf catalogName `Prelude.seq`
+      Prelude.rnf databaseName
 
 instance Data.ToHeaders GetDatabase where
   toHeaders =
@@ -179,5 +179,5 @@ getDatabaseResponse_httpStatus = Lens.lens (\GetDatabaseResponse' {httpStatus} -
 
 instance Prelude.NFData GetDatabaseResponse where
   rnf GetDatabaseResponse' {..} =
-    Prelude.rnf database
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf database `Prelude.seq`
+      Prelude.rnf httpStatus

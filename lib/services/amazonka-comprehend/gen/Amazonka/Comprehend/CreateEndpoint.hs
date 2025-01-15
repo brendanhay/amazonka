@@ -195,12 +195,12 @@ instance Prelude.Hashable CreateEndpoint where
 
 instance Prelude.NFData CreateEndpoint where
   rnf CreateEndpoint' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf dataAccessRoleArn
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf endpointName
-      `Prelude.seq` Prelude.rnf modelArn
-      `Prelude.seq` Prelude.rnf desiredInferenceUnits
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf dataAccessRoleArn `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf endpointName `Prelude.seq`
+            Prelude.rnf modelArn `Prelude.seq`
+              Prelude.rnf desiredInferenceUnits
 
 instance Data.ToHeaders CreateEndpoint where
   toHeaders =
@@ -282,5 +282,5 @@ createEndpointResponse_httpStatus = Lens.lens (\CreateEndpointResponse' {httpSta
 
 instance Prelude.NFData CreateEndpointResponse where
   rnf CreateEndpointResponse' {..} =
-    Prelude.rnf endpointArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf endpointArn `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -103,7 +103,7 @@ instance Prelude.Hashable Layer where
 
 instance Prelude.NFData Layer where
   rnf Layer' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf codeSize
-      `Prelude.seq` Prelude.rnf signingJobArn
-      `Prelude.seq` Prelude.rnf signingProfileVersionArn
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf codeSize `Prelude.seq`
+        Prelude.rnf signingJobArn `Prelude.seq`
+          Prelude.rnf signingProfileVersionArn

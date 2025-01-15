@@ -358,12 +358,12 @@ instance Prelude.Hashable RegisterType where
 
 instance Prelude.NFData RegisterType where
   rnf RegisterType' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf executionRoleArn
-      `Prelude.seq` Prelude.rnf loggingConfig
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf typeName
-      `Prelude.seq` Prelude.rnf schemaHandlerPackage
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf executionRoleArn `Prelude.seq`
+        Prelude.rnf loggingConfig `Prelude.seq`
+          Prelude.rnf type' `Prelude.seq`
+            Prelude.rnf typeName `Prelude.seq`
+              Prelude.rnf schemaHandlerPackage
 
 instance Data.ToHeaders RegisterType where
   toHeaders = Prelude.const Prelude.mempty
@@ -439,5 +439,5 @@ registerTypeResponse_httpStatus = Lens.lens (\RegisterTypeResponse' {httpStatus}
 
 instance Prelude.NFData RegisterTypeResponse where
   rnf RegisterTypeResponse' {..} =
-    Prelude.rnf registrationToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf registrationToken `Prelude.seq`
+      Prelude.rnf httpStatus

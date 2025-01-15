@@ -80,8 +80,8 @@ instance Prelude.Hashable SidewalkAccountInfo where
 
 instance Prelude.NFData SidewalkAccountInfo where
   rnf SidewalkAccountInfo' {..} =
-    Prelude.rnf amazonId
-      `Prelude.seq` Prelude.rnf appServerPrivateKey
+    Prelude.rnf amazonId `Prelude.seq`
+      Prelude.rnf appServerPrivateKey
 
 instance Data.ToJSON SidewalkAccountInfo where
   toJSON SidewalkAccountInfo' {..} =

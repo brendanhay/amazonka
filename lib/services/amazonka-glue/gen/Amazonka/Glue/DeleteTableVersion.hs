@@ -147,10 +147,10 @@ instance Prelude.Hashable DeleteTableVersion where
 
 instance Prelude.NFData DeleteTableVersion where
   rnf DeleteTableVersion' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf tableName
-      `Prelude.seq` Prelude.rnf versionId
+    Prelude.rnf catalogId `Prelude.seq`
+      Prelude.rnf databaseName `Prelude.seq`
+        Prelude.rnf tableName `Prelude.seq`
+          Prelude.rnf versionId
 
 instance Data.ToHeaders DeleteTableVersion where
   toHeaders =

@@ -133,9 +133,9 @@ instance Prelude.Hashable RetryPipelineExecution where
 
 instance Prelude.NFData RetryPipelineExecution where
   rnf RetryPipelineExecution' {..} =
-    Prelude.rnf parallelismConfiguration
-      `Prelude.seq` Prelude.rnf pipelineExecutionArn
-      `Prelude.seq` Prelude.rnf clientRequestToken
+    Prelude.rnf parallelismConfiguration `Prelude.seq`
+      Prelude.rnf pipelineExecutionArn `Prelude.seq`
+        Prelude.rnf clientRequestToken
 
 instance Data.ToHeaders RetryPipelineExecution where
   toHeaders =
@@ -217,5 +217,5 @@ instance
     RetryPipelineExecutionResponse
   where
   rnf RetryPipelineExecutionResponse' {..} =
-    Prelude.rnf pipelineExecutionArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf pipelineExecutionArn `Prelude.seq`
+      Prelude.rnf httpStatus

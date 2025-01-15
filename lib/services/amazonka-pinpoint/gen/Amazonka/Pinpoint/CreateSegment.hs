@@ -116,8 +116,8 @@ instance Prelude.Hashable CreateSegment where
 
 instance Prelude.NFData CreateSegment where
   rnf CreateSegment' {..} =
-    Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf writeSegmentRequest
+    Prelude.rnf applicationId `Prelude.seq`
+      Prelude.rnf writeSegmentRequest
 
 instance Data.ToHeaders CreateSegment where
   toHeaders =
@@ -185,5 +185,5 @@ createSegmentResponse_segmentResponse = Lens.lens (\CreateSegmentResponse' {segm
 
 instance Prelude.NFData CreateSegmentResponse where
   rnf CreateSegmentResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf segmentResponse
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf segmentResponse

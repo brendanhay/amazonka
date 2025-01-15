@@ -173,5 +173,5 @@ describeStackSummaryResponse_httpStatus = Lens.lens (\DescribeStackSummaryRespon
 
 instance Prelude.NFData DescribeStackSummaryResponse where
   rnf DescribeStackSummaryResponse' {..} =
-    Prelude.rnf stackSummary
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf stackSummary `Prelude.seq`
+      Prelude.rnf httpStatus

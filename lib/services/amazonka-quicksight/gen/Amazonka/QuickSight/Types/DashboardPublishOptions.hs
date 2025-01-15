@@ -93,10 +93,10 @@ instance Prelude.Hashable DashboardPublishOptions where
 
 instance Prelude.NFData DashboardPublishOptions where
   rnf DashboardPublishOptions' {..} =
-    Prelude.rnf adHocFilteringOption
-      `Prelude.seq` Prelude.rnf exportToCSVOption
-      `Prelude.seq` Prelude.rnf sheetControlsOption
-      `Prelude.seq` Prelude.rnf visualPublishOptions
+    Prelude.rnf adHocFilteringOption `Prelude.seq`
+      Prelude.rnf exportToCSVOption `Prelude.seq`
+        Prelude.rnf sheetControlsOption `Prelude.seq`
+          Prelude.rnf visualPublishOptions
 
 instance Data.ToJSON DashboardPublishOptions where
   toJSON DashboardPublishOptions' {..} =

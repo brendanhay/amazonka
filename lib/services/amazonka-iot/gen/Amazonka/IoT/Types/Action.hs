@@ -373,29 +373,29 @@ instance Prelude.Hashable Action where
 
 instance Prelude.NFData Action where
   rnf Action' {..} =
-    Prelude.rnf cloudwatchAlarm
-      `Prelude.seq` Prelude.rnf cloudwatchLogs
-      `Prelude.seq` Prelude.rnf cloudwatchMetric
-      `Prelude.seq` Prelude.rnf dynamoDB
-      `Prelude.seq` Prelude.rnf dynamoDBv2
-      `Prelude.seq` Prelude.rnf elasticsearch
-      `Prelude.seq` Prelude.rnf firehose
-      `Prelude.seq` Prelude.rnf http
-      `Prelude.seq` Prelude.rnf iotAnalytics
-      `Prelude.seq` Prelude.rnf iotEvents
-      `Prelude.seq` Prelude.rnf iotSiteWise
-      `Prelude.seq` Prelude.rnf kafka
-      `Prelude.seq` Prelude.rnf kinesis
-      `Prelude.seq` Prelude.rnf lambda
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf openSearch
-      `Prelude.seq` Prelude.rnf republish
-      `Prelude.seq` Prelude.rnf s3
-      `Prelude.seq` Prelude.rnf salesforce
-      `Prelude.seq` Prelude.rnf sns
-      `Prelude.seq` Prelude.rnf sqs
-      `Prelude.seq` Prelude.rnf stepFunctions
-      `Prelude.seq` Prelude.rnf timestream
+    Prelude.rnf cloudwatchAlarm `Prelude.seq`
+      Prelude.rnf cloudwatchLogs `Prelude.seq`
+        Prelude.rnf cloudwatchMetric `Prelude.seq`
+          Prelude.rnf dynamoDB `Prelude.seq`
+            Prelude.rnf dynamoDBv2 `Prelude.seq`
+              Prelude.rnf elasticsearch `Prelude.seq`
+                Prelude.rnf firehose `Prelude.seq`
+                  Prelude.rnf http `Prelude.seq`
+                    Prelude.rnf iotAnalytics `Prelude.seq`
+                      Prelude.rnf iotEvents `Prelude.seq`
+                        Prelude.rnf iotSiteWise `Prelude.seq`
+                          Prelude.rnf kafka `Prelude.seq`
+                            Prelude.rnf kinesis `Prelude.seq`
+                              Prelude.rnf lambda `Prelude.seq`
+                                Prelude.rnf location `Prelude.seq`
+                                  Prelude.rnf openSearch `Prelude.seq`
+                                    Prelude.rnf republish `Prelude.seq`
+                                      Prelude.rnf s3 `Prelude.seq`
+                                        Prelude.rnf salesforce `Prelude.seq`
+                                          Prelude.rnf sns `Prelude.seq`
+                                            Prelude.rnf sqs `Prelude.seq`
+                                              Prelude.rnf stepFunctions `Prelude.seq`
+                                                Prelude.rnf timestream
 
 instance Data.ToJSON Action where
   toJSON Action' {..} =

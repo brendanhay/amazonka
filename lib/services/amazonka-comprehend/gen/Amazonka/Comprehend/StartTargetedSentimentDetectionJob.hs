@@ -255,15 +255,15 @@ instance
     StartTargetedSentimentDetectionJob
   where
   rnf StartTargetedSentimentDetectionJob' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf volumeKmsKeyId
-      `Prelude.seq` Prelude.rnf vpcConfig
-      `Prelude.seq` Prelude.rnf inputDataConfig
-      `Prelude.seq` Prelude.rnf outputDataConfig
-      `Prelude.seq` Prelude.rnf dataAccessRoleArn
-      `Prelude.seq` Prelude.rnf languageCode
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf jobName `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf volumeKmsKeyId `Prelude.seq`
+            Prelude.rnf vpcConfig `Prelude.seq`
+              Prelude.rnf inputDataConfig `Prelude.seq`
+                Prelude.rnf outputDataConfig `Prelude.seq`
+                  Prelude.rnf dataAccessRoleArn `Prelude.seq`
+                    Prelude.rnf languageCode
 
 instance
   Data.ToHeaders
@@ -442,7 +442,7 @@ instance
     StartTargetedSentimentDetectionJobResponse
   where
   rnf StartTargetedSentimentDetectionJobResponse' {..} =
-    Prelude.rnf jobArn
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf jobStatus
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf jobArn `Prelude.seq`
+      Prelude.rnf jobId `Prelude.seq`
+        Prelude.rnf jobStatus `Prelude.seq`
+          Prelude.rnf httpStatus

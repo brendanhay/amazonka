@@ -124,9 +124,9 @@ instance Prelude.Hashable ServiceError where
 
 instance Prelude.NFData ServiceError where
   rnf ServiceError' {..} =
-    Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf serviceErrorId
-      `Prelude.seq` Prelude.rnf stackId
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf createdAt `Prelude.seq`
+      Prelude.rnf instanceId `Prelude.seq`
+        Prelude.rnf message `Prelude.seq`
+          Prelude.rnf serviceErrorId `Prelude.seq`
+            Prelude.rnf stackId `Prelude.seq`
+              Prelude.rnf type'

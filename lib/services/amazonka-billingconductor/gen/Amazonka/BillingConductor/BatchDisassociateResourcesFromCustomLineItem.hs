@@ -145,9 +145,9 @@ instance
     BatchDisassociateResourcesFromCustomLineItem
   where
   rnf BatchDisassociateResourcesFromCustomLineItem' {..} =
-    Prelude.rnf billingPeriodRange
-      `Prelude.seq` Prelude.rnf targetArn
-      `Prelude.seq` Prelude.rnf resourceArns
+    Prelude.rnf billingPeriodRange `Prelude.seq`
+      Prelude.rnf targetArn `Prelude.seq`
+        Prelude.rnf resourceArns
 
 instance
   Data.ToHeaders
@@ -258,6 +258,6 @@ instance
   where
   rnf
     BatchDisassociateResourcesFromCustomLineItemResponse' {..} =
-      Prelude.rnf failedDisassociatedResources
-        `Prelude.seq` Prelude.rnf successfullyDisassociatedResources
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf failedDisassociatedResources `Prelude.seq`
+        Prelude.rnf successfullyDisassociatedResources `Prelude.seq`
+          Prelude.rnf httpStatus

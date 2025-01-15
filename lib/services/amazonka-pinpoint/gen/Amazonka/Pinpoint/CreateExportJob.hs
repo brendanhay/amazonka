@@ -112,8 +112,8 @@ instance Prelude.Hashable CreateExportJob where
 
 instance Prelude.NFData CreateExportJob where
   rnf CreateExportJob' {..} =
-    Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf exportJobRequest
+    Prelude.rnf applicationId `Prelude.seq`
+      Prelude.rnf exportJobRequest
 
 instance Data.ToHeaders CreateExportJob where
   toHeaders =
@@ -184,5 +184,5 @@ createExportJobResponse_exportJobResponse = Lens.lens (\CreateExportJobResponse'
 
 instance Prelude.NFData CreateExportJobResponse where
   rnf CreateExportJobResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf exportJobResponse
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf exportJobResponse

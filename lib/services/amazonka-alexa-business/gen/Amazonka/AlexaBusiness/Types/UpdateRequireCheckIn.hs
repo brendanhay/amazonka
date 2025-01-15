@@ -76,8 +76,8 @@ instance Prelude.Hashable UpdateRequireCheckIn where
 
 instance Prelude.NFData UpdateRequireCheckIn where
   rnf UpdateRequireCheckIn' {..} =
-    Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf releaseAfterMinutes
+    Prelude.rnf enabled `Prelude.seq`
+      Prelude.rnf releaseAfterMinutes
 
 instance Data.ToJSON UpdateRequireCheckIn where
   toJSON UpdateRequireCheckIn' {..} =

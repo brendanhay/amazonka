@@ -95,9 +95,9 @@ instance Prelude.Hashable S3RecordingConfig where
 
 instance Prelude.NFData S3RecordingConfig where
   rnf S3RecordingConfig' {..} =
-    Prelude.rnf prefix
-      `Prelude.seq` Prelude.rnf bucketArn
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf prefix `Prelude.seq`
+      Prelude.rnf bucketArn `Prelude.seq`
+        Prelude.rnf roleArn
 
 instance Data.ToJSON S3RecordingConfig where
   toJSON S3RecordingConfig' {..} =

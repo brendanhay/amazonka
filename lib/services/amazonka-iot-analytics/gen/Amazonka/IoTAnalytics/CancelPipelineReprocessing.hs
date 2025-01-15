@@ -114,8 +114,8 @@ instance Prelude.Hashable CancelPipelineReprocessing where
 
 instance Prelude.NFData CancelPipelineReprocessing where
   rnf CancelPipelineReprocessing' {..} =
-    Prelude.rnf pipelineName
-      `Prelude.seq` Prelude.rnf reprocessingId
+    Prelude.rnf pipelineName `Prelude.seq`
+      Prelude.rnf reprocessingId
 
 instance Data.ToHeaders CancelPipelineReprocessing where
   toHeaders = Prelude.const Prelude.mempty

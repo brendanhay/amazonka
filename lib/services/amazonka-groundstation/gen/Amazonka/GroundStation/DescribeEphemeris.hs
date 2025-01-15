@@ -278,14 +278,14 @@ describeEphemerisResponse_httpStatus = Lens.lens (\DescribeEphemerisResponse' {h
 
 instance Prelude.NFData DescribeEphemerisResponse where
   rnf DescribeEphemerisResponse' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf ephemerisId
-      `Prelude.seq` Prelude.rnf invalidReason
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf priority
-      `Prelude.seq` Prelude.rnf satelliteId
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf suppliedData
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf enabled `Prelude.seq`
+        Prelude.rnf ephemerisId `Prelude.seq`
+          Prelude.rnf invalidReason `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf priority `Prelude.seq`
+                Prelude.rnf satelliteId `Prelude.seq`
+                  Prelude.rnf status `Prelude.seq`
+                    Prelude.rnf suppliedData `Prelude.seq`
+                      Prelude.rnf tags `Prelude.seq`
+                        Prelude.rnf httpStatus

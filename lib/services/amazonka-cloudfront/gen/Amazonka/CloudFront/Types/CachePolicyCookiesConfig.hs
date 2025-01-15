@@ -145,8 +145,8 @@ instance Prelude.Hashable CachePolicyCookiesConfig where
 
 instance Prelude.NFData CachePolicyCookiesConfig where
   rnf CachePolicyCookiesConfig' {..} =
-    Prelude.rnf cookies
-      `Prelude.seq` Prelude.rnf cookieBehavior
+    Prelude.rnf cookies `Prelude.seq`
+      Prelude.rnf cookieBehavior
 
 instance Data.ToXML CachePolicyCookiesConfig where
   toXML CachePolicyCookiesConfig' {..} =

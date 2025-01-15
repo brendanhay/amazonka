@@ -126,9 +126,9 @@ instance Prelude.Hashable RuntimeConfiguration where
 
 instance Prelude.NFData RuntimeConfiguration where
   rnf RuntimeConfiguration' {..} =
-    Prelude.rnf gameSessionActivationTimeoutSeconds
-      `Prelude.seq` Prelude.rnf maxConcurrentGameSessionActivations
-      `Prelude.seq` Prelude.rnf serverProcesses
+    Prelude.rnf gameSessionActivationTimeoutSeconds `Prelude.seq`
+      Prelude.rnf maxConcurrentGameSessionActivations `Prelude.seq`
+        Prelude.rnf serverProcesses
 
 instance Data.ToJSON RuntimeConfiguration where
   toJSON RuntimeConfiguration' {..} =

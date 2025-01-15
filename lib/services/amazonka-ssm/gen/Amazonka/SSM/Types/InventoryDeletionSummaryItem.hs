@@ -96,6 +96,6 @@ instance
 
 instance Prelude.NFData InventoryDeletionSummaryItem where
   rnf InventoryDeletionSummaryItem' {..} =
-    Prelude.rnf count
-      `Prelude.seq` Prelude.rnf remainingCount
-      `Prelude.seq` Prelude.rnf version
+    Prelude.rnf count `Prelude.seq`
+      Prelude.rnf remainingCount `Prelude.seq`
+        Prelude.rnf version

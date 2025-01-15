@@ -98,9 +98,9 @@ instance Prelude.Hashable DataSourceCredentials where
 
 instance Prelude.NFData DataSourceCredentials where
   rnf DataSourceCredentials' {..} =
-    Prelude.rnf copySourceArn
-      `Prelude.seq` Prelude.rnf credentialPair
-      `Prelude.seq` Prelude.rnf secretArn
+    Prelude.rnf copySourceArn `Prelude.seq`
+      Prelude.rnf credentialPair `Prelude.seq`
+        Prelude.rnf secretArn
 
 instance Data.ToJSON DataSourceCredentials where
   toJSON DataSourceCredentials' {..} =

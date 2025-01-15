@@ -82,5 +82,5 @@ instance Prelude.Hashable TrialSource where
 
 instance Prelude.NFData TrialSource where
   rnf TrialSource' {..} =
-    Prelude.rnf sourceType
-      `Prelude.seq` Prelude.rnf sourceArn
+    Prelude.rnf sourceType `Prelude.seq`
+      Prelude.rnf sourceArn

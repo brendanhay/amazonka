@@ -115,9 +115,7 @@ volumeStatusItem_volumeStatus = Lens.lens (\VolumeStatusItem' {volumeStatus} -> 
 instance Data.FromXML VolumeStatusItem where
   parseXML x =
     VolumeStatusItem'
-      Prelude.<$> ( x
-                      Data..@? "actionsSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "actionsSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> ( x
@@ -126,9 +124,7 @@ instance Data.FromXML VolumeStatusItem where
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "availabilityZone")
-      Prelude.<*> ( x
-                      Data..@? "eventsSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "eventsSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "outpostArn")
@@ -148,10 +144,10 @@ instance Prelude.Hashable VolumeStatusItem where
 
 instance Prelude.NFData VolumeStatusItem where
   rnf VolumeStatusItem' {..} =
-    Prelude.rnf actions
-      `Prelude.seq` Prelude.rnf attachmentStatuses
-      `Prelude.seq` Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf events
-      `Prelude.seq` Prelude.rnf outpostArn
-      `Prelude.seq` Prelude.rnf volumeId
-      `Prelude.seq` Prelude.rnf volumeStatus
+    Prelude.rnf actions `Prelude.seq`
+      Prelude.rnf attachmentStatuses `Prelude.seq`
+        Prelude.rnf availabilityZone `Prelude.seq`
+          Prelude.rnf events `Prelude.seq`
+            Prelude.rnf outpostArn `Prelude.seq`
+              Prelude.rnf volumeId `Prelude.seq`
+                Prelude.rnf volumeStatus

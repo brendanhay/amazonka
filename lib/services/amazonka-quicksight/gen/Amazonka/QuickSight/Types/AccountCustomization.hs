@@ -83,8 +83,8 @@ instance Prelude.Hashable AccountCustomization where
 
 instance Prelude.NFData AccountCustomization where
   rnf AccountCustomization' {..} =
-    Prelude.rnf defaultEmailCustomizationTemplate
-      `Prelude.seq` Prelude.rnf defaultTheme
+    Prelude.rnf defaultEmailCustomizationTemplate `Prelude.seq`
+      Prelude.rnf defaultTheme
 
 instance Data.ToJSON AccountCustomization where
   toJSON AccountCustomization' {..} =

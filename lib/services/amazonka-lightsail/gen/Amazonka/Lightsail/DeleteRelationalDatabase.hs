@@ -179,9 +179,9 @@ instance Prelude.Hashable DeleteRelationalDatabase where
 
 instance Prelude.NFData DeleteRelationalDatabase where
   rnf DeleteRelationalDatabase' {..} =
-    Prelude.rnf finalRelationalDatabaseSnapshotName
-      `Prelude.seq` Prelude.rnf skipFinalSnapshot
-      `Prelude.seq` Prelude.rnf relationalDatabaseName
+    Prelude.rnf finalRelationalDatabaseSnapshotName `Prelude.seq`
+      Prelude.rnf skipFinalSnapshot `Prelude.seq`
+        Prelude.rnf relationalDatabaseName
 
 instance Data.ToHeaders DeleteRelationalDatabase where
   toHeaders =
@@ -269,5 +269,5 @@ instance
     DeleteRelationalDatabaseResponse
   where
   rnf DeleteRelationalDatabaseResponse' {..} =
-    Prelude.rnf operations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operations `Prelude.seq`
+      Prelude.rnf httpStatus

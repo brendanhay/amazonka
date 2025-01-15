@@ -155,10 +155,10 @@ instance
     ListChannelMembershipsForAppInstanceUser
   where
   rnf ListChannelMembershipsForAppInstanceUser' {..} =
-    Prelude.rnf appInstanceUserArn
-      `Prelude.seq` Prelude.rnf chimeBearer
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf appInstanceUserArn `Prelude.seq`
+      Prelude.rnf chimeBearer `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken
 
 instance
   Data.ToHeaders
@@ -249,6 +249,6 @@ instance
   where
   rnf
     ListChannelMembershipsForAppInstanceUserResponse' {..} =
-      Prelude.rnf channelMemberships
-        `Prelude.seq` Prelude.rnf nextToken
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf channelMemberships `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf httpStatus

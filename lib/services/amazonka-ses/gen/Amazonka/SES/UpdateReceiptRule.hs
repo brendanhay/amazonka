@@ -118,8 +118,8 @@ instance Prelude.Hashable UpdateReceiptRule where
 
 instance Prelude.NFData UpdateReceiptRule where
   rnf UpdateReceiptRule' {..} =
-    Prelude.rnf ruleSetName
-      `Prelude.seq` Prelude.rnf rule
+    Prelude.rnf ruleSetName `Prelude.seq`
+      Prelude.rnf rule
 
 instance Data.ToHeaders UpdateReceiptRule where
   toHeaders = Prelude.const Prelude.mempty

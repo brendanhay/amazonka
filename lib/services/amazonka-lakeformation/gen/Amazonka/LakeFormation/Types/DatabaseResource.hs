@@ -85,8 +85,8 @@ instance Prelude.Hashable DatabaseResource where
 
 instance Prelude.NFData DatabaseResource where
   rnf DatabaseResource' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf catalogId `Prelude.seq`
+      Prelude.rnf name
 
 instance Data.ToJSON DatabaseResource where
   toJSON DatabaseResource' {..} =

@@ -68,9 +68,7 @@ originGroups_quantity = Lens.lens (\OriginGroups' {quantity} -> quantity) (\s@Or
 instance Data.FromXML OriginGroups where
   parseXML x =
     OriginGroups'
-      Prelude.<$> ( x
-                      Data..@? "Items"
-                      Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "Items" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "OriginGroup")
                   )
       Prelude.<*> (x Data..@ "Quantity")
@@ -83,8 +81,8 @@ instance Prelude.Hashable OriginGroups where
 
 instance Prelude.NFData OriginGroups where
   rnf OriginGroups' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf quantity
+    Prelude.rnf items `Prelude.seq`
+      Prelude.rnf quantity
 
 instance Data.ToXML OriginGroups where
   toXML OriginGroups' {..} =

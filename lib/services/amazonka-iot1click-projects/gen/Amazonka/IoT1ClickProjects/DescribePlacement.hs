@@ -110,8 +110,8 @@ instance Prelude.Hashable DescribePlacement where
 
 instance Prelude.NFData DescribePlacement where
   rnf DescribePlacement' {..} =
-    Prelude.rnf placementName
-      `Prelude.seq` Prelude.rnf projectName
+    Prelude.rnf placementName `Prelude.seq`
+      Prelude.rnf projectName
 
 instance Data.ToHeaders DescribePlacement where
   toHeaders =
@@ -179,5 +179,5 @@ describePlacementResponse_placement = Lens.lens (\DescribePlacementResponse' {pl
 
 instance Prelude.NFData DescribePlacementResponse where
   rnf DescribePlacementResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf placement
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf placement

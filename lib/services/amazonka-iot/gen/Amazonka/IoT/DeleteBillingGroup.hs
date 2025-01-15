@@ -120,8 +120,8 @@ instance Prelude.Hashable DeleteBillingGroup where
 
 instance Prelude.NFData DeleteBillingGroup where
   rnf DeleteBillingGroup' {..} =
-    Prelude.rnf expectedVersion
-      `Prelude.seq` Prelude.rnf billingGroupName
+    Prelude.rnf expectedVersion `Prelude.seq`
+      Prelude.rnf billingGroupName
 
 instance Data.ToHeaders DeleteBillingGroup where
   toHeaders = Prelude.const Prelude.mempty

@@ -82,5 +82,5 @@ instance Prelude.Hashable AutoScalingPolicyStatus where
 
 instance Prelude.NFData AutoScalingPolicyStatus where
   rnf AutoScalingPolicyStatus' {..} =
-    Prelude.rnf state
-      `Prelude.seq` Prelude.rnf stateChangeReason
+    Prelude.rnf state `Prelude.seq`
+      Prelude.rnf stateChangeReason

@@ -138,12 +138,12 @@ instance Core.AWSPager ListUsageLimits where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listUsageLimits_nextToken
-          Lens..~ rs
-          Lens.^? listUsageLimitsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listUsageLimits_nextToken
+              Lens..~ rs
+              Lens.^? listUsageLimitsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListUsageLimits where
   type
@@ -170,10 +170,10 @@ instance Prelude.Hashable ListUsageLimits where
 
 instance Prelude.NFData ListUsageLimits where
   rnf ListUsageLimits' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf usageType
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf resourceArn `Prelude.seq`
+          Prelude.rnf usageType
 
 instance Data.ToHeaders ListUsageLimits where
   toHeaders =
@@ -263,6 +263,6 @@ listUsageLimitsResponse_httpStatus = Lens.lens (\ListUsageLimitsResponse' {httpS
 
 instance Prelude.NFData ListUsageLimitsResponse where
   rnf ListUsageLimitsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf usageLimits
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf usageLimits `Prelude.seq`
+        Prelude.rnf httpStatus

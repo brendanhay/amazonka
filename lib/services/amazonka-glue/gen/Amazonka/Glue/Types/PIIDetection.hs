@@ -186,14 +186,14 @@ instance Prelude.Hashable PIIDetection where
 
 instance Prelude.NFData PIIDetection where
   rnf PIIDetection' {..} =
-    Prelude.rnf maskValue
-      `Prelude.seq` Prelude.rnf outputColumnName
-      `Prelude.seq` Prelude.rnf sampleFraction
-      `Prelude.seq` Prelude.rnf thresholdFraction
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf inputs
-      `Prelude.seq` Prelude.rnf piiType
-      `Prelude.seq` Prelude.rnf entityTypesToDetect
+    Prelude.rnf maskValue `Prelude.seq`
+      Prelude.rnf outputColumnName `Prelude.seq`
+        Prelude.rnf sampleFraction `Prelude.seq`
+          Prelude.rnf thresholdFraction `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf inputs `Prelude.seq`
+                Prelude.rnf piiType `Prelude.seq`
+                  Prelude.rnf entityTypesToDetect
 
 instance Data.ToJSON PIIDetection where
   toJSON PIIDetection' {..} =

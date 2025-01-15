@@ -112,8 +112,8 @@ instance Prelude.Hashable AddFlowSources where
 
 instance Prelude.NFData AddFlowSources where
   rnf AddFlowSources' {..} =
-    Prelude.rnf flowArn
-      `Prelude.seq` Prelude.rnf sources
+    Prelude.rnf flowArn `Prelude.seq`
+      Prelude.rnf sources
 
 instance Data.ToHeaders AddFlowSources where
   toHeaders =
@@ -190,6 +190,6 @@ addFlowSourcesResponse_httpStatus = Lens.lens (\AddFlowSourcesResponse' {httpSta
 
 instance Prelude.NFData AddFlowSourcesResponse where
   rnf AddFlowSourcesResponse' {..} =
-    Prelude.rnf flowArn
-      `Prelude.seq` Prelude.rnf sources
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf flowArn `Prelude.seq`
+      Prelude.rnf sources `Prelude.seq`
+        Prelude.rnf httpStatus

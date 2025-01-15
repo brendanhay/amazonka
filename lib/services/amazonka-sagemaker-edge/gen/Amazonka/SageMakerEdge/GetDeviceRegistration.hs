@@ -117,8 +117,8 @@ instance Prelude.Hashable GetDeviceRegistration where
 
 instance Prelude.NFData GetDeviceRegistration where
   rnf GetDeviceRegistration' {..} =
-    Prelude.rnf deviceName
-      `Prelude.seq` Prelude.rnf deviceFleetName
+    Prelude.rnf deviceName `Prelude.seq`
+      Prelude.rnf deviceFleetName
 
 instance Data.ToHeaders GetDeviceRegistration where
   toHeaders =
@@ -203,6 +203,6 @@ getDeviceRegistrationResponse_httpStatus = Lens.lens (\GetDeviceRegistrationResp
 
 instance Prelude.NFData GetDeviceRegistrationResponse where
   rnf GetDeviceRegistrationResponse' {..} =
-    Prelude.rnf cacheTTL
-      `Prelude.seq` Prelude.rnf deviceRegistration
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf cacheTTL `Prelude.seq`
+      Prelude.rnf deviceRegistration `Prelude.seq`
+        Prelude.rnf httpStatus

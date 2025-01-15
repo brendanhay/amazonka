@@ -309,17 +309,17 @@ instance Prelude.Hashable CreateImageVersion where
 
 instance Prelude.NFData CreateImageVersion where
   rnf CreateImageVersion' {..} =
-    Prelude.rnf aliases
-      `Prelude.seq` Prelude.rnf horovod
-      `Prelude.seq` Prelude.rnf jobType
-      `Prelude.seq` Prelude.rnf mLFramework
-      `Prelude.seq` Prelude.rnf processor
-      `Prelude.seq` Prelude.rnf programmingLang
-      `Prelude.seq` Prelude.rnf releaseNotes
-      `Prelude.seq` Prelude.rnf vendorGuidance
-      `Prelude.seq` Prelude.rnf baseImage
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf imageName
+    Prelude.rnf aliases `Prelude.seq`
+      Prelude.rnf horovod `Prelude.seq`
+        Prelude.rnf jobType `Prelude.seq`
+          Prelude.rnf mLFramework `Prelude.seq`
+            Prelude.rnf processor `Prelude.seq`
+              Prelude.rnf programmingLang `Prelude.seq`
+                Prelude.rnf releaseNotes `Prelude.seq`
+                  Prelude.rnf vendorGuidance `Prelude.seq`
+                    Prelude.rnf baseImage `Prelude.seq`
+                      Prelude.rnf clientToken `Prelude.seq`
+                        Prelude.rnf imageName
 
 instance Data.ToHeaders CreateImageVersion where
   toHeaders =
@@ -403,5 +403,5 @@ createImageVersionResponse_httpStatus = Lens.lens (\CreateImageVersionResponse' 
 
 instance Prelude.NFData CreateImageVersionResponse where
   rnf CreateImageVersionResponse' {..} =
-    Prelude.rnf imageVersionArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf imageVersionArn `Prelude.seq`
+      Prelude.rnf httpStatus

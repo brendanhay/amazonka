@@ -91,9 +91,9 @@ instance Prelude.Hashable ADMChannelRequest where
 
 instance Prelude.NFData ADMChannelRequest where
   rnf ADMChannelRequest' {..} =
-    Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf clientSecret
-      `Prelude.seq` Prelude.rnf clientId
+    Prelude.rnf enabled `Prelude.seq`
+      Prelude.rnf clientSecret `Prelude.seq`
+        Prelude.rnf clientId
 
 instance Data.ToJSON ADMChannelRequest where
   toJSON ADMChannelRequest' {..} =

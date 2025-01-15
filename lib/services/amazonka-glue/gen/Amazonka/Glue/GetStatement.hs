@@ -119,9 +119,9 @@ instance Prelude.Hashable GetStatement where
 
 instance Prelude.NFData GetStatement where
   rnf GetStatement' {..} =
-    Prelude.rnf requestOrigin
-      `Prelude.seq` Prelude.rnf sessionId
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf requestOrigin `Prelude.seq`
+      Prelude.rnf sessionId `Prelude.seq`
+        Prelude.rnf id
 
 instance Data.ToHeaders GetStatement where
   toHeaders =
@@ -192,5 +192,5 @@ getStatementResponse_httpStatus = Lens.lens (\GetStatementResponse' {httpStatus}
 
 instance Prelude.NFData GetStatementResponse where
   rnf GetStatementResponse' {..} =
-    Prelude.rnf statement
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf statement `Prelude.seq`
+      Prelude.rnf httpStatus

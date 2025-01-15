@@ -195,14 +195,14 @@ instance
     CustomLineItemVersionListElement
   where
   rnf CustomLineItemVersionListElement' {..} =
-    Prelude.rnf associationSize
-      `Prelude.seq` Prelude.rnf billingGroupArn
-      `Prelude.seq` Prelude.rnf chargeDetails
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf currencyCode
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf endBillingPeriod
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf productCode
-      `Prelude.seq` Prelude.rnf startBillingPeriod
+    Prelude.rnf associationSize `Prelude.seq`
+      Prelude.rnf billingGroupArn `Prelude.seq`
+        Prelude.rnf chargeDetails `Prelude.seq`
+          Prelude.rnf creationTime `Prelude.seq`
+            Prelude.rnf currencyCode `Prelude.seq`
+              Prelude.rnf description `Prelude.seq`
+                Prelude.rnf endBillingPeriod `Prelude.seq`
+                  Prelude.rnf lastModifiedTime `Prelude.seq`
+                    Prelude.rnf name `Prelude.seq`
+                      Prelude.rnf productCode `Prelude.seq`
+                        Prelude.rnf startBillingPeriod

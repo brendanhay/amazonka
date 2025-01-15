@@ -211,10 +211,10 @@ instance
     BatchCreateRumMetricDefinitions
   where
   rnf BatchCreateRumMetricDefinitions' {..} =
-    Prelude.rnf destinationArn
-      `Prelude.seq` Prelude.rnf appMonitorName
-      `Prelude.seq` Prelude.rnf destination
-      `Prelude.seq` Prelude.rnf metricDefinitions
+    Prelude.rnf destinationArn `Prelude.seq`
+      Prelude.rnf appMonitorName `Prelude.seq`
+        Prelude.rnf destination `Prelude.seq`
+          Prelude.rnf metricDefinitions
 
 instance
   Data.ToHeaders
@@ -307,6 +307,6 @@ instance
     BatchCreateRumMetricDefinitionsResponse
   where
   rnf BatchCreateRumMetricDefinitionsResponse' {..} =
-    Prelude.rnf metricDefinitions
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf errors
+    Prelude.rnf metricDefinitions `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf errors

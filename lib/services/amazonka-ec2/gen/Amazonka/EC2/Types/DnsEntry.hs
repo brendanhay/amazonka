@@ -77,5 +77,5 @@ instance Prelude.Hashable DnsEntry where
 
 instance Prelude.NFData DnsEntry where
   rnf DnsEntry' {..} =
-    Prelude.rnf dnsName
-      `Prelude.seq` Prelude.rnf hostedZoneId
+    Prelude.rnf dnsName `Prelude.seq`
+      Prelude.rnf hostedZoneId

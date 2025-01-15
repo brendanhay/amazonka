@@ -144,9 +144,9 @@ instance
 
 instance Prelude.NFData GetResourceEventConfiguration where
   rnf GetResourceEventConfiguration' {..} =
-    Prelude.rnf partnerType
-      `Prelude.seq` Prelude.rnf identifier
-      `Prelude.seq` Prelude.rnf identifierType
+    Prelude.rnf partnerType `Prelude.seq`
+      Prelude.rnf identifier `Prelude.seq`
+        Prelude.rnf identifierType
 
 instance Data.ToHeaders GetResourceEventConfiguration where
   toHeaders = Prelude.const Prelude.mempty
@@ -245,9 +245,9 @@ instance
     GetResourceEventConfigurationResponse
   where
   rnf GetResourceEventConfigurationResponse' {..} =
-    Prelude.rnf connectionStatus
-      `Prelude.seq` Prelude.rnf deviceRegistrationState
-      `Prelude.seq` Prelude.rnf join
-      `Prelude.seq` Prelude.rnf messageDeliveryStatus
-      `Prelude.seq` Prelude.rnf proximity
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf connectionStatus `Prelude.seq`
+      Prelude.rnf deviceRegistrationState `Prelude.seq`
+        Prelude.rnf join `Prelude.seq`
+          Prelude.rnf messageDeliveryStatus `Prelude.seq`
+            Prelude.rnf proximity `Prelude.seq`
+              Prelude.rnf httpStatus

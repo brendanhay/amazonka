@@ -89,8 +89,8 @@ instance Prelude.Hashable VpcOptions where
 
 instance Prelude.NFData VpcOptions where
   rnf VpcOptions' {..} =
-    Prelude.rnf applianceModeSupport
-      `Prelude.seq` Prelude.rnf ipv6Support
+    Prelude.rnf applianceModeSupport `Prelude.seq`
+      Prelude.rnf ipv6Support
 
 instance Data.ToJSON VpcOptions where
   toJSON VpcOptions' {..} =

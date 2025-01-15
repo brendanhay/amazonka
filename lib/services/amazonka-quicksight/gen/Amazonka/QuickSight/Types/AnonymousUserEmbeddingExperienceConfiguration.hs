@@ -101,9 +101,9 @@ instance
   where
   rnf
     AnonymousUserEmbeddingExperienceConfiguration' {..} =
-      Prelude.rnf dashboard
-        `Prelude.seq` Prelude.rnf dashboardVisual
-        `Prelude.seq` Prelude.rnf qSearchBar
+      Prelude.rnf dashboard `Prelude.seq`
+        Prelude.rnf dashboardVisual `Prelude.seq`
+          Prelude.rnf qSearchBar
 
 instance
   Data.ToJSON

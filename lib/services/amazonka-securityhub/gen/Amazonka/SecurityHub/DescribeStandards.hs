@@ -123,12 +123,12 @@ instance Core.AWSPager DescribeStandards where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeStandards_nextToken
-          Lens..~ rs
-          Lens.^? describeStandardsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeStandards_nextToken
+              Lens..~ rs
+              Lens.^? describeStandardsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeStandards where
   type
@@ -153,8 +153,8 @@ instance Prelude.Hashable DescribeStandards where
 
 instance Prelude.NFData DescribeStandards where
   rnf DescribeStandards' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeStandards where
   toHeaders =
@@ -227,6 +227,6 @@ describeStandardsResponse_httpStatus = Lens.lens (\DescribeStandardsResponse' {h
 
 instance Prelude.NFData DescribeStandardsResponse where
   rnf DescribeStandardsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf standards
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf standards `Prelude.seq`
+        Prelude.rnf httpStatus

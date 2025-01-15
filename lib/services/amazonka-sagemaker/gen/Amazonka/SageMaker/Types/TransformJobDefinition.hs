@@ -180,13 +180,13 @@ instance Prelude.Hashable TransformJobDefinition where
 
 instance Prelude.NFData TransformJobDefinition where
   rnf TransformJobDefinition' {..} =
-    Prelude.rnf batchStrategy
-      `Prelude.seq` Prelude.rnf environment
-      `Prelude.seq` Prelude.rnf maxConcurrentTransforms
-      `Prelude.seq` Prelude.rnf maxPayloadInMB
-      `Prelude.seq` Prelude.rnf transformInput
-      `Prelude.seq` Prelude.rnf transformOutput
-      `Prelude.seq` Prelude.rnf transformResources
+    Prelude.rnf batchStrategy `Prelude.seq`
+      Prelude.rnf environment `Prelude.seq`
+        Prelude.rnf maxConcurrentTransforms `Prelude.seq`
+          Prelude.rnf maxPayloadInMB `Prelude.seq`
+            Prelude.rnf transformInput `Prelude.seq`
+              Prelude.rnf transformOutput `Prelude.seq`
+                Prelude.rnf transformResources
 
 instance Data.ToJSON TransformJobDefinition where
   toJSON TransformJobDefinition' {..} =

@@ -158,8 +158,8 @@ instance
 
 instance Prelude.NFData RespondActivityTaskCompleted where
   rnf RespondActivityTaskCompleted' {..} =
-    Prelude.rnf result
-      `Prelude.seq` Prelude.rnf taskToken
+    Prelude.rnf result `Prelude.seq`
+      Prelude.rnf taskToken
 
 instance Data.ToHeaders RespondActivityTaskCompleted where
   toHeaders =

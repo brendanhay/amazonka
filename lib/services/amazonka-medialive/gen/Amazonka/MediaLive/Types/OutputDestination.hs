@@ -117,10 +117,10 @@ instance Prelude.Hashable OutputDestination where
 
 instance Prelude.NFData OutputDestination where
   rnf OutputDestination' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf mediaPackageSettings
-      `Prelude.seq` Prelude.rnf multiplexSettings
-      `Prelude.seq` Prelude.rnf settings
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf mediaPackageSettings `Prelude.seq`
+        Prelude.rnf multiplexSettings `Prelude.seq`
+          Prelude.rnf settings
 
 instance Data.ToJSON OutputDestination where
   toJSON OutputDestination' {..} =

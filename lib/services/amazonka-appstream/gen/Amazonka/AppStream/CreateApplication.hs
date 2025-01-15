@@ -238,17 +238,17 @@ instance Prelude.Hashable CreateApplication where
 
 instance Prelude.NFData CreateApplication where
   rnf CreateApplication' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf launchParameters
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf workingDirectory
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf iconS3Location
-      `Prelude.seq` Prelude.rnf launchPath
-      `Prelude.seq` Prelude.rnf platforms
-      `Prelude.seq` Prelude.rnf instanceFamilies
-      `Prelude.seq` Prelude.rnf appBlockArn
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf displayName `Prelude.seq`
+        Prelude.rnf launchParameters `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf workingDirectory `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf iconS3Location `Prelude.seq`
+                  Prelude.rnf launchPath `Prelude.seq`
+                    Prelude.rnf platforms `Prelude.seq`
+                      Prelude.rnf instanceFamilies `Prelude.seq`
+                        Prelude.rnf appBlockArn
 
 instance Data.ToHeaders CreateApplication where
   toHeaders =
@@ -333,5 +333,5 @@ createApplicationResponse_httpStatus = Lens.lens (\CreateApplicationResponse' {h
 
 instance Prelude.NFData CreateApplicationResponse where
   rnf CreateApplicationResponse' {..} =
-    Prelude.rnf application
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf application `Prelude.seq`
+      Prelude.rnf httpStatus

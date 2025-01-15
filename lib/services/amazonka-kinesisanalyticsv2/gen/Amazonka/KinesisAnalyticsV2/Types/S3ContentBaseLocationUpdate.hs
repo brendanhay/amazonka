@@ -72,8 +72,8 @@ instance Prelude.Hashable S3ContentBaseLocationUpdate where
 
 instance Prelude.NFData S3ContentBaseLocationUpdate where
   rnf S3ContentBaseLocationUpdate' {..} =
-    Prelude.rnf basePathUpdate
-      `Prelude.seq` Prelude.rnf bucketARNUpdate
+    Prelude.rnf basePathUpdate `Prelude.seq`
+      Prelude.rnf bucketARNUpdate
 
 instance Data.ToJSON S3ContentBaseLocationUpdate where
   toJSON S3ContentBaseLocationUpdate' {..} =

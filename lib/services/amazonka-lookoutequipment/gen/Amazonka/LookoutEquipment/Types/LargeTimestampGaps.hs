@@ -99,6 +99,6 @@ instance Prelude.Hashable LargeTimestampGaps where
 
 instance Prelude.NFData LargeTimestampGaps where
   rnf LargeTimestampGaps' {..} =
-    Prelude.rnf maxTimestampGapInDays
-      `Prelude.seq` Prelude.rnf numberOfLargeTimestampGaps
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf maxTimestampGapInDays `Prelude.seq`
+      Prelude.rnf numberOfLargeTimestampGaps `Prelude.seq`
+        Prelude.rnf status

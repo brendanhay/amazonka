@@ -153,9 +153,9 @@ instance
     PutConfigurationSetDeliveryOptions
   where
   rnf PutConfigurationSetDeliveryOptions' {..} =
-    Prelude.rnf sendingPoolName
-      `Prelude.seq` Prelude.rnf tlsPolicy
-      `Prelude.seq` Prelude.rnf configurationSetName
+    Prelude.rnf sendingPoolName `Prelude.seq`
+      Prelude.rnf tlsPolicy `Prelude.seq`
+        Prelude.rnf configurationSetName
 
 instance
   Data.ToHeaders

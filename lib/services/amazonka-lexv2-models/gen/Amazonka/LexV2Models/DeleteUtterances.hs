@@ -153,9 +153,9 @@ instance Prelude.Hashable DeleteUtterances where
 
 instance Prelude.NFData DeleteUtterances where
   rnf DeleteUtterances' {..} =
-    Prelude.rnf localeId
-      `Prelude.seq` Prelude.rnf sessionId
-      `Prelude.seq` Prelude.rnf botId
+    Prelude.rnf localeId `Prelude.seq`
+      Prelude.rnf sessionId `Prelude.seq`
+        Prelude.rnf botId
 
 instance Data.ToHeaders DeleteUtterances where
   toHeaders =

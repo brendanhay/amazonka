@@ -102,8 +102,8 @@ instance Prelude.Hashable DeleteLogStream where
 
 instance Prelude.NFData DeleteLogStream where
   rnf DeleteLogStream' {..} =
-    Prelude.rnf logGroupName
-      `Prelude.seq` Prelude.rnf logStreamName
+    Prelude.rnf logGroupName `Prelude.seq`
+      Prelude.rnf logStreamName
 
 instance Data.ToHeaders DeleteLogStream where
   toHeaders =

@@ -105,8 +105,8 @@ instance Prelude.Hashable Role where
 
 instance Prelude.NFData Role where
   rnf Role' {..} =
-    Prelude.rnf roleType
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf roleType `Prelude.seq`
+      Prelude.rnf roleArn
 
 instance Data.ToJSON Role where
   toJSON Role' {..} =

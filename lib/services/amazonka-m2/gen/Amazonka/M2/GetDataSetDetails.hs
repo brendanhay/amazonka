@@ -127,8 +127,8 @@ instance Prelude.Hashable GetDataSetDetails where
 
 instance Prelude.NFData GetDataSetDetails where
   rnf GetDataSetDetails' {..} =
-    Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf dataSetName
+    Prelude.rnf applicationId `Prelude.seq`
+      Prelude.rnf dataSetName
 
 instance Data.ToHeaders GetDataSetDetails where
   toHeaders =
@@ -261,12 +261,12 @@ getDataSetDetailsResponse_dataSetName = Lens.lens (\GetDataSetDetailsResponse' {
 
 instance Prelude.NFData GetDataSetDetailsResponse where
   rnf GetDataSetDetailsResponse' {..} =
-    Prelude.rnf blocksize
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf dataSetOrg
-      `Prelude.seq` Prelude.rnf lastReferencedTime
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf recordLength
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf dataSetName
+    Prelude.rnf blocksize `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf dataSetOrg `Prelude.seq`
+          Prelude.rnf lastReferencedTime `Prelude.seq`
+            Prelude.rnf lastUpdatedTime `Prelude.seq`
+              Prelude.rnf location `Prelude.seq`
+                Prelude.rnf recordLength `Prelude.seq`
+                  Prelude.rnf httpStatus `Prelude.seq`
+                    Prelude.rnf dataSetName

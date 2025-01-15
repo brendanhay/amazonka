@@ -130,11 +130,11 @@ instance Prelude.Hashable RuleAction where
 
 instance Prelude.NFData RuleAction where
   rnf RuleAction' {..} =
-    Prelude.rnf assignContactCategoryAction
-      `Prelude.seq` Prelude.rnf eventBridgeAction
-      `Prelude.seq` Prelude.rnf sendNotificationAction
-      `Prelude.seq` Prelude.rnf taskAction
-      `Prelude.seq` Prelude.rnf actionType
+    Prelude.rnf assignContactCategoryAction `Prelude.seq`
+      Prelude.rnf eventBridgeAction `Prelude.seq`
+        Prelude.rnf sendNotificationAction `Prelude.seq`
+          Prelude.rnf taskAction `Prelude.seq`
+            Prelude.rnf actionType
 
 instance Data.ToJSON RuleAction where
   toJSON RuleAction' {..} =

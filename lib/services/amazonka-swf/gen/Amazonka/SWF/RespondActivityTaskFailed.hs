@@ -157,9 +157,9 @@ instance Prelude.Hashable RespondActivityTaskFailed where
 
 instance Prelude.NFData RespondActivityTaskFailed where
   rnf RespondActivityTaskFailed' {..} =
-    Prelude.rnf details
-      `Prelude.seq` Prelude.rnf reason
-      `Prelude.seq` Prelude.rnf taskToken
+    Prelude.rnf details `Prelude.seq`
+      Prelude.rnf reason `Prelude.seq`
+        Prelude.rnf taskToken
 
 instance Data.ToHeaders RespondActivityTaskFailed where
   toHeaders =

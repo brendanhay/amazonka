@@ -175,5 +175,5 @@ getTableRestoreStatusResponse_httpStatus = Lens.lens (\GetTableRestoreStatusResp
 
 instance Prelude.NFData GetTableRestoreStatusResponse where
   rnf GetTableRestoreStatusResponse' {..} =
-    Prelude.rnf tableRestoreStatus
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf tableRestoreStatus `Prelude.seq`
+      Prelude.rnf httpStatus

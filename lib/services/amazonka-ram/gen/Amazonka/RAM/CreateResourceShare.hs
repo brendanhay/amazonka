@@ -316,13 +316,13 @@ instance Prelude.Hashable CreateResourceShare where
 
 instance Prelude.NFData CreateResourceShare where
   rnf CreateResourceShare' {..} =
-    Prelude.rnf allowExternalPrincipals
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf permissionArns
-      `Prelude.seq` Prelude.rnf principals
-      `Prelude.seq` Prelude.rnf resourceArns
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf allowExternalPrincipals `Prelude.seq`
+      Prelude.rnf clientToken `Prelude.seq`
+        Prelude.rnf permissionArns `Prelude.seq`
+          Prelude.rnf principals `Prelude.seq`
+            Prelude.rnf resourceArns `Prelude.seq`
+              Prelude.rnf tags `Prelude.seq`
+                Prelude.rnf name
 
 instance Data.ToHeaders CreateResourceShare where
   toHeaders =
@@ -419,6 +419,6 @@ createResourceShareResponse_httpStatus = Lens.lens (\CreateResourceShareResponse
 
 instance Prelude.NFData CreateResourceShareResponse where
   rnf CreateResourceShareResponse' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf resourceShare
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf resourceShare `Prelude.seq`
+        Prelude.rnf httpStatus

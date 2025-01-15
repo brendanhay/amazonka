@@ -212,16 +212,16 @@ instance Prelude.Hashable CreateComponentType where
 
 instance Prelude.NFData CreateComponentType where
   rnf CreateComponentType' {..} =
-    Prelude.rnf componentTypeName
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf extendsFrom
-      `Prelude.seq` Prelude.rnf functions
-      `Prelude.seq` Prelude.rnf isSingleton
-      `Prelude.seq` Prelude.rnf propertyDefinitions
-      `Prelude.seq` Prelude.rnf propertyGroups
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf workspaceId
-      `Prelude.seq` Prelude.rnf componentTypeId
+    Prelude.rnf componentTypeName `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf extendsFrom `Prelude.seq`
+          Prelude.rnf functions `Prelude.seq`
+            Prelude.rnf isSingleton `Prelude.seq`
+              Prelude.rnf propertyDefinitions `Prelude.seq`
+                Prelude.rnf propertyGroups `Prelude.seq`
+                  Prelude.rnf tags `Prelude.seq`
+                    Prelude.rnf workspaceId `Prelude.seq`
+                      Prelude.rnf componentTypeId
 
 instance Data.ToHeaders CreateComponentType where
   toHeaders =
@@ -334,7 +334,7 @@ createComponentTypeResponse_state = Lens.lens (\CreateComponentTypeResponse' {st
 
 instance Prelude.NFData CreateComponentTypeResponse where
   rnf CreateComponentTypeResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf creationDateTime `Prelude.seq`
+          Prelude.rnf state

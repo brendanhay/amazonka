@@ -117,8 +117,8 @@ instance Prelude.Hashable DeleteTransitGateway where
 
 instance Prelude.NFData DeleteTransitGateway where
   rnf DeleteTransitGateway' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf transitGatewayId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf transitGatewayId
 
 instance Data.ToHeaders DeleteTransitGateway where
   toHeaders = Prelude.const Prelude.mempty
@@ -178,5 +178,5 @@ deleteTransitGatewayResponse_httpStatus = Lens.lens (\DeleteTransitGatewayRespon
 
 instance Prelude.NFData DeleteTransitGatewayResponse where
   rnf DeleteTransitGatewayResponse' {..} =
-    Prelude.rnf transitGateway
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf transitGateway `Prelude.seq`
+      Prelude.rnf httpStatus

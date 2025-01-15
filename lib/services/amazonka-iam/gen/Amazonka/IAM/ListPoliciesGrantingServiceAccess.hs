@@ -225,9 +225,9 @@ instance
     ListPoliciesGrantingServiceAccess
   where
   rnf ListPoliciesGrantingServiceAccess' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf serviceNamespaces
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf serviceNamespaces
 
 instance
   Data.ToHeaders
@@ -347,7 +347,7 @@ instance
     ListPoliciesGrantingServiceAccessResponse
   where
   rnf ListPoliciesGrantingServiceAccessResponse' {..} =
-    Prelude.rnf isTruncated
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf policiesGrantingServiceAccess
+    Prelude.rnf isTruncated `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf httpStatus `Prelude.seq`
+          Prelude.rnf policiesGrantingServiceAccess

@@ -88,5 +88,5 @@ instance Prelude.Hashable DatasetActionSummary where
 
 instance Prelude.NFData DatasetActionSummary where
   rnf DatasetActionSummary' {..} =
-    Prelude.rnf actionName
-      `Prelude.seq` Prelude.rnf actionType
+    Prelude.rnf actionName `Prelude.seq`
+      Prelude.rnf actionType

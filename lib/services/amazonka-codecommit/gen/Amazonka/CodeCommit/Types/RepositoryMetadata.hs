@@ -168,13 +168,13 @@ instance Prelude.Hashable RepositoryMetadata where
 
 instance Prelude.NFData RepositoryMetadata where
   rnf RepositoryMetadata' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf cloneUrlHttp
-      `Prelude.seq` Prelude.rnf cloneUrlSsh
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf defaultBranch
-      `Prelude.seq` Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf repositoryDescription
-      `Prelude.seq` Prelude.rnf repositoryId
-      `Prelude.seq` Prelude.rnf repositoryName
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf accountId `Prelude.seq`
+        Prelude.rnf cloneUrlHttp `Prelude.seq`
+          Prelude.rnf cloneUrlSsh `Prelude.seq`
+            Prelude.rnf creationDate `Prelude.seq`
+              Prelude.rnf defaultBranch `Prelude.seq`
+                Prelude.rnf lastModifiedDate `Prelude.seq`
+                  Prelude.rnf repositoryDescription `Prelude.seq`
+                    Prelude.rnf repositoryId `Prelude.seq`
+                      Prelude.rnf repositoryName

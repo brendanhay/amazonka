@@ -114,8 +114,8 @@ instance Prelude.Hashable AttackSummary where
 
 instance Prelude.NFData AttackSummary where
   rnf AttackSummary' {..} =
-    Prelude.rnf attackId
-      `Prelude.seq` Prelude.rnf attackVectors
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf startTime
+    Prelude.rnf attackId `Prelude.seq`
+      Prelude.rnf attackVectors `Prelude.seq`
+        Prelude.rnf endTime `Prelude.seq`
+          Prelude.rnf resourceArn `Prelude.seq`
+            Prelude.rnf startTime

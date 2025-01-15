@@ -368,17 +368,17 @@ instance Prelude.Hashable CreateEnvironmentEC2 where
 
 instance Prelude.NFData CreateEnvironmentEC2 where
   rnf CreateEnvironmentEC2' {..} =
-    Prelude.rnf automaticStopTimeMinutes
-      `Prelude.seq` Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf connectionType
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf imageId
-      `Prelude.seq` Prelude.rnf ownerArn
-      `Prelude.seq` Prelude.rnf subnetId
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf instanceType
+    Prelude.rnf automaticStopTimeMinutes `Prelude.seq`
+      Prelude.rnf clientRequestToken `Prelude.seq`
+        Prelude.rnf connectionType `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf dryRun `Prelude.seq`
+              Prelude.rnf imageId `Prelude.seq`
+                Prelude.rnf ownerArn `Prelude.seq`
+                  Prelude.rnf subnetId `Prelude.seq`
+                    Prelude.rnf tags `Prelude.seq`
+                      Prelude.rnf name `Prelude.seq`
+                        Prelude.rnf instanceType
 
 instance Data.ToHeaders CreateEnvironmentEC2 where
   toHeaders =
@@ -463,5 +463,5 @@ createEnvironmentEC2Response_httpStatus = Lens.lens (\CreateEnvironmentEC2Respon
 
 instance Prelude.NFData CreateEnvironmentEC2Response where
   rnf CreateEnvironmentEC2Response' {..} =
-    Prelude.rnf environmentId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf environmentId `Prelude.seq`
+      Prelude.rnf httpStatus

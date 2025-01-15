@@ -80,5 +80,5 @@ instance Prelude.Hashable VpcDescription where
 
 instance Prelude.NFData VpcDescription where
   rnf VpcDescription' {..} =
-    Prelude.rnf securityGroups
-      `Prelude.seq` Prelude.rnf subnets
+    Prelude.rnf securityGroups `Prelude.seq`
+      Prelude.rnf subnets

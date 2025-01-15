@@ -129,9 +129,9 @@ instance Prelude.Hashable TransitGatewayPolicyRule where
 
 instance Prelude.NFData TransitGatewayPolicyRule where
   rnf TransitGatewayPolicyRule' {..} =
-    Prelude.rnf destinationCidrBlock
-      `Prelude.seq` Prelude.rnf destinationPortRange
-      `Prelude.seq` Prelude.rnf metaData
-      `Prelude.seq` Prelude.rnf protocol
-      `Prelude.seq` Prelude.rnf sourceCidrBlock
-      `Prelude.seq` Prelude.rnf sourcePortRange
+    Prelude.rnf destinationCidrBlock `Prelude.seq`
+      Prelude.rnf destinationPortRange `Prelude.seq`
+        Prelude.rnf metaData `Prelude.seq`
+          Prelude.rnf protocol `Prelude.seq`
+            Prelude.rnf sourceCidrBlock `Prelude.seq`
+              Prelude.rnf sourcePortRange

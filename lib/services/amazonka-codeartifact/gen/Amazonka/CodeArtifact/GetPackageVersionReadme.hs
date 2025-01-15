@@ -232,13 +232,13 @@ instance Prelude.Hashable GetPackageVersionReadme where
 
 instance Prelude.NFData GetPackageVersionReadme where
   rnf GetPackageVersionReadme' {..} =
-    Prelude.rnf domainOwner
-      `Prelude.seq` Prelude.rnf namespace
-      `Prelude.seq` Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf repository
-      `Prelude.seq` Prelude.rnf format
-      `Prelude.seq` Prelude.rnf package
-      `Prelude.seq` Prelude.rnf packageVersion
+    Prelude.rnf domainOwner `Prelude.seq`
+      Prelude.rnf namespace `Prelude.seq`
+        Prelude.rnf domain `Prelude.seq`
+          Prelude.rnf repository `Prelude.seq`
+            Prelude.rnf format `Prelude.seq`
+              Prelude.rnf package `Prelude.seq`
+                Prelude.rnf packageVersion
 
 instance Data.ToHeaders GetPackageVersionReadme where
   toHeaders =
@@ -385,10 +385,10 @@ instance
     GetPackageVersionReadmeResponse
   where
   rnf GetPackageVersionReadmeResponse' {..} =
-    Prelude.rnf format
-      `Prelude.seq` Prelude.rnf namespace
-      `Prelude.seq` Prelude.rnf package
-      `Prelude.seq` Prelude.rnf readme
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf versionRevision
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf format `Prelude.seq`
+      Prelude.rnf namespace `Prelude.seq`
+        Prelude.rnf package `Prelude.seq`
+          Prelude.rnf readme `Prelude.seq`
+            Prelude.rnf version `Prelude.seq`
+              Prelude.rnf versionRevision `Prelude.seq`
+                Prelude.rnf httpStatus

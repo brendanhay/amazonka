@@ -118,9 +118,9 @@ instance Prelude.Hashable VdmAttributes where
 
 instance Prelude.NFData VdmAttributes where
   rnf VdmAttributes' {..} =
-    Prelude.rnf dashboardAttributes
-      `Prelude.seq` Prelude.rnf guardianAttributes
-      `Prelude.seq` Prelude.rnf vdmEnabled
+    Prelude.rnf dashboardAttributes `Prelude.seq`
+      Prelude.rnf guardianAttributes `Prelude.seq`
+        Prelude.rnf vdmEnabled
 
 instance Data.ToJSON VdmAttributes where
   toJSON VdmAttributes' {..} =

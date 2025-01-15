@@ -103,8 +103,8 @@ instance
     VirtualGatewayListenerTlsValidationContext
   where
   rnf VirtualGatewayListenerTlsValidationContext' {..} =
-    Prelude.rnf subjectAlternativeNames
-      `Prelude.seq` Prelude.rnf trust
+    Prelude.rnf subjectAlternativeNames `Prelude.seq`
+      Prelude.rnf trust
 
 instance
   Data.ToJSON

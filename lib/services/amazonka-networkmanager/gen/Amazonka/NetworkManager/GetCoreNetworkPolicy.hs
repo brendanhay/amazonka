@@ -120,9 +120,9 @@ instance Prelude.Hashable GetCoreNetworkPolicy where
 
 instance Prelude.NFData GetCoreNetworkPolicy where
   rnf GetCoreNetworkPolicy' {..} =
-    Prelude.rnf alias
-      `Prelude.seq` Prelude.rnf policyVersionId
-      `Prelude.seq` Prelude.rnf coreNetworkId
+    Prelude.rnf alias `Prelude.seq`
+      Prelude.rnf policyVersionId `Prelude.seq`
+        Prelude.rnf coreNetworkId
 
 instance Data.ToHeaders GetCoreNetworkPolicy where
   toHeaders =
@@ -191,5 +191,5 @@ getCoreNetworkPolicyResponse_httpStatus = Lens.lens (\GetCoreNetworkPolicyRespon
 
 instance Prelude.NFData GetCoreNetworkPolicyResponse where
   rnf GetCoreNetworkPolicyResponse' {..} =
-    Prelude.rnf coreNetworkPolicy
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf coreNetworkPolicy `Prelude.seq`
+      Prelude.rnf httpStatus

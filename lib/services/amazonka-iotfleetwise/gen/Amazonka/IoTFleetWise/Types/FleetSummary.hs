@@ -145,9 +145,9 @@ instance Prelude.Hashable FleetSummary where
 
 instance Prelude.NFData FleetSummary where
   rnf FleetSummary' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf lastModificationTime
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf signalCatalogArn
-      `Prelude.seq` Prelude.rnf creationTime
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf lastModificationTime `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf arn `Prelude.seq`
+            Prelude.rnf signalCatalogArn `Prelude.seq`
+              Prelude.rnf creationTime

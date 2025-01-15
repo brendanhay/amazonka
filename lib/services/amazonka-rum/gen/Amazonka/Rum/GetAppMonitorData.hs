@@ -150,12 +150,12 @@ instance Core.AWSPager GetAppMonitorData where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getAppMonitorData_nextToken
-          Lens..~ rs
-          Lens.^? getAppMonitorDataResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getAppMonitorData_nextToken
+              Lens..~ rs
+              Lens.^? getAppMonitorDataResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetAppMonitorData where
   type
@@ -183,11 +183,11 @@ instance Prelude.Hashable GetAppMonitorData where
 
 instance Prelude.NFData GetAppMonitorData where
   rnf GetAppMonitorData' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf timeRange
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf timeRange
 
 instance Data.ToHeaders GetAppMonitorData where
   toHeaders =
@@ -272,6 +272,6 @@ getAppMonitorDataResponse_httpStatus = Lens.lens (\GetAppMonitorDataResponse' {h
 
 instance Prelude.NFData GetAppMonitorDataResponse where
   rnf GetAppMonitorDataResponse' {..} =
-    Prelude.rnf events
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf events `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

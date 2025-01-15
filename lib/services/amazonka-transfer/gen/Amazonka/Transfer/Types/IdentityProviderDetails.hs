@@ -114,10 +114,10 @@ instance Prelude.Hashable IdentityProviderDetails where
 
 instance Prelude.NFData IdentityProviderDetails where
   rnf IdentityProviderDetails' {..} =
-    Prelude.rnf directoryId
-      `Prelude.seq` Prelude.rnf function
-      `Prelude.seq` Prelude.rnf invocationRole
-      `Prelude.seq` Prelude.rnf url
+    Prelude.rnf directoryId `Prelude.seq`
+      Prelude.rnf function `Prelude.seq`
+        Prelude.rnf invocationRole `Prelude.seq`
+          Prelude.rnf url
 
 instance Data.ToJSON IdentityProviderDetails where
   toJSON IdentityProviderDetails' {..} =

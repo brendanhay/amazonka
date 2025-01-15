@@ -242,20 +242,20 @@ instance Prelude.Hashable UpdateProfile where
 
 instance Prelude.NFData UpdateProfile where
   rnf UpdateProfile' {..} =
-    Prelude.rnf address
-      `Prelude.seq` Prelude.rnf dataRetentionOptIn
-      `Prelude.seq` Prelude.rnf distanceUnit
-      `Prelude.seq` Prelude.rnf isDefault
-      `Prelude.seq` Prelude.rnf locale
-      `Prelude.seq` Prelude.rnf maxVolumeLimit
-      `Prelude.seq` Prelude.rnf meetingRoomConfiguration
-      `Prelude.seq` Prelude.rnf pSTNEnabled
-      `Prelude.seq` Prelude.rnf profileArn
-      `Prelude.seq` Prelude.rnf profileName
-      `Prelude.seq` Prelude.rnf setupModeDisabled
-      `Prelude.seq` Prelude.rnf temperatureUnit
-      `Prelude.seq` Prelude.rnf timezone
-      `Prelude.seq` Prelude.rnf wakeWord
+    Prelude.rnf address `Prelude.seq`
+      Prelude.rnf dataRetentionOptIn `Prelude.seq`
+        Prelude.rnf distanceUnit `Prelude.seq`
+          Prelude.rnf isDefault `Prelude.seq`
+            Prelude.rnf locale `Prelude.seq`
+              Prelude.rnf maxVolumeLimit `Prelude.seq`
+                Prelude.rnf meetingRoomConfiguration `Prelude.seq`
+                  Prelude.rnf pSTNEnabled `Prelude.seq`
+                    Prelude.rnf profileArn `Prelude.seq`
+                      Prelude.rnf profileName `Prelude.seq`
+                        Prelude.rnf setupModeDisabled `Prelude.seq`
+                          Prelude.rnf temperatureUnit `Prelude.seq`
+                            Prelude.rnf timezone `Prelude.seq`
+                              Prelude.rnf wakeWord
 
 instance Data.ToHeaders UpdateProfile where
   toHeaders =

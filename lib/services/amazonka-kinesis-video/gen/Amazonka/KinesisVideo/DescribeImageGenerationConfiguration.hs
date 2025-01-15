@@ -131,8 +131,8 @@ instance
     DescribeImageGenerationConfiguration
   where
   rnf DescribeImageGenerationConfiguration' {..} =
-    Prelude.rnf streamARN
-      `Prelude.seq` Prelude.rnf streamName
+    Prelude.rnf streamARN `Prelude.seq`
+      Prelude.rnf streamName
 
 instance
   Data.ToHeaders
@@ -217,5 +217,5 @@ instance
     DescribeImageGenerationConfigurationResponse
   where
   rnf DescribeImageGenerationConfigurationResponse' {..} =
-    Prelude.rnf imageGenerationConfiguration
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf imageGenerationConfiguration `Prelude.seq`
+      Prelude.rnf httpStatus

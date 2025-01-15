@@ -233,10 +233,10 @@ instance Prelude.Hashable ExportTransitGatewayRoutes where
 
 instance Prelude.NFData ExportTransitGatewayRoutes where
   rnf ExportTransitGatewayRoutes' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf transitGatewayRouteTableId
-      `Prelude.seq` Prelude.rnf s3Bucket
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf transitGatewayRouteTableId `Prelude.seq`
+          Prelude.rnf s3Bucket
 
 instance Data.ToHeaders ExportTransitGatewayRoutes where
   toHeaders = Prelude.const Prelude.mempty
@@ -306,5 +306,5 @@ instance
     ExportTransitGatewayRoutesResponse
   where
   rnf ExportTransitGatewayRoutesResponse' {..} =
-    Prelude.rnf s3Location
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf s3Location `Prelude.seq`
+      Prelude.rnf httpStatus

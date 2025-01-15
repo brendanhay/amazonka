@@ -346,13 +346,13 @@ instance
     DescribeWhatIfAnalysisResponse
   where
   rnf DescribeWhatIfAnalysisResponse' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf estimatedTimeRemainingInMinutes
-      `Prelude.seq` Prelude.rnf forecastArn
-      `Prelude.seq` Prelude.rnf lastModificationTime
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf timeSeriesSelector
-      `Prelude.seq` Prelude.rnf whatIfAnalysisArn
-      `Prelude.seq` Prelude.rnf whatIfAnalysisName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf estimatedTimeRemainingInMinutes `Prelude.seq`
+        Prelude.rnf forecastArn `Prelude.seq`
+          Prelude.rnf lastModificationTime `Prelude.seq`
+            Prelude.rnf message `Prelude.seq`
+              Prelude.rnf status `Prelude.seq`
+                Prelude.rnf timeSeriesSelector `Prelude.seq`
+                  Prelude.rnf whatIfAnalysisArn `Prelude.seq`
+                    Prelude.rnf whatIfAnalysisName `Prelude.seq`
+                      Prelude.rnf httpStatus

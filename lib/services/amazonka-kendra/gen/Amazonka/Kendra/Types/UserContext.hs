@@ -119,10 +119,10 @@ instance Prelude.Hashable UserContext where
 
 instance Prelude.NFData UserContext where
   rnf UserContext' {..} =
-    Prelude.rnf dataSourceGroups
-      `Prelude.seq` Prelude.rnf groups
-      `Prelude.seq` Prelude.rnf token
-      `Prelude.seq` Prelude.rnf userId
+    Prelude.rnf dataSourceGroups `Prelude.seq`
+      Prelude.rnf groups `Prelude.seq`
+        Prelude.rnf token `Prelude.seq`
+          Prelude.rnf userId
 
 instance Data.ToJSON UserContext where
   toJSON UserContext' {..} =

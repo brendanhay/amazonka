@@ -168,12 +168,12 @@ instance Prelude.Hashable ListProfileObjects where
 
 instance Prelude.NFData ListProfileObjects where
   rnf ListProfileObjects' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf objectFilter
-      `Prelude.seq` Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf objectTypeName
-      `Prelude.seq` Prelude.rnf profileId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf objectFilter `Prelude.seq`
+          Prelude.rnf domainName `Prelude.seq`
+            Prelude.rnf objectTypeName `Prelude.seq`
+              Prelude.rnf profileId
 
 instance Data.ToHeaders ListProfileObjects where
   toHeaders =
@@ -262,6 +262,6 @@ listProfileObjectsResponse_httpStatus = Lens.lens (\ListProfileObjectsResponse' 
 
 instance Prelude.NFData ListProfileObjectsResponse where
   rnf ListProfileObjectsResponse' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf items `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

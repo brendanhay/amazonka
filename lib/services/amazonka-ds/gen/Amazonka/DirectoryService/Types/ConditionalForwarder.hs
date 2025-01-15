@@ -109,6 +109,6 @@ instance Prelude.Hashable ConditionalForwarder where
 
 instance Prelude.NFData ConditionalForwarder where
   rnf ConditionalForwarder' {..} =
-    Prelude.rnf dnsIpAddrs
-      `Prelude.seq` Prelude.rnf remoteDomainName
-      `Prelude.seq` Prelude.rnf replicationScope
+    Prelude.rnf dnsIpAddrs `Prelude.seq`
+      Prelude.rnf remoteDomainName `Prelude.seq`
+        Prelude.rnf replicationScope

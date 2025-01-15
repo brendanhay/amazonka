@@ -73,8 +73,8 @@ instance Prelude.Hashable RedshiftDatabaseCredentials where
 
 instance Prelude.NFData RedshiftDatabaseCredentials where
   rnf RedshiftDatabaseCredentials' {..} =
-    Prelude.rnf username
-      `Prelude.seq` Prelude.rnf password
+    Prelude.rnf username `Prelude.seq`
+      Prelude.rnf password
 
 instance Data.ToJSON RedshiftDatabaseCredentials where
   toJSON RedshiftDatabaseCredentials' {..} =

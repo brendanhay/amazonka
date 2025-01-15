@@ -182,14 +182,14 @@ instance Prelude.Hashable CreateAction where
 
 instance Prelude.NFData CreateAction where
   rnf CreateAction' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf metadataProperties
-      `Prelude.seq` Prelude.rnf properties
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf actionName
-      `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf actionType
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf metadataProperties `Prelude.seq`
+        Prelude.rnf properties `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf actionName `Prelude.seq`
+                Prelude.rnf source `Prelude.seq`
+                  Prelude.rnf actionType
 
 instance Data.ToHeaders CreateAction where
   toHeaders =
@@ -266,5 +266,5 @@ createActionResponse_httpStatus = Lens.lens (\CreateActionResponse' {httpStatus}
 
 instance Prelude.NFData CreateActionResponse where
   rnf CreateActionResponse' {..} =
-    Prelude.rnf actionArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf actionArn `Prelude.seq`
+      Prelude.rnf httpStatus

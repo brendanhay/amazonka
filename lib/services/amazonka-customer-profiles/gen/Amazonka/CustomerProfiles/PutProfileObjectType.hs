@@ -282,17 +282,17 @@ instance Prelude.Hashable PutProfileObjectType where
 
 instance Prelude.NFData PutProfileObjectType where
   rnf PutProfileObjectType' {..} =
-    Prelude.rnf allowProfileCreation
-      `Prelude.seq` Prelude.rnf encryptionKey
-      `Prelude.seq` Prelude.rnf expirationDays
-      `Prelude.seq` Prelude.rnf fields
-      `Prelude.seq` Prelude.rnf keys
-      `Prelude.seq` Prelude.rnf sourceLastUpdatedTimestampFormat
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf templateId
-      `Prelude.seq` Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf objectTypeName
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf allowProfileCreation `Prelude.seq`
+      Prelude.rnf encryptionKey `Prelude.seq`
+        Prelude.rnf expirationDays `Prelude.seq`
+          Prelude.rnf fields `Prelude.seq`
+            Prelude.rnf keys `Prelude.seq`
+              Prelude.rnf sourceLastUpdatedTimestampFormat `Prelude.seq`
+                Prelude.rnf tags `Prelude.seq`
+                  Prelude.rnf templateId `Prelude.seq`
+                    Prelude.rnf domainName `Prelude.seq`
+                      Prelude.rnf objectTypeName `Prelude.seq`
+                        Prelude.rnf description
 
 instance Data.ToHeaders PutProfileObjectType where
   toHeaders =
@@ -514,16 +514,16 @@ putProfileObjectTypeResponse_description = Lens.lens (\PutProfileObjectTypeRespo
 
 instance Prelude.NFData PutProfileObjectTypeResponse where
   rnf PutProfileObjectTypeResponse' {..} =
-    Prelude.rnf allowProfileCreation
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf encryptionKey
-      `Prelude.seq` Prelude.rnf expirationDays
-      `Prelude.seq` Prelude.rnf fields
-      `Prelude.seq` Prelude.rnf keys
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf sourceLastUpdatedTimestampFormat
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf templateId
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf objectTypeName
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf allowProfileCreation `Prelude.seq`
+      Prelude.rnf createdAt `Prelude.seq`
+        Prelude.rnf encryptionKey `Prelude.seq`
+          Prelude.rnf expirationDays `Prelude.seq`
+            Prelude.rnf fields `Prelude.seq`
+              Prelude.rnf keys `Prelude.seq`
+                Prelude.rnf lastUpdatedAt `Prelude.seq`
+                  Prelude.rnf sourceLastUpdatedTimestampFormat `Prelude.seq`
+                    Prelude.rnf tags `Prelude.seq`
+                      Prelude.rnf templateId `Prelude.seq`
+                        Prelude.rnf httpStatus `Prelude.seq`
+                          Prelude.rnf objectTypeName `Prelude.seq`
+                            Prelude.rnf description

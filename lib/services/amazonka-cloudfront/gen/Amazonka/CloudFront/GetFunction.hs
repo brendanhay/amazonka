@@ -189,7 +189,7 @@ getFunctionResponse_httpStatus = Lens.lens (\GetFunctionResponse' {httpStatus} -
 
 instance Prelude.NFData GetFunctionResponse where
   rnf GetFunctionResponse' {..} =
-    Prelude.rnf contentType
-      `Prelude.seq` Prelude.rnf eTag
-      `Prelude.seq` Prelude.rnf functionCode
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf contentType `Prelude.seq`
+      Prelude.rnf eTag `Prelude.seq`
+        Prelude.rnf functionCode `Prelude.seq`
+          Prelude.rnf httpStatus

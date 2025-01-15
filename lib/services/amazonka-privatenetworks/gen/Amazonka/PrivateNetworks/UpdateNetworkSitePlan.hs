@@ -126,9 +126,9 @@ instance Prelude.Hashable UpdateNetworkSitePlan where
 
 instance Prelude.NFData UpdateNetworkSitePlan where
   rnf UpdateNetworkSitePlan' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf networkSiteArn
-      `Prelude.seq` Prelude.rnf pendingPlan
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf networkSiteArn `Prelude.seq`
+        Prelude.rnf pendingPlan
 
 instance Data.ToHeaders UpdateNetworkSitePlan where
   toHeaders =

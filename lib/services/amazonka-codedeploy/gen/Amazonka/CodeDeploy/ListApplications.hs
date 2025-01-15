@@ -96,12 +96,12 @@ instance Core.AWSPager ListApplications where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listApplications_nextToken
-          Lens..~ rs
-          Lens.^? listApplicationsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listApplications_nextToken
+              Lens..~ rs
+              Lens.^? listApplicationsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListApplications where
   type
@@ -211,6 +211,6 @@ listApplicationsResponse_httpStatus = Lens.lens (\ListApplicationsResponse' {htt
 
 instance Prelude.NFData ListApplicationsResponse where
   rnf ListApplicationsResponse' {..} =
-    Prelude.rnf applications
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf applications `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

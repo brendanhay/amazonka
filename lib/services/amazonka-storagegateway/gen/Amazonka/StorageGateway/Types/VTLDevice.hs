@@ -117,8 +117,8 @@ instance Prelude.Hashable VTLDevice where
 
 instance Prelude.NFData VTLDevice where
   rnf VTLDevice' {..} =
-    Prelude.rnf deviceiSCSIAttributes
-      `Prelude.seq` Prelude.rnf vTLDeviceARN
-      `Prelude.seq` Prelude.rnf vTLDeviceProductIdentifier
-      `Prelude.seq` Prelude.rnf vTLDeviceType
-      `Prelude.seq` Prelude.rnf vTLDeviceVendor
+    Prelude.rnf deviceiSCSIAttributes `Prelude.seq`
+      Prelude.rnf vTLDeviceARN `Prelude.seq`
+        Prelude.rnf vTLDeviceProductIdentifier `Prelude.seq`
+          Prelude.rnf vTLDeviceType `Prelude.seq`
+            Prelude.rnf vTLDeviceVendor

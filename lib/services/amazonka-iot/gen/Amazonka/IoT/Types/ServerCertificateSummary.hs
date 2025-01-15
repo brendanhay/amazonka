@@ -93,6 +93,6 @@ instance Prelude.Hashable ServerCertificateSummary where
 
 instance Prelude.NFData ServerCertificateSummary where
   rnf ServerCertificateSummary' {..} =
-    Prelude.rnf serverCertificateArn
-      `Prelude.seq` Prelude.rnf serverCertificateStatus
-      `Prelude.seq` Prelude.rnf serverCertificateStatusDetail
+    Prelude.rnf serverCertificateArn `Prelude.seq`
+      Prelude.rnf serverCertificateStatus `Prelude.seq`
+        Prelude.rnf serverCertificateStatusDetail

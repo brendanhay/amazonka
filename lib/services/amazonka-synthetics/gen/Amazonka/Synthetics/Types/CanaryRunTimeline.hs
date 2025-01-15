@@ -80,5 +80,5 @@ instance Prelude.Hashable CanaryRunTimeline where
 
 instance Prelude.NFData CanaryRunTimeline where
   rnf CanaryRunTimeline' {..} =
-    Prelude.rnf completed
-      `Prelude.seq` Prelude.rnf started
+    Prelude.rnf completed `Prelude.seq`
+      Prelude.rnf started

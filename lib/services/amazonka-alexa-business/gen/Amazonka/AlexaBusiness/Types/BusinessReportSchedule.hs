@@ -157,11 +157,11 @@ instance Prelude.Hashable BusinessReportSchedule where
 
 instance Prelude.NFData BusinessReportSchedule where
   rnf BusinessReportSchedule' {..} =
-    Prelude.rnf contentRange
-      `Prelude.seq` Prelude.rnf format
-      `Prelude.seq` Prelude.rnf lastBusinessReport
-      `Prelude.seq` Prelude.rnf recurrence
-      `Prelude.seq` Prelude.rnf s3BucketName
-      `Prelude.seq` Prelude.rnf s3KeyPrefix
-      `Prelude.seq` Prelude.rnf scheduleArn
-      `Prelude.seq` Prelude.rnf scheduleName
+    Prelude.rnf contentRange `Prelude.seq`
+      Prelude.rnf format `Prelude.seq`
+        Prelude.rnf lastBusinessReport `Prelude.seq`
+          Prelude.rnf recurrence `Prelude.seq`
+            Prelude.rnf s3BucketName `Prelude.seq`
+              Prelude.rnf s3KeyPrefix `Prelude.seq`
+                Prelude.rnf scheduleArn `Prelude.seq`
+                  Prelude.rnf scheduleName

@@ -210,12 +210,12 @@ instance Core.AWSPager DescribeScheduledActions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeScheduledActions_marker
-          Lens..~ rs
-          Lens.^? describeScheduledActionsResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeScheduledActions_marker
+              Lens..~ rs
+              Lens.^? describeScheduledActionsResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeScheduledActions where
   type
@@ -251,14 +251,14 @@ instance Prelude.Hashable DescribeScheduledActions where
 
 instance Prelude.NFData DescribeScheduledActions where
   rnf DescribeScheduledActions' {..} =
-    Prelude.rnf active
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf scheduledActionName
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf targetActionType
+    Prelude.rnf active `Prelude.seq`
+      Prelude.rnf endTime `Prelude.seq`
+        Prelude.rnf filters `Prelude.seq`
+          Prelude.rnf marker `Prelude.seq`
+            Prelude.rnf maxRecords `Prelude.seq`
+              Prelude.rnf scheduledActionName `Prelude.seq`
+                Prelude.rnf startTime `Prelude.seq`
+                  Prelude.rnf targetActionType
 
 instance Data.ToHeaders DescribeScheduledActions where
   toHeaders = Prelude.const Prelude.mempty
@@ -355,6 +355,6 @@ instance
     DescribeScheduledActionsResponse
   where
   rnf DescribeScheduledActionsResponse' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf scheduledActions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf scheduledActions `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -119,8 +119,8 @@ instance Prelude.Hashable DeploymentReadyOption where
 
 instance Prelude.NFData DeploymentReadyOption where
   rnf DeploymentReadyOption' {..} =
-    Prelude.rnf actionOnTimeout
-      `Prelude.seq` Prelude.rnf waitTimeInMinutes
+    Prelude.rnf actionOnTimeout `Prelude.seq`
+      Prelude.rnf waitTimeInMinutes
 
 instance Data.ToJSON DeploymentReadyOption where
   toJSON DeploymentReadyOption' {..} =

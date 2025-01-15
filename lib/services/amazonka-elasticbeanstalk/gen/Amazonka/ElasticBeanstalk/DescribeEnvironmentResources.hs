@@ -137,8 +137,8 @@ instance
 
 instance Prelude.NFData DescribeEnvironmentResources where
   rnf DescribeEnvironmentResources' {..} =
-    Prelude.rnf environmentId
-      `Prelude.seq` Prelude.rnf environmentName
+    Prelude.rnf environmentId `Prelude.seq`
+      Prelude.rnf environmentName
 
 instance Data.ToHeaders DescribeEnvironmentResources where
   toHeaders = Prelude.const Prelude.mempty
@@ -205,5 +205,5 @@ instance
     DescribeEnvironmentResourcesResponse
   where
   rnf DescribeEnvironmentResourcesResponse' {..} =
-    Prelude.rnf environmentResources
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf environmentResources `Prelude.seq`
+      Prelude.rnf httpStatus

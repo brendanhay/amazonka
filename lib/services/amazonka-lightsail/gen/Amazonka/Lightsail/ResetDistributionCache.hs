@@ -215,7 +215,7 @@ instance
     ResetDistributionCacheResponse
   where
   rnf ResetDistributionCacheResponse' {..} =
-    Prelude.rnf createTime
-      `Prelude.seq` Prelude.rnf operation
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf createTime `Prelude.seq`
+      Prelude.rnf operation `Prelude.seq`
+        Prelude.rnf status `Prelude.seq`
+          Prelude.rnf httpStatus

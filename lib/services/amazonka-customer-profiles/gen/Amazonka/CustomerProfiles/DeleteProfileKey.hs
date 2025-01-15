@@ -137,10 +137,10 @@ instance Prelude.Hashable DeleteProfileKey where
 
 instance Prelude.NFData DeleteProfileKey where
   rnf DeleteProfileKey' {..} =
-    Prelude.rnf profileId
-      `Prelude.seq` Prelude.rnf keyName
-      `Prelude.seq` Prelude.rnf values
-      `Prelude.seq` Prelude.rnf domainName
+    Prelude.rnf profileId `Prelude.seq`
+      Prelude.rnf keyName `Prelude.seq`
+        Prelude.rnf values `Prelude.seq`
+          Prelude.rnf domainName
 
 instance Data.ToHeaders DeleteProfileKey where
   toHeaders =
@@ -215,5 +215,5 @@ deleteProfileKeyResponse_httpStatus = Lens.lens (\DeleteProfileKeyResponse' {htt
 
 instance Prelude.NFData DeleteProfileKeyResponse where
   rnf DeleteProfileKeyResponse' {..} =
-    Prelude.rnf message
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf message `Prelude.seq`
+      Prelude.rnf httpStatus

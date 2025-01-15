@@ -112,6 +112,6 @@ instance
     S3ApplicationCodeLocationDescription
   where
   rnf S3ApplicationCodeLocationDescription' {..} =
-    Prelude.rnf objectVersion
-      `Prelude.seq` Prelude.rnf bucketARN
-      `Prelude.seq` Prelude.rnf fileKey
+    Prelude.rnf objectVersion `Prelude.seq`
+      Prelude.rnf bucketARN `Prelude.seq`
+        Prelude.rnf fileKey

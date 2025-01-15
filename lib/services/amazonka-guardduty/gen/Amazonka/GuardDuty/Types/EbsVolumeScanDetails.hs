@@ -126,9 +126,9 @@ instance Prelude.Hashable EbsVolumeScanDetails where
 
 instance Prelude.NFData EbsVolumeScanDetails where
   rnf EbsVolumeScanDetails' {..} =
-    Prelude.rnf scanCompletedAt
-      `Prelude.seq` Prelude.rnf scanDetections
-      `Prelude.seq` Prelude.rnf scanId
-      `Prelude.seq` Prelude.rnf scanStartedAt
-      `Prelude.seq` Prelude.rnf sources
-      `Prelude.seq` Prelude.rnf triggerFindingId
+    Prelude.rnf scanCompletedAt `Prelude.seq`
+      Prelude.rnf scanDetections `Prelude.seq`
+        Prelude.rnf scanId `Prelude.seq`
+          Prelude.rnf scanStartedAt `Prelude.seq`
+            Prelude.rnf sources `Prelude.seq`
+              Prelude.rnf triggerFindingId

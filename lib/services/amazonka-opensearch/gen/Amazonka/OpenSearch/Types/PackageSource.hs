@@ -70,8 +70,8 @@ instance Prelude.Hashable PackageSource where
 
 instance Prelude.NFData PackageSource where
   rnf PackageSource' {..} =
-    Prelude.rnf s3BucketName
-      `Prelude.seq` Prelude.rnf s3Key
+    Prelude.rnf s3BucketName `Prelude.seq`
+      Prelude.rnf s3Key
 
 instance Data.ToJSON PackageSource where
   toJSON PackageSource' {..} =

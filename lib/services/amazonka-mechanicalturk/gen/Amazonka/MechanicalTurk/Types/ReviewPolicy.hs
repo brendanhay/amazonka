@@ -87,8 +87,8 @@ instance Prelude.Hashable ReviewPolicy where
 
 instance Prelude.NFData ReviewPolicy where
   rnf ReviewPolicy' {..} =
-    Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf policyName
+    Prelude.rnf parameters `Prelude.seq`
+      Prelude.rnf policyName
 
 instance Data.ToJSON ReviewPolicy where
   toJSON ReviewPolicy' {..} =

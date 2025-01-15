@@ -147,8 +147,8 @@ instance Prelude.Hashable TagPolicy where
 
 instance Prelude.NFData TagPolicy where
   rnf TagPolicy' {..} =
-    Prelude.rnf policyArn
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf policyArn `Prelude.seq`
+      Prelude.rnf tags
 
 instance Data.ToHeaders TagPolicy where
   toHeaders = Prelude.const Prelude.mempty

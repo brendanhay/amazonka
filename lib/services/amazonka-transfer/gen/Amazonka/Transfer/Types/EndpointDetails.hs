@@ -215,11 +215,11 @@ instance Prelude.Hashable EndpointDetails where
 
 instance Prelude.NFData EndpointDetails where
   rnf EndpointDetails' {..} =
-    Prelude.rnf addressAllocationIds
-      `Prelude.seq` Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf subnetIds
-      `Prelude.seq` Prelude.rnf vpcEndpointId
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf addressAllocationIds `Prelude.seq`
+      Prelude.rnf securityGroupIds `Prelude.seq`
+        Prelude.rnf subnetIds `Prelude.seq`
+          Prelude.rnf vpcEndpointId `Prelude.seq`
+            Prelude.rnf vpcId
 
 instance Data.ToJSON EndpointDetails where
   toJSON EndpointDetails' {..} =

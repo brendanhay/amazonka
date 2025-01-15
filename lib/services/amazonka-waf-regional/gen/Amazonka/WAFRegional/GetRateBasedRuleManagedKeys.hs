@@ -133,8 +133,8 @@ instance Prelude.Hashable GetRateBasedRuleManagedKeys where
 
 instance Prelude.NFData GetRateBasedRuleManagedKeys where
   rnf GetRateBasedRuleManagedKeys' {..} =
-    Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf ruleId
+    Prelude.rnf nextMarker `Prelude.seq`
+      Prelude.rnf ruleId
 
 instance Data.ToHeaders GetRateBasedRuleManagedKeys where
   toHeaders =
@@ -222,6 +222,6 @@ instance
     GetRateBasedRuleManagedKeysResponse
   where
   rnf GetRateBasedRuleManagedKeysResponse' {..} =
-    Prelude.rnf managedKeys
-      `Prelude.seq` Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf managedKeys `Prelude.seq`
+      Prelude.rnf nextMarker `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -85,8 +85,8 @@ instance Prelude.Hashable PivotFieldSortOptions where
 
 instance Prelude.NFData PivotFieldSortOptions where
   rnf PivotFieldSortOptions' {..} =
-    Prelude.rnf fieldId
-      `Prelude.seq` Prelude.rnf sortBy
+    Prelude.rnf fieldId `Prelude.seq`
+      Prelude.rnf sortBy
 
 instance Data.ToJSON PivotFieldSortOptions where
   toJSON PivotFieldSortOptions' {..} =

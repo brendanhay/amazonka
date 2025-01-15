@@ -184,11 +184,11 @@ instance
     GetTemporaryGlueTableCredentials
   where
   rnf GetTemporaryGlueTableCredentials' {..} =
-    Prelude.rnf auditContext
-      `Prelude.seq` Prelude.rnf durationSeconds
-      `Prelude.seq` Prelude.rnf permissions
-      `Prelude.seq` Prelude.rnf tableArn
-      `Prelude.seq` Prelude.rnf supportedPermissionTypes
+    Prelude.rnf auditContext `Prelude.seq`
+      Prelude.rnf durationSeconds `Prelude.seq`
+        Prelude.rnf permissions `Prelude.seq`
+          Prelude.rnf tableArn `Prelude.seq`
+            Prelude.rnf supportedPermissionTypes
 
 instance
   Data.ToHeaders
@@ -302,8 +302,8 @@ instance
     GetTemporaryGlueTableCredentialsResponse
   where
   rnf GetTemporaryGlueTableCredentialsResponse' {..} =
-    Prelude.rnf accessKeyId
-      `Prelude.seq` Prelude.rnf expiration
-      `Prelude.seq` Prelude.rnf secretAccessKey
-      `Prelude.seq` Prelude.rnf sessionToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf accessKeyId `Prelude.seq`
+      Prelude.rnf expiration `Prelude.seq`
+        Prelude.rnf secretAccessKey `Prelude.seq`
+          Prelude.rnf sessionToken `Prelude.seq`
+            Prelude.rnf httpStatus

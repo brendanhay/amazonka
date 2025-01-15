@@ -123,8 +123,8 @@ instance Prelude.Hashable DescribeContributorInsights where
 
 instance Prelude.NFData DescribeContributorInsights where
   rnf DescribeContributorInsights' {..} =
-    Prelude.rnf indexName
-      `Prelude.seq` Prelude.rnf tableName
+    Prelude.rnf indexName `Prelude.seq`
+      Prelude.rnf tableName
 
 instance Data.ToHeaders DescribeContributorInsights where
   toHeaders =
@@ -294,10 +294,10 @@ instance
     DescribeContributorInsightsResponse
   where
   rnf DescribeContributorInsightsResponse' {..} =
-    Prelude.rnf contributorInsightsRuleList
-      `Prelude.seq` Prelude.rnf contributorInsightsStatus
-      `Prelude.seq` Prelude.rnf failureException
-      `Prelude.seq` Prelude.rnf indexName
-      `Prelude.seq` Prelude.rnf lastUpdateDateTime
-      `Prelude.seq` Prelude.rnf tableName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf contributorInsightsRuleList `Prelude.seq`
+      Prelude.rnf contributorInsightsStatus `Prelude.seq`
+        Prelude.rnf failureException `Prelude.seq`
+          Prelude.rnf indexName `Prelude.seq`
+            Prelude.rnf lastUpdateDateTime `Prelude.seq`
+              Prelude.rnf tableName `Prelude.seq`
+                Prelude.rnf httpStatus

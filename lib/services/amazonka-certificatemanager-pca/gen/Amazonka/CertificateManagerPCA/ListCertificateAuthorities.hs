@@ -136,12 +136,12 @@ instance Core.AWSPager ListCertificateAuthorities where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listCertificateAuthorities_nextToken
-          Lens..~ rs
-          Lens.^? listCertificateAuthoritiesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listCertificateAuthorities_nextToken
+              Lens..~ rs
+              Lens.^? listCertificateAuthoritiesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListCertificateAuthorities where
   type
@@ -170,9 +170,9 @@ instance Prelude.Hashable ListCertificateAuthorities where
 
 instance Prelude.NFData ListCertificateAuthorities where
   rnf ListCertificateAuthorities' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf resourceOwner
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf resourceOwner
 
 instance Data.ToHeaders ListCertificateAuthorities where
   toHeaders =
@@ -261,6 +261,6 @@ instance
     ListCertificateAuthoritiesResponse
   where
   rnf ListCertificateAuthoritiesResponse' {..} =
-    Prelude.rnf certificateAuthorities
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf certificateAuthorities `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

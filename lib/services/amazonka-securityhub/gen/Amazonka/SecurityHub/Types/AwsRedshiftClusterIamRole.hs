@@ -88,8 +88,8 @@ instance Prelude.Hashable AwsRedshiftClusterIamRole where
 
 instance Prelude.NFData AwsRedshiftClusterIamRole where
   rnf AwsRedshiftClusterIamRole' {..} =
-    Prelude.rnf applyStatus
-      `Prelude.seq` Prelude.rnf iamRoleArn
+    Prelude.rnf applyStatus `Prelude.seq`
+      Prelude.rnf iamRoleArn
 
 instance Data.ToJSON AwsRedshiftClusterIamRole where
   toJSON AwsRedshiftClusterIamRole' {..} =

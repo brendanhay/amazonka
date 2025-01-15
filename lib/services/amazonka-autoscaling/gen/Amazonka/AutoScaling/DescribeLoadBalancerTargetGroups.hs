@@ -155,12 +155,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeLoadBalancerTargetGroups_nextToken
-          Lens..~ rs
-          Lens.^? describeLoadBalancerTargetGroupsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeLoadBalancerTargetGroups_nextToken
+              Lens..~ rs
+              Lens.^? describeLoadBalancerTargetGroupsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -202,9 +202,9 @@ instance
     DescribeLoadBalancerTargetGroups
   where
   rnf DescribeLoadBalancerTargetGroups' {..} =
-    Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf autoScalingGroupName
+    Prelude.rnf maxRecords `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf autoScalingGroupName
 
 instance
   Data.ToHeaders
@@ -295,6 +295,6 @@ instance
     DescribeLoadBalancerTargetGroupsResponse
   where
   rnf DescribeLoadBalancerTargetGroupsResponse' {..} =
-    Prelude.rnf loadBalancerTargetGroups
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf loadBalancerTargetGroups `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

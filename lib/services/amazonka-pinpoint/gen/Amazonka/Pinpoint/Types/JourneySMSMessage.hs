@@ -154,11 +154,11 @@ instance Prelude.Hashable JourneySMSMessage where
 
 instance Prelude.NFData JourneySMSMessage where
   rnf JourneySMSMessage' {..} =
-    Prelude.rnf entityId
-      `Prelude.seq` Prelude.rnf messageType
-      `Prelude.seq` Prelude.rnf originationNumber
-      `Prelude.seq` Prelude.rnf senderId
-      `Prelude.seq` Prelude.rnf templateId
+    Prelude.rnf entityId `Prelude.seq`
+      Prelude.rnf messageType `Prelude.seq`
+        Prelude.rnf originationNumber `Prelude.seq`
+          Prelude.rnf senderId `Prelude.seq`
+            Prelude.rnf templateId
 
 instance Data.ToJSON JourneySMSMessage where
   toJSON JourneySMSMessage' {..} =

@@ -120,12 +120,12 @@ instance Core.AWSPager ListStudioSessionMappings where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listStudioSessionMappings_marker
-          Lens..~ rs
-          Lens.^? listStudioSessionMappingsResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listStudioSessionMappings_marker
+              Lens..~ rs
+              Lens.^? listStudioSessionMappingsResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListStudioSessionMappings where
   type
@@ -154,9 +154,9 @@ instance Prelude.Hashable ListStudioSessionMappings where
 
 instance Prelude.NFData ListStudioSessionMappings where
   rnf ListStudioSessionMappings' {..} =
-    Prelude.rnf identityType
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf studioId
+    Prelude.rnf identityType `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf studioId
 
 instance Data.ToHeaders ListStudioSessionMappings where
   toHeaders =
@@ -248,6 +248,6 @@ instance
     ListStudioSessionMappingsResponse
   where
   rnf ListStudioSessionMappingsResponse' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf sessionMappings
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf sessionMappings `Prelude.seq`
+        Prelude.rnf httpStatus

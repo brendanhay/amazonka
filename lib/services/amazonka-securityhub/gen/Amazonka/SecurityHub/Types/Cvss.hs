@@ -114,11 +114,11 @@ instance Prelude.Hashable Cvss where
 
 instance Prelude.NFData Cvss where
   rnf Cvss' {..} =
-    Prelude.rnf adjustments
-      `Prelude.seq` Prelude.rnf baseScore
-      `Prelude.seq` Prelude.rnf baseVector
-      `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf version
+    Prelude.rnf adjustments `Prelude.seq`
+      Prelude.rnf baseScore `Prelude.seq`
+        Prelude.rnf baseVector `Prelude.seq`
+          Prelude.rnf source `Prelude.seq`
+            Prelude.rnf version
 
 instance Data.ToJSON Cvss where
   toJSON Cvss' {..} =

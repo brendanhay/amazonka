@@ -128,9 +128,9 @@ instance Prelude.Hashable ListEventsDetectionJobs where
 
 instance Prelude.NFData ListEventsDetectionJobs where
   rnf ListEventsDetectionJobs' {..} =
-    Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filter' `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListEventsDetectionJobs where
   toHeaders =
@@ -216,6 +216,6 @@ instance
     ListEventsDetectionJobsResponse
   where
   rnf ListEventsDetectionJobsResponse' {..} =
-    Prelude.rnf eventsDetectionJobPropertiesList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf eventsDetectionJobPropertiesList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

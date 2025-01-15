@@ -188,12 +188,12 @@ instance Prelude.Hashable TranscriptFilter where
 
 instance Prelude.NFData TranscriptFilter where
   rnf TranscriptFilter' {..} =
-    Prelude.rnf absoluteTimeRange
-      `Prelude.seq` Prelude.rnf negate
-      `Prelude.seq` Prelude.rnf participantRole
-      `Prelude.seq` Prelude.rnf relativeTimeRange
-      `Prelude.seq` Prelude.rnf transcriptFilterType
-      `Prelude.seq` Prelude.rnf targets
+    Prelude.rnf absoluteTimeRange `Prelude.seq`
+      Prelude.rnf negate `Prelude.seq`
+        Prelude.rnf participantRole `Prelude.seq`
+          Prelude.rnf relativeTimeRange `Prelude.seq`
+            Prelude.rnf transcriptFilterType `Prelude.seq`
+              Prelude.rnf targets
 
 instance Data.ToJSON TranscriptFilter where
   toJSON TranscriptFilter' {..} =

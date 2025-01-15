@@ -144,8 +144,8 @@ instance Prelude.Hashable PlatformBranchSummary where
 
 instance Prelude.NFData PlatformBranchSummary where
   rnf PlatformBranchSummary' {..} =
-    Prelude.rnf branchName
-      `Prelude.seq` Prelude.rnf branchOrder
-      `Prelude.seq` Prelude.rnf lifecycleState
-      `Prelude.seq` Prelude.rnf platformName
-      `Prelude.seq` Prelude.rnf supportedTierList
+    Prelude.rnf branchName `Prelude.seq`
+      Prelude.rnf branchOrder `Prelude.seq`
+        Prelude.rnf lifecycleState `Prelude.seq`
+          Prelude.rnf platformName `Prelude.seq`
+            Prelude.rnf supportedTierList

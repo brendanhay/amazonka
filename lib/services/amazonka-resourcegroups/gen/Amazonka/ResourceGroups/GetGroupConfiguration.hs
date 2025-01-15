@@ -164,5 +164,5 @@ getGroupConfigurationResponse_httpStatus = Lens.lens (\GetGroupConfigurationResp
 
 instance Prelude.NFData GetGroupConfigurationResponse where
   rnf GetGroupConfigurationResponse' {..} =
-    Prelude.rnf groupConfiguration
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf groupConfiguration `Prelude.seq`
+      Prelude.rnf httpStatus

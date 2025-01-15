@@ -128,6 +128,6 @@ instance Prelude.Hashable SubscribedRuleGroupSummary where
 
 instance Prelude.NFData SubscribedRuleGroupSummary where
   rnf SubscribedRuleGroupSummary' {..} =
-    Prelude.rnf ruleGroupId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf metricName
+    Prelude.rnf ruleGroupId `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf metricName

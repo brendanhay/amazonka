@@ -161,9 +161,9 @@ instance Prelude.Hashable GetGeneratedPolicy where
 
 instance Prelude.NFData GetGeneratedPolicy where
   rnf GetGeneratedPolicy' {..} =
-    Prelude.rnf includeResourcePlaceholders
-      `Prelude.seq` Prelude.rnf includeServiceLevelTemplate
-      `Prelude.seq` Prelude.rnf jobId
+    Prelude.rnf includeResourcePlaceholders `Prelude.seq`
+      Prelude.rnf includeServiceLevelTemplate `Prelude.seq`
+        Prelude.rnf jobId
 
 instance Data.ToHeaders GetGeneratedPolicy where
   toHeaders =
@@ -253,6 +253,6 @@ getGeneratedPolicyResponse_generatedPolicyResult = Lens.lens (\GetGeneratedPolic
 
 instance Prelude.NFData GetGeneratedPolicyResponse where
   rnf GetGeneratedPolicyResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf jobDetails
-      `Prelude.seq` Prelude.rnf generatedPolicyResult
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf jobDetails `Prelude.seq`
+        Prelude.rnf generatedPolicyResult

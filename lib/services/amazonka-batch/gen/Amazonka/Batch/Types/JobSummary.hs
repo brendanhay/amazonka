@@ -234,15 +234,15 @@ instance Prelude.Hashable JobSummary where
 
 instance Prelude.NFData JobSummary where
   rnf JobSummary' {..} =
-    Prelude.rnf arrayProperties
-      `Prelude.seq` Prelude.rnf container
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf jobArn
-      `Prelude.seq` Prelude.rnf jobDefinition
-      `Prelude.seq` Prelude.rnf nodeProperties
-      `Prelude.seq` Prelude.rnf startedAt
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusReason
-      `Prelude.seq` Prelude.rnf stoppedAt
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf jobName
+    Prelude.rnf arrayProperties `Prelude.seq`
+      Prelude.rnf container `Prelude.seq`
+        Prelude.rnf createdAt `Prelude.seq`
+          Prelude.rnf jobArn `Prelude.seq`
+            Prelude.rnf jobDefinition `Prelude.seq`
+              Prelude.rnf nodeProperties `Prelude.seq`
+                Prelude.rnf startedAt `Prelude.seq`
+                  Prelude.rnf status `Prelude.seq`
+                    Prelude.rnf statusReason `Prelude.seq`
+                      Prelude.rnf stoppedAt `Prelude.seq`
+                        Prelude.rnf jobId `Prelude.seq`
+                          Prelude.rnf jobName

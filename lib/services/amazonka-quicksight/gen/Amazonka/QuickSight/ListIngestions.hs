@@ -130,12 +130,12 @@ instance Core.AWSPager ListIngestions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listIngestions_nextToken
-          Lens..~ rs
-          Lens.^? listIngestionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listIngestions_nextToken
+              Lens..~ rs
+              Lens.^? listIngestionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListIngestions where
   type
@@ -163,10 +163,10 @@ instance Prelude.Hashable ListIngestions where
 
 instance Prelude.NFData ListIngestions where
   rnf ListIngestions' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf dataSetId
-      `Prelude.seq` Prelude.rnf awsAccountId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf dataSetId `Prelude.seq`
+          Prelude.rnf awsAccountId
 
 instance Data.ToHeaders ListIngestions where
   toHeaders =
@@ -258,7 +258,7 @@ listIngestionsResponse_status = Lens.lens (\ListIngestionsResponse' {status} -> 
 
 instance Prelude.NFData ListIngestionsResponse where
   rnf ListIngestionsResponse' {..} =
-    Prelude.rnf ingestions
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf ingestions `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf requestId `Prelude.seq`
+          Prelude.rnf status

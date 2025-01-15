@@ -119,8 +119,8 @@ instance Prelude.Hashable DisableAddressTransfer where
 
 instance Prelude.NFData DisableAddressTransfer where
   rnf DisableAddressTransfer' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf allocationId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf allocationId
 
 instance Data.ToHeaders DisableAddressTransfer where
   toHeaders = Prelude.const Prelude.mempty
@@ -183,5 +183,5 @@ instance
     DisableAddressTransferResponse
   where
   rnf DisableAddressTransferResponse' {..} =
-    Prelude.rnf addressTransfer
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf addressTransfer `Prelude.seq`
+      Prelude.rnf httpStatus

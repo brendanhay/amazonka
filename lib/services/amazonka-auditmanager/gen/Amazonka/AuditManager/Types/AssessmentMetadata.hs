@@ -191,14 +191,14 @@ instance Prelude.Hashable AssessmentMetadata where
 
 instance Prelude.NFData AssessmentMetadata where
   rnf AssessmentMetadata' {..} =
-    Prelude.rnf assessmentReportsDestination
-      `Prelude.seq` Prelude.rnf complianceType
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf delegations
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf lastUpdated
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf roles
-      `Prelude.seq` Prelude.rnf scope
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf assessmentReportsDestination `Prelude.seq`
+      Prelude.rnf complianceType `Prelude.seq`
+        Prelude.rnf creationTime `Prelude.seq`
+          Prelude.rnf delegations `Prelude.seq`
+            Prelude.rnf description `Prelude.seq`
+              Prelude.rnf id `Prelude.seq`
+                Prelude.rnf lastUpdated `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf roles `Prelude.seq`
+                      Prelude.rnf scope `Prelude.seq`
+                        Prelude.rnf status

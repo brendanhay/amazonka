@@ -137,12 +137,12 @@ instance Core.AWSPager ListRecoveryPointsByResource where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listRecoveryPointsByResource_nextToken
-          Lens..~ rs
-          Lens.^? listRecoveryPointsByResourceResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listRecoveryPointsByResource_nextToken
+              Lens..~ rs
+              Lens.^? listRecoveryPointsByResourceResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListRecoveryPointsByResource where
   type
@@ -171,9 +171,9 @@ instance
 
 instance Prelude.NFData ListRecoveryPointsByResource where
   rnf ListRecoveryPointsByResource' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf resourceArn
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf resourceArn
 
 instance Data.ToHeaders ListRecoveryPointsByResource where
   toHeaders =
@@ -272,6 +272,6 @@ instance
     ListRecoveryPointsByResourceResponse
   where
   rnf ListRecoveryPointsByResourceResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf recoveryPoints
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf recoveryPoints `Prelude.seq`
+        Prelude.rnf httpStatus

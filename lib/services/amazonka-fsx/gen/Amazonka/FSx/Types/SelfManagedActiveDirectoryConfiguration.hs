@@ -207,12 +207,12 @@ instance
     SelfManagedActiveDirectoryConfiguration
   where
   rnf SelfManagedActiveDirectoryConfiguration' {..} =
-    Prelude.rnf fileSystemAdministratorsGroup
-      `Prelude.seq` Prelude.rnf organizationalUnitDistinguishedName
-      `Prelude.seq` Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf userName
-      `Prelude.seq` Prelude.rnf password
-      `Prelude.seq` Prelude.rnf dnsIps
+    Prelude.rnf fileSystemAdministratorsGroup `Prelude.seq`
+      Prelude.rnf organizationalUnitDistinguishedName `Prelude.seq`
+        Prelude.rnf domainName `Prelude.seq`
+          Prelude.rnf userName `Prelude.seq`
+            Prelude.rnf password `Prelude.seq`
+              Prelude.rnf dnsIps
 
 instance
   Data.ToJSON

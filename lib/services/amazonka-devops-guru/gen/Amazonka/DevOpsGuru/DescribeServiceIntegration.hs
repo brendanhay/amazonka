@@ -143,5 +143,5 @@ instance
     DescribeServiceIntegrationResponse
   where
   rnf DescribeServiceIntegrationResponse' {..} =
-    Prelude.rnf serviceIntegration
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf serviceIntegration `Prelude.seq`
+      Prelude.rnf httpStatus

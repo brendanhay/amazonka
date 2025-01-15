@@ -113,8 +113,8 @@ instance Prelude.Hashable DescribeQuickConnect where
 
 instance Prelude.NFData DescribeQuickConnect where
   rnf DescribeQuickConnect' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf quickConnectId
+    Prelude.rnf instanceId `Prelude.seq`
+      Prelude.rnf quickConnectId
 
 instance Data.ToHeaders DescribeQuickConnect where
   toHeaders =
@@ -180,5 +180,5 @@ describeQuickConnectResponse_httpStatus = Lens.lens (\DescribeQuickConnectRespon
 
 instance Prelude.NFData DescribeQuickConnectResponse where
   rnf DescribeQuickConnectResponse' {..} =
-    Prelude.rnf quickConnect
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf quickConnect `Prelude.seq`
+      Prelude.rnf httpStatus

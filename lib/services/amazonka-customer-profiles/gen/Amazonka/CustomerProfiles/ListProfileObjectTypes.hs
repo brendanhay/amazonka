@@ -122,9 +122,9 @@ instance Prelude.Hashable ListProfileObjectTypes where
 
 instance Prelude.NFData ListProfileObjectTypes where
   rnf ListProfileObjectTypes' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf domainName
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf domainName
 
 instance Data.ToHeaders ListProfileObjectTypes where
   toHeaders =
@@ -202,6 +202,6 @@ instance
     ListProfileObjectTypesResponse
   where
   rnf ListProfileObjectTypesResponse' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf items `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

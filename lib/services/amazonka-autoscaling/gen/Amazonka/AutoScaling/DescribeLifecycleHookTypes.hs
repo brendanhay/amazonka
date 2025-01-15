@@ -152,5 +152,5 @@ instance
     DescribeLifecycleHookTypesResponse
   where
   rnf DescribeLifecycleHookTypesResponse' {..} =
-    Prelude.rnf lifecycleHookTypes
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf lifecycleHookTypes `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -122,9 +122,9 @@ instance Prelude.Hashable ReservationPlanSettings where
 
 instance Prelude.NFData ReservationPlanSettings where
   rnf ReservationPlanSettings' {..} =
-    Prelude.rnf commitment
-      `Prelude.seq` Prelude.rnf reservedSlots
-      `Prelude.seq` Prelude.rnf renewalType
+    Prelude.rnf commitment `Prelude.seq`
+      Prelude.rnf reservedSlots `Prelude.seq`
+        Prelude.rnf renewalType
 
 instance Data.ToJSON ReservationPlanSettings where
   toJSON ReservationPlanSettings' {..} =

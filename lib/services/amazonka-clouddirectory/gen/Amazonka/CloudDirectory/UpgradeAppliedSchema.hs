@@ -140,9 +140,9 @@ instance Prelude.Hashable UpgradeAppliedSchema where
 
 instance Prelude.NFData UpgradeAppliedSchema where
   rnf UpgradeAppliedSchema' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf publishedSchemaArn
-      `Prelude.seq` Prelude.rnf directoryArn
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf publishedSchemaArn `Prelude.seq`
+        Prelude.rnf directoryArn
 
 instance Data.ToHeaders UpgradeAppliedSchema where
   toHeaders = Prelude.const Prelude.mempty
@@ -216,6 +216,6 @@ upgradeAppliedSchemaResponse_httpStatus = Lens.lens (\UpgradeAppliedSchemaRespon
 
 instance Prelude.NFData UpgradeAppliedSchemaResponse where
   rnf UpgradeAppliedSchemaResponse' {..} =
-    Prelude.rnf directoryArn
-      `Prelude.seq` Prelude.rnf upgradedSchemaArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf directoryArn `Prelude.seq`
+      Prelude.rnf upgradedSchemaArn `Prelude.seq`
+        Prelude.rnf httpStatus

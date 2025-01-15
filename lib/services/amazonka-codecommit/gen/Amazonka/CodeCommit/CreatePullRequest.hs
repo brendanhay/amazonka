@@ -164,10 +164,10 @@ instance Prelude.Hashable CreatePullRequest where
 
 instance Prelude.NFData CreatePullRequest where
   rnf CreatePullRequest' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf title
-      `Prelude.seq` Prelude.rnf targets
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf title `Prelude.seq`
+          Prelude.rnf targets
 
 instance Data.ToHeaders CreatePullRequest where
   toHeaders =
@@ -247,5 +247,5 @@ createPullRequestResponse_pullRequest = Lens.lens (\CreatePullRequestResponse' {
 
 instance Prelude.NFData CreatePullRequestResponse where
   rnf CreatePullRequestResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf pullRequest
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf pullRequest

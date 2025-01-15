@@ -120,10 +120,10 @@ instance
     ImportAssetFromSignedUrlRequestDetails
   where
   rnf ImportAssetFromSignedUrlRequestDetails' {..} =
-    Prelude.rnf assetName
-      `Prelude.seq` Prelude.rnf dataSetId
-      `Prelude.seq` Prelude.rnf md5Hash
-      `Prelude.seq` Prelude.rnf revisionId
+    Prelude.rnf assetName `Prelude.seq`
+      Prelude.rnf dataSetId `Prelude.seq`
+        Prelude.rnf md5Hash `Prelude.seq`
+          Prelude.rnf revisionId
 
 instance
   Data.ToJSON

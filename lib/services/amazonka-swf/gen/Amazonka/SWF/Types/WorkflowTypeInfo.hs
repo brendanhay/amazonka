@@ -128,8 +128,8 @@ instance Prelude.Hashable WorkflowTypeInfo where
 
 instance Prelude.NFData WorkflowTypeInfo where
   rnf WorkflowTypeInfo' {..} =
-    Prelude.rnf deprecationDate
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf workflowType
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf creationDate
+    Prelude.rnf deprecationDate `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf workflowType `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf creationDate

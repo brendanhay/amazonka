@@ -139,8 +139,8 @@ instance
   where
   rnf
     StartVpcEndpointServicePrivateDnsVerification' {..} =
-      Prelude.rnf dryRun
-        `Prelude.seq` Prelude.rnf serviceId
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf serviceId
 
 instance
   Data.ToHeaders
@@ -218,5 +218,5 @@ instance
   where
   rnf
     StartVpcEndpointServicePrivateDnsVerificationResponse' {..} =
-      Prelude.rnf returnValue
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf returnValue `Prelude.seq`
+        Prelude.rnf httpStatus

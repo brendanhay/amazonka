@@ -148,9 +148,9 @@ instance Prelude.Hashable UpdateCallAnalyticsCategory where
 
 instance Prelude.NFData UpdateCallAnalyticsCategory where
   rnf UpdateCallAnalyticsCategory' {..} =
-    Prelude.rnf inputType
-      `Prelude.seq` Prelude.rnf categoryName
-      `Prelude.seq` Prelude.rnf rules
+    Prelude.rnf inputType `Prelude.seq`
+      Prelude.rnf categoryName `Prelude.seq`
+        Prelude.rnf rules
 
 instance Data.ToHeaders UpdateCallAnalyticsCategory where
   toHeaders =
@@ -230,5 +230,5 @@ instance
     UpdateCallAnalyticsCategoryResponse
   where
   rnf UpdateCallAnalyticsCategoryResponse' {..} =
-    Prelude.rnf categoryProperties
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf categoryProperties `Prelude.seq`
+      Prelude.rnf httpStatus

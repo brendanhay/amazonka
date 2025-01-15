@@ -169,5 +169,5 @@ instance
     DeleteFleetAdvisorDatabasesResponse
   where
   rnf DeleteFleetAdvisorDatabasesResponse' {..} =
-    Prelude.rnf databaseIds
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf databaseIds `Prelude.seq`
+      Prelude.rnf httpStatus

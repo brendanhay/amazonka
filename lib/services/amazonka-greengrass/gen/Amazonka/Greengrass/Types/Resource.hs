@@ -111,9 +111,9 @@ instance Prelude.Hashable Resource where
 
 instance Prelude.NFData Resource where
   rnf Resource' {..} =
-    Prelude.rnf resourceDataContainer
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf resourceDataContainer `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf name
 
 instance Data.ToJSON Resource where
   toJSON Resource' {..} =

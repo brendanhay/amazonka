@@ -183,5 +183,5 @@ instance
     DescribeDeliveryChannelsResponse
   where
   rnf DescribeDeliveryChannelsResponse' {..} =
-    Prelude.rnf deliveryChannels
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf deliveryChannels `Prelude.seq`
+      Prelude.rnf httpStatus

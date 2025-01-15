@@ -146,11 +146,11 @@ instance Prelude.Hashable SignalDecoder where
 
 instance Prelude.NFData SignalDecoder where
   rnf SignalDecoder' {..} =
-    Prelude.rnf canSignal
-      `Prelude.seq` Prelude.rnf obdSignal
-      `Prelude.seq` Prelude.rnf fullyQualifiedName
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf interfaceId
+    Prelude.rnf canSignal `Prelude.seq`
+      Prelude.rnf obdSignal `Prelude.seq`
+        Prelude.rnf fullyQualifiedName `Prelude.seq`
+          Prelude.rnf type' `Prelude.seq`
+            Prelude.rnf interfaceId
 
 instance Data.ToJSON SignalDecoder where
   toJSON SignalDecoder' {..} =

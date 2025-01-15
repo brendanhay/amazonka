@@ -298,13 +298,13 @@ instance Prelude.Hashable DescribedUser where
 
 instance Prelude.NFData DescribedUser where
   rnf DescribedUser' {..} =
-    Prelude.rnf homeDirectory
-      `Prelude.seq` Prelude.rnf homeDirectoryMappings
-      `Prelude.seq` Prelude.rnf homeDirectoryType
-      `Prelude.seq` Prelude.rnf policy
-      `Prelude.seq` Prelude.rnf posixProfile
-      `Prelude.seq` Prelude.rnf role'
-      `Prelude.seq` Prelude.rnf sshPublicKeys
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf userName
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf homeDirectory `Prelude.seq`
+      Prelude.rnf homeDirectoryMappings `Prelude.seq`
+        Prelude.rnf homeDirectoryType `Prelude.seq`
+          Prelude.rnf policy `Prelude.seq`
+            Prelude.rnf posixProfile `Prelude.seq`
+              Prelude.rnf role' `Prelude.seq`
+                Prelude.rnf sshPublicKeys `Prelude.seq`
+                  Prelude.rnf tags `Prelude.seq`
+                    Prelude.rnf userName `Prelude.seq`
+                      Prelude.rnf arn

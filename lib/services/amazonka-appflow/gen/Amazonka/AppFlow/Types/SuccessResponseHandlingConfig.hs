@@ -88,8 +88,8 @@ instance
 
 instance Prelude.NFData SuccessResponseHandlingConfig where
   rnf SuccessResponseHandlingConfig' {..} =
-    Prelude.rnf bucketName
-      `Prelude.seq` Prelude.rnf bucketPrefix
+    Prelude.rnf bucketName `Prelude.seq`
+      Prelude.rnf bucketPrefix
 
 instance Data.ToJSON SuccessResponseHandlingConfig where
   toJSON SuccessResponseHandlingConfig' {..} =

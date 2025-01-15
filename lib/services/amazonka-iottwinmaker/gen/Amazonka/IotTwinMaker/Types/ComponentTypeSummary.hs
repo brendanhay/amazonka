@@ -150,10 +150,10 @@ instance Prelude.Hashable ComponentTypeSummary where
 
 instance Prelude.NFData ComponentTypeSummary where
   rnf ComponentTypeSummary' {..} =
-    Prelude.rnf componentTypeName
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf componentTypeId
-      `Prelude.seq` Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf updateDateTime
+    Prelude.rnf componentTypeName `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf status `Prelude.seq`
+          Prelude.rnf arn `Prelude.seq`
+            Prelude.rnf componentTypeId `Prelude.seq`
+              Prelude.rnf creationDateTime `Prelude.seq`
+                Prelude.rnf updateDateTime

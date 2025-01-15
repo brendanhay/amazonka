@@ -134,11 +134,11 @@ instance
     ReservedInstancesConfiguration
   where
   rnf ReservedInstancesConfiguration' {..} =
-    Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf instanceCount
-      `Prelude.seq` Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf platform
-      `Prelude.seq` Prelude.rnf scope
+    Prelude.rnf availabilityZone `Prelude.seq`
+      Prelude.rnf instanceCount `Prelude.seq`
+        Prelude.rnf instanceType `Prelude.seq`
+          Prelude.rnf platform `Prelude.seq`
+            Prelude.rnf scope
 
 instance Data.ToQuery ReservedInstancesConfiguration where
   toQuery ReservedInstancesConfiguration' {..} =

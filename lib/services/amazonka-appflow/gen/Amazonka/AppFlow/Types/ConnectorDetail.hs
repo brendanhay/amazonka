@@ -181,14 +181,14 @@ instance Prelude.Hashable ConnectorDetail where
 
 instance Prelude.NFData ConnectorDetail where
   rnf ConnectorDetail' {..} =
-    Prelude.rnf applicationType
-      `Prelude.seq` Prelude.rnf connectorDescription
-      `Prelude.seq` Prelude.rnf connectorLabel
-      `Prelude.seq` Prelude.rnf connectorModes
-      `Prelude.seq` Prelude.rnf connectorName
-      `Prelude.seq` Prelude.rnf connectorOwner
-      `Prelude.seq` Prelude.rnf connectorProvisioningType
-      `Prelude.seq` Prelude.rnf connectorType
-      `Prelude.seq` Prelude.rnf connectorVersion
-      `Prelude.seq` Prelude.rnf registeredAt
-      `Prelude.seq` Prelude.rnf registeredBy
+    Prelude.rnf applicationType `Prelude.seq`
+      Prelude.rnf connectorDescription `Prelude.seq`
+        Prelude.rnf connectorLabel `Prelude.seq`
+          Prelude.rnf connectorModes `Prelude.seq`
+            Prelude.rnf connectorName `Prelude.seq`
+              Prelude.rnf connectorOwner `Prelude.seq`
+                Prelude.rnf connectorProvisioningType `Prelude.seq`
+                  Prelude.rnf connectorType `Prelude.seq`
+                    Prelude.rnf connectorVersion `Prelude.seq`
+                      Prelude.rnf registeredAt `Prelude.seq`
+                        Prelude.rnf registeredBy

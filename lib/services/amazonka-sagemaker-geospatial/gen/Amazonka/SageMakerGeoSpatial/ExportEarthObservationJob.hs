@@ -155,10 +155,10 @@ instance Prelude.Hashable ExportEarthObservationJob where
 
 instance Prelude.NFData ExportEarthObservationJob where
   rnf ExportEarthObservationJob' {..} =
-    Prelude.rnf exportSourceImages
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf executionRoleArn
-      `Prelude.seq` Prelude.rnf outputConfig
+    Prelude.rnf exportSourceImages `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf executionRoleArn `Prelude.seq`
+          Prelude.rnf outputConfig
 
 instance Data.ToHeaders ExportEarthObservationJob where
   toHeaders =
@@ -303,10 +303,10 @@ instance
     ExportEarthObservationJobResponse
   where
   rnf ExportEarthObservationJobResponse' {..} =
-    Prelude.rnf exportSourceImages
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf executionRoleArn
-      `Prelude.seq` Prelude.rnf exportStatus
-      `Prelude.seq` Prelude.rnf outputConfig
+    Prelude.rnf exportSourceImages `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf arn `Prelude.seq`
+          Prelude.rnf creationTime `Prelude.seq`
+            Prelude.rnf executionRoleArn `Prelude.seq`
+              Prelude.rnf exportStatus `Prelude.seq`
+                Prelude.rnf outputConfig

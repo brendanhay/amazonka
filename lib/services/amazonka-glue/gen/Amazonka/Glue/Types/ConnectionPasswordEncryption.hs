@@ -134,8 +134,8 @@ instance
 
 instance Prelude.NFData ConnectionPasswordEncryption where
   rnf ConnectionPasswordEncryption' {..} =
-    Prelude.rnf awsKmsKeyId
-      `Prelude.seq` Prelude.rnf returnConnectionPasswordEncrypted
+    Prelude.rnf awsKmsKeyId `Prelude.seq`
+      Prelude.rnf returnConnectionPasswordEncrypted
 
 instance Data.ToJSON ConnectionPasswordEncryption where
   toJSON ConnectionPasswordEncryption' {..} =

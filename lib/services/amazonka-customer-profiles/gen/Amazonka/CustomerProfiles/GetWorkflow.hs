@@ -122,8 +122,8 @@ instance Prelude.Hashable GetWorkflow where
 
 instance Prelude.NFData GetWorkflow where
   rnf GetWorkflow' {..} =
-    Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf workflowId
+    Prelude.rnf domainName `Prelude.seq`
+      Prelude.rnf workflowId
 
 instance Data.ToHeaders GetWorkflow where
   toHeaders =
@@ -251,12 +251,12 @@ getWorkflowResponse_httpStatus = Lens.lens (\GetWorkflowResponse' {httpStatus} -
 
 instance Prelude.NFData GetWorkflowResponse where
   rnf GetWorkflowResponse' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf errorDescription
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf metrics
-      `Prelude.seq` Prelude.rnf startDate
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf workflowId
-      `Prelude.seq` Prelude.rnf workflowType
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf attributes `Prelude.seq`
+      Prelude.rnf errorDescription `Prelude.seq`
+        Prelude.rnf lastUpdatedAt `Prelude.seq`
+          Prelude.rnf metrics `Prelude.seq`
+            Prelude.rnf startDate `Prelude.seq`
+              Prelude.rnf status `Prelude.seq`
+                Prelude.rnf workflowId `Prelude.seq`
+                  Prelude.rnf workflowType `Prelude.seq`
+                    Prelude.rnf httpStatus

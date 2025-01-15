@@ -162,9 +162,9 @@ instance Prelude.Hashable CopyCommand where
 
 instance Prelude.NFData CopyCommand where
   rnf CopyCommand' {..} =
-    Prelude.rnf copyOptions
-      `Prelude.seq` Prelude.rnf dataTableColumns
-      `Prelude.seq` Prelude.rnf dataTableName
+    Prelude.rnf copyOptions `Prelude.seq`
+      Prelude.rnf dataTableColumns `Prelude.seq`
+        Prelude.rnf dataTableName
 
 instance Data.ToJSON CopyCommand where
   toJSON CopyCommand' {..} =

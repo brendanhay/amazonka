@@ -172,9 +172,9 @@ instance Prelude.Hashable TargetPlatform where
 
 instance Prelude.NFData TargetPlatform where
   rnf TargetPlatform' {..} =
-    Prelude.rnf accelerator
-      `Prelude.seq` Prelude.rnf os
-      `Prelude.seq` Prelude.rnf arch
+    Prelude.rnf accelerator `Prelude.seq`
+      Prelude.rnf os `Prelude.seq`
+        Prelude.rnf arch
 
 instance Data.ToJSON TargetPlatform where
   toJSON TargetPlatform' {..} =

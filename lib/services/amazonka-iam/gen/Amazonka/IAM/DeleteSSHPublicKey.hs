@@ -135,8 +135,8 @@ instance Prelude.Hashable DeleteSSHPublicKey where
 
 instance Prelude.NFData DeleteSSHPublicKey where
   rnf DeleteSSHPublicKey' {..} =
-    Prelude.rnf userName
-      `Prelude.seq` Prelude.rnf sSHPublicKeyId
+    Prelude.rnf userName `Prelude.seq`
+      Prelude.rnf sSHPublicKeyId
 
 instance Data.ToHeaders DeleteSSHPublicKey where
   toHeaders = Prelude.const Prelude.mempty

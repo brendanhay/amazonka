@@ -178,12 +178,12 @@ instance Core.AWSPager ListIndexes where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listIndexes_nextToken
-          Lens..~ rs
-          Lens.^? listIndexesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listIndexes_nextToken
+              Lens..~ rs
+              Lens.^? listIndexesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListIndexes where
   type AWSResponse ListIndexes = ListIndexesResponse
@@ -208,10 +208,10 @@ instance Prelude.Hashable ListIndexes where
 
 instance Prelude.NFData ListIndexes where
   rnf ListIndexes' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf regions
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf regions `Prelude.seq`
+          Prelude.rnf type'
 
 instance Data.ToHeaders ListIndexes where
   toHeaders =
@@ -302,6 +302,6 @@ listIndexesResponse_httpStatus = Lens.lens (\ListIndexesResponse' {httpStatus} -
 
 instance Prelude.NFData ListIndexesResponse where
   rnf ListIndexesResponse' {..} =
-    Prelude.rnf indexes
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf indexes `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

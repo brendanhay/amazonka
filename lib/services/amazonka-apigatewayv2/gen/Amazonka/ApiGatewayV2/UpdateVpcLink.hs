@@ -129,8 +129,8 @@ instance Prelude.Hashable UpdateVpcLink where
 
 instance Prelude.NFData UpdateVpcLink where
   rnf UpdateVpcLink' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf vpcLinkId
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf vpcLinkId
 
 instance Data.ToHeaders UpdateVpcLink where
   toHeaders =
@@ -271,13 +271,13 @@ updateVpcLinkResponse_httpStatus = Lens.lens (\UpdateVpcLinkResponse' {httpStatu
 
 instance Prelude.NFData UpdateVpcLinkResponse where
   rnf UpdateVpcLinkResponse' {..} =
-    Prelude.rnf createdDate
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf subnetIds
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf vpcLinkId
-      `Prelude.seq` Prelude.rnf vpcLinkStatus
-      `Prelude.seq` Prelude.rnf vpcLinkStatusMessage
-      `Prelude.seq` Prelude.rnf vpcLinkVersion
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf createdDate `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf securityGroupIds `Prelude.seq`
+          Prelude.rnf subnetIds `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf vpcLinkId `Prelude.seq`
+                Prelude.rnf vpcLinkStatus `Prelude.seq`
+                  Prelude.rnf vpcLinkStatusMessage `Prelude.seq`
+                    Prelude.rnf vpcLinkVersion `Prelude.seq`
+                      Prelude.rnf httpStatus

@@ -139,9 +139,9 @@ instance Prelude.Hashable CreateInvitations where
 
 instance Prelude.NFData CreateInvitations where
   rnf CreateInvitations' {..} =
-    Prelude.rnf disableEmailNotification
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf accountIds
+    Prelude.rnf disableEmailNotification `Prelude.seq`
+      Prelude.rnf message `Prelude.seq`
+        Prelude.rnf accountIds
 
 instance Data.ToHeaders CreateInvitations where
   toHeaders =
@@ -218,5 +218,5 @@ createInvitationsResponse_httpStatus = Lens.lens (\CreateInvitationsResponse' {h
 
 instance Prelude.NFData CreateInvitationsResponse where
   rnf CreateInvitationsResponse' {..} =
-    Prelude.rnf unprocessedAccounts
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf unprocessedAccounts `Prelude.seq`
+      Prelude.rnf httpStatus

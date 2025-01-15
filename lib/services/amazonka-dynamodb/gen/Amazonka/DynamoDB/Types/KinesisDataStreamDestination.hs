@@ -99,6 +99,6 @@ instance
 
 instance Prelude.NFData KinesisDataStreamDestination where
   rnf KinesisDataStreamDestination' {..} =
-    Prelude.rnf destinationStatus
-      `Prelude.seq` Prelude.rnf destinationStatusDescription
-      `Prelude.seq` Prelude.rnf streamArn
+    Prelude.rnf destinationStatus `Prelude.seq`
+      Prelude.rnf destinationStatusDescription `Prelude.seq`
+        Prelude.rnf streamArn

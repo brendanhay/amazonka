@@ -346,15 +346,15 @@ instance Prelude.Hashable RepositoryAssociation where
 
 instance Prelude.NFData RepositoryAssociation where
   rnf RepositoryAssociation' {..} =
-    Prelude.rnf associationArn
-      `Prelude.seq` Prelude.rnf associationId
-      `Prelude.seq` Prelude.rnf connectionArn
-      `Prelude.seq` Prelude.rnf createdTimeStamp
-      `Prelude.seq` Prelude.rnf kmsKeyDetails
-      `Prelude.seq` Prelude.rnf lastUpdatedTimeStamp
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf owner
-      `Prelude.seq` Prelude.rnf providerType
-      `Prelude.seq` Prelude.rnf s3RepositoryDetails
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf stateReason
+    Prelude.rnf associationArn `Prelude.seq`
+      Prelude.rnf associationId `Prelude.seq`
+        Prelude.rnf connectionArn `Prelude.seq`
+          Prelude.rnf createdTimeStamp `Prelude.seq`
+            Prelude.rnf kmsKeyDetails `Prelude.seq`
+              Prelude.rnf lastUpdatedTimeStamp `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf owner `Prelude.seq`
+                    Prelude.rnf providerType `Prelude.seq`
+                      Prelude.rnf s3RepositoryDetails `Prelude.seq`
+                        Prelude.rnf state `Prelude.seq`
+                          Prelude.rnf stateReason

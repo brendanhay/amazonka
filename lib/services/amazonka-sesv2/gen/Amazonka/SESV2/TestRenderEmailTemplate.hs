@@ -125,8 +125,8 @@ instance Prelude.Hashable TestRenderEmailTemplate where
 
 instance Prelude.NFData TestRenderEmailTemplate where
   rnf TestRenderEmailTemplate' {..} =
-    Prelude.rnf templateName
-      `Prelude.seq` Prelude.rnf templateData
+    Prelude.rnf templateName `Prelude.seq`
+      Prelude.rnf templateData
 
 instance Data.ToHeaders TestRenderEmailTemplate where
   toHeaders =
@@ -213,5 +213,5 @@ instance
     TestRenderEmailTemplateResponse
   where
   rnf TestRenderEmailTemplateResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf renderedTemplate
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf renderedTemplate

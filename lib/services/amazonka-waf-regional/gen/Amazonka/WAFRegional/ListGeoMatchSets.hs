@@ -141,8 +141,8 @@ instance Prelude.Hashable ListGeoMatchSets where
 
 instance Prelude.NFData ListGeoMatchSets where
   rnf ListGeoMatchSets' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nextMarker
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf nextMarker
 
 instance Data.ToHeaders ListGeoMatchSets where
   toHeaders =
@@ -236,6 +236,6 @@ listGeoMatchSetsResponse_httpStatus = Lens.lens (\ListGeoMatchSetsResponse' {htt
 
 instance Prelude.NFData ListGeoMatchSetsResponse where
   rnf ListGeoMatchSetsResponse' {..} =
-    Prelude.rnf geoMatchSets
-      `Prelude.seq` Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf geoMatchSets `Prelude.seq`
+      Prelude.rnf nextMarker `Prelude.seq`
+        Prelude.rnf httpStatus

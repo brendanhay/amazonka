@@ -99,12 +99,12 @@ instance Prelude.Hashable BackendConnectionErrors where
 
 instance Prelude.NFData BackendConnectionErrors where
   rnf BackendConnectionErrors' {..} =
-    Prelude.rnf connectionRefusedCount
-      `Prelude.seq` Prelude.rnf hTTPCode4XXCount
-      `Prelude.seq` Prelude.rnf hTTPCode5XXCount
-      `Prelude.seq` Prelude.rnf otherCount
-      `Prelude.seq` Prelude.rnf timeoutCount
-      `Prelude.seq` Prelude.rnf unknownHostCount
+    Prelude.rnf connectionRefusedCount `Prelude.seq`
+      Prelude.rnf hTTPCode4XXCount `Prelude.seq`
+        Prelude.rnf hTTPCode5XXCount `Prelude.seq`
+          Prelude.rnf otherCount `Prelude.seq`
+            Prelude.rnf timeoutCount `Prelude.seq`
+              Prelude.rnf unknownHostCount
 
 instance Data.ToJSON BackendConnectionErrors where
   toJSON BackendConnectionErrors' {..} =

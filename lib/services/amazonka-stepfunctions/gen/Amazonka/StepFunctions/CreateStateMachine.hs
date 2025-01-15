@@ -284,13 +284,13 @@ instance Prelude.Hashable CreateStateMachine where
 
 instance Prelude.NFData CreateStateMachine where
   rnf CreateStateMachine' {..} =
-    Prelude.rnf loggingConfiguration
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf tracingConfiguration
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf definition
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf loggingConfiguration `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf tracingConfiguration `Prelude.seq`
+          Prelude.rnf type' `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf definition `Prelude.seq`
+                Prelude.rnf roleArn
 
 instance Data.ToHeaders CreateStateMachine where
   toHeaders =
@@ -389,6 +389,6 @@ createStateMachineResponse_creationDate = Lens.lens (\CreateStateMachineResponse
 
 instance Prelude.NFData CreateStateMachineResponse where
   rnf CreateStateMachineResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf stateMachineArn
-      `Prelude.seq` Prelude.rnf creationDate
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf stateMachineArn `Prelude.seq`
+        Prelude.rnf creationDate

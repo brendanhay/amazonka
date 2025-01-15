@@ -118,12 +118,12 @@ instance Core.AWSPager DescribeRegions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeRegions_nextToken
-          Lens..~ rs
-          Lens.^? describeRegionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeRegions_nextToken
+              Lens..~ rs
+              Lens.^? describeRegionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeRegions where
   type
@@ -152,9 +152,9 @@ instance Prelude.Hashable DescribeRegions where
 
 instance Prelude.NFData DescribeRegions where
   rnf DescribeRegions' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf regionName
-      `Prelude.seq` Prelude.rnf directoryId
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf regionName `Prelude.seq`
+        Prelude.rnf directoryId
 
 instance Data.ToHeaders DescribeRegions where
   toHeaders =
@@ -246,6 +246,6 @@ describeRegionsResponse_httpStatus = Lens.lens (\DescribeRegionsResponse' {httpS
 
 instance Prelude.NFData DescribeRegionsResponse where
   rnf DescribeRegionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf regionsDescription
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf regionsDescription `Prelude.seq`
+        Prelude.rnf httpStatus

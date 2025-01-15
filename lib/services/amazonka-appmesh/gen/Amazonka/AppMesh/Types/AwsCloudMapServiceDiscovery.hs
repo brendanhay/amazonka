@@ -129,10 +129,10 @@ instance Prelude.Hashable AwsCloudMapServiceDiscovery where
 
 instance Prelude.NFData AwsCloudMapServiceDiscovery where
   rnf AwsCloudMapServiceDiscovery' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf ipPreference
-      `Prelude.seq` Prelude.rnf namespaceName
-      `Prelude.seq` Prelude.rnf serviceName
+    Prelude.rnf attributes `Prelude.seq`
+      Prelude.rnf ipPreference `Prelude.seq`
+        Prelude.rnf namespaceName `Prelude.seq`
+          Prelude.rnf serviceName
 
 instance Data.ToJSON AwsCloudMapServiceDiscovery where
   toJSON AwsCloudMapServiceDiscovery' {..} =

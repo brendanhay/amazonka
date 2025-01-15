@@ -205,5 +205,5 @@ instance
     DescribeDatasetImportJobResponse
   where
   rnf DescribeDatasetImportJobResponse' {..} =
-    Prelude.rnf datasetImportJob
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf datasetImportJob `Prelude.seq`
+      Prelude.rnf httpStatus

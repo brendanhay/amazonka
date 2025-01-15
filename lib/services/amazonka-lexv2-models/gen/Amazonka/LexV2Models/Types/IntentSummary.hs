@@ -150,10 +150,10 @@ instance Prelude.Hashable IntentSummary where
 
 instance Prelude.NFData IntentSummary where
   rnf IntentSummary' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf inputContexts
-      `Prelude.seq` Prelude.rnf intentId
-      `Prelude.seq` Prelude.rnf intentName
-      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
-      `Prelude.seq` Prelude.rnf outputContexts
-      `Prelude.seq` Prelude.rnf parentIntentSignature
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf inputContexts `Prelude.seq`
+        Prelude.rnf intentId `Prelude.seq`
+          Prelude.rnf intentName `Prelude.seq`
+            Prelude.rnf lastUpdatedDateTime `Prelude.seq`
+              Prelude.rnf outputContexts `Prelude.seq`
+                Prelude.rnf parentIntentSignature

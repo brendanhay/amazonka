@@ -273,10 +273,10 @@ instance
   where
   rnf
     DescribeNotebookInstanceLifecycleConfigResponse' {..} =
-      Prelude.rnf creationTime
-        `Prelude.seq` Prelude.rnf lastModifiedTime
-        `Prelude.seq` Prelude.rnf notebookInstanceLifecycleConfigArn
-        `Prelude.seq` Prelude.rnf notebookInstanceLifecycleConfigName
-        `Prelude.seq` Prelude.rnf onCreate
-        `Prelude.seq` Prelude.rnf onStart
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf lastModifiedTime `Prelude.seq`
+          Prelude.rnf notebookInstanceLifecycleConfigArn `Prelude.seq`
+            Prelude.rnf notebookInstanceLifecycleConfigName `Prelude.seq`
+              Prelude.rnf onCreate `Prelude.seq`
+                Prelude.rnf onStart `Prelude.seq`
+                  Prelude.rnf httpStatus

@@ -133,9 +133,9 @@ instance
     ThingGroupIndexingConfiguration
   where
   rnf ThingGroupIndexingConfiguration' {..} =
-    Prelude.rnf customFields
-      `Prelude.seq` Prelude.rnf managedFields
-      `Prelude.seq` Prelude.rnf thingGroupIndexingMode
+    Prelude.rnf customFields `Prelude.seq`
+      Prelude.rnf managedFields `Prelude.seq`
+        Prelude.rnf thingGroupIndexingMode
 
 instance Data.ToJSON ThingGroupIndexingConfiguration where
   toJSON ThingGroupIndexingConfiguration' {..} =

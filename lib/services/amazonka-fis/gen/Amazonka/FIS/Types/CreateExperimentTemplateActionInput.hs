@@ -124,11 +124,11 @@ instance
     CreateExperimentTemplateActionInput
   where
   rnf CreateExperimentTemplateActionInput' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf startAfter
-      `Prelude.seq` Prelude.rnf targets
-      `Prelude.seq` Prelude.rnf actionId
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf parameters `Prelude.seq`
+        Prelude.rnf startAfter `Prelude.seq`
+          Prelude.rnf targets `Prelude.seq`
+            Prelude.rnf actionId
 
 instance
   Data.ToJSON

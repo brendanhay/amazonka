@@ -145,8 +145,8 @@ instance Prelude.Hashable ForwardedIPConfig where
 
 instance Prelude.NFData ForwardedIPConfig where
   rnf ForwardedIPConfig' {..} =
-    Prelude.rnf headerName
-      `Prelude.seq` Prelude.rnf fallbackBehavior
+    Prelude.rnf headerName `Prelude.seq`
+      Prelude.rnf fallbackBehavior
 
 instance Data.ToJSON ForwardedIPConfig where
   toJSON ForwardedIPConfig' {..} =

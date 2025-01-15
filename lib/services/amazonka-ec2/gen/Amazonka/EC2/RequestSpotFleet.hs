@@ -153,8 +153,8 @@ instance Prelude.Hashable RequestSpotFleet where
 
 instance Prelude.NFData RequestSpotFleet where
   rnf RequestSpotFleet' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf spotFleetRequestConfig
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf spotFleetRequestConfig
 
 instance Data.ToHeaders RequestSpotFleet where
   toHeaders = Prelude.const Prelude.mempty
@@ -217,5 +217,5 @@ requestSpotFleetResponse_httpStatus = Lens.lens (\RequestSpotFleetResponse' {htt
 
 instance Prelude.NFData RequestSpotFleetResponse where
   rnf RequestSpotFleetResponse' {..} =
-    Prelude.rnf spotFleetRequestId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf spotFleetRequestId `Prelude.seq`
+      Prelude.rnf httpStatus

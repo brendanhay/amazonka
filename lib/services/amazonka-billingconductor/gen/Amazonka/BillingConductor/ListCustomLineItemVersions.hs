@@ -131,12 +131,12 @@ instance Core.AWSPager ListCustomLineItemVersions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listCustomLineItemVersions_nextToken
-          Lens..~ rs
-          Lens.^? listCustomLineItemVersionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listCustomLineItemVersions_nextToken
+              Lens..~ rs
+              Lens.^? listCustomLineItemVersionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListCustomLineItemVersions where
   type
@@ -166,10 +166,10 @@ instance Prelude.Hashable ListCustomLineItemVersions where
 
 instance Prelude.NFData ListCustomLineItemVersions where
   rnf ListCustomLineItemVersions' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf arn
 
 instance Data.ToHeaders ListCustomLineItemVersions where
   toHeaders =
@@ -256,6 +256,6 @@ instance
     ListCustomLineItemVersionsResponse
   where
   rnf ListCustomLineItemVersionsResponse' {..} =
-    Prelude.rnf customLineItemVersions
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf customLineItemVersions `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

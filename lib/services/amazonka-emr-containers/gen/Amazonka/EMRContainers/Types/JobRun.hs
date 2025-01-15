@@ -243,19 +243,19 @@ instance Prelude.Hashable JobRun where
 
 instance Prelude.NFData JobRun where
   rnf JobRun' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf configurationOverrides
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf createdBy
-      `Prelude.seq` Prelude.rnf executionRoleArn
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf finishedAt
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf jobDriver
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf releaseLabel
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf stateDetails
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf virtualClusterId
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf clientToken `Prelude.seq`
+        Prelude.rnf configurationOverrides `Prelude.seq`
+          Prelude.rnf createdAt `Prelude.seq`
+            Prelude.rnf createdBy `Prelude.seq`
+              Prelude.rnf executionRoleArn `Prelude.seq`
+                Prelude.rnf failureReason `Prelude.seq`
+                  Prelude.rnf finishedAt `Prelude.seq`
+                    Prelude.rnf id `Prelude.seq`
+                      Prelude.rnf jobDriver `Prelude.seq`
+                        Prelude.rnf name `Prelude.seq`
+                          Prelude.rnf releaseLabel `Prelude.seq`
+                            Prelude.rnf state `Prelude.seq`
+                              Prelude.rnf stateDetails `Prelude.seq`
+                                Prelude.rnf tags `Prelude.seq`
+                                  Prelude.rnf virtualClusterId

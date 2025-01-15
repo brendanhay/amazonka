@@ -324,12 +324,12 @@ instance Core.AWSPager FilterLogEvents where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& filterLogEvents_nextToken
-          Lens..~ rs
-          Lens.^? filterLogEventsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& filterLogEvents_nextToken
+              Lens..~ rs
+              Lens.^? filterLogEventsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest FilterLogEvents where
   type
@@ -367,17 +367,17 @@ instance Prelude.Hashable FilterLogEvents where
 
 instance Prelude.NFData FilterLogEvents where
   rnf FilterLogEvents' {..} =
-    Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf filterPattern
-      `Prelude.seq` Prelude.rnf interleaved
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf logGroupIdentifier
-      `Prelude.seq` Prelude.rnf logStreamNamePrefix
-      `Prelude.seq` Prelude.rnf logStreamNames
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf unmask
-      `Prelude.seq` Prelude.rnf logGroupName
+    Prelude.rnf endTime `Prelude.seq`
+      Prelude.rnf filterPattern `Prelude.seq`
+        Prelude.rnf interleaved `Prelude.seq`
+          Prelude.rnf limit `Prelude.seq`
+            Prelude.rnf logGroupIdentifier `Prelude.seq`
+              Prelude.rnf logStreamNamePrefix `Prelude.seq`
+                Prelude.rnf logStreamNames `Prelude.seq`
+                  Prelude.rnf nextToken `Prelude.seq`
+                    Prelude.rnf startTime `Prelude.seq`
+                      Prelude.rnf unmask `Prelude.seq`
+                        Prelude.rnf logGroupName
 
 instance Data.ToHeaders FilterLogEvents where
   toHeaders =
@@ -494,7 +494,7 @@ filterLogEventsResponse_httpStatus = Lens.lens (\FilterLogEventsResponse' {httpS
 
 instance Prelude.NFData FilterLogEventsResponse where
   rnf FilterLogEventsResponse' {..} =
-    Prelude.rnf events
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf searchedLogStreams
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf events `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf searchedLogStreams `Prelude.seq`
+          Prelude.rnf httpStatus

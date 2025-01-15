@@ -204,14 +204,14 @@ instance Prelude.Hashable UpdateBotAlias where
 
 instance Prelude.NFData UpdateBotAlias where
   rnf UpdateBotAlias' {..} =
-    Prelude.rnf botAliasLocaleSettings
-      `Prelude.seq` Prelude.rnf botVersion
-      `Prelude.seq` Prelude.rnf conversationLogSettings
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf sentimentAnalysisSettings
-      `Prelude.seq` Prelude.rnf botAliasId
-      `Prelude.seq` Prelude.rnf botAliasName
-      `Prelude.seq` Prelude.rnf botId
+    Prelude.rnf botAliasLocaleSettings `Prelude.seq`
+      Prelude.rnf botVersion `Prelude.seq`
+        Prelude.rnf conversationLogSettings `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf sentimentAnalysisSettings `Prelude.seq`
+              Prelude.rnf botAliasId `Prelude.seq`
+                Prelude.rnf botAliasName `Prelude.seq`
+                  Prelude.rnf botId
 
 instance Data.ToHeaders UpdateBotAlias where
   toHeaders =
@@ -389,15 +389,15 @@ updateBotAliasResponse_httpStatus = Lens.lens (\UpdateBotAliasResponse' {httpSta
 
 instance Prelude.NFData UpdateBotAliasResponse where
   rnf UpdateBotAliasResponse' {..} =
-    Prelude.rnf botAliasId
-      `Prelude.seq` Prelude.rnf botAliasLocaleSettings
-      `Prelude.seq` Prelude.rnf botAliasName
-      `Prelude.seq` Prelude.rnf botAliasStatus
-      `Prelude.seq` Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf botVersion
-      `Prelude.seq` Prelude.rnf conversationLogSettings
-      `Prelude.seq` Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
-      `Prelude.seq` Prelude.rnf sentimentAnalysisSettings
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf botAliasId `Prelude.seq`
+      Prelude.rnf botAliasLocaleSettings `Prelude.seq`
+        Prelude.rnf botAliasName `Prelude.seq`
+          Prelude.rnf botAliasStatus `Prelude.seq`
+            Prelude.rnf botId `Prelude.seq`
+              Prelude.rnf botVersion `Prelude.seq`
+                Prelude.rnf conversationLogSettings `Prelude.seq`
+                  Prelude.rnf creationDateTime `Prelude.seq`
+                    Prelude.rnf description `Prelude.seq`
+                      Prelude.rnf lastUpdatedDateTime `Prelude.seq`
+                        Prelude.rnf sentimentAnalysisSettings `Prelude.seq`
+                          Prelude.rnf httpStatus

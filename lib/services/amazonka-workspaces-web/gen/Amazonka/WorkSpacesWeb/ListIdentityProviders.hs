@@ -128,9 +128,9 @@ instance Prelude.Hashable ListIdentityProviders where
 
 instance Prelude.NFData ListIdentityProviders where
   rnf ListIdentityProviders' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf portalArn
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf portalArn
 
 instance Data.ToHeaders ListIdentityProviders where
   toHeaders =
@@ -211,6 +211,6 @@ listIdentityProvidersResponse_httpStatus = Lens.lens (\ListIdentityProvidersResp
 
 instance Prelude.NFData ListIdentityProvidersResponse where
   rnf ListIdentityProvidersResponse' {..} =
-    Prelude.rnf identityProviders
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf identityProviders `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

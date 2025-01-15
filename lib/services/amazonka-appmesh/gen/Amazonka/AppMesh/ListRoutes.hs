@@ -170,12 +170,12 @@ instance Core.AWSPager ListRoutes where
     | Core.stop (rs Lens.^. listRoutesResponse_routes) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listRoutes_nextToken
-          Lens..~ rs
-          Lens.^? listRoutesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listRoutes_nextToken
+              Lens..~ rs
+              Lens.^? listRoutesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListRoutes where
   type AWSResponse ListRoutes = ListRoutesResponse
@@ -201,11 +201,11 @@ instance Prelude.Hashable ListRoutes where
 
 instance Prelude.NFData ListRoutes where
   rnf ListRoutes' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf meshOwner
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf meshName
-      `Prelude.seq` Prelude.rnf virtualRouterName
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf meshOwner `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf meshName `Prelude.seq`
+            Prelude.rnf virtualRouterName
 
 instance Data.ToHeaders ListRoutes where
   toHeaders =
@@ -299,6 +299,6 @@ listRoutesResponse_routes = Lens.lens (\ListRoutesResponse' {routes} -> routes) 
 
 instance Prelude.NFData ListRoutesResponse where
   rnf ListRoutesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf routes
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf routes

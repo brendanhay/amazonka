@@ -196,11 +196,11 @@ instance Prelude.Hashable CreateWhatIfForecastExport where
 
 instance Prelude.NFData CreateWhatIfForecastExport where
   rnf CreateWhatIfForecastExport' {..} =
-    Prelude.rnf format
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf whatIfForecastExportName
-      `Prelude.seq` Prelude.rnf whatIfForecastArns
-      `Prelude.seq` Prelude.rnf destination
+    Prelude.rnf format `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf whatIfForecastExportName `Prelude.seq`
+          Prelude.rnf whatIfForecastArns `Prelude.seq`
+            Prelude.rnf destination
 
 instance Data.ToHeaders CreateWhatIfForecastExport where
   toHeaders =
@@ -283,5 +283,5 @@ instance
     CreateWhatIfForecastExportResponse
   where
   rnf CreateWhatIfForecastExportResponse' {..} =
-    Prelude.rnf whatIfForecastExportArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf whatIfForecastExportArn `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -127,8 +127,8 @@ instance Prelude.Hashable AlgorithmSummary where
 
 instance Prelude.NFData AlgorithmSummary where
   rnf AlgorithmSummary' {..} =
-    Prelude.rnf algorithmDescription
-      `Prelude.seq` Prelude.rnf algorithmName
-      `Prelude.seq` Prelude.rnf algorithmArn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf algorithmStatus
+    Prelude.rnf algorithmDescription `Prelude.seq`
+      Prelude.rnf algorithmName `Prelude.seq`
+        Prelude.rnf algorithmArn `Prelude.seq`
+          Prelude.rnf creationTime `Prelude.seq`
+            Prelude.rnf algorithmStatus

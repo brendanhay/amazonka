@@ -91,6 +91,6 @@ instance Prelude.Hashable Alias where
 
 instance Prelude.NFData Alias where
   rnf Alias' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf names
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf names `Prelude.seq`
+        Prelude.rnf type'

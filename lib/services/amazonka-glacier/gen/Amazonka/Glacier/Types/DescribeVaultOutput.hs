@@ -149,9 +149,9 @@ instance Prelude.Hashable DescribeVaultOutput where
 
 instance Prelude.NFData DescribeVaultOutput where
   rnf DescribeVaultOutput' {..} =
-    Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf lastInventoryDate
-      `Prelude.seq` Prelude.rnf numberOfArchives
-      `Prelude.seq` Prelude.rnf sizeInBytes
-      `Prelude.seq` Prelude.rnf vaultARN
-      `Prelude.seq` Prelude.rnf vaultName
+    Prelude.rnf creationDate `Prelude.seq`
+      Prelude.rnf lastInventoryDate `Prelude.seq`
+        Prelude.rnf numberOfArchives `Prelude.seq`
+          Prelude.rnf sizeInBytes `Prelude.seq`
+            Prelude.rnf vaultARN `Prelude.seq`
+              Prelude.rnf vaultName

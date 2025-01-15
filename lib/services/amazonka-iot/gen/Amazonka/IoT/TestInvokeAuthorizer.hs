@@ -173,12 +173,12 @@ instance Prelude.Hashable TestInvokeAuthorizer where
 
 instance Prelude.NFData TestInvokeAuthorizer where
   rnf TestInvokeAuthorizer' {..} =
-    Prelude.rnf httpContext
-      `Prelude.seq` Prelude.rnf mqttContext
-      `Prelude.seq` Prelude.rnf tlsContext
-      `Prelude.seq` Prelude.rnf token
-      `Prelude.seq` Prelude.rnf tokenSignature
-      `Prelude.seq` Prelude.rnf authorizerName
+    Prelude.rnf httpContext `Prelude.seq`
+      Prelude.rnf mqttContext `Prelude.seq`
+        Prelude.rnf tlsContext `Prelude.seq`
+          Prelude.rnf token `Prelude.seq`
+            Prelude.rnf tokenSignature `Prelude.seq`
+              Prelude.rnf authorizerName
 
 instance Data.ToHeaders TestInvokeAuthorizer where
   toHeaders = Prelude.const Prelude.mempty
@@ -284,9 +284,9 @@ testInvokeAuthorizerResponse_httpStatus = Lens.lens (\TestInvokeAuthorizerRespon
 
 instance Prelude.NFData TestInvokeAuthorizerResponse where
   rnf TestInvokeAuthorizerResponse' {..} =
-    Prelude.rnf disconnectAfterInSeconds
-      `Prelude.seq` Prelude.rnf isAuthenticated
-      `Prelude.seq` Prelude.rnf policyDocuments
-      `Prelude.seq` Prelude.rnf principalId
-      `Prelude.seq` Prelude.rnf refreshAfterInSeconds
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf disconnectAfterInSeconds `Prelude.seq`
+      Prelude.rnf isAuthenticated `Prelude.seq`
+        Prelude.rnf policyDocuments `Prelude.seq`
+          Prelude.rnf principalId `Prelude.seq`
+            Prelude.rnf refreshAfterInSeconds `Prelude.seq`
+              Prelude.rnf httpStatus

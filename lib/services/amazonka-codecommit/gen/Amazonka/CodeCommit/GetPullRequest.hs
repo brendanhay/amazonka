@@ -170,5 +170,5 @@ getPullRequestResponse_pullRequest = Lens.lens (\GetPullRequestResponse' {pullRe
 
 instance Prelude.NFData GetPullRequestResponse where
   rnf GetPullRequestResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf pullRequest
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf pullRequest

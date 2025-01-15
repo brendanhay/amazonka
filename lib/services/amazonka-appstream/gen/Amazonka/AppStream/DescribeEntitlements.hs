@@ -135,10 +135,10 @@ instance Prelude.Hashable DescribeEntitlements where
 
 instance Prelude.NFData DescribeEntitlements where
   rnf DescribeEntitlements' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf stackName
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf stackName
 
 instance Data.ToHeaders DescribeEntitlements where
   toHeaders =
@@ -225,6 +225,6 @@ describeEntitlementsResponse_httpStatus = Lens.lens (\DescribeEntitlementsRespon
 
 instance Prelude.NFData DescribeEntitlementsResponse where
   rnf DescribeEntitlementsResponse' {..} =
-    Prelude.rnf entitlements
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf entitlements `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

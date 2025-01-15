@@ -81,5 +81,5 @@ instance Prelude.Hashable TargetResourceTypeSummary where
 
 instance Prelude.NFData TargetResourceTypeSummary where
   rnf TargetResourceTypeSummary' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf resourceType
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf resourceType

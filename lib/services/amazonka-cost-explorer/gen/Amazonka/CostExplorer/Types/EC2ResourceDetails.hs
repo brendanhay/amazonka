@@ -167,12 +167,12 @@ instance Prelude.Hashable EC2ResourceDetails where
 
 instance Prelude.NFData EC2ResourceDetails where
   rnf EC2ResourceDetails' {..} =
-    Prelude.rnf hourlyOnDemandRate
-      `Prelude.seq` Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf memory
-      `Prelude.seq` Prelude.rnf networkPerformance
-      `Prelude.seq` Prelude.rnf platform
-      `Prelude.seq` Prelude.rnf region
-      `Prelude.seq` Prelude.rnf sku
-      `Prelude.seq` Prelude.rnf storage
-      `Prelude.seq` Prelude.rnf vcpu
+    Prelude.rnf hourlyOnDemandRate `Prelude.seq`
+      Prelude.rnf instanceType `Prelude.seq`
+        Prelude.rnf memory `Prelude.seq`
+          Prelude.rnf networkPerformance `Prelude.seq`
+            Prelude.rnf platform `Prelude.seq`
+              Prelude.rnf region `Prelude.seq`
+                Prelude.rnf sku `Prelude.seq`
+                  Prelude.rnf storage `Prelude.seq`
+                    Prelude.rnf vcpu

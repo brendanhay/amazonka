@@ -165,12 +165,12 @@ instance Prelude.Hashable UpdateTable where
 
 instance Prelude.NFData UpdateTable where
   rnf UpdateTable' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf skipArchive
-      `Prelude.seq` Prelude.rnf transactionId
-      `Prelude.seq` Prelude.rnf versionId
-      `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf tableInput
+    Prelude.rnf catalogId `Prelude.seq`
+      Prelude.rnf skipArchive `Prelude.seq`
+        Prelude.rnf transactionId `Prelude.seq`
+          Prelude.rnf versionId `Prelude.seq`
+            Prelude.rnf databaseName `Prelude.seq`
+              Prelude.rnf tableInput
 
 instance Data.ToHeaders UpdateTable where
   toHeaders =

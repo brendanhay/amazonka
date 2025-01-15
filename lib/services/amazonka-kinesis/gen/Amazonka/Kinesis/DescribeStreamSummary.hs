@@ -117,8 +117,8 @@ instance Prelude.Hashable DescribeStreamSummary where
 
 instance Prelude.NFData DescribeStreamSummary where
   rnf DescribeStreamSummary' {..} =
-    Prelude.rnf streamARN
-      `Prelude.seq` Prelude.rnf streamName
+    Prelude.rnf streamARN `Prelude.seq`
+      Prelude.rnf streamName
 
 instance Data.ToHeaders DescribeStreamSummary where
   toHeaders =
@@ -196,5 +196,5 @@ describeStreamSummaryResponse_streamDescriptionSummary = Lens.lens (\DescribeStr
 
 instance Prelude.NFData DescribeStreamSummaryResponse where
   rnf DescribeStreamSummaryResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf streamDescriptionSummary
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf streamDescriptionSummary

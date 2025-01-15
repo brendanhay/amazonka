@@ -128,8 +128,8 @@ instance Prelude.Hashable DisassociateFileSystem where
 
 instance Prelude.NFData DisassociateFileSystem where
   rnf DisassociateFileSystem' {..} =
-    Prelude.rnf forceDelete
-      `Prelude.seq` Prelude.rnf fileSystemAssociationARN
+    Prelude.rnf forceDelete `Prelude.seq`
+      Prelude.rnf fileSystemAssociationARN
 
 instance Data.ToHeaders DisassociateFileSystem where
   toHeaders =
@@ -208,5 +208,5 @@ instance
     DisassociateFileSystemResponse
   where
   rnf DisassociateFileSystemResponse' {..} =
-    Prelude.rnf fileSystemAssociationARN
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf fileSystemAssociationARN `Prelude.seq`
+      Prelude.rnf httpStatus

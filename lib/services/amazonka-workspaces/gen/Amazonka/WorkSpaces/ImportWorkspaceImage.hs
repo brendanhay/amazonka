@@ -228,12 +228,12 @@ instance Prelude.Hashable ImportWorkspaceImage where
 
 instance Prelude.NFData ImportWorkspaceImage where
   rnf ImportWorkspaceImage' {..} =
-    Prelude.rnf applications
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf ec2ImageId
-      `Prelude.seq` Prelude.rnf ingestionProcess
-      `Prelude.seq` Prelude.rnf imageName
-      `Prelude.seq` Prelude.rnf imageDescription
+    Prelude.rnf applications `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf ec2ImageId `Prelude.seq`
+          Prelude.rnf ingestionProcess `Prelude.seq`
+            Prelude.rnf imageName `Prelude.seq`
+              Prelude.rnf imageDescription
 
 instance Data.ToHeaders ImportWorkspaceImage where
   toHeaders =
@@ -312,5 +312,5 @@ importWorkspaceImageResponse_httpStatus = Lens.lens (\ImportWorkspaceImageRespon
 
 instance Prelude.NFData ImportWorkspaceImageResponse where
   rnf ImportWorkspaceImageResponse' {..} =
-    Prelude.rnf imageId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf imageId `Prelude.seq`
+      Prelude.rnf httpStatus

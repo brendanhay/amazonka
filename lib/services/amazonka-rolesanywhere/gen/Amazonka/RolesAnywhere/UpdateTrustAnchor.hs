@@ -123,9 +123,9 @@ instance Prelude.Hashable UpdateTrustAnchor where
 
 instance Prelude.NFData UpdateTrustAnchor where
   rnf UpdateTrustAnchor' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf trustAnchorId
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf source `Prelude.seq`
+        Prelude.rnf trustAnchorId
 
 instance Data.ToHeaders UpdateTrustAnchor where
   toHeaders =

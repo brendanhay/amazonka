@@ -89,5 +89,5 @@ instance
 
 instance Prelude.NFData ApacheKafkaClusterDescription where
   rnf ApacheKafkaClusterDescription' {..} =
-    Prelude.rnf bootstrapServers
-      `Prelude.seq` Prelude.rnf vpc
+    Prelude.rnf bootstrapServers `Prelude.seq`
+      Prelude.rnf vpc

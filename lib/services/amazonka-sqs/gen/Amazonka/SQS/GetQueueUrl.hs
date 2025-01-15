@@ -133,8 +133,8 @@ instance Prelude.Hashable GetQueueUrl where
 
 instance Prelude.NFData GetQueueUrl where
   rnf GetQueueUrl' {..} =
-    Prelude.rnf queueOwnerAWSAccountId
-      `Prelude.seq` Prelude.rnf queueName
+    Prelude.rnf queueOwnerAWSAccountId `Prelude.seq`
+      Prelude.rnf queueName
 
 instance Data.ToHeaders GetQueueUrl where
   toHeaders = Prelude.const Prelude.mempty
@@ -200,5 +200,5 @@ getQueueUrlResponse_queueUrl = Lens.lens (\GetQueueUrlResponse' {queueUrl} -> qu
 
 instance Prelude.NFData GetQueueUrlResponse where
   rnf GetQueueUrlResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf queueUrl
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf queueUrl

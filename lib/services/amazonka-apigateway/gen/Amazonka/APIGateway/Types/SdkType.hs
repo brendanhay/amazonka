@@ -106,7 +106,7 @@ instance Prelude.Hashable SdkType where
 
 instance Prelude.NFData SdkType where
   rnf SdkType' {..} =
-    Prelude.rnf configurationProperties
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf friendlyName
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf configurationProperties `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf friendlyName `Prelude.seq`
+          Prelude.rnf id

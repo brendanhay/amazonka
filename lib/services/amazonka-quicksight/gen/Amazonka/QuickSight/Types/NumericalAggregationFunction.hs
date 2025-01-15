@@ -161,8 +161,8 @@ instance
 
 instance Prelude.NFData NumericalAggregationFunction where
   rnf NumericalAggregationFunction' {..} =
-    Prelude.rnf percentileAggregation
-      `Prelude.seq` Prelude.rnf simpleNumericalAggregation
+    Prelude.rnf percentileAggregation `Prelude.seq`
+      Prelude.rnf simpleNumericalAggregation
 
 instance Data.ToJSON NumericalAggregationFunction where
   toJSON NumericalAggregationFunction' {..} =

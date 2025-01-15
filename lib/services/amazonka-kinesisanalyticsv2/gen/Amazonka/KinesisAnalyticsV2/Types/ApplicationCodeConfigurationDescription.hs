@@ -98,5 +98,5 @@ instance
     ApplicationCodeConfigurationDescription
   where
   rnf ApplicationCodeConfigurationDescription' {..} =
-    Prelude.rnf codeContentDescription
-      `Prelude.seq` Prelude.rnf codeContentType
+    Prelude.rnf codeContentDescription `Prelude.seq`
+      Prelude.rnf codeContentType

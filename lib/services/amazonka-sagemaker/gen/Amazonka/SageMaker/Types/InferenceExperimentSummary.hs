@@ -203,13 +203,13 @@ instance Prelude.Hashable InferenceExperimentSummary where
 
 instance Prelude.NFData InferenceExperimentSummary where
   rnf InferenceExperimentSummary' {..} =
-    Prelude.rnf completionTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf schedule
-      `Prelude.seq` Prelude.rnf statusReason
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf lastModifiedTime
+    Prelude.rnf completionTime `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf roleArn `Prelude.seq`
+          Prelude.rnf schedule `Prelude.seq`
+            Prelude.rnf statusReason `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf type' `Prelude.seq`
+                  Prelude.rnf status `Prelude.seq`
+                    Prelude.rnf creationTime `Prelude.seq`
+                      Prelude.rnf lastModifiedTime

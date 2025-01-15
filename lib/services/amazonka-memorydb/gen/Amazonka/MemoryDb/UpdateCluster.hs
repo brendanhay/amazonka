@@ -332,20 +332,20 @@ instance Prelude.Hashable UpdateCluster where
 
 instance Prelude.NFData UpdateCluster where
   rnf UpdateCluster' {..} =
-    Prelude.rnf aCLName
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf engineVersion
-      `Prelude.seq` Prelude.rnf maintenanceWindow
-      `Prelude.seq` Prelude.rnf nodeType
-      `Prelude.seq` Prelude.rnf parameterGroupName
-      `Prelude.seq` Prelude.rnf replicaConfiguration
-      `Prelude.seq` Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf shardConfiguration
-      `Prelude.seq` Prelude.rnf snapshotRetentionLimit
-      `Prelude.seq` Prelude.rnf snapshotWindow
-      `Prelude.seq` Prelude.rnf snsTopicArn
-      `Prelude.seq` Prelude.rnf snsTopicStatus
-      `Prelude.seq` Prelude.rnf clusterName
+    Prelude.rnf aCLName `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf engineVersion `Prelude.seq`
+          Prelude.rnf maintenanceWindow `Prelude.seq`
+            Prelude.rnf nodeType `Prelude.seq`
+              Prelude.rnf parameterGroupName `Prelude.seq`
+                Prelude.rnf replicaConfiguration `Prelude.seq`
+                  Prelude.rnf securityGroupIds `Prelude.seq`
+                    Prelude.rnf shardConfiguration `Prelude.seq`
+                      Prelude.rnf snapshotRetentionLimit `Prelude.seq`
+                        Prelude.rnf snapshotWindow `Prelude.seq`
+                          Prelude.rnf snsTopicArn `Prelude.seq`
+                            Prelude.rnf snsTopicStatus `Prelude.seq`
+                              Prelude.rnf clusterName
 
 instance Data.ToHeaders UpdateCluster where
   toHeaders =
@@ -437,5 +437,5 @@ updateClusterResponse_httpStatus = Lens.lens (\UpdateClusterResponse' {httpStatu
 
 instance Prelude.NFData UpdateClusterResponse where
   rnf UpdateClusterResponse' {..} =
-    Prelude.rnf cluster
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf cluster `Prelude.seq`
+      Prelude.rnf httpStatus

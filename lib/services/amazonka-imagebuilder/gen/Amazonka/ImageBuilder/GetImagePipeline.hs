@@ -173,6 +173,6 @@ getImagePipelineResponse_httpStatus = Lens.lens (\GetImagePipelineResponse' {htt
 
 instance Prelude.NFData GetImagePipelineResponse where
   rnf GetImagePipelineResponse' {..} =
-    Prelude.rnf imagePipeline
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf imagePipeline `Prelude.seq`
+      Prelude.rnf requestId `Prelude.seq`
+        Prelude.rnf httpStatus

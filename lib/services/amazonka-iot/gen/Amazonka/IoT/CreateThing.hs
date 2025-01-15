@@ -166,10 +166,10 @@ instance Prelude.Hashable CreateThing where
 
 instance Prelude.NFData CreateThing where
   rnf CreateThing' {..} =
-    Prelude.rnf attributePayload
-      `Prelude.seq` Prelude.rnf billingGroupName
-      `Prelude.seq` Prelude.rnf thingTypeName
-      `Prelude.seq` Prelude.rnf thingName
+    Prelude.rnf attributePayload `Prelude.seq`
+      Prelude.rnf billingGroupName `Prelude.seq`
+        Prelude.rnf thingTypeName `Prelude.seq`
+          Prelude.rnf thingName
 
 instance Data.ToHeaders CreateThing where
   toHeaders = Prelude.const Prelude.mempty
@@ -253,7 +253,7 @@ createThingResponse_httpStatus = Lens.lens (\CreateThingResponse' {httpStatus} -
 
 instance Prelude.NFData CreateThingResponse where
   rnf CreateThingResponse' {..} =
-    Prelude.rnf thingArn
-      `Prelude.seq` Prelude.rnf thingId
-      `Prelude.seq` Prelude.rnf thingName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf thingArn `Prelude.seq`
+      Prelude.rnf thingId `Prelude.seq`
+        Prelude.rnf thingName `Prelude.seq`
+          Prelude.rnf httpStatus

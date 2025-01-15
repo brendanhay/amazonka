@@ -110,7 +110,7 @@ instance Prelude.Hashable SubnetGroup where
 
 instance Prelude.NFData SubnetGroup where
   rnf SubnetGroup' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf subnetGroupName
-      `Prelude.seq` Prelude.rnf subnets
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf subnetGroupName `Prelude.seq`
+        Prelude.rnf subnets `Prelude.seq`
+          Prelude.rnf vpcId

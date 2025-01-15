@@ -134,10 +134,10 @@ instance Prelude.Hashable UpdatePipelineExecution where
 
 instance Prelude.NFData UpdatePipelineExecution where
   rnf UpdatePipelineExecution' {..} =
-    Prelude.rnf parallelismConfiguration
-      `Prelude.seq` Prelude.rnf pipelineExecutionDescription
-      `Prelude.seq` Prelude.rnf pipelineExecutionDisplayName
-      `Prelude.seq` Prelude.rnf pipelineExecutionArn
+    Prelude.rnf parallelismConfiguration `Prelude.seq`
+      Prelude.rnf pipelineExecutionDescription `Prelude.seq`
+        Prelude.rnf pipelineExecutionDisplayName `Prelude.seq`
+          Prelude.rnf pipelineExecutionArn
 
 instance Data.ToHeaders UpdatePipelineExecution where
   toHeaders =
@@ -221,5 +221,5 @@ instance
     UpdatePipelineExecutionResponse
   where
   rnf UpdatePipelineExecutionResponse' {..} =
-    Prelude.rnf pipelineExecutionArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf pipelineExecutionArn `Prelude.seq`
+      Prelude.rnf httpStatus

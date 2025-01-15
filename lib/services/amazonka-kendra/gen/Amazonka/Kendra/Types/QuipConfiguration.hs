@@ -318,18 +318,18 @@ instance Prelude.Hashable QuipConfiguration where
 
 instance Prelude.NFData QuipConfiguration where
   rnf QuipConfiguration' {..} =
-    Prelude.rnf attachmentFieldMappings
-      `Prelude.seq` Prelude.rnf crawlAttachments
-      `Prelude.seq` Prelude.rnf crawlChatRooms
-      `Prelude.seq` Prelude.rnf crawlFileComments
-      `Prelude.seq` Prelude.rnf exclusionPatterns
-      `Prelude.seq` Prelude.rnf folderIds
-      `Prelude.seq` Prelude.rnf inclusionPatterns
-      `Prelude.seq` Prelude.rnf messageFieldMappings
-      `Prelude.seq` Prelude.rnf threadFieldMappings
-      `Prelude.seq` Prelude.rnf vpcConfiguration
-      `Prelude.seq` Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf secretArn
+    Prelude.rnf attachmentFieldMappings `Prelude.seq`
+      Prelude.rnf crawlAttachments `Prelude.seq`
+        Prelude.rnf crawlChatRooms `Prelude.seq`
+          Prelude.rnf crawlFileComments `Prelude.seq`
+            Prelude.rnf exclusionPatterns `Prelude.seq`
+              Prelude.rnf folderIds `Prelude.seq`
+                Prelude.rnf inclusionPatterns `Prelude.seq`
+                  Prelude.rnf messageFieldMappings `Prelude.seq`
+                    Prelude.rnf threadFieldMappings `Prelude.seq`
+                      Prelude.rnf vpcConfiguration `Prelude.seq`
+                        Prelude.rnf domain `Prelude.seq`
+                          Prelude.rnf secretArn
 
 instance Data.ToJSON QuipConfiguration where
   toJSON QuipConfiguration' {..} =

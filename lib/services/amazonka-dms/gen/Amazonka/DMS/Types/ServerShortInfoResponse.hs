@@ -92,6 +92,6 @@ instance Prelude.Hashable ServerShortInfoResponse where
 
 instance Prelude.NFData ServerShortInfoResponse where
   rnf ServerShortInfoResponse' {..} =
-    Prelude.rnf ipAddress
-      `Prelude.seq` Prelude.rnf serverId
-      `Prelude.seq` Prelude.rnf serverName
+    Prelude.rnf ipAddress `Prelude.seq`
+      Prelude.rnf serverId `Prelude.seq`
+        Prelude.rnf serverName

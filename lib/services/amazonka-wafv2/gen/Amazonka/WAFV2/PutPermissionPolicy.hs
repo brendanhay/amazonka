@@ -184,8 +184,8 @@ instance Prelude.Hashable PutPermissionPolicy where
 
 instance Prelude.NFData PutPermissionPolicy where
   rnf PutPermissionPolicy' {..} =
-    Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf policy
+    Prelude.rnf resourceArn `Prelude.seq`
+      Prelude.rnf policy
 
 instance Data.ToHeaders PutPermissionPolicy where
   toHeaders =

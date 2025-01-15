@@ -173,12 +173,12 @@ instance Core.AWSPager ListSigningCertificates where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listSigningCertificates_marker
-          Lens..~ rs
-          Lens.^? listSigningCertificatesResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listSigningCertificates_marker
+              Lens..~ rs
+              Lens.^? listSigningCertificatesResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSigningCertificates where
   type
@@ -194,9 +194,7 @@ instance Core.AWSRequest ListSigningCertificates where
             Prelude.<$> (x Data..@? "IsTruncated")
             Prelude.<*> (x Data..@? "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x
-                            Data..@? "Certificates"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "Certificates" Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLList "member"
                         )
       )
@@ -210,9 +208,9 @@ instance Prelude.Hashable ListSigningCertificates where
 
 instance Prelude.NFData ListSigningCertificates where
   rnf ListSigningCertificates' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxItems
-      `Prelude.seq` Prelude.rnf userName
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf maxItems `Prelude.seq`
+        Prelude.rnf userName
 
 instance Data.ToHeaders ListSigningCertificates where
   toHeaders = Prelude.const Prelude.mempty
@@ -320,7 +318,7 @@ instance
     ListSigningCertificatesResponse
   where
   rnf ListSigningCertificatesResponse' {..} =
-    Prelude.rnf isTruncated
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf certificates
+    Prelude.rnf isTruncated `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf httpStatus `Prelude.seq`
+          Prelude.rnf certificates

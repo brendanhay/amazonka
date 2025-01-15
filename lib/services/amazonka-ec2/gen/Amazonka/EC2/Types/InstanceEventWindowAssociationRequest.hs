@@ -102,9 +102,9 @@ instance
     InstanceEventWindowAssociationRequest
   where
   rnf InstanceEventWindowAssociationRequest' {..} =
-    Prelude.rnf dedicatedHostIds
-      `Prelude.seq` Prelude.rnf instanceIds
-      `Prelude.seq` Prelude.rnf instanceTags
+    Prelude.rnf dedicatedHostIds `Prelude.seq`
+      Prelude.rnf instanceIds `Prelude.seq`
+        Prelude.rnf instanceTags
 
 instance
   Data.ToQuery

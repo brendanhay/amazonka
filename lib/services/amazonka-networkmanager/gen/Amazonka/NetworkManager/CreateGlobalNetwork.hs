@@ -112,8 +112,8 @@ instance Prelude.Hashable CreateGlobalNetwork where
 
 instance Prelude.NFData CreateGlobalNetwork where
   rnf CreateGlobalNetwork' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf tags
 
 instance Data.ToHeaders CreateGlobalNetwork where
   toHeaders =
@@ -182,5 +182,5 @@ createGlobalNetworkResponse_httpStatus = Lens.lens (\CreateGlobalNetworkResponse
 
 instance Prelude.NFData CreateGlobalNetworkResponse where
   rnf CreateGlobalNetworkResponse' {..} =
-    Prelude.rnf globalNetwork
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf globalNetwork `Prelude.seq`
+      Prelude.rnf httpStatus

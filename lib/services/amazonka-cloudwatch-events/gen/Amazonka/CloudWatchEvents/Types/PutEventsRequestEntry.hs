@@ -180,13 +180,13 @@ instance Prelude.Hashable PutEventsRequestEntry where
 
 instance Prelude.NFData PutEventsRequestEntry where
   rnf PutEventsRequestEntry' {..} =
-    Prelude.rnf detail
-      `Prelude.seq` Prelude.rnf detailType
-      `Prelude.seq` Prelude.rnf eventBusName
-      `Prelude.seq` Prelude.rnf resources
-      `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf time
-      `Prelude.seq` Prelude.rnf traceHeader
+    Prelude.rnf detail `Prelude.seq`
+      Prelude.rnf detailType `Prelude.seq`
+        Prelude.rnf eventBusName `Prelude.seq`
+          Prelude.rnf resources `Prelude.seq`
+            Prelude.rnf source `Prelude.seq`
+              Prelude.rnf time `Prelude.seq`
+                Prelude.rnf traceHeader
 
 instance Data.ToJSON PutEventsRequestEntry where
   toJSON PutEventsRequestEntry' {..} =

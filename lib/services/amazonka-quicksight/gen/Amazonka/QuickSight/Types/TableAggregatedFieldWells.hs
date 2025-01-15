@@ -89,8 +89,8 @@ instance Prelude.Hashable TableAggregatedFieldWells where
 
 instance Prelude.NFData TableAggregatedFieldWells where
   rnf TableAggregatedFieldWells' {..} =
-    Prelude.rnf groupBy
-      `Prelude.seq` Prelude.rnf values
+    Prelude.rnf groupBy `Prelude.seq`
+      Prelude.rnf values
 
 instance Data.ToJSON TableAggregatedFieldWells where
   toJSON TableAggregatedFieldWells' {..} =

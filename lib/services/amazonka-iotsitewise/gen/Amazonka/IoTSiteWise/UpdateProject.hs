@@ -136,10 +136,10 @@ instance Prelude.Hashable UpdateProject where
 
 instance Prelude.NFData UpdateProject where
   rnf UpdateProject' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf projectDescription
-      `Prelude.seq` Prelude.rnf projectId
-      `Prelude.seq` Prelude.rnf projectName
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf projectDescription `Prelude.seq`
+        Prelude.rnf projectId `Prelude.seq`
+          Prelude.rnf projectName
 
 instance Data.ToHeaders UpdateProject where
   toHeaders =

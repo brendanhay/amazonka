@@ -102,8 +102,8 @@ instance Prelude.Hashable KinesisStreamConfig where
 
 instance Prelude.NFData KinesisStreamConfig where
   rnf KinesisStreamConfig' {..} =
-    Prelude.rnf roleARN
-      `Prelude.seq` Prelude.rnf streamARN
+    Prelude.rnf roleARN `Prelude.seq`
+      Prelude.rnf streamARN
 
 instance Data.ToXML KinesisStreamConfig where
   toXML KinesisStreamConfig' {..} =

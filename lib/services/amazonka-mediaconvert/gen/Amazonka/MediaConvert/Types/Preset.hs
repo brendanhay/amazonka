@@ -160,11 +160,11 @@ instance Prelude.Hashable Preset where
 
 instance Prelude.NFData Preset where
   rnf Preset' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf category
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf lastUpdated
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf settings
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf category `Prelude.seq`
+        Prelude.rnf createdAt `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf lastUpdated `Prelude.seq`
+              Prelude.rnf type' `Prelude.seq`
+                Prelude.rnf settings `Prelude.seq`
+                  Prelude.rnf name

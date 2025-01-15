@@ -125,9 +125,9 @@ instance Prelude.Hashable StackSummary where
 
 instance Prelude.NFData StackSummary where
   rnf StackSummary' {..} =
-    Prelude.rnf appsCount
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf instancesCount
-      `Prelude.seq` Prelude.rnf layersCount
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf stackId
+    Prelude.rnf appsCount `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf instancesCount `Prelude.seq`
+          Prelude.rnf layersCount `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf stackId

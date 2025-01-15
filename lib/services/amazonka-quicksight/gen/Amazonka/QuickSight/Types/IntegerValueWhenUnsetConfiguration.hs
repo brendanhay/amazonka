@@ -111,8 +111,8 @@ instance
     IntegerValueWhenUnsetConfiguration
   where
   rnf IntegerValueWhenUnsetConfiguration' {..} =
-    Prelude.rnf customValue
-      `Prelude.seq` Prelude.rnf valueWhenUnsetOption
+    Prelude.rnf customValue `Prelude.seq`
+      Prelude.rnf valueWhenUnsetOption
 
 instance
   Data.ToJSON

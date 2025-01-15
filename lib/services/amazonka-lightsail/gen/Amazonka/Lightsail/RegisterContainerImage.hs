@@ -202,9 +202,9 @@ instance Prelude.Hashable RegisterContainerImage where
 
 instance Prelude.NFData RegisterContainerImage where
   rnf RegisterContainerImage' {..} =
-    Prelude.rnf serviceName
-      `Prelude.seq` Prelude.rnf label
-      `Prelude.seq` Prelude.rnf digest
+    Prelude.rnf serviceName `Prelude.seq`
+      Prelude.rnf label `Prelude.seq`
+        Prelude.rnf digest
 
 instance Data.ToHeaders RegisterContainerImage where
   toHeaders =
@@ -284,5 +284,5 @@ instance
     RegisterContainerImageResponse
   where
   rnf RegisterContainerImageResponse' {..} =
-    Prelude.rnf containerImage
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf containerImage `Prelude.seq`
+      Prelude.rnf httpStatus

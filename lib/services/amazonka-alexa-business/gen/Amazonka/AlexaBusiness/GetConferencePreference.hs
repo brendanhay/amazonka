@@ -147,5 +147,5 @@ instance
     GetConferencePreferenceResponse
   where
   rnf GetConferencePreferenceResponse' {..} =
-    Prelude.rnf preference
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf preference `Prelude.seq`
+      Prelude.rnf httpStatus

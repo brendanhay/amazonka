@@ -83,5 +83,5 @@ instance Prelude.Hashable PricingService where
 
 instance Prelude.NFData PricingService where
   rnf PricingService' {..} =
-    Prelude.rnf attributeNames
-      `Prelude.seq` Prelude.rnf serviceCode
+    Prelude.rnf attributeNames `Prelude.seq`
+      Prelude.rnf serviceCode

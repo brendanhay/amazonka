@@ -197,15 +197,15 @@ instance Prelude.Hashable Problem where
 
 instance Prelude.NFData Problem where
   rnf Problem' {..} =
-    Prelude.rnf affectedResource
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf feedback
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf insights
-      `Prelude.seq` Prelude.rnf lastRecurrenceTime
-      `Prelude.seq` Prelude.rnf recurringCount
-      `Prelude.seq` Prelude.rnf resourceGroupName
-      `Prelude.seq` Prelude.rnf severityLevel
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf title
+    Prelude.rnf affectedResource `Prelude.seq`
+      Prelude.rnf endTime `Prelude.seq`
+        Prelude.rnf feedback `Prelude.seq`
+          Prelude.rnf id `Prelude.seq`
+            Prelude.rnf insights `Prelude.seq`
+              Prelude.rnf lastRecurrenceTime `Prelude.seq`
+                Prelude.rnf recurringCount `Prelude.seq`
+                  Prelude.rnf resourceGroupName `Prelude.seq`
+                    Prelude.rnf severityLevel `Prelude.seq`
+                      Prelude.rnf startTime `Prelude.seq`
+                        Prelude.rnf status `Prelude.seq`
+                          Prelude.rnf title

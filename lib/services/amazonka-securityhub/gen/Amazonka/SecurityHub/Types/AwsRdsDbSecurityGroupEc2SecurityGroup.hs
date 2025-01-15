@@ -119,10 +119,10 @@ instance
     AwsRdsDbSecurityGroupEc2SecurityGroup
   where
   rnf AwsRdsDbSecurityGroupEc2SecurityGroup' {..} =
-    Prelude.rnf ec2SecurityGroupId
-      `Prelude.seq` Prelude.rnf ec2SecurityGroupName
-      `Prelude.seq` Prelude.rnf ec2SecurityGroupOwnerId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf ec2SecurityGroupId `Prelude.seq`
+      Prelude.rnf ec2SecurityGroupName `Prelude.seq`
+        Prelude.rnf ec2SecurityGroupOwnerId `Prelude.seq`
+          Prelude.rnf status
 
 instance
   Data.ToJSON

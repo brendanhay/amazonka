@@ -139,10 +139,10 @@ instance Prelude.Hashable ListRoomMemberships where
 
 instance Prelude.NFData ListRoomMemberships where
   rnf ListRoomMemberships' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf roomId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf accountId `Prelude.seq`
+          Prelude.rnf roomId
 
 instance Data.ToHeaders ListRoomMemberships where
   toHeaders = Prelude.const Prelude.mempty
@@ -214,6 +214,6 @@ listRoomMembershipsResponse_httpStatus = Lens.lens (\ListRoomMembershipsResponse
 
 instance Prelude.NFData ListRoomMembershipsResponse where
   rnf ListRoomMembershipsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf roomMemberships
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf roomMemberships `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -115,12 +115,12 @@ instance Core.AWSPager ListElasticsearchVersions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listElasticsearchVersions_nextToken
-          Lens..~ rs
-          Lens.^? listElasticsearchVersionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listElasticsearchVersions_nextToken
+              Lens..~ rs
+              Lens.^? listElasticsearchVersionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListElasticsearchVersions where
   type
@@ -148,8 +148,8 @@ instance Prelude.Hashable ListElasticsearchVersions where
 
 instance Prelude.NFData ListElasticsearchVersions where
   rnf ListElasticsearchVersions' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListElasticsearchVersions where
   toHeaders = Prelude.const Prelude.mempty
@@ -218,6 +218,6 @@ instance
     ListElasticsearchVersionsResponse
   where
   rnf ListElasticsearchVersionsResponse' {..} =
-    Prelude.rnf elasticsearchVersions
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf elasticsearchVersions `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

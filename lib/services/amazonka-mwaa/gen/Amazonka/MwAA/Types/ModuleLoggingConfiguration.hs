@@ -109,6 +109,6 @@ instance Prelude.Hashable ModuleLoggingConfiguration where
 
 instance Prelude.NFData ModuleLoggingConfiguration where
   rnf ModuleLoggingConfiguration' {..} =
-    Prelude.rnf cloudWatchLogGroupArn
-      `Prelude.seq` Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf logLevel
+    Prelude.rnf cloudWatchLogGroupArn `Prelude.seq`
+      Prelude.rnf enabled `Prelude.seq`
+        Prelude.rnf logLevel

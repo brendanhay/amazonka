@@ -92,6 +92,6 @@ instance Prelude.Hashable BotAliasHistoryEvent where
 
 instance Prelude.NFData BotAliasHistoryEvent where
   rnf BotAliasHistoryEvent' {..} =
-    Prelude.rnf botVersion
-      `Prelude.seq` Prelude.rnf endDate
-      `Prelude.seq` Prelude.rnf startDate
+    Prelude.rnf botVersion `Prelude.seq`
+      Prelude.rnf endDate `Prelude.seq`
+        Prelude.rnf startDate

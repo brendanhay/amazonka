@@ -111,7 +111,7 @@ instance Prelude.Hashable MetricInfo where
 
 instance Prelude.NFData MetricInfo where
   rnf MetricInfo' {..} =
-    Prelude.rnf metricDimensions
-      `Prelude.seq` Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf metricNamespace
-      `Prelude.seq` Prelude.rnf metricStatisticRecommendation
+    Prelude.rnf metricDimensions `Prelude.seq`
+      Prelude.rnf metricName `Prelude.seq`
+        Prelude.rnf metricNamespace `Prelude.seq`
+          Prelude.rnf metricStatisticRecommendation

@@ -118,6 +118,6 @@ instance Prelude.Hashable NotificationConfiguration where
 
 instance Prelude.NFData NotificationConfiguration where
   rnf NotificationConfiguration' {..} =
-    Prelude.rnf autoScalingGroupName
-      `Prelude.seq` Prelude.rnf notificationType
-      `Prelude.seq` Prelude.rnf topicARN
+    Prelude.rnf autoScalingGroupName `Prelude.seq`
+      Prelude.rnf notificationType `Prelude.seq`
+        Prelude.rnf topicARN

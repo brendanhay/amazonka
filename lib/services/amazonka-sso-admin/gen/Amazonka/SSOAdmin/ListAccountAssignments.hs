@@ -155,12 +155,12 @@ instance Core.AWSPager ListAccountAssignments where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listAccountAssignments_nextToken
-          Lens..~ rs
-          Lens.^? listAccountAssignmentsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listAccountAssignments_nextToken
+              Lens..~ rs
+              Lens.^? listAccountAssignmentsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAccountAssignments where
   type
@@ -191,11 +191,11 @@ instance Prelude.Hashable ListAccountAssignments where
 
 instance Prelude.NFData ListAccountAssignments where
   rnf ListAccountAssignments' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf instanceArn
-      `Prelude.seq` Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf permissionSetArn
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf instanceArn `Prelude.seq`
+          Prelude.rnf accountId `Prelude.seq`
+            Prelude.rnf permissionSetArn
 
 instance Data.ToHeaders ListAccountAssignments where
   toHeaders =
@@ -290,6 +290,6 @@ instance
     ListAccountAssignmentsResponse
   where
   rnf ListAccountAssignmentsResponse' {..} =
-    Prelude.rnf accountAssignments
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf accountAssignments `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

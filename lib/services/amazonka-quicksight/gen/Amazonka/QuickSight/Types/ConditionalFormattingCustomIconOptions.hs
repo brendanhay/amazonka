@@ -93,8 +93,8 @@ instance
     ConditionalFormattingCustomIconOptions
   where
   rnf ConditionalFormattingCustomIconOptions' {..} =
-    Prelude.rnf icon
-      `Prelude.seq` Prelude.rnf unicodeIcon
+    Prelude.rnf icon `Prelude.seq`
+      Prelude.rnf unicodeIcon
 
 instance
   Data.ToJSON

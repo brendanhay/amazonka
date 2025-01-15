@@ -124,9 +124,9 @@ instance Prelude.Hashable AssociateChannelFlow where
 
 instance Prelude.NFData AssociateChannelFlow where
   rnf AssociateChannelFlow' {..} =
-    Prelude.rnf channelArn
-      `Prelude.seq` Prelude.rnf channelFlowArn
-      `Prelude.seq` Prelude.rnf chimeBearer
+    Prelude.rnf channelArn `Prelude.seq`
+      Prelude.rnf channelFlowArn `Prelude.seq`
+        Prelude.rnf chimeBearer
 
 instance Data.ToHeaders AssociateChannelFlow where
   toHeaders AssociateChannelFlow' {..} =

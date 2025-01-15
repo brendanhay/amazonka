@@ -101,6 +101,6 @@ instance
 
 instance Prelude.NFData FailedWorkspaceChangeRequest where
   rnf FailedWorkspaceChangeRequest' {..} =
-    Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf workspaceId
+    Prelude.rnf errorCode `Prelude.seq`
+      Prelude.rnf errorMessage `Prelude.seq`
+        Prelude.rnf workspaceId

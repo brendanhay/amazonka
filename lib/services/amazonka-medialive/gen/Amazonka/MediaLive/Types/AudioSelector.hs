@@ -89,8 +89,8 @@ instance Prelude.Hashable AudioSelector where
 
 instance Prelude.NFData AudioSelector where
   rnf AudioSelector' {..} =
-    Prelude.rnf selectorSettings
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf selectorSettings `Prelude.seq`
+      Prelude.rnf name
 
 instance Data.ToJSON AudioSelector where
   toJSON AudioSelector' {..} =

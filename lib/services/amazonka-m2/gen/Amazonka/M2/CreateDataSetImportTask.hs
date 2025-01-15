@@ -142,9 +142,9 @@ instance Prelude.Hashable CreateDataSetImportTask where
 
 instance Prelude.NFData CreateDataSetImportTask where
   rnf CreateDataSetImportTask' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf importConfig
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf applicationId `Prelude.seq`
+        Prelude.rnf importConfig
 
 instance Data.ToHeaders CreateDataSetImportTask where
   toHeaders =
@@ -231,5 +231,5 @@ instance
     CreateDataSetImportTaskResponse
   where
   rnf CreateDataSetImportTaskResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf taskId
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf taskId

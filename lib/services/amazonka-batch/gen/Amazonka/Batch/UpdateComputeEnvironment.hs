@@ -304,12 +304,12 @@ instance Prelude.Hashable UpdateComputeEnvironment where
 
 instance Prelude.NFData UpdateComputeEnvironment where
   rnf UpdateComputeEnvironment' {..} =
-    Prelude.rnf computeResources
-      `Prelude.seq` Prelude.rnf serviceRole
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf unmanagedvCpus
-      `Prelude.seq` Prelude.rnf updatePolicy
-      `Prelude.seq` Prelude.rnf computeEnvironment
+    Prelude.rnf computeResources `Prelude.seq`
+      Prelude.rnf serviceRole `Prelude.seq`
+        Prelude.rnf state `Prelude.seq`
+          Prelude.rnf unmanagedvCpus `Prelude.seq`
+            Prelude.rnf updatePolicy `Prelude.seq`
+              Prelude.rnf computeEnvironment
 
 instance Data.ToHeaders UpdateComputeEnvironment where
   toHeaders =
@@ -403,6 +403,6 @@ instance
     UpdateComputeEnvironmentResponse
   where
   rnf UpdateComputeEnvironmentResponse' {..} =
-    Prelude.rnf computeEnvironmentArn
-      `Prelude.seq` Prelude.rnf computeEnvironmentName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf computeEnvironmentArn `Prelude.seq`
+      Prelude.rnf computeEnvironmentName `Prelude.seq`
+        Prelude.rnf httpStatus

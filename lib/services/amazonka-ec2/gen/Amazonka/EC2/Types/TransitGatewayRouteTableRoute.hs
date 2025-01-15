@@ -148,10 +148,10 @@ instance
 
 instance Prelude.NFData TransitGatewayRouteTableRoute where
   rnf TransitGatewayRouteTableRoute' {..} =
-    Prelude.rnf attachmentId
-      `Prelude.seq` Prelude.rnf destinationCidr
-      `Prelude.seq` Prelude.rnf prefixListId
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf routeOrigin
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf attachmentId `Prelude.seq`
+      Prelude.rnf destinationCidr `Prelude.seq`
+        Prelude.rnf prefixListId `Prelude.seq`
+          Prelude.rnf resourceId `Prelude.seq`
+            Prelude.rnf resourceType `Prelude.seq`
+              Prelude.rnf routeOrigin `Prelude.seq`
+                Prelude.rnf state

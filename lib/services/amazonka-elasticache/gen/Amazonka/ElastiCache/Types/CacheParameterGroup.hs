@@ -127,8 +127,8 @@ instance Prelude.Hashable CacheParameterGroup where
 
 instance Prelude.NFData CacheParameterGroup where
   rnf CacheParameterGroup' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf cacheParameterGroupFamily
-      `Prelude.seq` Prelude.rnf cacheParameterGroupName
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf isGlobal
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf cacheParameterGroupFamily `Prelude.seq`
+        Prelude.rnf cacheParameterGroupName `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf isGlobal

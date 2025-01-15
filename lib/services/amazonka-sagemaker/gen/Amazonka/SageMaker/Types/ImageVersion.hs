@@ -156,10 +156,10 @@ instance Prelude.Hashable ImageVersion where
 
 instance Prelude.NFData ImageVersion where
   rnf ImageVersion' {..} =
-    Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf imageArn
-      `Prelude.seq` Prelude.rnf imageVersionArn
-      `Prelude.seq` Prelude.rnf imageVersionStatus
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf version
+    Prelude.rnf failureReason `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf imageArn `Prelude.seq`
+          Prelude.rnf imageVersionArn `Prelude.seq`
+            Prelude.rnf imageVersionStatus `Prelude.seq`
+              Prelude.rnf lastModifiedTime `Prelude.seq`
+                Prelude.rnf version

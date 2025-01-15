@@ -95,8 +95,8 @@ instance Prelude.Hashable ClientLoginBannerOptions where
 
 instance Prelude.NFData ClientLoginBannerOptions where
   rnf ClientLoginBannerOptions' {..} =
-    Prelude.rnf bannerText
-      `Prelude.seq` Prelude.rnf enabled
+    Prelude.rnf bannerText `Prelude.seq`
+      Prelude.rnf enabled
 
 instance Data.ToQuery ClientLoginBannerOptions where
   toQuery ClientLoginBannerOptions' {..} =

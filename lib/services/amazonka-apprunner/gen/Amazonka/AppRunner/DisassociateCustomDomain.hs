@@ -130,8 +130,8 @@ instance Prelude.Hashable DisassociateCustomDomain where
 
 instance Prelude.NFData DisassociateCustomDomain where
   rnf DisassociateCustomDomain' {..} =
-    Prelude.rnf serviceArn
-      `Prelude.seq` Prelude.rnf domainName
+    Prelude.rnf serviceArn `Prelude.seq`
+      Prelude.rnf domainName
 
 instance Data.ToHeaders DisassociateCustomDomain where
   toHeaders =
@@ -250,8 +250,8 @@ instance
     DisassociateCustomDomainResponse
   where
   rnf DisassociateCustomDomainResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf dNSTarget
-      `Prelude.seq` Prelude.rnf serviceArn
-      `Prelude.seq` Prelude.rnf customDomain
-      `Prelude.seq` Prelude.rnf vpcDNSTargets
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf dNSTarget `Prelude.seq`
+        Prelude.rnf serviceArn `Prelude.seq`
+          Prelude.rnf customDomain `Prelude.seq`
+            Prelude.rnf vpcDNSTargets

@@ -93,8 +93,8 @@ instance
     FirewallPolicyStatelessCustomActionsDetails
   where
   rnf FirewallPolicyStatelessCustomActionsDetails' {..} =
-    Prelude.rnf actionDefinition
-      `Prelude.seq` Prelude.rnf actionName
+    Prelude.rnf actionDefinition `Prelude.seq`
+      Prelude.rnf actionName
 
 instance
   Data.ToJSON

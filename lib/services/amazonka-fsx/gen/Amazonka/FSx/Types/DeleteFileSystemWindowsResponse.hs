@@ -94,5 +94,5 @@ instance
     DeleteFileSystemWindowsResponse
   where
   rnf DeleteFileSystemWindowsResponse' {..} =
-    Prelude.rnf finalBackupId
-      `Prelude.seq` Prelude.rnf finalBackupTags
+    Prelude.rnf finalBackupId `Prelude.seq`
+      Prelude.rnf finalBackupTags

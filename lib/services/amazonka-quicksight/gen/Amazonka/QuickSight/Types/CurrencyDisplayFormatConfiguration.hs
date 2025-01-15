@@ -166,14 +166,14 @@ instance
     CurrencyDisplayFormatConfiguration
   where
   rnf CurrencyDisplayFormatConfiguration' {..} =
-    Prelude.rnf decimalPlacesConfiguration
-      `Prelude.seq` Prelude.rnf negativeValueConfiguration
-      `Prelude.seq` Prelude.rnf nullValueFormatConfiguration
-      `Prelude.seq` Prelude.rnf numberScale
-      `Prelude.seq` Prelude.rnf prefix
-      `Prelude.seq` Prelude.rnf separatorConfiguration
-      `Prelude.seq` Prelude.rnf suffix
-      `Prelude.seq` Prelude.rnf symbol
+    Prelude.rnf decimalPlacesConfiguration `Prelude.seq`
+      Prelude.rnf negativeValueConfiguration `Prelude.seq`
+        Prelude.rnf nullValueFormatConfiguration `Prelude.seq`
+          Prelude.rnf numberScale `Prelude.seq`
+            Prelude.rnf prefix `Prelude.seq`
+              Prelude.rnf separatorConfiguration `Prelude.seq`
+                Prelude.rnf suffix `Prelude.seq`
+                  Prelude.rnf symbol
 
 instance
   Data.ToJSON

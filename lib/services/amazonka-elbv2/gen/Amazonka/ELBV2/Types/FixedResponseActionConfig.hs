@@ -99,9 +99,9 @@ instance Prelude.Hashable FixedResponseActionConfig where
 
 instance Prelude.NFData FixedResponseActionConfig where
   rnf FixedResponseActionConfig' {..} =
-    Prelude.rnf contentType
-      `Prelude.seq` Prelude.rnf messageBody
-      `Prelude.seq` Prelude.rnf statusCode
+    Prelude.rnf contentType `Prelude.seq`
+      Prelude.rnf messageBody `Prelude.seq`
+        Prelude.rnf statusCode
 
 instance Data.ToQuery FixedResponseActionConfig where
   toQuery FixedResponseActionConfig' {..} =

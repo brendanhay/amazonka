@@ -150,10 +150,10 @@ instance Prelude.Hashable NetworkProfileData where
 
 instance Prelude.NFData NetworkProfileData where
   rnf NetworkProfileData' {..} =
-    Prelude.rnf certificateAuthorityArn
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf eapMethod
-      `Prelude.seq` Prelude.rnf networkProfileArn
-      `Prelude.seq` Prelude.rnf networkProfileName
-      `Prelude.seq` Prelude.rnf securityType
-      `Prelude.seq` Prelude.rnf ssid
+    Prelude.rnf certificateAuthorityArn `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf eapMethod `Prelude.seq`
+          Prelude.rnf networkProfileArn `Prelude.seq`
+            Prelude.rnf networkProfileName `Prelude.seq`
+              Prelude.rnf securityType `Prelude.seq`
+                Prelude.rnf ssid

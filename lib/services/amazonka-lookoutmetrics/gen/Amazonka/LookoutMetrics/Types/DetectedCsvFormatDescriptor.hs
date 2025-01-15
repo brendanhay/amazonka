@@ -126,9 +126,9 @@ instance Prelude.Hashable DetectedCsvFormatDescriptor where
 
 instance Prelude.NFData DetectedCsvFormatDescriptor where
   rnf DetectedCsvFormatDescriptor' {..} =
-    Prelude.rnf charset
-      `Prelude.seq` Prelude.rnf containsHeader
-      `Prelude.seq` Prelude.rnf delimiter
-      `Prelude.seq` Prelude.rnf fileCompression
-      `Prelude.seq` Prelude.rnf headerList
-      `Prelude.seq` Prelude.rnf quoteSymbol
+    Prelude.rnf charset `Prelude.seq`
+      Prelude.rnf containsHeader `Prelude.seq`
+        Prelude.rnf delimiter `Prelude.seq`
+          Prelude.rnf fileCompression `Prelude.seq`
+            Prelude.rnf headerList `Prelude.seq`
+              Prelude.rnf quoteSymbol

@@ -81,5 +81,5 @@ instance Prelude.Hashable UsageAccountResult where
 
 instance Prelude.NFData UsageAccountResult where
   rnf UsageAccountResult' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf total
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf total

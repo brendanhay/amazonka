@@ -161,5 +161,5 @@ createAppResponse_applicationResponse = Lens.lens (\CreateAppResponse' {applicat
 
 instance Prelude.NFData CreateAppResponse where
   rnf CreateAppResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf applicationResponse
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf applicationResponse

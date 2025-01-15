@@ -127,8 +127,8 @@ instance Prelude.Hashable PutDraftAppVersionTemplate where
 
 instance Prelude.NFData PutDraftAppVersionTemplate where
   rnf PutDraftAppVersionTemplate' {..} =
-    Prelude.rnf appArn
-      `Prelude.seq` Prelude.rnf appTemplateBody
+    Prelude.rnf appArn `Prelude.seq`
+      Prelude.rnf appTemplateBody
 
 instance Data.ToHeaders PutDraftAppVersionTemplate where
   toHeaders =
@@ -223,6 +223,6 @@ instance
     PutDraftAppVersionTemplateResponse
   where
   rnf PutDraftAppVersionTemplateResponse' {..} =
-    Prelude.rnf appArn
-      `Prelude.seq` Prelude.rnf appVersion
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf appArn `Prelude.seq`
+      Prelude.rnf appVersion `Prelude.seq`
+        Prelude.rnf httpStatus

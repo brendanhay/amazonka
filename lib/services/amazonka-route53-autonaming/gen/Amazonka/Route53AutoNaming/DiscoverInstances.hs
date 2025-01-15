@@ -238,12 +238,12 @@ instance Prelude.Hashable DiscoverInstances where
 
 instance Prelude.NFData DiscoverInstances where
   rnf DiscoverInstances' {..} =
-    Prelude.rnf healthStatus
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf optionalParameters
-      `Prelude.seq` Prelude.rnf queryParameters
-      `Prelude.seq` Prelude.rnf namespaceName
-      `Prelude.seq` Prelude.rnf serviceName
+    Prelude.rnf healthStatus `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf optionalParameters `Prelude.seq`
+          Prelude.rnf queryParameters `Prelude.seq`
+            Prelude.rnf namespaceName `Prelude.seq`
+              Prelude.rnf serviceName
 
 instance Data.ToHeaders DiscoverInstances where
   toHeaders =
@@ -325,5 +325,5 @@ discoverInstancesResponse_httpStatus = Lens.lens (\DiscoverInstancesResponse' {h
 
 instance Prelude.NFData DiscoverInstancesResponse where
   rnf DiscoverInstancesResponse' {..} =
-    Prelude.rnf instances
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf instances `Prelude.seq`
+      Prelude.rnf httpStatus

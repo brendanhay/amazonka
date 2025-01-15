@@ -191,6 +191,6 @@ getDigestResponse_digestTipAddress = Lens.lens (\GetDigestResponse' {digestTipAd
 
 instance Prelude.NFData GetDigestResponse where
   rnf GetDigestResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf digest
-      `Prelude.seq` Prelude.rnf digestTipAddress
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf digest `Prelude.seq`
+        Prelude.rnf digestTipAddress

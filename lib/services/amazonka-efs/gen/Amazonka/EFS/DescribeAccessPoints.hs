@@ -156,10 +156,10 @@ instance Prelude.Hashable DescribeAccessPoints where
 
 instance Prelude.NFData DescribeAccessPoints where
   rnf DescribeAccessPoints' {..} =
-    Prelude.rnf accessPointId
-      `Prelude.seq` Prelude.rnf fileSystemId
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf accessPointId `Prelude.seq`
+      Prelude.rnf fileSystemId `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeAccessPoints where
   toHeaders = Prelude.const Prelude.mempty
@@ -232,6 +232,6 @@ describeAccessPointsResponse_httpStatus = Lens.lens (\DescribeAccessPointsRespon
 
 instance Prelude.NFData DescribeAccessPointsResponse where
   rnf DescribeAccessPointsResponse' {..} =
-    Prelude.rnf accessPoints
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf accessPoints `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

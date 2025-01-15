@@ -269,8 +269,8 @@ instance Prelude.Hashable DescribeKey where
 
 instance Prelude.NFData DescribeKey where
   rnf DescribeKey' {..} =
-    Prelude.rnf grantTokens
-      `Prelude.seq` Prelude.rnf keyId
+    Prelude.rnf grantTokens `Prelude.seq`
+      Prelude.rnf keyId
 
 instance Data.ToHeaders DescribeKey where
   toHeaders =
@@ -340,5 +340,5 @@ describeKeyResponse_httpStatus = Lens.lens (\DescribeKeyResponse' {httpStatus} -
 
 instance Prelude.NFData DescribeKeyResponse where
   rnf DescribeKeyResponse' {..} =
-    Prelude.rnf keyMetadata
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf keyMetadata `Prelude.seq`
+      Prelude.rnf httpStatus

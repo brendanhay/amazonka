@@ -519,17 +519,17 @@ instance Prelude.Hashable PutCompositeAlarm where
 
 instance Prelude.NFData PutCompositeAlarm where
   rnf PutCompositeAlarm' {..} =
-    Prelude.rnf actionsEnabled
-      `Prelude.seq` Prelude.rnf actionsSuppressor
-      `Prelude.seq` Prelude.rnf actionsSuppressorExtensionPeriod
-      `Prelude.seq` Prelude.rnf actionsSuppressorWaitPeriod
-      `Prelude.seq` Prelude.rnf alarmActions
-      `Prelude.seq` Prelude.rnf alarmDescription
-      `Prelude.seq` Prelude.rnf insufficientDataActions
-      `Prelude.seq` Prelude.rnf oKActions
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf alarmName
-      `Prelude.seq` Prelude.rnf alarmRule
+    Prelude.rnf actionsEnabled `Prelude.seq`
+      Prelude.rnf actionsSuppressor `Prelude.seq`
+        Prelude.rnf actionsSuppressorExtensionPeriod `Prelude.seq`
+          Prelude.rnf actionsSuppressorWaitPeriod `Prelude.seq`
+            Prelude.rnf alarmActions `Prelude.seq`
+              Prelude.rnf alarmDescription `Prelude.seq`
+                Prelude.rnf insufficientDataActions `Prelude.seq`
+                  Prelude.rnf oKActions `Prelude.seq`
+                    Prelude.rnf tags `Prelude.seq`
+                      Prelude.rnf alarmName `Prelude.seq`
+                        Prelude.rnf alarmRule
 
 instance Data.ToHeaders PutCompositeAlarm where
   toHeaders = Prelude.const Prelude.mempty

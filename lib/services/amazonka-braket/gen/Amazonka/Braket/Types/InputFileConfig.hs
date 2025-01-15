@@ -97,9 +97,9 @@ instance Prelude.Hashable InputFileConfig where
 
 instance Prelude.NFData InputFileConfig where
   rnf InputFileConfig' {..} =
-    Prelude.rnf contentType
-      `Prelude.seq` Prelude.rnf channelName
-      `Prelude.seq` Prelude.rnf dataSource
+    Prelude.rnf contentType `Prelude.seq`
+      Prelude.rnf channelName `Prelude.seq`
+        Prelude.rnf dataSource
 
 instance Data.ToJSON InputFileConfig where
   toJSON InputFileConfig' {..} =

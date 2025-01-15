@@ -164,12 +164,12 @@ instance Prelude.Hashable Cors where
 
 instance Prelude.NFData Cors where
   rnf Cors' {..} =
-    Prelude.rnf allowCredentials
-      `Prelude.seq` Prelude.rnf allowHeaders
-      `Prelude.seq` Prelude.rnf allowMethods
-      `Prelude.seq` Prelude.rnf allowOrigins
-      `Prelude.seq` Prelude.rnf exposeHeaders
-      `Prelude.seq` Prelude.rnf maxAge
+    Prelude.rnf allowCredentials `Prelude.seq`
+      Prelude.rnf allowHeaders `Prelude.seq`
+        Prelude.rnf allowMethods `Prelude.seq`
+          Prelude.rnf allowOrigins `Prelude.seq`
+            Prelude.rnf exposeHeaders `Prelude.seq`
+              Prelude.rnf maxAge
 
 instance Data.ToJSON Cors where
   toJSON Cors' {..} =

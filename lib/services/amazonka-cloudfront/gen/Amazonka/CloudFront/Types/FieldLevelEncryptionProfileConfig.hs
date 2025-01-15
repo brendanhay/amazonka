@@ -130,10 +130,10 @@ instance
     FieldLevelEncryptionProfileConfig
   where
   rnf FieldLevelEncryptionProfileConfig' {..} =
-    Prelude.rnf comment
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf callerReference
-      `Prelude.seq` Prelude.rnf encryptionEntities
+    Prelude.rnf comment `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf callerReference `Prelude.seq`
+          Prelude.rnf encryptionEntities
 
 instance Data.ToXML FieldLevelEncryptionProfileConfig where
   toXML FieldLevelEncryptionProfileConfig' {..} =

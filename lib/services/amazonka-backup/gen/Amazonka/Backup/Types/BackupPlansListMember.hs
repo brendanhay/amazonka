@@ -216,12 +216,12 @@ instance Prelude.Hashable BackupPlansListMember where
 
 instance Prelude.NFData BackupPlansListMember where
   rnf BackupPlansListMember' {..} =
-    Prelude.rnf advancedBackupSettings
-      `Prelude.seq` Prelude.rnf backupPlanArn
-      `Prelude.seq` Prelude.rnf backupPlanId
-      `Prelude.seq` Prelude.rnf backupPlanName
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf creatorRequestId
-      `Prelude.seq` Prelude.rnf deletionDate
-      `Prelude.seq` Prelude.rnf lastExecutionDate
-      `Prelude.seq` Prelude.rnf versionId
+    Prelude.rnf advancedBackupSettings `Prelude.seq`
+      Prelude.rnf backupPlanArn `Prelude.seq`
+        Prelude.rnf backupPlanId `Prelude.seq`
+          Prelude.rnf backupPlanName `Prelude.seq`
+            Prelude.rnf creationDate `Prelude.seq`
+              Prelude.rnf creatorRequestId `Prelude.seq`
+                Prelude.rnf deletionDate `Prelude.seq`
+                  Prelude.rnf lastExecutionDate `Prelude.seq`
+                    Prelude.rnf versionId

@@ -112,8 +112,8 @@ instance Prelude.Hashable GetBackendEnvironment where
 
 instance Prelude.NFData GetBackendEnvironment where
   rnf GetBackendEnvironment' {..} =
-    Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf environmentName
+    Prelude.rnf appId `Prelude.seq`
+      Prelude.rnf environmentName
 
 instance Data.ToHeaders GetBackendEnvironment where
   toHeaders =
@@ -185,5 +185,5 @@ getBackendEnvironmentResponse_backendEnvironment = Lens.lens (\GetBackendEnviron
 
 instance Prelude.NFData GetBackendEnvironmentResponse where
   rnf GetBackendEnvironmentResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf backendEnvironment
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf backendEnvironment

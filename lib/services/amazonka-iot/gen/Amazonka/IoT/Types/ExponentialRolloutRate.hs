@@ -117,9 +117,9 @@ instance Prelude.Hashable ExponentialRolloutRate where
 
 instance Prelude.NFData ExponentialRolloutRate where
   rnf ExponentialRolloutRate' {..} =
-    Prelude.rnf baseRatePerMinute
-      `Prelude.seq` Prelude.rnf incrementFactor
-      `Prelude.seq` Prelude.rnf rateIncreaseCriteria
+    Prelude.rnf baseRatePerMinute `Prelude.seq`
+      Prelude.rnf incrementFactor `Prelude.seq`
+        Prelude.rnf rateIncreaseCriteria
 
 instance Data.ToJSON ExponentialRolloutRate where
   toJSON ExponentialRolloutRate' {..} =

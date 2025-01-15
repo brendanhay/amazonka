@@ -171,5 +171,5 @@ getBackupPlanFromJSONResponse_httpStatus = Lens.lens (\GetBackupPlanFromJSONResp
 
 instance Prelude.NFData GetBackupPlanFromJSONResponse where
   rnf GetBackupPlanFromJSONResponse' {..} =
-    Prelude.rnf backupPlan
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf backupPlan `Prelude.seq`
+      Prelude.rnf httpStatus

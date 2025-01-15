@@ -95,6 +95,6 @@ instance Prelude.Hashable ResourcePolicy where
 
 instance Prelude.NFData ResourcePolicy where
   rnf ResourcePolicy' {..} =
-    Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf policyDocument
-      `Prelude.seq` Prelude.rnf policyName
+    Prelude.rnf lastUpdatedTime `Prelude.seq`
+      Prelude.rnf policyDocument `Prelude.seq`
+        Prelude.rnf policyName

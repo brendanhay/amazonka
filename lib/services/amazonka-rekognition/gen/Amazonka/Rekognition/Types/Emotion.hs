@@ -86,5 +86,5 @@ instance Prelude.Hashable Emotion where
 
 instance Prelude.NFData Emotion where
   rnf Emotion' {..} =
-    Prelude.rnf confidence
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf confidence `Prelude.seq`
+      Prelude.rnf type'

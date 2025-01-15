@@ -129,8 +129,8 @@ instance Prelude.Hashable StorageLocation where
 
 instance Prelude.NFData StorageLocation where
   rnf StorageLocation' {..} =
-    Prelude.rnf binaryPrefixLocation
-      `Prelude.seq` Prelude.rnf bucket
-      `Prelude.seq` Prelude.rnf generatedPrefixLocation
-      `Prelude.seq` Prelude.rnf manifestPrefixLocation
-      `Prelude.seq` Prelude.rnf repoPrefixLocation
+    Prelude.rnf binaryPrefixLocation `Prelude.seq`
+      Prelude.rnf bucket `Prelude.seq`
+        Prelude.rnf generatedPrefixLocation `Prelude.seq`
+          Prelude.rnf manifestPrefixLocation `Prelude.seq`
+            Prelude.rnf repoPrefixLocation

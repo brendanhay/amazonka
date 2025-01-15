@@ -110,6 +110,6 @@ instance Prelude.Hashable EcrRescanDurationState where
 
 instance Prelude.NFData EcrRescanDurationState where
   rnf EcrRescanDurationState' {..} =
-    Prelude.rnf rescanDuration
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf updatedAt
+    Prelude.rnf rescanDuration `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf updatedAt

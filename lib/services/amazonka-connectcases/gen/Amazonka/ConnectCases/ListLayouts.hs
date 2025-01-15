@@ -126,9 +126,9 @@ instance Prelude.Hashable ListLayouts where
 
 instance Prelude.NFData ListLayouts where
   rnf ListLayouts' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf domainId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf domainId
 
 instance Data.ToHeaders ListLayouts where
   toHeaders =
@@ -208,6 +208,6 @@ listLayoutsResponse_layouts = Lens.lens (\ListLayoutsResponse' {layouts} -> layo
 
 instance Prelude.NFData ListLayoutsResponse where
   rnf ListLayoutsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf layouts
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf layouts

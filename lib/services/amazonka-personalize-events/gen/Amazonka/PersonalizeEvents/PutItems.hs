@@ -102,8 +102,8 @@ instance Prelude.Hashable PutItems where
 
 instance Prelude.NFData PutItems where
   rnf PutItems' {..} =
-    Prelude.rnf datasetArn
-      `Prelude.seq` Prelude.rnf items
+    Prelude.rnf datasetArn `Prelude.seq`
+      Prelude.rnf items
 
 instance Data.ToHeaders PutItems where
   toHeaders =

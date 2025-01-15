@@ -210,10 +210,10 @@ instance Prelude.Hashable PutStorageConfiguration where
 
 instance Prelude.NFData PutStorageConfiguration where
   rnf PutStorageConfiguration' {..} =
-    Prelude.rnf disassociatedDataStorage
-      `Prelude.seq` Prelude.rnf multiLayerStorage
-      `Prelude.seq` Prelude.rnf retentionPeriod
-      `Prelude.seq` Prelude.rnf storageType
+    Prelude.rnf disassociatedDataStorage `Prelude.seq`
+      Prelude.rnf multiLayerStorage `Prelude.seq`
+        Prelude.rnf retentionPeriod `Prelude.seq`
+          Prelude.rnf storageType
 
 instance Data.ToHeaders PutStorageConfiguration where
   toHeaders =
@@ -402,9 +402,9 @@ instance
     PutStorageConfigurationResponse
   where
   rnf PutStorageConfigurationResponse' {..} =
-    Prelude.rnf disassociatedDataStorage
-      `Prelude.seq` Prelude.rnf multiLayerStorage
-      `Prelude.seq` Prelude.rnf retentionPeriod
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf storageType
-      `Prelude.seq` Prelude.rnf configurationStatus
+    Prelude.rnf disassociatedDataStorage `Prelude.seq`
+      Prelude.rnf multiLayerStorage `Prelude.seq`
+        Prelude.rnf retentionPeriod `Prelude.seq`
+          Prelude.rnf httpStatus `Prelude.seq`
+            Prelude.rnf storageType `Prelude.seq`
+              Prelude.rnf configurationStatus

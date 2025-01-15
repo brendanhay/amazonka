@@ -176,7 +176,7 @@ deleteWorkflowResponse_httpStatus = Lens.lens (\DeleteWorkflowResponse' {httpSta
 
 instance Prelude.NFData DeleteWorkflowResponse where
   rnf DeleteWorkflowResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf status `Prelude.seq`
+          Prelude.rnf httpStatus

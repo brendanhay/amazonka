@@ -143,10 +143,10 @@ instance Prelude.Hashable DataReplicationInfo where
 
 instance Prelude.NFData DataReplicationInfo where
   rnf DataReplicationInfo' {..} =
-    Prelude.rnf dataReplicationError
-      `Prelude.seq` Prelude.rnf dataReplicationInitiation
-      `Prelude.seq` Prelude.rnf dataReplicationState
-      `Prelude.seq` Prelude.rnf etaDateTime
-      `Prelude.seq` Prelude.rnf lagDuration
-      `Prelude.seq` Prelude.rnf lastSnapshotDateTime
-      `Prelude.seq` Prelude.rnf replicatedDisks
+    Prelude.rnf dataReplicationError `Prelude.seq`
+      Prelude.rnf dataReplicationInitiation `Prelude.seq`
+        Prelude.rnf dataReplicationState `Prelude.seq`
+          Prelude.rnf etaDateTime `Prelude.seq`
+            Prelude.rnf lagDuration `Prelude.seq`
+              Prelude.rnf lastSnapshotDateTime `Prelude.seq`
+                Prelude.rnf replicatedDisks

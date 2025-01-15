@@ -119,9 +119,9 @@ instance Prelude.Hashable StartObject where
 
 instance Prelude.NFData StartObject where
   rnf StartObject' {..} =
-    Prelude.rnf throwOnDuplicate
-      `Prelude.seq` Prelude.rnf backupJobId
-      `Prelude.seq` Prelude.rnf objectName
+    Prelude.rnf throwOnDuplicate `Prelude.seq`
+      Prelude.rnf backupJobId `Prelude.seq`
+        Prelude.rnf objectName
 
 instance Data.ToHeaders StartObject where
   toHeaders =
@@ -197,5 +197,5 @@ startObjectResponse_uploadId = Lens.lens (\StartObjectResponse' {uploadId} -> up
 
 instance Prelude.NFData StartObjectResponse where
   rnf StartObjectResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf uploadId
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf uploadId

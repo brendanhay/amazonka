@@ -116,8 +116,8 @@ instance Prelude.Hashable DescribeModel where
 
 instance Prelude.NFData DescribeModel where
   rnf DescribeModel' {..} =
-    Prelude.rnf projectName
-      `Prelude.seq` Prelude.rnf modelVersion
+    Prelude.rnf projectName `Prelude.seq`
+      Prelude.rnf modelVersion
 
 instance Data.ToHeaders DescribeModel where
   toHeaders =
@@ -183,5 +183,5 @@ describeModelResponse_httpStatus = Lens.lens (\DescribeModelResponse' {httpStatu
 
 instance Prelude.NFData DescribeModelResponse where
   rnf DescribeModelResponse' {..} =
-    Prelude.rnf modelDescription
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf modelDescription `Prelude.seq`
+      Prelude.rnf httpStatus

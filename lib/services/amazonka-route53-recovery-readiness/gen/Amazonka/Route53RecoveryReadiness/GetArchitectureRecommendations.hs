@@ -139,9 +139,9 @@ instance
     GetArchitectureRecommendations
   where
   rnf GetArchitectureRecommendations' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf recoveryGroupName
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf recoveryGroupName
 
 instance
   Data.ToHeaders
@@ -238,7 +238,7 @@ instance
     GetArchitectureRecommendationsResponse
   where
   rnf GetArchitectureRecommendationsResponse' {..} =
-    Prelude.rnf lastAuditTimestamp
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf recommendations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf lastAuditTimestamp `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf recommendations `Prelude.seq`
+          Prelude.rnf httpStatus

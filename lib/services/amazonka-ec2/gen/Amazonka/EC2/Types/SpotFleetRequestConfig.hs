@@ -127,9 +127,7 @@ instance Data.FromXML SpotFleetRequestConfig where
       Prelude.<*> (x Data..@? "spotFleetRequestConfig")
       Prelude.<*> (x Data..@? "spotFleetRequestId")
       Prelude.<*> (x Data..@? "spotFleetRequestState")
-      Prelude.<*> ( x
-                      Data..@? "tagSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
@@ -145,9 +143,9 @@ instance Prelude.Hashable SpotFleetRequestConfig where
 
 instance Prelude.NFData SpotFleetRequestConfig where
   rnf SpotFleetRequestConfig' {..} =
-    Prelude.rnf activityStatus
-      `Prelude.seq` Prelude.rnf createTime
-      `Prelude.seq` Prelude.rnf spotFleetRequestConfig
-      `Prelude.seq` Prelude.rnf spotFleetRequestId
-      `Prelude.seq` Prelude.rnf spotFleetRequestState
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf activityStatus `Prelude.seq`
+      Prelude.rnf createTime `Prelude.seq`
+        Prelude.rnf spotFleetRequestConfig `Prelude.seq`
+          Prelude.rnf spotFleetRequestId `Prelude.seq`
+            Prelude.rnf spotFleetRequestState `Prelude.seq`
+              Prelude.rnf tags

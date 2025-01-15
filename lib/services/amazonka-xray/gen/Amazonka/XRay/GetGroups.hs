@@ -90,12 +90,12 @@ instance Core.AWSPager GetGroups where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getGroups_nextToken
-          Lens..~ rs
-          Lens.^? getGroupsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getGroups_nextToken
+              Lens..~ rs
+              Lens.^? getGroupsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetGroups where
   type AWSResponse GetGroups = GetGroupsResponse
@@ -182,6 +182,6 @@ getGroupsResponse_httpStatus = Lens.lens (\GetGroupsResponse' {httpStatus} -> ht
 
 instance Prelude.NFData GetGroupsResponse where
   rnf GetGroupsResponse' {..} =
-    Prelude.rnf groups
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf groups `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

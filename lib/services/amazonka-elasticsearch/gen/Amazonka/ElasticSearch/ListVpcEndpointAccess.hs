@@ -122,8 +122,8 @@ instance Prelude.Hashable ListVpcEndpointAccess where
 
 instance Prelude.NFData ListVpcEndpointAccess where
   rnf ListVpcEndpointAccess' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf domainName
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf domainName
 
 instance Data.ToHeaders ListVpcEndpointAccess where
   toHeaders = Prelude.const Prelude.mempty
@@ -201,6 +201,6 @@ listVpcEndpointAccessResponse_nextToken = Lens.lens (\ListVpcEndpointAccessRespo
 
 instance Prelude.NFData ListVpcEndpointAccessResponse where
   rnf ListVpcEndpointAccessResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf authorizedPrincipalList
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf authorizedPrincipalList `Prelude.seq`
+        Prelude.rnf nextToken

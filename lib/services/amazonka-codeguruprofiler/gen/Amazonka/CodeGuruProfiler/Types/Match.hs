@@ -98,6 +98,6 @@ instance Prelude.Hashable Match where
 
 instance Prelude.NFData Match where
   rnf Match' {..} =
-    Prelude.rnf frameAddress
-      `Prelude.seq` Prelude.rnf targetFramesIndex
-      `Prelude.seq` Prelude.rnf thresholdBreachValue
+    Prelude.rnf frameAddress `Prelude.seq`
+      Prelude.rnf targetFramesIndex `Prelude.seq`
+        Prelude.rnf thresholdBreachValue

@@ -215,8 +215,8 @@ instance Prelude.Hashable EntityDetectorConfiguration where
 
 instance Prelude.NFData EntityDetectorConfiguration where
   rnf EntityDetectorConfiguration' {..} =
-    Prelude.rnf allowedStatistics
-      `Prelude.seq` Prelude.rnf entityTypes
+    Prelude.rnf allowedStatistics `Prelude.seq`
+      Prelude.rnf entityTypes
 
 instance Data.ToJSON EntityDetectorConfiguration where
   toJSON EntityDetectorConfiguration' {..} =

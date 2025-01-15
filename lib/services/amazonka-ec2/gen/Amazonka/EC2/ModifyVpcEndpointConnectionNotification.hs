@@ -160,10 +160,10 @@ instance
     ModifyVpcEndpointConnectionNotification
   where
   rnf ModifyVpcEndpointConnectionNotification' {..} =
-    Prelude.rnf connectionEvents
-      `Prelude.seq` Prelude.rnf connectionNotificationArn
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf connectionNotificationId
+    Prelude.rnf connectionEvents `Prelude.seq`
+      Prelude.rnf connectionNotificationArn `Prelude.seq`
+        Prelude.rnf dryRun `Prelude.seq`
+          Prelude.rnf connectionNotificationId
 
 instance
   Data.ToHeaders
@@ -246,5 +246,5 @@ instance
   where
   rnf
     ModifyVpcEndpointConnectionNotificationResponse' {..} =
-      Prelude.rnf returnValue
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf returnValue `Prelude.seq`
+        Prelude.rnf httpStatus

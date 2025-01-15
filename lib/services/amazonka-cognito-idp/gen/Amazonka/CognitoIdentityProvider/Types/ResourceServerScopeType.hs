@@ -86,8 +86,8 @@ instance Prelude.Hashable ResourceServerScopeType where
 
 instance Prelude.NFData ResourceServerScopeType where
   rnf ResourceServerScopeType' {..} =
-    Prelude.rnf scopeName
-      `Prelude.seq` Prelude.rnf scopeDescription
+    Prelude.rnf scopeName `Prelude.seq`
+      Prelude.rnf scopeDescription
 
 instance Data.ToJSON ResourceServerScopeType where
   toJSON ResourceServerScopeType' {..} =

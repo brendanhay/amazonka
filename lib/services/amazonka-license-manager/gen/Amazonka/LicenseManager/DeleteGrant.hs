@@ -123,9 +123,9 @@ instance Prelude.Hashable DeleteGrant where
 
 instance Prelude.NFData DeleteGrant where
   rnf DeleteGrant' {..} =
-    Prelude.rnf statusReason
-      `Prelude.seq` Prelude.rnf grantArn
-      `Prelude.seq` Prelude.rnf version
+    Prelude.rnf statusReason `Prelude.seq`
+      Prelude.rnf grantArn `Prelude.seq`
+        Prelude.rnf version
 
 instance Data.ToHeaders DeleteGrant where
   toHeaders =
@@ -216,7 +216,7 @@ deleteGrantResponse_httpStatus = Lens.lens (\DeleteGrantResponse' {httpStatus} -
 
 instance Prelude.NFData DeleteGrantResponse where
   rnf DeleteGrantResponse' {..} =
-    Prelude.rnf grantArn
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf grantArn `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf version `Prelude.seq`
+          Prelude.rnf httpStatus

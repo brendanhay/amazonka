@@ -440,24 +440,24 @@ instance Prelude.Hashable DistributionSummary where
 
 instance Prelude.NFData DistributionSummary where
   rnf DistributionSummary' {..} =
-    Prelude.rnf aliasICPRecordals
-      `Prelude.seq` Prelude.rnf originGroups
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf aliases
-      `Prelude.seq` Prelude.rnf origins
-      `Prelude.seq` Prelude.rnf defaultCacheBehavior
-      `Prelude.seq` Prelude.rnf cacheBehaviors
-      `Prelude.seq` Prelude.rnf customErrorResponses
-      `Prelude.seq` Prelude.rnf comment
-      `Prelude.seq` Prelude.rnf priceClass
-      `Prelude.seq` Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf viewerCertificate
-      `Prelude.seq` Prelude.rnf restrictions
-      `Prelude.seq` Prelude.rnf webACLId
-      `Prelude.seq` Prelude.rnf httpVersion
-      `Prelude.seq` Prelude.rnf isIPV6Enabled
-      `Prelude.seq` Prelude.rnf staging
+    Prelude.rnf aliasICPRecordals `Prelude.seq`
+      Prelude.rnf originGroups `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf arn `Prelude.seq`
+            Prelude.rnf status `Prelude.seq`
+              Prelude.rnf lastModifiedTime `Prelude.seq`
+                Prelude.rnf domainName `Prelude.seq`
+                  Prelude.rnf aliases `Prelude.seq`
+                    Prelude.rnf origins `Prelude.seq`
+                      Prelude.rnf defaultCacheBehavior `Prelude.seq`
+                        Prelude.rnf cacheBehaviors `Prelude.seq`
+                          Prelude.rnf customErrorResponses `Prelude.seq`
+                            Prelude.rnf comment `Prelude.seq`
+                              Prelude.rnf priceClass `Prelude.seq`
+                                Prelude.rnf enabled `Prelude.seq`
+                                  Prelude.rnf viewerCertificate `Prelude.seq`
+                                    Prelude.rnf restrictions `Prelude.seq`
+                                      Prelude.rnf webACLId `Prelude.seq`
+                                        Prelude.rnf httpVersion `Prelude.seq`
+                                          Prelude.rnf isIPV6Enabled `Prelude.seq`
+                                            Prelude.rnf staging

@@ -93,5 +93,5 @@ instance
     BatchListIncomingTypedLinksResponse
   where
   rnf BatchListIncomingTypedLinksResponse' {..} =
-    Prelude.rnf linkSpecifiers
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf linkSpecifiers `Prelude.seq`
+      Prelude.rnf nextToken

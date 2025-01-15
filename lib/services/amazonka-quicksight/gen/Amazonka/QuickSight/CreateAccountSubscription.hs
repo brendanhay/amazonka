@@ -442,21 +442,21 @@ instance Prelude.Hashable CreateAccountSubscription where
 
 instance Prelude.NFData CreateAccountSubscription where
   rnf CreateAccountSubscription' {..} =
-    Prelude.rnf activeDirectoryName
-      `Prelude.seq` Prelude.rnf adminGroup
-      `Prelude.seq` Prelude.rnf authorGroup
-      `Prelude.seq` Prelude.rnf contactNumber
-      `Prelude.seq` Prelude.rnf directoryId
-      `Prelude.seq` Prelude.rnf emailAddress
-      `Prelude.seq` Prelude.rnf firstName
-      `Prelude.seq` Prelude.rnf lastName
-      `Prelude.seq` Prelude.rnf readerGroup
-      `Prelude.seq` Prelude.rnf realm
-      `Prelude.seq` Prelude.rnf edition
-      `Prelude.seq` Prelude.rnf authenticationMethod
-      `Prelude.seq` Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf accountName
-      `Prelude.seq` Prelude.rnf notificationEmail
+    Prelude.rnf activeDirectoryName `Prelude.seq`
+      Prelude.rnf adminGroup `Prelude.seq`
+        Prelude.rnf authorGroup `Prelude.seq`
+          Prelude.rnf contactNumber `Prelude.seq`
+            Prelude.rnf directoryId `Prelude.seq`
+              Prelude.rnf emailAddress `Prelude.seq`
+                Prelude.rnf firstName `Prelude.seq`
+                  Prelude.rnf lastName `Prelude.seq`
+                    Prelude.rnf readerGroup `Prelude.seq`
+                      Prelude.rnf realm `Prelude.seq`
+                        Prelude.rnf edition `Prelude.seq`
+                          Prelude.rnf authenticationMethod `Prelude.seq`
+                            Prelude.rnf awsAccountId `Prelude.seq`
+                              Prelude.rnf accountName `Prelude.seq`
+                                Prelude.rnf notificationEmail
 
 instance Data.ToHeaders CreateAccountSubscription where
   toHeaders =
@@ -559,6 +559,6 @@ instance
     CreateAccountSubscriptionResponse
   where
   rnf CreateAccountSubscriptionResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf signupResponse
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf requestId `Prelude.seq`
+      Prelude.rnf signupResponse `Prelude.seq`
+        Prelude.rnf status

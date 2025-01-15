@@ -156,12 +156,12 @@ instance Core.AWSPager ListOrders where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listOrders_startToken
-          Lens..~ rs
-          Lens.^? listOrdersResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listOrders_startToken
+              Lens..~ rs
+              Lens.^? listOrdersResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListOrders where
   type AWSResponse ListOrders = ListOrdersResponse
@@ -186,10 +186,10 @@ instance Prelude.Hashable ListOrders where
 
 instance Prelude.NFData ListOrders where
   rnf ListOrders' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf startToken
-      `Prelude.seq` Prelude.rnf networkArn
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf startToken `Prelude.seq`
+          Prelude.rnf networkArn
 
 instance Data.ToHeaders ListOrders where
   toHeaders =
@@ -268,6 +268,6 @@ listOrdersResponse_httpStatus = Lens.lens (\ListOrdersResponse' {httpStatus} -> 
 
 instance Prelude.NFData ListOrdersResponse where
   rnf ListOrdersResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf orders
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf orders `Prelude.seq`
+        Prelude.rnf httpStatus

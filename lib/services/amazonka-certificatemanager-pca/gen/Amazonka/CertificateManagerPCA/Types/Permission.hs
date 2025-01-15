@@ -144,9 +144,9 @@ instance Prelude.Hashable Permission where
 
 instance Prelude.NFData Permission where
   rnf Permission' {..} =
-    Prelude.rnf actions
-      `Prelude.seq` Prelude.rnf certificateAuthorityArn
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf policy
-      `Prelude.seq` Prelude.rnf principal
-      `Prelude.seq` Prelude.rnf sourceAccount
+    Prelude.rnf actions `Prelude.seq`
+      Prelude.rnf certificateAuthorityArn `Prelude.seq`
+        Prelude.rnf createdAt `Prelude.seq`
+          Prelude.rnf policy `Prelude.seq`
+            Prelude.rnf principal `Prelude.seq`
+              Prelude.rnf sourceAccount

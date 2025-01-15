@@ -200,16 +200,16 @@ instance Prelude.Hashable AttributeFilter where
 
 instance Prelude.NFData AttributeFilter where
   rnf AttributeFilter' {..} =
-    Prelude.rnf andAllFilters
-      `Prelude.seq` Prelude.rnf containsAll
-      `Prelude.seq` Prelude.rnf containsAny
-      `Prelude.seq` Prelude.rnf equalsTo
-      `Prelude.seq` Prelude.rnf greaterThan
-      `Prelude.seq` Prelude.rnf greaterThanOrEquals
-      `Prelude.seq` Prelude.rnf lessThan
-      `Prelude.seq` Prelude.rnf lessThanOrEquals
-      `Prelude.seq` Prelude.rnf notFilter
-      `Prelude.seq` Prelude.rnf orAllFilters
+    Prelude.rnf andAllFilters `Prelude.seq`
+      Prelude.rnf containsAll `Prelude.seq`
+        Prelude.rnf containsAny `Prelude.seq`
+          Prelude.rnf equalsTo `Prelude.seq`
+            Prelude.rnf greaterThan `Prelude.seq`
+              Prelude.rnf greaterThanOrEquals `Prelude.seq`
+                Prelude.rnf lessThan `Prelude.seq`
+                  Prelude.rnf lessThanOrEquals `Prelude.seq`
+                    Prelude.rnf notFilter `Prelude.seq`
+                      Prelude.rnf orAllFilters
 
 instance Data.ToJSON AttributeFilter where
   toJSON AttributeFilter' {..} =

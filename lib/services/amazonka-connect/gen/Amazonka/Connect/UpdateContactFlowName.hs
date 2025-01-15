@@ -127,10 +127,10 @@ instance Prelude.Hashable UpdateContactFlowName where
 
 instance Prelude.NFData UpdateContactFlowName where
   rnf UpdateContactFlowName' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf contactFlowId
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf instanceId `Prelude.seq`
+          Prelude.rnf contactFlowId
 
 instance Data.ToHeaders UpdateContactFlowName where
   toHeaders =

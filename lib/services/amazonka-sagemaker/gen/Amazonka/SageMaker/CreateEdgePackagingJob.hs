@@ -198,14 +198,14 @@ instance Prelude.Hashable CreateEdgePackagingJob where
 
 instance Prelude.NFData CreateEdgePackagingJob where
   rnf CreateEdgePackagingJob' {..} =
-    Prelude.rnf resourceKey
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf edgePackagingJobName
-      `Prelude.seq` Prelude.rnf compilationJobName
-      `Prelude.seq` Prelude.rnf modelName
-      `Prelude.seq` Prelude.rnf modelVersion
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf outputConfig
+    Prelude.rnf resourceKey `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf edgePackagingJobName `Prelude.seq`
+          Prelude.rnf compilationJobName `Prelude.seq`
+            Prelude.rnf modelName `Prelude.seq`
+              Prelude.rnf modelVersion `Prelude.seq`
+                Prelude.rnf roleArn `Prelude.seq`
+                  Prelude.rnf outputConfig
 
 instance Data.ToHeaders CreateEdgePackagingJob where
   toHeaders =

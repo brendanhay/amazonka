@@ -101,6 +101,6 @@ instance Prelude.Hashable ExperienceEntitiesSummary where
 
 instance Prelude.NFData ExperienceEntitiesSummary where
   rnf ExperienceEntitiesSummary' {..} =
-    Prelude.rnf displayData
-      `Prelude.seq` Prelude.rnf entityId
-      `Prelude.seq` Prelude.rnf entityType
+    Prelude.rnf displayData `Prelude.seq`
+      Prelude.rnf entityId `Prelude.seq`
+        Prelude.rnf entityType

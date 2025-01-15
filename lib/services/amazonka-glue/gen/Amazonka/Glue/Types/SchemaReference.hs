@@ -98,9 +98,9 @@ instance Prelude.Hashable SchemaReference where
 
 instance Prelude.NFData SchemaReference where
   rnf SchemaReference' {..} =
-    Prelude.rnf schemaId
-      `Prelude.seq` Prelude.rnf schemaVersionId
-      `Prelude.seq` Prelude.rnf schemaVersionNumber
+    Prelude.rnf schemaId `Prelude.seq`
+      Prelude.rnf schemaVersionId `Prelude.seq`
+        Prelude.rnf schemaVersionNumber
 
 instance Data.ToJSON SchemaReference where
   toJSON SchemaReference' {..} =

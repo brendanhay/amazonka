@@ -133,9 +133,9 @@ instance Prelude.Hashable UpdateDetectorVersionStatus where
 
 instance Prelude.NFData UpdateDetectorVersionStatus where
   rnf UpdateDetectorVersionStatus' {..} =
-    Prelude.rnf detectorId
-      `Prelude.seq` Prelude.rnf detectorVersionId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf detectorId `Prelude.seq`
+      Prelude.rnf detectorVersionId `Prelude.seq`
+        Prelude.rnf status
 
 instance Data.ToHeaders UpdateDetectorVersionStatus where
   toHeaders =

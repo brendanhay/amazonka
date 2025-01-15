@@ -97,6 +97,6 @@ instance
 
 instance Prelude.NFData ClientConnectResponseOptions where
   rnf ClientConnectResponseOptions' {..} =
-    Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf lambdaFunctionArn
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf enabled `Prelude.seq`
+      Prelude.rnf lambdaFunctionArn `Prelude.seq`
+        Prelude.rnf status

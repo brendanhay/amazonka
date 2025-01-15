@@ -137,8 +137,8 @@ instance Prelude.Hashable UpdateTagCollectionFilter where
 
 instance Prelude.NFData UpdateTagCollectionFilter where
   rnf UpdateTagCollectionFilter' {..} =
-    Prelude.rnf appBoundaryKey
-      `Prelude.seq` Prelude.rnf tagValues
+    Prelude.rnf appBoundaryKey `Prelude.seq`
+      Prelude.rnf tagValues
 
 instance Data.ToJSON UpdateTagCollectionFilter where
   toJSON UpdateTagCollectionFilter' {..} =

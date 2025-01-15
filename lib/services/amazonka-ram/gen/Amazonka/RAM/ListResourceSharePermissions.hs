@@ -173,9 +173,9 @@ instance
 
 instance Prelude.NFData ListResourceSharePermissions where
   rnf ListResourceSharePermissions' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf resourceShareArn
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf resourceShareArn
 
 instance Data.ToHeaders ListResourceSharePermissions where
   toHeaders =
@@ -277,6 +277,6 @@ instance
     ListResourceSharePermissionsResponse
   where
   rnf ListResourceSharePermissionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf permissions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf permissions `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -138,9 +138,9 @@ instance Prelude.Hashable Celebrity where
 
 instance Prelude.NFData Celebrity where
   rnf Celebrity' {..} =
-    Prelude.rnf face
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf knownGender
-      `Prelude.seq` Prelude.rnf matchConfidence
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf urls
+    Prelude.rnf face `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf knownGender `Prelude.seq`
+          Prelude.rnf matchConfidence `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf urls

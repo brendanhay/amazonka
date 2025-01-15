@@ -115,8 +115,8 @@ instance Prelude.Hashable DescribeCompute where
 
 instance Prelude.NFData DescribeCompute where
   rnf DescribeCompute' {..} =
-    Prelude.rnf fleetId
-      `Prelude.seq` Prelude.rnf computeName
+    Prelude.rnf fleetId `Prelude.seq`
+      Prelude.rnf computeName
 
 instance Data.ToHeaders DescribeCompute where
   toHeaders =
@@ -189,5 +189,5 @@ describeComputeResponse_httpStatus = Lens.lens (\DescribeComputeResponse' {httpS
 
 instance Prelude.NFData DescribeComputeResponse where
   rnf DescribeComputeResponse' {..} =
-    Prelude.rnf compute
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf compute `Prelude.seq`
+      Prelude.rnf httpStatus

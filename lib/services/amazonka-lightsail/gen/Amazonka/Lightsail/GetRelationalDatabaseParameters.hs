@@ -131,12 +131,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getRelationalDatabaseParameters_pageToken
-          Lens..~ rs
-          Lens.^? getRelationalDatabaseParametersResponse_nextPageToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getRelationalDatabaseParameters_pageToken
+              Lens..~ rs
+              Lens.^? getRelationalDatabaseParametersResponse_nextPageToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -172,8 +172,8 @@ instance
     GetRelationalDatabaseParameters
   where
   rnf GetRelationalDatabaseParameters' {..} =
-    Prelude.rnf pageToken
-      `Prelude.seq` Prelude.rnf relationalDatabaseName
+    Prelude.rnf pageToken `Prelude.seq`
+      Prelude.rnf relationalDatabaseName
 
 instance
   Data.ToHeaders
@@ -289,6 +289,6 @@ instance
     GetRelationalDatabaseParametersResponse
   where
   rnf GetRelationalDatabaseParametersResponse' {..} =
-    Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextPageToken `Prelude.seq`
+      Prelude.rnf parameters `Prelude.seq`
+        Prelude.rnf httpStatus

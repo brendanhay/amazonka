@@ -122,8 +122,8 @@ instance Prelude.Hashable ChangeSummary where
 
 instance Prelude.NFData ChangeSummary where
   rnf ChangeSummary' {..} =
-    Prelude.rnf changeName
-      `Prelude.seq` Prelude.rnf changeType
-      `Prelude.seq` Prelude.rnf details
-      `Prelude.seq` Prelude.rnf entity
-      `Prelude.seq` Prelude.rnf errorDetailList
+    Prelude.rnf changeName `Prelude.seq`
+      Prelude.rnf changeType `Prelude.seq`
+        Prelude.rnf details `Prelude.seq`
+          Prelude.rnf entity `Prelude.seq`
+            Prelude.rnf errorDetailList

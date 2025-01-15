@@ -175,5 +175,5 @@ instance
     GetFirewallRuleGroupPolicyResponse
   where
   rnf GetFirewallRuleGroupPolicyResponse' {..} =
-    Prelude.rnf firewallRuleGroupPolicy
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf firewallRuleGroupPolicy `Prelude.seq`
+      Prelude.rnf httpStatus

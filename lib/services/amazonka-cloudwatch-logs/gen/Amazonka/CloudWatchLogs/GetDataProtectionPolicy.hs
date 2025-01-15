@@ -198,7 +198,7 @@ instance
     GetDataProtectionPolicyResponse
   where
   rnf GetDataProtectionPolicyResponse' {..} =
-    Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf logGroupIdentifier
-      `Prelude.seq` Prelude.rnf policyDocument
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf lastUpdatedTime `Prelude.seq`
+      Prelude.rnf logGroupIdentifier `Prelude.seq`
+        Prelude.rnf policyDocument `Prelude.seq`
+          Prelude.rnf httpStatus

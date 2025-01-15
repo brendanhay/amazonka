@@ -123,9 +123,9 @@ instance Prelude.Hashable SendDataToMulticastGroup where
 
 instance Prelude.NFData SendDataToMulticastGroup where
   rnf SendDataToMulticastGroup' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf payloadData
-      `Prelude.seq` Prelude.rnf wirelessMetadata
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf payloadData `Prelude.seq`
+        Prelude.rnf wirelessMetadata
 
 instance Data.ToHeaders SendDataToMulticastGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -191,5 +191,5 @@ instance
     SendDataToMulticastGroupResponse
   where
   rnf SendDataToMulticastGroupResponse' {..} =
-    Prelude.rnf messageId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf messageId `Prelude.seq`
+      Prelude.rnf httpStatus

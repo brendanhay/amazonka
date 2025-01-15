@@ -83,8 +83,8 @@ instance Prelude.Hashable RollingDateConfiguration where
 
 instance Prelude.NFData RollingDateConfiguration where
   rnf RollingDateConfiguration' {..} =
-    Prelude.rnf dataSetIdentifier
-      `Prelude.seq` Prelude.rnf expression
+    Prelude.rnf dataSetIdentifier `Prelude.seq`
+      Prelude.rnf expression
 
 instance Data.ToJSON RollingDateConfiguration where
   toJSON RollingDateConfiguration' {..} =

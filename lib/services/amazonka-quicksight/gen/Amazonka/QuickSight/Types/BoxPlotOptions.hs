@@ -94,9 +94,9 @@ instance Prelude.Hashable BoxPlotOptions where
 
 instance Prelude.NFData BoxPlotOptions where
   rnf BoxPlotOptions' {..} =
-    Prelude.rnf allDataPointsVisibility
-      `Prelude.seq` Prelude.rnf outlierVisibility
-      `Prelude.seq` Prelude.rnf styleOptions
+    Prelude.rnf allDataPointsVisibility `Prelude.seq`
+      Prelude.rnf outlierVisibility `Prelude.seq`
+        Prelude.rnf styleOptions
 
 instance Data.ToJSON BoxPlotOptions where
   toJSON BoxPlotOptions' {..} =

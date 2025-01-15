@@ -89,9 +89,9 @@ instance Prelude.Hashable BrokerLogs where
 
 instance Prelude.NFData BrokerLogs where
   rnf BrokerLogs' {..} =
-    Prelude.rnf cloudWatchLogs
-      `Prelude.seq` Prelude.rnf firehose
-      `Prelude.seq` Prelude.rnf s3
+    Prelude.rnf cloudWatchLogs `Prelude.seq`
+      Prelude.rnf firehose `Prelude.seq`
+        Prelude.rnf s3
 
 instance Data.ToJSON BrokerLogs where
   toJSON BrokerLogs' {..} =

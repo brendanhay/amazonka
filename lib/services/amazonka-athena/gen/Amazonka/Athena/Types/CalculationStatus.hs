@@ -164,7 +164,7 @@ instance Prelude.Hashable CalculationStatus where
 
 instance Prelude.NFData CalculationStatus where
   rnf CalculationStatus' {..} =
-    Prelude.rnf completionDateTime
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf stateChangeReason
-      `Prelude.seq` Prelude.rnf submissionDateTime
+    Prelude.rnf completionDateTime `Prelude.seq`
+      Prelude.rnf state `Prelude.seq`
+        Prelude.rnf stateChangeReason `Prelude.seq`
+          Prelude.rnf submissionDateTime

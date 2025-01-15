@@ -188,13 +188,13 @@ instance
     AdditionalInferenceSpecificationDefinition
   where
   rnf AdditionalInferenceSpecificationDefinition' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf supportedContentTypes
-      `Prelude.seq` Prelude.rnf supportedRealtimeInferenceInstanceTypes
-      `Prelude.seq` Prelude.rnf supportedResponseMIMETypes
-      `Prelude.seq` Prelude.rnf supportedTransformInstanceTypes
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf containers
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf supportedContentTypes `Prelude.seq`
+        Prelude.rnf supportedRealtimeInferenceInstanceTypes `Prelude.seq`
+          Prelude.rnf supportedResponseMIMETypes `Prelude.seq`
+            Prelude.rnf supportedTransformInstanceTypes `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf containers
 
 instance
   Data.ToJSON

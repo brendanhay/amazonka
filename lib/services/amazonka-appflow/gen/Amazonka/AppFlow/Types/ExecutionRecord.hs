@@ -165,11 +165,11 @@ instance Prelude.Hashable ExecutionRecord where
 
 instance Prelude.NFData ExecutionRecord where
   rnf ExecutionRecord' {..} =
-    Prelude.rnf dataPullEndTime
-      `Prelude.seq` Prelude.rnf dataPullStartTime
-      `Prelude.seq` Prelude.rnf executionId
-      `Prelude.seq` Prelude.rnf executionResult
-      `Prelude.seq` Prelude.rnf executionStatus
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf metadataCatalogDetails
-      `Prelude.seq` Prelude.rnf startedAt
+    Prelude.rnf dataPullEndTime `Prelude.seq`
+      Prelude.rnf dataPullStartTime `Prelude.seq`
+        Prelude.rnf executionId `Prelude.seq`
+          Prelude.rnf executionResult `Prelude.seq`
+            Prelude.rnf executionStatus `Prelude.seq`
+              Prelude.rnf lastUpdatedAt `Prelude.seq`
+                Prelude.rnf metadataCatalogDetails `Prelude.seq`
+                  Prelude.rnf startedAt

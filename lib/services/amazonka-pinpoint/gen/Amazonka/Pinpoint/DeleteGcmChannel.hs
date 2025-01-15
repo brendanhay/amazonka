@@ -165,5 +165,5 @@ deleteGcmChannelResponse_gCMChannelResponse = Lens.lens (\DeleteGcmChannelRespon
 
 instance Prelude.NFData DeleteGcmChannelResponse where
   rnf DeleteGcmChannelResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf gCMChannelResponse
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf gCMChannelResponse

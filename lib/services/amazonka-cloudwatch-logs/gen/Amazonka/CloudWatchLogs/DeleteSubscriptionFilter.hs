@@ -105,8 +105,8 @@ instance Prelude.Hashable DeleteSubscriptionFilter where
 
 instance Prelude.NFData DeleteSubscriptionFilter where
   rnf DeleteSubscriptionFilter' {..} =
-    Prelude.rnf logGroupName
-      `Prelude.seq` Prelude.rnf filterName
+    Prelude.rnf logGroupName `Prelude.seq`
+      Prelude.rnf filterName
 
 instance Data.ToHeaders DeleteSubscriptionFilter where
   toHeaders =

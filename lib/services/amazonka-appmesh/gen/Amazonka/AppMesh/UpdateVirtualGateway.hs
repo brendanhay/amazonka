@@ -167,11 +167,11 @@ instance Prelude.Hashable UpdateVirtualGateway where
 
 instance Prelude.NFData UpdateVirtualGateway where
   rnf UpdateVirtualGateway' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf meshOwner
-      `Prelude.seq` Prelude.rnf meshName
-      `Prelude.seq` Prelude.rnf spec
-      `Prelude.seq` Prelude.rnf virtualGatewayName
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf meshOwner `Prelude.seq`
+        Prelude.rnf meshName `Prelude.seq`
+          Prelude.rnf spec `Prelude.seq`
+            Prelude.rnf virtualGatewayName
 
 instance Data.ToHeaders UpdateVirtualGateway where
   toHeaders =
@@ -251,5 +251,5 @@ updateVirtualGatewayResponse_virtualGateway = Lens.lens (\UpdateVirtualGatewayRe
 
 instance Prelude.NFData UpdateVirtualGatewayResponse where
   rnf UpdateVirtualGatewayResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf virtualGateway
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf virtualGateway

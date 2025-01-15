@@ -119,9 +119,9 @@ instance Prelude.Hashable DeleteApp where
 
 instance Prelude.NFData DeleteApp where
   rnf DeleteApp' {..} =
-    Prelude.rnf app
-      `Prelude.seq` Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf simulation
+    Prelude.rnf app `Prelude.seq`
+      Prelude.rnf domain `Prelude.seq`
+        Prelude.rnf simulation
 
 instance Data.ToHeaders DeleteApp where
   toHeaders =

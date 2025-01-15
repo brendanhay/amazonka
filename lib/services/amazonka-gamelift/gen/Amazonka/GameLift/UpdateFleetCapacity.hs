@@ -208,11 +208,11 @@ instance Prelude.Hashable UpdateFleetCapacity where
 
 instance Prelude.NFData UpdateFleetCapacity where
   rnf UpdateFleetCapacity' {..} =
-    Prelude.rnf desiredInstances
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf maxSize
-      `Prelude.seq` Prelude.rnf minSize
-      `Prelude.seq` Prelude.rnf fleetId
+    Prelude.rnf desiredInstances `Prelude.seq`
+      Prelude.rnf location `Prelude.seq`
+        Prelude.rnf maxSize `Prelude.seq`
+          Prelude.rnf minSize `Prelude.seq`
+            Prelude.rnf fleetId
 
 instance Data.ToHeaders UpdateFleetCapacity where
   toHeaders =
@@ -322,7 +322,7 @@ updateFleetCapacityResponse_httpStatus = Lens.lens (\UpdateFleetCapacityResponse
 
 instance Prelude.NFData UpdateFleetCapacityResponse where
   rnf UpdateFleetCapacityResponse' {..} =
-    Prelude.rnf fleetArn
-      `Prelude.seq` Prelude.rnf fleetId
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf fleetArn `Prelude.seq`
+      Prelude.rnf fleetId `Prelude.seq`
+        Prelude.rnf location `Prelude.seq`
+          Prelude.rnf httpStatus

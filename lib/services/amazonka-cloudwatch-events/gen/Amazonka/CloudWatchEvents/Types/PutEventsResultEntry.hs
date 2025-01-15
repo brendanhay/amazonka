@@ -93,6 +93,6 @@ instance Prelude.Hashable PutEventsResultEntry where
 
 instance Prelude.NFData PutEventsResultEntry where
   rnf PutEventsResultEntry' {..} =
-    Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf eventId
+    Prelude.rnf errorCode `Prelude.seq`
+      Prelude.rnf errorMessage `Prelude.seq`
+        Prelude.rnf eventId

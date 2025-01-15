@@ -127,8 +127,8 @@ instance
 
 instance Prelude.NFData DescribeDashboardPermissions where
   rnf DescribeDashboardPermissions' {..} =
-    Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf dashboardId
+    Prelude.rnf awsAccountId `Prelude.seq`
+      Prelude.rnf dashboardId
 
 instance Data.ToHeaders DescribeDashboardPermissions where
   toHeaders =
@@ -247,9 +247,9 @@ instance
     DescribeDashboardPermissionsResponse
   where
   rnf DescribeDashboardPermissionsResponse' {..} =
-    Prelude.rnf dashboardArn
-      `Prelude.seq` Prelude.rnf dashboardId
-      `Prelude.seq` Prelude.rnf linkSharingConfiguration
-      `Prelude.seq` Prelude.rnf permissions
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf dashboardArn `Prelude.seq`
+      Prelude.rnf dashboardId `Prelude.seq`
+        Prelude.rnf linkSharingConfiguration `Prelude.seq`
+          Prelude.rnf permissions `Prelude.seq`
+            Prelude.rnf requestId `Prelude.seq`
+              Prelude.rnf status

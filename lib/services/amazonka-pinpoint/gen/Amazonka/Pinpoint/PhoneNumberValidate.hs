@@ -164,5 +164,5 @@ phoneNumberValidateResponse_numberValidateResponse = Lens.lens (\PhoneNumberVali
 
 instance Prelude.NFData PhoneNumberValidateResponse where
   rnf PhoneNumberValidateResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf numberValidateResponse
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf numberValidateResponse

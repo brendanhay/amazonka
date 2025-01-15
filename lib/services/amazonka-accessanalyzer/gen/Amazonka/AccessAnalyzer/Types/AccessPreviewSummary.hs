@@ -148,8 +148,8 @@ instance Prelude.Hashable AccessPreviewSummary where
 
 instance Prelude.NFData AccessPreviewSummary where
   rnf AccessPreviewSummary' {..} =
-    Prelude.rnf statusReason
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf analyzerArn
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf statusReason `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf analyzerArn `Prelude.seq`
+          Prelude.rnf createdAt `Prelude.seq`
+            Prelude.rnf status

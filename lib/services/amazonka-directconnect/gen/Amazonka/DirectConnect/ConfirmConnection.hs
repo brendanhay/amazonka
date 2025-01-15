@@ -247,5 +247,5 @@ confirmConnectionResponse_httpStatus = Lens.lens (\ConfirmConnectionResponse' {h
 
 instance Prelude.NFData ConfirmConnectionResponse where
   rnf ConfirmConnectionResponse' {..} =
-    Prelude.rnf connectionState
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf connectionState `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -147,8 +147,8 @@ instance
 
 instance Prelude.NFData DisassociateConnectionFromLag where
   rnf DisassociateConnectionFromLag' {..} =
-    Prelude.rnf connectionId
-      `Prelude.seq` Prelude.rnf lagId
+    Prelude.rnf connectionId `Prelude.seq`
+      Prelude.rnf lagId
 
 instance Data.ToHeaders DisassociateConnectionFromLag where
   toHeaders =

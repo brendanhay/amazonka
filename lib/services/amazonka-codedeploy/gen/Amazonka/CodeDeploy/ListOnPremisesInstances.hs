@@ -146,12 +146,12 @@ instance Core.AWSPager ListOnPremisesInstances where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listOnPremisesInstances_nextToken
-          Lens..~ rs
-          Lens.^? listOnPremisesInstancesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listOnPremisesInstances_nextToken
+              Lens..~ rs
+              Lens.^? listOnPremisesInstancesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListOnPremisesInstances where
   type
@@ -177,9 +177,9 @@ instance Prelude.Hashable ListOnPremisesInstances where
 
 instance Prelude.NFData ListOnPremisesInstances where
   rnf ListOnPremisesInstances' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf registrationStatus
-      `Prelude.seq` Prelude.rnf tagFilters
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf registrationStatus `Prelude.seq`
+        Prelude.rnf tagFilters
 
 instance Data.ToHeaders ListOnPremisesInstances where
   toHeaders =
@@ -274,6 +274,6 @@ instance
     ListOnPremisesInstancesResponse
   where
   rnf ListOnPremisesInstancesResponse' {..} =
-    Prelude.rnf instanceNames
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf instanceNames `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

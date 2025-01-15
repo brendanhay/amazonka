@@ -136,9 +136,9 @@ instance Prelude.Hashable ListCollections where
 
 instance Prelude.NFData ListCollections where
   rnf ListCollections' {..} =
-    Prelude.rnf collectionFilters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf collectionFilters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListCollections where
   toHeaders =
@@ -228,6 +228,6 @@ listCollectionsResponse_httpStatus = Lens.lens (\ListCollectionsResponse' {httpS
 
 instance Prelude.NFData ListCollectionsResponse where
   rnf ListCollectionsResponse' {..} =
-    Prelude.rnf collectionSummaries
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf collectionSummaries `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

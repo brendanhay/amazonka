@@ -191,10 +191,10 @@ instance Prelude.Hashable ProcessingClusterConfig where
 
 instance Prelude.NFData ProcessingClusterConfig where
   rnf ProcessingClusterConfig' {..} =
-    Prelude.rnf volumeKmsKeyId
-      `Prelude.seq` Prelude.rnf instanceCount
-      `Prelude.seq` Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf volumeSizeInGB
+    Prelude.rnf volumeKmsKeyId `Prelude.seq`
+      Prelude.rnf instanceCount `Prelude.seq`
+        Prelude.rnf instanceType `Prelude.seq`
+          Prelude.rnf volumeSizeInGB
 
 instance Data.ToJSON ProcessingClusterConfig where
   toJSON ProcessingClusterConfig' {..} =

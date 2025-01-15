@@ -396,9 +396,7 @@ instance Data.FromXML DBInstance where
       Prelude.<*> (x Data..@? "PreferredMaintenanceWindow")
       Prelude.<*> (x Data..@? "PromotionTier")
       Prelude.<*> (x Data..@? "PubliclyAccessible")
-      Prelude.<*> ( x
-                      Data..@? "StatusInfos"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "StatusInfos" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "DBInstanceStatusInfo")
                   )
       Prelude.<*> (x Data..@? "StorageEncrypted")

@@ -251,20 +251,20 @@ instance Prelude.Hashable StorageDescriptor where
 
 instance Prelude.NFData StorageDescriptor where
   rnf StorageDescriptor' {..} =
-    Prelude.rnf additionalLocations
-      `Prelude.seq` Prelude.rnf bucketColumns
-      `Prelude.seq` Prelude.rnf columns
-      `Prelude.seq` Prelude.rnf compressed
-      `Prelude.seq` Prelude.rnf inputFormat
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf numberOfBuckets
-      `Prelude.seq` Prelude.rnf outputFormat
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf schemaReference
-      `Prelude.seq` Prelude.rnf serdeInfo
-      `Prelude.seq` Prelude.rnf skewedInfo
-      `Prelude.seq` Prelude.rnf sortColumns
-      `Prelude.seq` Prelude.rnf storedAsSubDirectories
+    Prelude.rnf additionalLocations `Prelude.seq`
+      Prelude.rnf bucketColumns `Prelude.seq`
+        Prelude.rnf columns `Prelude.seq`
+          Prelude.rnf compressed `Prelude.seq`
+            Prelude.rnf inputFormat `Prelude.seq`
+              Prelude.rnf location `Prelude.seq`
+                Prelude.rnf numberOfBuckets `Prelude.seq`
+                  Prelude.rnf outputFormat `Prelude.seq`
+                    Prelude.rnf parameters `Prelude.seq`
+                      Prelude.rnf schemaReference `Prelude.seq`
+                        Prelude.rnf serdeInfo `Prelude.seq`
+                          Prelude.rnf skewedInfo `Prelude.seq`
+                            Prelude.rnf sortColumns `Prelude.seq`
+                              Prelude.rnf storedAsSubDirectories
 
 instance Data.ToJSON StorageDescriptor where
   toJSON StorageDescriptor' {..} =

@@ -93,5 +93,5 @@ instance
     RecoveryInstanceDataReplicationInitiation
   where
   rnf RecoveryInstanceDataReplicationInitiation' {..} =
-    Prelude.rnf startDateTime
-      `Prelude.seq` Prelude.rnf steps
+    Prelude.rnf startDateTime `Prelude.seq`
+      Prelude.rnf steps

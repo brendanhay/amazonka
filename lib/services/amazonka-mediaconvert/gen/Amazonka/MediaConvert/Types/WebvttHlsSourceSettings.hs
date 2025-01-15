@@ -101,9 +101,9 @@ instance Prelude.Hashable WebvttHlsSourceSettings where
 
 instance Prelude.NFData WebvttHlsSourceSettings where
   rnf WebvttHlsSourceSettings' {..} =
-    Prelude.rnf renditionGroupId
-      `Prelude.seq` Prelude.rnf renditionLanguageCode
-      `Prelude.seq` Prelude.rnf renditionName
+    Prelude.rnf renditionGroupId `Prelude.seq`
+      Prelude.rnf renditionLanguageCode `Prelude.seq`
+        Prelude.rnf renditionName
 
 instance Data.ToJSON WebvttHlsSourceSettings where
   toJSON WebvttHlsSourceSettings' {..} =

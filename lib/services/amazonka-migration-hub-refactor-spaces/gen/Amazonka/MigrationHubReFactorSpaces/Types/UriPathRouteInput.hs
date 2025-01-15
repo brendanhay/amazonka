@@ -127,10 +127,10 @@ instance Prelude.Hashable UriPathRouteInput where
 
 instance Prelude.NFData UriPathRouteInput where
   rnf UriPathRouteInput' {..} =
-    Prelude.rnf includeChildPaths
-      `Prelude.seq` Prelude.rnf methods
-      `Prelude.seq` Prelude.rnf activationState
-      `Prelude.seq` Prelude.rnf sourcePath
+    Prelude.rnf includeChildPaths `Prelude.seq`
+      Prelude.rnf methods `Prelude.seq`
+        Prelude.rnf activationState `Prelude.seq`
+          Prelude.rnf sourcePath
 
 instance Data.ToJSON UriPathRouteInput where
   toJSON UriPathRouteInput' {..} =

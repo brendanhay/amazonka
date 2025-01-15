@@ -149,12 +149,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeDirectConnectGatewayAttachments_nextToken
-          Lens..~ rs
-          Lens.^? describeDirectConnectGatewayAttachmentsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeDirectConnectGatewayAttachments_nextToken
+              Lens..~ rs
+              Lens.^? describeDirectConnectGatewayAttachmentsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -196,10 +196,10 @@ instance
     DescribeDirectConnectGatewayAttachments
   where
   rnf DescribeDirectConnectGatewayAttachments' {..} =
-    Prelude.rnf directConnectGatewayId
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf virtualInterfaceId
+    Prelude.rnf directConnectGatewayId `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf virtualInterfaceId
 
 instance
   Data.ToHeaders
@@ -303,6 +303,6 @@ instance
   where
   rnf
     DescribeDirectConnectGatewayAttachmentsResponse' {..} =
-      Prelude.rnf directConnectGatewayAttachments
-        `Prelude.seq` Prelude.rnf nextToken
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf directConnectGatewayAttachments `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf httpStatus

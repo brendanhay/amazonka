@@ -155,10 +155,10 @@ instance Prelude.Hashable CreateWorkGroup where
 
 instance Prelude.NFData CreateWorkGroup where
   rnf CreateWorkGroup' {..} =
-    Prelude.rnf configuration
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf configuration `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf name
 
 instance Data.ToHeaders CreateWorkGroup where
   toHeaders =

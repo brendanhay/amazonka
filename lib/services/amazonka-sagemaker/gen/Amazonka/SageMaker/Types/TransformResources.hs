@@ -188,9 +188,9 @@ instance Prelude.Hashable TransformResources where
 
 instance Prelude.NFData TransformResources where
   rnf TransformResources' {..} =
-    Prelude.rnf volumeKmsKeyId
-      `Prelude.seq` Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf instanceCount
+    Prelude.rnf volumeKmsKeyId `Prelude.seq`
+      Prelude.rnf instanceType `Prelude.seq`
+        Prelude.rnf instanceCount
 
 instance Data.ToJSON TransformResources where
   toJSON TransformResources' {..} =

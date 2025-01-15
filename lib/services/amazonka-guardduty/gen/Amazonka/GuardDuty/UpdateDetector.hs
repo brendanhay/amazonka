@@ -131,10 +131,10 @@ instance Prelude.Hashable UpdateDetector where
 
 instance Prelude.NFData UpdateDetector where
   rnf UpdateDetector' {..} =
-    Prelude.rnf dataSources
-      `Prelude.seq` Prelude.rnf enable
-      `Prelude.seq` Prelude.rnf findingPublishingFrequency
-      `Prelude.seq` Prelude.rnf detectorId
+    Prelude.rnf dataSources `Prelude.seq`
+      Prelude.rnf enable `Prelude.seq`
+        Prelude.rnf findingPublishingFrequency `Prelude.seq`
+          Prelude.rnf detectorId
 
 instance Data.ToHeaders UpdateDetector where
   toHeaders =

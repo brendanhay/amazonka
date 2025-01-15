@@ -120,8 +120,8 @@ instance Prelude.Hashable DetectSyntax where
 
 instance Prelude.NFData DetectSyntax where
   rnf DetectSyntax' {..} =
-    Prelude.rnf text
-      `Prelude.seq` Prelude.rnf languageCode
+    Prelude.rnf text `Prelude.seq`
+      Prelude.rnf languageCode
 
 instance Data.ToHeaders DetectSyntax where
   toHeaders =
@@ -209,5 +209,5 @@ detectSyntaxResponse_httpStatus = Lens.lens (\DetectSyntaxResponse' {httpStatus}
 
 instance Prelude.NFData DetectSyntaxResponse where
   rnf DetectSyntaxResponse' {..} =
-    Prelude.rnf syntaxTokens
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf syntaxTokens `Prelude.seq`
+      Prelude.rnf httpStatus

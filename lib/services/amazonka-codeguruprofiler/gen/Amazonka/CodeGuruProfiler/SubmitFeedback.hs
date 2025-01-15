@@ -147,10 +147,10 @@ instance Prelude.Hashable SubmitFeedback where
 
 instance Prelude.NFData SubmitFeedback where
   rnf SubmitFeedback' {..} =
-    Prelude.rnf comment
-      `Prelude.seq` Prelude.rnf anomalyInstanceId
-      `Prelude.seq` Prelude.rnf profilingGroupName
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf comment `Prelude.seq`
+      Prelude.rnf anomalyInstanceId `Prelude.seq`
+        Prelude.rnf profilingGroupName `Prelude.seq`
+          Prelude.rnf type'
 
 instance Data.ToHeaders SubmitFeedback where
   toHeaders =

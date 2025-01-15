@@ -136,9 +136,9 @@ instance Prelude.Hashable DeleteSecurityGroup where
 
 instance Prelude.NFData DeleteSecurityGroup where
   rnf DeleteSecurityGroup' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf groupId
-      `Prelude.seq` Prelude.rnf groupName
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf groupId `Prelude.seq`
+        Prelude.rnf groupName
 
 instance Data.ToHeaders DeleteSecurityGroup where
   toHeaders = Prelude.const Prelude.mempty

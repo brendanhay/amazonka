@@ -176,9 +176,9 @@ instance Prelude.Hashable SegmentImportResource where
 
 instance Prelude.NFData SegmentImportResource where
   rnf SegmentImportResource' {..} =
-    Prelude.rnf channelCounts
-      `Prelude.seq` Prelude.rnf format
-      `Prelude.seq` Prelude.rnf s3Url
-      `Prelude.seq` Prelude.rnf size
-      `Prelude.seq` Prelude.rnf externalId
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf channelCounts `Prelude.seq`
+      Prelude.rnf format `Prelude.seq`
+        Prelude.rnf s3Url `Prelude.seq`
+          Prelude.rnf size `Prelude.seq`
+            Prelude.rnf externalId `Prelude.seq`
+              Prelude.rnf roleArn

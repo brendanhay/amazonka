@@ -164,5 +164,5 @@ deletePatchBaselineResponse_httpStatus = Lens.lens (\DeletePatchBaselineResponse
 
 instance Prelude.NFData DeletePatchBaselineResponse where
   rnf DeletePatchBaselineResponse' {..} =
-    Prelude.rnf baselineId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf baselineId `Prelude.seq`
+      Prelude.rnf httpStatus

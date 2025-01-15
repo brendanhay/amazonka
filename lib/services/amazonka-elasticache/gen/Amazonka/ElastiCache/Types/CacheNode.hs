@@ -261,11 +261,11 @@ instance Prelude.Hashable CacheNode where
 
 instance Prelude.NFData CacheNode where
   rnf CacheNode' {..} =
-    Prelude.rnf cacheNodeCreateTime
-      `Prelude.seq` Prelude.rnf cacheNodeId
-      `Prelude.seq` Prelude.rnf cacheNodeStatus
-      `Prelude.seq` Prelude.rnf customerAvailabilityZone
-      `Prelude.seq` Prelude.rnf customerOutpostArn
-      `Prelude.seq` Prelude.rnf endpoint
-      `Prelude.seq` Prelude.rnf parameterGroupStatus
-      `Prelude.seq` Prelude.rnf sourceCacheNodeId
+    Prelude.rnf cacheNodeCreateTime `Prelude.seq`
+      Prelude.rnf cacheNodeId `Prelude.seq`
+        Prelude.rnf cacheNodeStatus `Prelude.seq`
+          Prelude.rnf customerAvailabilityZone `Prelude.seq`
+            Prelude.rnf customerOutpostArn `Prelude.seq`
+              Prelude.rnf endpoint `Prelude.seq`
+                Prelude.rnf parameterGroupStatus `Prelude.seq`
+                  Prelude.rnf sourceCacheNodeId

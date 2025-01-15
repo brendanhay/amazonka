@@ -89,5 +89,5 @@ instance Prelude.Hashable NodeDetails where
 
 instance Prelude.NFData NodeDetails where
   rnf NodeDetails' {..} =
-    Prelude.rnf isMainNode
-      `Prelude.seq` Prelude.rnf nodeIndex
+    Prelude.rnf isMainNode `Prelude.seq`
+      Prelude.rnf nodeIndex

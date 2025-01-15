@@ -112,7 +112,7 @@ instance Prelude.Hashable ThingTypeDefinition where
 
 instance Prelude.NFData ThingTypeDefinition where
   rnf ThingTypeDefinition' {..} =
-    Prelude.rnf thingTypeArn
-      `Prelude.seq` Prelude.rnf thingTypeMetadata
-      `Prelude.seq` Prelude.rnf thingTypeName
-      `Prelude.seq` Prelude.rnf thingTypeProperties
+    Prelude.rnf thingTypeArn `Prelude.seq`
+      Prelude.rnf thingTypeMetadata `Prelude.seq`
+        Prelude.rnf thingTypeName `Prelude.seq`
+          Prelude.rnf thingTypeProperties

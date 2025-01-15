@@ -119,8 +119,8 @@ instance
     GameServerGroupAutoScalingPolicy
   where
   rnf GameServerGroupAutoScalingPolicy' {..} =
-    Prelude.rnf estimatedInstanceWarmup
-      `Prelude.seq` Prelude.rnf targetTrackingConfiguration
+    Prelude.rnf estimatedInstanceWarmup `Prelude.seq`
+      Prelude.rnf targetTrackingConfiguration
 
 instance Data.ToJSON GameServerGroupAutoScalingPolicy where
   toJSON GameServerGroupAutoScalingPolicy' {..} =

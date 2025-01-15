@@ -247,12 +247,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeScheduledInstanceAvailability_nextToken
-          Lens..~ rs
-          Lens.^? describeScheduledInstanceAvailabilityResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeScheduledInstanceAvailability_nextToken
+              Lens..~ rs
+              Lens.^? describeScheduledInstanceAvailabilityResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -299,14 +299,14 @@ instance
     DescribeScheduledInstanceAvailability
   where
   rnf DescribeScheduledInstanceAvailability' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf maxSlotDurationInHours
-      `Prelude.seq` Prelude.rnf minSlotDurationInHours
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf firstSlotStartTimeRange
-      `Prelude.seq` Prelude.rnf recurrence
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf maxSlotDurationInHours `Prelude.seq`
+            Prelude.rnf minSlotDurationInHours `Prelude.seq`
+              Prelude.rnf nextToken `Prelude.seq`
+                Prelude.rnf firstSlotStartTimeRange `Prelude.seq`
+                  Prelude.rnf recurrence
 
 instance
   Data.ToHeaders
@@ -407,6 +407,6 @@ instance
   where
   rnf
     DescribeScheduledInstanceAvailabilityResponse' {..} =
-      Prelude.rnf nextToken
-        `Prelude.seq` Prelude.rnf scheduledInstanceAvailabilitySet
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf scheduledInstanceAvailabilitySet `Prelude.seq`
+          Prelude.rnf httpStatus

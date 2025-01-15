@@ -358,17 +358,17 @@ instance Prelude.Hashable CreateDashboard where
 
 instance Prelude.NFData CreateDashboard where
   rnf CreateDashboard' {..} =
-    Prelude.rnf dashboardPublishOptions
-      `Prelude.seq` Prelude.rnf definition
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf permissions
-      `Prelude.seq` Prelude.rnf sourceEntity
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf themeArn
-      `Prelude.seq` Prelude.rnf versionDescription
-      `Prelude.seq` Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf dashboardId
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf dashboardPublishOptions `Prelude.seq`
+      Prelude.rnf definition `Prelude.seq`
+        Prelude.rnf parameters `Prelude.seq`
+          Prelude.rnf permissions `Prelude.seq`
+            Prelude.rnf sourceEntity `Prelude.seq`
+              Prelude.rnf tags `Prelude.seq`
+                Prelude.rnf themeArn `Prelude.seq`
+                  Prelude.rnf versionDescription `Prelude.seq`
+                    Prelude.rnf awsAccountId `Prelude.seq`
+                      Prelude.rnf dashboardId `Prelude.seq`
+                        Prelude.rnf name
 
 instance Data.ToHeaders CreateDashboard where
   toHeaders =
@@ -490,9 +490,9 @@ createDashboardResponse_status = Lens.lens (\CreateDashboardResponse' {status} -
 
 instance Prelude.NFData CreateDashboardResponse where
   rnf CreateDashboardResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationStatus
-      `Prelude.seq` Prelude.rnf dashboardId
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf versionArn
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf creationStatus `Prelude.seq`
+        Prelude.rnf dashboardId `Prelude.seq`
+          Prelude.rnf requestId `Prelude.seq`
+            Prelude.rnf versionArn `Prelude.seq`
+              Prelude.rnf status

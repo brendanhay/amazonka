@@ -93,9 +93,9 @@ instance Prelude.Hashable NotifyEmailType where
 
 instance Prelude.NFData NotifyEmailType where
   rnf NotifyEmailType' {..} =
-    Prelude.rnf htmlBody
-      `Prelude.seq` Prelude.rnf textBody
-      `Prelude.seq` Prelude.rnf subject
+    Prelude.rnf htmlBody `Prelude.seq`
+      Prelude.rnf textBody `Prelude.seq`
+        Prelude.rnf subject
 
 instance Data.ToJSON NotifyEmailType where
   toJSON NotifyEmailType' {..} =

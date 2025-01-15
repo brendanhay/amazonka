@@ -139,9 +139,9 @@ instance Prelude.Hashable StopDeployment where
 
 instance Prelude.NFData StopDeployment where
   rnf StopDeployment' {..} =
-    Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf environmentId
-      `Prelude.seq` Prelude.rnf deploymentNumber
+    Prelude.rnf applicationId `Prelude.seq`
+      Prelude.rnf environmentId `Prelude.seq`
+        Prelude.rnf deploymentNumber
 
 instance Data.ToHeaders StopDeployment where
   toHeaders =

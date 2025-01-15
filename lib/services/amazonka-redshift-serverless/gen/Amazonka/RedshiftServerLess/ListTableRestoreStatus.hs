@@ -141,12 +141,12 @@ instance Core.AWSPager ListTableRestoreStatus where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listTableRestoreStatus_nextToken
-          Lens..~ rs
-          Lens.^? listTableRestoreStatusResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listTableRestoreStatus_nextToken
+              Lens..~ rs
+              Lens.^? listTableRestoreStatusResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListTableRestoreStatus where
   type
@@ -176,10 +176,10 @@ instance Prelude.Hashable ListTableRestoreStatus where
 
 instance Prelude.NFData ListTableRestoreStatus where
   rnf ListTableRestoreStatus' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf namespaceName
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf workgroupName
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf namespaceName `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf workgroupName
 
 instance Data.ToHeaders ListTableRestoreStatus where
   toHeaders =
@@ -275,6 +275,6 @@ instance
     ListTableRestoreStatusResponse
   where
   rnf ListTableRestoreStatusResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf tableRestoreStatuses
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf tableRestoreStatuses `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -127,8 +127,8 @@ instance
     PutAppInstanceRetentionSettings
   where
   rnf PutAppInstanceRetentionSettings' {..} =
-    Prelude.rnf appInstanceArn
-      `Prelude.seq` Prelude.rnf appInstanceRetentionSettings
+    Prelude.rnf appInstanceArn `Prelude.seq`
+      Prelude.rnf appInstanceRetentionSettings
 
 instance
   Data.ToHeaders
@@ -213,6 +213,6 @@ instance
     PutAppInstanceRetentionSettingsResponse
   where
   rnf PutAppInstanceRetentionSettingsResponse' {..} =
-    Prelude.rnf appInstanceRetentionSettings
-      `Prelude.seq` Prelude.rnf initiateDeletionTimestamp
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf appInstanceRetentionSettings `Prelude.seq`
+      Prelude.rnf initiateDeletionTimestamp `Prelude.seq`
+        Prelude.rnf httpStatus

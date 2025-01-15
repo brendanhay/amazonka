@@ -149,10 +149,10 @@ instance Prelude.Hashable Settings where
 
 instance Prelude.NFData Settings where
   rnf Settings' {..} =
-    Prelude.rnf defaultAssessmentReportsDestination
-      `Prelude.seq` Prelude.rnf defaultProcessOwners
-      `Prelude.seq` Prelude.rnf deregistrationPolicy
-      `Prelude.seq` Prelude.rnf evidenceFinderEnablement
-      `Prelude.seq` Prelude.rnf isAwsOrgEnabled
-      `Prelude.seq` Prelude.rnf kmsKey
-      `Prelude.seq` Prelude.rnf snsTopic
+    Prelude.rnf defaultAssessmentReportsDestination `Prelude.seq`
+      Prelude.rnf defaultProcessOwners `Prelude.seq`
+        Prelude.rnf deregistrationPolicy `Prelude.seq`
+          Prelude.rnf evidenceFinderEnablement `Prelude.seq`
+            Prelude.rnf isAwsOrgEnabled `Prelude.seq`
+              Prelude.rnf kmsKey `Prelude.seq`
+                Prelude.rnf snsTopic

@@ -147,9 +147,9 @@ instance Prelude.Hashable CreateRepository where
 
 instance Prelude.NFData CreateRepository where
   rnf CreateRepository' {..} =
-    Prelude.rnf catalogData
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf repositoryName
+    Prelude.rnf catalogData `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf repositoryName
 
 instance Data.ToHeaders CreateRepository where
   toHeaders =
@@ -232,6 +232,6 @@ createRepositoryResponse_httpStatus = Lens.lens (\CreateRepositoryResponse' {htt
 
 instance Prelude.NFData CreateRepositoryResponse where
   rnf CreateRepositoryResponse' {..} =
-    Prelude.rnf catalogData
-      `Prelude.seq` Prelude.rnf repository
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf catalogData `Prelude.seq`
+      Prelude.rnf repository `Prelude.seq`
+        Prelude.rnf httpStatus

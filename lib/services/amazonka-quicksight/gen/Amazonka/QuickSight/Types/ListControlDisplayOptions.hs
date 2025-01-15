@@ -95,9 +95,9 @@ instance Prelude.Hashable ListControlDisplayOptions where
 
 instance Prelude.NFData ListControlDisplayOptions where
   rnf ListControlDisplayOptions' {..} =
-    Prelude.rnf searchOptions
-      `Prelude.seq` Prelude.rnf selectAllOptions
-      `Prelude.seq` Prelude.rnf titleOptions
+    Prelude.rnf searchOptions `Prelude.seq`
+      Prelude.rnf selectAllOptions `Prelude.seq`
+        Prelude.rnf titleOptions
 
 instance Data.ToJSON ListControlDisplayOptions where
   toJSON ListControlDisplayOptions' {..} =

@@ -100,6 +100,6 @@ instance
 
 instance Prelude.NFData PrivateDnsNameOptionsResponse where
   rnf PrivateDnsNameOptionsResponse' {..} =
-    Prelude.rnf enableResourceNameDnsAAAARecord
-      `Prelude.seq` Prelude.rnf enableResourceNameDnsARecord
-      `Prelude.seq` Prelude.rnf hostnameType
+    Prelude.rnf enableResourceNameDnsAAAARecord `Prelude.seq`
+      Prelude.rnf enableResourceNameDnsARecord `Prelude.seq`
+        Prelude.rnf hostnameType

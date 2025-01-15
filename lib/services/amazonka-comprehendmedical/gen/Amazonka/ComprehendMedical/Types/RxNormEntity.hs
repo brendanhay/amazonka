@@ -208,13 +208,13 @@ instance Prelude.Hashable RxNormEntity where
 
 instance Prelude.NFData RxNormEntity where
   rnf RxNormEntity' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf beginOffset
-      `Prelude.seq` Prelude.rnf category
-      `Prelude.seq` Prelude.rnf endOffset
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf rxNormConcepts
-      `Prelude.seq` Prelude.rnf score
-      `Prelude.seq` Prelude.rnf text
-      `Prelude.seq` Prelude.rnf traits
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf attributes `Prelude.seq`
+      Prelude.rnf beginOffset `Prelude.seq`
+        Prelude.rnf category `Prelude.seq`
+          Prelude.rnf endOffset `Prelude.seq`
+            Prelude.rnf id `Prelude.seq`
+              Prelude.rnf rxNormConcepts `Prelude.seq`
+                Prelude.rnf score `Prelude.seq`
+                  Prelude.rnf text `Prelude.seq`
+                    Prelude.rnf traits `Prelude.seq`
+                      Prelude.rnf type'

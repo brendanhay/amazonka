@@ -173,13 +173,13 @@ instance Prelude.Hashable EndpointAccess where
 
 instance Prelude.NFData EndpointAccess where
   rnf EndpointAccess' {..} =
-    Prelude.rnf address
-      `Prelude.seq` Prelude.rnf clusterIdentifier
-      `Prelude.seq` Prelude.rnf endpointCreateTime
-      `Prelude.seq` Prelude.rnf endpointName
-      `Prelude.seq` Prelude.rnf endpointStatus
-      `Prelude.seq` Prelude.rnf port
-      `Prelude.seq` Prelude.rnf resourceOwner
-      `Prelude.seq` Prelude.rnf subnetGroupName
-      `Prelude.seq` Prelude.rnf vpcEndpoint
-      `Prelude.seq` Prelude.rnf vpcSecurityGroups
+    Prelude.rnf address `Prelude.seq`
+      Prelude.rnf clusterIdentifier `Prelude.seq`
+        Prelude.rnf endpointCreateTime `Prelude.seq`
+          Prelude.rnf endpointName `Prelude.seq`
+            Prelude.rnf endpointStatus `Prelude.seq`
+              Prelude.rnf port `Prelude.seq`
+                Prelude.rnf resourceOwner `Prelude.seq`
+                  Prelude.rnf subnetGroupName `Prelude.seq`
+                    Prelude.rnf vpcEndpoint `Prelude.seq`
+                      Prelude.rnf vpcSecurityGroups

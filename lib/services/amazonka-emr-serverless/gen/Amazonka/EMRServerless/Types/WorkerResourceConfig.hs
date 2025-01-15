@@ -96,9 +96,9 @@ instance Prelude.Hashable WorkerResourceConfig where
 
 instance Prelude.NFData WorkerResourceConfig where
   rnf WorkerResourceConfig' {..} =
-    Prelude.rnf disk
-      `Prelude.seq` Prelude.rnf cpu
-      `Prelude.seq` Prelude.rnf memory
+    Prelude.rnf disk `Prelude.seq`
+      Prelude.rnf cpu `Prelude.seq`
+        Prelude.rnf memory
 
 instance Data.ToJSON WorkerResourceConfig where
   toJSON WorkerResourceConfig' {..} =

@@ -90,8 +90,8 @@ instance
 
 instance Prelude.NFData DataSetIdentifierDeclaration where
   rnf DataSetIdentifierDeclaration' {..} =
-    Prelude.rnf identifier
-      `Prelude.seq` Prelude.rnf dataSetArn
+    Prelude.rnf identifier `Prelude.seq`
+      Prelude.rnf dataSetArn
 
 instance Data.ToJSON DataSetIdentifierDeclaration where
   toJSON DataSetIdentifierDeclaration' {..} =

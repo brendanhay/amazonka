@@ -167,11 +167,11 @@ instance Prelude.Hashable ListSuppressedDestinations where
 
 instance Prelude.NFData ListSuppressedDestinations where
   rnf ListSuppressedDestinations' {..} =
-    Prelude.rnf endDate
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf pageSize
-      `Prelude.seq` Prelude.rnf reasons
-      `Prelude.seq` Prelude.rnf startDate
+    Prelude.rnf endDate `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf pageSize `Prelude.seq`
+          Prelude.rnf reasons `Prelude.seq`
+            Prelude.rnf startDate
 
 instance Data.ToHeaders ListSuppressedDestinations where
   toHeaders =
@@ -268,6 +268,6 @@ instance
     ListSuppressedDestinationsResponse
   where
   rnf ListSuppressedDestinationsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf suppressedDestinationSummaries
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf suppressedDestinationSummaries `Prelude.seq`
+        Prelude.rnf httpStatus

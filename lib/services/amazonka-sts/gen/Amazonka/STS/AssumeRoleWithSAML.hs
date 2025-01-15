@@ -554,12 +554,12 @@ instance Prelude.Hashable AssumeRoleWithSAML where
 
 instance Prelude.NFData AssumeRoleWithSAML where
   rnf AssumeRoleWithSAML' {..} =
-    Prelude.rnf durationSeconds
-      `Prelude.seq` Prelude.rnf policy
-      `Prelude.seq` Prelude.rnf policyArns
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf principalArn
-      `Prelude.seq` Prelude.rnf sAMLAssertion
+    Prelude.rnf durationSeconds `Prelude.seq`
+      Prelude.rnf policy `Prelude.seq`
+        Prelude.rnf policyArns `Prelude.seq`
+          Prelude.rnf roleArn `Prelude.seq`
+            Prelude.rnf principalArn `Prelude.seq`
+              Prelude.rnf sAMLAssertion
 
 instance Data.ToHeaders AssumeRoleWithSAML where
   toHeaders = Prelude.const Prelude.mempty
@@ -860,13 +860,13 @@ assumeRoleWithSAMLResponse_httpStatus = Lens.lens (\AssumeRoleWithSAMLResponse' 
 
 instance Prelude.NFData AssumeRoleWithSAMLResponse where
   rnf AssumeRoleWithSAMLResponse' {..} =
-    Prelude.rnf assumedRoleUser
-      `Prelude.seq` Prelude.rnf audience
-      `Prelude.seq` Prelude.rnf credentials
-      `Prelude.seq` Prelude.rnf issuer
-      `Prelude.seq` Prelude.rnf nameQualifier
-      `Prelude.seq` Prelude.rnf packedPolicySize
-      `Prelude.seq` Prelude.rnf sourceIdentity
-      `Prelude.seq` Prelude.rnf subject
-      `Prelude.seq` Prelude.rnf subjectType
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf assumedRoleUser `Prelude.seq`
+      Prelude.rnf audience `Prelude.seq`
+        Prelude.rnf credentials `Prelude.seq`
+          Prelude.rnf issuer `Prelude.seq`
+            Prelude.rnf nameQualifier `Prelude.seq`
+              Prelude.rnf packedPolicySize `Prelude.seq`
+                Prelude.rnf sourceIdentity `Prelude.seq`
+                  Prelude.rnf subject `Prelude.seq`
+                    Prelude.rnf subjectType `Prelude.seq`
+                      Prelude.rnf httpStatus

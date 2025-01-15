@@ -181,5 +181,5 @@ instance
     DescribeDocumentClassifierResponse
   where
   rnf DescribeDocumentClassifierResponse' {..} =
-    Prelude.rnf documentClassifierProperties
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf documentClassifierProperties `Prelude.seq`
+      Prelude.rnf httpStatus

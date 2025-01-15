@@ -111,8 +111,8 @@ instance Prelude.Hashable DeleteLiveSource where
 
 instance Prelude.NFData DeleteLiveSource where
   rnf DeleteLiveSource' {..} =
-    Prelude.rnf liveSourceName
-      `Prelude.seq` Prelude.rnf sourceLocationName
+    Prelude.rnf liveSourceName `Prelude.seq`
+      Prelude.rnf sourceLocationName
 
 instance Data.ToHeaders DeleteLiveSource where
   toHeaders =

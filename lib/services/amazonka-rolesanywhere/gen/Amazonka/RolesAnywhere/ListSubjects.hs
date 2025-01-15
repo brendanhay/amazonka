@@ -111,12 +111,12 @@ instance Core.AWSPager ListSubjects where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listSubjects_nextToken
-          Lens..~ rs
-          Lens.^? listSubjectsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listSubjects_nextToken
+              Lens..~ rs
+              Lens.^? listSubjectsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSubjects where
   type AWSResponse ListSubjects = ListSubjectsResponse
@@ -139,8 +139,8 @@ instance Prelude.Hashable ListSubjects where
 
 instance Prelude.NFData ListSubjects where
   rnf ListSubjects' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf pageSize
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf pageSize
 
 instance Data.ToHeaders ListSubjects where
   toHeaders =
@@ -218,6 +218,6 @@ listSubjectsResponse_httpStatus = Lens.lens (\ListSubjectsResponse' {httpStatus}
 
 instance Prelude.NFData ListSubjectsResponse where
   rnf ListSubjectsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf subjects
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf subjects `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -92,5 +92,5 @@ instance
     NotifyRecommendationsReceivedError
   where
   rnf NotifyRecommendationsReceivedError' {..} =
-    Prelude.rnf message
-      `Prelude.seq` Prelude.rnf recommendationId
+    Prelude.rnf message `Prelude.seq`
+      Prelude.rnf recommendationId

@@ -161,8 +161,8 @@ instance
     DeploymentComponentUpdatePolicy
   where
   rnf DeploymentComponentUpdatePolicy' {..} =
-    Prelude.rnf action
-      `Prelude.seq` Prelude.rnf timeoutInSeconds
+    Prelude.rnf action `Prelude.seq`
+      Prelude.rnf timeoutInSeconds
 
 instance Data.ToJSON DeploymentComponentUpdatePolicy where
   toJSON DeploymentComponentUpdatePolicy' {..} =

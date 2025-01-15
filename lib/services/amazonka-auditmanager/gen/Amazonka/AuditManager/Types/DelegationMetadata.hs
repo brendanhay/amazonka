@@ -136,10 +136,10 @@ instance Prelude.Hashable DelegationMetadata where
 
 instance Prelude.NFData DelegationMetadata where
   rnf DelegationMetadata' {..} =
-    Prelude.rnf assessmentId
-      `Prelude.seq` Prelude.rnf assessmentName
-      `Prelude.seq` Prelude.rnf controlSetName
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf assessmentId `Prelude.seq`
+      Prelude.rnf assessmentName `Prelude.seq`
+        Prelude.rnf controlSetName `Prelude.seq`
+          Prelude.rnf creationTime `Prelude.seq`
+            Prelude.rnf id `Prelude.seq`
+              Prelude.rnf roleArn `Prelude.seq`
+                Prelude.rnf status

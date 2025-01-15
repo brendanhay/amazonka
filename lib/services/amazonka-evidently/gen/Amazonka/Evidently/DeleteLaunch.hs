@@ -110,8 +110,8 @@ instance Prelude.Hashable DeleteLaunch where
 
 instance Prelude.NFData DeleteLaunch where
   rnf DeleteLaunch' {..} =
-    Prelude.rnf launch
-      `Prelude.seq` Prelude.rnf project
+    Prelude.rnf launch `Prelude.seq`
+      Prelude.rnf project
 
 instance Data.ToHeaders DeleteLaunch where
   toHeaders =

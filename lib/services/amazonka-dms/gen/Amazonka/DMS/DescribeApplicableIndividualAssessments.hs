@@ -234,13 +234,13 @@ instance
     DescribeApplicableIndividualAssessments
   where
   rnf DescribeApplicableIndividualAssessments' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf migrationType
-      `Prelude.seq` Prelude.rnf replicationInstanceArn
-      `Prelude.seq` Prelude.rnf replicationTaskArn
-      `Prelude.seq` Prelude.rnf sourceEngineName
-      `Prelude.seq` Prelude.rnf targetEngineName
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf maxRecords `Prelude.seq`
+        Prelude.rnf migrationType `Prelude.seq`
+          Prelude.rnf replicationInstanceArn `Prelude.seq`
+            Prelude.rnf replicationTaskArn `Prelude.seq`
+              Prelude.rnf sourceEngineName `Prelude.seq`
+                Prelude.rnf targetEngineName
 
 instance
   Data.ToHeaders
@@ -377,6 +377,6 @@ instance
   where
   rnf
     DescribeApplicableIndividualAssessmentsResponse' {..} =
-      Prelude.rnf individualAssessmentNames
-        `Prelude.seq` Prelude.rnf marker
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf individualAssessmentNames `Prelude.seq`
+        Prelude.rnf marker `Prelude.seq`
+          Prelude.rnf httpStatus

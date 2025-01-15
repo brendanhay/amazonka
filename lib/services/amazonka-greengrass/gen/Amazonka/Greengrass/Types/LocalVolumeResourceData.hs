@@ -99,9 +99,9 @@ instance Prelude.Hashable LocalVolumeResourceData where
 
 instance Prelude.NFData LocalVolumeResourceData where
   rnf LocalVolumeResourceData' {..} =
-    Prelude.rnf destinationPath
-      `Prelude.seq` Prelude.rnf groupOwnerSetting
-      `Prelude.seq` Prelude.rnf sourcePath
+    Prelude.rnf destinationPath `Prelude.seq`
+      Prelude.rnf groupOwnerSetting `Prelude.seq`
+        Prelude.rnf sourcePath
 
 instance Data.ToJSON LocalVolumeResourceData where
   toJSON LocalVolumeResourceData' {..} =

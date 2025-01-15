@@ -106,7 +106,7 @@ instance Prelude.Hashable ManagedAgent where
 
 instance Prelude.NFData ManagedAgent where
   rnf ManagedAgent' {..} =
-    Prelude.rnf lastStartedAt
-      `Prelude.seq` Prelude.rnf lastStatus
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf reason
+    Prelude.rnf lastStartedAt `Prelude.seq`
+      Prelude.rnf lastStatus `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf reason

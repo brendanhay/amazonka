@@ -347,18 +347,18 @@ releasePhoneNumberResponse_httpStatus = Lens.lens (\ReleasePhoneNumberResponse' 
 
 instance Prelude.NFData ReleasePhoneNumberResponse where
   rnf ReleasePhoneNumberResponse' {..} =
-    Prelude.rnf createdTimestamp
-      `Prelude.seq` Prelude.rnf isoCountryCode
-      `Prelude.seq` Prelude.rnf messageType
-      `Prelude.seq` Prelude.rnf monthlyLeasingPrice
-      `Prelude.seq` Prelude.rnf numberCapabilities
-      `Prelude.seq` Prelude.rnf numberType
-      `Prelude.seq` Prelude.rnf optOutListName
-      `Prelude.seq` Prelude.rnf phoneNumber
-      `Prelude.seq` Prelude.rnf phoneNumberArn
-      `Prelude.seq` Prelude.rnf phoneNumberId
-      `Prelude.seq` Prelude.rnf selfManagedOptOutsEnabled
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf twoWayChannelArn
-      `Prelude.seq` Prelude.rnf twoWayEnabled
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf createdTimestamp `Prelude.seq`
+      Prelude.rnf isoCountryCode `Prelude.seq`
+        Prelude.rnf messageType `Prelude.seq`
+          Prelude.rnf monthlyLeasingPrice `Prelude.seq`
+            Prelude.rnf numberCapabilities `Prelude.seq`
+              Prelude.rnf numberType `Prelude.seq`
+                Prelude.rnf optOutListName `Prelude.seq`
+                  Prelude.rnf phoneNumber `Prelude.seq`
+                    Prelude.rnf phoneNumberArn `Prelude.seq`
+                      Prelude.rnf phoneNumberId `Prelude.seq`
+                        Prelude.rnf selfManagedOptOutsEnabled `Prelude.seq`
+                          Prelude.rnf status `Prelude.seq`
+                            Prelude.rnf twoWayChannelArn `Prelude.seq`
+                              Prelude.rnf twoWayEnabled `Prelude.seq`
+                                Prelude.rnf httpStatus

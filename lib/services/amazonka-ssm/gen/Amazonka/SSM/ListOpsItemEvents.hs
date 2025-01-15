@@ -126,12 +126,12 @@ instance Core.AWSPager ListOpsItemEvents where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listOpsItemEvents_nextToken
-          Lens..~ rs
-          Lens.^? listOpsItemEventsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listOpsItemEvents_nextToken
+              Lens..~ rs
+              Lens.^? listOpsItemEventsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListOpsItemEvents where
   type
@@ -157,9 +157,9 @@ instance Prelude.Hashable ListOpsItemEvents where
 
 instance Prelude.NFData ListOpsItemEvents where
   rnf ListOpsItemEvents' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListOpsItemEvents where
   toHeaders =
@@ -245,6 +245,6 @@ listOpsItemEventsResponse_httpStatus = Lens.lens (\ListOpsItemEventsResponse' {h
 
 instance Prelude.NFData ListOpsItemEventsResponse where
   rnf ListOpsItemEventsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf summaries
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf summaries `Prelude.seq`
+        Prelude.rnf httpStatus

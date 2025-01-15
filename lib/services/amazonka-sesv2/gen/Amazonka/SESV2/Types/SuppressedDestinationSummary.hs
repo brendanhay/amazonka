@@ -112,6 +112,6 @@ instance
 
 instance Prelude.NFData SuppressedDestinationSummary where
   rnf SuppressedDestinationSummary' {..} =
-    Prelude.rnf emailAddress
-      `Prelude.seq` Prelude.rnf reason
-      `Prelude.seq` Prelude.rnf lastUpdateTime
+    Prelude.rnf emailAddress `Prelude.seq`
+      Prelude.rnf reason `Prelude.seq`
+        Prelude.rnf lastUpdateTime

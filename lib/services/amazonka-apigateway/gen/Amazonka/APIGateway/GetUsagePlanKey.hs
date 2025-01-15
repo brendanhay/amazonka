@@ -114,8 +114,8 @@ instance Prelude.Hashable GetUsagePlanKey where
 
 instance Prelude.NFData GetUsagePlanKey where
   rnf GetUsagePlanKey' {..} =
-    Prelude.rnf usagePlanId
-      `Prelude.seq` Prelude.rnf keyId
+    Prelude.rnf usagePlanId `Prelude.seq`
+      Prelude.rnf keyId
 
 instance Data.ToHeaders GetUsagePlanKey where
   toHeaders =

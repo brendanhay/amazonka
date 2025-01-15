@@ -127,12 +127,12 @@ instance Prelude.Hashable SegmentDemographics where
 
 instance Prelude.NFData SegmentDemographics where
   rnf SegmentDemographics' {..} =
-    Prelude.rnf appVersion
-      `Prelude.seq` Prelude.rnf channel
-      `Prelude.seq` Prelude.rnf deviceType
-      `Prelude.seq` Prelude.rnf make
-      `Prelude.seq` Prelude.rnf model
-      `Prelude.seq` Prelude.rnf platform
+    Prelude.rnf appVersion `Prelude.seq`
+      Prelude.rnf channel `Prelude.seq`
+        Prelude.rnf deviceType `Prelude.seq`
+          Prelude.rnf make `Prelude.seq`
+            Prelude.rnf model `Prelude.seq`
+              Prelude.rnf platform
 
 instance Data.ToJSON SegmentDemographics where
   toJSON SegmentDemographics' {..} =

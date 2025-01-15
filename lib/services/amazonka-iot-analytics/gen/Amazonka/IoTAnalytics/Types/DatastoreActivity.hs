@@ -84,8 +84,8 @@ instance Prelude.Hashable DatastoreActivity where
 
 instance Prelude.NFData DatastoreActivity where
   rnf DatastoreActivity' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf datastoreName
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf datastoreName
 
 instance Data.ToJSON DatastoreActivity where
   toJSON DatastoreActivity' {..} =

@@ -116,8 +116,8 @@ instance Prelude.Hashable ListMulticastGroups where
 
 instance Prelude.NFData ListMulticastGroups where
   rnf ListMulticastGroups' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListMulticastGroups where
   toHeaders = Prelude.const Prelude.mempty
@@ -187,6 +187,6 @@ listMulticastGroupsResponse_httpStatus = Lens.lens (\ListMulticastGroupsResponse
 
 instance Prelude.NFData ListMulticastGroupsResponse where
   rnf ListMulticastGroupsResponse' {..} =
-    Prelude.rnf multicastGroupList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf multicastGroupList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -90,5 +90,5 @@ instance
 
 instance Prelude.NFData AutoScalingPolicyDescription where
   rnf AutoScalingPolicyDescription' {..} =
-    Prelude.rnf policyName
-      `Prelude.seq` Prelude.rnf targetTrackingScalingPolicyConfiguration
+    Prelude.rnf policyName `Prelude.seq`
+      Prelude.rnf targetTrackingScalingPolicyConfiguration

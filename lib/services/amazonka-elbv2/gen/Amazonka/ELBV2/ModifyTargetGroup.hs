@@ -248,9 +248,7 @@ instance Core.AWSRequest ModifyTargetGroup where
       "ModifyTargetGroupResult"
       ( \s h x ->
           ModifyTargetGroupResponse'
-            Prelude.<$> ( x
-                            Data..@? "TargetGroups"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "TargetGroups" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -272,16 +270,16 @@ instance Prelude.Hashable ModifyTargetGroup where
 
 instance Prelude.NFData ModifyTargetGroup where
   rnf ModifyTargetGroup' {..} =
-    Prelude.rnf healthCheckEnabled
-      `Prelude.seq` Prelude.rnf healthCheckIntervalSeconds
-      `Prelude.seq` Prelude.rnf healthCheckPath
-      `Prelude.seq` Prelude.rnf healthCheckPort
-      `Prelude.seq` Prelude.rnf healthCheckProtocol
-      `Prelude.seq` Prelude.rnf healthCheckTimeoutSeconds
-      `Prelude.seq` Prelude.rnf healthyThresholdCount
-      `Prelude.seq` Prelude.rnf matcher
-      `Prelude.seq` Prelude.rnf unhealthyThresholdCount
-      `Prelude.seq` Prelude.rnf targetGroupArn
+    Prelude.rnf healthCheckEnabled `Prelude.seq`
+      Prelude.rnf healthCheckIntervalSeconds `Prelude.seq`
+        Prelude.rnf healthCheckPath `Prelude.seq`
+          Prelude.rnf healthCheckPort `Prelude.seq`
+            Prelude.rnf healthCheckProtocol `Prelude.seq`
+              Prelude.rnf healthCheckTimeoutSeconds `Prelude.seq`
+                Prelude.rnf healthyThresholdCount `Prelude.seq`
+                  Prelude.rnf matcher `Prelude.seq`
+                    Prelude.rnf unhealthyThresholdCount `Prelude.seq`
+                      Prelude.rnf targetGroupArn
 
 instance Data.ToHeaders ModifyTargetGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -353,5 +351,5 @@ modifyTargetGroupResponse_httpStatus = Lens.lens (\ModifyTargetGroupResponse' {h
 
 instance Prelude.NFData ModifyTargetGroupResponse where
   rnf ModifyTargetGroupResponse' {..} =
-    Prelude.rnf targetGroups
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf targetGroups `Prelude.seq`
+      Prelude.rnf httpStatus

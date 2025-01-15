@@ -250,11 +250,11 @@ instance
     GetCalculationExecutionResponse
   where
   rnf GetCalculationExecutionResponse' {..} =
-    Prelude.rnf calculationExecutionId
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf result
-      `Prelude.seq` Prelude.rnf sessionId
-      `Prelude.seq` Prelude.rnf statistics
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf workingDirectory
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf calculationExecutionId `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf result `Prelude.seq`
+          Prelude.rnf sessionId `Prelude.seq`
+            Prelude.rnf statistics `Prelude.seq`
+              Prelude.rnf status `Prelude.seq`
+                Prelude.rnf workingDirectory `Prelude.seq`
+                  Prelude.rnf httpStatus

@@ -84,8 +84,8 @@ instance Prelude.Hashable PolicyOption where
 
 instance Prelude.NFData PolicyOption where
   rnf PolicyOption' {..} =
-    Prelude.rnf networkFirewallPolicy
-      `Prelude.seq` Prelude.rnf thirdPartyFirewallPolicy
+    Prelude.rnf networkFirewallPolicy `Prelude.seq`
+      Prelude.rnf thirdPartyFirewallPolicy
 
 instance Data.ToJSON PolicyOption where
   toJSON PolicyOption' {..} =

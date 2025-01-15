@@ -98,8 +98,8 @@ instance Prelude.Hashable ServiceAccountCredentials where
 
 instance Prelude.NFData ServiceAccountCredentials where
   rnf ServiceAccountCredentials' {..} =
-    Prelude.rnf accountName
-      `Prelude.seq` Prelude.rnf accountPassword
+    Prelude.rnf accountName `Prelude.seq`
+      Prelude.rnf accountPassword
 
 instance Data.ToJSON ServiceAccountCredentials where
   toJSON ServiceAccountCredentials' {..} =

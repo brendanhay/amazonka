@@ -108,8 +108,8 @@ instance Prelude.Hashable AbortEnvironmentUpdate where
 
 instance Prelude.NFData AbortEnvironmentUpdate where
   rnf AbortEnvironmentUpdate' {..} =
-    Prelude.rnf environmentId
-      `Prelude.seq` Prelude.rnf environmentName
+    Prelude.rnf environmentId `Prelude.seq`
+      Prelude.rnf environmentName
 
 instance Data.ToHeaders AbortEnvironmentUpdate where
   toHeaders = Prelude.const Prelude.mempty

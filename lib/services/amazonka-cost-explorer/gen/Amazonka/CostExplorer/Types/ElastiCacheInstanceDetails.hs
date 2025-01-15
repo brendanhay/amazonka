@@ -129,9 +129,9 @@ instance Prelude.Hashable ElastiCacheInstanceDetails where
 
 instance Prelude.NFData ElastiCacheInstanceDetails where
   rnf ElastiCacheInstanceDetails' {..} =
-    Prelude.rnf currentGeneration
-      `Prelude.seq` Prelude.rnf family
-      `Prelude.seq` Prelude.rnf nodeType
-      `Prelude.seq` Prelude.rnf productDescription
-      `Prelude.seq` Prelude.rnf region
-      `Prelude.seq` Prelude.rnf sizeFlexEligible
+    Prelude.rnf currentGeneration `Prelude.seq`
+      Prelude.rnf family `Prelude.seq`
+        Prelude.rnf nodeType `Prelude.seq`
+          Prelude.rnf productDescription `Prelude.seq`
+            Prelude.rnf region `Prelude.seq`
+              Prelude.rnf sizeFlexEligible

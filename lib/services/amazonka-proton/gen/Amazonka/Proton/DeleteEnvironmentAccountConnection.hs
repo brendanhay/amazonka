@@ -201,5 +201,5 @@ instance
     DeleteEnvironmentAccountConnectionResponse
   where
   rnf DeleteEnvironmentAccountConnectionResponse' {..} =
-    Prelude.rnf environmentAccountConnection
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf environmentAccountConnection `Prelude.seq`
+      Prelude.rnf httpStatus

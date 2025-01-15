@@ -265,16 +265,16 @@ instance Prelude.Hashable Route where
 
 instance Prelude.NFData Route where
   rnf Route' {..} =
-    Prelude.rnf apiGatewayManaged
-      `Prelude.seq` Prelude.rnf apiKeyRequired
-      `Prelude.seq` Prelude.rnf authorizationScopes
-      `Prelude.seq` Prelude.rnf authorizationType
-      `Prelude.seq` Prelude.rnf authorizerId
-      `Prelude.seq` Prelude.rnf modelSelectionExpression
-      `Prelude.seq` Prelude.rnf operationName
-      `Prelude.seq` Prelude.rnf requestModels
-      `Prelude.seq` Prelude.rnf requestParameters
-      `Prelude.seq` Prelude.rnf routeId
-      `Prelude.seq` Prelude.rnf routeResponseSelectionExpression
-      `Prelude.seq` Prelude.rnf target
-      `Prelude.seq` Prelude.rnf routeKey
+    Prelude.rnf apiGatewayManaged `Prelude.seq`
+      Prelude.rnf apiKeyRequired `Prelude.seq`
+        Prelude.rnf authorizationScopes `Prelude.seq`
+          Prelude.rnf authorizationType `Prelude.seq`
+            Prelude.rnf authorizerId `Prelude.seq`
+              Prelude.rnf modelSelectionExpression `Prelude.seq`
+                Prelude.rnf operationName `Prelude.seq`
+                  Prelude.rnf requestModels `Prelude.seq`
+                    Prelude.rnf requestParameters `Prelude.seq`
+                      Prelude.rnf routeId `Prelude.seq`
+                        Prelude.rnf routeResponseSelectionExpression `Prelude.seq`
+                          Prelude.rnf target `Prelude.seq`
+                            Prelude.rnf routeKey

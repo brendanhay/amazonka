@@ -309,6 +309,6 @@ instance
     UpdateGlobalTableSettingsResponse
   where
   rnf UpdateGlobalTableSettingsResponse' {..} =
-    Prelude.rnf globalTableName
-      `Prelude.seq` Prelude.rnf replicaSettings
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf globalTableName `Prelude.seq`
+      Prelude.rnf replicaSettings `Prelude.seq`
+        Prelude.rnf httpStatus

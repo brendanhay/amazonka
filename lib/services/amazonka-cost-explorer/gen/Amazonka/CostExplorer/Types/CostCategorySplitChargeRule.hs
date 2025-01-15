@@ -154,10 +154,10 @@ instance Prelude.Hashable CostCategorySplitChargeRule where
 
 instance Prelude.NFData CostCategorySplitChargeRule where
   rnf CostCategorySplitChargeRule' {..} =
-    Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf targets
-      `Prelude.seq` Prelude.rnf method
+    Prelude.rnf parameters `Prelude.seq`
+      Prelude.rnf source `Prelude.seq`
+        Prelude.rnf targets `Prelude.seq`
+          Prelude.rnf method
 
 instance Data.ToJSON CostCategorySplitChargeRule where
   toJSON CostCategorySplitChargeRule' {..} =

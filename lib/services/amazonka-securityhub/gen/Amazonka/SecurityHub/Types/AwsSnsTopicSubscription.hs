@@ -81,8 +81,8 @@ instance Prelude.Hashable AwsSnsTopicSubscription where
 
 instance Prelude.NFData AwsSnsTopicSubscription where
   rnf AwsSnsTopicSubscription' {..} =
-    Prelude.rnf endpoint
-      `Prelude.seq` Prelude.rnf protocol
+    Prelude.rnf endpoint `Prelude.seq`
+      Prelude.rnf protocol
 
 instance Data.ToJSON AwsSnsTopicSubscription where
   toJSON AwsSnsTopicSubscription' {..} =

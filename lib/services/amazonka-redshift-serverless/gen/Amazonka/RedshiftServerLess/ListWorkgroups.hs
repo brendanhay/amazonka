@@ -108,12 +108,12 @@ instance Core.AWSPager ListWorkgroups where
         (rs Lens.^. listWorkgroupsResponse_workgroups) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listWorkgroups_nextToken
-          Lens..~ rs
-          Lens.^? listWorkgroupsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listWorkgroups_nextToken
+              Lens..~ rs
+              Lens.^? listWorkgroupsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListWorkgroups where
   type
@@ -138,8 +138,8 @@ instance Prelude.Hashable ListWorkgroups where
 
 instance Prelude.NFData ListWorkgroups where
   rnf ListWorkgroups' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListWorkgroups where
   toHeaders =
@@ -227,6 +227,6 @@ listWorkgroupsResponse_workgroups = Lens.lens (\ListWorkgroupsResponse' {workgro
 
 instance Prelude.NFData ListWorkgroupsResponse where
   rnf ListWorkgroupsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf workgroups
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf workgroups

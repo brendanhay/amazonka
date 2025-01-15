@@ -122,9 +122,9 @@ instance Prelude.Hashable UpdateMultiplex' where
 
 instance Prelude.NFData UpdateMultiplex' where
   rnf UpdateMultiplex'' {..} =
-    Prelude.rnf multiplexSettings
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf multiplexId
+    Prelude.rnf multiplexSettings `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf multiplexId
 
 instance Data.ToHeaders UpdateMultiplex' where
   toHeaders =
@@ -198,5 +198,5 @@ updateMultiplexResponse_httpStatus = Lens.lens (\UpdateMultiplexResponse' {httpS
 
 instance Prelude.NFData UpdateMultiplexResponse where
   rnf UpdateMultiplexResponse' {..} =
-    Prelude.rnf multiplex
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf multiplex `Prelude.seq`
+      Prelude.rnf httpStatus

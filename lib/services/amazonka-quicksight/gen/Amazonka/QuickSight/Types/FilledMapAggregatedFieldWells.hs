@@ -92,8 +92,8 @@ instance
 
 instance Prelude.NFData FilledMapAggregatedFieldWells where
   rnf FilledMapAggregatedFieldWells' {..} =
-    Prelude.rnf geospatial
-      `Prelude.seq` Prelude.rnf values
+    Prelude.rnf geospatial `Prelude.seq`
+      Prelude.rnf values
 
 instance Data.ToJSON FilledMapAggregatedFieldWells where
   toJSON FilledMapAggregatedFieldWells' {..} =

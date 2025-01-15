@@ -100,8 +100,8 @@ instance Prelude.Hashable ActionTypeArtifactDetails where
 
 instance Prelude.NFData ActionTypeArtifactDetails where
   rnf ActionTypeArtifactDetails' {..} =
-    Prelude.rnf minimumCount
-      `Prelude.seq` Prelude.rnf maximumCount
+    Prelude.rnf minimumCount `Prelude.seq`
+      Prelude.rnf maximumCount
 
 instance Data.ToJSON ActionTypeArtifactDetails where
   toJSON ActionTypeArtifactDetails' {..} =

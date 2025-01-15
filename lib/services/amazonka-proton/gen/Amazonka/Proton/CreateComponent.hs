@@ -257,15 +257,15 @@ instance Prelude.Hashable CreateComponent where
 
 instance Prelude.NFData CreateComponent where
   rnf CreateComponent' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf environmentName
-      `Prelude.seq` Prelude.rnf serviceInstanceName
-      `Prelude.seq` Prelude.rnf serviceName
-      `Prelude.seq` Prelude.rnf serviceSpec
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf manifest
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf templateFile
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf environmentName `Prelude.seq`
+        Prelude.rnf serviceInstanceName `Prelude.seq`
+          Prelude.rnf serviceName `Prelude.seq`
+            Prelude.rnf serviceSpec `Prelude.seq`
+              Prelude.rnf tags `Prelude.seq`
+                Prelude.rnf manifest `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf templateFile
 
 instance Data.ToHeaders CreateComponent where
   toHeaders =
@@ -348,5 +348,5 @@ createComponentResponse_component = Lens.lens (\CreateComponentResponse' {compon
 
 instance Prelude.NFData CreateComponentResponse where
   rnf CreateComponentResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf component
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf component

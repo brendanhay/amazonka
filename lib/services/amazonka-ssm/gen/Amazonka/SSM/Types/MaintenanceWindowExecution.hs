@@ -126,9 +126,9 @@ instance Prelude.Hashable MaintenanceWindowExecution where
 
 instance Prelude.NFData MaintenanceWindowExecution where
   rnf MaintenanceWindowExecution' {..} =
-    Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusDetails
-      `Prelude.seq` Prelude.rnf windowExecutionId
-      `Prelude.seq` Prelude.rnf windowId
+    Prelude.rnf endTime `Prelude.seq`
+      Prelude.rnf startTime `Prelude.seq`
+        Prelude.rnf status `Prelude.seq`
+          Prelude.rnf statusDetails `Prelude.seq`
+            Prelude.rnf windowExecutionId `Prelude.seq`
+              Prelude.rnf windowId

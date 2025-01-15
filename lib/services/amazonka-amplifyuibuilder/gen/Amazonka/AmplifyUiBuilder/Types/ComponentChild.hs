@@ -142,12 +142,12 @@ instance Prelude.Hashable ComponentChild where
 
 instance Prelude.NFData ComponentChild where
   rnf ComponentChild' {..} =
-    Prelude.rnf children
-      `Prelude.seq` Prelude.rnf events
-      `Prelude.seq` Prelude.rnf sourceId
-      `Prelude.seq` Prelude.rnf componentType
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf properties
+    Prelude.rnf children `Prelude.seq`
+      Prelude.rnf events `Prelude.seq`
+        Prelude.rnf sourceId `Prelude.seq`
+          Prelude.rnf componentType `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf properties
 
 instance Data.ToJSON ComponentChild where
   toJSON ComponentChild' {..} =

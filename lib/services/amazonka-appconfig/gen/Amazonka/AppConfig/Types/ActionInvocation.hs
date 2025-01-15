@@ -150,10 +150,10 @@ instance Prelude.Hashable ActionInvocation where
 
 instance Prelude.NFData ActionInvocation where
   rnf ActionInvocation' {..} =
-    Prelude.rnf actionName
-      `Prelude.seq` Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf extensionIdentifier
-      `Prelude.seq` Prelude.rnf invocationId
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf uri
+    Prelude.rnf actionName `Prelude.seq`
+      Prelude.rnf errorCode `Prelude.seq`
+        Prelude.rnf errorMessage `Prelude.seq`
+          Prelude.rnf extensionIdentifier `Prelude.seq`
+            Prelude.rnf invocationId `Prelude.seq`
+              Prelude.rnf roleArn `Prelude.seq`
+                Prelude.rnf uri

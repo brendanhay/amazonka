@@ -125,8 +125,8 @@ instance
     AssociateAssessmentReportEvidenceFolder
   where
   rnf AssociateAssessmentReportEvidenceFolder' {..} =
-    Prelude.rnf assessmentId
-      `Prelude.seq` Prelude.rnf evidenceFolderId
+    Prelude.rnf assessmentId `Prelude.seq`
+      Prelude.rnf evidenceFolderId
 
 instance
   Data.ToHeaders

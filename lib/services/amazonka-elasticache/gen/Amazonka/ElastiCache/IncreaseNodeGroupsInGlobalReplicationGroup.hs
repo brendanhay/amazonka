@@ -163,10 +163,10 @@ instance
     IncreaseNodeGroupsInGlobalReplicationGroup
   where
   rnf IncreaseNodeGroupsInGlobalReplicationGroup' {..} =
-    Prelude.rnf regionalConfigurations
-      `Prelude.seq` Prelude.rnf globalReplicationGroupId
-      `Prelude.seq` Prelude.rnf nodeGroupCount
-      `Prelude.seq` Prelude.rnf applyImmediately
+    Prelude.rnf regionalConfigurations `Prelude.seq`
+      Prelude.rnf globalReplicationGroupId `Prelude.seq`
+        Prelude.rnf nodeGroupCount `Prelude.seq`
+          Prelude.rnf applyImmediately
 
 instance
   Data.ToHeaders
@@ -250,5 +250,5 @@ instance
   where
   rnf
     IncreaseNodeGroupsInGlobalReplicationGroupResponse' {..} =
-      Prelude.rnf globalReplicationGroup
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf globalReplicationGroup `Prelude.seq`
+        Prelude.rnf httpStatus

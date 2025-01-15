@@ -123,8 +123,8 @@ instance
     AssociateTagOptionWithResource
   where
   rnf AssociateTagOptionWithResource' {..} =
-    Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf tagOptionId
+    Prelude.rnf resourceId `Prelude.seq`
+      Prelude.rnf tagOptionId
 
 instance
   Data.ToHeaders

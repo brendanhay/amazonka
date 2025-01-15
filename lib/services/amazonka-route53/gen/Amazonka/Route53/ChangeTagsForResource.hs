@@ -170,10 +170,10 @@ instance Prelude.Hashable ChangeTagsForResource where
 
 instance Prelude.NFData ChangeTagsForResource where
   rnf ChangeTagsForResource' {..} =
-    Prelude.rnf addTags
-      `Prelude.seq` Prelude.rnf removeTagKeys
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf resourceId
+    Prelude.rnf addTags `Prelude.seq`
+      Prelude.rnf removeTagKeys `Prelude.seq`
+        Prelude.rnf resourceType `Prelude.seq`
+          Prelude.rnf resourceId
 
 instance Data.ToElement ChangeTagsForResource where
   toElement =

@@ -124,12 +124,12 @@ instance Core.AWSPager ListPrompts where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listPrompts_nextToken
-          Lens..~ rs
-          Lens.^? listPromptsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listPrompts_nextToken
+              Lens..~ rs
+              Lens.^? listPromptsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPrompts where
   type AWSResponse ListPrompts = ListPromptsResponse
@@ -156,9 +156,9 @@ instance Prelude.Hashable ListPrompts where
 
 instance Prelude.NFData ListPrompts where
   rnf ListPrompts' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf instanceId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf instanceId
 
 instance Data.ToHeaders ListPrompts where
   toHeaders =
@@ -235,6 +235,6 @@ listPromptsResponse_httpStatus = Lens.lens (\ListPromptsResponse' {httpStatus} -
 
 instance Prelude.NFData ListPromptsResponse where
   rnf ListPromptsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf promptSummaryList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf promptSummaryList `Prelude.seq`
+        Prelude.rnf httpStatus

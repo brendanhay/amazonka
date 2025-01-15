@@ -95,9 +95,9 @@ instance Prelude.Hashable PivotTableFieldOption where
 
 instance Prelude.NFData PivotTableFieldOption where
   rnf PivotTableFieldOption' {..} =
-    Prelude.rnf customLabel
-      `Prelude.seq` Prelude.rnf visibility
-      `Prelude.seq` Prelude.rnf fieldId
+    Prelude.rnf customLabel `Prelude.seq`
+      Prelude.rnf visibility `Prelude.seq`
+        Prelude.rnf fieldId
 
 instance Data.ToJSON PivotTableFieldOption where
   toJSON PivotTableFieldOption' {..} =

@@ -300,14 +300,14 @@ describeTrackerResponse_updateTime = Lens.lens (\DescribeTrackerResponse' {updat
 
 instance Prelude.NFData DescribeTrackerResponse where
   rnf DescribeTrackerResponse' {..} =
-    Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf positionFiltering
-      `Prelude.seq` Prelude.rnf pricingPlan
-      `Prelude.seq` Prelude.rnf pricingPlanDataSource
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf createTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf trackerArn
-      `Prelude.seq` Prelude.rnf trackerName
-      `Prelude.seq` Prelude.rnf updateTime
+    Prelude.rnf kmsKeyId `Prelude.seq`
+      Prelude.rnf positionFiltering `Prelude.seq`
+        Prelude.rnf pricingPlan `Prelude.seq`
+          Prelude.rnf pricingPlanDataSource `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf httpStatus `Prelude.seq`
+                Prelude.rnf createTime `Prelude.seq`
+                  Prelude.rnf description `Prelude.seq`
+                    Prelude.rnf trackerArn `Prelude.seq`
+                      Prelude.rnf trackerName `Prelude.seq`
+                        Prelude.rnf updateTime

@@ -79,8 +79,8 @@ instance Prelude.Hashable UpdateReplicationSetAction where
 
 instance Prelude.NFData UpdateReplicationSetAction where
   rnf UpdateReplicationSetAction' {..} =
-    Prelude.rnf addRegionAction
-      `Prelude.seq` Prelude.rnf deleteRegionAction
+    Prelude.rnf addRegionAction `Prelude.seq`
+      Prelude.rnf deleteRegionAction
 
 instance Data.ToJSON UpdateReplicationSetAction where
   toJSON UpdateReplicationSetAction' {..} =

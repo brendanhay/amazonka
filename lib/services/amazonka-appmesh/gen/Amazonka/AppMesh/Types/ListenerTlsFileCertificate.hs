@@ -93,8 +93,8 @@ instance Prelude.Hashable ListenerTlsFileCertificate where
 
 instance Prelude.NFData ListenerTlsFileCertificate where
   rnf ListenerTlsFileCertificate' {..} =
-    Prelude.rnf certificateChain
-      `Prelude.seq` Prelude.rnf privateKey
+    Prelude.rnf certificateChain `Prelude.seq`
+      Prelude.rnf privateKey
 
 instance Data.ToJSON ListenerTlsFileCertificate where
   toJSON ListenerTlsFileCertificate' {..} =

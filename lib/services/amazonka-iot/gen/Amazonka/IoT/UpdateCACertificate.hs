@@ -151,11 +151,11 @@ instance Prelude.Hashable UpdateCACertificate where
 
 instance Prelude.NFData UpdateCACertificate where
   rnf UpdateCACertificate' {..} =
-    Prelude.rnf newAutoRegistrationStatus'
-      `Prelude.seq` Prelude.rnf newStatus'
-      `Prelude.seq` Prelude.rnf registrationConfig
-      `Prelude.seq` Prelude.rnf removeAutoRegistration
-      `Prelude.seq` Prelude.rnf certificateId
+    Prelude.rnf newAutoRegistrationStatus' `Prelude.seq`
+      Prelude.rnf newStatus' `Prelude.seq`
+        Prelude.rnf registrationConfig `Prelude.seq`
+          Prelude.rnf removeAutoRegistration `Prelude.seq`
+            Prelude.rnf certificateId
 
 instance Data.ToHeaders UpdateCACertificate where
   toHeaders = Prelude.const Prelude.mempty

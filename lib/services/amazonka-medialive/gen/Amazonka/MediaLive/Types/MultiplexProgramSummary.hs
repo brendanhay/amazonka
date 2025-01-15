@@ -81,5 +81,5 @@ instance Prelude.Hashable MultiplexProgramSummary where
 
 instance Prelude.NFData MultiplexProgramSummary where
   rnf MultiplexProgramSummary' {..} =
-    Prelude.rnf channelId
-      `Prelude.seq` Prelude.rnf programName
+    Prelude.rnf channelId `Prelude.seq`
+      Prelude.rnf programName

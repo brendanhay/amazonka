@@ -152,5 +152,5 @@ getTemplateResponse_httpStatus = Lens.lens (\GetTemplateResponse' {httpStatus} -
 
 instance Prelude.NFData GetTemplateResponse where
   rnf GetTemplateResponse' {..} =
-    Prelude.rnf template
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf template `Prelude.seq`
+      Prelude.rnf httpStatus

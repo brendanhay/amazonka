@@ -154,23 +154,17 @@ instance Data.FromXML ReservedInstancesListing where
     ReservedInstancesListing'
       Prelude.<$> (x Data..@? "clientToken")
       Prelude.<*> (x Data..@? "createDate")
-      Prelude.<*> ( x
-                      Data..@? "instanceCounts"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "instanceCounts" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x
-                      Data..@? "priceSchedules"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "priceSchedules" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "reservedInstancesId")
       Prelude.<*> (x Data..@? "reservedInstancesListingId")
       Prelude.<*> (x Data..@? "status")
       Prelude.<*> (x Data..@? "statusMessage")
-      Prelude.<*> ( x
-                      Data..@? "tagSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "updateDate")
@@ -191,13 +185,13 @@ instance Prelude.Hashable ReservedInstancesListing where
 
 instance Prelude.NFData ReservedInstancesListing where
   rnf ReservedInstancesListing' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf createDate
-      `Prelude.seq` Prelude.rnf instanceCounts
-      `Prelude.seq` Prelude.rnf priceSchedules
-      `Prelude.seq` Prelude.rnf reservedInstancesId
-      `Prelude.seq` Prelude.rnf reservedInstancesListingId
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf updateDate
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf createDate `Prelude.seq`
+        Prelude.rnf instanceCounts `Prelude.seq`
+          Prelude.rnf priceSchedules `Prelude.seq`
+            Prelude.rnf reservedInstancesId `Prelude.seq`
+              Prelude.rnf reservedInstancesListingId `Prelude.seq`
+                Prelude.rnf status `Prelude.seq`
+                  Prelude.rnf statusMessage `Prelude.seq`
+                    Prelude.rnf tags `Prelude.seq`
+                      Prelude.rnf updateDate

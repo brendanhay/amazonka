@@ -122,9 +122,9 @@ instance Prelude.Hashable DeleteNamespace where
 
 instance Prelude.NFData DeleteNamespace where
   rnf DeleteNamespace' {..} =
-    Prelude.rnf finalSnapshotName
-      `Prelude.seq` Prelude.rnf finalSnapshotRetentionPeriod
-      `Prelude.seq` Prelude.rnf namespaceName
+    Prelude.rnf finalSnapshotName `Prelude.seq`
+      Prelude.rnf finalSnapshotRetentionPeriod `Prelude.seq`
+        Prelude.rnf namespaceName
 
 instance Data.ToHeaders DeleteNamespace where
   toHeaders =
@@ -202,5 +202,5 @@ deleteNamespaceResponse_namespace = Lens.lens (\DeleteNamespaceResponse' {namesp
 
 instance Prelude.NFData DeleteNamespaceResponse where
   rnf DeleteNamespaceResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf namespace
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf namespace

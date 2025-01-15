@@ -171,10 +171,10 @@ instance
     ListAppVersionResourceMappings
   where
   rnf ListAppVersionResourceMappings' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf appArn
-      `Prelude.seq` Prelude.rnf appVersion
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf appArn `Prelude.seq`
+          Prelude.rnf appVersion
 
 instance
   Data.ToHeaders
@@ -277,6 +277,6 @@ instance
     ListAppVersionResourceMappingsResponse
   where
   rnf ListAppVersionResourceMappingsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf resourceMappings
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf resourceMappings

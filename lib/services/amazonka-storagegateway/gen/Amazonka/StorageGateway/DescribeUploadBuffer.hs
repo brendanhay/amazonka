@@ -212,8 +212,8 @@ describeUploadBufferResponse_httpStatus = Lens.lens (\DescribeUploadBufferRespon
 
 instance Prelude.NFData DescribeUploadBufferResponse where
   rnf DescribeUploadBufferResponse' {..} =
-    Prelude.rnf diskIds
-      `Prelude.seq` Prelude.rnf gatewayARN
-      `Prelude.seq` Prelude.rnf uploadBufferAllocatedInBytes
-      `Prelude.seq` Prelude.rnf uploadBufferUsedInBytes
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf diskIds `Prelude.seq`
+      Prelude.rnf gatewayARN `Prelude.seq`
+        Prelude.rnf uploadBufferAllocatedInBytes `Prelude.seq`
+          Prelude.rnf uploadBufferUsedInBytes `Prelude.seq`
+            Prelude.rnf httpStatus

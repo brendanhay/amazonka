@@ -134,9 +134,9 @@ instance Prelude.Hashable UnlabelParameterVersion where
 
 instance Prelude.NFData UnlabelParameterVersion where
   rnf UnlabelParameterVersion' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf parameterVersion
-      `Prelude.seq` Prelude.rnf labels
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf parameterVersion `Prelude.seq`
+        Prelude.rnf labels
 
 instance Data.ToHeaders UnlabelParameterVersion where
   toHeaders =
@@ -223,6 +223,6 @@ instance
     UnlabelParameterVersionResponse
   where
   rnf UnlabelParameterVersionResponse' {..} =
-    Prelude.rnf invalidLabels
-      `Prelude.seq` Prelude.rnf removedLabels
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf invalidLabels `Prelude.seq`
+      Prelude.rnf removedLabels `Prelude.seq`
+        Prelude.rnf httpStatus

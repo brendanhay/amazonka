@@ -94,6 +94,6 @@ instance Prelude.Hashable RedshiftMetadata where
 
 instance Prelude.NFData RedshiftMetadata where
   rnf RedshiftMetadata' {..} =
-    Prelude.rnf databaseUserName
-      `Prelude.seq` Prelude.rnf redshiftDatabase
-      `Prelude.seq` Prelude.rnf selectSqlQuery
+    Prelude.rnf databaseUserName `Prelude.seq`
+      Prelude.rnf redshiftDatabase `Prelude.seq`
+        Prelude.rnf selectSqlQuery

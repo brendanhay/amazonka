@@ -147,10 +147,10 @@ instance Prelude.Hashable DeleteClientVpnRoute where
 
 instance Prelude.NFData DeleteClientVpnRoute where
   rnf DeleteClientVpnRoute' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf targetVpcSubnetId
-      `Prelude.seq` Prelude.rnf clientVpnEndpointId
-      `Prelude.seq` Prelude.rnf destinationCidrBlock
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf targetVpcSubnetId `Prelude.seq`
+        Prelude.rnf clientVpnEndpointId `Prelude.seq`
+          Prelude.rnf destinationCidrBlock
 
 instance Data.ToHeaders DeleteClientVpnRoute where
   toHeaders = Prelude.const Prelude.mempty
@@ -212,5 +212,5 @@ deleteClientVpnRouteResponse_httpStatus = Lens.lens (\DeleteClientVpnRouteRespon
 
 instance Prelude.NFData DeleteClientVpnRouteResponse where
   rnf DeleteClientVpnRouteResponse' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf status `Prelude.seq`
+      Prelude.rnf httpStatus

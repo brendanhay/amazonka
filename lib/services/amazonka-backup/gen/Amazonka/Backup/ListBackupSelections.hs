@@ -124,12 +124,12 @@ instance Core.AWSPager ListBackupSelections where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listBackupSelections_nextToken
-          Lens..~ rs
-          Lens.^? listBackupSelectionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listBackupSelections_nextToken
+              Lens..~ rs
+              Lens.^? listBackupSelectionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListBackupSelections where
   type
@@ -158,9 +158,9 @@ instance Prelude.Hashable ListBackupSelections where
 
 instance Prelude.NFData ListBackupSelections where
   rnf ListBackupSelections' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf backupPlanId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf backupPlanId
 
 instance Data.ToHeaders ListBackupSelections where
   toHeaders =
@@ -250,6 +250,6 @@ listBackupSelectionsResponse_httpStatus = Lens.lens (\ListBackupSelectionsRespon
 
 instance Prelude.NFData ListBackupSelectionsResponse where
   rnf ListBackupSelectionsResponse' {..} =
-    Prelude.rnf backupSelectionsList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf backupSelectionsList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

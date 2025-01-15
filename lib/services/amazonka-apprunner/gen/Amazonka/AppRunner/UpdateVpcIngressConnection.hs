@@ -130,8 +130,8 @@ instance Prelude.Hashable UpdateVpcIngressConnection where
 
 instance Prelude.NFData UpdateVpcIngressConnection where
   rnf UpdateVpcIngressConnection' {..} =
-    Prelude.rnf vpcIngressConnectionArn
-      `Prelude.seq` Prelude.rnf ingressVpcConfiguration
+    Prelude.rnf vpcIngressConnectionArn `Prelude.seq`
+      Prelude.rnf ingressVpcConfiguration
 
 instance Data.ToHeaders UpdateVpcIngressConnection where
   toHeaders =
@@ -221,5 +221,5 @@ instance
     UpdateVpcIngressConnectionResponse
   where
   rnf UpdateVpcIngressConnectionResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf vpcIngressConnection
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf vpcIngressConnection

@@ -169,12 +169,12 @@ instance Prelude.Hashable UpdatePartnerStatus where
 
 instance Prelude.NFData UpdatePartnerStatus where
   rnf UpdatePartnerStatus' {..} =
-    Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf clusterIdentifier
-      `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf partnerName
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf statusMessage `Prelude.seq`
+      Prelude.rnf accountId `Prelude.seq`
+        Prelude.rnf clusterIdentifier `Prelude.seq`
+          Prelude.rnf databaseName `Prelude.seq`
+            Prelude.rnf partnerName `Prelude.seq`
+              Prelude.rnf status
 
 instance Data.ToHeaders UpdatePartnerStatus where
   toHeaders = Prelude.const Prelude.mempty

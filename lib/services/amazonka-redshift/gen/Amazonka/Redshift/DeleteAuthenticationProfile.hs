@@ -165,5 +165,5 @@ instance
     DeleteAuthenticationProfileResponse
   where
   rnf DeleteAuthenticationProfileResponse' {..} =
-    Prelude.rnf authenticationProfileName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf authenticationProfileName `Prelude.seq`
+      Prelude.rnf httpStatus

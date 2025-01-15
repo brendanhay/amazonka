@@ -143,9 +143,9 @@ instance
     DescribeReplicationConfigurations
   where
   rnf DescribeReplicationConfigurations' {..} =
-    Prelude.rnf fileSystemId
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf fileSystemId `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance
   Data.ToHeaders
@@ -229,6 +229,6 @@ instance
     DescribeReplicationConfigurationsResponse
   where
   rnf DescribeReplicationConfigurationsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf replications
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf replications `Prelude.seq`
+        Prelude.rnf httpStatus

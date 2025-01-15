@@ -180,12 +180,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeNetworkInterfacePermissions_nextToken
-          Lens..~ rs
-          Lens.^? describeNetworkInterfacePermissionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeNetworkInterfacePermissions_nextToken
+              Lens..~ rs
+              Lens.^? describeNetworkInterfacePermissionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -227,10 +227,10 @@ instance
     DescribeNetworkInterfacePermissions
   where
   rnf DescribeNetworkInterfacePermissions' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf networkInterfacePermissionIds
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf networkInterfacePermissionIds `Prelude.seq`
+          Prelude.rnf nextToken
 
 instance
   Data.ToHeaders
@@ -322,6 +322,6 @@ instance
     DescribeNetworkInterfacePermissionsResponse
   where
   rnf DescribeNetworkInterfacePermissionsResponse' {..} =
-    Prelude.rnf networkInterfacePermissions
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf networkInterfacePermissions `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

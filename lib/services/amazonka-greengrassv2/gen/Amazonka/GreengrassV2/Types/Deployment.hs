@@ -165,11 +165,11 @@ instance Prelude.Hashable Deployment where
 
 instance Prelude.NFData Deployment where
   rnf Deployment' {..} =
-    Prelude.rnf creationTimestamp
-      `Prelude.seq` Prelude.rnf deploymentId
-      `Prelude.seq` Prelude.rnf deploymentName
-      `Prelude.seq` Prelude.rnf deploymentStatus
-      `Prelude.seq` Prelude.rnf isLatestForTarget
-      `Prelude.seq` Prelude.rnf parentTargetArn
-      `Prelude.seq` Prelude.rnf revisionId
-      `Prelude.seq` Prelude.rnf targetArn
+    Prelude.rnf creationTimestamp `Prelude.seq`
+      Prelude.rnf deploymentId `Prelude.seq`
+        Prelude.rnf deploymentName `Prelude.seq`
+          Prelude.rnf deploymentStatus `Prelude.seq`
+            Prelude.rnf isLatestForTarget `Prelude.seq`
+              Prelude.rnf parentTargetArn `Prelude.seq`
+                Prelude.rnf revisionId `Prelude.seq`
+                  Prelude.rnf targetArn

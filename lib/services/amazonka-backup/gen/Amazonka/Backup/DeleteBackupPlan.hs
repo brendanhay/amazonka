@@ -209,8 +209,8 @@ deleteBackupPlanResponse_httpStatus = Lens.lens (\DeleteBackupPlanResponse' {htt
 
 instance Prelude.NFData DeleteBackupPlanResponse where
   rnf DeleteBackupPlanResponse' {..} =
-    Prelude.rnf backupPlanArn
-      `Prelude.seq` Prelude.rnf backupPlanId
-      `Prelude.seq` Prelude.rnf deletionDate
-      `Prelude.seq` Prelude.rnf versionId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf backupPlanArn `Prelude.seq`
+      Prelude.rnf backupPlanId `Prelude.seq`
+        Prelude.rnf deletionDate `Prelude.seq`
+          Prelude.rnf versionId `Prelude.seq`
+            Prelude.rnf httpStatus

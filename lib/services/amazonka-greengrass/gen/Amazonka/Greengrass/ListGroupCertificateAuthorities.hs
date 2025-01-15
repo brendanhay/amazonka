@@ -183,5 +183,5 @@ instance
     ListGroupCertificateAuthoritiesResponse
   where
   rnf ListGroupCertificateAuthoritiesResponse' {..} =
-    Prelude.rnf groupCertificateAuthorities
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf groupCertificateAuthorities `Prelude.seq`
+      Prelude.rnf httpStatus

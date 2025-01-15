@@ -271,12 +271,12 @@ describeDeviceFleetResponse_lastModifiedTime = Lens.lens (\DescribeDeviceFleetRe
 
 instance Prelude.NFData DescribeDeviceFleetResponse where
   rnf DescribeDeviceFleetResponse' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf iotRoleAlias
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf deviceFleetName
-      `Prelude.seq` Prelude.rnf deviceFleetArn
-      `Prelude.seq` Prelude.rnf outputConfig
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf lastModifiedTime
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf iotRoleAlias `Prelude.seq`
+        Prelude.rnf roleArn `Prelude.seq`
+          Prelude.rnf httpStatus `Prelude.seq`
+            Prelude.rnf deviceFleetName `Prelude.seq`
+              Prelude.rnf deviceFleetArn `Prelude.seq`
+                Prelude.rnf outputConfig `Prelude.seq`
+                  Prelude.rnf creationTime `Prelude.seq`
+                    Prelude.rnf lastModifiedTime

@@ -191,15 +191,15 @@ instance Prelude.Hashable UpdateApplication where
 
 instance Prelude.NFData UpdateApplication where
   rnf UpdateApplication' {..} =
-    Prelude.rnf appBlockArn
-      `Prelude.seq` Prelude.rnf attributesToDelete
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf iconS3Location
-      `Prelude.seq` Prelude.rnf launchParameters
-      `Prelude.seq` Prelude.rnf launchPath
-      `Prelude.seq` Prelude.rnf workingDirectory
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf appBlockArn `Prelude.seq`
+      Prelude.rnf attributesToDelete `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf displayName `Prelude.seq`
+            Prelude.rnf iconS3Location `Prelude.seq`
+              Prelude.rnf launchParameters `Prelude.seq`
+                Prelude.rnf launchPath `Prelude.seq`
+                  Prelude.rnf workingDirectory `Prelude.seq`
+                    Prelude.rnf name
 
 instance Data.ToHeaders UpdateApplication where
   toHeaders =
@@ -282,5 +282,5 @@ updateApplicationResponse_httpStatus = Lens.lens (\UpdateApplicationResponse' {h
 
 instance Prelude.NFData UpdateApplicationResponse where
   rnf UpdateApplicationResponse' {..} =
-    Prelude.rnf application
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf application `Prelude.seq`
+      Prelude.rnf httpStatus

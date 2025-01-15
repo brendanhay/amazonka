@@ -131,7 +131,7 @@ instance
 
 instance Prelude.NFData ContainerServiceRegistryLogin where
   rnf ContainerServiceRegistryLogin' {..} =
-    Prelude.rnf expiresAt
-      `Prelude.seq` Prelude.rnf password
-      `Prelude.seq` Prelude.rnf registry
-      `Prelude.seq` Prelude.rnf username
+    Prelude.rnf expiresAt `Prelude.seq`
+      Prelude.rnf password `Prelude.seq`
+        Prelude.rnf registry `Prelude.seq`
+          Prelude.rnf username

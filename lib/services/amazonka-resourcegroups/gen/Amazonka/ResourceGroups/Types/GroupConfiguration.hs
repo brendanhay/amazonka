@@ -120,7 +120,7 @@ instance Prelude.Hashable GroupConfiguration where
 
 instance Prelude.NFData GroupConfiguration where
   rnf GroupConfiguration' {..} =
-    Prelude.rnf configuration
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf proposedConfiguration
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf configuration `Prelude.seq`
+      Prelude.rnf failureReason `Prelude.seq`
+        Prelude.rnf proposedConfiguration `Prelude.seq`
+          Prelude.rnf status

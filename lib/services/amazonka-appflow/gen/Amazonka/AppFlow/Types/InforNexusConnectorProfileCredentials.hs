@@ -112,10 +112,10 @@ instance
     InforNexusConnectorProfileCredentials
   where
   rnf InforNexusConnectorProfileCredentials' {..} =
-    Prelude.rnf accessKeyId
-      `Prelude.seq` Prelude.rnf userId
-      `Prelude.seq` Prelude.rnf secretAccessKey
-      `Prelude.seq` Prelude.rnf datakey
+    Prelude.rnf accessKeyId `Prelude.seq`
+      Prelude.rnf userId `Prelude.seq`
+        Prelude.rnf secretAccessKey `Prelude.seq`
+          Prelude.rnf datakey
 
 instance
   Data.ToJSON

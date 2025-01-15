@@ -186,8 +186,8 @@ instance Prelude.Hashable FirewallManagerRuleGroup where
 
 instance Prelude.NFData FirewallManagerRuleGroup where
   rnf FirewallManagerRuleGroup' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf priority
-      `Prelude.seq` Prelude.rnf firewallManagerStatement
-      `Prelude.seq` Prelude.rnf overrideAction
-      `Prelude.seq` Prelude.rnf visibilityConfig
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf priority `Prelude.seq`
+        Prelude.rnf firewallManagerStatement `Prelude.seq`
+          Prelude.rnf overrideAction `Prelude.seq`
+            Prelude.rnf visibilityConfig

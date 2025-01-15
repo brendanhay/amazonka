@@ -168,12 +168,12 @@ instance Core.AWSPager DescribeVoices where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeVoices_nextToken
-          Lens..~ rs
-          Lens.^? describeVoicesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeVoices_nextToken
+              Lens..~ rs
+              Lens.^? describeVoicesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeVoices where
   type
@@ -200,10 +200,10 @@ instance Prelude.Hashable DescribeVoices where
 
 instance Prelude.NFData DescribeVoices where
   rnf DescribeVoices' {..} =
-    Prelude.rnf engine
-      `Prelude.seq` Prelude.rnf includeAdditionalLanguageCodes
-      `Prelude.seq` Prelude.rnf languageCode
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf engine `Prelude.seq`
+      Prelude.rnf includeAdditionalLanguageCodes `Prelude.seq`
+        Prelude.rnf languageCode `Prelude.seq`
+          Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeVoices where
   toHeaders = Prelude.const Prelude.mempty
@@ -274,6 +274,6 @@ describeVoicesResponse_httpStatus = Lens.lens (\DescribeVoicesResponse' {httpSta
 
 instance Prelude.NFData DescribeVoicesResponse where
   rnf DescribeVoicesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf voices
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf voices `Prelude.seq`
+        Prelude.rnf httpStatus

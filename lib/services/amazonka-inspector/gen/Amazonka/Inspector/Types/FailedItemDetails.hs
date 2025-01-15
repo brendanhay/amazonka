@@ -88,5 +88,5 @@ instance Prelude.Hashable FailedItemDetails where
 
 instance Prelude.NFData FailedItemDetails where
   rnf FailedItemDetails' {..} =
-    Prelude.rnf failureCode
-      `Prelude.seq` Prelude.rnf retryable
+    Prelude.rnf failureCode `Prelude.seq`
+      Prelude.rnf retryable

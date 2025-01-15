@@ -92,9 +92,9 @@ instance Prelude.Hashable CidrBlockAssociation where
 
 instance Prelude.NFData CidrBlockAssociation where
   rnf CidrBlockAssociation' {..} =
-    Prelude.rnf associationId
-      `Prelude.seq` Prelude.rnf cidrBlock
-      `Prelude.seq` Prelude.rnf cidrBlockState
+    Prelude.rnf associationId `Prelude.seq`
+      Prelude.rnf cidrBlock `Prelude.seq`
+        Prelude.rnf cidrBlockState
 
 instance Data.ToJSON CidrBlockAssociation where
   toJSON CidrBlockAssociation' {..} =

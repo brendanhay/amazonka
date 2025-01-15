@@ -121,8 +121,8 @@ instance Prelude.Hashable ActionState where
 
 instance Prelude.NFData ActionState where
   rnf ActionState' {..} =
-    Prelude.rnf actionName
-      `Prelude.seq` Prelude.rnf currentRevision
-      `Prelude.seq` Prelude.rnf entityUrl
-      `Prelude.seq` Prelude.rnf latestExecution
-      `Prelude.seq` Prelude.rnf revisionUrl
+    Prelude.rnf actionName `Prelude.seq`
+      Prelude.rnf currentRevision `Prelude.seq`
+        Prelude.rnf entityUrl `Prelude.seq`
+          Prelude.rnf latestExecution `Prelude.seq`
+            Prelude.rnf revisionUrl

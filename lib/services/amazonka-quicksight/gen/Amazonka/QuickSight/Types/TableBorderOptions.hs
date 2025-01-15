@@ -92,9 +92,9 @@ instance Prelude.Hashable TableBorderOptions where
 
 instance Prelude.NFData TableBorderOptions where
   rnf TableBorderOptions' {..} =
-    Prelude.rnf color
-      `Prelude.seq` Prelude.rnf style
-      `Prelude.seq` Prelude.rnf thickness
+    Prelude.rnf color `Prelude.seq`
+      Prelude.rnf style `Prelude.seq`
+        Prelude.rnf thickness
 
 instance Data.ToJSON TableBorderOptions where
   toJSON TableBorderOptions' {..} =

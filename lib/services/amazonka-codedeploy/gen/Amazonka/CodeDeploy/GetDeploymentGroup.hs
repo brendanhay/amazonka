@@ -118,8 +118,8 @@ instance Prelude.Hashable GetDeploymentGroup where
 
 instance Prelude.NFData GetDeploymentGroup where
   rnf GetDeploymentGroup' {..} =
-    Prelude.rnf applicationName
-      `Prelude.seq` Prelude.rnf deploymentGroupName
+    Prelude.rnf applicationName `Prelude.seq`
+      Prelude.rnf deploymentGroupName
 
 instance Data.ToHeaders GetDeploymentGroup where
   toHeaders =
@@ -196,5 +196,5 @@ getDeploymentGroupResponse_httpStatus = Lens.lens (\GetDeploymentGroupResponse' 
 
 instance Prelude.NFData GetDeploymentGroupResponse where
   rnf GetDeploymentGroupResponse' {..} =
-    Prelude.rnf deploymentGroupInfo
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf deploymentGroupInfo `Prelude.seq`
+      Prelude.rnf httpStatus

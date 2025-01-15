@@ -85,5 +85,5 @@ instance Prelude.Hashable OutputBand where
 
 instance Prelude.NFData OutputBand where
   rnf OutputBand' {..} =
-    Prelude.rnf bandName
-      `Prelude.seq` Prelude.rnf outputDataType
+    Prelude.rnf bandName `Prelude.seq`
+      Prelude.rnf outputDataType

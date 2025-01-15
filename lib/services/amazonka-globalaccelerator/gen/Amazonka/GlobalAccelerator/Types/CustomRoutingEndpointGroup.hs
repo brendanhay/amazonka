@@ -122,7 +122,7 @@ instance Prelude.Hashable CustomRoutingEndpointGroup where
 
 instance Prelude.NFData CustomRoutingEndpointGroup where
   rnf CustomRoutingEndpointGroup' {..} =
-    Prelude.rnf destinationDescriptions
-      `Prelude.seq` Prelude.rnf endpointDescriptions
-      `Prelude.seq` Prelude.rnf endpointGroupArn
-      `Prelude.seq` Prelude.rnf endpointGroupRegion
+    Prelude.rnf destinationDescriptions `Prelude.seq`
+      Prelude.rnf endpointDescriptions `Prelude.seq`
+        Prelude.rnf endpointGroupArn `Prelude.seq`
+          Prelude.rnf endpointGroupRegion

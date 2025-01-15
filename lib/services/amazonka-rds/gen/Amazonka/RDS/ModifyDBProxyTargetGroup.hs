@@ -145,10 +145,10 @@ instance Prelude.Hashable ModifyDBProxyTargetGroup where
 
 instance Prelude.NFData ModifyDBProxyTargetGroup where
   rnf ModifyDBProxyTargetGroup' {..} =
-    Prelude.rnf connectionPoolConfig
-      `Prelude.seq` Prelude.rnf newName'
-      `Prelude.seq` Prelude.rnf targetGroupName
-      `Prelude.seq` Prelude.rnf dbProxyName
+    Prelude.rnf connectionPoolConfig `Prelude.seq`
+      Prelude.rnf newName' `Prelude.seq`
+        Prelude.rnf targetGroupName `Prelude.seq`
+          Prelude.rnf dbProxyName
 
 instance Data.ToHeaders ModifyDBProxyTargetGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -213,5 +213,5 @@ instance
     ModifyDBProxyTargetGroupResponse
   where
   rnf ModifyDBProxyTargetGroupResponse' {..} =
-    Prelude.rnf dbProxyTargetGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dbProxyTargetGroup `Prelude.seq`
+      Prelude.rnf httpStatus

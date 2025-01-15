@@ -270,21 +270,21 @@ instance Prelude.Hashable Endpoint where
 
 instance Prelude.NFData Endpoint where
   rnf Endpoint' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf certificateArn
-      `Prelude.seq` Prelude.rnf certificateAuthority
-      `Prelude.seq` Prelude.rnf configurationOverrides
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf executionRoleArn
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf releaseLabel
-      `Prelude.seq` Prelude.rnf securityGroup
-      `Prelude.seq` Prelude.rnf serverUrl
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf stateDetails
-      `Prelude.seq` Prelude.rnf subnetIds
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf virtualClusterId
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf certificateArn `Prelude.seq`
+        Prelude.rnf certificateAuthority `Prelude.seq`
+          Prelude.rnf configurationOverrides `Prelude.seq`
+            Prelude.rnf createdAt `Prelude.seq`
+              Prelude.rnf executionRoleArn `Prelude.seq`
+                Prelude.rnf failureReason `Prelude.seq`
+                  Prelude.rnf id `Prelude.seq`
+                    Prelude.rnf name `Prelude.seq`
+                      Prelude.rnf releaseLabel `Prelude.seq`
+                        Prelude.rnf securityGroup `Prelude.seq`
+                          Prelude.rnf serverUrl `Prelude.seq`
+                            Prelude.rnf state `Prelude.seq`
+                              Prelude.rnf stateDetails `Prelude.seq`
+                                Prelude.rnf subnetIds `Prelude.seq`
+                                  Prelude.rnf tags `Prelude.seq`
+                                    Prelude.rnf type' `Prelude.seq`
+                                      Prelude.rnf virtualClusterId

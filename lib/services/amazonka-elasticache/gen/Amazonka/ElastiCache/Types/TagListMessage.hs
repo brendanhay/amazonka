@@ -56,9 +56,7 @@ tagListMessage_tagList = Lens.lens (\TagListMessage' {tagList} -> tagList) (\s@T
 instance Data.FromXML TagListMessage where
   parseXML x =
     TagListMessage'
-      Prelude.<$> ( x
-                      Data..@? "TagList"
-                      Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "TagList" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "Tag")
                   )
 

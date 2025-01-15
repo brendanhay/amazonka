@@ -106,8 +106,8 @@ instance Prelude.Hashable UpdateFunctionDefinition where
 
 instance Prelude.NFData UpdateFunctionDefinition where
   rnf UpdateFunctionDefinition' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf functionDefinitionId
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf functionDefinitionId
 
 instance Data.ToHeaders UpdateFunctionDefinition where
   toHeaders =

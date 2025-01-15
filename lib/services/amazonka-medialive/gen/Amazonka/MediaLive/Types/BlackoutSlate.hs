@@ -144,11 +144,11 @@ instance Prelude.Hashable BlackoutSlate where
 
 instance Prelude.NFData BlackoutSlate where
   rnf BlackoutSlate' {..} =
-    Prelude.rnf blackoutSlateImage
-      `Prelude.seq` Prelude.rnf networkEndBlackout
-      `Prelude.seq` Prelude.rnf networkEndBlackoutImage
-      `Prelude.seq` Prelude.rnf networkId
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf blackoutSlateImage `Prelude.seq`
+      Prelude.rnf networkEndBlackout `Prelude.seq`
+        Prelude.rnf networkEndBlackoutImage `Prelude.seq`
+          Prelude.rnf networkId `Prelude.seq`
+            Prelude.rnf state
 
 instance Data.ToJSON BlackoutSlate where
   toJSON BlackoutSlate' {..} =

@@ -300,13 +300,13 @@ instance Prelude.Hashable Ebs where
 
 instance Prelude.NFData Ebs where
   rnf Ebs' {..} =
-    Prelude.rnf deleteOnTermination
-      `Prelude.seq` Prelude.rnf encrypted
-      `Prelude.seq` Prelude.rnf iops
-      `Prelude.seq` Prelude.rnf snapshotId
-      `Prelude.seq` Prelude.rnf throughput
-      `Prelude.seq` Prelude.rnf volumeSize
-      `Prelude.seq` Prelude.rnf volumeType
+    Prelude.rnf deleteOnTermination `Prelude.seq`
+      Prelude.rnf encrypted `Prelude.seq`
+        Prelude.rnf iops `Prelude.seq`
+          Prelude.rnf snapshotId `Prelude.seq`
+            Prelude.rnf throughput `Prelude.seq`
+              Prelude.rnf volumeSize `Prelude.seq`
+                Prelude.rnf volumeType
 
 instance Data.ToQuery Ebs where
   toQuery Ebs' {..} =

@@ -89,8 +89,8 @@ instance
     StringAttributeConstraintsType
   where
   rnf StringAttributeConstraintsType' {..} =
-    Prelude.rnf maxLength
-      `Prelude.seq` Prelude.rnf minLength
+    Prelude.rnf maxLength `Prelude.seq`
+      Prelude.rnf minLength
 
 instance Data.ToJSON StringAttributeConstraintsType where
   toJSON StringAttributeConstraintsType' {..} =

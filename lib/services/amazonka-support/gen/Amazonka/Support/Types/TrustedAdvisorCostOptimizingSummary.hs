@@ -106,5 +106,5 @@ instance
     TrustedAdvisorCostOptimizingSummary
   where
   rnf TrustedAdvisorCostOptimizingSummary' {..} =
-    Prelude.rnf estimatedMonthlySavings
-      `Prelude.seq` Prelude.rnf estimatedPercentMonthlySavings
+    Prelude.rnf estimatedMonthlySavings `Prelude.seq`
+      Prelude.rnf estimatedPercentMonthlySavings

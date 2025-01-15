@@ -434,20 +434,20 @@ instance Prelude.Hashable CreateCluster where
 
 instance Prelude.NFData CreateCluster where
   rnf CreateCluster' {..} =
-    Prelude.rnf availabilityZones
-      `Prelude.seq` Prelude.rnf clusterEndpointEncryptionType
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf notificationTopicArn
-      `Prelude.seq` Prelude.rnf parameterGroupName
-      `Prelude.seq` Prelude.rnf preferredMaintenanceWindow
-      `Prelude.seq` Prelude.rnf sSESpecification
-      `Prelude.seq` Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf subnetGroupName
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clusterName
-      `Prelude.seq` Prelude.rnf nodeType
-      `Prelude.seq` Prelude.rnf replicationFactor
-      `Prelude.seq` Prelude.rnf iamRoleArn
+    Prelude.rnf availabilityZones `Prelude.seq`
+      Prelude.rnf clusterEndpointEncryptionType `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf notificationTopicArn `Prelude.seq`
+            Prelude.rnf parameterGroupName `Prelude.seq`
+              Prelude.rnf preferredMaintenanceWindow `Prelude.seq`
+                Prelude.rnf sSESpecification `Prelude.seq`
+                  Prelude.rnf securityGroupIds `Prelude.seq`
+                    Prelude.rnf subnetGroupName `Prelude.seq`
+                      Prelude.rnf tags `Prelude.seq`
+                        Prelude.rnf clusterName `Prelude.seq`
+                          Prelude.rnf nodeType `Prelude.seq`
+                            Prelude.rnf replicationFactor `Prelude.seq`
+                              Prelude.rnf iamRoleArn
 
 instance Data.ToHeaders CreateCluster where
   toHeaders =
@@ -538,5 +538,5 @@ createClusterResponse_httpStatus = Lens.lens (\CreateClusterResponse' {httpStatu
 
 instance Prelude.NFData CreateClusterResponse where
   rnf CreateClusterResponse' {..} =
-    Prelude.rnf cluster
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf cluster `Prelude.seq`
+      Prelude.rnf httpStatus

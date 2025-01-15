@@ -92,5 +92,5 @@ instance
     ProvisionedCapacityDescription
   where
   rnf ProvisionedCapacityDescription' {..} =
-    Prelude.rnf mcuCount
-      `Prelude.seq` Prelude.rnf workerCount
+    Prelude.rnf mcuCount `Prelude.seq`
+      Prelude.rnf workerCount

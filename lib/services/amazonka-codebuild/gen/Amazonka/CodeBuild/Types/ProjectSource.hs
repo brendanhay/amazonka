@@ -486,16 +486,16 @@ instance Prelude.Hashable ProjectSource where
 
 instance Prelude.NFData ProjectSource where
   rnf ProjectSource' {..} =
-    Prelude.rnf auth
-      `Prelude.seq` Prelude.rnf buildStatusConfig
-      `Prelude.seq` Prelude.rnf buildspec
-      `Prelude.seq` Prelude.rnf gitCloneDepth
-      `Prelude.seq` Prelude.rnf gitSubmodulesConfig
-      `Prelude.seq` Prelude.rnf insecureSsl
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf reportBuildStatus
-      `Prelude.seq` Prelude.rnf sourceIdentifier
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf auth `Prelude.seq`
+      Prelude.rnf buildStatusConfig `Prelude.seq`
+        Prelude.rnf buildspec `Prelude.seq`
+          Prelude.rnf gitCloneDepth `Prelude.seq`
+            Prelude.rnf gitSubmodulesConfig `Prelude.seq`
+              Prelude.rnf insecureSsl `Prelude.seq`
+                Prelude.rnf location `Prelude.seq`
+                  Prelude.rnf reportBuildStatus `Prelude.seq`
+                    Prelude.rnf sourceIdentifier `Prelude.seq`
+                      Prelude.rnf type'
 
 instance Data.ToJSON ProjectSource where
   toJSON ProjectSource' {..} =

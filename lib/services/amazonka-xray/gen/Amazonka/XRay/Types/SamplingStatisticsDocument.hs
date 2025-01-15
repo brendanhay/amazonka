@@ -129,12 +129,12 @@ instance Prelude.Hashable SamplingStatisticsDocument where
 
 instance Prelude.NFData SamplingStatisticsDocument where
   rnf SamplingStatisticsDocument' {..} =
-    Prelude.rnf borrowCount
-      `Prelude.seq` Prelude.rnf ruleName
-      `Prelude.seq` Prelude.rnf clientID
-      `Prelude.seq` Prelude.rnf timestamp
-      `Prelude.seq` Prelude.rnf requestCount
-      `Prelude.seq` Prelude.rnf sampledCount
+    Prelude.rnf borrowCount `Prelude.seq`
+      Prelude.rnf ruleName `Prelude.seq`
+        Prelude.rnf clientID `Prelude.seq`
+          Prelude.rnf timestamp `Prelude.seq`
+            Prelude.rnf requestCount `Prelude.seq`
+              Prelude.rnf sampledCount
 
 instance Data.ToJSON SamplingStatisticsDocument where
   toJSON SamplingStatisticsDocument' {..} =

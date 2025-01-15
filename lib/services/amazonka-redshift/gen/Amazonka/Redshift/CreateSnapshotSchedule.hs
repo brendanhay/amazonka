@@ -158,12 +158,12 @@ instance Prelude.Hashable CreateSnapshotSchedule where
 
 instance Prelude.NFData CreateSnapshotSchedule where
   rnf CreateSnapshotSchedule' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf nextInvocations
-      `Prelude.seq` Prelude.rnf scheduleDefinitions
-      `Prelude.seq` Prelude.rnf scheduleDescription
-      `Prelude.seq` Prelude.rnf scheduleIdentifier
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf nextInvocations `Prelude.seq`
+        Prelude.rnf scheduleDefinitions `Prelude.seq`
+          Prelude.rnf scheduleDescription `Prelude.seq`
+            Prelude.rnf scheduleIdentifier `Prelude.seq`
+              Prelude.rnf tags
 
 instance Data.ToHeaders CreateSnapshotSchedule where
   toHeaders = Prelude.const Prelude.mempty

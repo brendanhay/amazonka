@@ -113,8 +113,8 @@ instance Prelude.Hashable GetFinding where
 
 instance Prelude.NFData GetFinding where
   rnf GetFinding' {..} =
-    Prelude.rnf analyzerArn
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf analyzerArn `Prelude.seq`
+      Prelude.rnf id
 
 instance Data.ToHeaders GetFinding where
   toHeaders =
@@ -177,5 +177,5 @@ getFindingResponse_httpStatus = Lens.lens (\GetFindingResponse' {httpStatus} -> 
 
 instance Prelude.NFData GetFindingResponse where
   rnf GetFindingResponse' {..} =
-    Prelude.rnf finding
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf finding `Prelude.seq`
+      Prelude.rnf httpStatus

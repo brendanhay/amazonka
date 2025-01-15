@@ -117,6 +117,6 @@ instance
     ListCustomLineItemChargeDetails
   where
   rnf ListCustomLineItemChargeDetails' {..} =
-    Prelude.rnf flat
-      `Prelude.seq` Prelude.rnf percentage
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf flat `Prelude.seq`
+      Prelude.rnf percentage `Prelude.seq`
+        Prelude.rnf type'

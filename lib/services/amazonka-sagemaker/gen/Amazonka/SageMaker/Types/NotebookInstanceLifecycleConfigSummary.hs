@@ -125,7 +125,7 @@ instance
     NotebookInstanceLifecycleConfigSummary
   where
   rnf NotebookInstanceLifecycleConfigSummary' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf notebookInstanceLifecycleConfigName
-      `Prelude.seq` Prelude.rnf notebookInstanceLifecycleConfigArn
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf lastModifiedTime `Prelude.seq`
+        Prelude.rnf notebookInstanceLifecycleConfigName `Prelude.seq`
+          Prelude.rnf notebookInstanceLifecycleConfigArn

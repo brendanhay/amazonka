@@ -129,7 +129,7 @@ instance Prelude.Hashable BatchGetRecordError where
 
 instance Prelude.NFData BatchGetRecordError where
   rnf BatchGetRecordError' {..} =
-    Prelude.rnf featureGroupName
-      `Prelude.seq` Prelude.rnf recordIdentifierValueAsString
-      `Prelude.seq` Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorMessage
+    Prelude.rnf featureGroupName `Prelude.seq`
+      Prelude.rnf recordIdentifierValueAsString `Prelude.seq`
+        Prelude.rnf errorCode `Prelude.seq`
+          Prelude.rnf errorMessage

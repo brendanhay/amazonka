@@ -205,16 +205,16 @@ instance Prelude.Hashable AwsEcsClusterDetails where
 
 instance Prelude.NFData AwsEcsClusterDetails where
   rnf AwsEcsClusterDetails' {..} =
-    Prelude.rnf activeServicesCount
-      `Prelude.seq` Prelude.rnf capacityProviders
-      `Prelude.seq` Prelude.rnf clusterArn
-      `Prelude.seq` Prelude.rnf clusterName
-      `Prelude.seq` Prelude.rnf clusterSettings
-      `Prelude.seq` Prelude.rnf configuration
-      `Prelude.seq` Prelude.rnf defaultCapacityProviderStrategy
-      `Prelude.seq` Prelude.rnf registeredContainerInstancesCount
-      `Prelude.seq` Prelude.rnf runningTasksCount
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf activeServicesCount `Prelude.seq`
+      Prelude.rnf capacityProviders `Prelude.seq`
+        Prelude.rnf clusterArn `Prelude.seq`
+          Prelude.rnf clusterName `Prelude.seq`
+            Prelude.rnf clusterSettings `Prelude.seq`
+              Prelude.rnf configuration `Prelude.seq`
+                Prelude.rnf defaultCapacityProviderStrategy `Prelude.seq`
+                  Prelude.rnf registeredContainerInstancesCount `Prelude.seq`
+                    Prelude.rnf runningTasksCount `Prelude.seq`
+                      Prelude.rnf status
 
 instance Data.ToJSON AwsEcsClusterDetails where
   toJSON AwsEcsClusterDetails' {..} =

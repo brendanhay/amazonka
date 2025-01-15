@@ -137,10 +137,10 @@ instance Prelude.Hashable InputDecryptionSettings where
 
 instance Prelude.NFData InputDecryptionSettings where
   rnf InputDecryptionSettings' {..} =
-    Prelude.rnf decryptionMode
-      `Prelude.seq` Prelude.rnf encryptedDecryptionKey
-      `Prelude.seq` Prelude.rnf initializationVector
-      `Prelude.seq` Prelude.rnf kmsKeyRegion
+    Prelude.rnf decryptionMode `Prelude.seq`
+      Prelude.rnf encryptedDecryptionKey `Prelude.seq`
+        Prelude.rnf initializationVector `Prelude.seq`
+          Prelude.rnf kmsKeyRegion
 
 instance Data.ToJSON InputDecryptionSettings where
   toJSON InputDecryptionSettings' {..} =

@@ -162,14 +162,14 @@ instance Prelude.Hashable APNSSandboxChannelRequest where
 
 instance Prelude.NFData APNSSandboxChannelRequest where
   rnf APNSSandboxChannelRequest' {..} =
-    Prelude.rnf bundleId
-      `Prelude.seq` Prelude.rnf certificate
-      `Prelude.seq` Prelude.rnf defaultAuthenticationMethod
-      `Prelude.seq` Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf privateKey
-      `Prelude.seq` Prelude.rnf teamId
-      `Prelude.seq` Prelude.rnf tokenKey
-      `Prelude.seq` Prelude.rnf tokenKeyId
+    Prelude.rnf bundleId `Prelude.seq`
+      Prelude.rnf certificate `Prelude.seq`
+        Prelude.rnf defaultAuthenticationMethod `Prelude.seq`
+          Prelude.rnf enabled `Prelude.seq`
+            Prelude.rnf privateKey `Prelude.seq`
+              Prelude.rnf teamId `Prelude.seq`
+                Prelude.rnf tokenKey `Prelude.seq`
+                  Prelude.rnf tokenKeyId
 
 instance Data.ToJSON APNSSandboxChannelRequest where
   toJSON APNSSandboxChannelRequest' {..} =

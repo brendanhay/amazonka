@@ -213,12 +213,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeLocalGatewayRouteTableVirtualInterfaceGroupAssociations_nextToken
-          Lens..~ rs
-          Lens.^? describeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeLocalGatewayRouteTableVirtualInterfaceGroupAssociations_nextToken
+              Lens..~ rs
+              Lens.^? describeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest

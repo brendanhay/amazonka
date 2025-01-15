@@ -204,16 +204,16 @@ instance Prelude.Hashable StartJobRun where
 
 instance Prelude.NFData StartJobRun where
   rnf StartJobRun' {..} =
-    Prelude.rnf configurationOverrides
-      `Prelude.seq` Prelude.rnf executionRoleArn
-      `Prelude.seq` Prelude.rnf jobDriver
-      `Prelude.seq` Prelude.rnf jobTemplateId
-      `Prelude.seq` Prelude.rnf jobTemplateParameters
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf releaseLabel
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf virtualClusterId
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf configurationOverrides `Prelude.seq`
+      Prelude.rnf executionRoleArn `Prelude.seq`
+        Prelude.rnf jobDriver `Prelude.seq`
+          Prelude.rnf jobTemplateId `Prelude.seq`
+            Prelude.rnf jobTemplateParameters `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf releaseLabel `Prelude.seq`
+                  Prelude.rnf tags `Prelude.seq`
+                    Prelude.rnf virtualClusterId `Prelude.seq`
+                      Prelude.rnf clientToken
 
 instance Data.ToHeaders StartJobRun where
   toHeaders =
@@ -326,8 +326,8 @@ startJobRunResponse_httpStatus = Lens.lens (\StartJobRunResponse' {httpStatus} -
 
 instance Prelude.NFData StartJobRunResponse where
   rnf StartJobRunResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf virtualClusterId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf virtualClusterId `Prelude.seq`
+            Prelude.rnf httpStatus

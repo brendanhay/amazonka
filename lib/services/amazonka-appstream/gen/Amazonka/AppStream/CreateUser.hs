@@ -175,11 +175,11 @@ instance Prelude.Hashable CreateUser where
 
 instance Prelude.NFData CreateUser where
   rnf CreateUser' {..} =
-    Prelude.rnf firstName
-      `Prelude.seq` Prelude.rnf lastName
-      `Prelude.seq` Prelude.rnf messageAction
-      `Prelude.seq` Prelude.rnf userName
-      `Prelude.seq` Prelude.rnf authenticationType
+    Prelude.rnf firstName `Prelude.seq`
+      Prelude.rnf lastName `Prelude.seq`
+        Prelude.rnf messageAction `Prelude.seq`
+          Prelude.rnf userName `Prelude.seq`
+            Prelude.rnf authenticationType
 
 instance Data.ToHeaders CreateUser where
   toHeaders =

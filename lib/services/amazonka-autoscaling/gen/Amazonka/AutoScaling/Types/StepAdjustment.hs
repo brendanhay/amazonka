@@ -178,9 +178,9 @@ instance Prelude.Hashable StepAdjustment where
 
 instance Prelude.NFData StepAdjustment where
   rnf StepAdjustment' {..} =
-    Prelude.rnf metricIntervalLowerBound
-      `Prelude.seq` Prelude.rnf metricIntervalUpperBound
-      `Prelude.seq` Prelude.rnf scalingAdjustment
+    Prelude.rnf metricIntervalLowerBound `Prelude.seq`
+      Prelude.rnf metricIntervalUpperBound `Prelude.seq`
+        Prelude.rnf scalingAdjustment
 
 instance Data.ToQuery StepAdjustment where
   toQuery StepAdjustment' {..} =

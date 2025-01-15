@@ -101,8 +101,8 @@ instance Prelude.Hashable PostToConnection where
 
 instance Prelude.NFData PostToConnection where
   rnf PostToConnection' {..} =
-    Prelude.rnf connectionId
-      `Prelude.seq` Prelude.rnf data'
+    Prelude.rnf connectionId `Prelude.seq`
+      Prelude.rnf data'
 
 instance Data.ToBody PostToConnection where
   toBody PostToConnection' {..} = Data.toBody data'

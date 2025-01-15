@@ -122,9 +122,9 @@ instance Prelude.Hashable CognitoIdentityProvider where
 
 instance Prelude.NFData CognitoIdentityProvider where
   rnf CognitoIdentityProvider' {..} =
-    Prelude.rnf clientId
-      `Prelude.seq` Prelude.rnf providerName
-      `Prelude.seq` Prelude.rnf serverSideTokenCheck
+    Prelude.rnf clientId `Prelude.seq`
+      Prelude.rnf providerName `Prelude.seq`
+        Prelude.rnf serverSideTokenCheck
 
 instance Data.ToJSON CognitoIdentityProvider where
   toJSON CognitoIdentityProvider' {..} =

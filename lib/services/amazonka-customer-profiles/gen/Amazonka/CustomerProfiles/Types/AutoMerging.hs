@@ -131,10 +131,10 @@ instance Prelude.Hashable AutoMerging where
 
 instance Prelude.NFData AutoMerging where
   rnf AutoMerging' {..} =
-    Prelude.rnf conflictResolution
-      `Prelude.seq` Prelude.rnf consolidation
-      `Prelude.seq` Prelude.rnf minAllowedConfidenceScoreForMerging
-      `Prelude.seq` Prelude.rnf enabled
+    Prelude.rnf conflictResolution `Prelude.seq`
+      Prelude.rnf consolidation `Prelude.seq`
+        Prelude.rnf minAllowedConfidenceScoreForMerging `Prelude.seq`
+          Prelude.rnf enabled
 
 instance Data.ToJSON AutoMerging where
   toJSON AutoMerging' {..} =

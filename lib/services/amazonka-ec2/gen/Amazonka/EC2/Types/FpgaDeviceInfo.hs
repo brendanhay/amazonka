@@ -100,7 +100,7 @@ instance Prelude.Hashable FpgaDeviceInfo where
 
 instance Prelude.NFData FpgaDeviceInfo where
   rnf FpgaDeviceInfo' {..} =
-    Prelude.rnf count
-      `Prelude.seq` Prelude.rnf manufacturer
-      `Prelude.seq` Prelude.rnf memoryInfo
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf count `Prelude.seq`
+      Prelude.rnf manufacturer `Prelude.seq`
+        Prelude.rnf memoryInfo `Prelude.seq`
+          Prelude.rnf name

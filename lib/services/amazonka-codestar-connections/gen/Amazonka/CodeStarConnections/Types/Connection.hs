@@ -155,9 +155,9 @@ instance Prelude.Hashable Connection where
 
 instance Prelude.NFData Connection where
   rnf Connection' {..} =
-    Prelude.rnf connectionArn
-      `Prelude.seq` Prelude.rnf connectionName
-      `Prelude.seq` Prelude.rnf connectionStatus
-      `Prelude.seq` Prelude.rnf hostArn
-      `Prelude.seq` Prelude.rnf ownerAccountId
-      `Prelude.seq` Prelude.rnf providerType
+    Prelude.rnf connectionArn `Prelude.seq`
+      Prelude.rnf connectionName `Prelude.seq`
+        Prelude.rnf connectionStatus `Prelude.seq`
+          Prelude.rnf hostArn `Prelude.seq`
+            Prelude.rnf ownerAccountId `Prelude.seq`
+              Prelude.rnf providerType

@@ -136,9 +136,9 @@ instance Prelude.Hashable RemoveLFTagsFromResource where
 
 instance Prelude.NFData RemoveLFTagsFromResource where
   rnf RemoveLFTagsFromResource' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf resource
-      `Prelude.seq` Prelude.rnf lFTags
+    Prelude.rnf catalogId `Prelude.seq`
+      Prelude.rnf resource `Prelude.seq`
+        Prelude.rnf lFTags
 
 instance Data.ToHeaders RemoveLFTagsFromResource where
   toHeaders =
@@ -211,5 +211,5 @@ instance
     RemoveLFTagsFromResourceResponse
   where
   rnf RemoveLFTagsFromResourceResponse' {..} =
-    Prelude.rnf failures
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf failures `Prelude.seq`
+      Prelude.rnf httpStatus

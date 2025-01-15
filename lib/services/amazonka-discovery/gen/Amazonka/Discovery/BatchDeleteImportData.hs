@@ -183,5 +183,5 @@ batchDeleteImportDataResponse_httpStatus = Lens.lens (\BatchDeleteImportDataResp
 
 instance Prelude.NFData BatchDeleteImportDataResponse where
   rnf BatchDeleteImportDataResponse' {..} =
-    Prelude.rnf errors
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf errors `Prelude.seq`
+      Prelude.rnf httpStatus

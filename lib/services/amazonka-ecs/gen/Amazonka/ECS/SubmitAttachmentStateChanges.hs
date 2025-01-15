@@ -116,8 +116,8 @@ instance
 
 instance Prelude.NFData SubmitAttachmentStateChanges where
   rnf SubmitAttachmentStateChanges' {..} =
-    Prelude.rnf cluster
-      `Prelude.seq` Prelude.rnf attachments
+    Prelude.rnf cluster `Prelude.seq`
+      Prelude.rnf attachments
 
 instance Data.ToHeaders SubmitAttachmentStateChanges where
   toHeaders =
@@ -193,5 +193,5 @@ instance
     SubmitAttachmentStateChangesResponse
   where
   rnf SubmitAttachmentStateChangesResponse' {..} =
-    Prelude.rnf acknowledgment
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf acknowledgment `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -156,11 +156,11 @@ instance Prelude.Hashable Filter where
 
 instance Prelude.NFData Filter where
   rnf Filter' {..} =
-    Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf datasetGroupArn
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf filterArn
-      `Prelude.seq` Prelude.rnf filterExpression
-      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf creationDateTime `Prelude.seq`
+      Prelude.rnf datasetGroupArn `Prelude.seq`
+        Prelude.rnf failureReason `Prelude.seq`
+          Prelude.rnf filterArn `Prelude.seq`
+            Prelude.rnf filterExpression `Prelude.seq`
+              Prelude.rnf lastUpdatedDateTime `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf status

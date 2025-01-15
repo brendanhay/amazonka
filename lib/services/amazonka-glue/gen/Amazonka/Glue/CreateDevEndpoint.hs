@@ -472,21 +472,21 @@ instance Prelude.Hashable CreateDevEndpoint where
 
 instance Prelude.NFData CreateDevEndpoint where
   rnf CreateDevEndpoint' {..} =
-    Prelude.rnf arguments
-      `Prelude.seq` Prelude.rnf extraJarsS3Path
-      `Prelude.seq` Prelude.rnf extraPythonLibsS3Path
-      `Prelude.seq` Prelude.rnf glueVersion
-      `Prelude.seq` Prelude.rnf numberOfNodes
-      `Prelude.seq` Prelude.rnf numberOfWorkers
-      `Prelude.seq` Prelude.rnf publicKey
-      `Prelude.seq` Prelude.rnf publicKeys
-      `Prelude.seq` Prelude.rnf securityConfiguration
-      `Prelude.seq` Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf subnetId
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf workerType
-      `Prelude.seq` Prelude.rnf endpointName
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf arguments `Prelude.seq`
+      Prelude.rnf extraJarsS3Path `Prelude.seq`
+        Prelude.rnf extraPythonLibsS3Path `Prelude.seq`
+          Prelude.rnf glueVersion `Prelude.seq`
+            Prelude.rnf numberOfNodes `Prelude.seq`
+              Prelude.rnf numberOfWorkers `Prelude.seq`
+                Prelude.rnf publicKey `Prelude.seq`
+                  Prelude.rnf publicKeys `Prelude.seq`
+                    Prelude.rnf securityConfiguration `Prelude.seq`
+                      Prelude.rnf securityGroupIds `Prelude.seq`
+                        Prelude.rnf subnetId `Prelude.seq`
+                          Prelude.rnf tags `Prelude.seq`
+                            Prelude.rnf workerType `Prelude.seq`
+                              Prelude.rnf endpointName `Prelude.seq`
+                                Prelude.rnf roleArn
 
 instance Data.ToHeaders CreateDevEndpoint where
   toHeaders =

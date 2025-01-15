@@ -545,12 +545,12 @@ instance Core.AWSPager DescribeImages where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeImages_nextToken
-          Lens..~ rs
-          Lens.^? describeImagesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeImages_nextToken
+              Lens..~ rs
+              Lens.^? describeImagesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeImages where
   type
@@ -562,9 +562,7 @@ instance Core.AWSRequest DescribeImages where
     Response.receiveXML
       ( \s h x ->
           DescribeImagesResponse'
-            Prelude.<$> ( x
-                            Data..@? "imagesSet"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "imagesSet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (x Data..@? "nextToken")
@@ -585,14 +583,14 @@ instance Prelude.Hashable DescribeImages where
 
 instance Prelude.NFData DescribeImages where
   rnf DescribeImages' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf executableUsers
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf imageIds
-      `Prelude.seq` Prelude.rnf includeDeprecated
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf owners
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf executableUsers `Prelude.seq`
+        Prelude.rnf filters `Prelude.seq`
+          Prelude.rnf imageIds `Prelude.seq`
+            Prelude.rnf includeDeprecated `Prelude.seq`
+              Prelude.rnf maxResults `Prelude.seq`
+                Prelude.rnf nextToken `Prelude.seq`
+                  Prelude.rnf owners
 
 instance Data.ToHeaders DescribeImages where
   toHeaders = Prelude.const Prelude.mempty
@@ -675,6 +673,6 @@ describeImagesResponse_httpStatus = Lens.lens (\DescribeImagesResponse' {httpSta
 
 instance Prelude.NFData DescribeImagesResponse where
   rnf DescribeImagesResponse' {..} =
-    Prelude.rnf images
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf images `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

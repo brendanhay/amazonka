@@ -136,9 +136,9 @@ instance Prelude.Hashable ListCostCategoryDefinitions where
 
 instance Prelude.NFData ListCostCategoryDefinitions where
   rnf ListCostCategoryDefinitions' {..} =
-    Prelude.rnf effectiveOn
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf effectiveOn `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListCostCategoryDefinitions where
   toHeaders =
@@ -233,6 +233,6 @@ instance
     ListCostCategoryDefinitionsResponse
   where
   rnf ListCostCategoryDefinitionsResponse' {..} =
-    Prelude.rnf costCategoryReferences
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf costCategoryReferences `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

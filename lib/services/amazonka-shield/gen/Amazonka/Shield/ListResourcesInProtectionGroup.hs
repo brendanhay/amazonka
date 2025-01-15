@@ -199,9 +199,9 @@ instance
     ListResourcesInProtectionGroup
   where
   rnf ListResourcesInProtectionGroup' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf protectionGroupId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf protectionGroupId
 
 instance
   Data.ToHeaders
@@ -331,6 +331,6 @@ instance
     ListResourcesInProtectionGroupResponse
   where
   rnf ListResourcesInProtectionGroupResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf resourceArns
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf resourceArns

@@ -90,5 +90,5 @@ instance Prelude.Hashable ResourceIdPreference where
 
 instance Prelude.NFData ResourceIdPreference where
   rnf ResourceIdPreference' {..} =
-    Prelude.rnf resourceIdType
-      `Prelude.seq` Prelude.rnf resources
+    Prelude.rnf resourceIdType `Prelude.seq`
+      Prelude.rnf resources

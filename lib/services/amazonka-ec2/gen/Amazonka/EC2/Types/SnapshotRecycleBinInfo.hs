@@ -114,8 +114,8 @@ instance Prelude.Hashable SnapshotRecycleBinInfo where
 
 instance Prelude.NFData SnapshotRecycleBinInfo where
   rnf SnapshotRecycleBinInfo' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf recycleBinEnterTime
-      `Prelude.seq` Prelude.rnf recycleBinExitTime
-      `Prelude.seq` Prelude.rnf snapshotId
-      `Prelude.seq` Prelude.rnf volumeId
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf recycleBinEnterTime `Prelude.seq`
+        Prelude.rnf recycleBinExitTime `Prelude.seq`
+          Prelude.rnf snapshotId `Prelude.seq`
+            Prelude.rnf volumeId

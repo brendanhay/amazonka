@@ -207,5 +207,5 @@ reportTaskProgressResponse_canceled = Lens.lens (\ReportTaskProgressResponse' {c
 
 instance Prelude.NFData ReportTaskProgressResponse where
   rnf ReportTaskProgressResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf canceled
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf canceled

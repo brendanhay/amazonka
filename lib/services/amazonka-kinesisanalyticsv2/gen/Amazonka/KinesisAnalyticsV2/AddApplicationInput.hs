@@ -153,9 +153,9 @@ instance Prelude.Hashable AddApplicationInput where
 
 instance Prelude.NFData AddApplicationInput where
   rnf AddApplicationInput' {..} =
-    Prelude.rnf applicationName
-      `Prelude.seq` Prelude.rnf currentApplicationVersionId
-      `Prelude.seq` Prelude.rnf input
+    Prelude.rnf applicationName `Prelude.seq`
+      Prelude.rnf currentApplicationVersionId `Prelude.seq`
+        Prelude.rnf input
 
 instance Data.ToHeaders AddApplicationInput where
   toHeaders =
@@ -251,7 +251,7 @@ addApplicationInputResponse_httpStatus = Lens.lens (\AddApplicationInputResponse
 
 instance Prelude.NFData AddApplicationInputResponse where
   rnf AddApplicationInputResponse' {..} =
-    Prelude.rnf applicationARN
-      `Prelude.seq` Prelude.rnf applicationVersionId
-      `Prelude.seq` Prelude.rnf inputDescriptions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf applicationARN `Prelude.seq`
+      Prelude.rnf applicationVersionId `Prelude.seq`
+        Prelude.rnf inputDescriptions `Prelude.seq`
+          Prelude.rnf httpStatus

@@ -146,12 +146,12 @@ instance Prelude.Hashable DataCatalogOutput where
 
 instance Prelude.NFData DataCatalogOutput where
   rnf DataCatalogOutput' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf databaseOptions
-      `Prelude.seq` Prelude.rnf overwrite
-      `Prelude.seq` Prelude.rnf s3Options
-      `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf tableName
+    Prelude.rnf catalogId `Prelude.seq`
+      Prelude.rnf databaseOptions `Prelude.seq`
+        Prelude.rnf overwrite `Prelude.seq`
+          Prelude.rnf s3Options `Prelude.seq`
+            Prelude.rnf databaseName `Prelude.seq`
+              Prelude.rnf tableName
 
 instance Data.ToJSON DataCatalogOutput where
   toJSON DataCatalogOutput' {..} =

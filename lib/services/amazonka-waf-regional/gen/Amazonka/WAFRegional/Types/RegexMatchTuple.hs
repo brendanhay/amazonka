@@ -366,9 +366,9 @@ instance Prelude.Hashable RegexMatchTuple where
 
 instance Prelude.NFData RegexMatchTuple where
   rnf RegexMatchTuple' {..} =
-    Prelude.rnf fieldToMatch
-      `Prelude.seq` Prelude.rnf textTransformation
-      `Prelude.seq` Prelude.rnf regexPatternSetId
+    Prelude.rnf fieldToMatch `Prelude.seq`
+      Prelude.rnf textTransformation `Prelude.seq`
+        Prelude.rnf regexPatternSetId
 
 instance Data.ToJSON RegexMatchTuple where
   toJSON RegexMatchTuple' {..} =

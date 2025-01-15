@@ -190,12 +190,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeCapacityReservationFleets_nextToken
-          Lens..~ rs
-          Lens.^? describeCapacityReservationFleetsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeCapacityReservationFleets_nextToken
+              Lens..~ rs
+              Lens.^? describeCapacityReservationFleetsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -238,11 +238,11 @@ instance
     DescribeCapacityReservationFleets
   where
   rnf DescribeCapacityReservationFleets' {..} =
-    Prelude.rnf capacityReservationFleetIds
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf capacityReservationFleetIds `Prelude.seq`
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf filters `Prelude.seq`
+          Prelude.rnf maxResults `Prelude.seq`
+            Prelude.rnf nextToken
 
 instance
   Data.ToHeaders
@@ -336,6 +336,6 @@ instance
     DescribeCapacityReservationFleetsResponse
   where
   rnf DescribeCapacityReservationFleetsResponse' {..} =
-    Prelude.rnf capacityReservationFleets
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf capacityReservationFleets `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

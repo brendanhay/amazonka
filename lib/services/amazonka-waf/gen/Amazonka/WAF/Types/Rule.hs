@@ -169,7 +169,7 @@ instance Prelude.Hashable Rule where
 
 instance Prelude.NFData Rule where
   rnf Rule' {..} =
-    Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf ruleId
-      `Prelude.seq` Prelude.rnf predicates
+    Prelude.rnf metricName `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf ruleId `Prelude.seq`
+          Prelude.rnf predicates

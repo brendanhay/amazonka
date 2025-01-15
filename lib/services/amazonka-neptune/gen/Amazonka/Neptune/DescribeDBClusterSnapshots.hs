@@ -353,12 +353,12 @@ instance Core.AWSPager DescribeDBClusterSnapshots where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeDBClusterSnapshots_marker
-          Lens..~ rs
-          Lens.^? describeDBClusterSnapshotsResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeDBClusterSnapshots_marker
+              Lens..~ rs
+              Lens.^? describeDBClusterSnapshotsResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeDBClusterSnapshots where
   type
@@ -394,14 +394,14 @@ instance Prelude.Hashable DescribeDBClusterSnapshots where
 
 instance Prelude.NFData DescribeDBClusterSnapshots where
   rnf DescribeDBClusterSnapshots' {..} =
-    Prelude.rnf dbClusterIdentifier
-      `Prelude.seq` Prelude.rnf dbClusterSnapshotIdentifier
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf includePublic
-      `Prelude.seq` Prelude.rnf includeShared
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf snapshotType
+    Prelude.rnf dbClusterIdentifier `Prelude.seq`
+      Prelude.rnf dbClusterSnapshotIdentifier `Prelude.seq`
+        Prelude.rnf filters `Prelude.seq`
+          Prelude.rnf includePublic `Prelude.seq`
+            Prelude.rnf includeShared `Prelude.seq`
+              Prelude.rnf marker `Prelude.seq`
+                Prelude.rnf maxRecords `Prelude.seq`
+                  Prelude.rnf snapshotType
 
 instance Data.ToHeaders DescribeDBClusterSnapshots where
   toHeaders = Prelude.const Prelude.mempty
@@ -491,6 +491,6 @@ instance
     DescribeDBClusterSnapshotsResponse
   where
   rnf DescribeDBClusterSnapshotsResponse' {..} =
-    Prelude.rnf dbClusterSnapshots
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dbClusterSnapshots `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf httpStatus

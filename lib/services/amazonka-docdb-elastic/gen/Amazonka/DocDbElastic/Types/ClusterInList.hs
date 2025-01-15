@@ -98,6 +98,6 @@ instance Prelude.Hashable ClusterInList where
 
 instance Prelude.NFData ClusterInList where
   rnf ClusterInList' {..} =
-    Prelude.rnf clusterArn
-      `Prelude.seq` Prelude.rnf clusterName
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf clusterArn `Prelude.seq`
+      Prelude.rnf clusterName `Prelude.seq`
+        Prelude.rnf status

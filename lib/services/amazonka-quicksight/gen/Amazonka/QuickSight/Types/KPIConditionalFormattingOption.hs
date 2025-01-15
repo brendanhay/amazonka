@@ -91,8 +91,8 @@ instance
     KPIConditionalFormattingOption
   where
   rnf KPIConditionalFormattingOption' {..} =
-    Prelude.rnf primaryValue
-      `Prelude.seq` Prelude.rnf progressBar
+    Prelude.rnf primaryValue `Prelude.seq`
+      Prelude.rnf progressBar
 
 instance Data.ToJSON KPIConditionalFormattingOption where
   toJSON KPIConditionalFormattingOption' {..} =

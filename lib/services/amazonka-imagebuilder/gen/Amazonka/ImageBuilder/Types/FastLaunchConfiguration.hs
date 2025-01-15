@@ -136,11 +136,11 @@ instance Prelude.Hashable FastLaunchConfiguration where
 
 instance Prelude.NFData FastLaunchConfiguration where
   rnf FastLaunchConfiguration' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf launchTemplate
-      `Prelude.seq` Prelude.rnf maxParallelLaunches
-      `Prelude.seq` Prelude.rnf snapshotConfiguration
-      `Prelude.seq` Prelude.rnf enabled
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf launchTemplate `Prelude.seq`
+        Prelude.rnf maxParallelLaunches `Prelude.seq`
+          Prelude.rnf snapshotConfiguration `Prelude.seq`
+            Prelude.rnf enabled
 
 instance Data.ToJSON FastLaunchConfiguration where
   toJSON FastLaunchConfiguration' {..} =

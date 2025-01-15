@@ -141,8 +141,8 @@ instance Prelude.Hashable HLSTimestampRange where
 
 instance Prelude.NFData HLSTimestampRange where
   rnf HLSTimestampRange' {..} =
-    Prelude.rnf endTimestamp
-      `Prelude.seq` Prelude.rnf startTimestamp
+    Prelude.rnf endTimestamp `Prelude.seq`
+      Prelude.rnf startTimestamp
 
 instance Data.ToJSON HLSTimestampRange where
   toJSON HLSTimestampRange' {..} =

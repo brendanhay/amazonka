@@ -105,8 +105,8 @@ instance Prelude.Hashable DeleteEnvironment where
 
 instance Prelude.NFData DeleteEnvironment where
   rnf DeleteEnvironment' {..} =
-    Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf environmentId
+    Prelude.rnf applicationId `Prelude.seq`
+      Prelude.rnf environmentId
 
 instance Data.ToHeaders DeleteEnvironment where
   toHeaders =

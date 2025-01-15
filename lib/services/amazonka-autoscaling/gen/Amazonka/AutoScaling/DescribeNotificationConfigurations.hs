@@ -122,12 +122,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeNotificationConfigurations_nextToken
-          Lens..~ rs
-          Lens.^? describeNotificationConfigurationsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeNotificationConfigurations_nextToken
+              Lens..~ rs
+              Lens.^? describeNotificationConfigurationsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -169,9 +169,9 @@ instance
     DescribeNotificationConfigurations
   where
   rnf DescribeNotificationConfigurations' {..} =
-    Prelude.rnf autoScalingGroupNames
-      `Prelude.seq` Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf autoScalingGroupNames `Prelude.seq`
+      Prelude.rnf maxRecords `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance
   Data.ToHeaders
@@ -270,6 +270,6 @@ instance
     DescribeNotificationConfigurationsResponse
   where
   rnf DescribeNotificationConfigurationsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf notificationConfigurations
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf notificationConfigurations

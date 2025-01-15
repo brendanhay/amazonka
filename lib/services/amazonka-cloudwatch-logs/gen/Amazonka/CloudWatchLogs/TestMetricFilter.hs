@@ -114,8 +114,8 @@ instance Prelude.Hashable TestMetricFilter where
 
 instance Prelude.NFData TestMetricFilter where
   rnf TestMetricFilter' {..} =
-    Prelude.rnf filterPattern
-      `Prelude.seq` Prelude.rnf logEventMessages
+    Prelude.rnf filterPattern `Prelude.seq`
+      Prelude.rnf logEventMessages
 
 instance Data.ToHeaders TestMetricFilter where
   toHeaders =
@@ -190,5 +190,5 @@ testMetricFilterResponse_httpStatus = Lens.lens (\TestMetricFilterResponse' {htt
 
 instance Prelude.NFData TestMetricFilterResponse where
   rnf TestMetricFilterResponse' {..} =
-    Prelude.rnf matches
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf matches `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -123,5 +123,5 @@ instance Prelude.Hashable SqlInjectionMatchSetSummary where
 
 instance Prelude.NFData SqlInjectionMatchSetSummary where
   rnf SqlInjectionMatchSetSummary' {..} =
-    Prelude.rnf sqlInjectionMatchSetId
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf sqlInjectionMatchSetId `Prelude.seq`
+      Prelude.rnf name

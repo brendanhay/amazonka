@@ -151,11 +151,11 @@ instance Prelude.Hashable AgentStatus where
 
 instance Prelude.NFData AgentStatus where
   rnf AgentStatus' {..} =
-    Prelude.rnf agentStatusARN
-      `Prelude.seq` Prelude.rnf agentStatusId
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf displayOrder
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf agentStatusARN `Prelude.seq`
+      Prelude.rnf agentStatusId `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf displayOrder `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf state `Prelude.seq`
+                Prelude.rnf tags `Prelude.seq`
+                  Prelude.rnf type'

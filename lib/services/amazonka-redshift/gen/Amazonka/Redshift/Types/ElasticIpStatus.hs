@@ -77,5 +77,5 @@ instance Prelude.Hashable ElasticIpStatus where
 
 instance Prelude.NFData ElasticIpStatus where
   rnf ElasticIpStatus' {..} =
-    Prelude.rnf elasticIp
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf elasticIp `Prelude.seq`
+      Prelude.rnf status

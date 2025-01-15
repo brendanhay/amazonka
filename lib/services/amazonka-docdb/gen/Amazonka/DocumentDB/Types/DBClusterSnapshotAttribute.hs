@@ -100,9 +100,7 @@ instance Data.FromXML DBClusterSnapshotAttribute where
   parseXML x =
     DBClusterSnapshotAttribute'
       Prelude.<$> (x Data..@? "AttributeName")
-      Prelude.<*> ( x
-                      Data..@? "AttributeValues"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "AttributeValues" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "AttributeValue")
                   )
 
@@ -114,5 +112,5 @@ instance Prelude.Hashable DBClusterSnapshotAttribute where
 
 instance Prelude.NFData DBClusterSnapshotAttribute where
   rnf DBClusterSnapshotAttribute' {..} =
-    Prelude.rnf attributeName
-      `Prelude.seq` Prelude.rnf attributeValues
+    Prelude.rnf attributeName `Prelude.seq`
+      Prelude.rnf attributeValues

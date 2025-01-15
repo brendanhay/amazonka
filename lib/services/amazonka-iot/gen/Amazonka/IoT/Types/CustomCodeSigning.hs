@@ -135,10 +135,10 @@ instance Prelude.Hashable CustomCodeSigning where
 
 instance Prelude.NFData CustomCodeSigning where
   rnf CustomCodeSigning' {..} =
-    Prelude.rnf certificateChain
-      `Prelude.seq` Prelude.rnf hashAlgorithm
-      `Prelude.seq` Prelude.rnf signature
-      `Prelude.seq` Prelude.rnf signatureAlgorithm
+    Prelude.rnf certificateChain `Prelude.seq`
+      Prelude.rnf hashAlgorithm `Prelude.seq`
+        Prelude.rnf signature `Prelude.seq`
+          Prelude.rnf signatureAlgorithm
 
 instance Data.ToJSON CustomCodeSigning where
   toJSON CustomCodeSigning' {..} =

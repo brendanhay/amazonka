@@ -169,6 +169,6 @@ batchGetChannelResponse_httpStatus = Lens.lens (\BatchGetChannelResponse' {httpS
 
 instance Prelude.NFData BatchGetChannelResponse where
   rnf BatchGetChannelResponse' {..} =
-    Prelude.rnf channels
-      `Prelude.seq` Prelude.rnf errors
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf channels `Prelude.seq`
+      Prelude.rnf errors `Prelude.seq`
+        Prelude.rnf httpStatus

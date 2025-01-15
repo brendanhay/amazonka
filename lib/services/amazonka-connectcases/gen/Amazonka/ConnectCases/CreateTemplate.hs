@@ -165,12 +165,12 @@ instance Prelude.Hashable CreateTemplate where
 
 instance Prelude.NFData CreateTemplate where
   rnf CreateTemplate' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf layoutConfiguration
-      `Prelude.seq` Prelude.rnf requiredFields
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf domainId
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf layoutConfiguration `Prelude.seq`
+        Prelude.rnf requiredFields `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf domainId `Prelude.seq`
+              Prelude.rnf name
 
 instance Data.ToHeaders CreateTemplate where
   toHeaders =
@@ -261,6 +261,6 @@ createTemplateResponse_templateId = Lens.lens (\CreateTemplateResponse' {templat
 
 instance Prelude.NFData CreateTemplateResponse where
   rnf CreateTemplateResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf templateArn
-      `Prelude.seq` Prelude.rnf templateId
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf templateArn `Prelude.seq`
+        Prelude.rnf templateId

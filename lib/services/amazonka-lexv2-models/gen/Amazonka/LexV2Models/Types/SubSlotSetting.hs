@@ -88,8 +88,8 @@ instance Prelude.Hashable SubSlotSetting where
 
 instance Prelude.NFData SubSlotSetting where
   rnf SubSlotSetting' {..} =
-    Prelude.rnf expression
-      `Prelude.seq` Prelude.rnf slotSpecifications
+    Prelude.rnf expression `Prelude.seq`
+      Prelude.rnf slotSpecifications
 
 instance Data.ToJSON SubSlotSetting where
   toJSON SubSlotSetting' {..} =

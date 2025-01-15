@@ -134,7 +134,7 @@ instance
     AggregateConformancePackCompliance
   where
   rnf AggregateConformancePackCompliance' {..} =
-    Prelude.rnf complianceType
-      `Prelude.seq` Prelude.rnf compliantRuleCount
-      `Prelude.seq` Prelude.rnf nonCompliantRuleCount
-      `Prelude.seq` Prelude.rnf totalRuleCount
+    Prelude.rnf complianceType `Prelude.seq`
+      Prelude.rnf compliantRuleCount `Prelude.seq`
+        Prelude.rnf nonCompliantRuleCount `Prelude.seq`
+          Prelude.rnf totalRuleCount

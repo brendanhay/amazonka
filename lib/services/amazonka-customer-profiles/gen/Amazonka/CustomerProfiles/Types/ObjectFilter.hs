@@ -86,8 +86,8 @@ instance Prelude.Hashable ObjectFilter where
 
 instance Prelude.NFData ObjectFilter where
   rnf ObjectFilter' {..} =
-    Prelude.rnf keyName
-      `Prelude.seq` Prelude.rnf values
+    Prelude.rnf keyName `Prelude.seq`
+      Prelude.rnf values
 
 instance Data.ToJSON ObjectFilter where
   toJSON ObjectFilter' {..} =

@@ -131,9 +131,9 @@ instance Prelude.Hashable UpdateVpcEndpointDetail where
 
 instance Prelude.NFData UpdateVpcEndpointDetail where
   rnf UpdateVpcEndpointDetail' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf subnetIds
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf lastModifiedDate `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf securityGroupIds `Prelude.seq`
+            Prelude.rnf status `Prelude.seq`
+              Prelude.rnf subnetIds

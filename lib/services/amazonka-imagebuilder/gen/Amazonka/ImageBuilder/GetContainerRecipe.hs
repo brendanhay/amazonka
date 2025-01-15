@@ -170,6 +170,6 @@ getContainerRecipeResponse_httpStatus = Lens.lens (\GetContainerRecipeResponse' 
 
 instance Prelude.NFData GetContainerRecipeResponse where
   rnf GetContainerRecipeResponse' {..} =
-    Prelude.rnf containerRecipe
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf containerRecipe `Prelude.seq`
+      Prelude.rnf requestId `Prelude.seq`
+        Prelude.rnf httpStatus

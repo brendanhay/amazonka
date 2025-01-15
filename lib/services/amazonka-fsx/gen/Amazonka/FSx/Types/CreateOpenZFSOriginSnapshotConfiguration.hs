@@ -110,8 +110,8 @@ instance
     CreateOpenZFSOriginSnapshotConfiguration
   where
   rnf CreateOpenZFSOriginSnapshotConfiguration' {..} =
-    Prelude.rnf snapshotARN
-      `Prelude.seq` Prelude.rnf copyStrategy
+    Prelude.rnf snapshotARN `Prelude.seq`
+      Prelude.rnf copyStrategy
 
 instance
   Data.ToJSON

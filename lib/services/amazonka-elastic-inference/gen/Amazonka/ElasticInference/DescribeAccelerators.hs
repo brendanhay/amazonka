@@ -151,12 +151,12 @@ instance Core.AWSPager DescribeAccelerators where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeAccelerators_nextToken
-          Lens..~ rs
-          Lens.^? describeAcceleratorsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeAccelerators_nextToken
+              Lens..~ rs
+              Lens.^? describeAcceleratorsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeAccelerators where
   type
@@ -183,10 +183,10 @@ instance Prelude.Hashable DescribeAccelerators where
 
 instance Prelude.NFData DescribeAccelerators where
   rnf DescribeAccelerators' {..} =
-    Prelude.rnf acceleratorIds
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf acceleratorIds `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeAccelerators where
   toHeaders =
@@ -270,6 +270,6 @@ describeAcceleratorsResponse_httpStatus = Lens.lens (\DescribeAcceleratorsRespon
 
 instance Prelude.NFData DescribeAcceleratorsResponse where
   rnf DescribeAcceleratorsResponse' {..} =
-    Prelude.rnf acceleratorSet
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf acceleratorSet `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

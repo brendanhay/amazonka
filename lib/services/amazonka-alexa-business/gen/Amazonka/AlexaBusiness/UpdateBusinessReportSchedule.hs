@@ -158,12 +158,12 @@ instance
 
 instance Prelude.NFData UpdateBusinessReportSchedule where
   rnf UpdateBusinessReportSchedule' {..} =
-    Prelude.rnf format
-      `Prelude.seq` Prelude.rnf recurrence
-      `Prelude.seq` Prelude.rnf s3BucketName
-      `Prelude.seq` Prelude.rnf s3KeyPrefix
-      `Prelude.seq` Prelude.rnf scheduleName
-      `Prelude.seq` Prelude.rnf scheduleArn
+    Prelude.rnf format `Prelude.seq`
+      Prelude.rnf recurrence `Prelude.seq`
+        Prelude.rnf s3BucketName `Prelude.seq`
+          Prelude.rnf s3KeyPrefix `Prelude.seq`
+            Prelude.rnf scheduleName `Prelude.seq`
+              Prelude.rnf scheduleArn
 
 instance Data.ToHeaders UpdateBusinessReportSchedule where
   toHeaders =

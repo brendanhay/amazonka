@@ -103,8 +103,8 @@ instance Prelude.Hashable ImageInserter where
 
 instance Prelude.NFData ImageInserter where
   rnf ImageInserter' {..} =
-    Prelude.rnf insertableImages
-      `Prelude.seq` Prelude.rnf sdrReferenceWhiteLevel
+    Prelude.rnf insertableImages `Prelude.seq`
+      Prelude.rnf sdrReferenceWhiteLevel
 
 instance Data.ToJSON ImageInserter where
   toJSON ImageInserter' {..} =

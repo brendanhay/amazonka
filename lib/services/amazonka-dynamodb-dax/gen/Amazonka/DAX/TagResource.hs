@@ -107,8 +107,8 @@ instance Prelude.Hashable TagResource where
 
 instance Prelude.NFData TagResource where
   rnf TagResource' {..} =
-    Prelude.rnf resourceName
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf resourceName `Prelude.seq`
+      Prelude.rnf tags
 
 instance Data.ToHeaders TagResource where
   toHeaders =
@@ -178,5 +178,5 @@ tagResourceResponse_httpStatus = Lens.lens (\TagResourceResponse' {httpStatus} -
 
 instance Prelude.NFData TagResourceResponse where
   rnf TagResourceResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -155,12 +155,12 @@ instance Core.AWSPager ListProvisionedProductPlans where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listProvisionedProductPlans_pageToken
-          Lens..~ rs
-          Lens.^? listProvisionedProductPlansResponse_nextPageToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listProvisionedProductPlans_pageToken
+              Lens..~ rs
+              Lens.^? listProvisionedProductPlansResponse_nextPageToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListProvisionedProductPlans where
   type
@@ -191,11 +191,11 @@ instance Prelude.Hashable ListProvisionedProductPlans where
 
 instance Prelude.NFData ListProvisionedProductPlans where
   rnf ListProvisionedProductPlans' {..} =
-    Prelude.rnf acceptLanguage
-      `Prelude.seq` Prelude.rnf accessLevelFilter
-      `Prelude.seq` Prelude.rnf pageSize
-      `Prelude.seq` Prelude.rnf pageToken
-      `Prelude.seq` Prelude.rnf provisionProductId
+    Prelude.rnf acceptLanguage `Prelude.seq`
+      Prelude.rnf accessLevelFilter `Prelude.seq`
+        Prelude.rnf pageSize `Prelude.seq`
+          Prelude.rnf pageToken `Prelude.seq`
+            Prelude.rnf provisionProductId
 
 instance Data.ToHeaders ListProvisionedProductPlans where
   toHeaders =
@@ -290,6 +290,6 @@ instance
     ListProvisionedProductPlansResponse
   where
   rnf ListProvisionedProductPlansResponse' {..} =
-    Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf provisionedProductPlans
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextPageToken `Prelude.seq`
+      Prelude.rnf provisionedProductPlans `Prelude.seq`
+        Prelude.rnf httpStatus

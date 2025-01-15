@@ -121,5 +121,5 @@ instance
     InboundCrossClusterSearchConnectionStatus
   where
   rnf InboundCrossClusterSearchConnectionStatus' {..} =
-    Prelude.rnf message
-      `Prelude.seq` Prelude.rnf statusCode
+    Prelude.rnf message `Prelude.seq`
+      Prelude.rnf statusCode

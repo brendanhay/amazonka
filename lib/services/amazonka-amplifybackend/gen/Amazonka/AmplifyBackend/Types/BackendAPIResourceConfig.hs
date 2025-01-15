@@ -146,12 +146,12 @@ instance Prelude.Hashable BackendAPIResourceConfig where
 
 instance Prelude.NFData BackendAPIResourceConfig where
   rnf BackendAPIResourceConfig' {..} =
-    Prelude.rnf additionalAuthTypes
-      `Prelude.seq` Prelude.rnf apiName
-      `Prelude.seq` Prelude.rnf conflictResolution
-      `Prelude.seq` Prelude.rnf defaultAuthType
-      `Prelude.seq` Prelude.rnf service
-      `Prelude.seq` Prelude.rnf transformSchema
+    Prelude.rnf additionalAuthTypes `Prelude.seq`
+      Prelude.rnf apiName `Prelude.seq`
+        Prelude.rnf conflictResolution `Prelude.seq`
+          Prelude.rnf defaultAuthType `Prelude.seq`
+            Prelude.rnf service `Prelude.seq`
+              Prelude.rnf transformSchema
 
 instance Data.ToJSON BackendAPIResourceConfig where
   toJSON BackendAPIResourceConfig' {..} =

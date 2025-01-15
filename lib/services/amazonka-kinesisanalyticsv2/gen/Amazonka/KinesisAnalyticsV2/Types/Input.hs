@@ -164,12 +164,12 @@ instance Prelude.Hashable Input where
 
 instance Prelude.NFData Input where
   rnf Input' {..} =
-    Prelude.rnf inputParallelism
-      `Prelude.seq` Prelude.rnf inputProcessingConfiguration
-      `Prelude.seq` Prelude.rnf kinesisFirehoseInput
-      `Prelude.seq` Prelude.rnf kinesisStreamsInput
-      `Prelude.seq` Prelude.rnf namePrefix
-      `Prelude.seq` Prelude.rnf inputSchema
+    Prelude.rnf inputParallelism `Prelude.seq`
+      Prelude.rnf inputProcessingConfiguration `Prelude.seq`
+        Prelude.rnf kinesisFirehoseInput `Prelude.seq`
+          Prelude.rnf kinesisStreamsInput `Prelude.seq`
+            Prelude.rnf namePrefix `Prelude.seq`
+              Prelude.rnf inputSchema
 
 instance Data.ToJSON Input where
   toJSON Input' {..} =

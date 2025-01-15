@@ -106,8 +106,8 @@ instance Prelude.Hashable EngineVersion where
 
 instance Prelude.NFData EngineVersion where
   rnf EngineVersion' {..} =
-    Prelude.rnf effectiveEngineVersion
-      `Prelude.seq` Prelude.rnf selectedEngineVersion
+    Prelude.rnf effectiveEngineVersion `Prelude.seq`
+      Prelude.rnf selectedEngineVersion
 
 instance Data.ToJSON EngineVersion where
   toJSON EngineVersion' {..} =

@@ -163,5 +163,5 @@ instance
     DescribeVirtualClusterResponse
   where
   rnf DescribeVirtualClusterResponse' {..} =
-    Prelude.rnf virtualCluster
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf virtualCluster `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -99,9 +99,9 @@ instance Prelude.Hashable ContextEntry where
 
 instance Prelude.NFData ContextEntry where
   rnf ContextEntry' {..} =
-    Prelude.rnf contextKeyName
-      `Prelude.seq` Prelude.rnf contextKeyType
-      `Prelude.seq` Prelude.rnf contextKeyValues
+    Prelude.rnf contextKeyName `Prelude.seq`
+      Prelude.rnf contextKeyType `Prelude.seq`
+        Prelude.rnf contextKeyValues
 
 instance Data.ToQuery ContextEntry where
   toQuery ContextEntry' {..} =

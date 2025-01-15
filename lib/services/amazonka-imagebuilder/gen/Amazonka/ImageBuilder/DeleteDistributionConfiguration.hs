@@ -199,6 +199,6 @@ instance
     DeleteDistributionConfigurationResponse
   where
   rnf DeleteDistributionConfigurationResponse' {..} =
-    Prelude.rnf distributionConfigurationArn
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf distributionConfigurationArn `Prelude.seq`
+      Prelude.rnf requestId `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -94,9 +94,9 @@ instance Prelude.Hashable S3Reference where
 
 instance Prelude.NFData S3Reference where
   rnf S3Reference' {..} =
-    Prelude.rnf objectVersion
-      `Prelude.seq` Prelude.rnf bucket
-      `Prelude.seq` Prelude.rnf key
+    Prelude.rnf objectVersion `Prelude.seq`
+      Prelude.rnf bucket `Prelude.seq`
+        Prelude.rnf key
 
 instance Data.ToJSON S3Reference where
   toJSON S3Reference' {..} =

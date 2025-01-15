@@ -188,12 +188,12 @@ instance Core.AWSPager DescribeAnomalyDetectors where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeAnomalyDetectors_nextToken
-          Lens..~ rs
-          Lens.^? describeAnomalyDetectorsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeAnomalyDetectors_nextToken
+              Lens..~ rs
+              Lens.^? describeAnomalyDetectorsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeAnomalyDetectors where
   type
@@ -227,12 +227,12 @@ instance Prelude.Hashable DescribeAnomalyDetectors where
 
 instance Prelude.NFData DescribeAnomalyDetectors where
   rnf DescribeAnomalyDetectors' {..} =
-    Prelude.rnf anomalyDetectorTypes
-      `Prelude.seq` Prelude.rnf dimensions
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf namespace
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf anomalyDetectorTypes `Prelude.seq`
+      Prelude.rnf dimensions `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf metricName `Prelude.seq`
+            Prelude.rnf namespace `Prelude.seq`
+              Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeAnomalyDetectors where
   toHeaders = Prelude.const Prelude.mempty
@@ -317,6 +317,6 @@ instance
     DescribeAnomalyDetectorsResponse
   where
   rnf DescribeAnomalyDetectorsResponse' {..} =
-    Prelude.rnf anomalyDetectors
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf anomalyDetectors `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -92,9 +92,9 @@ instance Prelude.Hashable ScheduleConfiguration where
 
 instance Prelude.NFData ScheduleConfiguration where
   rnf ScheduleConfiguration' {..} =
-    Prelude.rnf firstExecutionFrom
-      `Prelude.seq` Prelude.rnf object'
-      `Prelude.seq` Prelude.rnf scheduleExpression
+    Prelude.rnf firstExecutionFrom `Prelude.seq`
+      Prelude.rnf object' `Prelude.seq`
+        Prelude.rnf scheduleExpression
 
 instance Data.ToJSON ScheduleConfiguration where
   toJSON ScheduleConfiguration' {..} =

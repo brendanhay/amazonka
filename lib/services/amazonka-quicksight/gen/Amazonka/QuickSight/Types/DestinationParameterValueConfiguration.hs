@@ -124,10 +124,10 @@ instance
     DestinationParameterValueConfiguration
   where
   rnf DestinationParameterValueConfiguration' {..} =
-    Prelude.rnf customValuesConfiguration
-      `Prelude.seq` Prelude.rnf selectAllValueOptions
-      `Prelude.seq` Prelude.rnf sourceField
-      `Prelude.seq` Prelude.rnf sourceParameterName
+    Prelude.rnf customValuesConfiguration `Prelude.seq`
+      Prelude.rnf selectAllValueOptions `Prelude.seq`
+        Prelude.rnf sourceField `Prelude.seq`
+          Prelude.rnf sourceParameterName
 
 instance
   Data.ToJSON

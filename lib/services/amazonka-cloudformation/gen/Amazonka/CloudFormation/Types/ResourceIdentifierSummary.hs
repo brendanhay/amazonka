@@ -111,6 +111,6 @@ instance Prelude.Hashable ResourceIdentifierSummary where
 
 instance Prelude.NFData ResourceIdentifierSummary where
   rnf ResourceIdentifierSummary' {..} =
-    Prelude.rnf logicalResourceIds
-      `Prelude.seq` Prelude.rnf resourceIdentifiers
-      `Prelude.seq` Prelude.rnf resourceType
+    Prelude.rnf logicalResourceIds `Prelude.seq`
+      Prelude.rnf resourceIdentifiers `Prelude.seq`
+        Prelude.rnf resourceType

@@ -123,12 +123,12 @@ instance Core.AWSPager ListAssistantAssociations where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listAssistantAssociations_nextToken
-          Lens..~ rs
-          Lens.^? listAssistantAssociationsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listAssistantAssociations_nextToken
+              Lens..~ rs
+              Lens.^? listAssistantAssociationsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAssistantAssociations where
   type
@@ -157,9 +157,9 @@ instance Prelude.Hashable ListAssistantAssociations where
 
 instance Prelude.NFData ListAssistantAssociations where
   rnf ListAssistantAssociations' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf assistantId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf assistantId
 
 instance Data.ToHeaders ListAssistantAssociations where
   toHeaders =
@@ -244,6 +244,6 @@ instance
     ListAssistantAssociationsResponse
   where
   rnf ListAssistantAssociationsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf assistantAssociationSummaries
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf assistantAssociationSummaries

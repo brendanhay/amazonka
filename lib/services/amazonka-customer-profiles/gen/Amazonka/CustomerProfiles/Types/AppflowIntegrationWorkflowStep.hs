@@ -203,11 +203,11 @@ instance
     AppflowIntegrationWorkflowStep
   where
   rnf AppflowIntegrationWorkflowStep' {..} =
-    Prelude.rnf flowName
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf executionMessage
-      `Prelude.seq` Prelude.rnf recordsProcessed
-      `Prelude.seq` Prelude.rnf batchRecordsStartTime
-      `Prelude.seq` Prelude.rnf batchRecordsEndTime
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
+    Prelude.rnf flowName `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf executionMessage `Prelude.seq`
+          Prelude.rnf recordsProcessed `Prelude.seq`
+            Prelude.rnf batchRecordsStartTime `Prelude.seq`
+              Prelude.rnf batchRecordsEndTime `Prelude.seq`
+                Prelude.rnf createdAt `Prelude.seq`
+                  Prelude.rnf lastUpdatedAt

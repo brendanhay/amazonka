@@ -124,12 +124,12 @@ instance Core.AWSPager ListRetainedMessages where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listRetainedMessages_nextToken
-          Lens..~ rs
-          Lens.^? listRetainedMessagesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listRetainedMessages_nextToken
+              Lens..~ rs
+              Lens.^? listRetainedMessagesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListRetainedMessages where
   type
@@ -154,8 +154,8 @@ instance Prelude.Hashable ListRetainedMessages where
 
 instance Prelude.NFData ListRetainedMessages where
   rnf ListRetainedMessages' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListRetainedMessages where
   toHeaders = Prelude.const Prelude.mempty
@@ -226,6 +226,6 @@ listRetainedMessagesResponse_httpStatus = Lens.lens (\ListRetainedMessagesRespon
 
 instance Prelude.NFData ListRetainedMessagesResponse where
   rnf ListRetainedMessagesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf retainedTopics
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf retainedTopics `Prelude.seq`
+        Prelude.rnf httpStatus

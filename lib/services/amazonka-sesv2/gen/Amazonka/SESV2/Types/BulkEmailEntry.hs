@@ -123,9 +123,9 @@ instance Prelude.Hashable BulkEmailEntry where
 
 instance Prelude.NFData BulkEmailEntry where
   rnf BulkEmailEntry' {..} =
-    Prelude.rnf replacementEmailContent
-      `Prelude.seq` Prelude.rnf replacementTags
-      `Prelude.seq` Prelude.rnf destination
+    Prelude.rnf replacementEmailContent `Prelude.seq`
+      Prelude.rnf replacementTags `Prelude.seq`
+        Prelude.rnf destination
 
 instance Data.ToJSON BulkEmailEntry where
   toJSON BulkEmailEntry' {..} =

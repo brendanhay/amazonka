@@ -205,13 +205,13 @@ instance Prelude.Hashable UpdateTimelineEvent where
 
 instance Prelude.NFData UpdateTimelineEvent where
   rnf UpdateTimelineEvent' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf eventData
-      `Prelude.seq` Prelude.rnf eventReferences
-      `Prelude.seq` Prelude.rnf eventTime
-      `Prelude.seq` Prelude.rnf eventType
-      `Prelude.seq` Prelude.rnf eventId
-      `Prelude.seq` Prelude.rnf incidentRecordArn
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf eventData `Prelude.seq`
+        Prelude.rnf eventReferences `Prelude.seq`
+          Prelude.rnf eventTime `Prelude.seq`
+            Prelude.rnf eventType `Prelude.seq`
+              Prelude.rnf eventId `Prelude.seq`
+                Prelude.rnf incidentRecordArn
 
 instance Data.ToHeaders UpdateTimelineEvent where
   toHeaders =

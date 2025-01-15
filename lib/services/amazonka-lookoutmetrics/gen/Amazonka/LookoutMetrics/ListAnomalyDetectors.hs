@@ -122,8 +122,8 @@ instance Prelude.Hashable ListAnomalyDetectors where
 
 instance Prelude.NFData ListAnomalyDetectors where
   rnf ListAnomalyDetectors' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListAnomalyDetectors where
   toHeaders =
@@ -204,6 +204,6 @@ listAnomalyDetectorsResponse_httpStatus = Lens.lens (\ListAnomalyDetectorsRespon
 
 instance Prelude.NFData ListAnomalyDetectorsResponse where
   rnf ListAnomalyDetectorsResponse' {..} =
-    Prelude.rnf anomalyDetectorSummaryList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf anomalyDetectorSummaryList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

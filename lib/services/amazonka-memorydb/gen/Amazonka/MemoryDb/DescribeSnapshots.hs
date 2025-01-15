@@ -181,12 +181,12 @@ instance Core.AWSPager DescribeSnapshots where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeSnapshots_nextToken
-          Lens..~ rs
-          Lens.^? describeSnapshotsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeSnapshots_nextToken
+              Lens..~ rs
+              Lens.^? describeSnapshotsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeSnapshots where
   type
@@ -215,12 +215,12 @@ instance Prelude.Hashable DescribeSnapshots where
 
 instance Prelude.NFData DescribeSnapshots where
   rnf DescribeSnapshots' {..} =
-    Prelude.rnf clusterName
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf showDetail
-      `Prelude.seq` Prelude.rnf snapshotName
-      `Prelude.seq` Prelude.rnf source
+    Prelude.rnf clusterName `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf showDetail `Prelude.seq`
+            Prelude.rnf snapshotName `Prelude.seq`
+              Prelude.rnf source
 
 instance Data.ToHeaders DescribeSnapshots where
   toHeaders =
@@ -321,6 +321,6 @@ describeSnapshotsResponse_httpStatus = Lens.lens (\DescribeSnapshotsResponse' {h
 
 instance Prelude.NFData DescribeSnapshotsResponse where
   rnf DescribeSnapshotsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf snapshots
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf snapshots `Prelude.seq`
+        Prelude.rnf httpStatus

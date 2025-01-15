@@ -196,9 +196,9 @@ instance
   where
   rnf
     AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails' {..} =
-      Prelude.rnf hardLimit
-        `Prelude.seq` Prelude.rnf name
-        `Prelude.seq` Prelude.rnf softLimit
+      Prelude.rnf hardLimit `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf softLimit
 
 instance
   Data.ToJSON

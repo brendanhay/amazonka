@@ -326,15 +326,15 @@ instance Prelude.Hashable UpdateTable where
 
 instance Prelude.NFData UpdateTable where
   rnf UpdateTable' {..} =
-    Prelude.rnf attributeDefinitions
-      `Prelude.seq` Prelude.rnf billingMode
-      `Prelude.seq` Prelude.rnf globalSecondaryIndexUpdates
-      `Prelude.seq` Prelude.rnf provisionedThroughput
-      `Prelude.seq` Prelude.rnf replicaUpdates
-      `Prelude.seq` Prelude.rnf sSESpecification
-      `Prelude.seq` Prelude.rnf streamSpecification
-      `Prelude.seq` Prelude.rnf tableClass
-      `Prelude.seq` Prelude.rnf tableName
+    Prelude.rnf attributeDefinitions `Prelude.seq`
+      Prelude.rnf billingMode `Prelude.seq`
+        Prelude.rnf globalSecondaryIndexUpdates `Prelude.seq`
+          Prelude.rnf provisionedThroughput `Prelude.seq`
+            Prelude.rnf replicaUpdates `Prelude.seq`
+              Prelude.rnf sSESpecification `Prelude.seq`
+                Prelude.rnf streamSpecification `Prelude.seq`
+                  Prelude.rnf tableClass `Prelude.seq`
+                    Prelude.rnf tableName
 
 instance Data.ToHeaders UpdateTable where
   toHeaders =
@@ -422,5 +422,5 @@ updateTableResponse_httpStatus = Lens.lens (\UpdateTableResponse' {httpStatus} -
 
 instance Prelude.NFData UpdateTableResponse where
   rnf UpdateTableResponse' {..} =
-    Prelude.rnf tableDescription
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf tableDescription `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -260,17 +260,17 @@ instance Prelude.Hashable MergeBranchesByThreeWay where
 
 instance Prelude.NFData MergeBranchesByThreeWay where
   rnf MergeBranchesByThreeWay' {..} =
-    Prelude.rnf authorName
-      `Prelude.seq` Prelude.rnf commitMessage
-      `Prelude.seq` Prelude.rnf conflictDetailLevel
-      `Prelude.seq` Prelude.rnf conflictResolution
-      `Prelude.seq` Prelude.rnf conflictResolutionStrategy
-      `Prelude.seq` Prelude.rnf email
-      `Prelude.seq` Prelude.rnf keepEmptyFolders
-      `Prelude.seq` Prelude.rnf targetBranch
-      `Prelude.seq` Prelude.rnf repositoryName
-      `Prelude.seq` Prelude.rnf sourceCommitSpecifier
-      `Prelude.seq` Prelude.rnf destinationCommitSpecifier
+    Prelude.rnf authorName `Prelude.seq`
+      Prelude.rnf commitMessage `Prelude.seq`
+        Prelude.rnf conflictDetailLevel `Prelude.seq`
+          Prelude.rnf conflictResolution `Prelude.seq`
+            Prelude.rnf conflictResolutionStrategy `Prelude.seq`
+              Prelude.rnf email `Prelude.seq`
+                Prelude.rnf keepEmptyFolders `Prelude.seq`
+                  Prelude.rnf targetBranch `Prelude.seq`
+                    Prelude.rnf repositoryName `Prelude.seq`
+                      Prelude.rnf sourceCommitSpecifier `Prelude.seq`
+                        Prelude.rnf destinationCommitSpecifier
 
 instance Data.ToHeaders MergeBranchesByThreeWay where
   toHeaders =
@@ -375,6 +375,6 @@ instance
     MergeBranchesByThreeWayResponse
   where
   rnf MergeBranchesByThreeWayResponse' {..} =
-    Prelude.rnf commitId
-      `Prelude.seq` Prelude.rnf treeId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf commitId `Prelude.seq`
+      Prelude.rnf treeId `Prelude.seq`
+        Prelude.rnf httpStatus

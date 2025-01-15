@@ -118,9 +118,9 @@ instance Prelude.Hashable DeleteKeyPair where
 
 instance Prelude.NFData DeleteKeyPair where
   rnf DeleteKeyPair' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf keyName
-      `Prelude.seq` Prelude.rnf keyPairId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf keyName `Prelude.seq`
+        Prelude.rnf keyPairId
 
 instance Data.ToHeaders DeleteKeyPair where
   toHeaders = Prelude.const Prelude.mempty

@@ -267,16 +267,16 @@ instance Prelude.Hashable CreateService where
 
 instance Prelude.NFData CreateService where
   rnf CreateService' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf lambdaEndpoint
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf urlEndpoint
-      `Prelude.seq` Prelude.rnf vpcId
-      `Prelude.seq` Prelude.rnf applicationIdentifier
-      `Prelude.seq` Prelude.rnf endpointType
-      `Prelude.seq` Prelude.rnf environmentIdentifier
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf lambdaEndpoint `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf urlEndpoint `Prelude.seq`
+              Prelude.rnf vpcId `Prelude.seq`
+                Prelude.rnf applicationIdentifier `Prelude.seq`
+                  Prelude.rnf endpointType `Prelude.seq`
+                    Prelude.rnf environmentIdentifier `Prelude.seq`
+                      Prelude.rnf name
 
 instance Data.ToHeaders CreateService where
   toHeaders =
@@ -500,20 +500,20 @@ createServiceResponse_httpStatus = Lens.lens (\CreateServiceResponse' {httpStatu
 
 instance Prelude.NFData CreateServiceResponse where
   rnf CreateServiceResponse' {..} =
-    Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdByAccountId
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf endpointType
-      `Prelude.seq` Prelude.rnf environmentId
-      `Prelude.seq` Prelude.rnf lambdaEndpoint
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf ownerAccountId
-      `Prelude.seq` Prelude.rnf serviceId
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf urlEndpoint
-      `Prelude.seq` Prelude.rnf vpcId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf applicationId `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf createdByAccountId `Prelude.seq`
+          Prelude.rnf createdTime `Prelude.seq`
+            Prelude.rnf description `Prelude.seq`
+              Prelude.rnf endpointType `Prelude.seq`
+                Prelude.rnf environmentId `Prelude.seq`
+                  Prelude.rnf lambdaEndpoint `Prelude.seq`
+                    Prelude.rnf lastUpdatedTime `Prelude.seq`
+                      Prelude.rnf name `Prelude.seq`
+                        Prelude.rnf ownerAccountId `Prelude.seq`
+                          Prelude.rnf serviceId `Prelude.seq`
+                            Prelude.rnf state `Prelude.seq`
+                              Prelude.rnf tags `Prelude.seq`
+                                Prelude.rnf urlEndpoint `Prelude.seq`
+                                  Prelude.rnf vpcId `Prelude.seq`
+                                    Prelude.rnf httpStatus

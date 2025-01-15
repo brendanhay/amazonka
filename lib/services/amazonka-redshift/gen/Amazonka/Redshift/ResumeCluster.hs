@@ -158,5 +158,5 @@ resumeClusterResponse_httpStatus = Lens.lens (\ResumeClusterResponse' {httpStatu
 
 instance Prelude.NFData ResumeClusterResponse where
   rnf ResumeClusterResponse' {..} =
-    Prelude.rnf cluster
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf cluster `Prelude.seq`
+      Prelude.rnf httpStatus

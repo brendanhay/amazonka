@@ -125,9 +125,9 @@ instance Prelude.Hashable Destinations where
 
 instance Prelude.NFData Destinations where
   rnf Destinations' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf expression
-      `Prelude.seq` Prelude.rnf expressionType
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf expression `Prelude.seq`
+          Prelude.rnf expressionType `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf roleArn

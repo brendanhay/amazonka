@@ -264,18 +264,18 @@ instance Prelude.Hashable RelationalDatabaseSnapshot where
 
 instance Prelude.NFData RelationalDatabaseSnapshot where
   rnf RelationalDatabaseSnapshot' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf engine
-      `Prelude.seq` Prelude.rnf engineVersion
-      `Prelude.seq` Prelude.rnf fromRelationalDatabaseArn
-      `Prelude.seq` Prelude.rnf fromRelationalDatabaseBlueprintId
-      `Prelude.seq` Prelude.rnf fromRelationalDatabaseBundleId
-      `Prelude.seq` Prelude.rnf fromRelationalDatabaseName
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf sizeInGb
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf supportCode
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf createdAt `Prelude.seq`
+        Prelude.rnf engine `Prelude.seq`
+          Prelude.rnf engineVersion `Prelude.seq`
+            Prelude.rnf fromRelationalDatabaseArn `Prelude.seq`
+              Prelude.rnf fromRelationalDatabaseBlueprintId `Prelude.seq`
+                Prelude.rnf fromRelationalDatabaseBundleId `Prelude.seq`
+                  Prelude.rnf fromRelationalDatabaseName `Prelude.seq`
+                    Prelude.rnf location `Prelude.seq`
+                      Prelude.rnf name `Prelude.seq`
+                        Prelude.rnf resourceType `Prelude.seq`
+                          Prelude.rnf sizeInGb `Prelude.seq`
+                            Prelude.rnf state `Prelude.seq`
+                              Prelude.rnf supportCode `Prelude.seq`
+                                Prelude.rnf tags

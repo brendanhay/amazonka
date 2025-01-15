@@ -152,10 +152,10 @@ instance Prelude.Hashable UpdateQueue where
 
 instance Prelude.NFData UpdateQueue where
   rnf UpdateQueue' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf reservationPlanSettings
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf reservationPlanSettings `Prelude.seq`
+        Prelude.rnf status `Prelude.seq`
+          Prelude.rnf name
 
 instance Data.ToHeaders UpdateQueue where
   toHeaders =
@@ -239,5 +239,5 @@ updateQueueResponse_httpStatus = Lens.lens (\UpdateQueueResponse' {httpStatus} -
 
 instance Prelude.NFData UpdateQueueResponse where
   rnf UpdateQueueResponse' {..} =
-    Prelude.rnf queue
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf queue `Prelude.seq`
+      Prelude.rnf httpStatus

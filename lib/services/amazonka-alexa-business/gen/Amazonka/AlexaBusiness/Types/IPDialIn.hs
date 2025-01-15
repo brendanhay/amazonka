@@ -85,8 +85,8 @@ instance Prelude.Hashable IPDialIn where
 
 instance Prelude.NFData IPDialIn where
   rnf IPDialIn' {..} =
-    Prelude.rnf endpoint
-      `Prelude.seq` Prelude.rnf commsProtocol
+    Prelude.rnf endpoint `Prelude.seq`
+      Prelude.rnf commsProtocol
 
 instance Data.ToJSON IPDialIn where
   toJSON IPDialIn' {..} =

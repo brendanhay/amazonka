@@ -166,5 +166,5 @@ deleteHypervisorResponse_httpStatus = Lens.lens (\DeleteHypervisorResponse' {htt
 
 instance Prelude.NFData DeleteHypervisorResponse where
   rnf DeleteHypervisorResponse' {..} =
-    Prelude.rnf hypervisorArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf hypervisorArn `Prelude.seq`
+      Prelude.rnf httpStatus

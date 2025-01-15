@@ -197,13 +197,13 @@ instance
     UpdateNetworkAnalyzerConfiguration
   where
   rnf UpdateNetworkAnalyzerConfiguration' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf traceContent
-      `Prelude.seq` Prelude.rnf wirelessDevicesToAdd
-      `Prelude.seq` Prelude.rnf wirelessDevicesToRemove
-      `Prelude.seq` Prelude.rnf wirelessGatewaysToAdd
-      `Prelude.seq` Prelude.rnf wirelessGatewaysToRemove
-      `Prelude.seq` Prelude.rnf configurationName
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf traceContent `Prelude.seq`
+        Prelude.rnf wirelessDevicesToAdd `Prelude.seq`
+          Prelude.rnf wirelessDevicesToRemove `Prelude.seq`
+            Prelude.rnf wirelessGatewaysToAdd `Prelude.seq`
+              Prelude.rnf wirelessGatewaysToRemove `Prelude.seq`
+                Prelude.rnf configurationName
 
 instance
   Data.ToHeaders

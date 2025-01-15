@@ -275,18 +275,18 @@ instance Prelude.Hashable SubscriberResource where
 
 instance Prelude.NFData SubscriberResource where
   rnf SubscriberResource' {..} =
-    Prelude.rnf accessTypes
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf externalId
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf s3BucketArn
-      `Prelude.seq` Prelude.rnf snsArn
-      `Prelude.seq` Prelude.rnf subscriberDescription
-      `Prelude.seq` Prelude.rnf subscriberName
-      `Prelude.seq` Prelude.rnf subscriptionEndpoint
-      `Prelude.seq` Prelude.rnf subscriptionProtocol
-      `Prelude.seq` Prelude.rnf subscriptionStatus
-      `Prelude.seq` Prelude.rnf updatedAt
-      `Prelude.seq` Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf sourceTypes
-      `Prelude.seq` Prelude.rnf subscriptionId
+    Prelude.rnf accessTypes `Prelude.seq`
+      Prelude.rnf createdAt `Prelude.seq`
+        Prelude.rnf externalId `Prelude.seq`
+          Prelude.rnf roleArn `Prelude.seq`
+            Prelude.rnf s3BucketArn `Prelude.seq`
+              Prelude.rnf snsArn `Prelude.seq`
+                Prelude.rnf subscriberDescription `Prelude.seq`
+                  Prelude.rnf subscriberName `Prelude.seq`
+                    Prelude.rnf subscriptionEndpoint `Prelude.seq`
+                      Prelude.rnf subscriptionProtocol `Prelude.seq`
+                        Prelude.rnf subscriptionStatus `Prelude.seq`
+                          Prelude.rnf updatedAt `Prelude.seq`
+                            Prelude.rnf accountId `Prelude.seq`
+                              Prelude.rnf sourceTypes `Prelude.seq`
+                                Prelude.rnf subscriptionId

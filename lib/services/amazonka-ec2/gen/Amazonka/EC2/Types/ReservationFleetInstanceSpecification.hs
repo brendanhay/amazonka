@@ -202,13 +202,13 @@ instance
     ReservationFleetInstanceSpecification
   where
   rnf ReservationFleetInstanceSpecification' {..} =
-    Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf availabilityZoneId
-      `Prelude.seq` Prelude.rnf ebsOptimized
-      `Prelude.seq` Prelude.rnf instancePlatform
-      `Prelude.seq` Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf priority
-      `Prelude.seq` Prelude.rnf weight
+    Prelude.rnf availabilityZone `Prelude.seq`
+      Prelude.rnf availabilityZoneId `Prelude.seq`
+        Prelude.rnf ebsOptimized `Prelude.seq`
+          Prelude.rnf instancePlatform `Prelude.seq`
+            Prelude.rnf instanceType `Prelude.seq`
+              Prelude.rnf priority `Prelude.seq`
+                Prelude.rnf weight
 
 instance
   Data.ToQuery

@@ -261,13 +261,13 @@ instance Prelude.Hashable StartLabelDetection where
 
 instance Prelude.NFData StartLabelDetection where
   rnf StartLabelDetection' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf features
-      `Prelude.seq` Prelude.rnf jobTag
-      `Prelude.seq` Prelude.rnf minConfidence
-      `Prelude.seq` Prelude.rnf notificationChannel
-      `Prelude.seq` Prelude.rnf settings
-      `Prelude.seq` Prelude.rnf video
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf features `Prelude.seq`
+        Prelude.rnf jobTag `Prelude.seq`
+          Prelude.rnf minConfidence `Prelude.seq`
+            Prelude.rnf notificationChannel `Prelude.seq`
+              Prelude.rnf settings `Prelude.seq`
+                Prelude.rnf video
 
 instance Data.ToHeaders StartLabelDetection where
   toHeaders =
@@ -350,5 +350,5 @@ startLabelDetectionResponse_httpStatus = Lens.lens (\StartLabelDetectionResponse
 
 instance Prelude.NFData StartLabelDetectionResponse where
   rnf StartLabelDetectionResponse' {..} =
-    Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf jobId `Prelude.seq`
+      Prelude.rnf httpStatus

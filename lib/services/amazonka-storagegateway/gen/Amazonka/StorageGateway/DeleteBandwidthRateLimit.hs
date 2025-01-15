@@ -130,8 +130,8 @@ instance Prelude.Hashable DeleteBandwidthRateLimit where
 
 instance Prelude.NFData DeleteBandwidthRateLimit where
   rnf DeleteBandwidthRateLimit' {..} =
-    Prelude.rnf gatewayARN
-      `Prelude.seq` Prelude.rnf bandwidthType
+    Prelude.rnf gatewayARN `Prelude.seq`
+      Prelude.rnf bandwidthType
 
 instance Data.ToHeaders DeleteBandwidthRateLimit where
   toHeaders =
@@ -210,5 +210,5 @@ instance
     DeleteBandwidthRateLimitResponse
   where
   rnf DeleteBandwidthRateLimitResponse' {..} =
-    Prelude.rnf gatewayARN
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf gatewayARN `Prelude.seq`
+      Prelude.rnf httpStatus

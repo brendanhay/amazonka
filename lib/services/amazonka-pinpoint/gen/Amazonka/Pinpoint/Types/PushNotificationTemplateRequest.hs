@@ -219,15 +219,15 @@ instance
     PushNotificationTemplateRequest
   where
   rnf PushNotificationTemplateRequest' {..} =
-    Prelude.rnf adm
-      `Prelude.seq` Prelude.rnf apns
-      `Prelude.seq` Prelude.rnf baidu
-      `Prelude.seq` Prelude.rnf default'
-      `Prelude.seq` Prelude.rnf defaultSubstitutions
-      `Prelude.seq` Prelude.rnf gcm
-      `Prelude.seq` Prelude.rnf recommenderId
-      `Prelude.seq` Prelude.rnf templateDescription
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf adm `Prelude.seq`
+      Prelude.rnf apns `Prelude.seq`
+        Prelude.rnf baidu `Prelude.seq`
+          Prelude.rnf default' `Prelude.seq`
+            Prelude.rnf defaultSubstitutions `Prelude.seq`
+              Prelude.rnf gcm `Prelude.seq`
+                Prelude.rnf recommenderId `Prelude.seq`
+                  Prelude.rnf templateDescription `Prelude.seq`
+                    Prelude.rnf tags
 
 instance Data.ToJSON PushNotificationTemplateRequest where
   toJSON PushNotificationTemplateRequest' {..} =

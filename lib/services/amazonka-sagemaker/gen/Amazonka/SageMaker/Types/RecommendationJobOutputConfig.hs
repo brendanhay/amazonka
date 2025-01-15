@@ -157,8 +157,8 @@ instance
 
 instance Prelude.NFData RecommendationJobOutputConfig where
   rnf RecommendationJobOutputConfig' {..} =
-    Prelude.rnf compiledOutputConfig
-      `Prelude.seq` Prelude.rnf kmsKeyId
+    Prelude.rnf compiledOutputConfig `Prelude.seq`
+      Prelude.rnf kmsKeyId
 
 instance Data.ToJSON RecommendationJobOutputConfig where
   toJSON RecommendationJobOutputConfig' {..} =

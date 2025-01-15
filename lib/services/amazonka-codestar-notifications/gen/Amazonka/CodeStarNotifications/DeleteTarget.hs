@@ -118,8 +118,8 @@ instance Prelude.Hashable DeleteTarget where
 
 instance Prelude.NFData DeleteTarget where
   rnf DeleteTarget' {..} =
-    Prelude.rnf forceUnsubscribeAll
-      `Prelude.seq` Prelude.rnf targetAddress
+    Prelude.rnf forceUnsubscribeAll `Prelude.seq`
+      Prelude.rnf targetAddress
 
 instance Data.ToHeaders DeleteTarget where
   toHeaders =

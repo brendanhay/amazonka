@@ -91,9 +91,9 @@ instance Prelude.Hashable Phase where
 
 instance Prelude.NFData Phase where
   rnf Phase' {..} =
-    Prelude.rnf durationInSeconds
-      `Prelude.seq` Prelude.rnf initialNumberOfUsers
-      `Prelude.seq` Prelude.rnf spawnRate
+    Prelude.rnf durationInSeconds `Prelude.seq`
+      Prelude.rnf initialNumberOfUsers `Prelude.seq`
+        Prelude.rnf spawnRate
 
 instance Data.ToJSON Phase where
   toJSON Phase' {..} =

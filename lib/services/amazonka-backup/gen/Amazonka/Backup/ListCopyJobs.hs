@@ -301,12 +301,12 @@ instance Core.AWSPager ListCopyJobs where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listCopyJobs_nextToken
-          Lens..~ rs
-          Lens.^? listCopyJobsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listCopyJobs_nextToken
+              Lens..~ rs
+              Lens.^? listCopyJobsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListCopyJobs where
   type AWSResponse ListCopyJobs = ListCopyJobsResponse
@@ -339,18 +339,18 @@ instance Prelude.Hashable ListCopyJobs where
 
 instance Prelude.NFData ListCopyJobs where
   rnf ListCopyJobs' {..} =
-    Prelude.rnf byAccountId
-      `Prelude.seq` Prelude.rnf byCompleteAfter
-      `Prelude.seq` Prelude.rnf byCompleteBefore
-      `Prelude.seq` Prelude.rnf byCreatedAfter
-      `Prelude.seq` Prelude.rnf byCreatedBefore
-      `Prelude.seq` Prelude.rnf byDestinationVaultArn
-      `Prelude.seq` Prelude.rnf byParentJobId
-      `Prelude.seq` Prelude.rnf byResourceArn
-      `Prelude.seq` Prelude.rnf byResourceType
-      `Prelude.seq` Prelude.rnf byState
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf byAccountId `Prelude.seq`
+      Prelude.rnf byCompleteAfter `Prelude.seq`
+        Prelude.rnf byCompleteBefore `Prelude.seq`
+          Prelude.rnf byCreatedAfter `Prelude.seq`
+            Prelude.rnf byCreatedBefore `Prelude.seq`
+              Prelude.rnf byDestinationVaultArn `Prelude.seq`
+                Prelude.rnf byParentJobId `Prelude.seq`
+                  Prelude.rnf byResourceArn `Prelude.seq`
+                    Prelude.rnf byResourceType `Prelude.seq`
+                      Prelude.rnf byState `Prelude.seq`
+                        Prelude.rnf maxResults `Prelude.seq`
+                          Prelude.rnf nextToken
 
 instance Data.ToHeaders ListCopyJobs where
   toHeaders =
@@ -444,6 +444,6 @@ listCopyJobsResponse_httpStatus = Lens.lens (\ListCopyJobsResponse' {httpStatus}
 
 instance Prelude.NFData ListCopyJobsResponse where
   rnf ListCopyJobsResponse' {..} =
-    Prelude.rnf copyJobs
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf copyJobs `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

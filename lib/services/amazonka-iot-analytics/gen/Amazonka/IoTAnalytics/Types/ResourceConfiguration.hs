@@ -96,8 +96,8 @@ instance Prelude.Hashable ResourceConfiguration where
 
 instance Prelude.NFData ResourceConfiguration where
   rnf ResourceConfiguration' {..} =
-    Prelude.rnf computeType
-      `Prelude.seq` Prelude.rnf volumeSizeInGB
+    Prelude.rnf computeType `Prelude.seq`
+      Prelude.rnf volumeSizeInGB
 
 instance Data.ToJSON ResourceConfiguration where
   toJSON ResourceConfiguration' {..} =

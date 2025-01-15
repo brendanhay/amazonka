@@ -94,9 +94,9 @@ instance Prelude.Hashable DeltaSyncConfig where
 
 instance Prelude.NFData DeltaSyncConfig where
   rnf DeltaSyncConfig' {..} =
-    Prelude.rnf baseTableTTL
-      `Prelude.seq` Prelude.rnf deltaSyncTableName
-      `Prelude.seq` Prelude.rnf deltaSyncTableTTL
+    Prelude.rnf baseTableTTL `Prelude.seq`
+      Prelude.rnf deltaSyncTableName `Prelude.seq`
+        Prelude.rnf deltaSyncTableTTL
 
 instance Data.ToJSON DeltaSyncConfig where
   toJSON DeltaSyncConfig' {..} =

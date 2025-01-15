@@ -136,12 +136,12 @@ instance Core.AWSPager ListStackResources where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listStackResources_nextToken
-          Lens..~ rs
-          Lens.^? listStackResourcesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listStackResources_nextToken
+              Lens..~ rs
+              Lens.^? listStackResourcesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListStackResources where
   type
@@ -171,8 +171,8 @@ instance Prelude.Hashable ListStackResources where
 
 instance Prelude.NFData ListStackResources where
   rnf ListStackResources' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf stackName
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf stackName
 
 instance Data.ToHeaders ListStackResources where
   toHeaders = Prelude.const Prelude.mempty
@@ -246,6 +246,6 @@ listStackResourcesResponse_httpStatus = Lens.lens (\ListStackResourcesResponse' 
 
 instance Prelude.NFData ListStackResourcesResponse where
   rnf ListStackResourcesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf stackResourceSummaries
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf stackResourceSummaries `Prelude.seq`
+        Prelude.rnf httpStatus

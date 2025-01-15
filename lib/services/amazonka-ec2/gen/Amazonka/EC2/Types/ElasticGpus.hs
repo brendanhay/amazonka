@@ -126,9 +126,7 @@ instance Data.FromXML ElasticGpus where
       Prelude.<*> (x Data..@? "elasticGpuState")
       Prelude.<*> (x Data..@? "elasticGpuType")
       Prelude.<*> (x Data..@? "instanceId")
-      Prelude.<*> ( x
-                      Data..@? "tagSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
@@ -145,10 +143,10 @@ instance Prelude.Hashable ElasticGpus where
 
 instance Prelude.NFData ElasticGpus where
   rnf ElasticGpus' {..} =
-    Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf elasticGpuHealth
-      `Prelude.seq` Prelude.rnf elasticGpuId
-      `Prelude.seq` Prelude.rnf elasticGpuState
-      `Prelude.seq` Prelude.rnf elasticGpuType
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf availabilityZone `Prelude.seq`
+      Prelude.rnf elasticGpuHealth `Prelude.seq`
+        Prelude.rnf elasticGpuId `Prelude.seq`
+          Prelude.rnf elasticGpuState `Prelude.seq`
+            Prelude.rnf elasticGpuType `Prelude.seq`
+              Prelude.rnf instanceId `Prelude.seq`
+                Prelude.rnf tags

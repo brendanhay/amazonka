@@ -95,9 +95,9 @@ instance Prelude.Hashable ManagementPreference where
 
 instance Prelude.NFData ManagementPreference where
   rnf ManagementPreference' {..} =
-    Prelude.rnf awsManagedResources
-      `Prelude.seq` Prelude.rnf noPreference
-      `Prelude.seq` Prelude.rnf selfManageResources
+    Prelude.rnf awsManagedResources `Prelude.seq`
+      Prelude.rnf noPreference `Prelude.seq`
+        Prelude.rnf selfManageResources
 
 instance Data.ToJSON ManagementPreference where
   toJSON ManagementPreference' {..} =

@@ -173,6 +173,6 @@ instance Prelude.Hashable RegexMatchSet where
 
 instance Prelude.NFData RegexMatchSet where
   rnf RegexMatchSet' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf regexMatchSetId
-      `Prelude.seq` Prelude.rnf regexMatchTuples
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf regexMatchSetId `Prelude.seq`
+        Prelude.rnf regexMatchTuples

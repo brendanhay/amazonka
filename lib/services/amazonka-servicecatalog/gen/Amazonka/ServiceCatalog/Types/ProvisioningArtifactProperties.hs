@@ -174,11 +174,11 @@ instance
     ProvisioningArtifactProperties
   where
   rnf ProvisioningArtifactProperties' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf disableTemplateValidation
-      `Prelude.seq` Prelude.rnf info
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf disableTemplateValidation `Prelude.seq`
+        Prelude.rnf info `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf type'
 
 instance Data.ToJSON ProvisioningArtifactProperties where
   toJSON ProvisioningArtifactProperties' {..} =

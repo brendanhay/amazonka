@@ -133,9 +133,9 @@ instance Prelude.Hashable SlotValueSelectionSetting where
 
 instance Prelude.NFData SlotValueSelectionSetting where
   rnf SlotValueSelectionSetting' {..} =
-    Prelude.rnf advancedRecognitionSetting
-      `Prelude.seq` Prelude.rnf regexFilter
-      `Prelude.seq` Prelude.rnf resolutionStrategy
+    Prelude.rnf advancedRecognitionSetting `Prelude.seq`
+      Prelude.rnf regexFilter `Prelude.seq`
+        Prelude.rnf resolutionStrategy
 
 instance Data.ToJSON SlotValueSelectionSetting where
   toJSON SlotValueSelectionSetting' {..} =

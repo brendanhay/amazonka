@@ -123,9 +123,9 @@ instance Prelude.Hashable CreateComponent where
 
 instance Prelude.NFData CreateComponent where
   rnf CreateComponent' {..} =
-    Prelude.rnf resourceGroupName
-      `Prelude.seq` Prelude.rnf componentName
-      `Prelude.seq` Prelude.rnf resourceList
+    Prelude.rnf resourceGroupName `Prelude.seq`
+      Prelude.rnf componentName `Prelude.seq`
+        Prelude.rnf resourceList
 
 instance Data.ToHeaders CreateComponent where
   toHeaders =

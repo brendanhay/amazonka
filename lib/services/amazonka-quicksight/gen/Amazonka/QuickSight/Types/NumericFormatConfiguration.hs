@@ -100,9 +100,9 @@ instance Prelude.Hashable NumericFormatConfiguration where
 
 instance Prelude.NFData NumericFormatConfiguration where
   rnf NumericFormatConfiguration' {..} =
-    Prelude.rnf currencyDisplayFormatConfiguration
-      `Prelude.seq` Prelude.rnf numberDisplayFormatConfiguration
-      `Prelude.seq` Prelude.rnf percentageDisplayFormatConfiguration
+    Prelude.rnf currencyDisplayFormatConfiguration `Prelude.seq`
+      Prelude.rnf numberDisplayFormatConfiguration `Prelude.seq`
+        Prelude.rnf percentageDisplayFormatConfiguration
 
 instance Data.ToJSON NumericFormatConfiguration where
   toJSON NumericFormatConfiguration' {..} =

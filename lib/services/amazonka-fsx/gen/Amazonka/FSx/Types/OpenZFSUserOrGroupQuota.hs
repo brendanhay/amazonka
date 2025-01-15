@@ -103,9 +103,9 @@ instance Prelude.Hashable OpenZFSUserOrGroupQuota where
 
 instance Prelude.NFData OpenZFSUserOrGroupQuota where
   rnf OpenZFSUserOrGroupQuota' {..} =
-    Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf storageCapacityQuotaGiB
+    Prelude.rnf type' `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf storageCapacityQuotaGiB
 
 instance Data.ToJSON OpenZFSUserOrGroupQuota where
   toJSON OpenZFSUserOrGroupQuota' {..} =

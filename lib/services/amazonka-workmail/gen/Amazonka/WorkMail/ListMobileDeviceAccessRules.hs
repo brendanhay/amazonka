@@ -177,5 +177,5 @@ instance
     ListMobileDeviceAccessRulesResponse
   where
   rnf ListMobileDeviceAccessRulesResponse' {..} =
-    Prelude.rnf rules
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf rules `Prelude.seq`
+      Prelude.rnf httpStatus

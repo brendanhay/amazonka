@@ -160,11 +160,11 @@ instance Prelude.Hashable SimulationJobSummary where
 
 instance Prelude.NFData SimulationJobSummary where
   rnf SimulationJobSummary' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf computeType
-      `Prelude.seq` Prelude.rnf dataSourceNames
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf robotApplicationNames
-      `Prelude.seq` Prelude.rnf simulationApplicationNames
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf computeType `Prelude.seq`
+        Prelude.rnf dataSourceNames `Prelude.seq`
+          Prelude.rnf lastUpdatedAt `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf robotApplicationNames `Prelude.seq`
+                Prelude.rnf simulationApplicationNames `Prelude.seq`
+                  Prelude.rnf status

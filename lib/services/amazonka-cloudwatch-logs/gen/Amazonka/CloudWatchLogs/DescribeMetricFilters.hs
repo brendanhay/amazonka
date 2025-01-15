@@ -166,12 +166,12 @@ instance Core.AWSPager DescribeMetricFilters where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeMetricFilters_nextToken
-          Lens..~ rs
-          Lens.^? describeMetricFiltersResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeMetricFilters_nextToken
+              Lens..~ rs
+              Lens.^? describeMetricFiltersResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeMetricFilters where
   type
@@ -200,12 +200,12 @@ instance Prelude.Hashable DescribeMetricFilters where
 
 instance Prelude.NFData DescribeMetricFilters where
   rnf DescribeMetricFilters' {..} =
-    Prelude.rnf filterNamePrefix
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf logGroupName
-      `Prelude.seq` Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf metricNamespace
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filterNamePrefix `Prelude.seq`
+      Prelude.rnf limit `Prelude.seq`
+        Prelude.rnf logGroupName `Prelude.seq`
+          Prelude.rnf metricName `Prelude.seq`
+            Prelude.rnf metricNamespace `Prelude.seq`
+              Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeMetricFilters where
   toHeaders =
@@ -292,6 +292,6 @@ describeMetricFiltersResponse_httpStatus = Lens.lens (\DescribeMetricFiltersResp
 
 instance Prelude.NFData DescribeMetricFiltersResponse where
   rnf DescribeMetricFiltersResponse' {..} =
-    Prelude.rnf metricFilters
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf metricFilters `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

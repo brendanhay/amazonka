@@ -237,14 +237,14 @@ instance Prelude.Hashable PutIntegrationResponse where
 
 instance Prelude.NFData PutIntegrationResponse where
   rnf PutIntegrationResponse' {..} =
-    Prelude.rnf contentHandling
-      `Prelude.seq` Prelude.rnf responseParameters
-      `Prelude.seq` Prelude.rnf responseTemplates
-      `Prelude.seq` Prelude.rnf selectionPattern
-      `Prelude.seq` Prelude.rnf restApiId
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf httpMethod
-      `Prelude.seq` Prelude.rnf statusCode
+    Prelude.rnf contentHandling `Prelude.seq`
+      Prelude.rnf responseParameters `Prelude.seq`
+        Prelude.rnf responseTemplates `Prelude.seq`
+          Prelude.rnf selectionPattern `Prelude.seq`
+            Prelude.rnf restApiId `Prelude.seq`
+              Prelude.rnf resourceId `Prelude.seq`
+                Prelude.rnf httpMethod `Prelude.seq`
+                  Prelude.rnf statusCode
 
 instance Data.ToHeaders PutIntegrationResponse where
   toHeaders =

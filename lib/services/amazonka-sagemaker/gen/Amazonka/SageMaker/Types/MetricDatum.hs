@@ -117,7 +117,7 @@ instance Prelude.Hashable MetricDatum where
 
 instance Prelude.NFData MetricDatum where
   rnf MetricDatum' {..} =
-    Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf set
-      `Prelude.seq` Prelude.rnf standardMetricName
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf metricName `Prelude.seq`
+      Prelude.rnf set `Prelude.seq`
+        Prelude.rnf standardMetricName `Prelude.seq`
+          Prelude.rnf value

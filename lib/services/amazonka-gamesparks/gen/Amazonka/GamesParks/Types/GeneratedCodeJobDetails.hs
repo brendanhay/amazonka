@@ -121,8 +121,8 @@ instance Prelude.Hashable GeneratedCodeJobDetails where
 
 instance Prelude.NFData GeneratedCodeJobDetails where
   rnf GeneratedCodeJobDetails' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf expirationTime
-      `Prelude.seq` Prelude.rnf generatedCodeJobId
-      `Prelude.seq` Prelude.rnf s3Url
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf expirationTime `Prelude.seq`
+        Prelude.rnf generatedCodeJobId `Prelude.seq`
+          Prelude.rnf s3Url `Prelude.seq`
+            Prelude.rnf status

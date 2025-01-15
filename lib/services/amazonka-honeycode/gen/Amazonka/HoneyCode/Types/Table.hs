@@ -80,5 +80,5 @@ instance Prelude.Hashable Table where
 
 instance Prelude.NFData Table where
   rnf Table' {..} =
-    Prelude.rnf tableId
-      `Prelude.seq` Prelude.rnf tableName
+    Prelude.rnf tableId `Prelude.seq`
+      Prelude.rnf tableName

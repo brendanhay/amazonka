@@ -115,8 +115,8 @@ instance Prelude.Hashable ThumbnailConfiguration where
 
 instance Prelude.NFData ThumbnailConfiguration where
   rnf ThumbnailConfiguration' {..} =
-    Prelude.rnf recordingMode
-      `Prelude.seq` Prelude.rnf targetIntervalSeconds
+    Prelude.rnf recordingMode `Prelude.seq`
+      Prelude.rnf targetIntervalSeconds
 
 instance Data.ToJSON ThumbnailConfiguration where
   toJSON ThumbnailConfiguration' {..} =

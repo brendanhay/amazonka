@@ -264,13 +264,13 @@ describeComponentResponse_httpStatus = Lens.lens (\DescribeComponentResponse' {h
 
 instance Prelude.NFData DescribeComponentResponse where
   rnf DescribeComponentResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf componentName
-      `Prelude.seq` Prelude.rnf componentVersion
-      `Prelude.seq` Prelude.rnf creationTimestamp
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf platforms
-      `Prelude.seq` Prelude.rnf publisher
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf componentName `Prelude.seq`
+        Prelude.rnf componentVersion `Prelude.seq`
+          Prelude.rnf creationTimestamp `Prelude.seq`
+            Prelude.rnf description `Prelude.seq`
+              Prelude.rnf platforms `Prelude.seq`
+                Prelude.rnf publisher `Prelude.seq`
+                  Prelude.rnf status `Prelude.seq`
+                    Prelude.rnf tags `Prelude.seq`
+                      Prelude.rnf httpStatus

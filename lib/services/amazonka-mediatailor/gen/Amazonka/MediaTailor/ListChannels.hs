@@ -115,12 +115,12 @@ instance Core.AWSPager ListChannels where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listChannels_nextToken
-          Lens..~ rs
-          Lens.^? listChannelsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listChannels_nextToken
+              Lens..~ rs
+              Lens.^? listChannelsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListChannels where
   type AWSResponse ListChannels = ListChannelsResponse
@@ -143,8 +143,8 @@ instance Prelude.Hashable ListChannels where
 
 instance Prelude.NFData ListChannels where
   rnf ListChannels' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListChannels where
   toHeaders =
@@ -219,6 +219,6 @@ listChannelsResponse_httpStatus = Lens.lens (\ListChannelsResponse' {httpStatus}
 
 instance Prelude.NFData ListChannelsResponse where
   rnf ListChannelsResponse' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf items `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -129,9 +129,9 @@ instance Prelude.Hashable ListResources where
 
 instance Prelude.NFData ListResources where
   rnf ListResources' {..} =
-    Prelude.rnf filterConditionList
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filterConditionList `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListResources where
   toHeaders =
@@ -213,6 +213,6 @@ listResourcesResponse_httpStatus = Lens.lens (\ListResourcesResponse' {httpStatu
 
 instance Prelude.NFData ListResourcesResponse where
   rnf ListResourcesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf resourceInfoList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf resourceInfoList `Prelude.seq`
+        Prelude.rnf httpStatus

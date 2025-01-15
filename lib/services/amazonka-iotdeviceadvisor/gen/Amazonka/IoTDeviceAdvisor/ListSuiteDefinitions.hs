@@ -115,8 +115,8 @@ instance Prelude.Hashable ListSuiteDefinitions where
 
 instance Prelude.NFData ListSuiteDefinitions where
   rnf ListSuiteDefinitions' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListSuiteDefinitions where
   toHeaders =
@@ -193,6 +193,6 @@ listSuiteDefinitionsResponse_httpStatus = Lens.lens (\ListSuiteDefinitionsRespon
 
 instance Prelude.NFData ListSuiteDefinitionsResponse where
   rnf ListSuiteDefinitionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf suiteDefinitionInformationList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf suiteDefinitionInformationList `Prelude.seq`
+        Prelude.rnf httpStatus

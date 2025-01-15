@@ -88,8 +88,8 @@ instance Prelude.Hashable IPSetUpdate where
 
 instance Prelude.NFData IPSetUpdate where
   rnf IPSetUpdate' {..} =
-    Prelude.rnf action
-      `Prelude.seq` Prelude.rnf iPSetDescriptor
+    Prelude.rnf action `Prelude.seq`
+      Prelude.rnf iPSetDescriptor
 
 instance Data.ToJSON IPSetUpdate where
   toJSON IPSetUpdate' {..} =

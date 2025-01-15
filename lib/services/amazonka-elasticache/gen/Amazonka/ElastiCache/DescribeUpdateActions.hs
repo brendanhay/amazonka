@@ -198,12 +198,12 @@ instance Core.AWSPager DescribeUpdateActions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeUpdateActions_marker
-          Lens..~ rs
-          Lens.^? describeUpdateActionsResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeUpdateActions_marker
+              Lens..~ rs
+              Lens.^? describeUpdateActionsResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeUpdateActions where
   type
@@ -217,9 +217,7 @@ instance Core.AWSRequest DescribeUpdateActions where
       ( \s h x ->
           DescribeUpdateActionsResponse'
             Prelude.<$> (x Data..@? "Marker")
-            Prelude.<*> ( x
-                            Data..@? "UpdateActions"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "UpdateActions" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "UpdateAction")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -241,16 +239,16 @@ instance Prelude.Hashable DescribeUpdateActions where
 
 instance Prelude.NFData DescribeUpdateActions where
   rnf DescribeUpdateActions' {..} =
-    Prelude.rnf cacheClusterIds
-      `Prelude.seq` Prelude.rnf engine
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf replicationGroupIds
-      `Prelude.seq` Prelude.rnf serviceUpdateName
-      `Prelude.seq` Prelude.rnf serviceUpdateStatus
-      `Prelude.seq` Prelude.rnf serviceUpdateTimeRange
-      `Prelude.seq` Prelude.rnf showNodeLevelUpdateStatus
-      `Prelude.seq` Prelude.rnf updateActionStatus
+    Prelude.rnf cacheClusterIds `Prelude.seq`
+      Prelude.rnf engine `Prelude.seq`
+        Prelude.rnf marker `Prelude.seq`
+          Prelude.rnf maxRecords `Prelude.seq`
+            Prelude.rnf replicationGroupIds `Prelude.seq`
+              Prelude.rnf serviceUpdateName `Prelude.seq`
+                Prelude.rnf serviceUpdateStatus `Prelude.seq`
+                  Prelude.rnf serviceUpdateTimeRange `Prelude.seq`
+                    Prelude.rnf showNodeLevelUpdateStatus `Prelude.seq`
+                      Prelude.rnf updateActionStatus
 
 instance Data.ToHeaders DescribeUpdateActions where
   toHeaders = Prelude.const Prelude.mempty
@@ -354,6 +352,6 @@ describeUpdateActionsResponse_httpStatus = Lens.lens (\DescribeUpdateActionsResp
 
 instance Prelude.NFData DescribeUpdateActionsResponse where
   rnf DescribeUpdateActionsResponse' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf updateActions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf updateActions `Prelude.seq`
+        Prelude.rnf httpStatus

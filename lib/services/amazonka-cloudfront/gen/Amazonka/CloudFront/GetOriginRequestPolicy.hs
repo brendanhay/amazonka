@@ -187,6 +187,6 @@ instance
     GetOriginRequestPolicyResponse
   where
   rnf GetOriginRequestPolicyResponse' {..} =
-    Prelude.rnf eTag
-      `Prelude.seq` Prelude.rnf originRequestPolicy
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf eTag `Prelude.seq`
+      Prelude.rnf originRequestPolicy `Prelude.seq`
+        Prelude.rnf httpStatus

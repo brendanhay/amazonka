@@ -155,11 +155,11 @@ instance Prelude.Hashable CreateReferenceStore where
 
 instance Prelude.NFData CreateReferenceStore where
   rnf CreateReferenceStore' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf sseConfig
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf sseConfig `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf name
 
 instance Data.ToHeaders CreateReferenceStore where
   toHeaders =
@@ -287,10 +287,10 @@ createReferenceStoreResponse_id = Lens.lens (\CreateReferenceStoreResponse' {id}
 
 instance Prelude.NFData CreateReferenceStoreResponse where
   rnf CreateReferenceStoreResponse' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf sseConfig
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf sseConfig `Prelude.seq`
+          Prelude.rnf httpStatus `Prelude.seq`
+            Prelude.rnf arn `Prelude.seq`
+              Prelude.rnf creationTime `Prelude.seq`
+                Prelude.rnf id

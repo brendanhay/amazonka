@@ -295,16 +295,16 @@ describeInputDeviceResponse_httpStatus = Lens.lens (\DescribeInputDeviceResponse
 
 instance Prelude.NFData DescribeInputDeviceResponse where
   rnf DescribeInputDeviceResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf connectionState
-      `Prelude.seq` Prelude.rnf deviceSettingsSyncState
-      `Prelude.seq` Prelude.rnf deviceUpdateStatus
-      `Prelude.seq` Prelude.rnf hdDeviceSettings
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf macAddress
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf networkSettings
-      `Prelude.seq` Prelude.rnf serialNumber
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf uhdDeviceSettings
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf connectionState `Prelude.seq`
+        Prelude.rnf deviceSettingsSyncState `Prelude.seq`
+          Prelude.rnf deviceUpdateStatus `Prelude.seq`
+            Prelude.rnf hdDeviceSettings `Prelude.seq`
+              Prelude.rnf id `Prelude.seq`
+                Prelude.rnf macAddress `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf networkSettings `Prelude.seq`
+                      Prelude.rnf serialNumber `Prelude.seq`
+                        Prelude.rnf type' `Prelude.seq`
+                          Prelude.rnf uhdDeviceSettings `Prelude.seq`
+                            Prelude.rnf httpStatus

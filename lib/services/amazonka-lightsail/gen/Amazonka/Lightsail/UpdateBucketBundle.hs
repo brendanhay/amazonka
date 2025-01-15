@@ -140,8 +140,8 @@ instance Prelude.Hashable UpdateBucketBundle where
 
 instance Prelude.NFData UpdateBucketBundle where
   rnf UpdateBucketBundle' {..} =
-    Prelude.rnf bucketName
-      `Prelude.seq` Prelude.rnf bundleId
+    Prelude.rnf bucketName `Prelude.seq`
+      Prelude.rnf bundleId
 
 instance Data.ToHeaders UpdateBucketBundle where
   toHeaders =
@@ -220,5 +220,5 @@ updateBucketBundleResponse_httpStatus = Lens.lens (\UpdateBucketBundleResponse' 
 
 instance Prelude.NFData UpdateBucketBundleResponse where
   rnf UpdateBucketBundleResponse' {..} =
-    Prelude.rnf operations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operations `Prelude.seq`
+      Prelude.rnf httpStatus

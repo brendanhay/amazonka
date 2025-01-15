@@ -141,10 +141,10 @@ instance Prelude.Hashable CreateApplication where
 
 instance Prelude.NFData CreateApplication where
   rnf CreateApplication' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf resourceLifecycleConfig
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf applicationName
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf resourceLifecycleConfig `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf applicationName
 
 instance Data.ToHeaders CreateApplication where
   toHeaders = Prelude.const Prelude.mempty

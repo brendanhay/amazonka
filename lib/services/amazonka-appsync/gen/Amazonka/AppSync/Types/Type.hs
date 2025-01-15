@@ -114,8 +114,8 @@ instance Prelude.Hashable Type where
 
 instance Prelude.NFData Type where
   rnf Type' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf definition
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf format
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf definition `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf format `Prelude.seq`
+            Prelude.rnf name

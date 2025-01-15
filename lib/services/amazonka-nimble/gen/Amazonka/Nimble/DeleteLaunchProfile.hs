@@ -133,9 +133,9 @@ instance Prelude.Hashable DeleteLaunchProfile where
 
 instance Prelude.NFData DeleteLaunchProfile where
   rnf DeleteLaunchProfile' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf launchProfileId
-      `Prelude.seq` Prelude.rnf studioId
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf launchProfileId `Prelude.seq`
+        Prelude.rnf studioId
 
 instance Data.ToHeaders DeleteLaunchProfile where
   toHeaders DeleteLaunchProfile' {..} =
@@ -198,5 +198,5 @@ deleteLaunchProfileResponse_httpStatus = Lens.lens (\DeleteLaunchProfileResponse
 
 instance Prelude.NFData DeleteLaunchProfileResponse where
   rnf DeleteLaunchProfileResponse' {..} =
-    Prelude.rnf launchProfile
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf launchProfile `Prelude.seq`
+      Prelude.rnf httpStatus

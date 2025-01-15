@@ -143,8 +143,8 @@ instance Prelude.Hashable DeleteRegexMatchSet where
 
 instance Prelude.NFData DeleteRegexMatchSet where
   rnf DeleteRegexMatchSet' {..} =
-    Prelude.rnf regexMatchSetId
-      `Prelude.seq` Prelude.rnf changeToken
+    Prelude.rnf regexMatchSetId `Prelude.seq`
+      Prelude.rnf changeToken
 
 instance Data.ToHeaders DeleteRegexMatchSet where
   toHeaders =
@@ -224,5 +224,5 @@ deleteRegexMatchSetResponse_httpStatus = Lens.lens (\DeleteRegexMatchSetResponse
 
 instance Prelude.NFData DeleteRegexMatchSetResponse where
   rnf DeleteRegexMatchSetResponse' {..} =
-    Prelude.rnf changeToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf changeToken `Prelude.seq`
+      Prelude.rnf httpStatus

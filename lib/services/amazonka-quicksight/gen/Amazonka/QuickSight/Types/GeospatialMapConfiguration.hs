@@ -142,13 +142,13 @@ instance Prelude.Hashable GeospatialMapConfiguration where
 
 instance Prelude.NFData GeospatialMapConfiguration where
   rnf GeospatialMapConfiguration' {..} =
-    Prelude.rnf fieldWells
-      `Prelude.seq` Prelude.rnf legend
-      `Prelude.seq` Prelude.rnf mapStyleOptions
-      `Prelude.seq` Prelude.rnf pointStyleOptions
-      `Prelude.seq` Prelude.rnf tooltip
-      `Prelude.seq` Prelude.rnf visualPalette
-      `Prelude.seq` Prelude.rnf windowOptions
+    Prelude.rnf fieldWells `Prelude.seq`
+      Prelude.rnf legend `Prelude.seq`
+        Prelude.rnf mapStyleOptions `Prelude.seq`
+          Prelude.rnf pointStyleOptions `Prelude.seq`
+            Prelude.rnf tooltip `Prelude.seq`
+              Prelude.rnf visualPalette `Prelude.seq`
+                Prelude.rnf windowOptions
 
 instance Data.ToJSON GeospatialMapConfiguration where
   toJSON GeospatialMapConfiguration' {..} =

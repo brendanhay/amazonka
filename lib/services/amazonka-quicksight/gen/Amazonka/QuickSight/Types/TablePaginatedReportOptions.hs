@@ -82,8 +82,8 @@ instance Prelude.Hashable TablePaginatedReportOptions where
 
 instance Prelude.NFData TablePaginatedReportOptions where
   rnf TablePaginatedReportOptions' {..} =
-    Prelude.rnf overflowColumnHeaderVisibility
-      `Prelude.seq` Prelude.rnf verticalOverflowVisibility
+    Prelude.rnf overflowColumnHeaderVisibility `Prelude.seq`
+      Prelude.rnf verticalOverflowVisibility
 
 instance Data.ToJSON TablePaginatedReportOptions where
   toJSON TablePaginatedReportOptions' {..} =

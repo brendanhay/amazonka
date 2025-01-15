@@ -173,5 +173,5 @@ getInstancePortStatesResponse_httpStatus = Lens.lens (\GetInstancePortStatesResp
 
 instance Prelude.NFData GetInstancePortStatesResponse where
   rnf GetInstancePortStatesResponse' {..} =
-    Prelude.rnf portStates
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf portStates `Prelude.seq`
+      Prelude.rnf httpStatus

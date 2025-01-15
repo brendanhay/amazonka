@@ -148,10 +148,10 @@ instance Prelude.Hashable Dataset where
 
 instance Prelude.NFData Dataset where
   rnf Dataset' {..} =
-    Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf dataStorage
-      `Prelude.seq` Prelude.rnf datasetName
-      `Prelude.seq` Prelude.rnf identityId
-      `Prelude.seq` Prelude.rnf lastModifiedBy
-      `Prelude.seq` Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf numRecords
+    Prelude.rnf creationDate `Prelude.seq`
+      Prelude.rnf dataStorage `Prelude.seq`
+        Prelude.rnf datasetName `Prelude.seq`
+          Prelude.rnf identityId `Prelude.seq`
+            Prelude.rnf lastModifiedBy `Prelude.seq`
+              Prelude.rnf lastModifiedDate `Prelude.seq`
+                Prelude.rnf numRecords

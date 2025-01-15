@@ -112,6 +112,6 @@ instance Prelude.Hashable MatchItem where
 
 instance Prelude.NFData MatchItem where
   rnf MatchItem' {..} =
-    Prelude.rnf confidenceScore
-      `Prelude.seq` Prelude.rnf matchId
-      `Prelude.seq` Prelude.rnf profileIds
+    Prelude.rnf confidenceScore `Prelude.seq`
+      Prelude.rnf matchId `Prelude.seq`
+        Prelude.rnf profileIds

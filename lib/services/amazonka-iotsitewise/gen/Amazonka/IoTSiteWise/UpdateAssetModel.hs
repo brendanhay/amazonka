@@ -251,13 +251,13 @@ instance Prelude.Hashable UpdateAssetModel where
 
 instance Prelude.NFData UpdateAssetModel where
   rnf UpdateAssetModel' {..} =
-    Prelude.rnf assetModelCompositeModels
-      `Prelude.seq` Prelude.rnf assetModelDescription
-      `Prelude.seq` Prelude.rnf assetModelHierarchies
-      `Prelude.seq` Prelude.rnf assetModelProperties
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf assetModelId
-      `Prelude.seq` Prelude.rnf assetModelName
+    Prelude.rnf assetModelCompositeModels `Prelude.seq`
+      Prelude.rnf assetModelDescription `Prelude.seq`
+        Prelude.rnf assetModelHierarchies `Prelude.seq`
+          Prelude.rnf assetModelProperties `Prelude.seq`
+            Prelude.rnf clientToken `Prelude.seq`
+              Prelude.rnf assetModelId `Prelude.seq`
+                Prelude.rnf assetModelName
 
 instance Data.ToHeaders UpdateAssetModel where
   toHeaders =
@@ -344,5 +344,5 @@ updateAssetModelResponse_assetModelStatus = Lens.lens (\UpdateAssetModelResponse
 
 instance Prelude.NFData UpdateAssetModelResponse where
   rnf UpdateAssetModelResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf assetModelStatus
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf assetModelStatus

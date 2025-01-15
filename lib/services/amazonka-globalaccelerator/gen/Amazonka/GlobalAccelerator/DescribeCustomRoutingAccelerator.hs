@@ -191,5 +191,5 @@ instance
     DescribeCustomRoutingAcceleratorResponse
   where
   rnf DescribeCustomRoutingAcceleratorResponse' {..} =
-    Prelude.rnf accelerator
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf accelerator `Prelude.seq`
+      Prelude.rnf httpStatus

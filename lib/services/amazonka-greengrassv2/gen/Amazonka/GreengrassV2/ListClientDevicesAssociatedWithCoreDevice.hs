@@ -122,12 +122,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listClientDevicesAssociatedWithCoreDevice_nextToken
-          Lens..~ rs
-          Lens.^? listClientDevicesAssociatedWithCoreDeviceResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listClientDevicesAssociatedWithCoreDevice_nextToken
+              Lens..~ rs
+              Lens.^? listClientDevicesAssociatedWithCoreDeviceResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -165,9 +165,9 @@ instance
     ListClientDevicesAssociatedWithCoreDevice
   where
   rnf ListClientDevicesAssociatedWithCoreDevice' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf coreDeviceThingName
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf coreDeviceThingName
 
 instance
   Data.ToHeaders
@@ -260,6 +260,6 @@ instance
   where
   rnf
     ListClientDevicesAssociatedWithCoreDeviceResponse' {..} =
-      Prelude.rnf associatedClientDevices
-        `Prelude.seq` Prelude.rnf nextToken
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf associatedClientDevices `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf httpStatus

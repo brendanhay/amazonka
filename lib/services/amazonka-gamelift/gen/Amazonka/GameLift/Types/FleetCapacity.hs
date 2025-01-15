@@ -151,8 +151,8 @@ instance Prelude.Hashable FleetCapacity where
 
 instance Prelude.NFData FleetCapacity where
   rnf FleetCapacity' {..} =
-    Prelude.rnf fleetArn
-      `Prelude.seq` Prelude.rnf fleetId
-      `Prelude.seq` Prelude.rnf instanceCounts
-      `Prelude.seq` Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf location
+    Prelude.rnf fleetArn `Prelude.seq`
+      Prelude.rnf fleetId `Prelude.seq`
+        Prelude.rnf instanceCounts `Prelude.seq`
+          Prelude.rnf instanceType `Prelude.seq`
+            Prelude.rnf location

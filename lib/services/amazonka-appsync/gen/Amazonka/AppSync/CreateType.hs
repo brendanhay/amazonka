@@ -130,9 +130,9 @@ instance Prelude.Hashable CreateType where
 
 instance Prelude.NFData CreateType where
   rnf CreateType' {..} =
-    Prelude.rnf apiId
-      `Prelude.seq` Prelude.rnf definition
-      `Prelude.seq` Prelude.rnf format
+    Prelude.rnf apiId `Prelude.seq`
+      Prelude.rnf definition `Prelude.seq`
+        Prelude.rnf format
 
 instance Data.ToHeaders CreateType where
   toHeaders =
@@ -202,5 +202,5 @@ createTypeResponse_httpStatus = Lens.lens (\CreateTypeResponse' {httpStatus} -> 
 
 instance Prelude.NFData CreateTypeResponse where
   rnf CreateTypeResponse' {..} =
-    Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf type' `Prelude.seq`
+      Prelude.rnf httpStatus

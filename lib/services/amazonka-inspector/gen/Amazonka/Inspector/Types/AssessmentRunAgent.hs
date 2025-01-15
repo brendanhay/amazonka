@@ -161,10 +161,10 @@ instance Prelude.Hashable AssessmentRunAgent where
 
 instance Prelude.NFData AssessmentRunAgent where
   rnf AssessmentRunAgent' {..} =
-    Prelude.rnf agentHealthDetails
-      `Prelude.seq` Prelude.rnf autoScalingGroup
-      `Prelude.seq` Prelude.rnf agentId
-      `Prelude.seq` Prelude.rnf assessmentRunArn
-      `Prelude.seq` Prelude.rnf agentHealth
-      `Prelude.seq` Prelude.rnf agentHealthCode
-      `Prelude.seq` Prelude.rnf telemetryMetadata
+    Prelude.rnf agentHealthDetails `Prelude.seq`
+      Prelude.rnf autoScalingGroup `Prelude.seq`
+        Prelude.rnf agentId `Prelude.seq`
+          Prelude.rnf assessmentRunArn `Prelude.seq`
+            Prelude.rnf agentHealth `Prelude.seq`
+              Prelude.rnf agentHealthCode `Prelude.seq`
+                Prelude.rnf telemetryMetadata

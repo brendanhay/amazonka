@@ -252,14 +252,14 @@ instance Prelude.Hashable Xavc4kProfileSettings where
 
 instance Prelude.NFData Xavc4kProfileSettings where
   rnf Xavc4kProfileSettings' {..} =
-    Prelude.rnf bitrateClass
-      `Prelude.seq` Prelude.rnf codecProfile
-      `Prelude.seq` Prelude.rnf flickerAdaptiveQuantization
-      `Prelude.seq` Prelude.rnf gopBReference
-      `Prelude.seq` Prelude.rnf gopClosedCadence
-      `Prelude.seq` Prelude.rnf hrdBufferSize
-      `Prelude.seq` Prelude.rnf qualityTuningLevel
-      `Prelude.seq` Prelude.rnf slices
+    Prelude.rnf bitrateClass `Prelude.seq`
+      Prelude.rnf codecProfile `Prelude.seq`
+        Prelude.rnf flickerAdaptiveQuantization `Prelude.seq`
+          Prelude.rnf gopBReference `Prelude.seq`
+            Prelude.rnf gopClosedCadence `Prelude.seq`
+              Prelude.rnf hrdBufferSize `Prelude.seq`
+                Prelude.rnf qualityTuningLevel `Prelude.seq`
+                  Prelude.rnf slices
 
 instance Data.ToJSON Xavc4kProfileSettings where
   toJSON Xavc4kProfileSettings' {..} =

@@ -269,19 +269,19 @@ instance Prelude.Hashable S3JsonSource where
 
 instance Prelude.NFData S3JsonSource where
   rnf S3JsonSource' {..} =
-    Prelude.rnf additionalOptions
-      `Prelude.seq` Prelude.rnf compressionType
-      `Prelude.seq` Prelude.rnf exclusions
-      `Prelude.seq` Prelude.rnf groupFiles
-      `Prelude.seq` Prelude.rnf groupSize
-      `Prelude.seq` Prelude.rnf jsonPath
-      `Prelude.seq` Prelude.rnf maxBand
-      `Prelude.seq` Prelude.rnf maxFilesInBand
-      `Prelude.seq` Prelude.rnf multiline
-      `Prelude.seq` Prelude.rnf outputSchemas
-      `Prelude.seq` Prelude.rnf recurse
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf paths
+    Prelude.rnf additionalOptions `Prelude.seq`
+      Prelude.rnf compressionType `Prelude.seq`
+        Prelude.rnf exclusions `Prelude.seq`
+          Prelude.rnf groupFiles `Prelude.seq`
+            Prelude.rnf groupSize `Prelude.seq`
+              Prelude.rnf jsonPath `Prelude.seq`
+                Prelude.rnf maxBand `Prelude.seq`
+                  Prelude.rnf maxFilesInBand `Prelude.seq`
+                    Prelude.rnf multiline `Prelude.seq`
+                      Prelude.rnf outputSchemas `Prelude.seq`
+                        Prelude.rnf recurse `Prelude.seq`
+                          Prelude.rnf name `Prelude.seq`
+                            Prelude.rnf paths
 
 instance Data.ToJSON S3JsonSource where
   toJSON S3JsonSource' {..} =

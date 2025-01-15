@@ -157,11 +157,11 @@ instance Prelude.Hashable CreateArchive where
 
 instance Prelude.NFData CreateArchive where
   rnf CreateArchive' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf eventPattern
-      `Prelude.seq` Prelude.rnf retentionDays
-      `Prelude.seq` Prelude.rnf archiveName
-      `Prelude.seq` Prelude.rnf eventSourceArn
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf eventPattern `Prelude.seq`
+        Prelude.rnf retentionDays `Prelude.seq`
+          Prelude.rnf archiveName `Prelude.seq`
+            Prelude.rnf eventSourceArn
 
 instance Data.ToHeaders CreateArchive where
   toHeaders =
@@ -263,8 +263,8 @@ createArchiveResponse_httpStatus = Lens.lens (\CreateArchiveResponse' {httpStatu
 
 instance Prelude.NFData CreateArchiveResponse where
   rnf CreateArchiveResponse' {..} =
-    Prelude.rnf archiveArn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf stateReason
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf archiveArn `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf state `Prelude.seq`
+          Prelude.rnf stateReason `Prelude.seq`
+            Prelude.rnf httpStatus

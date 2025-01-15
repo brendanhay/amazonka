@@ -159,9 +159,7 @@ instance Data.FromXML VpcEndpointConnection where
   parseXML x =
     VpcEndpointConnection'
       Prelude.<$> (x Data..@? "creationTimestamp")
-      Prelude.<*> ( x
-                      Data..@? "dnsEntrySet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "dnsEntrySet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> ( x
@@ -176,9 +174,7 @@ instance Data.FromXML VpcEndpointConnection where
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "serviceId")
-      Prelude.<*> ( x
-                      Data..@? "tagSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "vpcEndpointConnectionId")
@@ -203,14 +199,14 @@ instance Prelude.Hashable VpcEndpointConnection where
 
 instance Prelude.NFData VpcEndpointConnection where
   rnf VpcEndpointConnection' {..} =
-    Prelude.rnf creationTimestamp
-      `Prelude.seq` Prelude.rnf dnsEntries
-      `Prelude.seq` Prelude.rnf gatewayLoadBalancerArns
-      `Prelude.seq` Prelude.rnf ipAddressType
-      `Prelude.seq` Prelude.rnf networkLoadBalancerArns
-      `Prelude.seq` Prelude.rnf serviceId
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf vpcEndpointConnectionId
-      `Prelude.seq` Prelude.rnf vpcEndpointId
-      `Prelude.seq` Prelude.rnf vpcEndpointOwner
-      `Prelude.seq` Prelude.rnf vpcEndpointState
+    Prelude.rnf creationTimestamp `Prelude.seq`
+      Prelude.rnf dnsEntries `Prelude.seq`
+        Prelude.rnf gatewayLoadBalancerArns `Prelude.seq`
+          Prelude.rnf ipAddressType `Prelude.seq`
+            Prelude.rnf networkLoadBalancerArns `Prelude.seq`
+              Prelude.rnf serviceId `Prelude.seq`
+                Prelude.rnf tags `Prelude.seq`
+                  Prelude.rnf vpcEndpointConnectionId `Prelude.seq`
+                    Prelude.rnf vpcEndpointId `Prelude.seq`
+                      Prelude.rnf vpcEndpointOwner `Prelude.seq`
+                        Prelude.rnf vpcEndpointState

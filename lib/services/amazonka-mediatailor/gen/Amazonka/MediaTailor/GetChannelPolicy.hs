@@ -158,5 +158,5 @@ getChannelPolicyResponse_httpStatus = Lens.lens (\GetChannelPolicyResponse' {htt
 
 instance Prelude.NFData GetChannelPolicyResponse where
   rnf GetChannelPolicyResponse' {..} =
-    Prelude.rnf policy
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf policy `Prelude.seq`
+      Prelude.rnf httpStatus

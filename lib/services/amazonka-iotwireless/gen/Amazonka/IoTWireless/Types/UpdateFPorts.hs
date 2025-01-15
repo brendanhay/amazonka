@@ -75,8 +75,8 @@ instance Prelude.Hashable UpdateFPorts where
 
 instance Prelude.NFData UpdateFPorts where
   rnf UpdateFPorts' {..} =
-    Prelude.rnf applications
-      `Prelude.seq` Prelude.rnf positioning
+    Prelude.rnf applications `Prelude.seq`
+      Prelude.rnf positioning
 
 instance Data.ToJSON UpdateFPorts where
   toJSON UpdateFPorts' {..} =

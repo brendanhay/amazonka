@@ -171,10 +171,10 @@ instance
     DeleteRepositoryPermissionsPolicy
   where
   rnf DeleteRepositoryPermissionsPolicy' {..} =
-    Prelude.rnf domainOwner
-      `Prelude.seq` Prelude.rnf policyRevision
-      `Prelude.seq` Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf repository
+    Prelude.rnf domainOwner `Prelude.seq`
+      Prelude.rnf policyRevision `Prelude.seq`
+        Prelude.rnf domain `Prelude.seq`
+          Prelude.rnf repository
 
 instance
   Data.ToHeaders
@@ -254,5 +254,5 @@ instance
     DeleteRepositoryPermissionsPolicyResponse
   where
   rnf DeleteRepositoryPermissionsPolicyResponse' {..} =
-    Prelude.rnf policy
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf policy `Prelude.seq`
+      Prelude.rnf httpStatus

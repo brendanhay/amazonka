@@ -80,5 +80,5 @@ instance Prelude.Hashable GroupSummary where
 
 instance Prelude.NFData GroupSummary where
   rnf GroupSummary' {..} =
-    Prelude.rnf groupId
-      `Prelude.seq` Prelude.rnf orderingId
+    Prelude.rnf groupId `Prelude.seq`
+      Prelude.rnf orderingId

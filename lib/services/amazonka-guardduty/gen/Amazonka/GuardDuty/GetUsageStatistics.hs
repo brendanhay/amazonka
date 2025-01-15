@@ -181,12 +181,12 @@ instance Prelude.Hashable GetUsageStatistics where
 
 instance Prelude.NFData GetUsageStatistics where
   rnf GetUsageStatistics' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf unit
-      `Prelude.seq` Prelude.rnf detectorId
-      `Prelude.seq` Prelude.rnf usageStatisticType
-      `Prelude.seq` Prelude.rnf usageCriteria
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf unit `Prelude.seq`
+          Prelude.rnf detectorId `Prelude.seq`
+            Prelude.rnf usageStatisticType `Prelude.seq`
+              Prelude.rnf usageCriteria
 
 instance Data.ToHeaders GetUsageStatistics where
   toHeaders =
@@ -280,6 +280,6 @@ getUsageStatisticsResponse_httpStatus = Lens.lens (\GetUsageStatisticsResponse' 
 
 instance Prelude.NFData GetUsageStatisticsResponse where
   rnf GetUsageStatisticsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf usageStatistics
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf usageStatistics `Prelude.seq`
+        Prelude.rnf httpStatus

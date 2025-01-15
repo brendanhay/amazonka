@@ -119,8 +119,8 @@ instance Prelude.Hashable Secret where
 
 instance Prelude.NFData Secret where
   rnf Secret' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf valueFrom
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf valueFrom
 
 instance Data.ToJSON Secret where
   toJSON Secret' {..} =

@@ -175,8 +175,8 @@ instance Prelude.Hashable TestFailover where
 
 instance Prelude.NFData TestFailover where
   rnf TestFailover' {..} =
-    Prelude.rnf replicationGroupId
-      `Prelude.seq` Prelude.rnf nodeGroupId
+    Prelude.rnf replicationGroupId `Prelude.seq`
+      Prelude.rnf nodeGroupId
 
 instance Data.ToHeaders TestFailover where
   toHeaders = Prelude.const Prelude.mempty
@@ -235,5 +235,5 @@ testFailoverResponse_httpStatus = Lens.lens (\TestFailoverResponse' {httpStatus}
 
 instance Prelude.NFData TestFailoverResponse where
   rnf TestFailoverResponse' {..} =
-    Prelude.rnf replicationGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf replicationGroup `Prelude.seq`
+      Prelude.rnf httpStatus

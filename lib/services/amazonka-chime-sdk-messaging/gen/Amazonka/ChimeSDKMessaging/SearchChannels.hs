@@ -137,10 +137,10 @@ instance Prelude.Hashable SearchChannels where
 
 instance Prelude.NFData SearchChannels where
   rnf SearchChannels' {..} =
-    Prelude.rnf chimeBearer
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf fields
+    Prelude.rnf chimeBearer `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf fields
 
 instance Data.ToHeaders SearchChannels where
   toHeaders SearchChannels' {..} =
@@ -217,6 +217,6 @@ searchChannelsResponse_httpStatus = Lens.lens (\SearchChannelsResponse' {httpSta
 
 instance Prelude.NFData SearchChannelsResponse where
   rnf SearchChannelsResponse' {..} =
-    Prelude.rnf channels
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf channels `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

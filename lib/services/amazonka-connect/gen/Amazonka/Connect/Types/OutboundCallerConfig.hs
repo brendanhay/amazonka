@@ -92,9 +92,9 @@ instance Prelude.Hashable OutboundCallerConfig where
 
 instance Prelude.NFData OutboundCallerConfig where
   rnf OutboundCallerConfig' {..} =
-    Prelude.rnf outboundCallerIdName
-      `Prelude.seq` Prelude.rnf outboundCallerIdNumberId
-      `Prelude.seq` Prelude.rnf outboundFlowId
+    Prelude.rnf outboundCallerIdName `Prelude.seq`
+      Prelude.rnf outboundCallerIdNumberId `Prelude.seq`
+        Prelude.rnf outboundFlowId
 
 instance Data.ToJSON OutboundCallerConfig where
   toJSON OutboundCallerConfig' {..} =

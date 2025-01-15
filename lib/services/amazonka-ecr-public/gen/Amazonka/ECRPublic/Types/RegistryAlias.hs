@@ -143,7 +143,7 @@ instance Prelude.Hashable RegistryAlias where
 
 instance Prelude.NFData RegistryAlias where
   rnf RegistryAlias' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf primaryRegistryAlias
-      `Prelude.seq` Prelude.rnf defaultRegistryAlias
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf primaryRegistryAlias `Prelude.seq`
+          Prelude.rnf defaultRegistryAlias

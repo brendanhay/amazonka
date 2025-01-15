@@ -128,10 +128,10 @@ instance
     BatchGetAssetPropertyValueEntry
   where
   rnf BatchGetAssetPropertyValueEntry' {..} =
-    Prelude.rnf assetId
-      `Prelude.seq` Prelude.rnf propertyAlias
-      `Prelude.seq` Prelude.rnf propertyId
-      `Prelude.seq` Prelude.rnf entryId
+    Prelude.rnf assetId `Prelude.seq`
+      Prelude.rnf propertyAlias `Prelude.seq`
+        Prelude.rnf propertyId `Prelude.seq`
+          Prelude.rnf entryId
 
 instance Data.ToJSON BatchGetAssetPropertyValueEntry where
   toJSON BatchGetAssetPropertyValueEntry' {..} =

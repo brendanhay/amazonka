@@ -180,8 +180,8 @@ instance Prelude.Hashable BatchPutMessage where
 
 instance Prelude.NFData BatchPutMessage where
   rnf BatchPutMessage' {..} =
-    Prelude.rnf channelName
-      `Prelude.seq` Prelude.rnf messages
+    Prelude.rnf channelName `Prelude.seq`
+      Prelude.rnf messages
 
 instance Data.ToHeaders BatchPutMessage where
   toHeaders = Prelude.const Prelude.mempty
@@ -245,5 +245,5 @@ batchPutMessageResponse_httpStatus = Lens.lens (\BatchPutMessageResponse' {httpS
 
 instance Prelude.NFData BatchPutMessageResponse where
   rnf BatchPutMessageResponse' {..} =
-    Prelude.rnf batchPutMessageErrorEntries
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf batchPutMessageErrorEntries `Prelude.seq`
+      Prelude.rnf httpStatus

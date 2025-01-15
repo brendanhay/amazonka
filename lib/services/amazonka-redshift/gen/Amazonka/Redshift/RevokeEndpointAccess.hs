@@ -141,10 +141,10 @@ instance Prelude.Hashable RevokeEndpointAccess where
 
 instance Prelude.NFData RevokeEndpointAccess where
   rnf RevokeEndpointAccess' {..} =
-    Prelude.rnf account
-      `Prelude.seq` Prelude.rnf clusterIdentifier
-      `Prelude.seq` Prelude.rnf force
-      `Prelude.seq` Prelude.rnf vpcIds
+    Prelude.rnf account `Prelude.seq`
+      Prelude.rnf clusterIdentifier `Prelude.seq`
+        Prelude.rnf force `Prelude.seq`
+          Prelude.rnf vpcIds
 
 instance Data.ToHeaders RevokeEndpointAccess where
   toHeaders = Prelude.const Prelude.mempty

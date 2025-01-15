@@ -168,9 +168,9 @@ instance Prelude.Hashable GetSnapshotBlock where
 
 instance Prelude.NFData GetSnapshotBlock where
   rnf GetSnapshotBlock' {..} =
-    Prelude.rnf snapshotId
-      `Prelude.seq` Prelude.rnf blockIndex
-      `Prelude.seq` Prelude.rnf blockToken
+    Prelude.rnf snapshotId `Prelude.seq`
+      Prelude.rnf blockIndex `Prelude.seq`
+        Prelude.rnf blockToken
 
 instance Data.ToHeaders GetSnapshotBlock where
   toHeaders =

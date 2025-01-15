@@ -248,15 +248,15 @@ instance
     AndroidPushNotificationTemplate
   where
   rnf AndroidPushNotificationTemplate' {..} =
-    Prelude.rnf action
-      `Prelude.seq` Prelude.rnf body
-      `Prelude.seq` Prelude.rnf imageIconUrl
-      `Prelude.seq` Prelude.rnf imageUrl
-      `Prelude.seq` Prelude.rnf rawContent
-      `Prelude.seq` Prelude.rnf smallImageIconUrl
-      `Prelude.seq` Prelude.rnf sound
-      `Prelude.seq` Prelude.rnf title
-      `Prelude.seq` Prelude.rnf url
+    Prelude.rnf action `Prelude.seq`
+      Prelude.rnf body `Prelude.seq`
+        Prelude.rnf imageIconUrl `Prelude.seq`
+          Prelude.rnf imageUrl `Prelude.seq`
+            Prelude.rnf rawContent `Prelude.seq`
+              Prelude.rnf smallImageIconUrl `Prelude.seq`
+                Prelude.rnf sound `Prelude.seq`
+                  Prelude.rnf title `Prelude.seq`
+                    Prelude.rnf url
 
 instance Data.ToJSON AndroidPushNotificationTemplate where
   toJSON AndroidPushNotificationTemplate' {..} =

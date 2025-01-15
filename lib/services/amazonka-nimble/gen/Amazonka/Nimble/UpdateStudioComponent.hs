@@ -255,19 +255,19 @@ instance Prelude.Hashable UpdateStudioComponent where
 
 instance Prelude.NFData UpdateStudioComponent where
   rnf UpdateStudioComponent' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf configuration
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf ec2SecurityGroupIds
-      `Prelude.seq` Prelude.rnf initializationScripts
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf runtimeRoleArn
-      `Prelude.seq` Prelude.rnf scriptParameters
-      `Prelude.seq` Prelude.rnf secureInitializationRoleArn
-      `Prelude.seq` Prelude.rnf subtype
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf studioComponentId
-      `Prelude.seq` Prelude.rnf studioId
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf configuration `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf ec2SecurityGroupIds `Prelude.seq`
+            Prelude.rnf initializationScripts `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf runtimeRoleArn `Prelude.seq`
+                  Prelude.rnf scriptParameters `Prelude.seq`
+                    Prelude.rnf secureInitializationRoleArn `Prelude.seq`
+                      Prelude.rnf subtype `Prelude.seq`
+                        Prelude.rnf type' `Prelude.seq`
+                          Prelude.rnf studioComponentId `Prelude.seq`
+                            Prelude.rnf studioId
 
 instance Data.ToHeaders UpdateStudioComponent where
   toHeaders UpdateStudioComponent' {..} =
@@ -352,5 +352,5 @@ updateStudioComponentResponse_httpStatus = Lens.lens (\UpdateStudioComponentResp
 
 instance Prelude.NFData UpdateStudioComponentResponse where
   rnf UpdateStudioComponentResponse' {..} =
-    Prelude.rnf studioComponent
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf studioComponent `Prelude.seq`
+      Prelude.rnf httpStatus

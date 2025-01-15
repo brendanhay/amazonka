@@ -120,9 +120,9 @@ instance
     SheetVisualScopingConfiguration
   where
   rnf SheetVisualScopingConfiguration' {..} =
-    Prelude.rnf visualIds
-      `Prelude.seq` Prelude.rnf sheetId
-      `Prelude.seq` Prelude.rnf scope
+    Prelude.rnf visualIds `Prelude.seq`
+      Prelude.rnf sheetId `Prelude.seq`
+        Prelude.rnf scope
 
 instance Data.ToJSON SheetVisualScopingConfiguration where
   toJSON SheetVisualScopingConfiguration' {..} =

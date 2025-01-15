@@ -106,9 +106,9 @@ instance
     SankeyDiagramChartConfiguration
   where
   rnf SankeyDiagramChartConfiguration' {..} =
-    Prelude.rnf dataLabels
-      `Prelude.seq` Prelude.rnf fieldWells
-      `Prelude.seq` Prelude.rnf sortConfiguration
+    Prelude.rnf dataLabels `Prelude.seq`
+      Prelude.rnf fieldWells `Prelude.seq`
+        Prelude.rnf sortConfiguration
 
 instance Data.ToJSON SankeyDiagramChartConfiguration where
   toJSON SankeyDiagramChartConfiguration' {..} =

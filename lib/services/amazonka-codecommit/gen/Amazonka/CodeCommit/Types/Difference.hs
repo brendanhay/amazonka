@@ -102,6 +102,6 @@ instance Prelude.Hashable Difference where
 
 instance Prelude.NFData Difference where
   rnf Difference' {..} =
-    Prelude.rnf afterBlob
-      `Prelude.seq` Prelude.rnf beforeBlob
-      `Prelude.seq` Prelude.rnf changeType
+    Prelude.rnf afterBlob `Prelude.seq`
+      Prelude.rnf beforeBlob `Prelude.seq`
+        Prelude.rnf changeType

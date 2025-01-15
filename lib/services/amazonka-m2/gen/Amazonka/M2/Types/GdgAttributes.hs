@@ -75,8 +75,8 @@ instance Prelude.Hashable GdgAttributes where
 
 instance Prelude.NFData GdgAttributes where
   rnf GdgAttributes' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf rollDisposition
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf rollDisposition
 
 instance Data.ToJSON GdgAttributes where
   toJSON GdgAttributes' {..} =

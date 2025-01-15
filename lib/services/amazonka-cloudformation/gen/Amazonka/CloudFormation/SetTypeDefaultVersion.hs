@@ -155,10 +155,10 @@ instance Prelude.Hashable SetTypeDefaultVersion where
 
 instance Prelude.NFData SetTypeDefaultVersion where
   rnf SetTypeDefaultVersion' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf typeName
-      `Prelude.seq` Prelude.rnf versionId
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf type' `Prelude.seq`
+        Prelude.rnf typeName `Prelude.seq`
+          Prelude.rnf versionId
 
 instance Data.ToHeaders SetTypeDefaultVersion where
   toHeaders = Prelude.const Prelude.mempty

@@ -87,8 +87,8 @@ instance Prelude.Hashable LambdaAction where
 
 instance Prelude.NFData LambdaAction where
   rnf LambdaAction' {..} =
-    Prelude.rnf payload
-      `Prelude.seq` Prelude.rnf functionArn
+    Prelude.rnf payload `Prelude.seq`
+      Prelude.rnf functionArn
 
 instance Data.ToJSON LambdaAction where
   toJSON LambdaAction' {..} =

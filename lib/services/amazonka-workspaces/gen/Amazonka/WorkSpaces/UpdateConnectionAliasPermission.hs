@@ -147,8 +147,8 @@ instance
     UpdateConnectionAliasPermission
   where
   rnf UpdateConnectionAliasPermission' {..} =
-    Prelude.rnf aliasId
-      `Prelude.seq` Prelude.rnf connectionAliasPermission
+    Prelude.rnf aliasId `Prelude.seq`
+      Prelude.rnf connectionAliasPermission
 
 instance
   Data.ToHeaders

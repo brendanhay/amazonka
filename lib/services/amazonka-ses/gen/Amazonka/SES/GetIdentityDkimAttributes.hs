@@ -119,9 +119,7 @@ instance Core.AWSRequest GetIdentityDkimAttributes where
       ( \s h x ->
           GetIdentityDkimAttributesResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x
-                            Data..@? "DkimAttributes"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "DkimAttributes" Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLMap "entry" "key" "value"
                         )
       )
@@ -200,5 +198,5 @@ instance
     GetIdentityDkimAttributesResponse
   where
   rnf GetIdentityDkimAttributesResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf dkimAttributes
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf dkimAttributes

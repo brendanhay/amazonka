@@ -310,9 +310,7 @@ instance Data.FromXML NatGateway where
       Prelude.<*> (x Data..@? "provisionedBandwidth")
       Prelude.<*> (x Data..@? "state")
       Prelude.<*> (x Data..@? "subnetId")
-      Prelude.<*> ( x
-                      Data..@? "tagSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "vpcId")
@@ -335,15 +333,15 @@ instance Prelude.Hashable NatGateway where
 
 instance Prelude.NFData NatGateway where
   rnf NatGateway' {..} =
-    Prelude.rnf connectivityType
-      `Prelude.seq` Prelude.rnf createTime
-      `Prelude.seq` Prelude.rnf deleteTime
-      `Prelude.seq` Prelude.rnf failureCode
-      `Prelude.seq` Prelude.rnf failureMessage
-      `Prelude.seq` Prelude.rnf natGatewayAddresses
-      `Prelude.seq` Prelude.rnf natGatewayId
-      `Prelude.seq` Prelude.rnf provisionedBandwidth
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf subnetId
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf connectivityType `Prelude.seq`
+      Prelude.rnf createTime `Prelude.seq`
+        Prelude.rnf deleteTime `Prelude.seq`
+          Prelude.rnf failureCode `Prelude.seq`
+            Prelude.rnf failureMessage `Prelude.seq`
+              Prelude.rnf natGatewayAddresses `Prelude.seq`
+                Prelude.rnf natGatewayId `Prelude.seq`
+                  Prelude.rnf provisionedBandwidth `Prelude.seq`
+                    Prelude.rnf state `Prelude.seq`
+                      Prelude.rnf subnetId `Prelude.seq`
+                        Prelude.rnf tags `Prelude.seq`
+                          Prelude.rnf vpcId

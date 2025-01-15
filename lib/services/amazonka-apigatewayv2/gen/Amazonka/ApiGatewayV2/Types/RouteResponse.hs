@@ -123,8 +123,8 @@ instance Prelude.Hashable RouteResponse where
 
 instance Prelude.NFData RouteResponse where
   rnf RouteResponse' {..} =
-    Prelude.rnf modelSelectionExpression
-      `Prelude.seq` Prelude.rnf responseModels
-      `Prelude.seq` Prelude.rnf responseParameters
-      `Prelude.seq` Prelude.rnf routeResponseId
-      `Prelude.seq` Prelude.rnf routeResponseKey
+    Prelude.rnf modelSelectionExpression `Prelude.seq`
+      Prelude.rnf responseModels `Prelude.seq`
+        Prelude.rnf responseParameters `Prelude.seq`
+          Prelude.rnf routeResponseId `Prelude.seq`
+            Prelude.rnf routeResponseKey

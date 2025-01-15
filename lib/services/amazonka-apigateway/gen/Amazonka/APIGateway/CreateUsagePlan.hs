@@ -163,12 +163,12 @@ instance Prelude.Hashable CreateUsagePlan where
 
 instance Prelude.NFData CreateUsagePlan where
   rnf CreateUsagePlan' {..} =
-    Prelude.rnf apiStages
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf quota
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf throttle
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf apiStages `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf quota `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf throttle `Prelude.seq`
+              Prelude.rnf name
 
 instance Data.ToHeaders CreateUsagePlan where
   toHeaders =

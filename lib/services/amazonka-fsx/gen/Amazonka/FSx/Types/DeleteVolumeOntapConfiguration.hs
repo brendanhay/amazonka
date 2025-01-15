@@ -83,8 +83,8 @@ instance
     DeleteVolumeOntapConfiguration
   where
   rnf DeleteVolumeOntapConfiguration' {..} =
-    Prelude.rnf finalBackupTags
-      `Prelude.seq` Prelude.rnf skipFinalBackup
+    Prelude.rnf finalBackupTags `Prelude.seq`
+      Prelude.rnf skipFinalBackup
 
 instance Data.ToJSON DeleteVolumeOntapConfiguration where
   toJSON DeleteVolumeOntapConfiguration' {..} =

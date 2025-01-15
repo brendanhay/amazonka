@@ -175,12 +175,12 @@ instance Core.AWSPager GetResourceShareInvitations where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getResourceShareInvitations_nextToken
-          Lens..~ rs
-          Lens.^? getResourceShareInvitationsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getResourceShareInvitations_nextToken
+              Lens..~ rs
+              Lens.^? getResourceShareInvitationsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetResourceShareInvitations where
   type
@@ -210,10 +210,10 @@ instance Prelude.Hashable GetResourceShareInvitations where
 
 instance Prelude.NFData GetResourceShareInvitations where
   rnf GetResourceShareInvitations' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf resourceShareArns
-      `Prelude.seq` Prelude.rnf resourceShareInvitationArns
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf resourceShareArns `Prelude.seq`
+          Prelude.rnf resourceShareInvitationArns
 
 instance Data.ToHeaders GetResourceShareInvitations where
   toHeaders =
@@ -314,6 +314,6 @@ instance
     GetResourceShareInvitationsResponse
   where
   rnf GetResourceShareInvitationsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf resourceShareInvitations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf resourceShareInvitations `Prelude.seq`
+        Prelude.rnf httpStatus

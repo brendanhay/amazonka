@@ -125,10 +125,10 @@ instance
     MicrosoftSQLServerCatalogTarget
   where
   rnf MicrosoftSQLServerCatalogTarget' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf inputs
-      `Prelude.seq` Prelude.rnf database
-      `Prelude.seq` Prelude.rnf table
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf inputs `Prelude.seq`
+        Prelude.rnf database `Prelude.seq`
+          Prelude.rnf table
 
 instance Data.ToJSON MicrosoftSQLServerCatalogTarget where
   toJSON MicrosoftSQLServerCatalogTarget' {..} =

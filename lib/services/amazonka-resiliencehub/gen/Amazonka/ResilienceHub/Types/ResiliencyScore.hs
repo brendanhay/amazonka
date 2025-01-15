@@ -87,5 +87,5 @@ instance Prelude.Hashable ResiliencyScore where
 
 instance Prelude.NFData ResiliencyScore where
   rnf ResiliencyScore' {..} =
-    Prelude.rnf disruptionScore
-      `Prelude.seq` Prelude.rnf score
+    Prelude.rnf disruptionScore `Prelude.seq`
+      Prelude.rnf score

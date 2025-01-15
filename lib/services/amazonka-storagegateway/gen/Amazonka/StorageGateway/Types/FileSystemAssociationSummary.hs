@@ -109,7 +109,7 @@ instance
 
 instance Prelude.NFData FileSystemAssociationSummary where
   rnf FileSystemAssociationSummary' {..} =
-    Prelude.rnf fileSystemAssociationARN
-      `Prelude.seq` Prelude.rnf fileSystemAssociationId
-      `Prelude.seq` Prelude.rnf fileSystemAssociationStatus
-      `Prelude.seq` Prelude.rnf gatewayARN
+    Prelude.rnf fileSystemAssociationARN `Prelude.seq`
+      Prelude.rnf fileSystemAssociationId `Prelude.seq`
+        Prelude.rnf fileSystemAssociationStatus `Prelude.seq`
+          Prelude.rnf gatewayARN

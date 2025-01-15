@@ -141,9 +141,9 @@ instance Prelude.Hashable DescribeDevice where
 
 instance Prelude.NFData DescribeDevice where
   rnf DescribeDevice' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf deviceName
-      `Prelude.seq` Prelude.rnf deviceFleetName
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf deviceName `Prelude.seq`
+        Prelude.rnf deviceFleetName
 
 instance Data.ToHeaders DescribeDevice where
   toHeaders =
@@ -323,15 +323,15 @@ describeDeviceResponse_registrationTime = Lens.lens (\DescribeDeviceResponse' {r
 
 instance Prelude.NFData DescribeDeviceResponse where
   rnf DescribeDeviceResponse' {..} =
-    Prelude.rnf agentVersion
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf deviceArn
-      `Prelude.seq` Prelude.rnf iotThingName
-      `Prelude.seq` Prelude.rnf latestHeartbeat
-      `Prelude.seq` Prelude.rnf maxModels
-      `Prelude.seq` Prelude.rnf models
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf deviceName
-      `Prelude.seq` Prelude.rnf deviceFleetName
-      `Prelude.seq` Prelude.rnf registrationTime
+    Prelude.rnf agentVersion `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf deviceArn `Prelude.seq`
+          Prelude.rnf iotThingName `Prelude.seq`
+            Prelude.rnf latestHeartbeat `Prelude.seq`
+              Prelude.rnf maxModels `Prelude.seq`
+                Prelude.rnf models `Prelude.seq`
+                  Prelude.rnf nextToken `Prelude.seq`
+                    Prelude.rnf httpStatus `Prelude.seq`
+                      Prelude.rnf deviceName `Prelude.seq`
+                        Prelude.rnf deviceFleetName `Prelude.seq`
+                          Prelude.rnf registrationTime

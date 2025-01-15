@@ -106,9 +106,9 @@ instance Prelude.Hashable AwsIamPolicyVersion where
 
 instance Prelude.NFData AwsIamPolicyVersion where
   rnf AwsIamPolicyVersion' {..} =
-    Prelude.rnf createDate
-      `Prelude.seq` Prelude.rnf isDefaultVersion
-      `Prelude.seq` Prelude.rnf versionId
+    Prelude.rnf createDate `Prelude.seq`
+      Prelude.rnf isDefaultVersion `Prelude.seq`
+        Prelude.rnf versionId
 
 instance Data.ToJSON AwsIamPolicyVersion where
   toJSON AwsIamPolicyVersion' {..} =

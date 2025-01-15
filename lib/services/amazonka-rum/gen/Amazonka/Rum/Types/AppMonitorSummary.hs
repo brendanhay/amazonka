@@ -118,8 +118,8 @@ instance Prelude.Hashable AppMonitorSummary where
 
 instance Prelude.NFData AppMonitorSummary where
   rnf AppMonitorSummary' {..} =
-    Prelude.rnf created
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf lastModified
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf created `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf lastModified `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf state

@@ -159,9 +159,9 @@ instance Prelude.Hashable AbortMultipartUpload where
 
 instance Prelude.NFData AbortMultipartUpload where
   rnf AbortMultipartUpload' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf vaultName
-      `Prelude.seq` Prelude.rnf uploadId
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf vaultName `Prelude.seq`
+        Prelude.rnf uploadId
 
 instance Data.ToHeaders AbortMultipartUpload where
   toHeaders = Prelude.const Prelude.mempty

@@ -218,14 +218,14 @@ instance Prelude.Hashable JDBCConnectorOptions where
 
 instance Prelude.NFData JDBCConnectorOptions where
   rnf JDBCConnectorOptions' {..} =
-    Prelude.rnf dataTypeMapping
-      `Prelude.seq` Prelude.rnf filterPredicate
-      `Prelude.seq` Prelude.rnf jobBookmarkKeys
-      `Prelude.seq` Prelude.rnf jobBookmarkKeysSortOrder
-      `Prelude.seq` Prelude.rnf lowerBound
-      `Prelude.seq` Prelude.rnf numPartitions
-      `Prelude.seq` Prelude.rnf partitionColumn
-      `Prelude.seq` Prelude.rnf upperBound
+    Prelude.rnf dataTypeMapping `Prelude.seq`
+      Prelude.rnf filterPredicate `Prelude.seq`
+        Prelude.rnf jobBookmarkKeys `Prelude.seq`
+          Prelude.rnf jobBookmarkKeysSortOrder `Prelude.seq`
+            Prelude.rnf lowerBound `Prelude.seq`
+              Prelude.rnf numPartitions `Prelude.seq`
+                Prelude.rnf partitionColumn `Prelude.seq`
+                  Prelude.rnf upperBound
 
 instance Data.ToJSON JDBCConnectorOptions where
   toJSON JDBCConnectorOptions' {..} =

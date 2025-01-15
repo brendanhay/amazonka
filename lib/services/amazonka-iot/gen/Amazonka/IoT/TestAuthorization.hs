@@ -176,12 +176,12 @@ instance Prelude.Hashable TestAuthorization where
 
 instance Prelude.NFData TestAuthorization where
   rnf TestAuthorization' {..} =
-    Prelude.rnf clientId
-      `Prelude.seq` Prelude.rnf cognitoIdentityPoolId
-      `Prelude.seq` Prelude.rnf policyNamesToAdd
-      `Prelude.seq` Prelude.rnf policyNamesToSkip
-      `Prelude.seq` Prelude.rnf principal
-      `Prelude.seq` Prelude.rnf authInfos
+    Prelude.rnf clientId `Prelude.seq`
+      Prelude.rnf cognitoIdentityPoolId `Prelude.seq`
+        Prelude.rnf policyNamesToAdd `Prelude.seq`
+          Prelude.rnf policyNamesToSkip `Prelude.seq`
+            Prelude.rnf principal `Prelude.seq`
+              Prelude.rnf authInfos
 
 instance Data.ToHeaders TestAuthorization where
   toHeaders = Prelude.const Prelude.mempty
@@ -249,5 +249,5 @@ testAuthorizationResponse_httpStatus = Lens.lens (\TestAuthorizationResponse' {h
 
 instance Prelude.NFData TestAuthorizationResponse where
   rnf TestAuthorizationResponse' {..} =
-    Prelude.rnf authResults
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf authResults `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -143,10 +143,10 @@ instance Prelude.Hashable EksVolume where
 
 instance Prelude.NFData EksVolume where
   rnf EksVolume' {..} =
-    Prelude.rnf emptyDir
-      `Prelude.seq` Prelude.rnf hostPath
-      `Prelude.seq` Prelude.rnf secret
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf emptyDir `Prelude.seq`
+      Prelude.rnf hostPath `Prelude.seq`
+        Prelude.rnf secret `Prelude.seq`
+          Prelude.rnf name
 
 instance Data.ToJSON EksVolume where
   toJSON EksVolume' {..} =

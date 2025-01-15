@@ -183,12 +183,12 @@ instance Prelude.Hashable UpdateInferenceExperiment where
 
 instance Prelude.NFData UpdateInferenceExperiment where
   rnf UpdateInferenceExperiment' {..} =
-    Prelude.rnf dataStorageConfig
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf modelVariants
-      `Prelude.seq` Prelude.rnf schedule
-      `Prelude.seq` Prelude.rnf shadowModeConfig
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf dataStorageConfig `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf modelVariants `Prelude.seq`
+          Prelude.rnf schedule `Prelude.seq`
+            Prelude.rnf shadowModeConfig `Prelude.seq`
+              Prelude.rnf name
 
 instance Data.ToHeaders UpdateInferenceExperiment where
   toHeaders =
@@ -275,5 +275,5 @@ instance
     UpdateInferenceExperimentResponse
   where
   rnf UpdateInferenceExperimentResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf inferenceExperimentArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf inferenceExperimentArn

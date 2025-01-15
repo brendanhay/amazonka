@@ -166,12 +166,12 @@ instance Prelude.Hashable CreateDecoderManifest where
 
 instance Prelude.NFData CreateDecoderManifest where
   rnf CreateDecoderManifest' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf networkInterfaces
-      `Prelude.seq` Prelude.rnf signalDecoders
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf modelManifestArn
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf networkInterfaces `Prelude.seq`
+        Prelude.rnf signalDecoders `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf modelManifestArn
 
 instance Data.ToHeaders CreateDecoderManifest where
   toHeaders =
@@ -267,6 +267,6 @@ createDecoderManifestResponse_arn = Lens.lens (\CreateDecoderManifestResponse' {
 
 instance Prelude.NFData CreateDecoderManifestResponse where
   rnf CreateDecoderManifestResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf arn

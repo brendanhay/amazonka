@@ -248,15 +248,15 @@ instance Prelude.Hashable Event where
 
 instance Prelude.NFData Event where
   rnf Event' {..} =
-    Prelude.rnf eventId
-      `Prelude.seq` Prelude.rnf eventValue
-      `Prelude.seq` Prelude.rnf impression
-      `Prelude.seq` Prelude.rnf itemId
-      `Prelude.seq` Prelude.rnf metricAttribution
-      `Prelude.seq` Prelude.rnf properties
-      `Prelude.seq` Prelude.rnf recommendationId
-      `Prelude.seq` Prelude.rnf eventType
-      `Prelude.seq` Prelude.rnf sentAt
+    Prelude.rnf eventId `Prelude.seq`
+      Prelude.rnf eventValue `Prelude.seq`
+        Prelude.rnf impression `Prelude.seq`
+          Prelude.rnf itemId `Prelude.seq`
+            Prelude.rnf metricAttribution `Prelude.seq`
+              Prelude.rnf properties `Prelude.seq`
+                Prelude.rnf recommendationId `Prelude.seq`
+                  Prelude.rnf eventType `Prelude.seq`
+                    Prelude.rnf sentAt
 
 instance Data.ToJSON Event where
   toJSON Event' {..} =

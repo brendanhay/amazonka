@@ -176,5 +176,5 @@ describeImportResponse_importTableDescription = Lens.lens (\DescribeImportRespon
 
 instance Prelude.NFData DescribeImportResponse where
   rnf DescribeImportResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf importTableDescription
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf importTableDescription

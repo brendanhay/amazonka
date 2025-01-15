@@ -82,5 +82,5 @@ instance Prelude.Hashable Prediction where
 
 instance Prelude.NFData Prediction where
   rnf Prediction' {..} =
-    Prelude.rnf confidence
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf confidence `Prelude.seq`
+      Prelude.rnf value

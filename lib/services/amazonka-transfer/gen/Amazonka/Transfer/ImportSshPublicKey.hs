@@ -141,9 +141,9 @@ instance Prelude.Hashable ImportSshPublicKey where
 
 instance Prelude.NFData ImportSshPublicKey where
   rnf ImportSshPublicKey' {..} =
-    Prelude.rnf serverId
-      `Prelude.seq` Prelude.rnf sshPublicKeyBody
-      `Prelude.seq` Prelude.rnf userName
+    Prelude.rnf serverId `Prelude.seq`
+      Prelude.rnf sshPublicKeyBody `Prelude.seq`
+        Prelude.rnf userName
 
 instance Data.ToHeaders ImportSshPublicKey where
   toHeaders =
@@ -250,7 +250,7 @@ importSshPublicKeyResponse_userName = Lens.lens (\ImportSshPublicKeyResponse' {u
 
 instance Prelude.NFData ImportSshPublicKeyResponse where
   rnf ImportSshPublicKeyResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf serverId
-      `Prelude.seq` Prelude.rnf sshPublicKeyId
-      `Prelude.seq` Prelude.rnf userName
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf serverId `Prelude.seq`
+        Prelude.rnf sshPublicKeyId `Prelude.seq`
+          Prelude.rnf userName

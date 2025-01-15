@@ -123,8 +123,8 @@ instance Prelude.Hashable InstanceMetadataOptions where
 
 instance Prelude.NFData InstanceMetadataOptions where
   rnf InstanceMetadataOptions' {..} =
-    Prelude.rnf httpPutResponseHopLimit
-      `Prelude.seq` Prelude.rnf httpTokens
+    Prelude.rnf httpPutResponseHopLimit `Prelude.seq`
+      Prelude.rnf httpTokens
 
 instance Data.ToJSON InstanceMetadataOptions where
   toJSON InstanceMetadataOptions' {..} =

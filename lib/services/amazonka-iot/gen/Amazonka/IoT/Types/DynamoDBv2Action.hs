@@ -106,8 +106,8 @@ instance Prelude.Hashable DynamoDBv2Action where
 
 instance Prelude.NFData DynamoDBv2Action where
   rnf DynamoDBv2Action' {..} =
-    Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf putItem
+    Prelude.rnf roleArn `Prelude.seq`
+      Prelude.rnf putItem
 
 instance Data.ToJSON DynamoDBv2Action where
   toJSON DynamoDBv2Action' {..} =

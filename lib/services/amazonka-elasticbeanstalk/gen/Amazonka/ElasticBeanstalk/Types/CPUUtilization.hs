@@ -202,11 +202,11 @@ instance Prelude.Hashable CPUUtilization where
 
 instance Prelude.NFData CPUUtilization where
   rnf CPUUtilization' {..} =
-    Prelude.rnf iOWait
-      `Prelude.seq` Prelude.rnf irq
-      `Prelude.seq` Prelude.rnf idle
-      `Prelude.seq` Prelude.rnf nice
-      `Prelude.seq` Prelude.rnf privileged
-      `Prelude.seq` Prelude.rnf softIRQ
-      `Prelude.seq` Prelude.rnf system
-      `Prelude.seq` Prelude.rnf user
+    Prelude.rnf iOWait `Prelude.seq`
+      Prelude.rnf irq `Prelude.seq`
+        Prelude.rnf idle `Prelude.seq`
+          Prelude.rnf nice `Prelude.seq`
+            Prelude.rnf privileged `Prelude.seq`
+              Prelude.rnf softIRQ `Prelude.seq`
+                Prelude.rnf system `Prelude.seq`
+                  Prelude.rnf user

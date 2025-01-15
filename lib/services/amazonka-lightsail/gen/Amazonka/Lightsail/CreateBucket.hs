@@ -211,10 +211,10 @@ instance Prelude.Hashable CreateBucket where
 
 instance Prelude.NFData CreateBucket where
   rnf CreateBucket' {..} =
-    Prelude.rnf enableObjectVersioning
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf bucketName
-      `Prelude.seq` Prelude.rnf bundleId
+    Prelude.rnf enableObjectVersioning `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf bucketName `Prelude.seq`
+          Prelude.rnf bundleId
 
 instance Data.ToHeaders CreateBucket where
   toHeaders =
@@ -304,6 +304,6 @@ createBucketResponse_httpStatus = Lens.lens (\CreateBucketResponse' {httpStatus}
 
 instance Prelude.NFData CreateBucketResponse where
   rnf CreateBucketResponse' {..} =
-    Prelude.rnf bucket
-      `Prelude.seq` Prelude.rnf operations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf bucket `Prelude.seq`
+      Prelude.rnf operations `Prelude.seq`
+        Prelude.rnf httpStatus

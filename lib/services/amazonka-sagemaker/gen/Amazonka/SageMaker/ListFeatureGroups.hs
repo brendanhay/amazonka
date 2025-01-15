@@ -181,12 +181,12 @@ instance Core.AWSPager ListFeatureGroups where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listFeatureGroups_nextToken
-          Lens..~ rs
-          Lens.^? listFeatureGroupsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listFeatureGroups_nextToken
+              Lens..~ rs
+              Lens.^? listFeatureGroupsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListFeatureGroups where
   type
@@ -221,15 +221,15 @@ instance Prelude.Hashable ListFeatureGroups where
 
 instance Prelude.NFData ListFeatureGroups where
   rnf ListFeatureGroups' {..} =
-    Prelude.rnf creationTimeAfter
-      `Prelude.seq` Prelude.rnf creationTimeBefore
-      `Prelude.seq` Prelude.rnf featureGroupStatusEquals
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nameContains
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf offlineStoreStatusEquals
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf sortOrder
+    Prelude.rnf creationTimeAfter `Prelude.seq`
+      Prelude.rnf creationTimeBefore `Prelude.seq`
+        Prelude.rnf featureGroupStatusEquals `Prelude.seq`
+          Prelude.rnf maxResults `Prelude.seq`
+            Prelude.rnf nameContains `Prelude.seq`
+              Prelude.rnf nextToken `Prelude.seq`
+                Prelude.rnf offlineStoreStatusEquals `Prelude.seq`
+                  Prelude.rnf sortBy `Prelude.seq`
+                    Prelude.rnf sortOrder
 
 instance Data.ToHeaders ListFeatureGroups where
   toHeaders =
@@ -322,6 +322,6 @@ listFeatureGroupsResponse_featureGroupSummaries = Lens.lens (\ListFeatureGroupsR
 
 instance Prelude.NFData ListFeatureGroupsResponse where
   rnf ListFeatureGroupsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf featureGroupSummaries
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf featureGroupSummaries

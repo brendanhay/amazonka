@@ -124,7 +124,7 @@ instance Prelude.Hashable Cluster where
 
 instance Prelude.NFData Cluster where
   rnf Cluster' {..} =
-    Prelude.rnf clusterArn
-      `Prelude.seq` Prelude.rnf clusterEndpoints
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf clusterArn `Prelude.seq`
+      Prelude.rnf clusterEndpoints `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf status

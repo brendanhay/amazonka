@@ -149,9 +149,9 @@ instance Prelude.Hashable SourceBuildInformation where
 
 instance Prelude.NFData SourceBuildInformation where
   rnf SourceBuildInformation' {..} =
-    Prelude.rnf sourceType
-      `Prelude.seq` Prelude.rnf sourceRepository
-      `Prelude.seq` Prelude.rnf sourceLocation
+    Prelude.rnf sourceType `Prelude.seq`
+      Prelude.rnf sourceRepository `Prelude.seq`
+        Prelude.rnf sourceLocation
 
 instance Data.ToQuery SourceBuildInformation where
   toQuery SourceBuildInformation' {..} =

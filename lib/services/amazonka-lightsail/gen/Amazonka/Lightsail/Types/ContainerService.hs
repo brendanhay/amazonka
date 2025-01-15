@@ -494,22 +494,22 @@ instance Prelude.Hashable ContainerService where
 
 instance Prelude.NFData ContainerService where
   rnf ContainerService' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf containerServiceName
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf currentDeployment
-      `Prelude.seq` Prelude.rnf isDisabled
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf nextDeployment
-      `Prelude.seq` Prelude.rnf power
-      `Prelude.seq` Prelude.rnf powerId
-      `Prelude.seq` Prelude.rnf principalArn
-      `Prelude.seq` Prelude.rnf privateDomainName
-      `Prelude.seq` Prelude.rnf privateRegistryAccess
-      `Prelude.seq` Prelude.rnf publicDomainNames
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf scale
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf stateDetail
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf url
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf containerServiceName `Prelude.seq`
+        Prelude.rnf createdAt `Prelude.seq`
+          Prelude.rnf currentDeployment `Prelude.seq`
+            Prelude.rnf isDisabled `Prelude.seq`
+              Prelude.rnf location `Prelude.seq`
+                Prelude.rnf nextDeployment `Prelude.seq`
+                  Prelude.rnf power `Prelude.seq`
+                    Prelude.rnf powerId `Prelude.seq`
+                      Prelude.rnf principalArn `Prelude.seq`
+                        Prelude.rnf privateDomainName `Prelude.seq`
+                          Prelude.rnf privateRegistryAccess `Prelude.seq`
+                            Prelude.rnf publicDomainNames `Prelude.seq`
+                              Prelude.rnf resourceType `Prelude.seq`
+                                Prelude.rnf scale `Prelude.seq`
+                                  Prelude.rnf state `Prelude.seq`
+                                    Prelude.rnf stateDetail `Prelude.seq`
+                                      Prelude.rnf tags `Prelude.seq`
+                                        Prelude.rnf url

@@ -154,5 +154,5 @@ listSAMLProvidersResponse_httpStatus = Lens.lens (\ListSAMLProvidersResponse' {h
 
 instance Prelude.NFData ListSAMLProvidersResponse where
   rnf ListSAMLProvidersResponse' {..} =
-    Prelude.rnf sAMLProviderList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf sAMLProviderList `Prelude.seq`
+      Prelude.rnf httpStatus

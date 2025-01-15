@@ -113,8 +113,8 @@ instance Prelude.Hashable RemoveFlowMediaStream where
 
 instance Prelude.NFData RemoveFlowMediaStream where
   rnf RemoveFlowMediaStream' {..} =
-    Prelude.rnf flowArn
-      `Prelude.seq` Prelude.rnf mediaStreamName
+    Prelude.rnf flowArn `Prelude.seq`
+      Prelude.rnf mediaStreamName
 
 instance Data.ToHeaders RemoveFlowMediaStream where
   toHeaders =
@@ -189,6 +189,6 @@ removeFlowMediaStreamResponse_httpStatus = Lens.lens (\RemoveFlowMediaStreamResp
 
 instance Prelude.NFData RemoveFlowMediaStreamResponse where
   rnf RemoveFlowMediaStreamResponse' {..} =
-    Prelude.rnf flowArn
-      `Prelude.seq` Prelude.rnf mediaStreamName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf flowArn `Prelude.seq`
+      Prelude.rnf mediaStreamName `Prelude.seq`
+        Prelude.rnf httpStatus

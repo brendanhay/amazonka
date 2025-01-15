@@ -129,8 +129,8 @@ instance Prelude.Hashable StopActivityStream where
 
 instance Prelude.NFData StopActivityStream where
   rnf StopActivityStream' {..} =
-    Prelude.rnf applyImmediately
-      `Prelude.seq` Prelude.rnf resourceArn
+    Prelude.rnf applyImmediately `Prelude.seq`
+      Prelude.rnf resourceArn
 
 instance Data.ToHeaders StopActivityStream where
   toHeaders = Prelude.const Prelude.mempty
@@ -223,7 +223,7 @@ stopActivityStreamResponse_httpStatus = Lens.lens (\StopActivityStreamResponse' 
 
 instance Prelude.NFData StopActivityStreamResponse where
   rnf StopActivityStreamResponse' {..} =
-    Prelude.rnf kinesisStreamName
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf kinesisStreamName `Prelude.seq`
+      Prelude.rnf kmsKeyId `Prelude.seq`
+        Prelude.rnf status `Prelude.seq`
+          Prelude.rnf httpStatus

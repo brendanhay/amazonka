@@ -141,13 +141,13 @@ instance Prelude.Hashable ScheduledTriggerProperties where
 
 instance Prelude.NFData ScheduledTriggerProperties where
   rnf ScheduledTriggerProperties' {..} =
-    Prelude.rnf dataPullMode
-      `Prelude.seq` Prelude.rnf firstExecutionFrom
-      `Prelude.seq` Prelude.rnf scheduleEndTime
-      `Prelude.seq` Prelude.rnf scheduleOffset
-      `Prelude.seq` Prelude.rnf scheduleStartTime
-      `Prelude.seq` Prelude.rnf timezone
-      `Prelude.seq` Prelude.rnf scheduleExpression
+    Prelude.rnf dataPullMode `Prelude.seq`
+      Prelude.rnf firstExecutionFrom `Prelude.seq`
+        Prelude.rnf scheduleEndTime `Prelude.seq`
+          Prelude.rnf scheduleOffset `Prelude.seq`
+            Prelude.rnf scheduleStartTime `Prelude.seq`
+              Prelude.rnf timezone `Prelude.seq`
+                Prelude.rnf scheduleExpression
 
 instance Data.ToJSON ScheduledTriggerProperties where
   toJSON ScheduledTriggerProperties' {..} =

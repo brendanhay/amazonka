@@ -255,9 +255,9 @@ instance Prelude.Hashable IPSet where
 
 instance Prelude.NFData IPSet where
   rnf IPSet' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf iPAddressVersion
-      `Prelude.seq` Prelude.rnf addresses
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf arn `Prelude.seq`
+            Prelude.rnf iPAddressVersion `Prelude.seq`
+              Prelude.rnf addresses

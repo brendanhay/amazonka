@@ -129,9 +129,9 @@ instance Prelude.Hashable PipelineExecutionSummary where
 
 instance Prelude.NFData PipelineExecutionSummary where
   rnf PipelineExecutionSummary' {..} =
-    Prelude.rnf pipelineExecutionArn
-      `Prelude.seq` Prelude.rnf pipelineExecutionDescription
-      `Prelude.seq` Prelude.rnf pipelineExecutionDisplayName
-      `Prelude.seq` Prelude.rnf pipelineExecutionFailureReason
-      `Prelude.seq` Prelude.rnf pipelineExecutionStatus
-      `Prelude.seq` Prelude.rnf startTime
+    Prelude.rnf pipelineExecutionArn `Prelude.seq`
+      Prelude.rnf pipelineExecutionDescription `Prelude.seq`
+        Prelude.rnf pipelineExecutionDisplayName `Prelude.seq`
+          Prelude.rnf pipelineExecutionFailureReason `Prelude.seq`
+            Prelude.rnf pipelineExecutionStatus `Prelude.seq`
+              Prelude.rnf startTime

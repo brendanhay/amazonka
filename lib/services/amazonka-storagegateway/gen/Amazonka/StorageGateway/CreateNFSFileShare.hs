@@ -640,27 +640,27 @@ instance Prelude.Hashable CreateNFSFileShare where
 
 instance Prelude.NFData CreateNFSFileShare where
   rnf CreateNFSFileShare' {..} =
-    Prelude.rnf auditDestinationARN
-      `Prelude.seq` Prelude.rnf bucketRegion
-      `Prelude.seq` Prelude.rnf cacheAttributes
-      `Prelude.seq` Prelude.rnf clientList
-      `Prelude.seq` Prelude.rnf defaultStorageClass
-      `Prelude.seq` Prelude.rnf fileShareName
-      `Prelude.seq` Prelude.rnf guessMIMETypeEnabled
-      `Prelude.seq` Prelude.rnf kmsEncrypted
-      `Prelude.seq` Prelude.rnf kmsKey
-      `Prelude.seq` Prelude.rnf nFSFileShareDefaults
-      `Prelude.seq` Prelude.rnf notificationPolicy
-      `Prelude.seq` Prelude.rnf objectACL
-      `Prelude.seq` Prelude.rnf readOnly
-      `Prelude.seq` Prelude.rnf requesterPays
-      `Prelude.seq` Prelude.rnf squash
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf vPCEndpointDNSName
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf gatewayARN
-      `Prelude.seq` Prelude.rnf role'
-      `Prelude.seq` Prelude.rnf locationARN
+    Prelude.rnf auditDestinationARN `Prelude.seq`
+      Prelude.rnf bucketRegion `Prelude.seq`
+        Prelude.rnf cacheAttributes `Prelude.seq`
+          Prelude.rnf clientList `Prelude.seq`
+            Prelude.rnf defaultStorageClass `Prelude.seq`
+              Prelude.rnf fileShareName `Prelude.seq`
+                Prelude.rnf guessMIMETypeEnabled `Prelude.seq`
+                  Prelude.rnf kmsEncrypted `Prelude.seq`
+                    Prelude.rnf kmsKey `Prelude.seq`
+                      Prelude.rnf nFSFileShareDefaults `Prelude.seq`
+                        Prelude.rnf notificationPolicy `Prelude.seq`
+                          Prelude.rnf objectACL `Prelude.seq`
+                            Prelude.rnf readOnly `Prelude.seq`
+                              Prelude.rnf requesterPays `Prelude.seq`
+                                Prelude.rnf squash `Prelude.seq`
+                                  Prelude.rnf tags `Prelude.seq`
+                                    Prelude.rnf vPCEndpointDNSName `Prelude.seq`
+                                      Prelude.rnf clientToken `Prelude.seq`
+                                        Prelude.rnf gatewayARN `Prelude.seq`
+                                          Prelude.rnf role' `Prelude.seq`
+                                            Prelude.rnf locationARN
 
 instance Data.ToHeaders CreateNFSFileShare where
   toHeaders =
@@ -761,5 +761,5 @@ createNFSFileShareResponse_httpStatus = Lens.lens (\CreateNFSFileShareResponse' 
 
 instance Prelude.NFData CreateNFSFileShareResponse where
   rnf CreateNFSFileShareResponse' {..} =
-    Prelude.rnf fileShareARN
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf fileShareARN `Prelude.seq`
+      Prelude.rnf httpStatus

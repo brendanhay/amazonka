@@ -215,12 +215,12 @@ instance Prelude.Hashable ListCodeReviews where
 
 instance Prelude.NFData ListCodeReviews where
   rnf ListCodeReviews' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf providerTypes
-      `Prelude.seq` Prelude.rnf repositoryNames
-      `Prelude.seq` Prelude.rnf states
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf providerTypes `Prelude.seq`
+          Prelude.rnf repositoryNames `Prelude.seq`
+            Prelude.rnf states `Prelude.seq`
+              Prelude.rnf type'
 
 instance Data.ToHeaders ListCodeReviews where
   toHeaders =
@@ -307,6 +307,6 @@ listCodeReviewsResponse_httpStatus = Lens.lens (\ListCodeReviewsResponse' {httpS
 
 instance Prelude.NFData ListCodeReviewsResponse where
   rnf ListCodeReviewsResponse' {..} =
-    Prelude.rnf codeReviewSummaries
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf codeReviewSummaries `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

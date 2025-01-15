@@ -183,5 +183,5 @@ deleteRepositoryResponse_httpStatus = Lens.lens (\DeleteRepositoryResponse' {htt
 
 instance Prelude.NFData DeleteRepositoryResponse where
   rnf DeleteRepositoryResponse' {..} =
-    Prelude.rnf repository
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf repository `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -164,11 +164,11 @@ instance Prelude.Hashable AgentPreview where
 
 instance Prelude.NFData AgentPreview where
   rnf AgentPreview' {..} =
-    Prelude.rnf agentHealth
-      `Prelude.seq` Prelude.rnf agentVersion
-      `Prelude.seq` Prelude.rnf autoScalingGroup
-      `Prelude.seq` Prelude.rnf hostname
-      `Prelude.seq` Prelude.rnf ipv4Address
-      `Prelude.seq` Prelude.rnf kernelVersion
-      `Prelude.seq` Prelude.rnf operatingSystem
-      `Prelude.seq` Prelude.rnf agentId
+    Prelude.rnf agentHealth `Prelude.seq`
+      Prelude.rnf agentVersion `Prelude.seq`
+        Prelude.rnf autoScalingGroup `Prelude.seq`
+          Prelude.rnf hostname `Prelude.seq`
+            Prelude.rnf ipv4Address `Prelude.seq`
+              Prelude.rnf kernelVersion `Prelude.seq`
+                Prelude.rnf operatingSystem `Prelude.seq`
+                  Prelude.rnf agentId

@@ -127,12 +127,12 @@ instance Core.AWSPager DescribeSharedDirectories where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeSharedDirectories_nextToken
-          Lens..~ rs
-          Lens.^? describeSharedDirectoriesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeSharedDirectories_nextToken
+              Lens..~ rs
+              Lens.^? describeSharedDirectoriesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeSharedDirectories where
   type
@@ -162,10 +162,10 @@ instance Prelude.Hashable DescribeSharedDirectories where
 
 instance Prelude.NFData DescribeSharedDirectories where
   rnf DescribeSharedDirectories' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sharedDirectoryIds
-      `Prelude.seq` Prelude.rnf ownerDirectoryId
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf sharedDirectoryIds `Prelude.seq`
+          Prelude.rnf ownerDirectoryId
 
 instance Data.ToHeaders DescribeSharedDirectories where
   toHeaders =
@@ -260,6 +260,6 @@ instance
     DescribeSharedDirectoriesResponse
   where
   rnf DescribeSharedDirectoriesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sharedDirectories
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf sharedDirectories `Prelude.seq`
+        Prelude.rnf httpStatus

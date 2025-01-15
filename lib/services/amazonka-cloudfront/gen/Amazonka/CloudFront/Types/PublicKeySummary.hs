@@ -124,8 +124,8 @@ instance Prelude.Hashable PublicKeySummary where
 
 instance Prelude.NFData PublicKeySummary where
   rnf PublicKeySummary' {..} =
-    Prelude.rnf comment
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf encodedKey
+    Prelude.rnf comment `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf createdTime `Prelude.seq`
+            Prelude.rnf encodedKey

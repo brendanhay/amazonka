@@ -453,21 +453,21 @@ instance Prelude.Hashable Deployment where
 
 instance Prelude.NFData Deployment where
   rnf Deployment' {..} =
-    Prelude.rnf capacityProviderStrategy
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf desiredCount
-      `Prelude.seq` Prelude.rnf failedTasks
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf launchType
-      `Prelude.seq` Prelude.rnf networkConfiguration
-      `Prelude.seq` Prelude.rnf pendingCount
-      `Prelude.seq` Prelude.rnf platformFamily
-      `Prelude.seq` Prelude.rnf platformVersion
-      `Prelude.seq` Prelude.rnf rolloutState
-      `Prelude.seq` Prelude.rnf rolloutStateReason
-      `Prelude.seq` Prelude.rnf runningCount
-      `Prelude.seq` Prelude.rnf serviceConnectConfiguration
-      `Prelude.seq` Prelude.rnf serviceConnectResources
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf taskDefinition
-      `Prelude.seq` Prelude.rnf updatedAt
+    Prelude.rnf capacityProviderStrategy `Prelude.seq`
+      Prelude.rnf createdAt `Prelude.seq`
+        Prelude.rnf desiredCount `Prelude.seq`
+          Prelude.rnf failedTasks `Prelude.seq`
+            Prelude.rnf id `Prelude.seq`
+              Prelude.rnf launchType `Prelude.seq`
+                Prelude.rnf networkConfiguration `Prelude.seq`
+                  Prelude.rnf pendingCount `Prelude.seq`
+                    Prelude.rnf platformFamily `Prelude.seq`
+                      Prelude.rnf platformVersion `Prelude.seq`
+                        Prelude.rnf rolloutState `Prelude.seq`
+                          Prelude.rnf rolloutStateReason `Prelude.seq`
+                            Prelude.rnf runningCount `Prelude.seq`
+                              Prelude.rnf serviceConnectConfiguration `Prelude.seq`
+                                Prelude.rnf serviceConnectResources `Prelude.seq`
+                                  Prelude.rnf status `Prelude.seq`
+                                    Prelude.rnf taskDefinition `Prelude.seq`
+                                      Prelude.rnf updatedAt

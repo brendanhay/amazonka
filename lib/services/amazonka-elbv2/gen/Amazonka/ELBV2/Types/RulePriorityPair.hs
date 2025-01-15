@@ -70,8 +70,8 @@ instance Prelude.Hashable RulePriorityPair where
 
 instance Prelude.NFData RulePriorityPair where
   rnf RulePriorityPair' {..} =
-    Prelude.rnf priority
-      `Prelude.seq` Prelude.rnf ruleArn
+    Prelude.rnf priority `Prelude.seq`
+      Prelude.rnf ruleArn
 
 instance Data.ToQuery RulePriorityPair where
   toQuery RulePriorityPair' {..} =

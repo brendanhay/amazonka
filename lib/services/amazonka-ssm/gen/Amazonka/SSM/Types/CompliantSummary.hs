@@ -82,5 +82,5 @@ instance Prelude.Hashable CompliantSummary where
 
 instance Prelude.NFData CompliantSummary where
   rnf CompliantSummary' {..} =
-    Prelude.rnf compliantCount
-      `Prelude.seq` Prelude.rnf severitySummary
+    Prelude.rnf compliantCount `Prelude.seq`
+      Prelude.rnf severitySummary

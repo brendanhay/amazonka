@@ -108,7 +108,7 @@ instance Prelude.Hashable DownlinkQueueMessage where
 
 instance Prelude.NFData DownlinkQueueMessage where
   rnf DownlinkQueueMessage' {..} =
-    Prelude.rnf loRaWAN
-      `Prelude.seq` Prelude.rnf messageId
-      `Prelude.seq` Prelude.rnf receivedAt
-      `Prelude.seq` Prelude.rnf transmitMode
+    Prelude.rnf loRaWAN `Prelude.seq`
+      Prelude.rnf messageId `Prelude.seq`
+        Prelude.rnf receivedAt `Prelude.seq`
+          Prelude.rnf transmitMode

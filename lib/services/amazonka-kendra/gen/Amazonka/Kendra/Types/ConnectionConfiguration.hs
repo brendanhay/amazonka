@@ -151,11 +151,11 @@ instance Prelude.Hashable ConnectionConfiguration where
 
 instance Prelude.NFData ConnectionConfiguration where
   rnf ConnectionConfiguration' {..} =
-    Prelude.rnf databaseHost
-      `Prelude.seq` Prelude.rnf databasePort
-      `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf tableName
-      `Prelude.seq` Prelude.rnf secretArn
+    Prelude.rnf databaseHost `Prelude.seq`
+      Prelude.rnf databasePort `Prelude.seq`
+        Prelude.rnf databaseName `Prelude.seq`
+          Prelude.rnf tableName `Prelude.seq`
+            Prelude.rnf secretArn
 
 instance Data.ToJSON ConnectionConfiguration where
   toJSON ConnectionConfiguration' {..} =

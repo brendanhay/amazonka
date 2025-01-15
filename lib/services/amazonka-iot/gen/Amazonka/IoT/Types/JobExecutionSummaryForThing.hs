@@ -82,5 +82,5 @@ instance Prelude.Hashable JobExecutionSummaryForThing where
 
 instance Prelude.NFData JobExecutionSummaryForThing where
   rnf JobExecutionSummaryForThing' {..} =
-    Prelude.rnf jobExecutionSummary
-      `Prelude.seq` Prelude.rnf jobId
+    Prelude.rnf jobExecutionSummary `Prelude.seq`
+      Prelude.rnf jobId

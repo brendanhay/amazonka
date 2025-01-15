@@ -117,8 +117,8 @@ instance Prelude.Hashable DeleteInstance where
 
 instance Prelude.NFData DeleteInstance where
   rnf DeleteInstance' {..} =
-    Prelude.rnf forceDeleteAddOns
-      `Prelude.seq` Prelude.rnf instanceName
+    Prelude.rnf forceDeleteAddOns `Prelude.seq`
+      Prelude.rnf instanceName
 
 instance Data.ToHeaders DeleteInstance where
   toHeaders =
@@ -198,5 +198,5 @@ deleteInstanceResponse_httpStatus = Lens.lens (\DeleteInstanceResponse' {httpSta
 
 instance Prelude.NFData DeleteInstanceResponse where
   rnf DeleteInstanceResponse' {..} =
-    Prelude.rnf operations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operations `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -133,9 +133,9 @@ instance Prelude.Hashable StopContactStreaming where
 
 instance Prelude.NFData StopContactStreaming where
   rnf StopContactStreaming' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf contactId
-      `Prelude.seq` Prelude.rnf streamingId
+    Prelude.rnf instanceId `Prelude.seq`
+      Prelude.rnf contactId `Prelude.seq`
+        Prelude.rnf streamingId
 
 instance Data.ToHeaders StopContactStreaming where
   toHeaders =

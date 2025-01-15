@@ -90,8 +90,8 @@ instance Prelude.Hashable FeatureValue where
 
 instance Prelude.NFData FeatureValue where
   rnf FeatureValue' {..} =
-    Prelude.rnf featureName
-      `Prelude.seq` Prelude.rnf valueAsString
+    Prelude.rnf featureName `Prelude.seq`
+      Prelude.rnf valueAsString
 
 instance Data.ToJSON FeatureValue where
   toJSON FeatureValue' {..} =

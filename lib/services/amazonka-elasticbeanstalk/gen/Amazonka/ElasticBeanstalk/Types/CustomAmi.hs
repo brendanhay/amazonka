@@ -76,5 +76,5 @@ instance Prelude.Hashable CustomAmi where
 
 instance Prelude.NFData CustomAmi where
   rnf CustomAmi' {..} =
-    Prelude.rnf imageId
-      `Prelude.seq` Prelude.rnf virtualizationType
+    Prelude.rnf imageId `Prelude.seq`
+      Prelude.rnf virtualizationType

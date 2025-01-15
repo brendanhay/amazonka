@@ -178,5 +178,5 @@ instance Prelude.Hashable AccountGateResult where
 
 instance Prelude.NFData AccountGateResult where
   rnf AccountGateResult' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusReason
+    Prelude.rnf status `Prelude.seq`
+      Prelude.rnf statusReason

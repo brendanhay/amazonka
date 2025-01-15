@@ -260,15 +260,15 @@ describeJobTemplateResponse_httpStatus = Lens.lens (\DescribeJobTemplateResponse
 
 instance Prelude.NFData DescribeJobTemplateResponse where
   rnf DescribeJobTemplateResponse' {..} =
-    Prelude.rnf abortConfig
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf document
-      `Prelude.seq` Prelude.rnf documentSource
-      `Prelude.seq` Prelude.rnf jobExecutionsRetryConfig
-      `Prelude.seq` Prelude.rnf jobExecutionsRolloutConfig
-      `Prelude.seq` Prelude.rnf jobTemplateArn
-      `Prelude.seq` Prelude.rnf jobTemplateId
-      `Prelude.seq` Prelude.rnf presignedUrlConfig
-      `Prelude.seq` Prelude.rnf timeoutConfig
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf abortConfig `Prelude.seq`
+      Prelude.rnf createdAt `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf document `Prelude.seq`
+            Prelude.rnf documentSource `Prelude.seq`
+              Prelude.rnf jobExecutionsRetryConfig `Prelude.seq`
+                Prelude.rnf jobExecutionsRolloutConfig `Prelude.seq`
+                  Prelude.rnf jobTemplateArn `Prelude.seq`
+                    Prelude.rnf jobTemplateId `Prelude.seq`
+                      Prelude.rnf presignedUrlConfig `Prelude.seq`
+                        Prelude.rnf timeoutConfig `Prelude.seq`
+                          Prelude.rnf httpStatus

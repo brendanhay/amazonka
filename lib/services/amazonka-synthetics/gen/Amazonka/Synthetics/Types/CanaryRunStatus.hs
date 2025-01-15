@@ -102,6 +102,6 @@ instance Prelude.Hashable CanaryRunStatus where
 
 instance Prelude.NFData CanaryRunStatus where
   rnf CanaryRunStatus' {..} =
-    Prelude.rnf state
-      `Prelude.seq` Prelude.rnf stateReason
-      `Prelude.seq` Prelude.rnf stateReasonCode
+    Prelude.rnf state `Prelude.seq`
+      Prelude.rnf stateReason `Prelude.seq`
+        Prelude.rnf stateReasonCode

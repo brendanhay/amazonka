@@ -176,5 +176,5 @@ instance
     DeleteApnsVoipSandboxChannelResponse
   where
   rnf DeleteApnsVoipSandboxChannelResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf aPNSVoipSandboxChannelResponse
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf aPNSVoipSandboxChannelResponse

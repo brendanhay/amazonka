@@ -157,9 +157,9 @@ instance Prelude.Hashable GetBlock where
 
 instance Prelude.NFData GetBlock where
   rnf GetBlock' {..} =
-    Prelude.rnf digestTipAddress
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf blockAddress
+    Prelude.rnf digestTipAddress `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf blockAddress
 
 instance Data.ToHeaders GetBlock where
   toHeaders =
@@ -247,6 +247,6 @@ getBlockResponse_block = Lens.lens (\GetBlockResponse' {block} -> block) (\s@Get
 
 instance Prelude.NFData GetBlockResponse where
   rnf GetBlockResponse' {..} =
-    Prelude.rnf proof
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf block
+    Prelude.rnf proof `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf block

@@ -143,9 +143,9 @@ instance Prelude.Hashable XMLClassifier where
 
 instance Prelude.NFData XMLClassifier where
   rnf XMLClassifier' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf lastUpdated
-      `Prelude.seq` Prelude.rnf rowTag
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf classification
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf lastUpdated `Prelude.seq`
+        Prelude.rnf rowTag `Prelude.seq`
+          Prelude.rnf version `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf classification

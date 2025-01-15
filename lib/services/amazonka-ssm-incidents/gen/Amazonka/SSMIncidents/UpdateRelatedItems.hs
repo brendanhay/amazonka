@@ -128,9 +128,9 @@ instance Prelude.Hashable UpdateRelatedItems where
 
 instance Prelude.NFData UpdateRelatedItems where
   rnf UpdateRelatedItems' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf incidentRecordArn
-      `Prelude.seq` Prelude.rnf relatedItemsUpdate
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf incidentRecordArn `Prelude.seq`
+        Prelude.rnf relatedItemsUpdate
 
 instance Data.ToHeaders UpdateRelatedItems where
   toHeaders =

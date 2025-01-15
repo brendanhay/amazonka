@@ -97,8 +97,8 @@ instance Prelude.Hashable FragmentSelector where
 
 instance Prelude.NFData FragmentSelector where
   rnf FragmentSelector' {..} =
-    Prelude.rnf fragmentSelectorType
-      `Prelude.seq` Prelude.rnf timestampRange
+    Prelude.rnf fragmentSelectorType `Prelude.seq`
+      Prelude.rnf timestampRange
 
 instance Data.ToJSON FragmentSelector where
   toJSON FragmentSelector' {..} =

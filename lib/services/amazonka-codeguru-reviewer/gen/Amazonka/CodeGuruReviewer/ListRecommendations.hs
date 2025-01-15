@@ -133,9 +133,9 @@ instance Prelude.Hashable ListRecommendations where
 
 instance Prelude.NFData ListRecommendations where
   rnf ListRecommendations' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf codeReviewArn
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf codeReviewArn
 
 instance Data.ToHeaders ListRecommendations where
   toHeaders =
@@ -213,6 +213,6 @@ listRecommendationsResponse_httpStatus = Lens.lens (\ListRecommendationsResponse
 
 instance Prelude.NFData ListRecommendationsResponse where
   rnf ListRecommendationsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf recommendationSummaries
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf recommendationSummaries `Prelude.seq`
+        Prelude.rnf httpStatus

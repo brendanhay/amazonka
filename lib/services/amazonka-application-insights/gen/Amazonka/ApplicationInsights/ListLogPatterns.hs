@@ -140,10 +140,10 @@ instance Prelude.Hashable ListLogPatterns where
 
 instance Prelude.NFData ListLogPatterns where
   rnf ListLogPatterns' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf patternSetName
-      `Prelude.seq` Prelude.rnf resourceGroupName
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf patternSetName `Prelude.seq`
+          Prelude.rnf resourceGroupName
 
 instance Data.ToHeaders ListLogPatterns where
   toHeaders =
@@ -241,7 +241,7 @@ listLogPatternsResponse_httpStatus = Lens.lens (\ListLogPatternsResponse' {httpS
 
 instance Prelude.NFData ListLogPatternsResponse where
   rnf ListLogPatternsResponse' {..} =
-    Prelude.rnf logPatterns
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf resourceGroupName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf logPatterns `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf resourceGroupName `Prelude.seq`
+          Prelude.rnf httpStatus

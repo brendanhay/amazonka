@@ -108,5 +108,5 @@ instance
     KinesisStreamsInputDescription
   where
   rnf KinesisStreamsInputDescription' {..} =
-    Prelude.rnf roleARN
-      `Prelude.seq` Prelude.rnf resourceARN
+    Prelude.rnf roleARN `Prelude.seq`
+      Prelude.rnf resourceARN

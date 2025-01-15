@@ -110,6 +110,6 @@ instance
     MonitoringConfigurationDescription
   where
   rnf MonitoringConfigurationDescription' {..} =
-    Prelude.rnf configurationType
-      `Prelude.seq` Prelude.rnf logLevel
-      `Prelude.seq` Prelude.rnf metricsLevel
+    Prelude.rnf configurationType `Prelude.seq`
+      Prelude.rnf logLevel `Prelude.seq`
+        Prelude.rnf metricsLevel

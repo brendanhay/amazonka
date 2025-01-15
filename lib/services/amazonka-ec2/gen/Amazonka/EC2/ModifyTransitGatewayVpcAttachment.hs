@@ -167,11 +167,11 @@ instance
     ModifyTransitGatewayVpcAttachment
   where
   rnf ModifyTransitGatewayVpcAttachment' {..} =
-    Prelude.rnf addSubnetIds
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf options
-      `Prelude.seq` Prelude.rnf removeSubnetIds
-      `Prelude.seq` Prelude.rnf transitGatewayAttachmentId
+    Prelude.rnf addSubnetIds `Prelude.seq`
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf options `Prelude.seq`
+          Prelude.rnf removeSubnetIds `Prelude.seq`
+            Prelude.rnf transitGatewayAttachmentId
 
 instance
   Data.ToHeaders
@@ -256,5 +256,5 @@ instance
     ModifyTransitGatewayVpcAttachmentResponse
   where
   rnf ModifyTransitGatewayVpcAttachmentResponse' {..} =
-    Prelude.rnf transitGatewayVpcAttachment
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf transitGatewayVpcAttachment `Prelude.seq`
+      Prelude.rnf httpStatus

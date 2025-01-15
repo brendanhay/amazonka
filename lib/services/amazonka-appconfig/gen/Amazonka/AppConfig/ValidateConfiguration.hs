@@ -119,9 +119,9 @@ instance Prelude.Hashable ValidateConfiguration where
 
 instance Prelude.NFData ValidateConfiguration where
   rnf ValidateConfiguration' {..} =
-    Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf configurationProfileId
-      `Prelude.seq` Prelude.rnf configurationVersion
+    Prelude.rnf applicationId `Prelude.seq`
+      Prelude.rnf configurationProfileId `Prelude.seq`
+        Prelude.rnf configurationVersion
 
 instance Data.ToHeaders ValidateConfiguration where
   toHeaders =

@@ -189,13 +189,13 @@ instance Prelude.Hashable CreateLink where
 
 instance Prelude.NFData CreateLink where
   rnf CreateLink' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf provider
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf globalNetworkId
-      `Prelude.seq` Prelude.rnf bandwidth
-      `Prelude.seq` Prelude.rnf siteId
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf provider `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf type' `Prelude.seq`
+            Prelude.rnf globalNetworkId `Prelude.seq`
+              Prelude.rnf bandwidth `Prelude.seq`
+                Prelude.rnf siteId
 
 instance Data.ToHeaders CreateLink where
   toHeaders =
@@ -272,5 +272,5 @@ createLinkResponse_httpStatus = Lens.lens (\CreateLinkResponse' {httpStatus} -> 
 
 instance Prelude.NFData CreateLinkResponse where
   rnf CreateLinkResponse' {..} =
-    Prelude.rnf link
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf link `Prelude.seq`
+      Prelude.rnf httpStatus

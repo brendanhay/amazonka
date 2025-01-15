@@ -197,13 +197,13 @@ instance Prelude.Hashable ImportClientBranding where
 
 instance Prelude.NFData ImportClientBranding where
   rnf ImportClientBranding' {..} =
-    Prelude.rnf deviceTypeAndroid
-      `Prelude.seq` Prelude.rnf deviceTypeIos
-      `Prelude.seq` Prelude.rnf deviceTypeLinux
-      `Prelude.seq` Prelude.rnf deviceTypeOsx
-      `Prelude.seq` Prelude.rnf deviceTypeWeb
-      `Prelude.seq` Prelude.rnf deviceTypeWindows
-      `Prelude.seq` Prelude.rnf resourceId
+    Prelude.rnf deviceTypeAndroid `Prelude.seq`
+      Prelude.rnf deviceTypeIos `Prelude.seq`
+        Prelude.rnf deviceTypeLinux `Prelude.seq`
+          Prelude.rnf deviceTypeOsx `Prelude.seq`
+            Prelude.rnf deviceTypeWeb `Prelude.seq`
+              Prelude.rnf deviceTypeWindows `Prelude.seq`
+                Prelude.rnf resourceId
 
 instance Data.ToHeaders ImportClientBranding where
   toHeaders =
@@ -329,10 +329,10 @@ importClientBrandingResponse_httpStatus = Lens.lens (\ImportClientBrandingRespon
 
 instance Prelude.NFData ImportClientBrandingResponse where
   rnf ImportClientBrandingResponse' {..} =
-    Prelude.rnf deviceTypeAndroid
-      `Prelude.seq` Prelude.rnf deviceTypeIos
-      `Prelude.seq` Prelude.rnf deviceTypeLinux
-      `Prelude.seq` Prelude.rnf deviceTypeOsx
-      `Prelude.seq` Prelude.rnf deviceTypeWeb
-      `Prelude.seq` Prelude.rnf deviceTypeWindows
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf deviceTypeAndroid `Prelude.seq`
+      Prelude.rnf deviceTypeIos `Prelude.seq`
+        Prelude.rnf deviceTypeLinux `Prelude.seq`
+          Prelude.rnf deviceTypeOsx `Prelude.seq`
+            Prelude.rnf deviceTypeWeb `Prelude.seq`
+              Prelude.rnf deviceTypeWindows `Prelude.seq`
+                Prelude.rnf httpStatus

@@ -116,10 +116,10 @@ instance Prelude.Hashable VisualCustomActionOperation where
 
 instance Prelude.NFData VisualCustomActionOperation where
   rnf VisualCustomActionOperation' {..} =
-    Prelude.rnf filterOperation
-      `Prelude.seq` Prelude.rnf navigationOperation
-      `Prelude.seq` Prelude.rnf setParametersOperation
-      `Prelude.seq` Prelude.rnf uRLOperation
+    Prelude.rnf filterOperation `Prelude.seq`
+      Prelude.rnf navigationOperation `Prelude.seq`
+        Prelude.rnf setParametersOperation `Prelude.seq`
+          Prelude.rnf uRLOperation
 
 instance Data.ToJSON VisualCustomActionOperation where
   toJSON VisualCustomActionOperation' {..} =

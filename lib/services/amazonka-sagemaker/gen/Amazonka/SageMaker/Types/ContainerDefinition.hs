@@ -302,15 +302,15 @@ instance Prelude.Hashable ContainerDefinition where
 
 instance Prelude.NFData ContainerDefinition where
   rnf ContainerDefinition' {..} =
-    Prelude.rnf containerHostname
-      `Prelude.seq` Prelude.rnf environment
-      `Prelude.seq` Prelude.rnf image
-      `Prelude.seq` Prelude.rnf imageConfig
-      `Prelude.seq` Prelude.rnf inferenceSpecificationName
-      `Prelude.seq` Prelude.rnf mode
-      `Prelude.seq` Prelude.rnf modelDataUrl
-      `Prelude.seq` Prelude.rnf modelPackageName
-      `Prelude.seq` Prelude.rnf multiModelConfig
+    Prelude.rnf containerHostname `Prelude.seq`
+      Prelude.rnf environment `Prelude.seq`
+        Prelude.rnf image `Prelude.seq`
+          Prelude.rnf imageConfig `Prelude.seq`
+            Prelude.rnf inferenceSpecificationName `Prelude.seq`
+              Prelude.rnf mode `Prelude.seq`
+                Prelude.rnf modelDataUrl `Prelude.seq`
+                  Prelude.rnf modelPackageName `Prelude.seq`
+                    Prelude.rnf multiModelConfig
 
 instance Data.ToJSON ContainerDefinition where
   toJSON ContainerDefinition' {..} =

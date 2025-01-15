@@ -94,8 +94,8 @@ instance
     KPIPrimaryValueConditionalFormatting
   where
   rnf KPIPrimaryValueConditionalFormatting' {..} =
-    Prelude.rnf icon
-      `Prelude.seq` Prelude.rnf textColor
+    Prelude.rnf icon `Prelude.seq`
+      Prelude.rnf textColor
 
 instance
   Data.ToJSON

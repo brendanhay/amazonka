@@ -133,9 +133,9 @@ instance Prelude.Hashable UpdateDeployment where
 
 instance Prelude.NFData UpdateDeployment where
   rnf UpdateDeployment' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf apiId
-      `Prelude.seq` Prelude.rnf deploymentId
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf apiId `Prelude.seq`
+        Prelude.rnf deploymentId
 
 instance Data.ToHeaders UpdateDeployment where
   toHeaders =
@@ -253,10 +253,10 @@ updateDeploymentResponse_httpStatus = Lens.lens (\UpdateDeploymentResponse' {htt
 
 instance Prelude.NFData UpdateDeploymentResponse where
   rnf UpdateDeploymentResponse' {..} =
-    Prelude.rnf autoDeployed
-      `Prelude.seq` Prelude.rnf createdDate
-      `Prelude.seq` Prelude.rnf deploymentId
-      `Prelude.seq` Prelude.rnf deploymentStatus
-      `Prelude.seq` Prelude.rnf deploymentStatusMessage
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf autoDeployed `Prelude.seq`
+      Prelude.rnf createdDate `Prelude.seq`
+        Prelude.rnf deploymentId `Prelude.seq`
+          Prelude.rnf deploymentStatus `Prelude.seq`
+            Prelude.rnf deploymentStatusMessage `Prelude.seq`
+              Prelude.rnf description `Prelude.seq`
+                Prelude.rnf httpStatus

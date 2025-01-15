@@ -116,8 +116,8 @@ instance Prelude.Hashable DeleteNamespace where
 
 instance Prelude.NFData DeleteNamespace where
   rnf DeleteNamespace' {..} =
-    Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf namespace
+    Prelude.rnf awsAccountId `Prelude.seq`
+      Prelude.rnf namespace
 
 instance Data.ToHeaders DeleteNamespace where
   toHeaders =
@@ -183,5 +183,5 @@ deleteNamespaceResponse_status = Lens.lens (\DeleteNamespaceResponse' {status} -
 
 instance Prelude.NFData DeleteNamespaceResponse where
   rnf DeleteNamespaceResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf requestId `Prelude.seq`
+      Prelude.rnf status

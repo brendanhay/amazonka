@@ -137,9 +137,9 @@ instance Prelude.Hashable UpdateResourceDataSync where
 
 instance Prelude.NFData UpdateResourceDataSync where
   rnf UpdateResourceDataSync' {..} =
-    Prelude.rnf syncName
-      `Prelude.seq` Prelude.rnf syncType
-      `Prelude.seq` Prelude.rnf syncSource
+    Prelude.rnf syncName `Prelude.seq`
+      Prelude.rnf syncType `Prelude.seq`
+        Prelude.rnf syncSource
 
 instance Data.ToHeaders UpdateResourceDataSync where
   toHeaders =

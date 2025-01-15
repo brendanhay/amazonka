@@ -127,8 +127,8 @@ instance Prelude.Hashable DynamoDBv2Action where
 
 instance Prelude.NFData DynamoDBv2Action where
   rnf DynamoDBv2Action' {..} =
-    Prelude.rnf payload
-      `Prelude.seq` Prelude.rnf tableName
+    Prelude.rnf payload `Prelude.seq`
+      Prelude.rnf tableName
 
 instance Data.ToJSON DynamoDBv2Action where
   toJSON DynamoDBv2Action' {..} =

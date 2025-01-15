@@ -115,9 +115,9 @@ instance Prelude.Hashable UpdateSkillGroup where
 
 instance Prelude.NFData UpdateSkillGroup where
   rnf UpdateSkillGroup' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf skillGroupArn
-      `Prelude.seq` Prelude.rnf skillGroupName
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf skillGroupArn `Prelude.seq`
+        Prelude.rnf skillGroupName
 
 instance Data.ToHeaders UpdateSkillGroup where
   toHeaders =

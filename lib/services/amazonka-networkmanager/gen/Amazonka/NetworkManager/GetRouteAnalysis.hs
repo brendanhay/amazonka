@@ -113,8 +113,8 @@ instance Prelude.Hashable GetRouteAnalysis where
 
 instance Prelude.NFData GetRouteAnalysis where
   rnf GetRouteAnalysis' {..} =
-    Prelude.rnf globalNetworkId
-      `Prelude.seq` Prelude.rnf routeAnalysisId
+    Prelude.rnf globalNetworkId `Prelude.seq`
+      Prelude.rnf routeAnalysisId
 
 instance Data.ToHeaders GetRouteAnalysis where
   toHeaders =
@@ -180,5 +180,5 @@ getRouteAnalysisResponse_httpStatus = Lens.lens (\GetRouteAnalysisResponse' {htt
 
 instance Prelude.NFData GetRouteAnalysisResponse where
   rnf GetRouteAnalysisResponse' {..} =
-    Prelude.rnf routeAnalysis
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf routeAnalysis `Prelude.seq`
+      Prelude.rnf httpStatus

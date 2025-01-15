@@ -88,5 +88,5 @@ instance Prelude.Hashable AquaConfiguration where
 
 instance Prelude.NFData AquaConfiguration where
   rnf AquaConfiguration' {..} =
-    Prelude.rnf aquaConfigurationStatus
-      `Prelude.seq` Prelude.rnf aquaStatus
+    Prelude.rnf aquaConfigurationStatus `Prelude.seq`
+      Prelude.rnf aquaStatus

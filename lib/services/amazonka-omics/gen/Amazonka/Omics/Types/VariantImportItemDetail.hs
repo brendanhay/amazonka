@@ -85,5 +85,5 @@ instance Prelude.Hashable VariantImportItemDetail where
 
 instance Prelude.NFData VariantImportItemDetail where
   rnf VariantImportItemDetail' {..} =
-    Prelude.rnf jobStatus
-      `Prelude.seq` Prelude.rnf source
+    Prelude.rnf jobStatus `Prelude.seq`
+      Prelude.rnf source

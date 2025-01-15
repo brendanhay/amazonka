@@ -91,6 +91,6 @@ instance Prelude.Hashable ExtensionDetails where
 
 instance Prelude.NFData ExtensionDetails where
   rnf ExtensionDetails' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf namespace
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf namespace

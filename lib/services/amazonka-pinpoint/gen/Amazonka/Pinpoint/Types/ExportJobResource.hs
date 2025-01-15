@@ -137,7 +137,7 @@ instance Prelude.Hashable ExportJobResource where
 
 instance Prelude.NFData ExportJobResource where
   rnf ExportJobResource' {..} =
-    Prelude.rnf segmentId
-      `Prelude.seq` Prelude.rnf segmentVersion
-      `Prelude.seq` Prelude.rnf s3UrlPrefix
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf segmentId `Prelude.seq`
+      Prelude.rnf segmentVersion `Prelude.seq`
+        Prelude.rnf s3UrlPrefix `Prelude.seq`
+          Prelude.rnf roleArn

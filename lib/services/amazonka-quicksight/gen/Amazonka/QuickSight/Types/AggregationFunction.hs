@@ -140,9 +140,9 @@ instance Prelude.Hashable AggregationFunction where
 
 instance Prelude.NFData AggregationFunction where
   rnf AggregationFunction' {..} =
-    Prelude.rnf categoricalAggregationFunction
-      `Prelude.seq` Prelude.rnf dateAggregationFunction
-      `Prelude.seq` Prelude.rnf numericalAggregationFunction
+    Prelude.rnf categoricalAggregationFunction `Prelude.seq`
+      Prelude.rnf dateAggregationFunction `Prelude.seq`
+        Prelude.rnf numericalAggregationFunction
 
 instance Data.ToJSON AggregationFunction where
   toJSON AggregationFunction' {..} =

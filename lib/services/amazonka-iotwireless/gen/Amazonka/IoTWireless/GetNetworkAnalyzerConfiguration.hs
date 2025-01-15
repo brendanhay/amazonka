@@ -235,10 +235,10 @@ instance
     GetNetworkAnalyzerConfigurationResponse
   where
   rnf GetNetworkAnalyzerConfigurationResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf traceContent
-      `Prelude.seq` Prelude.rnf wirelessDevices
-      `Prelude.seq` Prelude.rnf wirelessGateways
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf traceContent `Prelude.seq`
+            Prelude.rnf wirelessDevices `Prelude.seq`
+              Prelude.rnf wirelessGateways `Prelude.seq`
+                Prelude.rnf httpStatus

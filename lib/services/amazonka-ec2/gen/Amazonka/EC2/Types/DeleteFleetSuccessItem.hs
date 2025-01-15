@@ -90,6 +90,6 @@ instance Prelude.Hashable DeleteFleetSuccessItem where
 
 instance Prelude.NFData DeleteFleetSuccessItem where
   rnf DeleteFleetSuccessItem' {..} =
-    Prelude.rnf currentFleetState
-      `Prelude.seq` Prelude.rnf fleetId
-      `Prelude.seq` Prelude.rnf previousFleetState
+    Prelude.rnf currentFleetState `Prelude.seq`
+      Prelude.rnf fleetId `Prelude.seq`
+        Prelude.rnf previousFleetState

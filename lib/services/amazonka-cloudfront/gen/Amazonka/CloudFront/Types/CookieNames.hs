@@ -67,9 +67,7 @@ cookieNames_quantity = Lens.lens (\CookieNames' {quantity} -> quantity) (\s@Cook
 instance Data.FromXML CookieNames where
   parseXML x =
     CookieNames'
-      Prelude.<$> ( x
-                      Data..@? "Items"
-                      Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "Items" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "Name")
                   )
       Prelude.<*> (x Data..@ "Quantity")
@@ -82,8 +80,8 @@ instance Prelude.Hashable CookieNames where
 
 instance Prelude.NFData CookieNames where
   rnf CookieNames' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf quantity
+    Prelude.rnf items `Prelude.seq`
+      Prelude.rnf quantity
 
 instance Data.ToXML CookieNames where
   toXML CookieNames' {..} =

@@ -134,9 +134,9 @@ instance Prelude.Hashable UpdateBrokerType where
 
 instance Prelude.NFData UpdateBrokerType where
   rnf UpdateBrokerType' {..} =
-    Prelude.rnf clusterArn
-      `Prelude.seq` Prelude.rnf currentVersion
-      `Prelude.seq` Prelude.rnf targetInstanceType
+    Prelude.rnf clusterArn `Prelude.seq`
+      Prelude.rnf currentVersion `Prelude.seq`
+        Prelude.rnf targetInstanceType
 
 instance Data.ToHeaders UpdateBrokerType where
   toHeaders =
@@ -221,6 +221,6 @@ updateBrokerTypeResponse_httpStatus = Lens.lens (\UpdateBrokerTypeResponse' {htt
 
 instance Prelude.NFData UpdateBrokerTypeResponse where
   rnf UpdateBrokerTypeResponse' {..} =
-    Prelude.rnf clusterArn
-      `Prelude.seq` Prelude.rnf clusterOperationArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf clusterArn `Prelude.seq`
+      Prelude.rnf clusterOperationArn `Prelude.seq`
+        Prelude.rnf httpStatus

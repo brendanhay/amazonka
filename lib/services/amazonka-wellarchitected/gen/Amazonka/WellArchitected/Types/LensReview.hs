@@ -167,13 +167,13 @@ instance Prelude.Hashable LensReview where
 
 instance Prelude.NFData LensReview where
   rnf LensReview' {..} =
-    Prelude.rnf lensAlias
-      `Prelude.seq` Prelude.rnf lensArn
-      `Prelude.seq` Prelude.rnf lensName
-      `Prelude.seq` Prelude.rnf lensStatus
-      `Prelude.seq` Prelude.rnf lensVersion
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf notes
-      `Prelude.seq` Prelude.rnf pillarReviewSummaries
-      `Prelude.seq` Prelude.rnf riskCounts
-      `Prelude.seq` Prelude.rnf updatedAt
+    Prelude.rnf lensAlias `Prelude.seq`
+      Prelude.rnf lensArn `Prelude.seq`
+        Prelude.rnf lensName `Prelude.seq`
+          Prelude.rnf lensStatus `Prelude.seq`
+            Prelude.rnf lensVersion `Prelude.seq`
+              Prelude.rnf nextToken `Prelude.seq`
+                Prelude.rnf notes `Prelude.seq`
+                  Prelude.rnf pillarReviewSummaries `Prelude.seq`
+                    Prelude.rnf riskCounts `Prelude.seq`
+                      Prelude.rnf updatedAt

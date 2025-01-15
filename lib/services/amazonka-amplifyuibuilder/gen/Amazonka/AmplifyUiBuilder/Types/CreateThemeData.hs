@@ -96,10 +96,10 @@ instance Prelude.Hashable CreateThemeData where
 
 instance Prelude.NFData CreateThemeData where
   rnf CreateThemeData' {..} =
-    Prelude.rnf overrides
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf values
+    Prelude.rnf overrides `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf values
 
 instance Data.ToJSON CreateThemeData where
   toJSON CreateThemeData' {..} =

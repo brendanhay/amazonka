@@ -80,8 +80,8 @@ instance Prelude.Hashable AwsIamConfig where
 
 instance Prelude.NFData AwsIamConfig where
   rnf AwsIamConfig' {..} =
-    Prelude.rnf signingRegion
-      `Prelude.seq` Prelude.rnf signingServiceName
+    Prelude.rnf signingRegion `Prelude.seq`
+      Prelude.rnf signingServiceName
 
 instance Data.ToJSON AwsIamConfig where
   toJSON AwsIamConfig' {..} =

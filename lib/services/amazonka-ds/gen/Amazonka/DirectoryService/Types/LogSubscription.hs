@@ -95,6 +95,6 @@ instance Prelude.Hashable LogSubscription where
 
 instance Prelude.NFData LogSubscription where
   rnf LogSubscription' {..} =
-    Prelude.rnf directoryId
-      `Prelude.seq` Prelude.rnf logGroupName
-      `Prelude.seq` Prelude.rnf subscriptionCreatedDateTime
+    Prelude.rnf directoryId `Prelude.seq`
+      Prelude.rnf logGroupName `Prelude.seq`
+        Prelude.rnf subscriptionCreatedDateTime

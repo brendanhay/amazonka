@@ -199,12 +199,12 @@ instance Prelude.Hashable CreateUserProfile where
 
 instance Prelude.NFData CreateUserProfile where
   rnf CreateUserProfile' {..} =
-    Prelude.rnf singleSignOnUserIdentifier
-      `Prelude.seq` Prelude.rnf singleSignOnUserValue
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf userSettings
-      `Prelude.seq` Prelude.rnf domainId
-      `Prelude.seq` Prelude.rnf userProfileName
+    Prelude.rnf singleSignOnUserIdentifier `Prelude.seq`
+      Prelude.rnf singleSignOnUserValue `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf userSettings `Prelude.seq`
+            Prelude.rnf domainId `Prelude.seq`
+              Prelude.rnf userProfileName
 
 instance Data.ToHeaders CreateUserProfile where
   toHeaders =
@@ -284,5 +284,5 @@ createUserProfileResponse_httpStatus = Lens.lens (\CreateUserProfileResponse' {h
 
 instance Prelude.NFData CreateUserProfileResponse where
   rnf CreateUserProfileResponse' {..} =
-    Prelude.rnf userProfileArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf userProfileArn `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -89,9 +89,9 @@ instance Prelude.Hashable DeploymentStage where
 
 instance Prelude.NFData DeploymentStage where
   rnf DeploymentStage' {..} =
-    Prelude.rnf deploymentConfig
-      `Prelude.seq` Prelude.rnf stageName
-      `Prelude.seq` Prelude.rnf deviceSelectionConfig
+    Prelude.rnf deploymentConfig `Prelude.seq`
+      Prelude.rnf stageName `Prelude.seq`
+        Prelude.rnf deviceSelectionConfig
 
 instance Data.ToJSON DeploymentStage where
   toJSON DeploymentStage' {..} =

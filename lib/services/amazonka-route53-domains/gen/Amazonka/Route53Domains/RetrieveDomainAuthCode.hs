@@ -176,5 +176,5 @@ instance
     RetrieveDomainAuthCodeResponse
   where
   rnf RetrieveDomainAuthCodeResponse' {..} =
-    Prelude.rnf authCode
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf authCode `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -95,9 +95,9 @@ instance Prelude.Hashable DynamicDefaultValue where
 
 instance Prelude.NFData DynamicDefaultValue where
   rnf DynamicDefaultValue' {..} =
-    Prelude.rnf groupNameColumn
-      `Prelude.seq` Prelude.rnf userNameColumn
-      `Prelude.seq` Prelude.rnf defaultValueColumn
+    Prelude.rnf groupNameColumn `Prelude.seq`
+      Prelude.rnf userNameColumn `Prelude.seq`
+        Prelude.rnf defaultValueColumn
 
 instance Data.ToJSON DynamicDefaultValue where
   toJSON DynamicDefaultValue' {..} =

@@ -572,24 +572,24 @@ instance Prelude.Hashable CreateInstance where
 
 instance Prelude.NFData CreateInstance where
   rnf CreateInstance' {..} =
-    Prelude.rnf agentVersion
-      `Prelude.seq` Prelude.rnf amiId
-      `Prelude.seq` Prelude.rnf architecture
-      `Prelude.seq` Prelude.rnf autoScalingType
-      `Prelude.seq` Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf blockDeviceMappings
-      `Prelude.seq` Prelude.rnf ebsOptimized
-      `Prelude.seq` Prelude.rnf hostname
-      `Prelude.seq` Prelude.rnf installUpdatesOnBoot
-      `Prelude.seq` Prelude.rnf os
-      `Prelude.seq` Prelude.rnf rootDeviceType
-      `Prelude.seq` Prelude.rnf sshKeyName
-      `Prelude.seq` Prelude.rnf subnetId
-      `Prelude.seq` Prelude.rnf tenancy
-      `Prelude.seq` Prelude.rnf virtualizationType
-      `Prelude.seq` Prelude.rnf stackId
-      `Prelude.seq` Prelude.rnf layerIds
-      `Prelude.seq` Prelude.rnf instanceType
+    Prelude.rnf agentVersion `Prelude.seq`
+      Prelude.rnf amiId `Prelude.seq`
+        Prelude.rnf architecture `Prelude.seq`
+          Prelude.rnf autoScalingType `Prelude.seq`
+            Prelude.rnf availabilityZone `Prelude.seq`
+              Prelude.rnf blockDeviceMappings `Prelude.seq`
+                Prelude.rnf ebsOptimized `Prelude.seq`
+                  Prelude.rnf hostname `Prelude.seq`
+                    Prelude.rnf installUpdatesOnBoot `Prelude.seq`
+                      Prelude.rnf os `Prelude.seq`
+                        Prelude.rnf rootDeviceType `Prelude.seq`
+                          Prelude.rnf sshKeyName `Prelude.seq`
+                            Prelude.rnf subnetId `Prelude.seq`
+                              Prelude.rnf tenancy `Prelude.seq`
+                                Prelude.rnf virtualizationType `Prelude.seq`
+                                  Prelude.rnf stackId `Prelude.seq`
+                                    Prelude.rnf layerIds `Prelude.seq`
+                                      Prelude.rnf instanceType
 
 instance Data.ToHeaders CreateInstance where
   toHeaders =
@@ -686,5 +686,5 @@ createInstanceResponse_httpStatus = Lens.lens (\CreateInstanceResponse' {httpSta
 
 instance Prelude.NFData CreateInstanceResponse where
   rnf CreateInstanceResponse' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf instanceId `Prelude.seq`
+      Prelude.rnf httpStatus

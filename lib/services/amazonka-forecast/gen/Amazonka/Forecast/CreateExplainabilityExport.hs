@@ -235,11 +235,11 @@ instance Prelude.Hashable CreateExplainabilityExport where
 
 instance Prelude.NFData CreateExplainabilityExport where
   rnf CreateExplainabilityExport' {..} =
-    Prelude.rnf format
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf explainabilityExportName
-      `Prelude.seq` Prelude.rnf explainabilityArn
-      `Prelude.seq` Prelude.rnf destination
+    Prelude.rnf format `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf explainabilityExportName `Prelude.seq`
+          Prelude.rnf explainabilityArn `Prelude.seq`
+            Prelude.rnf destination
 
 instance Data.ToHeaders CreateExplainabilityExport where
   toHeaders =
@@ -322,5 +322,5 @@ instance
     CreateExplainabilityExportResponse
   where
   rnf CreateExplainabilityExportResponse' {..} =
-    Prelude.rnf explainabilityExportArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf explainabilityExportArn `Prelude.seq`
+      Prelude.rnf httpStatus

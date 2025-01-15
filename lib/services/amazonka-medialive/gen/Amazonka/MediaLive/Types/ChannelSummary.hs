@@ -261,19 +261,19 @@ instance Prelude.Hashable ChannelSummary where
 
 instance Prelude.NFData ChannelSummary where
   rnf ChannelSummary' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf cdiInputSpecification
-      `Prelude.seq` Prelude.rnf channelClass
-      `Prelude.seq` Prelude.rnf destinations
-      `Prelude.seq` Prelude.rnf egressEndpoints
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf inputAttachments
-      `Prelude.seq` Prelude.rnf inputSpecification
-      `Prelude.seq` Prelude.rnf logLevel
-      `Prelude.seq` Prelude.rnf maintenance
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf pipelinesRunningCount
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf vpc
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf cdiInputSpecification `Prelude.seq`
+        Prelude.rnf channelClass `Prelude.seq`
+          Prelude.rnf destinations `Prelude.seq`
+            Prelude.rnf egressEndpoints `Prelude.seq`
+              Prelude.rnf id `Prelude.seq`
+                Prelude.rnf inputAttachments `Prelude.seq`
+                  Prelude.rnf inputSpecification `Prelude.seq`
+                    Prelude.rnf logLevel `Prelude.seq`
+                      Prelude.rnf maintenance `Prelude.seq`
+                        Prelude.rnf name `Prelude.seq`
+                          Prelude.rnf pipelinesRunningCount `Prelude.seq`
+                            Prelude.rnf roleArn `Prelude.seq`
+                              Prelude.rnf state `Prelude.seq`
+                                Prelude.rnf tags `Prelude.seq`
+                                  Prelude.rnf vpc

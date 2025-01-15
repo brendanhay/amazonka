@@ -248,12 +248,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeReservedDBInstancesOfferings_marker
-          Lens..~ rs
-          Lens.^? describeReservedDBInstancesOfferingsResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeReservedDBInstancesOfferings_marker
+              Lens..~ rs
+              Lens.^? describeReservedDBInstancesOfferingsResponse_marker
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -302,15 +302,15 @@ instance
     DescribeReservedDBInstancesOfferings
   where
   rnf DescribeReservedDBInstancesOfferings' {..} =
-    Prelude.rnf dbInstanceClass
-      `Prelude.seq` Prelude.rnf duration
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf multiAZ
-      `Prelude.seq` Prelude.rnf offeringType
-      `Prelude.seq` Prelude.rnf productDescription
-      `Prelude.seq` Prelude.rnf reservedDBInstancesOfferingId
+    Prelude.rnf dbInstanceClass `Prelude.seq`
+      Prelude.rnf duration `Prelude.seq`
+        Prelude.rnf filters `Prelude.seq`
+          Prelude.rnf marker `Prelude.seq`
+            Prelude.rnf maxRecords `Prelude.seq`
+              Prelude.rnf multiAZ `Prelude.seq`
+                Prelude.rnf offeringType `Prelude.seq`
+                  Prelude.rnf productDescription `Prelude.seq`
+                    Prelude.rnf reservedDBInstancesOfferingId
 
 instance
   Data.ToHeaders
@@ -414,6 +414,6 @@ instance
     DescribeReservedDBInstancesOfferingsResponse
   where
   rnf DescribeReservedDBInstancesOfferingsResponse' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf reservedDBInstancesOfferings
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf reservedDBInstancesOfferings `Prelude.seq`
+        Prelude.rnf httpStatus

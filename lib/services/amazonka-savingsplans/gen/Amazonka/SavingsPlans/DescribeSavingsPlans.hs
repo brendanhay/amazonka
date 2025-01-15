@@ -155,12 +155,12 @@ instance Prelude.Hashable DescribeSavingsPlans where
 
 instance Prelude.NFData DescribeSavingsPlans where
   rnf DescribeSavingsPlans' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf savingsPlanArns
-      `Prelude.seq` Prelude.rnf savingsPlanIds
-      `Prelude.seq` Prelude.rnf states
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf savingsPlanArns `Prelude.seq`
+            Prelude.rnf savingsPlanIds `Prelude.seq`
+              Prelude.rnf states
 
 instance Data.ToHeaders DescribeSavingsPlans where
   toHeaders =
@@ -247,6 +247,6 @@ describeSavingsPlansResponse_httpStatus = Lens.lens (\DescribeSavingsPlansRespon
 
 instance Prelude.NFData DescribeSavingsPlansResponse where
   rnf DescribeSavingsPlansResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf savingsPlans
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf savingsPlans `Prelude.seq`
+        Prelude.rnf httpStatus

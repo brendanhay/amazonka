@@ -140,10 +140,10 @@ instance Prelude.Hashable UpdateLFTag where
 
 instance Prelude.NFData UpdateLFTag where
   rnf UpdateLFTag' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf tagValuesToAdd
-      `Prelude.seq` Prelude.rnf tagValuesToDelete
-      `Prelude.seq` Prelude.rnf tagKey
+    Prelude.rnf catalogId `Prelude.seq`
+      Prelude.rnf tagValuesToAdd `Prelude.seq`
+        Prelude.rnf tagValuesToDelete `Prelude.seq`
+          Prelude.rnf tagKey
 
 instance Data.ToHeaders UpdateLFTag where
   toHeaders =

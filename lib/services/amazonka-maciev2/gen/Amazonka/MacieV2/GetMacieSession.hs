@@ -209,9 +209,9 @@ getMacieSessionResponse_httpStatus = Lens.lens (\GetMacieSessionResponse' {httpS
 
 instance Prelude.NFData GetMacieSessionResponse where
   rnf GetMacieSessionResponse' {..} =
-    Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf findingPublishingFrequency
-      `Prelude.seq` Prelude.rnf serviceRole
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf updatedAt
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf createdAt `Prelude.seq`
+      Prelude.rnf findingPublishingFrequency `Prelude.seq`
+        Prelude.rnf serviceRole `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf updatedAt `Prelude.seq`
+              Prelude.rnf httpStatus

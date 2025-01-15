@@ -106,7 +106,7 @@ instance Prelude.Hashable BatchChannelMemberships where
 
 instance Prelude.NFData BatchChannelMemberships where
   rnf BatchChannelMemberships' {..} =
-    Prelude.rnf channelArn
-      `Prelude.seq` Prelude.rnf invitedBy
-      `Prelude.seq` Prelude.rnf members
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf channelArn `Prelude.seq`
+      Prelude.rnf invitedBy `Prelude.seq`
+        Prelude.rnf members `Prelude.seq`
+          Prelude.rnf type'

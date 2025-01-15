@@ -203,5 +203,5 @@ instance
     DescribeOrganizationalUnitResponse
   where
   rnf DescribeOrganizationalUnitResponse' {..} =
-    Prelude.rnf organizationalUnit
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf organizationalUnit `Prelude.seq`
+      Prelude.rnf httpStatus

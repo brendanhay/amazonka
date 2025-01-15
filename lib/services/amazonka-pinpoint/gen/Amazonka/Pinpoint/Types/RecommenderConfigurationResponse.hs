@@ -353,15 +353,15 @@ instance
     RecommenderConfigurationResponse
   where
   rnf RecommenderConfigurationResponse' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf recommendationProviderIdType
-      `Prelude.seq` Prelude.rnf recommendationTransformerUri
-      `Prelude.seq` Prelude.rnf recommendationsDisplayName
-      `Prelude.seq` Prelude.rnf recommendationsPerMessage
-      `Prelude.seq` Prelude.rnf recommendationProviderUri
-      `Prelude.seq` Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf recommendationProviderRoleArn
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf attributes `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf recommendationProviderIdType `Prelude.seq`
+            Prelude.rnf recommendationTransformerUri `Prelude.seq`
+              Prelude.rnf recommendationsDisplayName `Prelude.seq`
+                Prelude.rnf recommendationsPerMessage `Prelude.seq`
+                  Prelude.rnf recommendationProviderUri `Prelude.seq`
+                    Prelude.rnf lastModifiedDate `Prelude.seq`
+                      Prelude.rnf creationDate `Prelude.seq`
+                        Prelude.rnf recommendationProviderRoleArn `Prelude.seq`
+                          Prelude.rnf id

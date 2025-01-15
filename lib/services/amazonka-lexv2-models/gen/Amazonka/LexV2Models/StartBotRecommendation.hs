@@ -185,11 +185,11 @@ instance Prelude.Hashable StartBotRecommendation where
 
 instance Prelude.NFData StartBotRecommendation where
   rnf StartBotRecommendation' {..} =
-    Prelude.rnf encryptionSetting
-      `Prelude.seq` Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf botVersion
-      `Prelude.seq` Prelude.rnf localeId
-      `Prelude.seq` Prelude.rnf transcriptSourceSetting
+    Prelude.rnf encryptionSetting `Prelude.seq`
+      Prelude.rnf botId `Prelude.seq`
+        Prelude.rnf botVersion `Prelude.seq`
+          Prelude.rnf localeId `Prelude.seq`
+            Prelude.rnf transcriptSourceSetting
 
 instance Data.ToHeaders StartBotRecommendation where
   toHeaders =
@@ -367,12 +367,12 @@ instance
     StartBotRecommendationResponse
   where
   rnf StartBotRecommendationResponse' {..} =
-    Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf botRecommendationId
-      `Prelude.seq` Prelude.rnf botRecommendationStatus
-      `Prelude.seq` Prelude.rnf botVersion
-      `Prelude.seq` Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf encryptionSetting
-      `Prelude.seq` Prelude.rnf localeId
-      `Prelude.seq` Prelude.rnf transcriptSourceSetting
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf botId `Prelude.seq`
+      Prelude.rnf botRecommendationId `Prelude.seq`
+        Prelude.rnf botRecommendationStatus `Prelude.seq`
+          Prelude.rnf botVersion `Prelude.seq`
+            Prelude.rnf creationDateTime `Prelude.seq`
+              Prelude.rnf encryptionSetting `Prelude.seq`
+                Prelude.rnf localeId `Prelude.seq`
+                  Prelude.rnf transcriptSourceSetting `Prelude.seq`
+                    Prelude.rnf httpStatus

@@ -198,7 +198,7 @@ createDomainResponse_domainStatus = Lens.lens (\CreateDomainResponse' {domainSta
 
 instance Prelude.NFData CreateDomainResponse where
   rnf CreateDomainResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf domainArn
-      `Prelude.seq` Prelude.rnf domainId
-      `Prelude.seq` Prelude.rnf domainStatus
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf domainArn `Prelude.seq`
+        Prelude.rnf domainId `Prelude.seq`
+          Prelude.rnf domainStatus

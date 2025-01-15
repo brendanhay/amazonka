@@ -334,12 +334,12 @@ instance Core.AWSPager ListUsers where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listUsers_paginationToken
-          Lens..~ rs
-          Lens.^? listUsersResponse_paginationToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listUsers_paginationToken
+              Lens..~ rs
+              Lens.^? listUsersResponse_paginationToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListUsers where
   type AWSResponse ListUsers = ListUsersResponse
@@ -365,11 +365,11 @@ instance Prelude.Hashable ListUsers where
 
 instance Prelude.NFData ListUsers where
   rnf ListUsers' {..} =
-    Prelude.rnf attributesToGet
-      `Prelude.seq` Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf paginationToken
-      `Prelude.seq` Prelude.rnf userPoolId
+    Prelude.rnf attributesToGet `Prelude.seq`
+      Prelude.rnf filter' `Prelude.seq`
+        Prelude.rnf limit `Prelude.seq`
+          Prelude.rnf paginationToken `Prelude.seq`
+            Prelude.rnf userPoolId
 
 instance Data.ToHeaders ListUsers where
   toHeaders =
@@ -464,6 +464,6 @@ listUsersResponse_httpStatus = Lens.lens (\ListUsersResponse' {httpStatus} -> ht
 
 instance Prelude.NFData ListUsersResponse where
   rnf ListUsersResponse' {..} =
-    Prelude.rnf paginationToken
-      `Prelude.seq` Prelude.rnf users
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf paginationToken `Prelude.seq`
+      Prelude.rnf users `Prelude.seq`
+        Prelude.rnf httpStatus

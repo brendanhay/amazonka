@@ -127,8 +127,8 @@ instance Prelude.Hashable AvailMatchingCriteria where
 
 instance Prelude.NFData AvailMatchingCriteria where
   rnf AvailMatchingCriteria' {..} =
-    Prelude.rnf dynamicVariable
-      `Prelude.seq` Prelude.rnf operator
+    Prelude.rnf dynamicVariable `Prelude.seq`
+      Prelude.rnf operator
 
 instance Data.ToJSON AvailMatchingCriteria where
   toJSON AvailMatchingCriteria' {..} =

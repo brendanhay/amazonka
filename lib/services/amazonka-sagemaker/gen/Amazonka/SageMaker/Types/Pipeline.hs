@@ -203,16 +203,16 @@ instance Prelude.Hashable Pipeline where
 
 instance Prelude.NFData Pipeline where
   rnf Pipeline' {..} =
-    Prelude.rnf createdBy
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf lastModifiedBy
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf lastRunTime
-      `Prelude.seq` Prelude.rnf parallelismConfiguration
-      `Prelude.seq` Prelude.rnf pipelineArn
-      `Prelude.seq` Prelude.rnf pipelineDescription
-      `Prelude.seq` Prelude.rnf pipelineDisplayName
-      `Prelude.seq` Prelude.rnf pipelineName
-      `Prelude.seq` Prelude.rnf pipelineStatus
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf createdBy `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf lastModifiedBy `Prelude.seq`
+          Prelude.rnf lastModifiedTime `Prelude.seq`
+            Prelude.rnf lastRunTime `Prelude.seq`
+              Prelude.rnf parallelismConfiguration `Prelude.seq`
+                Prelude.rnf pipelineArn `Prelude.seq`
+                  Prelude.rnf pipelineDescription `Prelude.seq`
+                    Prelude.rnf pipelineDisplayName `Prelude.seq`
+                      Prelude.rnf pipelineName `Prelude.seq`
+                        Prelude.rnf pipelineStatus `Prelude.seq`
+                          Prelude.rnf roleArn `Prelude.seq`
+                            Prelude.rnf tags

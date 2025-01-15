@@ -97,8 +97,8 @@ instance Prelude.Hashable Origination where
 
 instance Prelude.NFData Origination where
   rnf Origination' {..} =
-    Prelude.rnf disabled
-      `Prelude.seq` Prelude.rnf routes
+    Prelude.rnf disabled `Prelude.seq`
+      Prelude.rnf routes
 
 instance Data.ToJSON Origination where
   toJSON Origination' {..} =

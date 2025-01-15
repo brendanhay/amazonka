@@ -153,13 +153,13 @@ instance Prelude.Hashable GitHubCodeDestination where
 
 instance Prelude.NFData GitHubCodeDestination where
   rnf GitHubCodeDestination' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf owner
-      `Prelude.seq` Prelude.rnf privateRepository
-      `Prelude.seq` Prelude.rnf issuesEnabled
-      `Prelude.seq` Prelude.rnf token
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf type' `Prelude.seq`
+          Prelude.rnf owner `Prelude.seq`
+            Prelude.rnf privateRepository `Prelude.seq`
+              Prelude.rnf issuesEnabled `Prelude.seq`
+                Prelude.rnf token
 
 instance Data.ToJSON GitHubCodeDestination where
   toJSON GitHubCodeDestination' {..} =

@@ -185,12 +185,12 @@ instance Core.AWSPager ListLabelingJobsForWorkteam where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listLabelingJobsForWorkteam_nextToken
-          Lens..~ rs
-          Lens.^? listLabelingJobsForWorkteamResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listLabelingJobsForWorkteam_nextToken
+              Lens..~ rs
+              Lens.^? listLabelingJobsForWorkteamResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListLabelingJobsForWorkteam where
   type
@@ -224,14 +224,14 @@ instance Prelude.Hashable ListLabelingJobsForWorkteam where
 
 instance Prelude.NFData ListLabelingJobsForWorkteam where
   rnf ListLabelingJobsForWorkteam' {..} =
-    Prelude.rnf creationTimeAfter
-      `Prelude.seq` Prelude.rnf creationTimeBefore
-      `Prelude.seq` Prelude.rnf jobReferenceCodeContains
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf sortOrder
-      `Prelude.seq` Prelude.rnf workteamArn
+    Prelude.rnf creationTimeAfter `Prelude.seq`
+      Prelude.rnf creationTimeBefore `Prelude.seq`
+        Prelude.rnf jobReferenceCodeContains `Prelude.seq`
+          Prelude.rnf maxResults `Prelude.seq`
+            Prelude.rnf nextToken `Prelude.seq`
+              Prelude.rnf sortBy `Prelude.seq`
+                Prelude.rnf sortOrder `Prelude.seq`
+                  Prelude.rnf workteamArn
 
 instance Data.ToHeaders ListLabelingJobsForWorkteam where
   toHeaders =
@@ -332,6 +332,6 @@ instance
     ListLabelingJobsForWorkteamResponse
   where
   rnf ListLabelingJobsForWorkteamResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf labelingJobSummaryList
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf labelingJobSummaryList

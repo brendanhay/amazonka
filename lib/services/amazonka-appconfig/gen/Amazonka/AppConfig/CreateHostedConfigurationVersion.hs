@@ -202,12 +202,12 @@ instance
     CreateHostedConfigurationVersion
   where
   rnf CreateHostedConfigurationVersion' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf latestVersionNumber
-      `Prelude.seq` Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf configurationProfileId
-      `Prelude.seq` Prelude.rnf content
-      `Prelude.seq` Prelude.rnf contentType
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf latestVersionNumber `Prelude.seq`
+        Prelude.rnf applicationId `Prelude.seq`
+          Prelude.rnf configurationProfileId `Prelude.seq`
+            Prelude.rnf content `Prelude.seq`
+              Prelude.rnf contentType
 
 instance Data.ToBody CreateHostedConfigurationVersion where
   toBody CreateHostedConfigurationVersion' {..} =

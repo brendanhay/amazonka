@@ -119,11 +119,11 @@ instance Prelude.Hashable VsamAttributes where
 
 instance Prelude.NFData VsamAttributes where
   rnf VsamAttributes' {..} =
-    Prelude.rnf alternateKeys
-      `Prelude.seq` Prelude.rnf compressed
-      `Prelude.seq` Prelude.rnf encoding
-      `Prelude.seq` Prelude.rnf primaryKey
-      `Prelude.seq` Prelude.rnf format
+    Prelude.rnf alternateKeys `Prelude.seq`
+      Prelude.rnf compressed `Prelude.seq`
+        Prelude.rnf encoding `Prelude.seq`
+          Prelude.rnf primaryKey `Prelude.seq`
+            Prelude.rnf format
 
 instance Data.ToJSON VsamAttributes where
   toJSON VsamAttributes' {..} =

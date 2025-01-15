@@ -121,8 +121,8 @@ instance
 
 instance Prelude.NFData LifecyclePolicyPreviewResult where
   rnf LifecyclePolicyPreviewResult' {..} =
-    Prelude.rnf action
-      `Prelude.seq` Prelude.rnf appliedRulePriority
-      `Prelude.seq` Prelude.rnf imageDigest
-      `Prelude.seq` Prelude.rnf imagePushedAt
-      `Prelude.seq` Prelude.rnf imageTags
+    Prelude.rnf action `Prelude.seq`
+      Prelude.rnf appliedRulePriority `Prelude.seq`
+        Prelude.rnf imageDigest `Prelude.seq`
+          Prelude.rnf imagePushedAt `Prelude.seq`
+            Prelude.rnf imageTags

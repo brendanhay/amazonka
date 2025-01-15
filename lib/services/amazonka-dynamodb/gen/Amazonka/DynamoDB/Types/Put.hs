@@ -140,12 +140,12 @@ instance Prelude.Hashable Put where
 
 instance Prelude.NFData Put where
   rnf Put' {..} =
-    Prelude.rnf conditionExpression
-      `Prelude.seq` Prelude.rnf expressionAttributeNames
-      `Prelude.seq` Prelude.rnf expressionAttributeValues
-      `Prelude.seq` Prelude.rnf returnValuesOnConditionCheckFailure
-      `Prelude.seq` Prelude.rnf item
-      `Prelude.seq` Prelude.rnf tableName
+    Prelude.rnf conditionExpression `Prelude.seq`
+      Prelude.rnf expressionAttributeNames `Prelude.seq`
+        Prelude.rnf expressionAttributeValues `Prelude.seq`
+          Prelude.rnf returnValuesOnConditionCheckFailure `Prelude.seq`
+            Prelude.rnf item `Prelude.seq`
+              Prelude.rnf tableName
 
 instance Data.ToJSON Put where
   toJSON Put' {..} =

@@ -817,6 +817,6 @@ createFleetResponse_httpStatus = Lens.lens (\CreateFleetResponse' {httpStatus} -
 
 instance Prelude.NFData CreateFleetResponse where
   rnf CreateFleetResponse' {..} =
-    Prelude.rnf fleetAttributes
-      `Prelude.seq` Prelude.rnf locationStates
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf fleetAttributes `Prelude.seq`
+      Prelude.rnf locationStates `Prelude.seq`
+        Prelude.rnf httpStatus

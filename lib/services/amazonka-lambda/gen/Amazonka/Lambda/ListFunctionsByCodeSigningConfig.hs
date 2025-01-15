@@ -125,12 +125,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listFunctionsByCodeSigningConfig_marker
-          Lens..~ rs
-          Lens.^? listFunctionsByCodeSigningConfigResponse_nextMarker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listFunctionsByCodeSigningConfig_marker
+              Lens..~ rs
+              Lens.^? listFunctionsByCodeSigningConfigResponse_nextMarker
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -167,9 +167,9 @@ instance
     ListFunctionsByCodeSigningConfig
   where
   rnf ListFunctionsByCodeSigningConfig' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxItems
-      `Prelude.seq` Prelude.rnf codeSigningConfigArn
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf maxItems `Prelude.seq`
+        Prelude.rnf codeSigningConfigArn
 
 instance
   Data.ToHeaders
@@ -249,6 +249,6 @@ instance
     ListFunctionsByCodeSigningConfigResponse
   where
   rnf ListFunctionsByCodeSigningConfigResponse' {..} =
-    Prelude.rnf functionArns
-      `Prelude.seq` Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf functionArns `Prelude.seq`
+      Prelude.rnf nextMarker `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -297,14 +297,14 @@ instance Prelude.Hashable CreateDeploymentStrategy where
 
 instance Prelude.NFData CreateDeploymentStrategy where
   rnf CreateDeploymentStrategy' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf finalBakeTimeInMinutes
-      `Prelude.seq` Prelude.rnf growthType
-      `Prelude.seq` Prelude.rnf replicateTo
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf deploymentDurationInMinutes
-      `Prelude.seq` Prelude.rnf growthFactor
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf finalBakeTimeInMinutes `Prelude.seq`
+        Prelude.rnf growthType `Prelude.seq`
+          Prelude.rnf replicateTo `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf deploymentDurationInMinutes `Prelude.seq`
+                  Prelude.rnf growthFactor
 
 instance Data.ToHeaders CreateDeploymentStrategy where
   toHeaders =

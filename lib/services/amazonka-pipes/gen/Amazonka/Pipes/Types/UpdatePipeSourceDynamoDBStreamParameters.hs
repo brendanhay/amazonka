@@ -161,13 +161,13 @@ instance
     UpdatePipeSourceDynamoDBStreamParameters
   where
   rnf UpdatePipeSourceDynamoDBStreamParameters' {..} =
-    Prelude.rnf batchSize
-      `Prelude.seq` Prelude.rnf deadLetterConfig
-      `Prelude.seq` Prelude.rnf maximumBatchingWindowInSeconds
-      `Prelude.seq` Prelude.rnf maximumRecordAgeInSeconds
-      `Prelude.seq` Prelude.rnf maximumRetryAttempts
-      `Prelude.seq` Prelude.rnf onPartialBatchItemFailure
-      `Prelude.seq` Prelude.rnf parallelizationFactor
+    Prelude.rnf batchSize `Prelude.seq`
+      Prelude.rnf deadLetterConfig `Prelude.seq`
+        Prelude.rnf maximumBatchingWindowInSeconds `Prelude.seq`
+          Prelude.rnf maximumRecordAgeInSeconds `Prelude.seq`
+            Prelude.rnf maximumRetryAttempts `Prelude.seq`
+              Prelude.rnf onPartialBatchItemFailure `Prelude.seq`
+                Prelude.rnf parallelizationFactor
 
 instance
   Data.ToJSON

@@ -93,6 +93,6 @@ instance Prelude.Hashable ExecutionParameter where
 
 instance Prelude.NFData ExecutionParameter where
   rnf ExecutionParameter' {..} =
-    Prelude.rnf defaultValues
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf defaultValues `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf type'

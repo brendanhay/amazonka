@@ -412,22 +412,22 @@ instance Prelude.Hashable GameSession where
 
 instance Prelude.NFData GameSession where
   rnf GameSession' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf creatorId
-      `Prelude.seq` Prelude.rnf currentPlayerSessionCount
-      `Prelude.seq` Prelude.rnf dnsName
-      `Prelude.seq` Prelude.rnf fleetArn
-      `Prelude.seq` Prelude.rnf fleetId
-      `Prelude.seq` Prelude.rnf gameProperties
-      `Prelude.seq` Prelude.rnf gameSessionData
-      `Prelude.seq` Prelude.rnf gameSessionId
-      `Prelude.seq` Prelude.rnf ipAddress
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf matchmakerData
-      `Prelude.seq` Prelude.rnf maximumPlayerSessionCount
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf playerSessionCreationPolicy
-      `Prelude.seq` Prelude.rnf port
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusReason
-      `Prelude.seq` Prelude.rnf terminationTime
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf creatorId `Prelude.seq`
+        Prelude.rnf currentPlayerSessionCount `Prelude.seq`
+          Prelude.rnf dnsName `Prelude.seq`
+            Prelude.rnf fleetArn `Prelude.seq`
+              Prelude.rnf fleetId `Prelude.seq`
+                Prelude.rnf gameProperties `Prelude.seq`
+                  Prelude.rnf gameSessionData `Prelude.seq`
+                    Prelude.rnf gameSessionId `Prelude.seq`
+                      Prelude.rnf ipAddress `Prelude.seq`
+                        Prelude.rnf location `Prelude.seq`
+                          Prelude.rnf matchmakerData `Prelude.seq`
+                            Prelude.rnf maximumPlayerSessionCount `Prelude.seq`
+                              Prelude.rnf name `Prelude.seq`
+                                Prelude.rnf playerSessionCreationPolicy `Prelude.seq`
+                                  Prelude.rnf port `Prelude.seq`
+                                    Prelude.rnf status `Prelude.seq`
+                                      Prelude.rnf statusReason `Prelude.seq`
+                                        Prelude.rnf terminationTime

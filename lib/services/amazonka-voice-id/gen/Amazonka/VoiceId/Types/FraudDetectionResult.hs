@@ -177,10 +177,10 @@ instance Prelude.Hashable FraudDetectionResult where
 
 instance Prelude.NFData FraudDetectionResult where
   rnf FraudDetectionResult' {..} =
-    Prelude.rnf audioAggregationEndedAt
-      `Prelude.seq` Prelude.rnf audioAggregationStartedAt
-      `Prelude.seq` Prelude.rnf configuration
-      `Prelude.seq` Prelude.rnf decision
-      `Prelude.seq` Prelude.rnf fraudDetectionResultId
-      `Prelude.seq` Prelude.rnf reasons
-      `Prelude.seq` Prelude.rnf riskDetails
+    Prelude.rnf audioAggregationEndedAt `Prelude.seq`
+      Prelude.rnf audioAggregationStartedAt `Prelude.seq`
+        Prelude.rnf configuration `Prelude.seq`
+          Prelude.rnf decision `Prelude.seq`
+            Prelude.rnf fraudDetectionResultId `Prelude.seq`
+              Prelude.rnf reasons `Prelude.seq`
+                Prelude.rnf riskDetails

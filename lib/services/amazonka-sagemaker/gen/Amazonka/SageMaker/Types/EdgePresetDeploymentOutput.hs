@@ -110,7 +110,7 @@ instance Prelude.Hashable EdgePresetDeploymentOutput where
 
 instance Prelude.NFData EdgePresetDeploymentOutput where
   rnf EdgePresetDeploymentOutput' {..} =
-    Prelude.rnf artifact
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf artifact `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf statusMessage `Prelude.seq`
+          Prelude.rnf type'

@@ -198,5 +198,5 @@ instance
     GetFunctionConcurrencyResponse
   where
   rnf GetFunctionConcurrencyResponse' {..} =
-    Prelude.rnf reservedConcurrentExecutions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf reservedConcurrentExecutions `Prelude.seq`
+      Prelude.rnf httpStatus

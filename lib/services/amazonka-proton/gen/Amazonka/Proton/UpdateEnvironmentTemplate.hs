@@ -123,9 +123,9 @@ instance Prelude.Hashable UpdateEnvironmentTemplate where
 
 instance Prelude.NFData UpdateEnvironmentTemplate where
   rnf UpdateEnvironmentTemplate' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf displayName `Prelude.seq`
+        Prelude.rnf name
 
 instance Data.ToHeaders UpdateEnvironmentTemplate where
   toHeaders =
@@ -207,5 +207,5 @@ instance
     UpdateEnvironmentTemplateResponse
   where
   rnf UpdateEnvironmentTemplateResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf environmentTemplate
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf environmentTemplate

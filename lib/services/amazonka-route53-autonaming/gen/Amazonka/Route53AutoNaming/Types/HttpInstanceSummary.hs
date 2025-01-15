@@ -132,8 +132,8 @@ instance Prelude.Hashable HttpInstanceSummary where
 
 instance Prelude.NFData HttpInstanceSummary where
   rnf HttpInstanceSummary' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf healthStatus
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf namespaceName
-      `Prelude.seq` Prelude.rnf serviceName
+    Prelude.rnf attributes `Prelude.seq`
+      Prelude.rnf healthStatus `Prelude.seq`
+        Prelude.rnf instanceId `Prelude.seq`
+          Prelude.rnf namespaceName `Prelude.seq`
+            Prelude.rnf serviceName

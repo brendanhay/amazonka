@@ -106,8 +106,8 @@ instance Prelude.Hashable UpdateResourceDefinition where
 
 instance Prelude.NFData UpdateResourceDefinition where
   rnf UpdateResourceDefinition' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf resourceDefinitionId
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf resourceDefinitionId
 
 instance Data.ToHeaders UpdateResourceDefinition where
   toHeaders =

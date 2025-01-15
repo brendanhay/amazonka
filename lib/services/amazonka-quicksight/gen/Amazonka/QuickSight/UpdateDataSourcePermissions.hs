@@ -148,10 +148,10 @@ instance Prelude.Hashable UpdateDataSourcePermissions where
 
 instance Prelude.NFData UpdateDataSourcePermissions where
   rnf UpdateDataSourcePermissions' {..} =
-    Prelude.rnf grantPermissions
-      `Prelude.seq` Prelude.rnf revokePermissions
-      `Prelude.seq` Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf dataSourceId
+    Prelude.rnf grantPermissions `Prelude.seq`
+      Prelude.rnf revokePermissions `Prelude.seq`
+        Prelude.rnf awsAccountId `Prelude.seq`
+          Prelude.rnf dataSourceId
 
 instance Data.ToHeaders UpdateDataSourcePermissions where
   toHeaders =
@@ -253,7 +253,7 @@ instance
     UpdateDataSourcePermissionsResponse
   where
   rnf UpdateDataSourcePermissionsResponse' {..} =
-    Prelude.rnf dataSourceArn
-      `Prelude.seq` Prelude.rnf dataSourceId
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf dataSourceArn `Prelude.seq`
+      Prelude.rnf dataSourceId `Prelude.seq`
+        Prelude.rnf requestId `Prelude.seq`
+          Prelude.rnf status

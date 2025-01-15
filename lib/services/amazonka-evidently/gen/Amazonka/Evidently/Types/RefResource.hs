@@ -146,10 +146,10 @@ instance Prelude.Hashable RefResource where
 
 instance Prelude.NFData RefResource where
   rnf RefResource' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf lastUpdatedOn
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf endTime `Prelude.seq`
+        Prelude.rnf lastUpdatedOn `Prelude.seq`
+          Prelude.rnf startTime `Prelude.seq`
+            Prelude.rnf status `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf type'

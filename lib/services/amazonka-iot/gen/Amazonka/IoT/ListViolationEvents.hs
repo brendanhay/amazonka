@@ -187,12 +187,12 @@ instance Core.AWSPager ListViolationEvents where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listViolationEvents_nextToken
-          Lens..~ rs
-          Lens.^? listViolationEventsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listViolationEvents_nextToken
+              Lens..~ rs
+              Lens.^? listViolationEventsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListViolationEvents where
   type
@@ -227,15 +227,15 @@ instance Prelude.Hashable ListViolationEvents where
 
 instance Prelude.NFData ListViolationEvents where
   rnf ListViolationEvents' {..} =
-    Prelude.rnf behaviorCriteriaType
-      `Prelude.seq` Prelude.rnf listSuppressedAlerts
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf securityProfileName
-      `Prelude.seq` Prelude.rnf thingName
-      `Prelude.seq` Prelude.rnf verificationState
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf endTime
+    Prelude.rnf behaviorCriteriaType `Prelude.seq`
+      Prelude.rnf listSuppressedAlerts `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf securityProfileName `Prelude.seq`
+              Prelude.rnf thingName `Prelude.seq`
+                Prelude.rnf verificationState `Prelude.seq`
+                  Prelude.rnf startTime `Prelude.seq`
+                    Prelude.rnf endTime
 
 instance Data.ToHeaders ListViolationEvents where
   toHeaders = Prelude.const Prelude.mempty
@@ -316,6 +316,6 @@ listViolationEventsResponse_httpStatus = Lens.lens (\ListViolationEventsResponse
 
 instance Prelude.NFData ListViolationEventsResponse where
   rnf ListViolationEventsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf violationEvents
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf violationEvents `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -202,10 +202,10 @@ instance Prelude.Hashable UpdateFirewallDescription where
 
 instance Prelude.NFData UpdateFirewallDescription where
   rnf UpdateFirewallDescription' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf firewallArn
-      `Prelude.seq` Prelude.rnf firewallName
-      `Prelude.seq` Prelude.rnf updateToken
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf firewallArn `Prelude.seq`
+        Prelude.rnf firewallName `Prelude.seq`
+          Prelude.rnf updateToken
 
 instance Data.ToHeaders UpdateFirewallDescription where
   toHeaders =
@@ -361,8 +361,8 @@ instance
     UpdateFirewallDescriptionResponse
   where
   rnf UpdateFirewallDescriptionResponse' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf firewallArn
-      `Prelude.seq` Prelude.rnf firewallName
-      `Prelude.seq` Prelude.rnf updateToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf firewallArn `Prelude.seq`
+        Prelude.rnf firewallName `Prelude.seq`
+          Prelude.rnf updateToken `Prelude.seq`
+            Prelude.rnf httpStatus

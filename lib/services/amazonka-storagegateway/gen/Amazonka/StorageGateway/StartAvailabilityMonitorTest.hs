@@ -179,5 +179,5 @@ instance
     StartAvailabilityMonitorTestResponse
   where
   rnf StartAvailabilityMonitorTestResponse' {..} =
-    Prelude.rnf gatewayARN
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf gatewayARN `Prelude.seq`
+      Prelude.rnf httpStatus

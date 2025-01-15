@@ -115,8 +115,8 @@ instance Prelude.Hashable ListIndices where
 
 instance Prelude.NFData ListIndices where
   rnf ListIndices' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListIndices where
   toHeaders =
@@ -204,6 +204,6 @@ listIndicesResponse_httpStatus = Lens.lens (\ListIndicesResponse' {httpStatus} -
 
 instance Prelude.NFData ListIndicesResponse where
   rnf ListIndicesResponse' {..} =
-    Prelude.rnf indexConfigurationSummaryItems
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf indexConfigurationSummaryItems `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -147,12 +147,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listCustomRoutingPortMappingsByDestination_nextToken
-          Lens..~ rs
-          Lens.^? listCustomRoutingPortMappingsByDestinationResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listCustomRoutingPortMappingsByDestination_nextToken
+              Lens..~ rs
+              Lens.^? listCustomRoutingPortMappingsByDestinationResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -194,10 +194,10 @@ instance
     ListCustomRoutingPortMappingsByDestination
   where
   rnf ListCustomRoutingPortMappingsByDestination' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf endpointId
-      `Prelude.seq` Prelude.rnf destinationAddress
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf endpointId `Prelude.seq`
+          Prelude.rnf destinationAddress
 
 instance
   Data.ToHeaders
@@ -308,6 +308,6 @@ instance
   where
   rnf
     ListCustomRoutingPortMappingsByDestinationResponse' {..} =
-      Prelude.rnf destinationPortMappings
-        `Prelude.seq` Prelude.rnf nextToken
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf destinationPortMappings `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf httpStatus

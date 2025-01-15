@@ -587,13 +587,13 @@ instance Prelude.Hashable GenerateDataSet where
 
 instance Prelude.NFData GenerateDataSet where
   rnf GenerateDataSet' {..} =
-    Prelude.rnf customerDefinedValues
-      `Prelude.seq` Prelude.rnf destinationS3Prefix
-      `Prelude.seq` Prelude.rnf dataSetType
-      `Prelude.seq` Prelude.rnf dataSetPublicationDate
-      `Prelude.seq` Prelude.rnf roleNameArn
-      `Prelude.seq` Prelude.rnf destinationS3BucketName
-      `Prelude.seq` Prelude.rnf snsTopicArn
+    Prelude.rnf customerDefinedValues `Prelude.seq`
+      Prelude.rnf destinationS3Prefix `Prelude.seq`
+        Prelude.rnf dataSetType `Prelude.seq`
+          Prelude.rnf dataSetPublicationDate `Prelude.seq`
+            Prelude.rnf roleNameArn `Prelude.seq`
+              Prelude.rnf destinationS3BucketName `Prelude.seq`
+                Prelude.rnf snsTopicArn
 
 instance Data.ToHeaders GenerateDataSet where
   toHeaders =
@@ -687,5 +687,5 @@ generateDataSetResponse_httpStatus = Lens.lens (\GenerateDataSetResponse' {httpS
 
 instance Prelude.NFData GenerateDataSetResponse where
   rnf GenerateDataSetResponse' {..} =
-    Prelude.rnf dataSetRequestId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dataSetRequestId `Prelude.seq`
+      Prelude.rnf httpStatus

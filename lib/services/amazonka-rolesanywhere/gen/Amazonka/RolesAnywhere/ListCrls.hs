@@ -111,12 +111,12 @@ instance Core.AWSPager ListCrls where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listCrls_nextToken
-          Lens..~ rs
-          Lens.^? listCrlsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listCrls_nextToken
+              Lens..~ rs
+              Lens.^? listCrlsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListCrls where
   type AWSResponse ListCrls = ListCrlsResponse
@@ -139,8 +139,8 @@ instance Prelude.Hashable ListCrls where
 
 instance Prelude.NFData ListCrls where
   rnf ListCrls' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf pageSize
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf pageSize
 
 instance Data.ToHeaders ListCrls where
   toHeaders =
@@ -218,6 +218,6 @@ listCrlsResponse_httpStatus = Lens.lens (\ListCrlsResponse' {httpStatus} -> http
 
 instance Prelude.NFData ListCrlsResponse where
   rnf ListCrlsResponse' {..} =
-    Prelude.rnf crls
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf crls `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -147,10 +147,10 @@ instance Prelude.Hashable MergeBranchesByFastForward where
 
 instance Prelude.NFData MergeBranchesByFastForward where
   rnf MergeBranchesByFastForward' {..} =
-    Prelude.rnf targetBranch
-      `Prelude.seq` Prelude.rnf repositoryName
-      `Prelude.seq` Prelude.rnf sourceCommitSpecifier
-      `Prelude.seq` Prelude.rnf destinationCommitSpecifier
+    Prelude.rnf targetBranch `Prelude.seq`
+      Prelude.rnf repositoryName `Prelude.seq`
+        Prelude.rnf sourceCommitSpecifier `Prelude.seq`
+          Prelude.rnf destinationCommitSpecifier
 
 instance Data.ToHeaders MergeBranchesByFastForward where
   toHeaders =
@@ -244,6 +244,6 @@ instance
     MergeBranchesByFastForwardResponse
   where
   rnf MergeBranchesByFastForwardResponse' {..} =
-    Prelude.rnf commitId
-      `Prelude.seq` Prelude.rnf treeId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf commitId `Prelude.seq`
+      Prelude.rnf treeId `Prelude.seq`
+        Prelude.rnf httpStatus

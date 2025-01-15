@@ -97,6 +97,6 @@ instance Prelude.Hashable ReadSetBatchError where
 
 instance Prelude.NFData ReadSetBatchError where
   rnf ReadSetBatchError' {..} =
-    Prelude.rnf code
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf message
+    Prelude.rnf code `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf message

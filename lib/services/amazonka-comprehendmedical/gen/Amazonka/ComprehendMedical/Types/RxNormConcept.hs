@@ -95,6 +95,6 @@ instance Prelude.Hashable RxNormConcept where
 
 instance Prelude.NFData RxNormConcept where
   rnf RxNormConcept' {..} =
-    Prelude.rnf code
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf score
+    Prelude.rnf code `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf score

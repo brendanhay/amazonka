@@ -112,8 +112,8 @@ instance Prelude.Hashable GetRequestValidator where
 
 instance Prelude.NFData GetRequestValidator where
   rnf GetRequestValidator' {..} =
-    Prelude.rnf restApiId
-      `Prelude.seq` Prelude.rnf requestValidatorId
+    Prelude.rnf restApiId `Prelude.seq`
+      Prelude.rnf requestValidatorId
 
 instance Data.ToHeaders GetRequestValidator where
   toHeaders =

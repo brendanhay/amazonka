@@ -163,9 +163,9 @@ instance Prelude.Hashable GetMediaForFragmentList where
 
 instance Prelude.NFData GetMediaForFragmentList where
   rnf GetMediaForFragmentList' {..} =
-    Prelude.rnf streamARN
-      `Prelude.seq` Prelude.rnf streamName
-      `Prelude.seq` Prelude.rnf fragments
+    Prelude.rnf streamARN `Prelude.seq`
+      Prelude.rnf streamName `Prelude.seq`
+        Prelude.rnf fragments
 
 instance Data.ToHeaders GetMediaForFragmentList where
   toHeaders = Prelude.const Prelude.mempty

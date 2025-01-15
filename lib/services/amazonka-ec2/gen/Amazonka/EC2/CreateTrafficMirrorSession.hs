@@ -282,16 +282,16 @@ instance Prelude.Hashable CreateTrafficMirrorSession where
 
 instance Prelude.NFData CreateTrafficMirrorSession where
   rnf CreateTrafficMirrorSession' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf packetLength
-      `Prelude.seq` Prelude.rnf tagSpecifications
-      `Prelude.seq` Prelude.rnf virtualNetworkId
-      `Prelude.seq` Prelude.rnf networkInterfaceId
-      `Prelude.seq` Prelude.rnf trafficMirrorTargetId
-      `Prelude.seq` Prelude.rnf trafficMirrorFilterId
-      `Prelude.seq` Prelude.rnf sessionNumber
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf dryRun `Prelude.seq`
+          Prelude.rnf packetLength `Prelude.seq`
+            Prelude.rnf tagSpecifications `Prelude.seq`
+              Prelude.rnf virtualNetworkId `Prelude.seq`
+                Prelude.rnf networkInterfaceId `Prelude.seq`
+                  Prelude.rnf trafficMirrorTargetId `Prelude.seq`
+                    Prelude.rnf trafficMirrorFilterId `Prelude.seq`
+                      Prelude.rnf sessionNumber
 
 instance Data.ToHeaders CreateTrafficMirrorSession where
   toHeaders = Prelude.const Prelude.mempty
@@ -382,6 +382,6 @@ instance
     CreateTrafficMirrorSessionResponse
   where
   rnf CreateTrafficMirrorSessionResponse' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf trafficMirrorSession
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf trafficMirrorSession `Prelude.seq`
+        Prelude.rnf httpStatus

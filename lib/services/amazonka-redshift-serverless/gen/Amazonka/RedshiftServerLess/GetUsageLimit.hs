@@ -164,5 +164,5 @@ getUsageLimitResponse_httpStatus = Lens.lens (\GetUsageLimitResponse' {httpStatu
 
 instance Prelude.NFData GetUsageLimitResponse where
   rnf GetUsageLimitResponse' {..} =
-    Prelude.rnf usageLimit
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf usageLimit `Prelude.seq`
+      Prelude.rnf httpStatus

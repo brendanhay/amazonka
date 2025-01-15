@@ -113,6 +113,6 @@ instance
     BatchDescribeMergeConflictsError
   where
   rnf BatchDescribeMergeConflictsError' {..} =
-    Prelude.rnf filePath
-      `Prelude.seq` Prelude.rnf exceptionName
-      `Prelude.seq` Prelude.rnf message
+    Prelude.rnf filePath `Prelude.seq`
+      Prelude.rnf exceptionName `Prelude.seq`
+        Prelude.rnf message

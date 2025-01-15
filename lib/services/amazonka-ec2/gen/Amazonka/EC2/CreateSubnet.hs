@@ -282,15 +282,15 @@ instance Prelude.Hashable CreateSubnet where
 
 instance Prelude.NFData CreateSubnet where
   rnf CreateSubnet' {..} =
-    Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf availabilityZoneId
-      `Prelude.seq` Prelude.rnf cidrBlock
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf ipv6CidrBlock
-      `Prelude.seq` Prelude.rnf ipv6Native
-      `Prelude.seq` Prelude.rnf outpostArn
-      `Prelude.seq` Prelude.rnf tagSpecifications
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf availabilityZone `Prelude.seq`
+      Prelude.rnf availabilityZoneId `Prelude.seq`
+        Prelude.rnf cidrBlock `Prelude.seq`
+          Prelude.rnf dryRun `Prelude.seq`
+            Prelude.rnf ipv6CidrBlock `Prelude.seq`
+              Prelude.rnf ipv6Native `Prelude.seq`
+                Prelude.rnf outpostArn `Prelude.seq`
+                  Prelude.rnf tagSpecifications `Prelude.seq`
+                    Prelude.rnf vpcId
 
 instance Data.ToHeaders CreateSubnet where
   toHeaders = Prelude.const Prelude.mempty
@@ -359,5 +359,5 @@ createSubnetResponse_httpStatus = Lens.lens (\CreateSubnetResponse' {httpStatus}
 
 instance Prelude.NFData CreateSubnetResponse where
   rnf CreateSubnetResponse' {..} =
-    Prelude.rnf subnet
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf subnet `Prelude.seq`
+      Prelude.rnf httpStatus

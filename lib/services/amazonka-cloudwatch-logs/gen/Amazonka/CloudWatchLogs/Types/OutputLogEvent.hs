@@ -97,6 +97,6 @@ instance Prelude.Hashable OutputLogEvent where
 
 instance Prelude.NFData OutputLogEvent where
   rnf OutputLogEvent' {..} =
-    Prelude.rnf ingestionTime
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf timestamp
+    Prelude.rnf ingestionTime `Prelude.seq`
+      Prelude.rnf message `Prelude.seq`
+        Prelude.rnf timestamp

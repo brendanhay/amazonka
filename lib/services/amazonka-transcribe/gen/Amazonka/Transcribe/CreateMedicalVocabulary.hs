@@ -211,10 +211,10 @@ instance Prelude.Hashable CreateMedicalVocabulary where
 
 instance Prelude.NFData CreateMedicalVocabulary where
   rnf CreateMedicalVocabulary' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf vocabularyName
-      `Prelude.seq` Prelude.rnf languageCode
-      `Prelude.seq` Prelude.rnf vocabularyFileUri
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf vocabularyName `Prelude.seq`
+        Prelude.rnf languageCode `Prelude.seq`
+          Prelude.rnf vocabularyFileUri
 
 instance Data.ToHeaders CreateMedicalVocabulary where
   toHeaders =
@@ -360,9 +360,9 @@ instance
     CreateMedicalVocabularyResponse
   where
   rnf CreateMedicalVocabularyResponse' {..} =
-    Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf languageCode
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf vocabularyName
-      `Prelude.seq` Prelude.rnf vocabularyState
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf failureReason `Prelude.seq`
+      Prelude.rnf languageCode `Prelude.seq`
+        Prelude.rnf lastModifiedTime `Prelude.seq`
+          Prelude.rnf vocabularyName `Prelude.seq`
+            Prelude.rnf vocabularyState `Prelude.seq`
+              Prelude.rnf httpStatus

@@ -106,8 +106,8 @@ instance Prelude.Hashable DeleteFilter where
 
 instance Prelude.NFData DeleteFilter where
   rnf DeleteFilter' {..} =
-    Prelude.rnf detectorId
-      `Prelude.seq` Prelude.rnf filterName
+    Prelude.rnf detectorId `Prelude.seq`
+      Prelude.rnf filterName
 
 instance Data.ToHeaders DeleteFilter where
   toHeaders =

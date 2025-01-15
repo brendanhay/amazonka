@@ -180,12 +180,12 @@ instance Prelude.Hashable EntitySummary where
 
 instance Prelude.NFData EntitySummary where
   rnf EntitySummary' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf hasChildEntities
-      `Prelude.seq` Prelude.rnf parentEntityId
-      `Prelude.seq` Prelude.rnf entityId
-      `Prelude.seq` Prelude.rnf entityName
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf updateDateTime
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf hasChildEntities `Prelude.seq`
+        Prelude.rnf parentEntityId `Prelude.seq`
+          Prelude.rnf entityId `Prelude.seq`
+            Prelude.rnf entityName `Prelude.seq`
+              Prelude.rnf arn `Prelude.seq`
+                Prelude.rnf status `Prelude.seq`
+                  Prelude.rnf creationDateTime `Prelude.seq`
+                    Prelude.rnf updateDateTime

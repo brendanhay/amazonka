@@ -85,5 +85,5 @@ instance Prelude.Hashable AssociatedClientDevice where
 
 instance Prelude.NFData AssociatedClientDevice where
   rnf AssociatedClientDevice' {..} =
-    Prelude.rnf associationTimestamp
-      `Prelude.seq` Prelude.rnf thingName
+    Prelude.rnf associationTimestamp `Prelude.seq`
+      Prelude.rnf thingName

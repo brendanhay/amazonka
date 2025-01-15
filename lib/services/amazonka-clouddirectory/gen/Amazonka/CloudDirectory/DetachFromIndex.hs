@@ -129,9 +129,9 @@ instance Prelude.Hashable DetachFromIndex where
 
 instance Prelude.NFData DetachFromIndex where
   rnf DetachFromIndex' {..} =
-    Prelude.rnf directoryArn
-      `Prelude.seq` Prelude.rnf indexReference
-      `Prelude.seq` Prelude.rnf targetReference
+    Prelude.rnf directoryArn `Prelude.seq`
+      Prelude.rnf indexReference `Prelude.seq`
+        Prelude.rnf targetReference
 
 instance Data.ToHeaders DetachFromIndex where
   toHeaders DetachFromIndex' {..} =
@@ -198,5 +198,5 @@ detachFromIndexResponse_httpStatus = Lens.lens (\DetachFromIndexResponse' {httpS
 
 instance Prelude.NFData DetachFromIndexResponse where
   rnf DetachFromIndexResponse' {..} =
-    Prelude.rnf detachedObjectIdentifier
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf detachedObjectIdentifier `Prelude.seq`
+      Prelude.rnf httpStatus

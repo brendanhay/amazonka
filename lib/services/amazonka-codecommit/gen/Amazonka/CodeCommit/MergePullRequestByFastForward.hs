@@ -145,9 +145,9 @@ instance
 
 instance Prelude.NFData MergePullRequestByFastForward where
   rnf MergePullRequestByFastForward' {..} =
-    Prelude.rnf sourceCommitId
-      `Prelude.seq` Prelude.rnf pullRequestId
-      `Prelude.seq` Prelude.rnf repositoryName
+    Prelude.rnf sourceCommitId `Prelude.seq`
+      Prelude.rnf pullRequestId `Prelude.seq`
+        Prelude.rnf repositoryName
 
 instance Data.ToHeaders MergePullRequestByFastForward where
   toHeaders =
@@ -226,5 +226,5 @@ instance
     MergePullRequestByFastForwardResponse
   where
   rnf MergePullRequestByFastForwardResponse' {..} =
-    Prelude.rnf pullRequest
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf pullRequest `Prelude.seq`
+      Prelude.rnf httpStatus

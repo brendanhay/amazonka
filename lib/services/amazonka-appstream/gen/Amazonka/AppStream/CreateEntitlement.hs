@@ -157,11 +157,11 @@ instance Prelude.Hashable CreateEntitlement where
 
 instance Prelude.NFData CreateEntitlement where
   rnf CreateEntitlement' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf stackName
-      `Prelude.seq` Prelude.rnf appVisibility
-      `Prelude.seq` Prelude.rnf attributes
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf stackName `Prelude.seq`
+          Prelude.rnf appVisibility `Prelude.seq`
+            Prelude.rnf attributes
 
 instance Data.ToHeaders CreateEntitlement where
   toHeaders =
@@ -237,5 +237,5 @@ createEntitlementResponse_httpStatus = Lens.lens (\CreateEntitlementResponse' {h
 
 instance Prelude.NFData CreateEntitlementResponse where
   rnf CreateEntitlementResponse' {..} =
-    Prelude.rnf entitlement
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf entitlement `Prelude.seq`
+      Prelude.rnf httpStatus

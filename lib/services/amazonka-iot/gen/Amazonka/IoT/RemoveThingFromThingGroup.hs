@@ -135,10 +135,10 @@ instance Prelude.Hashable RemoveThingFromThingGroup where
 
 instance Prelude.NFData RemoveThingFromThingGroup where
   rnf RemoveThingFromThingGroup' {..} =
-    Prelude.rnf thingArn
-      `Prelude.seq` Prelude.rnf thingGroupArn
-      `Prelude.seq` Prelude.rnf thingGroupName
-      `Prelude.seq` Prelude.rnf thingName
+    Prelude.rnf thingArn `Prelude.seq`
+      Prelude.rnf thingGroupArn `Prelude.seq`
+        Prelude.rnf thingGroupName `Prelude.seq`
+          Prelude.rnf thingName
 
 instance Data.ToHeaders RemoveThingFromThingGroup where
   toHeaders = Prelude.const Prelude.mempty

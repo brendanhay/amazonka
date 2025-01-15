@@ -167,10 +167,10 @@ instance Prelude.Hashable ListBuiltInSlotTypes where
 
 instance Prelude.NFData ListBuiltInSlotTypes where
   rnf ListBuiltInSlotTypes' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf localeId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf sortBy `Prelude.seq`
+          Prelude.rnf localeId
 
 instance Data.ToHeaders ListBuiltInSlotTypes where
   toHeaders =
@@ -287,7 +287,7 @@ listBuiltInSlotTypesResponse_httpStatus = Lens.lens (\ListBuiltInSlotTypesRespon
 
 instance Prelude.NFData ListBuiltInSlotTypesResponse where
   rnf ListBuiltInSlotTypesResponse' {..} =
-    Prelude.rnf builtInSlotTypeSummaries
-      `Prelude.seq` Prelude.rnf localeId
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf builtInSlotTypeSummaries `Prelude.seq`
+      Prelude.rnf localeId `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf httpStatus

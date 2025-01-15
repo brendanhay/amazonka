@@ -99,8 +99,8 @@ instance Prelude.Hashable SectionStyle where
 
 instance Prelude.NFData SectionStyle where
   rnf SectionStyle' {..} =
-    Prelude.rnf height
-      `Prelude.seq` Prelude.rnf padding
+    Prelude.rnf height `Prelude.seq`
+      Prelude.rnf padding
 
 instance Data.ToJSON SectionStyle where
   toJSON SectionStyle' {..} =

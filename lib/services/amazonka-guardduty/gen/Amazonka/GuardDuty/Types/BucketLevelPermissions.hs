@@ -102,6 +102,6 @@ instance Prelude.Hashable BucketLevelPermissions where
 
 instance Prelude.NFData BucketLevelPermissions where
   rnf BucketLevelPermissions' {..} =
-    Prelude.rnf accessControlList
-      `Prelude.seq` Prelude.rnf blockPublicAccess
-      `Prelude.seq` Prelude.rnf bucketPolicy
+    Prelude.rnf accessControlList `Prelude.seq`
+      Prelude.rnf blockPublicAccess `Prelude.seq`
+        Prelude.rnf bucketPolicy

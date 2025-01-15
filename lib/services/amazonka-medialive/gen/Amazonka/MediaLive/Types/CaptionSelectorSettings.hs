@@ -136,13 +136,13 @@ instance Prelude.Hashable CaptionSelectorSettings where
 
 instance Prelude.NFData CaptionSelectorSettings where
   rnf CaptionSelectorSettings' {..} =
-    Prelude.rnf ancillarySourceSettings
-      `Prelude.seq` Prelude.rnf aribSourceSettings
-      `Prelude.seq` Prelude.rnf dvbSubSourceSettings
-      `Prelude.seq` Prelude.rnf embeddedSourceSettings
-      `Prelude.seq` Prelude.rnf scte20SourceSettings
-      `Prelude.seq` Prelude.rnf scte27SourceSettings
-      `Prelude.seq` Prelude.rnf teletextSourceSettings
+    Prelude.rnf ancillarySourceSettings `Prelude.seq`
+      Prelude.rnf aribSourceSettings `Prelude.seq`
+        Prelude.rnf dvbSubSourceSettings `Prelude.seq`
+          Prelude.rnf embeddedSourceSettings `Prelude.seq`
+            Prelude.rnf scte20SourceSettings `Prelude.seq`
+              Prelude.rnf scte27SourceSettings `Prelude.seq`
+                Prelude.rnf teletextSourceSettings
 
 instance Data.ToJSON CaptionSelectorSettings where
   toJSON CaptionSelectorSettings' {..} =

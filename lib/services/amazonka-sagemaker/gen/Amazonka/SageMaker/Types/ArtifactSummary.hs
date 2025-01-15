@@ -127,9 +127,9 @@ instance Prelude.Hashable ArtifactSummary where
 
 instance Prelude.NFData ArtifactSummary where
   rnf ArtifactSummary' {..} =
-    Prelude.rnf artifactArn
-      `Prelude.seq` Prelude.rnf artifactName
-      `Prelude.seq` Prelude.rnf artifactType
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf source
+    Prelude.rnf artifactArn `Prelude.seq`
+      Prelude.rnf artifactName `Prelude.seq`
+        Prelude.rnf artifactType `Prelude.seq`
+          Prelude.rnf creationTime `Prelude.seq`
+            Prelude.rnf lastModifiedTime `Prelude.seq`
+              Prelude.rnf source

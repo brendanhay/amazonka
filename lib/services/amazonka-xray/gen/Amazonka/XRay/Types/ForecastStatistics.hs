@@ -82,5 +82,5 @@ instance Prelude.Hashable ForecastStatistics where
 
 instance Prelude.NFData ForecastStatistics where
   rnf ForecastStatistics' {..} =
-    Prelude.rnf faultCountHigh
-      `Prelude.seq` Prelude.rnf faultCountLow
+    Prelude.rnf faultCountHigh `Prelude.seq`
+      Prelude.rnf faultCountLow

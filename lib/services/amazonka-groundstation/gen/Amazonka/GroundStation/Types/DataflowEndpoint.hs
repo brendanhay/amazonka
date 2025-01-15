@@ -104,10 +104,10 @@ instance Prelude.Hashable DataflowEndpoint where
 
 instance Prelude.NFData DataflowEndpoint where
   rnf DataflowEndpoint' {..} =
-    Prelude.rnf address
-      `Prelude.seq` Prelude.rnf mtu
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf address `Prelude.seq`
+      Prelude.rnf mtu `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf status
 
 instance Data.ToJSON DataflowEndpoint where
   toJSON DataflowEndpoint' {..} =

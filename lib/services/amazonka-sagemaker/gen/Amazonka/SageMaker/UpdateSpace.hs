@@ -119,9 +119,9 @@ instance Prelude.Hashable UpdateSpace where
 
 instance Prelude.NFData UpdateSpace where
   rnf UpdateSpace' {..} =
-    Prelude.rnf spaceSettings
-      `Prelude.seq` Prelude.rnf domainId
-      `Prelude.seq` Prelude.rnf spaceName
+    Prelude.rnf spaceSettings `Prelude.seq`
+      Prelude.rnf domainId `Prelude.seq`
+        Prelude.rnf spaceName
 
 instance Data.ToHeaders UpdateSpace where
   toHeaders =
@@ -192,5 +192,5 @@ updateSpaceResponse_httpStatus = Lens.lens (\UpdateSpaceResponse' {httpStatus} -
 
 instance Prelude.NFData UpdateSpaceResponse where
   rnf UpdateSpaceResponse' {..} =
-    Prelude.rnf spaceArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf spaceArn `Prelude.seq`
+      Prelude.rnf httpStatus

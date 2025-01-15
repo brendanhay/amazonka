@@ -145,9 +145,9 @@ instance Prelude.Hashable DestinationFieldProperties where
 
 instance Prelude.NFData DestinationFieldProperties where
   rnf DestinationFieldProperties' {..} =
-    Prelude.rnf isCreatable
-      `Prelude.seq` Prelude.rnf isDefaultedOnCreate
-      `Prelude.seq` Prelude.rnf isNullable
-      `Prelude.seq` Prelude.rnf isUpdatable
-      `Prelude.seq` Prelude.rnf isUpsertable
-      `Prelude.seq` Prelude.rnf supportedWriteOperations
+    Prelude.rnf isCreatable `Prelude.seq`
+      Prelude.rnf isDefaultedOnCreate `Prelude.seq`
+        Prelude.rnf isNullable `Prelude.seq`
+          Prelude.rnf isUpdatable `Prelude.seq`
+            Prelude.rnf isUpsertable `Prelude.seq`
+              Prelude.rnf supportedWriteOperations

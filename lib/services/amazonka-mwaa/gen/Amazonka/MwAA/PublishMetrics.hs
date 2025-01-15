@@ -114,8 +114,8 @@ instance Prelude.Hashable PublishMetrics where
 
 instance Prelude.NFData PublishMetrics where
   rnf PublishMetrics' {..} =
-    Prelude.rnf environmentName
-      `Prelude.seq` Prelude.rnf metricData
+    Prelude.rnf environmentName `Prelude.seq`
+      Prelude.rnf metricData
 
 instance Data.ToHeaders PublishMetrics where
   toHeaders =

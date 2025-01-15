@@ -93,8 +93,8 @@ instance Prelude.Hashable OptimizationObjective where
 
 instance Prelude.NFData OptimizationObjective where
   rnf OptimizationObjective' {..} =
-    Prelude.rnf itemAttribute
-      `Prelude.seq` Prelude.rnf objectiveSensitivity
+    Prelude.rnf itemAttribute `Prelude.seq`
+      Prelude.rnf objectiveSensitivity
 
 instance Data.ToJSON OptimizationObjective where
   toJSON OptimizationObjective' {..} =

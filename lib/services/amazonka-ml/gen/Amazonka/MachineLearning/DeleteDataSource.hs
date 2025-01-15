@@ -176,5 +176,5 @@ deleteDataSourceResponse_httpStatus = Lens.lens (\DeleteDataSourceResponse' {htt
 
 instance Prelude.NFData DeleteDataSourceResponse where
   rnf DeleteDataSourceResponse' {..} =
-    Prelude.rnf dataSourceId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dataSourceId `Prelude.seq`
+      Prelude.rnf httpStatus

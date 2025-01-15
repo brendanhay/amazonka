@@ -129,8 +129,8 @@ instance
     ServiceObservabilityConfiguration
   where
   rnf ServiceObservabilityConfiguration' {..} =
-    Prelude.rnf observabilityConfigurationArn
-      `Prelude.seq` Prelude.rnf observabilityEnabled
+    Prelude.rnf observabilityConfigurationArn `Prelude.seq`
+      Prelude.rnf observabilityEnabled
 
 instance
   Data.ToJSON

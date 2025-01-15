@@ -296,12 +296,12 @@ instance Core.AWSPager DescribeEvents where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeEvents_marker
-          Lens..~ rs
-          Lens.^? describeEventsResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeEvents_marker
+              Lens..~ rs
+              Lens.^? describeEventsResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeEvents where
   type
@@ -314,9 +314,7 @@ instance Core.AWSRequest DescribeEvents where
       "DescribeEventsResult"
       ( \s h x ->
           DescribeEventsResponse'
-            Prelude.<$> ( x
-                            Data..@? "Events"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "Events" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "Event")
                         )
             Prelude.<*> (x Data..@? "Marker")
@@ -338,15 +336,15 @@ instance Prelude.Hashable DescribeEvents where
 
 instance Prelude.NFData DescribeEvents where
   rnf DescribeEvents' {..} =
-    Prelude.rnf duration
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf eventCategories
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf sourceIdentifier
-      `Prelude.seq` Prelude.rnf sourceType
-      `Prelude.seq` Prelude.rnf startTime
+    Prelude.rnf duration `Prelude.seq`
+      Prelude.rnf endTime `Prelude.seq`
+        Prelude.rnf eventCategories `Prelude.seq`
+          Prelude.rnf filters `Prelude.seq`
+            Prelude.rnf marker `Prelude.seq`
+              Prelude.rnf maxRecords `Prelude.seq`
+                Prelude.rnf sourceIdentifier `Prelude.seq`
+                  Prelude.rnf sourceType `Prelude.seq`
+                    Prelude.rnf startTime
 
 instance Data.ToHeaders DescribeEvents where
   toHeaders = Prelude.const Prelude.mempty
@@ -433,6 +431,6 @@ describeEventsResponse_httpStatus = Lens.lens (\DescribeEventsResponse' {httpSta
 
 instance Prelude.NFData DescribeEventsResponse where
   rnf DescribeEventsResponse' {..} =
-    Prelude.rnf events
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf events `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf httpStatus

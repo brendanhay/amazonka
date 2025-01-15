@@ -177,12 +177,12 @@ instance Prelude.Hashable UpdateModelVersion where
 
 instance Prelude.NFData UpdateModelVersion where
   rnf UpdateModelVersion' {..} =
-    Prelude.rnf externalEventsDetail
-      `Prelude.seq` Prelude.rnf ingestedEventsDetail
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf modelId
-      `Prelude.seq` Prelude.rnf modelType
-      `Prelude.seq` Prelude.rnf majorVersionNumber
+    Prelude.rnf externalEventsDetail `Prelude.seq`
+      Prelude.rnf ingestedEventsDetail `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf modelId `Prelude.seq`
+            Prelude.rnf modelType `Prelude.seq`
+              Prelude.rnf majorVersionNumber
 
 instance Data.ToHeaders UpdateModelVersion where
   toHeaders =
@@ -289,8 +289,8 @@ updateModelVersionResponse_httpStatus = Lens.lens (\UpdateModelVersionResponse' 
 
 instance Prelude.NFData UpdateModelVersionResponse where
   rnf UpdateModelVersionResponse' {..} =
-    Prelude.rnf modelId
-      `Prelude.seq` Prelude.rnf modelType
-      `Prelude.seq` Prelude.rnf modelVersionNumber
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf modelId `Prelude.seq`
+      Prelude.rnf modelType `Prelude.seq`
+        Prelude.rnf modelVersionNumber `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf httpStatus

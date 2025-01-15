@@ -136,9 +136,9 @@ instance Prelude.Hashable DeleteStream where
 
 instance Prelude.NFData DeleteStream where
   rnf DeleteStream' {..} =
-    Prelude.rnf enforceConsumerDeletion
-      `Prelude.seq` Prelude.rnf streamARN
-      `Prelude.seq` Prelude.rnf streamName
+    Prelude.rnf enforceConsumerDeletion `Prelude.seq`
+      Prelude.rnf streamARN `Prelude.seq`
+        Prelude.rnf streamName
 
 instance Data.ToHeaders DeleteStream where
   toHeaders =

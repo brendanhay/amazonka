@@ -144,9 +144,9 @@ instance Prelude.Hashable GetDownloadUrlForLayer where
 
 instance Prelude.NFData GetDownloadUrlForLayer where
   rnf GetDownloadUrlForLayer' {..} =
-    Prelude.rnf registryId
-      `Prelude.seq` Prelude.rnf repositoryName
-      `Prelude.seq` Prelude.rnf layerDigest
+    Prelude.rnf registryId `Prelude.seq`
+      Prelude.rnf repositoryName `Prelude.seq`
+        Prelude.rnf layerDigest
 
 instance Data.ToHeaders GetDownloadUrlForLayer where
   toHeaders =
@@ -233,6 +233,6 @@ instance
     GetDownloadUrlForLayerResponse
   where
   rnf GetDownloadUrlForLayerResponse' {..} =
-    Prelude.rnf downloadUrl
-      `Prelude.seq` Prelude.rnf layerDigest
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf downloadUrl `Prelude.seq`
+      Prelude.rnf layerDigest `Prelude.seq`
+        Prelude.rnf httpStatus

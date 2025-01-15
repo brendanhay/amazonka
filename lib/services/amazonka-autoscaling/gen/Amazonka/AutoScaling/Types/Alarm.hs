@@ -76,5 +76,5 @@ instance Prelude.Hashable Alarm where
 
 instance Prelude.NFData Alarm where
   rnf Alarm' {..} =
-    Prelude.rnf alarmARN
-      `Prelude.seq` Prelude.rnf alarmName
+    Prelude.rnf alarmARN `Prelude.seq`
+      Prelude.rnf alarmName

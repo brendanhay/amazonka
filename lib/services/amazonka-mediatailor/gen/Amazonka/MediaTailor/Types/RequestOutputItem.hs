@@ -103,10 +103,10 @@ instance Prelude.Hashable RequestOutputItem where
 
 instance Prelude.NFData RequestOutputItem where
   rnf RequestOutputItem' {..} =
-    Prelude.rnf dashPlaylistSettings
-      `Prelude.seq` Prelude.rnf hlsPlaylistSettings
-      `Prelude.seq` Prelude.rnf manifestName
-      `Prelude.seq` Prelude.rnf sourceGroup
+    Prelude.rnf dashPlaylistSettings `Prelude.seq`
+      Prelude.rnf hlsPlaylistSettings `Prelude.seq`
+        Prelude.rnf manifestName `Prelude.seq`
+          Prelude.rnf sourceGroup
 
 instance Data.ToJSON RequestOutputItem where
   toJSON RequestOutputItem' {..} =

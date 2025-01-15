@@ -122,9 +122,7 @@ instance Core.AWSRequest RegisterDBProxyTargets where
       "RegisterDBProxyTargetsResult"
       ( \s h x ->
           RegisterDBProxyTargetsResponse'
-            Prelude.<$> ( x
-                            Data..@? "DBProxyTargets"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "DBProxyTargets" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -140,10 +138,10 @@ instance Prelude.Hashable RegisterDBProxyTargets where
 
 instance Prelude.NFData RegisterDBProxyTargets where
   rnf RegisterDBProxyTargets' {..} =
-    Prelude.rnf dbClusterIdentifiers
-      `Prelude.seq` Prelude.rnf dbInstanceIdentifiers
-      `Prelude.seq` Prelude.rnf targetGroupName
-      `Prelude.seq` Prelude.rnf dbProxyName
+    Prelude.rnf dbClusterIdentifiers `Prelude.seq`
+      Prelude.rnf dbInstanceIdentifiers `Prelude.seq`
+        Prelude.rnf targetGroupName `Prelude.seq`
+          Prelude.rnf dbProxyName
 
 instance Data.ToHeaders RegisterDBProxyTargets where
   toHeaders = Prelude.const Prelude.mempty
@@ -219,5 +217,5 @@ instance
     RegisterDBProxyTargetsResponse
   where
   rnf RegisterDBProxyTargetsResponse' {..} =
-    Prelude.rnf dbProxyTargets
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dbProxyTargets `Prelude.seq`
+      Prelude.rnf httpStatus

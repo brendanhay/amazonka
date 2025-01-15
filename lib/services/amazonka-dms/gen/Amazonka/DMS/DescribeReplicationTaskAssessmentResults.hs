@@ -159,12 +159,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeReplicationTaskAssessmentResults_marker
-          Lens..~ rs
-          Lens.^? describeReplicationTaskAssessmentResultsResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeReplicationTaskAssessmentResults_marker
+              Lens..~ rs
+              Lens.^? describeReplicationTaskAssessmentResultsResponse_marker
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -206,9 +206,9 @@ instance
     DescribeReplicationTaskAssessmentResults
   where
   rnf DescribeReplicationTaskAssessmentResults' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf replicationTaskArn
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf maxRecords `Prelude.seq`
+        Prelude.rnf replicationTaskArn
 
 instance
   Data.ToHeaders
@@ -327,7 +327,7 @@ instance
   where
   rnf
     DescribeReplicationTaskAssessmentResultsResponse' {..} =
-      Prelude.rnf bucketName
-        `Prelude.seq` Prelude.rnf marker
-        `Prelude.seq` Prelude.rnf replicationTaskAssessmentResults
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf bucketName `Prelude.seq`
+        Prelude.rnf marker `Prelude.seq`
+          Prelude.rnf replicationTaskAssessmentResults `Prelude.seq`
+            Prelude.rnf httpStatus

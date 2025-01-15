@@ -123,9 +123,7 @@ originAccessControlList_quantity = Lens.lens (\OriginAccessControlList' {quantit
 instance Data.FromXML OriginAccessControlList where
   parseXML x =
     OriginAccessControlList'
-      Prelude.<$> ( x
-                      Data..@? "Items"
-                      Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "Items" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
                         (Data.parseXMLList "OriginAccessControlSummary")
                   )
@@ -147,9 +145,9 @@ instance Prelude.Hashable OriginAccessControlList where
 
 instance Prelude.NFData OriginAccessControlList where
   rnf OriginAccessControlList' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxItems
-      `Prelude.seq` Prelude.rnf isTruncated
-      `Prelude.seq` Prelude.rnf quantity
+    Prelude.rnf items `Prelude.seq`
+      Prelude.rnf nextMarker `Prelude.seq`
+        Prelude.rnf marker `Prelude.seq`
+          Prelude.rnf maxItems `Prelude.seq`
+            Prelude.rnf isTruncated `Prelude.seq`
+              Prelude.rnf quantity

@@ -204,9 +204,9 @@ instance Prelude.Hashable UpdateXssMatchSet where
 
 instance Prelude.NFData UpdateXssMatchSet where
   rnf UpdateXssMatchSet' {..} =
-    Prelude.rnf xssMatchSetId
-      `Prelude.seq` Prelude.rnf changeToken
-      `Prelude.seq` Prelude.rnf updates
+    Prelude.rnf xssMatchSetId `Prelude.seq`
+      Prelude.rnf changeToken `Prelude.seq`
+        Prelude.rnf updates
 
 instance Data.ToHeaders UpdateXssMatchSet where
   toHeaders =
@@ -289,5 +289,5 @@ updateXssMatchSetResponse_httpStatus = Lens.lens (\UpdateXssMatchSetResponse' {h
 
 instance Prelude.NFData UpdateXssMatchSetResponse where
   rnf UpdateXssMatchSetResponse' {..} =
-    Prelude.rnf changeToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf changeToken `Prelude.seq`
+      Prelude.rnf httpStatus

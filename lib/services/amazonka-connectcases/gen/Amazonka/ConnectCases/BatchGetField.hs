@@ -113,8 +113,8 @@ instance Prelude.Hashable BatchGetField where
 
 instance Prelude.NFData BatchGetField where
   rnf BatchGetField' {..} =
-    Prelude.rnf domainId
-      `Prelude.seq` Prelude.rnf fields
+    Prelude.rnf domainId `Prelude.seq`
+      Prelude.rnf fields
 
 instance Data.ToHeaders BatchGetField where
   toHeaders =
@@ -191,6 +191,6 @@ batchGetFieldResponse_fields = Lens.lens (\BatchGetFieldResponse' {fields} -> fi
 
 instance Prelude.NFData BatchGetFieldResponse where
   rnf BatchGetFieldResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf errors
-      `Prelude.seq` Prelude.rnf fields
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf errors `Prelude.seq`
+        Prelude.rnf fields

@@ -131,9 +131,9 @@ instance Prelude.Hashable DomainSummary where
 
 instance Prelude.NFData DomainSummary where
   rnf DomainSummary' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf encryptionKey
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf owner
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf createdTime `Prelude.seq`
+        Prelude.rnf encryptionKey `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf owner `Prelude.seq`
+              Prelude.rnf status

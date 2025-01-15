@@ -102,6 +102,6 @@ instance Prelude.Hashable EgressEndpoint where
 
 instance Prelude.NFData EgressEndpoint where
   rnf EgressEndpoint' {..} =
-    Prelude.rnf packagingConfigurationId
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf url
+    Prelude.rnf packagingConfigurationId `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf url

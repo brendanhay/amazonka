@@ -206,12 +206,12 @@ instance Prelude.Hashable TerminateProvisionedProduct where
 
 instance Prelude.NFData TerminateProvisionedProduct where
   rnf TerminateProvisionedProduct' {..} =
-    Prelude.rnf acceptLanguage
-      `Prelude.seq` Prelude.rnf ignoreErrors
-      `Prelude.seq` Prelude.rnf provisionedProductId
-      `Prelude.seq` Prelude.rnf provisionedProductName
-      `Prelude.seq` Prelude.rnf retainPhysicalResources
-      `Prelude.seq` Prelude.rnf terminateToken
+    Prelude.rnf acceptLanguage `Prelude.seq`
+      Prelude.rnf ignoreErrors `Prelude.seq`
+        Prelude.rnf provisionedProductId `Prelude.seq`
+          Prelude.rnf provisionedProductName `Prelude.seq`
+            Prelude.rnf retainPhysicalResources `Prelude.seq`
+              Prelude.rnf terminateToken
 
 instance Data.ToHeaders TerminateProvisionedProduct where
   toHeaders =
@@ -296,5 +296,5 @@ instance
     TerminateProvisionedProductResponse
   where
   rnf TerminateProvisionedProductResponse' {..} =
-    Prelude.rnf recordDetail
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf recordDetail `Prelude.seq`
+      Prelude.rnf httpStatus

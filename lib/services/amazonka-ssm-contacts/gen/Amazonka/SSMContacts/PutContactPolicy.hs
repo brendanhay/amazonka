@@ -112,8 +112,8 @@ instance Prelude.Hashable PutContactPolicy where
 
 instance Prelude.NFData PutContactPolicy where
   rnf PutContactPolicy' {..} =
-    Prelude.rnf contactArn
-      `Prelude.seq` Prelude.rnf policy
+    Prelude.rnf contactArn `Prelude.seq`
+      Prelude.rnf policy
 
 instance Data.ToHeaders PutContactPolicy where
   toHeaders =

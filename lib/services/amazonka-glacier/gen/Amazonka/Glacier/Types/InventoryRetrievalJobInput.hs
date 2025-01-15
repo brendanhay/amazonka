@@ -118,10 +118,10 @@ instance Prelude.Hashable InventoryRetrievalJobInput where
 
 instance Prelude.NFData InventoryRetrievalJobInput where
   rnf InventoryRetrievalJobInput' {..} =
-    Prelude.rnf endDate
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf startDate
+    Prelude.rnf endDate `Prelude.seq`
+      Prelude.rnf limit `Prelude.seq`
+        Prelude.rnf marker `Prelude.seq`
+          Prelude.rnf startDate
 
 instance Data.ToJSON InventoryRetrievalJobInput where
   toJSON InventoryRetrievalJobInput' {..} =

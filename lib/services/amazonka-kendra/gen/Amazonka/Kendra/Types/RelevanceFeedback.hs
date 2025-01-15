@@ -80,8 +80,8 @@ instance Prelude.Hashable RelevanceFeedback where
 
 instance Prelude.NFData RelevanceFeedback where
   rnf RelevanceFeedback' {..} =
-    Prelude.rnf resultId
-      `Prelude.seq` Prelude.rnf relevanceValue
+    Prelude.rnf resultId `Prelude.seq`
+      Prelude.rnf relevanceValue
 
 instance Data.ToJSON RelevanceFeedback where
   toJSON RelevanceFeedback' {..} =

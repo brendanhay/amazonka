@@ -120,7 +120,7 @@ instance Prelude.Hashable WorkforceVpcConfigResponse where
 
 instance Prelude.NFData WorkforceVpcConfigResponse where
   rnf WorkforceVpcConfigResponse' {..} =
-    Prelude.rnf vpcEndpointId
-      `Prelude.seq` Prelude.rnf vpcId
-      `Prelude.seq` Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf subnets
+    Prelude.rnf vpcEndpointId `Prelude.seq`
+      Prelude.rnf vpcId `Prelude.seq`
+        Prelude.rnf securityGroupIds `Prelude.seq`
+          Prelude.rnf subnets

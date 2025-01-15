@@ -166,5 +166,5 @@ instance
     StartDetectorModelAnalysisResponse
   where
   rnf StartDetectorModelAnalysisResponse' {..} =
-    Prelude.rnf analysisId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf analysisId `Prelude.seq`
+      Prelude.rnf httpStatus

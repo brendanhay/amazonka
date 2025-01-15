@@ -166,11 +166,11 @@ instance Prelude.Hashable PutApprovalResult where
 
 instance Prelude.NFData PutApprovalResult where
   rnf PutApprovalResult' {..} =
-    Prelude.rnf pipelineName
-      `Prelude.seq` Prelude.rnf stageName
-      `Prelude.seq` Prelude.rnf actionName
-      `Prelude.seq` Prelude.rnf result
-      `Prelude.seq` Prelude.rnf token
+    Prelude.rnf pipelineName `Prelude.seq`
+      Prelude.rnf stageName `Prelude.seq`
+        Prelude.rnf actionName `Prelude.seq`
+          Prelude.rnf result `Prelude.seq`
+            Prelude.rnf token
 
 instance Data.ToHeaders PutApprovalResult where
   toHeaders =
@@ -248,5 +248,5 @@ putApprovalResultResponse_httpStatus = Lens.lens (\PutApprovalResultResponse' {h
 
 instance Prelude.NFData PutApprovalResultResponse where
   rnf PutApprovalResultResponse' {..} =
-    Prelude.rnf approvedAt
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf approvedAt `Prelude.seq`
+      Prelude.rnf httpStatus

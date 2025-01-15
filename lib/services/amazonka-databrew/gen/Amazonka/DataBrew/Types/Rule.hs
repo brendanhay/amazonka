@@ -206,12 +206,12 @@ instance Prelude.Hashable Rule where
 
 instance Prelude.NFData Rule where
   rnf Rule' {..} =
-    Prelude.rnf columnSelectors
-      `Prelude.seq` Prelude.rnf disabled
-      `Prelude.seq` Prelude.rnf substitutionMap
-      `Prelude.seq` Prelude.rnf threshold
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf checkExpression
+    Prelude.rnf columnSelectors `Prelude.seq`
+      Prelude.rnf disabled `Prelude.seq`
+        Prelude.rnf substitutionMap `Prelude.seq`
+          Prelude.rnf threshold `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf checkExpression
 
 instance Data.ToJSON Rule where
   toJSON Rule' {..} =

@@ -150,9 +150,9 @@ instance Prelude.Hashable AutoScalingGroupProvider where
 
 instance Prelude.NFData AutoScalingGroupProvider where
   rnf AutoScalingGroupProvider' {..} =
-    Prelude.rnf managedScaling
-      `Prelude.seq` Prelude.rnf managedTerminationProtection
-      `Prelude.seq` Prelude.rnf autoScalingGroupArn
+    Prelude.rnf managedScaling `Prelude.seq`
+      Prelude.rnf managedTerminationProtection `Prelude.seq`
+        Prelude.rnf autoScalingGroupArn
 
 instance Data.ToJSON AutoScalingGroupProvider where
   toJSON AutoScalingGroupProvider' {..} =

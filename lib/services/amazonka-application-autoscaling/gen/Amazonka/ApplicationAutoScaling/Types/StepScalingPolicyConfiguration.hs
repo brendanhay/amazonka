@@ -357,11 +357,11 @@ instance
     StepScalingPolicyConfiguration
   where
   rnf StepScalingPolicyConfiguration' {..} =
-    Prelude.rnf adjustmentType
-      `Prelude.seq` Prelude.rnf cooldown
-      `Prelude.seq` Prelude.rnf metricAggregationType
-      `Prelude.seq` Prelude.rnf minAdjustmentMagnitude
-      `Prelude.seq` Prelude.rnf stepAdjustments
+    Prelude.rnf adjustmentType `Prelude.seq`
+      Prelude.rnf cooldown `Prelude.seq`
+        Prelude.rnf metricAggregationType `Prelude.seq`
+          Prelude.rnf minAdjustmentMagnitude `Prelude.seq`
+            Prelude.rnf stepAdjustments
 
 instance Data.ToJSON StepScalingPolicyConfiguration where
   toJSON StepScalingPolicyConfiguration' {..} =

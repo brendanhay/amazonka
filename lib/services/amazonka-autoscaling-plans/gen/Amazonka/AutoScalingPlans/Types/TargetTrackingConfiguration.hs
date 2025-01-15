@@ -232,13 +232,13 @@ instance Prelude.Hashable TargetTrackingConfiguration where
 
 instance Prelude.NFData TargetTrackingConfiguration where
   rnf TargetTrackingConfiguration' {..} =
-    Prelude.rnf customizedScalingMetricSpecification
-      `Prelude.seq` Prelude.rnf disableScaleIn
-      `Prelude.seq` Prelude.rnf estimatedInstanceWarmup
-      `Prelude.seq` Prelude.rnf predefinedScalingMetricSpecification
-      `Prelude.seq` Prelude.rnf scaleInCooldown
-      `Prelude.seq` Prelude.rnf scaleOutCooldown
-      `Prelude.seq` Prelude.rnf targetValue
+    Prelude.rnf customizedScalingMetricSpecification `Prelude.seq`
+      Prelude.rnf disableScaleIn `Prelude.seq`
+        Prelude.rnf estimatedInstanceWarmup `Prelude.seq`
+          Prelude.rnf predefinedScalingMetricSpecification `Prelude.seq`
+            Prelude.rnf scaleInCooldown `Prelude.seq`
+              Prelude.rnf scaleOutCooldown `Prelude.seq`
+                Prelude.rnf targetValue
 
 instance Data.ToJSON TargetTrackingConfiguration where
   toJSON TargetTrackingConfiguration' {..} =

@@ -109,7 +109,7 @@ instance Prelude.Hashable LendingDetection where
 
 instance Prelude.NFData LendingDetection where
   rnf LendingDetection' {..} =
-    Prelude.rnf confidence
-      `Prelude.seq` Prelude.rnf geometry
-      `Prelude.seq` Prelude.rnf selectionStatus
-      `Prelude.seq` Prelude.rnf text
+    Prelude.rnf confidence `Prelude.seq`
+      Prelude.rnf geometry `Prelude.seq`
+        Prelude.rnf selectionStatus `Prelude.seq`
+          Prelude.rnf text

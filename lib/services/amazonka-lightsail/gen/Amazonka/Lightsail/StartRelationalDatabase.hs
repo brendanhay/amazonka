@@ -187,5 +187,5 @@ instance
     StartRelationalDatabaseResponse
   where
   rnf StartRelationalDatabaseResponse' {..} =
-    Prelude.rnf operations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operations `Prelude.seq`
+      Prelude.rnf httpStatus

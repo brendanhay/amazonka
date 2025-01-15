@@ -89,5 +89,5 @@ instance Prelude.Hashable EnabledServicePrincipal where
 
 instance Prelude.NFData EnabledServicePrincipal where
   rnf EnabledServicePrincipal' {..} =
-    Prelude.rnf dateEnabled
-      `Prelude.seq` Prelude.rnf servicePrincipal
+    Prelude.rnf dateEnabled `Prelude.seq`
+      Prelude.rnf servicePrincipal

@@ -145,10 +145,10 @@ instance Prelude.Hashable GetCommentReactions where
 
 instance Prelude.NFData GetCommentReactions where
   rnf GetCommentReactions' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf reactionUserArn
-      `Prelude.seq` Prelude.rnf commentId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf reactionUserArn `Prelude.seq`
+          Prelude.rnf commentId
 
 instance Data.ToHeaders GetCommentReactions where
   toHeaders =
@@ -236,6 +236,6 @@ getCommentReactionsResponse_reactionsForComment = Lens.lens (\GetCommentReaction
 
 instance Prelude.NFData GetCommentReactionsResponse where
   rnf GetCommentReactionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf reactionsForComment
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf reactionsForComment

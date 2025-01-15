@@ -127,8 +127,8 @@ instance Prelude.Hashable RevealConfiguration where
 
 instance Prelude.NFData RevealConfiguration where
   rnf RevealConfiguration' {..} =
-    Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf kmsKeyId `Prelude.seq`
+      Prelude.rnf status
 
 instance Data.ToJSON RevealConfiguration where
   toJSON RevealConfiguration' {..} =

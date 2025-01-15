@@ -109,9 +109,9 @@ instance Prelude.Hashable GitConfig where
 
 instance Prelude.NFData GitConfig where
   rnf GitConfig' {..} =
-    Prelude.rnf branch
-      `Prelude.seq` Prelude.rnf secretArn
-      `Prelude.seq` Prelude.rnf repositoryUrl
+    Prelude.rnf branch `Prelude.seq`
+      Prelude.rnf secretArn `Prelude.seq`
+        Prelude.rnf repositoryUrl
 
 instance Data.ToJSON GitConfig where
   toJSON GitConfig' {..} =

@@ -81,8 +81,8 @@ instance Prelude.Hashable EmailSettings where
 
 instance Prelude.NFData EmailSettings where
   rnf EmailSettings' {..} =
-    Prelude.rnf emailMessage
-      `Prelude.seq` Prelude.rnf emailSubject
+    Prelude.rnf emailMessage `Prelude.seq`
+      Prelude.rnf emailSubject
 
 instance Data.ToJSON EmailSettings where
   toJSON EmailSettings' {..} =

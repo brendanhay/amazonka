@@ -105,6 +105,6 @@ instance Prelude.Hashable OptOutListInformation where
 
 instance Prelude.NFData OptOutListInformation where
   rnf OptOutListInformation' {..} =
-    Prelude.rnf optOutListArn
-      `Prelude.seq` Prelude.rnf optOutListName
-      `Prelude.seq` Prelude.rnf createdTimestamp
+    Prelude.rnf optOutListArn `Prelude.seq`
+      Prelude.rnf optOutListName `Prelude.seq`
+        Prelude.rnf createdTimestamp

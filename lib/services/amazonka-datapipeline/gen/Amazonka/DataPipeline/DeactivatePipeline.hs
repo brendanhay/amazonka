@@ -119,8 +119,8 @@ instance Prelude.Hashable DeactivatePipeline where
 
 instance Prelude.NFData DeactivatePipeline where
   rnf DeactivatePipeline' {..} =
-    Prelude.rnf cancelActive
-      `Prelude.seq` Prelude.rnf pipelineId
+    Prelude.rnf cancelActive `Prelude.seq`
+      Prelude.rnf pipelineId
 
 instance Data.ToHeaders DeactivatePipeline where
   toHeaders =

@@ -95,9 +95,9 @@ instance Prelude.Hashable FormatConfiguration where
 
 instance Prelude.NFData FormatConfiguration where
   rnf FormatConfiguration' {..} =
-    Prelude.rnf dateTimeFormatConfiguration
-      `Prelude.seq` Prelude.rnf numberFormatConfiguration
-      `Prelude.seq` Prelude.rnf stringFormatConfiguration
+    Prelude.rnf dateTimeFormatConfiguration `Prelude.seq`
+      Prelude.rnf numberFormatConfiguration `Prelude.seq`
+        Prelude.rnf stringFormatConfiguration
 
 instance Data.ToJSON FormatConfiguration where
   toJSON FormatConfiguration' {..} =

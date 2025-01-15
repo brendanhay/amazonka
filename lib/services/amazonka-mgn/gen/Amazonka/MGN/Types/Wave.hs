@@ -156,12 +156,12 @@ instance Prelude.Hashable Wave where
 
 instance Prelude.NFData Wave where
   rnf Wave' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf isArchived
-      `Prelude.seq` Prelude.rnf lastModifiedDateTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf waveAggregatedStatus
-      `Prelude.seq` Prelude.rnf waveID
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf creationDateTime `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf isArchived `Prelude.seq`
+            Prelude.rnf lastModifiedDateTime `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf tags `Prelude.seq`
+                  Prelude.rnf waveAggregatedStatus `Prelude.seq`
+                    Prelude.rnf waveID

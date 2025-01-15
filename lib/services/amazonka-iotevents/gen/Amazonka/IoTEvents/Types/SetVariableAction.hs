@@ -84,8 +84,8 @@ instance Prelude.Hashable SetVariableAction where
 
 instance Prelude.NFData SetVariableAction where
   rnf SetVariableAction' {..} =
-    Prelude.rnf variableName
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf variableName `Prelude.seq`
+      Prelude.rnf value
 
 instance Data.ToJSON SetVariableAction where
   toJSON SetVariableAction' {..} =

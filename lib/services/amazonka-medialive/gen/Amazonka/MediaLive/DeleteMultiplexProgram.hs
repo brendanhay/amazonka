@@ -124,8 +124,8 @@ instance Prelude.Hashable DeleteMultiplexProgram where
 
 instance Prelude.NFData DeleteMultiplexProgram where
   rnf DeleteMultiplexProgram' {..} =
-    Prelude.rnf multiplexId
-      `Prelude.seq` Prelude.rnf programName
+    Prelude.rnf multiplexId `Prelude.seq`
+      Prelude.rnf programName
 
 instance Data.ToHeaders DeleteMultiplexProgram where
   toHeaders =
@@ -244,9 +244,9 @@ instance
     DeleteMultiplexProgramResponse
   where
   rnf DeleteMultiplexProgramResponse' {..} =
-    Prelude.rnf channelId
-      `Prelude.seq` Prelude.rnf multiplexProgramSettings
-      `Prelude.seq` Prelude.rnf packetIdentifiersMap
-      `Prelude.seq` Prelude.rnf pipelineDetails
-      `Prelude.seq` Prelude.rnf programName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf channelId `Prelude.seq`
+      Prelude.rnf multiplexProgramSettings `Prelude.seq`
+        Prelude.rnf packetIdentifiersMap `Prelude.seq`
+          Prelude.rnf pipelineDetails `Prelude.seq`
+            Prelude.rnf programName `Prelude.seq`
+              Prelude.rnf httpStatus

@@ -81,5 +81,5 @@ instance Prelude.Hashable RepositoryNameIdPair where
 
 instance Prelude.NFData RepositoryNameIdPair where
   rnf RepositoryNameIdPair' {..} =
-    Prelude.rnf repositoryId
-      `Prelude.seq` Prelude.rnf repositoryName
+    Prelude.rnf repositoryId `Prelude.seq`
+      Prelude.rnf repositoryName

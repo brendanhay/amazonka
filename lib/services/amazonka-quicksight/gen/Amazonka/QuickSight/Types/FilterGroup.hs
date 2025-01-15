@@ -158,11 +158,11 @@ instance Prelude.Hashable FilterGroup where
 
 instance Prelude.NFData FilterGroup where
   rnf FilterGroup' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf filterGroupId
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf scopeConfiguration
-      `Prelude.seq` Prelude.rnf crossDataset
+    Prelude.rnf status `Prelude.seq`
+      Prelude.rnf filterGroupId `Prelude.seq`
+        Prelude.rnf filters `Prelude.seq`
+          Prelude.rnf scopeConfiguration `Prelude.seq`
+            Prelude.rnf crossDataset
 
 instance Data.ToJSON FilterGroup where
   toJSON FilterGroup' {..} =

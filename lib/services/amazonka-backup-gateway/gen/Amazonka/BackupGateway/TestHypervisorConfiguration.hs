@@ -135,10 +135,10 @@ instance Prelude.Hashable TestHypervisorConfiguration where
 
 instance Prelude.NFData TestHypervisorConfiguration where
   rnf TestHypervisorConfiguration' {..} =
-    Prelude.rnf password
-      `Prelude.seq` Prelude.rnf username
-      `Prelude.seq` Prelude.rnf gatewayArn
-      `Prelude.seq` Prelude.rnf host
+    Prelude.rnf password `Prelude.seq`
+      Prelude.rnf username `Prelude.seq`
+        Prelude.rnf gatewayArn `Prelude.seq`
+          Prelude.rnf host
 
 instance Data.ToHeaders TestHypervisorConfiguration where
   toHeaders =

@@ -106,8 +106,8 @@ instance Prelude.Hashable ListInputs where
 
 instance Prelude.NFData ListInputs where
   rnf ListInputs' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListInputs where
   toHeaders = Prelude.const Prelude.mempty
@@ -175,6 +175,6 @@ listInputsResponse_httpStatus = Lens.lens (\ListInputsResponse' {httpStatus} -> 
 
 instance Prelude.NFData ListInputsResponse where
   rnf ListInputsResponse' {..} =
-    Prelude.rnf inputSummaries
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf inputSummaries `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

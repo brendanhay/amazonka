@@ -125,8 +125,8 @@ instance
   where
   rnf
     DisassociateConfigurationItemsFromApplication' {..} =
-      Prelude.rnf applicationConfigurationId
-        `Prelude.seq` Prelude.rnf configurationIds
+      Prelude.rnf applicationConfigurationId `Prelude.seq`
+        Prelude.rnf configurationIds
 
 instance
   Data.ToHeaders

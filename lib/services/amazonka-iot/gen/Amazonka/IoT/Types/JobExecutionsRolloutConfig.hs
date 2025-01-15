@@ -88,8 +88,8 @@ instance Prelude.Hashable JobExecutionsRolloutConfig where
 
 instance Prelude.NFData JobExecutionsRolloutConfig where
   rnf JobExecutionsRolloutConfig' {..} =
-    Prelude.rnf exponentialRate
-      `Prelude.seq` Prelude.rnf maximumPerMinute
+    Prelude.rnf exponentialRate `Prelude.seq`
+      Prelude.rnf maximumPerMinute
 
 instance Data.ToJSON JobExecutionsRolloutConfig where
   toJSON JobExecutionsRolloutConfig' {..} =

@@ -484,22 +484,22 @@ instance Prelude.Hashable CreateHIT where
 
 instance Prelude.NFData CreateHIT where
   rnf CreateHIT' {..} =
-    Prelude.rnf assignmentReviewPolicy
-      `Prelude.seq` Prelude.rnf autoApprovalDelayInSeconds
-      `Prelude.seq` Prelude.rnf hITLayoutId
-      `Prelude.seq` Prelude.rnf hITLayoutParameters
-      `Prelude.seq` Prelude.rnf hITReviewPolicy
-      `Prelude.seq` Prelude.rnf keywords
-      `Prelude.seq` Prelude.rnf maxAssignments
-      `Prelude.seq` Prelude.rnf qualificationRequirements
-      `Prelude.seq` Prelude.rnf question
-      `Prelude.seq` Prelude.rnf requesterAnnotation
-      `Prelude.seq` Prelude.rnf uniqueRequestToken
-      `Prelude.seq` Prelude.rnf lifetimeInSeconds
-      `Prelude.seq` Prelude.rnf assignmentDurationInSeconds
-      `Prelude.seq` Prelude.rnf reward
-      `Prelude.seq` Prelude.rnf title
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf assignmentReviewPolicy `Prelude.seq`
+      Prelude.rnf autoApprovalDelayInSeconds `Prelude.seq`
+        Prelude.rnf hITLayoutId `Prelude.seq`
+          Prelude.rnf hITLayoutParameters `Prelude.seq`
+            Prelude.rnf hITReviewPolicy `Prelude.seq`
+              Prelude.rnf keywords `Prelude.seq`
+                Prelude.rnf maxAssignments `Prelude.seq`
+                  Prelude.rnf qualificationRequirements `Prelude.seq`
+                    Prelude.rnf question `Prelude.seq`
+                      Prelude.rnf requesterAnnotation `Prelude.seq`
+                        Prelude.rnf uniqueRequestToken `Prelude.seq`
+                          Prelude.rnf lifetimeInSeconds `Prelude.seq`
+                            Prelude.rnf assignmentDurationInSeconds `Prelude.seq`
+                              Prelude.rnf reward `Prelude.seq`
+                                Prelude.rnf title `Prelude.seq`
+                                  Prelude.rnf description
 
 instance Data.ToHeaders CreateHIT where
   toHeaders =
@@ -603,5 +603,5 @@ createHITResponse_httpStatus = Lens.lens (\CreateHITResponse' {httpStatus} -> ht
 
 instance Prelude.NFData CreateHITResponse where
   rnf CreateHITResponse' {..} =
-    Prelude.rnf hit
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf hit `Prelude.seq`
+      Prelude.rnf httpStatus

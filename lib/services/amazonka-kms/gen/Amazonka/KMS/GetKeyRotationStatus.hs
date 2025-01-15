@@ -270,5 +270,5 @@ getKeyRotationStatusResponse_httpStatus = Lens.lens (\GetKeyRotationStatusRespon
 
 instance Prelude.NFData GetKeyRotationStatusResponse where
   rnf GetKeyRotationStatusResponse' {..} =
-    Prelude.rnf keyRotationEnabled
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf keyRotationEnabled `Prelude.seq`
+      Prelude.rnf httpStatus

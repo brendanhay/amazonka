@@ -485,12 +485,12 @@ instance Prelude.Hashable InitiateAuth where
 
 instance Prelude.NFData InitiateAuth where
   rnf InitiateAuth' {..} =
-    Prelude.rnf analyticsMetadata
-      `Prelude.seq` Prelude.rnf authParameters
-      `Prelude.seq` Prelude.rnf clientMetadata
-      `Prelude.seq` Prelude.rnf userContextData
-      `Prelude.seq` Prelude.rnf authFlow
-      `Prelude.seq` Prelude.rnf clientId
+    Prelude.rnf analyticsMetadata `Prelude.seq`
+      Prelude.rnf authParameters `Prelude.seq`
+        Prelude.rnf clientMetadata `Prelude.seq`
+          Prelude.rnf userContextData `Prelude.seq`
+            Prelude.rnf authFlow `Prelude.seq`
+              Prelude.rnf clientId
 
 instance Data.ToHeaders InitiateAuth where
   toHeaders =
@@ -795,8 +795,8 @@ initiateAuthResponse_httpStatus = Lens.lens (\InitiateAuthResponse' {httpStatus}
 
 instance Prelude.NFData InitiateAuthResponse where
   rnf InitiateAuthResponse' {..} =
-    Prelude.rnf authenticationResult
-      `Prelude.seq` Prelude.rnf challengeName
-      `Prelude.seq` Prelude.rnf challengeParameters
-      `Prelude.seq` Prelude.rnf session
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf authenticationResult `Prelude.seq`
+      Prelude.rnf challengeName `Prelude.seq`
+        Prelude.rnf challengeParameters `Prelude.seq`
+          Prelude.rnf session `Prelude.seq`
+            Prelude.rnf httpStatus

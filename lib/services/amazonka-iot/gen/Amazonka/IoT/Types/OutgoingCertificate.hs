@@ -125,9 +125,9 @@ instance Prelude.Hashable OutgoingCertificate where
 
 instance Prelude.NFData OutgoingCertificate where
   rnf OutgoingCertificate' {..} =
-    Prelude.rnf certificateArn
-      `Prelude.seq` Prelude.rnf certificateId
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf transferDate
-      `Prelude.seq` Prelude.rnf transferMessage
-      `Prelude.seq` Prelude.rnf transferredTo
+    Prelude.rnf certificateArn `Prelude.seq`
+      Prelude.rnf certificateId `Prelude.seq`
+        Prelude.rnf creationDate `Prelude.seq`
+          Prelude.rnf transferDate `Prelude.seq`
+            Prelude.rnf transferMessage `Prelude.seq`
+              Prelude.rnf transferredTo

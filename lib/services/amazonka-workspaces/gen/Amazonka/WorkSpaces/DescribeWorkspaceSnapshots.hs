@@ -194,6 +194,6 @@ instance
     DescribeWorkspaceSnapshotsResponse
   where
   rnf DescribeWorkspaceSnapshotsResponse' {..} =
-    Prelude.rnf rebuildSnapshots
-      `Prelude.seq` Prelude.rnf restoreSnapshots
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf rebuildSnapshots `Prelude.seq`
+      Prelude.rnf restoreSnapshots `Prelude.seq`
+        Prelude.rnf httpStatus

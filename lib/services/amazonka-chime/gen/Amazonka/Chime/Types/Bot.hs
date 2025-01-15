@@ -162,12 +162,12 @@ instance Prelude.Hashable Bot where
 
 instance Prelude.NFData Bot where
   rnf Bot' {..} =
-    Prelude.rnf botEmail
-      `Prelude.seq` Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf botType
-      `Prelude.seq` Prelude.rnf createdTimestamp
-      `Prelude.seq` Prelude.rnf disabled
-      `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf securityToken
-      `Prelude.seq` Prelude.rnf updatedTimestamp
-      `Prelude.seq` Prelude.rnf userId
+    Prelude.rnf botEmail `Prelude.seq`
+      Prelude.rnf botId `Prelude.seq`
+        Prelude.rnf botType `Prelude.seq`
+          Prelude.rnf createdTimestamp `Prelude.seq`
+            Prelude.rnf disabled `Prelude.seq`
+              Prelude.rnf displayName `Prelude.seq`
+                Prelude.rnf securityToken `Prelude.seq`
+                  Prelude.rnf updatedTimestamp `Prelude.seq`
+                    Prelude.rnf userId

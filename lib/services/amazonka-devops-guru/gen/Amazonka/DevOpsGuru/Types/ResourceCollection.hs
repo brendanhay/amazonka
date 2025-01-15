@@ -194,8 +194,8 @@ instance Prelude.Hashable ResourceCollection where
 
 instance Prelude.NFData ResourceCollection where
   rnf ResourceCollection' {..} =
-    Prelude.rnf cloudFormation
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf cloudFormation `Prelude.seq`
+      Prelude.rnf tags
 
 instance Data.ToJSON ResourceCollection where
   toJSON ResourceCollection' {..} =

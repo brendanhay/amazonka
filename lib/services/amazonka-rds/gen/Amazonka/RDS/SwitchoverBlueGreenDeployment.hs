@@ -152,8 +152,8 @@ instance
 
 instance Prelude.NFData SwitchoverBlueGreenDeployment where
   rnf SwitchoverBlueGreenDeployment' {..} =
-    Prelude.rnf switchoverTimeout
-      `Prelude.seq` Prelude.rnf blueGreenDeploymentIdentifier
+    Prelude.rnf switchoverTimeout `Prelude.seq`
+      Prelude.rnf blueGreenDeploymentIdentifier
 
 instance Data.ToHeaders SwitchoverBlueGreenDeployment where
   toHeaders = Prelude.const Prelude.mempty
@@ -218,5 +218,5 @@ instance
     SwitchoverBlueGreenDeploymentResponse
   where
   rnf SwitchoverBlueGreenDeploymentResponse' {..} =
-    Prelude.rnf blueGreenDeployment
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf blueGreenDeployment `Prelude.seq`
+      Prelude.rnf httpStatus

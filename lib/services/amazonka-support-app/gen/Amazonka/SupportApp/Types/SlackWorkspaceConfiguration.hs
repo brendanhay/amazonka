@@ -101,6 +101,6 @@ instance Prelude.Hashable SlackWorkspaceConfiguration where
 
 instance Prelude.NFData SlackWorkspaceConfiguration where
   rnf SlackWorkspaceConfiguration' {..} =
-    Prelude.rnf allowOrganizationMemberAccount
-      `Prelude.seq` Prelude.rnf teamName
-      `Prelude.seq` Prelude.rnf teamId
+    Prelude.rnf allowOrganizationMemberAccount `Prelude.seq`
+      Prelude.rnf teamName `Prelude.seq`
+        Prelude.rnf teamId

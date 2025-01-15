@@ -156,13 +156,13 @@ instance Prelude.Hashable Address where
 
 instance Prelude.NFData Address where
   rnf Address' {..} =
-    Prelude.rnf city
-      `Prelude.seq` Prelude.rnf country
-      `Prelude.seq` Prelude.rnf postDirectional
-      `Prelude.seq` Prelude.rnf postalCode
-      `Prelude.seq` Prelude.rnf postalCodePlus4
-      `Prelude.seq` Prelude.rnf preDirectional
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf streetName
-      `Prelude.seq` Prelude.rnf streetNumber
-      `Prelude.seq` Prelude.rnf streetSuffix
+    Prelude.rnf city `Prelude.seq`
+      Prelude.rnf country `Prelude.seq`
+        Prelude.rnf postDirectional `Prelude.seq`
+          Prelude.rnf postalCode `Prelude.seq`
+            Prelude.rnf postalCodePlus4 `Prelude.seq`
+              Prelude.rnf preDirectional `Prelude.seq`
+                Prelude.rnf state `Prelude.seq`
+                  Prelude.rnf streetName `Prelude.seq`
+                    Prelude.rnf streetNumber `Prelude.seq`
+                      Prelude.rnf streetSuffix

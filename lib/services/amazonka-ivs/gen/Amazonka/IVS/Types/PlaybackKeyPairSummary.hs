@@ -103,6 +103,6 @@ instance Prelude.Hashable PlaybackKeyPairSummary where
 
 instance Prelude.NFData PlaybackKeyPairSummary where
   rnf PlaybackKeyPairSummary' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf tags

@@ -105,9 +105,9 @@ instance
     WaterfallChartAggregatedFieldWells
   where
   rnf WaterfallChartAggregatedFieldWells' {..} =
-    Prelude.rnf breakdowns
-      `Prelude.seq` Prelude.rnf categories
-      `Prelude.seq` Prelude.rnf values
+    Prelude.rnf breakdowns `Prelude.seq`
+      Prelude.rnf categories `Prelude.seq`
+        Prelude.rnf values
 
 instance
   Data.ToJSON

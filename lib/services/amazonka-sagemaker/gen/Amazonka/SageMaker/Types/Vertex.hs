@@ -95,6 +95,6 @@ instance Prelude.Hashable Vertex where
 
 instance Prelude.NFData Vertex where
   rnf Vertex' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf lineageType
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf lineageType `Prelude.seq`
+        Prelude.rnf type'

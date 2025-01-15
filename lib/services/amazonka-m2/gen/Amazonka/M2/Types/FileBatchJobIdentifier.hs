@@ -74,8 +74,8 @@ instance Prelude.Hashable FileBatchJobIdentifier where
 
 instance Prelude.NFData FileBatchJobIdentifier where
   rnf FileBatchJobIdentifier' {..} =
-    Prelude.rnf folderPath
-      `Prelude.seq` Prelude.rnf fileName
+    Prelude.rnf folderPath `Prelude.seq`
+      Prelude.rnf fileName
 
 instance Data.ToJSON FileBatchJobIdentifier where
   toJSON FileBatchJobIdentifier' {..} =

@@ -131,8 +131,8 @@ instance Prelude.Hashable AssessmentTarget where
 
 instance Prelude.NFData AssessmentTarget where
   rnf AssessmentTarget' {..} =
-    Prelude.rnf resourceGroupArn
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf updatedAt
+    Prelude.rnf resourceGroupArn `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf createdAt `Prelude.seq`
+            Prelude.rnf updatedAt

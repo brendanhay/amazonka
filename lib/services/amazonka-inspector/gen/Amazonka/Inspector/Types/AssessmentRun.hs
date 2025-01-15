@@ -277,18 +277,18 @@ instance Prelude.Hashable AssessmentRun where
 
 instance Prelude.NFData AssessmentRun where
   rnf AssessmentRun' {..} =
-    Prelude.rnf completedAt
-      `Prelude.seq` Prelude.rnf startedAt
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf assessmentTemplateArn
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf durationInSeconds
-      `Prelude.seq` Prelude.rnf rulesPackageArns
-      `Prelude.seq` Prelude.rnf userAttributesForFindings
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf stateChangedAt
-      `Prelude.seq` Prelude.rnf dataCollected
-      `Prelude.seq` Prelude.rnf stateChanges
-      `Prelude.seq` Prelude.rnf notifications
-      `Prelude.seq` Prelude.rnf findingCounts
+    Prelude.rnf completedAt `Prelude.seq`
+      Prelude.rnf startedAt `Prelude.seq`
+        Prelude.rnf arn `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf assessmentTemplateArn `Prelude.seq`
+              Prelude.rnf state `Prelude.seq`
+                Prelude.rnf durationInSeconds `Prelude.seq`
+                  Prelude.rnf rulesPackageArns `Prelude.seq`
+                    Prelude.rnf userAttributesForFindings `Prelude.seq`
+                      Prelude.rnf createdAt `Prelude.seq`
+                        Prelude.rnf stateChangedAt `Prelude.seq`
+                          Prelude.rnf dataCollected `Prelude.seq`
+                            Prelude.rnf stateChanges `Prelude.seq`
+                              Prelude.rnf notifications `Prelude.seq`
+                                Prelude.rnf findingCounts

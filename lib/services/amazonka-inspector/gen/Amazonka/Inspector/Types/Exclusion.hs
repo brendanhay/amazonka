@@ -141,9 +141,9 @@ instance Prelude.Hashable Exclusion where
 
 instance Prelude.NFData Exclusion where
   rnf Exclusion' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf title
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf recommendation
-      `Prelude.seq` Prelude.rnf scopes
+    Prelude.rnf attributes `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf title `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf recommendation `Prelude.seq`
+              Prelude.rnf scopes

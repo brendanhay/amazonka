@@ -103,6 +103,6 @@ instance Prelude.Hashable TelemetryMetadata where
 
 instance Prelude.NFData TelemetryMetadata where
   rnf TelemetryMetadata' {..} =
-    Prelude.rnf dataSize
-      `Prelude.seq` Prelude.rnf messageType
-      `Prelude.seq` Prelude.rnf count
+    Prelude.rnf dataSize `Prelude.seq`
+      Prelude.rnf messageType `Prelude.seq`
+        Prelude.rnf count

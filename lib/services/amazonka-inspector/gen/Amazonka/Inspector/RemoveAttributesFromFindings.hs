@@ -120,8 +120,8 @@ instance
 
 instance Prelude.NFData RemoveAttributesFromFindings where
   rnf RemoveAttributesFromFindings' {..} =
-    Prelude.rnf findingArns
-      `Prelude.seq` Prelude.rnf attributeKeys
+    Prelude.rnf findingArns `Prelude.seq`
+      Prelude.rnf attributeKeys
 
 instance Data.ToHeaders RemoveAttributesFromFindings where
   toHeaders =
@@ -201,5 +201,5 @@ instance
     RemoveAttributesFromFindingsResponse
   where
   rnf RemoveAttributesFromFindingsResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf failedItems
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf failedItems

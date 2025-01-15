@@ -153,12 +153,12 @@ instance Core.AWSPager ListFindings where
         (rs Lens.^. listFindingsResponse_findingArns) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listFindings_nextToken
-          Lens..~ rs
-          Lens.^? listFindingsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listFindings_nextToken
+              Lens..~ rs
+              Lens.^? listFindingsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListFindings where
   type AWSResponse ListFindings = ListFindingsResponse
@@ -183,10 +183,10 @@ instance Prelude.Hashable ListFindings where
 
 instance Prelude.NFData ListFindings where
   rnf ListFindings' {..} =
-    Prelude.rnf assessmentRunArns
-      `Prelude.seq` Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf assessmentRunArns `Prelude.seq`
+      Prelude.rnf filter' `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken
 
 instance Data.ToHeaders ListFindings where
   toHeaders =
@@ -279,6 +279,6 @@ listFindingsResponse_findingArns = Lens.lens (\ListFindingsResponse' {findingArn
 
 instance Prelude.NFData ListFindingsResponse where
   rnf ListFindingsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf findingArns
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf findingArns

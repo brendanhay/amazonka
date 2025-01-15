@@ -113,8 +113,8 @@ instance Prelude.Hashable AddAttributesToFindings where
 
 instance Prelude.NFData AddAttributesToFindings where
   rnf AddAttributesToFindings' {..} =
-    Prelude.rnf findingArns
-      `Prelude.seq` Prelude.rnf attributes
+    Prelude.rnf findingArns `Prelude.seq`
+      Prelude.rnf attributes
 
 instance Data.ToHeaders AddAttributesToFindings where
   toHeaders =
@@ -193,5 +193,5 @@ instance
     AddAttributesToFindingsResponse
   where
   rnf AddAttributesToFindingsResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf failedItems
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf failedItems

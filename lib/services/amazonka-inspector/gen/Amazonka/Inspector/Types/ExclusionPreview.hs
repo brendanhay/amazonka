@@ -128,8 +128,8 @@ instance Prelude.Hashable ExclusionPreview where
 
 instance Prelude.NFData ExclusionPreview where
   rnf ExclusionPreview' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf title
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf recommendation
-      `Prelude.seq` Prelude.rnf scopes
+    Prelude.rnf attributes `Prelude.seq`
+      Prelude.rnf title `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf recommendation `Prelude.seq`
+            Prelude.rnf scopes

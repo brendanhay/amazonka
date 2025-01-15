@@ -178,13 +178,13 @@ instance Prelude.Hashable AssessmentRunFilter where
 
 instance Prelude.NFData AssessmentRunFilter where
   rnf AssessmentRunFilter' {..} =
-    Prelude.rnf completionTimeRange
-      `Prelude.seq` Prelude.rnf durationRange
-      `Prelude.seq` Prelude.rnf namePattern
-      `Prelude.seq` Prelude.rnf rulesPackageArns
-      `Prelude.seq` Prelude.rnf startTimeRange
-      `Prelude.seq` Prelude.rnf stateChangeTimeRange
-      `Prelude.seq` Prelude.rnf states
+    Prelude.rnf completionTimeRange `Prelude.seq`
+      Prelude.rnf durationRange `Prelude.seq`
+        Prelude.rnf namePattern `Prelude.seq`
+          Prelude.rnf rulesPackageArns `Prelude.seq`
+            Prelude.rnf startTimeRange `Prelude.seq`
+              Prelude.rnf stateChangeTimeRange `Prelude.seq`
+                Prelude.rnf states
 
 instance Data.ToJSON AssessmentRunFilter where
   toJSON AssessmentRunFilter' {..} =

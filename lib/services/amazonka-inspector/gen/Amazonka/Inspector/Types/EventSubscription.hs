@@ -88,5 +88,5 @@ instance Prelude.Hashable EventSubscription where
 
 instance Prelude.NFData EventSubscription where
   rnf EventSubscription' {..} =
-    Prelude.rnf event
-      `Prelude.seq` Prelude.rnf subscribedAt
+    Prelude.rnf event `Prelude.seq`
+      Prelude.rnf subscribedAt

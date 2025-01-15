@@ -123,9 +123,9 @@ instance Prelude.Hashable UpdateAssessmentTarget where
 
 instance Prelude.NFData UpdateAssessmentTarget where
   rnf UpdateAssessmentTarget' {..} =
-    Prelude.rnf resourceGroupArn
-      `Prelude.seq` Prelude.rnf assessmentTargetArn
-      `Prelude.seq` Prelude.rnf assessmentTargetName
+    Prelude.rnf resourceGroupArn `Prelude.seq`
+      Prelude.rnf assessmentTargetArn `Prelude.seq`
+        Prelude.rnf assessmentTargetName
 
 instance Data.ToHeaders UpdateAssessmentTarget where
   toHeaders =

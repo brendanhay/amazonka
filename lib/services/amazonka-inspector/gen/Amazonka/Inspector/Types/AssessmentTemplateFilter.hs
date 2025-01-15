@@ -106,9 +106,9 @@ instance Prelude.Hashable AssessmentTemplateFilter where
 
 instance Prelude.NFData AssessmentTemplateFilter where
   rnf AssessmentTemplateFilter' {..} =
-    Prelude.rnf durationRange
-      `Prelude.seq` Prelude.rnf namePattern
-      `Prelude.seq` Prelude.rnf rulesPackageArns
+    Prelude.rnf durationRange `Prelude.seq`
+      Prelude.rnf namePattern `Prelude.seq`
+        Prelude.rnf rulesPackageArns
 
 instance Data.ToJSON AssessmentTemplateFilter where
   toJSON AssessmentTemplateFilter' {..} =

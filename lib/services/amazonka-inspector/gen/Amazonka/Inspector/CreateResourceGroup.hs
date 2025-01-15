@@ -187,5 +187,5 @@ createResourceGroupResponse_resourceGroupArn = Lens.lens (\CreateResourceGroupRe
 
 instance Prelude.NFData CreateResourceGroupResponse where
   rnf CreateResourceGroupResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf resourceGroupArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf resourceGroupArn

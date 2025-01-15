@@ -145,9 +145,9 @@ instance Prelude.Hashable GetAssessmentReport where
 
 instance Prelude.NFData GetAssessmentReport where
   rnf GetAssessmentReport' {..} =
-    Prelude.rnf assessmentRunArn
-      `Prelude.seq` Prelude.rnf reportFileFormat
-      `Prelude.seq` Prelude.rnf reportType
+    Prelude.rnf assessmentRunArn `Prelude.seq`
+      Prelude.rnf reportFileFormat `Prelude.seq`
+        Prelude.rnf reportType
 
 instance Data.ToHeaders GetAssessmentReport where
   toHeaders =
@@ -236,6 +236,6 @@ getAssessmentReportResponse_status = Lens.lens (\GetAssessmentReportResponse' {s
 
 instance Prelude.NFData GetAssessmentReportResponse where
   rnf GetAssessmentReportResponse' {..} =
-    Prelude.rnf url
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf url `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf status

@@ -132,12 +132,12 @@ instance Core.AWSPager ListExclusions where
         (rs Lens.^. listExclusionsResponse_exclusionArns) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listExclusions_nextToken
-          Lens..~ rs
-          Lens.^? listExclusionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listExclusions_nextToken
+              Lens..~ rs
+              Lens.^? listExclusionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListExclusions where
   type
@@ -163,9 +163,9 @@ instance Prelude.Hashable ListExclusions where
 
 instance Prelude.NFData ListExclusions where
   rnf ListExclusions' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf assessmentRunArn
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf assessmentRunArn
 
 instance Data.ToHeaders ListExclusions where
   toHeaders =
@@ -258,6 +258,6 @@ listExclusionsResponse_exclusionArns = Lens.lens (\ListExclusionsResponse' {excl
 
 instance Prelude.NFData ListExclusionsResponse where
   rnf ListExclusionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf exclusionArns
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf exclusionArns

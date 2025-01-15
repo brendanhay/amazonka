@@ -159,12 +159,12 @@ instance Core.AWSPager ListAssessmentRuns where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listAssessmentRuns_nextToken
-          Lens..~ rs
-          Lens.^? listAssessmentRunsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listAssessmentRuns_nextToken
+              Lens..~ rs
+              Lens.^? listAssessmentRunsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAssessmentRuns where
   type
@@ -194,10 +194,10 @@ instance Prelude.Hashable ListAssessmentRuns where
 
 instance Prelude.NFData ListAssessmentRuns where
   rnf ListAssessmentRuns' {..} =
-    Prelude.rnf assessmentTemplateArns
-      `Prelude.seq` Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf assessmentTemplateArns `Prelude.seq`
+      Prelude.rnf filter' `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken
 
 instance Data.ToHeaders ListAssessmentRuns where
   toHeaders =
@@ -294,6 +294,6 @@ listAssessmentRunsResponse_assessmentRunArns = Lens.lens (\ListAssessmentRunsRes
 
 instance Prelude.NFData ListAssessmentRunsResponse where
   rnf ListAssessmentRunsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf assessmentRunArns
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf assessmentRunArns

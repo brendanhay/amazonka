@@ -193,6 +193,6 @@ instance
     DescribeAssessmentTemplatesResponse
   where
   rnf DescribeAssessmentTemplatesResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf assessmentTemplates
-      `Prelude.seq` Prelude.rnf failedItems
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf assessmentTemplates `Prelude.seq`
+        Prelude.rnf failedItems

@@ -178,11 +178,11 @@ instance Prelude.Hashable GetExclusionsPreview where
 
 instance Prelude.NFData GetExclusionsPreview where
   rnf GetExclusionsPreview' {..} =
-    Prelude.rnf locale
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf assessmentTemplateArn
-      `Prelude.seq` Prelude.rnf previewToken
+    Prelude.rnf locale `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf assessmentTemplateArn `Prelude.seq`
+            Prelude.rnf previewToken
 
 instance Data.ToHeaders GetExclusionsPreview where
   toHeaders =
@@ -292,7 +292,7 @@ getExclusionsPreviewResponse_previewStatus = Lens.lens (\GetExclusionsPreviewRes
 
 instance Prelude.NFData GetExclusionsPreviewResponse where
   rnf GetExclusionsPreviewResponse' {..} =
-    Prelude.rnf exclusionPreviews
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf previewStatus
+    Prelude.rnf exclusionPreviews `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus `Prelude.seq`
+          Prelude.rnf previewStatus

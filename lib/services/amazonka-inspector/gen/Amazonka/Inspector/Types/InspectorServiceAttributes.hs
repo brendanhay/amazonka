@@ -94,6 +94,6 @@ instance Prelude.Hashable InspectorServiceAttributes where
 
 instance Prelude.NFData InspectorServiceAttributes where
   rnf InspectorServiceAttributes' {..} =
-    Prelude.rnf assessmentRunArn
-      `Prelude.seq` Prelude.rnf rulesPackageArn
-      `Prelude.seq` Prelude.rnf schemaVersion
+    Prelude.rnf assessmentRunArn `Prelude.seq`
+      Prelude.rnf rulesPackageArn `Prelude.seq`
+        Prelude.rnf schemaVersion

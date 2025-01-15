@@ -109,6 +109,6 @@ instance Prelude.Hashable Subscription where
 
 instance Prelude.NFData Subscription where
   rnf Subscription' {..} =
-    Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf topicArn
-      `Prelude.seq` Prelude.rnf eventSubscriptions
+    Prelude.rnf resourceArn `Prelude.seq`
+      Prelude.rnf topicArn `Prelude.seq`
+        Prelude.rnf eventSubscriptions

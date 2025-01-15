@@ -169,11 +169,11 @@ instance Prelude.Hashable AssetAttributes where
 
 instance Prelude.NFData AssetAttributes where
   rnf AssetAttributes' {..} =
-    Prelude.rnf agentId
-      `Prelude.seq` Prelude.rnf amiId
-      `Prelude.seq` Prelude.rnf autoScalingGroup
-      `Prelude.seq` Prelude.rnf hostname
-      `Prelude.seq` Prelude.rnf ipv4Addresses
-      `Prelude.seq` Prelude.rnf networkInterfaces
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf schemaVersion
+    Prelude.rnf agentId `Prelude.seq`
+      Prelude.rnf amiId `Prelude.seq`
+        Prelude.rnf autoScalingGroup `Prelude.seq`
+          Prelude.rnf hostname `Prelude.seq`
+            Prelude.rnf ipv4Addresses `Prelude.seq`
+              Prelude.rnf networkInterfaces `Prelude.seq`
+                Prelude.rnf tags `Prelude.seq`
+                  Prelude.rnf schemaVersion

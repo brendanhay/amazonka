@@ -86,5 +86,5 @@ instance Prelude.Hashable AssessmentRunStateChange where
 
 instance Prelude.NFData AssessmentRunStateChange where
   rnf AssessmentRunStateChange' {..} =
-    Prelude.rnf stateChangedAt
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf stateChangedAt `Prelude.seq`
+      Prelude.rnf state

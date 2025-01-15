@@ -104,6 +104,6 @@ instance Prelude.Hashable ResourceGroup where
 
 instance Prelude.NFData ResourceGroup where
   rnf ResourceGroup' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf createdAt
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf createdAt

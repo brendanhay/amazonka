@@ -123,8 +123,8 @@ instance Prelude.Hashable RulesPackage where
 
 instance Prelude.NFData RulesPackage where
   rnf RulesPackage' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf provider
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf version `Prelude.seq`
+            Prelude.rnf provider

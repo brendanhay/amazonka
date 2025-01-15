@@ -206,12 +206,12 @@ instance Prelude.Hashable AssessmentTemplate where
 
 instance Prelude.NFData AssessmentTemplate where
   rnf AssessmentTemplate' {..} =
-    Prelude.rnf lastAssessmentRunArn
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf assessmentTargetArn
-      `Prelude.seq` Prelude.rnf durationInSeconds
-      `Prelude.seq` Prelude.rnf rulesPackageArns
-      `Prelude.seq` Prelude.rnf userAttributesForFindings
-      `Prelude.seq` Prelude.rnf assessmentRunCount
-      `Prelude.seq` Prelude.rnf createdAt
+    Prelude.rnf lastAssessmentRunArn `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf assessmentTargetArn `Prelude.seq`
+            Prelude.rnf durationInSeconds `Prelude.seq`
+              Prelude.rnf rulesPackageArns `Prelude.seq`
+                Prelude.rnf userAttributesForFindings `Prelude.seq`
+                  Prelude.rnf assessmentRunCount `Prelude.seq`
+                    Prelude.rnf createdAt

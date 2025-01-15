@@ -178,11 +178,11 @@ instance Prelude.Hashable CreateAssessmentTemplate where
 
 instance Prelude.NFData CreateAssessmentTemplate where
   rnf CreateAssessmentTemplate' {..} =
-    Prelude.rnf userAttributesForFindings
-      `Prelude.seq` Prelude.rnf assessmentTargetArn
-      `Prelude.seq` Prelude.rnf assessmentTemplateName
-      `Prelude.seq` Prelude.rnf durationInSeconds
-      `Prelude.seq` Prelude.rnf rulesPackageArns
+    Prelude.rnf userAttributesForFindings `Prelude.seq`
+      Prelude.rnf assessmentTargetArn `Prelude.seq`
+        Prelude.rnf assessmentTemplateName `Prelude.seq`
+          Prelude.rnf durationInSeconds `Prelude.seq`
+            Prelude.rnf rulesPackageArns
 
 instance Data.ToHeaders CreateAssessmentTemplate where
   toHeaders =
@@ -273,5 +273,5 @@ instance
     CreateAssessmentTemplateResponse
   where
   rnf CreateAssessmentTemplateResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf assessmentTemplateArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf assessmentTemplateArn

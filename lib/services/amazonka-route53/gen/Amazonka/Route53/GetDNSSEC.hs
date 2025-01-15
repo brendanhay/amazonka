@@ -86,9 +86,7 @@ instance Core.AWSRequest GetDNSSEC where
           GetDNSSECResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..@ "Status")
-            Prelude.<*> ( x
-                            Data..@? "KeySigningKeys"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "KeySigningKeys" Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLList "member"
                         )
       )
@@ -165,6 +163,6 @@ getDNSSECResponse_keySigningKeys = Lens.lens (\GetDNSSECResponse' {keySigningKey
 
 instance Prelude.NFData GetDNSSECResponse where
   rnf GetDNSSECResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf keySigningKeys
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf keySigningKeys

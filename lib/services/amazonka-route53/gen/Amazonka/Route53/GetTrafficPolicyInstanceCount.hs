@@ -156,5 +156,5 @@ instance
     GetTrafficPolicyInstanceCountResponse
   where
   rnf GetTrafficPolicyInstanceCountResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf trafficPolicyInstanceCount
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf trafficPolicyInstanceCount

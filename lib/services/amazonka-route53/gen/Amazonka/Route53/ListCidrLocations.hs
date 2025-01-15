@@ -130,12 +130,12 @@ instance Core.AWSPager ListCidrLocations where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listCidrLocations_nextToken
-          Lens..~ rs
-          Lens.^? listCidrLocationsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listCidrLocations_nextToken
+              Lens..~ rs
+              Lens.^? listCidrLocationsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListCidrLocations where
   type
@@ -147,9 +147,7 @@ instance Core.AWSRequest ListCidrLocations where
     Response.receiveXML
       ( \s h x ->
           ListCidrLocationsResponse'
-            Prelude.<$> ( x
-                            Data..@? "CidrLocations"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "CidrLocations" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (x Data..@? "NextToken")
@@ -165,9 +163,9 @@ instance Prelude.Hashable ListCidrLocations where
 
 instance Prelude.NFData ListCidrLocations where
   rnf ListCidrLocations' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf collectionId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf collectionId
 
 instance Data.ToHeaders ListCidrLocations where
   toHeaders = Prelude.const Prelude.mempty
@@ -251,6 +249,6 @@ listCidrLocationsResponse_httpStatus = Lens.lens (\ListCidrLocationsResponse' {h
 
 instance Prelude.NFData ListCidrLocationsResponse where
   rnf ListCidrLocationsResponse' {..} =
-    Prelude.rnf cidrLocations
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf cidrLocations `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

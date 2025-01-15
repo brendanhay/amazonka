@@ -1021,9 +1021,9 @@ instance Prelude.Hashable AliasTarget where
 
 instance Prelude.NFData AliasTarget where
   rnf AliasTarget' {..} =
-    Prelude.rnf hostedZoneId
-      `Prelude.seq` Prelude.rnf dNSName
-      `Prelude.seq` Prelude.rnf evaluateTargetHealth
+    Prelude.rnf hostedZoneId `Prelude.seq`
+      Prelude.rnf dNSName `Prelude.seq`
+        Prelude.rnf evaluateTargetHealth
 
 instance Data.ToXML AliasTarget where
   toXML AliasTarget' {..} =

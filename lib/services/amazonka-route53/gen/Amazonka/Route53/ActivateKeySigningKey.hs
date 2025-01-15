@@ -118,8 +118,8 @@ instance Prelude.Hashable ActivateKeySigningKey where
 
 instance Prelude.NFData ActivateKeySigningKey where
   rnf ActivateKeySigningKey' {..} =
-    Prelude.rnf hostedZoneId
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf hostedZoneId `Prelude.seq`
+      Prelude.rnf name
 
 instance Data.ToHeaders ActivateKeySigningKey where
   toHeaders = Prelude.const Prelude.mempty
@@ -181,5 +181,5 @@ activateKeySigningKeyResponse_changeInfo = Lens.lens (\ActivateKeySigningKeyResp
 
 instance Prelude.NFData ActivateKeySigningKeyResponse where
   rnf ActivateKeySigningKeyResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf changeInfo
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf changeInfo

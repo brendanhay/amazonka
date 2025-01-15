@@ -187,11 +187,11 @@ instance Prelude.Hashable CreateTrafficPolicyInstance where
 
 instance Prelude.NFData CreateTrafficPolicyInstance where
   rnf CreateTrafficPolicyInstance' {..} =
-    Prelude.rnf hostedZoneId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf ttl
-      `Prelude.seq` Prelude.rnf trafficPolicyId
-      `Prelude.seq` Prelude.rnf trafficPolicyVersion
+    Prelude.rnf hostedZoneId `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf ttl `Prelude.seq`
+          Prelude.rnf trafficPolicyId `Prelude.seq`
+            Prelude.rnf trafficPolicyVersion
 
 instance Data.ToElement CreateTrafficPolicyInstance where
   toElement =
@@ -285,6 +285,6 @@ instance
     CreateTrafficPolicyInstanceResponse
   where
   rnf CreateTrafficPolicyInstanceResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf trafficPolicyInstance
-      `Prelude.seq` Prelude.rnf location
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf trafficPolicyInstance `Prelude.seq`
+        Prelude.rnf location

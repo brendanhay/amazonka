@@ -148,12 +148,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listVPCAssociationAuthorizations_nextToken
-          Lens..~ rs
-          Lens.^? listVPCAssociationAuthorizationsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listVPCAssociationAuthorizations_nextToken
+              Lens..~ rs
+              Lens.^? listVPCAssociationAuthorizationsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -171,9 +171,7 @@ instance
             Prelude.<$> (x Data..@? "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..@ "HostedZoneId")
-            Prelude.<*> ( x
-                            Data..@? "VPCs"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "VPCs" Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLList1 "VPC"
                         )
       )
@@ -195,9 +193,9 @@ instance
     ListVPCAssociationAuthorizations
   where
   rnf ListVPCAssociationAuthorizations' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf hostedZoneId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf hostedZoneId
 
 instance
   Data.ToHeaders
@@ -309,7 +307,7 @@ instance
     ListVPCAssociationAuthorizationsResponse
   where
   rnf ListVPCAssociationAuthorizationsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf hostedZoneId
-      `Prelude.seq` Prelude.rnf vPCs
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf hostedZoneId `Prelude.seq`
+          Prelude.rnf vPCs

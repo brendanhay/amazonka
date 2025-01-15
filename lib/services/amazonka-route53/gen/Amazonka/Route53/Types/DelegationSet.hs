@@ -86,9 +86,7 @@ instance Data.FromXML DelegationSet where
     DelegationSet'
       Prelude.<$> (x Data..@? "CallerReference")
       Prelude.<*> (x Data..@? "Id")
-      Prelude.<*> ( x
-                      Data..@? "NameServers"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "NameServers" Core..!@ Prelude.mempty
                       Prelude.>>= Data.parseXMLList1 "NameServer"
                   )
 
@@ -101,6 +99,6 @@ instance Prelude.Hashable DelegationSet where
 
 instance Prelude.NFData DelegationSet where
   rnf DelegationSet' {..} =
-    Prelude.rnf callerReference
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf nameServers
+    Prelude.rnf callerReference `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf nameServers

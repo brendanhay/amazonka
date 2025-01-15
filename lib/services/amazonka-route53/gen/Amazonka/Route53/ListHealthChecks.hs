@@ -142,12 +142,12 @@ instance Core.AWSPager ListHealthChecks where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listHealthChecks_marker
-          Lens..~ rs
-          Lens.^? listHealthChecksResponse_nextMarker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listHealthChecks_marker
+              Lens..~ rs
+              Lens.^? listHealthChecksResponse_nextMarker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListHealthChecks where
   type
@@ -161,9 +161,7 @@ instance Core.AWSRequest ListHealthChecks where
           ListHealthChecksResponse'
             Prelude.<$> (x Data..@? "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x
-                            Data..@? "HealthChecks"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "HealthChecks" Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLList "HealthCheck"
                         )
             Prelude.<*> (x Data..@ "Marker")
@@ -179,8 +177,8 @@ instance Prelude.Hashable ListHealthChecks where
 
 instance Prelude.NFData ListHealthChecks where
   rnf ListHealthChecks' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxItems
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf maxItems
 
 instance Data.ToHeaders ListHealthChecks where
   toHeaders = Prelude.const Prelude.mempty
@@ -315,9 +313,9 @@ listHealthChecksResponse_maxItems = Lens.lens (\ListHealthChecksResponse' {maxIt
 
 instance Prelude.NFData ListHealthChecksResponse where
   rnf ListHealthChecksResponse' {..} =
-    Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf healthChecks
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf isTruncated
-      `Prelude.seq` Prelude.rnf maxItems
+    Prelude.rnf nextMarker `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf healthChecks `Prelude.seq`
+          Prelude.rnf marker `Prelude.seq`
+            Prelude.rnf isTruncated `Prelude.seq`
+              Prelude.rnf maxItems

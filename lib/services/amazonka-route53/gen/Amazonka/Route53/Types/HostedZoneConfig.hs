@@ -79,8 +79,8 @@ instance Prelude.Hashable HostedZoneConfig where
 
 instance Prelude.NFData HostedZoneConfig where
   rnf HostedZoneConfig' {..} =
-    Prelude.rnf comment
-      `Prelude.seq` Prelude.rnf privateZone
+    Prelude.rnf comment `Prelude.seq`
+      Prelude.rnf privateZone
 
 instance Data.ToXML HostedZoneConfig where
   toXML HostedZoneConfig' {..} =

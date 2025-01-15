@@ -226,10 +226,10 @@ instance Prelude.Hashable ListGeoLocations where
 
 instance Prelude.NFData ListGeoLocations where
   rnf ListGeoLocations' {..} =
-    Prelude.rnf maxItems
-      `Prelude.seq` Prelude.rnf startContinentCode
-      `Prelude.seq` Prelude.rnf startCountryCode
-      `Prelude.seq` Prelude.rnf startSubdivisionCode
+    Prelude.rnf maxItems `Prelude.seq`
+      Prelude.rnf startContinentCode `Prelude.seq`
+        Prelude.rnf startCountryCode `Prelude.seq`
+          Prelude.rnf startSubdivisionCode
 
 instance Data.ToHeaders ListGeoLocations where
   toHeaders = Prelude.const Prelude.mempty
@@ -377,10 +377,10 @@ listGeoLocationsResponse_maxItems = Lens.lens (\ListGeoLocationsResponse' {maxIt
 
 instance Prelude.NFData ListGeoLocationsResponse where
   rnf ListGeoLocationsResponse' {..} =
-    Prelude.rnf nextContinentCode
-      `Prelude.seq` Prelude.rnf nextCountryCode
-      `Prelude.seq` Prelude.rnf nextSubdivisionCode
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf geoLocationDetailsList
-      `Prelude.seq` Prelude.rnf isTruncated
-      `Prelude.seq` Prelude.rnf maxItems
+    Prelude.rnf nextContinentCode `Prelude.seq`
+      Prelude.rnf nextCountryCode `Prelude.seq`
+        Prelude.rnf nextSubdivisionCode `Prelude.seq`
+          Prelude.rnf httpStatus `Prelude.seq`
+            Prelude.rnf geoLocationDetailsList `Prelude.seq`
+              Prelude.rnf isTruncated `Prelude.seq`
+                Prelude.rnf maxItems

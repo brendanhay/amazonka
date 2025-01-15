@@ -162,5 +162,5 @@ instance
     DisableHostedZoneDNSSECResponse
   where
   rnf DisableHostedZoneDNSSECResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf changeInfo
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf changeInfo

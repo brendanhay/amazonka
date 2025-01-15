@@ -223,9 +223,7 @@ instance Core.AWSRequest TestDNSAnswer where
             Prelude.<*> (x Data..@ "Nameserver")
             Prelude.<*> (x Data..@ "RecordName")
             Prelude.<*> (x Data..@ "RecordType")
-            Prelude.<*> ( x
-                            Data..@? "RecordData"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "RecordData" Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLList "RecordDataEntry"
                         )
             Prelude.<*> (x Data..@ "ResponseCode")
@@ -244,12 +242,12 @@ instance Prelude.Hashable TestDNSAnswer where
 
 instance Prelude.NFData TestDNSAnswer where
   rnf TestDNSAnswer' {..} =
-    Prelude.rnf eDNS0ClientSubnetIP
-      `Prelude.seq` Prelude.rnf eDNS0ClientSubnetMask
-      `Prelude.seq` Prelude.rnf resolverIP
-      `Prelude.seq` Prelude.rnf hostedZoneId
-      `Prelude.seq` Prelude.rnf recordName
-      `Prelude.seq` Prelude.rnf recordType
+    Prelude.rnf eDNS0ClientSubnetIP `Prelude.seq`
+      Prelude.rnf eDNS0ClientSubnetMask `Prelude.seq`
+        Prelude.rnf resolverIP `Prelude.seq`
+          Prelude.rnf hostedZoneId `Prelude.seq`
+            Prelude.rnf recordName `Prelude.seq`
+              Prelude.rnf recordType
 
 instance Data.ToHeaders TestDNSAnswer where
   toHeaders = Prelude.const Prelude.mempty
@@ -393,10 +391,10 @@ testDNSAnswerResponse_protocol = Lens.lens (\TestDNSAnswerResponse' {protocol} -
 
 instance Prelude.NFData TestDNSAnswerResponse where
   rnf TestDNSAnswerResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf nameserver
-      `Prelude.seq` Prelude.rnf recordName
-      `Prelude.seq` Prelude.rnf recordType
-      `Prelude.seq` Prelude.rnf recordData
-      `Prelude.seq` Prelude.rnf responseCode
-      `Prelude.seq` Prelude.rnf protocol
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf nameserver `Prelude.seq`
+        Prelude.rnf recordName `Prelude.seq`
+          Prelude.rnf recordType `Prelude.seq`
+            Prelude.rnf recordData `Prelude.seq`
+              Prelude.rnf responseCode `Prelude.seq`
+                Prelude.rnf protocol

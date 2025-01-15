@@ -192,5 +192,5 @@ instance
     UpdateHostedZoneCommentResponse
   where
   rnf UpdateHostedZoneCommentResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf hostedZone
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf hostedZone

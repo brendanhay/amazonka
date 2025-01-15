@@ -144,9 +144,9 @@ instance Prelude.Hashable GeoLocationDetails where
 
 instance Prelude.NFData GeoLocationDetails where
   rnf GeoLocationDetails' {..} =
-    Prelude.rnf continentCode
-      `Prelude.seq` Prelude.rnf continentName
-      `Prelude.seq` Prelude.rnf countryCode
-      `Prelude.seq` Prelude.rnf countryName
-      `Prelude.seq` Prelude.rnf subdivisionCode
-      `Prelude.seq` Prelude.rnf subdivisionName
+    Prelude.rnf continentCode `Prelude.seq`
+      Prelude.rnf continentName `Prelude.seq`
+        Prelude.rnf countryCode `Prelude.seq`
+          Prelude.rnf countryName `Prelude.seq`
+            Prelude.rnf subdivisionCode `Prelude.seq`
+              Prelude.rnf subdivisionName

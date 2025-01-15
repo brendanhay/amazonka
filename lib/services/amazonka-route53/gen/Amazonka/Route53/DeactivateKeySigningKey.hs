@@ -112,8 +112,8 @@ instance Prelude.Hashable DeactivateKeySigningKey where
 
 instance Prelude.NFData DeactivateKeySigningKey where
   rnf DeactivateKeySigningKey' {..} =
-    Prelude.rnf hostedZoneId
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf hostedZoneId `Prelude.seq`
+      Prelude.rnf name
 
 instance Data.ToHeaders DeactivateKeySigningKey where
   toHeaders = Prelude.const Prelude.mempty
@@ -178,5 +178,5 @@ instance
     DeactivateKeySigningKeyResponse
   where
   rnf DeactivateKeySigningKeyResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf changeInfo
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf changeInfo

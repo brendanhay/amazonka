@@ -253,6 +253,6 @@ getAccountLimitResponse_count = Lens.lens (\GetAccountLimitResponse' {count} -> 
 
 instance Prelude.NFData GetAccountLimitResponse where
   rnf GetAccountLimitResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf count
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf limit `Prelude.seq`
+        Prelude.rnf count

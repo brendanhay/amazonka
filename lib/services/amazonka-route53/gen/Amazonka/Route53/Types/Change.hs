@@ -131,8 +131,8 @@ instance Prelude.Hashable Change where
 
 instance Prelude.NFData Change where
   rnf Change' {..} =
-    Prelude.rnf action
-      `Prelude.seq` Prelude.rnf resourceRecordSet
+    Prelude.rnf action `Prelude.seq`
+      Prelude.rnf resourceRecordSet
 
 instance Data.ToXML Change where
   toXML Change' {..} =

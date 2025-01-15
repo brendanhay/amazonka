@@ -108,7 +108,7 @@ instance Prelude.Hashable CidrCollection where
 
 instance Prelude.NFData CidrCollection where
   rnf CidrCollection' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf version
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf version

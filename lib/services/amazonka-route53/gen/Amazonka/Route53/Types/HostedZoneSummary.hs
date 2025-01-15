@@ -108,6 +108,6 @@ instance Prelude.Hashable HostedZoneSummary where
 
 instance Prelude.NFData HostedZoneSummary where
   rnf HostedZoneSummary' {..} =
-    Prelude.rnf hostedZoneId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf owner
+    Prelude.rnf hostedZoneId `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf owner

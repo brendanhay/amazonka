@@ -206,5 +206,5 @@ instance
     GetHealthCheckLastFailureReasonResponse
   where
   rnf GetHealthCheckLastFailureReasonResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf healthCheckObservations
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf healthCheckObservations

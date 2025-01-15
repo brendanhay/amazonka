@@ -160,9 +160,7 @@ instance Core.AWSRequest ListTrafficPolicyVersions where
       ( \s h x ->
           ListTrafficPolicyVersionsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x
-                            Data..@? "TrafficPolicies"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "TrafficPolicies" Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLList "TrafficPolicy"
                         )
             Prelude.<*> (x Data..@ "IsTruncated")
@@ -179,9 +177,9 @@ instance Prelude.Hashable ListTrafficPolicyVersions where
 
 instance Prelude.NFData ListTrafficPolicyVersions where
   rnf ListTrafficPolicyVersions' {..} =
-    Prelude.rnf maxItems
-      `Prelude.seq` Prelude.rnf trafficPolicyVersionMarker
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf maxItems `Prelude.seq`
+      Prelude.rnf trafficPolicyVersionMarker `Prelude.seq`
+        Prelude.rnf id
 
 instance Data.ToHeaders ListTrafficPolicyVersions where
   toHeaders = Prelude.const Prelude.mempty
@@ -322,8 +320,8 @@ instance
     ListTrafficPolicyVersionsResponse
   where
   rnf ListTrafficPolicyVersionsResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf trafficPolicies
-      `Prelude.seq` Prelude.rnf isTruncated
-      `Prelude.seq` Prelude.rnf trafficPolicyVersionMarker
-      `Prelude.seq` Prelude.rnf maxItems
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf trafficPolicies `Prelude.seq`
+        Prelude.rnf isTruncated `Prelude.seq`
+          Prelude.rnf trafficPolicyVersionMarker `Prelude.seq`
+            Prelude.rnf maxItems

@@ -208,9 +208,9 @@ instance Prelude.Hashable GetGeoLocation where
 
 instance Prelude.NFData GetGeoLocation where
   rnf GetGeoLocation' {..} =
-    Prelude.rnf continentCode
-      `Prelude.seq` Prelude.rnf countryCode
-      `Prelude.seq` Prelude.rnf subdivisionCode
+    Prelude.rnf continentCode `Prelude.seq`
+      Prelude.rnf countryCode `Prelude.seq`
+        Prelude.rnf subdivisionCode
 
 instance Data.ToHeaders GetGeoLocation where
   toHeaders = Prelude.const Prelude.mempty
@@ -276,5 +276,5 @@ getGeoLocationResponse_geoLocationDetails = Lens.lens (\GetGeoLocationResponse' 
 
 instance Prelude.NFData GetGeoLocationResponse where
   rnf GetGeoLocationResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf geoLocationDetails
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf geoLocationDetails

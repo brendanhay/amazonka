@@ -152,8 +152,8 @@ instance
     DeleteVPCAssociationAuthorization
   where
   rnf DeleteVPCAssociationAuthorization' {..} =
-    Prelude.rnf hostedZoneId
-      `Prelude.seq` Prelude.rnf vpc
+    Prelude.rnf hostedZoneId `Prelude.seq`
+      Prelude.rnf vpc
 
 instance
   Data.ToElement

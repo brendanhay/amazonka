@@ -143,5 +143,5 @@ getHostedZoneCountResponse_hostedZoneCount = Lens.lens (\GetHostedZoneCountRespo
 
 instance Prelude.NFData GetHostedZoneCountResponse where
   rnf GetHostedZoneCountResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf hostedZoneCount
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf hostedZoneCount

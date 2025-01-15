@@ -317,11 +317,11 @@ instance Prelude.Hashable CreateHostedZone where
 
 instance Prelude.NFData CreateHostedZone where
   rnf CreateHostedZone' {..} =
-    Prelude.rnf delegationSetId
-      `Prelude.seq` Prelude.rnf hostedZoneConfig
-      `Prelude.seq` Prelude.rnf vpc
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf callerReference
+    Prelude.rnf delegationSetId `Prelude.seq`
+      Prelude.rnf hostedZoneConfig `Prelude.seq`
+        Prelude.rnf vpc `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf callerReference
 
 instance Data.ToElement CreateHostedZone where
   toElement =
@@ -444,9 +444,9 @@ createHostedZoneResponse_location = Lens.lens (\CreateHostedZoneResponse' {locat
 
 instance Prelude.NFData CreateHostedZoneResponse where
   rnf CreateHostedZoneResponse' {..} =
-    Prelude.rnf vpc
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf hostedZone
-      `Prelude.seq` Prelude.rnf changeInfo
-      `Prelude.seq` Prelude.rnf delegationSet
-      `Prelude.seq` Prelude.rnf location
+    Prelude.rnf vpc `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf hostedZone `Prelude.seq`
+          Prelude.rnf changeInfo `Prelude.seq`
+            Prelude.rnf delegationSet `Prelude.seq`
+              Prelude.rnf location

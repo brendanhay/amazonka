@@ -90,5 +90,5 @@ instance Prelude.Hashable StatusReport where
 
 instance Prelude.NFData StatusReport where
   rnf StatusReport' {..} =
-    Prelude.rnf checkedTime
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf checkedTime `Prelude.seq`
+      Prelude.rnf status

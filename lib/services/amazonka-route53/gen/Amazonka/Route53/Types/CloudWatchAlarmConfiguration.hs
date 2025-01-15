@@ -182,9 +182,7 @@ cloudWatchAlarmConfiguration_statistic = Lens.lens (\CloudWatchAlarmConfiguratio
 instance Data.FromXML CloudWatchAlarmConfiguration where
   parseXML x =
     CloudWatchAlarmConfiguration'
-      Prelude.<$> ( x
-                      Data..@? "Dimensions"
-                      Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "Dimensions" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "Dimension")
                   )
       Prelude.<*> (x Data..@ "EvaluationPeriods")
@@ -212,11 +210,11 @@ instance
 
 instance Prelude.NFData CloudWatchAlarmConfiguration where
   rnf CloudWatchAlarmConfiguration' {..} =
-    Prelude.rnf dimensions
-      `Prelude.seq` Prelude.rnf evaluationPeriods
-      `Prelude.seq` Prelude.rnf threshold
-      `Prelude.seq` Prelude.rnf comparisonOperator
-      `Prelude.seq` Prelude.rnf period
-      `Prelude.seq` Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf namespace
-      `Prelude.seq` Prelude.rnf statistic
+    Prelude.rnf dimensions `Prelude.seq`
+      Prelude.rnf evaluationPeriods `Prelude.seq`
+        Prelude.rnf threshold `Prelude.seq`
+          Prelude.rnf comparisonOperator `Prelude.seq`
+            Prelude.rnf period `Prelude.seq`
+              Prelude.rnf metricName `Prelude.seq`
+                Prelude.rnf namespace `Prelude.seq`
+                  Prelude.rnf statistic

@@ -166,5 +166,5 @@ getChangeResponse_changeInfo = Lens.lens (\GetChangeResponse' {changeInfo} -> ch
 
 instance Prelude.NFData GetChangeResponse where
   rnf GetChangeResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf changeInfo
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf changeInfo

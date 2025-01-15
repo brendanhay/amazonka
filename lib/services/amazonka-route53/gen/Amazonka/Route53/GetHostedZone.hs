@@ -89,9 +89,7 @@ instance Core.AWSRequest GetHostedZone where
       ( \s h x ->
           GetHostedZoneResponse'
             Prelude.<$> (x Data..@? "DelegationSet")
-            Prelude.<*> ( x
-                            Data..@? "VPCs"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "VPCs" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList1 "VPC")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -188,7 +186,7 @@ getHostedZoneResponse_hostedZone = Lens.lens (\GetHostedZoneResponse' {hostedZon
 
 instance Prelude.NFData GetHostedZoneResponse where
   rnf GetHostedZoneResponse' {..} =
-    Prelude.rnf delegationSet
-      `Prelude.seq` Prelude.rnf vPCs
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf hostedZone
+    Prelude.rnf delegationSet `Prelude.seq`
+      Prelude.rnf vPCs `Prelude.seq`
+        Prelude.rnf httpStatus `Prelude.seq`
+          Prelude.rnf hostedZone

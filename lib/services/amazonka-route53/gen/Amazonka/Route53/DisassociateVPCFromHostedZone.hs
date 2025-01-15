@@ -176,9 +176,9 @@ instance
 
 instance Prelude.NFData DisassociateVPCFromHostedZone where
   rnf DisassociateVPCFromHostedZone' {..} =
-    Prelude.rnf comment
-      `Prelude.seq` Prelude.rnf hostedZoneId
-      `Prelude.seq` Prelude.rnf vpc
+    Prelude.rnf comment `Prelude.seq`
+      Prelude.rnf hostedZoneId `Prelude.seq`
+        Prelude.rnf vpc
 
 instance Data.ToElement DisassociateVPCFromHostedZone where
   toElement =
@@ -258,5 +258,5 @@ instance
     DisassociateVPCFromHostedZoneResponse
   where
   rnf DisassociateVPCFromHostedZoneResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf changeInfo
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf changeInfo

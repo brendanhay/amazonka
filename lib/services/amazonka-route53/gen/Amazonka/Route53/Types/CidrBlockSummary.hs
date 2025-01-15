@@ -77,5 +77,5 @@ instance Prelude.Hashable CidrBlockSummary where
 
 instance Prelude.NFData CidrBlockSummary where
   rnf CidrBlockSummary' {..} =
-    Prelude.rnf cidrBlock
-      `Prelude.seq` Prelude.rnf locationName
+    Prelude.rnf cidrBlock `Prelude.seq`
+      Prelude.rnf locationName

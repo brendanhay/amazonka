@@ -93,9 +93,9 @@ instance Prelude.Hashable CidrCollectionChange where
 
 instance Prelude.NFData CidrCollectionChange where
   rnf CidrCollectionChange' {..} =
-    Prelude.rnf locationName
-      `Prelude.seq` Prelude.rnf action
-      `Prelude.seq` Prelude.rnf cidrList
+    Prelude.rnf locationName `Prelude.seq`
+      Prelude.rnf action `Prelude.seq`
+        Prelude.rnf cidrList
 
 instance Data.ToXML CidrCollectionChange where
   toXML CidrCollectionChange' {..} =

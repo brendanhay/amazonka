@@ -165,9 +165,9 @@ instance Prelude.Hashable HealthCheck where
 
 instance Prelude.NFData HealthCheck where
   rnf HealthCheck' {..} =
-    Prelude.rnf cloudWatchAlarmConfiguration
-      `Prelude.seq` Prelude.rnf linkedService
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf callerReference
-      `Prelude.seq` Prelude.rnf healthCheckConfig
-      `Prelude.seq` Prelude.rnf healthCheckVersion
+    Prelude.rnf cloudWatchAlarmConfiguration `Prelude.seq`
+      Prelude.rnf linkedService `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf callerReference `Prelude.seq`
+            Prelude.rnf healthCheckConfig `Prelude.seq`
+              Prelude.rnf healthCheckVersion

@@ -147,8 +147,8 @@ instance
     CreateVPCAssociationAuthorization
   where
   rnf CreateVPCAssociationAuthorization' {..} =
-    Prelude.rnf hostedZoneId
-      `Prelude.seq` Prelude.rnf vpc
+    Prelude.rnf hostedZoneId `Prelude.seq`
+      Prelude.rnf vpc
 
 instance
   Data.ToElement
@@ -248,6 +248,6 @@ instance
     CreateVPCAssociationAuthorizationResponse
   where
   rnf CreateVPCAssociationAuthorizationResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf hostedZoneId
-      `Prelude.seq` Prelude.rnf vpc
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf hostedZoneId `Prelude.seq`
+        Prelude.rnf vpc

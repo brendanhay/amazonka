@@ -166,12 +166,12 @@ instance Core.AWSPager ListHostedZones where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listHostedZones_marker
-          Lens..~ rs
-          Lens.^? listHostedZonesResponse_nextMarker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listHostedZones_marker
+              Lens..~ rs
+              Lens.^? listHostedZonesResponse_nextMarker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListHostedZones where
   type
@@ -186,9 +186,7 @@ instance Core.AWSRequest ListHostedZones where
             Prelude.<$> (x Data..@? "Marker")
             Prelude.<*> (x Data..@? "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x
-                            Data..@? "HostedZones"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "HostedZones" Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLList "HostedZone"
                         )
             Prelude.<*> (x Data..@ "IsTruncated")
@@ -204,9 +202,9 @@ instance Prelude.Hashable ListHostedZones where
 
 instance Prelude.NFData ListHostedZones where
   rnf ListHostedZones' {..} =
-    Prelude.rnf delegationSetId
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxItems
+    Prelude.rnf delegationSetId `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf maxItems
 
 instance Data.ToHeaders ListHostedZones where
   toHeaders = Prelude.const Prelude.mempty
@@ -338,9 +336,9 @@ listHostedZonesResponse_maxItems = Lens.lens (\ListHostedZonesResponse' {maxItem
 
 instance Prelude.NFData ListHostedZonesResponse where
   rnf ListHostedZonesResponse' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf hostedZones
-      `Prelude.seq` Prelude.rnf isTruncated
-      `Prelude.seq` Prelude.rnf maxItems
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf nextMarker `Prelude.seq`
+        Prelude.rnf httpStatus `Prelude.seq`
+          Prelude.rnf hostedZones `Prelude.seq`
+            Prelude.rnf isTruncated `Prelude.seq`
+              Prelude.rnf maxItems

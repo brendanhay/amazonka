@@ -85,8 +85,8 @@ instance Prelude.Hashable CidrRoutingConfig where
 
 instance Prelude.NFData CidrRoutingConfig where
   rnf CidrRoutingConfig' {..} =
-    Prelude.rnf collectionId
-      `Prelude.seq` Prelude.rnf locationName
+    Prelude.rnf collectionId `Prelude.seq`
+      Prelude.rnf locationName
 
 instance Data.ToXML CidrRoutingConfig where
   toXML CidrRoutingConfig' {..} =

@@ -155,5 +155,5 @@ instance Prelude.Hashable DNSSECStatus where
 
 instance Prelude.NFData DNSSECStatus where
   rnf DNSSECStatus' {..} =
-    Prelude.rnf serveSignature
-      `Prelude.seq` Prelude.rnf statusMessage
+    Prelude.rnf serveSignature `Prelude.seq`
+      Prelude.rnf statusMessage

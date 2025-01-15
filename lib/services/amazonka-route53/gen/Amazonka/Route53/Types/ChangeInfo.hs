@@ -125,7 +125,7 @@ instance Prelude.Hashable ChangeInfo where
 
 instance Prelude.NFData ChangeInfo where
   rnf ChangeInfo' {..} =
-    Prelude.rnf comment
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf submittedAt
+    Prelude.rnf comment `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf status `Prelude.seq`
+          Prelude.rnf submittedAt

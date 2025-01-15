@@ -249,12 +249,12 @@ instance Prelude.Hashable TrafficPolicyInstance where
 
 instance Prelude.NFData TrafficPolicyInstance where
   rnf TrafficPolicyInstance' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf hostedZoneId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf ttl
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf trafficPolicyId
-      `Prelude.seq` Prelude.rnf trafficPolicyVersion
-      `Prelude.seq` Prelude.rnf trafficPolicyType
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf hostedZoneId `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf ttl `Prelude.seq`
+            Prelude.rnf state `Prelude.seq`
+              Prelude.rnf message `Prelude.seq`
+                Prelude.rnf trafficPolicyId `Prelude.seq`
+                  Prelude.rnf trafficPolicyVersion `Prelude.seq`
+                    Prelude.rnf trafficPolicyType

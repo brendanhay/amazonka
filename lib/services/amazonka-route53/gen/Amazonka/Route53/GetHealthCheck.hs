@@ -164,5 +164,5 @@ getHealthCheckResponse_healthCheck = Lens.lens (\GetHealthCheckResponse' {health
 
 instance Prelude.NFData GetHealthCheckResponse where
   rnf GetHealthCheckResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf healthCheck
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf healthCheck

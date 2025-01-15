@@ -110,7 +110,7 @@ instance Prelude.Hashable CollectionSummary where
 
 instance Prelude.NFData CollectionSummary where
   rnf CollectionSummary' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf version
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf version

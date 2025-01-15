@@ -78,9 +78,7 @@ instance Core.AWSRequest GetCheckerIpRanges where
       ( \s h x ->
           GetCheckerIpRangesResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x
-                            Data..@? "CheckerIpRanges"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "CheckerIpRanges" Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLList "member"
                         )
       )
@@ -147,5 +145,5 @@ getCheckerIpRangesResponse_checkerIpRanges = Lens.lens (\GetCheckerIpRangesRespo
 
 instance Prelude.NFData GetCheckerIpRangesResponse where
   rnf GetCheckerIpRangesResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf checkerIpRanges
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf checkerIpRanges

@@ -95,5 +95,5 @@ instance Prelude.Hashable LinkedService where
 
 instance Prelude.NFData LinkedService where
   rnf LinkedService' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf servicePrincipal
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf servicePrincipal

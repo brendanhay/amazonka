@@ -1014,23 +1014,23 @@ instance Prelude.Hashable UpdateHealthCheck where
 
 instance Prelude.NFData UpdateHealthCheck where
   rnf UpdateHealthCheck' {..} =
-    Prelude.rnf alarmIdentifier
-      `Prelude.seq` Prelude.rnf childHealthChecks
-      `Prelude.seq` Prelude.rnf disabled
-      `Prelude.seq` Prelude.rnf enableSNI
-      `Prelude.seq` Prelude.rnf failureThreshold
-      `Prelude.seq` Prelude.rnf fullyQualifiedDomainName
-      `Prelude.seq` Prelude.rnf healthCheckVersion
-      `Prelude.seq` Prelude.rnf healthThreshold
-      `Prelude.seq` Prelude.rnf iPAddress
-      `Prelude.seq` Prelude.rnf insufficientDataHealthStatus
-      `Prelude.seq` Prelude.rnf inverted
-      `Prelude.seq` Prelude.rnf port
-      `Prelude.seq` Prelude.rnf regions
-      `Prelude.seq` Prelude.rnf resetElements
-      `Prelude.seq` Prelude.rnf resourcePath
-      `Prelude.seq` Prelude.rnf searchString
-      `Prelude.seq` Prelude.rnf healthCheckId
+    Prelude.rnf alarmIdentifier `Prelude.seq`
+      Prelude.rnf childHealthChecks `Prelude.seq`
+        Prelude.rnf disabled `Prelude.seq`
+          Prelude.rnf enableSNI `Prelude.seq`
+            Prelude.rnf failureThreshold `Prelude.seq`
+              Prelude.rnf fullyQualifiedDomainName `Prelude.seq`
+                Prelude.rnf healthCheckVersion `Prelude.seq`
+                  Prelude.rnf healthThreshold `Prelude.seq`
+                    Prelude.rnf iPAddress `Prelude.seq`
+                      Prelude.rnf insufficientDataHealthStatus `Prelude.seq`
+                        Prelude.rnf inverted `Prelude.seq`
+                          Prelude.rnf port `Prelude.seq`
+                            Prelude.rnf regions `Prelude.seq`
+                              Prelude.rnf resetElements `Prelude.seq`
+                                Prelude.rnf resourcePath `Prelude.seq`
+                                  Prelude.rnf searchString `Prelude.seq`
+                                    Prelude.rnf healthCheckId
 
 instance Data.ToElement UpdateHealthCheck where
   toElement =
@@ -1132,5 +1132,5 @@ updateHealthCheckResponse_healthCheck = Lens.lens (\UpdateHealthCheckResponse' {
 
 instance Prelude.NFData UpdateHealthCheckResponse where
   rnf UpdateHealthCheckResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf healthCheck
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf healthCheck

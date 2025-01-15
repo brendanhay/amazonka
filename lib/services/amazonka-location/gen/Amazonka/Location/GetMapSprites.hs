@@ -150,8 +150,8 @@ instance Prelude.Hashable GetMapSprites where
 
 instance Prelude.NFData GetMapSprites where
   rnf GetMapSprites' {..} =
-    Prelude.rnf fileName
-      `Prelude.seq` Prelude.rnf mapName
+    Prelude.rnf fileName `Prelude.seq`
+      Prelude.rnf mapName
 
 instance Data.ToHeaders GetMapSprites where
   toHeaders =
@@ -231,6 +231,6 @@ getMapSpritesResponse_httpStatus = Lens.lens (\GetMapSpritesResponse' {httpStatu
 
 instance Prelude.NFData GetMapSpritesResponse where
   rnf GetMapSpritesResponse' {..} =
-    Prelude.rnf blob
-      `Prelude.seq` Prelude.rnf contentType
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf blob `Prelude.seq`
+      Prelude.rnf contentType `Prelude.seq`
+        Prelude.rnf httpStatus

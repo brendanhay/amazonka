@@ -322,11 +322,11 @@ instance Prelude.Hashable CreateRouteCalculator where
 
 instance Prelude.NFData CreateRouteCalculator where
   rnf CreateRouteCalculator' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf pricingPlan
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf calculatorName
-      `Prelude.seq` Prelude.rnf dataSource
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf pricingPlan `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf calculatorName `Prelude.seq`
+            Prelude.rnf dataSource
 
 instance Data.ToHeaders CreateRouteCalculator where
   toHeaders =
@@ -457,7 +457,7 @@ createRouteCalculatorResponse_createTime = Lens.lens (\CreateRouteCalculatorResp
 
 instance Prelude.NFData CreateRouteCalculatorResponse where
   rnf CreateRouteCalculatorResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf calculatorArn
-      `Prelude.seq` Prelude.rnf calculatorName
-      `Prelude.seq` Prelude.rnf createTime
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf calculatorArn `Prelude.seq`
+        Prelude.rnf calculatorName `Prelude.seq`
+          Prelude.rnf createTime

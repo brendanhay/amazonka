@@ -134,8 +134,8 @@ instance
     BatchDeleteDevicePositionHistory
   where
   rnf BatchDeleteDevicePositionHistory' {..} =
-    Prelude.rnf deviceIds
-      `Prelude.seq` Prelude.rnf trackerName
+    Prelude.rnf deviceIds `Prelude.seq`
+      Prelude.rnf trackerName
 
 instance
   Data.ToHeaders
@@ -217,5 +217,5 @@ instance
     BatchDeleteDevicePositionHistoryResponse
   where
   rnf BatchDeleteDevicePositionHistoryResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf errors
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf errors

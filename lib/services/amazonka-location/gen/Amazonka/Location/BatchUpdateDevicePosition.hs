@@ -135,8 +135,8 @@ instance Prelude.Hashable BatchUpdateDevicePosition where
 
 instance Prelude.NFData BatchUpdateDevicePosition where
   rnf BatchUpdateDevicePosition' {..} =
-    Prelude.rnf trackerName
-      `Prelude.seq` Prelude.rnf updates
+    Prelude.rnf trackerName `Prelude.seq`
+      Prelude.rnf updates
 
 instance Data.ToHeaders BatchUpdateDevicePosition where
   toHeaders =
@@ -214,5 +214,5 @@ instance
     BatchUpdateDevicePositionResponse
   where
   rnf BatchUpdateDevicePositionResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf errors
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf errors

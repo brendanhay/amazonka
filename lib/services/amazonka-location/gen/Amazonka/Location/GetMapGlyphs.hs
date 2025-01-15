@@ -273,9 +273,9 @@ instance Prelude.Hashable GetMapGlyphs where
 
 instance Prelude.NFData GetMapGlyphs where
   rnf GetMapGlyphs' {..} =
-    Prelude.rnf fontStack
-      `Prelude.seq` Prelude.rnf fontUnicodeRange
-      `Prelude.seq` Prelude.rnf mapName
+    Prelude.rnf fontStack `Prelude.seq`
+      Prelude.rnf fontUnicodeRange `Prelude.seq`
+        Prelude.rnf mapName
 
 instance Data.ToHeaders GetMapGlyphs where
   toHeaders =
@@ -351,6 +351,6 @@ getMapGlyphsResponse_httpStatus = Lens.lens (\GetMapGlyphsResponse' {httpStatus}
 
 instance Prelude.NFData GetMapGlyphsResponse where
   rnf GetMapGlyphsResponse' {..} =
-    Prelude.rnf blob
-      `Prelude.seq` Prelude.rnf contentType
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf blob `Prelude.seq`
+      Prelude.rnf contentType `Prelude.seq`
+        Prelude.rnf httpStatus

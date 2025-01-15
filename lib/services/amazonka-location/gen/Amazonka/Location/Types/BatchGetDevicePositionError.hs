@@ -85,5 +85,5 @@ instance Prelude.Hashable BatchGetDevicePositionError where
 
 instance Prelude.NFData BatchGetDevicePositionError where
   rnf BatchGetDevicePositionError' {..} =
-    Prelude.rnf deviceId
-      `Prelude.seq` Prelude.rnf error
+    Prelude.rnf deviceId `Prelude.seq`
+      Prelude.rnf error

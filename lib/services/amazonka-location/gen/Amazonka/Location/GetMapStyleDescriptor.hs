@@ -174,6 +174,6 @@ getMapStyleDescriptorResponse_httpStatus = Lens.lens (\GetMapStyleDescriptorResp
 
 instance Prelude.NFData GetMapStyleDescriptorResponse where
   rnf GetMapStyleDescriptorResponse' {..} =
-    Prelude.rnf blob
-      `Prelude.seq` Prelude.rnf contentType
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf blob `Prelude.seq`
+      Prelude.rnf contentType `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -162,8 +162,8 @@ instance Prelude.Hashable Step where
 
 instance Prelude.NFData Step where
   rnf Step' {..} =
-    Prelude.rnf geometryOffset
-      `Prelude.seq` Prelude.rnf distance
-      `Prelude.seq` Prelude.rnf durationSeconds
-      `Prelude.seq` Prelude.rnf endPosition
-      `Prelude.seq` Prelude.rnf startPosition
+    Prelude.rnf geometryOffset `Prelude.seq`
+      Prelude.rnf distance `Prelude.seq`
+        Prelude.rnf durationSeconds `Prelude.seq`
+          Prelude.rnf endPosition `Prelude.seq`
+            Prelude.rnf startPosition

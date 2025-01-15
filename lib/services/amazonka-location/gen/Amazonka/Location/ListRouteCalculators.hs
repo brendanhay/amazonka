@@ -114,12 +114,12 @@ instance Core.AWSPager ListRouteCalculators where
         (rs Lens.^. listRouteCalculatorsResponse_entries) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listRouteCalculators_nextToken
-          Lens..~ rs
-          Lens.^? listRouteCalculatorsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listRouteCalculators_nextToken
+              Lens..~ rs
+              Lens.^? listRouteCalculatorsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListRouteCalculators where
   type
@@ -144,8 +144,8 @@ instance Prelude.Hashable ListRouteCalculators where
 
 instance Prelude.NFData ListRouteCalculators where
   rnf ListRouteCalculators' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListRouteCalculators where
   toHeaders =
@@ -229,6 +229,6 @@ listRouteCalculatorsResponse_entries = Lens.lens (\ListRouteCalculatorsResponse'
 
 instance Prelude.NFData ListRouteCalculatorsResponse where
   rnf ListRouteCalculatorsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf entries
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf entries

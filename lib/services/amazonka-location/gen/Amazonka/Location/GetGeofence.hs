@@ -116,8 +116,8 @@ instance Prelude.Hashable GetGeofence where
 
 instance Prelude.NFData GetGeofence where
   rnf GetGeofence' {..} =
-    Prelude.rnf collectionName
-      `Prelude.seq` Prelude.rnf geofenceId
+    Prelude.rnf collectionName `Prelude.seq`
+      Prelude.rnf geofenceId
 
 instance Data.ToHeaders GetGeofence where
   toHeaders =
@@ -279,9 +279,9 @@ getGeofenceResponse_updateTime = Lens.lens (\GetGeofenceResponse' {updateTime} -
 
 instance Prelude.NFData GetGeofenceResponse where
   rnf GetGeofenceResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf createTime
-      `Prelude.seq` Prelude.rnf geofenceId
-      `Prelude.seq` Prelude.rnf geometry
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf updateTime
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf createTime `Prelude.seq`
+        Prelude.rnf geofenceId `Prelude.seq`
+          Prelude.rnf geometry `Prelude.seq`
+            Prelude.rnf status `Prelude.seq`
+              Prelude.rnf updateTime

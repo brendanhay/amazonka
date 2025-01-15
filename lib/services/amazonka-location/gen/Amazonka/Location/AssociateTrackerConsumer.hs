@@ -138,8 +138,8 @@ instance Prelude.Hashable AssociateTrackerConsumer where
 
 instance Prelude.NFData AssociateTrackerConsumer where
   rnf AssociateTrackerConsumer' {..} =
-    Prelude.rnf consumerArn
-      `Prelude.seq` Prelude.rnf trackerName
+    Prelude.rnf consumerArn `Prelude.seq`
+      Prelude.rnf trackerName
 
 instance Data.ToHeaders AssociateTrackerConsumer where
   toHeaders =

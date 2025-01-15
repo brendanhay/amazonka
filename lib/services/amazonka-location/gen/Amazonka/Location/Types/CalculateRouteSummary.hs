@@ -228,8 +228,8 @@ instance Prelude.Hashable CalculateRouteSummary where
 
 instance Prelude.NFData CalculateRouteSummary where
   rnf CalculateRouteSummary' {..} =
-    Prelude.rnf dataSource
-      `Prelude.seq` Prelude.rnf distance
-      `Prelude.seq` Prelude.rnf distanceUnit
-      `Prelude.seq` Prelude.rnf durationSeconds
-      `Prelude.seq` Prelude.rnf routeBBox
+    Prelude.rnf dataSource `Prelude.seq`
+      Prelude.rnf distance `Prelude.seq`
+        Prelude.rnf distanceUnit `Prelude.seq`
+          Prelude.rnf durationSeconds `Prelude.seq`
+            Prelude.rnf routeBBox

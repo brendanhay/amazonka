@@ -141,8 +141,8 @@ instance Prelude.Hashable BatchEvaluateGeofences where
 
 instance Prelude.NFData BatchEvaluateGeofences where
   rnf BatchEvaluateGeofences' {..} =
-    Prelude.rnf collectionName
-      `Prelude.seq` Prelude.rnf devicePositionUpdates
+    Prelude.rnf collectionName `Prelude.seq`
+      Prelude.rnf devicePositionUpdates
 
 instance Data.ToHeaders BatchEvaluateGeofences where
   toHeaders =
@@ -224,5 +224,5 @@ instance
     BatchEvaluateGeofencesResponse
   where
   rnf BatchEvaluateGeofencesResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf errors
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf errors

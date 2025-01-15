@@ -223,11 +223,11 @@ instance Prelude.Hashable UpdateTracker where
 
 instance Prelude.NFData UpdateTracker where
   rnf UpdateTracker' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf positionFiltering
-      `Prelude.seq` Prelude.rnf pricingPlan
-      `Prelude.seq` Prelude.rnf pricingPlanDataSource
-      `Prelude.seq` Prelude.rnf trackerName
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf positionFiltering `Prelude.seq`
+        Prelude.rnf pricingPlan `Prelude.seq`
+          Prelude.rnf pricingPlanDataSource `Prelude.seq`
+            Prelude.rnf trackerName
 
 instance Data.ToHeaders UpdateTracker where
   toHeaders =
@@ -347,7 +347,7 @@ updateTrackerResponse_updateTime = Lens.lens (\UpdateTrackerResponse' {updateTim
 
 instance Prelude.NFData UpdateTrackerResponse where
   rnf UpdateTrackerResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf trackerArn
-      `Prelude.seq` Prelude.rnf trackerName
-      `Prelude.seq` Prelude.rnf updateTime
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf trackerArn `Prelude.seq`
+        Prelude.rnf trackerName `Prelude.seq`
+          Prelude.rnf updateTime

@@ -114,6 +114,6 @@ instance Prelude.Hashable BatchPutGeofenceSuccess where
 
 instance Prelude.NFData BatchPutGeofenceSuccess where
   rnf BatchPutGeofenceSuccess' {..} =
-    Prelude.rnf createTime
-      `Prelude.seq` Prelude.rnf geofenceId
-      `Prelude.seq` Prelude.rnf updateTime
+    Prelude.rnf createTime `Prelude.seq`
+      Prelude.rnf geofenceId `Prelude.seq`
+        Prelude.rnf updateTime

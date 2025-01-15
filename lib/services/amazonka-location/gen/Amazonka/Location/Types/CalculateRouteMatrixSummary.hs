@@ -146,7 +146,7 @@ instance Prelude.Hashable CalculateRouteMatrixSummary where
 
 instance Prelude.NFData CalculateRouteMatrixSummary where
   rnf CalculateRouteMatrixSummary' {..} =
-    Prelude.rnf dataSource
-      `Prelude.seq` Prelude.rnf distanceUnit
-      `Prelude.seq` Prelude.rnf errorCount
-      `Prelude.seq` Prelude.rnf routeCount
+    Prelude.rnf dataSource `Prelude.seq`
+      Prelude.rnf distanceUnit `Prelude.seq`
+        Prelude.rnf errorCount `Prelude.seq`
+          Prelude.rnf routeCount

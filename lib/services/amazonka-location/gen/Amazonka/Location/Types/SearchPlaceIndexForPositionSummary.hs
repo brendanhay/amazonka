@@ -165,7 +165,7 @@ instance
     SearchPlaceIndexForPositionSummary
   where
   rnf SearchPlaceIndexForPositionSummary' {..} =
-    Prelude.rnf language
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf dataSource
-      `Prelude.seq` Prelude.rnf position
+    Prelude.rnf language `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf dataSource `Prelude.seq`
+          Prelude.rnf position

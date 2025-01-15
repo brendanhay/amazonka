@@ -86,5 +86,5 @@ instance Prelude.Hashable BatchPutGeofenceError where
 
 instance Prelude.NFData BatchPutGeofenceError where
   rnf BatchPutGeofenceError' {..} =
-    Prelude.rnf error
-      `Prelude.seq` Prelude.rnf geofenceId
+    Prelude.rnf error `Prelude.seq`
+      Prelude.rnf geofenceId

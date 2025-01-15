@@ -96,6 +96,6 @@ instance Prelude.Hashable RouteMatrixEntry where
 
 instance Prelude.NFData RouteMatrixEntry where
   rnf RouteMatrixEntry' {..} =
-    Prelude.rnf distance
-      `Prelude.seq` Prelude.rnf durationSeconds
-      `Prelude.seq` Prelude.rnf error
+    Prelude.rnf distance `Prelude.seq`
+      Prelude.rnf durationSeconds `Prelude.seq`
+        Prelude.rnf error

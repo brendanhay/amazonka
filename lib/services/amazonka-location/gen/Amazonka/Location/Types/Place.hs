@@ -288,17 +288,17 @@ instance Prelude.Hashable Place where
 
 instance Prelude.NFData Place where
   rnf Place' {..} =
-    Prelude.rnf addressNumber
-      `Prelude.seq` Prelude.rnf country
-      `Prelude.seq` Prelude.rnf interpolated
-      `Prelude.seq` Prelude.rnf label
-      `Prelude.seq` Prelude.rnf municipality
-      `Prelude.seq` Prelude.rnf neighborhood
-      `Prelude.seq` Prelude.rnf postalCode
-      `Prelude.seq` Prelude.rnf region
-      `Prelude.seq` Prelude.rnf street
-      `Prelude.seq` Prelude.rnf subRegion
-      `Prelude.seq` Prelude.rnf timeZone
-      `Prelude.seq` Prelude.rnf unitNumber
-      `Prelude.seq` Prelude.rnf unitType
-      `Prelude.seq` Prelude.rnf geometry
+    Prelude.rnf addressNumber `Prelude.seq`
+      Prelude.rnf country `Prelude.seq`
+        Prelude.rnf interpolated `Prelude.seq`
+          Prelude.rnf label `Prelude.seq`
+            Prelude.rnf municipality `Prelude.seq`
+              Prelude.rnf neighborhood `Prelude.seq`
+                Prelude.rnf postalCode `Prelude.seq`
+                  Prelude.rnf region `Prelude.seq`
+                    Prelude.rnf street `Prelude.seq`
+                      Prelude.rnf subRegion `Prelude.seq`
+                        Prelude.rnf timeZone `Prelude.seq`
+                          Prelude.rnf unitNumber `Prelude.seq`
+                            Prelude.rnf unitType `Prelude.seq`
+                              Prelude.rnf geometry

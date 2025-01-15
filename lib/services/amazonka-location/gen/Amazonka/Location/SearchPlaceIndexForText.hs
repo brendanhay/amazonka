@@ -340,13 +340,13 @@ instance Prelude.Hashable SearchPlaceIndexForText where
 
 instance Prelude.NFData SearchPlaceIndexForText where
   rnf SearchPlaceIndexForText' {..} =
-    Prelude.rnf biasPosition
-      `Prelude.seq` Prelude.rnf filterBBox
-      `Prelude.seq` Prelude.rnf filterCountries
-      `Prelude.seq` Prelude.rnf language
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf indexName
-      `Prelude.seq` Prelude.rnf text
+    Prelude.rnf biasPosition `Prelude.seq`
+      Prelude.rnf filterBBox `Prelude.seq`
+        Prelude.rnf filterCountries `Prelude.seq`
+          Prelude.rnf language `Prelude.seq`
+            Prelude.rnf maxResults `Prelude.seq`
+              Prelude.rnf indexName `Prelude.seq`
+                Prelude.rnf text
 
 instance Data.ToHeaders SearchPlaceIndexForText where
   toHeaders =
@@ -465,6 +465,6 @@ instance
     SearchPlaceIndexForTextResponse
   where
   rnf SearchPlaceIndexForTextResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf results
-      `Prelude.seq` Prelude.rnf summary
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf results `Prelude.seq`
+        Prelude.rnf summary

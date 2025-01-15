@@ -337,12 +337,12 @@ instance Prelude.Hashable CreatePlaceIndex where
 
 instance Prelude.NFData CreatePlaceIndex where
   rnf CreatePlaceIndex' {..} =
-    Prelude.rnf dataSourceConfiguration
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf pricingPlan
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf dataSource
-      `Prelude.seq` Prelude.rnf indexName
+    Prelude.rnf dataSourceConfiguration `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf pricingPlan `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf dataSource `Prelude.seq`
+              Prelude.rnf indexName
 
 instance Data.ToHeaders CreatePlaceIndex where
   toHeaders =
@@ -462,7 +462,7 @@ createPlaceIndexResponse_indexName = Lens.lens (\CreatePlaceIndexResponse' {inde
 
 instance Prelude.NFData CreatePlaceIndexResponse where
   rnf CreatePlaceIndexResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf createTime
-      `Prelude.seq` Prelude.rnf indexArn
-      `Prelude.seq` Prelude.rnf indexName
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf createTime `Prelude.seq`
+        Prelude.rnf indexArn `Prelude.seq`
+          Prelude.rnf indexName

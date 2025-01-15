@@ -148,7 +148,7 @@ instance Prelude.Hashable SearchForTextResult where
 
 instance Prelude.NFData SearchForTextResult where
   rnf SearchForTextResult' {..} =
-    Prelude.rnf distance
-      `Prelude.seq` Prelude.rnf placeId
-      `Prelude.seq` Prelude.rnf relevance
-      `Prelude.seq` Prelude.rnf place
+    Prelude.rnf distance `Prelude.seq`
+      Prelude.rnf placeId `Prelude.seq`
+        Prelude.rnf relevance `Prelude.seq`
+          Prelude.rnf place

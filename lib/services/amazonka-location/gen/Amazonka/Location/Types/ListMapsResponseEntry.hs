@@ -153,9 +153,9 @@ instance Prelude.Hashable ListMapsResponseEntry where
 
 instance Prelude.NFData ListMapsResponseEntry where
   rnf ListMapsResponseEntry' {..} =
-    Prelude.rnf pricingPlan
-      `Prelude.seq` Prelude.rnf createTime
-      `Prelude.seq` Prelude.rnf dataSource
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf mapName
-      `Prelude.seq` Prelude.rnf updateTime
+    Prelude.rnf pricingPlan `Prelude.seq`
+      Prelude.rnf createTime `Prelude.seq`
+        Prelude.rnf dataSource `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf mapName `Prelude.seq`
+              Prelude.rnf updateTime

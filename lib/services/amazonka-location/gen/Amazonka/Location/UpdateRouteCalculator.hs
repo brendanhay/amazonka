@@ -127,9 +127,9 @@ instance Prelude.Hashable UpdateRouteCalculator where
 
 instance Prelude.NFData UpdateRouteCalculator where
   rnf UpdateRouteCalculator' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf pricingPlan
-      `Prelude.seq` Prelude.rnf calculatorName
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf pricingPlan `Prelude.seq`
+        Prelude.rnf calculatorName
 
 instance Data.ToHeaders UpdateRouteCalculator where
   toHeaders =
@@ -246,7 +246,7 @@ updateRouteCalculatorResponse_updateTime = Lens.lens (\UpdateRouteCalculatorResp
 
 instance Prelude.NFData UpdateRouteCalculatorResponse where
   rnf UpdateRouteCalculatorResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf calculatorArn
-      `Prelude.seq` Prelude.rnf calculatorName
-      `Prelude.seq` Prelude.rnf updateTime
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf calculatorArn `Prelude.seq`
+        Prelude.rnf calculatorName `Prelude.seq`
+          Prelude.rnf updateTime

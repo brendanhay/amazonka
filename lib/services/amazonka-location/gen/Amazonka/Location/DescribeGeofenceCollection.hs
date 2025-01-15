@@ -300,13 +300,13 @@ instance
     DescribeGeofenceCollectionResponse
   where
   rnf DescribeGeofenceCollectionResponse' {..} =
-    Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf pricingPlan
-      `Prelude.seq` Prelude.rnf pricingPlanDataSource
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf collectionArn
-      `Prelude.seq` Prelude.rnf collectionName
-      `Prelude.seq` Prelude.rnf createTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf updateTime
+    Prelude.rnf kmsKeyId `Prelude.seq`
+      Prelude.rnf pricingPlan `Prelude.seq`
+        Prelude.rnf pricingPlanDataSource `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf httpStatus `Prelude.seq`
+              Prelude.rnf collectionArn `Prelude.seq`
+                Prelude.rnf collectionName `Prelude.seq`
+                  Prelude.rnf createTime `Prelude.seq`
+                    Prelude.rnf description `Prelude.seq`
+                      Prelude.rnf updateTime

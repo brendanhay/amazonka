@@ -150,9 +150,9 @@ instance Prelude.Hashable ListTrackersResponseEntry where
 
 instance Prelude.NFData ListTrackersResponseEntry where
   rnf ListTrackersResponseEntry' {..} =
-    Prelude.rnf pricingPlan
-      `Prelude.seq` Prelude.rnf pricingPlanDataSource
-      `Prelude.seq` Prelude.rnf createTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf trackerName
-      `Prelude.seq` Prelude.rnf updateTime
+    Prelude.rnf pricingPlan `Prelude.seq`
+      Prelude.rnf pricingPlanDataSource `Prelude.seq`
+        Prelude.rnf createTime `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf trackerName `Prelude.seq`
+              Prelude.rnf updateTime

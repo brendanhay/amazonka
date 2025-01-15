@@ -250,12 +250,12 @@ instance Prelude.Hashable CreateGeofenceCollection where
 
 instance Prelude.NFData CreateGeofenceCollection where
   rnf CreateGeofenceCollection' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf pricingPlan
-      `Prelude.seq` Prelude.rnf pricingPlanDataSource
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf collectionName
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf kmsKeyId `Prelude.seq`
+        Prelude.rnf pricingPlan `Prelude.seq`
+          Prelude.rnf pricingPlanDataSource `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf collectionName
 
 instance Data.ToHeaders CreateGeofenceCollection where
   toHeaders =
@@ -380,7 +380,7 @@ instance
     CreateGeofenceCollectionResponse
   where
   rnf CreateGeofenceCollectionResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf collectionArn
-      `Prelude.seq` Prelude.rnf collectionName
-      `Prelude.seq` Prelude.rnf createTime
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf collectionArn `Prelude.seq`
+        Prelude.rnf collectionName `Prelude.seq`
+          Prelude.rnf createTime

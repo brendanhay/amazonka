@@ -137,11 +137,11 @@ instance Prelude.Hashable DevicePositionUpdate where
 
 instance Prelude.NFData DevicePositionUpdate where
   rnf DevicePositionUpdate' {..} =
-    Prelude.rnf accuracy
-      `Prelude.seq` Prelude.rnf positionProperties
-      `Prelude.seq` Prelude.rnf deviceId
-      `Prelude.seq` Prelude.rnf position
-      `Prelude.seq` Prelude.rnf sampleTime
+    Prelude.rnf accuracy `Prelude.seq`
+      Prelude.rnf positionProperties `Prelude.seq`
+        Prelude.rnf deviceId `Prelude.seq`
+          Prelude.rnf position `Prelude.seq`
+            Prelude.rnf sampleTime
 
 instance Data.ToJSON DevicePositionUpdate where
   toJSON DevicePositionUpdate' {..} =

@@ -335,14 +335,14 @@ instance Prelude.Hashable Thumbnails where
 
 instance Prelude.NFData Thumbnails where
   rnf Thumbnails' {..} =
-    Prelude.rnf aspectRatio
-      `Prelude.seq` Prelude.rnf format
-      `Prelude.seq` Prelude.rnf interval
-      `Prelude.seq` Prelude.rnf maxHeight
-      `Prelude.seq` Prelude.rnf maxWidth
-      `Prelude.seq` Prelude.rnf paddingPolicy
-      `Prelude.seq` Prelude.rnf resolution
-      `Prelude.seq` Prelude.rnf sizingPolicy
+    Prelude.rnf aspectRatio `Prelude.seq`
+      Prelude.rnf format `Prelude.seq`
+        Prelude.rnf interval `Prelude.seq`
+          Prelude.rnf maxHeight `Prelude.seq`
+            Prelude.rnf maxWidth `Prelude.seq`
+              Prelude.rnf paddingPolicy `Prelude.seq`
+                Prelude.rnf resolution `Prelude.seq`
+                  Prelude.rnf sizingPolicy
 
 instance Data.ToJSON Thumbnails where
   toJSON Thumbnails' {..} =

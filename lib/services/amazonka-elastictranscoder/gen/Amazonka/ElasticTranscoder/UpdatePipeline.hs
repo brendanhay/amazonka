@@ -684,14 +684,14 @@ instance Prelude.Hashable UpdatePipeline where
 
 instance Prelude.NFData UpdatePipeline where
   rnf UpdatePipeline' {..} =
-    Prelude.rnf awsKmsKeyArn
-      `Prelude.seq` Prelude.rnf contentConfig
-      `Prelude.seq` Prelude.rnf inputBucket
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf notifications
-      `Prelude.seq` Prelude.rnf role'
-      `Prelude.seq` Prelude.rnf thumbnailConfig
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf awsKmsKeyArn `Prelude.seq`
+      Prelude.rnf contentConfig `Prelude.seq`
+        Prelude.rnf inputBucket `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf notifications `Prelude.seq`
+              Prelude.rnf role' `Prelude.seq`
+                Prelude.rnf thumbnailConfig `Prelude.seq`
+                  Prelude.rnf id
 
 instance Data.ToHeaders UpdatePipeline where
   toHeaders = Prelude.const Prelude.mempty
@@ -786,6 +786,6 @@ updatePipelineResponse_httpStatus = Lens.lens (\UpdatePipelineResponse' {httpSta
 
 instance Prelude.NFData UpdatePipelineResponse where
   rnf UpdatePipelineResponse' {..} =
-    Prelude.rnf pipeline
-      `Prelude.seq` Prelude.rnf warnings
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf pipeline `Prelude.seq`
+      Prelude.rnf warnings `Prelude.seq`
+        Prelude.rnf httpStatus

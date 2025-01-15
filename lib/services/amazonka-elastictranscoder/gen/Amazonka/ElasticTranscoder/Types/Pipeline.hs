@@ -586,14 +586,14 @@ instance Prelude.Hashable Pipeline where
 
 instance Prelude.NFData Pipeline where
   rnf Pipeline' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf awsKmsKeyArn
-      `Prelude.seq` Prelude.rnf contentConfig
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf inputBucket
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf notifications
-      `Prelude.seq` Prelude.rnf outputBucket
-      `Prelude.seq` Prelude.rnf role'
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf thumbnailConfig
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf awsKmsKeyArn `Prelude.seq`
+        Prelude.rnf contentConfig `Prelude.seq`
+          Prelude.rnf id `Prelude.seq`
+            Prelude.rnf inputBucket `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf notifications `Prelude.seq`
+                  Prelude.rnf outputBucket `Prelude.seq`
+                    Prelude.rnf role' `Prelude.seq`
+                      Prelude.rnf status `Prelude.seq`
+                        Prelude.rnf thumbnailConfig

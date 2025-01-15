@@ -169,11 +169,11 @@ instance Prelude.Hashable CaptionSource where
 
 instance Prelude.NFData CaptionSource where
   rnf CaptionSource' {..} =
-    Prelude.rnf encryption
-      `Prelude.seq` Prelude.rnf key
-      `Prelude.seq` Prelude.rnf label
-      `Prelude.seq` Prelude.rnf language
-      `Prelude.seq` Prelude.rnf timeOffset
+    Prelude.rnf encryption `Prelude.seq`
+      Prelude.rnf key `Prelude.seq`
+        Prelude.rnf label `Prelude.seq`
+          Prelude.rnf language `Prelude.seq`
+            Prelude.rnf timeOffset
 
 instance Data.ToJSON CaptionSource where
   toJSON CaptionSource' {..} =

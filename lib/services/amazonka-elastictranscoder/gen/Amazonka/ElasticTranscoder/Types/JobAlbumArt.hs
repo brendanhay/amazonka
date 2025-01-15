@@ -129,8 +129,8 @@ instance Prelude.Hashable JobAlbumArt where
 
 instance Prelude.NFData JobAlbumArt where
   rnf JobAlbumArt' {..} =
-    Prelude.rnf artwork
-      `Prelude.seq` Prelude.rnf mergePolicy
+    Prelude.rnf artwork `Prelude.seq`
+      Prelude.rnf mergePolicy
 
 instance Data.ToJSON JobAlbumArt where
   toJSON JobAlbumArt' {..} =

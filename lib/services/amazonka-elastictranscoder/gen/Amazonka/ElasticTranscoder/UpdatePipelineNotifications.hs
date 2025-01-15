@@ -185,8 +185,8 @@ instance Prelude.Hashable UpdatePipelineNotifications where
 
 instance Prelude.NFData UpdatePipelineNotifications where
   rnf UpdatePipelineNotifications' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf notifications
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf notifications
 
 instance Data.ToHeaders UpdatePipelineNotifications where
   toHeaders = Prelude.const Prelude.mempty
@@ -260,5 +260,5 @@ instance
     UpdatePipelineNotificationsResponse
   where
   rnf UpdatePipelineNotificationsResponse' {..} =
-    Prelude.rnf pipeline
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf pipeline `Prelude.seq`
+      Prelude.rnf httpStatus

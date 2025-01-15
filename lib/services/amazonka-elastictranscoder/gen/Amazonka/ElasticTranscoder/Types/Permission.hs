@@ -175,9 +175,9 @@ instance Prelude.Hashable Permission where
 
 instance Prelude.NFData Permission where
   rnf Permission' {..} =
-    Prelude.rnf access
-      `Prelude.seq` Prelude.rnf grantee
-      `Prelude.seq` Prelude.rnf granteeType
+    Prelude.rnf access `Prelude.seq`
+      Prelude.rnf grantee `Prelude.seq`
+        Prelude.rnf granteeType
 
 instance Data.ToJSON Permission where
   toJSON Permission' {..} =

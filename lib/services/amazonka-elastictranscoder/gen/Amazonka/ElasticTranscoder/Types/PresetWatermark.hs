@@ -566,16 +566,16 @@ instance Prelude.Hashable PresetWatermark where
 
 instance Prelude.NFData PresetWatermark where
   rnf PresetWatermark' {..} =
-    Prelude.rnf horizontalAlign
-      `Prelude.seq` Prelude.rnf horizontalOffset
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf maxHeight
-      `Prelude.seq` Prelude.rnf maxWidth
-      `Prelude.seq` Prelude.rnf opacity
-      `Prelude.seq` Prelude.rnf sizingPolicy
-      `Prelude.seq` Prelude.rnf target
-      `Prelude.seq` Prelude.rnf verticalAlign
-      `Prelude.seq` Prelude.rnf verticalOffset
+    Prelude.rnf horizontalAlign `Prelude.seq`
+      Prelude.rnf horizontalOffset `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf maxHeight `Prelude.seq`
+            Prelude.rnf maxWidth `Prelude.seq`
+              Prelude.rnf opacity `Prelude.seq`
+                Prelude.rnf sizingPolicy `Prelude.seq`
+                  Prelude.rnf target `Prelude.seq`
+                    Prelude.rnf verticalAlign `Prelude.seq`
+                      Prelude.rnf verticalOffset
 
 instance Data.ToJSON PresetWatermark where
   toJSON PresetWatermark' {..} =

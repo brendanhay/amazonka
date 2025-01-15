@@ -774,14 +774,14 @@ instance Prelude.Hashable CreatePipeline where
 
 instance Prelude.NFData CreatePipeline where
   rnf CreatePipeline' {..} =
-    Prelude.rnf awsKmsKeyArn
-      `Prelude.seq` Prelude.rnf contentConfig
-      `Prelude.seq` Prelude.rnf notifications
-      `Prelude.seq` Prelude.rnf outputBucket
-      `Prelude.seq` Prelude.rnf thumbnailConfig
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf inputBucket
-      `Prelude.seq` Prelude.rnf role'
+    Prelude.rnf awsKmsKeyArn `Prelude.seq`
+      Prelude.rnf contentConfig `Prelude.seq`
+        Prelude.rnf notifications `Prelude.seq`
+          Prelude.rnf outputBucket `Prelude.seq`
+            Prelude.rnf thumbnailConfig `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf inputBucket `Prelude.seq`
+                  Prelude.rnf role'
 
 instance Data.ToHeaders CreatePipeline where
   toHeaders = Prelude.const Prelude.mempty
@@ -878,6 +878,6 @@ createPipelineResponse_httpStatus = Lens.lens (\CreatePipelineResponse' {httpSta
 
 instance Prelude.NFData CreatePipelineResponse where
   rnf CreatePipelineResponse' {..} =
-    Prelude.rnf pipeline
-      `Prelude.seq` Prelude.rnf warnings
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf pipeline `Prelude.seq`
+      Prelude.rnf warnings `Prelude.seq`
+        Prelude.rnf httpStatus

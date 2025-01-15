@@ -259,10 +259,10 @@ instance Prelude.Hashable Encryption where
 
 instance Prelude.NFData Encryption where
   rnf Encryption' {..} =
-    Prelude.rnf initializationVector
-      `Prelude.seq` Prelude.rnf key
-      `Prelude.seq` Prelude.rnf keyMd5
-      `Prelude.seq` Prelude.rnf mode
+    Prelude.rnf initializationVector `Prelude.seq`
+      Prelude.rnf key `Prelude.seq`
+        Prelude.rnf keyMd5 `Prelude.seq`
+          Prelude.rnf mode
 
 instance Data.ToJSON Encryption where
   toJSON Encryption' {..} =

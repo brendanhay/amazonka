@@ -194,9 +194,9 @@ instance Prelude.Hashable PipelineOutputConfig where
 
 instance Prelude.NFData PipelineOutputConfig where
   rnf PipelineOutputConfig' {..} =
-    Prelude.rnf bucket
-      `Prelude.seq` Prelude.rnf permissions
-      `Prelude.seq` Prelude.rnf storageClass
+    Prelude.rnf bucket `Prelude.seq`
+      Prelude.rnf permissions `Prelude.seq`
+        Prelude.rnf storageClass
 
 instance Data.ToJSON PipelineOutputConfig where
   toJSON PipelineOutputConfig' {..} =

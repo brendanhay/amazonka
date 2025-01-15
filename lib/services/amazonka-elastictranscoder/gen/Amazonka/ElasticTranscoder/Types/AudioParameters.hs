@@ -582,12 +582,12 @@ instance Prelude.Hashable AudioParameters where
 
 instance Prelude.NFData AudioParameters where
   rnf AudioParameters' {..} =
-    Prelude.rnf audioPackingMode
-      `Prelude.seq` Prelude.rnf bitRate
-      `Prelude.seq` Prelude.rnf channels
-      `Prelude.seq` Prelude.rnf codec
-      `Prelude.seq` Prelude.rnf codecOptions
-      `Prelude.seq` Prelude.rnf sampleRate
+    Prelude.rnf audioPackingMode `Prelude.seq`
+      Prelude.rnf bitRate `Prelude.seq`
+        Prelude.rnf channels `Prelude.seq`
+          Prelude.rnf codec `Prelude.seq`
+            Prelude.rnf codecOptions `Prelude.seq`
+              Prelude.rnf sampleRate
 
 instance Data.ToJSON AudioParameters where
   toJSON AudioParameters' {..} =

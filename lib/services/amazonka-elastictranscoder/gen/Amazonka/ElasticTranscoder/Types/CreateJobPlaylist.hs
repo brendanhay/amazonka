@@ -255,11 +255,11 @@ instance Prelude.Hashable CreateJobPlaylist where
 
 instance Prelude.NFData CreateJobPlaylist where
   rnf CreateJobPlaylist' {..} =
-    Prelude.rnf format
-      `Prelude.seq` Prelude.rnf hlsContentProtection
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf outputKeys
-      `Prelude.seq` Prelude.rnf playReadyDrm
+    Prelude.rnf format `Prelude.seq`
+      Prelude.rnf hlsContentProtection `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf outputKeys `Prelude.seq`
+            Prelude.rnf playReadyDrm
 
 instance Data.ToJSON CreateJobPlaylist where
   toJSON CreateJobPlaylist' {..} =

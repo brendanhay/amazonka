@@ -127,9 +127,9 @@ instance Prelude.Hashable JobWatermark where
 
 instance Prelude.NFData JobWatermark where
   rnf JobWatermark' {..} =
-    Prelude.rnf encryption
-      `Prelude.seq` Prelude.rnf inputKey
-      `Prelude.seq` Prelude.rnf presetWatermarkId
+    Prelude.rnf encryption `Prelude.seq`
+      Prelude.rnf inputKey `Prelude.seq`
+        Prelude.rnf presetWatermarkId
 
 instance Data.ToJSON JobWatermark where
   toJSON JobWatermark' {..} =

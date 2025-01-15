@@ -1406,21 +1406,21 @@ instance Prelude.Hashable VideoParameters where
 
 instance Prelude.NFData VideoParameters where
   rnf VideoParameters' {..} =
-    Prelude.rnf aspectRatio
-      `Prelude.seq` Prelude.rnf bitRate
-      `Prelude.seq` Prelude.rnf codec
-      `Prelude.seq` Prelude.rnf codecOptions
-      `Prelude.seq` Prelude.rnf displayAspectRatio
-      `Prelude.seq` Prelude.rnf fixedGOP
-      `Prelude.seq` Prelude.rnf frameRate
-      `Prelude.seq` Prelude.rnf keyframesMaxDist
-      `Prelude.seq` Prelude.rnf maxFrameRate
-      `Prelude.seq` Prelude.rnf maxHeight
-      `Prelude.seq` Prelude.rnf maxWidth
-      `Prelude.seq` Prelude.rnf paddingPolicy
-      `Prelude.seq` Prelude.rnf resolution
-      `Prelude.seq` Prelude.rnf sizingPolicy
-      `Prelude.seq` Prelude.rnf watermarks
+    Prelude.rnf aspectRatio `Prelude.seq`
+      Prelude.rnf bitRate `Prelude.seq`
+        Prelude.rnf codec `Prelude.seq`
+          Prelude.rnf codecOptions `Prelude.seq`
+            Prelude.rnf displayAspectRatio `Prelude.seq`
+              Prelude.rnf fixedGOP `Prelude.seq`
+                Prelude.rnf frameRate `Prelude.seq`
+                  Prelude.rnf keyframesMaxDist `Prelude.seq`
+                    Prelude.rnf maxFrameRate `Prelude.seq`
+                      Prelude.rnf maxHeight `Prelude.seq`
+                        Prelude.rnf maxWidth `Prelude.seq`
+                          Prelude.rnf paddingPolicy `Prelude.seq`
+                            Prelude.rnf resolution `Prelude.seq`
+                              Prelude.rnf sizingPolicy `Prelude.seq`
+                                Prelude.rnf watermarks
 
 instance Data.ToJSON VideoParameters where
   toJSON VideoParameters' {..} =

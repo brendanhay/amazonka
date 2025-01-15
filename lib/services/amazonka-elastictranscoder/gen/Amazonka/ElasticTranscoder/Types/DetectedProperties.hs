@@ -115,11 +115,11 @@ instance Prelude.Hashable DetectedProperties where
 
 instance Prelude.NFData DetectedProperties where
   rnf DetectedProperties' {..} =
-    Prelude.rnf durationMillis
-      `Prelude.seq` Prelude.rnf fileSize
-      `Prelude.seq` Prelude.rnf frameRate
-      `Prelude.seq` Prelude.rnf height
-      `Prelude.seq` Prelude.rnf width
+    Prelude.rnf durationMillis `Prelude.seq`
+      Prelude.rnf fileSize `Prelude.seq`
+        Prelude.rnf frameRate `Prelude.seq`
+          Prelude.rnf height `Prelude.seq`
+            Prelude.rnf width
 
 instance Data.ToJSON DetectedProperties where
   toJSON DetectedProperties' {..} =

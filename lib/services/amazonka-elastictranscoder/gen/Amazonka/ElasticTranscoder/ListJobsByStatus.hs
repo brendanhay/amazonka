@@ -136,12 +136,12 @@ instance Core.AWSPager ListJobsByStatus where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listJobsByStatus_pageToken
-          Lens..~ rs
-          Lens.^? listJobsByStatusResponse_nextPageToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listJobsByStatus_pageToken
+              Lens..~ rs
+              Lens.^? listJobsByStatusResponse_nextPageToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListJobsByStatus where
   type
@@ -167,9 +167,9 @@ instance Prelude.Hashable ListJobsByStatus where
 
 instance Prelude.NFData ListJobsByStatus where
   rnf ListJobsByStatus' {..} =
-    Prelude.rnf ascending
-      `Prelude.seq` Prelude.rnf pageToken
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf ascending `Prelude.seq`
+      Prelude.rnf pageToken `Prelude.seq`
+        Prelude.rnf status
 
 instance Data.ToHeaders ListJobsByStatus where
   toHeaders = Prelude.const Prelude.mempty
@@ -246,6 +246,6 @@ listJobsByStatusResponse_httpStatus = Lens.lens (\ListJobsByStatusResponse' {htt
 
 instance Prelude.NFData ListJobsByStatusResponse where
   rnf ListJobsByStatusResponse' {..} =
-    Prelude.rnf jobs
-      `Prelude.seq` Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf jobs `Prelude.seq`
+      Prelude.rnf nextPageToken `Prelude.seq`
+        Prelude.rnf httpStatus

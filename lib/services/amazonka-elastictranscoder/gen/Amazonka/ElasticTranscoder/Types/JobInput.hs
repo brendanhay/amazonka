@@ -442,16 +442,16 @@ instance Prelude.Hashable JobInput where
 
 instance Prelude.NFData JobInput where
   rnf JobInput' {..} =
-    Prelude.rnf aspectRatio
-      `Prelude.seq` Prelude.rnf container
-      `Prelude.seq` Prelude.rnf detectedProperties
-      `Prelude.seq` Prelude.rnf encryption
-      `Prelude.seq` Prelude.rnf frameRate
-      `Prelude.seq` Prelude.rnf inputCaptions
-      `Prelude.seq` Prelude.rnf interlaced
-      `Prelude.seq` Prelude.rnf key
-      `Prelude.seq` Prelude.rnf resolution
-      `Prelude.seq` Prelude.rnf timeSpan
+    Prelude.rnf aspectRatio `Prelude.seq`
+      Prelude.rnf container `Prelude.seq`
+        Prelude.rnf detectedProperties `Prelude.seq`
+          Prelude.rnf encryption `Prelude.seq`
+            Prelude.rnf frameRate `Prelude.seq`
+              Prelude.rnf inputCaptions `Prelude.seq`
+                Prelude.rnf interlaced `Prelude.seq`
+                  Prelude.rnf key `Prelude.seq`
+                    Prelude.rnf resolution `Prelude.seq`
+                      Prelude.rnf timeSpan
 
 instance Data.ToJSON JobInput where
   toJSON JobInput' {..} =

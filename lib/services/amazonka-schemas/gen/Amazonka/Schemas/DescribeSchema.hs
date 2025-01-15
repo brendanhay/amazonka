@@ -137,9 +137,9 @@ instance Prelude.Hashable DescribeSchema where
 
 instance Prelude.NFData DescribeSchema where
   rnf DescribeSchema' {..} =
-    Prelude.rnf schemaVersion
-      `Prelude.seq` Prelude.rnf registryName
-      `Prelude.seq` Prelude.rnf schemaName
+    Prelude.rnf schemaVersion `Prelude.seq`
+      Prelude.rnf registryName `Prelude.seq`
+        Prelude.rnf schemaName
 
 instance Data.ToHeaders DescribeSchema where
   toHeaders =
@@ -278,13 +278,13 @@ describeSchemaResponse_httpStatus = Lens.lens (\DescribeSchemaResponse' {httpSta
 
 instance Prelude.NFData DescribeSchemaResponse where
   rnf DescribeSchemaResponse' {..} =
-    Prelude.rnf content
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf lastModified
-      `Prelude.seq` Prelude.rnf schemaArn
-      `Prelude.seq` Prelude.rnf schemaName
-      `Prelude.seq` Prelude.rnf schemaVersion
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf versionCreatedDate
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf content `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf lastModified `Prelude.seq`
+          Prelude.rnf schemaArn `Prelude.seq`
+            Prelude.rnf schemaName `Prelude.seq`
+              Prelude.rnf schemaVersion `Prelude.seq`
+                Prelude.rnf tags `Prelude.seq`
+                  Prelude.rnf type' `Prelude.seq`
+                    Prelude.rnf versionCreatedDate `Prelude.seq`
+                      Prelude.rnf httpStatus

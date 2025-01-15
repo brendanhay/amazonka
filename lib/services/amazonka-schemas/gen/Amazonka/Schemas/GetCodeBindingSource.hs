@@ -138,10 +138,10 @@ instance Prelude.Hashable GetCodeBindingSource where
 
 instance Prelude.NFData GetCodeBindingSource where
   rnf GetCodeBindingSource' {..} =
-    Prelude.rnf schemaVersion
-      `Prelude.seq` Prelude.rnf registryName
-      `Prelude.seq` Prelude.rnf schemaName
-      `Prelude.seq` Prelude.rnf language
+    Prelude.rnf schemaVersion `Prelude.seq`
+      Prelude.rnf registryName `Prelude.seq`
+        Prelude.rnf schemaName `Prelude.seq`
+          Prelude.rnf language
 
 instance Data.ToHeaders GetCodeBindingSource where
   toHeaders =
@@ -211,5 +211,5 @@ getCodeBindingSourceResponse_httpStatus = Lens.lens (\GetCodeBindingSourceRespon
 
 instance Prelude.NFData GetCodeBindingSourceResponse where
   rnf GetCodeBindingSourceResponse' {..} =
-    Prelude.rnf body
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf body `Prelude.seq`
+      Prelude.rnf httpStatus

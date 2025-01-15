@@ -105,7 +105,7 @@ instance Prelude.Hashable SearchSchemaSummary where
 
 instance Prelude.NFData SearchSchemaSummary where
   rnf SearchSchemaSummary' {..} =
-    Prelude.rnf registryName
-      `Prelude.seq` Prelude.rnf schemaArn
-      `Prelude.seq` Prelude.rnf schemaName
-      `Prelude.seq` Prelude.rnf schemaVersions
+    Prelude.rnf registryName `Prelude.seq`
+      Prelude.rnf schemaArn `Prelude.seq`
+        Prelude.rnf schemaName `Prelude.seq`
+          Prelude.rnf schemaVersions

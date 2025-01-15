@@ -134,12 +134,12 @@ instance Core.AWSPager ListDiscoverers where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listDiscoverers_nextToken
-          Lens..~ rs
-          Lens.^? listDiscoverersResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listDiscoverers_nextToken
+              Lens..~ rs
+              Lens.^? listDiscoverersResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDiscoverers where
   type
@@ -166,10 +166,10 @@ instance Prelude.Hashable ListDiscoverers where
 
 instance Prelude.NFData ListDiscoverers where
   rnf ListDiscoverers' {..} =
-    Prelude.rnf discovererIdPrefix
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sourceArnPrefix
+    Prelude.rnf discovererIdPrefix `Prelude.seq`
+      Prelude.rnf limit `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf sourceArnPrefix
 
 instance Data.ToHeaders ListDiscoverers where
   toHeaders =
@@ -250,6 +250,6 @@ listDiscoverersResponse_httpStatus = Lens.lens (\ListDiscoverersResponse' {httpS
 
 instance Prelude.NFData ListDiscoverersResponse where
   rnf ListDiscoverersResponse' {..} =
-    Prelude.rnf discoverers
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf discoverers `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -144,10 +144,10 @@ instance Prelude.Hashable DescribeCodeBinding where
 
 instance Prelude.NFData DescribeCodeBinding where
   rnf DescribeCodeBinding' {..} =
-    Prelude.rnf schemaVersion
-      `Prelude.seq` Prelude.rnf registryName
-      `Prelude.seq` Prelude.rnf schemaName
-      `Prelude.seq` Prelude.rnf language
+    Prelude.rnf schemaVersion `Prelude.seq`
+      Prelude.rnf registryName `Prelude.seq`
+        Prelude.rnf schemaName `Prelude.seq`
+          Prelude.rnf language
 
 instance Data.ToHeaders DescribeCodeBinding where
   toHeaders =
@@ -244,8 +244,8 @@ describeCodeBindingResponse_httpStatus = Lens.lens (\DescribeCodeBindingResponse
 
 instance Prelude.NFData DescribeCodeBindingResponse where
   rnf DescribeCodeBindingResponse' {..} =
-    Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf lastModified
-      `Prelude.seq` Prelude.rnf schemaVersion
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf creationDate `Prelude.seq`
+      Prelude.rnf lastModified `Prelude.seq`
+        Prelude.rnf schemaVersion `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf httpStatus

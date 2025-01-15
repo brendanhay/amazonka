@@ -134,12 +134,12 @@ instance Core.AWSPager SearchSchemas where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& searchSchemas_nextToken
-          Lens..~ rs
-          Lens.^? searchSchemasResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& searchSchemas_nextToken
+              Lens..~ rs
+              Lens.^? searchSchemasResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest SearchSchemas where
   type
@@ -166,10 +166,10 @@ instance Prelude.Hashable SearchSchemas where
 
 instance Prelude.NFData SearchSchemas where
   rnf SearchSchemas' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf registryName
-      `Prelude.seq` Prelude.rnf keywords
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf registryName `Prelude.seq`
+          Prelude.rnf keywords
 
 instance Data.ToHeaders SearchSchemas where
   toHeaders =
@@ -253,6 +253,6 @@ searchSchemasResponse_httpStatus = Lens.lens (\SearchSchemasResponse' {httpStatu
 
 instance Prelude.NFData SearchSchemasResponse where
   rnf SearchSchemasResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf schemas
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf schemas `Prelude.seq`
+        Prelude.rnf httpStatus

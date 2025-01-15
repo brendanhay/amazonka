@@ -126,9 +126,9 @@ instance Prelude.Hashable DiscovererSummary where
 
 instance Prelude.NFData DiscovererSummary where
   rnf DiscovererSummary' {..} =
-    Prelude.rnf crossAccount
-      `Prelude.seq` Prelude.rnf discovererArn
-      `Prelude.seq` Prelude.rnf discovererId
-      `Prelude.seq` Prelude.rnf sourceArn
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf crossAccount `Prelude.seq`
+      Prelude.rnf discovererArn `Prelude.seq`
+        Prelude.rnf discovererId `Prelude.seq`
+          Prelude.rnf sourceArn `Prelude.seq`
+            Prelude.rnf state `Prelude.seq`
+              Prelude.rnf tags

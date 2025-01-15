@@ -225,11 +225,11 @@ describeDiscovererResponse_httpStatus = Lens.lens (\DescribeDiscovererResponse' 
 
 instance Prelude.NFData DescribeDiscovererResponse where
   rnf DescribeDiscovererResponse' {..} =
-    Prelude.rnf crossAccount
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf discovererArn
-      `Prelude.seq` Prelude.rnf discovererId
-      `Prelude.seq` Prelude.rnf sourceArn
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf crossAccount `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf discovererArn `Prelude.seq`
+          Prelude.rnf discovererId `Prelude.seq`
+            Prelude.rnf sourceArn `Prelude.seq`
+              Prelude.rnf state `Prelude.seq`
+                Prelude.rnf tags `Prelude.seq`
+                  Prelude.rnf httpStatus

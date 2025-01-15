@@ -118,9 +118,9 @@ instance Prelude.Hashable DeleteSchemaVersion where
 
 instance Prelude.NFData DeleteSchemaVersion where
   rnf DeleteSchemaVersion' {..} =
-    Prelude.rnf schemaVersion
-      `Prelude.seq` Prelude.rnf registryName
-      `Prelude.seq` Prelude.rnf schemaName
+    Prelude.rnf schemaVersion `Prelude.seq`
+      Prelude.rnf registryName `Prelude.seq`
+        Prelude.rnf schemaName
 
 instance Data.ToHeaders DeleteSchemaVersion where
   toHeaders =

@@ -153,5 +153,5 @@ getClusterResponse_cluster = Lens.lens (\GetClusterResponse' {cluster} -> cluste
 
 instance Prelude.NFData GetClusterResponse where
   rnf GetClusterResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf cluster
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf cluster

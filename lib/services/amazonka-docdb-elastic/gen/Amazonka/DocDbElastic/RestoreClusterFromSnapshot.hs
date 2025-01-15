@@ -196,12 +196,12 @@ instance Prelude.Hashable RestoreClusterFromSnapshot where
 
 instance Prelude.NFData RestoreClusterFromSnapshot where
   rnf RestoreClusterFromSnapshot' {..} =
-    Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf subnetIds
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf vpcSecurityGroupIds
-      `Prelude.seq` Prelude.rnf clusterName
-      `Prelude.seq` Prelude.rnf snapshotArn
+    Prelude.rnf kmsKeyId `Prelude.seq`
+      Prelude.rnf subnetIds `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf vpcSecurityGroupIds `Prelude.seq`
+            Prelude.rnf clusterName `Prelude.seq`
+              Prelude.rnf snapshotArn
 
 instance Data.ToHeaders RestoreClusterFromSnapshot where
   toHeaders =
@@ -286,5 +286,5 @@ instance
     RestoreClusterFromSnapshotResponse
   where
   rnf RestoreClusterFromSnapshotResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf cluster
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf cluster

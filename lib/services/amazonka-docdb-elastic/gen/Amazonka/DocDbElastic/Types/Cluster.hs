@@ -252,16 +252,16 @@ instance Prelude.Hashable Cluster where
 
 instance Prelude.NFData Cluster where
   rnf Cluster' {..} =
-    Prelude.rnf adminUserName
-      `Prelude.seq` Prelude.rnf authType
-      `Prelude.seq` Prelude.rnf clusterArn
-      `Prelude.seq` Prelude.rnf clusterEndpoint
-      `Prelude.seq` Prelude.rnf clusterName
-      `Prelude.seq` Prelude.rnf createTime
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf preferredMaintenanceWindow
-      `Prelude.seq` Prelude.rnf shardCapacity
-      `Prelude.seq` Prelude.rnf shardCount
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf subnetIds
-      `Prelude.seq` Prelude.rnf vpcSecurityGroupIds
+    Prelude.rnf adminUserName `Prelude.seq`
+      Prelude.rnf authType `Prelude.seq`
+        Prelude.rnf clusterArn `Prelude.seq`
+          Prelude.rnf clusterEndpoint `Prelude.seq`
+            Prelude.rnf clusterName `Prelude.seq`
+              Prelude.rnf createTime `Prelude.seq`
+                Prelude.rnf kmsKeyId `Prelude.seq`
+                  Prelude.rnf preferredMaintenanceWindow `Prelude.seq`
+                    Prelude.rnf shardCapacity `Prelude.seq`
+                      Prelude.rnf shardCount `Prelude.seq`
+                        Prelude.rnf status `Prelude.seq`
+                          Prelude.rnf subnetIds `Prelude.seq`
+                            Prelude.rnf vpcSecurityGroupIds

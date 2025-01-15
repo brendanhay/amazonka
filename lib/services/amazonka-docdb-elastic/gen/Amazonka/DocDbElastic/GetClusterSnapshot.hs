@@ -157,5 +157,5 @@ getClusterSnapshotResponse_snapshot = Lens.lens (\GetClusterSnapshotResponse' {s
 
 instance Prelude.NFData GetClusterSnapshotResponse where
   rnf GetClusterSnapshotResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf snapshot
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf snapshot

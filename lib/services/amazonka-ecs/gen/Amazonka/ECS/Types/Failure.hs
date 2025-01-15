@@ -93,6 +93,6 @@ instance Prelude.Hashable Failure where
 
 instance Prelude.NFData Failure where
   rnf Failure' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf detail
-      `Prelude.seq` Prelude.rnf reason
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf detail `Prelude.seq`
+        Prelude.rnf reason

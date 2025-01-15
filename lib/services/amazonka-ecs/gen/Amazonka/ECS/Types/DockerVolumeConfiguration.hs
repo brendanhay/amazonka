@@ -208,11 +208,11 @@ instance Prelude.Hashable DockerVolumeConfiguration where
 
 instance Prelude.NFData DockerVolumeConfiguration where
   rnf DockerVolumeConfiguration' {..} =
-    Prelude.rnf autoprovision
-      `Prelude.seq` Prelude.rnf driver
-      `Prelude.seq` Prelude.rnf driverOpts
-      `Prelude.seq` Prelude.rnf labels
-      `Prelude.seq` Prelude.rnf scope
+    Prelude.rnf autoprovision `Prelude.seq`
+      Prelude.rnf driver `Prelude.seq`
+        Prelude.rnf driverOpts `Prelude.seq`
+          Prelude.rnf labels `Prelude.seq`
+            Prelude.rnf scope
 
 instance Data.ToJSON DockerVolumeConfiguration where
   toJSON DockerVolumeConfiguration' {..} =

@@ -189,11 +189,11 @@ instance Prelude.Hashable Volume where
 
 instance Prelude.NFData Volume where
   rnf Volume' {..} =
-    Prelude.rnf dockerVolumeConfiguration
-      `Prelude.seq` Prelude.rnf efsVolumeConfiguration
-      `Prelude.seq` Prelude.rnf fsxWindowsFileServerVolumeConfiguration
-      `Prelude.seq` Prelude.rnf host
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf dockerVolumeConfiguration `Prelude.seq`
+      Prelude.rnf efsVolumeConfiguration `Prelude.seq`
+        Prelude.rnf fsxWindowsFileServerVolumeConfiguration `Prelude.seq`
+          Prelude.rnf host `Prelude.seq`
+            Prelude.rnf name
 
 instance Data.ToJSON Volume where
   toJSON Volume' {..} =

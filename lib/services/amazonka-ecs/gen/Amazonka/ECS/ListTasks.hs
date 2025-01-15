@@ -288,12 +288,12 @@ instance Core.AWSPager ListTasks where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listTasks_nextToken
-          Lens..~ rs
-          Lens.^? listTasksResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listTasks_nextToken
+              Lens..~ rs
+              Lens.^? listTasksResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListTasks where
   type AWSResponse ListTasks = ListTasksResponse
@@ -323,15 +323,15 @@ instance Prelude.Hashable ListTasks where
 
 instance Prelude.NFData ListTasks where
   rnf ListTasks' {..} =
-    Prelude.rnf cluster
-      `Prelude.seq` Prelude.rnf containerInstance
-      `Prelude.seq` Prelude.rnf desiredStatus
-      `Prelude.seq` Prelude.rnf family
-      `Prelude.seq` Prelude.rnf launchType
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf serviceName
-      `Prelude.seq` Prelude.rnf startedBy
+    Prelude.rnf cluster `Prelude.seq`
+      Prelude.rnf containerInstance `Prelude.seq`
+        Prelude.rnf desiredStatus `Prelude.seq`
+          Prelude.rnf family `Prelude.seq`
+            Prelude.rnf launchType `Prelude.seq`
+              Prelude.rnf maxResults `Prelude.seq`
+                Prelude.rnf nextToken `Prelude.seq`
+                  Prelude.rnf serviceName `Prelude.seq`
+                    Prelude.rnf startedBy
 
 instance Data.ToHeaders ListTasks where
   toHeaders =
@@ -429,6 +429,6 @@ listTasksResponse_httpStatus = Lens.lens (\ListTasksResponse' {httpStatus} -> ht
 
 instance Prelude.NFData ListTasksResponse where
   rnf ListTasksResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf taskArns
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf taskArns `Prelude.seq`
+        Prelude.rnf httpStatus

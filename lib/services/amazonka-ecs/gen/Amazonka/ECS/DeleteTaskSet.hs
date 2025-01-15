@@ -150,10 +150,10 @@ instance Prelude.Hashable DeleteTaskSet where
 
 instance Prelude.NFData DeleteTaskSet where
   rnf DeleteTaskSet' {..} =
-    Prelude.rnf force
-      `Prelude.seq` Prelude.rnf cluster
-      `Prelude.seq` Prelude.rnf service
-      `Prelude.seq` Prelude.rnf taskSet
+    Prelude.rnf force `Prelude.seq`
+      Prelude.rnf cluster `Prelude.seq`
+        Prelude.rnf service `Prelude.seq`
+          Prelude.rnf taskSet
 
 instance Data.ToHeaders DeleteTaskSet where
   toHeaders =
@@ -227,5 +227,5 @@ deleteTaskSetResponse_httpStatus = Lens.lens (\DeleteTaskSetResponse' {httpStatu
 
 instance Prelude.NFData DeleteTaskSetResponse where
   rnf DeleteTaskSetResponse' {..} =
-    Prelude.rnf taskSet
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf taskSet `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -112,7 +112,7 @@ instance Prelude.Hashable InstanceHealthCheckResult where
 
 instance Prelude.NFData InstanceHealthCheckResult where
   rnf InstanceHealthCheckResult' {..} =
-    Prelude.rnf lastStatusChange
-      `Prelude.seq` Prelude.rnf lastUpdated
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf lastStatusChange `Prelude.seq`
+      Prelude.rnf lastUpdated `Prelude.seq`
+        Prelude.rnf status `Prelude.seq`
+          Prelude.rnf type'

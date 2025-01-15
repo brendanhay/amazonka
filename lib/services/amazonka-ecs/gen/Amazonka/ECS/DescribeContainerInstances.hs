@@ -151,9 +151,9 @@ instance Prelude.Hashable DescribeContainerInstances where
 
 instance Prelude.NFData DescribeContainerInstances where
   rnf DescribeContainerInstances' {..} =
-    Prelude.rnf cluster
-      `Prelude.seq` Prelude.rnf include
-      `Prelude.seq` Prelude.rnf containerInstances
+    Prelude.rnf cluster `Prelude.seq`
+      Prelude.rnf include `Prelude.seq`
+        Prelude.rnf containerInstances
 
 instance Data.ToHeaders DescribeContainerInstances where
   toHeaders =
@@ -240,6 +240,6 @@ instance
     DescribeContainerInstancesResponse
   where
   rnf DescribeContainerInstancesResponse' {..} =
-    Prelude.rnf containerInstances
-      `Prelude.seq` Prelude.rnf failures
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf containerInstances `Prelude.seq`
+      Prelude.rnf failures `Prelude.seq`
+        Prelude.rnf httpStatus

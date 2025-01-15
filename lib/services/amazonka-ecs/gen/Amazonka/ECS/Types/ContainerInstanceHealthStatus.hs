@@ -92,5 +92,5 @@ instance
 
 instance Prelude.NFData ContainerInstanceHealthStatus where
   rnf ContainerInstanceHealthStatus' {..} =
-    Prelude.rnf details
-      `Prelude.seq` Prelude.rnf overallStatus
+    Prelude.rnf details `Prelude.seq`
+      Prelude.rnf overallStatus

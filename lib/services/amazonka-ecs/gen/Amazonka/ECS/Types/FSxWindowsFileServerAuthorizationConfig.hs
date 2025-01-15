@@ -120,8 +120,8 @@ instance
     FSxWindowsFileServerAuthorizationConfig
   where
   rnf FSxWindowsFileServerAuthorizationConfig' {..} =
-    Prelude.rnf credentialsParameter
-      `Prelude.seq` Prelude.rnf domain
+    Prelude.rnf credentialsParameter `Prelude.seq`
+      Prelude.rnf domain
 
 instance
   Data.ToJSON

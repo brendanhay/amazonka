@@ -98,6 +98,6 @@ instance Prelude.Hashable Setting where
 
 instance Prelude.NFData Setting where
   rnf Setting' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf principalArn
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf principalArn `Prelude.seq`
+        Prelude.rnf value

@@ -201,16 +201,16 @@ instance Prelude.Hashable SubmitTaskStateChange where
 
 instance Prelude.NFData SubmitTaskStateChange where
   rnf SubmitTaskStateChange' {..} =
-    Prelude.rnf attachments
-      `Prelude.seq` Prelude.rnf cluster
-      `Prelude.seq` Prelude.rnf containers
-      `Prelude.seq` Prelude.rnf executionStoppedAt
-      `Prelude.seq` Prelude.rnf managedAgents
-      `Prelude.seq` Prelude.rnf pullStartedAt
-      `Prelude.seq` Prelude.rnf pullStoppedAt
-      `Prelude.seq` Prelude.rnf reason
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf task
+    Prelude.rnf attachments `Prelude.seq`
+      Prelude.rnf cluster `Prelude.seq`
+        Prelude.rnf containers `Prelude.seq`
+          Prelude.rnf executionStoppedAt `Prelude.seq`
+            Prelude.rnf managedAgents `Prelude.seq`
+              Prelude.rnf pullStartedAt `Prelude.seq`
+                Prelude.rnf pullStoppedAt `Prelude.seq`
+                  Prelude.rnf reason `Prelude.seq`
+                    Prelude.rnf status `Prelude.seq`
+                      Prelude.rnf task
 
 instance Data.ToHeaders SubmitTaskStateChange where
   toHeaders =
@@ -292,5 +292,5 @@ submitTaskStateChangeResponse_httpStatus = Lens.lens (\SubmitTaskStateChangeResp
 
 instance Prelude.NFData SubmitTaskStateChangeResponse where
   rnf SubmitTaskStateChangeResponse' {..} =
-    Prelude.rnf acknowledgment
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf acknowledgment `Prelude.seq`
+      Prelude.rnf httpStatus

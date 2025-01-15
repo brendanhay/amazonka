@@ -141,8 +141,8 @@ instance Prelude.Hashable UpdateContainerAgent where
 
 instance Prelude.NFData UpdateContainerAgent where
   rnf UpdateContainerAgent' {..} =
-    Prelude.rnf cluster
-      `Prelude.seq` Prelude.rnf containerInstance
+    Prelude.rnf cluster `Prelude.seq`
+      Prelude.rnf containerInstance
 
 instance Data.ToHeaders UpdateContainerAgent where
   toHeaders =
@@ -216,5 +216,5 @@ updateContainerAgentResponse_httpStatus = Lens.lens (\UpdateContainerAgentRespon
 
 instance Prelude.NFData UpdateContainerAgentResponse where
   rnf UpdateContainerAgentResponse' {..} =
-    Prelude.rnf containerInstance
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf containerInstance `Prelude.seq`
+      Prelude.rnf httpStatus

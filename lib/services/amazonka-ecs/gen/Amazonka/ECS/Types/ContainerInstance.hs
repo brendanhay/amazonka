@@ -520,21 +520,21 @@ instance Prelude.Hashable ContainerInstance where
 
 instance Prelude.NFData ContainerInstance where
   rnf ContainerInstance' {..} =
-    Prelude.rnf agentConnected
-      `Prelude.seq` Prelude.rnf agentUpdateStatus
-      `Prelude.seq` Prelude.rnf attachments
-      `Prelude.seq` Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf capacityProviderName
-      `Prelude.seq` Prelude.rnf containerInstanceArn
-      `Prelude.seq` Prelude.rnf ec2InstanceId
-      `Prelude.seq` Prelude.rnf healthStatus
-      `Prelude.seq` Prelude.rnf pendingTasksCount
-      `Prelude.seq` Prelude.rnf registeredAt
-      `Prelude.seq` Prelude.rnf registeredResources
-      `Prelude.seq` Prelude.rnf remainingResources
-      `Prelude.seq` Prelude.rnf runningTasksCount
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusReason
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf versionInfo
+    Prelude.rnf agentConnected `Prelude.seq`
+      Prelude.rnf agentUpdateStatus `Prelude.seq`
+        Prelude.rnf attachments `Prelude.seq`
+          Prelude.rnf attributes `Prelude.seq`
+            Prelude.rnf capacityProviderName `Prelude.seq`
+              Prelude.rnf containerInstanceArn `Prelude.seq`
+                Prelude.rnf ec2InstanceId `Prelude.seq`
+                  Prelude.rnf healthStatus `Prelude.seq`
+                    Prelude.rnf pendingTasksCount `Prelude.seq`
+                      Prelude.rnf registeredAt `Prelude.seq`
+                        Prelude.rnf registeredResources `Prelude.seq`
+                          Prelude.rnf remainingResources `Prelude.seq`
+                            Prelude.rnf runningTasksCount `Prelude.seq`
+                              Prelude.rnf status `Prelude.seq`
+                                Prelude.rnf statusReason `Prelude.seq`
+                                  Prelude.rnf tags `Prelude.seq`
+                                    Prelude.rnf version `Prelude.seq`
+                                      Prelude.rnf versionInfo

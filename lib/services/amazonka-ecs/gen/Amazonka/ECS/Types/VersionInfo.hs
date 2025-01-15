@@ -98,9 +98,9 @@ instance Prelude.Hashable VersionInfo where
 
 instance Prelude.NFData VersionInfo where
   rnf VersionInfo' {..} =
-    Prelude.rnf agentHash
-      `Prelude.seq` Prelude.rnf agentVersion
-      `Prelude.seq` Prelude.rnf dockerVersion
+    Prelude.rnf agentHash `Prelude.seq`
+      Prelude.rnf agentVersion `Prelude.seq`
+        Prelude.rnf dockerVersion
 
 instance Data.ToJSON VersionInfo where
   toJSON VersionInfo' {..} =

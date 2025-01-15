@@ -149,9 +149,9 @@ instance Prelude.Hashable DeleteService where
 
 instance Prelude.NFData DeleteService where
   rnf DeleteService' {..} =
-    Prelude.rnf cluster
-      `Prelude.seq` Prelude.rnf force
-      `Prelude.seq` Prelude.rnf service
+    Prelude.rnf cluster `Prelude.seq`
+      Prelude.rnf force `Prelude.seq`
+        Prelude.rnf service
 
 instance Data.ToHeaders DeleteService where
   toHeaders =
@@ -224,5 +224,5 @@ deleteServiceResponse_httpStatus = Lens.lens (\DeleteServiceResponse' {httpStatu
 
 instance Prelude.NFData DeleteServiceResponse where
   rnf DeleteServiceResponse' {..} =
-    Prelude.rnf service
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf service `Prelude.seq`
+      Prelude.rnf httpStatus

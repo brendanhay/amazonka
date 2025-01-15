@@ -215,10 +215,10 @@ instance Prelude.Hashable LoadBalancer where
 
 instance Prelude.NFData LoadBalancer where
   rnf LoadBalancer' {..} =
-    Prelude.rnf containerName
-      `Prelude.seq` Prelude.rnf containerPort
-      `Prelude.seq` Prelude.rnf loadBalancerName
-      `Prelude.seq` Prelude.rnf targetGroupArn
+    Prelude.rnf containerName `Prelude.seq`
+      Prelude.rnf containerPort `Prelude.seq`
+        Prelude.rnf loadBalancerName `Prelude.seq`
+          Prelude.rnf targetGroupArn
 
 instance Data.ToJSON LoadBalancer where
   toJSON LoadBalancer' {..} =

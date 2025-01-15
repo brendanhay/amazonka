@@ -195,5 +195,5 @@ instance
     DeregisterTaskDefinitionResponse
   where
   rnf DeregisterTaskDefinitionResponse' {..} =
-    Prelude.rnf taskDefinition
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf taskDefinition `Prelude.seq`
+      Prelude.rnf httpStatus

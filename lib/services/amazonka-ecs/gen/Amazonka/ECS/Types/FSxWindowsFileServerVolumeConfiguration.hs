@@ -126,9 +126,9 @@ instance
     FSxWindowsFileServerVolumeConfiguration
   where
   rnf FSxWindowsFileServerVolumeConfiguration' {..} =
-    Prelude.rnf fileSystemId
-      `Prelude.seq` Prelude.rnf rootDirectory
-      `Prelude.seq` Prelude.rnf authorizationConfig
+    Prelude.rnf fileSystemId `Prelude.seq`
+      Prelude.rnf rootDirectory `Prelude.seq`
+        Prelude.rnf authorizationConfig
 
 instance
   Data.ToJSON

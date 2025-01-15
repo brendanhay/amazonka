@@ -191,5 +191,5 @@ instance
     DeleteCapacityProviderResponse
   where
   rnf DeleteCapacityProviderResponse' {..} =
-    Prelude.rnf capacityProvider
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf capacityProvider `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -140,9 +140,9 @@ instance Prelude.Hashable UpdateServicePrimaryTaskSet where
 
 instance Prelude.NFData UpdateServicePrimaryTaskSet where
   rnf UpdateServicePrimaryTaskSet' {..} =
-    Prelude.rnf cluster
-      `Prelude.seq` Prelude.rnf service
-      `Prelude.seq` Prelude.rnf primaryTaskSet
+    Prelude.rnf cluster `Prelude.seq`
+      Prelude.rnf service `Prelude.seq`
+        Prelude.rnf primaryTaskSet
 
 instance Data.ToHeaders UpdateServicePrimaryTaskSet where
   toHeaders =
@@ -220,5 +220,5 @@ instance
     UpdateServicePrimaryTaskSetResponse
   where
   rnf UpdateServicePrimaryTaskSetResponse' {..} =
-    Prelude.rnf taskSet
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf taskSet `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -98,8 +98,8 @@ instance Prelude.Hashable RuntimePlatform where
 
 instance Prelude.NFData RuntimePlatform where
   rnf RuntimePlatform' {..} =
-    Prelude.rnf cpuArchitecture
-      `Prelude.seq` Prelude.rnf operatingSystemFamily
+    Prelude.rnf cpuArchitecture `Prelude.seq`
+      Prelude.rnf operatingSystemFamily
 
 instance Data.ToJSON RuntimePlatform where
   toJSON RuntimePlatform' {..} =

@@ -719,23 +719,23 @@ instance Prelude.Hashable RunTask where
 
 instance Prelude.NFData RunTask where
   rnf RunTask' {..} =
-    Prelude.rnf capacityProviderStrategy
-      `Prelude.seq` Prelude.rnf cluster
-      `Prelude.seq` Prelude.rnf count
-      `Prelude.seq` Prelude.rnf enableECSManagedTags
-      `Prelude.seq` Prelude.rnf enableExecuteCommand
-      `Prelude.seq` Prelude.rnf group'
-      `Prelude.seq` Prelude.rnf launchType
-      `Prelude.seq` Prelude.rnf networkConfiguration
-      `Prelude.seq` Prelude.rnf overrides
-      `Prelude.seq` Prelude.rnf placementConstraints
-      `Prelude.seq` Prelude.rnf placementStrategy
-      `Prelude.seq` Prelude.rnf platformVersion
-      `Prelude.seq` Prelude.rnf propagateTags
-      `Prelude.seq` Prelude.rnf referenceId
-      `Prelude.seq` Prelude.rnf startedBy
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf taskDefinition
+    Prelude.rnf capacityProviderStrategy `Prelude.seq`
+      Prelude.rnf cluster `Prelude.seq`
+        Prelude.rnf count `Prelude.seq`
+          Prelude.rnf enableECSManagedTags `Prelude.seq`
+            Prelude.rnf enableExecuteCommand `Prelude.seq`
+              Prelude.rnf group' `Prelude.seq`
+                Prelude.rnf launchType `Prelude.seq`
+                  Prelude.rnf networkConfiguration `Prelude.seq`
+                    Prelude.rnf overrides `Prelude.seq`
+                      Prelude.rnf placementConstraints `Prelude.seq`
+                        Prelude.rnf placementStrategy `Prelude.seq`
+                          Prelude.rnf platformVersion `Prelude.seq`
+                            Prelude.rnf propagateTags `Prelude.seq`
+                              Prelude.rnf referenceId `Prelude.seq`
+                                Prelude.rnf startedBy `Prelude.seq`
+                                  Prelude.rnf tags `Prelude.seq`
+                                    Prelude.rnf taskDefinition
 
 instance Data.ToHeaders RunTask where
   toHeaders =
@@ -842,6 +842,6 @@ runTaskResponse_httpStatus = Lens.lens (\RunTaskResponse' {httpStatus} -> httpSt
 
 instance Prelude.NFData RunTaskResponse where
   rnf RunTaskResponse' {..} =
-    Prelude.rnf failures
-      `Prelude.seq` Prelude.rnf tasks
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf failures `Prelude.seq`
+      Prelude.rnf tasks `Prelude.seq`
+        Prelude.rnf httpStatus

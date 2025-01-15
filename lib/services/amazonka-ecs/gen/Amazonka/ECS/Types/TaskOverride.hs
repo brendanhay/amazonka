@@ -186,13 +186,13 @@ instance Prelude.Hashable TaskOverride where
 
 instance Prelude.NFData TaskOverride where
   rnf TaskOverride' {..} =
-    Prelude.rnf containerOverrides
-      `Prelude.seq` Prelude.rnf cpu
-      `Prelude.seq` Prelude.rnf ephemeralStorage
-      `Prelude.seq` Prelude.rnf executionRoleArn
-      `Prelude.seq` Prelude.rnf inferenceAcceleratorOverrides
-      `Prelude.seq` Prelude.rnf memory
-      `Prelude.seq` Prelude.rnf taskRoleArn
+    Prelude.rnf containerOverrides `Prelude.seq`
+      Prelude.rnf cpu `Prelude.seq`
+        Prelude.rnf ephemeralStorage `Prelude.seq`
+          Prelude.rnf executionRoleArn `Prelude.seq`
+            Prelude.rnf inferenceAcceleratorOverrides `Prelude.seq`
+              Prelude.rnf memory `Prelude.seq`
+                Prelude.rnf taskRoleArn
 
 instance Data.ToJSON TaskOverride where
   toJSON TaskOverride' {..} =

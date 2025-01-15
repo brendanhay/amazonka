@@ -125,8 +125,8 @@ instance Prelude.Hashable DiscoverPollEndpoint where
 
 instance Prelude.NFData DiscoverPollEndpoint where
   rnf DiscoverPollEndpoint' {..} =
-    Prelude.rnf cluster
-      `Prelude.seq` Prelude.rnf containerInstance
+    Prelude.rnf cluster `Prelude.seq`
+      Prelude.rnf containerInstance
 
 instance Data.ToHeaders DiscoverPollEndpoint where
   toHeaders =
@@ -227,7 +227,7 @@ discoverPollEndpointResponse_httpStatus = Lens.lens (\DiscoverPollEndpointRespon
 
 instance Prelude.NFData DiscoverPollEndpointResponse where
   rnf DiscoverPollEndpointResponse' {..} =
-    Prelude.rnf endpoint
-      `Prelude.seq` Prelude.rnf serviceConnectEndpoint
-      `Prelude.seq` Prelude.rnf telemetryEndpoint
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf endpoint `Prelude.seq`
+      Prelude.rnf serviceConnectEndpoint `Prelude.seq`
+        Prelude.rnf telemetryEndpoint `Prelude.seq`
+          Prelude.rnf httpStatus

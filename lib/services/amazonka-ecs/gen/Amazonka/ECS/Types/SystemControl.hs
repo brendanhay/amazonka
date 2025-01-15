@@ -105,8 +105,8 @@ instance Prelude.Hashable SystemControl where
 
 instance Prelude.NFData SystemControl where
   rnf SystemControl' {..} =
-    Prelude.rnf namespace
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf namespace `Prelude.seq`
+      Prelude.rnf value
 
 instance Data.ToJSON SystemControl where
   toJSON SystemControl' {..} =

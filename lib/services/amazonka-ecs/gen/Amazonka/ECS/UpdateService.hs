@@ -816,24 +816,24 @@ instance Prelude.Hashable UpdateService where
 
 instance Prelude.NFData UpdateService where
   rnf UpdateService' {..} =
-    Prelude.rnf capacityProviderStrategy
-      `Prelude.seq` Prelude.rnf cluster
-      `Prelude.seq` Prelude.rnf deploymentConfiguration
-      `Prelude.seq` Prelude.rnf desiredCount
-      `Prelude.seq` Prelude.rnf enableECSManagedTags
-      `Prelude.seq` Prelude.rnf enableExecuteCommand
-      `Prelude.seq` Prelude.rnf forceNewDeployment
-      `Prelude.seq` Prelude.rnf healthCheckGracePeriodSeconds
-      `Prelude.seq` Prelude.rnf loadBalancers
-      `Prelude.seq` Prelude.rnf networkConfiguration
-      `Prelude.seq` Prelude.rnf placementConstraints
-      `Prelude.seq` Prelude.rnf placementStrategy
-      `Prelude.seq` Prelude.rnf platformVersion
-      `Prelude.seq` Prelude.rnf propagateTags
-      `Prelude.seq` Prelude.rnf serviceConnectConfiguration
-      `Prelude.seq` Prelude.rnf serviceRegistries
-      `Prelude.seq` Prelude.rnf taskDefinition
-      `Prelude.seq` Prelude.rnf service
+    Prelude.rnf capacityProviderStrategy `Prelude.seq`
+      Prelude.rnf cluster `Prelude.seq`
+        Prelude.rnf deploymentConfiguration `Prelude.seq`
+          Prelude.rnf desiredCount `Prelude.seq`
+            Prelude.rnf enableECSManagedTags `Prelude.seq`
+              Prelude.rnf enableExecuteCommand `Prelude.seq`
+                Prelude.rnf forceNewDeployment `Prelude.seq`
+                  Prelude.rnf healthCheckGracePeriodSeconds `Prelude.seq`
+                    Prelude.rnf loadBalancers `Prelude.seq`
+                      Prelude.rnf networkConfiguration `Prelude.seq`
+                        Prelude.rnf placementConstraints `Prelude.seq`
+                          Prelude.rnf placementStrategy `Prelude.seq`
+                            Prelude.rnf platformVersion `Prelude.seq`
+                              Prelude.rnf propagateTags `Prelude.seq`
+                                Prelude.rnf serviceConnectConfiguration `Prelude.seq`
+                                  Prelude.rnf serviceRegistries `Prelude.seq`
+                                    Prelude.rnf taskDefinition `Prelude.seq`
+                                      Prelude.rnf service
 
 instance Data.ToHeaders UpdateService where
   toHeaders =
@@ -934,5 +934,5 @@ updateServiceResponse_httpStatus = Lens.lens (\UpdateServiceResponse' {httpStatu
 
 instance Prelude.NFData UpdateServiceResponse where
   rnf UpdateServiceResponse' {..} =
-    Prelude.rnf service
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf service `Prelude.seq`
+      Prelude.rnf httpStatus

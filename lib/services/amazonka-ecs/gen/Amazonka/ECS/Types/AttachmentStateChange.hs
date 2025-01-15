@@ -75,8 +75,8 @@ instance Prelude.Hashable AttachmentStateChange where
 
 instance Prelude.NFData AttachmentStateChange where
   rnf AttachmentStateChange' {..} =
-    Prelude.rnf attachmentArn
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf attachmentArn `Prelude.seq`
+      Prelude.rnf status
 
 instance Data.ToJSON AttachmentStateChange where
   toJSON AttachmentStateChange' {..} =

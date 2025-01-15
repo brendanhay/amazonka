@@ -104,9 +104,9 @@ instance Prelude.Hashable Ulimit where
 
 instance Prelude.NFData Ulimit where
   rnf Ulimit' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf softLimit
-      `Prelude.seq` Prelude.rnf hardLimit
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf softLimit `Prelude.seq`
+        Prelude.rnf hardLimit
 
 instance Data.ToJSON Ulimit where
   toJSON Ulimit' {..} =

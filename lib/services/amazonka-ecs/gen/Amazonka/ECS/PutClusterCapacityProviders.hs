@@ -233,9 +233,9 @@ instance Prelude.Hashable PutClusterCapacityProviders where
 
 instance Prelude.NFData PutClusterCapacityProviders where
   rnf PutClusterCapacityProviders' {..} =
-    Prelude.rnf cluster
-      `Prelude.seq` Prelude.rnf capacityProviders
-      `Prelude.seq` Prelude.rnf defaultCapacityProviderStrategy
+    Prelude.rnf cluster `Prelude.seq`
+      Prelude.rnf capacityProviders `Prelude.seq`
+        Prelude.rnf defaultCapacityProviderStrategy
 
 instance Data.ToHeaders PutClusterCapacityProviders where
   toHeaders =
@@ -316,5 +316,5 @@ instance
     PutClusterCapacityProvidersResponse
   where
   rnf PutClusterCapacityProvidersResponse' {..} =
-    Prelude.rnf cluster
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf cluster `Prelude.seq`
+      Prelude.rnf httpStatus

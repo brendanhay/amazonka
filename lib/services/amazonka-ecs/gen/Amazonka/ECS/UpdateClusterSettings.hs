@@ -138,8 +138,8 @@ instance Prelude.Hashable UpdateClusterSettings where
 
 instance Prelude.NFData UpdateClusterSettings where
   rnf UpdateClusterSettings' {..} =
-    Prelude.rnf cluster
-      `Prelude.seq` Prelude.rnf settings
+    Prelude.rnf cluster `Prelude.seq`
+      Prelude.rnf settings
 
 instance Data.ToHeaders UpdateClusterSettings where
   toHeaders =
@@ -212,5 +212,5 @@ updateClusterSettingsResponse_httpStatus = Lens.lens (\UpdateClusterSettingsResp
 
 instance Prelude.NFData UpdateClusterSettingsResponse where
   rnf UpdateClusterSettingsResponse' {..} =
-    Prelude.rnf cluster
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf cluster `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -94,8 +94,8 @@ instance
 
 instance Prelude.NFData InferenceAcceleratorOverride where
   rnf InferenceAcceleratorOverride' {..} =
-    Prelude.rnf deviceName
-      `Prelude.seq` Prelude.rnf deviceType
+    Prelude.rnf deviceName `Prelude.seq`
+      Prelude.rnf deviceType
 
 instance Data.ToJSON InferenceAcceleratorOverride where
   toJSON InferenceAcceleratorOverride' {..} =

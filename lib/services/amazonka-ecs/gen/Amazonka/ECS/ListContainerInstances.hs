@@ -209,12 +209,12 @@ instance Core.AWSPager ListContainerInstances where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listContainerInstances_nextToken
-          Lens..~ rs
-          Lens.^? listContainerInstancesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listContainerInstances_nextToken
+              Lens..~ rs
+              Lens.^? listContainerInstancesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListContainerInstances where
   type
@@ -245,11 +245,11 @@ instance Prelude.Hashable ListContainerInstances where
 
 instance Prelude.NFData ListContainerInstances where
   rnf ListContainerInstances' {..} =
-    Prelude.rnf cluster
-      `Prelude.seq` Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf cluster `Prelude.seq`
+      Prelude.rnf filter' `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf status
 
 instance Data.ToHeaders ListContainerInstances where
   toHeaders =
@@ -349,6 +349,6 @@ instance
     ListContainerInstancesResponse
   where
   rnf ListContainerInstancesResponse' {..} =
-    Prelude.rnf containerInstanceArns
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf containerInstanceArns `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

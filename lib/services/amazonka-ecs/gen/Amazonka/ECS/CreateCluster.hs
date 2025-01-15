@@ -398,13 +398,13 @@ instance Prelude.Hashable CreateCluster where
 
 instance Prelude.NFData CreateCluster where
   rnf CreateCluster' {..} =
-    Prelude.rnf capacityProviders
-      `Prelude.seq` Prelude.rnf clusterName
-      `Prelude.seq` Prelude.rnf configuration
-      `Prelude.seq` Prelude.rnf defaultCapacityProviderStrategy
-      `Prelude.seq` Prelude.rnf serviceConnectDefaults
-      `Prelude.seq` Prelude.rnf settings
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf capacityProviders `Prelude.seq`
+      Prelude.rnf clusterName `Prelude.seq`
+        Prelude.rnf configuration `Prelude.seq`
+          Prelude.rnf defaultCapacityProviderStrategy `Prelude.seq`
+            Prelude.rnf serviceConnectDefaults `Prelude.seq`
+              Prelude.rnf settings `Prelude.seq`
+                Prelude.rnf tags
 
 instance Data.ToHeaders CreateCluster where
   toHeaders =
@@ -484,5 +484,5 @@ createClusterResponse_httpStatus = Lens.lens (\CreateClusterResponse' {httpStatu
 
 instance Prelude.NFData CreateClusterResponse where
   rnf CreateClusterResponse' {..} =
-    Prelude.rnf cluster
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf cluster `Prelude.seq`
+      Prelude.rnf httpStatus

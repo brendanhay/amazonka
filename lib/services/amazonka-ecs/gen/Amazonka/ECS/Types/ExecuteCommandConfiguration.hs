@@ -139,9 +139,9 @@ instance Prelude.Hashable ExecuteCommandConfiguration where
 
 instance Prelude.NFData ExecuteCommandConfiguration where
   rnf ExecuteCommandConfiguration' {..} =
-    Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf logConfiguration
-      `Prelude.seq` Prelude.rnf logging
+    Prelude.rnf kmsKeyId `Prelude.seq`
+      Prelude.rnf logConfiguration `Prelude.seq`
+        Prelude.rnf logging
 
 instance Data.ToJSON ExecuteCommandConfiguration where
   toJSON ExecuteCommandConfiguration' {..} =

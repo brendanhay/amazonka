@@ -179,14 +179,14 @@ instance Prelude.Hashable SubmitContainerStateChange where
 
 instance Prelude.NFData SubmitContainerStateChange where
   rnf SubmitContainerStateChange' {..} =
-    Prelude.rnf cluster
-      `Prelude.seq` Prelude.rnf containerName
-      `Prelude.seq` Prelude.rnf exitCode
-      `Prelude.seq` Prelude.rnf networkBindings
-      `Prelude.seq` Prelude.rnf reason
-      `Prelude.seq` Prelude.rnf runtimeId
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf task
+    Prelude.rnf cluster `Prelude.seq`
+      Prelude.rnf containerName `Prelude.seq`
+        Prelude.rnf exitCode `Prelude.seq`
+          Prelude.rnf networkBindings `Prelude.seq`
+            Prelude.rnf reason `Prelude.seq`
+              Prelude.rnf runtimeId `Prelude.seq`
+                Prelude.rnf status `Prelude.seq`
+                  Prelude.rnf task
 
 instance Data.ToHeaders SubmitContainerStateChange where
   toHeaders =
@@ -269,5 +269,5 @@ instance
     SubmitContainerStateChangeResponse
   where
   rnf SubmitContainerStateChangeResponse' {..} =
-    Prelude.rnf acknowledgment
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf acknowledgment `Prelude.seq`
+      Prelude.rnf httpStatus

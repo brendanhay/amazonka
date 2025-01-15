@@ -221,9 +221,9 @@ instance Prelude.Hashable CreateCapacityProvider where
 
 instance Prelude.NFData CreateCapacityProvider where
   rnf CreateCapacityProvider' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf autoScalingGroupProvider
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf autoScalingGroupProvider
 
 instance Data.ToHeaders CreateCapacityProvider where
   toHeaders =
@@ -303,5 +303,5 @@ instance
     CreateCapacityProviderResponse
   where
   rnf CreateCapacityProviderResponse' {..} =
-    Prelude.rnf capacityProvider
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf capacityProvider `Prelude.seq`
+      Prelude.rnf httpStatus

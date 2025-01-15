@@ -206,14 +206,14 @@ instance Prelude.Hashable ContainerOverride where
 
 instance Prelude.NFData ContainerOverride where
   rnf ContainerOverride' {..} =
-    Prelude.rnf command
-      `Prelude.seq` Prelude.rnf cpu
-      `Prelude.seq` Prelude.rnf environment
-      `Prelude.seq` Prelude.rnf environmentFiles
-      `Prelude.seq` Prelude.rnf memory
-      `Prelude.seq` Prelude.rnf memoryReservation
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf resourceRequirements
+    Prelude.rnf command `Prelude.seq`
+      Prelude.rnf cpu `Prelude.seq`
+        Prelude.rnf environment `Prelude.seq`
+          Prelude.rnf environmentFiles `Prelude.seq`
+            Prelude.rnf memory `Prelude.seq`
+              Prelude.rnf memoryReservation `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf resourceRequirements
 
 instance Data.ToJSON ContainerOverride where
   toJSON ContainerOverride' {..} =

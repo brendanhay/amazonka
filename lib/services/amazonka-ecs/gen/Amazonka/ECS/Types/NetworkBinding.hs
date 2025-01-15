@@ -302,12 +302,12 @@ instance Prelude.Hashable NetworkBinding where
 
 instance Prelude.NFData NetworkBinding where
   rnf NetworkBinding' {..} =
-    Prelude.rnf bindIP
-      `Prelude.seq` Prelude.rnf containerPort
-      `Prelude.seq` Prelude.rnf containerPortRange
-      `Prelude.seq` Prelude.rnf hostPort
-      `Prelude.seq` Prelude.rnf hostPortRange
-      `Prelude.seq` Prelude.rnf protocol
+    Prelude.rnf bindIP `Prelude.seq`
+      Prelude.rnf containerPort `Prelude.seq`
+        Prelude.rnf containerPortRange `Prelude.seq`
+          Prelude.rnf hostPort `Prelude.seq`
+            Prelude.rnf hostPortRange `Prelude.seq`
+              Prelude.rnf protocol
 
 instance Data.ToJSON NetworkBinding where
   toJSON NetworkBinding' {..} =

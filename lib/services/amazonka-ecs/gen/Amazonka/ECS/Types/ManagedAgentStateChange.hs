@@ -100,10 +100,10 @@ instance Prelude.Hashable ManagedAgentStateChange where
 
 instance Prelude.NFData ManagedAgentStateChange where
   rnf ManagedAgentStateChange' {..} =
-    Prelude.rnf reason
-      `Prelude.seq` Prelude.rnf containerName
-      `Prelude.seq` Prelude.rnf managedAgentName
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf reason `Prelude.seq`
+      Prelude.rnf containerName `Prelude.seq`
+        Prelude.rnf managedAgentName `Prelude.seq`
+          Prelude.rnf status
 
 instance Data.ToJSON ManagedAgentStateChange where
   toJSON ManagedAgentStateChange' {..} =

@@ -205,9 +205,9 @@ instance Prelude.Hashable PutAccountSetting where
 
 instance Prelude.NFData PutAccountSetting where
   rnf PutAccountSetting' {..} =
-    Prelude.rnf principalArn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf principalArn `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf value
 
 instance Data.ToHeaders PutAccountSetting where
   toHeaders =
@@ -281,5 +281,5 @@ putAccountSettingResponse_httpStatus = Lens.lens (\PutAccountSettingResponse' {h
 
 instance Prelude.NFData PutAccountSettingResponse where
   rnf PutAccountSettingResponse' {..} =
-    Prelude.rnf setting
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf setting `Prelude.seq`
+      Prelude.rnf httpStatus

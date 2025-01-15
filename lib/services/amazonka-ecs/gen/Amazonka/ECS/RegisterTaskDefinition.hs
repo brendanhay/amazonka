@@ -1022,23 +1022,23 @@ instance Prelude.Hashable RegisterTaskDefinition where
 
 instance Prelude.NFData RegisterTaskDefinition where
   rnf RegisterTaskDefinition' {..} =
-    Prelude.rnf cpu
-      `Prelude.seq` Prelude.rnf ephemeralStorage
-      `Prelude.seq` Prelude.rnf executionRoleArn
-      `Prelude.seq` Prelude.rnf inferenceAccelerators
-      `Prelude.seq` Prelude.rnf ipcMode
-      `Prelude.seq` Prelude.rnf memory
-      `Prelude.seq` Prelude.rnf networkMode
-      `Prelude.seq` Prelude.rnf pidMode
-      `Prelude.seq` Prelude.rnf placementConstraints
-      `Prelude.seq` Prelude.rnf proxyConfiguration
-      `Prelude.seq` Prelude.rnf requiresCompatibilities
-      `Prelude.seq` Prelude.rnf runtimePlatform
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf taskRoleArn
-      `Prelude.seq` Prelude.rnf volumes
-      `Prelude.seq` Prelude.rnf family
-      `Prelude.seq` Prelude.rnf containerDefinitions
+    Prelude.rnf cpu `Prelude.seq`
+      Prelude.rnf ephemeralStorage `Prelude.seq`
+        Prelude.rnf executionRoleArn `Prelude.seq`
+          Prelude.rnf inferenceAccelerators `Prelude.seq`
+            Prelude.rnf ipcMode `Prelude.seq`
+              Prelude.rnf memory `Prelude.seq`
+                Prelude.rnf networkMode `Prelude.seq`
+                  Prelude.rnf pidMode `Prelude.seq`
+                    Prelude.rnf placementConstraints `Prelude.seq`
+                      Prelude.rnf proxyConfiguration `Prelude.seq`
+                        Prelude.rnf requiresCompatibilities `Prelude.seq`
+                          Prelude.rnf runtimePlatform `Prelude.seq`
+                            Prelude.rnf tags `Prelude.seq`
+                              Prelude.rnf taskRoleArn `Prelude.seq`
+                                Prelude.rnf volumes `Prelude.seq`
+                                  Prelude.rnf family `Prelude.seq`
+                                    Prelude.rnf containerDefinitions
 
 instance Data.ToHeaders RegisterTaskDefinition where
   toHeaders =
@@ -1148,6 +1148,6 @@ instance
     RegisterTaskDefinitionResponse
   where
   rnf RegisterTaskDefinitionResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf taskDefinition
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf taskDefinition `Prelude.seq`
+        Prelude.rnf httpStatus

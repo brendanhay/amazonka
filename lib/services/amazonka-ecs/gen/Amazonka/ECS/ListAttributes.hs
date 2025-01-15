@@ -202,12 +202,12 @@ instance Core.AWSPager ListAttributes where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listAttributes_nextToken
-          Lens..~ rs
-          Lens.^? listAttributesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listAttributes_nextToken
+              Lens..~ rs
+              Lens.^? listAttributesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAttributes where
   type
@@ -236,12 +236,12 @@ instance Prelude.Hashable ListAttributes where
 
 instance Prelude.NFData ListAttributes where
   rnf ListAttributes' {..} =
-    Prelude.rnf attributeName
-      `Prelude.seq` Prelude.rnf attributeValue
-      `Prelude.seq` Prelude.rnf cluster
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf targetType
+    Prelude.rnf attributeName `Prelude.seq`
+      Prelude.rnf attributeValue `Prelude.seq`
+        Prelude.rnf cluster `Prelude.seq`
+          Prelude.rnf maxResults `Prelude.seq`
+            Prelude.rnf nextToken `Prelude.seq`
+              Prelude.rnf targetType
 
 instance Data.ToHeaders ListAttributes where
   toHeaders =
@@ -337,6 +337,6 @@ listAttributesResponse_httpStatus = Lens.lens (\ListAttributesResponse' {httpSta
 
 instance Prelude.NFData ListAttributesResponse where
   rnf ListAttributesResponse' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf attributes `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

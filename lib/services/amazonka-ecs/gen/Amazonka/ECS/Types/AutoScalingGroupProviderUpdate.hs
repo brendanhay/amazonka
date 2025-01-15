@@ -136,8 +136,8 @@ instance
     AutoScalingGroupProviderUpdate
   where
   rnf AutoScalingGroupProviderUpdate' {..} =
-    Prelude.rnf managedScaling
-      `Prelude.seq` Prelude.rnf managedTerminationProtection
+    Prelude.rnf managedScaling `Prelude.seq`
+      Prelude.rnf managedTerminationProtection
 
 instance Data.ToJSON AutoScalingGroupProviderUpdate where
   toJSON AutoScalingGroupProviderUpdate' {..} =

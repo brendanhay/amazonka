@@ -457,19 +457,19 @@ instance Prelude.Hashable CreateTaskSet where
 
 instance Prelude.NFData CreateTaskSet where
   rnf CreateTaskSet' {..} =
-    Prelude.rnf capacityProviderStrategy
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf externalId
-      `Prelude.seq` Prelude.rnf launchType
-      `Prelude.seq` Prelude.rnf loadBalancers
-      `Prelude.seq` Prelude.rnf networkConfiguration
-      `Prelude.seq` Prelude.rnf platformVersion
-      `Prelude.seq` Prelude.rnf scale
-      `Prelude.seq` Prelude.rnf serviceRegistries
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf service
-      `Prelude.seq` Prelude.rnf cluster
-      `Prelude.seq` Prelude.rnf taskDefinition
+    Prelude.rnf capacityProviderStrategy `Prelude.seq`
+      Prelude.rnf clientToken `Prelude.seq`
+        Prelude.rnf externalId `Prelude.seq`
+          Prelude.rnf launchType `Prelude.seq`
+            Prelude.rnf loadBalancers `Prelude.seq`
+              Prelude.rnf networkConfiguration `Prelude.seq`
+                Prelude.rnf platformVersion `Prelude.seq`
+                  Prelude.rnf scale `Prelude.seq`
+                    Prelude.rnf serviceRegistries `Prelude.seq`
+                      Prelude.rnf tags `Prelude.seq`
+                        Prelude.rnf service `Prelude.seq`
+                          Prelude.rnf cluster `Prelude.seq`
+                            Prelude.rnf taskDefinition
 
 instance Data.ToHeaders CreateTaskSet where
   toHeaders =
@@ -566,5 +566,5 @@ createTaskSetResponse_httpStatus = Lens.lens (\CreateTaskSetResponse' {httpStatu
 
 instance Prelude.NFData CreateTaskSetResponse where
   rnf CreateTaskSetResponse' {..} =
-    Prelude.rnf taskSet
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf taskSet `Prelude.seq`
+      Prelude.rnf httpStatus

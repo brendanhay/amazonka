@@ -120,9 +120,9 @@ instance Prelude.Hashable AwsVpcConfiguration where
 
 instance Prelude.NFData AwsVpcConfiguration where
   rnf AwsVpcConfiguration' {..} =
-    Prelude.rnf assignPublicIp
-      `Prelude.seq` Prelude.rnf securityGroups
-      `Prelude.seq` Prelude.rnf subnets
+    Prelude.rnf assignPublicIp `Prelude.seq`
+      Prelude.rnf securityGroups `Prelude.seq`
+        Prelude.rnf subnets
 
 instance Data.ToJSON AwsVpcConfiguration where
   toJSON AwsVpcConfiguration' {..} =

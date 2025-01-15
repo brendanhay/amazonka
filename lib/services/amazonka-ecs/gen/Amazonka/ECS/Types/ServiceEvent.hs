@@ -91,6 +91,6 @@ instance Prelude.Hashable ServiceEvent where
 
 instance Prelude.NFData ServiceEvent where
   rnf ServiceEvent' {..} =
-    Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf message
+    Prelude.rnf createdAt `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf message

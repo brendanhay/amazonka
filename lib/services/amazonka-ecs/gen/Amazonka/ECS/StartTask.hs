@@ -410,18 +410,18 @@ instance Prelude.Hashable StartTask where
 
 instance Prelude.NFData StartTask where
   rnf StartTask' {..} =
-    Prelude.rnf cluster
-      `Prelude.seq` Prelude.rnf enableECSManagedTags
-      `Prelude.seq` Prelude.rnf enableExecuteCommand
-      `Prelude.seq` Prelude.rnf group'
-      `Prelude.seq` Prelude.rnf networkConfiguration
-      `Prelude.seq` Prelude.rnf overrides
-      `Prelude.seq` Prelude.rnf propagateTags
-      `Prelude.seq` Prelude.rnf referenceId
-      `Prelude.seq` Prelude.rnf startedBy
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf containerInstances
-      `Prelude.seq` Prelude.rnf taskDefinition
+    Prelude.rnf cluster `Prelude.seq`
+      Prelude.rnf enableECSManagedTags `Prelude.seq`
+        Prelude.rnf enableExecuteCommand `Prelude.seq`
+          Prelude.rnf group' `Prelude.seq`
+            Prelude.rnf networkConfiguration `Prelude.seq`
+              Prelude.rnf overrides `Prelude.seq`
+                Prelude.rnf propagateTags `Prelude.seq`
+                  Prelude.rnf referenceId `Prelude.seq`
+                    Prelude.rnf startedBy `Prelude.seq`
+                      Prelude.rnf tags `Prelude.seq`
+                        Prelude.rnf containerInstances `Prelude.seq`
+                          Prelude.rnf taskDefinition
 
 instance Data.ToHeaders StartTask where
   toHeaders =
@@ -520,6 +520,6 @@ startTaskResponse_httpStatus = Lens.lens (\StartTaskResponse' {httpStatus} -> ht
 
 instance Prelude.NFData StartTaskResponse where
   rnf StartTaskResponse' {..} =
-    Prelude.rnf failures
-      `Prelude.seq` Prelude.rnf tasks
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf failures `Prelude.seq`
+      Prelude.rnf tasks `Prelude.seq`
+        Prelude.rnf httpStatus

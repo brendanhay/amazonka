@@ -199,10 +199,10 @@ instance Prelude.Hashable ServiceConnectService where
 
 instance Prelude.NFData ServiceConnectService where
   rnf ServiceConnectService' {..} =
-    Prelude.rnf clientAliases
-      `Prelude.seq` Prelude.rnf discoveryName
-      `Prelude.seq` Prelude.rnf ingressPortOverride
-      `Prelude.seq` Prelude.rnf portName
+    Prelude.rnf clientAliases `Prelude.seq`
+      Prelude.rnf discoveryName `Prelude.seq`
+        Prelude.rnf ingressPortOverride `Prelude.seq`
+          Prelude.rnf portName
 
 instance Data.ToJSON ServiceConnectService where
   toJSON ServiceConnectService' {..} =

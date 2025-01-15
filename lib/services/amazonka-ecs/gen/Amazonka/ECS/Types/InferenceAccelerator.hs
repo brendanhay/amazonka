@@ -89,8 +89,8 @@ instance Prelude.Hashable InferenceAccelerator where
 
 instance Prelude.NFData InferenceAccelerator where
   rnf InferenceAccelerator' {..} =
-    Prelude.rnf deviceName
-      `Prelude.seq` Prelude.rnf deviceType
+    Prelude.rnf deviceName `Prelude.seq`
+      Prelude.rnf deviceType
 
 instance Data.ToJSON InferenceAccelerator where
   toJSON InferenceAccelerator' {..} =

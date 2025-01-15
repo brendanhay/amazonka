@@ -124,8 +124,8 @@ instance Prelude.Hashable DeleteAttributes where
 
 instance Prelude.NFData DeleteAttributes where
   rnf DeleteAttributes' {..} =
-    Prelude.rnf cluster
-      `Prelude.seq` Prelude.rnf attributes
+    Prelude.rnf cluster `Prelude.seq`
+      Prelude.rnf attributes
 
 instance Data.ToHeaders DeleteAttributes where
   toHeaders =
@@ -201,5 +201,5 @@ deleteAttributesResponse_httpStatus = Lens.lens (\DeleteAttributesResponse' {htt
 
 instance Prelude.NFData DeleteAttributesResponse where
   rnf DeleteAttributesResponse' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf attributes `Prelude.seq`
+      Prelude.rnf httpStatus

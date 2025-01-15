@@ -195,10 +195,10 @@ instance Prelude.Hashable UpdateTaskProtection where
 
 instance Prelude.NFData UpdateTaskProtection where
   rnf UpdateTaskProtection' {..} =
-    Prelude.rnf expiresInMinutes
-      `Prelude.seq` Prelude.rnf cluster
-      `Prelude.seq` Prelude.rnf tasks
-      `Prelude.seq` Prelude.rnf protectionEnabled
+    Prelude.rnf expiresInMinutes `Prelude.seq`
+      Prelude.rnf cluster `Prelude.seq`
+        Prelude.rnf tasks `Prelude.seq`
+          Prelude.rnf protectionEnabled
 
 instance Data.ToHeaders UpdateTaskProtection where
   toHeaders =
@@ -311,6 +311,6 @@ updateTaskProtectionResponse_httpStatus = Lens.lens (\UpdateTaskProtectionRespon
 
 instance Prelude.NFData UpdateTaskProtectionResponse where
   rnf UpdateTaskProtectionResponse' {..} =
-    Prelude.rnf failures
-      `Prelude.seq` Prelude.rnf protectedTasks
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf failures `Prelude.seq`
+      Prelude.rnf protectedTasks `Prelude.seq`
+        Prelude.rnf httpStatus

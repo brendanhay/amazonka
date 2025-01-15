@@ -300,15 +300,15 @@ instance Prelude.Hashable RegisterContainerInstance where
 
 instance Prelude.NFData RegisterContainerInstance where
   rnf RegisterContainerInstance' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf cluster
-      `Prelude.seq` Prelude.rnf containerInstanceArn
-      `Prelude.seq` Prelude.rnf instanceIdentityDocument
-      `Prelude.seq` Prelude.rnf instanceIdentityDocumentSignature
-      `Prelude.seq` Prelude.rnf platformDevices
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf totalResources
-      `Prelude.seq` Prelude.rnf versionInfo
+    Prelude.rnf attributes `Prelude.seq`
+      Prelude.rnf cluster `Prelude.seq`
+        Prelude.rnf containerInstanceArn `Prelude.seq`
+          Prelude.rnf instanceIdentityDocument `Prelude.seq`
+            Prelude.rnf instanceIdentityDocumentSignature `Prelude.seq`
+              Prelude.rnf platformDevices `Prelude.seq`
+                Prelude.rnf tags `Prelude.seq`
+                  Prelude.rnf totalResources `Prelude.seq`
+                    Prelude.rnf versionInfo
 
 instance Data.ToHeaders RegisterContainerInstance where
   toHeaders =
@@ -396,5 +396,5 @@ instance
     RegisterContainerInstanceResponse
   where
   rnf RegisterContainerInstanceResponse' {..} =
-    Prelude.rnf containerInstance
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf containerInstance `Prelude.seq`
+      Prelude.rnf httpStatus

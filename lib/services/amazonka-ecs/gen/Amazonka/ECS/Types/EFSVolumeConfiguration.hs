@@ -175,11 +175,11 @@ instance Prelude.Hashable EFSVolumeConfiguration where
 
 instance Prelude.NFData EFSVolumeConfiguration where
   rnf EFSVolumeConfiguration' {..} =
-    Prelude.rnf authorizationConfig
-      `Prelude.seq` Prelude.rnf rootDirectory
-      `Prelude.seq` Prelude.rnf transitEncryption
-      `Prelude.seq` Prelude.rnf transitEncryptionPort
-      `Prelude.seq` Prelude.rnf fileSystemId
+    Prelude.rnf authorizationConfig `Prelude.seq`
+      Prelude.rnf rootDirectory `Prelude.seq`
+        Prelude.rnf transitEncryption `Prelude.seq`
+          Prelude.rnf transitEncryptionPort `Prelude.seq`
+            Prelude.rnf fileSystemId
 
 instance Data.ToJSON EFSVolumeConfiguration where
   toJSON EFSVolumeConfiguration' {..} =

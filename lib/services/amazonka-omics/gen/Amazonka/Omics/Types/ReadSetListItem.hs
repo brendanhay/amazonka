@@ -210,15 +210,15 @@ instance Prelude.Hashable ReadSetListItem where
 
 instance Prelude.NFData ReadSetListItem where
   rnf ReadSetListItem' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf referenceArn
-      `Prelude.seq` Prelude.rnf sampleId
-      `Prelude.seq` Prelude.rnf sequenceInformation
-      `Prelude.seq` Prelude.rnf subjectId
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf fileType
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf sequenceStoreId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf referenceArn `Prelude.seq`
+          Prelude.rnf sampleId `Prelude.seq`
+            Prelude.rnf sequenceInformation `Prelude.seq`
+              Prelude.rnf subjectId `Prelude.seq`
+                Prelude.rnf arn `Prelude.seq`
+                  Prelude.rnf creationTime `Prelude.seq`
+                    Prelude.rnf fileType `Prelude.seq`
+                      Prelude.rnf id `Prelude.seq`
+                        Prelude.rnf sequenceStoreId `Prelude.seq`
+                          Prelude.rnf status

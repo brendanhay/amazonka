@@ -120,8 +120,8 @@ instance Prelude.Hashable UpdateVariantStore where
 
 instance Prelude.NFData UpdateVariantStore where
   rnf UpdateVariantStore' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf name
 
 instance Data.ToHeaders UpdateVariantStore where
   toHeaders =
@@ -265,11 +265,11 @@ updateVariantStoreResponse_updateTime = Lens.lens (\UpdateVariantStoreResponse' 
 
 instance Prelude.NFData UpdateVariantStoreResponse where
   rnf UpdateVariantStoreResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf reference
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf updateTime
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf id `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf reference `Prelude.seq`
+                Prelude.rnf status `Prelude.seq`
+                  Prelude.rnf updateTime

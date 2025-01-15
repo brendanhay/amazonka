@@ -115,12 +115,12 @@ instance Core.AWSPager ListRunGroups where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listRunGroups_startingToken
-          Lens..~ rs
-          Lens.^? listRunGroupsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listRunGroups_startingToken
+              Lens..~ rs
+              Lens.^? listRunGroupsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListRunGroups where
   type
@@ -146,9 +146,9 @@ instance Prelude.Hashable ListRunGroups where
 
 instance Prelude.NFData ListRunGroups where
   rnf ListRunGroups' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf startingToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf startingToken
 
 instance Data.ToHeaders ListRunGroups where
   toHeaders =
@@ -221,6 +221,6 @@ listRunGroupsResponse_httpStatus = Lens.lens (\ListRunGroupsResponse' {httpStatu
 
 instance Prelude.NFData ListRunGroupsResponse where
   rnf ListRunGroupsResponse' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf items `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

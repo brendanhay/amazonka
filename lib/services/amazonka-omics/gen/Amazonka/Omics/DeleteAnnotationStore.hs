@@ -175,5 +175,5 @@ deleteAnnotationStoreResponse_status = Lens.lens (\DeleteAnnotationStoreResponse
 
 instance Prelude.NFData DeleteAnnotationStoreResponse where
   rnf DeleteAnnotationStoreResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf status

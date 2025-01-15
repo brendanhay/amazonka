@@ -227,12 +227,12 @@ getRunGroupResponse_httpStatus = Lens.lens (\GetRunGroupResponse' {httpStatus} -
 
 instance Prelude.NFData GetRunGroupResponse where
   rnf GetRunGroupResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf maxCpus
-      `Prelude.seq` Prelude.rnf maxDuration
-      `Prelude.seq` Prelude.rnf maxRuns
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf maxCpus `Prelude.seq`
+            Prelude.rnf maxDuration `Prelude.seq`
+              Prelude.rnf maxRuns `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf tags `Prelude.seq`
+                    Prelude.rnf httpStatus

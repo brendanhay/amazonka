@@ -265,14 +265,14 @@ getRunTaskResponse_httpStatus = Lens.lens (\GetRunTaskResponse' {httpStatus} -> 
 
 instance Prelude.NFData GetRunTaskResponse where
   rnf GetRunTaskResponse' {..} =
-    Prelude.rnf cpus
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf logStream
-      `Prelude.seq` Prelude.rnf memory
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf stopTime
-      `Prelude.seq` Prelude.rnf taskId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf cpus `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf logStream `Prelude.seq`
+          Prelude.rnf memory `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf startTime `Prelude.seq`
+                Prelude.rnf status `Prelude.seq`
+                  Prelude.rnf statusMessage `Prelude.seq`
+                    Prelude.rnf stopTime `Prelude.seq`
+                      Prelude.rnf taskId `Prelude.seq`
+                        Prelude.rnf httpStatus

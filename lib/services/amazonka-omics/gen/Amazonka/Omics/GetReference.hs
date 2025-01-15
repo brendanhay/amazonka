@@ -143,11 +143,11 @@ instance Prelude.Hashable GetReference where
 
 instance Prelude.NFData GetReference where
   rnf GetReference' {..} =
-    Prelude.rnf file
-      `Prelude.seq` Prelude.rnf range
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf partNumber
-      `Prelude.seq` Prelude.rnf referenceStoreId
+    Prelude.rnf file `Prelude.seq`
+      Prelude.rnf range `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf partNumber `Prelude.seq`
+            Prelude.rnf referenceStoreId
 
 instance Data.ToHeaders GetReference where
   toHeaders GetReference' {..} =

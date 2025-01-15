@@ -131,9 +131,9 @@ instance Prelude.Hashable SequenceStoreDetail where
 
 instance Prelude.NFData SequenceStoreDetail where
   rnf SequenceStoreDetail' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf sseConfig
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf sseConfig `Prelude.seq`
+          Prelude.rnf arn `Prelude.seq`
+            Prelude.rnf creationTime `Prelude.seq`
+              Prelude.rnf id

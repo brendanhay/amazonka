@@ -128,8 +128,8 @@ instance Prelude.Hashable GetReferenceMetadata where
 
 instance Prelude.NFData GetReferenceMetadata where
   rnf GetReferenceMetadata' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf referenceStoreId
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf referenceStoreId
 
 instance Data.ToHeaders GetReferenceMetadata where
   toHeaders =
@@ -297,14 +297,14 @@ getReferenceMetadataResponse_updateTime = Lens.lens (\GetReferenceMetadataRespon
 
 instance Prelude.NFData GetReferenceMetadataResponse where
   rnf GetReferenceMetadataResponse' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf files
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf md5
-      `Prelude.seq` Prelude.rnf referenceStoreId
-      `Prelude.seq` Prelude.rnf updateTime
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf files `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf httpStatus `Prelude.seq`
+              Prelude.rnf arn `Prelude.seq`
+                Prelude.rnf creationTime `Prelude.seq`
+                  Prelude.rnf id `Prelude.seq`
+                    Prelude.rnf md5 `Prelude.seq`
+                      Prelude.rnf referenceStoreId `Prelude.seq`
+                        Prelude.rnf updateTime

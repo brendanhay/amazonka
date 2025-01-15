@@ -82,9 +82,9 @@ instance Prelude.Hashable ExportReadSetFilter where
 
 instance Prelude.NFData ExportReadSetFilter where
   rnf ExportReadSetFilter' {..} =
-    Prelude.rnf createdAfter
-      `Prelude.seq` Prelude.rnf createdBefore
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf createdAfter `Prelude.seq`
+      Prelude.rnf createdBefore `Prelude.seq`
+        Prelude.rnf status
 
 instance Data.ToJSON ExportReadSetFilter where
   toJSON ExportReadSetFilter' {..} =

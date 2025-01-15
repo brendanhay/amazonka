@@ -134,8 +134,8 @@ instance Prelude.Hashable GetReadSetMetadata where
 
 instance Prelude.NFData GetReadSetMetadata where
   rnf GetReadSetMetadata' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf sequenceStoreId
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf sequenceStoreId
 
 instance Data.ToHeaders GetReadSetMetadata where
   toHeaders =
@@ -329,17 +329,17 @@ getReadSetMetadataResponse_status = Lens.lens (\GetReadSetMetadataResponse' {sta
 
 instance Prelude.NFData GetReadSetMetadataResponse where
   rnf GetReadSetMetadataResponse' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf files
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf referenceArn
-      `Prelude.seq` Prelude.rnf sampleId
-      `Prelude.seq` Prelude.rnf sequenceInformation
-      `Prelude.seq` Prelude.rnf subjectId
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf fileType
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf sequenceStoreId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf files `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf referenceArn `Prelude.seq`
+            Prelude.rnf sampleId `Prelude.seq`
+              Prelude.rnf sequenceInformation `Prelude.seq`
+                Prelude.rnf subjectId `Prelude.seq`
+                  Prelude.rnf httpStatus `Prelude.seq`
+                    Prelude.rnf arn `Prelude.seq`
+                      Prelude.rnf creationTime `Prelude.seq`
+                        Prelude.rnf fileType `Prelude.seq`
+                          Prelude.rnf id `Prelude.seq`
+                            Prelude.rnf sequenceStoreId `Prelude.seq`
+                              Prelude.rnf status

@@ -304,15 +304,15 @@ instance
     GetAnnotationImportJobResponse
   where
   rnf GetAnnotationImportJobResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf completionTime
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf destinationName
-      `Prelude.seq` Prelude.rnf formatOptions
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf items
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf runLeftNormalization
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf updateTime
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf completionTime `Prelude.seq`
+        Prelude.rnf creationTime `Prelude.seq`
+          Prelude.rnf destinationName `Prelude.seq`
+            Prelude.rnf formatOptions `Prelude.seq`
+              Prelude.rnf id `Prelude.seq`
+                Prelude.rnf items `Prelude.seq`
+                  Prelude.rnf roleArn `Prelude.seq`
+                    Prelude.rnf runLeftNormalization `Prelude.seq`
+                      Prelude.rnf status `Prelude.seq`
+                        Prelude.rnf statusMessage `Prelude.seq`
+                          Prelude.rnf updateTime

@@ -132,11 +132,11 @@ instance Prelude.Hashable UpdateRunGroup where
 
 instance Prelude.NFData UpdateRunGroup where
   rnf UpdateRunGroup' {..} =
-    Prelude.rnf maxCpus
-      `Prelude.seq` Prelude.rnf maxDuration
-      `Prelude.seq` Prelude.rnf maxRuns
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf maxCpus `Prelude.seq`
+      Prelude.rnf maxDuration `Prelude.seq`
+        Prelude.rnf maxRuns `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf id
 
 instance Data.ToHeaders UpdateRunGroup where
   toHeaders =

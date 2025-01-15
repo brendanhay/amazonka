@@ -80,8 +80,8 @@ instance
     ListAnnotationImportJobsFilter
   where
   rnf ListAnnotationImportJobsFilter' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf storeName
+    Prelude.rnf status `Prelude.seq`
+      Prelude.rnf storeName
 
 instance Data.ToJSON ListAnnotationImportJobsFilter where
   toJSON ListAnnotationImportJobsFilter' {..} =

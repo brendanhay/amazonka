@@ -94,9 +94,9 @@ instance Prelude.Hashable TsvStoreOptions where
 
 instance Prelude.NFData TsvStoreOptions where
   rnf TsvStoreOptions' {..} =
-    Prelude.rnf annotationType
-      `Prelude.seq` Prelude.rnf formatToHeader
-      `Prelude.seq` Prelude.rnf schema
+    Prelude.rnf annotationType `Prelude.seq`
+      Prelude.rnf formatToHeader `Prelude.seq`
+        Prelude.rnf schema
 
 instance Data.ToJSON TsvStoreOptions where
   toJSON TsvStoreOptions' {..} =

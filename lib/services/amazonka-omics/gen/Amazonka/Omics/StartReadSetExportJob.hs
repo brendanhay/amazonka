@@ -163,11 +163,11 @@ instance Prelude.Hashable StartReadSetExportJob where
 
 instance Prelude.NFData StartReadSetExportJob where
   rnf StartReadSetExportJob' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf destination
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf sequenceStoreId
-      `Prelude.seq` Prelude.rnf sources
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf destination `Prelude.seq`
+        Prelude.rnf roleArn `Prelude.seq`
+          Prelude.rnf sequenceStoreId `Prelude.seq`
+            Prelude.rnf sources
 
 instance Data.ToHeaders StartReadSetExportJob where
   toHeaders =
@@ -296,9 +296,9 @@ startReadSetExportJobResponse_status = Lens.lens (\StartReadSetExportJobResponse
 
 instance Prelude.NFData StartReadSetExportJobResponse where
   rnf StartReadSetExportJobResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf destination
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf sequenceStoreId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf destination `Prelude.seq`
+          Prelude.rnf id `Prelude.seq`
+            Prelude.rnf sequenceStoreId `Prelude.seq`
+              Prelude.rnf status

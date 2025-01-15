@@ -114,12 +114,12 @@ instance Core.AWSPager ListSequenceStores where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listSequenceStores_nextToken
-          Lens..~ rs
-          Lens.^? listSequenceStoresResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listSequenceStores_nextToken
+              Lens..~ rs
+              Lens.^? listSequenceStoresResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSequenceStores where
   type
@@ -148,9 +148,9 @@ instance Prelude.Hashable ListSequenceStores where
 
 instance Prelude.NFData ListSequenceStores where
   rnf ListSequenceStores' {..} =
-    Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filter' `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListSequenceStores where
   toHeaders =
@@ -230,6 +230,6 @@ listSequenceStoresResponse_sequenceStores = Lens.lens (\ListSequenceStoresRespon
 
 instance Prelude.NFData ListSequenceStoresResponse where
   rnf ListSequenceStoresResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf sequenceStores
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf sequenceStores

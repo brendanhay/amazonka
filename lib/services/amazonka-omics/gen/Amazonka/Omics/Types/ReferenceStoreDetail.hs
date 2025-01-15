@@ -132,9 +132,9 @@ instance Prelude.Hashable ReferenceStoreDetail where
 
 instance Prelude.NFData ReferenceStoreDetail where
   rnf ReferenceStoreDetail' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf sseConfig
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf sseConfig `Prelude.seq`
+          Prelude.rnf arn `Prelude.seq`
+            Prelude.rnf creationTime `Prelude.seq`
+              Prelude.rnf id

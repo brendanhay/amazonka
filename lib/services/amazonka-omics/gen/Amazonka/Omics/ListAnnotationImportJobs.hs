@@ -126,12 +126,12 @@ instance Core.AWSPager ListAnnotationImportJobs where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listAnnotationImportJobs_nextToken
-          Lens..~ rs
-          Lens.^? listAnnotationImportJobsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listAnnotationImportJobs_nextToken
+              Lens..~ rs
+              Lens.^? listAnnotationImportJobsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAnnotationImportJobs where
   type
@@ -161,10 +161,10 @@ instance Prelude.Hashable ListAnnotationImportJobs where
 
 instance Prelude.NFData ListAnnotationImportJobs where
   rnf ListAnnotationImportJobs' {..} =
-    Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf ids
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filter' `Prelude.seq`
+      Prelude.rnf ids `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken
 
 instance Data.ToHeaders ListAnnotationImportJobs where
   toHeaders =
@@ -249,6 +249,6 @@ instance
     ListAnnotationImportJobsResponse
   where
   rnf ListAnnotationImportJobsResponse' {..} =
-    Prelude.rnf annotationImportJobs
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf annotationImportJobs `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

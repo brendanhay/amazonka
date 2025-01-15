@@ -149,11 +149,11 @@ instance Prelude.Hashable StartAnnotationImportJob where
 
 instance Prelude.NFData StartAnnotationImportJob where
   rnf StartAnnotationImportJob' {..} =
-    Prelude.rnf formatOptions
-      `Prelude.seq` Prelude.rnf runLeftNormalization
-      `Prelude.seq` Prelude.rnf destinationName
-      `Prelude.seq` Prelude.rnf items
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf formatOptions `Prelude.seq`
+      Prelude.rnf runLeftNormalization `Prelude.seq`
+        Prelude.rnf destinationName `Prelude.seq`
+          Prelude.rnf items `Prelude.seq`
+            Prelude.rnf roleArn
 
 instance Data.ToHeaders StartAnnotationImportJob where
   toHeaders =
@@ -234,5 +234,5 @@ instance
     StartAnnotationImportJobResponse
   where
   rnf StartAnnotationImportJobResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf jobId
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf jobId

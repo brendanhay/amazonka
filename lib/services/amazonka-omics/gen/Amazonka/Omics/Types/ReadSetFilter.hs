@@ -101,11 +101,11 @@ instance Prelude.Hashable ReadSetFilter where
 
 instance Prelude.NFData ReadSetFilter where
   rnf ReadSetFilter' {..} =
-    Prelude.rnf createdAfter
-      `Prelude.seq` Prelude.rnf createdBefore
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf referenceArn
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf createdAfter `Prelude.seq`
+      Prelude.rnf createdBefore `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf referenceArn `Prelude.seq`
+            Prelude.rnf status
 
 instance Data.ToJSON ReadSetFilter where
   toJSON ReadSetFilter' {..} =

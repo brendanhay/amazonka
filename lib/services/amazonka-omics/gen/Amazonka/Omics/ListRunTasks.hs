@@ -127,12 +127,12 @@ instance Core.AWSPager ListRunTasks where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listRunTasks_startingToken
-          Lens..~ rs
-          Lens.^? listRunTasksResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listRunTasks_startingToken
+              Lens..~ rs
+              Lens.^? listRunTasksResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListRunTasks where
   type AWSResponse ListRunTasks = ListRunTasksResponse
@@ -157,10 +157,10 @@ instance Prelude.Hashable ListRunTasks where
 
 instance Prelude.NFData ListRunTasks where
   rnf ListRunTasks' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf startingToken
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf startingToken `Prelude.seq`
+        Prelude.rnf status `Prelude.seq`
+          Prelude.rnf id
 
 instance Data.ToHeaders ListRunTasks where
   toHeaders =
@@ -234,6 +234,6 @@ listRunTasksResponse_httpStatus = Lens.lens (\ListRunTasksResponse' {httpStatus}
 
 instance Prelude.NFData ListRunTasksResponse where
   rnf ListRunTasksResponse' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf items `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

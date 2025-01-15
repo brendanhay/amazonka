@@ -148,9 +148,9 @@ instance Prelude.Hashable GetWorkflow where
 
 instance Prelude.NFData GetWorkflow where
   rnf GetWorkflow' {..} =
-    Prelude.rnf export'
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf export' `Prelude.seq`
+      Prelude.rnf type' `Prelude.seq`
+        Prelude.rnf id
 
 instance Data.ToHeaders GetWorkflow where
   toHeaders =
@@ -342,19 +342,19 @@ getWorkflowResponse_httpStatus = Lens.lens (\GetWorkflowResponse' {httpStatus} -
 
 instance Prelude.NFData GetWorkflowResponse where
   rnf GetWorkflowResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf definition
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf digest
-      `Prelude.seq` Prelude.rnf engine
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf main
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf parameterTemplate
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf storageCapacity
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf definition `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf digest `Prelude.seq`
+              Prelude.rnf engine `Prelude.seq`
+                Prelude.rnf id `Prelude.seq`
+                  Prelude.rnf main `Prelude.seq`
+                    Prelude.rnf name `Prelude.seq`
+                      Prelude.rnf parameterTemplate `Prelude.seq`
+                        Prelude.rnf status `Prelude.seq`
+                          Prelude.rnf statusMessage `Prelude.seq`
+                            Prelude.rnf storageCapacity `Prelude.seq`
+                              Prelude.rnf tags `Prelude.seq`
+                                Prelude.rnf type' `Prelude.seq`
+                                  Prelude.rnf httpStatus

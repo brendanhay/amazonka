@@ -80,8 +80,8 @@ instance Prelude.Hashable VcfOptions where
 
 instance Prelude.NFData VcfOptions where
   rnf VcfOptions' {..} =
-    Prelude.rnf ignoreFilterField
-      `Prelude.seq` Prelude.rnf ignoreQualField
+    Prelude.rnf ignoreFilterField `Prelude.seq`
+      Prelude.rnf ignoreQualField
 
 instance Data.ToJSON VcfOptions where
   toJSON VcfOptions' {..} =

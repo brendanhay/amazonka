@@ -108,8 +108,8 @@ instance Prelude.Hashable DeleteReference where
 
 instance Prelude.NFData DeleteReference where
   rnf DeleteReference' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf referenceStoreId
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf referenceStoreId
 
 instance Data.ToHeaders DeleteReference where
   toHeaders =

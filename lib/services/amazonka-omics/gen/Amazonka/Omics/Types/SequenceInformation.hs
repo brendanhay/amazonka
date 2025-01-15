@@ -102,7 +102,7 @@ instance Prelude.Hashable SequenceInformation where
 
 instance Prelude.NFData SequenceInformation where
   rnf SequenceInformation' {..} =
-    Prelude.rnf alignment
-      `Prelude.seq` Prelude.rnf generatedFrom
-      `Prelude.seq` Prelude.rnf totalBaseCount
-      `Prelude.seq` Prelude.rnf totalReadCount
+    Prelude.rnf alignment `Prelude.seq`
+      Prelude.rnf generatedFrom `Prelude.seq`
+        Prelude.rnf totalBaseCount `Prelude.seq`
+          Prelude.rnf totalReadCount

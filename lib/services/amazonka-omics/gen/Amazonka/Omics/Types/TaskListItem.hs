@@ -147,11 +147,11 @@ instance Prelude.Hashable TaskListItem where
 
 instance Prelude.NFData TaskListItem where
   rnf TaskListItem' {..} =
-    Prelude.rnf cpus
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf memory
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf stopTime
-      `Prelude.seq` Prelude.rnf taskId
+    Prelude.rnf cpus `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf memory `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf startTime `Prelude.seq`
+              Prelude.rnf status `Prelude.seq`
+                Prelude.rnf stopTime `Prelude.seq`
+                  Prelude.rnf taskId

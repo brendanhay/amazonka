@@ -122,8 +122,8 @@ instance Prelude.Hashable GetReadSetActivationJob where
 
 instance Prelude.NFData GetReadSetActivationJob where
   rnf GetReadSetActivationJob' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf sequenceStoreId
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf sequenceStoreId
 
 instance Data.ToHeaders GetReadSetActivationJob where
   toHeaders =
@@ -260,11 +260,11 @@ instance
     GetReadSetActivationJobResponse
   where
   rnf GetReadSetActivationJobResponse' {..} =
-    Prelude.rnf completionTime
-      `Prelude.seq` Prelude.rnf sources
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf sequenceStoreId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf completionTime `Prelude.seq`
+      Prelude.rnf sources `Prelude.seq`
+        Prelude.rnf statusMessage `Prelude.seq`
+          Prelude.rnf httpStatus `Prelude.seq`
+            Prelude.rnf creationTime `Prelude.seq`
+              Prelude.rnf id `Prelude.seq`
+                Prelude.rnf sequenceStoreId `Prelude.seq`
+                  Prelude.rnf status

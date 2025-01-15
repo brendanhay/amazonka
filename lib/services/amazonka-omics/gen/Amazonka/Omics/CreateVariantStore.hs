@@ -149,11 +149,11 @@ instance Prelude.Hashable CreateVariantStore where
 
 instance Prelude.NFData CreateVariantStore where
   rnf CreateVariantStore' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf sseConfig
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf reference
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf sseConfig `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf reference
 
 instance Data.ToHeaders CreateVariantStore where
   toHeaders =
@@ -274,9 +274,9 @@ createVariantStoreResponse_status = Lens.lens (\CreateVariantStoreResponse' {sta
 
 instance Prelude.NFData CreateVariantStoreResponse where
   rnf CreateVariantStoreResponse' {..} =
-    Prelude.rnf reference
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf reference `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf creationTime `Prelude.seq`
+          Prelude.rnf id `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf status

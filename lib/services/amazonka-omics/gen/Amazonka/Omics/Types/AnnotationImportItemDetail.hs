@@ -86,5 +86,5 @@ instance Prelude.Hashable AnnotationImportItemDetail where
 
 instance Prelude.NFData AnnotationImportItemDetail where
   rnf AnnotationImportItemDetail' {..} =
-    Prelude.rnf jobStatus
-      `Prelude.seq` Prelude.rnf source
+    Prelude.rnf jobStatus `Prelude.seq`
+      Prelude.rnf source

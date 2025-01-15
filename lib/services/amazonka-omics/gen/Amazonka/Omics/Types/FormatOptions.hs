@@ -82,8 +82,8 @@ instance Prelude.Hashable FormatOptions where
 
 instance Prelude.NFData FormatOptions where
   rnf FormatOptions' {..} =
-    Prelude.rnf tsvOptions
-      `Prelude.seq` Prelude.rnf vcfOptions
+    Prelude.rnf tsvOptions `Prelude.seq`
+      Prelude.rnf vcfOptions
 
 instance Data.ToJSON FormatOptions where
   toJSON FormatOptions' {..} =

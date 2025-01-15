@@ -169,13 +169,13 @@ instance Prelude.Hashable RunListItem where
 
 instance Prelude.NFData RunListItem where
   rnf RunListItem' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf priority
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf stopTime
-      `Prelude.seq` Prelude.rnf storageCapacity
-      `Prelude.seq` Prelude.rnf workflowId
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf priority `Prelude.seq`
+              Prelude.rnf startTime `Prelude.seq`
+                Prelude.rnf status `Prelude.seq`
+                  Prelude.rnf stopTime `Prelude.seq`
+                    Prelude.rnf storageCapacity `Prelude.seq`
+                      Prelude.rnf workflowId

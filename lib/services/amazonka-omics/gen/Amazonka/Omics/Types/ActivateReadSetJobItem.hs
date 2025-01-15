@@ -127,8 +127,8 @@ instance Prelude.Hashable ActivateReadSetJobItem where
 
 instance Prelude.NFData ActivateReadSetJobItem where
   rnf ActivateReadSetJobItem' {..} =
-    Prelude.rnf completionTime
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf sequenceStoreId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf completionTime `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf sequenceStoreId `Prelude.seq`
+            Prelude.rnf status

@@ -81,9 +81,9 @@ instance Prelude.Hashable ReferenceStoreFilter where
 
 instance Prelude.NFData ReferenceStoreFilter where
   rnf ReferenceStoreFilter' {..} =
-    Prelude.rnf createdAfter
-      `Prelude.seq` Prelude.rnf createdBefore
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf createdAfter `Prelude.seq`
+      Prelude.rnf createdBefore `Prelude.seq`
+        Prelude.rnf name
 
 instance Data.ToJSON ReferenceStoreFilter where
   toJSON ReferenceStoreFilter' {..} =

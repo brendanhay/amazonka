@@ -90,10 +90,10 @@ instance Prelude.Hashable ReferenceFilter where
 
 instance Prelude.NFData ReferenceFilter where
   rnf ReferenceFilter' {..} =
-    Prelude.rnf createdAfter
-      `Prelude.seq` Prelude.rnf createdBefore
-      `Prelude.seq` Prelude.rnf md5
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf createdAfter `Prelude.seq`
+      Prelude.rnf createdBefore `Prelude.seq`
+        Prelude.rnf md5 `Prelude.seq`
+          Prelude.rnf name
 
 instance Data.ToJSON ReferenceFilter where
   toJSON ReferenceFilter' {..} =

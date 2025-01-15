@@ -141,9 +141,9 @@ instance Prelude.Hashable ImportReferenceJobItem where
 
 instance Prelude.NFData ImportReferenceJobItem where
   rnf ImportReferenceJobItem' {..} =
-    Prelude.rnf completionTime
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf referenceStoreId
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf completionTime `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf referenceStoreId `Prelude.seq`
+            Prelude.rnf roleArn `Prelude.seq`
+              Prelude.rnf status

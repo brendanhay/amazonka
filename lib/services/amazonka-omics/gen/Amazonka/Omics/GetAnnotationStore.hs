@@ -332,18 +332,18 @@ getAnnotationStoreResponse_updateTime = Lens.lens (\GetAnnotationStoreResponse' 
 
 instance Prelude.NFData GetAnnotationStoreResponse where
   rnf GetAnnotationStoreResponse' {..} =
-    Prelude.rnf storeFormat
-      `Prelude.seq` Prelude.rnf storeOptions
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf reference
-      `Prelude.seq` Prelude.rnf sseConfig
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf storeArn
-      `Prelude.seq` Prelude.rnf storeSizeBytes
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf updateTime
+    Prelude.rnf storeFormat `Prelude.seq`
+      Prelude.rnf storeOptions `Prelude.seq`
+        Prelude.rnf httpStatus `Prelude.seq`
+          Prelude.rnf creationTime `Prelude.seq`
+            Prelude.rnf description `Prelude.seq`
+              Prelude.rnf id `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf reference `Prelude.seq`
+                    Prelude.rnf sseConfig `Prelude.seq`
+                      Prelude.rnf status `Prelude.seq`
+                        Prelude.rnf statusMessage `Prelude.seq`
+                          Prelude.rnf storeArn `Prelude.seq`
+                            Prelude.rnf storeSizeBytes `Prelude.seq`
+                              Prelude.rnf tags `Prelude.seq`
+                                Prelude.rnf updateTime

@@ -111,8 +111,8 @@ instance Prelude.Hashable BatchDeleteReadSet where
 
 instance Prelude.NFData BatchDeleteReadSet where
   rnf BatchDeleteReadSet' {..} =
-    Prelude.rnf ids
-      `Prelude.seq` Prelude.rnf sequenceStoreId
+    Prelude.rnf ids `Prelude.seq`
+      Prelude.rnf sequenceStoreId
 
 instance Data.ToHeaders BatchDeleteReadSet where
   toHeaders =
@@ -184,5 +184,5 @@ batchDeleteReadSetResponse_httpStatus = Lens.lens (\BatchDeleteReadSetResponse' 
 
 instance Prelude.NFData BatchDeleteReadSetResponse where
   rnf BatchDeleteReadSetResponse' {..} =
-    Prelude.rnf errors
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf errors `Prelude.seq`
+      Prelude.rnf httpStatus

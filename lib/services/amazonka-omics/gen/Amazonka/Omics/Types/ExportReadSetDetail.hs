@@ -97,6 +97,6 @@ instance Prelude.Hashable ExportReadSetDetail where
 
 instance Prelude.NFData ExportReadSetDetail where
   rnf ExportReadSetDetail' {..} =
-    Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf statusMessage `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf status

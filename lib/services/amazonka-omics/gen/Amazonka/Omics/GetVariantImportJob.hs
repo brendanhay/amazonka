@@ -283,14 +283,14 @@ getVariantImportJobResponse_updateTime = Lens.lens (\GetVariantImportJobResponse
 
 instance Prelude.NFData GetVariantImportJobResponse where
   rnf GetVariantImportJobResponse' {..} =
-    Prelude.rnf completionTime
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf destinationName
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf items
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf runLeftNormalization
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf updateTime
+    Prelude.rnf completionTime `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf creationTime `Prelude.seq`
+          Prelude.rnf destinationName `Prelude.seq`
+            Prelude.rnf id `Prelude.seq`
+              Prelude.rnf items `Prelude.seq`
+                Prelude.rnf roleArn `Prelude.seq`
+                  Prelude.rnf runLeftNormalization `Prelude.seq`
+                    Prelude.rnf status `Prelude.seq`
+                      Prelude.rnf statusMessage `Prelude.seq`
+                        Prelude.rnf updateTime

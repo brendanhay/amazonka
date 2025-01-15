@@ -231,15 +231,15 @@ instance Prelude.Hashable AnnotationStoreItem where
 
 instance Prelude.NFData AnnotationStoreItem where
   rnf AnnotationStoreItem' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf reference
-      `Prelude.seq` Prelude.rnf sseConfig
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf storeArn
-      `Prelude.seq` Prelude.rnf storeFormat
-      `Prelude.seq` Prelude.rnf storeSizeBytes
-      `Prelude.seq` Prelude.rnf updateTime
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf reference `Prelude.seq`
+              Prelude.rnf sseConfig `Prelude.seq`
+                Prelude.rnf status `Prelude.seq`
+                  Prelude.rnf statusMessage `Prelude.seq`
+                    Prelude.rnf storeArn `Prelude.seq`
+                      Prelude.rnf storeFormat `Prelude.seq`
+                        Prelude.rnf storeSizeBytes `Prelude.seq`
+                          Prelude.rnf updateTime

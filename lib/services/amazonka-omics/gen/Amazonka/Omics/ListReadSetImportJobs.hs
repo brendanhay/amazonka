@@ -127,12 +127,12 @@ instance Core.AWSPager ListReadSetImportJobs where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listReadSetImportJobs_nextToken
-          Lens..~ rs
-          Lens.^? listReadSetImportJobsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listReadSetImportJobs_nextToken
+              Lens..~ rs
+              Lens.^? listReadSetImportJobsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListReadSetImportJobs where
   type
@@ -159,10 +159,10 @@ instance Prelude.Hashable ListReadSetImportJobs where
 
 instance Prelude.NFData ListReadSetImportJobs where
   rnf ListReadSetImportJobs' {..} =
-    Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sequenceStoreId
+    Prelude.rnf filter' `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf sequenceStoreId
 
 instance Data.ToHeaders ListReadSetImportJobs where
   toHeaders =
@@ -247,6 +247,6 @@ listReadSetImportJobsResponse_httpStatus = Lens.lens (\ListReadSetImportJobsResp
 
 instance Prelude.NFData ListReadSetImportJobsResponse where
   rnf ListReadSetImportJobsResponse' {..} =
-    Prelude.rnf importJobs
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf importJobs `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -128,9 +128,9 @@ instance Prelude.Hashable ImportReferenceSourceItem where
 
 instance Prelude.NFData ImportReferenceSourceItem where
   rnf ImportReferenceSourceItem' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf sourceFile
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf sourceFile `Prelude.seq`
+          Prelude.rnf statusMessage `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf status

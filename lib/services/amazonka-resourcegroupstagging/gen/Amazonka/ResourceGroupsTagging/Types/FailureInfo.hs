@@ -129,6 +129,6 @@ instance Prelude.Hashable FailureInfo where
 
 instance Prelude.NFData FailureInfo where
   rnf FailureInfo' {..} =
-    Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf statusCode
+    Prelude.rnf errorCode `Prelude.seq`
+      Prelude.rnf errorMessage `Prelude.seq`
+        Prelude.rnf statusCode

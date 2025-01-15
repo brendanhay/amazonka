@@ -279,12 +279,12 @@ instance Core.AWSPager GetComplianceSummary where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getComplianceSummary_paginationToken
-          Lens..~ rs
-          Lens.^? getComplianceSummaryResponse_paginationToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getComplianceSummary_paginationToken
+              Lens..~ rs
+              Lens.^? getComplianceSummaryResponse_paginationToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetComplianceSummary where
   type
@@ -314,13 +314,13 @@ instance Prelude.Hashable GetComplianceSummary where
 
 instance Prelude.NFData GetComplianceSummary where
   rnf GetComplianceSummary' {..} =
-    Prelude.rnf groupBy
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf paginationToken
-      `Prelude.seq` Prelude.rnf regionFilters
-      `Prelude.seq` Prelude.rnf resourceTypeFilters
-      `Prelude.seq` Prelude.rnf tagKeyFilters
-      `Prelude.seq` Prelude.rnf targetIdFilters
+    Prelude.rnf groupBy `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf paginationToken `Prelude.seq`
+          Prelude.rnf regionFilters `Prelude.seq`
+            Prelude.rnf resourceTypeFilters `Prelude.seq`
+              Prelude.rnf tagKeyFilters `Prelude.seq`
+                Prelude.rnf targetIdFilters
 
 instance Data.ToHeaders GetComplianceSummary where
   toHeaders =
@@ -419,6 +419,6 @@ getComplianceSummaryResponse_httpStatus = Lens.lens (\GetComplianceSummaryRespon
 
 instance Prelude.NFData GetComplianceSummaryResponse where
   rnf GetComplianceSummaryResponse' {..} =
-    Prelude.rnf paginationToken
-      `Prelude.seq` Prelude.rnf summaryList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf paginationToken `Prelude.seq`
+      Prelude.rnf summaryList `Prelude.seq`
+        Prelude.rnf httpStatus

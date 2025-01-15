@@ -77,5 +77,5 @@ instance Prelude.Hashable DBSecurityGroupMembership where
 
 instance Prelude.NFData DBSecurityGroupMembership where
   rnf DBSecurityGroupMembership' {..} =
-    Prelude.rnf dbSecurityGroupName
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf dbSecurityGroupName `Prelude.seq`
+      Prelude.rnf status

@@ -131,8 +131,8 @@ instance
 
 instance Prelude.NFData ModifyDBClusterParameterGroup where
   rnf ModifyDBClusterParameterGroup' {..} =
-    Prelude.rnf dbClusterParameterGroupName
-      `Prelude.seq` Prelude.rnf parameters
+    Prelude.rnf dbClusterParameterGroupName `Prelude.seq`
+      Prelude.rnf parameters
 
 instance Data.ToHeaders ModifyDBClusterParameterGroup where
   toHeaders = Prelude.const Prelude.mempty

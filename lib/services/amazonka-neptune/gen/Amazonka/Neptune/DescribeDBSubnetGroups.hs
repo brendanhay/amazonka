@@ -158,12 +158,12 @@ instance Core.AWSPager DescribeDBSubnetGroups where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeDBSubnetGroups_marker
-          Lens..~ rs
-          Lens.^? describeDBSubnetGroupsResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeDBSubnetGroups_marker
+              Lens..~ rs
+              Lens.^? describeDBSubnetGroupsResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeDBSubnetGroups where
   type
@@ -176,9 +176,7 @@ instance Core.AWSRequest DescribeDBSubnetGroups where
       "DescribeDBSubnetGroupsResult"
       ( \s h x ->
           DescribeDBSubnetGroupsResponse'
-            Prelude.<$> ( x
-                            Data..@? "DBSubnetGroups"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "DBSubnetGroups" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "DBSubnetGroup")
                         )
             Prelude.<*> (x Data..@? "Marker")
@@ -195,10 +193,10 @@ instance Prelude.Hashable DescribeDBSubnetGroups where
 
 instance Prelude.NFData DescribeDBSubnetGroups where
   rnf DescribeDBSubnetGroups' {..} =
-    Prelude.rnf dbSubnetGroupName
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
+    Prelude.rnf dbSubnetGroupName `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf marker `Prelude.seq`
+          Prelude.rnf maxRecords
 
 instance Data.ToHeaders DescribeDBSubnetGroups where
   toHeaders = Prelude.const Prelude.mempty
@@ -280,6 +278,6 @@ instance
     DescribeDBSubnetGroupsResponse
   where
   rnf DescribeDBSubnetGroupsResponse' {..} =
-    Prelude.rnf dbSubnetGroups
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dbSubnetGroups `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf httpStatus

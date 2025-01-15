@@ -159,5 +159,5 @@ instance
     DeleteEventSubscriptionResponse
   where
   rnf DeleteEventSubscriptionResponse' {..} =
-    Prelude.rnf eventSubscription
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf eventSubscription `Prelude.seq`
+      Prelude.rnf httpStatus

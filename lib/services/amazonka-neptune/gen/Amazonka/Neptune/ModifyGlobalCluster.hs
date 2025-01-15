@@ -238,11 +238,11 @@ instance Prelude.Hashable ModifyGlobalCluster where
 
 instance Prelude.NFData ModifyGlobalCluster where
   rnf ModifyGlobalCluster' {..} =
-    Prelude.rnf allowMajorVersionUpgrade
-      `Prelude.seq` Prelude.rnf deletionProtection
-      `Prelude.seq` Prelude.rnf engineVersion
-      `Prelude.seq` Prelude.rnf newGlobalClusterIdentifier'
-      `Prelude.seq` Prelude.rnf globalClusterIdentifier
+    Prelude.rnf allowMajorVersionUpgrade `Prelude.seq`
+      Prelude.rnf deletionProtection `Prelude.seq`
+        Prelude.rnf engineVersion `Prelude.seq`
+          Prelude.rnf newGlobalClusterIdentifier' `Prelude.seq`
+            Prelude.rnf globalClusterIdentifier
 
 instance Data.ToHeaders ModifyGlobalCluster where
   toHeaders = Prelude.const Prelude.mempty
@@ -307,5 +307,5 @@ modifyGlobalClusterResponse_httpStatus = Lens.lens (\ModifyGlobalClusterResponse
 
 instance Prelude.NFData ModifyGlobalClusterResponse where
   rnf ModifyGlobalClusterResponse' {..} =
-    Prelude.rnf globalCluster
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf globalCluster `Prelude.seq`
+      Prelude.rnf httpStatus

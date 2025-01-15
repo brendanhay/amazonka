@@ -174,12 +174,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeDBClusterParameterGroups_marker
-          Lens..~ rs
-          Lens.^? describeDBClusterParameterGroupsResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeDBClusterParameterGroups_marker
+              Lens..~ rs
+              Lens.^? describeDBClusterParameterGroupsResponse_marker
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -223,10 +223,10 @@ instance
     DescribeDBClusterParameterGroups
   where
   rnf DescribeDBClusterParameterGroups' {..} =
-    Prelude.rnf dbClusterParameterGroupName
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
+    Prelude.rnf dbClusterParameterGroupName `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf marker `Prelude.seq`
+          Prelude.rnf maxRecords
 
 instance
   Data.ToHeaders
@@ -321,6 +321,6 @@ instance
     DescribeDBClusterParameterGroupsResponse
   where
   rnf DescribeDBClusterParameterGroupsResponse' {..} =
-    Prelude.rnf dbClusterParameterGroups
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dbClusterParameterGroups `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf httpStatus

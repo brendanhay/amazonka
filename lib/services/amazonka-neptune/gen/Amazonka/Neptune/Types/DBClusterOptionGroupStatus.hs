@@ -77,5 +77,5 @@ instance Prelude.Hashable DBClusterOptionGroupStatus where
 
 instance Prelude.NFData DBClusterOptionGroupStatus where
   rnf DBClusterOptionGroupStatus' {..} =
-    Prelude.rnf dbClusterOptionGroupName
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf dbClusterOptionGroupName `Prelude.seq`
+      Prelude.rnf status

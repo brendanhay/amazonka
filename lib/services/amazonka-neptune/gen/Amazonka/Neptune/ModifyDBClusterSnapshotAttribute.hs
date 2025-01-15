@@ -226,10 +226,10 @@ instance
     ModifyDBClusterSnapshotAttribute
   where
   rnf ModifyDBClusterSnapshotAttribute' {..} =
-    Prelude.rnf valuesToAdd
-      `Prelude.seq` Prelude.rnf valuesToRemove
-      `Prelude.seq` Prelude.rnf dbClusterSnapshotIdentifier
-      `Prelude.seq` Prelude.rnf attributeName
+    Prelude.rnf valuesToAdd `Prelude.seq`
+      Prelude.rnf valuesToRemove `Prelude.seq`
+        Prelude.rnf dbClusterSnapshotIdentifier `Prelude.seq`
+          Prelude.rnf attributeName
 
 instance
   Data.ToHeaders
@@ -311,5 +311,5 @@ instance
     ModifyDBClusterSnapshotAttributeResponse
   where
   rnf ModifyDBClusterSnapshotAttributeResponse' {..} =
-    Prelude.rnf dbClusterSnapshotAttributesResult
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dbClusterSnapshotAttributesResult `Prelude.seq`
+      Prelude.rnf httpStatus

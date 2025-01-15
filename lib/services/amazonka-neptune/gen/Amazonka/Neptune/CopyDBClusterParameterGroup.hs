@@ -223,10 +223,10 @@ instance Prelude.Hashable CopyDBClusterParameterGroup where
 
 instance Prelude.NFData CopyDBClusterParameterGroup where
   rnf CopyDBClusterParameterGroup' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf sourceDBClusterParameterGroupIdentifier
-      `Prelude.seq` Prelude.rnf targetDBClusterParameterGroupIdentifier
-      `Prelude.seq` Prelude.rnf targetDBClusterParameterGroupDescription
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf sourceDBClusterParameterGroupIdentifier `Prelude.seq`
+        Prelude.rnf targetDBClusterParameterGroupIdentifier `Prelude.seq`
+          Prelude.rnf targetDBClusterParameterGroupDescription
 
 instance Data.ToHeaders CopyDBClusterParameterGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -297,5 +297,5 @@ instance
     CopyDBClusterParameterGroupResponse
   where
   rnf CopyDBClusterParameterGroupResponse' {..} =
-    Prelude.rnf dbClusterParameterGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dbClusterParameterGroup `Prelude.seq`
+      Prelude.rnf httpStatus

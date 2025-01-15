@@ -103,5 +103,5 @@ instance
     DBClusterSnapshotAttributesResult
   where
   rnf DBClusterSnapshotAttributesResult' {..} =
-    Prelude.rnf dbClusterSnapshotAttributes
-      `Prelude.seq` Prelude.rnf dbClusterSnapshotIdentifier
+    Prelude.rnf dbClusterSnapshotAttributes `Prelude.seq`
+      Prelude.rnf dbClusterSnapshotIdentifier

@@ -200,5 +200,5 @@ instance
     DescribeDBClusterSnapshotAttributesResponse
   where
   rnf DescribeDBClusterSnapshotAttributesResponse' {..} =
-    Prelude.rnf dbClusterSnapshotAttributesResult
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dbClusterSnapshotAttributesResult `Prelude.seq`
+      Prelude.rnf httpStatus

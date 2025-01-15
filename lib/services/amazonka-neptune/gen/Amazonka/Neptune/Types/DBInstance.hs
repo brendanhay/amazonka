@@ -730,9 +730,7 @@ instance Data.FromXML DBInstance where
                   )
       Prelude.<*> (x Data..@? "ReadReplicaSourceDBInstanceIdentifier")
       Prelude.<*> (x Data..@? "SecondaryAvailabilityZone")
-      Prelude.<*> ( x
-                      Data..@? "StatusInfos"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "StatusInfos" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "DBInstanceStatusInfo")
                   )
       Prelude.<*> (x Data..@? "StorageEncrypted")

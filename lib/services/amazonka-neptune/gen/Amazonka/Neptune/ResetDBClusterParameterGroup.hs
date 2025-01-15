@@ -146,9 +146,9 @@ instance
 
 instance Prelude.NFData ResetDBClusterParameterGroup where
   rnf ResetDBClusterParameterGroup' {..} =
-    Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf resetAllParameters
-      `Prelude.seq` Prelude.rnf dbClusterParameterGroupName
+    Prelude.rnf parameters `Prelude.seq`
+      Prelude.rnf resetAllParameters `Prelude.seq`
+        Prelude.rnf dbClusterParameterGroupName
 
 instance Data.ToHeaders ResetDBClusterParameterGroup where
   toHeaders = Prelude.const Prelude.mempty

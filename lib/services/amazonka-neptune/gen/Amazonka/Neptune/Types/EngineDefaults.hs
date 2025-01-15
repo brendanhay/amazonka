@@ -88,9 +88,7 @@ instance Data.FromXML EngineDefaults where
     EngineDefaults'
       Prelude.<$> (x Data..@? "DBParameterGroupFamily")
       Prelude.<*> (x Data..@? "Marker")
-      Prelude.<*> ( x
-                      Data..@? "Parameters"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "Parameters" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "Parameter")
                   )
 
@@ -103,6 +101,6 @@ instance Prelude.Hashable EngineDefaults where
 
 instance Prelude.NFData EngineDefaults where
   rnf EngineDefaults' {..} =
-    Prelude.rnf dbParameterGroupFamily
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf parameters
+    Prelude.rnf dbParameterGroupFamily `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf parameters

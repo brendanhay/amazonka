@@ -1173,5 +1173,5 @@ createDBInstanceResponse_httpStatus = Lens.lens (\CreateDBInstanceResponse' {htt
 
 instance Prelude.NFData CreateDBInstanceResponse where
   rnf CreateDBInstanceResponse' {..} =
-    Prelude.rnf dbInstance
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dbInstance `Prelude.seq`
+      Prelude.rnf httpStatus

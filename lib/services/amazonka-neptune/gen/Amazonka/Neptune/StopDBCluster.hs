@@ -163,5 +163,5 @@ stopDBClusterResponse_httpStatus = Lens.lens (\StopDBClusterResponse' {httpStatu
 
 instance Prelude.NFData StopDBClusterResponse where
   rnf StopDBClusterResponse' {..} =
-    Prelude.rnf dbCluster
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dbCluster `Prelude.seq`
+      Prelude.rnf httpStatus

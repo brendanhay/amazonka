@@ -104,5 +104,5 @@ instance
     ServerlessV2ScalingConfigurationInfo
   where
   rnf ServerlessV2ScalingConfigurationInfo' {..} =
-    Prelude.rnf maxCapacity
-      `Prelude.seq` Prelude.rnf minCapacity
+    Prelude.rnf maxCapacity `Prelude.seq`
+      Prelude.rnf minCapacity

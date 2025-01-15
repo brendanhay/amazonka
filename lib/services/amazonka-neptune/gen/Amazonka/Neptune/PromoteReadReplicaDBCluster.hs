@@ -161,5 +161,5 @@ instance
     PromoteReadReplicaDBClusterResponse
   where
   rnf PromoteReadReplicaDBClusterResponse' {..} =
-    Prelude.rnf dbCluster
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dbCluster `Prelude.seq`
+      Prelude.rnf httpStatus

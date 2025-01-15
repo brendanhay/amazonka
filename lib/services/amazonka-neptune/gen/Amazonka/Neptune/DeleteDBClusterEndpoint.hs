@@ -109,14 +109,10 @@ instance Core.AWSRequest DeleteDBClusterEndpoint where
             Prelude.<*> (x Data..@? "DBClusterIdentifier")
             Prelude.<*> (x Data..@? "Endpoint")
             Prelude.<*> (x Data..@? "EndpointType")
-            Prelude.<*> ( x
-                            Data..@? "ExcludedMembers"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "ExcludedMembers" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> ( x
-                            Data..@? "StaticMembers"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "StaticMembers" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (x Data..@? "Status")
@@ -324,14 +320,14 @@ instance
     DeleteDBClusterEndpointResponse
   where
   rnf DeleteDBClusterEndpointResponse' {..} =
-    Prelude.rnf customEndpointType
-      `Prelude.seq` Prelude.rnf dbClusterEndpointArn
-      `Prelude.seq` Prelude.rnf dbClusterEndpointIdentifier
-      `Prelude.seq` Prelude.rnf dbClusterEndpointResourceIdentifier
-      `Prelude.seq` Prelude.rnf dbClusterIdentifier
-      `Prelude.seq` Prelude.rnf endpoint
-      `Prelude.seq` Prelude.rnf endpointType
-      `Prelude.seq` Prelude.rnf excludedMembers
-      `Prelude.seq` Prelude.rnf staticMembers
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf customEndpointType `Prelude.seq`
+      Prelude.rnf dbClusterEndpointArn `Prelude.seq`
+        Prelude.rnf dbClusterEndpointIdentifier `Prelude.seq`
+          Prelude.rnf dbClusterEndpointResourceIdentifier `Prelude.seq`
+            Prelude.rnf dbClusterIdentifier `Prelude.seq`
+              Prelude.rnf endpoint `Prelude.seq`
+                Prelude.rnf endpointType `Prelude.seq`
+                  Prelude.rnf excludedMembers `Prelude.seq`
+                    Prelude.rnf staticMembers `Prelude.seq`
+                      Prelude.rnf status `Prelude.seq`
+                        Prelude.rnf httpStatus

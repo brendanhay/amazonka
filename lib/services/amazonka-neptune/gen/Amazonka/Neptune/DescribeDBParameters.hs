@@ -188,12 +188,12 @@ instance Core.AWSPager DescribeDBParameters where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeDBParameters_marker
-          Lens..~ rs
-          Lens.^? describeDBParametersResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeDBParameters_marker
+              Lens..~ rs
+              Lens.^? describeDBParametersResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeDBParameters where
   type
@@ -207,9 +207,7 @@ instance Core.AWSRequest DescribeDBParameters where
       ( \s h x ->
           DescribeDBParametersResponse'
             Prelude.<$> (x Data..@? "Marker")
-            Prelude.<*> ( x
-                            Data..@? "Parameters"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "Parameters" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "Parameter")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -226,11 +224,11 @@ instance Prelude.Hashable DescribeDBParameters where
 
 instance Prelude.NFData DescribeDBParameters where
   rnf DescribeDBParameters' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf dbParameterGroupName
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf maxRecords `Prelude.seq`
+          Prelude.rnf source `Prelude.seq`
+            Prelude.rnf dbParameterGroupName
 
 instance Data.ToHeaders DescribeDBParameters where
   toHeaders = Prelude.const Prelude.mempty
@@ -310,6 +308,6 @@ describeDBParametersResponse_httpStatus = Lens.lens (\DescribeDBParametersRespon
 
 instance Prelude.NFData DescribeDBParametersResponse where
   rnf DescribeDBParametersResponse' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf parameters `Prelude.seq`
+        Prelude.rnf httpStatus

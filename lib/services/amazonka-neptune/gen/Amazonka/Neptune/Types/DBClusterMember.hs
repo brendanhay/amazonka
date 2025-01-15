@@ -108,7 +108,7 @@ instance Prelude.Hashable DBClusterMember where
 
 instance Prelude.NFData DBClusterMember where
   rnf DBClusterMember' {..} =
-    Prelude.rnf dbClusterParameterGroupStatus
-      `Prelude.seq` Prelude.rnf dbInstanceIdentifier
-      `Prelude.seq` Prelude.rnf isClusterWriter
-      `Prelude.seq` Prelude.rnf promotionTier
+    Prelude.rnf dbClusterParameterGroupStatus `Prelude.seq`
+      Prelude.rnf dbInstanceIdentifier `Prelude.seq`
+        Prelude.rnf isClusterWriter `Prelude.seq`
+          Prelude.rnf promotionTier

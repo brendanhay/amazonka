@@ -179,11 +179,11 @@ instance Prelude.Hashable ModifyEventSubscription where
 
 instance Prelude.NFData ModifyEventSubscription where
   rnf ModifyEventSubscription' {..} =
-    Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf eventCategories
-      `Prelude.seq` Prelude.rnf snsTopicArn
-      `Prelude.seq` Prelude.rnf sourceType
-      `Prelude.seq` Prelude.rnf subscriptionName
+    Prelude.rnf enabled `Prelude.seq`
+      Prelude.rnf eventCategories `Prelude.seq`
+        Prelude.rnf snsTopicArn `Prelude.seq`
+          Prelude.rnf sourceType `Prelude.seq`
+            Prelude.rnf subscriptionName
 
 instance Data.ToHeaders ModifyEventSubscription where
   toHeaders = Prelude.const Prelude.mempty
@@ -252,5 +252,5 @@ instance
     ModifyEventSubscriptionResponse
   where
   rnf ModifyEventSubscriptionResponse' {..} =
-    Prelude.rnf eventSubscription
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf eventSubscription `Prelude.seq`
+      Prelude.rnf httpStatus

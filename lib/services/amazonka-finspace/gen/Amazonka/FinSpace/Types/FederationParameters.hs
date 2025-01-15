@@ -149,12 +149,12 @@ instance Prelude.Hashable FederationParameters where
 
 instance Prelude.NFData FederationParameters where
   rnf FederationParameters' {..} =
-    Prelude.rnf applicationCallBackURL
-      `Prelude.seq` Prelude.rnf attributeMap
-      `Prelude.seq` Prelude.rnf federationProviderName
-      `Prelude.seq` Prelude.rnf federationURN
-      `Prelude.seq` Prelude.rnf samlMetadataDocument
-      `Prelude.seq` Prelude.rnf samlMetadataURL
+    Prelude.rnf applicationCallBackURL `Prelude.seq`
+      Prelude.rnf attributeMap `Prelude.seq`
+        Prelude.rnf federationProviderName `Prelude.seq`
+          Prelude.rnf federationURN `Prelude.seq`
+            Prelude.rnf samlMetadataDocument `Prelude.seq`
+              Prelude.rnf samlMetadataURL
 
 instance Data.ToJSON FederationParameters where
   toJSON FederationParameters' {..} =

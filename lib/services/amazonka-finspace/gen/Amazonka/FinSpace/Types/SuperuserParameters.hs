@@ -90,9 +90,9 @@ instance Prelude.Hashable SuperuserParameters where
 
 instance Prelude.NFData SuperuserParameters where
   rnf SuperuserParameters' {..} =
-    Prelude.rnf emailAddress
-      `Prelude.seq` Prelude.rnf firstName
-      `Prelude.seq` Prelude.rnf lastName
+    Prelude.rnf emailAddress `Prelude.seq`
+      Prelude.rnf firstName `Prelude.seq`
+        Prelude.rnf lastName
 
 instance Data.ToJSON SuperuserParameters where
   toJSON SuperuserParameters' {..} =

@@ -118,9 +118,7 @@ routeTable_vpcId = Lens.lens (\RouteTable' {vpcId} -> vpcId) (\s@RouteTable' {} 
 instance Data.FromXML RouteTable where
   parseXML x =
     RouteTable'
-      Prelude.<$> ( x
-                      Data..@? "associationSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "associationSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "ownerId")
@@ -130,14 +128,10 @@ instance Data.FromXML RouteTable where
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "routeTableId")
-      Prelude.<*> ( x
-                      Data..@? "routeSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "routeSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x
-                      Data..@? "tagSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "vpcId")
@@ -155,10 +149,10 @@ instance Prelude.Hashable RouteTable where
 
 instance Prelude.NFData RouteTable where
   rnf RouteTable' {..} =
-    Prelude.rnf associations
-      `Prelude.seq` Prelude.rnf ownerId
-      `Prelude.seq` Prelude.rnf propagatingVgws
-      `Prelude.seq` Prelude.rnf routeTableId
-      `Prelude.seq` Prelude.rnf routes
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf associations `Prelude.seq`
+      Prelude.rnf ownerId `Prelude.seq`
+        Prelude.rnf propagatingVgws `Prelude.seq`
+          Prelude.rnf routeTableId `Prelude.seq`
+            Prelude.rnf routes `Prelude.seq`
+              Prelude.rnf tags `Prelude.seq`
+                Prelude.rnf vpcId

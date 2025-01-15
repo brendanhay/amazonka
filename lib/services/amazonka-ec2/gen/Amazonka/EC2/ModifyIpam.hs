@@ -169,11 +169,11 @@ instance Prelude.Hashable ModifyIpam where
 
 instance Prelude.NFData ModifyIpam where
   rnf ModifyIpam' {..} =
-    Prelude.rnf addOperatingRegions
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf removeOperatingRegions
-      `Prelude.seq` Prelude.rnf ipamId
+    Prelude.rnf addOperatingRegions `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf dryRun `Prelude.seq`
+          Prelude.rnf removeOperatingRegions `Prelude.seq`
+            Prelude.rnf ipamId
 
 instance Data.ToHeaders ModifyIpam where
   toHeaders = Prelude.const Prelude.mempty
@@ -241,5 +241,5 @@ modifyIpamResponse_httpStatus = Lens.lens (\ModifyIpamResponse' {httpStatus} -> 
 
 instance Prelude.NFData ModifyIpamResponse where
   rnf ModifyIpamResponse' {..} =
-    Prelude.rnf ipam
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf ipam `Prelude.seq`
+      Prelude.rnf httpStatus

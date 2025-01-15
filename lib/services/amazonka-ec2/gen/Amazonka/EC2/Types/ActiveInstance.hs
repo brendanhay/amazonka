@@ -109,7 +109,7 @@ instance Prelude.Hashable ActiveInstance where
 
 instance Prelude.NFData ActiveInstance where
   rnf ActiveInstance' {..} =
-    Prelude.rnf instanceHealth
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf spotInstanceRequestId
+    Prelude.rnf instanceHealth `Prelude.seq`
+      Prelude.rnf instanceId `Prelude.seq`
+        Prelude.rnf instanceType `Prelude.seq`
+          Prelude.rnf spotInstanceRequestId

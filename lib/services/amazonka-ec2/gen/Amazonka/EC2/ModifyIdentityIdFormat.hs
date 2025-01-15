@@ -184,9 +184,9 @@ instance Prelude.Hashable ModifyIdentityIdFormat where
 
 instance Prelude.NFData ModifyIdentityIdFormat where
   rnf ModifyIdentityIdFormat' {..} =
-    Prelude.rnf principalArn
-      `Prelude.seq` Prelude.rnf resource
-      `Prelude.seq` Prelude.rnf useLongIds
+    Prelude.rnf principalArn `Prelude.seq`
+      Prelude.rnf resource `Prelude.seq`
+        Prelude.rnf useLongIds
 
 instance Data.ToHeaders ModifyIdentityIdFormat where
   toHeaders = Prelude.const Prelude.mempty

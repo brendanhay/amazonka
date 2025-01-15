@@ -152,12 +152,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeNetworkInsightsAccessScopes_nextToken
-          Lens..~ rs
-          Lens.^? describeNetworkInsightsAccessScopesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeNetworkInsightsAccessScopes_nextToken
+              Lens..~ rs
+              Lens.^? describeNetworkInsightsAccessScopesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -200,11 +200,11 @@ instance
     DescribeNetworkInsightsAccessScopes
   where
   rnf DescribeNetworkInsightsAccessScopes' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf networkInsightsAccessScopeIds
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf networkInsightsAccessScopeIds `Prelude.seq`
+            Prelude.rnf nextToken
 
 instance
   Data.ToHeaders
@@ -298,6 +298,6 @@ instance
     DescribeNetworkInsightsAccessScopesResponse
   where
   rnf DescribeNetworkInsightsAccessScopesResponse' {..} =
-    Prelude.rnf networkInsightsAccessScopes
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf networkInsightsAccessScopes `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

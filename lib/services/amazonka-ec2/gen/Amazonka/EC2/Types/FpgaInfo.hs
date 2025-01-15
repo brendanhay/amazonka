@@ -67,9 +67,7 @@ fpgaInfo_totalFpgaMemoryInMiB = Lens.lens (\FpgaInfo' {totalFpgaMemoryInMiB} -> 
 instance Data.FromXML FpgaInfo where
   parseXML x =
     FpgaInfo'
-      Prelude.<$> ( x
-                      Data..@? "fpgas"
-                      Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "fpgas" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "totalFpgaMemoryInMiB")
@@ -82,5 +80,5 @@ instance Prelude.Hashable FpgaInfo where
 
 instance Prelude.NFData FpgaInfo where
   rnf FpgaInfo' {..} =
-    Prelude.rnf fpgas
-      `Prelude.seq` Prelude.rnf totalFpgaMemoryInMiB
+    Prelude.rnf fpgas `Prelude.seq`
+      Prelude.rnf totalFpgaMemoryInMiB

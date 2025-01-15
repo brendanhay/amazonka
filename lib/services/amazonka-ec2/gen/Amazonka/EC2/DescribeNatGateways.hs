@@ -204,12 +204,12 @@ instance Core.AWSPager DescribeNatGateways where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeNatGateways_nextToken
-          Lens..~ rs
-          Lens.^? describeNatGatewaysResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeNatGateways_nextToken
+              Lens..~ rs
+              Lens.^? describeNatGatewaysResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeNatGateways where
   type
@@ -221,9 +221,7 @@ instance Core.AWSRequest DescribeNatGateways where
     Response.receiveXML
       ( \s h x ->
           DescribeNatGatewaysResponse'
-            Prelude.<$> ( x
-                            Data..@? "natGatewaySet"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "natGatewaySet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (x Data..@? "nextToken")
@@ -241,11 +239,11 @@ instance Prelude.Hashable DescribeNatGateways where
 
 instance Prelude.NFData DescribeNatGateways where
   rnf DescribeNatGateways' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf natGatewayIds
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf filter' `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf natGatewayIds `Prelude.seq`
+            Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeNatGateways where
   toHeaders = Prelude.const Prelude.mempty
@@ -324,6 +322,6 @@ describeNatGatewaysResponse_httpStatus = Lens.lens (\DescribeNatGatewaysResponse
 
 instance Prelude.NFData DescribeNatGatewaysResponse where
   rnf DescribeNatGatewaysResponse' {..} =
-    Prelude.rnf natGateways
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf natGateways `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

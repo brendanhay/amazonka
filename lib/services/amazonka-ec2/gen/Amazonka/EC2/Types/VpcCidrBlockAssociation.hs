@@ -90,6 +90,6 @@ instance Prelude.Hashable VpcCidrBlockAssociation where
 
 instance Prelude.NFData VpcCidrBlockAssociation where
   rnf VpcCidrBlockAssociation' {..} =
-    Prelude.rnf associationId
-      `Prelude.seq` Prelude.rnf cidrBlock
-      `Prelude.seq` Prelude.rnf cidrBlockState
+    Prelude.rnf associationId `Prelude.seq`
+      Prelude.rnf cidrBlock `Prelude.seq`
+        Prelude.rnf cidrBlockState

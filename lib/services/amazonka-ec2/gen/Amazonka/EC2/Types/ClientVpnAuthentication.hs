@@ -107,7 +107,7 @@ instance Prelude.Hashable ClientVpnAuthentication where
 
 instance Prelude.NFData ClientVpnAuthentication where
   rnf ClientVpnAuthentication' {..} =
-    Prelude.rnf activeDirectory
-      `Prelude.seq` Prelude.rnf federatedAuthentication
-      `Prelude.seq` Prelude.rnf mutualAuthentication
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf activeDirectory `Prelude.seq`
+      Prelude.rnf federatedAuthentication `Prelude.seq`
+        Prelude.rnf mutualAuthentication `Prelude.seq`
+          Prelude.rnf type'

@@ -77,5 +77,5 @@ instance Prelude.Hashable SecurityGroupIdentifier where
 
 instance Prelude.NFData SecurityGroupIdentifier where
   rnf SecurityGroupIdentifier' {..} =
-    Prelude.rnf groupId
-      `Prelude.seq` Prelude.rnf groupName
+    Prelude.rnf groupId `Prelude.seq`
+      Prelude.rnf groupName

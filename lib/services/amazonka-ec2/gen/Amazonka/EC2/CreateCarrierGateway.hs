@@ -149,10 +149,10 @@ instance Prelude.Hashable CreateCarrierGateway where
 
 instance Prelude.NFData CreateCarrierGateway where
   rnf CreateCarrierGateway' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf tagSpecifications
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf tagSpecifications `Prelude.seq`
+          Prelude.rnf vpcId
 
 instance Data.ToHeaders CreateCarrierGateway where
   toHeaders = Prelude.const Prelude.mempty
@@ -217,5 +217,5 @@ createCarrierGatewayResponse_httpStatus = Lens.lens (\CreateCarrierGatewayRespon
 
 instance Prelude.NFData CreateCarrierGatewayResponse where
   rnf CreateCarrierGatewayResponse' {..} =
-    Prelude.rnf carrierGateway
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf carrierGateway `Prelude.seq`
+      Prelude.rnf httpStatus

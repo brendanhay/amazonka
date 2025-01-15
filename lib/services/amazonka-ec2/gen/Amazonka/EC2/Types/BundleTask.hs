@@ -167,11 +167,11 @@ instance Prelude.Hashable BundleTask where
 
 instance Prelude.NFData BundleTask where
   rnf BundleTask' {..} =
-    Prelude.rnf bundleTaskError
-      `Prelude.seq` Prelude.rnf bundleId
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf progress
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf storage
-      `Prelude.seq` Prelude.rnf updateTime
+    Prelude.rnf bundleTaskError `Prelude.seq`
+      Prelude.rnf bundleId `Prelude.seq`
+        Prelude.rnf instanceId `Prelude.seq`
+          Prelude.rnf progress `Prelude.seq`
+            Prelude.rnf startTime `Prelude.seq`
+              Prelude.rnf state `Prelude.seq`
+                Prelude.rnf storage `Prelude.seq`
+                  Prelude.rnf updateTime

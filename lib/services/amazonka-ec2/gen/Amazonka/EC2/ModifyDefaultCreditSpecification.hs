@@ -167,9 +167,9 @@ instance
     ModifyDefaultCreditSpecification
   where
   rnf ModifyDefaultCreditSpecification' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf instanceFamily
-      `Prelude.seq` Prelude.rnf cpuCredits
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf instanceFamily `Prelude.seq`
+        Prelude.rnf cpuCredits
 
 instance
   Data.ToHeaders
@@ -242,5 +242,5 @@ instance
     ModifyDefaultCreditSpecificationResponse
   where
   rnf ModifyDefaultCreditSpecificationResponse' {..} =
-    Prelude.rnf instanceFamilyCreditSpecification
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf instanceFamilyCreditSpecification `Prelude.seq`
+      Prelude.rnf httpStatus

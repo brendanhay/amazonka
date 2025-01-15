@@ -197,11 +197,11 @@ instance Prelude.Hashable AssignIpv6Addresses where
 
 instance Prelude.NFData AssignIpv6Addresses where
   rnf AssignIpv6Addresses' {..} =
-    Prelude.rnf ipv6AddressCount
-      `Prelude.seq` Prelude.rnf ipv6Addresses
-      `Prelude.seq` Prelude.rnf ipv6PrefixCount
-      `Prelude.seq` Prelude.rnf ipv6Prefixes
-      `Prelude.seq` Prelude.rnf networkInterfaceId
+    Prelude.rnf ipv6AddressCount `Prelude.seq`
+      Prelude.rnf ipv6Addresses `Prelude.seq`
+        Prelude.rnf ipv6PrefixCount `Prelude.seq`
+          Prelude.rnf ipv6Prefixes `Prelude.seq`
+            Prelude.rnf networkInterfaceId
 
 instance Data.ToHeaders AssignIpv6Addresses where
   toHeaders = Prelude.const Prelude.mempty
@@ -294,7 +294,7 @@ assignIpv6AddressesResponse_httpStatus = Lens.lens (\AssignIpv6AddressesResponse
 
 instance Prelude.NFData AssignIpv6AddressesResponse where
   rnf AssignIpv6AddressesResponse' {..} =
-    Prelude.rnf assignedIpv6Addresses
-      `Prelude.seq` Prelude.rnf assignedIpv6Prefixes
-      `Prelude.seq` Prelude.rnf networkInterfaceId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf assignedIpv6Addresses `Prelude.seq`
+      Prelude.rnf assignedIpv6Prefixes `Prelude.seq`
+        Prelude.rnf networkInterfaceId `Prelude.seq`
+          Prelude.rnf httpStatus

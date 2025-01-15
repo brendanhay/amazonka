@@ -80,5 +80,5 @@ instance Prelude.Hashable AssociatedTargetNetwork where
 
 instance Prelude.NFData AssociatedTargetNetwork where
   rnf AssociatedTargetNetwork' {..} =
-    Prelude.rnf networkId
-      `Prelude.seq` Prelude.rnf networkType
+    Prelude.rnf networkId `Prelude.seq`
+      Prelude.rnf networkType

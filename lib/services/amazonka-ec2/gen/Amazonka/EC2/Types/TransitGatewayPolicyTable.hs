@@ -98,9 +98,7 @@ instance Data.FromXML TransitGatewayPolicyTable where
     TransitGatewayPolicyTable'
       Prelude.<$> (x Data..@? "creationTime")
       Prelude.<*> (x Data..@? "state")
-      Prelude.<*> ( x
-                      Data..@? "tagSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "transitGatewayId")
@@ -117,8 +115,8 @@ instance Prelude.Hashable TransitGatewayPolicyTable where
 
 instance Prelude.NFData TransitGatewayPolicyTable where
   rnf TransitGatewayPolicyTable' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf transitGatewayId
-      `Prelude.seq` Prelude.rnf transitGatewayPolicyTableId
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf state `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf transitGatewayId `Prelude.seq`
+            Prelude.rnf transitGatewayPolicyTableId

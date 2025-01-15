@@ -196,8 +196,8 @@ instance Prelude.Hashable ModifyEbsDefaultKmsKeyId where
 
 instance Prelude.NFData ModifyEbsDefaultKmsKeyId where
   rnf ModifyEbsDefaultKmsKeyId' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf kmsKeyId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf kmsKeyId
 
 instance Data.ToHeaders ModifyEbsDefaultKmsKeyId where
   toHeaders = Prelude.const Prelude.mempty
@@ -263,5 +263,5 @@ instance
     ModifyEbsDefaultKmsKeyIdResponse
   where
   rnf ModifyEbsDefaultKmsKeyIdResponse' {..} =
-    Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf kmsKeyId `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -120,8 +120,8 @@ instance Prelude.Hashable DeleteNatGateway where
 
 instance Prelude.NFData DeleteNatGateway where
   rnf DeleteNatGateway' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf natGatewayId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf natGatewayId
 
 instance Data.ToHeaders DeleteNatGateway where
   toHeaders = Prelude.const Prelude.mempty
@@ -181,5 +181,5 @@ deleteNatGatewayResponse_httpStatus = Lens.lens (\DeleteNatGatewayResponse' {htt
 
 instance Prelude.NFData DeleteNatGatewayResponse where
   rnf DeleteNatGatewayResponse' {..} =
-    Prelude.rnf natGatewayId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf natGatewayId `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -177,11 +177,11 @@ instance
     ModifyVerifiedAccessTrustProvider
   where
   rnf ModifyVerifiedAccessTrustProvider' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf oidcOptions
-      `Prelude.seq` Prelude.rnf verifiedAccessTrustProviderId
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf dryRun `Prelude.seq`
+          Prelude.rnf oidcOptions `Prelude.seq`
+            Prelude.rnf verifiedAccessTrustProviderId
 
 instance
   Data.ToHeaders
@@ -260,5 +260,5 @@ instance
     ModifyVerifiedAccessTrustProviderResponse
   where
   rnf ModifyVerifiedAccessTrustProviderResponse' {..} =
-    Prelude.rnf verifiedAccessTrustProvider
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf verifiedAccessTrustProvider `Prelude.seq`
+      Prelude.rnf httpStatus

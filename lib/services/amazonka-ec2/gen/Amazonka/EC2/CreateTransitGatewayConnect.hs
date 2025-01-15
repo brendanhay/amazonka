@@ -154,10 +154,10 @@ instance Prelude.Hashable CreateTransitGatewayConnect where
 
 instance Prelude.NFData CreateTransitGatewayConnect where
   rnf CreateTransitGatewayConnect' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf tagSpecifications
-      `Prelude.seq` Prelude.rnf transportTransitGatewayAttachmentId
-      `Prelude.seq` Prelude.rnf options
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf tagSpecifications `Prelude.seq`
+        Prelude.rnf transportTransitGatewayAttachmentId `Prelude.seq`
+          Prelude.rnf options
 
 instance Data.ToHeaders CreateTransitGatewayConnect where
   toHeaders = Prelude.const Prelude.mempty
@@ -228,5 +228,5 @@ instance
     CreateTransitGatewayConnectResponse
   where
   rnf CreateTransitGatewayConnectResponse' {..} =
-    Prelude.rnf transitGatewayConnect
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf transitGatewayConnect `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -180,14 +180,14 @@ instance Prelude.Hashable TrafficMirrorFilterRule where
 
 instance Prelude.NFData TrafficMirrorFilterRule where
   rnf TrafficMirrorFilterRule' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf destinationCidrBlock
-      `Prelude.seq` Prelude.rnf destinationPortRange
-      `Prelude.seq` Prelude.rnf protocol
-      `Prelude.seq` Prelude.rnf ruleAction
-      `Prelude.seq` Prelude.rnf ruleNumber
-      `Prelude.seq` Prelude.rnf sourceCidrBlock
-      `Prelude.seq` Prelude.rnf sourcePortRange
-      `Prelude.seq` Prelude.rnf trafficDirection
-      `Prelude.seq` Prelude.rnf trafficMirrorFilterId
-      `Prelude.seq` Prelude.rnf trafficMirrorFilterRuleId
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf destinationCidrBlock `Prelude.seq`
+        Prelude.rnf destinationPortRange `Prelude.seq`
+          Prelude.rnf protocol `Prelude.seq`
+            Prelude.rnf ruleAction `Prelude.seq`
+              Prelude.rnf ruleNumber `Prelude.seq`
+                Prelude.rnf sourceCidrBlock `Prelude.seq`
+                  Prelude.rnf sourcePortRange `Prelude.seq`
+                    Prelude.rnf trafficDirection `Prelude.seq`
+                      Prelude.rnf trafficMirrorFilterId `Prelude.seq`
+                        Prelude.rnf trafficMirrorFilterRuleId

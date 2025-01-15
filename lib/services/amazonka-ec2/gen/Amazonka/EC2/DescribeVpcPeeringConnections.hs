@@ -268,12 +268,12 @@ instance Core.AWSPager DescribeVpcPeeringConnections where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeVpcPeeringConnections_nextToken
-          Lens..~ rs
-          Lens.^? describeVpcPeeringConnectionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeVpcPeeringConnections_nextToken
+              Lens..~ rs
+              Lens.^? describeVpcPeeringConnectionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -311,11 +311,11 @@ instance
 
 instance Prelude.NFData DescribeVpcPeeringConnections where
   rnf DescribeVpcPeeringConnections' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf vpcPeeringConnectionIds
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf vpcPeeringConnectionIds
 
 instance Data.ToHeaders DescribeVpcPeeringConnections where
   toHeaders = Prelude.const Prelude.mempty
@@ -400,6 +400,6 @@ instance
     DescribeVpcPeeringConnectionsResponse
   where
   rnf DescribeVpcPeeringConnectionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf vpcPeeringConnections
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf vpcPeeringConnections `Prelude.seq`
+        Prelude.rnf httpStatus

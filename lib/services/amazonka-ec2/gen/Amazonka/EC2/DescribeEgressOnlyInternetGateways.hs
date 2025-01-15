@@ -182,12 +182,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeEgressOnlyInternetGateways_nextToken
-          Lens..~ rs
-          Lens.^? describeEgressOnlyInternetGatewaysResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeEgressOnlyInternetGateways_nextToken
+              Lens..~ rs
+              Lens.^? describeEgressOnlyInternetGatewaysResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -230,11 +230,11 @@ instance
     DescribeEgressOnlyInternetGateways
   where
   rnf DescribeEgressOnlyInternetGateways' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf egressOnlyInternetGatewayIds
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf egressOnlyInternetGatewayIds `Prelude.seq`
+        Prelude.rnf filters `Prelude.seq`
+          Prelude.rnf maxResults `Prelude.seq`
+            Prelude.rnf nextToken
 
 instance
   Data.ToHeaders
@@ -328,6 +328,6 @@ instance
     DescribeEgressOnlyInternetGatewaysResponse
   where
   rnf DescribeEgressOnlyInternetGatewaysResponse' {..} =
-    Prelude.rnf egressOnlyInternetGateways
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf egressOnlyInternetGateways `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

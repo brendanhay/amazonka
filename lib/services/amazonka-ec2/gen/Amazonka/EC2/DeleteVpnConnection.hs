@@ -124,8 +124,8 @@ instance Prelude.Hashable DeleteVpnConnection where
 
 instance Prelude.NFData DeleteVpnConnection where
   rnf DeleteVpnConnection' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf vpnConnectionId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf vpnConnectionId
 
 instance Data.ToHeaders DeleteVpnConnection where
   toHeaders = Prelude.const Prelude.mempty

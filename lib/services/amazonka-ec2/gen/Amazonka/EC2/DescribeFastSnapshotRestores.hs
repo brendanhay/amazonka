@@ -168,12 +168,12 @@ instance Core.AWSPager DescribeFastSnapshotRestores where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeFastSnapshotRestores_nextToken
-          Lens..~ rs
-          Lens.^? describeFastSnapshotRestoresResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeFastSnapshotRestores_nextToken
+              Lens..~ rs
+              Lens.^? describeFastSnapshotRestoresResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeFastSnapshotRestores where
   type
@@ -207,10 +207,10 @@ instance
 
 instance Prelude.NFData DescribeFastSnapshotRestores where
   rnf DescribeFastSnapshotRestores' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeFastSnapshotRestores where
   toHeaders = Prelude.const Prelude.mempty
@@ -290,6 +290,6 @@ instance
     DescribeFastSnapshotRestoresResponse
   where
   rnf DescribeFastSnapshotRestoresResponse' {..} =
-    Prelude.rnf fastSnapshotRestores
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf fastSnapshotRestores `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -121,9 +121,9 @@ instance Prelude.Hashable UnassignPrivateIpAddresses where
 
 instance Prelude.NFData UnassignPrivateIpAddresses where
   rnf UnassignPrivateIpAddresses' {..} =
-    Prelude.rnf ipv4Prefixes
-      `Prelude.seq` Prelude.rnf privateIpAddresses
-      `Prelude.seq` Prelude.rnf networkInterfaceId
+    Prelude.rnf ipv4Prefixes `Prelude.seq`
+      Prelude.rnf privateIpAddresses `Prelude.seq`
+        Prelude.rnf networkInterfaceId
 
 instance Data.ToHeaders UnassignPrivateIpAddresses where
   toHeaders = Prelude.const Prelude.mempty

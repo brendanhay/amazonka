@@ -136,9 +136,9 @@ instance Prelude.Hashable DeleteInstanceEventWindow where
 
 instance Prelude.NFData DeleteInstanceEventWindow where
   rnf DeleteInstanceEventWindow' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf forceDelete
-      `Prelude.seq` Prelude.rnf instanceEventWindowId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf forceDelete `Prelude.seq`
+        Prelude.rnf instanceEventWindowId
 
 instance Data.ToHeaders DeleteInstanceEventWindow where
   toHeaders = Prelude.const Prelude.mempty
@@ -203,5 +203,5 @@ instance
     DeleteInstanceEventWindowResponse
   where
   rnf DeleteInstanceEventWindowResponse' {..} =
-    Prelude.rnf instanceEventWindowState
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf instanceEventWindowState `Prelude.seq`
+      Prelude.rnf httpStatus

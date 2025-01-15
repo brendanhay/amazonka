@@ -123,8 +123,8 @@ instance
 
 instance Prelude.NFData DeleteLocalGatewayRouteTable where
   rnf DeleteLocalGatewayRouteTable' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf localGatewayRouteTableId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf localGatewayRouteTableId
 
 instance Data.ToHeaders DeleteLocalGatewayRouteTable where
   toHeaders = Prelude.const Prelude.mempty
@@ -190,5 +190,5 @@ instance
     DeleteLocalGatewayRouteTableResponse
   where
   rnf DeleteLocalGatewayRouteTableResponse' {..} =
-    Prelude.rnf localGatewayRouteTable
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf localGatewayRouteTable `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -141,9 +141,9 @@ instance Prelude.Hashable CreateTags where
 
 instance Prelude.NFData CreateTags where
   rnf CreateTags' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf resources
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf resources `Prelude.seq`
+        Prelude.rnf tags
 
 instance Data.ToHeaders CreateTags where
   toHeaders = Prelude.const Prelude.mempty

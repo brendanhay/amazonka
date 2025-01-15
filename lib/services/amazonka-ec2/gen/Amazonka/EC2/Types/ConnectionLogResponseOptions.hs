@@ -102,6 +102,6 @@ instance
 
 instance Prelude.NFData ConnectionLogResponseOptions where
   rnf ConnectionLogResponseOptions' {..} =
-    Prelude.rnf cloudwatchLogGroup
-      `Prelude.seq` Prelude.rnf cloudwatchLogStream
-      `Prelude.seq` Prelude.rnf enabled
+    Prelude.rnf cloudwatchLogGroup `Prelude.seq`
+      Prelude.rnf cloudwatchLogStream `Prelude.seq`
+        Prelude.rnf enabled

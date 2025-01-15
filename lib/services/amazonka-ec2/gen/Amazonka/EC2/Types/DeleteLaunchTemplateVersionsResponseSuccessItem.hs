@@ -103,6 +103,6 @@ instance
   where
   rnf
     DeleteLaunchTemplateVersionsResponseSuccessItem' {..} =
-      Prelude.rnf launchTemplateId
-        `Prelude.seq` Prelude.rnf launchTemplateName
-        `Prelude.seq` Prelude.rnf versionNumber
+      Prelude.rnf launchTemplateId `Prelude.seq`
+        Prelude.rnf launchTemplateName `Prelude.seq`
+          Prelude.rnf versionNumber

@@ -181,11 +181,11 @@ instance Prelude.Hashable ModifyLaunchTemplate where
 
 instance Prelude.NFData ModifyLaunchTemplate where
   rnf ModifyLaunchTemplate' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf defaultVersion
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf launchTemplateId
-      `Prelude.seq` Prelude.rnf launchTemplateName
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf defaultVersion `Prelude.seq`
+        Prelude.rnf dryRun `Prelude.seq`
+          Prelude.rnf launchTemplateId `Prelude.seq`
+            Prelude.rnf launchTemplateName
 
 instance Data.ToHeaders ModifyLaunchTemplate where
   toHeaders = Prelude.const Prelude.mempty
@@ -248,5 +248,5 @@ modifyLaunchTemplateResponse_httpStatus = Lens.lens (\ModifyLaunchTemplateRespon
 
 instance Prelude.NFData ModifyLaunchTemplateResponse where
   rnf ModifyLaunchTemplateResponse' {..} =
-    Prelude.rnf launchTemplate
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf launchTemplate `Prelude.seq`
+      Prelude.rnf httpStatus

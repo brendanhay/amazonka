@@ -143,10 +143,10 @@ instance Prelude.Hashable ModifyTransitGateway where
 
 instance Prelude.NFData ModifyTransitGateway where
   rnf ModifyTransitGateway' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf options
-      `Prelude.seq` Prelude.rnf transitGatewayId
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf options `Prelude.seq`
+          Prelude.rnf transitGatewayId
 
 instance Data.ToHeaders ModifyTransitGateway where
   toHeaders = Prelude.const Prelude.mempty
@@ -208,5 +208,5 @@ modifyTransitGatewayResponse_httpStatus = Lens.lens (\ModifyTransitGatewayRespon
 
 instance Prelude.NFData ModifyTransitGatewayResponse where
   rnf ModifyTransitGatewayResponse' {..} =
-    Prelude.rnf transitGateway
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf transitGateway `Prelude.seq`
+      Prelude.rnf httpStatus

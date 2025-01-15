@@ -179,5 +179,5 @@ instance
     DisassociateIamInstanceProfileResponse
   where
   rnf DisassociateIamInstanceProfileResponse' {..} =
-    Prelude.rnf iamInstanceProfileAssociation
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf iamInstanceProfileAssociation `Prelude.seq`
+      Prelude.rnf httpStatus

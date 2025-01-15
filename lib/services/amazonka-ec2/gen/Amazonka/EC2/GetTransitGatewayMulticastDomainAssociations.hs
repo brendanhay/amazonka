@@ -189,12 +189,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getTransitGatewayMulticastDomainAssociations_nextToken
-          Lens..~ rs
-          Lens.^? getTransitGatewayMulticastDomainAssociationsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getTransitGatewayMulticastDomainAssociations_nextToken
+              Lens..~ rs
+              Lens.^? getTransitGatewayMulticastDomainAssociationsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -238,11 +238,11 @@ instance
     GetTransitGatewayMulticastDomainAssociations
   where
   rnf GetTransitGatewayMulticastDomainAssociations' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf transitGatewayMulticastDomainId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf transitGatewayMulticastDomainId
 
 instance
   Data.ToHeaders
@@ -338,6 +338,6 @@ instance
   where
   rnf
     GetTransitGatewayMulticastDomainAssociationsResponse' {..} =
-      Prelude.rnf multicastDomainAssociations
-        `Prelude.seq` Prelude.rnf nextToken
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf multicastDomainAssociations `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf httpStatus

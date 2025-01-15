@@ -177,5 +177,5 @@ createDefaultVpcResponse_httpStatus = Lens.lens (\CreateDefaultVpcResponse' {htt
 
 instance Prelude.NFData CreateDefaultVpcResponse where
   rnf CreateDefaultVpcResponse' {..} =
-    Prelude.rnf vpc
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf vpc `Prelude.seq`
+      Prelude.rnf httpStatus

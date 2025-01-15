@@ -73,8 +73,8 @@ instance Prelude.Hashable SecurityGroupRuleUpdate where
 
 instance Prelude.NFData SecurityGroupRuleUpdate where
   rnf SecurityGroupRuleUpdate' {..} =
-    Prelude.rnf securityGroupRule
-      `Prelude.seq` Prelude.rnf securityGroupRuleId
+    Prelude.rnf securityGroupRule `Prelude.seq`
+      Prelude.rnf securityGroupRuleId
 
 instance Data.ToQuery SecurityGroupRuleUpdate where
   toQuery SecurityGroupRuleUpdate' {..} =

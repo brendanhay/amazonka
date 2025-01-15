@@ -192,13 +192,13 @@ instance Prelude.Hashable CreateFpgaImage where
 
 instance Prelude.NFData CreateFpgaImage where
   rnf CreateFpgaImage' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf logsStorageLocation
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf tagSpecifications
-      `Prelude.seq` Prelude.rnf inputStorageLocation
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf dryRun `Prelude.seq`
+          Prelude.rnf logsStorageLocation `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf tagSpecifications `Prelude.seq`
+                Prelude.rnf inputStorageLocation
 
 instance Data.ToHeaders CreateFpgaImage where
   toHeaders = Prelude.const Prelude.mempty
@@ -275,6 +275,6 @@ createFpgaImageResponse_httpStatus = Lens.lens (\CreateFpgaImageResponse' {httpS
 
 instance Prelude.NFData CreateFpgaImageResponse where
   rnf CreateFpgaImageResponse' {..} =
-    Prelude.rnf fpgaImageGlobalId
-      `Prelude.seq` Prelude.rnf fpgaImageId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf fpgaImageGlobalId `Prelude.seq`
+      Prelude.rnf fpgaImageId `Prelude.seq`
+        Prelude.rnf httpStatus

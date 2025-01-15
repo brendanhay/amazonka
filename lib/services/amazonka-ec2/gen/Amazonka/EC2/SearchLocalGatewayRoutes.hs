@@ -208,12 +208,12 @@ instance Core.AWSPager SearchLocalGatewayRoutes where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& searchLocalGatewayRoutes_nextToken
-          Lens..~ rs
-          Lens.^? searchLocalGatewayRoutesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& searchLocalGatewayRoutes_nextToken
+              Lens..~ rs
+              Lens.^? searchLocalGatewayRoutesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest SearchLocalGatewayRoutes where
   type
@@ -226,9 +226,7 @@ instance Core.AWSRequest SearchLocalGatewayRoutes where
       ( \s h x ->
           SearchLocalGatewayRoutesResponse'
             Prelude.<$> (x Data..@? "nextToken")
-            Prelude.<*> ( x
-                            Data..@? "routeSet"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "routeSet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -245,11 +243,11 @@ instance Prelude.Hashable SearchLocalGatewayRoutes where
 
 instance Prelude.NFData SearchLocalGatewayRoutes where
   rnf SearchLocalGatewayRoutes' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf localGatewayRouteTableId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf localGatewayRouteTableId
 
 instance Data.ToHeaders SearchLocalGatewayRoutes where
   toHeaders = Prelude.const Prelude.mempty
@@ -329,6 +327,6 @@ instance
     SearchLocalGatewayRoutesResponse
   where
   rnf SearchLocalGatewayRoutesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf routes
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf routes `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -402,12 +402,12 @@ instance Core.AWSPager DescribeCapacityReservations where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeCapacityReservations_nextToken
-          Lens..~ rs
-          Lens.^? describeCapacityReservationsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeCapacityReservations_nextToken
+              Lens..~ rs
+              Lens.^? describeCapacityReservationsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeCapacityReservations where
   type
@@ -442,11 +442,11 @@ instance
 
 instance Prelude.NFData DescribeCapacityReservations where
   rnf DescribeCapacityReservations' {..} =
-    Prelude.rnf capacityReservationIds
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf capacityReservationIds `Prelude.seq`
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf filters `Prelude.seq`
+          Prelude.rnf maxResults `Prelude.seq`
+            Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeCapacityReservations where
   toHeaders = Prelude.const Prelude.mempty
@@ -530,6 +530,6 @@ instance
     DescribeCapacityReservationsResponse
   where
   rnf DescribeCapacityReservationsResponse' {..} =
-    Prelude.rnf capacityReservations
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf capacityReservations `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

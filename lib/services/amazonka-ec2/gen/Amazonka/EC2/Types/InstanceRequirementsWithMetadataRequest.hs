@@ -106,9 +106,9 @@ instance
     InstanceRequirementsWithMetadataRequest
   where
   rnf InstanceRequirementsWithMetadataRequest' {..} =
-    Prelude.rnf architectureTypes
-      `Prelude.seq` Prelude.rnf instanceRequirements
-      `Prelude.seq` Prelude.rnf virtualizationTypes
+    Prelude.rnf architectureTypes `Prelude.seq`
+      Prelude.rnf instanceRequirements `Prelude.seq`
+        Prelude.rnf virtualizationTypes
 
 instance
   Data.ToQuery

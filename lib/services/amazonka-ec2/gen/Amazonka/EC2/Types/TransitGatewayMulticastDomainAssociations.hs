@@ -114,9 +114,7 @@ instance
       Prelude.<$> (x Data..@? "resourceId")
       Prelude.<*> (x Data..@? "resourceOwnerId")
       Prelude.<*> (x Data..@? "resourceType")
-      Prelude.<*> ( x
-                      Data..@? "subnets"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "subnets" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "transitGatewayAttachmentId")
@@ -142,9 +140,9 @@ instance
     TransitGatewayMulticastDomainAssociations
   where
   rnf TransitGatewayMulticastDomainAssociations' {..} =
-    Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf resourceOwnerId
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf subnets
-      `Prelude.seq` Prelude.rnf transitGatewayAttachmentId
-      `Prelude.seq` Prelude.rnf transitGatewayMulticastDomainId
+    Prelude.rnf resourceId `Prelude.seq`
+      Prelude.rnf resourceOwnerId `Prelude.seq`
+        Prelude.rnf resourceType `Prelude.seq`
+          Prelude.rnf subnets `Prelude.seq`
+            Prelude.rnf transitGatewayAttachmentId `Prelude.seq`
+              Prelude.rnf transitGatewayMulticastDomainId

@@ -130,8 +130,8 @@ instance Prelude.Hashable AnalysisPacketHeader where
 
 instance Prelude.NFData AnalysisPacketHeader where
   rnf AnalysisPacketHeader' {..} =
-    Prelude.rnf destinationAddresses
-      `Prelude.seq` Prelude.rnf destinationPortRanges
-      `Prelude.seq` Prelude.rnf protocol
-      `Prelude.seq` Prelude.rnf sourceAddresses
-      `Prelude.seq` Prelude.rnf sourcePortRanges
+    Prelude.rnf destinationAddresses `Prelude.seq`
+      Prelude.rnf destinationPortRanges `Prelude.seq`
+        Prelude.rnf protocol `Prelude.seq`
+          Prelude.rnf sourceAddresses `Prelude.seq`
+            Prelude.rnf sourcePortRanges

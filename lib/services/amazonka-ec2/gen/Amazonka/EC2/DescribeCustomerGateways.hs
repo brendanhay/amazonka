@@ -215,9 +215,9 @@ instance Prelude.Hashable DescribeCustomerGateways where
 
 instance Prelude.NFData DescribeCustomerGateways where
   rnf DescribeCustomerGateways' {..} =
-    Prelude.rnf customerGatewayIds
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf customerGatewayIds `Prelude.seq`
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf filters
 
 instance Data.ToHeaders DescribeCustomerGateways where
   toHeaders = Prelude.const Prelude.mempty
@@ -287,5 +287,5 @@ instance
     DescribeCustomerGatewaysResponse
   where
   rnf DescribeCustomerGatewaysResponse' {..} =
-    Prelude.rnf customerGateways
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf customerGateways `Prelude.seq`
+      Prelude.rnf httpStatus

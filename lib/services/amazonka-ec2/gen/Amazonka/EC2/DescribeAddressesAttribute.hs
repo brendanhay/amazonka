@@ -150,12 +150,12 @@ instance Core.AWSPager DescribeAddressesAttribute where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeAddressesAttribute_nextToken
-          Lens..~ rs
-          Lens.^? describeAddressesAttributeResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeAddressesAttribute_nextToken
+              Lens..~ rs
+              Lens.^? describeAddressesAttributeResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeAddressesAttribute where
   type
@@ -167,9 +167,7 @@ instance Core.AWSRequest DescribeAddressesAttribute where
     Response.receiveXML
       ( \s h x ->
           DescribeAddressesAttributeResponse'
-            Prelude.<$> ( x
-                            Data..@? "addressSet"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "addressSet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (x Data..@? "nextToken")
@@ -187,11 +185,11 @@ instance Prelude.Hashable DescribeAddressesAttribute where
 
 instance Prelude.NFData DescribeAddressesAttribute where
   rnf DescribeAddressesAttribute' {..} =
-    Prelude.rnf allocationIds
-      `Prelude.seq` Prelude.rnf attribute
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf allocationIds `Prelude.seq`
+      Prelude.rnf attribute `Prelude.seq`
+        Prelude.rnf dryRun `Prelude.seq`
+          Prelude.rnf maxResults `Prelude.seq`
+            Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeAddressesAttribute where
   toHeaders = Prelude.const Prelude.mempty
@@ -272,6 +270,6 @@ instance
     DescribeAddressesAttributeResponse
   where
   rnf DescribeAddressesAttributeResponse' {..} =
-    Prelude.rnf addresses
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf addresses `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

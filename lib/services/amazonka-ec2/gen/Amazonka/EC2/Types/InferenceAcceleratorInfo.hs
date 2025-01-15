@@ -59,9 +59,7 @@ inferenceAcceleratorInfo_accelerators = Lens.lens (\InferenceAcceleratorInfo' {a
 instance Data.FromXML InferenceAcceleratorInfo where
   parseXML x =
     InferenceAcceleratorInfo'
-      Prelude.<$> ( x
-                      Data..@? "accelerators"
-                      Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "accelerators" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 

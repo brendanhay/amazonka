@@ -145,12 +145,12 @@ instance Core.AWSPager DescribeImportImageTasks where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeImportImageTasks_nextToken
-          Lens..~ rs
-          Lens.^? describeImportImageTasksResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeImportImageTasks_nextToken
+              Lens..~ rs
+              Lens.^? describeImportImageTasksResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeImportImageTasks where
   type
@@ -182,11 +182,11 @@ instance Prelude.Hashable DescribeImportImageTasks where
 
 instance Prelude.NFData DescribeImportImageTasks where
   rnf DescribeImportImageTasks' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf importTaskIds
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf importTaskIds `Prelude.seq`
+          Prelude.rnf maxResults `Prelude.seq`
+            Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeImportImageTasks where
   toHeaders = Prelude.const Prelude.mempty
@@ -271,6 +271,6 @@ instance
     DescribeImportImageTasksResponse
   where
   rnf DescribeImportImageTasksResponse' {..} =
-    Prelude.rnf importImageTasks
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf importImageTasks `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -134,9 +134,7 @@ securityGroup_description = Lens.lens (\SecurityGroup' {description} -> descript
 instance Data.FromXML SecurityGroup where
   parseXML x =
     SecurityGroup'
-      Prelude.<$> ( x
-                      Data..@? "ipPermissions"
-                      Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "ipPermissions" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> ( x
@@ -144,9 +142,7 @@ instance Data.FromXML SecurityGroup where
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x
-                      Data..@? "tagSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "vpcId")
@@ -169,11 +165,11 @@ instance Prelude.Hashable SecurityGroup where
 
 instance Prelude.NFData SecurityGroup where
   rnf SecurityGroup' {..} =
-    Prelude.rnf ipPermissions
-      `Prelude.seq` Prelude.rnf ipPermissionsEgress
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf vpcId
-      `Prelude.seq` Prelude.rnf ownerId
-      `Prelude.seq` Prelude.rnf groupId
-      `Prelude.seq` Prelude.rnf groupName
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf ipPermissions `Prelude.seq`
+      Prelude.rnf ipPermissionsEgress `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf vpcId `Prelude.seq`
+            Prelude.rnf ownerId `Prelude.seq`
+              Prelude.rnf groupId `Prelude.seq`
+                Prelude.rnf groupName `Prelude.seq`
+                  Prelude.rnf description

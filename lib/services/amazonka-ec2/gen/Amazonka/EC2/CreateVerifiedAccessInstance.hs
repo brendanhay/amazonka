@@ -149,10 +149,10 @@ instance
 
 instance Prelude.NFData CreateVerifiedAccessInstance where
   rnf CreateVerifiedAccessInstance' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf tagSpecifications
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf dryRun `Prelude.seq`
+          Prelude.rnf tagSpecifications
 
 instance Data.ToHeaders CreateVerifiedAccessInstance where
   toHeaders = Prelude.const Prelude.mempty
@@ -222,5 +222,5 @@ instance
     CreateVerifiedAccessInstanceResponse
   where
   rnf CreateVerifiedAccessInstanceResponse' {..} =
-    Prelude.rnf verifiedAccessInstance
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf verifiedAccessInstance `Prelude.seq`
+      Prelude.rnf httpStatus

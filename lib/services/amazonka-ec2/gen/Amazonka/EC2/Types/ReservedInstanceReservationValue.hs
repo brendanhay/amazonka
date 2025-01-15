@@ -93,5 +93,5 @@ instance
     ReservedInstanceReservationValue
   where
   rnf ReservedInstanceReservationValue' {..} =
-    Prelude.rnf reservationValue
-      `Prelude.seq` Prelude.rnf reservedInstanceId
+    Prelude.rnf reservationValue `Prelude.seq`
+      Prelude.rnf reservedInstanceId

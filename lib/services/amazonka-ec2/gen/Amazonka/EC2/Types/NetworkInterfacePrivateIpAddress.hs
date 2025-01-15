@@ -118,7 +118,7 @@ instance
     NetworkInterfacePrivateIpAddress
   where
   rnf NetworkInterfacePrivateIpAddress' {..} =
-    Prelude.rnf association
-      `Prelude.seq` Prelude.rnf primary
-      `Prelude.seq` Prelude.rnf privateDnsName
-      `Prelude.seq` Prelude.rnf privateIpAddress
+    Prelude.rnf association `Prelude.seq`
+      Prelude.rnf primary `Prelude.seq`
+        Prelude.rnf privateDnsName `Prelude.seq`
+          Prelude.rnf privateIpAddress

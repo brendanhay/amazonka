@@ -91,6 +91,6 @@ instance Prelude.Hashable ReservationValue where
 
 instance Prelude.NFData ReservationValue where
   rnf ReservationValue' {..} =
-    Prelude.rnf hourlyPrice
-      `Prelude.seq` Prelude.rnf remainingTotalValue
-      `Prelude.seq` Prelude.rnf remainingUpfrontValue
+    Prelude.rnf hourlyPrice `Prelude.seq`
+      Prelude.rnf remainingTotalValue `Prelude.seq`
+        Prelude.rnf remainingUpfrontValue

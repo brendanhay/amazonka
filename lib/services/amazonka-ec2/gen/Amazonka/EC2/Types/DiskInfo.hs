@@ -89,6 +89,6 @@ instance Prelude.Hashable DiskInfo where
 
 instance Prelude.NFData DiskInfo where
   rnf DiskInfo' {..} =
-    Prelude.rnf count
-      `Prelude.seq` Prelude.rnf sizeInGB
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf count `Prelude.seq`
+      Prelude.rnf sizeInGB `Prelude.seq`
+        Prelude.rnf type'

@@ -257,18 +257,18 @@ instance
 
 instance Prelude.NFData ModifyTrafficMirrorFilterRule where
   rnf ModifyTrafficMirrorFilterRule' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf destinationCidrBlock
-      `Prelude.seq` Prelude.rnf destinationPortRange
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf protocol
-      `Prelude.seq` Prelude.rnf removeFields
-      `Prelude.seq` Prelude.rnf ruleAction
-      `Prelude.seq` Prelude.rnf ruleNumber
-      `Prelude.seq` Prelude.rnf sourceCidrBlock
-      `Prelude.seq` Prelude.rnf sourcePortRange
-      `Prelude.seq` Prelude.rnf trafficDirection
-      `Prelude.seq` Prelude.rnf trafficMirrorFilterRuleId
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf destinationCidrBlock `Prelude.seq`
+        Prelude.rnf destinationPortRange `Prelude.seq`
+          Prelude.rnf dryRun `Prelude.seq`
+            Prelude.rnf protocol `Prelude.seq`
+              Prelude.rnf removeFields `Prelude.seq`
+                Prelude.rnf ruleAction `Prelude.seq`
+                  Prelude.rnf ruleNumber `Prelude.seq`
+                    Prelude.rnf sourceCidrBlock `Prelude.seq`
+                      Prelude.rnf sourcePortRange `Prelude.seq`
+                        Prelude.rnf trafficDirection `Prelude.seq`
+                          Prelude.rnf trafficMirrorFilterRuleId
 
 instance Data.ToHeaders ModifyTrafficMirrorFilterRule where
   toHeaders = Prelude.const Prelude.mempty
@@ -347,5 +347,5 @@ instance
     ModifyTrafficMirrorFilterRuleResponse
   where
   rnf ModifyTrafficMirrorFilterRuleResponse' {..} =
-    Prelude.rnf trafficMirrorFilterRule
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf trafficMirrorFilterRule `Prelude.seq`
+      Prelude.rnf httpStatus

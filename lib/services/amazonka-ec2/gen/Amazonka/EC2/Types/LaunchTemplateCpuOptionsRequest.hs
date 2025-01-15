@@ -87,8 +87,8 @@ instance
     LaunchTemplateCpuOptionsRequest
   where
   rnf LaunchTemplateCpuOptionsRequest' {..} =
-    Prelude.rnf coreCount
-      `Prelude.seq` Prelude.rnf threadsPerCore
+    Prelude.rnf coreCount `Prelude.seq`
+      Prelude.rnf threadsPerCore
 
 instance Data.ToQuery LaunchTemplateCpuOptionsRequest where
   toQuery LaunchTemplateCpuOptionsRequest' {..} =

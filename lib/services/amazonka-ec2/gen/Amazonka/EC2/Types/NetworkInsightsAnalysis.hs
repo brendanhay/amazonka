@@ -214,14 +214,10 @@ instance Data.FromXML NetworkInsightsAnalysis where
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x
-                      Data..@? "explanationSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "explanationSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x
-                      Data..@? "filterInArnSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "filterInArnSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> ( x
@@ -246,9 +242,7 @@ instance Data.FromXML NetworkInsightsAnalysis where
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x
-                      Data..@? "tagSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "warningMessage")
@@ -275,19 +269,19 @@ instance Prelude.Hashable NetworkInsightsAnalysis where
 
 instance Prelude.NFData NetworkInsightsAnalysis where
   rnf NetworkInsightsAnalysis' {..} =
-    Prelude.rnf additionalAccounts
-      `Prelude.seq` Prelude.rnf alternatePathHints
-      `Prelude.seq` Prelude.rnf explanations
-      `Prelude.seq` Prelude.rnf filterInArns
-      `Prelude.seq` Prelude.rnf forwardPathComponents
-      `Prelude.seq` Prelude.rnf networkInsightsAnalysisArn
-      `Prelude.seq` Prelude.rnf networkInsightsAnalysisId
-      `Prelude.seq` Prelude.rnf networkInsightsPathId
-      `Prelude.seq` Prelude.rnf networkPathFound
-      `Prelude.seq` Prelude.rnf returnPathComponents
-      `Prelude.seq` Prelude.rnf startDate
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf suggestedAccounts
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf warningMessage
+    Prelude.rnf additionalAccounts `Prelude.seq`
+      Prelude.rnf alternatePathHints `Prelude.seq`
+        Prelude.rnf explanations `Prelude.seq`
+          Prelude.rnf filterInArns `Prelude.seq`
+            Prelude.rnf forwardPathComponents `Prelude.seq`
+              Prelude.rnf networkInsightsAnalysisArn `Prelude.seq`
+                Prelude.rnf networkInsightsAnalysisId `Prelude.seq`
+                  Prelude.rnf networkInsightsPathId `Prelude.seq`
+                    Prelude.rnf networkPathFound `Prelude.seq`
+                      Prelude.rnf returnPathComponents `Prelude.seq`
+                        Prelude.rnf startDate `Prelude.seq`
+                          Prelude.rnf status `Prelude.seq`
+                            Prelude.rnf statusMessage `Prelude.seq`
+                              Prelude.rnf suggestedAccounts `Prelude.seq`
+                                Prelude.rnf tags `Prelude.seq`
+                                  Prelude.rnf warningMessage

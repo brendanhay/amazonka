@@ -214,9 +214,7 @@ instance Core.AWSRequest CreateSnapshots where
     Response.receiveXML
       ( \s h x ->
           CreateSnapshotsResponse'
-            Prelude.<$> ( x
-                            Data..@? "snapshotSet"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "snapshotSet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -234,12 +232,12 @@ instance Prelude.Hashable CreateSnapshots where
 
 instance Prelude.NFData CreateSnapshots where
   rnf CreateSnapshots' {..} =
-    Prelude.rnf copyTagsFromSource
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf outpostArn
-      `Prelude.seq` Prelude.rnf tagSpecifications
-      `Prelude.seq` Prelude.rnf instanceSpecification
+    Prelude.rnf copyTagsFromSource `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf dryRun `Prelude.seq`
+          Prelude.rnf outpostArn `Prelude.seq`
+            Prelude.rnf tagSpecifications `Prelude.seq`
+              Prelude.rnf instanceSpecification
 
 instance Data.ToHeaders CreateSnapshots where
   toHeaders = Prelude.const Prelude.mempty
@@ -307,5 +305,5 @@ createSnapshotsResponse_httpStatus = Lens.lens (\CreateSnapshotsResponse' {httpS
 
 instance Prelude.NFData CreateSnapshotsResponse where
   rnf CreateSnapshotsResponse' {..} =
-    Prelude.rnf snapshots
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf snapshots `Prelude.seq`
+      Prelude.rnf httpStatus

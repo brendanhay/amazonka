@@ -211,12 +211,12 @@ instance Core.AWSPager DescribeFleets where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeFleets_nextToken
-          Lens..~ rs
-          Lens.^? describeFleetsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeFleets_nextToken
+              Lens..~ rs
+              Lens.^? describeFleetsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeFleets where
   type
@@ -228,9 +228,7 @@ instance Core.AWSRequest DescribeFleets where
     Response.receiveXML
       ( \s h x ->
           DescribeFleetsResponse'
-            Prelude.<$> ( x
-                            Data..@? "fleetSet"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "fleetSet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (x Data..@? "nextToken")
@@ -248,11 +246,11 @@ instance Prelude.Hashable DescribeFleets where
 
 instance Prelude.NFData DescribeFleets where
   rnf DescribeFleets' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf fleetIds
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf fleetIds `Prelude.seq`
+          Prelude.rnf maxResults `Prelude.seq`
+            Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeFleets where
   toHeaders = Prelude.const Prelude.mempty
@@ -325,6 +323,6 @@ describeFleetsResponse_httpStatus = Lens.lens (\DescribeFleetsResponse' {httpSta
 
 instance Prelude.NFData DescribeFleetsResponse where
   rnf DescribeFleetsResponse' {..} =
-    Prelude.rnf fleets
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf fleets `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

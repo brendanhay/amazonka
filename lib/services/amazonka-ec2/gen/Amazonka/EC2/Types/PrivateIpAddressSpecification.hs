@@ -84,8 +84,8 @@ instance
 
 instance Prelude.NFData PrivateIpAddressSpecification where
   rnf PrivateIpAddressSpecification' {..} =
-    Prelude.rnf primary
-      `Prelude.seq` Prelude.rnf privateIpAddress
+    Prelude.rnf primary `Prelude.seq`
+      Prelude.rnf privateIpAddress
 
 instance Data.ToQuery PrivateIpAddressSpecification where
   toQuery PrivateIpAddressSpecification' {..} =

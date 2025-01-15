@@ -292,16 +292,16 @@ instance Prelude.Hashable AssociateVpcCidrBlock where
 
 instance Prelude.NFData AssociateVpcCidrBlock where
   rnf AssociateVpcCidrBlock' {..} =
-    Prelude.rnf amazonProvidedIpv6CidrBlock
-      `Prelude.seq` Prelude.rnf cidrBlock
-      `Prelude.seq` Prelude.rnf ipv4IpamPoolId
-      `Prelude.seq` Prelude.rnf ipv4NetmaskLength
-      `Prelude.seq` Prelude.rnf ipv6CidrBlock
-      `Prelude.seq` Prelude.rnf ipv6CidrBlockNetworkBorderGroup
-      `Prelude.seq` Prelude.rnf ipv6IpamPoolId
-      `Prelude.seq` Prelude.rnf ipv6NetmaskLength
-      `Prelude.seq` Prelude.rnf ipv6Pool
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf amazonProvidedIpv6CidrBlock `Prelude.seq`
+      Prelude.rnf cidrBlock `Prelude.seq`
+        Prelude.rnf ipv4IpamPoolId `Prelude.seq`
+          Prelude.rnf ipv4NetmaskLength `Prelude.seq`
+            Prelude.rnf ipv6CidrBlock `Prelude.seq`
+              Prelude.rnf ipv6CidrBlockNetworkBorderGroup `Prelude.seq`
+                Prelude.rnf ipv6IpamPoolId `Prelude.seq`
+                  Prelude.rnf ipv6NetmaskLength `Prelude.seq`
+                    Prelude.rnf ipv6Pool `Prelude.seq`
+                      Prelude.rnf vpcId
 
 instance Data.ToHeaders AssociateVpcCidrBlock where
   toHeaders = Prelude.const Prelude.mempty
@@ -389,7 +389,7 @@ associateVpcCidrBlockResponse_httpStatus = Lens.lens (\AssociateVpcCidrBlockResp
 
 instance Prelude.NFData AssociateVpcCidrBlockResponse where
   rnf AssociateVpcCidrBlockResponse' {..} =
-    Prelude.rnf cidrBlockAssociation
-      `Prelude.seq` Prelude.rnf ipv6CidrBlockAssociation
-      `Prelude.seq` Prelude.rnf vpcId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf cidrBlockAssociation `Prelude.seq`
+      Prelude.rnf ipv6CidrBlockAssociation `Prelude.seq`
+        Prelude.rnf vpcId `Prelude.seq`
+          Prelude.rnf httpStatus

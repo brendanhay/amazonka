@@ -86,5 +86,5 @@ instance
 
 instance Prelude.NFData AttachmentEnaSrdSpecification where
   rnf AttachmentEnaSrdSpecification' {..} =
-    Prelude.rnf enaSrdEnabled
-      `Prelude.seq` Prelude.rnf enaSrdUdpSpecification
+    Prelude.rnf enaSrdEnabled `Prelude.seq`
+      Prelude.rnf enaSrdUdpSpecification

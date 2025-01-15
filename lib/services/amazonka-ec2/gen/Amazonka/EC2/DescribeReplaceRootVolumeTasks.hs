@@ -159,12 +159,12 @@ instance Core.AWSPager DescribeReplaceRootVolumeTasks where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeReplaceRootVolumeTasks_nextToken
-          Lens..~ rs
-          Lens.^? describeReplaceRootVolumeTasksResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeReplaceRootVolumeTasks_nextToken
+              Lens..~ rs
+              Lens.^? describeReplaceRootVolumeTasksResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -207,11 +207,11 @@ instance
     DescribeReplaceRootVolumeTasks
   where
   rnf DescribeReplaceRootVolumeTasks' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf replaceRootVolumeTaskIds
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf replaceRootVolumeTaskIds
 
 instance
   Data.ToHeaders
@@ -300,6 +300,6 @@ instance
     DescribeReplaceRootVolumeTasksResponse
   where
   rnf DescribeReplaceRootVolumeTasksResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf replaceRootVolumeTasks
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf replaceRootVolumeTasks `Prelude.seq`
+        Prelude.rnf httpStatus

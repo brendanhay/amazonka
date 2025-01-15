@@ -131,9 +131,9 @@ instance Prelude.Hashable AuthorizationRule where
 
 instance Prelude.NFData AuthorizationRule where
   rnf AuthorizationRule' {..} =
-    Prelude.rnf accessAll
-      `Prelude.seq` Prelude.rnf clientVpnEndpointId
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf destinationCidr
-      `Prelude.seq` Prelude.rnf groupId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf accessAll `Prelude.seq`
+      Prelude.rnf clientVpnEndpointId `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf destinationCidr `Prelude.seq`
+            Prelude.rnf groupId `Prelude.seq`
+              Prelude.rnf status

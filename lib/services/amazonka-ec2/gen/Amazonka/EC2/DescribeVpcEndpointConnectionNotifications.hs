@@ -194,12 +194,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeVpcEndpointConnectionNotifications_nextToken
-          Lens..~ rs
-          Lens.^? describeVpcEndpointConnectionNotificationsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeVpcEndpointConnectionNotifications_nextToken
+              Lens..~ rs
+              Lens.^? describeVpcEndpointConnectionNotificationsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -243,11 +243,11 @@ instance
     DescribeVpcEndpointConnectionNotifications
   where
   rnf DescribeVpcEndpointConnectionNotifications' {..} =
-    Prelude.rnf connectionNotificationId
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf connectionNotificationId `Prelude.seq`
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf filters `Prelude.seq`
+          Prelude.rnf maxResults `Prelude.seq`
+            Prelude.rnf nextToken
 
 instance
   Data.ToHeaders
@@ -343,6 +343,6 @@ instance
   where
   rnf
     DescribeVpcEndpointConnectionNotificationsResponse' {..} =
-      Prelude.rnf connectionNotificationSet
-        `Prelude.seq` Prelude.rnf nextToken
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf connectionNotificationSet `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf httpStatus

@@ -219,13 +219,13 @@ instance Prelude.Hashable LaunchTemplateOverrides where
 
 instance Prelude.NFData LaunchTemplateOverrides where
   rnf LaunchTemplateOverrides' {..} =
-    Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf instanceRequirements
-      `Prelude.seq` Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf priority
-      `Prelude.seq` Prelude.rnf spotPrice
-      `Prelude.seq` Prelude.rnf subnetId
-      `Prelude.seq` Prelude.rnf weightedCapacity
+    Prelude.rnf availabilityZone `Prelude.seq`
+      Prelude.rnf instanceRequirements `Prelude.seq`
+        Prelude.rnf instanceType `Prelude.seq`
+          Prelude.rnf priority `Prelude.seq`
+            Prelude.rnf spotPrice `Prelude.seq`
+              Prelude.rnf subnetId `Prelude.seq`
+                Prelude.rnf weightedCapacity
 
 instance Data.ToQuery LaunchTemplateOverrides where
   toQuery LaunchTemplateOverrides' {..} =

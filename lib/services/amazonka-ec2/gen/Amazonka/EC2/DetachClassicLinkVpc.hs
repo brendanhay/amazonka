@@ -138,9 +138,9 @@ instance Prelude.Hashable DetachClassicLinkVpc where
 
 instance Prelude.NFData DetachClassicLinkVpc where
   rnf DetachClassicLinkVpc' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf instanceId `Prelude.seq`
+        Prelude.rnf vpcId
 
 instance Data.ToHeaders DetachClassicLinkVpc where
   toHeaders = Prelude.const Prelude.mempty
@@ -201,5 +201,5 @@ detachClassicLinkVpcResponse_httpStatus = Lens.lens (\DetachClassicLinkVpcRespon
 
 instance Prelude.NFData DetachClassicLinkVpcResponse where
   rnf DetachClassicLinkVpcResponse' {..} =
-    Prelude.rnf return'
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf return' `Prelude.seq`
+      Prelude.rnf httpStatus

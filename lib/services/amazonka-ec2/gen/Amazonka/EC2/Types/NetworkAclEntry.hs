@@ -152,11 +152,11 @@ instance Prelude.Hashable NetworkAclEntry where
 
 instance Prelude.NFData NetworkAclEntry where
   rnf NetworkAclEntry' {..} =
-    Prelude.rnf cidrBlock
-      `Prelude.seq` Prelude.rnf egress
-      `Prelude.seq` Prelude.rnf icmpTypeCode
-      `Prelude.seq` Prelude.rnf ipv6CidrBlock
-      `Prelude.seq` Prelude.rnf portRange
-      `Prelude.seq` Prelude.rnf protocol
-      `Prelude.seq` Prelude.rnf ruleAction
-      `Prelude.seq` Prelude.rnf ruleNumber
+    Prelude.rnf cidrBlock `Prelude.seq`
+      Prelude.rnf egress `Prelude.seq`
+        Prelude.rnf icmpTypeCode `Prelude.seq`
+          Prelude.rnf ipv6CidrBlock `Prelude.seq`
+            Prelude.rnf portRange `Prelude.seq`
+              Prelude.rnf protocol `Prelude.seq`
+                Prelude.rnf ruleAction `Prelude.seq`
+                  Prelude.rnf ruleNumber

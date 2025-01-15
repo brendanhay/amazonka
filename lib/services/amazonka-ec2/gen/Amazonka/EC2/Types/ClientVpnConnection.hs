@@ -226,17 +226,17 @@ instance Prelude.Hashable ClientVpnConnection where
 
 instance Prelude.NFData ClientVpnConnection where
   rnf ClientVpnConnection' {..} =
-    Prelude.rnf clientIp
-      `Prelude.seq` Prelude.rnf clientVpnEndpointId
-      `Prelude.seq` Prelude.rnf commonName
-      `Prelude.seq` Prelude.rnf connectionEndTime
-      `Prelude.seq` Prelude.rnf connectionEstablishedTime
-      `Prelude.seq` Prelude.rnf connectionId
-      `Prelude.seq` Prelude.rnf egressBytes
-      `Prelude.seq` Prelude.rnf egressPackets
-      `Prelude.seq` Prelude.rnf ingressBytes
-      `Prelude.seq` Prelude.rnf ingressPackets
-      `Prelude.seq` Prelude.rnf postureComplianceStatuses
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf timestamp
-      `Prelude.seq` Prelude.rnf username
+    Prelude.rnf clientIp `Prelude.seq`
+      Prelude.rnf clientVpnEndpointId `Prelude.seq`
+        Prelude.rnf commonName `Prelude.seq`
+          Prelude.rnf connectionEndTime `Prelude.seq`
+            Prelude.rnf connectionEstablishedTime `Prelude.seq`
+              Prelude.rnf connectionId `Prelude.seq`
+                Prelude.rnf egressBytes `Prelude.seq`
+                  Prelude.rnf egressPackets `Prelude.seq`
+                    Prelude.rnf ingressBytes `Prelude.seq`
+                      Prelude.rnf ingressPackets `Prelude.seq`
+                        Prelude.rnf postureComplianceStatuses `Prelude.seq`
+                          Prelude.rnf status `Prelude.seq`
+                            Prelude.rnf timestamp `Prelude.seq`
+                              Prelude.rnf username

@@ -139,8 +139,8 @@ instance Prelude.Hashable SpotPrice where
 
 instance Prelude.NFData SpotPrice where
   rnf SpotPrice' {..} =
-    Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf productDescription
-      `Prelude.seq` Prelude.rnf spotPrice
-      `Prelude.seq` Prelude.rnf timestamp
+    Prelude.rnf availabilityZone `Prelude.seq`
+      Prelude.rnf instanceType `Prelude.seq`
+        Prelude.rnf productDescription `Prelude.seq`
+          Prelude.rnf spotPrice `Prelude.seq`
+            Prelude.rnf timestamp

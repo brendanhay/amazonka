@@ -103,6 +103,6 @@ instance
   where
   rnf
     VerifiedAccessLogKinesisDataFirehoseDestination' {..} =
-      Prelude.rnf deliveryStatus
-        `Prelude.seq` Prelude.rnf deliveryStream
-        `Prelude.seq` Prelude.rnf enabled
+      Prelude.rnf deliveryStatus `Prelude.seq`
+        Prelude.rnf deliveryStream `Prelude.seq`
+          Prelude.rnf enabled

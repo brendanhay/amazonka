@@ -171,9 +171,9 @@ instance Prelude.Hashable CreateDhcpOptions where
 
 instance Prelude.NFData CreateDhcpOptions where
   rnf CreateDhcpOptions' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf tagSpecifications
-      `Prelude.seq` Prelude.rnf dhcpConfigurations
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf tagSpecifications `Prelude.seq`
+        Prelude.rnf dhcpConfigurations
 
 instance Data.ToHeaders CreateDhcpOptions where
   toHeaders = Prelude.const Prelude.mempty
@@ -239,5 +239,5 @@ createDhcpOptionsResponse_httpStatus = Lens.lens (\CreateDhcpOptionsResponse' {h
 
 instance Prelude.NFData CreateDhcpOptionsResponse where
   rnf CreateDhcpOptionsResponse' {..} =
-    Prelude.rnf dhcpOptions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dhcpOptions `Prelude.seq`
+      Prelude.rnf httpStatus

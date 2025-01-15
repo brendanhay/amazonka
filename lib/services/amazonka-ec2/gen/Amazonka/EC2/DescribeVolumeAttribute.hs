@@ -125,9 +125,7 @@ instance Core.AWSRequest DescribeVolumeAttribute where
       ( \s h x ->
           DescribeVolumeAttributeResponse'
             Prelude.<$> (x Data..@? "autoEnableIO")
-            Prelude.<*> ( x
-                            Data..@? "productCodes"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "productCodes" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (x Data..@? "volumeId")
@@ -143,9 +141,9 @@ instance Prelude.Hashable DescribeVolumeAttribute where
 
 instance Prelude.NFData DescribeVolumeAttribute where
   rnf DescribeVolumeAttribute' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf attribute
-      `Prelude.seq` Prelude.rnf volumeId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf attribute `Prelude.seq`
+        Prelude.rnf volumeId
 
 instance Data.ToHeaders DescribeVolumeAttribute where
   toHeaders = Prelude.const Prelude.mempty
@@ -227,7 +225,7 @@ instance
     DescribeVolumeAttributeResponse
   where
   rnf DescribeVolumeAttributeResponse' {..} =
-    Prelude.rnf autoEnableIO
-      `Prelude.seq` Prelude.rnf productCodes
-      `Prelude.seq` Prelude.rnf volumeId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf autoEnableIO `Prelude.seq`
+      Prelude.rnf productCodes `Prelude.seq`
+        Prelude.rnf volumeId `Prelude.seq`
+          Prelude.rnf httpStatus

@@ -156,10 +156,10 @@ instance Prelude.Hashable CreateTrafficMirrorFilter where
 
 instance Prelude.NFData CreateTrafficMirrorFilter where
   rnf CreateTrafficMirrorFilter' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf tagSpecifications
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf dryRun `Prelude.seq`
+          Prelude.rnf tagSpecifications
 
 instance Data.ToHeaders CreateTrafficMirrorFilter where
   toHeaders = Prelude.const Prelude.mempty
@@ -242,6 +242,6 @@ instance
     CreateTrafficMirrorFilterResponse
   where
   rnf CreateTrafficMirrorFilterResponse' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf trafficMirrorFilter
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf trafficMirrorFilter `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -193,12 +193,12 @@ instance
     CreateTransitGatewayVpcAttachment
   where
   rnf CreateTransitGatewayVpcAttachment' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf options
-      `Prelude.seq` Prelude.rnf tagSpecifications
-      `Prelude.seq` Prelude.rnf transitGatewayId
-      `Prelude.seq` Prelude.rnf vpcId
-      `Prelude.seq` Prelude.rnf subnetIds
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf options `Prelude.seq`
+        Prelude.rnf tagSpecifications `Prelude.seq`
+          Prelude.rnf transitGatewayId `Prelude.seq`
+            Prelude.rnf vpcId `Prelude.seq`
+              Prelude.rnf subnetIds
 
 instance
   Data.ToHeaders
@@ -280,5 +280,5 @@ instance
     CreateTransitGatewayVpcAttachmentResponse
   where
   rnf CreateTransitGatewayVpcAttachmentResponse' {..} =
-    Prelude.rnf transitGatewayVpcAttachment
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf transitGatewayVpcAttachment `Prelude.seq`
+      Prelude.rnf httpStatus

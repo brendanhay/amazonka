@@ -72,8 +72,8 @@ instance Prelude.Hashable ScheduledInstancesPlacement where
 
 instance Prelude.NFData ScheduledInstancesPlacement where
   rnf ScheduledInstancesPlacement' {..} =
-    Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf groupName
+    Prelude.rnf availabilityZone `Prelude.seq`
+      Prelude.rnf groupName
 
 instance Data.ToQuery ScheduledInstancesPlacement where
   toQuery ScheduledInstancesPlacement' {..} =

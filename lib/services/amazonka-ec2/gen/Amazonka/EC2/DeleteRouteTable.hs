@@ -110,8 +110,8 @@ instance Prelude.Hashable DeleteRouteTable where
 
 instance Prelude.NFData DeleteRouteTable where
   rnf DeleteRouteTable' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf routeTableId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf routeTableId
 
 instance Data.ToHeaders DeleteRouteTable where
   toHeaders = Prelude.const Prelude.mempty

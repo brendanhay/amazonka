@@ -249,12 +249,12 @@ instance Core.AWSPager DescribeFpgaImages where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeFpgaImages_nextToken
-          Lens..~ rs
-          Lens.^? describeFpgaImagesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeFpgaImages_nextToken
+              Lens..~ rs
+              Lens.^? describeFpgaImagesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeFpgaImages where
   type
@@ -266,9 +266,7 @@ instance Core.AWSRequest DescribeFpgaImages where
     Response.receiveXML
       ( \s h x ->
           DescribeFpgaImagesResponse'
-            Prelude.<$> ( x
-                            Data..@? "fpgaImageSet"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "fpgaImageSet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (x Data..@? "nextToken")
@@ -287,12 +285,12 @@ instance Prelude.Hashable DescribeFpgaImages where
 
 instance Prelude.NFData DescribeFpgaImages where
   rnf DescribeFpgaImages' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf fpgaImageIds
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf owners
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf fpgaImageIds `Prelude.seq`
+          Prelude.rnf maxResults `Prelude.seq`
+            Prelude.rnf nextToken `Prelude.seq`
+              Prelude.rnf owners
 
 instance Data.ToHeaders DescribeFpgaImages where
   toHeaders = Prelude.const Prelude.mempty
@@ -373,6 +371,6 @@ describeFpgaImagesResponse_httpStatus = Lens.lens (\DescribeFpgaImagesResponse' 
 
 instance Prelude.NFData DescribeFpgaImagesResponse where
   rnf DescribeFpgaImagesResponse' {..} =
-    Prelude.rnf fpgaImages
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf fpgaImages `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

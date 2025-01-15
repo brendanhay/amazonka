@@ -128,9 +128,7 @@ instance Data.FromXML TransitGateway where
       Prelude.<*> (x Data..@? "options")
       Prelude.<*> (x Data..@? "ownerId")
       Prelude.<*> (x Data..@? "state")
-      Prelude.<*> ( x
-                      Data..@? "tagSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "transitGatewayArn")
@@ -150,11 +148,11 @@ instance Prelude.Hashable TransitGateway where
 
 instance Prelude.NFData TransitGateway where
   rnf TransitGateway' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf options
-      `Prelude.seq` Prelude.rnf ownerId
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf transitGatewayArn
-      `Prelude.seq` Prelude.rnf transitGatewayId
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf options `Prelude.seq`
+          Prelude.rnf ownerId `Prelude.seq`
+            Prelude.rnf state `Prelude.seq`
+              Prelude.rnf tags `Prelude.seq`
+                Prelude.rnf transitGatewayArn `Prelude.seq`
+                  Prelude.rnf transitGatewayId

@@ -127,9 +127,7 @@ instance Data.FromXML TrafficMirrorTarget where
       Prelude.<*> (x Data..@? "networkInterfaceId")
       Prelude.<*> (x Data..@? "networkLoadBalancerArn")
       Prelude.<*> (x Data..@? "ownerId")
-      Prelude.<*> ( x
-                      Data..@? "tagSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "trafficMirrorTargetId")
@@ -149,11 +147,11 @@ instance Prelude.Hashable TrafficMirrorTarget where
 
 instance Prelude.NFData TrafficMirrorTarget where
   rnf TrafficMirrorTarget' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf gatewayLoadBalancerEndpointId
-      `Prelude.seq` Prelude.rnf networkInterfaceId
-      `Prelude.seq` Prelude.rnf networkLoadBalancerArn
-      `Prelude.seq` Prelude.rnf ownerId
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf trafficMirrorTargetId
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf gatewayLoadBalancerEndpointId `Prelude.seq`
+        Prelude.rnf networkInterfaceId `Prelude.seq`
+          Prelude.rnf networkLoadBalancerArn `Prelude.seq`
+            Prelude.rnf ownerId `Prelude.seq`
+              Prelude.rnf tags `Prelude.seq`
+                Prelude.rnf trafficMirrorTargetId `Prelude.seq`
+                  Prelude.rnf type'

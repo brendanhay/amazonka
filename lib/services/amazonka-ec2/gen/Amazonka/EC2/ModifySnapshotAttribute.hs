@@ -181,13 +181,13 @@ instance Prelude.Hashable ModifySnapshotAttribute where
 
 instance Prelude.NFData ModifySnapshotAttribute where
   rnf ModifySnapshotAttribute' {..} =
-    Prelude.rnf attribute
-      `Prelude.seq` Prelude.rnf createVolumePermission
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf groupNames
-      `Prelude.seq` Prelude.rnf operationType
-      `Prelude.seq` Prelude.rnf userIds
-      `Prelude.seq` Prelude.rnf snapshotId
+    Prelude.rnf attribute `Prelude.seq`
+      Prelude.rnf createVolumePermission `Prelude.seq`
+        Prelude.rnf dryRun `Prelude.seq`
+          Prelude.rnf groupNames `Prelude.seq`
+            Prelude.rnf operationType `Prelude.seq`
+              Prelude.rnf userIds `Prelude.seq`
+                Prelude.rnf snapshotId
 
 instance Data.ToHeaders ModifySnapshotAttribute where
   toHeaders = Prelude.const Prelude.mempty

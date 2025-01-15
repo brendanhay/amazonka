@@ -73,9 +73,7 @@ instance Data.FromXML FleetLaunchTemplateConfig where
   parseXML x =
     FleetLaunchTemplateConfig'
       Prelude.<$> (x Data..@? "launchTemplateSpecification")
-      Prelude.<*> ( x
-                      Data..@? "overrides"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "overrides" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
@@ -87,5 +85,5 @@ instance Prelude.Hashable FleetLaunchTemplateConfig where
 
 instance Prelude.NFData FleetLaunchTemplateConfig where
   rnf FleetLaunchTemplateConfig' {..} =
-    Prelude.rnf launchTemplateSpecification
-      `Prelude.seq` Prelude.rnf overrides
+    Prelude.rnf launchTemplateSpecification `Prelude.seq`
+      Prelude.rnf overrides

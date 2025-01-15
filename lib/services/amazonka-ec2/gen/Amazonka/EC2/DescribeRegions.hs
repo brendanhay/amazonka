@@ -161,9 +161,7 @@ instance Core.AWSRequest DescribeRegions where
     Response.receiveXML
       ( \s h x ->
           DescribeRegionsResponse'
-            Prelude.<$> ( x
-                            Data..@? "regionInfo"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "regionInfo" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -179,10 +177,10 @@ instance Prelude.Hashable DescribeRegions where
 
 instance Prelude.NFData DescribeRegions where
   rnf DescribeRegions' {..} =
-    Prelude.rnf allRegions
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf regionNames
+    Prelude.rnf allRegions `Prelude.seq`
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf filters `Prelude.seq`
+          Prelude.rnf regionNames
 
 instance Data.ToHeaders DescribeRegions where
   toHeaders = Prelude.const Prelude.mempty
@@ -247,5 +245,5 @@ describeRegionsResponse_httpStatus = Lens.lens (\DescribeRegionsResponse' {httpS
 
 instance Prelude.NFData DescribeRegionsResponse where
   rnf DescribeRegionsResponse' {..} =
-    Prelude.rnf regions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf regions `Prelude.seq`
+      Prelude.rnf httpStatus

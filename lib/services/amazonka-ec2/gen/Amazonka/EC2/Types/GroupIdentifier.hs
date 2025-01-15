@@ -77,8 +77,8 @@ instance Prelude.Hashable GroupIdentifier where
 
 instance Prelude.NFData GroupIdentifier where
   rnf GroupIdentifier' {..} =
-    Prelude.rnf groupId
-      `Prelude.seq` Prelude.rnf groupName
+    Prelude.rnf groupId `Prelude.seq`
+      Prelude.rnf groupName
 
 instance Data.ToQuery GroupIdentifier where
   toQuery GroupIdentifier' {..} =

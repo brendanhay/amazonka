@@ -312,17 +312,17 @@ instance Prelude.Hashable RevokeSecurityGroupIngress where
 
 instance Prelude.NFData RevokeSecurityGroupIngress where
   rnf RevokeSecurityGroupIngress' {..} =
-    Prelude.rnf cidrIp
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf fromPort
-      `Prelude.seq` Prelude.rnf groupId
-      `Prelude.seq` Prelude.rnf groupName
-      `Prelude.seq` Prelude.rnf ipPermissions
-      `Prelude.seq` Prelude.rnf ipProtocol
-      `Prelude.seq` Prelude.rnf securityGroupRuleIds
-      `Prelude.seq` Prelude.rnf sourceSecurityGroupName
-      `Prelude.seq` Prelude.rnf sourceSecurityGroupOwnerId
-      `Prelude.seq` Prelude.rnf toPort
+    Prelude.rnf cidrIp `Prelude.seq`
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf fromPort `Prelude.seq`
+          Prelude.rnf groupId `Prelude.seq`
+            Prelude.rnf groupName `Prelude.seq`
+              Prelude.rnf ipPermissions `Prelude.seq`
+                Prelude.rnf ipProtocol `Prelude.seq`
+                  Prelude.rnf securityGroupRuleIds `Prelude.seq`
+                    Prelude.rnf sourceSecurityGroupName `Prelude.seq`
+                      Prelude.rnf sourceSecurityGroupOwnerId `Prelude.seq`
+                        Prelude.rnf toPort
 
 instance Data.ToHeaders RevokeSecurityGroupIngress where
   toHeaders = Prelude.const Prelude.mempty
@@ -417,6 +417,6 @@ instance
     RevokeSecurityGroupIngressResponse
   where
   rnf RevokeSecurityGroupIngressResponse' {..} =
-    Prelude.rnf return'
-      `Prelude.seq` Prelude.rnf unknownIpPermissions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf return' `Prelude.seq`
+      Prelude.rnf unknownIpPermissions `Prelude.seq`
+        Prelude.rnf httpStatus

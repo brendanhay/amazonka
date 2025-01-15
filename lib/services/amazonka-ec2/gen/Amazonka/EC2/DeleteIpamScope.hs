@@ -121,8 +121,8 @@ instance Prelude.Hashable DeleteIpamScope where
 
 instance Prelude.NFData DeleteIpamScope where
   rnf DeleteIpamScope' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf ipamScopeId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf ipamScopeId
 
 instance Data.ToHeaders DeleteIpamScope where
   toHeaders = Prelude.const Prelude.mempty
@@ -182,5 +182,5 @@ deleteIpamScopeResponse_httpStatus = Lens.lens (\DeleteIpamScopeResponse' {httpS
 
 instance Prelude.NFData DeleteIpamScopeResponse where
   rnf DeleteIpamScopeResponse' {..} =
-    Prelude.rnf ipamScope
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf ipamScope `Prelude.seq`
+      Prelude.rnf httpStatus

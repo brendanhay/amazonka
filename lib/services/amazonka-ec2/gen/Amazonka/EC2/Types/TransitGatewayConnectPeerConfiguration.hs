@@ -133,8 +133,8 @@ instance
     TransitGatewayConnectPeerConfiguration
   where
   rnf TransitGatewayConnectPeerConfiguration' {..} =
-    Prelude.rnf bgpConfigurations
-      `Prelude.seq` Prelude.rnf insideCidrBlocks
-      `Prelude.seq` Prelude.rnf peerAddress
-      `Prelude.seq` Prelude.rnf protocol
-      `Prelude.seq` Prelude.rnf transitGatewayAddress
+    Prelude.rnf bgpConfigurations `Prelude.seq`
+      Prelude.rnf insideCidrBlocks `Prelude.seq`
+        Prelude.rnf peerAddress `Prelude.seq`
+          Prelude.rnf protocol `Prelude.seq`
+            Prelude.rnf transitGatewayAddress

@@ -150,9 +150,9 @@ instance
     DisassociateTransitGatewayPolicyTable
   where
   rnf DisassociateTransitGatewayPolicyTable' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf transitGatewayPolicyTableId
-      `Prelude.seq` Prelude.rnf transitGatewayAttachmentId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf transitGatewayPolicyTableId `Prelude.seq`
+        Prelude.rnf transitGatewayAttachmentId
 
 instance
   Data.ToHeaders
@@ -231,5 +231,5 @@ instance
   where
   rnf
     DisassociateTransitGatewayPolicyTableResponse' {..} =
-      Prelude.rnf association
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf association `Prelude.seq`
+        Prelude.rnf httpStatus

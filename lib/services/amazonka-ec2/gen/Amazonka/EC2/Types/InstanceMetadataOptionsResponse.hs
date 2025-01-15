@@ -228,9 +228,9 @@ instance
     InstanceMetadataOptionsResponse
   where
   rnf InstanceMetadataOptionsResponse' {..} =
-    Prelude.rnf httpEndpoint
-      `Prelude.seq` Prelude.rnf httpProtocolIpv6
-      `Prelude.seq` Prelude.rnf httpPutResponseHopLimit
-      `Prelude.seq` Prelude.rnf httpTokens
-      `Prelude.seq` Prelude.rnf instanceMetadataTags
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf httpEndpoint `Prelude.seq`
+      Prelude.rnf httpProtocolIpv6 `Prelude.seq`
+        Prelude.rnf httpPutResponseHopLimit `Prelude.seq`
+          Prelude.rnf httpTokens `Prelude.seq`
+            Prelude.rnf instanceMetadataTags `Prelude.seq`
+              Prelude.rnf state

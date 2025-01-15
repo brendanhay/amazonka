@@ -247,11 +247,11 @@ instance Prelude.Hashable CreateSnapshot where
 
 instance Prelude.NFData CreateSnapshot where
   rnf CreateSnapshot' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf outpostArn
-      `Prelude.seq` Prelude.rnf tagSpecifications
-      `Prelude.seq` Prelude.rnf volumeId
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf outpostArn `Prelude.seq`
+          Prelude.rnf tagSpecifications `Prelude.seq`
+            Prelude.rnf volumeId
 
 instance Data.ToHeaders CreateSnapshot where
   toHeaders = Prelude.const Prelude.mempty

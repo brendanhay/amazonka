@@ -234,14 +234,14 @@ instance Prelude.Hashable ModifyInstancePlacement where
 
 instance Prelude.NFData ModifyInstancePlacement where
   rnf ModifyInstancePlacement' {..} =
-    Prelude.rnf affinity
-      `Prelude.seq` Prelude.rnf groupId
-      `Prelude.seq` Prelude.rnf groupName
-      `Prelude.seq` Prelude.rnf hostId
-      `Prelude.seq` Prelude.rnf hostResourceGroupArn
-      `Prelude.seq` Prelude.rnf partitionNumber
-      `Prelude.seq` Prelude.rnf tenancy
-      `Prelude.seq` Prelude.rnf instanceId
+    Prelude.rnf affinity `Prelude.seq`
+      Prelude.rnf groupId `Prelude.seq`
+        Prelude.rnf groupName `Prelude.seq`
+          Prelude.rnf hostId `Prelude.seq`
+            Prelude.rnf hostResourceGroupArn `Prelude.seq`
+              Prelude.rnf partitionNumber `Prelude.seq`
+                Prelude.rnf tenancy `Prelude.seq`
+                  Prelude.rnf instanceId
 
 instance Data.ToHeaders ModifyInstancePlacement where
   toHeaders = Prelude.const Prelude.mempty
@@ -310,5 +310,5 @@ instance
     ModifyInstancePlacementResponse
   where
   rnf ModifyInstancePlacementResponse' {..} =
-    Prelude.rnf return'
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf return' `Prelude.seq`
+      Prelude.rnf httpStatus

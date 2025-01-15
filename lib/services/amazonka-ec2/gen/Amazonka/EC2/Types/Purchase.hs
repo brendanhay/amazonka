@@ -130,9 +130,7 @@ instance Data.FromXML Purchase where
     Purchase'
       Prelude.<$> (x Data..@? "currencyCode")
       Prelude.<*> (x Data..@? "duration")
-      Prelude.<*> ( x
-                      Data..@? "hostIdSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "hostIdSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "hostReservationId")
@@ -155,11 +153,11 @@ instance Prelude.Hashable Purchase where
 
 instance Prelude.NFData Purchase where
   rnf Purchase' {..} =
-    Prelude.rnf currencyCode
-      `Prelude.seq` Prelude.rnf duration
-      `Prelude.seq` Prelude.rnf hostIdSet
-      `Prelude.seq` Prelude.rnf hostReservationId
-      `Prelude.seq` Prelude.rnf hourlyPrice
-      `Prelude.seq` Prelude.rnf instanceFamily
-      `Prelude.seq` Prelude.rnf paymentOption
-      `Prelude.seq` Prelude.rnf upfrontPrice
+    Prelude.rnf currencyCode `Prelude.seq`
+      Prelude.rnf duration `Prelude.seq`
+        Prelude.rnf hostIdSet `Prelude.seq`
+          Prelude.rnf hostReservationId `Prelude.seq`
+            Prelude.rnf hourlyPrice `Prelude.seq`
+              Prelude.rnf instanceFamily `Prelude.seq`
+                Prelude.rnf paymentOption `Prelude.seq`
+                  Prelude.rnf upfrontPrice

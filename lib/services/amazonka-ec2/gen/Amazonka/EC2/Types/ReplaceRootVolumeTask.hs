@@ -202,9 +202,7 @@ instance Data.FromXML ReplaceRootVolumeTask where
       Prelude.<*> (x Data..@? "replaceRootVolumeTaskId")
       Prelude.<*> (x Data..@? "snapshotId")
       Prelude.<*> (x Data..@? "startTime")
-      Prelude.<*> ( x
-                      Data..@? "tagSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "taskState")
@@ -224,12 +222,12 @@ instance Prelude.Hashable ReplaceRootVolumeTask where
 
 instance Prelude.NFData ReplaceRootVolumeTask where
   rnf ReplaceRootVolumeTask' {..} =
-    Prelude.rnf completeTime
-      `Prelude.seq` Prelude.rnf deleteReplacedRootVolume
-      `Prelude.seq` Prelude.rnf imageId
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf replaceRootVolumeTaskId
-      `Prelude.seq` Prelude.rnf snapshotId
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf taskState
+    Prelude.rnf completeTime `Prelude.seq`
+      Prelude.rnf deleteReplacedRootVolume `Prelude.seq`
+        Prelude.rnf imageId `Prelude.seq`
+          Prelude.rnf instanceId `Prelude.seq`
+            Prelude.rnf replaceRootVolumeTaskId `Prelude.seq`
+              Prelude.rnf snapshotId `Prelude.seq`
+                Prelude.rnf startTime `Prelude.seq`
+                  Prelude.rnf tags `Prelude.seq`
+                    Prelude.rnf taskState

@@ -81,14 +81,10 @@ instance
   where
   parseXML x =
     NetworkInsightsAccessScopeContent'
-      Prelude.<$> ( x
-                      Data..@? "excludePathSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "excludePathSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x
-                      Data..@? "matchPathSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "matchPathSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "networkInsightsAccessScopeId")
@@ -110,6 +106,6 @@ instance
     NetworkInsightsAccessScopeContent
   where
   rnf NetworkInsightsAccessScopeContent' {..} =
-    Prelude.rnf excludePaths
-      `Prelude.seq` Prelude.rnf matchPaths
-      `Prelude.seq` Prelude.rnf networkInsightsAccessScopeId
+    Prelude.rnf excludePaths `Prelude.seq`
+      Prelude.rnf matchPaths `Prelude.seq`
+        Prelude.rnf networkInsightsAccessScopeId

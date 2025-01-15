@@ -149,12 +149,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getGroupsForCapacityReservation_nextToken
-          Lens..~ rs
-          Lens.^? getGroupsForCapacityReservationResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getGroupsForCapacityReservation_nextToken
+              Lens..~ rs
+              Lens.^? getGroupsForCapacityReservationResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -196,10 +196,10 @@ instance
     GetGroupsForCapacityReservation
   where
   rnf GetGroupsForCapacityReservation' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf capacityReservationId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf capacityReservationId
 
 instance
   Data.ToHeaders
@@ -286,6 +286,6 @@ instance
     GetGroupsForCapacityReservationResponse
   where
   rnf GetGroupsForCapacityReservationResponse' {..} =
-    Prelude.rnf capacityReservationGroups
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf capacityReservationGroups `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

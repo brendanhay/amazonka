@@ -118,7 +118,7 @@ instance
     TransitGatewayRouteTableAssociation
   where
   rnf TransitGatewayRouteTableAssociation' {..} =
-    Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf transitGatewayAttachmentId
+    Prelude.rnf resourceId `Prelude.seq`
+      Prelude.rnf resourceType `Prelude.seq`
+        Prelude.rnf state `Prelude.seq`
+          Prelude.rnf transitGatewayAttachmentId

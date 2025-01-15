@@ -233,15 +233,15 @@ instance Prelude.Hashable ModifyTrafficMirrorSession where
 
 instance Prelude.NFData ModifyTrafficMirrorSession where
   rnf ModifyTrafficMirrorSession' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf packetLength
-      `Prelude.seq` Prelude.rnf removeFields
-      `Prelude.seq` Prelude.rnf sessionNumber
-      `Prelude.seq` Prelude.rnf trafficMirrorFilterId
-      `Prelude.seq` Prelude.rnf trafficMirrorTargetId
-      `Prelude.seq` Prelude.rnf virtualNetworkId
-      `Prelude.seq` Prelude.rnf trafficMirrorSessionId
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf packetLength `Prelude.seq`
+          Prelude.rnf removeFields `Prelude.seq`
+            Prelude.rnf sessionNumber `Prelude.seq`
+              Prelude.rnf trafficMirrorFilterId `Prelude.seq`
+                Prelude.rnf trafficMirrorTargetId `Prelude.seq`
+                  Prelude.rnf virtualNetworkId `Prelude.seq`
+                    Prelude.rnf trafficMirrorSessionId
 
 instance Data.ToHeaders ModifyTrafficMirrorSession where
   toHeaders = Prelude.const Prelude.mempty
@@ -317,5 +317,5 @@ instance
     ModifyTrafficMirrorSessionResponse
   where
   rnf ModifyTrafficMirrorSessionResponse' {..} =
-    Prelude.rnf trafficMirrorSession
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf trafficMirrorSession `Prelude.seq`
+      Prelude.rnf httpStatus

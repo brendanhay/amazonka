@@ -152,10 +152,10 @@ instance Prelude.Hashable MoveByoipCidrToIpam where
 
 instance Prelude.NFData MoveByoipCidrToIpam where
   rnf MoveByoipCidrToIpam' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf cidr
-      `Prelude.seq` Prelude.rnf ipamPoolId
-      `Prelude.seq` Prelude.rnf ipamPoolOwner
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf cidr `Prelude.seq`
+        Prelude.rnf ipamPoolId `Prelude.seq`
+          Prelude.rnf ipamPoolOwner
 
 instance Data.ToHeaders MoveByoipCidrToIpam where
   toHeaders = Prelude.const Prelude.mempty
@@ -217,5 +217,5 @@ moveByoipCidrToIpamResponse_httpStatus = Lens.lens (\MoveByoipCidrToIpamResponse
 
 instance Prelude.NFData MoveByoipCidrToIpamResponse where
   rnf MoveByoipCidrToIpamResponse' {..} =
-    Prelude.rnf byoipCidr
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf byoipCidr `Prelude.seq`
+      Prelude.rnf httpStatus

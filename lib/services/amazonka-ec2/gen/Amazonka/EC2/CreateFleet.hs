@@ -354,9 +354,7 @@ instance Core.AWSRequest CreateFleet where
     Response.receiveXML
       ( \s h x ->
           CreateFleetResponse'
-            Prelude.<$> ( x
-                            Data..@? "errorSet"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "errorSet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (x Data..@? "fleetId")
@@ -388,20 +386,20 @@ instance Prelude.Hashable CreateFleet where
 
 instance Prelude.NFData CreateFleet where
   rnf CreateFleet' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf context
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf excessCapacityTerminationPolicy
-      `Prelude.seq` Prelude.rnf onDemandOptions
-      `Prelude.seq` Prelude.rnf replaceUnhealthyInstances
-      `Prelude.seq` Prelude.rnf spotOptions
-      `Prelude.seq` Prelude.rnf tagSpecifications
-      `Prelude.seq` Prelude.rnf terminateInstancesWithExpiration
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf validFrom
-      `Prelude.seq` Prelude.rnf validUntil
-      `Prelude.seq` Prelude.rnf launchTemplateConfigs
-      `Prelude.seq` Prelude.rnf targetCapacitySpecification
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf context `Prelude.seq`
+        Prelude.rnf dryRun `Prelude.seq`
+          Prelude.rnf excessCapacityTerminationPolicy `Prelude.seq`
+            Prelude.rnf onDemandOptions `Prelude.seq`
+              Prelude.rnf replaceUnhealthyInstances `Prelude.seq`
+                Prelude.rnf spotOptions `Prelude.seq`
+                  Prelude.rnf tagSpecifications `Prelude.seq`
+                    Prelude.rnf terminateInstancesWithExpiration `Prelude.seq`
+                      Prelude.rnf type' `Prelude.seq`
+                        Prelude.rnf validFrom `Prelude.seq`
+                          Prelude.rnf validUntil `Prelude.seq`
+                            Prelude.rnf launchTemplateConfigs `Prelude.seq`
+                              Prelude.rnf targetCapacitySpecification
 
 instance Data.ToHeaders CreateFleet where
   toHeaders = Prelude.const Prelude.mempty
@@ -505,7 +503,7 @@ createFleetResponse_httpStatus = Lens.lens (\CreateFleetResponse' {httpStatus} -
 
 instance Prelude.NFData CreateFleetResponse where
   rnf CreateFleetResponse' {..} =
-    Prelude.rnf errors
-      `Prelude.seq` Prelude.rnf fleetId
-      `Prelude.seq` Prelude.rnf instances
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf errors `Prelude.seq`
+      Prelude.rnf fleetId `Prelude.seq`
+        Prelude.rnf instances `Prelude.seq`
+          Prelude.rnf httpStatus

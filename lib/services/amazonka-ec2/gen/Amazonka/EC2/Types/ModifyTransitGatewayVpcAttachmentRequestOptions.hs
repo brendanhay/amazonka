@@ -102,9 +102,9 @@ instance
   where
   rnf
     ModifyTransitGatewayVpcAttachmentRequestOptions' {..} =
-      Prelude.rnf applianceModeSupport
-        `Prelude.seq` Prelude.rnf dnsSupport
-        `Prelude.seq` Prelude.rnf ipv6Support
+      Prelude.rnf applianceModeSupport `Prelude.seq`
+        Prelude.rnf dnsSupport `Prelude.seq`
+          Prelude.rnf ipv6Support
 
 instance
   Data.ToQuery

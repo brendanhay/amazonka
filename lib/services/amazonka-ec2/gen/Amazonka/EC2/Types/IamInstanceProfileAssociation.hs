@@ -117,8 +117,8 @@ instance
 
 instance Prelude.NFData IamInstanceProfileAssociation where
   rnf IamInstanceProfileAssociation' {..} =
-    Prelude.rnf associationId
-      `Prelude.seq` Prelude.rnf iamInstanceProfile
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf timestamp
+    Prelude.rnf associationId `Prelude.seq`
+      Prelude.rnf iamInstanceProfile `Prelude.seq`
+        Prelude.rnf instanceId `Prelude.seq`
+          Prelude.rnf state `Prelude.seq`
+            Prelude.rnf timestamp

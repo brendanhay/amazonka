@@ -332,9 +332,7 @@ instance Data.FromXML ClientVpnEndpoint where
       Prelude.<*> (x Data..@? "deletionTime")
       Prelude.<*> (x Data..@? "description")
       Prelude.<*> (x Data..@? "dnsName")
-      Prelude.<*> ( x
-                      Data..@? "dnsServer"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "dnsServer" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> ( x
@@ -347,9 +345,7 @@ instance Data.FromXML ClientVpnEndpoint where
       Prelude.<*> (x Data..@? "sessionTimeoutHours")
       Prelude.<*> (x Data..@? "splitTunnel")
       Prelude.<*> (x Data..@? "status")
-      Prelude.<*> ( x
-                      Data..@? "tagSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "transportProtocol")
@@ -386,26 +382,26 @@ instance Prelude.Hashable ClientVpnEndpoint where
 
 instance Prelude.NFData ClientVpnEndpoint where
   rnf ClientVpnEndpoint' {..} =
-    Prelude.rnf associatedTargetNetworks
-      `Prelude.seq` Prelude.rnf authenticationOptions
-      `Prelude.seq` Prelude.rnf clientCidrBlock
-      `Prelude.seq` Prelude.rnf clientConnectOptions
-      `Prelude.seq` Prelude.rnf clientLoginBannerOptions
-      `Prelude.seq` Prelude.rnf clientVpnEndpointId
-      `Prelude.seq` Prelude.rnf connectionLogOptions
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf deletionTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf dnsName
-      `Prelude.seq` Prelude.rnf dnsServers
-      `Prelude.seq` Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf selfServicePortalUrl
-      `Prelude.seq` Prelude.rnf serverCertificateArn
-      `Prelude.seq` Prelude.rnf sessionTimeoutHours
-      `Prelude.seq` Prelude.rnf splitTunnel
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf transportProtocol
-      `Prelude.seq` Prelude.rnf vpcId
-      `Prelude.seq` Prelude.rnf vpnPort
-      `Prelude.seq` Prelude.rnf vpnProtocol
+    Prelude.rnf associatedTargetNetworks `Prelude.seq`
+      Prelude.rnf authenticationOptions `Prelude.seq`
+        Prelude.rnf clientCidrBlock `Prelude.seq`
+          Prelude.rnf clientConnectOptions `Prelude.seq`
+            Prelude.rnf clientLoginBannerOptions `Prelude.seq`
+              Prelude.rnf clientVpnEndpointId `Prelude.seq`
+                Prelude.rnf connectionLogOptions `Prelude.seq`
+                  Prelude.rnf creationTime `Prelude.seq`
+                    Prelude.rnf deletionTime `Prelude.seq`
+                      Prelude.rnf description `Prelude.seq`
+                        Prelude.rnf dnsName `Prelude.seq`
+                          Prelude.rnf dnsServers `Prelude.seq`
+                            Prelude.rnf securityGroupIds `Prelude.seq`
+                              Prelude.rnf selfServicePortalUrl `Prelude.seq`
+                                Prelude.rnf serverCertificateArn `Prelude.seq`
+                                  Prelude.rnf sessionTimeoutHours `Prelude.seq`
+                                    Prelude.rnf splitTunnel `Prelude.seq`
+                                      Prelude.rnf status `Prelude.seq`
+                                        Prelude.rnf tags `Prelude.seq`
+                                          Prelude.rnf transportProtocol `Prelude.seq`
+                                            Prelude.rnf vpcId `Prelude.seq`
+                                              Prelude.rnf vpnPort `Prelude.seq`
+                                                Prelude.rnf vpnProtocol

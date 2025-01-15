@@ -164,10 +164,10 @@ instance
     StartNetworkInsightsAccessScopeAnalysis
   where
   rnf StartNetworkInsightsAccessScopeAnalysis' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf tagSpecifications
-      `Prelude.seq` Prelude.rnf networkInsightsAccessScopeId
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf tagSpecifications `Prelude.seq`
+        Prelude.rnf networkInsightsAccessScopeId `Prelude.seq`
+          Prelude.rnf clientToken
 
 instance
   Data.ToHeaders
@@ -249,5 +249,5 @@ instance
   where
   rnf
     StartNetworkInsightsAccessScopeAnalysisResponse' {..} =
-      Prelude.rnf networkInsightsAccessScopeAnalysis
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf networkInsightsAccessScopeAnalysis `Prelude.seq`
+        Prelude.rnf httpStatus

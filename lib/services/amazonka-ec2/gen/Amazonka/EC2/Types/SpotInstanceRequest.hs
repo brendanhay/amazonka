@@ -321,9 +321,7 @@ instance Data.FromXML SpotInstanceRequest where
       Prelude.<*> (x Data..@? "spotPrice")
       Prelude.<*> (x Data..@? "state")
       Prelude.<*> (x Data..@? "status")
-      Prelude.<*> ( x
-                      Data..@? "tagSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "type")
@@ -355,22 +353,22 @@ instance Prelude.Hashable SpotInstanceRequest where
 
 instance Prelude.NFData SpotInstanceRequest where
   rnf SpotInstanceRequest' {..} =
-    Prelude.rnf actualBlockHourlyPrice
-      `Prelude.seq` Prelude.rnf availabilityZoneGroup
-      `Prelude.seq` Prelude.rnf blockDurationMinutes
-      `Prelude.seq` Prelude.rnf createTime
-      `Prelude.seq` Prelude.rnf fault
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf instanceInterruptionBehavior
-      `Prelude.seq` Prelude.rnf launchGroup
-      `Prelude.seq` Prelude.rnf launchSpecification
-      `Prelude.seq` Prelude.rnf launchedAvailabilityZone
-      `Prelude.seq` Prelude.rnf productDescription
-      `Prelude.seq` Prelude.rnf spotInstanceRequestId
-      `Prelude.seq` Prelude.rnf spotPrice
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf validFrom
-      `Prelude.seq` Prelude.rnf validUntil
+    Prelude.rnf actualBlockHourlyPrice `Prelude.seq`
+      Prelude.rnf availabilityZoneGroup `Prelude.seq`
+        Prelude.rnf blockDurationMinutes `Prelude.seq`
+          Prelude.rnf createTime `Prelude.seq`
+            Prelude.rnf fault `Prelude.seq`
+              Prelude.rnf instanceId `Prelude.seq`
+                Prelude.rnf instanceInterruptionBehavior `Prelude.seq`
+                  Prelude.rnf launchGroup `Prelude.seq`
+                    Prelude.rnf launchSpecification `Prelude.seq`
+                      Prelude.rnf launchedAvailabilityZone `Prelude.seq`
+                        Prelude.rnf productDescription `Prelude.seq`
+                          Prelude.rnf spotInstanceRequestId `Prelude.seq`
+                            Prelude.rnf spotPrice `Prelude.seq`
+                              Prelude.rnf state `Prelude.seq`
+                                Prelude.rnf status `Prelude.seq`
+                                  Prelude.rnf tags `Prelude.seq`
+                                    Prelude.rnf type' `Prelude.seq`
+                                      Prelude.rnf validFrom `Prelude.seq`
+                                        Prelude.rnf validUntil

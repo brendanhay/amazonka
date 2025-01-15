@@ -153,9 +153,9 @@ instance
     AssociateTransitGatewayPolicyTable
   where
   rnf AssociateTransitGatewayPolicyTable' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf transitGatewayPolicyTableId
-      `Prelude.seq` Prelude.rnf transitGatewayAttachmentId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf transitGatewayPolicyTableId `Prelude.seq`
+        Prelude.rnf transitGatewayAttachmentId
 
 instance
   Data.ToHeaders
@@ -236,5 +236,5 @@ instance
     AssociateTransitGatewayPolicyTableResponse
   where
   rnf AssociateTransitGatewayPolicyTableResponse' {..} =
-    Prelude.rnf association
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf association `Prelude.seq`
+      Prelude.rnf httpStatus

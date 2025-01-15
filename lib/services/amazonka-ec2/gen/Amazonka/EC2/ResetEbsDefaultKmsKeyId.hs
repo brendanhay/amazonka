@@ -172,5 +172,5 @@ instance
     ResetEbsDefaultKmsKeyIdResponse
   where
   rnf ResetEbsDefaultKmsKeyIdResponse' {..} =
-    Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf kmsKeyId `Prelude.seq`
+      Prelude.rnf httpStatus

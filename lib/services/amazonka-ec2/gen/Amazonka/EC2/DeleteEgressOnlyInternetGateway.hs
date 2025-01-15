@@ -131,8 +131,8 @@ instance
     DeleteEgressOnlyInternetGateway
   where
   rnf DeleteEgressOnlyInternetGateway' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf egressOnlyInternetGatewayId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf egressOnlyInternetGatewayId
 
 instance
   Data.ToHeaders
@@ -202,5 +202,5 @@ instance
     DeleteEgressOnlyInternetGatewayResponse
   where
   rnf DeleteEgressOnlyInternetGatewayResponse' {..} =
-    Prelude.rnf returnCode
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf returnCode `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -126,8 +126,8 @@ instance Prelude.Hashable CancelCapacityReservation where
 
 instance Prelude.NFData CancelCapacityReservation where
   rnf CancelCapacityReservation' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf capacityReservationId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf capacityReservationId
 
 instance Data.ToHeaders CancelCapacityReservation where
   toHeaders = Prelude.const Prelude.mempty
@@ -191,5 +191,5 @@ instance
     CancelCapacityReservationResponse
   where
   rnf CancelCapacityReservationResponse' {..} =
-    Prelude.rnf return'
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf return' `Prelude.seq`
+      Prelude.rnf httpStatus

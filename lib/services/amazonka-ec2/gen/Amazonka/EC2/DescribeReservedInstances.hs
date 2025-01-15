@@ -336,11 +336,11 @@ instance Prelude.Hashable DescribeReservedInstances where
 
 instance Prelude.NFData DescribeReservedInstances where
   rnf DescribeReservedInstances' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf offeringClass
-      `Prelude.seq` Prelude.rnf offeringType
-      `Prelude.seq` Prelude.rnf reservedInstancesIds
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf offeringClass `Prelude.seq`
+          Prelude.rnf offeringType `Prelude.seq`
+            Prelude.rnf reservedInstancesIds
 
 instance Data.ToHeaders DescribeReservedInstances where
   toHeaders = Prelude.const Prelude.mempty
@@ -412,5 +412,5 @@ instance
     DescribeReservedInstancesResponse
   where
   rnf DescribeReservedInstancesResponse' {..} =
-    Prelude.rnf reservedInstances
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf reservedInstances `Prelude.seq`
+      Prelude.rnf httpStatus

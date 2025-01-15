@@ -102,10 +102,10 @@ instance Prelude.Hashable SnapshotDiskContainer where
 
 instance Prelude.NFData SnapshotDiskContainer where
   rnf SnapshotDiskContainer' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf format
-      `Prelude.seq` Prelude.rnf url
-      `Prelude.seq` Prelude.rnf userBucket
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf format `Prelude.seq`
+        Prelude.rnf url `Prelude.seq`
+          Prelude.rnf userBucket
 
 instance Data.ToQuery SnapshotDiskContainer where
   toQuery SnapshotDiskContainer' {..} =

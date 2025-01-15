@@ -127,8 +127,8 @@ instance Prelude.Hashable DeregisterImage where
 
 instance Prelude.NFData DeregisterImage where
   rnf DeregisterImage' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf imageId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf imageId
 
 instance Data.ToHeaders DeregisterImage where
   toHeaders = Prelude.const Prelude.mempty

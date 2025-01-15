@@ -84,8 +84,8 @@ instance
   where
   rnf
     VerifiedAccessLogKinesisDataFirehoseDestinationOptions' {..} =
-      Prelude.rnf deliveryStream
-        `Prelude.seq` Prelude.rnf enabled
+      Prelude.rnf deliveryStream `Prelude.seq`
+        Prelude.rnf enabled
 
 instance
   Data.ToQuery

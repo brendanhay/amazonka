@@ -357,9 +357,7 @@ instance Data.FromXML FleetData where
       Prelude.<*> (x Data..@? "clientToken")
       Prelude.<*> (x Data..@? "context")
       Prelude.<*> (x Data..@? "createTime")
-      Prelude.<*> ( x
-                      Data..@? "errorSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "errorSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "excessCapacityTerminationPolicy")
@@ -380,9 +378,7 @@ instance Data.FromXML FleetData where
       Prelude.<*> (x Data..@? "onDemandOptions")
       Prelude.<*> (x Data..@? "replaceUnhealthyInstances")
       Prelude.<*> (x Data..@? "spotOptions")
-      Prelude.<*> ( x
-                      Data..@? "tagSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "targetCapacitySpecification")

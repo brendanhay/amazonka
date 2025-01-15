@@ -93,9 +93,7 @@ instance Data.FromXML Ipv6Pool where
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "poolId")
-      Prelude.<*> ( x
-                      Data..@? "tagSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
@@ -109,7 +107,7 @@ instance Prelude.Hashable Ipv6Pool where
 
 instance Prelude.NFData Ipv6Pool where
   rnf Ipv6Pool' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf poolCidrBlocks
-      `Prelude.seq` Prelude.rnf poolId
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf poolCidrBlocks `Prelude.seq`
+        Prelude.rnf poolId `Prelude.seq`
+          Prelude.rnf tags

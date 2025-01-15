@@ -130,9 +130,7 @@ instance
           DescribeNetworkInterfaceAttributeResponse'
             Prelude.<$> (x Data..@? "attachment")
             Prelude.<*> (x Data..@? "description")
-            Prelude.<*> ( x
-                            Data..@? "groupSet"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "groupSet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (x Data..@? "networkInterfaceId")
@@ -157,9 +155,9 @@ instance
     DescribeNetworkInterfaceAttribute
   where
   rnf DescribeNetworkInterfaceAttribute' {..} =
-    Prelude.rnf attribute
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf networkInterfaceId
+    Prelude.rnf attribute `Prelude.seq`
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf networkInterfaceId
 
 instance
   Data.ToHeaders
@@ -275,9 +273,9 @@ instance
     DescribeNetworkInterfaceAttributeResponse
   where
   rnf DescribeNetworkInterfaceAttributeResponse' {..} =
-    Prelude.rnf attachment
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf groups
-      `Prelude.seq` Prelude.rnf networkInterfaceId
-      `Prelude.seq` Prelude.rnf sourceDestCheck
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf attachment `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf groups `Prelude.seq`
+          Prelude.rnf networkInterfaceId `Prelude.seq`
+            Prelude.rnf sourceDestCheck `Prelude.seq`
+              Prelude.rnf httpStatus

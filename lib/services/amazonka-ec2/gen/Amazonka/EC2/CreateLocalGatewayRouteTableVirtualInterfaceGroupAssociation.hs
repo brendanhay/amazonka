@@ -168,10 +168,10 @@ instance
   where
   rnf
     CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation' {..} =
-      Prelude.rnf dryRun
-        `Prelude.seq` Prelude.rnf tagSpecifications
-        `Prelude.seq` Prelude.rnf localGatewayRouteTableId
-        `Prelude.seq` Prelude.rnf localGatewayVirtualInterfaceGroupId
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf tagSpecifications `Prelude.seq`
+          Prelude.rnf localGatewayRouteTableId `Prelude.seq`
+            Prelude.rnf localGatewayVirtualInterfaceGroupId
 
 instance
   Data.ToHeaders

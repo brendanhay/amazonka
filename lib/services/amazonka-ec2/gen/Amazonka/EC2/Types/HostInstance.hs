@@ -88,6 +88,6 @@ instance Prelude.Hashable HostInstance where
 
 instance Prelude.NFData HostInstance where
   rnf HostInstance' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf ownerId
+    Prelude.rnf instanceId `Prelude.seq`
+      Prelude.rnf instanceType `Prelude.seq`
+        Prelude.rnf ownerId

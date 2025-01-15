@@ -79,5 +79,5 @@ instance Prelude.Hashable CapacityReservationGroup where
 
 instance Prelude.NFData CapacityReservationGroup where
   rnf CapacityReservationGroup' {..} =
-    Prelude.rnf groupArn
-      `Prelude.seq` Prelude.rnf ownerId
+    Prelude.rnf groupArn `Prelude.seq`
+      Prelude.rnf ownerId

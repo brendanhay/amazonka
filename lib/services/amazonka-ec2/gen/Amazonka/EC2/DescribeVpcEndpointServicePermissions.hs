@@ -175,12 +175,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeVpcEndpointServicePermissions_nextToken
-          Lens..~ rs
-          Lens.^? describeVpcEndpointServicePermissionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeVpcEndpointServicePermissions_nextToken
+              Lens..~ rs
+              Lens.^? describeVpcEndpointServicePermissionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -224,11 +224,11 @@ instance
     DescribeVpcEndpointServicePermissions
   where
   rnf DescribeVpcEndpointServicePermissions' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf serviceId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf serviceId
 
 instance
   Data.ToHeaders
@@ -320,6 +320,6 @@ instance
   where
   rnf
     DescribeVpcEndpointServicePermissionsResponse' {..} =
-      Prelude.rnf allowedPrincipals
-        `Prelude.seq` Prelude.rnf nextToken
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf allowedPrincipals `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf httpStatus

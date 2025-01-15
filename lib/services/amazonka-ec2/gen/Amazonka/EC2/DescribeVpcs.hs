@@ -294,12 +294,12 @@ instance Core.AWSPager DescribeVpcs where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeVpcs_nextToken
-          Lens..~ rs
-          Lens.^? describeVpcsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeVpcs_nextToken
+              Lens..~ rs
+              Lens.^? describeVpcsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeVpcs where
   type AWSResponse DescribeVpcs = DescribeVpcsResponse
@@ -310,9 +310,7 @@ instance Core.AWSRequest DescribeVpcs where
       ( \s h x ->
           DescribeVpcsResponse'
             Prelude.<$> (x Data..@? "nextToken")
-            Prelude.<*> ( x
-                            Data..@? "vpcSet"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "vpcSet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -329,11 +327,11 @@ instance Prelude.Hashable DescribeVpcs where
 
 instance Prelude.NFData DescribeVpcs where
   rnf DescribeVpcs' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf vpcIds
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf vpcIds
 
 instance Data.ToHeaders DescribeVpcs where
   toHeaders = Prelude.const Prelude.mempty
@@ -409,6 +407,6 @@ describeVpcsResponse_httpStatus = Lens.lens (\DescribeVpcsResponse' {httpStatus}
 
 instance Prelude.NFData DescribeVpcsResponse where
   rnf DescribeVpcsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf vpcs
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf vpcs `Prelude.seq`
+        Prelude.rnf httpStatus

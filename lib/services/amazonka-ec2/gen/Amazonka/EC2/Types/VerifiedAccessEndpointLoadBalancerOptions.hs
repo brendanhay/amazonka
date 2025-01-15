@@ -93,9 +93,7 @@ instance
       Prelude.<$> (x Data..@? "loadBalancerArn")
       Prelude.<*> (x Data..@? "port")
       Prelude.<*> (x Data..@? "protocol")
-      Prelude.<*> ( x
-                      Data..@? "subnetIdSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "subnetIdSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
@@ -117,7 +115,7 @@ instance
     VerifiedAccessEndpointLoadBalancerOptions
   where
   rnf VerifiedAccessEndpointLoadBalancerOptions' {..} =
-    Prelude.rnf loadBalancerArn
-      `Prelude.seq` Prelude.rnf port
-      `Prelude.seq` Prelude.rnf protocol
-      `Prelude.seq` Prelude.rnf subnetIds
+    Prelude.rnf loadBalancerArn `Prelude.seq`
+      Prelude.rnf port `Prelude.seq`
+        Prelude.rnf protocol `Prelude.seq`
+          Prelude.rnf subnetIds

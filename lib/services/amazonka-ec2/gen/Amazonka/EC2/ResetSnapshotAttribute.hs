@@ -129,9 +129,9 @@ instance Prelude.Hashable ResetSnapshotAttribute where
 
 instance Prelude.NFData ResetSnapshotAttribute where
   rnf ResetSnapshotAttribute' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf attribute
-      `Prelude.seq` Prelude.rnf snapshotId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf attribute `Prelude.seq`
+        Prelude.rnf snapshotId
 
 instance Data.ToHeaders ResetSnapshotAttribute where
   toHeaders = Prelude.const Prelude.mempty

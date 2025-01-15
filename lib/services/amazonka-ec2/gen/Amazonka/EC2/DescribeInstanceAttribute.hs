@@ -155,18 +155,14 @@ instance Core.AWSRequest DescribeInstanceAttribute where
             Prelude.<*> (x Data..@? "ebsOptimized")
             Prelude.<*> (x Data..@? "enaSupport")
             Prelude.<*> (x Data..@? "enclaveOptions")
-            Prelude.<*> ( x
-                            Data..@? "groupSet"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "groupSet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (x Data..@? "instanceId")
             Prelude.<*> (x Data..@? "instanceInitiatedShutdownBehavior")
             Prelude.<*> (x Data..@? "instanceType")
             Prelude.<*> (x Data..@? "kernel")
-            Prelude.<*> ( x
-                            Data..@? "productCodes"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "productCodes" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (x Data..@? "ramdisk")
@@ -186,9 +182,9 @@ instance Prelude.Hashable DescribeInstanceAttribute where
 
 instance Prelude.NFData DescribeInstanceAttribute where
   rnf DescribeInstanceAttribute' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf attribute
-      `Prelude.seq` Prelude.rnf instanceId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf attribute `Prelude.seq`
+        Prelude.rnf instanceId
 
 instance Data.ToHeaders DescribeInstanceAttribute where
   toHeaders = Prelude.const Prelude.mempty
@@ -432,21 +428,21 @@ instance
     DescribeInstanceAttributeResponse
   where
   rnf DescribeInstanceAttributeResponse' {..} =
-    Prelude.rnf blockDeviceMappings
-      `Prelude.seq` Prelude.rnf disableApiStop
-      `Prelude.seq` Prelude.rnf disableApiTermination
-      `Prelude.seq` Prelude.rnf ebsOptimized
-      `Prelude.seq` Prelude.rnf enaSupport
-      `Prelude.seq` Prelude.rnf enclaveOptions
-      `Prelude.seq` Prelude.rnf groups
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf instanceInitiatedShutdownBehavior
-      `Prelude.seq` Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf kernelId
-      `Prelude.seq` Prelude.rnf productCodes
-      `Prelude.seq` Prelude.rnf ramdiskId
-      `Prelude.seq` Prelude.rnf rootDeviceName
-      `Prelude.seq` Prelude.rnf sourceDestCheck
-      `Prelude.seq` Prelude.rnf sriovNetSupport
-      `Prelude.seq` Prelude.rnf userData
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf blockDeviceMappings `Prelude.seq`
+      Prelude.rnf disableApiStop `Prelude.seq`
+        Prelude.rnf disableApiTermination `Prelude.seq`
+          Prelude.rnf ebsOptimized `Prelude.seq`
+            Prelude.rnf enaSupport `Prelude.seq`
+              Prelude.rnf enclaveOptions `Prelude.seq`
+                Prelude.rnf groups `Prelude.seq`
+                  Prelude.rnf instanceId `Prelude.seq`
+                    Prelude.rnf instanceInitiatedShutdownBehavior `Prelude.seq`
+                      Prelude.rnf instanceType `Prelude.seq`
+                        Prelude.rnf kernelId `Prelude.seq`
+                          Prelude.rnf productCodes `Prelude.seq`
+                            Prelude.rnf ramdiskId `Prelude.seq`
+                              Prelude.rnf rootDeviceName `Prelude.seq`
+                                Prelude.rnf sourceDestCheck `Prelude.seq`
+                                  Prelude.rnf sriovNetSupport `Prelude.seq`
+                                    Prelude.rnf userData `Prelude.seq`
+                                      Prelude.rnf httpStatus

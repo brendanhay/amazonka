@@ -94,5 +94,5 @@ instance
     LaunchTemplateAndOverridesResponse
   where
   rnf LaunchTemplateAndOverridesResponse' {..} =
-    Prelude.rnf launchTemplateSpecification
-      `Prelude.seq` Prelude.rnf overrides
+    Prelude.rnf launchTemplateSpecification `Prelude.seq`
+      Prelude.rnf overrides

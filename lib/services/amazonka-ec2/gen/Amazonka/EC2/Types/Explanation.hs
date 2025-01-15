@@ -532,9 +532,7 @@ instance Data.FromXML Explanation where
       Prelude.<$> (x Data..@? "acl")
       Prelude.<*> (x Data..@? "aclRule")
       Prelude.<*> (x Data..@? "address")
-      Prelude.<*> ( x
-                      Data..@? "addressSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "addressSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "attachedTo")
@@ -543,9 +541,7 @@ instance Data.FromXML Explanation where
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x
-                      Data..@? "cidrSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "cidrSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "classicLoadBalancerListener")
@@ -575,15 +571,11 @@ instance Data.FromXML Explanation where
       Prelude.<*> (x Data..@? "networkInterface")
       Prelude.<*> (x Data..@? "packetField")
       Prelude.<*> (x Data..@? "port")
-      Prelude.<*> ( x
-                      Data..@? "portRangeSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "portRangeSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "prefixList")
-      Prelude.<*> ( x
-                      Data..@? "protocolSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "protocolSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "routeTable")

@@ -131,8 +131,8 @@ instance
     DeleteTransitGatewayPolicyTable
   where
   rnf DeleteTransitGatewayPolicyTable' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf transitGatewayPolicyTableId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf transitGatewayPolicyTableId
 
 instance
   Data.ToHeaders
@@ -202,5 +202,5 @@ instance
     DeleteTransitGatewayPolicyTableResponse
   where
   rnf DeleteTransitGatewayPolicyTableResponse' {..} =
-    Prelude.rnf transitGatewayPolicyTable
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf transitGatewayPolicyTable `Prelude.seq`
+      Prelude.rnf httpStatus

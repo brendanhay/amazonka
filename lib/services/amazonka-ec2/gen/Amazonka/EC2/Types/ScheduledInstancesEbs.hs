@@ -169,12 +169,12 @@ instance Prelude.Hashable ScheduledInstancesEbs where
 
 instance Prelude.NFData ScheduledInstancesEbs where
   rnf ScheduledInstancesEbs' {..} =
-    Prelude.rnf deleteOnTermination
-      `Prelude.seq` Prelude.rnf encrypted
-      `Prelude.seq` Prelude.rnf iops
-      `Prelude.seq` Prelude.rnf snapshotId
-      `Prelude.seq` Prelude.rnf volumeSize
-      `Prelude.seq` Prelude.rnf volumeType
+    Prelude.rnf deleteOnTermination `Prelude.seq`
+      Prelude.rnf encrypted `Prelude.seq`
+        Prelude.rnf iops `Prelude.seq`
+          Prelude.rnf snapshotId `Prelude.seq`
+            Prelude.rnf volumeSize `Prelude.seq`
+              Prelude.rnf volumeType
 
 instance Data.ToQuery ScheduledInstancesEbs where
   toQuery ScheduledInstancesEbs' {..} =

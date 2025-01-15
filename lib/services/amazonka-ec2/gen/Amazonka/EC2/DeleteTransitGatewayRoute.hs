@@ -138,9 +138,9 @@ instance Prelude.Hashable DeleteTransitGatewayRoute where
 
 instance Prelude.NFData DeleteTransitGatewayRoute where
   rnf DeleteTransitGatewayRoute' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf transitGatewayRouteTableId
-      `Prelude.seq` Prelude.rnf destinationCidrBlock
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf transitGatewayRouteTableId `Prelude.seq`
+        Prelude.rnf destinationCidrBlock
 
 instance Data.ToHeaders DeleteTransitGatewayRoute where
   toHeaders = Prelude.const Prelude.mempty
@@ -205,5 +205,5 @@ instance
     DeleteTransitGatewayRouteResponse
   where
   rnf DeleteTransitGatewayRouteResponse' {..} =
-    Prelude.rnf route
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf route `Prelude.seq`
+      Prelude.rnf httpStatus

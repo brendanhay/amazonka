@@ -199,12 +199,12 @@ instance Core.AWSPager GetIpamResourceCidrs where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getIpamResourceCidrs_nextToken
-          Lens..~ rs
-          Lens.^? getIpamResourceCidrsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getIpamResourceCidrs_nextToken
+              Lens..~ rs
+              Lens.^? getIpamResourceCidrsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetIpamResourceCidrs where
   type
@@ -241,16 +241,16 @@ instance Prelude.Hashable GetIpamResourceCidrs where
 
 instance Prelude.NFData GetIpamResourceCidrs where
   rnf GetIpamResourceCidrs' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf ipamPoolId
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf resourceOwner
-      `Prelude.seq` Prelude.rnf resourceTag
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf ipamScopeId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf ipamPoolId `Prelude.seq`
+          Prelude.rnf maxResults `Prelude.seq`
+            Prelude.rnf nextToken `Prelude.seq`
+              Prelude.rnf resourceId `Prelude.seq`
+                Prelude.rnf resourceOwner `Prelude.seq`
+                  Prelude.rnf resourceTag `Prelude.seq`
+                    Prelude.rnf resourceType `Prelude.seq`
+                      Prelude.rnf ipamScopeId
 
 instance Data.ToHeaders GetIpamResourceCidrs where
   toHeaders = Prelude.const Prelude.mempty
@@ -331,6 +331,6 @@ getIpamResourceCidrsResponse_httpStatus = Lens.lens (\GetIpamResourceCidrsRespon
 
 instance Prelude.NFData GetIpamResourceCidrsResponse where
   rnf GetIpamResourceCidrsResponse' {..} =
-    Prelude.rnf ipamResourceCidrs
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf ipamResourceCidrs `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

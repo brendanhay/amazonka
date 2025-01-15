@@ -370,18 +370,18 @@ instance Prelude.Hashable CreateVpc where
 
 instance Prelude.NFData CreateVpc where
   rnf CreateVpc' {..} =
-    Prelude.rnf amazonProvidedIpv6CidrBlock
-      `Prelude.seq` Prelude.rnf cidrBlock
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf instanceTenancy
-      `Prelude.seq` Prelude.rnf ipv4IpamPoolId
-      `Prelude.seq` Prelude.rnf ipv4NetmaskLength
-      `Prelude.seq` Prelude.rnf ipv6CidrBlock
-      `Prelude.seq` Prelude.rnf ipv6CidrBlockNetworkBorderGroup
-      `Prelude.seq` Prelude.rnf ipv6IpamPoolId
-      `Prelude.seq` Prelude.rnf ipv6NetmaskLength
-      `Prelude.seq` Prelude.rnf ipv6Pool
-      `Prelude.seq` Prelude.rnf tagSpecifications
+    Prelude.rnf amazonProvidedIpv6CidrBlock `Prelude.seq`
+      Prelude.rnf cidrBlock `Prelude.seq`
+        Prelude.rnf dryRun `Prelude.seq`
+          Prelude.rnf instanceTenancy `Prelude.seq`
+            Prelude.rnf ipv4IpamPoolId `Prelude.seq`
+              Prelude.rnf ipv4NetmaskLength `Prelude.seq`
+                Prelude.rnf ipv6CidrBlock `Prelude.seq`
+                  Prelude.rnf ipv6CidrBlockNetworkBorderGroup `Prelude.seq`
+                    Prelude.rnf ipv6IpamPoolId `Prelude.seq`
+                      Prelude.rnf ipv6NetmaskLength `Prelude.seq`
+                        Prelude.rnf ipv6Pool `Prelude.seq`
+                          Prelude.rnf tagSpecifications
 
 instance Data.ToHeaders CreateVpc where
   toHeaders = Prelude.const Prelude.mempty
@@ -455,5 +455,5 @@ createVpcResponse_httpStatus = Lens.lens (\CreateVpcResponse' {httpStatus} -> ht
 
 instance Prelude.NFData CreateVpcResponse where
   rnf CreateVpcResponse' {..} =
-    Prelude.rnf vpc
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf vpc `Prelude.seq`
+      Prelude.rnf httpStatus

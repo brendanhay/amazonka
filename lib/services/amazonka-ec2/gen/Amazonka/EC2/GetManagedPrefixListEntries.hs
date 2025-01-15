@@ -153,12 +153,12 @@ instance Core.AWSPager GetManagedPrefixListEntries where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getManagedPrefixListEntries_nextToken
-          Lens..~ rs
-          Lens.^? getManagedPrefixListEntriesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getManagedPrefixListEntries_nextToken
+              Lens..~ rs
+              Lens.^? getManagedPrefixListEntriesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetManagedPrefixListEntries where
   type
@@ -170,9 +170,7 @@ instance Core.AWSRequest GetManagedPrefixListEntries where
     Response.receiveXML
       ( \s h x ->
           GetManagedPrefixListEntriesResponse'
-            Prelude.<$> ( x
-                            Data..@? "entrySet"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "entrySet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (x Data..@? "nextToken")
@@ -190,11 +188,11 @@ instance Prelude.Hashable GetManagedPrefixListEntries where
 
 instance Prelude.NFData GetManagedPrefixListEntries where
   rnf GetManagedPrefixListEntries' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf targetVersion
-      `Prelude.seq` Prelude.rnf prefixListId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf targetVersion `Prelude.seq`
+            Prelude.rnf prefixListId
 
 instance Data.ToHeaders GetManagedPrefixListEntries where
   toHeaders = Prelude.const Prelude.mempty
@@ -274,6 +272,6 @@ instance
     GetManagedPrefixListEntriesResponse
   where
   rnf GetManagedPrefixListEntriesResponse' {..} =
-    Prelude.rnf entries
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf entries `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

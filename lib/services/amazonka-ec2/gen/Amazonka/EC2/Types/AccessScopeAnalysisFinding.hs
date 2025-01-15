@@ -106,7 +106,7 @@ instance Prelude.Hashable AccessScopeAnalysisFinding where
 
 instance Prelude.NFData AccessScopeAnalysisFinding where
   rnf AccessScopeAnalysisFinding' {..} =
-    Prelude.rnf findingComponents
-      `Prelude.seq` Prelude.rnf findingId
-      `Prelude.seq` Prelude.rnf networkInsightsAccessScopeAnalysisId
-      `Prelude.seq` Prelude.rnf networkInsightsAccessScopeId
+    Prelude.rnf findingComponents `Prelude.seq`
+      Prelude.rnf findingId `Prelude.seq`
+        Prelude.rnf networkInsightsAccessScopeAnalysisId `Prelude.seq`
+          Prelude.rnf networkInsightsAccessScopeId

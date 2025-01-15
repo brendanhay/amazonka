@@ -84,8 +84,8 @@ instance
   where
   rnf
     VerifiedAccessLogCloudWatchLogsDestinationOptions' {..} =
-      Prelude.rnf logGroup
-        `Prelude.seq` Prelude.rnf enabled
+      Prelude.rnf logGroup `Prelude.seq`
+        Prelude.rnf enabled
 
 instance
   Data.ToQuery

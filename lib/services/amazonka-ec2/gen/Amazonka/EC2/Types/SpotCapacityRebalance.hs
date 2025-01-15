@@ -149,8 +149,8 @@ instance Prelude.Hashable SpotCapacityRebalance where
 
 instance Prelude.NFData SpotCapacityRebalance where
   rnf SpotCapacityRebalance' {..} =
-    Prelude.rnf replacementStrategy
-      `Prelude.seq` Prelude.rnf terminationDelay
+    Prelude.rnf replacementStrategy `Prelude.seq`
+      Prelude.rnf terminationDelay
 
 instance Data.ToQuery SpotCapacityRebalance where
   toQuery SpotCapacityRebalance' {..} =

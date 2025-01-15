@@ -109,9 +109,7 @@ instance Core.AWSRequest MonitorInstances where
     Response.receiveXML
       ( \s h x ->
           MonitorInstancesResponse'
-            Prelude.<$> ( x
-                            Data..@? "instancesSet"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "instancesSet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -125,8 +123,8 @@ instance Prelude.Hashable MonitorInstances where
 
 instance Prelude.NFData MonitorInstances where
   rnf MonitorInstances' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf instanceIds
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf instanceIds
 
 instance Data.ToHeaders MonitorInstances where
   toHeaders = Prelude.const Prelude.mempty
@@ -186,5 +184,5 @@ monitorInstancesResponse_httpStatus = Lens.lens (\MonitorInstancesResponse' {htt
 
 instance Prelude.NFData MonitorInstancesResponse where
   rnf MonitorInstancesResponse' {..} =
-    Prelude.rnf instanceMonitorings
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf instanceMonitorings `Prelude.seq`
+      Prelude.rnf httpStatus

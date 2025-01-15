@@ -156,9 +156,9 @@ instance Prelude.Hashable GetConsoleOutput where
 
 instance Prelude.NFData GetConsoleOutput where
   rnf GetConsoleOutput' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf latest
-      `Prelude.seq` Prelude.rnf instanceId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf latest `Prelude.seq`
+        Prelude.rnf instanceId
 
 instance Data.ToHeaders GetConsoleOutput where
   toHeaders = Prelude.const Prelude.mempty
@@ -240,7 +240,7 @@ getConsoleOutputResponse_httpStatus = Lens.lens (\GetConsoleOutputResponse' {htt
 
 instance Prelude.NFData GetConsoleOutputResponse where
   rnf GetConsoleOutputResponse' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf output
-      `Prelude.seq` Prelude.rnf timestamp
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf instanceId `Prelude.seq`
+      Prelude.rnf output `Prelude.seq`
+        Prelude.rnf timestamp `Prelude.seq`
+          Prelude.rnf httpStatus

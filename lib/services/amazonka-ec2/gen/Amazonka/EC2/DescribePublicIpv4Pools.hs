@@ -158,12 +158,12 @@ instance Core.AWSPager DescribePublicIpv4Pools where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describePublicIpv4Pools_nextToken
-          Lens..~ rs
-          Lens.^? describePublicIpv4PoolsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describePublicIpv4Pools_nextToken
+              Lens..~ rs
+              Lens.^? describePublicIpv4PoolsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribePublicIpv4Pools where
   type
@@ -194,10 +194,10 @@ instance Prelude.Hashable DescribePublicIpv4Pools where
 
 instance Prelude.NFData DescribePublicIpv4Pools where
   rnf DescribePublicIpv4Pools' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf poolIds
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf poolIds
 
 instance Data.ToHeaders DescribePublicIpv4Pools where
   toHeaders = Prelude.const Prelude.mempty
@@ -276,6 +276,6 @@ instance
     DescribePublicIpv4PoolsResponse
   where
   rnf DescribePublicIpv4PoolsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf publicIpv4Pools
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf publicIpv4Pools `Prelude.seq`
+        Prelude.rnf httpStatus

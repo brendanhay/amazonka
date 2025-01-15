@@ -324,15 +324,11 @@ instance Data.FromXML NetworkInterface where
       Prelude.<*> (x Data..@? "availabilityZone")
       Prelude.<*> (x Data..@? "denyAllIgwTraffic")
       Prelude.<*> (x Data..@? "description")
-      Prelude.<*> ( x
-                      Data..@? "groupSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "groupSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "interfaceType")
-      Prelude.<*> ( x
-                      Data..@? "ipv4PrefixSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "ipv4PrefixSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "ipv6Address")
@@ -342,9 +338,7 @@ instance Data.FromXML NetworkInterface where
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "ipv6Native")
-      Prelude.<*> ( x
-                      Data..@? "ipv6PrefixSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "ipv6PrefixSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "macAddress")
@@ -363,9 +357,7 @@ instance Data.FromXML NetworkInterface where
       Prelude.<*> (x Data..@? "sourceDestCheck")
       Prelude.<*> (x Data..@? "status")
       Prelude.<*> (x Data..@? "subnetId")
-      Prelude.<*> ( x
-                      Data..@? "tagSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "vpcId")

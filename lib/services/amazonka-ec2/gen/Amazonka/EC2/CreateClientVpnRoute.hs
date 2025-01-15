@@ -226,12 +226,12 @@ instance Prelude.Hashable CreateClientVpnRoute where
 
 instance Prelude.NFData CreateClientVpnRoute where
   rnf CreateClientVpnRoute' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf clientVpnEndpointId
-      `Prelude.seq` Prelude.rnf destinationCidrBlock
-      `Prelude.seq` Prelude.rnf targetVpcSubnetId
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf dryRun `Prelude.seq`
+          Prelude.rnf clientVpnEndpointId `Prelude.seq`
+            Prelude.rnf destinationCidrBlock `Prelude.seq`
+              Prelude.rnf targetVpcSubnetId
 
 instance Data.ToHeaders CreateClientVpnRoute where
   toHeaders = Prelude.const Prelude.mempty
@@ -295,5 +295,5 @@ createClientVpnRouteResponse_httpStatus = Lens.lens (\CreateClientVpnRouteRespon
 
 instance Prelude.NFData CreateClientVpnRouteResponse where
   rnf CreateClientVpnRouteResponse' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf status `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -121,9 +121,9 @@ instance Prelude.Hashable VolumeStatusEvent where
 
 instance Prelude.NFData VolumeStatusEvent where
   rnf VolumeStatusEvent' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf eventId
-      `Prelude.seq` Prelude.rnf eventType
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf notAfter
-      `Prelude.seq` Prelude.rnf notBefore
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf eventId `Prelude.seq`
+        Prelude.rnf eventType `Prelude.seq`
+          Prelude.rnf instanceId `Prelude.seq`
+            Prelude.rnf notAfter `Prelude.seq`
+              Prelude.rnf notBefore

@@ -118,8 +118,8 @@ instance Prelude.Hashable DeleteNetworkInsightsPath where
 
 instance Prelude.NFData DeleteNetworkInsightsPath where
   rnf DeleteNetworkInsightsPath' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf networkInsightsPathId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf networkInsightsPathId
 
 instance Data.ToHeaders DeleteNetworkInsightsPath where
   toHeaders = Prelude.const Prelude.mempty
@@ -183,5 +183,5 @@ instance
     DeleteNetworkInsightsPathResponse
   where
   rnf DeleteNetworkInsightsPathResponse' {..} =
-    Prelude.rnf networkInsightsPathId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf networkInsightsPathId `Prelude.seq`
+      Prelude.rnf httpStatus

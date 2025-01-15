@@ -84,9 +84,9 @@ instance Prelude.Hashable AccessScopePathRequest where
 
 instance Prelude.NFData AccessScopePathRequest where
   rnf AccessScopePathRequest' {..} =
-    Prelude.rnf destination
-      `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf throughResources
+    Prelude.rnf destination `Prelude.seq`
+      Prelude.rnf source `Prelude.seq`
+        Prelude.rnf throughResources
 
 instance Data.ToQuery AccessScopePathRequest where
   toQuery AccessScopePathRequest' {..} =

@@ -168,9 +168,7 @@ instance Core.AWSRequest RunScheduledInstances where
     Response.receiveXML
       ( \s h x ->
           RunScheduledInstancesResponse'
-            Prelude.<$> ( x
-                            Data..@? "instanceIdSet"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "instanceIdSet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -187,11 +185,11 @@ instance Prelude.Hashable RunScheduledInstances where
 
 instance Prelude.NFData RunScheduledInstances where
   rnf RunScheduledInstances' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf instanceCount
-      `Prelude.seq` Prelude.rnf launchSpecification
-      `Prelude.seq` Prelude.rnf scheduledInstanceId
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf instanceCount `Prelude.seq`
+          Prelude.rnf launchSpecification `Prelude.seq`
+            Prelude.rnf scheduledInstanceId
 
 instance Data.ToHeaders RunScheduledInstances where
   toHeaders = Prelude.const Prelude.mempty
@@ -256,5 +254,5 @@ runScheduledInstancesResponse_httpStatus = Lens.lens (\RunScheduledInstancesResp
 
 instance Prelude.NFData RunScheduledInstancesResponse where
   rnf RunScheduledInstancesResponse' {..} =
-    Prelude.rnf instanceIdSet
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf instanceIdSet `Prelude.seq`
+      Prelude.rnf httpStatus

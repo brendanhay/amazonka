@@ -76,8 +76,8 @@ instance
 
 instance Prelude.NFData IpamCidrAuthorizationContext where
   rnf IpamCidrAuthorizationContext' {..} =
-    Prelude.rnf message
-      `Prelude.seq` Prelude.rnf signature
+    Prelude.rnf message `Prelude.seq`
+      Prelude.rnf signature
 
 instance Data.ToQuery IpamCidrAuthorizationContext where
   toQuery IpamCidrAuthorizationContext' {..} =

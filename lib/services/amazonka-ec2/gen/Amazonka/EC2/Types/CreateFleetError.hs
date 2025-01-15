@@ -122,7 +122,7 @@ instance Prelude.Hashable CreateFleetError where
 
 instance Prelude.NFData CreateFleetError where
   rnf CreateFleetError' {..} =
-    Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf launchTemplateAndOverrides
-      `Prelude.seq` Prelude.rnf lifecycle
+    Prelude.rnf errorCode `Prelude.seq`
+      Prelude.rnf errorMessage `Prelude.seq`
+        Prelude.rnf launchTemplateAndOverrides `Prelude.seq`
+          Prelude.rnf lifecycle

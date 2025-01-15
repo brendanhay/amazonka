@@ -124,15 +124,11 @@ instance Data.FromXML VpnGateway where
       Prelude.<$> (x Data..@? "amazonSideAsn")
       Prelude.<*> (x Data..@? "availabilityZone")
       Prelude.<*> (x Data..@? "state")
-      Prelude.<*> ( x
-                      Data..@? "tagSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "type")
-      Prelude.<*> ( x
-                      Data..@? "attachments"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "attachments" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "vpnGatewayId")
@@ -150,10 +146,10 @@ instance Prelude.Hashable VpnGateway where
 
 instance Prelude.NFData VpnGateway where
   rnf VpnGateway' {..} =
-    Prelude.rnf amazonSideAsn
-      `Prelude.seq` Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf vpcAttachments
-      `Prelude.seq` Prelude.rnf vpnGatewayId
+    Prelude.rnf amazonSideAsn `Prelude.seq`
+      Prelude.rnf availabilityZone `Prelude.seq`
+        Prelude.rnf state `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf type' `Prelude.seq`
+              Prelude.rnf vpcAttachments `Prelude.seq`
+                Prelude.rnf vpnGatewayId

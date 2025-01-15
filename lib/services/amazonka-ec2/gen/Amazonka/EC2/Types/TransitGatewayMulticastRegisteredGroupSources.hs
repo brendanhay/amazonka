@@ -111,6 +111,6 @@ instance
   where
   rnf
     TransitGatewayMulticastRegisteredGroupSources' {..} =
-      Prelude.rnf groupIpAddress
-        `Prelude.seq` Prelude.rnf registeredNetworkInterfaceIds
-        `Prelude.seq` Prelude.rnf transitGatewayMulticastDomainId
+      Prelude.rnf groupIpAddress `Prelude.seq`
+        Prelude.rnf registeredNetworkInterfaceIds `Prelude.seq`
+          Prelude.rnf transitGatewayMulticastDomainId

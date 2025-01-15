@@ -77,5 +77,5 @@ instance Prelude.Hashable AlternatePathHint where
 
 instance Prelude.NFData AlternatePathHint where
   rnf AlternatePathHint' {..} =
-    Prelude.rnf componentArn
-      `Prelude.seq` Prelude.rnf componentId
+    Prelude.rnf componentArn `Prelude.seq`
+      Prelude.rnf componentId

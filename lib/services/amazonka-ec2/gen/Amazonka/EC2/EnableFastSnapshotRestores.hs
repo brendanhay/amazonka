@@ -131,14 +131,10 @@ instance Core.AWSRequest EnableFastSnapshotRestores where
     Response.receiveXML
       ( \s h x ->
           EnableFastSnapshotRestoresResponse'
-            Prelude.<$> ( x
-                            Data..@? "successful"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "successful" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-            Prelude.<*> ( x
-                            Data..@? "unsuccessful"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "unsuccessful" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -153,9 +149,9 @@ instance Prelude.Hashable EnableFastSnapshotRestores where
 
 instance Prelude.NFData EnableFastSnapshotRestores where
   rnf EnableFastSnapshotRestores' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf availabilityZones
-      `Prelude.seq` Prelude.rnf sourceSnapshotIds
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf availabilityZones `Prelude.seq`
+        Prelude.rnf sourceSnapshotIds
 
 instance Data.ToHeaders EnableFastSnapshotRestores where
   toHeaders = Prelude.const Prelude.mempty
@@ -238,6 +234,6 @@ instance
     EnableFastSnapshotRestoresResponse
   where
   rnf EnableFastSnapshotRestoresResponse' {..} =
-    Prelude.rnf successful
-      `Prelude.seq` Prelude.rnf unsuccessful
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf successful `Prelude.seq`
+      Prelude.rnf unsuccessful `Prelude.seq`
+        Prelude.rnf httpStatus

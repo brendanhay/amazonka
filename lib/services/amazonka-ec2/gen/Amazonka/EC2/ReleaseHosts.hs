@@ -93,14 +93,10 @@ instance Core.AWSRequest ReleaseHosts where
     Response.receiveXML
       ( \s h x ->
           ReleaseHostsResponse'
-            Prelude.<$> ( x
-                            Data..@? "successful"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "successful" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-            Prelude.<*> ( x
-                            Data..@? "unsuccessful"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "unsuccessful" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -181,6 +177,6 @@ releaseHostsResponse_httpStatus = Lens.lens (\ReleaseHostsResponse' {httpStatus}
 
 instance Prelude.NFData ReleaseHostsResponse where
   rnf ReleaseHostsResponse' {..} =
-    Prelude.rnf successful
-      `Prelude.seq` Prelude.rnf unsuccessful
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf successful `Prelude.seq`
+      Prelude.rnf unsuccessful `Prelude.seq`
+        Prelude.rnf httpStatus

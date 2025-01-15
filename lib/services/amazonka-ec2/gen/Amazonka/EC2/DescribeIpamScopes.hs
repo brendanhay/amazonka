@@ -147,12 +147,12 @@ instance Core.AWSPager DescribeIpamScopes where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeIpamScopes_nextToken
-          Lens..~ rs
-          Lens.^? describeIpamScopesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeIpamScopes_nextToken
+              Lens..~ rs
+              Lens.^? describeIpamScopesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeIpamScopes where
   type
@@ -164,9 +164,7 @@ instance Core.AWSRequest DescribeIpamScopes where
     Response.receiveXML
       ( \s h x ->
           DescribeIpamScopesResponse'
-            Prelude.<$> ( x
-                            Data..@? "ipamScopeSet"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "ipamScopeSet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (x Data..@? "nextToken")
@@ -184,11 +182,11 @@ instance Prelude.Hashable DescribeIpamScopes where
 
 instance Prelude.NFData DescribeIpamScopes where
   rnf DescribeIpamScopes' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf ipamScopeIds
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf ipamScopeIds `Prelude.seq`
+          Prelude.rnf maxResults `Prelude.seq`
+            Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeIpamScopes where
   toHeaders = Prelude.const Prelude.mempty
@@ -267,6 +265,6 @@ describeIpamScopesResponse_httpStatus = Lens.lens (\DescribeIpamScopesResponse' 
 
 instance Prelude.NFData DescribeIpamScopesResponse where
   rnf DescribeIpamScopesResponse' {..} =
-    Prelude.rnf ipamScopes
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf ipamScopes `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

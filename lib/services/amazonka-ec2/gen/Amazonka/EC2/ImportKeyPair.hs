@@ -155,9 +155,7 @@ instance Core.AWSRequest ImportKeyPair where
             Prelude.<$> (x Data..@? "keyFingerprint")
             Prelude.<*> (x Data..@? "keyName")
             Prelude.<*> (x Data..@? "keyPairId")
-            Prelude.<*> ( x
-                            Data..@? "tagSet"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -173,10 +171,10 @@ instance Prelude.Hashable ImportKeyPair where
 
 instance Prelude.NFData ImportKeyPair where
   rnf ImportKeyPair' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf tagSpecifications
-      `Prelude.seq` Prelude.rnf keyName
-      `Prelude.seq` Prelude.rnf publicKeyMaterial
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf tagSpecifications `Prelude.seq`
+        Prelude.rnf keyName `Prelude.seq`
+          Prelude.rnf publicKeyMaterial
 
 instance Data.ToHeaders ImportKeyPair where
   toHeaders = Prelude.const Prelude.mempty
@@ -283,8 +281,8 @@ importKeyPairResponse_httpStatus = Lens.lens (\ImportKeyPairResponse' {httpStatu
 
 instance Prelude.NFData ImportKeyPairResponse where
   rnf ImportKeyPairResponse' {..} =
-    Prelude.rnf keyFingerprint
-      `Prelude.seq` Prelude.rnf keyName
-      `Prelude.seq` Prelude.rnf keyPairId
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf keyFingerprint `Prelude.seq`
+      Prelude.rnf keyName `Prelude.seq`
+        Prelude.rnf keyPairId `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf httpStatus

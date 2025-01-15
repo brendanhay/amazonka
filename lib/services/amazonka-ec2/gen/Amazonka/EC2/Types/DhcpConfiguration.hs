@@ -68,9 +68,7 @@ instance Data.FromXML DhcpConfiguration where
   parseXML x =
     DhcpConfiguration'
       Prelude.<$> (x Data..@? "key")
-      Prelude.<*> ( x
-                      Data..@? "valueSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "valueSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 

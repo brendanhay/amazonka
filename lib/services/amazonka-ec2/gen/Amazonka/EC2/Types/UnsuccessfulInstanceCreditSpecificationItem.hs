@@ -94,5 +94,5 @@ instance
     UnsuccessfulInstanceCreditSpecificationItem
   where
   rnf UnsuccessfulInstanceCreditSpecificationItem' {..} =
-    Prelude.rnf error
-      `Prelude.seq` Prelude.rnf instanceId
+    Prelude.rnf error `Prelude.seq`
+      Prelude.rnf instanceId

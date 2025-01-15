@@ -121,14 +121,10 @@ instance Data.FromXML InstanceEventWindow where
       Prelude.<*> (x Data..@? "instanceEventWindowId")
       Prelude.<*> (x Data..@? "name")
       Prelude.<*> (x Data..@? "state")
-      Prelude.<*> ( x
-                      Data..@? "tagSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x
-                      Data..@? "timeRangeSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "timeRangeSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
@@ -145,10 +141,10 @@ instance Prelude.Hashable InstanceEventWindow where
 
 instance Prelude.NFData InstanceEventWindow where
   rnf InstanceEventWindow' {..} =
-    Prelude.rnf associationTarget
-      `Prelude.seq` Prelude.rnf cronExpression
-      `Prelude.seq` Prelude.rnf instanceEventWindowId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf timeRanges
+    Prelude.rnf associationTarget `Prelude.seq`
+      Prelude.rnf cronExpression `Prelude.seq`
+        Prelude.rnf instanceEventWindowId `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf state `Prelude.seq`
+              Prelude.rnf tags `Prelude.seq`
+                Prelude.rnf timeRanges

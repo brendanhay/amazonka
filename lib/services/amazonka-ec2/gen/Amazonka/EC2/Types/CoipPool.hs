@@ -97,15 +97,11 @@ instance Data.FromXML CoipPool where
     CoipPool'
       Prelude.<$> (x Data..@? "localGatewayRouteTableId")
       Prelude.<*> (x Data..@? "poolArn")
-      Prelude.<*> ( x
-                      Data..@? "poolCidrSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "poolCidrSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "poolId")
-      Prelude.<*> ( x
-                      Data..@? "tagSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
@@ -120,8 +116,8 @@ instance Prelude.Hashable CoipPool where
 
 instance Prelude.NFData CoipPool where
   rnf CoipPool' {..} =
-    Prelude.rnf localGatewayRouteTableId
-      `Prelude.seq` Prelude.rnf poolArn
-      `Prelude.seq` Prelude.rnf poolCidrs
-      `Prelude.seq` Prelude.rnf poolId
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf localGatewayRouteTableId `Prelude.seq`
+      Prelude.rnf poolArn `Prelude.seq`
+        Prelude.rnf poolCidrs `Prelude.seq`
+          Prelude.rnf poolId `Prelude.seq`
+            Prelude.rnf tags

@@ -298,20 +298,20 @@ instance
 
 instance Prelude.NFData CreateVerifiedAccessEndpoint where
   rnf CreateVerifiedAccessEndpoint' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf loadBalancerOptions
-      `Prelude.seq` Prelude.rnf networkInterfaceOptions
-      `Prelude.seq` Prelude.rnf policyDocument
-      `Prelude.seq` Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf tagSpecifications
-      `Prelude.seq` Prelude.rnf verifiedAccessGroupId
-      `Prelude.seq` Prelude.rnf endpointType
-      `Prelude.seq` Prelude.rnf attachmentType
-      `Prelude.seq` Prelude.rnf domainCertificateArn
-      `Prelude.seq` Prelude.rnf applicationDomain
-      `Prelude.seq` Prelude.rnf endpointDomainPrefix
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf dryRun `Prelude.seq`
+          Prelude.rnf loadBalancerOptions `Prelude.seq`
+            Prelude.rnf networkInterfaceOptions `Prelude.seq`
+              Prelude.rnf policyDocument `Prelude.seq`
+                Prelude.rnf securityGroupIds `Prelude.seq`
+                  Prelude.rnf tagSpecifications `Prelude.seq`
+                    Prelude.rnf verifiedAccessGroupId `Prelude.seq`
+                      Prelude.rnf endpointType `Prelude.seq`
+                        Prelude.rnf attachmentType `Prelude.seq`
+                          Prelude.rnf domainCertificateArn `Prelude.seq`
+                            Prelude.rnf applicationDomain `Prelude.seq`
+                              Prelude.rnf endpointDomainPrefix
 
 instance Data.ToHeaders CreateVerifiedAccessEndpoint where
   toHeaders = Prelude.const Prelude.mempty
@@ -396,5 +396,5 @@ instance
     CreateVerifiedAccessEndpointResponse
   where
   rnf CreateVerifiedAccessEndpointResponse' {..} =
-    Prelude.rnf verifiedAccessEndpoint
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf verifiedAccessEndpoint `Prelude.seq`
+      Prelude.rnf httpStatus

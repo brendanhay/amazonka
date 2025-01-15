@@ -189,9 +189,9 @@ instance
     DescribeReservedInstancesListings
   where
   rnf DescribeReservedInstancesListings' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf reservedInstancesId
-      `Prelude.seq` Prelude.rnf reservedInstancesListingId
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf reservedInstancesId `Prelude.seq`
+        Prelude.rnf reservedInstancesListingId
 
 instance
   Data.ToHeaders
@@ -271,5 +271,5 @@ instance
     DescribeReservedInstancesListingsResponse
   where
   rnf DescribeReservedInstancesListingsResponse' {..} =
-    Prelude.rnf reservedInstancesListings
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf reservedInstancesListings `Prelude.seq`
+      Prelude.rnf httpStatus

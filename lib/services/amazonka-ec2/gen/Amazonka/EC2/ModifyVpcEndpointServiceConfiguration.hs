@@ -263,17 +263,17 @@ instance
     ModifyVpcEndpointServiceConfiguration
   where
   rnf ModifyVpcEndpointServiceConfiguration' {..} =
-    Prelude.rnf acceptanceRequired
-      `Prelude.seq` Prelude.rnf addGatewayLoadBalancerArns
-      `Prelude.seq` Prelude.rnf addNetworkLoadBalancerArns
-      `Prelude.seq` Prelude.rnf addSupportedIpAddressTypes
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf privateDnsName
-      `Prelude.seq` Prelude.rnf removeGatewayLoadBalancerArns
-      `Prelude.seq` Prelude.rnf removeNetworkLoadBalancerArns
-      `Prelude.seq` Prelude.rnf removePrivateDnsName
-      `Prelude.seq` Prelude.rnf removeSupportedIpAddressTypes
-      `Prelude.seq` Prelude.rnf serviceId
+    Prelude.rnf acceptanceRequired `Prelude.seq`
+      Prelude.rnf addGatewayLoadBalancerArns `Prelude.seq`
+        Prelude.rnf addNetworkLoadBalancerArns `Prelude.seq`
+          Prelude.rnf addSupportedIpAddressTypes `Prelude.seq`
+            Prelude.rnf dryRun `Prelude.seq`
+              Prelude.rnf privateDnsName `Prelude.seq`
+                Prelude.rnf removeGatewayLoadBalancerArns `Prelude.seq`
+                  Prelude.rnf removeNetworkLoadBalancerArns `Prelude.seq`
+                    Prelude.rnf removePrivateDnsName `Prelude.seq`
+                      Prelude.rnf removeSupportedIpAddressTypes `Prelude.seq`
+                        Prelude.rnf serviceId
 
 instance
   Data.ToHeaders
@@ -376,5 +376,5 @@ instance
   where
   rnf
     ModifyVpcEndpointServiceConfigurationResponse' {..} =
-      Prelude.rnf return'
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf return' `Prelude.seq`
+        Prelude.rnf httpStatus

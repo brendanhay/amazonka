@@ -198,12 +198,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeInstanceCreditSpecifications_nextToken
-          Lens..~ rs
-          Lens.^? describeInstanceCreditSpecificationsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeInstanceCreditSpecifications_nextToken
+              Lens..~ rs
+              Lens.^? describeInstanceCreditSpecificationsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -246,11 +246,11 @@ instance
     DescribeInstanceCreditSpecifications
   where
   rnf DescribeInstanceCreditSpecifications' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf instanceIds
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf instanceIds `Prelude.seq`
+          Prelude.rnf maxResults `Prelude.seq`
+            Prelude.rnf nextToken
 
 instance
   Data.ToHeaders
@@ -344,6 +344,6 @@ instance
     DescribeInstanceCreditSpecificationsResponse
   where
   rnf DescribeInstanceCreditSpecificationsResponse' {..} =
-    Prelude.rnf instanceCreditSpecifications
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf instanceCreditSpecifications `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

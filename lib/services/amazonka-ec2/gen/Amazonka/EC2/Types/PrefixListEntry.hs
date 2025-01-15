@@ -77,5 +77,5 @@ instance Prelude.Hashable PrefixListEntry where
 
 instance Prelude.NFData PrefixListEntry where
   rnf PrefixListEntry' {..} =
-    Prelude.rnf cidr
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf cidr `Prelude.seq`
+      Prelude.rnf description

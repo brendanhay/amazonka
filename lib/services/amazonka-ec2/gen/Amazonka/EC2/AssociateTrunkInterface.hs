@@ -183,12 +183,12 @@ instance Prelude.Hashable AssociateTrunkInterface where
 
 instance Prelude.NFData AssociateTrunkInterface where
   rnf AssociateTrunkInterface' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf greKey
-      `Prelude.seq` Prelude.rnf vlanId
-      `Prelude.seq` Prelude.rnf branchInterfaceId
-      `Prelude.seq` Prelude.rnf trunkInterfaceId
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf greKey `Prelude.seq`
+          Prelude.rnf vlanId `Prelude.seq`
+            Prelude.rnf branchInterfaceId `Prelude.seq`
+              Prelude.rnf trunkInterfaceId
 
 instance Data.ToHeaders AssociateTrunkInterface where
   toHeaders = Prelude.const Prelude.mempty
@@ -273,6 +273,6 @@ instance
     AssociateTrunkInterfaceResponse
   where
   rnf AssociateTrunkInterfaceResponse' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf interfaceAssociation
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf interfaceAssociation `Prelude.seq`
+        Prelude.rnf httpStatus

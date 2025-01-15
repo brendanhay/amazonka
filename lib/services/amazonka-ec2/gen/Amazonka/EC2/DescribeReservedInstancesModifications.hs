@@ -234,12 +234,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeReservedInstancesModifications_nextToken
-          Lens..~ rs
-          Lens.^? describeReservedInstancesModificationsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeReservedInstancesModifications_nextToken
+              Lens..~ rs
+              Lens.^? describeReservedInstancesModificationsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -281,9 +281,9 @@ instance
     DescribeReservedInstancesModifications
   where
   rnf DescribeReservedInstancesModifications' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf reservedInstancesModificationIds
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf reservedInstancesModificationIds
 
 instance
   Data.ToHeaders
@@ -379,6 +379,6 @@ instance
   where
   rnf
     DescribeReservedInstancesModificationsResponse' {..} =
-      Prelude.rnf nextToken
-        `Prelude.seq` Prelude.rnf reservedInstancesModifications
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf reservedInstancesModifications `Prelude.seq`
+          Prelude.rnf httpStatus

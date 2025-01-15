@@ -135,11 +135,11 @@ instance
     ScheduledInstanceRecurrenceRequest
   where
   rnf ScheduledInstanceRecurrenceRequest' {..} =
-    Prelude.rnf frequency
-      `Prelude.seq` Prelude.rnf interval
-      `Prelude.seq` Prelude.rnf occurrenceDays
-      `Prelude.seq` Prelude.rnf occurrenceRelativeToEnd
-      `Prelude.seq` Prelude.rnf occurrenceUnit
+    Prelude.rnf frequency `Prelude.seq`
+      Prelude.rnf interval `Prelude.seq`
+        Prelude.rnf occurrenceDays `Prelude.seq`
+          Prelude.rnf occurrenceRelativeToEnd `Prelude.seq`
+            Prelude.rnf occurrenceUnit
 
 instance
   Data.ToQuery

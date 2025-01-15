@@ -134,8 +134,8 @@ instance
     ExportClientVpnClientConfiguration
   where
   rnf ExportClientVpnClientConfiguration' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf clientVpnEndpointId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf clientVpnEndpointId
 
 instance
   Data.ToHeaders
@@ -210,5 +210,5 @@ instance
     ExportClientVpnClientConfigurationResponse
   where
   rnf ExportClientVpnClientConfigurationResponse' {..} =
-    Prelude.rnf clientConfiguration
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf clientConfiguration `Prelude.seq`
+      Prelude.rnf httpStatus

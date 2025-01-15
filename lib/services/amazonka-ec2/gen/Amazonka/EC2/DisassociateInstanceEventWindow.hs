@@ -149,9 +149,9 @@ instance
     DisassociateInstanceEventWindow
   where
   rnf DisassociateInstanceEventWindow' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf instanceEventWindowId
-      `Prelude.seq` Prelude.rnf associationTarget
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf instanceEventWindowId `Prelude.seq`
+        Prelude.rnf associationTarget
 
 instance
   Data.ToHeaders
@@ -222,5 +222,5 @@ instance
     DisassociateInstanceEventWindowResponse
   where
   rnf DisassociateInstanceEventWindowResponse' {..} =
-    Prelude.rnf instanceEventWindow
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf instanceEventWindow `Prelude.seq`
+      Prelude.rnf httpStatus

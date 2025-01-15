@@ -81,5 +81,5 @@ instance
 
 instance Prelude.NFData AnalysisLoadBalancerListener where
   rnf AnalysisLoadBalancerListener' {..} =
-    Prelude.rnf instancePort
-      `Prelude.seq` Prelude.rnf loadBalancerPort
+    Prelude.rnf instancePort `Prelude.seq`
+      Prelude.rnf loadBalancerPort

@@ -126,9 +126,9 @@ instance Prelude.Hashable RouteTableAssociation where
 
 instance Prelude.NFData RouteTableAssociation where
   rnf RouteTableAssociation' {..} =
-    Prelude.rnf associationState
-      `Prelude.seq` Prelude.rnf gatewayId
-      `Prelude.seq` Prelude.rnf main
-      `Prelude.seq` Prelude.rnf routeTableAssociationId
-      `Prelude.seq` Prelude.rnf routeTableId
-      `Prelude.seq` Prelude.rnf subnetId
+    Prelude.rnf associationState `Prelude.seq`
+      Prelude.rnf gatewayId `Prelude.seq`
+        Prelude.rnf main `Prelude.seq`
+          Prelude.rnf routeTableAssociationId `Prelude.seq`
+            Prelude.rnf routeTableId `Prelude.seq`
+              Prelude.rnf subnetId

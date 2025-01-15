@@ -89,6 +89,6 @@ instance Prelude.Hashable NetworkAclAssociation where
 
 instance Prelude.NFData NetworkAclAssociation where
   rnf NetworkAclAssociation' {..} =
-    Prelude.rnf networkAclAssociationId
-      `Prelude.seq` Prelude.rnf networkAclId
-      `Prelude.seq` Prelude.rnf subnetId
+    Prelude.rnf networkAclAssociationId `Prelude.seq`
+      Prelude.rnf networkAclId `Prelude.seq`
+        Prelude.rnf subnetId

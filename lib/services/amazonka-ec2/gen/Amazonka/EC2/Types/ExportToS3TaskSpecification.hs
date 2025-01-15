@@ -115,10 +115,10 @@ instance Prelude.Hashable ExportToS3TaskSpecification where
 
 instance Prelude.NFData ExportToS3TaskSpecification where
   rnf ExportToS3TaskSpecification' {..} =
-    Prelude.rnf containerFormat
-      `Prelude.seq` Prelude.rnf diskImageFormat
-      `Prelude.seq` Prelude.rnf s3Bucket
-      `Prelude.seq` Prelude.rnf s3Prefix
+    Prelude.rnf containerFormat `Prelude.seq`
+      Prelude.rnf diskImageFormat `Prelude.seq`
+        Prelude.rnf s3Bucket `Prelude.seq`
+          Prelude.rnf s3Prefix
 
 instance Data.ToQuery ExportToS3TaskSpecification where
   toQuery ExportToS3TaskSpecification' {..} =

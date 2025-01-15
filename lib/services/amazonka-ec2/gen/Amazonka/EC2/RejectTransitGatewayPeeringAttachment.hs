@@ -132,8 +132,8 @@ instance
     RejectTransitGatewayPeeringAttachment
   where
   rnf RejectTransitGatewayPeeringAttachment' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf transitGatewayAttachmentId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf transitGatewayAttachmentId
 
 instance
   Data.ToHeaders
@@ -210,5 +210,5 @@ instance
   where
   rnf
     RejectTransitGatewayPeeringAttachmentResponse' {..} =
-      Prelude.rnf transitGatewayPeeringAttachment
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf transitGatewayPeeringAttachment `Prelude.seq`
+        Prelude.rnf httpStatus

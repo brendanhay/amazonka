@@ -128,9 +128,9 @@ instance Prelude.Hashable ModifySecurityGroupRules where
 
 instance Prelude.NFData ModifySecurityGroupRules where
   rnf ModifySecurityGroupRules' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf groupId
-      `Prelude.seq` Prelude.rnf securityGroupRules
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf groupId `Prelude.seq`
+        Prelude.rnf securityGroupRules
 
 instance Data.ToHeaders ModifySecurityGroupRules where
   toHeaders = Prelude.const Prelude.mempty
@@ -196,5 +196,5 @@ instance
     ModifySecurityGroupRulesResponse
   where
   rnf ModifySecurityGroupRulesResponse' {..} =
-    Prelude.rnf return'
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf return' `Prelude.seq`
+      Prelude.rnf httpStatus

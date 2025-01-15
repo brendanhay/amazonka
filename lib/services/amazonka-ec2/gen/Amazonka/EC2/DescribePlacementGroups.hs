@@ -222,10 +222,10 @@ instance Prelude.Hashable DescribePlacementGroups where
 
 instance Prelude.NFData DescribePlacementGroups where
   rnf DescribePlacementGroups' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf groupIds
-      `Prelude.seq` Prelude.rnf groupNames
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf groupIds `Prelude.seq`
+          Prelude.rnf groupNames
 
 instance Data.ToHeaders DescribePlacementGroups where
   toHeaders = Prelude.const Prelude.mempty
@@ -295,5 +295,5 @@ instance
     DescribePlacementGroupsResponse
   where
   rnf DescribePlacementGroupsResponse' {..} =
-    Prelude.rnf placementGroups
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf placementGroups `Prelude.seq`
+      Prelude.rnf httpStatus

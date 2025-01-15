@@ -199,9 +199,7 @@ instance Data.FromXML SecurityGroupRule where
       Prelude.<*> (x Data..@? "prefixListId")
       Prelude.<*> (x Data..@? "referencedGroupInfo")
       Prelude.<*> (x Data..@? "securityGroupRuleId")
-      Prelude.<*> ( x
-                      Data..@? "tagSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "toPort")
@@ -225,16 +223,16 @@ instance Prelude.Hashable SecurityGroupRule where
 
 instance Prelude.NFData SecurityGroupRule where
   rnf SecurityGroupRule' {..} =
-    Prelude.rnf cidrIpv4
-      `Prelude.seq` Prelude.rnf cidrIpv6
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf fromPort
-      `Prelude.seq` Prelude.rnf groupId
-      `Prelude.seq` Prelude.rnf groupOwnerId
-      `Prelude.seq` Prelude.rnf ipProtocol
-      `Prelude.seq` Prelude.rnf isEgress
-      `Prelude.seq` Prelude.rnf prefixListId
-      `Prelude.seq` Prelude.rnf referencedGroupInfo
-      `Prelude.seq` Prelude.rnf securityGroupRuleId
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf toPort
+    Prelude.rnf cidrIpv4 `Prelude.seq`
+      Prelude.rnf cidrIpv6 `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf fromPort `Prelude.seq`
+            Prelude.rnf groupId `Prelude.seq`
+              Prelude.rnf groupOwnerId `Prelude.seq`
+                Prelude.rnf ipProtocol `Prelude.seq`
+                  Prelude.rnf isEgress `Prelude.seq`
+                    Prelude.rnf prefixListId `Prelude.seq`
+                      Prelude.rnf referencedGroupInfo `Prelude.seq`
+                        Prelude.rnf securityGroupRuleId `Prelude.seq`
+                          Prelude.rnf tags `Prelude.seq`
+                            Prelude.rnf toPort

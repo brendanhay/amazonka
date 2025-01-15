@@ -122,8 +122,8 @@ instance Prelude.Hashable DeleteCarrierGateway where
 
 instance Prelude.NFData DeleteCarrierGateway where
   rnf DeleteCarrierGateway' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf carrierGatewayId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf carrierGatewayId
 
 instance Data.ToHeaders DeleteCarrierGateway where
   toHeaders = Prelude.const Prelude.mempty
@@ -183,5 +183,5 @@ deleteCarrierGatewayResponse_httpStatus = Lens.lens (\DeleteCarrierGatewayRespon
 
 instance Prelude.NFData DeleteCarrierGatewayResponse where
   rnf DeleteCarrierGatewayResponse' {..} =
-    Prelude.rnf carrierGateway
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf carrierGateway `Prelude.seq`
+      Prelude.rnf httpStatus

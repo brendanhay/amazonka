@@ -175,11 +175,11 @@ instance
     ModifyVerifiedAccessGroupPolicy
   where
   rnf ModifyVerifiedAccessGroupPolicy' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf policyDocument
-      `Prelude.seq` Prelude.rnf verifiedAccessGroupId
-      `Prelude.seq` Prelude.rnf policyEnabled
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf policyDocument `Prelude.seq`
+          Prelude.rnf verifiedAccessGroupId `Prelude.seq`
+            Prelude.rnf policyEnabled
 
 instance
   Data.ToHeaders
@@ -261,6 +261,6 @@ instance
     ModifyVerifiedAccessGroupPolicyResponse
   where
   rnf ModifyVerifiedAccessGroupPolicyResponse' {..} =
-    Prelude.rnf policyDocument
-      `Prelude.seq` Prelude.rnf policyEnabled
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf policyDocument `Prelude.seq`
+      Prelude.rnf policyEnabled `Prelude.seq`
+        Prelude.rnf httpStatus

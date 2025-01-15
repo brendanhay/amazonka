@@ -129,9 +129,9 @@ instance Prelude.Hashable CreateCoipPool where
 
 instance Prelude.NFData CreateCoipPool where
   rnf CreateCoipPool' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf tagSpecifications
-      `Prelude.seq` Prelude.rnf localGatewayRouteTableId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf tagSpecifications `Prelude.seq`
+        Prelude.rnf localGatewayRouteTableId
 
 instance Data.ToHeaders CreateCoipPool where
   toHeaders = Prelude.const Prelude.mempty
@@ -195,5 +195,5 @@ createCoipPoolResponse_httpStatus = Lens.lens (\CreateCoipPoolResponse' {httpSta
 
 instance Prelude.NFData CreateCoipPoolResponse where
   rnf CreateCoipPoolResponse' {..} =
-    Prelude.rnf coipPool
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf coipPool `Prelude.seq`
+      Prelude.rnf httpStatus

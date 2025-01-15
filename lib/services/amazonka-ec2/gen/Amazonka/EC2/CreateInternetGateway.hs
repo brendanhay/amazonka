@@ -119,8 +119,8 @@ instance Prelude.Hashable CreateInternetGateway where
 
 instance Prelude.NFData CreateInternetGateway where
   rnf CreateInternetGateway' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf tagSpecifications
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf tagSpecifications
 
 instance Data.ToHeaders CreateInternetGateway where
   toHeaders = Prelude.const Prelude.mempty
@@ -183,5 +183,5 @@ createInternetGatewayResponse_httpStatus = Lens.lens (\CreateInternetGatewayResp
 
 instance Prelude.NFData CreateInternetGatewayResponse where
   rnf CreateInternetGatewayResponse' {..} =
-    Prelude.rnf internetGateway
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf internetGateway `Prelude.seq`
+      Prelude.rnf httpStatus

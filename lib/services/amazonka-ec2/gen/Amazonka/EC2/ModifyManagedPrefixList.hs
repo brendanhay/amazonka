@@ -201,13 +201,13 @@ instance Prelude.Hashable ModifyManagedPrefixList where
 
 instance Prelude.NFData ModifyManagedPrefixList where
   rnf ModifyManagedPrefixList' {..} =
-    Prelude.rnf addEntries
-      `Prelude.seq` Prelude.rnf currentVersion
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf maxEntries
-      `Prelude.seq` Prelude.rnf prefixListName
-      `Prelude.seq` Prelude.rnf removeEntries
-      `Prelude.seq` Prelude.rnf prefixListId
+    Prelude.rnf addEntries `Prelude.seq`
+      Prelude.rnf currentVersion `Prelude.seq`
+        Prelude.rnf dryRun `Prelude.seq`
+          Prelude.rnf maxEntries `Prelude.seq`
+            Prelude.rnf prefixListName `Prelude.seq`
+              Prelude.rnf removeEntries `Prelude.seq`
+                Prelude.rnf prefixListId
 
 instance Data.ToHeaders ModifyManagedPrefixList where
   toHeaders = Prelude.const Prelude.mempty
@@ -279,5 +279,5 @@ instance
     ModifyManagedPrefixListResponse
   where
   rnf ModifyManagedPrefixListResponse' {..} =
-    Prelude.rnf prefixList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf prefixList `Prelude.seq`
+      Prelude.rnf httpStatus

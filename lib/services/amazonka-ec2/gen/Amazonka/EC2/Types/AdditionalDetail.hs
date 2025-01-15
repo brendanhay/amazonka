@@ -79,5 +79,5 @@ instance Prelude.Hashable AdditionalDetail where
 
 instance Prelude.NFData AdditionalDetail where
   rnf AdditionalDetail' {..} =
-    Prelude.rnf additionalDetailType
-      `Prelude.seq` Prelude.rnf component
+    Prelude.rnf additionalDetailType `Prelude.seq`
+      Prelude.rnf component

@@ -144,9 +144,7 @@ instance Data.FromXML LocalGatewayRouteTable where
       Prelude.<*> (x Data..@? "ownerId")
       Prelude.<*> (x Data..@? "state")
       Prelude.<*> (x Data..@? "stateReason")
-      Prelude.<*> ( x
-                      Data..@? "tagSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
@@ -165,12 +163,12 @@ instance Prelude.Hashable LocalGatewayRouteTable where
 
 instance Prelude.NFData LocalGatewayRouteTable where
   rnf LocalGatewayRouteTable' {..} =
-    Prelude.rnf localGatewayId
-      `Prelude.seq` Prelude.rnf localGatewayRouteTableArn
-      `Prelude.seq` Prelude.rnf localGatewayRouteTableId
-      `Prelude.seq` Prelude.rnf mode
-      `Prelude.seq` Prelude.rnf outpostArn
-      `Prelude.seq` Prelude.rnf ownerId
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf stateReason
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf localGatewayId `Prelude.seq`
+      Prelude.rnf localGatewayRouteTableArn `Prelude.seq`
+        Prelude.rnf localGatewayRouteTableId `Prelude.seq`
+          Prelude.rnf mode `Prelude.seq`
+            Prelude.rnf outpostArn `Prelude.seq`
+              Prelude.rnf ownerId `Prelude.seq`
+                Prelude.rnf state `Prelude.seq`
+                  Prelude.rnf stateReason `Prelude.seq`
+                    Prelude.rnf tags

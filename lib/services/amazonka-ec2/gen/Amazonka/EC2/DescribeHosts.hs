@@ -214,12 +214,12 @@ instance Core.AWSPager DescribeHosts where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeHosts_nextToken
-          Lens..~ rs
-          Lens.^? describeHostsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeHosts_nextToken
+              Lens..~ rs
+              Lens.^? describeHostsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeHosts where
   type
@@ -231,9 +231,7 @@ instance Core.AWSRequest DescribeHosts where
     Response.receiveXML
       ( \s h x ->
           DescribeHostsResponse'
-            Prelude.<$> ( x
-                            Data..@? "hostSet"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "hostSet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (x Data..@? "nextToken")
@@ -250,10 +248,10 @@ instance Prelude.Hashable DescribeHosts where
 
 instance Prelude.NFData DescribeHosts where
   rnf DescribeHosts' {..} =
-    Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf hostIds
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filter' `Prelude.seq`
+      Prelude.rnf hostIds `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeHosts where
   toHeaders = Prelude.const Prelude.mempty
@@ -328,6 +326,6 @@ describeHostsResponse_httpStatus = Lens.lens (\DescribeHostsResponse' {httpStatu
 
 instance Prelude.NFData DescribeHostsResponse where
   rnf DescribeHostsResponse' {..} =
-    Prelude.rnf hosts
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf hosts `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

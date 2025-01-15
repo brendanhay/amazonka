@@ -140,9 +140,7 @@ instance
       Prelude.<*> (x Data..@? "localGatewayRouteTableVpcAssociationId")
       Prelude.<*> (x Data..@? "ownerId")
       Prelude.<*> (x Data..@? "state")
-      Prelude.<*> ( x
-                      Data..@? "tagSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "vpcId")
@@ -169,11 +167,11 @@ instance
     LocalGatewayRouteTableVpcAssociation
   where
   rnf LocalGatewayRouteTableVpcAssociation' {..} =
-    Prelude.rnf localGatewayId
-      `Prelude.seq` Prelude.rnf localGatewayRouteTableArn
-      `Prelude.seq` Prelude.rnf localGatewayRouteTableId
-      `Prelude.seq` Prelude.rnf localGatewayRouteTableVpcAssociationId
-      `Prelude.seq` Prelude.rnf ownerId
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf localGatewayId `Prelude.seq`
+      Prelude.rnf localGatewayRouteTableArn `Prelude.seq`
+        Prelude.rnf localGatewayRouteTableId `Prelude.seq`
+          Prelude.rnf localGatewayRouteTableVpcAssociationId `Prelude.seq`
+            Prelude.rnf ownerId `Prelude.seq`
+              Prelude.rnf state `Prelude.seq`
+                Prelude.rnf tags `Prelude.seq`
+                  Prelude.rnf vpcId

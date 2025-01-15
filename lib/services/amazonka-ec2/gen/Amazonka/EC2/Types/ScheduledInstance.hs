@@ -222,18 +222,18 @@ instance Prelude.Hashable ScheduledInstance where
 
 instance Prelude.NFData ScheduledInstance where
   rnf ScheduledInstance' {..} =
-    Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf createDate
-      `Prelude.seq` Prelude.rnf hourlyPrice
-      `Prelude.seq` Prelude.rnf instanceCount
-      `Prelude.seq` Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf networkPlatform
-      `Prelude.seq` Prelude.rnf nextSlotStartTime
-      `Prelude.seq` Prelude.rnf platform
-      `Prelude.seq` Prelude.rnf previousSlotEndTime
-      `Prelude.seq` Prelude.rnf recurrence
-      `Prelude.seq` Prelude.rnf scheduledInstanceId
-      `Prelude.seq` Prelude.rnf slotDurationInHours
-      `Prelude.seq` Prelude.rnf termEndDate
-      `Prelude.seq` Prelude.rnf termStartDate
-      `Prelude.seq` Prelude.rnf totalScheduledInstanceHours
+    Prelude.rnf availabilityZone `Prelude.seq`
+      Prelude.rnf createDate `Prelude.seq`
+        Prelude.rnf hourlyPrice `Prelude.seq`
+          Prelude.rnf instanceCount `Prelude.seq`
+            Prelude.rnf instanceType `Prelude.seq`
+              Prelude.rnf networkPlatform `Prelude.seq`
+                Prelude.rnf nextSlotStartTime `Prelude.seq`
+                  Prelude.rnf platform `Prelude.seq`
+                    Prelude.rnf previousSlotEndTime `Prelude.seq`
+                      Prelude.rnf recurrence `Prelude.seq`
+                        Prelude.rnf scheduledInstanceId `Prelude.seq`
+                          Prelude.rnf slotDurationInHours `Prelude.seq`
+                            Prelude.rnf termEndDate `Prelude.seq`
+                              Prelude.rnf termStartDate `Prelude.seq`
+                                Prelude.rnf totalScheduledInstanceHours

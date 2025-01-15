@@ -118,9 +118,7 @@ instance Data.FromXML LaunchTemplate where
       Prelude.<*> (x Data..@? "latestVersionNumber")
       Prelude.<*> (x Data..@? "launchTemplateId")
       Prelude.<*> (x Data..@? "launchTemplateName")
-      Prelude.<*> ( x
-                      Data..@? "tagSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
@@ -137,10 +135,10 @@ instance Prelude.Hashable LaunchTemplate where
 
 instance Prelude.NFData LaunchTemplate where
   rnf LaunchTemplate' {..} =
-    Prelude.rnf createTime
-      `Prelude.seq` Prelude.rnf createdBy
-      `Prelude.seq` Prelude.rnf defaultVersionNumber
-      `Prelude.seq` Prelude.rnf latestVersionNumber
-      `Prelude.seq` Prelude.rnf launchTemplateId
-      `Prelude.seq` Prelude.rnf launchTemplateName
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf createTime `Prelude.seq`
+      Prelude.rnf createdBy `Prelude.seq`
+        Prelude.rnf defaultVersionNumber `Prelude.seq`
+          Prelude.rnf latestVersionNumber `Prelude.seq`
+            Prelude.rnf launchTemplateId `Prelude.seq`
+              Prelude.rnf launchTemplateName `Prelude.seq`
+                Prelude.rnf tags

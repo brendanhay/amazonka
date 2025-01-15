@@ -134,9 +134,9 @@ instance Prelude.Hashable ModifyVpnTunnelCertificate where
 
 instance Prelude.NFData ModifyVpnTunnelCertificate where
   rnf ModifyVpnTunnelCertificate' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf vpnConnectionId
-      `Prelude.seq` Prelude.rnf vpnTunnelOutsideIpAddress
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf vpnConnectionId `Prelude.seq`
+        Prelude.rnf vpnTunnelOutsideIpAddress
 
 instance Data.ToHeaders ModifyVpnTunnelCertificate where
   toHeaders = Prelude.const Prelude.mempty
@@ -201,5 +201,5 @@ instance
     ModifyVpnTunnelCertificateResponse
   where
   rnf ModifyVpnTunnelCertificateResponse' {..} =
-    Prelude.rnf vpnConnection
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf vpnConnection `Prelude.seq`
+      Prelude.rnf httpStatus

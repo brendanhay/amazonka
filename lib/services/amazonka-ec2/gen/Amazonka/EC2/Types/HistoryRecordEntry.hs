@@ -94,6 +94,6 @@ instance Prelude.Hashable HistoryRecordEntry where
 
 instance Prelude.NFData HistoryRecordEntry where
   rnf HistoryRecordEntry' {..} =
-    Prelude.rnf eventInformation
-      `Prelude.seq` Prelude.rnf eventType
-      `Prelude.seq` Prelude.rnf timestamp
+    Prelude.rnf eventInformation `Prelude.seq`
+      Prelude.rnf eventType `Prelude.seq`
+        Prelude.rnf timestamp

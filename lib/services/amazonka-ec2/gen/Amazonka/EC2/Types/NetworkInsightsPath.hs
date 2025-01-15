@@ -175,9 +175,7 @@ instance Data.FromXML NetworkInsightsPath where
       Prelude.<*> (x Data..@? "source")
       Prelude.<*> (x Data..@? "sourceArn")
       Prelude.<*> (x Data..@? "sourceIp")
-      Prelude.<*> ( x
-                      Data..@? "tagSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
@@ -199,15 +197,15 @@ instance Prelude.Hashable NetworkInsightsPath where
 
 instance Prelude.NFData NetworkInsightsPath where
   rnf NetworkInsightsPath' {..} =
-    Prelude.rnf createdDate
-      `Prelude.seq` Prelude.rnf destination
-      `Prelude.seq` Prelude.rnf destinationArn
-      `Prelude.seq` Prelude.rnf destinationIp
-      `Prelude.seq` Prelude.rnf destinationPort
-      `Prelude.seq` Prelude.rnf networkInsightsPathArn
-      `Prelude.seq` Prelude.rnf networkInsightsPathId
-      `Prelude.seq` Prelude.rnf protocol
-      `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf sourceArn
-      `Prelude.seq` Prelude.rnf sourceIp
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf createdDate `Prelude.seq`
+      Prelude.rnf destination `Prelude.seq`
+        Prelude.rnf destinationArn `Prelude.seq`
+          Prelude.rnf destinationIp `Prelude.seq`
+            Prelude.rnf destinationPort `Prelude.seq`
+              Prelude.rnf networkInsightsPathArn `Prelude.seq`
+                Prelude.rnf networkInsightsPathId `Prelude.seq`
+                  Prelude.rnf protocol `Prelude.seq`
+                    Prelude.rnf source `Prelude.seq`
+                      Prelude.rnf sourceArn `Prelude.seq`
+                        Prelude.rnf sourceIp `Prelude.seq`
+                          Prelude.rnf tags

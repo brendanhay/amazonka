@@ -145,9 +145,9 @@ instance
 
 instance Prelude.NFData ReplaceNetworkAclAssociation where
   rnf ReplaceNetworkAclAssociation' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf associationId
-      `Prelude.seq` Prelude.rnf networkAclId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf associationId `Prelude.seq`
+        Prelude.rnf networkAclId
 
 instance Data.ToHeaders ReplaceNetworkAclAssociation where
   toHeaders = Prelude.const Prelude.mempty
@@ -213,5 +213,5 @@ instance
     ReplaceNetworkAclAssociationResponse
   where
   rnf ReplaceNetworkAclAssociationResponse' {..} =
-    Prelude.rnf newAssociationId'
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf newAssociationId' `Prelude.seq`
+      Prelude.rnf httpStatus

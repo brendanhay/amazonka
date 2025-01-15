@@ -156,12 +156,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeVerifiedAccessInstanceLoggingConfigurations_nextToken
-          Lens..~ rs
-          Lens.^? describeVerifiedAccessInstanceLoggingConfigurationsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeVerifiedAccessInstanceLoggingConfigurations_nextToken
+              Lens..~ rs
+              Lens.^? describeVerifiedAccessInstanceLoggingConfigurationsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -206,11 +206,11 @@ instance
   where
   rnf
     DescribeVerifiedAccessInstanceLoggingConfigurations' {..} =
-      Prelude.rnf dryRun
-        `Prelude.seq` Prelude.rnf filters
-        `Prelude.seq` Prelude.rnf maxResults
-        `Prelude.seq` Prelude.rnf nextToken
-        `Prelude.seq` Prelude.rnf verifiedAccessInstanceIds
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf filters `Prelude.seq`
+          Prelude.rnf maxResults `Prelude.seq`
+            Prelude.rnf nextToken `Prelude.seq`
+              Prelude.rnf verifiedAccessInstanceIds
 
 instance
   Data.ToHeaders
@@ -311,6 +311,6 @@ instance
   where
   rnf
     DescribeVerifiedAccessInstanceLoggingConfigurationsResponse' {..} =
-      Prelude.rnf loggingConfigurations
-        `Prelude.seq` Prelude.rnf nextToken
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf loggingConfigurations `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf httpStatus

@@ -191,9 +191,7 @@ instance Data.FromXML KeyPairInfo where
       Prelude.<*> (x Data..@? "keyPairId")
       Prelude.<*> (x Data..@? "keyType")
       Prelude.<*> (x Data..@? "publicKey")
-      Prelude.<*> ( x
-                      Data..@? "tagSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
@@ -210,10 +208,10 @@ instance Prelude.Hashable KeyPairInfo where
 
 instance Prelude.NFData KeyPairInfo where
   rnf KeyPairInfo' {..} =
-    Prelude.rnf createTime
-      `Prelude.seq` Prelude.rnf keyFingerprint
-      `Prelude.seq` Prelude.rnf keyName
-      `Prelude.seq` Prelude.rnf keyPairId
-      `Prelude.seq` Prelude.rnf keyType
-      `Prelude.seq` Prelude.rnf publicKey
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf createTime `Prelude.seq`
+      Prelude.rnf keyFingerprint `Prelude.seq`
+        Prelude.rnf keyName `Prelude.seq`
+          Prelude.rnf keyPairId `Prelude.seq`
+            Prelude.rnf keyType `Prelude.seq`
+              Prelude.rnf publicKey `Prelude.seq`
+                Prelude.rnf tags

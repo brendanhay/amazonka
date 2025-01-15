@@ -120,5 +120,5 @@ instance
   where
   rnf
     LaunchTemplateCapacityReservationSpecificationResponse' {..} =
-      Prelude.rnf capacityReservationPreference
-        `Prelude.seq` Prelude.rnf capacityReservationTarget
+      Prelude.rnf capacityReservationPreference `Prelude.seq`
+        Prelude.rnf capacityReservationTarget

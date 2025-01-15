@@ -70,9 +70,7 @@ instanceStatusSummary_status = Lens.lens (\InstanceStatusSummary' {status} -> st
 instance Data.FromXML InstanceStatusSummary where
   parseXML x =
     InstanceStatusSummary'
-      Prelude.<$> ( x
-                      Data..@? "details"
-                      Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "details" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@ "status")
@@ -85,5 +83,5 @@ instance Prelude.Hashable InstanceStatusSummary where
 
 instance Prelude.NFData InstanceStatusSummary where
   rnf InstanceStatusSummary' {..} =
-    Prelude.rnf details
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf details `Prelude.seq`
+      Prelude.rnf status

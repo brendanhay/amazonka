@@ -368,12 +368,12 @@ instance Core.AWSPager DescribeLaunchTemplateVersions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeLaunchTemplateVersions_nextToken
-          Lens..~ rs
-          Lens.^? describeLaunchTemplateVersionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeLaunchTemplateVersions_nextToken
+              Lens..~ rs
+              Lens.^? describeLaunchTemplateVersionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -420,15 +420,15 @@ instance
     DescribeLaunchTemplateVersions
   where
   rnf DescribeLaunchTemplateVersions' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf launchTemplateId
-      `Prelude.seq` Prelude.rnf launchTemplateName
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf maxVersion
-      `Prelude.seq` Prelude.rnf minVersion
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf versions
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf launchTemplateId `Prelude.seq`
+          Prelude.rnf launchTemplateName `Prelude.seq`
+            Prelude.rnf maxResults `Prelude.seq`
+              Prelude.rnf maxVersion `Prelude.seq`
+                Prelude.rnf minVersion `Prelude.seq`
+                  Prelude.rnf nextToken `Prelude.seq`
+                    Prelude.rnf versions
 
 instance
   Data.ToHeaders
@@ -520,6 +520,6 @@ instance
     DescribeLaunchTemplateVersionsResponse
   where
   rnf DescribeLaunchTemplateVersionsResponse' {..} =
-    Prelude.rnf launchTemplateVersions
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf launchTemplateVersions `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -57,9 +57,7 @@ targetGroupsConfig_targetGroups = Lens.lens (\TargetGroupsConfig' {targetGroups}
 instance Data.FromXML TargetGroupsConfig where
   parseXML x =
     TargetGroupsConfig'
-      Prelude.<$> ( x
-                      Data..@? "targetGroups"
-                      Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "targetGroups" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList1 "item")
                   )
 

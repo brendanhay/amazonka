@@ -80,5 +80,5 @@ instance Prelude.Hashable PathStatement where
 
 instance Prelude.NFData PathStatement where
   rnf PathStatement' {..} =
-    Prelude.rnf packetHeaderStatement
-      `Prelude.seq` Prelude.rnf resourceStatement
+    Prelude.rnf packetHeaderStatement `Prelude.seq`
+      Prelude.rnf resourceStatement

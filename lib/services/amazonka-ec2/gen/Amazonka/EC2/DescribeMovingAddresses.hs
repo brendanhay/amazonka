@@ -171,12 +171,12 @@ instance Core.AWSPager DescribeMovingAddresses where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeMovingAddresses_nextToken
-          Lens..~ rs
-          Lens.^? describeMovingAddressesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeMovingAddresses_nextToken
+              Lens..~ rs
+              Lens.^? describeMovingAddressesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeMovingAddresses where
   type
@@ -208,11 +208,11 @@ instance Prelude.Hashable DescribeMovingAddresses where
 
 instance Prelude.NFData DescribeMovingAddresses where
   rnf DescribeMovingAddresses' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf publicIps
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf publicIps
 
 instance Data.ToHeaders DescribeMovingAddresses where
   toHeaders = Prelude.const Prelude.mempty
@@ -292,6 +292,6 @@ instance
     DescribeMovingAddressesResponse
   where
   rnf DescribeMovingAddressesResponse' {..} =
-    Prelude.rnf movingAddressStatuses
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf movingAddressStatuses `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

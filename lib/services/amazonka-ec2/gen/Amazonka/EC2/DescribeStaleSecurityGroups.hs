@@ -147,12 +147,12 @@ instance Core.AWSPager DescribeStaleSecurityGroups where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeStaleSecurityGroups_nextToken
-          Lens..~ rs
-          Lens.^? describeStaleSecurityGroupsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeStaleSecurityGroups_nextToken
+              Lens..~ rs
+              Lens.^? describeStaleSecurityGroupsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeStaleSecurityGroups where
   type
@@ -183,10 +183,10 @@ instance Prelude.Hashable DescribeStaleSecurityGroups where
 
 instance Prelude.NFData DescribeStaleSecurityGroups where
   rnf DescribeStaleSecurityGroups' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf vpcId
 
 instance Data.ToHeaders DescribeStaleSecurityGroups where
   toHeaders = Prelude.const Prelude.mempty
@@ -266,6 +266,6 @@ instance
     DescribeStaleSecurityGroupsResponse
   where
   rnf DescribeStaleSecurityGroupsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf staleSecurityGroupSet
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf staleSecurityGroupSet `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -238,13 +238,13 @@ instance Prelude.Hashable CreateReplaceRootVolumeTask where
 
 instance Prelude.NFData CreateReplaceRootVolumeTask where
   rnf CreateReplaceRootVolumeTask' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf deleteReplacedRootVolume
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf imageId
-      `Prelude.seq` Prelude.rnf snapshotId
-      `Prelude.seq` Prelude.rnf tagSpecifications
-      `Prelude.seq` Prelude.rnf instanceId
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf deleteReplacedRootVolume `Prelude.seq`
+        Prelude.rnf dryRun `Prelude.seq`
+          Prelude.rnf imageId `Prelude.seq`
+            Prelude.rnf snapshotId `Prelude.seq`
+              Prelude.rnf tagSpecifications `Prelude.seq`
+                Prelude.rnf instanceId
 
 instance Data.ToHeaders CreateReplaceRootVolumeTask where
   toHeaders = Prelude.const Prelude.mempty
@@ -318,5 +318,5 @@ instance
     CreateReplaceRootVolumeTaskResponse
   where
   rnf CreateReplaceRootVolumeTaskResponse' {..} =
-    Prelude.rnf replaceRootVolumeTask
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf replaceRootVolumeTask `Prelude.seq`
+      Prelude.rnf httpStatus

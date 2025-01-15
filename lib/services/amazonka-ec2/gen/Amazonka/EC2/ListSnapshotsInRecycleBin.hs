@@ -141,12 +141,12 @@ instance Core.AWSPager ListSnapshotsInRecycleBin where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listSnapshotsInRecycleBin_nextToken
-          Lens..~ rs
-          Lens.^? listSnapshotsInRecycleBinResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listSnapshotsInRecycleBin_nextToken
+              Lens..~ rs
+              Lens.^? listSnapshotsInRecycleBinResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSnapshotsInRecycleBin where
   type
@@ -159,9 +159,7 @@ instance Core.AWSRequest ListSnapshotsInRecycleBin where
       ( \s h x ->
           ListSnapshotsInRecycleBinResponse'
             Prelude.<$> (x Data..@? "nextToken")
-            Prelude.<*> ( x
-                            Data..@? "snapshotSet"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "snapshotSet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -177,10 +175,10 @@ instance Prelude.Hashable ListSnapshotsInRecycleBin where
 
 instance Prelude.NFData ListSnapshotsInRecycleBin where
   rnf ListSnapshotsInRecycleBin' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf snapshotIds
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf snapshotIds
 
 instance Data.ToHeaders ListSnapshotsInRecycleBin where
   toHeaders = Prelude.const Prelude.mempty
@@ -260,6 +258,6 @@ instance
     ListSnapshotsInRecycleBinResponse
   where
   rnf ListSnapshotsInRecycleBinResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf snapshots
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf snapshots `Prelude.seq`
+        Prelude.rnf httpStatus

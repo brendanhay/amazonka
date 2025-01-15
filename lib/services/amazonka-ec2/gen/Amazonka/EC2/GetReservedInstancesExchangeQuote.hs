@@ -171,9 +171,9 @@ instance
     GetReservedInstancesExchangeQuote
   where
   rnf GetReservedInstancesExchangeQuote' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf targetConfigurations
-      `Prelude.seq` Prelude.rnf reservedInstanceIds
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf targetConfigurations `Prelude.seq`
+        Prelude.rnf reservedInstanceIds
 
 instance
   Data.ToHeaders
@@ -338,13 +338,13 @@ instance
     GetReservedInstancesExchangeQuoteResponse
   where
   rnf GetReservedInstancesExchangeQuoteResponse' {..} =
-    Prelude.rnf currencyCode
-      `Prelude.seq` Prelude.rnf isValidExchange
-      `Prelude.seq` Prelude.rnf outputReservedInstancesWillExpireAt
-      `Prelude.seq` Prelude.rnf paymentDue
-      `Prelude.seq` Prelude.rnf reservedInstanceValueRollup
-      `Prelude.seq` Prelude.rnf reservedInstanceValueSet
-      `Prelude.seq` Prelude.rnf targetConfigurationValueRollup
-      `Prelude.seq` Prelude.rnf targetConfigurationValueSet
-      `Prelude.seq` Prelude.rnf validationFailureReason
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf currencyCode `Prelude.seq`
+      Prelude.rnf isValidExchange `Prelude.seq`
+        Prelude.rnf outputReservedInstancesWillExpireAt `Prelude.seq`
+          Prelude.rnf paymentDue `Prelude.seq`
+            Prelude.rnf reservedInstanceValueRollup `Prelude.seq`
+              Prelude.rnf reservedInstanceValueSet `Prelude.seq`
+                Prelude.rnf targetConfigurationValueRollup `Prelude.seq`
+                  Prelude.rnf targetConfigurationValueSet `Prelude.seq`
+                    Prelude.rnf validationFailureReason `Prelude.seq`
+                      Prelude.rnf httpStatus

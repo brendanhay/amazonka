@@ -137,9 +137,7 @@ instance Data.FromXML PlacementGroup where
       Prelude.<*> (x Data..@? "spreadLevel")
       Prelude.<*> (x Data..@? "state")
       Prelude.<*> (x Data..@? "strategy")
-      Prelude.<*> ( x
-                      Data..@? "tagSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
@@ -157,11 +155,11 @@ instance Prelude.Hashable PlacementGroup where
 
 instance Prelude.NFData PlacementGroup where
   rnf PlacementGroup' {..} =
-    Prelude.rnf groupArn
-      `Prelude.seq` Prelude.rnf groupId
-      `Prelude.seq` Prelude.rnf groupName
-      `Prelude.seq` Prelude.rnf partitionCount
-      `Prelude.seq` Prelude.rnf spreadLevel
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf strategy
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf groupArn `Prelude.seq`
+      Prelude.rnf groupId `Prelude.seq`
+        Prelude.rnf groupName `Prelude.seq`
+          Prelude.rnf partitionCount `Prelude.seq`
+            Prelude.rnf spreadLevel `Prelude.seq`
+              Prelude.rnf state `Prelude.seq`
+                Prelude.rnf strategy `Prelude.seq`
+                  Prelude.rnf tags

@@ -196,12 +196,12 @@ instance Core.AWSPager GetIpamAddressHistory where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getIpamAddressHistory_nextToken
-          Lens..~ rs
-          Lens.^? getIpamAddressHistoryResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getIpamAddressHistory_nextToken
+              Lens..~ rs
+              Lens.^? getIpamAddressHistoryResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetIpamAddressHistory where
   type
@@ -236,14 +236,14 @@ instance Prelude.Hashable GetIpamAddressHistory where
 
 instance Prelude.NFData GetIpamAddressHistory where
   rnf GetIpamAddressHistory' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf vpcId
-      `Prelude.seq` Prelude.rnf cidr
-      `Prelude.seq` Prelude.rnf ipamScopeId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf endTime `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf startTime `Prelude.seq`
+              Prelude.rnf vpcId `Prelude.seq`
+                Prelude.rnf cidr `Prelude.seq`
+                  Prelude.rnf ipamScopeId
 
 instance Data.ToHeaders GetIpamAddressHistory where
   toHeaders = Prelude.const Prelude.mempty
@@ -327,6 +327,6 @@ getIpamAddressHistoryResponse_httpStatus = Lens.lens (\GetIpamAddressHistoryResp
 
 instance Prelude.NFData GetIpamAddressHistoryResponse where
   rnf GetIpamAddressHistoryResponse' {..} =
-    Prelude.rnf historyRecords
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf historyRecords `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

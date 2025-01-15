@@ -157,10 +157,10 @@ instance
     EnableTransitGatewayRouteTablePropagation
   where
   rnf EnableTransitGatewayRouteTablePropagation' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf transitGatewayAttachmentId
-      `Prelude.seq` Prelude.rnf transitGatewayRouteTableAnnouncementId
-      `Prelude.seq` Prelude.rnf transitGatewayRouteTableId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf transitGatewayAttachmentId `Prelude.seq`
+        Prelude.rnf transitGatewayRouteTableAnnouncementId `Prelude.seq`
+          Prelude.rnf transitGatewayRouteTableId
 
 instance
   Data.ToHeaders
@@ -243,5 +243,5 @@ instance
   where
   rnf
     EnableTransitGatewayRouteTablePropagationResponse' {..} =
-      Prelude.rnf propagation
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf propagation `Prelude.seq`
+        Prelude.rnf httpStatus

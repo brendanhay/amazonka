@@ -207,16 +207,16 @@ instance
 
 instance Prelude.NFData ScheduledInstanceAvailability where
   rnf ScheduledInstanceAvailability' {..} =
-    Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf availableInstanceCount
-      `Prelude.seq` Prelude.rnf firstSlotStartTime
-      `Prelude.seq` Prelude.rnf hourlyPrice
-      `Prelude.seq` Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf maxTermDurationInDays
-      `Prelude.seq` Prelude.rnf minTermDurationInDays
-      `Prelude.seq` Prelude.rnf networkPlatform
-      `Prelude.seq` Prelude.rnf platform
-      `Prelude.seq` Prelude.rnf purchaseToken
-      `Prelude.seq` Prelude.rnf recurrence
-      `Prelude.seq` Prelude.rnf slotDurationInHours
-      `Prelude.seq` Prelude.rnf totalScheduledInstanceHours
+    Prelude.rnf availabilityZone `Prelude.seq`
+      Prelude.rnf availableInstanceCount `Prelude.seq`
+        Prelude.rnf firstSlotStartTime `Prelude.seq`
+          Prelude.rnf hourlyPrice `Prelude.seq`
+            Prelude.rnf instanceType `Prelude.seq`
+              Prelude.rnf maxTermDurationInDays `Prelude.seq`
+                Prelude.rnf minTermDurationInDays `Prelude.seq`
+                  Prelude.rnf networkPlatform `Prelude.seq`
+                    Prelude.rnf platform `Prelude.seq`
+                      Prelude.rnf purchaseToken `Prelude.seq`
+                        Prelude.rnf recurrence `Prelude.seq`
+                          Prelude.rnf slotDurationInHours `Prelude.seq`
+                            Prelude.rnf totalScheduledInstanceHours

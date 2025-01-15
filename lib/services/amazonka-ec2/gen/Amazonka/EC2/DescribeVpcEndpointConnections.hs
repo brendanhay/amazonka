@@ -184,12 +184,12 @@ instance Core.AWSPager DescribeVpcEndpointConnections where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeVpcEndpointConnections_nextToken
-          Lens..~ rs
-          Lens.^? describeVpcEndpointConnectionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeVpcEndpointConnections_nextToken
+              Lens..~ rs
+              Lens.^? describeVpcEndpointConnectionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -231,10 +231,10 @@ instance
     DescribeVpcEndpointConnections
   where
   rnf DescribeVpcEndpointConnections' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken
 
 instance
   Data.ToHeaders
@@ -319,6 +319,6 @@ instance
     DescribeVpcEndpointConnectionsResponse
   where
   rnf DescribeVpcEndpointConnectionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf vpcEndpointConnections
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf vpcEndpointConnections `Prelude.seq`
+        Prelude.rnf httpStatus

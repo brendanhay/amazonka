@@ -171,9 +171,7 @@ instance Core.AWSRequest TerminateInstances where
     Response.receiveXML
       ( \s h x ->
           TerminateInstancesResponse'
-            Prelude.<$> ( x
-                            Data..@? "instancesSet"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "instancesSet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -187,8 +185,8 @@ instance Prelude.Hashable TerminateInstances where
 
 instance Prelude.NFData TerminateInstances where
   rnf TerminateInstances' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf instanceIds
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf instanceIds
 
 instance Data.ToHeaders TerminateInstances where
   toHeaders = Prelude.const Prelude.mempty
@@ -248,5 +246,5 @@ terminateInstancesResponse_httpStatus = Lens.lens (\TerminateInstancesResponse' 
 
 instance Prelude.NFData TerminateInstancesResponse where
   rnf TerminateInstancesResponse' {..} =
-    Prelude.rnf terminatingInstances
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf terminatingInstances `Prelude.seq`
+      Prelude.rnf httpStatus

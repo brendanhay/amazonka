@@ -108,9 +108,7 @@ instance Data.FromXML VerifiedAccessInstance where
       Prelude.<$> (x Data..@? "creationTime")
       Prelude.<*> (x Data..@? "description")
       Prelude.<*> (x Data..@? "lastUpdatedTime")
-      Prelude.<*> ( x
-                      Data..@? "tagSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "verifiedAccessInstanceId")
@@ -132,9 +130,9 @@ instance Prelude.Hashable VerifiedAccessInstance where
 
 instance Prelude.NFData VerifiedAccessInstance where
   rnf VerifiedAccessInstance' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf verifiedAccessInstanceId
-      `Prelude.seq` Prelude.rnf verifiedAccessTrustProviders
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf lastUpdatedTime `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf verifiedAccessInstanceId `Prelude.seq`
+              Prelude.rnf verifiedAccessTrustProviders

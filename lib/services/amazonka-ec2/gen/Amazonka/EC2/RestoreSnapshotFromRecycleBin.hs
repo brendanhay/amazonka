@@ -144,8 +144,8 @@ instance
 
 instance Prelude.NFData RestoreSnapshotFromRecycleBin where
   rnf RestoreSnapshotFromRecycleBin' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf snapshotId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf snapshotId
 
 instance Data.ToHeaders RestoreSnapshotFromRecycleBin where
   toHeaders = Prelude.const Prelude.mempty
@@ -300,14 +300,14 @@ instance
     RestoreSnapshotFromRecycleBinResponse
   where
   rnf RestoreSnapshotFromRecycleBinResponse' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf encrypted
-      `Prelude.seq` Prelude.rnf outpostArn
-      `Prelude.seq` Prelude.rnf ownerId
-      `Prelude.seq` Prelude.rnf progress
-      `Prelude.seq` Prelude.rnf snapshotId
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf volumeId
-      `Prelude.seq` Prelude.rnf volumeSize
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf encrypted `Prelude.seq`
+        Prelude.rnf outpostArn `Prelude.seq`
+          Prelude.rnf ownerId `Prelude.seq`
+            Prelude.rnf progress `Prelude.seq`
+              Prelude.rnf snapshotId `Prelude.seq`
+                Prelude.rnf startTime `Prelude.seq`
+                  Prelude.rnf state `Prelude.seq`
+                    Prelude.rnf volumeId `Prelude.seq`
+                      Prelude.rnf volumeSize `Prelude.seq`
+                        Prelude.rnf httpStatus

@@ -120,8 +120,8 @@ instance Prelude.Hashable CancelBundleTask where
 
 instance Prelude.NFData CancelBundleTask where
   rnf CancelBundleTask' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf bundleId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf bundleId
 
 instance Data.ToHeaders CancelBundleTask where
   toHeaders = Prelude.const Prelude.mempty
@@ -183,5 +183,5 @@ cancelBundleTaskResponse_httpStatus = Lens.lens (\CancelBundleTaskResponse' {htt
 
 instance Prelude.NFData CancelBundleTaskResponse where
   rnf CancelBundleTaskResponse' {..} =
-    Prelude.rnf bundleTask
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf bundleTask `Prelude.seq`
+      Prelude.rnf httpStatus

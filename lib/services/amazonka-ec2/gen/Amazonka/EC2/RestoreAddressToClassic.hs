@@ -127,8 +127,8 @@ instance Prelude.Hashable RestoreAddressToClassic where
 
 instance Prelude.NFData RestoreAddressToClassic where
   rnf RestoreAddressToClassic' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf publicIp
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf publicIp
 
 instance Data.ToHeaders RestoreAddressToClassic where
   toHeaders = Prelude.const Prelude.mempty
@@ -200,6 +200,6 @@ instance
     RestoreAddressToClassicResponse
   where
   rnf RestoreAddressToClassicResponse' {..} =
-    Prelude.rnf publicIp
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf publicIp `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf httpStatus

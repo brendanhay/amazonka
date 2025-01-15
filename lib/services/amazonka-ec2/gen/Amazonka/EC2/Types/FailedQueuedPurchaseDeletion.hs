@@ -82,5 +82,5 @@ instance
 
 instance Prelude.NFData FailedQueuedPurchaseDeletion where
   rnf FailedQueuedPurchaseDeletion' {..} =
-    Prelude.rnf error
-      `Prelude.seq` Prelude.rnf reservedInstancesId
+    Prelude.rnf error `Prelude.seq`
+      Prelude.rnf reservedInstancesId

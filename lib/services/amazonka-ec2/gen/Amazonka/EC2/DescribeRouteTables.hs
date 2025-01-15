@@ -366,12 +366,12 @@ instance Core.AWSPager DescribeRouteTables where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeRouteTables_nextToken
-          Lens..~ rs
-          Lens.^? describeRouteTablesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeRouteTables_nextToken
+              Lens..~ rs
+              Lens.^? describeRouteTablesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeRouteTables where
   type
@@ -384,9 +384,7 @@ instance Core.AWSRequest DescribeRouteTables where
       ( \s h x ->
           DescribeRouteTablesResponse'
             Prelude.<$> (x Data..@? "nextToken")
-            Prelude.<*> ( x
-                            Data..@? "routeTableSet"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "routeTableSet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -403,11 +401,11 @@ instance Prelude.Hashable DescribeRouteTables where
 
 instance Prelude.NFData DescribeRouteTables where
   rnf DescribeRouteTables' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf routeTableIds
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf routeTableIds
 
 instance Data.ToHeaders DescribeRouteTables where
   toHeaders = Prelude.const Prelude.mempty
@@ -488,6 +486,6 @@ describeRouteTablesResponse_httpStatus = Lens.lens (\DescribeRouteTablesResponse
 
 instance Prelude.NFData DescribeRouteTablesResponse where
   rnf DescribeRouteTablesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf routeTables
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf routeTables `Prelude.seq`
+        Prelude.rnf httpStatus

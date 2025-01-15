@@ -215,9 +215,7 @@ instance Core.AWSRequest DescribeVpnGateways where
     Response.receiveXML
       ( \s h x ->
           DescribeVpnGatewaysResponse'
-            Prelude.<$> ( x
-                            Data..@? "vpnGatewaySet"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "vpnGatewaySet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -232,9 +230,9 @@ instance Prelude.Hashable DescribeVpnGateways where
 
 instance Prelude.NFData DescribeVpnGateways where
   rnf DescribeVpnGateways' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf vpnGatewayIds
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf vpnGatewayIds
 
 instance Data.ToHeaders DescribeVpnGateways where
   toHeaders = Prelude.const Prelude.mempty
@@ -301,5 +299,5 @@ describeVpnGatewaysResponse_httpStatus = Lens.lens (\DescribeVpnGatewaysResponse
 
 instance Prelude.NFData DescribeVpnGatewaysResponse where
   rnf DescribeVpnGatewaysResponse' {..} =
-    Prelude.rnf vpnGateways
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf vpnGateways `Prelude.seq`
+      Prelude.rnf httpStatus

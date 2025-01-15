@@ -163,12 +163,12 @@ instance Prelude.Hashable NetworkInterfaceAttachment where
 
 instance Prelude.NFData NetworkInterfaceAttachment where
   rnf NetworkInterfaceAttachment' {..} =
-    Prelude.rnf attachTime
-      `Prelude.seq` Prelude.rnf attachmentId
-      `Prelude.seq` Prelude.rnf deleteOnTermination
-      `Prelude.seq` Prelude.rnf deviceIndex
-      `Prelude.seq` Prelude.rnf enaSrdSpecification
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf instanceOwnerId
-      `Prelude.seq` Prelude.rnf networkCardIndex
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf attachTime `Prelude.seq`
+      Prelude.rnf attachmentId `Prelude.seq`
+        Prelude.rnf deleteOnTermination `Prelude.seq`
+          Prelude.rnf deviceIndex `Prelude.seq`
+            Prelude.rnf enaSrdSpecification `Prelude.seq`
+              Prelude.rnf instanceId `Prelude.seq`
+                Prelude.rnf instanceOwnerId `Prelude.seq`
+                  Prelude.rnf networkCardIndex `Prelude.seq`
+                    Prelude.rnf status

@@ -137,9 +137,9 @@ instance Prelude.Hashable EnableAddressTransfer where
 
 instance Prelude.NFData EnableAddressTransfer where
   rnf EnableAddressTransfer' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf allocationId
-      `Prelude.seq` Prelude.rnf transferAccountId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf allocationId `Prelude.seq`
+        Prelude.rnf transferAccountId
 
 instance Data.ToHeaders EnableAddressTransfer where
   toHeaders = Prelude.const Prelude.mempty
@@ -200,5 +200,5 @@ enableAddressTransferResponse_httpStatus = Lens.lens (\EnableAddressTransferResp
 
 instance Prelude.NFData EnableAddressTransferResponse where
   rnf EnableAddressTransferResponse' {..} =
-    Prelude.rnf addressTransfer
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf addressTransfer `Prelude.seq`
+      Prelude.rnf httpStatus

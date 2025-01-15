@@ -92,8 +92,8 @@ instance
     DnsServersOptionsModifyStructure
   where
   rnf DnsServersOptionsModifyStructure' {..} =
-    Prelude.rnf customDnsServers
-      `Prelude.seq` Prelude.rnf enabled
+    Prelude.rnf customDnsServers `Prelude.seq`
+      Prelude.rnf enabled
 
 instance
   Data.ToQuery

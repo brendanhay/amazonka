@@ -247,13 +247,13 @@ instance Prelude.Hashable ModifyCapacityReservation where
 
 instance Prelude.NFData ModifyCapacityReservation where
   rnf ModifyCapacityReservation' {..} =
-    Prelude.rnf accept
-      `Prelude.seq` Prelude.rnf additionalInfo
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf endDate
-      `Prelude.seq` Prelude.rnf endDateType
-      `Prelude.seq` Prelude.rnf instanceCount
-      `Prelude.seq` Prelude.rnf capacityReservationId
+    Prelude.rnf accept `Prelude.seq`
+      Prelude.rnf additionalInfo `Prelude.seq`
+        Prelude.rnf dryRun `Prelude.seq`
+          Prelude.rnf endDate `Prelude.seq`
+            Prelude.rnf endDateType `Prelude.seq`
+              Prelude.rnf instanceCount `Prelude.seq`
+                Prelude.rnf capacityReservationId
 
 instance Data.ToHeaders ModifyCapacityReservation where
   toHeaders = Prelude.const Prelude.mempty
@@ -322,5 +322,5 @@ instance
     ModifyCapacityReservationResponse
   where
   rnf ModifyCapacityReservationResponse' {..} =
-    Prelude.rnf return'
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf return' `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -80,5 +80,5 @@ instance Prelude.Hashable RouteTableAssociationState where
 
 instance Prelude.NFData RouteTableAssociationState where
   rnf RouteTableAssociationState' {..} =
-    Prelude.rnf state
-      `Prelude.seq` Prelude.rnf statusMessage
+    Prelude.rnf state `Prelude.seq`
+      Prelude.rnf statusMessage

@@ -181,12 +181,12 @@ instance Core.AWSPager DescribeSecurityGroupRules where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeSecurityGroupRules_nextToken
-          Lens..~ rs
-          Lens.^? describeSecurityGroupRulesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeSecurityGroupRules_nextToken
+              Lens..~ rs
+              Lens.^? describeSecurityGroupRulesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeSecurityGroupRules where
   type
@@ -218,11 +218,11 @@ instance Prelude.Hashable DescribeSecurityGroupRules where
 
 instance Prelude.NFData DescribeSecurityGroupRules where
   rnf DescribeSecurityGroupRules' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf securityGroupRuleIds
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf securityGroupRuleIds
 
 instance Data.ToHeaders DescribeSecurityGroupRules where
   toHeaders = Prelude.const Prelude.mempty
@@ -304,6 +304,6 @@ instance
     DescribeSecurityGroupRulesResponse
   where
   rnf DescribeSecurityGroupRulesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf securityGroupRules
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf securityGroupRules `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -164,9 +164,9 @@ instance
     AssociateEnclaveCertificateIamRole
   where
   rnf AssociateEnclaveCertificateIamRole' {..} =
-    Prelude.rnf certificateArn
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf certificateArn `Prelude.seq`
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf roleArn
 
 instance
   Data.ToHeaders
@@ -271,7 +271,7 @@ instance
     AssociateEnclaveCertificateIamRoleResponse
   where
   rnf AssociateEnclaveCertificateIamRoleResponse' {..} =
-    Prelude.rnf certificateS3BucketName
-      `Prelude.seq` Prelude.rnf certificateS3ObjectKey
-      `Prelude.seq` Prelude.rnf encryptionKmsKeyId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf certificateS3BucketName `Prelude.seq`
+      Prelude.rnf certificateS3ObjectKey `Prelude.seq`
+        Prelude.rnf encryptionKmsKeyId `Prelude.seq`
+          Prelude.rnf httpStatus

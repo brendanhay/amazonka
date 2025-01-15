@@ -147,12 +147,12 @@ instance Core.AWSPager DescribeIpamPools where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeIpamPools_nextToken
-          Lens..~ rs
-          Lens.^? describeIpamPoolsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeIpamPools_nextToken
+              Lens..~ rs
+              Lens.^? describeIpamPoolsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeIpamPools where
   type
@@ -164,9 +164,7 @@ instance Core.AWSRequest DescribeIpamPools where
     Response.receiveXML
       ( \s h x ->
           DescribeIpamPoolsResponse'
-            Prelude.<$> ( x
-                            Data..@? "ipamPoolSet"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "ipamPoolSet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (x Data..@? "nextToken")
@@ -184,11 +182,11 @@ instance Prelude.Hashable DescribeIpamPools where
 
 instance Prelude.NFData DescribeIpamPools where
   rnf DescribeIpamPools' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf ipamPoolIds
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf ipamPoolIds `Prelude.seq`
+          Prelude.rnf maxResults `Prelude.seq`
+            Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeIpamPools where
   toHeaders = Prelude.const Prelude.mempty
@@ -267,6 +265,6 @@ describeIpamPoolsResponse_httpStatus = Lens.lens (\DescribeIpamPoolsResponse' {h
 
 instance Prelude.NFData DescribeIpamPoolsResponse where
   rnf DescribeIpamPoolsResponse' {..} =
-    Prelude.rnf ipamPools
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf ipamPools `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

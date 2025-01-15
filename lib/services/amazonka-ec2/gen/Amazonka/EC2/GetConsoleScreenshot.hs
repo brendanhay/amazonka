@@ -136,9 +136,9 @@ instance Prelude.Hashable GetConsoleScreenshot where
 
 instance Prelude.NFData GetConsoleScreenshot where
   rnf GetConsoleScreenshot' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf wakeUp
-      `Prelude.seq` Prelude.rnf instanceId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf wakeUp `Prelude.seq`
+        Prelude.rnf instanceId
 
 instance Data.ToHeaders GetConsoleScreenshot where
   toHeaders = Prelude.const Prelude.mempty
@@ -208,6 +208,6 @@ getConsoleScreenshotResponse_httpStatus = Lens.lens (\GetConsoleScreenshotRespon
 
 instance Prelude.NFData GetConsoleScreenshotResponse where
   rnf GetConsoleScreenshotResponse' {..} =
-    Prelude.rnf imageData
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf imageData `Prelude.seq`
+      Prelude.rnf instanceId `Prelude.seq`
+        Prelude.rnf httpStatus

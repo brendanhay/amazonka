@@ -109,9 +109,7 @@ instance
       ( \s h x ->
           GetHostReservationPurchasePreviewResponse'
             Prelude.<$> (x Data..@? "currencyCode")
-            Prelude.<*> ( x
-                            Data..@? "purchase"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "purchase" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (x Data..@? "totalHourlyPrice")
@@ -135,8 +133,8 @@ instance
     GetHostReservationPurchasePreview
   where
   rnf GetHostReservationPurchasePreview' {..} =
-    Prelude.rnf hostIdSet
-      `Prelude.seq` Prelude.rnf offeringId
+    Prelude.rnf hostIdSet `Prelude.seq`
+      Prelude.rnf offeringId
 
 instance
   Data.ToHeaders
@@ -249,8 +247,8 @@ instance
     GetHostReservationPurchasePreviewResponse
   where
   rnf GetHostReservationPurchasePreviewResponse' {..} =
-    Prelude.rnf currencyCode
-      `Prelude.seq` Prelude.rnf purchase
-      `Prelude.seq` Prelude.rnf totalHourlyPrice
-      `Prelude.seq` Prelude.rnf totalUpfrontPrice
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf currencyCode `Prelude.seq`
+      Prelude.rnf purchase `Prelude.seq`
+        Prelude.rnf totalHourlyPrice `Prelude.seq`
+          Prelude.rnf totalUpfrontPrice `Prelude.seq`
+            Prelude.rnf httpStatus

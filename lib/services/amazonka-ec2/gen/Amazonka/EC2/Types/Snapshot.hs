@@ -313,9 +313,7 @@ instance Data.FromXML Snapshot where
       Prelude.<*> (x Data..@? "restoreExpiryTime")
       Prelude.<*> (x Data..@? "statusMessage")
       Prelude.<*> (x Data..@? "storageTier")
-      Prelude.<*> ( x
-                      Data..@? "tagSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@ "snapshotId")
@@ -351,20 +349,20 @@ instance Prelude.Hashable Snapshot where
 
 instance Prelude.NFData Snapshot where
   rnf Snapshot' {..} =
-    Prelude.rnf dataEncryptionKeyId
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf outpostArn
-      `Prelude.seq` Prelude.rnf ownerAlias
-      `Prelude.seq` Prelude.rnf restoreExpiryTime
-      `Prelude.seq` Prelude.rnf stateMessage
-      `Prelude.seq` Prelude.rnf storageTier
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf snapshotId
-      `Prelude.seq` Prelude.rnf ownerId
-      `Prelude.seq` Prelude.rnf volumeId
-      `Prelude.seq` Prelude.rnf volumeSize
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf progress
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf encrypted
+    Prelude.rnf dataEncryptionKeyId `Prelude.seq`
+      Prelude.rnf kmsKeyId `Prelude.seq`
+        Prelude.rnf outpostArn `Prelude.seq`
+          Prelude.rnf ownerAlias `Prelude.seq`
+            Prelude.rnf restoreExpiryTime `Prelude.seq`
+              Prelude.rnf stateMessage `Prelude.seq`
+                Prelude.rnf storageTier `Prelude.seq`
+                  Prelude.rnf tags `Prelude.seq`
+                    Prelude.rnf snapshotId `Prelude.seq`
+                      Prelude.rnf ownerId `Prelude.seq`
+                        Prelude.rnf volumeId `Prelude.seq`
+                          Prelude.rnf volumeSize `Prelude.seq`
+                            Prelude.rnf description `Prelude.seq`
+                              Prelude.rnf startTime `Prelude.seq`
+                                Prelude.rnf progress `Prelude.seq`
+                                  Prelude.rnf state `Prelude.seq`
+                                    Prelude.rnf encrypted

@@ -140,9 +140,9 @@ instance
 
 instance Prelude.NFData DeleteVerifiedAccessEndpoint where
   rnf DeleteVerifiedAccessEndpoint' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf verifiedAccessEndpointId
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf verifiedAccessEndpointId
 
 instance Data.ToHeaders DeleteVerifiedAccessEndpoint where
   toHeaders = Prelude.const Prelude.mempty
@@ -209,5 +209,5 @@ instance
     DeleteVerifiedAccessEndpointResponse
   where
   rnf DeleteVerifiedAccessEndpointResponse' {..} =
-    Prelude.rnf verifiedAccessEndpoint
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf verifiedAccessEndpoint `Prelude.seq`
+      Prelude.rnf httpStatus

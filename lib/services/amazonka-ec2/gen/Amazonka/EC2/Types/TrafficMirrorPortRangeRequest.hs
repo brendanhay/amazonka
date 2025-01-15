@@ -81,8 +81,8 @@ instance
 
 instance Prelude.NFData TrafficMirrorPortRangeRequest where
   rnf TrafficMirrorPortRangeRequest' {..} =
-    Prelude.rnf fromPort
-      `Prelude.seq` Prelude.rnf toPort
+    Prelude.rnf fromPort `Prelude.seq`
+      Prelude.rnf toPort
 
 instance Data.ToQuery TrafficMirrorPortRangeRequest where
   toQuery TrafficMirrorPortRangeRequest' {..} =

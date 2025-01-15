@@ -211,11 +211,11 @@ instance Prelude.Hashable GetSubnetCidrReservations where
 
 instance Prelude.NFData GetSubnetCidrReservations where
   rnf GetSubnetCidrReservations' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf subnetId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf subnetId
 
 instance Data.ToHeaders GetSubnetCidrReservations where
   toHeaders = Prelude.const Prelude.mempty
@@ -305,7 +305,7 @@ instance
     GetSubnetCidrReservationsResponse
   where
   rnf GetSubnetCidrReservationsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf subnetIpv4CidrReservations
-      `Prelude.seq` Prelude.rnf subnetIpv6CidrReservations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf subnetIpv4CidrReservations `Prelude.seq`
+        Prelude.rnf subnetIpv6CidrReservations `Prelude.seq`
+          Prelude.rnf httpStatus

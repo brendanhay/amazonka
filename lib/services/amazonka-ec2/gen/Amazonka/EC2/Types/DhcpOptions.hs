@@ -96,9 +96,7 @@ instance Data.FromXML DhcpOptions where
                   )
       Prelude.<*> (x Data..@? "dhcpOptionsId")
       Prelude.<*> (x Data..@? "ownerId")
-      Prelude.<*> ( x
-                      Data..@? "tagSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
@@ -112,7 +110,7 @@ instance Prelude.Hashable DhcpOptions where
 
 instance Prelude.NFData DhcpOptions where
   rnf DhcpOptions' {..} =
-    Prelude.rnf dhcpConfigurations
-      `Prelude.seq` Prelude.rnf dhcpOptionsId
-      `Prelude.seq` Prelude.rnf ownerId
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf dhcpConfigurations `Prelude.seq`
+      Prelude.rnf dhcpOptionsId `Prelude.seq`
+        Prelude.rnf ownerId `Prelude.seq`
+          Prelude.rnf tags

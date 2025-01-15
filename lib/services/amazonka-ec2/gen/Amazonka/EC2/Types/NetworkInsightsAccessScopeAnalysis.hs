@@ -166,9 +166,7 @@ instance
       Prelude.<*> (x Data..@? "startDate")
       Prelude.<*> (x Data..@? "status")
       Prelude.<*> (x Data..@? "statusMessage")
-      Prelude.<*> ( x
-                      Data..@? "tagSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "warningMessage")
@@ -198,14 +196,14 @@ instance
     NetworkInsightsAccessScopeAnalysis
   where
   rnf NetworkInsightsAccessScopeAnalysis' {..} =
-    Prelude.rnf analyzedEniCount
-      `Prelude.seq` Prelude.rnf endDate
-      `Prelude.seq` Prelude.rnf findingsFound
-      `Prelude.seq` Prelude.rnf networkInsightsAccessScopeAnalysisArn
-      `Prelude.seq` Prelude.rnf networkInsightsAccessScopeAnalysisId
-      `Prelude.seq` Prelude.rnf networkInsightsAccessScopeId
-      `Prelude.seq` Prelude.rnf startDate
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf warningMessage
+    Prelude.rnf analyzedEniCount `Prelude.seq`
+      Prelude.rnf endDate `Prelude.seq`
+        Prelude.rnf findingsFound `Prelude.seq`
+          Prelude.rnf networkInsightsAccessScopeAnalysisArn `Prelude.seq`
+            Prelude.rnf networkInsightsAccessScopeAnalysisId `Prelude.seq`
+              Prelude.rnf networkInsightsAccessScopeId `Prelude.seq`
+                Prelude.rnf startDate `Prelude.seq`
+                  Prelude.rnf status `Prelude.seq`
+                    Prelude.rnf statusMessage `Prelude.seq`
+                      Prelude.rnf tags `Prelude.seq`
+                        Prelude.rnf warningMessage

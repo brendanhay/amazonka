@@ -241,16 +241,16 @@ instance
     VpnConnectionOptionsSpecification
   where
   rnf VpnConnectionOptionsSpecification' {..} =
-    Prelude.rnf enableAcceleration
-      `Prelude.seq` Prelude.rnf localIpv4NetworkCidr
-      `Prelude.seq` Prelude.rnf localIpv6NetworkCidr
-      `Prelude.seq` Prelude.rnf outsideIpAddressType
-      `Prelude.seq` Prelude.rnf remoteIpv4NetworkCidr
-      `Prelude.seq` Prelude.rnf remoteIpv6NetworkCidr
-      `Prelude.seq` Prelude.rnf staticRoutesOnly
-      `Prelude.seq` Prelude.rnf transportTransitGatewayAttachmentId
-      `Prelude.seq` Prelude.rnf tunnelInsideIpVersion
-      `Prelude.seq` Prelude.rnf tunnelOptions
+    Prelude.rnf enableAcceleration `Prelude.seq`
+      Prelude.rnf localIpv4NetworkCidr `Prelude.seq`
+        Prelude.rnf localIpv6NetworkCidr `Prelude.seq`
+          Prelude.rnf outsideIpAddressType `Prelude.seq`
+            Prelude.rnf remoteIpv4NetworkCidr `Prelude.seq`
+              Prelude.rnf remoteIpv6NetworkCidr `Prelude.seq`
+                Prelude.rnf staticRoutesOnly `Prelude.seq`
+                  Prelude.rnf transportTransitGatewayAttachmentId `Prelude.seq`
+                    Prelude.rnf tunnelInsideIpVersion `Prelude.seq`
+                      Prelude.rnf tunnelOptions
 
 instance
   Data.ToQuery

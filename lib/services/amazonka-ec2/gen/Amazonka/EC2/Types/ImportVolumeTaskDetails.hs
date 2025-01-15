@@ -113,8 +113,8 @@ instance Prelude.Hashable ImportVolumeTaskDetails where
 
 instance Prelude.NFData ImportVolumeTaskDetails where
   rnf ImportVolumeTaskDetails' {..} =
-    Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf bytesConverted
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf image
-      `Prelude.seq` Prelude.rnf volume
+    Prelude.rnf availabilityZone `Prelude.seq`
+      Prelude.rnf bytesConverted `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf image `Prelude.seq`
+            Prelude.rnf volume

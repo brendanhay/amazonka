@@ -431,14 +431,10 @@ instance Core.AWSRequest CreateFlowLogs where
       ( \s h x ->
           CreateFlowLogsResponse'
             Prelude.<$> (x Data..@? "clientToken")
-            Prelude.<*> ( x
-                            Data..@? "flowLogIdSet"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "flowLogIdSet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-            Prelude.<*> ( x
-                            Data..@? "unsuccessful"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "unsuccessful" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -464,20 +460,20 @@ instance Prelude.Hashable CreateFlowLogs where
 
 instance Prelude.NFData CreateFlowLogs where
   rnf CreateFlowLogs' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf deliverCrossAccountRole
-      `Prelude.seq` Prelude.rnf deliverLogsPermissionArn
-      `Prelude.seq` Prelude.rnf destinationOptions
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf logDestination
-      `Prelude.seq` Prelude.rnf logDestinationType
-      `Prelude.seq` Prelude.rnf logFormat
-      `Prelude.seq` Prelude.rnf logGroupName
-      `Prelude.seq` Prelude.rnf maxAggregationInterval
-      `Prelude.seq` Prelude.rnf tagSpecifications
-      `Prelude.seq` Prelude.rnf trafficType
-      `Prelude.seq` Prelude.rnf resourceIds
-      `Prelude.seq` Prelude.rnf resourceType
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf deliverCrossAccountRole `Prelude.seq`
+        Prelude.rnf deliverLogsPermissionArn `Prelude.seq`
+          Prelude.rnf destinationOptions `Prelude.seq`
+            Prelude.rnf dryRun `Prelude.seq`
+              Prelude.rnf logDestination `Prelude.seq`
+                Prelude.rnf logDestinationType `Prelude.seq`
+                  Prelude.rnf logFormat `Prelude.seq`
+                    Prelude.rnf logGroupName `Prelude.seq`
+                      Prelude.rnf maxAggregationInterval `Prelude.seq`
+                        Prelude.rnf tagSpecifications `Prelude.seq`
+                          Prelude.rnf trafficType `Prelude.seq`
+                            Prelude.rnf resourceIds `Prelude.seq`
+                              Prelude.rnf resourceType
 
 instance Data.ToHeaders CreateFlowLogs where
   toHeaders = Prelude.const Prelude.mempty
@@ -576,7 +572,7 @@ createFlowLogsResponse_httpStatus = Lens.lens (\CreateFlowLogsResponse' {httpSta
 
 instance Prelude.NFData CreateFlowLogsResponse where
   rnf CreateFlowLogsResponse' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf flowLogIds
-      `Prelude.seq` Prelude.rnf unsuccessful
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf flowLogIds `Prelude.seq`
+        Prelude.rnf unsuccessful `Prelude.seq`
+          Prelude.rnf httpStatus

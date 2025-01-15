@@ -98,9 +98,7 @@ instance Data.FromXML LocalGateway where
       Prelude.<*> (x Data..@? "outpostArn")
       Prelude.<*> (x Data..@? "ownerId")
       Prelude.<*> (x Data..@? "state")
-      Prelude.<*> ( x
-                      Data..@? "tagSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
@@ -115,8 +113,8 @@ instance Prelude.Hashable LocalGateway where
 
 instance Prelude.NFData LocalGateway where
   rnf LocalGateway' {..} =
-    Prelude.rnf localGatewayId
-      `Prelude.seq` Prelude.rnf outpostArn
-      `Prelude.seq` Prelude.rnf ownerId
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf localGatewayId `Prelude.seq`
+      Prelude.rnf outpostArn `Prelude.seq`
+        Prelude.rnf ownerId `Prelude.seq`
+          Prelude.rnf state `Prelude.seq`
+            Prelude.rnf tags

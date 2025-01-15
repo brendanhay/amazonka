@@ -96,8 +96,8 @@ instance
     InstanceCreditSpecificationRequest
   where
   rnf InstanceCreditSpecificationRequest' {..} =
-    Prelude.rnf cpuCredits
-      `Prelude.seq` Prelude.rnf instanceId
+    Prelude.rnf cpuCredits `Prelude.seq`
+      Prelude.rnf instanceId
 
 instance
   Data.ToQuery

@@ -143,10 +143,10 @@ instance Prelude.Hashable ConnectionNotification where
 
 instance Prelude.NFData ConnectionNotification where
   rnf ConnectionNotification' {..} =
-    Prelude.rnf connectionEvents
-      `Prelude.seq` Prelude.rnf connectionNotificationArn
-      `Prelude.seq` Prelude.rnf connectionNotificationId
-      `Prelude.seq` Prelude.rnf connectionNotificationState
-      `Prelude.seq` Prelude.rnf connectionNotificationType
-      `Prelude.seq` Prelude.rnf serviceId
-      `Prelude.seq` Prelude.rnf vpcEndpointId
+    Prelude.rnf connectionEvents `Prelude.seq`
+      Prelude.rnf connectionNotificationArn `Prelude.seq`
+        Prelude.rnf connectionNotificationId `Prelude.seq`
+          Prelude.rnf connectionNotificationState `Prelude.seq`
+            Prelude.rnf connectionNotificationType `Prelude.seq`
+              Prelude.rnf serviceId `Prelude.seq`
+                Prelude.rnf vpcEndpointId

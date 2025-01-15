@@ -101,6 +101,6 @@ instance
     VerifiedAccessEndpointEniOptions
   where
   rnf VerifiedAccessEndpointEniOptions' {..} =
-    Prelude.rnf networkInterfaceId
-      `Prelude.seq` Prelude.rnf port
-      `Prelude.seq` Prelude.rnf protocol
+    Prelude.rnf networkInterfaceId `Prelude.seq`
+      Prelude.rnf port `Prelude.seq`
+        Prelude.rnf protocol

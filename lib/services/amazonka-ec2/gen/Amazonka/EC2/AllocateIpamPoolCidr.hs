@@ -262,14 +262,14 @@ instance Prelude.Hashable AllocateIpamPoolCidr where
 
 instance Prelude.NFData AllocateIpamPoolCidr where
   rnf AllocateIpamPoolCidr' {..} =
-    Prelude.rnf cidr
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf disallowedCidrs
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf netmaskLength
-      `Prelude.seq` Prelude.rnf previewNextCidr
-      `Prelude.seq` Prelude.rnf ipamPoolId
+    Prelude.rnf cidr `Prelude.seq`
+      Prelude.rnf clientToken `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf disallowedCidrs `Prelude.seq`
+            Prelude.rnf dryRun `Prelude.seq`
+              Prelude.rnf netmaskLength `Prelude.seq`
+                Prelude.rnf previewNextCidr `Prelude.seq`
+                  Prelude.rnf ipamPoolId
 
 instance Data.ToHeaders AllocateIpamPoolCidr where
   toHeaders = Prelude.const Prelude.mempty
@@ -338,5 +338,5 @@ allocateIpamPoolCidrResponse_httpStatus = Lens.lens (\AllocateIpamPoolCidrRespon
 
 instance Prelude.NFData AllocateIpamPoolCidrResponse where
   rnf AllocateIpamPoolCidrResponse' {..} =
-    Prelude.rnf ipamPoolAllocation
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf ipamPoolAllocation `Prelude.seq`
+      Prelude.rnf httpStatus

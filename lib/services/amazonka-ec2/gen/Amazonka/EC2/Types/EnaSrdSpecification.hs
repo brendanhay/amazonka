@@ -85,8 +85,8 @@ instance Prelude.Hashable EnaSrdSpecification where
 
 instance Prelude.NFData EnaSrdSpecification where
   rnf EnaSrdSpecification' {..} =
-    Prelude.rnf enaSrdEnabled
-      `Prelude.seq` Prelude.rnf enaSrdUdpSpecification
+    Prelude.rnf enaSrdEnabled `Prelude.seq`
+      Prelude.rnf enaSrdUdpSpecification
 
 instance Data.ToQuery EnaSrdSpecification where
   toQuery EnaSrdSpecification' {..} =

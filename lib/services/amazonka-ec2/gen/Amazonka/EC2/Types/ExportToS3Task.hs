@@ -119,7 +119,7 @@ instance Prelude.Hashable ExportToS3Task where
 
 instance Prelude.NFData ExportToS3Task where
   rnf ExportToS3Task' {..} =
-    Prelude.rnf containerFormat
-      `Prelude.seq` Prelude.rnf diskImageFormat
-      `Prelude.seq` Prelude.rnf s3Bucket
-      `Prelude.seq` Prelude.rnf s3Key
+    Prelude.rnf containerFormat `Prelude.seq`
+      Prelude.rnf diskImageFormat `Prelude.seq`
+        Prelude.rnf s3Bucket `Prelude.seq`
+          Prelude.rnf s3Key

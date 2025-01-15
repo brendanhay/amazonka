@@ -233,12 +233,12 @@ instance Prelude.Hashable AssignPrivateIpAddresses where
 
 instance Prelude.NFData AssignPrivateIpAddresses where
   rnf AssignPrivateIpAddresses' {..} =
-    Prelude.rnf allowReassignment
-      `Prelude.seq` Prelude.rnf ipv4PrefixCount
-      `Prelude.seq` Prelude.rnf ipv4Prefixes
-      `Prelude.seq` Prelude.rnf privateIpAddresses
-      `Prelude.seq` Prelude.rnf secondaryPrivateIpAddressCount
-      `Prelude.seq` Prelude.rnf networkInterfaceId
+    Prelude.rnf allowReassignment `Prelude.seq`
+      Prelude.rnf ipv4PrefixCount `Prelude.seq`
+        Prelude.rnf ipv4Prefixes `Prelude.seq`
+          Prelude.rnf privateIpAddresses `Prelude.seq`
+            Prelude.rnf secondaryPrivateIpAddressCount `Prelude.seq`
+              Prelude.rnf networkInterfaceId
 
 instance Data.ToHeaders AssignPrivateIpAddresses where
   toHeaders = Prelude.const Prelude.mempty
@@ -331,7 +331,7 @@ instance
     AssignPrivateIpAddressesResponse
   where
   rnf AssignPrivateIpAddressesResponse' {..} =
-    Prelude.rnf assignedIpv4Prefixes
-      `Prelude.seq` Prelude.rnf assignedPrivateIpAddresses
-      `Prelude.seq` Prelude.rnf networkInterfaceId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf assignedIpv4Prefixes `Prelude.seq`
+      Prelude.rnf assignedPrivateIpAddresses `Prelude.seq`
+        Prelude.rnf networkInterfaceId `Prelude.seq`
+          Prelude.rnf httpStatus

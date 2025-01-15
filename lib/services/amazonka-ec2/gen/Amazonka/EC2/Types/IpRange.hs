@@ -97,8 +97,8 @@ instance Prelude.Hashable IpRange where
 
 instance Prelude.NFData IpRange where
   rnf IpRange' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf cidrIp
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf cidrIp
 
 instance Data.ToQuery IpRange where
   toQuery IpRange' {..} =

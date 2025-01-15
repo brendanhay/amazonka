@@ -147,11 +147,11 @@ instance
     TargetCapacitySpecificationRequest
   where
   rnf TargetCapacitySpecificationRequest' {..} =
-    Prelude.rnf defaultTargetCapacityType
-      `Prelude.seq` Prelude.rnf onDemandTargetCapacity
-      `Prelude.seq` Prelude.rnf spotTargetCapacity
-      `Prelude.seq` Prelude.rnf targetCapacityUnitType
-      `Prelude.seq` Prelude.rnf totalTargetCapacity
+    Prelude.rnf defaultTargetCapacityType `Prelude.seq`
+      Prelude.rnf onDemandTargetCapacity `Prelude.seq`
+        Prelude.rnf spotTargetCapacity `Prelude.seq`
+          Prelude.rnf targetCapacityUnitType `Prelude.seq`
+            Prelude.rnf totalTargetCapacity
 
 instance
   Data.ToQuery

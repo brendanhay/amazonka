@@ -132,8 +132,8 @@ instance
   where
   rnf
     DeregisterInstanceEventNotificationAttributes' {..} =
-      Prelude.rnf dryRun
-        `Prelude.seq` Prelude.rnf instanceTagAttribute
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf instanceTagAttribute
 
 instance
   Data.ToHeaders
@@ -211,5 +211,5 @@ instance
   where
   rnf
     DeregisterInstanceEventNotificationAttributesResponse' {..} =
-      Prelude.rnf instanceTagAttribute
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf instanceTagAttribute `Prelude.seq`
+        Prelude.rnf httpStatus

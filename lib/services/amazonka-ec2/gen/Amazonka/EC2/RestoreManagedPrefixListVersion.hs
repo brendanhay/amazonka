@@ -159,10 +159,10 @@ instance
     RestoreManagedPrefixListVersion
   where
   rnf RestoreManagedPrefixListVersion' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf prefixListId
-      `Prelude.seq` Prelude.rnf previousVersion
-      `Prelude.seq` Prelude.rnf currentVersion
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf prefixListId `Prelude.seq`
+        Prelude.rnf previousVersion `Prelude.seq`
+          Prelude.rnf currentVersion
 
 instance
   Data.ToHeaders
@@ -233,5 +233,5 @@ instance
     RestoreManagedPrefixListVersionResponse
   where
   rnf RestoreManagedPrefixListVersionResponse' {..} =
-    Prelude.rnf prefixList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf prefixList `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -231,13 +231,13 @@ instance Prelude.Hashable CreateLaunchTemplateVersion where
 
 instance Prelude.NFData CreateLaunchTemplateVersion where
   rnf CreateLaunchTemplateVersion' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf launchTemplateId
-      `Prelude.seq` Prelude.rnf launchTemplateName
-      `Prelude.seq` Prelude.rnf sourceVersion
-      `Prelude.seq` Prelude.rnf versionDescription
-      `Prelude.seq` Prelude.rnf launchTemplateData
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf launchTemplateId `Prelude.seq`
+          Prelude.rnf launchTemplateName `Prelude.seq`
+            Prelude.rnf sourceVersion `Prelude.seq`
+              Prelude.rnf versionDescription `Prelude.seq`
+                Prelude.rnf launchTemplateData
 
 instance Data.ToHeaders CreateLaunchTemplateVersion where
   toHeaders = Prelude.const Prelude.mempty
@@ -322,6 +322,6 @@ instance
     CreateLaunchTemplateVersionResponse
   where
   rnf CreateLaunchTemplateVersionResponse' {..} =
-    Prelude.rnf launchTemplateVersion
-      `Prelude.seq` Prelude.rnf warning
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf launchTemplateVersion `Prelude.seq`
+      Prelude.rnf warning `Prelude.seq`
+        Prelude.rnf httpStatus

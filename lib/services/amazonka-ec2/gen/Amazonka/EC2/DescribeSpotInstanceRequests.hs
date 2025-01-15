@@ -520,12 +520,12 @@ instance Core.AWSPager DescribeSpotInstanceRequests where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeSpotInstanceRequests_nextToken
-          Lens..~ rs
-          Lens.^? describeSpotInstanceRequestsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeSpotInstanceRequests_nextToken
+              Lens..~ rs
+              Lens.^? describeSpotInstanceRequestsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeSpotInstanceRequests where
   type
@@ -560,11 +560,11 @@ instance
 
 instance Prelude.NFData DescribeSpotInstanceRequests where
   rnf DescribeSpotInstanceRequests' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf spotInstanceRequestIds
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf spotInstanceRequestIds
 
 instance Data.ToHeaders DescribeSpotInstanceRequests where
   toHeaders = Prelude.const Prelude.mempty
@@ -651,6 +651,6 @@ instance
     DescribeSpotInstanceRequestsResponse
   where
   rnf DescribeSpotInstanceRequestsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf spotInstanceRequests
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf spotInstanceRequests `Prelude.seq`
+        Prelude.rnf httpStatus

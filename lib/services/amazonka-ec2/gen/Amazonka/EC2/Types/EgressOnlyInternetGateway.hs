@@ -78,15 +78,11 @@ egressOnlyInternetGateway_tags = Lens.lens (\EgressOnlyInternetGateway' {tags} -
 instance Data.FromXML EgressOnlyInternetGateway where
   parseXML x =
     EgressOnlyInternetGateway'
-      Prelude.<$> ( x
-                      Data..@? "attachmentSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "attachmentSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "egressOnlyInternetGatewayId")
-      Prelude.<*> ( x
-                      Data..@? "tagSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
@@ -99,6 +95,6 @@ instance Prelude.Hashable EgressOnlyInternetGateway where
 
 instance Prelude.NFData EgressOnlyInternetGateway where
   rnf EgressOnlyInternetGateway' {..} =
-    Prelude.rnf attachments
-      `Prelude.seq` Prelude.rnf egressOnlyInternetGatewayId
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf attachments `Prelude.seq`
+      Prelude.rnf egressOnlyInternetGatewayId `Prelude.seq`
+        Prelude.rnf tags

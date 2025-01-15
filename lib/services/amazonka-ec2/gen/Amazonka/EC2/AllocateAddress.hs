@@ -280,13 +280,13 @@ instance Prelude.Hashable AllocateAddress where
 
 instance Prelude.NFData AllocateAddress where
   rnf AllocateAddress' {..} =
-    Prelude.rnf address
-      `Prelude.seq` Prelude.rnf customerOwnedIpv4Pool
-      `Prelude.seq` Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf networkBorderGroup
-      `Prelude.seq` Prelude.rnf publicIpv4Pool
-      `Prelude.seq` Prelude.rnf tagSpecifications
+    Prelude.rnf address `Prelude.seq`
+      Prelude.rnf customerOwnedIpv4Pool `Prelude.seq`
+        Prelude.rnf domain `Prelude.seq`
+          Prelude.rnf dryRun `Prelude.seq`
+            Prelude.rnf networkBorderGroup `Prelude.seq`
+              Prelude.rnf publicIpv4Pool `Prelude.seq`
+                Prelude.rnf tagSpecifications
 
 instance Data.ToHeaders AllocateAddress where
   toHeaders = Prelude.const Prelude.mempty
@@ -433,12 +433,12 @@ allocateAddressResponse_httpStatus = Lens.lens (\AllocateAddressResponse' {httpS
 
 instance Prelude.NFData AllocateAddressResponse where
   rnf AllocateAddressResponse' {..} =
-    Prelude.rnf allocationId
-      `Prelude.seq` Prelude.rnf carrierIp
-      `Prelude.seq` Prelude.rnf customerOwnedIp
-      `Prelude.seq` Prelude.rnf customerOwnedIpv4Pool
-      `Prelude.seq` Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf networkBorderGroup
-      `Prelude.seq` Prelude.rnf publicIp
-      `Prelude.seq` Prelude.rnf publicIpv4Pool
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf allocationId `Prelude.seq`
+      Prelude.rnf carrierIp `Prelude.seq`
+        Prelude.rnf customerOwnedIp `Prelude.seq`
+          Prelude.rnf customerOwnedIpv4Pool `Prelude.seq`
+            Prelude.rnf domain `Prelude.seq`
+              Prelude.rnf networkBorderGroup `Prelude.seq`
+                Prelude.rnf publicIp `Prelude.seq`
+                  Prelude.rnf publicIpv4Pool `Prelude.seq`
+                    Prelude.rnf httpStatus

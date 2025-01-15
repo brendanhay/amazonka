@@ -150,10 +150,10 @@ instance Prelude.Hashable AssociateRouteTable where
 
 instance Prelude.NFData AssociateRouteTable where
   rnf AssociateRouteTable' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf gatewayId
-      `Prelude.seq` Prelude.rnf subnetId
-      `Prelude.seq` Prelude.rnf routeTableId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf gatewayId `Prelude.seq`
+        Prelude.rnf subnetId `Prelude.seq`
+          Prelude.rnf routeTableId
 
 instance Data.ToHeaders AssociateRouteTable where
   toHeaders = Prelude.const Prelude.mempty
@@ -227,6 +227,6 @@ associateRouteTableResponse_httpStatus = Lens.lens (\AssociateRouteTableResponse
 
 instance Prelude.NFData AssociateRouteTableResponse where
   rnf AssociateRouteTableResponse' {..} =
-    Prelude.rnf associationId
-      `Prelude.seq` Prelude.rnf associationState
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf associationId `Prelude.seq`
+      Prelude.rnf associationState `Prelude.seq`
+        Prelude.rnf httpStatus

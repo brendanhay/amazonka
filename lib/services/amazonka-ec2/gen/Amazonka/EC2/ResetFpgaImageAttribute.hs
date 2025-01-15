@@ -130,9 +130,9 @@ instance Prelude.Hashable ResetFpgaImageAttribute where
 
 instance Prelude.NFData ResetFpgaImageAttribute where
   rnf ResetFpgaImageAttribute' {..} =
-    Prelude.rnf attribute
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf fpgaImageId
+    Prelude.rnf attribute `Prelude.seq`
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf fpgaImageId
 
 instance Data.ToHeaders ResetFpgaImageAttribute where
   toHeaders = Prelude.const Prelude.mempty
@@ -196,5 +196,5 @@ instance
     ResetFpgaImageAttributeResponse
   where
   rnf ResetFpgaImageAttributeResponse' {..} =
-    Prelude.rnf return'
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf return' `Prelude.seq`
+      Prelude.rnf httpStatus

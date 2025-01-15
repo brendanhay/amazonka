@@ -129,8 +129,8 @@ instance
     TransitGatewayRouteTablePropagation
   where
   rnf TransitGatewayRouteTablePropagation' {..} =
-    Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf transitGatewayAttachmentId
-      `Prelude.seq` Prelude.rnf transitGatewayRouteTableAnnouncementId
+    Prelude.rnf resourceId `Prelude.seq`
+      Prelude.rnf resourceType `Prelude.seq`
+        Prelude.rnf state `Prelude.seq`
+          Prelude.rnf transitGatewayAttachmentId `Prelude.seq`
+            Prelude.rnf transitGatewayRouteTableAnnouncementId

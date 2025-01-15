@@ -145,12 +145,12 @@ instance Core.AWSPager DescribeExportImageTasks where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeExportImageTasks_nextToken
-          Lens..~ rs
-          Lens.^? describeExportImageTasksResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeExportImageTasks_nextToken
+              Lens..~ rs
+              Lens.^? describeExportImageTasksResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeExportImageTasks where
   type
@@ -182,11 +182,11 @@ instance Prelude.Hashable DescribeExportImageTasks where
 
 instance Prelude.NFData DescribeExportImageTasks where
   rnf DescribeExportImageTasks' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf exportImageTaskIds
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf exportImageTaskIds `Prelude.seq`
+        Prelude.rnf filters `Prelude.seq`
+          Prelude.rnf maxResults `Prelude.seq`
+            Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeExportImageTasks where
   toHeaders = Prelude.const Prelude.mempty
@@ -268,6 +268,6 @@ instance
     DescribeExportImageTasksResponse
   where
   rnf DescribeExportImageTasksResponse' {..} =
-    Prelude.rnf exportImageTasks
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf exportImageTasks `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

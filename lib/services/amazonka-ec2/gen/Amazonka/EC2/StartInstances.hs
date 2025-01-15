@@ -139,9 +139,7 @@ instance Core.AWSRequest StartInstances where
     Response.receiveXML
       ( \s h x ->
           StartInstancesResponse'
-            Prelude.<$> ( x
-                            Data..@? "instancesSet"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "instancesSet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -156,9 +154,9 @@ instance Prelude.Hashable StartInstances where
 
 instance Prelude.NFData StartInstances where
   rnf StartInstances' {..} =
-    Prelude.rnf additionalInfo
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf instanceIds
+    Prelude.rnf additionalInfo `Prelude.seq`
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf instanceIds
 
 instance Data.ToHeaders StartInstances where
   toHeaders = Prelude.const Prelude.mempty
@@ -219,5 +217,5 @@ startInstancesResponse_httpStatus = Lens.lens (\StartInstancesResponse' {httpSta
 
 instance Prelude.NFData StartInstancesResponse where
   rnf StartInstancesResponse' {..} =
-    Prelude.rnf startingInstances
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf startingInstances `Prelude.seq`
+      Prelude.rnf httpStatus

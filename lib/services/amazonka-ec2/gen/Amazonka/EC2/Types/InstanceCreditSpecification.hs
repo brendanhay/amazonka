@@ -85,5 +85,5 @@ instance Prelude.Hashable InstanceCreditSpecification where
 
 instance Prelude.NFData InstanceCreditSpecification where
   rnf InstanceCreditSpecification' {..} =
-    Prelude.rnf cpuCredits
-      `Prelude.seq` Prelude.rnf instanceId
+    Prelude.rnf cpuCredits `Prelude.seq`
+      Prelude.rnf instanceId

@@ -90,6 +90,6 @@ instance Prelude.Hashable InstanceStateChange where
 
 instance Prelude.NFData InstanceStateChange where
   rnf InstanceStateChange' {..} =
-    Prelude.rnf currentState
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf previousState
+    Prelude.rnf currentState `Prelude.seq`
+      Prelude.rnf instanceId `Prelude.seq`
+        Prelude.rnf previousState

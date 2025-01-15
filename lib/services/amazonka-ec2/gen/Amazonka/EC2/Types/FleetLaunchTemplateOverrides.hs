@@ -251,12 +251,12 @@ instance
 
 instance Prelude.NFData FleetLaunchTemplateOverrides where
   rnf FleetLaunchTemplateOverrides' {..} =
-    Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf imageId
-      `Prelude.seq` Prelude.rnf instanceRequirements
-      `Prelude.seq` Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf maxPrice
-      `Prelude.seq` Prelude.rnf placement
-      `Prelude.seq` Prelude.rnf priority
-      `Prelude.seq` Prelude.rnf subnetId
-      `Prelude.seq` Prelude.rnf weightedCapacity
+    Prelude.rnf availabilityZone `Prelude.seq`
+      Prelude.rnf imageId `Prelude.seq`
+        Prelude.rnf instanceRequirements `Prelude.seq`
+          Prelude.rnf instanceType `Prelude.seq`
+            Prelude.rnf maxPrice `Prelude.seq`
+              Prelude.rnf placement `Prelude.seq`
+                Prelude.rnf priority `Prelude.seq`
+                  Prelude.rnf subnetId `Prelude.seq`
+                    Prelude.rnf weightedCapacity

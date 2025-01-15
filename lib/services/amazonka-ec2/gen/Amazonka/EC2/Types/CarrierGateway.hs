@@ -98,9 +98,7 @@ instance Data.FromXML CarrierGateway where
       Prelude.<$> (x Data..@? "carrierGatewayId")
       Prelude.<*> (x Data..@? "ownerId")
       Prelude.<*> (x Data..@? "state")
-      Prelude.<*> ( x
-                      Data..@? "tagSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "vpcId")
@@ -116,8 +114,8 @@ instance Prelude.Hashable CarrierGateway where
 
 instance Prelude.NFData CarrierGateway where
   rnf CarrierGateway' {..} =
-    Prelude.rnf carrierGatewayId
-      `Prelude.seq` Prelude.rnf ownerId
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf carrierGatewayId `Prelude.seq`
+      Prelude.rnf ownerId `Prelude.seq`
+        Prelude.rnf state `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf vpcId

@@ -100,7 +100,7 @@ instance Prelude.Hashable AddressAttribute where
 
 instance Prelude.NFData AddressAttribute where
   rnf AddressAttribute' {..} =
-    Prelude.rnf allocationId
-      `Prelude.seq` Prelude.rnf ptrRecord
-      `Prelude.seq` Prelude.rnf ptrRecordUpdate
-      `Prelude.seq` Prelude.rnf publicIp
+    Prelude.rnf allocationId `Prelude.seq`
+      Prelude.rnf ptrRecord `Prelude.seq`
+        Prelude.rnf ptrRecordUpdate `Prelude.seq`
+          Prelude.rnf publicIp

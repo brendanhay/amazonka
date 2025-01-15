@@ -88,6 +88,6 @@ instance Prelude.Hashable PtrUpdateStatus where
 
 instance Prelude.NFData PtrUpdateStatus where
   rnf PtrUpdateStatus' {..} =
-    Prelude.rnf reason
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf reason `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf value

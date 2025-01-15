@@ -168,11 +168,11 @@ instance
   where
   rnf
     EnableAwsNetworkPerformanceMetricSubscription' {..} =
-      Prelude.rnf destination
-        `Prelude.seq` Prelude.rnf dryRun
-        `Prelude.seq` Prelude.rnf metric
-        `Prelude.seq` Prelude.rnf source
-        `Prelude.seq` Prelude.rnf statistic
+      Prelude.rnf destination `Prelude.seq`
+        Prelude.rnf dryRun `Prelude.seq`
+          Prelude.rnf metric `Prelude.seq`
+            Prelude.rnf source `Prelude.seq`
+              Prelude.rnf statistic
 
 instance
   Data.ToHeaders
@@ -253,5 +253,5 @@ instance
   where
   rnf
     EnableAwsNetworkPerformanceMetricSubscriptionResponse' {..} =
-      Prelude.rnf output
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf output `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -262,9 +262,9 @@ instance Prelude.Hashable DescribeVpnConnections where
 
 instance Prelude.NFData DescribeVpnConnections where
   rnf DescribeVpnConnections' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf vpnConnectionIds
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf vpnConnectionIds
 
 instance Data.ToHeaders DescribeVpnConnections where
   toHeaders = Prelude.const Prelude.mempty
@@ -334,5 +334,5 @@ instance
     DescribeVpnConnectionsResponse
   where
   rnf DescribeVpnConnectionsResponse' {..} =
-    Prelude.rnf vpnConnections
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf vpnConnections `Prelude.seq`
+      Prelude.rnf httpStatus

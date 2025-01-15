@@ -133,7 +133,7 @@ instance Prelude.Hashable PriceSchedule where
 
 instance Prelude.NFData PriceSchedule where
   rnf PriceSchedule' {..} =
-    Prelude.rnf active
-      `Prelude.seq` Prelude.rnf currencyCode
-      `Prelude.seq` Prelude.rnf price
-      `Prelude.seq` Prelude.rnf term
+    Prelude.rnf active `Prelude.seq`
+      Prelude.rnf currencyCode `Prelude.seq`
+        Prelude.rnf price `Prelude.seq`
+          Prelude.rnf term

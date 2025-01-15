@@ -102,6 +102,6 @@ instance
     CancelSpotFleetRequestsSuccessItem
   where
   rnf CancelSpotFleetRequestsSuccessItem' {..} =
-    Prelude.rnf currentSpotFleetRequestState
-      `Prelude.seq` Prelude.rnf previousSpotFleetRequestState
-      `Prelude.seq` Prelude.rnf spotFleetRequestId
+    Prelude.rnf currentSpotFleetRequestState `Prelude.seq`
+      Prelude.rnf previousSpotFleetRequestState `Prelude.seq`
+        Prelude.rnf spotFleetRequestId

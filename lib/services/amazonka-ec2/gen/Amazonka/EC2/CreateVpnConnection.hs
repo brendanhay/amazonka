@@ -202,13 +202,13 @@ instance Prelude.Hashable CreateVpnConnection where
 
 instance Prelude.NFData CreateVpnConnection where
   rnf CreateVpnConnection' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf options
-      `Prelude.seq` Prelude.rnf tagSpecifications
-      `Prelude.seq` Prelude.rnf transitGatewayId
-      `Prelude.seq` Prelude.rnf vpnGatewayId
-      `Prelude.seq` Prelude.rnf customerGatewayId
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf options `Prelude.seq`
+        Prelude.rnf tagSpecifications `Prelude.seq`
+          Prelude.rnf transitGatewayId `Prelude.seq`
+            Prelude.rnf vpnGatewayId `Prelude.seq`
+              Prelude.rnf customerGatewayId `Prelude.seq`
+                Prelude.rnf type'
 
 instance Data.ToHeaders CreateVpnConnection where
   toHeaders = Prelude.const Prelude.mempty
@@ -278,5 +278,5 @@ createVpnConnectionResponse_httpStatus = Lens.lens (\CreateVpnConnectionResponse
 
 instance Prelude.NFData CreateVpnConnectionResponse where
   rnf CreateVpnConnectionResponse' {..} =
-    Prelude.rnf vpnConnection
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf vpnConnection `Prelude.seq`
+      Prelude.rnf httpStatus

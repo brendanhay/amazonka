@@ -99,7 +99,7 @@ instance Prelude.Hashable PeeringTgwInfo where
 
 instance Prelude.NFData PeeringTgwInfo where
   rnf PeeringTgwInfo' {..} =
-    Prelude.rnf coreNetworkId
-      `Prelude.seq` Prelude.rnf ownerId
-      `Prelude.seq` Prelude.rnf region
-      `Prelude.seq` Prelude.rnf transitGatewayId
+    Prelude.rnf coreNetworkId `Prelude.seq`
+      Prelude.rnf ownerId `Prelude.seq`
+        Prelude.rnf region `Prelude.seq`
+          Prelude.rnf transitGatewayId

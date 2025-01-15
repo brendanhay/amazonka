@@ -94,9 +94,9 @@ instance Prelude.Hashable InstanceSpecification where
 
 instance Prelude.NFData InstanceSpecification where
   rnf InstanceSpecification' {..} =
-    Prelude.rnf excludeBootVolume
-      `Prelude.seq` Prelude.rnf excludeDataVolumeIds
-      `Prelude.seq` Prelude.rnf instanceId
+    Prelude.rnf excludeBootVolume `Prelude.seq`
+      Prelude.rnf excludeDataVolumeIds `Prelude.seq`
+        Prelude.rnf instanceId
 
 instance Data.ToQuery InstanceSpecification where
   toQuery InstanceSpecification' {..} =

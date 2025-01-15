@@ -159,8 +159,8 @@ instance Prelude.Hashable ProvisionedBandwidth where
 
 instance Prelude.NFData ProvisionedBandwidth where
   rnf ProvisionedBandwidth' {..} =
-    Prelude.rnf provisionTime
-      `Prelude.seq` Prelude.rnf provisioned
-      `Prelude.seq` Prelude.rnf requestTime
-      `Prelude.seq` Prelude.rnf requested
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf provisionTime `Prelude.seq`
+      Prelude.rnf provisioned `Prelude.seq`
+        Prelude.rnf requestTime `Prelude.seq`
+          Prelude.rnf requested `Prelude.seq`
+            Prelude.rnf status

@@ -134,9 +134,9 @@ instance Prelude.Hashable DescribeFpgaImageAttribute where
 
 instance Prelude.NFData DescribeFpgaImageAttribute where
   rnf DescribeFpgaImageAttribute' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf fpgaImageId
-      `Prelude.seq` Prelude.rnf attribute
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf fpgaImageId `Prelude.seq`
+        Prelude.rnf attribute
 
 instance Data.ToHeaders DescribeFpgaImageAttribute where
   toHeaders = Prelude.const Prelude.mempty
@@ -200,5 +200,5 @@ instance
     DescribeFpgaImageAttributeResponse
   where
   rnf DescribeFpgaImageAttributeResponse' {..} =
-    Prelude.rnf fpgaImageAttribute
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf fpgaImageAttribute `Prelude.seq`
+      Prelude.rnf httpStatus

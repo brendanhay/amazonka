@@ -138,8 +138,8 @@ instance
     EnableIpamOrganizationAdminAccount
   where
   rnf EnableIpamOrganizationAdminAccount' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf delegatedAdminAccountId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf delegatedAdminAccountId
 
 instance
   Data.ToHeaders
@@ -215,5 +215,5 @@ instance
     EnableIpamOrganizationAdminAccountResponse
   where
   rnf EnableIpamOrganizationAdminAccountResponse' {..} =
-    Prelude.rnf success
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf success `Prelude.seq`
+      Prelude.rnf httpStatus

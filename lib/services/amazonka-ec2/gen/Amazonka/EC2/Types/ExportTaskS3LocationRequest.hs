@@ -74,8 +74,8 @@ instance Prelude.Hashable ExportTaskS3LocationRequest where
 
 instance Prelude.NFData ExportTaskS3LocationRequest where
   rnf ExportTaskS3LocationRequest' {..} =
-    Prelude.rnf s3Prefix
-      `Prelude.seq` Prelude.rnf s3Bucket
+    Prelude.rnf s3Prefix `Prelude.seq`
+      Prelude.rnf s3Bucket
 
 instance Data.ToQuery ExportTaskS3LocationRequest where
   toQuery ExportTaskS3LocationRequest' {..} =

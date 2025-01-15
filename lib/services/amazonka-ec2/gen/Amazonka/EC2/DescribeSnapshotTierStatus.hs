@@ -171,12 +171,12 @@ instance Core.AWSPager DescribeSnapshotTierStatus where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeSnapshotTierStatus_nextToken
-          Lens..~ rs
-          Lens.^? describeSnapshotTierStatusResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeSnapshotTierStatus_nextToken
+              Lens..~ rs
+              Lens.^? describeSnapshotTierStatusResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeSnapshotTierStatus where
   type
@@ -207,10 +207,10 @@ instance Prelude.Hashable DescribeSnapshotTierStatus where
 
 instance Prelude.NFData DescribeSnapshotTierStatus where
   rnf DescribeSnapshotTierStatus' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeSnapshotTierStatus where
   toHeaders = Prelude.const Prelude.mempty
@@ -288,6 +288,6 @@ instance
     DescribeSnapshotTierStatusResponse
   where
   rnf DescribeSnapshotTierStatusResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf snapshotTierStatuses
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf snapshotTierStatuses `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -187,12 +187,12 @@ instance Core.AWSPager DescribeHostReservations where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeHostReservations_nextToken
-          Lens..~ rs
-          Lens.^? describeHostReservationsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeHostReservations_nextToken
+              Lens..~ rs
+              Lens.^? describeHostReservationsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeHostReservations where
   type
@@ -223,10 +223,10 @@ instance Prelude.Hashable DescribeHostReservations where
 
 instance Prelude.NFData DescribeHostReservations where
   rnf DescribeHostReservations' {..} =
-    Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf hostReservationIdSet
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filter' `Prelude.seq`
+      Prelude.rnf hostReservationIdSet `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeHostReservations where
   toHeaders = Prelude.const Prelude.mempty
@@ -307,6 +307,6 @@ instance
     DescribeHostReservationsResponse
   where
   rnf DescribeHostReservationsResponse' {..} =
-    Prelude.rnf hostReservationSet
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf hostReservationSet `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

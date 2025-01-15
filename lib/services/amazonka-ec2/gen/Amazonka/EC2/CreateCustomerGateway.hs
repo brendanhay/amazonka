@@ -225,14 +225,14 @@ instance Prelude.Hashable CreateCustomerGateway where
 
 instance Prelude.NFData CreateCustomerGateway where
   rnf CreateCustomerGateway' {..} =
-    Prelude.rnf certificateArn
-      `Prelude.seq` Prelude.rnf deviceName
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf ipAddress
-      `Prelude.seq` Prelude.rnf publicIp
-      `Prelude.seq` Prelude.rnf tagSpecifications
-      `Prelude.seq` Prelude.rnf bgpAsn
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf certificateArn `Prelude.seq`
+      Prelude.rnf deviceName `Prelude.seq`
+        Prelude.rnf dryRun `Prelude.seq`
+          Prelude.rnf ipAddress `Prelude.seq`
+            Prelude.rnf publicIp `Prelude.seq`
+              Prelude.rnf tagSpecifications `Prelude.seq`
+                Prelude.rnf bgpAsn `Prelude.seq`
+                  Prelude.rnf type'
 
 instance Data.ToHeaders CreateCustomerGateway where
   toHeaders = Prelude.const Prelude.mempty
@@ -303,5 +303,5 @@ createCustomerGatewayResponse_httpStatus = Lens.lens (\CreateCustomerGatewayResp
 
 instance Prelude.NFData CreateCustomerGatewayResponse where
   rnf CreateCustomerGatewayResponse' {..} =
-    Prelude.rnf customerGateway
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf customerGateway `Prelude.seq`
+      Prelude.rnf httpStatus

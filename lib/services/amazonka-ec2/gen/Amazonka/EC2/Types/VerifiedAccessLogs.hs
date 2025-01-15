@@ -92,6 +92,6 @@ instance Prelude.Hashable VerifiedAccessLogs where
 
 instance Prelude.NFData VerifiedAccessLogs where
   rnf VerifiedAccessLogs' {..} =
-    Prelude.rnf cloudWatchLogs
-      `Prelude.seq` Prelude.rnf kinesisDataFirehose
-      `Prelude.seq` Prelude.rnf s3
+    Prelude.rnf cloudWatchLogs `Prelude.seq`
+      Prelude.rnf kinesisDataFirehose `Prelude.seq`
+        Prelude.rnf s3

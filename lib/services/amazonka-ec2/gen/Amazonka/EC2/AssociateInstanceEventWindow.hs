@@ -143,9 +143,9 @@ instance
 
 instance Prelude.NFData AssociateInstanceEventWindow where
   rnf AssociateInstanceEventWindow' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf instanceEventWindowId
-      `Prelude.seq` Prelude.rnf associationTarget
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf instanceEventWindowId `Prelude.seq`
+        Prelude.rnf associationTarget
 
 instance Data.ToHeaders AssociateInstanceEventWindow where
   toHeaders = Prelude.const Prelude.mempty
@@ -212,5 +212,5 @@ instance
     AssociateInstanceEventWindowResponse
   where
   rnf AssociateInstanceEventWindowResponse' {..} =
-    Prelude.rnf instanceEventWindow
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf instanceEventWindow `Prelude.seq`
+      Prelude.rnf httpStatus

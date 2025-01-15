@@ -137,9 +137,9 @@ instance Prelude.Hashable DescribeVpcAttribute where
 
 instance Prelude.NFData DescribeVpcAttribute where
   rnf DescribeVpcAttribute' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf attribute
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf attribute `Prelude.seq`
+        Prelude.rnf vpcId
 
 instance Data.ToHeaders DescribeVpcAttribute where
   toHeaders = Prelude.const Prelude.mempty
@@ -246,8 +246,8 @@ describeVpcAttributeResponse_httpStatus = Lens.lens (\DescribeVpcAttributeRespon
 
 instance Prelude.NFData DescribeVpcAttributeResponse where
   rnf DescribeVpcAttributeResponse' {..} =
-    Prelude.rnf enableDnsHostnames
-      `Prelude.seq` Prelude.rnf enableDnsSupport
-      `Prelude.seq` Prelude.rnf enableNetworkAddressUsageMetrics
-      `Prelude.seq` Prelude.rnf vpcId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf enableDnsHostnames `Prelude.seq`
+      Prelude.rnf enableDnsSupport `Prelude.seq`
+        Prelude.rnf enableNetworkAddressUsageMetrics `Prelude.seq`
+          Prelude.rnf vpcId `Prelude.seq`
+            Prelude.rnf httpStatus

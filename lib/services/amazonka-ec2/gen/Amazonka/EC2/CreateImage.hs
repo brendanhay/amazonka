@@ -288,13 +288,13 @@ instance Prelude.Hashable CreateImage where
 
 instance Prelude.NFData CreateImage where
   rnf CreateImage' {..} =
-    Prelude.rnf blockDeviceMappings
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf noReboot
-      `Prelude.seq` Prelude.rnf tagSpecifications
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf blockDeviceMappings `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf dryRun `Prelude.seq`
+          Prelude.rnf noReboot `Prelude.seq`
+            Prelude.rnf tagSpecifications `Prelude.seq`
+              Prelude.rnf instanceId `Prelude.seq`
+                Prelude.rnf name
 
 instance Data.ToHeaders CreateImage where
   toHeaders = Prelude.const Prelude.mempty
@@ -364,5 +364,5 @@ createImageResponse_httpStatus = Lens.lens (\CreateImageResponse' {httpStatus} -
 
 instance Prelude.NFData CreateImageResponse where
   rnf CreateImageResponse' {..} =
-    Prelude.rnf imageId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf imageId `Prelude.seq`
+      Prelude.rnf httpStatus

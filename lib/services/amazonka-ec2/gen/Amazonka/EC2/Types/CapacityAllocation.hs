@@ -88,5 +88,5 @@ instance Prelude.Hashable CapacityAllocation where
 
 instance Prelude.NFData CapacityAllocation where
   rnf CapacityAllocation' {..} =
-    Prelude.rnf allocationType
-      `Prelude.seq` Prelude.rnf count
+    Prelude.rnf allocationType `Prelude.seq`
+      Prelude.rnf count

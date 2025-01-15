@@ -94,6 +94,6 @@ instance Prelude.Hashable InstanceStatusDetails where
 
 instance Prelude.NFData InstanceStatusDetails where
   rnf InstanceStatusDetails' {..} =
-    Prelude.rnf impairedSince
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf impairedSince `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf status

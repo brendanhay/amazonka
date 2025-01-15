@@ -195,12 +195,12 @@ instance Prelude.Hashable ModifyFleet where
 
 instance Prelude.NFData ModifyFleet where
   rnf ModifyFleet' {..} =
-    Prelude.rnf context
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf excessCapacityTerminationPolicy
-      `Prelude.seq` Prelude.rnf launchTemplateConfigs
-      `Prelude.seq` Prelude.rnf targetCapacitySpecification
-      `Prelude.seq` Prelude.rnf fleetId
+    Prelude.rnf context `Prelude.seq`
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf excessCapacityTerminationPolicy `Prelude.seq`
+          Prelude.rnf launchTemplateConfigs `Prelude.seq`
+            Prelude.rnf targetCapacitySpecification `Prelude.seq`
+              Prelude.rnf fleetId
 
 instance Data.ToHeaders ModifyFleet where
   toHeaders = Prelude.const Prelude.mempty
@@ -274,5 +274,5 @@ modifyFleetResponse_httpStatus = Lens.lens (\ModifyFleetResponse' {httpStatus} -
 
 instance Prelude.NFData ModifyFleetResponse where
   rnf ModifyFleetResponse' {..} =
-    Prelude.rnf return'
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf return' `Prelude.seq`
+      Prelude.rnf httpStatus

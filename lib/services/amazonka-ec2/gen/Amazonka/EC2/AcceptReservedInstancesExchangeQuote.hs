@@ -148,9 +148,9 @@ instance
     AcceptReservedInstancesExchangeQuote
   where
   rnf AcceptReservedInstancesExchangeQuote' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf targetConfigurations
-      `Prelude.seq` Prelude.rnf reservedInstanceIds
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf targetConfigurations `Prelude.seq`
+        Prelude.rnf reservedInstanceIds
 
 instance
   Data.ToHeaders
@@ -233,5 +233,5 @@ instance
     AcceptReservedInstancesExchangeQuoteResponse
   where
   rnf AcceptReservedInstancesExchangeQuoteResponse' {..} =
-    Prelude.rnf exchangeId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf exchangeId `Prelude.seq`
+      Prelude.rnf httpStatus

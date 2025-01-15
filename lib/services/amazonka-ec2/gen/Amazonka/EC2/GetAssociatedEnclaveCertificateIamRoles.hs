@@ -139,8 +139,8 @@ instance
     GetAssociatedEnclaveCertificateIamRoles
   where
   rnf GetAssociatedEnclaveCertificateIamRoles' {..} =
-    Prelude.rnf certificateArn
-      `Prelude.seq` Prelude.rnf dryRun
+    Prelude.rnf certificateArn `Prelude.seq`
+      Prelude.rnf dryRun
 
 instance
   Data.ToHeaders
@@ -216,5 +216,5 @@ instance
   where
   rnf
     GetAssociatedEnclaveCertificateIamRolesResponse' {..} =
-      Prelude.rnf associatedRoles
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf associatedRoles `Prelude.seq`
+        Prelude.rnf httpStatus

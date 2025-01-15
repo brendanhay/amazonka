@@ -210,9 +210,9 @@ instance Prelude.Hashable DescribeBundleTasks where
 
 instance Prelude.NFData DescribeBundleTasks where
   rnf DescribeBundleTasks' {..} =
-    Prelude.rnf bundleIds
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf bundleIds `Prelude.seq`
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf filters
 
 instance Data.ToHeaders DescribeBundleTasks where
   toHeaders = Prelude.const Prelude.mempty
@@ -275,5 +275,5 @@ describeBundleTasksResponse_httpStatus = Lens.lens (\DescribeBundleTasksResponse
 
 instance Prelude.NFData DescribeBundleTasksResponse where
   rnf DescribeBundleTasksResponse' {..} =
-    Prelude.rnf bundleTasks
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf bundleTasks `Prelude.seq`
+      Prelude.rnf httpStatus

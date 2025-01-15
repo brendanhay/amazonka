@@ -78,8 +78,8 @@ instance
 
 instance Prelude.NFData SecurityGroupRuleDescription where
   rnf SecurityGroupRuleDescription' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf securityGroupRuleId
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf securityGroupRuleId
 
 instance Data.ToQuery SecurityGroupRuleDescription where
   toQuery SecurityGroupRuleDescription' {..} =

@@ -133,9 +133,9 @@ instance Prelude.Hashable CreateRouteTable where
 
 instance Prelude.NFData CreateRouteTable where
   rnf CreateRouteTable' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf tagSpecifications
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf tagSpecifications `Prelude.seq`
+        Prelude.rnf vpcId
 
 instance Data.ToHeaders CreateRouteTable where
   toHeaders = Prelude.const Prelude.mempty
@@ -199,5 +199,5 @@ createRouteTableResponse_httpStatus = Lens.lens (\CreateRouteTableResponse' {htt
 
 instance Prelude.NFData CreateRouteTableResponse where
   rnf CreateRouteTableResponse' {..} =
-    Prelude.rnf routeTable
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf routeTable `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -209,13 +209,13 @@ instance
     CreateTransitGatewayPeeringAttachment
   where
   rnf CreateTransitGatewayPeeringAttachment' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf options
-      `Prelude.seq` Prelude.rnf tagSpecifications
-      `Prelude.seq` Prelude.rnf transitGatewayId
-      `Prelude.seq` Prelude.rnf peerTransitGatewayId
-      `Prelude.seq` Prelude.rnf peerAccountId
-      `Prelude.seq` Prelude.rnf peerRegion
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf options `Prelude.seq`
+        Prelude.rnf tagSpecifications `Prelude.seq`
+          Prelude.rnf transitGatewayId `Prelude.seq`
+            Prelude.rnf peerTransitGatewayId `Prelude.seq`
+              Prelude.rnf peerAccountId `Prelude.seq`
+                Prelude.rnf peerRegion
 
 instance
   Data.ToHeaders
@@ -299,5 +299,5 @@ instance
   where
   rnf
     CreateTransitGatewayPeeringAttachmentResponse' {..} =
-      Prelude.rnf transitGatewayPeeringAttachment
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf transitGatewayPeeringAttachment `Prelude.seq`
+        Prelude.rnf httpStatus

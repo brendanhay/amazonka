@@ -99,5 +99,5 @@ instance
     InstanceTagNotificationAttribute
   where
   rnf InstanceTagNotificationAttribute' {..} =
-    Prelude.rnf includeAllTagsOfInstance
-      `Prelude.seq` Prelude.rnf instanceTagKeys
+    Prelude.rnf includeAllTagsOfInstance `Prelude.seq`
+      Prelude.rnf instanceTagKeys

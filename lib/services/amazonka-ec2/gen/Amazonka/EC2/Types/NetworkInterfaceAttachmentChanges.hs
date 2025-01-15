@@ -83,8 +83,8 @@ instance
     NetworkInterfaceAttachmentChanges
   where
   rnf NetworkInterfaceAttachmentChanges' {..} =
-    Prelude.rnf attachmentId
-      `Prelude.seq` Prelude.rnf deleteOnTermination
+    Prelude.rnf attachmentId `Prelude.seq`
+      Prelude.rnf deleteOnTermination
 
 instance
   Data.ToQuery

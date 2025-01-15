@@ -234,15 +234,11 @@ instance Data.FromXML InstanceNetworkInterface where
       Prelude.<$> (x Data..@? "association")
       Prelude.<*> (x Data..@? "attachment")
       Prelude.<*> (x Data..@? "description")
-      Prelude.<*> ( x
-                      Data..@? "groupSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "groupSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "interfaceType")
-      Prelude.<*> ( x
-                      Data..@? "ipv4PrefixSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "ipv4PrefixSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> ( x
@@ -250,9 +246,7 @@ instance Data.FromXML InstanceNetworkInterface where
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x
-                      Data..@? "ipv6PrefixSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "ipv6PrefixSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "macAddress")
@@ -294,21 +288,21 @@ instance Prelude.Hashable InstanceNetworkInterface where
 
 instance Prelude.NFData InstanceNetworkInterface where
   rnf InstanceNetworkInterface' {..} =
-    Prelude.rnf association
-      `Prelude.seq` Prelude.rnf attachment
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf groups
-      `Prelude.seq` Prelude.rnf interfaceType
-      `Prelude.seq` Prelude.rnf ipv4Prefixes
-      `Prelude.seq` Prelude.rnf ipv6Addresses
-      `Prelude.seq` Prelude.rnf ipv6Prefixes
-      `Prelude.seq` Prelude.rnf macAddress
-      `Prelude.seq` Prelude.rnf networkInterfaceId
-      `Prelude.seq` Prelude.rnf ownerId
-      `Prelude.seq` Prelude.rnf privateDnsName
-      `Prelude.seq` Prelude.rnf privateIpAddress
-      `Prelude.seq` Prelude.rnf privateIpAddresses
-      `Prelude.seq` Prelude.rnf sourceDestCheck
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf subnetId
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf association `Prelude.seq`
+      Prelude.rnf attachment `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf groups `Prelude.seq`
+            Prelude.rnf interfaceType `Prelude.seq`
+              Prelude.rnf ipv4Prefixes `Prelude.seq`
+                Prelude.rnf ipv6Addresses `Prelude.seq`
+                  Prelude.rnf ipv6Prefixes `Prelude.seq`
+                    Prelude.rnf macAddress `Prelude.seq`
+                      Prelude.rnf networkInterfaceId `Prelude.seq`
+                        Prelude.rnf ownerId `Prelude.seq`
+                          Prelude.rnf privateDnsName `Prelude.seq`
+                            Prelude.rnf privateIpAddress `Prelude.seq`
+                              Prelude.rnf privateIpAddresses `Prelude.seq`
+                                Prelude.rnf sourceDestCheck `Prelude.seq`
+                                  Prelude.rnf status `Prelude.seq`
+                                    Prelude.rnf subnetId `Prelude.seq`
+                                      Prelude.rnf vpcId

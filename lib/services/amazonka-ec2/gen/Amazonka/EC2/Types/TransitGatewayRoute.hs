@@ -130,9 +130,9 @@ instance Prelude.Hashable TransitGatewayRoute where
 
 instance Prelude.NFData TransitGatewayRoute where
   rnf TransitGatewayRoute' {..} =
-    Prelude.rnf destinationCidrBlock
-      `Prelude.seq` Prelude.rnf prefixListId
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf transitGatewayAttachments
-      `Prelude.seq` Prelude.rnf transitGatewayRouteTableAnnouncementId
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf destinationCidrBlock `Prelude.seq`
+      Prelude.rnf prefixListId `Prelude.seq`
+        Prelude.rnf state `Prelude.seq`
+          Prelude.rnf transitGatewayAttachments `Prelude.seq`
+            Prelude.rnf transitGatewayRouteTableAnnouncementId `Prelude.seq`
+              Prelude.rnf type'

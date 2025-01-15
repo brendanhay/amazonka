@@ -85,9 +85,9 @@ instance Prelude.Hashable VerifiedAccessLogOptions where
 
 instance Prelude.NFData VerifiedAccessLogOptions where
   rnf VerifiedAccessLogOptions' {..} =
-    Prelude.rnf cloudWatchLogs
-      `Prelude.seq` Prelude.rnf kinesisDataFirehose
-      `Prelude.seq` Prelude.rnf s3
+    Prelude.rnf cloudWatchLogs `Prelude.seq`
+      Prelude.rnf kinesisDataFirehose `Prelude.seq`
+        Prelude.rnf s3
 
 instance Data.ToQuery VerifiedAccessLogOptions where
   toQuery VerifiedAccessLogOptions' {..} =

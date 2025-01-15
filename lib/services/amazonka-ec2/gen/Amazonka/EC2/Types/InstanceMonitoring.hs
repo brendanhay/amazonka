@@ -78,5 +78,5 @@ instance Prelude.Hashable InstanceMonitoring where
 
 instance Prelude.NFData InstanceMonitoring where
   rnf InstanceMonitoring' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf monitoring
+    Prelude.rnf instanceId `Prelude.seq`
+      Prelude.rnf monitoring

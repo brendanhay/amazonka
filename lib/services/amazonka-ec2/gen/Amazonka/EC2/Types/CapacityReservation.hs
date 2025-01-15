@@ -476,9 +476,7 @@ instance Data.FromXML CapacityReservation where
       Prelude.<*> (x Data..@? "placementGroupArn")
       Prelude.<*> (x Data..@? "startDate")
       Prelude.<*> (x Data..@? "state")
-      Prelude.<*> ( x
-                      Data..@? "tagSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "tenancy")
@@ -513,27 +511,27 @@ instance Prelude.Hashable CapacityReservation where
 
 instance Prelude.NFData CapacityReservation where
   rnf CapacityReservation' {..} =
-    Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf availabilityZoneId
-      `Prelude.seq` Prelude.rnf availableInstanceCount
-      `Prelude.seq` Prelude.rnf capacityAllocations
-      `Prelude.seq` Prelude.rnf capacityReservationArn
-      `Prelude.seq` Prelude.rnf capacityReservationFleetId
-      `Prelude.seq` Prelude.rnf capacityReservationId
-      `Prelude.seq` Prelude.rnf createDate
-      `Prelude.seq` Prelude.rnf ebsOptimized
-      `Prelude.seq` Prelude.rnf endDate
-      `Prelude.seq` Prelude.rnf endDateType
-      `Prelude.seq` Prelude.rnf ephemeralStorage
-      `Prelude.seq` Prelude.rnf instanceMatchCriteria
-      `Prelude.seq` Prelude.rnf instancePlatform
-      `Prelude.seq` Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf outpostArn
-      `Prelude.seq` Prelude.rnf ownerId
-      `Prelude.seq` Prelude.rnf placementGroupArn
-      `Prelude.seq` Prelude.rnf startDate
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf tenancy
-      `Prelude.seq` Prelude.rnf
-        totalInstanceCount
+    Prelude.rnf availabilityZone `Prelude.seq`
+      Prelude.rnf availabilityZoneId `Prelude.seq`
+        Prelude.rnf availableInstanceCount `Prelude.seq`
+          Prelude.rnf capacityAllocations `Prelude.seq`
+            Prelude.rnf capacityReservationArn `Prelude.seq`
+              Prelude.rnf capacityReservationFleetId `Prelude.seq`
+                Prelude.rnf capacityReservationId `Prelude.seq`
+                  Prelude.rnf createDate `Prelude.seq`
+                    Prelude.rnf ebsOptimized `Prelude.seq`
+                      Prelude.rnf endDate `Prelude.seq`
+                        Prelude.rnf endDateType `Prelude.seq`
+                          Prelude.rnf ephemeralStorage `Prelude.seq`
+                            Prelude.rnf instanceMatchCriteria `Prelude.seq`
+                              Prelude.rnf instancePlatform `Prelude.seq`
+                                Prelude.rnf instanceType `Prelude.seq`
+                                  Prelude.rnf outpostArn `Prelude.seq`
+                                    Prelude.rnf ownerId `Prelude.seq`
+                                      Prelude.rnf placementGroupArn `Prelude.seq`
+                                        Prelude.rnf startDate `Prelude.seq`
+                                          Prelude.rnf state `Prelude.seq`
+                                            Prelude.rnf tags `Prelude.seq`
+                                              Prelude.rnf tenancy `Prelude.seq`
+                                                Prelude.rnf
+                                                  totalInstanceCount

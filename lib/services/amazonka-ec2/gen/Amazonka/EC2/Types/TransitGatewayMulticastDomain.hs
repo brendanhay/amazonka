@@ -133,9 +133,7 @@ instance Data.FromXML TransitGatewayMulticastDomain where
       Prelude.<*> (x Data..@? "options")
       Prelude.<*> (x Data..@? "ownerId")
       Prelude.<*> (x Data..@? "state")
-      Prelude.<*> ( x
-                      Data..@? "tagSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "transitGatewayId")
@@ -159,11 +157,11 @@ instance
 
 instance Prelude.NFData TransitGatewayMulticastDomain where
   rnf TransitGatewayMulticastDomain' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf options
-      `Prelude.seq` Prelude.rnf ownerId
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf transitGatewayId
-      `Prelude.seq` Prelude.rnf transitGatewayMulticastDomainArn
-      `Prelude.seq` Prelude.rnf transitGatewayMulticastDomainId
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf options `Prelude.seq`
+        Prelude.rnf ownerId `Prelude.seq`
+          Prelude.rnf state `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf transitGatewayId `Prelude.seq`
+                Prelude.rnf transitGatewayMulticastDomainArn `Prelude.seq`
+                  Prelude.rnf transitGatewayMulticastDomainId

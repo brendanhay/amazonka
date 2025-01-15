@@ -130,9 +130,7 @@ instance Data.FromXML TrafficMirrorFilter where
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x
-                      Data..@? "tagSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "trafficMirrorFilterId")
@@ -149,9 +147,9 @@ instance Prelude.Hashable TrafficMirrorFilter where
 
 instance Prelude.NFData TrafficMirrorFilter where
   rnf TrafficMirrorFilter' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf egressFilterRules
-      `Prelude.seq` Prelude.rnf ingressFilterRules
-      `Prelude.seq` Prelude.rnf networkServices
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf trafficMirrorFilterId
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf egressFilterRules `Prelude.seq`
+        Prelude.rnf ingressFilterRules `Prelude.seq`
+          Prelude.rnf networkServices `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf trafficMirrorFilterId

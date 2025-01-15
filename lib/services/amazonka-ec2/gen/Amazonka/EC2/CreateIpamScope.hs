@@ -177,11 +177,11 @@ instance Prelude.Hashable CreateIpamScope where
 
 instance Prelude.NFData CreateIpamScope where
   rnf CreateIpamScope' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf tagSpecifications
-      `Prelude.seq` Prelude.rnf ipamId
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf dryRun `Prelude.seq`
+          Prelude.rnf tagSpecifications `Prelude.seq`
+            Prelude.rnf ipamId
 
 instance Data.ToHeaders CreateIpamScope where
   toHeaders = Prelude.const Prelude.mempty
@@ -247,5 +247,5 @@ createIpamScopeResponse_httpStatus = Lens.lens (\CreateIpamScopeResponse' {httpS
 
 instance Prelude.NFData CreateIpamScopeResponse where
   rnf CreateIpamScopeResponse' {..} =
-    Prelude.rnf ipamScope
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf ipamScope `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -89,9 +89,9 @@ instance Prelude.Hashable DestinationOptionsRequest where
 
 instance Prelude.NFData DestinationOptionsRequest where
   rnf DestinationOptionsRequest' {..} =
-    Prelude.rnf fileFormat
-      `Prelude.seq` Prelude.rnf hiveCompatiblePartitions
-      `Prelude.seq` Prelude.rnf perHourPartition
+    Prelude.rnf fileFormat `Prelude.seq`
+      Prelude.rnf hiveCompatiblePartitions `Prelude.seq`
+        Prelude.rnf perHourPartition
 
 instance Data.ToQuery DestinationOptionsRequest where
   toQuery DestinationOptionsRequest' {..} =

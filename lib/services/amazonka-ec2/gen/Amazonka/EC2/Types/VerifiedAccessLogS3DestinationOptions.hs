@@ -105,10 +105,10 @@ instance
     VerifiedAccessLogS3DestinationOptions
   where
   rnf VerifiedAccessLogS3DestinationOptions' {..} =
-    Prelude.rnf bucketName
-      `Prelude.seq` Prelude.rnf bucketOwner
-      `Prelude.seq` Prelude.rnf prefix
-      `Prelude.seq` Prelude.rnf enabled
+    Prelude.rnf bucketName `Prelude.seq`
+      Prelude.rnf bucketOwner `Prelude.seq`
+        Prelude.rnf prefix `Prelude.seq`
+          Prelude.rnf enabled
 
 instance
   Data.ToQuery

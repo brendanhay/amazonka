@@ -163,10 +163,10 @@ instance
 
 instance Prelude.NFData TerminateClientVpnConnections where
   rnf TerminateClientVpnConnections' {..} =
-    Prelude.rnf connectionId
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf username
-      `Prelude.seq` Prelude.rnf clientVpnEndpointId
+    Prelude.rnf connectionId `Prelude.seq`
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf username `Prelude.seq`
+          Prelude.rnf clientVpnEndpointId
 
 instance Data.ToHeaders TerminateClientVpnConnections where
   toHeaders = Prelude.const Prelude.mempty
@@ -251,7 +251,7 @@ instance
     TerminateClientVpnConnectionsResponse
   where
   rnf TerminateClientVpnConnectionsResponse' {..} =
-    Prelude.rnf clientVpnEndpointId
-      `Prelude.seq` Prelude.rnf connectionStatuses
-      `Prelude.seq` Prelude.rnf username
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf clientVpnEndpointId `Prelude.seq`
+      Prelude.rnf connectionStatuses `Prelude.seq`
+        Prelude.rnf username `Prelude.seq`
+          Prelude.rnf httpStatus

@@ -144,12 +144,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getManagedPrefixListAssociations_nextToken
-          Lens..~ rs
-          Lens.^? getManagedPrefixListAssociationsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getManagedPrefixListAssociations_nextToken
+              Lens..~ rs
+              Lens.^? getManagedPrefixListAssociationsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -191,10 +191,10 @@ instance
     GetManagedPrefixListAssociations
   where
   rnf GetManagedPrefixListAssociations' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf prefixListId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf prefixListId
 
 instance
   Data.ToHeaders
@@ -281,6 +281,6 @@ instance
     GetManagedPrefixListAssociationsResponse
   where
   rnf GetManagedPrefixListAssociationsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf prefixListAssociations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf prefixListAssociations `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -129,8 +129,8 @@ instance
     ReplaceIamInstanceProfileAssociation
   where
   rnf ReplaceIamInstanceProfileAssociation' {..} =
-    Prelude.rnf iamInstanceProfile
-      `Prelude.seq` Prelude.rnf associationId
+    Prelude.rnf iamInstanceProfile `Prelude.seq`
+      Prelude.rnf associationId
 
 instance
   Data.ToHeaders
@@ -205,5 +205,5 @@ instance
     ReplaceIamInstanceProfileAssociationResponse
   where
   rnf ReplaceIamInstanceProfileAssociationResponse' {..} =
-    Prelude.rnf iamInstanceProfileAssociation
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf iamInstanceProfileAssociation `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -90,6 +90,6 @@ instance Prelude.Hashable TerminateConnectionStatus where
 
 instance Prelude.NFData TerminateConnectionStatus where
   rnf TerminateConnectionStatus' {..} =
-    Prelude.rnf connectionId
-      `Prelude.seq` Prelude.rnf currentStatus
-      `Prelude.seq` Prelude.rnf previousStatus
+    Prelude.rnf connectionId `Prelude.seq`
+      Prelude.rnf currentStatus `Prelude.seq`
+        Prelude.rnf previousStatus

@@ -139,13 +139,13 @@ instance
     CreateVerifiedAccessTrustProviderOidcOptions
   where
   rnf CreateVerifiedAccessTrustProviderOidcOptions' {..} =
-    Prelude.rnf authorizationEndpoint
-      `Prelude.seq` Prelude.rnf clientId
-      `Prelude.seq` Prelude.rnf clientSecret
-      `Prelude.seq` Prelude.rnf issuer
-      `Prelude.seq` Prelude.rnf scope
-      `Prelude.seq` Prelude.rnf tokenEndpoint
-      `Prelude.seq` Prelude.rnf userInfoEndpoint
+    Prelude.rnf authorizationEndpoint `Prelude.seq`
+      Prelude.rnf clientId `Prelude.seq`
+        Prelude.rnf clientSecret `Prelude.seq`
+          Prelude.rnf issuer `Prelude.seq`
+            Prelude.rnf scope `Prelude.seq`
+              Prelude.rnf tokenEndpoint `Prelude.seq`
+                Prelude.rnf userInfoEndpoint
 
 instance
   Data.ToQuery

@@ -79,5 +79,5 @@ instance Prelude.Hashable InstanceExportDetails where
 
 instance Prelude.NFData InstanceExportDetails where
   rnf InstanceExportDetails' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf targetEnvironment
+    Prelude.rnf instanceId `Prelude.seq`
+      Prelude.rnf targetEnvironment

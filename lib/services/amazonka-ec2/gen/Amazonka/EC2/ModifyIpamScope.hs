@@ -128,9 +128,9 @@ instance Prelude.Hashable ModifyIpamScope where
 
 instance Prelude.NFData ModifyIpamScope where
   rnf ModifyIpamScope' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf ipamScopeId
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf ipamScopeId
 
 instance Data.ToHeaders ModifyIpamScope where
   toHeaders = Prelude.const Prelude.mempty
@@ -191,5 +191,5 @@ modifyIpamScopeResponse_httpStatus = Lens.lens (\ModifyIpamScopeResponse' {httpS
 
 instance Prelude.NFData ModifyIpamScopeResponse where
   rnf ModifyIpamScopeResponse' {..} =
-    Prelude.rnf ipamScope
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf ipamScope `Prelude.seq`
+      Prelude.rnf httpStatus

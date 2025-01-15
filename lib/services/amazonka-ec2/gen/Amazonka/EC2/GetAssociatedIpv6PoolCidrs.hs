@@ -141,12 +141,12 @@ instance Core.AWSPager GetAssociatedIpv6PoolCidrs where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getAssociatedIpv6PoolCidrs_nextToken
-          Lens..~ rs
-          Lens.^? getAssociatedIpv6PoolCidrsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getAssociatedIpv6PoolCidrs_nextToken
+              Lens..~ rs
+              Lens.^? getAssociatedIpv6PoolCidrsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetAssociatedIpv6PoolCidrs where
   type
@@ -177,10 +177,10 @@ instance Prelude.Hashable GetAssociatedIpv6PoolCidrs where
 
 instance Prelude.NFData GetAssociatedIpv6PoolCidrs where
   rnf GetAssociatedIpv6PoolCidrs' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf poolId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf poolId
 
 instance Data.ToHeaders GetAssociatedIpv6PoolCidrs where
   toHeaders = Prelude.const Prelude.mempty
@@ -257,6 +257,6 @@ instance
     GetAssociatedIpv6PoolCidrsResponse
   where
   rnf GetAssociatedIpv6PoolCidrsResponse' {..} =
-    Prelude.rnf ipv6CidrAssociations
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf ipv6CidrAssociations `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

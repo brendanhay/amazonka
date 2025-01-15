@@ -169,12 +169,12 @@ instance Prelude.Hashable CopyFpgaImage where
 
 instance Prelude.NFData CopyFpgaImage where
   rnf CopyFpgaImage' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf sourceFpgaImageId
-      `Prelude.seq` Prelude.rnf sourceRegion
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf dryRun `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf sourceFpgaImageId `Prelude.seq`
+              Prelude.rnf sourceRegion
 
 instance Data.ToHeaders CopyFpgaImage where
   toHeaders = Prelude.const Prelude.mempty
@@ -238,5 +238,5 @@ copyFpgaImageResponse_httpStatus = Lens.lens (\CopyFpgaImageResponse' {httpStatu
 
 instance Prelude.NFData CopyFpgaImageResponse where
   rnf CopyFpgaImageResponse' {..} =
-    Prelude.rnf fpgaImageId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf fpgaImageId `Prelude.seq`
+      Prelude.rnf httpStatus

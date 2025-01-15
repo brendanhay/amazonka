@@ -160,9 +160,9 @@ instance
     DisassociateClientVpnTargetNetwork
   where
   rnf DisassociateClientVpnTargetNetwork' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf clientVpnEndpointId
-      `Prelude.seq` Prelude.rnf associationId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf clientVpnEndpointId `Prelude.seq`
+        Prelude.rnf associationId
 
 instance
   Data.ToHeaders
@@ -247,6 +247,6 @@ instance
     DisassociateClientVpnTargetNetworkResponse
   where
   rnf DisassociateClientVpnTargetNetworkResponse' {..} =
-    Prelude.rnf associationId
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf associationId `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf httpStatus

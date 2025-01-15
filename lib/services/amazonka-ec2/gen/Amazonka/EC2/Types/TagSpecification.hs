@@ -74,9 +74,7 @@ instance Data.FromXML TagSpecification where
   parseXML x =
     TagSpecification'
       Prelude.<$> (x Data..@? "resourceType")
-      Prelude.<*> ( x
-                      Data..@? "Tag"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "Tag" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
@@ -88,8 +86,8 @@ instance Prelude.Hashable TagSpecification where
 
 instance Prelude.NFData TagSpecification where
   rnf TagSpecification' {..} =
-    Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf resourceType `Prelude.seq`
+      Prelude.rnf tags
 
 instance Data.ToQuery TagSpecification where
   toQuery TagSpecification' {..} =

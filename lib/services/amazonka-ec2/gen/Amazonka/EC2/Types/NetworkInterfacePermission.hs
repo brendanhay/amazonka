@@ -124,9 +124,9 @@ instance Prelude.Hashable NetworkInterfacePermission where
 
 instance Prelude.NFData NetworkInterfacePermission where
   rnf NetworkInterfacePermission' {..} =
-    Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf awsService
-      `Prelude.seq` Prelude.rnf networkInterfaceId
-      `Prelude.seq` Prelude.rnf networkInterfacePermissionId
-      `Prelude.seq` Prelude.rnf permission
-      `Prelude.seq` Prelude.rnf permissionState
+    Prelude.rnf awsAccountId `Prelude.seq`
+      Prelude.rnf awsService `Prelude.seq`
+        Prelude.rnf networkInterfaceId `Prelude.seq`
+          Prelude.rnf networkInterfacePermissionId `Prelude.seq`
+            Prelude.rnf permission `Prelude.seq`
+              Prelude.rnf permissionState

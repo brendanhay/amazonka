@@ -247,9 +247,7 @@ instance Data.FromXML ReservedInstances where
       Prelude.<*> (x Data..@? "scope")
       Prelude.<*> (x Data..@? "start")
       Prelude.<*> (x Data..@? "state")
-      Prelude.<*> ( x
-                      Data..@? "tagSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "usagePrice")
@@ -278,21 +276,21 @@ instance Prelude.Hashable ReservedInstances where
 
 instance Prelude.NFData ReservedInstances where
   rnf ReservedInstances' {..} =
-    Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf currencyCode
-      `Prelude.seq` Prelude.rnf duration
-      `Prelude.seq` Prelude.rnf end
-      `Prelude.seq` Prelude.rnf fixedPrice
-      `Prelude.seq` Prelude.rnf instanceCount
-      `Prelude.seq` Prelude.rnf instanceTenancy
-      `Prelude.seq` Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf offeringClass
-      `Prelude.seq` Prelude.rnf offeringType
-      `Prelude.seq` Prelude.rnf productDescription
-      `Prelude.seq` Prelude.rnf recurringCharges
-      `Prelude.seq` Prelude.rnf reservedInstancesId
-      `Prelude.seq` Prelude.rnf scope
-      `Prelude.seq` Prelude.rnf start
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf usagePrice
+    Prelude.rnf availabilityZone `Prelude.seq`
+      Prelude.rnf currencyCode `Prelude.seq`
+        Prelude.rnf duration `Prelude.seq`
+          Prelude.rnf end `Prelude.seq`
+            Prelude.rnf fixedPrice `Prelude.seq`
+              Prelude.rnf instanceCount `Prelude.seq`
+                Prelude.rnf instanceTenancy `Prelude.seq`
+                  Prelude.rnf instanceType `Prelude.seq`
+                    Prelude.rnf offeringClass `Prelude.seq`
+                      Prelude.rnf offeringType `Prelude.seq`
+                        Prelude.rnf productDescription `Prelude.seq`
+                          Prelude.rnf recurringCharges `Prelude.seq`
+                            Prelude.rnf reservedInstancesId `Prelude.seq`
+                              Prelude.rnf scope `Prelude.seq`
+                                Prelude.rnf start `Prelude.seq`
+                                  Prelude.rnf state `Prelude.seq`
+                                    Prelude.rnf tags `Prelude.seq`
+                                      Prelude.rnf usagePrice

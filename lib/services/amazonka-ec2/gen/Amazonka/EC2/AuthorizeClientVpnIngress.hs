@@ -201,13 +201,13 @@ instance Prelude.Hashable AuthorizeClientVpnIngress where
 
 instance Prelude.NFData AuthorizeClientVpnIngress where
   rnf AuthorizeClientVpnIngress' {..} =
-    Prelude.rnf accessGroupId
-      `Prelude.seq` Prelude.rnf authorizeAllGroups
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf clientVpnEndpointId
-      `Prelude.seq` Prelude.rnf targetNetworkCidr
+    Prelude.rnf accessGroupId `Prelude.seq`
+      Prelude.rnf authorizeAllGroups `Prelude.seq`
+        Prelude.rnf clientToken `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf dryRun `Prelude.seq`
+              Prelude.rnf clientVpnEndpointId `Prelude.seq`
+                Prelude.rnf targetNetworkCidr
 
 instance Data.ToHeaders AuthorizeClientVpnIngress where
   toHeaders = Prelude.const Prelude.mempty
@@ -275,5 +275,5 @@ instance
     AuthorizeClientVpnIngressResponse
   where
   rnf AuthorizeClientVpnIngressResponse' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf status `Prelude.seq`
+      Prelude.rnf httpStatus

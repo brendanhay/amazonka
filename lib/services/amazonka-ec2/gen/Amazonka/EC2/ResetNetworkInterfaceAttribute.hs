@@ -136,9 +136,9 @@ instance
     ResetNetworkInterfaceAttribute
   where
   rnf ResetNetworkInterfaceAttribute' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf sourceDestCheck
-      `Prelude.seq` Prelude.rnf networkInterfaceId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf sourceDestCheck `Prelude.seq`
+        Prelude.rnf networkInterfaceId
 
 instance
   Data.ToHeaders

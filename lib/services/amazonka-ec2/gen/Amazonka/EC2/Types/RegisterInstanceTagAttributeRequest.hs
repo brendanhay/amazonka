@@ -86,8 +86,8 @@ instance
     RegisterInstanceTagAttributeRequest
   where
   rnf RegisterInstanceTagAttributeRequest' {..} =
-    Prelude.rnf includeAllTagsOfInstance
-      `Prelude.seq` Prelude.rnf instanceTagKeys
+    Prelude.rnf includeAllTagsOfInstance `Prelude.seq`
+      Prelude.rnf instanceTagKeys
 
 instance
   Data.ToQuery

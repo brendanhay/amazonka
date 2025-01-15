@@ -75,9 +75,7 @@ prefixList_prefixListName = Lens.lens (\PrefixList' {prefixListName} -> prefixLi
 instance Data.FromXML PrefixList where
   parseXML x =
     PrefixList'
-      Prelude.<$> ( x
-                      Data..@? "cidrSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "cidrSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "prefixListId")
@@ -92,6 +90,6 @@ instance Prelude.Hashable PrefixList where
 
 instance Prelude.NFData PrefixList where
   rnf PrefixList' {..} =
-    Prelude.rnf cidrs
-      `Prelude.seq` Prelude.rnf prefixListId
-      `Prelude.seq` Prelude.rnf prefixListName
+    Prelude.rnf cidrs `Prelude.seq`
+      Prelude.rnf prefixListId `Prelude.seq`
+        Prelude.rnf prefixListName

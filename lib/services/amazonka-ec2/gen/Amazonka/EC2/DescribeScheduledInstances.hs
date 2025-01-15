@@ -194,12 +194,12 @@ instance Core.AWSPager DescribeScheduledInstances where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeScheduledInstances_nextToken
-          Lens..~ rs
-          Lens.^? describeScheduledInstancesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeScheduledInstances_nextToken
+              Lens..~ rs
+              Lens.^? describeScheduledInstancesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeScheduledInstances where
   type
@@ -232,12 +232,12 @@ instance Prelude.Hashable DescribeScheduledInstances where
 
 instance Prelude.NFData DescribeScheduledInstances where
   rnf DescribeScheduledInstances' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf scheduledInstanceIds
-      `Prelude.seq` Prelude.rnf slotStartTimeRange
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf scheduledInstanceIds `Prelude.seq`
+              Prelude.rnf slotStartTimeRange
 
 instance Data.ToHeaders DescribeScheduledInstances where
   toHeaders = Prelude.const Prelude.mempty
@@ -322,6 +322,6 @@ instance
     DescribeScheduledInstancesResponse
   where
   rnf DescribeScheduledInstancesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf scheduledInstanceSet
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf scheduledInstanceSet `Prelude.seq`
+        Prelude.rnf httpStatus

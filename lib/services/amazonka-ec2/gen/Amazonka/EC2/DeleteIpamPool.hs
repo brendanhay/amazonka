@@ -127,8 +127,8 @@ instance Prelude.Hashable DeleteIpamPool where
 
 instance Prelude.NFData DeleteIpamPool where
   rnf DeleteIpamPool' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf ipamPoolId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf ipamPoolId
 
 instance Data.ToHeaders DeleteIpamPool where
   toHeaders = Prelude.const Prelude.mempty
@@ -187,5 +187,5 @@ deleteIpamPoolResponse_httpStatus = Lens.lens (\DeleteIpamPoolResponse' {httpSta
 
 instance Prelude.NFData DeleteIpamPoolResponse where
   rnf DeleteIpamPoolResponse' {..} =
-    Prelude.rnf ipamPool
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf ipamPool `Prelude.seq`
+      Prelude.rnf httpStatus

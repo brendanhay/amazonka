@@ -157,9 +157,7 @@ instance Core.AWSRequest DescribeVpcClassicLink where
     Response.receiveXML
       ( \s h x ->
           DescribeVpcClassicLinkResponse'
-            Prelude.<$> ( x
-                            Data..@? "vpcSet"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "vpcSet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -174,9 +172,9 @@ instance Prelude.Hashable DescribeVpcClassicLink where
 
 instance Prelude.NFData DescribeVpcClassicLink where
   rnf DescribeVpcClassicLink' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf vpcIds
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf vpcIds
 
 instance Data.ToHeaders DescribeVpcClassicLink where
   toHeaders = Prelude.const Prelude.mempty
@@ -242,5 +240,5 @@ instance
     DescribeVpcClassicLinkResponse
   where
   rnf DescribeVpcClassicLinkResponse' {..} =
-    Prelude.rnf vpcs
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf vpcs `Prelude.seq`
+      Prelude.rnf httpStatus

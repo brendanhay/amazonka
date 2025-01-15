@@ -123,9 +123,9 @@ instance Prelude.Hashable DetachInternetGateway where
 
 instance Prelude.NFData DetachInternetGateway where
   rnf DetachInternetGateway' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf internetGatewayId
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf internetGatewayId `Prelude.seq`
+        Prelude.rnf vpcId
 
 instance Data.ToHeaders DetachInternetGateway where
   toHeaders = Prelude.const Prelude.mempty

@@ -233,12 +233,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeTransitGatewayAttachments_nextToken
-          Lens..~ rs
-          Lens.^? describeTransitGatewayAttachmentsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeTransitGatewayAttachments_nextToken
+              Lens..~ rs
+              Lens.^? describeTransitGatewayAttachmentsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -281,11 +281,11 @@ instance
     DescribeTransitGatewayAttachments
   where
   rnf DescribeTransitGatewayAttachments' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf transitGatewayAttachmentIds
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf transitGatewayAttachmentIds
 
 instance
   Data.ToHeaders
@@ -380,6 +380,6 @@ instance
     DescribeTransitGatewayAttachmentsResponse
   where
   rnf DescribeTransitGatewayAttachmentsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf transitGatewayAttachments
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf transitGatewayAttachments `Prelude.seq`
+        Prelude.rnf httpStatus

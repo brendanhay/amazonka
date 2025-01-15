@@ -137,9 +137,9 @@ instance Prelude.Hashable AddressTransfer where
 
 instance Prelude.NFData AddressTransfer where
   rnf AddressTransfer' {..} =
-    Prelude.rnf addressTransferStatus
-      `Prelude.seq` Prelude.rnf allocationId
-      `Prelude.seq` Prelude.rnf publicIp
-      `Prelude.seq` Prelude.rnf transferAccountId
-      `Prelude.seq` Prelude.rnf transferOfferAcceptedTimestamp
-      `Prelude.seq` Prelude.rnf transferOfferExpirationTimestamp
+    Prelude.rnf addressTransferStatus `Prelude.seq`
+      Prelude.rnf allocationId `Prelude.seq`
+        Prelude.rnf publicIp `Prelude.seq`
+          Prelude.rnf transferAccountId `Prelude.seq`
+            Prelude.rnf transferOfferAcceptedTimestamp `Prelude.seq`
+              Prelude.rnf transferOfferExpirationTimestamp

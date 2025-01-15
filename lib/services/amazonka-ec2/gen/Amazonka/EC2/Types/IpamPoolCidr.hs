@@ -99,6 +99,6 @@ instance Prelude.Hashable IpamPoolCidr where
 
 instance Prelude.NFData IpamPoolCidr where
   rnf IpamPoolCidr' {..} =
-    Prelude.rnf cidr
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf cidr `Prelude.seq`
+      Prelude.rnf failureReason `Prelude.seq`
+        Prelude.rnf state

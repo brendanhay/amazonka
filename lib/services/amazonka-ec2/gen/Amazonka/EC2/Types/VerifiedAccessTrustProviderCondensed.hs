@@ -128,8 +128,8 @@ instance
     VerifiedAccessTrustProviderCondensed
   where
   rnf VerifiedAccessTrustProviderCondensed' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf deviceTrustProviderType
-      `Prelude.seq` Prelude.rnf trustProviderType
-      `Prelude.seq` Prelude.rnf userTrustProviderType
-      `Prelude.seq` Prelude.rnf verifiedAccessTrustProviderId
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf deviceTrustProviderType `Prelude.seq`
+        Prelude.rnf trustProviderType `Prelude.seq`
+          Prelude.rnf userTrustProviderType `Prelude.seq`
+            Prelude.rnf verifiedAccessTrustProviderId

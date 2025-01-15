@@ -131,9 +131,9 @@ instance Prelude.Hashable ResetAddressAttribute where
 
 instance Prelude.NFData ResetAddressAttribute where
   rnf ResetAddressAttribute' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf allocationId
-      `Prelude.seq` Prelude.rnf attribute
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf allocationId `Prelude.seq`
+        Prelude.rnf attribute
 
 instance Data.ToHeaders ResetAddressAttribute where
   toHeaders = Prelude.const Prelude.mempty
@@ -194,5 +194,5 @@ resetAddressAttributeResponse_httpStatus = Lens.lens (\ResetAddressAttributeResp
 
 instance Prelude.NFData ResetAddressAttributeResponse where
   rnf ResetAddressAttributeResponse' {..} =
-    Prelude.rnf address
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf address `Prelude.seq`
+      Prelude.rnf httpStatus

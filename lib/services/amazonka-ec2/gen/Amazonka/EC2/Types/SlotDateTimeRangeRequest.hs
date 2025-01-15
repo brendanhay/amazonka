@@ -85,8 +85,8 @@ instance Prelude.Hashable SlotDateTimeRangeRequest where
 
 instance Prelude.NFData SlotDateTimeRangeRequest where
   rnf SlotDateTimeRangeRequest' {..} =
-    Prelude.rnf earliestTime
-      `Prelude.seq` Prelude.rnf latestTime
+    Prelude.rnf earliestTime `Prelude.seq`
+      Prelude.rnf latestTime
 
 instance Data.ToQuery SlotDateTimeRangeRequest where
   toQuery SlotDateTimeRangeRequest' {..} =

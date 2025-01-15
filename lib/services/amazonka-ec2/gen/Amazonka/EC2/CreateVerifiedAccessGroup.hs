@@ -176,12 +176,12 @@ instance Prelude.Hashable CreateVerifiedAccessGroup where
 
 instance Prelude.NFData CreateVerifiedAccessGroup where
   rnf CreateVerifiedAccessGroup' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf policyDocument
-      `Prelude.seq` Prelude.rnf tagSpecifications
-      `Prelude.seq` Prelude.rnf verifiedAccessInstanceId
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf dryRun `Prelude.seq`
+          Prelude.rnf policyDocument `Prelude.seq`
+            Prelude.rnf tagSpecifications `Prelude.seq`
+              Prelude.rnf verifiedAccessInstanceId
 
 instance Data.ToHeaders CreateVerifiedAccessGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -252,5 +252,5 @@ instance
     CreateVerifiedAccessGroupResponse
   where
   rnf CreateVerifiedAccessGroupResponse' {..} =
-    Prelude.rnf verifiedAccessGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf verifiedAccessGroup `Prelude.seq`
+      Prelude.rnf httpStatus

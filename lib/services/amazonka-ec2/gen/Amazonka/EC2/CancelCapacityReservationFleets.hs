@@ -147,8 +147,8 @@ instance
     CancelCapacityReservationFleets
   where
   rnf CancelCapacityReservationFleets' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf capacityReservationFleetIds
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf capacityReservationFleetIds
 
 instance
   Data.ToHeaders
@@ -235,6 +235,6 @@ instance
     CancelCapacityReservationFleetsResponse
   where
   rnf CancelCapacityReservationFleetsResponse' {..} =
-    Prelude.rnf failedFleetCancellations
-      `Prelude.seq` Prelude.rnf successfulFleetCancellations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf failedFleetCancellations `Prelude.seq`
+      Prelude.rnf successfulFleetCancellations `Prelude.seq`
+        Prelude.rnf httpStatus

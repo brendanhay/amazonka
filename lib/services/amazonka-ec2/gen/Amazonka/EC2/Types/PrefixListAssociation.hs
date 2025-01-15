@@ -78,5 +78,5 @@ instance Prelude.Hashable PrefixListAssociation where
 
 instance Prelude.NFData PrefixListAssociation where
   rnf PrefixListAssociation' {..} =
-    Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf resourceOwner
+    Prelude.rnf resourceId `Prelude.seq`
+      Prelude.rnf resourceOwner

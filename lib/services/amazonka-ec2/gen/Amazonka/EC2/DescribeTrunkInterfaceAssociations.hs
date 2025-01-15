@@ -169,12 +169,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeTrunkInterfaceAssociations_nextToken
-          Lens..~ rs
-          Lens.^? describeTrunkInterfaceAssociationsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeTrunkInterfaceAssociations_nextToken
+              Lens..~ rs
+              Lens.^? describeTrunkInterfaceAssociationsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -217,11 +217,11 @@ instance
     DescribeTrunkInterfaceAssociations
   where
   rnf DescribeTrunkInterfaceAssociations' {..} =
-    Prelude.rnf associationIds
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf associationIds `Prelude.seq`
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf filters `Prelude.seq`
+          Prelude.rnf maxResults `Prelude.seq`
+            Prelude.rnf nextToken
 
 instance
   Data.ToHeaders
@@ -315,6 +315,6 @@ instance
     DescribeTrunkInterfaceAssociationsResponse
   where
   rnf DescribeTrunkInterfaceAssociationsResponse' {..} =
-    Prelude.rnf interfaceAssociations
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf interfaceAssociations `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

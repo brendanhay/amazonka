@@ -115,8 +115,8 @@ instance Prelude.Hashable AssociateIamInstanceProfile where
 
 instance Prelude.NFData AssociateIamInstanceProfile where
   rnf AssociateIamInstanceProfile' {..} =
-    Prelude.rnf iamInstanceProfile
-      `Prelude.seq` Prelude.rnf instanceId
+    Prelude.rnf iamInstanceProfile `Prelude.seq`
+      Prelude.rnf instanceId
 
 instance Data.ToHeaders AssociateIamInstanceProfile where
   toHeaders = Prelude.const Prelude.mempty
@@ -181,5 +181,5 @@ instance
     AssociateIamInstanceProfileResponse
   where
   rnf AssociateIamInstanceProfileResponse' {..} =
-    Prelude.rnf iamInstanceProfileAssociation
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf iamInstanceProfileAssociation `Prelude.seq`
+      Prelude.rnf httpStatus

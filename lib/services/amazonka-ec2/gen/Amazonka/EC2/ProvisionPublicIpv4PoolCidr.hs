@@ -156,10 +156,10 @@ instance Prelude.Hashable ProvisionPublicIpv4PoolCidr where
 
 instance Prelude.NFData ProvisionPublicIpv4PoolCidr where
   rnf ProvisionPublicIpv4PoolCidr' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf ipamPoolId
-      `Prelude.seq` Prelude.rnf poolId
-      `Prelude.seq` Prelude.rnf netmaskLength
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf ipamPoolId `Prelude.seq`
+        Prelude.rnf poolId `Prelude.seq`
+          Prelude.rnf netmaskLength
 
 instance Data.ToHeaders ProvisionPublicIpv4PoolCidr where
   toHeaders = Prelude.const Prelude.mempty
@@ -235,6 +235,6 @@ instance
     ProvisionPublicIpv4PoolCidrResponse
   where
   rnf ProvisionPublicIpv4PoolCidrResponse' {..} =
-    Prelude.rnf poolAddressRange
-      `Prelude.seq` Prelude.rnf poolId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf poolAddressRange `Prelude.seq`
+      Prelude.rnf poolId `Prelude.seq`
+        Prelude.rnf httpStatus

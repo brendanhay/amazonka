@@ -404,21 +404,21 @@ instance Prelude.Hashable CreateIpamPool where
 
 instance Prelude.NFData CreateIpamPool where
   rnf CreateIpamPool' {..} =
-    Prelude.rnf allocationDefaultNetmaskLength
-      `Prelude.seq` Prelude.rnf allocationMaxNetmaskLength
-      `Prelude.seq` Prelude.rnf allocationMinNetmaskLength
-      `Prelude.seq` Prelude.rnf allocationResourceTags
-      `Prelude.seq` Prelude.rnf autoImport
-      `Prelude.seq` Prelude.rnf awsService
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf locale
-      `Prelude.seq` Prelude.rnf publiclyAdvertisable
-      `Prelude.seq` Prelude.rnf sourceIpamPoolId
-      `Prelude.seq` Prelude.rnf tagSpecifications
-      `Prelude.seq` Prelude.rnf ipamScopeId
-      `Prelude.seq` Prelude.rnf addressFamily
+    Prelude.rnf allocationDefaultNetmaskLength `Prelude.seq`
+      Prelude.rnf allocationMaxNetmaskLength `Prelude.seq`
+        Prelude.rnf allocationMinNetmaskLength `Prelude.seq`
+          Prelude.rnf allocationResourceTags `Prelude.seq`
+            Prelude.rnf autoImport `Prelude.seq`
+              Prelude.rnf awsService `Prelude.seq`
+                Prelude.rnf clientToken `Prelude.seq`
+                  Prelude.rnf description `Prelude.seq`
+                    Prelude.rnf dryRun `Prelude.seq`
+                      Prelude.rnf locale `Prelude.seq`
+                        Prelude.rnf publiclyAdvertisable `Prelude.seq`
+                          Prelude.rnf sourceIpamPoolId `Prelude.seq`
+                            Prelude.rnf tagSpecifications `Prelude.seq`
+                              Prelude.rnf ipamScopeId `Prelude.seq`
+                                Prelude.rnf addressFamily
 
 instance Data.ToHeaders CreateIpamPool where
   toHeaders = Prelude.const Prelude.mempty
@@ -499,5 +499,5 @@ createIpamPoolResponse_httpStatus = Lens.lens (\CreateIpamPoolResponse' {httpSta
 
 instance Prelude.NFData CreateIpamPoolResponse where
   rnf CreateIpamPoolResponse' {..} =
-    Prelude.rnf ipamPool
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf ipamPool `Prelude.seq`
+      Prelude.rnf httpStatus

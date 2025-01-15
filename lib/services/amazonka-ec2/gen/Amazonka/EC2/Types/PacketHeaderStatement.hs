@@ -128,9 +128,7 @@ instance Data.FromXML PacketHeaderStatement where
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x
-                      Data..@? "protocolSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "protocolSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> ( x
@@ -138,9 +136,7 @@ instance Data.FromXML PacketHeaderStatement where
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x
-                      Data..@? "sourcePortSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "sourcePortSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> ( x
@@ -162,10 +158,10 @@ instance Prelude.Hashable PacketHeaderStatement where
 
 instance Prelude.NFData PacketHeaderStatement where
   rnf PacketHeaderStatement' {..} =
-    Prelude.rnf destinationAddresses
-      `Prelude.seq` Prelude.rnf destinationPorts
-      `Prelude.seq` Prelude.rnf destinationPrefixLists
-      `Prelude.seq` Prelude.rnf protocols
-      `Prelude.seq` Prelude.rnf sourceAddresses
-      `Prelude.seq` Prelude.rnf sourcePorts
-      `Prelude.seq` Prelude.rnf sourcePrefixLists
+    Prelude.rnf destinationAddresses `Prelude.seq`
+      Prelude.rnf destinationPorts `Prelude.seq`
+        Prelude.rnf destinationPrefixLists `Prelude.seq`
+          Prelude.rnf protocols `Prelude.seq`
+            Prelude.rnf sourceAddresses `Prelude.seq`
+              Prelude.rnf sourcePorts `Prelude.seq`
+                Prelude.rnf sourcePrefixLists

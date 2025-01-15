@@ -119,9 +119,7 @@ instance Data.FromXML VpcPeeringConnectionVpcInfo where
   parseXML x =
     VpcPeeringConnectionVpcInfo'
       Prelude.<$> (x Data..@? "cidrBlock")
-      Prelude.<*> ( x
-                      Data..@? "cidrBlockSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "cidrBlockSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> ( x
@@ -147,10 +145,10 @@ instance Prelude.Hashable VpcPeeringConnectionVpcInfo where
 
 instance Prelude.NFData VpcPeeringConnectionVpcInfo where
   rnf VpcPeeringConnectionVpcInfo' {..} =
-    Prelude.rnf cidrBlock
-      `Prelude.seq` Prelude.rnf cidrBlockSet
-      `Prelude.seq` Prelude.rnf ipv6CidrBlockSet
-      `Prelude.seq` Prelude.rnf ownerId
-      `Prelude.seq` Prelude.rnf peeringOptions
-      `Prelude.seq` Prelude.rnf region
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf cidrBlock `Prelude.seq`
+      Prelude.rnf cidrBlockSet `Prelude.seq`
+        Prelude.rnf ipv6CidrBlockSet `Prelude.seq`
+          Prelude.rnf ownerId `Prelude.seq`
+            Prelude.rnf peeringOptions `Prelude.seq`
+              Prelude.rnf region `Prelude.seq`
+                Prelude.rnf vpcId

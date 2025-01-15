@@ -83,5 +83,5 @@ instance Prelude.Hashable TrafficMirrorPortRange where
 
 instance Prelude.NFData TrafficMirrorPortRange where
   rnf TrafficMirrorPortRange' {..} =
-    Prelude.rnf fromPort
-      `Prelude.seq` Prelude.rnf toPort
+    Prelude.rnf fromPort `Prelude.seq`
+      Prelude.rnf toPort

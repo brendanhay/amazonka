@@ -105,9 +105,9 @@ instance
 
 instance Prelude.NFData PrivateDnsNameOptionsRequest where
   rnf PrivateDnsNameOptionsRequest' {..} =
-    Prelude.rnf enableResourceNameDnsAAAARecord
-      `Prelude.seq` Prelude.rnf enableResourceNameDnsARecord
-      `Prelude.seq` Prelude.rnf hostnameType
+    Prelude.rnf enableResourceNameDnsAAAARecord `Prelude.seq`
+      Prelude.rnf enableResourceNameDnsARecord `Prelude.seq`
+        Prelude.rnf hostnameType
 
 instance Data.ToQuery PrivateDnsNameOptionsRequest where
   toQuery PrivateDnsNameOptionsRequest' {..} =

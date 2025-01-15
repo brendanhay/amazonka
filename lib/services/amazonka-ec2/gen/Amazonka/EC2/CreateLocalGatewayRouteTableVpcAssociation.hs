@@ -159,10 +159,10 @@ instance
     CreateLocalGatewayRouteTableVpcAssociation
   where
   rnf CreateLocalGatewayRouteTableVpcAssociation' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf tagSpecifications
-      `Prelude.seq` Prelude.rnf localGatewayRouteTableId
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf tagSpecifications `Prelude.seq`
+        Prelude.rnf localGatewayRouteTableId `Prelude.seq`
+          Prelude.rnf vpcId
 
 instance
   Data.ToHeaders
@@ -246,5 +246,5 @@ instance
   where
   rnf
     CreateLocalGatewayRouteTableVpcAssociationResponse' {..} =
-      Prelude.rnf localGatewayRouteTableVpcAssociation
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf localGatewayRouteTableVpcAssociation `Prelude.seq`
+        Prelude.rnf httpStatus

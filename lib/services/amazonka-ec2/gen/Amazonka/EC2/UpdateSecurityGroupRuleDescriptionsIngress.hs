@@ -186,11 +186,11 @@ instance
     UpdateSecurityGroupRuleDescriptionsIngress
   where
   rnf UpdateSecurityGroupRuleDescriptionsIngress' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf groupId
-      `Prelude.seq` Prelude.rnf groupName
-      `Prelude.seq` Prelude.rnf ipPermissions
-      `Prelude.seq` Prelude.rnf securityGroupRuleDescriptions
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf groupId `Prelude.seq`
+        Prelude.rnf groupName `Prelude.seq`
+          Prelude.rnf ipPermissions `Prelude.seq`
+            Prelude.rnf securityGroupRuleDescriptions
 
 instance
   Data.ToHeaders
@@ -277,5 +277,5 @@ instance
   where
   rnf
     UpdateSecurityGroupRuleDescriptionsIngressResponse' {..} =
-      Prelude.rnf return'
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf return' `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -137,9 +137,9 @@ instance
     TransitGatewayPrefixListReference
   where
   rnf TransitGatewayPrefixListReference' {..} =
-    Prelude.rnf blackhole
-      `Prelude.seq` Prelude.rnf prefixListId
-      `Prelude.seq` Prelude.rnf prefixListOwnerId
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf transitGatewayAttachment
-      `Prelude.seq` Prelude.rnf transitGatewayRouteTableId
+    Prelude.rnf blackhole `Prelude.seq`
+      Prelude.rnf prefixListId `Prelude.seq`
+        Prelude.rnf prefixListOwnerId `Prelude.seq`
+          Prelude.rnf state `Prelude.seq`
+            Prelude.rnf transitGatewayAttachment `Prelude.seq`
+              Prelude.rnf transitGatewayRouteTableId

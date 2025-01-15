@@ -131,9 +131,9 @@ instance Prelude.Hashable DetachVpnGateway where
 
 instance Prelude.NFData DetachVpnGateway where
   rnf DetachVpnGateway' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf vpcId
-      `Prelude.seq` Prelude.rnf vpnGatewayId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf vpcId `Prelude.seq`
+        Prelude.rnf vpnGatewayId
 
 instance Data.ToHeaders DetachVpnGateway where
   toHeaders = Prelude.const Prelude.mempty

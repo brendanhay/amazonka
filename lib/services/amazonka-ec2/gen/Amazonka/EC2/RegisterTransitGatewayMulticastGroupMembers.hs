@@ -166,10 +166,10 @@ instance
     RegisterTransitGatewayMulticastGroupMembers
   where
   rnf RegisterTransitGatewayMulticastGroupMembers' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf groupIpAddress
-      `Prelude.seq` Prelude.rnf networkInterfaceIds
-      `Prelude.seq` Prelude.rnf transitGatewayMulticastDomainId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf groupIpAddress `Prelude.seq`
+        Prelude.rnf networkInterfaceIds `Prelude.seq`
+          Prelude.rnf transitGatewayMulticastDomainId
 
 instance
   Data.ToHeaders
@@ -256,5 +256,5 @@ instance
   where
   rnf
     RegisterTransitGatewayMulticastGroupMembersResponse' {..} =
-      Prelude.rnf registeredMulticastGroupMembers
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf registeredMulticastGroupMembers `Prelude.seq`
+        Prelude.rnf httpStatus

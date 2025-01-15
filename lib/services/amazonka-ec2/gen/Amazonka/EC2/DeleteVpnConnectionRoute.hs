@@ -110,8 +110,8 @@ instance Prelude.Hashable DeleteVpnConnectionRoute where
 
 instance Prelude.NFData DeleteVpnConnectionRoute where
   rnf DeleteVpnConnectionRoute' {..} =
-    Prelude.rnf destinationCidrBlock
-      `Prelude.seq` Prelude.rnf vpnConnectionId
+    Prelude.rnf destinationCidrBlock `Prelude.seq`
+      Prelude.rnf vpnConnectionId
 
 instance Data.ToHeaders DeleteVpnConnectionRoute where
   toHeaders = Prelude.const Prelude.mempty

@@ -164,11 +164,11 @@ instance Prelude.Hashable CreateLocalGatewayRoute where
 
 instance Prelude.NFData CreateLocalGatewayRoute where
   rnf CreateLocalGatewayRoute' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf localGatewayVirtualInterfaceGroupId
-      `Prelude.seq` Prelude.rnf networkInterfaceId
-      `Prelude.seq` Prelude.rnf destinationCidrBlock
-      `Prelude.seq` Prelude.rnf localGatewayRouteTableId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf localGatewayVirtualInterfaceGroupId `Prelude.seq`
+        Prelude.rnf networkInterfaceId `Prelude.seq`
+          Prelude.rnf destinationCidrBlock `Prelude.seq`
+            Prelude.rnf localGatewayRouteTableId
 
 instance Data.ToHeaders CreateLocalGatewayRoute where
   toHeaders = Prelude.const Prelude.mempty
@@ -236,5 +236,5 @@ instance
     CreateLocalGatewayRouteResponse
   where
   rnf CreateLocalGatewayRouteResponse' {..} =
-    Prelude.rnf route
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf route `Prelude.seq`
+      Prelude.rnf httpStatus

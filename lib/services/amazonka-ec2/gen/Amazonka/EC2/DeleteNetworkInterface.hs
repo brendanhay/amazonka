@@ -112,8 +112,8 @@ instance Prelude.Hashable DeleteNetworkInterface where
 
 instance Prelude.NFData DeleteNetworkInterface where
   rnf DeleteNetworkInterface' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf networkInterfaceId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf networkInterfaceId
 
 instance Data.ToHeaders DeleteNetworkInterface where
   toHeaders = Prelude.const Prelude.mempty

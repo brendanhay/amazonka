@@ -143,9 +143,9 @@ instance
 
 instance Prelude.NFData DeprovisionPublicIpv4PoolCidr where
   rnf DeprovisionPublicIpv4PoolCidr' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf poolId
-      `Prelude.seq` Prelude.rnf cidr
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf poolId `Prelude.seq`
+        Prelude.rnf cidr
 
 instance Data.ToHeaders DeprovisionPublicIpv4PoolCidr where
   toHeaders = Prelude.const Prelude.mempty
@@ -220,6 +220,6 @@ instance
     DeprovisionPublicIpv4PoolCidrResponse
   where
   rnf DeprovisionPublicIpv4PoolCidrResponse' {..} =
-    Prelude.rnf deprovisionedAddresses
-      `Prelude.seq` Prelude.rnf poolId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf deprovisionedAddresses `Prelude.seq`
+      Prelude.rnf poolId `Prelude.seq`
+        Prelude.rnf httpStatus

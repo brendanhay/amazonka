@@ -89,6 +89,6 @@ instance Prelude.Hashable NetworkCardInfo where
 
 instance Prelude.NFData NetworkCardInfo where
   rnf NetworkCardInfo' {..} =
-    Prelude.rnf maximumNetworkInterfaces
-      `Prelude.seq` Prelude.rnf networkCardIndex
-      `Prelude.seq` Prelude.rnf networkPerformance
+    Prelude.rnf maximumNetworkInterfaces `Prelude.seq`
+      Prelude.rnf networkCardIndex `Prelude.seq`
+        Prelude.rnf networkPerformance

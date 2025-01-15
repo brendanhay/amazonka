@@ -78,5 +78,5 @@ instance Prelude.Hashable SubnetCidrBlockState where
 
 instance Prelude.NFData SubnetCidrBlockState where
   rnf SubnetCidrBlockState' {..} =
-    Prelude.rnf state
-      `Prelude.seq` Prelude.rnf statusMessage
+    Prelude.rnf state `Prelude.seq`
+      Prelude.rnf statusMessage

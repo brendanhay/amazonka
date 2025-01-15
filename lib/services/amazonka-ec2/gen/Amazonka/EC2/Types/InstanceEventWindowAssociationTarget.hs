@@ -88,14 +88,10 @@ instance
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x
-                      Data..@? "instanceIdSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "instanceIdSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x
-                      Data..@? "tagSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
@@ -116,6 +112,6 @@ instance
     InstanceEventWindowAssociationTarget
   where
   rnf InstanceEventWindowAssociationTarget' {..} =
-    Prelude.rnf dedicatedHostIds
-      `Prelude.seq` Prelude.rnf instanceIds
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf dedicatedHostIds `Prelude.seq`
+      Prelude.rnf instanceIds `Prelude.seq`
+        Prelude.rnf tags

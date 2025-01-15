@@ -112,9 +112,7 @@ instance Core.AWSRequest DescribeAggregateIdFormat where
     Response.receiveXML
       ( \s h x ->
           DescribeAggregateIdFormatResponse'
-            Prelude.<$> ( x
-                            Data..@? "statusSet"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "statusSet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (x Data..@? "useLongIdsAggregated")
@@ -204,6 +202,6 @@ instance
     DescribeAggregateIdFormatResponse
   where
   rnf DescribeAggregateIdFormatResponse' {..} =
-    Prelude.rnf statuses
-      `Prelude.seq` Prelude.rnf useLongIdsAggregated
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf statuses `Prelude.seq`
+      Prelude.rnf useLongIdsAggregated `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -125,9 +125,9 @@ instance Prelude.Hashable VgwTelemetry where
 
 instance Prelude.NFData VgwTelemetry where
   rnf VgwTelemetry' {..} =
-    Prelude.rnf acceptedRouteCount
-      `Prelude.seq` Prelude.rnf certificateArn
-      `Prelude.seq` Prelude.rnf lastStatusChange
-      `Prelude.seq` Prelude.rnf outsideIpAddress
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusMessage
+    Prelude.rnf acceptedRouteCount `Prelude.seq`
+      Prelude.rnf certificateArn `Prelude.seq`
+        Prelude.rnf lastStatusChange `Prelude.seq`
+          Prelude.rnf outsideIpAddress `Prelude.seq`
+            Prelude.rnf status `Prelude.seq`
+              Prelude.rnf statusMessage

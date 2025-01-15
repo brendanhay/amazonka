@@ -274,9 +274,7 @@ instance Data.FromXML TunnelOption where
     TunnelOption'
       Prelude.<$> (x Data..@? "dpdTimeoutAction")
       Prelude.<*> (x Data..@? "dpdTimeoutSeconds")
-      Prelude.<*> ( x
-                      Data..@? "ikeVersionSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "ikeVersionSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "logOptions")
@@ -347,24 +345,24 @@ instance Prelude.Hashable TunnelOption where
 
 instance Prelude.NFData TunnelOption where
   rnf TunnelOption' {..} =
-    Prelude.rnf dpdTimeoutAction
-      `Prelude.seq` Prelude.rnf dpdTimeoutSeconds
-      `Prelude.seq` Prelude.rnf ikeVersions
-      `Prelude.seq` Prelude.rnf logOptions
-      `Prelude.seq` Prelude.rnf outsideIpAddress
-      `Prelude.seq` Prelude.rnf phase1DHGroupNumbers
-      `Prelude.seq` Prelude.rnf phase1EncryptionAlgorithms
-      `Prelude.seq` Prelude.rnf phase1IntegrityAlgorithms
-      `Prelude.seq` Prelude.rnf phase1LifetimeSeconds
-      `Prelude.seq` Prelude.rnf phase2DHGroupNumbers
-      `Prelude.seq` Prelude.rnf phase2EncryptionAlgorithms
-      `Prelude.seq` Prelude.rnf phase2IntegrityAlgorithms
-      `Prelude.seq` Prelude.rnf phase2LifetimeSeconds
-      `Prelude.seq` Prelude.rnf preSharedKey
-      `Prelude.seq` Prelude.rnf rekeyFuzzPercentage
-      `Prelude.seq` Prelude.rnf rekeyMarginTimeSeconds
-      `Prelude.seq` Prelude.rnf replayWindowSize
-      `Prelude.seq` Prelude.rnf startupAction
-      `Prelude.seq` Prelude.rnf tunnelInsideCidr
-      `Prelude.seq` Prelude.rnf
-        tunnelInsideIpv6Cidr
+    Prelude.rnf dpdTimeoutAction `Prelude.seq`
+      Prelude.rnf dpdTimeoutSeconds `Prelude.seq`
+        Prelude.rnf ikeVersions `Prelude.seq`
+          Prelude.rnf logOptions `Prelude.seq`
+            Prelude.rnf outsideIpAddress `Prelude.seq`
+              Prelude.rnf phase1DHGroupNumbers `Prelude.seq`
+                Prelude.rnf phase1EncryptionAlgorithms `Prelude.seq`
+                  Prelude.rnf phase1IntegrityAlgorithms `Prelude.seq`
+                    Prelude.rnf phase1LifetimeSeconds `Prelude.seq`
+                      Prelude.rnf phase2DHGroupNumbers `Prelude.seq`
+                        Prelude.rnf phase2EncryptionAlgorithms `Prelude.seq`
+                          Prelude.rnf phase2IntegrityAlgorithms `Prelude.seq`
+                            Prelude.rnf phase2LifetimeSeconds `Prelude.seq`
+                              Prelude.rnf preSharedKey `Prelude.seq`
+                                Prelude.rnf rekeyFuzzPercentage `Prelude.seq`
+                                  Prelude.rnf rekeyMarginTimeSeconds `Prelude.seq`
+                                    Prelude.rnf replayWindowSize `Prelude.seq`
+                                      Prelude.rnf startupAction `Prelude.seq`
+                                        Prelude.rnf tunnelInsideCidr `Prelude.seq`
+                                          Prelude.rnf
+                                            tunnelInsideIpv6Cidr

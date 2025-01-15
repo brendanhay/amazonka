@@ -460,23 +460,23 @@ instance Prelude.Hashable ModifyInstanceAttribute where
 
 instance Prelude.NFData ModifyInstanceAttribute where
   rnf ModifyInstanceAttribute' {..} =
-    Prelude.rnf attribute
-      `Prelude.seq` Prelude.rnf blockDeviceMappings
-      `Prelude.seq` Prelude.rnf disableApiStop
-      `Prelude.seq` Prelude.rnf disableApiTermination
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf ebsOptimized
-      `Prelude.seq` Prelude.rnf enaSupport
-      `Prelude.seq` Prelude.rnf groups
-      `Prelude.seq` Prelude.rnf instanceInitiatedShutdownBehavior
-      `Prelude.seq` Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf kernel
-      `Prelude.seq` Prelude.rnf ramdisk
-      `Prelude.seq` Prelude.rnf sourceDestCheck
-      `Prelude.seq` Prelude.rnf sriovNetSupport
-      `Prelude.seq` Prelude.rnf userData
-      `Prelude.seq` Prelude.rnf value
-      `Prelude.seq` Prelude.rnf instanceId
+    Prelude.rnf attribute `Prelude.seq`
+      Prelude.rnf blockDeviceMappings `Prelude.seq`
+        Prelude.rnf disableApiStop `Prelude.seq`
+          Prelude.rnf disableApiTermination `Prelude.seq`
+            Prelude.rnf dryRun `Prelude.seq`
+              Prelude.rnf ebsOptimized `Prelude.seq`
+                Prelude.rnf enaSupport `Prelude.seq`
+                  Prelude.rnf groups `Prelude.seq`
+                    Prelude.rnf instanceInitiatedShutdownBehavior `Prelude.seq`
+                      Prelude.rnf instanceType `Prelude.seq`
+                        Prelude.rnf kernel `Prelude.seq`
+                          Prelude.rnf ramdisk `Prelude.seq`
+                            Prelude.rnf sourceDestCheck `Prelude.seq`
+                              Prelude.rnf sriovNetSupport `Prelude.seq`
+                                Prelude.rnf userData `Prelude.seq`
+                                  Prelude.rnf value `Prelude.seq`
+                                    Prelude.rnf instanceId
 
 instance Data.ToHeaders ModifyInstanceAttribute where
   toHeaders = Prelude.const Prelude.mempty

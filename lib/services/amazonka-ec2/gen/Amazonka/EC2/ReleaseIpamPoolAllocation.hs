@@ -156,10 +156,10 @@ instance Prelude.Hashable ReleaseIpamPoolAllocation where
 
 instance Prelude.NFData ReleaseIpamPoolAllocation where
   rnf ReleaseIpamPoolAllocation' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf ipamPoolId
-      `Prelude.seq` Prelude.rnf cidr
-      `Prelude.seq` Prelude.rnf ipamPoolAllocationId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf ipamPoolId `Prelude.seq`
+        Prelude.rnf cidr `Prelude.seq`
+          Prelude.rnf ipamPoolAllocationId
 
 instance Data.ToHeaders ReleaseIpamPoolAllocation where
   toHeaders = Prelude.const Prelude.mempty
@@ -224,5 +224,5 @@ instance
     ReleaseIpamPoolAllocationResponse
   where
   rnf ReleaseIpamPoolAllocationResponse' {..} =
-    Prelude.rnf success
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf success `Prelude.seq`
+      Prelude.rnf httpStatus

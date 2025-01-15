@@ -148,9 +148,9 @@ instance
     DeleteVerifiedAccessTrustProvider
   where
   rnf DeleteVerifiedAccessTrustProvider' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf verifiedAccessTrustProviderId
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf verifiedAccessTrustProviderId
 
 instance
   Data.ToHeaders
@@ -227,5 +227,5 @@ instance
     DeleteVerifiedAccessTrustProviderResponse
   where
   rnf DeleteVerifiedAccessTrustProviderResponse' {..} =
-    Prelude.rnf verifiedAccessTrustProvider
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf verifiedAccessTrustProvider `Prelude.seq`
+      Prelude.rnf httpStatus

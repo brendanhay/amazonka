@@ -538,19 +538,19 @@ instance Prelude.Hashable CreateVolume where
 
 instance Prelude.NFData CreateVolume where
   rnf CreateVolume' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf encrypted
-      `Prelude.seq` Prelude.rnf iops
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf multiAttachEnabled
-      `Prelude.seq` Prelude.rnf outpostArn
-      `Prelude.seq` Prelude.rnf size
-      `Prelude.seq` Prelude.rnf snapshotId
-      `Prelude.seq` Prelude.rnf tagSpecifications
-      `Prelude.seq` Prelude.rnf throughput
-      `Prelude.seq` Prelude.rnf volumeType
-      `Prelude.seq` Prelude.rnf availabilityZone
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf encrypted `Prelude.seq`
+          Prelude.rnf iops `Prelude.seq`
+            Prelude.rnf kmsKeyId `Prelude.seq`
+              Prelude.rnf multiAttachEnabled `Prelude.seq`
+                Prelude.rnf outpostArn `Prelude.seq`
+                  Prelude.rnf size `Prelude.seq`
+                    Prelude.rnf snapshotId `Prelude.seq`
+                      Prelude.rnf tagSpecifications `Prelude.seq`
+                        Prelude.rnf throughput `Prelude.seq`
+                          Prelude.rnf volumeType `Prelude.seq`
+                            Prelude.rnf availabilityZone
 
 instance Data.ToHeaders CreateVolume where
   toHeaders = Prelude.const Prelude.mempty

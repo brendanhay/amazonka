@@ -137,11 +137,11 @@ instance Prelude.Hashable S3Storage where
 
 instance Prelude.NFData S3Storage where
   rnf S3Storage' {..} =
-    Prelude.rnf aWSAccessKeyId
-      `Prelude.seq` Prelude.rnf bucket
-      `Prelude.seq` Prelude.rnf prefix
-      `Prelude.seq` Prelude.rnf uploadPolicy
-      `Prelude.seq` Prelude.rnf uploadPolicySignature
+    Prelude.rnf aWSAccessKeyId `Prelude.seq`
+      Prelude.rnf bucket `Prelude.seq`
+        Prelude.rnf prefix `Prelude.seq`
+          Prelude.rnf uploadPolicy `Prelude.seq`
+            Prelude.rnf uploadPolicySignature
 
 instance Data.ToQuery S3Storage where
   toQuery S3Storage' {..} =

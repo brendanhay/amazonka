@@ -135,9 +135,9 @@ instance Prelude.Hashable DeleteVerifiedAccessGroup where
 
 instance Prelude.NFData DeleteVerifiedAccessGroup where
   rnf DeleteVerifiedAccessGroup' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf verifiedAccessGroupId
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf verifiedAccessGroupId
 
 instance Data.ToHeaders DeleteVerifiedAccessGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -202,5 +202,5 @@ instance
     DeleteVerifiedAccessGroupResponse
   where
   rnf DeleteVerifiedAccessGroupResponse' {..} =
-    Prelude.rnf verifiedAccessGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf verifiedAccessGroup `Prelude.seq`
+      Prelude.rnf httpStatus

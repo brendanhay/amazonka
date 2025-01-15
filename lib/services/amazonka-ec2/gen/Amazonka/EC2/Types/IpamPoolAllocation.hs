@@ -143,10 +143,10 @@ instance Prelude.Hashable IpamPoolAllocation where
 
 instance Prelude.NFData IpamPoolAllocation where
   rnf IpamPoolAllocation' {..} =
-    Prelude.rnf cidr
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf ipamPoolAllocationId
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf resourceOwner
-      `Prelude.seq` Prelude.rnf resourceRegion
-      `Prelude.seq` Prelude.rnf resourceType
+    Prelude.rnf cidr `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf ipamPoolAllocationId `Prelude.seq`
+          Prelude.rnf resourceId `Prelude.seq`
+            Prelude.rnf resourceOwner `Prelude.seq`
+              Prelude.rnf resourceRegion `Prelude.seq`
+                Prelude.rnf resourceType

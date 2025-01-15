@@ -155,9 +155,9 @@ instance
     CreateSpotDatafeedSubscription
   where
   rnf CreateSpotDatafeedSubscription' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf prefix
-      `Prelude.seq` Prelude.rnf bucket
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf prefix `Prelude.seq`
+        Prelude.rnf bucket
 
 instance
   Data.ToHeaders
@@ -229,5 +229,5 @@ instance
     CreateSpotDatafeedSubscriptionResponse
   where
   rnf CreateSpotDatafeedSubscriptionResponse' {..} =
-    Prelude.rnf spotDatafeedSubscription
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf spotDatafeedSubscription `Prelude.seq`
+      Prelude.rnf httpStatus

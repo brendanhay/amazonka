@@ -89,6 +89,6 @@ instance Prelude.Hashable SecurityGroupReference where
 
 instance Prelude.NFData SecurityGroupReference where
   rnf SecurityGroupReference' {..} =
-    Prelude.rnf groupId
-      `Prelude.seq` Prelude.rnf referencingVpcId
-      `Prelude.seq` Prelude.rnf vpcPeeringConnectionId
+    Prelude.rnf groupId `Prelude.seq`
+      Prelude.rnf referencingVpcId `Prelude.seq`
+        Prelude.rnf vpcPeeringConnectionId

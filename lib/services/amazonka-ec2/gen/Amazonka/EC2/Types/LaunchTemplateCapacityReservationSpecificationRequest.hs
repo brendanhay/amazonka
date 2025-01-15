@@ -117,8 +117,8 @@ instance
   where
   rnf
     LaunchTemplateCapacityReservationSpecificationRequest' {..} =
-      Prelude.rnf capacityReservationPreference
-        `Prelude.seq` Prelude.rnf capacityReservationTarget
+      Prelude.rnf capacityReservationPreference `Prelude.seq`
+        Prelude.rnf capacityReservationTarget
 
 instance
   Data.ToQuery

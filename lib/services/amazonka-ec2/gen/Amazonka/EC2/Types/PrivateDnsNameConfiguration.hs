@@ -116,7 +116,7 @@ instance Prelude.Hashable PrivateDnsNameConfiguration where
 
 instance Prelude.NFData PrivateDnsNameConfiguration where
   rnf PrivateDnsNameConfiguration' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf state `Prelude.seq`
+        Prelude.rnf type' `Prelude.seq`
+          Prelude.rnf value

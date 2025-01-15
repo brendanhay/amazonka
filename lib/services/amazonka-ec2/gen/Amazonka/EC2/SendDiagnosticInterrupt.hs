@@ -128,8 +128,8 @@ instance Prelude.Hashable SendDiagnosticInterrupt where
 
 instance Prelude.NFData SendDiagnosticInterrupt where
   rnf SendDiagnosticInterrupt' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf instanceId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf instanceId
 
 instance Data.ToHeaders SendDiagnosticInterrupt where
   toHeaders = Prelude.const Prelude.mempty

@@ -126,8 +126,8 @@ instance
 
 instance Prelude.NFData DeleteNetworkInsightsAnalysis where
   rnf DeleteNetworkInsightsAnalysis' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf networkInsightsAnalysisId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf networkInsightsAnalysisId
 
 instance Data.ToHeaders DeleteNetworkInsightsAnalysis where
   toHeaders = Prelude.const Prelude.mempty
@@ -193,5 +193,5 @@ instance
     DeleteNetworkInsightsAnalysisResponse
   where
   rnf DeleteNetworkInsightsAnalysisResponse' {..} =
-    Prelude.rnf networkInsightsAnalysisId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf networkInsightsAnalysisId `Prelude.seq`
+      Prelude.rnf httpStatus

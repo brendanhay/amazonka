@@ -158,12 +158,12 @@ instance Core.AWSPager DescribeVerifiedAccessGroups where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeVerifiedAccessGroups_nextToken
-          Lens..~ rs
-          Lens.^? describeVerifiedAccessGroupsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeVerifiedAccessGroups_nextToken
+              Lens..~ rs
+              Lens.^? describeVerifiedAccessGroupsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeVerifiedAccessGroups where
   type
@@ -199,12 +199,12 @@ instance
 
 instance Prelude.NFData DescribeVerifiedAccessGroups where
   rnf DescribeVerifiedAccessGroups' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf verifiedAccessGroupIds
-      `Prelude.seq` Prelude.rnf verifiedAccessInstanceId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf verifiedAccessGroupIds `Prelude.seq`
+              Prelude.rnf verifiedAccessInstanceId
 
 instance Data.ToHeaders DescribeVerifiedAccessGroups where
   toHeaders = Prelude.const Prelude.mempty
@@ -291,6 +291,6 @@ instance
     DescribeVerifiedAccessGroupsResponse
   where
   rnf DescribeVerifiedAccessGroupsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf verifiedAccessGroups
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf verifiedAccessGroups `Prelude.seq`
+        Prelude.rnf httpStatus

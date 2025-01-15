@@ -82,5 +82,5 @@ instance Prelude.Hashable FederatedAuthentication where
 
 instance Prelude.NFData FederatedAuthentication where
   rnf FederatedAuthentication' {..} =
-    Prelude.rnf samlProviderArn
-      `Prelude.seq` Prelude.rnf selfServiceSamlProviderArn
+    Prelude.rnf samlProviderArn `Prelude.seq`
+      Prelude.rnf selfServiceSamlProviderArn

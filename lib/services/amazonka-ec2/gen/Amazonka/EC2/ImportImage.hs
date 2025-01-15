@@ -474,9 +474,7 @@ instance Core.AWSRequest ImportImage where
                         )
             Prelude.<*> (x Data..@? "status")
             Prelude.<*> (x Data..@? "statusMessage")
-            Prelude.<*> ( x
-                            Data..@? "tagSet"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (x Data..@? "usageOperation")
@@ -505,22 +503,22 @@ instance Prelude.Hashable ImportImage where
 
 instance Prelude.NFData ImportImage where
   rnf ImportImage' {..} =
-    Prelude.rnf architecture
-      `Prelude.seq` Prelude.rnf bootMode
-      `Prelude.seq` Prelude.rnf clientData
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf diskContainers
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf encrypted
-      `Prelude.seq` Prelude.rnf hypervisor
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf licenseSpecifications
-      `Prelude.seq` Prelude.rnf licenseType
-      `Prelude.seq` Prelude.rnf platform
-      `Prelude.seq` Prelude.rnf roleName
-      `Prelude.seq` Prelude.rnf tagSpecifications
-      `Prelude.seq` Prelude.rnf usageOperation
+    Prelude.rnf architecture `Prelude.seq`
+      Prelude.rnf bootMode `Prelude.seq`
+        Prelude.rnf clientData `Prelude.seq`
+          Prelude.rnf clientToken `Prelude.seq`
+            Prelude.rnf description `Prelude.seq`
+              Prelude.rnf diskContainers `Prelude.seq`
+                Prelude.rnf dryRun `Prelude.seq`
+                  Prelude.rnf encrypted `Prelude.seq`
+                    Prelude.rnf hypervisor `Prelude.seq`
+                      Prelude.rnf kmsKeyId `Prelude.seq`
+                        Prelude.rnf licenseSpecifications `Prelude.seq`
+                          Prelude.rnf licenseType `Prelude.seq`
+                            Prelude.rnf platform `Prelude.seq`
+                              Prelude.rnf roleName `Prelude.seq`
+                                Prelude.rnf tagSpecifications `Prelude.seq`
+                                  Prelude.rnf usageOperation
 
 instance Data.ToHeaders ImportImage where
   toHeaders = Prelude.const Prelude.mempty
@@ -741,20 +739,20 @@ importImageResponse_httpStatus = Lens.lens (\ImportImageResponse' {httpStatus} -
 
 instance Prelude.NFData ImportImageResponse where
   rnf ImportImageResponse' {..} =
-    Prelude.rnf architecture
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf encrypted
-      `Prelude.seq` Prelude.rnf hypervisor
-      `Prelude.seq` Prelude.rnf imageId
-      `Prelude.seq` Prelude.rnf importTaskId
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf licenseSpecifications
-      `Prelude.seq` Prelude.rnf licenseType
-      `Prelude.seq` Prelude.rnf platform
-      `Prelude.seq` Prelude.rnf progress
-      `Prelude.seq` Prelude.rnf snapshotDetails
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf usageOperation
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf architecture `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf encrypted `Prelude.seq`
+          Prelude.rnf hypervisor `Prelude.seq`
+            Prelude.rnf imageId `Prelude.seq`
+              Prelude.rnf importTaskId `Prelude.seq`
+                Prelude.rnf kmsKeyId `Prelude.seq`
+                  Prelude.rnf licenseSpecifications `Prelude.seq`
+                    Prelude.rnf licenseType `Prelude.seq`
+                      Prelude.rnf platform `Prelude.seq`
+                        Prelude.rnf progress `Prelude.seq`
+                          Prelude.rnf snapshotDetails `Prelude.seq`
+                            Prelude.rnf status `Prelude.seq`
+                              Prelude.rnf statusMessage `Prelude.seq`
+                                Prelude.rnf tags `Prelude.seq`
+                                  Prelude.rnf usageOperation `Prelude.seq`
+                                    Prelude.rnf httpStatus

@@ -178,12 +178,12 @@ instance Core.AWSPager DescribeFastLaunchImages where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeFastLaunchImages_nextToken
-          Lens..~ rs
-          Lens.^? describeFastLaunchImagesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeFastLaunchImages_nextToken
+              Lens..~ rs
+              Lens.^? describeFastLaunchImagesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeFastLaunchImages where
   type
@@ -215,11 +215,11 @@ instance Prelude.Hashable DescribeFastLaunchImages where
 
 instance Prelude.NFData DescribeFastLaunchImages where
   rnf DescribeFastLaunchImages' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf imageIds
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf imageIds `Prelude.seq`
+          Prelude.rnf maxResults `Prelude.seq`
+            Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeFastLaunchImages where
   toHeaders = Prelude.const Prelude.mempty
@@ -302,6 +302,6 @@ instance
     DescribeFastLaunchImagesResponse
   where
   rnf DescribeFastLaunchImagesResponse' {..} =
-    Prelude.rnf fastLaunchImages
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf fastLaunchImages `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

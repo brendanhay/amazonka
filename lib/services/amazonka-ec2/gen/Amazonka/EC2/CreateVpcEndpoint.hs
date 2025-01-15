@@ -324,19 +324,19 @@ instance Prelude.Hashable CreateVpcEndpoint where
 
 instance Prelude.NFData CreateVpcEndpoint where
   rnf CreateVpcEndpoint' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf dnsOptions
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf ipAddressType
-      `Prelude.seq` Prelude.rnf policyDocument
-      `Prelude.seq` Prelude.rnf privateDnsEnabled
-      `Prelude.seq` Prelude.rnf routeTableIds
-      `Prelude.seq` Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf subnetIds
-      `Prelude.seq` Prelude.rnf tagSpecifications
-      `Prelude.seq` Prelude.rnf vpcEndpointType
-      `Prelude.seq` Prelude.rnf vpcId
-      `Prelude.seq` Prelude.rnf serviceName
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf dnsOptions `Prelude.seq`
+        Prelude.rnf dryRun `Prelude.seq`
+          Prelude.rnf ipAddressType `Prelude.seq`
+            Prelude.rnf policyDocument `Prelude.seq`
+              Prelude.rnf privateDnsEnabled `Prelude.seq`
+                Prelude.rnf routeTableIds `Prelude.seq`
+                  Prelude.rnf securityGroupIds `Prelude.seq`
+                    Prelude.rnf subnetIds `Prelude.seq`
+                      Prelude.rnf tagSpecifications `Prelude.seq`
+                        Prelude.rnf vpcEndpointType `Prelude.seq`
+                          Prelude.rnf vpcId `Prelude.seq`
+                            Prelude.rnf serviceName
 
 instance Data.ToHeaders CreateVpcEndpoint where
   toHeaders = Prelude.const Prelude.mempty
@@ -431,6 +431,6 @@ createVpcEndpointResponse_httpStatus = Lens.lens (\CreateVpcEndpointResponse' {h
 
 instance Prelude.NFData CreateVpcEndpointResponse where
   rnf CreateVpcEndpointResponse' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf vpcEndpoint
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf vpcEndpoint `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -194,5 +194,5 @@ instance
   where
   rnf
     DescribeInstanceEventNotificationAttributesResponse' {..} =
-      Prelude.rnf instanceTagAttribute
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf instanceTagAttribute `Prelude.seq`
+        Prelude.rnf httpStatus

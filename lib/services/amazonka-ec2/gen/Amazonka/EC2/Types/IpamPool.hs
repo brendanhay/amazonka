@@ -422,9 +422,7 @@ instance Data.FromXML IpamPool where
       Prelude.<*> (x Data..@? "sourceIpamPoolId")
       Prelude.<*> (x Data..@? "state")
       Prelude.<*> (x Data..@? "stateMessage")
-      Prelude.<*> ( x
-                      Data..@? "tagSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
@@ -456,25 +454,25 @@ instance Prelude.Hashable IpamPool where
 
 instance Prelude.NFData IpamPool where
   rnf IpamPool' {..} =
-    Prelude.rnf addressFamily
-      `Prelude.seq` Prelude.rnf allocationDefaultNetmaskLength
-      `Prelude.seq` Prelude.rnf allocationMaxNetmaskLength
-      `Prelude.seq` Prelude.rnf allocationMinNetmaskLength
-      `Prelude.seq` Prelude.rnf allocationResourceTags
-      `Prelude.seq` Prelude.rnf autoImport
-      `Prelude.seq` Prelude.rnf awsService
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf ipamArn
-      `Prelude.seq` Prelude.rnf ipamPoolArn
-      `Prelude.seq` Prelude.rnf ipamPoolId
-      `Prelude.seq` Prelude.rnf ipamRegion
-      `Prelude.seq` Prelude.rnf ipamScopeArn
-      `Prelude.seq` Prelude.rnf ipamScopeType
-      `Prelude.seq` Prelude.rnf locale
-      `Prelude.seq` Prelude.rnf ownerId
-      `Prelude.seq` Prelude.rnf poolDepth
-      `Prelude.seq` Prelude.rnf publiclyAdvertisable
-      `Prelude.seq` Prelude.rnf sourceIpamPoolId
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf stateMessage
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf addressFamily `Prelude.seq`
+      Prelude.rnf allocationDefaultNetmaskLength `Prelude.seq`
+        Prelude.rnf allocationMaxNetmaskLength `Prelude.seq`
+          Prelude.rnf allocationMinNetmaskLength `Prelude.seq`
+            Prelude.rnf allocationResourceTags `Prelude.seq`
+              Prelude.rnf autoImport `Prelude.seq`
+                Prelude.rnf awsService `Prelude.seq`
+                  Prelude.rnf description `Prelude.seq`
+                    Prelude.rnf ipamArn `Prelude.seq`
+                      Prelude.rnf ipamPoolArn `Prelude.seq`
+                        Prelude.rnf ipamPoolId `Prelude.seq`
+                          Prelude.rnf ipamRegion `Prelude.seq`
+                            Prelude.rnf ipamScopeArn `Prelude.seq`
+                              Prelude.rnf ipamScopeType `Prelude.seq`
+                                Prelude.rnf locale `Prelude.seq`
+                                  Prelude.rnf ownerId `Prelude.seq`
+                                    Prelude.rnf poolDepth `Prelude.seq`
+                                      Prelude.rnf publiclyAdvertisable `Prelude.seq`
+                                        Prelude.rnf sourceIpamPoolId `Prelude.seq`
+                                          Prelude.rnf state `Prelude.seq`
+                                            Prelude.rnf stateMessage `Prelude.seq`
+                                              Prelude.rnf tags

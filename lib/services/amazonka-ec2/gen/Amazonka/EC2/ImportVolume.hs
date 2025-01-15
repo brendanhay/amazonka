@@ -166,11 +166,11 @@ instance Prelude.Hashable ImportVolume where
 
 instance Prelude.NFData ImportVolume where
   rnf ImportVolume' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf image
-      `Prelude.seq` Prelude.rnf volume
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf availabilityZone `Prelude.seq`
+          Prelude.rnf image `Prelude.seq`
+            Prelude.rnf volume
 
 instance Data.ToHeaders ImportVolume where
   toHeaders = Prelude.const Prelude.mempty
@@ -233,5 +233,5 @@ importVolumeResponse_httpStatus = Lens.lens (\ImportVolumeResponse' {httpStatus}
 
 instance Prelude.NFData ImportVolumeResponse where
   rnf ImportVolumeResponse' {..} =
-    Prelude.rnf conversionTask
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf conversionTask `Prelude.seq`
+      Prelude.rnf httpStatus

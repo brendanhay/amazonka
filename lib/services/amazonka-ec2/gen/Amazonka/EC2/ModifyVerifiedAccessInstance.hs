@@ -151,10 +151,10 @@ instance
 
 instance Prelude.NFData ModifyVerifiedAccessInstance where
   rnf ModifyVerifiedAccessInstance' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf verifiedAccessInstanceId
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf dryRun `Prelude.seq`
+          Prelude.rnf verifiedAccessInstanceId
 
 instance Data.ToHeaders ModifyVerifiedAccessInstance where
   toHeaders = Prelude.const Prelude.mempty
@@ -222,5 +222,5 @@ instance
     ModifyVerifiedAccessInstanceResponse
   where
   rnf ModifyVerifiedAccessInstanceResponse' {..} =
-    Prelude.rnf verifiedAccessInstance
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf verifiedAccessInstance `Prelude.seq`
+      Prelude.rnf httpStatus

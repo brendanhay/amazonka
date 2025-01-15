@@ -107,6 +107,6 @@ instance
   where
   rnf
     TransitGatewayMulticastDeregisteredGroupSources' {..} =
-      Prelude.rnf deregisteredNetworkInterfaceIds
-        `Prelude.seq` Prelude.rnf groupIpAddress
-        `Prelude.seq` Prelude.rnf transitGatewayMulticastDomainId
+      Prelude.rnf deregisteredNetworkInterfaceIds `Prelude.seq`
+        Prelude.rnf groupIpAddress `Prelude.seq`
+          Prelude.rnf transitGatewayMulticastDomainId

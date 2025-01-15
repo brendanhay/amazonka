@@ -133,10 +133,10 @@ instance Prelude.Hashable OidcOptions where
 
 instance Prelude.NFData OidcOptions where
   rnf OidcOptions' {..} =
-    Prelude.rnf authorizationEndpoint
-      `Prelude.seq` Prelude.rnf clientId
-      `Prelude.seq` Prelude.rnf clientSecret
-      `Prelude.seq` Prelude.rnf issuer
-      `Prelude.seq` Prelude.rnf scope
-      `Prelude.seq` Prelude.rnf tokenEndpoint
-      `Prelude.seq` Prelude.rnf userInfoEndpoint
+    Prelude.rnf authorizationEndpoint `Prelude.seq`
+      Prelude.rnf clientId `Prelude.seq`
+        Prelude.rnf clientSecret `Prelude.seq`
+          Prelude.rnf issuer `Prelude.seq`
+            Prelude.rnf scope `Prelude.seq`
+              Prelude.rnf tokenEndpoint `Prelude.seq`
+                Prelude.rnf userInfoEndpoint

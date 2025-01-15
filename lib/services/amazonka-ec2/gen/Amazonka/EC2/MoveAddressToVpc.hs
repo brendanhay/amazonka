@@ -131,8 +131,8 @@ instance Prelude.Hashable MoveAddressToVpc where
 
 instance Prelude.NFData MoveAddressToVpc where
   rnf MoveAddressToVpc' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf publicIp
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf publicIp
 
 instance Data.ToHeaders MoveAddressToVpc where
   toHeaders = Prelude.const Prelude.mempty
@@ -201,6 +201,6 @@ moveAddressToVpcResponse_httpStatus = Lens.lens (\MoveAddressToVpcResponse' {htt
 
 instance Prelude.NFData MoveAddressToVpcResponse where
   rnf MoveAddressToVpcResponse' {..} =
-    Prelude.rnf allocationId
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf allocationId `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf httpStatus

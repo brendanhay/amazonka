@@ -198,12 +198,12 @@ instance Prelude.Hashable CreateVpcPeeringConnection where
 
 instance Prelude.NFData CreateVpcPeeringConnection where
   rnf CreateVpcPeeringConnection' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf peerOwnerId
-      `Prelude.seq` Prelude.rnf peerRegion
-      `Prelude.seq` Prelude.rnf peerVpcId
-      `Prelude.seq` Prelude.rnf tagSpecifications
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf peerOwnerId `Prelude.seq`
+        Prelude.rnf peerRegion `Prelude.seq`
+          Prelude.rnf peerVpcId `Prelude.seq`
+            Prelude.rnf tagSpecifications `Prelude.seq`
+              Prelude.rnf vpcId
 
 instance Data.ToHeaders CreateVpcPeeringConnection where
   toHeaders = Prelude.const Prelude.mempty
@@ -273,5 +273,5 @@ instance
     CreateVpcPeeringConnectionResponse
   where
   rnf CreateVpcPeeringConnectionResponse' {..} =
-    Prelude.rnf vpcPeeringConnection
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf vpcPeeringConnection `Prelude.seq`
+      Prelude.rnf httpStatus

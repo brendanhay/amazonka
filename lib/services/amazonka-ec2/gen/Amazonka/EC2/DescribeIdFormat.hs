@@ -132,9 +132,7 @@ instance Core.AWSRequest DescribeIdFormat where
     Response.receiveXML
       ( \s h x ->
           DescribeIdFormatResponse'
-            Prelude.<$> ( x
-                            Data..@? "statusSet"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "statusSet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -204,5 +202,5 @@ describeIdFormatResponse_httpStatus = Lens.lens (\DescribeIdFormatResponse' {htt
 
 instance Prelude.NFData DescribeIdFormatResponse where
   rnf DescribeIdFormatResponse' {..} =
-    Prelude.rnf statuses
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf statuses `Prelude.seq`
+      Prelude.rnf httpStatus

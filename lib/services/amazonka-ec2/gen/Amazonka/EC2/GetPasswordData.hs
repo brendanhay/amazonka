@@ -143,8 +143,8 @@ instance Prelude.Hashable GetPasswordData where
 
 instance Prelude.NFData GetPasswordData where
   rnf GetPasswordData' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf instanceId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf instanceId
 
 instance Data.ToHeaders GetPasswordData where
   toHeaders = Prelude.const Prelude.mempty
@@ -234,7 +234,7 @@ getPasswordDataResponse_timestamp = Lens.lens (\GetPasswordDataResponse' {timest
 
 instance Prelude.NFData GetPasswordDataResponse where
   rnf GetPasswordDataResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf passwordData
-      `Prelude.seq` Prelude.rnf timestamp
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf instanceId `Prelude.seq`
+        Prelude.rnf passwordData `Prelude.seq`
+          Prelude.rnf timestamp

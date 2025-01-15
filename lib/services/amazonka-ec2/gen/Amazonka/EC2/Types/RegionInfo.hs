@@ -91,6 +91,6 @@ instance Prelude.Hashable RegionInfo where
 
 instance Prelude.NFData RegionInfo where
   rnf RegionInfo' {..} =
-    Prelude.rnf endpoint
-      `Prelude.seq` Prelude.rnf optInStatus
-      `Prelude.seq` Prelude.rnf regionName
+    Prelude.rnf endpoint `Prelude.seq`
+      Prelude.rnf optInStatus `Prelude.seq`
+        Prelude.rnf regionName

@@ -439,9 +439,7 @@ instance Data.FromXML ResponseLaunchTemplateData where
       Prelude.<*> (x Data..@? "instanceType")
       Prelude.<*> (x Data..@? "kernelId")
       Prelude.<*> (x Data..@? "keyName")
-      Prelude.<*> ( x
-                      Data..@? "licenseSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "licenseSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "maintenanceOptions")

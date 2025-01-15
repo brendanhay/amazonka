@@ -261,12 +261,12 @@ instance Core.AWSPager DescribeInstanceEventWindows where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeInstanceEventWindows_nextToken
-          Lens..~ rs
-          Lens.^? describeInstanceEventWindowsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeInstanceEventWindows_nextToken
+              Lens..~ rs
+              Lens.^? describeInstanceEventWindowsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeInstanceEventWindows where
   type
@@ -301,11 +301,11 @@ instance
 
 instance Prelude.NFData DescribeInstanceEventWindows where
   rnf DescribeInstanceEventWindows' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf instanceEventWindowIds
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf instanceEventWindowIds `Prelude.seq`
+          Prelude.rnf maxResults `Prelude.seq`
+            Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeInstanceEventWindows where
   toHeaders = Prelude.const Prelude.mempty
@@ -389,6 +389,6 @@ instance
     DescribeInstanceEventWindowsResponse
   where
   rnf DescribeInstanceEventWindowsResponse' {..} =
-    Prelude.rnf instanceEventWindows
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf instanceEventWindows `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

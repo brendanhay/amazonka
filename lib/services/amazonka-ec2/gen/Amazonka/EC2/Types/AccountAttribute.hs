@@ -82,5 +82,5 @@ instance Prelude.Hashable AccountAttribute where
 
 instance Prelude.NFData AccountAttribute where
   rnf AccountAttribute' {..} =
-    Prelude.rnf attributeName
-      `Prelude.seq` Prelude.rnf attributeValues
+    Prelude.rnf attributeName `Prelude.seq`
+      Prelude.rnf attributeValues

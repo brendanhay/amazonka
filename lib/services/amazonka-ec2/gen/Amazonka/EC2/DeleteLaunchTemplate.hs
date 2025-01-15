@@ -145,9 +145,9 @@ instance Prelude.Hashable DeleteLaunchTemplate where
 
 instance Prelude.NFData DeleteLaunchTemplate where
   rnf DeleteLaunchTemplate' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf launchTemplateId
-      `Prelude.seq` Prelude.rnf launchTemplateName
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf launchTemplateId `Prelude.seq`
+        Prelude.rnf launchTemplateName
 
 instance Data.ToHeaders DeleteLaunchTemplate where
   toHeaders = Prelude.const Prelude.mempty
@@ -208,5 +208,5 @@ deleteLaunchTemplateResponse_httpStatus = Lens.lens (\DeleteLaunchTemplateRespon
 
 instance Prelude.NFData DeleteLaunchTemplateResponse where
   rnf DeleteLaunchTemplateResponse' {..} =
-    Prelude.rnf launchTemplate
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf launchTemplate `Prelude.seq`
+      Prelude.rnf httpStatus

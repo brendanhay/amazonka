@@ -79,9 +79,7 @@ instance Data.FromXML SpotFleetTagSpecification where
   parseXML x =
     SpotFleetTagSpecification'
       Prelude.<$> (x Data..@? "resourceType")
-      Prelude.<*> ( x
-                      Data..@? "tag"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "tag" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
@@ -93,8 +91,8 @@ instance Prelude.Hashable SpotFleetTagSpecification where
 
 instance Prelude.NFData SpotFleetTagSpecification where
   rnf SpotFleetTagSpecification' {..} =
-    Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf resourceType `Prelude.seq`
+      Prelude.rnf tags
 
 instance Data.ToQuery SpotFleetTagSpecification where
   toQuery SpotFleetTagSpecification' {..} =

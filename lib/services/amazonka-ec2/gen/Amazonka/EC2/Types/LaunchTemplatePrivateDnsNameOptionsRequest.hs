@@ -110,9 +110,9 @@ instance
     LaunchTemplatePrivateDnsNameOptionsRequest
   where
   rnf LaunchTemplatePrivateDnsNameOptionsRequest' {..} =
-    Prelude.rnf enableResourceNameDnsAAAARecord
-      `Prelude.seq` Prelude.rnf enableResourceNameDnsARecord
-      `Prelude.seq` Prelude.rnf hostnameType
+    Prelude.rnf enableResourceNameDnsAAAARecord `Prelude.seq`
+      Prelude.rnf enableResourceNameDnsARecord `Prelude.seq`
+        Prelude.rnf hostnameType
 
 instance
   Data.ToQuery

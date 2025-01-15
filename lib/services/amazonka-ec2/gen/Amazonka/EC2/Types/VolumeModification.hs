@@ -238,19 +238,19 @@ instance Prelude.Hashable VolumeModification where
 
 instance Prelude.NFData VolumeModification where
   rnf VolumeModification' {..} =
-    Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf modificationState
-      `Prelude.seq` Prelude.rnf originalIops
-      `Prelude.seq` Prelude.rnf originalMultiAttachEnabled
-      `Prelude.seq` Prelude.rnf originalSize
-      `Prelude.seq` Prelude.rnf originalThroughput
-      `Prelude.seq` Prelude.rnf originalVolumeType
-      `Prelude.seq` Prelude.rnf progress
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf targetIops
-      `Prelude.seq` Prelude.rnf targetMultiAttachEnabled
-      `Prelude.seq` Prelude.rnf targetSize
-      `Prelude.seq` Prelude.rnf targetThroughput
-      `Prelude.seq` Prelude.rnf targetVolumeType
-      `Prelude.seq` Prelude.rnf volumeId
+    Prelude.rnf endTime `Prelude.seq`
+      Prelude.rnf modificationState `Prelude.seq`
+        Prelude.rnf originalIops `Prelude.seq`
+          Prelude.rnf originalMultiAttachEnabled `Prelude.seq`
+            Prelude.rnf originalSize `Prelude.seq`
+              Prelude.rnf originalThroughput `Prelude.seq`
+                Prelude.rnf originalVolumeType `Prelude.seq`
+                  Prelude.rnf progress `Prelude.seq`
+                    Prelude.rnf startTime `Prelude.seq`
+                      Prelude.rnf statusMessage `Prelude.seq`
+                        Prelude.rnf targetIops `Prelude.seq`
+                          Prelude.rnf targetMultiAttachEnabled `Prelude.seq`
+                            Prelude.rnf targetSize `Prelude.seq`
+                              Prelude.rnf targetThroughput `Prelude.seq`
+                                Prelude.rnf targetVolumeType `Prelude.seq`
+                                  Prelude.rnf volumeId

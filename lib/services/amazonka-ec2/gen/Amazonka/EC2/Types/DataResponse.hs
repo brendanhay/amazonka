@@ -130,9 +130,7 @@ instance Data.FromXML DataResponse where
       Prelude.<$> (x Data..@? "destination")
       Prelude.<*> (x Data..@? "id")
       Prelude.<*> (x Data..@? "metric")
-      Prelude.<*> ( x
-                      Data..@? "metricPointSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "metricPointSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "period")
@@ -152,10 +150,10 @@ instance Prelude.Hashable DataResponse where
 
 instance Prelude.NFData DataResponse where
   rnf DataResponse' {..} =
-    Prelude.rnf destination
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf metric
-      `Prelude.seq` Prelude.rnf metricPoints
-      `Prelude.seq` Prelude.rnf period
-      `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf statistic
+    Prelude.rnf destination `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf metric `Prelude.seq`
+          Prelude.rnf metricPoints `Prelude.seq`
+            Prelude.rnf period `Prelude.seq`
+              Prelude.rnf source `Prelude.seq`
+                Prelude.rnf statistic

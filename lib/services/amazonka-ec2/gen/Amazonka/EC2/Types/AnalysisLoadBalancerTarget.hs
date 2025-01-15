@@ -101,7 +101,7 @@ instance Prelude.Hashable AnalysisLoadBalancerTarget where
 
 instance Prelude.NFData AnalysisLoadBalancerTarget where
   rnf AnalysisLoadBalancerTarget' {..} =
-    Prelude.rnf address
-      `Prelude.seq` Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf instance'
-      `Prelude.seq` Prelude.rnf port
+    Prelude.rnf address `Prelude.seq`
+      Prelude.rnf availabilityZone `Prelude.seq`
+        Prelude.rnf instance' `Prelude.seq`
+          Prelude.rnf port

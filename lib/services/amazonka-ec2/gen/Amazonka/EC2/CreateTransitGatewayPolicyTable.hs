@@ -143,9 +143,9 @@ instance
     CreateTransitGatewayPolicyTable
   where
   rnf CreateTransitGatewayPolicyTable' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf tagSpecifications
-      `Prelude.seq` Prelude.rnf transitGatewayId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf tagSpecifications `Prelude.seq`
+        Prelude.rnf transitGatewayId
 
 instance
   Data.ToHeaders
@@ -218,5 +218,5 @@ instance
     CreateTransitGatewayPolicyTableResponse
   where
   rnf CreateTransitGatewayPolicyTableResponse' {..} =
-    Prelude.rnf transitGatewayPolicyTable
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf transitGatewayPolicyTable `Prelude.seq`
+      Prelude.rnf httpStatus

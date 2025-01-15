@@ -93,6 +93,6 @@ instance Prelude.Hashable DestinationOptionsResponse where
 
 instance Prelude.NFData DestinationOptionsResponse where
   rnf DestinationOptionsResponse' {..} =
-    Prelude.rnf fileFormat
-      `Prelude.seq` Prelude.rnf hiveCompatiblePartitions
-      `Prelude.seq` Prelude.rnf perHourPartition
+    Prelude.rnf fileFormat `Prelude.seq`
+      Prelude.rnf hiveCompatiblePartitions `Prelude.seq`
+        Prelude.rnf perHourPartition

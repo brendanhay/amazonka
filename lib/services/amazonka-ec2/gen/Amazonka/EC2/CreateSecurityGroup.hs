@@ -212,9 +212,7 @@ instance Core.AWSRequest CreateSecurityGroup where
     Response.receiveXML
       ( \s h x ->
           CreateSecurityGroupResponse'
-            Prelude.<$> ( x
-                            Data..@? "tagSet"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -232,11 +230,11 @@ instance Prelude.Hashable CreateSecurityGroup where
 
 instance Prelude.NFData CreateSecurityGroup where
   rnf CreateSecurityGroup' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf tagSpecifications
-      `Prelude.seq` Prelude.rnf vpcId
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf groupName
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf tagSpecifications `Prelude.seq`
+        Prelude.rnf vpcId `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf groupName
 
 instance Data.ToHeaders CreateSecurityGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -313,6 +311,6 @@ createSecurityGroupResponse_groupId = Lens.lens (\CreateSecurityGroupResponse' {
 
 instance Prelude.NFData CreateSecurityGroupResponse where
   rnf CreateSecurityGroupResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf groupId
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf groupId

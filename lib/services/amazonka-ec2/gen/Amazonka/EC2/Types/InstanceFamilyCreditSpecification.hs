@@ -94,5 +94,5 @@ instance
     InstanceFamilyCreditSpecification
   where
   rnf InstanceFamilyCreditSpecification' {..} =
-    Prelude.rnf cpuCredits
-      `Prelude.seq` Prelude.rnf instanceFamily
+    Prelude.rnf cpuCredits `Prelude.seq`
+      Prelude.rnf instanceFamily

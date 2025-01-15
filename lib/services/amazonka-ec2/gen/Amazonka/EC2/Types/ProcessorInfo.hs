@@ -83,5 +83,5 @@ instance Prelude.Hashable ProcessorInfo where
 
 instance Prelude.NFData ProcessorInfo where
   rnf ProcessorInfo' {..} =
-    Prelude.rnf supportedArchitectures
-      `Prelude.seq` Prelude.rnf sustainedClockSpeedInGhz
+    Prelude.rnf supportedArchitectures `Prelude.seq`
+      Prelude.rnf sustainedClockSpeedInGhz

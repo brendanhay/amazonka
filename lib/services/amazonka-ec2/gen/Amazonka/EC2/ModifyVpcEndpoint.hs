@@ -277,19 +277,19 @@ instance Prelude.Hashable ModifyVpcEndpoint where
 
 instance Prelude.NFData ModifyVpcEndpoint where
   rnf ModifyVpcEndpoint' {..} =
-    Prelude.rnf addRouteTableIds
-      `Prelude.seq` Prelude.rnf addSecurityGroupIds
-      `Prelude.seq` Prelude.rnf addSubnetIds
-      `Prelude.seq` Prelude.rnf dnsOptions
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf ipAddressType
-      `Prelude.seq` Prelude.rnf policyDocument
-      `Prelude.seq` Prelude.rnf privateDnsEnabled
-      `Prelude.seq` Prelude.rnf removeRouteTableIds
-      `Prelude.seq` Prelude.rnf removeSecurityGroupIds
-      `Prelude.seq` Prelude.rnf removeSubnetIds
-      `Prelude.seq` Prelude.rnf resetPolicy
-      `Prelude.seq` Prelude.rnf vpcEndpointId
+    Prelude.rnf addRouteTableIds `Prelude.seq`
+      Prelude.rnf addSecurityGroupIds `Prelude.seq`
+        Prelude.rnf addSubnetIds `Prelude.seq`
+          Prelude.rnf dnsOptions `Prelude.seq`
+            Prelude.rnf dryRun `Prelude.seq`
+              Prelude.rnf ipAddressType `Prelude.seq`
+                Prelude.rnf policyDocument `Prelude.seq`
+                  Prelude.rnf privateDnsEnabled `Prelude.seq`
+                    Prelude.rnf removeRouteTableIds `Prelude.seq`
+                      Prelude.rnf removeSecurityGroupIds `Prelude.seq`
+                        Prelude.rnf removeSubnetIds `Prelude.seq`
+                          Prelude.rnf resetPolicy `Prelude.seq`
+                            Prelude.rnf vpcEndpointId
 
 instance Data.ToHeaders ModifyVpcEndpoint where
   toHeaders = Prelude.const Prelude.mempty
@@ -378,5 +378,5 @@ modifyVpcEndpointResponse_httpStatus = Lens.lens (\ModifyVpcEndpointResponse' {h
 
 instance Prelude.NFData ModifyVpcEndpointResponse where
   rnf ModifyVpcEndpointResponse' {..} =
-    Prelude.rnf return'
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf return' `Prelude.seq`
+      Prelude.rnf httpStatus

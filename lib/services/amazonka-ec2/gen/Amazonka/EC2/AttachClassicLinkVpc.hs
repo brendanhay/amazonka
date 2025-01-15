@@ -164,10 +164,10 @@ instance Prelude.Hashable AttachClassicLinkVpc where
 
 instance Prelude.NFData AttachClassicLinkVpc where
   rnf AttachClassicLinkVpc' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf groups
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf groups `Prelude.seq`
+        Prelude.rnf instanceId `Prelude.seq`
+          Prelude.rnf vpcId
 
 instance Data.ToHeaders AttachClassicLinkVpc where
   toHeaders = Prelude.const Prelude.mempty
@@ -229,5 +229,5 @@ attachClassicLinkVpcResponse_httpStatus = Lens.lens (\AttachClassicLinkVpcRespon
 
 instance Prelude.NFData AttachClassicLinkVpcResponse where
   rnf AttachClassicLinkVpcResponse' {..} =
-    Prelude.rnf return'
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf return' `Prelude.seq`
+      Prelude.rnf httpStatus

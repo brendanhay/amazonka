@@ -173,12 +173,12 @@ instance Core.AWSPager DescribeClientVpnRoutes where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeClientVpnRoutes_nextToken
-          Lens..~ rs
-          Lens.^? describeClientVpnRoutesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeClientVpnRoutes_nextToken
+              Lens..~ rs
+              Lens.^? describeClientVpnRoutesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeClientVpnRoutes where
   type
@@ -191,9 +191,7 @@ instance Core.AWSRequest DescribeClientVpnRoutes where
       ( \s h x ->
           DescribeClientVpnRoutesResponse'
             Prelude.<$> (x Data..@? "nextToken")
-            Prelude.<*> ( x
-                            Data..@? "routes"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "routes" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -210,11 +208,11 @@ instance Prelude.Hashable DescribeClientVpnRoutes where
 
 instance Prelude.NFData DescribeClientVpnRoutes where
   rnf DescribeClientVpnRoutes' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf clientVpnEndpointId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf clientVpnEndpointId
 
 instance Data.ToHeaders DescribeClientVpnRoutes where
   toHeaders = Prelude.const Prelude.mempty
@@ -293,6 +291,6 @@ instance
     DescribeClientVpnRoutesResponse
   where
   rnf DescribeClientVpnRoutesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf routes
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf routes `Prelude.seq`
+        Prelude.rnf httpStatus

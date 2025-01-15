@@ -132,9 +132,9 @@ instance Prelude.Hashable DisassociateAddress where
 
 instance Prelude.NFData DisassociateAddress where
   rnf DisassociateAddress' {..} =
-    Prelude.rnf associationId
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf publicIp
+    Prelude.rnf associationId `Prelude.seq`
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf publicIp
 
 instance Data.ToHeaders DisassociateAddress where
   toHeaders = Prelude.const Prelude.mempty

@@ -117,20 +117,14 @@ instance Data.FromXML StaleIpPermission where
     StaleIpPermission'
       Prelude.<$> (x Data..@? "fromPort")
       Prelude.<*> (x Data..@? "ipProtocol")
-      Prelude.<*> ( x
-                      Data..@? "ipRanges"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "ipRanges" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x
-                      Data..@? "prefixListIds"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "prefixListIds" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "toPort")
-      Prelude.<*> ( x
-                      Data..@? "groups"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "groups" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
@@ -146,9 +140,9 @@ instance Prelude.Hashable StaleIpPermission where
 
 instance Prelude.NFData StaleIpPermission where
   rnf StaleIpPermission' {..} =
-    Prelude.rnf fromPort
-      `Prelude.seq` Prelude.rnf ipProtocol
-      `Prelude.seq` Prelude.rnf ipRanges
-      `Prelude.seq` Prelude.rnf prefixListIds
-      `Prelude.seq` Prelude.rnf toPort
-      `Prelude.seq` Prelude.rnf userIdGroupPairs
+    Prelude.rnf fromPort `Prelude.seq`
+      Prelude.rnf ipProtocol `Prelude.seq`
+        Prelude.rnf ipRanges `Prelude.seq`
+          Prelude.rnf prefixListIds `Prelude.seq`
+            Prelude.rnf toPort `Prelude.seq`
+              Prelude.rnf userIdGroupPairs

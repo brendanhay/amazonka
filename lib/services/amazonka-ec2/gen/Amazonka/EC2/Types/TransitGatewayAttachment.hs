@@ -155,9 +155,7 @@ instance Data.FromXML TransitGatewayAttachment where
       Prelude.<*> (x Data..@? "resourceOwnerId")
       Prelude.<*> (x Data..@? "resourceType")
       Prelude.<*> (x Data..@? "state")
-      Prelude.<*> ( x
-                      Data..@? "tagSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "transitGatewayAttachmentId")
@@ -180,13 +178,13 @@ instance Prelude.Hashable TransitGatewayAttachment where
 
 instance Prelude.NFData TransitGatewayAttachment where
   rnf TransitGatewayAttachment' {..} =
-    Prelude.rnf association
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf resourceOwnerId
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf transitGatewayAttachmentId
-      `Prelude.seq` Prelude.rnf transitGatewayId
-      `Prelude.seq` Prelude.rnf transitGatewayOwnerId
+    Prelude.rnf association `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf resourceId `Prelude.seq`
+          Prelude.rnf resourceOwnerId `Prelude.seq`
+            Prelude.rnf resourceType `Prelude.seq`
+              Prelude.rnf state `Prelude.seq`
+                Prelude.rnf tags `Prelude.seq`
+                  Prelude.rnf transitGatewayAttachmentId `Prelude.seq`
+                    Prelude.rnf transitGatewayId `Prelude.seq`
+                      Prelude.rnf transitGatewayOwnerId

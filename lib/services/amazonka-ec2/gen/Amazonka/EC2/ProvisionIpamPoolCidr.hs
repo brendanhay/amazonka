@@ -151,10 +151,10 @@ instance Prelude.Hashable ProvisionIpamPoolCidr where
 
 instance Prelude.NFData ProvisionIpamPoolCidr where
   rnf ProvisionIpamPoolCidr' {..} =
-    Prelude.rnf cidr
-      `Prelude.seq` Prelude.rnf cidrAuthorizationContext
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf ipamPoolId
+    Prelude.rnf cidr `Prelude.seq`
+      Prelude.rnf cidrAuthorizationContext `Prelude.seq`
+        Prelude.rnf dryRun `Prelude.seq`
+          Prelude.rnf ipamPoolId
 
 instance Data.ToHeaders ProvisionIpamPoolCidr where
   toHeaders = Prelude.const Prelude.mempty
@@ -217,5 +217,5 @@ provisionIpamPoolCidrResponse_httpStatus = Lens.lens (\ProvisionIpamPoolCidrResp
 
 instance Prelude.NFData ProvisionIpamPoolCidrResponse where
   rnf ProvisionIpamPoolCidrResponse' {..} =
-    Prelude.rnf ipamPoolCidr
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf ipamPoolCidr `Prelude.seq`
+      Prelude.rnf httpStatus

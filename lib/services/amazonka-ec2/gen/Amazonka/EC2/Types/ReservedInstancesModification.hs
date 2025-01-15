@@ -178,12 +178,12 @@ instance
 
 instance Prelude.NFData ReservedInstancesModification where
   rnf ReservedInstancesModification' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf createDate
-      `Prelude.seq` Prelude.rnf effectiveDate
-      `Prelude.seq` Prelude.rnf modificationResults
-      `Prelude.seq` Prelude.rnf reservedInstancesIds
-      `Prelude.seq` Prelude.rnf reservedInstancesModificationId
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf updateDate
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf createDate `Prelude.seq`
+        Prelude.rnf effectiveDate `Prelude.seq`
+          Prelude.rnf modificationResults `Prelude.seq`
+            Prelude.rnf reservedInstancesIds `Prelude.seq`
+              Prelude.rnf reservedInstancesModificationId `Prelude.seq`
+                Prelude.rnf status `Prelude.seq`
+                  Prelude.rnf statusMessage `Prelude.seq`
+                    Prelude.rnf updateDate

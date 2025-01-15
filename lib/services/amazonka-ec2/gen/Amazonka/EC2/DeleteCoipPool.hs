@@ -117,8 +117,8 @@ instance Prelude.Hashable DeleteCoipPool where
 
 instance Prelude.NFData DeleteCoipPool where
   rnf DeleteCoipPool' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf coipPoolId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf coipPoolId
 
 instance Data.ToHeaders DeleteCoipPool where
   toHeaders = Prelude.const Prelude.mempty
@@ -177,5 +177,5 @@ deleteCoipPoolResponse_httpStatus = Lens.lens (\DeleteCoipPoolResponse' {httpSta
 
 instance Prelude.NFData DeleteCoipPoolResponse where
   rnf DeleteCoipPoolResponse' {..} =
-    Prelude.rnf coipPool
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf coipPool `Prelude.seq`
+      Prelude.rnf httpStatus

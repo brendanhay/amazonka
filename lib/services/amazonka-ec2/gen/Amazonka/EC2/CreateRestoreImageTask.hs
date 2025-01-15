@@ -190,11 +190,11 @@ instance Prelude.Hashable CreateRestoreImageTask where
 
 instance Prelude.NFData CreateRestoreImageTask where
   rnf CreateRestoreImageTask' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf tagSpecifications
-      `Prelude.seq` Prelude.rnf bucket
-      `Prelude.seq` Prelude.rnf objectKey
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf tagSpecifications `Prelude.seq`
+          Prelude.rnf bucket `Prelude.seq`
+            Prelude.rnf objectKey
 
 instance Data.ToHeaders CreateRestoreImageTask where
   toHeaders = Prelude.const Prelude.mempty
@@ -263,5 +263,5 @@ instance
     CreateRestoreImageTaskResponse
   where
   rnf CreateRestoreImageTaskResponse' {..} =
-    Prelude.rnf imageId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf imageId `Prelude.seq`
+      Prelude.rnf httpStatus

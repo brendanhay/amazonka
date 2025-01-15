@@ -111,8 +111,8 @@ instance Prelude.Hashable DeleteCustomerGateway where
 
 instance Prelude.NFData DeleteCustomerGateway where
   rnf DeleteCustomerGateway' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf customerGatewayId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf customerGatewayId
 
 instance Data.ToHeaders DeleteCustomerGateway where
   toHeaders = Prelude.const Prelude.mempty

@@ -103,10 +103,10 @@ instance Prelude.Hashable AthenaIntegration where
 
 instance Prelude.NFData AthenaIntegration where
   rnf AthenaIntegration' {..} =
-    Prelude.rnf partitionEndDate
-      `Prelude.seq` Prelude.rnf partitionStartDate
-      `Prelude.seq` Prelude.rnf integrationResultS3DestinationArn
-      `Prelude.seq` Prelude.rnf partitionLoadFrequency
+    Prelude.rnf partitionEndDate `Prelude.seq`
+      Prelude.rnf partitionStartDate `Prelude.seq`
+        Prelude.rnf integrationResultS3DestinationArn `Prelude.seq`
+          Prelude.rnf partitionLoadFrequency
 
 instance Data.ToQuery AthenaIntegration where
   toQuery AthenaIntegration' {..} =

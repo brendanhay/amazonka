@@ -303,9 +303,7 @@ instance Core.AWSRequest ImportSnapshot where
             Prelude.<$> (x Data..@? "description")
             Prelude.<*> (x Data..@? "importTaskId")
             Prelude.<*> (x Data..@? "snapshotTaskDetail")
-            Prelude.<*> ( x
-                            Data..@? "tagSet"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -326,15 +324,15 @@ instance Prelude.Hashable ImportSnapshot where
 
 instance Prelude.NFData ImportSnapshot where
   rnf ImportSnapshot' {..} =
-    Prelude.rnf clientData
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf diskContainer
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf encrypted
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf roleName
-      `Prelude.seq` Prelude.rnf tagSpecifications
+    Prelude.rnf clientData `Prelude.seq`
+      Prelude.rnf clientToken `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf diskContainer `Prelude.seq`
+            Prelude.rnf dryRun `Prelude.seq`
+              Prelude.rnf encrypted `Prelude.seq`
+                Prelude.rnf kmsKeyId `Prelude.seq`
+                  Prelude.rnf roleName `Prelude.seq`
+                    Prelude.rnf tagSpecifications
 
 instance Data.ToHeaders ImportSnapshot where
   toHeaders = Prelude.const Prelude.mempty
@@ -431,8 +429,8 @@ importSnapshotResponse_httpStatus = Lens.lens (\ImportSnapshotResponse' {httpSta
 
 instance Prelude.NFData ImportSnapshotResponse where
   rnf ImportSnapshotResponse' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf importTaskId
-      `Prelude.seq` Prelude.rnf snapshotTaskDetail
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf importTaskId `Prelude.seq`
+        Prelude.rnf snapshotTaskDetail `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf httpStatus

@@ -90,9 +90,7 @@ instance Data.FromXML ImportInstanceTaskDetails where
       Prelude.<$> (x Data..@? "description")
       Prelude.<*> (x Data..@? "instanceId")
       Prelude.<*> (x Data..@? "platform")
-      Prelude.<*> ( x
-                      Data..@? "volumes"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "volumes" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
@@ -106,7 +104,7 @@ instance Prelude.Hashable ImportInstanceTaskDetails where
 
 instance Prelude.NFData ImportInstanceTaskDetails where
   rnf ImportInstanceTaskDetails' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf platform
-      `Prelude.seq` Prelude.rnf volumes
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf instanceId `Prelude.seq`
+        Prelude.rnf platform `Prelude.seq`
+          Prelude.rnf volumes

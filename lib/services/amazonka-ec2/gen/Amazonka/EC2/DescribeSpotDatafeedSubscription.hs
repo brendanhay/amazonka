@@ -192,5 +192,5 @@ instance
     DescribeSpotDatafeedSubscriptionResponse
   where
   rnf DescribeSpotDatafeedSubscriptionResponse' {..} =
-    Prelude.rnf spotDatafeedSubscription
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf spotDatafeedSubscription `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -229,20 +229,20 @@ instance
     ScheduledInstancesLaunchSpecification
   where
   rnf ScheduledInstancesLaunchSpecification' {..} =
-    Prelude.rnf blockDeviceMappings
-      `Prelude.seq` Prelude.rnf ebsOptimized
-      `Prelude.seq` Prelude.rnf iamInstanceProfile
-      `Prelude.seq` Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf kernelId
-      `Prelude.seq` Prelude.rnf keyName
-      `Prelude.seq` Prelude.rnf monitoring
-      `Prelude.seq` Prelude.rnf networkInterfaces
-      `Prelude.seq` Prelude.rnf placement
-      `Prelude.seq` Prelude.rnf ramdiskId
-      `Prelude.seq` Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf subnetId
-      `Prelude.seq` Prelude.rnf userData
-      `Prelude.seq` Prelude.rnf imageId
+    Prelude.rnf blockDeviceMappings `Prelude.seq`
+      Prelude.rnf ebsOptimized `Prelude.seq`
+        Prelude.rnf iamInstanceProfile `Prelude.seq`
+          Prelude.rnf instanceType `Prelude.seq`
+            Prelude.rnf kernelId `Prelude.seq`
+              Prelude.rnf keyName `Prelude.seq`
+                Prelude.rnf monitoring `Prelude.seq`
+                  Prelude.rnf networkInterfaces `Prelude.seq`
+                    Prelude.rnf placement `Prelude.seq`
+                      Prelude.rnf ramdiskId `Prelude.seq`
+                        Prelude.rnf securityGroupIds `Prelude.seq`
+                          Prelude.rnf subnetId `Prelude.seq`
+                            Prelude.rnf userData `Prelude.seq`
+                              Prelude.rnf imageId
 
 instance
   Data.ToQuery

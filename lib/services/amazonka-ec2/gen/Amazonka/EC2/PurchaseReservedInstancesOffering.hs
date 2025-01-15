@@ -199,11 +199,11 @@ instance
     PurchaseReservedInstancesOffering
   where
   rnf PurchaseReservedInstancesOffering' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf limitPrice
-      `Prelude.seq` Prelude.rnf purchaseTime
-      `Prelude.seq` Prelude.rnf instanceCount
-      `Prelude.seq` Prelude.rnf reservedInstancesOfferingId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf limitPrice `Prelude.seq`
+        Prelude.rnf purchaseTime `Prelude.seq`
+          Prelude.rnf instanceCount `Prelude.seq`
+            Prelude.rnf reservedInstancesOfferingId
 
 instance
   Data.ToHeaders
@@ -296,5 +296,5 @@ instance
     PurchaseReservedInstancesOfferingResponse
   where
   rnf PurchaseReservedInstancesOfferingResponse' {..} =
-    Prelude.rnf reservedInstancesId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf reservedInstancesId `Prelude.seq`
+      Prelude.rnf httpStatus

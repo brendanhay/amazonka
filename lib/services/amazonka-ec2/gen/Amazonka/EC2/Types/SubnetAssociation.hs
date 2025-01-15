@@ -79,5 +79,5 @@ instance Prelude.Hashable SubnetAssociation where
 
 instance Prelude.NFData SubnetAssociation where
   rnf SubnetAssociation' {..} =
-    Prelude.rnf state
-      `Prelude.seq` Prelude.rnf subnetId
+    Prelude.rnf state `Prelude.seq`
+      Prelude.rnf subnetId

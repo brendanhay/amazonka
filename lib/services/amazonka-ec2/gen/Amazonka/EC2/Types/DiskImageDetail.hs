@@ -118,9 +118,9 @@ instance Prelude.Hashable DiskImageDetail where
 
 instance Prelude.NFData DiskImageDetail where
   rnf DiskImageDetail' {..} =
-    Prelude.rnf bytes
-      `Prelude.seq` Prelude.rnf format
-      `Prelude.seq` Prelude.rnf importManifestUrl
+    Prelude.rnf bytes `Prelude.seq`
+      Prelude.rnf format `Prelude.seq`
+        Prelude.rnf importManifestUrl
 
 instance Data.ToQuery DiskImageDetail where
   toQuery DiskImageDetail' {..} =

@@ -201,11 +201,11 @@ instance
     InstanceMetadataOptionsRequest
   where
   rnf InstanceMetadataOptionsRequest' {..} =
-    Prelude.rnf httpEndpoint
-      `Prelude.seq` Prelude.rnf httpProtocolIpv6
-      `Prelude.seq` Prelude.rnf httpPutResponseHopLimit
-      `Prelude.seq` Prelude.rnf httpTokens
-      `Prelude.seq` Prelude.rnf instanceMetadataTags
+    Prelude.rnf httpEndpoint `Prelude.seq`
+      Prelude.rnf httpProtocolIpv6 `Prelude.seq`
+        Prelude.rnf httpPutResponseHopLimit `Prelude.seq`
+          Prelude.rnf httpTokens `Prelude.seq`
+            Prelude.rnf instanceMetadataTags
 
 instance Data.ToQuery InstanceMetadataOptionsRequest where
   toQuery InstanceMetadataOptionsRequest' {..} =

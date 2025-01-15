@@ -92,5 +92,5 @@ instance
   where
   rnf
     FailedCapacityReservationFleetCancellationResult' {..} =
-      Prelude.rnf cancelCapacityReservationFleetError
-        `Prelude.seq` Prelude.rnf capacityReservationFleetId
+      Prelude.rnf cancelCapacityReservationFleetError `Prelude.seq`
+        Prelude.rnf capacityReservationFleetId

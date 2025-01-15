@@ -163,9 +163,7 @@ instance Core.AWSRequest DescribeImageAttribute where
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-            Prelude.<*> ( x
-                            Data..@? "productCodes"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "productCodes" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (x Data..@? "ramdisk")
@@ -184,9 +182,9 @@ instance Prelude.Hashable DescribeImageAttribute where
 
 instance Prelude.NFData DescribeImageAttribute where
   rnf DescribeImageAttribute' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf attribute
-      `Prelude.seq` Prelude.rnf imageId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf attribute `Prelude.seq`
+        Prelude.rnf imageId
 
 instance Data.ToHeaders DescribeImageAttribute where
   toHeaders = Prelude.const Prelude.mempty
@@ -417,17 +415,17 @@ instance
     DescribeImageAttributeResponse
   where
   rnf DescribeImageAttributeResponse' {..} =
-    Prelude.rnf blockDeviceMappings
-      `Prelude.seq` Prelude.rnf bootMode
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf imageId
-      `Prelude.seq` Prelude.rnf imdsSupport
-      `Prelude.seq` Prelude.rnf kernelId
-      `Prelude.seq` Prelude.rnf lastLaunchedTime
-      `Prelude.seq` Prelude.rnf launchPermissions
-      `Prelude.seq` Prelude.rnf productCodes
-      `Prelude.seq` Prelude.rnf ramdiskId
-      `Prelude.seq` Prelude.rnf sriovNetSupport
-      `Prelude.seq` Prelude.rnf tpmSupport
-      `Prelude.seq` Prelude.rnf uefiData
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf blockDeviceMappings `Prelude.seq`
+      Prelude.rnf bootMode `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf imageId `Prelude.seq`
+            Prelude.rnf imdsSupport `Prelude.seq`
+              Prelude.rnf kernelId `Prelude.seq`
+                Prelude.rnf lastLaunchedTime `Prelude.seq`
+                  Prelude.rnf launchPermissions `Prelude.seq`
+                    Prelude.rnf productCodes `Prelude.seq`
+                      Prelude.rnf ramdiskId `Prelude.seq`
+                        Prelude.rnf sriovNetSupport `Prelude.seq`
+                          Prelude.rnf tpmSupport `Prelude.seq`
+                            Prelude.rnf uefiData `Prelude.seq`
+                              Prelude.rnf httpStatus

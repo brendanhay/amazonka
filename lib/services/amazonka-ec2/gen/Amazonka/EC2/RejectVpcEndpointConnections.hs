@@ -117,9 +117,7 @@ instance Core.AWSRequest RejectVpcEndpointConnections where
     Response.receiveXML
       ( \s h x ->
           RejectVpcEndpointConnectionsResponse'
-            Prelude.<$> ( x
-                            Data..@? "unsuccessful"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "unsuccessful" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -137,9 +135,9 @@ instance
 
 instance Prelude.NFData RejectVpcEndpointConnections where
   rnf RejectVpcEndpointConnections' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf serviceId
-      `Prelude.seq` Prelude.rnf vpcEndpointIds
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf serviceId `Prelude.seq`
+        Prelude.rnf vpcEndpointIds
 
 instance Data.ToHeaders RejectVpcEndpointConnections where
   toHeaders = Prelude.const Prelude.mempty
@@ -205,5 +203,5 @@ instance
     RejectVpcEndpointConnectionsResponse
   where
   rnf RejectVpcEndpointConnectionsResponse' {..} =
-    Prelude.rnf unsuccessful
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf unsuccessful `Prelude.seq`
+      Prelude.rnf httpStatus

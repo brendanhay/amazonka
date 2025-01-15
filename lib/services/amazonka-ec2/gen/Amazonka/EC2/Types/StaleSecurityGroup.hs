@@ -131,9 +131,9 @@ instance Prelude.Hashable StaleSecurityGroup where
 
 instance Prelude.NFData StaleSecurityGroup where
   rnf StaleSecurityGroup' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf groupId
-      `Prelude.seq` Prelude.rnf groupName
-      `Prelude.seq` Prelude.rnf staleIpPermissions
-      `Prelude.seq` Prelude.rnf staleIpPermissionsEgress
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf groupId `Prelude.seq`
+        Prelude.rnf groupName `Prelude.seq`
+          Prelude.rnf staleIpPermissions `Prelude.seq`
+            Prelude.rnf staleIpPermissionsEgress `Prelude.seq`
+              Prelude.rnf vpcId

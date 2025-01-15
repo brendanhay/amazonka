@@ -99,9 +99,7 @@ instance Data.FromXML AllowedPrincipal where
       Prelude.<*> (x Data..@? "principalType")
       Prelude.<*> (x Data..@? "serviceId")
       Prelude.<*> (x Data..@? "servicePermissionId")
-      Prelude.<*> ( x
-                      Data..@? "tagSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
@@ -116,8 +114,8 @@ instance Prelude.Hashable AllowedPrincipal where
 
 instance Prelude.NFData AllowedPrincipal where
   rnf AllowedPrincipal' {..} =
-    Prelude.rnf principal
-      `Prelude.seq` Prelude.rnf principalType
-      `Prelude.seq` Prelude.rnf serviceId
-      `Prelude.seq` Prelude.rnf servicePermissionId
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf principal `Prelude.seq`
+      Prelude.rnf principalType `Prelude.seq`
+        Prelude.rnf serviceId `Prelude.seq`
+          Prelude.rnf servicePermissionId `Prelude.seq`
+            Prelude.rnf tags

@@ -140,9 +140,9 @@ instance Prelude.Hashable EbsOptimizedInfo where
 
 instance Prelude.NFData EbsOptimizedInfo where
   rnf EbsOptimizedInfo' {..} =
-    Prelude.rnf baselineBandwidthInMbps
-      `Prelude.seq` Prelude.rnf baselineIops
-      `Prelude.seq` Prelude.rnf baselineThroughputInMBps
-      `Prelude.seq` Prelude.rnf maximumBandwidthInMbps
-      `Prelude.seq` Prelude.rnf maximumIops
-      `Prelude.seq` Prelude.rnf maximumThroughputInMBps
+    Prelude.rnf baselineBandwidthInMbps `Prelude.seq`
+      Prelude.rnf baselineIops `Prelude.seq`
+        Prelude.rnf baselineThroughputInMBps `Prelude.seq`
+          Prelude.rnf maximumBandwidthInMbps `Prelude.seq`
+            Prelude.rnf maximumIops `Prelude.seq`
+              Prelude.rnf maximumThroughputInMBps

@@ -137,9 +137,9 @@ instance Prelude.Hashable EnableVgwRoutePropagation where
 
 instance Prelude.NFData EnableVgwRoutePropagation where
   rnf EnableVgwRoutePropagation' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf gatewayId
-      `Prelude.seq` Prelude.rnf routeTableId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf gatewayId `Prelude.seq`
+        Prelude.rnf routeTableId
 
 instance Data.ToHeaders EnableVgwRoutePropagation where
   toHeaders = Prelude.const Prelude.mempty

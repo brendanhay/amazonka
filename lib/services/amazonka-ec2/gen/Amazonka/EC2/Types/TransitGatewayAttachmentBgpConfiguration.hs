@@ -125,8 +125,8 @@ instance
     TransitGatewayAttachmentBgpConfiguration
   where
   rnf TransitGatewayAttachmentBgpConfiguration' {..} =
-    Prelude.rnf bgpStatus
-      `Prelude.seq` Prelude.rnf peerAddress
-      `Prelude.seq` Prelude.rnf peerAsn
-      `Prelude.seq` Prelude.rnf transitGatewayAddress
-      `Prelude.seq` Prelude.rnf transitGatewayAsn
+    Prelude.rnf bgpStatus `Prelude.seq`
+      Prelude.rnf peerAddress `Prelude.seq`
+        Prelude.rnf peerAsn `Prelude.seq`
+          Prelude.rnf transitGatewayAddress `Prelude.seq`
+            Prelude.rnf transitGatewayAsn

@@ -177,10 +177,10 @@ instance Prelude.Hashable GetCapacityReservationUsage where
 
 instance Prelude.NFData GetCapacityReservationUsage where
   rnf GetCapacityReservationUsage' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf capacityReservationId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf capacityReservationId
 
 instance Data.ToHeaders GetCapacityReservationUsage where
   toHeaders = Prelude.const Prelude.mempty
@@ -372,11 +372,11 @@ instance
     GetCapacityReservationUsageResponse
   where
   rnf GetCapacityReservationUsageResponse' {..} =
-    Prelude.rnf availableInstanceCount
-      `Prelude.seq` Prelude.rnf capacityReservationId
-      `Prelude.seq` Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf instanceUsages
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf totalInstanceCount
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf availableInstanceCount `Prelude.seq`
+      Prelude.rnf capacityReservationId `Prelude.seq`
+        Prelude.rnf instanceType `Prelude.seq`
+          Prelude.rnf instanceUsages `Prelude.seq`
+            Prelude.rnf nextToken `Prelude.seq`
+              Prelude.rnf state `Prelude.seq`
+                Prelude.rnf totalInstanceCount `Prelude.seq`
+                  Prelude.rnf httpStatus

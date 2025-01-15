@@ -145,11 +145,11 @@ instance Prelude.Hashable LaunchTemplateVersion where
 
 instance Prelude.NFData LaunchTemplateVersion where
   rnf LaunchTemplateVersion' {..} =
-    Prelude.rnf createTime
-      `Prelude.seq` Prelude.rnf createdBy
-      `Prelude.seq` Prelude.rnf defaultVersion
-      `Prelude.seq` Prelude.rnf launchTemplateData
-      `Prelude.seq` Prelude.rnf launchTemplateId
-      `Prelude.seq` Prelude.rnf launchTemplateName
-      `Prelude.seq` Prelude.rnf versionDescription
-      `Prelude.seq` Prelude.rnf versionNumber
+    Prelude.rnf createTime `Prelude.seq`
+      Prelude.rnf createdBy `Prelude.seq`
+        Prelude.rnf defaultVersion `Prelude.seq`
+          Prelude.rnf launchTemplateData `Prelude.seq`
+            Prelude.rnf launchTemplateId `Prelude.seq`
+              Prelude.rnf launchTemplateName `Prelude.seq`
+                Prelude.rnf versionDescription `Prelude.seq`
+                  Prelude.rnf versionNumber

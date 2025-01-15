@@ -113,6 +113,6 @@ instance
     TransitGatewayMulticastDomainOptions
   where
   rnf TransitGatewayMulticastDomainOptions' {..} =
-    Prelude.rnf autoAcceptSharedAssociations
-      `Prelude.seq` Prelude.rnf igmpv2Support
-      `Prelude.seq` Prelude.rnf staticSourcesSupport
+    Prelude.rnf autoAcceptSharedAssociations `Prelude.seq`
+      Prelude.rnf igmpv2Support `Prelude.seq`
+        Prelude.rnf staticSourcesSupport

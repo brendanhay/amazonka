@@ -108,9 +108,9 @@ instance
   where
   rnf
     CreateTransitGatewayMulticastDomainRequestOptions' {..} =
-      Prelude.rnf autoAcceptSharedAssociations
-        `Prelude.seq` Prelude.rnf igmpv2Support
-        `Prelude.seq` Prelude.rnf staticSourcesSupport
+      Prelude.rnf autoAcceptSharedAssociations `Prelude.seq`
+        Prelude.rnf igmpv2Support `Prelude.seq`
+          Prelude.rnf staticSourcesSupport
 
 instance
   Data.ToQuery

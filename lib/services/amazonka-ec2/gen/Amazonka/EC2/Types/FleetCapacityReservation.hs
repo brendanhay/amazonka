@@ -222,14 +222,14 @@ instance Prelude.Hashable FleetCapacityReservation where
 
 instance Prelude.NFData FleetCapacityReservation where
   rnf FleetCapacityReservation' {..} =
-    Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf availabilityZoneId
-      `Prelude.seq` Prelude.rnf capacityReservationId
-      `Prelude.seq` Prelude.rnf createDate
-      `Prelude.seq` Prelude.rnf ebsOptimized
-      `Prelude.seq` Prelude.rnf fulfilledCapacity
-      `Prelude.seq` Prelude.rnf instancePlatform
-      `Prelude.seq` Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf priority
-      `Prelude.seq` Prelude.rnf totalInstanceCount
-      `Prelude.seq` Prelude.rnf weight
+    Prelude.rnf availabilityZone `Prelude.seq`
+      Prelude.rnf availabilityZoneId `Prelude.seq`
+        Prelude.rnf capacityReservationId `Prelude.seq`
+          Prelude.rnf createDate `Prelude.seq`
+            Prelude.rnf ebsOptimized `Prelude.seq`
+              Prelude.rnf fulfilledCapacity `Prelude.seq`
+                Prelude.rnf instancePlatform `Prelude.seq`
+                  Prelude.rnf instanceType `Prelude.seq`
+                    Prelude.rnf priority `Prelude.seq`
+                      Prelude.rnf totalInstanceCount `Prelude.seq`
+                        Prelude.rnf weight

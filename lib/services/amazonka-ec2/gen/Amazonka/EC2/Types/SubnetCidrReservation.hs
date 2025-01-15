@@ -119,9 +119,7 @@ instance Data.FromXML SubnetCidrReservation where
       Prelude.<*> (x Data..@? "reservationType")
       Prelude.<*> (x Data..@? "subnetCidrReservationId")
       Prelude.<*> (x Data..@? "subnetId")
-      Prelude.<*> ( x
-                      Data..@? "tagSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
@@ -138,10 +136,10 @@ instance Prelude.Hashable SubnetCidrReservation where
 
 instance Prelude.NFData SubnetCidrReservation where
   rnf SubnetCidrReservation' {..} =
-    Prelude.rnf cidr
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf ownerId
-      `Prelude.seq` Prelude.rnf reservationType
-      `Prelude.seq` Prelude.rnf subnetCidrReservationId
-      `Prelude.seq` Prelude.rnf subnetId
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf cidr `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf ownerId `Prelude.seq`
+          Prelude.rnf reservationType `Prelude.seq`
+            Prelude.rnf subnetCidrReservationId `Prelude.seq`
+              Prelude.rnf subnetId `Prelude.seq`
+                Prelude.rnf tags

@@ -74,8 +74,8 @@ instance Prelude.Hashable PathStatementRequest where
 
 instance Prelude.NFData PathStatementRequest where
   rnf PathStatementRequest' {..} =
-    Prelude.rnf packetHeaderStatement
-      `Prelude.seq` Prelude.rnf resourceStatement
+    Prelude.rnf packetHeaderStatement `Prelude.seq`
+      Prelude.rnf resourceStatement
 
 instance Data.ToQuery PathStatementRequest where
   toQuery PathStatementRequest' {..} =

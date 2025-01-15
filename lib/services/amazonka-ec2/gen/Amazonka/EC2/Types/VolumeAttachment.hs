@@ -122,9 +122,9 @@ instance Prelude.Hashable VolumeAttachment where
 
 instance Prelude.NFData VolumeAttachment where
   rnf VolumeAttachment' {..} =
-    Prelude.rnf attachTime
-      `Prelude.seq` Prelude.rnf deleteOnTermination
-      `Prelude.seq` Prelude.rnf device
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf volumeId
+    Prelude.rnf attachTime `Prelude.seq`
+      Prelude.rnf deleteOnTermination `Prelude.seq`
+        Prelude.rnf device `Prelude.seq`
+          Prelude.rnf instanceId `Prelude.seq`
+            Prelude.rnf state `Prelude.seq`
+              Prelude.rnf volumeId

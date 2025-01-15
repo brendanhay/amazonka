@@ -236,12 +236,12 @@ instance Core.AWSPager DescribeVpcEndpoints where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeVpcEndpoints_nextToken
-          Lens..~ rs
-          Lens.^? describeVpcEndpointsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeVpcEndpoints_nextToken
+              Lens..~ rs
+              Lens.^? describeVpcEndpointsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeVpcEndpoints where
   type
@@ -254,9 +254,7 @@ instance Core.AWSRequest DescribeVpcEndpoints where
       ( \s h x ->
           DescribeVpcEndpointsResponse'
             Prelude.<$> (x Data..@? "nextToken")
-            Prelude.<*> ( x
-                            Data..@? "vpcEndpointSet"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "vpcEndpointSet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -273,11 +271,11 @@ instance Prelude.Hashable DescribeVpcEndpoints where
 
 instance Prelude.NFData DescribeVpcEndpoints where
   rnf DescribeVpcEndpoints' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf vpcEndpointIds
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf vpcEndpointIds
 
 instance Data.ToHeaders DescribeVpcEndpoints where
   toHeaders = Prelude.const Prelude.mempty
@@ -358,6 +356,6 @@ describeVpcEndpointsResponse_httpStatus = Lens.lens (\DescribeVpcEndpointsRespon
 
 instance Prelude.NFData DescribeVpcEndpointsResponse where
   rnf DescribeVpcEndpointsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf vpcEndpoints
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf vpcEndpoints `Prelude.seq`
+        Prelude.rnf httpStatus

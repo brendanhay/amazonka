@@ -188,7 +188,7 @@ instance
     DisassociateVpcCidrBlockResponse
   where
   rnf DisassociateVpcCidrBlockResponse' {..} =
-    Prelude.rnf cidrBlockAssociation
-      `Prelude.seq` Prelude.rnf ipv6CidrBlockAssociation
-      `Prelude.seq` Prelude.rnf vpcId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf cidrBlockAssociation `Prelude.seq`
+      Prelude.rnf ipv6CidrBlockAssociation `Prelude.seq`
+        Prelude.rnf vpcId `Prelude.seq`
+          Prelude.rnf httpStatus

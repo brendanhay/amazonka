@@ -117,8 +117,8 @@ instance Prelude.Hashable TransitGatewayAssociation where
 
 instance Prelude.NFData TransitGatewayAssociation where
   rnf TransitGatewayAssociation' {..} =
-    Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf transitGatewayAttachmentId
-      `Prelude.seq` Prelude.rnf transitGatewayRouteTableId
+    Prelude.rnf resourceId `Prelude.seq`
+      Prelude.rnf resourceType `Prelude.seq`
+        Prelude.rnf state `Prelude.seq`
+          Prelude.rnf transitGatewayAttachmentId `Prelude.seq`
+            Prelude.rnf transitGatewayRouteTableId

@@ -170,10 +170,10 @@ instance Prelude.Hashable AttachVolume where
 
 instance Prelude.NFData AttachVolume where
   rnf AttachVolume' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf device
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf volumeId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf device `Prelude.seq`
+        Prelude.rnf instanceId `Prelude.seq`
+          Prelude.rnf volumeId
 
 instance Data.ToHeaders AttachVolume where
   toHeaders = Prelude.const Prelude.mempty

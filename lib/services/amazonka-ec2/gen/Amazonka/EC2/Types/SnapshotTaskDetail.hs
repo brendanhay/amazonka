@@ -180,14 +180,14 @@ instance Prelude.Hashable SnapshotTaskDetail where
 
 instance Prelude.NFData SnapshotTaskDetail where
   rnf SnapshotTaskDetail' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf diskImageSize
-      `Prelude.seq` Prelude.rnf encrypted
-      `Prelude.seq` Prelude.rnf format
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf progress
-      `Prelude.seq` Prelude.rnf snapshotId
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf url
-      `Prelude.seq` Prelude.rnf userBucket
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf diskImageSize `Prelude.seq`
+        Prelude.rnf encrypted `Prelude.seq`
+          Prelude.rnf format `Prelude.seq`
+            Prelude.rnf kmsKeyId `Prelude.seq`
+              Prelude.rnf progress `Prelude.seq`
+                Prelude.rnf snapshotId `Prelude.seq`
+                  Prelude.rnf status `Prelude.seq`
+                    Prelude.rnf statusMessage `Prelude.seq`
+                      Prelude.rnf url `Prelude.seq`
+                        Prelude.rnf userBucket

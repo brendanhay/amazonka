@@ -322,12 +322,12 @@ instance Core.AWSPager DescribeNetworkAcls where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeNetworkAcls_nextToken
-          Lens..~ rs
-          Lens.^? describeNetworkAclsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeNetworkAcls_nextToken
+              Lens..~ rs
+              Lens.^? describeNetworkAclsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeNetworkAcls where
   type
@@ -339,9 +339,7 @@ instance Core.AWSRequest DescribeNetworkAcls where
     Response.receiveXML
       ( \s h x ->
           DescribeNetworkAclsResponse'
-            Prelude.<$> ( x
-                            Data..@? "networkAclSet"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "networkAclSet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (x Data..@? "nextToken")
@@ -359,11 +357,11 @@ instance Prelude.Hashable DescribeNetworkAcls where
 
 instance Prelude.NFData DescribeNetworkAcls where
   rnf DescribeNetworkAcls' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf networkAclIds
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf networkAclIds `Prelude.seq`
+            Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeNetworkAcls where
   toHeaders = Prelude.const Prelude.mempty
@@ -442,6 +440,6 @@ describeNetworkAclsResponse_httpStatus = Lens.lens (\DescribeNetworkAclsResponse
 
 instance Prelude.NFData DescribeNetworkAclsResponse where
   rnf DescribeNetworkAclsResponse' {..} =
-    Prelude.rnf networkAcls
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf networkAcls `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

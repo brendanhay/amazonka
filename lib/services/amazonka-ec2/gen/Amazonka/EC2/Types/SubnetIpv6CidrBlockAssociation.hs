@@ -98,6 +98,6 @@ instance
     SubnetIpv6CidrBlockAssociation
   where
   rnf SubnetIpv6CidrBlockAssociation' {..} =
-    Prelude.rnf associationId
-      `Prelude.seq` Prelude.rnf ipv6CidrBlock
-      `Prelude.seq` Prelude.rnf ipv6CidrBlockState
+    Prelude.rnf associationId `Prelude.seq`
+      Prelude.rnf ipv6CidrBlock `Prelude.seq`
+        Prelude.rnf ipv6CidrBlockState

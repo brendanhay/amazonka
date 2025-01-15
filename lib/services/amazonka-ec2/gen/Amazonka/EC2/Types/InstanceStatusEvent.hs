@@ -134,9 +134,9 @@ instance Prelude.Hashable InstanceStatusEvent where
 
 instance Prelude.NFData InstanceStatusEvent where
   rnf InstanceStatusEvent' {..} =
-    Prelude.rnf code
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf instanceEventId
-      `Prelude.seq` Prelude.rnf notAfter
-      `Prelude.seq` Prelude.rnf notBefore
-      `Prelude.seq` Prelude.rnf notBeforeDeadline
+    Prelude.rnf code `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf instanceEventId `Prelude.seq`
+          Prelude.rnf notAfter `Prelude.seq`
+            Prelude.rnf notBefore `Prelude.seq`
+              Prelude.rnf notBeforeDeadline

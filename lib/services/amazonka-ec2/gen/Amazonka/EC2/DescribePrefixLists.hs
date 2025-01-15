@@ -163,12 +163,12 @@ instance Core.AWSPager DescribePrefixLists where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describePrefixLists_nextToken
-          Lens..~ rs
-          Lens.^? describePrefixListsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describePrefixLists_nextToken
+              Lens..~ rs
+              Lens.^? describePrefixListsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribePrefixLists where
   type
@@ -181,9 +181,7 @@ instance Core.AWSRequest DescribePrefixLists where
       ( \s h x ->
           DescribePrefixListsResponse'
             Prelude.<$> (x Data..@? "nextToken")
-            Prelude.<*> ( x
-                            Data..@? "prefixListSet"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "prefixListSet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -200,11 +198,11 @@ instance Prelude.Hashable DescribePrefixLists where
 
 instance Prelude.NFData DescribePrefixLists where
   rnf DescribePrefixLists' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf prefixListIds
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf prefixListIds
 
 instance Data.ToHeaders DescribePrefixLists where
   toHeaders = Prelude.const Prelude.mempty
@@ -283,6 +281,6 @@ describePrefixListsResponse_httpStatus = Lens.lens (\DescribePrefixListsResponse
 
 instance Prelude.NFData DescribePrefixListsResponse where
   rnf DescribePrefixListsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf prefixLists
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf prefixLists `Prelude.seq`
+        Prelude.rnf httpStatus

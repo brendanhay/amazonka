@@ -170,9 +170,7 @@ instance Data.FromXML Vpc where
                   )
       Prelude.<*> (x Data..@? "isDefault")
       Prelude.<*> (x Data..@? "ownerId")
-      Prelude.<*> ( x
-                      Data..@? "tagSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@ "cidrBlock")
@@ -197,13 +195,13 @@ instance Prelude.Hashable Vpc where
 
 instance Prelude.NFData Vpc where
   rnf Vpc' {..} =
-    Prelude.rnf cidrBlockAssociationSet
-      `Prelude.seq` Prelude.rnf ipv6CidrBlockAssociationSet
-      `Prelude.seq` Prelude.rnf isDefault
-      `Prelude.seq` Prelude.rnf ownerId
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf cidrBlock
-      `Prelude.seq` Prelude.rnf dhcpOptionsId
-      `Prelude.seq` Prelude.rnf instanceTenancy
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf cidrBlockAssociationSet `Prelude.seq`
+      Prelude.rnf ipv6CidrBlockAssociationSet `Prelude.seq`
+        Prelude.rnf isDefault `Prelude.seq`
+          Prelude.rnf ownerId `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf cidrBlock `Prelude.seq`
+                Prelude.rnf dhcpOptionsId `Prelude.seq`
+                  Prelude.rnf instanceTenancy `Prelude.seq`
+                    Prelude.rnf state `Prelude.seq`
+                      Prelude.rnf vpcId

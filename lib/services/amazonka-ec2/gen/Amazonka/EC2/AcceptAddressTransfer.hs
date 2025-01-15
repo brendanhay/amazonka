@@ -142,9 +142,9 @@ instance Prelude.Hashable AcceptAddressTransfer where
 
 instance Prelude.NFData AcceptAddressTransfer where
   rnf AcceptAddressTransfer' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf tagSpecifications
-      `Prelude.seq` Prelude.rnf address
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf tagSpecifications `Prelude.seq`
+        Prelude.rnf address
 
 instance Data.ToHeaders AcceptAddressTransfer where
   toHeaders = Prelude.const Prelude.mempty
@@ -208,5 +208,5 @@ acceptAddressTransferResponse_httpStatus = Lens.lens (\AcceptAddressTransferResp
 
 instance Prelude.NFData AcceptAddressTransferResponse where
   rnf AcceptAddressTransferResponse' {..} =
-    Prelude.rnf addressTransfer
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf addressTransfer `Prelude.seq`
+      Prelude.rnf httpStatus

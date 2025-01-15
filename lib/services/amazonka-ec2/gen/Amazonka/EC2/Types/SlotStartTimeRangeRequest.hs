@@ -73,8 +73,8 @@ instance Prelude.Hashable SlotStartTimeRangeRequest where
 
 instance Prelude.NFData SlotStartTimeRangeRequest where
   rnf SlotStartTimeRangeRequest' {..} =
-    Prelude.rnf earliestTime
-      `Prelude.seq` Prelude.rnf latestTime
+    Prelude.rnf earliestTime `Prelude.seq`
+      Prelude.rnf latestTime
 
 instance Data.ToQuery SlotStartTimeRangeRequest where
   toQuery SlotStartTimeRangeRequest' {..} =

@@ -126,8 +126,8 @@ instance
 
 instance Prelude.NFData GetVerifiedAccessGroupPolicy where
   rnf GetVerifiedAccessGroupPolicy' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf verifiedAccessGroupId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf verifiedAccessGroupId
 
 instance Data.ToHeaders GetVerifiedAccessGroupPolicy where
   toHeaders = Prelude.const Prelude.mempty
@@ -202,6 +202,6 @@ instance
     GetVerifiedAccessGroupPolicyResponse
   where
   rnf GetVerifiedAccessGroupPolicyResponse' {..} =
-    Prelude.rnf policyDocument
-      `Prelude.seq` Prelude.rnf policyEnabled
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf policyDocument `Prelude.seq`
+      Prelude.rnf policyEnabled `Prelude.seq`
+        Prelude.rnf httpStatus

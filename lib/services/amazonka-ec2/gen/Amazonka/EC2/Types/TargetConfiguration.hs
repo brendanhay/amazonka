@@ -84,5 +84,5 @@ instance Prelude.Hashable TargetConfiguration where
 
 instance Prelude.NFData TargetConfiguration where
   rnf TargetConfiguration' {..} =
-    Prelude.rnf instanceCount
-      `Prelude.seq` Prelude.rnf offeringId
+    Prelude.rnf instanceCount `Prelude.seq`
+      Prelude.rnf offeringId

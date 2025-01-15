@@ -118,8 +118,8 @@ instance Prelude.Hashable DeleteManagedPrefixList where
 
 instance Prelude.NFData DeleteManagedPrefixList where
   rnf DeleteManagedPrefixList' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf prefixListId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf prefixListId
 
 instance Data.ToHeaders DeleteManagedPrefixList where
   toHeaders = Prelude.const Prelude.mempty
@@ -182,5 +182,5 @@ instance
     DeleteManagedPrefixListResponse
   where
   rnf DeleteManagedPrefixListResponse' {..} =
-    Prelude.rnf prefixList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf prefixList `Prelude.seq`
+      Prelude.rnf httpStatus

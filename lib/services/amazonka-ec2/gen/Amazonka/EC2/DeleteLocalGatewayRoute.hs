@@ -137,9 +137,9 @@ instance Prelude.Hashable DeleteLocalGatewayRoute where
 
 instance Prelude.NFData DeleteLocalGatewayRoute where
   rnf DeleteLocalGatewayRoute' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf destinationCidrBlock
-      `Prelude.seq` Prelude.rnf localGatewayRouteTableId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf destinationCidrBlock `Prelude.seq`
+        Prelude.rnf localGatewayRouteTableId
 
 instance Data.ToHeaders DeleteLocalGatewayRoute where
   toHeaders = Prelude.const Prelude.mempty
@@ -204,5 +204,5 @@ instance
     DeleteLocalGatewayRouteResponse
   where
   rnf DeleteLocalGatewayRouteResponse' {..} =
-    Prelude.rnf route
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf route `Prelude.seq`
+      Prelude.rnf httpStatus

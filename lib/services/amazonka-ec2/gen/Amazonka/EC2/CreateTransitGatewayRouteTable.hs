@@ -140,9 +140,9 @@ instance
     CreateTransitGatewayRouteTable
   where
   rnf CreateTransitGatewayRouteTable' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf tagSpecifications
-      `Prelude.seq` Prelude.rnf transitGatewayId
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf tagSpecifications `Prelude.seq`
+        Prelude.rnf transitGatewayId
 
 instance
   Data.ToHeaders
@@ -215,5 +215,5 @@ instance
     CreateTransitGatewayRouteTableResponse
   where
   rnf CreateTransitGatewayRouteTableResponse' {..} =
-    Prelude.rnf transitGatewayRouteTable
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf transitGatewayRouteTable `Prelude.seq`
+      Prelude.rnf httpStatus

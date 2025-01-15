@@ -112,7 +112,7 @@ instance Prelude.Hashable AssociatedRole where
 
 instance Prelude.NFData AssociatedRole where
   rnf AssociatedRole' {..} =
-    Prelude.rnf associatedRoleArn
-      `Prelude.seq` Prelude.rnf certificateS3BucketName
-      `Prelude.seq` Prelude.rnf certificateS3ObjectKey
-      `Prelude.seq` Prelude.rnf encryptionKmsKeyId
+    Prelude.rnf associatedRoleArn `Prelude.seq`
+      Prelude.rnf certificateS3BucketName `Prelude.seq`
+        Prelude.rnf certificateS3ObjectKey `Prelude.seq`
+          Prelude.rnf encryptionKmsKeyId

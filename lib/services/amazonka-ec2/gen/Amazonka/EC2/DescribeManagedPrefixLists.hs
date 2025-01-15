@@ -170,12 +170,12 @@ instance Core.AWSPager DescribeManagedPrefixLists where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeManagedPrefixLists_nextToken
-          Lens..~ rs
-          Lens.^? describeManagedPrefixListsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeManagedPrefixLists_nextToken
+              Lens..~ rs
+              Lens.^? describeManagedPrefixListsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeManagedPrefixLists where
   type
@@ -188,9 +188,7 @@ instance Core.AWSRequest DescribeManagedPrefixLists where
       ( \s h x ->
           DescribeManagedPrefixListsResponse'
             Prelude.<$> (x Data..@? "nextToken")
-            Prelude.<*> ( x
-                            Data..@? "prefixListSet"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "prefixListSet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -207,11 +205,11 @@ instance Prelude.Hashable DescribeManagedPrefixLists where
 
 instance Prelude.NFData DescribeManagedPrefixLists where
   rnf DescribeManagedPrefixLists' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf prefixListIds
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf prefixListIds
 
 instance Data.ToHeaders DescribeManagedPrefixLists where
   toHeaders = Prelude.const Prelude.mempty
@@ -293,6 +291,6 @@ instance
     DescribeManagedPrefixListsResponse
   where
   rnf DescribeManagedPrefixListsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf prefixLists
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf prefixLists `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -141,9 +141,9 @@ instance Prelude.Hashable ModifyVpcTenancy where
 
 instance Prelude.NFData ModifyVpcTenancy where
   rnf ModifyVpcTenancy' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf vpcId
-      `Prelude.seq` Prelude.rnf instanceTenancy
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf vpcId `Prelude.seq`
+        Prelude.rnf instanceTenancy
 
 instance Data.ToHeaders ModifyVpcTenancy where
   toHeaders = Prelude.const Prelude.mempty
@@ -204,5 +204,5 @@ modifyVpcTenancyResponse_httpStatus = Lens.lens (\ModifyVpcTenancyResponse' {htt
 
 instance Prelude.NFData ModifyVpcTenancyResponse where
   rnf ModifyVpcTenancyResponse' {..} =
-    Prelude.rnf returnValue
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf returnValue `Prelude.seq`
+      Prelude.rnf httpStatus

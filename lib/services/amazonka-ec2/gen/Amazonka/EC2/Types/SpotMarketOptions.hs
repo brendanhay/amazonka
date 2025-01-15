@@ -161,11 +161,11 @@ instance Prelude.Hashable SpotMarketOptions where
 
 instance Prelude.NFData SpotMarketOptions where
   rnf SpotMarketOptions' {..} =
-    Prelude.rnf blockDurationMinutes
-      `Prelude.seq` Prelude.rnf instanceInterruptionBehavior
-      `Prelude.seq` Prelude.rnf maxPrice
-      `Prelude.seq` Prelude.rnf spotInstanceType
-      `Prelude.seq` Prelude.rnf validUntil
+    Prelude.rnf blockDurationMinutes `Prelude.seq`
+      Prelude.rnf instanceInterruptionBehavior `Prelude.seq`
+        Prelude.rnf maxPrice `Prelude.seq`
+          Prelude.rnf spotInstanceType `Prelude.seq`
+            Prelude.rnf validUntil
 
 instance Data.ToQuery SpotMarketOptions where
   toQuery SpotMarketOptions' {..} =

@@ -186,9 +186,9 @@ instance Prelude.Hashable DeleteFleets where
 
 instance Prelude.NFData DeleteFleets where
   rnf DeleteFleets' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf fleetIds
-      `Prelude.seq` Prelude.rnf terminateInstances
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf fleetIds `Prelude.seq`
+        Prelude.rnf terminateInstances
 
 instance Data.ToHeaders DeleteFleets where
   toHeaders = Prelude.const Prelude.mempty
@@ -258,6 +258,6 @@ deleteFleetsResponse_httpStatus = Lens.lens (\DeleteFleetsResponse' {httpStatus}
 
 instance Prelude.NFData DeleteFleetsResponse where
   rnf DeleteFleetsResponse' {..} =
-    Prelude.rnf successfulFleetDeletions
-      `Prelude.seq` Prelude.rnf unsuccessfulFleetDeletions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf successfulFleetDeletions `Prelude.seq`
+      Prelude.rnf unsuccessfulFleetDeletions `Prelude.seq`
+        Prelude.rnf httpStatus

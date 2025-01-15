@@ -115,8 +115,8 @@ instance Prelude.Hashable SpotDatafeedSubscription where
 
 instance Prelude.NFData SpotDatafeedSubscription where
   rnf SpotDatafeedSubscription' {..} =
-    Prelude.rnf bucket
-      `Prelude.seq` Prelude.rnf fault
-      `Prelude.seq` Prelude.rnf ownerId
-      `Prelude.seq` Prelude.rnf prefix
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf bucket `Prelude.seq`
+      Prelude.rnf fault `Prelude.seq`
+        Prelude.rnf ownerId `Prelude.seq`
+          Prelude.rnf prefix `Prelude.seq`
+            Prelude.rnf state

@@ -215,12 +215,12 @@ instance Core.AWSPager DescribeDhcpOptions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeDhcpOptions_nextToken
-          Lens..~ rs
-          Lens.^? describeDhcpOptionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeDhcpOptions_nextToken
+              Lens..~ rs
+              Lens.^? describeDhcpOptionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeDhcpOptions where
   type
@@ -232,9 +232,7 @@ instance Core.AWSRequest DescribeDhcpOptions where
     Response.receiveXML
       ( \s h x ->
           DescribeDhcpOptionsResponse'
-            Prelude.<$> ( x
-                            Data..@? "dhcpOptionsSet"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "dhcpOptionsSet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (x Data..@? "nextToken")
@@ -252,11 +250,11 @@ instance Prelude.Hashable DescribeDhcpOptions where
 
 instance Prelude.NFData DescribeDhcpOptions where
   rnf DescribeDhcpOptions' {..} =
-    Prelude.rnf dhcpOptionsIds
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf dhcpOptionsIds `Prelude.seq`
+      Prelude.rnf dryRun `Prelude.seq`
+        Prelude.rnf filters `Prelude.seq`
+          Prelude.rnf maxResults `Prelude.seq`
+            Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeDhcpOptions where
   toHeaders = Prelude.const Prelude.mempty
@@ -335,6 +333,6 @@ describeDhcpOptionsResponse_httpStatus = Lens.lens (\DescribeDhcpOptionsResponse
 
 instance Prelude.NFData DescribeDhcpOptionsResponse where
   rnf DescribeDhcpOptionsResponse' {..} =
-    Prelude.rnf dhcpOptions
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dhcpOptions `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

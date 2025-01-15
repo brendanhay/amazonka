@@ -305,17 +305,17 @@ instance Prelude.Hashable ModifySubnetAttribute where
 
 instance Prelude.NFData ModifySubnetAttribute where
   rnf ModifySubnetAttribute' {..} =
-    Prelude.rnf assignIpv6AddressOnCreation
-      `Prelude.seq` Prelude.rnf customerOwnedIpv4Pool
-      `Prelude.seq` Prelude.rnf disableLniAtDeviceIndex
-      `Prelude.seq` Prelude.rnf enableDns64
-      `Prelude.seq` Prelude.rnf enableLniAtDeviceIndex
-      `Prelude.seq` Prelude.rnf enableResourceNameDnsAAAARecordOnLaunch
-      `Prelude.seq` Prelude.rnf enableResourceNameDnsARecordOnLaunch
-      `Prelude.seq` Prelude.rnf mapCustomerOwnedIpOnLaunch
-      `Prelude.seq` Prelude.rnf mapPublicIpOnLaunch
-      `Prelude.seq` Prelude.rnf privateDnsHostnameTypeOnLaunch
-      `Prelude.seq` Prelude.rnf subnetId
+    Prelude.rnf assignIpv6AddressOnCreation `Prelude.seq`
+      Prelude.rnf customerOwnedIpv4Pool `Prelude.seq`
+        Prelude.rnf disableLniAtDeviceIndex `Prelude.seq`
+          Prelude.rnf enableDns64 `Prelude.seq`
+            Prelude.rnf enableLniAtDeviceIndex `Prelude.seq`
+              Prelude.rnf enableResourceNameDnsAAAARecordOnLaunch `Prelude.seq`
+                Prelude.rnf enableResourceNameDnsARecordOnLaunch `Prelude.seq`
+                  Prelude.rnf mapCustomerOwnedIpOnLaunch `Prelude.seq`
+                    Prelude.rnf mapPublicIpOnLaunch `Prelude.seq`
+                      Prelude.rnf privateDnsHostnameTypeOnLaunch `Prelude.seq`
+                        Prelude.rnf subnetId
 
 instance Data.ToHeaders ModifySubnetAttribute where
   toHeaders = Prelude.const Prelude.mempty

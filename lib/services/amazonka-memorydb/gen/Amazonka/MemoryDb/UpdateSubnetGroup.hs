@@ -120,9 +120,9 @@ instance Prelude.Hashable UpdateSubnetGroup where
 
 instance Prelude.NFData UpdateSubnetGroup where
   rnf UpdateSubnetGroup' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf subnetIds
-      `Prelude.seq` Prelude.rnf subnetGroupName
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf subnetIds `Prelude.seq`
+        Prelude.rnf subnetGroupName
 
 instance Data.ToHeaders UpdateSubnetGroup where
   toHeaders =
@@ -197,5 +197,5 @@ updateSubnetGroupResponse_httpStatus = Lens.lens (\UpdateSubnetGroupResponse' {h
 
 instance Prelude.NFData UpdateSubnetGroupResponse where
   rnf UpdateSubnetGroupResponse' {..} =
-    Prelude.rnf subnetGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf subnetGroup `Prelude.seq`
+      Prelude.rnf httpStatus

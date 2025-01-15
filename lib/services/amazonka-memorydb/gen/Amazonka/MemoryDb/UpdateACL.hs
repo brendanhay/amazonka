@@ -117,9 +117,9 @@ instance Prelude.Hashable UpdateACL where
 
 instance Prelude.NFData UpdateACL where
   rnf UpdateACL' {..} =
-    Prelude.rnf userNamesToAdd
-      `Prelude.seq` Prelude.rnf userNamesToRemove
-      `Prelude.seq` Prelude.rnf aCLName
+    Prelude.rnf userNamesToAdd `Prelude.seq`
+      Prelude.rnf userNamesToRemove `Prelude.seq`
+        Prelude.rnf aCLName
 
 instance Data.ToHeaders UpdateACL where
   toHeaders =
@@ -192,5 +192,5 @@ updateACLResponse_httpStatus = Lens.lens (\UpdateACLResponse' {httpStatus} -> ht
 
 instance Prelude.NFData UpdateACLResponse where
   rnf UpdateACLResponse' {..} =
-    Prelude.rnf acl
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf acl `Prelude.seq`
+      Prelude.rnf httpStatus

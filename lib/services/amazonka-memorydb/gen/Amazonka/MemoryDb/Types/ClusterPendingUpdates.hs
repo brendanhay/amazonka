@@ -97,6 +97,6 @@ instance Prelude.Hashable ClusterPendingUpdates where
 
 instance Prelude.NFData ClusterPendingUpdates where
   rnf ClusterPendingUpdates' {..} =
-    Prelude.rnf aCLs
-      `Prelude.seq` Prelude.rnf resharding
-      `Prelude.seq` Prelude.rnf serviceUpdates
+    Prelude.rnf aCLs `Prelude.seq`
+      Prelude.rnf resharding `Prelude.seq`
+        Prelude.rnf serviceUpdates

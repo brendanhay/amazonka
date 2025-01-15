@@ -165,5 +165,5 @@ deleteSnapshotResponse_httpStatus = Lens.lens (\DeleteSnapshotResponse' {httpSta
 
 instance Prelude.NFData DeleteSnapshotResponse where
   rnf DeleteSnapshotResponse' {..} =
-    Prelude.rnf snapshot
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf snapshot `Prelude.seq`
+      Prelude.rnf httpStatus

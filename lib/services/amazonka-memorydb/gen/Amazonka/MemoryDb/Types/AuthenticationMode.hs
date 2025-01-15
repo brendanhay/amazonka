@@ -75,8 +75,8 @@ instance Prelude.Hashable AuthenticationMode where
 
 instance Prelude.NFData AuthenticationMode where
   rnf AuthenticationMode' {..} =
-    Prelude.rnf passwords
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf passwords `Prelude.seq`
+      Prelude.rnf type'
 
 instance Data.ToJSON AuthenticationMode where
   toJSON AuthenticationMode' {..} =

@@ -143,10 +143,10 @@ instance
 
 instance Prelude.NFData PurchaseReservedNodesOffering where
   rnf PurchaseReservedNodesOffering' {..} =
-    Prelude.rnf nodeCount
-      `Prelude.seq` Prelude.rnf reservationId
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf reservedNodesOfferingId
+    Prelude.rnf nodeCount `Prelude.seq`
+      Prelude.rnf reservationId `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf reservedNodesOfferingId
 
 instance Data.ToHeaders PurchaseReservedNodesOffering where
   toHeaders =
@@ -227,5 +227,5 @@ instance
     PurchaseReservedNodesOfferingResponse
   where
   rnf PurchaseReservedNodesOfferingResponse' {..} =
-    Prelude.rnf reservedNode
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf reservedNode `Prelude.seq`
+      Prelude.rnf httpStatus

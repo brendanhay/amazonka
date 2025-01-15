@@ -142,10 +142,10 @@ instance Prelude.Hashable ACL where
 
 instance Prelude.NFData ACL where
   rnf ACL' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf clusters
-      `Prelude.seq` Prelude.rnf minimumEngineVersion
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf pendingChanges
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf userNames
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf clusters `Prelude.seq`
+        Prelude.rnf minimumEngineVersion `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf pendingChanges `Prelude.seq`
+              Prelude.rnf status `Prelude.seq`
+                Prelude.rnf userNames

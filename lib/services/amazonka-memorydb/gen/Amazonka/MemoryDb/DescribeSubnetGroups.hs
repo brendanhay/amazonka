@@ -131,12 +131,12 @@ instance Core.AWSPager DescribeSubnetGroups where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeSubnetGroups_nextToken
-          Lens..~ rs
-          Lens.^? describeSubnetGroupsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeSubnetGroups_nextToken
+              Lens..~ rs
+              Lens.^? describeSubnetGroupsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeSubnetGroups where
   type
@@ -162,9 +162,9 @@ instance Prelude.Hashable DescribeSubnetGroups where
 
 instance Prelude.NFData DescribeSubnetGroups where
   rnf DescribeSubnetGroups' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf subnetGroupName
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf subnetGroupName
 
 instance Data.ToHeaders DescribeSubnetGroups where
   toHeaders =
@@ -263,6 +263,6 @@ describeSubnetGroupsResponse_httpStatus = Lens.lens (\DescribeSubnetGroupsRespon
 
 instance Prelude.NFData DescribeSubnetGroupsResponse where
   rnf DescribeSubnetGroupsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf subnetGroups
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf subnetGroups `Prelude.seq`
+        Prelude.rnf httpStatus

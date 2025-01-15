@@ -154,12 +154,12 @@ instance Core.AWSPager DescribeEngineVersions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeEngineVersions_nextToken
-          Lens..~ rs
-          Lens.^? describeEngineVersionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeEngineVersions_nextToken
+              Lens..~ rs
+              Lens.^? describeEngineVersionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeEngineVersions where
   type
@@ -187,11 +187,11 @@ instance Prelude.Hashable DescribeEngineVersions where
 
 instance Prelude.NFData DescribeEngineVersions where
   rnf DescribeEngineVersions' {..} =
-    Prelude.rnf defaultOnly
-      `Prelude.seq` Prelude.rnf engineVersion
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf parameterGroupFamily
+    Prelude.rnf defaultOnly `Prelude.seq`
+      Prelude.rnf engineVersion `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf parameterGroupFamily
 
 instance Data.ToHeaders DescribeEngineVersions where
   toHeaders =
@@ -295,6 +295,6 @@ instance
     DescribeEngineVersionsResponse
   where
   rnf DescribeEngineVersionsResponse' {..} =
-    Prelude.rnf engineVersions
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf engineVersions `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

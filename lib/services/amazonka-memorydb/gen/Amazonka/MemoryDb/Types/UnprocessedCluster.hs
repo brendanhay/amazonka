@@ -91,6 +91,6 @@ instance Prelude.Hashable UnprocessedCluster where
 
 instance Prelude.NFData UnprocessedCluster where
   rnf UnprocessedCluster' {..} =
-    Prelude.rnf clusterName
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf errorType
+    Prelude.rnf clusterName `Prelude.seq`
+      Prelude.rnf errorMessage `Prelude.seq`
+        Prelude.rnf errorType

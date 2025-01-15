@@ -121,8 +121,8 @@ instance Prelude.Hashable Node where
 
 instance Prelude.NFData Node where
   rnf Node' {..} =
-    Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf createTime
-      `Prelude.seq` Prelude.rnf endpoint
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf availabilityZone `Prelude.seq`
+      Prelude.rnf createTime `Prelude.seq`
+        Prelude.rnf endpoint `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf status

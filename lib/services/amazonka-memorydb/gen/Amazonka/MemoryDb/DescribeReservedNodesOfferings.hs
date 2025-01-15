@@ -176,12 +176,12 @@ instance Core.AWSPager DescribeReservedNodesOfferings where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeReservedNodesOfferings_nextToken
-          Lens..~ rs
-          Lens.^? describeReservedNodesOfferingsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeReservedNodesOfferings_nextToken
+              Lens..~ rs
+              Lens.^? describeReservedNodesOfferingsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -224,12 +224,12 @@ instance
     DescribeReservedNodesOfferings
   where
   rnf DescribeReservedNodesOfferings' {..} =
-    Prelude.rnf duration
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf nodeType
-      `Prelude.seq` Prelude.rnf offeringType
-      `Prelude.seq` Prelude.rnf reservedNodesOfferingId
+    Prelude.rnf duration `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf nodeType `Prelude.seq`
+            Prelude.rnf offeringType `Prelude.seq`
+              Prelude.rnf reservedNodesOfferingId
 
 instance
   Data.ToHeaders
@@ -333,6 +333,6 @@ instance
     DescribeReservedNodesOfferingsResponse
   where
   rnf DescribeReservedNodesOfferingsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf reservedNodesOfferings
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf reservedNodesOfferings `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -84,5 +84,5 @@ instance Prelude.Hashable ACLPendingChanges where
 
 instance Prelude.NFData ACLPendingChanges where
   rnf ACLPendingChanges' {..} =
-    Prelude.rnf userNamesToAdd
-      `Prelude.seq` Prelude.rnf userNamesToRemove
+    Prelude.rnf userNamesToAdd `Prelude.seq`
+      Prelude.rnf userNamesToRemove

@@ -217,17 +217,17 @@ instance Prelude.Hashable ClusterConfiguration where
 
 instance Prelude.NFData ClusterConfiguration where
   rnf ClusterConfiguration' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf engineVersion
-      `Prelude.seq` Prelude.rnf maintenanceWindow
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf nodeType
-      `Prelude.seq` Prelude.rnf numShards
-      `Prelude.seq` Prelude.rnf parameterGroupName
-      `Prelude.seq` Prelude.rnf port
-      `Prelude.seq` Prelude.rnf shards
-      `Prelude.seq` Prelude.rnf snapshotRetentionLimit
-      `Prelude.seq` Prelude.rnf snapshotWindow
-      `Prelude.seq` Prelude.rnf subnetGroupName
-      `Prelude.seq` Prelude.rnf topicArn
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf engineVersion `Prelude.seq`
+        Prelude.rnf maintenanceWindow `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf nodeType `Prelude.seq`
+              Prelude.rnf numShards `Prelude.seq`
+                Prelude.rnf parameterGroupName `Prelude.seq`
+                  Prelude.rnf port `Prelude.seq`
+                    Prelude.rnf shards `Prelude.seq`
+                      Prelude.rnf snapshotRetentionLimit `Prelude.seq`
+                        Prelude.rnf snapshotWindow `Prelude.seq`
+                          Prelude.rnf subnetGroupName `Prelude.seq`
+                            Prelude.rnf topicArn `Prelude.seq`
+                              Prelude.rnf vpcId

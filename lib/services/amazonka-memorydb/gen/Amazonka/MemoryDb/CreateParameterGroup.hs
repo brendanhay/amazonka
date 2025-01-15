@@ -142,10 +142,10 @@ instance Prelude.Hashable CreateParameterGroup where
 
 instance Prelude.NFData CreateParameterGroup where
   rnf CreateParameterGroup' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf parameterGroupName
-      `Prelude.seq` Prelude.rnf family
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf parameterGroupName `Prelude.seq`
+          Prelude.rnf family
 
 instance Data.ToHeaders CreateParameterGroup where
   toHeaders =
@@ -221,5 +221,5 @@ createParameterGroupResponse_httpStatus = Lens.lens (\CreateParameterGroupRespon
 
 instance Prelude.NFData CreateParameterGroupResponse where
   rnf CreateParameterGroupResponse' {..} =
-    Prelude.rnf parameterGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf parameterGroup `Prelude.seq`
+      Prelude.rnf httpStatus

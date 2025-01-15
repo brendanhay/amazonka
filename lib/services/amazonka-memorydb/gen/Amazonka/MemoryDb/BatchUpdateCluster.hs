@@ -117,8 +117,8 @@ instance Prelude.Hashable BatchUpdateCluster where
 
 instance Prelude.NFData BatchUpdateCluster where
   rnf BatchUpdateCluster' {..} =
-    Prelude.rnf serviceUpdate
-      `Prelude.seq` Prelude.rnf clusterNames
+    Prelude.rnf serviceUpdate `Prelude.seq`
+      Prelude.rnf clusterNames
 
 instance Data.ToHeaders BatchUpdateCluster where
   toHeaders =
@@ -200,6 +200,6 @@ batchUpdateClusterResponse_httpStatus = Lens.lens (\BatchUpdateClusterResponse' 
 
 instance Prelude.NFData BatchUpdateClusterResponse where
   rnf BatchUpdateClusterResponse' {..} =
-    Prelude.rnf processedClusters
-      `Prelude.seq` Prelude.rnf unprocessedClusters
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf processedClusters `Prelude.seq`
+      Prelude.rnf unprocessedClusters `Prelude.seq`
+        Prelude.rnf httpStatus

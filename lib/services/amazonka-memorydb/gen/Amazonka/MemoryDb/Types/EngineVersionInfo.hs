@@ -95,6 +95,6 @@ instance Prelude.Hashable EngineVersionInfo where
 
 instance Prelude.NFData EngineVersionInfo where
   rnf EngineVersionInfo' {..} =
-    Prelude.rnf enginePatchVersion
-      `Prelude.seq` Prelude.rnf engineVersion
-      `Prelude.seq` Prelude.rnf parameterGroupFamily
+    Prelude.rnf enginePatchVersion `Prelude.seq`
+      Prelude.rnf engineVersion `Prelude.seq`
+        Prelude.rnf parameterGroupFamily

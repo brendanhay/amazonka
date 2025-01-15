@@ -189,12 +189,12 @@ instance Core.AWSPager DescribeReservedNodes where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeReservedNodes_nextToken
-          Lens..~ rs
-          Lens.^? describeReservedNodesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeReservedNodes_nextToken
+              Lens..~ rs
+              Lens.^? describeReservedNodesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeReservedNodes where
   type
@@ -224,13 +224,13 @@ instance Prelude.Hashable DescribeReservedNodes where
 
 instance Prelude.NFData DescribeReservedNodes where
   rnf DescribeReservedNodes' {..} =
-    Prelude.rnf duration
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf nodeType
-      `Prelude.seq` Prelude.rnf offeringType
-      `Prelude.seq` Prelude.rnf reservationId
-      `Prelude.seq` Prelude.rnf reservedNodesOfferingId
+    Prelude.rnf duration `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf nodeType `Prelude.seq`
+            Prelude.rnf offeringType `Prelude.seq`
+              Prelude.rnf reservationId `Prelude.seq`
+                Prelude.rnf reservedNodesOfferingId
 
 instance Data.ToHeaders DescribeReservedNodes where
   toHeaders =
@@ -330,6 +330,6 @@ describeReservedNodesResponse_httpStatus = Lens.lens (\DescribeReservedNodesResp
 
 instance Prelude.NFData DescribeReservedNodesResponse where
   rnf DescribeReservedNodesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf reservedNodes
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf reservedNodes `Prelude.seq`
+        Prelude.rnf httpStatus

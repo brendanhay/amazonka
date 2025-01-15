@@ -153,10 +153,10 @@ instance Prelude.Hashable Snapshot where
 
 instance Prelude.NFData Snapshot where
   rnf Snapshot' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf clusterConfiguration
-      `Prelude.seq` Prelude.rnf dataTiering
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf clusterConfiguration `Prelude.seq`
+        Prelude.rnf dataTiering `Prelude.seq`
+          Prelude.rnf kmsKeyId `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf source `Prelude.seq`
+                Prelude.rnf status

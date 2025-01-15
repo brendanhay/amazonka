@@ -82,5 +82,5 @@ instance Prelude.Hashable Authentication where
 
 instance Prelude.NFData Authentication where
   rnf Authentication' {..} =
-    Prelude.rnf passwordCount
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf passwordCount `Prelude.seq`
+      Prelude.rnf type'

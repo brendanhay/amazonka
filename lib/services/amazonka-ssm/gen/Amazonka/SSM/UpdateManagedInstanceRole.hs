@@ -136,8 +136,8 @@ instance Prelude.Hashable UpdateManagedInstanceRole where
 
 instance Prelude.NFData UpdateManagedInstanceRole where
   rnf UpdateManagedInstanceRole' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf iamRole
+    Prelude.rnf instanceId `Prelude.seq`
+      Prelude.rnf iamRole
 
 instance Data.ToHeaders UpdateManagedInstanceRole where
   toHeaders =

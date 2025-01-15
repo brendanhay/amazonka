@@ -81,5 +81,5 @@ instance Prelude.Hashable SessionManagerOutputUrl where
 
 instance Prelude.NFData SessionManagerOutputUrl where
   rnf SessionManagerOutputUrl' {..} =
-    Prelude.rnf cloudWatchOutputUrl
-      `Prelude.seq` Prelude.rnf s3OutputUrl
+    Prelude.rnf cloudWatchOutputUrl `Prelude.seq`
+      Prelude.rnf s3OutputUrl

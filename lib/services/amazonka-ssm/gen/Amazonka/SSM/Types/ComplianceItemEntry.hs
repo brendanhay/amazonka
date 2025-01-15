@@ -124,11 +124,11 @@ instance Prelude.Hashable ComplianceItemEntry where
 
 instance Prelude.NFData ComplianceItemEntry where
   rnf ComplianceItemEntry' {..} =
-    Prelude.rnf details
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf title
-      `Prelude.seq` Prelude.rnf severity
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf details `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf title `Prelude.seq`
+          Prelude.rnf severity `Prelude.seq`
+            Prelude.rnf status
 
 instance Data.ToJSON ComplianceItemEntry where
   toJSON ComplianceItemEntry' {..} =

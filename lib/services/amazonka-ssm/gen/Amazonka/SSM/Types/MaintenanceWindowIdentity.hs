@@ -215,15 +215,15 @@ instance Prelude.Hashable MaintenanceWindowIdentity where
 
 instance Prelude.NFData MaintenanceWindowIdentity where
   rnf MaintenanceWindowIdentity' {..} =
-    Prelude.rnf cutoff
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf duration
-      `Prelude.seq` Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf endDate
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf nextExecutionTime
-      `Prelude.seq` Prelude.rnf schedule
-      `Prelude.seq` Prelude.rnf scheduleOffset
-      `Prelude.seq` Prelude.rnf scheduleTimezone
-      `Prelude.seq` Prelude.rnf startDate
-      `Prelude.seq` Prelude.rnf windowId
+    Prelude.rnf cutoff `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf duration `Prelude.seq`
+          Prelude.rnf enabled `Prelude.seq`
+            Prelude.rnf endDate `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf nextExecutionTime `Prelude.seq`
+                  Prelude.rnf schedule `Prelude.seq`
+                    Prelude.rnf scheduleOffset `Prelude.seq`
+                      Prelude.rnf scheduleTimezone `Prelude.seq`
+                        Prelude.rnf startDate `Prelude.seq`
+                          Prelude.rnf windowId

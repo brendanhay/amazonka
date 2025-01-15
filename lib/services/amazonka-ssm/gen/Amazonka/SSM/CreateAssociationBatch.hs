@@ -191,6 +191,6 @@ instance
     CreateAssociationBatchResponse
   where
   rnf CreateAssociationBatchResponse' {..} =
-    Prelude.rnf failed
-      `Prelude.seq` Prelude.rnf successful
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf failed `Prelude.seq`
+      Prelude.rnf successful `Prelude.seq`
+        Prelude.rnf httpStatus

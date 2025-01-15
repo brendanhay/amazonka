@@ -148,9 +148,9 @@ instance Prelude.Hashable CreateOpsMetadata where
 
 instance Prelude.NFData CreateOpsMetadata where
   rnf CreateOpsMetadata' {..} =
-    Prelude.rnf metadata
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf resourceId
+    Prelude.rnf metadata `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf resourceId
 
 instance Data.ToHeaders CreateOpsMetadata where
   toHeaders =
@@ -227,5 +227,5 @@ createOpsMetadataResponse_httpStatus = Lens.lens (\CreateOpsMetadataResponse' {h
 
 instance Prelude.NFData CreateOpsMetadataResponse where
   rnf CreateOpsMetadataResponse' {..} =
-    Prelude.rnf opsMetadataArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf opsMetadataArn `Prelude.seq`
+      Prelude.rnf httpStatus

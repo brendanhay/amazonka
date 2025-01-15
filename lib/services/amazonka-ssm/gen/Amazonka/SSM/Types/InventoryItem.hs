@@ -150,12 +150,12 @@ instance Prelude.Hashable InventoryItem where
 
 instance Prelude.NFData InventoryItem where
   rnf InventoryItem' {..} =
-    Prelude.rnf content
-      `Prelude.seq` Prelude.rnf contentHash
-      `Prelude.seq` Prelude.rnf context
-      `Prelude.seq` Prelude.rnf typeName
-      `Prelude.seq` Prelude.rnf schemaVersion
-      `Prelude.seq` Prelude.rnf captureTime
+    Prelude.rnf content `Prelude.seq`
+      Prelude.rnf contentHash `Prelude.seq`
+        Prelude.rnf context `Prelude.seq`
+          Prelude.rnf typeName `Prelude.seq`
+            Prelude.rnf schemaVersion `Prelude.seq`
+              Prelude.rnf captureTime
 
 instance Data.ToJSON InventoryItem where
   toJSON InventoryItem' {..} =

@@ -194,13 +194,13 @@ instance
     MaintenanceWindowExecutionTaskIdentity
   where
   rnf MaintenanceWindowExecutionTaskIdentity' {..} =
-    Prelude.rnf alarmConfiguration
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusDetails
-      `Prelude.seq` Prelude.rnf taskArn
-      `Prelude.seq` Prelude.rnf taskExecutionId
-      `Prelude.seq` Prelude.rnf taskType
-      `Prelude.seq` Prelude.rnf triggeredAlarms
-      `Prelude.seq` Prelude.rnf windowExecutionId
+    Prelude.rnf alarmConfiguration `Prelude.seq`
+      Prelude.rnf endTime `Prelude.seq`
+        Prelude.rnf startTime `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf statusDetails `Prelude.seq`
+              Prelude.rnf taskArn `Prelude.seq`
+                Prelude.rnf taskExecutionId `Prelude.seq`
+                  Prelude.rnf taskType `Prelude.seq`
+                    Prelude.rnf triggeredAlarms `Prelude.seq`
+                      Prelude.rnf windowExecutionId

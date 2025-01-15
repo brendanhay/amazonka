@@ -160,9 +160,9 @@ instance Prelude.Hashable LabelParameterVersion where
 
 instance Prelude.NFData LabelParameterVersion where
   rnf LabelParameterVersion' {..} =
-    Prelude.rnf parameterVersion
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf labels
+    Prelude.rnf parameterVersion `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf labels
 
 instance Data.ToHeaders LabelParameterVersion where
   toHeaders =
@@ -255,6 +255,6 @@ labelParameterVersionResponse_httpStatus = Lens.lens (\LabelParameterVersionResp
 
 instance Prelude.NFData LabelParameterVersionResponse where
   rnf LabelParameterVersionResponse' {..} =
-    Prelude.rnf invalidLabels
-      `Prelude.seq` Prelude.rnf parameterVersion
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf invalidLabels `Prelude.seq`
+      Prelude.rnf parameterVersion `Prelude.seq`
+        Prelude.rnf httpStatus

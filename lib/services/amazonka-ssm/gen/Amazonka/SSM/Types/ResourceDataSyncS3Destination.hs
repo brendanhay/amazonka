@@ -148,12 +148,12 @@ instance
 
 instance Prelude.NFData ResourceDataSyncS3Destination where
   rnf ResourceDataSyncS3Destination' {..} =
-    Prelude.rnf aWSKMSKeyARN
-      `Prelude.seq` Prelude.rnf destinationDataSharing
-      `Prelude.seq` Prelude.rnf prefix
-      `Prelude.seq` Prelude.rnf bucketName
-      `Prelude.seq` Prelude.rnf syncFormat
-      `Prelude.seq` Prelude.rnf region
+    Prelude.rnf aWSKMSKeyARN `Prelude.seq`
+      Prelude.rnf destinationDataSharing `Prelude.seq`
+        Prelude.rnf prefix `Prelude.seq`
+          Prelude.rnf bucketName `Prelude.seq`
+            Prelude.rnf syncFormat `Prelude.seq`
+              Prelude.rnf region
 
 instance Data.ToJSON ResourceDataSyncS3Destination where
   toJSON ResourceDataSyncS3Destination' {..} =

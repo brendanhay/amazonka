@@ -130,12 +130,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listResourceComplianceSummaries_nextToken
-          Lens..~ rs
-          Lens.^? listResourceComplianceSummariesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listResourceComplianceSummaries_nextToken
+              Lens..~ rs
+              Lens.^? listResourceComplianceSummariesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -175,9 +175,9 @@ instance
     ListResourceComplianceSummaries
   where
   rnf ListResourceComplianceSummaries' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance
   Data.ToHeaders
@@ -280,6 +280,6 @@ instance
     ListResourceComplianceSummariesResponse
   where
   rnf ListResourceComplianceSummariesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf resourceComplianceSummaryItems
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf resourceComplianceSummaryItems `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -144,9 +144,9 @@ instance
     DeregisterTargetFromMaintenanceWindow
   where
   rnf DeregisterTargetFromMaintenanceWindow' {..} =
-    Prelude.rnf safe
-      `Prelude.seq` Prelude.rnf windowId
-      `Prelude.seq` Prelude.rnf windowTargetId
+    Prelude.rnf safe `Prelude.seq`
+      Prelude.rnf windowId `Prelude.seq`
+        Prelude.rnf windowTargetId
 
 instance
   Data.ToHeaders
@@ -248,6 +248,6 @@ instance
   where
   rnf
     DeregisterTargetFromMaintenanceWindowResponse' {..} =
-      Prelude.rnf windowId
-        `Prelude.seq` Prelude.rnf windowTargetId
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf windowId `Prelude.seq`
+        Prelude.rnf windowTargetId `Prelude.seq`
+          Prelude.rnf httpStatus

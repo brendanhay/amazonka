@@ -137,10 +137,10 @@ instance Prelude.Hashable OpsItemEventSummary where
 
 instance Prelude.NFData OpsItemEventSummary where
   rnf OpsItemEventSummary' {..} =
-    Prelude.rnf createdBy
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf detail
-      `Prelude.seq` Prelude.rnf detailType
-      `Prelude.seq` Prelude.rnf eventId
-      `Prelude.seq` Prelude.rnf opsItemId
-      `Prelude.seq` Prelude.rnf source
+    Prelude.rnf createdBy `Prelude.seq`
+      Prelude.rnf createdTime `Prelude.seq`
+        Prelude.rnf detail `Prelude.seq`
+          Prelude.rnf detailType `Prelude.seq`
+            Prelude.rnf eventId `Prelude.seq`
+              Prelude.rnf opsItemId `Prelude.seq`
+                Prelude.rnf source

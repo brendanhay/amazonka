@@ -150,11 +150,11 @@ instance Prelude.Hashable PatchRule where
 
 instance Prelude.NFData PatchRule where
   rnf PatchRule' {..} =
-    Prelude.rnf approveAfterDays
-      `Prelude.seq` Prelude.rnf approveUntilDate
-      `Prelude.seq` Prelude.rnf complianceLevel
-      `Prelude.seq` Prelude.rnf enableNonSecurity
-      `Prelude.seq` Prelude.rnf patchFilterGroup
+    Prelude.rnf approveAfterDays `Prelude.seq`
+      Prelude.rnf approveUntilDate `Prelude.seq`
+        Prelude.rnf complianceLevel `Prelude.seq`
+          Prelude.rnf enableNonSecurity `Prelude.seq`
+            Prelude.rnf patchFilterGroup
 
 instance Data.ToJSON PatchRule where
   toJSON PatchRule' {..} =

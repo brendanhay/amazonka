@@ -779,17 +779,17 @@ instance Prelude.Hashable PutParameter where
 
 instance Prelude.NFData PutParameter where
   rnf PutParameter' {..} =
-    Prelude.rnf allowedPattern
-      `Prelude.seq` Prelude.rnf dataType
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf keyId
-      `Prelude.seq` Prelude.rnf overwrite
-      `Prelude.seq` Prelude.rnf policies
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf tier
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf allowedPattern `Prelude.seq`
+      Prelude.rnf dataType `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf keyId `Prelude.seq`
+            Prelude.rnf overwrite `Prelude.seq`
+              Prelude.rnf policies `Prelude.seq`
+                Prelude.rnf tags `Prelude.seq`
+                  Prelude.rnf tier `Prelude.seq`
+                    Prelude.rnf type' `Prelude.seq`
+                      Prelude.rnf name `Prelude.seq`
+                        Prelude.rnf value
 
 instance Data.ToHeaders PutParameter where
   toHeaders =
@@ -895,6 +895,6 @@ putParameterResponse_version = Lens.lens (\PutParameterResponse' {version} -> ve
 
 instance Prelude.NFData PutParameterResponse where
   rnf PutParameterResponse' {..} =
-    Prelude.rnf tier
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf version
+    Prelude.rnf tier `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf version

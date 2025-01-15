@@ -108,8 +108,8 @@ instance Prelude.Hashable DeleteResourceDataSync where
 
 instance Prelude.NFData DeleteResourceDataSync where
   rnf DeleteResourceDataSync' {..} =
-    Prelude.rnf syncType
-      `Prelude.seq` Prelude.rnf syncName
+    Prelude.rnf syncType `Prelude.seq`
+      Prelude.rnf syncName
 
 instance Data.ToHeaders DeleteResourceDataSync where
   toHeaders =

@@ -94,9 +94,9 @@ instance Prelude.Hashable OpsItemEventFilter where
 
 instance Prelude.NFData OpsItemEventFilter where
   rnf OpsItemEventFilter' {..} =
-    Prelude.rnf key
-      `Prelude.seq` Prelude.rnf values
-      `Prelude.seq` Prelude.rnf operator
+    Prelude.rnf key `Prelude.seq`
+      Prelude.rnf values `Prelude.seq`
+        Prelude.rnf operator
 
 instance Data.ToJSON OpsItemEventFilter where
   toJSON OpsItemEventFilter' {..} =

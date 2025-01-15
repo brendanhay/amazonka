@@ -77,8 +77,8 @@ instance Prelude.Hashable DocumentReviews where
 
 instance Prelude.NFData DocumentReviews where
   rnf DocumentReviews' {..} =
-    Prelude.rnf comment
-      `Prelude.seq` Prelude.rnf action
+    Prelude.rnf comment `Prelude.seq`
+      Prelude.rnf action
 
 instance Data.ToJSON DocumentReviews where
   toJSON DocumentReviews' {..} =

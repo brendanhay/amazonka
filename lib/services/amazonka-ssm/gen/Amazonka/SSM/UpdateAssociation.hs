@@ -656,26 +656,26 @@ instance Prelude.Hashable UpdateAssociation where
 
 instance Prelude.NFData UpdateAssociation where
   rnf UpdateAssociation' {..} =
-    Prelude.rnf alarmConfiguration
-      `Prelude.seq` Prelude.rnf applyOnlyAtCronInterval
-      `Prelude.seq` Prelude.rnf associationName
-      `Prelude.seq` Prelude.rnf associationVersion
-      `Prelude.seq` Prelude.rnf automationTargetParameterName
-      `Prelude.seq` Prelude.rnf calendarNames
-      `Prelude.seq` Prelude.rnf complianceSeverity
-      `Prelude.seq` Prelude.rnf documentVersion
-      `Prelude.seq` Prelude.rnf maxConcurrency
-      `Prelude.seq` Prelude.rnf maxErrors
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf outputLocation
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf scheduleExpression
-      `Prelude.seq` Prelude.rnf scheduleOffset
-      `Prelude.seq` Prelude.rnf syncCompliance
-      `Prelude.seq` Prelude.rnf targetLocations
-      `Prelude.seq` Prelude.rnf targetMaps
-      `Prelude.seq` Prelude.rnf targets
-      `Prelude.seq` Prelude.rnf associationId
+    Prelude.rnf alarmConfiguration `Prelude.seq`
+      Prelude.rnf applyOnlyAtCronInterval `Prelude.seq`
+        Prelude.rnf associationName `Prelude.seq`
+          Prelude.rnf associationVersion `Prelude.seq`
+            Prelude.rnf automationTargetParameterName `Prelude.seq`
+              Prelude.rnf calendarNames `Prelude.seq`
+                Prelude.rnf complianceSeverity `Prelude.seq`
+                  Prelude.rnf documentVersion `Prelude.seq`
+                    Prelude.rnf maxConcurrency `Prelude.seq`
+                      Prelude.rnf maxErrors `Prelude.seq`
+                        Prelude.rnf name `Prelude.seq`
+                          Prelude.rnf outputLocation `Prelude.seq`
+                            Prelude.rnf parameters `Prelude.seq`
+                              Prelude.rnf scheduleExpression `Prelude.seq`
+                                Prelude.rnf scheduleOffset `Prelude.seq`
+                                  Prelude.rnf syncCompliance `Prelude.seq`
+                                    Prelude.rnf targetLocations `Prelude.seq`
+                                      Prelude.rnf targetMaps `Prelude.seq`
+                                        Prelude.rnf targets `Prelude.seq`
+                                          Prelude.rnf associationId
 
 instance Data.ToHeaders UpdateAssociation where
   toHeaders =
@@ -780,5 +780,5 @@ updateAssociationResponse_httpStatus = Lens.lens (\UpdateAssociationResponse' {h
 
 instance Prelude.NFData UpdateAssociationResponse where
   rnf UpdateAssociationResponse' {..} =
-    Prelude.rnf associationDescription
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf associationDescription `Prelude.seq`
+      Prelude.rnf httpStatus

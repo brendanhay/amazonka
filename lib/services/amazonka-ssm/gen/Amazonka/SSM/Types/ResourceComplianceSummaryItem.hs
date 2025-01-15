@@ -158,11 +158,11 @@ instance
 
 instance Prelude.NFData ResourceComplianceSummaryItem where
   rnf ResourceComplianceSummaryItem' {..} =
-    Prelude.rnf complianceType
-      `Prelude.seq` Prelude.rnf compliantSummary
-      `Prelude.seq` Prelude.rnf executionSummary
-      `Prelude.seq` Prelude.rnf nonCompliantSummary
-      `Prelude.seq` Prelude.rnf overallSeverity
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf complianceType `Prelude.seq`
+      Prelude.rnf compliantSummary `Prelude.seq`
+        Prelude.rnf executionSummary `Prelude.seq`
+          Prelude.rnf nonCompliantSummary `Prelude.seq`
+            Prelude.rnf overallSeverity `Prelude.seq`
+              Prelude.rnf resourceId `Prelude.seq`
+                Prelude.rnf resourceType `Prelude.seq`
+                  Prelude.rnf status

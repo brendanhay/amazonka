@@ -95,6 +95,6 @@ instance Prelude.Hashable ScheduledWindowExecution where
 
 instance Prelude.NFData ScheduledWindowExecution where
   rnf ScheduledWindowExecution' {..} =
-    Prelude.rnf executionTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf windowId
+    Prelude.rnf executionTime `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf windowId

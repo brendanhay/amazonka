@@ -124,12 +124,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeEffectivePatchesForPatchBaseline_nextToken
-          Lens..~ rs
-          Lens.^? describeEffectivePatchesForPatchBaselineResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeEffectivePatchesForPatchBaseline_nextToken
+              Lens..~ rs
+              Lens.^? describeEffectivePatchesForPatchBaselineResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -170,9 +170,9 @@ instance
     DescribeEffectivePatchesForPatchBaseline
   where
   rnf DescribeEffectivePatchesForPatchBaseline' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf baselineId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf baselineId
 
 instance
   Data.ToHeaders
@@ -276,6 +276,6 @@ instance
   where
   rnf
     DescribeEffectivePatchesForPatchBaselineResponse' {..} =
-      Prelude.rnf effectivePatches
-        `Prelude.seq` Prelude.rnf nextToken
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf effectivePatches `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf httpStatus

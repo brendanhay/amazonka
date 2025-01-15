@@ -126,12 +126,12 @@ instance Core.AWSPager ListOpsMetadata where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listOpsMetadata_nextToken
-          Lens..~ rs
-          Lens.^? listOpsMetadataResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listOpsMetadata_nextToken
+              Lens..~ rs
+              Lens.^? listOpsMetadataResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListOpsMetadata where
   type
@@ -157,9 +157,9 @@ instance Prelude.Hashable ListOpsMetadata where
 
 instance Prelude.NFData ListOpsMetadata where
   rnf ListOpsMetadata' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListOpsMetadata where
   toHeaders =
@@ -243,6 +243,6 @@ listOpsMetadataResponse_httpStatus = Lens.lens (\ListOpsMetadataResponse' {httpS
 
 instance Prelude.NFData ListOpsMetadataResponse where
   rnf ListOpsMetadataResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf opsMetadataList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf opsMetadataList `Prelude.seq`
+        Prelude.rnf httpStatus

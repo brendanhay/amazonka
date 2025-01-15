@@ -184,10 +184,10 @@ instance Prelude.Hashable CreateResourceDataSync where
 
 instance Prelude.NFData CreateResourceDataSync where
   rnf CreateResourceDataSync' {..} =
-    Prelude.rnf s3Destination
-      `Prelude.seq` Prelude.rnf syncSource
-      `Prelude.seq` Prelude.rnf syncType
-      `Prelude.seq` Prelude.rnf syncName
+    Prelude.rnf s3Destination `Prelude.seq`
+      Prelude.rnf syncSource `Prelude.seq`
+        Prelude.rnf syncType `Prelude.seq`
+          Prelude.rnf syncName
 
 instance Data.ToHeaders CreateResourceDataSync where
   toHeaders =

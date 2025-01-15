@@ -113,8 +113,8 @@ instance Prelude.Hashable OpsMetadata where
 
 instance Prelude.NFData OpsMetadata where
   rnf OpsMetadata' {..} =
-    Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf lastModifiedUser
-      `Prelude.seq` Prelude.rnf opsMetadataArn
-      `Prelude.seq` Prelude.rnf resourceId
+    Prelude.rnf creationDate `Prelude.seq`
+      Prelude.rnf lastModifiedDate `Prelude.seq`
+        Prelude.rnf lastModifiedUser `Prelude.seq`
+          Prelude.rnf opsMetadataArn `Prelude.seq`
+            Prelude.rnf resourceId

@@ -107,9 +107,9 @@ instance Prelude.Hashable ComplianceExecutionSummary where
 
 instance Prelude.NFData ComplianceExecutionSummary where
   rnf ComplianceExecutionSummary' {..} =
-    Prelude.rnf executionId
-      `Prelude.seq` Prelude.rnf executionType
-      `Prelude.seq` Prelude.rnf executionTime
+    Prelude.rnf executionId `Prelude.seq`
+      Prelude.rnf executionType `Prelude.seq`
+        Prelude.rnf executionTime
 
 instance Data.ToJSON ComplianceExecutionSummary where
   toJSON ComplianceExecutionSummary' {..} =

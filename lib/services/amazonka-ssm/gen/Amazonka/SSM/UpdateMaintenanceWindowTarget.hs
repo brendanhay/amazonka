@@ -213,13 +213,13 @@ instance
 
 instance Prelude.NFData UpdateMaintenanceWindowTarget where
   rnf UpdateMaintenanceWindowTarget' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf ownerInformation
-      `Prelude.seq` Prelude.rnf replace
-      `Prelude.seq` Prelude.rnf targets
-      `Prelude.seq` Prelude.rnf windowId
-      `Prelude.seq` Prelude.rnf windowTargetId
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf ownerInformation `Prelude.seq`
+          Prelude.rnf replace `Prelude.seq`
+            Prelude.rnf targets `Prelude.seq`
+              Prelude.rnf windowId `Prelude.seq`
+                Prelude.rnf windowTargetId
 
 instance Data.ToHeaders UpdateMaintenanceWindowTarget where
   toHeaders =
@@ -347,10 +347,10 @@ instance
     UpdateMaintenanceWindowTargetResponse
   where
   rnf UpdateMaintenanceWindowTargetResponse' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf ownerInformation
-      `Prelude.seq` Prelude.rnf targets
-      `Prelude.seq` Prelude.rnf windowId
-      `Prelude.seq` Prelude.rnf windowTargetId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf ownerInformation `Prelude.seq`
+          Prelude.rnf targets `Prelude.seq`
+            Prelude.rnf windowId `Prelude.seq`
+              Prelude.rnf windowTargetId `Prelude.seq`
+                Prelude.rnf httpStatus

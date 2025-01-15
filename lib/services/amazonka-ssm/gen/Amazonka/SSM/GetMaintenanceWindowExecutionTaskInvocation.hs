@@ -165,9 +165,9 @@ instance
     GetMaintenanceWindowExecutionTaskInvocation
   where
   rnf GetMaintenanceWindowExecutionTaskInvocation' {..} =
-    Prelude.rnf windowExecutionId
-      `Prelude.seq` Prelude.rnf taskId
-      `Prelude.seq` Prelude.rnf invocationId
+    Prelude.rnf windowExecutionId `Prelude.seq`
+      Prelude.rnf taskId `Prelude.seq`
+        Prelude.rnf invocationId
 
 instance
   Data.ToHeaders
@@ -380,16 +380,16 @@ instance
   where
   rnf
     GetMaintenanceWindowExecutionTaskInvocationResponse' {..} =
-      Prelude.rnf endTime
-        `Prelude.seq` Prelude.rnf executionId
-        `Prelude.seq` Prelude.rnf invocationId
-        `Prelude.seq` Prelude.rnf ownerInformation
-        `Prelude.seq` Prelude.rnf parameters
-        `Prelude.seq` Prelude.rnf startTime
-        `Prelude.seq` Prelude.rnf status
-        `Prelude.seq` Prelude.rnf statusDetails
-        `Prelude.seq` Prelude.rnf taskExecutionId
-        `Prelude.seq` Prelude.rnf taskType
-        `Prelude.seq` Prelude.rnf windowExecutionId
-        `Prelude.seq` Prelude.rnf windowTargetId
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf endTime `Prelude.seq`
+        Prelude.rnf executionId `Prelude.seq`
+          Prelude.rnf invocationId `Prelude.seq`
+            Prelude.rnf ownerInformation `Prelude.seq`
+              Prelude.rnf parameters `Prelude.seq`
+                Prelude.rnf startTime `Prelude.seq`
+                  Prelude.rnf status `Prelude.seq`
+                    Prelude.rnf statusDetails `Prelude.seq`
+                      Prelude.rnf taskExecutionId `Prelude.seq`
+                        Prelude.rnf taskType `Prelude.seq`
+                          Prelude.rnf windowExecutionId `Prelude.seq`
+                            Prelude.rnf windowTargetId `Prelude.seq`
+                              Prelude.rnf httpStatus

@@ -156,8 +156,8 @@ instance
     GetMaintenanceWindowExecutionTask
   where
   rnf GetMaintenanceWindowExecutionTask' {..} =
-    Prelude.rnf windowExecutionId
-      `Prelude.seq` Prelude.rnf taskId
+    Prelude.rnf windowExecutionId `Prelude.seq`
+      Prelude.rnf taskId
 
 instance
   Data.ToHeaders
@@ -424,19 +424,19 @@ instance
     GetMaintenanceWindowExecutionTaskResponse
   where
   rnf GetMaintenanceWindowExecutionTaskResponse' {..} =
-    Prelude.rnf alarmConfiguration
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf maxConcurrency
-      `Prelude.seq` Prelude.rnf maxErrors
-      `Prelude.seq` Prelude.rnf priority
-      `Prelude.seq` Prelude.rnf serviceRole
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusDetails
-      `Prelude.seq` Prelude.rnf taskArn
-      `Prelude.seq` Prelude.rnf taskExecutionId
-      `Prelude.seq` Prelude.rnf taskParameters
-      `Prelude.seq` Prelude.rnf triggeredAlarms
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf windowExecutionId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf alarmConfiguration `Prelude.seq`
+      Prelude.rnf endTime `Prelude.seq`
+        Prelude.rnf maxConcurrency `Prelude.seq`
+          Prelude.rnf maxErrors `Prelude.seq`
+            Prelude.rnf priority `Prelude.seq`
+              Prelude.rnf serviceRole `Prelude.seq`
+                Prelude.rnf startTime `Prelude.seq`
+                  Prelude.rnf status `Prelude.seq`
+                    Prelude.rnf statusDetails `Prelude.seq`
+                      Prelude.rnf taskArn `Prelude.seq`
+                        Prelude.rnf taskExecutionId `Prelude.seq`
+                          Prelude.rnf taskParameters `Prelude.seq`
+                            Prelude.rnf triggeredAlarms `Prelude.seq`
+                              Prelude.rnf type' `Prelude.seq`
+                                Prelude.rnf windowExecutionId `Prelude.seq`
+                                  Prelude.rnf httpStatus

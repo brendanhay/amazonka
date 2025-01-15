@@ -113,12 +113,12 @@ instance Prelude.Hashable OpsAggregator where
 
 instance Prelude.NFData OpsAggregator where
   rnf OpsAggregator' {..} =
-    Prelude.rnf aggregatorType
-      `Prelude.seq` Prelude.rnf aggregators
-      `Prelude.seq` Prelude.rnf attributeName
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf typeName
-      `Prelude.seq` Prelude.rnf values
+    Prelude.rnf aggregatorType `Prelude.seq`
+      Prelude.rnf aggregators `Prelude.seq`
+        Prelude.rnf attributeName `Prelude.seq`
+          Prelude.rnf filters `Prelude.seq`
+            Prelude.rnf typeName `Prelude.seq`
+              Prelude.rnf values
 
 instance Data.ToJSON OpsAggregator where
   toJSON OpsAggregator' {..} =

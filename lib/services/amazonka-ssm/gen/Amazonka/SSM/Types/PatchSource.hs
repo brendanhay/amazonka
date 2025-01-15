@@ -145,9 +145,9 @@ instance Prelude.Hashable PatchSource where
 
 instance Prelude.NFData PatchSource where
   rnf PatchSource' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf products
-      `Prelude.seq` Prelude.rnf configuration
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf products `Prelude.seq`
+        Prelude.rnf configuration
 
 instance Data.ToJSON PatchSource where
   toJSON PatchSource' {..} =

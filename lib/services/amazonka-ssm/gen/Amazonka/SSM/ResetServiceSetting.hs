@@ -233,5 +233,5 @@ resetServiceSettingResponse_httpStatus = Lens.lens (\ResetServiceSettingResponse
 
 instance Prelude.NFData ResetServiceSettingResponse where
   rnf ResetServiceSettingResponse' {..} =
-    Prelude.rnf serviceSetting
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf serviceSetting `Prelude.seq`
+      Prelude.rnf httpStatus

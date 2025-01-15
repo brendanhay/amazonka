@@ -96,5 +96,5 @@ instance
     InstanceAggregatedAssociationOverview
   where
   rnf InstanceAggregatedAssociationOverview' {..} =
-    Prelude.rnf detailedStatus
-      `Prelude.seq` Prelude.rnf instanceAssociationStatusAggregatedCount
+    Prelude.rnf detailedStatus `Prelude.seq`
+      Prelude.rnf instanceAssociationStatusAggregatedCount

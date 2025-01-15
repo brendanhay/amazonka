@@ -125,12 +125,12 @@ instance Core.AWSPager ListAssociationVersions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listAssociationVersions_nextToken
-          Lens..~ rs
-          Lens.^? listAssociationVersionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listAssociationVersions_nextToken
+              Lens..~ rs
+              Lens.^? listAssociationVersionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAssociationVersions where
   type
@@ -156,9 +156,9 @@ instance Prelude.Hashable ListAssociationVersions where
 
 instance Prelude.NFData ListAssociationVersions where
   rnf ListAssociationVersions' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf associationId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf associationId
 
 instance Data.ToHeaders ListAssociationVersions where
   toHeaders =
@@ -251,6 +251,6 @@ instance
     ListAssociationVersionsResponse
   where
   rnf ListAssociationVersionsResponse' {..} =
-    Prelude.rnf associationVersions
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf associationVersions `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

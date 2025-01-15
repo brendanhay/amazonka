@@ -232,8 +232,8 @@ instance Prelude.Hashable UpdateServiceSetting where
 
 instance Prelude.NFData UpdateServiceSetting where
   rnf UpdateServiceSetting' {..} =
-    Prelude.rnf settingId
-      `Prelude.seq` Prelude.rnf settingValue
+    Prelude.rnf settingId `Prelude.seq`
+      Prelude.rnf settingValue
 
 instance Data.ToHeaders UpdateServiceSetting where
   toHeaders =

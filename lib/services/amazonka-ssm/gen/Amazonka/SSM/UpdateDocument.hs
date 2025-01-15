@@ -221,14 +221,14 @@ instance Prelude.Hashable UpdateDocument where
 
 instance Prelude.NFData UpdateDocument where
   rnf UpdateDocument' {..} =
-    Prelude.rnf attachments
-      `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf documentFormat
-      `Prelude.seq` Prelude.rnf documentVersion
-      `Prelude.seq` Prelude.rnf targetType
-      `Prelude.seq` Prelude.rnf versionName
-      `Prelude.seq` Prelude.rnf content
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf attachments `Prelude.seq`
+      Prelude.rnf displayName `Prelude.seq`
+        Prelude.rnf documentFormat `Prelude.seq`
+          Prelude.rnf documentVersion `Prelude.seq`
+            Prelude.rnf targetType `Prelude.seq`
+              Prelude.rnf versionName `Prelude.seq`
+                Prelude.rnf content `Prelude.seq`
+                  Prelude.rnf name
 
 instance Data.ToHeaders UpdateDocument where
   toHeaders =
@@ -307,5 +307,5 @@ updateDocumentResponse_httpStatus = Lens.lens (\UpdateDocumentResponse' {httpSta
 
 instance Prelude.NFData UpdateDocumentResponse where
   rnf UpdateDocumentResponse' {..} =
-    Prelude.rnf documentDescription
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf documentDescription `Prelude.seq`
+      Prelude.rnf httpStatus

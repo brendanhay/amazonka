@@ -117,8 +117,8 @@ instance Prelude.Hashable GetOpsItem where
 
 instance Prelude.NFData GetOpsItem where
   rnf GetOpsItem' {..} =
-    Prelude.rnf opsItemArn
-      `Prelude.seq` Prelude.rnf opsItemId
+    Prelude.rnf opsItemArn `Prelude.seq`
+      Prelude.rnf opsItemId
 
 instance Data.ToHeaders GetOpsItem where
   toHeaders =
@@ -188,5 +188,5 @@ getOpsItemResponse_httpStatus = Lens.lens (\GetOpsItemResponse' {httpStatus} -> 
 
 instance Prelude.NFData GetOpsItemResponse where
   rnf GetOpsItemResponse' {..} =
-    Prelude.rnf opsItem
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf opsItem `Prelude.seq`
+      Prelude.rnf httpStatus

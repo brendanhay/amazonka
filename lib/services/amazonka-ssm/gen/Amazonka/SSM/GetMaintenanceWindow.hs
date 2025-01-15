@@ -366,19 +366,19 @@ getMaintenanceWindowResponse_httpStatus = Lens.lens (\GetMaintenanceWindowRespon
 
 instance Prelude.NFData GetMaintenanceWindowResponse where
   rnf GetMaintenanceWindowResponse' {..} =
-    Prelude.rnf allowUnassociatedTargets
-      `Prelude.seq` Prelude.rnf createdDate
-      `Prelude.seq` Prelude.rnf cutoff
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf duration
-      `Prelude.seq` Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf endDate
-      `Prelude.seq` Prelude.rnf modifiedDate
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf nextExecutionTime
-      `Prelude.seq` Prelude.rnf schedule
-      `Prelude.seq` Prelude.rnf scheduleOffset
-      `Prelude.seq` Prelude.rnf scheduleTimezone
-      `Prelude.seq` Prelude.rnf startDate
-      `Prelude.seq` Prelude.rnf windowId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf allowUnassociatedTargets `Prelude.seq`
+      Prelude.rnf createdDate `Prelude.seq`
+        Prelude.rnf cutoff `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf duration `Prelude.seq`
+              Prelude.rnf enabled `Prelude.seq`
+                Prelude.rnf endDate `Prelude.seq`
+                  Prelude.rnf modifiedDate `Prelude.seq`
+                    Prelude.rnf name `Prelude.seq`
+                      Prelude.rnf nextExecutionTime `Prelude.seq`
+                        Prelude.rnf schedule `Prelude.seq`
+                          Prelude.rnf scheduleOffset `Prelude.seq`
+                            Prelude.rnf scheduleTimezone `Prelude.seq`
+                              Prelude.rnf startDate `Prelude.seq`
+                                Prelude.rnf windowId `Prelude.seq`
+                                  Prelude.rnf httpStatus

@@ -184,13 +184,13 @@ instance Prelude.Hashable ResourceDataSyncItem where
 
 instance Prelude.NFData ResourceDataSyncItem where
   rnf ResourceDataSyncItem' {..} =
-    Prelude.rnf lastStatus
-      `Prelude.seq` Prelude.rnf lastSuccessfulSyncTime
-      `Prelude.seq` Prelude.rnf lastSyncStatusMessage
-      `Prelude.seq` Prelude.rnf lastSyncTime
-      `Prelude.seq` Prelude.rnf s3Destination
-      `Prelude.seq` Prelude.rnf syncCreatedTime
-      `Prelude.seq` Prelude.rnf syncLastModifiedTime
-      `Prelude.seq` Prelude.rnf syncName
-      `Prelude.seq` Prelude.rnf syncSource
-      `Prelude.seq` Prelude.rnf syncType
+    Prelude.rnf lastStatus `Prelude.seq`
+      Prelude.rnf lastSuccessfulSyncTime `Prelude.seq`
+        Prelude.rnf lastSyncStatusMessage `Prelude.seq`
+          Prelude.rnf lastSyncTime `Prelude.seq`
+            Prelude.rnf s3Destination `Prelude.seq`
+              Prelude.rnf syncCreatedTime `Prelude.seq`
+                Prelude.rnf syncLastModifiedTime `Prelude.seq`
+                  Prelude.rnf syncName `Prelude.seq`
+                    Prelude.rnf syncSource `Prelude.seq`
+                      Prelude.rnf syncType

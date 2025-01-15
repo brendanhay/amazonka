@@ -91,8 +91,8 @@ instance Prelude.Hashable AlarmConfiguration where
 
 instance Prelude.NFData AlarmConfiguration where
   rnf AlarmConfiguration' {..} =
-    Prelude.rnf ignorePollAlarmFailure
-      `Prelude.seq` Prelude.rnf alarms
+    Prelude.rnf ignorePollAlarmFailure `Prelude.seq`
+      Prelude.rnf alarms
 
 instance Data.ToJSON AlarmConfiguration where
   toJSON AlarmConfiguration' {..} =

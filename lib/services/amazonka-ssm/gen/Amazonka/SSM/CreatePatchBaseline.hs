@@ -359,19 +359,19 @@ instance Prelude.Hashable CreatePatchBaseline where
 
 instance Prelude.NFData CreatePatchBaseline where
   rnf CreatePatchBaseline' {..} =
-    Prelude.rnf approvalRules
-      `Prelude.seq` Prelude.rnf approvedPatches
-      `Prelude.seq` Prelude.rnf approvedPatchesComplianceLevel
-      `Prelude.seq` Prelude.rnf approvedPatchesEnableNonSecurity
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf globalFilters
-      `Prelude.seq` Prelude.rnf operatingSystem
-      `Prelude.seq` Prelude.rnf rejectedPatches
-      `Prelude.seq` Prelude.rnf rejectedPatchesAction
-      `Prelude.seq` Prelude.rnf sources
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf approvalRules `Prelude.seq`
+      Prelude.rnf approvedPatches `Prelude.seq`
+        Prelude.rnf approvedPatchesComplianceLevel `Prelude.seq`
+          Prelude.rnf approvedPatchesEnableNonSecurity `Prelude.seq`
+            Prelude.rnf clientToken `Prelude.seq`
+              Prelude.rnf description `Prelude.seq`
+                Prelude.rnf globalFilters `Prelude.seq`
+                  Prelude.rnf operatingSystem `Prelude.seq`
+                    Prelude.rnf rejectedPatches `Prelude.seq`
+                      Prelude.rnf rejectedPatchesAction `Prelude.seq`
+                        Prelude.rnf sources `Prelude.seq`
+                          Prelude.rnf tags `Prelude.seq`
+                            Prelude.rnf name
 
 instance Data.ToHeaders CreatePatchBaseline where
   toHeaders =
@@ -461,5 +461,5 @@ createPatchBaselineResponse_httpStatus = Lens.lens (\CreatePatchBaselineResponse
 
 instance Prelude.NFData CreatePatchBaselineResponse where
   rnf CreatePatchBaselineResponse' {..} =
-    Prelude.rnf baselineId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf baselineId `Prelude.seq`
+      Prelude.rnf httpStatus

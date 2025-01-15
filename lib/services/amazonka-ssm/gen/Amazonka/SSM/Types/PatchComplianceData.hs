@@ -179,10 +179,10 @@ instance Prelude.Hashable PatchComplianceData where
 
 instance Prelude.NFData PatchComplianceData where
   rnf PatchComplianceData' {..} =
-    Prelude.rnf cVEIds
-      `Prelude.seq` Prelude.rnf title
-      `Prelude.seq` Prelude.rnf kBId
-      `Prelude.seq` Prelude.rnf classification
-      `Prelude.seq` Prelude.rnf severity
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf installedTime
+    Prelude.rnf cVEIds `Prelude.seq`
+      Prelude.rnf title `Prelude.seq`
+        Prelude.rnf kBId `Prelude.seq`
+          Prelude.rnf classification `Prelude.seq`
+            Prelude.rnf severity `Prelude.seq`
+              Prelude.rnf state `Prelude.seq`
+                Prelude.rnf installedTime

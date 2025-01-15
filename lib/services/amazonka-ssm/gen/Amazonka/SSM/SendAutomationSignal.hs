@@ -173,9 +173,9 @@ instance Prelude.Hashable SendAutomationSignal where
 
 instance Prelude.NFData SendAutomationSignal where
   rnf SendAutomationSignal' {..} =
-    Prelude.rnf payload
-      `Prelude.seq` Prelude.rnf automationExecutionId
-      `Prelude.seq` Prelude.rnf signalType
+    Prelude.rnf payload `Prelude.seq`
+      Prelude.rnf automationExecutionId `Prelude.seq`
+        Prelude.rnf signalType
 
 instance Data.ToHeaders SendAutomationSignal where
   toHeaders =

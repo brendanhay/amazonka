@@ -115,8 +115,8 @@ instance Prelude.Hashable AttachmentContent where
 
 instance Prelude.NFData AttachmentContent where
   rnf AttachmentContent' {..} =
-    Prelude.rnf hash
-      `Prelude.seq` Prelude.rnf hashType
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf size
-      `Prelude.seq` Prelude.rnf url
+    Prelude.rnf hash `Prelude.seq`
+      Prelude.rnf hashType `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf size `Prelude.seq`
+            Prelude.rnf url

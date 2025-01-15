@@ -107,6 +107,6 @@ instance Prelude.Hashable ParameterInlinePolicy where
 
 instance Prelude.NFData ParameterInlinePolicy where
   rnf ParameterInlinePolicy' {..} =
-    Prelude.rnf policyStatus
-      `Prelude.seq` Prelude.rnf policyText
-      `Prelude.seq` Prelude.rnf policyType
+    Prelude.rnf policyStatus `Prelude.seq`
+      Prelude.rnf policyText `Prelude.seq`
+        Prelude.rnf policyType

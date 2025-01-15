@@ -173,13 +173,13 @@ instance Prelude.Hashable AssociationExecution where
 
 instance Prelude.NFData AssociationExecution where
   rnf AssociationExecution' {..} =
-    Prelude.rnf alarmConfiguration
-      `Prelude.seq` Prelude.rnf associationId
-      `Prelude.seq` Prelude.rnf associationVersion
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf detailedStatus
-      `Prelude.seq` Prelude.rnf executionId
-      `Prelude.seq` Prelude.rnf lastExecutionDate
-      `Prelude.seq` Prelude.rnf resourceCountByStatus
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf triggeredAlarms
+    Prelude.rnf alarmConfiguration `Prelude.seq`
+      Prelude.rnf associationId `Prelude.seq`
+        Prelude.rnf associationVersion `Prelude.seq`
+          Prelude.rnf createdTime `Prelude.seq`
+            Prelude.rnf detailedStatus `Prelude.seq`
+              Prelude.rnf executionId `Prelude.seq`
+                Prelude.rnf lastExecutionDate `Prelude.seq`
+                  Prelude.rnf resourceCountByStatus `Prelude.seq`
+                    Prelude.rnf status `Prelude.seq`
+                      Prelude.rnf triggeredAlarms

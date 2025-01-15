@@ -127,12 +127,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeInstanceAssociationsStatus_nextToken
-          Lens..~ rs
-          Lens.^? describeInstanceAssociationsStatusResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeInstanceAssociationsStatus_nextToken
+              Lens..~ rs
+              Lens.^? describeInstanceAssociationsStatusResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -172,9 +172,9 @@ instance
     DescribeInstanceAssociationsStatus
   where
   rnf DescribeInstanceAssociationsStatus' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf instanceId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf instanceId
 
 instance
   Data.ToHeaders
@@ -276,6 +276,6 @@ instance
     DescribeInstanceAssociationsStatusResponse
   where
   rnf DescribeInstanceAssociationsStatusResponse' {..} =
-    Prelude.rnf instanceAssociationStatusInfos
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf instanceAssociationStatusInfos `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

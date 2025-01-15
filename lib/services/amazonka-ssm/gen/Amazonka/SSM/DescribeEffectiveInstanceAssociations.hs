@@ -127,12 +127,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeEffectiveInstanceAssociations_nextToken
-          Lens..~ rs
-          Lens.^? describeEffectiveInstanceAssociationsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeEffectiveInstanceAssociations_nextToken
+              Lens..~ rs
+              Lens.^? describeEffectiveInstanceAssociationsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -170,9 +170,9 @@ instance
     DescribeEffectiveInstanceAssociations
   where
   rnf DescribeEffectiveInstanceAssociations' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf instanceId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf instanceId
 
 instance
   Data.ToHeaders
@@ -275,6 +275,6 @@ instance
   where
   rnf
     DescribeEffectiveInstanceAssociationsResponse' {..} =
-      Prelude.rnf associations
-        `Prelude.seq` Prelude.rnf nextToken
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf associations `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf httpStatus

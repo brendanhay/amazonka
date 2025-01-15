@@ -192,15 +192,15 @@ instance Prelude.Hashable Runbook where
 
 instance Prelude.NFData Runbook where
   rnf Runbook' {..} =
-    Prelude.rnf documentVersion
-      `Prelude.seq` Prelude.rnf maxConcurrency
-      `Prelude.seq` Prelude.rnf maxErrors
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf targetLocations
-      `Prelude.seq` Prelude.rnf targetMaps
-      `Prelude.seq` Prelude.rnf targetParameterName
-      `Prelude.seq` Prelude.rnf targets
-      `Prelude.seq` Prelude.rnf documentName
+    Prelude.rnf documentVersion `Prelude.seq`
+      Prelude.rnf maxConcurrency `Prelude.seq`
+        Prelude.rnf maxErrors `Prelude.seq`
+          Prelude.rnf parameters `Prelude.seq`
+            Prelude.rnf targetLocations `Prelude.seq`
+              Prelude.rnf targetMaps `Prelude.seq`
+                Prelude.rnf targetParameterName `Prelude.seq`
+                  Prelude.rnf targets `Prelude.seq`
+                    Prelude.rnf documentName
 
 instance Data.ToJSON Runbook where
   toJSON Runbook' {..} =

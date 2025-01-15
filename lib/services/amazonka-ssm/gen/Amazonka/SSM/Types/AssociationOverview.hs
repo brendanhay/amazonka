@@ -104,6 +104,6 @@ instance Prelude.Hashable AssociationOverview where
 
 instance Prelude.NFData AssociationOverview where
   rnf AssociationOverview' {..} =
-    Prelude.rnf associationStatusAggregatedCount
-      `Prelude.seq` Prelude.rnf detailedStatus
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf associationStatusAggregatedCount `Prelude.seq`
+      Prelude.rnf detailedStatus `Prelude.seq`
+        Prelude.rnf status

@@ -85,9 +85,9 @@ instance Prelude.Hashable ComplianceStringFilter where
 
 instance Prelude.NFData ComplianceStringFilter where
   rnf ComplianceStringFilter' {..} =
-    Prelude.rnf key
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf values
+    Prelude.rnf key `Prelude.seq`
+      Prelude.rnf type' `Prelude.seq`
+        Prelude.rnf values
 
 instance Data.ToJSON ComplianceStringFilter where
   toJSON ComplianceStringFilter' {..} =

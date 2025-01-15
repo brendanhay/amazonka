@@ -129,6 +129,6 @@ instance
     GetResourcePoliciesResponseEntry
   where
   rnf GetResourcePoliciesResponseEntry' {..} =
-    Prelude.rnf policy
-      `Prelude.seq` Prelude.rnf policyHash
-      `Prelude.seq` Prelude.rnf policyId
+    Prelude.rnf policy `Prelude.seq`
+      Prelude.rnf policyHash `Prelude.seq`
+        Prelude.rnf policyId

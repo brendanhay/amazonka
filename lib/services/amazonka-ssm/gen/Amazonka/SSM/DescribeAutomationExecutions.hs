@@ -122,12 +122,12 @@ instance Core.AWSPager DescribeAutomationExecutions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeAutomationExecutions_nextToken
-          Lens..~ rs
-          Lens.^? describeAutomationExecutionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeAutomationExecutions_nextToken
+              Lens..~ rs
+              Lens.^? describeAutomationExecutionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeAutomationExecutions where
   type
@@ -159,9 +159,9 @@ instance
 
 instance Prelude.NFData DescribeAutomationExecutions where
   rnf DescribeAutomationExecutions' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeAutomationExecutions where
   toHeaders =
@@ -253,6 +253,6 @@ instance
     DescribeAutomationExecutionsResponse
   where
   rnf DescribeAutomationExecutionsResponse' {..} =
-    Prelude.rnf automationExecutionMetadataList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf automationExecutionMetadataList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

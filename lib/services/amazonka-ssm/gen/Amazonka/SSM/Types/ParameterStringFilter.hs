@@ -149,9 +149,9 @@ instance Prelude.Hashable ParameterStringFilter where
 
 instance Prelude.NFData ParameterStringFilter where
   rnf ParameterStringFilter' {..} =
-    Prelude.rnf option
-      `Prelude.seq` Prelude.rnf values
-      `Prelude.seq` Prelude.rnf key
+    Prelude.rnf option `Prelude.seq`
+      Prelude.rnf values `Prelude.seq`
+        Prelude.rnf key
 
 instance Data.ToJSON ParameterStringFilter where
   toJSON ParameterStringFilter' {..} =

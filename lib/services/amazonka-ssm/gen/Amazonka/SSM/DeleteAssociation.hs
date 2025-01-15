@@ -150,9 +150,9 @@ instance Prelude.Hashable DeleteAssociation where
 
 instance Prelude.NFData DeleteAssociation where
   rnf DeleteAssociation' {..} =
-    Prelude.rnf associationId
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf associationId `Prelude.seq`
+      Prelude.rnf instanceId `Prelude.seq`
+        Prelude.rnf name
 
 instance Data.ToHeaders DeleteAssociation where
   toHeaders =

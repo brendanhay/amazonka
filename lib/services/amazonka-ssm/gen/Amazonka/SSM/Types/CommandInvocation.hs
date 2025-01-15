@@ -424,19 +424,19 @@ instance Prelude.Hashable CommandInvocation where
 
 instance Prelude.NFData CommandInvocation where
   rnf CommandInvocation' {..} =
-    Prelude.rnf cloudWatchOutputConfig
-      `Prelude.seq` Prelude.rnf commandId
-      `Prelude.seq` Prelude.rnf commandPlugins
-      `Prelude.seq` Prelude.rnf comment
-      `Prelude.seq` Prelude.rnf documentName
-      `Prelude.seq` Prelude.rnf documentVersion
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf instanceName
-      `Prelude.seq` Prelude.rnf notificationConfig
-      `Prelude.seq` Prelude.rnf requestedDateTime
-      `Prelude.seq` Prelude.rnf serviceRole
-      `Prelude.seq` Prelude.rnf standardErrorUrl
-      `Prelude.seq` Prelude.rnf standardOutputUrl
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusDetails
-      `Prelude.seq` Prelude.rnf traceOutput
+    Prelude.rnf cloudWatchOutputConfig `Prelude.seq`
+      Prelude.rnf commandId `Prelude.seq`
+        Prelude.rnf commandPlugins `Prelude.seq`
+          Prelude.rnf comment `Prelude.seq`
+            Prelude.rnf documentName `Prelude.seq`
+              Prelude.rnf documentVersion `Prelude.seq`
+                Prelude.rnf instanceId `Prelude.seq`
+                  Prelude.rnf instanceName `Prelude.seq`
+                    Prelude.rnf notificationConfig `Prelude.seq`
+                      Prelude.rnf requestedDateTime `Prelude.seq`
+                        Prelude.rnf serviceRole `Prelude.seq`
+                          Prelude.rnf standardErrorUrl `Prelude.seq`
+                            Prelude.rnf standardOutputUrl `Prelude.seq`
+                              Prelude.rnf status `Prelude.seq`
+                                Prelude.rnf statusDetails `Prelude.seq`
+                                  Prelude.rnf traceOutput

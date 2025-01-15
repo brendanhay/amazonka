@@ -104,9 +104,9 @@ instance Prelude.Hashable LoggingInfo where
 
 instance Prelude.NFData LoggingInfo where
   rnf LoggingInfo' {..} =
-    Prelude.rnf s3KeyPrefix
-      `Prelude.seq` Prelude.rnf s3BucketName
-      `Prelude.seq` Prelude.rnf s3Region
+    Prelude.rnf s3KeyPrefix `Prelude.seq`
+      Prelude.rnf s3BucketName `Prelude.seq`
+        Prelude.rnf s3Region
 
 instance Data.ToJSON LoggingInfo where
   toJSON LoggingInfo' {..} =

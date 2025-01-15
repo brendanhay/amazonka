@@ -168,12 +168,12 @@ instance Core.AWSPager DescribeInstanceInformation where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeInstanceInformation_nextToken
-          Lens..~ rs
-          Lens.^? describeInstanceInformationResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeInstanceInformation_nextToken
+              Lens..~ rs
+              Lens.^? describeInstanceInformationResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeInstanceInformation where
   type
@@ -203,10 +203,10 @@ instance Prelude.Hashable DescribeInstanceInformation where
 
 instance Prelude.NFData DescribeInstanceInformation where
   rnf DescribeInstanceInformation' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf instanceInformationFilterList
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf instanceInformationFilterList `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeInstanceInformation where
   toHeaders =
@@ -297,6 +297,6 @@ instance
     DescribeInstanceInformationResponse
   where
   rnf DescribeInstanceInformationResponse' {..} =
-    Prelude.rnf instanceInformationList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf instanceInformationList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

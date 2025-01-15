@@ -368,16 +368,16 @@ instance Prelude.Hashable CreateDocument where
 
 instance Prelude.NFData CreateDocument where
   rnf CreateDocument' {..} =
-    Prelude.rnf attachments
-      `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf documentFormat
-      `Prelude.seq` Prelude.rnf documentType
-      `Prelude.seq` Prelude.rnf requires
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf targetType
-      `Prelude.seq` Prelude.rnf versionName
-      `Prelude.seq` Prelude.rnf content
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf attachments `Prelude.seq`
+      Prelude.rnf displayName `Prelude.seq`
+        Prelude.rnf documentFormat `Prelude.seq`
+          Prelude.rnf documentType `Prelude.seq`
+            Prelude.rnf requires `Prelude.seq`
+              Prelude.rnf tags `Prelude.seq`
+                Prelude.rnf targetType `Prelude.seq`
+                  Prelude.rnf versionName `Prelude.seq`
+                    Prelude.rnf content `Prelude.seq`
+                      Prelude.rnf name
 
 instance Data.ToHeaders CreateDocument where
   toHeaders =
@@ -457,5 +457,5 @@ createDocumentResponse_httpStatus = Lens.lens (\CreateDocumentResponse' {httpSta
 
 instance Prelude.NFData CreateDocumentResponse where
   rnf CreateDocumentResponse' {..} =
-    Prelude.rnf documentDescription
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf documentDescription `Prelude.seq`
+      Prelude.rnf httpStatus

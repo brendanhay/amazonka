@@ -91,5 +91,5 @@ instance
     PatchGroupPatchBaselineMapping
   where
   rnf PatchGroupPatchBaselineMapping' {..} =
-    Prelude.rnf baselineIdentity
-      `Prelude.seq` Prelude.rnf patchGroup
+    Prelude.rnf baselineIdentity `Prelude.seq`
+      Prelude.rnf patchGroup

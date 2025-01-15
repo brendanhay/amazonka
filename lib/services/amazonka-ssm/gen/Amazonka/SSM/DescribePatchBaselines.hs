@@ -157,12 +157,12 @@ instance Core.AWSPager DescribePatchBaselines where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describePatchBaselines_nextToken
-          Lens..~ rs
-          Lens.^? describePatchBaselinesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describePatchBaselines_nextToken
+              Lens..~ rs
+              Lens.^? describePatchBaselinesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribePatchBaselines where
   type
@@ -191,9 +191,9 @@ instance Prelude.Hashable DescribePatchBaselines where
 
 instance Prelude.NFData DescribePatchBaselines where
   rnf DescribePatchBaselines' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribePatchBaselines where
   toHeaders =
@@ -282,6 +282,6 @@ instance
     DescribePatchBaselinesResponse
   where
   rnf DescribePatchBaselinesResponse' {..} =
-    Prelude.rnf baselineIdentities
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf baselineIdentities `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

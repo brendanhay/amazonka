@@ -302,13 +302,13 @@ instance
     RegisterTargetWithMaintenanceWindow
   where
   rnf RegisterTargetWithMaintenanceWindow' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf ownerInformation
-      `Prelude.seq` Prelude.rnf windowId
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf targets
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf ownerInformation `Prelude.seq`
+            Prelude.rnf windowId `Prelude.seq`
+              Prelude.rnf resourceType `Prelude.seq`
+                Prelude.rnf targets
 
 instance
   Data.ToHeaders
@@ -403,5 +403,5 @@ instance
     RegisterTargetWithMaintenanceWindowResponse
   where
   rnf RegisterTargetWithMaintenanceWindowResponse' {..} =
-    Prelude.rnf windowTargetId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf windowTargetId `Prelude.seq`
+      Prelude.rnf httpStatus

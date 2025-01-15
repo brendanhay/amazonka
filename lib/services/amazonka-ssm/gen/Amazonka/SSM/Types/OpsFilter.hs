@@ -85,9 +85,9 @@ instance Prelude.Hashable OpsFilter where
 
 instance Prelude.NFData OpsFilter where
   rnf OpsFilter' {..} =
-    Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf key
-      `Prelude.seq` Prelude.rnf values
+    Prelude.rnf type' `Prelude.seq`
+      Prelude.rnf key `Prelude.seq`
+        Prelude.rnf values
 
 instance Data.ToJSON OpsFilter where
   toJSON OpsFilter' {..} =

@@ -131,8 +131,8 @@ instance
     DisassociateOpsItemRelatedItem
   where
   rnf DisassociateOpsItemRelatedItem' {..} =
-    Prelude.rnf opsItemId
-      `Prelude.seq` Prelude.rnf associationId
+    Prelude.rnf opsItemId `Prelude.seq`
+      Prelude.rnf associationId
 
 instance
   Data.ToHeaders

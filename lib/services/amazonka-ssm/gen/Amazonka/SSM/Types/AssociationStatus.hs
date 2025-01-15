@@ -110,10 +110,10 @@ instance Prelude.Hashable AssociationStatus where
 
 instance Prelude.NFData AssociationStatus where
   rnf AssociationStatus' {..} =
-    Prelude.rnf additionalInfo
-      `Prelude.seq` Prelude.rnf date
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf message
+    Prelude.rnf additionalInfo `Prelude.seq`
+      Prelude.rnf date `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf message
 
 instance Data.ToJSON AssociationStatus where
   toJSON AssociationStatus' {..} =

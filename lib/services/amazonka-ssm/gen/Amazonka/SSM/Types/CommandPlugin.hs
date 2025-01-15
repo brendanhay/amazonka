@@ -422,15 +422,15 @@ instance Prelude.Hashable CommandPlugin where
 
 instance Prelude.NFData CommandPlugin where
   rnf CommandPlugin' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf output
-      `Prelude.seq` Prelude.rnf outputS3BucketName
-      `Prelude.seq` Prelude.rnf outputS3KeyPrefix
-      `Prelude.seq` Prelude.rnf outputS3Region
-      `Prelude.seq` Prelude.rnf responseCode
-      `Prelude.seq` Prelude.rnf responseFinishDateTime
-      `Prelude.seq` Prelude.rnf responseStartDateTime
-      `Prelude.seq` Prelude.rnf standardErrorUrl
-      `Prelude.seq` Prelude.rnf standardOutputUrl
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusDetails
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf output `Prelude.seq`
+        Prelude.rnf outputS3BucketName `Prelude.seq`
+          Prelude.rnf outputS3KeyPrefix `Prelude.seq`
+            Prelude.rnf outputS3Region `Prelude.seq`
+              Prelude.rnf responseCode `Prelude.seq`
+                Prelude.rnf responseFinishDateTime `Prelude.seq`
+                  Prelude.rnf responseStartDateTime `Prelude.seq`
+                    Prelude.rnf standardErrorUrl `Prelude.seq`
+                      Prelude.rnf standardOutputUrl `Prelude.seq`
+                        Prelude.rnf status `Prelude.seq`
+                          Prelude.rnf statusDetails

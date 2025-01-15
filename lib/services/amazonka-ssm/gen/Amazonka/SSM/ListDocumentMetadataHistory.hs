@@ -165,11 +165,11 @@ instance Prelude.Hashable ListDocumentMetadataHistory where
 
 instance Prelude.NFData ListDocumentMetadataHistory where
   rnf ListDocumentMetadataHistory' {..} =
-    Prelude.rnf documentVersion
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf metadata
+    Prelude.rnf documentVersion `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf metadata
 
 instance Data.ToHeaders ListDocumentMetadataHistory where
   toHeaders =
@@ -294,9 +294,9 @@ instance
     ListDocumentMetadataHistoryResponse
   where
   rnf ListDocumentMetadataHistoryResponse' {..} =
-    Prelude.rnf author
-      `Prelude.seq` Prelude.rnf documentVersion
-      `Prelude.seq` Prelude.rnf metadata
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf author `Prelude.seq`
+      Prelude.rnf documentVersion `Prelude.seq`
+        Prelude.rnf metadata `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf nextToken `Prelude.seq`
+              Prelude.rnf httpStatus

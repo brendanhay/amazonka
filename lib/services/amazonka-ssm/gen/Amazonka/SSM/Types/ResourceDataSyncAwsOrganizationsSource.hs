@@ -112,8 +112,8 @@ instance
     ResourceDataSyncAwsOrganizationsSource
   where
   rnf ResourceDataSyncAwsOrganizationsSource' {..} =
-    Prelude.rnf organizationalUnits
-      `Prelude.seq` Prelude.rnf organizationSourceType
+    Prelude.rnf organizationalUnits `Prelude.seq`
+      Prelude.rnf organizationSourceType
 
 instance
   Data.ToJSON

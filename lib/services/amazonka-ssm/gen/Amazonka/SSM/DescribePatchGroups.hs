@@ -145,12 +145,12 @@ instance Core.AWSPager DescribePatchGroups where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describePatchGroups_nextToken
-          Lens..~ rs
-          Lens.^? describePatchGroupsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describePatchGroups_nextToken
+              Lens..~ rs
+              Lens.^? describePatchGroupsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribePatchGroups where
   type
@@ -176,9 +176,9 @@ instance Prelude.Hashable DescribePatchGroups where
 
 instance Prelude.NFData DescribePatchGroups where
   rnf DescribePatchGroups' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribePatchGroups where
   toHeaders =
@@ -279,6 +279,6 @@ describePatchGroupsResponse_httpStatus = Lens.lens (\DescribePatchGroupsResponse
 
 instance Prelude.NFData DescribePatchGroupsResponse where
   rnf DescribePatchGroupsResponse' {..} =
-    Prelude.rnf mappings
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf mappings `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -183,6 +183,6 @@ deleteParametersResponse_httpStatus = Lens.lens (\DeleteParametersResponse' {htt
 
 instance Prelude.NFData DeleteParametersResponse where
   rnf DeleteParametersResponse' {..} =
-    Prelude.rnf deletedParameters
-      `Prelude.seq` Prelude.rnf invalidParameters
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf deletedParameters `Prelude.seq`
+      Prelude.rnf invalidParameters `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -510,24 +510,24 @@ instance Prelude.Hashable SendCommand where
 
 instance Prelude.NFData SendCommand where
   rnf SendCommand' {..} =
-    Prelude.rnf alarmConfiguration
-      `Prelude.seq` Prelude.rnf cloudWatchOutputConfig
-      `Prelude.seq` Prelude.rnf comment
-      `Prelude.seq` Prelude.rnf documentHash
-      `Prelude.seq` Prelude.rnf documentHashType
-      `Prelude.seq` Prelude.rnf documentVersion
-      `Prelude.seq` Prelude.rnf instanceIds
-      `Prelude.seq` Prelude.rnf maxConcurrency
-      `Prelude.seq` Prelude.rnf maxErrors
-      `Prelude.seq` Prelude.rnf notificationConfig
-      `Prelude.seq` Prelude.rnf outputS3BucketName
-      `Prelude.seq` Prelude.rnf outputS3KeyPrefix
-      `Prelude.seq` Prelude.rnf outputS3Region
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf serviceRoleArn
-      `Prelude.seq` Prelude.rnf targets
-      `Prelude.seq` Prelude.rnf timeoutSeconds
-      `Prelude.seq` Prelude.rnf documentName
+    Prelude.rnf alarmConfiguration `Prelude.seq`
+      Prelude.rnf cloudWatchOutputConfig `Prelude.seq`
+        Prelude.rnf comment `Prelude.seq`
+          Prelude.rnf documentHash `Prelude.seq`
+            Prelude.rnf documentHashType `Prelude.seq`
+              Prelude.rnf documentVersion `Prelude.seq`
+                Prelude.rnf instanceIds `Prelude.seq`
+                  Prelude.rnf maxConcurrency `Prelude.seq`
+                    Prelude.rnf maxErrors `Prelude.seq`
+                      Prelude.rnf notificationConfig `Prelude.seq`
+                        Prelude.rnf outputS3BucketName `Prelude.seq`
+                          Prelude.rnf outputS3KeyPrefix `Prelude.seq`
+                            Prelude.rnf outputS3Region `Prelude.seq`
+                              Prelude.rnf parameters `Prelude.seq`
+                                Prelude.rnf serviceRoleArn `Prelude.seq`
+                                  Prelude.rnf targets `Prelude.seq`
+                                    Prelude.rnf timeoutSeconds `Prelude.seq`
+                                      Prelude.rnf documentName
 
 instance Data.ToHeaders SendCommand where
   toHeaders =
@@ -627,5 +627,5 @@ sendCommandResponse_httpStatus = Lens.lens (\SendCommandResponse' {httpStatus} -
 
 instance Prelude.NFData SendCommandResponse where
   rnf SendCommandResponse' {..} =
-    Prelude.rnf command
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf command `Prelude.seq`
+      Prelude.rnf httpStatus

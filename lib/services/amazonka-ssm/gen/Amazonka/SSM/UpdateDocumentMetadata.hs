@@ -124,9 +124,9 @@ instance Prelude.Hashable UpdateDocumentMetadata where
 
 instance Prelude.NFData UpdateDocumentMetadata where
   rnf UpdateDocumentMetadata' {..} =
-    Prelude.rnf documentVersion
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf documentReviews
+    Prelude.rnf documentVersion `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf documentReviews
 
 instance Data.ToHeaders UpdateDocumentMetadata where
   toHeaders =

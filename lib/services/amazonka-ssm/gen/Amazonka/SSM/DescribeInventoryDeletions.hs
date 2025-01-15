@@ -125,12 +125,12 @@ instance Core.AWSPager DescribeInventoryDeletions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeInventoryDeletions_nextToken
-          Lens..~ rs
-          Lens.^? describeInventoryDeletionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeInventoryDeletions_nextToken
+              Lens..~ rs
+              Lens.^? describeInventoryDeletionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeInventoryDeletions where
   type
@@ -159,9 +159,9 @@ instance Prelude.Hashable DescribeInventoryDeletions where
 
 instance Prelude.NFData DescribeInventoryDeletions where
   rnf DescribeInventoryDeletions' {..} =
-    Prelude.rnf deletionId
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf deletionId `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeInventoryDeletions where
   toHeaders =
@@ -250,6 +250,6 @@ instance
     DescribeInventoryDeletionsResponse
   where
   rnf DescribeInventoryDeletionsResponse' {..} =
-    Prelude.rnf inventoryDeletions
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf inventoryDeletions `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -641,26 +641,26 @@ instance Prelude.Hashable CreateAssociation where
 
 instance Prelude.NFData CreateAssociation where
   rnf CreateAssociation' {..} =
-    Prelude.rnf alarmConfiguration
-      `Prelude.seq` Prelude.rnf applyOnlyAtCronInterval
-      `Prelude.seq` Prelude.rnf associationName
-      `Prelude.seq` Prelude.rnf automationTargetParameterName
-      `Prelude.seq` Prelude.rnf calendarNames
-      `Prelude.seq` Prelude.rnf complianceSeverity
-      `Prelude.seq` Prelude.rnf documentVersion
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf maxConcurrency
-      `Prelude.seq` Prelude.rnf maxErrors
-      `Prelude.seq` Prelude.rnf outputLocation
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf scheduleExpression
-      `Prelude.seq` Prelude.rnf scheduleOffset
-      `Prelude.seq` Prelude.rnf syncCompliance
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf targetLocations
-      `Prelude.seq` Prelude.rnf targetMaps
-      `Prelude.seq` Prelude.rnf targets
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf alarmConfiguration `Prelude.seq`
+      Prelude.rnf applyOnlyAtCronInterval `Prelude.seq`
+        Prelude.rnf associationName `Prelude.seq`
+          Prelude.rnf automationTargetParameterName `Prelude.seq`
+            Prelude.rnf calendarNames `Prelude.seq`
+              Prelude.rnf complianceSeverity `Prelude.seq`
+                Prelude.rnf documentVersion `Prelude.seq`
+                  Prelude.rnf instanceId `Prelude.seq`
+                    Prelude.rnf maxConcurrency `Prelude.seq`
+                      Prelude.rnf maxErrors `Prelude.seq`
+                        Prelude.rnf outputLocation `Prelude.seq`
+                          Prelude.rnf parameters `Prelude.seq`
+                            Prelude.rnf scheduleExpression `Prelude.seq`
+                              Prelude.rnf scheduleOffset `Prelude.seq`
+                                Prelude.rnf syncCompliance `Prelude.seq`
+                                  Prelude.rnf tags `Prelude.seq`
+                                    Prelude.rnf targetLocations `Prelude.seq`
+                                      Prelude.rnf targetMaps `Prelude.seq`
+                                        Prelude.rnf targets `Prelude.seq`
+                                          Prelude.rnf name
 
 instance Data.ToHeaders CreateAssociation where
   toHeaders =
@@ -763,5 +763,5 @@ createAssociationResponse_httpStatus = Lens.lens (\CreateAssociationResponse' {h
 
 instance Prelude.NFData CreateAssociationResponse where
   rnf CreateAssociationResponse' {..} =
-    Prelude.rnf associationDescription
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf associationDescription `Prelude.seq`
+      Prelude.rnf httpStatus

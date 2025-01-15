@@ -141,12 +141,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeMaintenanceWindowsForTarget_nextToken
-          Lens..~ rs
-          Lens.^? describeMaintenanceWindowsForTargetResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeMaintenanceWindowsForTarget_nextToken
+              Lens..~ rs
+              Lens.^? describeMaintenanceWindowsForTargetResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -187,10 +187,10 @@ instance
     DescribeMaintenanceWindowsForTarget
   where
   rnf DescribeMaintenanceWindowsForTarget' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf targets
-      `Prelude.seq` Prelude.rnf resourceType
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf targets `Prelude.seq`
+          Prelude.rnf resourceType
 
 instance
   Data.ToHeaders
@@ -297,6 +297,6 @@ instance
     DescribeMaintenanceWindowsForTargetResponse
   where
   rnf DescribeMaintenanceWindowsForTargetResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf windowIdentities
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf windowIdentities `Prelude.seq`
+        Prelude.rnf httpStatus

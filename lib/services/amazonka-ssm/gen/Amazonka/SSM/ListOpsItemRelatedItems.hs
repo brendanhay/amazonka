@@ -139,12 +139,12 @@ instance Core.AWSPager ListOpsItemRelatedItems where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listOpsItemRelatedItems_nextToken
-          Lens..~ rs
-          Lens.^? listOpsItemRelatedItemsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listOpsItemRelatedItems_nextToken
+              Lens..~ rs
+              Lens.^? listOpsItemRelatedItemsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListOpsItemRelatedItems where
   type
@@ -171,10 +171,10 @@ instance Prelude.Hashable ListOpsItemRelatedItems where
 
 instance Prelude.NFData ListOpsItemRelatedItems where
   rnf ListOpsItemRelatedItems' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf opsItemId
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf opsItemId
 
 instance Data.ToHeaders ListOpsItemRelatedItems where
   toHeaders =
@@ -264,6 +264,6 @@ instance
     ListOpsItemRelatedItemsResponse
   where
   rnf ListOpsItemRelatedItemsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf summaries
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf summaries `Prelude.seq`
+        Prelude.rnf httpStatus

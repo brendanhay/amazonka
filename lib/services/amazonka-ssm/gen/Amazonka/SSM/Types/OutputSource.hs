@@ -84,5 +84,5 @@ instance Prelude.Hashable OutputSource where
 
 instance Prelude.NFData OutputSource where
   rnf OutputSource' {..} =
-    Prelude.rnf outputSourceId
-      `Prelude.seq` Prelude.rnf outputSourceType
+    Prelude.rnf outputSourceId `Prelude.seq`
+      Prelude.rnf outputSourceType

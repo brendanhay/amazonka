@@ -305,13 +305,13 @@ instance Prelude.Hashable CreateActivation where
 
 instance Prelude.NFData CreateActivation where
   rnf CreateActivation' {..} =
-    Prelude.rnf defaultInstanceName
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf expirationDate
-      `Prelude.seq` Prelude.rnf registrationLimit
-      `Prelude.seq` Prelude.rnf registrationMetadata
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf iamRole
+    Prelude.rnf defaultInstanceName `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf expirationDate `Prelude.seq`
+          Prelude.rnf registrationLimit `Prelude.seq`
+            Prelude.rnf registrationMetadata `Prelude.seq`
+              Prelude.rnf tags `Prelude.seq`
+                Prelude.rnf iamRole
 
 instance Data.ToHeaders CreateActivation where
   toHeaders =
@@ -406,6 +406,6 @@ createActivationResponse_httpStatus = Lens.lens (\CreateActivationResponse' {htt
 
 instance Prelude.NFData CreateActivationResponse where
   rnf CreateActivationResponse' {..} =
-    Prelude.rnf activationCode
-      `Prelude.seq` Prelude.rnf activationId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf activationCode `Prelude.seq`
+      Prelude.rnf activationId `Prelude.seq`
+        Prelude.rnf httpStatus

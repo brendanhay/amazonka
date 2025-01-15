@@ -143,10 +143,10 @@ instance Prelude.Hashable DescribeAssociation where
 
 instance Prelude.NFData DescribeAssociation where
   rnf DescribeAssociation' {..} =
-    Prelude.rnf associationId
-      `Prelude.seq` Prelude.rnf associationVersion
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf associationId `Prelude.seq`
+      Prelude.rnf associationVersion `Prelude.seq`
+        Prelude.rnf instanceId `Prelude.seq`
+          Prelude.rnf name
 
 instance Data.ToHeaders DescribeAssociation where
   toHeaders =
@@ -222,5 +222,5 @@ describeAssociationResponse_httpStatus = Lens.lens (\DescribeAssociationResponse
 
 instance Prelude.NFData DescribeAssociationResponse where
   rnf DescribeAssociationResponse' {..} =
-    Prelude.rnf associationDescription
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf associationDescription `Prelude.seq`
+      Prelude.rnf httpStatus

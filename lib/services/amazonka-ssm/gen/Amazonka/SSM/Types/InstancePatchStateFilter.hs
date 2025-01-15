@@ -146,9 +146,9 @@ instance Prelude.Hashable InstancePatchStateFilter where
 
 instance Prelude.NFData InstancePatchStateFilter where
   rnf InstancePatchStateFilter' {..} =
-    Prelude.rnf key
-      `Prelude.seq` Prelude.rnf values
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf key `Prelude.seq`
+      Prelude.rnf values `Prelude.seq`
+        Prelude.rnf type'
 
 instance Data.ToJSON InstancePatchStateFilter where
   toJSON InstancePatchStateFilter' {..} =

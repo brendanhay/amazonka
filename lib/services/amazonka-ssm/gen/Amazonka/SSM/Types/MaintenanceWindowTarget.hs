@@ -168,10 +168,10 @@ instance Prelude.Hashable MaintenanceWindowTarget where
 
 instance Prelude.NFData MaintenanceWindowTarget where
   rnf MaintenanceWindowTarget' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf ownerInformation
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf targets
-      `Prelude.seq` Prelude.rnf windowId
-      `Prelude.seq` Prelude.rnf windowTargetId
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf ownerInformation `Prelude.seq`
+          Prelude.rnf resourceType `Prelude.seq`
+            Prelude.rnf targets `Prelude.seq`
+              Prelude.rnf windowId `Prelude.seq`
+                Prelude.rnf windowTargetId

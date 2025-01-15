@@ -140,12 +140,12 @@ instance Core.AWSPager DescribeSessions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeSessions_nextToken
-          Lens..~ rs
-          Lens.^? describeSessionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeSessions_nextToken
+              Lens..~ rs
+              Lens.^? describeSessionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeSessions where
   type
@@ -172,10 +172,10 @@ instance Prelude.Hashable DescribeSessions where
 
 instance Prelude.NFData DescribeSessions where
   rnf DescribeSessions' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf state
 
 instance Data.ToHeaders DescribeSessions where
   toHeaders =
@@ -260,6 +260,6 @@ describeSessionsResponse_httpStatus = Lens.lens (\DescribeSessionsResponse' {htt
 
 instance Prelude.NFData DescribeSessionsResponse where
   rnf DescribeSessionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sessions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf sessions `Prelude.seq`
+        Prelude.rnf httpStatus

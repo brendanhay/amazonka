@@ -231,7 +231,7 @@ resumeSessionResponse_httpStatus = Lens.lens (\ResumeSessionResponse' {httpStatu
 
 instance Prelude.NFData ResumeSessionResponse where
   rnf ResumeSessionResponse' {..} =
-    Prelude.rnf sessionId
-      `Prelude.seq` Prelude.rnf streamUrl
-      `Prelude.seq` Prelude.rnf tokenValue
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf sessionId `Prelude.seq`
+      Prelude.rnf streamUrl `Prelude.seq`
+        Prelude.rnf tokenValue `Prelude.seq`
+          Prelude.rnf httpStatus

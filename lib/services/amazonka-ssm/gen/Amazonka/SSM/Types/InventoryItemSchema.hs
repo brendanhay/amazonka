@@ -126,7 +126,7 @@ instance Prelude.Hashable InventoryItemSchema where
 
 instance Prelude.NFData InventoryItemSchema where
   rnf InventoryItemSchema' {..} =
-    Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf typeName
-      `Prelude.seq` Prelude.rnf attributes
+    Prelude.rnf displayName `Prelude.seq`
+      Prelude.rnf version `Prelude.seq`
+        Prelude.rnf typeName `Prelude.seq`
+          Prelude.rnf attributes

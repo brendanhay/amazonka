@@ -145,8 +145,8 @@ instance Prelude.Hashable ProgressCounters where
 
 instance Prelude.NFData ProgressCounters where
   rnf ProgressCounters' {..} =
-    Prelude.rnf cancelledSteps
-      `Prelude.seq` Prelude.rnf failedSteps
-      `Prelude.seq` Prelude.rnf successSteps
-      `Prelude.seq` Prelude.rnf timedOutSteps
-      `Prelude.seq` Prelude.rnf totalSteps
+    Prelude.rnf cancelledSteps `Prelude.seq`
+      Prelude.rnf failedSteps `Prelude.seq`
+        Prelude.rnf successSteps `Prelude.seq`
+          Prelude.rnf timedOutSteps `Prelude.seq`
+            Prelude.rnf totalSteps

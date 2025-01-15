@@ -126,8 +126,8 @@ instance
     DeregisterTaskFromMaintenanceWindow
   where
   rnf DeregisterTaskFromMaintenanceWindow' {..} =
-    Prelude.rnf windowId
-      `Prelude.seq` Prelude.rnf windowTaskId
+    Prelude.rnf windowId `Prelude.seq`
+      Prelude.rnf windowTaskId
 
 instance
   Data.ToHeaders
@@ -225,6 +225,6 @@ instance
     DeregisterTaskFromMaintenanceWindowResponse
   where
   rnf DeregisterTaskFromMaintenanceWindowResponse' {..} =
-    Prelude.rnf windowId
-      `Prelude.seq` Prelude.rnf windowTaskId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf windowId `Prelude.seq`
+      Prelude.rnf windowTaskId `Prelude.seq`
+        Prelude.rnf httpStatus

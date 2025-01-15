@@ -81,5 +81,5 @@ instance Prelude.Hashable AccountSharingInfo where
 
 instance Prelude.NFData AccountSharingInfo where
   rnf AccountSharingInfo' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf sharedDocumentVersion
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf sharedDocumentVersion

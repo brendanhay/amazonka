@@ -132,8 +132,8 @@ instance Prelude.Hashable GetParameters where
 
 instance Prelude.NFData GetParameters where
   rnf GetParameters' {..} =
-    Prelude.rnf withDecryption
-      `Prelude.seq` Prelude.rnf names
+    Prelude.rnf withDecryption `Prelude.seq`
+      Prelude.rnf names
 
 instance Data.ToHeaders GetParameters where
   toHeaders =
@@ -216,6 +216,6 @@ getParametersResponse_parameters = Lens.lens (\GetParametersResponse' {parameter
 
 instance Prelude.NFData GetParametersResponse where
   rnf GetParametersResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf invalidParameters
-      `Prelude.seq` Prelude.rnf parameters
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf invalidParameters `Prelude.seq`
+        Prelude.rnf parameters

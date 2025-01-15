@@ -141,12 +141,12 @@ instance Core.AWSPager GetParameterHistory where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getParameterHistory_nextToken
-          Lens..~ rs
-          Lens.^? getParameterHistoryResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getParameterHistory_nextToken
+              Lens..~ rs
+              Lens.^? getParameterHistoryResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetParameterHistory where
   type
@@ -173,10 +173,10 @@ instance Prelude.Hashable GetParameterHistory where
 
 instance Prelude.NFData GetParameterHistory where
   rnf GetParameterHistory' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf withDecryption
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf withDecryption `Prelude.seq`
+          Prelude.rnf name
 
 instance Data.ToHeaders GetParameterHistory where
   toHeaders =
@@ -264,6 +264,6 @@ getParameterHistoryResponse_httpStatus = Lens.lens (\GetParameterHistoryResponse
 
 instance Prelude.NFData GetParameterHistoryResponse where
   rnf GetParameterHistoryResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf parameters `Prelude.seq`
+        Prelude.rnf httpStatus

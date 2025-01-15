@@ -92,9 +92,9 @@ instance Prelude.Hashable S3OutputLocation where
 
 instance Prelude.NFData S3OutputLocation where
   rnf S3OutputLocation' {..} =
-    Prelude.rnf outputS3BucketName
-      `Prelude.seq` Prelude.rnf outputS3KeyPrefix
-      `Prelude.seq` Prelude.rnf outputS3Region
+    Prelude.rnf outputS3BucketName `Prelude.seq`
+      Prelude.rnf outputS3KeyPrefix `Prelude.seq`
+        Prelude.rnf outputS3Region
 
 instance Data.ToJSON S3OutputLocation where
   toJSON S3OutputLocation' {..} =

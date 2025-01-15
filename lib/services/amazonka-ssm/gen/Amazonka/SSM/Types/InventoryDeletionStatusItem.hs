@@ -150,10 +150,10 @@ instance Prelude.Hashable InventoryDeletionStatusItem where
 
 instance Prelude.NFData InventoryDeletionStatusItem where
   rnf InventoryDeletionStatusItem' {..} =
-    Prelude.rnf deletionId
-      `Prelude.seq` Prelude.rnf deletionStartTime
-      `Prelude.seq` Prelude.rnf deletionSummary
-      `Prelude.seq` Prelude.rnf lastStatus
-      `Prelude.seq` Prelude.rnf lastStatusMessage
-      `Prelude.seq` Prelude.rnf lastStatusUpdateTime
-      `Prelude.seq` Prelude.rnf typeName
+    Prelude.rnf deletionId `Prelude.seq`
+      Prelude.rnf deletionStartTime `Prelude.seq`
+        Prelude.rnf deletionSummary `Prelude.seq`
+          Prelude.rnf lastStatus `Prelude.seq`
+            Prelude.rnf lastStatusMessage `Prelude.seq`
+              Prelude.rnf lastStatusUpdateTime `Prelude.seq`
+                Prelude.rnf typeName

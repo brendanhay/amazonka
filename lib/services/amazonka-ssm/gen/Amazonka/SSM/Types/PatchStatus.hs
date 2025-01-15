@@ -96,6 +96,6 @@ instance Prelude.Hashable PatchStatus where
 
 instance Prelude.NFData PatchStatus where
   rnf PatchStatus' {..} =
-    Prelude.rnf approvalDate
-      `Prelude.seq` Prelude.rnf complianceLevel
-      `Prelude.seq` Prelude.rnf deploymentStatus
+    Prelude.rnf approvalDate `Prelude.seq`
+      Prelude.rnf complianceLevel `Prelude.seq`
+        Prelude.rnf deploymentStatus

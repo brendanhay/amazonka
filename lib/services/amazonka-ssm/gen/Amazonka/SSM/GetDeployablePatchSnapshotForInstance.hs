@@ -159,9 +159,9 @@ instance
     GetDeployablePatchSnapshotForInstance
   where
   rnf GetDeployablePatchSnapshotForInstance' {..} =
-    Prelude.rnf baselineOverride
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf snapshotId
+    Prelude.rnf baselineOverride `Prelude.seq`
+      Prelude.rnf instanceId `Prelude.seq`
+        Prelude.rnf snapshotId
 
 instance
   Data.ToHeaders
@@ -290,8 +290,8 @@ instance
   where
   rnf
     GetDeployablePatchSnapshotForInstanceResponse' {..} =
-      Prelude.rnf instanceId
-        `Prelude.seq` Prelude.rnf product
-        `Prelude.seq` Prelude.rnf snapshotDownloadUrl
-        `Prelude.seq` Prelude.rnf snapshotId
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf instanceId `Prelude.seq`
+        Prelude.rnf product `Prelude.seq`
+          Prelude.rnf snapshotDownloadUrl `Prelude.seq`
+            Prelude.rnf snapshotId `Prelude.seq`
+              Prelude.rnf httpStatus

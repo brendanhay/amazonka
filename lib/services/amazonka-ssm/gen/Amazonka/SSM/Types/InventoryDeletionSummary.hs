@@ -96,6 +96,6 @@ instance Prelude.Hashable InventoryDeletionSummary where
 
 instance Prelude.NFData InventoryDeletionSummary where
   rnf InventoryDeletionSummary' {..} =
-    Prelude.rnf remainingCount
-      `Prelude.seq` Prelude.rnf summaryItems
-      `Prelude.seq` Prelude.rnf totalCount
+    Prelude.rnf remainingCount `Prelude.seq`
+      Prelude.rnf summaryItems `Prelude.seq`
+        Prelude.rnf totalCount

@@ -88,9 +88,9 @@ instance Prelude.Hashable InventoryAggregator where
 
 instance Prelude.NFData InventoryAggregator where
   rnf InventoryAggregator' {..} =
-    Prelude.rnf aggregators
-      `Prelude.seq` Prelude.rnf expression
-      `Prelude.seq` Prelude.rnf groups
+    Prelude.rnf aggregators `Prelude.seq`
+      Prelude.rnf expression `Prelude.seq`
+        Prelude.rnf groups
 
 instance Data.ToJSON InventoryAggregator where
   toJSON InventoryAggregator' {..} =

@@ -325,17 +325,17 @@ instance Prelude.Hashable StartChangeRequestExecution where
 
 instance Prelude.NFData StartChangeRequestExecution where
   rnf StartChangeRequestExecution' {..} =
-    Prelude.rnf autoApprove
-      `Prelude.seq` Prelude.rnf changeDetails
-      `Prelude.seq` Prelude.rnf changeRequestName
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf documentVersion
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf scheduledEndTime
-      `Prelude.seq` Prelude.rnf scheduledTime
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf documentName
-      `Prelude.seq` Prelude.rnf runbooks
+    Prelude.rnf autoApprove `Prelude.seq`
+      Prelude.rnf changeDetails `Prelude.seq`
+        Prelude.rnf changeRequestName `Prelude.seq`
+          Prelude.rnf clientToken `Prelude.seq`
+            Prelude.rnf documentVersion `Prelude.seq`
+              Prelude.rnf parameters `Prelude.seq`
+                Prelude.rnf scheduledEndTime `Prelude.seq`
+                  Prelude.rnf scheduledTime `Prelude.seq`
+                    Prelude.rnf tags `Prelude.seq`
+                      Prelude.rnf documentName `Prelude.seq`
+                        Prelude.rnf runbooks
 
 instance Data.ToHeaders StartChangeRequestExecution where
   toHeaders =
@@ -426,5 +426,5 @@ instance
     StartChangeRequestExecutionResponse
   where
   rnf StartChangeRequestExecutionResponse' {..} =
-    Prelude.rnf automationExecutionId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf automationExecutionId `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -144,12 +144,12 @@ instance Core.AWSPager DescribeParameters where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeParameters_nextToken
-          Lens..~ rs
-          Lens.^? describeParametersResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeParameters_nextToken
+              Lens..~ rs
+              Lens.^? describeParametersResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeParameters where
   type
@@ -176,10 +176,10 @@ instance Prelude.Hashable DescribeParameters where
 
 instance Prelude.NFData DescribeParameters where
   rnf DescribeParameters' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf parameterFilters
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf parameterFilters
 
 instance Data.ToHeaders DescribeParameters where
   toHeaders =
@@ -264,6 +264,6 @@ describeParametersResponse_httpStatus = Lens.lens (\DescribeParametersResponse' 
 
 instance Prelude.NFData DescribeParametersResponse where
   rnf DescribeParametersResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf parameters `Prelude.seq`
+        Prelude.rnf httpStatus

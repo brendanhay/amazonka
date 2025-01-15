@@ -118,10 +118,10 @@ instance
     MaintenanceWindowTaskInvocationParameters
   where
   rnf MaintenanceWindowTaskInvocationParameters' {..} =
-    Prelude.rnf automation
-      `Prelude.seq` Prelude.rnf lambda
-      `Prelude.seq` Prelude.rnf runCommand
-      `Prelude.seq` Prelude.rnf stepFunctions
+    Prelude.rnf automation `Prelude.seq`
+      Prelude.rnf lambda `Prelude.seq`
+        Prelude.rnf runCommand `Prelude.seq`
+          Prelude.rnf stepFunctions
 
 instance
   Data.ToJSON

@@ -157,8 +157,8 @@ instance
     DocumentReviewerResponseSource
   where
   rnf DocumentReviewerResponseSource' {..} =
-    Prelude.rnf comment
-      `Prelude.seq` Prelude.rnf createTime
-      `Prelude.seq` Prelude.rnf reviewStatus
-      `Prelude.seq` Prelude.rnf reviewer
-      `Prelude.seq` Prelude.rnf updatedTime
+    Prelude.rnf comment `Prelude.seq`
+      Prelude.rnf createTime `Prelude.seq`
+        Prelude.rnf reviewStatus `Prelude.seq`
+          Prelude.rnf reviewer `Prelude.seq`
+            Prelude.rnf updatedTime

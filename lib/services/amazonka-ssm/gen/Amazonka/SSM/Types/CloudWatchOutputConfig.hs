@@ -97,8 +97,8 @@ instance Prelude.Hashable CloudWatchOutputConfig where
 
 instance Prelude.NFData CloudWatchOutputConfig where
   rnf CloudWatchOutputConfig' {..} =
-    Prelude.rnf cloudWatchLogGroupName
-      `Prelude.seq` Prelude.rnf cloudWatchOutputEnabled
+    Prelude.rnf cloudWatchLogGroupName `Prelude.seq`
+      Prelude.rnf cloudWatchOutputEnabled
 
 instance Data.ToJSON CloudWatchOutputConfig where
   toJSON CloudWatchOutputConfig' {..} =

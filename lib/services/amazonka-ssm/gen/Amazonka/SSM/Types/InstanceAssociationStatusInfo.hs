@@ -198,15 +198,15 @@ instance
 
 instance Prelude.NFData InstanceAssociationStatusInfo where
   rnf InstanceAssociationStatusInfo' {..} =
-    Prelude.rnf associationId
-      `Prelude.seq` Prelude.rnf associationName
-      `Prelude.seq` Prelude.rnf associationVersion
-      `Prelude.seq` Prelude.rnf detailedStatus
-      `Prelude.seq` Prelude.rnf documentVersion
-      `Prelude.seq` Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf executionDate
-      `Prelude.seq` Prelude.rnf executionSummary
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf outputUrl
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf associationId `Prelude.seq`
+      Prelude.rnf associationName `Prelude.seq`
+        Prelude.rnf associationVersion `Prelude.seq`
+          Prelude.rnf detailedStatus `Prelude.seq`
+            Prelude.rnf documentVersion `Prelude.seq`
+              Prelude.rnf errorCode `Prelude.seq`
+                Prelude.rnf executionDate `Prelude.seq`
+                  Prelude.rnf executionSummary `Prelude.seq`
+                    Prelude.rnf instanceId `Prelude.seq`
+                      Prelude.rnf name `Prelude.seq`
+                        Prelude.rnf outputUrl `Prelude.seq`
+                          Prelude.rnf status

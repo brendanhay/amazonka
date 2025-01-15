@@ -167,12 +167,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeMaintenanceWindowExecutionTaskInvocations_nextToken
-          Lens..~ rs
-          Lens.^? describeMaintenanceWindowExecutionTaskInvocationsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeMaintenanceWindowExecutionTaskInvocations_nextToken
+              Lens..~ rs
+              Lens.^? describeMaintenanceWindowExecutionTaskInvocationsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -216,11 +216,11 @@ instance
   where
   rnf
     DescribeMaintenanceWindowExecutionTaskInvocations' {..} =
-      Prelude.rnf filters
-        `Prelude.seq` Prelude.rnf maxResults
-        `Prelude.seq` Prelude.rnf nextToken
-        `Prelude.seq` Prelude.rnf windowExecutionId
-        `Prelude.seq` Prelude.rnf taskId
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf windowExecutionId `Prelude.seq`
+              Prelude.rnf taskId
 
 instance
   Data.ToHeaders
@@ -329,6 +329,6 @@ instance
   where
   rnf
     DescribeMaintenanceWindowExecutionTaskInvocationsResponse' {..} =
-      Prelude.rnf nextToken
-        `Prelude.seq` Prelude.rnf windowExecutionTaskInvocationIdentities
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf windowExecutionTaskInvocationIdentities `Prelude.seq`
+          Prelude.rnf httpStatus

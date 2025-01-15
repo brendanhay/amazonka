@@ -222,9 +222,9 @@ instance
     ResourceDataSyncSourceWithState
   where
   rnf ResourceDataSyncSourceWithState' {..} =
-    Prelude.rnf awsOrganizationsSource
-      `Prelude.seq` Prelude.rnf enableAllOpsDataSources
-      `Prelude.seq` Prelude.rnf includeFutureRegions
-      `Prelude.seq` Prelude.rnf sourceRegions
-      `Prelude.seq` Prelude.rnf sourceType
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf awsOrganizationsSource `Prelude.seq`
+      Prelude.rnf enableAllOpsDataSources `Prelude.seq`
+        Prelude.rnf includeFutureRegions `Prelude.seq`
+          Prelude.rnf sourceRegions `Prelude.seq`
+            Prelude.rnf sourceType `Prelude.seq`
+              Prelude.rnf state

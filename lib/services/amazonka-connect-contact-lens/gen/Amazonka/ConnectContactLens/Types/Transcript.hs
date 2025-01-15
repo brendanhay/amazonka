@@ -172,11 +172,11 @@ instance Prelude.Hashable Transcript where
 
 instance Prelude.NFData Transcript where
   rnf Transcript' {..} =
-    Prelude.rnf issuesDetected
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf participantId
-      `Prelude.seq` Prelude.rnf participantRole
-      `Prelude.seq` Prelude.rnf content
-      `Prelude.seq` Prelude.rnf beginOffsetMillis
-      `Prelude.seq` Prelude.rnf endOffsetMillis
-      `Prelude.seq` Prelude.rnf sentiment
+    Prelude.rnf issuesDetected `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf participantId `Prelude.seq`
+          Prelude.rnf participantRole `Prelude.seq`
+            Prelude.rnf content `Prelude.seq`
+              Prelude.rnf beginOffsetMillis `Prelude.seq`
+                Prelude.rnf endOffsetMillis `Prelude.seq`
+                  Prelude.rnf sentiment

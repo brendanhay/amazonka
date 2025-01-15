@@ -86,5 +86,5 @@ instance Prelude.Hashable CharacterOffsets where
 
 instance Prelude.NFData CharacterOffsets where
   rnf CharacterOffsets' {..} =
-    Prelude.rnf beginOffsetChar
-      `Prelude.seq` Prelude.rnf endOffsetChar
+    Prelude.rnf beginOffsetChar `Prelude.seq`
+      Prelude.rnf endOffsetChar

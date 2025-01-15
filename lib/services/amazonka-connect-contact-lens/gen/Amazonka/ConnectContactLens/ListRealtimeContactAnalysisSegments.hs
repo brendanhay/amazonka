@@ -154,10 +154,10 @@ instance
     ListRealtimeContactAnalysisSegments
   where
   rnf ListRealtimeContactAnalysisSegments' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf contactId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf instanceId `Prelude.seq`
+          Prelude.rnf contactId
 
 instance
   Data.ToHeaders
@@ -288,6 +288,6 @@ instance
     ListRealtimeContactAnalysisSegmentsResponse
   where
   rnf ListRealtimeContactAnalysisSegmentsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf segments
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf segments

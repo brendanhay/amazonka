@@ -165,8 +165,8 @@ instance Prelude.Hashable CheckDomainTransferability where
 
 instance Prelude.NFData CheckDomainTransferability where
   rnf CheckDomainTransferability' {..} =
-    Prelude.rnf authCode
-      `Prelude.seq` Prelude.rnf domainName
+    Prelude.rnf authCode `Prelude.seq`
+      Prelude.rnf domainName
 
 instance Data.ToHeaders CheckDomainTransferability where
   toHeaders =
@@ -247,5 +247,5 @@ instance
     CheckDomainTransferabilityResponse
   where
   rnf CheckDomainTransferabilityResponse' {..} =
-    Prelude.rnf transferability
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf transferability `Prelude.seq`
+      Prelude.rnf httpStatus

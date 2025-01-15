@@ -435,18 +435,18 @@ instance Prelude.Hashable TransferDomain where
 
 instance Prelude.NFData TransferDomain where
   rnf TransferDomain' {..} =
-    Prelude.rnf authCode
-      `Prelude.seq` Prelude.rnf autoRenew
-      `Prelude.seq` Prelude.rnf idnLangCode
-      `Prelude.seq` Prelude.rnf nameservers
-      `Prelude.seq` Prelude.rnf privacyProtectAdminContact
-      `Prelude.seq` Prelude.rnf privacyProtectRegistrantContact
-      `Prelude.seq` Prelude.rnf privacyProtectTechContact
-      `Prelude.seq` Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf durationInYears
-      `Prelude.seq` Prelude.rnf adminContact
-      `Prelude.seq` Prelude.rnf registrantContact
-      `Prelude.seq` Prelude.rnf techContact
+    Prelude.rnf authCode `Prelude.seq`
+      Prelude.rnf autoRenew `Prelude.seq`
+        Prelude.rnf idnLangCode `Prelude.seq`
+          Prelude.rnf nameservers `Prelude.seq`
+            Prelude.rnf privacyProtectAdminContact `Prelude.seq`
+              Prelude.rnf privacyProtectRegistrantContact `Prelude.seq`
+                Prelude.rnf privacyProtectTechContact `Prelude.seq`
+                  Prelude.rnf domainName `Prelude.seq`
+                    Prelude.rnf durationInYears `Prelude.seq`
+                      Prelude.rnf adminContact `Prelude.seq`
+                        Prelude.rnf registrantContact `Prelude.seq`
+                          Prelude.rnf techContact
 
 instance Data.ToHeaders TransferDomain where
   toHeaders =
@@ -542,5 +542,5 @@ transferDomainResponse_httpStatus = Lens.lens (\TransferDomainResponse' {httpSta
 
 instance Prelude.NFData TransferDomainResponse where
   rnf TransferDomainResponse' {..} =
-    Prelude.rnf operationId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operationId `Prelude.seq`
+      Prelude.rnf httpStatus

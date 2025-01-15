@@ -305,12 +305,12 @@ getOperationDetailResponse_httpStatus = Lens.lens (\GetOperationDetailResponse' 
 
 instance Prelude.NFData GetOperationDetailResponse where
   rnf GetOperationDetailResponse' {..} =
-    Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf lastUpdatedDate
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf operationId
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusFlag
-      `Prelude.seq` Prelude.rnf submittedDate
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf domainName `Prelude.seq`
+      Prelude.rnf lastUpdatedDate `Prelude.seq`
+        Prelude.rnf message `Prelude.seq`
+          Prelude.rnf operationId `Prelude.seq`
+            Prelude.rnf status `Prelude.seq`
+              Prelude.rnf statusFlag `Prelude.seq`
+                Prelude.rnf submittedDate `Prelude.seq`
+                  Prelude.rnf type' `Prelude.seq`
+                    Prelude.rnf httpStatus

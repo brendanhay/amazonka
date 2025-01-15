@@ -160,8 +160,8 @@ instance
     AcceptDomainTransferFromAnotherAwsAccount
   where
   rnf AcceptDomainTransferFromAnotherAwsAccount' {..} =
-    Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf password
+    Prelude.rnf domainName `Prelude.seq`
+      Prelude.rnf password
 
 instance
   Data.ToHeaders
@@ -261,5 +261,5 @@ instance
   where
   rnf
     AcceptDomainTransferFromAnotherAwsAccountResponse' {..} =
-      Prelude.rnf operationId
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf operationId `Prelude.seq`
+        Prelude.rnf httpStatus

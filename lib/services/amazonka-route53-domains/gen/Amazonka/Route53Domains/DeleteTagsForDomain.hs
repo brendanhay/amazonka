@@ -111,8 +111,8 @@ instance Prelude.Hashable DeleteTagsForDomain where
 
 instance Prelude.NFData DeleteTagsForDomain where
   rnf DeleteTagsForDomain' {..} =
-    Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf tagsToDelete
+    Prelude.rnf domainName `Prelude.seq`
+      Prelude.rnf tagsToDelete
 
 instance Data.ToHeaders DeleteTagsForDomain where
   toHeaders =

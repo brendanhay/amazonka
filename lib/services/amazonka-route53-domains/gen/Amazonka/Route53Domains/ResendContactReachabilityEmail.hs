@@ -221,7 +221,7 @@ instance
     ResendContactReachabilityEmailResponse
   where
   rnf ResendContactReachabilityEmailResponse' {..} =
-    Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf emailAddress
-      `Prelude.seq` Prelude.rnf isAlreadyVerified
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf domainName `Prelude.seq`
+      Prelude.rnf emailAddress `Prelude.seq`
+        Prelude.rnf isAlreadyVerified `Prelude.seq`
+          Prelude.rnf httpStatus

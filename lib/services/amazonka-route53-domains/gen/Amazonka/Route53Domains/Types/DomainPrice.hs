@@ -126,9 +126,9 @@ instance Prelude.Hashable DomainPrice where
 
 instance Prelude.NFData DomainPrice where
   rnf DomainPrice' {..} =
-    Prelude.rnf changeOwnershipPrice
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf registrationPrice
-      `Prelude.seq` Prelude.rnf renewalPrice
-      `Prelude.seq` Prelude.rnf restorationPrice
-      `Prelude.seq` Prelude.rnf transferPrice
+    Prelude.rnf changeOwnershipPrice `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf registrationPrice `Prelude.seq`
+          Prelude.rnf renewalPrice `Prelude.seq`
+            Prelude.rnf restorationPrice `Prelude.seq`
+              Prelude.rnf transferPrice

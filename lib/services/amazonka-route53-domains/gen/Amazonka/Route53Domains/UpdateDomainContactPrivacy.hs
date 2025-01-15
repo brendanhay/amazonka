@@ -230,10 +230,10 @@ instance Prelude.Hashable UpdateDomainContactPrivacy where
 
 instance Prelude.NFData UpdateDomainContactPrivacy where
   rnf UpdateDomainContactPrivacy' {..} =
-    Prelude.rnf adminPrivacy
-      `Prelude.seq` Prelude.rnf registrantPrivacy
-      `Prelude.seq` Prelude.rnf techPrivacy
-      `Prelude.seq` Prelude.rnf domainName
+    Prelude.rnf adminPrivacy `Prelude.seq`
+      Prelude.rnf registrantPrivacy `Prelude.seq`
+        Prelude.rnf techPrivacy `Prelude.seq`
+          Prelude.rnf domainName
 
 instance Data.ToHeaders UpdateDomainContactPrivacy where
   toHeaders =
@@ -317,5 +317,5 @@ instance
     UpdateDomainContactPrivacyResponse
   where
   rnf UpdateDomainContactPrivacyResponse' {..} =
-    Prelude.rnf operationId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operationId `Prelude.seq`
+      Prelude.rnf httpStatus

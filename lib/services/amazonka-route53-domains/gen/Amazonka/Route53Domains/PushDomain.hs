@@ -104,8 +104,8 @@ instance Prelude.Hashable PushDomain where
 
 instance Prelude.NFData PushDomain where
   rnf PushDomain' {..} =
-    Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf target
+    Prelude.rnf domainName `Prelude.seq`
+      Prelude.rnf target
 
 instance Data.ToHeaders PushDomain where
   toHeaders =

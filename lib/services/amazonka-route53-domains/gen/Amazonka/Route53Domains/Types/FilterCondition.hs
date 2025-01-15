@@ -113,9 +113,9 @@ instance Prelude.Hashable FilterCondition where
 
 instance Prelude.NFData FilterCondition where
   rnf FilterCondition' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf operator
-      `Prelude.seq` Prelude.rnf values
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf operator `Prelude.seq`
+        Prelude.rnf values
 
 instance Data.ToJSON FilterCondition where
   toJSON FilterCondition' {..} =

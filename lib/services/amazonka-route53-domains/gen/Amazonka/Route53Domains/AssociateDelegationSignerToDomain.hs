@@ -135,8 +135,8 @@ instance
     AssociateDelegationSignerToDomain
   where
   rnf AssociateDelegationSignerToDomain' {..} =
-    Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf signingAttributes
+    Prelude.rnf domainName `Prelude.seq`
+      Prelude.rnf signingAttributes
 
 instance
   Data.ToHeaders
@@ -232,5 +232,5 @@ instance
     AssociateDelegationSignerToDomainResponse
   where
   rnf AssociateDelegationSignerToDomainResponse' {..} =
-    Prelude.rnf operationId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operationId `Prelude.seq`
+      Prelude.rnf httpStatus

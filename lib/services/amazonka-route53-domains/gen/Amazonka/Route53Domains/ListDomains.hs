@@ -168,12 +168,12 @@ instance Core.AWSPager ListDomains where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listDomains_marker
-          Lens..~ rs
-          Lens.^? listDomainsResponse_nextPageMarker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listDomains_marker
+              Lens..~ rs
+              Lens.^? listDomainsResponse_nextPageMarker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDomains where
   type AWSResponse ListDomains = ListDomainsResponse
@@ -198,10 +198,10 @@ instance Prelude.Hashable ListDomains where
 
 instance Prelude.NFData ListDomains where
   rnf ListDomains' {..} =
-    Prelude.rnf filterConditions
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxItems
-      `Prelude.seq` Prelude.rnf sortCondition
+    Prelude.rnf filterConditions `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf maxItems `Prelude.seq`
+          Prelude.rnf sortCondition
 
 instance Data.ToHeaders ListDomains where
   toHeaders =
@@ -293,6 +293,6 @@ listDomainsResponse_httpStatus = Lens.lens (\ListDomainsResponse' {httpStatus} -
 
 instance Prelude.NFData ListDomainsResponse where
   rnf ListDomainsResponse' {..} =
-    Prelude.rnf domains
-      `Prelude.seq` Prelude.rnf nextPageMarker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf domains `Prelude.seq`
+      Prelude.rnf nextPageMarker `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -94,8 +94,8 @@ instance Prelude.Hashable SortCondition where
 
 instance Prelude.NFData SortCondition where
   rnf SortCondition' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf sortOrder
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf sortOrder
 
 instance Data.ToJSON SortCondition where
   toJSON SortCondition' {..} =

@@ -151,11 +151,11 @@ instance Prelude.Hashable UpdateDomainContact where
 
 instance Prelude.NFData UpdateDomainContact where
   rnf UpdateDomainContact' {..} =
-    Prelude.rnf adminContact
-      `Prelude.seq` Prelude.rnf consent
-      `Prelude.seq` Prelude.rnf registrantContact
-      `Prelude.seq` Prelude.rnf techContact
-      `Prelude.seq` Prelude.rnf domainName
+    Prelude.rnf adminContact `Prelude.seq`
+      Prelude.rnf consent `Prelude.seq`
+        Prelude.rnf registrantContact `Prelude.seq`
+          Prelude.rnf techContact `Prelude.seq`
+            Prelude.rnf domainName
 
 instance Data.ToHeaders UpdateDomainContact where
   toHeaders =
@@ -240,5 +240,5 @@ updateDomainContactResponse_httpStatus = Lens.lens (\UpdateDomainContactResponse
 
 instance Prelude.NFData UpdateDomainContactResponse where
   rnf UpdateDomainContactResponse' {..} =
-    Prelude.rnf operationId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operationId `Prelude.seq`
+      Prelude.rnf httpStatus

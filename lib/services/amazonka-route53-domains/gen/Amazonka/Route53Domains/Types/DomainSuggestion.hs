@@ -191,5 +191,5 @@ instance Prelude.Hashable DomainSuggestion where
 
 instance Prelude.NFData DomainSuggestion where
   rnf DomainSuggestion' {..} =
-    Prelude.rnf availability
-      `Prelude.seq` Prelude.rnf domainName
+    Prelude.rnf availability `Prelude.seq`
+      Prelude.rnf domainName

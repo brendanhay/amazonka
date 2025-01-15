@@ -170,12 +170,12 @@ instance Core.AWSPager ViewBilling where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& viewBilling_marker
-          Lens..~ rs
-          Lens.^? viewBillingResponse_nextPageMarker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& viewBilling_marker
+              Lens..~ rs
+              Lens.^? viewBillingResponse_nextPageMarker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ViewBilling where
   type AWSResponse ViewBilling = ViewBillingResponse
@@ -200,10 +200,10 @@ instance Prelude.Hashable ViewBilling where
 
 instance Prelude.NFData ViewBilling where
   rnf ViewBilling' {..} =
-    Prelude.rnf end
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxItems
-      `Prelude.seq` Prelude.rnf start
+    Prelude.rnf end `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf maxItems `Prelude.seq`
+          Prelude.rnf start
 
 instance Data.ToHeaders ViewBilling where
   toHeaders =
@@ -295,6 +295,6 @@ viewBillingResponse_httpStatus = Lens.lens (\ViewBillingResponse' {httpStatus} -
 
 instance Prelude.NFData ViewBillingResponse where
   rnf ViewBillingResponse' {..} =
-    Prelude.rnf billingRecords
-      `Prelude.seq` Prelude.rnf nextPageMarker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf billingRecords `Prelude.seq`
+      Prelude.rnf nextPageMarker `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -172,5 +172,5 @@ listTagsForDomainResponse_httpStatus = Lens.lens (\ListTagsForDomainResponse' {h
 
 instance Prelude.NFData ListTagsForDomainResponse where
   rnf ListTagsForDomainResponse' {..} =
-    Prelude.rnf tagList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf tagList `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -187,5 +187,5 @@ instance
     DisableDomainTransferLockResponse
   where
   rnf DisableDomainTransferLockResponse' {..} =
-    Prelude.rnf operationId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operationId `Prelude.seq`
+      Prelude.rnf httpStatus

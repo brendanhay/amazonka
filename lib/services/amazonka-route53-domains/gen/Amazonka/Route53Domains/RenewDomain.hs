@@ -152,9 +152,9 @@ instance Prelude.Hashable RenewDomain where
 
 instance Prelude.NFData RenewDomain where
   rnf RenewDomain' {..} =
-    Prelude.rnf durationInYears
-      `Prelude.seq` Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf currentExpiryYear
+    Prelude.rnf durationInYears `Prelude.seq`
+      Prelude.rnf domainName `Prelude.seq`
+        Prelude.rnf currentExpiryYear
 
 instance Data.ToHeaders RenewDomain where
   toHeaders =
@@ -235,5 +235,5 @@ renewDomainResponse_httpStatus = Lens.lens (\RenewDomainResponse' {httpStatus} -
 
 instance Prelude.NFData RenewDomainResponse where
   rnf RenewDomainResponse' {..} =
-    Prelude.rnf operationId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operationId `Prelude.seq`
+      Prelude.rnf httpStatus

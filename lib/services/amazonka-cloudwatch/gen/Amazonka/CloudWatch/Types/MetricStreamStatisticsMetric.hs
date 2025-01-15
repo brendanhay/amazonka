@@ -87,8 +87,8 @@ instance
 
 instance Prelude.NFData MetricStreamStatisticsMetric where
   rnf MetricStreamStatisticsMetric' {..} =
-    Prelude.rnf namespace
-      `Prelude.seq` Prelude.rnf metricName
+    Prelude.rnf namespace `Prelude.seq`
+      Prelude.rnf metricName
 
 instance Data.ToQuery MetricStreamStatisticsMetric where
   toQuery MetricStreamStatisticsMetric' {..} =

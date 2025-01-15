@@ -145,10 +145,10 @@ instance Prelude.Hashable MetricStreamEntry where
 
 instance Prelude.NFData MetricStreamEntry where
   rnf MetricStreamEntry' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf firehoseArn
-      `Prelude.seq` Prelude.rnf lastUpdateDate
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf outputFormat
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf creationDate `Prelude.seq`
+        Prelude.rnf firehoseArn `Prelude.seq`
+          Prelude.rnf lastUpdateDate `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf outputFormat `Prelude.seq`
+                Prelude.rnf state

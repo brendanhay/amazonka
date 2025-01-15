@@ -114,8 +114,8 @@ instance
 
 instance Prelude.NFData AnomalyDetectorConfiguration where
   rnf AnomalyDetectorConfiguration' {..} =
-    Prelude.rnf excludedTimeRanges
-      `Prelude.seq` Prelude.rnf metricTimezone
+    Prelude.rnf excludedTimeRanges `Prelude.seq`
+      Prelude.rnf metricTimezone
 
 instance Data.ToQuery AnomalyDetectorConfiguration where
   toQuery AnomalyDetectorConfiguration' {..} =

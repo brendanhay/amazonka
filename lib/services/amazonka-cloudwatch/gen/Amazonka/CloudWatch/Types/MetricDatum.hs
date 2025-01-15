@@ -251,15 +251,15 @@ instance Prelude.Hashable MetricDatum where
 
 instance Prelude.NFData MetricDatum where
   rnf MetricDatum' {..} =
-    Prelude.rnf counts
-      `Prelude.seq` Prelude.rnf dimensions
-      `Prelude.seq` Prelude.rnf statisticValues
-      `Prelude.seq` Prelude.rnf storageResolution
-      `Prelude.seq` Prelude.rnf timestamp
-      `Prelude.seq` Prelude.rnf unit
-      `Prelude.seq` Prelude.rnf value
-      `Prelude.seq` Prelude.rnf values
-      `Prelude.seq` Prelude.rnf metricName
+    Prelude.rnf counts `Prelude.seq`
+      Prelude.rnf dimensions `Prelude.seq`
+        Prelude.rnf statisticValues `Prelude.seq`
+          Prelude.rnf storageResolution `Prelude.seq`
+            Prelude.rnf timestamp `Prelude.seq`
+              Prelude.rnf unit `Prelude.seq`
+                Prelude.rnf value `Prelude.seq`
+                  Prelude.rnf values `Prelude.seq`
+                    Prelude.rnf metricName
 
 instance Data.ToQuery MetricDatum where
   toQuery MetricDatum' {..} =

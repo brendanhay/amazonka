@@ -235,12 +235,12 @@ instance Core.AWSPager ListMetrics where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listMetrics_nextToken
-          Lens..~ rs
-          Lens.^? listMetricsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listMetrics_nextToken
+              Lens..~ rs
+              Lens.^? listMetricsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListMetrics where
   type AWSResponse ListMetrics = ListMetricsResponse
@@ -251,15 +251,11 @@ instance Core.AWSRequest ListMetrics where
       "ListMetricsResult"
       ( \s h x ->
           ListMetricsResponse'
-            Prelude.<$> ( x
-                            Data..@? "Metrics"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "Metrics" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (x Data..@? "NextToken")
-            Prelude.<*> ( x
-                            Data..@? "OwningAccounts"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "OwningAccounts" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -278,13 +274,13 @@ instance Prelude.Hashable ListMetrics where
 
 instance Prelude.NFData ListMetrics where
   rnf ListMetrics' {..} =
-    Prelude.rnf dimensions
-      `Prelude.seq` Prelude.rnf includeLinkedAccounts
-      `Prelude.seq` Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf namespace
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf owningAccount
-      `Prelude.seq` Prelude.rnf recentlyActive
+    Prelude.rnf dimensions `Prelude.seq`
+      Prelude.rnf includeLinkedAccounts `Prelude.seq`
+        Prelude.rnf metricName `Prelude.seq`
+          Prelude.rnf namespace `Prelude.seq`
+            Prelude.rnf nextToken `Prelude.seq`
+              Prelude.rnf owningAccount `Prelude.seq`
+                Prelude.rnf recentlyActive
 
 instance Data.ToHeaders ListMetrics where
   toHeaders = Prelude.const Prelude.mempty
@@ -384,7 +380,7 @@ listMetricsResponse_httpStatus = Lens.lens (\ListMetricsResponse' {httpStatus} -
 
 instance Prelude.NFData ListMetricsResponse where
   rnf ListMetricsResponse' {..} =
-    Prelude.rnf metrics
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf owningAccounts
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf metrics `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf owningAccounts `Prelude.seq`
+          Prelude.rnf httpStatus

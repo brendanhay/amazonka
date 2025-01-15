@@ -380,12 +380,12 @@ instance Core.AWSPager GetMetricData where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getMetricData_nextToken
-          Lens..~ rs
-          Lens.^? getMetricDataResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getMetricData_nextToken
+              Lens..~ rs
+              Lens.^? getMetricDataResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetMetricData where
   type
@@ -398,9 +398,7 @@ instance Core.AWSRequest GetMetricData where
       "GetMetricDataResult"
       ( \s h x ->
           GetMetricDataResponse'
-            Prelude.<$> ( x
-                            Data..@? "Messages"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "Messages" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> ( x
@@ -425,13 +423,13 @@ instance Prelude.Hashable GetMetricData where
 
 instance Prelude.NFData GetMetricData where
   rnf GetMetricData' {..} =
-    Prelude.rnf labelOptions
-      `Prelude.seq` Prelude.rnf maxDatapoints
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf scanBy
-      `Prelude.seq` Prelude.rnf metricDataQueries
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf endTime
+    Prelude.rnf labelOptions `Prelude.seq`
+      Prelude.rnf maxDatapoints `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf scanBy `Prelude.seq`
+            Prelude.rnf metricDataQueries `Prelude.seq`
+              Prelude.rnf startTime `Prelude.seq`
+                Prelude.rnf endTime
 
 instance Data.ToHeaders GetMetricData where
   toHeaders = Prelude.const Prelude.mempty
@@ -541,7 +539,7 @@ getMetricDataResponse_httpStatus = Lens.lens (\GetMetricDataResponse' {httpStatu
 
 instance Prelude.NFData GetMetricDataResponse where
   rnf GetMetricDataResponse' {..} =
-    Prelude.rnf messages
-      `Prelude.seq` Prelude.rnf metricDataResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf messages `Prelude.seq`
+      Prelude.rnf metricDataResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf httpStatus

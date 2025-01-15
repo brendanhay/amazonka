@@ -87,8 +87,8 @@ instance Prelude.Hashable Range where
 
 instance Prelude.NFData Range where
   rnf Range' {..} =
-    Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf endTime
+    Prelude.rnf startTime `Prelude.seq`
+      Prelude.rnf endTime
 
 instance Data.ToQuery Range where
   toQuery Range' {..} =

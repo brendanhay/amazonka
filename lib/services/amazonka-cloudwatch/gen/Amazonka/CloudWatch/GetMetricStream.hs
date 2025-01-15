@@ -97,15 +97,11 @@ instance Core.AWSRequest GetMetricStream where
           GetMetricStreamResponse'
             Prelude.<$> (x Data..@? "Arn")
             Prelude.<*> (x Data..@? "CreationDate")
-            Prelude.<*> ( x
-                            Data..@? "ExcludeFilters"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "ExcludeFilters" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (x Data..@? "FirehoseArn")
-            Prelude.<*> ( x
-                            Data..@? "IncludeFilters"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "IncludeFilters" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (x Data..@? "LastUpdateDate")
@@ -313,15 +309,15 @@ getMetricStreamResponse_httpStatus = Lens.lens (\GetMetricStreamResponse' {httpS
 
 instance Prelude.NFData GetMetricStreamResponse where
   rnf GetMetricStreamResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf excludeFilters
-      `Prelude.seq` Prelude.rnf firehoseArn
-      `Prelude.seq` Prelude.rnf includeFilters
-      `Prelude.seq` Prelude.rnf lastUpdateDate
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf outputFormat
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf statisticsConfigurations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf creationDate `Prelude.seq`
+        Prelude.rnf excludeFilters `Prelude.seq`
+          Prelude.rnf firehoseArn `Prelude.seq`
+            Prelude.rnf includeFilters `Prelude.seq`
+              Prelude.rnf lastUpdateDate `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf outputFormat `Prelude.seq`
+                    Prelude.rnf roleArn `Prelude.seq`
+                      Prelude.rnf state `Prelude.seq`
+                        Prelude.rnf statisticsConfigurations `Prelude.seq`
+                          Prelude.rnf httpStatus

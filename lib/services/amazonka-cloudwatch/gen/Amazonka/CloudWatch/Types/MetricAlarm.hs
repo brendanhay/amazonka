@@ -409,9 +409,7 @@ instance Data.FromXML MetricAlarm where
   parseXML x =
     MetricAlarm'
       Prelude.<$> (x Data..@? "ActionsEnabled")
-      Prelude.<*> ( x
-                      Data..@? "AlarmActions"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "AlarmActions" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "AlarmArn")
@@ -420,9 +418,7 @@ instance Data.FromXML MetricAlarm where
       Prelude.<*> (x Data..@? "AlarmName")
       Prelude.<*> (x Data..@? "ComparisonOperator")
       Prelude.<*> (x Data..@? "DatapointsToAlarm")
-      Prelude.<*> ( x
-                      Data..@? "Dimensions"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "Dimensions" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "EvaluateLowSampleCountPercentile")
@@ -435,15 +431,11 @@ instance Data.FromXML MetricAlarm where
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "MetricName")
-      Prelude.<*> ( x
-                      Data..@? "Metrics"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "Metrics" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "Namespace")
-      Prelude.<*> ( x
-                      Data..@? "OKActions"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "OKActions" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "Period")

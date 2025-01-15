@@ -319,13 +319,13 @@ instance Prelude.Hashable MetricDataQuery where
 
 instance Prelude.NFData MetricDataQuery where
   rnf MetricDataQuery' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf expression
-      `Prelude.seq` Prelude.rnf label
-      `Prelude.seq` Prelude.rnf metricStat
-      `Prelude.seq` Prelude.rnf period
-      `Prelude.seq` Prelude.rnf returnData
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf expression `Prelude.seq`
+        Prelude.rnf label `Prelude.seq`
+          Prelude.rnf metricStat `Prelude.seq`
+            Prelude.rnf period `Prelude.seq`
+              Prelude.rnf returnData `Prelude.seq`
+                Prelude.rnf id
 
 instance Data.ToQuery MetricDataQuery where
   toQuery MetricDataQuery' {..} =

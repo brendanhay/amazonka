@@ -191,12 +191,12 @@ instance Core.AWSPager DescribeAlarmHistory where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeAlarmHistory_nextToken
-          Lens..~ rs
-          Lens.^? describeAlarmHistoryResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeAlarmHistory_nextToken
+              Lens..~ rs
+              Lens.^? describeAlarmHistoryResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeAlarmHistory where
   type
@@ -232,14 +232,14 @@ instance Prelude.Hashable DescribeAlarmHistory where
 
 instance Prelude.NFData DescribeAlarmHistory where
   rnf DescribeAlarmHistory' {..} =
-    Prelude.rnf alarmName
-      `Prelude.seq` Prelude.rnf alarmTypes
-      `Prelude.seq` Prelude.rnf endDate
-      `Prelude.seq` Prelude.rnf historyItemType
-      `Prelude.seq` Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf scanBy
-      `Prelude.seq` Prelude.rnf startDate
+    Prelude.rnf alarmName `Prelude.seq`
+      Prelude.rnf alarmTypes `Prelude.seq`
+        Prelude.rnf endDate `Prelude.seq`
+          Prelude.rnf historyItemType `Prelude.seq`
+            Prelude.rnf maxRecords `Prelude.seq`
+              Prelude.rnf nextToken `Prelude.seq`
+                Prelude.rnf scanBy `Prelude.seq`
+                  Prelude.rnf startDate
 
 instance Data.ToHeaders DescribeAlarmHistory where
   toHeaders = Prelude.const Prelude.mempty
@@ -316,6 +316,6 @@ describeAlarmHistoryResponse_httpStatus = Lens.lens (\DescribeAlarmHistoryRespon
 
 instance Prelude.NFData DescribeAlarmHistoryResponse where
   rnf DescribeAlarmHistoryResponse' {..} =
-    Prelude.rnf alarmHistoryItems
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf alarmHistoryItems `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

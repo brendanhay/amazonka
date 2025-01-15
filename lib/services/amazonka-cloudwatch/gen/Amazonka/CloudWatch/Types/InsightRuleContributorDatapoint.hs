@@ -96,5 +96,5 @@ instance
     InsightRuleContributorDatapoint
   where
   rnf InsightRuleContributorDatapoint' {..} =
-    Prelude.rnf timestamp
-      `Prelude.seq` Prelude.rnf approximateValue
+    Prelude.rnf timestamp `Prelude.seq`
+      Prelude.rnf approximateValue

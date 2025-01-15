@@ -105,9 +105,7 @@ instance Core.AWSRequest DescribeInsightRules where
       "DescribeInsightRulesResult"
       ( \s h x ->
           DescribeInsightRulesResponse'
-            Prelude.<$> ( x
-                            Data..@? "InsightRules"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "InsightRules" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (x Data..@? "NextToken")
@@ -122,8 +120,8 @@ instance Prelude.Hashable DescribeInsightRules where
 
 instance Prelude.NFData DescribeInsightRules where
   rnf DescribeInsightRules' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeInsightRules where
   toHeaders = Prelude.const Prelude.mempty
@@ -195,6 +193,6 @@ describeInsightRulesResponse_httpStatus = Lens.lens (\DescribeInsightRulesRespon
 
 instance Prelude.NFData DescribeInsightRulesResponse where
   rnf DescribeInsightRulesResponse' {..} =
-    Prelude.rnf insightRules
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf insightRules `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

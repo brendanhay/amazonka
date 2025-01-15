@@ -83,5 +83,5 @@ instance Prelude.Hashable ManagedRuleState where
 
 instance Prelude.NFData ManagedRuleState where
   rnf ManagedRuleState' {..} =
-    Prelude.rnf ruleName
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf ruleName `Prelude.seq`
+      Prelude.rnf state

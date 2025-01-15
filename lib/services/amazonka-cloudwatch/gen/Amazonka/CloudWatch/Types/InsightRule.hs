@@ -138,8 +138,8 @@ instance Prelude.Hashable InsightRule where
 
 instance Prelude.NFData InsightRule where
   rnf InsightRule' {..} =
-    Prelude.rnf managedRule
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf schema
-      `Prelude.seq` Prelude.rnf definition
+    Prelude.rnf managedRule `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf state `Prelude.seq`
+          Prelude.rnf schema `Prelude.seq`
+            Prelude.rnf definition

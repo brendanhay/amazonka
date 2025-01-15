@@ -102,6 +102,6 @@ instance Prelude.Hashable ManagedRuleDescription where
 
 instance Prelude.NFData ManagedRuleDescription where
   rnf ManagedRuleDescription' {..} =
-    Prelude.rnf resourceARN
-      `Prelude.seq` Prelude.rnf ruleState
-      `Prelude.seq` Prelude.rnf templateName
+    Prelude.rnf resourceARN `Prelude.seq`
+      Prelude.rnf ruleState `Prelude.seq`
+        Prelude.rnf templateName

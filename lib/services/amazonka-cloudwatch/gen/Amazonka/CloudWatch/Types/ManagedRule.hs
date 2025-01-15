@@ -119,9 +119,9 @@ instance Prelude.Hashable ManagedRule where
 
 instance Prelude.NFData ManagedRule where
   rnf ManagedRule' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf templateName
-      `Prelude.seq` Prelude.rnf resourceARN
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf templateName `Prelude.seq`
+        Prelude.rnf resourceARN
 
 instance Data.ToQuery ManagedRule where
   toQuery ManagedRule' {..} =

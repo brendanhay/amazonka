@@ -102,10 +102,10 @@ instance Prelude.Hashable StatisticSet where
 
 instance Prelude.NFData StatisticSet where
   rnf StatisticSet' {..} =
-    Prelude.rnf sampleCount
-      `Prelude.seq` Prelude.rnf sum
-      `Prelude.seq` Prelude.rnf minimum
-      `Prelude.seq` Prelude.rnf maximum
+    Prelude.rnf sampleCount `Prelude.seq`
+      Prelude.rnf sum `Prelude.seq`
+        Prelude.rnf minimum `Prelude.seq`
+          Prelude.rnf maximum
 
 instance Data.ToQuery StatisticSet where
   toQuery StatisticSet' {..} =

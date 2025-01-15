@@ -138,20 +138,14 @@ instance Data.FromXML MetricDataResult where
     MetricDataResult'
       Prelude.<$> (x Data..@? "Id")
       Prelude.<*> (x Data..@? "Label")
-      Prelude.<*> ( x
-                      Data..@? "Messages"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "Messages" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "StatusCode")
-      Prelude.<*> ( x
-                      Data..@? "Timestamps"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "Timestamps" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x
-                      Data..@? "Values"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "Values" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 
@@ -167,9 +161,9 @@ instance Prelude.Hashable MetricDataResult where
 
 instance Prelude.NFData MetricDataResult where
   rnf MetricDataResult' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf label
-      `Prelude.seq` Prelude.rnf messages
-      `Prelude.seq` Prelude.rnf statusCode
-      `Prelude.seq` Prelude.rnf timestamps
-      `Prelude.seq` Prelude.rnf values
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf label `Prelude.seq`
+        Prelude.rnf messages `Prelude.seq`
+          Prelude.rnf statusCode `Prelude.seq`
+            Prelude.rnf timestamps `Prelude.seq`
+              Prelude.rnf values

@@ -75,9 +75,7 @@ metric_namespace = Lens.lens (\Metric' {namespace} -> namespace) (\s@Metric' {} 
 instance Data.FromXML Metric where
   parseXML x =
     Metric'
-      Prelude.<$> ( x
-                      Data..@? "Dimensions"
-                      Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "Dimensions" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "MetricName")
@@ -92,9 +90,9 @@ instance Prelude.Hashable Metric where
 
 instance Prelude.NFData Metric where
   rnf Metric' {..} =
-    Prelude.rnf dimensions
-      `Prelude.seq` Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf namespace
+    Prelude.rnf dimensions `Prelude.seq`
+      Prelude.rnf metricName `Prelude.seq`
+        Prelude.rnf namespace
 
 instance Data.ToQuery Metric where
   toQuery Metric' {..} =

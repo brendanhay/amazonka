@@ -164,8 +164,8 @@ instance Prelude.Hashable PutMetricData where
 
 instance Prelude.NFData PutMetricData where
   rnf PutMetricData' {..} =
-    Prelude.rnf namespace
-      `Prelude.seq` Prelude.rnf metricData
+    Prelude.rnf namespace `Prelude.seq`
+      Prelude.rnf metricData
 
 instance Data.ToHeaders PutMetricData where
   toHeaders = Prelude.const Prelude.mempty

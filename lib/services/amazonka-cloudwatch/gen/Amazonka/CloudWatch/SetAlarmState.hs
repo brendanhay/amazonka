@@ -165,10 +165,10 @@ instance Prelude.Hashable SetAlarmState where
 
 instance Prelude.NFData SetAlarmState where
   rnf SetAlarmState' {..} =
-    Prelude.rnf stateReasonData
-      `Prelude.seq` Prelude.rnf alarmName
-      `Prelude.seq` Prelude.rnf stateValue
-      `Prelude.seq` Prelude.rnf stateReason
+    Prelude.rnf stateReasonData `Prelude.seq`
+      Prelude.rnf alarmName `Prelude.seq`
+        Prelude.rnf stateValue `Prelude.seq`
+          Prelude.rnf stateReason
 
 instance Data.ToHeaders SetAlarmState where
   toHeaders = Prelude.const Prelude.mempty

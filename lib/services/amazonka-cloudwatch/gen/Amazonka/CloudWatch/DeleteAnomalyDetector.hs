@@ -258,12 +258,12 @@ instance Prelude.Hashable DeleteAnomalyDetector where
 
 instance Prelude.NFData DeleteAnomalyDetector where
   rnf DeleteAnomalyDetector' {..} =
-    Prelude.rnf dimensions
-      `Prelude.seq` Prelude.rnf metricMathAnomalyDetector
-      `Prelude.seq` Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf namespace
-      `Prelude.seq` Prelude.rnf singleMetricAnomalyDetector
-      `Prelude.seq` Prelude.rnf stat
+    Prelude.rnf dimensions `Prelude.seq`
+      Prelude.rnf metricMathAnomalyDetector `Prelude.seq`
+        Prelude.rnf metricName `Prelude.seq`
+          Prelude.rnf namespace `Prelude.seq`
+            Prelude.rnf singleMetricAnomalyDetector `Prelude.seq`
+              Prelude.rnf stat
 
 instance Data.ToHeaders DeleteAnomalyDetector where
   toHeaders = Prelude.const Prelude.mempty

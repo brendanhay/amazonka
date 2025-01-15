@@ -122,9 +122,9 @@ instance Prelude.Hashable AlarmHistoryItem where
 
 instance Prelude.NFData AlarmHistoryItem where
   rnf AlarmHistoryItem' {..} =
-    Prelude.rnf alarmName
-      `Prelude.seq` Prelude.rnf alarmType
-      `Prelude.seq` Prelude.rnf historyData
-      `Prelude.seq` Prelude.rnf historyItemType
-      `Prelude.seq` Prelude.rnf historySummary
-      `Prelude.seq` Prelude.rnf timestamp
+    Prelude.rnf alarmName `Prelude.seq`
+      Prelude.rnf alarmType `Prelude.seq`
+        Prelude.rnf historyData `Prelude.seq`
+          Prelude.rnf historyItemType `Prelude.seq`
+            Prelude.rnf historySummary `Prelude.seq`
+              Prelude.rnf timestamp

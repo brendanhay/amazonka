@@ -244,8 +244,8 @@ instance Prelude.Hashable GetMetricWidgetImage where
 
 instance Prelude.NFData GetMetricWidgetImage where
   rnf GetMetricWidgetImage' {..} =
-    Prelude.rnf outputFormat
-      `Prelude.seq` Prelude.rnf metricWidget
+    Prelude.rnf outputFormat `Prelude.seq`
+      Prelude.rnf metricWidget
 
 instance Data.ToHeaders GetMetricWidgetImage where
   toHeaders = Prelude.const Prelude.mempty
@@ -316,5 +316,5 @@ getMetricWidgetImageResponse_httpStatus = Lens.lens (\GetMetricWidgetImageRespon
 
 instance Prelude.NFData GetMetricWidgetImageResponse where
   rnf GetMetricWidgetImageResponse' {..} =
-    Prelude.rnf metricWidgetImage
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf metricWidgetImage `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -280,13 +280,13 @@ instance Prelude.Hashable PutAnomalyDetector where
 
 instance Prelude.NFData PutAnomalyDetector where
   rnf PutAnomalyDetector' {..} =
-    Prelude.rnf configuration
-      `Prelude.seq` Prelude.rnf dimensions
-      `Prelude.seq` Prelude.rnf metricMathAnomalyDetector
-      `Prelude.seq` Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf namespace
-      `Prelude.seq` Prelude.rnf singleMetricAnomalyDetector
-      `Prelude.seq` Prelude.rnf stat
+    Prelude.rnf configuration `Prelude.seq`
+      Prelude.rnf dimensions `Prelude.seq`
+        Prelude.rnf metricMathAnomalyDetector `Prelude.seq`
+          Prelude.rnf metricName `Prelude.seq`
+            Prelude.rnf namespace `Prelude.seq`
+              Prelude.rnf singleMetricAnomalyDetector `Prelude.seq`
+                Prelude.rnf stat
 
 instance Data.ToHeaders PutAnomalyDetector where
   toHeaders = Prelude.const Prelude.mempty

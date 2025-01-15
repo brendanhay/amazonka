@@ -131,9 +131,9 @@ instance
   where
   rnf
     StartBulkDisassociateWirelessDeviceFromMulticastGroup' {..} =
-      Prelude.rnf queryString
-        `Prelude.seq` Prelude.rnf tags
-        `Prelude.seq` Prelude.rnf id
+      Prelude.rnf queryString `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf id
 
 instance
   Data.ToHeaders

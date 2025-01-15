@@ -91,8 +91,8 @@ instance Prelude.Hashable GatewayListItem where
 
 instance Prelude.NFData GatewayListItem where
   rnf GatewayListItem' {..} =
-    Prelude.rnf gatewayId
-      `Prelude.seq` Prelude.rnf downlinkFrequency
+    Prelude.rnf gatewayId `Prelude.seq`
+      Prelude.rnf downlinkFrequency
 
 instance Data.ToJSON GatewayListItem where
   toJSON GatewayListItem' {..} =

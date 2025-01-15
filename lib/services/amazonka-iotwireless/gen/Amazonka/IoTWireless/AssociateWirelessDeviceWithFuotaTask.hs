@@ -119,8 +119,8 @@ instance
     AssociateWirelessDeviceWithFuotaTask
   where
   rnf AssociateWirelessDeviceWithFuotaTask' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf wirelessDeviceId
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf wirelessDeviceId
 
 instance
   Data.ToHeaders

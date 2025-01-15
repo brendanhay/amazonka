@@ -125,8 +125,8 @@ instance
     AssociateWirelessGatewayWithCertificate
   where
   rnf AssociateWirelessGatewayWithCertificate' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf iotCertificateId
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf iotCertificateId
 
 instance
   Data.ToHeaders
@@ -206,5 +206,5 @@ instance
   where
   rnf
     AssociateWirelessGatewayWithCertificateResponse' {..} =
-      Prelude.rnf iotCertificateId
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf iotCertificateId `Prelude.seq`
+        Prelude.rnf httpStatus

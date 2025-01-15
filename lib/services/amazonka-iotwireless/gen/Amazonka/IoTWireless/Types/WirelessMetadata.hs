@@ -72,8 +72,8 @@ instance Prelude.Hashable WirelessMetadata where
 
 instance Prelude.NFData WirelessMetadata where
   rnf WirelessMetadata' {..} =
-    Prelude.rnf loRaWAN
-      `Prelude.seq` Prelude.rnf sidewalk
+    Prelude.rnf loRaWAN `Prelude.seq`
+      Prelude.rnf sidewalk
 
 instance Data.ToJSON WirelessMetadata where
   toJSON WirelessMetadata' {..} =

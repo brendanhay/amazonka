@@ -113,8 +113,8 @@ instance Prelude.Hashable ListFuotaTasks where
 
 instance Prelude.NFData ListFuotaTasks where
   rnf ListFuotaTasks' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListFuotaTasks where
   toHeaders = Prelude.const Prelude.mempty
@@ -184,6 +184,6 @@ listFuotaTasksResponse_httpStatus = Lens.lens (\ListFuotaTasksResponse' {httpSta
 
 instance Prelude.NFData ListFuotaTasksResponse where
   rnf ListFuotaTasksResponse' {..} =
-    Prelude.rnf fuotaTaskList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf fuotaTaskList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -74,8 +74,8 @@ instance Prelude.Hashable WiFiAccessPoint where
 
 instance Prelude.NFData WiFiAccessPoint where
   rnf WiFiAccessPoint' {..} =
-    Prelude.rnf macAddress
-      `Prelude.seq` Prelude.rnf rss
+    Prelude.rnf macAddress `Prelude.seq`
+      Prelude.rnf rss
 
 instance Data.ToJSON WiFiAccessPoint where
   toJSON WiFiAccessPoint' {..} =

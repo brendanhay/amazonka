@@ -97,9 +97,9 @@ instance Prelude.Hashable WirelessDeviceLogOption where
 
 instance Prelude.NFData WirelessDeviceLogOption where
   rnf WirelessDeviceLogOption' {..} =
-    Prelude.rnf events
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf logLevel
+    Prelude.rnf events `Prelude.seq`
+      Prelude.rnf type' `Prelude.seq`
+        Prelude.rnf logLevel
 
 instance Data.ToJSON WirelessDeviceLogOption where
   toJSON WirelessDeviceLogOption' {..} =

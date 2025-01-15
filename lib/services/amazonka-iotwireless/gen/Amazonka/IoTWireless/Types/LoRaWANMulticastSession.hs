@@ -98,10 +98,10 @@ instance Prelude.Hashable LoRaWANMulticastSession where
 
 instance Prelude.NFData LoRaWANMulticastSession where
   rnf LoRaWANMulticastSession' {..} =
-    Prelude.rnf dlDr
-      `Prelude.seq` Prelude.rnf dlFreq
-      `Prelude.seq` Prelude.rnf sessionStartTime
-      `Prelude.seq` Prelude.rnf sessionTimeout
+    Prelude.rnf dlDr `Prelude.seq`
+      Prelude.rnf dlFreq `Prelude.seq`
+        Prelude.rnf sessionStartTime `Prelude.seq`
+          Prelude.rnf sessionTimeout
 
 instance Data.ToJSON LoRaWANMulticastSession where
   toJSON LoRaWANMulticastSession' {..} =

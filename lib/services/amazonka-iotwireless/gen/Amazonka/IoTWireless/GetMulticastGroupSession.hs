@@ -148,5 +148,5 @@ instance
     GetMulticastGroupSessionResponse
   where
   rnf GetMulticastGroupSessionResponse' {..} =
-    Prelude.rnf loRaWAN
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf loRaWAN `Prelude.seq`
+      Prelude.rnf httpStatus

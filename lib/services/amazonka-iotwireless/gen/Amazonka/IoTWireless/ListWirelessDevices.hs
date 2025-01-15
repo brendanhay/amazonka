@@ -188,14 +188,14 @@ instance Prelude.Hashable ListWirelessDevices where
 
 instance Prelude.NFData ListWirelessDevices where
   rnf ListWirelessDevices' {..} =
-    Prelude.rnf destinationName
-      `Prelude.seq` Prelude.rnf deviceProfileId
-      `Prelude.seq` Prelude.rnf fuotaTaskId
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf multicastGroupId
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf serviceProfileId
-      `Prelude.seq` Prelude.rnf wirelessDeviceType
+    Prelude.rnf destinationName `Prelude.seq`
+      Prelude.rnf deviceProfileId `Prelude.seq`
+        Prelude.rnf fuotaTaskId `Prelude.seq`
+          Prelude.rnf maxResults `Prelude.seq`
+            Prelude.rnf multicastGroupId `Prelude.seq`
+              Prelude.rnf nextToken `Prelude.seq`
+                Prelude.rnf serviceProfileId `Prelude.seq`
+                  Prelude.rnf wirelessDeviceType
 
 instance Data.ToHeaders ListWirelessDevices where
   toHeaders = Prelude.const Prelude.mempty
@@ -269,6 +269,6 @@ listWirelessDevicesResponse_httpStatus = Lens.lens (\ListWirelessDevicesResponse
 
 instance Prelude.NFData ListWirelessDevicesResponse where
   rnf ListWirelessDevicesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf wirelessDeviceList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf wirelessDeviceList `Prelude.seq`
+        Prelude.rnf httpStatus

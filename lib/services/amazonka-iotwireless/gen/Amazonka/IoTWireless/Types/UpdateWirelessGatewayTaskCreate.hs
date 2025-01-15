@@ -104,9 +104,9 @@ instance
     UpdateWirelessGatewayTaskCreate
   where
   rnf UpdateWirelessGatewayTaskCreate' {..} =
-    Prelude.rnf loRaWAN
-      `Prelude.seq` Prelude.rnf updateDataRole
-      `Prelude.seq` Prelude.rnf updateDataSource
+    Prelude.rnf loRaWAN `Prelude.seq`
+      Prelude.rnf updateDataRole `Prelude.seq`
+        Prelude.rnf updateDataSource
 
 instance Data.ToJSON UpdateWirelessGatewayTaskCreate where
   toJSON UpdateWirelessGatewayTaskCreate' {..} =

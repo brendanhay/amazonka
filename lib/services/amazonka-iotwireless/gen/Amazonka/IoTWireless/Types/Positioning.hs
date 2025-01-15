@@ -88,9 +88,9 @@ instance Prelude.Hashable Positioning where
 
 instance Prelude.NFData Positioning where
   rnf Positioning' {..} =
-    Prelude.rnf clockSync
-      `Prelude.seq` Prelude.rnf gnss
-      `Prelude.seq` Prelude.rnf stream
+    Prelude.rnf clockSync `Prelude.seq`
+      Prelude.rnf gnss `Prelude.seq`
+        Prelude.rnf stream
 
 instance Data.ToJSON Positioning where
   toJSON Positioning' {..} =

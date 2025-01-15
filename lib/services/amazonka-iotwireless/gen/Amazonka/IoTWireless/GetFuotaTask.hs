@@ -220,13 +220,13 @@ getFuotaTaskResponse_httpStatus = Lens.lens (\GetFuotaTaskResponse' {httpStatus}
 
 instance Prelude.NFData GetFuotaTaskResponse where
   rnf GetFuotaTaskResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf firmwareUpdateImage
-      `Prelude.seq` Prelude.rnf firmwareUpdateRole
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf loRaWAN
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf createdAt `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf firmwareUpdateImage `Prelude.seq`
+            Prelude.rnf firmwareUpdateRole `Prelude.seq`
+              Prelude.rnf id `Prelude.seq`
+                Prelude.rnf loRaWAN `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf status `Prelude.seq`
+                      Prelude.rnf httpStatus

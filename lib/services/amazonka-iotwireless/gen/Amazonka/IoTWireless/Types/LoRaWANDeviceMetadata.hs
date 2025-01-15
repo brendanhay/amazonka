@@ -125,9 +125,9 @@ instance Prelude.Hashable LoRaWANDeviceMetadata where
 
 instance Prelude.NFData LoRaWANDeviceMetadata where
   rnf LoRaWANDeviceMetadata' {..} =
-    Prelude.rnf dataRate
-      `Prelude.seq` Prelude.rnf devEui
-      `Prelude.seq` Prelude.rnf fPort
-      `Prelude.seq` Prelude.rnf frequency
-      `Prelude.seq` Prelude.rnf gateways
-      `Prelude.seq` Prelude.rnf timestamp
+    Prelude.rnf dataRate `Prelude.seq`
+      Prelude.rnf devEui `Prelude.seq`
+        Prelude.rnf fPort `Prelude.seq`
+          Prelude.rnf frequency `Prelude.seq`
+            Prelude.rnf gateways `Prelude.seq`
+              Prelude.rnf timestamp

@@ -118,11 +118,11 @@ instance Prelude.Hashable LteNmrObj where
 
 instance Prelude.NFData LteNmrObj where
   rnf LteNmrObj' {..} =
-    Prelude.rnf rsrp
-      `Prelude.seq` Prelude.rnf rsrq
-      `Prelude.seq` Prelude.rnf pci
-      `Prelude.seq` Prelude.rnf earfcn
-      `Prelude.seq` Prelude.rnf eutranCid
+    Prelude.rnf rsrp `Prelude.seq`
+      Prelude.rnf rsrq `Prelude.seq`
+        Prelude.rnf pci `Prelude.seq`
+          Prelude.rnf earfcn `Prelude.seq`
+            Prelude.rnf eutranCid
 
 instance Data.ToJSON LteNmrObj where
   toJSON LteNmrObj' {..} =

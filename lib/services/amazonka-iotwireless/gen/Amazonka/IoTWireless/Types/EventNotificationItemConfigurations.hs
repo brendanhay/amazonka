@@ -138,8 +138,8 @@ instance
     EventNotificationItemConfigurations
   where
   rnf EventNotificationItemConfigurations' {..} =
-    Prelude.rnf connectionStatus
-      `Prelude.seq` Prelude.rnf deviceRegistrationState
-      `Prelude.seq` Prelude.rnf join
-      `Prelude.seq` Prelude.rnf messageDeliveryStatus
-      `Prelude.seq` Prelude.rnf proximity
+    Prelude.rnf connectionStatus `Prelude.seq`
+      Prelude.rnf deviceRegistrationState `Prelude.seq`
+        Prelude.rnf join `Prelude.seq`
+          Prelude.rnf messageDeliveryStatus `Prelude.seq`
+            Prelude.rnf proximity

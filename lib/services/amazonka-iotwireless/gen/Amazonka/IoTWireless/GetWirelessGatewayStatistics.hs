@@ -183,7 +183,7 @@ instance
     GetWirelessGatewayStatisticsResponse
   where
   rnf GetWirelessGatewayStatisticsResponse' {..} =
-    Prelude.rnf connectionStatus
-      `Prelude.seq` Prelude.rnf lastUplinkReceivedAt
-      `Prelude.seq` Prelude.rnf wirelessGatewayId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf connectionStatus `Prelude.seq`
+      Prelude.rnf lastUplinkReceivedAt `Prelude.seq`
+        Prelude.rnf wirelessGatewayId `Prelude.seq`
+          Prelude.rnf httpStatus

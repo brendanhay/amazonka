@@ -117,8 +117,8 @@ instance Prelude.Hashable ListWirelessGateways where
 
 instance Prelude.NFData ListWirelessGateways where
   rnf ListWirelessGateways' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListWirelessGateways where
   toHeaders = Prelude.const Prelude.mempty
@@ -186,6 +186,6 @@ listWirelessGatewaysResponse_httpStatus = Lens.lens (\ListWirelessGatewaysRespon
 
 instance Prelude.NFData ListWirelessGatewaysResponse where
   rnf ListWirelessGatewaysResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf wirelessGatewayList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf wirelessGatewayList `Prelude.seq`
+        Prelude.rnf httpStatus

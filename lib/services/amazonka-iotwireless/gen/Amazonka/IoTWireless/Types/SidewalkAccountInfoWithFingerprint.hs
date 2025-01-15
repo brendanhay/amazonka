@@ -103,6 +103,6 @@ instance
     SidewalkAccountInfoWithFingerprint
   where
   rnf SidewalkAccountInfoWithFingerprint' {..} =
-    Prelude.rnf amazonId
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf fingerprint
+    Prelude.rnf amazonId `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf fingerprint

@@ -162,7 +162,7 @@ instance
     GetLogLevelsByResourceTypesResponse
   where
   rnf GetLogLevelsByResourceTypesResponse' {..} =
-    Prelude.rnf defaultLogLevel
-      `Prelude.seq` Prelude.rnf wirelessDeviceLogOptions
-      `Prelude.seq` Prelude.rnf wirelessGatewayLogOptions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf defaultLogLevel `Prelude.seq`
+      Prelude.rnf wirelessDeviceLogOptions `Prelude.seq`
+        Prelude.rnf wirelessGatewayLogOptions `Prelude.seq`
+          Prelude.rnf httpStatus

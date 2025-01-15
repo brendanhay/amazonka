@@ -142,9 +142,9 @@ instance Prelude.Hashable UpdateResourcePosition where
 
 instance Prelude.NFData UpdateResourcePosition where
   rnf UpdateResourcePosition' {..} =
-    Prelude.rnf geoJsonPayload
-      `Prelude.seq` Prelude.rnf resourceIdentifier
-      `Prelude.seq` Prelude.rnf resourceType
+    Prelude.rnf geoJsonPayload `Prelude.seq`
+      Prelude.rnf resourceIdentifier `Prelude.seq`
+        Prelude.rnf resourceType
 
 instance Data.ToBody UpdateResourcePosition where
   toBody UpdateResourcePosition' {..} =

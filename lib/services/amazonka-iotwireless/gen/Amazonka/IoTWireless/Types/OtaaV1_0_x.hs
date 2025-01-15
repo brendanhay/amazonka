@@ -91,9 +91,9 @@ instance Prelude.Hashable OtaaV1_0_x where
 
 instance Prelude.NFData OtaaV1_0_x where
   rnf OtaaV1_0_x' {..} =
-    Prelude.rnf appEui
-      `Prelude.seq` Prelude.rnf appKey
-      `Prelude.seq` Prelude.rnf genAppKey
+    Prelude.rnf appEui `Prelude.seq`
+      Prelude.rnf appKey `Prelude.seq`
+        Prelude.rnf genAppKey
 
 instance Data.ToJSON OtaaV1_0_x where
   toJSON OtaaV1_0_x' {..} =

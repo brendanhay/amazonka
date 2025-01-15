@@ -129,9 +129,9 @@ instance Prelude.Hashable DeleteQueuedMessages where
 
 instance Prelude.NFData DeleteQueuedMessages where
   rnf DeleteQueuedMessages' {..} =
-    Prelude.rnf wirelessDeviceType
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf messageId
+    Prelude.rnf wirelessDeviceType `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf messageId
 
 instance Data.ToHeaders DeleteQueuedMessages where
   toHeaders = Prelude.const Prelude.mempty

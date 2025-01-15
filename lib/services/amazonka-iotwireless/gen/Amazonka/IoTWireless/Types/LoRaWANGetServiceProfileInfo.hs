@@ -274,22 +274,22 @@ instance
 
 instance Prelude.NFData LoRaWANGetServiceProfileInfo where
   rnf LoRaWANGetServiceProfileInfo' {..} =
-    Prelude.rnf addGwMetadata
-      `Prelude.seq` Prelude.rnf channelMask
-      `Prelude.seq` Prelude.rnf devStatusReqFreq
-      `Prelude.seq` Prelude.rnf dlBucketSize
-      `Prelude.seq` Prelude.rnf dlRate
-      `Prelude.seq` Prelude.rnf dlRatePolicy
-      `Prelude.seq` Prelude.rnf drMax
-      `Prelude.seq` Prelude.rnf drMin
-      `Prelude.seq` Prelude.rnf hrAllowed
-      `Prelude.seq` Prelude.rnf minGwDiversity
-      `Prelude.seq` Prelude.rnf nwkGeoLoc
-      `Prelude.seq` Prelude.rnf prAllowed
-      `Prelude.seq` Prelude.rnf raAllowed
-      `Prelude.seq` Prelude.rnf reportDevStatusBattery
-      `Prelude.seq` Prelude.rnf reportDevStatusMargin
-      `Prelude.seq` Prelude.rnf targetPer
-      `Prelude.seq` Prelude.rnf ulBucketSize
-      `Prelude.seq` Prelude.rnf ulRate
-      `Prelude.seq` Prelude.rnf ulRatePolicy
+    Prelude.rnf addGwMetadata `Prelude.seq`
+      Prelude.rnf channelMask `Prelude.seq`
+        Prelude.rnf devStatusReqFreq `Prelude.seq`
+          Prelude.rnf dlBucketSize `Prelude.seq`
+            Prelude.rnf dlRate `Prelude.seq`
+              Prelude.rnf dlRatePolicy `Prelude.seq`
+                Prelude.rnf drMax `Prelude.seq`
+                  Prelude.rnf drMin `Prelude.seq`
+                    Prelude.rnf hrAllowed `Prelude.seq`
+                      Prelude.rnf minGwDiversity `Prelude.seq`
+                        Prelude.rnf nwkGeoLoc `Prelude.seq`
+                          Prelude.rnf prAllowed `Prelude.seq`
+                            Prelude.rnf raAllowed `Prelude.seq`
+                              Prelude.rnf reportDevStatusBattery `Prelude.seq`
+                                Prelude.rnf reportDevStatusMargin `Prelude.seq`
+                                  Prelude.rnf targetPer `Prelude.seq`
+                                    Prelude.rnf ulBucketSize `Prelude.seq`
+                                      Prelude.rnf ulRate `Prelude.seq`
+                                        Prelude.rnf ulRatePolicy

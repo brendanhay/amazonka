@@ -178,5 +178,5 @@ instance
   where
   rnf
     GetWirelessGatewayFirmwareInformationResponse' {..} =
-      Prelude.rnf loRaWAN
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf loRaWAN `Prelude.seq`
+        Prelude.rnf httpStatus

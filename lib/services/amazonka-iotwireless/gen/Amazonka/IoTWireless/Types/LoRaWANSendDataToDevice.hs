@@ -83,8 +83,8 @@ instance Prelude.Hashable LoRaWANSendDataToDevice where
 
 instance Prelude.NFData LoRaWANSendDataToDevice where
   rnf LoRaWANSendDataToDevice' {..} =
-    Prelude.rnf fPort
-      `Prelude.seq` Prelude.rnf participatingGateways
+    Prelude.rnf fPort `Prelude.seq`
+      Prelude.rnf participatingGateways
 
 instance Data.ToJSON LoRaWANSendDataToDevice where
   toJSON LoRaWANSendDataToDevice' {..} =

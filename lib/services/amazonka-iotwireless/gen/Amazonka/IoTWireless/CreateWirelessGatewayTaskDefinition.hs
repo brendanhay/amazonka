@@ -174,11 +174,11 @@ instance
     CreateWirelessGatewayTaskDefinition
   where
   rnf CreateWirelessGatewayTaskDefinition' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf update
-      `Prelude.seq` Prelude.rnf autoCreateTasks
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf update `Prelude.seq`
+            Prelude.rnf autoCreateTasks
 
 instance
   Data.ToHeaders
@@ -270,6 +270,6 @@ instance
     CreateWirelessGatewayTaskDefinitionResponse
   where
   rnf CreateWirelessGatewayTaskDefinitionResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf httpStatus

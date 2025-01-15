@@ -107,7 +107,7 @@ instance Prelude.Hashable EventConfigurationItem where
 
 instance Prelude.NFData EventConfigurationItem where
   rnf EventConfigurationItem' {..} =
-    Prelude.rnf events
-      `Prelude.seq` Prelude.rnf identifier
-      `Prelude.seq` Prelude.rnf identifierType
-      `Prelude.seq` Prelude.rnf partnerType
+    Prelude.rnf events `Prelude.seq`
+      Prelude.rnf identifier `Prelude.seq`
+        Prelude.rnf identifierType `Prelude.seq`
+          Prelude.rnf partnerType

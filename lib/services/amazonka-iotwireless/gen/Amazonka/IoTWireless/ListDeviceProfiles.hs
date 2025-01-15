@@ -117,8 +117,8 @@ instance Prelude.Hashable ListDeviceProfiles where
 
 instance Prelude.NFData ListDeviceProfiles where
   rnf ListDeviceProfiles' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListDeviceProfiles where
   toHeaders = Prelude.const Prelude.mempty
@@ -186,6 +186,6 @@ listDeviceProfilesResponse_httpStatus = Lens.lens (\ListDeviceProfilesResponse' 
 
 instance Prelude.NFData ListDeviceProfilesResponse where
   rnf ListDeviceProfilesResponse' {..} =
-    Prelude.rnf deviceProfileList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf deviceProfileList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

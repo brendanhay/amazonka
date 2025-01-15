@@ -109,11 +109,11 @@ instance Prelude.Hashable WcdmaNmrObj where
 
 instance Prelude.NFData WcdmaNmrObj where
   rnf WcdmaNmrObj' {..} =
-    Prelude.rnf pathLoss
-      `Prelude.seq` Prelude.rnf rscp
-      `Prelude.seq` Prelude.rnf uarfcndl
-      `Prelude.seq` Prelude.rnf psc
-      `Prelude.seq` Prelude.rnf utranCid
+    Prelude.rnf pathLoss `Prelude.seq`
+      Prelude.rnf rscp `Prelude.seq`
+        Prelude.rnf uarfcndl `Prelude.seq`
+          Prelude.rnf psc `Prelude.seq`
+            Prelude.rnf utranCid
 
 instance Data.ToJSON WcdmaNmrObj where
   toJSON WcdmaNmrObj' {..} =

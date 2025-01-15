@@ -124,9 +124,9 @@ instance Prelude.Hashable UpdatePartnerAccount where
 
 instance Prelude.NFData UpdatePartnerAccount where
   rnf UpdatePartnerAccount' {..} =
-    Prelude.rnf sidewalk
-      `Prelude.seq` Prelude.rnf partnerAccountId
-      `Prelude.seq` Prelude.rnf partnerType
+    Prelude.rnf sidewalk `Prelude.seq`
+      Prelude.rnf partnerAccountId `Prelude.seq`
+        Prelude.rnf partnerType
 
 instance Data.ToHeaders UpdatePartnerAccount where
   toHeaders = Prelude.const Prelude.mempty

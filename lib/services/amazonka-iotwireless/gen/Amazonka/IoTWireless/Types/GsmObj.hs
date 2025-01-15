@@ -146,14 +146,14 @@ instance Prelude.Hashable GsmObj where
 
 instance Prelude.NFData GsmObj where
   rnf GsmObj' {..} =
-    Prelude.rnf gsmLocalId
-      `Prelude.seq` Prelude.rnf gsmNmr
-      `Prelude.seq` Prelude.rnf gsmTimingAdvance
-      `Prelude.seq` Prelude.rnf rxLevel
-      `Prelude.seq` Prelude.rnf mcc
-      `Prelude.seq` Prelude.rnf mnc
-      `Prelude.seq` Prelude.rnf lac
-      `Prelude.seq` Prelude.rnf geranCid
+    Prelude.rnf gsmLocalId `Prelude.seq`
+      Prelude.rnf gsmNmr `Prelude.seq`
+        Prelude.rnf gsmTimingAdvance `Prelude.seq`
+          Prelude.rnf rxLevel `Prelude.seq`
+            Prelude.rnf mcc `Prelude.seq`
+              Prelude.rnf mnc `Prelude.seq`
+                Prelude.rnf lac `Prelude.seq`
+                  Prelude.rnf geranCid
 
 instance Data.ToJSON GsmObj where
   toJSON GsmObj' {..} =

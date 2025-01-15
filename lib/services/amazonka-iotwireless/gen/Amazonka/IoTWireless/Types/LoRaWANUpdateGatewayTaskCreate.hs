@@ -112,10 +112,10 @@ instance
     LoRaWANUpdateGatewayTaskCreate
   where
   rnf LoRaWANUpdateGatewayTaskCreate' {..} =
-    Prelude.rnf currentVersion
-      `Prelude.seq` Prelude.rnf sigKeyCrc
-      `Prelude.seq` Prelude.rnf updateSignature
-      `Prelude.seq` Prelude.rnf updateVersion
+    Prelude.rnf currentVersion `Prelude.seq`
+      Prelude.rnf sigKeyCrc `Prelude.seq`
+        Prelude.rnf updateSignature `Prelude.seq`
+          Prelude.rnf updateVersion
 
 instance Data.ToJSON LoRaWANUpdateGatewayTaskCreate where
   toJSON LoRaWANUpdateGatewayTaskCreate' {..} =

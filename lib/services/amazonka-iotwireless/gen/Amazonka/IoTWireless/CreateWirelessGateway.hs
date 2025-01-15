@@ -159,11 +159,11 @@ instance Prelude.Hashable CreateWirelessGateway where
 
 instance Prelude.NFData CreateWirelessGateway where
   rnf CreateWirelessGateway' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf loRaWAN
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf loRaWAN
 
 instance Data.ToHeaders CreateWirelessGateway where
   toHeaders = Prelude.const Prelude.mempty
@@ -237,6 +237,6 @@ createWirelessGatewayResponse_httpStatus = Lens.lens (\CreateWirelessGatewayResp
 
 instance Prelude.NFData CreateWirelessGatewayResponse where
   rnf CreateWirelessGatewayResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf httpStatus

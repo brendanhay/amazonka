@@ -98,10 +98,10 @@ instance Prelude.Hashable GsmNmrObj where
 
 instance Prelude.NFData GsmNmrObj where
   rnf GsmNmrObj' {..} =
-    Prelude.rnf globalIdentity
-      `Prelude.seq` Prelude.rnf rxLevel
-      `Prelude.seq` Prelude.rnf bsic
-      `Prelude.seq` Prelude.rnf bcch
+    Prelude.rnf globalIdentity `Prelude.seq`
+      Prelude.rnf rxLevel `Prelude.seq`
+        Prelude.rnf bsic `Prelude.seq`
+          Prelude.rnf bcch
 
 instance Data.ToJSON GsmNmrObj where
   toJSON GsmNmrObj' {..} =

@@ -102,9 +102,9 @@ instance Prelude.Hashable ApplicationConfig where
 
 instance Prelude.NFData ApplicationConfig where
   rnf ApplicationConfig' {..} =
-    Prelude.rnf destinationName
-      `Prelude.seq` Prelude.rnf fPort
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf destinationName `Prelude.seq`
+      Prelude.rnf fPort `Prelude.seq`
+        Prelude.rnf type'
 
 instance Data.ToJSON ApplicationConfig where
   toJSON ApplicationConfig' {..} =

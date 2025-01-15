@@ -151,5 +151,5 @@ testWirelessDeviceResponse_httpStatus = Lens.lens (\TestWirelessDeviceResponse' 
 
 instance Prelude.NFData TestWirelessDeviceResponse where
   rnf TestWirelessDeviceResponse' {..} =
-    Prelude.rnf result
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf result `Prelude.seq`
+      Prelude.rnf httpStatus

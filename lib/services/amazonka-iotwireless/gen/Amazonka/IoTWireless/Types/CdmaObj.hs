@@ -151,15 +151,15 @@ instance Prelude.Hashable CdmaObj where
 
 instance Prelude.NFData CdmaObj where
   rnf CdmaObj' {..} =
-    Prelude.rnf baseLat
-      `Prelude.seq` Prelude.rnf baseLng
-      `Prelude.seq` Prelude.rnf cdmaLocalId
-      `Prelude.seq` Prelude.rnf cdmaNmr
-      `Prelude.seq` Prelude.rnf pilotPower
-      `Prelude.seq` Prelude.rnf registrationZone
-      `Prelude.seq` Prelude.rnf systemId
-      `Prelude.seq` Prelude.rnf networkId
-      `Prelude.seq` Prelude.rnf baseStationId
+    Prelude.rnf baseLat `Prelude.seq`
+      Prelude.rnf baseLng `Prelude.seq`
+        Prelude.rnf cdmaLocalId `Prelude.seq`
+          Prelude.rnf cdmaNmr `Prelude.seq`
+            Prelude.rnf pilotPower `Prelude.seq`
+              Prelude.rnf registrationZone `Prelude.seq`
+                Prelude.rnf systemId `Prelude.seq`
+                  Prelude.rnf networkId `Prelude.seq`
+                    Prelude.rnf baseStationId
 
 instance Data.ToJSON CdmaObj where
   toJSON CdmaObj' {..} =

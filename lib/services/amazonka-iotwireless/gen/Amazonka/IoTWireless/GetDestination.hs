@@ -200,10 +200,10 @@ getDestinationResponse_httpStatus = Lens.lens (\GetDestinationResponse' {httpSta
 
 instance Prelude.NFData GetDestinationResponse where
   rnf GetDestinationResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf expression
-      `Prelude.seq` Prelude.rnf expressionType
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf expression `Prelude.seq`
+          Prelude.rnf expressionType `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf roleArn `Prelude.seq`
+                Prelude.rnf httpStatus

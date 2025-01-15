@@ -154,12 +154,12 @@ instance Prelude.Hashable UpdateWirelessDevice where
 
 instance Prelude.NFData UpdateWirelessDevice where
   rnf UpdateWirelessDevice' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf destinationName
-      `Prelude.seq` Prelude.rnf loRaWAN
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf positioning
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf destinationName `Prelude.seq`
+        Prelude.rnf loRaWAN `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf positioning `Prelude.seq`
+              Prelude.rnf id
 
 instance Data.ToHeaders UpdateWirelessDevice where
   toHeaders = Prelude.const Prelude.mempty

@@ -144,9 +144,9 @@ instance
     ListWirelessGatewayTaskDefinitions
   where
   rnf ListWirelessGatewayTaskDefinitions' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf taskDefinitionType
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf taskDefinitionType
 
 instance
   Data.ToHeaders
@@ -230,6 +230,6 @@ instance
     ListWirelessGatewayTaskDefinitionsResponse
   where
   rnf ListWirelessGatewayTaskDefinitionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf taskDefinitions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf taskDefinitions `Prelude.seq`
+        Prelude.rnf httpStatus

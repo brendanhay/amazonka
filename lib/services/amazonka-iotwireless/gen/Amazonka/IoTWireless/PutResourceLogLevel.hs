@@ -128,9 +128,9 @@ instance Prelude.Hashable PutResourceLogLevel where
 
 instance Prelude.NFData PutResourceLogLevel where
   rnf PutResourceLogLevel' {..} =
-    Prelude.rnf resourceIdentifier
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf logLevel
+    Prelude.rnf resourceIdentifier `Prelude.seq`
+      Prelude.rnf resourceType `Prelude.seq`
+        Prelude.rnf logLevel
 
 instance Data.ToHeaders PutResourceLogLevel where
   toHeaders = Prelude.const Prelude.mempty

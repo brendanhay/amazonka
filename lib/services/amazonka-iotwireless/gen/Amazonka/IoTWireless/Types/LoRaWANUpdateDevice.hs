@@ -103,11 +103,11 @@ instance Prelude.Hashable LoRaWANUpdateDevice where
 
 instance Prelude.NFData LoRaWANUpdateDevice where
   rnf LoRaWANUpdateDevice' {..} =
-    Prelude.rnf abpV1_0_x
-      `Prelude.seq` Prelude.rnf abpV1_1
-      `Prelude.seq` Prelude.rnf deviceProfileId
-      `Prelude.seq` Prelude.rnf fPorts
-      `Prelude.seq` Prelude.rnf serviceProfileId
+    Prelude.rnf abpV1_0_x `Prelude.seq`
+      Prelude.rnf abpV1_1 `Prelude.seq`
+        Prelude.rnf deviceProfileId `Prelude.seq`
+          Prelude.rnf fPorts `Prelude.seq`
+            Prelude.rnf serviceProfileId
 
 instance Data.ToJSON LoRaWANUpdateDevice where
   toJSON LoRaWANUpdateDevice' {..} =

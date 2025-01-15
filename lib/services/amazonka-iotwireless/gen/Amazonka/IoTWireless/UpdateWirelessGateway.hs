@@ -138,11 +138,11 @@ instance Prelude.Hashable UpdateWirelessGateway where
 
 instance Prelude.NFData UpdateWirelessGateway where
   rnf UpdateWirelessGateway' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf joinEuiFilters
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf netIdFilters
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf joinEuiFilters `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf netIdFilters `Prelude.seq`
+            Prelude.rnf id
 
 instance Data.ToHeaders UpdateWirelessGateway where
   toHeaders = Prelude.const Prelude.mempty

@@ -113,9 +113,9 @@ instance Prelude.Hashable ParticipatingGateways where
 
 instance Prelude.NFData ParticipatingGateways where
   rnf ParticipatingGateways' {..} =
-    Prelude.rnf downlinkMode
-      `Prelude.seq` Prelude.rnf gatewayList
-      `Prelude.seq` Prelude.rnf transmissionInterval
+    Prelude.rnf downlinkMode `Prelude.seq`
+      Prelude.rnf gatewayList `Prelude.seq`
+        Prelude.rnf transmissionInterval
 
 instance Data.ToJSON ParticipatingGateways where
   toJSON ParticipatingGateways' {..} =

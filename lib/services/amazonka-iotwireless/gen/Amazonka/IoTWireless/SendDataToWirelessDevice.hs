@@ -140,10 +140,10 @@ instance Prelude.Hashable SendDataToWirelessDevice where
 
 instance Prelude.NFData SendDataToWirelessDevice where
   rnf SendDataToWirelessDevice' {..} =
-    Prelude.rnf wirelessMetadata
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf transmitMode
-      `Prelude.seq` Prelude.rnf payloadData
+    Prelude.rnf wirelessMetadata `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf transmitMode `Prelude.seq`
+          Prelude.rnf payloadData
 
 instance Data.ToHeaders SendDataToWirelessDevice where
   toHeaders = Prelude.const Prelude.mempty
@@ -211,5 +211,5 @@ instance
     SendDataToWirelessDeviceResponse
   where
   rnf SendDataToWirelessDeviceResponse' {..} =
-    Prelude.rnf messageId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf messageId `Prelude.seq`
+      Prelude.rnf httpStatus

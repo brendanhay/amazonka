@@ -88,6 +88,6 @@ instance Prelude.Hashable MulticastGroup where
 
 instance Prelude.NFData MulticastGroup where
   rnf MulticastGroup' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf name

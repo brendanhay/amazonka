@@ -190,8 +190,8 @@ instance
     GetWirelessDeviceStatisticsResponse
   where
   rnf GetWirelessDeviceStatisticsResponse' {..} =
-    Prelude.rnf lastUplinkReceivedAt
-      `Prelude.seq` Prelude.rnf loRaWAN
-      `Prelude.seq` Prelude.rnf sidewalk
-      `Prelude.seq` Prelude.rnf wirelessDeviceId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf lastUplinkReceivedAt `Prelude.seq`
+      Prelude.rnf loRaWAN `Prelude.seq`
+        Prelude.rnf sidewalk `Prelude.seq`
+          Prelude.rnf wirelessDeviceId `Prelude.seq`
+            Prelude.rnf httpStatus

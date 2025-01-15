@@ -126,9 +126,9 @@ instance
     UpdateLogLevelsByResourceTypes
   where
   rnf UpdateLogLevelsByResourceTypes' {..} =
-    Prelude.rnf defaultLogLevel
-      `Prelude.seq` Prelude.rnf wirelessDeviceLogOptions
-      `Prelude.seq` Prelude.rnf wirelessGatewayLogOptions
+    Prelude.rnf defaultLogLevel `Prelude.seq`
+      Prelude.rnf wirelessDeviceLogOptions `Prelude.seq`
+        Prelude.rnf wirelessGatewayLogOptions
 
 instance
   Data.ToHeaders

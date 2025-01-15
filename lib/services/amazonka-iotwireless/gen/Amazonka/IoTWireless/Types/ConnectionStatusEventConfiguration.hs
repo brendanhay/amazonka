@@ -102,8 +102,8 @@ instance
     ConnectionStatusEventConfiguration
   where
   rnf ConnectionStatusEventConfiguration' {..} =
-    Prelude.rnf loRaWAN
-      `Prelude.seq` Prelude.rnf wirelessGatewayIdEventTopic
+    Prelude.rnf loRaWAN `Prelude.seq`
+      Prelude.rnf wirelessGatewayIdEventTopic
 
 instance
   Data.ToJSON

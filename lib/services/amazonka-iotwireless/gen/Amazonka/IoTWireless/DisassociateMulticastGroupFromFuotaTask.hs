@@ -121,8 +121,8 @@ instance
     DisassociateMulticastGroupFromFuotaTask
   where
   rnf DisassociateMulticastGroupFromFuotaTask' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf multicastGroupId
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf multicastGroupId
 
 instance
   Data.ToHeaders

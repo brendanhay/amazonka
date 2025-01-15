@@ -91,9 +91,9 @@ instance Prelude.Hashable LoRaWANGatewayVersion where
 
 instance Prelude.NFData LoRaWANGatewayVersion where
   rnf LoRaWANGatewayVersion' {..} =
-    Prelude.rnf model
-      `Prelude.seq` Prelude.rnf packageVersion
-      `Prelude.seq` Prelude.rnf station
+    Prelude.rnf model `Prelude.seq`
+      Prelude.rnf packageVersion `Prelude.seq`
+        Prelude.rnf station
 
 instance Data.ToJSON LoRaWANGatewayVersion where
   toJSON LoRaWANGatewayVersion' {..} =

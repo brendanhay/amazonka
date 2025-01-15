@@ -114,8 +114,8 @@ instance Prelude.Hashable ListPartnerAccounts where
 
 instance Prelude.NFData ListPartnerAccounts where
   rnf ListPartnerAccounts' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListPartnerAccounts where
   toHeaders = Prelude.const Prelude.mempty
@@ -183,6 +183,6 @@ listPartnerAccountsResponse_httpStatus = Lens.lens (\ListPartnerAccountsResponse
 
 instance Prelude.NFData ListPartnerAccountsResponse where
   rnf ListPartnerAccountsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sidewalk
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf sidewalk `Prelude.seq`
+        Prelude.rnf httpStatus

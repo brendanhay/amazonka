@@ -81,9 +81,9 @@ instance Prelude.Hashable SidewalkSendDataToDevice where
 
 instance Prelude.NFData SidewalkSendDataToDevice where
   rnf SidewalkSendDataToDevice' {..} =
-    Prelude.rnf ackModeRetryDurationSecs
-      `Prelude.seq` Prelude.rnf messageType
-      `Prelude.seq` Prelude.rnf seq
+    Prelude.rnf ackModeRetryDurationSecs `Prelude.seq`
+      Prelude.rnf messageType `Prelude.seq`
+        Prelude.rnf seq
 
 instance Data.ToJSON SidewalkSendDataToDevice where
   toJSON SidewalkSendDataToDevice' {..} =

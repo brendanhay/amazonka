@@ -98,8 +98,8 @@ instance
     MessageDeliveryStatusEventConfiguration
   where
   rnf MessageDeliveryStatusEventConfiguration' {..} =
-    Prelude.rnf sidewalk
-      `Prelude.seq` Prelude.rnf wirelessDeviceIdEventTopic
+    Prelude.rnf sidewalk `Prelude.seq`
+      Prelude.rnf wirelessDeviceIdEventTopic
 
 instance
   Data.ToJSON

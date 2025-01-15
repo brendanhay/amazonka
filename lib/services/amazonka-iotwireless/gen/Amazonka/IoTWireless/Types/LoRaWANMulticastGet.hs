@@ -101,7 +101,7 @@ instance Prelude.Hashable LoRaWANMulticastGet where
 
 instance Prelude.NFData LoRaWANMulticastGet where
   rnf LoRaWANMulticastGet' {..} =
-    Prelude.rnf dlClass
-      `Prelude.seq` Prelude.rnf numberOfDevicesInGroup
-      `Prelude.seq` Prelude.rnf numberOfDevicesRequested
-      `Prelude.seq` Prelude.rnf rfRegion
+    Prelude.rnf dlClass `Prelude.seq`
+      Prelude.rnf numberOfDevicesInGroup `Prelude.seq`
+        Prelude.rnf numberOfDevicesRequested `Prelude.seq`
+          Prelude.rnf rfRegion

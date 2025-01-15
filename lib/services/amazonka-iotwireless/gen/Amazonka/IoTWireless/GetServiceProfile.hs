@@ -179,8 +179,8 @@ getServiceProfileResponse_httpStatus = Lens.lens (\GetServiceProfileResponse' {h
 
 instance Prelude.NFData GetServiceProfileResponse where
   rnf GetServiceProfileResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf loRaWAN
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf loRaWAN `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf httpStatus

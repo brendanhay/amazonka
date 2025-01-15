@@ -173,6 +173,6 @@ instance
     GetWirelessGatewayCertificateResponse
   where
   rnf GetWirelessGatewayCertificateResponse' {..} =
-    Prelude.rnf iotCertificateId
-      `Prelude.seq` Prelude.rnf loRaWANNetworkServerCertificateId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf iotCertificateId `Prelude.seq`
+      Prelude.rnf loRaWANNetworkServerCertificateId `Prelude.seq`
+        Prelude.rnf httpStatus

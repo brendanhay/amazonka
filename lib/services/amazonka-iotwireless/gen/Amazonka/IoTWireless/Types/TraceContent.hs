@@ -80,8 +80,8 @@ instance Prelude.Hashable TraceContent where
 
 instance Prelude.NFData TraceContent where
   rnf TraceContent' {..} =
-    Prelude.rnf logLevel
-      `Prelude.seq` Prelude.rnf wirelessDeviceFrameInfo
+    Prelude.rnf logLevel `Prelude.seq`
+      Prelude.rnf wirelessDeviceFrameInfo
 
 instance Data.ToJSON TraceContent where
   toJSON TraceContent' {..} =

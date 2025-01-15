@@ -88,8 +88,8 @@ instance Prelude.Hashable JoinEventConfiguration where
 
 instance Prelude.NFData JoinEventConfiguration where
   rnf JoinEventConfiguration' {..} =
-    Prelude.rnf loRaWAN
-      `Prelude.seq` Prelude.rnf wirelessDeviceIdEventTopic
+    Prelude.rnf loRaWAN `Prelude.seq`
+      Prelude.rnf wirelessDeviceIdEventTopic
 
 instance Data.ToJSON JoinEventConfiguration where
   toJSON JoinEventConfiguration' {..} =

@@ -197,14 +197,14 @@ instance Prelude.Hashable CreateWirelessDevice where
 
 instance Prelude.NFData CreateWirelessDevice where
   rnf CreateWirelessDevice' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf loRaWAN
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf positioning
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf destinationName
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf loRaWAN `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf positioning `Prelude.seq`
+              Prelude.rnf tags `Prelude.seq`
+                Prelude.rnf type' `Prelude.seq`
+                  Prelude.rnf destinationName
 
 instance Data.ToHeaders CreateWirelessDevice where
   toHeaders = Prelude.const Prelude.mempty
@@ -282,6 +282,6 @@ createWirelessDeviceResponse_httpStatus = Lens.lens (\CreateWirelessDeviceRespon
 
 instance Prelude.NFData CreateWirelessDeviceResponse where
   rnf CreateWirelessDeviceResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf httpStatus

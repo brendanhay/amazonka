@@ -70,8 +70,8 @@ instance Prelude.Hashable LoRaWANMulticast where
 
 instance Prelude.NFData LoRaWANMulticast where
   rnf LoRaWANMulticast' {..} =
-    Prelude.rnf dlClass
-      `Prelude.seq` Prelude.rnf rfRegion
+    Prelude.rnf dlClass `Prelude.seq`
+      Prelude.rnf rfRegion
 
 instance Data.ToJSON LoRaWANMulticast where
   toJSON LoRaWANMulticast' {..} =

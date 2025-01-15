@@ -105,11 +105,11 @@ instance Prelude.Hashable CellTowers where
 
 instance Prelude.NFData CellTowers where
   rnf CellTowers' {..} =
-    Prelude.rnf cdma
-      `Prelude.seq` Prelude.rnf gsm
-      `Prelude.seq` Prelude.rnf lte
-      `Prelude.seq` Prelude.rnf tdscdma
-      `Prelude.seq` Prelude.rnf wcdma
+    Prelude.rnf cdma `Prelude.seq`
+      Prelude.rnf gsm `Prelude.seq`
+        Prelude.rnf lte `Prelude.seq`
+          Prelude.rnf tdscdma `Prelude.seq`
+            Prelude.rnf wcdma
 
 instance Data.ToJSON CellTowers where
   toJSON CellTowers' {..} =

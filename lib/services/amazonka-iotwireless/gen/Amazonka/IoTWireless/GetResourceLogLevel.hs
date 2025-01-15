@@ -117,8 +117,8 @@ instance Prelude.Hashable GetResourceLogLevel where
 
 instance Prelude.NFData GetResourceLogLevel where
   rnf GetResourceLogLevel' {..} =
-    Prelude.rnf resourceIdentifier
-      `Prelude.seq` Prelude.rnf resourceType
+    Prelude.rnf resourceIdentifier `Prelude.seq`
+      Prelude.rnf resourceType
 
 instance Data.ToHeaders GetResourceLogLevel where
   toHeaders = Prelude.const Prelude.mempty
@@ -173,5 +173,5 @@ getResourceLogLevelResponse_httpStatus = Lens.lens (\GetResourceLogLevelResponse
 
 instance Prelude.NFData GetResourceLogLevelResponse where
   rnf GetResourceLogLevelResponse' {..} =
-    Prelude.rnf logLevel
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf logLevel `Prelude.seq`
+      Prelude.rnf httpStatus

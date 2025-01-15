@@ -139,9 +139,9 @@ instance Prelude.Hashable RegisterClient where
 
 instance Prelude.NFData RegisterClient where
   rnf RegisterClient' {..} =
-    Prelude.rnf scopes
-      `Prelude.seq` Prelude.rnf clientName
-      `Prelude.seq` Prelude.rnf clientType
+    Prelude.rnf scopes `Prelude.seq`
+      Prelude.rnf clientName `Prelude.seq`
+        Prelude.rnf clientType
 
 instance Data.ToHeaders RegisterClient where
   toHeaders =
@@ -268,10 +268,10 @@ registerClientResponse_httpStatus = Lens.lens (\RegisterClientResponse' {httpSta
 
 instance Prelude.NFData RegisterClientResponse where
   rnf RegisterClientResponse' {..} =
-    Prelude.rnf authorizationEndpoint
-      `Prelude.seq` Prelude.rnf clientId
-      `Prelude.seq` Prelude.rnf clientIdIssuedAt
-      `Prelude.seq` Prelude.rnf clientSecret
-      `Prelude.seq` Prelude.rnf clientSecretExpiresAt
-      `Prelude.seq` Prelude.rnf tokenEndpoint
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf authorizationEndpoint `Prelude.seq`
+      Prelude.rnf clientId `Prelude.seq`
+        Prelude.rnf clientIdIssuedAt `Prelude.seq`
+          Prelude.rnf clientSecret `Prelude.seq`
+            Prelude.rnf clientSecretExpiresAt `Prelude.seq`
+              Prelude.rnf tokenEndpoint `Prelude.seq`
+                Prelude.rnf httpStatus

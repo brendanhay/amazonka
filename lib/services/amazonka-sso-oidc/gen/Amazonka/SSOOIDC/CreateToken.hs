@@ -255,14 +255,14 @@ instance Prelude.Hashable CreateToken where
 
 instance Prelude.NFData CreateToken where
   rnf CreateToken' {..} =
-    Prelude.rnf code
-      `Prelude.seq` Prelude.rnf deviceCode
-      `Prelude.seq` Prelude.rnf redirectUri
-      `Prelude.seq` Prelude.rnf refreshToken
-      `Prelude.seq` Prelude.rnf scope
-      `Prelude.seq` Prelude.rnf clientId
-      `Prelude.seq` Prelude.rnf clientSecret
-      `Prelude.seq` Prelude.rnf grantType
+    Prelude.rnf code `Prelude.seq`
+      Prelude.rnf deviceCode `Prelude.seq`
+        Prelude.rnf redirectUri `Prelude.seq`
+          Prelude.rnf refreshToken `Prelude.seq`
+            Prelude.rnf scope `Prelude.seq`
+              Prelude.rnf clientId `Prelude.seq`
+                Prelude.rnf clientSecret `Prelude.seq`
+                  Prelude.rnf grantType
 
 instance Data.ToHeaders CreateToken where
   toHeaders =
@@ -420,9 +420,9 @@ createTokenResponse_httpStatus = Lens.lens (\CreateTokenResponse' {httpStatus} -
 
 instance Prelude.NFData CreateTokenResponse where
   rnf CreateTokenResponse' {..} =
-    Prelude.rnf accessToken
-      `Prelude.seq` Prelude.rnf expiresIn
-      `Prelude.seq` Prelude.rnf idToken
-      `Prelude.seq` Prelude.rnf refreshToken
-      `Prelude.seq` Prelude.rnf tokenType
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf accessToken `Prelude.seq`
+      Prelude.rnf expiresIn `Prelude.seq`
+        Prelude.rnf idToken `Prelude.seq`
+          Prelude.rnf refreshToken `Prelude.seq`
+            Prelude.rnf tokenType `Prelude.seq`
+              Prelude.rnf httpStatus

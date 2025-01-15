@@ -1,3 +1,5 @@
+{-# LANGUAGE ApplicativeDo #-}
+{-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE TemplateHaskell #-}
 
 module Gen.Types.Retry where
@@ -11,7 +13,7 @@ import GHC.Generics ()
 import Gen.Prelude
 import Gen.Text
 
-defKey :: IsString a => a
+defKey :: (IsString a) => a
 defKey = "__default__"
 
 data When
@@ -51,10 +53,11 @@ $(Lens.makeClassy ''Delay)
 
 instance FromJSON Delay where
   parseJSON =
-    Aeson.withObject "Delay" $ \o ->
-      Delay <$> upperHead <$> o .: "type"
-        <*> (o .: "base" >>= base)
-        <*> o .: "growth_factor"
+    Aeson.withObject "Delay" $ \o -> do
+      _delayType <- upperHead <$> o .: "type"
+      _delayBase <- o .: "base" >>= base
+      _delayGrowth <- o .: "growth_factor"
+      pure Delay {..}
     where
       base = \case
         Aeson.String "rand" -> pure 0.05
@@ -74,11 +77,10 @@ instance HasDelay Retry where
 
 instance FromJSON Retry where
   parseJSON =
-    Aeson.withObject "default_retry" $ \o ->
-      Retry'
-        <$> o .: "max_attempts"
-        <*> o .: "delay"
-        <*> pure mempty
+    Aeson.withObject "default_retry" $ \o -> do
+      _retryAttempts <- o .: "max_attempts"
+      _retryDelay <- o .: "delay"
+      pure Retry' {_retryPolicies = mempty, ..}
 
 instance FromJSON (Retry -> Retry) where
   parseJSON =
@@ -92,9 +94,10 @@ instance FromJSON (Retry -> Retry) where
 
       pure $ \r ->
         Retry'
-          (fromMaybe (r ^. retryAttempts) m)
-          (fromMaybe (r ^. retryDelay) d)
-          (r ^. retryPolicies <> p)
+          { _retryAttempts = fromMaybe (r ^. retryAttempts) m,
+            _retryDelay = fromMaybe (r ^. retryDelay) d,
+            _retryPolicies = r ^. retryPolicies <> p
+          }
 
 parseRetry :: Text -> Aeson.Object -> Aeson.Types.Parser Retry
 parseRetry svc o = do
@@ -107,7 +110,7 @@ parseRetry svc o = do
   case r ^. Lens.at defKey of
     Nothing -> fail $ "Missing object key: " ++ defKey
     Just x -> do
-      Identity d <- Aeson.parseJSON (Aeson.Object x)
+      d <- Aeson.parseJSON (Aeson.Object x)
       case r ^. Lens.at (Text.toLower svc) of
         Nothing -> pure (d & retryPolicies .~ p)
         Just y -> do

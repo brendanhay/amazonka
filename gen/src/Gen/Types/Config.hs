@@ -184,8 +184,8 @@ otherModules = Lens.to f
         <> mapMaybe (shapeNS x) (x ^.. shapes . Lens.each)
 
     shapeNS x = \case
-      s@Prod {} -> Just $ (x ^. typesNS) <> ((mkNS . typeId) $ identifier s)
-      s@Sum {} -> Just $ (x ^. typesNS) <> ((mkNS . typeId) $ identifier s)
+      s@Prod {} -> Just $ (x ^. typesNS) <> mkNS (typeId (identifier s))
+      s@Sum {} -> Just $ (x ^. typesNS) <> mkNS (typeId (identifier s))
       Fun {} -> Nothing
 
 exposedModules :: Getter Library [NS]
@@ -193,10 +193,11 @@ exposedModules = Lens.to f
   where
     f x =
       let ns = x ^. libraryNS
-       in x ^. typesNS
-            : x ^. lensNS
-            : x ^. waitersNS
-            : x ^.. operations . Lens.each . Lens.to (operationNS ns . Lens.view opName)
+       in [ x ^. typesNS,
+            x ^. lensNS,
+            x ^. waitersNS
+          ]
+            ++ x ^.. operations . Lens.each . Lens.to (operationNS ns . Lens.view opName)
 
 data Templates = Templates
   { cabalTemplate :: Template,

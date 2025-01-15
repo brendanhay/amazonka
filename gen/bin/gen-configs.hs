@@ -57,9 +57,9 @@ main = do
       annexDir = configDir </> "annexes"
 
   frequencies <-
-    fmap Gen.WordFrequency.newTable (ByteString.readFile wordFrequencies) >>= \case
-      Left err -> UnliftIO.throwString err
-      Right ok -> pure ok
+    either UnliftIO.throwString pure
+      . Gen.WordFrequency.newTable
+      =<< ByteString.readFile wordFrequencies
 
   available <- Set.fromList <$> getAvailable botocoreDir
   configured <- Set.fromList <$> getConfigured serviceDir

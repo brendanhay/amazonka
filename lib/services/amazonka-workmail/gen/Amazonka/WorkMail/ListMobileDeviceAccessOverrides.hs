@@ -186,11 +186,11 @@ instance
     ListMobileDeviceAccessOverrides
   where
   rnf ListMobileDeviceAccessOverrides' {..} =
-    Prelude.rnf deviceId
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf userId
-      `Prelude.seq` Prelude.rnf organizationId
+    Prelude.rnf deviceId `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf userId `Prelude.seq`
+            Prelude.rnf organizationId
 
 instance
   Data.ToHeaders
@@ -289,6 +289,6 @@ instance
     ListMobileDeviceAccessOverridesResponse
   where
   rnf ListMobileDeviceAccessOverridesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf overrides
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf overrides `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -101,9 +101,9 @@ instance Prelude.Hashable FolderConfiguration where
 
 instance Prelude.NFData FolderConfiguration where
   rnf FolderConfiguration' {..} =
-    Prelude.rnf period
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf action
+    Prelude.rnf period `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf action
 
 instance Data.ToJSON FolderConfiguration where
   toJSON FolderConfiguration' {..} =

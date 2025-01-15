@@ -132,12 +132,12 @@ instance Prelude.Hashable ImpersonationRule where
 
 instance Prelude.NFData ImpersonationRule where
   rnf ImpersonationRule' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf notTargetUsers
-      `Prelude.seq` Prelude.rnf targetUsers
-      `Prelude.seq` Prelude.rnf impersonationRuleId
-      `Prelude.seq` Prelude.rnf effect
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf notTargetUsers `Prelude.seq`
+          Prelude.rnf targetUsers `Prelude.seq`
+            Prelude.rnf impersonationRuleId `Prelude.seq`
+              Prelude.rnf effect
 
 instance Data.ToJSON ImpersonationRule where
   toJSON ImpersonationRule' {..} =

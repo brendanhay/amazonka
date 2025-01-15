@@ -99,9 +99,9 @@ instance Prelude.Hashable BookingOptions where
 
 instance Prelude.NFData BookingOptions where
   rnf BookingOptions' {..} =
-    Prelude.rnf autoAcceptRequests
-      `Prelude.seq` Prelude.rnf autoDeclineConflictingRequests
-      `Prelude.seq` Prelude.rnf autoDeclineRecurringRequests
+    Prelude.rnf autoAcceptRequests `Prelude.seq`
+      Prelude.rnf autoDeclineConflictingRequests `Prelude.seq`
+        Prelude.rnf autoDeclineRecurringRequests
 
 instance Data.ToJSON BookingOptions where
   toJSON BookingOptions' {..} =

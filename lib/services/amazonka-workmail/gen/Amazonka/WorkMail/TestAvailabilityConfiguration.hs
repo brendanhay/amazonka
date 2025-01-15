@@ -156,10 +156,10 @@ instance
 
 instance Prelude.NFData TestAvailabilityConfiguration where
   rnf TestAvailabilityConfiguration' {..} =
-    Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf ewsProvider
-      `Prelude.seq` Prelude.rnf lambdaProvider
-      `Prelude.seq` Prelude.rnf organizationId
+    Prelude.rnf domainName `Prelude.seq`
+      Prelude.rnf ewsProvider `Prelude.seq`
+        Prelude.rnf lambdaProvider `Prelude.seq`
+          Prelude.rnf organizationId
 
 instance Data.ToHeaders TestAvailabilityConfiguration where
   toHeaders =
@@ -248,6 +248,6 @@ instance
     TestAvailabilityConfigurationResponse
   where
   rnf TestAvailabilityConfigurationResponse' {..} =
-    Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf testPassed
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf failureReason `Prelude.seq`
+      Prelude.rnf testPassed `Prelude.seq`
+        Prelude.rnf httpStatus

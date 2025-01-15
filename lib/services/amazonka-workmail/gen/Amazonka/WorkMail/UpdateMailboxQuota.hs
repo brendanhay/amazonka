@@ -129,9 +129,9 @@ instance Prelude.Hashable UpdateMailboxQuota where
 
 instance Prelude.NFData UpdateMailboxQuota where
   rnf UpdateMailboxQuota' {..} =
-    Prelude.rnf organizationId
-      `Prelude.seq` Prelude.rnf userId
-      `Prelude.seq` Prelude.rnf mailboxQuota
+    Prelude.rnf organizationId `Prelude.seq`
+      Prelude.rnf userId `Prelude.seq`
+        Prelude.rnf mailboxQuota
 
 instance Data.ToHeaders UpdateMailboxQuota where
   toHeaders =

@@ -113,8 +113,8 @@ instance Prelude.Hashable UpdateDefaultMailDomain where
 
 instance Prelude.NFData UpdateDefaultMailDomain where
   rnf UpdateDefaultMailDomain' {..} =
-    Prelude.rnf organizationId
-      `Prelude.seq` Prelude.rnf domainName
+    Prelude.rnf organizationId `Prelude.seq`
+      Prelude.rnf domainName
 
 instance Data.ToHeaders UpdateDefaultMailDomain where
   toHeaders =

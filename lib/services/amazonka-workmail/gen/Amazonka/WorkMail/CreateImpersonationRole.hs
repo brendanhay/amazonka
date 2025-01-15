@@ -168,12 +168,12 @@ instance Prelude.Hashable CreateImpersonationRole where
 
 instance Prelude.NFData CreateImpersonationRole where
   rnf CreateImpersonationRole' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf organizationId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf rules
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf organizationId `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf type' `Prelude.seq`
+              Prelude.rnf rules
 
 instance Data.ToHeaders CreateImpersonationRole where
   toHeaders =
@@ -254,5 +254,5 @@ instance
     CreateImpersonationRoleResponse
   where
   rnf CreateImpersonationRoleResponse' {..} =
-    Prelude.rnf impersonationRoleId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf impersonationRoleId `Prelude.seq`
+      Prelude.rnf httpStatus

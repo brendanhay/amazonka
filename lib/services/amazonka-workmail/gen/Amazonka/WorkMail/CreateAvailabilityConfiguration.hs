@@ -174,11 +174,11 @@ instance
     CreateAvailabilityConfiguration
   where
   rnf CreateAvailabilityConfiguration' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf ewsProvider
-      `Prelude.seq` Prelude.rnf lambdaProvider
-      `Prelude.seq` Prelude.rnf organizationId
-      `Prelude.seq` Prelude.rnf domainName
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf ewsProvider `Prelude.seq`
+        Prelude.rnf lambdaProvider `Prelude.seq`
+          Prelude.rnf organizationId `Prelude.seq`
+            Prelude.rnf domainName
 
 instance
   Data.ToHeaders

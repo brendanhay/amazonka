@@ -119,8 +119,8 @@ instance Prelude.Hashable GetMailDomain where
 
 instance Prelude.NFData GetMailDomain where
   rnf GetMailDomain' {..} =
-    Prelude.rnf organizationId
-      `Prelude.seq` Prelude.rnf domainName
+    Prelude.rnf organizationId `Prelude.seq`
+      Prelude.rnf domainName
 
 instance Data.ToHeaders GetMailDomain where
   toHeaders =
@@ -245,9 +245,9 @@ getMailDomainResponse_httpStatus = Lens.lens (\GetMailDomainResponse' {httpStatu
 
 instance Prelude.NFData GetMailDomainResponse where
   rnf GetMailDomainResponse' {..} =
-    Prelude.rnf dkimVerificationStatus
-      `Prelude.seq` Prelude.rnf isDefault
-      `Prelude.seq` Prelude.rnf isTestDomain
-      `Prelude.seq` Prelude.rnf ownershipVerificationStatus
-      `Prelude.seq` Prelude.rnf records
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dkimVerificationStatus `Prelude.seq`
+      Prelude.rnf isDefault `Prelude.seq`
+        Prelude.rnf isTestDomain `Prelude.seq`
+          Prelude.rnf ownershipVerificationStatus `Prelude.seq`
+            Prelude.rnf records `Prelude.seq`
+              Prelude.rnf httpStatus

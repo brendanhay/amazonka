@@ -242,18 +242,18 @@ instance Prelude.Hashable PutAccessControlRule where
 
 instance Prelude.NFData PutAccessControlRule where
   rnf PutAccessControlRule' {..} =
-    Prelude.rnf actions
-      `Prelude.seq` Prelude.rnf impersonationRoleIds
-      `Prelude.seq` Prelude.rnf ipRanges
-      `Prelude.seq` Prelude.rnf notActions
-      `Prelude.seq` Prelude.rnf notImpersonationRoleIds
-      `Prelude.seq` Prelude.rnf notIpRanges
-      `Prelude.seq` Prelude.rnf notUserIds
-      `Prelude.seq` Prelude.rnf userIds
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf effect
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf organizationId
+    Prelude.rnf actions `Prelude.seq`
+      Prelude.rnf impersonationRoleIds `Prelude.seq`
+        Prelude.rnf ipRanges `Prelude.seq`
+          Prelude.rnf notActions `Prelude.seq`
+            Prelude.rnf notImpersonationRoleIds `Prelude.seq`
+              Prelude.rnf notIpRanges `Prelude.seq`
+                Prelude.rnf notUserIds `Prelude.seq`
+                  Prelude.rnf userIds `Prelude.seq`
+                    Prelude.rnf name `Prelude.seq`
+                      Prelude.rnf effect `Prelude.seq`
+                        Prelude.rnf description `Prelude.seq`
+                          Prelude.rnf organizationId
 
 instance Data.ToHeaders PutAccessControlRule where
   toHeaders =

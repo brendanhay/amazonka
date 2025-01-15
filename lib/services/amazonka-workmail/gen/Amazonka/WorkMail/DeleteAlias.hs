@@ -129,9 +129,9 @@ instance Prelude.Hashable DeleteAlias where
 
 instance Prelude.NFData DeleteAlias where
   rnf DeleteAlias' {..} =
-    Prelude.rnf organizationId
-      `Prelude.seq` Prelude.rnf entityId
-      `Prelude.seq` Prelude.rnf alias
+    Prelude.rnf organizationId `Prelude.seq`
+      Prelude.rnf entityId `Prelude.seq`
+        Prelude.rnf alias
 
 instance Data.ToHeaders DeleteAlias where
   toHeaders =

@@ -122,9 +122,9 @@ instance Prelude.Hashable RegisterMailDomain where
 
 instance Prelude.NFData RegisterMailDomain where
   rnf RegisterMailDomain' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf organizationId
-      `Prelude.seq` Prelude.rnf domainName
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf organizationId `Prelude.seq`
+        Prelude.rnf domainName
 
 instance Data.ToHeaders RegisterMailDomain where
   toHeaders =

@@ -204,14 +204,14 @@ instance Prelude.Hashable StartMailboxExportJob where
 
 instance Prelude.NFData StartMailboxExportJob where
   rnf StartMailboxExportJob' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf organizationId
-      `Prelude.seq` Prelude.rnf entityId
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf kmsKeyArn
-      `Prelude.seq` Prelude.rnf s3BucketName
-      `Prelude.seq` Prelude.rnf s3Prefix
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf clientToken `Prelude.seq`
+        Prelude.rnf organizationId `Prelude.seq`
+          Prelude.rnf entityId `Prelude.seq`
+            Prelude.rnf roleArn `Prelude.seq`
+              Prelude.rnf kmsKeyArn `Prelude.seq`
+                Prelude.rnf s3BucketName `Prelude.seq`
+                  Prelude.rnf s3Prefix
 
 instance Data.ToHeaders StartMailboxExportJob where
   toHeaders =
@@ -291,5 +291,5 @@ startMailboxExportJobResponse_httpStatus = Lens.lens (\StartMailboxExportJobResp
 
 instance Prelude.NFData StartMailboxExportJobResponse where
   rnf StartMailboxExportJobResponse' {..} =
-    Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf jobId `Prelude.seq`
+      Prelude.rnf httpStatus

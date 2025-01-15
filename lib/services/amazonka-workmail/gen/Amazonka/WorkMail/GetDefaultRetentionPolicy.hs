@@ -210,8 +210,8 @@ instance
     GetDefaultRetentionPolicyResponse
   where
   rnf GetDefaultRetentionPolicyResponse' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf folderConfigurations
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf folderConfigurations `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf httpStatus

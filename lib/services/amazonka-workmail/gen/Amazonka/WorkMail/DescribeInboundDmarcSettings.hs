@@ -176,5 +176,5 @@ instance
     DescribeInboundDmarcSettingsResponse
   where
   rnf DescribeInboundDmarcSettingsResponse' {..} =
-    Prelude.rnf enforced
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf enforced `Prelude.seq`
+      Prelude.rnf httpStatus

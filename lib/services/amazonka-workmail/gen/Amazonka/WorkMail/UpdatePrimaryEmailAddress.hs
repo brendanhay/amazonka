@@ -128,9 +128,9 @@ instance Prelude.Hashable UpdatePrimaryEmailAddress where
 
 instance Prelude.NFData UpdatePrimaryEmailAddress where
   rnf UpdatePrimaryEmailAddress' {..} =
-    Prelude.rnf organizationId
-      `Prelude.seq` Prelude.rnf entityId
-      `Prelude.seq` Prelude.rnf email
+    Prelude.rnf organizationId `Prelude.seq`
+      Prelude.rnf entityId `Prelude.seq`
+        Prelude.rnf email
 
 instance Data.ToHeaders UpdatePrimaryEmailAddress where
   toHeaders =

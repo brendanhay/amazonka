@@ -126,9 +126,9 @@ instance Prelude.Hashable MobileDeviceAccessOverride where
 
 instance Prelude.NFData MobileDeviceAccessOverride where
   rnf MobileDeviceAccessOverride' {..} =
-    Prelude.rnf dateCreated
-      `Prelude.seq` Prelude.rnf dateModified
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf deviceId
-      `Prelude.seq` Prelude.rnf effect
-      `Prelude.seq` Prelude.rnf userId
+    Prelude.rnf dateCreated `Prelude.seq`
+      Prelude.rnf dateModified `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf deviceId `Prelude.seq`
+            Prelude.rnf effect `Prelude.seq`
+              Prelude.rnf userId

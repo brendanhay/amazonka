@@ -112,8 +112,8 @@ instance Prelude.Hashable DeregisterMailDomain where
 
 instance Prelude.NFData DeregisterMailDomain where
   rnf DeregisterMailDomain' {..} =
-    Prelude.rnf organizationId
-      `Prelude.seq` Prelude.rnf domainName
+    Prelude.rnf organizationId `Prelude.seq`
+      Prelude.rnf domainName
 
 instance Data.ToHeaders DeregisterMailDomain where
   toHeaders =

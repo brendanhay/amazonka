@@ -137,12 +137,12 @@ instance Core.AWSPager ListMailboxPermissions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listMailboxPermissions_nextToken
-          Lens..~ rs
-          Lens.^? listMailboxPermissionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listMailboxPermissions_nextToken
+              Lens..~ rs
+              Lens.^? listMailboxPermissionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListMailboxPermissions where
   type
@@ -169,10 +169,10 @@ instance Prelude.Hashable ListMailboxPermissions where
 
 instance Prelude.NFData ListMailboxPermissions where
   rnf ListMailboxPermissions' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf organizationId
-      `Prelude.seq` Prelude.rnf entityId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf organizationId `Prelude.seq`
+          Prelude.rnf entityId
 
 instance Data.ToHeaders ListMailboxPermissions where
   toHeaders =
@@ -263,6 +263,6 @@ instance
     ListMailboxPermissionsResponse
   where
   rnf ListMailboxPermissionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf permissions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf permissions `Prelude.seq`
+        Prelude.rnf httpStatus

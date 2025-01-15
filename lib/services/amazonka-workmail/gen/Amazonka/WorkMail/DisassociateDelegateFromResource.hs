@@ -142,9 +142,9 @@ instance
     DisassociateDelegateFromResource
   where
   rnf DisassociateDelegateFromResource' {..} =
-    Prelude.rnf organizationId
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf entityId
+    Prelude.rnf organizationId `Prelude.seq`
+      Prelude.rnf resourceId `Prelude.seq`
+        Prelude.rnf entityId
 
 instance
   Data.ToHeaders

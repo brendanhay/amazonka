@@ -109,8 +109,8 @@ instance Prelude.Hashable DeleteRetentionPolicy where
 
 instance Prelude.NFData DeleteRetentionPolicy where
   rnf DeleteRetentionPolicy' {..} =
-    Prelude.rnf organizationId
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf organizationId `Prelude.seq`
+      Prelude.rnf id
 
 instance Data.ToHeaders DeleteRetentionPolicy where
   toHeaders =

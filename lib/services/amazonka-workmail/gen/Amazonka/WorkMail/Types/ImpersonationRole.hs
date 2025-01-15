@@ -114,8 +114,8 @@ instance Prelude.Hashable ImpersonationRole where
 
 instance Prelude.NFData ImpersonationRole where
   rnf ImpersonationRole' {..} =
-    Prelude.rnf dateCreated
-      `Prelude.seq` Prelude.rnf dateModified
-      `Prelude.seq` Prelude.rnf impersonationRoleId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf dateCreated `Prelude.seq`
+      Prelude.rnf dateModified `Prelude.seq`
+        Prelude.rnf impersonationRoleId `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf type'

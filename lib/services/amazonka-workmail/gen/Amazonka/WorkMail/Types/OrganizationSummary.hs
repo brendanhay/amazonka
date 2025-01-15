@@ -119,8 +119,8 @@ instance Prelude.Hashable OrganizationSummary where
 
 instance Prelude.NFData OrganizationSummary where
   rnf OrganizationSummary' {..} =
-    Prelude.rnf alias
-      `Prelude.seq` Prelude.rnf defaultMailDomain
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf organizationId
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf alias `Prelude.seq`
+      Prelude.rnf defaultMailDomain `Prelude.seq`
+        Prelude.rnf errorMessage `Prelude.seq`
+          Prelude.rnf organizationId `Prelude.seq`
+            Prelude.rnf state

@@ -105,12 +105,12 @@ instance Core.AWSPager ListOrganizations where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listOrganizations_nextToken
-          Lens..~ rs
-          Lens.^? listOrganizationsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listOrganizations_nextToken
+              Lens..~ rs
+              Lens.^? listOrganizationsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListOrganizations where
   type
@@ -138,8 +138,8 @@ instance Prelude.Hashable ListOrganizations where
 
 instance Prelude.NFData ListOrganizations where
   rnf ListOrganizations' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListOrganizations where
   toHeaders =
@@ -227,6 +227,6 @@ listOrganizationsResponse_httpStatus = Lens.lens (\ListOrganizationsResponse' {h
 
 instance Prelude.NFData ListOrganizationsResponse where
   rnf ListOrganizationsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf organizationSummaries
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf organizationSummaries `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -141,11 +141,11 @@ instance Prelude.Hashable PutRetentionPolicy where
 
 instance Prelude.NFData PutRetentionPolicy where
   rnf PutRetentionPolicy' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf organizationId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf folderConfigurations
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf organizationId `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf folderConfigurations
 
 instance Data.ToHeaders PutRetentionPolicy where
   toHeaders =

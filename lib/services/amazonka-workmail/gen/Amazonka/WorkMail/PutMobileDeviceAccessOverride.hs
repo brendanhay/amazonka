@@ -184,11 +184,11 @@ instance
 
 instance Prelude.NFData PutMobileDeviceAccessOverride where
   rnf PutMobileDeviceAccessOverride' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf organizationId
-      `Prelude.seq` Prelude.rnf userId
-      `Prelude.seq` Prelude.rnf deviceId
-      `Prelude.seq` Prelude.rnf effect
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf organizationId `Prelude.seq`
+        Prelude.rnf userId `Prelude.seq`
+          Prelude.rnf deviceId `Prelude.seq`
+            Prelude.rnf effect
 
 instance Data.ToHeaders PutMobileDeviceAccessOverride where
   toHeaders =

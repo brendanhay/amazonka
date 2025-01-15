@@ -125,8 +125,8 @@ instance Prelude.Hashable GetImpersonationRole where
 
 instance Prelude.NFData GetImpersonationRole where
   rnf GetImpersonationRole' {..} =
-    Prelude.rnf organizationId
-      `Prelude.seq` Prelude.rnf impersonationRoleId
+    Prelude.rnf organizationId `Prelude.seq`
+      Prelude.rnf impersonationRoleId
 
 instance Data.ToHeaders GetImpersonationRole where
   toHeaders =
@@ -255,11 +255,11 @@ getImpersonationRoleResponse_httpStatus = Lens.lens (\GetImpersonationRoleRespon
 
 instance Prelude.NFData GetImpersonationRoleResponse where
   rnf GetImpersonationRoleResponse' {..} =
-    Prelude.rnf dateCreated
-      `Prelude.seq` Prelude.rnf dateModified
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf impersonationRoleId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf rules
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dateCreated `Prelude.seq`
+      Prelude.rnf dateModified `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf impersonationRoleId `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf rules `Prelude.seq`
+                Prelude.rnf type' `Prelude.seq`
+                  Prelude.rnf httpStatus

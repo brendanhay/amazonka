@@ -126,9 +126,9 @@ instance Prelude.Hashable Member where
 
 instance Prelude.NFData Member where
   rnf Member' {..} =
-    Prelude.rnf disabledDate
-      `Prelude.seq` Prelude.rnf enabledDate
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf disabledDate `Prelude.seq`
+      Prelude.rnf enabledDate `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf state `Prelude.seq`
+              Prelude.rnf type'

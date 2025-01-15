@@ -147,11 +147,11 @@ instance Prelude.Hashable GetMobileDeviceAccessEffect where
 
 instance Prelude.NFData GetMobileDeviceAccessEffect where
   rnf GetMobileDeviceAccessEffect' {..} =
-    Prelude.rnf deviceModel
-      `Prelude.seq` Prelude.rnf deviceOperatingSystem
-      `Prelude.seq` Prelude.rnf deviceType
-      `Prelude.seq` Prelude.rnf deviceUserAgent
-      `Prelude.seq` Prelude.rnf organizationId
+    Prelude.rnf deviceModel `Prelude.seq`
+      Prelude.rnf deviceOperatingSystem `Prelude.seq`
+        Prelude.rnf deviceType `Prelude.seq`
+          Prelude.rnf deviceUserAgent `Prelude.seq`
+            Prelude.rnf organizationId
 
 instance Data.ToHeaders GetMobileDeviceAccessEffect where
   toHeaders =
@@ -251,6 +251,6 @@ instance
     GetMobileDeviceAccessEffectResponse
   where
   rnf GetMobileDeviceAccessEffectResponse' {..} =
-    Prelude.rnf effect
-      `Prelude.seq` Prelude.rnf matchedRules
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf effect `Prelude.seq`
+      Prelude.rnf matchedRules `Prelude.seq`
+        Prelude.rnf httpStatus

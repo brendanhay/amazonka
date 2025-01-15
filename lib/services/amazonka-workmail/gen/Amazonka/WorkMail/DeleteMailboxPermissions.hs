@@ -131,9 +131,9 @@ instance Prelude.Hashable DeleteMailboxPermissions where
 
 instance Prelude.NFData DeleteMailboxPermissions where
   rnf DeleteMailboxPermissions' {..} =
-    Prelude.rnf organizationId
-      `Prelude.seq` Prelude.rnf entityId
-      `Prelude.seq` Prelude.rnf granteeId
+    Prelude.rnf organizationId `Prelude.seq`
+      Prelude.rnf entityId `Prelude.seq`
+        Prelude.rnf granteeId
 
 instance Data.ToHeaders DeleteMailboxPermissions where
   toHeaders =

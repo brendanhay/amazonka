@@ -125,9 +125,9 @@ instance Prelude.Hashable DisassociateMemberFromGroup where
 
 instance Prelude.NFData DisassociateMemberFromGroup where
   rnf DisassociateMemberFromGroup' {..} =
-    Prelude.rnf organizationId
-      `Prelude.seq` Prelude.rnf groupId
-      `Prelude.seq` Prelude.rnf memberId
+    Prelude.rnf organizationId `Prelude.seq`
+      Prelude.rnf groupId `Prelude.seq`
+        Prelude.rnf memberId
 
 instance Data.ToHeaders DisassociateMemberFromGroup where
   toHeaders =

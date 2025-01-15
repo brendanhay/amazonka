@@ -164,10 +164,10 @@ instance Prelude.Hashable PutMailboxPermissions where
 
 instance Prelude.NFData PutMailboxPermissions where
   rnf PutMailboxPermissions' {..} =
-    Prelude.rnf organizationId
-      `Prelude.seq` Prelude.rnf entityId
-      `Prelude.seq` Prelude.rnf granteeId
-      `Prelude.seq` Prelude.rnf permissionValues
+    Prelude.rnf organizationId `Prelude.seq`
+      Prelude.rnf entityId `Prelude.seq`
+        Prelude.rnf granteeId `Prelude.seq`
+          Prelude.rnf permissionValues
 
 instance Data.ToHeaders PutMailboxPermissions where
   toHeaders =

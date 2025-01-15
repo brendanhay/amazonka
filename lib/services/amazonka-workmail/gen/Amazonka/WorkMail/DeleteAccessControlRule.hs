@@ -113,8 +113,8 @@ instance Prelude.Hashable DeleteAccessControlRule where
 
 instance Prelude.NFData DeleteAccessControlRule where
   rnf DeleteAccessControlRule' {..} =
-    Prelude.rnf organizationId
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf organizationId `Prelude.seq`
+      Prelude.rnf name
 
 instance Data.ToHeaders DeleteAccessControlRule where
   toHeaders =

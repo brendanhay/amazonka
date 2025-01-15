@@ -268,13 +268,13 @@ describeOrganizationResponse_httpStatus = Lens.lens (\DescribeOrganizationRespon
 
 instance Prelude.NFData DescribeOrganizationResponse where
   rnf DescribeOrganizationResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf alias
-      `Prelude.seq` Prelude.rnf completedDate
-      `Prelude.seq` Prelude.rnf defaultMailDomain
-      `Prelude.seq` Prelude.rnf directoryId
-      `Prelude.seq` Prelude.rnf directoryType
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf organizationId
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf alias `Prelude.seq`
+        Prelude.rnf completedDate `Prelude.seq`
+          Prelude.rnf defaultMailDomain `Prelude.seq`
+            Prelude.rnf directoryId `Prelude.seq`
+              Prelude.rnf directoryType `Prelude.seq`
+                Prelude.rnf errorMessage `Prelude.seq`
+                  Prelude.rnf organizationId `Prelude.seq`
+                    Prelude.rnf state `Prelude.seq`
+                      Prelude.rnf httpStatus

@@ -173,5 +173,5 @@ instance
     ListAccessControlRulesResponse
   where
   rnf ListAccessControlRulesResponse' {..} =
-    Prelude.rnf rules
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf rules `Prelude.seq`
+      Prelude.rnf httpStatus

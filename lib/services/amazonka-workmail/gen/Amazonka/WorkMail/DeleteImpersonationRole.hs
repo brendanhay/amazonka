@@ -111,8 +111,8 @@ instance Prelude.Hashable DeleteImpersonationRole where
 
 instance Prelude.NFData DeleteImpersonationRole where
   rnf DeleteImpersonationRole' {..} =
-    Prelude.rnf organizationId
-      `Prelude.seq` Prelude.rnf impersonationRoleId
+    Prelude.rnf organizationId `Prelude.seq`
+      Prelude.rnf impersonationRoleId
 
 instance Data.ToHeaders DeleteImpersonationRole where
   toHeaders =

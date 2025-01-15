@@ -148,11 +148,11 @@ instance Prelude.Hashable User where
 
 instance Prelude.NFData User where
   rnf User' {..} =
-    Prelude.rnf disabledDate
-      `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf email
-      `Prelude.seq` Prelude.rnf enabledDate
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf userRole
+    Prelude.rnf disabledDate `Prelude.seq`
+      Prelude.rnf displayName `Prelude.seq`
+        Prelude.rnf email `Prelude.seq`
+          Prelude.rnf enabledDate `Prelude.seq`
+            Prelude.rnf id `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf state `Prelude.seq`
+                  Prelude.rnf userRole

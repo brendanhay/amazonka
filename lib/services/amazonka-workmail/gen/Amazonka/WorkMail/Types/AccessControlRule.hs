@@ -220,16 +220,16 @@ instance Prelude.Hashable AccessControlRule where
 
 instance Prelude.NFData AccessControlRule where
   rnf AccessControlRule' {..} =
-    Prelude.rnf actions
-      `Prelude.seq` Prelude.rnf dateCreated
-      `Prelude.seq` Prelude.rnf dateModified
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf effect
-      `Prelude.seq` Prelude.rnf impersonationRoleIds
-      `Prelude.seq` Prelude.rnf ipRanges
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf notActions
-      `Prelude.seq` Prelude.rnf notImpersonationRoleIds
-      `Prelude.seq` Prelude.rnf notIpRanges
-      `Prelude.seq` Prelude.rnf notUserIds
-      `Prelude.seq` Prelude.rnf userIds
+    Prelude.rnf actions `Prelude.seq`
+      Prelude.rnf dateCreated `Prelude.seq`
+        Prelude.rnf dateModified `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf effect `Prelude.seq`
+              Prelude.rnf impersonationRoleIds `Prelude.seq`
+                Prelude.rnf ipRanges `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf notActions `Prelude.seq`
+                      Prelude.rnf notImpersonationRoleIds `Prelude.seq`
+                        Prelude.rnf notIpRanges `Prelude.seq`
+                          Prelude.rnf notUserIds `Prelude.seq`
+                            Prelude.rnf userIds

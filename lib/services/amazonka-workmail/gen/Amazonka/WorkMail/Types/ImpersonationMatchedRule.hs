@@ -81,5 +81,5 @@ instance Prelude.Hashable ImpersonationMatchedRule where
 
 instance Prelude.NFData ImpersonationMatchedRule where
   rnf ImpersonationMatchedRule' {..} =
-    Prelude.rnf impersonationRuleId
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf impersonationRuleId `Prelude.seq`
+      Prelude.rnf name

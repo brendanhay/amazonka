@@ -125,9 +125,9 @@ instance Prelude.Hashable Group where
 
 instance Prelude.NFData Group where
   rnf Group' {..} =
-    Prelude.rnf disabledDate
-      `Prelude.seq` Prelude.rnf email
-      `Prelude.seq` Prelude.rnf enabledDate
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf disabledDate `Prelude.seq`
+      Prelude.rnf email `Prelude.seq`
+        Prelude.rnf enabledDate `Prelude.seq`
+          Prelude.rnf id `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf state

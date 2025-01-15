@@ -80,5 +80,5 @@ instance Prelude.Hashable MailDomainSummary where
 
 instance Prelude.NFData MailDomainSummary where
   rnf MailDomainSummary' {..} =
-    Prelude.rnf defaultDomain
-      `Prelude.seq` Prelude.rnf domainName
+    Prelude.rnf defaultDomain `Prelude.seq`
+      Prelude.rnf domainName

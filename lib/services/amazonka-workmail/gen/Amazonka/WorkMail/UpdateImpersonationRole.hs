@@ -164,12 +164,12 @@ instance Prelude.Hashable UpdateImpersonationRole where
 
 instance Prelude.NFData UpdateImpersonationRole where
   rnf UpdateImpersonationRole' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf organizationId
-      `Prelude.seq` Prelude.rnf impersonationRoleId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf rules
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf organizationId `Prelude.seq`
+        Prelude.rnf impersonationRoleId `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf type' `Prelude.seq`
+              Prelude.rnf rules
 
 instance Data.ToHeaders UpdateImpersonationRole where
   toHeaders =

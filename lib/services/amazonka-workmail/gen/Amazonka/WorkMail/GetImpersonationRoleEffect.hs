@@ -156,9 +156,9 @@ instance Prelude.Hashable GetImpersonationRoleEffect where
 
 instance Prelude.NFData GetImpersonationRoleEffect where
   rnf GetImpersonationRoleEffect' {..} =
-    Prelude.rnf organizationId
-      `Prelude.seq` Prelude.rnf impersonationRoleId
-      `Prelude.seq` Prelude.rnf targetUser
+    Prelude.rnf organizationId `Prelude.seq`
+      Prelude.rnf impersonationRoleId `Prelude.seq`
+        Prelude.rnf targetUser
 
 instance Data.ToHeaders GetImpersonationRoleEffect where
   toHeaders =
@@ -261,7 +261,7 @@ instance
     GetImpersonationRoleEffectResponse
   where
   rnf GetImpersonationRoleEffectResponse' {..} =
-    Prelude.rnf effect
-      `Prelude.seq` Prelude.rnf matchedRules
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf effect `Prelude.seq`
+      Prelude.rnf matchedRules `Prelude.seq`
+        Prelude.rnf type' `Prelude.seq`
+          Prelude.rnf httpStatus

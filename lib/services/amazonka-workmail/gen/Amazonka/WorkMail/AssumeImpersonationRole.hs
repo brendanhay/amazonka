@@ -120,8 +120,8 @@ instance Prelude.Hashable AssumeImpersonationRole where
 
 instance Prelude.NFData AssumeImpersonationRole where
   rnf AssumeImpersonationRole' {..} =
-    Prelude.rnf organizationId
-      `Prelude.seq` Prelude.rnf impersonationRoleId
+    Prelude.rnf organizationId `Prelude.seq`
+      Prelude.rnf impersonationRoleId
 
 instance Data.ToHeaders AssumeImpersonationRole where
   toHeaders =
@@ -208,6 +208,6 @@ instance
     AssumeImpersonationRoleResponse
   where
   rnf AssumeImpersonationRoleResponse' {..} =
-    Prelude.rnf expiresIn
-      `Prelude.seq` Prelude.rnf token
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf expiresIn `Prelude.seq`
+      Prelude.rnf token `Prelude.seq`
+        Prelude.rnf httpStatus

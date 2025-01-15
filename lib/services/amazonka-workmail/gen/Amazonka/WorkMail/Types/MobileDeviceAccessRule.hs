@@ -229,17 +229,17 @@ instance Prelude.Hashable MobileDeviceAccessRule where
 
 instance Prelude.NFData MobileDeviceAccessRule where
   rnf MobileDeviceAccessRule' {..} =
-    Prelude.rnf dateCreated
-      `Prelude.seq` Prelude.rnf dateModified
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf deviceModels
-      `Prelude.seq` Prelude.rnf deviceOperatingSystems
-      `Prelude.seq` Prelude.rnf deviceTypes
-      `Prelude.seq` Prelude.rnf deviceUserAgents
-      `Prelude.seq` Prelude.rnf effect
-      `Prelude.seq` Prelude.rnf mobileDeviceAccessRuleId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf notDeviceModels
-      `Prelude.seq` Prelude.rnf notDeviceOperatingSystems
-      `Prelude.seq` Prelude.rnf notDeviceTypes
-      `Prelude.seq` Prelude.rnf notDeviceUserAgents
+    Prelude.rnf dateCreated `Prelude.seq`
+      Prelude.rnf dateModified `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf deviceModels `Prelude.seq`
+            Prelude.rnf deviceOperatingSystems `Prelude.seq`
+              Prelude.rnf deviceTypes `Prelude.seq`
+                Prelude.rnf deviceUserAgents `Prelude.seq`
+                  Prelude.rnf effect `Prelude.seq`
+                    Prelude.rnf mobileDeviceAccessRuleId `Prelude.seq`
+                      Prelude.rnf name `Prelude.seq`
+                        Prelude.rnf notDeviceModels `Prelude.seq`
+                          Prelude.rnf notDeviceOperatingSystems `Prelude.seq`
+                            Prelude.rnf notDeviceTypes `Prelude.seq`
+                              Prelude.rnf notDeviceUserAgents

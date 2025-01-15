@@ -84,5 +84,5 @@ instance
 
 instance Prelude.NFData MobileDeviceAccessMatchedRule where
   rnf MobileDeviceAccessMatchedRule' {..} =
-    Prelude.rnf mobileDeviceAccessRuleId
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf mobileDeviceAccessRuleId `Prelude.seq`
+      Prelude.rnf name

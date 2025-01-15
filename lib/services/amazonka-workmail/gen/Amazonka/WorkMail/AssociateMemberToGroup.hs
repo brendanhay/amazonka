@@ -125,9 +125,9 @@ instance Prelude.Hashable AssociateMemberToGroup where
 
 instance Prelude.NFData AssociateMemberToGroup where
   rnf AssociateMemberToGroup' {..} =
-    Prelude.rnf organizationId
-      `Prelude.seq` Prelude.rnf groupId
-      `Prelude.seq` Prelude.rnf memberId
+    Prelude.rnf organizationId `Prelude.seq`
+      Prelude.rnf groupId `Prelude.seq`
+        Prelude.rnf memberId
 
 instance Data.ToHeaders AssociateMemberToGroup where
   toHeaders =

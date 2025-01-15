@@ -125,9 +125,9 @@ instance Prelude.Hashable AssociateDelegateToResource where
 
 instance Prelude.NFData AssociateDelegateToResource where
   rnf AssociateDelegateToResource' {..} =
-    Prelude.rnf organizationId
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf entityId
+    Prelude.rnf organizationId `Prelude.seq`
+      Prelude.rnf resourceId `Prelude.seq`
+        Prelude.rnf entityId
 
 instance Data.ToHeaders AssociateDelegateToResource where
   toHeaders =

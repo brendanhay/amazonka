@@ -170,5 +170,5 @@ instance
     StopRxNormInferenceJobResponse
   where
   rnf StopRxNormInferenceJobResponse' {..} =
-    Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf jobId `Prelude.seq`
+      Prelude.rnf httpStatus

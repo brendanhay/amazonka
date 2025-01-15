@@ -164,5 +164,5 @@ stopPHIDetectionJobResponse_httpStatus = Lens.lens (\StopPHIDetectionJobResponse
 
 instance Prelude.NFData StopPHIDetectionJobResponse where
   rnf StopPHIDetectionJobResponse' {..} =
-    Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf jobId `Prelude.seq`
+      Prelude.rnf httpStatus

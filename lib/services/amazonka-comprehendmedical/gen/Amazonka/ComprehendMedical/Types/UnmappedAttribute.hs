@@ -92,5 +92,5 @@ instance Prelude.Hashable UnmappedAttribute where
 
 instance Prelude.NFData UnmappedAttribute where
   rnf UnmappedAttribute' {..} =
-    Prelude.rnf attribute
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf attribute `Prelude.seq`
+      Prelude.rnf type'

@@ -98,6 +98,6 @@ instance Prelude.Hashable ICD10CMConcept where
 
 instance Prelude.NFData ICD10CMConcept where
   rnf ICD10CMConcept' {..} =
-    Prelude.rnf code
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf score
+    Prelude.rnf code `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf score

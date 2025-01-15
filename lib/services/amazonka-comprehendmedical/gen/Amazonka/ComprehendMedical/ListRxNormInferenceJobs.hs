@@ -128,9 +128,9 @@ instance Prelude.Hashable ListRxNormInferenceJobs where
 
 instance Prelude.NFData ListRxNormInferenceJobs where
   rnf ListRxNormInferenceJobs' {..} =
-    Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filter' `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListRxNormInferenceJobs where
   toHeaders =
@@ -219,6 +219,6 @@ instance
     ListRxNormInferenceJobsResponse
   where
   rnf ListRxNormInferenceJobsResponse' {..} =
-    Prelude.rnf comprehendMedicalAsyncJobPropertiesList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf comprehendMedicalAsyncJobPropertiesList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

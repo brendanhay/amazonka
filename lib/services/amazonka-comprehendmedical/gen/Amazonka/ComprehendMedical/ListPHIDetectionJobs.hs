@@ -132,9 +132,9 @@ instance Prelude.Hashable ListPHIDetectionJobs where
 
 instance Prelude.NFData ListPHIDetectionJobs where
   rnf ListPHIDetectionJobs' {..} =
-    Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filter' `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListPHIDetectionJobs where
   toHeaders =
@@ -217,6 +217,6 @@ listPHIDetectionJobsResponse_httpStatus = Lens.lens (\ListPHIDetectionJobsRespon
 
 instance Prelude.NFData ListPHIDetectionJobsResponse where
   rnf ListPHIDetectionJobsResponse' {..} =
-    Prelude.rnf comprehendMedicalAsyncJobPropertiesList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf comprehendMedicalAsyncJobPropertiesList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

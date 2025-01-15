@@ -189,13 +189,13 @@ instance Prelude.Hashable StartSNOMEDCTInferenceJob where
 
 instance Prelude.NFData StartSNOMEDCTInferenceJob where
   rnf StartSNOMEDCTInferenceJob' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf kmsKey
-      `Prelude.seq` Prelude.rnf inputDataConfig
-      `Prelude.seq` Prelude.rnf outputDataConfig
-      `Prelude.seq` Prelude.rnf dataAccessRoleArn
-      `Prelude.seq` Prelude.rnf languageCode
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf jobName `Prelude.seq`
+        Prelude.rnf kmsKey `Prelude.seq`
+          Prelude.rnf inputDataConfig `Prelude.seq`
+            Prelude.rnf outputDataConfig `Prelude.seq`
+              Prelude.rnf dataAccessRoleArn `Prelude.seq`
+                Prelude.rnf languageCode
 
 instance Data.ToHeaders StartSNOMEDCTInferenceJob where
   toHeaders =
@@ -283,5 +283,5 @@ instance
     StartSNOMEDCTInferenceJobResponse
   where
   rnf StartSNOMEDCTInferenceJobResponse' {..} =
-    Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf jobId `Prelude.seq`
+      Prelude.rnf httpStatus

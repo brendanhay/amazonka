@@ -208,7 +208,7 @@ inferICD10CMResponse_entities = Lens.lens (\InferICD10CMResponse' {entities} -> 
 
 instance Prelude.NFData InferICD10CMResponse where
   rnf InferICD10CMResponse' {..} =
-    Prelude.rnf modelVersion
-      `Prelude.seq` Prelude.rnf paginationToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf entities
+    Prelude.rnf modelVersion `Prelude.seq`
+      Prelude.rnf paginationToken `Prelude.seq`
+        Prelude.rnf httpStatus `Prelude.seq`
+          Prelude.rnf entities

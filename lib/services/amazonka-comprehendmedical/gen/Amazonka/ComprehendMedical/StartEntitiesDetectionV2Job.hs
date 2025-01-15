@@ -197,13 +197,13 @@ instance Prelude.Hashable StartEntitiesDetectionV2Job where
 
 instance Prelude.NFData StartEntitiesDetectionV2Job where
   rnf StartEntitiesDetectionV2Job' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf kmsKey
-      `Prelude.seq` Prelude.rnf inputDataConfig
-      `Prelude.seq` Prelude.rnf outputDataConfig
-      `Prelude.seq` Prelude.rnf dataAccessRoleArn
-      `Prelude.seq` Prelude.rnf languageCode
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf jobName `Prelude.seq`
+        Prelude.rnf kmsKey `Prelude.seq`
+          Prelude.rnf inputDataConfig `Prelude.seq`
+            Prelude.rnf outputDataConfig `Prelude.seq`
+              Prelude.rnf dataAccessRoleArn `Prelude.seq`
+                Prelude.rnf languageCode
 
 instance Data.ToHeaders StartEntitiesDetectionV2Job where
   toHeaders =
@@ -291,5 +291,5 @@ instance
     StartEntitiesDetectionV2JobResponse
   where
   rnf StartEntitiesDetectionV2JobResponse' {..} =
-    Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf jobId `Prelude.seq`
+      Prelude.rnf httpStatus

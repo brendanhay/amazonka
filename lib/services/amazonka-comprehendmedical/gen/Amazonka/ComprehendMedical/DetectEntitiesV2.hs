@@ -246,8 +246,8 @@ detectEntitiesV2Response_modelVersion = Lens.lens (\DetectEntitiesV2Response' {m
 
 instance Prelude.NFData DetectEntitiesV2Response where
   rnf DetectEntitiesV2Response' {..} =
-    Prelude.rnf paginationToken
-      `Prelude.seq` Prelude.rnf unmappedAttributes
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf entities
-      `Prelude.seq` Prelude.rnf modelVersion
+    Prelude.rnf paginationToken `Prelude.seq`
+      Prelude.rnf unmappedAttributes `Prelude.seq`
+        Prelude.rnf httpStatus `Prelude.seq`
+          Prelude.rnf entities `Prelude.seq`
+            Prelude.rnf modelVersion

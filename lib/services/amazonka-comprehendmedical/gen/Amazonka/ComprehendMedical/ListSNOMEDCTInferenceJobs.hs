@@ -125,9 +125,9 @@ instance Prelude.Hashable ListSNOMEDCTInferenceJobs where
 
 instance Prelude.NFData ListSNOMEDCTInferenceJobs where
   rnf ListSNOMEDCTInferenceJobs' {..} =
-    Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filter' `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListSNOMEDCTInferenceJobs where
   toHeaders =
@@ -213,6 +213,6 @@ instance
     ListSNOMEDCTInferenceJobsResponse
   where
   rnf ListSNOMEDCTInferenceJobsResponse' {..} =
-    Prelude.rnf comprehendMedicalAsyncJobPropertiesList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf comprehendMedicalAsyncJobPropertiesList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

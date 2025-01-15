@@ -194,13 +194,13 @@ instance Prelude.Hashable StartPHIDetectionJob where
 
 instance Prelude.NFData StartPHIDetectionJob where
   rnf StartPHIDetectionJob' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf kmsKey
-      `Prelude.seq` Prelude.rnf inputDataConfig
-      `Prelude.seq` Prelude.rnf outputDataConfig
-      `Prelude.seq` Prelude.rnf dataAccessRoleArn
-      `Prelude.seq` Prelude.rnf languageCode
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf jobName `Prelude.seq`
+        Prelude.rnf kmsKey `Prelude.seq`
+          Prelude.rnf inputDataConfig `Prelude.seq`
+            Prelude.rnf outputDataConfig `Prelude.seq`
+              Prelude.rnf dataAccessRoleArn `Prelude.seq`
+                Prelude.rnf languageCode
 
 instance Data.ToHeaders StartPHIDetectionJob where
   toHeaders =
@@ -285,5 +285,5 @@ startPHIDetectionJobResponse_httpStatus = Lens.lens (\StartPHIDetectionJobRespon
 
 instance Prelude.NFData StartPHIDetectionJobResponse where
   rnf StartPHIDetectionJobResponse' {..} =
-    Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf jobId `Prelude.seq`
+      Prelude.rnf httpStatus

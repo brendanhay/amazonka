@@ -177,11 +177,11 @@ instance Prelude.Hashable RxNormAttribute where
 
 instance Prelude.NFData RxNormAttribute where
   rnf RxNormAttribute' {..} =
-    Prelude.rnf beginOffset
-      `Prelude.seq` Prelude.rnf endOffset
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf relationshipScore
-      `Prelude.seq` Prelude.rnf score
-      `Prelude.seq` Prelude.rnf text
-      `Prelude.seq` Prelude.rnf traits
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf beginOffset `Prelude.seq`
+      Prelude.rnf endOffset `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf relationshipScore `Prelude.seq`
+            Prelude.rnf score `Prelude.seq`
+              Prelude.rnf text `Prelude.seq`
+                Prelude.rnf traits `Prelude.seq`
+                  Prelude.rnf type'

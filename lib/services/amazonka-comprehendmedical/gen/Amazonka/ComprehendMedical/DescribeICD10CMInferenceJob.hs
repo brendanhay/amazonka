@@ -175,5 +175,5 @@ instance
     DescribeICD10CMInferenceJobResponse
   where
   rnf DescribeICD10CMInferenceJobResponse' {..} =
-    Prelude.rnf comprehendMedicalAsyncJobProperties
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf comprehendMedicalAsyncJobProperties `Prelude.seq`
+      Prelude.rnf httpStatus

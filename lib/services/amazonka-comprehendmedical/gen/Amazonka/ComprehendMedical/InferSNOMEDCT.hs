@@ -240,9 +240,9 @@ inferSNOMEDCTResponse_entities = Lens.lens (\InferSNOMEDCTResponse' {entities} -
 
 instance Prelude.NFData InferSNOMEDCTResponse where
   rnf InferSNOMEDCTResponse' {..} =
-    Prelude.rnf characters
-      `Prelude.seq` Prelude.rnf modelVersion
-      `Prelude.seq` Prelude.rnf paginationToken
-      `Prelude.seq` Prelude.rnf sNOMEDCTDetails
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf entities
+    Prelude.rnf characters `Prelude.seq`
+      Prelude.rnf modelVersion `Prelude.seq`
+        Prelude.rnf paginationToken `Prelude.seq`
+          Prelude.rnf sNOMEDCTDetails `Prelude.seq`
+            Prelude.rnf httpStatus `Prelude.seq`
+              Prelude.rnf entities

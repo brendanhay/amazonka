@@ -112,8 +112,8 @@ instance Prelude.Hashable BonusPayment where
 
 instance Prelude.NFData BonusPayment where
   rnf BonusPayment' {..} =
-    Prelude.rnf assignmentId
-      `Prelude.seq` Prelude.rnf bonusAmount
-      `Prelude.seq` Prelude.rnf grantTime
-      `Prelude.seq` Prelude.rnf reason
-      `Prelude.seq` Prelude.rnf workerId
+    Prelude.rnf assignmentId `Prelude.seq`
+      Prelude.rnf bonusAmount `Prelude.seq`
+        Prelude.rnf grantTime `Prelude.seq`
+          Prelude.rnf reason `Prelude.seq`
+            Prelude.rnf workerId

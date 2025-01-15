@@ -112,8 +112,8 @@ instance Prelude.Hashable UpdateHITTypeOfHIT where
 
 instance Prelude.NFData UpdateHITTypeOfHIT where
   rnf UpdateHITTypeOfHIT' {..} =
-    Prelude.rnf hITId
-      `Prelude.seq` Prelude.rnf hITTypeId
+    Prelude.rnf hITId `Prelude.seq`
+      Prelude.rnf hITTypeId
 
 instance Data.ToHeaders UpdateHITTypeOfHIT where
   toHeaders =

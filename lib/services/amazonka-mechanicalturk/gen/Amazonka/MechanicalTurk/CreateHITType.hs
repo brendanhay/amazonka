@@ -239,13 +239,13 @@ instance Prelude.Hashable CreateHITType where
 
 instance Prelude.NFData CreateHITType where
   rnf CreateHITType' {..} =
-    Prelude.rnf autoApprovalDelayInSeconds
-      `Prelude.seq` Prelude.rnf keywords
-      `Prelude.seq` Prelude.rnf qualificationRequirements
-      `Prelude.seq` Prelude.rnf assignmentDurationInSeconds
-      `Prelude.seq` Prelude.rnf reward
-      `Prelude.seq` Prelude.rnf title
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf autoApprovalDelayInSeconds `Prelude.seq`
+      Prelude.rnf keywords `Prelude.seq`
+        Prelude.rnf qualificationRequirements `Prelude.seq`
+          Prelude.rnf assignmentDurationInSeconds `Prelude.seq`
+            Prelude.rnf reward `Prelude.seq`
+              Prelude.rnf title `Prelude.seq`
+                Prelude.rnf description
 
 instance Data.ToHeaders CreateHITType where
   toHeaders =
@@ -327,5 +327,5 @@ createHITTypeResponse_httpStatus = Lens.lens (\CreateHITTypeResponse' {httpStatu
 
 instance Prelude.NFData CreateHITTypeResponse where
   rnf CreateHITTypeResponse' {..} =
-    Prelude.rnf hITTypeId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf hITTypeId `Prelude.seq`
+      Prelude.rnf httpStatus

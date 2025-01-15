@@ -137,9 +137,9 @@ instance Prelude.Hashable NotifyWorkers where
 
 instance Prelude.NFData NotifyWorkers where
   rnf NotifyWorkers' {..} =
-    Prelude.rnf subject
-      `Prelude.seq` Prelude.rnf messageText
-      `Prelude.seq` Prelude.rnf workerIds
+    Prelude.rnf subject `Prelude.seq`
+      Prelude.rnf messageText `Prelude.seq`
+        Prelude.rnf workerIds
 
 instance Data.ToHeaders NotifyWorkers where
   toHeaders =
@@ -219,5 +219,5 @@ notifyWorkersResponse_httpStatus = Lens.lens (\NotifyWorkersResponse' {httpStatu
 
 instance Prelude.NFData NotifyWorkersResponse where
   rnf NotifyWorkersResponse' {..} =
-    Prelude.rnf notifyWorkersFailureStatuses
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf notifyWorkersFailureStatuses `Prelude.seq`
+      Prelude.rnf httpStatus

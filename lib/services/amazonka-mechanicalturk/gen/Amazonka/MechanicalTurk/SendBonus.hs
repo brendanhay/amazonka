@@ -180,11 +180,11 @@ instance Prelude.Hashable SendBonus where
 
 instance Prelude.NFData SendBonus where
   rnf SendBonus' {..} =
-    Prelude.rnf uniqueRequestToken
-      `Prelude.seq` Prelude.rnf workerId
-      `Prelude.seq` Prelude.rnf bonusAmount
-      `Prelude.seq` Prelude.rnf assignmentId
-      `Prelude.seq` Prelude.rnf reason
+    Prelude.rnf uniqueRequestToken `Prelude.seq`
+      Prelude.rnf workerId `Prelude.seq`
+        Prelude.rnf bonusAmount `Prelude.seq`
+          Prelude.rnf assignmentId `Prelude.seq`
+            Prelude.rnf reason
 
 instance Data.ToHeaders SendBonus where
   toHeaders =

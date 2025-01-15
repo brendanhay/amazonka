@@ -167,9 +167,9 @@ instance
     CreateAdditionalAssignmentsForHIT
   where
   rnf CreateAdditionalAssignmentsForHIT' {..} =
-    Prelude.rnf uniqueRequestToken
-      `Prelude.seq` Prelude.rnf hITId
-      `Prelude.seq` Prelude.rnf numberOfAdditionalAssignments
+    Prelude.rnf uniqueRequestToken `Prelude.seq`
+      Prelude.rnf hITId `Prelude.seq`
+        Prelude.rnf numberOfAdditionalAssignments
 
 instance
   Data.ToHeaders

@@ -142,10 +142,10 @@ instance Prelude.Hashable NotificationSpecification where
 
 instance Prelude.NFData NotificationSpecification where
   rnf NotificationSpecification' {..} =
-    Prelude.rnf destination
-      `Prelude.seq` Prelude.rnf transport
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf eventTypes
+    Prelude.rnf destination `Prelude.seq`
+      Prelude.rnf transport `Prelude.seq`
+        Prelude.rnf version `Prelude.seq`
+          Prelude.rnf eventTypes
 
 instance Data.ToJSON NotificationSpecification where
   toJSON NotificationSpecification' {..} =

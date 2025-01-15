@@ -121,8 +121,8 @@ instance Prelude.Hashable GetQualificationScore where
 
 instance Prelude.NFData GetQualificationScore where
   rnf GetQualificationScore' {..} =
-    Prelude.rnf qualificationTypeId
-      `Prelude.seq` Prelude.rnf workerId
+    Prelude.rnf qualificationTypeId `Prelude.seq`
+      Prelude.rnf workerId
 
 instance Data.ToHeaders GetQualificationScore where
   toHeaders =
@@ -199,5 +199,5 @@ getQualificationScoreResponse_httpStatus = Lens.lens (\GetQualificationScoreResp
 
 instance Prelude.NFData GetQualificationScoreResponse where
   rnf GetQualificationScoreResponse' {..} =
-    Prelude.rnf qualification
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf qualification `Prelude.seq`
+      Prelude.rnf httpStatus

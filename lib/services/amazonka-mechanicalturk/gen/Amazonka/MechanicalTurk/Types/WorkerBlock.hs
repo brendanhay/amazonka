@@ -81,5 +81,5 @@ instance Prelude.Hashable WorkerBlock where
 
 instance Prelude.NFData WorkerBlock where
   rnf WorkerBlock' {..} =
-    Prelude.rnf reason
-      `Prelude.seq` Prelude.rnf workerId
+    Prelude.rnf reason `Prelude.seq`
+      Prelude.rnf workerId

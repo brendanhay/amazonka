@@ -116,8 +116,8 @@ instance Prelude.Hashable CreateWorkerBlock where
 
 instance Prelude.NFData CreateWorkerBlock where
   rnf CreateWorkerBlock' {..} =
-    Prelude.rnf workerId
-      `Prelude.seq` Prelude.rnf reason
+    Prelude.rnf workerId `Prelude.seq`
+      Prelude.rnf reason
 
 instance Data.ToHeaders CreateWorkerBlock where
   toHeaders =

@@ -89,5 +89,5 @@ instance Prelude.Hashable ReviewReport where
 
 instance Prelude.NFData ReviewReport where
   rnf ReviewReport' {..} =
-    Prelude.rnf reviewActions
-      `Prelude.seq` Prelude.rnf reviewResults
+    Prelude.rnf reviewActions `Prelude.seq`
+      Prelude.rnf reviewResults

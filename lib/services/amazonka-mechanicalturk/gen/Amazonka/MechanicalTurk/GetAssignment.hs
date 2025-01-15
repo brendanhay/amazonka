@@ -179,6 +179,6 @@ getAssignmentResponse_httpStatus = Lens.lens (\GetAssignmentResponse' {httpStatu
 
 instance Prelude.NFData GetAssignmentResponse where
   rnf GetAssignmentResponse' {..} =
-    Prelude.rnf assignment
-      `Prelude.seq` Prelude.rnf hit
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf assignment `Prelude.seq`
+      Prelude.rnf hit `Prelude.seq`
+        Prelude.rnf httpStatus

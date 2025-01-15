@@ -171,10 +171,10 @@ instance
     AssociateQualificationWithWorker
   where
   rnf AssociateQualificationWithWorker' {..} =
-    Prelude.rnf integerValue
-      `Prelude.seq` Prelude.rnf sendNotification
-      `Prelude.seq` Prelude.rnf qualificationTypeId
-      `Prelude.seq` Prelude.rnf workerId
+    Prelude.rnf integerValue `Prelude.seq`
+      Prelude.rnf sendNotification `Prelude.seq`
+        Prelude.rnf qualificationTypeId `Prelude.seq`
+          Prelude.rnf workerId
 
 instance
   Data.ToHeaders

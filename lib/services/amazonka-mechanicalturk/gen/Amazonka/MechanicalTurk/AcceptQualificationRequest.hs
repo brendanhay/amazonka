@@ -125,8 +125,8 @@ instance Prelude.Hashable AcceptQualificationRequest where
 
 instance Prelude.NFData AcceptQualificationRequest where
   rnf AcceptQualificationRequest' {..} =
-    Prelude.rnf integerValue
-      `Prelude.seq` Prelude.rnf qualificationRequestId
+    Prelude.rnf integerValue `Prelude.seq`
+      Prelude.rnf qualificationRequestId
 
 instance Data.ToHeaders AcceptQualificationRequest where
   toHeaders =

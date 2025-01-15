@@ -131,12 +131,12 @@ instance Core.AWSPager ListReviewableHITs where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listReviewableHITs_nextToken
-          Lens..~ rs
-          Lens.^? listReviewableHITsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listReviewableHITs_nextToken
+              Lens..~ rs
+              Lens.^? listReviewableHITsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListReviewableHITs where
   type
@@ -164,10 +164,10 @@ instance Prelude.Hashable ListReviewableHITs where
 
 instance Prelude.NFData ListReviewableHITs where
   rnf ListReviewableHITs' {..} =
-    Prelude.rnf hITTypeId
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf hITTypeId `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf status
 
 instance Data.ToHeaders ListReviewableHITs where
   toHeaders =
@@ -261,7 +261,7 @@ listReviewableHITsResponse_httpStatus = Lens.lens (\ListReviewableHITsResponse' 
 
 instance Prelude.NFData ListReviewableHITsResponse where
   rnf ListReviewableHITsResponse' {..} =
-    Prelude.rnf hITs
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf numResults
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf hITs `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf numResults `Prelude.seq`
+          Prelude.rnf httpStatus

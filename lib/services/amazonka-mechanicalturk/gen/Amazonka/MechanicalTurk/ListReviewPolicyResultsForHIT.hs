@@ -186,12 +186,12 @@ instance
 
 instance Prelude.NFData ListReviewPolicyResultsForHIT where
   rnf ListReviewPolicyResultsForHIT' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf policyLevels
-      `Prelude.seq` Prelude.rnf retrieveActions
-      `Prelude.seq` Prelude.rnf retrieveResults
-      `Prelude.seq` Prelude.rnf hITId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf policyLevels `Prelude.seq`
+          Prelude.rnf retrieveActions `Prelude.seq`
+            Prelude.rnf retrieveResults `Prelude.seq`
+              Prelude.rnf hITId
 
 instance Data.ToHeaders ListReviewPolicyResultsForHIT where
   toHeaders =
@@ -327,10 +327,10 @@ instance
     ListReviewPolicyResultsForHITResponse
   where
   rnf ListReviewPolicyResultsForHITResponse' {..} =
-    Prelude.rnf assignmentReviewPolicy
-      `Prelude.seq` Prelude.rnf assignmentReviewReport
-      `Prelude.seq` Prelude.rnf hITId
-      `Prelude.seq` Prelude.rnf hITReviewPolicy
-      `Prelude.seq` Prelude.rnf hITReviewReport
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf assignmentReviewPolicy `Prelude.seq`
+      Prelude.rnf assignmentReviewReport `Prelude.seq`
+        Prelude.rnf hITId `Prelude.seq`
+          Prelude.rnf hITReviewPolicy `Prelude.seq`
+            Prelude.rnf hITReviewReport `Prelude.seq`
+              Prelude.rnf nextToken `Prelude.seq`
+                Prelude.rnf httpStatus

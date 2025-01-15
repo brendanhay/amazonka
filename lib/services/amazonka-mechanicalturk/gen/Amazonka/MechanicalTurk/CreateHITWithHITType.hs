@@ -342,16 +342,16 @@ instance Prelude.Hashable CreateHITWithHITType where
 
 instance Prelude.NFData CreateHITWithHITType where
   rnf CreateHITWithHITType' {..} =
-    Prelude.rnf assignmentReviewPolicy
-      `Prelude.seq` Prelude.rnf hITLayoutId
-      `Prelude.seq` Prelude.rnf hITLayoutParameters
-      `Prelude.seq` Prelude.rnf hITReviewPolicy
-      `Prelude.seq` Prelude.rnf maxAssignments
-      `Prelude.seq` Prelude.rnf question
-      `Prelude.seq` Prelude.rnf requesterAnnotation
-      `Prelude.seq` Prelude.rnf uniqueRequestToken
-      `Prelude.seq` Prelude.rnf hITTypeId
-      `Prelude.seq` Prelude.rnf lifetimeInSeconds
+    Prelude.rnf assignmentReviewPolicy `Prelude.seq`
+      Prelude.rnf hITLayoutId `Prelude.seq`
+        Prelude.rnf hITLayoutParameters `Prelude.seq`
+          Prelude.rnf hITReviewPolicy `Prelude.seq`
+            Prelude.rnf maxAssignments `Prelude.seq`
+              Prelude.rnf question `Prelude.seq`
+                Prelude.rnf requesterAnnotation `Prelude.seq`
+                  Prelude.rnf uniqueRequestToken `Prelude.seq`
+                    Prelude.rnf hITTypeId `Prelude.seq`
+                      Prelude.rnf lifetimeInSeconds
 
 instance Data.ToHeaders CreateHITWithHITType where
   toHeaders =
@@ -445,5 +445,5 @@ createHITWithHITTypeResponse_httpStatus = Lens.lens (\CreateHITWithHITTypeRespon
 
 instance Prelude.NFData CreateHITWithHITTypeResponse where
   rnf CreateHITWithHITTypeResponse' {..} =
-    Prelude.rnf hit
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf hit `Prelude.seq`
+      Prelude.rnf httpStatus

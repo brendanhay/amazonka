@@ -281,16 +281,16 @@ instance Prelude.Hashable QualificationType where
 
 instance Prelude.NFData QualificationType where
   rnf QualificationType' {..} =
-    Prelude.rnf answerKey
-      `Prelude.seq` Prelude.rnf autoGranted
-      `Prelude.seq` Prelude.rnf autoGrantedValue
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf isRequestable
-      `Prelude.seq` Prelude.rnf keywords
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf qualificationTypeId
-      `Prelude.seq` Prelude.rnf qualificationTypeStatus
-      `Prelude.seq` Prelude.rnf retryDelayInSeconds
-      `Prelude.seq` Prelude.rnf test
-      `Prelude.seq` Prelude.rnf testDurationInSeconds
+    Prelude.rnf answerKey `Prelude.seq`
+      Prelude.rnf autoGranted `Prelude.seq`
+        Prelude.rnf autoGrantedValue `Prelude.seq`
+          Prelude.rnf creationTime `Prelude.seq`
+            Prelude.rnf description `Prelude.seq`
+              Prelude.rnf isRequestable `Prelude.seq`
+                Prelude.rnf keywords `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf qualificationTypeId `Prelude.seq`
+                      Prelude.rnf qualificationTypeStatus `Prelude.seq`
+                        Prelude.rnf retryDelayInSeconds `Prelude.seq`
+                          Prelude.rnf test `Prelude.seq`
+                            Prelude.rnf testDurationInSeconds

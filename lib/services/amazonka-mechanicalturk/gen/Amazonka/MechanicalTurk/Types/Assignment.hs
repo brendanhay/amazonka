@@ -250,15 +250,15 @@ instance Prelude.Hashable Assignment where
 
 instance Prelude.NFData Assignment where
   rnf Assignment' {..} =
-    Prelude.rnf acceptTime
-      `Prelude.seq` Prelude.rnf answer
-      `Prelude.seq` Prelude.rnf approvalTime
-      `Prelude.seq` Prelude.rnf assignmentId
-      `Prelude.seq` Prelude.rnf assignmentStatus
-      `Prelude.seq` Prelude.rnf autoApprovalTime
-      `Prelude.seq` Prelude.rnf deadline
-      `Prelude.seq` Prelude.rnf hITId
-      `Prelude.seq` Prelude.rnf rejectionTime
-      `Prelude.seq` Prelude.rnf requesterFeedback
-      `Prelude.seq` Prelude.rnf submitTime
-      `Prelude.seq` Prelude.rnf workerId
+    Prelude.rnf acceptTime `Prelude.seq`
+      Prelude.rnf answer `Prelude.seq`
+        Prelude.rnf approvalTime `Prelude.seq`
+          Prelude.rnf assignmentId `Prelude.seq`
+            Prelude.rnf assignmentStatus `Prelude.seq`
+              Prelude.rnf autoApprovalTime `Prelude.seq`
+                Prelude.rnf deadline `Prelude.seq`
+                  Prelude.rnf hITId `Prelude.seq`
+                    Prelude.rnf rejectionTime `Prelude.seq`
+                      Prelude.rnf requesterFeedback `Prelude.seq`
+                        Prelude.rnf submitTime `Prelude.seq`
+                          Prelude.rnf workerId

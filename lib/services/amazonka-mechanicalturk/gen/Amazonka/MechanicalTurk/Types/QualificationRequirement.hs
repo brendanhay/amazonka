@@ -288,12 +288,12 @@ instance Prelude.Hashable QualificationRequirement where
 
 instance Prelude.NFData QualificationRequirement where
   rnf QualificationRequirement' {..} =
-    Prelude.rnf actionsGuarded
-      `Prelude.seq` Prelude.rnf integerValues
-      `Prelude.seq` Prelude.rnf localeValues
-      `Prelude.seq` Prelude.rnf requiredToPreview
-      `Prelude.seq` Prelude.rnf qualificationTypeId
-      `Prelude.seq` Prelude.rnf comparator
+    Prelude.rnf actionsGuarded `Prelude.seq`
+      Prelude.rnf integerValues `Prelude.seq`
+        Prelude.rnf localeValues `Prelude.seq`
+          Prelude.rnf requiredToPreview `Prelude.seq`
+            Prelude.rnf qualificationTypeId `Prelude.seq`
+              Prelude.rnf comparator
 
 instance Data.ToJSON QualificationRequirement where
   toJSON QualificationRequirement' {..} =

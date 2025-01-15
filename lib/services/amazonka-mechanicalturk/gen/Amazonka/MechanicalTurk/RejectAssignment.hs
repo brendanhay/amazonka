@@ -126,8 +126,8 @@ instance Prelude.Hashable RejectAssignment where
 
 instance Prelude.NFData RejectAssignment where
   rnf RejectAssignment' {..} =
-    Prelude.rnf assignmentId
-      `Prelude.seq` Prelude.rnf requesterFeedback
+    Prelude.rnf assignmentId `Prelude.seq`
+      Prelude.rnf requesterFeedback
 
 instance Data.ToHeaders RejectAssignment where
   toHeaders =

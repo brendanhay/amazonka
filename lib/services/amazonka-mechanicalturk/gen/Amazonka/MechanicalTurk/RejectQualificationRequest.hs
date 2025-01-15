@@ -119,8 +119,8 @@ instance Prelude.Hashable RejectQualificationRequest where
 
 instance Prelude.NFData RejectQualificationRequest where
   rnf RejectQualificationRequest' {..} =
-    Prelude.rnf reason
-      `Prelude.seq` Prelude.rnf qualificationRequestId
+    Prelude.rnf reason `Prelude.seq`
+      Prelude.rnf qualificationRequestId
 
 instance Data.ToHeaders RejectQualificationRequest where
   toHeaders =

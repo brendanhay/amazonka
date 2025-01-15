@@ -103,12 +103,12 @@ instance Core.AWSPager ListWorkerBlocks where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listWorkerBlocks_nextToken
-          Lens..~ rs
-          Lens.^? listWorkerBlocksResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listWorkerBlocks_nextToken
+              Lens..~ rs
+              Lens.^? listWorkerBlocksResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListWorkerBlocks where
   type
@@ -134,8 +134,8 @@ instance Prelude.Hashable ListWorkerBlocks where
 
 instance Prelude.NFData ListWorkerBlocks where
   rnf ListWorkerBlocks' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListWorkerBlocks where
   toHeaders =
@@ -231,7 +231,7 @@ listWorkerBlocksResponse_httpStatus = Lens.lens (\ListWorkerBlocksResponse' {htt
 
 instance Prelude.NFData ListWorkerBlocksResponse where
   rnf ListWorkerBlocksResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf numResults
-      `Prelude.seq` Prelude.rnf workerBlocks
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf numResults `Prelude.seq`
+        Prelude.rnf workerBlocks `Prelude.seq`
+          Prelude.rnf httpStatus

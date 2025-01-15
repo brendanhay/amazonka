@@ -148,9 +148,9 @@ instance Prelude.Hashable ApproveAssignment where
 
 instance Prelude.NFData ApproveAssignment where
   rnf ApproveAssignment' {..} =
-    Prelude.rnf overrideRejection
-      `Prelude.seq` Prelude.rnf requesterFeedback
-      `Prelude.seq` Prelude.rnf assignmentId
+    Prelude.rnf overrideRejection `Prelude.seq`
+      Prelude.rnf requesterFeedback `Prelude.seq`
+        Prelude.rnf assignmentId
 
 instance Data.ToHeaders ApproveAssignment where
   toHeaders =

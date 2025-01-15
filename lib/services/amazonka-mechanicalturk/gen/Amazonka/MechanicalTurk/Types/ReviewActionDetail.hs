@@ -158,11 +158,11 @@ instance Prelude.Hashable ReviewActionDetail where
 
 instance Prelude.NFData ReviewActionDetail where
   rnf ReviewActionDetail' {..} =
-    Prelude.rnf actionId
-      `Prelude.seq` Prelude.rnf actionName
-      `Prelude.seq` Prelude.rnf completeTime
-      `Prelude.seq` Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf result
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf targetId
-      `Prelude.seq` Prelude.rnf targetType
+    Prelude.rnf actionId `Prelude.seq`
+      Prelude.rnf actionName `Prelude.seq`
+        Prelude.rnf completeTime `Prelude.seq`
+          Prelude.rnf errorCode `Prelude.seq`
+            Prelude.rnf result `Prelude.seq`
+              Prelude.rnf status `Prelude.seq`
+                Prelude.rnf targetId `Prelude.seq`
+                  Prelude.rnf targetType

@@ -289,15 +289,15 @@ instance Prelude.Hashable UpdateQualificationType where
 
 instance Prelude.NFData UpdateQualificationType where
   rnf UpdateQualificationType' {..} =
-    Prelude.rnf answerKey
-      `Prelude.seq` Prelude.rnf autoGranted
-      `Prelude.seq` Prelude.rnf autoGrantedValue
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf qualificationTypeStatus
-      `Prelude.seq` Prelude.rnf retryDelayInSeconds
-      `Prelude.seq` Prelude.rnf test
-      `Prelude.seq` Prelude.rnf testDurationInSeconds
-      `Prelude.seq` Prelude.rnf qualificationTypeId
+    Prelude.rnf answerKey `Prelude.seq`
+      Prelude.rnf autoGranted `Prelude.seq`
+        Prelude.rnf autoGrantedValue `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf qualificationTypeStatus `Prelude.seq`
+              Prelude.rnf retryDelayInSeconds `Prelude.seq`
+                Prelude.rnf test `Prelude.seq`
+                  Prelude.rnf testDurationInSeconds `Prelude.seq`
+                    Prelude.rnf qualificationTypeId
 
 instance Data.ToHeaders UpdateQualificationType where
   toHeaders =
@@ -385,5 +385,5 @@ instance
     UpdateQualificationTypeResponse
   where
   rnf UpdateQualificationTypeResponse' {..} =
-    Prelude.rnf qualificationType
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf qualificationType `Prelude.seq`
+      Prelude.rnf httpStatus

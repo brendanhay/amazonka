@@ -131,8 +131,8 @@ instance Prelude.Hashable SendTestEventNotification where
 
 instance Prelude.NFData SendTestEventNotification where
   rnf SendTestEventNotification' {..} =
-    Prelude.rnf notification
-      `Prelude.seq` Prelude.rnf testEventType
+    Prelude.rnf notification `Prelude.seq`
+      Prelude.rnf testEventType
 
 instance Data.ToHeaders SendTestEventNotification where
   toHeaders =

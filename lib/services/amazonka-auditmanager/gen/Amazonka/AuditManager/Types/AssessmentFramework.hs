@@ -104,7 +104,7 @@ instance Prelude.Hashable AssessmentFramework where
 
 instance Prelude.NFData AssessmentFramework where
   rnf AssessmentFramework' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf controlSets
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf metadata
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf controlSets `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf metadata

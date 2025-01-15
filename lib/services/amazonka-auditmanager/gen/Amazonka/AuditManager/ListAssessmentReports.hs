@@ -115,8 +115,8 @@ instance Prelude.Hashable ListAssessmentReports where
 
 instance Prelude.NFData ListAssessmentReports where
   rnf ListAssessmentReports' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListAssessmentReports where
   toHeaders =
@@ -192,6 +192,6 @@ listAssessmentReportsResponse_httpStatus = Lens.lens (\ListAssessmentReportsResp
 
 instance Prelude.NFData ListAssessmentReportsResponse where
   rnf ListAssessmentReportsResponse' {..} =
-    Prelude.rnf assessmentReports
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf assessmentReports `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

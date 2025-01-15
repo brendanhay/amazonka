@@ -127,8 +127,8 @@ instance
     BatchCreateDelegationByAssessment
   where
   rnf BatchCreateDelegationByAssessment' {..} =
-    Prelude.rnf createDelegationRequests
-      `Prelude.seq` Prelude.rnf assessmentId
+    Prelude.rnf createDelegationRequests `Prelude.seq`
+      Prelude.rnf assessmentId
 
 instance
   Data.ToHeaders
@@ -232,6 +232,6 @@ instance
     BatchCreateDelegationByAssessmentResponse
   where
   rnf BatchCreateDelegationByAssessmentResponse' {..} =
-    Prelude.rnf delegations
-      `Prelude.seq` Prelude.rnf errors
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf delegations `Prelude.seq`
+      Prelude.rnf errors `Prelude.seq`
+        Prelude.rnf httpStatus

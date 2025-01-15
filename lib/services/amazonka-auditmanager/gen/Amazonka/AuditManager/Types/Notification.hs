@@ -148,11 +148,11 @@ instance Prelude.Hashable Notification where
 
 instance Prelude.NFData Notification where
   rnf Notification' {..} =
-    Prelude.rnf assessmentId
-      `Prelude.seq` Prelude.rnf assessmentName
-      `Prelude.seq` Prelude.rnf controlSetId
-      `Prelude.seq` Prelude.rnf controlSetName
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf eventTime
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf source
+    Prelude.rnf assessmentId `Prelude.seq`
+      Prelude.rnf assessmentName `Prelude.seq`
+        Prelude.rnf controlSetId `Prelude.seq`
+          Prelude.rnf controlSetName `Prelude.seq`
+            Prelude.rnf description `Prelude.seq`
+              Prelude.rnf eventTime `Prelude.seq`
+                Prelude.rnf id `Prelude.seq`
+                  Prelude.rnf source

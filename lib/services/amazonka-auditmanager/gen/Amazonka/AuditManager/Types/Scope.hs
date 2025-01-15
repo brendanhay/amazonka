@@ -89,8 +89,8 @@ instance Prelude.Hashable Scope where
 
 instance Prelude.NFData Scope where
   rnf Scope' {..} =
-    Prelude.rnf awsAccounts
-      `Prelude.seq` Prelude.rnf awsServices
+    Prelude.rnf awsAccounts `Prelude.seq`
+      Prelude.rnf awsServices
 
 instance Data.ToJSON Scope where
   toJSON Scope' {..} =

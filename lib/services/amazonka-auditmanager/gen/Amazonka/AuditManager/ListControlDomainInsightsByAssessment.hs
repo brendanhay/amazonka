@@ -147,9 +147,9 @@ instance
     ListControlDomainInsightsByAssessment
   where
   rnf ListControlDomainInsightsByAssessment' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf assessmentId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf assessmentId
 
 instance
   Data.ToHeaders
@@ -242,6 +242,6 @@ instance
   where
   rnf
     ListControlDomainInsightsByAssessmentResponse' {..} =
-      Prelude.rnf controlDomainInsights
-        `Prelude.seq` Prelude.rnf nextToken
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf controlDomainInsights `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf httpStatus

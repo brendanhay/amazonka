@@ -231,18 +231,18 @@ instance Prelude.Hashable Control where
 
 instance Prelude.NFData Control where
   rnf Control' {..} =
-    Prelude.rnf actionPlanInstructions
-      `Prelude.seq` Prelude.rnf actionPlanTitle
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf controlMappingSources
-      `Prelude.seq` Prelude.rnf controlSources
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf createdBy
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf lastUpdatedBy
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf testingInformation
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf actionPlanInstructions `Prelude.seq`
+      Prelude.rnf actionPlanTitle `Prelude.seq`
+        Prelude.rnf arn `Prelude.seq`
+          Prelude.rnf controlMappingSources `Prelude.seq`
+            Prelude.rnf controlSources `Prelude.seq`
+              Prelude.rnf createdAt `Prelude.seq`
+                Prelude.rnf createdBy `Prelude.seq`
+                  Prelude.rnf description `Prelude.seq`
+                    Prelude.rnf id `Prelude.seq`
+                      Prelude.rnf lastUpdatedAt `Prelude.seq`
+                        Prelude.rnf lastUpdatedBy `Prelude.seq`
+                          Prelude.rnf name `Prelude.seq`
+                            Prelude.rnf tags `Prelude.seq`
+                              Prelude.rnf testingInformation `Prelude.seq`
+                                Prelude.rnf type'

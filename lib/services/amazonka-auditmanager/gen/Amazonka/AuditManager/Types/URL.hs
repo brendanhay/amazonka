@@ -81,5 +81,5 @@ instance Prelude.Hashable URL where
 
 instance Prelude.NFData URL where
   rnf URL' {..} =
-    Prelude.rnf hyperlinkName
-      `Prelude.seq` Prelude.rnf link
+    Prelude.rnf hyperlinkName `Prelude.seq`
+      Prelude.rnf link

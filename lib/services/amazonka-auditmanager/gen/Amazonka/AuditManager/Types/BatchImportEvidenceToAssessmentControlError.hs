@@ -113,6 +113,6 @@ instance
     BatchImportEvidenceToAssessmentControlError
   where
   rnf BatchImportEvidenceToAssessmentControlError' {..} =
-    Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf manualEvidence
+    Prelude.rnf errorCode `Prelude.seq`
+      Prelude.rnf errorMessage `Prelude.seq`
+        Prelude.rnf manualEvidence

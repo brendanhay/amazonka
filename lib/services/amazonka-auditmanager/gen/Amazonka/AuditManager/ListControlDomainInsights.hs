@@ -121,8 +121,8 @@ instance Prelude.Hashable ListControlDomainInsights where
 
 instance Prelude.NFData ListControlDomainInsights where
   rnf ListControlDomainInsights' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListControlDomainInsights where
   toHeaders =
@@ -201,6 +201,6 @@ instance
     ListControlDomainInsightsResponse
   where
   rnf ListControlDomainInsightsResponse' {..} =
-    Prelude.rnf controlDomainInsights
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf controlDomainInsights `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

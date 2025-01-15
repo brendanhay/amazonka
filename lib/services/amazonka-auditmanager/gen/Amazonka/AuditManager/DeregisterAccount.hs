@@ -151,5 +151,5 @@ deregisterAccountResponse_httpStatus = Lens.lens (\DeregisterAccountResponse' {h
 
 instance Prelude.NFData DeregisterAccountResponse where
   rnf DeregisterAccountResponse' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf status `Prelude.seq`
+      Prelude.rnf httpStatus

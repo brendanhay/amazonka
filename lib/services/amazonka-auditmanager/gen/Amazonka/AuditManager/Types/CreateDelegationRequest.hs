@@ -125,10 +125,10 @@ instance Prelude.Hashable CreateDelegationRequest where
 
 instance Prelude.NFData CreateDelegationRequest where
   rnf CreateDelegationRequest' {..} =
-    Prelude.rnf comment
-      `Prelude.seq` Prelude.rnf controlSetId
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf roleType
+    Prelude.rnf comment `Prelude.seq`
+      Prelude.rnf controlSetId `Prelude.seq`
+        Prelude.rnf roleArn `Prelude.seq`
+          Prelude.rnf roleType
 
 instance Data.ToJSON CreateDelegationRequest where
   toJSON CreateDelegationRequest' {..} =

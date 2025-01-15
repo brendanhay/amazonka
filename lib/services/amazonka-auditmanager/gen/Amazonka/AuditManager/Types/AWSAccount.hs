@@ -95,9 +95,9 @@ instance Prelude.Hashable AWSAccount where
 
 instance Prelude.NFData AWSAccount where
   rnf AWSAccount' {..} =
-    Prelude.rnf emailAddress
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf emailAddress `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf name
 
 instance Data.ToJSON AWSAccount where
   toJSON AWSAccount' {..} =

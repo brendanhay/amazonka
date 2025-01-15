@@ -111,8 +111,8 @@ instance Prelude.Hashable ListNotifications where
 
 instance Prelude.NFData ListNotifications where
   rnf ListNotifications' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListNotifications where
   toHeaders =
@@ -185,6 +185,6 @@ listNotificationsResponse_httpStatus = Lens.lens (\ListNotificationsResponse' {h
 
 instance Prelude.NFData ListNotificationsResponse where
   rnf ListNotificationsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf notifications
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf notifications `Prelude.seq`
+        Prelude.rnf httpStatus

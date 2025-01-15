@@ -125,8 +125,8 @@ instance Prelude.Hashable ChangeLog where
 
 instance Prelude.NFData ChangeLog where
   rnf ChangeLog' {..} =
-    Prelude.rnf action
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf createdBy
-      `Prelude.seq` Prelude.rnf objectName
-      `Prelude.seq` Prelude.rnf objectType
+    Prelude.rnf action `Prelude.seq`
+      Prelude.rnf createdAt `Prelude.seq`
+        Prelude.rnf createdBy `Prelude.seq`
+          Prelude.rnf objectName `Prelude.seq`
+            Prelude.rnf objectType

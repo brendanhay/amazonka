@@ -149,11 +149,11 @@ instance Prelude.Hashable AssessmentReportMetadata where
 
 instance Prelude.NFData AssessmentReportMetadata where
   rnf AssessmentReportMetadata' {..} =
-    Prelude.rnf assessmentId
-      `Prelude.seq` Prelude.rnf assessmentName
-      `Prelude.seq` Prelude.rnf author
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf assessmentId `Prelude.seq`
+      Prelude.rnf assessmentName `Prelude.seq`
+        Prelude.rnf author `Prelude.seq`
+          Prelude.rnf creationTime `Prelude.seq`
+            Prelude.rnf description `Prelude.seq`
+              Prelude.rnf id `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf status

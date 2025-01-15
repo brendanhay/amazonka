@@ -152,10 +152,10 @@ instance
     UpdateAssessmentControlSetStatus
   where
   rnf UpdateAssessmentControlSetStatus' {..} =
-    Prelude.rnf assessmentId
-      `Prelude.seq` Prelude.rnf controlSetId
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf comment
+    Prelude.rnf assessmentId `Prelude.seq`
+      Prelude.rnf controlSetId `Prelude.seq`
+        Prelude.rnf status `Prelude.seq`
+          Prelude.rnf comment
 
 instance
   Data.ToHeaders
@@ -244,5 +244,5 @@ instance
     UpdateAssessmentControlSetStatusResponse
   where
   rnf UpdateAssessmentControlSetStatusResponse' {..} =
-    Prelude.rnf controlSet
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf controlSet `Prelude.seq`
+      Prelude.rnf httpStatus

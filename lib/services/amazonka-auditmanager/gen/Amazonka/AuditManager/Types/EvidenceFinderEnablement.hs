@@ -209,7 +209,7 @@ instance Prelude.Hashable EvidenceFinderEnablement where
 
 instance Prelude.NFData EvidenceFinderEnablement where
   rnf EvidenceFinderEnablement' {..} =
-    Prelude.rnf backfillStatus
-      `Prelude.seq` Prelude.rnf enablementStatus
-      `Prelude.seq` Prelude.rnf error
-      `Prelude.seq` Prelude.rnf eventDataStoreArn
+    Prelude.rnf backfillStatus `Prelude.seq`
+      Prelude.rnf enablementStatus `Prelude.seq`
+        Prelude.rnf error `Prelude.seq`
+          Prelude.rnf eventDataStoreArn

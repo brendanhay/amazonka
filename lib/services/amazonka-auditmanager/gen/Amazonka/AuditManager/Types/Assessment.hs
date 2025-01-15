@@ -118,8 +118,8 @@ instance Prelude.Hashable Assessment where
 
 instance Prelude.NFData Assessment where
   rnf Assessment' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf awsAccount
-      `Prelude.seq` Prelude.rnf framework
-      `Prelude.seq` Prelude.rnf metadata
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf awsAccount `Prelude.seq`
+        Prelude.rnf framework `Prelude.seq`
+          Prelude.rnf metadata `Prelude.seq`
+            Prelude.rnf tags

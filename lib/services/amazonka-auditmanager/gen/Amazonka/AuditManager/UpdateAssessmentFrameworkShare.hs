@@ -141,9 +141,9 @@ instance
     UpdateAssessmentFrameworkShare
   where
   rnf UpdateAssessmentFrameworkShare' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf requestType
-      `Prelude.seq` Prelude.rnf action
+    Prelude.rnf requestId `Prelude.seq`
+      Prelude.rnf requestType `Prelude.seq`
+        Prelude.rnf action
 
 instance
   Data.ToHeaders
@@ -226,5 +226,5 @@ instance
     UpdateAssessmentFrameworkShareResponse
   where
   rnf UpdateAssessmentFrameworkShareResponse' {..} =
-    Prelude.rnf assessmentFrameworkShareRequest
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf assessmentFrameworkShareRequest `Prelude.seq`
+      Prelude.rnf httpStatus

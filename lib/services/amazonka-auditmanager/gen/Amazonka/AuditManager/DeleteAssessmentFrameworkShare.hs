@@ -125,8 +125,8 @@ instance
     DeleteAssessmentFrameworkShare
   where
   rnf DeleteAssessmentFrameworkShare' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf requestType
+    Prelude.rnf requestId `Prelude.seq`
+      Prelude.rnf requestType
 
 instance
   Data.ToHeaders

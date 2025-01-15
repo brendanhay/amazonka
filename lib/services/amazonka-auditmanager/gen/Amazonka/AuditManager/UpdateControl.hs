@@ -172,13 +172,13 @@ instance Prelude.Hashable UpdateControl where
 
 instance Prelude.NFData UpdateControl where
   rnf UpdateControl' {..} =
-    Prelude.rnf actionPlanInstructions
-      `Prelude.seq` Prelude.rnf actionPlanTitle
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf testingInformation
-      `Prelude.seq` Prelude.rnf controlId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf controlMappingSources
+    Prelude.rnf actionPlanInstructions `Prelude.seq`
+      Prelude.rnf actionPlanTitle `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf testingInformation `Prelude.seq`
+            Prelude.rnf controlId `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf controlMappingSources
 
 instance Data.ToHeaders UpdateControl where
   toHeaders =
@@ -260,5 +260,5 @@ updateControlResponse_httpStatus = Lens.lens (\UpdateControlResponse' {httpStatu
 
 instance Prelude.NFData UpdateControlResponse where
   rnf UpdateControlResponse' {..} =
-    Prelude.rnf control
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf control `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -107,8 +107,8 @@ instance Prelude.Hashable RegisterAccount where
 
 instance Prelude.NFData RegisterAccount where
   rnf RegisterAccount' {..} =
-    Prelude.rnf delegatedAdminAccount
-      `Prelude.seq` Prelude.rnf kmsKey
+    Prelude.rnf delegatedAdminAccount `Prelude.seq`
+      Prelude.rnf kmsKey
 
 instance Data.ToHeaders RegisterAccount where
   toHeaders =
@@ -177,5 +177,5 @@ registerAccountResponse_httpStatus = Lens.lens (\RegisterAccountResponse' {httpS
 
 instance Prelude.NFData RegisterAccountResponse where
   rnf RegisterAccountResponse' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf status `Prelude.seq`
+      Prelude.rnf httpStatus

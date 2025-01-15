@@ -98,9 +98,9 @@ instance
     UpdateAssessmentFrameworkControlSet
   where
   rnf UpdateAssessmentFrameworkControlSet' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf controls
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf controls
 
 instance
   Data.ToJSON

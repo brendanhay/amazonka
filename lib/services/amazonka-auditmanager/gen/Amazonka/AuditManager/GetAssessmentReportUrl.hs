@@ -113,8 +113,8 @@ instance Prelude.Hashable GetAssessmentReportUrl where
 
 instance Prelude.NFData GetAssessmentReportUrl where
   rnf GetAssessmentReportUrl' {..} =
-    Prelude.rnf assessmentReportId
-      `Prelude.seq` Prelude.rnf assessmentId
+    Prelude.rnf assessmentReportId `Prelude.seq`
+      Prelude.rnf assessmentId
 
 instance Data.ToHeaders GetAssessmentReportUrl where
   toHeaders =
@@ -183,5 +183,5 @@ instance
     GetAssessmentReportUrlResponse
   where
   rnf GetAssessmentReportUrlResponse' {..} =
-    Prelude.rnf preSignedUrl
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf preSignedUrl `Prelude.seq`
+      Prelude.rnf httpStatus

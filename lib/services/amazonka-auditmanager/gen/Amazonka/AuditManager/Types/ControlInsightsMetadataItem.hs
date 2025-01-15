@@ -111,7 +111,7 @@ instance Prelude.Hashable ControlInsightsMetadataItem where
 
 instance Prelude.NFData ControlInsightsMetadataItem where
   rnf ControlInsightsMetadataItem' {..} =
-    Prelude.rnf evidenceInsights
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf lastUpdated
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf evidenceInsights `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf lastUpdated `Prelude.seq`
+          Prelude.rnf name

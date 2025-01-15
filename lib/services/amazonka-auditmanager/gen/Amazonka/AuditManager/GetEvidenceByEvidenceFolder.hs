@@ -154,11 +154,11 @@ instance Prelude.Hashable GetEvidenceByEvidenceFolder where
 
 instance Prelude.NFData GetEvidenceByEvidenceFolder where
   rnf GetEvidenceByEvidenceFolder' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf assessmentId
-      `Prelude.seq` Prelude.rnf controlSetId
-      `Prelude.seq` Prelude.rnf evidenceFolderId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf assessmentId `Prelude.seq`
+          Prelude.rnf controlSetId `Prelude.seq`
+            Prelude.rnf evidenceFolderId
 
 instance Data.ToHeaders GetEvidenceByEvidenceFolder where
   toHeaders =
@@ -246,6 +246,6 @@ instance
     GetEvidenceByEvidenceFolderResponse
   where
   rnf GetEvidenceByEvidenceFolderResponse' {..} =
-    Prelude.rnf evidence
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf evidence `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

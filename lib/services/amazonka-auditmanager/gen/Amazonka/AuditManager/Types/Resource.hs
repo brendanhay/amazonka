@@ -139,6 +139,6 @@ instance Prelude.Hashable Resource where
 
 instance Prelude.NFData Resource where
   rnf Resource' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf complianceCheck
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf complianceCheck `Prelude.seq`
+        Prelude.rnf value

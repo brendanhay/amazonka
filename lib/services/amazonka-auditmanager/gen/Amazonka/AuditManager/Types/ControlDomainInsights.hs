@@ -135,9 +135,9 @@ instance Prelude.Hashable ControlDomainInsights where
 
 instance Prelude.NFData ControlDomainInsights where
   rnf ControlDomainInsights' {..} =
-    Prelude.rnf controlsCountByNoncompliantEvidence
-      `Prelude.seq` Prelude.rnf evidenceInsights
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf lastUpdated
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf totalControlsCount
+    Prelude.rnf controlsCountByNoncompliantEvidence `Prelude.seq`
+      Prelude.rnf evidenceInsights `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf lastUpdated `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf totalControlsCount

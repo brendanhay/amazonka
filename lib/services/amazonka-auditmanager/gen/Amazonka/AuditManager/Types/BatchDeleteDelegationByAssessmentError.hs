@@ -110,6 +110,6 @@ instance
     BatchDeleteDelegationByAssessmentError
   where
   rnf BatchDeleteDelegationByAssessmentError' {..} =
-    Prelude.rnf delegationId
-      `Prelude.seq` Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorMessage
+    Prelude.rnf delegationId `Prelude.seq`
+      Prelude.rnf errorCode `Prelude.seq`
+        Prelude.rnf errorMessage

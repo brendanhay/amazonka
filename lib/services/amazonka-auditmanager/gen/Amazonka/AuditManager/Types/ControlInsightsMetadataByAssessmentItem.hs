@@ -133,8 +133,8 @@ instance
     ControlInsightsMetadataByAssessmentItem
   where
   rnf ControlInsightsMetadataByAssessmentItem' {..} =
-    Prelude.rnf controlSetName
-      `Prelude.seq` Prelude.rnf evidenceInsights
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf lastUpdated
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf controlSetName `Prelude.seq`
+      Prelude.rnf evidenceInsights `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf lastUpdated `Prelude.seq`
+            Prelude.rnf name

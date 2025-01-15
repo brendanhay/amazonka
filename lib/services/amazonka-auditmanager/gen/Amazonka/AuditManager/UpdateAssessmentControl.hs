@@ -149,11 +149,11 @@ instance Prelude.Hashable UpdateAssessmentControl where
 
 instance Prelude.NFData UpdateAssessmentControl where
   rnf UpdateAssessmentControl' {..} =
-    Prelude.rnf commentBody
-      `Prelude.seq` Prelude.rnf controlStatus
-      `Prelude.seq` Prelude.rnf assessmentId
-      `Prelude.seq` Prelude.rnf controlSetId
-      `Prelude.seq` Prelude.rnf controlId
+    Prelude.rnf commentBody `Prelude.seq`
+      Prelude.rnf controlStatus `Prelude.seq`
+        Prelude.rnf assessmentId `Prelude.seq`
+          Prelude.rnf controlSetId `Prelude.seq`
+            Prelude.rnf controlId
 
 instance Data.ToHeaders UpdateAssessmentControl where
   toHeaders =
@@ -236,5 +236,5 @@ instance
     UpdateAssessmentControlResponse
   where
   rnf UpdateAssessmentControlResponse' {..} =
-    Prelude.rnf control
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf control `Prelude.seq`
+      Prelude.rnf httpStatus

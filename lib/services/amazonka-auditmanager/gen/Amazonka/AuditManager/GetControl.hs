@@ -151,5 +151,5 @@ getControlResponse_httpStatus = Lens.lens (\GetControlResponse' {httpStatus} -> 
 
 instance Prelude.NFData GetControlResponse where
   rnf GetControlResponse' {..} =
-    Prelude.rnf control
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf control `Prelude.seq`
+      Prelude.rnf httpStatus

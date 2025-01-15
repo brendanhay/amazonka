@@ -165,12 +165,12 @@ instance Prelude.Hashable AssessmentControl where
 
 instance Prelude.NFData AssessmentControl where
   rnf AssessmentControl' {..} =
-    Prelude.rnf assessmentReportEvidenceCount
-      `Prelude.seq` Prelude.rnf comments
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf evidenceCount
-      `Prelude.seq` Prelude.rnf evidenceSources
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf response
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf assessmentReportEvidenceCount `Prelude.seq`
+      Prelude.rnf comments `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf evidenceCount `Prelude.seq`
+            Prelude.rnf evidenceSources `Prelude.seq`
+              Prelude.rnf id `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf response `Prelude.seq`
+                    Prelude.rnf status

@@ -164,6 +164,6 @@ getAssessmentResponse_httpStatus = Lens.lens (\GetAssessmentResponse' {httpStatu
 
 instance Prelude.NFData GetAssessmentResponse where
   rnf GetAssessmentResponse' {..} =
-    Prelude.rnf assessment
-      `Prelude.seq` Prelude.rnf userRole
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf assessment `Prelude.seq`
+      Prelude.rnf userRole `Prelude.seq`
+        Prelude.rnf httpStatus

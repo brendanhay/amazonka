@@ -184,14 +184,14 @@ instance Prelude.Hashable AssessmentFrameworkMetadata where
 
 instance Prelude.NFData AssessmentFrameworkMetadata where
   rnf AssessmentFrameworkMetadata' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf complianceType
-      `Prelude.seq` Prelude.rnf controlSetsCount
-      `Prelude.seq` Prelude.rnf controlsCount
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf logo
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf complianceType `Prelude.seq`
+        Prelude.rnf controlSetsCount `Prelude.seq`
+          Prelude.rnf controlsCount `Prelude.seq`
+            Prelude.rnf createdAt `Prelude.seq`
+              Prelude.rnf description `Prelude.seq`
+                Prelude.rnf id `Prelude.seq`
+                  Prelude.rnf lastUpdatedAt `Prelude.seq`
+                    Prelude.rnf logo `Prelude.seq`
+                      Prelude.rnf name `Prelude.seq`
+                        Prelude.rnf type'

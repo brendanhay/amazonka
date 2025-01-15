@@ -162,12 +162,12 @@ instance Prelude.Hashable AssessmentReport where
 
 instance Prelude.NFData AssessmentReport where
   rnf AssessmentReport' {..} =
-    Prelude.rnf assessmentId
-      `Prelude.seq` Prelude.rnf assessmentName
-      `Prelude.seq` Prelude.rnf author
-      `Prelude.seq` Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf assessmentId `Prelude.seq`
+      Prelude.rnf assessmentName `Prelude.seq`
+        Prelude.rnf author `Prelude.seq`
+          Prelude.rnf awsAccountId `Prelude.seq`
+            Prelude.rnf creationTime `Prelude.seq`
+              Prelude.rnf description `Prelude.seq`
+                Prelude.rnf id `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf status

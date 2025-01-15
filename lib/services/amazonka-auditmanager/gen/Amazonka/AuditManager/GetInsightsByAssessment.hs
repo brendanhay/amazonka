@@ -165,5 +165,5 @@ instance
     GetInsightsByAssessmentResponse
   where
   rnf GetInsightsByAssessmentResponse' {..} =
-    Prelude.rnf insights
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf insights `Prelude.seq`
+      Prelude.rnf httpStatus

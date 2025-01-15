@@ -124,8 +124,8 @@ instance
     BatchDeleteDelegationByAssessment
   where
   rnf BatchDeleteDelegationByAssessment' {..} =
-    Prelude.rnf delegationIds
-      `Prelude.seq` Prelude.rnf assessmentId
+    Prelude.rnf delegationIds `Prelude.seq`
+      Prelude.rnf assessmentId
 
 instance
   Data.ToHeaders
@@ -218,5 +218,5 @@ instance
     BatchDeleteDelegationByAssessmentResponse
   where
   rnf BatchDeleteDelegationByAssessmentResponse' {..} =
-    Prelude.rnf errors
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf errors `Prelude.seq`
+      Prelude.rnf httpStatus

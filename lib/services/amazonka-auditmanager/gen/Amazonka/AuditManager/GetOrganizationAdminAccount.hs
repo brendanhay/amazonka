@@ -154,6 +154,6 @@ instance
     GetOrganizationAdminAccountResponse
   where
   rnf GetOrganizationAdminAccountResponse' {..} =
-    Prelude.rnf adminAccountId
-      `Prelude.seq` Prelude.rnf organizationId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf adminAccountId `Prelude.seq`
+      Prelude.rnf organizationId `Prelude.seq`
+        Prelude.rnf httpStatus

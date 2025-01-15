@@ -138,10 +138,10 @@ instance Prelude.Hashable GetEvidence where
 
 instance Prelude.NFData GetEvidence where
   rnf GetEvidence' {..} =
-    Prelude.rnf assessmentId
-      `Prelude.seq` Prelude.rnf controlSetId
-      `Prelude.seq` Prelude.rnf evidenceFolderId
-      `Prelude.seq` Prelude.rnf evidenceId
+    Prelude.rnf assessmentId `Prelude.seq`
+      Prelude.rnf controlSetId `Prelude.seq`
+        Prelude.rnf evidenceFolderId `Prelude.seq`
+          Prelude.rnf evidenceId
 
 instance Data.ToHeaders GetEvidence where
   toHeaders =
@@ -210,5 +210,5 @@ getEvidenceResponse_httpStatus = Lens.lens (\GetEvidenceResponse' {httpStatus} -
 
 instance Prelude.NFData GetEvidenceResponse where
   rnf GetEvidenceResponse' {..} =
-    Prelude.rnf evidence
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf evidence `Prelude.seq`
+      Prelude.rnf httpStatus

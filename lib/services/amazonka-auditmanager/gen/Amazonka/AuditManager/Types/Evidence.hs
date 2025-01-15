@@ -291,18 +291,18 @@ instance Prelude.Hashable Evidence where
 
 instance Prelude.NFData Evidence where
   rnf Evidence' {..} =
-    Prelude.rnf assessmentReportSelection
-      `Prelude.seq` Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf awsOrganization
-      `Prelude.seq` Prelude.rnf complianceCheck
-      `Prelude.seq` Prelude.rnf dataSource
-      `Prelude.seq` Prelude.rnf eventName
-      `Prelude.seq` Prelude.rnf eventSource
-      `Prelude.seq` Prelude.rnf evidenceAwsAccountId
-      `Prelude.seq` Prelude.rnf evidenceByType
-      `Prelude.seq` Prelude.rnf evidenceFolderId
-      `Prelude.seq` Prelude.rnf iamId
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf resourcesIncluded
-      `Prelude.seq` Prelude.rnf time
+    Prelude.rnf assessmentReportSelection `Prelude.seq`
+      Prelude.rnf attributes `Prelude.seq`
+        Prelude.rnf awsAccountId `Prelude.seq`
+          Prelude.rnf awsOrganization `Prelude.seq`
+            Prelude.rnf complianceCheck `Prelude.seq`
+              Prelude.rnf dataSource `Prelude.seq`
+                Prelude.rnf eventName `Prelude.seq`
+                  Prelude.rnf eventSource `Prelude.seq`
+                    Prelude.rnf evidenceAwsAccountId `Prelude.seq`
+                      Prelude.rnf evidenceByType `Prelude.seq`
+                        Prelude.rnf evidenceFolderId `Prelude.seq`
+                          Prelude.rnf iamId `Prelude.seq`
+                            Prelude.rnf id `Prelude.seq`
+                              Prelude.rnf resourcesIncluded `Prelude.seq`
+                                Prelude.rnf time

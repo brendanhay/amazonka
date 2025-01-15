@@ -270,20 +270,20 @@ instance Prelude.Hashable ImagePipeline where
 
 instance Prelude.NFData ImagePipeline where
   rnf ImagePipeline' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf containerRecipeArn
-      `Prelude.seq` Prelude.rnf dateCreated
-      `Prelude.seq` Prelude.rnf dateLastRun
-      `Prelude.seq` Prelude.rnf dateNextRun
-      `Prelude.seq` Prelude.rnf dateUpdated
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf distributionConfigurationArn
-      `Prelude.seq` Prelude.rnf enhancedImageMetadataEnabled
-      `Prelude.seq` Prelude.rnf imageRecipeArn
-      `Prelude.seq` Prelude.rnf imageTestsConfiguration
-      `Prelude.seq` Prelude.rnf infrastructureConfigurationArn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf platform
-      `Prelude.seq` Prelude.rnf schedule
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf containerRecipeArn `Prelude.seq`
+        Prelude.rnf dateCreated `Prelude.seq`
+          Prelude.rnf dateLastRun `Prelude.seq`
+            Prelude.rnf dateNextRun `Prelude.seq`
+              Prelude.rnf dateUpdated `Prelude.seq`
+                Prelude.rnf description `Prelude.seq`
+                  Prelude.rnf distributionConfigurationArn `Prelude.seq`
+                    Prelude.rnf enhancedImageMetadataEnabled `Prelude.seq`
+                      Prelude.rnf imageRecipeArn `Prelude.seq`
+                        Prelude.rnf imageTestsConfiguration `Prelude.seq`
+                          Prelude.rnf infrastructureConfigurationArn `Prelude.seq`
+                            Prelude.rnf name `Prelude.seq`
+                              Prelude.rnf platform `Prelude.seq`
+                                Prelude.rnf schedule `Prelude.seq`
+                                  Prelude.rnf status `Prelude.seq`
+                                    Prelude.rnf tags

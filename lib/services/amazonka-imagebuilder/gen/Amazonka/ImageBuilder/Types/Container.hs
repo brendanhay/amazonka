@@ -83,5 +83,5 @@ instance Prelude.Hashable Container where
 
 instance Prelude.NFData Container where
   rnf Container' {..} =
-    Prelude.rnf imageUris
-      `Prelude.seq` Prelude.rnf region
+    Prelude.rnf imageUris `Prelude.seq`
+      Prelude.rnf region

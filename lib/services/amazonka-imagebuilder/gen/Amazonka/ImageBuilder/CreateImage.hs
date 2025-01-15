@@ -205,14 +205,14 @@ instance Prelude.Hashable CreateImage where
 
 instance Prelude.NFData CreateImage where
   rnf CreateImage' {..} =
-    Prelude.rnf containerRecipeArn
-      `Prelude.seq` Prelude.rnf distributionConfigurationArn
-      `Prelude.seq` Prelude.rnf enhancedImageMetadataEnabled
-      `Prelude.seq` Prelude.rnf imageRecipeArn
-      `Prelude.seq` Prelude.rnf imageTestsConfiguration
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf infrastructureConfigurationArn
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf containerRecipeArn `Prelude.seq`
+      Prelude.rnf distributionConfigurationArn `Prelude.seq`
+        Prelude.rnf enhancedImageMetadataEnabled `Prelude.seq`
+          Prelude.rnf imageRecipeArn `Prelude.seq`
+            Prelude.rnf imageTestsConfiguration `Prelude.seq`
+              Prelude.rnf tags `Prelude.seq`
+                Prelude.rnf infrastructureConfigurationArn `Prelude.seq`
+                  Prelude.rnf clientToken
 
 instance Data.ToHeaders CreateImage where
   toHeaders =
@@ -315,7 +315,7 @@ createImageResponse_httpStatus = Lens.lens (\CreateImageResponse' {httpStatus} -
 
 instance Prelude.NFData CreateImageResponse where
   rnf CreateImageResponse' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf imageBuildVersionArn
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf imageBuildVersionArn `Prelude.seq`
+        Prelude.rnf requestId `Prelude.seq`
+          Prelude.rnf httpStatus

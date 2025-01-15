@@ -155,10 +155,10 @@ instance Prelude.Hashable ListImagePipelineImages where
 
 instance Prelude.NFData ListImagePipelineImages where
   rnf ListImagePipelineImages' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf imagePipelineArn
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf imagePipelineArn
 
 instance Data.ToHeaders ListImagePipelineImages where
   toHeaders =
@@ -260,7 +260,7 @@ instance
     ListImagePipelineImagesResponse
   where
   rnf ListImagePipelineImagesResponse' {..} =
-    Prelude.rnf imageSummaryList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf imageSummaryList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf requestId `Prelude.seq`
+          Prelude.rnf httpStatus

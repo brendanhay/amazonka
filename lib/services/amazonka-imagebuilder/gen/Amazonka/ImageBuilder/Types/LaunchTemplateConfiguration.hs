@@ -97,9 +97,9 @@ instance Prelude.Hashable LaunchTemplateConfiguration where
 
 instance Prelude.NFData LaunchTemplateConfiguration where
   rnf LaunchTemplateConfiguration' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf setDefaultVersion
-      `Prelude.seq` Prelude.rnf launchTemplateId
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf setDefaultVersion `Prelude.seq`
+        Prelude.rnf launchTemplateId
 
 instance Data.ToJSON LaunchTemplateConfiguration where
   toJSON LaunchTemplateConfiguration' {..} =

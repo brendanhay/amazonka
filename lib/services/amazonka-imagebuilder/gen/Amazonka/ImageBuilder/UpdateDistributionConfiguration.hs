@@ -155,10 +155,10 @@ instance
     UpdateDistributionConfiguration
   where
   rnf UpdateDistributionConfiguration' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf distributionConfigurationArn
-      `Prelude.seq` Prelude.rnf distributions
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf distributionConfigurationArn `Prelude.seq`
+        Prelude.rnf distributions `Prelude.seq`
+          Prelude.rnf clientToken
 
 instance
   Data.ToHeaders
@@ -262,7 +262,7 @@ instance
     UpdateDistributionConfigurationResponse
   where
   rnf UpdateDistributionConfigurationResponse' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf distributionConfigurationArn
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf distributionConfigurationArn `Prelude.seq`
+        Prelude.rnf requestId `Prelude.seq`
+          Prelude.rnf httpStatus

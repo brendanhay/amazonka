@@ -139,9 +139,9 @@ instance
     ListDistributionConfigurations
   where
   rnf ListDistributionConfigurations' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance
   Data.ToHeaders
@@ -246,7 +246,7 @@ instance
     ListDistributionConfigurationsResponse
   where
   rnf ListDistributionConfigurationsResponse' {..} =
-    Prelude.rnf distributionConfigurationSummaryList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf distributionConfigurationSummaryList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf requestId `Prelude.seq`
+          Prelude.rnf httpStatus

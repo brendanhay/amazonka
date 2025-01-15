@@ -89,8 +89,8 @@ instance Prelude.Hashable ImageTestsConfiguration where
 
 instance Prelude.NFData ImageTestsConfiguration where
   rnf ImageTestsConfiguration' {..} =
-    Prelude.rnf imageTestsEnabled
-      `Prelude.seq` Prelude.rnf timeoutMinutes
+    Prelude.rnf imageTestsEnabled `Prelude.seq`
+      Prelude.rnf timeoutMinutes
 
 instance Data.ToJSON ImageTestsConfiguration where
   toJSON ImageTestsConfiguration' {..} =

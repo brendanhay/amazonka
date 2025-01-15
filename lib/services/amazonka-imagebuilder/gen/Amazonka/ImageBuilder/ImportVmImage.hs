@@ -267,14 +267,14 @@ instance Prelude.Hashable ImportVmImage where
 
 instance Prelude.NFData ImportVmImage where
   rnf ImportVmImage' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf osVersion
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf semanticVersion
-      `Prelude.seq` Prelude.rnf platform
-      `Prelude.seq` Prelude.rnf vmImportTaskId
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf osVersion `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf semanticVersion `Prelude.seq`
+              Prelude.rnf platform `Prelude.seq`
+                Prelude.rnf vmImportTaskId `Prelude.seq`
+                  Prelude.rnf clientToken
 
 instance Data.ToHeaders ImportVmImage where
   toHeaders =
@@ -375,7 +375,7 @@ importVmImageResponse_httpStatus = Lens.lens (\ImportVmImageResponse' {httpStatu
 
 instance Prelude.NFData ImportVmImageResponse where
   rnf ImportVmImageResponse' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf imageArn
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf imageArn `Prelude.seq`
+        Prelude.rnf requestId `Prelude.seq`
+          Prelude.rnf httpStatus

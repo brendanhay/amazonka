@@ -128,10 +128,10 @@ instance
 
 instance Prelude.NFData LaunchPermissionConfiguration where
   rnf LaunchPermissionConfiguration' {..} =
-    Prelude.rnf organizationArns
-      `Prelude.seq` Prelude.rnf organizationalUnitArns
-      `Prelude.seq` Prelude.rnf userGroups
-      `Prelude.seq` Prelude.rnf userIds
+    Prelude.rnf organizationArns `Prelude.seq`
+      Prelude.rnf organizationalUnitArns `Prelude.seq`
+        Prelude.rnf userGroups `Prelude.seq`
+          Prelude.rnf userIds
 
 instance Data.ToJSON LaunchPermissionConfiguration where
   toJSON LaunchPermissionConfiguration' {..} =

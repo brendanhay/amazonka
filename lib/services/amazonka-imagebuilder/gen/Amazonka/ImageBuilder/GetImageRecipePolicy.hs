@@ -173,6 +173,6 @@ getImageRecipePolicyResponse_httpStatus = Lens.lens (\GetImageRecipePolicyRespon
 
 instance Prelude.NFData GetImageRecipePolicyResponse where
   rnf GetImageRecipePolicyResponse' {..} =
-    Prelude.rnf policy
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf policy `Prelude.seq`
+      Prelude.rnf requestId `Prelude.seq`
+        Prelude.rnf httpStatus

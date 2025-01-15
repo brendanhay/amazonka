@@ -145,9 +145,9 @@ instance Prelude.Hashable Schedule where
 
 instance Prelude.NFData Schedule where
   rnf Schedule' {..} =
-    Prelude.rnf pipelineExecutionStartCondition
-      `Prelude.seq` Prelude.rnf scheduleExpression
-      `Prelude.seq` Prelude.rnf timezone
+    Prelude.rnf pipelineExecutionStartCondition `Prelude.seq`
+      Prelude.rnf scheduleExpression `Prelude.seq`
+        Prelude.rnf timezone
 
 instance Data.ToJSON Schedule where
   toJSON Schedule' {..} =

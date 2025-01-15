@@ -313,17 +313,17 @@ instance Prelude.Hashable CreateComponent where
 
 instance Prelude.NFData CreateComponent where
   rnf CreateComponent' {..} =
-    Prelude.rnf changeDescription
-      `Prelude.seq` Prelude.rnf data'
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf supportedOsVersions
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf uri
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf semanticVersion
-      `Prelude.seq` Prelude.rnf platform
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf changeDescription `Prelude.seq`
+      Prelude.rnf data' `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf kmsKeyId `Prelude.seq`
+            Prelude.rnf supportedOsVersions `Prelude.seq`
+              Prelude.rnf tags `Prelude.seq`
+                Prelude.rnf uri `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf semanticVersion `Prelude.seq`
+                      Prelude.rnf platform `Prelude.seq`
+                        Prelude.rnf clientToken
 
 instance Data.ToHeaders CreateComponent where
   toHeaders =
@@ -425,7 +425,7 @@ createComponentResponse_httpStatus = Lens.lens (\CreateComponentResponse' {httpS
 
 instance Prelude.NFData CreateComponentResponse where
   rnf CreateComponentResponse' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf componentBuildVersionArn
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf componentBuildVersionArn `Prelude.seq`
+        Prelude.rnf requestId `Prelude.seq`
+          Prelude.rnf httpStatus

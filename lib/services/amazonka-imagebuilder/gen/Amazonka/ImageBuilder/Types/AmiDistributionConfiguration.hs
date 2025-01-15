@@ -135,12 +135,12 @@ instance
 
 instance Prelude.NFData AmiDistributionConfiguration where
   rnf AmiDistributionConfiguration' {..} =
-    Prelude.rnf amiTags
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf launchPermission
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf targetAccountIds
+    Prelude.rnf amiTags `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf kmsKeyId `Prelude.seq`
+          Prelude.rnf launchPermission `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf targetAccountIds
 
 instance Data.ToJSON AmiDistributionConfiguration where
   toJSON AmiDistributionConfiguration' {..} =

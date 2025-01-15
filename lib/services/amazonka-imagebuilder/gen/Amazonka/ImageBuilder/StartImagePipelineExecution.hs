@@ -120,8 +120,8 @@ instance Prelude.Hashable StartImagePipelineExecution where
 
 instance Prelude.NFData StartImagePipelineExecution where
   rnf StartImagePipelineExecution' {..} =
-    Prelude.rnf imagePipelineArn
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf imagePipelineArn `Prelude.seq`
+      Prelude.rnf clientToken
 
 instance Data.ToHeaders StartImagePipelineExecution where
   toHeaders =
@@ -215,7 +215,7 @@ instance
     StartImagePipelineExecutionResponse
   where
   rnf StartImagePipelineExecutionResponse' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf imageBuildVersionArn
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf imageBuildVersionArn `Prelude.seq`
+        Prelude.rnf requestId `Prelude.seq`
+          Prelude.rnf httpStatus

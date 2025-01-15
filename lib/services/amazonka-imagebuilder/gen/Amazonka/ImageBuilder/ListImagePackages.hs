@@ -137,9 +137,9 @@ instance Prelude.Hashable ListImagePackages where
 
 instance Prelude.NFData ListImagePackages where
   rnf ListImagePackages' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf imageBuildVersionArn
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf imageBuildVersionArn
 
 instance Data.ToHeaders ListImagePackages where
   toHeaders =
@@ -233,7 +233,7 @@ listImagePackagesResponse_httpStatus = Lens.lens (\ListImagePackagesResponse' {h
 
 instance Prelude.NFData ListImagePackagesResponse where
   rnf ListImagePackagesResponse' {..} =
-    Prelude.rnf imagePackageList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf imagePackageList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf requestId `Prelude.seq`
+          Prelude.rnf httpStatus

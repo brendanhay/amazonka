@@ -126,8 +126,8 @@ instance Prelude.Hashable PutContainerRecipePolicy where
 
 instance Prelude.NFData PutContainerRecipePolicy where
   rnf PutContainerRecipePolicy' {..} =
-    Prelude.rnf containerRecipeArn
-      `Prelude.seq` Prelude.rnf policy
+    Prelude.rnf containerRecipeArn `Prelude.seq`
+      Prelude.rnf policy
 
 instance Data.ToHeaders PutContainerRecipePolicy where
   toHeaders =
@@ -212,6 +212,6 @@ instance
     PutContainerRecipePolicyResponse
   where
   rnf PutContainerRecipePolicyResponse' {..} =
-    Prelude.rnf containerRecipeArn
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf containerRecipeArn `Prelude.seq`
+      Prelude.rnf requestId `Prelude.seq`
+        Prelude.rnf httpStatus

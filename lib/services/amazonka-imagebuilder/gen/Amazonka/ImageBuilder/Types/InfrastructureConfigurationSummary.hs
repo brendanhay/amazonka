@@ -169,12 +169,12 @@ instance
     InfrastructureConfigurationSummary
   where
   rnf InfrastructureConfigurationSummary' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf dateCreated
-      `Prelude.seq` Prelude.rnf dateUpdated
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf instanceProfileName
-      `Prelude.seq` Prelude.rnf instanceTypes
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf resourceTags
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf dateCreated `Prelude.seq`
+        Prelude.rnf dateUpdated `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf instanceProfileName `Prelude.seq`
+              Prelude.rnf instanceTypes `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf resourceTags `Prelude.seq`
+                    Prelude.rnf tags

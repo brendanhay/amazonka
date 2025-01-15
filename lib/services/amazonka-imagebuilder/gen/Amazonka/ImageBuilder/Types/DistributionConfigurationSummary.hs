@@ -147,10 +147,10 @@ instance
     DistributionConfigurationSummary
   where
   rnf DistributionConfigurationSummary' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf dateCreated
-      `Prelude.seq` Prelude.rnf dateUpdated
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf regions
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf dateCreated `Prelude.seq`
+        Prelude.rnf dateUpdated `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf regions `Prelude.seq`
+                Prelude.rnf tags

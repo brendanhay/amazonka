@@ -80,8 +80,8 @@ instance Prelude.Hashable S3Logs where
 
 instance Prelude.NFData S3Logs where
   rnf S3Logs' {..} =
-    Prelude.rnf s3BucketName
-      `Prelude.seq` Prelude.rnf s3KeyPrefix
+    Prelude.rnf s3BucketName `Prelude.seq`
+      Prelude.rnf s3KeyPrefix
 
 instance Data.ToJSON S3Logs where
   toJSON S3Logs' {..} =

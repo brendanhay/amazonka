@@ -108,9 +108,9 @@ instance
     ContainerDistributionConfiguration
   where
   rnf ContainerDistributionConfiguration' {..} =
-    Prelude.rnf containerTags
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf targetRepository
+    Prelude.rnf containerTags `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf targetRepository
 
 instance
   Data.ToJSON

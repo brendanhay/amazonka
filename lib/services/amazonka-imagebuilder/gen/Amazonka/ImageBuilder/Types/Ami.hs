@@ -127,9 +127,9 @@ instance Prelude.Hashable Ami where
 
 instance Prelude.NFData Ami where
   rnf Ami' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf image
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf region
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf image `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf region `Prelude.seq`
+              Prelude.rnf state

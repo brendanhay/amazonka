@@ -200,6 +200,6 @@ instance
     GetInfrastructureConfigurationResponse
   where
   rnf GetInfrastructureConfigurationResponse' {..} =
-    Prelude.rnf infrastructureConfiguration
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf infrastructureConfiguration `Prelude.seq`
+      Prelude.rnf requestId `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -111,7 +111,7 @@ instance Prelude.Hashable ComponentParameterDetail where
 
 instance Prelude.NFData ComponentParameterDetail where
   rnf ComponentParameterDetail' {..} =
-    Prelude.rnf defaultValue
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf defaultValue `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf type'

@@ -144,9 +144,9 @@ instance Prelude.Hashable ListComponentBuildVersions where
 
 instance Prelude.NFData ListComponentBuildVersions where
   rnf ListComponentBuildVersions' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf componentVersionArn
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf componentVersionArn
 
 instance Data.ToHeaders ListComponentBuildVersions where
   toHeaders =
@@ -247,7 +247,7 @@ instance
     ListComponentBuildVersionsResponse
   where
   rnf ListComponentBuildVersionsResponse' {..} =
-    Prelude.rnf componentSummaryList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf componentSummaryList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf requestId `Prelude.seq`
+          Prelude.rnf httpStatus

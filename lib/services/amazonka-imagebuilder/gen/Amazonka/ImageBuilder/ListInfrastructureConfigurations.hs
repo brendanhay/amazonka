@@ -139,9 +139,9 @@ instance
     ListInfrastructureConfigurations
   where
   rnf ListInfrastructureConfigurations' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance
   Data.ToHeaders
@@ -249,7 +249,7 @@ instance
     ListInfrastructureConfigurationsResponse
   where
   rnf ListInfrastructureConfigurationsResponse' {..} =
-    Prelude.rnf infrastructureConfigurationSummaryList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf infrastructureConfigurationSummaryList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf requestId `Prelude.seq`
+          Prelude.rnf httpStatus

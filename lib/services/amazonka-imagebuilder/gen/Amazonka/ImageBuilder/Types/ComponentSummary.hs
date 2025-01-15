@@ -202,15 +202,15 @@ instance Prelude.Hashable ComponentSummary where
 
 instance Prelude.NFData ComponentSummary where
   rnf ComponentSummary' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf changeDescription
-      `Prelude.seq` Prelude.rnf dateCreated
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf owner
-      `Prelude.seq` Prelude.rnf platform
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf supportedOsVersions
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf version
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf changeDescription `Prelude.seq`
+        Prelude.rnf dateCreated `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf owner `Prelude.seq`
+                Prelude.rnf platform `Prelude.seq`
+                  Prelude.rnf state `Prelude.seq`
+                    Prelude.rnf supportedOsVersions `Prelude.seq`
+                      Prelude.rnf tags `Prelude.seq`
+                        Prelude.rnf type' `Prelude.seq`
+                          Prelude.rnf version

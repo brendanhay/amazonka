@@ -169,6 +169,6 @@ getImageRecipeResponse_httpStatus = Lens.lens (\GetImageRecipeResponse' {httpSta
 
 instance Prelude.NFData GetImageRecipeResponse where
   rnf GetImageRecipeResponse' {..} =
-    Prelude.rnf imageRecipe
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf imageRecipe `Prelude.seq`
+      Prelude.rnf requestId `Prelude.seq`
+        Prelude.rnf httpStatus

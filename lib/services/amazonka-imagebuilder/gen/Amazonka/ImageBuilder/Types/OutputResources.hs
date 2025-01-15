@@ -85,5 +85,5 @@ instance Prelude.Hashable OutputResources where
 
 instance Prelude.NFData OutputResources where
   rnf OutputResources' {..} =
-    Prelude.rnf amis
-      `Prelude.seq` Prelude.rnf containers
+    Prelude.rnf amis `Prelude.seq`
+      Prelude.rnf containers

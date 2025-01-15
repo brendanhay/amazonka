@@ -263,19 +263,19 @@ instance Prelude.Hashable InfrastructureConfiguration where
 
 instance Prelude.NFData InfrastructureConfiguration where
   rnf InfrastructureConfiguration' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf dateCreated
-      `Prelude.seq` Prelude.rnf dateUpdated
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf instanceMetadataOptions
-      `Prelude.seq` Prelude.rnf instanceProfileName
-      `Prelude.seq` Prelude.rnf instanceTypes
-      `Prelude.seq` Prelude.rnf keyPair
-      `Prelude.seq` Prelude.rnf logging
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf resourceTags
-      `Prelude.seq` Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf snsTopicArn
-      `Prelude.seq` Prelude.rnf subnetId
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf terminateInstanceOnFailure
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf dateCreated `Prelude.seq`
+        Prelude.rnf dateUpdated `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf instanceMetadataOptions `Prelude.seq`
+              Prelude.rnf instanceProfileName `Prelude.seq`
+                Prelude.rnf instanceTypes `Prelude.seq`
+                  Prelude.rnf keyPair `Prelude.seq`
+                    Prelude.rnf logging `Prelude.seq`
+                      Prelude.rnf name `Prelude.seq`
+                        Prelude.rnf resourceTags `Prelude.seq`
+                          Prelude.rnf securityGroupIds `Prelude.seq`
+                            Prelude.rnf snsTopicArn `Prelude.seq`
+                              Prelude.rnf subnetId `Prelude.seq`
+                                Prelude.rnf tags `Prelude.seq`
+                                  Prelude.rnf terminateInstanceOnFailure

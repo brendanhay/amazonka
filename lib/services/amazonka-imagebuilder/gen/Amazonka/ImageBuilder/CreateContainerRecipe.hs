@@ -341,22 +341,22 @@ instance Prelude.Hashable CreateContainerRecipe where
 
 instance Prelude.NFData CreateContainerRecipe where
   rnf CreateContainerRecipe' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf dockerfileTemplateData
-      `Prelude.seq` Prelude.rnf dockerfileTemplateUri
-      `Prelude.seq` Prelude.rnf imageOsVersionOverride
-      `Prelude.seq` Prelude.rnf instanceConfiguration
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf platformOverride
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf workingDirectory
-      `Prelude.seq` Prelude.rnf containerType
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf semanticVersion
-      `Prelude.seq` Prelude.rnf components
-      `Prelude.seq` Prelude.rnf parentImage
-      `Prelude.seq` Prelude.rnf targetRepository
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf dockerfileTemplateData `Prelude.seq`
+        Prelude.rnf dockerfileTemplateUri `Prelude.seq`
+          Prelude.rnf imageOsVersionOverride `Prelude.seq`
+            Prelude.rnf instanceConfiguration `Prelude.seq`
+              Prelude.rnf kmsKeyId `Prelude.seq`
+                Prelude.rnf platformOverride `Prelude.seq`
+                  Prelude.rnf tags `Prelude.seq`
+                    Prelude.rnf workingDirectory `Prelude.seq`
+                      Prelude.rnf containerType `Prelude.seq`
+                        Prelude.rnf name `Prelude.seq`
+                          Prelude.rnf semanticVersion `Prelude.seq`
+                            Prelude.rnf components `Prelude.seq`
+                              Prelude.rnf parentImage `Prelude.seq`
+                                Prelude.rnf targetRepository `Prelude.seq`
+                                  Prelude.rnf clientToken
 
 instance Data.ToHeaders CreateContainerRecipe where
   toHeaders =
@@ -468,7 +468,7 @@ createContainerRecipeResponse_httpStatus = Lens.lens (\CreateContainerRecipeResp
 
 instance Prelude.NFData CreateContainerRecipeResponse where
   rnf CreateContainerRecipeResponse' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf containerRecipeArn
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf containerRecipeArn `Prelude.seq`
+        Prelude.rnf requestId `Prelude.seq`
+          Prelude.rnf httpStatus

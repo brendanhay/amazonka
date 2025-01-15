@@ -87,8 +87,8 @@ instance Prelude.Hashable ComponentConfiguration where
 
 instance Prelude.NFData ComponentConfiguration where
   rnf ComponentConfiguration' {..} =
-    Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf componentArn
+    Prelude.rnf parameters `Prelude.seq`
+      Prelude.rnf componentArn
 
 instance Data.ToJSON ComponentConfiguration where
   toJSON ComponentConfiguration' {..} =

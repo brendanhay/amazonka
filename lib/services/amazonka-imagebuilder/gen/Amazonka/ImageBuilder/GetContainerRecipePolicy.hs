@@ -176,6 +176,6 @@ instance
     GetContainerRecipePolicyResponse
   where
   rnf GetContainerRecipePolicyResponse' {..} =
-    Prelude.rnf policy
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf policy `Prelude.seq`
+      Prelude.rnf requestId `Prelude.seq`
+        Prelude.rnf httpStatus

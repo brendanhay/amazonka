@@ -256,18 +256,18 @@ instance Prelude.Hashable CreateImagePipeline where
 
 instance Prelude.NFData CreateImagePipeline where
   rnf CreateImagePipeline' {..} =
-    Prelude.rnf containerRecipeArn
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf distributionConfigurationArn
-      `Prelude.seq` Prelude.rnf enhancedImageMetadataEnabled
-      `Prelude.seq` Prelude.rnf imageRecipeArn
-      `Prelude.seq` Prelude.rnf imageTestsConfiguration
-      `Prelude.seq` Prelude.rnf schedule
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf infrastructureConfigurationArn
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf containerRecipeArn `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf distributionConfigurationArn `Prelude.seq`
+          Prelude.rnf enhancedImageMetadataEnabled `Prelude.seq`
+            Prelude.rnf imageRecipeArn `Prelude.seq`
+              Prelude.rnf imageTestsConfiguration `Prelude.seq`
+                Prelude.rnf schedule `Prelude.seq`
+                  Prelude.rnf status `Prelude.seq`
+                    Prelude.rnf tags `Prelude.seq`
+                      Prelude.rnf name `Prelude.seq`
+                        Prelude.rnf infrastructureConfigurationArn `Prelude.seq`
+                          Prelude.rnf clientToken
 
 instance Data.ToHeaders CreateImagePipeline where
   toHeaders =
@@ -375,7 +375,7 @@ createImagePipelineResponse_httpStatus = Lens.lens (\CreateImagePipelineResponse
 
 instance Prelude.NFData CreateImagePipelineResponse where
   rnf CreateImagePipelineResponse' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf imagePipelineArn
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf imagePipelineArn `Prelude.seq`
+        Prelude.rnf requestId `Prelude.seq`
+          Prelude.rnf httpStatus

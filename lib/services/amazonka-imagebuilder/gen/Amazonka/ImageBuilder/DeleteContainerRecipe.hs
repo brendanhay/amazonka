@@ -170,6 +170,6 @@ deleteContainerRecipeResponse_httpStatus = Lens.lens (\DeleteContainerRecipeResp
 
 instance Prelude.NFData DeleteContainerRecipeResponse where
   rnf DeleteContainerRecipeResponse' {..} =
-    Prelude.rnf containerRecipeArn
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf containerRecipeArn `Prelude.seq`
+      Prelude.rnf requestId `Prelude.seq`
+        Prelude.rnf httpStatus

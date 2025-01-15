@@ -90,8 +90,8 @@ instance Prelude.Hashable TargetContainerRepository where
 
 instance Prelude.NFData TargetContainerRepository where
   rnf TargetContainerRepository' {..} =
-    Prelude.rnf service
-      `Prelude.seq` Prelude.rnf repositoryName
+    Prelude.rnf service `Prelude.seq`
+      Prelude.rnf repositoryName
 
 instance Data.ToJSON TargetContainerRepository where
   toJSON TargetContainerRepository' {..} =

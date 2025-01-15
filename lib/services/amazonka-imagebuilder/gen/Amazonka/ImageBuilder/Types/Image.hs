@@ -421,22 +421,22 @@ instance Prelude.Hashable Image where
 
 instance Prelude.NFData Image where
   rnf Image' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf buildType
-      `Prelude.seq` Prelude.rnf containerRecipe
-      `Prelude.seq` Prelude.rnf dateCreated
-      `Prelude.seq` Prelude.rnf distributionConfiguration
-      `Prelude.seq` Prelude.rnf enhancedImageMetadataEnabled
-      `Prelude.seq` Prelude.rnf imageRecipe
-      `Prelude.seq` Prelude.rnf imageTestsConfiguration
-      `Prelude.seq` Prelude.rnf infrastructureConfiguration
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf osVersion
-      `Prelude.seq` Prelude.rnf outputResources
-      `Prelude.seq` Prelude.rnf platform
-      `Prelude.seq` Prelude.rnf sourcePipelineArn
-      `Prelude.seq` Prelude.rnf sourcePipelineName
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf version
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf buildType `Prelude.seq`
+        Prelude.rnf containerRecipe `Prelude.seq`
+          Prelude.rnf dateCreated `Prelude.seq`
+            Prelude.rnf distributionConfiguration `Prelude.seq`
+              Prelude.rnf enhancedImageMetadataEnabled `Prelude.seq`
+                Prelude.rnf imageRecipe `Prelude.seq`
+                  Prelude.rnf imageTestsConfiguration `Prelude.seq`
+                    Prelude.rnf infrastructureConfiguration `Prelude.seq`
+                      Prelude.rnf name `Prelude.seq`
+                        Prelude.rnf osVersion `Prelude.seq`
+                          Prelude.rnf outputResources `Prelude.seq`
+                            Prelude.rnf platform `Prelude.seq`
+                              Prelude.rnf sourcePipelineArn `Prelude.seq`
+                                Prelude.rnf sourcePipelineName `Prelude.seq`
+                                  Prelude.rnf state `Prelude.seq`
+                                    Prelude.rnf tags `Prelude.seq`
+                                      Prelude.rnf type' `Prelude.seq`
+                                        Prelude.rnf version

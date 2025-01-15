@@ -299,12 +299,12 @@ instance Prelude.Hashable ImageVersion where
 
 instance Prelude.NFData ImageVersion where
   rnf ImageVersion' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf buildType
-      `Prelude.seq` Prelude.rnf dateCreated
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf osVersion
-      `Prelude.seq` Prelude.rnf owner
-      `Prelude.seq` Prelude.rnf platform
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf version
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf buildType `Prelude.seq`
+        Prelude.rnf dateCreated `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf osVersion `Prelude.seq`
+              Prelude.rnf owner `Prelude.seq`
+                Prelude.rnf platform `Prelude.seq`
+                  Prelude.rnf type' `Prelude.seq`
+                    Prelude.rnf version

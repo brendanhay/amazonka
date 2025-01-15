@@ -296,18 +296,18 @@ instance Prelude.Hashable ImportComponent where
 
 instance Prelude.NFData ImportComponent where
   rnf ImportComponent' {..} =
-    Prelude.rnf changeDescription
-      `Prelude.seq` Prelude.rnf data'
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf uri
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf semanticVersion
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf format
-      `Prelude.seq` Prelude.rnf platform
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf changeDescription `Prelude.seq`
+      Prelude.rnf data' `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf kmsKeyId `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf uri `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf semanticVersion `Prelude.seq`
+                    Prelude.rnf type' `Prelude.seq`
+                      Prelude.rnf format `Prelude.seq`
+                        Prelude.rnf platform `Prelude.seq`
+                          Prelude.rnf clientToken
 
 instance Data.ToHeaders ImportComponent where
   toHeaders =
@@ -406,7 +406,7 @@ importComponentResponse_httpStatus = Lens.lens (\ImportComponentResponse' {httpS
 
 instance Prelude.NFData ImportComponentResponse where
   rnf ImportComponentResponse' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf componentBuildVersionArn
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf componentBuildVersionArn `Prelude.seq`
+        Prelude.rnf requestId `Prelude.seq`
+          Prelude.rnf httpStatus

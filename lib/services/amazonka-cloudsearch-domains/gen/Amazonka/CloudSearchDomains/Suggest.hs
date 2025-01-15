@@ -141,9 +141,9 @@ instance Prelude.Hashable Suggest where
 
 instance Prelude.NFData Suggest where
   rnf Suggest' {..} =
-    Prelude.rnf size
-      `Prelude.seq` Prelude.rnf query
-      `Prelude.seq` Prelude.rnf suggester
+    Prelude.rnf size `Prelude.seq`
+      Prelude.rnf query `Prelude.seq`
+        Prelude.rnf suggester
 
 instance Data.ToHeaders Suggest where
   toHeaders =
@@ -222,6 +222,6 @@ suggestResponse_httpStatus = Lens.lens (\SuggestResponse' {httpStatus} -> httpSt
 
 instance Prelude.NFData SuggestResponse where
   rnf SuggestResponse' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf suggest
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf status `Prelude.seq`
+      Prelude.rnf suggest `Prelude.seq`
+        Prelude.rnf httpStatus

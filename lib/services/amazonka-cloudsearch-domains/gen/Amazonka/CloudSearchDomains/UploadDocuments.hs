@@ -234,8 +234,8 @@ uploadDocumentsResponse_httpStatus = Lens.lens (\UploadDocumentsResponse' {httpS
 
 instance Prelude.NFData UploadDocumentsResponse where
   rnf UploadDocumentsResponse' {..} =
-    Prelude.rnf adds
-      `Prelude.seq` Prelude.rnf deletes
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf warnings
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf adds `Prelude.seq`
+      Prelude.rnf deletes `Prelude.seq`
+        Prelude.rnf status `Prelude.seq`
+          Prelude.rnf warnings `Prelude.seq`
+            Prelude.rnf httpStatus

@@ -174,12 +174,12 @@ instance Prelude.Hashable Comment where
 
 instance Prelude.NFData Comment where
   rnf Comment' {..} =
-    Prelude.rnf contributor
-      `Prelude.seq` Prelude.rnf createdTimestamp
-      `Prelude.seq` Prelude.rnf parentId
-      `Prelude.seq` Prelude.rnf recipientId
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf text
-      `Prelude.seq` Prelude.rnf threadId
-      `Prelude.seq` Prelude.rnf visibility
-      `Prelude.seq` Prelude.rnf commentId
+    Prelude.rnf contributor `Prelude.seq`
+      Prelude.rnf createdTimestamp `Prelude.seq`
+        Prelude.rnf parentId `Prelude.seq`
+          Prelude.rnf recipientId `Prelude.seq`
+            Prelude.rnf status `Prelude.seq`
+              Prelude.rnf text `Prelude.seq`
+                Prelude.rnf threadId `Prelude.seq`
+                  Prelude.rnf visibility `Prelude.seq`
+                    Prelude.rnf commentId

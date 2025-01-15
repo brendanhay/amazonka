@@ -142,12 +142,12 @@ instance Core.AWSPager DescribeGroups where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeGroups_marker
-          Lens..~ rs
-          Lens.^? describeGroupsResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeGroups_marker
+              Lens..~ rs
+              Lens.^? describeGroupsResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeGroups where
   type
@@ -175,11 +175,11 @@ instance Prelude.Hashable DescribeGroups where
 
 instance Prelude.NFData DescribeGroups where
   rnf DescribeGroups' {..} =
-    Prelude.rnf authenticationToken
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf organizationId
-      `Prelude.seq` Prelude.rnf searchQuery
+    Prelude.rnf authenticationToken `Prelude.seq`
+      Prelude.rnf limit `Prelude.seq`
+        Prelude.rnf marker `Prelude.seq`
+          Prelude.rnf organizationId `Prelude.seq`
+            Prelude.rnf searchQuery
 
 instance Data.ToHeaders DescribeGroups where
   toHeaders DescribeGroups' {..} =
@@ -253,6 +253,6 @@ describeGroupsResponse_httpStatus = Lens.lens (\DescribeGroupsResponse' {httpSta
 
 instance Prelude.NFData DescribeGroupsResponse where
   rnf DescribeGroupsResponse' {..} =
-    Prelude.rnf groups
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf groups `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf httpStatus

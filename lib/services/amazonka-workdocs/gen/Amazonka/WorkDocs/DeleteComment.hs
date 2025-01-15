@@ -129,10 +129,10 @@ instance Prelude.Hashable DeleteComment where
 
 instance Prelude.NFData DeleteComment where
   rnf DeleteComment' {..} =
-    Prelude.rnf authenticationToken
-      `Prelude.seq` Prelude.rnf documentId
-      `Prelude.seq` Prelude.rnf versionId
-      `Prelude.seq` Prelude.rnf commentId
+    Prelude.rnf authenticationToken `Prelude.seq`
+      Prelude.rnf documentId `Prelude.seq`
+        Prelude.rnf versionId `Prelude.seq`
+          Prelude.rnf commentId
 
 instance Data.ToHeaders DeleteComment where
   toHeaders DeleteComment' {..} =

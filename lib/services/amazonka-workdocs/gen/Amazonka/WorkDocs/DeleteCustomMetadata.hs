@@ -149,11 +149,11 @@ instance Prelude.Hashable DeleteCustomMetadata where
 
 instance Prelude.NFData DeleteCustomMetadata where
   rnf DeleteCustomMetadata' {..} =
-    Prelude.rnf authenticationToken
-      `Prelude.seq` Prelude.rnf deleteAll
-      `Prelude.seq` Prelude.rnf keys
-      `Prelude.seq` Prelude.rnf versionId
-      `Prelude.seq` Prelude.rnf resourceId
+    Prelude.rnf authenticationToken `Prelude.seq`
+      Prelude.rnf deleteAll `Prelude.seq`
+        Prelude.rnf keys `Prelude.seq`
+          Prelude.rnf versionId `Prelude.seq`
+            Prelude.rnf resourceId
 
 instance Data.ToHeaders DeleteCustomMetadata where
   toHeaders DeleteCustomMetadata' {..} =

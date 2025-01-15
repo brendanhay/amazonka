@@ -149,11 +149,11 @@ instance Prelude.Hashable DocumentMetadata where
 
 instance Prelude.NFData DocumentMetadata where
   rnf DocumentMetadata' {..} =
-    Prelude.rnf createdTimestamp
-      `Prelude.seq` Prelude.rnf creatorId
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf labels
-      `Prelude.seq` Prelude.rnf latestVersionMetadata
-      `Prelude.seq` Prelude.rnf modifiedTimestamp
-      `Prelude.seq` Prelude.rnf parentFolderId
-      `Prelude.seq` Prelude.rnf resourceState
+    Prelude.rnf createdTimestamp `Prelude.seq`
+      Prelude.rnf creatorId `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf labels `Prelude.seq`
+            Prelude.rnf latestVersionMetadata `Prelude.seq`
+              Prelude.rnf modifiedTimestamp `Prelude.seq`
+                Prelude.rnf parentFolderId `Prelude.seq`
+                  Prelude.rnf resourceState

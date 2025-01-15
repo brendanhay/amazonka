@@ -189,12 +189,12 @@ instance Prelude.Hashable Activity where
 
 instance Prelude.NFData Activity where
   rnf Activity' {..} =
-    Prelude.rnf commentMetadata
-      `Prelude.seq` Prelude.rnf initiator
-      `Prelude.seq` Prelude.rnf isIndirectActivity
-      `Prelude.seq` Prelude.rnf organizationId
-      `Prelude.seq` Prelude.rnf originalParent
-      `Prelude.seq` Prelude.rnf participants
-      `Prelude.seq` Prelude.rnf resourceMetadata
-      `Prelude.seq` Prelude.rnf timeStamp
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf commentMetadata `Prelude.seq`
+      Prelude.rnf initiator `Prelude.seq`
+        Prelude.rnf isIndirectActivity `Prelude.seq`
+          Prelude.rnf organizationId `Prelude.seq`
+            Prelude.rnf originalParent `Prelude.seq`
+              Prelude.rnf participants `Prelude.seq`
+                Prelude.rnf resourceMetadata `Prelude.seq`
+                  Prelude.rnf timeStamp `Prelude.seq`
+                    Prelude.rnf type'

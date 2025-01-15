@@ -126,9 +126,9 @@ instance Prelude.Hashable ShareResult where
 
 instance Prelude.NFData ShareResult where
   rnf ShareResult' {..} =
-    Prelude.rnf inviteePrincipalId
-      `Prelude.seq` Prelude.rnf principalId
-      `Prelude.seq` Prelude.rnf role'
-      `Prelude.seq` Prelude.rnf shareId
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusMessage
+    Prelude.rnf inviteePrincipalId `Prelude.seq`
+      Prelude.rnf principalId `Prelude.seq`
+        Prelude.rnf role' `Prelude.seq`
+          Prelude.rnf shareId `Prelude.seq`
+            Prelude.rnf status `Prelude.seq`
+              Prelude.rnf statusMessage

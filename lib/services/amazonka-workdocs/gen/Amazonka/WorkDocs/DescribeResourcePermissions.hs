@@ -141,12 +141,12 @@ instance Core.AWSPager DescribeResourcePermissions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeResourcePermissions_marker
-          Lens..~ rs
-          Lens.^? describeResourcePermissionsResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeResourcePermissions_marker
+              Lens..~ rs
+              Lens.^? describeResourcePermissionsResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeResourcePermissions where
   type
@@ -174,11 +174,11 @@ instance Prelude.Hashable DescribeResourcePermissions where
 
 instance Prelude.NFData DescribeResourcePermissions where
   rnf DescribeResourcePermissions' {..} =
-    Prelude.rnf authenticationToken
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf principalId
-      `Prelude.seq` Prelude.rnf resourceId
+    Prelude.rnf authenticationToken `Prelude.seq`
+      Prelude.rnf limit `Prelude.seq`
+        Prelude.rnf marker `Prelude.seq`
+          Prelude.rnf principalId `Prelude.seq`
+            Prelude.rnf resourceId
 
 instance Data.ToHeaders DescribeResourcePermissions where
   toHeaders DescribeResourcePermissions' {..} =
@@ -260,6 +260,6 @@ instance
     DescribeResourcePermissionsResponse
   where
   rnf DescribeResourcePermissionsResponse' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf principals
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf principals `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -143,12 +143,12 @@ instance Core.AWSPager DescribeComments where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeComments_marker
-          Lens..~ rs
-          Lens.^? describeCommentsResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeComments_marker
+              Lens..~ rs
+              Lens.^? describeCommentsResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeComments where
   type
@@ -176,11 +176,11 @@ instance Prelude.Hashable DescribeComments where
 
 instance Prelude.NFData DescribeComments where
   rnf DescribeComments' {..} =
-    Prelude.rnf authenticationToken
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf documentId
-      `Prelude.seq` Prelude.rnf versionId
+    Prelude.rnf authenticationToken `Prelude.seq`
+      Prelude.rnf limit `Prelude.seq`
+        Prelude.rnf marker `Prelude.seq`
+          Prelude.rnf documentId `Prelude.seq`
+            Prelude.rnf versionId
 
 instance Data.ToHeaders DescribeComments where
   toHeaders DescribeComments' {..} =
@@ -258,6 +258,6 @@ describeCommentsResponse_httpStatus = Lens.lens (\DescribeCommentsResponse' {htt
 
 instance Prelude.NFData DescribeCommentsResponse where
   rnf DescribeCommentsResponse' {..} =
-    Prelude.rnf comments
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf comments `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf httpStatus

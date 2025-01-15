@@ -131,10 +131,10 @@ instance Prelude.Hashable UpdateDocumentVersion where
 
 instance Prelude.NFData UpdateDocumentVersion where
   rnf UpdateDocumentVersion' {..} =
-    Prelude.rnf authenticationToken
-      `Prelude.seq` Prelude.rnf versionStatus
-      `Prelude.seq` Prelude.rnf documentId
-      `Prelude.seq` Prelude.rnf versionId
+    Prelude.rnf authenticationToken `Prelude.seq`
+      Prelude.rnf versionStatus `Prelude.seq`
+        Prelude.rnf documentId `Prelude.seq`
+          Prelude.rnf versionId
 
 instance Data.ToHeaders UpdateDocumentVersion where
   toHeaders UpdateDocumentVersion' {..} =

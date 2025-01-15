@@ -107,8 +107,8 @@ instance
 
 instance Prelude.NFData RemoveAllResourcePermissions where
   rnf RemoveAllResourcePermissions' {..} =
-    Prelude.rnf authenticationToken
-      `Prelude.seq` Prelude.rnf resourceId
+    Prelude.rnf authenticationToken `Prelude.seq`
+      Prelude.rnf resourceId
 
 instance Data.ToHeaders RemoveAllResourcePermissions where
   toHeaders RemoveAllResourcePermissions' {..} =

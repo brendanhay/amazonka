@@ -100,8 +100,8 @@ instance Prelude.Hashable DeleteFolder where
 
 instance Prelude.NFData DeleteFolder where
   rnf DeleteFolder' {..} =
-    Prelude.rnf authenticationToken
-      `Prelude.seq` Prelude.rnf folderId
+    Prelude.rnf authenticationToken `Prelude.seq`
+      Prelude.rnf folderId
 
 instance Data.ToHeaders DeleteFolder where
   toHeaders DeleteFolder' {..} =

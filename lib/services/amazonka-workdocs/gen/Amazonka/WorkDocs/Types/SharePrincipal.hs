@@ -88,9 +88,9 @@ instance Prelude.Hashable SharePrincipal where
 
 instance Prelude.NFData SharePrincipal where
   rnf SharePrincipal' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf role'
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf type' `Prelude.seq`
+        Prelude.rnf role'
 
 instance Data.ToJSON SharePrincipal where
   toJSON SharePrincipal' {..} =

@@ -122,9 +122,9 @@ instance Prelude.Hashable GetFolder where
 
 instance Prelude.NFData GetFolder where
   rnf GetFolder' {..} =
-    Prelude.rnf authenticationToken
-      `Prelude.seq` Prelude.rnf includeCustomMetadata
-      `Prelude.seq` Prelude.rnf folderId
+    Prelude.rnf authenticationToken `Prelude.seq`
+      Prelude.rnf includeCustomMetadata `Prelude.seq`
+        Prelude.rnf folderId
 
 instance Data.ToHeaders GetFolder where
   toHeaders GetFolder' {..} =
@@ -196,6 +196,6 @@ getFolderResponse_httpStatus = Lens.lens (\GetFolderResponse' {httpStatus} -> ht
 
 instance Prelude.NFData GetFolderResponse where
   rnf GetFolderResponse' {..} =
-    Prelude.rnf customMetadata
-      `Prelude.seq` Prelude.rnf metadata
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf customMetadata `Prelude.seq`
+      Prelude.rnf metadata `Prelude.seq`
+        Prelude.rnf httpStatus

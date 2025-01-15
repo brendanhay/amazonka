@@ -116,8 +116,8 @@ instance
     DeleteNotificationSubscription
   where
   rnf DeleteNotificationSubscription' {..} =
-    Prelude.rnf subscriptionId
-      `Prelude.seq` Prelude.rnf organizationId
+    Prelude.rnf subscriptionId `Prelude.seq`
+      Prelude.rnf organizationId
 
 instance
   Data.ToHeaders

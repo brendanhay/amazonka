@@ -120,9 +120,9 @@ instance Prelude.Hashable CreateLabels where
 
 instance Prelude.NFData CreateLabels where
   rnf CreateLabels' {..} =
-    Prelude.rnf authenticationToken
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf labels
+    Prelude.rnf authenticationToken `Prelude.seq`
+      Prelude.rnf resourceId `Prelude.seq`
+        Prelude.rnf labels
 
 instance Data.ToHeaders CreateLabels where
   toHeaders CreateLabels' {..} =

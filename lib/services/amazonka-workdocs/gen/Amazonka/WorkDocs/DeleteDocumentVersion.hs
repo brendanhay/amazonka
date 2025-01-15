@@ -136,10 +136,10 @@ instance Prelude.Hashable DeleteDocumentVersion where
 
 instance Prelude.NFData DeleteDocumentVersion where
   rnf DeleteDocumentVersion' {..} =
-    Prelude.rnf authenticationToken
-      `Prelude.seq` Prelude.rnf documentId
-      `Prelude.seq` Prelude.rnf versionId
-      `Prelude.seq` Prelude.rnf deletePriorVersions
+    Prelude.rnf authenticationToken `Prelude.seq`
+      Prelude.rnf documentId `Prelude.seq`
+        Prelude.rnf versionId `Prelude.seq`
+          Prelude.rnf deletePriorVersions
 
 instance Data.ToHeaders DeleteDocumentVersion where
   toHeaders DeleteDocumentVersion' {..} =

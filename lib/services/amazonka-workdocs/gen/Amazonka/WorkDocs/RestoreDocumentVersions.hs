@@ -104,8 +104,8 @@ instance Prelude.Hashable RestoreDocumentVersions where
 
 instance Prelude.NFData RestoreDocumentVersions where
   rnf RestoreDocumentVersions' {..} =
-    Prelude.rnf authenticationToken
-      `Prelude.seq` Prelude.rnf documentId
+    Prelude.rnf authenticationToken `Prelude.seq`
+      Prelude.rnf documentId
 
 instance Data.ToHeaders RestoreDocumentVersions where
   toHeaders RestoreDocumentVersions' {..} =

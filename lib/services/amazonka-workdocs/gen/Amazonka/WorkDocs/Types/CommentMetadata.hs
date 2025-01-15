@@ -115,8 +115,8 @@ instance Prelude.Hashable CommentMetadata where
 
 instance Prelude.NFData CommentMetadata where
   rnf CommentMetadata' {..} =
-    Prelude.rnf commentId
-      `Prelude.seq` Prelude.rnf commentStatus
-      `Prelude.seq` Prelude.rnf contributor
-      `Prelude.seq` Prelude.rnf createdTimestamp
-      `Prelude.seq` Prelude.rnf recipientId
+    Prelude.rnf commentId `Prelude.seq`
+      Prelude.rnf commentStatus `Prelude.seq`
+        Prelude.rnf contributor `Prelude.seq`
+          Prelude.rnf createdTimestamp `Prelude.seq`
+            Prelude.rnf recipientId

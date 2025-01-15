@@ -140,11 +140,11 @@ instance Prelude.Hashable UpdateDocument where
 
 instance Prelude.NFData UpdateDocument where
   rnf UpdateDocument' {..} =
-    Prelude.rnf authenticationToken
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf parentFolderId
-      `Prelude.seq` Prelude.rnf resourceState
-      `Prelude.seq` Prelude.rnf documentId
+    Prelude.rnf authenticationToken `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf parentFolderId `Prelude.seq`
+          Prelude.rnf resourceState `Prelude.seq`
+            Prelude.rnf documentId
 
 instance Data.ToHeaders UpdateDocument where
   toHeaders UpdateDocument' {..} =

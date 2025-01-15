@@ -113,8 +113,8 @@ instance Prelude.Hashable UserMetadata where
 
 instance Prelude.NFData UserMetadata where
   rnf UserMetadata' {..} =
-    Prelude.rnf emailAddress
-      `Prelude.seq` Prelude.rnf givenName
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf surname
-      `Prelude.seq` Prelude.rnf username
+    Prelude.rnf emailAddress `Prelude.seq`
+      Prelude.rnf givenName `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf surname `Prelude.seq`
+            Prelude.rnf username

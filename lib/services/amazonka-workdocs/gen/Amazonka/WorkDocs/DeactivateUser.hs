@@ -104,8 +104,8 @@ instance Prelude.Hashable DeactivateUser where
 
 instance Prelude.NFData DeactivateUser where
   rnf DeactivateUser' {..} =
-    Prelude.rnf authenticationToken
-      `Prelude.seq` Prelude.rnf userId
+    Prelude.rnf authenticationToken `Prelude.seq`
+      Prelude.rnf userId
 
 instance Data.ToHeaders DeactivateUser where
   toHeaders DeactivateUser' {..} =

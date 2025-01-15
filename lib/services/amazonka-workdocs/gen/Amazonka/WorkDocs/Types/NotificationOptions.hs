@@ -74,8 +74,8 @@ instance Prelude.Hashable NotificationOptions where
 
 instance Prelude.NFData NotificationOptions where
   rnf NotificationOptions' {..} =
-    Prelude.rnf emailMessage
-      `Prelude.seq` Prelude.rnf sendEmail
+    Prelude.rnf emailMessage `Prelude.seq`
+      Prelude.rnf sendEmail
 
 instance Data.ToJSON NotificationOptions where
   toJSON NotificationOptions' {..} =

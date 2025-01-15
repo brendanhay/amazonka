@@ -140,10 +140,10 @@ instance Prelude.Hashable ResourceMetadata where
 
 instance Prelude.NFData ResourceMetadata where
   rnf ResourceMetadata' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf originalName
-      `Prelude.seq` Prelude.rnf owner
-      `Prelude.seq` Prelude.rnf parentId
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf versionId
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf originalName `Prelude.seq`
+          Prelude.rnf owner `Prelude.seq`
+            Prelude.rnf parentId `Prelude.seq`
+              Prelude.rnf type' `Prelude.seq`
+                Prelude.rnf versionId

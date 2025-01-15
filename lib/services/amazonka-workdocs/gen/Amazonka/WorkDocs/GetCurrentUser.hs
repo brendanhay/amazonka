@@ -161,5 +161,5 @@ getCurrentUserResponse_httpStatus = Lens.lens (\GetCurrentUserResponse' {httpSta
 
 instance Prelude.NFData GetCurrentUserResponse where
   rnf GetCurrentUserResponse' {..} =
-    Prelude.rnf user
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf user `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -103,8 +103,8 @@ instance Prelude.Hashable DeleteDocument where
 
 instance Prelude.NFData DeleteDocument where
   rnf DeleteDocument' {..} =
-    Prelude.rnf authenticationToken
-      `Prelude.seq` Prelude.rnf documentId
+    Prelude.rnf authenticationToken `Prelude.seq`
+      Prelude.rnf documentId
 
 instance Data.ToHeaders DeleteDocument where
   toHeaders DeleteDocument' {..} =

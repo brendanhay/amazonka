@@ -131,10 +131,10 @@ instance Prelude.Hashable RemoveResourcePermission where
 
 instance Prelude.NFData RemoveResourcePermission where
   rnf RemoveResourcePermission' {..} =
-    Prelude.rnf authenticationToken
-      `Prelude.seq` Prelude.rnf principalType
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf principalId
+    Prelude.rnf authenticationToken `Prelude.seq`
+      Prelude.rnf principalType `Prelude.seq`
+        Prelude.rnf resourceId `Prelude.seq`
+          Prelude.rnf principalId
 
 instance Data.ToHeaders RemoveResourcePermission where
   toHeaders RemoveResourcePermission' {..} =

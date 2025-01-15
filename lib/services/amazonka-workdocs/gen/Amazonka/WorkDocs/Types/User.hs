@@ -227,18 +227,18 @@ instance Prelude.Hashable User where
 
 instance Prelude.NFData User where
   rnf User' {..} =
-    Prelude.rnf createdTimestamp
-      `Prelude.seq` Prelude.rnf emailAddress
-      `Prelude.seq` Prelude.rnf givenName
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf locale
-      `Prelude.seq` Prelude.rnf modifiedTimestamp
-      `Prelude.seq` Prelude.rnf organizationId
-      `Prelude.seq` Prelude.rnf recycleBinFolderId
-      `Prelude.seq` Prelude.rnf rootFolderId
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf storage
-      `Prelude.seq` Prelude.rnf surname
-      `Prelude.seq` Prelude.rnf timeZoneId
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf username
+    Prelude.rnf createdTimestamp `Prelude.seq`
+      Prelude.rnf emailAddress `Prelude.seq`
+        Prelude.rnf givenName `Prelude.seq`
+          Prelude.rnf id `Prelude.seq`
+            Prelude.rnf locale `Prelude.seq`
+              Prelude.rnf modifiedTimestamp `Prelude.seq`
+                Prelude.rnf organizationId `Prelude.seq`
+                  Prelude.rnf recycleBinFolderId `Prelude.seq`
+                    Prelude.rnf rootFolderId `Prelude.seq`
+                      Prelude.rnf status `Prelude.seq`
+                        Prelude.rnf storage `Prelude.seq`
+                          Prelude.rnf surname `Prelude.seq`
+                            Prelude.rnf timeZoneId `Prelude.seq`
+                              Prelude.rnf type' `Prelude.seq`
+                                Prelude.rnf username

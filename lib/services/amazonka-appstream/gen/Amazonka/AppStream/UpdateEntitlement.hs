@@ -143,11 +143,11 @@ instance Prelude.Hashable UpdateEntitlement where
 
 instance Prelude.NFData UpdateEntitlement where
   rnf UpdateEntitlement' {..} =
-    Prelude.rnf appVisibility
-      `Prelude.seq` Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf stackName
+    Prelude.rnf appVisibility `Prelude.seq`
+      Prelude.rnf attributes `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf stackName
 
 instance Data.ToHeaders UpdateEntitlement where
   toHeaders =
@@ -223,5 +223,5 @@ updateEntitlementResponse_httpStatus = Lens.lens (\UpdateEntitlementResponse' {h
 
 instance Prelude.NFData UpdateEntitlementResponse where
   rnf UpdateEntitlementResponse' {..} =
-    Prelude.rnf entitlement
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf entitlement `Prelude.seq`
+      Prelude.rnf httpStatus

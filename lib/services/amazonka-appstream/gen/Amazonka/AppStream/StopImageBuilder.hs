@@ -164,5 +164,5 @@ stopImageBuilderResponse_httpStatus = Lens.lens (\StopImageBuilderResponse' {htt
 
 instance Prelude.NFData StopImageBuilderResponse where
   rnf StopImageBuilderResponse' {..} =
-    Prelude.rnf imageBuilder
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf imageBuilder `Prelude.seq`
+      Prelude.rnf httpStatus

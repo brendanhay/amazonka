@@ -287,18 +287,18 @@ instance Prelude.Hashable CreateStack where
 
 instance Prelude.NFData CreateStack where
   rnf CreateStack' {..} =
-    Prelude.rnf accessEndpoints
-      `Prelude.seq` Prelude.rnf applicationSettings
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf embedHostDomains
-      `Prelude.seq` Prelude.rnf feedbackURL
-      `Prelude.seq` Prelude.rnf redirectURL
-      `Prelude.seq` Prelude.rnf storageConnectors
-      `Prelude.seq` Prelude.rnf streamingExperienceSettings
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf userSettings
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf accessEndpoints `Prelude.seq`
+      Prelude.rnf applicationSettings `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf displayName `Prelude.seq`
+            Prelude.rnf embedHostDomains `Prelude.seq`
+              Prelude.rnf feedbackURL `Prelude.seq`
+                Prelude.rnf redirectURL `Prelude.seq`
+                  Prelude.rnf storageConnectors `Prelude.seq`
+                    Prelude.rnf streamingExperienceSettings `Prelude.seq`
+                      Prelude.rnf tags `Prelude.seq`
+                        Prelude.rnf userSettings `Prelude.seq`
+                          Prelude.rnf name
 
 instance Data.ToHeaders CreateStack where
   toHeaders =
@@ -385,5 +385,5 @@ createStackResponse_httpStatus = Lens.lens (\CreateStackResponse' {httpStatus} -
 
 instance Prelude.NFData CreateStackResponse where
   rnf CreateStackResponse' {..} =
-    Prelude.rnf stack
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf stack `Prelude.seq`
+      Prelude.rnf httpStatus

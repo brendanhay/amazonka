@@ -148,10 +148,10 @@ instance Prelude.Hashable DescribeImagePermissions where
 
 instance Prelude.NFData DescribeImagePermissions where
   rnf DescribeImagePermissions' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sharedAwsAccountIds
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf sharedAwsAccountIds `Prelude.seq`
+          Prelude.rnf name
 
 instance Data.ToHeaders DescribeImagePermissions where
   toHeaders =
@@ -252,7 +252,7 @@ instance
     DescribeImagePermissionsResponse
   where
   rnf DescribeImagePermissionsResponse' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sharedImagePermissionsList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf sharedImagePermissionsList `Prelude.seq`
+          Prelude.rnf httpStatus

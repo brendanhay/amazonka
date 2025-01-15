@@ -132,7 +132,7 @@ instance Prelude.Hashable UsageReportSubscription where
 
 instance Prelude.NFData UsageReportSubscription where
   rnf UsageReportSubscription' {..} =
-    Prelude.rnf lastGeneratedReportDate
-      `Prelude.seq` Prelude.rnf s3BucketName
-      `Prelude.seq` Prelude.rnf schedule
-      `Prelude.seq` Prelude.rnf subscriptionErrors
+    Prelude.rnf lastGeneratedReportDate `Prelude.seq`
+      Prelude.rnf s3BucketName `Prelude.seq`
+        Prelude.rnf schedule `Prelude.seq`
+          Prelude.rnf subscriptionErrors

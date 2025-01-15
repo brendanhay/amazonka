@@ -152,10 +152,10 @@ instance Prelude.Hashable AppBlock where
 
 instance Prelude.NFData AppBlock where
   rnf AppBlock' {..} =
-    Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf sourceS3Location
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf setupScriptDetails
+    Prelude.rnf createdTime `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf displayName `Prelude.seq`
+          Prelude.rnf sourceS3Location `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf arn `Prelude.seq`
+                Prelude.rnf setupScriptDetails

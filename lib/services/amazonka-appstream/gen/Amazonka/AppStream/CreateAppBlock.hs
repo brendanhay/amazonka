@@ -168,12 +168,12 @@ instance Prelude.Hashable CreateAppBlock where
 
 instance Prelude.NFData CreateAppBlock where
   rnf CreateAppBlock' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf sourceS3Location
-      `Prelude.seq` Prelude.rnf setupScriptDetails
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf displayName `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf sourceS3Location `Prelude.seq`
+              Prelude.rnf setupScriptDetails
 
 instance Data.ToHeaders CreateAppBlock where
   toHeaders =
@@ -251,5 +251,5 @@ createAppBlockResponse_httpStatus = Lens.lens (\CreateAppBlockResponse' {httpSta
 
 instance Prelude.NFData CreateAppBlockResponse where
   rnf CreateAppBlockResponse' {..} =
-    Prelude.rnf appBlock
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf appBlock `Prelude.seq`
+      Prelude.rnf httpStatus

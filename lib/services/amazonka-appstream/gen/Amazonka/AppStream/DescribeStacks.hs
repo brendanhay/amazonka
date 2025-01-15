@@ -107,12 +107,12 @@ instance Core.AWSPager DescribeStacks where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeStacks_nextToken
-          Lens..~ rs
-          Lens.^? describeStacksResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeStacks_nextToken
+              Lens..~ rs
+              Lens.^? describeStacksResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeStacks where
   type
@@ -137,8 +137,8 @@ instance Prelude.Hashable DescribeStacks where
 
 instance Prelude.NFData DescribeStacks where
   rnf DescribeStacks' {..} =
-    Prelude.rnf names
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf names `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeStacks where
   toHeaders =
@@ -223,6 +223,6 @@ describeStacksResponse_httpStatus = Lens.lens (\DescribeStacksResponse' {httpSta
 
 instance Prelude.NFData DescribeStacksResponse where
   rnf DescribeStacksResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf stacks
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf stacks `Prelude.seq`
+        Prelude.rnf httpStatus

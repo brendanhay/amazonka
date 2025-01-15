@@ -107,7 +107,7 @@ instance Prelude.Hashable ComputeCapacityStatus where
 
 instance Prelude.NFData ComputeCapacityStatus where
   rnf ComputeCapacityStatus' {..} =
-    Prelude.rnf available
-      `Prelude.seq` Prelude.rnf inUse
-      `Prelude.seq` Prelude.rnf running
-      `Prelude.seq` Prelude.rnf desired
+    Prelude.rnf available `Prelude.seq`
+      Prelude.rnf inUse `Prelude.seq`
+        Prelude.rnf running `Prelude.seq`
+          Prelude.rnf desired

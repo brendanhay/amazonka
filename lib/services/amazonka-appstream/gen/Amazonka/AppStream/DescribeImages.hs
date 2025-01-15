@@ -137,12 +137,12 @@ instance Core.AWSPager DescribeImages where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeImages_nextToken
-          Lens..~ rs
-          Lens.^? describeImagesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeImages_nextToken
+              Lens..~ rs
+              Lens.^? describeImagesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeImages where
   type
@@ -170,11 +170,11 @@ instance Prelude.Hashable DescribeImages where
 
 instance Prelude.NFData DescribeImages where
   rnf DescribeImages' {..} =
-    Prelude.rnf arns
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf names
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf arns `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf names `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf type'
 
 instance Data.ToHeaders DescribeImages where
   toHeaders =
@@ -261,6 +261,6 @@ describeImagesResponse_httpStatus = Lens.lens (\DescribeImagesResponse' {httpSta
 
 instance Prelude.NFData DescribeImagesResponse where
   rnf DescribeImagesResponse' {..} =
-    Prelude.rnf images
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf images `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

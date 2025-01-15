@@ -124,8 +124,8 @@ instance Prelude.Hashable EnableUser where
 
 instance Prelude.NFData EnableUser where
   rnf EnableUser' {..} =
-    Prelude.rnf userName
-      `Prelude.seq` Prelude.rnf authenticationType
+    Prelude.rnf userName `Prelude.seq`
+      Prelude.rnf authenticationType
 
 instance Data.ToHeaders EnableUser where
   toHeaders =

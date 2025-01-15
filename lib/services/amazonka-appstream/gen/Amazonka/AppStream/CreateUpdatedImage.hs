@@ -221,12 +221,12 @@ instance Prelude.Hashable CreateUpdatedImage where
 
 instance Prelude.NFData CreateUpdatedImage where
   rnf CreateUpdatedImage' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf newImageDescription'
-      `Prelude.seq` Prelude.rnf newImageDisplayName'
-      `Prelude.seq` Prelude.rnf newImageTags'
-      `Prelude.seq` Prelude.rnf existingImageName
-      `Prelude.seq` Prelude.rnf newImageName'
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf newImageDescription' `Prelude.seq`
+        Prelude.rnf newImageDisplayName' `Prelude.seq`
+          Prelude.rnf newImageTags' `Prelude.seq`
+            Prelude.rnf existingImageName `Prelude.seq`
+              Prelude.rnf newImageName'
 
 instance Data.ToHeaders CreateUpdatedImage where
   toHeaders =
@@ -314,6 +314,6 @@ createUpdatedImageResponse_httpStatus = Lens.lens (\CreateUpdatedImageResponse' 
 
 instance Prelude.NFData CreateUpdatedImageResponse where
   rnf CreateUpdatedImageResponse' {..} =
-    Prelude.rnf canUpdateImage
-      `Prelude.seq` Prelude.rnf image
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf canUpdateImage `Prelude.seq`
+      Prelude.rnf image `Prelude.seq`
+        Prelude.rnf httpStatus

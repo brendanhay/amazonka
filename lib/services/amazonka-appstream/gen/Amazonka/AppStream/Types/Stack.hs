@@ -244,17 +244,17 @@ instance Prelude.Hashable Stack where
 
 instance Prelude.NFData Stack where
   rnf Stack' {..} =
-    Prelude.rnf accessEndpoints
-      `Prelude.seq` Prelude.rnf applicationSettings
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf embedHostDomains
-      `Prelude.seq` Prelude.rnf feedbackURL
-      `Prelude.seq` Prelude.rnf redirectURL
-      `Prelude.seq` Prelude.rnf stackErrors
-      `Prelude.seq` Prelude.rnf storageConnectors
-      `Prelude.seq` Prelude.rnf streamingExperienceSettings
-      `Prelude.seq` Prelude.rnf userSettings
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf accessEndpoints `Prelude.seq`
+      Prelude.rnf applicationSettings `Prelude.seq`
+        Prelude.rnf arn `Prelude.seq`
+          Prelude.rnf createdTime `Prelude.seq`
+            Prelude.rnf description `Prelude.seq`
+              Prelude.rnf displayName `Prelude.seq`
+                Prelude.rnf embedHostDomains `Prelude.seq`
+                  Prelude.rnf feedbackURL `Prelude.seq`
+                    Prelude.rnf redirectURL `Prelude.seq`
+                      Prelude.rnf stackErrors `Prelude.seq`
+                        Prelude.rnf storageConnectors `Prelude.seq`
+                          Prelude.rnf streamingExperienceSettings `Prelude.seq`
+                            Prelude.rnf userSettings `Prelude.seq`
+                              Prelude.rnf name

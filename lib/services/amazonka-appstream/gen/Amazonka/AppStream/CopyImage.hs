@@ -144,10 +144,10 @@ instance Prelude.Hashable CopyImage where
 
 instance Prelude.NFData CopyImage where
   rnf CopyImage' {..} =
-    Prelude.rnf destinationImageDescription
-      `Prelude.seq` Prelude.rnf sourceImageName
-      `Prelude.seq` Prelude.rnf destinationImageName
-      `Prelude.seq` Prelude.rnf destinationRegion
+    Prelude.rnf destinationImageDescription `Prelude.seq`
+      Prelude.rnf sourceImageName `Prelude.seq`
+        Prelude.rnf destinationImageName `Prelude.seq`
+          Prelude.rnf destinationRegion
 
 instance Data.ToHeaders CopyImage where
   toHeaders =
@@ -228,5 +228,5 @@ copyImageResponse_httpStatus = Lens.lens (\CopyImageResponse' {httpStatus} -> ht
 
 instance Prelude.NFData CopyImageResponse where
   rnf CopyImageResponse' {..} =
-    Prelude.rnf destinationImageName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf destinationImageName `Prelude.seq`
+      Prelude.rnf httpStatus

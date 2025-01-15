@@ -121,12 +121,12 @@ instance Core.AWSPager DescribeUsers where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeUsers_nextToken
-          Lens..~ rs
-          Lens.^? describeUsersResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeUsers_nextToken
+              Lens..~ rs
+              Lens.^? describeUsersResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeUsers where
   type
@@ -152,9 +152,9 @@ instance Prelude.Hashable DescribeUsers where
 
 instance Prelude.NFData DescribeUsers where
   rnf DescribeUsers' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf authenticationType
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf authenticationType
 
 instance Data.ToHeaders DescribeUsers where
   toHeaders =
@@ -240,6 +240,6 @@ describeUsersResponse_httpStatus = Lens.lens (\DescribeUsersResponse' {httpStatu
 
 instance Prelude.NFData DescribeUsersResponse where
   rnf DescribeUsersResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf users
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf users `Prelude.seq`
+        Prelude.rnf httpStatus

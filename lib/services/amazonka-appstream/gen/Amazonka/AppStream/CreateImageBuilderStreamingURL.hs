@@ -217,6 +217,6 @@ instance
     CreateImageBuilderStreamingURLResponse
   where
   rnf CreateImageBuilderStreamingURLResponse' {..} =
-    Prelude.rnf expires
-      `Prelude.seq` Prelude.rnf streamingURL
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf expires `Prelude.seq`
+      Prelude.rnf streamingURL `Prelude.seq`
+        Prelude.rnf httpStatus

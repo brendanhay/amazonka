@@ -90,5 +90,5 @@ instance Prelude.Hashable NetworkAccessConfiguration where
 
 instance Prelude.NFData NetworkAccessConfiguration where
   rnf NetworkAccessConfiguration' {..} =
-    Prelude.rnf eniId
-      `Prelude.seq` Prelude.rnf eniPrivateIpAddress
+    Prelude.rnf eniId `Prelude.seq`
+      Prelude.rnf eniPrivateIpAddress

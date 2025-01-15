@@ -108,8 +108,8 @@ instance Prelude.Hashable DeleteEntitlement where
 
 instance Prelude.NFData DeleteEntitlement where
   rnf DeleteEntitlement' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf stackName
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf stackName
 
 instance Data.ToHeaders DeleteEntitlement where
   toHeaders =

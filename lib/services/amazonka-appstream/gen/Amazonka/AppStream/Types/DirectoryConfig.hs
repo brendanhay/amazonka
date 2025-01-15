@@ -159,8 +159,8 @@ instance Prelude.Hashable DirectoryConfig where
 
 instance Prelude.NFData DirectoryConfig where
   rnf DirectoryConfig' {..} =
-    Prelude.rnf certificateBasedAuthProperties
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf organizationalUnitDistinguishedNames
-      `Prelude.seq` Prelude.rnf serviceAccountCredentials
-      `Prelude.seq` Prelude.rnf directoryName
+    Prelude.rnf certificateBasedAuthProperties `Prelude.seq`
+      Prelude.rnf createdTime `Prelude.seq`
+        Prelude.rnf organizationalUnitDistinguishedNames `Prelude.seq`
+          Prelude.rnf serviceAccountCredentials `Prelude.seq`
+            Prelude.rnf directoryName

@@ -146,10 +146,10 @@ instance
     DescribeApplicationFleetAssociations
   where
   rnf DescribeApplicationFleetAssociations' {..} =
-    Prelude.rnf applicationArn
-      `Prelude.seq` Prelude.rnf fleetName
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf applicationArn `Prelude.seq`
+      Prelude.rnf fleetName `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken
 
 instance
   Data.ToHeaders
@@ -253,6 +253,6 @@ instance
     DescribeApplicationFleetAssociationsResponse
   where
   rnf DescribeApplicationFleetAssociationsResponse' {..} =
-    Prelude.rnf applicationFleetAssociations
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf applicationFleetAssociations `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

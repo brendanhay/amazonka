@@ -272,20 +272,20 @@ instance Prelude.Hashable Image where
 
 instance Prelude.NFData Image where
   rnf Image' {..} =
-    Prelude.rnf applications
-      `Prelude.seq` Prelude.rnf appstreamAgentVersion
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf baseImageArn
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf imageBuilderName
-      `Prelude.seq` Prelude.rnf imageBuilderSupported
-      `Prelude.seq` Prelude.rnf imageErrors
-      `Prelude.seq` Prelude.rnf imagePermissions
-      `Prelude.seq` Prelude.rnf platform
-      `Prelude.seq` Prelude.rnf publicBaseImageReleasedDate
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf stateChangeReason
-      `Prelude.seq` Prelude.rnf visibility
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf applications `Prelude.seq`
+      Prelude.rnf appstreamAgentVersion `Prelude.seq`
+        Prelude.rnf arn `Prelude.seq`
+          Prelude.rnf baseImageArn `Prelude.seq`
+            Prelude.rnf createdTime `Prelude.seq`
+              Prelude.rnf description `Prelude.seq`
+                Prelude.rnf displayName `Prelude.seq`
+                  Prelude.rnf imageBuilderName `Prelude.seq`
+                    Prelude.rnf imageBuilderSupported `Prelude.seq`
+                      Prelude.rnf imageErrors `Prelude.seq`
+                        Prelude.rnf imagePermissions `Prelude.seq`
+                          Prelude.rnf platform `Prelude.seq`
+                            Prelude.rnf publicBaseImageReleasedDate `Prelude.seq`
+                              Prelude.rnf state `Prelude.seq`
+                                Prelude.rnf stateChangeReason `Prelude.seq`
+                                  Prelude.rnf visibility `Prelude.seq`
+                                    Prelude.rnf name

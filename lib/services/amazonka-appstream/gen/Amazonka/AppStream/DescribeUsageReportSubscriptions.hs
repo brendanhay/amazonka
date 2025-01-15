@@ -126,8 +126,8 @@ instance
     DescribeUsageReportSubscriptions
   where
   rnf DescribeUsageReportSubscriptions' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance
   Data.ToHeaders
@@ -223,6 +223,6 @@ instance
     DescribeUsageReportSubscriptionsResponse
   where
   rnf DescribeUsageReportSubscriptionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf usageReportSubscriptions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf usageReportSubscriptions `Prelude.seq`
+        Prelude.rnf httpStatus

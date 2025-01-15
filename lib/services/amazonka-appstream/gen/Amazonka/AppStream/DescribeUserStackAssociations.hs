@@ -152,12 +152,12 @@ instance Core.AWSPager DescribeUserStackAssociations where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeUserStackAssociations_nextToken
-          Lens..~ rs
-          Lens.^? describeUserStackAssociationsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeUserStackAssociations_nextToken
+              Lens..~ rs
+              Lens.^? describeUserStackAssociationsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -191,11 +191,11 @@ instance
 
 instance Prelude.NFData DescribeUserStackAssociations where
   rnf DescribeUserStackAssociations' {..} =
-    Prelude.rnf authenticationType
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf stackName
-      `Prelude.seq` Prelude.rnf userName
+    Prelude.rnf authenticationType `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf stackName `Prelude.seq`
+            Prelude.rnf userName
 
 instance Data.ToHeaders DescribeUserStackAssociations where
   toHeaders =
@@ -288,6 +288,6 @@ instance
     DescribeUserStackAssociationsResponse
   where
   rnf DescribeUserStackAssociationsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf userStackAssociations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf userStackAssociations `Prelude.seq`
+        Prelude.rnf httpStatus

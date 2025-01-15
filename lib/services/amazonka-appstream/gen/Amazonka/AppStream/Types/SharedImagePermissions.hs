@@ -92,5 +92,5 @@ instance Prelude.Hashable SharedImagePermissions where
 
 instance Prelude.NFData SharedImagePermissions where
   rnf SharedImagePermissions' {..} =
-    Prelude.rnf sharedAccountId
-      `Prelude.seq` Prelude.rnf imagePermissions
+    Prelude.rnf sharedAccountId `Prelude.seq`
+      Prelude.rnf imagePermissions

@@ -191,11 +191,11 @@ instance Prelude.Hashable User where
 
 instance Prelude.NFData User where
   rnf User' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf firstName
-      `Prelude.seq` Prelude.rnf lastName
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf userName
-      `Prelude.seq` Prelude.rnf authenticationType
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf createdTime `Prelude.seq`
+        Prelude.rnf enabled `Prelude.seq`
+          Prelude.rnf firstName `Prelude.seq`
+            Prelude.rnf lastName `Prelude.seq`
+              Prelude.rnf status `Prelude.seq`
+                Prelude.rnf userName `Prelude.seq`
+                  Prelude.rnf authenticationType

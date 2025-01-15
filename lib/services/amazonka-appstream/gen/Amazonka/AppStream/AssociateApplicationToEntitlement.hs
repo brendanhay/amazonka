@@ -137,9 +137,9 @@ instance
     AssociateApplicationToEntitlement
   where
   rnf AssociateApplicationToEntitlement' {..} =
-    Prelude.rnf stackName
-      `Prelude.seq` Prelude.rnf entitlementName
-      `Prelude.seq` Prelude.rnf applicationIdentifier
+    Prelude.rnf stackName `Prelude.seq`
+      Prelude.rnf entitlementName `Prelude.seq`
+        Prelude.rnf applicationIdentifier
 
 instance
   Data.ToHeaders

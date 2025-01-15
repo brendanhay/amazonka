@@ -115,8 +115,8 @@ instance Prelude.Hashable DisableUser where
 
 instance Prelude.NFData DisableUser where
   rnf DisableUser' {..} =
-    Prelude.rnf userName
-      `Prelude.seq` Prelude.rnf authenticationType
+    Prelude.rnf userName `Prelude.seq`
+      Prelude.rnf authenticationType
 
 instance Data.ToHeaders DisableUser where
   toHeaders =

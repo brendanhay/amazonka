@@ -89,8 +89,8 @@ instance Prelude.Hashable AccessEndpoint where
 
 instance Prelude.NFData AccessEndpoint where
   rnf AccessEndpoint' {..} =
-    Prelude.rnf vpceId
-      `Prelude.seq` Prelude.rnf endpointType
+    Prelude.rnf vpceId `Prelude.seq`
+      Prelude.rnf endpointType
 
 instance Data.ToJSON AccessEndpoint where
   toJSON AccessEndpoint' {..} =

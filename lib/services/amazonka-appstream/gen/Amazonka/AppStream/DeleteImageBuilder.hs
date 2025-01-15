@@ -164,5 +164,5 @@ deleteImageBuilderResponse_httpStatus = Lens.lens (\DeleteImageBuilderResponse' 
 
 instance Prelude.NFData DeleteImageBuilderResponse where
   rnf DeleteImageBuilderResponse' {..} =
-    Prelude.rnf imageBuilder
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf imageBuilder `Prelude.seq`
+      Prelude.rnf httpStatus

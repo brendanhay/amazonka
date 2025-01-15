@@ -113,8 +113,8 @@ instance Prelude.Hashable AssociateApplicationFleet where
 
 instance Prelude.NFData AssociateApplicationFleet where
   rnf AssociateApplicationFleet' {..} =
-    Prelude.rnf fleetName
-      `Prelude.seq` Prelude.rnf applicationArn
+    Prelude.rnf fleetName `Prelude.seq`
+      Prelude.rnf applicationArn
 
 instance Data.ToHeaders AssociateApplicationFleet where
   toHeaders =
@@ -197,5 +197,5 @@ instance
     AssociateApplicationFleetResponse
   where
   rnf AssociateApplicationFleetResponse' {..} =
-    Prelude.rnf applicationFleetAssociation
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf applicationFleetAssociation `Prelude.seq`
+      Prelude.rnf httpStatus

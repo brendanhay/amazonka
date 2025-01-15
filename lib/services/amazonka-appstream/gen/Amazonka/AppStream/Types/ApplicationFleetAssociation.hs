@@ -87,5 +87,5 @@ instance Prelude.Hashable ApplicationFleetAssociation where
 
 instance Prelude.NFData ApplicationFleetAssociation where
   rnf ApplicationFleetAssociation' {..} =
-    Prelude.rnf fleetName
-      `Prelude.seq` Prelude.rnf applicationArn
+    Prelude.rnf fleetName `Prelude.seq`
+      Prelude.rnf applicationArn

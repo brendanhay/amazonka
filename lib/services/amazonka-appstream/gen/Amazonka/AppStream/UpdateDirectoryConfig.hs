@@ -167,10 +167,10 @@ instance Prelude.Hashable UpdateDirectoryConfig where
 
 instance Prelude.NFData UpdateDirectoryConfig where
   rnf UpdateDirectoryConfig' {..} =
-    Prelude.rnf certificateBasedAuthProperties
-      `Prelude.seq` Prelude.rnf organizationalUnitDistinguishedNames
-      `Prelude.seq` Prelude.rnf serviceAccountCredentials
-      `Prelude.seq` Prelude.rnf directoryName
+    Prelude.rnf certificateBasedAuthProperties `Prelude.seq`
+      Prelude.rnf organizationalUnitDistinguishedNames `Prelude.seq`
+        Prelude.rnf serviceAccountCredentials `Prelude.seq`
+          Prelude.rnf directoryName
 
 instance Data.ToHeaders UpdateDirectoryConfig where
   toHeaders =
@@ -249,5 +249,5 @@ updateDirectoryConfigResponse_httpStatus = Lens.lens (\UpdateDirectoryConfigResp
 
 instance Prelude.NFData UpdateDirectoryConfigResponse where
   rnf UpdateDirectoryConfigResponse' {..} =
-    Prelude.rnf directoryConfig
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf directoryConfig `Prelude.seq`
+      Prelude.rnf httpStatus

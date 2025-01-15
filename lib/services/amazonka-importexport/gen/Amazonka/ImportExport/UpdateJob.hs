@@ -138,9 +138,7 @@ instance Core.AWSRequest UpdateJob where
       "UpdateJobResult"
       ( \s h x ->
           UpdateJobResponse'
-            Prelude.<$> ( x
-                            Data..@? "ArtifactList"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "ArtifactList" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (x Data..@? "Success")
@@ -159,11 +157,11 @@ instance Prelude.Hashable UpdateJob where
 
 instance Prelude.NFData UpdateJob where
   rnf UpdateJob' {..} =
-    Prelude.rnf aPIVersion
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf manifest
-      `Prelude.seq` Prelude.rnf jobType
-      `Prelude.seq` Prelude.rnf validateOnly
+    Prelude.rnf aPIVersion `Prelude.seq`
+      Prelude.rnf jobId `Prelude.seq`
+        Prelude.rnf manifest `Prelude.seq`
+          Prelude.rnf jobType `Prelude.seq`
+            Prelude.rnf validateOnly
 
 instance Data.ToHeaders UpdateJob where
   toHeaders = Prelude.const Prelude.mempty
@@ -242,7 +240,7 @@ updateJobResponse_httpStatus = Lens.lens (\UpdateJobResponse' {httpStatus} -> ht
 
 instance Prelude.NFData UpdateJobResponse where
   rnf UpdateJobResponse' {..} =
-    Prelude.rnf artifactList
-      `Prelude.seq` Prelude.rnf success
-      `Prelude.seq` Prelude.rnf warningMessage
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf artifactList `Prelude.seq`
+      Prelude.rnf success `Prelude.seq`
+        Prelude.rnf warningMessage `Prelude.seq`
+          Prelude.rnf httpStatus

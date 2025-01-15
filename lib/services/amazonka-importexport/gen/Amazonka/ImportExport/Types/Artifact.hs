@@ -75,5 +75,5 @@ instance Prelude.Hashable Artifact where
 
 instance Prelude.NFData Artifact where
   rnf Artifact' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf url
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf url

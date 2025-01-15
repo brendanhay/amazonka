@@ -113,9 +113,7 @@ instance Core.AWSRequest GetStatus where
       "GetStatusResult"
       ( \s h x ->
           GetStatusResponse'
-            Prelude.<$> ( x
-                            Data..@? "ArtifactList"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "ArtifactList" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (x Data..@? "Carrier")
@@ -144,8 +142,8 @@ instance Prelude.Hashable GetStatus where
 
 instance Prelude.NFData GetStatus where
   rnf GetStatus' {..} =
-    Prelude.rnf aPIVersion
-      `Prelude.seq` Prelude.rnf jobId
+    Prelude.rnf aPIVersion `Prelude.seq`
+      Prelude.rnf jobId
 
 instance Data.ToHeaders GetStatus where
   toHeaders = Prelude.const Prelude.mempty
@@ -325,20 +323,20 @@ getStatusResponse_httpStatus = Lens.lens (\GetStatusResponse' {httpStatus} -> ht
 
 instance Prelude.NFData GetStatusResponse where
   rnf GetStatusResponse' {..} =
-    Prelude.rnf artifactList
-      `Prelude.seq` Prelude.rnf carrier
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf currentManifest
-      `Prelude.seq` Prelude.rnf errorCount
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf jobType
-      `Prelude.seq` Prelude.rnf locationCode
-      `Prelude.seq` Prelude.rnf locationMessage
-      `Prelude.seq` Prelude.rnf logBucket
-      `Prelude.seq` Prelude.rnf logKey
-      `Prelude.seq` Prelude.rnf progressCode
-      `Prelude.seq` Prelude.rnf progressMessage
-      `Prelude.seq` Prelude.rnf signature
-      `Prelude.seq` Prelude.rnf signatureFileContents
-      `Prelude.seq` Prelude.rnf trackingNumber
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf artifactList `Prelude.seq`
+      Prelude.rnf carrier `Prelude.seq`
+        Prelude.rnf creationDate `Prelude.seq`
+          Prelude.rnf currentManifest `Prelude.seq`
+            Prelude.rnf errorCount `Prelude.seq`
+              Prelude.rnf jobId `Prelude.seq`
+                Prelude.rnf jobType `Prelude.seq`
+                  Prelude.rnf locationCode `Prelude.seq`
+                    Prelude.rnf locationMessage `Prelude.seq`
+                      Prelude.rnf logBucket `Prelude.seq`
+                        Prelude.rnf logKey `Prelude.seq`
+                          Prelude.rnf progressCode `Prelude.seq`
+                            Prelude.rnf progressMessage `Prelude.seq`
+                              Prelude.rnf signature `Prelude.seq`
+                                Prelude.rnf signatureFileContents `Prelude.seq`
+                                  Prelude.rnf trackingNumber `Prelude.seq`
+                                    Prelude.rnf httpStatus

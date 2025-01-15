@@ -208,18 +208,18 @@ instance Prelude.Hashable GetShippingLabel where
 
 instance Prelude.NFData GetShippingLabel where
   rnf GetShippingLabel' {..} =
-    Prelude.rnf aPIVersion
-      `Prelude.seq` Prelude.rnf city
-      `Prelude.seq` Prelude.rnf company
-      `Prelude.seq` Prelude.rnf country
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf phoneNumber
-      `Prelude.seq` Prelude.rnf postalCode
-      `Prelude.seq` Prelude.rnf stateOrProvince
-      `Prelude.seq` Prelude.rnf street1
-      `Prelude.seq` Prelude.rnf street2
-      `Prelude.seq` Prelude.rnf street3
-      `Prelude.seq` Prelude.rnf jobIds
+    Prelude.rnf aPIVersion `Prelude.seq`
+      Prelude.rnf city `Prelude.seq`
+        Prelude.rnf company `Prelude.seq`
+          Prelude.rnf country `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf phoneNumber `Prelude.seq`
+                Prelude.rnf postalCode `Prelude.seq`
+                  Prelude.rnf stateOrProvince `Prelude.seq`
+                    Prelude.rnf street1 `Prelude.seq`
+                      Prelude.rnf street2 `Prelude.seq`
+                        Prelude.rnf street3 `Prelude.seq`
+                          Prelude.rnf jobIds
 
 instance Data.ToHeaders GetShippingLabel where
   toHeaders = Prelude.const Prelude.mempty
@@ -297,6 +297,6 @@ getShippingLabelResponse_httpStatus = Lens.lens (\GetShippingLabelResponse' {htt
 
 instance Prelude.NFData GetShippingLabelResponse where
   rnf GetShippingLabelResponse' {..} =
-    Prelude.rnf shippingLabelURL
-      `Prelude.seq` Prelude.rnf warning
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf shippingLabelURL `Prelude.seq`
+      Prelude.rnf warning `Prelude.seq`
+        Prelude.rnf httpStatus

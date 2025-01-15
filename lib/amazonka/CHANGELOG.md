@@ -4,6 +4,8 @@
 
 ### Changed
 
+- `amazonka-dynamodb`: `TransactWriteItem` is now a sum type (thanks @Tristano8).
+[\#1020](https://github.com/brendanhay/amazonka/pull/1020)
 - `amazonka-core`: Add regions: `Malaysia` (`ap-southeast-5`), `Thailand` (`ap-southeast-7`), `Calgary` (`ca-west-1`), and `TelAviv` (`il-central-1`)
 [\#1017](https://github.com/brendanhay/amazonka/pull/1017)
 - Depend on `microlens`, `microlens-pro` and `microlens-contra` instead of the full `lens` package (thanks @mankykitty).

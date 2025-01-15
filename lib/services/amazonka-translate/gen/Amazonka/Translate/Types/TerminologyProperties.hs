@@ -263,17 +263,17 @@ instance Prelude.Hashable TerminologyProperties where
 
 instance Prelude.NFData TerminologyProperties where
   rnf TerminologyProperties' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf directionality
-      `Prelude.seq` Prelude.rnf encryptionKey
-      `Prelude.seq` Prelude.rnf format
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf sizeBytes
-      `Prelude.seq` Prelude.rnf skippedTermCount
-      `Prelude.seq` Prelude.rnf sourceLanguageCode
-      `Prelude.seq` Prelude.rnf targetLanguageCodes
-      `Prelude.seq` Prelude.rnf termCount
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf createdAt `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf directionality `Prelude.seq`
+            Prelude.rnf encryptionKey `Prelude.seq`
+              Prelude.rnf format `Prelude.seq`
+                Prelude.rnf lastUpdatedAt `Prelude.seq`
+                  Prelude.rnf message `Prelude.seq`
+                    Prelude.rnf name `Prelude.seq`
+                      Prelude.rnf sizeBytes `Prelude.seq`
+                        Prelude.rnf skippedTermCount `Prelude.seq`
+                          Prelude.rnf sourceLanguageCode `Prelude.seq`
+                            Prelude.rnf targetLanguageCodes `Prelude.seq`
+                              Prelude.rnf termCount

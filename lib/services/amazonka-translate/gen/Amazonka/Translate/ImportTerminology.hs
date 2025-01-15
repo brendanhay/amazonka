@@ -188,12 +188,12 @@ instance Prelude.Hashable ImportTerminology where
 
 instance Prelude.NFData ImportTerminology where
   rnf ImportTerminology' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf encryptionKey
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf mergeStrategy
-      `Prelude.seq` Prelude.rnf terminologyData
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf encryptionKey `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf mergeStrategy `Prelude.seq`
+              Prelude.rnf terminologyData
 
 instance Data.ToHeaders ImportTerminology where
   toHeaders =
@@ -289,6 +289,6 @@ importTerminologyResponse_httpStatus = Lens.lens (\ImportTerminologyResponse' {h
 
 instance Prelude.NFData ImportTerminologyResponse where
   rnf ImportTerminologyResponse' {..} =
-    Prelude.rnf auxiliaryDataLocation
-      `Prelude.seq` Prelude.rnf terminologyProperties
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf auxiliaryDataLocation `Prelude.seq`
+      Prelude.rnf terminologyProperties `Prelude.seq`
+        Prelude.rnf httpStatus

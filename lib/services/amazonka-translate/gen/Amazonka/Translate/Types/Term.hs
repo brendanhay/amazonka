@@ -80,5 +80,5 @@ instance Prelude.Hashable Term where
 
 instance Prelude.NFData Term where
   rnf Term' {..} =
-    Prelude.rnf sourceText
-      `Prelude.seq` Prelude.rnf targetText
+    Prelude.rnf sourceText `Prelude.seq`
+      Prelude.rnf targetText

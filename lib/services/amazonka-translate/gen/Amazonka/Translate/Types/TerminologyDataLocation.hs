@@ -129,5 +129,5 @@ instance Prelude.Hashable TerminologyDataLocation where
 
 instance Prelude.NFData TerminologyDataLocation where
   rnf TerminologyDataLocation' {..} =
-    Prelude.rnf repositoryType
-      `Prelude.seq` Prelude.rnf location
+    Prelude.rnf repositoryType `Prelude.seq`
+      Prelude.rnf location

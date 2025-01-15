@@ -221,11 +221,11 @@ instance Prelude.Hashable TranslateText where
 
 instance Prelude.NFData TranslateText where
   rnf TranslateText' {..} =
-    Prelude.rnf settings
-      `Prelude.seq` Prelude.rnf terminologyNames
-      `Prelude.seq` Prelude.rnf text
-      `Prelude.seq` Prelude.rnf sourceLanguageCode
-      `Prelude.seq` Prelude.rnf targetLanguageCode
+    Prelude.rnf settings `Prelude.seq`
+      Prelude.rnf terminologyNames `Prelude.seq`
+        Prelude.rnf text `Prelude.seq`
+          Prelude.rnf sourceLanguageCode `Prelude.seq`
+            Prelude.rnf targetLanguageCode
 
 instance Data.ToHeaders TranslateText where
   toHeaders =
@@ -353,9 +353,9 @@ translateTextResponse_targetLanguageCode = Lens.lens (\TranslateTextResponse' {t
 
 instance Prelude.NFData TranslateTextResponse where
   rnf TranslateTextResponse' {..} =
-    Prelude.rnf appliedSettings
-      `Prelude.seq` Prelude.rnf appliedTerminologies
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf translatedText
-      `Prelude.seq` Prelude.rnf sourceLanguageCode
-      `Prelude.seq` Prelude.rnf targetLanguageCode
+    Prelude.rnf appliedSettings `Prelude.seq`
+      Prelude.rnf appliedTerminologies `Prelude.seq`
+        Prelude.rnf httpStatus `Prelude.seq`
+          Prelude.rnf translatedText `Prelude.seq`
+            Prelude.rnf sourceLanguageCode `Prelude.seq`
+              Prelude.rnf targetLanguageCode

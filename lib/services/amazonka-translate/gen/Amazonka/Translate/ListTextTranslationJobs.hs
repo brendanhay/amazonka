@@ -131,9 +131,9 @@ instance Prelude.Hashable ListTextTranslationJobs where
 
 instance Prelude.NFData ListTextTranslationJobs where
   rnf ListTextTranslationJobs' {..} =
-    Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filter' `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListTextTranslationJobs where
   toHeaders =
@@ -223,6 +223,6 @@ instance
     ListTextTranslationJobsResponse
   where
   rnf ListTextTranslationJobsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf textTranslationJobPropertiesList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf textTranslationJobPropertiesList `Prelude.seq`
+        Prelude.rnf httpStatus

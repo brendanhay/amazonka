@@ -127,5 +127,5 @@ instance Prelude.Hashable ParallelDataDataLocation where
 
 instance Prelude.NFData ParallelDataDataLocation where
   rnf ParallelDataDataLocation' {..} =
-    Prelude.rnf repositoryType
-      `Prelude.seq` Prelude.rnf location
+    Prelude.rnf repositoryType `Prelude.seq`
+      Prelude.rnf location

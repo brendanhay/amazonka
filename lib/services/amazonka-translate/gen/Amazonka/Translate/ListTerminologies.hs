@@ -105,12 +105,12 @@ instance Core.AWSPager ListTerminologies where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listTerminologies_nextToken
-          Lens..~ rs
-          Lens.^? listTerminologiesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listTerminologies_nextToken
+              Lens..~ rs
+              Lens.^? listTerminologiesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListTerminologies where
   type
@@ -138,8 +138,8 @@ instance Prelude.Hashable ListTerminologies where
 
 instance Prelude.NFData ListTerminologies where
   rnf ListTerminologies' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListTerminologies where
   toHeaders =
@@ -227,6 +227,6 @@ listTerminologiesResponse_httpStatus = Lens.lens (\ListTerminologiesResponse' {h
 
 instance Prelude.NFData ListTerminologiesResponse where
   rnf ListTerminologiesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf terminologyPropertiesList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf terminologyPropertiesList `Prelude.seq`
+        Prelude.rnf httpStatus

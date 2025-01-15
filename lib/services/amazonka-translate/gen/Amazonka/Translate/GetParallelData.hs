@@ -260,8 +260,8 @@ getParallelDataResponse_httpStatus = Lens.lens (\GetParallelDataResponse' {httpS
 
 instance Prelude.NFData GetParallelDataResponse where
   rnf GetParallelDataResponse' {..} =
-    Prelude.rnf auxiliaryDataLocation
-      `Prelude.seq` Prelude.rnf dataLocation
-      `Prelude.seq` Prelude.rnf latestUpdateAttemptAuxiliaryDataLocation
-      `Prelude.seq` Prelude.rnf parallelDataProperties
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf auxiliaryDataLocation `Prelude.seq`
+      Prelude.rnf dataLocation `Prelude.seq`
+        Prelude.rnf latestUpdateAttemptAuxiliaryDataLocation `Prelude.seq`
+          Prelude.rnf parallelDataProperties `Prelude.seq`
+            Prelude.rnf httpStatus

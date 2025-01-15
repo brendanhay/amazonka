@@ -179,5 +179,5 @@ instance
     DescribeTextTranslationJobResponse
   where
   rnf DescribeTextTranslationJobResponse' {..} =
-    Prelude.rnf textTranslationJobProperties
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf textTranslationJobProperties `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -286,20 +286,20 @@ instance Prelude.Hashable ParallelDataProperties where
 
 instance Prelude.NFData ParallelDataProperties where
   rnf ParallelDataProperties' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf encryptionKey
-      `Prelude.seq` Prelude.rnf failedRecordCount
-      `Prelude.seq` Prelude.rnf importedDataSize
-      `Prelude.seq` Prelude.rnf importedRecordCount
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf latestUpdateAttemptAt
-      `Prelude.seq` Prelude.rnf latestUpdateAttemptStatus
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf parallelDataConfig
-      `Prelude.seq` Prelude.rnf skippedRecordCount
-      `Prelude.seq` Prelude.rnf sourceLanguageCode
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf targetLanguageCodes
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf createdAt `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf encryptionKey `Prelude.seq`
+            Prelude.rnf failedRecordCount `Prelude.seq`
+              Prelude.rnf importedDataSize `Prelude.seq`
+                Prelude.rnf importedRecordCount `Prelude.seq`
+                  Prelude.rnf lastUpdatedAt `Prelude.seq`
+                    Prelude.rnf latestUpdateAttemptAt `Prelude.seq`
+                      Prelude.rnf latestUpdateAttemptStatus `Prelude.seq`
+                        Prelude.rnf message `Prelude.seq`
+                          Prelude.rnf name `Prelude.seq`
+                            Prelude.rnf parallelDataConfig `Prelude.seq`
+                              Prelude.rnf skippedRecordCount `Prelude.seq`
+                                Prelude.rnf sourceLanguageCode `Prelude.seq`
+                                  Prelude.rnf status `Prelude.seq`
+                                    Prelude.rnf targetLanguageCodes

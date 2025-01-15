@@ -161,11 +161,11 @@ instance Prelude.Hashable Destination where
 
 instance Prelude.NFData Destination where
   rnf Destination' {..} =
-    Prelude.rnf additionalFixedProperties
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf site
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf updatedAt
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf additionalFixedProperties `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf site `Prelude.seq`
+              Prelude.rnf createdAt `Prelude.seq`
+                Prelude.rnf updatedAt `Prelude.seq`
+                  Prelude.rnf state

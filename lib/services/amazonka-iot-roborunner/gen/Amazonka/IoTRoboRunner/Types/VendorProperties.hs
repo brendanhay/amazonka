@@ -102,10 +102,10 @@ instance Prelude.Hashable VendorProperties where
 
 instance Prelude.NFData VendorProperties where
   rnf VendorProperties' {..} =
-    Prelude.rnf vendorAdditionalFixedProperties
-      `Prelude.seq` Prelude.rnf vendorAdditionalTransientProperties
-      `Prelude.seq` Prelude.rnf vendorWorkerIpAddress
-      `Prelude.seq` Prelude.rnf vendorWorkerId
+    Prelude.rnf vendorAdditionalFixedProperties `Prelude.seq`
+      Prelude.rnf vendorAdditionalTransientProperties `Prelude.seq`
+        Prelude.rnf vendorWorkerIpAddress `Prelude.seq`
+          Prelude.rnf vendorWorkerId
 
 instance Data.ToJSON VendorProperties where
   toJSON VendorProperties' {..} =

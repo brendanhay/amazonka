@@ -135,10 +135,10 @@ instance Prelude.Hashable CreateWorkerFleet where
 
 instance Prelude.NFData CreateWorkerFleet where
   rnf CreateWorkerFleet' {..} =
-    Prelude.rnf additionalFixedProperties
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf site
+    Prelude.rnf additionalFixedProperties `Prelude.seq`
+      Prelude.rnf clientToken `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf site
 
 instance Data.ToHeaders CreateWorkerFleet where
   toHeaders =
@@ -246,8 +246,8 @@ createWorkerFleetResponse_updatedAt = Lens.lens (\CreateWorkerFleetResponse' {up
 
 instance Prelude.NFData CreateWorkerFleetResponse where
   rnf CreateWorkerFleetResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf updatedAt
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf createdAt `Prelude.seq`
+            Prelude.rnf updatedAt

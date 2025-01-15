@@ -111,12 +111,12 @@ instance Core.AWSPager ListWorkerFleets where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listWorkerFleets_nextToken
-          Lens..~ rs
-          Lens.^? listWorkerFleetsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listWorkerFleets_nextToken
+              Lens..~ rs
+              Lens.^? listWorkerFleetsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListWorkerFleets where
   type
@@ -142,9 +142,9 @@ instance Prelude.Hashable ListWorkerFleets where
 
 instance Prelude.NFData ListWorkerFleets where
   rnf ListWorkerFleets' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf site
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf site
 
 instance Data.ToHeaders ListWorkerFleets where
   toHeaders =
@@ -216,6 +216,6 @@ listWorkerFleetsResponse_httpStatus = Lens.lens (\ListWorkerFleetsResponse' {htt
 
 instance Prelude.NFData ListWorkerFleetsResponse where
   rnf ListWorkerFleetsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf workerFleets
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf workerFleets `Prelude.seq`
+        Prelude.rnf httpStatus

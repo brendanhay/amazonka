@@ -137,10 +137,10 @@ instance Prelude.Hashable UpdateDestination where
 
 instance Prelude.NFData UpdateDestination where
   rnf UpdateDestination' {..} =
-    Prelude.rnf additionalFixedProperties
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf additionalFixedProperties `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf state `Prelude.seq`
+          Prelude.rnf id
 
 instance Data.ToHeaders UpdateDestination where
   toHeaders =
@@ -267,10 +267,10 @@ updateDestinationResponse_state = Lens.lens (\UpdateDestinationResponse' {state}
 
 instance Prelude.NFData UpdateDestinationResponse where
   rnf UpdateDestinationResponse' {..} =
-    Prelude.rnf additionalFixedProperties
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf updatedAt
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf additionalFixedProperties `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf arn `Prelude.seq`
+          Prelude.rnf id `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf updatedAt `Prelude.seq`
+                Prelude.rnf state

@@ -100,12 +100,12 @@ instance Core.AWSPager ListSites where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listSites_nextToken
-          Lens..~ rs
-          Lens.^? listSitesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listSites_nextToken
+              Lens..~ rs
+              Lens.^? listSitesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSites where
   type AWSResponse ListSites = ListSitesResponse
@@ -128,8 +128,8 @@ instance Prelude.Hashable ListSites where
 
 instance Prelude.NFData ListSites where
   rnf ListSites' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListSites where
   toHeaders =
@@ -199,6 +199,6 @@ listSitesResponse_httpStatus = Lens.lens (\ListSitesResponse' {httpStatus} -> ht
 
 instance Prelude.NFData ListSitesResponse where
   rnf ListSitesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sites
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf sites `Prelude.seq`
+        Prelude.rnf httpStatus

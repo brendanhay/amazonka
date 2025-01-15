@@ -125,9 +125,9 @@ instance Prelude.Hashable UpdateWorkerFleet where
 
 instance Prelude.NFData UpdateWorkerFleet where
   rnf UpdateWorkerFleet' {..} =
-    Prelude.rnf additionalFixedProperties
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf additionalFixedProperties `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf id
 
 instance Data.ToHeaders UpdateWorkerFleet where
   toHeaders =
@@ -242,9 +242,9 @@ updateWorkerFleetResponse_updatedAt = Lens.lens (\UpdateWorkerFleetResponse' {up
 
 instance Prelude.NFData UpdateWorkerFleetResponse where
   rnf UpdateWorkerFleetResponse' {..} =
-    Prelude.rnf additionalFixedProperties
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf updatedAt
+    Prelude.rnf additionalFixedProperties `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf arn `Prelude.seq`
+          Prelude.rnf id `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf updatedAt

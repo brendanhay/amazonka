@@ -175,14 +175,14 @@ instance Prelude.Hashable CreateWorker where
 
 instance Prelude.NFData CreateWorker where
   rnf CreateWorker' {..} =
-    Prelude.rnf additionalFixedProperties
-      `Prelude.seq` Prelude.rnf additionalTransientProperties
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf orientation
-      `Prelude.seq` Prelude.rnf position
-      `Prelude.seq` Prelude.rnf vendorProperties
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf fleet
+    Prelude.rnf additionalFixedProperties `Prelude.seq`
+      Prelude.rnf additionalTransientProperties `Prelude.seq`
+        Prelude.rnf clientToken `Prelude.seq`
+          Prelude.rnf orientation `Prelude.seq`
+            Prelude.rnf position `Prelude.seq`
+              Prelude.rnf vendorProperties `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf fleet
 
 instance Data.ToHeaders CreateWorker where
   toHeaders =
@@ -306,9 +306,9 @@ createWorkerResponse_site = Lens.lens (\CreateWorkerResponse' {site} -> site) (\
 
 instance Prelude.NFData CreateWorkerResponse where
   rnf CreateWorkerResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf updatedAt
-      `Prelude.seq` Prelude.rnf site
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf createdAt `Prelude.seq`
+            Prelude.rnf updatedAt `Prelude.seq`
+              Prelude.rnf site

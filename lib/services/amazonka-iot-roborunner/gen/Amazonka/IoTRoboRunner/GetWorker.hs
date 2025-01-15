@@ -281,16 +281,16 @@ getWorkerResponse_name = Lens.lens (\GetWorkerResponse' {name} -> name) (\s@GetW
 
 instance Prelude.NFData GetWorkerResponse where
   rnf GetWorkerResponse' {..} =
-    Prelude.rnf additionalFixedProperties
-      `Prelude.seq` Prelude.rnf additionalTransientProperties
-      `Prelude.seq` Prelude.rnf orientation
-      `Prelude.seq` Prelude.rnf position
-      `Prelude.seq` Prelude.rnf vendorProperties
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf fleet
-      `Prelude.seq` Prelude.rnf site
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf updatedAt
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf additionalFixedProperties `Prelude.seq`
+      Prelude.rnf additionalTransientProperties `Prelude.seq`
+        Prelude.rnf orientation `Prelude.seq`
+          Prelude.rnf position `Prelude.seq`
+            Prelude.rnf vendorProperties `Prelude.seq`
+              Prelude.rnf httpStatus `Prelude.seq`
+                Prelude.rnf arn `Prelude.seq`
+                  Prelude.rnf id `Prelude.seq`
+                    Prelude.rnf fleet `Prelude.seq`
+                      Prelude.rnf site `Prelude.seq`
+                        Prelude.rnf createdAt `Prelude.seq`
+                          Prelude.rnf updatedAt `Prelude.seq`
+                            Prelude.rnf name

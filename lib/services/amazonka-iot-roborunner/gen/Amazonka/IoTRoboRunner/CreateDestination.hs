@@ -148,11 +148,11 @@ instance Prelude.Hashable CreateDestination where
 
 instance Prelude.NFData CreateDestination where
   rnf CreateDestination' {..} =
-    Prelude.rnf additionalFixedProperties
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf site
+    Prelude.rnf additionalFixedProperties `Prelude.seq`
+      Prelude.rnf clientToken `Prelude.seq`
+        Prelude.rnf state `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf site
 
 instance Data.ToHeaders CreateDestination where
   toHeaders =
@@ -272,9 +272,9 @@ createDestinationResponse_state = Lens.lens (\CreateDestinationResponse' {state}
 
 instance Prelude.NFData CreateDestinationResponse where
   rnf CreateDestinationResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf updatedAt
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf createdAt `Prelude.seq`
+            Prelude.rnf updatedAt `Prelude.seq`
+              Prelude.rnf state

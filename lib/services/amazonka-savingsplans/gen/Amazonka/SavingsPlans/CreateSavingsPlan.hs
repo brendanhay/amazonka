@@ -174,12 +174,12 @@ instance Prelude.Hashable CreateSavingsPlan where
 
 instance Prelude.NFData CreateSavingsPlan where
   rnf CreateSavingsPlan' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf purchaseTime
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf upfrontPaymentAmount
-      `Prelude.seq` Prelude.rnf savingsPlanOfferingId
-      `Prelude.seq` Prelude.rnf commitment
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf purchaseTime `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf upfrontPaymentAmount `Prelude.seq`
+            Prelude.rnf savingsPlanOfferingId `Prelude.seq`
+              Prelude.rnf commitment
 
 instance Data.ToHeaders CreateSavingsPlan where
   toHeaders =
@@ -256,5 +256,5 @@ createSavingsPlanResponse_httpStatus = Lens.lens (\CreateSavingsPlanResponse' {h
 
 instance Prelude.NFData CreateSavingsPlanResponse where
   rnf CreateSavingsPlanResponse' {..} =
-    Prelude.rnf savingsPlanId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf savingsPlanId `Prelude.seq`
+      Prelude.rnf httpStatus

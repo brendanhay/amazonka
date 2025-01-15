@@ -239,19 +239,19 @@ instance
 
 instance Prelude.NFData DescribeSavingsPlansOfferings where
   rnf DescribeSavingsPlansOfferings' {..} =
-    Prelude.rnf currencies
-      `Prelude.seq` Prelude.rnf descriptions
-      `Prelude.seq` Prelude.rnf durations
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf offeringIds
-      `Prelude.seq` Prelude.rnf operations
-      `Prelude.seq` Prelude.rnf paymentOptions
-      `Prelude.seq` Prelude.rnf planTypes
-      `Prelude.seq` Prelude.rnf productType
-      `Prelude.seq` Prelude.rnf serviceCodes
-      `Prelude.seq` Prelude.rnf usageTypes
+    Prelude.rnf currencies `Prelude.seq`
+      Prelude.rnf descriptions `Prelude.seq`
+        Prelude.rnf durations `Prelude.seq`
+          Prelude.rnf filters `Prelude.seq`
+            Prelude.rnf maxResults `Prelude.seq`
+              Prelude.rnf nextToken `Prelude.seq`
+                Prelude.rnf offeringIds `Prelude.seq`
+                  Prelude.rnf operations `Prelude.seq`
+                    Prelude.rnf paymentOptions `Prelude.seq`
+                      Prelude.rnf planTypes `Prelude.seq`
+                        Prelude.rnf productType `Prelude.seq`
+                          Prelude.rnf serviceCodes `Prelude.seq`
+                            Prelude.rnf usageTypes
 
 instance Data.ToHeaders DescribeSavingsPlansOfferings where
   toHeaders =
@@ -348,6 +348,6 @@ instance
     DescribeSavingsPlansOfferingsResponse
   where
   rnf DescribeSavingsPlansOfferingsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf searchResults
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf searchResults `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -138,10 +138,10 @@ instance Prelude.Hashable DescribeSavingsPlanRates where
 
 instance Prelude.NFData DescribeSavingsPlanRates where
   rnf DescribeSavingsPlanRates' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf savingsPlanId
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf savingsPlanId
 
 instance Data.ToHeaders DescribeSavingsPlanRates where
   toHeaders =
@@ -237,7 +237,7 @@ instance
     DescribeSavingsPlanRatesResponse
   where
   rnf DescribeSavingsPlanRatesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf savingsPlanId
-      `Prelude.seq` Prelude.rnf searchResults
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf savingsPlanId `Prelude.seq`
+        Prelude.rnf searchResults `Prelude.seq`
+          Prelude.rnf httpStatus

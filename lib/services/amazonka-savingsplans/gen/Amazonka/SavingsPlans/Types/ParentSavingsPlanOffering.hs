@@ -128,9 +128,9 @@ instance Prelude.Hashable ParentSavingsPlanOffering where
 
 instance Prelude.NFData ParentSavingsPlanOffering where
   rnf ParentSavingsPlanOffering' {..} =
-    Prelude.rnf currency
-      `Prelude.seq` Prelude.rnf durationSeconds
-      `Prelude.seq` Prelude.rnf offeringId
-      `Prelude.seq` Prelude.rnf paymentOption
-      `Prelude.seq` Prelude.rnf planDescription
-      `Prelude.seq` Prelude.rnf planType
+    Prelude.rnf currency `Prelude.seq`
+      Prelude.rnf durationSeconds `Prelude.seq`
+        Prelude.rnf offeringId `Prelude.seq`
+          Prelude.rnf paymentOption `Prelude.seq`
+            Prelude.rnf planDescription `Prelude.seq`
+              Prelude.rnf planType

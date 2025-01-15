@@ -93,6 +93,6 @@ instance Prelude.Hashable JobLog where
 
 instance Prelude.NFData JobLog where
   rnf JobLog' {..} =
-    Prelude.rnf event
-      `Prelude.seq` Prelude.rnf eventData
-      `Prelude.seq` Prelude.rnf logDateTime
+    Prelude.rnf event `Prelude.seq`
+      Prelude.rnf eventData `Prelude.seq`
+        Prelude.rnf logDateTime

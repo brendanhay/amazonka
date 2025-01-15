@@ -173,5 +173,5 @@ reverseReplicationResponse_httpStatus = Lens.lens (\ReverseReplicationResponse' 
 
 instance Prelude.NFData ReverseReplicationResponse where
   rnf ReverseReplicationResponse' {..} =
-    Prelude.rnf reversedDirectionSourceServerArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf reversedDirectionSourceServerArn `Prelude.seq`
+      Prelude.rnf httpStatus

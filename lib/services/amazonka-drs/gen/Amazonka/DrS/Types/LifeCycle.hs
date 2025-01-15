@@ -121,8 +121,8 @@ instance Prelude.Hashable LifeCycle where
 
 instance Prelude.NFData LifeCycle where
   rnf LifeCycle' {..} =
-    Prelude.rnf addedToServiceDateTime
-      `Prelude.seq` Prelude.rnf elapsedReplicationDuration
-      `Prelude.seq` Prelude.rnf firstByteDateTime
-      `Prelude.seq` Prelude.rnf lastLaunch
-      `Prelude.seq` Prelude.rnf lastSeenByServiceDateTime
+    Prelude.rnf addedToServiceDateTime `Prelude.seq`
+      Prelude.rnf elapsedReplicationDuration `Prelude.seq`
+        Prelude.rnf firstByteDateTime `Prelude.seq`
+          Prelude.rnf lastLaunch `Prelude.seq`
+            Prelude.rnf lastSeenByServiceDateTime

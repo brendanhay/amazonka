@@ -123,8 +123,8 @@ instance Prelude.Hashable ConversionProperties where
 
 instance Prelude.NFData ConversionProperties where
   rnf ConversionProperties' {..} =
-    Prelude.rnf dataTimestamp
-      `Prelude.seq` Prelude.rnf forceUefi
-      `Prelude.seq` Prelude.rnf rootVolumeName
-      `Prelude.seq` Prelude.rnf volumeToConversionMap
-      `Prelude.seq` Prelude.rnf volumeToVolumeSize
+    Prelude.rnf dataTimestamp `Prelude.seq`
+      Prelude.rnf forceUefi `Prelude.seq`
+        Prelude.rnf rootVolumeName `Prelude.seq`
+          Prelude.rnf volumeToConversionMap `Prelude.seq`
+            Prelude.rnf volumeToVolumeSize

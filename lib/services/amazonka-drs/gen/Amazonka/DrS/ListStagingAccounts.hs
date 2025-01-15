@@ -103,12 +103,12 @@ instance Core.AWSPager ListStagingAccounts where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listStagingAccounts_nextToken
-          Lens..~ rs
-          Lens.^? listStagingAccountsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listStagingAccounts_nextToken
+              Lens..~ rs
+              Lens.^? listStagingAccountsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListStagingAccounts where
   type
@@ -133,8 +133,8 @@ instance Prelude.Hashable ListStagingAccounts where
 
 instance Prelude.NFData ListStagingAccounts where
   rnf ListStagingAccounts' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListStagingAccounts where
   toHeaders =
@@ -207,6 +207,6 @@ listStagingAccountsResponse_httpStatus = Lens.lens (\ListStagingAccountsResponse
 
 instance Prelude.NFData ListStagingAccountsResponse where
   rnf ListStagingAccountsResponse' {..} =
-    Prelude.rnf accounts
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf accounts `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

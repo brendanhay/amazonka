@@ -115,8 +115,8 @@ instance Prelude.Hashable StartFailbackLaunch where
 
 instance Prelude.NFData StartFailbackLaunch where
   rnf StartFailbackLaunch' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf recoveryInstanceIDs
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf recoveryInstanceIDs
 
 instance Data.ToHeaders StartFailbackLaunch where
   toHeaders =
@@ -185,5 +185,5 @@ startFailbackLaunchResponse_httpStatus = Lens.lens (\StartFailbackLaunchResponse
 
 instance Prelude.NFData StartFailbackLaunchResponse where
   rnf StartFailbackLaunchResponse' {..} =
-    Prelude.rnf job
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf job `Prelude.seq`
+      Prelude.rnf httpStatus

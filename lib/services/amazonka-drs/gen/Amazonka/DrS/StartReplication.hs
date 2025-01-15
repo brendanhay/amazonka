@@ -167,5 +167,5 @@ startReplicationResponse_httpStatus = Lens.lens (\StartReplicationResponse' {htt
 
 instance Prelude.NFData StartReplicationResponse where
   rnf StartReplicationResponse' {..} =
-    Prelude.rnf sourceServer
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf sourceServer `Prelude.seq`
+      Prelude.rnf httpStatus

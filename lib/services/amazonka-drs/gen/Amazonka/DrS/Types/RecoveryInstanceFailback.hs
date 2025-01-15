@@ -190,13 +190,13 @@ instance Prelude.Hashable RecoveryInstanceFailback where
 
 instance Prelude.NFData RecoveryInstanceFailback where
   rnf RecoveryInstanceFailback' {..} =
-    Prelude.rnf agentLastSeenByServiceDateTime
-      `Prelude.seq` Prelude.rnf elapsedReplicationDuration
-      `Prelude.seq` Prelude.rnf failbackClientID
-      `Prelude.seq` Prelude.rnf failbackClientLastSeenByServiceDateTime
-      `Prelude.seq` Prelude.rnf failbackInitiationTime
-      `Prelude.seq` Prelude.rnf failbackJobID
-      `Prelude.seq` Prelude.rnf failbackLaunchType
-      `Prelude.seq` Prelude.rnf failbackToOriginalServer
-      `Prelude.seq` Prelude.rnf firstByteDateTime
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf agentLastSeenByServiceDateTime `Prelude.seq`
+      Prelude.rnf elapsedReplicationDuration `Prelude.seq`
+        Prelude.rnf failbackClientID `Prelude.seq`
+          Prelude.rnf failbackClientLastSeenByServiceDateTime `Prelude.seq`
+            Prelude.rnf failbackInitiationTime `Prelude.seq`
+              Prelude.rnf failbackJobID `Prelude.seq`
+                Prelude.rnf failbackLaunchType `Prelude.seq`
+                  Prelude.rnf failbackToOriginalServer `Prelude.seq`
+                    Prelude.rnf firstByteDateTime `Prelude.seq`
+                      Prelude.rnf state

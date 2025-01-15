@@ -118,12 +118,12 @@ instance Core.AWSPager DescribeJobs where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeJobs_nextToken
-          Lens..~ rs
-          Lens.^? describeJobsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeJobs_nextToken
+              Lens..~ rs
+              Lens.^? describeJobsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeJobs where
   type AWSResponse DescribeJobs = DescribeJobsResponse
@@ -147,9 +147,9 @@ instance Prelude.Hashable DescribeJobs where
 
 instance Prelude.NFData DescribeJobs where
   rnf DescribeJobs' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeJobs where
   toHeaders =
@@ -227,6 +227,6 @@ describeJobsResponse_httpStatus = Lens.lens (\DescribeJobsResponse' {httpStatus}
 
 instance Prelude.NFData DescribeJobsResponse where
   rnf DescribeJobsResponse' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf items `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

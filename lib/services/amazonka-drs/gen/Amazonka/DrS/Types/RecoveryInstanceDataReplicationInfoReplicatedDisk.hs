@@ -130,8 +130,8 @@ instance
   where
   rnf
     RecoveryInstanceDataReplicationInfoReplicatedDisk' {..} =
-      Prelude.rnf backloggedStorageBytes
-        `Prelude.seq` Prelude.rnf deviceName
-        `Prelude.seq` Prelude.rnf replicatedStorageBytes
-        `Prelude.seq` Prelude.rnf rescannedStorageBytes
-        `Prelude.seq` Prelude.rnf totalStorageBytes
+      Prelude.rnf backloggedStorageBytes `Prelude.seq`
+        Prelude.rnf deviceName `Prelude.seq`
+          Prelude.rnf replicatedStorageBytes `Prelude.seq`
+            Prelude.rnf rescannedStorageBytes `Prelude.seq`
+              Prelude.rnf totalStorageBytes

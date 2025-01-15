@@ -85,8 +85,8 @@ instance
     DescribeRecoveryInstancesRequestFilters
   where
   rnf DescribeRecoveryInstancesRequestFilters' {..} =
-    Prelude.rnf recoveryInstanceIDs
-      `Prelude.seq` Prelude.rnf sourceServerIDs
+    Prelude.rnf recoveryInstanceIDs `Prelude.seq`
+      Prelude.rnf sourceServerIDs
 
 instance
   Data.ToJSON

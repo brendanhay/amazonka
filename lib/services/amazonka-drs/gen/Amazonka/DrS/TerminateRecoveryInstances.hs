@@ -171,5 +171,5 @@ instance
     TerminateRecoveryInstancesResponse
   where
   rnf TerminateRecoveryInstancesResponse' {..} =
-    Prelude.rnf job
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf job `Prelude.seq`
+      Prelude.rnf httpStatus

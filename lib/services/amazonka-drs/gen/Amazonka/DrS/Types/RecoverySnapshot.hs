@@ -122,8 +122,8 @@ instance Prelude.Hashable RecoverySnapshot where
 
 instance Prelude.NFData RecoverySnapshot where
   rnf RecoverySnapshot' {..} =
-    Prelude.rnf ebsSnapshots
-      `Prelude.seq` Prelude.rnf timestamp
-      `Prelude.seq` Prelude.rnf expectedTimestamp
-      `Prelude.seq` Prelude.rnf snapshotID
-      `Prelude.seq` Prelude.rnf sourceServerID
+    Prelude.rnf ebsSnapshots `Prelude.seq`
+      Prelude.rnf timestamp `Prelude.seq`
+        Prelude.rnf expectedTimestamp `Prelude.seq`
+          Prelude.rnf snapshotID `Prelude.seq`
+            Prelude.rnf sourceServerID

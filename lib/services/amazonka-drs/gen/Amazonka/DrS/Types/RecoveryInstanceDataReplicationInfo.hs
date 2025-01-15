@@ -144,9 +144,9 @@ instance
     RecoveryInstanceDataReplicationInfo
   where
   rnf RecoveryInstanceDataReplicationInfo' {..} =
-    Prelude.rnf dataReplicationError
-      `Prelude.seq` Prelude.rnf dataReplicationInitiation
-      `Prelude.seq` Prelude.rnf dataReplicationState
-      `Prelude.seq` Prelude.rnf etaDateTime
-      `Prelude.seq` Prelude.rnf lagDuration
-      `Prelude.seq` Prelude.rnf replicatedDisks
+    Prelude.rnf dataReplicationError `Prelude.seq`
+      Prelude.rnf dataReplicationInitiation `Prelude.seq`
+        Prelude.rnf dataReplicationState `Prelude.seq`
+          Prelude.rnf etaDateTime `Prelude.seq`
+            Prelude.rnf lagDuration `Prelude.seq`
+              Prelude.rnf replicatedDisks

@@ -121,9 +121,9 @@ instance Prelude.Hashable StartRecovery where
 
 instance Prelude.NFData StartRecovery where
   rnf StartRecovery' {..} =
-    Prelude.rnf isDrill
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf sourceServers
+    Prelude.rnf isDrill `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf sourceServers
 
 instance Data.ToHeaders StartRecovery where
   toHeaders =
@@ -193,5 +193,5 @@ startRecoveryResponse_httpStatus = Lens.lens (\StartRecoveryResponse' {httpStatu
 
 instance Prelude.NFData StartRecoveryResponse where
   rnf StartRecoveryResponse' {..} =
-    Prelude.rnf job
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf job `Prelude.seq`
+      Prelude.rnf httpStatus

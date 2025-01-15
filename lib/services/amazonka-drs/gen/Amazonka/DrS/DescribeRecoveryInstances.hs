@@ -113,12 +113,12 @@ instance Core.AWSPager DescribeRecoveryInstances where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeRecoveryInstances_nextToken
-          Lens..~ rs
-          Lens.^? describeRecoveryInstancesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeRecoveryInstances_nextToken
+              Lens..~ rs
+              Lens.^? describeRecoveryInstancesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeRecoveryInstances where
   type
@@ -144,9 +144,9 @@ instance Prelude.Hashable DescribeRecoveryInstances where
 
 instance Prelude.NFData DescribeRecoveryInstances where
   rnf DescribeRecoveryInstances' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeRecoveryInstances where
   toHeaders =
@@ -228,6 +228,6 @@ instance
     DescribeRecoveryInstancesResponse
   where
   rnf DescribeRecoveryInstancesResponse' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf items `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

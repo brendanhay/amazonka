@@ -84,8 +84,8 @@ instance
     StartRecoveryRequestSourceServer
   where
   rnf StartRecoveryRequestSourceServer' {..} =
-    Prelude.rnf recoverySnapshotID
-      `Prelude.seq` Prelude.rnf sourceServerID
+    Prelude.rnf recoverySnapshotID `Prelude.seq`
+      Prelude.rnf sourceServerID
 
 instance Data.ToJSON StartRecoveryRequestSourceServer where
   toJSON StartRecoveryRequestSourceServer' {..} =

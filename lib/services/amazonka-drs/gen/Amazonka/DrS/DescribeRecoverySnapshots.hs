@@ -135,12 +135,12 @@ instance Core.AWSPager DescribeRecoverySnapshots where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeRecoverySnapshots_nextToken
-          Lens..~ rs
-          Lens.^? describeRecoverySnapshotsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeRecoverySnapshots_nextToken
+              Lens..~ rs
+              Lens.^? describeRecoverySnapshotsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeRecoverySnapshots where
   type
@@ -168,11 +168,11 @@ instance Prelude.Hashable DescribeRecoverySnapshots where
 
 instance Prelude.NFData DescribeRecoverySnapshots where
   rnf DescribeRecoverySnapshots' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf order
-      `Prelude.seq` Prelude.rnf sourceServerID
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf order `Prelude.seq`
+            Prelude.rnf sourceServerID
 
 instance Data.ToHeaders DescribeRecoverySnapshots where
   toHeaders =
@@ -257,6 +257,6 @@ instance
     DescribeRecoverySnapshotsResponse
   where
   rnf DescribeRecoverySnapshotsResponse' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf items `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

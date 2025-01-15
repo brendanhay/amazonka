@@ -112,8 +112,8 @@ instance Prelude.Hashable CreateExtendedSourceServer where
 
 instance Prelude.NFData CreateExtendedSourceServer where
   rnf CreateExtendedSourceServer' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf sourceServerArn
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf sourceServerArn
 
 instance Data.ToHeaders CreateExtendedSourceServer where
   toHeaders =
@@ -186,5 +186,5 @@ instance
     CreateExtendedSourceServerResponse
   where
   rnf CreateExtendedSourceServerResponse' {..} =
-    Prelude.rnf sourceServer
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf sourceServer `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -218,16 +218,16 @@ instance Prelude.Hashable RecoveryInstance where
 
 instance Prelude.NFData RecoveryInstance where
   rnf RecoveryInstance' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf dataReplicationInfo
-      `Prelude.seq` Prelude.rnf ec2InstanceID
-      `Prelude.seq` Prelude.rnf ec2InstanceState
-      `Prelude.seq` Prelude.rnf failback
-      `Prelude.seq` Prelude.rnf isDrill
-      `Prelude.seq` Prelude.rnf jobID
-      `Prelude.seq` Prelude.rnf originEnvironment
-      `Prelude.seq` Prelude.rnf pointInTimeSnapshotDateTime
-      `Prelude.seq` Prelude.rnf recoveryInstanceID
-      `Prelude.seq` Prelude.rnf recoveryInstanceProperties
-      `Prelude.seq` Prelude.rnf sourceServerID
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf dataReplicationInfo `Prelude.seq`
+        Prelude.rnf ec2InstanceID `Prelude.seq`
+          Prelude.rnf ec2InstanceState `Prelude.seq`
+            Prelude.rnf failback `Prelude.seq`
+              Prelude.rnf isDrill `Prelude.seq`
+                Prelude.rnf jobID `Prelude.seq`
+                  Prelude.rnf originEnvironment `Prelude.seq`
+                    Prelude.rnf pointInTimeSnapshotDateTime `Prelude.seq`
+                      Prelude.rnf recoveryInstanceID `Prelude.seq`
+                        Prelude.rnf recoveryInstanceProperties `Prelude.seq`
+                          Prelude.rnf sourceServerID `Prelude.seq`
+                            Prelude.rnf tags

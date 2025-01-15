@@ -93,5 +93,5 @@ instance
     RecoveryInstanceDataReplicationError
   where
   rnf RecoveryInstanceDataReplicationError' {..} =
-    Prelude.rnf error
-      `Prelude.seq` Prelude.rnf rawError
+    Prelude.rnf error `Prelude.seq`
+      Prelude.rnf rawError

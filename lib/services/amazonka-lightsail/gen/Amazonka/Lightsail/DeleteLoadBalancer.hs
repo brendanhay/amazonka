@@ -184,5 +184,5 @@ deleteLoadBalancerResponse_httpStatus = Lens.lens (\DeleteLoadBalancerResponse' 
 
 instance Prelude.NFData DeleteLoadBalancerResponse where
   rnf DeleteLoadBalancerResponse' {..} =
-    Prelude.rnf operations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operations `Prelude.seq`
+      Prelude.rnf httpStatus

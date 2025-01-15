@@ -281,12 +281,12 @@ instance Prelude.Hashable CopySnapshot where
 
 instance Prelude.NFData CopySnapshot where
   rnf CopySnapshot' {..} =
-    Prelude.rnf restoreDate
-      `Prelude.seq` Prelude.rnf sourceResourceName
-      `Prelude.seq` Prelude.rnf sourceSnapshotName
-      `Prelude.seq` Prelude.rnf useLatestRestorableAutoSnapshot
-      `Prelude.seq` Prelude.rnf targetSnapshotName
-      `Prelude.seq` Prelude.rnf sourceRegion
+    Prelude.rnf restoreDate `Prelude.seq`
+      Prelude.rnf sourceResourceName `Prelude.seq`
+        Prelude.rnf sourceSnapshotName `Prelude.seq`
+          Prelude.rnf useLatestRestorableAutoSnapshot `Prelude.seq`
+            Prelude.rnf targetSnapshotName `Prelude.seq`
+              Prelude.rnf sourceRegion
 
 instance Data.ToHeaders CopySnapshot where
   toHeaders =
@@ -372,5 +372,5 @@ copySnapshotResponse_httpStatus = Lens.lens (\CopySnapshotResponse' {httpStatus}
 
 instance Prelude.NFData CopySnapshotResponse where
   rnf CopySnapshotResponse' {..} =
-    Prelude.rnf operations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operations `Prelude.seq`
+      Prelude.rnf httpStatus

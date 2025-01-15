@@ -604,13 +604,13 @@ instance Prelude.Hashable GetLoadBalancerMetricData where
 
 instance Prelude.NFData GetLoadBalancerMetricData where
   rnf GetLoadBalancerMetricData' {..} =
-    Prelude.rnf loadBalancerName
-      `Prelude.seq` Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf period
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf unit
-      `Prelude.seq` Prelude.rnf statistics
+    Prelude.rnf loadBalancerName `Prelude.seq`
+      Prelude.rnf metricName `Prelude.seq`
+        Prelude.rnf period `Prelude.seq`
+          Prelude.rnf startTime `Prelude.seq`
+            Prelude.rnf endTime `Prelude.seq`
+              Prelude.rnf unit `Prelude.seq`
+                Prelude.rnf statistics
 
 instance Data.ToHeaders GetLoadBalancerMetricData where
   toHeaders =
@@ -701,6 +701,6 @@ instance
     GetLoadBalancerMetricDataResponse
   where
   rnf GetLoadBalancerMetricDataResponse' {..} =
-    Prelude.rnf metricData
-      `Prelude.seq` Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf metricData `Prelude.seq`
+      Prelude.rnf metricName `Prelude.seq`
+        Prelude.rnf httpStatus

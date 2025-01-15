@@ -169,5 +169,5 @@ getOperationResponse_httpStatus = Lens.lens (\GetOperationResponse' {httpStatus}
 
 instance Prelude.NFData GetOperationResponse where
   rnf GetOperationResponse' {..} =
-    Prelude.rnf operation
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operation `Prelude.seq`
+      Prelude.rnf httpStatus

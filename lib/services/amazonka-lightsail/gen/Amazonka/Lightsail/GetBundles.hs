@@ -124,12 +124,12 @@ instance Core.AWSPager GetBundles where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getBundles_pageToken
-          Lens..~ rs
-          Lens.^? getBundlesResponse_nextPageToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getBundles_pageToken
+              Lens..~ rs
+              Lens.^? getBundlesResponse_nextPageToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetBundles where
   type AWSResponse GetBundles = GetBundlesResponse
@@ -152,8 +152,8 @@ instance Prelude.Hashable GetBundles where
 
 instance Prelude.NFData GetBundles where
   rnf GetBundles' {..} =
-    Prelude.rnf includeInactive
-      `Prelude.seq` Prelude.rnf pageToken
+    Prelude.rnf includeInactive `Prelude.seq`
+      Prelude.rnf pageToken
 
 instance Data.ToHeaders GetBundles where
   toHeaders =
@@ -256,6 +256,6 @@ getBundlesResponse_httpStatus = Lens.lens (\GetBundlesResponse' {httpStatus} -> 
 
 instance Prelude.NFData GetBundlesResponse where
   rnf GetBundlesResponse' {..} =
-    Prelude.rnf bundles
-      `Prelude.seq` Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf bundles `Prelude.seq`
+      Prelude.rnf nextPageToken `Prelude.seq`
+        Prelude.rnf httpStatus

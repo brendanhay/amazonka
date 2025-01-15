@@ -164,8 +164,8 @@ instance Prelude.Hashable AccessRules where
 
 instance Prelude.NFData AccessRules where
   rnf AccessRules' {..} =
-    Prelude.rnf allowPublicOverrides
-      `Prelude.seq` Prelude.rnf getObject
+    Prelude.rnf allowPublicOverrides `Prelude.seq`
+      Prelude.rnf getObject
 
 instance Data.ToJSON AccessRules where
   toJSON AccessRules' {..} =

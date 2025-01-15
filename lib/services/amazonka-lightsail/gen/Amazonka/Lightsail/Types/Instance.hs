@@ -348,25 +348,25 @@ instance Prelude.Hashable Instance where
 
 instance Prelude.NFData Instance where
   rnf Instance' {..} =
-    Prelude.rnf addOns
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf blueprintId
-      `Prelude.seq` Prelude.rnf blueprintName
-      `Prelude.seq` Prelude.rnf bundleId
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf hardware
-      `Prelude.seq` Prelude.rnf ipAddressType
-      `Prelude.seq` Prelude.rnf ipv6Addresses
-      `Prelude.seq` Prelude.rnf isStaticIp
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf metadataOptions
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf networking
-      `Prelude.seq` Prelude.rnf privateIpAddress
-      `Prelude.seq` Prelude.rnf publicIpAddress
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf sshKeyName
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf supportCode
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf username
+    Prelude.rnf addOns `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf blueprintId `Prelude.seq`
+          Prelude.rnf blueprintName `Prelude.seq`
+            Prelude.rnf bundleId `Prelude.seq`
+              Prelude.rnf createdAt `Prelude.seq`
+                Prelude.rnf hardware `Prelude.seq`
+                  Prelude.rnf ipAddressType `Prelude.seq`
+                    Prelude.rnf ipv6Addresses `Prelude.seq`
+                      Prelude.rnf isStaticIp `Prelude.seq`
+                        Prelude.rnf location `Prelude.seq`
+                          Prelude.rnf metadataOptions `Prelude.seq`
+                            Prelude.rnf name `Prelude.seq`
+                              Prelude.rnf networking `Prelude.seq`
+                                Prelude.rnf privateIpAddress `Prelude.seq`
+                                  Prelude.rnf publicIpAddress `Prelude.seq`
+                                    Prelude.rnf resourceType `Prelude.seq`
+                                      Prelude.rnf sshKeyName `Prelude.seq`
+                                        Prelude.rnf state `Prelude.seq`
+                                          Prelude.rnf supportCode `Prelude.seq`
+                                            Prelude.rnf tags `Prelude.seq`
+                                              Prelude.rnf username

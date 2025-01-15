@@ -99,6 +99,6 @@ instance Prelude.Hashable InstanceSnapshotInfo where
 
 instance Prelude.NFData InstanceSnapshotInfo where
   rnf InstanceSnapshotInfo' {..} =
-    Prelude.rnf fromBlueprintId
-      `Prelude.seq` Prelude.rnf fromBundleId
-      `Prelude.seq` Prelude.rnf fromDiskInfo
+    Prelude.rnf fromBlueprintId `Prelude.seq`
+      Prelude.rnf fromBundleId `Prelude.seq`
+        Prelude.rnf fromDiskInfo

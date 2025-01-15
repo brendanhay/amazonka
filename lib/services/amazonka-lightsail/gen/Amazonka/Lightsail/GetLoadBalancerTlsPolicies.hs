@@ -224,6 +224,6 @@ instance
     GetLoadBalancerTlsPoliciesResponse
   where
   rnf GetLoadBalancerTlsPoliciesResponse' {..} =
-    Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf tlsPolicies
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextPageToken `Prelude.seq`
+      Prelude.rnf tlsPolicies `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -466,23 +466,23 @@ instance Prelude.Hashable Alarm where
 
 instance Prelude.NFData Alarm where
   rnf Alarm' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf comparisonOperator
-      `Prelude.seq` Prelude.rnf contactProtocols
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf datapointsToAlarm
-      `Prelude.seq` Prelude.rnf evaluationPeriods
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf monitoredResourceInfo
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf notificationEnabled
-      `Prelude.seq` Prelude.rnf notificationTriggers
-      `Prelude.seq` Prelude.rnf period
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf statistic
-      `Prelude.seq` Prelude.rnf supportCode
-      `Prelude.seq` Prelude.rnf threshold
-      `Prelude.seq` Prelude.rnf treatMissingData
-      `Prelude.seq` Prelude.rnf unit
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf comparisonOperator `Prelude.seq`
+        Prelude.rnf contactProtocols `Prelude.seq`
+          Prelude.rnf createdAt `Prelude.seq`
+            Prelude.rnf datapointsToAlarm `Prelude.seq`
+              Prelude.rnf evaluationPeriods `Prelude.seq`
+                Prelude.rnf location `Prelude.seq`
+                  Prelude.rnf metricName `Prelude.seq`
+                    Prelude.rnf monitoredResourceInfo `Prelude.seq`
+                      Prelude.rnf name `Prelude.seq`
+                        Prelude.rnf notificationEnabled `Prelude.seq`
+                          Prelude.rnf notificationTriggers `Prelude.seq`
+                            Prelude.rnf period `Prelude.seq`
+                              Prelude.rnf resourceType `Prelude.seq`
+                                Prelude.rnf state `Prelude.seq`
+                                  Prelude.rnf statistic `Prelude.seq`
+                                    Prelude.rnf supportCode `Prelude.seq`
+                                      Prelude.rnf threshold `Prelude.seq`
+                                        Prelude.rnf treatMissingData `Prelude.seq`
+                                          Prelude.rnf unit

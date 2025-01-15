@@ -272,12 +272,12 @@ instance
     GetRelationalDatabaseLogEvents
   where
   rnf GetRelationalDatabaseLogEvents' {..} =
-    Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf pageToken
-      `Prelude.seq` Prelude.rnf startFromHead
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf relationalDatabaseName
-      `Prelude.seq` Prelude.rnf logStreamName
+    Prelude.rnf endTime `Prelude.seq`
+      Prelude.rnf pageToken `Prelude.seq`
+        Prelude.rnf startFromHead `Prelude.seq`
+          Prelude.rnf startTime `Prelude.seq`
+            Prelude.rnf relationalDatabaseName `Prelude.seq`
+              Prelude.rnf logStreamName
 
 instance
   Data.ToHeaders
@@ -392,7 +392,7 @@ instance
     GetRelationalDatabaseLogEventsResponse
   where
   rnf GetRelationalDatabaseLogEventsResponse' {..} =
-    Prelude.rnf nextBackwardToken
-      `Prelude.seq` Prelude.rnf nextForwardToken
-      `Prelude.seq` Prelude.rnf resourceLogEvents
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextBackwardToken `Prelude.seq`
+      Prelude.rnf nextForwardToken `Prelude.seq`
+        Prelude.rnf resourceLogEvents `Prelude.seq`
+          Prelude.rnf httpStatus

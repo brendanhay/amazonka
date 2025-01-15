@@ -96,5 +96,5 @@ instance
   where
   rnf
     LoadBalancerTlsCertificateDomainValidationOption' {..} =
-      Prelude.rnf domainName
-        `Prelude.seq` Prelude.rnf validationStatus
+      Prelude.rnf domainName `Prelude.seq`
+        Prelude.rnf validationStatus

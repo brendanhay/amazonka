@@ -390,16 +390,16 @@ instance Prelude.Hashable UpdateRelationalDatabase where
 
 instance Prelude.NFData UpdateRelationalDatabase where
   rnf UpdateRelationalDatabase' {..} =
-    Prelude.rnf applyImmediately
-      `Prelude.seq` Prelude.rnf caCertificateIdentifier
-      `Prelude.seq` Prelude.rnf disableBackupRetention
-      `Prelude.seq` Prelude.rnf enableBackupRetention
-      `Prelude.seq` Prelude.rnf masterUserPassword
-      `Prelude.seq` Prelude.rnf preferredBackupWindow
-      `Prelude.seq` Prelude.rnf preferredMaintenanceWindow
-      `Prelude.seq` Prelude.rnf publiclyAccessible
-      `Prelude.seq` Prelude.rnf rotateMasterUserPassword
-      `Prelude.seq` Prelude.rnf relationalDatabaseName
+    Prelude.rnf applyImmediately `Prelude.seq`
+      Prelude.rnf caCertificateIdentifier `Prelude.seq`
+        Prelude.rnf disableBackupRetention `Prelude.seq`
+          Prelude.rnf enableBackupRetention `Prelude.seq`
+            Prelude.rnf masterUserPassword `Prelude.seq`
+              Prelude.rnf preferredBackupWindow `Prelude.seq`
+                Prelude.rnf preferredMaintenanceWindow `Prelude.seq`
+                  Prelude.rnf publiclyAccessible `Prelude.seq`
+                    Prelude.rnf rotateMasterUserPassword `Prelude.seq`
+                      Prelude.rnf relationalDatabaseName
 
 instance Data.ToHeaders UpdateRelationalDatabase where
   toHeaders =
@@ -501,5 +501,5 @@ instance
     UpdateRelationalDatabaseResponse
   where
   rnf UpdateRelationalDatabaseResponse' {..} =
-    Prelude.rnf operations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operations `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -114,8 +114,8 @@ instance Prelude.Hashable DeleteDisk where
 
 instance Prelude.NFData DeleteDisk where
   rnf DeleteDisk' {..} =
-    Prelude.rnf forceDeleteAddOns
-      `Prelude.seq` Prelude.rnf diskName
+    Prelude.rnf forceDeleteAddOns `Prelude.seq`
+      Prelude.rnf diskName
 
 instance Data.ToHeaders DeleteDisk where
   toHeaders =
@@ -194,5 +194,5 @@ deleteDiskResponse_httpStatus = Lens.lens (\DeleteDiskResponse' {httpStatus} -> 
 
 instance Prelude.NFData DeleteDiskResponse where
   rnf DeleteDiskResponse' {..} =
-    Prelude.rnf operations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operations `Prelude.seq`
+      Prelude.rnf httpStatus

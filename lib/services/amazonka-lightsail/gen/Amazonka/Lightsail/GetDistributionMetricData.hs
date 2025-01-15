@@ -511,13 +511,13 @@ instance Prelude.Hashable GetDistributionMetricData where
 
 instance Prelude.NFData GetDistributionMetricData where
   rnf GetDistributionMetricData' {..} =
-    Prelude.rnf distributionName
-      `Prelude.seq` Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf period
-      `Prelude.seq` Prelude.rnf unit
-      `Prelude.seq` Prelude.rnf statistics
+    Prelude.rnf distributionName `Prelude.seq`
+      Prelude.rnf metricName `Prelude.seq`
+        Prelude.rnf startTime `Prelude.seq`
+          Prelude.rnf endTime `Prelude.seq`
+            Prelude.rnf period `Prelude.seq`
+              Prelude.rnf unit `Prelude.seq`
+                Prelude.rnf statistics
 
 instance Data.ToHeaders GetDistributionMetricData where
   toHeaders =
@@ -608,6 +608,6 @@ instance
     GetDistributionMetricDataResponse
   where
   rnf GetDistributionMetricDataResponse' {..} =
-    Prelude.rnf metricData
-      `Prelude.seq` Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf metricData `Prelude.seq`
+      Prelude.rnf metricName `Prelude.seq`
+        Prelude.rnf httpStatus

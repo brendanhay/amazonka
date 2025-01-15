@@ -117,8 +117,8 @@ instance Prelude.Hashable StopRelationalDatabase where
 
 instance Prelude.NFData StopRelationalDatabase where
   rnf StopRelationalDatabase' {..} =
-    Prelude.rnf relationalDatabaseSnapshotName
-      `Prelude.seq` Prelude.rnf relationalDatabaseName
+    Prelude.rnf relationalDatabaseSnapshotName `Prelude.seq`
+      Prelude.rnf relationalDatabaseName
 
 instance Data.ToHeaders StopRelationalDatabase where
   toHeaders =
@@ -204,5 +204,5 @@ instance
     StopRelationalDatabaseResponse
   where
   rnf StopRelationalDatabaseResponse' {..} =
-    Prelude.rnf operations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operations `Prelude.seq`
+      Prelude.rnf httpStatus

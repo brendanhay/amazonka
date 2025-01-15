@@ -138,8 +138,8 @@ instance Prelude.Hashable UpdateDistributionBundle where
 
 instance Prelude.NFData UpdateDistributionBundle where
   rnf UpdateDistributionBundle' {..} =
-    Prelude.rnf bundleId
-      `Prelude.seq` Prelude.rnf distributionName
+    Prelude.rnf bundleId `Prelude.seq`
+      Prelude.rnf distributionName
 
 instance Data.ToHeaders UpdateDistributionBundle where
   toHeaders =
@@ -222,5 +222,5 @@ instance
     UpdateDistributionBundleResponse
   where
   rnf UpdateDistributionBundleResponse' {..} =
-    Prelude.rnf operation
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operation `Prelude.seq`
+      Prelude.rnf httpStatus

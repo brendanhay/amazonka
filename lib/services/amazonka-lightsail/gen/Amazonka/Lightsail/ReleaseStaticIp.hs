@@ -170,5 +170,5 @@ releaseStaticIpResponse_httpStatus = Lens.lens (\ReleaseStaticIpResponse' {httpS
 
 instance Prelude.NFData ReleaseStaticIpResponse where
   rnf ReleaseStaticIpResponse' {..} =
-    Prelude.rnf operations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operations `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -102,12 +102,12 @@ instance Core.AWSPager GetStaticIps where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getStaticIps_pageToken
-          Lens..~ rs
-          Lens.^? getStaticIpsResponse_nextPageToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getStaticIps_pageToken
+              Lens..~ rs
+              Lens.^? getStaticIpsResponse_nextPageToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetStaticIps where
   type AWSResponse GetStaticIps = GetStaticIpsResponse
@@ -228,6 +228,6 @@ getStaticIpsResponse_httpStatus = Lens.lens (\GetStaticIpsResponse' {httpStatus}
 
 instance Prelude.NFData GetStaticIpsResponse where
   rnf GetStaticIpsResponse' {..} =
-    Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf staticIps
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextPageToken `Prelude.seq`
+      Prelude.rnf staticIps `Prelude.seq`
+        Prelude.rnf httpStatus

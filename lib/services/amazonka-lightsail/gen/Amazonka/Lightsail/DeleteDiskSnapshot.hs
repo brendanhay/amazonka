@@ -192,5 +192,5 @@ deleteDiskSnapshotResponse_httpStatus = Lens.lens (\DeleteDiskSnapshotResponse' 
 
 instance Prelude.NFData DeleteDiskSnapshotResponse where
   rnf DeleteDiskSnapshotResponse' {..} =
-    Prelude.rnf operations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operations `Prelude.seq`
+      Prelude.rnf httpStatus

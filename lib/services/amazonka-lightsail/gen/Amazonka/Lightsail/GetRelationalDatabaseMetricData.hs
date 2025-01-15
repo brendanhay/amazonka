@@ -486,13 +486,13 @@ instance
     GetRelationalDatabaseMetricData
   where
   rnf GetRelationalDatabaseMetricData' {..} =
-    Prelude.rnf relationalDatabaseName
-      `Prelude.seq` Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf period
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf unit
-      `Prelude.seq` Prelude.rnf statistics
+    Prelude.rnf relationalDatabaseName `Prelude.seq`
+      Prelude.rnf metricName `Prelude.seq`
+        Prelude.rnf period `Prelude.seq`
+          Prelude.rnf startTime `Prelude.seq`
+            Prelude.rnf endTime `Prelude.seq`
+              Prelude.rnf unit `Prelude.seq`
+                Prelude.rnf statistics
 
 instance
   Data.ToHeaders
@@ -589,6 +589,6 @@ instance
     GetRelationalDatabaseMetricDataResponse
   where
   rnf GetRelationalDatabaseMetricDataResponse' {..} =
-    Prelude.rnf metricData
-      `Prelude.seq` Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf metricData `Prelude.seq`
+      Prelude.rnf metricName `Prelude.seq`
+        Prelude.rnf httpStatus

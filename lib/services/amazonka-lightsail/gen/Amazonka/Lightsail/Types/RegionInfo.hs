@@ -142,9 +142,9 @@ instance Prelude.Hashable RegionInfo where
 
 instance Prelude.NFData RegionInfo where
   rnf RegionInfo' {..} =
-    Prelude.rnf availabilityZones
-      `Prelude.seq` Prelude.rnf continentCode
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf relationalDatabaseAvailabilityZones
+    Prelude.rnf availabilityZones `Prelude.seq`
+      Prelude.rnf continentCode `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf displayName `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf relationalDatabaseAvailabilityZones

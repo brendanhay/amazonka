@@ -132,8 +132,8 @@ instance Prelude.Hashable StopInstance where
 
 instance Prelude.NFData StopInstance where
   rnf StopInstance' {..} =
-    Prelude.rnf force
-      `Prelude.seq` Prelude.rnf instanceName
+    Prelude.rnf force `Prelude.seq`
+      Prelude.rnf instanceName
 
 instance Data.ToHeaders StopInstance where
   toHeaders =
@@ -211,5 +211,5 @@ stopInstanceResponse_httpStatus = Lens.lens (\StopInstanceResponse' {httpStatus}
 
 instance Prelude.NFData StopInstanceResponse where
   rnf StopInstanceResponse' {..} =
-    Prelude.rnf operations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operations `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -105,6 +105,6 @@ instance Prelude.Hashable MonitoredResourceInfo where
 
 instance Prelude.NFData MonitoredResourceInfo where
   rnf MonitoredResourceInfo' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf resourceType
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf resourceType

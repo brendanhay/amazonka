@@ -174,12 +174,12 @@ instance Prelude.Hashable StaticIp where
 
 instance Prelude.NFData StaticIp where
   rnf StaticIp' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf attachedTo
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf ipAddress
-      `Prelude.seq` Prelude.rnf isAttached
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf supportCode
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf attachedTo `Prelude.seq`
+        Prelude.rnf createdAt `Prelude.seq`
+          Prelude.rnf ipAddress `Prelude.seq`
+            Prelude.rnf isAttached `Prelude.seq`
+              Prelude.rnf location `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf resourceType `Prelude.seq`
+                    Prelude.rnf supportCode

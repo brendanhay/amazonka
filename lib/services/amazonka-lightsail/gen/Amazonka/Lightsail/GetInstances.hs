@@ -103,12 +103,12 @@ instance Core.AWSPager GetInstances where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getInstances_pageToken
-          Lens..~ rs
-          Lens.^? getInstancesResponse_nextPageToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getInstances_pageToken
+              Lens..~ rs
+              Lens.^? getInstancesResponse_nextPageToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetInstances where
   type AWSResponse GetInstances = GetInstancesResponse
@@ -225,6 +225,6 @@ getInstancesResponse_httpStatus = Lens.lens (\GetInstancesResponse' {httpStatus}
 
 instance Prelude.NFData GetInstancesResponse where
   rnf GetInstancesResponse' {..} =
-    Prelude.rnf instances
-      `Prelude.seq` Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf instances `Prelude.seq`
+      Prelude.rnf nextPageToken `Prelude.seq`
+        Prelude.rnf httpStatus

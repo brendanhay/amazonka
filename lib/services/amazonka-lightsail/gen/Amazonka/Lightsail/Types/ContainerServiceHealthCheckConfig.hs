@@ -167,12 +167,12 @@ instance
     ContainerServiceHealthCheckConfig
   where
   rnf ContainerServiceHealthCheckConfig' {..} =
-    Prelude.rnf healthyThreshold
-      `Prelude.seq` Prelude.rnf intervalSeconds
-      `Prelude.seq` Prelude.rnf path
-      `Prelude.seq` Prelude.rnf successCodes
-      `Prelude.seq` Prelude.rnf timeoutSeconds
-      `Prelude.seq` Prelude.rnf unhealthyThreshold
+    Prelude.rnf healthyThreshold `Prelude.seq`
+      Prelude.rnf intervalSeconds `Prelude.seq`
+        Prelude.rnf path `Prelude.seq`
+          Prelude.rnf successCodes `Prelude.seq`
+            Prelude.rnf timeoutSeconds `Prelude.seq`
+              Prelude.rnf unhealthyThreshold
 
 instance
   Data.ToJSON

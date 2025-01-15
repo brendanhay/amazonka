@@ -291,15 +291,15 @@ instance Prelude.Hashable CreateLoadBalancer where
 
 instance Prelude.NFData CreateLoadBalancer where
   rnf CreateLoadBalancer' {..} =
-    Prelude.rnf certificateAlternativeNames
-      `Prelude.seq` Prelude.rnf certificateDomainName
-      `Prelude.seq` Prelude.rnf certificateName
-      `Prelude.seq` Prelude.rnf healthCheckPath
-      `Prelude.seq` Prelude.rnf ipAddressType
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf tlsPolicyName
-      `Prelude.seq` Prelude.rnf loadBalancerName
-      `Prelude.seq` Prelude.rnf instancePort
+    Prelude.rnf certificateAlternativeNames `Prelude.seq`
+      Prelude.rnf certificateDomainName `Prelude.seq`
+        Prelude.rnf certificateName `Prelude.seq`
+          Prelude.rnf healthCheckPath `Prelude.seq`
+            Prelude.rnf ipAddressType `Prelude.seq`
+              Prelude.rnf tags `Prelude.seq`
+                Prelude.rnf tlsPolicyName `Prelude.seq`
+                  Prelude.rnf loadBalancerName `Prelude.seq`
+                    Prelude.rnf instancePort
 
 instance Data.ToHeaders CreateLoadBalancer where
   toHeaders =
@@ -390,5 +390,5 @@ createLoadBalancerResponse_httpStatus = Lens.lens (\CreateLoadBalancerResponse' 
 
 instance Prelude.NFData CreateLoadBalancerResponse where
   rnf CreateLoadBalancerResponse' {..} =
-    Prelude.rnf operations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operations `Prelude.seq`
+      Prelude.rnf httpStatus

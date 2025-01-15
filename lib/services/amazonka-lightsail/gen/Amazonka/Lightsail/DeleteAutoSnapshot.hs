@@ -121,8 +121,8 @@ instance Prelude.Hashable DeleteAutoSnapshot where
 
 instance Prelude.NFData DeleteAutoSnapshot where
   rnf DeleteAutoSnapshot' {..} =
-    Prelude.rnf resourceName
-      `Prelude.seq` Prelude.rnf date
+    Prelude.rnf resourceName `Prelude.seq`
+      Prelude.rnf date
 
 instance Data.ToHeaders DeleteAutoSnapshot where
   toHeaders =
@@ -201,5 +201,5 @@ deleteAutoSnapshotResponse_httpStatus = Lens.lens (\DeleteAutoSnapshotResponse' 
 
 instance Prelude.NFData DeleteAutoSnapshotResponse where
   rnf DeleteAutoSnapshotResponse' {..} =
-    Prelude.rnf operations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operations `Prelude.seq`
+      Prelude.rnf httpStatus

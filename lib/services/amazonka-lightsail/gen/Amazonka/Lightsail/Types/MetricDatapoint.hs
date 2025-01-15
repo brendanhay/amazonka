@@ -136,10 +136,10 @@ instance Prelude.Hashable MetricDatapoint where
 
 instance Prelude.NFData MetricDatapoint where
   rnf MetricDatapoint' {..} =
-    Prelude.rnf average
-      `Prelude.seq` Prelude.rnf maximum
-      `Prelude.seq` Prelude.rnf minimum
-      `Prelude.seq` Prelude.rnf sampleCount
-      `Prelude.seq` Prelude.rnf sum
-      `Prelude.seq` Prelude.rnf timestamp
-      `Prelude.seq` Prelude.rnf unit
+    Prelude.rnf average `Prelude.seq`
+      Prelude.rnf maximum `Prelude.seq`
+        Prelude.rnf minimum `Prelude.seq`
+          Prelude.rnf sampleCount `Prelude.seq`
+            Prelude.rnf sum `Prelude.seq`
+              Prelude.rnf timestamp `Prelude.seq`
+                Prelude.rnf unit

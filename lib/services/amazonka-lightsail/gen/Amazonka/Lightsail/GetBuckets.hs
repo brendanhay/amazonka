@@ -156,9 +156,9 @@ instance Prelude.Hashable GetBuckets where
 
 instance Prelude.NFData GetBuckets where
   rnf GetBuckets' {..} =
-    Prelude.rnf bucketName
-      `Prelude.seq` Prelude.rnf includeConnectedResources
-      `Prelude.seq` Prelude.rnf pageToken
+    Prelude.rnf bucketName `Prelude.seq`
+      Prelude.rnf includeConnectedResources `Prelude.seq`
+        Prelude.rnf pageToken
 
 instance Data.ToHeaders GetBuckets where
   toHeaders =
@@ -284,7 +284,7 @@ getBucketsResponse_httpStatus = Lens.lens (\GetBucketsResponse' {httpStatus} -> 
 
 instance Prelude.NFData GetBucketsResponse where
   rnf GetBucketsResponse' {..} =
-    Prelude.rnf accountLevelBpaSync
-      `Prelude.seq` Prelude.rnf buckets
-      `Prelude.seq` Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf accountLevelBpaSync `Prelude.seq`
+      Prelude.rnf buckets `Prelude.seq`
+        Prelude.rnf nextPageToken `Prelude.seq`
+          Prelude.rnf httpStatus

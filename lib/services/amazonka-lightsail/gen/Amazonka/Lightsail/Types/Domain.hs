@@ -189,12 +189,12 @@ instance Prelude.Hashable Domain where
 
 instance Prelude.NFData Domain where
   rnf Domain' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf domainEntries
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf registeredDomainDelegationInfo
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf supportCode
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf createdAt `Prelude.seq`
+        Prelude.rnf domainEntries `Prelude.seq`
+          Prelude.rnf location `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf registeredDomainDelegationInfo `Prelude.seq`
+                Prelude.rnf resourceType `Prelude.seq`
+                  Prelude.rnf supportCode `Prelude.seq`
+                    Prelude.rnf tags

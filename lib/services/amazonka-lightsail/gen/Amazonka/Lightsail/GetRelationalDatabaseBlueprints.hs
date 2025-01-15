@@ -115,12 +115,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getRelationalDatabaseBlueprints_pageToken
-          Lens..~ rs
-          Lens.^? getRelationalDatabaseBlueprintsResponse_nextPageToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getRelationalDatabaseBlueprints_pageToken
+              Lens..~ rs
+              Lens.^? getRelationalDatabaseBlueprintsResponse_nextPageToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -265,6 +265,6 @@ instance
     GetRelationalDatabaseBlueprintsResponse
   where
   rnf GetRelationalDatabaseBlueprintsResponse' {..} =
-    Prelude.rnf blueprints
-      `Prelude.seq` Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf blueprints `Prelude.seq`
+      Prelude.rnf nextPageToken `Prelude.seq`
+        Prelude.rnf httpStatus

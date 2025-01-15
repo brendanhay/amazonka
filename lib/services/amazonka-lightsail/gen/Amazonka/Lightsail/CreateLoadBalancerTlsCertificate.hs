@@ -208,11 +208,11 @@ instance
     CreateLoadBalancerTlsCertificate
   where
   rnf CreateLoadBalancerTlsCertificate' {..} =
-    Prelude.rnf certificateAlternativeNames
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf loadBalancerName
-      `Prelude.seq` Prelude.rnf certificateName
-      `Prelude.seq` Prelude.rnf certificateDomainName
+    Prelude.rnf certificateAlternativeNames `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf loadBalancerName `Prelude.seq`
+          Prelude.rnf certificateName `Prelude.seq`
+            Prelude.rnf certificateDomainName
 
 instance
   Data.ToHeaders
@@ -310,5 +310,5 @@ instance
     CreateLoadBalancerTlsCertificateResponse
   where
   rnf CreateLoadBalancerTlsCertificateResponse' {..} =
-    Prelude.rnf operations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operations `Prelude.seq`
+      Prelude.rnf httpStatus

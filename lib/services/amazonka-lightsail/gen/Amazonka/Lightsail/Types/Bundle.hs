@@ -208,14 +208,14 @@ instance Prelude.Hashable Bundle where
 
 instance Prelude.NFData Bundle where
   rnf Bundle' {..} =
-    Prelude.rnf bundleId
-      `Prelude.seq` Prelude.rnf cpuCount
-      `Prelude.seq` Prelude.rnf diskSizeInGb
-      `Prelude.seq` Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf isActive
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf power
-      `Prelude.seq` Prelude.rnf price
-      `Prelude.seq` Prelude.rnf ramSizeInGb
-      `Prelude.seq` Prelude.rnf supportedPlatforms
-      `Prelude.seq` Prelude.rnf transferPerMonthInGb
+    Prelude.rnf bundleId `Prelude.seq`
+      Prelude.rnf cpuCount `Prelude.seq`
+        Prelude.rnf diskSizeInGb `Prelude.seq`
+          Prelude.rnf instanceType `Prelude.seq`
+            Prelude.rnf isActive `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf power `Prelude.seq`
+                  Prelude.rnf price `Prelude.seq`
+                    Prelude.rnf ramSizeInGb `Prelude.seq`
+                      Prelude.rnf supportedPlatforms `Prelude.seq`
+                        Prelude.rnf transferPerMonthInGb

@@ -116,8 +116,8 @@ instance Prelude.Hashable CreateDomain where
 
 instance Prelude.NFData CreateDomain where
   rnf CreateDomain' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf domainName
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf domainName
 
 instance Data.ToHeaders CreateDomain where
   toHeaders =
@@ -195,5 +195,5 @@ createDomainResponse_httpStatus = Lens.lens (\CreateDomainResponse' {httpStatus}
 
 instance Prelude.NFData CreateDomainResponse where
   rnf CreateDomainResponse' {..} =
-    Prelude.rnf operation
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operation `Prelude.seq`
+      Prelude.rnf httpStatus

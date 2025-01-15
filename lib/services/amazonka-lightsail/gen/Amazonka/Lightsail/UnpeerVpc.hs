@@ -147,5 +147,5 @@ unpeerVpcResponse_httpStatus = Lens.lens (\UnpeerVpcResponse' {httpStatus} -> ht
 
 instance Prelude.NFData UnpeerVpcResponse where
   rnf UnpeerVpcResponse' {..} =
-    Prelude.rnf operation
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operation `Prelude.seq`
+      Prelude.rnf httpStatus

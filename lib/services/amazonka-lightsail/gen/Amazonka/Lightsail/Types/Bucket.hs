@@ -357,19 +357,19 @@ instance Prelude.Hashable Bucket where
 
 instance Prelude.NFData Bucket where
   rnf Bucket' {..} =
-    Prelude.rnf ableToUpdateBundle
-      `Prelude.seq` Prelude.rnf accessLogConfig
-      `Prelude.seq` Prelude.rnf accessRules
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf bundleId
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf objectVersioning
-      `Prelude.seq` Prelude.rnf readonlyAccessAccounts
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf resourcesReceivingAccess
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf supportCode
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf url
+    Prelude.rnf ableToUpdateBundle `Prelude.seq`
+      Prelude.rnf accessLogConfig `Prelude.seq`
+        Prelude.rnf accessRules `Prelude.seq`
+          Prelude.rnf arn `Prelude.seq`
+            Prelude.rnf bundleId `Prelude.seq`
+              Prelude.rnf createdAt `Prelude.seq`
+                Prelude.rnf location `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf objectVersioning `Prelude.seq`
+                      Prelude.rnf readonlyAccessAccounts `Prelude.seq`
+                        Prelude.rnf resourceType `Prelude.seq`
+                          Prelude.rnf resourcesReceivingAccess `Prelude.seq`
+                            Prelude.rnf state `Prelude.seq`
+                              Prelude.rnf supportCode `Prelude.seq`
+                                Prelude.rnf tags `Prelude.seq`
+                                  Prelude.rnf url

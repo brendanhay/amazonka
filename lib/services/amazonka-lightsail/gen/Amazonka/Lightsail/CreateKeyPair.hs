@@ -130,8 +130,8 @@ instance Prelude.Hashable CreateKeyPair where
 
 instance Prelude.NFData CreateKeyPair where
   rnf CreateKeyPair' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf keyPairName
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf keyPairName
 
 instance Data.ToHeaders CreateKeyPair where
   toHeaders =
@@ -239,8 +239,8 @@ createKeyPairResponse_httpStatus = Lens.lens (\CreateKeyPairResponse' {httpStatu
 
 instance Prelude.NFData CreateKeyPairResponse where
   rnf CreateKeyPairResponse' {..} =
-    Prelude.rnf keyPair
-      `Prelude.seq` Prelude.rnf operation
-      `Prelude.seq` Prelude.rnf privateKeyBase64
-      `Prelude.seq` Prelude.rnf publicKeyBase64
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf keyPair `Prelude.seq`
+      Prelude.rnf operation `Prelude.seq`
+        Prelude.rnf privateKeyBase64 `Prelude.seq`
+          Prelude.rnf publicKeyBase64 `Prelude.seq`
+            Prelude.rnf httpStatus

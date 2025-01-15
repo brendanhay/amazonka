@@ -115,8 +115,8 @@ instance Prelude.Hashable CloseInstancePublicPorts where
 
 instance Prelude.NFData CloseInstancePublicPorts where
   rnf CloseInstancePublicPorts' {..} =
-    Prelude.rnf portInfo
-      `Prelude.seq` Prelude.rnf instanceName
+    Prelude.rnf portInfo `Prelude.seq`
+      Prelude.rnf instanceName
 
 instance Data.ToHeaders CloseInstancePublicPorts where
   toHeaders =
@@ -198,5 +198,5 @@ instance
     CloseInstancePublicPortsResponse
   where
   rnf CloseInstancePublicPortsResponse' {..} =
-    Prelude.rnf operation
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operation `Prelude.seq`
+      Prelude.rnf httpStatus

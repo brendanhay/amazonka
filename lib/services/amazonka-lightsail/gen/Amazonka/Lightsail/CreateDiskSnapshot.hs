@@ -196,10 +196,10 @@ instance Prelude.Hashable CreateDiskSnapshot where
 
 instance Prelude.NFData CreateDiskSnapshot where
   rnf CreateDiskSnapshot' {..} =
-    Prelude.rnf diskName
-      `Prelude.seq` Prelude.rnf instanceName
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf diskSnapshotName
+    Prelude.rnf diskName `Prelude.seq`
+      Prelude.rnf instanceName `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf diskSnapshotName
 
 instance Data.ToHeaders CreateDiskSnapshot where
   toHeaders =
@@ -281,5 +281,5 @@ createDiskSnapshotResponse_httpStatus = Lens.lens (\CreateDiskSnapshotResponse' 
 
 instance Prelude.NFData CreateDiskSnapshotResponse where
   rnf CreateDiskSnapshotResponse' {..} =
-    Prelude.rnf operations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operations `Prelude.seq`
+      Prelude.rnf httpStatus

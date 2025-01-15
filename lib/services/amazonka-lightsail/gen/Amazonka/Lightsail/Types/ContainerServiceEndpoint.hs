@@ -100,6 +100,6 @@ instance Prelude.Hashable ContainerServiceEndpoint where
 
 instance Prelude.NFData ContainerServiceEndpoint where
   rnf ContainerServiceEndpoint' {..} =
-    Prelude.rnf containerName
-      `Prelude.seq` Prelude.rnf containerPort
-      `Prelude.seq` Prelude.rnf healthCheck
+    Prelude.rnf containerName `Prelude.seq`
+      Prelude.rnf containerPort `Prelude.seq`
+        Prelude.rnf healthCheck

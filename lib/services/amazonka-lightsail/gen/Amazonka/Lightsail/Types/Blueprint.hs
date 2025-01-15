@@ -222,15 +222,15 @@ instance Prelude.Hashable Blueprint where
 
 instance Prelude.NFData Blueprint where
   rnf Blueprint' {..} =
-    Prelude.rnf blueprintId
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf group'
-      `Prelude.seq` Prelude.rnf isActive
-      `Prelude.seq` Prelude.rnf licenseUrl
-      `Prelude.seq` Prelude.rnf minPower
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf platform
-      `Prelude.seq` Prelude.rnf productUrl
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf versionCode
+    Prelude.rnf blueprintId `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf group' `Prelude.seq`
+          Prelude.rnf isActive `Prelude.seq`
+            Prelude.rnf licenseUrl `Prelude.seq`
+              Prelude.rnf minPower `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf platform `Prelude.seq`
+                    Prelude.rnf productUrl `Prelude.seq`
+                      Prelude.rnf type' `Prelude.seq`
+                        Prelude.rnf version `Prelude.seq`
+                          Prelude.rnf versionCode

@@ -171,11 +171,11 @@ instance Prelude.Hashable CloudFormationStackRecord where
 
 instance Prelude.NFData CloudFormationStackRecord where
   rnf CloudFormationStackRecord' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf destinationInfo
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf sourceInfo
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf createdAt `Prelude.seq`
+        Prelude.rnf destinationInfo `Prelude.seq`
+          Prelude.rnf location `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf resourceType `Prelude.seq`
+                Prelude.rnf sourceInfo `Prelude.seq`
+                  Prelude.rnf state

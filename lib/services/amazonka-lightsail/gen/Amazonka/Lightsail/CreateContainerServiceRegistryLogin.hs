@@ -194,5 +194,5 @@ instance
     CreateContainerServiceRegistryLoginResponse
   where
   rnf CreateContainerServiceRegistryLoginResponse' {..} =
-    Prelude.rnf registryLogin
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf registryLogin `Prelude.seq`
+      Prelude.rnf httpStatus

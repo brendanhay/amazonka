@@ -145,5 +145,5 @@ peerVpcResponse_httpStatus = Lens.lens (\PeerVpcResponse' {httpStatus} -> httpSt
 
 instance Prelude.NFData PeerVpcResponse where
   rnf PeerVpcResponse' {..} =
-    Prelude.rnf operation
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operation `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -129,8 +129,8 @@ instance Prelude.Hashable DeleteBucketAccessKey where
 
 instance Prelude.NFData DeleteBucketAccessKey where
   rnf DeleteBucketAccessKey' {..} =
-    Prelude.rnf bucketName
-      `Prelude.seq` Prelude.rnf accessKeyId
+    Prelude.rnf bucketName `Prelude.seq`
+      Prelude.rnf accessKeyId
 
 instance Data.ToHeaders DeleteBucketAccessKey where
   toHeaders =
@@ -209,5 +209,5 @@ deleteBucketAccessKeyResponse_httpStatus = Lens.lens (\DeleteBucketAccessKeyResp
 
 instance Prelude.NFData DeleteBucketAccessKeyResponse where
   rnf DeleteBucketAccessKeyResponse' {..} =
-    Prelude.rnf operations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operations `Prelude.seq`
+      Prelude.rnf httpStatus

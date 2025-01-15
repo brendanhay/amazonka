@@ -83,8 +83,8 @@ instance Prelude.Hashable AddOnRequest where
 
 instance Prelude.NFData AddOnRequest where
   rnf AddOnRequest' {..} =
-    Prelude.rnf autoSnapshotAddOnRequest
-      `Prelude.seq` Prelude.rnf addOnType
+    Prelude.rnf autoSnapshotAddOnRequest `Prelude.seq`
+      Prelude.rnf addOnType
 
 instance Data.ToJSON AddOnRequest where
   toJSON AddOnRequest' {..} =

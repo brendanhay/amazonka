@@ -110,8 +110,8 @@ instance Prelude.Hashable DisableAddOn where
 
 instance Prelude.NFData DisableAddOn where
   rnf DisableAddOn' {..} =
-    Prelude.rnf addOnType
-      `Prelude.seq` Prelude.rnf resourceName
+    Prelude.rnf addOnType `Prelude.seq`
+      Prelude.rnf resourceName
 
 instance Data.ToHeaders DisableAddOn where
   toHeaders =
@@ -189,5 +189,5 @@ disableAddOnResponse_httpStatus = Lens.lens (\DisableAddOnResponse' {httpStatus}
 
 instance Prelude.NFData DisableAddOnResponse where
   rnf DisableAddOnResponse' {..} =
-    Prelude.rnf operations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operations `Prelude.seq`
+      Prelude.rnf httpStatus

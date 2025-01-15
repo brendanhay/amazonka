@@ -355,15 +355,15 @@ instance Prelude.Hashable CreateDiskFromSnapshot where
 
 instance Prelude.NFData CreateDiskFromSnapshot where
   rnf CreateDiskFromSnapshot' {..} =
-    Prelude.rnf addOns
-      `Prelude.seq` Prelude.rnf diskSnapshotName
-      `Prelude.seq` Prelude.rnf restoreDate
-      `Prelude.seq` Prelude.rnf sourceDiskName
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf useLatestRestorableAutoSnapshot
-      `Prelude.seq` Prelude.rnf diskName
-      `Prelude.seq` Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf sizeInGb
+    Prelude.rnf addOns `Prelude.seq`
+      Prelude.rnf diskSnapshotName `Prelude.seq`
+        Prelude.rnf restoreDate `Prelude.seq`
+          Prelude.rnf sourceDiskName `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf useLatestRestorableAutoSnapshot `Prelude.seq`
+                Prelude.rnf diskName `Prelude.seq`
+                  Prelude.rnf availabilityZone `Prelude.seq`
+                    Prelude.rnf sizeInGb
 
 instance Data.ToHeaders CreateDiskFromSnapshot where
   toHeaders =
@@ -456,5 +456,5 @@ instance
     CreateDiskFromSnapshotResponse
   where
   rnf CreateDiskFromSnapshotResponse' {..} =
-    Prelude.rnf operations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operations `Prelude.seq`
+      Prelude.rnf httpStatus

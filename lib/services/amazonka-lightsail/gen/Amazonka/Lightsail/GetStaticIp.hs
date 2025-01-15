@@ -164,5 +164,5 @@ getStaticIpResponse_httpStatus = Lens.lens (\GetStaticIpResponse' {httpStatus} -
 
 instance Prelude.NFData GetStaticIpResponse where
   rnf GetStaticIpResponse' {..} =
-    Prelude.rnf staticIp
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf staticIp `Prelude.seq`
+      Prelude.rnf httpStatus

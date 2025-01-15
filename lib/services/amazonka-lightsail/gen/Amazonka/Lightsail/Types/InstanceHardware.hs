@@ -92,6 +92,6 @@ instance Prelude.Hashable InstanceHardware where
 
 instance Prelude.NFData InstanceHardware where
   rnf InstanceHardware' {..} =
-    Prelude.rnf cpuCount
-      `Prelude.seq` Prelude.rnf disks
-      `Prelude.seq` Prelude.rnf ramSizeInGb
+    Prelude.rnf cpuCount `Prelude.seq`
+      Prelude.rnf disks `Prelude.seq`
+        Prelude.rnf ramSizeInGb

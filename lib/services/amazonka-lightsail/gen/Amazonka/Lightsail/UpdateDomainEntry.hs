@@ -118,8 +118,8 @@ instance Prelude.Hashable UpdateDomainEntry where
 
 instance Prelude.NFData UpdateDomainEntry where
   rnf UpdateDomainEntry' {..} =
-    Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf domainEntry
+    Prelude.rnf domainName `Prelude.seq`
+      Prelude.rnf domainEntry
 
 instance Data.ToHeaders UpdateDomainEntry where
   toHeaders =
@@ -198,5 +198,5 @@ updateDomainEntryResponse_httpStatus = Lens.lens (\UpdateDomainEntryResponse' {h
 
 instance Prelude.NFData UpdateDomainEntryResponse where
   rnf UpdateDomainEntryResponse' {..} =
-    Prelude.rnf operations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operations `Prelude.seq`
+      Prelude.rnf httpStatus

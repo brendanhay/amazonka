@@ -352,15 +352,15 @@ instance
     CreateRelationalDatabaseFromSnapshot
   where
   rnf CreateRelationalDatabaseFromSnapshot' {..} =
-    Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf publiclyAccessible
-      `Prelude.seq` Prelude.rnf relationalDatabaseBundleId
-      `Prelude.seq` Prelude.rnf relationalDatabaseSnapshotName
-      `Prelude.seq` Prelude.rnf restoreTime
-      `Prelude.seq` Prelude.rnf sourceRelationalDatabaseName
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf useLatestRestorableTime
-      `Prelude.seq` Prelude.rnf relationalDatabaseName
+    Prelude.rnf availabilityZone `Prelude.seq`
+      Prelude.rnf publiclyAccessible `Prelude.seq`
+        Prelude.rnf relationalDatabaseBundleId `Prelude.seq`
+          Prelude.rnf relationalDatabaseSnapshotName `Prelude.seq`
+            Prelude.rnf restoreTime `Prelude.seq`
+              Prelude.rnf sourceRelationalDatabaseName `Prelude.seq`
+                Prelude.rnf tags `Prelude.seq`
+                  Prelude.rnf useLatestRestorableTime `Prelude.seq`
+                    Prelude.rnf relationalDatabaseName
 
 instance
   Data.ToHeaders
@@ -471,5 +471,5 @@ instance
     CreateRelationalDatabaseFromSnapshotResponse
   where
   rnf CreateRelationalDatabaseFromSnapshotResponse' {..} =
-    Prelude.rnf operations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operations `Prelude.seq`
+      Prelude.rnf httpStatus

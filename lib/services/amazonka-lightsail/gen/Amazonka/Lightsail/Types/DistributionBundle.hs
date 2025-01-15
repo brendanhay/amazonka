@@ -116,8 +116,8 @@ instance Prelude.Hashable DistributionBundle where
 
 instance Prelude.NFData DistributionBundle where
   rnf DistributionBundle' {..} =
-    Prelude.rnf bundleId
-      `Prelude.seq` Prelude.rnf isActive
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf price
-      `Prelude.seq` Prelude.rnf transferPerMonthInGb
+    Prelude.rnf bundleId `Prelude.seq`
+      Prelude.rnf isActive `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf price `Prelude.seq`
+            Prelude.rnf transferPerMonthInGb

@@ -546,17 +546,17 @@ instance Prelude.Hashable PutAlarm where
 
 instance Prelude.NFData PutAlarm where
   rnf PutAlarm' {..} =
-    Prelude.rnf contactProtocols
-      `Prelude.seq` Prelude.rnf datapointsToAlarm
-      `Prelude.seq` Prelude.rnf notificationEnabled
-      `Prelude.seq` Prelude.rnf notificationTriggers
-      `Prelude.seq` Prelude.rnf treatMissingData
-      `Prelude.seq` Prelude.rnf alarmName
-      `Prelude.seq` Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf monitoredResourceName
-      `Prelude.seq` Prelude.rnf comparisonOperator
-      `Prelude.seq` Prelude.rnf threshold
-      `Prelude.seq` Prelude.rnf evaluationPeriods
+    Prelude.rnf contactProtocols `Prelude.seq`
+      Prelude.rnf datapointsToAlarm `Prelude.seq`
+        Prelude.rnf notificationEnabled `Prelude.seq`
+          Prelude.rnf notificationTriggers `Prelude.seq`
+            Prelude.rnf treatMissingData `Prelude.seq`
+              Prelude.rnf alarmName `Prelude.seq`
+                Prelude.rnf metricName `Prelude.seq`
+                  Prelude.rnf monitoredResourceName `Prelude.seq`
+                    Prelude.rnf comparisonOperator `Prelude.seq`
+                      Prelude.rnf threshold `Prelude.seq`
+                        Prelude.rnf evaluationPeriods
 
 instance Data.ToHeaders PutAlarm where
   toHeaders =
@@ -653,5 +653,5 @@ putAlarmResponse_httpStatus = Lens.lens (\PutAlarmResponse' {httpStatus} -> http
 
 instance Prelude.NFData PutAlarmResponse where
   rnf PutAlarmResponse' {..} =
-    Prelude.rnf operations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operations `Prelude.seq`
+      Prelude.rnf httpStatus

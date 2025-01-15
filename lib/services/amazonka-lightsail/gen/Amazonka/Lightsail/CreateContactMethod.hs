@@ -220,8 +220,8 @@ instance Prelude.Hashable CreateContactMethod where
 
 instance Prelude.NFData CreateContactMethod where
   rnf CreateContactMethod' {..} =
-    Prelude.rnf protocol
-      `Prelude.seq` Prelude.rnf contactEndpoint
+    Prelude.rnf protocol `Prelude.seq`
+      Prelude.rnf contactEndpoint
 
 instance Data.ToHeaders CreateContactMethod where
   toHeaders =
@@ -301,5 +301,5 @@ createContactMethodResponse_httpStatus = Lens.lens (\CreateContactMethodResponse
 
 instance Prelude.NFData CreateContactMethodResponse where
   rnf CreateContactMethodResponse' {..} =
-    Prelude.rnf operations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operations `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -430,13 +430,13 @@ instance Prelude.Hashable InstancePortInfo where
 
 instance Prelude.NFData InstancePortInfo where
   rnf InstancePortInfo' {..} =
-    Prelude.rnf accessDirection
-      `Prelude.seq` Prelude.rnf accessFrom
-      `Prelude.seq` Prelude.rnf accessType
-      `Prelude.seq` Prelude.rnf cidrListAliases
-      `Prelude.seq` Prelude.rnf cidrs
-      `Prelude.seq` Prelude.rnf commonName
-      `Prelude.seq` Prelude.rnf fromPort
-      `Prelude.seq` Prelude.rnf ipv6Cidrs
-      `Prelude.seq` Prelude.rnf protocol
-      `Prelude.seq` Prelude.rnf toPort
+    Prelude.rnf accessDirection `Prelude.seq`
+      Prelude.rnf accessFrom `Prelude.seq`
+        Prelude.rnf accessType `Prelude.seq`
+          Prelude.rnf cidrListAliases `Prelude.seq`
+            Prelude.rnf cidrs `Prelude.seq`
+              Prelude.rnf commonName `Prelude.seq`
+                Prelude.rnf fromPort `Prelude.seq`
+                  Prelude.rnf ipv6Cidrs `Prelude.seq`
+                    Prelude.rnf protocol `Prelude.seq`
+                      Prelude.rnf toPort

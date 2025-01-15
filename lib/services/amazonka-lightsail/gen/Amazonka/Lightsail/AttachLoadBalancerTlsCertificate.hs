@@ -140,8 +140,8 @@ instance
     AttachLoadBalancerTlsCertificate
   where
   rnf AttachLoadBalancerTlsCertificate' {..} =
-    Prelude.rnf loadBalancerName
-      `Prelude.seq` Prelude.rnf certificateName
+    Prelude.rnf loadBalancerName `Prelude.seq`
+      Prelude.rnf certificateName
 
 instance
   Data.ToHeaders
@@ -241,5 +241,5 @@ instance
     AttachLoadBalancerTlsCertificateResponse
   where
   rnf AttachLoadBalancerTlsCertificateResponse' {..} =
-    Prelude.rnf operations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operations `Prelude.seq`
+      Prelude.rnf httpStatus

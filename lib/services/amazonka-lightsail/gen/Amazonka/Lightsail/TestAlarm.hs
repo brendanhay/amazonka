@@ -147,8 +147,8 @@ instance Prelude.Hashable TestAlarm where
 
 instance Prelude.NFData TestAlarm where
   rnf TestAlarm' {..} =
-    Prelude.rnf alarmName
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf alarmName `Prelude.seq`
+      Prelude.rnf state
 
 instance Data.ToHeaders TestAlarm where
   toHeaders =
@@ -226,5 +226,5 @@ testAlarmResponse_httpStatus = Lens.lens (\TestAlarmResponse' {httpStatus} -> ht
 
 instance Prelude.NFData TestAlarmResponse where
   rnf TestAlarmResponse' {..} =
-    Prelude.rnf operations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operations `Prelude.seq`
+      Prelude.rnf httpStatus

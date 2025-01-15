@@ -144,9 +144,9 @@ instance Prelude.Hashable BucketAccessLogConfig where
 
 instance Prelude.NFData BucketAccessLogConfig where
   rnf BucketAccessLogConfig' {..} =
-    Prelude.rnf destination
-      `Prelude.seq` Prelude.rnf prefix
-      `Prelude.seq` Prelude.rnf enabled
+    Prelude.rnf destination `Prelude.seq`
+      Prelude.rnf prefix `Prelude.seq`
+        Prelude.rnf enabled
 
 instance Data.ToJSON BucketAccessLogConfig where
   toJSON BucketAccessLogConfig' {..} =

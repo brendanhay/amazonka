@@ -103,12 +103,12 @@ instance Core.AWSPager GetDiskSnapshots where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getDiskSnapshots_pageToken
-          Lens..~ rs
-          Lens.^? getDiskSnapshotsResponse_nextPageToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getDiskSnapshots_pageToken
+              Lens..~ rs
+              Lens.^? getDiskSnapshotsResponse_nextPageToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetDiskSnapshots where
   type
@@ -231,6 +231,6 @@ getDiskSnapshotsResponse_httpStatus = Lens.lens (\GetDiskSnapshotsResponse' {htt
 
 instance Prelude.NFData GetDiskSnapshotsResponse where
   rnf GetDiskSnapshotsResponse' {..} =
-    Prelude.rnf diskSnapshots
-      `Prelude.seq` Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf diskSnapshots `Prelude.seq`
+      Prelude.rnf nextPageToken `Prelude.seq`
+        Prelude.rnf httpStatus

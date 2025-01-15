@@ -107,12 +107,12 @@ instance Core.AWSPager GetOperations where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getOperations_pageToken
-          Lens..~ rs
-          Lens.^? getOperationsResponse_nextPageToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getOperations_pageToken
+              Lens..~ rs
+              Lens.^? getOperationsResponse_nextPageToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetOperations where
   type
@@ -238,6 +238,6 @@ getOperationsResponse_httpStatus = Lens.lens (\GetOperationsResponse' {httpStatu
 
 instance Prelude.NFData GetOperationsResponse where
   rnf GetOperationsResponse' {..} =
-    Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf operations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextPageToken `Prelude.seq`
+      Prelude.rnf operations `Prelude.seq`
+        Prelude.rnf httpStatus

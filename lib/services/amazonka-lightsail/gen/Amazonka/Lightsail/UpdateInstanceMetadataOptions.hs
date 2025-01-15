@@ -224,11 +224,11 @@ instance
 
 instance Prelude.NFData UpdateInstanceMetadataOptions where
   rnf UpdateInstanceMetadataOptions' {..} =
-    Prelude.rnf httpEndpoint
-      `Prelude.seq` Prelude.rnf httpProtocolIpv6
-      `Prelude.seq` Prelude.rnf httpPutResponseHopLimit
-      `Prelude.seq` Prelude.rnf httpTokens
-      `Prelude.seq` Prelude.rnf instanceName
+    Prelude.rnf httpEndpoint `Prelude.seq`
+      Prelude.rnf httpProtocolIpv6 `Prelude.seq`
+        Prelude.rnf httpPutResponseHopLimit `Prelude.seq`
+          Prelude.rnf httpTokens `Prelude.seq`
+            Prelude.rnf instanceName
 
 instance Data.ToHeaders UpdateInstanceMetadataOptions where
   toHeaders =
@@ -308,5 +308,5 @@ instance
     UpdateInstanceMetadataOptionsResponse
   where
   rnf UpdateInstanceMetadataOptionsResponse' {..} =
-    Prelude.rnf operation
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operation `Prelude.seq`
+      Prelude.rnf httpStatus

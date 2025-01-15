@@ -83,5 +83,5 @@ instance Prelude.Hashable AvailabilityZone where
 
 instance Prelude.NFData AvailabilityZone where
   rnf AvailabilityZone' {..} =
-    Prelude.rnf state
-      `Prelude.seq` Prelude.rnf zoneName
+    Prelude.rnf state `Prelude.seq`
+      Prelude.rnf zoneName

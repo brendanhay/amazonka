@@ -171,5 +171,5 @@ detachStaticIpResponse_httpStatus = Lens.lens (\DetachStaticIpResponse' {httpSta
 
 instance Prelude.NFData DetachStaticIpResponse where
   rnf DetachStaticIpResponse' {..} =
-    Prelude.rnf operations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operations `Prelude.seq`
+      Prelude.rnf httpStatus

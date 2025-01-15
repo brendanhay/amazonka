@@ -102,12 +102,12 @@ instance Core.AWSPager GetInstanceSnapshots where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getInstanceSnapshots_pageToken
-          Lens..~ rs
-          Lens.^? getInstanceSnapshotsResponse_nextPageToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getInstanceSnapshots_pageToken
+              Lens..~ rs
+              Lens.^? getInstanceSnapshotsResponse_nextPageToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetInstanceSnapshots where
   type
@@ -233,6 +233,6 @@ getInstanceSnapshotsResponse_httpStatus = Lens.lens (\GetInstanceSnapshotsRespon
 
 instance Prelude.NFData GetInstanceSnapshotsResponse where
   rnf GetInstanceSnapshotsResponse' {..} =
-    Prelude.rnf instanceSnapshots
-      `Prelude.seq` Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf instanceSnapshots `Prelude.seq`
+      Prelude.rnf nextPageToken `Prelude.seq`
+        Prelude.rnf httpStatus

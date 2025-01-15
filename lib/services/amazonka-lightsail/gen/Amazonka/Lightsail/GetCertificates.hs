@@ -164,9 +164,9 @@ instance Prelude.Hashable GetCertificates where
 
 instance Prelude.NFData GetCertificates where
   rnf GetCertificates' {..} =
-    Prelude.rnf certificateName
-      `Prelude.seq` Prelude.rnf certificateStatuses
-      `Prelude.seq` Prelude.rnf includeCertificateDetails
+    Prelude.rnf certificateName `Prelude.seq`
+      Prelude.rnf certificateStatuses `Prelude.seq`
+        Prelude.rnf includeCertificateDetails
 
 instance Data.ToHeaders GetCertificates where
   toHeaders =
@@ -243,5 +243,5 @@ getCertificatesResponse_httpStatus = Lens.lens (\GetCertificatesResponse' {httpS
 
 instance Prelude.NFData GetCertificatesResponse where
   rnf GetCertificatesResponse' {..} =
-    Prelude.rnf certificates
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf certificates `Prelude.seq`
+      Prelude.rnf httpStatus

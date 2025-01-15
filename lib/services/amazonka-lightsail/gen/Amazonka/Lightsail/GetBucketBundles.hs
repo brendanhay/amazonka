@@ -178,5 +178,5 @@ getBucketBundlesResponse_httpStatus = Lens.lens (\GetBucketBundlesResponse' {htt
 
 instance Prelude.NFData GetBucketBundlesResponse where
   rnf GetBucketBundlesResponse' {..} =
-    Prelude.rnf bundles
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf bundles `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -146,10 +146,10 @@ instance Prelude.Hashable Container where
 
 instance Prelude.NFData Container where
   rnf Container' {..} =
-    Prelude.rnf command
-      `Prelude.seq` Prelude.rnf environment
-      `Prelude.seq` Prelude.rnf image
-      `Prelude.seq` Prelude.rnf ports
+    Prelude.rnf command `Prelude.seq`
+      Prelude.rnf environment `Prelude.seq`
+        Prelude.rnf image `Prelude.seq`
+          Prelude.rnf ports
 
 instance Data.ToJSON Container where
   toJSON Container' {..} =

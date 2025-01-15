@@ -379,12 +379,12 @@ instance Prelude.Hashable PortInfo where
 
 instance Prelude.NFData PortInfo where
   rnf PortInfo' {..} =
-    Prelude.rnf cidrListAliases
-      `Prelude.seq` Prelude.rnf cidrs
-      `Prelude.seq` Prelude.rnf fromPort
-      `Prelude.seq` Prelude.rnf ipv6Cidrs
-      `Prelude.seq` Prelude.rnf protocol
-      `Prelude.seq` Prelude.rnf toPort
+    Prelude.rnf cidrListAliases `Prelude.seq`
+      Prelude.rnf cidrs `Prelude.seq`
+        Prelude.rnf fromPort `Prelude.seq`
+          Prelude.rnf ipv6Cidrs `Prelude.seq`
+            Prelude.rnf protocol `Prelude.seq`
+              Prelude.rnf toPort
 
 instance Data.ToJSON PortInfo where
   toJSON PortInfo' {..} =

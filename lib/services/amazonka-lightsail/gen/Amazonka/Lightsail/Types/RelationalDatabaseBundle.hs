@@ -159,12 +159,12 @@ instance Prelude.Hashable RelationalDatabaseBundle where
 
 instance Prelude.NFData RelationalDatabaseBundle where
   rnf RelationalDatabaseBundle' {..} =
-    Prelude.rnf bundleId
-      `Prelude.seq` Prelude.rnf cpuCount
-      `Prelude.seq` Prelude.rnf diskSizeInGb
-      `Prelude.seq` Prelude.rnf isActive
-      `Prelude.seq` Prelude.rnf isEncrypted
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf price
-      `Prelude.seq` Prelude.rnf ramSizeInGb
-      `Prelude.seq` Prelude.rnf transferPerMonthInGb
+    Prelude.rnf bundleId `Prelude.seq`
+      Prelude.rnf cpuCount `Prelude.seq`
+        Prelude.rnf diskSizeInGb `Prelude.seq`
+          Prelude.rnf isActive `Prelude.seq`
+            Prelude.rnf isEncrypted `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf price `Prelude.seq`
+                  Prelude.rnf ramSizeInGb `Prelude.seq`
+                    Prelude.rnf transferPerMonthInGb

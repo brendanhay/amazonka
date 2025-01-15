@@ -106,7 +106,7 @@ instance Prelude.Hashable RelationalDatabaseEvent where
 
 instance Prelude.NFData RelationalDatabaseEvent where
   rnf RelationalDatabaseEvent' {..} =
-    Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf eventCategories
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf resource
+    Prelude.rnf createdAt `Prelude.seq`
+      Prelude.rnf eventCategories `Prelude.seq`
+        Prelude.rnf message `Prelude.seq`
+          Prelude.rnf resource

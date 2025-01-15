@@ -120,8 +120,8 @@ instance Prelude.Hashable GetRegions where
 
 instance Prelude.NFData GetRegions where
   rnf GetRegions' {..} =
-    Prelude.rnf includeAvailabilityZones
-      `Prelude.seq` Prelude.rnf
+    Prelude.rnf includeAvailabilityZones `Prelude.seq`
+      Prelude.rnf
         includeRelationalDatabaseAvailabilityZones
 
 instance Data.ToHeaders GetRegions where
@@ -201,5 +201,5 @@ getRegionsResponse_httpStatus = Lens.lens (\GetRegionsResponse' {httpStatus} -> 
 
 instance Prelude.NFData GetRegionsResponse where
   rnf GetRegionsResponse' {..} =
-    Prelude.rnf regions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf regions `Prelude.seq`
+      Prelude.rnf httpStatus

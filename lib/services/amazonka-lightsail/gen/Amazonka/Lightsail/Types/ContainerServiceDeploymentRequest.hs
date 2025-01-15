@@ -88,8 +88,8 @@ instance
     ContainerServiceDeploymentRequest
   where
   rnf ContainerServiceDeploymentRequest' {..} =
-    Prelude.rnf containers
-      `Prelude.seq` Prelude.rnf publicEndpoint
+    Prelude.rnf containers `Prelude.seq`
+      Prelude.rnf publicEndpoint
 
 instance
   Data.ToJSON

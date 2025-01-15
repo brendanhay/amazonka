@@ -190,5 +190,5 @@ deleteCertificateResponse_httpStatus = Lens.lens (\DeleteCertificateResponse' {h
 
 instance Prelude.NFData DeleteCertificateResponse where
   rnf DeleteCertificateResponse' {..} =
-    Prelude.rnf operations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operations `Prelude.seq`
+      Prelude.rnf httpStatus

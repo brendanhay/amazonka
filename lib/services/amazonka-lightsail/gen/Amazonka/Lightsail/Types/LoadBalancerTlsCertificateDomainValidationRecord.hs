@@ -154,9 +154,9 @@ instance
   where
   rnf
     LoadBalancerTlsCertificateDomainValidationRecord' {..} =
-      Prelude.rnf dnsRecordCreationState
-        `Prelude.seq` Prelude.rnf domainName
-        `Prelude.seq` Prelude.rnf name
-        `Prelude.seq` Prelude.rnf type'
-        `Prelude.seq` Prelude.rnf validationStatus
-        `Prelude.seq` Prelude.rnf value
+      Prelude.rnf dnsRecordCreationState `Prelude.seq`
+        Prelude.rnf domainName `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf type' `Prelude.seq`
+              Prelude.rnf validationStatus `Prelude.seq`
+                Prelude.rnf value

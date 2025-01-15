@@ -80,5 +80,5 @@ instance Prelude.Hashable LogEvent where
 
 instance Prelude.NFData LogEvent where
   rnf LogEvent' {..} =
-    Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf message
+    Prelude.rnf createdAt `Prelude.seq`
+      Prelude.rnf message

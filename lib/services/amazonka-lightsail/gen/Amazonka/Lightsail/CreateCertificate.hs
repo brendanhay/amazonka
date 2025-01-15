@@ -178,10 +178,10 @@ instance Prelude.Hashable CreateCertificate where
 
 instance Prelude.NFData CreateCertificate where
   rnf CreateCertificate' {..} =
-    Prelude.rnf subjectAlternativeNames
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf certificateName
-      `Prelude.seq` Prelude.rnf domainName
+    Prelude.rnf subjectAlternativeNames `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf certificateName `Prelude.seq`
+          Prelude.rnf domainName
 
 instance Data.ToHeaders CreateCertificate where
   toHeaders =
@@ -273,6 +273,6 @@ createCertificateResponse_httpStatus = Lens.lens (\CreateCertificateResponse' {h
 
 instance Prelude.NFData CreateCertificateResponse where
   rnf CreateCertificateResponse' {..} =
-    Prelude.rnf certificate
-      `Prelude.seq` Prelude.rnf operations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf certificate `Prelude.seq`
+      Prelude.rnf operations `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -172,5 +172,5 @@ getRelationalDatabaseResponse_httpStatus = Lens.lens (\GetRelationalDatabaseResp
 
 instance Prelude.NFData GetRelationalDatabaseResponse where
   rnf GetRelationalDatabaseResponse' {..} =
-    Prelude.rnf relationalDatabase
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf relationalDatabase `Prelude.seq`
+      Prelude.rnf httpStatus

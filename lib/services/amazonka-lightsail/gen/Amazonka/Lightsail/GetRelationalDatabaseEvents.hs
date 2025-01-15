@@ -147,12 +147,12 @@ instance Core.AWSPager GetRelationalDatabaseEvents where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getRelationalDatabaseEvents_pageToken
-          Lens..~ rs
-          Lens.^? getRelationalDatabaseEventsResponse_nextPageToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getRelationalDatabaseEvents_pageToken
+              Lens..~ rs
+              Lens.^? getRelationalDatabaseEventsResponse_nextPageToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetRelationalDatabaseEvents where
   type
@@ -181,9 +181,9 @@ instance Prelude.Hashable GetRelationalDatabaseEvents where
 
 instance Prelude.NFData GetRelationalDatabaseEvents where
   rnf GetRelationalDatabaseEvents' {..} =
-    Prelude.rnf durationInMinutes
-      `Prelude.seq` Prelude.rnf pageToken
-      `Prelude.seq` Prelude.rnf relationalDatabaseName
+    Prelude.rnf durationInMinutes `Prelude.seq`
+      Prelude.rnf pageToken `Prelude.seq`
+        Prelude.rnf relationalDatabaseName
 
 instance Data.ToHeaders GetRelationalDatabaseEvents where
   toHeaders =
@@ -298,6 +298,6 @@ instance
     GetRelationalDatabaseEventsResponse
   where
   rnf GetRelationalDatabaseEventsResponse' {..} =
-    Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf relationalDatabaseEvents
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextPageToken `Prelude.seq`
+      Prelude.rnf relationalDatabaseEvents `Prelude.seq`
+        Prelude.rnf httpStatus

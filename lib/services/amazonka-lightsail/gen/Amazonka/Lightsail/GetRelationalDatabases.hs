@@ -108,12 +108,12 @@ instance Core.AWSPager GetRelationalDatabases where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getRelationalDatabases_pageToken
-          Lens..~ rs
-          Lens.^? getRelationalDatabasesResponse_nextPageToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getRelationalDatabases_pageToken
+              Lens..~ rs
+              Lens.^? getRelationalDatabasesResponse_nextPageToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetRelationalDatabases where
   type
@@ -246,6 +246,6 @@ instance
     GetRelationalDatabasesResponse
   where
   rnf GetRelationalDatabasesResponse' {..} =
-    Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf relationalDatabases
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextPageToken `Prelude.seq`
+      Prelude.rnf relationalDatabases `Prelude.seq`
+        Prelude.rnf httpStatus

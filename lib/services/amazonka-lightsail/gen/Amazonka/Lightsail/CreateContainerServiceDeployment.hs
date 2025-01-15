@@ -150,9 +150,9 @@ instance
     CreateContainerServiceDeployment
   where
   rnf CreateContainerServiceDeployment' {..} =
-    Prelude.rnf containers
-      `Prelude.seq` Prelude.rnf publicEndpoint
-      `Prelude.seq` Prelude.rnf serviceName
+    Prelude.rnf containers `Prelude.seq`
+      Prelude.rnf publicEndpoint `Prelude.seq`
+        Prelude.rnf serviceName
 
 instance
   Data.ToHeaders
@@ -237,5 +237,5 @@ instance
     CreateContainerServiceDeploymentResponse
   where
   rnf CreateContainerServiceDeploymentResponse' {..} =
-    Prelude.rnf containerService
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf containerService `Prelude.seq`
+      Prelude.rnf httpStatus

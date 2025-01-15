@@ -195,5 +195,5 @@ exportSnapshotResponse_httpStatus = Lens.lens (\ExportSnapshotResponse' {httpSta
 
 instance Prelude.NFData ExportSnapshotResponse where
   rnf ExportSnapshotResponse' {..} =
-    Prelude.rnf operations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operations `Prelude.seq`
+      Prelude.rnf httpStatus

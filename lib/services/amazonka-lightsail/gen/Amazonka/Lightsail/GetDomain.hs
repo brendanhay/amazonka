@@ -164,5 +164,5 @@ getDomainResponse_httpStatus = Lens.lens (\GetDomainResponse' {httpStatus} -> ht
 
 instance Prelude.NFData GetDomainResponse where
   rnf GetDomainResponse' {..} =
-    Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf domain `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -73,8 +73,8 @@ instance Prelude.Hashable DiskMap where
 
 instance Prelude.NFData DiskMap where
   rnf DiskMap' {..} =
-    Prelude.rnf newDiskName'
-      `Prelude.seq` Prelude.rnf originalDiskPath
+    Prelude.rnf newDiskName' `Prelude.seq`
+      Prelude.rnf originalDiskPath
 
 instance Data.ToJSON DiskMap where
   toJSON DiskMap' {..} =

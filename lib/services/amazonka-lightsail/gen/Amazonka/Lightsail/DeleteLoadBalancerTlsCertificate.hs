@@ -156,9 +156,9 @@ instance
     DeleteLoadBalancerTlsCertificate
   where
   rnf DeleteLoadBalancerTlsCertificate' {..} =
-    Prelude.rnf force
-      `Prelude.seq` Prelude.rnf loadBalancerName
-      `Prelude.seq` Prelude.rnf certificateName
+    Prelude.rnf force `Prelude.seq`
+      Prelude.rnf loadBalancerName `Prelude.seq`
+        Prelude.rnf certificateName
 
 instance
   Data.ToHeaders
@@ -250,5 +250,5 @@ instance
     DeleteLoadBalancerTlsCertificateResponse
   where
   rnf DeleteLoadBalancerTlsCertificateResponse' {..} =
-    Prelude.rnf operations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf operations `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -398,13 +398,13 @@ instance Prelude.Hashable CreateContainerService where
 
 instance Prelude.NFData CreateContainerService where
   rnf CreateContainerService' {..} =
-    Prelude.rnf deployment
-      `Prelude.seq` Prelude.rnf privateRegistryAccess
-      `Prelude.seq` Prelude.rnf publicDomainNames
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf serviceName
-      `Prelude.seq` Prelude.rnf power
-      `Prelude.seq` Prelude.rnf scale
+    Prelude.rnf deployment `Prelude.seq`
+      Prelude.rnf privateRegistryAccess `Prelude.seq`
+        Prelude.rnf publicDomainNames `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf serviceName `Prelude.seq`
+              Prelude.rnf power `Prelude.seq`
+                Prelude.rnf scale
 
 instance Data.ToHeaders CreateContainerService where
   toHeaders =
@@ -487,5 +487,5 @@ instance
     CreateContainerServiceResponse
   where
   rnf CreateContainerServiceResponse' {..} =
-    Prelude.rnf containerService
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf containerService `Prelude.seq`
+      Prelude.rnf httpStatus

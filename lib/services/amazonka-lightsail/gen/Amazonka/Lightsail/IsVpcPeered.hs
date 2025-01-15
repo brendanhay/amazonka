@@ -141,5 +141,5 @@ isVpcPeeredResponse_httpStatus = Lens.lens (\IsVpcPeeredResponse' {httpStatus} -
 
 instance Prelude.NFData IsVpcPeeredResponse where
   rnf IsVpcPeeredResponse' {..} =
-    Prelude.rnf isPeered
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf isPeered `Prelude.seq`
+      Prelude.rnf httpStatus

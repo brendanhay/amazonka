@@ -125,12 +125,12 @@ instance Core.AWSPager GetRelationalDatabaseBundles where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getRelationalDatabaseBundles_pageToken
-          Lens..~ rs
-          Lens.^? getRelationalDatabaseBundlesResponse_nextPageToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getRelationalDatabaseBundles_pageToken
+              Lens..~ rs
+              Lens.^? getRelationalDatabaseBundlesResponse_nextPageToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetRelationalDatabaseBundles where
   type
@@ -158,8 +158,8 @@ instance
 
 instance Prelude.NFData GetRelationalDatabaseBundles where
   rnf GetRelationalDatabaseBundles' {..} =
-    Prelude.rnf includeInactive
-      `Prelude.seq` Prelude.rnf pageToken
+    Prelude.rnf includeInactive `Prelude.seq`
+      Prelude.rnf pageToken
 
 instance Data.ToHeaders GetRelationalDatabaseBundles where
   toHeaders =
@@ -269,6 +269,6 @@ instance
     GetRelationalDatabaseBundlesResponse
   where
   rnf GetRelationalDatabaseBundlesResponse' {..} =
-    Prelude.rnf bundles
-      `Prelude.seq` Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf bundles `Prelude.seq`
+      Prelude.rnf nextPageToken `Prelude.seq`
+        Prelude.rnf httpStatus

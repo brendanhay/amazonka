@@ -112,8 +112,8 @@ instance Prelude.Hashable QueryStringObject where
 
 instance Prelude.NFData QueryStringObject where
   rnf QueryStringObject' {..} =
-    Prelude.rnf option
-      `Prelude.seq` Prelude.rnf queryStringsAllowList
+    Prelude.rnf option `Prelude.seq`
+      Prelude.rnf queryStringsAllowList
 
 instance Data.ToJSON QueryStringObject where
   toJSON QueryStringObject' {..} =

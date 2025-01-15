@@ -139,8 +139,8 @@ instance Prelude.Hashable DeleteContainerImage where
 
 instance Prelude.NFData DeleteContainerImage where
   rnf DeleteContainerImage' {..} =
-    Prelude.rnf serviceName
-      `Prelude.seq` Prelude.rnf image
+    Prelude.rnf serviceName `Prelude.seq`
+      Prelude.rnf image
 
 instance Data.ToHeaders DeleteContainerImage where
   toHeaders =

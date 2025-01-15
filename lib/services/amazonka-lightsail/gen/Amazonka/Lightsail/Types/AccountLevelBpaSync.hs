@@ -284,7 +284,7 @@ instance Prelude.Hashable AccountLevelBpaSync where
 
 instance Prelude.NFData AccountLevelBpaSync where
   rnf AccountLevelBpaSync' {..} =
-    Prelude.rnf bpaImpactsLightsail
-      `Prelude.seq` Prelude.rnf lastSyncedAt
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf bpaImpactsLightsail `Prelude.seq`
+      Prelude.rnf lastSyncedAt `Prelude.seq`
+        Prelude.rnf message `Prelude.seq`
+          Prelude.rnf status

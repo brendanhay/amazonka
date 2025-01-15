@@ -167,11 +167,11 @@ instance Prelude.Hashable KeyPair where
 
 instance Prelude.NFData KeyPair where
   rnf KeyPair' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf fingerprint
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf supportCode
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf createdAt `Prelude.seq`
+        Prelude.rnf fingerprint `Prelude.seq`
+          Prelude.rnf location `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf resourceType `Prelude.seq`
+                Prelude.rnf supportCode `Prelude.seq`
+                  Prelude.rnf tags

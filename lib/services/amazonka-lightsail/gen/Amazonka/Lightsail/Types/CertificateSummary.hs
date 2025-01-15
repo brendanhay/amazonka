@@ -122,8 +122,8 @@ instance Prelude.Hashable CertificateSummary where
 
 instance Prelude.NFData CertificateSummary where
   rnf CertificateSummary' {..} =
-    Prelude.rnf certificateArn
-      `Prelude.seq` Prelude.rnf certificateDetail
-      `Prelude.seq` Prelude.rnf certificateName
-      `Prelude.seq` Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf certificateArn `Prelude.seq`
+      Prelude.rnf certificateDetail `Prelude.seq`
+        Prelude.rnf certificateName `Prelude.seq`
+          Prelude.rnf domainName `Prelude.seq`
+            Prelude.rnf tags

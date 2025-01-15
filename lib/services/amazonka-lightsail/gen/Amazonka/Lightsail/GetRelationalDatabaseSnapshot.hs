@@ -184,5 +184,5 @@ instance
     GetRelationalDatabaseSnapshotResponse
   where
   rnf GetRelationalDatabaseSnapshotResponse' {..} =
-    Prelude.rnf relationalDatabaseSnapshot
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf relationalDatabaseSnapshot `Prelude.seq`
+      Prelude.rnf httpStatus

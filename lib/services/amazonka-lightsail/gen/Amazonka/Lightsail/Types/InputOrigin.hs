@@ -90,9 +90,9 @@ instance Prelude.Hashable InputOrigin where
 
 instance Prelude.NFData InputOrigin where
   rnf InputOrigin' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf protocolPolicy
-      `Prelude.seq` Prelude.rnf regionName
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf protocolPolicy `Prelude.seq`
+        Prelude.rnf regionName
 
 instance Data.ToJSON InputOrigin where
   toJSON InputOrigin' {..} =

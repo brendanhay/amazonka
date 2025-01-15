@@ -109,8 +109,8 @@ instance Prelude.Hashable DeleteEndpoint where
 
 instance Prelude.NFData DeleteEndpoint where
   rnf DeleteEndpoint' {..} =
-    Prelude.rnf endpointId
-      `Prelude.seq` Prelude.rnf outpostId
+    Prelude.rnf endpointId `Prelude.seq`
+      Prelude.rnf outpostId
 
 instance Data.ToHeaders DeleteEndpoint where
   toHeaders =

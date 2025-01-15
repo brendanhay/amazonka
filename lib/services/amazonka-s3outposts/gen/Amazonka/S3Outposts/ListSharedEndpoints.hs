@@ -124,12 +124,12 @@ instance Core.AWSPager ListSharedEndpoints where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listSharedEndpoints_nextToken
-          Lens..~ rs
-          Lens.^? listSharedEndpointsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listSharedEndpoints_nextToken
+              Lens..~ rs
+              Lens.^? listSharedEndpointsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSharedEndpoints where
   type
@@ -155,9 +155,9 @@ instance Prelude.Hashable ListSharedEndpoints where
 
 instance Prelude.NFData ListSharedEndpoints where
   rnf ListSharedEndpoints' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf outpostId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf outpostId
 
 instance Data.ToHeaders ListSharedEndpoints where
   toHeaders =
@@ -241,6 +241,6 @@ listSharedEndpointsResponse_httpStatus = Lens.lens (\ListSharedEndpointsResponse
 
 instance Prelude.NFData ListSharedEndpointsResponse where
   rnf ListSharedEndpointsResponse' {..} =
-    Prelude.rnf endpoints
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf endpoints `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

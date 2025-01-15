@@ -121,9 +121,9 @@ instance Prelude.Hashable VoiceConnectorGroup where
 
 instance Prelude.NFData VoiceConnectorGroup where
   rnf VoiceConnectorGroup' {..} =
-    Prelude.rnf createdTimestamp
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf updatedTimestamp
-      `Prelude.seq` Prelude.rnf voiceConnectorGroupArn
-      `Prelude.seq` Prelude.rnf voiceConnectorGroupId
-      `Prelude.seq` Prelude.rnf voiceConnectorItems
+    Prelude.rnf createdTimestamp `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf updatedTimestamp `Prelude.seq`
+          Prelude.rnf voiceConnectorGroupArn `Prelude.seq`
+            Prelude.rnf voiceConnectorGroupId `Prelude.seq`
+              Prelude.rnf voiceConnectorItems

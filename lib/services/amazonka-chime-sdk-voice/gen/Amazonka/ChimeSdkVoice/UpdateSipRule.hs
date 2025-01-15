@@ -128,10 +128,10 @@ instance Prelude.Hashable UpdateSipRule where
 
 instance Prelude.NFData UpdateSipRule where
   rnf UpdateSipRule' {..} =
-    Prelude.rnf disabled
-      `Prelude.seq` Prelude.rnf targetApplications
-      `Prelude.seq` Prelude.rnf sipRuleId
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf disabled `Prelude.seq`
+      Prelude.rnf targetApplications `Prelude.seq`
+        Prelude.rnf sipRuleId `Prelude.seq`
+          Prelude.rnf name
 
 instance Data.ToHeaders UpdateSipRule where
   toHeaders = Prelude.const Prelude.mempty
@@ -194,5 +194,5 @@ updateSipRuleResponse_httpStatus = Lens.lens (\UpdateSipRuleResponse' {httpStatu
 
 instance Prelude.NFData UpdateSipRuleResponse where
   rnf UpdateSipRuleResponse' {..} =
-    Prelude.rnf sipRule
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf sipRule `Prelude.seq`
+      Prelude.rnf httpStatus

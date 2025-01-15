@@ -109,8 +109,8 @@ instance Prelude.Hashable ListVoiceConnectors where
 
 instance Prelude.NFData ListVoiceConnectors where
   rnf ListVoiceConnectors' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListVoiceConnectors where
   toHeaders = Prelude.const Prelude.mempty
@@ -173,6 +173,6 @@ listVoiceConnectorsResponse_httpStatus = Lens.lens (\ListVoiceConnectorsResponse
 
 instance Prelude.NFData ListVoiceConnectorsResponse where
   rnf ListVoiceConnectorsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf voiceConnectors
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf voiceConnectors `Prelude.seq`
+        Prelude.rnf httpStatus

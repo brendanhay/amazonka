@@ -154,5 +154,5 @@ instance
     GetVoiceConnectorGroupResponse
   where
   rnf GetVoiceConnectorGroupResponse' {..} =
-    Prelude.rnf voiceConnectorGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf voiceConnectorGroup `Prelude.seq`
+      Prelude.rnf httpStatus

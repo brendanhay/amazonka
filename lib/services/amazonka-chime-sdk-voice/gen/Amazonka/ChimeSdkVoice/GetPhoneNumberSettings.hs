@@ -142,6 +142,6 @@ instance
     GetPhoneNumberSettingsResponse
   where
   rnf GetPhoneNumberSettingsResponse' {..} =
-    Prelude.rnf callingName
-      `Prelude.seq` Prelude.rnf callingNameUpdatedTimestamp
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf callingName `Prelude.seq`
+      Prelude.rnf callingNameUpdatedTimestamp `Prelude.seq`
+        Prelude.rnf httpStatus

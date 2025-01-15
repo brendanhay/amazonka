@@ -134,9 +134,9 @@ instance
     AssociatePhoneNumbersWithVoiceConnector
   where
   rnf AssociatePhoneNumbersWithVoiceConnector' {..} =
-    Prelude.rnf forceAssociate
-      `Prelude.seq` Prelude.rnf voiceConnectorId
-      `Prelude.seq` Prelude.rnf e164PhoneNumbers
+    Prelude.rnf forceAssociate `Prelude.seq`
+      Prelude.rnf voiceConnectorId `Prelude.seq`
+        Prelude.rnf e164PhoneNumbers
 
 instance
   Data.ToHeaders
@@ -221,5 +221,5 @@ instance
   where
   rnf
     AssociatePhoneNumbersWithVoiceConnectorResponse' {..} =
-      Prelude.rnf phoneNumberErrors
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf phoneNumberErrors `Prelude.seq`
+        Prelude.rnf httpStatus

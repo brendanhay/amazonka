@@ -170,14 +170,14 @@ instance Prelude.Hashable SearchAvailablePhoneNumbers where
 
 instance Prelude.NFData SearchAvailablePhoneNumbers where
   rnf SearchAvailablePhoneNumbers' {..} =
-    Prelude.rnf areaCode
-      `Prelude.seq` Prelude.rnf city
-      `Prelude.seq` Prelude.rnf country
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf phoneNumberType
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf tollFreePrefix
+    Prelude.rnf areaCode `Prelude.seq`
+      Prelude.rnf city `Prelude.seq`
+        Prelude.rnf country `Prelude.seq`
+          Prelude.rnf maxResults `Prelude.seq`
+            Prelude.rnf nextToken `Prelude.seq`
+              Prelude.rnf phoneNumberType `Prelude.seq`
+                Prelude.rnf state `Prelude.seq`
+                  Prelude.rnf tollFreePrefix
 
 instance Data.ToHeaders SearchAvailablePhoneNumbers where
   toHeaders = Prelude.const Prelude.mempty
@@ -250,6 +250,6 @@ instance
     SearchAvailablePhoneNumbersResponse
   where
   rnf SearchAvailablePhoneNumbersResponse' {..} =
-    Prelude.rnf e164PhoneNumbers
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf e164PhoneNumbers `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

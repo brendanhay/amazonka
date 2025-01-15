@@ -184,13 +184,13 @@ instance Prelude.Hashable ValidateE911Address where
 
 instance Prelude.NFData ValidateE911Address where
   rnf ValidateE911Address' {..} =
-    Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf streetNumber
-      `Prelude.seq` Prelude.rnf streetInfo
-      `Prelude.seq` Prelude.rnf city
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf country
-      `Prelude.seq` Prelude.rnf postalCode
+    Prelude.rnf awsAccountId `Prelude.seq`
+      Prelude.rnf streetNumber `Prelude.seq`
+        Prelude.rnf streetInfo `Prelude.seq`
+          Prelude.rnf city `Prelude.seq`
+            Prelude.rnf state `Prelude.seq`
+              Prelude.rnf country `Prelude.seq`
+                Prelude.rnf postalCode
 
 instance Data.ToHeaders ValidateE911Address where
   toHeaders = Prelude.const Prelude.mempty
@@ -279,8 +279,8 @@ validateE911AddressResponse_httpStatus = Lens.lens (\ValidateE911AddressResponse
 
 instance Prelude.NFData ValidateE911AddressResponse where
   rnf ValidateE911AddressResponse' {..} =
-    Prelude.rnf address
-      `Prelude.seq` Prelude.rnf addressExternalId
-      `Prelude.seq` Prelude.rnf candidateAddressList
-      `Prelude.seq` Prelude.rnf validationResult
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf address `Prelude.seq`
+      Prelude.rnf addressExternalId `Prelude.seq`
+        Prelude.rnf candidateAddressList `Prelude.seq`
+          Prelude.rnf validationResult `Prelude.seq`
+            Prelude.rnf httpStatus

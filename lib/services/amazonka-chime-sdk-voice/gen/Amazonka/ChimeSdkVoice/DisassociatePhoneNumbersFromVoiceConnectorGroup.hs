@@ -125,8 +125,8 @@ instance
   where
   rnf
     DisassociatePhoneNumbersFromVoiceConnectorGroup' {..} =
-      Prelude.rnf voiceConnectorGroupId
-        `Prelude.seq` Prelude.rnf e164PhoneNumbers
+      Prelude.rnf voiceConnectorGroupId `Prelude.seq`
+        Prelude.rnf e164PhoneNumbers
 
 instance
   Data.ToHeaders
@@ -214,5 +214,5 @@ instance
   where
   rnf
     DisassociatePhoneNumbersFromVoiceConnectorGroupResponse' {..} =
-      Prelude.rnf phoneNumberErrors
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf phoneNumberErrors `Prelude.seq`
+        Prelude.rnf httpStatus

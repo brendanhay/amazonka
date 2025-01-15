@@ -80,5 +80,5 @@ instance Prelude.Hashable PhoneNumberCountry where
 
 instance Prelude.NFData PhoneNumberCountry where
   rnf PhoneNumberCountry' {..} =
-    Prelude.rnf countryCode
-      `Prelude.seq` Prelude.rnf supportedPhoneNumberTypes
+    Prelude.rnf countryCode `Prelude.seq`
+      Prelude.rnf supportedPhoneNumberTypes

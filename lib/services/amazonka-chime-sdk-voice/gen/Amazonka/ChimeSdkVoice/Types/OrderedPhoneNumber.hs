@@ -78,5 +78,5 @@ instance Prelude.Hashable OrderedPhoneNumber where
 
 instance Prelude.NFData OrderedPhoneNumber where
   rnf OrderedPhoneNumber' {..} =
-    Prelude.rnf e164PhoneNumber
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf e164PhoneNumber `Prelude.seq`
+      Prelude.rnf status

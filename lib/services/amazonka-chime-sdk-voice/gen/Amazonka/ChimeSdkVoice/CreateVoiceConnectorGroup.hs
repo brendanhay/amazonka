@@ -107,8 +107,8 @@ instance Prelude.Hashable CreateVoiceConnectorGroup where
 
 instance Prelude.NFData CreateVoiceConnectorGroup where
   rnf CreateVoiceConnectorGroup' {..} =
-    Prelude.rnf voiceConnectorItems
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf voiceConnectorItems `Prelude.seq`
+      Prelude.rnf name
 
 instance Data.ToHeaders CreateVoiceConnectorGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -172,5 +172,5 @@ instance
     CreateVoiceConnectorGroupResponse
   where
   rnf CreateVoiceConnectorGroupResponse' {..} =
-    Prelude.rnf voiceConnectorGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf voiceConnectorGroup `Prelude.seq`
+      Prelude.rnf httpStatus

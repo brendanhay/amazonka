@@ -121,9 +121,9 @@ instance Prelude.Hashable UpdateVoiceConnectorGroup where
 
 instance Prelude.NFData UpdateVoiceConnectorGroup where
   rnf UpdateVoiceConnectorGroup' {..} =
-    Prelude.rnf voiceConnectorGroupId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf voiceConnectorItems
+    Prelude.rnf voiceConnectorGroupId `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf voiceConnectorItems
 
 instance Data.ToHeaders UpdateVoiceConnectorGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -191,5 +191,5 @@ instance
     UpdateVoiceConnectorGroupResponse
   where
   rnf UpdateVoiceConnectorGroupResponse' {..} =
-    Prelude.rnf voiceConnectorGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf voiceConnectorGroup `Prelude.seq`
+      Prelude.rnf httpStatus

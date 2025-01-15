@@ -101,12 +101,12 @@ instance Core.AWSPager ListSipMediaApplications where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listSipMediaApplications_nextToken
-          Lens..~ rs
-          Lens.^? listSipMediaApplicationsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listSipMediaApplications_nextToken
+              Lens..~ rs
+              Lens.^? listSipMediaApplicationsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSipMediaApplications where
   type
@@ -134,8 +134,8 @@ instance Prelude.Hashable ListSipMediaApplications where
 
 instance Prelude.NFData ListSipMediaApplications where
   rnf ListSipMediaApplications' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListSipMediaApplications where
   toHeaders = Prelude.const Prelude.mempty
@@ -201,6 +201,6 @@ instance
     ListSipMediaApplicationsResponse
   where
   rnf ListSipMediaApplicationsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sipMediaApplications
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf sipMediaApplications `Prelude.seq`
+        Prelude.rnf httpStatus

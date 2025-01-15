@@ -117,9 +117,9 @@ instance Prelude.Hashable UpdatePhoneNumber where
 
 instance Prelude.NFData UpdatePhoneNumber where
   rnf UpdatePhoneNumber' {..} =
-    Prelude.rnf callingName
-      `Prelude.seq` Prelude.rnf productType
-      `Prelude.seq` Prelude.rnf phoneNumberId
+    Prelude.rnf callingName `Prelude.seq`
+      Prelude.rnf productType `Prelude.seq`
+        Prelude.rnf phoneNumberId
 
 instance Data.ToHeaders UpdatePhoneNumber where
   toHeaders = Prelude.const Prelude.mempty
@@ -181,5 +181,5 @@ updatePhoneNumberResponse_httpStatus = Lens.lens (\UpdatePhoneNumberResponse' {h
 
 instance Prelude.NFData UpdatePhoneNumberResponse where
   rnf UpdatePhoneNumberResponse' {..} =
-    Prelude.rnf phoneNumber
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf phoneNumber `Prelude.seq`
+      Prelude.rnf httpStatus

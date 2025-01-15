@@ -154,5 +154,5 @@ instance
     ListAvailableVoiceConnectorRegionsResponse
   where
   rnf ListAvailableVoiceConnectorRegionsResponse' {..} =
-    Prelude.rnf voiceConnectorRegions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf voiceConnectorRegions `Prelude.seq`
+      Prelude.rnf httpStatus

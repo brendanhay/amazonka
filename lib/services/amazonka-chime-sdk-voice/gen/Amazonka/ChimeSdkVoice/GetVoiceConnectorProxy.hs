@@ -155,5 +155,5 @@ instance
     GetVoiceConnectorProxyResponse
   where
   rnf GetVoiceConnectorProxyResponse' {..} =
-    Prelude.rnf proxy
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf proxy `Prelude.seq`
+      Prelude.rnf httpStatus

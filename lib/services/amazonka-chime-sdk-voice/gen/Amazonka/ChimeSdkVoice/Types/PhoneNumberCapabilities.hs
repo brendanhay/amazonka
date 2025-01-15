@@ -117,9 +117,9 @@ instance Prelude.Hashable PhoneNumberCapabilities where
 
 instance Prelude.NFData PhoneNumberCapabilities where
   rnf PhoneNumberCapabilities' {..} =
-    Prelude.rnf inboundCall
-      `Prelude.seq` Prelude.rnf inboundMMS
-      `Prelude.seq` Prelude.rnf inboundSMS
-      `Prelude.seq` Prelude.rnf outboundCall
-      `Prelude.seq` Prelude.rnf outboundMMS
-      `Prelude.seq` Prelude.rnf outboundSMS
+    Prelude.rnf inboundCall `Prelude.seq`
+      Prelude.rnf inboundMMS `Prelude.seq`
+        Prelude.rnf inboundSMS `Prelude.seq`
+          Prelude.rnf outboundCall `Prelude.seq`
+            Prelude.rnf outboundMMS `Prelude.seq`
+              Prelude.rnf outboundSMS

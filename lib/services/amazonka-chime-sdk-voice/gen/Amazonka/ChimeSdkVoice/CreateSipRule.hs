@@ -140,11 +140,11 @@ instance Prelude.Hashable CreateSipRule where
 
 instance Prelude.NFData CreateSipRule where
   rnf CreateSipRule' {..} =
-    Prelude.rnf disabled
-      `Prelude.seq` Prelude.rnf targetApplications
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf triggerType
-      `Prelude.seq` Prelude.rnf triggerValue
+    Prelude.rnf disabled `Prelude.seq`
+      Prelude.rnf targetApplications `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf triggerType `Prelude.seq`
+            Prelude.rnf triggerValue
 
 instance Data.ToHeaders CreateSipRule where
   toHeaders = Prelude.const Prelude.mempty
@@ -207,5 +207,5 @@ createSipRuleResponse_httpStatus = Lens.lens (\CreateSipRuleResponse' {httpStatu
 
 instance Prelude.NFData CreateSipRuleResponse where
   rnf CreateSipRuleResponse' {..} =
-    Prelude.rnf sipRule
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf sipRule `Prelude.seq`
+      Prelude.rnf httpStatus

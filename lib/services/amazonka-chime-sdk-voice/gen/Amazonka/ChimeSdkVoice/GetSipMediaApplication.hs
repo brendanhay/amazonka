@@ -154,5 +154,5 @@ instance
     GetSipMediaApplicationResponse
   where
   rnf GetSipMediaApplicationResponse' {..} =
-    Prelude.rnf sipMediaApplication
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf sipMediaApplication `Prelude.seq`
+      Prelude.rnf httpStatus

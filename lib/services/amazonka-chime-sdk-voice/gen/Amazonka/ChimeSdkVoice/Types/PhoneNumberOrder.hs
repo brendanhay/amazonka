@@ -134,10 +134,10 @@ instance Prelude.Hashable PhoneNumberOrder where
 
 instance Prelude.NFData PhoneNumberOrder where
   rnf PhoneNumberOrder' {..} =
-    Prelude.rnf createdTimestamp
-      `Prelude.seq` Prelude.rnf orderType
-      `Prelude.seq` Prelude.rnf orderedPhoneNumbers
-      `Prelude.seq` Prelude.rnf phoneNumberOrderId
-      `Prelude.seq` Prelude.rnf productType
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf updatedTimestamp
+    Prelude.rnf createdTimestamp `Prelude.seq`
+      Prelude.rnf orderType `Prelude.seq`
+        Prelude.rnf orderedPhoneNumbers `Prelude.seq`
+          Prelude.rnf phoneNumberOrderId `Prelude.seq`
+            Prelude.rnf productType `Prelude.seq`
+              Prelude.rnf status `Prelude.seq`
+                Prelude.rnf updatedTimestamp

@@ -88,8 +88,8 @@ instance Prelude.Hashable ClipFragmentSelector where
 
 instance Prelude.NFData ClipFragmentSelector where
   rnf ClipFragmentSelector' {..} =
-    Prelude.rnf fragmentSelectorType
-      `Prelude.seq` Prelude.rnf timestampRange
+    Prelude.rnf fragmentSelectorType `Prelude.seq`
+      Prelude.rnf timestampRange
 
 instance Data.ToJSON ClipFragmentSelector where
   toJSON ClipFragmentSelector' {..} =

@@ -119,6 +119,6 @@ instance Prelude.Hashable Image where
 
 instance Prelude.NFData Image where
   rnf Image' {..} =
-    Prelude.rnf error
-      `Prelude.seq` Prelude.rnf imageContent
-      `Prelude.seq` Prelude.rnf timeStamp
+    Prelude.rnf error `Prelude.seq`
+      Prelude.rnf imageContent `Prelude.seq`
+        Prelude.rnf timeStamp

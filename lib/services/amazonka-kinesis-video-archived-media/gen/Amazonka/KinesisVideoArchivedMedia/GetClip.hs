@@ -176,9 +176,9 @@ instance Prelude.Hashable GetClip where
 
 instance Prelude.NFData GetClip where
   rnf GetClip' {..} =
-    Prelude.rnf streamARN
-      `Prelude.seq` Prelude.rnf streamName
-      `Prelude.seq` Prelude.rnf clipFragmentSelector
+    Prelude.rnf streamARN `Prelude.seq`
+      Prelude.rnf streamName `Prelude.seq`
+        Prelude.rnf clipFragmentSelector
 
 instance Data.ToHeaders GetClip where
   toHeaders = Prelude.const Prelude.mempty

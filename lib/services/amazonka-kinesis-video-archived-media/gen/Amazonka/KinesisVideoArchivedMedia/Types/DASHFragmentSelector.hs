@@ -164,8 +164,8 @@ instance Prelude.Hashable DASHFragmentSelector where
 
 instance Prelude.NFData DASHFragmentSelector where
   rnf DASHFragmentSelector' {..} =
-    Prelude.rnf fragmentSelectorType
-      `Prelude.seq` Prelude.rnf timestampRange
+    Prelude.rnf fragmentSelectorType `Prelude.seq`
+      Prelude.rnf timestampRange
 
 instance Data.ToJSON DASHFragmentSelector where
   toJSON DASHFragmentSelector' {..} =

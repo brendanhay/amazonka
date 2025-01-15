@@ -320,12 +320,12 @@ instance Core.AWSPager GetImages where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getImages_nextToken
-          Lens..~ rs
-          Lens.^? getImagesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getImages_nextToken
+              Lens..~ rs
+              Lens.^? getImagesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetImages where
   type AWSResponse GetImages = GetImagesResponse
@@ -358,18 +358,18 @@ instance Prelude.Hashable GetImages where
 
 instance Prelude.NFData GetImages where
   rnf GetImages' {..} =
-    Prelude.rnf formatConfig
-      `Prelude.seq` Prelude.rnf heightPixels
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf streamARN
-      `Prelude.seq` Prelude.rnf streamName
-      `Prelude.seq` Prelude.rnf widthPixels
-      `Prelude.seq` Prelude.rnf imageSelectorType
-      `Prelude.seq` Prelude.rnf startTimestamp
-      `Prelude.seq` Prelude.rnf endTimestamp
-      `Prelude.seq` Prelude.rnf samplingInterval
-      `Prelude.seq` Prelude.rnf format
+    Prelude.rnf formatConfig `Prelude.seq`
+      Prelude.rnf heightPixels `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf streamARN `Prelude.seq`
+              Prelude.rnf streamName `Prelude.seq`
+                Prelude.rnf widthPixels `Prelude.seq`
+                  Prelude.rnf imageSelectorType `Prelude.seq`
+                    Prelude.rnf startTimestamp `Prelude.seq`
+                      Prelude.rnf endTimestamp `Prelude.seq`
+                        Prelude.rnf samplingInterval `Prelude.seq`
+                          Prelude.rnf format
 
 instance Data.ToHeaders GetImages where
   toHeaders = Prelude.const Prelude.mempty
@@ -463,6 +463,6 @@ getImagesResponse_httpStatus = Lens.lens (\GetImagesResponse' {httpStatus} -> ht
 
 instance Prelude.NFData GetImagesResponse where
   rnf GetImagesResponse' {..} =
-    Prelude.rnf images
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf images `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

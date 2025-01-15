@@ -120,8 +120,8 @@ instance Prelude.Hashable Fragment where
 
 instance Prelude.NFData Fragment where
   rnf Fragment' {..} =
-    Prelude.rnf fragmentLengthInMilliseconds
-      `Prelude.seq` Prelude.rnf fragmentNumber
-      `Prelude.seq` Prelude.rnf fragmentSizeInBytes
-      `Prelude.seq` Prelude.rnf producerTimestamp
-      `Prelude.seq` Prelude.rnf serverTimestamp
+    Prelude.rnf fragmentLengthInMilliseconds `Prelude.seq`
+      Prelude.rnf fragmentNumber `Prelude.seq`
+        Prelude.rnf fragmentSizeInBytes `Prelude.seq`
+          Prelude.rnf producerTimestamp `Prelude.seq`
+            Prelude.rnf serverTimestamp

@@ -188,12 +188,12 @@ instance Core.AWSPager ListFragments where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listFragments_nextToken
-          Lens..~ rs
-          Lens.^? listFragmentsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listFragments_nextToken
+              Lens..~ rs
+              Lens.^? listFragmentsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListFragments where
   type
@@ -221,11 +221,11 @@ instance Prelude.Hashable ListFragments where
 
 instance Prelude.NFData ListFragments where
   rnf ListFragments' {..} =
-    Prelude.rnf fragmentSelector
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf streamARN
-      `Prelude.seq` Prelude.rnf streamName
+    Prelude.rnf fragmentSelector `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf streamARN `Prelude.seq`
+            Prelude.rnf streamName
 
 instance Data.ToHeaders ListFragments where
   toHeaders = Prelude.const Prelude.mempty
@@ -307,6 +307,6 @@ listFragmentsResponse_httpStatus = Lens.lens (\ListFragmentsResponse' {httpStatu
 
 instance Prelude.NFData ListFragmentsResponse where
   rnf ListFragmentsResponse' {..} =
-    Prelude.rnf fragments
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf fragments `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

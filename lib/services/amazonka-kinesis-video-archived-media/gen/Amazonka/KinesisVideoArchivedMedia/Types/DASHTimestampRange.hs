@@ -146,8 +146,8 @@ instance Prelude.Hashable DASHTimestampRange where
 
 instance Prelude.NFData DASHTimestampRange where
   rnf DASHTimestampRange' {..} =
-    Prelude.rnf endTimestamp
-      `Prelude.seq` Prelude.rnf startTimestamp
+    Prelude.rnf endTimestamp `Prelude.seq`
+      Prelude.rnf startTimestamp
 
 instance Data.ToJSON DASHTimestampRange where
   toJSON DASHTimestampRange' {..} =

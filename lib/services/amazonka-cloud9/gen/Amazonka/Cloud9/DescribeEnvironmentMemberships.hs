@@ -185,12 +185,12 @@ instance Core.AWSPager DescribeEnvironmentMemberships where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeEnvironmentMemberships_nextToken
-          Lens..~ rs
-          Lens.^? describeEnvironmentMembershipsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeEnvironmentMemberships_nextToken
+              Lens..~ rs
+              Lens.^? describeEnvironmentMembershipsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -229,11 +229,11 @@ instance
     DescribeEnvironmentMemberships
   where
   rnf DescribeEnvironmentMemberships' {..} =
-    Prelude.rnf environmentId
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf permissions
-      `Prelude.seq` Prelude.rnf userArn
+    Prelude.rnf environmentId `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf permissions `Prelude.seq`
+            Prelude.rnf userArn
 
 instance
   Data.ToHeaders
@@ -334,6 +334,6 @@ instance
     DescribeEnvironmentMembershipsResponse
   where
   rnf DescribeEnvironmentMembershipsResponse' {..} =
-    Prelude.rnf memberships
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf memberships `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -127,6 +127,6 @@ instance Prelude.Hashable EnvironmentLifecycle where
 
 instance Prelude.NFData EnvironmentLifecycle where
   rnf EnvironmentLifecycle' {..} =
-    Prelude.rnf failureResource
-      `Prelude.seq` Prelude.rnf reason
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf failureResource `Prelude.seq`
+      Prelude.rnf reason `Prelude.seq`
+        Prelude.rnf status

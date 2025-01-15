@@ -170,5 +170,5 @@ describeEnvironmentsResponse_httpStatus = Lens.lens (\DescribeEnvironmentsRespon
 
 instance Prelude.NFData DescribeEnvironmentsResponse where
   rnf DescribeEnvironmentsResponse' {..} =
-    Prelude.rnf environments
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf environments `Prelude.seq`
+      Prelude.rnf httpStatus

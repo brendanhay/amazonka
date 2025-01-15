@@ -154,8 +154,8 @@ instance Prelude.Hashable EnvironmentMember where
 
 instance Prelude.NFData EnvironmentMember where
   rnf EnvironmentMember' {..} =
-    Prelude.rnf lastAccess
-      `Prelude.seq` Prelude.rnf permissions
-      `Prelude.seq` Prelude.rnf userId
-      `Prelude.seq` Prelude.rnf userArn
-      `Prelude.seq` Prelude.rnf environmentId
+    Prelude.rnf lastAccess `Prelude.seq`
+      Prelude.rnf permissions `Prelude.seq`
+        Prelude.rnf userId `Prelude.seq`
+          Prelude.rnf userArn `Prelude.seq`
+            Prelude.rnf environmentId

@@ -149,9 +149,9 @@ instance Prelude.Hashable UpdateEnvironmentMembership where
 
 instance Prelude.NFData UpdateEnvironmentMembership where
   rnf UpdateEnvironmentMembership' {..} =
-    Prelude.rnf environmentId
-      `Prelude.seq` Prelude.rnf userArn
-      `Prelude.seq` Prelude.rnf permissions
+    Prelude.rnf environmentId `Prelude.seq`
+      Prelude.rnf userArn `Prelude.seq`
+        Prelude.rnf permissions
 
 instance Data.ToHeaders UpdateEnvironmentMembership where
   toHeaders =
@@ -229,5 +229,5 @@ instance
     UpdateEnvironmentMembershipResponse
   where
   rnf UpdateEnvironmentMembershipResponse' {..} =
-    Prelude.rnf membership
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf membership `Prelude.seq`
+      Prelude.rnf httpStatus

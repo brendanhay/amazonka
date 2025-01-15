@@ -116,9 +116,9 @@ instance
     AntennaDownlinkDemodDecodeConfig
   where
   rnf AntennaDownlinkDemodDecodeConfig' {..} =
-    Prelude.rnf decodeConfig
-      `Prelude.seq` Prelude.rnf demodulationConfig
-      `Prelude.seq` Prelude.rnf spectrumConfig
+    Prelude.rnf decodeConfig `Prelude.seq`
+      Prelude.rnf demodulationConfig `Prelude.seq`
+        Prelude.rnf spectrumConfig
 
 instance Data.ToJSON AntennaDownlinkDemodDecodeConfig where
   toJSON AntennaDownlinkDemodDecodeConfig' {..} =

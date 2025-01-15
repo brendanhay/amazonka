@@ -107,8 +107,8 @@ instance Prelude.Hashable DeleteConfig where
 
 instance Prelude.NFData DeleteConfig where
   rnf DeleteConfig' {..} =
-    Prelude.rnf configId
-      `Prelude.seq` Prelude.rnf configType
+    Prelude.rnf configId `Prelude.seq`
+      Prelude.rnf configType
 
 instance Data.ToHeaders DeleteConfig where
   toHeaders =

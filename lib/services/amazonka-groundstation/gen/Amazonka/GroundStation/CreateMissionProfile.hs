@@ -187,13 +187,13 @@ instance Prelude.Hashable CreateMissionProfile where
 
 instance Prelude.NFData CreateMissionProfile where
   rnf CreateMissionProfile' {..} =
-    Prelude.rnf contactPostPassDurationSeconds
-      `Prelude.seq` Prelude.rnf contactPrePassDurationSeconds
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf dataflowEdges
-      `Prelude.seq` Prelude.rnf minimumViableContactDurationSeconds
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf trackingConfigArn
+    Prelude.rnf contactPostPassDurationSeconds `Prelude.seq`
+      Prelude.rnf contactPrePassDurationSeconds `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf dataflowEdges `Prelude.seq`
+            Prelude.rnf minimumViableContactDurationSeconds `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf trackingConfigArn
 
 instance Data.ToHeaders CreateMissionProfile where
   toHeaders =

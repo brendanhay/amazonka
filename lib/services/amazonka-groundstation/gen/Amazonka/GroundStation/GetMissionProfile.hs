@@ -278,14 +278,14 @@ getMissionProfileResponse_httpStatus = Lens.lens (\GetMissionProfileResponse' {h
 
 instance Prelude.NFData GetMissionProfileResponse where
   rnf GetMissionProfileResponse' {..} =
-    Prelude.rnf contactPostPassDurationSeconds
-      `Prelude.seq` Prelude.rnf contactPrePassDurationSeconds
-      `Prelude.seq` Prelude.rnf dataflowEdges
-      `Prelude.seq` Prelude.rnf minimumViableContactDurationSeconds
-      `Prelude.seq` Prelude.rnf missionProfileArn
-      `Prelude.seq` Prelude.rnf missionProfileId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf region
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf trackingConfigArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf contactPostPassDurationSeconds `Prelude.seq`
+      Prelude.rnf contactPrePassDurationSeconds `Prelude.seq`
+        Prelude.rnf dataflowEdges `Prelude.seq`
+          Prelude.rnf minimumViableContactDurationSeconds `Prelude.seq`
+            Prelude.rnf missionProfileArn `Prelude.seq`
+              Prelude.rnf missionProfileId `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf region `Prelude.seq`
+                    Prelude.rnf tags `Prelude.seq`
+                      Prelude.rnf trackingConfigArn `Prelude.seq`
+                        Prelude.rnf httpStatus

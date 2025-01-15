@@ -108,12 +108,12 @@ instance Core.AWSPager ListDataflowEndpointGroups where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listDataflowEndpointGroups_nextToken
-          Lens..~ rs
-          Lens.^? listDataflowEndpointGroupsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listDataflowEndpointGroups_nextToken
+              Lens..~ rs
+              Lens.^? listDataflowEndpointGroupsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDataflowEndpointGroups where
   type
@@ -141,8 +141,8 @@ instance Prelude.Hashable ListDataflowEndpointGroups where
 
 instance Prelude.NFData ListDataflowEndpointGroups where
   rnf ListDataflowEndpointGroups' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListDataflowEndpointGroups where
   toHeaders =
@@ -223,6 +223,6 @@ instance
     ListDataflowEndpointGroupsResponse
   where
   rnf ListDataflowEndpointGroupsResponse' {..} =
-    Prelude.rnf dataflowEndpointGroupList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dataflowEndpointGroupList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

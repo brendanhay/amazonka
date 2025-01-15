@@ -107,7 +107,7 @@ instance Prelude.Hashable Destination where
 
 instance Prelude.NFData Destination where
   rnf Destination' {..} =
-    Prelude.rnf configDetails
-      `Prelude.seq` Prelude.rnf configId
-      `Prelude.seq` Prelude.rnf configType
-      `Prelude.seq` Prelude.rnf dataflowDestinationRegion
+    Prelude.rnf configDetails `Prelude.seq`
+      Prelude.rnf configId `Prelude.seq`
+        Prelude.rnf configType `Prelude.seq`
+          Prelude.rnf dataflowDestinationRegion

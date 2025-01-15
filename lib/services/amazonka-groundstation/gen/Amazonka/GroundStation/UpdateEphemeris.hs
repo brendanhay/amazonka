@@ -151,10 +151,10 @@ instance Prelude.Hashable UpdateEphemeris where
 
 instance Prelude.NFData UpdateEphemeris where
   rnf UpdateEphemeris' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf priority
-      `Prelude.seq` Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf ephemerisId
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf priority `Prelude.seq`
+        Prelude.rnf enabled `Prelude.seq`
+          Prelude.rnf ephemerisId
 
 instance Data.ToHeaders UpdateEphemeris where
   toHeaders =

@@ -107,12 +107,12 @@ instance Core.AWSPager ListMissionProfiles where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listMissionProfiles_nextToken
-          Lens..~ rs
-          Lens.^? listMissionProfilesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listMissionProfiles_nextToken
+              Lens..~ rs
+              Lens.^? listMissionProfilesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListMissionProfiles where
   type
@@ -140,8 +140,8 @@ instance Prelude.Hashable ListMissionProfiles where
 
 instance Prelude.NFData ListMissionProfiles where
   rnf ListMissionProfiles' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListMissionProfiles where
   toHeaders =
@@ -219,6 +219,6 @@ listMissionProfilesResponse_httpStatus = Lens.lens (\ListMissionProfilesResponse
 
 instance Prelude.NFData ListMissionProfilesResponse where
   rnf ListMissionProfilesResponse' {..} =
-    Prelude.rnf missionProfileList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf missionProfileList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

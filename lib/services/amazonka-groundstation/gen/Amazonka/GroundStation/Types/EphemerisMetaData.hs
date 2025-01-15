@@ -129,7 +129,7 @@ instance Prelude.Hashable EphemerisMetaData where
 
 instance Prelude.NFData EphemerisMetaData where
   rnf EphemerisMetaData' {..} =
-    Prelude.rnf ephemerisId
-      `Prelude.seq` Prelude.rnf epoch
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf source
+    Prelude.rnf ephemerisId `Prelude.seq`
+      Prelude.rnf epoch `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf source

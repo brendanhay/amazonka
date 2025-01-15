@@ -117,12 +117,12 @@ instance Core.AWSPager ListGroundStations where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listGroundStations_nextToken
-          Lens..~ rs
-          Lens.^? listGroundStationsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listGroundStations_nextToken
+              Lens..~ rs
+              Lens.^? listGroundStationsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListGroundStations where
   type
@@ -151,9 +151,9 @@ instance Prelude.Hashable ListGroundStations where
 
 instance Prelude.NFData ListGroundStations where
   rnf ListGroundStations' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf satelliteId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf satelliteId
 
 instance Data.ToHeaders ListGroundStations where
   toHeaders =
@@ -232,6 +232,6 @@ listGroundStationsResponse_httpStatus = Lens.lens (\ListGroundStationsResponse' 
 
 instance Prelude.NFData ListGroundStationsResponse where
   rnf ListGroundStationsResponse' {..} =
-    Prelude.rnf groundStationList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf groundStationList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

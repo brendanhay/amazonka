@@ -74,8 +74,8 @@ instance Prelude.Hashable OEMEphemeris where
 
 instance Prelude.NFData OEMEphemeris where
   rnf OEMEphemeris' {..} =
-    Prelude.rnf oemData
-      `Prelude.seq` Prelude.rnf s3Object
+    Prelude.rnf oemData `Prelude.seq`
+      Prelude.rnf s3Object
 
 instance Data.ToJSON OEMEphemeris where
   toJSON OEMEphemeris' {..} =

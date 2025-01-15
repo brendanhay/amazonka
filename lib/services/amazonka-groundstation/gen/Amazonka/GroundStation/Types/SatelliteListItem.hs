@@ -118,8 +118,8 @@ instance Prelude.Hashable SatelliteListItem where
 
 instance Prelude.NFData SatelliteListItem where
   rnf SatelliteListItem' {..} =
-    Prelude.rnf currentEphemeris
-      `Prelude.seq` Prelude.rnf groundStations
-      `Prelude.seq` Prelude.rnf noradSatelliteID
-      `Prelude.seq` Prelude.rnf satelliteArn
-      `Prelude.seq` Prelude.rnf satelliteId
+    Prelude.rnf currentEphemeris `Prelude.seq`
+      Prelude.rnf groundStations `Prelude.seq`
+        Prelude.rnf noradSatelliteID `Prelude.seq`
+          Prelude.rnf satelliteArn `Prelude.seq`
+            Prelude.rnf satelliteId

@@ -82,5 +82,5 @@ instance Prelude.Hashable EphemerisDescription where
 
 instance Prelude.NFData EphemerisDescription where
   rnf EphemerisDescription' {..} =
-    Prelude.rnf ephemerisData
-      `Prelude.seq` Prelude.rnf sourceS3Object
+    Prelude.rnf ephemerisData `Prelude.seq`
+      Prelude.rnf sourceS3Object

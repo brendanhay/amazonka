@@ -122,8 +122,8 @@ instance Prelude.Hashable GetConfig where
 
 instance Prelude.NFData GetConfig where
   rnf GetConfig' {..} =
-    Prelude.rnf configId
-      `Prelude.seq` Prelude.rnf configType
+    Prelude.rnf configId `Prelude.seq`
+      Prelude.rnf configType
 
 instance Data.ToHeaders GetConfig where
   toHeaders =
@@ -248,10 +248,10 @@ getConfigResponse_name = Lens.lens (\GetConfigResponse' {name} -> name) (\s@GetC
 
 instance Prelude.NFData GetConfigResponse where
   rnf GetConfigResponse' {..} =
-    Prelude.rnf configType
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf configArn
-      `Prelude.seq` Prelude.rnf configData
-      `Prelude.seq` Prelude.rnf configId
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf configType `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf httpStatus `Prelude.seq`
+          Prelude.rnf configArn `Prelude.seq`
+            Prelude.rnf configData `Prelude.seq`
+              Prelude.rnf configId `Prelude.seq`
+                Prelude.rnf name

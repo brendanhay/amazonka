@@ -239,9 +239,9 @@ getMinuteUsageResponse_httpStatus = Lens.lens (\GetMinuteUsageResponse' {httpSta
 
 instance Prelude.NFData GetMinuteUsageResponse where
   rnf GetMinuteUsageResponse' {..} =
-    Prelude.rnf estimatedMinutesRemaining
-      `Prelude.seq` Prelude.rnf isReservedMinutesCustomer
-      `Prelude.seq` Prelude.rnf totalReservedMinuteAllocation
-      `Prelude.seq` Prelude.rnf totalScheduledMinutes
-      `Prelude.seq` Prelude.rnf upcomingMinutesScheduled
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf estimatedMinutesRemaining `Prelude.seq`
+      Prelude.rnf isReservedMinutesCustomer `Prelude.seq`
+        Prelude.rnf totalReservedMinuteAllocation `Prelude.seq`
+          Prelude.rnf totalScheduledMinutes `Prelude.seq`
+            Prelude.rnf upcomingMinutesScheduled `Prelude.seq`
+              Prelude.rnf httpStatus

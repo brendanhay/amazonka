@@ -112,8 +112,8 @@ instance Prelude.Hashable CreateDataflowEndpointGroup where
 
 instance Prelude.NFData CreateDataflowEndpointGroup where
   rnf CreateDataflowEndpointGroup' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf endpointDetails
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf endpointDetails
 
 instance Data.ToHeaders CreateDataflowEndpointGroup where
   toHeaders =

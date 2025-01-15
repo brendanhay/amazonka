@@ -91,8 +91,8 @@ instance Prelude.Hashable UplinkEchoConfig where
 
 instance Prelude.NFData UplinkEchoConfig where
   rnf UplinkEchoConfig' {..} =
-    Prelude.rnf antennaUplinkConfigArn
-      `Prelude.seq` Prelude.rnf enabled
+    Prelude.rnf antennaUplinkConfigArn `Prelude.seq`
+      Prelude.rnf enabled
 
 instance Data.ToJSON UplinkEchoConfig where
   toJSON UplinkEchoConfig' {..} =

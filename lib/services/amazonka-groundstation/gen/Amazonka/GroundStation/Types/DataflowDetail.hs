@@ -91,6 +91,6 @@ instance Prelude.Hashable DataflowDetail where
 
 instance Prelude.NFData DataflowDetail where
   rnf DataflowDetail' {..} =
-    Prelude.rnf destination
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf source
+    Prelude.rnf destination `Prelude.seq`
+      Prelude.rnf errorMessage `Prelude.seq`
+        Prelude.rnf source

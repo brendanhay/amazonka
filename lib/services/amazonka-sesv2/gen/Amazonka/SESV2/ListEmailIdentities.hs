@@ -141,8 +141,8 @@ instance Prelude.Hashable ListEmailIdentities where
 
 instance Prelude.NFData ListEmailIdentities where
   rnf ListEmailIdentities' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf pageSize
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf pageSize
 
 instance Data.ToHeaders ListEmailIdentities where
   toHeaders =
@@ -228,6 +228,6 @@ listEmailIdentitiesResponse_httpStatus = Lens.lens (\ListEmailIdentitiesResponse
 
 instance Prelude.NFData ListEmailIdentitiesResponse where
   rnf ListEmailIdentitiesResponse' {..} =
-    Prelude.rnf emailIdentities
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf emailIdentities `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

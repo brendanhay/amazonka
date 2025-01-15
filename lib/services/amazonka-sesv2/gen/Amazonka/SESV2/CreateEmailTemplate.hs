@@ -122,8 +122,8 @@ instance Prelude.Hashable CreateEmailTemplate where
 
 instance Prelude.NFData CreateEmailTemplate where
   rnf CreateEmailTemplate' {..} =
-    Prelude.rnf templateName
-      `Prelude.seq` Prelude.rnf templateContent
+    Prelude.rnf templateName `Prelude.seq`
+      Prelude.rnf templateContent
 
 instance Data.ToHeaders CreateEmailTemplate where
   toHeaders =

@@ -293,15 +293,15 @@ instance Prelude.Hashable SendBulkEmail where
 
 instance Prelude.NFData SendBulkEmail where
   rnf SendBulkEmail' {..} =
-    Prelude.rnf configurationSetName
-      `Prelude.seq` Prelude.rnf defaultEmailTags
-      `Prelude.seq` Prelude.rnf feedbackForwardingEmailAddress
-      `Prelude.seq` Prelude.rnf feedbackForwardingEmailAddressIdentityArn
-      `Prelude.seq` Prelude.rnf fromEmailAddress
-      `Prelude.seq` Prelude.rnf fromEmailAddressIdentityArn
-      `Prelude.seq` Prelude.rnf replyToAddresses
-      `Prelude.seq` Prelude.rnf defaultContent
-      `Prelude.seq` Prelude.rnf bulkEmailEntries
+    Prelude.rnf configurationSetName `Prelude.seq`
+      Prelude.rnf defaultEmailTags `Prelude.seq`
+        Prelude.rnf feedbackForwardingEmailAddress `Prelude.seq`
+          Prelude.rnf feedbackForwardingEmailAddressIdentityArn `Prelude.seq`
+            Prelude.rnf fromEmailAddress `Prelude.seq`
+              Prelude.rnf fromEmailAddressIdentityArn `Prelude.seq`
+                Prelude.rnf replyToAddresses `Prelude.seq`
+                  Prelude.rnf defaultContent `Prelude.seq`
+                    Prelude.rnf bulkEmailEntries
 
 instance Data.ToHeaders SendBulkEmail where
   toHeaders =
@@ -391,5 +391,5 @@ sendBulkEmailResponse_bulkEmailEntryResults = Lens.lens (\SendBulkEmailResponse'
 
 instance Prelude.NFData SendBulkEmailResponse where
   rnf SendBulkEmailResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf bulkEmailEntryResults
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf bulkEmailEntryResults

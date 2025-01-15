@@ -123,8 +123,8 @@ instance Prelude.Hashable Contact where
 
 instance Prelude.NFData Contact where
   rnf Contact' {..} =
-    Prelude.rnf emailAddress
-      `Prelude.seq` Prelude.rnf lastUpdatedTimestamp
-      `Prelude.seq` Prelude.rnf topicDefaultPreferences
-      `Prelude.seq` Prelude.rnf topicPreferences
-      `Prelude.seq` Prelude.rnf unsubscribeAll
+    Prelude.rnf emailAddress `Prelude.seq`
+      Prelude.rnf lastUpdatedTimestamp `Prelude.seq`
+        Prelude.rnf topicDefaultPreferences `Prelude.seq`
+          Prelude.rnf topicPreferences `Prelude.seq`
+            Prelude.rnf unsubscribeAll

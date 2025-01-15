@@ -127,9 +127,9 @@ instance Prelude.Hashable CreateDedicatedIpPool where
 
 instance Prelude.NFData CreateDedicatedIpPool where
   rnf CreateDedicatedIpPool' {..} =
-    Prelude.rnf scalingMode
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf poolName
+    Prelude.rnf scalingMode `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf poolName
 
 instance Data.ToHeaders CreateDedicatedIpPool where
   toHeaders =

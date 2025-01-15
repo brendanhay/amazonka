@@ -145,11 +145,11 @@ instance Prelude.Hashable CreateContact where
 
 instance Prelude.NFData CreateContact where
   rnf CreateContact' {..} =
-    Prelude.rnf attributesData
-      `Prelude.seq` Prelude.rnf topicPreferences
-      `Prelude.seq` Prelude.rnf unsubscribeAll
-      `Prelude.seq` Prelude.rnf contactListName
-      `Prelude.seq` Prelude.rnf emailAddress
+    Prelude.rnf attributesData `Prelude.seq`
+      Prelude.rnf topicPreferences `Prelude.seq`
+        Prelude.rnf unsubscribeAll `Prelude.seq`
+          Prelude.rnf contactListName `Prelude.seq`
+            Prelude.rnf emailAddress
 
 instance Data.ToHeaders CreateContact where
   toHeaders =

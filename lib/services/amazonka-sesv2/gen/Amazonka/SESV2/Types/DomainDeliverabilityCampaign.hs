@@ -264,17 +264,17 @@ instance
 
 instance Prelude.NFData DomainDeliverabilityCampaign where
   rnf DomainDeliverabilityCampaign' {..} =
-    Prelude.rnf campaignId
-      `Prelude.seq` Prelude.rnf deleteRate
-      `Prelude.seq` Prelude.rnf esps
-      `Prelude.seq` Prelude.rnf firstSeenDateTime
-      `Prelude.seq` Prelude.rnf fromAddress
-      `Prelude.seq` Prelude.rnf imageUrl
-      `Prelude.seq` Prelude.rnf inboxCount
-      `Prelude.seq` Prelude.rnf lastSeenDateTime
-      `Prelude.seq` Prelude.rnf projectedVolume
-      `Prelude.seq` Prelude.rnf readDeleteRate
-      `Prelude.seq` Prelude.rnf readRate
-      `Prelude.seq` Prelude.rnf sendingIps
-      `Prelude.seq` Prelude.rnf spamCount
-      `Prelude.seq` Prelude.rnf subject
+    Prelude.rnf campaignId `Prelude.seq`
+      Prelude.rnf deleteRate `Prelude.seq`
+        Prelude.rnf esps `Prelude.seq`
+          Prelude.rnf firstSeenDateTime `Prelude.seq`
+            Prelude.rnf fromAddress `Prelude.seq`
+              Prelude.rnf imageUrl `Prelude.seq`
+                Prelude.rnf inboxCount `Prelude.seq`
+                  Prelude.rnf lastSeenDateTime `Prelude.seq`
+                    Prelude.rnf projectedVolume `Prelude.seq`
+                      Prelude.rnf readDeleteRate `Prelude.seq`
+                        Prelude.rnf readRate `Prelude.seq`
+                          Prelude.rnf sendingIps `Prelude.seq`
+                            Prelude.rnf spamCount `Prelude.seq`
+                              Prelude.rnf subject

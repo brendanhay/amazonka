@@ -85,8 +85,8 @@ instance Prelude.Hashable ImportDataSource where
 
 instance Prelude.NFData ImportDataSource where
   rnf ImportDataSource' {..} =
-    Prelude.rnf s3Url
-      `Prelude.seq` Prelude.rnf dataFormat
+    Prelude.rnf s3Url `Prelude.seq`
+      Prelude.rnf dataFormat
 
 instance Data.ToJSON ImportDataSource where
   toJSON ImportDataSource' {..} =

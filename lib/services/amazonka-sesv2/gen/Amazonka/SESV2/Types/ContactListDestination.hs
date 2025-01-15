@@ -106,8 +106,8 @@ instance Prelude.Hashable ContactListDestination where
 
 instance Prelude.NFData ContactListDestination where
   rnf ContactListDestination' {..} =
-    Prelude.rnf contactListName
-      `Prelude.seq` Prelude.rnf contactListImportAction
+    Prelude.rnf contactListName `Prelude.seq`
+      Prelude.rnf contactListImportAction
 
 instance Data.ToJSON ContactListDestination where
   toJSON ContactListDestination' {..} =

@@ -208,12 +208,12 @@ instance
     CreateCustomVerificationEmailTemplate
   where
   rnf CreateCustomVerificationEmailTemplate' {..} =
-    Prelude.rnf templateName
-      `Prelude.seq` Prelude.rnf fromEmailAddress
-      `Prelude.seq` Prelude.rnf templateSubject
-      `Prelude.seq` Prelude.rnf templateContent
-      `Prelude.seq` Prelude.rnf successRedirectionURL
-      `Prelude.seq` Prelude.rnf failureRedirectionURL
+    Prelude.rnf templateName `Prelude.seq`
+      Prelude.rnf fromEmailAddress `Prelude.seq`
+        Prelude.rnf templateSubject `Prelude.seq`
+          Prelude.rnf templateContent `Prelude.seq`
+            Prelude.rnf successRedirectionURL `Prelude.seq`
+              Prelude.rnf failureRedirectionURL
 
 instance
   Data.ToHeaders

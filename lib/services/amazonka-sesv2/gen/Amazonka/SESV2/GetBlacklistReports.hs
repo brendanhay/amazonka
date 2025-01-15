@@ -179,5 +179,5 @@ getBlacklistReportsResponse_blacklistReport = Lens.lens (\GetBlacklistReportsRes
 
 instance Prelude.NFData GetBlacklistReportsResponse where
   rnf GetBlacklistReportsResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf blacklistReport
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf blacklistReport

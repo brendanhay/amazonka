@@ -147,9 +147,9 @@ instance Prelude.Hashable ListImportJobs where
 
 instance Prelude.NFData ListImportJobs where
   rnf ListImportJobs' {..} =
-    Prelude.rnf importDestinationType
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf pageSize
+    Prelude.rnf importDestinationType `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf pageSize
 
 instance Data.ToHeaders ListImportJobs where
   toHeaders =
@@ -234,6 +234,6 @@ listImportJobsResponse_httpStatus = Lens.lens (\ListImportJobsResponse' {httpSta
 
 instance Prelude.NFData ListImportJobsResponse where
   rnf ListImportJobsResponse' {..} =
-    Prelude.rnf importJobs
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf importJobs `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

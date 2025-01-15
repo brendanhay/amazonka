@@ -163,9 +163,9 @@ instance Prelude.Hashable CreateEmailIdentityPolicy where
 
 instance Prelude.NFData CreateEmailIdentityPolicy where
   rnf CreateEmailIdentityPolicy' {..} =
-    Prelude.rnf emailIdentity
-      `Prelude.seq` Prelude.rnf policyName
-      `Prelude.seq` Prelude.rnf policy
+    Prelude.rnf emailIdentity `Prelude.seq`
+      Prelude.rnf policyName `Prelude.seq`
+        Prelude.rnf policy
 
 instance Data.ToHeaders CreateEmailIdentityPolicy where
   toHeaders =

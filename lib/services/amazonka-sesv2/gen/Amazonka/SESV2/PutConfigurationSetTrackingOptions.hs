@@ -124,8 +124,8 @@ instance
     PutConfigurationSetTrackingOptions
   where
   rnf PutConfigurationSetTrackingOptions' {..} =
-    Prelude.rnf customRedirectDomain
-      `Prelude.seq` Prelude.rnf configurationSetName
+    Prelude.rnf customRedirectDomain `Prelude.seq`
+      Prelude.rnf configurationSetName
 
 instance
   Data.ToHeaders

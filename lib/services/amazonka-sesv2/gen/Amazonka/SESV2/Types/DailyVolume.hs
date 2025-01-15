@@ -103,6 +103,6 @@ instance Prelude.Hashable DailyVolume where
 
 instance Prelude.NFData DailyVolume where
   rnf DailyVolume' {..} =
-    Prelude.rnf domainIspPlacements
-      `Prelude.seq` Prelude.rnf startDate
-      `Prelude.seq` Prelude.rnf volumeStatistics
+    Prelude.rnf domainIspPlacements `Prelude.seq`
+      Prelude.rnf startDate `Prelude.seq`
+        Prelude.rnf volumeStatistics

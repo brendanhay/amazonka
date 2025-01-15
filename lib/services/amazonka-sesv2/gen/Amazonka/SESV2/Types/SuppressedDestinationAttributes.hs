@@ -99,5 +99,5 @@ instance
     SuppressedDestinationAttributes
   where
   rnf SuppressedDestinationAttributes' {..} =
-    Prelude.rnf feedbackId
-      `Prelude.seq` Prelude.rnf messageId
+    Prelude.rnf feedbackId `Prelude.seq`
+      Prelude.rnf messageId

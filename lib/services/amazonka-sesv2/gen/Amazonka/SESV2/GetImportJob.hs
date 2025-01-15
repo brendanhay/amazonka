@@ -250,13 +250,13 @@ getImportJobResponse_httpStatus = Lens.lens (\GetImportJobResponse' {httpStatus}
 
 instance Prelude.NFData GetImportJobResponse where
   rnf GetImportJobResponse' {..} =
-    Prelude.rnf completedTimestamp
-      `Prelude.seq` Prelude.rnf createdTimestamp
-      `Prelude.seq` Prelude.rnf failedRecordsCount
-      `Prelude.seq` Prelude.rnf failureInfo
-      `Prelude.seq` Prelude.rnf importDataSource
-      `Prelude.seq` Prelude.rnf importDestination
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf jobStatus
-      `Prelude.seq` Prelude.rnf processedRecordsCount
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf completedTimestamp `Prelude.seq`
+      Prelude.rnf createdTimestamp `Prelude.seq`
+        Prelude.rnf failedRecordsCount `Prelude.seq`
+          Prelude.rnf failureInfo `Prelude.seq`
+            Prelude.rnf importDataSource `Prelude.seq`
+              Prelude.rnf importDestination `Prelude.seq`
+                Prelude.rnf jobId `Prelude.seq`
+                  Prelude.rnf jobStatus `Prelude.seq`
+                    Prelude.rnf processedRecordsCount `Prelude.seq`
+                      Prelude.rnf httpStatus

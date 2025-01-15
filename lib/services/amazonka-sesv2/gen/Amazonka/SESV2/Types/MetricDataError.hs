@@ -111,6 +111,6 @@ instance Prelude.Hashable MetricDataError where
 
 instance Prelude.NFData MetricDataError where
   rnf MetricDataError' {..} =
-    Prelude.rnf code
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf message
+    Prelude.rnf code `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf message

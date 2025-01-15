@@ -90,8 +90,8 @@ instance
 
 instance Prelude.NFData InboxPlacementTrackingOption where
   rnf InboxPlacementTrackingOption' {..} =
-    Prelude.rnf global
-      `Prelude.seq` Prelude.rnf trackedIsps
+    Prelude.rnf global `Prelude.seq`
+      Prelude.rnf trackedIsps
 
 instance Data.ToJSON InboxPlacementTrackingOption where
   toJSON InboxPlacementTrackingOption' {..} =

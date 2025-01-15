@@ -81,5 +81,5 @@ instance Prelude.Hashable ContactList where
 
 instance Prelude.NFData ContactList where
   rnf ContactList' {..} =
-    Prelude.rnf contactListName
-      `Prelude.seq` Prelude.rnf lastUpdatedTimestamp
+    Prelude.rnf contactListName `Prelude.seq`
+      Prelude.rnf lastUpdatedTimestamp

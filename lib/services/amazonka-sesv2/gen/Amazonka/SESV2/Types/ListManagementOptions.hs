@@ -73,8 +73,8 @@ instance Prelude.Hashable ListManagementOptions where
 
 instance Prelude.NFData ListManagementOptions where
   rnf ListManagementOptions' {..} =
-    Prelude.rnf topicName
-      `Prelude.seq` Prelude.rnf contactListName
+    Prelude.rnf topicName `Prelude.seq`
+      Prelude.rnf contactListName
 
 instance Data.ToJSON ListManagementOptions where
   toJSON ListManagementOptions' {..} =

@@ -170,9 +170,9 @@ instance
     CloudWatchDimensionConfiguration
   where
   rnf CloudWatchDimensionConfiguration' {..} =
-    Prelude.rnf dimensionName
-      `Prelude.seq` Prelude.rnf dimensionValueSource
-      `Prelude.seq` Prelude.rnf defaultDimensionValue
+    Prelude.rnf dimensionName `Prelude.seq`
+      Prelude.rnf dimensionValueSource `Prelude.seq`
+        Prelude.rnf defaultDimensionValue
 
 instance Data.ToJSON CloudWatchDimensionConfiguration where
   toJSON CloudWatchDimensionConfiguration' {..} =

@@ -181,9 +181,9 @@ instance
     PutEmailIdentityMailFromAttributes
   where
   rnf PutEmailIdentityMailFromAttributes' {..} =
-    Prelude.rnf behaviorOnMxFailure
-      `Prelude.seq` Prelude.rnf mailFromDomain
-      `Prelude.seq` Prelude.rnf emailIdentity
+    Prelude.rnf behaviorOnMxFailure `Prelude.seq`
+      Prelude.rnf mailFromDomain `Prelude.seq`
+        Prelude.rnf emailIdentity
 
 instance
   Data.ToHeaders

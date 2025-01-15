@@ -122,8 +122,8 @@ instance
     PutEmailIdentityConfigurationSetAttributes
   where
   rnf PutEmailIdentityConfigurationSetAttributes' {..} =
-    Prelude.rnf configurationSetName
-      `Prelude.seq` Prelude.rnf emailIdentity
+    Prelude.rnf configurationSetName `Prelude.seq`
+      Prelude.rnf emailIdentity
 
 instance
   Data.ToHeaders

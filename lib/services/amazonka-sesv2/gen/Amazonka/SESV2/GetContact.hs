@@ -128,8 +128,8 @@ instance Prelude.Hashable GetContact where
 
 instance Prelude.NFData GetContact where
   rnf GetContact' {..} =
-    Prelude.rnf contactListName
-      `Prelude.seq` Prelude.rnf emailAddress
+    Prelude.rnf contactListName `Prelude.seq`
+      Prelude.rnf emailAddress
 
 instance Data.ToHeaders GetContact where
   toHeaders =
@@ -264,12 +264,12 @@ getContactResponse_httpStatus = Lens.lens (\GetContactResponse' {httpStatus} -> 
 
 instance Prelude.NFData GetContactResponse where
   rnf GetContactResponse' {..} =
-    Prelude.rnf attributesData
-      `Prelude.seq` Prelude.rnf contactListName
-      `Prelude.seq` Prelude.rnf createdTimestamp
-      `Prelude.seq` Prelude.rnf emailAddress
-      `Prelude.seq` Prelude.rnf lastUpdatedTimestamp
-      `Prelude.seq` Prelude.rnf topicDefaultPreferences
-      `Prelude.seq` Prelude.rnf topicPreferences
-      `Prelude.seq` Prelude.rnf unsubscribeAll
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf attributesData `Prelude.seq`
+      Prelude.rnf contactListName `Prelude.seq`
+        Prelude.rnf createdTimestamp `Prelude.seq`
+          Prelude.rnf emailAddress `Prelude.seq`
+            Prelude.rnf lastUpdatedTimestamp `Prelude.seq`
+              Prelude.rnf topicDefaultPreferences `Prelude.seq`
+                Prelude.rnf topicPreferences `Prelude.seq`
+                  Prelude.rnf unsubscribeAll `Prelude.seq`
+                    Prelude.rnf httpStatus

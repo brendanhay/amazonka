@@ -157,8 +157,8 @@ instance
     ListCustomVerificationEmailTemplates
   where
   rnf ListCustomVerificationEmailTemplates' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf pageSize
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf pageSize
 
 instance
   Data.ToHeaders
@@ -260,6 +260,6 @@ instance
     ListCustomVerificationEmailTemplatesResponse
   where
   rnf ListCustomVerificationEmailTemplatesResponse' {..} =
-    Prelude.rnf customVerificationEmailTemplates
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf customVerificationEmailTemplates `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -81,5 +81,5 @@ instance Prelude.Hashable EmailTemplateMetadata where
 
 instance Prelude.NFData EmailTemplateMetadata where
   rnf EmailTemplateMetadata' {..} =
-    Prelude.rnf createdTimestamp
-      `Prelude.seq` Prelude.rnf templateName
+    Prelude.rnf createdTimestamp `Prelude.seq`
+      Prelude.rnf templateName

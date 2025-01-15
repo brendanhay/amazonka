@@ -118,9 +118,9 @@ instance
     DomainDeliverabilityTrackingOption
   where
   rnf DomainDeliverabilityTrackingOption' {..} =
-    Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf inboxPlacementTrackingOption
-      `Prelude.seq` Prelude.rnf subscriptionStartDate
+    Prelude.rnf domain `Prelude.seq`
+      Prelude.rnf inboxPlacementTrackingOption `Prelude.seq`
+        Prelude.rnf subscriptionStartDate
 
 instance
   Data.ToJSON

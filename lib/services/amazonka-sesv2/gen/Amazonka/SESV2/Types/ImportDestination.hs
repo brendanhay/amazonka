@@ -90,8 +90,8 @@ instance Prelude.Hashable ImportDestination where
 
 instance Prelude.NFData ImportDestination where
   rnf ImportDestination' {..} =
-    Prelude.rnf contactListDestination
-      `Prelude.seq` Prelude.rnf suppressionListDestination
+    Prelude.rnf contactListDestination `Prelude.seq`
+      Prelude.rnf suppressionListDestination
 
 instance Data.ToJSON ImportDestination where
   toJSON ImportDestination' {..} =

@@ -203,10 +203,10 @@ instance Prelude.Hashable EventDestination where
 
 instance Prelude.NFData EventDestination where
   rnf EventDestination' {..} =
-    Prelude.rnf cloudWatchDestination
-      `Prelude.seq` Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf kinesisFirehoseDestination
-      `Prelude.seq` Prelude.rnf pinpointDestination
-      `Prelude.seq` Prelude.rnf snsDestination
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf matchingEventTypes
+    Prelude.rnf cloudWatchDestination `Prelude.seq`
+      Prelude.rnf enabled `Prelude.seq`
+        Prelude.rnf kinesisFirehoseDestination `Prelude.seq`
+          Prelude.rnf pinpointDestination `Prelude.seq`
+            Prelude.rnf snsDestination `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf matchingEventTypes

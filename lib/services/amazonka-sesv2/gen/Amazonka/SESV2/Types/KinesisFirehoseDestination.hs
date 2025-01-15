@@ -95,8 +95,8 @@ instance Prelude.Hashable KinesisFirehoseDestination where
 
 instance Prelude.NFData KinesisFirehoseDestination where
   rnf KinesisFirehoseDestination' {..} =
-    Prelude.rnf iamRoleArn
-      `Prelude.seq` Prelude.rnf deliveryStreamArn
+    Prelude.rnf iamRoleArn `Prelude.seq`
+      Prelude.rnf deliveryStreamArn
 
 instance Data.ToJSON KinesisFirehoseDestination where
   toJSON KinesisFirehoseDestination' {..} =

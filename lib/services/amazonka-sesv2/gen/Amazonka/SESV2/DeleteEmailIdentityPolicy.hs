@@ -138,8 +138,8 @@ instance Prelude.Hashable DeleteEmailIdentityPolicy where
 
 instance Prelude.NFData DeleteEmailIdentityPolicy where
   rnf DeleteEmailIdentityPolicy' {..} =
-    Prelude.rnf emailIdentity
-      `Prelude.seq` Prelude.rnf policyName
+    Prelude.rnf emailIdentity `Prelude.seq`
+      Prelude.rnf policyName
 
 instance Data.ToHeaders DeleteEmailIdentityPolicy where
   toHeaders =

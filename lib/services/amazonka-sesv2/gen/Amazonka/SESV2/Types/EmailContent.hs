@@ -154,9 +154,9 @@ instance Prelude.Hashable EmailContent where
 
 instance Prelude.NFData EmailContent where
   rnf EmailContent' {..} =
-    Prelude.rnf raw
-      `Prelude.seq` Prelude.rnf simple
-      `Prelude.seq` Prelude.rnf template
+    Prelude.rnf raw `Prelude.seq`
+      Prelude.rnf simple `Prelude.seq`
+        Prelude.rnf template
 
 instance Data.ToJSON EmailContent where
   toJSON EmailContent' {..} =

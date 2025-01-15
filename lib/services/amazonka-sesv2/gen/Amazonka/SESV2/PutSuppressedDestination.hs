@@ -118,8 +118,8 @@ instance Prelude.Hashable PutSuppressedDestination where
 
 instance Prelude.NFData PutSuppressedDestination where
   rnf PutSuppressedDestination' {..} =
-    Prelude.rnf emailAddress
-      `Prelude.seq` Prelude.rnf reason
+    Prelude.rnf emailAddress `Prelude.seq`
+      Prelude.rnf reason
 
 instance Data.ToHeaders PutSuppressedDestination where
   toHeaders =

@@ -203,12 +203,12 @@ instance Prelude.Hashable PutAccountDetails where
 
 instance Prelude.NFData PutAccountDetails where
   rnf PutAccountDetails' {..} =
-    Prelude.rnf additionalContactEmailAddresses
-      `Prelude.seq` Prelude.rnf contactLanguage
-      `Prelude.seq` Prelude.rnf productionAccessEnabled
-      `Prelude.seq` Prelude.rnf mailType
-      `Prelude.seq` Prelude.rnf websiteURL
-      `Prelude.seq` Prelude.rnf useCaseDescription
+    Prelude.rnf additionalContactEmailAddresses `Prelude.seq`
+      Prelude.rnf contactLanguage `Prelude.seq`
+        Prelude.rnf productionAccessEnabled `Prelude.seq`
+          Prelude.rnf mailType `Prelude.seq`
+            Prelude.rnf websiteURL `Prelude.seq`
+              Prelude.rnf useCaseDescription
 
 instance Data.ToHeaders PutAccountDetails where
   toHeaders =

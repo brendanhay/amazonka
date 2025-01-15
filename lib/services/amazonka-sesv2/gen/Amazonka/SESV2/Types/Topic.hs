@@ -117,10 +117,10 @@ instance Prelude.Hashable Topic where
 
 instance Prelude.NFData Topic where
   rnf Topic' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf topicName
-      `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf defaultSubscriptionStatus
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf topicName `Prelude.seq`
+        Prelude.rnf displayName `Prelude.seq`
+          Prelude.rnf defaultSubscriptionStatus
 
 instance Data.ToJSON Topic where
   toJSON Topic' {..} =

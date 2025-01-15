@@ -309,12 +309,12 @@ getAccountResponse_httpStatus = Lens.lens (\GetAccountResponse' {httpStatus} -> 
 
 instance Prelude.NFData GetAccountResponse where
   rnf GetAccountResponse' {..} =
-    Prelude.rnf dedicatedIpAutoWarmupEnabled
-      `Prelude.seq` Prelude.rnf details
-      `Prelude.seq` Prelude.rnf enforcementStatus
-      `Prelude.seq` Prelude.rnf productionAccessEnabled
-      `Prelude.seq` Prelude.rnf sendQuota
-      `Prelude.seq` Prelude.rnf sendingEnabled
-      `Prelude.seq` Prelude.rnf suppressionAttributes
-      `Prelude.seq` Prelude.rnf vdmAttributes
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dedicatedIpAutoWarmupEnabled `Prelude.seq`
+      Prelude.rnf details `Prelude.seq`
+        Prelude.rnf enforcementStatus `Prelude.seq`
+          Prelude.rnf productionAccessEnabled `Prelude.seq`
+            Prelude.rnf sendQuota `Prelude.seq`
+              Prelude.rnf sendingEnabled `Prelude.seq`
+                Prelude.rnf suppressionAttributes `Prelude.seq`
+                  Prelude.rnf vdmAttributes `Prelude.seq`
+                    Prelude.rnf httpStatus

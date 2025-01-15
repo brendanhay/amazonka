@@ -252,6 +252,6 @@ instance Prelude.Hashable BulkEmailEntryResult where
 
 instance Prelude.NFData BulkEmailEntryResult where
   rnf BulkEmailEntryResult' {..} =
-    Prelude.rnf error
-      `Prelude.seq` Prelude.rnf messageId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf error `Prelude.seq`
+      Prelude.rnf messageId `Prelude.seq`
+        Prelude.rnf status

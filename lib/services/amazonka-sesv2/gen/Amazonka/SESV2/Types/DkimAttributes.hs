@@ -279,10 +279,10 @@ instance Prelude.Hashable DkimAttributes where
 
 instance Prelude.NFData DkimAttributes where
   rnf DkimAttributes' {..} =
-    Prelude.rnf currentSigningKeyLength
-      `Prelude.seq` Prelude.rnf lastKeyGenerationTimestamp
-      `Prelude.seq` Prelude.rnf nextSigningKeyLength
-      `Prelude.seq` Prelude.rnf signingAttributesOrigin
-      `Prelude.seq` Prelude.rnf signingEnabled
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf tokens
+    Prelude.rnf currentSigningKeyLength `Prelude.seq`
+      Prelude.rnf lastKeyGenerationTimestamp `Prelude.seq`
+        Prelude.rnf nextSigningKeyLength `Prelude.seq`
+          Prelude.rnf signingAttributesOrigin `Prelude.seq`
+            Prelude.rnf signingEnabled `Prelude.seq`
+              Prelude.rnf status `Prelude.seq`
+                Prelude.rnf tokens

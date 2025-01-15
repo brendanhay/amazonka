@@ -73,8 +73,8 @@ instance Prelude.Hashable ListContactsFilter where
 
 instance Prelude.NFData ListContactsFilter where
   rnf ListContactsFilter' {..} =
-    Prelude.rnf filteredStatus
-      `Prelude.seq` Prelude.rnf topicFilter
+    Prelude.rnf filteredStatus `Prelude.seq`
+      Prelude.rnf topicFilter
 
 instance Data.ToJSON ListContactsFilter where
   toJSON ListContactsFilter' {..} =

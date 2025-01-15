@@ -120,8 +120,8 @@ instance
 
 instance Prelude.NFData PutConfigurationSetVdmOptions where
   rnf PutConfigurationSetVdmOptions' {..} =
-    Prelude.rnf vdmOptions
-      `Prelude.seq` Prelude.rnf configurationSetName
+    Prelude.rnf vdmOptions `Prelude.seq`
+      Prelude.rnf configurationSetName
 
 instance Data.ToHeaders PutConfigurationSetVdmOptions where
   toHeaders =

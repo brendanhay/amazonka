@@ -154,10 +154,10 @@ instance Prelude.Hashable ListContacts where
 
 instance Prelude.NFData ListContacts where
   rnf ListContacts' {..} =
-    Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf pageSize
-      `Prelude.seq` Prelude.rnf contactListName
+    Prelude.rnf filter' `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf pageSize `Prelude.seq`
+          Prelude.rnf contactListName
 
 instance Data.ToHeaders ListContacts where
   toHeaders =
@@ -243,6 +243,6 @@ listContactsResponse_httpStatus = Lens.lens (\ListContactsResponse' {httpStatus}
 
 instance Prelude.NFData ListContactsResponse where
   rnf ListContactsResponse' {..} =
-    Prelude.rnf contacts
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf contacts `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

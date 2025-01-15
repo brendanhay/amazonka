@@ -89,8 +89,8 @@ instance Prelude.Hashable VdmOptions where
 
 instance Prelude.NFData VdmOptions where
   rnf VdmOptions' {..} =
-    Prelude.rnf dashboardOptions
-      `Prelude.seq` Prelude.rnf guardianOptions
+    Prelude.rnf dashboardOptions `Prelude.seq`
+      Prelude.rnf guardianOptions
 
 instance Data.ToJSON VdmOptions where
   toJSON VdmOptions' {..} =

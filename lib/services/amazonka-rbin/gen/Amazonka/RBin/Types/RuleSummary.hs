@@ -149,7 +149,7 @@ instance Prelude.Hashable RuleSummary where
 
 instance Prelude.NFData RuleSummary where
   rnf RuleSummary' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf identifier
-      `Prelude.seq` Prelude.rnf lockState
-      `Prelude.seq` Prelude.rnf retentionPeriod
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf identifier `Prelude.seq`
+        Prelude.rnf lockState `Prelude.seq`
+          Prelude.rnf retentionPeriod

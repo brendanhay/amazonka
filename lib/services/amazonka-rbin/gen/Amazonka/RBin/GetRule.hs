@@ -296,13 +296,13 @@ getRuleResponse_httpStatus = Lens.lens (\GetRuleResponse' {httpStatus} -> httpSt
 
 instance Prelude.NFData GetRuleResponse where
   rnf GetRuleResponse' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf identifier
-      `Prelude.seq` Prelude.rnf lockConfiguration
-      `Prelude.seq` Prelude.rnf lockEndTime
-      `Prelude.seq` Prelude.rnf lockState
-      `Prelude.seq` Prelude.rnf resourceTags
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf retentionPeriod
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf identifier `Prelude.seq`
+        Prelude.rnf lockConfiguration `Prelude.seq`
+          Prelude.rnf lockEndTime `Prelude.seq`
+            Prelude.rnf lockState `Prelude.seq`
+              Prelude.rnf resourceTags `Prelude.seq`
+                Prelude.rnf resourceType `Prelude.seq`
+                  Prelude.rnf retentionPeriod `Prelude.seq`
+                    Prelude.rnf status `Prelude.seq`
+                      Prelude.rnf httpStatus

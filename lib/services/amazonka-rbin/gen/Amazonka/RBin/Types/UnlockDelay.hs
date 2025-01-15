@@ -94,8 +94,8 @@ instance Prelude.Hashable UnlockDelay where
 
 instance Prelude.NFData UnlockDelay where
   rnf UnlockDelay' {..} =
-    Prelude.rnf unlockDelayValue
-      `Prelude.seq` Prelude.rnf unlockDelayUnit
+    Prelude.rnf unlockDelayValue `Prelude.seq`
+      Prelude.rnf unlockDelayUnit
 
 instance Data.ToJSON UnlockDelay where
   toJSON UnlockDelay' {..} =

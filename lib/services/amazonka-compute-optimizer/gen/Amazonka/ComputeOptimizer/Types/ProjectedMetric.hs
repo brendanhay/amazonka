@@ -184,6 +184,6 @@ instance Prelude.Hashable ProjectedMetric where
 
 instance Prelude.NFData ProjectedMetric where
   rnf ProjectedMetric' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf timestamps
-      `Prelude.seq` Prelude.rnf values
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf timestamps `Prelude.seq`
+        Prelude.rnf values

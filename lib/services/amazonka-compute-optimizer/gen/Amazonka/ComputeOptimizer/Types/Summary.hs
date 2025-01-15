@@ -96,6 +96,6 @@ instance Prelude.Hashable Summary where
 
 instance Prelude.NFData Summary where
   rnf Summary' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf reasonCodeSummaries
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf reasonCodeSummaries `Prelude.seq`
+        Prelude.rnf value

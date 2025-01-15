@@ -395,15 +395,15 @@ instance
 
 instance Prelude.NFData LambdaFunctionRecommendation where
   rnf LambdaFunctionRecommendation' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf currentMemorySize
-      `Prelude.seq` Prelude.rnf currentPerformanceRisk
-      `Prelude.seq` Prelude.rnf finding
-      `Prelude.seq` Prelude.rnf findingReasonCodes
-      `Prelude.seq` Prelude.rnf functionArn
-      `Prelude.seq` Prelude.rnf functionVersion
-      `Prelude.seq` Prelude.rnf lastRefreshTimestamp
-      `Prelude.seq` Prelude.rnf lookbackPeriodInDays
-      `Prelude.seq` Prelude.rnf memorySizeRecommendationOptions
-      `Prelude.seq` Prelude.rnf numberOfInvocations
-      `Prelude.seq` Prelude.rnf utilizationMetrics
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf currentMemorySize `Prelude.seq`
+        Prelude.rnf currentPerformanceRisk `Prelude.seq`
+          Prelude.rnf finding `Prelude.seq`
+            Prelude.rnf findingReasonCodes `Prelude.seq`
+              Prelude.rnf functionArn `Prelude.seq`
+                Prelude.rnf functionVersion `Prelude.seq`
+                  Prelude.rnf lastRefreshTimestamp `Prelude.seq`
+                    Prelude.rnf lookbackPeriodInDays `Prelude.seq`
+                      Prelude.rnf memorySizeRecommendationOptions `Prelude.seq`
+                        Prelude.rnf numberOfInvocations `Prelude.seq`
+                          Prelude.rnf utilizationMetrics

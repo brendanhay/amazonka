@@ -115,7 +115,7 @@ instance
 
 instance Prelude.NFData AutoScalingGroupConfiguration where
   rnf AutoScalingGroupConfiguration' {..} =
-    Prelude.rnf desiredCapacity
-      `Prelude.seq` Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf maxSize
-      `Prelude.seq` Prelude.rnf minSize
+    Prelude.rnf desiredCapacity `Prelude.seq`
+      Prelude.rnf instanceType `Prelude.seq`
+        Prelude.rnf maxSize `Prelude.seq`
+          Prelude.rnf minSize

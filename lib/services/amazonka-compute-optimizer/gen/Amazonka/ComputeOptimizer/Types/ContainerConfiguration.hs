@@ -94,6 +94,6 @@ instance Prelude.Hashable ContainerConfiguration where
 
 instance Prelude.NFData ContainerConfiguration where
   rnf ContainerConfiguration' {..} =
-    Prelude.rnf containerName
-      `Prelude.seq` Prelude.rnf cpu
-      `Prelude.seq` Prelude.rnf memorySizeConfiguration
+    Prelude.rnf containerName `Prelude.seq`
+      Prelude.rnf cpu `Prelude.seq`
+        Prelude.rnf memorySizeConfiguration

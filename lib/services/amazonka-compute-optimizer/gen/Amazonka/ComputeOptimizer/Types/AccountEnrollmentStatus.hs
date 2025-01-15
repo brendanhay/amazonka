@@ -120,7 +120,7 @@ instance Prelude.Hashable AccountEnrollmentStatus where
 
 instance Prelude.NFData AccountEnrollmentStatus where
   rnf AccountEnrollmentStatus' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf lastUpdatedTimestamp
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusReason
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf lastUpdatedTimestamp `Prelude.seq`
+        Prelude.rnf status `Prelude.seq`
+          Prelude.rnf statusReason

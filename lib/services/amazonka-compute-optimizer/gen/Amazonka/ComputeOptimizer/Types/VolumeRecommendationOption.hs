@@ -145,7 +145,7 @@ instance Prelude.Hashable VolumeRecommendationOption where
 
 instance Prelude.NFData VolumeRecommendationOption where
   rnf VolumeRecommendationOption' {..} =
-    Prelude.rnf configuration
-      `Prelude.seq` Prelude.rnf performanceRisk
-      `Prelude.seq` Prelude.rnf rank
-      `Prelude.seq` Prelude.rnf savingsOpportunity
+    Prelude.rnf configuration `Prelude.seq`
+      Prelude.rnf performanceRisk `Prelude.seq`
+        Prelude.rnf rank `Prelude.seq`
+          Prelude.rnf savingsOpportunity

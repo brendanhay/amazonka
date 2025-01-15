@@ -164,12 +164,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeRecommendationExportJobs_nextToken
-          Lens..~ rs
-          Lens.^? describeRecommendationExportJobsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeRecommendationExportJobs_nextToken
+              Lens..~ rs
+              Lens.^? describeRecommendationExportJobsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -210,10 +210,10 @@ instance
     DescribeRecommendationExportJobs
   where
   rnf DescribeRecommendationExportJobs' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf jobIds
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf jobIds `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken
 
 instance
   Data.ToHeaders
@@ -317,6 +317,6 @@ instance
     DescribeRecommendationExportJobsResponse
   where
   rnf DescribeRecommendationExportJobsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf recommendationExportJobs
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf recommendationExportJobs `Prelude.seq`
+        Prelude.rnf httpStatus

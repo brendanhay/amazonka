@@ -136,7 +136,7 @@ instance
     LambdaFunctionMemoryRecommendationOption
   where
   rnf LambdaFunctionMemoryRecommendationOption' {..} =
-    Prelude.rnf memorySize
-      `Prelude.seq` Prelude.rnf projectedUtilizationMetrics
-      `Prelude.seq` Prelude.rnf rank
-      `Prelude.seq` Prelude.rnf savingsOpportunity
+    Prelude.rnf memorySize `Prelude.seq`
+      Prelude.rnf projectedUtilizationMetrics `Prelude.seq`
+        Prelude.rnf rank `Prelude.seq`
+          Prelude.rnf savingsOpportunity

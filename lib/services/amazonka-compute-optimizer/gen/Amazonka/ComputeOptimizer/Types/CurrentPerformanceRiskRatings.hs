@@ -122,7 +122,7 @@ instance
 
 instance Prelude.NFData CurrentPerformanceRiskRatings where
   rnf CurrentPerformanceRiskRatings' {..} =
-    Prelude.rnf high
-      `Prelude.seq` Prelude.rnf low
-      `Prelude.seq` Prelude.rnf medium
-      `Prelude.seq` Prelude.rnf veryLow
+    Prelude.rnf high `Prelude.seq`
+      Prelude.rnf low `Prelude.seq`
+        Prelude.rnf medium `Prelude.seq`
+          Prelude.rnf veryLow

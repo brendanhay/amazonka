@@ -184,7 +184,7 @@ instance
     ECSServiceProjectedUtilizationMetric
   where
   rnf ECSServiceProjectedUtilizationMetric' {..} =
-    Prelude.rnf lowerBoundValue
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf statistic
-      `Prelude.seq` Prelude.rnf upperBoundValue
+    Prelude.rnf lowerBoundValue `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf statistic `Prelude.seq`
+          Prelude.rnf upperBoundValue

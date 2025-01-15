@@ -416,6 +416,6 @@ instance Prelude.Hashable UtilizationMetric where
 
 instance Prelude.NFData UtilizationMetric where
   rnf UtilizationMetric' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf statistic
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf statistic `Prelude.seq`
+        Prelude.rnf value

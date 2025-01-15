@@ -106,6 +106,6 @@ instance
     LambdaFunctionMemoryProjectedMetric
   where
   rnf LambdaFunctionMemoryProjectedMetric' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf statistic
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf statistic `Prelude.seq`
+        Prelude.rnf value

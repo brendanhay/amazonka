@@ -109,5 +109,5 @@ instance Prelude.Hashable SavingsOpportunity where
 
 instance Prelude.NFData SavingsOpportunity where
   rnf SavingsOpportunity' {..} =
-    Prelude.rnf estimatedMonthlySavings
-      `Prelude.seq` Prelude.rnf savingsOpportunityPercentage
+    Prelude.rnf estimatedMonthlySavings `Prelude.seq`
+      Prelude.rnf savingsOpportunityPercentage

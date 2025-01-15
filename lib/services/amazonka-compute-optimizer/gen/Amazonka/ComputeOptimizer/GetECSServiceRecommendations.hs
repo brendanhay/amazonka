@@ -204,11 +204,11 @@ instance
 
 instance Prelude.NFData GetECSServiceRecommendations where
   rnf GetECSServiceRecommendations' {..} =
-    Prelude.rnf accountIds
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf serviceArns
+    Prelude.rnf accountIds `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf serviceArns
 
 instance Data.ToHeaders GetECSServiceRecommendations where
   toHeaders =
@@ -305,7 +305,7 @@ instance
     GetECSServiceRecommendationsResponse
   where
   rnf GetECSServiceRecommendationsResponse' {..} =
-    Prelude.rnf ecsServiceRecommendations
-      `Prelude.seq` Prelude.rnf errors
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf ecsServiceRecommendations `Prelude.seq`
+      Prelude.rnf errors `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf httpStatus

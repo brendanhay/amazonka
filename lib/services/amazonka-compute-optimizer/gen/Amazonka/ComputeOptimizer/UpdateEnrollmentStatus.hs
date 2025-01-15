@@ -181,8 +181,8 @@ instance Prelude.Hashable UpdateEnrollmentStatus where
 
 instance Prelude.NFData UpdateEnrollmentStatus where
   rnf UpdateEnrollmentStatus' {..} =
-    Prelude.rnf includeMemberAccounts
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf includeMemberAccounts `Prelude.seq`
+      Prelude.rnf status
 
 instance Data.ToHeaders UpdateEnrollmentStatus where
   toHeaders =
@@ -274,6 +274,6 @@ instance
     UpdateEnrollmentStatusResponse
   where
   rnf UpdateEnrollmentStatusResponse' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusReason
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf status `Prelude.seq`
+      Prelude.rnf statusReason `Prelude.seq`
+        Prelude.rnf httpStatus

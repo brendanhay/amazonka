@@ -765,17 +765,17 @@ instance Prelude.Hashable InstanceRecommendation where
 
 instance Prelude.NFData InstanceRecommendation where
   rnf InstanceRecommendation' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf currentInstanceType
-      `Prelude.seq` Prelude.rnf currentPerformanceRisk
-      `Prelude.seq` Prelude.rnf effectiveRecommendationPreferences
-      `Prelude.seq` Prelude.rnf finding
-      `Prelude.seq` Prelude.rnf findingReasonCodes
-      `Prelude.seq` Prelude.rnf inferredWorkloadTypes
-      `Prelude.seq` Prelude.rnf instanceArn
-      `Prelude.seq` Prelude.rnf instanceName
-      `Prelude.seq` Prelude.rnf lastRefreshTimestamp
-      `Prelude.seq` Prelude.rnf lookBackPeriodInDays
-      `Prelude.seq` Prelude.rnf recommendationOptions
-      `Prelude.seq` Prelude.rnf recommendationSources
-      `Prelude.seq` Prelude.rnf utilizationMetrics
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf currentInstanceType `Prelude.seq`
+        Prelude.rnf currentPerformanceRisk `Prelude.seq`
+          Prelude.rnf effectiveRecommendationPreferences `Prelude.seq`
+            Prelude.rnf finding `Prelude.seq`
+              Prelude.rnf findingReasonCodes `Prelude.seq`
+                Prelude.rnf inferredWorkloadTypes `Prelude.seq`
+                  Prelude.rnf instanceArn `Prelude.seq`
+                    Prelude.rnf instanceName `Prelude.seq`
+                      Prelude.rnf lastRefreshTimestamp `Prelude.seq`
+                        Prelude.rnf lookBackPeriodInDays `Prelude.seq`
+                          Prelude.rnf recommendationOptions `Prelude.seq`
+                            Prelude.rnf recommendationSources `Prelude.seq`
+                              Prelude.rnf utilizationMetrics

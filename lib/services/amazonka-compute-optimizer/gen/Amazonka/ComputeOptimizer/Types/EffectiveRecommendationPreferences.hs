@@ -231,7 +231,7 @@ instance
     EffectiveRecommendationPreferences
   where
   rnf EffectiveRecommendationPreferences' {..} =
-    Prelude.rnf cpuVendorArchitectures
-      `Prelude.seq` Prelude.rnf enhancedInfrastructureMetrics
-      `Prelude.seq` Prelude.rnf externalMetricsPreference
-      `Prelude.seq` Prelude.rnf inferredWorkloadTypes
+    Prelude.rnf cpuVendorArchitectures `Prelude.seq`
+      Prelude.rnf enhancedInfrastructureMetrics `Prelude.seq`
+        Prelude.rnf externalMetricsPreference `Prelude.seq`
+          Prelude.rnf inferredWorkloadTypes

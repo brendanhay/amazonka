@@ -185,11 +185,11 @@ instance
     GetECSServiceRecommendationProjectedMetrics
   where
   rnf GetECSServiceRecommendationProjectedMetrics' {..} =
-    Prelude.rnf serviceArn
-      `Prelude.seq` Prelude.rnf stat
-      `Prelude.seq` Prelude.rnf period
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf endTime
+    Prelude.rnf serviceArn `Prelude.seq`
+      Prelude.rnf stat `Prelude.seq`
+        Prelude.rnf period `Prelude.seq`
+          Prelude.rnf startTime `Prelude.seq`
+            Prelude.rnf endTime
 
 instance
   Data.ToHeaders
@@ -284,5 +284,5 @@ instance
   where
   rnf
     GetECSServiceRecommendationProjectedMetricsResponse' {..} =
-      Prelude.rnf recommendedOptionProjectedMetrics
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf recommendedOptionProjectedMetrics `Prelude.seq`
+        Prelude.rnf httpStatus

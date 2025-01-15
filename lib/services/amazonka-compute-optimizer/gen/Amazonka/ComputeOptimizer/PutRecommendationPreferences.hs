@@ -313,11 +313,11 @@ instance
 
 instance Prelude.NFData PutRecommendationPreferences where
   rnf PutRecommendationPreferences' {..} =
-    Prelude.rnf enhancedInfrastructureMetrics
-      `Prelude.seq` Prelude.rnf externalMetricsPreference
-      `Prelude.seq` Prelude.rnf inferredWorkloadTypes
-      `Prelude.seq` Prelude.rnf scope
-      `Prelude.seq` Prelude.rnf resourceType
+    Prelude.rnf enhancedInfrastructureMetrics `Prelude.seq`
+      Prelude.rnf externalMetricsPreference `Prelude.seq`
+        Prelude.rnf inferredWorkloadTypes `Prelude.seq`
+          Prelude.rnf scope `Prelude.seq`
+            Prelude.rnf resourceType
 
 instance Data.ToHeaders PutRecommendationPreferences where
   toHeaders =

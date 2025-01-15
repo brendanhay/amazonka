@@ -524,10 +524,10 @@ instance
 
 instance Prelude.NFData InstanceRecommendationOption where
   rnf InstanceRecommendationOption' {..} =
-    Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf migrationEffort
-      `Prelude.seq` Prelude.rnf performanceRisk
-      `Prelude.seq` Prelude.rnf platformDifferences
-      `Prelude.seq` Prelude.rnf projectedUtilizationMetrics
-      `Prelude.seq` Prelude.rnf rank
-      `Prelude.seq` Prelude.rnf savingsOpportunity
+    Prelude.rnf instanceType `Prelude.seq`
+      Prelude.rnf migrationEffort `Prelude.seq`
+        Prelude.rnf performanceRisk `Prelude.seq`
+          Prelude.rnf platformDifferences `Prelude.seq`
+            Prelude.rnf projectedUtilizationMetrics `Prelude.seq`
+              Prelude.rnf rank `Prelude.seq`
+                Prelude.rnf savingsOpportunity

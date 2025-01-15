@@ -203,6 +203,6 @@ instance Prelude.Hashable EBSUtilizationMetric where
 
 instance Prelude.NFData EBSUtilizationMetric where
   rnf EBSUtilizationMetric' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf statistic
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf statistic `Prelude.seq`
+        Prelude.rnf value

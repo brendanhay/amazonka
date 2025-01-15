@@ -126,8 +126,8 @@ instance Prelude.Hashable RecommendationSummary where
 
 instance Prelude.NFData RecommendationSummary where
   rnf RecommendationSummary' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf currentPerformanceRiskRatings
-      `Prelude.seq` Prelude.rnf recommendationResourceType
-      `Prelude.seq` Prelude.rnf savingsOpportunity
-      `Prelude.seq` Prelude.rnf summaries
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf currentPerformanceRiskRatings `Prelude.seq`
+        Prelude.rnf recommendationResourceType `Prelude.seq`
+          Prelude.rnf savingsOpportunity `Prelude.seq`
+            Prelude.rnf summaries

@@ -138,9 +138,9 @@ instance Prelude.Hashable VolumeConfiguration where
 
 instance Prelude.NFData VolumeConfiguration where
   rnf VolumeConfiguration' {..} =
-    Prelude.rnf volumeBaselineIOPS
-      `Prelude.seq` Prelude.rnf volumeBaselineThroughput
-      `Prelude.seq` Prelude.rnf volumeBurstIOPS
-      `Prelude.seq` Prelude.rnf volumeBurstThroughput
-      `Prelude.seq` Prelude.rnf volumeSize
-      `Prelude.seq` Prelude.rnf volumeType
+    Prelude.rnf volumeBaselineIOPS `Prelude.seq`
+      Prelude.rnf volumeBaselineThroughput `Prelude.seq`
+        Prelude.rnf volumeBurstIOPS `Prelude.seq`
+          Prelude.rnf volumeBurstThroughput `Prelude.seq`
+            Prelude.rnf volumeSize `Prelude.seq`
+              Prelude.rnf volumeType

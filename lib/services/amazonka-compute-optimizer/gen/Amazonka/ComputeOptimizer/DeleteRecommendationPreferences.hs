@@ -177,9 +177,9 @@ instance
     DeleteRecommendationPreferences
   where
   rnf DeleteRecommendationPreferences' {..} =
-    Prelude.rnf scope
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf recommendationPreferenceNames
+    Prelude.rnf scope `Prelude.seq`
+      Prelude.rnf resourceType `Prelude.seq`
+        Prelude.rnf recommendationPreferenceNames
 
 instance
   Data.ToHeaders

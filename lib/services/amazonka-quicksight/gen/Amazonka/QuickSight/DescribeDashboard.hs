@@ -140,10 +140,10 @@ instance Prelude.Hashable DescribeDashboard where
 
 instance Prelude.NFData DescribeDashboard where
   rnf DescribeDashboard' {..} =
-    Prelude.rnf aliasName
-      `Prelude.seq` Prelude.rnf versionNumber
-      `Prelude.seq` Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf dashboardId
+    Prelude.rnf aliasName `Prelude.seq`
+      Prelude.rnf versionNumber `Prelude.seq`
+        Prelude.rnf awsAccountId `Prelude.seq`
+          Prelude.rnf dashboardId
 
 instance Data.ToHeaders DescribeDashboard where
   toHeaders =
@@ -222,6 +222,6 @@ describeDashboardResponse_status = Lens.lens (\DescribeDashboardResponse' {statu
 
 instance Prelude.NFData DescribeDashboardResponse where
   rnf DescribeDashboardResponse' {..} =
-    Prelude.rnf dashboard
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf dashboard `Prelude.seq`
+      Prelude.rnf requestId `Prelude.seq`
+        Prelude.rnf status

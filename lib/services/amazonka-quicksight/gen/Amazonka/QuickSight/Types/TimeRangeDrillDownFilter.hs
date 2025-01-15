@@ -116,10 +116,10 @@ instance Prelude.Hashable TimeRangeDrillDownFilter where
 
 instance Prelude.NFData TimeRangeDrillDownFilter where
   rnf TimeRangeDrillDownFilter' {..} =
-    Prelude.rnf column
-      `Prelude.seq` Prelude.rnf rangeMinimum
-      `Prelude.seq` Prelude.rnf rangeMaximum
-      `Prelude.seq` Prelude.rnf timeGranularity
+    Prelude.rnf column `Prelude.seq`
+      Prelude.rnf rangeMinimum `Prelude.seq`
+        Prelude.rnf rangeMaximum `Prelude.seq`
+          Prelude.rnf timeGranularity
 
 instance Data.ToJSON TimeRangeDrillDownFilter where
   toJSON TimeRangeDrillDownFilter' {..} =

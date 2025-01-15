@@ -148,10 +148,10 @@ instance Prelude.Hashable CreateGroupMembership where
 
 instance Prelude.NFData CreateGroupMembership where
   rnf CreateGroupMembership' {..} =
-    Prelude.rnf memberName
-      `Prelude.seq` Prelude.rnf groupName
-      `Prelude.seq` Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf namespace
+    Prelude.rnf memberName `Prelude.seq`
+      Prelude.rnf groupName `Prelude.seq`
+        Prelude.rnf awsAccountId `Prelude.seq`
+          Prelude.rnf namespace
 
 instance Data.ToHeaders CreateGroupMembership where
   toHeaders =
@@ -233,6 +233,6 @@ createGroupMembershipResponse_status = Lens.lens (\CreateGroupMembershipResponse
 
 instance Prelude.NFData CreateGroupMembershipResponse where
   rnf CreateGroupMembershipResponse' {..} =
-    Prelude.rnf groupMember
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf groupMember `Prelude.seq`
+      Prelude.rnf requestId `Prelude.seq`
+        Prelude.rnf status

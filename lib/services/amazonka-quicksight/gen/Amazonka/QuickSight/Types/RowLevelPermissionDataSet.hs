@@ -158,11 +158,11 @@ instance Prelude.Hashable RowLevelPermissionDataSet where
 
 instance Prelude.NFData RowLevelPermissionDataSet where
   rnf RowLevelPermissionDataSet' {..} =
-    Prelude.rnf formatVersion
-      `Prelude.seq` Prelude.rnf namespace
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf permissionPolicy
+    Prelude.rnf formatVersion `Prelude.seq`
+      Prelude.rnf namespace `Prelude.seq`
+        Prelude.rnf status `Prelude.seq`
+          Prelude.rnf arn `Prelude.seq`
+            Prelude.rnf permissionPolicy
 
 instance Data.ToJSON RowLevelPermissionDataSet where
   toJSON RowLevelPermissionDataSet' {..} =

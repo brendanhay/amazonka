@@ -111,10 +111,10 @@ instance Prelude.Hashable DataFieldSeriesItem where
 
 instance Prelude.NFData DataFieldSeriesItem where
   rnf DataFieldSeriesItem' {..} =
-    Prelude.rnf fieldValue
-      `Prelude.seq` Prelude.rnf settings
-      `Prelude.seq` Prelude.rnf fieldId
-      `Prelude.seq` Prelude.rnf axisBinding
+    Prelude.rnf fieldValue `Prelude.seq`
+      Prelude.rnf settings `Prelude.seq`
+        Prelude.rnf fieldId `Prelude.seq`
+          Prelude.rnf axisBinding
 
 instance Data.ToJSON DataFieldSeriesItem where
   toJSON DataFieldSeriesItem' {..} =

@@ -91,8 +91,8 @@ instance Prelude.Hashable TagColumnOperation where
 
 instance Prelude.NFData TagColumnOperation where
   rnf TagColumnOperation' {..} =
-    Prelude.rnf columnName
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf columnName `Prelude.seq`
+      Prelude.rnf tags
 
 instance Data.ToJSON TagColumnOperation where
   toJSON TagColumnOperation' {..} =

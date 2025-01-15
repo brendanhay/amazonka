@@ -171,5 +171,5 @@ instance
     DeleteAccountSubscriptionResponse
   where
   rnf DeleteAccountSubscriptionResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf requestId `Prelude.seq`
+      Prelude.rnf status

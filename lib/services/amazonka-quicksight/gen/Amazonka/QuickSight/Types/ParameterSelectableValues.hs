@@ -82,8 +82,8 @@ instance Prelude.Hashable ParameterSelectableValues where
 
 instance Prelude.NFData ParameterSelectableValues where
   rnf ParameterSelectableValues' {..} =
-    Prelude.rnf linkToDataSetColumn
-      `Prelude.seq` Prelude.rnf values
+    Prelude.rnf linkToDataSetColumn `Prelude.seq`
+      Prelude.rnf values
 
 instance Data.ToJSON ParameterSelectableValues where
   toJSON ParameterSelectableValues' {..} =

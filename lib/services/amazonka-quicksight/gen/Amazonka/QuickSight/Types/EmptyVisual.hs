@@ -109,9 +109,9 @@ instance Prelude.Hashable EmptyVisual where
 
 instance Prelude.NFData EmptyVisual where
   rnf EmptyVisual' {..} =
-    Prelude.rnf actions
-      `Prelude.seq` Prelude.rnf visualId
-      `Prelude.seq` Prelude.rnf dataSetIdentifier
+    Prelude.rnf actions `Prelude.seq`
+      Prelude.rnf visualId `Prelude.seq`
+        Prelude.rnf dataSetIdentifier
 
 instance Data.ToJSON EmptyVisual where
   toJSON EmptyVisual' {..} =

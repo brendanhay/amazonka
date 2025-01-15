@@ -177,12 +177,12 @@ instance
     ReferenceLineLabelConfiguration
   where
   rnf ReferenceLineLabelConfiguration' {..} =
-    Prelude.rnf customLabelConfiguration
-      `Prelude.seq` Prelude.rnf fontColor
-      `Prelude.seq` Prelude.rnf fontConfiguration
-      `Prelude.seq` Prelude.rnf horizontalPosition
-      `Prelude.seq` Prelude.rnf valueLabelConfiguration
-      `Prelude.seq` Prelude.rnf verticalPosition
+    Prelude.rnf customLabelConfiguration `Prelude.seq`
+      Prelude.rnf fontColor `Prelude.seq`
+        Prelude.rnf fontConfiguration `Prelude.seq`
+          Prelude.rnf horizontalPosition `Prelude.seq`
+            Prelude.rnf valueLabelConfiguration `Prelude.seq`
+              Prelude.rnf verticalPosition
 
 instance Data.ToJSON ReferenceLineLabelConfiguration where
   toJSON ReferenceLineLabelConfiguration' {..} =

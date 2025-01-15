@@ -94,9 +94,9 @@ instance Prelude.Hashable KPIConfiguration where
 
 instance Prelude.NFData KPIConfiguration where
   rnf KPIConfiguration' {..} =
-    Prelude.rnf fieldWells
-      `Prelude.seq` Prelude.rnf kPIOptions
-      `Prelude.seq` Prelude.rnf sortConfiguration
+    Prelude.rnf fieldWells `Prelude.seq`
+      Prelude.rnf kPIOptions `Prelude.seq`
+        Prelude.rnf sortConfiguration
 
 instance Data.ToJSON KPIConfiguration where
   toJSON KPIConfiguration' {..} =

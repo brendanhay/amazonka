@@ -148,10 +148,10 @@ instance Prelude.Hashable UpdateDataSetPermissions where
 
 instance Prelude.NFData UpdateDataSetPermissions where
   rnf UpdateDataSetPermissions' {..} =
-    Prelude.rnf grantPermissions
-      `Prelude.seq` Prelude.rnf revokePermissions
-      `Prelude.seq` Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf dataSetId
+    Prelude.rnf grantPermissions `Prelude.seq`
+      Prelude.rnf revokePermissions `Prelude.seq`
+        Prelude.rnf awsAccountId `Prelude.seq`
+          Prelude.rnf dataSetId
 
 instance Data.ToHeaders UpdateDataSetPermissions where
   toHeaders =
@@ -256,7 +256,7 @@ instance
     UpdateDataSetPermissionsResponse
   where
   rnf UpdateDataSetPermissionsResponse' {..} =
-    Prelude.rnf dataSetArn
-      `Prelude.seq` Prelude.rnf dataSetId
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf dataSetArn `Prelude.seq`
+      Prelude.rnf dataSetId `Prelude.seq`
+        Prelude.rnf requestId `Prelude.seq`
+          Prelude.rnf status

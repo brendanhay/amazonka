@@ -115,11 +115,11 @@ instance Prelude.Hashable UploadSettings where
 
 instance Prelude.NFData UploadSettings where
   rnf UploadSettings' {..} =
-    Prelude.rnf containsHeader
-      `Prelude.seq` Prelude.rnf delimiter
-      `Prelude.seq` Prelude.rnf format
-      `Prelude.seq` Prelude.rnf startFromRow
-      `Prelude.seq` Prelude.rnf textQualifier
+    Prelude.rnf containsHeader `Prelude.seq`
+      Prelude.rnf delimiter `Prelude.seq`
+        Prelude.rnf format `Prelude.seq`
+          Prelude.rnf startFromRow `Prelude.seq`
+            Prelude.rnf textQualifier
 
 instance Data.ToJSON UploadSettings where
   toJSON UploadSettings' {..} =

@@ -137,9 +137,9 @@ instance Prelude.Hashable DeleteThemeAlias where
 
 instance Prelude.NFData DeleteThemeAlias where
   rnf DeleteThemeAlias' {..} =
-    Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf themeId
-      `Prelude.seq` Prelude.rnf aliasName
+    Prelude.rnf awsAccountId `Prelude.seq`
+      Prelude.rnf themeId `Prelude.seq`
+        Prelude.rnf aliasName
 
 instance Data.ToHeaders DeleteThemeAlias where
   toHeaders =
@@ -237,8 +237,8 @@ deleteThemeAliasResponse_status = Lens.lens (\DeleteThemeAliasResponse' {status}
 
 instance Prelude.NFData DeleteThemeAliasResponse where
   rnf DeleteThemeAliasResponse' {..} =
-    Prelude.rnf aliasName
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf themeId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf aliasName `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf requestId `Prelude.seq`
+          Prelude.rnf themeId `Prelude.seq`
+            Prelude.rnf status

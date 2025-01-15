@@ -577,29 +577,29 @@ instance Prelude.Hashable Visual where
 
 instance Prelude.NFData Visual where
   rnf Visual' {..} =
-    Prelude.rnf barChartVisual
-      `Prelude.seq` Prelude.rnf boxPlotVisual
-      `Prelude.seq` Prelude.rnf comboChartVisual
-      `Prelude.seq` Prelude.rnf customContentVisual
-      `Prelude.seq` Prelude.rnf emptyVisual
-      `Prelude.seq` Prelude.rnf filledMapVisual
-      `Prelude.seq` Prelude.rnf funnelChartVisual
-      `Prelude.seq` Prelude.rnf gaugeChartVisual
-      `Prelude.seq` Prelude.rnf geospatialMapVisual
-      `Prelude.seq` Prelude.rnf heatMapVisual
-      `Prelude.seq` Prelude.rnf histogramVisual
-      `Prelude.seq` Prelude.rnf insightVisual
-      `Prelude.seq` Prelude.rnf kPIVisual
-      `Prelude.seq` Prelude.rnf lineChartVisual
-      `Prelude.seq` Prelude.rnf pieChartVisual
-      `Prelude.seq` Prelude.rnf pivotTableVisual
-      `Prelude.seq` Prelude.rnf sankeyDiagramVisual
-      `Prelude.seq` Prelude.rnf scatterPlotVisual
-      `Prelude.seq` Prelude.rnf tableVisual
-      `Prelude.seq` Prelude.rnf treeMapVisual
-      `Prelude.seq` Prelude.rnf waterfallVisual
-      `Prelude.seq` Prelude.rnf
-        wordCloudVisual
+    Prelude.rnf barChartVisual `Prelude.seq`
+      Prelude.rnf boxPlotVisual `Prelude.seq`
+        Prelude.rnf comboChartVisual `Prelude.seq`
+          Prelude.rnf customContentVisual `Prelude.seq`
+            Prelude.rnf emptyVisual `Prelude.seq`
+              Prelude.rnf filledMapVisual `Prelude.seq`
+                Prelude.rnf funnelChartVisual `Prelude.seq`
+                  Prelude.rnf gaugeChartVisual `Prelude.seq`
+                    Prelude.rnf geospatialMapVisual `Prelude.seq`
+                      Prelude.rnf heatMapVisual `Prelude.seq`
+                        Prelude.rnf histogramVisual `Prelude.seq`
+                          Prelude.rnf insightVisual `Prelude.seq`
+                            Prelude.rnf kPIVisual `Prelude.seq`
+                              Prelude.rnf lineChartVisual `Prelude.seq`
+                                Prelude.rnf pieChartVisual `Prelude.seq`
+                                  Prelude.rnf pivotTableVisual `Prelude.seq`
+                                    Prelude.rnf sankeyDiagramVisual `Prelude.seq`
+                                      Prelude.rnf scatterPlotVisual `Prelude.seq`
+                                        Prelude.rnf tableVisual `Prelude.seq`
+                                          Prelude.rnf treeMapVisual `Prelude.seq`
+                                            Prelude.rnf waterfallVisual `Prelude.seq`
+                                              Prelude.rnf
+                                                wordCloudVisual
 
 instance Data.ToJSON Visual where
   toJSON Visual' {..} =

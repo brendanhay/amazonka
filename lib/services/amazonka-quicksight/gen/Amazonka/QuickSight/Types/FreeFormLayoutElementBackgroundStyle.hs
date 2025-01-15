@@ -93,8 +93,8 @@ instance
     FreeFormLayoutElementBackgroundStyle
   where
   rnf FreeFormLayoutElementBackgroundStyle' {..} =
-    Prelude.rnf color
-      `Prelude.seq` Prelude.rnf visibility
+    Prelude.rnf color `Prelude.seq`
+      Prelude.rnf visibility
 
 instance
   Data.ToJSON

@@ -83,8 +83,8 @@ instance Prelude.Hashable ConditionalFormattingColor where
 
 instance Prelude.NFData ConditionalFormattingColor where
   rnf ConditionalFormattingColor' {..} =
-    Prelude.rnf gradient
-      `Prelude.seq` Prelude.rnf solid
+    Prelude.rnf gradient `Prelude.seq`
+      Prelude.rnf solid
 
 instance Data.ToJSON ConditionalFormattingColor where
   toJSON ConditionalFormattingColor' {..} =

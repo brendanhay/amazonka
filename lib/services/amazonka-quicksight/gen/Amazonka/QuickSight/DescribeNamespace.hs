@@ -115,8 +115,8 @@ instance Prelude.Hashable DescribeNamespace where
 
 instance Prelude.NFData DescribeNamespace where
   rnf DescribeNamespace' {..} =
-    Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf namespace
+    Prelude.rnf awsAccountId `Prelude.seq`
+      Prelude.rnf namespace
 
 instance Data.ToHeaders DescribeNamespace where
   toHeaders =
@@ -206,6 +206,6 @@ describeNamespaceResponse_status = Lens.lens (\DescribeNamespaceResponse' {statu
 
 instance Prelude.NFData DescribeNamespaceResponse where
   rnf DescribeNamespaceResponse' {..} =
-    Prelude.rnf namespace
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf namespace `Prelude.seq`
+      Prelude.rnf requestId `Prelude.seq`
+        Prelude.rnf status

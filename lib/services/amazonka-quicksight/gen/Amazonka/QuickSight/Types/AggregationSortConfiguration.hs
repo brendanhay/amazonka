@@ -118,9 +118,9 @@ instance
 
 instance Prelude.NFData AggregationSortConfiguration where
   rnf AggregationSortConfiguration' {..} =
-    Prelude.rnf column
-      `Prelude.seq` Prelude.rnf sortDirection
-      `Prelude.seq` Prelude.rnf aggregationFunction
+    Prelude.rnf column `Prelude.seq`
+      Prelude.rnf sortDirection `Prelude.seq`
+        Prelude.rnf aggregationFunction
 
 instance Data.ToJSON AggregationSortConfiguration where
   toJSON AggregationSortConfiguration' {..} =

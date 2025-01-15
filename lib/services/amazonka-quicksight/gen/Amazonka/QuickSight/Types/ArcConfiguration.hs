@@ -81,8 +81,8 @@ instance Prelude.Hashable ArcConfiguration where
 
 instance Prelude.NFData ArcConfiguration where
   rnf ArcConfiguration' {..} =
-    Prelude.rnf arcAngle
-      `Prelude.seq` Prelude.rnf arcThickness
+    Prelude.rnf arcAngle `Prelude.seq`
+      Prelude.rnf arcThickness
 
 instance Data.ToJSON ArcConfiguration where
   toJSON ArcConfiguration' {..} =

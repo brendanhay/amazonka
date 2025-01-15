@@ -153,10 +153,10 @@ instance Prelude.Hashable CreateIngestion where
 
 instance Prelude.NFData CreateIngestion where
   rnf CreateIngestion' {..} =
-    Prelude.rnf ingestionType
-      `Prelude.seq` Prelude.rnf dataSetId
-      `Prelude.seq` Prelude.rnf ingestionId
-      `Prelude.seq` Prelude.rnf awsAccountId
+    Prelude.rnf ingestionType `Prelude.seq`
+      Prelude.rnf dataSetId `Prelude.seq`
+        Prelude.rnf ingestionId `Prelude.seq`
+          Prelude.rnf awsAccountId
 
 instance Data.ToHeaders CreateIngestion where
   toHeaders =
@@ -259,8 +259,8 @@ createIngestionResponse_status = Lens.lens (\CreateIngestionResponse' {status} -
 
 instance Prelude.NFData CreateIngestionResponse where
   rnf CreateIngestionResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf ingestionId
-      `Prelude.seq` Prelude.rnf ingestionStatus
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf ingestionId `Prelude.seq`
+        Prelude.rnf ingestionStatus `Prelude.seq`
+          Prelude.rnf requestId `Prelude.seq`
+            Prelude.rnf status

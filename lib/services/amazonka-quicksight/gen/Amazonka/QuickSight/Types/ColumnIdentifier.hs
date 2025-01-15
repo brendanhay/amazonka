@@ -85,8 +85,8 @@ instance Prelude.Hashable ColumnIdentifier where
 
 instance Prelude.NFData ColumnIdentifier where
   rnf ColumnIdentifier' {..} =
-    Prelude.rnf dataSetIdentifier
-      `Prelude.seq` Prelude.rnf columnName
+    Prelude.rnf dataSetIdentifier `Prelude.seq`
+      Prelude.rnf columnName
 
 instance Data.ToJSON ColumnIdentifier where
   toJSON ColumnIdentifier' {..} =

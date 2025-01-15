@@ -114,10 +114,10 @@ instance Prelude.Hashable ParameterDeclaration where
 
 instance Prelude.NFData ParameterDeclaration where
   rnf ParameterDeclaration' {..} =
-    Prelude.rnf dateTimeParameterDeclaration
-      `Prelude.seq` Prelude.rnf decimalParameterDeclaration
-      `Prelude.seq` Prelude.rnf integerParameterDeclaration
-      `Prelude.seq` Prelude.rnf stringParameterDeclaration
+    Prelude.rnf dateTimeParameterDeclaration `Prelude.seq`
+      Prelude.rnf decimalParameterDeclaration `Prelude.seq`
+        Prelude.rnf integerParameterDeclaration `Prelude.seq`
+          Prelude.rnf stringParameterDeclaration
 
 instance Data.ToJSON ParameterDeclaration where
   toJSON ParameterDeclaration' {..} =

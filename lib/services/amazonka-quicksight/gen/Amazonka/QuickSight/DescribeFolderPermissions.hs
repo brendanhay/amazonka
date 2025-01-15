@@ -119,8 +119,8 @@ instance Prelude.Hashable DescribeFolderPermissions where
 
 instance Prelude.NFData DescribeFolderPermissions where
   rnf DescribeFolderPermissions' {..} =
-    Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf folderId
+    Prelude.rnf awsAccountId `Prelude.seq`
+      Prelude.rnf folderId
 
 instance Data.ToHeaders DescribeFolderPermissions where
   toHeaders =
@@ -217,8 +217,8 @@ instance
     DescribeFolderPermissionsResponse
   where
   rnf DescribeFolderPermissionsResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf folderId
-      `Prelude.seq` Prelude.rnf permissions
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf folderId `Prelude.seq`
+        Prelude.rnf permissions `Prelude.seq`
+          Prelude.rnf requestId `Prelude.seq`
+            Prelude.rnf status

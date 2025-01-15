@@ -143,12 +143,12 @@ instance
     PercentageDisplayFormatConfiguration
   where
   rnf PercentageDisplayFormatConfiguration' {..} =
-    Prelude.rnf decimalPlacesConfiguration
-      `Prelude.seq` Prelude.rnf negativeValueConfiguration
-      `Prelude.seq` Prelude.rnf nullValueFormatConfiguration
-      `Prelude.seq` Prelude.rnf prefix
-      `Prelude.seq` Prelude.rnf separatorConfiguration
-      `Prelude.seq` Prelude.rnf suffix
+    Prelude.rnf decimalPlacesConfiguration `Prelude.seq`
+      Prelude.rnf negativeValueConfiguration `Prelude.seq`
+        Prelude.rnf nullValueFormatConfiguration `Prelude.seq`
+          Prelude.rnf prefix `Prelude.seq`
+            Prelude.rnf separatorConfiguration `Prelude.seq`
+              Prelude.rnf suffix
 
 instance
   Data.ToJSON

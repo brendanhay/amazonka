@@ -211,12 +211,12 @@ instance Prelude.Hashable UpdateIAMPolicyAssignment where
 
 instance Prelude.NFData UpdateIAMPolicyAssignment where
   rnf UpdateIAMPolicyAssignment' {..} =
-    Prelude.rnf assignmentStatus
-      `Prelude.seq` Prelude.rnf identities
-      `Prelude.seq` Prelude.rnf policyArn
-      `Prelude.seq` Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf assignmentName
-      `Prelude.seq` Prelude.rnf namespace
+    Prelude.rnf assignmentStatus `Prelude.seq`
+      Prelude.rnf identities `Prelude.seq`
+        Prelude.rnf policyArn `Prelude.seq`
+          Prelude.rnf awsAccountId `Prelude.seq`
+            Prelude.rnf assignmentName `Prelude.seq`
+              Prelude.rnf namespace
 
 instance Data.ToHeaders UpdateIAMPolicyAssignment where
   toHeaders =
@@ -376,10 +376,10 @@ instance
     UpdateIAMPolicyAssignmentResponse
   where
   rnf UpdateIAMPolicyAssignmentResponse' {..} =
-    Prelude.rnf assignmentId
-      `Prelude.seq` Prelude.rnf assignmentName
-      `Prelude.seq` Prelude.rnf assignmentStatus
-      `Prelude.seq` Prelude.rnf identities
-      `Prelude.seq` Prelude.rnf policyArn
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf assignmentId `Prelude.seq`
+      Prelude.rnf assignmentName `Prelude.seq`
+        Prelude.rnf assignmentStatus `Prelude.seq`
+          Prelude.rnf identities `Prelude.seq`
+            Prelude.rnf policyArn `Prelude.seq`
+              Prelude.rnf requestId `Prelude.seq`
+                Prelude.rnf status

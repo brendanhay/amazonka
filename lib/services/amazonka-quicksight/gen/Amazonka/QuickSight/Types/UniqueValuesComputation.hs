@@ -96,9 +96,9 @@ instance Prelude.Hashable UniqueValuesComputation where
 
 instance Prelude.NFData UniqueValuesComputation where
   rnf UniqueValuesComputation' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf computationId
-      `Prelude.seq` Prelude.rnf category
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf computationId `Prelude.seq`
+        Prelude.rnf category
 
 instance Data.ToJSON UniqueValuesComputation where
   toJSON UniqueValuesComputation' {..} =

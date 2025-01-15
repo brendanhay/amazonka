@@ -462,18 +462,18 @@ instance Prelude.Hashable RegisterUser where
 
 instance Prelude.NFData RegisterUser where
   rnf RegisterUser' {..} =
-    Prelude.rnf customFederationProviderUrl
-      `Prelude.seq` Prelude.rnf customPermissionsName
-      `Prelude.seq` Prelude.rnf externalLoginFederationProviderType
-      `Prelude.seq` Prelude.rnf externalLoginId
-      `Prelude.seq` Prelude.rnf iamArn
-      `Prelude.seq` Prelude.rnf sessionName
-      `Prelude.seq` Prelude.rnf userName
-      `Prelude.seq` Prelude.rnf identityType
-      `Prelude.seq` Prelude.rnf email
-      `Prelude.seq` Prelude.rnf userRole
-      `Prelude.seq` Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf namespace
+    Prelude.rnf customFederationProviderUrl `Prelude.seq`
+      Prelude.rnf customPermissionsName `Prelude.seq`
+        Prelude.rnf externalLoginFederationProviderType `Prelude.seq`
+          Prelude.rnf externalLoginId `Prelude.seq`
+            Prelude.rnf iamArn `Prelude.seq`
+              Prelude.rnf sessionName `Prelude.seq`
+                Prelude.rnf userName `Prelude.seq`
+                  Prelude.rnf identityType `Prelude.seq`
+                    Prelude.rnf email `Prelude.seq`
+                      Prelude.rnf userRole `Prelude.seq`
+                        Prelude.rnf awsAccountId `Prelude.seq`
+                          Prelude.rnf namespace
 
 instance Data.ToHeaders RegisterUser where
   toHeaders =
@@ -581,7 +581,7 @@ registerUserResponse_status = Lens.lens (\RegisterUserResponse' {status} -> stat
 
 instance Prelude.NFData RegisterUserResponse where
   rnf RegisterUserResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf user
-      `Prelude.seq` Prelude.rnf userInvitationUrl
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf requestId `Prelude.seq`
+      Prelude.rnf user `Prelude.seq`
+        Prelude.rnf userInvitationUrl `Prelude.seq`
+          Prelude.rnf status

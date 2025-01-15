@@ -125,9 +125,9 @@ instance Prelude.Hashable FolderSummary where
 
 instance Prelude.NFData FolderSummary where
   rnf FolderSummary' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf folderId
-      `Prelude.seq` Prelude.rnf folderType
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf createdTime `Prelude.seq`
+        Prelude.rnf folderId `Prelude.seq`
+          Prelude.rnf folderType `Prelude.seq`
+            Prelude.rnf lastUpdatedTime `Prelude.seq`
+              Prelude.rnf name

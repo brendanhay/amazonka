@@ -95,9 +95,9 @@ instance Prelude.Hashable TimeRangeFilterValue where
 
 instance Prelude.NFData TimeRangeFilterValue where
   rnf TimeRangeFilterValue' {..} =
-    Prelude.rnf parameter
-      `Prelude.seq` Prelude.rnf rollingDate
-      `Prelude.seq` Prelude.rnf staticValue
+    Prelude.rnf parameter `Prelude.seq`
+      Prelude.rnf rollingDate `Prelude.seq`
+        Prelude.rnf staticValue
 
 instance Data.ToJSON TimeRangeFilterValue where
   toJSON TimeRangeFilterValue' {..} =

@@ -112,9 +112,9 @@ instance Prelude.Hashable ChartAxisLabelOptions where
 
 instance Prelude.NFData ChartAxisLabelOptions where
   rnf ChartAxisLabelOptions' {..} =
-    Prelude.rnf axisLabelOptions
-      `Prelude.seq` Prelude.rnf sortIconVisibility
-      `Prelude.seq` Prelude.rnf visibility
+    Prelude.rnf axisLabelOptions `Prelude.seq`
+      Prelude.rnf sortIconVisibility `Prelude.seq`
+        Prelude.rnf visibility
 
 instance Data.ToJSON ChartAxisLabelOptions where
   toJSON ChartAxisLabelOptions' {..} =

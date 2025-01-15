@@ -155,14 +155,14 @@ instance Prelude.Hashable TableCellStyle where
 
 instance Prelude.NFData TableCellStyle where
   rnf TableCellStyle' {..} =
-    Prelude.rnf backgroundColor
-      `Prelude.seq` Prelude.rnf border
-      `Prelude.seq` Prelude.rnf fontConfiguration
-      `Prelude.seq` Prelude.rnf height
-      `Prelude.seq` Prelude.rnf horizontalTextAlignment
-      `Prelude.seq` Prelude.rnf textWrap
-      `Prelude.seq` Prelude.rnf verticalTextAlignment
-      `Prelude.seq` Prelude.rnf visibility
+    Prelude.rnf backgroundColor `Prelude.seq`
+      Prelude.rnf border `Prelude.seq`
+        Prelude.rnf fontConfiguration `Prelude.seq`
+          Prelude.rnf height `Prelude.seq`
+            Prelude.rnf horizontalTextAlignment `Prelude.seq`
+              Prelude.rnf textWrap `Prelude.seq`
+                Prelude.rnf verticalTextAlignment `Prelude.seq`
+                  Prelude.rnf visibility
 
 instance Data.ToJSON TableCellStyle where
   toJSON TableCellStyle' {..} =

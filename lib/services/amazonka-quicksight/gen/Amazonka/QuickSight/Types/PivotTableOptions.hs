@@ -161,15 +161,15 @@ instance Prelude.Hashable PivotTableOptions where
 
 instance Prelude.NFData PivotTableOptions where
   rnf PivotTableOptions' {..} =
-    Prelude.rnf cellStyle
-      `Prelude.seq` Prelude.rnf columnHeaderStyle
-      `Prelude.seq` Prelude.rnf columnNamesVisibility
-      `Prelude.seq` Prelude.rnf metricPlacement
-      `Prelude.seq` Prelude.rnf rowAlternateColorOptions
-      `Prelude.seq` Prelude.rnf rowFieldNamesStyle
-      `Prelude.seq` Prelude.rnf rowHeaderStyle
-      `Prelude.seq` Prelude.rnf singleMetricVisibility
-      `Prelude.seq` Prelude.rnf toggleButtonsVisibility
+    Prelude.rnf cellStyle `Prelude.seq`
+      Prelude.rnf columnHeaderStyle `Prelude.seq`
+        Prelude.rnf columnNamesVisibility `Prelude.seq`
+          Prelude.rnf metricPlacement `Prelude.seq`
+            Prelude.rnf rowAlternateColorOptions `Prelude.seq`
+              Prelude.rnf rowFieldNamesStyle `Prelude.seq`
+                Prelude.rnf rowHeaderStyle `Prelude.seq`
+                  Prelude.rnf singleMetricVisibility `Prelude.seq`
+                    Prelude.rnf toggleButtonsVisibility
 
 instance Data.ToJSON PivotTableOptions where
   toJSON PivotTableOptions' {..} =

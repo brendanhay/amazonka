@@ -140,12 +140,12 @@ instance Prelude.Hashable TimeBasedForecastProperties where
 
 instance Prelude.NFData TimeBasedForecastProperties where
   rnf TimeBasedForecastProperties' {..} =
-    Prelude.rnf lowerBoundary
-      `Prelude.seq` Prelude.rnf periodsBackward
-      `Prelude.seq` Prelude.rnf periodsForward
-      `Prelude.seq` Prelude.rnf predictionInterval
-      `Prelude.seq` Prelude.rnf seasonality
-      `Prelude.seq` Prelude.rnf upperBoundary
+    Prelude.rnf lowerBoundary `Prelude.seq`
+      Prelude.rnf periodsBackward `Prelude.seq`
+        Prelude.rnf periodsForward `Prelude.seq`
+          Prelude.rnf predictionInterval `Prelude.seq`
+            Prelude.rnf seasonality `Prelude.seq`
+              Prelude.rnf upperBoundary
 
 instance Data.ToJSON TimeBasedForecastProperties where
   toJSON TimeBasedForecastProperties' {..} =

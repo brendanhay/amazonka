@@ -113,10 +113,10 @@ instance Prelude.Hashable ParameterTextFieldControl where
 
 instance Prelude.NFData ParameterTextFieldControl where
   rnf ParameterTextFieldControl' {..} =
-    Prelude.rnf displayOptions
-      `Prelude.seq` Prelude.rnf parameterControlId
-      `Prelude.seq` Prelude.rnf title
-      `Prelude.seq` Prelude.rnf sourceParameterName
+    Prelude.rnf displayOptions `Prelude.seq`
+      Prelude.rnf parameterControlId `Prelude.seq`
+        Prelude.rnf title `Prelude.seq`
+          Prelude.rnf sourceParameterName
 
 instance Data.ToJSON ParameterTextFieldControl where
   toJSON ParameterTextFieldControl' {..} =

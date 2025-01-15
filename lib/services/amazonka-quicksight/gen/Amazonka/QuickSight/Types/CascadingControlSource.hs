@@ -85,8 +85,8 @@ instance Prelude.Hashable CascadingControlSource where
 
 instance Prelude.NFData CascadingControlSource where
   rnf CascadingControlSource' {..} =
-    Prelude.rnf columnToMatch
-      `Prelude.seq` Prelude.rnf sourceSheetControlId
+    Prelude.rnf columnToMatch `Prelude.seq`
+      Prelude.rnf sourceSheetControlId
 
 instance Data.ToJSON CascadingControlSource where
   toJSON CascadingControlSource' {..} =

@@ -80,8 +80,8 @@ instance Prelude.Hashable BinWidthOptions where
 
 instance Prelude.NFData BinWidthOptions where
   rnf BinWidthOptions' {..} =
-    Prelude.rnf binCountLimit
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf binCountLimit `Prelude.seq`
+      Prelude.rnf value
 
 instance Data.ToJSON BinWidthOptions where
   toJSON BinWidthOptions' {..} =

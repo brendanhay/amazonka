@@ -120,8 +120,8 @@ instance Prelude.Hashable DescribeThemePermissions where
 
 instance Prelude.NFData DescribeThemePermissions where
   rnf DescribeThemePermissions' {..} =
-    Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf themeId
+    Prelude.rnf awsAccountId `Prelude.seq`
+      Prelude.rnf themeId
 
 instance Data.ToHeaders DescribeThemePermissions where
   toHeaders =
@@ -218,8 +218,8 @@ instance
     DescribeThemePermissionsResponse
   where
   rnf DescribeThemePermissionsResponse' {..} =
-    Prelude.rnf permissions
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf themeArn
-      `Prelude.seq` Prelude.rnf themeId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf permissions `Prelude.seq`
+      Prelude.rnf requestId `Prelude.seq`
+        Prelude.rnf themeArn `Prelude.seq`
+          Prelude.rnf themeId `Prelude.seq`
+            Prelude.rnf status

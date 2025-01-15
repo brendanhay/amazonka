@@ -149,10 +149,10 @@ instance Prelude.Hashable CreateGroup where
 
 instance Prelude.NFData CreateGroup where
   rnf CreateGroup' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf groupName
-      `Prelude.seq` Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf namespace
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf groupName `Prelude.seq`
+        Prelude.rnf awsAccountId `Prelude.seq`
+          Prelude.rnf namespace
 
 instance Data.ToHeaders CreateGroup where
   toHeaders =
@@ -238,6 +238,6 @@ createGroupResponse_status = Lens.lens (\CreateGroupResponse' {status} -> status
 
 instance Prelude.NFData CreateGroupResponse where
   rnf CreateGroupResponse' {..} =
-    Prelude.rnf group'
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf group' `Prelude.seq`
+      Prelude.rnf requestId `Prelude.seq`
+        Prelude.rnf status

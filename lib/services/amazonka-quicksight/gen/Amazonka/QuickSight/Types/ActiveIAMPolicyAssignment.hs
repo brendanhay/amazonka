@@ -81,5 +81,5 @@ instance Prelude.Hashable ActiveIAMPolicyAssignment where
 
 instance Prelude.NFData ActiveIAMPolicyAssignment where
   rnf ActiveIAMPolicyAssignment' {..} =
-    Prelude.rnf assignmentName
-      `Prelude.seq` Prelude.rnf policyArn
+    Prelude.rnf assignmentName `Prelude.seq`
+      Prelude.rnf policyArn

@@ -137,12 +137,12 @@ instance Prelude.Hashable GridLayoutElement where
 
 instance Prelude.NFData GridLayoutElement where
   rnf GridLayoutElement' {..} =
-    Prelude.rnf columnIndex
-      `Prelude.seq` Prelude.rnf rowIndex
-      `Prelude.seq` Prelude.rnf elementId
-      `Prelude.seq` Prelude.rnf elementType
-      `Prelude.seq` Prelude.rnf columnSpan
-      `Prelude.seq` Prelude.rnf rowSpan
+    Prelude.rnf columnIndex `Prelude.seq`
+      Prelude.rnf rowIndex `Prelude.seq`
+        Prelude.rnf elementId `Prelude.seq`
+          Prelude.rnf elementType `Prelude.seq`
+            Prelude.rnf columnSpan `Prelude.seq`
+              Prelude.rnf rowSpan
 
 instance Data.ToJSON GridLayoutElement where
   toJSON GridLayoutElement' {..} =

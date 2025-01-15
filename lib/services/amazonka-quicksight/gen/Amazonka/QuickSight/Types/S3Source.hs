@@ -106,9 +106,9 @@ instance Prelude.Hashable S3Source where
 
 instance Prelude.NFData S3Source where
   rnf S3Source' {..} =
-    Prelude.rnf uploadSettings
-      `Prelude.seq` Prelude.rnf dataSourceArn
-      `Prelude.seq` Prelude.rnf inputColumns
+    Prelude.rnf uploadSettings `Prelude.seq`
+      Prelude.rnf dataSourceArn `Prelude.seq`
+        Prelude.rnf inputColumns
 
 instance Data.ToJSON S3Source where
   toJSON S3Source' {..} =

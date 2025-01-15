@@ -193,10 +193,10 @@ instance Prelude.Hashable CreateAccountCustomization where
 
 instance Prelude.NFData CreateAccountCustomization where
   rnf CreateAccountCustomization' {..} =
-    Prelude.rnf namespace
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf accountCustomization
+    Prelude.rnf namespace `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf awsAccountId `Prelude.seq`
+          Prelude.rnf accountCustomization
 
 instance Data.ToHeaders CreateAccountCustomization where
   toHeaders =
@@ -322,9 +322,9 @@ instance
     CreateAccountCustomizationResponse
   where
   rnf CreateAccountCustomizationResponse' {..} =
-    Prelude.rnf accountCustomization
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf namespace
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf accountCustomization `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf awsAccountId `Prelude.seq`
+          Prelude.rnf namespace `Prelude.seq`
+            Prelude.rnf requestId `Prelude.seq`
+              Prelude.rnf status

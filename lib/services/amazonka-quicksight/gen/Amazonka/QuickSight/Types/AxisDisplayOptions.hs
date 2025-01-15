@@ -132,12 +132,12 @@ instance Prelude.Hashable AxisDisplayOptions where
 
 instance Prelude.NFData AxisDisplayOptions where
   rnf AxisDisplayOptions' {..} =
-    Prelude.rnf axisLineVisibility
-      `Prelude.seq` Prelude.rnf axisOffset
-      `Prelude.seq` Prelude.rnf dataOptions
-      `Prelude.seq` Prelude.rnf gridLineVisibility
-      `Prelude.seq` Prelude.rnf scrollbarOptions
-      `Prelude.seq` Prelude.rnf tickLabelOptions
+    Prelude.rnf axisLineVisibility `Prelude.seq`
+      Prelude.rnf axisOffset `Prelude.seq`
+        Prelude.rnf dataOptions `Prelude.seq`
+          Prelude.rnf gridLineVisibility `Prelude.seq`
+            Prelude.rnf scrollbarOptions `Prelude.seq`
+              Prelude.rnf tickLabelOptions
 
 instance Data.ToJSON AxisDisplayOptions where
   toJSON AxisDisplayOptions' {..} =

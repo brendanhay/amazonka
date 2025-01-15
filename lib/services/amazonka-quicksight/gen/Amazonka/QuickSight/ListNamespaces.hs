@@ -140,12 +140,12 @@ instance Core.AWSPager ListNamespaces where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listNamespaces_nextToken
-          Lens..~ rs
-          Lens.^? listNamespacesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listNamespaces_nextToken
+              Lens..~ rs
+              Lens.^? listNamespacesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListNamespaces where
   type
@@ -172,9 +172,9 @@ instance Prelude.Hashable ListNamespaces where
 
 instance Prelude.NFData ListNamespaces where
   rnf ListNamespaces' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf awsAccountId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf awsAccountId
 
 instance Data.ToHeaders ListNamespaces where
   toHeaders =
@@ -285,7 +285,7 @@ listNamespacesResponse_status = Lens.lens (\ListNamespacesResponse' {status} -> 
 
 instance Prelude.NFData ListNamespacesResponse where
   rnf ListNamespacesResponse' {..} =
-    Prelude.rnf namespaces
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf namespaces `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf requestId `Prelude.seq`
+          Prelude.rnf status

@@ -97,9 +97,9 @@ instance Prelude.Hashable ColumnSort where
 
 instance Prelude.NFData ColumnSort where
   rnf ColumnSort' {..} =
-    Prelude.rnf aggregationFunction
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf direction
+    Prelude.rnf aggregationFunction `Prelude.seq`
+      Prelude.rnf sortBy `Prelude.seq`
+        Prelude.rnf direction
 
 instance Data.ToJSON ColumnSort where
   toJSON ColumnSort' {..} =

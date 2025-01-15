@@ -141,12 +141,12 @@ instance Prelude.Hashable GaugeChartVisual where
 
 instance Prelude.NFData GaugeChartVisual where
   rnf GaugeChartVisual' {..} =
-    Prelude.rnf actions
-      `Prelude.seq` Prelude.rnf chartConfiguration
-      `Prelude.seq` Prelude.rnf conditionalFormatting
-      `Prelude.seq` Prelude.rnf subtitle
-      `Prelude.seq` Prelude.rnf title
-      `Prelude.seq` Prelude.rnf visualId
+    Prelude.rnf actions `Prelude.seq`
+      Prelude.rnf chartConfiguration `Prelude.seq`
+        Prelude.rnf conditionalFormatting `Prelude.seq`
+          Prelude.rnf subtitle `Prelude.seq`
+            Prelude.rnf title `Prelude.seq`
+              Prelude.rnf visualId
 
 instance Data.ToJSON GaugeChartVisual where
   toJSON GaugeChartVisual' {..} =

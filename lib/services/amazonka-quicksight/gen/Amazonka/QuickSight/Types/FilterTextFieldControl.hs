@@ -113,10 +113,10 @@ instance Prelude.Hashable FilterTextFieldControl where
 
 instance Prelude.NFData FilterTextFieldControl where
   rnf FilterTextFieldControl' {..} =
-    Prelude.rnf displayOptions
-      `Prelude.seq` Prelude.rnf filterControlId
-      `Prelude.seq` Prelude.rnf title
-      `Prelude.seq` Prelude.rnf sourceFilterId
+    Prelude.rnf displayOptions `Prelude.seq`
+      Prelude.rnf filterControlId `Prelude.seq`
+        Prelude.rnf title `Prelude.seq`
+          Prelude.rnf sourceFilterId
 
 instance Data.ToJSON FilterTextFieldControl where
   toJSON FilterTextFieldControl' {..} =

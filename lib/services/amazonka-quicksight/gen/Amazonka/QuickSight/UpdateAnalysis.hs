@@ -209,13 +209,13 @@ instance Prelude.Hashable UpdateAnalysis where
 
 instance Prelude.NFData UpdateAnalysis where
   rnf UpdateAnalysis' {..} =
-    Prelude.rnf definition
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf sourceEntity
-      `Prelude.seq` Prelude.rnf themeArn
-      `Prelude.seq` Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf analysisId
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf definition `Prelude.seq`
+      Prelude.rnf parameters `Prelude.seq`
+        Prelude.rnf sourceEntity `Prelude.seq`
+          Prelude.rnf themeArn `Prelude.seq`
+            Prelude.rnf awsAccountId `Prelude.seq`
+              Prelude.rnf analysisId `Prelude.seq`
+                Prelude.rnf name
 
 instance Data.ToHeaders UpdateAnalysis where
   toHeaders =
@@ -320,8 +320,8 @@ updateAnalysisResponse_status = Lens.lens (\UpdateAnalysisResponse' {status} -> 
 
 instance Prelude.NFData UpdateAnalysisResponse where
   rnf UpdateAnalysisResponse' {..} =
-    Prelude.rnf analysisId
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf updateStatus
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf analysisId `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf requestId `Prelude.seq`
+          Prelude.rnf updateStatus `Prelude.seq`
+            Prelude.rnf status

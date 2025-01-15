@@ -88,8 +88,8 @@ instance Prelude.Hashable DataSetUsageConfiguration where
 
 instance Prelude.NFData DataSetUsageConfiguration where
   rnf DataSetUsageConfiguration' {..} =
-    Prelude.rnf disableUseAsDirectQuerySource
-      `Prelude.seq` Prelude.rnf disableUseAsImportedSource
+    Prelude.rnf disableUseAsDirectQuerySource `Prelude.seq`
+      Prelude.rnf disableUseAsImportedSource
 
 instance Data.ToJSON DataSetUsageConfiguration where
   toJSON DataSetUsageConfiguration' {..} =

@@ -142,12 +142,12 @@ instance Prelude.Hashable InsightVisual where
 
 instance Prelude.NFData InsightVisual where
   rnf InsightVisual' {..} =
-    Prelude.rnf actions
-      `Prelude.seq` Prelude.rnf insightConfiguration
-      `Prelude.seq` Prelude.rnf subtitle
-      `Prelude.seq` Prelude.rnf title
-      `Prelude.seq` Prelude.rnf visualId
-      `Prelude.seq` Prelude.rnf dataSetIdentifier
+    Prelude.rnf actions `Prelude.seq`
+      Prelude.rnf insightConfiguration `Prelude.seq`
+        Prelude.rnf subtitle `Prelude.seq`
+          Prelude.rnf title `Prelude.seq`
+            Prelude.rnf visualId `Prelude.seq`
+              Prelude.rnf dataSetIdentifier
 
 instance Data.ToJSON InsightVisual where
   toJSON InsightVisual' {..} =

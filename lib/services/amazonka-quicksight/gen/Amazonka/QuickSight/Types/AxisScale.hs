@@ -85,8 +85,8 @@ instance Prelude.Hashable AxisScale where
 
 instance Prelude.NFData AxisScale where
   rnf AxisScale' {..} =
-    Prelude.rnf linear
-      `Prelude.seq` Prelude.rnf logarithmic
+    Prelude.rnf linear `Prelude.seq`
+      Prelude.rnf logarithmic
 
 instance Data.ToJSON AxisScale where
   toJSON AxisScale' {..} =

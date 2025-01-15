@@ -188,13 +188,13 @@ instance Prelude.Hashable CreateFolder where
 
 instance Prelude.NFData CreateFolder where
   rnf CreateFolder' {..} =
-    Prelude.rnf folderType
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf parentFolderArn
-      `Prelude.seq` Prelude.rnf permissions
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf folderId
+    Prelude.rnf folderType `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf parentFolderArn `Prelude.seq`
+          Prelude.rnf permissions `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf awsAccountId `Prelude.seq`
+                Prelude.rnf folderId
 
 instance Data.ToHeaders CreateFolder where
   toHeaders =
@@ -290,7 +290,7 @@ createFolderResponse_status = Lens.lens (\CreateFolderResponse' {status} -> stat
 
 instance Prelude.NFData CreateFolderResponse where
   rnf CreateFolderResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf folderId
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf folderId `Prelude.seq`
+        Prelude.rnf requestId `Prelude.seq`
+          Prelude.rnf status

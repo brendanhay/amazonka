@@ -299,22 +299,22 @@ instance Prelude.Hashable ComboChartConfiguration where
 
 instance Prelude.NFData ComboChartConfiguration where
   rnf ComboChartConfiguration' {..} =
-    Prelude.rnf barDataLabels
-      `Prelude.seq` Prelude.rnf barsArrangement
-      `Prelude.seq` Prelude.rnf categoryAxis
-      `Prelude.seq` Prelude.rnf categoryLabelOptions
-      `Prelude.seq` Prelude.rnf colorLabelOptions
-      `Prelude.seq` Prelude.rnf fieldWells
-      `Prelude.seq` Prelude.rnf legend
-      `Prelude.seq` Prelude.rnf lineDataLabels
-      `Prelude.seq` Prelude.rnf primaryYAxisDisplayOptions
-      `Prelude.seq` Prelude.rnf primaryYAxisLabelOptions
-      `Prelude.seq` Prelude.rnf referenceLines
-      `Prelude.seq` Prelude.rnf secondaryYAxisDisplayOptions
-      `Prelude.seq` Prelude.rnf secondaryYAxisLabelOptions
-      `Prelude.seq` Prelude.rnf sortConfiguration
-      `Prelude.seq` Prelude.rnf tooltip
-      `Prelude.seq` Prelude.rnf visualPalette
+    Prelude.rnf barDataLabels `Prelude.seq`
+      Prelude.rnf barsArrangement `Prelude.seq`
+        Prelude.rnf categoryAxis `Prelude.seq`
+          Prelude.rnf categoryLabelOptions `Prelude.seq`
+            Prelude.rnf colorLabelOptions `Prelude.seq`
+              Prelude.rnf fieldWells `Prelude.seq`
+                Prelude.rnf legend `Prelude.seq`
+                  Prelude.rnf lineDataLabels `Prelude.seq`
+                    Prelude.rnf primaryYAxisDisplayOptions `Prelude.seq`
+                      Prelude.rnf primaryYAxisLabelOptions `Prelude.seq`
+                        Prelude.rnf referenceLines `Prelude.seq`
+                          Prelude.rnf secondaryYAxisDisplayOptions `Prelude.seq`
+                            Prelude.rnf secondaryYAxisLabelOptions `Prelude.seq`
+                              Prelude.rnf sortConfiguration `Prelude.seq`
+                                Prelude.rnf tooltip `Prelude.seq`
+                                  Prelude.rnf visualPalette
 
 instance Data.ToJSON ComboChartConfiguration where
   toJSON ComboChartConfiguration' {..} =

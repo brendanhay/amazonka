@@ -104,9 +104,9 @@ instance
     LineChartDefaultSeriesSettings
   where
   rnf LineChartDefaultSeriesSettings' {..} =
-    Prelude.rnf axisBinding
-      `Prelude.seq` Prelude.rnf lineStyleSettings
-      `Prelude.seq` Prelude.rnf markerStyleSettings
+    Prelude.rnf axisBinding `Prelude.seq`
+      Prelude.rnf lineStyleSettings `Prelude.seq`
+        Prelude.rnf markerStyleSettings
 
 instance Data.ToJSON LineChartDefaultSeriesSettings where
   toJSON LineChartDefaultSeriesSettings' {..} =

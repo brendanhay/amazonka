@@ -100,8 +100,8 @@ instance
     GaugeChartConditionalFormattingOption
   where
   rnf GaugeChartConditionalFormattingOption' {..} =
-    Prelude.rnf arc
-      `Prelude.seq` Prelude.rnf primaryValue
+    Prelude.rnf arc `Prelude.seq`
+      Prelude.rnf primaryValue
 
 instance
   Data.ToJSON

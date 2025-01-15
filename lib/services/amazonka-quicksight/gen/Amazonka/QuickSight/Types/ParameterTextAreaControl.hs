@@ -124,11 +124,11 @@ instance Prelude.Hashable ParameterTextAreaControl where
 
 instance Prelude.NFData ParameterTextAreaControl where
   rnf ParameterTextAreaControl' {..} =
-    Prelude.rnf delimiter
-      `Prelude.seq` Prelude.rnf displayOptions
-      `Prelude.seq` Prelude.rnf parameterControlId
-      `Prelude.seq` Prelude.rnf title
-      `Prelude.seq` Prelude.rnf sourceParameterName
+    Prelude.rnf delimiter `Prelude.seq`
+      Prelude.rnf displayOptions `Prelude.seq`
+        Prelude.rnf parameterControlId `Prelude.seq`
+          Prelude.rnf title `Prelude.seq`
+            Prelude.rnf sourceParameterName
 
 instance Data.ToJSON ParameterTextAreaControl where
   toJSON ParameterTextAreaControl' {..} =

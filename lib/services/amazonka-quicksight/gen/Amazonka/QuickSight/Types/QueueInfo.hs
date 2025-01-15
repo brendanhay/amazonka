@@ -88,5 +88,5 @@ instance Prelude.Hashable QueueInfo where
 
 instance Prelude.NFData QueueInfo where
   rnf QueueInfo' {..} =
-    Prelude.rnf waitingOnIngestion
-      `Prelude.seq` Prelude.rnf queuedIngestion
+    Prelude.rnf waitingOnIngestion `Prelude.seq`
+      Prelude.rnf queuedIngestion

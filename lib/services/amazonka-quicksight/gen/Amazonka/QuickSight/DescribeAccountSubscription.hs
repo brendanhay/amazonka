@@ -213,6 +213,6 @@ instance
     DescribeAccountSubscriptionResponse
   where
   rnf DescribeAccountSubscriptionResponse' {..} =
-    Prelude.rnf accountInfo
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf accountInfo `Prelude.seq`
+      Prelude.rnf requestId `Prelude.seq`
+        Prelude.rnf status

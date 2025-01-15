@@ -106,9 +106,9 @@ instance Prelude.Hashable PredefinedHierarchy where
 
 instance Prelude.NFData PredefinedHierarchy where
   rnf PredefinedHierarchy' {..} =
-    Prelude.rnf drillDownFilters
-      `Prelude.seq` Prelude.rnf hierarchyId
-      `Prelude.seq` Prelude.rnf columns
+    Prelude.rnf drillDownFilters `Prelude.seq`
+      Prelude.rnf hierarchyId `Prelude.seq`
+        Prelude.rnf columns
 
 instance Data.ToJSON PredefinedHierarchy where
   toJSON PredefinedHierarchy' {..} =

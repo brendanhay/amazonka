@@ -95,9 +95,9 @@ instance Prelude.Hashable DimensionField where
 
 instance Prelude.NFData DimensionField where
   rnf DimensionField' {..} =
-    Prelude.rnf categoricalDimensionField
-      `Prelude.seq` Prelude.rnf dateDimensionField
-      `Prelude.seq` Prelude.rnf numericalDimensionField
+    Prelude.rnf categoricalDimensionField `Prelude.seq`
+      Prelude.rnf dateDimensionField `Prelude.seq`
+        Prelude.rnf numericalDimensionField
 
 instance Data.ToJSON DimensionField where
   toJSON DimensionField' {..} =

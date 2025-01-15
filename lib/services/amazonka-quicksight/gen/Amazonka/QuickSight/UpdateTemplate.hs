@@ -220,12 +220,12 @@ instance Prelude.Hashable UpdateTemplate where
 
 instance Prelude.NFData UpdateTemplate where
   rnf UpdateTemplate' {..} =
-    Prelude.rnf definition
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf sourceEntity
-      `Prelude.seq` Prelude.rnf versionDescription
-      `Prelude.seq` Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf templateId
+    Prelude.rnf definition `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf sourceEntity `Prelude.seq`
+          Prelude.rnf versionDescription `Prelude.seq`
+            Prelude.rnf awsAccountId `Prelude.seq`
+              Prelude.rnf templateId
 
 instance Data.ToHeaders UpdateTemplate where
   toHeaders =
@@ -341,9 +341,9 @@ updateTemplateResponse_status = Lens.lens (\UpdateTemplateResponse' {status} -> 
 
 instance Prelude.NFData UpdateTemplateResponse where
   rnf UpdateTemplateResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationStatus
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf templateId
-      `Prelude.seq` Prelude.rnf versionArn
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf creationStatus `Prelude.seq`
+        Prelude.rnf requestId `Prelude.seq`
+          Prelude.rnf templateId `Prelude.seq`
+            Prelude.rnf versionArn `Prelude.seq`
+              Prelude.rnf status

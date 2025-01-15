@@ -139,13 +139,13 @@ instance Prelude.Hashable PivotTotalOptions where
 
 instance Prelude.NFData PivotTotalOptions where
   rnf PivotTotalOptions' {..} =
-    Prelude.rnf customLabel
-      `Prelude.seq` Prelude.rnf metricHeaderCellStyle
-      `Prelude.seq` Prelude.rnf placement
-      `Prelude.seq` Prelude.rnf scrollStatus
-      `Prelude.seq` Prelude.rnf totalCellStyle
-      `Prelude.seq` Prelude.rnf totalsVisibility
-      `Prelude.seq` Prelude.rnf valueCellStyle
+    Prelude.rnf customLabel `Prelude.seq`
+      Prelude.rnf metricHeaderCellStyle `Prelude.seq`
+        Prelude.rnf placement `Prelude.seq`
+          Prelude.rnf scrollStatus `Prelude.seq`
+            Prelude.rnf totalCellStyle `Prelude.seq`
+              Prelude.rnf totalsVisibility `Prelude.seq`
+                Prelude.rnf valueCellStyle
 
 instance Data.ToJSON PivotTotalOptions where
   toJSON PivotTotalOptions' {..} =

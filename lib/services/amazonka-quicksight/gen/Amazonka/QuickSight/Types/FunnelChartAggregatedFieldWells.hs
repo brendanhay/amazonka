@@ -100,8 +100,8 @@ instance
     FunnelChartAggregatedFieldWells
   where
   rnf FunnelChartAggregatedFieldWells' {..} =
-    Prelude.rnf category
-      `Prelude.seq` Prelude.rnf values
+    Prelude.rnf category `Prelude.seq`
+      Prelude.rnf values
 
 instance Data.ToJSON FunnelChartAggregatedFieldWells where
   toJSON FunnelChartAggregatedFieldWells' {..} =

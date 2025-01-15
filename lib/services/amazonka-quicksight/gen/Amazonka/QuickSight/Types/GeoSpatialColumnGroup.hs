@@ -97,9 +97,9 @@ instance Prelude.Hashable GeoSpatialColumnGroup where
 
 instance Prelude.NFData GeoSpatialColumnGroup where
   rnf GeoSpatialColumnGroup' {..} =
-    Prelude.rnf countryCode
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf columns
+    Prelude.rnf countryCode `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf columns
 
 instance Data.ToJSON GeoSpatialColumnGroup where
   toJSON GeoSpatialColumnGroup' {..} =

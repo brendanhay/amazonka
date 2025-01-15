@@ -96,9 +96,9 @@ instance Prelude.Hashable PhysicalTable where
 
 instance Prelude.NFData PhysicalTable where
   rnf PhysicalTable' {..} =
-    Prelude.rnf customSql
-      `Prelude.seq` Prelude.rnf relationalTable
-      `Prelude.seq` Prelude.rnf s3Source
+    Prelude.rnf customSql `Prelude.seq`
+      Prelude.rnf relationalTable `Prelude.seq`
+        Prelude.rnf s3Source
 
 instance Data.ToJSON PhysicalTable where
   toJSON PhysicalTable' {..} =

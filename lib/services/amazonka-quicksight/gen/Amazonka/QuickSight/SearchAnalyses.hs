@@ -136,12 +136,12 @@ instance Core.AWSPager SearchAnalyses where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& searchAnalyses_nextToken
-          Lens..~ rs
-          Lens.^? searchAnalysesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& searchAnalyses_nextToken
+              Lens..~ rs
+              Lens.^? searchAnalysesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest SearchAnalyses where
   type
@@ -172,10 +172,10 @@ instance Prelude.Hashable SearchAnalyses where
 
 instance Prelude.NFData SearchAnalyses where
   rnf SearchAnalyses' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf awsAccountId `Prelude.seq`
+          Prelude.rnf filters
 
 instance Data.ToHeaders SearchAnalyses where
   toHeaders =
@@ -268,7 +268,7 @@ searchAnalysesResponse_status = Lens.lens (\SearchAnalysesResponse' {status} -> 
 
 instance Prelude.NFData SearchAnalysesResponse where
   rnf SearchAnalysesResponse' {..} =
-    Prelude.rnf analysisSummaryList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf analysisSummaryList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf requestId `Prelude.seq`
+          Prelude.rnf status

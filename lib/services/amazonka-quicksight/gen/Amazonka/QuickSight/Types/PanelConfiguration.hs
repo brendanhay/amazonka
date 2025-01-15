@@ -171,15 +171,15 @@ instance Prelude.Hashable PanelConfiguration where
 
 instance Prelude.NFData PanelConfiguration where
   rnf PanelConfiguration' {..} =
-    Prelude.rnf backgroundColor
-      `Prelude.seq` Prelude.rnf backgroundVisibility
-      `Prelude.seq` Prelude.rnf borderColor
-      `Prelude.seq` Prelude.rnf borderStyle
-      `Prelude.seq` Prelude.rnf borderThickness
-      `Prelude.seq` Prelude.rnf borderVisibility
-      `Prelude.seq` Prelude.rnf gutterSpacing
-      `Prelude.seq` Prelude.rnf gutterVisibility
-      `Prelude.seq` Prelude.rnf title
+    Prelude.rnf backgroundColor `Prelude.seq`
+      Prelude.rnf backgroundVisibility `Prelude.seq`
+        Prelude.rnf borderColor `Prelude.seq`
+          Prelude.rnf borderStyle `Prelude.seq`
+            Prelude.rnf borderThickness `Prelude.seq`
+              Prelude.rnf borderVisibility `Prelude.seq`
+                Prelude.rnf gutterSpacing `Prelude.seq`
+                  Prelude.rnf gutterVisibility `Prelude.seq`
+                    Prelude.rnf title
 
 instance Data.ToJSON PanelConfiguration where
   toJSON PanelConfiguration' {..} =

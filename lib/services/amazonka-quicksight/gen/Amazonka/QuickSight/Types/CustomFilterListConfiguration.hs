@@ -145,10 +145,10 @@ instance
 
 instance Prelude.NFData CustomFilterListConfiguration where
   rnf CustomFilterListConfiguration' {..} =
-    Prelude.rnf categoryValues
-      `Prelude.seq` Prelude.rnf selectAllOptions
-      `Prelude.seq` Prelude.rnf matchOperator
-      `Prelude.seq` Prelude.rnf nullOption
+    Prelude.rnf categoryValues `Prelude.seq`
+      Prelude.rnf selectAllOptions `Prelude.seq`
+        Prelude.rnf matchOperator `Prelude.seq`
+          Prelude.rnf nullOption
 
 instance Data.ToJSON CustomFilterListConfiguration where
   toJSON CustomFilterListConfiguration' {..} =

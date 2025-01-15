@@ -122,8 +122,8 @@ instance Prelude.Hashable DescribeTemplatePermissions where
 
 instance Prelude.NFData DescribeTemplatePermissions where
   rnf DescribeTemplatePermissions' {..} =
-    Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf templateId
+    Prelude.rnf awsAccountId `Prelude.seq`
+      Prelude.rnf templateId
 
 instance Data.ToHeaders DescribeTemplatePermissions where
   toHeaders =
@@ -220,8 +220,8 @@ instance
     DescribeTemplatePermissionsResponse
   where
   rnf DescribeTemplatePermissionsResponse' {..} =
-    Prelude.rnf permissions
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf templateArn
-      `Prelude.seq` Prelude.rnf templateId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf permissions `Prelude.seq`
+      Prelude.rnf requestId `Prelude.seq`
+        Prelude.rnf templateArn `Prelude.seq`
+          Prelude.rnf templateId `Prelude.seq`
+            Prelude.rnf status

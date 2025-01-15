@@ -86,8 +86,8 @@ instance
 
 instance Prelude.NFData NumericSeparatorConfiguration where
   rnf NumericSeparatorConfiguration' {..} =
-    Prelude.rnf decimalSeparator
-      `Prelude.seq` Prelude.rnf thousandsSeparator
+    Prelude.rnf decimalSeparator `Prelude.seq`
+      Prelude.rnf thousandsSeparator
 
 instance Data.ToJSON NumericSeparatorConfiguration where
   toJSON NumericSeparatorConfiguration' {..} =

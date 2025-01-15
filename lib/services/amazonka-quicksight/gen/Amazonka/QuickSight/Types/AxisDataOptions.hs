@@ -85,8 +85,8 @@ instance Prelude.Hashable AxisDataOptions where
 
 instance Prelude.NFData AxisDataOptions where
   rnf AxisDataOptions' {..} =
-    Prelude.rnf dateAxisOptions
-      `Prelude.seq` Prelude.rnf numericAxisOptions
+    Prelude.rnf dateAxisOptions `Prelude.seq`
+      Prelude.rnf numericAxisOptions
 
 instance Data.ToJSON AxisDataOptions where
   toJSON AxisDataOptions' {..} =

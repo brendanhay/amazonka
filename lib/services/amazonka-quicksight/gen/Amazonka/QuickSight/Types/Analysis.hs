@@ -174,13 +174,13 @@ instance Prelude.Hashable Analysis where
 
 instance Prelude.NFData Analysis where
   rnf Analysis' {..} =
-    Prelude.rnf analysisId
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf dataSetArns
-      `Prelude.seq` Prelude.rnf errors
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf sheets
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf themeArn
+    Prelude.rnf analysisId `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf createdTime `Prelude.seq`
+          Prelude.rnf dataSetArns `Prelude.seq`
+            Prelude.rnf errors `Prelude.seq`
+              Prelude.rnf lastUpdatedTime `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf sheets `Prelude.seq`
+                    Prelude.rnf status `Prelude.seq`
+                      Prelude.rnf themeArn

@@ -131,9 +131,9 @@ instance Prelude.Hashable DeleteDashboard where
 
 instance Prelude.NFData DeleteDashboard where
   rnf DeleteDashboard' {..} =
-    Prelude.rnf versionNumber
-      `Prelude.seq` Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf dashboardId
+    Prelude.rnf versionNumber `Prelude.seq`
+      Prelude.rnf awsAccountId `Prelude.seq`
+        Prelude.rnf dashboardId
 
 instance Data.ToHeaders DeleteDashboard where
   toHeaders =
@@ -218,7 +218,7 @@ deleteDashboardResponse_status = Lens.lens (\DeleteDashboardResponse' {status} -
 
 instance Prelude.NFData DeleteDashboardResponse where
   rnf DeleteDashboardResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf dashboardId
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf dashboardId `Prelude.seq`
+        Prelude.rnf requestId `Prelude.seq`
+          Prelude.rnf status

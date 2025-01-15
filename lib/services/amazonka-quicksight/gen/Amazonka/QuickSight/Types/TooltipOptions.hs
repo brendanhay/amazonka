@@ -110,9 +110,9 @@ instance Prelude.Hashable TooltipOptions where
 
 instance Prelude.NFData TooltipOptions where
   rnf TooltipOptions' {..} =
-    Prelude.rnf fieldBasedTooltip
-      `Prelude.seq` Prelude.rnf selectedTooltipType
-      `Prelude.seq` Prelude.rnf tooltipVisibility
+    Prelude.rnf fieldBasedTooltip `Prelude.seq`
+      Prelude.rnf selectedTooltipType `Prelude.seq`
+        Prelude.rnf tooltipVisibility
 
 instance Data.ToJSON TooltipOptions where
   toJSON TooltipOptions' {..} =

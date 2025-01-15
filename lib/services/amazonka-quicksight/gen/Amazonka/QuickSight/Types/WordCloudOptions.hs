@@ -141,12 +141,12 @@ instance Prelude.Hashable WordCloudOptions where
 
 instance Prelude.NFData WordCloudOptions where
   rnf WordCloudOptions' {..} =
-    Prelude.rnf cloudLayout
-      `Prelude.seq` Prelude.rnf maximumStringLength
-      `Prelude.seq` Prelude.rnf wordCasing
-      `Prelude.seq` Prelude.rnf wordOrientation
-      `Prelude.seq` Prelude.rnf wordPadding
-      `Prelude.seq` Prelude.rnf wordScaling
+    Prelude.rnf cloudLayout `Prelude.seq`
+      Prelude.rnf maximumStringLength `Prelude.seq`
+        Prelude.rnf wordCasing `Prelude.seq`
+          Prelude.rnf wordOrientation `Prelude.seq`
+            Prelude.rnf wordPadding `Prelude.seq`
+              Prelude.rnf wordScaling
 
 instance Data.ToJSON WordCloudOptions where
   toJSON WordCloudOptions' {..} =

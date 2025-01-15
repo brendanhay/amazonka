@@ -83,8 +83,8 @@ instance Prelude.Hashable ForecastScenario where
 
 instance Prelude.NFData ForecastScenario where
   rnf ForecastScenario' {..} =
-    Prelude.rnf whatIfPointScenario
-      `Prelude.seq` Prelude.rnf whatIfRangeScenario
+    Prelude.rnf whatIfPointScenario `Prelude.seq`
+      Prelude.rnf whatIfRangeScenario
 
 instance Data.ToJSON ForecastScenario where
   toJSON ForecastScenario' {..} =

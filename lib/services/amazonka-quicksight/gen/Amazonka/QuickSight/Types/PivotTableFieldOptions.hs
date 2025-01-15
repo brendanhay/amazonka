@@ -89,8 +89,8 @@ instance Prelude.Hashable PivotTableFieldOptions where
 
 instance Prelude.NFData PivotTableFieldOptions where
   rnf PivotTableFieldOptions' {..} =
-    Prelude.rnf dataPathOptions
-      `Prelude.seq` Prelude.rnf selectedFieldOptions
+    Prelude.rnf dataPathOptions `Prelude.seq`
+      Prelude.rnf selectedFieldOptions
 
 instance Data.ToJSON PivotTableFieldOptions where
   toJSON PivotTableFieldOptions' {..} =

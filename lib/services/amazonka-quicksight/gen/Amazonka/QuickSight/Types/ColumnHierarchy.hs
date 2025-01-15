@@ -108,9 +108,9 @@ instance Prelude.Hashable ColumnHierarchy where
 
 instance Prelude.NFData ColumnHierarchy where
   rnf ColumnHierarchy' {..} =
-    Prelude.rnf dateTimeHierarchy
-      `Prelude.seq` Prelude.rnf explicitHierarchy
-      `Prelude.seq` Prelude.rnf predefinedHierarchy
+    Prelude.rnf dateTimeHierarchy `Prelude.seq`
+      Prelude.rnf explicitHierarchy `Prelude.seq`
+        Prelude.rnf predefinedHierarchy
 
 instance Data.ToJSON ColumnHierarchy where
   toJSON ColumnHierarchy' {..} =

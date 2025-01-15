@@ -118,9 +118,9 @@ instance
     ReferenceLineDataConfiguration
   where
   rnf ReferenceLineDataConfiguration' {..} =
-    Prelude.rnf axisBinding
-      `Prelude.seq` Prelude.rnf dynamicConfiguration
-      `Prelude.seq` Prelude.rnf staticConfiguration
+    Prelude.rnf axisBinding `Prelude.seq`
+      Prelude.rnf dynamicConfiguration `Prelude.seq`
+        Prelude.rnf staticConfiguration
 
 instance Data.ToJSON ReferenceLineDataConfiguration where
   toJSON ReferenceLineDataConfiguration' {..} =

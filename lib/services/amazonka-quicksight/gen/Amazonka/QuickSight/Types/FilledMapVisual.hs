@@ -156,13 +156,13 @@ instance Prelude.Hashable FilledMapVisual where
 
 instance Prelude.NFData FilledMapVisual where
   rnf FilledMapVisual' {..} =
-    Prelude.rnf actions
-      `Prelude.seq` Prelude.rnf chartConfiguration
-      `Prelude.seq` Prelude.rnf columnHierarchies
-      `Prelude.seq` Prelude.rnf conditionalFormatting
-      `Prelude.seq` Prelude.rnf subtitle
-      `Prelude.seq` Prelude.rnf title
-      `Prelude.seq` Prelude.rnf visualId
+    Prelude.rnf actions `Prelude.seq`
+      Prelude.rnf chartConfiguration `Prelude.seq`
+        Prelude.rnf columnHierarchies `Prelude.seq`
+          Prelude.rnf conditionalFormatting `Prelude.seq`
+            Prelude.rnf subtitle `Prelude.seq`
+              Prelude.rnf title `Prelude.seq`
+                Prelude.rnf visualId
 
 instance Data.ToJSON FilledMapVisual where
   toJSON FilledMapVisual' {..} =

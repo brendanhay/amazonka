@@ -194,13 +194,13 @@ instance Prelude.Hashable UpdateDataSource where
 
 instance Prelude.NFData UpdateDataSource where
   rnf UpdateDataSource' {..} =
-    Prelude.rnf credentials
-      `Prelude.seq` Prelude.rnf dataSourceParameters
-      `Prelude.seq` Prelude.rnf sslProperties
-      `Prelude.seq` Prelude.rnf vpcConnectionProperties
-      `Prelude.seq` Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf dataSourceId
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf credentials `Prelude.seq`
+      Prelude.rnf dataSourceParameters `Prelude.seq`
+        Prelude.rnf sslProperties `Prelude.seq`
+          Prelude.rnf vpcConnectionProperties `Prelude.seq`
+            Prelude.rnf awsAccountId `Prelude.seq`
+              Prelude.rnf dataSourceId `Prelude.seq`
+                Prelude.rnf name
 
 instance Data.ToHeaders UpdateDataSource where
   toHeaders =
@@ -309,8 +309,8 @@ updateDataSourceResponse_status = Lens.lens (\UpdateDataSourceResponse' {status}
 
 instance Prelude.NFData UpdateDataSourceResponse where
   rnf UpdateDataSourceResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf dataSourceId
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf updateStatus
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf dataSourceId `Prelude.seq`
+        Prelude.rnf requestId `Prelude.seq`
+          Prelude.rnf updateStatus `Prelude.seq`
+            Prelude.rnf status

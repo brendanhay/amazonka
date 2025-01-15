@@ -145,10 +145,10 @@ instance Prelude.Hashable UpdateThemeAlias where
 
 instance Prelude.NFData UpdateThemeAlias where
   rnf UpdateThemeAlias' {..} =
-    Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf themeId
-      `Prelude.seq` Prelude.rnf aliasName
-      `Prelude.seq` Prelude.rnf themeVersionNumber
+    Prelude.rnf awsAccountId `Prelude.seq`
+      Prelude.rnf themeId `Prelude.seq`
+        Prelude.rnf aliasName `Prelude.seq`
+          Prelude.rnf themeVersionNumber
 
 instance Data.ToHeaders UpdateThemeAlias where
   toHeaders =
@@ -234,6 +234,6 @@ updateThemeAliasResponse_status = Lens.lens (\UpdateThemeAliasResponse' {status}
 
 instance Prelude.NFData UpdateThemeAliasResponse where
   rnf UpdateThemeAliasResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf themeAlias
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf requestId `Prelude.seq`
+      Prelude.rnf themeAlias `Prelude.seq`
+        Prelude.rnf status

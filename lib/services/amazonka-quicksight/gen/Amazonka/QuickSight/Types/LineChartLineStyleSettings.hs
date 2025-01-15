@@ -145,10 +145,10 @@ instance Prelude.Hashable LineChartLineStyleSettings where
 
 instance Prelude.NFData LineChartLineStyleSettings where
   rnf LineChartLineStyleSettings' {..} =
-    Prelude.rnf lineInterpolation
-      `Prelude.seq` Prelude.rnf lineStyle
-      `Prelude.seq` Prelude.rnf lineVisibility
-      `Prelude.seq` Prelude.rnf lineWidth
+    Prelude.rnf lineInterpolation `Prelude.seq`
+      Prelude.rnf lineStyle `Prelude.seq`
+        Prelude.rnf lineVisibility `Prelude.seq`
+          Prelude.rnf lineWidth
 
 instance Data.ToJSON LineChartLineStyleSettings where
   toJSON LineChartLineStyleSettings' {..} =

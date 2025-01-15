@@ -116,10 +116,10 @@ instance
 
 instance Prelude.NFData FilterRelativeDateTimeControl where
   rnf FilterRelativeDateTimeControl' {..} =
-    Prelude.rnf displayOptions
-      `Prelude.seq` Prelude.rnf filterControlId
-      `Prelude.seq` Prelude.rnf title
-      `Prelude.seq` Prelude.rnf sourceFilterId
+    Prelude.rnf displayOptions `Prelude.seq`
+      Prelude.rnf filterControlId `Prelude.seq`
+        Prelude.rnf title `Prelude.seq`
+          Prelude.rnf sourceFilterId
 
 instance Data.ToJSON FilterRelativeDateTimeControl where
   toJSON FilterRelativeDateTimeControl' {..} =

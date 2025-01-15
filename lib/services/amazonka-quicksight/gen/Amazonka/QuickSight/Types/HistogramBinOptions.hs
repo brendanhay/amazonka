@@ -105,10 +105,10 @@ instance Prelude.Hashable HistogramBinOptions where
 
 instance Prelude.NFData HistogramBinOptions where
   rnf HistogramBinOptions' {..} =
-    Prelude.rnf binCount
-      `Prelude.seq` Prelude.rnf binWidth
-      `Prelude.seq` Prelude.rnf selectedBinType
-      `Prelude.seq` Prelude.rnf startValue
+    Prelude.rnf binCount `Prelude.seq`
+      Prelude.rnf binWidth `Prelude.seq`
+        Prelude.rnf selectedBinType `Prelude.seq`
+          Prelude.rnf startValue
 
 instance Data.ToJSON HistogramBinOptions where
   toJSON HistogramBinOptions' {..} =

@@ -97,9 +97,9 @@ instance Prelude.Hashable AuroraParameters where
 
 instance Prelude.NFData AuroraParameters where
   rnf AuroraParameters' {..} =
-    Prelude.rnf host
-      `Prelude.seq` Prelude.rnf port
-      `Prelude.seq` Prelude.rnf database
+    Prelude.rnf host `Prelude.seq`
+      Prelude.rnf port `Prelude.seq`
+        Prelude.rnf database
 
 instance Data.ToJSON AuroraParameters where
   toJSON AuroraParameters' {..} =

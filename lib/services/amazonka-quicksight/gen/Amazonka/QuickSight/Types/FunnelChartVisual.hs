@@ -144,12 +144,12 @@ instance Prelude.Hashable FunnelChartVisual where
 
 instance Prelude.NFData FunnelChartVisual where
   rnf FunnelChartVisual' {..} =
-    Prelude.rnf actions
-      `Prelude.seq` Prelude.rnf chartConfiguration
-      `Prelude.seq` Prelude.rnf columnHierarchies
-      `Prelude.seq` Prelude.rnf subtitle
-      `Prelude.seq` Prelude.rnf title
-      `Prelude.seq` Prelude.rnf visualId
+    Prelude.rnf actions `Prelude.seq`
+      Prelude.rnf chartConfiguration `Prelude.seq`
+        Prelude.rnf columnHierarchies `Prelude.seq`
+          Prelude.rnf subtitle `Prelude.seq`
+            Prelude.rnf title `Prelude.seq`
+              Prelude.rnf visualId
 
 instance Data.ToJSON FunnelChartVisual where
   toJSON FunnelChartVisual' {..} =

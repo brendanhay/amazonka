@@ -131,12 +131,12 @@ instance Prelude.Hashable FilledMapConfiguration where
 
 instance Prelude.NFData FilledMapConfiguration where
   rnf FilledMapConfiguration' {..} =
-    Prelude.rnf fieldWells
-      `Prelude.seq` Prelude.rnf legend
-      `Prelude.seq` Prelude.rnf mapStyleOptions
-      `Prelude.seq` Prelude.rnf sortConfiguration
-      `Prelude.seq` Prelude.rnf tooltip
-      `Prelude.seq` Prelude.rnf windowOptions
+    Prelude.rnf fieldWells `Prelude.seq`
+      Prelude.rnf legend `Prelude.seq`
+        Prelude.rnf mapStyleOptions `Prelude.seq`
+          Prelude.rnf sortConfiguration `Prelude.seq`
+            Prelude.rnf tooltip `Prelude.seq`
+              Prelude.rnf windowOptions
 
 instance Data.ToJSON FilledMapConfiguration where
   toJSON FilledMapConfiguration' {..} =

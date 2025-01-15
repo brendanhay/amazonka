@@ -83,8 +83,8 @@ instance Prelude.Hashable TableSortConfiguration where
 
 instance Prelude.NFData TableSortConfiguration where
   rnf TableSortConfiguration' {..} =
-    Prelude.rnf paginationConfiguration
-      `Prelude.seq` Prelude.rnf rowSort
+    Prelude.rnf paginationConfiguration `Prelude.seq`
+      Prelude.rnf rowSort
 
 instance Data.ToJSON TableSortConfiguration where
   toJSON TableSortConfiguration' {..} =

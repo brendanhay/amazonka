@@ -83,8 +83,8 @@ instance Prelude.Hashable TableFieldURLConfiguration where
 
 instance Prelude.NFData TableFieldURLConfiguration where
   rnf TableFieldURLConfiguration' {..} =
-    Prelude.rnf imageConfiguration
-      `Prelude.seq` Prelude.rnf linkConfiguration
+    Prelude.rnf imageConfiguration `Prelude.seq`
+      Prelude.rnf linkConfiguration
 
 instance Data.ToJSON TableFieldURLConfiguration where
   toJSON TableFieldURLConfiguration' {..} =

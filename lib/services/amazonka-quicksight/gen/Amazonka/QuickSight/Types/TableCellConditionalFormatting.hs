@@ -92,8 +92,8 @@ instance
     TableCellConditionalFormatting
   where
   rnf TableCellConditionalFormatting' {..} =
-    Prelude.rnf textFormat
-      `Prelude.seq` Prelude.rnf fieldId
+    Prelude.rnf textFormat `Prelude.seq`
+      Prelude.rnf fieldId
 
 instance Data.ToJSON TableCellConditionalFormatting where
   toJSON TableCellConditionalFormatting' {..} =

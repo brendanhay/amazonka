@@ -174,15 +174,15 @@ instance Prelude.Hashable TreeMapConfiguration where
 
 instance Prelude.NFData TreeMapConfiguration where
   rnf TreeMapConfiguration' {..} =
-    Prelude.rnf colorLabelOptions
-      `Prelude.seq` Prelude.rnf colorScale
-      `Prelude.seq` Prelude.rnf dataLabels
-      `Prelude.seq` Prelude.rnf fieldWells
-      `Prelude.seq` Prelude.rnf groupLabelOptions
-      `Prelude.seq` Prelude.rnf legend
-      `Prelude.seq` Prelude.rnf sizeLabelOptions
-      `Prelude.seq` Prelude.rnf sortConfiguration
-      `Prelude.seq` Prelude.rnf tooltip
+    Prelude.rnf colorLabelOptions `Prelude.seq`
+      Prelude.rnf colorScale `Prelude.seq`
+        Prelude.rnf dataLabels `Prelude.seq`
+          Prelude.rnf fieldWells `Prelude.seq`
+            Prelude.rnf groupLabelOptions `Prelude.seq`
+              Prelude.rnf legend `Prelude.seq`
+                Prelude.rnf sizeLabelOptions `Prelude.seq`
+                  Prelude.rnf sortConfiguration `Prelude.seq`
+                    Prelude.rnf tooltip
 
 instance Data.ToJSON TreeMapConfiguration where
   toJSON TreeMapConfiguration' {..} =

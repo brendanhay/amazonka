@@ -141,10 +141,10 @@ instance Prelude.Hashable UpdateTemplatePermissions where
 
 instance Prelude.NFData UpdateTemplatePermissions where
   rnf UpdateTemplatePermissions' {..} =
-    Prelude.rnf grantPermissions
-      `Prelude.seq` Prelude.rnf revokePermissions
-      `Prelude.seq` Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf templateId
+    Prelude.rnf grantPermissions `Prelude.seq`
+      Prelude.rnf revokePermissions `Prelude.seq`
+        Prelude.rnf awsAccountId `Prelude.seq`
+          Prelude.rnf templateId
 
 instance Data.ToHeaders UpdateTemplatePermissions where
   toHeaders =
@@ -252,8 +252,8 @@ instance
     UpdateTemplatePermissionsResponse
   where
   rnf UpdateTemplatePermissionsResponse' {..} =
-    Prelude.rnf permissions
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf templateArn
-      `Prelude.seq` Prelude.rnf templateId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf permissions `Prelude.seq`
+      Prelude.rnf requestId `Prelude.seq`
+        Prelude.rnf templateArn `Prelude.seq`
+          Prelude.rnf templateId `Prelude.seq`
+            Prelude.rnf status

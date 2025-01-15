@@ -93,9 +93,9 @@ instance Prelude.Hashable LabelOptions where
 
 instance Prelude.NFData LabelOptions where
   rnf LabelOptions' {..} =
-    Prelude.rnf customLabel
-      `Prelude.seq` Prelude.rnf fontConfiguration
-      `Prelude.seq` Prelude.rnf visibility
+    Prelude.rnf customLabel `Prelude.seq`
+      Prelude.rnf fontConfiguration `Prelude.seq`
+        Prelude.rnf visibility
 
 instance Data.ToJSON LabelOptions where
   toJSON LabelOptions' {..} =

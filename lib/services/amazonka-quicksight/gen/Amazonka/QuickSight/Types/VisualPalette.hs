@@ -81,8 +81,8 @@ instance Prelude.Hashable VisualPalette where
 
 instance Prelude.NFData VisualPalette where
   rnf VisualPalette' {..} =
-    Prelude.rnf chartColor
-      `Prelude.seq` Prelude.rnf colorMap
+    Prelude.rnf chartColor `Prelude.seq`
+      Prelude.rnf colorMap
 
 instance Data.ToJSON VisualPalette where
   toJSON VisualPalette' {..} =

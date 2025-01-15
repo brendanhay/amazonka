@@ -200,15 +200,15 @@ instance Prelude.Hashable TimeRangeFilter where
 
 instance Prelude.NFData TimeRangeFilter where
   rnf TimeRangeFilter' {..} =
-    Prelude.rnf excludePeriodConfiguration
-      `Prelude.seq` Prelude.rnf includeMaximum
-      `Prelude.seq` Prelude.rnf includeMinimum
-      `Prelude.seq` Prelude.rnf rangeMaximumValue
-      `Prelude.seq` Prelude.rnf rangeMinimumValue
-      `Prelude.seq` Prelude.rnf timeGranularity
-      `Prelude.seq` Prelude.rnf filterId
-      `Prelude.seq` Prelude.rnf column
-      `Prelude.seq` Prelude.rnf nullOption
+    Prelude.rnf excludePeriodConfiguration `Prelude.seq`
+      Prelude.rnf includeMaximum `Prelude.seq`
+        Prelude.rnf includeMinimum `Prelude.seq`
+          Prelude.rnf rangeMaximumValue `Prelude.seq`
+            Prelude.rnf rangeMinimumValue `Prelude.seq`
+              Prelude.rnf timeGranularity `Prelude.seq`
+                Prelude.rnf filterId `Prelude.seq`
+                  Prelude.rnf column `Prelude.seq`
+                    Prelude.rnf nullOption
 
 instance Data.ToJSON TimeRangeFilter where
   toJSON TimeRangeFilter' {..} =

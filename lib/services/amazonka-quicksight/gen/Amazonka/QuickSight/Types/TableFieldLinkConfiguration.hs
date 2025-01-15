@@ -89,8 +89,8 @@ instance Prelude.Hashable TableFieldLinkConfiguration where
 
 instance Prelude.NFData TableFieldLinkConfiguration where
   rnf TableFieldLinkConfiguration' {..} =
-    Prelude.rnf target
-      `Prelude.seq` Prelude.rnf content
+    Prelude.rnf target `Prelude.seq`
+      Prelude.rnf content
 
 instance Data.ToJSON TableFieldLinkConfiguration where
   toJSON TableFieldLinkConfiguration' {..} =

@@ -111,9 +111,9 @@ instance
     PivotTableAggregatedFieldWells
   where
   rnf PivotTableAggregatedFieldWells' {..} =
-    Prelude.rnf columns
-      `Prelude.seq` Prelude.rnf rows
-      `Prelude.seq` Prelude.rnf values
+    Prelude.rnf columns `Prelude.seq`
+      Prelude.rnf rows `Prelude.seq`
+        Prelude.rnf values
 
 instance Data.ToJSON PivotTableAggregatedFieldWells where
   toJSON PivotTableAggregatedFieldWells' {..} =

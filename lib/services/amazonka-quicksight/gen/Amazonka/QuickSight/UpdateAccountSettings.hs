@@ -166,10 +166,10 @@ instance Prelude.Hashable UpdateAccountSettings where
 
 instance Prelude.NFData UpdateAccountSettings where
   rnf UpdateAccountSettings' {..} =
-    Prelude.rnf notificationEmail
-      `Prelude.seq` Prelude.rnf terminationProtectionEnabled
-      `Prelude.seq` Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf defaultNamespace
+    Prelude.rnf notificationEmail `Prelude.seq`
+      Prelude.rnf terminationProtectionEnabled `Prelude.seq`
+        Prelude.rnf awsAccountId `Prelude.seq`
+          Prelude.rnf defaultNamespace
 
 instance Data.ToHeaders UpdateAccountSettings where
   toHeaders =
@@ -244,5 +244,5 @@ updateAccountSettingsResponse_status = Lens.lens (\UpdateAccountSettingsResponse
 
 instance Prelude.NFData UpdateAccountSettingsResponse where
   rnf UpdateAccountSettingsResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf requestId `Prelude.seq`
+      Prelude.rnf status

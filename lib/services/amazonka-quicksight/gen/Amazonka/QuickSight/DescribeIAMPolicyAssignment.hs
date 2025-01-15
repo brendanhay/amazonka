@@ -133,9 +133,9 @@ instance Prelude.Hashable DescribeIAMPolicyAssignment where
 
 instance Prelude.NFData DescribeIAMPolicyAssignment where
   rnf DescribeIAMPolicyAssignment' {..} =
-    Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf assignmentName
-      `Prelude.seq` Prelude.rnf namespace
+    Prelude.rnf awsAccountId `Prelude.seq`
+      Prelude.rnf assignmentName `Prelude.seq`
+        Prelude.rnf namespace
 
 instance Data.ToHeaders DescribeIAMPolicyAssignment where
   toHeaders =
@@ -215,6 +215,6 @@ instance
     DescribeIAMPolicyAssignmentResponse
   where
   rnf DescribeIAMPolicyAssignmentResponse' {..} =
-    Prelude.rnf iAMPolicyAssignment
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf iAMPolicyAssignment `Prelude.seq`
+      Prelude.rnf requestId `Prelude.seq`
+        Prelude.rnf status

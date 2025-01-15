@@ -118,8 +118,8 @@ instance Prelude.Hashable DeleteDataSource where
 
 instance Prelude.NFData DeleteDataSource where
   rnf DeleteDataSource' {..} =
-    Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf dataSourceId
+    Prelude.rnf awsAccountId `Prelude.seq`
+      Prelude.rnf dataSourceId
 
 instance Data.ToHeaders DeleteDataSource where
   toHeaders =
@@ -205,7 +205,7 @@ deleteDataSourceResponse_status = Lens.lens (\DeleteDataSourceResponse' {status}
 
 instance Prelude.NFData DeleteDataSourceResponse where
   rnf DeleteDataSourceResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf dataSourceId
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf dataSourceId `Prelude.seq`
+        Prelude.rnf requestId `Prelude.seq`
+          Prelude.rnf status

@@ -104,9 +104,9 @@ instance Prelude.Hashable CategoryFilter where
 
 instance Prelude.NFData CategoryFilter where
   rnf CategoryFilter' {..} =
-    Prelude.rnf configuration
-      `Prelude.seq` Prelude.rnf filterId
-      `Prelude.seq` Prelude.rnf column
+    Prelude.rnf configuration `Prelude.seq`
+      Prelude.rnf filterId `Prelude.seq`
+        Prelude.rnf column
 
 instance Data.ToJSON CategoryFilter where
   toJSON CategoryFilter' {..} =

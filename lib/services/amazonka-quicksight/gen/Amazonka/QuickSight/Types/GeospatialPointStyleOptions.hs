@@ -83,8 +83,8 @@ instance Prelude.Hashable GeospatialPointStyleOptions where
 
 instance Prelude.NFData GeospatialPointStyleOptions where
   rnf GeospatialPointStyleOptions' {..} =
-    Prelude.rnf clusterMarkerConfiguration
-      `Prelude.seq` Prelude.rnf selectedPointStyle
+    Prelude.rnf clusterMarkerConfiguration `Prelude.seq`
+      Prelude.rnf selectedPointStyle
 
 instance Data.ToJSON GeospatialPointStyleOptions where
   toJSON GeospatialPointStyleOptions' {..} =

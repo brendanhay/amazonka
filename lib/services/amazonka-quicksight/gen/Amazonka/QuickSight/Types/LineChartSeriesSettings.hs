@@ -84,8 +84,8 @@ instance Prelude.Hashable LineChartSeriesSettings where
 
 instance Prelude.NFData LineChartSeriesSettings where
   rnf LineChartSeriesSettings' {..} =
-    Prelude.rnf lineStyleSettings
-      `Prelude.seq` Prelude.rnf markerStyleSettings
+    Prelude.rnf lineStyleSettings `Prelude.seq`
+      Prelude.rnf markerStyleSettings
 
 instance Data.ToJSON LineChartSeriesSettings where
   toJSON LineChartSeriesSettings' {..} =

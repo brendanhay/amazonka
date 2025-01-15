@@ -81,8 +81,8 @@ instance Prelude.Hashable FieldFolder where
 
 instance Prelude.NFData FieldFolder where
   rnf FieldFolder' {..} =
-    Prelude.rnf columns
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf columns `Prelude.seq`
+      Prelude.rnf description
 
 instance Data.ToJSON FieldFolder where
   toJSON FieldFolder' {..} =

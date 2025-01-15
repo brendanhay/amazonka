@@ -180,14 +180,14 @@ instance Prelude.Hashable FilterSliderControl where
 
 instance Prelude.NFData FilterSliderControl where
   rnf FilterSliderControl' {..} =
-    Prelude.rnf displayOptions
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf filterControlId
-      `Prelude.seq` Prelude.rnf title
-      `Prelude.seq` Prelude.rnf sourceFilterId
-      `Prelude.seq` Prelude.rnf maximumValue
-      `Prelude.seq` Prelude.rnf minimumValue
-      `Prelude.seq` Prelude.rnf stepSize
+    Prelude.rnf displayOptions `Prelude.seq`
+      Prelude.rnf type' `Prelude.seq`
+        Prelude.rnf filterControlId `Prelude.seq`
+          Prelude.rnf title `Prelude.seq`
+            Prelude.rnf sourceFilterId `Prelude.seq`
+              Prelude.rnf maximumValue `Prelude.seq`
+                Prelude.rnf minimumValue `Prelude.seq`
+                  Prelude.rnf stepSize
 
 instance Data.ToJSON FilterSliderControl where
   toJSON FilterSliderControl' {..} =

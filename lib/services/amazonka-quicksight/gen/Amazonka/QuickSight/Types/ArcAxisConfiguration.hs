@@ -81,8 +81,8 @@ instance Prelude.Hashable ArcAxisConfiguration where
 
 instance Prelude.NFData ArcAxisConfiguration where
   rnf ArcAxisConfiguration' {..} =
-    Prelude.rnf range
-      `Prelude.seq` Prelude.rnf reserveRange
+    Prelude.rnf range `Prelude.seq`
+      Prelude.rnf reserveRange
 
 instance Data.ToJSON ArcAxisConfiguration where
   toJSON ArcAxisConfiguration' {..} =

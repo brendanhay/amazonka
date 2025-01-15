@@ -97,9 +97,9 @@ instance Prelude.Hashable SqlServerParameters where
 
 instance Prelude.NFData SqlServerParameters where
   rnf SqlServerParameters' {..} =
-    Prelude.rnf host
-      `Prelude.seq` Prelude.rnf port
-      `Prelude.seq` Prelude.rnf database
+    Prelude.rnf host `Prelude.seq`
+      Prelude.rnf port `Prelude.seq`
+        Prelude.rnf database
 
 instance Data.ToJSON SqlServerParameters where
   toJSON SqlServerParameters' {..} =

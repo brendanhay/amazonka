@@ -125,10 +125,10 @@ instance
     ConditionalFormattingCustomIconCondition
   where
   rnf ConditionalFormattingCustomIconCondition' {..} =
-    Prelude.rnf color
-      `Prelude.seq` Prelude.rnf displayConfiguration
-      `Prelude.seq` Prelude.rnf expression
-      `Prelude.seq` Prelude.rnf iconOptions
+    Prelude.rnf color `Prelude.seq`
+      Prelude.rnf displayConfiguration `Prelude.seq`
+        Prelude.rnf expression `Prelude.seq`
+          Prelude.rnf iconOptions
 
 instance
   Data.ToJSON

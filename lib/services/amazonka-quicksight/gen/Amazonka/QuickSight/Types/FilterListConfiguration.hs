@@ -105,9 +105,9 @@ instance Prelude.Hashable FilterListConfiguration where
 
 instance Prelude.NFData FilterListConfiguration where
   rnf FilterListConfiguration' {..} =
-    Prelude.rnf categoryValues
-      `Prelude.seq` Prelude.rnf selectAllOptions
-      `Prelude.seq` Prelude.rnf matchOperator
+    Prelude.rnf categoryValues `Prelude.seq`
+      Prelude.rnf selectAllOptions `Prelude.seq`
+        Prelude.rnf matchOperator
 
 instance Data.ToJSON FilterListConfiguration where
   toJSON FilterListConfiguration' {..} =

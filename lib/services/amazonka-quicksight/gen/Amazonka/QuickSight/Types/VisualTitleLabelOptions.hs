@@ -86,8 +86,8 @@ instance Prelude.Hashable VisualTitleLabelOptions where
 
 instance Prelude.NFData VisualTitleLabelOptions where
   rnf VisualTitleLabelOptions' {..} =
-    Prelude.rnf formatText
-      `Prelude.seq` Prelude.rnf visibility
+    Prelude.rnf formatText `Prelude.seq`
+      Prelude.rnf visibility
 
 instance Data.ToJSON VisualTitleLabelOptions where
   toJSON VisualTitleLabelOptions' {..} =

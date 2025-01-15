@@ -128,9 +128,9 @@ instance Prelude.Hashable AnalysisSummary where
 
 instance Prelude.NFData AnalysisSummary where
   rnf AnalysisSummary' {..} =
-    Prelude.rnf analysisId
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf analysisId `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf createdTime `Prelude.seq`
+          Prelude.rnf lastUpdatedTime `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf status

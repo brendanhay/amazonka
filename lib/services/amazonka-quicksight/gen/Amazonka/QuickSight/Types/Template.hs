@@ -138,9 +138,9 @@ instance Prelude.Hashable Template where
 
 instance Prelude.NFData Template where
   rnf Template' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf templateId
-      `Prelude.seq` Prelude.rnf version
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf createdTime `Prelude.seq`
+        Prelude.rnf lastUpdatedTime `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf templateId `Prelude.seq`
+              Prelude.rnf version

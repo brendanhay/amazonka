@@ -97,9 +97,9 @@ instance Prelude.Hashable PrestoParameters where
 
 instance Prelude.NFData PrestoParameters where
   rnf PrestoParameters' {..} =
-    Prelude.rnf host
-      `Prelude.seq` Prelude.rnf port
-      `Prelude.seq` Prelude.rnf catalog
+    Prelude.rnf host `Prelude.seq`
+      Prelude.rnf port `Prelude.seq`
+        Prelude.rnf catalog
 
 instance Data.ToJSON PrestoParameters where
   toJSON PrestoParameters' {..} =

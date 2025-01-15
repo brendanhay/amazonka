@@ -105,9 +105,9 @@ instance
 
 instance Prelude.NFData DefaultNewSheetConfiguration where
   rnf DefaultNewSheetConfiguration' {..} =
-    Prelude.rnf interactiveLayoutConfiguration
-      `Prelude.seq` Prelude.rnf paginatedLayoutConfiguration
-      `Prelude.seq` Prelude.rnf sheetContentType
+    Prelude.rnf interactiveLayoutConfiguration `Prelude.seq`
+      Prelude.rnf paginatedLayoutConfiguration `Prelude.seq`
+        Prelude.rnf sheetContentType
 
 instance Data.ToJSON DefaultNewSheetConfiguration where
   toJSON DefaultNewSheetConfiguration' {..} =

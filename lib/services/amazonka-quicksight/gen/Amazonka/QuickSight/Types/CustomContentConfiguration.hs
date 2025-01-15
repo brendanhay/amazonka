@@ -106,9 +106,9 @@ instance Prelude.Hashable CustomContentConfiguration where
 
 instance Prelude.NFData CustomContentConfiguration where
   rnf CustomContentConfiguration' {..} =
-    Prelude.rnf contentType
-      `Prelude.seq` Prelude.rnf contentUrl
-      `Prelude.seq` Prelude.rnf imageScaling
+    Prelude.rnf contentType `Prelude.seq`
+      Prelude.rnf contentUrl `Prelude.seq`
+        Prelude.rnf imageScaling
 
 instance Data.ToJSON CustomContentConfiguration where
   toJSON CustomContentConfiguration' {..} =

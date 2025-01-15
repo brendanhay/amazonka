@@ -91,6 +91,6 @@ instance Prelude.Hashable TemplateAlias where
 
 instance Prelude.NFData TemplateAlias where
   rnf TemplateAlias' {..} =
-    Prelude.rnf aliasName
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf templateVersionNumber
+    Prelude.rnf aliasName `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf templateVersionNumber

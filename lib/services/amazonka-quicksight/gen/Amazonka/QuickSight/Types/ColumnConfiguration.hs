@@ -97,9 +97,9 @@ instance Prelude.Hashable ColumnConfiguration where
 
 instance Prelude.NFData ColumnConfiguration where
   rnf ColumnConfiguration' {..} =
-    Prelude.rnf formatConfiguration
-      `Prelude.seq` Prelude.rnf role'
-      `Prelude.seq` Prelude.rnf column
+    Prelude.rnf formatConfiguration `Prelude.seq`
+      Prelude.rnf role' `Prelude.seq`
+        Prelude.rnf column
 
 instance Data.ToJSON ColumnConfiguration where
   toJSON ColumnConfiguration' {..} =

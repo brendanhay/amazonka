@@ -112,8 +112,8 @@ instance Prelude.Hashable DescribeFolder where
 
 instance Prelude.NFData DescribeFolder where
   rnf DescribeFolder' {..} =
-    Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf folderId
+    Prelude.rnf awsAccountId `Prelude.seq`
+      Prelude.rnf folderId
 
 instance Data.ToHeaders DescribeFolder where
   toHeaders =
@@ -187,6 +187,6 @@ describeFolderResponse_status = Lens.lens (\DescribeFolderResponse' {status} -> 
 
 instance Prelude.NFData DescribeFolderResponse where
   rnf DescribeFolderResponse' {..} =
-    Prelude.rnf folder
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf folder `Prelude.seq`
+      Prelude.rnf requestId `Prelude.seq`
+        Prelude.rnf status

@@ -112,8 +112,8 @@ instance Prelude.Hashable DonutOptions where
 
 instance Prelude.NFData DonutOptions where
   rnf DonutOptions' {..} =
-    Prelude.rnf arcOptions
-      `Prelude.seq` Prelude.rnf donutCenterOptions
+    Prelude.rnf arcOptions `Prelude.seq`
+      Prelude.rnf donutCenterOptions
 
 instance Data.ToJSON DonutOptions where
   toJSON DonutOptions' {..} =

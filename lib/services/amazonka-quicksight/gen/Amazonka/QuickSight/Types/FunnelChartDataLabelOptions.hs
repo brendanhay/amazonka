@@ -152,13 +152,13 @@ instance Prelude.Hashable FunnelChartDataLabelOptions where
 
 instance Prelude.NFData FunnelChartDataLabelOptions where
   rnf FunnelChartDataLabelOptions' {..} =
-    Prelude.rnf categoryLabelVisibility
-      `Prelude.seq` Prelude.rnf labelColor
-      `Prelude.seq` Prelude.rnf labelFontConfiguration
-      `Prelude.seq` Prelude.rnf measureDataLabelStyle
-      `Prelude.seq` Prelude.rnf measureLabelVisibility
-      `Prelude.seq` Prelude.rnf position
-      `Prelude.seq` Prelude.rnf visibility
+    Prelude.rnf categoryLabelVisibility `Prelude.seq`
+      Prelude.rnf labelColor `Prelude.seq`
+        Prelude.rnf labelFontConfiguration `Prelude.seq`
+          Prelude.rnf measureDataLabelStyle `Prelude.seq`
+            Prelude.rnf measureLabelVisibility `Prelude.seq`
+              Prelude.rnf position `Prelude.seq`
+                Prelude.rnf visibility
 
 instance Data.ToJSON FunnelChartDataLabelOptions where
   toJSON FunnelChartDataLabelOptions' {..} =

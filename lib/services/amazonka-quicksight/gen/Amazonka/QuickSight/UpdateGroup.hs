@@ -140,10 +140,10 @@ instance Prelude.Hashable UpdateGroup where
 
 instance Prelude.NFData UpdateGroup where
   rnf UpdateGroup' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf groupName
-      `Prelude.seq` Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf namespace
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf groupName `Prelude.seq`
+        Prelude.rnf awsAccountId `Prelude.seq`
+          Prelude.rnf namespace
 
 instance Data.ToHeaders UpdateGroup where
   toHeaders =
@@ -226,6 +226,6 @@ updateGroupResponse_status = Lens.lens (\UpdateGroupResponse' {status} -> status
 
 instance Prelude.NFData UpdateGroupResponse where
   rnf UpdateGroupResponse' {..} =
-    Prelude.rnf group'
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf group' `Prelude.seq`
+      Prelude.rnf requestId `Prelude.seq`
+        Prelude.rnf status

@@ -91,8 +91,8 @@ instance
 
 instance Prelude.NFData ConditionalFormattingIconSet where
   rnf ConditionalFormattingIconSet' {..} =
-    Prelude.rnf iconSetType
-      `Prelude.seq` Prelude.rnf expression
+    Prelude.rnf iconSetType `Prelude.seq`
+      Prelude.rnf expression
 
 instance Data.ToJSON ConditionalFormattingIconSet where
   toJSON ConditionalFormattingIconSet' {..} =

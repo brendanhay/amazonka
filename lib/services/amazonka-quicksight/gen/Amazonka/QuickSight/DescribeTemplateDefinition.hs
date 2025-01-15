@@ -171,10 +171,10 @@ instance Prelude.Hashable DescribeTemplateDefinition where
 
 instance Prelude.NFData DescribeTemplateDefinition where
   rnf DescribeTemplateDefinition' {..} =
-    Prelude.rnf aliasName
-      `Prelude.seq` Prelude.rnf versionNumber
-      `Prelude.seq` Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf templateId
+    Prelude.rnf aliasName `Prelude.seq`
+      Prelude.rnf versionNumber `Prelude.seq`
+        Prelude.rnf awsAccountId `Prelude.seq`
+          Prelude.rnf templateId
 
 instance Data.ToHeaders DescribeTemplateDefinition where
   toHeaders =
@@ -353,11 +353,11 @@ instance
     DescribeTemplateDefinitionResponse
   where
   rnf DescribeTemplateDefinitionResponse' {..} =
-    Prelude.rnf definition
-      `Prelude.seq` Prelude.rnf errors
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf resourceStatus
-      `Prelude.seq` Prelude.rnf templateId
-      `Prelude.seq` Prelude.rnf themeArn
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf definition `Prelude.seq`
+      Prelude.rnf errors `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf requestId `Prelude.seq`
+            Prelude.rnf resourceStatus `Prelude.seq`
+              Prelude.rnf templateId `Prelude.seq`
+                Prelude.rnf themeArn `Prelude.seq`
+                  Prelude.rnf status

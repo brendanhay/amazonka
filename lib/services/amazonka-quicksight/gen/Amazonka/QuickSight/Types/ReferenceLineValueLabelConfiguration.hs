@@ -109,8 +109,8 @@ instance
     ReferenceLineValueLabelConfiguration
   where
   rnf ReferenceLineValueLabelConfiguration' {..} =
-    Prelude.rnf formatConfiguration
-      `Prelude.seq` Prelude.rnf relativePosition
+    Prelude.rnf formatConfiguration `Prelude.seq`
+      Prelude.rnf relativePosition
 
 instance
   Data.ToJSON

@@ -92,9 +92,9 @@ instance Prelude.Hashable DataPathLabelType where
 
 instance Prelude.NFData DataPathLabelType where
   rnf DataPathLabelType' {..} =
-    Prelude.rnf fieldId
-      `Prelude.seq` Prelude.rnf fieldValue
-      `Prelude.seq` Prelude.rnf visibility
+    Prelude.rnf fieldId `Prelude.seq`
+      Prelude.rnf fieldValue `Prelude.seq`
+        Prelude.rnf visibility
 
 instance Data.ToJSON DataPathLabelType where
   toJSON DataPathLabelType' {..} =

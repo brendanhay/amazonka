@@ -80,8 +80,8 @@ instance Prelude.Hashable DataColor where
 
 instance Prelude.NFData DataColor where
   rnf DataColor' {..} =
-    Prelude.rnf color
-      `Prelude.seq` Prelude.rnf dataValue
+    Prelude.rnf color `Prelude.seq`
+      Prelude.rnf dataValue
 
 instance Data.ToJSON DataColor where
   toJSON DataColor' {..} =

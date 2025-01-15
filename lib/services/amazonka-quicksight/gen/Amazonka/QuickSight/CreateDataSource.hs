@@ -242,16 +242,16 @@ instance Prelude.Hashable CreateDataSource where
 
 instance Prelude.NFData CreateDataSource where
   rnf CreateDataSource' {..} =
-    Prelude.rnf credentials
-      `Prelude.seq` Prelude.rnf dataSourceParameters
-      `Prelude.seq` Prelude.rnf permissions
-      `Prelude.seq` Prelude.rnf sslProperties
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf vpcConnectionProperties
-      `Prelude.seq` Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf dataSourceId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf credentials `Prelude.seq`
+      Prelude.rnf dataSourceParameters `Prelude.seq`
+        Prelude.rnf permissions `Prelude.seq`
+          Prelude.rnf sslProperties `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf vpcConnectionProperties `Prelude.seq`
+                Prelude.rnf awsAccountId `Prelude.seq`
+                  Prelude.rnf dataSourceId `Prelude.seq`
+                    Prelude.rnf name `Prelude.seq`
+                      Prelude.rnf type'
 
 instance Data.ToHeaders CreateDataSource where
   toHeaders =
@@ -363,8 +363,8 @@ createDataSourceResponse_status = Lens.lens (\CreateDataSourceResponse' {status}
 
 instance Prelude.NFData CreateDataSourceResponse where
   rnf CreateDataSourceResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationStatus
-      `Prelude.seq` Prelude.rnf dataSourceId
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf creationStatus `Prelude.seq`
+        Prelude.rnf dataSourceId `Prelude.seq`
+          Prelude.rnf requestId `Prelude.seq`
+            Prelude.rnf status

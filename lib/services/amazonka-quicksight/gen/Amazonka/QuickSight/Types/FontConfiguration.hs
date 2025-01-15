@@ -120,11 +120,11 @@ instance Prelude.Hashable FontConfiguration where
 
 instance Prelude.NFData FontConfiguration where
   rnf FontConfiguration' {..} =
-    Prelude.rnf fontColor
-      `Prelude.seq` Prelude.rnf fontDecoration
-      `Prelude.seq` Prelude.rnf fontSize
-      `Prelude.seq` Prelude.rnf fontStyle
-      `Prelude.seq` Prelude.rnf fontWeight
+    Prelude.rnf fontColor `Prelude.seq`
+      Prelude.rnf fontDecoration `Prelude.seq`
+        Prelude.rnf fontSize `Prelude.seq`
+          Prelude.rnf fontStyle `Prelude.seq`
+            Prelude.rnf fontWeight
 
 instance Data.ToJSON FontConfiguration where
   toJSON FontConfiguration' {..} =

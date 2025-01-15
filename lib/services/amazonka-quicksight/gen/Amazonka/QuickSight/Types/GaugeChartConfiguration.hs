@@ -119,11 +119,11 @@ instance Prelude.Hashable GaugeChartConfiguration where
 
 instance Prelude.NFData GaugeChartConfiguration where
   rnf GaugeChartConfiguration' {..} =
-    Prelude.rnf dataLabels
-      `Prelude.seq` Prelude.rnf fieldWells
-      `Prelude.seq` Prelude.rnf gaugeChartOptions
-      `Prelude.seq` Prelude.rnf tooltipOptions
-      `Prelude.seq` Prelude.rnf visualPalette
+    Prelude.rnf dataLabels `Prelude.seq`
+      Prelude.rnf fieldWells `Prelude.seq`
+        Prelude.rnf gaugeChartOptions `Prelude.seq`
+          Prelude.rnf tooltipOptions `Prelude.seq`
+            Prelude.rnf visualPalette
 
 instance Data.ToJSON GaugeChartConfiguration where
   toJSON GaugeChartConfiguration' {..} =

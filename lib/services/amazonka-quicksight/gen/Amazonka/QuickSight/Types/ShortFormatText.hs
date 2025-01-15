@@ -83,8 +83,8 @@ instance Prelude.Hashable ShortFormatText where
 
 instance Prelude.NFData ShortFormatText where
   rnf ShortFormatText' {..} =
-    Prelude.rnf plainText
-      `Prelude.seq` Prelude.rnf richText
+    Prelude.rnf plainText `Prelude.seq`
+      Prelude.rnf richText
 
 instance Data.ToJSON ShortFormatText where
   toJSON ShortFormatText' {..} =

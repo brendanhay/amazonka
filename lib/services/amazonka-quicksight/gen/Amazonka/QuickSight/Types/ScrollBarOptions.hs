@@ -82,8 +82,8 @@ instance Prelude.Hashable ScrollBarOptions where
 
 instance Prelude.NFData ScrollBarOptions where
   rnf ScrollBarOptions' {..} =
-    Prelude.rnf visibility
-      `Prelude.seq` Prelude.rnf visibleRange
+    Prelude.rnf visibility `Prelude.seq`
+      Prelude.rnf visibleRange
 
 instance Data.ToJSON ScrollBarOptions where
   toJSON ScrollBarOptions' {..} =

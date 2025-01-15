@@ -146,9 +146,9 @@ instance Prelude.Hashable DeleteTemplateAlias where
 
 instance Prelude.NFData DeleteTemplateAlias where
   rnf DeleteTemplateAlias' {..} =
-    Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf templateId
-      `Prelude.seq` Prelude.rnf aliasName
+    Prelude.rnf awsAccountId `Prelude.seq`
+      Prelude.rnf templateId `Prelude.seq`
+        Prelude.rnf aliasName
 
 instance Data.ToHeaders DeleteTemplateAlias where
   toHeaders =
@@ -243,8 +243,8 @@ deleteTemplateAliasResponse_status = Lens.lens (\DeleteTemplateAliasResponse' {s
 
 instance Prelude.NFData DeleteTemplateAliasResponse where
   rnf DeleteTemplateAliasResponse' {..} =
-    Prelude.rnf aliasName
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf templateId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf aliasName `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf requestId `Prelude.seq`
+          Prelude.rnf templateId `Prelude.seq`
+            Prelude.rnf status

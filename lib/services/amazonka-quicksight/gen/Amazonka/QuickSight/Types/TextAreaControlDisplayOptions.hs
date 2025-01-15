@@ -86,8 +86,8 @@ instance
 
 instance Prelude.NFData TextAreaControlDisplayOptions where
   rnf TextAreaControlDisplayOptions' {..} =
-    Prelude.rnf placeholderOptions
-      `Prelude.seq` Prelude.rnf titleOptions
+    Prelude.rnf placeholderOptions `Prelude.seq`
+      Prelude.rnf titleOptions
 
 instance Data.ToJSON TextAreaControlDisplayOptions where
   toJSON TextAreaControlDisplayOptions' {..} =

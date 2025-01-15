@@ -151,10 +151,10 @@ instance Prelude.Hashable CreateTemplateAlias where
 
 instance Prelude.NFData CreateTemplateAlias where
   rnf CreateTemplateAlias' {..} =
-    Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf templateId
-      `Prelude.seq` Prelude.rnf aliasName
-      `Prelude.seq` Prelude.rnf templateVersionNumber
+    Prelude.rnf awsAccountId `Prelude.seq`
+      Prelude.rnf templateId `Prelude.seq`
+        Prelude.rnf aliasName `Prelude.seq`
+          Prelude.rnf templateVersionNumber
 
 instance Data.ToHeaders CreateTemplateAlias where
   toHeaders =
@@ -242,6 +242,6 @@ createTemplateAliasResponse_status = Lens.lens (\CreateTemplateAliasResponse' {s
 
 instance Prelude.NFData CreateTemplateAliasResponse where
   rnf CreateTemplateAliasResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf templateAlias
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf requestId `Prelude.seq`
+      Prelude.rnf templateAlias `Prelude.seq`
+        Prelude.rnf status

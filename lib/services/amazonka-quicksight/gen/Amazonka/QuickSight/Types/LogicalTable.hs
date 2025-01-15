@@ -101,9 +101,9 @@ instance Prelude.Hashable LogicalTable where
 
 instance Prelude.NFData LogicalTable where
   rnf LogicalTable' {..} =
-    Prelude.rnf dataTransforms
-      `Prelude.seq` Prelude.rnf alias
-      `Prelude.seq` Prelude.rnf source
+    Prelude.rnf dataTransforms `Prelude.seq`
+      Prelude.rnf alias `Prelude.seq`
+        Prelude.rnf source
 
 instance Data.ToJSON LogicalTable where
   toJSON LogicalTable' {..} =

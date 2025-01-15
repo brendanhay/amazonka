@@ -94,9 +94,9 @@ instance Prelude.Hashable LogicalTableSource where
 
 instance Prelude.NFData LogicalTableSource where
   rnf LogicalTableSource' {..} =
-    Prelude.rnf dataSetArn
-      `Prelude.seq` Prelude.rnf joinInstruction
-      `Prelude.seq` Prelude.rnf physicalTableId
+    Prelude.rnf dataSetArn `Prelude.seq`
+      Prelude.rnf joinInstruction `Prelude.seq`
+        Prelude.rnf physicalTableId
 
 instance Data.ToJSON LogicalTableSource where
   toJSON LogicalTableSource' {..} =

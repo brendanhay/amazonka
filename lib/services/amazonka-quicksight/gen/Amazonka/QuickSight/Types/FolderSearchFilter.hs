@@ -238,9 +238,9 @@ instance Prelude.Hashable FolderSearchFilter where
 
 instance Prelude.NFData FolderSearchFilter where
   rnf FolderSearchFilter' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf operator
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf operator `Prelude.seq`
+        Prelude.rnf value
 
 instance Data.ToJSON FolderSearchFilter where
   toJSON FolderSearchFilter' {..} =

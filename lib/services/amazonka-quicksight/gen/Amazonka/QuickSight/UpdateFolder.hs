@@ -128,9 +128,9 @@ instance Prelude.Hashable UpdateFolder where
 
 instance Prelude.NFData UpdateFolder where
   rnf UpdateFolder' {..} =
-    Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf folderId
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf awsAccountId `Prelude.seq`
+      Prelude.rnf folderId `Prelude.seq`
+        Prelude.rnf name
 
 instance Data.ToHeaders UpdateFolder where
   toHeaders =
@@ -220,7 +220,7 @@ updateFolderResponse_status = Lens.lens (\UpdateFolderResponse' {status} -> stat
 
 instance Prelude.NFData UpdateFolderResponse where
   rnf UpdateFolderResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf folderId
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf folderId `Prelude.seq`
+        Prelude.rnf requestId `Prelude.seq`
+          Prelude.rnf status

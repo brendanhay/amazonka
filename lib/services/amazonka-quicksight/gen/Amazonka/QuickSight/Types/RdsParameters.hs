@@ -84,8 +84,8 @@ instance Prelude.Hashable RdsParameters where
 
 instance Prelude.NFData RdsParameters where
   rnf RdsParameters' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf database
+    Prelude.rnf instanceId `Prelude.seq`
+      Prelude.rnf database
 
 instance Data.ToJSON RdsParameters where
   toJSON RdsParameters' {..} =

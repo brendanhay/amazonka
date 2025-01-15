@@ -91,8 +91,8 @@ instance Prelude.Hashable AnchorDateConfiguration where
 
 instance Prelude.NFData AnchorDateConfiguration where
   rnf AnchorDateConfiguration' {..} =
-    Prelude.rnf anchorOption
-      `Prelude.seq` Prelude.rnf parameterName
+    Prelude.rnf anchorOption `Prelude.seq`
+      Prelude.rnf parameterName
 
 instance Data.ToJSON AnchorDateConfiguration where
   toJSON AnchorDateConfiguration' {..} =

@@ -196,13 +196,13 @@ instance Prelude.Hashable TemplateVersionDefinition where
 
 instance Prelude.NFData TemplateVersionDefinition where
   rnf TemplateVersionDefinition' {..} =
-    Prelude.rnf analysisDefaults
-      `Prelude.seq` Prelude.rnf calculatedFields
-      `Prelude.seq` Prelude.rnf columnConfigurations
-      `Prelude.seq` Prelude.rnf filterGroups
-      `Prelude.seq` Prelude.rnf parameterDeclarations
-      `Prelude.seq` Prelude.rnf sheets
-      `Prelude.seq` Prelude.rnf dataSetConfigurations
+    Prelude.rnf analysisDefaults `Prelude.seq`
+      Prelude.rnf calculatedFields `Prelude.seq`
+        Prelude.rnf columnConfigurations `Prelude.seq`
+          Prelude.rnf filterGroups `Prelude.seq`
+            Prelude.rnf parameterDeclarations `Prelude.seq`
+              Prelude.rnf sheets `Prelude.seq`
+                Prelude.rnf dataSetConfigurations
 
 instance Data.ToJSON TemplateVersionDefinition where
   toJSON TemplateVersionDefinition' {..} =

@@ -85,8 +85,8 @@ instance Prelude.Hashable StringDefaultValues where
 
 instance Prelude.NFData StringDefaultValues where
   rnf StringDefaultValues' {..} =
-    Prelude.rnf dynamicValue
-      `Prelude.seq` Prelude.rnf staticValues
+    Prelude.rnf dynamicValue `Prelude.seq`
+      Prelude.rnf staticValues
 
 instance Data.ToJSON StringDefaultValues where
   toJSON StringDefaultValues' {..} =

@@ -253,17 +253,17 @@ instance Prelude.Hashable SheetDefinition where
 
 instance Prelude.NFData SheetDefinition where
   rnf SheetDefinition' {..} =
-    Prelude.rnf contentType
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf filterControls
-      `Prelude.seq` Prelude.rnf layouts
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf parameterControls
-      `Prelude.seq` Prelude.rnf sheetControlLayouts
-      `Prelude.seq` Prelude.rnf textBoxes
-      `Prelude.seq` Prelude.rnf title
-      `Prelude.seq` Prelude.rnf visuals
-      `Prelude.seq` Prelude.rnf sheetId
+    Prelude.rnf contentType `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf filterControls `Prelude.seq`
+          Prelude.rnf layouts `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf parameterControls `Prelude.seq`
+                Prelude.rnf sheetControlLayouts `Prelude.seq`
+                  Prelude.rnf textBoxes `Prelude.seq`
+                    Prelude.rnf title `Prelude.seq`
+                      Prelude.rnf visuals `Prelude.seq`
+                        Prelude.rnf sheetId
 
 instance Data.ToJSON SheetDefinition where
   toJSON SheetDefinition' {..} =

@@ -85,8 +85,8 @@ instance Prelude.Hashable ColumnGroupSchema where
 
 instance Prelude.NFData ColumnGroupSchema where
   rnf ColumnGroupSchema' {..} =
-    Prelude.rnf columnGroupColumnSchemaList
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf columnGroupColumnSchemaList `Prelude.seq`
+      Prelude.rnf name
 
 instance Data.ToJSON ColumnGroupSchema where
   toJSON ColumnGroupSchema' {..} =

@@ -127,9 +127,9 @@ instance Prelude.Hashable NamespaceInfoV2 where
 
 instance Prelude.NFData NamespaceInfoV2 where
   rnf NamespaceInfoV2' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf capacityRegion
-      `Prelude.seq` Prelude.rnf creationStatus
-      `Prelude.seq` Prelude.rnf identityStore
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf namespaceError
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf capacityRegion `Prelude.seq`
+        Prelude.rnf creationStatus `Prelude.seq`
+          Prelude.rnf identityStore `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf namespaceError

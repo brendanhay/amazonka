@@ -195,13 +195,13 @@ instance Prelude.Hashable DashboardVersionDefinition where
 
 instance Prelude.NFData DashboardVersionDefinition where
   rnf DashboardVersionDefinition' {..} =
-    Prelude.rnf analysisDefaults
-      `Prelude.seq` Prelude.rnf calculatedFields
-      `Prelude.seq` Prelude.rnf columnConfigurations
-      `Prelude.seq` Prelude.rnf filterGroups
-      `Prelude.seq` Prelude.rnf parameterDeclarations
-      `Prelude.seq` Prelude.rnf sheets
-      `Prelude.seq` Prelude.rnf dataSetIdentifierDeclarations
+    Prelude.rnf analysisDefaults `Prelude.seq`
+      Prelude.rnf calculatedFields `Prelude.seq`
+        Prelude.rnf columnConfigurations `Prelude.seq`
+          Prelude.rnf filterGroups `Prelude.seq`
+            Prelude.rnf parameterDeclarations `Prelude.seq`
+              Prelude.rnf sheets `Prelude.seq`
+                Prelude.rnf dataSetIdentifierDeclarations
 
 instance Data.ToJSON DashboardVersionDefinition where
   toJSON DashboardVersionDefinition' {..} =

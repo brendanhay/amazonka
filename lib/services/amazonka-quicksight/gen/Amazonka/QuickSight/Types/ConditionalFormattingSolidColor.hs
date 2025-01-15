@@ -98,8 +98,8 @@ instance
     ConditionalFormattingSolidColor
   where
   rnf ConditionalFormattingSolidColor' {..} =
-    Prelude.rnf color
-      `Prelude.seq` Prelude.rnf expression
+    Prelude.rnf color `Prelude.seq`
+      Prelude.rnf expression
 
 instance Data.ToJSON ConditionalFormattingSolidColor where
   toJSON ConditionalFormattingSolidColor' {..} =

@@ -109,10 +109,10 @@ instance Prelude.Hashable NumericalDimensionField where
 
 instance Prelude.NFData NumericalDimensionField where
   rnf NumericalDimensionField' {..} =
-    Prelude.rnf formatConfiguration
-      `Prelude.seq` Prelude.rnf hierarchyId
-      `Prelude.seq` Prelude.rnf fieldId
-      `Prelude.seq` Prelude.rnf column
+    Prelude.rnf formatConfiguration `Prelude.seq`
+      Prelude.rnf hierarchyId `Prelude.seq`
+        Prelude.rnf fieldId `Prelude.seq`
+          Prelude.rnf column
 
 instance Data.ToJSON NumericalDimensionField where
   toJSON NumericalDimensionField' {..} =

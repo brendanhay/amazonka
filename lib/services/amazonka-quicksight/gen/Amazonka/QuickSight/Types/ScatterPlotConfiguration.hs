@@ -177,15 +177,15 @@ instance Prelude.Hashable ScatterPlotConfiguration where
 
 instance Prelude.NFData ScatterPlotConfiguration where
   rnf ScatterPlotConfiguration' {..} =
-    Prelude.rnf dataLabels
-      `Prelude.seq` Prelude.rnf fieldWells
-      `Prelude.seq` Prelude.rnf legend
-      `Prelude.seq` Prelude.rnf tooltip
-      `Prelude.seq` Prelude.rnf visualPalette
-      `Prelude.seq` Prelude.rnf xAxisDisplayOptions
-      `Prelude.seq` Prelude.rnf xAxisLabelOptions
-      `Prelude.seq` Prelude.rnf yAxisDisplayOptions
-      `Prelude.seq` Prelude.rnf yAxisLabelOptions
+    Prelude.rnf dataLabels `Prelude.seq`
+      Prelude.rnf fieldWells `Prelude.seq`
+        Prelude.rnf legend `Prelude.seq`
+          Prelude.rnf tooltip `Prelude.seq`
+            Prelude.rnf visualPalette `Prelude.seq`
+              Prelude.rnf xAxisDisplayOptions `Prelude.seq`
+                Prelude.rnf xAxisLabelOptions `Prelude.seq`
+                  Prelude.rnf yAxisDisplayOptions `Prelude.seq`
+                    Prelude.rnf yAxisLabelOptions
 
 instance Data.ToJSON ScatterPlotConfiguration where
   toJSON ScatterPlotConfiguration' {..} =

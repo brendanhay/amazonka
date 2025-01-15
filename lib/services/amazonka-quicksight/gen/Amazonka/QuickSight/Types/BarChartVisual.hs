@@ -160,12 +160,12 @@ instance Prelude.Hashable BarChartVisual where
 
 instance Prelude.NFData BarChartVisual where
   rnf BarChartVisual' {..} =
-    Prelude.rnf actions
-      `Prelude.seq` Prelude.rnf chartConfiguration
-      `Prelude.seq` Prelude.rnf columnHierarchies
-      `Prelude.seq` Prelude.rnf subtitle
-      `Prelude.seq` Prelude.rnf title
-      `Prelude.seq` Prelude.rnf visualId
+    Prelude.rnf actions `Prelude.seq`
+      Prelude.rnf chartConfiguration `Prelude.seq`
+        Prelude.rnf columnHierarchies `Prelude.seq`
+          Prelude.rnf subtitle `Prelude.seq`
+            Prelude.rnf title `Prelude.seq`
+              Prelude.rnf visualId
 
 instance Data.ToJSON BarChartVisual where
   toJSON BarChartVisual' {..} =

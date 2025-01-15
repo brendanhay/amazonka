@@ -116,9 +116,9 @@ instance
     ReferenceLineDynamicDataConfiguration
   where
   rnf ReferenceLineDynamicDataConfiguration' {..} =
-    Prelude.rnf column
-      `Prelude.seq` Prelude.rnf measureAggregationFunction
-      `Prelude.seq` Prelude.rnf calculation
+    Prelude.rnf column `Prelude.seq`
+      Prelude.rnf measureAggregationFunction `Prelude.seq`
+        Prelude.rnf calculation
 
 instance
   Data.ToJSON

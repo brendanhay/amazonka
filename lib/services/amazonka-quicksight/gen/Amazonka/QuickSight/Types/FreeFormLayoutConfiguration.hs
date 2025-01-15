@@ -82,8 +82,8 @@ instance Prelude.Hashable FreeFormLayoutConfiguration where
 
 instance Prelude.NFData FreeFormLayoutConfiguration where
   rnf FreeFormLayoutConfiguration' {..} =
-    Prelude.rnf canvasSizeOptions
-      `Prelude.seq` Prelude.rnf elements
+    Prelude.rnf canvasSizeOptions `Prelude.seq`
+      Prelude.rnf elements
 
 instance Data.ToJSON FreeFormLayoutConfiguration where
   toJSON FreeFormLayoutConfiguration' {..} =

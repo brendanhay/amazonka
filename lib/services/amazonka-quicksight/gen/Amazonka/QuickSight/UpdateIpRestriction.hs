@@ -126,9 +126,9 @@ instance Prelude.Hashable UpdateIpRestriction where
 
 instance Prelude.NFData UpdateIpRestriction where
   rnf UpdateIpRestriction' {..} =
-    Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf ipRestrictionRuleMap
-      `Prelude.seq` Prelude.rnf awsAccountId
+    Prelude.rnf enabled `Prelude.seq`
+      Prelude.rnf ipRestrictionRuleMap `Prelude.seq`
+        Prelude.rnf awsAccountId
 
 instance Data.ToHeaders UpdateIpRestriction where
   toHeaders =
@@ -212,6 +212,6 @@ updateIpRestrictionResponse_status = Lens.lens (\UpdateIpRestrictionResponse' {s
 
 instance Prelude.NFData UpdateIpRestrictionResponse where
   rnf UpdateIpRestrictionResponse' {..} =
-    Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf awsAccountId `Prelude.seq`
+      Prelude.rnf requestId `Prelude.seq`
+        Prelude.rnf status

@@ -150,10 +150,10 @@ instance Prelude.Hashable DescribeGroupMembership where
 
 instance Prelude.NFData DescribeGroupMembership where
   rnf DescribeGroupMembership' {..} =
-    Prelude.rnf memberName
-      `Prelude.seq` Prelude.rnf groupName
-      `Prelude.seq` Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf namespace
+    Prelude.rnf memberName `Prelude.seq`
+      Prelude.rnf groupName `Prelude.seq`
+        Prelude.rnf awsAccountId `Prelude.seq`
+          Prelude.rnf namespace
 
 instance Data.ToHeaders DescribeGroupMembership where
   toHeaders =
@@ -234,6 +234,6 @@ instance
     DescribeGroupMembershipResponse
   where
   rnf DescribeGroupMembershipResponse' {..} =
-    Prelude.rnf groupMember
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf groupMember `Prelude.seq`
+      Prelude.rnf requestId `Prelude.seq`
+        Prelude.rnf status

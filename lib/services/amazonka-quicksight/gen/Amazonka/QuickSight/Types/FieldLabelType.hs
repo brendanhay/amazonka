@@ -81,8 +81,8 @@ instance Prelude.Hashable FieldLabelType where
 
 instance Prelude.NFData FieldLabelType where
   rnf FieldLabelType' {..} =
-    Prelude.rnf fieldId
-      `Prelude.seq` Prelude.rnf visibility
+    Prelude.rnf fieldId `Prelude.seq`
+      Prelude.rnf visibility
 
 instance Data.ToJSON FieldLabelType where
   toJSON FieldLabelType' {..} =

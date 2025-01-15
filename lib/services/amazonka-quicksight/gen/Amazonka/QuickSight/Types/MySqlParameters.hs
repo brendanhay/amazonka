@@ -97,9 +97,9 @@ instance Prelude.Hashable MySqlParameters where
 
 instance Prelude.NFData MySqlParameters where
   rnf MySqlParameters' {..} =
-    Prelude.rnf host
-      `Prelude.seq` Prelude.rnf port
-      `Prelude.seq` Prelude.rnf database
+    Prelude.rnf host `Prelude.seq`
+      Prelude.rnf port `Prelude.seq`
+        Prelude.rnf database
 
 instance Data.ToJSON MySqlParameters where
   toJSON MySqlParameters' {..} =

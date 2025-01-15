@@ -91,8 +91,8 @@ instance
     TextFieldControlDisplayOptions
   where
   rnf TextFieldControlDisplayOptions' {..} =
-    Prelude.rnf placeholderOptions
-      `Prelude.seq` Prelude.rnf titleOptions
+    Prelude.rnf placeholderOptions `Prelude.seq`
+      Prelude.rnf titleOptions
 
 instance Data.ToJSON TextFieldControlDisplayOptions where
   toJSON TextFieldControlDisplayOptions' {..} =

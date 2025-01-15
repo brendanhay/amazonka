@@ -147,10 +147,10 @@ instance Prelude.Hashable DeleteGroupMembership where
 
 instance Prelude.NFData DeleteGroupMembership where
   rnf DeleteGroupMembership' {..} =
-    Prelude.rnf memberName
-      `Prelude.seq` Prelude.rnf groupName
-      `Prelude.seq` Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf namespace
+    Prelude.rnf memberName `Prelude.seq`
+      Prelude.rnf groupName `Prelude.seq`
+        Prelude.rnf awsAccountId `Prelude.seq`
+          Prelude.rnf namespace
 
 instance Data.ToHeaders DeleteGroupMembership where
   toHeaders =
@@ -220,5 +220,5 @@ deleteGroupMembershipResponse_status = Lens.lens (\DeleteGroupMembershipResponse
 
 instance Prelude.NFData DeleteGroupMembershipResponse where
   rnf DeleteGroupMembershipResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf requestId `Prelude.seq`
+      Prelude.rnf status

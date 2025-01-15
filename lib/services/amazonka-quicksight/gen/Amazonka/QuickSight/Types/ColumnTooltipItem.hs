@@ -107,10 +107,10 @@ instance Prelude.Hashable ColumnTooltipItem where
 
 instance Prelude.NFData ColumnTooltipItem where
   rnf ColumnTooltipItem' {..} =
-    Prelude.rnf aggregation
-      `Prelude.seq` Prelude.rnf label
-      `Prelude.seq` Prelude.rnf visibility
-      `Prelude.seq` Prelude.rnf column
+    Prelude.rnf aggregation `Prelude.seq`
+      Prelude.rnf label `Prelude.seq`
+        Prelude.rnf visibility `Prelude.seq`
+          Prelude.rnf column
 
 instance Data.ToJSON ColumnTooltipItem where
   toJSON ColumnTooltipItem' {..} =

@@ -139,12 +139,12 @@ instance Prelude.Hashable JoinInstruction where
 
 instance Prelude.NFData JoinInstruction where
   rnf JoinInstruction' {..} =
-    Prelude.rnf leftJoinKeyProperties
-      `Prelude.seq` Prelude.rnf rightJoinKeyProperties
-      `Prelude.seq` Prelude.rnf leftOperand
-      `Prelude.seq` Prelude.rnf rightOperand
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf onClause
+    Prelude.rnf leftJoinKeyProperties `Prelude.seq`
+      Prelude.rnf rightJoinKeyProperties `Prelude.seq`
+        Prelude.rnf leftOperand `Prelude.seq`
+          Prelude.rnf rightOperand `Prelude.seq`
+            Prelude.rnf type' `Prelude.seq`
+              Prelude.rnf onClause
 
 instance Data.ToJSON JoinInstruction where
   toJSON JoinInstruction' {..} =

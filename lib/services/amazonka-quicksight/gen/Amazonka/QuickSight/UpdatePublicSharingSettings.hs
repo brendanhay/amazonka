@@ -126,8 +126,8 @@ instance Prelude.Hashable UpdatePublicSharingSettings where
 
 instance Prelude.NFData UpdatePublicSharingSettings where
   rnf UpdatePublicSharingSettings' {..} =
-    Prelude.rnf publicSharingEnabled
-      `Prelude.seq` Prelude.rnf awsAccountId
+    Prelude.rnf publicSharingEnabled `Prelude.seq`
+      Prelude.rnf awsAccountId
 
 instance Data.ToHeaders UpdatePublicSharingSettings where
   toHeaders =
@@ -204,5 +204,5 @@ instance
     UpdatePublicSharingSettingsResponse
   where
   rnf UpdatePublicSharingSettingsResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf requestId `Prelude.seq`
+      Prelude.rnf status

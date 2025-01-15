@@ -211,10 +211,10 @@ instance
   where
   rnf
     RegisteredUserEmbeddingExperienceConfiguration' {..} =
-      Prelude.rnf dashboard
-        `Prelude.seq` Prelude.rnf dashboardVisual
-        `Prelude.seq` Prelude.rnf qSearchBar
-        `Prelude.seq` Prelude.rnf quickSightConsole
+      Prelude.rnf dashboard `Prelude.seq`
+        Prelude.rnf dashboardVisual `Prelude.seq`
+          Prelude.rnf qSearchBar `Prelude.seq`
+            Prelude.rnf quickSightConsole
 
 instance
   Data.ToJSON

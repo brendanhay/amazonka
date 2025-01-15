@@ -86,8 +86,8 @@ instance Prelude.Hashable GridLayoutConfiguration where
 
 instance Prelude.NFData GridLayoutConfiguration where
   rnf GridLayoutConfiguration' {..} =
-    Prelude.rnf canvasSizeOptions
-      `Prelude.seq` Prelude.rnf elements
+    Prelude.rnf canvasSizeOptions `Prelude.seq`
+      Prelude.rnf elements
 
 instance Data.ToJSON GridLayoutConfiguration where
   toJSON GridLayoutConfiguration' {..} =

@@ -137,12 +137,12 @@ instance Prelude.Hashable TopBottomFilter where
 
 instance Prelude.NFData TopBottomFilter where
   rnf TopBottomFilter' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf parameterName
-      `Prelude.seq` Prelude.rnf timeGranularity
-      `Prelude.seq` Prelude.rnf filterId
-      `Prelude.seq` Prelude.rnf column
-      `Prelude.seq` Prelude.rnf aggregationSortConfigurations
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf parameterName `Prelude.seq`
+        Prelude.rnf timeGranularity `Prelude.seq`
+          Prelude.rnf filterId `Prelude.seq`
+            Prelude.rnf column `Prelude.seq`
+              Prelude.rnf aggregationSortConfigurations
 
 instance Data.ToJSON TopBottomFilter where
   toJSON TopBottomFilter' {..} =

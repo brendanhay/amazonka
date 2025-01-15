@@ -125,9 +125,9 @@ instance
     SectionBasedLayoutPaperCanvasSizeOptions
   where
   rnf SectionBasedLayoutPaperCanvasSizeOptions' {..} =
-    Prelude.rnf paperMargin
-      `Prelude.seq` Prelude.rnf paperOrientation
-      `Prelude.seq` Prelude.rnf paperSize
+    Prelude.rnf paperMargin `Prelude.seq`
+      Prelude.rnf paperOrientation `Prelude.seq`
+        Prelude.rnf paperSize
 
 instance
   Data.ToJSON

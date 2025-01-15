@@ -97,9 +97,9 @@ instance Prelude.Hashable ColorScale where
 
 instance Prelude.NFData ColorScale where
   rnf ColorScale' {..} =
-    Prelude.rnf nullValueColor
-      `Prelude.seq` Prelude.rnf colors
-      `Prelude.seq` Prelude.rnf colorFillType
+    Prelude.rnf nullValueColor `Prelude.seq`
+      Prelude.rnf colors `Prelude.seq`
+        Prelude.rnf colorFillType
 
 instance Data.ToJSON ColorScale where
   toJSON ColorScale' {..} =

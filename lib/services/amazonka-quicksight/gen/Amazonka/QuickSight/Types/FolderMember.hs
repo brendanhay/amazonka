@@ -82,5 +82,5 @@ instance Prelude.Hashable FolderMember where
 
 instance Prelude.NFData FolderMember where
   rnf FolderMember' {..} =
-    Prelude.rnf memberId
-      `Prelude.seq` Prelude.rnf memberType
+    Prelude.rnf memberId `Prelude.seq`
+      Prelude.rnf memberType

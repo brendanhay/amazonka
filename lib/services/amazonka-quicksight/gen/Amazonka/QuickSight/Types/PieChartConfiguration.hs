@@ -193,17 +193,17 @@ instance Prelude.Hashable PieChartConfiguration where
 
 instance Prelude.NFData PieChartConfiguration where
   rnf PieChartConfiguration' {..} =
-    Prelude.rnf categoryLabelOptions
-      `Prelude.seq` Prelude.rnf contributionAnalysisDefaults
-      `Prelude.seq` Prelude.rnf dataLabels
-      `Prelude.seq` Prelude.rnf donutOptions
-      `Prelude.seq` Prelude.rnf fieldWells
-      `Prelude.seq` Prelude.rnf legend
-      `Prelude.seq` Prelude.rnf smallMultiplesOptions
-      `Prelude.seq` Prelude.rnf sortConfiguration
-      `Prelude.seq` Prelude.rnf tooltip
-      `Prelude.seq` Prelude.rnf valueLabelOptions
-      `Prelude.seq` Prelude.rnf visualPalette
+    Prelude.rnf categoryLabelOptions `Prelude.seq`
+      Prelude.rnf contributionAnalysisDefaults `Prelude.seq`
+        Prelude.rnf dataLabels `Prelude.seq`
+          Prelude.rnf donutOptions `Prelude.seq`
+            Prelude.rnf fieldWells `Prelude.seq`
+              Prelude.rnf legend `Prelude.seq`
+                Prelude.rnf smallMultiplesOptions `Prelude.seq`
+                  Prelude.rnf sortConfiguration `Prelude.seq`
+                    Prelude.rnf tooltip `Prelude.seq`
+                      Prelude.rnf valueLabelOptions `Prelude.seq`
+                        Prelude.rnf visualPalette
 
 instance Data.ToJSON PieChartConfiguration where
   toJSON PieChartConfiguration' {..} =

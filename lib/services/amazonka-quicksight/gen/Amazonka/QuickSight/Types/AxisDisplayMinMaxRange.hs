@@ -80,8 +80,8 @@ instance Prelude.Hashable AxisDisplayMinMaxRange where
 
 instance Prelude.NFData AxisDisplayMinMaxRange where
   rnf AxisDisplayMinMaxRange' {..} =
-    Prelude.rnf maximum
-      `Prelude.seq` Prelude.rnf minimum
+    Prelude.rnf maximum `Prelude.seq`
+      Prelude.rnf minimum
 
 instance Data.ToJSON AxisDisplayMinMaxRange where
   toJSON AxisDisplayMinMaxRange' {..} =

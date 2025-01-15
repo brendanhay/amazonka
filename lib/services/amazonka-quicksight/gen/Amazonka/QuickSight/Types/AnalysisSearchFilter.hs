@@ -223,9 +223,9 @@ instance Prelude.Hashable AnalysisSearchFilter where
 
 instance Prelude.NFData AnalysisSearchFilter where
   rnf AnalysisSearchFilter' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf operator
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf operator `Prelude.seq`
+        Prelude.rnf value
 
 instance Data.ToJSON AnalysisSearchFilter where
   toJSON AnalysisSearchFilter' {..} =

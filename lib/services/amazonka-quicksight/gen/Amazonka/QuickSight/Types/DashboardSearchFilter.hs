@@ -225,9 +225,9 @@ instance Prelude.Hashable DashboardSearchFilter where
 
 instance Prelude.NFData DashboardSearchFilter where
   rnf DashboardSearchFilter' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf value
-      `Prelude.seq` Prelude.rnf operator
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf value `Prelude.seq`
+        Prelude.rnf operator
 
 instance Data.ToJSON DashboardSearchFilter where
   toJSON DashboardSearchFilter' {..} =

@@ -91,6 +91,6 @@ instance Prelude.Hashable RowInfo where
 
 instance Prelude.NFData RowInfo where
   rnf RowInfo' {..} =
-    Prelude.rnf rowsDropped
-      `Prelude.seq` Prelude.rnf rowsIngested
-      `Prelude.seq` Prelude.rnf totalRowsInDataset
+    Prelude.rnf rowsDropped `Prelude.seq`
+      Prelude.rnf rowsIngested `Prelude.seq`
+        Prelude.rnf totalRowsInDataset

@@ -121,10 +121,10 @@ instance Prelude.Hashable ReferenceLine where
 
 instance Prelude.NFData ReferenceLine where
   rnf ReferenceLine' {..} =
-    Prelude.rnf labelConfiguration
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf styleConfiguration
-      `Prelude.seq` Prelude.rnf dataConfiguration
+    Prelude.rnf labelConfiguration `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf styleConfiguration `Prelude.seq`
+          Prelude.rnf dataConfiguration
 
 instance Data.ToJSON ReferenceLine where
   toJSON ReferenceLine' {..} =

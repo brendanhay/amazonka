@@ -83,8 +83,8 @@ instance Prelude.Hashable ConditionalFormattingIcon where
 
 instance Prelude.NFData ConditionalFormattingIcon where
   rnf ConditionalFormattingIcon' {..} =
-    Prelude.rnf customCondition
-      `Prelude.seq` Prelude.rnf iconSet
+    Prelude.rnf customCondition `Prelude.seq`
+      Prelude.rnf iconSet
 
 instance Data.ToJSON ConditionalFormattingIcon where
   toJSON ConditionalFormattingIcon' {..} =

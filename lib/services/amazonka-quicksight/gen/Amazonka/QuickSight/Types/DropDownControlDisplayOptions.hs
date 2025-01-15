@@ -86,8 +86,8 @@ instance
 
 instance Prelude.NFData DropDownControlDisplayOptions where
   rnf DropDownControlDisplayOptions' {..} =
-    Prelude.rnf selectAllOptions
-      `Prelude.seq` Prelude.rnf titleOptions
+    Prelude.rnf selectAllOptions `Prelude.seq`
+      Prelude.rnf titleOptions
 
 instance Data.ToJSON DropDownControlDisplayOptions where
   toJSON DropDownControlDisplayOptions' {..} =

@@ -320,15 +320,15 @@ instance Prelude.Hashable UpdateDashboard where
 
 instance Prelude.NFData UpdateDashboard where
   rnf UpdateDashboard' {..} =
-    Prelude.rnf dashboardPublishOptions
-      `Prelude.seq` Prelude.rnf definition
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf sourceEntity
-      `Prelude.seq` Prelude.rnf themeArn
-      `Prelude.seq` Prelude.rnf versionDescription
-      `Prelude.seq` Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf dashboardId
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf dashboardPublishOptions `Prelude.seq`
+      Prelude.rnf definition `Prelude.seq`
+        Prelude.rnf parameters `Prelude.seq`
+          Prelude.rnf sourceEntity `Prelude.seq`
+            Prelude.rnf themeArn `Prelude.seq`
+              Prelude.rnf versionDescription `Prelude.seq`
+                Prelude.rnf awsAccountId `Prelude.seq`
+                  Prelude.rnf dashboardId `Prelude.seq`
+                    Prelude.rnf name
 
 instance Data.ToHeaders UpdateDashboard where
   toHeaders =
@@ -454,10 +454,10 @@ updateDashboardResponse_httpStatus = Lens.lens (\UpdateDashboardResponse' {httpS
 
 instance Prelude.NFData UpdateDashboardResponse where
   rnf UpdateDashboardResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationStatus
-      `Prelude.seq` Prelude.rnf dashboardId
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf versionArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf creationStatus `Prelude.seq`
+        Prelude.rnf dashboardId `Prelude.seq`
+          Prelude.rnf requestId `Prelude.seq`
+            Prelude.rnf status `Prelude.seq`
+              Prelude.rnf versionArn `Prelude.seq`
+                Prelude.rnf httpStatus

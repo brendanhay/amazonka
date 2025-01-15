@@ -130,9 +130,9 @@ instance Prelude.Hashable CancelIngestion where
 
 instance Prelude.NFData CancelIngestion where
   rnf CancelIngestion' {..} =
-    Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf dataSetId
-      `Prelude.seq` Prelude.rnf ingestionId
+    Prelude.rnf awsAccountId `Prelude.seq`
+      Prelude.rnf dataSetId `Prelude.seq`
+        Prelude.rnf ingestionId
 
 instance Data.ToHeaders CancelIngestion where
   toHeaders =
@@ -217,7 +217,7 @@ cancelIngestionResponse_status = Lens.lens (\CancelIngestionResponse' {status} -
 
 instance Prelude.NFData CancelIngestionResponse where
   rnf CancelIngestionResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf ingestionId
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf ingestionId `Prelude.seq`
+        Prelude.rnf requestId `Prelude.seq`
+          Prelude.rnf status

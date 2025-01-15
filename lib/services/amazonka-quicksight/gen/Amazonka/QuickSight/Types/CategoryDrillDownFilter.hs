@@ -89,8 +89,8 @@ instance Prelude.Hashable CategoryDrillDownFilter where
 
 instance Prelude.NFData CategoryDrillDownFilter where
   rnf CategoryDrillDownFilter' {..} =
-    Prelude.rnf column
-      `Prelude.seq` Prelude.rnf categoryValues
+    Prelude.rnf column `Prelude.seq`
+      Prelude.rnf categoryValues
 
 instance Data.ToJSON CategoryDrillDownFilter where
   toJSON CategoryDrillDownFilter' {..} =

@@ -110,10 +110,10 @@ instance Prelude.Hashable WordCloudChartConfiguration where
 
 instance Prelude.NFData WordCloudChartConfiguration where
   rnf WordCloudChartConfiguration' {..} =
-    Prelude.rnf categoryLabelOptions
-      `Prelude.seq` Prelude.rnf fieldWells
-      `Prelude.seq` Prelude.rnf sortConfiguration
-      `Prelude.seq` Prelude.rnf wordCloudOptions
+    Prelude.rnf categoryLabelOptions `Prelude.seq`
+      Prelude.rnf fieldWells `Prelude.seq`
+        Prelude.rnf sortConfiguration `Prelude.seq`
+          Prelude.rnf wordCloudOptions
 
 instance Data.ToJSON WordCloudChartConfiguration where
   toJSON WordCloudChartConfiguration' {..} =

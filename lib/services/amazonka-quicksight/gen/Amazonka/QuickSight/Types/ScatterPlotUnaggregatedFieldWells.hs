@@ -117,9 +117,9 @@ instance
     ScatterPlotUnaggregatedFieldWells
   where
   rnf ScatterPlotUnaggregatedFieldWells' {..} =
-    Prelude.rnf size
-      `Prelude.seq` Prelude.rnf xAxis
-      `Prelude.seq` Prelude.rnf yAxis
+    Prelude.rnf size `Prelude.seq`
+      Prelude.rnf xAxis `Prelude.seq`
+        Prelude.rnf yAxis
 
 instance
   Data.ToJSON

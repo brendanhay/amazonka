@@ -114,8 +114,8 @@ instance Prelude.Hashable RestoreAnalysis where
 
 instance Prelude.NFData RestoreAnalysis where
   rnf RestoreAnalysis' {..} =
-    Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf analysisId
+    Prelude.rnf awsAccountId `Prelude.seq`
+      Prelude.rnf analysisId
 
 instance Data.ToHeaders RestoreAnalysis where
   toHeaders =
@@ -202,7 +202,7 @@ restoreAnalysisResponse_status = Lens.lens (\RestoreAnalysisResponse' {status} -
 
 instance Prelude.NFData RestoreAnalysisResponse where
   rnf RestoreAnalysisResponse' {..} =
-    Prelude.rnf analysisId
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf analysisId `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf requestId `Prelude.seq`
+          Prelude.rnf status

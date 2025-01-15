@@ -95,8 +95,8 @@ instance
     GaugeChartPrimaryValueConditionalFormatting
   where
   rnf GaugeChartPrimaryValueConditionalFormatting' {..} =
-    Prelude.rnf icon
-      `Prelude.seq` Prelude.rnf textColor
+    Prelude.rnf icon `Prelude.seq`
+      Prelude.rnf textColor
 
 instance
   Data.ToJSON

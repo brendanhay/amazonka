@@ -113,9 +113,9 @@ instance Prelude.Hashable CredentialPair where
 
 instance Prelude.NFData CredentialPair where
   rnf CredentialPair' {..} =
-    Prelude.rnf alternateDataSourceParameters
-      `Prelude.seq` Prelude.rnf username
-      `Prelude.seq` Prelude.rnf password
+    Prelude.rnf alternateDataSourceParameters `Prelude.seq`
+      Prelude.rnf username `Prelude.seq`
+        Prelude.rnf password
 
 instance Data.ToJSON CredentialPair where
   toJSON CredentialPair' {..} =

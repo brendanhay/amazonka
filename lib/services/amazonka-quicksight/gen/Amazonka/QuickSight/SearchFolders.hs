@@ -146,10 +146,10 @@ instance Prelude.Hashable SearchFolders where
 
 instance Prelude.NFData SearchFolders where
   rnf SearchFolders' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf awsAccountId `Prelude.seq`
+          Prelude.rnf filters
 
 instance Data.ToHeaders SearchFolders where
   toHeaders =
@@ -248,7 +248,7 @@ searchFoldersResponse_status = Lens.lens (\SearchFoldersResponse' {status} -> st
 
 instance Prelude.NFData SearchFoldersResponse where
   rnf SearchFoldersResponse' {..} =
-    Prelude.rnf folderSummaryList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf folderSummaryList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf requestId `Prelude.seq`
+          Prelude.rnf status

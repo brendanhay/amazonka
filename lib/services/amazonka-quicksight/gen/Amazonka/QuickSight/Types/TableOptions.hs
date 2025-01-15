@@ -108,10 +108,10 @@ instance Prelude.Hashable TableOptions where
 
 instance Prelude.NFData TableOptions where
   rnf TableOptions' {..} =
-    Prelude.rnf cellStyle
-      `Prelude.seq` Prelude.rnf headerStyle
-      `Prelude.seq` Prelude.rnf orientation
-      `Prelude.seq` Prelude.rnf rowAlternateColorOptions
+    Prelude.rnf cellStyle `Prelude.seq`
+      Prelude.rnf headerStyle `Prelude.seq`
+        Prelude.rnf orientation `Prelude.seq`
+          Prelude.rnf rowAlternateColorOptions
 
 instance Data.ToJSON TableOptions where
   toJSON TableOptions' {..} =

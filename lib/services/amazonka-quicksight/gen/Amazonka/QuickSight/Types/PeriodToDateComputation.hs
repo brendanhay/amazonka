@@ -135,11 +135,11 @@ instance Prelude.Hashable PeriodToDateComputation where
 
 instance Prelude.NFData PeriodToDateComputation where
   rnf PeriodToDateComputation' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf periodTimeGranularity
-      `Prelude.seq` Prelude.rnf value
-      `Prelude.seq` Prelude.rnf computationId
-      `Prelude.seq` Prelude.rnf time
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf periodTimeGranularity `Prelude.seq`
+        Prelude.rnf value `Prelude.seq`
+          Prelude.rnf computationId `Prelude.seq`
+            Prelude.rnf time
 
 instance Data.ToJSON PeriodToDateComputation where
   toJSON PeriodToDateComputation' {..} =

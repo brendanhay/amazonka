@@ -225,14 +225,14 @@ instance Prelude.Hashable CreateTheme where
 
 instance Prelude.NFData CreateTheme where
   rnf CreateTheme' {..} =
-    Prelude.rnf permissions
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf versionDescription
-      `Prelude.seq` Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf themeId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf baseThemeId
-      `Prelude.seq` Prelude.rnf configuration
+    Prelude.rnf permissions `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf versionDescription `Prelude.seq`
+          Prelude.rnf awsAccountId `Prelude.seq`
+            Prelude.rnf themeId `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf baseThemeId `Prelude.seq`
+                  Prelude.rnf configuration
 
 instance Data.ToHeaders CreateTheme where
   toHeaders =
@@ -348,9 +348,9 @@ createThemeResponse_status = Lens.lens (\CreateThemeResponse' {status} -> status
 
 instance Prelude.NFData CreateThemeResponse where
   rnf CreateThemeResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationStatus
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf themeId
-      `Prelude.seq` Prelude.rnf versionArn
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf creationStatus `Prelude.seq`
+        Prelude.rnf requestId `Prelude.seq`
+          Prelude.rnf themeId `Prelude.seq`
+            Prelude.rnf versionArn `Prelude.seq`
+              Prelude.rnf status

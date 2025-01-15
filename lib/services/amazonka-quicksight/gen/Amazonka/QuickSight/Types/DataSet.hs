@@ -271,20 +271,20 @@ instance Prelude.Hashable DataSet where
 
 instance Prelude.NFData DataSet where
   rnf DataSet' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf columnGroups
-      `Prelude.seq` Prelude.rnf columnLevelPermissionRules
-      `Prelude.seq` Prelude.rnf consumedSpiceCapacityInBytes
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf dataSetId
-      `Prelude.seq` Prelude.rnf dataSetUsageConfiguration
-      `Prelude.seq` Prelude.rnf fieldFolders
-      `Prelude.seq` Prelude.rnf importMode
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf logicalTableMap
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf outputColumns
-      `Prelude.seq` Prelude.rnf physicalTableMap
-      `Prelude.seq` Prelude.rnf rowLevelPermissionDataSet
-      `Prelude.seq` Prelude.rnf
-        rowLevelPermissionTagConfiguration
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf columnGroups `Prelude.seq`
+        Prelude.rnf columnLevelPermissionRules `Prelude.seq`
+          Prelude.rnf consumedSpiceCapacityInBytes `Prelude.seq`
+            Prelude.rnf createdTime `Prelude.seq`
+              Prelude.rnf dataSetId `Prelude.seq`
+                Prelude.rnf dataSetUsageConfiguration `Prelude.seq`
+                  Prelude.rnf fieldFolders `Prelude.seq`
+                    Prelude.rnf importMode `Prelude.seq`
+                      Prelude.rnf lastUpdatedTime `Prelude.seq`
+                        Prelude.rnf logicalTableMap `Prelude.seq`
+                          Prelude.rnf name `Prelude.seq`
+                            Prelude.rnf outputColumns `Prelude.seq`
+                              Prelude.rnf physicalTableMap `Prelude.seq`
+                                Prelude.rnf rowLevelPermissionDataSet `Prelude.seq`
+                                  Prelude.rnf
+                                    rowLevelPermissionTagConfiguration

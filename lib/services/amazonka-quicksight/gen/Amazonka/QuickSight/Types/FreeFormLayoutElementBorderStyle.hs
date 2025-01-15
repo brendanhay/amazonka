@@ -93,8 +93,8 @@ instance
     FreeFormLayoutElementBorderStyle
   where
   rnf FreeFormLayoutElementBorderStyle' {..} =
-    Prelude.rnf color
-      `Prelude.seq` Prelude.rnf visibility
+    Prelude.rnf color `Prelude.seq`
+      Prelude.rnf visibility
 
 instance Data.ToJSON FreeFormLayoutElementBorderStyle where
   toJSON FreeFormLayoutElementBorderStyle' {..} =

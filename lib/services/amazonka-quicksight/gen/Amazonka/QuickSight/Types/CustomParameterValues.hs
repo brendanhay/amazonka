@@ -106,10 +106,10 @@ instance Prelude.Hashable CustomParameterValues where
 
 instance Prelude.NFData CustomParameterValues where
   rnf CustomParameterValues' {..} =
-    Prelude.rnf dateTimeValues
-      `Prelude.seq` Prelude.rnf decimalValues
-      `Prelude.seq` Prelude.rnf integerValues
-      `Prelude.seq` Prelude.rnf stringValues
+    Prelude.rnf dateTimeValues `Prelude.seq`
+      Prelude.rnf decimalValues `Prelude.seq`
+        Prelude.rnf integerValues `Prelude.seq`
+          Prelude.rnf stringValues
 
 instance Data.ToJSON CustomParameterValues where
   toJSON CustomParameterValues' {..} =

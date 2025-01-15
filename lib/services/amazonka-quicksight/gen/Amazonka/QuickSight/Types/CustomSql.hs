@@ -109,10 +109,10 @@ instance Prelude.Hashable CustomSql where
 
 instance Prelude.NFData CustomSql where
   rnf CustomSql' {..} =
-    Prelude.rnf columns
-      `Prelude.seq` Prelude.rnf dataSourceArn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf sqlQuery
+    Prelude.rnf columns `Prelude.seq`
+      Prelude.rnf dataSourceArn `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf sqlQuery
 
 instance Data.ToJSON CustomSql where
   toJSON CustomSql' {..} =

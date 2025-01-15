@@ -134,12 +134,12 @@ instance Core.AWSPager ListTemplateVersions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listTemplateVersions_nextToken
-          Lens..~ rs
-          Lens.^? listTemplateVersionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listTemplateVersions_nextToken
+              Lens..~ rs
+              Lens.^? listTemplateVersionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListTemplateVersions where
   type
@@ -170,10 +170,10 @@ instance Prelude.Hashable ListTemplateVersions where
 
 instance Prelude.NFData ListTemplateVersions where
   rnf ListTemplateVersions' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf templateId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf awsAccountId `Prelude.seq`
+          Prelude.rnf templateId
 
 instance Data.ToHeaders ListTemplateVersions where
   toHeaders =
@@ -268,7 +268,7 @@ listTemplateVersionsResponse_status = Lens.lens (\ListTemplateVersionsResponse' 
 
 instance Prelude.NFData ListTemplateVersionsResponse where
   rnf ListTemplateVersionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf templateVersionSummaryList
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf requestId `Prelude.seq`
+        Prelude.rnf templateVersionSummaryList `Prelude.seq`
+          Prelude.rnf status

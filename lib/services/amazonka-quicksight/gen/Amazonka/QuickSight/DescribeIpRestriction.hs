@@ -198,8 +198,8 @@ describeIpRestrictionResponse_status = Lens.lens (\DescribeIpRestrictionResponse
 
 instance Prelude.NFData DescribeIpRestrictionResponse where
   rnf DescribeIpRestrictionResponse' {..} =
-    Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf ipRestrictionRuleMap
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf awsAccountId `Prelude.seq`
+      Prelude.rnf enabled `Prelude.seq`
+        Prelude.rnf ipRestrictionRuleMap `Prelude.seq`
+          Prelude.rnf requestId `Prelude.seq`
+            Prelude.rnf status

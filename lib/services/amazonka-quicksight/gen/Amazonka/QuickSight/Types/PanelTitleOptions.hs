@@ -95,9 +95,9 @@ instance Prelude.Hashable PanelTitleOptions where
 
 instance Prelude.NFData PanelTitleOptions where
   rnf PanelTitleOptions' {..} =
-    Prelude.rnf fontConfiguration
-      `Prelude.seq` Prelude.rnf horizontalTextAlignment
-      `Prelude.seq` Prelude.rnf visibility
+    Prelude.rnf fontConfiguration `Prelude.seq`
+      Prelude.rnf horizontalTextAlignment `Prelude.seq`
+        Prelude.rnf visibility
 
 instance Data.ToJSON PanelTitleOptions where
   toJSON PanelTitleOptions' {..} =

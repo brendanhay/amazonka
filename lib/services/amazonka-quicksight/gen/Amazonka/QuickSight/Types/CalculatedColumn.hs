@@ -109,9 +109,9 @@ instance Prelude.Hashable CalculatedColumn where
 
 instance Prelude.NFData CalculatedColumn where
   rnf CalculatedColumn' {..} =
-    Prelude.rnf columnName
-      `Prelude.seq` Prelude.rnf columnId
-      `Prelude.seq` Prelude.rnf expression
+    Prelude.rnf columnName `Prelude.seq`
+      Prelude.rnf columnId `Prelude.seq`
+        Prelude.rnf expression
 
 instance Data.ToJSON CalculatedColumn where
   toJSON CalculatedColumn' {..} =

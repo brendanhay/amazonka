@@ -257,14 +257,14 @@ instance Prelude.Hashable User where
 
 instance Prelude.NFData User where
   rnf User' {..} =
-    Prelude.rnf active
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf customPermissionsName
-      `Prelude.seq` Prelude.rnf email
-      `Prelude.seq` Prelude.rnf externalLoginFederationProviderType
-      `Prelude.seq` Prelude.rnf externalLoginFederationProviderUrl
-      `Prelude.seq` Prelude.rnf externalLoginId
-      `Prelude.seq` Prelude.rnf identityType
-      `Prelude.seq` Prelude.rnf principalId
-      `Prelude.seq` Prelude.rnf role'
-      `Prelude.seq` Prelude.rnf userName
+    Prelude.rnf active `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf customPermissionsName `Prelude.seq`
+          Prelude.rnf email `Prelude.seq`
+            Prelude.rnf externalLoginFederationProviderType `Prelude.seq`
+              Prelude.rnf externalLoginFederationProviderUrl `Prelude.seq`
+                Prelude.rnf externalLoginId `Prelude.seq`
+                  Prelude.rnf identityType `Prelude.seq`
+                    Prelude.rnf principalId `Prelude.seq`
+                      Prelude.rnf role' `Prelude.seq`
+                        Prelude.rnf userName

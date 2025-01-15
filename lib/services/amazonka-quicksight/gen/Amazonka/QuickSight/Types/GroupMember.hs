@@ -81,5 +81,5 @@ instance Prelude.Hashable GroupMember where
 
 instance Prelude.NFData GroupMember where
   rnf GroupMember' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf memberName
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf memberName

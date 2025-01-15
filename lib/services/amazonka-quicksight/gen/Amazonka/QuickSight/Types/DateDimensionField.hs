@@ -178,11 +178,11 @@ instance Prelude.Hashable DateDimensionField where
 
 instance Prelude.NFData DateDimensionField where
   rnf DateDimensionField' {..} =
-    Prelude.rnf dateGranularity
-      `Prelude.seq` Prelude.rnf formatConfiguration
-      `Prelude.seq` Prelude.rnf hierarchyId
-      `Prelude.seq` Prelude.rnf fieldId
-      `Prelude.seq` Prelude.rnf column
+    Prelude.rnf dateGranularity `Prelude.seq`
+      Prelude.rnf formatConfiguration `Prelude.seq`
+        Prelude.rnf hierarchyId `Prelude.seq`
+          Prelude.rnf fieldId `Prelude.seq`
+            Prelude.rnf column
 
 instance Data.ToJSON DateDimensionField where
   toJSON DateDimensionField' {..} =

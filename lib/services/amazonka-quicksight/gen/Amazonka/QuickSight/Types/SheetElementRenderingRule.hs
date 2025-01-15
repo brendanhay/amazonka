@@ -89,8 +89,8 @@ instance Prelude.Hashable SheetElementRenderingRule where
 
 instance Prelude.NFData SheetElementRenderingRule where
   rnf SheetElementRenderingRule' {..} =
-    Prelude.rnf expression
-      `Prelude.seq` Prelude.rnf configurationOverrides
+    Prelude.rnf expression `Prelude.seq`
+      Prelude.rnf configurationOverrides
 
 instance Data.ToJSON SheetElementRenderingRule where
   toJSON SheetElementRenderingRule' {..} =

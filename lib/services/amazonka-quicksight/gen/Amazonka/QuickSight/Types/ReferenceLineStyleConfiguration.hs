@@ -111,8 +111,8 @@ instance
     ReferenceLineStyleConfiguration
   where
   rnf ReferenceLineStyleConfiguration' {..} =
-    Prelude.rnf color
-      `Prelude.seq` Prelude.rnf pattern'
+    Prelude.rnf color `Prelude.seq`
+      Prelude.rnf pattern'
 
 instance Data.ToJSON ReferenceLineStyleConfiguration where
   toJSON ReferenceLineStyleConfiguration' {..} =

@@ -120,10 +120,10 @@ instance
     SectionBasedLayoutConfiguration
   where
   rnf SectionBasedLayoutConfiguration' {..} =
-    Prelude.rnf headerSections
-      `Prelude.seq` Prelude.rnf bodySections
-      `Prelude.seq` Prelude.rnf footerSections
-      `Prelude.seq` Prelude.rnf canvasSizeOptions
+    Prelude.rnf headerSections `Prelude.seq`
+      Prelude.rnf bodySections `Prelude.seq`
+        Prelude.rnf footerSections `Prelude.seq`
+          Prelude.rnf canvasSizeOptions
 
 instance Data.ToJSON SectionBasedLayoutConfiguration where
   toJSON SectionBasedLayoutConfiguration' {..} =

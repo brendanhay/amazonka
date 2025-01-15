@@ -93,9 +93,9 @@ instance Prelude.Hashable GradientStop where
 
 instance Prelude.NFData GradientStop where
   rnf GradientStop' {..} =
-    Prelude.rnf color
-      `Prelude.seq` Prelude.rnf dataValue
-      `Prelude.seq` Prelude.rnf gradientOffset
+    Prelude.rnf color `Prelude.seq`
+      Prelude.rnf dataValue `Prelude.seq`
+        Prelude.rnf gradientOffset
 
 instance Data.ToJSON GradientStop where
   toJSON GradientStop' {..} =

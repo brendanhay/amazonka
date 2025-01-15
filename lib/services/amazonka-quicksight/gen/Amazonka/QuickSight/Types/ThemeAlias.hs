@@ -91,6 +91,6 @@ instance Prelude.Hashable ThemeAlias where
 
 instance Prelude.NFData ThemeAlias where
   rnf ThemeAlias' {..} =
-    Prelude.rnf aliasName
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf themeVersionNumber
+    Prelude.rnf aliasName `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf themeVersionNumber

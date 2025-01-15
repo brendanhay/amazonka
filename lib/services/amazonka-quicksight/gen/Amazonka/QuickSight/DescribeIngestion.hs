@@ -128,9 +128,9 @@ instance Prelude.Hashable DescribeIngestion where
 
 instance Prelude.NFData DescribeIngestion where
   rnf DescribeIngestion' {..} =
-    Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf dataSetId
-      `Prelude.seq` Prelude.rnf ingestionId
+    Prelude.rnf awsAccountId `Prelude.seq`
+      Prelude.rnf dataSetId `Prelude.seq`
+        Prelude.rnf ingestionId
 
 instance Data.ToHeaders DescribeIngestion where
   toHeaders =
@@ -207,6 +207,6 @@ describeIngestionResponse_status = Lens.lens (\DescribeIngestionResponse' {statu
 
 instance Prelude.NFData DescribeIngestionResponse where
   rnf DescribeIngestionResponse' {..} =
-    Prelude.rnf ingestion
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf ingestion `Prelude.seq`
+      Prelude.rnf requestId `Prelude.seq`
+        Prelude.rnf status

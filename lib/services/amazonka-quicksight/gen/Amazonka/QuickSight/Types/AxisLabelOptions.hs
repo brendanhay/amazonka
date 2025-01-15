@@ -94,9 +94,9 @@ instance Prelude.Hashable AxisLabelOptions where
 
 instance Prelude.NFData AxisLabelOptions where
   rnf AxisLabelOptions' {..} =
-    Prelude.rnf applyTo
-      `Prelude.seq` Prelude.rnf customLabel
-      `Prelude.seq` Prelude.rnf fontConfiguration
+    Prelude.rnf applyTo `Prelude.seq`
+      Prelude.rnf customLabel `Prelude.seq`
+        Prelude.rnf fontConfiguration
 
 instance Data.ToJSON AxisLabelOptions where
   toJSON AxisLabelOptions' {..} =

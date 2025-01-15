@@ -105,9 +105,9 @@ instance
     SankeyDiagramAggregatedFieldWells
   where
   rnf SankeyDiagramAggregatedFieldWells' {..} =
-    Prelude.rnf destination
-      `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf weight
+    Prelude.rnf destination `Prelude.seq`
+      Prelude.rnf source `Prelude.seq`
+        Prelude.rnf weight
 
 instance
   Data.ToJSON

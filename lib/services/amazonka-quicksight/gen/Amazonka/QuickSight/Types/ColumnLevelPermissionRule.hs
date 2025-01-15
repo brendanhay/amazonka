@@ -88,8 +88,8 @@ instance Prelude.Hashable ColumnLevelPermissionRule where
 
 instance Prelude.NFData ColumnLevelPermissionRule where
   rnf ColumnLevelPermissionRule' {..} =
-    Prelude.rnf columnNames
-      `Prelude.seq` Prelude.rnf principals
+    Prelude.rnf columnNames `Prelude.seq`
+      Prelude.rnf principals
 
 instance Data.ToJSON ColumnLevelPermissionRule where
   toJSON ColumnLevelPermissionRule' {..} =

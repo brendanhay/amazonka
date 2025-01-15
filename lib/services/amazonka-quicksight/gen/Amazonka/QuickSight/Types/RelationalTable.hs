@@ -126,11 +126,11 @@ instance Prelude.Hashable RelationalTable where
 
 instance Prelude.NFData RelationalTable where
   rnf RelationalTable' {..} =
-    Prelude.rnf catalog
-      `Prelude.seq` Prelude.rnf schema
-      `Prelude.seq` Prelude.rnf dataSourceArn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf inputColumns
+    Prelude.rnf catalog `Prelude.seq`
+      Prelude.rnf schema `Prelude.seq`
+        Prelude.rnf dataSourceArn `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf inputColumns
 
 instance Data.ToJSON RelationalTable where
   toJSON RelationalTable' {..} =

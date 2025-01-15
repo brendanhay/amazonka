@@ -85,8 +85,8 @@ instance Prelude.Hashable TooltipItem where
 
 instance Prelude.NFData TooltipItem where
   rnf TooltipItem' {..} =
-    Prelude.rnf columnTooltipItem
-      `Prelude.seq` Prelude.rnf fieldTooltipItem
+    Prelude.rnf columnTooltipItem `Prelude.seq`
+      Prelude.rnf fieldTooltipItem
 
 instance Data.ToJSON TooltipItem where
   toJSON TooltipItem' {..} =

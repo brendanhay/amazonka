@@ -109,10 +109,10 @@ instance Prelude.Hashable PieChartSortConfiguration where
 
 instance Prelude.NFData PieChartSortConfiguration where
   rnf PieChartSortConfiguration' {..} =
-    Prelude.rnf categoryItemsLimit
-      `Prelude.seq` Prelude.rnf categorySort
-      `Prelude.seq` Prelude.rnf smallMultiplesLimitConfiguration
-      `Prelude.seq` Prelude.rnf smallMultiplesSort
+    Prelude.rnf categoryItemsLimit `Prelude.seq`
+      Prelude.rnf categorySort `Prelude.seq`
+        Prelude.rnf smallMultiplesLimitConfiguration `Prelude.seq`
+          Prelude.rnf smallMultiplesSort
 
 instance Data.ToJSON PieChartSortConfiguration where
   toJSON PieChartSortConfiguration' {..} =

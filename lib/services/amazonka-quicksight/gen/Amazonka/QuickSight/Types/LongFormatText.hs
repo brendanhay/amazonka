@@ -83,8 +83,8 @@ instance Prelude.Hashable LongFormatText where
 
 instance Prelude.NFData LongFormatText where
   rnf LongFormatText' {..} =
-    Prelude.rnf plainText
-      `Prelude.seq` Prelude.rnf richText
+    Prelude.rnf plainText `Prelude.seq`
+      Prelude.rnf richText
 
 instance Data.ToJSON LongFormatText where
   toJSON LongFormatText' {..} =

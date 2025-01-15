@@ -128,12 +128,12 @@ instance Core.AWSPager SearchDataSources where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& searchDataSources_nextToken
-          Lens..~ rs
-          Lens.^? searchDataSourcesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& searchDataSources_nextToken
+              Lens..~ rs
+              Lens.^? searchDataSourcesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest SearchDataSources where
   type
@@ -164,10 +164,10 @@ instance Prelude.Hashable SearchDataSources where
 
 instance Prelude.NFData SearchDataSources where
   rnf SearchDataSources' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf awsAccountId `Prelude.seq`
+          Prelude.rnf filters
 
 instance Data.ToHeaders SearchDataSources where
   toHeaders =
@@ -260,7 +260,7 @@ searchDataSourcesResponse_status = Lens.lens (\SearchDataSourcesResponse' {statu
 
 instance Prelude.NFData SearchDataSourcesResponse where
   rnf SearchDataSourcesResponse' {..} =
-    Prelude.rnf dataSourceSummaries
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf dataSourceSummaries `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf requestId `Prelude.seq`
+          Prelude.rnf status

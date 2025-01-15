@@ -177,16 +177,16 @@ instance Prelude.Hashable WaterfallChartConfiguration where
 
 instance Prelude.NFData WaterfallChartConfiguration where
   rnf WaterfallChartConfiguration' {..} =
-    Prelude.rnf categoryAxisDisplayOptions
-      `Prelude.seq` Prelude.rnf categoryAxisLabelOptions
-      `Prelude.seq` Prelude.rnf dataLabels
-      `Prelude.seq` Prelude.rnf fieldWells
-      `Prelude.seq` Prelude.rnf legend
-      `Prelude.seq` Prelude.rnf primaryYAxisDisplayOptions
-      `Prelude.seq` Prelude.rnf primaryYAxisLabelOptions
-      `Prelude.seq` Prelude.rnf sortConfiguration
-      `Prelude.seq` Prelude.rnf visualPalette
-      `Prelude.seq` Prelude.rnf waterfallChartOptions
+    Prelude.rnf categoryAxisDisplayOptions `Prelude.seq`
+      Prelude.rnf categoryAxisLabelOptions `Prelude.seq`
+        Prelude.rnf dataLabels `Prelude.seq`
+          Prelude.rnf fieldWells `Prelude.seq`
+            Prelude.rnf legend `Prelude.seq`
+              Prelude.rnf primaryYAxisDisplayOptions `Prelude.seq`
+                Prelude.rnf primaryYAxisLabelOptions `Prelude.seq`
+                  Prelude.rnf sortConfiguration `Prelude.seq`
+                    Prelude.rnf visualPalette `Prelude.seq`
+                      Prelude.rnf waterfallChartOptions
 
 instance Data.ToJSON WaterfallChartConfiguration where
   toJSON WaterfallChartConfiguration' {..} =

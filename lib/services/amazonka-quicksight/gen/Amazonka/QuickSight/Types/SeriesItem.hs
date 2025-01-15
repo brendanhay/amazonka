@@ -85,8 +85,8 @@ instance Prelude.Hashable SeriesItem where
 
 instance Prelude.NFData SeriesItem where
   rnf SeriesItem' {..} =
-    Prelude.rnf dataFieldSeriesItem
-      `Prelude.seq` Prelude.rnf fieldSeriesItem
+    Prelude.rnf dataFieldSeriesItem `Prelude.seq`
+      Prelude.rnf fieldSeriesItem
 
 instance Data.ToJSON SeriesItem where
   toJSON SeriesItem' {..} =

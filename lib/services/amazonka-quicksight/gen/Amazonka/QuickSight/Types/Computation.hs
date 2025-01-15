@@ -181,16 +181,16 @@ instance Prelude.Hashable Computation where
 
 instance Prelude.NFData Computation where
   rnf Computation' {..} =
-    Prelude.rnf forecast
-      `Prelude.seq` Prelude.rnf growthRate
-      `Prelude.seq` Prelude.rnf maximumMinimum
-      `Prelude.seq` Prelude.rnf metricComparison
-      `Prelude.seq` Prelude.rnf periodOverPeriod
-      `Prelude.seq` Prelude.rnf periodToDate
-      `Prelude.seq` Prelude.rnf topBottomMovers
-      `Prelude.seq` Prelude.rnf topBottomRanked
-      `Prelude.seq` Prelude.rnf totalAggregation
-      `Prelude.seq` Prelude.rnf uniqueValues
+    Prelude.rnf forecast `Prelude.seq`
+      Prelude.rnf growthRate `Prelude.seq`
+        Prelude.rnf maximumMinimum `Prelude.seq`
+          Prelude.rnf metricComparison `Prelude.seq`
+            Prelude.rnf periodOverPeriod `Prelude.seq`
+              Prelude.rnf periodToDate `Prelude.seq`
+                Prelude.rnf topBottomMovers `Prelude.seq`
+                  Prelude.rnf topBottomRanked `Prelude.seq`
+                    Prelude.rnf totalAggregation `Prelude.seq`
+                      Prelude.rnf uniqueValues
 
 instance Data.ToJSON Computation where
   toJSON Computation' {..} =

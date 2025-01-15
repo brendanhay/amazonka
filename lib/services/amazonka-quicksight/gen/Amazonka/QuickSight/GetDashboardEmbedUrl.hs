@@ -333,16 +333,16 @@ instance Prelude.Hashable GetDashboardEmbedUrl where
 
 instance Prelude.NFData GetDashboardEmbedUrl where
   rnf GetDashboardEmbedUrl' {..} =
-    Prelude.rnf additionalDashboardIds
-      `Prelude.seq` Prelude.rnf namespace
-      `Prelude.seq` Prelude.rnf resetDisabled
-      `Prelude.seq` Prelude.rnf sessionLifetimeInMinutes
-      `Prelude.seq` Prelude.rnf statePersistenceEnabled
-      `Prelude.seq` Prelude.rnf undoRedoDisabled
-      `Prelude.seq` Prelude.rnf userArn
-      `Prelude.seq` Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf dashboardId
-      `Prelude.seq` Prelude.rnf identityType
+    Prelude.rnf additionalDashboardIds `Prelude.seq`
+      Prelude.rnf namespace `Prelude.seq`
+        Prelude.rnf resetDisabled `Prelude.seq`
+          Prelude.rnf sessionLifetimeInMinutes `Prelude.seq`
+            Prelude.rnf statePersistenceEnabled `Prelude.seq`
+              Prelude.rnf undoRedoDisabled `Prelude.seq`
+                Prelude.rnf userArn `Prelude.seq`
+                  Prelude.rnf awsAccountId `Prelude.seq`
+                    Prelude.rnf dashboardId `Prelude.seq`
+                      Prelude.rnf identityType
 
 instance Data.ToHeaders GetDashboardEmbedUrl where
   toHeaders =
@@ -444,6 +444,6 @@ getDashboardEmbedUrlResponse_status = Lens.lens (\GetDashboardEmbedUrlResponse' 
 
 instance Prelude.NFData GetDashboardEmbedUrlResponse where
   rnf GetDashboardEmbedUrlResponse' {..} =
-    Prelude.rnf embedUrl
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf embedUrl `Prelude.seq`
+      Prelude.rnf requestId `Prelude.seq`
+        Prelude.rnf status

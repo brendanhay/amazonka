@@ -81,8 +81,8 @@ instance Prelude.Hashable PivotTableDataPathOption where
 
 instance Prelude.NFData PivotTableDataPathOption where
   rnf PivotTableDataPathOption' {..} =
-    Prelude.rnf width
-      `Prelude.seq` Prelude.rnf dataPathList
+    Prelude.rnf width `Prelude.seq`
+      Prelude.rnf dataPathList
 
 instance Data.ToJSON PivotTableDataPathOption where
   toJSON PivotTableDataPathOption' {..} =

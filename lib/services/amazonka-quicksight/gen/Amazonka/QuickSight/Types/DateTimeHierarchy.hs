@@ -90,8 +90,8 @@ instance Prelude.Hashable DateTimeHierarchy where
 
 instance Prelude.NFData DateTimeHierarchy where
   rnf DateTimeHierarchy' {..} =
-    Prelude.rnf drillDownFilters
-      `Prelude.seq` Prelude.rnf hierarchyId
+    Prelude.rnf drillDownFilters `Prelude.seq`
+      Prelude.rnf hierarchyId
 
 instance Data.ToJSON DateTimeHierarchy where
   toJSON DateTimeHierarchy' {..} =

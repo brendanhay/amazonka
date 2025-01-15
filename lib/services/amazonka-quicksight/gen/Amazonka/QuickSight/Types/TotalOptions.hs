@@ -117,11 +117,11 @@ instance Prelude.Hashable TotalOptions where
 
 instance Prelude.NFData TotalOptions where
   rnf TotalOptions' {..} =
-    Prelude.rnf customLabel
-      `Prelude.seq` Prelude.rnf placement
-      `Prelude.seq` Prelude.rnf scrollStatus
-      `Prelude.seq` Prelude.rnf totalCellStyle
-      `Prelude.seq` Prelude.rnf totalsVisibility
+    Prelude.rnf customLabel `Prelude.seq`
+      Prelude.rnf placement `Prelude.seq`
+        Prelude.rnf scrollStatus `Prelude.seq`
+          Prelude.rnf totalCellStyle `Prelude.seq`
+            Prelude.rnf totalsVisibility
 
 instance Data.ToJSON TotalOptions where
   toJSON TotalOptions' {..} =

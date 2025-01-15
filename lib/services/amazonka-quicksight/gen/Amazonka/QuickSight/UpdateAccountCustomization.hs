@@ -150,9 +150,9 @@ instance Prelude.Hashable UpdateAccountCustomization where
 
 instance Prelude.NFData UpdateAccountCustomization where
   rnf UpdateAccountCustomization' {..} =
-    Prelude.rnf namespace
-      `Prelude.seq` Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf accountCustomization
+    Prelude.rnf namespace `Prelude.seq`
+      Prelude.rnf awsAccountId `Prelude.seq`
+        Prelude.rnf accountCustomization
 
 instance Data.ToHeaders UpdateAccountCustomization where
   toHeaders =
@@ -277,9 +277,9 @@ instance
     UpdateAccountCustomizationResponse
   where
   rnf UpdateAccountCustomizationResponse' {..} =
-    Prelude.rnf accountCustomization
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf namespace
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf accountCustomization `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf awsAccountId `Prelude.seq`
+          Prelude.rnf namespace `Prelude.seq`
+            Prelude.rnf requestId `Prelude.seq`
+              Prelude.rnf status

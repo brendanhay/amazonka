@@ -126,9 +126,9 @@ instance Prelude.Hashable IAMPolicyAssignment where
 
 instance Prelude.NFData IAMPolicyAssignment where
   rnf IAMPolicyAssignment' {..} =
-    Prelude.rnf assignmentId
-      `Prelude.seq` Prelude.rnf assignmentName
-      `Prelude.seq` Prelude.rnf assignmentStatus
-      `Prelude.seq` Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf identities
-      `Prelude.seq` Prelude.rnf policyArn
+    Prelude.rnf assignmentId `Prelude.seq`
+      Prelude.rnf assignmentName `Prelude.seq`
+        Prelude.rnf assignmentStatus `Prelude.seq`
+          Prelude.rnf awsAccountId `Prelude.seq`
+            Prelude.rnf identities `Prelude.seq`
+              Prelude.rnf policyArn

@@ -98,8 +98,8 @@ instance
     FilledMapShapeConditionalFormatting
   where
   rnf FilledMapShapeConditionalFormatting' {..} =
-    Prelude.rnf format
-      `Prelude.seq` Prelude.rnf fieldId
+    Prelude.rnf format `Prelude.seq`
+      Prelude.rnf fieldId
 
 instance
   Data.ToJSON

@@ -94,9 +94,9 @@ instance Prelude.Hashable FieldTooltipItem where
 
 instance Prelude.NFData FieldTooltipItem where
   rnf FieldTooltipItem' {..} =
-    Prelude.rnf label
-      `Prelude.seq` Prelude.rnf visibility
-      `Prelude.seq` Prelude.rnf fieldId
+    Prelude.rnf label `Prelude.seq`
+      Prelude.rnf visibility `Prelude.seq`
+        Prelude.rnf fieldId
 
 instance Data.ToJSON FieldTooltipItem where
   toJSON FieldTooltipItem' {..} =

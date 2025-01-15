@@ -73,8 +73,8 @@ instance Prelude.Hashable TemplateSourceEntity where
 
 instance Prelude.NFData TemplateSourceEntity where
   rnf TemplateSourceEntity' {..} =
-    Prelude.rnf sourceAnalysis
-      `Prelude.seq` Prelude.rnf sourceTemplate
+    Prelude.rnf sourceAnalysis `Prelude.seq`
+      Prelude.rnf sourceTemplate
 
 instance Data.ToJSON TemplateSourceEntity where
   toJSON TemplateSourceEntity' {..} =

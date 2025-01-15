@@ -97,9 +97,9 @@ instance Prelude.Hashable TeradataParameters where
 
 instance Prelude.NFData TeradataParameters where
   rnf TeradataParameters' {..} =
-    Prelude.rnf host
-      `Prelude.seq` Prelude.rnf port
-      `Prelude.seq` Prelude.rnf database
+    Prelude.rnf host `Prelude.seq`
+      Prelude.rnf port `Prelude.seq`
+        Prelude.rnf database
 
 instance Data.ToJSON TeradataParameters where
   toJSON TeradataParameters' {..} =

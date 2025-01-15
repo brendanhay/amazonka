@@ -76,8 +76,8 @@ instance Prelude.Hashable AnalysisSourceTemplate where
 
 instance Prelude.NFData AnalysisSourceTemplate where
   rnf AnalysisSourceTemplate' {..} =
-    Prelude.rnf dataSetReferences
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf dataSetReferences `Prelude.seq`
+      Prelude.rnf arn
 
 instance Data.ToJSON AnalysisSourceTemplate where
   toJSON AnalysisSourceTemplate' {..} =

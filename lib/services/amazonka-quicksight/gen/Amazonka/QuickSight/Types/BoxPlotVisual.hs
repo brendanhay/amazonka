@@ -144,12 +144,12 @@ instance Prelude.Hashable BoxPlotVisual where
 
 instance Prelude.NFData BoxPlotVisual where
   rnf BoxPlotVisual' {..} =
-    Prelude.rnf actions
-      `Prelude.seq` Prelude.rnf chartConfiguration
-      `Prelude.seq` Prelude.rnf columnHierarchies
-      `Prelude.seq` Prelude.rnf subtitle
-      `Prelude.seq` Prelude.rnf title
-      `Prelude.seq` Prelude.rnf visualId
+    Prelude.rnf actions `Prelude.seq`
+      Prelude.rnf chartConfiguration `Prelude.seq`
+        Prelude.rnf columnHierarchies `Prelude.seq`
+          Prelude.rnf subtitle `Prelude.seq`
+            Prelude.rnf title `Prelude.seq`
+              Prelude.rnf visualId
 
 instance Data.ToJSON BoxPlotVisual where
   toJSON BoxPlotVisual' {..} =

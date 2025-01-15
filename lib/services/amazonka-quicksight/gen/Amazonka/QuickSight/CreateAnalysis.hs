@@ -252,15 +252,15 @@ instance Prelude.Hashable CreateAnalysis where
 
 instance Prelude.NFData CreateAnalysis where
   rnf CreateAnalysis' {..} =
-    Prelude.rnf definition
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf permissions
-      `Prelude.seq` Prelude.rnf sourceEntity
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf themeArn
-      `Prelude.seq` Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf analysisId
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf definition `Prelude.seq`
+      Prelude.rnf parameters `Prelude.seq`
+        Prelude.rnf permissions `Prelude.seq`
+          Prelude.rnf sourceEntity `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf themeArn `Prelude.seq`
+                Prelude.rnf awsAccountId `Prelude.seq`
+                  Prelude.rnf analysisId `Prelude.seq`
+                    Prelude.rnf name
 
 instance Data.ToHeaders CreateAnalysis where
   toHeaders =
@@ -367,8 +367,8 @@ createAnalysisResponse_status = Lens.lens (\CreateAnalysisResponse' {status} -> 
 
 instance Prelude.NFData CreateAnalysisResponse where
   rnf CreateAnalysisResponse' {..} =
-    Prelude.rnf analysisId
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationStatus
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf analysisId `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf creationStatus `Prelude.seq`
+          Prelude.rnf requestId `Prelude.seq`
+            Prelude.rnf status

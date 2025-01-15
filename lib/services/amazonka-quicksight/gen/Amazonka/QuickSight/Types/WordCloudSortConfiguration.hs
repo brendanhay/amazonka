@@ -83,8 +83,8 @@ instance Prelude.Hashable WordCloudSortConfiguration where
 
 instance Prelude.NFData WordCloudSortConfiguration where
   rnf WordCloudSortConfiguration' {..} =
-    Prelude.rnf categoryItemsLimit
-      `Prelude.seq` Prelude.rnf categorySort
+    Prelude.rnf categoryItemsLimit `Prelude.seq`
+      Prelude.rnf categorySort
 
 instance Data.ToJSON WordCloudSortConfiguration where
   toJSON WordCloudSortConfiguration' {..} =

@@ -75,8 +75,8 @@ instance Prelude.Hashable DataSetReference where
 
 instance Prelude.NFData DataSetReference where
   rnf DataSetReference' {..} =
-    Prelude.rnf dataSetPlaceholder
-      `Prelude.seq` Prelude.rnf dataSetArn
+    Prelude.rnf dataSetPlaceholder `Prelude.seq`
+      Prelude.rnf dataSetArn
 
 instance Data.ToJSON DataSetReference where
   toJSON DataSetReference' {..} =

@@ -155,13 +155,13 @@ instance Prelude.Hashable FilterControl where
 
 instance Prelude.NFData FilterControl where
   rnf FilterControl' {..} =
-    Prelude.rnf dateTimePicker
-      `Prelude.seq` Prelude.rnf dropdown
-      `Prelude.seq` Prelude.rnf list
-      `Prelude.seq` Prelude.rnf relativeDateTime
-      `Prelude.seq` Prelude.rnf slider
-      `Prelude.seq` Prelude.rnf textArea
-      `Prelude.seq` Prelude.rnf textField
+    Prelude.rnf dateTimePicker `Prelude.seq`
+      Prelude.rnf dropdown `Prelude.seq`
+        Prelude.rnf list `Prelude.seq`
+          Prelude.rnf relativeDateTime `Prelude.seq`
+            Prelude.rnf slider `Prelude.seq`
+              Prelude.rnf textArea `Prelude.seq`
+                Prelude.rnf textField
 
 instance Data.ToJSON FilterControl where
   toJSON FilterControl' {..} =

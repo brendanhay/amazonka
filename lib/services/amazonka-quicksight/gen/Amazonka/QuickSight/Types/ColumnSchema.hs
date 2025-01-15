@@ -91,9 +91,9 @@ instance Prelude.Hashable ColumnSchema where
 
 instance Prelude.NFData ColumnSchema where
   rnf ColumnSchema' {..} =
-    Prelude.rnf dataType
-      `Prelude.seq` Prelude.rnf geographicRole
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf dataType `Prelude.seq`
+      Prelude.rnf geographicRole `Prelude.seq`
+        Prelude.rnf name
 
 instance Data.ToJSON ColumnSchema where
   toJSON ColumnSchema' {..} =

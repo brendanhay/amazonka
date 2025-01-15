@@ -97,9 +97,9 @@ instance Prelude.Hashable SnowflakeParameters where
 
 instance Prelude.NFData SnowflakeParameters where
   rnf SnowflakeParameters' {..} =
-    Prelude.rnf host
-      `Prelude.seq` Prelude.rnf database
-      `Prelude.seq` Prelude.rnf warehouse
+    Prelude.rnf host `Prelude.seq`
+      Prelude.rnf database `Prelude.seq`
+        Prelude.rnf warehouse
 
 instance Data.ToJSON SnowflakeParameters where
   toJSON SnowflakeParameters' {..} =

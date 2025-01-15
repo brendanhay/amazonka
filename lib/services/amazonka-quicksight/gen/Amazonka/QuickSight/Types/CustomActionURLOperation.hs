@@ -110,8 +110,8 @@ instance Prelude.Hashable CustomActionURLOperation where
 
 instance Prelude.NFData CustomActionURLOperation where
   rnf CustomActionURLOperation' {..} =
-    Prelude.rnf uRLTemplate
-      `Prelude.seq` Prelude.rnf uRLTarget
+    Prelude.rnf uRLTemplate `Prelude.seq`
+      Prelude.rnf uRLTarget
 
 instance Data.ToJSON CustomActionURLOperation where
   toJSON CustomActionURLOperation' {..} =

@@ -116,12 +116,12 @@ instance Core.AWSPager ListAnalyses where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listAnalyses_nextToken
-          Lens..~ rs
-          Lens.^? listAnalysesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listAnalyses_nextToken
+              Lens..~ rs
+              Lens.^? listAnalysesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAnalyses where
   type AWSResponse ListAnalyses = ListAnalysesResponse
@@ -149,9 +149,9 @@ instance Prelude.Hashable ListAnalyses where
 
 instance Prelude.NFData ListAnalyses where
   rnf ListAnalyses' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf awsAccountId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf awsAccountId
 
 instance Data.ToHeaders ListAnalyses where
   toHeaders =
@@ -235,7 +235,7 @@ listAnalysesResponse_status = Lens.lens (\ListAnalysesResponse' {status} -> stat
 
 instance Prelude.NFData ListAnalysesResponse where
   rnf ListAnalysesResponse' {..} =
-    Prelude.rnf analysisSummaryList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf analysisSummaryList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf requestId `Prelude.seq`
+          Prelude.rnf status

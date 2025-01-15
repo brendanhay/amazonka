@@ -158,12 +158,12 @@ instance Core.AWSPager ListThemes where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listThemes_nextToken
-          Lens..~ rs
-          Lens.^? listThemesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listThemes_nextToken
+              Lens..~ rs
+              Lens.^? listThemesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListThemes where
   type AWSResponse ListThemes = ListThemesResponse
@@ -192,10 +192,10 @@ instance Prelude.Hashable ListThemes where
 
 instance Prelude.NFData ListThemes where
   rnf ListThemes' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf awsAccountId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf type' `Prelude.seq`
+          Prelude.rnf awsAccountId
 
 instance Data.ToHeaders ListThemes where
   toHeaders =
@@ -282,7 +282,7 @@ listThemesResponse_status = Lens.lens (\ListThemesResponse' {status} -> status) 
 
 instance Prelude.NFData ListThemesResponse where
   rnf ListThemesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf themeSummaryList
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf requestId `Prelude.seq`
+        Prelude.rnf themeSummaryList `Prelude.seq`
+          Prelude.rnf status

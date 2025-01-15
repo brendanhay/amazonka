@@ -100,9 +100,9 @@ instance
 
 instance Prelude.NFData PieChartAggregatedFieldWells where
   rnf PieChartAggregatedFieldWells' {..} =
-    Prelude.rnf category
-      `Prelude.seq` Prelude.rnf smallMultiples
-      `Prelude.seq` Prelude.rnf values
+    Prelude.rnf category `Prelude.seq`
+      Prelude.rnf smallMultiples `Prelude.seq`
+        Prelude.rnf values
 
 instance Data.ToJSON PieChartAggregatedFieldWells where
   toJSON PieChartAggregatedFieldWells' {..} =

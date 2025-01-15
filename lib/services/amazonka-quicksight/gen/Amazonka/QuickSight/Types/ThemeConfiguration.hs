@@ -110,10 +110,10 @@ instance Prelude.Hashable ThemeConfiguration where
 
 instance Prelude.NFData ThemeConfiguration where
   rnf ThemeConfiguration' {..} =
-    Prelude.rnf dataColorPalette
-      `Prelude.seq` Prelude.rnf sheet
-      `Prelude.seq` Prelude.rnf typography
-      `Prelude.seq` Prelude.rnf uIColorPalette
+    Prelude.rnf dataColorPalette `Prelude.seq`
+      Prelude.rnf sheet `Prelude.seq`
+        Prelude.rnf typography `Prelude.seq`
+          Prelude.rnf uIColorPalette
 
 instance Data.ToJSON ThemeConfiguration where
   toJSON ThemeConfiguration' {..} =

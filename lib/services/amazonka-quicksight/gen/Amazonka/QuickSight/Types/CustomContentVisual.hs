@@ -145,12 +145,12 @@ instance Prelude.Hashable CustomContentVisual where
 
 instance Prelude.NFData CustomContentVisual where
   rnf CustomContentVisual' {..} =
-    Prelude.rnf actions
-      `Prelude.seq` Prelude.rnf chartConfiguration
-      `Prelude.seq` Prelude.rnf subtitle
-      `Prelude.seq` Prelude.rnf title
-      `Prelude.seq` Prelude.rnf visualId
-      `Prelude.seq` Prelude.rnf dataSetIdentifier
+    Prelude.rnf actions `Prelude.seq`
+      Prelude.rnf chartConfiguration `Prelude.seq`
+        Prelude.rnf subtitle `Prelude.seq`
+          Prelude.rnf title `Prelude.seq`
+            Prelude.rnf visualId `Prelude.seq`
+              Prelude.rnf dataSetIdentifier
 
 instance Data.ToJSON CustomContentVisual where
   toJSON CustomContentVisual' {..} =

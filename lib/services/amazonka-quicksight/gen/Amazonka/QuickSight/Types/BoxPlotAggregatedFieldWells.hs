@@ -89,8 +89,8 @@ instance Prelude.Hashable BoxPlotAggregatedFieldWells where
 
 instance Prelude.NFData BoxPlotAggregatedFieldWells where
   rnf BoxPlotAggregatedFieldWells' {..} =
-    Prelude.rnf groupBy
-      `Prelude.seq` Prelude.rnf values
+    Prelude.rnf groupBy `Prelude.seq`
+      Prelude.rnf values
 
 instance Data.ToJSON BoxPlotAggregatedFieldWells where
   toJSON BoxPlotAggregatedFieldWells' {..} =

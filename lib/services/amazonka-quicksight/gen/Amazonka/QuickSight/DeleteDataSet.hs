@@ -117,8 +117,8 @@ instance Prelude.Hashable DeleteDataSet where
 
 instance Prelude.NFData DeleteDataSet where
   rnf DeleteDataSet' {..} =
-    Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf dataSetId
+    Prelude.rnf awsAccountId `Prelude.seq`
+      Prelude.rnf dataSetId
 
 instance Data.ToHeaders DeleteDataSet where
   toHeaders =
@@ -204,7 +204,7 @@ deleteDataSetResponse_status = Lens.lens (\DeleteDataSetResponse' {status} -> st
 
 instance Prelude.NFData DeleteDataSetResponse where
   rnf DeleteDataSetResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf dataSetId
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf dataSetId `Prelude.seq`
+        Prelude.rnf requestId `Prelude.seq`
+          Prelude.rnf status

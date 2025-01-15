@@ -85,8 +85,8 @@ instance Prelude.Hashable AxisLabelReferenceOptions where
 
 instance Prelude.NFData AxisLabelReferenceOptions where
   rnf AxisLabelReferenceOptions' {..} =
-    Prelude.rnf fieldId
-      `Prelude.seq` Prelude.rnf column
+    Prelude.rnf fieldId `Prelude.seq`
+      Prelude.rnf column
 
 instance Data.ToJSON AxisLabelReferenceOptions where
   toJSON AxisLabelReferenceOptions' {..} =

@@ -102,12 +102,12 @@ instance Core.AWSPager ListRecoveryGroups where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listRecoveryGroups_nextToken
-          Lens..~ rs
-          Lens.^? listRecoveryGroupsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listRecoveryGroups_nextToken
+              Lens..~ rs
+              Lens.^? listRecoveryGroupsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListRecoveryGroups where
   type
@@ -132,8 +132,8 @@ instance Prelude.Hashable ListRecoveryGroups where
 
 instance Prelude.NFData ListRecoveryGroups where
   rnf ListRecoveryGroups' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListRecoveryGroups where
   toHeaders =
@@ -206,6 +206,6 @@ listRecoveryGroupsResponse_httpStatus = Lens.lens (\ListRecoveryGroupsResponse' 
 
 instance Prelude.NFData ListRecoveryGroupsResponse where
   rnf ListRecoveryGroupsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf recoveryGroups
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf recoveryGroups `Prelude.seq`
+        Prelude.rnf httpStatus

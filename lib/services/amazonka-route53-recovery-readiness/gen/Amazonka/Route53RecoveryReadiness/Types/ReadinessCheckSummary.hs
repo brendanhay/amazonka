@@ -82,5 +82,5 @@ instance Prelude.Hashable ReadinessCheckSummary where
 
 instance Prelude.NFData ReadinessCheckSummary where
   rnf ReadinessCheckSummary' {..} =
-    Prelude.rnf readiness
-      `Prelude.seq` Prelude.rnf readinessCheckName
+    Prelude.rnf readiness `Prelude.seq`
+      Prelude.rnf readinessCheckName

@@ -206,9 +206,9 @@ getCellResponse_httpStatus = Lens.lens (\GetCellResponse' {httpStatus} -> httpSt
 
 instance Prelude.NFData GetCellResponse where
   rnf GetCellResponse' {..} =
-    Prelude.rnf cellArn
-      `Prelude.seq` Prelude.rnf cellName
-      `Prelude.seq` Prelude.rnf cells
-      `Prelude.seq` Prelude.rnf parentReadinessScopes
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf cellArn `Prelude.seq`
+      Prelude.rnf cellName `Prelude.seq`
+        Prelude.rnf cells `Prelude.seq`
+          Prelude.rnf parentReadinessScopes `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf httpStatus

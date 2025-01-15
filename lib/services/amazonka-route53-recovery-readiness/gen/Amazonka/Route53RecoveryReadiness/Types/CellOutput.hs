@@ -126,8 +126,8 @@ instance Prelude.Hashable CellOutput where
 
 instance Prelude.NFData CellOutput where
   rnf CellOutput' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf parentReadinessScopes
-      `Prelude.seq` Prelude.rnf cellArn
-      `Prelude.seq` Prelude.rnf cellName
-      `Prelude.seq` Prelude.rnf cells
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf parentReadinessScopes `Prelude.seq`
+        Prelude.rnf cellArn `Prelude.seq`
+          Prelude.rnf cellName `Prelude.seq`
+            Prelude.rnf cells

@@ -104,12 +104,12 @@ instance Core.AWSPager ListCrossAccountAuthorizations where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listCrossAccountAuthorizations_nextToken
-          Lens..~ rs
-          Lens.^? listCrossAccountAuthorizationsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listCrossAccountAuthorizations_nextToken
+              Lens..~ rs
+              Lens.^? listCrossAccountAuthorizationsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -148,8 +148,8 @@ instance
     ListCrossAccountAuthorizations
   where
   rnf ListCrossAccountAuthorizations' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance
   Data.ToHeaders
@@ -229,6 +229,6 @@ instance
     ListCrossAccountAuthorizationsResponse
   where
   rnf ListCrossAccountAuthorizationsResponse' {..} =
-    Prelude.rnf crossAccountAuthorizations
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf crossAccountAuthorizations `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

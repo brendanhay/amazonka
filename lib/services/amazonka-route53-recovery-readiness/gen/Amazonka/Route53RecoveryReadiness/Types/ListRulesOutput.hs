@@ -102,6 +102,6 @@ instance Prelude.Hashable ListRulesOutput where
 
 instance Prelude.NFData ListRulesOutput where
   rnf ListRulesOutput' {..} =
-    Prelude.rnf ruleDescription
-      `Prelude.seq` Prelude.rnf ruleId
-      `Prelude.seq` Prelude.rnf resourceType
+    Prelude.rnf ruleDescription `Prelude.seq`
+      Prelude.rnf ruleId `Prelude.seq`
+        Prelude.rnf resourceType

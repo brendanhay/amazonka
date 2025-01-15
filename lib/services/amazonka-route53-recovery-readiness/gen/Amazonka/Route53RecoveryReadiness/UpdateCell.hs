@@ -121,8 +121,8 @@ instance Prelude.Hashable UpdateCell where
 
 instance Prelude.NFData UpdateCell where
   rnf UpdateCell' {..} =
-    Prelude.rnf cellName
-      `Prelude.seq` Prelude.rnf cells
+    Prelude.rnf cellName `Prelude.seq`
+      Prelude.rnf cells
 
 instance Data.ToHeaders UpdateCell where
   toHeaders =
@@ -231,9 +231,9 @@ updateCellResponse_httpStatus = Lens.lens (\UpdateCellResponse' {httpStatus} -> 
 
 instance Prelude.NFData UpdateCellResponse where
   rnf UpdateCellResponse' {..} =
-    Prelude.rnf cellArn
-      `Prelude.seq` Prelude.rnf cellName
-      `Prelude.seq` Prelude.rnf cells
-      `Prelude.seq` Prelude.rnf parentReadinessScopes
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf cellArn `Prelude.seq`
+      Prelude.rnf cellName `Prelude.seq`
+        Prelude.rnf cells `Prelude.seq`
+          Prelude.rnf parentReadinessScopes `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf httpStatus

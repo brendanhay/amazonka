@@ -102,12 +102,12 @@ instance Core.AWSPager ListCells where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listCells_nextToken
-          Lens..~ rs
-          Lens.^? listCellsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listCells_nextToken
+              Lens..~ rs
+              Lens.^? listCellsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListCells where
   type AWSResponse ListCells = ListCellsResponse
@@ -130,8 +130,8 @@ instance Prelude.Hashable ListCells where
 
 instance Prelude.NFData ListCells where
   rnf ListCells' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListCells where
   toHeaders =
@@ -203,6 +203,6 @@ listCellsResponse_httpStatus = Lens.lens (\ListCellsResponse' {httpStatus} -> ht
 
 instance Prelude.NFData ListCellsResponse where
   rnf ListCellsResponse' {..} =
-    Prelude.rnf cells
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf cells `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

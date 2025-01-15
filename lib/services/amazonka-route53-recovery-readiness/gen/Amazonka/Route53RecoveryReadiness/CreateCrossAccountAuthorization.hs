@@ -191,5 +191,5 @@ instance
     CreateCrossAccountAuthorizationResponse
   where
   rnf CreateCrossAccountAuthorizationResponse' {..} =
-    Prelude.rnf crossAccountAuthorization
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf crossAccountAuthorization `Prelude.seq`
+      Prelude.rnf httpStatus

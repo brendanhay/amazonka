@@ -120,8 +120,8 @@ instance Prelude.Hashable UpdateRecoveryGroup where
 
 instance Prelude.NFData UpdateRecoveryGroup where
   rnf UpdateRecoveryGroup' {..} =
-    Prelude.rnf recoveryGroupName
-      `Prelude.seq` Prelude.rnf cells
+    Prelude.rnf recoveryGroupName `Prelude.seq`
+      Prelude.rnf cells
 
 instance Data.ToHeaders UpdateRecoveryGroup where
   toHeaders =
@@ -217,8 +217,8 @@ updateRecoveryGroupResponse_httpStatus = Lens.lens (\UpdateRecoveryGroupResponse
 
 instance Prelude.NFData UpdateRecoveryGroupResponse where
   rnf UpdateRecoveryGroupResponse' {..} =
-    Prelude.rnf cells
-      `Prelude.seq` Prelude.rnf recoveryGroupArn
-      `Prelude.seq` Prelude.rnf recoveryGroupName
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf cells `Prelude.seq`
+      Prelude.rnf recoveryGroupArn `Prelude.seq`
+        Prelude.rnf recoveryGroupName `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf httpStatus

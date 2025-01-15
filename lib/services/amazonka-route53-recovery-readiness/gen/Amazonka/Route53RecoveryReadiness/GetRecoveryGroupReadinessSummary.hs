@@ -122,12 +122,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getRecoveryGroupReadinessSummary_nextToken
-          Lens..~ rs
-          Lens.^? getRecoveryGroupReadinessSummaryResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getRecoveryGroupReadinessSummary_nextToken
+              Lens..~ rs
+              Lens.^? getRecoveryGroupReadinessSummaryResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -168,9 +168,9 @@ instance
     GetRecoveryGroupReadinessSummary
   where
   rnf GetRecoveryGroupReadinessSummary' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf recoveryGroupName
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf recoveryGroupName
 
 instance
   Data.ToHeaders
@@ -266,7 +266,7 @@ instance
     GetRecoveryGroupReadinessSummaryResponse
   where
   rnf GetRecoveryGroupReadinessSummaryResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf readiness
-      `Prelude.seq` Prelude.rnf readinessChecks
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf readiness `Prelude.seq`
+        Prelude.rnf readinessChecks `Prelude.seq`
+          Prelude.rnf httpStatus

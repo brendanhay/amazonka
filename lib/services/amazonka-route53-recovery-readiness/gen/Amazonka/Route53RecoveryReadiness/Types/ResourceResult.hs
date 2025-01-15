@@ -112,7 +112,7 @@ instance Prelude.Hashable ResourceResult where
 
 instance Prelude.NFData ResourceResult where
   rnf ResourceResult' {..} =
-    Prelude.rnf componentId
-      `Prelude.seq` Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf readiness
-      `Prelude.seq` Prelude.rnf lastCheckedTimestamp
+    Prelude.rnf componentId `Prelude.seq`
+      Prelude.rnf resourceArn `Prelude.seq`
+        Prelude.rnf readiness `Prelude.seq`
+          Prelude.rnf lastCheckedTimestamp

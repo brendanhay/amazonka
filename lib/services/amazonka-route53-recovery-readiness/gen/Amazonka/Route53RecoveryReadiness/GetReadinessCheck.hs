@@ -191,8 +191,8 @@ getReadinessCheckResponse_httpStatus = Lens.lens (\GetReadinessCheckResponse' {h
 
 instance Prelude.NFData GetReadinessCheckResponse where
   rnf GetReadinessCheckResponse' {..} =
-    Prelude.rnf readinessCheckArn
-      `Prelude.seq` Prelude.rnf readinessCheckName
-      `Prelude.seq` Prelude.rnf resourceSet
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf readinessCheckArn `Prelude.seq`
+      Prelude.rnf readinessCheckName `Prelude.seq`
+        Prelude.rnf resourceSet `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf httpStatus

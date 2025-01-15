@@ -183,5 +183,5 @@ bulkPublishResponse_httpStatus = Lens.lens (\BulkPublishResponse' {httpStatus} -
 
 instance Prelude.NFData BulkPublishResponse where
   rnf BulkPublishResponse' {..} =
-    Prelude.rnf identityPoolId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf identityPoolId `Prelude.seq`
+      Prelude.rnf httpStatus

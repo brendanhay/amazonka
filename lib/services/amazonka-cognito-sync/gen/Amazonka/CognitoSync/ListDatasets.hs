@@ -154,10 +154,10 @@ instance Prelude.Hashable ListDatasets where
 
 instance Prelude.NFData ListDatasets where
   rnf ListDatasets' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf identityId
-      `Prelude.seq` Prelude.rnf identityPoolId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf identityId `Prelude.seq`
+          Prelude.rnf identityPoolId
 
 instance Data.ToHeaders ListDatasets where
   toHeaders =
@@ -247,7 +247,7 @@ listDatasetsResponse_httpStatus = Lens.lens (\ListDatasetsResponse' {httpStatus}
 
 instance Prelude.NFData ListDatasetsResponse where
   rnf ListDatasetsResponse' {..} =
-    Prelude.rnf count
-      `Prelude.seq` Prelude.rnf datasets
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf count `Prelude.seq`
+      Prelude.rnf datasets `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf httpStatus

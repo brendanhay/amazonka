@@ -86,8 +86,8 @@ instance Prelude.Hashable PushSync where
 
 instance Prelude.NFData PushSync where
   rnf PushSync' {..} =
-    Prelude.rnf applicationArns
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf applicationArns `Prelude.seq`
+      Prelude.rnf roleArn
 
 instance Data.ToJSON PushSync where
   toJSON PushSync' {..} =

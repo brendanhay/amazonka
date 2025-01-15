@@ -217,13 +217,13 @@ instance Prelude.Hashable UpdateRecords where
 
 instance Prelude.NFData UpdateRecords where
   rnf UpdateRecords' {..} =
-    Prelude.rnf clientContext
-      `Prelude.seq` Prelude.rnf deviceId
-      `Prelude.seq` Prelude.rnf recordPatches
-      `Prelude.seq` Prelude.rnf identityPoolId
-      `Prelude.seq` Prelude.rnf identityId
-      `Prelude.seq` Prelude.rnf datasetName
-      `Prelude.seq` Prelude.rnf syncSessionToken
+    Prelude.rnf clientContext `Prelude.seq`
+      Prelude.rnf deviceId `Prelude.seq`
+        Prelude.rnf recordPatches `Prelude.seq`
+          Prelude.rnf identityPoolId `Prelude.seq`
+            Prelude.rnf identityId `Prelude.seq`
+              Prelude.rnf datasetName `Prelude.seq`
+                Prelude.rnf syncSessionToken
 
 instance Data.ToHeaders UpdateRecords where
   toHeaders UpdateRecords' {..} =
@@ -300,5 +300,5 @@ updateRecordsResponse_httpStatus = Lens.lens (\UpdateRecordsResponse' {httpStatu
 
 instance Prelude.NFData UpdateRecordsResponse where
   rnf UpdateRecordsResponse' {..} =
-    Prelude.rnf records
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf records `Prelude.seq`
+      Prelude.rnf httpStatus

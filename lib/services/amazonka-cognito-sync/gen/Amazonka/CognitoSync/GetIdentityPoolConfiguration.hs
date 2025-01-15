@@ -210,7 +210,7 @@ instance
     GetIdentityPoolConfigurationResponse
   where
   rnf GetIdentityPoolConfigurationResponse' {..} =
-    Prelude.rnf cognitoStreams
-      `Prelude.seq` Prelude.rnf identityPoolId
-      `Prelude.seq` Prelude.rnf pushSync
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf cognitoStreams `Prelude.seq`
+      Prelude.rnf identityPoolId `Prelude.seq`
+        Prelude.rnf pushSync `Prelude.seq`
+          Prelude.rnf httpStatus

@@ -149,9 +149,9 @@ instance Prelude.Hashable DeleteDataset where
 
 instance Prelude.NFData DeleteDataset where
   rnf DeleteDataset' {..} =
-    Prelude.rnf identityPoolId
-      `Prelude.seq` Prelude.rnf identityId
-      `Prelude.seq` Prelude.rnf datasetName
+    Prelude.rnf identityPoolId `Prelude.seq`
+      Prelude.rnf identityId `Prelude.seq`
+        Prelude.rnf datasetName
 
 instance Data.ToHeaders DeleteDataset where
   toHeaders =
@@ -232,5 +232,5 @@ deleteDatasetResponse_httpStatus = Lens.lens (\DeleteDatasetResponse' {httpStatu
 
 instance Prelude.NFData DeleteDatasetResponse where
   rnf DeleteDatasetResponse' {..} =
-    Prelude.rnf dataset
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dataset `Prelude.seq`
+      Prelude.rnf httpStatus

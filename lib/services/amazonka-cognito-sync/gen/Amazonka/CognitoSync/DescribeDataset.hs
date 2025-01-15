@@ -151,9 +151,9 @@ instance Prelude.Hashable DescribeDataset where
 
 instance Prelude.NFData DescribeDataset where
   rnf DescribeDataset' {..} =
-    Prelude.rnf identityPoolId
-      `Prelude.seq` Prelude.rnf identityId
-      `Prelude.seq` Prelude.rnf datasetName
+    Prelude.rnf identityPoolId `Prelude.seq`
+      Prelude.rnf identityId `Prelude.seq`
+        Prelude.rnf datasetName
 
 instance Data.ToHeaders DescribeDataset where
   toHeaders =
@@ -234,5 +234,5 @@ describeDatasetResponse_httpStatus = Lens.lens (\DescribeDatasetResponse' {httpS
 
 instance Prelude.NFData DescribeDatasetResponse where
   rnf DescribeDatasetResponse' {..} =
-    Prelude.rnf dataset
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dataset `Prelude.seq`
+      Prelude.rnf httpStatus

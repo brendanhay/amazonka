@@ -151,10 +151,10 @@ instance Prelude.Hashable SubscribeToDataset where
 
 instance Prelude.NFData SubscribeToDataset where
   rnf SubscribeToDataset' {..} =
-    Prelude.rnf identityPoolId
-      `Prelude.seq` Prelude.rnf identityId
-      `Prelude.seq` Prelude.rnf datasetName
-      `Prelude.seq` Prelude.rnf deviceId
+    Prelude.rnf identityPoolId `Prelude.seq`
+      Prelude.rnf identityId `Prelude.seq`
+        Prelude.rnf datasetName `Prelude.seq`
+          Prelude.rnf deviceId
 
 instance Data.ToHeaders SubscribeToDataset where
   toHeaders =

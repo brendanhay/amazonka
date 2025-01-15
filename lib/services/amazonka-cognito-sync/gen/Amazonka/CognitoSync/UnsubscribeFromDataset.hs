@@ -151,10 +151,10 @@ instance Prelude.Hashable UnsubscribeFromDataset where
 
 instance Prelude.NFData UnsubscribeFromDataset where
   rnf UnsubscribeFromDataset' {..} =
-    Prelude.rnf identityPoolId
-      `Prelude.seq` Prelude.rnf identityId
-      `Prelude.seq` Prelude.rnf datasetName
-      `Prelude.seq` Prelude.rnf deviceId
+    Prelude.rnf identityPoolId `Prelude.seq`
+      Prelude.rnf identityId `Prelude.seq`
+        Prelude.rnf datasetName `Prelude.seq`
+          Prelude.rnf deviceId
 
 instance Data.ToHeaders UnsubscribeFromDataset where
   toHeaders =

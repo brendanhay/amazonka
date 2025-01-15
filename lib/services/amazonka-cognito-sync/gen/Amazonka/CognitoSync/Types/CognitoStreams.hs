@@ -116,9 +116,9 @@ instance Prelude.Hashable CognitoStreams where
 
 instance Prelude.NFData CognitoStreams where
   rnf CognitoStreams' {..} =
-    Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf streamName
-      `Prelude.seq` Prelude.rnf streamingStatus
+    Prelude.rnf roleArn `Prelude.seq`
+      Prelude.rnf streamName `Prelude.seq`
+        Prelude.rnf streamingStatus
 
 instance Data.ToJSON CognitoStreams where
   toJSON CognitoStreams' {..} =

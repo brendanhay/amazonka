@@ -177,9 +177,9 @@ instance Prelude.Hashable Container where
 
 instance Prelude.NFData Container where
   rnf Container' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf accessLoggingEnabled
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf endpoint
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf accessLoggingEnabled `Prelude.seq`
+        Prelude.rnf creationTime `Prelude.seq`
+          Prelude.rnf endpoint `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf status

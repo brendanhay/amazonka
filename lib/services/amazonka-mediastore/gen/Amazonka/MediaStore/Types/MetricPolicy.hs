@@ -107,8 +107,8 @@ instance Prelude.Hashable MetricPolicy where
 
 instance Prelude.NFData MetricPolicy where
   rnf MetricPolicy' {..} =
-    Prelude.rnf metricPolicyRules
-      `Prelude.seq` Prelude.rnf containerLevelMetrics
+    Prelude.rnf metricPolicyRules `Prelude.seq`
+      Prelude.rnf containerLevelMetrics
 
 instance Data.ToJSON MetricPolicy where
   toJSON MetricPolicy' {..} =

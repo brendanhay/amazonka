@@ -171,5 +171,5 @@ describeContainerResponse_httpStatus = Lens.lens (\DescribeContainerResponse' {h
 
 instance Prelude.NFData DescribeContainerResponse where
   rnf DescribeContainerResponse' {..} =
-    Prelude.rnf container
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf container `Prelude.seq`
+      Prelude.rnf httpStatus

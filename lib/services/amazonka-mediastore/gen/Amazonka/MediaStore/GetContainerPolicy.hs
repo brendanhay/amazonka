@@ -174,5 +174,5 @@ getContainerPolicyResponse_policy = Lens.lens (\GetContainerPolicyResponse' {pol
 
 instance Prelude.NFData GetContainerPolicyResponse where
   rnf GetContainerPolicyResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf policy
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf policy

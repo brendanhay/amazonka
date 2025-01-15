@@ -128,8 +128,8 @@ instance Prelude.Hashable PutContainerPolicy where
 
 instance Prelude.NFData PutContainerPolicy where
   rnf PutContainerPolicy' {..} =
-    Prelude.rnf containerName
-      `Prelude.seq` Prelude.rnf policy
+    Prelude.rnf containerName `Prelude.seq`
+      Prelude.rnf policy
 
 instance Data.ToHeaders PutContainerPolicy where
   toHeaders =

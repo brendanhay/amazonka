@@ -158,8 +158,8 @@ instance Prelude.Hashable PutMetricPolicy where
 
 instance Prelude.NFData PutMetricPolicy where
   rnf PutMetricPolicy' {..} =
-    Prelude.rnf containerName
-      `Prelude.seq` Prelude.rnf metricPolicy
+    Prelude.rnf containerName `Prelude.seq`
+      Prelude.rnf metricPolicy
 
 instance Data.ToHeaders PutMetricPolicy where
   toHeaders =

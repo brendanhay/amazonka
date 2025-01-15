@@ -232,10 +232,10 @@ instance
     DescribeClientBrandingResponse
   where
   rnf DescribeClientBrandingResponse' {..} =
-    Prelude.rnf deviceTypeAndroid
-      `Prelude.seq` Prelude.rnf deviceTypeIos
-      `Prelude.seq` Prelude.rnf deviceTypeLinux
-      `Prelude.seq` Prelude.rnf deviceTypeOsx
-      `Prelude.seq` Prelude.rnf deviceTypeWeb
-      `Prelude.seq` Prelude.rnf deviceTypeWindows
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf deviceTypeAndroid `Prelude.seq`
+      Prelude.rnf deviceTypeIos `Prelude.seq`
+        Prelude.rnf deviceTypeLinux `Prelude.seq`
+          Prelude.rnf deviceTypeOsx `Prelude.seq`
+            Prelude.rnf deviceTypeWeb `Prelude.seq`
+              Prelude.rnf deviceTypeWindows `Prelude.seq`
+                Prelude.rnf httpStatus

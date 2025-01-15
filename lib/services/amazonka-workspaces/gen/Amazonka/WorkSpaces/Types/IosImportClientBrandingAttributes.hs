@@ -253,13 +253,13 @@ instance
     IosImportClientBrandingAttributes
   where
   rnf IosImportClientBrandingAttributes' {..} =
-    Prelude.rnf forgotPasswordLink
-      `Prelude.seq` Prelude.rnf loginMessage
-      `Prelude.seq` Prelude.rnf logo
-      `Prelude.seq` Prelude.rnf logo2x
-      `Prelude.seq` Prelude.rnf logo3x
-      `Prelude.seq` Prelude.rnf supportEmail
-      `Prelude.seq` Prelude.rnf supportLink
+    Prelude.rnf forgotPasswordLink `Prelude.seq`
+      Prelude.rnf loginMessage `Prelude.seq`
+        Prelude.rnf logo `Prelude.seq`
+          Prelude.rnf logo2x `Prelude.seq`
+            Prelude.rnf logo3x `Prelude.seq`
+              Prelude.rnf supportEmail `Prelude.seq`
+                Prelude.rnf supportLink
 
 instance
   Data.ToJSON

@@ -165,11 +165,11 @@ instance Prelude.Hashable CopyWorkspaceImage where
 
 instance Prelude.NFData CopyWorkspaceImage where
   rnf CopyWorkspaceImage' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf sourceImageId
-      `Prelude.seq` Prelude.rnf sourceRegion
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf sourceImageId `Prelude.seq`
+            Prelude.rnf sourceRegion
 
 instance Data.ToHeaders CopyWorkspaceImage where
   toHeaders =
@@ -245,5 +245,5 @@ copyWorkspaceImageResponse_httpStatus = Lens.lens (\CopyWorkspaceImageResponse' 
 
 instance Prelude.NFData CopyWorkspaceImageResponse where
   rnf CopyWorkspaceImageResponse' {..} =
-    Prelude.rnf imageId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf imageId `Prelude.seq`
+      Prelude.rnf httpStatus

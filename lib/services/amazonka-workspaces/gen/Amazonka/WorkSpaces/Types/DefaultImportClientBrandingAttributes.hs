@@ -175,11 +175,11 @@ instance
     DefaultImportClientBrandingAttributes
   where
   rnf DefaultImportClientBrandingAttributes' {..} =
-    Prelude.rnf forgotPasswordLink
-      `Prelude.seq` Prelude.rnf loginMessage
-      `Prelude.seq` Prelude.rnf logo
-      `Prelude.seq` Prelude.rnf supportEmail
-      `Prelude.seq` Prelude.rnf supportLink
+    Prelude.rnf forgotPasswordLink `Prelude.seq`
+      Prelude.rnf loginMessage `Prelude.seq`
+        Prelude.rnf logo `Prelude.seq`
+          Prelude.rnf supportEmail `Prelude.seq`
+            Prelude.rnf supportLink
 
 instance
   Data.ToJSON

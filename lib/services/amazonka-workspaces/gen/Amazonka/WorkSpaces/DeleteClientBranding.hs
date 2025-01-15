@@ -117,8 +117,8 @@ instance Prelude.Hashable DeleteClientBranding where
 
 instance Prelude.NFData DeleteClientBranding where
   rnf DeleteClientBranding' {..} =
-    Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf platforms
+    Prelude.rnf resourceId `Prelude.seq`
+      Prelude.rnf platforms
 
 instance Data.ToHeaders DeleteClientBranding where
   toHeaders =

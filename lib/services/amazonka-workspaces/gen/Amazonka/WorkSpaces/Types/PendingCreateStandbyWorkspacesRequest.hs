@@ -136,7 +136,7 @@ instance
     PendingCreateStandbyWorkspacesRequest
   where
   rnf PendingCreateStandbyWorkspacesRequest' {..} =
-    Prelude.rnf directoryId
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf userName
-      `Prelude.seq` Prelude.rnf workspaceId
+    Prelude.rnf directoryId `Prelude.seq`
+      Prelude.rnf state `Prelude.seq`
+        Prelude.rnf userName `Prelude.seq`
+          Prelude.rnf workspaceId

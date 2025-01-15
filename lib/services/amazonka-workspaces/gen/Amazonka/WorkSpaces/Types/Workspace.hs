@@ -283,19 +283,19 @@ instance Prelude.Hashable Workspace where
 
 instance Prelude.NFData Workspace where
   rnf Workspace' {..} =
-    Prelude.rnf bundleId
-      `Prelude.seq` Prelude.rnf computerName
-      `Prelude.seq` Prelude.rnf directoryId
-      `Prelude.seq` Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf ipAddress
-      `Prelude.seq` Prelude.rnf modificationStates
-      `Prelude.seq` Prelude.rnf relatedWorkspaces
-      `Prelude.seq` Prelude.rnf rootVolumeEncryptionEnabled
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf subnetId
-      `Prelude.seq` Prelude.rnf userName
-      `Prelude.seq` Prelude.rnf userVolumeEncryptionEnabled
-      `Prelude.seq` Prelude.rnf volumeEncryptionKey
-      `Prelude.seq` Prelude.rnf workspaceId
-      `Prelude.seq` Prelude.rnf workspaceProperties
+    Prelude.rnf bundleId `Prelude.seq`
+      Prelude.rnf computerName `Prelude.seq`
+        Prelude.rnf directoryId `Prelude.seq`
+          Prelude.rnf errorCode `Prelude.seq`
+            Prelude.rnf errorMessage `Prelude.seq`
+              Prelude.rnf ipAddress `Prelude.seq`
+                Prelude.rnf modificationStates `Prelude.seq`
+                  Prelude.rnf relatedWorkspaces `Prelude.seq`
+                    Prelude.rnf rootVolumeEncryptionEnabled `Prelude.seq`
+                      Prelude.rnf state `Prelude.seq`
+                        Prelude.rnf subnetId `Prelude.seq`
+                          Prelude.rnf userName `Prelude.seq`
+                            Prelude.rnf userVolumeEncryptionEnabled `Prelude.seq`
+                              Prelude.rnf volumeEncryptionKey `Prelude.seq`
+                                Prelude.rnf workspaceId `Prelude.seq`
+                                  Prelude.rnf workspaceProperties

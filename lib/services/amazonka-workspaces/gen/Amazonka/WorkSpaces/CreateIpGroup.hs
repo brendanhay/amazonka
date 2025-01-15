@@ -143,10 +143,10 @@ instance Prelude.Hashable CreateIpGroup where
 
 instance Prelude.NFData CreateIpGroup where
   rnf CreateIpGroup' {..} =
-    Prelude.rnf groupDesc
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf userRules
-      `Prelude.seq` Prelude.rnf groupName
+    Prelude.rnf groupDesc `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf userRules `Prelude.seq`
+          Prelude.rnf groupName
 
 instance Data.ToHeaders CreateIpGroup where
   toHeaders =
@@ -220,5 +220,5 @@ createIpGroupResponse_httpStatus = Lens.lens (\CreateIpGroupResponse' {httpStatu
 
 instance Prelude.NFData CreateIpGroupResponse where
   rnf CreateIpGroupResponse' {..} =
-    Prelude.rnf groupId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf groupId `Prelude.seq`
+      Prelude.rnf httpStatus

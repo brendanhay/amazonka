@@ -111,6 +111,6 @@ instance
     FailedCreateStandbyWorkspacesRequest
   where
   rnf FailedCreateStandbyWorkspacesRequest' {..} =
-    Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf standbyWorkspaceRequest
+    Prelude.rnf errorCode `Prelude.seq`
+      Prelude.rnf errorMessage `Prelude.seq`
+        Prelude.rnf standbyWorkspaceRequest

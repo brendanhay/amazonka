@@ -120,12 +120,12 @@ instance Core.AWSPager DescribeWorkspaceDirectories where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeWorkspaceDirectories_nextToken
-          Lens..~ rs
-          Lens.^? describeWorkspaceDirectoriesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeWorkspaceDirectories_nextToken
+              Lens..~ rs
+              Lens.^? describeWorkspaceDirectoriesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeWorkspaceDirectories where
   type
@@ -154,9 +154,9 @@ instance
 
 instance Prelude.NFData DescribeWorkspaceDirectories where
   rnf DescribeWorkspaceDirectories' {..} =
-    Prelude.rnf directoryIds
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf directoryIds `Prelude.seq`
+      Prelude.rnf limit `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeWorkspaceDirectories where
   toHeaders =
@@ -245,6 +245,6 @@ instance
     DescribeWorkspaceDirectoriesResponse
   where
   rnf DescribeWorkspaceDirectoriesResponse' {..} =
-    Prelude.rnf directories
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf directories `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

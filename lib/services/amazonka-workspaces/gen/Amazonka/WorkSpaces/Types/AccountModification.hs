@@ -140,9 +140,9 @@ instance Prelude.Hashable AccountModification where
 
 instance Prelude.NFData AccountModification where
   rnf AccountModification' {..} =
-    Prelude.rnf dedicatedTenancyManagementCidrRange
-      `Prelude.seq` Prelude.rnf dedicatedTenancySupport
-      `Prelude.seq` Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf modificationState
-      `Prelude.seq` Prelude.rnf startTime
+    Prelude.rnf dedicatedTenancyManagementCidrRange `Prelude.seq`
+      Prelude.rnf dedicatedTenancySupport `Prelude.seq`
+        Prelude.rnf errorCode `Prelude.seq`
+          Prelude.rnf errorMessage `Prelude.seq`
+            Prelude.rnf modificationState `Prelude.seq`
+              Prelude.rnf startTime

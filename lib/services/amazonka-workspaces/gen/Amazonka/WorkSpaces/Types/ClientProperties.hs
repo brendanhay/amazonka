@@ -101,8 +101,8 @@ instance Prelude.Hashable ClientProperties where
 
 instance Prelude.NFData ClientProperties where
   rnf ClientProperties' {..} =
-    Prelude.rnf logUploadEnabled
-      `Prelude.seq` Prelude.rnf reconnectEnabled
+    Prelude.rnf logUploadEnabled `Prelude.seq`
+      Prelude.rnf reconnectEnabled
 
 instance Data.ToJSON ClientProperties where
   toJSON ClientProperties' {..} =

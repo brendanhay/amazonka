@@ -175,5 +175,5 @@ stopWorkspacesResponse_httpStatus = Lens.lens (\StopWorkspacesResponse' {httpSta
 
 instance Prelude.NFData StopWorkspacesResponse where
   rnf StopWorkspacesResponse' {..} =
-    Prelude.rnf failedRequests
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf failedRequests `Prelude.seq`
+      Prelude.rnf httpStatus

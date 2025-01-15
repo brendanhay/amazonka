@@ -128,12 +128,12 @@ instance Core.AWSPager DescribeWorkspaceImages where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeWorkspaceImages_nextToken
-          Lens..~ rs
-          Lens.^? describeWorkspaceImagesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeWorkspaceImages_nextToken
+              Lens..~ rs
+              Lens.^? describeWorkspaceImagesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeWorkspaceImages where
   type
@@ -160,10 +160,10 @@ instance Prelude.Hashable DescribeWorkspaceImages where
 
 instance Prelude.NFData DescribeWorkspaceImages where
   rnf DescribeWorkspaceImages' {..} =
-    Prelude.rnf imageIds
-      `Prelude.seq` Prelude.rnf imageType
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf imageIds `Prelude.seq`
+      Prelude.rnf imageType `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeWorkspaceImages where
   toHeaders =
@@ -253,6 +253,6 @@ instance
     DescribeWorkspaceImagesResponse
   where
   rnf DescribeWorkspaceImagesResponse' {..} =
-    Prelude.rnf images
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf images `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

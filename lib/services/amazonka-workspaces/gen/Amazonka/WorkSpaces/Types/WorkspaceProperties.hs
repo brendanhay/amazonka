@@ -195,12 +195,12 @@ instance Prelude.Hashable WorkspaceProperties where
 
 instance Prelude.NFData WorkspaceProperties where
   rnf WorkspaceProperties' {..} =
-    Prelude.rnf computeTypeName
-      `Prelude.seq` Prelude.rnf protocols
-      `Prelude.seq` Prelude.rnf rootVolumeSizeGib
-      `Prelude.seq` Prelude.rnf runningMode
-      `Prelude.seq` Prelude.rnf runningModeAutoStopTimeoutInMinutes
-      `Prelude.seq` Prelude.rnf userVolumeSizeGib
+    Prelude.rnf computeTypeName `Prelude.seq`
+      Prelude.rnf protocols `Prelude.seq`
+        Prelude.rnf rootVolumeSizeGib `Prelude.seq`
+          Prelude.rnf runningMode `Prelude.seq`
+            Prelude.rnf runningModeAutoStopTimeoutInMinutes `Prelude.seq`
+              Prelude.rnf userVolumeSizeGib
 
 instance Data.ToJSON WorkspaceProperties where
   toJSON WorkspaceProperties' {..} =

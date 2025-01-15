@@ -103,7 +103,7 @@ instance Prelude.Hashable WorkspacesIpGroup where
 
 instance Prelude.NFData WorkspacesIpGroup where
   rnf WorkspacesIpGroup' {..} =
-    Prelude.rnf groupDesc
-      `Prelude.seq` Prelude.rnf groupId
-      `Prelude.seq` Prelude.rnf groupName
-      `Prelude.seq` Prelude.rnf userRules
+    Prelude.rnf groupDesc `Prelude.seq`
+      Prelude.rnf groupId `Prelude.seq`
+        Prelude.rnf groupName `Prelude.seq`
+          Prelude.rnf userRules

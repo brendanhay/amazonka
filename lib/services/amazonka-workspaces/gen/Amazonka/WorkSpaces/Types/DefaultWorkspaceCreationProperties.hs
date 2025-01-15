@@ -187,9 +187,9 @@ instance
     DefaultWorkspaceCreationProperties
   where
   rnf DefaultWorkspaceCreationProperties' {..} =
-    Prelude.rnf customSecurityGroupId
-      `Prelude.seq` Prelude.rnf defaultOu
-      `Prelude.seq` Prelude.rnf enableInternetAccess
-      `Prelude.seq` Prelude.rnf enableMaintenanceMode
-      `Prelude.seq` Prelude.rnf enableWorkDocs
-      `Prelude.seq` Prelude.rnf userEnabledAsLocalAdministrator
+    Prelude.rnf customSecurityGroupId `Prelude.seq`
+      Prelude.rnf defaultOu `Prelude.seq`
+        Prelude.rnf enableInternetAccess `Prelude.seq`
+          Prelude.rnf enableMaintenanceMode `Prelude.seq`
+            Prelude.rnf enableWorkDocs `Prelude.seq`
+              Prelude.rnf userEnabledAsLocalAdministrator

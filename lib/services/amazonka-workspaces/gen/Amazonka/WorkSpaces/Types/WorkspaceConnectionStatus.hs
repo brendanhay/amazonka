@@ -108,7 +108,7 @@ instance Prelude.Hashable WorkspaceConnectionStatus where
 
 instance Prelude.NFData WorkspaceConnectionStatus where
   rnf WorkspaceConnectionStatus' {..} =
-    Prelude.rnf connectionState
-      `Prelude.seq` Prelude.rnf connectionStateCheckTimestamp
-      `Prelude.seq` Prelude.rnf lastKnownUserConnectionTimestamp
-      `Prelude.seq` Prelude.rnf workspaceId
+    Prelude.rnf connectionState `Prelude.seq`
+      Prelude.rnf connectionStateCheckTimestamp `Prelude.seq`
+        Prelude.rnf lastKnownUserConnectionTimestamp `Prelude.seq`
+          Prelude.rnf workspaceId

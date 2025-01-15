@@ -173,9 +173,9 @@ instance Prelude.Hashable SamlProperties where
 
 instance Prelude.NFData SamlProperties where
   rnf SamlProperties' {..} =
-    Prelude.rnf relayStateParameterName
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf userAccessUrl
+    Prelude.rnf relayStateParameterName `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf userAccessUrl
 
 instance Data.ToJSON SamlProperties where
   toJSON SamlProperties' {..} =

@@ -102,7 +102,7 @@ instance Prelude.Hashable ConnectClientAddIn where
 
 instance Prelude.NFData ConnectClientAddIn where
   rnf ConnectClientAddIn' {..} =
-    Prelude.rnf addInId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf url
+    Prelude.rnf addInId `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf resourceId `Prelude.seq`
+          Prelude.rnf url

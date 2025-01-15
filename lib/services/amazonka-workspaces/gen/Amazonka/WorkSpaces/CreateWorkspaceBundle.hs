@@ -188,13 +188,13 @@ instance Prelude.Hashable CreateWorkspaceBundle where
 
 instance Prelude.NFData CreateWorkspaceBundle where
   rnf CreateWorkspaceBundle' {..} =
-    Prelude.rnf rootStorage
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf bundleName
-      `Prelude.seq` Prelude.rnf bundleDescription
-      `Prelude.seq` Prelude.rnf imageId
-      `Prelude.seq` Prelude.rnf computeType
-      `Prelude.seq` Prelude.rnf userStorage
+    Prelude.rnf rootStorage `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf bundleName `Prelude.seq`
+          Prelude.rnf bundleDescription `Prelude.seq`
+            Prelude.rnf imageId `Prelude.seq`
+              Prelude.rnf computeType `Prelude.seq`
+                Prelude.rnf userStorage
 
 instance Data.ToHeaders CreateWorkspaceBundle where
   toHeaders =
@@ -272,5 +272,5 @@ createWorkspaceBundleResponse_httpStatus = Lens.lens (\CreateWorkspaceBundleResp
 
 instance Prelude.NFData CreateWorkspaceBundleResponse where
   rnf CreateWorkspaceBundleResponse' {..} =
-    Prelude.rnf workspaceBundle
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf workspaceBundle `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -214,12 +214,12 @@ instance Prelude.Hashable RegisterWorkspaceDirectory where
 
 instance Prelude.NFData RegisterWorkspaceDirectory where
   rnf RegisterWorkspaceDirectory' {..} =
-    Prelude.rnf enableSelfService
-      `Prelude.seq` Prelude.rnf subnetIds
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf tenancy
-      `Prelude.seq` Prelude.rnf directoryId
-      `Prelude.seq` Prelude.rnf enableWorkDocs
+    Prelude.rnf enableSelfService `Prelude.seq`
+      Prelude.rnf subnetIds `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf tenancy `Prelude.seq`
+            Prelude.rnf directoryId `Prelude.seq`
+              Prelude.rnf enableWorkDocs
 
 instance Data.ToHeaders RegisterWorkspaceDirectory where
   toHeaders =

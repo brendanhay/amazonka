@@ -198,14 +198,14 @@ instance Prelude.Hashable WorkspaceImage where
 
 instance Prelude.NFData WorkspaceImage where
   rnf WorkspaceImage' {..} =
-    Prelude.rnf created
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf imageId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf operatingSystem
-      `Prelude.seq` Prelude.rnf ownerAccountId
-      `Prelude.seq` Prelude.rnf requiredTenancy
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf updates
+    Prelude.rnf created `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf errorCode `Prelude.seq`
+          Prelude.rnf errorMessage `Prelude.seq`
+            Prelude.rnf imageId `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf operatingSystem `Prelude.seq`
+                  Prelude.rnf ownerAccountId `Prelude.seq`
+                    Prelude.rnf requiredTenancy `Prelude.seq`
+                      Prelude.rnf state `Prelude.seq`
+                        Prelude.rnf updates

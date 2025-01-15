@@ -174,6 +174,6 @@ describeAccountResponse_httpStatus = Lens.lens (\DescribeAccountResponse' {httpS
 
 instance Prelude.NFData DescribeAccountResponse where
   rnf DescribeAccountResponse' {..} =
-    Prelude.rnf dedicatedTenancyManagementCidrRange
-      `Prelude.seq` Prelude.rnf dedicatedTenancySupport
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dedicatedTenancyManagementCidrRange `Prelude.seq`
+      Prelude.rnf dedicatedTenancySupport `Prelude.seq`
+        Prelude.rnf httpStatus

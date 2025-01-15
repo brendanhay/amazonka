@@ -115,12 +115,12 @@ instance Core.AWSPager DescribeIpGroups where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeIpGroups_nextToken
-          Lens..~ rs
-          Lens.^? describeIpGroupsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeIpGroups_nextToken
+              Lens..~ rs
+              Lens.^? describeIpGroupsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeIpGroups where
   type
@@ -146,9 +146,9 @@ instance Prelude.Hashable DescribeIpGroups where
 
 instance Prelude.NFData DescribeIpGroups where
   rnf DescribeIpGroups' {..} =
-    Prelude.rnf groupIds
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf groupIds `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeIpGroups where
   toHeaders =
@@ -234,6 +234,6 @@ describeIpGroupsResponse_httpStatus = Lens.lens (\DescribeIpGroupsResponse' {htt
 
 instance Prelude.NFData DescribeIpGroupsResponse where
   rnf DescribeIpGroupsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf result
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf result `Prelude.seq`
+        Prelude.rnf httpStatus

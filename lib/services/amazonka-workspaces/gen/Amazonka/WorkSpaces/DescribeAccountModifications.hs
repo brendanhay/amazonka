@@ -97,12 +97,12 @@ instance Core.AWSPager DescribeAccountModifications where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeAccountModifications_nextToken
-          Lens..~ rs
-          Lens.^? describeAccountModificationsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeAccountModifications_nextToken
+              Lens..~ rs
+              Lens.^? describeAccountModificationsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeAccountModifications where
   type
@@ -217,6 +217,6 @@ instance
     DescribeAccountModificationsResponse
   where
   rnf DescribeAccountModificationsResponse' {..} =
-    Prelude.rnf accountModifications
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf accountModifications `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

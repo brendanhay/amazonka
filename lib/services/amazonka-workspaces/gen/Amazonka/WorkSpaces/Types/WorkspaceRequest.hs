@@ -170,14 +170,14 @@ instance Prelude.Hashable WorkspaceRequest where
 
 instance Prelude.NFData WorkspaceRequest where
   rnf WorkspaceRequest' {..} =
-    Prelude.rnf rootVolumeEncryptionEnabled
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf userVolumeEncryptionEnabled
-      `Prelude.seq` Prelude.rnf volumeEncryptionKey
-      `Prelude.seq` Prelude.rnf workspaceProperties
-      `Prelude.seq` Prelude.rnf directoryId
-      `Prelude.seq` Prelude.rnf userName
-      `Prelude.seq` Prelude.rnf bundleId
+    Prelude.rnf rootVolumeEncryptionEnabled `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf userVolumeEncryptionEnabled `Prelude.seq`
+          Prelude.rnf volumeEncryptionKey `Prelude.seq`
+            Prelude.rnf workspaceProperties `Prelude.seq`
+              Prelude.rnf directoryId `Prelude.seq`
+                Prelude.rnf userName `Prelude.seq`
+                  Prelude.rnf bundleId
 
 instance Data.ToJSON WorkspaceRequest where
   toJSON WorkspaceRequest' {..} =

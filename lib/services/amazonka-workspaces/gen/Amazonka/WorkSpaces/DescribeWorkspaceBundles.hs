@@ -137,12 +137,12 @@ instance Core.AWSPager DescribeWorkspaceBundles where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeWorkspaceBundles_nextToken
-          Lens..~ rs
-          Lens.^? describeWorkspaceBundlesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeWorkspaceBundles_nextToken
+              Lens..~ rs
+              Lens.^? describeWorkspaceBundlesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeWorkspaceBundles where
   type
@@ -168,9 +168,9 @@ instance Prelude.Hashable DescribeWorkspaceBundles where
 
 instance Prelude.NFData DescribeWorkspaceBundles where
   rnf DescribeWorkspaceBundles' {..} =
-    Prelude.rnf bundleIds
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf owner
+    Prelude.rnf bundleIds `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf owner
 
 instance Data.ToHeaders DescribeWorkspaceBundles where
   toHeaders =
@@ -262,6 +262,6 @@ instance
     DescribeWorkspaceBundlesResponse
   where
   rnf DescribeWorkspaceBundlesResponse' {..} =
-    Prelude.rnf bundles
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf bundles `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

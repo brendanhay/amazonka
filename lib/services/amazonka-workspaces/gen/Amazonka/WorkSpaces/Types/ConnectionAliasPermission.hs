@@ -95,8 +95,8 @@ instance Prelude.Hashable ConnectionAliasPermission where
 
 instance Prelude.NFData ConnectionAliasPermission where
   rnf ConnectionAliasPermission' {..} =
-    Prelude.rnf sharedAccountId
-      `Prelude.seq` Prelude.rnf allowAssociation
+    Prelude.rnf sharedAccountId `Prelude.seq`
+      Prelude.rnf allowAssociation
 
 instance Data.ToJSON ConnectionAliasPermission where
   toJSON ConnectionAliasPermission' {..} =

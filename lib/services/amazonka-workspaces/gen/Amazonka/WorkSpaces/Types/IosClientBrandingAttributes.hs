@@ -236,10 +236,10 @@ instance Prelude.Hashable IosClientBrandingAttributes where
 
 instance Prelude.NFData IosClientBrandingAttributes where
   rnf IosClientBrandingAttributes' {..} =
-    Prelude.rnf forgotPasswordLink
-      `Prelude.seq` Prelude.rnf loginMessage
-      `Prelude.seq` Prelude.rnf logo2xUrl
-      `Prelude.seq` Prelude.rnf logo3xUrl
-      `Prelude.seq` Prelude.rnf logoUrl
-      `Prelude.seq` Prelude.rnf supportEmail
-      `Prelude.seq` Prelude.rnf supportLink
+    Prelude.rnf forgotPasswordLink `Prelude.seq`
+      Prelude.rnf loginMessage `Prelude.seq`
+        Prelude.rnf logo2xUrl `Prelude.seq`
+          Prelude.rnf logo3xUrl `Prelude.seq`
+            Prelude.rnf logoUrl `Prelude.seq`
+              Prelude.rnf supportEmail `Prelude.seq`
+                Prelude.rnf supportLink

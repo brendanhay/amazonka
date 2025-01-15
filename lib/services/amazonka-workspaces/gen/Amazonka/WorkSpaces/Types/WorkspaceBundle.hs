@@ -201,15 +201,15 @@ instance Prelude.Hashable WorkspaceBundle where
 
 instance Prelude.NFData WorkspaceBundle where
   rnf WorkspaceBundle' {..} =
-    Prelude.rnf bundleId
-      `Prelude.seq` Prelude.rnf bundleType
-      `Prelude.seq` Prelude.rnf computeType
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf imageId
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf owner
-      `Prelude.seq` Prelude.rnf rootStorage
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf userStorage
+    Prelude.rnf bundleId `Prelude.seq`
+      Prelude.rnf bundleType `Prelude.seq`
+        Prelude.rnf computeType `Prelude.seq`
+          Prelude.rnf creationTime `Prelude.seq`
+            Prelude.rnf description `Prelude.seq`
+              Prelude.rnf imageId `Prelude.seq`
+                Prelude.rnf lastUpdatedTime `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf owner `Prelude.seq`
+                      Prelude.rnf rootStorage `Prelude.seq`
+                        Prelude.rnf state `Prelude.seq`
+                          Prelude.rnf userStorage

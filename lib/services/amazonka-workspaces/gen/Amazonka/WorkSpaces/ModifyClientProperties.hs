@@ -110,8 +110,8 @@ instance Prelude.Hashable ModifyClientProperties where
 
 instance Prelude.NFData ModifyClientProperties where
   rnf ModifyClientProperties' {..} =
-    Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf clientProperties
+    Prelude.rnf resourceId `Prelude.seq`
+      Prelude.rnf clientProperties
 
 instance Data.ToHeaders ModifyClientProperties where
   toHeaders =

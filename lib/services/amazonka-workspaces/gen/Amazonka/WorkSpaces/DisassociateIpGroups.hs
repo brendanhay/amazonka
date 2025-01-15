@@ -107,8 +107,8 @@ instance Prelude.Hashable DisassociateIpGroups where
 
 instance Prelude.NFData DisassociateIpGroups where
   rnf DisassociateIpGroups' {..} =
-    Prelude.rnf directoryId
-      `Prelude.seq` Prelude.rnf groupIds
+    Prelude.rnf directoryId `Prelude.seq`
+      Prelude.rnf groupIds
 
 instance Data.ToHeaders DisassociateIpGroups where
   toHeaders =

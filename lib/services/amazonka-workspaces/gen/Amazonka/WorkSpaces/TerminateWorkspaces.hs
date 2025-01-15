@@ -201,5 +201,5 @@ terminateWorkspacesResponse_httpStatus = Lens.lens (\TerminateWorkspacesResponse
 
 instance Prelude.NFData TerminateWorkspacesResponse where
   rnf TerminateWorkspacesResponse' {..} =
-    Prelude.rnf failedRequests
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf failedRequests `Prelude.seq`
+      Prelude.rnf httpStatus

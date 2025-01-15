@@ -99,6 +99,6 @@ instance
 
 instance Prelude.NFData FailedCreateWorkspaceRequest where
   rnf FailedCreateWorkspaceRequest' {..} =
-    Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf workspaceRequest
+    Prelude.rnf errorCode `Prelude.seq`
+      Prelude.rnf errorMessage `Prelude.seq`
+        Prelude.rnf workspaceRequest

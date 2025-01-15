@@ -133,9 +133,9 @@ instance
     ModifyCertificateBasedAuthProperties
   where
   rnf ModifyCertificateBasedAuthProperties' {..} =
-    Prelude.rnf certificateBasedAuthProperties
-      `Prelude.seq` Prelude.rnf propertiesToDelete
-      `Prelude.seq` Prelude.rnf resourceId
+    Prelude.rnf certificateBasedAuthProperties `Prelude.seq`
+      Prelude.rnf propertiesToDelete `Prelude.seq`
+        Prelude.rnf resourceId
 
 instance
   Data.ToHeaders

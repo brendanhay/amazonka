@@ -107,8 +107,8 @@ instance Prelude.Hashable UpdateRulesOfIpGroup where
 
 instance Prelude.NFData UpdateRulesOfIpGroup where
   rnf UpdateRulesOfIpGroup' {..} =
-    Prelude.rnf groupId
-      `Prelude.seq` Prelude.rnf userRules
+    Prelude.rnf groupId `Prelude.seq`
+      Prelude.rnf userRules
 
 instance Data.ToHeaders UpdateRulesOfIpGroup where
   toHeaders =

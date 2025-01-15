@@ -166,10 +166,10 @@ instance Prelude.Hashable CreateUpdatedWorkspaceImage where
 
 instance Prelude.NFData CreateUpdatedWorkspaceImage where
   rnf CreateUpdatedWorkspaceImage' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf sourceImageId
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf sourceImageId
 
 instance Data.ToHeaders CreateUpdatedWorkspaceImage where
   toHeaders =
@@ -248,5 +248,5 @@ instance
     CreateUpdatedWorkspaceImageResponse
   where
   rnf CreateUpdatedWorkspaceImageResponse' {..} =
-    Prelude.rnf imageId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf imageId `Prelude.seq`
+      Prelude.rnf httpStatus

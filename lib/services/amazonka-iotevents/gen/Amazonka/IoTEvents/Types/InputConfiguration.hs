@@ -141,9 +141,9 @@ instance Prelude.Hashable InputConfiguration where
 
 instance Prelude.NFData InputConfiguration where
   rnf InputConfiguration' {..} =
-    Prelude.rnf inputDescription
-      `Prelude.seq` Prelude.rnf inputName
-      `Prelude.seq` Prelude.rnf inputArn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf lastUpdateTime
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf inputDescription `Prelude.seq`
+      Prelude.rnf inputName `Prelude.seq`
+        Prelude.rnf inputArn `Prelude.seq`
+          Prelude.rnf creationTime `Prelude.seq`
+            Prelude.rnf lastUpdateTime `Prelude.seq`
+              Prelude.rnf status

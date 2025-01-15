@@ -83,5 +83,5 @@ instance Prelude.Hashable DetectorModel where
 
 instance Prelude.NFData DetectorModel where
   rnf DetectorModel' {..} =
-    Prelude.rnf detectorModelConfiguration
-      `Prelude.seq` Prelude.rnf detectorModelDefinition
+    Prelude.rnf detectorModelConfiguration `Prelude.seq`
+      Prelude.rnf detectorModelDefinition

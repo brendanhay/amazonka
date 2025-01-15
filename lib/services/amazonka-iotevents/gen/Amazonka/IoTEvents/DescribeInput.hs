@@ -145,5 +145,5 @@ describeInputResponse_httpStatus = Lens.lens (\DescribeInputResponse' {httpStatu
 
 instance Prelude.NFData DescribeInputResponse where
   rnf DescribeInputResponse' {..} =
-    Prelude.rnf input
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf input `Prelude.seq`
+      Prelude.rnf httpStatus

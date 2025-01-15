@@ -104,9 +104,9 @@ instance Prelude.Hashable NotificationAction where
 
 instance Prelude.NFData NotificationAction where
   rnf NotificationAction' {..} =
-    Prelude.rnf emailConfigurations
-      `Prelude.seq` Prelude.rnf smsConfigurations
-      `Prelude.seq` Prelude.rnf action
+    Prelude.rnf emailConfigurations `Prelude.seq`
+      Prelude.rnf smsConfigurations `Prelude.seq`
+        Prelude.rnf action
 
 instance Data.ToJSON NotificationAction where
   toJSON NotificationAction' {..} =

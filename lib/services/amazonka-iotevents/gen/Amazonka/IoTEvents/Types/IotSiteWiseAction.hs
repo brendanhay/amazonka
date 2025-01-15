@@ -155,11 +155,11 @@ instance Prelude.Hashable IotSiteWiseAction where
 
 instance Prelude.NFData IotSiteWiseAction where
   rnf IotSiteWiseAction' {..} =
-    Prelude.rnf assetId
-      `Prelude.seq` Prelude.rnf entryId
-      `Prelude.seq` Prelude.rnf propertyAlias
-      `Prelude.seq` Prelude.rnf propertyId
-      `Prelude.seq` Prelude.rnf propertyValue
+    Prelude.rnf assetId `Prelude.seq`
+      Prelude.rnf entryId `Prelude.seq`
+        Prelude.rnf propertyAlias `Prelude.seq`
+          Prelude.rnf propertyId `Prelude.seq`
+            Prelude.rnf propertyValue
 
 instance Data.ToJSON IotSiteWiseAction where
   toJSON IotSiteWiseAction' {..} =

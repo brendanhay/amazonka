@@ -252,16 +252,16 @@ instance Prelude.Hashable CreateAlarmModel where
 
 instance Prelude.NFData CreateAlarmModel where
   rnf CreateAlarmModel' {..} =
-    Prelude.rnf alarmCapabilities
-      `Prelude.seq` Prelude.rnf alarmEventActions
-      `Prelude.seq` Prelude.rnf alarmModelDescription
-      `Prelude.seq` Prelude.rnf alarmNotification
-      `Prelude.seq` Prelude.rnf key
-      `Prelude.seq` Prelude.rnf severity
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf alarmModelName
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf alarmRule
+    Prelude.rnf alarmCapabilities `Prelude.seq`
+      Prelude.rnf alarmEventActions `Prelude.seq`
+        Prelude.rnf alarmModelDescription `Prelude.seq`
+          Prelude.rnf alarmNotification `Prelude.seq`
+            Prelude.rnf key `Prelude.seq`
+              Prelude.rnf severity `Prelude.seq`
+                Prelude.rnf tags `Prelude.seq`
+                  Prelude.rnf alarmModelName `Prelude.seq`
+                    Prelude.rnf roleArn `Prelude.seq`
+                      Prelude.rnf alarmRule
 
 instance Data.ToHeaders CreateAlarmModel where
   toHeaders = Prelude.const Prelude.mempty
@@ -419,9 +419,9 @@ createAlarmModelResponse_httpStatus = Lens.lens (\CreateAlarmModelResponse' {htt
 
 instance Prelude.NFData CreateAlarmModelResponse where
   rnf CreateAlarmModelResponse' {..} =
-    Prelude.rnf alarmModelArn
-      `Prelude.seq` Prelude.rnf alarmModelVersion
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf lastUpdateTime
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf alarmModelArn `Prelude.seq`
+      Prelude.rnf alarmModelVersion `Prelude.seq`
+        Prelude.rnf creationTime `Prelude.seq`
+          Prelude.rnf lastUpdateTime `Prelude.seq`
+            Prelude.rnf status `Prelude.seq`
+              Prelude.rnf httpStatus

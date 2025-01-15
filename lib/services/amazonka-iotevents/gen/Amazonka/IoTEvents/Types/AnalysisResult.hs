@@ -233,7 +233,7 @@ instance Prelude.Hashable AnalysisResult where
 
 instance Prelude.NFData AnalysisResult where
   rnf AnalysisResult' {..} =
-    Prelude.rnf level
-      `Prelude.seq` Prelude.rnf locations
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf level `Prelude.seq`
+      Prelude.rnf locations `Prelude.seq`
+        Prelude.rnf message `Prelude.seq`
+          Prelude.rnf type'

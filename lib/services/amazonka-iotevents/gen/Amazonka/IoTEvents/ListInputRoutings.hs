@@ -124,9 +124,9 @@ instance Prelude.Hashable ListInputRoutings where
 
 instance Prelude.NFData ListInputRoutings where
   rnf ListInputRoutings' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf inputIdentifier
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf inputIdentifier
 
 instance Data.ToHeaders ListInputRoutings where
   toHeaders = Prelude.const Prelude.mempty
@@ -201,6 +201,6 @@ listInputRoutingsResponse_httpStatus = Lens.lens (\ListInputRoutingsResponse' {h
 
 instance Prelude.NFData ListInputRoutingsResponse where
   rnf ListInputRoutingsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf routedResources
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf routedResources `Prelude.seq`
+        Prelude.rnf httpStatus

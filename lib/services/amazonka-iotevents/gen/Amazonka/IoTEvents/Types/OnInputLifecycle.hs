@@ -88,8 +88,8 @@ instance Prelude.Hashable OnInputLifecycle where
 
 instance Prelude.NFData OnInputLifecycle where
   rnf OnInputLifecycle' {..} =
-    Prelude.rnf events
-      `Prelude.seq` Prelude.rnf transitionEvents
+    Prelude.rnf events `Prelude.seq`
+      Prelude.rnf transitionEvents
 
 instance Data.ToJSON OnInputLifecycle where
   toJSON OnInputLifecycle' {..} =

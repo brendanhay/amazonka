@@ -125,9 +125,9 @@ instance Prelude.Hashable InputSummary where
 
 instance Prelude.NFData InputSummary where
   rnf InputSummary' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf inputArn
-      `Prelude.seq` Prelude.rnf inputDescription
-      `Prelude.seq` Prelude.rnf inputName
-      `Prelude.seq` Prelude.rnf lastUpdateTime
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf inputArn `Prelude.seq`
+        Prelude.rnf inputDescription `Prelude.seq`
+          Prelude.rnf inputName `Prelude.seq`
+            Prelude.rnf lastUpdateTime `Prelude.seq`
+              Prelude.rnf status

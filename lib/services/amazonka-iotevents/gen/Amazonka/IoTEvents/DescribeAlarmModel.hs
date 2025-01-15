@@ -139,8 +139,8 @@ instance Prelude.Hashable DescribeAlarmModel where
 
 instance Prelude.NFData DescribeAlarmModel where
   rnf DescribeAlarmModel' {..} =
-    Prelude.rnf alarmModelVersion
-      `Prelude.seq` Prelude.rnf alarmModelName
+    Prelude.rnf alarmModelVersion `Prelude.seq`
+      Prelude.rnf alarmModelName
 
 instance Data.ToHeaders DescribeAlarmModel where
   toHeaders = Prelude.const Prelude.mempty
@@ -388,19 +388,19 @@ describeAlarmModelResponse_httpStatus = Lens.lens (\DescribeAlarmModelResponse' 
 
 instance Prelude.NFData DescribeAlarmModelResponse where
   rnf DescribeAlarmModelResponse' {..} =
-    Prelude.rnf alarmCapabilities
-      `Prelude.seq` Prelude.rnf alarmEventActions
-      `Prelude.seq` Prelude.rnf alarmModelArn
-      `Prelude.seq` Prelude.rnf alarmModelDescription
-      `Prelude.seq` Prelude.rnf alarmModelName
-      `Prelude.seq` Prelude.rnf alarmModelVersion
-      `Prelude.seq` Prelude.rnf alarmNotification
-      `Prelude.seq` Prelude.rnf alarmRule
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf key
-      `Prelude.seq` Prelude.rnf lastUpdateTime
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf severity
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf alarmCapabilities `Prelude.seq`
+      Prelude.rnf alarmEventActions `Prelude.seq`
+        Prelude.rnf alarmModelArn `Prelude.seq`
+          Prelude.rnf alarmModelDescription `Prelude.seq`
+            Prelude.rnf alarmModelName `Prelude.seq`
+              Prelude.rnf alarmModelVersion `Prelude.seq`
+                Prelude.rnf alarmNotification `Prelude.seq`
+                  Prelude.rnf alarmRule `Prelude.seq`
+                    Prelude.rnf creationTime `Prelude.seq`
+                      Prelude.rnf key `Prelude.seq`
+                        Prelude.rnf lastUpdateTime `Prelude.seq`
+                          Prelude.rnf roleArn `Prelude.seq`
+                            Prelude.rnf severity `Prelude.seq`
+                              Prelude.rnf status `Prelude.seq`
+                                Prelude.rnf statusMessage `Prelude.seq`
+                                  Prelude.rnf httpStatus

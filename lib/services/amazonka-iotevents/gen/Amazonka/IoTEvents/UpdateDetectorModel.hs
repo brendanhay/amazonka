@@ -156,11 +156,11 @@ instance Prelude.Hashable UpdateDetectorModel where
 
 instance Prelude.NFData UpdateDetectorModel where
   rnf UpdateDetectorModel' {..} =
-    Prelude.rnf detectorModelDescription
-      `Prelude.seq` Prelude.rnf evaluationMethod
-      `Prelude.seq` Prelude.rnf detectorModelName
-      `Prelude.seq` Prelude.rnf detectorModelDefinition
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf detectorModelDescription `Prelude.seq`
+      Prelude.rnf evaluationMethod `Prelude.seq`
+        Prelude.rnf detectorModelName `Prelude.seq`
+          Prelude.rnf detectorModelDefinition `Prelude.seq`
+            Prelude.rnf roleArn
 
 instance Data.ToHeaders UpdateDetectorModel where
   toHeaders = Prelude.const Prelude.mempty
@@ -230,5 +230,5 @@ updateDetectorModelResponse_httpStatus = Lens.lens (\UpdateDetectorModelResponse
 
 instance Prelude.NFData UpdateDetectorModelResponse where
   rnf UpdateDetectorModelResponse' {..} =
-    Prelude.rnf detectorModelConfiguration
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf detectorModelConfiguration `Prelude.seq`
+      Prelude.rnf httpStatus

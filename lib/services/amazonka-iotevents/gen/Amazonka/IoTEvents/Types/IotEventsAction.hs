@@ -87,8 +87,8 @@ instance Prelude.Hashable IotEventsAction where
 
 instance Prelude.NFData IotEventsAction where
   rnf IotEventsAction' {..} =
-    Prelude.rnf payload
-      `Prelude.seq` Prelude.rnf inputName
+    Prelude.rnf payload `Prelude.seq`
+      Prelude.rnf inputName
 
 instance Data.ToJSON IotEventsAction where
   toJSON IotEventsAction' {..} =

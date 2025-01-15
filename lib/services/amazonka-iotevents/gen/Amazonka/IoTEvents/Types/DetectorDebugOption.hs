@@ -86,8 +86,8 @@ instance Prelude.Hashable DetectorDebugOption where
 
 instance Prelude.NFData DetectorDebugOption where
   rnf DetectorDebugOption' {..} =
-    Prelude.rnf keyValue
-      `Prelude.seq` Prelude.rnf detectorModelName
+    Prelude.rnf keyValue `Prelude.seq`
+      Prelude.rnf detectorModelName
 
 instance Data.ToJSON DetectorDebugOption where
   toJSON DetectorDebugOption' {..} =

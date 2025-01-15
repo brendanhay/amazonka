@@ -130,10 +130,10 @@ instance Prelude.Hashable CreateInput where
 
 instance Prelude.NFData CreateInput where
   rnf CreateInput' {..} =
-    Prelude.rnf inputDescription
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf inputName
-      `Prelude.seq` Prelude.rnf inputDefinition
+    Prelude.rnf inputDescription `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf inputName `Prelude.seq`
+          Prelude.rnf inputDefinition
 
 instance Data.ToHeaders CreateInput where
   toHeaders = Prelude.const Prelude.mempty
@@ -198,5 +198,5 @@ createInputResponse_httpStatus = Lens.lens (\CreateInputResponse' {httpStatus} -
 
 instance Prelude.NFData CreateInputResponse where
   rnf CreateInputResponse' {..} =
-    Prelude.rnf inputConfiguration
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf inputConfiguration `Prelude.seq`
+      Prelude.rnf httpStatus

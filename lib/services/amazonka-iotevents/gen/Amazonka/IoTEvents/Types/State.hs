@@ -116,10 +116,10 @@ instance Prelude.Hashable State where
 
 instance Prelude.NFData State where
   rnf State' {..} =
-    Prelude.rnf onEnter
-      `Prelude.seq` Prelude.rnf onExit
-      `Prelude.seq` Prelude.rnf onInput
-      `Prelude.seq` Prelude.rnf stateName
+    Prelude.rnf onEnter `Prelude.seq`
+      Prelude.rnf onExit `Prelude.seq`
+        Prelude.rnf onInput `Prelude.seq`
+          Prelude.rnf stateName
 
 instance Data.ToJSON State where
   toJSON State' {..} =

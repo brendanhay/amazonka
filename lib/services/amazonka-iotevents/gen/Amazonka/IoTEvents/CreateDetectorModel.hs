@@ -192,13 +192,13 @@ instance Prelude.Hashable CreateDetectorModel where
 
 instance Prelude.NFData CreateDetectorModel where
   rnf CreateDetectorModel' {..} =
-    Prelude.rnf detectorModelDescription
-      `Prelude.seq` Prelude.rnf evaluationMethod
-      `Prelude.seq` Prelude.rnf key
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf detectorModelName
-      `Prelude.seq` Prelude.rnf detectorModelDefinition
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf detectorModelDescription `Prelude.seq`
+      Prelude.rnf evaluationMethod `Prelude.seq`
+        Prelude.rnf key `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf detectorModelName `Prelude.seq`
+              Prelude.rnf detectorModelDefinition `Prelude.seq`
+                Prelude.rnf roleArn
 
 instance Data.ToHeaders CreateDetectorModel where
   toHeaders = Prelude.const Prelude.mempty
@@ -270,5 +270,5 @@ createDetectorModelResponse_httpStatus = Lens.lens (\CreateDetectorModelResponse
 
 instance Prelude.NFData CreateDetectorModelResponse where
   rnf CreateDetectorModelResponse' {..} =
-    Prelude.rnf detectorModelConfiguration
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf detectorModelConfiguration `Prelude.seq`
+      Prelude.rnf httpStatus

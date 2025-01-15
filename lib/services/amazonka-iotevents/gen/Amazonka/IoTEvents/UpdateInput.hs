@@ -119,9 +119,9 @@ instance Prelude.Hashable UpdateInput where
 
 instance Prelude.NFData UpdateInput where
   rnf UpdateInput' {..} =
-    Prelude.rnf inputDescription
-      `Prelude.seq` Prelude.rnf inputName
-      `Prelude.seq` Prelude.rnf inputDefinition
+    Prelude.rnf inputDescription `Prelude.seq`
+      Prelude.rnf inputName `Prelude.seq`
+        Prelude.rnf inputDefinition
 
 instance Data.ToHeaders UpdateInput where
   toHeaders = Prelude.const Prelude.mempty
@@ -185,5 +185,5 @@ updateInputResponse_httpStatus = Lens.lens (\UpdateInputResponse' {httpStatus} -
 
 instance Prelude.NFData UpdateInputResponse where
   rnf UpdateInputResponse' {..} =
-    Prelude.rnf inputConfiguration
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf inputConfiguration `Prelude.seq`
+      Prelude.rnf httpStatus

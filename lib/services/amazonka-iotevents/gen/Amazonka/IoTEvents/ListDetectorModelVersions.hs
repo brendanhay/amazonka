@@ -126,9 +126,9 @@ instance Prelude.Hashable ListDetectorModelVersions where
 
 instance Prelude.NFData ListDetectorModelVersions where
   rnf ListDetectorModelVersions' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf detectorModelName
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf detectorModelName
 
 instance Data.ToHeaders ListDetectorModelVersions where
   toHeaders = Prelude.const Prelude.mempty
@@ -204,6 +204,6 @@ instance
     ListDetectorModelVersionsResponse
   where
   rnf ListDetectorModelVersionsResponse' {..} =
-    Prelude.rnf detectorModelVersionSummaries
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf detectorModelVersionSummaries `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

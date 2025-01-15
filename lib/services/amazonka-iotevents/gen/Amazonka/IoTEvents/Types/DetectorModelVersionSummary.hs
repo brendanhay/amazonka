@@ -155,11 +155,11 @@ instance Prelude.Hashable DetectorModelVersionSummary where
 
 instance Prelude.NFData DetectorModelVersionSummary where
   rnf DetectorModelVersionSummary' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf detectorModelArn
-      `Prelude.seq` Prelude.rnf detectorModelName
-      `Prelude.seq` Prelude.rnf detectorModelVersion
-      `Prelude.seq` Prelude.rnf evaluationMethod
-      `Prelude.seq` Prelude.rnf lastUpdateTime
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf detectorModelArn `Prelude.seq`
+        Prelude.rnf detectorModelName `Prelude.seq`
+          Prelude.rnf detectorModelVersion `Prelude.seq`
+            Prelude.rnf evaluationMethod `Prelude.seq`
+              Prelude.rnf lastUpdateTime `Prelude.seq`
+                Prelude.rnf roleArn `Prelude.seq`
+                  Prelude.rnf status

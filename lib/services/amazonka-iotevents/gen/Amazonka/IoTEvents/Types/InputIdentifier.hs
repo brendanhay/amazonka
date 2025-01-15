@@ -73,8 +73,8 @@ instance Prelude.Hashable InputIdentifier where
 
 instance Prelude.NFData InputIdentifier where
   rnf InputIdentifier' {..} =
-    Prelude.rnf iotEventsInputIdentifier
-      `Prelude.seq` Prelude.rnf iotSiteWiseInputIdentifier
+    Prelude.rnf iotEventsInputIdentifier `Prelude.seq`
+      Prelude.rnf iotSiteWiseInputIdentifier
 
 instance Data.ToJSON InputIdentifier where
   toJSON InputIdentifier' {..} =

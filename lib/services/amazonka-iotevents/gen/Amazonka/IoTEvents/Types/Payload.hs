@@ -106,8 +106,8 @@ instance Prelude.Hashable Payload where
 
 instance Prelude.NFData Payload where
   rnf Payload' {..} =
-    Prelude.rnf contentExpression
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf contentExpression `Prelude.seq`
+      Prelude.rnf type'
 
 instance Data.ToJSON Payload where
   toJSON Payload' {..} =

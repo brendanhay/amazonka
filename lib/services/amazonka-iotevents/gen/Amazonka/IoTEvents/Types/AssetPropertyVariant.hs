@@ -154,10 +154,10 @@ instance Prelude.Hashable AssetPropertyVariant where
 
 instance Prelude.NFData AssetPropertyVariant where
   rnf AssetPropertyVariant' {..} =
-    Prelude.rnf booleanValue
-      `Prelude.seq` Prelude.rnf doubleValue
-      `Prelude.seq` Prelude.rnf integerValue
-      `Prelude.seq` Prelude.rnf stringValue
+    Prelude.rnf booleanValue `Prelude.seq`
+      Prelude.rnf doubleValue `Prelude.seq`
+        Prelude.rnf integerValue `Prelude.seq`
+          Prelude.rnf stringValue
 
 instance Data.ToJSON AssetPropertyVariant where
   toJSON AssetPropertyVariant' {..} =

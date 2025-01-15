@@ -82,5 +82,5 @@ instance Prelude.Hashable Input where
 
 instance Prelude.NFData Input where
   rnf Input' {..} =
-    Prelude.rnf inputConfiguration
-      `Prelude.seq` Prelude.rnf inputDefinition
+    Prelude.rnf inputConfiguration `Prelude.seq`
+      Prelude.rnf inputDefinition

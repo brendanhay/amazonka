@@ -139,9 +139,9 @@ instance
     GetDetectorModelAnalysisResults
   where
   rnf GetDetectorModelAnalysisResults' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf analysisId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf analysisId
 
 instance
   Data.ToHeaders
@@ -221,6 +221,6 @@ instance
     GetDetectorModelAnalysisResultsResponse
   where
   rnf GetDetectorModelAnalysisResultsResponse' {..} =
-    Prelude.rnf analysisResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf analysisResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

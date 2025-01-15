@@ -102,11 +102,11 @@ instance Prelude.Hashable LoggingConfigurationInput where
 
 instance Prelude.NFData LoggingConfigurationInput where
   rnf LoggingConfigurationInput' {..} =
-    Prelude.rnf dagProcessingLogs
-      `Prelude.seq` Prelude.rnf schedulerLogs
-      `Prelude.seq` Prelude.rnf taskLogs
-      `Prelude.seq` Prelude.rnf webserverLogs
-      `Prelude.seq` Prelude.rnf workerLogs
+    Prelude.rnf dagProcessingLogs `Prelude.seq`
+      Prelude.rnf schedulerLogs `Prelude.seq`
+        Prelude.rnf taskLogs `Prelude.seq`
+          Prelude.rnf webserverLogs `Prelude.seq`
+            Prelude.rnf workerLogs
 
 instance Data.ToJSON LoggingConfigurationInput where
   toJSON LoggingConfigurationInput' {..} =

@@ -541,5 +541,5 @@ updateEnvironmentResponse_httpStatus = Lens.lens (\UpdateEnvironmentResponse' {h
 
 instance Prelude.NFData UpdateEnvironmentResponse where
   rnf UpdateEnvironmentResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf httpStatus

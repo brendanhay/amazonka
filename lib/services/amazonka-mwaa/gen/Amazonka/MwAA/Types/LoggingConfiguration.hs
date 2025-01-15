@@ -125,8 +125,8 @@ instance Prelude.Hashable LoggingConfiguration where
 
 instance Prelude.NFData LoggingConfiguration where
   rnf LoggingConfiguration' {..} =
-    Prelude.rnf dagProcessingLogs
-      `Prelude.seq` Prelude.rnf schedulerLogs
-      `Prelude.seq` Prelude.rnf taskLogs
-      `Prelude.seq` Prelude.rnf webserverLogs
-      `Prelude.seq` Prelude.rnf workerLogs
+    Prelude.rnf dagProcessingLogs `Prelude.seq`
+      Prelude.rnf schedulerLogs `Prelude.seq`
+        Prelude.rnf taskLogs `Prelude.seq`
+          Prelude.rnf webserverLogs `Prelude.seq`
+            Prelude.rnf workerLogs

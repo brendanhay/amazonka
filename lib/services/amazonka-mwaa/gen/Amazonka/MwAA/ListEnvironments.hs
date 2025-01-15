@@ -103,12 +103,12 @@ instance Core.AWSPager ListEnvironments where
         (rs Lens.^. listEnvironmentsResponse_environments) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listEnvironments_nextToken
-          Lens..~ rs
-          Lens.^? listEnvironmentsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listEnvironments_nextToken
+              Lens..~ rs
+              Lens.^? listEnvironmentsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListEnvironments where
   type
@@ -133,8 +133,8 @@ instance Prelude.Hashable ListEnvironments where
 
 instance Prelude.NFData ListEnvironments where
   rnf ListEnvironments' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListEnvironments where
   toHeaders =
@@ -207,6 +207,6 @@ listEnvironmentsResponse_environments = Lens.lens (\ListEnvironmentsResponse' {e
 
 instance Prelude.NFData ListEnvironmentsResponse where
   rnf ListEnvironmentsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf environments
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf environments

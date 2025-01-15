@@ -93,10 +93,10 @@ instance Prelude.Hashable StatisticSet where
 
 instance Prelude.NFData StatisticSet where
   rnf StatisticSet' {..} =
-    Prelude.rnf maximum
-      `Prelude.seq` Prelude.rnf minimum
-      `Prelude.seq` Prelude.rnf sampleCount
-      `Prelude.seq` Prelude.rnf sum
+    Prelude.rnf maximum `Prelude.seq`
+      Prelude.rnf minimum `Prelude.seq`
+        Prelude.rnf sampleCount `Prelude.seq`
+          Prelude.rnf sum
 
 instance Data.ToJSON StatisticSet where
   toJSON StatisticSet' {..} =

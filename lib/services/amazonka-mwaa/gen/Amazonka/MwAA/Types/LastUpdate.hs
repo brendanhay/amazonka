@@ -111,7 +111,7 @@ instance Prelude.Hashable LastUpdate where
 
 instance Prelude.NFData LastUpdate where
   rnf LastUpdate' {..} =
-    Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf error
-      `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf createdAt `Prelude.seq`
+      Prelude.rnf error `Prelude.seq`
+        Prelude.rnf source `Prelude.seq`
+          Prelude.rnf status

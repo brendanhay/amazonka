@@ -171,6 +171,6 @@ createCliTokenResponse_httpStatus = Lens.lens (\CreateCliTokenResponse' {httpSta
 
 instance Prelude.NFData CreateCliTokenResponse where
   rnf CreateCliTokenResponse' {..} =
-    Prelude.rnf cliToken
-      `Prelude.seq` Prelude.rnf webServerHostname
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf cliToken `Prelude.seq`
+      Prelude.rnf webServerHostname `Prelude.seq`
+        Prelude.rnf httpStatus

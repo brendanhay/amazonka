@@ -188,12 +188,12 @@ instance Core.AWSPager DescribeRepositories where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeRepositories_nextToken
-          Lens..~ rs
-          Lens.^? describeRepositoriesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeRepositories_nextToken
+              Lens..~ rs
+              Lens.^? describeRepositoriesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeRepositories where
   type
@@ -220,10 +220,10 @@ instance Prelude.Hashable DescribeRepositories where
 
 instance Prelude.NFData DescribeRepositories where
   rnf DescribeRepositories' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf registryId
-      `Prelude.seq` Prelude.rnf repositoryNames
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf registryId `Prelude.seq`
+          Prelude.rnf repositoryNames
 
 instance Data.ToHeaders DescribeRepositories where
   toHeaders =
@@ -317,6 +317,6 @@ describeRepositoriesResponse_httpStatus = Lens.lens (\DescribeRepositoriesRespon
 
 instance Prelude.NFData DescribeRepositoriesResponse where
   rnf DescribeRepositoriesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf repositories
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf repositories `Prelude.seq`
+        Prelude.rnf httpStatus

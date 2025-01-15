@@ -145,8 +145,8 @@ instance Prelude.Hashable ReferencedImageDetail where
 
 instance Prelude.NFData ReferencedImageDetail where
   rnf ReferencedImageDetail' {..} =
-    Prelude.rnf artifactMediaType
-      `Prelude.seq` Prelude.rnf imageDigest
-      `Prelude.seq` Prelude.rnf imageManifestMediaType
-      `Prelude.seq` Prelude.rnf imagePushedAt
-      `Prelude.seq` Prelude.rnf imageSizeInBytes
+    Prelude.rnf artifactMediaType `Prelude.seq`
+      Prelude.rnf imageDigest `Prelude.seq`
+        Prelude.rnf imageManifestMediaType `Prelude.seq`
+          Prelude.rnf imagePushedAt `Prelude.seq`
+            Prelude.rnf imageSizeInBytes

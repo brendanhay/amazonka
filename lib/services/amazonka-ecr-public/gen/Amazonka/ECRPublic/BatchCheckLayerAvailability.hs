@@ -143,9 +143,9 @@ instance Prelude.Hashable BatchCheckLayerAvailability where
 
 instance Prelude.NFData BatchCheckLayerAvailability where
   rnf BatchCheckLayerAvailability' {..} =
-    Prelude.rnf registryId
-      `Prelude.seq` Prelude.rnf repositoryName
-      `Prelude.seq` Prelude.rnf layerDigests
+    Prelude.rnf registryId `Prelude.seq`
+      Prelude.rnf repositoryName `Prelude.seq`
+        Prelude.rnf layerDigests
 
 instance Data.ToHeaders BatchCheckLayerAvailability where
   toHeaders =
@@ -235,6 +235,6 @@ instance
     BatchCheckLayerAvailabilityResponse
   where
   rnf BatchCheckLayerAvailabilityResponse' {..} =
-    Prelude.rnf failures
-      `Prelude.seq` Prelude.rnf layers
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf failures `Prelude.seq`
+      Prelude.rnf layers `Prelude.seq`
+        Prelude.rnf httpStatus

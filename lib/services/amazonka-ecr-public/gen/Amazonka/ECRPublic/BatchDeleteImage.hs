@@ -144,9 +144,9 @@ instance Prelude.Hashable BatchDeleteImage where
 
 instance Prelude.NFData BatchDeleteImage where
   rnf BatchDeleteImage' {..} =
-    Prelude.rnf registryId
-      `Prelude.seq` Prelude.rnf repositoryName
-      `Prelude.seq` Prelude.rnf imageIds
+    Prelude.rnf registryId `Prelude.seq`
+      Prelude.rnf repositoryName `Prelude.seq`
+        Prelude.rnf imageIds
 
 instance Data.ToHeaders BatchDeleteImage where
   toHeaders =
@@ -230,6 +230,6 @@ batchDeleteImageResponse_httpStatus = Lens.lens (\BatchDeleteImageResponse' {htt
 
 instance Prelude.NFData BatchDeleteImageResponse where
   rnf BatchDeleteImageResponse' {..} =
-    Prelude.rnf failures
-      `Prelude.seq` Prelude.rnf imageIds
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf failures `Prelude.seq`
+      Prelude.rnf imageIds `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -141,8 +141,8 @@ instance Prelude.Hashable Registry where
 
 instance Prelude.NFData Registry where
   rnf Registry' {..} =
-    Prelude.rnf registryId
-      `Prelude.seq` Prelude.rnf registryArn
-      `Prelude.seq` Prelude.rnf registryUri
-      `Prelude.seq` Prelude.rnf verified
-      `Prelude.seq` Prelude.rnf aliases
+    Prelude.rnf registryId `Prelude.seq`
+      Prelude.rnf registryArn `Prelude.seq`
+        Prelude.rnf registryUri `Prelude.seq`
+          Prelude.rnf verified `Prelude.seq`
+            Prelude.rnf aliases

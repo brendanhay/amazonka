@@ -116,8 +116,8 @@ instance Prelude.Hashable GetRepositoryCatalogData where
 
 instance Prelude.NFData GetRepositoryCatalogData where
   rnf GetRepositoryCatalogData' {..} =
-    Prelude.rnf registryId
-      `Prelude.seq` Prelude.rnf repositoryName
+    Prelude.rnf registryId `Prelude.seq`
+      Prelude.rnf repositoryName
 
 instance Data.ToHeaders GetRepositoryCatalogData where
   toHeaders =
@@ -194,5 +194,5 @@ instance
     GetRepositoryCatalogDataResponse
   where
   rnf GetRepositoryCatalogDataResponse' {..} =
-    Prelude.rnf catalogData
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf catalogData `Prelude.seq`
+      Prelude.rnf httpStatus

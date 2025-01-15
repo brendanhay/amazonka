@@ -233,5 +233,5 @@ instance
     DescribeChapCredentialsResponse
   where
   rnf DescribeChapCredentialsResponse' {..} =
-    Prelude.rnf chapCredentials
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf chapCredentials `Prelude.seq`
+      Prelude.rnf httpStatus

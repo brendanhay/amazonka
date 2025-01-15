@@ -128,8 +128,8 @@ instance Prelude.Hashable DetachVolume where
 
 instance Prelude.NFData DetachVolume where
   rnf DetachVolume' {..} =
-    Prelude.rnf forceDetach
-      `Prelude.seq` Prelude.rnf volumeARN
+    Prelude.rnf forceDetach `Prelude.seq`
+      Prelude.rnf volumeARN
 
 instance Data.ToHeaders DetachVolume where
   toHeaders =
@@ -203,5 +203,5 @@ detachVolumeResponse_httpStatus = Lens.lens (\DetachVolumeResponse' {httpStatus}
 
 instance Prelude.NFData DetachVolumeResponse where
   rnf DetachVolumeResponse' {..} =
-    Prelude.rnf volumeARN
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf volumeARN `Prelude.seq`
+      Prelude.rnf httpStatus

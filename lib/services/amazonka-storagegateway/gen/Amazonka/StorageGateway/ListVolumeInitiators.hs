@@ -177,5 +177,5 @@ listVolumeInitiatorsResponse_httpStatus = Lens.lens (\ListVolumeInitiatorsRespon
 
 instance Prelude.NFData ListVolumeInitiatorsResponse where
   rnf ListVolumeInitiatorsResponse' {..} =
-    Prelude.rnf initiators
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf initiators `Prelude.seq`
+      Prelude.rnf httpStatus

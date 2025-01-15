@@ -114,7 +114,7 @@ instance Prelude.Hashable TapeRecoveryPointInfo where
 
 instance Prelude.NFData TapeRecoveryPointInfo where
   rnf TapeRecoveryPointInfo' {..} =
-    Prelude.rnf tapeARN
-      `Prelude.seq` Prelude.rnf tapeRecoveryPointTime
-      `Prelude.seq` Prelude.rnf tapeSizeInBytes
-      `Prelude.seq` Prelude.rnf tapeStatus
+    Prelude.rnf tapeARN `Prelude.seq`
+      Prelude.rnf tapeRecoveryPointTime `Prelude.seq`
+        Prelude.rnf tapeSizeInBytes `Prelude.seq`
+          Prelude.rnf tapeStatus

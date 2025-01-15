@@ -187,6 +187,6 @@ notifyWhenUploadedResponse_httpStatus = Lens.lens (\NotifyWhenUploadedResponse' 
 
 instance Prelude.NFData NotifyWhenUploadedResponse where
   rnf NotifyWhenUploadedResponse' {..} =
-    Prelude.rnf fileShareARN
-      `Prelude.seq` Prelude.rnf notificationId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf fileShareARN `Prelude.seq`
+      Prelude.rnf notificationId `Prelude.seq`
+        Prelude.rnf httpStatus

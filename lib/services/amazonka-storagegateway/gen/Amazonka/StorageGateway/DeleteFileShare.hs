@@ -129,8 +129,8 @@ instance Prelude.Hashable DeleteFileShare where
 
 instance Prelude.NFData DeleteFileShare where
   rnf DeleteFileShare' {..} =
-    Prelude.rnf forceDelete
-      `Prelude.seq` Prelude.rnf fileShareARN
+    Prelude.rnf forceDelete `Prelude.seq`
+      Prelude.rnf fileShareARN
 
 instance Data.ToHeaders DeleteFileShare where
   toHeaders =
@@ -205,5 +205,5 @@ deleteFileShareResponse_httpStatus = Lens.lens (\DeleteFileShareResponse' {httpS
 
 instance Prelude.NFData DeleteFileShareResponse where
   rnf DeleteFileShareResponse' {..} =
-    Prelude.rnf fileShareARN
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf fileShareARN `Prelude.seq`
+      Prelude.rnf httpStatus

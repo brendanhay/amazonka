@@ -227,15 +227,15 @@ instance Prelude.Hashable AssociateFileSystem where
 
 instance Prelude.NFData AssociateFileSystem where
   rnf AssociateFileSystem' {..} =
-    Prelude.rnf auditDestinationARN
-      `Prelude.seq` Prelude.rnf cacheAttributes
-      `Prelude.seq` Prelude.rnf endpointNetworkConfiguration
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf userName
-      `Prelude.seq` Prelude.rnf password
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf gatewayARN
-      `Prelude.seq` Prelude.rnf locationARN
+    Prelude.rnf auditDestinationARN `Prelude.seq`
+      Prelude.rnf cacheAttributes `Prelude.seq`
+        Prelude.rnf endpointNetworkConfiguration `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf userName `Prelude.seq`
+              Prelude.rnf password `Prelude.seq`
+                Prelude.rnf clientToken `Prelude.seq`
+                  Prelude.rnf gatewayARN `Prelude.seq`
+                    Prelude.rnf locationARN
 
 instance Data.ToHeaders AssociateFileSystem where
   toHeaders =
@@ -318,5 +318,5 @@ associateFileSystemResponse_httpStatus = Lens.lens (\AssociateFileSystemResponse
 
 instance Prelude.NFData AssociateFileSystemResponse where
   rnf AssociateFileSystemResponse' {..} =
-    Prelude.rnf fileSystemAssociationARN
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf fileSystemAssociationARN `Prelude.seq`
+      Prelude.rnf httpStatus

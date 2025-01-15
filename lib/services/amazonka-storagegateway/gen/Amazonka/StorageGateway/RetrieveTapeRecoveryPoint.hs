@@ -123,8 +123,8 @@ instance Prelude.Hashable RetrieveTapeRecoveryPoint where
 
 instance Prelude.NFData RetrieveTapeRecoveryPoint where
   rnf RetrieveTapeRecoveryPoint' {..} =
-    Prelude.rnf tapeARN
-      `Prelude.seq` Prelude.rnf gatewayARN
+    Prelude.rnf tapeARN `Prelude.seq`
+      Prelude.rnf gatewayARN
 
 instance Data.ToHeaders RetrieveTapeRecoveryPoint where
   toHeaders =
@@ -205,5 +205,5 @@ instance
     RetrieveTapeRecoveryPointResponse
   where
   rnf RetrieveTapeRecoveryPointResponse' {..} =
-    Prelude.rnf tapeARN
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf tapeARN `Prelude.seq`
+      Prelude.rnf httpStatus

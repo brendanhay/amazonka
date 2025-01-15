@@ -139,9 +139,9 @@ instance Prelude.Hashable UpdateBandwidthRateLimit where
 
 instance Prelude.NFData UpdateBandwidthRateLimit where
   rnf UpdateBandwidthRateLimit' {..} =
-    Prelude.rnf averageDownloadRateLimitInBitsPerSec
-      `Prelude.seq` Prelude.rnf averageUploadRateLimitInBitsPerSec
-      `Prelude.seq` Prelude.rnf gatewayARN
+    Prelude.rnf averageDownloadRateLimitInBitsPerSec `Prelude.seq`
+      Prelude.rnf averageUploadRateLimitInBitsPerSec `Prelude.seq`
+        Prelude.rnf gatewayARN
 
 instance Data.ToHeaders UpdateBandwidthRateLimit where
   toHeaders =
@@ -222,5 +222,5 @@ instance
     UpdateBandwidthRateLimitResponse
   where
   rnf UpdateBandwidthRateLimitResponse' {..} =
-    Prelude.rnf gatewayARN
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf gatewayARN `Prelude.seq`
+      Prelude.rnf httpStatus

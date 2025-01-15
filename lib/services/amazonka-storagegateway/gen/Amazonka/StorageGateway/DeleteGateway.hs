@@ -183,5 +183,5 @@ deleteGatewayResponse_httpStatus = Lens.lens (\DeleteGatewayResponse' {httpStatu
 
 instance Prelude.NFData DeleteGatewayResponse where
   rnf DeleteGatewayResponse' {..} =
-    Prelude.rnf gatewayARN
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf gatewayARN `Prelude.seq`
+      Prelude.rnf httpStatus

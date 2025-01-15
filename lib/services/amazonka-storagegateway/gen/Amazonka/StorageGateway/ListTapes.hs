@@ -136,12 +136,12 @@ instance Core.AWSPager ListTapes where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listTapes_marker
-          Lens..~ rs
-          Lens.^? listTapesResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listTapes_marker
+              Lens..~ rs
+              Lens.^? listTapesResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListTapes where
   type AWSResponse ListTapes = ListTapesResponse
@@ -165,9 +165,9 @@ instance Prelude.Hashable ListTapes where
 
 instance Prelude.NFData ListTapes where
   rnf ListTapes' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf tapeARNs
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf tapeARNs
 
 instance Data.ToHeaders ListTapes where
   toHeaders =
@@ -263,6 +263,6 @@ listTapesResponse_httpStatus = Lens.lens (\ListTapesResponse' {httpStatus} -> ht
 
 instance Prelude.NFData ListTapesResponse where
   rnf ListTapesResponse' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf tapeInfos
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf tapeInfos `Prelude.seq`
+        Prelude.rnf httpStatus

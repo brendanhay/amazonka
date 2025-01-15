@@ -185,12 +185,12 @@ instance Prelude.Hashable GatewayInfo where
 
 instance Prelude.NFData GatewayInfo where
   rnf GatewayInfo' {..} =
-    Prelude.rnf ec2InstanceId
-      `Prelude.seq` Prelude.rnf ec2InstanceRegion
-      `Prelude.seq` Prelude.rnf gatewayARN
-      `Prelude.seq` Prelude.rnf gatewayId
-      `Prelude.seq` Prelude.rnf gatewayName
-      `Prelude.seq` Prelude.rnf gatewayOperationalState
-      `Prelude.seq` Prelude.rnf gatewayType
-      `Prelude.seq` Prelude.rnf hostEnvironment
-      `Prelude.seq` Prelude.rnf hostEnvironmentId
+    Prelude.rnf ec2InstanceId `Prelude.seq`
+      Prelude.rnf ec2InstanceRegion `Prelude.seq`
+        Prelude.rnf gatewayARN `Prelude.seq`
+          Prelude.rnf gatewayId `Prelude.seq`
+            Prelude.rnf gatewayName `Prelude.seq`
+              Prelude.rnf gatewayOperationalState `Prelude.seq`
+                Prelude.rnf gatewayType `Prelude.seq`
+                  Prelude.rnf hostEnvironment `Prelude.seq`
+                    Prelude.rnf hostEnvironmentId

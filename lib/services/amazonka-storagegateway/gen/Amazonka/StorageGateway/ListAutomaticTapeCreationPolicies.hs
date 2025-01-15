@@ -205,5 +205,5 @@ instance
     ListAutomaticTapeCreationPoliciesResponse
   where
   rnf ListAutomaticTapeCreationPoliciesResponse' {..} =
-    Prelude.rnf automaticTapeCreationPolicyInfos
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf automaticTapeCreationPolicyInfos `Prelude.seq`
+      Prelude.rnf httpStatus

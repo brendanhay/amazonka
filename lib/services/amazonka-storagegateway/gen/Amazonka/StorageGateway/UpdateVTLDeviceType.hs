@@ -120,8 +120,8 @@ instance Prelude.Hashable UpdateVTLDeviceType where
 
 instance Prelude.NFData UpdateVTLDeviceType where
   rnf UpdateVTLDeviceType' {..} =
-    Prelude.rnf vTLDeviceARN
-      `Prelude.seq` Prelude.rnf deviceType
+    Prelude.rnf vTLDeviceARN `Prelude.seq`
+      Prelude.rnf deviceType
 
 instance Data.ToHeaders UpdateVTLDeviceType where
   toHeaders =
@@ -196,5 +196,5 @@ updateVTLDeviceTypeResponse_httpStatus = Lens.lens (\UpdateVTLDeviceTypeResponse
 
 instance Prelude.NFData UpdateVTLDeviceTypeResponse where
   rnf UpdateVTLDeviceTypeResponse' {..} =
-    Prelude.rnf vTLDeviceARN
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf vTLDeviceARN `Prelude.seq`
+      Prelude.rnf httpStatus

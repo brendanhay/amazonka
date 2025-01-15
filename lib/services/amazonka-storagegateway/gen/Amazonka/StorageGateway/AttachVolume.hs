@@ -199,11 +199,11 @@ instance Prelude.Hashable AttachVolume where
 
 instance Prelude.NFData AttachVolume where
   rnf AttachVolume' {..} =
-    Prelude.rnf diskId
-      `Prelude.seq` Prelude.rnf targetName
-      `Prelude.seq` Prelude.rnf gatewayARN
-      `Prelude.seq` Prelude.rnf volumeARN
-      `Prelude.seq` Prelude.rnf networkInterfaceId
+    Prelude.rnf diskId `Prelude.seq`
+      Prelude.rnf targetName `Prelude.seq`
+        Prelude.rnf gatewayARN `Prelude.seq`
+          Prelude.rnf volumeARN `Prelude.seq`
+            Prelude.rnf networkInterfaceId
 
 instance Data.ToHeaders AttachVolume where
   toHeaders =
@@ -296,6 +296,6 @@ attachVolumeResponse_httpStatus = Lens.lens (\AttachVolumeResponse' {httpStatus}
 
 instance Prelude.NFData AttachVolumeResponse where
   rnf AttachVolumeResponse' {..} =
-    Prelude.rnf targetARN
-      `Prelude.seq` Prelude.rnf volumeARN
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf targetARN `Prelude.seq`
+      Prelude.rnf volumeARN `Prelude.seq`
+        Prelude.rnf httpStatus

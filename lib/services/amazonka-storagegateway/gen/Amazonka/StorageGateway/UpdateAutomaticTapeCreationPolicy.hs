@@ -136,8 +136,8 @@ instance
     UpdateAutomaticTapeCreationPolicy
   where
   rnf UpdateAutomaticTapeCreationPolicy' {..} =
-    Prelude.rnf automaticTapeCreationRules
-      `Prelude.seq` Prelude.rnf gatewayARN
+    Prelude.rnf automaticTapeCreationRules `Prelude.seq`
+      Prelude.rnf gatewayARN
 
 instance
   Data.ToHeaders
@@ -228,5 +228,5 @@ instance
     UpdateAutomaticTapeCreationPolicyResponse
   where
   rnf UpdateAutomaticTapeCreationPolicyResponse' {..} =
-    Prelude.rnf gatewayARN
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf gatewayARN `Prelude.seq`
+      Prelude.rnf httpStatus

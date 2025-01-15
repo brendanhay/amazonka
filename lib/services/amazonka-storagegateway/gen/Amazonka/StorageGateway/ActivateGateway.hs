@@ -340,14 +340,14 @@ instance Prelude.Hashable ActivateGateway where
 
 instance Prelude.NFData ActivateGateway where
   rnf ActivateGateway' {..} =
-    Prelude.rnf gatewayType
-      `Prelude.seq` Prelude.rnf mediumChangerType
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf tapeDriveType
-      `Prelude.seq` Prelude.rnf activationKey
-      `Prelude.seq` Prelude.rnf gatewayName
-      `Prelude.seq` Prelude.rnf gatewayTimezone
-      `Prelude.seq` Prelude.rnf gatewayRegion
+    Prelude.rnf gatewayType `Prelude.seq`
+      Prelude.rnf mediumChangerType `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf tapeDriveType `Prelude.seq`
+            Prelude.rnf activationKey `Prelude.seq`
+              Prelude.rnf gatewayName `Prelude.seq`
+                Prelude.rnf gatewayTimezone `Prelude.seq`
+                  Prelude.rnf gatewayRegion
 
 instance Data.ToHeaders ActivateGateway where
   toHeaders =
@@ -438,5 +438,5 @@ activateGatewayResponse_httpStatus = Lens.lens (\ActivateGatewayResponse' {httpS
 
 instance Prelude.NFData ActivateGatewayResponse where
   rnf ActivateGatewayResponse' {..} =
-    Prelude.rnf gatewayARN
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf gatewayARN `Prelude.seq`
+      Prelude.rnf httpStatus

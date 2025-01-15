@@ -316,18 +316,18 @@ instance Prelude.Hashable StorediSCSIVolume where
 
 instance Prelude.NFData StorediSCSIVolume where
   rnf StorediSCSIVolume' {..} =
-    Prelude.rnf createdDate
-      `Prelude.seq` Prelude.rnf kmsKey
-      `Prelude.seq` Prelude.rnf preservedExistingData
-      `Prelude.seq` Prelude.rnf sourceSnapshotId
-      `Prelude.seq` Prelude.rnf targetName
-      `Prelude.seq` Prelude.rnf volumeARN
-      `Prelude.seq` Prelude.rnf volumeAttachmentStatus
-      `Prelude.seq` Prelude.rnf volumeDiskId
-      `Prelude.seq` Prelude.rnf volumeId
-      `Prelude.seq` Prelude.rnf volumeProgress
-      `Prelude.seq` Prelude.rnf volumeSizeInBytes
-      `Prelude.seq` Prelude.rnf volumeStatus
-      `Prelude.seq` Prelude.rnf volumeType
-      `Prelude.seq` Prelude.rnf volumeUsedInBytes
-      `Prelude.seq` Prelude.rnf volumeiSCSIAttributes
+    Prelude.rnf createdDate `Prelude.seq`
+      Prelude.rnf kmsKey `Prelude.seq`
+        Prelude.rnf preservedExistingData `Prelude.seq`
+          Prelude.rnf sourceSnapshotId `Prelude.seq`
+            Prelude.rnf targetName `Prelude.seq`
+              Prelude.rnf volumeARN `Prelude.seq`
+                Prelude.rnf volumeAttachmentStatus `Prelude.seq`
+                  Prelude.rnf volumeDiskId `Prelude.seq`
+                    Prelude.rnf volumeId `Prelude.seq`
+                      Prelude.rnf volumeProgress `Prelude.seq`
+                        Prelude.rnf volumeSizeInBytes `Prelude.seq`
+                          Prelude.rnf volumeStatus `Prelude.seq`
+                            Prelude.rnf volumeType `Prelude.seq`
+                              Prelude.rnf volumeUsedInBytes `Prelude.seq`
+                                Prelude.rnf volumeiSCSIAttributes

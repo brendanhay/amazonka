@@ -155,12 +155,12 @@ instance Core.AWSPager DescribeTapes where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeTapes_marker
-          Lens..~ rs
-          Lens.^? describeTapesResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeTapes_marker
+              Lens..~ rs
+              Lens.^? describeTapesResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeTapes where
   type
@@ -187,10 +187,10 @@ instance Prelude.Hashable DescribeTapes where
 
 instance Prelude.NFData DescribeTapes where
   rnf DescribeTapes' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf tapeARNs
-      `Prelude.seq` Prelude.rnf gatewayARN
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf tapeARNs `Prelude.seq`
+          Prelude.rnf gatewayARN
 
 instance Data.ToHeaders DescribeTapes where
   toHeaders =
@@ -287,6 +287,6 @@ describeTapesResponse_httpStatus = Lens.lens (\DescribeTapesResponse' {httpStatu
 
 instance Prelude.NFData DescribeTapesResponse where
   rnf DescribeTapesResponse' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf tapes
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf tapes `Prelude.seq`
+        Prelude.rnf httpStatus

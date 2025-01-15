@@ -199,9 +199,9 @@ instance Prelude.Hashable RefreshCache where
 
 instance Prelude.NFData RefreshCache where
   rnf RefreshCache' {..} =
-    Prelude.rnf folderList
-      `Prelude.seq` Prelude.rnf recursive
-      `Prelude.seq` Prelude.rnf fileShareARN
+    Prelude.rnf folderList `Prelude.seq`
+      Prelude.rnf recursive `Prelude.seq`
+        Prelude.rnf fileShareARN
 
 instance Data.ToHeaders RefreshCache where
   toHeaders =
@@ -284,6 +284,6 @@ refreshCacheResponse_httpStatus = Lens.lens (\RefreshCacheResponse' {httpStatus}
 
 instance Prelude.NFData RefreshCacheResponse where
   rnf RefreshCacheResponse' {..} =
-    Prelude.rnf fileShareARN
-      `Prelude.seq` Prelude.rnf notificationId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf fileShareARN `Prelude.seq`
+      Prelude.rnf notificationId `Prelude.seq`
+        Prelude.rnf httpStatus

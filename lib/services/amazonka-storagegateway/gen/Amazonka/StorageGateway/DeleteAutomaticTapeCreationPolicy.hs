@@ -195,5 +195,5 @@ instance
     DeleteAutomaticTapeCreationPolicyResponse
   where
   rnf DeleteAutomaticTapeCreationPolicyResponse' {..} =
-    Prelude.rnf gatewayARN
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf gatewayARN `Prelude.seq`
+      Prelude.rnf httpStatus

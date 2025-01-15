@@ -100,5 +100,5 @@ instance
     AutomaticTapeCreationPolicyInfo
   where
   rnf AutomaticTapeCreationPolicyInfo' {..} =
-    Prelude.rnf automaticTapeCreationRules
-      `Prelude.seq` Prelude.rnf gatewayARN
+    Prelude.rnf automaticTapeCreationRules `Prelude.seq`
+      Prelude.rnf gatewayARN

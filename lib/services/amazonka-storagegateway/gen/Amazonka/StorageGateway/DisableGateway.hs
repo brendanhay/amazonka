@@ -174,5 +174,5 @@ disableGatewayResponse_httpStatus = Lens.lens (\DisableGatewayResponse' {httpSta
 
 instance Prelude.NFData DisableGatewayResponse where
   rnf DisableGatewayResponse' {..} =
-    Prelude.rnf gatewayARN
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf gatewayARN `Prelude.seq`
+      Prelude.rnf httpStatus

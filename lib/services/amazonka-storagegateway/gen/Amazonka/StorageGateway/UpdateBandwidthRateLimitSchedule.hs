@@ -131,8 +131,8 @@ instance
     UpdateBandwidthRateLimitSchedule
   where
   rnf UpdateBandwidthRateLimitSchedule' {..} =
-    Prelude.rnf gatewayARN
-      `Prelude.seq` Prelude.rnf bandwidthRateLimitIntervals
+    Prelude.rnf gatewayARN `Prelude.seq`
+      Prelude.rnf bandwidthRateLimitIntervals
 
 instance
   Data.ToHeaders
@@ -217,5 +217,5 @@ instance
     UpdateBandwidthRateLimitScheduleResponse
   where
   rnf UpdateBandwidthRateLimitScheduleResponse' {..} =
-    Prelude.rnf gatewayARN
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf gatewayARN `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -182,5 +182,5 @@ describeSMBFileSharesResponse_httpStatus = Lens.lens (\DescribeSMBFileSharesResp
 
 instance Prelude.NFData DescribeSMBFileSharesResponse where
   rnf DescribeSMBFileSharesResponse' {..} =
-    Prelude.rnf sMBFileShareInfoList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf sMBFileShareInfoList `Prelude.seq`
+      Prelude.rnf httpStatus

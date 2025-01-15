@@ -117,8 +117,8 @@ instance
 
 instance Prelude.NFData UpdateSMBFileShareVisibility where
   rnf UpdateSMBFileShareVisibility' {..} =
-    Prelude.rnf gatewayARN
-      `Prelude.seq` Prelude.rnf fileSharesVisible
+    Prelude.rnf gatewayARN `Prelude.seq`
+      Prelude.rnf fileSharesVisible
 
 instance Data.ToHeaders UpdateSMBFileShareVisibility where
   toHeaders =
@@ -194,5 +194,5 @@ instance
     UpdateSMBFileShareVisibilityResponse
   where
   rnf UpdateSMBFileShareVisibilityResponse' {..} =
-    Prelude.rnf gatewayARN
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf gatewayARN `Prelude.seq`
+      Prelude.rnf httpStatus

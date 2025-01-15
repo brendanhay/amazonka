@@ -305,16 +305,16 @@ instance Prelude.Hashable CreateTapes where
 
 instance Prelude.NFData CreateTapes where
   rnf CreateTapes' {..} =
-    Prelude.rnf kmsEncrypted
-      `Prelude.seq` Prelude.rnf kmsKey
-      `Prelude.seq` Prelude.rnf poolId
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf worm
-      `Prelude.seq` Prelude.rnf gatewayARN
-      `Prelude.seq` Prelude.rnf tapeSizeInBytes
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf numTapesToCreate
-      `Prelude.seq` Prelude.rnf tapeBarcodePrefix
+    Prelude.rnf kmsEncrypted `Prelude.seq`
+      Prelude.rnf kmsKey `Prelude.seq`
+        Prelude.rnf poolId `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf worm `Prelude.seq`
+              Prelude.rnf gatewayARN `Prelude.seq`
+                Prelude.rnf tapeSizeInBytes `Prelude.seq`
+                  Prelude.rnf clientToken `Prelude.seq`
+                    Prelude.rnf numTapesToCreate `Prelude.seq`
+                      Prelude.rnf tapeBarcodePrefix
 
 instance Data.ToHeaders CreateTapes where
   toHeaders =
@@ -402,5 +402,5 @@ createTapesResponse_httpStatus = Lens.lens (\CreateTapesResponse' {httpStatus} -
 
 instance Prelude.NFData CreateTapesResponse where
   rnf CreateTapesResponse' {..} =
-    Prelude.rnf tapeARNs
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf tapeARNs `Prelude.seq`
+      Prelude.rnf httpStatus

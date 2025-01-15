@@ -118,8 +118,8 @@ instance Prelude.Hashable AddCache where
 
 instance Prelude.NFData AddCache where
   rnf AddCache' {..} =
-    Prelude.rnf gatewayARN
-      `Prelude.seq` Prelude.rnf diskIds
+    Prelude.rnf gatewayARN `Prelude.seq`
+      Prelude.rnf diskIds
 
 instance Data.ToHeaders AddCache where
   toHeaders =
@@ -190,5 +190,5 @@ addCacheResponse_httpStatus = Lens.lens (\AddCacheResponse' {httpStatus} -> http
 
 instance Prelude.NFData AddCacheResponse where
   rnf AddCacheResponse' {..} =
-    Prelude.rnf gatewayARN
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf gatewayARN `Prelude.seq`
+      Prelude.rnf httpStatus

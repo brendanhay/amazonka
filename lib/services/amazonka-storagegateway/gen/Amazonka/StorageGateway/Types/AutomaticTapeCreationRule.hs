@@ -173,11 +173,11 @@ instance Prelude.Hashable AutomaticTapeCreationRule where
 
 instance Prelude.NFData AutomaticTapeCreationRule where
   rnf AutomaticTapeCreationRule' {..} =
-    Prelude.rnf worm
-      `Prelude.seq` Prelude.rnf tapeBarcodePrefix
-      `Prelude.seq` Prelude.rnf poolId
-      `Prelude.seq` Prelude.rnf tapeSizeInBytes
-      `Prelude.seq` Prelude.rnf minimumNumTapes
+    Prelude.rnf worm `Prelude.seq`
+      Prelude.rnf tapeBarcodePrefix `Prelude.seq`
+        Prelude.rnf poolId `Prelude.seq`
+          Prelude.rnf tapeSizeInBytes `Prelude.seq`
+            Prelude.rnf minimumNumTapes
 
 instance Data.ToJSON AutomaticTapeCreationRule where
   toJSON AutomaticTapeCreationRule' {..} =

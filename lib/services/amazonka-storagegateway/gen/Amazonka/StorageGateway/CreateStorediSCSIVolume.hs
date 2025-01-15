@@ -328,15 +328,15 @@ instance Prelude.Hashable CreateStorediSCSIVolume where
 
 instance Prelude.NFData CreateStorediSCSIVolume where
   rnf CreateStorediSCSIVolume' {..} =
-    Prelude.rnf kmsEncrypted
-      `Prelude.seq` Prelude.rnf kmsKey
-      `Prelude.seq` Prelude.rnf snapshotId
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf gatewayARN
-      `Prelude.seq` Prelude.rnf diskId
-      `Prelude.seq` Prelude.rnf preserveExistingData
-      `Prelude.seq` Prelude.rnf targetName
-      `Prelude.seq` Prelude.rnf networkInterfaceId
+    Prelude.rnf kmsEncrypted `Prelude.seq`
+      Prelude.rnf kmsKey `Prelude.seq`
+        Prelude.rnf snapshotId `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf gatewayARN `Prelude.seq`
+              Prelude.rnf diskId `Prelude.seq`
+                Prelude.rnf preserveExistingData `Prelude.seq`
+                  Prelude.rnf targetName `Prelude.seq`
+                    Prelude.rnf networkInterfaceId
 
 instance Data.ToHeaders CreateStorediSCSIVolume where
   toHeaders =
@@ -446,7 +446,7 @@ instance
     CreateStorediSCSIVolumeResponse
   where
   rnf CreateStorediSCSIVolumeResponse' {..} =
-    Prelude.rnf targetARN
-      `Prelude.seq` Prelude.rnf volumeARN
-      `Prelude.seq` Prelude.rnf volumeSizeInBytes
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf targetARN `Prelude.seq`
+      Prelude.rnf volumeARN `Prelude.seq`
+        Prelude.rnf volumeSizeInBytes `Prelude.seq`
+          Prelude.rnf httpStatus

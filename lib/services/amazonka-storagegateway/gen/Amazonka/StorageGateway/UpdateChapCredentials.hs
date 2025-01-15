@@ -188,10 +188,10 @@ instance Prelude.Hashable UpdateChapCredentials where
 
 instance Prelude.NFData UpdateChapCredentials where
   rnf UpdateChapCredentials' {..} =
-    Prelude.rnf secretToAuthenticateTarget
-      `Prelude.seq` Prelude.rnf targetARN
-      `Prelude.seq` Prelude.rnf secretToAuthenticateInitiator
-      `Prelude.seq` Prelude.rnf initiatorName
+    Prelude.rnf secretToAuthenticateTarget `Prelude.seq`
+      Prelude.rnf targetARN `Prelude.seq`
+        Prelude.rnf secretToAuthenticateInitiator `Prelude.seq`
+          Prelude.rnf initiatorName
 
 instance Data.ToHeaders UpdateChapCredentials where
   toHeaders =
@@ -288,6 +288,6 @@ updateChapCredentialsResponse_httpStatus = Lens.lens (\UpdateChapCredentialsResp
 
 instance Prelude.NFData UpdateChapCredentialsResponse where
   rnf UpdateChapCredentialsResponse' {..} =
-    Prelude.rnf initiatorName
-      `Prelude.seq` Prelude.rnf targetARN
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf initiatorName `Prelude.seq`
+      Prelude.rnf targetARN `Prelude.seq`
+        Prelude.rnf httpStatus

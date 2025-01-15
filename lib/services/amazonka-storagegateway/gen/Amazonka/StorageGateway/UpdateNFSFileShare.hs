@@ -441,21 +441,21 @@ instance Prelude.Hashable UpdateNFSFileShare where
 
 instance Prelude.NFData UpdateNFSFileShare where
   rnf UpdateNFSFileShare' {..} =
-    Prelude.rnf auditDestinationARN
-      `Prelude.seq` Prelude.rnf cacheAttributes
-      `Prelude.seq` Prelude.rnf clientList
-      `Prelude.seq` Prelude.rnf defaultStorageClass
-      `Prelude.seq` Prelude.rnf fileShareName
-      `Prelude.seq` Prelude.rnf guessMIMETypeEnabled
-      `Prelude.seq` Prelude.rnf kmsEncrypted
-      `Prelude.seq` Prelude.rnf kmsKey
-      `Prelude.seq` Prelude.rnf nFSFileShareDefaults
-      `Prelude.seq` Prelude.rnf notificationPolicy
-      `Prelude.seq` Prelude.rnf objectACL
-      `Prelude.seq` Prelude.rnf readOnly
-      `Prelude.seq` Prelude.rnf requesterPays
-      `Prelude.seq` Prelude.rnf squash
-      `Prelude.seq` Prelude.rnf fileShareARN
+    Prelude.rnf auditDestinationARN `Prelude.seq`
+      Prelude.rnf cacheAttributes `Prelude.seq`
+        Prelude.rnf clientList `Prelude.seq`
+          Prelude.rnf defaultStorageClass `Prelude.seq`
+            Prelude.rnf fileShareName `Prelude.seq`
+              Prelude.rnf guessMIMETypeEnabled `Prelude.seq`
+                Prelude.rnf kmsEncrypted `Prelude.seq`
+                  Prelude.rnf kmsKey `Prelude.seq`
+                    Prelude.rnf nFSFileShareDefaults `Prelude.seq`
+                      Prelude.rnf notificationPolicy `Prelude.seq`
+                        Prelude.rnf objectACL `Prelude.seq`
+                          Prelude.rnf readOnly `Prelude.seq`
+                            Prelude.rnf requesterPays `Prelude.seq`
+                              Prelude.rnf squash `Prelude.seq`
+                                Prelude.rnf fileShareARN
 
 instance Data.ToHeaders UpdateNFSFileShare where
   toHeaders =
@@ -549,5 +549,5 @@ updateNFSFileShareResponse_httpStatus = Lens.lens (\UpdateNFSFileShareResponse' 
 
 instance Prelude.NFData UpdateNFSFileShareResponse where
   rnf UpdateNFSFileShareResponse' {..} =
-    Prelude.rnf fileShareARN
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf fileShareARN `Prelude.seq`
+      Prelude.rnf httpStatus

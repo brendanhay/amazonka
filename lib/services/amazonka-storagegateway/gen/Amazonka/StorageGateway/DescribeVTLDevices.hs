@@ -151,12 +151,12 @@ instance Core.AWSPager DescribeVTLDevices where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeVTLDevices_marker
-          Lens..~ rs
-          Lens.^? describeVTLDevicesResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeVTLDevices_marker
+              Lens..~ rs
+              Lens.^? describeVTLDevicesResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeVTLDevices where
   type
@@ -184,10 +184,10 @@ instance Prelude.Hashable DescribeVTLDevices where
 
 instance Prelude.NFData DescribeVTLDevices where
   rnf DescribeVTLDevices' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf vTLDeviceARNs
-      `Prelude.seq` Prelude.rnf gatewayARN
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf vTLDeviceARNs `Prelude.seq`
+          Prelude.rnf gatewayARN
 
 instance Data.ToHeaders DescribeVTLDevices where
   toHeaders =
@@ -296,7 +296,7 @@ describeVTLDevicesResponse_httpStatus = Lens.lens (\DescribeVTLDevicesResponse' 
 
 instance Prelude.NFData DescribeVTLDevicesResponse where
   rnf DescribeVTLDevicesResponse' {..} =
-    Prelude.rnf gatewayARN
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf vTLDevices
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf gatewayARN `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf vTLDevices `Prelude.seq`
+          Prelude.rnf httpStatus

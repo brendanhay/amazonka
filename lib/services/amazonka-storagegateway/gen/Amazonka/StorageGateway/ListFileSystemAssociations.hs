@@ -130,12 +130,12 @@ instance Core.AWSPager ListFileSystemAssociations where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listFileSystemAssociations_marker
-          Lens..~ rs
-          Lens.^? listFileSystemAssociationsResponse_nextMarker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listFileSystemAssociations_marker
+              Lens..~ rs
+              Lens.^? listFileSystemAssociationsResponse_nextMarker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListFileSystemAssociations where
   type
@@ -165,9 +165,9 @@ instance Prelude.Hashable ListFileSystemAssociations where
 
 instance Prelude.NFData ListFileSystemAssociations where
   rnf ListFileSystemAssociations' {..} =
-    Prelude.rnf gatewayARN
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf marker
+    Prelude.rnf gatewayARN `Prelude.seq`
+      Prelude.rnf limit `Prelude.seq`
+        Prelude.rnf marker
 
 instance Data.ToHeaders ListFileSystemAssociations where
   toHeaders =
@@ -274,7 +274,7 @@ instance
     ListFileSystemAssociationsResponse
   where
   rnf ListFileSystemAssociationsResponse' {..} =
-    Prelude.rnf fileSystemAssociationSummaryList
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf fileSystemAssociationSummaryList `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf nextMarker `Prelude.seq`
+          Prelude.rnf httpStatus

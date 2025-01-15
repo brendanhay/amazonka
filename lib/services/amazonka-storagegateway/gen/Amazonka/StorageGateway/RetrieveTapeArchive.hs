@@ -139,8 +139,8 @@ instance Prelude.Hashable RetrieveTapeArchive where
 
 instance Prelude.NFData RetrieveTapeArchive where
   rnf RetrieveTapeArchive' {..} =
-    Prelude.rnf tapeARN
-      `Prelude.seq` Prelude.rnf gatewayARN
+    Prelude.rnf tapeARN `Prelude.seq`
+      Prelude.rnf gatewayARN
 
 instance Data.ToHeaders RetrieveTapeArchive where
   toHeaders =
@@ -215,5 +215,5 @@ retrieveTapeArchiveResponse_httpStatus = Lens.lens (\RetrieveTapeArchiveResponse
 
 instance Prelude.NFData RetrieveTapeArchiveResponse where
   rnf RetrieveTapeArchiveResponse' {..} =
-    Prelude.rnf tapeARN
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf tapeARN `Prelude.seq`
+      Prelude.rnf httpStatus

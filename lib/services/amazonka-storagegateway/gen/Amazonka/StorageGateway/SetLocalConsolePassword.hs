@@ -117,8 +117,8 @@ instance Prelude.Hashable SetLocalConsolePassword where
 
 instance Prelude.NFData SetLocalConsolePassword where
   rnf SetLocalConsolePassword' {..} =
-    Prelude.rnf gatewayARN
-      `Prelude.seq` Prelude.rnf localConsolePassword
+    Prelude.rnf gatewayARN `Prelude.seq`
+      Prelude.rnf localConsolePassword
 
 instance Data.ToHeaders SetLocalConsolePassword where
   toHeaders =
@@ -196,5 +196,5 @@ instance
     SetLocalConsolePasswordResponse
   where
   rnf SetLocalConsolePasswordResponse' {..} =
-    Prelude.rnf gatewayARN
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf gatewayARN `Prelude.seq`
+      Prelude.rnf httpStatus

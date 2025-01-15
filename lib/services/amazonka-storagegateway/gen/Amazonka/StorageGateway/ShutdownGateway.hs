@@ -190,5 +190,5 @@ shutdownGatewayResponse_httpStatus = Lens.lens (\ShutdownGatewayResponse' {httpS
 
 instance Prelude.NFData ShutdownGatewayResponse where
   rnf ShutdownGatewayResponse' {..} =
-    Prelude.rnf gatewayARN
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf gatewayARN `Prelude.seq`
+      Prelude.rnf httpStatus

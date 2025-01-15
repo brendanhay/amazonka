@@ -118,7 +118,7 @@ instance Prelude.Hashable ChapInfo where
 
 instance Prelude.NFData ChapInfo where
   rnf ChapInfo' {..} =
-    Prelude.rnf initiatorName
-      `Prelude.seq` Prelude.rnf secretToAuthenticateInitiator
-      `Prelude.seq` Prelude.rnf secretToAuthenticateTarget
-      `Prelude.seq` Prelude.rnf targetARN
+    Prelude.rnf initiatorName `Prelude.seq`
+      Prelude.rnf secretToAuthenticateInitiator `Prelude.seq`
+        Prelude.rnf secretToAuthenticateTarget `Prelude.seq`
+          Prelude.rnf targetARN

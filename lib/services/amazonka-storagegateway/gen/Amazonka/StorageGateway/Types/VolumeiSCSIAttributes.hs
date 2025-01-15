@@ -114,8 +114,8 @@ instance Prelude.Hashable VolumeiSCSIAttributes where
 
 instance Prelude.NFData VolumeiSCSIAttributes where
   rnf VolumeiSCSIAttributes' {..} =
-    Prelude.rnf chapEnabled
-      `Prelude.seq` Prelude.rnf lunNumber
-      `Prelude.seq` Prelude.rnf networkInterfaceId
-      `Prelude.seq` Prelude.rnf networkInterfacePort
-      `Prelude.seq` Prelude.rnf targetARN
+    Prelude.rnf chapEnabled `Prelude.seq`
+      Prelude.rnf lunNumber `Prelude.seq`
+        Prelude.rnf networkInterfaceId `Prelude.seq`
+          Prelude.rnf networkInterfacePort `Prelude.seq`
+            Prelude.rnf targetARN

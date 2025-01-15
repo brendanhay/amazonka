@@ -190,11 +190,11 @@ instance Prelude.Hashable CreateTapePool where
 
 instance Prelude.NFData CreateTapePool where
   rnf CreateTapePool' {..} =
-    Prelude.rnf retentionLockTimeInDays
-      `Prelude.seq` Prelude.rnf retentionLockType
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf poolName
-      `Prelude.seq` Prelude.rnf storageClass
+    Prelude.rnf retentionLockTimeInDays `Prelude.seq`
+      Prelude.rnf retentionLockType `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf poolName `Prelude.seq`
+            Prelude.rnf storageClass
 
 instance Data.ToHeaders CreateTapePool where
   toHeaders =
@@ -277,5 +277,5 @@ createTapePoolResponse_httpStatus = Lens.lens (\CreateTapePoolResponse' {httpSta
 
 instance Prelude.NFData CreateTapePoolResponse where
   rnf CreateTapePoolResponse' {..} =
-    Prelude.rnf poolARN
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf poolARN `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -212,13 +212,13 @@ instance Prelude.Hashable JoinDomain where
 
 instance Prelude.NFData JoinDomain where
   rnf JoinDomain' {..} =
-    Prelude.rnf domainControllers
-      `Prelude.seq` Prelude.rnf organizationalUnit
-      `Prelude.seq` Prelude.rnf timeoutInSeconds
-      `Prelude.seq` Prelude.rnf gatewayARN
-      `Prelude.seq` Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf userName
-      `Prelude.seq` Prelude.rnf password
+    Prelude.rnf domainControllers `Prelude.seq`
+      Prelude.rnf organizationalUnit `Prelude.seq`
+        Prelude.rnf timeoutInSeconds `Prelude.seq`
+          Prelude.rnf gatewayARN `Prelude.seq`
+            Prelude.rnf domainName `Prelude.seq`
+              Prelude.rnf userName `Prelude.seq`
+                Prelude.rnf password
 
 instance Data.ToHeaders JoinDomain where
   toHeaders =
@@ -373,6 +373,6 @@ joinDomainResponse_httpStatus = Lens.lens (\JoinDomainResponse' {httpStatus} -> 
 
 instance Prelude.NFData JoinDomainResponse where
   rnf JoinDomainResponse' {..} =
-    Prelude.rnf activeDirectoryStatus
-      `Prelude.seq` Prelude.rnf gatewayARN
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf activeDirectoryStatus `Prelude.seq`
+      Prelude.rnf gatewayARN `Prelude.seq`
+        Prelude.rnf httpStatus

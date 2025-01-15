@@ -203,5 +203,5 @@ instance
     DescribeFileSystemAssociationsResponse
   where
   rnf DescribeFileSystemAssociationsResponse' {..} =
-    Prelude.rnf fileSystemAssociationInfoList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf fileSystemAssociationInfoList `Prelude.seq`
+      Prelude.rnf httpStatus

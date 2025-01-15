@@ -262,11 +262,11 @@ describeCacheResponse_httpStatus = Lens.lens (\DescribeCacheResponse' {httpStatu
 
 instance Prelude.NFData DescribeCacheResponse where
   rnf DescribeCacheResponse' {..} =
-    Prelude.rnf cacheAllocatedInBytes
-      `Prelude.seq` Prelude.rnf cacheDirtyPercentage
-      `Prelude.seq` Prelude.rnf cacheHitPercentage
-      `Prelude.seq` Prelude.rnf cacheMissPercentage
-      `Prelude.seq` Prelude.rnf cacheUsedPercentage
-      `Prelude.seq` Prelude.rnf diskIds
-      `Prelude.seq` Prelude.rnf gatewayARN
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf cacheAllocatedInBytes `Prelude.seq`
+      Prelude.rnf cacheDirtyPercentage `Prelude.seq`
+        Prelude.rnf cacheHitPercentage `Prelude.seq`
+          Prelude.rnf cacheMissPercentage `Prelude.seq`
+            Prelude.rnf cacheUsedPercentage `Prelude.seq`
+              Prelude.rnf diskIds `Prelude.seq`
+                Prelude.rnf gatewayARN `Prelude.seq`
+                  Prelude.rnf httpStatus

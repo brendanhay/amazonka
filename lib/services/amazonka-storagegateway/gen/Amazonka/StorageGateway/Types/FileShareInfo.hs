@@ -109,8 +109,8 @@ instance Prelude.Hashable FileShareInfo where
 
 instance Prelude.NFData FileShareInfo where
   rnf FileShareInfo' {..} =
-    Prelude.rnf fileShareARN
-      `Prelude.seq` Prelude.rnf fileShareId
-      `Prelude.seq` Prelude.rnf fileShareStatus
-      `Prelude.seq` Prelude.rnf fileShareType
-      `Prelude.seq` Prelude.rnf gatewayARN
+    Prelude.rnf fileShareARN `Prelude.seq`
+      Prelude.rnf fileShareId `Prelude.seq`
+        Prelude.rnf fileShareStatus `Prelude.seq`
+          Prelude.rnf fileShareType `Prelude.seq`
+            Prelude.rnf gatewayARN

@@ -191,5 +191,5 @@ instance
     DescribeCachediSCSIVolumesResponse
   where
   rnf DescribeCachediSCSIVolumesResponse' {..} =
-    Prelude.rnf cachediSCSIVolumes
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf cachediSCSIVolumes `Prelude.seq`
+      Prelude.rnf httpStatus

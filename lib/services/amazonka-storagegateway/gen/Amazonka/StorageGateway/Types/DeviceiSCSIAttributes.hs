@@ -106,7 +106,7 @@ instance Prelude.Hashable DeviceiSCSIAttributes where
 
 instance Prelude.NFData DeviceiSCSIAttributes where
   rnf DeviceiSCSIAttributes' {..} =
-    Prelude.rnf chapEnabled
-      `Prelude.seq` Prelude.rnf networkInterfaceId
-      `Prelude.seq` Prelude.rnf networkInterfacePort
-      `Prelude.seq` Prelude.rnf targetARN
+    Prelude.rnf chapEnabled `Prelude.seq`
+      Prelude.rnf networkInterfaceId `Prelude.seq`
+        Prelude.rnf networkInterfacePort `Prelude.seq`
+          Prelude.rnf targetARN

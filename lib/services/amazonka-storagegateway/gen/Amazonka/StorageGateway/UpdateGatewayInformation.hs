@@ -160,11 +160,11 @@ instance Prelude.Hashable UpdateGatewayInformation where
 
 instance Prelude.NFData UpdateGatewayInformation where
   rnf UpdateGatewayInformation' {..} =
-    Prelude.rnf cloudWatchLogGroupARN
-      `Prelude.seq` Prelude.rnf gatewayCapacity
-      `Prelude.seq` Prelude.rnf gatewayName
-      `Prelude.seq` Prelude.rnf gatewayTimezone
-      `Prelude.seq` Prelude.rnf gatewayARN
+    Prelude.rnf cloudWatchLogGroupARN `Prelude.seq`
+      Prelude.rnf gatewayCapacity `Prelude.seq`
+        Prelude.rnf gatewayName `Prelude.seq`
+          Prelude.rnf gatewayTimezone `Prelude.seq`
+            Prelude.rnf gatewayARN
 
 instance Data.ToHeaders UpdateGatewayInformation where
   toHeaders =
@@ -257,6 +257,6 @@ instance
     UpdateGatewayInformationResponse
   where
   rnf UpdateGatewayInformationResponse' {..} =
-    Prelude.rnf gatewayARN
-      `Prelude.seq` Prelude.rnf gatewayName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf gatewayARN `Prelude.seq`
+      Prelude.rnf gatewayName `Prelude.seq`
+        Prelude.rnf httpStatus

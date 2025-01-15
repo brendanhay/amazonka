@@ -128,8 +128,8 @@ instance Prelude.Hashable AddWorkingStorage where
 
 instance Prelude.NFData AddWorkingStorage where
   rnf AddWorkingStorage' {..} =
-    Prelude.rnf gatewayARN
-      `Prelude.seq` Prelude.rnf diskIds
+    Prelude.rnf gatewayARN `Prelude.seq`
+      Prelude.rnf diskIds
 
 instance Data.ToHeaders AddWorkingStorage where
   toHeaders =
@@ -204,5 +204,5 @@ addWorkingStorageResponse_httpStatus = Lens.lens (\AddWorkingStorageResponse' {h
 
 instance Prelude.NFData AddWorkingStorageResponse where
   rnf AddWorkingStorageResponse' {..} =
-    Prelude.rnf gatewayARN
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf gatewayARN `Prelude.seq`
+      Prelude.rnf httpStatus

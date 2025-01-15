@@ -165,5 +165,5 @@ deleteTapePoolResponse_httpStatus = Lens.lens (\DeleteTapePoolResponse' {httpSta
 
 instance Prelude.NFData DeleteTapePoolResponse where
   rnf DeleteTapePoolResponse' {..} =
-    Prelude.rnf poolARN
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf poolARN `Prelude.seq`
+      Prelude.rnf httpStatus

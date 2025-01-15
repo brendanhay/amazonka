@@ -191,6 +191,6 @@ instance
     ListVolumeRecoveryPointsResponse
   where
   rnf ListVolumeRecoveryPointsResponse' {..} =
-    Prelude.rnf gatewayARN
-      `Prelude.seq` Prelude.rnf volumeRecoveryPointInfos
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf gatewayARN `Prelude.seq`
+      Prelude.rnf volumeRecoveryPointInfos `Prelude.seq`
+        Prelude.rnf httpStatus

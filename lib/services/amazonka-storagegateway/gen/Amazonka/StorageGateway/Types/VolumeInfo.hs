@@ -197,10 +197,10 @@ instance Prelude.Hashable VolumeInfo where
 
 instance Prelude.NFData VolumeInfo where
   rnf VolumeInfo' {..} =
-    Prelude.rnf gatewayARN
-      `Prelude.seq` Prelude.rnf gatewayId
-      `Prelude.seq` Prelude.rnf volumeARN
-      `Prelude.seq` Prelude.rnf volumeAttachmentStatus
-      `Prelude.seq` Prelude.rnf volumeId
-      `Prelude.seq` Prelude.rnf volumeSizeInBytes
-      `Prelude.seq` Prelude.rnf volumeType
+    Prelude.rnf gatewayARN `Prelude.seq`
+      Prelude.rnf gatewayId `Prelude.seq`
+        Prelude.rnf volumeARN `Prelude.seq`
+          Prelude.rnf volumeAttachmentStatus `Prelude.seq`
+            Prelude.rnf volumeId `Prelude.seq`
+              Prelude.rnf volumeSizeInBytes `Prelude.seq`
+                Prelude.rnf volumeType

@@ -182,5 +182,5 @@ describeNFSFileSharesResponse_httpStatus = Lens.lens (\DescribeNFSFileSharesResp
 
 instance Prelude.NFData DescribeNFSFileSharesResponse where
   rnf DescribeNFSFileSharesResponse' {..} =
-    Prelude.rnf nFSFileShareInfoList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nFSFileShareInfoList `Prelude.seq`
+      Prelude.rnf httpStatus

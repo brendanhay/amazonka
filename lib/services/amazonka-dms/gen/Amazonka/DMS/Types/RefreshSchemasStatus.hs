@@ -119,8 +119,8 @@ instance Prelude.Hashable RefreshSchemasStatus where
 
 instance Prelude.NFData RefreshSchemasStatus where
   rnf RefreshSchemasStatus' {..} =
-    Prelude.rnf endpointArn
-      `Prelude.seq` Prelude.rnf lastFailureMessage
-      `Prelude.seq` Prelude.rnf lastRefreshDate
-      `Prelude.seq` Prelude.rnf replicationInstanceArn
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf endpointArn `Prelude.seq`
+      Prelude.rnf lastFailureMessage `Prelude.seq`
+        Prelude.rnf lastRefreshDate `Prelude.seq`
+          Prelude.rnf replicationInstanceArn `Prelude.seq`
+            Prelude.rnf status

@@ -116,8 +116,8 @@ instance Prelude.Hashable RemoveTagsFromResource where
 
 instance Prelude.NFData RemoveTagsFromResource where
   rnf RemoveTagsFromResource' {..} =
-    Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf tagKeys
+    Prelude.rnf resourceArn `Prelude.seq`
+      Prelude.rnf tagKeys
 
 instance Data.ToHeaders RemoveTagsFromResource where
   toHeaders =

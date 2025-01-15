@@ -168,9 +168,9 @@ instance
     DescribeReplicationTaskIndividualAssessments
   where
   rnf DescribeReplicationTaskIndividualAssessments' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf maxRecords
 
 instance
   Data.ToHeaders
@@ -284,6 +284,6 @@ instance
   where
   rnf
     DescribeReplicationTaskIndividualAssessmentsResponse' {..} =
-      Prelude.rnf marker
-        `Prelude.seq` Prelude.rnf replicationTaskIndividualAssessments
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf replicationTaskIndividualAssessments `Prelude.seq`
+          Prelude.rnf httpStatus

@@ -92,6 +92,6 @@ instance Prelude.Hashable AccountQuota where
 
 instance Prelude.NFData AccountQuota where
   rnf AccountQuota' {..} =
-    Prelude.rnf accountQuotaName
-      `Prelude.seq` Prelude.rnf max
-      `Prelude.seq` Prelude.rnf used
+    Prelude.rnf accountQuotaName `Prelude.seq`
+      Prelude.rnf max `Prelude.seq`
+        Prelude.rnf used

@@ -159,11 +159,11 @@ instance Prelude.Hashable ElasticsearchSettings where
 
 instance Prelude.NFData ElasticsearchSettings where
   rnf ElasticsearchSettings' {..} =
-    Prelude.rnf errorRetryDuration
-      `Prelude.seq` Prelude.rnf fullLoadErrorPercentage
-      `Prelude.seq` Prelude.rnf useNewMappingType
-      `Prelude.seq` Prelude.rnf serviceAccessRoleArn
-      `Prelude.seq` Prelude.rnf endpointUri
+    Prelude.rnf errorRetryDuration `Prelude.seq`
+      Prelude.rnf fullLoadErrorPercentage `Prelude.seq`
+        Prelude.rnf useNewMappingType `Prelude.seq`
+          Prelude.rnf serviceAccessRoleArn `Prelude.seq`
+            Prelude.rnf endpointUri
 
 instance Data.ToJSON ElasticsearchSettings where
   toJSON ElasticsearchSettings' {..} =

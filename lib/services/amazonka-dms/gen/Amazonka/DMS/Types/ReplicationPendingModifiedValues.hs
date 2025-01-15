@@ -159,8 +159,8 @@ instance
     ReplicationPendingModifiedValues
   where
   rnf ReplicationPendingModifiedValues' {..} =
-    Prelude.rnf allocatedStorage
-      `Prelude.seq` Prelude.rnf engineVersion
-      `Prelude.seq` Prelude.rnf multiAZ
-      `Prelude.seq` Prelude.rnf networkType
-      `Prelude.seq` Prelude.rnf replicationInstanceClass
+    Prelude.rnf allocatedStorage `Prelude.seq`
+      Prelude.rnf engineVersion `Prelude.seq`
+        Prelude.rnf multiAZ `Prelude.seq`
+          Prelude.rnf networkType `Prelude.seq`
+            Prelude.rnf replicationInstanceClass

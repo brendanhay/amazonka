@@ -373,20 +373,20 @@ instance Prelude.Hashable MySQLSettings where
 
 instance Prelude.NFData MySQLSettings where
   rnf MySQLSettings' {..} =
-    Prelude.rnf afterConnectScript
-      `Prelude.seq` Prelude.rnf cleanSourceMetadataOnMismatch
-      `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf eventsPollInterval
-      `Prelude.seq` Prelude.rnf maxFileSize
-      `Prelude.seq` Prelude.rnf parallelLoadThreads
-      `Prelude.seq` Prelude.rnf password
-      `Prelude.seq` Prelude.rnf port
-      `Prelude.seq` Prelude.rnf secretsManagerAccessRoleArn
-      `Prelude.seq` Prelude.rnf secretsManagerSecretId
-      `Prelude.seq` Prelude.rnf serverName
-      `Prelude.seq` Prelude.rnf serverTimezone
-      `Prelude.seq` Prelude.rnf targetDbType
-      `Prelude.seq` Prelude.rnf username
+    Prelude.rnf afterConnectScript `Prelude.seq`
+      Prelude.rnf cleanSourceMetadataOnMismatch `Prelude.seq`
+        Prelude.rnf databaseName `Prelude.seq`
+          Prelude.rnf eventsPollInterval `Prelude.seq`
+            Prelude.rnf maxFileSize `Prelude.seq`
+              Prelude.rnf parallelLoadThreads `Prelude.seq`
+                Prelude.rnf password `Prelude.seq`
+                  Prelude.rnf port `Prelude.seq`
+                    Prelude.rnf secretsManagerAccessRoleArn `Prelude.seq`
+                      Prelude.rnf secretsManagerSecretId `Prelude.seq`
+                        Prelude.rnf serverName `Prelude.seq`
+                          Prelude.rnf serverTimezone `Prelude.seq`
+                            Prelude.rnf targetDbType `Prelude.seq`
+                              Prelude.rnf username
 
 instance Data.ToJSON MySQLSettings where
   toJSON MySQLSettings' {..} =

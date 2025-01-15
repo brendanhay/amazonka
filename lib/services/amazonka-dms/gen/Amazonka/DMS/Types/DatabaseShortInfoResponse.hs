@@ -106,7 +106,7 @@ instance Prelude.Hashable DatabaseShortInfoResponse where
 
 instance Prelude.NFData DatabaseShortInfoResponse where
   rnf DatabaseShortInfoResponse' {..} =
-    Prelude.rnf databaseEngine
-      `Prelude.seq` Prelude.rnf databaseId
-      `Prelude.seq` Prelude.rnf databaseIpAddress
-      `Prelude.seq` Prelude.rnf databaseName
+    Prelude.rnf databaseEngine `Prelude.seq`
+      Prelude.rnf databaseId `Prelude.seq`
+        Prelude.rnf databaseIpAddress `Prelude.seq`
+          Prelude.rnf databaseName

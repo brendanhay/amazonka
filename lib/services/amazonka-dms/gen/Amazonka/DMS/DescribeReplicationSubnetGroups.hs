@@ -151,12 +151,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeReplicationSubnetGroups_marker
-          Lens..~ rs
-          Lens.^? describeReplicationSubnetGroupsResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeReplicationSubnetGroups_marker
+              Lens..~ rs
+              Lens.^? describeReplicationSubnetGroupsResponse_marker
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -196,9 +196,9 @@ instance
     DescribeReplicationSubnetGroups
   where
   rnf DescribeReplicationSubnetGroups' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf maxRecords
 
 instance
   Data.ToHeaders
@@ -297,6 +297,6 @@ instance
     DescribeReplicationSubnetGroupsResponse
   where
   rnf DescribeReplicationSubnetGroupsResponse' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf replicationSubnetGroups
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf replicationSubnetGroups `Prelude.seq`
+        Prelude.rnf httpStatus

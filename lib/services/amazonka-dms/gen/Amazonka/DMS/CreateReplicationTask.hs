@@ -420,19 +420,19 @@ instance Prelude.Hashable CreateReplicationTask where
 
 instance Prelude.NFData CreateReplicationTask where
   rnf CreateReplicationTask' {..} =
-    Prelude.rnf cdcStartPosition
-      `Prelude.seq` Prelude.rnf cdcStartTime
-      `Prelude.seq` Prelude.rnf cdcStopPosition
-      `Prelude.seq` Prelude.rnf replicationTaskSettings
-      `Prelude.seq` Prelude.rnf resourceIdentifier
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf taskData
-      `Prelude.seq` Prelude.rnf replicationTaskIdentifier
-      `Prelude.seq` Prelude.rnf sourceEndpointArn
-      `Prelude.seq` Prelude.rnf targetEndpointArn
-      `Prelude.seq` Prelude.rnf replicationInstanceArn
-      `Prelude.seq` Prelude.rnf migrationType
-      `Prelude.seq` Prelude.rnf tableMappings
+    Prelude.rnf cdcStartPosition `Prelude.seq`
+      Prelude.rnf cdcStartTime `Prelude.seq`
+        Prelude.rnf cdcStopPosition `Prelude.seq`
+          Prelude.rnf replicationTaskSettings `Prelude.seq`
+            Prelude.rnf resourceIdentifier `Prelude.seq`
+              Prelude.rnf tags `Prelude.seq`
+                Prelude.rnf taskData `Prelude.seq`
+                  Prelude.rnf replicationTaskIdentifier `Prelude.seq`
+                    Prelude.rnf sourceEndpointArn `Prelude.seq`
+                      Prelude.rnf targetEndpointArn `Prelude.seq`
+                        Prelude.rnf replicationInstanceArn `Prelude.seq`
+                          Prelude.rnf migrationType `Prelude.seq`
+                            Prelude.rnf tableMappings
 
 instance Data.ToHeaders CreateReplicationTask where
   toHeaders =
@@ -531,5 +531,5 @@ createReplicationTaskResponse_httpStatus = Lens.lens (\CreateReplicationTaskResp
 
 instance Prelude.NFData CreateReplicationTaskResponse where
   rnf CreateReplicationTaskResponse' {..} =
-    Prelude.rnf replicationTask
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf replicationTask `Prelude.seq`
+      Prelude.rnf httpStatus

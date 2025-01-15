@@ -330,15 +330,15 @@ instance Prelude.Hashable ModifyReplicationTask where
 
 instance Prelude.NFData ModifyReplicationTask where
   rnf ModifyReplicationTask' {..} =
-    Prelude.rnf cdcStartPosition
-      `Prelude.seq` Prelude.rnf cdcStartTime
-      `Prelude.seq` Prelude.rnf cdcStopPosition
-      `Prelude.seq` Prelude.rnf migrationType
-      `Prelude.seq` Prelude.rnf replicationTaskIdentifier
-      `Prelude.seq` Prelude.rnf replicationTaskSettings
-      `Prelude.seq` Prelude.rnf tableMappings
-      `Prelude.seq` Prelude.rnf taskData
-      `Prelude.seq` Prelude.rnf replicationTaskArn
+    Prelude.rnf cdcStartPosition `Prelude.seq`
+      Prelude.rnf cdcStartTime `Prelude.seq`
+        Prelude.rnf cdcStopPosition `Prelude.seq`
+          Prelude.rnf migrationType `Prelude.seq`
+            Prelude.rnf replicationTaskIdentifier `Prelude.seq`
+              Prelude.rnf replicationTaskSettings `Prelude.seq`
+                Prelude.rnf tableMappings `Prelude.seq`
+                  Prelude.rnf taskData `Prelude.seq`
+                    Prelude.rnf replicationTaskArn
 
 instance Data.ToHeaders ModifyReplicationTask where
   toHeaders =
@@ -425,5 +425,5 @@ modifyReplicationTaskResponse_httpStatus = Lens.lens (\ModifyReplicationTaskResp
 
 instance Prelude.NFData ModifyReplicationTaskResponse where
   rnf ModifyReplicationTaskResponse' {..} =
-    Prelude.rnf replicationTask
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf replicationTask `Prelude.seq`
+      Prelude.rnf httpStatus

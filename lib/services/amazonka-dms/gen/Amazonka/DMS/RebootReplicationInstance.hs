@@ -143,9 +143,9 @@ instance Prelude.Hashable RebootReplicationInstance where
 
 instance Prelude.NFData RebootReplicationInstance where
   rnf RebootReplicationInstance' {..} =
-    Prelude.rnf forceFailover
-      `Prelude.seq` Prelude.rnf forcePlannedFailover
-      `Prelude.seq` Prelude.rnf replicationInstanceArn
+    Prelude.rnf forceFailover `Prelude.seq`
+      Prelude.rnf forcePlannedFailover `Prelude.seq`
+        Prelude.rnf replicationInstanceArn
 
 instance Data.ToHeaders RebootReplicationInstance where
   toHeaders =
@@ -226,5 +226,5 @@ instance
     RebootReplicationInstanceResponse
   where
   rnf RebootReplicationInstanceResponse' {..} =
-    Prelude.rnf replicationInstance
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf replicationInstance `Prelude.seq`
+      Prelude.rnf httpStatus

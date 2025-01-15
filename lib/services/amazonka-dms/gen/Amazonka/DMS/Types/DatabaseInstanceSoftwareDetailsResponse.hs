@@ -159,10 +159,10 @@ instance
     DatabaseInstanceSoftwareDetailsResponse
   where
   rnf DatabaseInstanceSoftwareDetailsResponse' {..} =
-    Prelude.rnf engine
-      `Prelude.seq` Prelude.rnf engineEdition
-      `Prelude.seq` Prelude.rnf engineVersion
-      `Prelude.seq` Prelude.rnf osArchitecture
-      `Prelude.seq` Prelude.rnf servicePack
-      `Prelude.seq` Prelude.rnf supportLevel
-      `Prelude.seq` Prelude.rnf tooltip
+    Prelude.rnf engine `Prelude.seq`
+      Prelude.rnf engineEdition `Prelude.seq`
+        Prelude.rnf engineVersion `Prelude.seq`
+          Prelude.rnf osArchitecture `Prelude.seq`
+            Prelude.rnf servicePack `Prelude.seq`
+              Prelude.rnf supportLevel `Prelude.seq`
+                Prelude.rnf tooltip

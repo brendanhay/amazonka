@@ -127,9 +127,9 @@ instance
 
 instance Prelude.NFData ModifyReplicationSubnetGroup where
   rnf ModifyReplicationSubnetGroup' {..} =
-    Prelude.rnf replicationSubnetGroupDescription
-      `Prelude.seq` Prelude.rnf replicationSubnetGroupIdentifier
-      `Prelude.seq` Prelude.rnf subnetIds
+    Prelude.rnf replicationSubnetGroupDescription `Prelude.seq`
+      Prelude.rnf replicationSubnetGroupIdentifier `Prelude.seq`
+        Prelude.rnf subnetIds
 
 instance Data.ToHeaders ModifyReplicationSubnetGroup where
   toHeaders =
@@ -212,5 +212,5 @@ instance
     ModifyReplicationSubnetGroupResponse
   where
   rnf ModifyReplicationSubnetGroupResponse' {..} =
-    Prelude.rnf replicationSubnetGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf replicationSubnetGroup `Prelude.seq`
+      Prelude.rnf httpStatus

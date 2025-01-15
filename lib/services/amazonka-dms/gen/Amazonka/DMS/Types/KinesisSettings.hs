@@ -248,16 +248,16 @@ instance Prelude.Hashable KinesisSettings where
 
 instance Prelude.NFData KinesisSettings where
   rnf KinesisSettings' {..} =
-    Prelude.rnf includeControlDetails
-      `Prelude.seq` Prelude.rnf includeNullAndEmpty
-      `Prelude.seq` Prelude.rnf includePartitionValue
-      `Prelude.seq` Prelude.rnf includeTableAlterOperations
-      `Prelude.seq` Prelude.rnf includeTransactionDetails
-      `Prelude.seq` Prelude.rnf messageFormat
-      `Prelude.seq` Prelude.rnf noHexPrefix
-      `Prelude.seq` Prelude.rnf partitionIncludeSchemaTable
-      `Prelude.seq` Prelude.rnf serviceAccessRoleArn
-      `Prelude.seq` Prelude.rnf streamArn
+    Prelude.rnf includeControlDetails `Prelude.seq`
+      Prelude.rnf includeNullAndEmpty `Prelude.seq`
+        Prelude.rnf includePartitionValue `Prelude.seq`
+          Prelude.rnf includeTableAlterOperations `Prelude.seq`
+            Prelude.rnf includeTransactionDetails `Prelude.seq`
+              Prelude.rnf messageFormat `Prelude.seq`
+                Prelude.rnf noHexPrefix `Prelude.seq`
+                  Prelude.rnf partitionIncludeSchemaTable `Prelude.seq`
+                    Prelude.rnf serviceAccessRoleArn `Prelude.seq`
+                      Prelude.rnf streamArn
 
 instance Data.ToJSON KinesisSettings where
   toJSON KinesisSettings' {..} =

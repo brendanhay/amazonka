@@ -446,25 +446,25 @@ instance Prelude.Hashable PostgreSQLSettings where
 
 instance Prelude.NFData PostgreSQLSettings where
   rnf PostgreSQLSettings' {..} =
-    Prelude.rnf afterConnectScript
-      `Prelude.seq` Prelude.rnf captureDdls
-      `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf ddlArtifactsSchema
-      `Prelude.seq` Prelude.rnf executeTimeout
-      `Prelude.seq` Prelude.rnf failTasksOnLobTruncation
-      `Prelude.seq` Prelude.rnf heartbeatEnable
-      `Prelude.seq` Prelude.rnf heartbeatFrequency
-      `Prelude.seq` Prelude.rnf heartbeatSchema
-      `Prelude.seq` Prelude.rnf maxFileSize
-      `Prelude.seq` Prelude.rnf password
-      `Prelude.seq` Prelude.rnf pluginName
-      `Prelude.seq` Prelude.rnf port
-      `Prelude.seq` Prelude.rnf secretsManagerAccessRoleArn
-      `Prelude.seq` Prelude.rnf secretsManagerSecretId
-      `Prelude.seq` Prelude.rnf serverName
-      `Prelude.seq` Prelude.rnf slotName
-      `Prelude.seq` Prelude.rnf trimSpaceInChar
-      `Prelude.seq` Prelude.rnf username
+    Prelude.rnf afterConnectScript `Prelude.seq`
+      Prelude.rnf captureDdls `Prelude.seq`
+        Prelude.rnf databaseName `Prelude.seq`
+          Prelude.rnf ddlArtifactsSchema `Prelude.seq`
+            Prelude.rnf executeTimeout `Prelude.seq`
+              Prelude.rnf failTasksOnLobTruncation `Prelude.seq`
+                Prelude.rnf heartbeatEnable `Prelude.seq`
+                  Prelude.rnf heartbeatFrequency `Prelude.seq`
+                    Prelude.rnf heartbeatSchema `Prelude.seq`
+                      Prelude.rnf maxFileSize `Prelude.seq`
+                        Prelude.rnf password `Prelude.seq`
+                          Prelude.rnf pluginName `Prelude.seq`
+                            Prelude.rnf port `Prelude.seq`
+                              Prelude.rnf secretsManagerAccessRoleArn `Prelude.seq`
+                                Prelude.rnf secretsManagerSecretId `Prelude.seq`
+                                  Prelude.rnf serverName `Prelude.seq`
+                                    Prelude.rnf slotName `Prelude.seq`
+                                      Prelude.rnf trimSpaceInChar `Prelude.seq`
+                                        Prelude.rnf username
 
 instance Data.ToJSON PostgreSQLSettings where
   toJSON PostgreSQLSettings' {..} =

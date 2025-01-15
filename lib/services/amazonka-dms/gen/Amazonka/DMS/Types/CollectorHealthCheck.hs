@@ -110,7 +110,7 @@ instance Prelude.Hashable CollectorHealthCheck where
 
 instance Prelude.NFData CollectorHealthCheck where
   rnf CollectorHealthCheck' {..} =
-    Prelude.rnf collectorStatus
-      `Prelude.seq` Prelude.rnf localCollectorS3Access
-      `Prelude.seq` Prelude.rnf webCollectorGrantedRoleBasedAccess
-      `Prelude.seq` Prelude.rnf webCollectorS3Access
+    Prelude.rnf collectorStatus `Prelude.seq`
+      Prelude.rnf localCollectorS3Access `Prelude.seq`
+        Prelude.rnf webCollectorGrantedRoleBasedAccess `Prelude.seq`
+          Prelude.rnf webCollectorS3Access

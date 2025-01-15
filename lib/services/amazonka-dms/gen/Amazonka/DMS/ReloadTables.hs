@@ -142,9 +142,9 @@ instance Prelude.Hashable ReloadTables where
 
 instance Prelude.NFData ReloadTables where
   rnf ReloadTables' {..} =
-    Prelude.rnf reloadOption
-      `Prelude.seq` Prelude.rnf replicationTaskArn
-      `Prelude.seq` Prelude.rnf tablesToReload
+    Prelude.rnf reloadOption `Prelude.seq`
+      Prelude.rnf replicationTaskArn `Prelude.seq`
+        Prelude.rnf tablesToReload
 
 instance Data.ToHeaders ReloadTables where
   toHeaders =
@@ -220,5 +220,5 @@ reloadTablesResponse_httpStatus = Lens.lens (\ReloadTablesResponse' {httpStatus}
 
 instance Prelude.NFData ReloadTablesResponse where
   rnf ReloadTablesResponse' {..} =
-    Prelude.rnf replicationTaskArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf replicationTaskArn `Prelude.seq`
+      Prelude.rnf httpStatus

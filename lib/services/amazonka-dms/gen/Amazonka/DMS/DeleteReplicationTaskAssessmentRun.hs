@@ -215,5 +215,5 @@ instance
     DeleteReplicationTaskAssessmentRunResponse
   where
   rnf DeleteReplicationTaskAssessmentRunResponse' {..} =
-    Prelude.rnf replicationTaskAssessmentRun
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf replicationTaskAssessmentRun `Prelude.seq`
+      Prelude.rnf httpStatus

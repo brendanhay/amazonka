@@ -166,9 +166,9 @@ instance
     DescribeFleetAdvisorSchemaObjectSummary
   where
   rnf DescribeFleetAdvisorSchemaObjectSummary' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxRecords `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance
   Data.ToHeaders
@@ -278,6 +278,6 @@ instance
   where
   rnf
     DescribeFleetAdvisorSchemaObjectSummaryResponse' {..} =
-      Prelude.rnf fleetAdvisorSchemaObjects
-        `Prelude.seq` Prelude.rnf nextToken
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf fleetAdvisorSchemaObjects `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf httpStatus

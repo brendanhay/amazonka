@@ -186,13 +186,13 @@ instance Prelude.Hashable Certificate where
 
 instance Prelude.NFData Certificate where
   rnf Certificate' {..} =
-    Prelude.rnf certificateArn
-      `Prelude.seq` Prelude.rnf certificateCreationDate
-      `Prelude.seq` Prelude.rnf certificateIdentifier
-      `Prelude.seq` Prelude.rnf certificateOwner
-      `Prelude.seq` Prelude.rnf certificatePem
-      `Prelude.seq` Prelude.rnf certificateWallet
-      `Prelude.seq` Prelude.rnf keyLength
-      `Prelude.seq` Prelude.rnf signingAlgorithm
-      `Prelude.seq` Prelude.rnf validFromDate
-      `Prelude.seq` Prelude.rnf validToDate
+    Prelude.rnf certificateArn `Prelude.seq`
+      Prelude.rnf certificateCreationDate `Prelude.seq`
+        Prelude.rnf certificateIdentifier `Prelude.seq`
+          Prelude.rnf certificateOwner `Prelude.seq`
+            Prelude.rnf certificatePem `Prelude.seq`
+              Prelude.rnf certificateWallet `Prelude.seq`
+                Prelude.rnf keyLength `Prelude.seq`
+                  Prelude.rnf signingAlgorithm `Prelude.seq`
+                    Prelude.rnf validFromDate `Prelude.seq`
+                      Prelude.rnf validToDate

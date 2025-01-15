@@ -81,5 +81,5 @@ instance Prelude.Hashable CollectorShortInfoResponse where
 
 instance Prelude.NFData CollectorShortInfoResponse where
   rnf CollectorShortInfoResponse' {..} =
-    Prelude.rnf collectorName
-      `Prelude.seq` Prelude.rnf collectorReferencedId
+    Prelude.rnf collectorName `Prelude.seq`
+      Prelude.rnf collectorReferencedId

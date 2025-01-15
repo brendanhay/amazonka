@@ -136,12 +136,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeOrderableReplicationInstances_marker
-          Lens..~ rs
-          Lens.^? describeOrderableReplicationInstancesResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeOrderableReplicationInstances_marker
+              Lens..~ rs
+              Lens.^? describeOrderableReplicationInstancesResponse_marker
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -181,8 +181,8 @@ instance
     DescribeOrderableReplicationInstances
   where
   rnf DescribeOrderableReplicationInstances' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf maxRecords
 
 instance
   Data.ToHeaders
@@ -290,6 +290,6 @@ instance
   where
   rnf
     DescribeOrderableReplicationInstancesResponse' {..} =
-      Prelude.rnf marker
-        `Prelude.seq` Prelude.rnf orderableReplicationInstances
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf orderableReplicationInstances `Prelude.seq`
+          Prelude.rnf httpStatus

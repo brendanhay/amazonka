@@ -165,10 +165,10 @@ instance
 
 instance Prelude.NFData CreateReplicationSubnetGroup where
   rnf CreateReplicationSubnetGroup' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf replicationSubnetGroupIdentifier
-      `Prelude.seq` Prelude.rnf replicationSubnetGroupDescription
-      `Prelude.seq` Prelude.rnf subnetIds
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf replicationSubnetGroupIdentifier `Prelude.seq`
+        Prelude.rnf replicationSubnetGroupDescription `Prelude.seq`
+          Prelude.rnf subnetIds
 
 instance Data.ToHeaders CreateReplicationSubnetGroup where
   toHeaders =
@@ -254,5 +254,5 @@ instance
     CreateReplicationSubnetGroupResponse
   where
   rnf CreateReplicationSubnetGroupResponse' {..} =
-    Prelude.rnf replicationSubnetGroup
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf replicationSubnetGroup `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -224,16 +224,16 @@ instance Prelude.Hashable CollectorResponse where
 
 instance Prelude.NFData CollectorResponse where
   rnf CollectorResponse' {..} =
-    Prelude.rnf collectorHealthCheck
-      `Prelude.seq` Prelude.rnf collectorName
-      `Prelude.seq` Prelude.rnf collectorReferencedId
-      `Prelude.seq` Prelude.rnf collectorVersion
-      `Prelude.seq` Prelude.rnf createdDate
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf inventoryData
-      `Prelude.seq` Prelude.rnf lastDataReceived
-      `Prelude.seq` Prelude.rnf modifiedDate
-      `Prelude.seq` Prelude.rnf registeredDate
-      `Prelude.seq` Prelude.rnf s3BucketName
-      `Prelude.seq` Prelude.rnf serviceAccessRoleArn
-      `Prelude.seq` Prelude.rnf versionStatus
+    Prelude.rnf collectorHealthCheck `Prelude.seq`
+      Prelude.rnf collectorName `Prelude.seq`
+        Prelude.rnf collectorReferencedId `Prelude.seq`
+          Prelude.rnf collectorVersion `Prelude.seq`
+            Prelude.rnf createdDate `Prelude.seq`
+              Prelude.rnf description `Prelude.seq`
+                Prelude.rnf inventoryData `Prelude.seq`
+                  Prelude.rnf lastDataReceived `Prelude.seq`
+                    Prelude.rnf modifiedDate `Prelude.seq`
+                      Prelude.rnf registeredDate `Prelude.seq`
+                        Prelude.rnf s3BucketName `Prelude.seq`
+                          Prelude.rnf serviceAccessRoleArn `Prelude.seq`
+                            Prelude.rnf versionStatus

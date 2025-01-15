@@ -341,20 +341,20 @@ instance Prelude.Hashable MongoDbSettings where
 
 instance Prelude.NFData MongoDbSettings where
   rnf MongoDbSettings' {..} =
-    Prelude.rnf authMechanism
-      `Prelude.seq` Prelude.rnf authSource
-      `Prelude.seq` Prelude.rnf authType
-      `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf docsToInvestigate
-      `Prelude.seq` Prelude.rnf extractDocId
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf nestingLevel
-      `Prelude.seq` Prelude.rnf password
-      `Prelude.seq` Prelude.rnf port
-      `Prelude.seq` Prelude.rnf secretsManagerAccessRoleArn
-      `Prelude.seq` Prelude.rnf secretsManagerSecretId
-      `Prelude.seq` Prelude.rnf serverName
-      `Prelude.seq` Prelude.rnf username
+    Prelude.rnf authMechanism `Prelude.seq`
+      Prelude.rnf authSource `Prelude.seq`
+        Prelude.rnf authType `Prelude.seq`
+          Prelude.rnf databaseName `Prelude.seq`
+            Prelude.rnf docsToInvestigate `Prelude.seq`
+              Prelude.rnf extractDocId `Prelude.seq`
+                Prelude.rnf kmsKeyId `Prelude.seq`
+                  Prelude.rnf nestingLevel `Prelude.seq`
+                    Prelude.rnf password `Prelude.seq`
+                      Prelude.rnf port `Prelude.seq`
+                        Prelude.rnf secretsManagerAccessRoleArn `Prelude.seq`
+                          Prelude.rnf secretsManagerSecretId `Prelude.seq`
+                            Prelude.rnf serverName `Prelude.seq`
+                              Prelude.rnf username
 
 instance Data.ToJSON MongoDbSettings where
   toJSON MongoDbSettings' {..} =

@@ -186,13 +186,13 @@ instance Prelude.Hashable RedisSettings where
 
 instance Prelude.NFData RedisSettings where
   rnf RedisSettings' {..} =
-    Prelude.rnf authPassword
-      `Prelude.seq` Prelude.rnf authType
-      `Prelude.seq` Prelude.rnf authUserName
-      `Prelude.seq` Prelude.rnf sslCaCertificateArn
-      `Prelude.seq` Prelude.rnf sslSecurityProtocol
-      `Prelude.seq` Prelude.rnf serverName
-      `Prelude.seq` Prelude.rnf port
+    Prelude.rnf authPassword `Prelude.seq`
+      Prelude.rnf authType `Prelude.seq`
+        Prelude.rnf authUserName `Prelude.seq`
+          Prelude.rnf sslCaCertificateArn `Prelude.seq`
+            Prelude.rnf sslSecurityProtocol `Prelude.seq`
+              Prelude.rnf serverName `Prelude.seq`
+                Prelude.rnf port
 
 instance Data.ToJSON RedisSettings where
   toJSON RedisSettings' {..} =

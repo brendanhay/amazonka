@@ -174,12 +174,12 @@ instance Core.AWSPager DescribeTableStatistics where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeTableStatistics_marker
-          Lens..~ rs
-          Lens.^? describeTableStatisticsResponse_marker
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeTableStatistics_marker
+              Lens..~ rs
+              Lens.^? describeTableStatisticsResponse_marker
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeTableStatistics where
   type
@@ -210,10 +210,10 @@ instance Prelude.Hashable DescribeTableStatistics where
 
 instance Prelude.NFData DescribeTableStatistics where
   rnf DescribeTableStatistics' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf replicationTaskArn
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf marker `Prelude.seq`
+        Prelude.rnf maxRecords `Prelude.seq`
+          Prelude.rnf replicationTaskArn
 
 instance Data.ToHeaders DescribeTableStatistics where
   toHeaders =
@@ -318,7 +318,7 @@ instance
     DescribeTableStatisticsResponse
   where
   rnf DescribeTableStatisticsResponse' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf replicationTaskArn
-      `Prelude.seq` Prelude.rnf tableStatistics
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf marker `Prelude.seq`
+      Prelude.rnf replicationTaskArn `Prelude.seq`
+        Prelude.rnf tableStatistics `Prelude.seq`
+          Prelude.rnf httpStatus

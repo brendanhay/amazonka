@@ -167,9 +167,9 @@ instance
     DescribeFleetAdvisorCollectors
   where
   rnf DescribeFleetAdvisorCollectors' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxRecords `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance
   Data.ToHeaders
@@ -271,6 +271,6 @@ instance
     DescribeFleetAdvisorCollectorsResponse
   where
   rnf DescribeFleetAdvisorCollectorsResponse' {..} =
-    Prelude.rnf collectors
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf collectors `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

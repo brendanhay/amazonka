@@ -205,9 +205,9 @@ instance Prelude.Hashable DescribeFleetAdvisorSchemas where
 
 instance Prelude.NFData DescribeFleetAdvisorSchemas where
   rnf DescribeFleetAdvisorSchemas' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxRecords `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeFleetAdvisorSchemas where
   toHeaders =
@@ -302,6 +302,6 @@ instance
     DescribeFleetAdvisorSchemasResponse
   where
   rnf DescribeFleetAdvisorSchemasResponse' {..} =
-    Prelude.rnf fleetAdvisorSchemas
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf fleetAdvisorSchemas `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -145,8 +145,8 @@ instance Prelude.Hashable SupportedEndpointType where
 
 instance Prelude.NFData SupportedEndpointType where
   rnf SupportedEndpointType' {..} =
-    Prelude.rnf endpointType
-      `Prelude.seq` Prelude.rnf engineDisplayName
-      `Prelude.seq` Prelude.rnf engineName
-      `Prelude.seq` Prelude.rnf replicationInstanceEngineMinimumVersion
-      `Prelude.seq` Prelude.rnf supportsCDC
+    Prelude.rnf endpointType `Prelude.seq`
+      Prelude.rnf engineDisplayName `Prelude.seq`
+        Prelude.rnf engineName `Prelude.seq`
+          Prelude.rnf replicationInstanceEngineMinimumVersion `Prelude.seq`
+            Prelude.rnf supportsCDC

@@ -270,17 +270,17 @@ instance Prelude.Hashable DocDbSettings where
 
 instance Prelude.NFData DocDbSettings where
   rnf DocDbSettings' {..} =
-    Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf docsToInvestigate
-      `Prelude.seq` Prelude.rnf extractDocId
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf nestingLevel
-      `Prelude.seq` Prelude.rnf password
-      `Prelude.seq` Prelude.rnf port
-      `Prelude.seq` Prelude.rnf secretsManagerAccessRoleArn
-      `Prelude.seq` Prelude.rnf secretsManagerSecretId
-      `Prelude.seq` Prelude.rnf serverName
-      `Prelude.seq` Prelude.rnf username
+    Prelude.rnf databaseName `Prelude.seq`
+      Prelude.rnf docsToInvestigate `Prelude.seq`
+        Prelude.rnf extractDocId `Prelude.seq`
+          Prelude.rnf kmsKeyId `Prelude.seq`
+            Prelude.rnf nestingLevel `Prelude.seq`
+              Prelude.rnf password `Prelude.seq`
+                Prelude.rnf port `Prelude.seq`
+                  Prelude.rnf secretsManagerAccessRoleArn `Prelude.seq`
+                    Prelude.rnf secretsManagerSecretId `Prelude.seq`
+                      Prelude.rnf serverName `Prelude.seq`
+                        Prelude.rnf username
 
 instance Data.ToJSON DocDbSettings where
   toJSON DocDbSettings' {..} =

@@ -149,8 +149,8 @@ instance
     UpdateConfigurationSetEventDestination
   where
   rnf UpdateConfigurationSetEventDestination' {..} =
-    Prelude.rnf configurationSetName
-      `Prelude.seq` Prelude.rnf eventDestination
+    Prelude.rnf configurationSetName `Prelude.seq`
+      Prelude.rnf eventDestination
 
 instance
   Data.ToHeaders

@@ -199,12 +199,12 @@ instance Prelude.Hashable SendBounce where
 
 instance Prelude.NFData SendBounce where
   rnf SendBounce' {..} =
-    Prelude.rnf bounceSenderArn
-      `Prelude.seq` Prelude.rnf explanation
-      `Prelude.seq` Prelude.rnf messageDsn
-      `Prelude.seq` Prelude.rnf originalMessageId
-      `Prelude.seq` Prelude.rnf bounceSender
-      `Prelude.seq` Prelude.rnf bouncedRecipientInfoList
+    Prelude.rnf bounceSenderArn `Prelude.seq`
+      Prelude.rnf explanation `Prelude.seq`
+        Prelude.rnf messageDsn `Prelude.seq`
+          Prelude.rnf originalMessageId `Prelude.seq`
+            Prelude.rnf bounceSender `Prelude.seq`
+              Prelude.rnf bouncedRecipientInfoList
 
 instance Data.ToHeaders SendBounce where
   toHeaders = Prelude.const Prelude.mempty
@@ -270,5 +270,5 @@ sendBounceResponse_httpStatus = Lens.lens (\SendBounceResponse' {httpStatus} -> 
 
 instance Prelude.NFData SendBounceResponse where
   rnf SendBounceResponse' {..} =
-    Prelude.rnf messageId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf messageId `Prelude.seq`
+      Prelude.rnf httpStatus

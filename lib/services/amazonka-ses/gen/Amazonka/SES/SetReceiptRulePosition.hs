@@ -136,9 +136,9 @@ instance Prelude.Hashable SetReceiptRulePosition where
 
 instance Prelude.NFData SetReceiptRulePosition where
   rnf SetReceiptRulePosition' {..} =
-    Prelude.rnf after
-      `Prelude.seq` Prelude.rnf ruleSetName
-      `Prelude.seq` Prelude.rnf ruleName
+    Prelude.rnf after `Prelude.seq`
+      Prelude.rnf ruleSetName `Prelude.seq`
+        Prelude.rnf ruleName
 
 instance Data.ToHeaders SetReceiptRulePosition where
   toHeaders = Prelude.const Prelude.mempty

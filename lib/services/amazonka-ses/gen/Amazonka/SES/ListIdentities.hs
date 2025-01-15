@@ -126,12 +126,12 @@ instance Core.AWSPager ListIdentities where
         (rs Lens.^. listIdentitiesResponse_identities) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listIdentities_nextToken
-          Lens..~ rs
-          Lens.^? listIdentitiesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listIdentities_nextToken
+              Lens..~ rs
+              Lens.^? listIdentitiesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListIdentities where
   type
@@ -146,9 +146,7 @@ instance Core.AWSRequest ListIdentities where
           ListIdentitiesResponse'
             Prelude.<$> (x Data..@? "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x
-                            Data..@? "Identities"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "Identities" Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLList "member"
                         )
       )
@@ -162,9 +160,9 @@ instance Prelude.Hashable ListIdentities where
 
 instance Prelude.NFData ListIdentities where
   rnf ListIdentities' {..} =
-    Prelude.rnf identityType
-      `Prelude.seq` Prelude.rnf maxItems
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf identityType `Prelude.seq`
+      Prelude.rnf maxItems `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListIdentities where
   toHeaders = Prelude.const Prelude.mempty
@@ -237,6 +235,6 @@ listIdentitiesResponse_identities = Lens.lens (\ListIdentitiesResponse' {identit
 
 instance Prelude.NFData ListIdentitiesResponse where
   rnf ListIdentitiesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf identities
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf identities

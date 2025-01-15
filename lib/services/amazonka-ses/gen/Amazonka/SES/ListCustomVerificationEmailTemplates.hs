@@ -132,12 +132,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listCustomVerificationEmailTemplates_nextToken
-          Lens..~ rs
-          Lens.^? listCustomVerificationEmailTemplatesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listCustomVerificationEmailTemplates_nextToken
+              Lens..~ rs
+              Lens.^? listCustomVerificationEmailTemplatesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -178,8 +178,8 @@ instance
     ListCustomVerificationEmailTemplates
   where
   rnf ListCustomVerificationEmailTemplates' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance
   Data.ToHeaders
@@ -277,6 +277,6 @@ instance
     ListCustomVerificationEmailTemplatesResponse
   where
   rnf ListCustomVerificationEmailTemplatesResponse' {..} =
-    Prelude.rnf customVerificationEmailTemplates
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf customVerificationEmailTemplates `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -242,10 +242,10 @@ instance Prelude.Hashable S3Action where
 
 instance Prelude.NFData S3Action where
   rnf S3Action' {..} =
-    Prelude.rnf kmsKeyArn
-      `Prelude.seq` Prelude.rnf objectKeyPrefix
-      `Prelude.seq` Prelude.rnf topicArn
-      `Prelude.seq` Prelude.rnf bucketName
+    Prelude.rnf kmsKeyArn `Prelude.seq`
+      Prelude.rnf objectKeyPrefix `Prelude.seq`
+        Prelude.rnf topicArn `Prelude.seq`
+          Prelude.rnf bucketName
 
 instance Data.ToQuery S3Action where
   toQuery S3Action' {..} =

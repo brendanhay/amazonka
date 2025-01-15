@@ -77,5 +77,5 @@ instance Prelude.Hashable TemplateMetadata where
 
 instance Prelude.NFData TemplateMetadata where
   rnf TemplateMetadata' {..} =
-    Prelude.rnf createdTimestamp
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf createdTimestamp `Prelude.seq`
+      Prelude.rnf name

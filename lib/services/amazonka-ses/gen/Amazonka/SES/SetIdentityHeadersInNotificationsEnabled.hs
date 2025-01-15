@@ -178,9 +178,9 @@ instance
     SetIdentityHeadersInNotificationsEnabled
   where
   rnf SetIdentityHeadersInNotificationsEnabled' {..} =
-    Prelude.rnf identity
-      `Prelude.seq` Prelude.rnf notificationType
-      `Prelude.seq` Prelude.rnf enabled
+    Prelude.rnf identity `Prelude.seq`
+      Prelude.rnf notificationType `Prelude.seq`
+        Prelude.rnf enabled
 
 instance
   Data.ToHeaders

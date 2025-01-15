@@ -129,8 +129,8 @@ instance
     UpdateConfigurationSetSendingEnabled
   where
   rnf UpdateConfigurationSetSendingEnabled' {..} =
-    Prelude.rnf configurationSetName
-      `Prelude.seq` Prelude.rnf enabled
+    Prelude.rnf configurationSetName `Prelude.seq`
+      Prelude.rnf enabled
 
 instance
   Data.ToHeaders

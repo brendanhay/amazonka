@@ -412,15 +412,15 @@ instance Prelude.Hashable SendEmail where
 
 instance Prelude.NFData SendEmail where
   rnf SendEmail' {..} =
-    Prelude.rnf configurationSetName
-      `Prelude.seq` Prelude.rnf replyToAddresses
-      `Prelude.seq` Prelude.rnf returnPath
-      `Prelude.seq` Prelude.rnf returnPathArn
-      `Prelude.seq` Prelude.rnf sourceArn
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf destination
-      `Prelude.seq` Prelude.rnf message
+    Prelude.rnf configurationSetName `Prelude.seq`
+      Prelude.rnf replyToAddresses `Prelude.seq`
+        Prelude.rnf returnPath `Prelude.seq`
+          Prelude.rnf returnPathArn `Prelude.seq`
+            Prelude.rnf sourceArn `Prelude.seq`
+              Prelude.rnf tags `Prelude.seq`
+                Prelude.rnf source `Prelude.seq`
+                  Prelude.rnf destination `Prelude.seq`
+                    Prelude.rnf message
 
 instance Data.ToHeaders SendEmail where
   toHeaders = Prelude.const Prelude.mempty
@@ -496,5 +496,5 @@ sendEmailResponse_messageId = Lens.lens (\SendEmailResponse' {messageId} -> mess
 
 instance Prelude.NFData SendEmailResponse where
   rnf SendEmailResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf messageId
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf messageId

@@ -74,9 +74,7 @@ instance Core.AWSRequest GetSendStatistics where
       "GetSendStatisticsResult"
       ( \s h x ->
           GetSendStatisticsResponse'
-            Prelude.<$> ( x
-                            Data..@? "SendDataPoints"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "SendDataPoints" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -150,5 +148,5 @@ getSendStatisticsResponse_httpStatus = Lens.lens (\GetSendStatisticsResponse' {h
 
 instance Prelude.NFData GetSendStatisticsResponse where
   rnf GetSendStatisticsResponse' {..} =
-    Prelude.rnf sendDataPoints
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf sendDataPoints `Prelude.seq`
+      Prelude.rnf httpStatus

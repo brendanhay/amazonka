@@ -141,9 +141,7 @@ instance Core.AWSRequest GetIdentityPolicies where
       ( \s h x ->
           GetIdentityPoliciesResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x
-                            Data..@? "Policies"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "Policies" Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLMap "entry" "key" "value"
                         )
       )
@@ -156,8 +154,8 @@ instance Prelude.Hashable GetIdentityPolicies where
 
 instance Prelude.NFData GetIdentityPolicies where
   rnf GetIdentityPolicies' {..} =
-    Prelude.rnf identity
-      `Prelude.seq` Prelude.rnf policyNames
+    Prelude.rnf identity `Prelude.seq`
+      Prelude.rnf policyNames
 
 instance Data.ToHeaders GetIdentityPolicies where
   toHeaders = Prelude.const Prelude.mempty
@@ -220,5 +218,5 @@ getIdentityPoliciesResponse_policies = Lens.lens (\GetIdentityPoliciesResponse' 
 
 instance Prelude.NFData GetIdentityPoliciesResponse where
   rnf GetIdentityPoliciesResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf policies
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf policies

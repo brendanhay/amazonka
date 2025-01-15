@@ -80,9 +80,7 @@ instance Core.AWSRequest ListReceiptFilters where
       "ListReceiptFiltersResult"
       ( \s h x ->
           ListReceiptFiltersResponse'
-            Prelude.<$> ( x
-                            Data..@? "Filters"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "Filters" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -158,5 +156,5 @@ listReceiptFiltersResponse_httpStatus = Lens.lens (\ListReceiptFiltersResponse' 
 
 instance Prelude.NFData ListReceiptFiltersResponse where
   rnf ListReceiptFiltersResponse' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf httpStatus

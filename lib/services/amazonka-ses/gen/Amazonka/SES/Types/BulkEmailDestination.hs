@@ -100,9 +100,9 @@ instance Prelude.Hashable BulkEmailDestination where
 
 instance Prelude.NFData BulkEmailDestination where
   rnf BulkEmailDestination' {..} =
-    Prelude.rnf replacementTags
-      `Prelude.seq` Prelude.rnf replacementTemplateData
-      `Prelude.seq` Prelude.rnf destination
+    Prelude.rnf replacementTags `Prelude.seq`
+      Prelude.rnf replacementTemplateData `Prelude.seq`
+        Prelude.rnf destination
 
 instance Data.ToQuery BulkEmailDestination where
   toQuery BulkEmailDestination' {..} =

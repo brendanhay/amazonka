@@ -189,12 +189,12 @@ instance
     UpdateCustomVerificationEmailTemplate
   where
   rnf UpdateCustomVerificationEmailTemplate' {..} =
-    Prelude.rnf failureRedirectionURL
-      `Prelude.seq` Prelude.rnf fromEmailAddress
-      `Prelude.seq` Prelude.rnf successRedirectionURL
-      `Prelude.seq` Prelude.rnf templateContent
-      `Prelude.seq` Prelude.rnf templateSubject
-      `Prelude.seq` Prelude.rnf templateName
+    Prelude.rnf failureRedirectionURL `Prelude.seq`
+      Prelude.rnf fromEmailAddress `Prelude.seq`
+        Prelude.rnf successRedirectionURL `Prelude.seq`
+          Prelude.rnf templateContent `Prelude.seq`
+            Prelude.rnf templateSubject `Prelude.seq`
+              Prelude.rnf templateName
 
 instance
   Data.ToHeaders

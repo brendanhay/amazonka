@@ -160,15 +160,11 @@ receiptRule_name = Lens.lens (\ReceiptRule' {name} -> name) (\s@ReceiptRule' {} 
 instance Data.FromXML ReceiptRule where
   parseXML x =
     ReceiptRule'
-      Prelude.<$> ( x
-                      Data..@? "Actions"
-                      Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "Actions" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "Enabled")
-      Prelude.<*> ( x
-                      Data..@? "Recipients"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "Recipients" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "ScanEnabled")
@@ -187,12 +183,12 @@ instance Prelude.Hashable ReceiptRule where
 
 instance Prelude.NFData ReceiptRule where
   rnf ReceiptRule' {..} =
-    Prelude.rnf actions
-      `Prelude.seq` Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf recipients
-      `Prelude.seq` Prelude.rnf scanEnabled
-      `Prelude.seq` Prelude.rnf tlsPolicy
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf actions `Prelude.seq`
+      Prelude.rnf enabled `Prelude.seq`
+        Prelude.rnf recipients `Prelude.seq`
+          Prelude.rnf scanEnabled `Prelude.seq`
+            Prelude.rnf tlsPolicy `Prelude.seq`
+              Prelude.rnf name
 
 instance Data.ToQuery ReceiptRule where
   toQuery ReceiptRule' {..} =

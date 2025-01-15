@@ -214,10 +214,10 @@ instance
     IdentityNotificationAttributes
   where
   rnf IdentityNotificationAttributes' {..} =
-    Prelude.rnf headersInBounceNotificationsEnabled
-      `Prelude.seq` Prelude.rnf headersInComplaintNotificationsEnabled
-      `Prelude.seq` Prelude.rnf headersInDeliveryNotificationsEnabled
-      `Prelude.seq` Prelude.rnf bounceTopic
-      `Prelude.seq` Prelude.rnf complaintTopic
-      `Prelude.seq` Prelude.rnf deliveryTopic
-      `Prelude.seq` Prelude.rnf forwardingEnabled
+    Prelude.rnf headersInBounceNotificationsEnabled `Prelude.seq`
+      Prelude.rnf headersInComplaintNotificationsEnabled `Prelude.seq`
+        Prelude.rnf headersInDeliveryNotificationsEnabled `Prelude.seq`
+          Prelude.rnf bounceTopic `Prelude.seq`
+            Prelude.rnf complaintTopic `Prelude.seq`
+              Prelude.rnf deliveryTopic `Prelude.seq`
+                Prelude.rnf forwardingEnabled

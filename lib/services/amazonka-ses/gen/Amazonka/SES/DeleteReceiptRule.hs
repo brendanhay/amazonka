@@ -121,8 +121,8 @@ instance Prelude.Hashable DeleteReceiptRule where
 
 instance Prelude.NFData DeleteReceiptRule where
   rnf DeleteReceiptRule' {..} =
-    Prelude.rnf ruleSetName
-      `Prelude.seq` Prelude.rnf ruleName
+    Prelude.rnf ruleSetName `Prelude.seq`
+      Prelude.rnf ruleName
 
 instance Data.ToHeaders DeleteReceiptRule where
   toHeaders = Prelude.const Prelude.mempty

@@ -198,5 +198,5 @@ instance
     GetIdentityMailFromDomainAttributesResponse
   where
   rnf GetIdentityMailFromDomainAttributesResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf mailFromDomainAttributes
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf mailFromDomainAttributes

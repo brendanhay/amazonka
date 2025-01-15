@@ -142,9 +142,9 @@ instance Prelude.Hashable SendCustomVerificationEmail where
 
 instance Prelude.NFData SendCustomVerificationEmail where
   rnf SendCustomVerificationEmail' {..} =
-    Prelude.rnf configurationSetName
-      `Prelude.seq` Prelude.rnf emailAddress
-      `Prelude.seq` Prelude.rnf templateName
+    Prelude.rnf configurationSetName `Prelude.seq`
+      Prelude.rnf emailAddress `Prelude.seq`
+        Prelude.rnf templateName
 
 instance Data.ToHeaders SendCustomVerificationEmail where
   toHeaders = Prelude.const Prelude.mempty
@@ -216,5 +216,5 @@ instance
     SendCustomVerificationEmailResponse
   where
   rnf SendCustomVerificationEmailResponse' {..} =
-    Prelude.rnf messageId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf messageId `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -434,9 +434,7 @@ instance Core.AWSRequest SendBulkTemplatedEmail where
       ( \s h x ->
           SendBulkTemplatedEmailResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x
-                            Data..@? "Status"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "Status" Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLList "member"
                         )
       )
@@ -458,17 +456,17 @@ instance Prelude.Hashable SendBulkTemplatedEmail where
 
 instance Prelude.NFData SendBulkTemplatedEmail where
   rnf SendBulkTemplatedEmail' {..} =
-    Prelude.rnf configurationSetName
-      `Prelude.seq` Prelude.rnf defaultTags
-      `Prelude.seq` Prelude.rnf defaultTemplateData
-      `Prelude.seq` Prelude.rnf replyToAddresses
-      `Prelude.seq` Prelude.rnf returnPath
-      `Prelude.seq` Prelude.rnf returnPathArn
-      `Prelude.seq` Prelude.rnf sourceArn
-      `Prelude.seq` Prelude.rnf templateArn
-      `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf template
-      `Prelude.seq` Prelude.rnf destinations
+    Prelude.rnf configurationSetName `Prelude.seq`
+      Prelude.rnf defaultTags `Prelude.seq`
+        Prelude.rnf defaultTemplateData `Prelude.seq`
+          Prelude.rnf replyToAddresses `Prelude.seq`
+            Prelude.rnf returnPath `Prelude.seq`
+              Prelude.rnf returnPathArn `Prelude.seq`
+                Prelude.rnf sourceArn `Prelude.seq`
+                  Prelude.rnf templateArn `Prelude.seq`
+                    Prelude.rnf source `Prelude.seq`
+                      Prelude.rnf template `Prelude.seq`
+                        Prelude.rnf destinations
 
 instance Data.ToHeaders SendBulkTemplatedEmail where
   toHeaders = Prelude.const Prelude.mempty
@@ -550,5 +548,5 @@ instance
     SendBulkTemplatedEmailResponse
   where
   rnf SendBulkTemplatedEmailResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf status

@@ -131,8 +131,8 @@ instance Prelude.Hashable DescribeConfigurationSet where
 
 instance Prelude.NFData DescribeConfigurationSet where
   rnf DescribeConfigurationSet' {..} =
-    Prelude.rnf configurationSetAttributeNames
-      `Prelude.seq` Prelude.rnf configurationSetName
+    Prelude.rnf configurationSetAttributeNames `Prelude.seq`
+      Prelude.rnf configurationSetName
 
 instance Data.ToHeaders DescribeConfigurationSet where
   toHeaders = Prelude.const Prelude.mempty
@@ -248,9 +248,9 @@ instance
     DescribeConfigurationSetResponse
   where
   rnf DescribeConfigurationSetResponse' {..} =
-    Prelude.rnf configurationSet
-      `Prelude.seq` Prelude.rnf deliveryOptions
-      `Prelude.seq` Prelude.rnf eventDestinations
-      `Prelude.seq` Prelude.rnf reputationOptions
-      `Prelude.seq` Prelude.rnf trackingOptions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf configurationSet `Prelude.seq`
+      Prelude.rnf deliveryOptions `Prelude.seq`
+        Prelude.rnf eventDestinations `Prelude.seq`
+          Prelude.rnf reputationOptions `Prelude.seq`
+            Prelude.rnf trackingOptions `Prelude.seq`
+              Prelude.rnf httpStatus

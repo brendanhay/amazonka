@@ -129,8 +129,8 @@ instance
     PutConfigurationSetDeliveryOptions
   where
   rnf PutConfigurationSetDeliveryOptions' {..} =
-    Prelude.rnf deliveryOptions
-      `Prelude.seq` Prelude.rnf configurationSetName
+    Prelude.rnf deliveryOptions `Prelude.seq`
+      Prelude.rnf configurationSetName
 
 instance
   Data.ToHeaders

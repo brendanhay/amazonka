@@ -463,17 +463,17 @@ instance Prelude.Hashable SendTemplatedEmail where
 
 instance Prelude.NFData SendTemplatedEmail where
   rnf SendTemplatedEmail' {..} =
-    Prelude.rnf configurationSetName
-      `Prelude.seq` Prelude.rnf replyToAddresses
-      `Prelude.seq` Prelude.rnf returnPath
-      `Prelude.seq` Prelude.rnf returnPathArn
-      `Prelude.seq` Prelude.rnf sourceArn
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf templateArn
-      `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf destination
-      `Prelude.seq` Prelude.rnf template
-      `Prelude.seq` Prelude.rnf templateData
+    Prelude.rnf configurationSetName `Prelude.seq`
+      Prelude.rnf replyToAddresses `Prelude.seq`
+        Prelude.rnf returnPath `Prelude.seq`
+          Prelude.rnf returnPathArn `Prelude.seq`
+            Prelude.rnf sourceArn `Prelude.seq`
+              Prelude.rnf tags `Prelude.seq`
+                Prelude.rnf templateArn `Prelude.seq`
+                  Prelude.rnf source `Prelude.seq`
+                    Prelude.rnf destination `Prelude.seq`
+                      Prelude.rnf template `Prelude.seq`
+                        Prelude.rnf templateData
 
 instance Data.ToHeaders SendTemplatedEmail where
   toHeaders = Prelude.const Prelude.mempty
@@ -555,5 +555,5 @@ sendTemplatedEmailResponse_messageId = Lens.lens (\SendTemplatedEmailResponse' {
 
 instance Prelude.NFData SendTemplatedEmailResponse where
   rnf SendTemplatedEmailResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf messageId
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf messageId

@@ -142,11 +142,11 @@ instance Prelude.Hashable BounceAction where
 
 instance Prelude.NFData BounceAction where
   rnf BounceAction' {..} =
-    Prelude.rnf statusCode
-      `Prelude.seq` Prelude.rnf topicArn
-      `Prelude.seq` Prelude.rnf smtpReplyCode
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf sender
+    Prelude.rnf statusCode `Prelude.seq`
+      Prelude.rnf topicArn `Prelude.seq`
+        Prelude.rnf smtpReplyCode `Prelude.seq`
+          Prelude.rnf message `Prelude.seq`
+            Prelude.rnf sender
 
 instance Data.ToQuery BounceAction where
   toQuery BounceAction' {..} =

@@ -152,6 +152,6 @@ instance
     IdentityMailFromDomainAttributes
   where
   rnf IdentityMailFromDomainAttributes' {..} =
-    Prelude.rnf mailFromDomain
-      `Prelude.seq` Prelude.rnf mailFromDomainStatus
-      `Prelude.seq` Prelude.rnf behaviorOnMXFailure
+    Prelude.rnf mailFromDomain `Prelude.seq`
+      Prelude.rnf mailFromDomainStatus `Prelude.seq`
+        Prelude.rnf behaviorOnMXFailure

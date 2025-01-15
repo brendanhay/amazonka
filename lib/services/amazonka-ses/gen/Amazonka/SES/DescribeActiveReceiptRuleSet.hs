@@ -83,9 +83,7 @@ instance Core.AWSRequest DescribeActiveReceiptRuleSet where
       ( \s h x ->
           DescribeActiveReceiptRuleSetResponse'
             Prelude.<$> (x Data..@? "Metadata")
-            Prelude.<*> ( x
-                            Data..@? "Rules"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "Rules" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -182,6 +180,6 @@ instance
     DescribeActiveReceiptRuleSetResponse
   where
   rnf DescribeActiveReceiptRuleSetResponse' {..} =
-    Prelude.rnf metadata
-      `Prelude.seq` Prelude.rnf rules
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf metadata `Prelude.seq`
+      Prelude.rnf rules `Prelude.seq`
+        Prelude.rnf httpStatus

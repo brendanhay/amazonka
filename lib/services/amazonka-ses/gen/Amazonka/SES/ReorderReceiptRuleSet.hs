@@ -124,8 +124,8 @@ instance Prelude.Hashable ReorderReceiptRuleSet where
 
 instance Prelude.NFData ReorderReceiptRuleSet where
   rnf ReorderReceiptRuleSet' {..} =
-    Prelude.rnf ruleSetName
-      `Prelude.seq` Prelude.rnf ruleNames
+    Prelude.rnf ruleSetName `Prelude.seq`
+      Prelude.rnf ruleNames
 
 instance Data.ToHeaders ReorderReceiptRuleSet where
   toHeaders = Prelude.const Prelude.mempty

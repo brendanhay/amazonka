@@ -100,8 +100,8 @@ instance Prelude.Hashable DeleteModel where
 
 instance Prelude.NFData DeleteModel where
   rnf DeleteModel' {..} =
-    Prelude.rnf restApiId
-      `Prelude.seq` Prelude.rnf modelName
+    Prelude.rnf restApiId `Prelude.seq`
+      Prelude.rnf modelName
 
 instance Data.ToHeaders DeleteModel where
   toHeaders =

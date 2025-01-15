@@ -122,9 +122,9 @@ instance Prelude.Hashable CreateResource where
 
 instance Prelude.NFData CreateResource where
   rnf CreateResource' {..} =
-    Prelude.rnf restApiId
-      `Prelude.seq` Prelude.rnf parentId
-      `Prelude.seq` Prelude.rnf pathPart
+    Prelude.rnf restApiId `Prelude.seq`
+      Prelude.rnf parentId `Prelude.seq`
+        Prelude.rnf pathPart
 
 instance Data.ToHeaders CreateResource where
   toHeaders =

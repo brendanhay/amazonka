@@ -95,8 +95,8 @@ instance
 
 instance Prelude.NFData MutualTlsAuthenticationInput where
   rnf MutualTlsAuthenticationInput' {..} =
-    Prelude.rnf truststoreUri
-      `Prelude.seq` Prelude.rnf truststoreVersion
+    Prelude.rnf truststoreUri `Prelude.seq`
+      Prelude.rnf truststoreVersion
 
 instance Data.ToJSON MutualTlsAuthenticationInput where
   toJSON MutualTlsAuthenticationInput' {..} =

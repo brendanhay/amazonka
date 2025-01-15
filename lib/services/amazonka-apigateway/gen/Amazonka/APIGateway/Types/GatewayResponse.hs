@@ -136,8 +136,8 @@ instance Prelude.Hashable GatewayResponse where
 
 instance Prelude.NFData GatewayResponse where
   rnf GatewayResponse' {..} =
-    Prelude.rnf defaultResponse
-      `Prelude.seq` Prelude.rnf responseParameters
-      `Prelude.seq` Prelude.rnf responseTemplates
-      `Prelude.seq` Prelude.rnf responseType
-      `Prelude.seq` Prelude.rnf statusCode
+    Prelude.rnf defaultResponse `Prelude.seq`
+      Prelude.rnf responseParameters `Prelude.seq`
+        Prelude.rnf responseTemplates `Prelude.seq`
+          Prelude.rnf responseType `Prelude.seq`
+            Prelude.rnf statusCode

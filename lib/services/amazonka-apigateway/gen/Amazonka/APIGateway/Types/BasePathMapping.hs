@@ -95,6 +95,6 @@ instance Prelude.Hashable BasePathMapping where
 
 instance Prelude.NFData BasePathMapping where
   rnf BasePathMapping' {..} =
-    Prelude.rnf basePath
-      `Prelude.seq` Prelude.rnf restApiId
-      `Prelude.seq` Prelude.rnf stage
+    Prelude.rnf basePath `Prelude.seq`
+      Prelude.rnf restApiId `Prelude.seq`
+        Prelude.rnf stage

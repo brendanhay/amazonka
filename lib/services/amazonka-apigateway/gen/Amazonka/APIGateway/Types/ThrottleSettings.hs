@@ -83,8 +83,8 @@ instance Prelude.Hashable ThrottleSettings where
 
 instance Prelude.NFData ThrottleSettings where
   rnf ThrottleSettings' {..} =
-    Prelude.rnf burstLimit
-      `Prelude.seq` Prelude.rnf rateLimit
+    Prelude.rnf burstLimit `Prelude.seq`
+      Prelude.rnf rateLimit
 
 instance Data.ToJSON ThrottleSettings where
   toJSON ThrottleSettings' {..} =

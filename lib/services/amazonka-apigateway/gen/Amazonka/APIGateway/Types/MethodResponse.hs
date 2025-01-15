@@ -142,6 +142,6 @@ instance Prelude.Hashable MethodResponse where
 
 instance Prelude.NFData MethodResponse where
   rnf MethodResponse' {..} =
-    Prelude.rnf responseModels
-      `Prelude.seq` Prelude.rnf responseParameters
-      `Prelude.seq` Prelude.rnf statusCode
+    Prelude.rnf responseModels `Prelude.seq`
+      Prelude.rnf responseParameters `Prelude.seq`
+        Prelude.rnf statusCode

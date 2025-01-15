@@ -121,8 +121,8 @@ instance Prelude.Hashable GetStage where
 
 instance Prelude.NFData GetStage where
   rnf GetStage' {..} =
-    Prelude.rnf restApiId
-      `Prelude.seq` Prelude.rnf stageName
+    Prelude.rnf restApiId `Prelude.seq`
+      Prelude.rnf stageName
 
 instance Data.ToHeaders GetStage where
   toHeaders =

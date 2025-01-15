@@ -119,12 +119,12 @@ instance Core.AWSPager GetDocumentationVersions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getDocumentationVersions_position
-          Lens..~ rs
-          Lens.^? getDocumentationVersionsResponse_position
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getDocumentationVersions_position
+              Lens..~ rs
+              Lens.^? getDocumentationVersionsResponse_position
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetDocumentationVersions where
   type
@@ -150,9 +150,9 @@ instance Prelude.Hashable GetDocumentationVersions where
 
 instance Prelude.NFData GetDocumentationVersions where
   rnf GetDocumentationVersions' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf position
-      `Prelude.seq` Prelude.rnf restApiId
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf position `Prelude.seq`
+        Prelude.rnf restApiId
 
 instance Data.ToHeaders GetDocumentationVersions where
   toHeaders =
@@ -230,6 +230,6 @@ instance
     GetDocumentationVersionsResponse
   where
   rnf GetDocumentationVersionsResponse' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf position
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf items `Prelude.seq`
+      Prelude.rnf position `Prelude.seq`
+        Prelude.rnf httpStatus

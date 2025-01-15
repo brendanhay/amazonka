@@ -146,10 +146,10 @@ instance Prelude.Hashable CreateBasePathMapping where
 
 instance Prelude.NFData CreateBasePathMapping where
   rnf CreateBasePathMapping' {..} =
-    Prelude.rnf basePath
-      `Prelude.seq` Prelude.rnf stage
-      `Prelude.seq` Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf restApiId
+    Prelude.rnf basePath `Prelude.seq`
+      Prelude.rnf stage `Prelude.seq`
+        Prelude.rnf domainName `Prelude.seq`
+          Prelude.rnf restApiId
 
 instance Data.ToHeaders CreateBasePathMapping where
   toHeaders =

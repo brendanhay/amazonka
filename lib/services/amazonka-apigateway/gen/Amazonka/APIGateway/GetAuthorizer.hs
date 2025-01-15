@@ -114,8 +114,8 @@ instance Prelude.Hashable GetAuthorizer where
 
 instance Prelude.NFData GetAuthorizer where
   rnf GetAuthorizer' {..} =
-    Prelude.rnf restApiId
-      `Prelude.seq` Prelude.rnf authorizerId
+    Prelude.rnf restApiId `Prelude.seq`
+      Prelude.rnf authorizerId
 
 instance Data.ToHeaders GetAuthorizer where
   toHeaders =

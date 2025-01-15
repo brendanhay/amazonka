@@ -109,12 +109,12 @@ instance Core.AWSPager GetVpcLinks where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getVpcLinks_position
-          Lens..~ rs
-          Lens.^? getVpcLinksResponse_position
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getVpcLinks_position
+              Lens..~ rs
+              Lens.^? getVpcLinksResponse_position
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetVpcLinks where
   type AWSResponse GetVpcLinks = GetVpcLinksResponse
@@ -137,8 +137,8 @@ instance Prelude.Hashable GetVpcLinks where
 
 instance Prelude.NFData GetVpcLinks where
   rnf GetVpcLinks' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf position
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf position
 
 instance Data.ToHeaders GetVpcLinks where
   toHeaders =
@@ -207,6 +207,6 @@ getVpcLinksResponse_httpStatus = Lens.lens (\GetVpcLinksResponse' {httpStatus} -
 
 instance Prelude.NFData GetVpcLinksResponse where
   rnf GetVpcLinksResponse' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf position
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf items `Prelude.seq`
+      Prelude.rnf position `Prelude.seq`
+        Prelude.rnf httpStatus

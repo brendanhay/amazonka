@@ -178,11 +178,11 @@ instance Prelude.Hashable PutRestApi where
 
 instance Prelude.NFData PutRestApi where
   rnf PutRestApi' {..} =
-    Prelude.rnf failOnWarnings
-      `Prelude.seq` Prelude.rnf mode
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf restApiId
-      `Prelude.seq` Prelude.rnf body
+    Prelude.rnf failOnWarnings `Prelude.seq`
+      Prelude.rnf mode `Prelude.seq`
+        Prelude.rnf parameters `Prelude.seq`
+          Prelude.rnf restApiId `Prelude.seq`
+            Prelude.rnf body
 
 instance Data.ToBody PutRestApi where
   toBody PutRestApi' {..} = Data.toBody body

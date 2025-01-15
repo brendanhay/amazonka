@@ -108,12 +108,12 @@ instance Core.AWSPager GetClientCertificates where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getClientCertificates_position
-          Lens..~ rs
-          Lens.^? getClientCertificatesResponse_position
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getClientCertificates_position
+              Lens..~ rs
+              Lens.^? getClientCertificatesResponse_position
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetClientCertificates where
   type
@@ -138,8 +138,8 @@ instance Prelude.Hashable GetClientCertificates where
 
 instance Prelude.NFData GetClientCertificates where
   rnf GetClientCertificates' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf position
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf position
 
 instance Data.ToHeaders GetClientCertificates where
   toHeaders =
@@ -209,6 +209,6 @@ getClientCertificatesResponse_httpStatus = Lens.lens (\GetClientCertificatesResp
 
 instance Prelude.NFData GetClientCertificatesResponse where
   rnf GetClientCertificatesResponse' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf position
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf items `Prelude.seq`
+      Prelude.rnf position `Prelude.seq`
+        Prelude.rnf httpStatus

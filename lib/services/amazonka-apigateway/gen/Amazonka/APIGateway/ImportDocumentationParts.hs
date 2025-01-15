@@ -153,10 +153,10 @@ instance Prelude.Hashable ImportDocumentationParts where
 
 instance Prelude.NFData ImportDocumentationParts where
   rnf ImportDocumentationParts' {..} =
-    Prelude.rnf failOnWarnings
-      `Prelude.seq` Prelude.rnf mode
-      `Prelude.seq` Prelude.rnf restApiId
-      `Prelude.seq` Prelude.rnf body
+    Prelude.rnf failOnWarnings `Prelude.seq`
+      Prelude.rnf mode `Prelude.seq`
+        Prelude.rnf restApiId `Prelude.seq`
+          Prelude.rnf body
 
 instance Data.ToBody ImportDocumentationParts where
   toBody ImportDocumentationParts' {..} =
@@ -244,6 +244,6 @@ instance
     ImportDocumentationPartsResponse
   where
   rnf ImportDocumentationPartsResponse' {..} =
-    Prelude.rnf ids
-      `Prelude.seq` Prelude.rnf warnings
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf ids `Prelude.seq`
+      Prelude.rnf warnings `Prelude.seq`
+        Prelude.rnf httpStatus

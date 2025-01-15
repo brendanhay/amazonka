@@ -100,8 +100,8 @@ instance Prelude.Hashable EndpointConfiguration where
 
 instance Prelude.NFData EndpointConfiguration where
   rnf EndpointConfiguration' {..} =
-    Prelude.rnf types
-      `Prelude.seq` Prelude.rnf vpcEndpointIds
+    Prelude.rnf types `Prelude.seq`
+      Prelude.rnf vpcEndpointIds
 
 instance Data.ToJSON EndpointConfiguration where
   toJSON EndpointConfiguration' {..} =

@@ -106,8 +106,8 @@ instance Prelude.Hashable DeleteRequestValidator where
 
 instance Prelude.NFData DeleteRequestValidator where
   rnf DeleteRequestValidator' {..} =
-    Prelude.rnf restApiId
-      `Prelude.seq` Prelude.rnf requestValidatorId
+    Prelude.rnf restApiId `Prelude.seq`
+      Prelude.rnf requestValidatorId
 
 instance Data.ToHeaders DeleteRequestValidator where
   toHeaders =

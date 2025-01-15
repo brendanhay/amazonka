@@ -146,9 +146,9 @@ instance Prelude.Hashable GetDeployment where
 
 instance Prelude.NFData GetDeployment where
   rnf GetDeployment' {..} =
-    Prelude.rnf embed
-      `Prelude.seq` Prelude.rnf restApiId
-      `Prelude.seq` Prelude.rnf deploymentId
+    Prelude.rnf embed `Prelude.seq`
+      Prelude.rnf restApiId `Prelude.seq`
+        Prelude.rnf deploymentId
 
 instance Data.ToHeaders GetDeployment where
   toHeaders =

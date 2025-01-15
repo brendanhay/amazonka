@@ -103,8 +103,8 @@ instance Prelude.Hashable DeleteResource where
 
 instance Prelude.NFData DeleteResource where
   rnf DeleteResource' {..} =
-    Prelude.rnf restApiId
-      `Prelude.seq` Prelude.rnf resourceId
+    Prelude.rnf restApiId `Prelude.seq`
+      Prelude.rnf resourceId
 
 instance Data.ToHeaders DeleteResource where
   toHeaders =

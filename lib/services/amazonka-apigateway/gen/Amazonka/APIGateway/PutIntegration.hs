@@ -448,23 +448,23 @@ instance Prelude.Hashable PutIntegration where
 
 instance Prelude.NFData PutIntegration where
   rnf PutIntegration' {..} =
-    Prelude.rnf cacheKeyParameters
-      `Prelude.seq` Prelude.rnf cacheNamespace
-      `Prelude.seq` Prelude.rnf connectionId
-      `Prelude.seq` Prelude.rnf connectionType
-      `Prelude.seq` Prelude.rnf contentHandling
-      `Prelude.seq` Prelude.rnf credentials
-      `Prelude.seq` Prelude.rnf integrationHttpMethod
-      `Prelude.seq` Prelude.rnf passthroughBehavior
-      `Prelude.seq` Prelude.rnf requestParameters
-      `Prelude.seq` Prelude.rnf requestTemplates
-      `Prelude.seq` Prelude.rnf timeoutInMillis
-      `Prelude.seq` Prelude.rnf tlsConfig
-      `Prelude.seq` Prelude.rnf uri
-      `Prelude.seq` Prelude.rnf restApiId
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf httpMethod
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf cacheKeyParameters `Prelude.seq`
+      Prelude.rnf cacheNamespace `Prelude.seq`
+        Prelude.rnf connectionId `Prelude.seq`
+          Prelude.rnf connectionType `Prelude.seq`
+            Prelude.rnf contentHandling `Prelude.seq`
+              Prelude.rnf credentials `Prelude.seq`
+                Prelude.rnf integrationHttpMethod `Prelude.seq`
+                  Prelude.rnf passthroughBehavior `Prelude.seq`
+                    Prelude.rnf requestParameters `Prelude.seq`
+                      Prelude.rnf requestTemplates `Prelude.seq`
+                        Prelude.rnf timeoutInMillis `Prelude.seq`
+                          Prelude.rnf tlsConfig `Prelude.seq`
+                            Prelude.rnf uri `Prelude.seq`
+                              Prelude.rnf restApiId `Prelude.seq`
+                                Prelude.rnf resourceId `Prelude.seq`
+                                  Prelude.rnf httpMethod `Prelude.seq`
+                                    Prelude.rnf type'
 
 instance Data.ToHeaders PutIntegration where
   toHeaders =

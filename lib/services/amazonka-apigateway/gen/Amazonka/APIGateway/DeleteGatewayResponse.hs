@@ -105,8 +105,8 @@ instance Prelude.Hashable DeleteGatewayResponse where
 
 instance Prelude.NFData DeleteGatewayResponse where
   rnf DeleteGatewayResponse' {..} =
-    Prelude.rnf restApiId
-      `Prelude.seq` Prelude.rnf responseType
+    Prelude.rnf restApiId `Prelude.seq`
+      Prelude.rnf responseType
 
 instance Data.ToHeaders DeleteGatewayResponse where
   toHeaders =

@@ -111,8 +111,8 @@ instance Prelude.Hashable GetGatewayResponse where
 
 instance Prelude.NFData GetGatewayResponse where
   rnf GetGatewayResponse' {..} =
-    Prelude.rnf restApiId
-      `Prelude.seq` Prelude.rnf responseType
+    Prelude.rnf restApiId `Prelude.seq`
+      Prelude.rnf responseType
 
 instance Data.ToHeaders GetGatewayResponse where
   toHeaders =

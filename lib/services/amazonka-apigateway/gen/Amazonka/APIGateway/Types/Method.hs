@@ -278,14 +278,14 @@ instance Prelude.Hashable Method where
 
 instance Prelude.NFData Method where
   rnf Method' {..} =
-    Prelude.rnf apiKeyRequired
-      `Prelude.seq` Prelude.rnf authorizationScopes
-      `Prelude.seq` Prelude.rnf authorizationType
-      `Prelude.seq` Prelude.rnf authorizerId
-      `Prelude.seq` Prelude.rnf httpMethod
-      `Prelude.seq` Prelude.rnf methodIntegration
-      `Prelude.seq` Prelude.rnf methodResponses
-      `Prelude.seq` Prelude.rnf operationName
-      `Prelude.seq` Prelude.rnf requestModels
-      `Prelude.seq` Prelude.rnf requestParameters
-      `Prelude.seq` Prelude.rnf requestValidatorId
+    Prelude.rnf apiKeyRequired `Prelude.seq`
+      Prelude.rnf authorizationScopes `Prelude.seq`
+        Prelude.rnf authorizationType `Prelude.seq`
+          Prelude.rnf authorizerId `Prelude.seq`
+            Prelude.rnf httpMethod `Prelude.seq`
+              Prelude.rnf methodIntegration `Prelude.seq`
+                Prelude.rnf methodResponses `Prelude.seq`
+                  Prelude.rnf operationName `Prelude.seq`
+                    Prelude.rnf requestModels `Prelude.seq`
+                      Prelude.rnf requestParameters `Prelude.seq`
+                        Prelude.rnf requestValidatorId

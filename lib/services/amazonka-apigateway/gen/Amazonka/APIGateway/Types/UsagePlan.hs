@@ -168,11 +168,11 @@ instance Prelude.Hashable UsagePlan where
 
 instance Prelude.NFData UsagePlan where
   rnf UsagePlan' {..} =
-    Prelude.rnf apiStages
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf productCode
-      `Prelude.seq` Prelude.rnf quota
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf throttle
+    Prelude.rnf apiStages `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf productCode `Prelude.seq`
+              Prelude.rnf quota `Prelude.seq`
+                Prelude.rnf tags `Prelude.seq`
+                  Prelude.rnf throttle

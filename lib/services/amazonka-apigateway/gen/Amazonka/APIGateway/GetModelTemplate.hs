@@ -114,8 +114,8 @@ instance Prelude.Hashable GetModelTemplate where
 
 instance Prelude.NFData GetModelTemplate where
   rnf GetModelTemplate' {..} =
-    Prelude.rnf restApiId
-      `Prelude.seq` Prelude.rnf modelName
+    Prelude.rnf restApiId `Prelude.seq`
+      Prelude.rnf modelName
 
 instance Data.ToHeaders GetModelTemplate where
   toHeaders =
@@ -184,5 +184,5 @@ getModelTemplateResponse_httpStatus = Lens.lens (\GetModelTemplateResponse' {htt
 
 instance Prelude.NFData GetModelTemplateResponse where
   rnf GetModelTemplateResponse' {..} =
-    Prelude.rnf value
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf value `Prelude.seq`
+      Prelude.rnf httpStatus

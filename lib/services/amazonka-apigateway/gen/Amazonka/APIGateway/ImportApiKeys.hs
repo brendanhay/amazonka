@@ -135,9 +135,9 @@ instance Prelude.Hashable ImportApiKeys where
 
 instance Prelude.NFData ImportApiKeys where
   rnf ImportApiKeys' {..} =
-    Prelude.rnf failOnWarnings
-      `Prelude.seq` Prelude.rnf body
-      `Prelude.seq` Prelude.rnf format
+    Prelude.rnf failOnWarnings `Prelude.seq`
+      Prelude.rnf body `Prelude.seq`
+        Prelude.rnf format
 
 instance Data.ToBody ImportApiKeys where
   toBody ImportApiKeys' {..} = Data.toBody body
@@ -213,6 +213,6 @@ importApiKeysResponse_httpStatus = Lens.lens (\ImportApiKeysResponse' {httpStatu
 
 instance Prelude.NFData ImportApiKeysResponse where
   rnf ImportApiKeysResponse' {..} =
-    Prelude.rnf ids
-      `Prelude.seq` Prelude.rnf warnings
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf ids `Prelude.seq`
+      Prelude.rnf warnings `Prelude.seq`
+        Prelude.rnf httpStatus

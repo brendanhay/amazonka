@@ -265,17 +265,17 @@ instance Prelude.Hashable CreateRestApi where
 
 instance Prelude.NFData CreateRestApi where
   rnf CreateRestApi' {..} =
-    Prelude.rnf apiKeySource
-      `Prelude.seq` Prelude.rnf binaryMediaTypes
-      `Prelude.seq` Prelude.rnf cloneFrom
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf disableExecuteApiEndpoint
-      `Prelude.seq` Prelude.rnf endpointConfiguration
-      `Prelude.seq` Prelude.rnf minimumCompressionSize
-      `Prelude.seq` Prelude.rnf policy
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf apiKeySource `Prelude.seq`
+      Prelude.rnf binaryMediaTypes `Prelude.seq`
+        Prelude.rnf cloneFrom `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf disableExecuteApiEndpoint `Prelude.seq`
+              Prelude.rnf endpointConfiguration `Prelude.seq`
+                Prelude.rnf minimumCompressionSize `Prelude.seq`
+                  Prelude.rnf policy `Prelude.seq`
+                    Prelude.rnf tags `Prelude.seq`
+                      Prelude.rnf version `Prelude.seq`
+                        Prelude.rnf name
 
 instance Data.ToHeaders CreateRestApi where
   toHeaders =

@@ -120,8 +120,8 @@ instance Prelude.Hashable SdkConfigurationProperty where
 
 instance Prelude.NFData SdkConfigurationProperty where
   rnf SdkConfigurationProperty' {..} =
-    Prelude.rnf defaultValue
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf friendlyName
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf required
+    Prelude.rnf defaultValue `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf friendlyName `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf required

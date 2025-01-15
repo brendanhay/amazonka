@@ -126,9 +126,9 @@ instance Prelude.Hashable UpdateDocumentationPart where
 
 instance Prelude.NFData UpdateDocumentationPart where
   rnf UpdateDocumentationPart' {..} =
-    Prelude.rnf patchOperations
-      `Prelude.seq` Prelude.rnf restApiId
-      `Prelude.seq` Prelude.rnf documentationPartId
+    Prelude.rnf patchOperations `Prelude.seq`
+      Prelude.rnf restApiId `Prelude.seq`
+        Prelude.rnf documentationPartId
 
 instance Data.ToHeaders UpdateDocumentationPart where
   toHeaders =

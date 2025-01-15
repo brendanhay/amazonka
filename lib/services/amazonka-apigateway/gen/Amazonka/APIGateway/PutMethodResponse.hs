@@ -202,12 +202,12 @@ instance Prelude.Hashable PutMethodResponse where
 
 instance Prelude.NFData PutMethodResponse where
   rnf PutMethodResponse' {..} =
-    Prelude.rnf responseModels
-      `Prelude.seq` Prelude.rnf responseParameters
-      `Prelude.seq` Prelude.rnf restApiId
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf httpMethod
-      `Prelude.seq` Prelude.rnf statusCode
+    Prelude.rnf responseModels `Prelude.seq`
+      Prelude.rnf responseParameters `Prelude.seq`
+        Prelude.rnf restApiId `Prelude.seq`
+          Prelude.rnf resourceId `Prelude.seq`
+            Prelude.rnf httpMethod `Prelude.seq`
+              Prelude.rnf statusCode
 
 instance Data.ToHeaders PutMethodResponse where
   toHeaders =

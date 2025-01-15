@@ -108,8 +108,8 @@ instance Prelude.Hashable DeleteUsagePlanKey where
 
 instance Prelude.NFData DeleteUsagePlanKey where
   rnf DeleteUsagePlanKey' {..} =
-    Prelude.rnf usagePlanId
-      `Prelude.seq` Prelude.rnf keyId
+    Prelude.rnf usagePlanId `Prelude.seq`
+      Prelude.rnf keyId
 
 instance Data.ToHeaders DeleteUsagePlanKey where
   toHeaders =

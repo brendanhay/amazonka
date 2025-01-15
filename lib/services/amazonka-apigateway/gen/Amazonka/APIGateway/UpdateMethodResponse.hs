@@ -154,11 +154,11 @@ instance Prelude.Hashable UpdateMethodResponse where
 
 instance Prelude.NFData UpdateMethodResponse where
   rnf UpdateMethodResponse' {..} =
-    Prelude.rnf patchOperations
-      `Prelude.seq` Prelude.rnf restApiId
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf httpMethod
-      `Prelude.seq` Prelude.rnf statusCode
+    Prelude.rnf patchOperations `Prelude.seq`
+      Prelude.rnf restApiId `Prelude.seq`
+        Prelude.rnf resourceId `Prelude.seq`
+          Prelude.rnf httpMethod `Prelude.seq`
+            Prelude.rnf statusCode
 
 instance Data.ToHeaders UpdateMethodResponse where
   toHeaders =

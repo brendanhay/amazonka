@@ -101,9 +101,9 @@ instance Prelude.Hashable QuotaSettings where
 
 instance Prelude.NFData QuotaSettings where
   rnf QuotaSettings' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf offset
-      `Prelude.seq` Prelude.rnf period
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf offset `Prelude.seq`
+        Prelude.rnf period
 
 instance Data.ToJSON QuotaSettings where
   toJSON QuotaSettings' {..} =

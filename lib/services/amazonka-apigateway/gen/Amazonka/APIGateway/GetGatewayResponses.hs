@@ -134,12 +134,12 @@ instance Core.AWSPager GetGatewayResponses where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getGatewayResponses_position
-          Lens..~ rs
-          Lens.^? getGatewayResponsesResponse_position
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getGatewayResponses_position
+              Lens..~ rs
+              Lens.^? getGatewayResponsesResponse_position
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetGatewayResponses where
   type
@@ -165,9 +165,9 @@ instance Prelude.Hashable GetGatewayResponses where
 
 instance Prelude.NFData GetGatewayResponses where
   rnf GetGatewayResponses' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf position
-      `Prelude.seq` Prelude.rnf restApiId
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf position `Prelude.seq`
+        Prelude.rnf restApiId
 
 instance Data.ToHeaders GetGatewayResponses where
   toHeaders =
@@ -244,6 +244,6 @@ getGatewayResponsesResponse_httpStatus = Lens.lens (\GetGatewayResponsesResponse
 
 instance Prelude.NFData GetGatewayResponsesResponse where
   rnf GetGatewayResponsesResponse' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf position
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf items `Prelude.seq`
+      Prelude.rnf position `Prelude.seq`
+        Prelude.rnf httpStatus

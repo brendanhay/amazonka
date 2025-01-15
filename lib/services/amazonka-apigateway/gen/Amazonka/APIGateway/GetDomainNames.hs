@@ -107,12 +107,12 @@ instance Core.AWSPager GetDomainNames where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getDomainNames_position
-          Lens..~ rs
-          Lens.^? getDomainNamesResponse_position
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getDomainNames_position
+              Lens..~ rs
+              Lens.^? getDomainNamesResponse_position
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetDomainNames where
   type
@@ -137,8 +137,8 @@ instance Prelude.Hashable GetDomainNames where
 
 instance Prelude.NFData GetDomainNames where
   rnf GetDomainNames' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf position
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf position
 
 instance Data.ToHeaders GetDomainNames where
   toHeaders =
@@ -207,6 +207,6 @@ getDomainNamesResponse_httpStatus = Lens.lens (\GetDomainNamesResponse' {httpSta
 
 instance Prelude.NFData GetDomainNamesResponse where
   rnf GetDomainNamesResponse' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf position
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf items `Prelude.seq`
+      Prelude.rnf position `Prelude.seq`
+        Prelude.rnf httpStatus

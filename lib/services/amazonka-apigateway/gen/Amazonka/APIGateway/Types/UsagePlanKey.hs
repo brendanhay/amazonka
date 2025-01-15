@@ -105,7 +105,7 @@ instance Prelude.Hashable UsagePlanKey where
 
 instance Prelude.NFData UsagePlanKey where
   rnf UsagePlanKey' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf type' `Prelude.seq`
+          Prelude.rnf value

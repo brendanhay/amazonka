@@ -128,9 +128,9 @@ instance Prelude.Hashable GetMethod where
 
 instance Prelude.NFData GetMethod where
   rnf GetMethod' {..} =
-    Prelude.rnf restApiId
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf httpMethod
+    Prelude.rnf restApiId `Prelude.seq`
+      Prelude.rnf resourceId `Prelude.seq`
+        Prelude.rnf httpMethod
 
 instance Data.ToHeaders GetMethod where
   toHeaders =

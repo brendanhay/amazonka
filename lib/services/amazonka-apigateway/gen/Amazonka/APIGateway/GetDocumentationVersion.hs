@@ -111,8 +111,8 @@ instance Prelude.Hashable GetDocumentationVersion where
 
 instance Prelude.NFData GetDocumentationVersion where
   rnf GetDocumentationVersion' {..} =
-    Prelude.rnf restApiId
-      `Prelude.seq` Prelude.rnf documentationVersion
+    Prelude.rnf restApiId `Prelude.seq`
+      Prelude.rnf documentationVersion
 
 instance Data.ToHeaders GetDocumentationVersion where
   toHeaders =

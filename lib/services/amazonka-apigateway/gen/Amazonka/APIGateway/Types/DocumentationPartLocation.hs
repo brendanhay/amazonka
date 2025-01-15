@@ -198,11 +198,11 @@ instance Prelude.Hashable DocumentationPartLocation where
 
 instance Prelude.NFData DocumentationPartLocation where
   rnf DocumentationPartLocation' {..} =
-    Prelude.rnf method
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf path
-      `Prelude.seq` Prelude.rnf statusCode
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf method `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf path `Prelude.seq`
+          Prelude.rnf statusCode `Prelude.seq`
+            Prelude.rnf type'
 
 instance Data.ToJSON DocumentationPartLocation where
   toJSON DocumentationPartLocation' {..} =

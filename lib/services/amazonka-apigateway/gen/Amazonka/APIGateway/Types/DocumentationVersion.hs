@@ -92,6 +92,6 @@ instance Prelude.Hashable DocumentationVersion where
 
 instance Prelude.NFData DocumentationVersion where
   rnf DocumentationVersion' {..} =
-    Prelude.rnf createdDate
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf version
+    Prelude.rnf createdDate `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf version

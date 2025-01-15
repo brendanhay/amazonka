@@ -127,9 +127,9 @@ instance Prelude.Hashable UpdateRequestValidator where
 
 instance Prelude.NFData UpdateRequestValidator where
   rnf UpdateRequestValidator' {..} =
-    Prelude.rnf patchOperations
-      `Prelude.seq` Prelude.rnf restApiId
-      `Prelude.seq` Prelude.rnf requestValidatorId
+    Prelude.rnf patchOperations `Prelude.seq`
+      Prelude.rnf restApiId `Prelude.seq`
+        Prelude.rnf requestValidatorId
 
 instance Data.ToHeaders UpdateRequestValidator where
   toHeaders =

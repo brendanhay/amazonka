@@ -93,9 +93,9 @@ instance Prelude.Hashable DeploymentCanarySettings where
 
 instance Prelude.NFData DeploymentCanarySettings where
   rnf DeploymentCanarySettings' {..} =
-    Prelude.rnf percentTraffic
-      `Prelude.seq` Prelude.rnf stageVariableOverrides
-      `Prelude.seq` Prelude.rnf useStageCache
+    Prelude.rnf percentTraffic `Prelude.seq`
+      Prelude.rnf stageVariableOverrides `Prelude.seq`
+        Prelude.rnf useStageCache
 
 instance Data.ToJSON DeploymentCanarySettings where
   toJSON DeploymentCanarySettings' {..} =

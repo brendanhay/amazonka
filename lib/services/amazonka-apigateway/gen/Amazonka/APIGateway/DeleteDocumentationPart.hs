@@ -106,8 +106,8 @@ instance Prelude.Hashable DeleteDocumentationPart where
 
 instance Prelude.NFData DeleteDocumentationPart where
   rnf DeleteDocumentationPart' {..} =
-    Prelude.rnf restApiId
-      `Prelude.seq` Prelude.rnf documentationPartId
+    Prelude.rnf restApiId `Prelude.seq`
+      Prelude.rnf documentationPartId
 
 instance Data.ToHeaders DeleteDocumentationPart where
   toHeaders =

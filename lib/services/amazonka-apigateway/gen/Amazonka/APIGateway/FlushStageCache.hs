@@ -103,8 +103,8 @@ instance Prelude.Hashable FlushStageCache where
 
 instance Prelude.NFData FlushStageCache where
   rnf FlushStageCache' {..} =
-    Prelude.rnf restApiId
-      `Prelude.seq` Prelude.rnf stageName
+    Prelude.rnf restApiId `Prelude.seq`
+      Prelude.rnf stageName
 
 instance Data.ToHeaders FlushStageCache where
   toHeaders =

@@ -284,20 +284,20 @@ instance Prelude.Hashable Stage where
 
 instance Prelude.NFData Stage where
   rnf Stage' {..} =
-    Prelude.rnf accessLogSettings
-      `Prelude.seq` Prelude.rnf cacheClusterEnabled
-      `Prelude.seq` Prelude.rnf cacheClusterSize
-      `Prelude.seq` Prelude.rnf cacheClusterStatus
-      `Prelude.seq` Prelude.rnf canarySettings
-      `Prelude.seq` Prelude.rnf clientCertificateId
-      `Prelude.seq` Prelude.rnf createdDate
-      `Prelude.seq` Prelude.rnf deploymentId
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf documentationVersion
-      `Prelude.seq` Prelude.rnf lastUpdatedDate
-      `Prelude.seq` Prelude.rnf methodSettings
-      `Prelude.seq` Prelude.rnf stageName
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf tracingEnabled
-      `Prelude.seq` Prelude.rnf variables
-      `Prelude.seq` Prelude.rnf webAclArn
+    Prelude.rnf accessLogSettings `Prelude.seq`
+      Prelude.rnf cacheClusterEnabled `Prelude.seq`
+        Prelude.rnf cacheClusterSize `Prelude.seq`
+          Prelude.rnf cacheClusterStatus `Prelude.seq`
+            Prelude.rnf canarySettings `Prelude.seq`
+              Prelude.rnf clientCertificateId `Prelude.seq`
+                Prelude.rnf createdDate `Prelude.seq`
+                  Prelude.rnf deploymentId `Prelude.seq`
+                    Prelude.rnf description `Prelude.seq`
+                      Prelude.rnf documentationVersion `Prelude.seq`
+                        Prelude.rnf lastUpdatedDate `Prelude.seq`
+                          Prelude.rnf methodSettings `Prelude.seq`
+                            Prelude.rnf stageName `Prelude.seq`
+                              Prelude.rnf tags `Prelude.seq`
+                                Prelude.rnf tracingEnabled `Prelude.seq`
+                                  Prelude.rnf variables `Prelude.seq`
+                                    Prelude.rnf webAclArn

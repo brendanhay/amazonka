@@ -95,9 +95,9 @@ instance Prelude.Hashable ApiStage where
 
 instance Prelude.NFData ApiStage where
   rnf ApiStage' {..} =
-    Prelude.rnf apiId
-      `Prelude.seq` Prelude.rnf stage
-      `Prelude.seq` Prelude.rnf throttle
+    Prelude.rnf apiId `Prelude.seq`
+      Prelude.rnf stage `Prelude.seq`
+        Prelude.rnf throttle
 
 instance Data.ToJSON ApiStage where
   toJSON ApiStage' {..} =

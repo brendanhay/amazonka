@@ -118,8 +118,8 @@ instance Prelude.Hashable UpdateRestApi where
 
 instance Prelude.NFData UpdateRestApi where
   rnf UpdateRestApi' {..} =
-    Prelude.rnf patchOperations
-      `Prelude.seq` Prelude.rnf restApiId
+    Prelude.rnf patchOperations `Prelude.seq`
+      Prelude.rnf restApiId
 
 instance Data.ToHeaders UpdateRestApi where
   toHeaders =

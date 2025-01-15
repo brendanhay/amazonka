@@ -197,9 +197,9 @@ instance Prelude.Hashable ImportRestApi where
 
 instance Prelude.NFData ImportRestApi where
   rnf ImportRestApi' {..} =
-    Prelude.rnf failOnWarnings
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf body
+    Prelude.rnf failOnWarnings `Prelude.seq`
+      Prelude.rnf parameters `Prelude.seq`
+        Prelude.rnf body
 
 instance Data.ToBody ImportRestApi where
   toBody ImportRestApi' {..} = Data.toBody body

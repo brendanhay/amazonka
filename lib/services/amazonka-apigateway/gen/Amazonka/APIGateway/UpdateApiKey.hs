@@ -115,8 +115,8 @@ instance Prelude.Hashable UpdateApiKey where
 
 instance Prelude.NFData UpdateApiKey where
   rnf UpdateApiKey' {..} =
-    Prelude.rnf patchOperations
-      `Prelude.seq` Prelude.rnf apiKey
+    Prelude.rnf patchOperations `Prelude.seq`
+      Prelude.rnf apiKey
 
 instance Data.ToHeaders UpdateApiKey where
   toHeaders =

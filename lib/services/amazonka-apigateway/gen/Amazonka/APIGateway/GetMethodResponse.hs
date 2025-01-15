@@ -137,10 +137,10 @@ instance Prelude.Hashable GetMethodResponse where
 
 instance Prelude.NFData GetMethodResponse where
   rnf GetMethodResponse' {..} =
-    Prelude.rnf restApiId
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf httpMethod
-      `Prelude.seq` Prelude.rnf statusCode
+    Prelude.rnf restApiId `Prelude.seq`
+      Prelude.rnf resourceId `Prelude.seq`
+        Prelude.rnf httpMethod `Prelude.seq`
+          Prelude.rnf statusCode
 
 instance Data.ToHeaders GetMethodResponse where
   toHeaders =

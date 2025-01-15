@@ -132,9 +132,9 @@ instance Prelude.Hashable ClientCertificate where
 
 instance Prelude.NFData ClientCertificate where
   rnf ClientCertificate' {..} =
-    Prelude.rnf clientCertificateId
-      `Prelude.seq` Prelude.rnf createdDate
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf expirationDate
-      `Prelude.seq` Prelude.rnf pemEncodedCertificate
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf clientCertificateId `Prelude.seq`
+      Prelude.rnf createdDate `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf expirationDate `Prelude.seq`
+            Prelude.rnf pemEncodedCertificate `Prelude.seq`
+              Prelude.rnf tags

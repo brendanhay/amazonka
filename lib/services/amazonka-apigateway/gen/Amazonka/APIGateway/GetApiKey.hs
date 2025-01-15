@@ -115,8 +115,8 @@ instance Prelude.Hashable GetApiKey where
 
 instance Prelude.NFData GetApiKey where
   rnf GetApiKey' {..} =
-    Prelude.rnf includeValue
-      `Prelude.seq` Prelude.rnf apiKey
+    Prelude.rnf includeValue `Prelude.seq`
+      Prelude.rnf apiKey
 
 instance Data.ToHeaders GetApiKey where
   toHeaders =

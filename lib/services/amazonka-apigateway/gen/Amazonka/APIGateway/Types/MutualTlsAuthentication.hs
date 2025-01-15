@@ -128,6 +128,6 @@ instance Prelude.Hashable MutualTlsAuthentication where
 
 instance Prelude.NFData MutualTlsAuthentication where
   rnf MutualTlsAuthentication' {..} =
-    Prelude.rnf truststoreUri
-      `Prelude.seq` Prelude.rnf truststoreVersion
-      `Prelude.seq` Prelude.rnf truststoreWarnings
+    Prelude.rnf truststoreUri `Prelude.seq`
+      Prelude.rnf truststoreVersion `Prelude.seq`
+        Prelude.rnf truststoreWarnings

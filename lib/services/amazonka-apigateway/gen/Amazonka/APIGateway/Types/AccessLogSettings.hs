@@ -97,5 +97,5 @@ instance Prelude.Hashable AccessLogSettings where
 
 instance Prelude.NFData AccessLogSettings where
   rnf AccessLogSettings' {..} =
-    Prelude.rnf destinationArn
-      `Prelude.seq` Prelude.rnf format
+    Prelude.rnf destinationArn `Prelude.seq`
+      Prelude.rnf format

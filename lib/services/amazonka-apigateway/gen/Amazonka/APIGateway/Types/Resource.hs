@@ -117,8 +117,8 @@ instance Prelude.Hashable Resource where
 
 instance Prelude.NFData Resource where
   rnf Resource' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf parentId
-      `Prelude.seq` Prelude.rnf path
-      `Prelude.seq` Prelude.rnf pathPart
-      `Prelude.seq` Prelude.rnf resourceMethods
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf parentId `Prelude.seq`
+        Prelude.rnf path `Prelude.seq`
+          Prelude.rnf pathPart `Prelude.seq`
+            Prelude.rnf resourceMethods

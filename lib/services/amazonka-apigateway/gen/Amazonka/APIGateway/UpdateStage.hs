@@ -135,9 +135,9 @@ instance Prelude.Hashable UpdateStage where
 
 instance Prelude.NFData UpdateStage where
   rnf UpdateStage' {..} =
-    Prelude.rnf patchOperations
-      `Prelude.seq` Prelude.rnf restApiId
-      `Prelude.seq` Prelude.rnf stageName
+    Prelude.rnf patchOperations `Prelude.seq`
+      Prelude.rnf restApiId `Prelude.seq`
+        Prelude.rnf stageName
 
 instance Data.ToHeaders UpdateStage where
   toHeaders =

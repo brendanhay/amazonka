@@ -150,10 +150,10 @@ instance Prelude.Hashable UpdateIntegration where
 
 instance Prelude.NFData UpdateIntegration where
   rnf UpdateIntegration' {..} =
-    Prelude.rnf patchOperations
-      `Prelude.seq` Prelude.rnf restApiId
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf httpMethod
+    Prelude.rnf patchOperations `Prelude.seq`
+      Prelude.rnf restApiId `Prelude.seq`
+        Prelude.rnf resourceId `Prelude.seq`
+          Prelude.rnf httpMethod
 
 instance Data.ToHeaders UpdateIntegration where
   toHeaders =

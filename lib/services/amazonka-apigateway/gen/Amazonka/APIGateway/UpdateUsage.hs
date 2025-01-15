@@ -128,9 +128,9 @@ instance Prelude.Hashable UpdateUsage where
 
 instance Prelude.NFData UpdateUsage where
   rnf UpdateUsage' {..} =
-    Prelude.rnf patchOperations
-      `Prelude.seq` Prelude.rnf usagePlanId
-      `Prelude.seq` Prelude.rnf keyId
+    Prelude.rnf patchOperations `Prelude.seq`
+      Prelude.rnf usagePlanId `Prelude.seq`
+        Prelude.rnf keyId
 
 instance Data.ToHeaders UpdateUsage where
   toHeaders =

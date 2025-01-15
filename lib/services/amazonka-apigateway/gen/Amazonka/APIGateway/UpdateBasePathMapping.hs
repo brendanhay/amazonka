@@ -130,9 +130,9 @@ instance Prelude.Hashable UpdateBasePathMapping where
 
 instance Prelude.NFData UpdateBasePathMapping where
   rnf UpdateBasePathMapping' {..} =
-    Prelude.rnf patchOperations
-      `Prelude.seq` Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf basePath
+    Prelude.rnf patchOperations `Prelude.seq`
+      Prelude.rnf domainName `Prelude.seq`
+        Prelude.rnf basePath
 
 instance Data.ToHeaders UpdateBasePathMapping where
   toHeaders =

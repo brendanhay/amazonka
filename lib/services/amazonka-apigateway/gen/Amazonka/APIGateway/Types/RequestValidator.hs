@@ -108,7 +108,7 @@ instance Prelude.Hashable RequestValidator where
 
 instance Prelude.NFData RequestValidator where
   rnf RequestValidator' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf validateRequestBody
-      `Prelude.seq` Prelude.rnf validateRequestParameters
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf validateRequestBody `Prelude.seq`
+          Prelude.rnf validateRequestParameters

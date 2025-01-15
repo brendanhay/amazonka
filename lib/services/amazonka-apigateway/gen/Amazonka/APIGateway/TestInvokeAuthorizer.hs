@@ -213,14 +213,14 @@ instance Prelude.Hashable TestInvokeAuthorizer where
 
 instance Prelude.NFData TestInvokeAuthorizer where
   rnf TestInvokeAuthorizer' {..} =
-    Prelude.rnf additionalContext
-      `Prelude.seq` Prelude.rnf body
-      `Prelude.seq` Prelude.rnf headers
-      `Prelude.seq` Prelude.rnf multiValueHeaders
-      `Prelude.seq` Prelude.rnf pathWithQueryString
-      `Prelude.seq` Prelude.rnf stageVariables
-      `Prelude.seq` Prelude.rnf restApiId
-      `Prelude.seq` Prelude.rnf authorizerId
+    Prelude.rnf additionalContext `Prelude.seq`
+      Prelude.rnf body `Prelude.seq`
+        Prelude.rnf headers `Prelude.seq`
+          Prelude.rnf multiValueHeaders `Prelude.seq`
+            Prelude.rnf pathWithQueryString `Prelude.seq`
+              Prelude.rnf stageVariables `Prelude.seq`
+                Prelude.rnf restApiId `Prelude.seq`
+                  Prelude.rnf authorizerId
 
 instance Data.ToHeaders TestInvokeAuthorizer where
   toHeaders =
@@ -364,11 +364,11 @@ testInvokeAuthorizerResponse_httpStatus = Lens.lens (\TestInvokeAuthorizerRespon
 
 instance Prelude.NFData TestInvokeAuthorizerResponse where
   rnf TestInvokeAuthorizerResponse' {..} =
-    Prelude.rnf authorization
-      `Prelude.seq` Prelude.rnf claims
-      `Prelude.seq` Prelude.rnf clientStatus
-      `Prelude.seq` Prelude.rnf latency
-      `Prelude.seq` Prelude.rnf log
-      `Prelude.seq` Prelude.rnf policy
-      `Prelude.seq` Prelude.rnf principalId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf authorization `Prelude.seq`
+      Prelude.rnf claims `Prelude.seq`
+        Prelude.rnf clientStatus `Prelude.seq`
+          Prelude.rnf latency `Prelude.seq`
+            Prelude.rnf log `Prelude.seq`
+              Prelude.rnf policy `Prelude.seq`
+                Prelude.rnf principalId `Prelude.seq`
+                  Prelude.rnf httpStatus

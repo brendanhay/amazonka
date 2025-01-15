@@ -125,9 +125,9 @@ instance Prelude.Hashable GetTags where
 
 instance Prelude.NFData GetTags where
   rnf GetTags' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf position
-      `Prelude.seq` Prelude.rnf resourceArn
+    Prelude.rnf limit `Prelude.seq`
+      Prelude.rnf position `Prelude.seq`
+        Prelude.rnf resourceArn
 
 instance Data.ToHeaders GetTags where
   toHeaders =
@@ -193,5 +193,5 @@ getTagsResponse_httpStatus = Lens.lens (\GetTagsResponse' {httpStatus} -> httpSt
 
 instance Prelude.NFData GetTagsResponse where
   rnf GetTagsResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf httpStatus

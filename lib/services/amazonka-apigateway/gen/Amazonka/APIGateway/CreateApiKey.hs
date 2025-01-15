@@ -194,14 +194,14 @@ instance Prelude.Hashable CreateApiKey where
 
 instance Prelude.NFData CreateApiKey where
   rnf CreateApiKey' {..} =
-    Prelude.rnf customerId
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf generateDistinctId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf stageKeys
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf customerId `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf enabled `Prelude.seq`
+          Prelude.rnf generateDistinctId `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf stageKeys `Prelude.seq`
+                Prelude.rnf tags `Prelude.seq`
+                  Prelude.rnf value
 
 instance Data.ToHeaders CreateApiKey where
   toHeaders =

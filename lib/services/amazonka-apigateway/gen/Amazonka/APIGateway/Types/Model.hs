@@ -129,8 +129,8 @@ instance Prelude.Hashable Model where
 
 instance Prelude.NFData Model where
   rnf Model' {..} =
-    Prelude.rnf contentType
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf schema
+    Prelude.rnf contentType `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf schema

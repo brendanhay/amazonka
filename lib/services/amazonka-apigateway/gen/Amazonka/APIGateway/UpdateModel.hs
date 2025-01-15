@@ -123,9 +123,9 @@ instance Prelude.Hashable UpdateModel where
 
 instance Prelude.NFData UpdateModel where
   rnf UpdateModel' {..} =
-    Prelude.rnf patchOperations
-      `Prelude.seq` Prelude.rnf restApiId
-      `Prelude.seq` Prelude.rnf modelName
+    Prelude.rnf patchOperations `Prelude.seq`
+      Prelude.rnf restApiId `Prelude.seq`
+        Prelude.rnf modelName
 
 instance Data.ToHeaders UpdateModel where
   toHeaders =
